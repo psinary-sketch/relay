@@ -126,3 +126,46 @@ Commit and push:
 - Push: `c8882f3..c5adc14  main -> main`
 
 ::relay addendum end::
+
+---
+
+## Addendum 2 — 2026-07-10 (§27.3 editorial trim)
+
+Surgical three-edit trim to §27.3 to remove internal work-tracking vocabulary from the published section.
+
+**Edits applied (only these three):**
+
+1. Sentence ending "stated at T1's witness; its formalization is the named successor target (T4)." → ends at "stated at T1's witness." (deleted from the semicolon through "(T4)").
+2. "one named discharge path within the programme (T4) and three classical faces outside it" → "a discharge path within the programme — the per-class constraints instantiated at the fixed witness — and three classical faces outside it".
+3. In the Chapter 26 §26.1 cross-reference sentence: "two targets closed, the third pinned" → "two statements closed, the third pinned".
+
+**Verification grep — §27.3 and all four cross-reference sentences:**
+
+| String | §27.3 | Ch. 14 xref (line 797) | Ch. 19 xref (line 1140) | §25.7 xref (line 1612) | §26.1 xref (line 1652) |
+|---|---|---|---|---|---|
+| `T4` | 0 | 0 | 0 | 0 | 0 |
+| `successor` | 0 | 0 | 0 | 0 | 0 |
+| `target` | 0 | 0 | 0 | 0 | 0 |
+| `work order` | 0 | 0 | 0 | 0 | 0 |
+| `trail` | 0 | 0 | 0 | 0 | 0 |
+| `scheduled` | 0 | 0 | 0 | 0 | 0 |
+| `FINDINGS` | 0 | 0 | 0 | 0 | 0 |
+| `F.2026` | 0 | 0 | 0 | 0 | 0 |
+
+All 40 cells zero. Trim complete.
+
+**Other tracker-adjacent vocabulary in §27.3 (noted, not changed):**
+
+- `verdict` (1 occurrence): "Both directions are compiler verdicts." Naming what the compiler ruled — technical use, but adjacent to programme-ledger vocabulary. Worth author's eye for the v5.5 pass 2/3 or 3/3.
+- `bench` (1): "The Li channel bench has, additionally, *measured* the premise to n = 60." Programme jargon for the Li computational apparatus. Slightly tracker-flavored; could be rephrased as "the Li channel computation" or similar without loss.
+- `instrument` (2): "The measurements are an instrument, not an argument." and "produced by the discipline's hardest instrument, the compiler". Metaphor for measuring apparatus, reads clean.
+- `T1`, `T2`, `T3′`, `T3″`: theorem labels used in prose. These are mathematical labels for the four compiled theorems of SIDE-lv-conservation, not work-tracking labels. Reads clean but reader-facing; could be replaced with descriptive names ("the Mellin factorization theorem", "the shared-witness bridge", "the countermodel") in a later pass if a general reader is the target.
+
+**Commit and push:**
+
+- Commit SHA: **`da36b20`**
+- Message: `v5.5 pass (1/3, trim): remove internal work-tracking vocabulary from §27.3 — the section states what remains mathematically, not the programme's task labels. Editorial only.`
+- diff --stat: `1 file changed, 3 insertions(+), 3 deletions(-)`
+- Push: `c5adc14..da36b20  main -> main`
+
+::relay addendum 2 end::
