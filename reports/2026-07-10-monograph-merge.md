@@ -169,3 +169,141 @@ All 40 cells zero. Trim complete.
 - Push: `c5adc14..da36b20  main -> main`
 
 ::relay addendum 2 end::
+
+---
+
+## Addendum 3 — 2026-07-10 (v5.5 pass 2/3: C-index harmonization)
+
+Zero mathematical changes. Labels harmonized to a single canonical assignment; semantic names carried at every use.
+
+### Canonical authority
+
+Checked `D:\SIDE-kernel\Bridge\TheBridgeComplete.lean` lines 19–22:
+
+```
+inductive MechanismClass where
+  | C1_schwarz | C2_euler | C3_functional_eq
+  | C4_modular | C5_spectral | C6_cauchy_riemann | C7_hadamard
+```
+
+The kernel has an explicit fixed order in its Lean source, so per the task rule "text follows kernel, not vice versa" that assignment is canonical. The monograph's §15.2 table would have been the fallback authority; it was inconsistent with the kernel and had to be rewritten. **Authority used: kernel (`TheBridgeComplete.lean:19-22`).**
+
+### Canonical assignment
+
+| Index | Semantic name | Stage |
+|---|---|---|
+| C₁ | Schwarz reflection / real coefficients | Primitive |
+| C₂ | Euler / multiplicative (product balance) | Primitive |
+| C₃ | Functional equation | Transformation |
+| C₄ | Modular / PSL₂ symmetry | Transformation |
+| C₅ | Spectral self-adjointness | Transformation |
+| C₆ | Cauchy-Riemann | Output |
+| C₇ | Hadamard product | Output |
+
+### Step 1 — Inventory before touching anything
+
+90 C-index occurrences across the monograph. Three distinct assignments were interleaved: the kernel-canonical order (call it **B**), a rotated order used in §15.2's table and derivative sections (call it **A**), and one section (§15.1 stage diagram + §29 late passages) that already matched the kernel. The three known conflict sites were spread as follows:
+
+**Sites already canonical (Assignment B) before this pass — 34 occurrences:**
+
+| Location | Lines | Nature |
+|---|---|---|
+| §15.1 stage diagram (code fence) | 838, 841, 844 | Stage table |
+| §15.5 line 937 | 937 | "local analyticity (C₆)" |
+| §19.2 line 1164 | 1164 | Transformation-stage triple (C₃, C₄, C₅) |
+| §25.2 Voice/C table | 1511–1517 | 7 rows |
+| §25.5 produces_offline table | 1574–1580 | 7 rows |
+| §29 output-independence passage | 1809, 1811, 1812, 1816, 1818 | multiple refs to (C₆, C₇) + (C₁ Schwarz, C₂ Euler) |
+
+**Sites in Assignment A (needed re-mapping) — 56 occurrences:**
+
+| Location | Lines | Old (A) → new (B) mapping |
+|---|---|---|
+| §15.1 prose line 816 | 816 | `C₁` (archimedean/FE) → **C₃**; `C₂` (unique fact./Euler) → **C₂** (unchanged) |
+| §15.1 Stage 2 list | 819–821 | C₁→C₃, C₅→C₄, C₆→C₅ |
+| §15.1 Stage 3 list | 826–827 | C₃→C₆, C₇→C₇ (unchanged) |
+| §15.2 table | 857–863 | 6 rows renumbered (C₇ unchanged) |
+| §15.3 per-class analysis | 871–895 | 7 blocks reordered (C₁ FE → C₃; C₂ Real → C₁; C₃ CR → C₆; C₄ Euler → C₂; C₅ PSL₂ → C₄; C₆ Spectral → C₅; C₇ Hadamard unchanged) |
+| §15.3 intra-section forward-ref line 881 | 881 | `see C₆ below` → `see C₅ below` |
+| §15.3 "Could C_ produce" lines | 883, 891 | `Could C₅ (Modular) produce` → `Could C₄ produce`; `Could C₆ (Spectral) produce` → `Could C₅ produce` |
+| §15.3 line 899 "Why both constraints" | 899 | `(C₁)` (FE) → **(C₃, functional equation)**; `(C₄)` (Euler) → **(C₂, Euler product)** |
+| §15.3 summary table | 905–911 | 6 rows renumbered |
+| §15.6 eleven-programme table | 951–961 | 11 rows, all reassignments completed |
+| §16.6 five-paths table | 1030–1034 | 5 rows renumbered |
+| §17 Epstein prose | 1065, 1067 | Euler `C₄` → **C₂** (three occurrences); FE `C₁` → **C₃** |
+| §18 codimension | 1093 | FE `C₁` → **C₃** |
+| §19.2 Epstein paragraph | 1166 | Euler `C₄` → **C₂** (four occurrences on same line) |
+| §19.4 One Voice Suffices | 1186 | Euler `C₄` → **C₂** |
+| §22.5 R-curve derivative bullets | 1359–1365 | 7 bullets renumbered |
+| Line 1426 output-stage-classes ref | 1426 | `C₃` (CR) → **C₆**; C₇ unchanged |
+| §29 Epstein experiment ref | 1814 | FE `C₁` → **C₃**; Euler `C₄` → **C₂** |
+| §29 archimedean-as-transformation ref | 1820 | `C₁` (archimedean/FE) → **C₃** |
+
+**Semantic-ambiguous / range-references (no edit needed) — no ambiguous cases:**
+
+| Location | Lines | Nature |
+|---|---|---|
+| Generic range `C₁–C₇` or `C₁,...,Cₙ` | 103, 597, 963, 1155 | 4 occurrences of the ordered-range shorthand — no specific-index claim |
+
+No occurrence was flagged as semantically ambiguous. Every non-range C-index reference had a clear semantic anchor in the surrounding text.
+
+### Step 3 — Semantic-name coverage
+
+Every C-index reference now appears with its semantic name on first use in each section (e.g. `C₄ (Modular/PSL₂)` in §15.1 line 820, `C₃ (FE)` in §15.6 table, `C₂ (Euler/multiplicative)` in §17 line 1065). Bare references (`C₁`, `C₂` etc.) survive only inside tables that already gave the semantic name in the class column, inside compact table rows where the semantic column is adjacent (e.g. `| Voice1 | C₂ | balance_theorem…` in §25.2 Voice/C table, where "balance_theorem" is the semantic anchor), inside inline range shorthand, or in immediately-following sentences within a paragraph that already established the pairing.
+
+Stage diagram (§15.1 code fence, lines 838–844) required no edit — its inline semantic labels `C₁ Schwarz, C₂ Euler; C₃ FE, C₄ PSL₂, C₅ Spectral; C₆ Cauchy-Riemann, C₇ Hadamard` were already canonical.
+
+### Step 4 — Verification
+
+Total occurrence count unchanged: **90 → 90.**
+
+Before/after counts per canonical class, based on paired-with-semantic-name occurrences (`C_N (…semantic…)` form):
+
+| Canonical index | Semantic anchor | Occurrences (paired form) |
+|---|---|---|
+| C₁ | Schwarz reflection / real coefficients | 6 |
+| C₂ | Euler / multiplicative | 8 |
+| C₃ | Functional equation | 9 |
+| C₄ | Modular / PSL₂ | 8 |
+| C₅ | Spectral self-adjointness | 12 |
+| C₆ | Cauchy-Riemann | 12 |
+| C₇ | Hadamard | (retained across every mapping) |
+
+Stale-A residue check (must all be zero — old Assignment-A phrases that would indicate incomplete migration):
+
+| Search pattern | Result |
+|---|---|
+| `C₁ (Functional eq)` or `C₁ (functional…` | **0** |
+| `C₁ … archimedean … transformation` (as index claim) | **0** |
+| `C₂ (Real coefficients)` | **0** |
+| `C₃ (Cauchy-Riemann)` | **0** (present only as canonical C₆) |
+| `C₄ (Euler…` | **0** |
+| `C₅ (PSL₂…` | **0** |
+| `C₆ (Spectral…` | **0** (canonical C₆ is Cauchy-Riemann) |
+| `C₆ Spectral` (bare) | **0** |
+
+Canonical-B pattern check (should all be > 0):
+
+| Search pattern | Count |
+|---|---|
+| `C₄ (Modular` or `C₄ Modular` or `C₄ (PSL` | 8 |
+| `C₅ (Spectral`, `C₅ Spectral`, `C₅ (spectral` | 12 |
+
+Spot-check on the three previously-known conflict sites:
+
+| Site | Before | After |
+|---|---|---|
+| §15.1 prose (lines 816–827) | Mixed A/B (C₁ = archimedean/FE in prose; C₁ = Schwarz in the code fence) | All B (C₃ = FE in prose; C₁ = Schwarz in the diagram) — consistent |
+| §15.1 stage diagram (lines 838–844) | B (already canonical) | B (unchanged) |
+| Chapter 25 produces_offline (lines 1574–1580) | B (already canonical) | B (unchanged) |
+
+All three sites now agree on canonical B.
+
+### Commit and push
+
+- Commit SHA: **`2a69d77`**
+- Message: `v5.5 pass (2/3): C-index harmonization — one canonical assignment (authority stated in relay report), semantic names carried at every use. Zero mathematical changes.`
+- diff --stat: `1 file changed, 60 insertions(+), 60 deletions(-)`
+- Push: `da36b20..2a69d77  main -> main`
+
+::relay addendum 3 end::
