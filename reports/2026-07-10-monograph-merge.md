@@ -307,3 +307,90 @@ All three sites now agree on canonical B.
 - Push: `da36b20..2a69d77  main -> main`
 
 ::relay addendum 3 end::
+
+---
+
+## Addendum 4 — 2026-07-10 (v5.5 pass 3/3: count purge + micro-items + version bump + pass landing)
+
+Final edit of the v5.5 pass. Zero mathematical changes.
+
+### PART 1 — Count-purge inventory (before)
+
+Bare drifting counts of kernel content in `day1/A_Place_to_Stand.md`:
+
+| Line | Section | Original phrasing (counts in **bold**) |
+|---|---|---|
+| 107 | On This Work → Formal verification | "…across **83 active Lean files.**" |
+| 1497 | §25.5 Current counts (v1.1, May 2026) | "**560+ theorems, lemmas, and definitions** in the sorry-free core (Kernel/ with **409**, Bridge/ with **97** in v1.0 plus CartanBBridge.lean added in v1.1, MetaKernel.lean with **54**), totaling **83 active Lean files.**" |
+| 1505 | §25.2 The Product Formula | "**Three files, 33 theorems.**" |
+| 1521 | §25.2 The Perpendicular Crossing Probe | "**Three theorems and two lemmas** proving that the derivative…" |
+| 1538 | §25.4 The Product Formula Chain | "…from prime powers (**6 theorems**), to general integers (**8 theorems**), to rationals with the conservation certificate (**8 theorems**). Total: **22 theorems**…" |
+| 1723 | §27.2 The Lean kernel | "**560 theorems, lemmas, and definitions** in the sorry-free core (Kernel + Bridge + MetaKernel)…" |
+
+No arXiv-abstract counts appear in the file. §25.8 Kernel Concordance uses named theorems with axiom profiles, not raw counts — reviewed and left as-is.
+
+### PART 1 — Count-purge replacements (after)
+
+| Line | Form used | Replacement |
+|---|---|---|
+| 107 | (a) named-theorem | "The sorry-free core (`Kernel/`, `Bridge/`, `MetaKernel.lean`) carries three independent route terminals — `structural_exhaustiveness_proved` (Route 1), `SpectralCannonFull.spectral_cannon` (Route 2), and `ConservationBridge.riemann_hypothesis` (Route 3) — each depending only on `{propext, Classical.choice, Quot.sound}` (see §25.8 Kernel Concordance)." |
+| 1497 | (a) named-theorem, deposit-tagged | Rewritten as "**Deposit (v1.1, May 2026, DOI 10.5281/zenodo.19937590):** the three route terminals … plus the perpendicular-crossing chain (…), the product-formula chain (…), the seven Voice files, and MetaKernel.lean — compile against Mathlib at 0 sorry and 0 custom axioms; see §25.8 Kernel Concordance." The CartanBBridge substance was preserved. |
+| 1505 | (a) named-theorem | "Three files — `ProductFormula_Prime.lean`, `ProductFormula_Int.lean`, `ProductFormula_Rat.lean` — proving …" |
+| 1521 | (a) named-theorem | "`Kernel/PerpendicularCrossing.lean` proves that the derivative … satisfies … (the differentiated functional equation, `deriv_fe`) and Re(ξ'(1/2 + it)) = 0 for all real t (the spectral cannon `SpectralCannonFull.spectral_cannon` — perpendicular crossing on the critical line)." |
+| 1538 | (a) named-theorem, terminal per stage | "…from prime powers (`ProductFormula_Prime.lean`, terminating in `prod_prime_power_absValues`) through general integers (`ProductFormula_Int.lean`, terminating in `prod_int_absValues`) to rationals with the conservation certificate (`ProductFormula_Rat.lean`, terminating in `prod_rat_absValues` and `conservation_certificate`)…" |
+| 1723 | (a) named-theorem | "The sorry-free core (`Kernel/`, `Bridge/`, `MetaKernel.lean`) compiles the three route terminals — `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon`, `ConservationBridge.riemann_hypothesis` — at zero unproved assertions and zero custom axioms; each depends only on `{propext, Classical.choice, Quot.sound}` (§25.8 Kernel Concordance)." |
+
+Form (a) at every site. Form (b) not needed — none of the sites required a magnitude to serve the reader beyond what the named theorems + module citations convey.
+
+### PART 2 — §27.3 micro-edits
+
+- **(2a)** "The Li channel bench has, additionally, *measured* the premise to n = 60" → "The Li channel computation has, additionally, *measured* the premise to n = 60".
+- **(2b)** T-labels get descriptive aliases on first mention:
+  - `**(T1)** the completed zeta function factors…` → `**the Mellin factorization theorem (T1)** — the completed zeta function factors…`
+  - `**(T2)** the two-input exhaustion…` → `**the exhaustion lemmas (T2)** — the two-input exhaustion…`
+  - `a concrete two-predicate countermodel is compiled as a theorem (T3″)` → `a concrete two-predicate instance is compiled as a theorem — the countermodel (T3″)`
+  - `the bridge closes by exhibiting that shared witness (T3′), in one line` → `the bridge closes by exhibiting that shared witness — the shared-witness bridge (T3′), in one line`
+- **(2c)** Whole-file "gap" audit:
+  - Line 1779 "mass gap" (Yang-Mills, Clay problem) — EXCEPTED, left as-is.
+  - Line 1812 "no codimension gap between on-line and off-line" — replaced with "no codimension margin between on-line and off-line".
+  - No verbatim bibliography title contained "gap"; no other unexcepted "gap" remained.
+
+### PART 3 — Version bump
+
+- Line 9 header: `**v5.4, May 2026**` → `**v5.5, July 2026**`.
+- Footer (near line 2057): `*v5.4, May 2026*` → `*v5.5, July 2026*`, plus a provenance sentence appended directly below the footer version line: *"v5.5 (July 2026): adds §27.3 The One Premise; harmonizes mechanism-class indices to the kernel enumeration (TheBridgeComplete.lean); replaces kernel counts with named theorems. No mathematical changes from v5.4."* Placed adjacent to the footer version line rather than in an "On This Work" version-history section, which the file does not carry.
+
+### PART 4 — Whole-file pass-completion verification
+
+| Check | Result |
+|---|---|
+| (i) §27.3 present exactly once | `grep -c '^## 27.3 The One Premise$'` → **1** |
+| (i) four cross-refs intact | 1 + 1 + 1 + 1 = **4** (Ch. 14, Ch. 19 step (9), §25.7, §26.1) |
+| (ii) C-index canonical: C₁ paired with Schwarz/real coefficients | ✓ (lines 857, 871, 905, 1030, 1359, 1818) |
+| (ii) C-index canonical: C₃ paired with FE | ✓ (lines 816, 819, 859, 875, 907, 951–961, 1030, 1067, 1093, 1361, 1814, 1820) |
+| (ii) C-index canonical: C₆ paired with CR | ✓ (lines 826, 862, 893, 910, 951–953, 1034, 1364, 1426, 1811, 1816) |
+| (iii) unexcepted "gap" | **0** (only "mass gap" at line 1779 remains — excepted) |
+| (iv) T4 / successor / work order / FINDINGS / F.2026 in body | **0** each |
+| (v) bare drifting kernel counts | **0** — all six pre-pass sites now cite named theorems + modules |
+| (vi) header + footer v5.5 | header line 9 "**v5.5, July 2026**" ✓; footer "*v5.5, July 2026*" ✓ |
+
+### Commits and pushes (this addendum)
+
+- `day1/A_Place_to_Stand.md` — commit **`e8114be`**, "v5.5 pass (3/3): count purge (named theorems over counts), codimension-margin fix, §27.3 micro-edits, version bump v5.4 → v5.5. Pass complete; no mathematical changes across the pass." — diff `1 file changed, 14 insertions(+), 12 deletions(-)`; push `2a69d77..e8114be  main -> main`.
+- PART 5 pass-completion landing (append-only UTF-8 no BOM to ledgers):
+  - `FINDINGS.md`: new entry `### F.2026-07-10-b — v5.5 pass complete` (compact paragraph with the three commit SHAs `c8882f3`/`da36b20`, `2a69d77`, `e8114be`; kernel-enumeration authority; count-purge summary; version bump; Zenodo deposit gated on DEPOSIT_VERIFICATION_PROTOCOL).
+  - `REGISTRY.md`: new `## Version-log addition — 2026-07-10 (pass-completion landing; fold into VERSION LOG table at next hand edit)` row cross-referencing `F.2026-07-10-b`.
+  - Commit **`9da9b47`** — "Pass-completion landing 2026-07-10: v5.5 complete (three edits, SHAs in F.2026-07-10-b)" — diff `2 files changed, 7 insertions(+)`; push `e8114be..9da9b47  main -> main`.
+
+### v5.5 pass summary (three edits total)
+
+| Edit | Commit | Content |
+|---|---|---|
+| 1/3 | `c8882f3` (+ trim `da36b20`) | §27.3 The One Premise inserted in Part VI with four cross-references |
+| 2/3 | `2a69d77` | C-index harmonization to kernel enumeration (`TheBridgeComplete.lean:19-22`) |
+| 3/3 | `e8114be` | Count purge, "codimension margin" fix, §27.3 micro-edits, version bump v5.4 → v5.5 |
+| landing | `9da9b47` | F.2026-07-10-b + REGISTRY row appended to ledgers |
+
+v5.5 pass complete. **Zenodo deposit of v5.5 is a separate author decision, gated on DEPOSIT_VERIFICATION_PROTOCOL — not landed by this pass.**
+
+::relay addendum 4 end::
