@@ -108,3 +108,21 @@ Cross-reference #5 (Zenodo description) skipped per instructions.
 - One outstanding discrepancy from the sanity-gate reconciliation, resolved but noteworthy: Chapter 15's §25.5a "Completable-Path Matrix" and the `CrossClassExclusion.lean` bridge-table row are absent from the deposited v5.4 line (deliberate deposit-side removals) and were **not** re-added during the merge, since they were part of v5.4's own edit round and the merge policy was "deposit as base + four postdating fixes only." If the deposit removals were unintentional, that content is available in repo history at `ca7178b` and will need a separate port.
 
 ::relay end::
+
+---
+
+## Addendum — 2026-07-10 (reconciliation landing appended to ledgers)
+
+Ledger fragments appended to `D:\MY-DOwnloads\PLACE-papers\{FINDINGS.md, REGISTRY.md}` in the same append-only style as the landing scripts (UTF-8 no BOM, via `[System.IO.File]::AppendAllText` with `UTF8Encoding($false)`; no existing content modified). Existing tail-lines of both ledgers were verified pre-append and confirmed intact post-append.
+
+- `FINDINGS.md`: new entry `### F.2026-07-10-a — Monograph line divergence discovered and reconciled` — one compact paragraph, records the v5.3/v5.4 divergence, the three-way merge at `668d22e`, the §27.3 insertion at `c8882f3`, and the flag on the deposit-side removals (recoverable at `ca7178b`). Ends with the lesson: repo is canonical for text, deposits are snapshots. Epistemic: ◆ for the reconciliation; ⋄ for the flagged removals pending author verdict.
+- `REGISTRY.md`: new `## Version-log addition — 2026-07-10 (reconciliation landing; fold into VERSION LOG table at next hand edit)` block with a single `| 2026-07-10 | … |` row summarising the same, cross-referencing `F.2026-07-10-a`.
+
+Commit and push:
+
+- Commit SHA: **`c5adc14`**
+- Message: `Reconciliation landing 2026-07-10: monograph divergence discovered, merged (668d22e), One Premise inserted (c8882f3); deposit-side removals flagged for author confirmation`
+- diff --stat: `2 files changed, 7 insertions(+)`
+- Push: `c8882f3..c5adc14  main -> main`
+
+::relay addendum end::
