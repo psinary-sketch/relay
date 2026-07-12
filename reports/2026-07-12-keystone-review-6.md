@@ -80,3 +80,18 @@ Result: **zero `TECHNE.Core` references remain** (grep-confirmed); no bare count
 - Header v0.1 → v0.2 with provenance line; REGISTRY row **1.5f-4 → v0.2, REVIEW** via a row-update block.
 - No mathematical content changed; the pass substituted private-platform citations with public kernels, scoped claim-verbs, and finished the (C) exclusion step with the compiled bracket.
 - No deposit action taken.
+
+---
+
+## Addendum (2026-07-12) — Compression general-form work-order CLOSED
+
+The vanilla-skeleton work-order flagged in F-PRE(i) is closed: `SIDE-compression` **v0.2.0** adds the general chain-length theorem.
+
+- New module `SIDECompression/ChainLength.lean` (namespace `Compression`, written verbatim from the ratified source): `Compression.compression` — N per-class checks + exhaustiveness ⟹ `∀ x, ¬ violates x` — and `Compression.compression_infinite_objects` (the infinitely-unsaturated regime over `Nat`). Vanilla Lean 4, no Mathlib. No name collisions; the root module gained only the import line. `lake build` green (5 jobs).
+- Verbatim `#print axioms` (both as expected):
+```
+Compression.compression                    does not depend on any axioms
+Compression.compression_infinite_objects   does not depend on any axioms
+```
+- **SHA triple (SIDE-compression):** verified commit `e9a5a368d14aeb63ae970acb84fc135838b9f6d2`; remote tag-object `167f84c5f81e3b381677f91596c2378001952ec4`; remote peeled (`^{}`) `e9a5a368d14aeb63ae970acb84fc135838b9f6d2` — **== verified commit ✓**; origin/main == verified commit ✓. Tag **v0.2.0** annotated.
+- FOUNDATIONS updated (PLACE-papers commit `e0c1f69`): the Compression Correspondence row upgraded from "instances compiled; general form manuscript-resident" to **Compiled — SIDE-compression v0.2.0, `Compression.compression` / `Compression.compression_infinite_objects`, axiom-free**; the §IV general-form sentence and the Abstract clause rescoped; provenance sub-line "(general form compiled 2026-07-12)".
