@@ -71,3 +71,5 @@
 2. **Deposit v1.2** to Zenodo (it is tagged, verified and deposit-ready per `DEPOSIT_v1_2_NOTES.md`, behind the `DEPOSIT_VERIFICATION_PROTOCOL` author gate) and let the new version carry the correction, with an errata line pointing to it.
 
 Until one of these lands, the corpus's corrected sites all say "citable deposit remains v1.1" — accurate, but the deposit itself still carries the uncorrected claim.
+
+**Addendum 2026-07-13:** line references to "the deposited line" in this report were to a mislabeled local working copy; the deposited file's verified line numbers and the standing rule (a claim about a deposit is verified against the deposit, fetched and checksum-matched) are recorded in ERRATA `E-2026-07-13-1`'s addendum (PLACE-papers `4fbb00c`). The local copy `outputs/v54_deposit_line.md` has since been replaced with the byte-exact Zenodo download (md5 `c8ec9b46c6afdcb7e6d227191e392a40`), so the filename is now true.
