@@ -1,0 +1,74 @@
+[
+  {
+    "name": "DeAlignment.no_domain_covers_line",
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6a4f482",
+    "exists": true,
+    "check": "@DeAlignment.no_domain_covers_line : ∀ {P D : Type} (d : P → D) (L : DeAlignment.Line P),",
+    "axioms": "'DeAlignment.no_domain_covers_line' does not depend on any axioms",
+    "doc": "**Protection at a line.** If a line is de-aligned, no single-domain failure completes it",
+    "body1": "by",
+    "defenc": false,
+    "defenc_why": ""
+  },
+  {
+    "name": "DeAlignment.single_domain_fault_not_logical",
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6a4f482",
+    "exists": true,
+    "check": "@DeAlignment.single_domain_fault_not_logical : ∀ {P D : Type} {n : Nat} (d : P → D)",
+    "axioms": "'DeAlignment.single_domain_fault_not_logical' does not depend on any axioms",
+    "doc": "**The protection theorem.** Under the de-alignment condition, no single-domain failure completes any line — hence no single-domain failure induces a minimum-weight logical operator.",
+    "body1": "by",
+    "defenc": false,
+    "defenc_why": ""
+  },
+  {
+    "name": "DeAlignment.dealigned_of_lines_injective",
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6a4f482",
+    "exists": true,
+    "check": "@DeAlignment.dealigned_of_lines_injective : ∀ {P D : Type} (d : P → D) (L : DeAlignment.Line P),",
+    "axioms": "'DeAlignment.dealigned_of_lines_injective' does not depend on any axioms",
+    "doc": "The converse direction, as the design diagnostic: if two positions of a line share a domain, that domain's failure needs only one further fault to complete the line",
+    "body1": "by",
+    "defenc": false,
+    "defenc_why": ""
+  },
+  {
+    "name": "DeAlignment.fano_dealignment_decidable_example",
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6a4f482",
+    "exists": true,
+    "check": "DeAlignment.fano_dealignment_decidable_example : (DeAlignment.dealignedCheck fun p => p) = true",
+    "axioms": "'DeAlignment.fano_dealignment_decidable_example' does not depend on any axioms",
+    "doc": "Seven positions in seven distinct domains: de-aligned, by evaluation.",
+    "body1": "by decide",
+    "defenc": false,
+    "defenc_why": ""
+  },
+  {
+    "name": "DeAlignment.fano_collapsed_line_rejected",
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6a4f482",
+    "exists": true,
+    "check": "DeAlignment.fano_collapsed_line_rejected : (DeAlignment.dealignedCheck fun p => if ↑p = 1 ∨ ↑p = 3 then ⟨0, ⋯⟩ else p) =",
+    "axioms": "'DeAlignment.fano_collapsed_line_rejected' does not depend on any axioms",
+    "doc": "A realization that co-locates positions 0, 1 and 3 — the line `{0,1,3}` — into one domain fails the check: the certificate refuses it.",
+    "body1": "by",
+    "defenc": false,
+    "defenc_why": ""
+  },
+  {
+    "name": "DeAlignment.fano_two_design",
+    "repo": "SIDE-structural-error-correction",
+    "pin": "6a4f482",
+    "exists": true,
+    "check": "DeAlignment.fano_two_design : ∀ (p q : Fin 7), p ≠ q → DeAlignment.pairCount p q = 1",
+    "axioms": "'DeAlignment.fano_two_design' depends on axioms: [propext]",
+    "doc": "**`fanoLines` really is the Fano plane.** Every pair of distinct positions lies on exactly one line — the 2-(7,3,1) property, verified by evaluation rather than asserted in a docstring",
+    "body1": "by decide",
+    "defenc": false,
+    "defenc_why": ""
+  }
+]
