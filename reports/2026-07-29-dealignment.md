@@ -47,3 +47,36 @@ consistent; main + tag pushed to `origin` (github.com/psinary-sketch/SIDE-struct
 
 No paper edited this pass. The `STRUCTURAL_ERROR_CORRECTION` Correspondence row and the threat-model
 paragraph are a separate ratified pass, per the ruling.
+
+---
+
+## Addendum — 2026-07-29 (v0.2.1): incidence certificate + completed audit
+
+`v0.2.1` completes the v0.2.0 audit (the negative example was omitted) and adds the incidence
+certificate: `fano_two_design` proves `fanoLines` really is the Fano plane — every pair of distinct
+positions lies on exactly one line, the **2-(7,3,1)** property, verified by evaluation (`pairCount`,
+`onLine`, `allSeven`) rather than asserted. `lake build` exit 0; `List.countP`, the `Fin 7` numeral
+literals, and `==` on `Fin` all elaborate in `v4.29.0-rc8`.
+
+**Axioms — both new lines, verbatim (`#print axioms`):**
+
+```
+'DeAlignment.fano_collapsed_line_rejected' does not depend on any axioms
+'DeAlignment.fano_two_design' depends on axioms: [propext]
+```
+
+Honest profile, author-ruled (a): `fano_two_design` carries **`[propext]`** — one of the standard three
+axioms `{propext, Classical.choice, Quot.sound}`, a benign accepted foundation, not `native_decide` and
+not `sorryAx`; it enters with the incidence machinery (`List.countP` + `==`/`BEq` on `Fin`), not with
+`≠`. The negative-example audit item `fano_collapsed_line_rejected` is **axiom-free**. The other four
+terminals (v0.2.0) remain axiom-free.
+
+**SHA triple (v0.2.1):**
+
+- verified commit — `git rev-parse HEAD` — `6a4f4829cf219839f33c6af9d665687b93af772e`
+- remote main — `git ls-remote origin refs/heads/main` — `6a4f4829cf219839f33c6af9d665687b93af772e`
+- tag `v0.2.1` peeled — `git ls-remote origin 'refs/tags/v0.2.1^{}'` — `6a4f4829cf219839f33c6af9d665687b93af772e`
+
+Annotated tag object `d9df20f6010466a783270b89e42feb156163dce0` peels to the verified commit. Triple
+consistent; main + tag pushed. No paper edited (the Correspondence row + threat-model paragraph remain
+the separate ratified pass).
