@@ -38,7 +38,7 @@ end techne_kernel_voice7
 
 **Determination: a genuine σ-neutrality statement IS provable — and already exists.** `topological_contribution := 0` is σ-constant by construction, so "the contribution is constant in σ" is genuinely proved twice: `topological_constant` and `topological_no_sigma_preference`. **But it is σ-neutrality of the definition-encoded stand-in** (`:= 0` *assigns* it), not derived from ξ's Hadamard product — as the module's own 2026-07-22 docstring states. `c7_forces_half` is the one tautology (`σ = σ`). Per the author's corrected branch: **add nothing** (a `c7_sigma_neutral` would over-name the stand-in again); deprecate `c7_forces_half` in place; cite `topological_constant` for the stand-in.
 
-## STEP 2b — the Voice4 gap the core read left
+## STEP 2b — the Voice4 the core read left out
 
 **There is no `Kernel/Voice4.lean` module.** The C₄ voice lives in `Bridge/TheBridgeComplete.lean`, verbatim:
 
