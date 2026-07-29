@@ -158,8 +158,76 @@ def diff(records, table_md):
         out.append((rec['name'], flags if flags else ['ok']))
     return out
 
+# ---- Mode CONSTELLATION ----------------------------------------------------
+# A corpus cross-reference consistency checker. Operates on paths passed in; embeds no corpus content.
+def build_corpus_index(root):
+    """{basename.md: {title, version, path}} from the filesystem, and REGISTRY {id: {...}}."""
+    files, reg = {}, {}
+    for dp, dn, fn in os.walk(root):
+        if '.git' in dp.split(os.sep): continue
+        for f in fn:
+            if not f.endswith('.md'): continue
+            p = os.path.join(dp, f)
+            try: txt = open(p, encoding='utf-8', errors='replace').read()
+            except OSError: continue
+            head = '\n'.join(txt.split('\n')[:15])
+            title = ''
+            m = re.search(r'^#\s+(.+)$', head, re.M)
+            if m: title = m.group(1).strip()
+            vm = re.search(r'\bv(\d+\.\d+(?:\.\d+)?)\b', head)
+            files[f] = {'title': title, 'version': vm.group(1) if vm else '', 'path': p}
+            if f == 'REGISTRY.md':
+                for ln in txt.split('\n'):
+                    rm = re.match(r'^\|\s*([A-Za-z0-9.]+-?\d*[a-z]?-?\d*)\s*\|\s*([^|]+?)\s*\|\s*`?([^|`]+\.md)`?\s*\|\s*(v?[\d.]+)?\s*\|[^|]*\|\s*([A-Z\-]+)?', ln)
+                    if rm and re.match(r'^(d1|p1|p2|m5|1\.5|\d)', rm.group(1)):
+                        reg[rm.group(1).strip()] = {'title': rm.group(2).strip(),
+                                                    'file': os.path.basename(rm.group(3).strip()),
+                                                    'version': (rm.group(4) or '').lstrip('v'),
+                                                    'status': (rm.group(5) or '').strip()}
+    return files, reg
+
+CLOSED = ('READY', 'RATIFIED', 'LANDED', 'ENSHRINED', 'CLOSED', 'COMPLETE')
+PENDING_WORD = re.compile(r'\b(pending|awaiting|not yet|to be|forthcoming|will be|held for|being drafted|in progress)\b', re.I)
+def constellation(paper_path, files, reg):
+    txt = open(paper_path, encoding='utf-8', errors='replace').read()
+    lines = txt.split('\n')
+    self_base = os.path.basename(paper_path)
+    flags = []
+    for i, ln in enumerate(lines, 1):
+        # backticked filename refs
+        for fn in re.findall(r'`([A-Za-z0-9_./-]+\.md)`', ln):
+            base = os.path.basename(fn)
+            if base == self_base: continue
+            if base not in files:
+                flags.append((i, base, 'NONEXISTENT-TARGET', ln.strip()[:140]))
+                continue
+            # stale version: a version cited adjacent to the ref
+            cur = files[base]['version']
+            near = ln[max(0, ln.find(fn)-40):ln.find(fn)+len(fn)+40]
+            vm = re.search(rf'{re.escape(base)}[^)]*?\bv(\d+\.\d+(?:\.\d+)?)\b|\bv(\d+\.\d+(?:\.\d+)?)\b[^)]*?{re.escape(base)}', near)
+            cited_v = (vm.group(1) or vm.group(2)) if vm else ''
+            if cur and cited_v and cited_v != cur and not (cur.startswith(cited_v) or cited_v.startswith(cur)):
+                flags.append((i, base, f'STALE-VERSION cited v{cited_v}, current v{cur}', ln.strip()[:140]))
+        # REGISTRY-ID refs with pending-language or stale title/status
+        for rid in re.findall(r'\b((?:p2|m5|d1|1\.5[a-z]?)-\d+|1\.5[a-z]-\d+)\b', ln):
+            if rid in reg:
+                st = reg[rid]['status'].upper()
+                if PENDING_WORD.search(ln) and any(c in st for c in CLOSED):
+                    flags.append((i, rid, f'STALE-STATUS: "pending" language, but {rid} is {reg[rid]["status"]}', ln.strip()[:140]))
+    return flags
+
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else ''
+    if mode == 'constellation':
+        root = sys.argv[2]; papers = sys.argv[3:]
+        files, reg = build_corpus_index(root)
+        print(f"index: {len(files)} md files, {len(reg)} REGISTRY rows")
+        for pp in papers:
+            fl = constellation(pp, files, reg)
+            print(f"\n=== {os.path.basename(pp)} : {len(fl)} flag(s) ===")
+            for i, tgt, kind, ctx in fl:
+                print(f"  L{i}  [{tgt}]  {kind}\n       {ctx}")
+        sys.exit(0)
     cfg = json.load(open(sys.argv[2], encoding='utf-8')) if len(sys.argv) > 2 else []
     recs = generate(cfg)
     if mode == 'generate':

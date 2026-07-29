@@ -21,11 +21,19 @@ research content here, only mechanical facts about compiled terminals.
 - **cited terminal no longer exists** (a configured terminal fails to resolve at its pin),
 - **is definition-encoded yet graded DERIVES** (defenc true but the row reads DERIVES, not ENCODES).
 
+**Mode `constellation`** — a corpus cross-reference consistency checker. Given a corpus root and one or
+more paper paths, it builds an index (every `.md`'s current title + header version, plus REGISTRY
+id→title/version/status rows) and, for each paper, flags: a **stale version** (a `vX.Y` cited next to a
+`FILE.md` reference that ≠ the target's current header version), a **stale status** (`pending`/`awaiting`/…
+language next to a REGISTRY id whose status is READY/RATIFIED/LANDED/…), and a **nonexistent target** (a
+backticked `FILE.md` not on disk). It reads paths passed in; it embeds no corpus content.
+
 ## Usage
 
 ```
-python rowgen.py generate terminals.json          # -> records.json + a printed table
-python rowgen.py diff     terminals.json table.md  # -> row-by-row flags (or 'ok')
+python rowgen.py generate      terminals.json               # -> records.json + a printed table
+python rowgen.py diff          terminals.json table.md      # -> row-by-row flags (or 'ok')
+python rowgen.py constellation <corpus-root> paper.md [...]  # -> cross-ref contradiction flags
 ```
 
 `terminals.json` is a list of `{name, repo, pin, module, file}`. `generate` runs `lake env lean` in the
