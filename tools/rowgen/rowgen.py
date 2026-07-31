@@ -188,32 +188,75 @@ def build_corpus_index(root):
 
 CLOSED = ('READY', 'RATIFIED', 'LANDED', 'ENSHRINED', 'CLOSED', 'COMPLETE')
 PENDING_WORD = re.compile(r'\b(pending|awaiting|not yet|to be|forthcoming|will be|held for|being drafted|in progress)\b', re.I)
+
+# Historical-section exclusion (2026-07-31): dated ledger entries are the historical record —
+# they report separately and never flag actionable. A line is HISTORICAL when it sits under a
+# history-class heading (a heading carrying a date token or a history word), or in a paragraph
+# whose first line carries a date token — UNLESS the line is a live REGISTRY id-row (the version
+# table is live state regardless of dated notes in its cells).
+# Intentional-provenance marker: a backticked `FILE.md` preceded nearby by "was"/"formerly"/
+# "moved ... from" is a rename/move provenance annotation — classified PROVENANCE, never actionable.
+DATE_TOK  = re.compile(r'\b20\d\d-\d\d(?:-\d\d)?\b')
+HIST_HEAD = re.compile(r'history|heritage|row update|deposit|version history|version log|change ?log|addendum', re.I)
+ID_ROW    = re.compile(r'^\|\s*(?:d1|p1|p2|m5|1\.5[a-z]?)-')
+DATED_ROW = re.compile(r'^\|\s*20\d\d-\d\d-\d\d\s*\|')   # date-first table row = dated ledger entry
+PROV_NEAR = re.compile(r'(\bwas\b|\bformerly\b|\bmoved\b[^`]{0,40}\bfrom\b|\bfrom\b[^`]{0,12}$)', re.I)
+# External-location references: a backticked .md whose nearby text names an off-corpus home
+# (another repo, the download layer, a drive path, a generated export artifact) is not a corpus
+# target — classified EXTERNAL, reported separately, never actionable.
+EXT_NEAR  = re.compile(r'(SIDE-[a-z0-9-]+|\bkernel\b|\brelay\b|D:\\|download[- ]layer|download to|sibling repo)', re.I)
+
 def constellation(paper_path, files, reg):
     txt = open(paper_path, encoding='utf-8', errors='replace').read()
     lines = txt.split('\n')
     self_base = os.path.basename(paper_path)
     flags = []
+    head_hist = False   # nearest preceding heading is history-class
+    para_hist = False   # current paragraph's first line carries a date token
+    prev_blank = True
     for i, ln in enumerate(lines, 1):
+        hm = re.match(r'^#{1,6}\s+(.*)$', ln)
+        if hm:
+            head_hist = bool(HIST_HEAD.search(hm.group(1)) or DATE_TOK.search(hm.group(1)))
+            para_hist = False
+            prev_blank = True
+            continue
+        if not ln.strip():
+            prev_blank = True
+            para_hist = para_hist  # paragraph ends; reset happens at next para start
+            continue
+        if prev_blank:
+            para_hist = bool(DATE_TOK.search(ln))
+            prev_blank = False
+        historical = ((head_hist or para_hist) and not ID_ROW.match(ln)) or bool(DATED_ROW.match(ln))
+        def add(tgt, kind, klass):
+            flags.append((i, tgt, kind, ln.strip()[:140], klass))
         # backticked filename refs
-        for fn in re.findall(r'`([A-Za-z0-9_./-]+\.md)`', ln):
+        for m in re.finditer(r'`([A-Za-z0-9_./-]+\.md)`', ln):
+            fn = m.group(1)
             base = os.path.basename(fn)
             if base == self_base: continue
+            prov = bool(PROV_NEAR.search(ln[max(0, m.start()-28):m.start()]))
+            ext  = bool(EXT_NEAR.search(ln[max(0, m.start()-32):m.start()]) or
+                        EXT_NEAR.search(ln[m.end():m.end()+32]))
             if base not in files:
-                flags.append((i, base, 'NONEXISTENT-TARGET', ln.strip()[:140]))
+                add(base, 'NONEXISTENT-TARGET',
+                    'PROVENANCE' if prov else ('EXTERNAL' if ext else ('HISTORICAL' if historical else 'ACTIONABLE')))
                 continue
-            # stale version: a version cited adjacent to the ref
             cur = files[base]['version']
             near = ln[max(0, ln.find(fn)-40):ln.find(fn)+len(fn)+40]
             vm = re.search(rf'{re.escape(base)}[^)]*?\bv(\d+\.\d+(?:\.\d+)?)\b|\bv(\d+\.\d+(?:\.\d+)?)\b[^)]*?{re.escape(base)}', near)
             cited_v = (vm.group(1) or vm.group(2)) if vm else ''
             if cur and cited_v and cited_v != cur and not (cur.startswith(cited_v) or cited_v.startswith(cur)):
-                flags.append((i, base, f'STALE-VERSION cited v{cited_v}, current v{cur}', ln.strip()[:140]))
+                add(base, f'STALE-VERSION cited v{cited_v}, current v{cur}',
+                    'PROVENANCE' if prov else ('HISTORICAL' if historical else 'ACTIONABLE'))
         # REGISTRY-ID refs with pending-language or stale title/status
         for rid in re.findall(r'\b((?:p2|m5|d1|1\.5[a-z]?)-\d+|1\.5[a-z]-\d+)\b', ln):
             if rid in reg:
                 st = reg[rid]['status'].upper()
                 if PENDING_WORD.search(ln) and any(c in st for c in CLOSED):
-                    flags.append((i, rid, f'STALE-STATUS: "pending" language, but {rid} is {reg[rid]["status"]}', ln.strip()[:140]))
+                    add(rid, f'STALE-STATUS: "pending" language, but {rid} is {reg[rid]["status"]}',
+                        'HISTORICAL' if historical else 'ACTIONABLE')
     return flags
 
 if __name__ == '__main__':
@@ -224,9 +267,14 @@ if __name__ == '__main__':
         print(f"index: {len(files)} md files, {len(reg)} REGISTRY rows")
         for pp in papers:
             fl = constellation(pp, files, reg)
-            print(f"\n=== {os.path.basename(pp)} : {len(fl)} flag(s) ===")
-            for i, tgt, kind, ctx in fl:
-                print(f"  L{i}  [{tgt}]  {kind}\n       {ctx}")
+            act = [f for f in fl if f[4] == 'ACTIONABLE']
+            hist = [f for f in fl if f[4] == 'HISTORICAL']
+            prov = [f for f in fl if f[4] == 'PROVENANCE']
+            extn = [f for f in fl if f[4] == 'EXTERNAL']
+            print(f"\n=== {os.path.basename(pp)} : {len(act)} actionable, {len(prov)} provenance, {len(extn)} external, {len(hist)} historical ===")
+            for label, group in (('ACTIONABLE', act), ('PROVENANCE', prov), ('EXTERNAL', extn), ('HISTORICAL', hist)):
+                for i, tgt, kind, ctx, _ in group:
+                    print(f"  [{label}] L{i}  [{tgt}]  {kind}\n       {ctx}")
         sys.exit(0)
     cfg = json.load(open(sys.argv[2], encoding='utf-8')) if len(sys.argv) > 2 else []
     recs = generate(cfg)
