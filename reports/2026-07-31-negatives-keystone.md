@@ -1,6 +1,6 @@
-# The negatives flagship — drafted, checkpointed, HELD for the author's read — 2026-07-31
+# The negatives keystone — Tier-K keystone candidate, drafted, checkpointed, HELD for the author's read — 2026-07-31
 
-The queue's remaining item, run under the arc charter. Rail frozen at `11db565` — empty-diff verified at
+The queue's remaining item, run under the arc charter. Vocabulary per the author's rider (standing law): "flagship" is retired from class/ledger use — it was a presentation-role word from the day's exhibit list, never a taxonomy tier; the taxonomy is complete at K/C/N. This document files as what it is: a **Tier-K keystone candidate (DRAFT — HELD)** in the RH/h2 proofs cluster — "the negatives keystone" as the short handle. (The rider arrived after the first commit landed; this corrected language rides the follow-up commit, recorded honestly.) Rail frozen at `11db565` — empty-diff verified at
 close. Nothing deposits. The draft is **HELD**: `phase1.5/proofs/SIX_NEGATIVES_THREE_SUPPLIERS.md` v0.1,
 REGISTRY **1.5a-7** (DRAFT — HELD for the author's read; free-writing law observed — the status lives in
 the ledgers, no process scaffolding in the paper body).
