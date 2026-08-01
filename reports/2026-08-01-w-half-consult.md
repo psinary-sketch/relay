@@ -178,8 +178,45 @@ the mean density of the nontrivial zeros** — verified, both routes, at cite.
 **Boundary sentence, on the face:** the gauge half is theorem; the fluctuation half's positivity
 is the arc's open clause; no narrowing claimed.
 
-## Closing
+## (7) Rider 4 — the out-formation note (the sitting's closing rider, ~0.3)
 
-Seeds + this consult note (with the zero-cross, wave-field, and gauge riders folded in) filed; the builds' checkpoint
+**The two-channel reading (Tier N).** The zero-cross as complementary out-formation sources: the
+trivial/archimedean lattice out-forms the DENSITY register — its harmonic shadow is the mean law,
+at gauge-theorem grade (rider 3's two verified routes); the nontrivial line out-forms the
+ARITHMETIC register — the explicit formula carrying the prime fluctuations; the exchange sits at
+s = 1/2. Cross-link flag, recorded per verify-at-source: the named vocabulary home
+`MA_AND_PROGRAMME_OUT_FORMATION` was **not located** in the repo or the download-layer listing at
+that handle — the cross-link is carried as the author's pointer, flagged for the author to supply
+the home; the reading stands on its own Tier-N grading meanwhile.
+
+**The archimedean-instance claim-shape — a NAMED CANDIDATE for the INVARIANCE_BARRIERS
+calibration family (PROPOSED; the author rules at the IB v1.2 read; NOT added to the paper).**
+The candidate row: *"the archimedean interface carries κ > 0 for the density register and κ = 0
+for the placement register"* — the harmonic shadow as the bright half, S(T) as the dark half; the
+Sieve Ceiling's hypothesis shape instantiated at the archimedean place. Would-be verification
+path, stated with the candidate: the bright half's certificate is the gauge note's two verified
+routes (the trivial lattice computes the mean density); the dark half's certificate is the
+existing barrier corpus (single-index/edge results + the compiled negatives — placement does not
+cross). The row waits at the IB read gate; nothing lands in the paper now.
+
+**The export-dock reading (Tier N, one paragraph).** The negative street as arithmetic's
+out-formation into physics: ζ(−1/2)-type values in Casimir-energy regularization and ζ(−1) = −1/12
+in the classical regularization literature (CLASSICAL-AT-CITE to the physics literature), with the
+Bernoulli/{2,3} denominators as the street's arithmetic (verified in rider 1). Corpus-cite flag,
+recorded honestly: no dedicated corpus home for "the −1/12 calibration" was located; the nearest
+corpus Casimir occurrences (heritage/UNIFICATION_OF_FORCES.md) are **group-theoretic Casimir
+invariants — a different Casimir**, noted precisely to avoid a false link. Reading only; physics
+grades untouched.
+
+## Closing — the sitting CLOSES with this rider
+
+Seeds + this consult note (riders 1–4 folded in) filed and CLOSED; the builds' checkpoint
 reports untouched by this sitting; rail empty-diff at `11db565` verified at the sitting close;
 nothing deposits.
+
+**The author-gate board, restated once at the close:** (1) the INVARIANCE_BARRIERS v1.2 read —
+now with the archimedean-instance candidate row waiting at that gate; (2) the retitled keystone
+read (INDEX_ARITY_AT_THE_CRITICAL_LINE v0.1.1, 1.5a-7, DRAFT–HELD); (3) the title-law sweep's
+four live flags (THE_PROOF · MECHANISM_EXCLUSION · THREE_PROOFS · SPECTRAL_CANNON); (4) the
+Duursma fourth-supplier ruling (PROPOSED, one exact instance); (5) the held QWantedPoster branch
+disposition (lv `word-pairing-interface` = `5a14205`, held, not landed).
