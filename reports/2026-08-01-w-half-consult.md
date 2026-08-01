@@ -75,7 +75,54 @@ Joins the supplier table only on the author's ruling; until then it is a seed wi
 verified instance and an honest caveat — one instance is an existence proof of the SETTING, not
 of a pattern.
 
+## (4) Rider — the zero-cross note (~0.5, folded into this sitting)
+
+**The geometry, stated and verified.**
+- **The zero-cross:** the trivial zeros lie on the real ray (σ < 0, t = 0), the nontrivial zeros
+  in the strip with the critical line as target; the two lines meet at s = 1/2 and are
+  perpendicular (the FE involutions' axes). CLASSICAL.
+- **The right-triangle family** (right angle at 1/2, one leg along each zero-line, vertices at
+  −2n and 1/2 + iγ): **CONDITIONAL-ON-RH and stated as such** — the nontrivial vertex sits on
+  the line only if RH.
+- **The unconditional four-fold symmetry:** for any zero ρ, the set {ρ, 1−ρ, ρ̄, 1−ρ̄} consists
+  of zeros — the ρ-rectangle centered at 1/2. Verified at ρ₁ (all four |ζ| ≈ 6e−31, mpmath at
+  30 dps). **RH is the degeneration of every rectangle to the cross**: Re ρ = 1/2 ⟺ 1−ρ = ρ̄
+  (verified exactly at ρ₁: the four-point orbit collapses to two). UNCONDITIONAL as the symmetry,
+  the degeneration statement being RH itself.
+- **The FE-transport table for the negative evens** (CLASSICAL-AT-CITE, doubly-verified): ζ(1−2n)
+  = −B₂ₙ/(2n) exact at n = 1…6; the Euler partners ζ(2n) = (−1)^{n+1}B₂ₙ(2π)^{2n}/(2(2n)!)
+  verified at n = 1, 2; and **von Staudt–Clausen puts {2,3} in every denominator** — 6 | den(B₂ₙ)
+  for all n (verified: 6, 30, 42, 30, 66, 2730), since p − 1 | 2n holds for p = 2, 3 always. The
+  substrate pair on the whole negative-even street, as classical arithmetic.
+
+**The two readings (Tier N, graded READINGS, never claims):**
+- **(a) Counting-requires-collinearity** — the author's form of Hilbert–Pólya: a spectrum is a
+  line; RH says the zeros are countable-along-a-line the way ℕ and the primes are. The explicit
+  formula is named as the existing exact triangulation between the two countings (primes ↔ zeros,
+  across the Euler product), and **Weil positivity is the triangulation's one open property** —
+  Q, the wall in one more vocabulary. A reading; the explicit formula is classical, the
+  identification of its open property with the arc's Q is the arc's own standing content
+  (residue paper §5–6).
+- **(b) The baby-Q reading** — the right angle at 1/2 is orthogonality under the plane's
+  positive-definite form: the **rank-2 solved instance** of the definiteness question, with
+  Pythagoras as the diagonalized pairing. The wall is the same statement in infinite rank.
+  Cross-linked to the Lee–Yang control's fixed-locus row and the quadratic-register note (§2
+  above). A reading — rank-2 solves nothing in infinite rank; the value is the vocabulary.
+
+**The boundary paragraph (filed beside the readings so the seed never outgrows its
+certificate).** The universality question — "does this geometry mean anything beyond ζ?" — is
+answered by the corpus's own scoping results, at their homes: the substrate-scoped calculus
+(CONCLUSIONS_OF_RECORD: *"Across determined systems there is no universal formation tuple. What
+is invariant is classification × certification"*) scopes every substrate-flavored observation to
+its system; the Silence Principle's own scope clause (Seale 2026a) bounds what κ-readings
+transport; and the modular-register seed is carried at its compiled witness (the h1 ledger's
+`C4_modularity_at_Phi` with the theta witness, lv v0.6.0), not at the readings' level. The
+ferry's three handles (complete-for-substrate · seed-of-the-modular-register · silent-beyond)
+are mapped to these three homes — recorded explicitly, since the handles do not appear verbatim
+in the corpus and verify-at-source requires the mapping be stated, not assumed.
+
 ## Closing
 
-Seeds + this consult note filed; the builds' checkpoint reports untouched by this sitting;
-rail empty-diff at `11db565` verified at the sitting close; nothing deposits.
+Seeds + this consult note (with the zero-cross rider folded in) filed; the builds' checkpoint
+reports untouched by this sitting; rail empty-diff at `11db565` verified at the sitting close;
+nothing deposits.
