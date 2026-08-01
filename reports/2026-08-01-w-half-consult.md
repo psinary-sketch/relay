@@ -121,8 +121,36 @@ ferry's three handles (complete-for-substrate · seed-of-the-modular-register ·
 are mapped to these three homes — recorded explicitly, since the handles do not appear verbatim
 in the corpus and verify-at-source requires the mapping be stated, not assumed.
 
+## (5) Rider 2 — the wave-field and duality note (~0.5, folded into this sitting)
+
+**The wave decomposition (CLASSICAL, cited).** The explicit formula (Riemann–von Mangoldt–Weil)
+is the prime field's spectral decomposition: ψ(x) = x − Σ_ρ x^ρ/ρ − log 2π − ½log(1−x⁻²) — each
+zero ρ = β + iγ a frequency γ with amplitude x^β; **RH is the uniform √x envelope** (every
+amplitude exactly x^{1/2}). **The energy reading (Tier N):** single-index positivity (Λ(n) ≥ 0,
+Φ > 0) is amplitude/one-point data — edge-reaching, as compiled; the pair-index object is the
+field's ENERGY form; **Montgomery's pair correlation is the measured two-point function** —
+density register, exactly the classification the DQPT screen received (F.2026-07-31: measured
+statistics of located zeros, no bearing on the pairing); **Weil positivity is the energy's
+positive sign** — placement register. The index-arity sort in field language; cross-linked to the
+keystone (INDEX_ARITY_AT_THE_CRITICAL_LINE). A reading over classical objects, each at its cite.
+
+**The −1/2 non-vanishing (verified at source, factor by factor).** FE:
+ζ(−1/2) = 2^{−1/2}·π^{−3/2}·sin(−π/4)·Γ(3/2)·ζ(3/2); every factor nonzero — the sine sits a
+half-step off its even lattice (sin(−π/4) = −√2/2), Γ(3/2) = √π/2, ζ(3/2) = 2.6123… in the Euler
+zone; product = ζ(−1/2) to 5e−32. **The reading (Tier N):** the only real-zero mechanism on the
+real axis is the sine lattice s = −2n; −1/2 is protected by the same single-index (Euler-zone)
+mechanism that holds the σ = 1 edge. A reading; the factorization is classical.
+
+**The duality-indexing paragraph (CLASSICAL, cited; boundary on its face).** Primes ⟺ zeros is
+an exact dual pair (the explicit formula, unconditional); twisted counting ⟺ the L(s,χ) zero
+sets (the GRH cascade's conductor lattice — GRH_CASCADE, corpus); dilations ⟺ the scaling-flow
+spectrum (Berry–Keating xp / Connes' trace-formula reading — **graded READING**, the one
+speculative row, marked). The boundary sentence on its face: **the duality is unconditional; the
+rectangles are unconditional; the cross-collinear triangulation — every frequency on the line —
+IS RH.** Nothing in the note moves the wall; it names the wall in field vocabulary.
+
 ## Closing
 
-Seeds + this consult note (with the zero-cross rider folded in) filed; the builds' checkpoint
+Seeds + this consult note (with the zero-cross and wave-field riders folded in) filed; the builds' checkpoint
 reports untouched by this sitting; rail empty-diff at `11db565` verified at the sitting close;
 nothing deposits.
