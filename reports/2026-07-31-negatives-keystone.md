@@ -1,12 +1,11 @@
 # The negatives keystone — Tier-K keystone candidate, drafted, checkpointed, HELD for the author's read — 2026-07-31
 
 The queue's remaining item, run under the arc charter. Vocabulary per the author's rider (standing law): "flagship" is retired from class/ledger use — it was a presentation-role word from the day's exhibit list, never a taxonomy tier; the taxonomy is complete at K/C/N. This document files as what it is: a **Tier-K keystone candidate (DRAFT — HELD)** in the RH/h2 proofs cluster — "the negatives keystone" as the short handle. (The rider arrived after the first commit landed; this corrected language rides the follow-up commit, recorded honestly.) Rail frozen at `11db565` — empty-diff verified at
-close. Nothing deposits. The draft is **HELD**: `phase1.5/proofs/SIX_NEGATIVES_THREE_SUPPLIERS.md` v0.1,
+close. Nothing deposits. The draft is **HELD**: `phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md` (retitled 2026-08-01, was SIX_NEGATIVES_THREE_SUPPLIERS.md) v0.1,
 REGISTRY **1.5a-7** (DRAFT — HELD for the author's read; free-writing law observed — the status lives in
 the ledgers, no process scaffolding in the paper body).
 
-**Proposed title (author retitles at will):** *The Six Negatives and the Three Suppliers — Certified
-Instrument Limits, Positive Controls, and the Pair-Index Space at the Critical Line.* Title law checked:
+**Title (retitled 2026-08-01 per the composite title law; author retitles at will):** *Index Arity at the Critical Line — Instrument Limits, Positivity Suppliers, and the Pair-Index Space on the Zeros.* (Was "The Six Negatives and the Three Suppliers" — counts-as-enframing.) Title law checked:
 objects and conditions, no achieved property.
 
 ## Read-first executed
