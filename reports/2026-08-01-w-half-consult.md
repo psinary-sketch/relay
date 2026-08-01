@@ -149,8 +149,37 @@ speculative row, marked). The boundary sentence on its face: **the duality is un
 rectangles are unconditional; the cross-collinear triangulation — every frequency on the line —
 IS RH.** Nothing in the note moves the wall; it names the wall in field vocabulary.
 
+## (6) Rider 3 — the gauge note (~0.4, folded into this sitting)
+
+**The gauge theorem, verified numerically (CLASSICAL-AT-CITE: Riemann–von Mangoldt; the
+Γ-argument derivation).** Two independent routes to the smooth counting term:
+- **(a) the angle-sum over the trivial lattice**: Im log Γ(¼ + iT/2) = −γT/2 − arctan(2T) +
+  Σ_k [T/(2k) − arctan(T/(2k+½))] (Weierstrass product) — the arctan lattice at the half-shifted
+  even integers, Stirling-free, summed to convergence;
+- **(b) the digamma density**: N'(T) = (1/2π)·Re ψ(¼ + iT/2) − log π/(2π), integrated.
+
+At T = 50, 100, 150 the two routes agree to ≤ 8e−4 (quadrature-limited), match the asymptotic
+(T/2π)log(T/2π) − T/2π + 7/8 to ≤ 1e−3, and bracket the true zero-counts (mpmath zetazero) with
+S(T) ≈ +0.58, −0.002, −0.75 — |S| < 1 as classical. **The trivial lattice's harmonic shadow IS
+the mean density of the nontrivial zeros** — verified, both routes, at cite.
+
+**The readings (Tier N):**
+- **(a) Triangles-compute-the-count** — the right-triangle family (rider 1), angle-summed at the
+  trivial vertices, is exactly the winding's smooth part: each trivial lattice point contributes
+  its arctan view-angle of the height T, and the constant lattice density integrates to the
+  log-density. The zero-cross geometry computes the gauge. A reading over a classical identity.
+- **(b) Gauge-vs-fluctuation = drift-vs-oscillation** — N(T) = smooth + S(T) mapped onto the
+  residue anatomy: the archimedean/trivial side gauges the count (understood, single-place,
+  single-index kin — the digamma is the archimedean local term of the explicit formula, at
+  cite); **S(T) is the oscillation's counting face, the pair-interaction term — where the wall
+  lives.** Cross-linked to the keystone's index-arity sort and the wave-field energy note
+  (rider 2, §5).
+
+**Boundary sentence, on the face:** the gauge half is theorem; the fluctuation half's positivity
+is the arc's open clause; no narrowing claimed.
+
 ## Closing
 
-Seeds + this consult note (with the zero-cross and wave-field riders folded in) filed; the builds' checkpoint
+Seeds + this consult note (with the zero-cross, wave-field, and gauge riders folded in) filed; the builds' checkpoint
 reports untouched by this sitting; rail empty-diff at `11db565` verified at the sitting close;
 nothing deposits.
