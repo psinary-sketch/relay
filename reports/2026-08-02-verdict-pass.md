@@ -6,17 +6,28 @@ Rail at the post-rename baseline; nothing deposits.
 
 Keystone → **v0.4**: regular graphs join the supplier table **with the two-layer mechanism as the
 row's content** — self-adjointness supplies spectrum-reality free on every graph; the RH bound
-(the Ramanujan gap) is supplied only for constructed families, importing Deligne. The table's
+(the Ramanujan bound — the spectral margin below the trivial eigenvalue) is supplied only for constructed families, importing Deligne. The table's
 most informative row precisely because its supplier decomposes. SPIRAL graph-face row (JOINED);
 FINDINGS F.2026-08-02.
 
-**The reality-vs-bound note (Tier N; keystone-Forward candidate at the next touch).** The
+**The reality-vs-bound note (Tier N; keystone-Forward candidate at the next touch).**
+
+**§1 — the three-level form (the clarification the author's question forced; credited).**
+The arc finding, stated at its three levels so no analogy carries it: **RH IS A BOUND**
+(statement level — every zero exactly on the line; over 𝔽_q, |α| = √q; on graphs, the spectrum
+inside the Ramanujan margin; on codes, |T| = 1/√q); **Q IS THE TWO-VARIABLE FORM** (object
+level — the pair-index positive form the wanted poster characterizes); **POSITIVITY-DELIVERS-
+THE-BOUND** (mechanism level — proved in every world where the bound is proved: the intersection
+form over 𝔽_q, the ferromagnetic coupling in Lee–Yang, the Type-II structure at the code
+instances, Deligne's import on constructed graphs); and **ζ owns the one-variable half free**
+(Λ(n) ≥ 0, Φ > 0, self-adjointness available) **and lacks the proved two-variable positivity** —
+the exact address of `h2`. §2 (the original note): The
 Hilbert–Pólya re-reading, at cite where citable: reality is the free/structural half — ANY
 self-adjoint operator has real spectrum, and the fifth world shows the reality layer universally
 free; the wall is the NORM BOUND / positivity — pair-index control. The residue's own anatomy
 said it from the ζ side (the operator is free given the space; the Selberg near-miss supplies
 self-adjointness and positivity yet the wrong spectrum); the graph world now says it from the
-proved side (reality never was the obstacle; the gap is what Deligne supplies). **"The missing
+proved side (reality never was the obstacle; the bound is what Deligne supplies). **"The missing
 object was never the operator — it is the bound"** — the arc's finding, graded READING where it
 exceeds the cites; the index-arity sort's meaning confirmed in the fifth world (reality =
 single-object/free; the bound = pair-index/supplied).

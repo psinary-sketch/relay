@@ -34,16 +34,19 @@ confirmation of the arc's standing localization, now candidate-by-candidate at c
 ## E-6 — IHARA (the fifth world)
 
 **Registered (verbatim):** *"Ihara JOINS with the spectral-gap supplier — the table's fifth row
-PROPOSED on the author's ruling, never forced."*
+PROPOSED on the author's ruling, never forced."* *(The registered phrase carried a banned-word
+leak — navigator's leak, author's catch, repaired 2026-08-02: read "the supplier of the spectral
+margin below the trivial eigenvalue"; the quote stands verbatim as the registration record.)*
 
 Stated at cite: the Ihara zeta of a finite (q+1)-regular graph satisfies its RH ⟺ the graph is
 Ramanujan (nontrivial adjacency spectrum in [−2√q, 2√q]); Lubotzky–Phillips–Sarnak construct
 infinite Ramanujan families. **Supplier anatomy applied:** involution/FE — PASS (u ↦ 1/(qu), the
 graph-zeta FE). Pair-positivity — the adjacency form on ℓ²(X): **self-adjointness supplies
-REALITY of the spectrum for free (every graph)**; the RH BOUND (the gap) is supplied only for
+REALITY of the spectrum for free (every graph)**; the RH BOUND — the Ramanujan margin below the
+trivial eigenvalue — is supplied only for
 constructed families, and in LPS it **imports Deligne's Ramanujan–Petersson bounds — the
 geometric supplier upstairs.** Finiteness — PASS. The honest two-layer finding: the fifth world's
-supplier splits into a free reality layer (self-adjointness) and a supplied gap layer (Deligne /
+supplier splits into a free reality layer (self-adjointness) and a supplied bound layer (Deligne /
 the geometry) — and Ihara-RH is not a theorem for all graphs (non-Ramanujan graphs exist; the RH
 property DEFINES the good family). **Verdict: JOINS-as-PROPOSED** — the fifth row candidate
 (setting: regular graphs; supplier: self-adjointness + the imported geometric bound; instance
