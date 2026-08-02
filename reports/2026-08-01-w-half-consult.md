@@ -229,3 +229,19 @@ MA_AND_PROGRAMME_OUT_FORMATION_v0_1.md was **verified-ABSENT** at the named down
 and THE_SUBSTRATE lambda = 12 = (26-2)/2 note was **not located** at source — both stay open as
 carried pointers, checks recorded. The W-DUURSMA seed GRADUATED to the keystone supplier table
 (v0.2) by the same ruling; the sitting stays CLOSED.
+
+**Final pointer resolution (2026-08-01, content-first search; both flags CLOSED).** (1) The
+out-formation home: content keys (the note title, moonshine peeps, Fletcher, the door/moonlight
+etymology character) searched across the repo AND the download layer — zero hits. Flag CLOSED
+**ABSENT-VERIFIED**, project-mirror provenance noted: the June-5-2026 working note ("Ma and the
+Programme's Vocabulary of Structural Silence") survives in the reviewer's project mirror only;
+restoration to the repo is the author's call (the recovered-registration precedent). The rider-4
+cross-reference stands as the author's pointer to that provenance. (2) The lambda note: found by
+content at its ACTUAL home — THE_REVIEWER_PANELS.md L45: lambda = 12 = (D-2)/2 with D = 26, the
+bosonic-string anchor, recorded there as a checked literature anchor (the ferry's handle named
+THE_SUBSTRATE; the corrected home is recorded, verify-then-link honored). Flag CLOSED
+**RESOLVED-with-corrected-home**: the export-dock cross-link now stands on THREE homes —
+FANO_DERIVATION_OF_LAMBDA.md (the 1/12-Residual section), THE_REVIEWER_PANELS.md L45 (the
+bosonic-string anchor), and OPEN_TRAILS L133 (the standing wonder: whether the cosmological 1/12
+is structurally the zeta-regularization/bosonic-Casimir -1/12 — the corpus had the -1/12 home
+after all, as a filed wonder). Board unchanged at four gates.
