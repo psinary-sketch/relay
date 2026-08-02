@@ -220,3 +220,12 @@ read (INDEX_ARITY_AT_THE_CRITICAL_LINE v0.1.1, 1.5a-7, DRAFT–HELD); (3) the ti
 four live flags (THE_PROOF · MECHANISM_EXCLUSION · THREE_PROOFS · SPECTRAL_CANNON); (4) the
 Duursma fourth-supplier ruling (PROPOSED, one exact instance); (5) the held QWantedPoster branch
 disposition (lv `word-pairing-interface` = `5a14205`, held, not landed).
+
+**Post-close flag resolution (2026-08-01, the fourth-supplier ruling; verify-first).** Of the two
+carried-pointer flags: the -1/12 calibration cross-link **RESOLVES** to
+phase2/physics/FANO_DERIVATION_OF_LAMBDA.md (the 1/12-Residual section verified at source; the
+named _v0_1 suffix is the header version, the filename is unversioned). The out-formation home
+MA_AND_PROGRAMME_OUT_FORMATION_v0_1.md was **verified-ABSENT** at the named download-layer handle,
+and THE_SUBSTRATE lambda = 12 = (26-2)/2 note was **not located** at source — both stay open as
+carried pointers, checks recorded. The W-DUURSMA seed GRADUATED to the keystone supplier table
+(v0.2) by the same ruling; the sitting stays CLOSED.
