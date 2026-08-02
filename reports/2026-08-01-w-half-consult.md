@@ -245,3 +245,14 @@ FANO_DERIVATION_OF_LAMBDA.md (the 1/12-Residual section), THE_REVIEWER_PANELS.md
 bosonic-string anchor), and OPEN_TRAILS L133 (the standing wonder: whether the cosmological 1/12
 is structurally the zeta-regularization/bosonic-Casimir -1/12 — the corpus had the -1/12 home
 after all, as a filed wonder). Board unchanged at four gates.
+
+**RESTORATION (2026-08-01, later the same day; the flag flips ABSENT-VERIFIED -> RESTORED-BY-FERRY.)**
+The Ma note was author-carried from the reviewer's project mirror (the one surviving copy; the
+recovered-registration precedent, T7 shape) and restored to the download layer:
+D:/MY-DOwnloads/MA_AND_PROGRAMME_OUT_FORMATION.md (14266 bytes, md5 758a8d9d6b598fd7e470172e201d43ad).
+Provenance recorded honestly: the first ferry attempt truncated mid-section-8 and was STOPped without
+writing; the second carried the complete text (DOCUMENT ENDS marker verified). The rider-4 (section 7)
+out-formation cross-link now COMPLETES to the restored home: the two-channel reading's vocabulary
+anchor is the note's sections 2-3 (the door/moonlight etymology; the awai/aida/aidagara readings), and
+the mapping this consult carried as a pointer is the note's own section 6 table. OPEN_TRAILS
+re-registration at PLACE-papers ac500e5 (Tier N convergence note, download layer, non-keystone).
