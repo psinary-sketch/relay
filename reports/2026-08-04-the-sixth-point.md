@@ -32,6 +32,39 @@ dps-60 read for Stage C under the uniform-object check (the Stage-C precedent go
 check PASSES before any number is read, or the run halts and files); Stage D per the rule
 above.
 
+## PRE-REGISTERED FREE RIDER — THE CONTROL'S CONVERGENCE LAW (filed mid-Stage-A; executed
+## at Stage C alongside the six-point read; no new heavy compute beyond that stage's window)
+
+**The construction, fixed now so no post-hoc freedom exists:** the rider's object is the
+HEIGHT-MATCHED SURMISE CONTROL from the height-confound guard's standing spec — positions
+built on the banked smooth atoms' density with unfolded gaps sampled from the GUE
+(Wigner-surmise) law, mean-normalized, deterministic seed = 20260804 (atoms derive from the
+banked smooth cache by cumulative sums — no zero-finding; the i.i.d.-sampling caveat stands
+on its face). Its RELATIVE c-sequence against the smooth control (pair-structure WITHOUT
+arithmetic) is extracted at the same K-ladder and fitted against the same pre-committed
+family set under the same criterion. Cost: one cheap atom derivation + moments + one
+checkpointed dps-2700 factorization riding the Stage B/C window.
+
+**Registered expectations (VERBATIM from the ferry):** *"(i) if ζ's law is logarithmic and
+the control's is NOT, the log is arithmetic in origin — a difference between objects,
+informative; (ii) if BOTH are logarithmic, the log is the density's own and the harmonic
+pair-weight normalization is under-corrected — the diagnostic names the missing factor and
+the corrected denominator becomes π₀'s next candidate; (iii) if ζ's law is geometric, the
+control's law is reported as context only."* No interpretation beyond the mapping.
+
+## THE ENSEMBLE OBSERVATION (Tier N, unpromoted; filed BEFORE the verdict so it cannot be
+## retro-fitted)
+
+**The arithmetic fact of the estimator table:** four of six limit estimators cluster in
+[0.974, 1.019] (the geometric pair 0.9927/1.0186, the power 0.9945, the log-corrected
+0.9738; the first two Aitken windows add 0.989/0.995) while the two criterion front-runners
+BRACKET unity from far sides (1.3044 and 0.9927). **Both readings stated, explicitly
+undecidable on present data:** (reading 1) unity is the sequence's true limit and the
+outlying estimator is a noisy extrapolator of a slowly-converging tail; (reading 2) unity is
+an attractor of the ESTIMATOR FAMILY (most simple families extrapolate this data shape to
+≈1 regardless of the true limit) and the clustering is method-artifact. **Decided by
+c(256); filed now.**
+
 ## STAGE A — THE ATOM WORKER
 
 ### A-PENDING
