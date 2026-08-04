@@ -65,6 +65,33 @@ an attractor of the ESTIMATOR FAMILY (most simple families extrapolate this data
 ≈1 regardless of the true limit) and the clustering is method-artifact. **Decided by
 c(256); filed now.**
 
+## THE SLEEP-RESILIENCE CHECK (filed mid-Stage-A; the running worker untouched)
+
+**(a) Resume validation — WAS NOT SAFE, RESUME PATH PATCHED:** the original
+resume-by-linecount trusted any non-empty final line; a hard cut mid-write would leave a
+truncated line that resume would count and Stage B would parse as a wrong atom. The patch
+(resume path only; the running worker's in-memory code unaffected): `validate_tail()` on
+startup — the final line must be ≥ 2,000 chars, mpf-parseable, and in the sane atom range,
+else it is DROPPED and recomputed. **(b) Flush posture, verified from code:** per-line
+`f.flush()` (process-kill-safe: at most the in-flight zero is lost); `os.fsync` is not
+called, so a hard POWER cut could lose OS-buffered tail lines — exactly the case the new
+validation guard absorbs (dropped and recomputed on resume). **(c) The resume command,
+verbatim — one paste restarts the worker from the banked state:**
+
+```
+Start-Process -FilePath python -ArgumentList "D:\relay\tools\e16\k256_atoms_loop.py" -WindowStyle Hidden
+```
+
+**The machine's sleep posture (reported; the author's machine, the author's call):** standby
+on AC = 60 minutes; hibernate on AC = 180 minutes. Standby SUSPENDS the worker (it resumes
+on wake — banked and safe, but the 18-hour clock stretches by the sleep); a power event
+mid-write is the truncation case now guarded. **The one-line command that would set both to
+Never, if wanted — recommendation only:**
+
+```
+powercfg /change standby-timeout-ac 0; powercfg /change hibernate-timeout-ac 0
+```
+
 ## STAGE A — THE ATOM WORKER
 
 ### A-PENDING
