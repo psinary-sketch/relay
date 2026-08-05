@@ -14,7 +14,8 @@ $rel = @(
   'phase2\method\ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md',
   'phase2\quantum\FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION.md',
   'phase2\quantum\SILENCE_STAGES_DEALIGNMENT.md',
-  'phase1.5\proofs\INDEX_ARITY_AT_THE_CRITICAL_LINE.md'   # roster ADDITION 2026-08-04 (ferry-required)
+  'phase1.5\proofs\INDEX_ARITY_AT_THE_CRITICAL_LINE.md',  # roster ADDITION 2026-08-04 (ferry-required)
+  'phase1.5\method\INSTRUMENTS.md'                        # roster ADDITION 2026-08-05 (author-called)
 )
 
 $head = (git -C $repo rev-parse --short HEAD).Trim()
@@ -44,10 +45,38 @@ $man = @()
 $man += "# MANIFEST - mirror-refresh-$DateTag"
 $man += ""
 $man += "Source: PLACE-papers @ ``$head`` (main). Export $DateTag. $($rows.Count) files flat."
-$man += "ROSTER: 20 files, unchanged since the 2026-08-04 build, when"
-$man += "INDEX_ARITY_AT_THE_CRITICAL_LINE.md was added on the ferry's verification requirement"
-$man += "(it was marked [off-mirror-set] through 2026-08-02). Roster changes are noted here"
-$man += "on the build that makes them, and not carried forward."
+# ---- roster line, DERIVED at build time (never authored, never carried forward) ----
+# The previous build's roster is stored beside this script; the line below is computed by
+# diffing it against the roster this build actually assembled.
+$rosterState = Join-Path $PSScriptRoot 'mirror_roster.json'
+$now = $rows | ForEach-Object { $_.file } | Sort-Object
+$prev = @()
+$prevDate = $null
+if (Test-Path $rosterState) {
+  $st = Get-Content $rosterState -Raw | ConvertFrom-Json
+  $prev = @($st.files)
+  $prevDate = $st.lastChanged
+}
+$added = @($now | Where-Object { $prev -notcontains $_ })
+$removed = @($prev | Where-Object { $now -notcontains $_ })
+if (-not (Test-Path $rosterState)) {
+  $man += "ROSTER: $($now.Count) files. No previous roster was recorded, so no diff is"
+  $man += "available for this build; the change line begins from the next one."
+  $changedOn = $DateTag
+} elseif ($added.Count -or $removed.Count) {
+  $man += "ROSTER CHANGE, THIS BUILD ($DateTag): $($now.Count) files."
+  if ($added.Count)   { $man += "  ADDED:   $($added -join ', ')" }
+  if ($removed.Count) { $man += "  REMOVED: $($removed -join ', ')" }
+  $changedOn = $DateTag
+} else {
+  $since = if ($prevDate) { $prevDate } else { 'the first recorded build' }
+  $man += "ROSTER: $($now.Count) files, unchanged since $since."
+  $changedOn = $prevDate
+}
+$man += "This line is computed at build time by diffing the assembled roster against the"
+$man += "previous build's, not carried forward as authored text."
+@{ files = $now; lastChanged = $changedOn } | ConvertTo-Json -Depth 3 |
+  Out-File $rosterState -Encoding utf8
 $man += ""
 $man += "| flat file | bytes | md5 | version | last-commit |"
 $man += "|:--|--:|:--|:--|:--|"
