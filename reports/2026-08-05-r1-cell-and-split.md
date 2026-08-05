@@ -80,6 +80,34 @@ left to ask, which is a smaller and more honest claim than the table's shape mig
 **The R4 compression question stays OPEN and UNRUN**, priced for a later sitting as ruled —
 it wants breadth, and the kernel leg has priority.
 
+## §3 — THE R4 COMPRESSION QUESTION, REGISTERED (registration only; NOT opened)
+
+**The question, stated exactly for the record:** *does non-negativity of finitely many λ_n
+force non-negativity of all?* — i.e. is there a bound N (effective or not) such that
+λ_n ≥ 0 for all n ≤ N implies λ_n ≥ 0 for every n?
+
+**The three outcome-shapes, pre-named so none can be claimed retroactively:**
+1. **A bound exists** — the compression shape holds in the one register that admits it; the
+   corpus's own theorem type reaches RH's Π₁ form. This is the largest possible outcome and
+   would demand the strictest audit before any word of it left the relay.
+2. **A counterexample-shape exists** — a construction showing initial non-negativity
+   compatible with later failure, which would bar the route and complete the table at five
+   barred *by construction* rather than by a certified barrier.
+3. **No such bound can exist** — a proof of impossibility, which **completes the table at
+   five barred and would be the sharpest statement of the wall available in the programme's
+   own theorem type**: not "no proof has been found" but "no register admits the compression
+   shape by which this programme's theorems compile."
+
+**Prerequisites, listed:** the compression skeleton as the theorem type (the corpus's own
+`SIDE_exclusion` shape — exhaustive catalogue plus per-member certification); the λ_n family
+with its tabulated values and the Bombieri–Lagarias arithmetic form for computing them; and
+the four barrier results that cleared the surrounding registers (Face-E, E-8, the determinacy
+verdict, the placement screen) — since the question's interest depends entirely on R4 being
+the last cell.
+
+**Priced for breadth; NOT opened now.** Registered so that whoever opens it inherits the
+statement and the outcome-shapes rather than inventing them mid-sitting.
+
 ## PINS
 
 | repo | pin |
