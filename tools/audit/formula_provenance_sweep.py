@@ -99,7 +99,5 @@ for r in without:
     by_file.setdefault(r[0], []).append(r)
 for fn, rs in by_file.items():
     print(f"\n--- {fn}  ({len(rs)}) ---")
-    for _, ln, frag, _ in rs[:22]:
+    for _, ln, frag, _ in rs:
         print(f"  L{ln:<6} {frag}")
-    if len(rs) > 22:
-        print(f"  ... and {len(rs)-22} more in this file")
