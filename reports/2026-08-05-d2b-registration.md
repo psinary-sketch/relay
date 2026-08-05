@@ -104,11 +104,36 @@ impression a reader forms:
 | terminal | shortfall | the two sentences |
 |:--|:--|:--|
 | D-2a (the lead law) | **one clause** | paper: "since the proof uses **self-duality alone**"; statement: "from the functional equation self-duality supplies, **given Duursma's construction**" |
-| D-2b (genus ≤ 5) | *to be measured at its salt-check* | — |
+| D-2b (genus ≤ 5) | *to be measured at its salt-check, against the JOINT content of both units* — no row until both land (the joint-row rule) | — |
 | D-2c (the identity instance) | *to be measured at its salt-check* | — |
 
 Each D-2 row records its shortfall width in clauses, with the exact pair of sentences quoted,
 so a reviewer reads the distance rather than estimating it.
+
+## §6 — THE CATALOGUE-THEN-CERTIFY NOTE (Tier N, cross-linked, no promotion)
+
+The build's own structure exhibits a two-step that the arc has met before under other names.
+**Unit 1 closes the CATALOGUE** — it shows the admissible objects are exactly three, and it
+does so without locating a single root: pure arithmetic on the genus relation and the
+Mallows–Sloane bound. **Unit 2 certifies the MEMBERS** — it shows each catalogued object's
+certificate confines, and it does so without any classification: three explicit polynomials,
+three explicit routes. Neither half touches the other's work, and **the theorem is compilable
+precisely because both halves are finite**: a catalogue that closes, and members that can be
+checked one at a time.
+
+**The contrast, stated plainly.** The toy world compiles because its catalogue closes — the
+weight enumerator is a finite object, the admissible parameters are bounded by an arithmetic
+inequality, and the enumeration terminates. **ζ does not compile because its catalogue does
+not close**: the zeros are infinite, no bound terminates their enumeration, and there is no
+member-by-member certification because there is no last member. This is the same boundary the
+arc reached from four other directions — E-15's determinacy verdict (the within-arity
+condition cannot cross the arity step), the domain-Ostrowski condition, the currency null's
+finiteness clause (the coordinate exists in advance exactly when the catalogue is finite),
+and now the formalization's own structure. **Catalogue-then-certify is what a finite world
+permits and an infinite one refuses**, and the kernel leg makes that visible as a build
+property rather than an argument. READING grade; cross-linked to the determinacy verdict, the
+domain-Ostrowski row, and the self-reference reading; not promoted, and no keystone cargo
+added on its account.
 
 ## PINS
 
