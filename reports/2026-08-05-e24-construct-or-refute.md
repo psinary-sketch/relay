@@ -72,10 +72,11 @@ asymptotic; the clause failures above are all one failure wearing three faces.
 ## §4 — THE VERDICT
 
 **REFUTE-WITH-REASON — the registered branch, and the reason is structural rather than
-empirical.** π₀ cannot be the currency: (i) it is blind to placement by construction, since
-only imaginary parts enter it, while the currency must price the register where the wall
-lives; (ii) its ideal value is a functional of R₂ alone — density-register data — and the
-era's certified results place the wall in the pairing register; (iii) all three template
+empirical.** π₀ cannot be the currency: (i) **its definition contains only the imaginary
+parts, so its value is constant across placements** — move every zero off the line, keeping
+the imaginary parts, and π₀ does not change by a digit — while the currency must price
+exactly that register; (ii) its ideal value is a functional of R₂ alone — density-register
+data — and the era's certified results place the wall in the pairing register; (iii) all three template
 clauses fail, for the single structural reason that π₀ is an asymptotic statistic where the
 template requires an algebraic self-datum.
 
@@ -87,15 +88,16 @@ lattice, GUE, and Poisson. That is a real instrument. It is simply not a currenc
 
 **The currency cannot be a correlation-determined statistic.** More sharply, and this is the
 reusable form: **no statistic computed from the imaginary parts alone can serve as the
-currency**, because placement is precisely what such a statistic cannot see; and no
-functional of R₂ can serve, because R₂ is density-register data.
+currency**, because such a statistic takes the same value for every placement of the zeros;
+and no functional of R₂ can serve, because R₂ is density-register data.
 
 This narrows the search by a named family, and it is the same wall met from a new side. It
 agrees with **E-17's register gap** (ensemble law → the instance's pairing is un-compiled),
 with **F.2026-07-31** (the DQPT channel: density register, no bearing on the pairing), and
 with **E-10's null** (no coefficient-local correlation with off-line placement). Four
 independent approaches, one boundary: **the density register does not reach placement, and
-any currency drawn from it inherits the blindness.** The currency question re-poses with the
+any currency drawn from it inherits that reach — its value is fixed by density-register data
+alone, so it is constant across the placements the wall distinguishes.** The currency question re-poses with the
 correlation-determined class excluded — and with the requirement now explicit that a
 candidate must be a statistic in which the real parts appear.
 
