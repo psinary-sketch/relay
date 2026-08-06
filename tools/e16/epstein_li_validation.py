@@ -25,6 +25,7 @@ import json
 import math
 import os
 import sys
+import time
 import mpmath as mp
 
 BANK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "epstein_li_bank.jsonl")
@@ -131,6 +132,9 @@ def load_bank():
                 if rec.get("kind") == "selftest":
                     kept += 1
                     continue
+                if rec.get("kind") == "run":
+                    kept += 1
+                    continue
                 for k in ("stage", "nmax", "dps", "min_lambda", "argmin"):
                     if k not in rec:
                         raise ValueError("missing " + k)
@@ -151,6 +155,13 @@ STAGES = [(120, 120), (300, 220), (700, 450), (1500, 900),
 def main():
     done, kept, dropped = load_bank()
     print(f"[resume] kept={kept} dropped={dropped} stages_done={sorted(done)}", flush=True)
+    # RESTART TELEMETRY: one record per start. Elapsed-before-stop for the PREVIOUS run is
+    # recoverable as (that run's last stage ts) - (that run's start ts); a run record followed
+    # by another run record with no stage between it is a stop inside the resumed stage.
+    resumed_into = min([i for i in range(len(STAGES)) if i not in done], default=None)
+    bank({"kind": "run", "ts": time.time(),
+          "iso": time.strftime("%Y-%m-%dT%H:%M:%S"), "resumed_into_stage": resumed_into,
+          "stages_done_at_start": sorted(done)})
 
     if kept == 0:
         setup(60)
@@ -179,7 +190,7 @@ def main():
         mn = min(vals)
         am = vals.index(mn) + 1
         firstneg = next((i + 1 for i, v in enumerate(vals) if v < 0), None)
-        bank({"kind": "stage", "stage": si, "nmax": nmax, "dps": dps,
+        bank({"kind": "stage", "stage": si, "nmax": nmax, "dps": dps, "ts": time.time(),
               "min_lambda": mn, "argmin": am, "first_negative": firstneg,
               "lambda_1": vals[0], "lambda_last": vals[-1]})
         print(f"[stage {si}] CHECKPOINT nmax={nmax}: running min lambda = {mn:.6g} at n={am}; "
