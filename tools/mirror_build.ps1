@@ -1,4 +1,4 @@
-# Mirror build — PLACE-papers -> flat dated zip in D:\MY-DOwnloads\ (the reviewer mirror).
+﻿# Mirror build — PLACE-papers -> flat dated zip in D:\MY-DOwnloads\ (the reviewer mirror).
 # Convention matched from mirror-refresh-2026-08-02.zip: flat .md roster + generated
 # MANIFEST.md (bytes | md5 | version | last-commit).  Verify-by-content at the end.
 param([string]$DateTag = (Get-Date -Format 'yyyy-MM-dd'))
@@ -15,7 +15,8 @@ $rel = @(
   'phase2\quantum\FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION.md',
   'phase2\quantum\SILENCE_STAGES_DEALIGNMENT.md',
   'phase1.5\proofs\INDEX_ARITY_AT_THE_CRITICAL_LINE.md',  # roster ADDITION 2026-08-04 (ferry-required)
-  'phase1.5\method\INSTRUMENTS.md'                        # roster ADDITION 2026-08-05 (author-called)
+  'phase1.5\method\INSTRUMENTS.md',                       # roster ADDITION 2026-08-05 (author-called)
+  'phase1.5\method\THE_METHOD_CANON.md'                   # roster ADDITION 2026-08-06 (author's taste, recorded as such)
 )
 
 $head = (git -C $repo rev-parse --short HEAD).Trim()
