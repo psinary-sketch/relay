@@ -1,0 +1,47 @@
+[resume] stage-records kept=0 dropped=0 stages_done=[]
+[schedule] registered dps vs the precision certificate:
+    stage 0  nmax=  120  registered   120  unchanged
+    stage 1  nmax=  300  registered   220  unchanged
+    stage 2  nmax=  700  registered   450  unchanged
+    stage 3  nmax= 1500  registered   900  unchanged
+    stage 4  nmax= 3000  registered  1600  RAISED to 1645 (certificate)
+    stage 5  nmax= 5000  registered  2400  RAISED to 2733 (certificate)
+    stage 6  nmax= 7000  registered  3200  RAISED to 3821 (certificate)
+    stage 7  nmax= 9000  registered  4000  RAISED to 4910 (certificate)
+[stage 0] nmax=120 dps=120 prec=466 | chunks kept=0 dropped=0 (taylor 0, coef 0, lam 0)
+[stage 0] taylor 242/242  2.9s elapsed  0.012s/val  prec-bumps 0
+[stage 0] boundary done (242 values) in 0.001 h
+[stage 0] coef 120/120  0.1s elapsed  min certified accuracy 241 bits
+[stage 0] coefficients done (120) in 0.000 h | max|log E| = 0.348 | CERTIFIED lambda error bound <= 2.24e-54 (ceiling 1.0e-6)
+[stage 0] lambdas done in 0.000 h
+[stage 0] CHECKPOINT nmax=120: running min lambda = 0.682682 at n=1; sign of running minimum = positive; first negative index = None
+[stage 1] nmax=300 dps=220 prec=798 | chunks kept=0 dropped=3 (taylor 0, coef 0, lam 0)
+[stage 1] taylor 256/602  6.6s elapsed  0.026s/val  prec-bumps 0
+[stage 1] taylor 512/602  13.4s elapsed  0.026s/val  prec-bumps 0
+[stage 1] taylor 602/602  15.7s elapsed  0.026s/val  prec-bumps 0
+[stage 1] boundary done (602 values) in 0.004 h
+[stage 1] coef 256/300  0.2s elapsed  min certified accuracy 323 bits
+[stage 1] coef 300/300  0.3s elapsed  min certified accuracy 246 bits
+[stage 1] coefficients done (300) in 0.000 h | max|log E| = 0.348 | CERTIFIED lambda error bound <= 5.477e-56 (ceiling 1.0e-6)
+[stage 1] lambdas done in 0.000 h
+[stage 1] CHECKPOINT nmax=300: running min lambda = 0.682682 at n=1; sign of running minimum = positive; first negative index = None
+[stage 2] nmax=700 dps=450 prec=1562 | chunks kept=0 dropped=11 (taylor 0, coef 0, lam 0)
+[stage 2] taylor 256/1402  12.1s elapsed  0.047s/val  prec-bumps 0
+[stage 2] taylor 512/1402  24.7s elapsed  0.048s/val  prec-bumps 0
+[stage 2] taylor 768/1402  36.7s elapsed  0.048s/val  prec-bumps 0
+[stage 2] taylor 1024/1402  48.8s elapsed  0.048s/val  prec-bumps 0
+[stage 2] taylor 1280/1402  61.2s elapsed  0.048s/val  prec-bumps 0
+[stage 2] taylor 1402/1402  67.1s elapsed  0.048s/val  prec-bumps 0
+[stage 2] boundary done (1402 values) in 0.019 h
+[stage 2] coef 256/700  0.9s elapsed  min certified accuracy 1087 bits
+[stage 2] coef 512/700  2.0s elapsed  min certified accuracy 623 bits
+[stage 2] coef 700/700  2.7s elapsed  min certified accuracy 285 bits
+[stage 2] coefficients done (700) in 0.001 h | max|log E| = 0.348 | CERTIFIED lambda error bound <= 5.583e-68 (ceiling 1.0e-6)
+[stage 2] lambdas done in 0.002 h
+[stage 2] CHECKPOINT nmax=700: running min lambda = 0.682682 at n=1; sign of running minimum = positive; first negative index = None
+[stage 3] nmax=1500 dps=900 prec=3057 | chunks kept=0 dropped=26 (taylor 0, coef 0, lam 0)
+[stage 3] taylor 256/3002  33.8s elapsed  0.132s/val  prec-bumps 0
+[stage 3] taylor 512/3002  68.9s elapsed  0.134s/val  prec-bumps 0
+[stage 3] taylor 768/3002  104.2s elapsed  0.136s/val  prec-bumps 0
+[stage 3] taylor 1024/3002  138.6s elapsed  0.135s/val  prec-bumps 0
+[stage 3] taylor 1280/3002  173.9s elapsed  0.136s/val  prec-bumps 0

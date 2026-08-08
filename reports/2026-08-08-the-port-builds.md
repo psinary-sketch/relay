@@ -274,3 +274,34 @@ no negative index through n = 1500, far below every prediction window (the lowes
 | kernel `5e668b4` · lv `2f71068` · rail `de621b1` / `2147a03` | unmoved |
 
 Census parked at 451 records. **Nothing deposits.**
+
+---
+
+## §8 — POST-LAUNCH, and one probe that caught its own gap
+
+**Production detached, PID 30664**, stages 0–3 re-run under the ported engine so the production
+bank is entirely flint-produced and internally consistent, then 4 → 7. Stages 0–2 banked, each
+carrying its own `lam_error_bound` and the `dps_registered` / `dps_raised` pair. Stage 3 running at
+**0.135 s/value against the incumbent's 19–31 s**, prec-bumps 0.
+
+**THE MIRROR PROBE FOUND A REAL GAP AND ALSO A FALSE ONE, and both are recorded.** The first probe
+returned **eleven ABSENTs against a null path** — it searched for `MIRROR*.md` when the mirror is a
+zip, so it searched nothing at all. That is the false-zero shape already on the record and it was
+caught by the count being implausible rather than by the tooling. Re-run against the extracted
+archive (23 roster files, 2757 KB), **ten of twelve probes FOUND**.
+
+**The two genuine absences were one defect: `launch_v3.ps1` and the propagated-error figure lived
+only in this report, which is off-roster.** OPEN_TRAILS *mentioned* that a restart command had been
+stated verbatim before launch and did not state it. **That is precisely the I-8 shortfall —
+findability from the mention — and it was closed by co-locating the command with its name rather
+than by pointing harder.** Re-probe at `cf88ab7`: **twelve of twelve FOUND.**
+
+## PINS AT CLOSE
+
+| repo | pin |
+|:--|:--|
+| PLACE-papers | `cf88ab7` |
+| relay | `ff412ea` → this amendment's commit |
+| SIDE-kernel | `5e668b4` unmoved |
+| SIDE-lv-conservation | `2f71068` unmoved |
+| **rail** | **`de621b1` / `2147a03` unmoved** |
