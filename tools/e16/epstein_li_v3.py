@@ -57,6 +57,21 @@ import time
 import mpmath as mp
 from flint import acb, arb, ctx
 
+# THE STAGE-7 HALT, FIXED.  Python 3.11+ caps int->str conversion at 4300 digits.  The chunk format
+# serialises mpf mantissas as EXACT INTEGERS — which is the whole point of it, since a decimal
+# round-trip would break byte-identity — so the cap is a hard ceiling on the precision this worker
+# can bank at.  At stage 7's prec 16378 bits a mantissa is ~4930 digits and json.dumps raised
+# ValueError on the FIRST chunk write, losing the stage.
+#
+# THE CAUSE WAS THE DPS FLOOR, i.e. mine: at the REGISTERED dps 4000 a mantissa is ~4020 digits and
+# this would never have fired.  The floor was right about the mathematics and I did not check it
+# against a serialisation limit that was discoverable before launch rather than after.
+#
+# Raised to a value with headroom for every stage in the schedule (stage 7 needs ~4930; 200000
+# covers any precision this worker could plausibly reach).  This changes NO computed value — it
+# only permits an integer already held in memory to be written out.
+sys.set_int_max_str_digits(200000)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 BANK = os.path.join(HERE, os.environ.get("LI_BANK", "epstein_li_v3_bank.jsonl"))
 CHUNKS = os.path.join(HERE, os.environ.get("LI_CHUNKS", "epstein_li_v3_chunks.jsonl"))

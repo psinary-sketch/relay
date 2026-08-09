@@ -190,16 +190,89 @@ stage from its first boundary value.** Stages 0–6 reload from bank and are not
 
 The incumbent engine's projection for the same depth was **~48 days**.
 
-**I-7 re-confirmation is NOT included in this report and is owed** — the registered protocol calls
-for it at both stages in the completion report, and I have not run it. It is the one registered
-item outstanding.
+**I-7 RE-CONFIRMED — see §7. The outstanding registered item is closed.**
+
+---
+
+## §7 — I-7 RE-CONFIRMED, BOTH STAGES (`tools/e16/i7_reconfirm.py`, run on the ported engine)
+
+**I-7 is two-stage by construction because a statistic can pass stage 1 while the pipeline fails
+stage 2 by smuggling the answer in.** Both were run, not asserted.
+
+### STAGE 1 — does the STATISTIC's definition contain the thing being placed? · **PASS**
+
+λₙ = Σ_ρ [1 − (1 − 1/ρ)ⁿ], ρ ranging over the **complex** zeros of the completed Epstein
+L-function. **Each ρ enters through its full complex value, so the real parts are inside the sum,
+not derived after it** — a perturbation of any zero's real part changes λₙ. The statistic has
+placement power **by construction**.
+
+**This is the stage the ζ/Toeplitz arm FAILED** — there T = Σⱼ vⱼvⱼ* is PSD for *every* on-line
+set, so the verdict was structurally guaranteed before data. Keeping the stages separate is what
+made that visible, and it is why they are not merged.
+
+### STAGE 2 — did any zero LOCATION enter the pipeline as an input? · **PASS**
+
+**Inputs enumerated exhaustively from the source of the worker that produced the result:**
+
+1. `r_Q(k)`, representation numbers of the principal form x² + xy + 6y², disc −23 — obtained by
+   counting lattice points
+2. √23, π, and Γ(s, a) at aₖ = 2πk/√23 — **the theta / functional-equation expansion of Λ(s)**
+3. the Cauchy circle |s − 1| = 0.4
+4. the staging schedule and the chunk bank
+
+**No zero location appears in any of them.** Keyword sweep of the worker source returns **0** for
+each of `census`, `epstein_census`, `winding`, `0.9533`, `16.290`, `ground_truth`, `zero_location`,
+`beta`. **All three file-opening calls in the module resolve to BANK / CHUNKS**, whose paths the
+launcher explicitly resets to defaults; mpmath and flint are the only imports that could open a
+file and neither reads data files.
+
+**ON THE ACCESS-LOG EVIDENCE, stated rather than fudged: it does not exist on this machine.** The
+volume has `NtfsDisableLastAccessUpdate` set, so NTFS maintains no access timestamps and "the
+census was never opened" **cannot** be evidenced from a file access time here. **The exhaustion of
+the source is offered in its place and is stronger in kind: an access log shows what did not happen
+once; the source shows it cannot happen.**
+
+### STAGE 2, the RADIUS clause — **re-run, not cited**
+
+The Cauchy circle must contain no zero of E. **The census could answer that in one lookup, and
+using it would break the hold-aside — which is exactly the failure stage 2 exists to catch.** So it
+is settled from the function alone: **log E is analytic on a disc iff E has no zero there, so its
+Taylor coefficients about s = 1 are radius-independent.** Computing cₘ on two circles and comparing
+tests emptiness of both discs and needs no zero location.
+
+| | |
+|:--|:--|
+| radii | 0.4 and 0.25, M = 60, dps 300 |
+| tolerance | 10⁻³⁰, declared before the run |
+| **worst relative difference** | **4.54243×10⁻⁶⁶ at m = 56** — **PASS** |
+
+**The 2026-08-05 record has this at 1.6×10⁻⁹ on the mpmath pipeline; this re-run is on the ported
+engine and is 57 decades tighter. The earlier figure is superseded, not contradicted.**
+
+> **THE HOLD-ASIDE IS INTACT FROM FIRST RECORD TO LAST. The census's only role was ground truth for
+> a result it never entered, and it was never read.**
+
+---
+
+## §8 — THE FIX APPLIED, THE STAGE NOT RUN
+
+**The one-line fix is APPLIED** — `sys.set_int_max_str_digits(200000)` at module scope — **so the
+instrument carries no known crash.** It changes no computed value; it only permits an integer
+already held in memory to be written out.
+
+**Verified against the exact condition that crashed**, not against a smaller proxy: at dps 4910 /
+prec 16378 a mantissa is **4911 digits**, and the chunk now writes and **reloads byte-identically**.
+
+**STAGE 7 IS NOT RUN.** Its registered purpose was to keep a null distinguishable from a shortfall,
+and **the detection discharges that purpose** — the run did not return a null. A tail run past the
+registered depth is priced (~17 h at measured rates) and awaits the author if ever wanted.
 
 ## PINS
 
 | repo | pin |
 |:--|:--|
-| PLACE-papers | `8527bad` → this pass's commit |
-| relay | `2f396cd` → this report's commit |
+| PLACE-papers | `892ac17` → this pass's commit |
+| relay | `9d957f1` → this report's commit |
 | SIDE-kernel `5e668b4` · lv `2f71068` · **rail `de621b1` / `2147a03`** | unmoved |
 
 Census held aside at 451 records, never consulted. **Nothing deposits.**
