@@ -1,1 +1,5 @@
 ﻿__pycache__/
+# Run byproducts: the production chunk bank is data, not source.
+# It stays ON DISK (it is the bank the completion report's lambda values were
+# recomputed from) but is not tracked -- 204 MB exceeds GitHub's 100 MB limit.
+tools/e16/epstein_li_v3_chunks.jsonl
