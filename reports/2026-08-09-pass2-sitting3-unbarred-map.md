@@ -53,7 +53,7 @@ anybody has cleared it.**
    leaves the other type **unbuilt, not excluded** (`W-ORD-CODIM-INSTRUMENT` open).
 2. **The T-membership question.** Face E certifies closure over **compositions** of T and **assumes**
    membership. **A tool that is arguably in T but not certified to be** sits outside the barrier's
-   proved scope — a gap in the barrier, not a route.
+   proved scope — an ASSUMPTION BOUNDARY in the barrier, not a route.
 3. **The character route (unfusion).** Separating ζ from the family via **the principal character's
    pole/Euler fusion** rather than via an off-line counterexample. **Untouched by Face E**, whose
    witness is an Epstein object, not a character twist.
@@ -75,15 +75,15 @@ positivity **jointly**.
 |:--|:-:|:-:|:-:|:-:|:-:|:--|
 | **(A) joint construction** | ? | ? | ? | ? | **✓ by construction** | **SURVIVES — unbarred, unscreened on i–iv** |
 | **(B1) codim-1 instrument** | ? | **✓** | ? | ? | ? | **SURVIVES on (ii); silent elsewhere** |
-| **(B2) T-membership gap** | **✗** | — | — | — | — | **CLOSED-BY-KEYHOLE — fails (i).** A tool inside T is Euler-product-free **by construction of T** |
+| **(B2) T-membership shortfall** | **✗** | — | — | — | — | **CLOSED-BY-KEYHOLE — fails (i).** A tool inside T is Euler-product-free **by construction of T** |
 | **(B3) character / unfusion route** | **✓** | ? | **✓** | ? | ? | **SURVIVES on (i) and (iii)** |
 | **(B4) the single indefinite term (C₂)** | **✓** | ? | ? | **✓** | ? | **SURVIVES on (i) and (iv)** |
 | **(B5) T3′ shared witness** | — | — | — | — | **✗** | **CLOSED-BY-KEYHOLE — fails (v).** It is a commutation route; it supplies neither operator nor positivity |
 | *(control)* the exclusion apparatus as built | **✗** | **✗** | — | — | — | **CLOSED — fails (i) and (ii); this is the stall, re-derived** |
 
-> **TWO DIRECTIONS CLOSE BY KEYHOLE, AND THAT IS A RESULT.** B2's gap in Face E's barrier cannot be
+> **TWO DIRECTIONS CLOSE BY KEYHOLE, AND THAT IS A RESULT.** B2's membership shortfall in Face E's barrier cannot be
 > a route, because anything genuinely inside T is Euler-product-free by T's construction — **the
-> barrier's assumption-gap is not an opening.** B5 fails the joint condition outright.
+> barrier's assumption boundary is not an opening.** B5 fails the joint condition outright.
 >
 > **FOUR SURVIVE, ALL WITH UNSCREENED CONDITIONS — which is not encouragement. No direction passes
 > all five; every survivor has "?" cells, and a "?" is unexamined, not satisfied.**

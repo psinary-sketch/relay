@@ -17,8 +17,8 @@ operator-with-positivity … the interesting complement rather than an oversight
 
 > **THE JOINT CONSTRUCTION IS NOT A ROUTE TO THE CLAUSE. IT *IS* THE CLAUSE.** It survives every
 > barrier for the trivial reason that **a target is not barred by the barriers around its
-> approaches.** My sitting-3 line implied a gap in the barrier coverage; the honest reading is that
-> the "gap" is the theorem itself, and the corpus said so before I looked.
+> approaches.** My sitting-3 line implied a LACUNA in the barrier coverage; the honest reading is that
+> the "lacuna" is the theorem itself, and the corpus said so before I looked.
 
 **And one instantiation of it already carries a published negative:**
 
@@ -172,7 +172,7 @@ DERIVED**; the geometric clause's ℚ-obstruction named as the missing family.
 |:--|:--|:--|
 | the exclusion apparatus as built | **BARRED** — Face E (i), codimension diagnosis (ii) | fully developed; this is the stall |
 | de Branges centre positivity | **BARRED-WITH-CITATION** — Conrey–Li 2000, *against the chain, not the frame* | corpus, fourth face of the wall |
-| T-membership gap in Face E | **CLOSED-BY-KEYHOLE** (i) — anything in T is Euler-product-free by construction | — |
+| T-membership shortfall in Face E | **CLOSED-BY-KEYHOLE** (i) — anything in T is Euler-product-free by construction | — |
 | T3′ shared witness | **CLOSED-BY-KEYHOLE** (v) | compiled |
 | codim-1 instrument | **CLOSED-BY-KEYHOLE (v) as a route; SURVIVING as a PRECONDITION** | `W-ORD-CODIM-INSTRUMENT`, open, unrun |
 | character / unfusion | **CLOSED-BY-KEYHOLE** (ii), (v); **surviving as a separation tool** | `F.2026-07-09-i`, finding grade |
