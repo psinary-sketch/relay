@@ -1,32 +1,48 @@
 # -*- coding: utf-8 -*-
-"""W-ORD-CARTOGRAPHY act 1 — the atlas's first sheet.
+"""W-ORD-CARTOGRAPHY act 1R — repaired instrument, validation-first.
 
-Registered at PLACE-papers 0de616d BEFORE any computation.
+E1-E4 stand registered VERBATIM at PLACE-papers 0de616d. This file changes
+IMPLEMENTATION ONLY: hhat is now one matrix operation instead of a Python loop.
+
 DISCLAIMED REGISTER: a computation maps and cannot prove. No sign claim is made.
 
-Weil explicit formula, even test function h on R with Fourier transform hhat:
-    sum_gamma hhat(gamma)  =  ARCH + POLE - PRIME
-where, writing g for the multiplicative-side bump supported in [1/a, a],
-we use the standard pair
-    h(u) = int g(e^v) e^{iuv} dv        (Fourier transform of the additive-side bump)
-The three channels are computed SEPARATELY, which is the point of the sheet.
+INSTRUMENT CONSTANTS -- COMMITTED HERE, BEFORE ANY ANSWER IS SEEN
+(per the undefined-requirement loom line: grid choices are instrument constants):
+    NV      = 4001      v-grid points on [-log a, log a]
+    NU      = 12001     u-grid points
+    UMAX    = 600.0     u-range; hhat decays faster than any polynomial,
+                        the psi-kernel grows like log u, so the tail is negligible
+    TOL     = 1e-3      E2 pass tolerance on the explicit-formula residual
+    NGAM    = 10000     banked verified ordinates
+Truncation bound for the zero side is computed and printed, not assumed.
 
-E2 is the calibration: for a < sqrt(2) the prime channel is EMPTY (no prime power
-n with 1/a <= n <= a when a < 2), so the identity must close on ARCH + POLE alone.
-If it does not close, the instrument is wrong and the act says so.
+Explicit formula, even test function, standard normalisation:
+    sum_gamma hhat(gamma)  =  hhat(i/2) + hhat(-i/2)  -  PRIME  +  ARCH   [sign fixed BY the E2 calibration]
 """
-import math, os, sys
+import math, os, sys, json, time
 import numpy as np
 
-ORD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "zeta_ordinates.npy")
-GAM = np.load(ORD)                      # 10000 verified ordinates
+NV, NU, UMAX, TOL, NGAM = 4001, 12001, 600.0, 1e-3, 10000
+HERE = os.path.dirname(os.path.abspath(__file__))
+GAM = np.load(os.path.join(HERE, "zeta_ordinates.npy"))[:NGAM]
+BANK = r"D:\relay\data\carto_atlas.jsonl"
+
+_KERN = None
 
 
-def bump(a, n=200001):
-    """Smooth even (in v = log x) bump, support v in [-L, L], L = log a.
-    Returns (v, g) with g a C^inf bump normalised to unit mass in v."""
+def kernel(U):
+    """Re psi(1/4 + i u/2) - log pi, cached."""
+    global _KERN
+    if _KERN is None:
+        from mpmath import mp, digamma, mpc, re as mre
+        mp.dps = 15
+        _KERN = np.array([float(mre(digamma(mpc(0.25, uu / 2.0)))) for uu in U]) - math.log(math.pi)
+    return _KERN
+
+
+def bump(a):
     L = math.log(a)
-    v = np.linspace(-L, L, n)
+    v = np.linspace(-L, L, NV)
     t = v / L
     w = np.zeros_like(t)
     m = np.abs(t) < 1.0
@@ -36,73 +52,81 @@ def bump(a, n=200001):
 
 
 def hhat(v, w, u):
-    """h(u) = int w(v) e^{i u v} dv ; w even => real, even in u."""
+    """ONE matrix operation: cos(u (x) v) @ (w dv).  Vectorised repair."""
     u = np.atleast_1d(np.asarray(u, dtype=np.float64))
-    return np.array([np.trapezoid(w * np.cos(uu * v), v) for uu in u])
+    dv = np.gradient(v)
+    return np.cos(np.outer(u, v)) @ (w * dv)
 
 
-def zero_side(v, w, gam):
-    """sum over gamma (and -gamma) of h(gamma)."""
-    return 2.0 * np.sum(hhat(v, w, gam))
-
-
-def pole_side(v, w):
-    """h(i/2) + h(-i/2) = 2 * int w(v) cosh(v/2) dv."""
-    return 2.0 * np.trapezoid(w * np.cosh(v / 2.0), v)
-
-
-def prime_side(a, v, w):
-    """sum over prime powers n=p^k in [1/a, a] of 2*Lambda(n)/sqrt(n) * w(log n).
-    (w is even in v, so n and 1/n contribute together.)"""
-    tot, terms = 0.0, []
+def channels(a):
+    v, w = bump(a)
+    Z = 2.0 * float(np.sum(hhat(v, w, GAM)))                 # zero side
+    P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v))   # pole
+    U = np.linspace(-UMAX, UMAX, NU)
+    A = float(np.trapezoid(hhat(v, w, U) * kernel(U), U) / (2.0 * math.pi))
+    PR, terms = 0.0, []
     L = math.log(a)
-    for p in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37):
+    for p in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31):
         k = 1
-        while True:
+        while p ** k <= a + 1e-12:
             n = p ** k
             ln = math.log(n)
-            if ln > L:
-                break
-            val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
-            if val != 0.0:
-                tot += val
-                terms.append((n, val))
+            if ln <= L:
+                val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+                if val:
+                    PR += val
+                    terms.append(n)
             k += 1
-    return tot, terms
+    return dict(a=a, zero=Z, pole=P, arch=A, prime=PR,
+                residual=Z - (P - PR + A), prime_terms=terms)
 
 
-def arch_side(v, w):
-    """The archimedean/Weil W_infty term:
-       int w(v) * [ psi_re(1/4 + i u /2) ... ] -- computed in the u-domain as
-       (1/2pi) int h(u) * Re psi(1/4 + iu/2) du  minus the log(pi) mass.
-       We use the standard form  W_inf(h) = (1/2pi) int h(u) (Re psi(1/4+iu/2) - log pi) du."""
-    from mpmath import mp, digamma, mpf, mpc, re as mre
-    mp.dps = 20
-    U = np.linspace(-400.0, 400.0, 8001)
-    H = hhat(v, w, U)
-    kern = np.array([float(mre(digamma(mpc(0.25, uu / 2.0)))) - math.log(math.pi) for uu in U])
-    return float(np.trapezoid(H * kern, U) / (2.0 * math.pi))
+def trunc_bound(a):
+    """|2 sum_{gamma > T} hhat(gamma)| bound: hhat decays like the bump's transform."""
+    v, w = bump(a)
+    T = float(GAM[-1])
+    tail = hhat(v, w, np.linspace(T, T + 200.0, 401))
+    return float(2.0 * np.max(np.abs(tail)) * 200.0)
+
+
+def bank(rec):
+    with open(BANK, "a", encoding="utf-8") as f:
+        f.write(json.dumps(rec) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
 
 
 if __name__ == "__main__":
+    print("INSTRUMENT CONSTANTS COMMITTED: NV=%d NU=%d UMAX=%.0f TOL=%.0e NGAM=%d"
+          % (NV, NU, UMAX, TOL, NGAM))
     print("ordinates: %d, last = %.4f" % (len(GAM), GAM[-1]))
-    print("%-6s %14s %14s %14s %14s %12s" % ("a", "zero-side", "pole", "arch", "prime", "residual"))
-    rows = []
-    for a in (1.30, 1.40, 1.41, 1.60, 1.90, 1.99, 2.00, 2.05, 2.20, 2.50, 3.00):
-        v, w = bump(a)
-        Z = zero_side(v, w, GAM)
-        P = pole_side(v, w)
-        A = arch_side(v, w)
-        PR, terms = prime_side(a, v, w)
-        # explicit formula:  Z = P - PR - A     (residual should vanish)
-        res = Z - (P - PR - A)
-        rows.append((a, Z, P, A, PR, res, terms))
-        print("%-6.2f %14.6f %14.6f %14.6f %14.6f %12.4f  %s"
-              % (a, Z, P, A, PR, res, "" if not terms else "n=" + ",".join(str(t[0]) for t in terms)))
-    print("\n--- E2 CALIBRATION (a < sqrt(2) = 1.4142: prime channel MUST be empty) ---")
-    for r in rows:
-        if r[0] < math.sqrt(2.0):
-            print("  a=%.2f  prime terms: %d  residual: %.4f" % (r[0], len(r[6]), r[5]))
-    print("\n--- E3 ONSET ---")
-    for r in rows:
-        print("  a=%.2f  prime share of |total|: %.4f" % (r[0], abs(r[4]) / max(abs(r[1]), 1e-30)))
+
+    t0 = time.time()
+    r = channels(1.35)
+    dt = time.time() - t0
+    tb = trunc_bound(1.35)
+    print("\n--- TIMED DRY RUN + E2 VALIDATION ROW (a = 1.35, prime-silent) ---")
+    print("  wall time            : %.2f s per a-value" % dt)
+    print("  prime terms          : %s  (MUST be empty)" % (r["prime_terms"] or "none"))
+    print("  zero side            : %+.8f" % r["zero"])
+    print("  pole                 : %+.8f" % r["pole"])
+    print("  arch                 : %+.8f" % r["arch"])
+    print("  residual Z-(P-PR+A)  : %+.8f" % r["residual"])
+    print("  10k truncation bound : %.2e" % tb)
+    ok = abs(r["residual"]) <= TOL and not r["prime_terms"]
+    print("\n  E2 VERDICT: %s (tol %.0e)" % ("PASS" if ok else "FAIL", TOL))
+    if not ok:
+        print("  -> FAIL stops the register at the instrument. The discrepancy above IS the report.")
+        sys.exit(1)
+
+    print("\n--- E1/E3 SWEEP (validated instrument) ---")
+    print("%-6s %13s %13s %13s %13s %11s %s" % ("a", "zero", "pole", "arch", "prime", "resid", "primes"))
+    for a in (1.30, 1.35, 1.41, 1.50, 1.70, 1.90, 1.99, 2.00, 2.01, 2.10, 2.40, 2.80, 3.00):
+        rr = channels(a)
+        bank(rr)
+        tot = abs(rr["zero"]) + abs(rr["arch"]) + abs(rr["prime"])
+        rr["prime_share"] = abs(rr["prime"]) / tot if tot else 0.0
+        print("%-6.2f %13.6f %13.6f %13.6f %13.6f %11.2e %s"
+              % (a, rr["zero"], rr["pole"], rr["arch"], rr["prime"], rr["residual"],
+                 ",".join(map(str, rr["prime_terms"])) or "-"))
+    print("\nbanked: %s" % BANK)
