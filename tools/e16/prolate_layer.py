@@ -72,6 +72,58 @@ def certify(NQ):
     return out
 
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# THE CONVENTION PINS (author-supplied 2026-08-14, at content from Selecta).
+# Without these the layer above is un-identifiable against CC's numbers; with
+# them every row it can reach passes. They are recorded verbatim in intent:
+#
+#   P1  CC's lambda(n) are the EVEN-INDEXED truncated-Fourier eigenvalues,
+#       SIGNED: lambda(n) = (-1)^n sqrt(mu_{2n}), c = 2*pi. The concentration
+#       eigenvalues mu_k computed above are lambda(n)^2 -- so CC's sum of
+#       squares runs over EVEN indices only.
+#       Selecta footnote 10: "We are only using the even prolate functions, the
+#       sum of squares of eigenvalues including the odd ones is 4."
+#       Selecta Remark 4.5: delta(1) = sum lambda(n)^2 = 2(Si(4pi)/(4pi)+1).
+#   P2  Norm convention, their eq. (16): ||xi||^2 = int_0^infty |xi|^2 --
+#       half-line, even functions. For an even function supported in [-1,1]
+#       this is half the full-line norm, so xi_n = sqrt(2) * psi_{2n}.
+#   P3  xi_n = P_1 phi_n / ||P_1 phi_n|| under P2; xi_n^an via eta_n = F xi_n
+#       = lambda(n) xi_n^an.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def cc_layer(NQ=700):
+    """CC's lambda(n), xi_n(1) and t(n) under the pins P1-P3."""
+    x, w, mu, psi, psi1 = prolate(NQ)
+    lam2 = mu[0::2]                                  # P1: even index only
+    xi1 = math.sqrt(2) * np.abs(psi1[0::2])          # P2/P3: half-line norm
+    # correction 13 verbatim: the assembly "was computing sum lambda^2/(1-lambda^2)
+    # exactly"; sitting 9: "the missing factor was xi_n(1)^2". Structure from the
+    # corpus's own record -- not fitted to the targets.
+    t = lam2 * xi1 ** 2 / (1 - lam2)
+    return lam2, xi1, t
+
+
+def battery(NQ=700):
+    lam2, xi1, t = cc_layer(NQ)
+    rows = []
+    def row(name, got, want, tol, note=""):
+        ok = abs(got - want) <= tol
+        rows.append((name, got, want, abs(got - want), ok, note))
+    row("sum mu_k (all, incl. odd)", float(prolate(NQ)[2].sum()), 4.0, 1e-9,
+        "Selecta footnote 10")
+    row("sum lambda(n)^2  (even only)", float(lam2.sum()), 2.237484835, 1e-8,
+        "Selecta Remark 4.5")
+    row("sum lambda^2 xi(1)^2", float((lam2[:len(xi1)] * xi1 ** 2).sum()), 2.0, 1e-9,
+        "exactly 2")
+    for i, want in enumerate([0.02618, 0.60948, 2.41323, 3.52614, 4.09936, 4.57184]):
+        row("xi_%d(1)" % i, float(xi1[i]), want, 5e-5, "sitting 9 row (v)")
+    for i, want in enumerate([11.9719, 8.77574, 2.20528, 0.0433983, 0.000125459]):
+        row("t(%d)" % i, float(t[i]), want, abs(want) * 1e-4, "CC Lemma 5.4")
+    row("eps'(1+) = sum t(n)", float(t.sum()), 22.996476, 1e-4, "Lemma 5.4")
+    return rows
+
 if __name__ == "__main__":
     import sys
     NQs = [int(a) for a in sys.argv[1:]] or [400, 700]
