@@ -1,0 +1,74 @@
+====================================================================================================================
+THE THIRD WINDOW — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+====================================================================================================================
+THE THIRD WINDOW — L = 256, r = 8: does the scaling limit stand across a sixteenfold range?
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THIS CELL EXISTS, AND IT IS THE DAY'S OWN LAW APPLIED TO THE DAY'S OWN CLAIM
+================================================================================
+2026-08-17 measured the remainder's positive family at L = 16 and L = 64 and found it FIXED
+in u = t/log L -- node-matched overlaps 0.9847, 0.9944, 0.9952, 0.9927, 0.9657 -- and filed
+that as a SCALING LIMIT.
+
+    ### THE STANDING LAW MINTED THIS MORNING: A LAW READ OFF A RANGE IS A LAW ABOUT THAT
+    ### RANGE -- ONE CELL OUTSIDE IS THE CHEAP DEFENCE.
+
+Two windows are a range. L = 256 (r = 8) is the cell outside it, and it makes the span
+sixteenfold in L and a factor of two in r.
+
+REGISTERED PREDICTIONS, PRINTED BEFORE ANY MEASUREMENT
+=======================================================
+S1  THE FAMILY. The first members at r = 8 match the r = 4 and r = 6 members by NODE COUNT,
+    in u, to the tolerance already seen (node-matched overlaps > 0.90, off-diagonals small).
+    ### IF THEY DO: the scaling limit stands at three windows spanning a factor of sixteen in
+    L, and the family is an object with a defined limit rather than a local coincidence.
+    ### IF THEY DRIFT: the u-agreement at 16-vs-64 was local, two windows were not a scaling
+    limit, and the day's claim is corrected by the day's own law -- which is the outcome the
+    law exists to produce and would be reported as the finding.
+
+S2  THE ANTI-ALIGNMENT RULE, CHECKED UNREFITTED AT r = 8.
+        R(v_n) ~ 2(1 - 1/r) cos(n pi / r)  =  1.75 * cos(n pi / 8)  at r = 8
+    giving, for n = 1..8:
+        +1.617, +1.237, +0.670, 0.000, -0.670, -1.237, -1.617, -1.750
+    ### AND THE SHARPENED RULE FROM THE r = 4 AND r = 6 CELLS -- positive exactly for
+    ### n < r/2, WITH THE BOUNDARY MODE n = r/2 FALLING NEGATIVE -- PREDICTS EXACTLY
+    ### THREE POSITIVE EXCEPTIONS AT r = 8: n = 1, 2, 3, with n = 4 negative.
+
+    ### A CORRECTION TO THIS BLOCK, MADE BEFORE ANY MEASUREMENT AND LEFT VISIBLE. The grid
+    ### gives r = 8.0014, so a literal 'n < r/2' admits n = 4 and would predict FOUR. That is
+    ### NOT the rule the r = 4 and r = 6 cells measured: there the boundary modes (n = 2 at
+    ### r = 4.0014, n = 3 at r = 6.0014) were BOTH admitted by the literal inequality and
+    ### BOTH came out NEGATIVE. The rule is therefore n <= round(r/2) - 1, which gives
+    ### 1, 2, 3 at r = 4, 6, 8 and reproduces both measured counts.
+    ### THE REGISTERED PREDICTION IS THREE. The literal-inequality count of four is recorded
+    ### beside it so that landing three cannot later be read as fitting the rule to the
+    ### answer.
+    Every window measured so far has had 1 (r = 4) and 2 (r = 6). ### THREE IS THE NEXT
+    ### VALUE AND IT IS WRITTEN DOWN BEFORE THE RUN.
+
+S3  NEGATIVE-DOMINANCE on the band r/2 < n < 3r/2, i.e. 4 < n < 12: every member in that
+    band has R < 0. It has held 3 of 3 at r = 4 and 5 of 5 at r = 6.
+
+    ### IF S2 GIVES 3: the mechanism has now predicted the exception count at two windows it
+    had never seen (2 at r = 6, 3 at r = 8) and the rule is worth stating as a candidate.
+    ### IF S2 GIVES ANYTHING ELSE: the cos model predicted the r = 6 change by luck, and the
+    rule is filed as an observation about r = 4 and r = 6 only.
+
+WHAT IS NOT CLAIMED EITHER WAY
+===============================
+### NO BOUND. A bound on |NPOS(A) - NPOS(S_k)| would additionally need (a) the family to be
+COMPLETE for A_main's positive part and (b) the CROSS TERMS between members under the lag
+form. Neither is in hand and neither is touched here. A diagonal sign pattern is not an
+inertia bound.
+
+Usage:  python ladder_third.py register | run
+
+  L       M       r = M/k   literal n<r/2  REGISTERED rule  measured     prediction
+  16      2773    4.0014    2              1                1            (already measured)
+  64      4159    6.0014    3              2                2            (already measured)
+  256     5545    8.0014    4              3                -            ### THREE
+
+  cos-model values at r = 8, n = 1..8:
+     +1.617  +1.238  +0.670  +0.000  -0.669  -1.237  -1.616  -1.750
+====================================================================================================================
