@@ -1,0 +1,90 @@
+========================================================================================================
+LEMMA 5.2 ADDENDUM — QUADRATURE FLOOR vs SERIES TAIL
+========================================================================================================
+LEMMA 5.2, ADDENDUM — is the term-tail a SERIES tail or a QUADRATURE floor?
+
+Relay-only, bench-grade. NO SIGN SENTENCE. NOTHING DEPOSITS.
+
+WHY THIS ADDENDUM EXISTS
+=========================
+lemma52_probe.py reported that the number of terms needed for 1e-11 relative accuracy grows
+with rho — 7 terms at rho = 1.5, 14 at rho = 3, "> 48" at rho = 6 and 8. Read as a series
+statement that is a REGIME-BOUND verdict.
+
+### BUT THE TERM LADDER DOES NOT LOOK LIKE A SLOWLY-CONVERGING SERIES. It looks like a fast
+### one sitting on a floor:
+
+    rho=20   1.0e+02  8.0e+01  3.8e+01  6.5e+00  3.7e-01  1.1e-02  1.5e-04  2.7e-07
+             3.2e-09 | 1.1e-07  6.3e-08  5.0e-09  2.1e-07  5.6e-07  4.3e-08  1.2e-09
+
+Terms 0..8 fall by eleven orders, monotonically. Terms 9.. sit at ~1e-7 and do NOT decay —
+and the level of that plateau GROWS with rho (about 1e-14 at rho = 1.5, about 1e-7 at
+rho = 20), which is the signature of a QUADRATURE ERROR, not of a series.
+
+### THE STANDING LAW THIS SITS UNDER: a false negative in a verification instrument is worse
+### than no instrument, since it invites a repair of something that is not broken. Reporting
+### "the series needs 48 terms at rho = 8" when the instrument's own noise is 1e-7 would be
+### exactly that.
+
+REGISTERED PREDICTION, BEFORE THE RUN
+======================================
+F1  IF the plateau is quadrature, refining NQ (the prolate grid) and NG (the C_n integral)
+    ### LOWERS THE PLATEAU AND LEAVES TERMS 0..8 UNCHANGED to the digits they already agree
+    on. The "terms needed" count then falls back toward ~9 at every rho, and Lemma F.1's
+    11-term claim survives at every rho tested.
+F2  IF the plateau is the series, refinement ### DOES NOT MOVE IT: the terms at n >= 9 are
+    real and the truncation requirement genuinely grows with rho. That is the REGIME-BOUND
+    verdict, and it would be named at the truncation rather than at the formula.
+
+    ### F1 IS THE EXPECTED OUTCOME AND IS WRITTEN DOWN AS SUCH, so landing it counts for
+    ### less and failing it counts for more.
+
+Usage:  python lemma52_floor.py
+
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+========================================================================================================
+NQ = 500 (prolate nodes)   NG = 300 (C_n quadrature)
+========================================================================================================
+  rho=3.0    n=0..8:  9.2e+00  2.8e+01  1.6e+01  7.2e-01  1.6e-01  2.7e-03  1.5e-05  1.5e-09  2.3e-09
+           plateau (median |term|, n=12..39) = 2.62e-12   11-term rel err = 1.07e-10   n needed = 19
+  rho=8.0    n=0..8:  5.5e+01  5.0e+01  2.4e+01  3.7e+00  1.2e-01  2.5e-03  1.8e-04  1.0e-07  1.2e-07
+           plateau (median |term|, n=12..39) = 1.12e-09   11-term rel err = 1.22e-08   n needed = 45
+  rho=20.0   n=0..8:  1.0e+02  8.0e+01  3.8e+01  6.5e+00  3.7e-01  1.1e-02  1.4e-04  6.8e-08  4.1e-07
+           plateau (median |term|, n=12..39) = 5.22e-09   11-term rel err = 1.48e-08   n needed = >48
+
+========================================================================================================
+NQ = 700 (prolate nodes)   NG = 400 (C_n quadrature)
+========================================================================================================
+  rho=3.0    n=0..8:  9.2e+00  2.8e+01  1.6e+01  7.2e-01  1.6e-01  2.7e-03  1.5e-05  7.2e-09  2.1e-12
+           plateau (median |term|, n=12..39) = 1.19e-12   11-term rel err = 1.07e-10   n needed = 14
+  rho=8.0    n=0..8:  5.5e+01  5.0e+01  2.4e+01  3.7e+00  1.2e-01  2.5e-03  1.8e-04  3.7e-07  5.5e-10
+           plateau (median |term|, n=12..39) = 1.02e-09   11-term rel err = 1.24e-08   n needed = >48
+  rho=20.0   n=0..8:  1.0e+02  8.0e+01  3.8e+01  6.5e+00  3.7e-01  1.1e-02  1.5e-04  2.7e-07  3.2e-09
+           plateau (median |term|, n=12..39) = 3.47e-09   11-term rel err = 4.02e-09   n needed = 22
+
+========================================================================================================
+NQ = 1000 (prolate nodes)   NG = 700 (C_n quadrature)
+========================================================================================================
+  rho=3.0    n=0..8:  9.2e+00  2.8e+01  1.6e+01  7.2e-01  1.6e-01  2.7e-03  1.5e-05  6.2e-11  6.8e-09
+           plateau (median |term|, n=12..39) = 1.59e-12   11-term rel err = 2.96e-10   n needed = 17
+  rho=8.0    n=0..8:  5.5e+01  5.0e+01  2.4e+01  3.7e+00  1.2e-01  2.5e-03  1.8e-04  1.7e-09  2.9e-07
+           plateau (median |term|, n=12..39) = 4.33e-10   11-term rel err = 1.50e-08   n needed = >48
+  rho=20.0   n=0..8:  1.0e+02  8.0e+01  3.8e+01  6.5e+00  3.7e-01  1.1e-02  1.4e-04  2.6e-08  7.0e-07
+           plateau (median |term|, n=12..39) = 1.61e-09   11-term rel err = 7.19e-09   n needed = >48
+
+========================================================================================================
+NQ = 1400 (prolate nodes)   NG = 1000 (C_n quadrature)
+========================================================================================================
+  rho=3.0    n=0..8:  9.2e+00  2.8e+01  1.6e+01  7.2e-01  1.6e-01  2.7e-03  1.5e-05  1.6e-08  1.3e-10
+           plateau (median |term|, n=12..39) = 2.05e-12   11-term rel err = 1.68e-11   n needed = 13
+  rho=8.0    n=0..8:  5.5e+01  5.0e+01  2.4e+01  3.7e+00  1.2e-01  2.5e-03  1.8e-04  8.2e-07  3.7e-09
+           plateau (median |term|, n=12..39) = 5.25e-10   11-term rel err = 5.00e-10   n needed = 24
+  rho=20.0   n=0..8:  1.0e+02  8.0e+01  3.8e+01  6.5e+00  3.7e-01  1.1e-02  1.4e-04  3.1e-07  2.3e-08
+           plateau (median |term|, n=12..39) = 1.51e-09   11-term rel err = 2.47e-10   n needed = >48
+
+========================================================================================================
+READ: if the n=0..8 columns are stable across the four settings while the plateau
+falls, F1 lands and the tail is the instrument. If the plateau is stable, F2 lands.
+========================================================================================================

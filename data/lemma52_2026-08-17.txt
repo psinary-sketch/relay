@@ -1,0 +1,180 @@
+====================================================================================================
+LEMMA 5.2 ON THE WIDE RANGE — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+====================================================================================================
+LEMMA 5.2 ON THE WIDE RANGE — the critical-path item, attacked from the supplied formulas.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHAT IS ON DISK AND WHAT IS NOT — SAID FIRST, BECAUSE IT BOUNDS EVERY VERDICT BELOW
+====================================================================================
+ON DISK, at content, supplied 2026-08-15 and banked in qeps_layer.py's docstring:
+    (b) xi_n^an and its derivative, DECLARED ENTIRE; zeta_n
+    (c) eps(rho), their (85), with the support law: integrand lives only on [rho^-1, 1]
+    (d) Qeps(rho), their Prop 5.3 / eq. (100), the three-term C_n(rho)
+    (e) K_I, N_I    (f) V, Y+, Phi
+    Lemma F.1's truncation claim, as a sentence: "first 11 terms uniform to 1e-11"
+
+NOT ON DISK: ### CC's STATEMENT OF LEMMA 5.2, AND CC's PROOF OF IT.
+    What the corpus records is two banked facts, both from the 2026-08-13 ferry supply
+    (relay reports/2026-08-13-attempt1-sitting7-read-banks-transfer.md 1.4):
+        "Prop 5.5 | hypothesis 'I subset [-log 2, log 2] of length <= log 2'"
+        "Lemma 5.2 | derived for rho in (1,2]"
+    and sitting 7's identification of what the debt actually is:
+        "THE (Qeps) SERIES' VALIDITY ON (1,3] IS EXACTLY Lemma 5.2's un-re-derived
+         extension."
+
+### THEREFORE THIS ACT DOES NOT AUDIT CC's PROOF. IT CANNOT: the proof is not here.
+### WHAT IT DOES IS RE-DERIVE FROM THE SUPPLIED FORMULAS, which is a different act with a
+### different scope, and the verdict is stated at that scope and no wider.
+    Kin, standing and binding here: A RETRIEVAL GLOSS IS NOT THE SOURCE. The Apostol rider
+    was reported BLOCKED rather than filled in from recall; the same discipline applies to a
+    lemma statement I do not hold.
+
+THE STRUCTURAL RE-DERIVATION, DONE ON PAPER BEFORE ANY NUMBER (recorded here, then tested)
+==========================================================================================
+Write the supplied (100) with the eigenvalue factors made explicit:
+
+    Qeps(rho) = sum_n [lam_n^2/(1-lam_n^2)] C_n(rho)
+
+    C_n(rho) = rho^(1/2)  int_{1/rho}^{1} [x (xi^an)'(x)][rho x (xi^an)'(rho x)] dx
+             + rho^(-3/2) (xi^an)'(1/rho) xi^an(1)
+             - rho^(3/2)  xi^an(1) (xi^an)'(rho)
+
+Every occurrence of xi^an carries a 1/lam, by its own supplied definition
+(b): xi_n^an = (2/lam) int_0^1 xi_n cos(2 pi t x) dt. Define the LAMBDA-FREE quantities
+
+    A_n(X) :=  2 int_0^1 xi_n(t) cos(2 pi t X) dt        = lam_n * xi_n^an(X)
+    D_n(X) := -4 pi int_0^1 t xi_n(t) sin(2 pi t X) dt   = lam_n * (xi_n^an)'(X)
+
+Every term of C_n is a PRODUCT OF EXACTLY TWO of these, so C_n = Chat_n / lam_n^2 with
+
+    Chat_n(rho) = rho^(1/2)  int_{1/rho}^{1} [x D_n(x)][rho x D_n(rho x)] dx
+                + rho^(-3/2) D_n(1/rho) A_n(1)
+                - rho^(3/2)  A_n(1) D_n(rho)
+
+### AND THEN THE PREFACTOR CANCELS EXACTLY:
+
+    [lam_n^2/(1-lam_n^2)] * C_n(rho) = Chat_n(rho) / (1 - lam_n^2)
+
+### THE Qeps SERIES CARRIES NO EIGENVALUE-DECAY FACTOR AT ALL. The lam^2 that looks like it
+### supplies convergence is consumed by the two analytic continuations, and 1/(1-lam_n^2)
+### tends to 1. Convergence rests ENTIRELY on Chat_n(rho) -> 0, i.e. on the decay of the
+### prolate functions' own Fourier transforms sampled at frequencies up to rho.
+
+TWO SEPARATE QUESTIONS, WHICH THE VERDICT MUST NOT CONFLATE
+-----------------------------------------------------------
+(Q1) THE FORMULA. Does (100) as an expression have a rho-restriction?
+     Structurally: NO, and this is settled on paper. xi^an and (xi^an)' are DECLARED ENTIRE
+     by the supplied (b); the integral runs over [1/rho, 1], a bounded interval inside (0,1]
+     for every rho >= 1; the two boundary terms evaluate entire functions at the finite
+     points 1/rho, 1, rho. ### NO STEP IN (100) DEGRADES AT rho = 2, AT rho = 3, OR ANYWHERE.
+     The overlap [rho^-1, 1] SHRINKS as rho grows, which is the opposite of an obstruction.
+(Q2) THE SERIES. Does sum_n Chat_n(rho)/(1-lam_n^2) converge, and does the 11-term
+     truncation hold, at each rho? ### THIS IS NOT SETTLED ON PAPER and it is what this file
+     measures. It is also exactly what sitting 7 named the debt to be.
+
+REGISTERED PREDICTIONS, BOTH BRANCHES LONGHAND, BEFORE ANY NUMBER IS READ
+=========================================================================
+P-STRUCT  The lambda-cancellation above is exact, so the 11-term partial sum of
+          Chat_n/(1-lam^2) must reproduce qeps_layer.Qeps(rho) to quadrature precision at
+          every rho. ### BLOCKING: if it does not, the re-derivation is wrong and no verdict
+          is read from anything below.
+
+P-A  (the REGIME-FREE branch, written out) IF |Chat_n(rho)| decays geometrically in n at
+     every rho tested, with the 11-term tail staying below ~1e-10 relative, THEN the series
+     inherits no rho-restriction from its truncation either, Lemma F.1's constant travels,
+     ### the debt clears for every banked row, and the record's dependency notes retire in
+     one pass.
+
+P-B  (the REGIME-BOUND branch, written out) IF the required term count GROWS with rho -- as
+     the structure suggests it must, since Chat_n samples xi_n's transform at frequencies up
+     to rho and a prolate function of index n has no small transform below its own
+     bandwidth -- THEN the obstruction is NOT in the formula but in the TRUNCATION, the
+     affected rows are exactly those computed at NTERM = 11 beyond the rho where 11 stops
+     sufficing, ### and the honest repair is to raise NTERM per rho rather than to bound rho.
+     The verdict then names rho*(11) := the largest rho at which 11 terms hold to 1e-11.
+
+     ### P-B IS THE PREDICTION THIS FILE EXPECTS TO LAND, AND IT IS WRITTEN DOWN AS SUCH SO
+     ### THAT LANDING IT COUNTS FOR LESS AND FAILING IT COUNTS FOR MORE.
+
+P-C  Qeps(rho) is smooth across rho = 2 and rho = 3 -- no kink, no pole, no branch. A
+     representation that genuinely failed past rho = 2 would almost always show it here.
+     ### A NULL HERE IS WEAK EVIDENCE AND IS LABELLED WEAK: smoothness of a computed
+     truncation cannot certify a series it truncates.
+
+Usage:  python lemma52_probe.py register
+        python lemma52_probe.py run
+
+  rho ladder: [1.5, 2.0, 2.5, 3.0, 4.0, 6.0, 8.0, 12.0, 16.0, 20.0]
+  terms computed per rho: 48  (Lemma F.1's claim is about the first 11)
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+====================================================================================================
+P-STRUCT (BLOCKING) — the lambda-cancellation, against qeps_layer's own Qeps
+====================================================================================================
+  rho      sum_{n<11} Chat/(1-lam2) qeps_layer.Qeps        rel. diff
+  1.5      -51.6916489651         -51.6916489651         6.60e-15 
+  2.0      42.6454344427          42.6454344427          6.66e-16 
+  2.5      -35.1017633945         -35.1017633945         1.21e-15 
+  3.0      21.9137000351          21.9137000351          9.73e-15 
+  4.0      5.10146455646          5.10146455646          5.22e-14 
+  6.0      -14.1436202477         -14.1436202477         1.21e-14 
+  8.0      -25.1559088179         -25.1559088179         4.24e-15 
+  12.0     -38.7495870719         -38.7495870719         1.54e-14 
+  16.0     -48.0031468578         -48.0031468578         6.81e-15 
+  20.0     -55.3656125669         -55.3656125669         1.03e-15 
+
+  P-STRUCT: PASS — the re-derivation is the same object
+
+====================================================================================================
+P-A / P-B — TERM DECAY AND THE TRUNCATION, PER rho
+====================================================================================================
+  rho     |term_0|      |term_10|     max|term_n>=11| tail>=11    |Qeps|      n for 1e-11 rel
+  1.5     5.1581e+01    2.0784e-14    2.7325e-13    5.921e-13   -51.69      7
+  2.0     4.3022e+01    3.6014e-14    6.7959e-13    1.745e-12   42.65       7
+  2.5     2.4225e+01    1.3290e-11    1.7539e-10    3.501e-10   -35.1       11
+  3.0     9.1503e+00    7.6881e-11    1.0487e-09    2.372e-09   21.91       14
+  4.0     1.3151e+01    1.6984e-09    2.4678e-08    4.989e-08   5.101       47
+  6.0     3.9058e+01    5.1226e-09    5.6470e-08    1.167e-07   -14.14      ### > 48
+  8.0     5.4849e+01    3.1687e-08    1.4444e-07    3.395e-07   -25.16      ### > 48
+  12.0    7.5881e+01    4.1100e-08    1.0373e-07    2.978e-07   -38.75      32
+  16.0    9.1177e+01    3.7762e-08    2.4285e-07    6.928e-07   -48         43
+  20.0    1.0379e+02    6.3219e-08    5.5984e-07    1.038e-06   -55.37      22
+
+  --- per-rho term ladder, |term_n|, n = 0 .. 15 ---
+  rho=1.5     5.2e+01  9.7e+00  8.9e+00  6.7e-01  5.7e-03  1.5e-05  1.6e-08  1.8e-12  6.4e-16  3.2e-14  2.1e-14  1.8e-13  9.2e-14  2.7e-13  1.3e-14  5.8e-15
+  rho=2.0     4.3e+01  1.8e+01  1.7e+01  1.8e+00  2.0e-02  6.5e-05  7.4e-08  5.9e-12  7.6e-15  7.2e-16  3.6e-14  6.8e-13  2.5e-13  3.9e-13  2.0e-14  6.4e-14
+  rho=2.5     2.4e+01  2.6e+01  1.5e+01  1.1e+00  2.4e-02  5.1e-04  2.5e-06  9.7e-10  5.4e-13  2.0e-11  1.3e-11  9.5e-11  5.3e-11  1.8e-10  7.1e-12  2.5e-12
+  rho=3.0     9.2e+00  2.8e+01  1.6e+01  7.2e-01  1.6e-01  2.7e-03  1.5e-05  7.2e-09  2.1e-12  1.3e-10  7.7e-11  7.2e-10  3.9e-10  1.0e-09  4.7e-11  2.7e-11
+  rho=4.0     1.3e+01  3.4e+01  1.7e+01  1.6e+00  1.1e-01  4.5e-03  1.1e-04  1.4e-07  7.7e-11  2.6e-09  1.7e-09  1.3e-08  8.0e-09  2.5e-08  8.4e-10  4.8e-10
+  rho=6.0     3.9e+01  4.3e+01  2.1e+01  2.9e+00  2.4e-02  6.0e-03  1.3e-04  3.1e-07  1.0e-10  1.2e-08  5.1e-09  5.6e-08  5.5e-09  1.9e-08  1.4e-09  7.8e-10
+  rho=8.0     5.5e+01  5.0e+01  2.4e+01  3.7e+00  1.2e-01  2.5e-03  1.8e-04  3.7e-07  5.5e-10  8.2e-09  3.2e-08  7.8e-08  5.3e-08  1.4e-07  6.4e-09  2.8e-09
+  rho=12.0    7.6e+01  6.2e+01  2.9e+01  4.8e+00  2.4e-01  3.7e-03  6.7e-05  9.7e-07  4.2e-10  2.3e-09  4.1e-08  4.2e-08  1.0e-07  3.6e-08  1.3e-08  2.1e-08
+  rho=16.0    9.1e+01  7.1e+01  3.4e+01  5.7e+00  3.1e-01  7.7e-03  5.4e-05  1.1e-06  1.4e-09  7.9e-08  3.8e-08  1.3e-07  1.1e-07  2.4e-07  3.7e-08  2.7e-08
+  rho=20.0    1.0e+02  8.0e+01  3.8e+01  6.5e+00  3.7e-01  1.1e-02  1.5e-04  2.7e-07  3.2e-09  1.1e-07  6.3e-08  5.0e-09  2.1e-07  5.6e-07  4.3e-08  1.2e-09
+
+  --- the 11-term truncation's RELATIVE error, per rho ---
+  rho      sum_{n<11}       sum_{n<48}       rel. error of 11 terms
+  1.5      -51.69164897     -51.69164897     1.13e-14   within 1e-11
+  2.0      42.64543444      42.64543444      1.83e-14   within 1e-11
+  2.5      -35.10176339     -35.10176339     9.94e-12   within 1e-11
+  3.0      21.91370004      21.91370004      1.07e-10   ### 14 terms needed
+  4.0      5.101464556      5.101464507      9.73e-09   ### 47 terms needed
+  6.0      -14.14362025     -14.14362014     7.28e-09   ### >48 terms
+  8.0      -25.15590882     -25.15590913     1.24e-08   ### >48 terms
+  12.0     -38.74958707     -38.74958726     4.81e-09   ### 32 terms needed
+  16.0     -48.00314686     -48.00314657     6.04e-09   ### 43 terms needed
+  20.0     -55.36561257     -55.36561234     4.02e-09   ### 22 terms needed
+
+  rho*(11) — the largest rho on this ladder at which 11 terms hold to 1e-11: 2.5
+
+====================================================================================================
+P-C — SMOOTHNESS OF Qeps ACROSS rho = 2 AND rho = 3 (weak evidence, labelled weak)
+====================================================================================================
+  rho=2.0  Qeps=42.6454344   left slope 54.84158 | right slope 46.40417   jump 8.44e+00   Qeps'' -2812.52
+  rho=3.0  Qeps=21.9137   left slope -179.7185 | right slope -182.8797   jump 3.16e+00   Qeps'' -1053.77
+  rho=4.0  Qeps=5.10146456   left slope -217.2798 | right slope -217.9925   jump 7.13e-01   Qeps'' -237.586
+
+  A kink would show as a slope jump of the order of the slope itself.

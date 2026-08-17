@@ -1,0 +1,153 @@
+============================================================================================================
+WONDER ONE — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+============================================================================================================
+WONDER ONE — THE COUNT-FREEZING CONJECTURE: stated, DERIVED at Toeplitz level, then tested.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+This is about the remainder route's failure COUNT only.
+
+THE CONJECTURE, AS THE FERRY STATES IT
+=======================================
+    "for the lag form (eta * eta^*)(l) on a window of length Lambda >= 2l, the number of
+     negative directions on V is a fixed function of l/omega, independent of Lambda"
+
+Named precisely, with the object named: let k = round(l/omega) be the lag's address in grid
+points and M = round(Lambda/omega) the window's. The measured object is
+
+    NPOS(M, k) := #{ positive eigenvalues of the Phi matrix restricted to V }
+
+and 2026-08-17 measured NPOS = min(k, M - k) to within one grid point, over
+Lambda/l = M/k in [1.68, 2.81]. The conjecture is the M >= 2k half of that: NPOS = k,
+independent of M.
+
+### THE DERIVATION BELOW SETTLES THE CONJECTURE AND SHOWS IT IS FALSE AS STATED — the
+### freezing is real but it is a WINDOW PHENOMENON, not a law, and it ends at Lambda = 3l.
+
+THE DERIVATION — EXACT, ELEMENTARY, AND COMPLETE FOR THE PURE LAG FORM
+=======================================================================
+The lag term in Phi is, on the grid, a constant times the symmetric matrix
+
+    (S_k)_{ij} = 1 if |i - j| = k,  else 0        (M x M, 1 <= k < M)
+
+STEP 1 — S_k DECOUPLES INTO PATHS. i ~ j only when i = j +/- k, so the index set
+{0,...,M-1} splits into the k residue classes mod k, and S_k acts on each class
+{r, r+k, r+2k, ...} as the adjacency matrix of a PATH GRAPH on its members.
+Writing M = q k + s with 0 <= s < k: ### s chains have length q+1 and k - s have length q.
+
+STEP 2 — THE PATH SPECTRUM IS CLASSICAL AND SYMMETRIC. The adjacency matrix of P_m has
+eigenvalues 2 cos(pi j/(m+1)), j = 1..m. They are symmetric about 0, and
+### nullity(P_m) = 1 if m is ODD, 0 if m is EVEN (the j = (m+1)/2 mode).
+
+STEP 3 — INERTIA BY COUNTING. Symmetry gives #positive = #negative, so
+
+    ### NPOS(S_k) = ( M - nullity(S_k) ) / 2,     nullity(S_k) = #odd-length chains
+                                                 = s      if q is EVEN
+                                                 = k - s  if q is ODD
+
+STEP 4 — EVALUATE. With M = qk + s:
+    q = 1 :  NPOS = (M - (k - s))/2 = s      = M - k        <- the ROOM branch
+    q = 2 :  NPOS = (M - s)/2       = k                     <- the LAG branch
+    q = 3 :  NPOS = (M - (k - s))/2 = k + s   = M - 2k
+    q = 4 :  NPOS = (M - s)/2       = 2k
+    generally, q = 2m-1 : NPOS = M - m k        q = 2m : NPOS = m k
+
+### SO min(k, M-k) IS EXACTLY RIGHT FOR k <= M < 3k AND EXACTLY WRONG BEYOND IT.
+
+STEP 5 — THE CONTINUUM FORM. With r := M/k = log L / log 2 = Lambda/l,
+    r in [2m-1, 2m) : fraction -> 1 - m/r        r in [2m, 2m+1) : fraction -> m/r
+### A SAWTOOTH. Peaks at exactly 1/2 at r = 2m, i.e. L = 4, 16, 64, ...
+### Troughs at m/(2m+1) at r = 2m+1, i.e. L = 8, 32, 128, ... (values 1/3, 2/5, 3/7, ...)
+The 2026-08-17 "two-branch law" is ### THE FIRST TWO TEETH, and every L measured that day
+had r < 3.
+
+### WHAT THIS DERIVATION IS AND IS NOT
+It is an exact theorem about the PURE lag form S_k. The measured object is
+A = A_main + c*(omega/2)*S_k restricted to V, where A_main = omega * Y^T N_I Y. The
+derivation says nothing about A_main. Empirically A_main moved the count by at most one
+offender for r < 3; ### WHETHER THAT PERSISTS FOR r > 3 IS EXACTLY WHAT IS MEASURED BELOW,
+### AND IT IS NOT PREDICTED BY THE DERIVATION.
+Two further slacks, both bounded: the V restriction is a rank-one compression, so by Cauchy
+interlacing it changes NPOS by at most 1; and rounding gives k, M as integers, handled by
+evaluating the chain formula on the actual integers rather than in the continuum.
+
+REGISTERED PREDICTIONS, BEFORE ANY NUMBER
+==========================================
+For each L the two candidates are computed from the ACTUAL (M, k) and printed first:
+    CHAIN  := (M - nullity)/2 from step 3          MIN := min(k, M - k)
+They coincide for r < 3 and separate sharply above it.
+
+P1  At L = 8.0 (r = 3.000, the trough) CHAIN and MIN agree; the row is a CONTINUITY CHECK
+    and discriminates nothing. Registered as non-discriminating so it cannot later be
+    counted as support.
+P2  At L = 9, 12, 16, 20 the two differ by 0.054, 0.163, 0.250, 0.231 in fraction.
+    ### THE MEASUREMENT FALLS WITHIN 3 OFFENDERS OF CHAIN AND FAR FROM MIN.
+    Then: the lag branch and the room branch are both DERIVED as the q = 2 and q = 1 cases
+    of one exact combinatorial theorem, the 2026-08-17 "two-branch law" is superseded by the
+    sawtooth, and the freezing conjecture is answered NO — the count freezes only while
+    2 <= r < 3.
+P3  IF the measurement instead tracks MIN, the derivation is right about S_k and wrong about
+    the operator: A_main would then be doing work of order the whole count, not one offender,
+    and ### the finding is that the lag form does NOT govern the count outside r < 3.
+P4  IF it tracks NEITHER, both are refuted, the numbers are reported as measured, and the
+    obstacle is named as A_main's uncontrolled contribution at large r.
+
+Usage:  python wonder1_freeze.py register
+        python wonder1_freeze.py run
+
+============================================================================================================
+THE TWO CANDIDATES, COMPUTED FROM THE ACTUAL (M, k) — BEFORE ANY MEASUREMENT
+============================================================================================================
+  L      omega      M       k      q      s      null  CHAIN      MIN        fractions (chain | min)
+  8.0    2.0e-03    1040    347    2      346    346   347        347        0.333975 | 0.333975
+  8.0    1.0e-03    2079    693    3      0      693   693        693        0.333494 | 0.333494
+  9.0    2.0e-03    1099    347    3      58     289   405        347        0.368852 | 0.316029
+  9.0    1.0e-03    2197    693    3      118    575   811        693        0.369308 | 0.315574
+  9.0    5.0e-04    4394    1386   3      236    1150  1622       1386       0.369224 | 0.315502
+  12.0   2.0e-03    1242    347    3      201    146   548        347        0.441579 | 0.279613
+  12.0   1.0e-03    2485    693    3      406    287   1099       693        0.442432 | 0.278986
+  16.0   2.0e-03    1386    347    3      345    2     692        347        0.499639 | 0.250542
+  16.0   1.0e-03    2773    693    4      1      1     1386       693        0.500000 | 0.250000
+  20.0   2.0e-03    1498    347    4      110    110   694        347        0.463594 | 0.231797
+  20.0   1.0e-03    2996    693    4      224    224   1386       693        0.462771 | 0.231386
+============================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  eps'(1+) = 22.9964757
+
+      [Q_eps table: omega=2.0e-03, nmax=1498, 41.9 s]
+      [Q_eps table: omega=1.0e-03, nmax=2996, 77.3 s]
+      [Q_eps table: omega=5.0e-04, nmax=4394, 120.5 s]
+
+======================================================================================================================
+THE MEASUREMENT — one lag (log 2), on V, all rows
+======================================================================================================================
+  L      omega      M       measured     CHAIN      MIN        meas-CHAIN  meas-MIN    verdict
+  8.0    2.0e-03    1040    348/1039     347        347        +1          +1          ### CHAIN
+  8.0    1.0e-03    2079    694/2078     693        693        +1          +1          ### CHAIN
+  9.0    2.0e-03    1099    406/1098     405        347        +1          +59         ### CHAIN
+  9.0    1.0e-03    2197    812/2196     811        693        +1          +119        ### CHAIN
+  9.0    5.0e-04    4394    1623/4393    1622       1386       +1          +237        ### CHAIN
+  12.0   2.0e-03    1242    549/1241     548        347        +1          +202        ### CHAIN
+  12.0   1.0e-03    2485    1100/2484    1099       693        +1          +407        ### CHAIN
+  16.0   2.0e-03    1386    692/1385     692        347        +0          +345        ### CHAIN
+  16.0   1.0e-03    2773    1386/2772    1386       693        +0          +693        ### CHAIN
+  20.0   2.0e-03    1498    694/1497     694        347        +0          +347        ### CHAIN
+  20.0   1.0e-03    2996    1386/2995    1386       693        +0          +693        ### CHAIN
+======================================================================================================================
+  cells tracking CHAIN: 11   MIN: 0   NEITHER: 0   (of 11)
+  DISCRIMINATING cells only (L != 8.0, where the candidates differ): 9 of 9 track CHAIN
+
+  --- fractions against the sawtooth, continuum form ---
+  L      r = M/k    measured     sawtooth     min-law     
+  8.0    2.9971     0.334937     0.333975     0.333975    
+  8.0    3.0000     0.333975     0.333494     0.333494    
+  9.0    3.1671     0.369763     0.368852     0.316029    
+  9.0    3.1703     0.369763     0.369308     0.315574    
+  9.0    3.1703     0.369451     0.369224     0.315502    
+  12.0   3.5793     0.442385     0.441579     0.279613    
+  12.0   3.5859     0.442834     0.442432     0.278986    
+  16.0   3.9942     0.499639     0.499639     0.250542    
+  16.0   4.0014     0.500000     0.500000     0.250000    
+  20.0   4.3170     0.463594     0.463594     0.231797    
+  20.0   4.3232     0.462771     0.462771     0.231386    
