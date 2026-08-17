@@ -1,0 +1,162 @@
+==============================================================================================================
+A_MAIN IDENTIFIED — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+==============================================================================================================
+A_MAIN IDENTIFIED — what are the 2-3 positive directions of the remainder on V?
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THIS SITTING EXISTS
+========================
+The sawtooth NPOS(S_k) = (M - nullity)/2 is a THEOREM about the pure lag form. The measured
+operator is A = A_main + c(omega/2) S_k restricted to V, and it agrees with the theorem to
+within ONE offender at every cell tested (r = 1 .. 4.3). Two wonders are held open by the
+same fact:
+
+    ### A_main IS NOT NEGATIVE SEMIDEFINITE. It has 2-3 POSITIVE EIGENVALUES on V
+    ### (measured 2026-08-17 at L = 4.6, 5.5, 7.0: 2, 3, 3 out of 1525-1945 dimensions).
+
+That is the whole obstacle. If those few directions are a FIXED subspace -- the same
+functions at every L -- then a bound on their coupling to the lag form closes both wonders
+at once. If they MOVE with L, the obstacle is not a fixed finite-dimensional defect and must
+be named as moving.
+
+THE QUESTION, POSED EXACTLY
+============================
+### ARE THE POSITIVE DIRECTIONS OF A_main THE SAME 2-3 DIRECTIONS ACROSS L, OR L-DEPENDENT?
+
+Measured at L in {4.6, 8, 16}, omega = 1e-3 throughout, so the t-grid spacing is identical
+and the shorter windows are literal PREFIXES of the longer. Overlaps are therefore taken in
+the UNSCALED coordinate t by zero-extension -- no interpolation, no rescaling -- and also in
+the RESCALED coordinate u = t/log L, because those two disagree exactly when the answer is
+"the modes follow the window" rather than "the modes follow the lag".
+
+WHAT IS MEASURED, PER POSITIVE EIGENVECTOR
+===========================================
+  parity      <v, reverse(v)> / <v,v>   -> +1 even about the window midpoint, -1 odd
+  nodes       number of sign changes
+  centroid    of v^2 in t, and in t/log L
+  head mass   fraction of v^2 lying in the first log 2 of the window
+  smoothness  ||second difference of v|| / (||v|| / omega^2), a dimensionless roughness
+  RAYLEIGH    v^T S_k v / v^T v         -> the coupling to the lag form, which is the
+                                           quantity a closing bound would have to control
+  overlap     against the log-2 K_I low modes, and pairwise across L
+
+REGISTERED EXPECTATION, AND BOTH BRANCHES LONGHAND
+===================================================
+### REGISTERED: FIXED SUBSPACE, AND IT IS THE log-2 LOW MODES.
+The corpus's log-2 gate carries three appreciable K_I eigenvalues with parities even / odd /
+even and a cliff at n = 3 (0.0289); the first is the even offender with c_0 ~ 0.951 and the
+second is the odd one. The expectation is that A_main's positive directions ARE those modes:
+same count at every L, unscaled pairwise overlaps near 1, head mass concentrated in the first
+log 2, parities even then odd.
+
+  IF FIXED: the positive index of A_main is a fixed finite defect living at the lag's own
+  scale. Then |NPOS(A) - NPOS(S_k)| is bounded by that index for every L, which is exactly
+  the bound the sawtooth's operator half needs; and the coefficient silence follows from the
+  same bound, since a fixed subspace cannot track a coefficient that scales the rest.
+  ### BOTH WONDERS CLOSE ON ONE MEASURED CONSTANT.
+
+  IF L-DEPENDENT -- the count grows with L, or the unscaled overlaps fall while the RESCALED
+  ones stay high (modes following the window, not the lag) -- then there is no fixed defect
+  to bound. ### THE OBSTACLE IS NAMED AS MOVING, correction twenty is written from it, and
+  the sawtooth's operator half stays bench-grade with a reason rather than a slack.
+
+  A third outcome is registered because it is genuinely possible: the count is fixed but the
+  modes are neither the log-2 modes nor stable -- ### a fixed-DIMENSION, moving-DIRECTION
+  defect, which bounds the count but not the coupling, closing wonder one and not wonder two.
+
+Usage:  python amain_identify.py register
+        python amain_identify.py run
+
+  L values: [4.6, 8.0, 16.0]   omega = 1.0e-03   grids M = [1526, 2079, 2773]
+  k_2 = round(log 2 / omega) = 693  (the log-2 window is the first 693 grid points)
+==============================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+      [Q_eps table: omega=1.0e-03, nmax=2773, 72.9 s]
+
+==============================================================================================================
+THE log-2 K_I LOW MODES (the corpus's gate), on 693 grid points
+==============================================================================================================
+  mode 0: eigenvalue 1.051521     parity +1.0000 (EVEN)
+  mode 1: eigenvalue 0.686263     parity -1.0000 (ODD)
+  mode 2: eigenvalue 0.028579     parity +1.0000 (EVEN)
+  banked gate triple: 1.051772 / 0.687924 / 0.029692, parities even/odd/even
+
+==============================================================================================================
+L = 4.6
+==============================================================================================================
+  M = 1526   dim V = 1525   ### NPOS(A_main) = 2   lam_max = 8.250335e-04  lam_min = -5.152870e-04
+  #    eigenvalue     parity    nodes  centroid t  centroid u  head mass   roughness    RAYLEIGH vs S_k
+  0    8.250335e-04   -0.8909 (ODD ) 1      0.87206     0.57147     0.34202     11.64        -0.566199
+  1    2.969652e-04   +0.9713 (EVEN) 2      0.79174     0.51883     0.40060     40.56        -1.145179
+
+  overlap with the log-2 K_I low modes (first 693 points, renormalized):
+    v0 : |<v,mode0>| = 0.9185   |<v,mode1>| = 0.3664   |<v,mode2>| = 0.0906
+    v1 : |<v,mode0>| = 0.0549   |<v,mode1>| = 0.9818   |<v,mode2>| = 0.0037
+
+==============================================================================================================
+L = 8.0
+==============================================================================================================
+  M = 2079   dim V = 2078   ### NPOS(A_main) = 4   lam_max = 1.206498e-03  lam_min = -5.420312e-04
+  #    eigenvalue     parity    nodes  centroid t  centroid u  head mass   roughness    RAYLEIGH vs S_k
+  0    1.206498e-03   -0.8071 (ODD ) 1      1.23243     0.59280     0.28614     6.934        +0.130358
+  1    5.919019e-04   +0.9475 (EVEN) 2      1.09196     0.52523     0.19517     15.66        -1.065685
+  2    2.309612e-04   -0.9728 (ODD ) 3      1.06671     0.51309     0.32530     50.12        -1.293714
+  3    1.089047e-05   +0.9894 (EVEN) 4      1.05011     0.50510     0.42599     2331         -0.342608
+
+  overlap with the log-2 K_I low modes (first 693 points, renormalized):
+    v0 : |<v,mode0>| = 0.9667   |<v,mode1>| = 0.1478   |<v,mode2>| = 0.1541
+    v1 : |<v,mode0>| = 0.6255   |<v,mode1>| = 0.7646   |<v,mode2>| = 0.0019
+    v2 : |<v,mode0>| = 0.0651   |<v,mode1>| = 0.9818   |<v,mode2>| = 0.0331
+    v3 : |<v,mode0>| = 0.3124   |<v,mode1>| = 0.7322   |<v,mode2>| = 0.4645
+
+==============================================================================================================
+L = 16.0
+==============================================================================================================
+  M = 2773   dim V = 2772   ### NPOS(A_main) = 5   lam_max = 1.628082e-03  lam_min = -5.561451e-04
+  #    eigenvalue     parity    nodes  centroid t  centroid u  head mass   roughness    RAYLEIGH vs S_k
+  0    1.628082e-03   -0.6797 (ODD ) 1      1.70680     0.61551     0.21628     4.3          +0.750771
+  1    8.867146e-04   +0.9091 (EVEN) 2      1.47744     0.53280     0.15449     8.998        -0.407032
+  2    5.116995e-04   -0.9545 (ODD ) 3      1.43200     0.51641     0.16434     17.88        -1.369887
+  3    2.587867e-04   +0.9748 (EVEN) 4      1.41166     0.50907     0.23940     39.22        -1.475563
+  4    6.265932e-05   -0.9835 (ODD ) 5      1.40302     0.50596     0.31370     250.7        -0.801723
+
+  overlap with the log-2 K_I low modes (first 693 points, renormalized):
+    v0 : |<v,mode0>| = 0.9668   |<v,mode1>| = 0.0717   |<v,mode2>| = 0.1845
+    v1 : |<v,mode0>| = 0.9073   |<v,mode1>| = 0.3929   |<v,mode2>| = 0.0893
+    v2 : |<v,mode0>| = 0.5694   |<v,mode1>| = 0.8061   |<v,mode2>| = 0.0083
+    v3 : |<v,mode0>| = 0.0541   |<v,mode1>| = 0.9826   |<v,mode2>| = 0.0177
+    v4 : |<v,mode0>| = 0.2294   |<v,mode1>| = 0.9143   |<v,mode2>| = 0.2614
+
+==============================================================================================================
+ACROSS L — the question the sitting was called to answer
+==============================================================================================================
+  counts: L=4.6 -> 2, L=8.0 -> 4, L=16.0 -> 5
+
+  UNSCALED overlaps (same omega, shorter zero-extended — no rescaling):
+    L=4.6 vs L=8.0
+      v0 : 0.8980  0.8344  0.1359  0.0818
+      v1 : 0.2712  0.4854  0.9641  0.1513
+    L=4.6 vs L=16.0
+      v0 : 0.6388  0.9930  0.6779  0.0862  0.1986
+      v1 : 0.2904  0.0563  0.6894  0.9829  0.4668
+    L=8.0 vs L=16.0
+      v0 : 0.9273  0.7982  0.1880  0.0237  0.0947
+      v1 : 0.2385  0.5385  0.9543  0.0713  0.1500
+      v2 : 0.1256  0.1679  0.1709  0.9917  0.4145
+      v3 : 0.0803  0.0989  0.0916  0.0304  0.8158
+
+  RESCALED overlaps (u = t/log L, linear interpolation to 2000 points):
+    L=4.6 vs L=8.0
+      v0 : 0.9963  0.0377  0.0002  0.0090
+      v1 : 0.0378  0.9934  0.0172  0.0743
+    L=4.6 vs L=16.0
+      v0 : 0.9834  0.0833  0.0264  0.0233  0.0155
+      v1 : 0.0817  0.9848  0.0399  0.0693  0.0109
+    L=8.0 vs L=16.0
+      v0 : 0.9951  0.0455  0.0219  0.0130  0.0004
+      v1 : 0.0444  0.9976  0.0237  0.0175  0.0063
+      v2 : 0.0212  0.0234  0.9934  0.0184  0.0628
+      v3 : 0.0112  0.0214  0.0180  0.8703  0.0091
