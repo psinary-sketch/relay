@@ -1,0 +1,73 @@
+==============================================================================================================
+A_MAIN IDENTIFIED — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+==============================================================================================================
+A_MAIN IDENTIFIED — what are the 2-3 positive directions of the remainder on V?
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THIS SITTING EXISTS
+========================
+The sawtooth NPOS(S_k) = (M - nullity)/2 is a THEOREM about the pure lag form. The measured
+operator is A = A_main + c(omega/2) S_k restricted to V, and it agrees with the theorem to
+within ONE offender at every cell tested (r = 1 .. 4.3). Two wonders are held open by the
+same fact:
+
+    ### A_main IS NOT NEGATIVE SEMIDEFINITE. It has 2-3 POSITIVE EIGENVALUES on V
+    ### (measured 2026-08-17 at L = 4.6, 5.5, 7.0: 2, 3, 3 out of 1525-1945 dimensions).
+
+That is the whole obstacle. If those few directions are a FIXED subspace -- the same
+functions at every L -- then a bound on their coupling to the lag form closes both wonders
+at once. If they MOVE with L, the obstacle is not a fixed finite-dimensional defect and must
+be named as moving.
+
+THE QUESTION, POSED EXACTLY
+============================
+### ARE THE POSITIVE DIRECTIONS OF A_main THE SAME 2-3 DIRECTIONS ACROSS L, OR L-DEPENDENT?
+
+Measured at L in {4.6, 8, 16}, omega = 1e-3 throughout, so the t-grid spacing is identical
+and the shorter windows are literal PREFIXES of the longer. Overlaps are therefore taken in
+the UNSCALED coordinate t by zero-extension -- no interpolation, no rescaling -- and also in
+the RESCALED coordinate u = t/log L, because those two disagree exactly when the answer is
+"the modes follow the window" rather than "the modes follow the lag".
+
+WHAT IS MEASURED, PER POSITIVE EIGENVECTOR
+===========================================
+  parity      <v, reverse(v)> / <v,v>   -> +1 even about the window midpoint, -1 odd
+  nodes       number of sign changes
+  centroid    of v^2 in t, and in t/log L
+  head mass   fraction of v^2 lying in the first log 2 of the window
+  smoothness  ||second difference of v|| / (||v|| / omega^2), a dimensionless roughness
+  RAYLEIGH    v^T S_k v / v^T v         -> the coupling to the lag form, which is the
+                                           quantity a closing bound would have to control
+  overlap     against the log-2 K_I low modes, and pairwise across L
+
+REGISTERED EXPECTATION, AND BOTH BRANCHES LONGHAND
+===================================================
+### REGISTERED: FIXED SUBSPACE, AND IT IS THE log-2 LOW MODES.
+The corpus's log-2 gate carries three appreciable K_I eigenvalues with parities even / odd /
+even and a cliff at n = 3 (0.0289); the first is the even offender with c_0 ~ 0.951 and the
+second is the odd one. The expectation is that A_main's positive directions ARE those modes:
+same count at every L, unscaled pairwise overlaps near 1, head mass concentrated in the first
+log 2, parities even then odd.
+
+  IF FIXED: the positive index of A_main is a fixed finite defect living at the lag's own
+  scale. Then |NPOS(A) - NPOS(S_k)| is bounded by that index for every L, which is exactly
+  the bound the sawtooth's operator half needs; and the coefficient silence follows from the
+  same bound, since a fixed subspace cannot track a coefficient that scales the rest.
+  ### BOTH WONDERS CLOSE ON ONE MEASURED CONSTANT.
+
+  IF L-DEPENDENT -- the count grows with L, or the unscaled overlaps fall while the RESCALED
+  ones stay high (modes following the window, not the lag) -- then there is no fixed defect
+  to bound. ### THE OBSTACLE IS NAMED AS MOVING, correction twenty is written from it, and
+  the sawtooth's operator half stays bench-grade with a reason rather than a slack.
+
+  A third outcome is registered because it is genuinely possible: the count is fixed but the
+  modes are neither the log-2 modes nor stable -- ### a fixed-DIMENSION, moving-DIRECTION
+  defect, which bounds the count but not the coupling, closing wonder one and not wonder two.
+
+Usage:  python amain_identify.py register
+        python amain_identify.py run
+
+  L values: [4.6, 8.0, 16.0]   omega = 1.0e-03   grids M = [1526, 2079, 2773]
+  k_2 = round(log 2 / omega) = 693  (the log-2 window is the first 693 grid points)
+==============================================================================================================
