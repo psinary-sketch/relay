@@ -1,0 +1,66 @@
+====================================================================================================
+B8(1) — THE DIMENSION CHECK · REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B8(1) — THE DIMENSION CHECK: the local Sonin model at a finite place. PRICED, NOW RUN.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+THE MODEL, DECLARED
+===================
+Functions on the finite quotient G = p^{-n} Z_p / p^n Z_p, identified with Z/p^{2n} via
+x = p^{-n} m. Fourier transform = the DFT of size N = p^{2n} with kernel e^{2 pi i mk / N}
+(the standard additive character of conductor Z_p descends to this pairing). The INTEGERS'
+BALL B = {|x|_p <= 1} = {m == 0 mod p^n}, |B| = p^n.
+
+THE CANDIDATE SPACE (section 8.3's candidate, transposed to the model):
+    Son(p, n) = { f : f|_B = 0  and  (DFT f)|_B = 0 }.
+
+The scaling action theta_p on L2(K_p) is (U f)(x) = p^{-1/2} f(p x); on the model it is
+m -> p*m mod N with the |p|^{1/2} normalization -- the truncation of the unitary scaling;
+edge effects at the outer shell are a declared model artifact.
+
+REGISTERED QUANTITIES AND VERDICT MAP (before any number)
+=========================================================
+D   dim Son(p, n) for p in {2, 3, 5}, n in {1, 2}, plus the shell-support profile.
+Q   the compressed-action mass Q(p, n) = ||S U S||_F, S = orthoprojection onto Son(p, n).
+W   IF Q > 0: the p-scaling of Q at fixed n across p = 2, 3, 5 (fitted power alpha in
+    Q ~ p^alpha), reported as measured. "Weight-carrying at model grade" means a nonzero
+    fitted power consistent with a q^{+-1/2}-type coefficient; log p itself is the lag
+    UNIT (the orbit spacing) and is carried by the time normalization, declared not
+    measured. The two banked coefficient conventions disagree in the SIGN of the power
+    ("nothing in the banked record separates them" -- exp1's registration); this bench
+    reports the measured power and adjudicates no convention.
+
+VERDICTS (the ferry's three, mapped):
+    TRIVIAL                       dim = 0 at every cell             -> E2 first face
+    NON-TRIVIAL, WEIGHT-SILENT    dim > 0 but Q = 0 (the compressed
+                                  action dies on the space), or no
+                                  systematic p-power                -> E2 second face
+    NON-TRIVIAL, WEIGHT-CARRYING  dim > 0, Q > 0, systematic power  -> E1; filed first-class
+
+Both branches finish; the candidate CLOSES at the measured verdict either way.
+
+Usage:  python b8_sonin_dim.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  p    n    N        dim    Q=||SUS||_F    shell mass (|x|=p^s: mass)    
+  2    1    4        1      0.000000       {1: 1.0}                      
+  2    2    16       9      1.414214       {1: 3.0, 2: 6.0}              
+  3    1    9        4      0.000000       {1: 4.0}                      
+  3    2    81       64     3.464102       {1: 16.0, 2: 48.0}            
+  5    1    25       16     0.000000       {1: 16.0}                     
+  5    2    625      576    8.944272       {1: 96.0, 2: 480.0}           
+  n=1: fitted power alpha in Q ~ p^alpha : +4.7657   (points: p=2 Q=0.000000, p=3 Q=0.000000, p=5 Q=0.000000)
+  n=2: fitted power alpha in Q ~ p^alpha : +2.0063   (points: p=2 Q=1.414214, p=3 Q=3.464102, p=5 Q=8.944272)
+
+--- POST-RUN VERIFICATION (banked with the run; out-of-sample cells) ---
+dim law:  dim Son(p,n) = (p^n - 1)^2   MATCH at 8 cells incl. out-of-sample (2,3)->49, (7,1)->36
+Q law:    Q(p,n) = sqrt(p) * (p^{n-1} - 1)   -- Q^2 = 2/12/80 at n=2 (exact), 18 at (2,3) (exact);
+          n=1 zeros are MACHINE ZERO (3e-32..3e-30): the law's (p^0 - 1) = 0 factor, structural
+          (the n=1 space lives on one shell; scaling maps it into the ball where the space vanishes).
+CAVEAT:   the 'n=1: fitted power alpha = +4.77' line above is a polyfit on machine-noise magnitudes
+          and is VOID (the executor's own filter admitted floating ~0 values); the n=1 verdict is
+          Q = 0 at machine precision. Recorded per the false-negative/void-test discipline.

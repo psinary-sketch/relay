@@ -1,0 +1,45 @@
+====================================================================================================
+B8(1) — THE DIMENSION CHECK · REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B8(1) — THE DIMENSION CHECK: the local Sonin model at a finite place. PRICED, NOW RUN.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+THE MODEL, DECLARED
+===================
+Functions on the finite quotient G = p^{-n} Z_p / p^n Z_p, identified with Z/p^{2n} via
+x = p^{-n} m. Fourier transform = the DFT of size N = p^{2n} with kernel e^{2 pi i mk / N}
+(the standard additive character of conductor Z_p descends to this pairing). The INTEGERS'
+BALL B = {|x|_p <= 1} = {m == 0 mod p^n}, |B| = p^n.
+
+THE CANDIDATE SPACE (section 8.3's candidate, transposed to the model):
+    Son(p, n) = { f : f|_B = 0  and  (DFT f)|_B = 0 }.
+
+The scaling action theta_p on L2(K_p) is (U f)(x) = p^{-1/2} f(p x); on the model it is
+m -> p*m mod N with the |p|^{1/2} normalization -- the truncation of the unitary scaling;
+edge effects at the outer shell are a declared model artifact.
+
+REGISTERED QUANTITIES AND VERDICT MAP (before any number)
+=========================================================
+D   dim Son(p, n) for p in {2, 3, 5}, n in {1, 2}, plus the shell-support profile.
+Q   the compressed-action mass Q(p, n) = ||S U S||_F, S = orthoprojection onto Son(p, n).
+W   IF Q > 0: the p-scaling of Q at fixed n across p = 2, 3, 5 (fitted power alpha in
+    Q ~ p^alpha), reported as measured. "Weight-carrying at model grade" means a nonzero
+    fitted power consistent with a q^{+-1/2}-type coefficient; log p itself is the lag
+    UNIT (the orbit spacing) and is carried by the time normalization, declared not
+    measured. The two banked coefficient conventions disagree in the SIGN of the power
+    ("nothing in the banked record separates them" -- exp1's registration); this bench
+    reports the measured power and adjudicates no convention.
+
+VERDICTS (the ferry's three, mapped):
+    TRIVIAL                       dim = 0 at every cell             -> E2 first face
+    NON-TRIVIAL, WEIGHT-SILENT    dim > 0 but Q = 0 (the compressed
+                                  action dies on the space), or no
+                                  systematic p-power                -> E2 second face
+    NON-TRIVIAL, WEIGHT-CARRYING  dim > 0, Q > 0, systematic power  -> E1; filed first-class
+
+Both branches finish; the candidate CLOSES at the measured verdict either way.
+
+Usage:  python b8_sonin_dim.py register | run
+
+====================================================================================================
