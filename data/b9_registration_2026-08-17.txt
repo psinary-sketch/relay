@@ -1,0 +1,42 @@
+====================================================================================================
+B9 — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B9 — WHY THE TRACE VANISHES (certificates) + THE CROSS-LAG FORM (one cell).
+
+Relay-only. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+POSITIVITY GUARD: whatever any form's sign on the model, it bears not at all on h2.
+
+ITEM 1 CERTIFICATES (the derivation's checkable pieces, registered before running)
+==================================================================================
+C1  U-INVARIANCE CHECK (the navigator's proposed premise, checked first-thing):
+    ||E_B U K|| where E_B = ball evaluation, K = Sonin basis. ZERO would mean U*Son
+    satisfies the ball condition (premise may hold); NONZERO refutes the premise.
+    Longhand prediction: NONZERO -- U maps shell 1 into the ball. The Fourier-side
+    condition is preserved (certified via ||F_B U K|| separately).
+C2  FIXED-POINT LOCALIZATION: Tr(U^k) = p^{-k/2} EXACTLY (longhand: the only fixed
+    point of m -> p^k m mod p^{2n} is m = 0, since gcd(p^k - 1, p^{2n}) = 1). Then
+    t_k = 0 <=> Tr(U^k Pi) = p^{-k/2} (Pi = projection onto the constraint rowspace):
+    THE CONSTRAINT SPACE ABSORBS EXACTLY THE FIXED-POINT CONTRIBUTION. Certified per
+    cell at machine precision.
+C3  MODEL EXACTNESS OF THE FOURIER CONJUGATION: ||F U F^dag - U^T|| = 0 (longhand:
+    (Uf)^ = p^{-1/2} f-hat(p*.)), giving reality of the traces.
+C4  NO-RECURRENCE SUPPORT: spectral radius of S U S ~ 0 (the compressed shift is
+    quasi-nilpotent -- no recurrent spectral content on the Sonin space).
+
+ITEM 2 — THE CROSS-LAG FORM (registered before its numbers)
+===========================================================
+On the model, the Hermitian cross-lag form built from the DIAGONAL blocks (where the
+third law d_k = (p^{n-k}-1)(p^n-1) lives), lags paired k with -k per the
+antipode-involution (B5): B(g,g) = Sum_{k>=1} d_k * 2 Re(g_k gbar_{-k}). Hermitian by
+construction (d_k real -- certified); POSITIVITY UNKNOWN AND SAID SO (the pairing is
+off-diagonal in (k,-k); no claim). The (beta) reading: the lag-log q amplitude is
+sqrt(d_k); normalized by sqrt(N) it is predicted (from the third law, longhand):
+    sqrt(d_k)/sqrt(N) = sqrt((1 - p^{-(n-k)})(1 - p^{-n})) * p^{-k/2} ~ q^{-1/2}
+-- THE WEIL SHAPE. Registered verdicts: (E1') fitted power ~ -1/2 across cells ->
+the convention question CLOSED AT THE MODEL (Weil shape), scope said plainly: the
+model is OUR candidate, not the Weil functional; (E2') no systematic power -> the
+third law's amplitude was a norm artefact, leak deeper; (E3') third shape.
+
+Usage:  python b9_cells.py register | run
+
+====================================================================================================
