@@ -89,7 +89,7 @@ whose class-number-3 Epstein `Z_Q` this programme located an off-line zero in, b
 
 | | **BASIS A — Epstein / forms** | **BASIS B — Hecke / class characters** |
 |:--|:--|:--|
-| recombination | `Σ_Q Z_Q = w · ζ_K` | `Π_ψ L(s,ψ) = ζ_K` |
+| recombination | `Σ_Q Z_Q = w · ζ_K` | ~~`Π_ψ L(s,ψ) = ζ_K`~~ **[struck 2026-08-17, correction twenty-three: false at `h > 1` — the product is `ζ_H`, the Hilbert class field's zeta; `ζ_K` is the `ψ₀`-factor. Counterexample at this witness's own field: `2` splits into two non-principal primes, so the coefficient of `2^{−s}` is `2` in `ζ_K` and `(1+ω+ω²)·2 = 0` in the product. See `THE_ATTEMPT_RECORD` correction twenty-three; per-piece grades unchanged.]** |
 | ### **`S1b` (monoid)** | ### **`VACUOUS`** | ### **PRESENT** |
 | ### **`S4` (multiplicativity)** | ### **ABSENT** | ### **PRESENT** |
 | ### **placement, at cite** | ### **OFF-LINE ZEROS KNOWN** *(Davenport–Heilbronn 1936; Voronin 1976; and this corpus's own located zero)* | ### **NONE KNOWN; GRH OPEN** |
