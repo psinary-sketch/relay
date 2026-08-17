@@ -1,0 +1,76 @@
+========================================================================================================
+WONDER TWO — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+========================================================================================================
+WONDER TWO — SILENCE ACROSS THE BRANCH: is the negative count coefficient-independent, and why?
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+THE MEASUREMENT THE FERRY ORDERS
+=================================
+Vary every prime coefficient by 2.5x ON THE LAG BRANCH, L in {4.6, 5.5, 7.0}.
+### REGISTERED EXPECTATION: the offender count moves by <= 2 in ~1,945, as it did below the
+### branch on 2026-08-17 (0, 0, 1, 1, 2, 2 offenders across six L).
+
+THE DERIVATION, WRITTEN BEFORE THE RUN — AND IT SPLITS THE QUESTION IN TWO
+==========================================================================
+On the grid the matrix is
+
+    A = A_main + sum_q c_q * (omega/2) * S_{k_q},        A_main = omega * Y^T N_I Y
+
+with S_k the symmetric |i-j| = k shift form of Wonder One, and c_q the prime coefficient.
+
+STEP 1 — SCALE INVARIANCE IS EXACT, AND IT IS SYLVESTER'S LAW.
+For t > 0, t*S has the same inertia as S: t*S = (sqrt(t) I) S (sqrt(t) I)^T is a congruence.
+### SO IF A_main WERE ABSENT, MULTIPLYING EVERY COEFFICIENT BY A COMMON FACTOR WOULD CHANGE
+### NOTHING AT ALL — not approximately, EXACTLY, for every factor and every window.
+That is not a measurement waiting to be made; it is a two-line theorem, and it means the
+UNIFORM part of "vary the coefficients" cannot possibly move the count except through A_main.
+
+STEP 2 — SHAPE INVARIANCE IS NOT DERIVED AND MUST BE MEASURED.
+Changing the coefficients' RATIOS (registered 2 sqrt(q) log p vs Weil 4 log p / sqrt(q)) is
+not a congruence. It is a different matrix. ### NOTHING ABOVE PREDICTS IT.
+
+STEP 3 — WHAT A_main CAN DO, AND THE ONE FACT THAT WOULD CLOSE IT.
+If A_main is NEGATIVE SEMIDEFINITE then, by Weyl, lam_j(A_main + cS) <= lam_j(cS), so
+    ### NPOS(A) <= NPOS(cS) = (M - nullity)/2      for every c > 0,
+and in the other direction lam_j(A_main + cS) >= lam_j(cS) - |lam_min(A_main)|, so every
+eigenvalue of cS exceeding |lam_min(A_main)| survives. The positive eigenvalues of cS scale
+linearly in c while |lam_min(A_main)| is fixed, hence
+    ### there is a finite c* above which NPOS(A) = NPOS(S) EXACTLY, and above c* the count is
+    ### rigorously coefficient-independent.
+### THE WHOLE DERIVATION THEREFORE TURNS ON ONE CHECKABLE FACT: IS A_main NEGATIVE
+### SEMIDEFINITE ON V? That is measured below as its own blocking row, not assumed.
+
+REGISTERED PREDICTIONS
+=======================
+W2-A  (blocking, and it decides the grade) NPOS(A_main alone, on V) = 0 at every L tested,
+      i.e. A_main is negative definite on V. IF IT IS NOT, step 3 collapses and the result
+      stays MEASURED-AT-BANK with the obstacle named.
+W2-B  Uniform rescaling of every coefficient by 2.5x and by 0.4x moves the count by ZERO
+      offenders — exactly, not approximately. ### This is the derived half; a single offender
+      of movement refutes the claim that A_main is negligible at the working scale.
+W2-C  The convention change (registered -> Weil, a change of RATIOS of up to 2.5x) moves the
+      count by <= 2 offenders. ### This is the measured half; it is not derived and is not
+      claimed to be.
+W2-D  Sweeping a common factor t over decades, NPOS(A) locks onto the pure-shift value
+      (M - nullity)/2 above some finite t*, and t* is reported as a measured constant.
+
+GRADE RULE, FIXED IN ADVANCE
+=============================
+* IF W2-A and W2-B both land: the coefficient-independence of the count is ### DERIVED for
+  the uniform direction (Sylvester + Weyl, with A_main's definiteness measured), and the
+  shape direction stays MEASURED. The self-limit is filed at that split grade and no wider.
+* IF W2-A fails: everything stays MEASURED-AT-BANK, said so, obstacle named.
+
+Usage:  python wonder2_silence.py register
+        python wonder2_silence.py run
+
+  L values (lag branch): [4.6, 5.5, 7.0]    omega = 0.001
+  uniform scale factors: [0.4, 1.0, 2.5]    t-sweep: [0.001, 0.01, 0.1, 1.0, 10.0, 100.0]
+  registered coefficients vs Weil, per prime power:
+      q=2  registered 1.960516   Weil 1.960516   ratio 1.000
+      q=3  registered 3.805705   Weil 2.537136   ratio 1.500
+      q=4  registered 2.772589   Weil 1.386294   ratio 2.000
+      q=5  registered 7.197625   Weil 2.879050   ratio 2.500
+      q=7  registered 10.296789   Weil 2.941940   ratio 3.500
+========================================================================================================
