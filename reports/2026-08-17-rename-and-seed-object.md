@@ -55,7 +55,7 @@ scanned; most are lawful (object + genre: record, map, census, protocol, spec).*
 **Seated:** ### **the class-resolved Euler product `Z(s) = Π_𝔭 (1 − [𝔭]·N𝔭^{−s})^{−1} ∈ ℂ[Cl]`** — the two
 known projections at cite (augmentation `ε(Z) = ζ_K`; determinant of the regular action `= ζ_H`; the
 character basis diagonalizes `Z = Σ_ψ L(s,ψ)e_ψ`), **with the rider beside it, not after it: an
-augmentation-blind pairing on `Z` carries no more than a pairing on `ζ_K`** *(kin:
+augmentation-silent pairing on `Z` carries no more than a pairing on `ζ_K`** *(kin:
 `descent_carries_no_warrant`, compiled)*. *Ray-class resolution caveat named without promotion. No
 construction.*
 
@@ -82,9 +82,9 @@ candidate. *Both sentences finish; the seating survives either branch.*
 > (longhand: the antipode maps `e_ψ ↦ e_ψ̄`). The involution on the class-resolved object is itself
 > class-resolved: `Ẑ(s) = W · Ẑ(1−s)^∗`.*
 >
-> ### **AND "IS THE RESULTING HERMITIAN FORM AUGMENTATION-BLIND?" HAS NO FRAME-FREE ANSWER — THAT IS THE
+> ### **AND "IS THE RESULTING HERMITIAN FORM AUGMENTATION-SILENT?" HAS NO FRAME-FREE ANSWER — THAT IS THE
 > FINDING. The involution alone induces NO form; a form needs a scalarizing functional, and the two
-> canonical functionals split exactly along the rider:** *`ε(fg^∗)` is rank-one and blind by construction —
+> canonical functionals split exactly along the rider:** *`ε(fg^∗)` is rank-one and augmentation-silent by construction —
 > the warned failure, exhibited, graded OUT by the rider's own sentence; `τ(fg^∗)` (identity-coefficient)
 > is the standard inner product and separates classes —* ### **NAMED, NOT PROMOTED; nothing asks whether
 > any `τ`-built pairing is definite, and nothing may.** **The rider sharpens from a warning into a

@@ -60,13 +60,13 @@ named — ### **the group algebra `ℂ[Cl]` with its two distinguished bases, i.
 input type is the monoid-with-classes, not a presentation.* **Pursued to the end, the AGAINST branch is
 the collapse's constructive form, not a counterexample.** *What it does prove: bare `(i)` is NOT enough — a
 carrier can take the monoid and factor through the augmentation (norms only), satisfying `(i)` nominally
-while blind to the witness's variable.*
+while silent on the witness's variable.*
 
 > ### **VERDICT.** **`(i′)`** — *the content functor factors through the monoid at CLASS RESOLUTION
 > (`ℂ[Cl]`), not through the augmentation; multiplicative recombination native, additive derived* — **that
 > half of `(v)` collapses.** ### **THE NAMED RESIDUE, WHICH DOES NOT COLLAPSE: the rider on `(iv)` — no
 > input choice guarantees the resolution SURVIVES INTO THE PAIRING; the manufactured pairing must not be
-> augmentation-blind.** *Kin, compiled: `descent_carries_no_warrant`.* **`§6`'s suspicion and `§8.3`'s
+> augmentation-silent.** *Kin, compiled: `descent_carries_no_warrant`.* **`§6`'s suspicion and `§8.3`'s
 > re-pointing both confirmed, both sharpened: `(v)` was `(i)` asked again downstream, and the downstream
 > half is `(iv)`'s business.**
 
@@ -115,7 +115,7 @@ NOT STABLE survives, robustly; "not even monotone" withdrawn as `(object, weight
    redo the residue flag invited, falsified longhand at the witness's own second coefficient. **The
    sum-vs-product observation is strengthened, not weakened.**
 2. ### **THE `(v)` VERDICT AT DEPTH:** collapses to `(i′)` (monoid at class resolution, not through the
-   augmentation) **plus the rider on `(iv)`** (the pairing must not be augmentation-blind) — the rider is
+   augmentation) **plus the rider on `(iv)`** (the pairing must not be augmentation-silent) — the rider is
    the named residue no input choice can supply.
 3. ### **THE FRAMES RE-FILLED:** CCM yes-at-input · Deninger yes-at-seat · THH barred. No ranking moves.
 4. ### **THE PHASE BOUNDARY IS FILED AT GRADE** with its two caveats and its located transition (`L = 4`,
