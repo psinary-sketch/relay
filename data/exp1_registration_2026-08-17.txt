@@ -1,0 +1,150 @@
+================================================================================================
+EXPERIMENT ONE — THE TWO-PRIME ROOM · REGISTRATION BLOCK
+PRINTED BEFORE ANY MEASURED NUMBER. No measured quantity appears in this block.
+================================================================================================
+
+--- THE MEASUREMENT PATH, AND THE ONE RULING APPLIED TO IT ---
+
+  V = { eta : int e^{-t/2} eta(t) dt = 0 } IS IMPOSED ON EVERY MEASUREMENT.
+  Counts and C alike. Grid dim on V is M - 1 where M = round(log L / omega).
+  Offenders = directions where Phi > 0 = positive eigenvalues of the
+  V-restricted Phi matrix (phi_layer's own reading, unchanged).
+
+--- THE LAG SCHEDULE: ACTIVE LAGS = { log q : q a prime power < L } ---
+
+  L      active lags                        count
+  3.0    log 2                              1
+  3.2    log 2, log 3                       2
+  3.6    log 2, log 3                       2
+  4.2    log 2, log 3, 2 log 2              3
+  4.6    log 2, log 3, 2 log 2              3
+  5.5    log 2, log 3, 2 log 2, log 5       4
+  7.0    log 2, log 3, 2 log 2, log 5       4
+
+  ### A DISCREPANCY IN THE FERRY'S OWN PRE-REGISTRATION, NAMED NOT RESOLVED:
+  the ferry defines the lag set as { log q : q prime power < L } and then says
+  E2-INTERACTION is 'first at L = 4.2'. Under the prime-power definition TWO
+  LAGS ARE ALREADY LIVE AT L = 3.2 (log 2 and log 3), so E2 is live from the
+  first row of the sweep, not the third. 'First at L = 4.2' is the count under
+  the SUPERSEDED ferry-literal rule (log 2 always; 2 log 2 once L > 4), which
+  the 2026-08-14 sitting recorded as disagreeing with the arithmetic.
+  THIS RUN USES THE PRIME-POWER RULE, which is the definition the ferry gives
+  and the schedule the ferry calls corrected. The parenthetical is treated as
+  a leftover from the rule it replaced.
+
+--- THE ROOMS, PER LAG, PER L ---
+
+  L      lag          ell        room = 1 - ell/log L
+  3.2    log 2        0.693147   0.404078
+  3.2    log 3        1.098612   0.055486
+
+  3.6    log 2        0.693147   0.458874
+  3.6    log 3        1.098612   0.142335
+
+  4.2    log 2        0.693147   0.516999
+  4.2    log 3        1.098612   0.234462
+  4.2    2 log 2      1.386294   0.033998
+
+  4.6    log 2        0.693147   0.545792
+  4.6    log 3        1.098612   0.280097
+  4.6    2 log 2      1.386294   0.091584
+
+  5.5    log 2        0.693147   0.593402
+  5.5    log 3        1.098612   0.355557
+  5.5    2 log 2      1.386294   0.186804
+  5.5    log 5        1.609438   0.055909
+
+  7.0    log 2        0.693147   0.643793
+  7.0    log 3        1.098612   0.435425
+  7.0    2 log 2      1.386294   0.287586
+  7.0    log 5        1.609438   0.172913
+
+--- E1-UNION, CLOSED FORM PER L ---
+
+  The rooms are nested initial segments of one window, so the union is the
+  largest room and the smallest lag is always log 2:
+      E1-UNION(L) = 1 - log 2 / log L,   overlaps counted once.
+
+  L      E1-UNION       = the one-prime law at the same L
+  3.2    0.404078       identical
+  3.6    0.458874       identical
+  4.2    0.516999       identical
+  4.6    0.545792       identical
+  5.5    0.593402       identical
+  7.0    0.643793       identical
+
+  ### REGISTERED CONSEQUENCE: E1-UNION PREDICTS NOTHING THE ONE-PRIME LAW DOES
+  NOT ALREADY PREDICT, AT ANY L IN THE SWEEP. A union of nested rooms cannot.
+  The experiment's whole discriminating content is therefore E2, below.
+
+--- E2-INTERACTION: THE QUANTITY THAT CAN ACTUALLY FAIL ---
+
+      E2(L) := measured negative fraction on V  -  E1-UNION(L)
+
+  profiled against the number of live lags and against the re-measured
+  one-prime baseline at L = 3 (below), which fixes what a residual of
+  'the banked order' means ONCE V IS IMPOSED.
+
+--- THE COEFFICIENTS, STATED ---
+
+  q        p^k      REGISTERED       sensitivity     
+                    2 sqrt(q) log p  4 log p / sqrt(q)
+  2        2^1      1.960516         1.960516        
+  3        3^1      3.805705         2.537136        
+  4        2^2      2.772589         1.386294        
+  5        5^1      7.197625         2.879050        
+  7        7^1      10.296789        2.941940        
+
+  Both agree at q = 2, where the supplied form fixes the value
+  (2 sqrt2 log 2 = 1.960516). Nowhere else does the banked record separate them.
+  ### THE REGISTERED COEFFICIENT GROWS WITH q; THE EXPLICIT FORMULA'S WEIGHT
+  DECAYS. This is registered as a model-vs-true-functional exposure BEFORE
+  the run, so a departure cannot later be attributed to it after the fact.
+  The registered coefficient is what the table reports. The sensitivity is
+  run at omega = 1e-3 only and reported beside the table, never inside it.
+
+--- THE BLOCKING KNOWN-ANSWER ROW (runs first; a failure is the result) ---
+
+  L = 3.0, one live lag (log 2 — 3 is not < 3), on V, at the three omega:
+    omega = 2.0e-03   ->  202 / 548 = 0.368613
+    omega = 1.0e-03   ->  406 / 1098 = 0.369763
+    omega = 5.0e-04   ->  811 / 2196 = 0.369308
+  These are the 2026-08-15 battery's V-restricted counts. The sweep does not
+  run unless all three reproduce exactly. Additionally the fast Householder
+  basis of V is validated against phi_layer's own SVD basis at omega = 2e-3.
+
+--- THE OMEGA-STABILITY TRIPLE ---
+
+  omega in { 2e-3, 1e-3, 5e-4 } — the corpus's own L = 3 triple
+  (M = 549 / 1099 / 2197 there). Reported per L as three measurements, never
+  averaged; a row whose three fractions do not agree to the residual scale is
+  reported UNSTABLE and its verdict withheld.
+
+--- BOTH BRANCHES, LONGHAND (the question-fit law, 2026-08-11) ---
+
+  IF E2(L) is at the one-prime residual scale at every L, with no trend in the
+  number of live lags, THEN: the extra prime powers put no measurable weight on
+  the negative fraction at these window lengths; the one-prime law survives the
+  two-prime room unchanged; and the union reading is confirmed vacuous as a
+  PREDICTOR while correct as a PREDICTION — a generalization that generalizes
+  nothing, which is a reportable property of the design, not of the mechanism.
+
+  IF E2(L) departs systematically — growing with the number of live lags, or
+  stepping at the L where a lag switches on — THEN: the negative fraction is
+  NOT a function of the smallest lag alone, the nested-union reading is refuted
+  as a description of the measurement, and the departure's profile in the
+  number of live lags is the experiment's finding.
+
+  BOTH SENTENCES FINISH. The quantity can fail and its failure bears on the
+  question the sweep was chartered to ask.
+
+--- WHAT THIS EXPERIMENT DOES NOT MEASURE ---
+
+  Nothing about the sign of W_inf - W_2. Nothing about h2. Nothing about any
+  operator inequality. The negative fraction of Phi in the eta coordinate is a
+  bench quantity of a discretized form, measured at a grid, and is reported as
+  one. Lemma 5.2's re-derivation on (1,3] is UNPAID and every L in this sweep
+  lies beyond it; the whole table is extrapolation past a standing debt and
+  is labelled so per row.
+
+================================================================================================
