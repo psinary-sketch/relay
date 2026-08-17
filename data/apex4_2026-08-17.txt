@@ -1,0 +1,47 @@
+========================================================================================================
+THE FOURTH APEX — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+========================================================================================================
+THE FOURTH APEX — L = 256, r = 8.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+The derived count for the pure lag form is NPOS(S_k) = (M - nullity)/2, M = qk + s,
+nullity = s (q even) or k - s (q odd). Even q is an apex: NPOS = (q/2)k and 2*NPOS = M.
+r = log L / log 2 = 8 at L = 256, so the continuum prediction is 1/2 — the FOURTH apex,
+after L = 4, 16, 64.
+
+### AND THE DISCRETIZATION DECIDES WHICH TOOTH THE GRID IS ACTUALLY ON, which is registered
+### here as its own finding rather than discovered afterwards:
+
+    omega = 2e-3 : M = round(log 256 / omega) = 2773, k = 347.  2773 / 347 = 7.9914
+                   -> q = 7 (ODD), s = 344, nullity = k - s = 3, NPOS = 1385
+                   ### the grid lands on the SEVENTH tooth, not the eighth, by rounding
+    omega = 1e-3 : M = 5545, k = 693.  5545 / 693 = 8.0014
+                   -> q = 8 (EVEN), s = 1, nullity = s = 1, NPOS = 2772 = (M-1)/2
+                   ### the grid lands on the eighth tooth: 2772/5544 = 0.500000 EXACTLY
+
+The ferry charters omega = 2e-3. Both are run, because the pair is the point: the same L,
+two grids, two different teeth, and the chain formula predicts each from its own (M, k).
+### A CONTINUUM PREDICTION OF 1/2 AT L = 256 IS TRUE OF THE LIMIT AND FALSE OF THE 2e-3 GRID,
+### and saying so before the run is cheaper than explaining it after.
+
+REGISTERED, both branches longhand:
+  IF both cells land within 3 offenders of their own chain prediction, the sawtooth stands at
+  r = 1..8, the fourth apex is confirmed at the grid that reaches it, and the near-miss at
+  omega = 2e-3 is confirmed as rounding rather than as a failure of the law.
+  IF the 2e-3 cell lands near 1/2 instead of at 1385, the chain formula is wrong about which
+  tooth a grid sits on, which would be a finding about the discretization and not about the
+  law.
+
+Usage:  python apex4_cell.py register | run
+
+  omega      M        k       q      s      null    CHAIN      fraction     tooth
+  2.0e-03    2773     347     7      344    3       1385       0.499639     odd tooth (q odd)
+  1.0e-03    5545     693     8      1      1       2772       0.500000     APEX (q even)
+========================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  omega      M        measured       CHAIN      fraction     predicted    verdict
+  2.0e-03    2773     1385/2772      1385       0.499639     0.499639     ### LANDS (+0)  [97s]
+  1.0e-03    5545     2772/5544      2772       0.500000     0.500000     ### LANDS (+0)  [162s]

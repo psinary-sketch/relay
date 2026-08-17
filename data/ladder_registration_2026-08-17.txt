@@ -1,0 +1,78 @@
+================================================================================================================
+THE LADDER FAMILY — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+================================================================================================================
+THE LADDER IN u = t/log L, AND THE ANTI-ALIGNMENT NAMED.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+ACT (a) — IS THE REMAINDER'S POSITIVE FAMILY A FIXED FAMILY IN u?
+=================================================================
+2026-08-17 measured, at L = 4.6, 8, 16: the positive directions of A_main on V are NOT a
+fixed subspace in t (the count grows 2, 3, 3, 4, 5 and the unscaled overlaps do not
+stabilise) but ARE nearly identical in the RESCALED coordinate u = t/log L (overlaps
+0.9963 / 0.9834 / 0.9951). This act asks the question at a much wider separation, L = 16
+against L = 64 -- a factor of four in the window and of two in r -- and banks the family.
+
+  VERDICT BRANCHES, LONGHAND:
+  ### FIXED FAMILY IN u -- if the leading members match across L = 16 and L = 64 in u to the
+  same tolerance they matched at 16 vs 8, then the remainder has a SCALING LIMIT: its
+  positive part is a fixed sequence of functions of u, entering one at a time as the window
+  grows. The family's first six members are then banked as functions and become the object a
+  bound would be proved about.
+  ### DRIFTING -- if the u-overlaps fall away at the wider separation, the u-agreement seen at
+  8 vs 16 was local, there is no scaling limit, and the remainder is filed as drifting with
+  no family to bound.
+
+ACT (b) — THE ANTI-ALIGNMENT, AND A MECHANISM THAT MAKES IT A PREDICTION
+========================================================================
+The lag form's Rayleigh quotient on a mode v is  R(v) = v^T S_k v / v^T v
+                                                      = 2 <v[k:], v[:-k]> / <v,v>,
+the autocorrelation of v at the lag's own address. Measured 2026-08-17:
+
+    L = 4.6 (r = 2.20):  -0.566, -1.145
+    L = 8.0 (r = 3.00):  +0.130, -1.066, -1.294, -0.343
+    L = 16  (r = 4.00):  +0.751, -0.407, -1.370, -1.476, -0.802
+
+### MOSTLY NEGATIVE, WITH EXACTLY ONE POSITIVE EXCEPTION PER WINDOW, ALWAYS THE LOWEST MODE.
+
+THE MECHANISM PROPOSED, AND IT IS PROPOSED BEFORE THE L = 64 RUN SO IT CAN FAIL.
+The members are the window's own low modes with node counts n = 1, 2, 3, ..., so on the
+window's own scale each looks like sin(n pi u). The autocorrelation of sin(n pi u) at a lag
+of ell = log 2, i.e. at u-lag 1/r, is proportional to cos(n pi / r), with an overlap factor
+(1 - 1/r) from the truncated support:
+
+    ### R(v_n)  ~  2 (1 - 1/r) cos(n pi / r)
+
+so the SIGN of R is the sign of cos(n pi / r):
+    ### POSITIVE exactly for n < r/2, NEGATIVE for r/2 < n < 3r/2.
+
+Checked against what is already banked, without refitting anything:
+    r = 4, n = 4 : 2(0.75)cos(pi) = -1.500   measured -1.476
+    r = 3, n = 3 : 2(0.667)cos(pi) = -1.333  measured -1.294
+    r = 4, n = 1 : +1.061                    measured +0.751
+    r = 2.2, n = 1: +0.157                   measured -0.566   ### the model MISSES here
+
+### SO THE MODEL IS GOOD AT THE HIGH MODES AND POOR AT n = 1 IN A NARROW WINDOW, AND THAT IS
+### SAID BEFORE IT IS USED.
+
+  ### REGISTERED PREDICTION, THE SHARP ONE: at L = 64, r = 6, the rule "positive exactly for
+  ### n < r/2" gives n < 3, i.e. TWO positive-Rayleigh modes (n = 1 and n = 2) and the rest
+  ### negative. Every window measured so far has had exactly ONE. If two appear, the
+  mechanism predicted a change of behaviour at a window nobody had looked at; if one appears,
+  the rule "exactly one exception, always the lowest" survives and the cos model is refuted
+  as the explanation.
+
+  THE INEQUALITY CANDIDATE, stated so it can be argued with:
+  ### "FOR THE WINDOW-SCALED MODES OF THE REMAINDER, THE LAG FORM IS NEGATIVE-DOMINANT: R(v_n)
+  ### < 0 for every n with r/2 < n < 3r/2, and the positive exceptions are exactly the modes
+  ### whose half-wavelength exceeds the lag (n < r/2)."
+  ### NO BOUND IS CLAIMED FROM IT. It is a statement about a measured family, offered at
+  question grade; turning it into a bound on |NPOS(A) - NPOS(S_k)| would additionally need
+  the family to be complete for A_main's positive part and the cross terms controlled, and
+  NEITHER IS IN HAND.
+
+Usage:  python ladder_family.py register | run
+
+  L = 16.0   M = 2773   r = 4.0014   cos-model sign flips at n = r/2 = 2.00
+  L = 64.0   M = 4159   r = 6.0014   cos-model sign flips at n = r/2 = 3.00
+================================================================================================================

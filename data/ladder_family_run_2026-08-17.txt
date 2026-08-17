@@ -1,0 +1,138 @@
+================================================================================================================
+THE LADDER FAMILY — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+================================================================================================================
+THE LADDER IN u = t/log L, AND THE ANTI-ALIGNMENT NAMED.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+ACT (a) — IS THE REMAINDER'S POSITIVE FAMILY A FIXED FAMILY IN u?
+=================================================================
+2026-08-17 measured, at L = 4.6, 8, 16: the positive directions of A_main on V are NOT a
+fixed subspace in t (the count grows 2, 3, 3, 4, 5 and the unscaled overlaps do not
+stabilise) but ARE nearly identical in the RESCALED coordinate u = t/log L (overlaps
+0.9963 / 0.9834 / 0.9951). This act asks the question at a much wider separation, L = 16
+against L = 64 -- a factor of four in the window and of two in r -- and banks the family.
+
+  VERDICT BRANCHES, LONGHAND:
+  ### FIXED FAMILY IN u -- if the leading members match across L = 16 and L = 64 in u to the
+  same tolerance they matched at 16 vs 8, then the remainder has a SCALING LIMIT: its
+  positive part is a fixed sequence of functions of u, entering one at a time as the window
+  grows. The family's first six members are then banked as functions and become the object a
+  bound would be proved about.
+  ### DRIFTING -- if the u-overlaps fall away at the wider separation, the u-agreement seen at
+  8 vs 16 was local, there is no scaling limit, and the remainder is filed as drifting with
+  no family to bound.
+
+ACT (b) — THE ANTI-ALIGNMENT, AND A MECHANISM THAT MAKES IT A PREDICTION
+========================================================================
+The lag form's Rayleigh quotient on a mode v is  R(v) = v^T S_k v / v^T v
+                                                      = 2 <v[k:], v[:-k]> / <v,v>,
+the autocorrelation of v at the lag's own address. Measured 2026-08-17:
+
+    L = 4.6 (r = 2.20):  -0.566, -1.145
+    L = 8.0 (r = 3.00):  +0.130, -1.066, -1.294, -0.343
+    L = 16  (r = 4.00):  +0.751, -0.407, -1.370, -1.476, -0.802
+
+### MOSTLY NEGATIVE, WITH EXACTLY ONE POSITIVE EXCEPTION PER WINDOW, ALWAYS THE LOWEST MODE.
+
+THE MECHANISM PROPOSED, AND IT IS PROPOSED BEFORE THE L = 64 RUN SO IT CAN FAIL.
+The members are the window's own low modes with node counts n = 1, 2, 3, ..., so on the
+window's own scale each looks like sin(n pi u). The autocorrelation of sin(n pi u) at a lag
+of ell = log 2, i.e. at u-lag 1/r, is proportional to cos(n pi / r), with an overlap factor
+(1 - 1/r) from the truncated support:
+
+    ### R(v_n)  ~  2 (1 - 1/r) cos(n pi / r)
+
+so the SIGN of R is the sign of cos(n pi / r):
+    ### POSITIVE exactly for n < r/2, NEGATIVE for r/2 < n < 3r/2.
+
+Checked against what is already banked, without refitting anything:
+    r = 4, n = 4 : 2(0.75)cos(pi) = -1.500   measured -1.476
+    r = 3, n = 3 : 2(0.667)cos(pi) = -1.333  measured -1.294
+    r = 4, n = 1 : +1.061                    measured +0.751
+    r = 2.2, n = 1: +0.157                   measured -0.566   ### the model MISSES here
+
+### SO THE MODEL IS GOOD AT THE HIGH MODES AND POOR AT n = 1 IN A NARROW WINDOW, AND THAT IS
+### SAID BEFORE IT IS USED.
+
+  ### REGISTERED PREDICTION, THE SHARP ONE: at L = 64, r = 6, the rule "positive exactly for
+  ### n < r/2" gives n < 3, i.e. TWO positive-Rayleigh modes (n = 1 and n = 2) and the rest
+  ### negative. Every window measured so far has had exactly ONE. If two appear, the
+  mechanism predicted a change of behaviour at a window nobody had looked at; if one appears,
+  the rule "exactly one exception, always the lowest" survives and the cos model is refuted
+  as the explanation.
+
+  THE INEQUALITY CANDIDATE, stated so it can be argued with:
+  ### "FOR THE WINDOW-SCALED MODES OF THE REMAINDER, THE LAG FORM IS NEGATIVE-DOMINANT: R(v_n)
+  ### < 0 for every n with r/2 < n < 3r/2, and the positive exceptions are exactly the modes
+  ### whose half-wavelength exceeds the lag (n < r/2)."
+  ### NO BOUND IS CLAIMED FROM IT. It is a statement about a measured family, offered at
+  question grade; turning it into a bound on |NPOS(A) - NPOS(S_k)| would additionally need
+  the family to be complete for A_main's positive part and the cross terms controlled, and
+  NEITHER IS IN HAND.
+
+Usage:  python ladder_family.py register | run
+
+  L = 16.0   M = 2773   r = 4.0014   cos-model sign flips at n = r/2 = 2.00
+  L = 64.0   M = 4159   r = 6.0014   cos-model sign flips at n = r/2 = 3.00
+================================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+      [Q_eps table: omega=1.0e-03, nmax=4159, 122.1 s]
+
+================================================================================================================
+L = 16.0   M = 2773   r = 4.0014   ### NPOS(A_main) = 5      [9s]
+================================================================================================================
+  n?   eigenvalue     parity    nodes  centroid u  head mass    R measured    2(1-1/r)cos(n pi/r)
+  1    1.628082e-03   -0.6797 (ODD ) 1      0.61551     0.21628      +0.750771     +1.061088  
+  2    8.867146e-04   +0.9091 (EVEN) 2      0.53280     0.15449      -0.407032     +0.000850  ### SIGN MISMATCH
+  3    5.116995e-04   -0.9545 (ODD ) 3      0.51641     0.16434      -1.369887     -1.059886  
+  4    2.587867e-04   +0.9748 (EVEN) 4      0.50907     0.23940      -1.475563     -1.500179  
+  5    6.265932e-05   -0.9835 (ODD ) 5      0.50596     0.31370      -0.801723     -1.062289  
+
+  positive-Rayleigh modes at this window: ### 1   (cos-model predicts n < r/2 = 2.00 -> 2)
+================================================================================================================
+L = 64.0   M = 4159   r = 6.0014   ### NPOS(A_main) = 8      [24s]
+================================================================================================================
+  n?   eigenvalue     parity    nodes  centroid u  head mass    R measured    2(1-1/r)cos(n pi/r)
+  1    2.367728e-03   -0.3958 (ODD ) 1      0.64529     0.12696      +1.354710     +1.443550  
+  2    1.348950e-03   +0.8064 (EVEN) 2      0.54655     0.12303      +0.601105     +0.833737  
+  3    9.312003e-04   -0.9065 (ODD ) 3      0.52247     0.10787      -0.314536     +0.000630  ### SIGN MISMATCH
+  4    6.581557e-04   +0.9454 (EVEN) 4      0.51312     0.09948      -1.109675     -0.832646  
+  5    4.484768e-04   -0.9636 (ODD ) 5      0.50874     0.11700      -1.600769     -1.442920  
+  6    2.796826e-04   +0.9747 (EVEN) 6      0.50608     0.15572      -1.655889     -1.666746  
+  7    1.375838e-04   -0.9811 (ODD ) 7      0.50455     0.19806      -1.292756     -1.444179  
+  8    2.110741e-05   +0.9870 (EVEN) 8      0.50312     0.24471      -0.613698     -0.834827  
+
+  positive-Rayleigh modes at this window: ### 2   (cos-model predicts n < r/2 = 3.00 -> 3)
+
+================================================================================================================
+ACT (a) — THE FAMILY IN u, ACROSS A FACTOR OF FOUR IN THE WINDOW
+================================================================================================================
+  overlaps |<v_i(L=16), v_j(L=64)>| in u:
+        n=1      n=2      n=3      n=4      n=5      n=6      n=7      n=8     
+  n=1    0.9847   0.0846   0.0447   0.0232   0.0169   0.0131   0.0062   0.0084  
+  n=2    0.0775   0.9944   0.0511   0.0134   0.0138   0.0019   0.0074   0.0109  
+  n=3    0.0428   0.0464   0.9952   0.0377   0.0059   0.0109   0.0167   0.0058  
+  n=4    0.0246   0.0107   0.0369   0.9927   0.0271   0.0454   0.0081   0.0532  
+  n=5    0.0143   0.0128   0.0162   0.0294   0.9657   0.0204   0.1166   0.0065  
+
+  best match per member: n=1->n=1 (0.9847), n=2->n=2 (0.9944), n=3->n=3 (0.9952), n=4->n=4 (0.9927), n=5->n=5 (0.9657)
+  ### node-count-matched overlaps: 0.9847, 0.9944, 0.9952, 0.9927, 0.9657
+
+  ### VERDICT: FIXED FAMILY IN u — the remainder has a scaling limit
+
+  family banked as functions: D:\relay\data\ladder_family_2026-08-17.csv  (6 members, 1000 sample points)
+
+================================================================================================================
+ACT (b) — THE INEQUALITY CANDIDATE, AGAINST THE FAMILY
+================================================================================================================
+  L = 16.0   r = 4.001
+        modes with r/2 < n < 3r/2 : n=3 R=-1.3699, n=4 R=-1.4756, n=5 R=-0.8017
+        ### negative-dominant on that band: HOLDS
+        positive exceptions: n=1 R=+0.7508  (rule predicts n < r/2 = 2.00)
+  L = 64.0   r = 6.001
+        modes with r/2 < n < 3r/2 : n=4 R=-1.1097, n=5 R=-1.6008, n=6 R=-1.6559, n=7 R=-1.2928, n=8 R=-0.6137
+        ### negative-dominant on that band: HOLDS
+        positive exceptions: n=1 R=+1.3547, n=2 R=+0.6011  (rule predicts n < r/2 = 3.00)
