@@ -118,7 +118,7 @@ experiment holds one `ζ_K` fixed and varies only the decomposition, and the off
 the monoid-breaking basis.*
 
 > ### **`(v)` A CARRIER MUST NOT BE INVARIANT UNDER RE-DECOMPOSITION OF ITS OBJECT.** *An object assigning
-> the same structure to both bases is blind to the one variable the witness shows placement tracking.*
+> the same structure to both bases has taken the object, not its presentation — invariant in the one variable the witness shows placement tracking *(re-phrased to content 2026-08-17, correction twenty-four's closing)*.*
 
 ### **`(v)` GRADES ABSENT ON ALL THREE FRAMES — AND THE QUESTION HAS NOT BEEN ASKED OF ANY OF THEM.**
 

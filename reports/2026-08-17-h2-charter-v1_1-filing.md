@@ -57,7 +57,7 @@ anyway, explicitly."***
 | result | grade | feeds | ### **why it does NOT promote it** |
 |:--|:--|:--|:--|
 | **the matching-number law** — `NPOS = μ`; sawtooth its one-lag evaluation | ### **`DERIVED` (pure) / `BENCH` (full)** | `C3` | ### **ONE axis.** *A complete theory of the support axis is not a step toward the place axis — that conflation is what `T2` exists to forbid.* |
-| **silence-on-weights** | ### **`DERIVED` for the pure form** | `C3` | *It is the reason* ### **only the trace pays for a prime** *— the graph is blind to the coefficient. It sharpens what a joining object must carry; it does not carry it.* |
+| **silence-on-weights** | ### **`DERIVED` for the pure form** | `C3` | *It is the reason* ### **only the trace pays for a prime** *— the graph is silent on the coefficient. It sharpens what a joining object must carry; it does not carry it.* |
 | **the two-decompositions witness** | `AT CITE`, one field, structural | `C1` via the monoid | ### **a constraint ON a carrier, not a carrier** |
 | **the anti-alignment** | ### **`MECHANISM-NAMED-NOT-CARRIED`** | `C3`, negatively | *right out-of-sample once, wrong once —* ### **the position where a rule is written down and not used** |
 | **the scaling-limit refutation, corrections 18–22, the method line** | method, not content | ### **the attempt protocol's checkpoint 3** | *it changes how an attempt would be run, not whether one is justified* |
@@ -77,7 +77,7 @@ anyway, explicitly."***
 > ### **AN OBJECT SATISFYING `(i)`–`(iv)` MUST ALSO SEE THE MONOID-RESPECTING BASIS.** *The two-decompositions
 > witness holds one field fixed and varies only the decomposition, and the off-line zeros appear in exactly
 > the basis that breaks the monoid.* **So a carrier that is basis-agnostic between the two decompositions
-> cannot be the right object** — it would be blind to the one variable the witness shows placement tracking.
+> cannot be the right object** — its frame would have taken the object, not its presentation: invariant in the one variable the witness shows placement tracking *(re-phrased to content 2026-08-17, correction twenty-four's closing)*.
 
 *`§4`'s named move is* ### **closed, not retried**; *a next move would have to be named afresh, both branches
 longhand, before anything runs.*
@@ -87,8 +87,8 @@ longhand, before anything runs.*
 *`{∞, 2}`; their `[19]`; the corpus's `2310.18423` stability line — all at cite.*
 
 > ### **WHAT "ONE OBJECT" WOULD HAVE TO CONTAIN: THE ADDRESS GRAPH AND THE TRACE.** *The address graph is
-> what the week derived — vertices, an edge per lag address, inertia a matching number, blind to
-> coefficients. The trace is where `log p·p^{−k/2}` and the archimedean place live.* ### **No candidate on
+> what the week derived — vertices, an edge per lag address, inertia a matching number, silent on
+> the coefficients. The trace is where `log p·p^{−k/2}` and the archimedean place live.* ### **No candidate on
 > the corpus's table has both columns.**
 
 ### **AND THE INSTRUMENT EITHER ROAD WOULD NEED: THE REGULARIZATION REBUILD**
