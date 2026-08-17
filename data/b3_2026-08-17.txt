@@ -1,0 +1,175 @@
+====================================================================================================================
+B3 — PLACE-SET STABILITY — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+====================================================================================================================
+B3 — PLACE-SET STABILITY OF THE ADDRESS OBJECT.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+INSTRUMENT track. This is about the remainder route's failure COUNT only.
+
+THE OBJECT
+===========
+Give the corpus's Toeplitz-on-eta apparatus a FREELY CHOSEN place-set parameter:
+
+    S  = a finite set of PRIMES, chosen independently of the support
+    Phi_{L,S} = the same form on the window of length log L, with the lag terms
+                restricted to the prime powers q = p^k < L for p in S
+
+Then the two operations B1(iv) asks about both exist on ONE object:
+    widening support  = increasing L        (the forced content changes)
+    ### adding a place = enlarging S        (a free choice, CC's place-set shape)
+
+### AND CC'S OWN QUESTION, ASKED OF OUR OBJECT: is the negative count STABLE under
+### enlarging S at fixed support?
+
+WHAT THE MATCHING-NUMBER LAW ALREADY SAYS, BEFORE ANY RUN
+==========================================================
+Enlarging S ADDS EDGES to the shift graph and removes none. A maximum matching is
+non-decreasing under adding edges. So:
+
+    ### mu(S) IS NON-DECREASING IN S, ALWAYS -- and "stable" means exactly
+    ### THE ADDED EDGES DO NOT INCREASE THE MAXIMUM MATCHING.
+
+That is a graph-theoretic condition, not an analytic one: mu increases exactly when the
+new edges create an augmenting path with respect to a maximum matching of the old graph.
+### SO IF STABILITY HOLDS ANYWHERE, THE CONDITION UNDER WHICH SUPPORT-FORCED AND
+### FREELY-CHOSEN COINCIDE IS ALREADY NAMEABLE, AND IT IS "NO AUGMENTING PATH".
+
+THE EVIDENCE ALREADY IN HAND, QUOTED SO THE RUN CANNOT SURPRISE ANYONE
+======================================================================
+2026-08-17 measured the effect of admitting log 3 beside log 2:
+    L = 9  (omega 1e-3 / 2e-3):  +285 / +143 offenders     ### NOT STABLE
+    L = 12 (omega 1e-3 / 2e-3):   -1  /  +0  offenders     ### STABLE to one offender
+Both at the same support-forced schedule, differing only in the window.
+
+REGISTERED PREDICTIONS, BOTH BRANCHES LONGHAND
+===============================================
+P1  (BLOCKING) mu(S) is non-decreasing along every chain S_1 subset S_2 subset ...
+    ### If it ever decreases, the matching computation is wrong and nothing below is read.
+P2  NPOS(operator on V) tracks mu to within 3 offenders at every cell, as it has from
+    r = 1.7 to r = 8.
+P3  ### STABILITY IS NOT GLOBAL AND NOT ABSENT: there are steps with large Delta and steps
+    with Delta = 0, at the same L or at different L.
+    -> IF SO: column (iv) is priced exactly. The two axes are different kinds of thing ON
+       THIS OBJECT -- enlarging S sometimes moves the count and sometimes does not, while
+       widening L moves it by the sawtooth. ### The corpus's instrument is confirmed
+       "two objects glued" BY ITS OWN TEST, and that is an honest MEASURED distance from T2.
+    -> IF EVERY STEP IS STABLE: the free choice never moves the count, the object has CC's
+       stability property, and ### that is Road B's first real handle -- the condition would
+       be named and the two frames would share a theorem rather than a coordinate.
+    -> IF NO STEP IS STABLE: the free choice always moves the count, stability fails
+       outright, and the pair differ at a theorem. Also a clean answer.
+P4  THE APEX CANDIDATE, registered as a candidate and not as a belief: the destabilising
+    steps are those where the newly admitted prime enters at or near its own apex
+    (L ~ p^2). ### It is registered because L = 9 = 3^2 destabilised and L = 12 did not,
+    which is one instance and one non-instance -- far too little, and said so here.
+
+WHAT IS NOT CLAIMED
+====================
+### NO SIGN SENTENCE. NO BOUND. Nothing here bears on W_inf - W_2. The count is a bench
+quantity of a discretized form. And nothing here identifies this object with CC's --
+a shared theorem would be evidence about the objects; it is not offered as an identity.
+
+Usage:  python b3_place_stability.py register | run
+
+  the admitted lag sets, fixed by arithmetic alone:
+  L       M        S                      admitted lags (address k_q)
+  9       2197     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079
+  9       2197     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079
+  9       2197     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079
+  9       2197     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079
+  9       2197     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079
+
+  12      2485     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079
+  12      2485     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197
+  12      2485     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197
+  12      2485     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197
+  12      2485     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398
+
+  16      2773     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079
+  16      2773     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197
+  16      2773     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197
+  16      2773     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197
+  16      2773     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398
+
+  27      3296     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079, 4 log 2@2773
+  27      3296     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773
+  27      3296     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219
+  27      3296     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219
+  27      3296     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398, 4 log 2@2773, 2 log 5@3219
+
+  32      3466     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079, 4 log 2@2773
+  32      3466     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 3 log 3@3296
+  32      3466     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219, 3 log 3@3296
+  32      3466     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219, 3 log 3@3296
+  32      3466     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398, 4 log 2@2773, 2 log 5@3219, 3 log 3@3296
+
+====================================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+      [Q_eps table: omega=1.0e-03, nmax=3466, 95.4 s]
+
+====================================================================================================================
+THE MEASUREMENT — Phi_{L,S} on V, S enlarged at FIXED support
+====================================================================================================================
+  L       S              #lags  mu        NPOS        NPOS - mu   step in NPOS  verdict
+  9       {2}            3      1099      693         -406                      
+  9       {2,3}          4      1099      1167        +68         +474          ### MOVES (+474)
+  9       {2,3,5}        5      1099      1087        -12         -80           ### MOVES (-80)
+  9       {2,3,5,7}      6      1099      1086        -13         -1            ### STABLE STEP
+  9       {2,3,5,7,11}   6      1099      1086        -13         +0            ### STABLE STEP
+
+  12      {2}            3      1243      693         -550                      
+  12      {2,3}          5      1243      1309        +66         +616          ### MOVES (+616)
+  12      {2,3,5}        6      1243      1215        -28         -94           ### MOVES (-94)
+  12      {2,3,5,7}      7      1243      1237        -6          +22           ### MOVES (+22)
+  12      {2,3,5,7,11}   8      1243      1231        -12         -6            ### MOVES (-6)
+
+  16      {2}            3      1387      694         -693                      
+  16      {2,3}          5      1387      1445        +58         +751          ### MOVES (+751)
+  16      {2,3,5}        6      1387      1329        -58         -116          ### MOVES (-116)
+  16      {2,3,5,7}      7      1387      1373        -14         +44           ### MOVES (+44)
+  16      {2,3,5,7,11}   8      1387      1375        -12         +2            ### MOVES (+2)
+
+  27      {2}            4      1648      1078        -570                      
+  27      {2,3}          6      1648      1612        -36         +534          ### MOVES (+534)
+  27      {2,3,5}        8      1648      1626        -22         +14           ### MOVES (+14)
+  27      {2,3,5,7}      9      1648      1642        -6          +16           ### MOVES (+16)
+  27      {2,3,5,7,11}   10     1648      1639        -9          -3            ### MOVES (-3)
+
+  32      {2}            4      1733      1202        -531                      
+  32      {2,3}          7      1733      1657        -76         +455          ### MOVES (+455)
+  32      {2,3,5}        9      1733      1714        -19         +57           ### MOVES (+57)
+  32      {2,3,5,7}      10     1733      1716        -17         +2            ### MOVES (+2)
+  32      {2,3,5,7,11}   11     1733      1725        -8          +9            ### MOVES (+9)
+
+====================================================================================================================
+  P1 (mu non-decreasing) : HOLDS
+  P2 (NPOS tracks mu)    : ### FAILS
+  P3 : 2 stable steps, 18 moving steps, of 20
+       stable : L=9 {2,3,5,7}, L=9 {2,3,5,7,11}
+       moving : L=9 {2,3} (+474), L=9 {2,3,5} (-80), L=12 {2,3} (+616), L=12 {2,3,5} (-94), L=12 {2,3,5,7} (+22), L=12 {2,3,5,7,11} (-6), L=16 {2,3} (+751), L=16 {2,3,5} (-116), L=16 {2,3,5,7} (+44), L=16 {2,3,5,7,11} (+2), L=27 {2,3} (+534), L=27 {2,3,5} (+14), L=27 {2,3,5,7} (+16), L=27 {2,3,5,7,11} (-3), L=32 {2,3} (+455), L=32 {2,3,5} (+57), L=32 {2,3,5,7} (+2), L=32 {2,3,5,7,11} (+9)
+  ### P3 LANDS: stability is NEITHER global NOR absent.
+
+  --- P4, the apex candidate, tabulated not concluded ---
+  L       new prime p    p^2       p^2 < L ?     step
+  9       3              9         no            +474
+  9       5              25        no            -80
+  9       7              49        no            -1
+  9       11             121       no            +0
+  12      3              9         yes           +616
+  12      5              25        no            -94
+  12      7              49        no            +22
+  12      11             121       no            -6
+  16      3              9         yes           +751
+  16      5              25        no            -116
+  16      7              49        no            +44
+  16      11             121       no            +2
+  27      3              9         yes           +534
+  27      5              25        yes           +14
+  27      7              49        no            +16
+  27      11             121       no            -3
+  32      3              9         yes           +455
+  32      5              25        yes           +57
+  32      7              49        no            +2
+  32      11             121       no            +9
