@@ -1,0 +1,99 @@
+================================================================================================
+THE SEPARATING ACT — REGISTRATION. PRINTED BEFORE ANY NEW MEASURED NUMBER.
+================================================================================================
+EXPERIMENT ONE, THE SEPARATING ACT — localizing the omega-split to a lag PAIR or a lag ADDRESS.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THIS ACT EXISTS — A CONFOUND IN MY OWN PROFILE, CAUGHT BEFORE ITS NUMBERS WERE READ
+-----------------------------------------------------------------------------------------
+The profile registered the split as a COMMENSURABILITY effect: k_4 = 2 k_2 or not. Before
+its results were read I checked whether its six omega could separate that from a PARITY
+effect (k_4 even or odd) and found they could not — every one of the six was commensurate
+exactly when k_4 was even.
+
+THEY COULD NOT HAVE. THE TWO ARE THE SAME CONDITION, AND HERE IS THE ONE-LINE PROOF:
+
+    for any real x,  |round(2x) - 2 round(x)| <= 1.
+    2 round(x) is even. So k_4 != 2 k_2 forces k_4 = 2 k_2 +/- 1, hence k_4 ODD;
+    and k_4 = 2 k_2 forces k_4 EVEN.
+
+        ### k_4 = 2 k_2   <=>   k_4 is even.   Identically, for every omega.
+
+So no choice of omega can ever separate "the grid preserves log 4 = 2 log 2" from "the log-4
+address is even". The profile was not confounded by bad luck in its six values; the question
+as posed is not decidable by varying omega AT ALL. Registering the mechanism did not save the
+design — checking whether the design could distinguish the mechanisms is a separate act, and
+it is this one.
+
+WHAT CAN SEPARATE THEM: VARYING THE LAG SET, NOT THE GRID
+-----------------------------------------------------------------------------------------
+If the effect is the RELATION log 4 = 2 log 2 rendered on the grid, it needs BOTH addresses
+present: S^{k_4} = (S^{k_2})^2 is a statement about a pair. If it is a property of the log-4
+address alone, it survives with log 2 removed.
+
+    L = 4.2 fixed. E1(4.2) = 1 - log2/log(4.2), the same number at every omega.
+    omega_even = 1.0e-3   k_2 = 693, k_3 = 1099, k_4 = 1386 = 2 k_2   (EVEN)
+    omega_odd  = 1.2e-3   k_2 = 578, k_3 =  916, k_4 = 1155 != 2 k_2  (ODD)
+
+    Six lag sets at each: {log2} · {log2,log3} · {log2,2log2} · {log3,2log2} · {2log2} · all.
+    SPLIT(set) := | fraction at omega_even - fraction at omega_odd |, called present if > 0.01.
+
+REGISTERED PREDICTIONS
+-----------------------------------------------------------------------------------------
+R1  {log2} and {log2,log3} show NO split at either omega, and both sit at E1.
+    (Replicates the sweep's stable rows; if this fails the whole diagnosis is void.)
+R2  IF the split is present for {log2,2log2} and ABSENT for both {log3,2log2} and {2log2},
+    THEN the effect requires the log2-log4 PAIR: it is the grid's rendering of the
+    arithmetic relation log 4 = 2 log 2, and it is an artifact of the discretization of a
+    true relation rather than a property of the operator.
+R3  IF the split is present for {2log2} ALONE, THEN it is a property of a single address's
+    parity, no relation is involved, and the commensurability reading is wrong even though
+    it fits every omega — because it was never separable from parity to begin with.
+R4  IF the split is present for {log3,2log2} but absent for {log2,2log2}, neither reading
+    survives and the act reports the pattern without a mechanism.
+
+    A fifth outcome is possible and is registered as such: NO SPLIT ANYWHERE except in the
+    full set, which would locate the effect in a three-lag interaction and refute both R2
+    and R3.
+
+Usage:  python exp1_e2_separate.py register
+        python exp1_e2_separate.py run
+
+------------------------------------------------------------------------------------------------
+  addresses, fixed by arithmetic alone:
+    omega=1.0e-03  M=1435  k_2=693  k_3=1099  k_4=1386  (even, k_4 = 2k_2)
+    omega=1.2e-03  M=1196  k_2=578  k_3=916  k_4=1155  (odd, k_4 != 2k_2)
+  E1(4.2) = 0.516999 at both omega.
+================================================================================================
+
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+      [Q_eps table: omega=1.0e-03, 39.4 s]
+      [Q_eps table: omega=1.2e-03, 33.1 s]
+
+========================================================================================================
+L = 4.2   E1 = 0.516999   split threshold 0.010
+========================================================================================================
+  lag set              omega=1.0e-3 (k4 EVEN)   omega=1.2e-3 (k4 odd)    |split|     reading
+  {log2}               693/1434 = 0.483264      578/1195 = 0.483682      0.000418    no split
+  {log2,log3}          692/1434 = 0.482566      577/1195 = 0.482845      0.000279    no split
+  {log2,2log2}         692/1434 = 0.482566      597/1195 = 0.499582      0.017015    ### SPLIT
+  {log3,2log2}         337/1434 = 0.235007      281/1195 = 0.235146      0.000139    no split
+  {2log2}              51/1434 = 0.035565       43/1195 = 0.035983       0.000418    no split
+  {log2,log3,2log2}    693/1434 = 0.483264      598/1195 = 0.500418      0.017155    ### SPLIT
+
+--------------------------------------------------------------------------------------------------------
+  E2 against E1 = 0.516999, per cell:
+    {log2}                even: -0.033735    odd: -0.033317
+    {log2,log3}           even: -0.034433    odd: -0.034154
+    {log2,2log2}          even: -0.034433    odd: -0.017417
+    {log3,2log2}          even: -0.281992    odd: -0.281853
+    {2log2}               even: -0.481434    odd: -0.481016
+    {log2,log3,2log2}     even: -0.033735    odd: -0.016581
+
+--------------------------------------------------------------------------------------------------------
+  R1 HOLDS — {log2} split=False, {log2,log3} split=False
+  ### R2 — THE EFFECT REQUIRES THE log2-log4 PAIR. It is the grid's rendering
+      of log 4 = 2 log 2, not a property of the operator.
