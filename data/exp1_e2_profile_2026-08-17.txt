@@ -1,0 +1,126 @@
+================================================================================================
+E2 PROFILE — REGISTRATION. PRINTED BEFORE ANY NEW MEASURED NUMBER.
+================================================================================================
+EXPERIMENT ONE, THE E2 PROFILE — diagnosing the omega-instability the sweep found.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHAT THE SWEEP RETURNED (exp1_run_2026-08-17.txt), and why it cannot be reported as it stands:
+
+    L = 3.2, 3.6   (lags log 2, log 3)              measured AT E1, stable across all three omega
+    L >= 4.2       (lags log 2, log 3, 2 log 2, ..) measured DEPARTS, and the departure is
+                                                    NOT STABLE IN omega:
+        L = 4.2   omega 2e-3 -> 0.500697 | omega 1e-3 -> 0.483264 | omega 5e-4 -> 0.500174
+        L = 7.0   omega 2e-3 -> 0.500000 | omega 1e-3 -> 0.475578 | omega 5e-4 -> 0.499100
+
+The registered verdict rule withheld those rows as UNSTABLE. A departure that moves with the
+grid is a statement about the grid until it is shown to be a statement about the mechanism.
+
+THE HYPOTHESIS, REGISTERED WITH ITS MECHANISM BEFORE ANY NEW NUMBER IS COMPUTED
+--------------------------------------------------------------------------------
+H:  The instability is a COMMENSURABILITY ARTIFACT OF THE GRID.
+
+    In the continuum the prime-power lags carry exact arithmetic relations: log 4 = 2 log 2.
+    On the grid each lag sits at the integer address k_q = round(log q / omega), and
+
+        k_4 = 2 k_2   iff   frac(log 2 / omega) is in [0, 1/4) U [3/4, 1).
+
+    So the discretization either PRESERVES or DESTROYS the relation log 4 = 2 log 2 depending
+    on omega alone. When it is preserved the two shift matrices commute as powers of one shift
+    and generate a smaller algebra; when it is destroyed they do not. NOTHING IN THE WINDOW
+    LENGTH OR THE COEFFICIENTS CHANGES — only the arithmetic of the rounding.
+
+    The sweep's own three omega already split this way, which is what generated H and is
+    therefore NOT evidence for it:
+        omega 2e-3  frac = 0.574  INCOMMENSURATE   measured ~ 0.500
+        omega 1e-3  frac = 0.147  COMMENSURATE     measured < 0.500
+        omega 5e-4  frac = 0.294  INCOMMENSURATE   measured ~ 0.500
+
+REGISTERED PREDICTIONS, on omega values the hypothesis has never seen
+--------------------------------------------------------------------------------
+P1  At L = 4.2, at each of three NEW INCOMMENSURATE omega (1.2e-3, 1.7e-3, 0.8e-3):
+    fraction ~ 0.500, within 0.002.
+P2  At L = 4.2, at each of three NEW COMMENSURATE omega (1.1e-3, 0.9e-3, 1.4e-3):
+    fraction BELOW 0.497.
+P3  At L = 3.6 — where no log-4 lag exists, so H predicts no split — all six omega agree
+    with each other and with E1 to 0.002.
+P4  MECHANISM CONTROL. At L = 4.2, omega = 1e-3 (commensurate), DROPPING ONLY the log-4 lag
+    and keeping log 2 and log 3 returns the fraction to E1 (within 0.002). If the departure
+    survives the removal of the log-4 lag, H is refuted at its named mechanism.
+P5  INERTNESS CONTROL. At L = 3.6, omega = 1e-3, dropping the log-3 lag changes NOTHING.
+    This separates "E1 confirmed" from "the second lag was inert" — two readings the sweep's
+    AT-E1 verdict cannot tell apart, and only one of which is a result about the mechanism.
+
+IF P1 AND P2 BOTH LAND, the L >= 4.2 rows measure the grid's arithmetic and not the two-prime
+room, and no E2 verdict may be read off them at any omega.
+IF EITHER FAILS, H is refuted and the departure is not the commensurability, which is a
+finding about the mechanism and is reported as one.
+
+Usage:  python exp1_e2_profile.py register
+        python exp1_e2_profile.py run
+
+------------------------------------------------------------------------------------------------
+THE OMEGA VALUES, CLASSIFIED BY THE HYPOTHESIS BEFORE THEY ARE RUN
+------------------------------------------------------------------------------------------------
+  omega      frac       k_2      k_4      k_4 == 2 k_2 ?   H predicts
+  1.7e-03    0.7336     408      815      no               ~ 0.500
+  1.4e-03    0.1051     495      990      YES              below 0.497
+  1.2e-03    0.6227     578      1155     no               ~ 0.500
+  1.1e-03    0.1338     630      1260     YES              below 0.497
+  9.0e-04    0.1635     770      1540     YES              below 0.497
+  8.0e-04    0.4340     866      1733     no               ~ 0.500
+
+  Three of each. The classification above is fixed by arithmetic alone and does
+  not use the operator, the window, or any measured quantity.
+================================================================================================
+
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+
+  eps'(1+) = 22.9964757
+
+      [Q_eps table: omega=1.7e-03, 845 lags, 23.1 s]
+      [Q_eps table: omega=1.4e-03, 1026 lags, 28.1 s]
+      [Q_eps table: omega=1.2e-03, 1197 lags, 33.3 s]
+      [Q_eps table: omega=1.1e-03, 1306 lags, 36.3 s]
+      [Q_eps table: omega=9.0e-04, 1596 lags, 44.8 s]
+      [Q_eps table: omega=8.0e-04, 1795 lags, 51.4 s]
+
+========================================================================================================
+P1 / P2 — L = 4.2   lags: log 2, log 3, 2 log 2   E1 = 0.516999
+========================================================================================================
+  omega      class          M        measured         fraction    E2           vs prediction
+  1.7e-03    incommensurate 844      422 / 843        0.500593    -0.016406    P1 LANDS
+  1.4e-03    COMMENSURATE   1025     495 / 1024       0.483398    -0.033601    P2 LANDS
+  1.2e-03    incommensurate 1196     598 / 1195       0.500418    -0.016581    P1 LANDS
+  1.1e-03    COMMENSURATE   1305     630 / 1304       0.483129    -0.033870    P2 LANDS
+  9.0e-04    COMMENSURATE   1595     770 / 1594       0.483061    -0.033938    P2 LANDS
+  8.0e-04    incommensurate 1794     897 / 1793       0.500279    -0.016720    P1 LANDS
+
+========================================================================================================
+P3 — L = 3.6   lags: log 2, log 3   E1 = 0.458874
+========================================================================================================
+  omega      class          M        measured         fraction    E2           vs prediction
+  1.7e-03    incommensurate 753      345 / 752        0.458777    -0.000097    P3 LANDS
+  1.4e-03    COMMENSURATE   915      420 / 914        0.459519    +0.000645    P3 LANDS
+  1.2e-03    incommensurate 1067     489 / 1066       0.458724    -0.000149    P3 LANDS
+  1.1e-03    COMMENSURATE   1164     534 / 1163       0.459157    +0.000284    P3 LANDS
+  9.0e-04    COMMENSURATE   1423     653 / 1422       0.459212    +0.000339    P3 LANDS
+  8.0e-04    incommensurate 1601     735 / 1600       0.459375    +0.000501    P3 LANDS
+
+========================================================================================================
+P4 — MECHANISM CONTROL at L = 4.2, omega = 1e-3 (COMMENSURATE)
+========================================================================================================
+  all lags               [log 2, log 3, 2 log 2]         693 / 1434   = 0.483264   E2 = -0.033735
+  log-4 lag REMOVED      [log 2, log 3]                  692 / 1434   = 0.482566   E2 = -0.034433
+  log 2 only             [log 2]                         693 / 1434   = 0.483264   E2 = -0.033735
+  E1 = 0.516999
+
+========================================================================================================
+P5 — INERTNESS CONTROL at L = 3.6, omega = 1e-3
+========================================================================================================
+  log 2 + log 3          [log 2, log 3]                  588 / 1280   = 0.459375   E2 = +0.000501
+  log 3 REMOVED          [log 2]                         587 / 1280   = 0.458594   E2 = -0.000280
+  E1 = 0.458874
+  ### THE LOG-3 LAG IS ACTIVE: it moves the count by +1 offenders.
