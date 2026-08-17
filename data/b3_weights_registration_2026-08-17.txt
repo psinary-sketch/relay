@@ -1,0 +1,71 @@
+================================================================================================================
+B3 WEIGHT CONTROL — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+================================================================================================================
+B3 ADDENDUM — IS THE NON-MONOTONICITY COEFFICIENT-DRIVEN? THREE WEIGHTINGS, NOT TWO.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THREE AND NOT TWO
+======================
+The ferry's caveat asked for a unit-weight re-run. ### RUN ALONE, THAT COMPARISON WOULD BE
+### CONFOUNDED, AND THE CORPUS'S OWN MEASUREMENT IS WHY.
+
+2026-08-17 measured the pure two-lag form at L = 9, omega = 1e-3 under three weightings:
+
+    registered  2 sqrt(q) log p   -> NPOS = 1098      nullity 1
+    Weil        4 log p / sqrt(q) -> NPOS = 1098      nullity 1
+    ### unit    c = 1 for all     -> NPOS = 889       ### nullity 419
+
+and filed the finding: ### the count is the matching number at GENERIC weights and DROPS at
+### the degenerate weight c2 = c3. Equal weights make cycle contributions cancel and the rank
+fall; unit is a measure-zero choice.
+
+### SO "REGISTERED vs UNIT" CANNOT SEPARATE "the coefficients drive the movement" FROM
+### "you evaluated at the one weighting known to be degenerate."
+Two generic conventions are needed to make the comparison mean anything:
+
+    (a) registered vs Weil  -- BOTH GENERIC, different SHAPES (ratios differ up to 2.5x)
+                               ### this is the real test of coefficient-dependence
+    (b) either vs unit      -- the degeneracy check, retained because it is informative
+                               about the degeneracy and NOT about the weights in general
+
+REGISTERED PREDICTIONS, BOTH BRANCHES LONGHAND, BEFORE ANY NUMBER
+=================================================================
+W1  ### THE DECISIVE ONE. Registered and Weil give the SAME step pattern -- same signs, and
+    step sizes agreeing to within a few offenders -- at every (L, S).
+    -> IF SO: ### the movement and the NON-MONOTONICITY ARE STRUCTURAL, not coefficient-driven.
+       They are about WHICH LAGS ARE ADMITTED, and B3's verdict stands unqualified. The
+       caveat named on 2026-08-17 is discharged.
+    -> IF NOT: ### the step pattern depends on the coefficient SHAPE even among generic
+       weights. Then B3's "not even monotone" is a statement about the weighting and not
+       about the place set, that half of the verdict is withdrawn, and the surviving half is
+       only "NOT STABLE" -- which the +455..+751 first steps would still support.
+
+W2  Unit weights differ from both generic ones somewhere, as the degeneracy predicts.
+    ### A NULL HERE WOULD BE INFORMATIVE IN THE OTHER DIRECTION: it would say the c2 = c3
+    ### degeneracy does not reach these lag sets, which are not bipartite and where the
+    ### rank-2mu identity does not hold anyway.
+
+W3  Monotonicity is reported PER WEIGHTING, so "four of five windows" can be checked against
+    each convention rather than inherited from one.
+
+WHAT IS NOT CLAIMED
+====================
+### NO SIGN SENTENCE. This is a control on a bench quantity. Nothing here bears on
+W_inf - W_2, and nothing here revisits the stability verdict except through its caveat.
+
+Usage:  python b3_weights.py register | run
+
+  the three weightings, per prime power:
+  q      registered     Weil           unit    
+  2      1.960516       1.960516       1.0     
+  3      3.805705       2.537136       1.0     
+  4      2.772589       1.386294       1.0     
+  5      7.197625       2.879050       1.0     
+  7      10.296789      2.941940       1.0     
+  8      3.921033       0.980258       1.0     
+  9      6.591674       1.464816       1.0     
+  11     15.905838      2.891971       1.0     
+
+  registered/Weil ratio spread: 1.00x to 5.50x
+================================================================================================================
