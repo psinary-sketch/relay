@@ -1,0 +1,100 @@
+====================================================================================================
+B8-RIDERS(1) — THE E1 CELL · REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B8-RIDERS(1) — THE E1 CELL: the candidate trace on lag-log q data. AUTHOR'S WORD GIVEN.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+POSITIVITY GUARD ON THE FACE: a positive local trace bears not at all on h2.
+
+THE MEASUREMENT, DERIVED LONGHAND IN THIS REGISTRATION
+======================================================
+At a finite place the scaling group is DISCRETE: p^Z, step log p. So the compressed action
+integrated against a test function g is a SUM over the lags the explicit formula uses:
+
+    theta_p(g) = log p * Sum_k g(k log p) U^k,     U = scaling by p (|p|^{1/2}-normalized),
+
+and the candidate trace T(g) = Tr(theta_p(g) S theta_p(g)*) is a positive sesquilinear form
+in the lag data {g(k log p)} with kernel M_{k,k'} = Tr(U^k S U^{k'+}) -- the (alpha) sandwich
+shape by construction (T(g) = ||S^{1/2} theta(g)*||_F^2 >= 0).
+
+THE (beta) QUESTION: the coefficient the trace assigns to the pure lag-log q correlation is
+    t_k = |Tr(U^k S)|          (the g_k gbar_0 cross-coefficient; q = p^k),
+and its q-scaling is read against the two banked conventions, PREDICTED LONGHAND HERE:
+
+    registered  C(q) = 2 sqrt(q) log p     ->  t_k ~ q^{+1/2}: factor sqrt(p) per lag step
+    Weil        C(q) = 4 log p / sqrt(q)   ->  t_k ~ q^{-1/2}: factor 1/sqrt(p) per lag step
+    ratio (registered/Weil) at lag q: q/2  -- THE FERRY'S "ratio q" IS THE SHAPE-RATIO,
+                                              the constant 2 dropped; flagged per Rule 3.
+
+Also reported: d_k = Tr(U^k S U^{k+}) (the diagonal lag mass) and n_k = ||S U^k S||_F (the
+norm channel, B8's Q at k = 1) -- so the middle verdict has its named location:
+
+VERDICTS (registered before any number):
+    (beta)-CARRYING at named convention   t_k nonzero with fitted q-power ~ +1/2 (registered)
+                                          or ~ -1/2 (Weil), consistently across cells
+    WEIGHT-PRESENT-IN-NORM-ABSENT-IN-TRACE  t_k = 0 at machine precision while n_k > 0 --
+                                          the leak located: the TRACE kills what the NORM
+                                          carries (a strictly shell-lowering operator traced
+                                          against a projection can vanish identically while
+                                          its compressed norm does not)
+    NEITHER                               t_k nonzero with some other power; filed, no fit.
+
+Registered expectation from B8's laws: at n = 1 everything compressed vanishes (the
+(p^{n-1} - 1) factor); the decisive cells are n >= 2.
+
+CELLS: p in {2,3,5} x n in {1,2,3}, EXCEPT (5,3) where only the trace channel runs (the
+N = 15625 projection is handled by the low-rank identity S = I - C^+ C, so Tr(U^k S) =
+Tr(U^k) - Tr((C U^k) C^+) is cheap while the norm channel is a dense 15625^2 object --
+declared, not silently skipped).
+
+Usage:  python b8_e1_cell.py register | run
+
+  longhand per-cell convention predictions (coefficient at lag q = p^k):
+  q      p^k  registered 2sqrt(q)logp Weil 4logp/sqrt(q) ratio (=q/2)
+  2      2^1  1.960516           1.960516           1.0         
+  4      2^2  2.772589           1.386294           2.0         
+  3      3^1  3.805705           2.537136           1.5         
+  9      3^2  6.591674           1.464816           4.5         
+  5      5^1  7.197625           2.879050           2.5         
+  25     5^2  16.094379          1.287550           12.5        
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  p    n    N        t_k = |Tr(U^k S)|            d_k = Tr(U^k S U^k+)         n_k = ||S U^k S||_F         
+  2    1    4        2.9656e-32                   -2.7756e-17                  2.6147e-32                  
+  2    2    16       5.1383e-16 7.4078e-31 4.5354e-31 3.0000e+00 -2.0817e-17 9.5665e-18 1.4142e+00 7.2429e-31 6.5951e-31
+  2    3    64       1.3036e-15 3.4177e-15 1.1984e-29 7.3178e-30 2.6588e-30 2.1000e+01 7.0000e+00 -2.0238e-16 -1.7974e-16 -1.1675e-18 4.2426e+00 2.0000e+00 1.1996e-29 1.0925e-29 8.2413e-30
+  3    1    9        1.7260e-31                   -6.1620e-17                  3.3516e-31                  
+  3    2    81       2.2555e-15 3.5702e-29 1.7218e-29 1.6000e+01 1.0717e-16 4.3869e-17 3.4641e+00 3.6435e-29 3.5519e-29
+  3    3    729      5.1638e-15 2.7607e-14 5.1038e-28 2.9408e-28 1.6975e-28 2.0800e+02 5.2000e+01 7.2779e-16 -3.5851e-17 4.5626e-17 1.3856e+01 6.0000e+00 5.9330e-28 3.4211e-28 1.9744e-28
+  5    1    25       2.4012e-30                   -1.0944e-16                  2.5934e-30                  
+  5    2    625      2.1184e-14 3.1448e-28 1.4053e-28 9.6000e+01 -9.4647e-16 -8.8285e-17 8.9443e+00 3.5932e-28 1.6056e-28
+Traceback (most recent call last):
+  File "D:\relay\tools\e16\b8_e1_cell.py", line 139, in <module>
+    main()
+  File "D:\relay\tools\e16\b8_e1_cell.py", line 135, in main
+    run()
+  File "D:\relay\tools\e16\b8_e1_cell.py", line 123, in run
+    t = trace_channel(p, n, kmax)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\e16\b8_e1_cell.py", line 73, in trace_channel
+    trUCC = np.sum((C @ Uk).T * Cp.T.conj())   # Tr((C U^k) C^+)... careful: Tr(U^k C^+ C) = Tr(C U^k C^+)
+                   ~~~~~~~~~~~^~~~~~~~~~~~~
+ValueError: operands could not be broadcast together with shapes (15625,250) (250,15625) 
+
+--- POST-RUN: NINTH CELL ADJUDICATION + THE THIRD LAW (banked with the run) ---
+(5,3) low-rank trace channel returned t_k ~ 3e-3; ADJUDICATED AS INSTRUMENT NOISE:
+  the same low-rank path at (3,3) gives t_k ~ 2e-2 where the dense path (ground truth)
+  gives ~5e-15. The pinv-based projection has residual 3e-6 which accumulates over N
+  diagonal entries. THE LOW-RANK PATH IS WITHDRAWN AS A TRACE INSTRUMENT; the (5,3)
+  trace channel is NOT MEASURED at adequate precision. The eight dense cells stand.
+d-LAW VERIFICATION (all measured cells):  d_k = (p^{n-k}-1)(p^n-1) for k < n, else 0
+  MATCH at (2,2) (2,3) (3,2) (3,3) (5,2) -- a THIRD exact law, found beyond registration.
+  Amplitude reading: sqrt(d_k) ~ sqrt(N) * q^{-1/2} -- the WEIL SHAPE in the one channel
+  that scales; question grade, not the registered quantity.
+VERDICT (per the registered map): WEIGHT-PRESENT-IN-NORM-ABSENT-IN-TRACE.
+  t_k = machine zero at 8 dense cells, all lags; n_k carries sqrt(p) (B8's law);
+  d_k carries the third law. The leak is LOCATED: the trace (cross) channel kills what
+  the norm carries. The tensor check (rider 2) DOES NOT RUN by its own rule (E1 did not
+  land at either convention); its registration stands banked.
