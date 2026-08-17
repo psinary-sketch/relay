@@ -1,0 +1,67 @@
+============================================================================================================
+THE MATCHED-PAIR CONTROL — REGISTRATION, then measurement
+============================================================================================================
+THE MATCHED-PAIR CONTROL — same grid dimension, different window.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THIS CONTROL EXISTS
+========================
+The third window returned ### NPOS(A_main) = 37 at L = 256 (r = 8, M = 5545), against 5 at
+r = 4 and 8 at r = 6, and the u-family stopped matching by node count. Before any of that is
+reported as a finding about the WINDOW, it has to be separated from a finding about the GRID:
+M grew from 2773 to 4159 to 5545 at the same time r grew from 4 to 6 to 8, and the two are
+confounded in every cell measured so far.
+
+    ### THE CORPUS'S OWN INSTRUMENT FOR EXACTLY THIS: the matched-pair collision -- two points
+    ### at the same value of one variable, differing in the other. Its spread measures directly
+    ### what the reading says is not there.
+
+AND THE COLLISION IS FREE HERE, BECAUSE THE ARITHMETIC HANDS IT OVER:
+
+    L = 16,  omega = 1e-3  ->  M = 2773,  k = 693,  r = 4.0014
+    ### L = 256, omega = 2e-3  ->  M = 2773,  k = 347,  r = 7.9914
+
+### THE SAME GRID DIMENSION, TO THE POINT. Same matrix size, same eigensolver, same everything
+### except the window the grid is spread over.
+
+REGISTERED, BOTH BRANCHES LONGHAND, BEFORE THE RUN
+===================================================
+C1  IF NPOS(A_main) at (L=256, 2e-3) comes out LARGE -- comparable to the 37 measured at
+    (L=256, 1e-3) -- then ### THE COUNT IS DRIVEN BY r, NOT BY M. The jump from 8 to ~37
+    between r = 6 and r = 8 is a property of the window, the family genuinely reorganises,
+    and the scaling limit filed on two windows is refuted by the third.
+
+C2  IF it comes out SMALL -- comparable to the 5 measured at (L=16, 1e-3), which has the same
+    M -- then ### THE COUNT IS DRIVEN BY M, NOT BY r, the 37 at the finer grid is a
+    resolution effect, and the whole third-window verdict has to be re-read as an instrument
+    statement before it can be read as a mechanism statement.
+
+C3  Reported either way: the positive spectrum's MAGNITUDES, so that eigenvalues sitting at
+    the numerical floor can be separated from real ones. At (L=256, 1e-3) the positive list
+    ran down to 3.6e-8, three orders below the smallest robust positive at r = 6, and a count
+    that includes those is not the same quantity as a count that does not.
+    ### A THRESHOLD SWEEP IS PRINTED SO THE COUNT CAN BE READ AT A STATED FLOOR.
+
+Usage:  python ladder_control.py
+
+  L        omega     M        k       r = M/k  
+  16       1.0e-03   2773     693     4.0014   
+  256      2.0e-03   2773     347     7.9914   
+  64       1.5e-03   2773     462     6.0022   
+============================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  L        omega     M        r         NPOS(A_main) at floor 0 / 1e-6 / 1e-5 / 1e-4
+  16       1.0e-03   2773     4.0014    5    / 5    / 5    / 4         [77s]
+        largest 1.6281e-03   smallest positive 6.2659e-05   |lam_min| 5.5615e-04
+  256      2.0e-03   2773     7.9914    37   / 35   / 34   / 30        [73s]
+        largest 1.9413e-02   smallest positive 1.5516e-08   |lam_min| 1.8801e-02
+  64       1.5e-03   2773     6.0022    8    / 8    / 8    / 7         [73s]
+        largest 3.5505e-03   smallest positive 3.1785e-05   |lam_min| 8.5246e-04
+
+============================================================================================================
+  READ: the first two rows share M = 2773 exactly. If their counts differ, the
+  driver is r (C1). If they agree, the driver is M (C2).
+============================================================================================================

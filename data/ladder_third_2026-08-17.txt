@@ -1,0 +1,206 @@
+====================================================================================================================
+THE THIRD WINDOW — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+====================================================================================================================
+THE THIRD WINDOW — L = 256, r = 8: does the scaling limit stand across a sixteenfold range?
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+WHY THIS CELL EXISTS, AND IT IS THE DAY'S OWN LAW APPLIED TO THE DAY'S OWN CLAIM
+================================================================================
+2026-08-17 measured the remainder's positive family at L = 16 and L = 64 and found it FIXED
+in u = t/log L -- node-matched overlaps 0.9847, 0.9944, 0.9952, 0.9927, 0.9657 -- and filed
+that as a SCALING LIMIT.
+
+    ### THE STANDING LAW MINTED THIS MORNING: A LAW READ OFF A RANGE IS A LAW ABOUT THAT
+    ### RANGE -- ONE CELL OUTSIDE IS THE CHEAP DEFENCE.
+
+Two windows are a range. L = 256 (r = 8) is the cell outside it, and it makes the span
+sixteenfold in L and a factor of two in r.
+
+REGISTERED PREDICTIONS, PRINTED BEFORE ANY MEASUREMENT
+=======================================================
+S1  THE FAMILY. The first members at r = 8 match the r = 4 and r = 6 members by NODE COUNT,
+    in u, to the tolerance already seen (node-matched overlaps > 0.90, off-diagonals small).
+    ### IF THEY DO: the scaling limit stands at three windows spanning a factor of sixteen in
+    L, and the family is an object with a defined limit rather than a local coincidence.
+    ### IF THEY DRIFT: the u-agreement at 16-vs-64 was local, two windows were not a scaling
+    limit, and the day's claim is corrected by the day's own law -- which is the outcome the
+    law exists to produce and would be reported as the finding.
+
+S2  THE ANTI-ALIGNMENT RULE, CHECKED UNREFITTED AT r = 8.
+        R(v_n) ~ 2(1 - 1/r) cos(n pi / r)  =  1.75 * cos(n pi / 8)  at r = 8
+    giving, for n = 1..8:
+        +1.617, +1.237, +0.670, 0.000, -0.670, -1.237, -1.617, -1.750
+    ### AND THE SHARPENED RULE FROM THE r = 4 AND r = 6 CELLS -- positive exactly for
+    ### n < r/2, WITH THE BOUNDARY MODE n = r/2 FALLING NEGATIVE -- PREDICTS EXACTLY
+    ### THREE POSITIVE EXCEPTIONS AT r = 8: n = 1, 2, 3, with n = 4 negative.
+
+    ### A CORRECTION TO THIS BLOCK, MADE BEFORE ANY MEASUREMENT AND LEFT VISIBLE. The grid
+    ### gives r = 8.0014, so a literal 'n < r/2' admits n = 4 and would predict FOUR. That is
+    ### NOT the rule the r = 4 and r = 6 cells measured: there the boundary modes (n = 2 at
+    ### r = 4.0014, n = 3 at r = 6.0014) were BOTH admitted by the literal inequality and
+    ### BOTH came out NEGATIVE. The rule is therefore n <= round(r/2) - 1, which gives
+    ### 1, 2, 3 at r = 4, 6, 8 and reproduces both measured counts.
+    ### THE REGISTERED PREDICTION IS THREE. The literal-inequality count of four is recorded
+    ### beside it so that landing three cannot later be read as fitting the rule to the
+    ### answer.
+    Every window measured so far has had 1 (r = 4) and 2 (r = 6). ### THREE IS THE NEXT
+    ### VALUE AND IT IS WRITTEN DOWN BEFORE THE RUN.
+
+S3  NEGATIVE-DOMINANCE on the band r/2 < n < 3r/2, i.e. 4 < n < 12: every member in that
+    band has R < 0. It has held 3 of 3 at r = 4 and 5 of 5 at r = 6.
+
+    ### IF S2 GIVES 3: the mechanism has now predicted the exception count at two windows it
+    had never seen (2 at r = 6, 3 at r = 8) and the rule is worth stating as a candidate.
+    ### IF S2 GIVES ANYTHING ELSE: the cos model predicted the r = 6 change by luck, and the
+    rule is filed as an observation about r = 4 and r = 6 only.
+
+WHAT IS NOT CLAIMED EITHER WAY
+===============================
+### NO BOUND. A bound on |NPOS(A) - NPOS(S_k)| would additionally need (a) the family to be
+COMPLETE for A_main's positive part and (b) the CROSS TERMS between members under the lag
+form. Neither is in hand and neither is touched here. A diagonal sign pattern is not an
+inertia bound.
+
+Usage:  python ladder_third.py register | run
+
+  L       M       r = M/k   literal n<r/2  REGISTERED rule  measured     prediction
+  16      2773    4.0014    2              1                1            (already measured)
+  64      4159    6.0014    3              2                2            (already measured)
+  256     5545    8.0014    4              3                -            ### THREE
+
+  cos-model values at r = 8, n = 1..8:
+     +1.617  +1.238  +0.670  +0.000  -0.669  -1.237  -1.616  -1.750
+====================================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+      [Q_eps table: omega=1.0e-03, nmax=5545, 145.6 s]
+
+====================================================================================================================
+L = 16   M = 2773   r = 4.0014   ### NPOS(A_main) = 5      [3s]
+====================================================================================================================
+  nodes eigenvalue     parity    centroid u  head mass    R measured     1.75-style model
+  1     1.628082e-03   -0.6797 (ODD ) 0.61551     0.21628      +0.750771      +1.061088 
+  2     8.867146e-04   +0.9091 (EVEN) 0.53280     0.15449      -0.407032      +0.000850 ### SIGN MISMATCH
+  3     5.116995e-04   -0.9545 (ODD ) 0.51641     0.16434      -1.369887      -1.059886 
+  4     2.587867e-04   +0.9748 (EVEN) 0.50907     0.23940      -1.475563      -1.500179 
+  5     6.265932e-05   -0.9835 (ODD ) 0.50596     0.31370      -0.801723      -1.062289 
+
+  ### positive-Rayleigh modes: 1   (sharpened rule n < r/2 = 2.0007 predicts 1)  ### S2 LANDS
+====================================================================================================================
+L = 64   M = 4159   r = 6.0014   ### NPOS(A_main) = 8      [12s]
+====================================================================================================================
+  nodes eigenvalue     parity    centroid u  head mass    R measured     1.75-style model
+  1     2.367728e-03   -0.3958 (ODD ) 0.64529     0.12696      +1.354710      +1.443550 
+  2     1.348950e-03   +0.8064 (EVEN) 0.54655     0.12303      +0.601105      +0.833737 
+  3     9.312003e-04   -0.9065 (ODD ) 0.52247     0.10787      -0.314536      +0.000630 ### SIGN MISMATCH
+  4     6.581557e-04   +0.9454 (EVEN) 0.51312     0.09948      -1.109675      -0.832646 
+  5     4.484768e-04   -0.9636 (ODD ) 0.50874     0.11700      -1.600769      -1.442920 
+  6     2.796826e-04   +0.9747 (EVEN) 0.50608     0.15572      -1.655889      -1.666746 
+  7     1.375838e-04   -0.9811 (ODD ) 0.50455     0.19806      -1.292756      -1.444179 
+  8     2.110741e-05   +0.9870 (EVEN) 0.50312     0.24471      -0.613698      -0.834827 
+
+  ### positive-Rayleigh modes: 2   (sharpened rule n < r/2 = 3.0007 predicts 2)  ### S2 LANDS
+====================================================================================================================
+L = 256   M = 5545   r = 8.0014   ### NPOS(A_main) = 37      [28s]
+====================================================================================================================
+  nodes eigenvalue     parity    centroid u  head mass    R measured     1.75-style model
+  1     9.600404e-03   -0.9097 (ODD ) 0.51628     0.46316      +0.049627      +1.616878 
+  3     2.864934e-03   -0.1942 (ODD ) 0.64532     0.07943      +1.549321      +0.670057 
+  4     1.901405e-03   +0.8553 (EVEN) 0.52609     0.34302      +0.460226      +0.000496 
+  6     1.574820e-03   +0.8298 (EVEN) 0.53070     0.21941      +0.594327      -1.236943 ### SIGN MISMATCH
+  7     1.202437e-03   -0.8576 (ODD ) 0.52567     0.09660      +0.357546      -1.616499 ### SIGN MISMATCH
+  11    9.204407e-04   -0.9953 (ODD ) 0.50084     0.47395      -0.035949      -0.670973 
+  10    9.020189e-04   +0.9178 (EVEN) 0.51482     0.09459      -0.383001      -1.238345 
+  11    6.861652e-04   -0.9460 (ODD ) 0.50974     0.09146      -1.028816      -0.670973 
+  16    6.470805e-04   +0.9974 (EVEN) 0.50047     0.47703      -0.073555      +1.750044 ### SIGN MISMATCH
+  14    5.115940e-04   +0.9626 (EVEN) 0.50674     0.09580      -1.446144      +1.236241 ### SIGN MISMATCH
+  17    4.924204e-04   -0.9991 (ODD ) 0.50017     0.48965      -0.043479      +1.617636 ### SIGN MISMATCH
+  18    3.961502e-04   +0.9994 (EVEN) 0.50012     0.49144      -0.038294      +1.239045 ### SIGN MISMATCH
+  19    3.688786e-04   -0.9724 (ODD ) 0.50498     0.10403      -1.621090      +0.671888 ### SIGN MISMATCH
+  21    3.279556e-04   -0.9985 (ODD ) 0.50026     0.47727      -0.093098      -0.667308 
+  22    2.820866e-04   +0.9990 (EVEN) 0.50018     0.48409      -0.069798      -1.235539 
+  25    2.422679e-04   -0.9999 (ODD ) 0.50003     0.49757      -0.010537      -1.618014 
+  24    2.413386e-04   +0.9792 (EVEN) 0.50376     0.11926      -1.521111      -1.750043 
+  28    2.105982e-04   +0.9993 (EVEN) 0.50013     0.48557      -0.053573      -0.003470 
+  33    1.863509e-04   -0.9998 (ODD ) 0.50003     0.49713      -0.011825      +1.618392 ### SIGN MISMATCH
+  32    1.645757e-04   +0.9999 (EVEN) 0.50002     0.49808      -0.006564      +1.750041 ### SIGN MISMATCH
+  33    1.470013e-04   -0.9991 (ODD ) 0.50015     0.48234      -0.063651      +1.618392 ### SIGN MISMATCH
+  35    1.308161e-04   -0.9836 (ODD ) 0.50295     0.14104      -1.196762      +0.673719 ### SIGN MISMATCH
+  36    1.302325e-04   +1.0000 (EVEN) 0.50001     0.49903      -0.003183      +0.004462 ### SIGN MISMATCH
+  39    1.153674e-04   -0.9994 (ODD ) 0.50010     0.48679      -0.040451      -1.614975 
+  48    1.031594e-04   +1.0000 (EVEN) 0.50001     0.49916      -0.002649      +1.750035 ### SIGN MISMATCH
+  43    9.120523e-05   -0.9999 (ODD ) 0.50001     0.49832      -0.004418      -0.674634 
+  56    8.091704e-05   +1.0000 (EVEN) 0.50001     0.49894      -0.003140      -1.750031 
+  47    7.065360e-05   -1.0000 (ODD ) 0.50000     0.49935      -0.001491      +1.614593 ### SIGN MISMATCH
+  54    6.170240e-05   +0.9999 (EVEN) 0.50002     0.49779      -0.005952      -1.232727 
+  59    5.204921e-05   -1.0000 (ODD ) 0.50000     0.49962      -0.000769      -0.676463 
+  52    4.380500e-05   +0.9992 (EVEN) 0.50015     0.48030      -0.046554      +0.006445 ### SIGN MISMATCH
+  54    3.584723e-05   +0.9870 (EVEN) 0.50234     0.17239      -0.717487      -1.232727 
+  81    2.810899e-05   -1.0000 (ODD ) 0.50000     0.49936      -0.001038      +1.620646 ### SIGN MISMATCH
+  78    1.020386e-05   +0.9999 (EVEN) 0.50001     0.49802      -0.003024      +1.230614 ### SIGN MISMATCH
+  293   2.497566e-06   -1.0000 (ODD ) 0.50000     0.49971      -0.000727      -0.636022 
+  764   4.113445e-07   +1.0000 (EVEN) 0.50000     0.49952      -0.000181      -0.094643 
+  791   3.623495e-08   -1.0000 (ODD ) 0.50000     0.49806      +0.018470      -1.576798 ### SIGN MISMATCH
+
+  ### positive-Rayleigh modes: 6   (sharpened rule n < r/2 = 4.0007 predicts 3)  ### S2 FAILS
+
+====================================================================================================================
+S1 — THE FAMILY IN u ACROSS THREE WINDOWS (a sixteenfold range in L)
+====================================================================================================================
+
+  L = 16  vs  L = 64
+        n=1      n=2      n=3      n=4      n=5      n=6      n=7      n=8     
+  n=1    0.9847   0.0846   0.0447   0.0232   0.0169   0.0131   0.0062   0.0084  
+  n=2    0.0775   0.9944   0.0511   0.0134   0.0138   0.0019   0.0074   0.0109  
+  n=3    0.0428   0.0464   0.9952   0.0377   0.0059   0.0109   0.0167   0.0058  
+  n=4    0.0246   0.0107   0.0369   0.9927   0.0271   0.0454   0.0081   0.0532  
+  n=5    0.0143   0.0128   0.0162   0.0294   0.9657   0.0204   0.1166   0.0065  
+  node-matched overlaps : n=1:0.9847, n=2:0.9944, n=3:0.9952, n=4:0.9927, n=5:0.9657
+  largest off-diagonal  : n=1:0.0846, n=2:0.0775, n=3:0.0464, n=4:0.0532, n=5:0.1166
+  ### HOLDS
+
+  L = 64  vs  L = 256
+        n=1      n=3      n=4      n=6      n=7      n=11     n=10     n=11     n=16    
+  n=1    0.2231   0.9642   0.0514   0.0463   0.0008   0.0146   0.0186   0.0041   0.0009  
+  n=2    0.0043   0.0713   0.6312   0.7500   0.0444   0.0004   0.0305   0.0127   0.0177  
+  n=3    0.2192   0.0549   0.0240   0.0461   0.9609   0.1083   0.0296   0.0593   0.0014  
+  n=4    0.0005   0.0206   0.1292   0.1950   0.0389   0.0112   0.9400   0.0210   0.0600  
+  n=5    0.2687   0.0668   0.0094   0.0095   0.1079   0.2130   0.0328   0.9174   0.0077  
+  n=6    0.0008   0.0113   0.0799   0.1404   0.0100   0.0018   0.1828   0.0288   0.2204  
+  n=7    0.3666   0.0878   0.0064   0.0036   0.0966   0.0842   0.0070   0.2476   0.0032  
+  n=8    0.0026   0.0067   0.1042   0.0151   0.0044   0.0012   0.1140   0.0050   0.0220  
+  node-matched overlaps : 
+  largest off-diagonal  : 
+  ### ### DRIFTS
+
+  L = 16  vs  L = 256
+        n=1      n=3      n=4      n=6      n=7      n=11     n=10     n=11     n=16    
+  n=1    0.2026   0.9302   0.1147   0.1053   0.0435   0.0131   0.0392   0.0150   0.0017  
+  n=2    0.0087   0.1465   0.6212   0.7370   0.0919   0.0012   0.0119   0.0252   0.0161  
+  n=3    0.2642   0.0246   0.0438   0.0884   0.9428   0.1036   0.0611   0.0499   0.0028  
+  n=4    0.0002   0.0454   0.1358   0.2053   0.0784   0.0219   0.9053   0.0393   0.0502  
+  n=5    0.4843   0.1027   0.0195   0.0150   0.1668   0.2231   0.0655   0.8072   0.0133  
+  node-matched overlaps : 
+  largest off-diagonal  : 
+  ### ### DRIFTS
+
+====================================================================================================================
+  ### S1 VERDICT: ### THE FAMILY DRIFTS — two windows were not a scaling limit
+====================================================================================================================
+
+====================================================================================================================
+S3 — NEGATIVE-DOMINANCE ON r/2 < n < 3r/2
+====================================================================================================================
+  L = 16     r = 4.001   band members: 3   all negative: ### HOLDS
+        band : n=3 R=-1.3699, n=4 R=-1.4756, n=5 R=-0.8017
+        positive exceptions : n=1 R=+0.7508
+  L = 64     r = 6.001   band members: 5   all negative: ### HOLDS
+        band : n=4 R=-1.1097, n=5 R=-1.6008, n=6 R=-1.6559, n=7 R=-1.2928, n=8 R=-0.6137
+        positive exceptions : n=1 R=+1.3547, n=2 R=+0.6011
+  L = 256    r = 8.001   band members: 5   all negative: ### FAILS
+        band : n=6 R=+0.5943, n=7 R=+0.3575, n=11 R=-0.0359, n=10 R=-0.3830, n=11 R=-1.0288
+        positive exceptions : n=1 R=+0.0496, n=3 R=+1.5493, n=4 R=+0.4602, n=6 R=+0.5943, n=7 R=+0.3575, n=791 R=+0.0185
+
+  r = 8 family banked as functions: D:\relay\data\ladder_family_three_2026-08-17.csv
