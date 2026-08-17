@@ -1,0 +1,106 @@
+====================================================================================================================
+B3 — PLACE-SET STABILITY — REGISTRATION. NO MEASURED NUMBER IN THIS BLOCK.
+====================================================================================================================
+B3 — PLACE-SET STABILITY OF THE ADDRESS OBJECT.
+
+Relay-only, bench-grade. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+INSTRUMENT track. This is about the remainder route's failure COUNT only.
+
+THE OBJECT
+===========
+Give the corpus's Toeplitz-on-eta apparatus a FREELY CHOSEN place-set parameter:
+
+    S  = a finite set of PRIMES, chosen independently of the support
+    Phi_{L,S} = the same form on the window of length log L, with the lag terms
+                restricted to the prime powers q = p^k < L for p in S
+
+Then the two operations B1(iv) asks about both exist on ONE object:
+    widening support  = increasing L        (the forced content changes)
+    ### adding a place = enlarging S        (a free choice, CC's place-set shape)
+
+### AND CC'S OWN QUESTION, ASKED OF OUR OBJECT: is the negative count STABLE under
+### enlarging S at fixed support?
+
+WHAT THE MATCHING-NUMBER LAW ALREADY SAYS, BEFORE ANY RUN
+==========================================================
+Enlarging S ADDS EDGES to the shift graph and removes none. A maximum matching is
+non-decreasing under adding edges. So:
+
+    ### mu(S) IS NON-DECREASING IN S, ALWAYS -- and "stable" means exactly
+    ### THE ADDED EDGES DO NOT INCREASE THE MAXIMUM MATCHING.
+
+That is a graph-theoretic condition, not an analytic one: mu increases exactly when the
+new edges create an augmenting path with respect to a maximum matching of the old graph.
+### SO IF STABILITY HOLDS ANYWHERE, THE CONDITION UNDER WHICH SUPPORT-FORCED AND
+### FREELY-CHOSEN COINCIDE IS ALREADY NAMEABLE, AND IT IS "NO AUGMENTING PATH".
+
+THE EVIDENCE ALREADY IN HAND, QUOTED SO THE RUN CANNOT SURPRISE ANYONE
+======================================================================
+2026-08-17 measured the effect of admitting log 3 beside log 2:
+    L = 9  (omega 1e-3 / 2e-3):  +285 / +143 offenders     ### NOT STABLE
+    L = 12 (omega 1e-3 / 2e-3):   -1  /  +0  offenders     ### STABLE to one offender
+Both at the same support-forced schedule, differing only in the window.
+
+REGISTERED PREDICTIONS, BOTH BRANCHES LONGHAND
+===============================================
+P1  (BLOCKING) mu(S) is non-decreasing along every chain S_1 subset S_2 subset ...
+    ### If it ever decreases, the matching computation is wrong and nothing below is read.
+P2  NPOS(operator on V) tracks mu to within 3 offenders at every cell, as it has from
+    r = 1.7 to r = 8.
+P3  ### STABILITY IS NOT GLOBAL AND NOT ABSENT: there are steps with large Delta and steps
+    with Delta = 0, at the same L or at different L.
+    -> IF SO: column (iv) is priced exactly. The two axes are different kinds of thing ON
+       THIS OBJECT -- enlarging S sometimes moves the count and sometimes does not, while
+       widening L moves it by the sawtooth. ### The corpus's instrument is confirmed
+       "two objects glued" BY ITS OWN TEST, and that is an honest MEASURED distance from T2.
+    -> IF EVERY STEP IS STABLE: the free choice never moves the count, the object has CC's
+       stability property, and ### that is Road B's first real handle -- the condition would
+       be named and the two frames would share a theorem rather than a coordinate.
+    -> IF NO STEP IS STABLE: the free choice always moves the count, stability fails
+       outright, and the pair differ at a theorem. Also a clean answer.
+P4  THE APEX CANDIDATE, registered as a candidate and not as a belief: the destabilising
+    steps are those where the newly admitted prime enters at or near its own apex
+    (L ~ p^2). ### It is registered because L = 9 = 3^2 destabilised and L = 12 did not,
+    which is one instance and one non-instance -- far too little, and said so here.
+
+WHAT IS NOT CLAIMED
+====================
+### NO SIGN SENTENCE. NO BOUND. Nothing here bears on W_inf - W_2. The count is a bench
+quantity of a discretized form. And nothing here identifies this object with CC's --
+a shared theorem would be evidence about the objects; it is not offered as an identity.
+
+Usage:  python b3_place_stability.py register | run
+
+  the admitted lag sets, fixed by arithmetic alone:
+  L       M        S                      admitted lags (address k_q)
+  9       2197     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079
+  9       2197     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079
+  9       2197     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079
+  9       2197     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079
+  9       2197     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079
+
+  12      2485     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079
+  12      2485     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197
+  12      2485     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197
+  12      2485     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197
+  12      2485     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398
+
+  16      2773     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079
+  16      2773     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197
+  16      2773     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197
+  16      2773     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197
+  16      2773     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398
+
+  27      3296     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079, 4 log 2@2773
+  27      3296     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773
+  27      3296     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219
+  27      3296     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219
+  27      3296     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398, 4 log 2@2773, 2 log 5@3219
+
+  32      3466     {2}                    log 2@693, 2 log 2@1386, 3 log 2@2079, 4 log 2@2773
+  32      3466     {2,3}                  log 2@693, log 3@1099, 2 log 2@1386, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 3 log 3@3296
+  32      3466     {2,3,5}                log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219, 3 log 3@3296
+  32      3466     {2,3,5,7}              log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, 4 log 2@2773, 2 log 5@3219, 3 log 3@3296
+  32      3466     {2,3,5,7,11}           log 2@693, log 3@1099, 2 log 2@1386, log 5@1609, log 7@1946, 3 log 2@2079, 2 log 3@2197, log 11@2398, 4 log 2@2773, 2 log 5@3219, 3 log 3@3296
+
+====================================================================================================================
