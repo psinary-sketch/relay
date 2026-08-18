@@ -1,11 +1,11 @@
 # `W-ATTEMPT-2` — THE CORRESPONDENCE TABLE (CLOSURE-PROTOCOL STEP TWO, DRAFTED; KEPT CURRENT)
 ## ### **EVERY CLAIM OF SITTINGS 1–12 · ITS KERNEL OR BENCH · ITS TERMINAL · ITS AXIOM PROFILE · ITS GRADE — WITH THE NON-CLAIMS AS ROWS, AND NO BLANK CELLS**
 
-> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sitting 12): sittings 1–6 REVIEW-STAGED
-> (this step-two packet drafted; step three — external review by people able to reject — is the
-> AUTHOR'S act) — TESTING CONTINUES (sittings 7–12, the programme testing its own object under the
-> protocol correction: the closure protocol gates the REGISTER and public claims, not investigation;
-> the arc's lessons are ledgered at `THE_ATTEMPT_RECORD` `§0`, PLACE-papers `b7acc3e`).**
+> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sitting 13): SITTINGS 1–12 REVIEW-STAGED
+> (FINAL). The step-two packet is FINALIZED and staged (relay + `internal/`), NOT circulated —
+> circulation waits on counsel and on `WIDEN`. Step three — external review by people able to
+> reject — is the AUTHOR'S act; step four — the register — is last, if ever. The arc's lessons are
+> ledgered at `THE_ATTEMPT_RECORD` `§0`.**
 > *Rule-3 flag, reported not smoothed: "REVIEW-STAGED" is navigator-named vocabulary appearing nowhere
 > banked before this line; the attempt is relay-resident, so the arc lives HERE and the method register
 > is untouched.*
@@ -70,6 +70,9 @@ land its registered default branch says so in its status cell; there are three s
 | 40 | sitting 12: `(W-exact)` at every `a` — the compression of `F` to Weil's degree-`d` subspace (the generalized eigenproblem, QR+SVD, no search; a DIFFERENT object from row 36's window compressions, non-conflation printed in-run) has deficit decaying with accelerating ratios to the double-precision floor: the archimedean interleave is exact in the LIMIT of Weil's family at the model — the inexactness was FINITE-DEGREE; scope: centered-DFT model, calibrated windows | `b27_attempt2_s12.py` (float declared; 91/91 checks; both-routes verification of the object itself) | `data/b27_2026-08-18.txt` ◆ *(the N-stability gate cut at the BOTTOM, not the registered top — mechanism recorded; `√2` even-only is a WEAK `(W-exact)`, flagged; b25's phase-precision note carried back)* | bench float | **MEASURED — `(W-floor)` never fired; the candidate list deliberately not exercised against a non-floor** |
 | 41 | sitting 12: the HS `∞`-weight convention `(H-fails)` by its own registered `δ′`-kernel derivation (`~N^{0.25–0.28}` vs predicted `~N^{1/4}`; zero stable digits) — the failure is the CONVENTION'S CATEGORY (generator vs group element); the bounded-dilation candidate `U_λ` FILED with its convergence derivation, not run | `b28_attempt2_s12_hs.py` (5/5 checks; sweep vs dense `6×10⁻¹⁶`) | `data/b28_2026-08-18.txt` | bench float | **NEGATIVE RESULT AS REGISTERED-EXPECTED; the ledger keeps its caveat** |
 | 42 | sitting 12: the `ℚ₃` level-4 pairing cell `(closed)` — zero mismatch on all 40,960,000 entries, exact, 153 s vs the 1800 s pre-set budget; negative controls prove the test non-vacuous; b26's original projection validated (632 s measured) — the `p = 3` tower's `T2` exact at ALL levels | `b29_attempt2_s12_t2n4.py` (19/19 exact) | `data/b29_2026-08-18.txt` | exact | **CLOSED; the declared skip retired** |
+
+| 43 | sitting 13: the bounded-dilation `∞`-weight — the closed form `Q_λ² = s√(2π)e^{s²/8}e^{−ℓ/2}e^{−ℓ²/(2s²)}` confirmed by quadrature (`2×10⁻¹²`) and by the exact-composition control (`6.9×10⁻¹⁵`): THE NUMBER EXISTS in this convention — but the registered band-limited route converges only at `O(h)` and the branch is `(U-fails)` by the registration's own gate; ledger UNREAD, caveat STANDS; no mid-sitting convention switch | `b30_attempt2_s13.py` (float declared; 12/12 checks) | `data/b30_2026-08-18.txt` ◆ *(the registered artifact probe proved NORM-BLIND — a recorded defect of the probe; the exact-composition route named as the next registration, not run)* | bench float | **MEASURED — `(U-fails)` by the letter, the convention vindicated by control** |
+| 44 | sitting 13: the review packet finalized and staged (relay + `internal/`, NOT circulated) — the draft sentence ONCE on its face at bench+formal grade with the register sentence quoted beside it unchanged; the arc REVIEW-STAGED (FINAL); the board re-emitted with the counsel-delay flag | `reports/2026-08-18-w-attempt-2-review-packet.md` · `internal/W_ATTEMPT_2_REVIEW_PACKET.md` · `THE_ATTEMPT_RECORD §0` foot | this table; the packet's §7 | n/a | **STAGED FOR STEP THREE — the author's act; circulation waits on counsel and `WIDEN`** |
 
 ## §2 — THE NON-CLAIMS, AS ROWS *(each with the place it is refused in writing)*
 

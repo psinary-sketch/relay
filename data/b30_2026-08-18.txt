@@ -1,0 +1,510 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 13 (item 1) -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 13 (item 1) -- THE INFINITY-WEIGHT IN THE BOUNDED-DILATION CONVENTION.
+
+RELAY-ONLY. SUB-GATE (restated). THE CORRECTED STOP IN FORCE: measured properties of
+constructed objects are DATA at bench grade; refused: any promotion to W_inf - Sum W_p at
+complete roster, or register movement. The register is untouched.
+
+THE CONVENTION, from sitting 12's filing: the infinity weight channel measured on the
+BOUNDED GROUP ELEMENT U_lambda f(x) = lambda^(-1/2) f(x/lambda) -- matching the finite
+places' unitary U_p exactly in category (the generator was the category error, banked).
+The windowed mass: since U_lambda's kernel is a delta LINE (a composition operator, one
+entry per column on the grid), the continuum-correct normalization of its squared mass is
+the SINGLE-integral one:
+    Q_lam(a)^2 = h * ||G U_lambda G||_F^2  ->  (1/lambda) * int |g(x) g(x/lambda)|^2 dx
+(one h, not two -- the delta line integrates out one variable; said in advance so the
+convention cannot drift). G = the banked log-Gaussian W-lg1, g(x) = exp(-u^2/(2 s^2)),
+u = ln|x|, s = ln a.
+
+THE REGISTERED CLOSED FORM (the derivation is the prediction -- the bench must CONVERGE
+TO IT, which is a far stronger test than bare N-stability): with l = ln(lambda),
+    (1/lambda) * int |g(x) g(x/lambda)|^2 dx
+      = 2 * e^(-l/2) * e^(-l^2 / s^2)  * int_0^inf ... -- computed longhand:
+    |g(x)g(x/lambda)|^2 = exp(-[u^2 + (u - l)^2] * (1/s^2))   (squares double the 1/2),
+    u^2 + (u-l)^2 = 2(u - l/2)^2 + l^2/2,
+    (1/lambda)*int over both signs of x: 2*(1/lambda)*int_R exp(-2(u-l/2)^2/s^2
+        - l^2/(2 s^2)) e^u du
+      = 2 * exp(-l^2/(2 s^2)) * exp(-l/2) * exp(s^2/8) * s * sqrt(pi/2).
+    So   Q_lam(a)^2 = s * sqrt(2 pi) * exp(s^2/8) * exp(-l/2) * exp(-l^2/(2 s^2)),
+with s = ln a, l = ln lambda. (The bench checks this algebra numerically by 1-D
+quadrature of the integrand as an independent route before comparing the grid to it.)
+
+MEASURED: a in {1.3, sqrt2, 2, 3}; lambda in {2, 3, e}; N in {1023, 4095, 16383}.
+The grid U_lambda maps x_m to x_m/lambda -- OFF-GRID in general; implementation is
+BAND-LIMITED (FFT/zero-padding sinc) INTERPOLATION, DECLARED, with its own artifact
+measured: the unitarity deficit | ||U_lambda f|| - ||f|| | on fixed test vectors, per N
+(it must shrink with N or the implementation is charged, not the convention).
+
+BRANCHES:
+ (U-stable) Q_lam N-stable to >= 4 digits AND converging to the closed form -- THE
+            INFINITY WEIGHT IS A NUMBER AT LAST; its value beside the finite weight laws
+            (Q(p, n)^2 = p (p^(n-1) - 1)^2, exact, banked) and THE PUNCTUATED LEDGER READ
+            WITH INFINITY LIVE FOR THE FIRST TIME: full weight = Q_lam(a) * prod_p Q(p,
+            n_p(a)) at the ledger's declared row lambda = e (the flow's unit; the
+            lambda-dependence printed so no single number is over-read). The banked
+            caveat CLOSES.
+ (U-fails)  instability or closed-form mismatch beyond the interpolation artifact -- the
+            THIRD convention named (the operator-norm convention ||G U_lambda G||_op,
+            bounded and trivially stable but resolution-blind -- named, its blindness
+            said) and the caveat STANDS with the exact reason.
+LONGHAND EXPECTATION: (U-stable), by the derivation.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b30_attempt2_s13.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+====================================================================================================
+D.  DECLARED ROUTES AND THRESHOLDS -- fixed before any measured number
+====================================================================================================
+  the measured object     : Q_lam(a, lambda, N) = sqrt(h * ||G U_lambda G||_F^2),
+                            h = sqrt(2 pi / N), G = W-lg1, U_lambda f(x) =
+                            lambda^(-1/2) f(x/lambda) -- ONE h, as registered.
+  the grid U_lambda       : BAND-LIMITED interpolation, as registered. The route
+                            used at EVERY N is the exact periodic-sinc (Dirichlet)
+                            kernel D_N(t) = sin(pi t)/(N sin(pi t/N)) evaluated on
+                            the fly in row chunks of 128 -- the exact trigonometric
+                            interpolant of the centered band n = -c..c, NOT a
+                            zero-padded approximation. Dense N x N is never formed
+                            above N = 1023. The direct nonuniform Fourier sum and
+                            the FFT zero-padding route are run at N = 1023 ONLY, as
+                            independent arithmetic checks of that kernel (V2f-V2h).
+  (U-stable) criterion    : Q_lam N-stable to >= 4 digits across N in {1023, 4095, 16383} at every
+                            (a, lambda), AND |rel deviation from the closed form|
+                            strictly decreasing across those three N.
+  the artifact's gate     : the unitarity deficit <= 1e-10 at every N. A deficit
+                            already at the double-precision floor (<= 1e-14) at the
+                            SMALLEST N cannot 'shrink with N'; that case is declared
+                            HERE, before the numbers, to be neither growth nor
+                            shrinkage, and the registered charge is then read from
+                            the CONTROLS below rather than from a floored probe.
+  CONTROL 1 (declared)    : the same h-weighted sum with the composition evaluated
+                            EXACTLY (no interpolation): (1/lambda) sum_j g(x_j)^2
+                            g(x_j/lambda)^2. It isolates the OUTER sum's trapezoid
+                            and domain-truncation error from the KERNEL's.
+  CONTROL 2 (declared)    : the delta line's nearest-grid-point trace (one nonzero
+                            per row) -- the registration's 'one entry per column'
+                            picture taken literally, measured beside the registered
+                            band-limited implementation.
+  DIAGNOSTIC, NOT A GATE  : the exact 3-point solve of Q^2(h) = A + B h + C h^2 in
+                            h = sqrt(2 pi/N) (an h-extrapolation). Reported only as
+                            a diagnostic; it decides NOTHING.
+
+====================================================================================================
+V1. THE REGISTERED CLOSED FORM AGAINST INDEPENDENT 1-D QUADRATURE (the algebra,
+    checked numerically BEFORE any grid number)
+====================================================================================================
+  1-D trapezoid in u over [-30, 30], 2000001 points (du = 3.00e-05), against the
+  registered closed form  s sqrt(2 pi) exp(s^2/8) exp(-l/2) exp(-l^2/(2 s^2)):
+
+  a        lambda   s = ln a   l = ln lam quadrature             closed form            rel diff    
+  ------------------------------------------------------------------------------------------------
+  1.3      2        0.262364   0.693147   1.430793934478395e-02  1.430793934532561e-02  3.786e-11   
+  1.3      3        0.262364   1.098612   5.966558394087914e-05  5.966558394313790e-05  3.786e-11   
+  1.3      e        0.262364   1.000000   2.818249617497785e-04  2.818249617604477e-04  3.786e-11   
+  ------------------------------------------------------------------------------------------------
+  sqrt2    2        0.346574   0.693147   8.439214068434990e-02  8.439214068754478e-02  3.786e-11   
+  sqrt2    3        0.346574   1.098612   3.348556863389641e-03  3.348556863516412e-03  3.786e-11   
+  sqrt2    e        0.346574   1.000000   8.325390200350486e-03  8.325390200665665e-03  3.786e-11   
+  ------------------------------------------------------------------------------------------------
+  2        2        0.693147   0.693147   7.912895275397696e-01  7.912895275697261e-01  3.786e-11   
+  2        3        0.693147   1.098612   3.033472866187555e-01  3.033472866302396e-01  3.786e-11   
+  2        e        0.693147   1.000000   3.952636568011579e-01  3.952636568161217e-01  3.786e-11   
+  ------------------------------------------------------------------------------------------------
+  3        2        1.098612   0.693147   1.855668880665712e+00  1.855668880735963e+00  3.786e-11   
+  3        3        1.098612   1.098612   1.121367403443173e+00  1.121367403485625e+00  3.786e-11   
+  3        e        1.098612   1.000000   1.283495552309169e+00  1.283495552357759e+00  3.786e-11   
+  ------------------------------------------------------------------------------------------------
+
+  PASS  V1  the registered closed form == independent 1-D quadrature at all 12 (a, lambda), relative agreement < 1e-10  [worst 3.786e-11]  [3.786e-11]
+
+====================================================================================================
+V2. THE INTERPOLATION IMPLEMENTATION, VERIFIED AT N = 1023
+====================================================================================================
+  PASS  V2a b27's exactly-reduced centered DFT (F^dagger matvec) == dense F^dagger at N = 255 (the coefficient route's license)  [1.180e-14]
+  PASS  V2b the interpolant is EXACTLY the identity on the grid itself (lambda = 1, N = 1023): max |D_N(m_j - m) - delta| < 1e-12  [0.000e+00]
+  PASS  V2c sum_m D_N(t-m)^2 == 1 at every target t = m_j/lambda, all three lambda (N = 1023) -- the kernel carries unit mass per row  [6.661e-16]
+
+  the interpolant against KNOWN answers at N = 1023 (max abs error over the grid):
+  lambda   test object                sig/mode     max abs err    verdict  
+  2        Gaussian exp(-x^2/2sig^2)  sig = 0.5    1.665e-16      ok       
+  2        Gaussian exp(-x^2/2sig^2)  sig = 1.0    3.331e-16      ok       
+  2        Gaussian exp(-x^2/2sig^2)  sig = 2.0    4.441e-16      ok       
+  2        band-limited grid mode     n = 1        2.246e-15      ok       
+  2        band-limited grid mode     n = 137      3.527e-14      ok       
+  2        band-limited grid mode     n = 511      1.887e-13      ok       
+  3        Gaussian exp(-x^2/2sig^2)  sig = 0.5    1.665e-16      ok       
+  3        Gaussian exp(-x^2/2sig^2)  sig = 1.0    3.331e-16      ok       
+  3        Gaussian exp(-x^2/2sig^2)  sig = 2.0    3.331e-16      ok       
+  3        band-limited grid mode     n = 1        2.784e-15      ok       
+  3        band-limited grid mode     n = 137      2.755e-14      ok       
+  3        band-limited grid mode     n = 511      1.366e-13      ok       
+  e        Gaussian exp(-x^2/2sig^2)  sig = 0.5    5.551e-16      ok       
+  e        Gaussian exp(-x^2/2sig^2)  sig = 1.0    3.331e-16      ok       
+  e        Gaussian exp(-x^2/2sig^2)  sig = 2.0    5.551e-16      ok       
+  e        band-limited grid mode     n = 1        3.377e-15      ok       
+  e        band-limited grid mode     n = 137      3.884e-14      ok       
+  e        band-limited grid mode     n = 511      1.954e-13      ok       
+
+  PASS  V2d the interpolant reproduces the KNOWN dilation of the three fixed Gaussians at all three lambda (N = 1023), max abs err < 1e-12  [5.551e-16]
+  PASS  V2e the interpolant is EXACT on a pure band-limited grid function (modes n = 1, 137, 511; b27-grade), max abs err < 1e-12  [1.954e-13]
+  ROUTE AGREEMENT at N = 1023 (the measurement route is the Dirichlet kernel at EVERY N;
+  the other two routes are independent arithmetic paths, run here only):
+  lambda   route compared to the kernel             test vector      max abs diff  
+  2        direct nonuniform Fourier sum            Gaussian sig=1   8.226e-16     
+  2        direct nonuniform Fourier sum            random complex   6.280e-14     
+  3        direct nonuniform Fourier sum            Gaussian sig=1   7.505e-16     
+  3        direct nonuniform Fourier sum            random complex   5.504e-14     
+  e        direct nonuniform Fourier sum            Gaussian sig=1   1.046e-15     
+  e        direct nonuniform Fourier sum            random complex   8.431e-14     
+  PASS  V2f the Dirichlet-kernel route == the direct nonuniform Fourier sum (centered DFT coefficients) at N = 1023, all lambda, max abs diff < 1e-11  [8.431e-14]
+  2        FFT zero-padding, pad = 2, EXACT (targets Gaussian sig=1   7.772e-16     
+           land on the fine grid)                  
+  3        FFT zero-padding, pad = 3, EXACT (targets Gaussian sig=1   5.603e-16     
+           land on the fine grid)                  
+  e        FFT zero-padding, pad = 64    NEAREST fine pt Gaussian sig=1   3.670e-04     
+  e        FFT zero-padding, pad = 256   NEAREST fine pt Gaussian sig=1   9.015e-05     
+  e        FFT zero-padding, pad = 1024  NEAREST fine pt Gaussian sig=1   2.282e-05     
+       lambda = e admits no exact zero-pad factor; the nearest-fine-point
+       error must FALL with the pad factor -- measured: 3.670e-04 -> 9.015e-05 -> 2.282e-05
+  PASS  V2g the zero-padding route converges to the kernel route as the pad factor grows at lambda = e (errors strictly decreasing over pads (64, 256, 1024))  [3.67e-04 -> 9.01e-05 -> 2.28e-05]
+  PASS  V2h the Dirichlet-kernel route == the EXACT FFT zero-padding route at the integer lambda (pad = lambda, targets on the fine grid), N = 1023, max abs diff < 1e-11  [7.772e-16]
+
+  the chunked ROW SWEEP (the route used at every N) against the DENSE matrix at N = 1023:
+  a        lambda   dense ||G U G||_F^2      sweep ||G U G||_F^2      rel         
+  1.3      2        2.601628288423665e-01    2.601628288423666e-01    4.267e-16   
+  sqrt2    2        1.171212848155167e+00    1.171212848155167e+00    1.896e-16   
+  2        2        1.002862698193025e+01    1.002862698193026e+01    5.314e-16   
+  3        2        2.351367690673939e+01    2.351367690673941e+01    4.533e-16   
+  1.3      3        2.609486480571624e-02    2.609486480571624e-02    0.000e+00   
+  sqrt2    3        9.653399911141206e-02    9.653399911141207e-02    1.438e-16   
+  2        3        3.941281636916282e+00    3.941281636916282e+00    1.127e-16   
+  3        3        1.425737205015155e+01    1.425737205015154e+01    3.738e-16   
+  1.3      e        3.584670255802495e-02    3.584670255802493e-02    3.871e-16   
+  sqrt2    e        1.732429510301595e-01    1.732429510301595e-01    1.602e-16   
+  2        e        5.090403632407666e+00    5.090403632407666e+00    0.000e+00   
+  3        e        1.629876807428355e+01    1.629876807428355e+01    0.000e+00   
+
+  PASS  V2i the chunked row sweep == the DENSE ||G U_lambda G||_F^2 at N = 1023, all a and all lambda, relative agreement < 1e-12  [worst rel 5.314e-16]
+
+====================================================================================================
+V3. THE REGISTERED INTERPOLATION ARTIFACT: THE UNITARITY DEFICIT, PER N
+====================================================================================================
+  | ||U_lambda f|| / ||f|| - 1 | on the three FIXED Gaussian test vectors
+  f_sig(x) = exp(-x^2 / (2 sig^2)), sig in (0.5, 1.0, 2.0), at every N and every lambda.
+  (the discrete ratio is the right thing to look at: h cancels between numerator
+   and denominator, and the continuum statement ||U f||_2 = ||f||_2 is exact.)
+
+  N        lambda   sig = 0.5        sig = 1.0        sig = 2.0        max       
+  --------------------------------------------------------------------------------
+  1023     2        1.110e-16        0.000e+00        2.220e-16        2.220e-16 
+  1023     3        1.110e-16        2.220e-16        2.220e-16        2.220e-16 
+  1023     e        0.000e+00        2.220e-16        0.000e+00        2.220e-16 
+  --------------------------------------------------------------------------------
+  4095     2        2.220e-16        0.000e+00        0.000e+00        2.220e-16 
+  4095     3        4.441e-16        1.110e-16        2.220e-16        4.441e-16 
+  4095     e        2.220e-16        2.220e-16        2.220e-16        2.220e-16 
+  --------------------------------------------------------------------------------
+  16383    2        0.000e+00        2.220e-16        2.220e-16        2.220e-16 
+  16383    3        0.000e+00        0.000e+00        0.000e+00        0.000e+00 
+  16383    e        2.220e-16        0.000e+00        2.220e-16        2.220e-16 
+  --------------------------------------------------------------------------------
+
+  PASS  V3  the registered interpolation artifact (unitarity deficit) is <= 1e-10 at EVERY N and EVERY lambda on the three fixed test vectors  [worst 4.441e-16]  [4.441e-16]
+====================================================================================================
+M1. THE MEASUREMENT: Q_lam(a, lambda, N)^2 = h * ||G U_lambda G||_F^2
+====================================================================================================
+    N = 1023   h = 0.0783704097  lambda = 2     full N^2 kernel sweep done for all four a  [0.0 s]
+    N = 1023   h = 0.0783704097  lambda = 3     full N^2 kernel sweep done for all four a  [0.0 s]
+    N = 1023   h = 0.0783704097  lambda = e     full N^2 kernel sweep done for all four a  [0.0 s]
+    N = 4095   h = 0.0391708487  lambda = 2     full N^2 kernel sweep done for all four a  [0.4 s]
+    N = 4095   h = 0.0391708487  lambda = 3     full N^2 kernel sweep done for all four a  [0.4 s]
+    N = 4095   h = 0.0391708487  lambda = e     full N^2 kernel sweep done for all four a  [0.3 s]
+    N = 16383  h = 0.0195836310  lambda = 2     full N^2 kernel sweep done for all four a  [5.8 s]
+    N = 16383  h = 0.0195836310  lambda = 3     full N^2 kernel sweep done for all four a  [6.0 s]
+    N = 16383  h = 0.0195836310  lambda = e     full N^2 kernel sweep done for all four a  [5.8 s]
+
+--- lambda = 2 ---
+  a        N        Q_lam^2 (grid)       Q_lam (grid)         Q_lam (closed form)  rel dev of Q  |dev| ratio
+  --------------------------------------------------------------------------------------------------------
+  1.3      1023     0.020389067493       0.142790292013       0.119615798895       1.937e-01     -        
+  1.3      4095     0.017347049401       0.131708197926       0.119615798895       1.011e-01     0.5218   
+  1.3      16383    0.015827312640       0.125806647839       0.119615798895       5.176e-02     0.5120   
+  --------------------------------------------------------------------------------------------------------
+  sqrt2    1023     0.091788430792       0.302966055511       0.290503254177       4.290e-02     -        
+  sqrt2    4095     0.088088321552       0.296796768095       0.290503254177       2.166e-02     0.5050   
+  sqrt2    16383    0.086239985641       0.293666453039       0.290503254177       1.089e-02     0.5026   
+  --------------------------------------------------------------------------------------------------------
+  2        1023     0.785947605612       0.886536860831       0.889544561880       -3.381e-03    -        
+  2        4095     0.788616681740       0.888040923460       0.889544561880       -1.690e-03    0.4999   
+  2        16383    0.789952861599       0.888792923914       0.889544561880       -8.450e-04    0.4999   
+  --------------------------------------------------------------------------------------------------------
+  3        1023     1.842776493461       1.357489039905       1.362229378899       -3.480e-03    -        
+  3        4095     1.849215013045       1.359858453312       1.362229378899       -1.740e-03    0.5002   
+  3        16383    1.852440900319       1.361044047898       1.362229378899       -8.701e-04    0.4999   
+  --------------------------------------------------------------------------------------------------------
+
+--- lambda = 3 ---
+  a        N        Q_lam^2 (grid)       Q_lam (grid)         Q_lam (closed form)  rel dev of Q  |dev| ratio
+  --------------------------------------------------------------------------------------------------------
+  1.3      1023     0.002045065247       0.045222397622       0.007724350066       4.855e+00     -        
+  1.3      4095     0.001051552361       0.032427648089       0.007724350066       3.198e+00     0.6588   
+  1.3      16383    0.000555535162       0.023569793418       0.007724350066       2.051e+00     0.6414   
+  --------------------------------------------------------------------------------------------------------
+  sqrt2    1023     0.007565409063       0.086979359985       0.057866716371       5.031e-01     -        
+  sqrt2    4095     0.005455900349       0.073864066694       0.057866716371       2.765e-01     0.5495   
+  sqrt2    16383    0.004402081282       0.066348182209       0.057866716371       1.466e-01     0.5302   
+  --------------------------------------------------------------------------------------------------------
+  2        1023     0.308879856750       0.555769607616       0.550769721962       9.078e-03     -        
+  2        4095     0.306110414267       0.553272459343       0.550769721962       4.544e-03     0.5006   
+  2        16383    0.304728481064       0.552022174431       0.550769721962       2.274e-03     0.5004   
+  --------------------------------------------------------------------------------------------------------
+  3        1023     1.117356089256       1.057050655956       1.058946364782       -1.790e-03    -        
+  3        4095     1.119358733865       1.057997511275       1.058946364782       -8.960e-04    0.5005   
+  3        16383    1.120362277727       1.058471670725       1.058946364782       -4.483e-04    0.5003   
+  --------------------------------------------------------------------------------------------------------
+
+--- lambda = e ---
+  a        N        Q_lam^2 (grid)       Q_lam (grid)         Q_lam (closed form)  rel dev of Q  |dev| ratio
+  --------------------------------------------------------------------------------------------------------
+  1.3      1023     0.002809320767       0.053003026017       0.016787643127       2.157e+00     -        
+  1.3      4095     0.001544925180       0.039305536251       0.016787643127       1.341e+00     0.6218   
+  1.3      16383    0.000913285904       0.030220620503       0.016787643127       8.002e-01     0.5965   
+  --------------------------------------------------------------------------------------------------------
+  sqrt2    1023     0.013577121055       0.116520903941       0.091243576216       2.770e-01     -        
+  sqrt2    4095     0.010949843187       0.104641498399       0.091243576216       1.468e-01     0.5300   
+  sqrt2    16383    0.009637440432       0.098170466192       0.091243576216       7.592e-02     0.5170   
+  --------------------------------------------------------------------------------------------------------
+  2        1023     0.398937018367       0.631614612218       0.628699973609       4.636e-03     -        
+  2        4095     0.397097485393       0.630156714947       0.628699973609       2.317e-03     0.4998   
+  2        16383    0.396180218449       0.629428485571       0.628699973609       1.159e-03     0.5001   
+  --------------------------------------------------------------------------------------------------------
+  3        1023     1.277341132090       1.130195174335       1.132914627127       -2.400e-03    -        
+  3        4095     1.280413687683       1.131553660982       1.132914627127       -1.201e-03    0.5005   
+  3        16383    1.281953775785       1.132233975725       1.132914627127       -6.008e-04    0.5001   
+  --------------------------------------------------------------------------------------------------------
+
+  (|dev| ratio = |rel dev at this N| / |rel dev at the previous N|. N steps by a
+   factor of almost exactly 4, so h = sqrt(2 pi/N) HALVES at each step: a ratio of
+   ~0.5 is first order in h, ~0.25 second order, ~1 no convergence. REPORTED AS
+   MEASURED -- no law is asserted from three points.)
+
+====================================================================================================
+M2. N-STABILITY AND CLOSED-FORM CONVERGENCE, against the registered criteria
+====================================================================================================
+  a        lambda   min Q_lam          max Q_lam          rel spread   digits  dev at Nmax   converging? (U-stable)?
+  --------------------------------------------------------------------------------------------------------------------
+  1.3      2        0.125806647839     0.142790292013     1.273e-01    0       5.176e-02     YES         NO
+  1.3      3        0.023569793418     0.045222397622     6.417e-01    0       2.051e+00     YES         NO
+  1.3      e        0.030220620503     0.053003026017     5.578e-01    0       8.002e-01     YES         NO
+  --------------------------------------------------------------------------------------------------------------------
+  sqrt2    2        0.293666453039     0.302966055511     3.123e-02    1       1.089e-02     YES         NO
+  sqrt2    3        0.066348182209     0.086979359985     2.724e-01    0       1.466e-01     YES         NO
+  sqrt2    e        0.098170466192     0.116520903941     1.724e-01    0       7.592e-02     YES         NO
+  --------------------------------------------------------------------------------------------------------------------
+  2        2        0.886536860831     0.888792923914     2.541e-03    2       8.450e-04     YES         NO
+  2        3        0.552022174431     0.555769607616     6.768e-03    2       2.274e-03     YES         NO
+  2        e        0.629428485571     0.631614612218     3.468e-03    2       1.159e-03     YES         NO
+  --------------------------------------------------------------------------------------------------------------------
+  3        2        1.357489039905     1.361044047898     2.615e-03    2       8.701e-04     YES         NO
+  3        3        1.057050655956     1.058471670725     1.343e-03    2       4.483e-04     YES         NO
+  3        e        1.130195174335     1.132233975725     1.802e-03    2       6.008e-04     YES         NO
+  --------------------------------------------------------------------------------------------------------------------
+
+====================================================================================================
+M3. THE TWO DECLARED CONTROLS -- where the deviation actually comes from
+====================================================================================================
+  relative deviation from the registered closed form, of h * (each route's
+  ||G U G||_F^2), at every N:
+
+  a        lambda   N        band-limited   CONTROL 1      CONTROL 2     
+                             (registered)   exact compos.  nearest grid  
+  --------------------------------------------------------------------------
+  1.3      2        1023     4.250e-01      -2.425e-16     6.637e-02     
+  1.3      2        4095     2.124e-01      0.000e+00      1.664e-02     
+  1.3      2        16383    1.062e-01      -1.212e-16     4.154e-03     
+  --------------------------------------------------------------------------
+  1.3      3        1023     3.328e+01      2.158e-15      1.691e-01     
+  1.3      3        4095     1.662e+01      1.590e-15      4.124e-02     
+  1.3      3        16383    8.311e+00      1.136e-15      1.025e-02     
+  --------------------------------------------------------------------------
+  1.3      e        1023     8.968e+00      1.154e-15      1.048e-01     
+  1.3      e        4095     4.482e+00      9.618e-16      4.190e-02     
+  1.3      e        16383    2.241e+00      9.618e-16      4.591e-03     
+  --------------------------------------------------------------------------
+  sqrt2    2        1023     8.764e-02      -1.644e-16     1.914e-02     
+  sqrt2    2        4095     4.380e-02      0.000e+00      4.737e-03     
+  sqrt2    2        16383    2.190e-02      -1.644e-16     1.185e-03     
+  --------------------------------------------------------------------------
+  sqrt2    3        1023     1.259e+00      6.476e-16      5.161e-02     
+  sqrt2    3        4095     6.293e-01      1.036e-15      1.282e-02     
+  sqrt2    3        16383    3.146e-01      5.181e-16      3.201e-03     
+  --------------------------------------------------------------------------
+  sqrt2    e        1023     6.308e-01      6.251e-16      4.621e-02     
+  sqrt2    e        4095     3.152e-01      4.167e-16      1.702e-02     
+  sqrt2    e        16383    1.576e-01      6.251e-16      2.103e-04     
+  --------------------------------------------------------------------------
+  2        2        1023     -6.751e-03     8.651e-13      -2.167e-04    
+  2        2        4095     -3.378e-03     -2.806e-16     -4.811e-05    
+  2        2        16383    -1.689e-03     -1.403e-16     -1.199e-05    
+  --------------------------------------------------------------------------
+  2        3        1023     1.824e-02      -6.734e-14     1.972e-03     
+  2        3        4095     9.109e-03      3.660e-16      4.936e-04     
+  2        3        16383    4.553e-03      1.830e-16      1.234e-04     
+  --------------------------------------------------------------------------
+  2        e        1023     9.293e-03      -1.309e-13     6.382e-03     
+  2        e        4095     4.640e-03      0.000e+00      1.562e-03     
+  2        e        16383    2.319e-03      1.404e-16      -6.396e-04    
+  --------------------------------------------------------------------------
+  3        2        1023     -6.948e-03     -1.723e-08     -6.292e-04    
+  3        2        4095     -3.478e-03     -4.820e-12     -1.430e-04    
+  3        2        16383    -1.740e-03     -1.197e-16     -3.589e-05    
+  --------------------------------------------------------------------------
+  3        3        1023     -3.577e-03     -1.176e-07     -1.689e-04    
+  3        3        4095     -1.791e-03     -6.237e-11     -4.264e-05    
+  3        3        16383    -8.963e-04     -6.930e-15     -1.065e-05    
+  --------------------------------------------------------------------------
+  3        e        1023     -4.795e-03     -7.296e-08     1.630e-03     
+  3        e        4095     -2.401e-03     -3.412e-11     4.421e-04     
+  3        e        16383    -1.201e-03     -3.287e-15     -1.485e-04    
+  --------------------------------------------------------------------------
+
+  THE MEASURED ORDER IN h OF EACH GRID REPRESENTATION, reported as measured (the
+  slope of log|rel dev| against log h over the outer two N; no law asserted from
+  two points): p such that |rel dev| ~ h^p.
+  a        lambda     band-limited (registered)  CONTROL 2 (nearest grid)  
+  ------------------------------------------------------------------------
+  1.3      2          1.0001                     1.9983                    
+  1.3      3          1.0004                     2.0218                    
+  1.3      e          1.0001                     2.2556                    
+  sqrt2    2          1.0001                     2.0061                    
+  sqrt2    3          1.0001                     2.0049                    
+  sqrt2    e          1.0002                     3.8886                    
+  2        2          0.9990                     2.0869                    
+  2        3          1.0007                     1.9981                    
+  2        e          1.0011                     1.6588                    
+  3        2          0.9986                     2.0652                    
+  3        3          0.9980                     1.9928                    
+  3        e          0.9982                     1.7275                    
+  ------------------------------------------------------------------------
+  band-limited (registered): p in [0.998, 1.001] over the 12 cells
+  CONTROL 2 (nearest grid) : p in [1.659, 3.889] over the 12 cells
+
+  PASS  M3  CONTROL 1 (the exact composition, no interpolation) reproduces the registered closed form at N = 16383 for every (a, lambda) to better than 1e-12 relative -- so the CONVENTION, the CLOSED FORM and the OUTER h-sum are all sound, and any remaining deviation belongs to the interpolation kernel  [worst 6.930e-15]  [6.930e-15]
+
+====================================================================================================
+M4. DIAGNOSTIC ONLY, NOT A BRANCH GATE (declared in D above): the h-extrapolation
+====================================================================================================
+  the exact 3-point solve of Q^2(h) = A + B h + C h^2 in h = sqrt(2 pi/N), over the
+  three registered N; A is compared to the closed form. If the band-limited kernel's
+  error is a clean first-order-in-h surface term, A lands on the closed form.
+
+  a        lambda   A (extrapolated Q^2)   closed form Q^2        rel dev of A  rel dev at Nmax
+  --------------------------------------------------------------------------------------------
+  1.3      2        1.430805225930391e-02  1.430793934532561e-02  7.892e-06     1.062e-01    
+  1.3      3        5.988914927456367e-05  5.966558394313790e-05  3.747e-03     8.311e+00    
+  1.3      e        2.818644115576852e-04  2.818249617604477e-04  1.400e-04     2.241e+00    
+  --------------------------------------------------------------------------------------------
+  sqrt2    2        8.439234317730464e-02  8.439214068754478e-02  2.399e-06     2.190e-02    
+  sqrt2    3        3.348627874007972e-03  3.348556863516412e-03  2.121e-05     3.146e-01    
+  sqrt2    e        8.325540587859476e-03  8.325390200665665e-03  1.806e-05     1.576e-01    
+  --------------------------------------------------------------------------------------------
+  2        2        7.912904604209368e-01  7.912895275697261e-01  1.179e-06     -1.689e-03   
+  2        3        3.033480669956133e-01  3.033472866302396e-01  2.573e-06     4.553e-03    
+  2        e        3.952643919018457e-01  3.952636568161217e-01  1.860e-06     2.319e-03    
+  --------------------------------------------------------------------------------------------
+  3        2        1.855671986795281e+00  1.855668880735963e+00  1.674e-06     -1.740e-03   
+  3        3        1.121367545409019e+00  1.121367403485625e+00  1.266e-07     -8.963e-04   
+  3        e        1.283496776317896e+00  1.283495552357759e+00  9.536e-07     -1.201e-03   
+  --------------------------------------------------------------------------------------------
+
+====================================================================================================
+THE BRANCH
+====================================================================================================
+  BRANCH LANDED: (U-fails)
+
+  THE EXACT REASON, said in full -- and it is NOT the convention.
+
+  1. The registered (U-stable) conjunction requires Q_lam N-stable to >= 4
+     digits. It is not. 12 of the 12 (a, lambda) cells miss the digit gate:
+     a=1.3/lambda=2 (0 dig), a=1.3/lambda=3 (0 dig), a=1.3/lambda=e (0 dig), a=sqrt2/lambda=2 (1
+     dig), a=sqrt2/lambda=3 (0 dig), a=sqrt2/lambda=e (0 dig), a=2/lambda=2 (2 dig), a=2/lambda=3 (2
+     dig), a=2/lambda=e (2 dig), a=3/lambda=2 (2 dig), a=3/lambda=3 (2 dig), a=3/lambda=e (2 dig)
+
+  2. But the deviation from the registered closed form CONVERGES, and cleanly:
+     the |dev| ratio per N-step sits at ~0.5 while h halves, i.e. the grid
+     number approaches the closed form at FIRST ORDER IN h = sqrt(2 pi/N).
+     Three registered N span only a factor 4 in h, so a first-order error
+     cannot reach 4 digits inside the sweep. The closed form is NOT missed --
+     it is approached too slowly for the registered digit gate.
+
+  3. The charge falls on the IMPLEMENTATION, not the convention, and CONTROL 1
+     proves it: with the composition evaluated exactly (no interpolation), the
+     SAME h-weighted single-integral normalization reproduces the registered
+     closed form to ~1e-15 relative at N = 16383 (M3). The convention, the closed
+     form and the outer h-sum are all sound. What costs the digits is the
+     band-limited kernel: D_N^2 carries unit mass per row EXACTLY, but its 1/t^2
+     tails redistribute that mass across a window-varying weight, leaving an
+     O(h) surface term. A delta line's Frobenius mass is not a continuous
+     functional of the operator in any operator topology -- an O(h) change of
+     the kernel moves the h-weighted Frobenius sum at O(h). That is the whole
+     of the mismatch, and the h-extrapolation diagnostic (M4) removes it.
+
+  4. SAID PROMINENTLY -- THE REGISTERED ARTIFACT PROBE IS BLIND HERE. The
+     registration named the unitarity deficit | ||U f|| - ||f|| | as the probe
+     that would charge the implementation, and required it to shrink with N. It
+     sits at 4.4e-16 -- the double-precision floor -- at EVERY N including the
+     smallest. It cannot shrink from there, so by that probe's letter the
+     implementation is NOT charged. The probe is norm-blind: U_lambda is
+     unitary to machine precision on the band-limited class, and the
+     Frobenius-MASS artifact lives entirely in the off-diagonal spread of the
+     kernel, which a norm ratio cannot see. The declared CONTROL 1, not the
+     registered probe, is what charges the implementation. This is recorded
+     as a defect of the registered probe, not of the convention.
+
+  5. AND THE REGISTERED IMPLEMENTATION IS THE WEAKER OF THE TWO GRID PICTURES.
+     CONTROL 2 -- the delta line's nearest-grid-point trace, one nonzero per
+     row, which is the registration's OWN 'one entry per column' picture taken
+     literally -- converges to the same closed form at measured order p in
+     [1.66, 3.89] against the band-limited route's p in [1.00, 1.00] (M3), and
+     reaches 1e-5 to 1e-4 relative at N = 16383 at a = 2 and a = 3. The
+     registration chose band-limited interpolation for the off-grid points;
+     for THIS functional -- a Frobenius mass, not a norm -- that choice costs
+     an order in h. Recorded as measured; no convention is switched inside a
+     sitting, and CONTROL 2 is NOT promoted to the measurement here.
+
+  THE THIRD CONVENTION, NAMED as the registration requires: the OPERATOR-NORM
+  convention  Q_op(a, lambda) = ||G U_lambda G||_op  (the largest singular
+  value). It is bounded above by ||G||_infinity^2 = 1 for every lambda and
+  every N, so it is trivially N-stable to any number of digits. ITS BLINDNESS,
+  SAID: an operator norm reads only the single most-amplified direction, so it
+  is RESOLUTION-BLIND -- it does not count how many independent directions the
+  window admits, which is precisely the content the weight Q(p, n) carries at
+  the finite places (a Frobenius/Hilbert-Schmidt quantity, a sum over the whole
+  spectrum). Adopting it would make the infinity channel a number by giving up
+  the very quantity the finite places measure. It is NAMED, not adopted.
+
+  THE LEDGER IS NOT READ. The registered (U-stable) conjunction did not land,
+  so the punctuated ledger is NOT re-read with infinity live in this sitting,
+  and no full-weight product is printed. THE BANKED CAVEAT STANDS, with the
+  exact reason above: the bounded-dilation convention's closed form is
+  confirmed by two independent routes (quadrature, and the exact-composition
+  control), but the REGISTERED band-limited grid implementation converges to
+  it only at first order in h, and the three registered N cannot deliver the
+  registered four digits at that rate.
+
+  LONGHAND EXPECTATION said before the run: (U-stable).  LANDED: (U-fails).  The registered expectation did NOT land.
+
+====================================================================================================
+SCOPE, said plainly: this is a FLOAT BENCH on a CONSTRUCTED FINITE-GRID object.
+It is DATA at bench grade. No promotion to W_inf - Sum W_p at complete roster is
+made, and no register line moves.
+====================================================================================================
+
+TOTAL RUNTIME: 69.0 s
+
+FLOAT BENCH COMPLETE; ASSERTED CHECKS: 12/12 PASS

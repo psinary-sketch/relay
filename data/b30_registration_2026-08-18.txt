@@ -1,0 +1,57 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 13 (item 1) -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 13 (item 1) -- THE INFINITY-WEIGHT IN THE BOUNDED-DILATION CONVENTION.
+
+RELAY-ONLY. SUB-GATE (restated). THE CORRECTED STOP IN FORCE: measured properties of
+constructed objects are DATA at bench grade; refused: any promotion to W_inf - Sum W_p at
+complete roster, or register movement. The register is untouched.
+
+THE CONVENTION, from sitting 12's filing: the infinity weight channel measured on the
+BOUNDED GROUP ELEMENT U_lambda f(x) = lambda^(-1/2) f(x/lambda) -- matching the finite
+places' unitary U_p exactly in category (the generator was the category error, banked).
+The windowed mass: since U_lambda's kernel is a delta LINE (a composition operator, one
+entry per column on the grid), the continuum-correct normalization of its squared mass is
+the SINGLE-integral one:
+    Q_lam(a)^2 = h * ||G U_lambda G||_F^2  ->  (1/lambda) * int |g(x) g(x/lambda)|^2 dx
+(one h, not two -- the delta line integrates out one variable; said in advance so the
+convention cannot drift). G = the banked log-Gaussian W-lg1, g(x) = exp(-u^2/(2 s^2)),
+u = ln|x|, s = ln a.
+
+THE REGISTERED CLOSED FORM (the derivation is the prediction -- the bench must CONVERGE
+TO IT, which is a far stronger test than bare N-stability): with l = ln(lambda),
+    (1/lambda) * int |g(x) g(x/lambda)|^2 dx
+      = 2 * e^(-l/2) * e^(-l^2 / s^2)  * int_0^inf ... -- computed longhand:
+    |g(x)g(x/lambda)|^2 = exp(-[u^2 + (u - l)^2] * (1/s^2))   (squares double the 1/2),
+    u^2 + (u-l)^2 = 2(u - l/2)^2 + l^2/2,
+    (1/lambda)*int over both signs of x: 2*(1/lambda)*int_R exp(-2(u-l/2)^2/s^2
+        - l^2/(2 s^2)) e^u du
+      = 2 * exp(-l^2/(2 s^2)) * exp(-l/2) * exp(s^2/8) * s * sqrt(pi/2).
+    So   Q_lam(a)^2 = s * sqrt(2 pi) * exp(s^2/8) * exp(-l/2) * exp(-l^2/(2 s^2)),
+with s = ln a, l = ln lambda. (The bench checks this algebra numerically by 1-D
+quadrature of the integrand as an independent route before comparing the grid to it.)
+
+MEASURED: a in {1.3, sqrt2, 2, 3}; lambda in {2, 3, e}; N in {1023, 4095, 16383}.
+The grid U_lambda maps x_m to x_m/lambda -- OFF-GRID in general; implementation is
+BAND-LIMITED (FFT/zero-padding sinc) INTERPOLATION, DECLARED, with its own artifact
+measured: the unitarity deficit | ||U_lambda f|| - ||f|| | on fixed test vectors, per N
+(it must shrink with N or the implementation is charged, not the convention).
+
+BRANCHES:
+ (U-stable) Q_lam N-stable to >= 4 digits AND converging to the closed form -- THE
+            INFINITY WEIGHT IS A NUMBER AT LAST; its value beside the finite weight laws
+            (Q(p, n)^2 = p (p^(n-1) - 1)^2, exact, banked) and THE PUNCTUATED LEDGER READ
+            WITH INFINITY LIVE FOR THE FIRST TIME: full weight = Q_lam(a) * prod_p Q(p,
+            n_p(a)) at the ledger's declared row lambda = e (the flow's unit; the
+            lambda-dependence printed so no single number is over-read). The banked
+            caveat CLOSES.
+ (U-fails)  instability or closed-form mismatch beyond the interpolation artifact -- the
+            THIRD convention named (the operator-norm convention ||G U_lambda G||_op,
+            bounded and trivially stable but resolution-blind -- named, its blindness
+            said) and the caveat STANDS with the exact reason.
+LONGHAND EXPECTATION: (U-stable), by the derivation.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b30_attempt2_s13.py register | run
+
+====================================================================================================
