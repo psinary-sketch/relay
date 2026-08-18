@@ -1,0 +1,28 @@
+====================================================================================================
+b35 RUN - THE ODD-SECTOR DEFECT'S PARITY SPLIT AT THE eps'(1+) PIN. Registration banked
+first (b35_registration_2026-08-18.txt); run on the OPUS lane, first attempt.
+====================================================================================================
+
+INPUT (banked, CC Lemma 5.4 pins): t(0..4) = 11.9719, 8.77574, 2.20528, 0.0433983,
+0.000125459; Sigma t(n) = 22.9964757.
+
+THE SPLIT (by xi-index parity per sitting 23 + P2, verified before use):
+
+  E_1 share   (n even: t0 + t2 + t4) = 14.177305459     = 61.6% of the assembly
+  (-1) share  (n odd:  t1 + t3)      =  8.8191383       = 38.3% of the assembly
+  tail (Sigma - five terms)          =  0.000031941     (its parity split undeclared;
+                                                          bounded by C3)
+
+CHECK CLAUSES: C1 PASS (residual 0.000000000 < 1e-4; zero by construction, said so).
+C2 PASS (all five positive; structurally so - each t(n) a square over (1-lambda^2) > 0).
+C3 PASS (tail = 3.1941e-05, positive, < 1e-3).
+
+READING, at bench grade and no wider: Delta_-'s series is the odd-index part of CC's own
+t(n) series (the (Delta-structure) branch's closed form - same lambda(n), xi_n(1) data,
+complementary parity). At the eps'(1+) evaluation pin the odd-sector defect carries
+8.8191 of the 22.9965 assembly. The per-mode positivity is structural; the shares are
+DATA at this pin. The full eps_-(rho) function and its trace-class bookkeeping remain
+the epsilon-lemma's named owner. NO SIGN SENTENCE ABOUT WEIL'S LEDGER.
+
+h2 UNCHANGED. NOTHING DEPOSITS. NOTHING CIRCULATES.
+====================================================================================================
