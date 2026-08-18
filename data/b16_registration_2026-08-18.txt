@@ -1,0 +1,56 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 3 — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 3 — T2 PROPER ON THE GLUED OBJECT.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE STOP, AS CORRECTED BY THE AUTHOR THIS SITTING: measured properties of the constructed
+object are DATA, recorded plainly at bench grade; what is refused is any promotion to a
+statement about W_inf - Sum W_p at complete roster, or any movement of the register.
+THE RANGE LAW GOVERNS: nothing inherited across cells; every factor-law re-measured.
+
+CHECKPOINT-1 REGISTRATION — T2 IN THE OBJECT'S TERMS (before any run)
+=====================================================================
+The two axes on the glued object G(F; n) = (x)_{p in F} Son_p(n_p) (x) C[Cl]:
+  (P) the place set F        — add a place q: tensor a new factor, multiply coupling by c_q
+  (S) the per-place cutoff   — raise n_p: replace the factor Son_p(n) by Son_p(n+1)
+
+LONGHAND, REGISTERED: the two operations act on DISJOINT tensor slots, so their
+commutation and the compose-identity (add-at-cutoff-n = raise-1-to-n then add) should be
+EXACT — measured below, never assumed (range law). The SHAPE question is the real one:
+
+  per-channel (P)-action        vs      (S)-action                (registered prediction)
+  dim        x (q^m - 1)^2              x ((p^{n+1}-1)/(p^n-1))^2  both active, local factors
+  coupling   x chi(c_q) (Euler-exact)   CONSTANT                   ### S-SILENT
+  H^2        fixed (C[Cl], dim h)       fixed                      both-silent
+  radical    0 -> 0                     0 -> 0                     both-silent
+  weight     x Q(q, m)                  x (p^n-1)/(p^{n-1}-1)      both active, local factors
+  tw-Herm    preserved                  preserved                  both-silent
+
+REGISTERED VERDICT MAP:
+  (T2-yes)     same-shape laws + exact commutation + the compose-identity on every channel
+               — support and place ONE operation ON THIS OBJECT; the SCOPE GUARD registered
+               with it: the model's (S) axis is the CUTOFF, a proxy — the original T2's
+               support axis is the test-function window; a T2-yes here is T2-ON-THE-MODEL,
+               not T2 discharged. Said before the run.
+  (T2-no)      a named channel's laws differ in shape or fail to commute — the step named.
+  (T2-partial) the split itself the finding — predicted form: the C[Cl]-structure
+               (coupling/H^2/radical) is CUTOFF-SILENT — the class resolution lives
+               entirely on the place axis — while weight/dim are active on both axes.
+
+ITEM-3 REGISTRATION — THE ARCHIMEDEAN FACTOR'S ROLE (longhand, at cite):
+  the archimedean support bound a (window [1/a^2, a^2]) admits p^k iff p^k <= a^2 — it sets
+  EVERY place's effective cutoff at once: n_p^eff(a) = floor(2 log a / log p) + 1-ish.
+  ### REGISTERED READING: the archimedean axis is NOT one more tower n_inf — it is the
+  DIAGONAL SECTION across all place-towers. CC's window arithmetic and SIDE-window's
+  compiled rungs (the prime-free (1/2,2); the one-prime (1/3,3); Lemma A "exactly one
+  prime power <= 2"; the apex at p^2) are the STAIRCASE of that diagonal — checked below
+  by enumerating the diagonal cells as a^2 grows. Both branches: if confirmed, T2's
+  residual question becomes precise on the glued object — is the DIAGONAL section
+  (support-forced) equivalent to the FREE product (places chosen)? — the free cells are
+  visibly richer, and that gap is the deeper form of the four-word question; if the
+  staircase does not match the compiled rungs, the mismatch is named.
+
+Usage:  python b16_attempt2_s3.py register | run
+
+====================================================================================================

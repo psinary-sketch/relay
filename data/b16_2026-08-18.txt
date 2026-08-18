@@ -1,0 +1,96 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 3 — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 3 — T2 PROPER ON THE GLUED OBJECT.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE STOP, AS CORRECTED BY THE AUTHOR THIS SITTING: measured properties of the constructed
+object are DATA, recorded plainly at bench grade; what is refused is any promotion to a
+statement about W_inf - Sum W_p at complete roster, or any movement of the register.
+THE RANGE LAW GOVERNS: nothing inherited across cells; every factor-law re-measured.
+
+CHECKPOINT-1 REGISTRATION — T2 IN THE OBJECT'S TERMS (before any run)
+=====================================================================
+The two axes on the glued object G(F; n) = (x)_{p in F} Son_p(n_p) (x) C[Cl]:
+  (P) the place set F        — add a place q: tensor a new factor, multiply coupling by c_q
+  (S) the per-place cutoff   — raise n_p: replace the factor Son_p(n) by Son_p(n+1)
+
+LONGHAND, REGISTERED: the two operations act on DISJOINT tensor slots, so their
+commutation and the compose-identity (add-at-cutoff-n = raise-1-to-n then add) should be
+EXACT — measured below, never assumed (range law). The SHAPE question is the real one:
+
+  per-channel (P)-action        vs      (S)-action                (registered prediction)
+  dim        x (q^m - 1)^2              x ((p^{n+1}-1)/(p^n-1))^2  both active, local factors
+  coupling   x chi(c_q) (Euler-exact)   CONSTANT                   ### S-SILENT
+  H^2        fixed (C[Cl], dim h)       fixed                      both-silent
+  radical    0 -> 0                     0 -> 0                     both-silent
+  weight     x Q(q, m)                  x (p^n-1)/(p^{n-1}-1)      both active, local factors
+  tw-Herm    preserved                  preserved                  both-silent
+
+REGISTERED VERDICT MAP:
+  (T2-yes)     same-shape laws + exact commutation + the compose-identity on every channel
+               — support and place ONE operation ON THIS OBJECT; the SCOPE GUARD registered
+               with it: the model's (S) axis is the CUTOFF, a proxy — the original T2's
+               support axis is the test-function window; a T2-yes here is T2-ON-THE-MODEL,
+               not T2 discharged. Said before the run.
+  (T2-no)      a named channel's laws differ in shape or fail to commute — the step named.
+  (T2-partial) the split itself the finding — predicted form: the C[Cl]-structure
+               (coupling/H^2/radical) is CUTOFF-SILENT — the class resolution lives
+               entirely on the place axis — while weight/dim are active on both axes.
+
+ITEM-3 REGISTRATION — THE ARCHIMEDEAN FACTOR'S ROLE (longhand, at cite):
+  the archimedean support bound a (window [1/a^2, a^2]) admits p^k iff p^k <= a^2 — it sets
+  EVERY place's effective cutoff at once: n_p^eff(a) = floor(2 log a / log p) + 1-ish.
+  ### REGISTERED READING: the archimedean axis is NOT one more tower n_inf — it is the
+  DIAGONAL SECTION across all place-towers. CC's window arithmetic and SIDE-window's
+  compiled rungs (the prime-free (1/2,2); the one-prime (1/3,3); Lemma A "exactly one
+  prime power <= 2"; the apex at p^2) are the STAIRCASE of that diagonal — checked below
+  by enumerating the diagonal cells as a^2 grows. Both branches: if confirmed, T2's
+  residual question becomes precise on the glued object — is the DIAGONAL section
+  (support-forced) equivalent to the FREE product (places chosen)? — the free cells are
+  visibly richer, and that gap is the deeper form of the four-word question; if the
+  staircase does not match the compiled rungs, the mismatch is named.
+
+Usage:  python b16_attempt2_s3.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+--- PER-FACTOR TOWER LAWS (measured per cell; the range law) ---
+  (p=2,n=1): dim 1    (law 1    OK)  Q 0.000000 (law 0.000000 OK)  closure 4.9e-16 unit 2.2e-16
+  (p=2,n=2): dim 9    (law 9    OK)  Q 1.414214 (law 1.414214 OK)  closure 3.8e-15 unit 5.4e-15
+  (p=2,n=3): dim 49   (law 49   OK)  Q 4.242641 (law 4.242641 OK)  closure 2.5e-14 unit 5.5e-14
+  (p=3,n=1): dim 4    (law 4    OK)  Q 0.000000 (law 0.000000 OK)  closure 2.3e-15 unit 1.5e-15
+  (p=3,n=2): dim 64   (law 64   OK)  Q 3.464102 (law 3.464102 OK)  closure 5.5e-14 unit 1.1e-13
+  (p=3,n=3): dim 676  (law 676  OK)  Q 13.856406 (law 13.856406 OK)  closure 1.0e-12 unit 3.6e-12
+  (p=5,n=1): dim 16   (law 16   OK)  Q 0.000000 (law 0.000000 OK)  closure 7.0e-15 unit 1.2e-14
+  (p=5,n=2): dim 576  (law 576  OK)  Q 8.944272 (law 8.944272 OK)  closure 5.6e-13 unit 2.8e-12
+
+--- THE PER-CHANNEL TABLE, DENSE CELLS (three-place mixed cutoffs; four-place base) ---
+  [F={2,3} n=(1,1)] dim 12    rank 12    radical 0  twHerm 7.25e-15  coupling-spec [4, 1, 1]  inertia (+3,-3,0:6)  [pattern d/4,d/4,d/2: YES]
+  [F={2,3} n=(2,1)] dim 108   rank 108   radical 0  twHerm 4.98e-14  coupling-spec [4, 1, 1]  inertia (+27,-27,0:54)  [pattern d/4,d/4,d/2: YES]
+  [F={2,3} n=(1,2)] dim 192   rank 192   radical 0  twHerm 4.78e-13  coupling-spec [4, 1, 1]  inertia (+48,-48,0:96)  [pattern d/4,d/4,d/2: YES]
+  [F={2,3} n=(2,2)] dim 1728  rank 1728  radical 0  twHerm 1.45e-12  coupling-spec [4, 1, 1]  inertia (+432,-432,0:864)  [pattern d/4,d/4,d/2: YES]
+  [F={2,3,5} n=(1,1,1)] dim 192   rank 192   radical 0  twHerm 1.08e-13  coupling-spec [4, 1, 1]  inertia (+48,-48,0:96)  [pattern d/4,d/4,d/2: YES]
+  [F={2,3,5} n=(2,1,1)] dim 1728  rank 1728  radical 0  twHerm 3.74e-13  coupling-spec [4, 1, 1]  inertia (+432,-432,0:864)  [pattern d/4,d/4,d/2: YES]
+
+--- COMPOSE / COMMUTE (measured; the compose-identity and the path factors) ---
+  dim: S2-factor 9.0000 (law ((2^2-1)/(2-1))^2 = 9)  S3-factor 16.0000 (law ((3^2-1)/(3-1))^2 = 16)
+  dim compose both orders: (1,1)->(2,1)->(2,2) = 1728 ; (1,1)->(1,2)->(2,2) = 1728 ; direct (2,2) = 1728  -> COMMUTATOR 0 (exact)
+  weight: glued norm at (2,2) = 4.898979 ; product of per-place laws = 4.898979  -> MULTIPLICATIVE (exact)
+  weight at mixed cells (n_p = 1 present): the dead factor Q(p,1) = 0 kills the product -> the weight
+  channel's S-law is the tower ratio ONLY from n >= 2; the n=1 edge is the (p^0-1) death, measured before.
+  coupling: spectrum at every cell above = (4,1,1) independent of n  -> ### S-SILENT (measured)
+
+--- ITEM 3: THE ARCHIMEDEAN DIAGONAL (the staircase vs the compiled rungs) ---
+  a^2 = 1.9  -> effective cutoffs {2: 0, 3: 0, 5: 0}   PRIME-FREE (the (1/2,2) window)
+  a^2 = 2.0  -> effective cutoffs {2: 1, 3: 0, 5: 0}   ONE PRIME POWER (Lemma A / the (1/3,3) window)
+  a^2 = 2.9  -> effective cutoffs {2: 1, 3: 0, 5: 0}   ONE PRIME POWER (Lemma A / the (1/3,3) window)
+  a^2 = 3.0  -> effective cutoffs {2: 1, 3: 1, 5: 0}   
+  a^2 = 3.9  -> effective cutoffs {2: 1, 3: 1, 5: 0}   
+  a^2 = 4.0  -> effective cutoffs {2: 2, 3: 1, 5: 0}   
+  a^2 = 8.0  -> effective cutoffs {2: 3, 3: 1, 5: 1}   
+  a^2 = 9.0  -> effective cutoffs {2: 3, 3: 2, 5: 1}   
+  -> the diagonal's first two steps ARE the compiled rungs; the apex cells (a^2 = 4 = 2^2, 9 = 3^2)
+     are where a tower's effective cutoff first reaches 2 — the apex-at-p^2, on the diagonal.
