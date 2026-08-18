@@ -1,0 +1,67 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 8 -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 8 -- THE LOCAL MODEL LIFTED ONE RUNG: THE SQUARE ON Q_p ITSELF.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+THE PROTOCOL CORRECTION ON THE FERRY'S FACE, carried: the closure protocol gates the
+REGISTER and public claims, not investigation -- the programme tests its own object.
+
+THE LIFT, DECLARED (before any run)
+===================================
+Level-n Schwartz-Bruhat space on Q_p:
+    V_n = { f : supp f in p^(-n) Z_p,  f invariant under translation by p^n Z_p }
+-- an honest finite-dimensional subspace of L^2(Q_p). THE FIRST CAVEAT of the banked
+transposition table ("on K_p the O-translation-invariant functions are not L^2, so the
+commuting-projection structure needs the compact quotient") DOES NOT ARISE at finite
+level: V_n sits inside L^2; what remains of the caveat is only the n -> infinity limit,
+stated at the foot. V_n IS canonically the model space: p^(-n)Z_p / p^n Z_p = Z/p^(2n)
+via x = p^(-n) m; Haar measure (Z_p mass 1) gives each chart point mass p^(-n) --
+uniform -- so the model inner product is the L^2(Q_p) inner product up to the global
+scalar p^(-n).
+
+THE GENUINE TRANSFORM: (F f)(y) = int f(x) psi(x y) dx, psi the standard character of
+conductor Z_p (psi(x) = e^(2 pi i {x}_p)), self-dual Haar. REGISTERED CLAIM, CHECKED
+ENTRY-EXACT IN-RUN: on V_n this descends to EXACTLY the model DFT
+F_N[j,k] = zeta_N^(jk) / p^n (N = p^(2n)) in the chart -- the model transform IS the
+genuine local transform at level n, with NO artifact. If exact, the dimension law
+(p^n - 1)^2, the tensor square Son = V1 (x) W1 (S = P1 (x) Q1), and the certified
+F-structure (M^2 = Pi, radical zero, the twist G-dagger = G Pi) LIFT VERBATIM by
+canonical isomorphism -- checked, never assumed.
+
+THE GENUINE SCALING: (U f)(x) = p^(-1/2) f(p x), unitary on L^2(Q_p). Longhand, before
+any number: U maps V_n INTO V_(n+1) and ESCAPES V_n -- supp(U f) = p^(-n-1) Z_p -- so THE
+MODEL'S mod-N WRAPAROUND IS THE ARTIFACT, located exactly at the outer shell (b8's
+declared edge, now derived rather than declared). The lift therefore re-measures every
+U-law with the GENUINE U via the isometric embedding iota: V_n -> V_(n+1) (chart
+refinement, m'' = p*m + p^(2n+1)*j; verified isometric in-run):
+    Q_gen(p,n)  = || S_n U S_n ||_F, S_n the projection onto iota(Son(p,n)) inside
+                  V_(n+1) -- against the model law Q_model = sqrt(p) (p^(n-1) - 1);
+    the trace   Tr(U^k S_n) computed at host levels n+k for k = 1, 2 -- the model's
+                  banked law is t_k = 0 (fixed-point localization, proved at the model);
+                  THE SECOND CAVEAT ("(iv) transposes as an orbital integral requiring
+                  regularization") is met by LEVEL-STABILITY: the same object's trace
+                  computed with hosts n+k, n+k+1, n+k+2 -- if stable, the stable value
+                  IS the regularized orbital integral at bench grade; if it drifts, the
+                  drift is the named exact residual.
+
+VERDICT MAP, registered per law: VERBATIM (survives the lift unchanged, exact) /
+CORRECTED (survives with a stated exact correction, e.g. an edge term) / FAILS (the
+model law was an artifact of the truncation; the failing term named). The tensor square
+is re-tested on the lift: if the transform identification is entry-exact, V1 (x) W1 is
+the structure of Son inside V_n on the genuine field by transport -- the check is the
+proof's shadow, and it is still run.
+
+CELLS: p in {2, 3}, n in {1, 2, 3}. Exact arithmetic (Fraction coefficients mod the
+prime-power cyclotomic: Phi_(2^k) = x^(2^(k-1)) + 1; Phi_(3^k) = x^(2*3^(k-1)) +
+x^(3^(k-1)) + 1) where the cell allows: (2,1), (2,2), (3,1) fully exact including the
+level-(n+1) host; (2,3) exact at zeta_64/zeta_256 via on-demand entries and the Sonin
+basis's 2-nonzero sparsity (no dense F is ever formed); (3,2) exact the same way as
+feasible; (3,3) FLOAT, declared. Floats never appear in a line marked EXACT.
+
+RECORDED PLAINLY AS DATA. Nothing here asserts any sign; the register is untouched.
+Usage:  python b21_attempt2_s8.py register | run
+
+====================================================================================================

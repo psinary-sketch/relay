@@ -1,5 +1,13 @@
-# `W-ATTEMPT-2` — THE CORRESPONDENCE TABLE (CLOSURE-PROTOCOL STEP TWO, DRAFTED)
-## ### **EVERY CLAIM OF SITTINGS 1–6 · ITS KERNEL OR BENCH · ITS TERMINAL · ITS AXIOM PROFILE · ITS GRADE — WITH THE NON-CLAIMS AS ROWS, AND NO BLANK CELLS**
+# `W-ATTEMPT-2` — THE CORRESPONDENCE TABLE (CLOSURE-PROTOCOL STEP TWO, DRAFTED; KEPT CURRENT)
+## ### **EVERY CLAIM OF SITTINGS 1–8 · ITS KERNEL OR BENCH · ITS TERMINAL · ITS AXIOM PROFILE · ITS GRADE — WITH THE NON-CLAIMS AS ROWS, AND NO BLANK CELLS**
+
+> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sittings 7–8): sittings 1–6 REVIEW-STAGED
+> (this step-two packet drafted; step three — external review by people able to reject — is the
+> AUTHOR'S act) — TESTING CONTINUES (sittings 7–8, the programme testing its own object under the
+> protocol correction: the closure protocol gates the REGISTER and public claims, not investigation).**
+> *Rule-3 flag, reported not smoothed: "REVIEW-STAGED" is navigator-named vocabulary appearing nowhere
+> banked before this line; the attempt is relay-resident, so the arc lives HERE and the method register
+> is untouched.*
 
 **Relay report · 2026-08-18 · drafted at the author's call · ### THIS IS STEP TWO OF THE CLOSURE
 PROTOCOL RUN AGAINST THE CONSTRUCTION (never against any sign). ON THE TABLE'S FACE: step three —
@@ -39,6 +47,12 @@ land its registered default branch says so in its status cell; there are three s
 | 20 | sitting 6: the hard two-sided window `[λ, Λ]` holds NO Sonin vector at any `a ≤ 2`, and its transient vectors at `a = 3` DIE UNDER REFINEMENT (`19 → 14 → 9` as `N` doubles) — the uncertainty principle's address at the real place, with a measured decay | `b19` (W2 columns) | `data/b19_2026-08-18.txt` | bench float | **MEASURED; the continuum statement AT CITE (Paley–Wiener/uncertainty); the registered death-under-refinement clause CONFIRMED** |
 | 21 | sitting 6: the archimedean weight channel `Q_∞` is ALIVE at every `a` but TRUNCATION-DOMINATED in raw form (`~N^(3/2)`; equal-dim rows exactly equal, so at fixed `N` it is a pure function of the ball's grid occupancy — the model's own staircase) | `b19` (M4 column) | `data/b19_2026-08-18.txt` | bench float | **MEASURED — MODEL-ARTIFACT NAMED; a refined statistic is future work, not run** |
 | 22 | the Mathlib companion for the cyclotomic tower (`ℚ(ζ₉)`, `ℚ(ζ₁₆)`, glued `ℚ(ζ₁₄₄)`) | named in `DiagonalSection.lean` head + `b18` docstring | the module's face | n/a | **NAMED, NOT BUILT — not faked** |
+| 23 | sitting 7: the constrained class defined at cite (involution per spec `§6(b)`; the two vanishing conditions `ĝ(±i/2)` VACUOUS BY CONSTRUCTION — Tate's pole directions are the ball indicator and its dual, which the Sonin condition excludes; poles `ψ₀`-channel only) | `b20_attempt2_s7.py` registration | `data/b20_registration_2026-08-18.txt` | definition at cite | **DEFINED-THEN-MEASURED; the `±i/2` vs `ĝ(0)` ferry discrepancy resolved corpus-first, flagged** |
+| 24 | sitting 7: `(P+)` — the pairing positive-definite on the constrained class at every cell where the class is nonzero; mechanism `B\|_class = L²-Gram ⊗ C\|_fix` (spectrum `{4,1}`) verified ENTRY-EXACT — positivity rides the Euler coefficients `(4,1,1)` | `b20` (52/52 exact); certificate embedding-independent (rational-SPD factorization; the rational-part fallback recorded as WEAK EVIDENCE ONLY) ◆ *(registered rational-pivot route failed — pivots real-cyclotomic; disclosed, replaced)* | `data/b20_2026-08-18.txt` | exact rational/cyclotomic | **MEASURED — `(P+)` as registered; model object only, the `§6(c)` guard on the face (ledger positivity = GRH; never claimed)** |
+| 25 | sitting 7: the class is PUNCTUATED by place-arrivals (dead `2 ≤ a² < 3`; revives at `a² = 3` via exactly the conjugate sector `(i,−i,+1)`); the first off-class negative direction sits at `a² = 3` — a PLACE-ARRIVAL EDGE — place-support `(2,1):i ⊗ (3,1):i` | `b20` parts 2–3 (eigen-dims exact at all five factors by trace formulas, nullity-verified at the small ones) | `data/b20_2026-08-18.txt` | exact | **MEASURED, both registered sub-predictions landed** |
+| 26 | sitting 8: the genuine local transform on level-`n` Schwartz–Bruhat `V_n ⊂ L²(ℚ_p)` IS the model DFT entry-exact (no artifact in `F`); `F` commutes with level-inclusion exactly | `b21_attempt2_s8.py` (215/215 exact) | `data/b21_2026-08-18.txt` | exact (float only at declared `(3,3)`) | **MEASURED — VERBATIM** |
+| 27 | sitting 8: all six laws lift VERBATIM (`Q_gen² = Q_model²` exactly incl. new `n = 3` cells; `t_k = 0` exact and level-stable); the model's one artifact located: model `U` = pushforward, genuine `U` compresses to pullback — ADJOINT, hence invisible to transpose-symmetric laws | `b21` parts C–E | `data/b21_2026-08-18.txt` | exact | **MEASURED — the verdict table all-VERBATIM; b8's declared edge upgraded to a derivation** |
+| 28 | sitting 8: both transposition caveats met — the `L²` issue does not arise at finite level (what remains is the `n → ∞` limit, named); the orbital integral regularizes by LEVEL-STABILITY (stable value `0`) | `b21` parts A/D + foot | `data/b21_2026-08-18.txt` | exact | **RESOLVED-BY-COMPUTATION at finite level; the limit stays open, said plainly** |
 
 ## §2 — THE NON-CLAIMS, AS ROWS *(each with the place it is refused in writing)*
 
