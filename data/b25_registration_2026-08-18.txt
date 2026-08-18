@@ -1,0 +1,74 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 11 -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 11 -- WHAT IS 0.872: THE ARCHIMEDEAN EXACTNESS DEFICIT PROBED.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+TESTING CONTINUES under the protocol correction; the register is untouched.
+
+THE QUESTION, REGISTERED (before any run): sitting 10 banked sigma_max = 0.87182 (a = 3,
+log-Gaussian window, N-independent to ~5 digits) -- the real place's exactness deficit,
+stable under refinement. Is that number the MODEL'S (it moves with the window) or is it
+ABOUT R (window-independent, with a closed form or not)?
+
+THE CALIBRATION, SAID IN ADVANCE SO THE SUP-QUESTION IS HONEST: the unconstrained sup of
+sigma_max over soft windows is TRIVIALLY 1 (let G -> 1 off the origin and ||GFG|| -> 1),
+so the meaningful family is CALIBRATED to the diagonal's window [1/a, a]: every shape is
+a function of u = ln|x| / ln(a), equal to 1 at u = 0 (|x| = 1), vanishing at |x| = 0, and
+committed to the window scale (its shape parameterized by u, not by an independent width
+that can be sent to infinity). Within that family the ferried question is live: does any
+calibrated shape reach 1?
+
+THE FAMILY (fixed in this registration):
+  W-lgHALF   log-Gaussian, sigma_w = ln(a)/2 : g = exp(-2 u^2)
+  W-lg1      log-Gaussian, sigma_w = ln(a)   : g = exp(-u^2 / 2)      [the banked window]
+  W-lg2      log-Gaussian, sigma_w = 2 ln(a) : g = exp(-u^2 / 8)
+  W-fejer    triangular in u: g = max(0, 1 - |u|)
+  W-rcos     raised cosine: g = (1 + cos(pi u)) / 2 on |u| <= 1, else 0
+  W-wp1/W-wp2 Weil-lemma Gaussian-polynomial shapes, the 1952 mechanics transposed to the
+             log coordinate (declared as the transposition): g = (1 + beta u^2) exp(-u^2/2)
+             normalized to max 1, beta in {0.5, 1}.
+
+MEASURED (per shape, a in {1.3, sqrt2, 2, 3}, N in {1023, 4095, 16383} via FFT-based
+centered DFT, verified against the dense matrix at N = 255; sigma_max by power iteration
+on A^dagger A to 1e-12):
+ M1  sigma_max(shape, a) with its N-stable digit count -- the SHAPE SPREAD at fixed a;
+     the maximizing calibrated shape named; whether any reaches 1 - 1e-3.
+ M2  the a-curve per shape, recorded (four points).
+ M3  THE CANDIDATE COMPARISON at a = 3, W-lg1, converged digits -- the list FIXED HERE,
+     compared by plain subtraction, NO FITTING; a match at >= 6 digits reported, else
+     "no closed form found":
+     point candidates: lambda(0), lambda(0)^2, 1 - lambda(0), 1 - lambda(0)^2,
+       sqrt(1 - lambda(0)^2), mu_1, mu_2, sqrt(mu_1), Si(4pi)/(4pi), 1 - Si(4pi)/(4pi),
+       cos(1/2), sqrt(3)/2, e^(-1/8), 2/sqrt(2*pi)*... none beyond this list;
+       (prolate quantities from the certified prolate_layer at c = 2*pi, NQ = 700).
+     parameter-free curve candidates (compared across ALL FOUR a-points at once --
+       a curve match is a finding, a single-point closeness is not):
+       erf(ln a) ; tanh(ln a) = (a^2-1)/(a^2+1) ; 1 - a^(-2) ; erf(ln(a)/sqrt(2)).
+ M4  THE REFINED INFINITY-WEIGHT IN ITS STABLE HOME: Q_inf_soft(a) = ||G D G||_F with
+     D the scaling generator (b19's exact grid affordance) and G the banked W-lg1 window
+     -- the Gaussian kills the truncation bulk, so N-stability is the registered
+     expectation (the raw channel grew ~N^(3/2), banked); reported per (a, N), and the
+     punctuated ledger re-read with INF LIVE: full weight = Q_inf_soft(a) * (finite side,
+     exact, banked: 0 through a = 2; 6*sqrt(6) at a = 3 on {inf,2,3}; 0 on {inf,2,3,5}).
+
+BRANCHES, registered:
+ (E-artifact)  sigma_max moves with calibrated shape/width beyond the N-stable digit
+               tolerance -- the deficit is the MODEL'S; the maximizing shape named; if any
+               calibrated shape reaches 1 - 1e-3 the sharper sentence is recorded: an
+               exact archimedean interleave exists in the right test class.
+ (E-intrinsic) sigma_max is window-independent to the stated tolerance -- the number is
+               about R; its digits banked and the candidate comparison decides "closed
+               form" vs "no closed form found".
+ (E-third)     a third shape (e.g. two shape-classes with two distinct stable values) --
+               filed openly as found.
+LONGHAND EXPECTATION, said before the run: (E-artifact) in the width direction (wider
+calibrated Gaussians should raise sigma_max toward but maybe not to 1), with the shape
+question inside the fixed-width class the honest unknown.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b25_attempt2_s11.py register | run
+
+====================================================================================================

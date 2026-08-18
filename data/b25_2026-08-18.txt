@@ -1,0 +1,258 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 11 -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 11 -- WHAT IS 0.872: THE ARCHIMEDEAN EXACTNESS DEFICIT PROBED.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+TESTING CONTINUES under the protocol correction; the register is untouched.
+
+THE QUESTION, REGISTERED (before any run): sitting 10 banked sigma_max = 0.87182 (a = 3,
+log-Gaussian window, N-independent to ~5 digits) -- the real place's exactness deficit,
+stable under refinement. Is that number the MODEL'S (it moves with the window) or is it
+ABOUT R (window-independent, with a closed form or not)?
+
+THE CALIBRATION, SAID IN ADVANCE SO THE SUP-QUESTION IS HONEST: the unconstrained sup of
+sigma_max over soft windows is TRIVIALLY 1 (let G -> 1 off the origin and ||GFG|| -> 1),
+so the meaningful family is CALIBRATED to the diagonal's window [1/a, a]: every shape is
+a function of u = ln|x| / ln(a), equal to 1 at u = 0 (|x| = 1), vanishing at |x| = 0, and
+committed to the window scale (its shape parameterized by u, not by an independent width
+that can be sent to infinity). Within that family the ferried question is live: does any
+calibrated shape reach 1?
+
+THE FAMILY (fixed in this registration):
+  W-lgHALF   log-Gaussian, sigma_w = ln(a)/2 : g = exp(-2 u^2)
+  W-lg1      log-Gaussian, sigma_w = ln(a)   : g = exp(-u^2 / 2)      [the banked window]
+  W-lg2      log-Gaussian, sigma_w = 2 ln(a) : g = exp(-u^2 / 8)
+  W-fejer    triangular in u: g = max(0, 1 - |u|)
+  W-rcos     raised cosine: g = (1 + cos(pi u)) / 2 on |u| <= 1, else 0
+  W-wp1/W-wp2 Weil-lemma Gaussian-polynomial shapes, the 1952 mechanics transposed to the
+             log coordinate (declared as the transposition): g = (1 + beta u^2) exp(-u^2/2)
+             normalized to max 1, beta in {0.5, 1}.
+
+MEASURED (per shape, a in {1.3, sqrt2, 2, 3}, N in {1023, 4095, 16383} via FFT-based
+centered DFT, verified against the dense matrix at N = 255; sigma_max by power iteration
+on A^dagger A to 1e-12):
+ M1  sigma_max(shape, a) with its N-stable digit count -- the SHAPE SPREAD at fixed a;
+     the maximizing calibrated shape named; whether any reaches 1 - 1e-3.
+ M2  the a-curve per shape, recorded (four points).
+ M3  THE CANDIDATE COMPARISON at a = 3, W-lg1, converged digits -- the list FIXED HERE,
+     compared by plain subtraction, NO FITTING; a match at >= 6 digits reported, else
+     "no closed form found":
+     point candidates: lambda(0), lambda(0)^2, 1 - lambda(0), 1 - lambda(0)^2,
+       sqrt(1 - lambda(0)^2), mu_1, mu_2, sqrt(mu_1), Si(4pi)/(4pi), 1 - Si(4pi)/(4pi),
+       cos(1/2), sqrt(3)/2, e^(-1/8), 2/sqrt(2*pi)*... none beyond this list;
+       (prolate quantities from the certified prolate_layer at c = 2*pi, NQ = 700).
+     parameter-free curve candidates (compared across ALL FOUR a-points at once --
+       a curve match is a finding, a single-point closeness is not):
+       erf(ln a) ; tanh(ln a) = (a^2-1)/(a^2+1) ; 1 - a^(-2) ; erf(ln(a)/sqrt(2)).
+ M4  THE REFINED INFINITY-WEIGHT IN ITS STABLE HOME: Q_inf_soft(a) = ||G D G||_F with
+     D the scaling generator (b19's exact grid affordance) and G the banked W-lg1 window
+     -- the Gaussian kills the truncation bulk, so N-stability is the registered
+     expectation (the raw channel grew ~N^(3/2), banked); reported per (a, N), and the
+     punctuated ledger re-read with INF LIVE: full weight = Q_inf_soft(a) * (finite side,
+     exact, banked: 0 through a = 2; 6*sqrt(6) at a = 3 on {inf,2,3}; 0 on {inf,2,3,5}).
+
+BRANCHES, registered:
+ (E-artifact)  sigma_max moves with calibrated shape/width beyond the N-stable digit
+               tolerance -- the deficit is the MODEL'S; the maximizing shape named; if any
+               calibrated shape reaches 1 - 1e-3 the sharper sentence is recorded: an
+               exact archimedean interleave exists in the right test class.
+ (E-intrinsic) sigma_max is window-independent to the stated tolerance -- the number is
+               about R; its digits banked and the candidate comparison decides "closed
+               form" vs "no closed form found".
+ (E-third)     a third shape (e.g. two shape-classes with two distinct stable values) --
+               filed openly as found.
+LONGHAND EXPECTATION, said before the run: (E-artifact) in the width direction (wider
+calibrated Gaussians should raise sigma_max toward but maybe not to 1), with the shape
+question inside the fixed-width class the honest unknown.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b25_attempt2_s11.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+====================================================================================================
+V. VERIFICATION AT N = 255 (dense matrix vs FFT operator) -- before any measurement
+====================================================================================================
+  shape      a       dense SVD      power iter     |diff|    
+  W-lgHALF   1.3     0.15858199406  0.15858199406  2.78e-17  
+  W-lgHALF   sqrt2   0.21114966877  0.21114966877  0.00e+00  
+  W-lgHALF   2       0.43206074480  0.43206074480  5.55e-17  
+  W-lgHALF   3       0.63760596845  0.63760596845  2.22e-16  
+  W-lg1      1.3     0.32552203203  0.32552203203  5.55e-17  
+  W-lg1      sqrt2   0.43206074480  0.43206074480  1.67e-16  
+  W-lg1      2       0.73261885815  0.73261885815  1.89e-15  
+  W-lg1      3       0.87181627136  0.87181627136  3.41e-14  
+  W-lg2      1.3     0.61751463662  0.61751463662  0.00e+00  
+  W-lg2      sqrt2   0.73261885815  0.73261885815  1.89e-15  
+  W-lg2      2       0.91582884437  0.91582884437  3.57e-14  
+  W-lg2      3       0.96513478968  0.96513478968  4.41e-14  
+  W-fejer    1.3     0.10917236075  0.10917236075  0.00e+00  
+  W-fejer    sqrt2   0.15153028418  0.15153028418  5.55e-17  
+  W-fejer    2       0.32212375055  0.32212375055  1.11e-16  
+  W-fejer    3       0.49070834223  0.49070834223  1.67e-16  
+  W-rcos     1.3     0.13524863096  0.13524863096  8.33e-17  
+  W-rcos     sqrt2   0.17720964049  0.17720964049  1.11e-16  
+  W-rcos     2       0.36520089434  0.36520089434  0.00e+00  
+  W-rcos     3       0.57033855242  0.57033855242  1.11e-16  
+  W-wp1      1.3     0.55368702077  0.55368702077  0.00e+00  
+  W-wp1      sqrt2   0.70237892105  0.70237892105  0.00e+00  
+  W-wp1      2       0.93944057395  0.93944057395  4.03e-14  
+  W-wp1      3       0.98585716476  0.98585716476  6.33e-14  
+  W-wp2      1.3     0.60834371194  0.60834371194  1.11e-16  
+  W-wp2      sqrt2   0.73602897012  0.73602897012  1.11e-16  
+  W-wp2      2       0.90412152940  0.90412152940  3.92e-14  
+  W-wp2      3       0.95840340736  0.95840340735  2.00e-12  
+  ||G D G||_F  a = 1.3     dense 19.3339803832    sweep 19.3339803832     |diff| 7.11e-15
+  ||G D G||_F  a = sqrt2   dense 24.5658649478    sweep 24.5658649478     |diff| 7.11e-15
+  ||G D G||_F  a = 2       dense 47.4839415575    sweep 47.4839415575     |diff| 0.00e+00
+  ||G D G||_F  a = 3       dense 93.7110847931    sweep 93.7110847931     |diff| 5.68e-14
+  verification checks so far: 38/38 PASS
+
+====================================================================================================
+M1/M2. sigma_max(shape, a) -- the CALIBRATED SHAPE SPREAD, per N and converged
+====================================================================================================
+--- N = 1023 (odd), h = 0.07837041, grid extent |x| <= 40.0473 ---
+  shape      a=1.3    a=sqrt2  a=2      a=3     
+  W-lgHALF   0.158389 0.211126 0.432061 0.637606
+  W-lg1      0.325521 0.432061 0.732619 0.871820
+  W-lg2      0.617514 0.732619 0.915831 0.965127
+  W-fejer    0.118332 0.157857 0.325150 0.492737
+  W-rcos     0.133416 0.177350 0.365252 0.570353
+  W-wp1      0.553700 0.702384 0.939429 0.985864
+  W-wp2      0.608371 0.736047 0.904083 0.958405
+
+--- N = 4095 (odd), h = 0.03917085, grid extent |x| <= 80.1827 ---
+  shape      a=1.3    a=sqrt2  a=2      a=3     
+  W-lgHALF   0.158389 0.211126 0.432061 0.637606
+  W-lg1      0.325521 0.432061 0.732619 0.871820
+  W-lg2      0.617514 0.732619 0.915831 0.965126
+  W-fejer    0.118169 0.157698 0.325066 0.492685
+  W-rcos     0.133390 0.177351 0.365253 0.570354
+  W-wp1      0.553700 0.702384 0.939429 0.985864
+  W-wp2      0.608371 0.736047 0.904083 0.958405
+
+--- N = 16383 (odd), h = 0.01958363, grid extent |x| <= 160.4095 ---
+  shape      a=1.3    a=sqrt2  a=2      a=3     
+  W-lgHALF   0.158389 0.211126 0.432061 0.637606
+  W-lg1      0.325521 0.432061 0.732619 0.871820
+  W-lg2      0.617514 0.732619 0.915831 0.965126
+  W-fejer    0.119042 0.158348 0.325399 0.492907
+  W-rcos     0.133390 0.177351 0.365253 0.570354
+  W-wp1      0.553700 0.702384 0.939429 0.985864
+  W-wp2      0.608371 0.736047 0.904083 0.958405
+
+--- CONVERGED sigma_max (mean over N) with N-stable digit count [digits] ---
+  shape      a=1.3                a=sqrt2              a=2                  a=3                 
+  W-lgHALF   0.158388678 [9]      0.211126380 [10]     0.432060511 [12]     0.637605837 [9]     
+  W-lg1      0.325521310 [12]     0.432060511 [12]     0.732619034 [9]      0.871819957 [8]     
+  W-lg2      0.617514320 [12]     0.732619034 [9]      0.915830906 [6]      0.965126365 [6]     
+  W-fejer    0.118514740 [2]      0.157967438 [2]      0.325204931 [2]      0.492776262 [3]     
+  W-rcos     0.133398503 [3]      0.177350381 [5]      0.365252988 [5]      0.570353898 [5]     
+  W-wp1      0.553699899 [10]     0.702383957 [10]     0.939428760 [7]      0.985863747 [6]     
+  W-wp2      0.608370992 [9]      0.736046888 [9]      0.904082698 [6]      0.958405108 [6]     
+
+--- THE SHAPE SPREAD AT FIXED a (M1) ---
+  a        min sigma_max  max sigma_max  spread       min N-digits argmax    
+  1.3      0.118514740    0.617514320    4.990e-01    2            W-lg2     
+  sqrt2    0.157967438    0.736046888    5.781e-01    2            W-wp2     
+  2        0.325204931    0.939428760    6.142e-01    2            W-wp1     
+  3        0.492776262    0.985863747    4.931e-01    3            W-wp1     
+  (the N-stable digit tolerance at each a is 10^-(min N-digits); a spread above it
+   is a REAL shape dependence, not numerical noise.)
+
+  global maximum over the calibrated family and the four a: sigma_max = 0.985863747 at shape W-wp1, a = 3
+  does ANY calibrated shape reach 1 - 1e-3 = 0.999 ?  NO (max = 0.985863747, deficit 0.014136253)
+
+====================================================================================================
+M3. THE CANDIDATE COMPARISON at a = 3, W-lg1 (list FIXED in the registration; no fitting)
+====================================================================================================
+  measured sigma_max(a = 3, W-lg1) per N:
+     N = 1023    0.871819960910
+     N = 4095    0.871819955167
+     N = 16383   0.871819954949
+  converged value = 0.871819957009   N-stable digits = 8
+  prolate substrate (prolate_layer, c = 2*pi, NQ = 700): mu_0 = 0.999942753354, mu_1 = 0.997561708185, mu_2 = 0.959390345448
+  Si(4pi) = 1.492161225584, Si(4pi)/(4pi) = 0.118742417471
+
+  candidate                  value            |diff|         digits agree   match?
+  lambda(0) = sqrt(mu_0)     0.999971376      1.282e-01      0              -
+  lambda(0)^2 = mu_0         0.999942753      1.281e-01      0              -
+  1 - lambda(0)              0.000028624      8.718e-01      0              -
+  1 - lambda(0)^2            0.000057247      8.718e-01      0              -
+  sqrt(1 - lambda(0)^2)      0.007566151      8.643e-01      0              -
+  mu_1                       0.997561708      1.257e-01      0              -
+  mu_2                       0.959390345      8.757e-02      0              -
+  sqrt(mu_1)                 0.998780110      1.270e-01      0              -
+  Si(4pi)/(4pi)              0.118742417      7.531e-01      0              -
+  1 - Si(4pi)/(4pi)          0.881257583      9.438e-03      1              -
+  cos(1/2)                   0.877582562      5.763e-03      2              -
+  sqrt(3)/2                  0.866025404      5.795e-03      2              -
+  e^(-1/8)                   0.882496903      1.068e-02      1              -
+  2/sqrt(2*pi)               0.797884561      7.394e-02      1              -
+
+  POINT VERDICT: no closed form found (no candidate in the fixed list agrees to >= 6 digits).
+
+--- parameter-free CURVE candidates, all four a-points at once, shape W-lg1 ---
+  measured W-lg1 curve: a=1.3: 0.325521310, a=sqrt2: 0.432060511, a=2: 0.732619034, a=3: 0.871819957
+
+  curve candidate                a=1.3        a=sqrt2      a=2          a=3          max|diff|   curve match?
+  erf(ln a)                      0.289391591  0.375957433  0.673041290  0.879737420  5.958e-02   -
+  tanh(ln a) = (a^2-1)/(a^2+1)   0.256505576  0.333333333  0.600000000  0.800000000  1.326e-01   -
+  1 - a^(-2)                     0.408284024  0.500000000  0.750000000  0.888888889  8.276e-02   -
+  erf(ln(a)/sqrt(2))             0.206959379  0.271088311  0.511782808  0.728062785  2.208e-01   -
+
+  CURVE VERDICT: no closed form found (no parameter-free curve in the fixed list matches all four a-points to 1e-06).
+
+====================================================================================================
+M4. Q_inf_soft(a) = ||G D G||_F, G = W-lg1, D = (X Ptil + Ptil X)/2 -- exact column sweep
+====================================================================================================
+  N = 1023    done
+  N = 4095    done
+
+  a        N = 1023           N = 4095           rel change     growth exp   N-stable?
+  1.3      62.2164634411      186.6264161555     2.000e+00      0.7920       MOVES
+  sqrt2    76.0167359226      224.2013626905     1.949e+00      0.7798       MOVES
+  2        138.6738520320     398.2521299354     1.872e+00      0.7606       MOVES
+  3        268.0020869536     761.9503647926     1.843e+00      0.7533       MOVES
+  (growth exp = log(Q_2/Q_1)/log(N_2/N_1): the fitted power of N, reported because
+   the raw channel's banked growth was ~N^(3/2); the raw Frobenius convention of b19
+   is kept unchanged so the two channels are comparable.)
+  (N-stability criterion registered as the expectation: relative change < 1e-3.)
+  M4 VERDICT: Q_inf_soft is NOT N-stable -- the registered expectation did NOT land.
+
+--- THE PUNCTUATED LEDGER RE-READ, INF LIVE (largest M4 N = 4095) ---
+    banked finite side (sitting 4, exact): 0 through a = 2; 6*sqrt(6) = 14.696938457 at a = 3
+    on {inf,2,3}; 0 at a = 3 on {inf,2,3,5}.
+  a        Q_inf_soft         finite {inf,2,3}   FULL WEIGHT {inf,2,3}  FULL WEIGHT {inf,2,3,5}
+  1.3      186.6264161555     0.000000000        0.000000000            0.000000000
+  sqrt2    224.2013626905     0.000000000        0.000000000            0.000000000
+  2        398.2521299354     0.000000000        0.000000000            0.000000000
+  3        761.9503647926     14.696938457       11198.337618416        0.000000000
+    READ PLAINLY: the infinity channel is ALIVE (nonzero) at every a; the sawtooth's
+    zeros on the finite side still annihilate the product wherever they sit. The
+    per-channel ledger is the information; no promotion is made.
+
+====================================================================================================
+VERDICT
+====================================================================================================
+  a = 1.3     shape spread 4.990e-01  vs  N-stable tolerance 1.0e-02  -> MOVES (argmax W-lg2)
+  a = sqrt2   shape spread 5.781e-01  vs  N-stable tolerance 1.0e-02  -> MOVES (argmax W-wp2)
+  a = 2       shape spread 6.142e-01  vs  N-stable tolerance 1.0e-02  -> MOVES (argmax W-wp1)
+  a = 3       shape spread 4.931e-01  vs  N-stable tolerance 1.0e-03  -> MOVES (argmax W-wp1)
+  width direction (W-lgHALF / W-lg1 / W-lg2) moves beyond tolerance: YES
+
+  BRANCH LANDED: (E-artifact)
+  sigma_max MOVES with the calibrated shape/width beyond the N-stable digit tolerance -- the exactness deficit is the MODEL'S, not a constant of R.
+  maximizing calibrated shape at the largest a (a = 3): W-wp1 (sigma_max = 0.985863747)
+  any calibrated shape at 1 - 1e-3: NO
+  NO sharper sentence: no calibrated shape reaches 1 - 1e-3; the deficit survives the whole registered family.
+  closed form for the banked 0.87182 (a = 3, W-lg1): no closed form found
+  parameter-free curve: no closed form found
+  the register is UNTOUCHED; this is bench-grade DATA about a constructed object.
+
+FLOAT BENCH COMPLETE; ASSERTED CHECKS: 122/122 PASS

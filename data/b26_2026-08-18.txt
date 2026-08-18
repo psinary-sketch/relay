@@ -1,0 +1,346 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 11 (item 3) -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 11 (item 3) - THE p = 3 TOWER: p-INDEPENDENCE AT ONE MORE PRIME.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+TESTING CONTINUES under the protocol correction; the register is untouched.
+
+THE QUESTION, REGISTERED: sitting 10 built the tower on Q_2 (levels 1..6) and landed
+(L-stable) with the compressed scaling FORCED. Is that structure p-INDEPENDENT? The same
+five claims are run on Q_3 at levels n = 1..4:
+ (T1) iota(Son(3,n)) contained in Son(3,n+1), exact - the ball Z_3 is level-independent.
+ (T2) the pairing level-stable on the nose (host Gram = 9 * level Gram under the stated
+      mass normalization), exact where feasible (n <= 3 registered; n = 4 attempted and
+      declared-skipped honestly if the 6400^2 entry sweep is too slow).
+ (T3) the laws: eigen-dims exact per level via coefficient-dict traces (no dense F);
+      Q_gen^2 = Q_model^2 = 3 (3^(n-1) - 1)^2 exactly (expected 0, 12, 192, 2028) via
+      the closed-form (K^T K)^{-1} = I tensor T_q/q with q = 3^n (closed form VERIFIED
+      against direct rational inversion at n <= 2 before use); Tr(U^k S) = 0 exactly,
+      k = 1, 2, at hosts n+k and n+k+1.
+ (T4) the class dims: constrained 2*d_1, plain 2*d_1 + d_-1, per level - WITH THE
+      REGISTERED p-DEPENDENCE NOTE, said in advance: the p = 2 arrival-depth DEATH of
+      the constrained class came from dim Son(2,1) = 1 with M = [i]; at p = 3 the banked
+      (3,1) has d_1 = 1 > 0, so the class is ALIVE at the arrival depth - the
+      class-punctuation's death clause is p = 2-SPECIFIC, and this run records that
+      plainly (it is a statement about which sectors exist, not a defect).
+ (T5) the forced compression: an exact nonzero witness that (U f)-hat is nonzero on the
+      ball for f in Son(3,n), at n = 1 and 2 - the compressed scaling forced on Q_3 too.
+
+LONGHAND EXPECTATIONS, registered: p-independent - T1, T2, T5, the fifth law, the zero
+traces; p-DEPENDENT - the flatness of the eigen-dims (p odd: tr M = 0 with no i in
+Q(zeta_(3^k)) forces d_i = d_-i; the banked (3,1), (3,2) are exactly flat (dim/4 each);
+whether exact flatness d_1 = d_-1 = d_i = d_-i persists at n = 3, 4 is MEASURED, not
+assumed) and the arrival-depth aliveness of the class (T4 note).
+
+BRANCHES: (P-indep) the five claims land on Q_3 - sitting 10's structure is not a p = 2
+accident; the limit's shape (inductive Sonin object, compressed scaling, stable pairing)
+is the finite place's shape as such. (P-dep) a claim breaks at a named level - the break
+is the finding. (P-third) filed openly.
+
+RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b26_attempt2_s11.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+LEVELS BUILT: n=1 (q=3, N=9, dim Son=4, field Q(zeta_9) of degree 6), n=2 (q=9, N=81, dim Son=64, field Q(zeta_81) of degree 54), n=3 (q=27, N=729, dim Son=676, field Q(zeta_729) of degree 486), n=4 (q=81, N=6561, dim Son=6400, field Q(zeta_6561) of degree 4374)
+HOSTS: n=1 -> N_host = 9^2 = 81, n=2 -> N_host = 9^3 = 729, n=3 -> N_host = 9^4 = 6561, n=4 -> N_host = 9^5 = 59049
+
+====================================================================================================
+P1.  THE p = 3 CYCLOTOMIC FOLD (TWO-TERM, NOT A SIGN FLIP) -- VERIFIED BEFORE USE
+====================================================================================================
+  PASS  P1a k=2  order 3^2 = 9, degree phi(3^2) = 2*3^1 = 6 (power basis zeta^0 .. zeta^5)
+  PASS  P1b k=2  the two-term fold  zeta^e = -zeta^(e-2*3^1) - zeta^(e-3^1) (e >= 6) agrees with b21's independently-derived Cyc(3,2) power table at ALL 9 exponents
+  PASS  P1c k=2  zeta^(3^2) = 1 exactly (yes); Phi_(3^2)(zeta) = 1 + zeta^3 + zeta^6 = 0 exactly (yes); sum_(e=0)^(8) zeta^e = 0 exactly (yes)
+  PASS  P1a k=4  order 3^4 = 81, degree phi(3^4) = 2*3^3 = 54 (power basis zeta^0 .. zeta^53)
+  PASS  P1b k=4  the two-term fold  zeta^e = -zeta^(e-2*3^3) - zeta^(e-3^3) (e >= 54) agrees with b21's independently-derived Cyc(3,4) power table at ALL 81 exponents
+  PASS  P1c k=4  zeta^(3^4) = 1 exactly (yes); Phi_(3^4)(zeta) = 1 + zeta^27 + zeta^54 = 0 exactly (yes); sum_(e=0)^(80) zeta^e = 0 exactly (yes)
+  PASS  P1a k=6  order 3^6 = 729, degree phi(3^6) = 2*3^5 = 486 (power basis zeta^0 .. zeta^485)
+  PASS  P1b k=6  the two-term fold  zeta^e = -zeta^(e-2*3^5) - zeta^(e-3^5) (e >= 486) agrees with b21's independently-derived Cyc(3,6) power table at ALL 729 exponents
+  PASS  P1c k=6  zeta^(3^6) = 1 exactly (yes); Phi_(3^6)(zeta) = 1 + zeta^243 + zeta^486 = 0 exactly (yes); sum_(e=0)^(728) zeta^e = 0 exactly (yes)
+  PASS  P1a k=8  order 3^8 = 6561, degree phi(3^8) = 2*3^7 = 4374 (power basis zeta^0 .. zeta^4373)
+  PASS  P1b k=8  the two-term fold  zeta^e = -zeta^(e-2*3^7) - zeta^(e-3^7) (e >= 4374) agrees with b21's independently-derived Cyc(3,8) power table at ALL 6561 exponents
+  PASS  P1c k=8  zeta^(3^8) = 1 exactly (yes); Phi_(3^8)(zeta) = 1 + zeta^2187 + zeta^4374 = 0 exactly (yes); sum_(e=0)^(6560) zeta^e = 0 exactly (yes)
+  PASS  P1a k=10  order 3^10 = 59049, degree phi(3^10) = 2*3^9 = 39366 (power basis zeta^0 .. zeta^39365)
+  PASS  P1b k=10  the two-term fold  zeta^e = -zeta^(e-2*3^9) - zeta^(e-3^9) (e >= 39366) agrees with b21's independently-derived Cyc(3,10) power table at ALL 59049 exponents
+  PASS  P1c k=10  zeta^(3^10) = 1 exactly (yes); Phi_(3^10)(zeta) = 1 + zeta^19683 + zeta^39366 = 0 exactly (yes); sum_(e=0)^(59048) zeta^e = 0 exactly (yes)
+      NOTE, said plainly: at p = 2 the fold is a one-term sign flip and every single power of zeta is ONE basis element; at p = 3 a single power can be TWO basis elements.  Nothing else in the machinery changes -- which is exactly why the rest of this file is sitting 10's structure with q = 3^n substituted.
+
+====================================================================================================
+P0.  THE CLOSED-FORM G^(-1) = I (x) T^(-1), T^(-1)[i,j] = min(i+1,j+1)(q - max(i+1,j+1))/q  --  VERIFIED BEFORE USE
+====================================================================================================
+  PASS  P0a n=1  T^(-1) (direct rational Gauss inversion, 2x2) == Tq/q entry-exact  [the path-graph Green's function; 0.0 s]
+  PASS  P0b n=1  det T = 3 = q = 3 exactly
+  PASS  P0a n=2  T^(-1) (direct rational Gauss inversion, 8x8) == Tq/q entry-exact  [the path-graph Green's function; 0.0 s]
+  PASS  P0b n=2  det T = 9 = q = 9 exactly
+  PASS  P0a n=3  T^(-1) (direct rational Gauss inversion, 26x26) == Tq/q entry-exact  [the path-graph Green's function; 0.0 s]
+  PASS  P0b n=3  det T = 27 = q = 27 exactly
+  PASS  P0a n=4  T^(-1) (direct rational Gauss inversion, 80x80) == Tq/q entry-exact  [the path-graph Green's function; 0.7 s]
+  PASS  P0b n=4  det T = 81 = q = 81 exactly
+  PASS  P0c n=1  K^T K == I_(q-1) (x) T entry-exact (d = 4)
+  PASS  P0d n=1  (K^T K)^(-1) (direct inversion, 4x4) == I (x) Tq/q entry-exact -- THE CLOSED FORM IS LICENSED AT n >= 3
+  PASS  P0c n=2  K^T K == I_(q-1) (x) T entry-exact (d = 64)
+  PASS  P0d n=2  (K^T K)^(-1) (direct inversion, 64x64) == I (x) Tq/q entry-exact -- THE CLOSED FORM IS LICENSED AT n >= 3
+  PASS  P0e n=3  K^T K == I_(q-1) (x) T entry-exact, SPARSELY (d = 676; no dense Gram formed)
+  PASS  P0e n=4  K^T K == I_(q-1) (x) T entry-exact, SPARSELY (d = 6400; no dense Gram formed)
+
+====================================================================================================
+T1.  iota(Son(3,n)) CONTAINED IN Son(3,n+1)  --  the inductive system
+====================================================================================================
+  PASS  T1a n=1  SUPPORT SIDE: (iota f)|_(B_host) = 0 exactly, all 4 columns (host ball = {m'' == 0 mod 3^2}, 9 rows) -- the ball Z_3 is level-independent and iota is function-inclusion
+  PASS  T1b n=1  TRANSFORM SIDE: (F_host iota f)|_(B_host) = 0 EXACTLY, all 4 columns x 9 ball rows = 36 exact 6-term zeta_(3^4) sums [0.0 s]
+  PASS  T1c n=1  => iota(Son(3,1)) is CONTAINED in Son(3,2): the level-n Sonin space embeds into the level-(n+1) one
+  PASS  T1a n=2  SUPPORT SIDE: (iota f)|_(B_host) = 0 exactly, all 64 columns (host ball = {m'' == 0 mod 3^3}, 27 rows) -- the ball Z_3 is level-independent and iota is function-inclusion
+  PASS  T1b n=2  TRANSFORM SIDE: (F_host iota f)|_(B_host) = 0 EXACTLY, all 64 columns x 27 ball rows = 1728 exact 6-term zeta_(3^6) sums [0.0 s]
+  PASS  T1c n=2  => iota(Son(3,2)) is CONTAINED in Son(3,3): the level-n Sonin space embeds into the level-(n+1) one
+  PASS  T1a n=3  SUPPORT SIDE: (iota f)|_(B_host) = 0 exactly, all 676 columns (host ball = {m'' == 0 mod 3^4}, 81 rows) -- the ball Z_3 is level-independent and iota is function-inclusion
+  PASS  T1b n=3  TRANSFORM SIDE: (F_host iota f)|_(B_host) = 0 EXACTLY, all 676 columns x 81 ball rows = 54756 exact 6-term zeta_(3^8) sums [0.1 s]
+  PASS  T1c n=3  => iota(Son(3,3)) is CONTAINED in Son(3,4): the level-n Sonin space embeds into the level-(n+1) one
+  PASS  T1a n=4  SUPPORT SIDE: (iota f)|_(B_host) = 0 exactly, all 6400 columns (host ball = {m'' == 0 mod 3^5}, 243 rows) -- the ball Z_3 is level-independent and iota is function-inclusion
+  PASS  T1b n=4  TRANSFORM SIDE: (F_host iota f)|_(B_host) = 0 EXACTLY, all 6400 columns x 243 ball rows = 1555200 exact 6-term zeta_(3^10) sums [3.1 s]
+  PASS  T1c n=4  => iota(Son(3,4)) is CONTAINED in Son(3,5): the level-n Sonin space embeds into the level-(n+1) one
+      CONSEQUENCE, stated: {Son(3,n), iota} is a genuine INDUCTIVE SYSTEM; its union is  Son(3,infinity) = { f level-finite : f|_(Z_3) = 0 and (F f)|_(Z_3) = 0 }  -- the local field's own Sonin object.  This NAMES the union; it does not construct its L^2 closure, and none is claimed.
+
+====================================================================================================
+T2.  <iota v, F iota w> = <v, F w>  --  THE GRAM OF iota(Son(n)) INSIDE V_(n+1) vs THE LEVEL-n GRAM, ENTRY-EXACT
+====================================================================================================
+      NORMALIZATION: level entry = 9^(-n) S_n, host entry = 9^(-(n+1)) S_h; equality ON THE NOSE <=> S_h = 9 S_n, compared inside the host field.
+  PASS  T2  n=1  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 4 x 4 = 16 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) [0.0 s]
+  PASS  T2  n=2  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 64 x 64 = 4096 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) [0.1 s]
+  PASS  T2  n=3  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 676 x 676 = 456976 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) [6.6 s]
+  DECLARED  T2 n=4  DECLARED-SKIPPED: 6400^2 = 40960000 Gram entries, projected 591 s > budget 420 s at the measured entry rate.  NOT computed, NOT counted as EXACT, NOT asserted.
+
+====================================================================================================
+T3(a).  THE EIGEN-DIMS OF THE COMPRESSED TRANSFORM, EXACT AT n = 1..4
+====================================================================================================
+  PASS  T3a0 n=1  DIM LAW: dim Son(3,1) = (3^1 - 1)^2 = 4, and the Sonin basis has exactly 4 columns of 2 nonzeros each
+  PASS  T3a1 n=1  P K = K Pi ENTRY-EXACT (Pi SOLVED from the chart: parity (alpha,beta) -> (q-alpha, q-1-beta) sends col_(a,j) to -col_(q-a,q-2-j))
+  PASS  T3a2 n=1  Pi is a signed permutation, det Pi = 1 in {+1,-1}; tr Pi = 0 EXACT (q = 3^1 is ODD so a = q - a has no solution: Pi is FIXED-POINT-FREE and tr Pi = 0 at every level -- a p-odd fact)
+  PASS  T3a3 n=1  Pi^2 = I exactly (the signed permutation is an involution with +1 sign product) => M^4 = (M^2)^2 = Pi^2 = I
+  PASS  T3a4 n=1  tr M = 0  EXACT (32 integer-weighted 4-term zeta_(3^2) accumulations via the shell-diagonal blocks of K^T F K; NO dense F) -- and it is RATIONAL (supported at exponent 0 alone): YES.  Q(zeta_(3^2)) meet Q(i) = Q, so B = Im tr M = 0 is FORCED and d_i = d_-i.  [0.0 s]
+  PASS  T3a5 n=1  the eigen-dim solve is INTEGRAL and sums to d: tr M = 0 + 0 i, tr Pi = 0  ->  (1, 1, 1, 1)
+  PASS  T3a6 n=1  FLATNESS, MEASURED (not assumed): d_1 = d_-1 = d_i = d_-i = d/4 = 1 ?  FLAT -- all four equal 1
+  PASS  T3a7 n=1  AGREES WITH THE BANKED (3,1) EIGEN-DIMS (1, 1, 1, 1) (sitting 8), with tr M = 0 and tr Pi = 0 as banked
+  PASS  T3a0 n=2  DIM LAW: dim Son(3,2) = (3^2 - 1)^2 = 64, and the Sonin basis has exactly 64 columns of 2 nonzeros each
+  PASS  T3a1 n=2  P K = K Pi ENTRY-EXACT (Pi SOLVED from the chart: parity (alpha,beta) -> (q-alpha, q-1-beta) sends col_(a,j) to -col_(q-a,q-2-j))
+  PASS  T3a2 n=2  Pi is a signed permutation, det Pi = 1 in {+1,-1}; tr Pi = 0 EXACT (q = 3^2 is ODD so a = q - a has no solution: Pi is FIXED-POINT-FREE and tr Pi = 0 at every level -- a p-odd fact)
+  PASS  T3a3 n=2  Pi^2 = I exactly (the signed permutation is an involution with +1 sign product) => M^4 = (M^2)^2 = Pi^2 = I
+  PASS  T3a4 n=2  tr M = 0  EXACT (2048 integer-weighted 4-term zeta_(3^4) accumulations via the shell-diagonal blocks of K^T F K; NO dense F) -- and it is RATIONAL (supported at exponent 0 alone): YES.  Q(zeta_(3^4)) meet Q(i) = Q, so B = Im tr M = 0 is FORCED and d_i = d_-i.  [0.0 s]
+  PASS  T3a5 n=2  the eigen-dim solve is INTEGRAL and sums to d: tr M = 0 + 0 i, tr Pi = 0  ->  (16, 16, 16, 16)
+  PASS  T3a6 n=2  FLATNESS, MEASURED (not assumed): d_1 = d_-1 = d_i = d_-i = d/4 = 16 ?  FLAT -- all four equal 16
+  PASS  T3a7 n=2  AGREES WITH THE BANKED (3,2) EIGEN-DIMS (16, 16, 16, 16) (sitting 8), with tr M = 0 and tr Pi = 0 as banked
+  PASS  T3a0 n=3  DIM LAW: dim Son(3,3) = (3^3 - 1)^2 = 676, and the Sonin basis has exactly 676 columns of 2 nonzeros each
+  PASS  T3a1 n=3  P K = K Pi ENTRY-EXACT (Pi SOLVED from the chart: parity (alpha,beta) -> (q-alpha, q-1-beta) sends col_(a,j) to -col_(q-a,q-2-j))
+  PASS  T3a2 n=3  Pi is a signed permutation, det Pi = 1 in {+1,-1}; tr Pi = 0 EXACT (q = 3^3 is ODD so a = q - a has no solution: Pi is FIXED-POINT-FREE and tr Pi = 0 at every level -- a p-odd fact)
+  PASS  T3a3 n=3  Pi^2 = I exactly (the signed permutation is an involution with +1 sign product) => M^4 = (M^2)^2 = Pi^2 = I
+  PASS  T3a4 n=3  tr M = 0  EXACT (70304 integer-weighted 4-term zeta_(3^6) accumulations via the shell-diagonal blocks of K^T F K; NO dense F) -- and it is RATIONAL (supported at exponent 0 alone): YES.  Q(zeta_(3^6)) meet Q(i) = Q, so B = Im tr M = 0 is FORCED and d_i = d_-i.  [0.0 s]
+  PASS  T3a5 n=3  the eigen-dim solve is INTEGRAL and sums to d: tr M = 0 + 0 i, tr Pi = 0  ->  (169, 169, 169, 169)
+  PASS  T3a6 n=3  FLATNESS, MEASURED (not assumed): d_1 = d_-1 = d_i = d_-i = d/4 = 169 ?  FLAT -- all four equal 169
+  PASS  T3a0 n=4  DIM LAW: dim Son(3,4) = (3^4 - 1)^2 = 6400, and the Sonin basis has exactly 6400 columns of 2 nonzeros each
+  PASS  T3a1 n=4  P K = K Pi ENTRY-EXACT (Pi SOLVED from the chart: parity (alpha,beta) -> (q-alpha, q-1-beta) sends col_(a,j) to -col_(q-a,q-2-j))
+  PASS  T3a2 n=4  Pi is a signed permutation, det Pi = 1 in {+1,-1}; tr Pi = 0 EXACT (q = 3^4 is ODD so a = q - a has no solution: Pi is FIXED-POINT-FREE and tr Pi = 0 at every level -- a p-odd fact)
+  PASS  T3a3 n=4  Pi^2 = I exactly (the signed permutation is an involution with +1 sign product) => M^4 = (M^2)^2 = Pi^2 = I
+  PASS  T3a4 n=4  tr M = 0  EXACT (2048000 integer-weighted 4-term zeta_(3^8) accumulations via the shell-diagonal blocks of K^T F K; NO dense F) -- and it is RATIONAL (supported at exponent 0 alone): YES.  Q(zeta_(3^8)) meet Q(i) = Q, so B = Im tr M = 0 is FORCED and d_i = d_-i.  [0.7 s]
+  PASS  T3a5 n=4  the eigen-dim solve is INTEGRAL and sums to d: tr M = 0 + 0 i, tr Pi = 0  ->  (1600, 1600, 1600, 1600)
+  PASS  T3a6 n=4  FLATNESS, MEASURED (not assumed): d_1 = d_-1 = d_i = d_-i = d/4 = 1600 ?  FLAT -- all four equal 1600
+
+====================================================================================================
+T3(a').  M^2 = Pi  --  BRUTE-FORCED EXACTLY AT n = 1, DERIVED AT n >= 2 (the derivation's inputs checked)
+====================================================================================================
+  PASS  T3a'0 n=1  GEOMETRIC-SUM LEMMA, VERIFIED AT EVERY r: sum_(m'=0)^(8) zeta_9^(m' r) = 9 if r == 0 else 0 (81 exact folded sums) => F^2 = P (the parity) exactly [0.0 s]
+  PASS  T3a'0 n=2  GEOMETRIC-SUM LEMMA, VERIFIED AT EVERY r: sum_(m'=0)^(80) zeta_81^(m' r) = 81 if r == 0 else 0 (6561 exact folded sums) => F^2 = P (the parity) exactly [0.0 s]
+  PASS  T3a'0 n=3  GEOMETRIC-SUM LEMMA, VERIFIED AT EVERY r: sum_(m'=0)^(728) zeta_729^(m' r) = 729 if r == 0 else 0 (531441 exact folded sums) => F^2 = P (the parity) exactly [0.1 s]
+  PASS  T3a'0 n=4  GEOMETRIC-SUM LEMMA, DERIVED (N^2 = 43046721 folded terms not run): with x = zeta_6561^r != 1 for r != 0 mod 6561, (x - 1) S = x^6561 - 1 = 0 and x != 1 give S = 0; S = 6561 at r = 0.  => F^2 = P exactly.
+  PASS  T3a'1 n=1  F K = K M ENTRY-EXACT with the genuine F (residual EXACT ZERO on all 9 x 4 chart entries) [0.0 s]
+  PASS  T3a'1b n=1  F^2 K = P K ENTRY-EXACT by DIRECT DOUBLE SUMMATION (q^2 (F^2 K)[m'',c] = sum_(m') zeta^(m'(m+m'')) K[m,c] compared with q^2 K[-m'',c]; 9 x 4 entries, no M formed) [0.0 s]
+  PASS  T3a'2 n=1  M^2 = Pi ENTRY-EXACT, BRUTE-FORCED (d = 4, 64 cyclotomic products in Q(zeta_9) of degree 6) [0.0 s]
+  PASS  T3a'1 n=2  F K = K M ENTRY-EXACT with the genuine F (residual EXACT ZERO on all 81 x 64 chart entries) [0.3 s]
+  PASS  T3a'1b n=2  F^2 K = P K ENTRY-EXACT by DIRECT DOUBLE SUMMATION (q^2 (F^2 K)[m'',c] = sum_(m') zeta^(m'(m+m'')) K[m,c] compared with q^2 K[-m'',c]; 81 x 64 entries, no M formed) [0.3 s]
+  PASS  T3a'2 n=2  M^2 = Pi, DERIVED EXACT (d = 64, field degree 54: d^3 = 262144 cyclotomic products is out of budget at p = 3): F^2 = P (T3a'0, and T3a'1b entry-exact at n <= 2) => F^2 K = P K; F K = K M => F^2 K = K M^2; P K = K Pi (T3a1, exact here); det(K^T K) = det(T)^(q-1) = q^(q-1) = 9^8 != 0 (8 digits) so K has full column rank => K M^2 = K Pi => M^2 = Pi.
+  PASS  T3a'2 n=3  M^2 = Pi, DERIVED EXACT (d = 676, field degree 486: d^3 = 308915776 cyclotomic products is out of budget at p = 3): F^2 = P (T3a'0, and T3a'1b entry-exact at n <= 2) => F^2 K = P K; F K = K M => F^2 K = K M^2; P K = K Pi (T3a1, exact here); det(K^T K) = det(T)^(q-1) = q^(q-1) = 27^26 != 0 (38 digits) so K has full column rank => K M^2 = K Pi => M^2 = Pi.
+  PASS  T3a'2 n=4  M^2 = Pi, DERIVED EXACT (d = 6400, field degree 4374: d^3 = 262144000000 cyclotomic products is out of budget at p = 3): F^2 = P (T3a'0, and T3a'1b entry-exact at n <= 2) => F^2 K = P K; F K = K M => F^2 K = K M^2; P K = K Pi (T3a1, exact here); det(K^T K) = det(T)^(q-1) = q^(q-1) = 81^80 != 0 (153 digits) so K has full column rank => K M^2 = K Pi => M^2 = Pi.
+
+====================================================================================================
+T3(b).  THE FIFTH LAW  Q^2 = 3 (3^(n-1) - 1)^2  AT n = 1..4, EXACT
+====================================================================================================
+  PASS  T3b0 n=1  iota IS AN ISOMETRY, exact and SPARSE: (iota K)^T (iota K) = 3 * K^T K = 3 (I (x) T), so G_h = 3^(-h) (iota K)^T (iota K) = 3^(-n) K^T K and G_h^(-1) = I (x) Tq EXACTLY (integer closed form; no dense inversion)
+  PASS  T3b1 n=1  U IS AN ISOMETRY on Son, exact: 3^(-h-1) (U K)^T (U K) = 3^(-n) K^T K entry-for-entry (i.e. (U K)^T (U K) = 9 K^T K)
+  PASS  T3b2 n=1  A_rat is SHELL-SPARSE: every nonzero block (a1,a2) has a2 = 3 a1 mod q (the scaling TRIPLES the shell) -- 0 nonzero blocks out of 4, and the 2 shells with 3 a1 == 0 mod q (a1 a multiple of 3^0) carry NO block, as derived
+  PASS  T3b3 n=1  Q_gen^2 = 0  EXACT RATIONAL (genuine U on L^2(Q_3) compressed to iota(Son) inside V_(n+1); the 3^(-1/2) carried symbolically) [0.0 s]
+  PASS  T3b4 n=1  Q_model^2 = 0  EXACT RATIONAL (sitting 8's model U = P/sqrt(3), truncated pushforward)
+  PASS  T3b5 n=1  Q_gen^2 - Q_model^2 = 0  -> the fifth law lifts VERBATIM
+  PASS  T3b6 n=1  THE BANKED LAW  Q^2 = 3 (3^(n-1) - 1)^2 = 0 : HOLDS EXACTLY
+  PASS  T3b7 n=1  CLOSED-FORM LICENCE: the same Q_gen^2 recomputed with a DIRECT rational Gauss inversion of the host Gram (4x4) gives 0 -- identical
+  PASS  T3b0 n=2  iota IS AN ISOMETRY, exact and SPARSE: (iota K)^T (iota K) = 3 * K^T K = 3 (I (x) T), so G_h = 3^(-h) (iota K)^T (iota K) = 3^(-n) K^T K and G_h^(-1) = I (x) Tq EXACTLY (integer closed form; no dense inversion)
+  PASS  T3b1 n=2  U IS AN ISOMETRY on Son, exact: 3^(-h-1) (U K)^T (U K) = 3^(-n) K^T K entry-for-entry (i.e. (U K)^T (U K) = 9 K^T K)
+  PASS  T3b2 n=2  A_rat is SHELL-SPARSE: every nonzero block (a1,a2) has a2 = 3 a1 mod q (the scaling TRIPLES the shell) -- 6 nonzero blocks out of 64, and the 2 shells with 3 a1 == 0 mod q (a1 a multiple of 3^1) carry NO block, as derived
+  PASS  T3b3 n=2  Q_gen^2 = 12  EXACT RATIONAL (genuine U on L^2(Q_3) compressed to iota(Son) inside V_(n+1); the 3^(-1/2) carried symbolically) [0.0 s]
+  PASS  T3b4 n=2  Q_model^2 = 12  EXACT RATIONAL (sitting 8's model U = P/sqrt(3), truncated pushforward)
+  PASS  T3b5 n=2  Q_gen^2 - Q_model^2 = 0  -> the fifth law lifts VERBATIM
+  PASS  T3b6 n=2  THE BANKED LAW  Q^2 = 3 (3^(n-1) - 1)^2 = 12 : HOLDS EXACTLY
+  PASS  T3b7 n=2  CLOSED-FORM LICENCE: the same Q_gen^2 recomputed with a DIRECT rational Gauss inversion of the host Gram (64x64) gives 12 -- identical
+  PASS  T3b0 n=3  iota IS AN ISOMETRY, exact and SPARSE: (iota K)^T (iota K) = 3 * K^T K = 3 (I (x) T), so G_h = 3^(-h) (iota K)^T (iota K) = 3^(-n) K^T K and G_h^(-1) = I (x) Tq EXACTLY (integer closed form; no dense inversion)
+  PASS  T3b1 n=3  U IS AN ISOMETRY on Son, exact: 3^(-h-1) (U K)^T (U K) = 3^(-n) K^T K entry-for-entry (i.e. (U K)^T (U K) = 9 K^T K)
+  PASS  T3b2 n=3  A_rat is SHELL-SPARSE: every nonzero block (a1,a2) has a2 = 3 a1 mod q (the scaling TRIPLES the shell) -- 24 nonzero blocks out of 676, and the 2 shells with 3 a1 == 0 mod q (a1 a multiple of 3^2) carry NO block, as derived
+  PASS  T3b3 n=3  Q_gen^2 = 192  EXACT RATIONAL (genuine U on L^2(Q_3) compressed to iota(Son) inside V_(n+1); the 3^(-1/2) carried symbolically) [0.0 s]
+  PASS  T3b4 n=3  Q_model^2 = 192  EXACT RATIONAL (sitting 8's model U = P/sqrt(3), truncated pushforward)
+  PASS  T3b5 n=3  Q_gen^2 - Q_model^2 = 0  -> the fifth law lifts VERBATIM
+  PASS  T3b6 n=3  THE BANKED LAW  Q^2 = 3 (3^(n-1) - 1)^2 = 192 : HOLDS EXACTLY
+  PASS  T3b0 n=4  iota IS AN ISOMETRY, exact and SPARSE: (iota K)^T (iota K) = 3 * K^T K = 3 (I (x) T), so G_h = 3^(-h) (iota K)^T (iota K) = 3^(-n) K^T K and G_h^(-1) = I (x) Tq EXACTLY (integer closed form; no dense inversion)
+  PASS  T3b1 n=4  U IS AN ISOMETRY on Son, exact: 3^(-h-1) (U K)^T (U K) = 3^(-n) K^T K entry-for-entry (i.e. (U K)^T (U K) = 9 K^T K)
+  PASS  T3b2 n=4  A_rat is SHELL-SPARSE: every nonzero block (a1,a2) has a2 = 3 a1 mod q (the scaling TRIPLES the shell) -- 78 nonzero blocks out of 6400, and the 2 shells with 3 a1 == 0 mod q (a1 a multiple of 3^3) carry NO block, as derived
+  PASS  T3b3 n=4  Q_gen^2 = 2028  EXACT RATIONAL (genuine U on L^2(Q_3) compressed to iota(Son) inside V_(n+1); the 3^(-1/2) carried symbolically) [1.0 s]
+  PASS  T3b4 n=4  Q_model^2 = 2028  EXACT RATIONAL (sitting 8's model U = P/sqrt(3), truncated pushforward)
+  PASS  T3b5 n=4  Q_gen^2 - Q_model^2 = 0  -> the fifth law lifts VERBATIM
+  PASS  T3b6 n=4  THE BANKED LAW  Q^2 = 3 (3^(n-1) - 1)^2 = 2028 : HOLDS EXACTLY
+
+====================================================================================================
+T3(c).  THE LOCALIZATION TRACE  Tr(U^k S_n), k = 1, 2, HOSTS n+k AND n+k+1
+====================================================================================================
+  PASS  T3c1 n=1  host h = 2 (= n+k), N_host = 9^2: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c1 n=1  host h = 3 (= n+k+1), N_host = 9^3: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c1s n=1  LEVEL-STABILITY of Tr(U^1 S_n) across hosts h = 2 and 3: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c1z n=1  the banked law t_1 = 0 (fixed-point localization) at level 1: HOLDS EXACTLY
+  PASS  T3c2 n=1  host h = 3 (= n+k), N_host = 9^3: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c2 n=1  host h = 4 (= n+k+1), N_host = 9^4: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c2s n=1  LEVEL-STABILITY of Tr(U^2 S_n) across hosts h = 3 and 4: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c2z n=1  the banked law t_2 = 0 (fixed-point localization) at level 1: HOLDS EXACTLY
+  PASS  T3c1 n=2  host h = 3 (= n+k), N_host = 9^3: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c1 n=2  host h = 4 (= n+k+1), N_host = 9^4: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c1s n=2  LEVEL-STABILITY of Tr(U^1 S_n) across hosts h = 3 and 4: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c1z n=2  the banked law t_1 = 0 (fixed-point localization) at level 2: HOLDS EXACTLY
+  PASS  T3c2 n=2  host h = 4 (= n+k), N_host = 9^4: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c2 n=2  host h = 5 (= n+k+1), N_host = 9^5: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c2s n=2  LEVEL-STABILITY of Tr(U^2 S_n) across hosts h = 4 and 5: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c2z n=2  the banked law t_2 = 0 (fixed-point localization) at level 2: HOLDS EXACTLY
+  PASS  T3c1 n=3  host h = 4 (= n+k), N_host = 9^4: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c1 n=3  host h = 5 (= n+k+1), N_host = 9^5: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c1s n=3  LEVEL-STABILITY of Tr(U^1 S_n) across hosts h = 4 and 5: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c1z n=3  the banked law t_1 = 0 (fixed-point localization) at level 3: HOLDS EXACTLY
+  PASS  T3c2 n=3  host h = 5 (= n+k), N_host = 9^5: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.0 s]
+  PASS  T3c2 n=3  host h = 6 (= n+k+1), N_host = 9^6: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.1 s]
+  PASS  T3c2s n=3  LEVEL-STABILITY of Tr(U^2 S_n) across hosts h = 5 and 6: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c2z n=3  the banked law t_2 = 0 (fixed-point localization) at level 3: HOLDS EXACTLY
+  PASS  T3c1 n=4  host h = 5 (= n+k), N_host = 9^5: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.1 s]
+  PASS  T3c1 n=4  host h = 6 (= n+k+1), N_host = 9^6: iota isometric there (yes) and Tr(U^1 S_n) = 0   EXACT [0.2 s]
+  PASS  T3c1s n=4  LEVEL-STABILITY of Tr(U^1 S_n) across hosts h = 5 and 6: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c1z n=4  the banked law t_1 = 0 (fixed-point localization) at level 4: HOLDS EXACTLY
+  PASS  T3c2 n=4  host h = 6 (= n+k), N_host = 9^6: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [0.4 s]
+  PASS  T3c2 n=4  host h = 7 (= n+k+1), N_host = 9^7: iota isometric there (yes) and Tr(U^2 S_n) = 0   EXACT [1.3 s]
+  PASS  T3c2s n=4  LEVEL-STABILITY of Tr(U^2 S_n) across hosts h = 6 and 7: STABLE -- the stable value IS the regularized orbital integral at bench grade
+  PASS  T3c2z n=4  the banked law t_2 = 0 (fixed-point localization) at level 4: HOLDS EXACTLY
+      LOCALIZATION, said exactly (and level-independently AND p-independently): a diagonal term needs m and 3^k m in the same support shell alpha != 0 mod q, i.e. alpha(3^k - 1) == 0 mod 3^n; gcd(3^k - 1, 3) = 1 forces alpha == 0 mod 3^n, impossible for 1 <= alpha < q.  The vanishing is therefore n-INDEPENDENT and the argument is verbatim sitting 10's with 2 replaced by 3 -- which is what the table measures.
+
+====================================================================================================
+T4.  THE CLASS DIMS, THE REGISTERED p-DEPENDENCE NOTE, AND POSITIVITY
+====================================================================================================
+  PASS  T4a n=1  K^T K = I (x) T IS POSITIVE DEFINITE, exact: the leading principal minors of T are 2,3,...,3, all > 0 (cross-checked against direct rational determinants)
+  PASS  T4a n=2  K^T K = I (x) T IS POSITIVE DEFINITE, exact: the leading principal minors of T are 2,3,...,9, all > 0 (cross-checked against direct rational determinants)
+  PASS  T4a n=3  K^T K = I (x) T IS POSITIVE DEFINITE, exact: the leading principal minors of T are 2,3,...,27, all > 0
+  PASS  T4a n=4  K^T K = I (x) T IS POSITIVE DEFINITE, exact: the leading principal minors of T are 2,3,...,81, all > 0
+  PASS  T4b n=1  R = (I + M + M^2 + M^3)/4 satisfies M R = R entry-exact: R projects onto the eigenvalue-1 eigenspace E_1 (d = 4)
+  PASS  T4c n=1  tr R = 1 = d_1 exactly (independent confirmation of the eigen-dim solve)
+  PASS  T4d n=1  THE MECHANISM, ENTRY-EXACT: G_loc R = (K^T K) R -- so on E_1 the compressed form B(v,w) = <v, F w> IS the L^2 Gram <v,w>, which is positive definite by T4a.  POSITIVITY ON THE CONSTRAINED SECTOR, CERTIFIED.
+      AT n >= 2 the same mechanism applies verbatim and is ALGEBRA, not a measurement: M R = (M + M^2 + M^3 + M^4)/4 = (M + Pi + M Pi + I)/4 = R using M^2 = Pi (T3a'2) and Pi^2 = I (T3a3); G_loc = (K^T K) M by the definition of M (and F K = K M is entry-exact at n <= 2, T3a'1); and K^T K = I (x) T is positive definite at every n (T4a).  The positivity is LEVEL-STABLE.
+----------------------------------------------------------------------------------------------------
+  PASS  T4e  THE REGISTERED p-DEPENDENCE NOTE, VERIFIED: d_1(3,1) = 1 > 0 -- the constrained class is ALIVE AT THE ARRIVAL DEPTH on Q_3, where at p = 2 it was DEAD (dim Son(2,1) = 1, M = [i], d_1(2,1) = 0).  The class-punctuation's death clause is p = 2-SPECIFIC.  d_1(3,n) > 0 at every n = 1, 2, 3, 4
+      SAID PLAINLY: this is a statement about WHICH SECTORS EXIST at which prime and depth.  It is not a defect in sitting 10 and not a defect here; the p = 2 death was a dimension accident of the arrival depth (a 1-dimensional Sonin space cannot carry a +1 eigenvector when its single eigenvalue is i), and at p = 3 the arrival depth is already 4-dimensional.
+
+====================================================================================================
+T5.  AN EXACT WITNESS: f in Son(3,n) WITH (U f)-HAT NONZERO ON THE BALL
+====================================================================================================
+  PASS  T5a n=1  A WITNESS EXISTS: 4 of the 4 Sonin columns f have (U f)-hat NONZERO somewhere on the host ball B = {k'' == 0 mod 3^2} (9 ball rows) -- exact folded zeta_(3^4) sums
+        witness  f = k_(alpha=1, j=0) (column 0):  (U f)^(y) at y = 3^(-2)*9 in Z_3  =  3^(-1/2) * ( z^9 - z^36 )   EXACT, NONZERO
+        witness  f = k_(alpha=1, j=1) (column 1):  (U f)^(y) at y = 3^(-2)*9 in Z_3  =  3^(-1/2) * ( z^9 + 2*z^36 )   EXACT, NONZERO
+        witness  f = k_(alpha=2, j=0) (column 2):  (U f)^(y) at y = 3^(-2)*9 in Z_3  =  3^(-1/2) * ( z^18 - z^45 )   EXACT, NONZERO
+  PASS  T5b n=1  THE MECHANISM CONFIRMED ENTRY-EXACT: (U f)^(y) = 3^(1/2) f^(y/3) on every ball row and every Sonin column -- the ball values of (U f)-hat ARE the values of f-hat on 3^(-1)Z_3, which the Sonin condition does not control
+  PASS  T5a n=2  A WITNESS EXISTS: 64 of the 64 Sonin columns f have (U f)-hat NONZERO somewhere on the host ball B = {k'' == 0 mod 3^3} (27 ball rows) -- exact folded zeta_(3^6) sums
+        witness  f = k_(alpha=1, j=0) (column 0):  (U f)^(y) at y = 3^(-3)*27 in Z_3  =  3^(-1/2) * ( 1/3*z^27 - 1/3*z^270 )   EXACT, NONZERO
+        witness  f = k_(alpha=1, j=1) (column 1):  (U f)^(y) at y = 3^(-3)*27 in Z_3  =  3^(-1/2) * ( 1/3*z^27 + 2/3*z^270 )   EXACT, NONZERO
+        witness  f = k_(alpha=1, j=2) (column 2):  (U f)^(y) at y = 3^(-3)*27 in Z_3  =  3^(-1/2) * ( -2/3*z^27 - 1/3*z^270 )   EXACT, NONZERO
+  PASS  T5b n=2  THE MECHANISM CONFIRMED ENTRY-EXACT: (U f)^(y) = 3^(1/2) f^(y/3) on every ball row and every Sonin column -- the ball values of (U f)-hat ARE the values of f-hat on 3^(-1)Z_3, which the Sonin condition does not control
+      CONSEQUENCE, stated: U does NOT map Son(3,infinity) into itself.  The scaling acts on the limit object ONLY COMPRESSED, as S U S -- CC's compressed-scaling structure is RECOVERED AS FORCED on Q_3 as it was on Q_2, not chosen; and the compressed action's mass is exactly the fifth law measured at T3(b).
+
+====================================================================================================
+THE TABLES
+====================================================================================================
+
+EIGEN-DIMS OF THE COMPRESSED TRANSFORM M (M^4 = I) ON Q_3, n = 1..4
+  n   dim    tr M       tr Pi    d_1    d_-1   d_i    d_-i   constrained  plain T-fixed  flat  
+  --------------------------------------------------------------------------------------------------------
+  1   4      0 + 0 i    0        1      1      1      1      2            3              YES   
+  2   64     0 + 0 i    0        16     16     16     16     32           48             YES   
+  3   676    0 + 0 i    0        169    169    169    169    338          507            YES   
+  4   6400   0 + 0 i    0        1600   1600   1600   1600   3200         4800           YES   
+  --------------------------------------------------------------------------------------------------------
+  ALL CELLS EXACT.  No cell is CONJECTURED-PATTERN: tr M and tr Pi were MEASURED at every n = 1..4 (tr M by the shell-diagonal coefficient-dictionary route with the p = 3 two-term fold, tr Pi from the exactly-solved signed permutation).
+
+Q^2 -- THE FIFTH LAW ON Q_3, n = 1..4
+  n   dim    Q_gen^2        Q_model^2      3(3^(n-1)-1)^2   verdict   
+  ------------------------------------------------------------------------
+  1   4      0              0              0                VERBATIM  
+  2   64     12             12             12               VERBATIM  
+  3   676    192            192            192              VERBATIM  
+  4   6400   2028           2028           2028             VERBATIM  
+  ------------------------------------------------------------------------
+
+THE LOCALIZATION TRACE Tr(U^k S_n), k = 1, 2, n = 1..4 (value shown times the symbolic 3^(-k/2))
+  n   dim    k=1 h=n+1  k=1 h=n+2  stable    zero   k=2 h=n+2/3  stable    zero  
+  ------------------------------------------------------------------------------------
+  1   4      0          0          STABLE    yes    0 / 0        STABLE    yes   
+  2   64     0          0          STABLE    yes    0 / 0        STABLE    yes   
+  3   676    0          0          STABLE    yes    0 / 0        STABLE    yes   
+  4   6400   0          0          STABLE    yes    0 / 0        STABLE    yes   
+  ------------------------------------------------------------------------------------
+
+THE p = 2 / p = 3 COMPARISON (sitting 10's measured p = 2 column is CITED from the banked run, not recomputed here)
+  claim                              p = 2 (sitting 10, n = 1..6)     p = 3 (this run, n = 1..4)      
+  ----------------------------------------------------------------------------------------------------
+  T1 iota(Son(n)) in Son(n+1)        exact, every level               exact, 12/12 lines              
+  T2 pairing level-stable            exact where feasible             exact, 3/3 lines                
+  T3 dim law                         (2^n - 1)^2                      exact, 4/4 lines                
+  T3 tr M                            in Q(i), Im != 0                 in Q (rational): Im = 0 FORCED  
+  T3 eigen-dim flatness              NOT flat (d_i = d_1 + 1)         flat at every n: YES            
+  T3 fifth law Q^2                   2(2^(n-1)-1)^2 exact             exact, 4/4 lines                
+  T3 Tr(U^k S) = 0                   exact, stable                    exact, 32/32 lines              
+  T4 constrained at arrival          DEAD (d_1(2,1) = 0)              ALIVE (d_1(3,1) = 1)            
+  T5 U escapes Sonin                 exact witness                    exact, 2/2 lines                
+  ----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+THE VERDICT, PER REGISTERED CLAIM
+====================================================================================================
+  T1   LANDED    (12 exact lines)  iota(Son(3,n)) CONTAINED in Son(3,n+1) -- the inductive system
+  T2   LANDED    (3 exact lines)  the pairing is level-stable ON THE NOSE
+  T3   LANDED    (104 exact lines)  the laws' n-dependence at n = 1..4
+  T4   LANDED    (8 exact lines)  the class dims, the p-dependence note, and positivity
+  T5   LANDED    (4 exact lines)  the scaling does NOT preserve the limit's Sonin condition
+
+  BRANCH TAKEN: (P-indep) -- the five claims land on Q_3.  Sitting 10's structure is NOT a p = 2 accident: the inductive Sonin object, the level-stable pairing, the fifth law, the vanishing localization traces and the FORCED compressed scaling all reappear at p = 3 with 2 replaced by 3 throughout.
+
+  THE p-DEPENDENCE, recorded exactly as registered in advance (this is NOT a break -- it was named before the run):
+    - tr M is RATIONAL at p = 3 because i is not in Q(zeta_(3^k)); hence d_i = d_-i is FORCED, and the measured eigen-dim table is FLAT at every level run.  At p = 2 the table was not flat (d_i = d_1 + 1).
+    - the constrained class is ALIVE at the arrival depth on Q_3 (d_1(3,1) = 1 > 0) where it was DEAD on Q_2 (d_1(2,1) = 0).  The class-punctuation's death clause is p = 2-SPECIFIC.
+
+THE LIMIT OBJECT AT p = 3, NAMED (not constructed): the inductive limit
+    Son(3,infinity) = lim_-> (Son(3,n), iota)
+      = { f : Q_3 -> C level-finite : f|_(Z_3) = 0 and (F f)|_(Z_3) = 0 },
+a nonzero subspace of L^2(Q_3) (nonzero at every n >= 1 since dim Son(3,n) = (3^n - 1)^2 >= 4), carrying:
+  - the genuine Fourier transform F, which acts on it (T1 + the banked intertwining) with the level-stable pairing (T2);
+  - the COMPRESSED scaling S U S -- and only that, because U itself escapes the Sonin condition (T5, exact witness).
+Its L^2 CLOSURE and the limit of the compressions are NAMED, NOT CONSTRUCTED: nothing here builds them, and nothing here claims them.
+
+SCOPE, said plainly: these are EXACT properties of FINITE CONSTRUCTED OBJECTS and of the inductive system they form, on the genuine local field Q_3.  No sign is asserted; no register moves; W_inf - Sum W_p at complete roster is NOT touched.  The closure protocol gates the REGISTER, not this investigation.
+
+NOTHING FAILED TO LAND: every EXACT line landed as registered.
+
+DECLARED LINES (float or skipped; NEVER counted as EXACT): 1
+    DECLARED  T2 n=4  DECLARED-SKIPPED: 6400^2 = 40960000 Gram entries, projected 591 s > budget 420 s at the measured entry rate.  NOT computed, NOT counted as EXACT, NOT asserted.
+
+TOTAL RUNTIME: 15.8 s
+
+ALL EXACT LINES EXACT: 160/160 PASS
