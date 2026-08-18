@@ -91,7 +91,9 @@ UNTOUCHED — no sentence about `W_∞ − ΣW_𝔭` at complete roster exists a
    every place, glued", proof at `p = 2`'s limit / model at `p = 3` / machine at `∞`; and the double
    limit is exactly the `E₁`-gluing at complete roster — the codomain in one word. The "Weil's family
    reaches `E₁`" re-reading was tested and REFUSED — `σ_max → 1` and `E₁`-containment are different
-   statements, measured.)*
+   statements, measured.)* *(Sitting 23 completed the reconciliation: the projected Weil family
+   splits ½–½ between the sectors; `E₁` is reached by the TWICE-projected family with growing rank,
+   and is NAMED by CC's own basis — the every-other-even prolate modes, `+ − + −` measured exactly.)*
 2. **The tower's limit with the pairing intact.** `ι`-compatibility and on-the-nose Gram stability are
    exact at every finite level. Does the inductive limit carry the pairing to a nondegenerate object,
    or does degeneracy enter in the closure? *(Answered at proof grade, one place, sitting 20: the
