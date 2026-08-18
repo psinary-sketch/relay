@@ -1,0 +1,66 @@
+====================================================================================================
+B13 — THE TENSOR CHECK · REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B13 — THE TENSOR CHECK (held since B7's rider; RELEASED by the author).
+
+Relay-only. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+
+THE QUESTION AND THE LONGHAND DERIVATION, REGISTERED BEFORE ANY NUMBER
+======================================================================
+Does S_p on the local model factor as S_1 (x) S_1 under the coordinate chart
+m = a + p^n b, (a, b) in (Z/p^n)^2?  (The chart is a SET bijection, not a ring
+decomposition; the DFT kernel couples the factors -- e(aa'/p^{2n}) -- so a tensor
+factorization of Son is a FINDING, not a formality.)
+
+LONGHAND (this registration's own derivation, to be certified below):
+  * the ball {p^n | m} is exactly {a = 0}, so  f|_B = 0  <=>  f(0, b) = 0 for all b
+    <=>  f in V_1 (x) L^2,  V_1 = {v : v(0) = 0},  dim p^n - 1.
+  * f-hat(0, b') = c * Sum_a e(ab'/p^n) * (Sum_b f(a, b)) -- the a'=0 Fourier rows see
+    only the b-MARGINALS; vanishing for all b' <=> every b-slice sums to zero
+    <=>  f in L^2 (x) W_1,  W_1 = {w : Sum w = 0},  dim p^n - 1.
+  * the intersection of V_1 (x) L^2 and L^2 (x) W_1 is V_1 (x) W_1 exactly.  Hence
+        Son(p, n) = V_1 (x) W_1,     S = P_1 (x) Q_1,
+    P_1 = diag(0,1,...,1) (position-vanishing at 0), Q_1 = I - mean projector
+    (frequency-vanishing at 0).  dim = (p^n - 1)^2 -- the first law EXPLAINED.
+  * THE TWO FACTORS ARE FOURIER-DUAL one-point-vanishing conditions: position side
+    and frequency side of the SAME condition -- a self-product-in-miniature whose
+    factors are exchanged by the transform.
+
+REGISTERED VERDICTS:
+  T1  SELF-PRODUCT-STRUCTURE: operator-Schmidt rank of S (reshaped (aa'),(bb')) = 1
+      and the factors match P_1, Q_1 to machine precision, at every cell.  Filed at
+      question grade, OURS: the finite place holds a self-product in miniature -- the
+      local shadow of "what supplies the leaves" -- cross-linked to column (vi) and
+      Road A's absence.  NO PROMOTION: a local tensor square is not a global
+      self-product, said on the face.
+  T2  NOT-A-TENSOR: Schmidt rank > 1 somewhere -- the derivation above is then WRONG
+      and is withdrawn with the failing cell named; the square is a coincidence.
+  T3  third shape, filed openly.
+
+Usage:  python b13_tensor.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  p    n    N        SchmidtRk sv[0]        sv[1]        |A-P1|       |B-Q1|      
+  2    1    4        1       1.0000e+00   1.5701e-16   2.220e-16    2.150e-16   
+  2    2    16       1       3.0000e+00   1.5420e-15   2.735e-16    9.003e-16   
+  2    3    64       1       7.0000e+00   1.0253e-14   5.981e-16    2.714e-15   
+  3    1    9        1       2.0000e+00   8.4124e-16   5.304e-16    8.581e-16   
+  3    2    81       1       8.0000e+00   2.1225e-14   7.625e-16    8.815e-15   
+  5    1    25       1       4.0000e+00   4.7965e-15   2.351e-16    1.742e-15   
+  5    2    625      1       2.4000e+01   1.7501e-13   1.797e-14    8.308e-15   
+
+--- POST-RUN (banked with the run) ---
+VERDICT: T1, CERTIFIED AT EVERY CELL. Schmidt rank exactly 1 at all seven cells; the
+extracted factors match P_1 (position-vanishing at 0) and Q_1 (frequency-vanishing at 0,
+the mean-projector complement) to machine precision; sv[0] = p^n - 1 exactly (the rank-1
+Frobenius mass -- an unregistered consistency, noted).
+THE DECOMPOSITION, PROVED LONGHAND IN THE REGISTRATION AND NOW CERTIFIED:
+    Son(p,n) = V_1 (x) W_1,   S = P_1 (x) Q_1
+with the two factors FOURIER-DUAL one-point-vanishing conditions. The first law
+dim = (p^n - 1)^2 is thereby EXPLAINED, not merely matched.
+FILED AT QUESTION GRADE, OURS, NO PROMOTION: the finite place holds a self-product in
+miniature -- the local shadow of "what supplies the leaves" -- cross-linked to column (vi)
+and Road A's absence. A local tensor square is not a global self-product, said on the face.
