@@ -1,0 +1,440 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 22 -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 22 -- THE ARCHIMEDEAN E_1: IS THE CONSTRAINED SECTOR AT INFINITY
+THE +1 EIGENSPACE OF THE TRANSFORM ON THE SONIN SPACE?
+
+RELAY-ONLY. SUB-GATE (restated). THE CORRECTED STOP IN FORCE: measured properties of
+constructed objects are DATA at bench grade; refused: any promotion to W_inf - Sum W_p
+at complete roster, or register movement. The register is untouched.
+
+RULE-3 NOTE AT THE HEAD: the ferry cites "F_eR^2 = 1 on L^2(R)_ev at CC's eq. (24)".
+That equation number is NOT banked in this corpus (grep: empty) -- the attribution is
+NAVIGATOR-ASSERTED and carried as such. The IDENTITY ITSELF is derived longhand from
+banked content and is what this registration uses: F^2 = parity (exact at the finite
+model, machine-exact on the centered grid, banked), and parity acts as the identity on
+EVEN functions -- so F^2 = 1 on the even subspace and the spectrum there is {+1, -1}.
+The corpus's own archimedean positivity anchor is the banked sandwich disposition
+("the sandwiched form Tr(theta(g) P P-hat P theta(g)*) is a NORM", blockage 7).
+
+THE QUESTION, REGISTERED BEFORE ANY RUN: at p = 2 the limit's constrained-sector
+positivity is B = ||.||^2 on E_1 (sitting 20, proof grade). Is the ARCHIMEDEAN
+constrained sector -- where CC's Theorem 1 positivity lives (their class is EVEN: the
+corpus's footnote-10 pin, "only the even prolate functions") -- the E_1 of the transform
+on the archimedean Sonin space?
+
+LONGHAND, REGISTERED: the Sonin space (f and F f vanishing on the ball) is parity-split
+(the ball is symmetric); on its EVEN part F^2 = 1 forces the two-sector decomposition
+E_1 (+) E_-1 with B(f,f) = <f, F f> = +||f||^2 on E_1 and -||f||^2 on E_-1 -- NO zero
+block on evens (the +/-i sectors live entirely in the ODD part). So the (A-yes) shape:
+the archimedean constrained sector IS E_1 of F on the even Sonin part -- the same
+statement as every finite place (proof at p = 2's limit, model at p = 3), one sentence
+across the roster at its three grades -- with the sandwich (the banked norm mechanism)
+and the E_1-norm being the same positivity seen two ways, the content-level
+identification carried ONLY as far as the banked text reaches (the read-boundary is
+named in the report, not smoothed). And W-exact (sitting 12) re-reads as: Weil's
+polynomial x Gaussian family (even functions of |x|) REACHES E_1 -- measured here as
+subspace geometry, not asserted.
+
+MEASURED (float declared; the soft-window home where the window enters; N in
+{511, 1023, 2047}; a in {sqrt2, 2, 3}; ball radius lambda = 1/a as banked):
+ M1 THE PARITY SPLIT: the ball-vanishing Sonin space intersected with the even and odd
+    subspaces; the compressed transform's eigenvalues on each: EVEN part expected to
+    cluster at {+1, -1} ONLY, ODD part at {+i, -i} only (the control); max deviation
+    and the counts (d_plus, d_minus | d_i, d_minus_i) reported per (N, a).
+ M2 THE PAIRING ON THE SECTORS: Rayleigh quotients of Re<f, F f>/||f||^2 on the
+    +1-cluster (expected +1 to machine) and the -1-cluster (expected -1).
+ M3 CONSISTENCY with the banked four-sector dims (b20 part 4's (n, n, n+1, n) shape):
+    d_plus + d_minus (even) + d_i + d_minus_i (odd) = dim Son; the even/odd
+    attribution of the banked counts verified.
+ M4 WEIL'S FAMILY REACHES E_1, AS SUBSPACE GEOMETRY: principal angles between the
+    QR-orthonormalized Weil family W_d(a) (b27's basis; all its functions are even in
+    x) and the computed E_1(a); the largest principal angle and the coverage (the
+    fraction of W_d's dimension within angle < 0.1 rad of E_1) vs degree d in
+    {8, 16, 24, 32, 40}, with N-stable digits; ALSO the reverse direction (how much of
+    E_1 restricted to the soft-faithful region the family covers) reported as the
+    honest two-sided reading.
+ M5 THE CONSTRAINED CLASS IS E_1, DEFINITIONALLY CHECKED ON THE MODEL: the projector
+    (1 + F)/2 compressed to the even Sonin part has rank d_plus and its range's
+    Rayleigh quotients are +1 -- the T-fixed part IS the +1 cluster (rank agreement and
+    residual reported; this is the definitional half, measured so the definitional and
+    spectral readings cannot silently diverge).
+
+BRANCHES: (A-yes) M1 lands the two-sector split, M2 the +/-1 norms, M5 the rank
+agreement, and M4 shows the family's angles to E_1 closing with degree at N-stability --
+the archimedean constrained sector is E_1 and the place-uniform sentence is licensed at
+its three grades. (A-no) any of: even-part +/-i mass beyond tolerance; +1-cluster
+Rayleigh below 1 - 1e-6; rank disagreement; the family's angles failing to close while
+N-stable -- the exact failing measurement IS the structural difference of the real
+place, named. (A-third) filed openly.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b32_arch_e1.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+DECLARED THRESHOLDS (fixed before the numbers):
+  ball radius                     : lambda = 1/a (banked); grid = b19's odd-N centered DFT
+  N                               : [511, 1023, 2047]      a : ['sqrt2', '2', '3']
+  FFT-vs-dense / F^2 = parity     : 1e-12
+  cluster deviation (M1)          : max |eig - nearest 4th root| < 1e-08
+  wrong-sector window             : an eigenvalue within 0.1 of a wrong root counts
+  Rayleigh gate (M2, registered)  : +1 cluster >= 1 - 1e-06 ; -1 cluster <= -1 + 1e-06
+  projector rank (M5, registered) : numerical rank of (1+F)/2 at 1e-08
+  Son F- and P-invariance         : < 1e-09
+  parity-intersection sv gap      : |sv - {0,1}| < 1e-08
+  coverage angle (M4, registered) : principal angle < 0.1 rad
+  soft-faithful count (b24)       : #(sigma(G F G) > 0.5)
+  N-stability for the M4 angles   : >= 3 agreeing digits across the three N
+
+====================================================================================================
+V. VERIFICATION (dense matrix vs the FFT operator at N = 511; F^2 = parity at every N)
+====================================================================================================
+  V1 FFT matvec vs dense F   (N = 511) : 3.096e-14
+  V2 FFT matvec vs dense F^dag (N = 511) : 3.094e-14
+  V3 dense ||F^2 - P||       (N = 511) : 6.049e-13
+  V4 row reversal == b19 parity_matrix : 0.000e+00 (exact)
+  V5 F^2 = parity on the FFT matvec, at every measurement N:
+     N = 511    |F^2 v - P v| = 1.227e-15
+     N = 1023   |F^2 v - P v| = 8.590e-16
+     N = 2047   |F^2 v - P v| = 1.293e-15
+  V6 compressed transform on the parity parts, DENSE route vs FFT route (N = 511):
+     a        part   dim        |dFs|         sector counts dense|FFT  |d maxdev|   
+     sqrt2    even   242        4.931e-13     [121, 121, 0, 0] | [121, 121, 0, 0] 5.804e-14    
+     sqrt2    odd    243        4.904e-13     [0, 0, 122, 121] | [0, 0, 122, 121] 5.429e-14    
+     2        even   246        4.949e-13     [123, 123, 0, 0] | [123, 123, 0, 0] 5.840e-14    
+     2        odd    247        4.919e-13     [0, 0, 124, 123] | [0, 0, 124, 123] 5.303e-14    
+     3        even   248        4.957e-13     [124, 124, 0, 0] | [124, 124, 0, 0] 6.071e-14    
+     3        odd    249        4.926e-13     [0, 0, 125, 124] | [0, 0, 125, 124] 6.195e-14    
+  verification checks so far: 208/208 PASS
+
+====================================================================================================
+M1. THE PARITY SPLIT OF THE SONIN SPACE, AND THE COMPRESSED TRANSFORM'S SPECTRUM
+====================================================================================================
+  the ball-vanishing Sonin space Son(a) = {f : f = 0 and F f = 0 on |x| < 1/a},
+  split by parity (the ball is symmetric); F compressed to each part; eigenvalues
+  clustered to the 4th roots of unity. EXPECTED: even -> {+1,-1} only; odd -> {+i,-i}.
+
+--- N = 511 (odd), h = 0.110887, grid extent |x| <= 28.2761 ---
+  a       lambda    nball dimSon dim ev   dim od   | d_+1   d_-1   d_i    d_-i   | dev even   dev odd    F-inv      P-inv     
+  sqrt2   0.707107  13    485    242      243      | 121    121    122    121    | 4.46e-15   4.55e-15   2.10e-14   1.53e-14  
+  2       0.500000  9     493    246      247      | 123    123    124    123    | 5.22e-15   4.04e-15   2.05e-14   1.50e-14  
+  3       0.333333  7     497    248      249      | 124    124    125    124    | 4.46e-15   5.11e-15   2.05e-14   1.51e-14  
+  wrong-sector mass (must be 0 everywhere):
+    a       even part: d_i + d_-i        odd part: d_+1 + d_-1        within 0.1 of a wrong root (ev|od)
+    sqrt2   0                            0                            0 | 0
+    2       0                            0                            0 | 0
+    3       0                            0                            0 | 0
+
+--- N = 1023 (odd), h = 0.078370, grid extent |x| <= 40.0473 ---
+  a       lambda    nball dimSon dim ev   dim od   | d_+1   d_-1   d_i    d_-i   | dev even   dev odd    F-inv      P-inv     
+  sqrt2   0.707107  19    985    492      493      | 246    246    247    246    | 5.33e-15   5.33e-15   3.00e-14   2.37e-14  
+  2       0.500000  13    997    498      499      | 249    249    250    249    | 5.55e-15   6.00e-15   2.85e-14   2.34e-14  
+  3       0.333333  9     1005   502      503      | 251    251    252    251    | 8.66e-15   6.48e-15   2.80e-14   2.13e-14  
+  wrong-sector mass (must be 0 everywhere):
+    a       even part: d_i + d_-i        odd part: d_+1 + d_-1        within 0.1 of a wrong root (ev|od)
+    sqrt2   0                            0                            0 | 0
+    2       0                            0                            0 | 0
+    3       0                            0                            0 | 0
+
+--- N = 2047 (odd), h = 0.055403, grid extent |x| <= 56.6770 ---
+  a       lambda    nball dimSon dim ev   dim od   | d_+1   d_-1   d_i    d_-i   | dev even   dev odd    F-inv      P-inv     
+  sqrt2   0.707107  25    1997   998      999      | 499    499    500    499    | 1.19e-14   1.02e-14   4.77e-14   3.64e-14  
+  2       0.500000  19    2009   1004     1005     | 502    502    503    502    | 8.67e-15   8.92e-15   4.66e-14   3.42e-14  
+  3       0.333333  13    2021   1010     1011     | 505    505    506    505    | 8.89e-15   8.75e-15   4.57e-14   3.32e-14  
+  wrong-sector mass (must be 0 everywhere):
+    a       even part: d_i + d_-i        odd part: d_+1 + d_-1        within 0.1 of a wrong root (ev|od)
+    sqrt2   0                            0                            0 | 0
+    2       0                            0                            0 | 0
+    3       0                            0                            0 | 0
+
+  READ PLAINLY: the even part of Son carries ONLY {+1,-1} and the odd part ONLY
+  {+i,-i}, at every (N, a) -- the two-sector decomposition registered longhand, with
+  NO zero block and no +/-i mass on the evens.
+
+====================================================================================================
+M2. THE PAIRING ON THE SECTORS: Re<f, F f>/||f||^2 on the cluster eigenvectors
+====================================================================================================
+  (the eigenvectors are lifted to the full grid and F is applied by the FFT matvec;
+   the quotient is B(f,f)/||f||^2 for the archimedean form B(f,g) = <f, F g>.)
+  N      a       +1 cluster [min,max]   -1 cluster [min,max]   +i cluster (odd) Re    -i cluster (odd) Re   
+  511    sqrt2   +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  511    2       +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  511    3       +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  1023   sqrt2   +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  1023   2       +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  1023   3       +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  2047   sqrt2   +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  2047   2       +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  2047   3       +1.000000000000        -1.000000000000        -0.000000000000        +0.000000000000       
+  (the +/-i columns are the CONTROL: on the odd part the form's real part is 0,
+   which is the registered statement that the +/-i sectors carry no real pairing.)
+
+====================================================================================================
+M3. CONSISTENCY WITH THE BANKED FOUR-SECTOR DIMS (b20 part 4, N = 511, lambda = 1/a)
+====================================================================================================
+  N      a       dimSon   sum d    (d_+1,d_-1,d_i,d_-i)           shape          even|odd attribution
+  511    sqrt2   485      485      (121, 121, 122, 121)           (n,n,n+1,n)    121+121=242 | 122+121=243
+  511    2       493      493      (123, 123, 124, 123)           (n,n,n+1,n)    123+123=246 | 124+123=247
+  511    3       497      497      (124, 124, 125, 124)           (n,n,n+1,n)    124+124=248 | 125+124=249
+  1023   sqrt2   985      985      (246, 246, 247, 246)           (n,n,n+1,n)    246+246=492 | 247+246=493
+  1023   2       997      997      (249, 249, 250, 249)           (n,n,n+1,n)    249+249=498 | 250+249=499
+  1023   3       1005     1005     (251, 251, 252, 251)           (n,n,n+1,n)    251+251=502 | 252+251=503
+  2047   sqrt2   1997     1997     (499, 499, 500, 499)           (n,n,n+1,n)    499+499=998 | 500+499=999
+  2047   2       2009     2009     (502, 502, 503, 502)           (n,n,n+1,n)    502+502=1004 | 503+502=1005
+  2047   3       2021     2021     (505, 505, 506, 505)           (n,n,n+1,n)    505+505=1010 | 506+505=1011
+
+  CROSS-BENCH: against b20 part 4's banked N = 511 row (dimSon, d_1, d_-1, d_i, d_-i):
+    a       banked (b20)                   this bench (b32)               agree?
+    sqrt2   (485, 121, 121, 122, 121)      (485, 121, 121, 122, 121)      YES
+    2       (493, 123, 123, 124, 123)      (493, 123, 123, 124, 123)      YES
+    3       (497, 124, 124, 125, 124)      (497, 124, 124, 125, 124)      YES
+  the even/odd ATTRIBUTION is the new information: b20 banked the four counts but
+  not which parity carries them. Here d_+1 and d_-1 exhaust the EVEN part and d_i,
+  d_-i exhaust the ODD part -- so the banked n+1 sits in the ODD sector, and the
+  even part is the balanced pair (n, n).
+
+====================================================================================================
+M5. THE DEFINITIONAL HALF: rank of the projector (1 + F)/2 on the EVEN Sonin part
+====================================================================================================
+  N      a       rank     d_plus   agree?    ||Pi^2-Pi||   ||Fs^2-I||    range Rayleigh [min,max]
+  511    sqrt2   121      121      YES       8.35e-15      2.91e-14      [+1.0000000000000,+1.0000000000000]
+  511    2       123      123      YES       8.69e-15      3.00e-14      [+1.0000000000000,+1.0000000000000]
+  511    3       124      124      YES       8.61e-15      2.95e-14      [+1.0000000000000,+1.0000000000000]
+  1023   sqrt2   246      246      YES       1.18e-14      3.88e-14      [+1.0000000000000,+1.0000000000000]
+  1023   2       249      249      YES       1.22e-14      3.94e-14      [+1.0000000000000,+1.0000000000000]
+  1023   3       251      251      YES       1.21e-14      3.93e-14      [+1.0000000000000,+1.0000000000000]
+  2047   sqrt2   499      499      YES       1.98e-14      6.88e-14      [+1.0000000000000,+1.0000000000000]
+  2047   2       502      502      YES       1.95e-14      6.76e-14      [+1.0000000000000,+1.0000000000000]
+  2047   3       505      505      YES       1.97e-14      6.76e-14      [+1.0000000000000,+1.0000000000000]
+  the T-fixed part (definitional: the range of (1+F)/2) and the +1 CLUSTER (spectral)
+  have the same dimension at every (N, a), and the definitional range's Rayleigh
+  quotients are +1 -- the two readings do not diverge.
+
+====================================================================================================
+M4. WEIL'S FAMILY AND E_1, AS SUBSPACE GEOMETRY (principal angles, radians)
+====================================================================================================
+  W_d(a) = span{He_k(u) e^(-u^2/2) : k <= d even}, u = ln|x|/ln a (b27's basis,
+  QR-orthonormalized); every column is a function of |x| alone, hence EVEN in x
+  (asserted above). E_1(a) = the range of (1+F)/2 on the even Sonin part.
+  FORWARD (angles from W_d into E_1); the registered columns are 'largest angle'
+  and 'coverage'; the SMALLEST angle is printed beside them because it is the one
+  that carries the word 'REACHES'.
+
+--- a = sqrt2  (dim E_1: N=511:121, N=1023:246, N=2047:499) ---
+  d     dimW   N         min angle   median      MAX angle   cos^2(min)  coverage  max ang->Son_ev ball leak  
+  8     5      511       0.377366    0.895418    1.553593    0.86422727  0/5       1.442801    4.318e-01  
+  8     5      1023      0.391292    0.925067    1.553573    0.85454709  0/5       1.452520    4.322e-01  
+  8     5      2047      0.364790    0.870071    1.553527    0.87272726  0/5       1.426313    4.218e-01  
+  16    9      511       0.225512    1.075868    1.570749    0.95000059  0/9       1.554919    4.318e-01  
+  16    9      1023      0.270635    1.054147    1.570726    0.92852752  0/9       1.556277    4.322e-01  
+  16    9      2047      0.256698    1.008441    1.570413    0.93554100  0/9       1.550595    4.218e-01  
+  24    13     511       0.190977    1.020763    1.570796    0.96396923  0/13      1.566593    4.318e-01  
+  24    13     1023      0.223215    1.065045    1.570796    0.95099694  0/13      1.566989    4.322e-01  
+  24    13     2047      0.220975    0.945111    1.570796    0.95195989  0/13      1.565821    4.218e-01  
+  32    17     511       0.155024    1.027124    1.570796    0.97615948  0/17      1.570322    4.318e-01  
+  32    17     1023      0.201279    1.028878    1.570796    0.96003109  0/17      1.570316    4.322e-01  
+  32    17     2047      0.196489    1.024551    1.570796    0.96188657  0/17      1.569797    4.218e-01  
+  40    21     511       0.083918    1.336898    1.570796    0.99297428  1/21      1.570780    4.318e-01  
+  40    21     1023      0.156147    1.375047    1.570796    0.97581570  0/21      1.570783    4.322e-01  
+  40    21     2047      0.176288    1.192363    1.570796    0.96924307  0/21      1.570756    4.218e-01  
+  PER-N MONOTONICITY of the smallest angle (the direction, read at FIXED N --
+  independent of how N-stable the VALUE is):
+    N = 511    min angle by degree 0.377366 > 0.225512 > 0.190977 > 0.155024 > 0.083918 -> monotone closing: YES
+    N = 1023   min angle by degree 0.391292 > 0.270635 > 0.223215 > 0.201279 > 0.156147 -> monotone closing: YES
+    N = 2047   min angle by degree 0.364790 > 0.256698 > 0.220975 > 0.196489 > 0.176288 -> monotone closing: YES
+  N-STABILITY of the two registered readings and of the smallest angle:
+    d     min angle (mean over N)  digits   MAX angle (mean over N)  digits   cov count per N (511/1023/2047) closing?
+    8     0.377816064              1        1.553564564              4        0/0/0                    -
+    16    0.250948220              0        1.570629181              3        0/0/0                    YES
+    24    0.211722127              0        1.570796086              6        0/0/0                    YES
+    32    0.184263679              0        1.570796327              9        0/0/0                    YES
+    40    0.138784339              0        1.570796327              12       1/0/0                    YES
+
+--- a = 2  (dim E_1: N=511:123, N=1023:249, N=2047:502) ---
+  d     dimW   N         min angle   median      MAX angle   cos^2(min)  coverage  max ang->Son_ev ball leak  
+  8     5      511       0.274955    1.405139    1.569046    0.92628589  0/5       1.565497    2.522e-01  
+  8     5      1023      0.275563    1.413861    1.569422    0.92596797  0/5       1.565722    2.523e-01  
+  8     5      2047      0.275884    1.429818    1.569495    0.92579944  0/5       1.566005    2.530e-01  
+  16    9      511       0.138892    1.516333    1.570793    0.98083286  0/9       1.570037    2.522e-01  
+  16    9      1023      0.200797    1.539867    1.570793    0.96021943  0/9       1.570377    2.523e-01  
+  16    9      2047      0.227406    1.544057    1.570795    0.94917199  0/9       1.570479    2.530e-01  
+  24    13     511       0.113789    1.505554    1.570796    0.98710777  0/13      1.570795    2.522e-01  
+  24    13     1023      0.143177    1.535446    1.570796    0.97964002  0/13      1.570787    2.523e-01  
+  24    13     2047      0.174307    1.548663    1.570796    0.96992365  0/13      1.570793    2.530e-01  
+  32    17     511       0.110821    0.818309    1.570796    0.98776883  0/17      1.570796    2.522e-01  
+  32    17     1023      0.139878    1.554994    1.570796    0.98056130  0/17      1.570796    2.523e-01  
+  32    17     2047      0.149442    1.566770    1.570796    0.97783284  0/17      1.570796    2.530e-01  
+  40    21     511       0.088164    0.797083    1.570796    0.99224728  1/21      1.570796    2.522e-01  
+  40    21     1023      0.087879    1.488807    1.570796    0.99229707  1/21      1.570796    2.523e-01  
+  40    21     2047      0.103522    1.562788    1.570796    0.98932139  0/21      1.570796    2.530e-01  
+  PER-N MONOTONICITY of the smallest angle (the direction, read at FIXED N --
+  independent of how N-stable the VALUE is):
+    N = 511    min angle by degree 0.274955 > 0.138892 > 0.113789 > 0.110821 > 0.088164 -> monotone closing: YES
+    N = 1023   min angle by degree 0.275563 > 0.200797 > 0.143177 > 0.139878 > 0.087879 -> monotone closing: YES
+    N = 2047   min angle by degree 0.275884 > 0.227406 > 0.174307 > 0.149442 > 0.103522 -> monotone closing: YES
+  N-STABILITY of the two registered readings and of the smallest angle:
+    d     min angle (mean over N)  digits   MAX angle (mean over N)  digits   cov count per N (511/1023/2047) closing?
+    8     0.275467165              2        1.569320773              3        0/0/0                    -
+    16    0.189031484              0        1.570793973              5        0/0/0                    YES
+    24    0.143757704              0        1.570796319              8        0/0/0                    YES
+    32    0.133380585              0        1.570796327              11       0/0/0                    YES
+    40    0.093188421              0        1.570796327              11       1/1/0                    YES
+
+--- a = 3  (dim E_1: N=511:124, N=1023:251, N=2047:505) ---
+  d     dimW   N         min angle   median      MAX angle   cos^2(min)  coverage  max ang->Son_ev ball leak  
+  8     5      511       0.453724    1.483487    1.569519    0.80787917  0/5       1.565706    1.505e-01  
+  8     5      1023      0.504064    1.492055    1.569179    0.76672213  0/5       1.566491    1.299e-01  
+  8     5      2047      0.548009    1.506013    1.569747    0.72857024  0/5       1.568420    1.347e-01  
+  16    9      511       0.149804    1.411107    1.570796    0.97772620  0/9       1.570795    1.505e-01  
+  16    9      1023      0.118261    1.393844    1.570796    0.98607934  0/9       1.570796    1.299e-01  
+  16    9      2047      0.143053    1.488948    1.570796    0.97967516  0/9       1.570794    1.347e-01  
+  24    13     511       0.074058    0.826424    1.570796    0.99452551  1/13      1.570796    1.592e-01  
+  24    13     1023      0.101133    0.875371    1.570796    0.98980685  0/13      1.570796    1.299e-01  
+  24    13     2047      0.123428    1.520247    1.570796    0.98484262  0/13      1.570796    1.347e-01  
+  32    17     511       0.064285    0.822891    1.570796    0.99587319  1/17      1.570796    1.592e-01  
+  32    17     1023      0.063815    0.811862    1.570796    0.99593319  1/17      1.570796    1.410e-01  
+  32    17     2047      0.093552    1.455734    1.570796    0.99127347  1/17      1.570796    1.347e-01  
+  40    21     511       0.044635    0.824369    1.570796    0.99800907  1/21      1.570796    1.592e-01  
+  40    21     1023      0.051000    0.833422    1.570796    0.99740126  1/21      1.570796    1.499e-01  
+  40    21     2047      0.092877    0.959229    1.570796    0.99139865  1/21      1.570796    1.347e-01  
+  PER-N MONOTONICITY of the smallest angle (the direction, read at FIXED N --
+  independent of how N-stable the VALUE is):
+    N = 511    min angle by degree 0.453724 > 0.149804 > 0.074058 > 0.064285 > 0.044635 -> monotone closing: YES
+    N = 1023   min angle by degree 0.504064 > 0.118261 > 0.101133 > 0.063815 > 0.051000 -> monotone closing: YES
+    N = 2047   min angle by degree 0.548009 > 0.143053 > 0.123428 > 0.093552 > 0.092877 -> monotone closing: YES
+  N-STABILITY of the two registered readings and of the smallest angle:
+    d     min angle (mean over N)  digits   MAX angle (mean over N)  digits   cov count per N (511/1023/2047) closing?
+    8     0.501932694              0        1.569481765              3        0/0/0                    -
+    16    0.137039222              0        1.570796244              6        0/0/0                    YES
+    24    0.099539808              0        1.570796327              11       1/0/0                    YES
+    32    0.073883893              0        1.570796327              13       1/1/1                    YES
+    40    0.062837173              0        1.570796327              13       1/1/1                    YES
+
+  REVERSE (the honest other side): E_1 restricted to the SOFT-FAITHFUL region --
+  the range of b24's top-k right singular vectors of G F G, k = #(sigma > 1/2) at
+  that (N, a) -- and how much of THAT the family covers.
+  N      a       k soft   smax(GFG)   dim E1|s  cosines of E_1 vs the soft-faithful space
+  511    sqrt2   0        0.432061    0         -                                       
+  511    2       1        0.732619    0         0.000000                                
+  511    3       5        0.871820    1         0.980964, 0.022620, 0.000000, 0.000000, 0.000000
+  1023   sqrt2   0        0.432061    0         -                                       
+  1023   2       1        0.732619    0         0.000000                                
+  1023   3       5        0.871820    1         0.985367, 0.022569, 0.000000, 0.000000, 0.000000
+  2047   sqrt2   0        0.432061    0         -                                       
+  2047   2       1        0.732619    0         0.000000                                
+  2047   3       5        0.871820    1         0.984347, 0.022570, 0.000000, 0.000000, 0.000000
+
+  WHY, MEASURED (declared diagnostic): G F G commutes with parity, so its singular
+  vectors are parity-PURE; <v,Pv>/<v,v> = +1 means EVEN, -1 means ODD. An ODD faithful
+  vector is orthogonal to E_1 for a structural reason. Also printed: how much of each
+  faithful vector lies in the Sonin space at all, and in E_1.
+  N      a       j    sigma_j      parity       ||P_Son v||    ||P_E1 v||    
+  511    sqrt2   -    -            -            -              no faithful mode
+  511    2       0    0.73261900   ODD (-1.000) 9.718020e-01   7.528507e-16  
+  511    3       0    0.87181973   ODD (-1.000) 9.900300e-01   8.096339e-16  
+  511    3       1    0.71934945   EVEN (+1.000) 9.810377e-01   9.809177e-01  
+  511    3       2    0.67599238   EVEN (+1.000) 9.301747e-01   2.455957e-02  
+  511    3       3    0.65886922   ODD (-1.000) 9.859473e-01   8.062466e-16  
+  511    3       4    0.51596932   ODD (-1.000) 9.808192e-01   1.528598e-15  
+  1023   sqrt2   -    -            -            -              no faithful mode
+  1023   2       0    0.73261903   ODD (-1.000) 9.692259e-01   9.338639e-16  
+  1023   3       0    0.87181996   ODD (-1.000) 9.930318e-01   9.514110e-16  
+  1023   3       1    0.71934981   EVEN (+1.000) 9.854484e-01   9.853193e-01  
+  1023   3       2    0.67599273   EVEN (+1.000) 9.434605e-01   2.455555e-02  
+  1023   3       3    0.65886952   ODD (-1.000) 9.901754e-01   9.951213e-16  
+  1023   3       4    0.51596968   ODD (-1.000) 9.864883e-01   1.019671e-15  
+  2047   sqrt2   -    -            -            -              no faithful mode
+  2047   2       0    0.73261903   ODD (-1.000) 9.650946e-01   1.040808e-15  
+  2047   3       0    0.87181996   ODD (-1.000) 9.923414e-01   1.292399e-15  
+  2047   3       1    0.71935031   EVEN (+1.000) 9.844280e-01   9.843003e-01  
+  2047   3       2    0.67599412   EVEN (+1.000) 9.407225e-01   2.454060e-02  
+  2047   3       3    0.65886951   ODD (-1.000) 9.892158e-01   1.042856e-15  
+  2047   3       4    0.51596967   ODD (-1.000) 9.851985e-01   1.154542e-15  
+  a = sqrt2 : NO REVERSE READING AVAILABLE at any N -- the restricted E_1 is EMPTY. Named, not
+  smoothed: the b24 soft window admits NO faithful mode at all on this grid (count 0/0/0 at the
+  three N; b24 banked the same zero at this a), so the registered reverse measurement has no domain
+  here.
+  a = 2 : NO REVERSE READING AVAILABLE at any N -- the restricted E_1 is EMPTY. Named, not smoothed:
+  there ARE faithful modes (count 1/1/1) but EVERY one of them is ODD in x, and E_1 lies in the EVEN
+  part -- so the restricted E_1 is empty for a STRUCTURAL reason (parity), not a numerical one. The
+  per-vector parity and the overlaps ||P_Son v||, ||P_E1 v|| are in the diagnostic table above.
+
+--- a = 3, reverse angles (W_d vs E_1 restricted to the soft-faithful region) ---
+  d     dimW   N         dim E1|s  min angle    MAX angle    coverage of E1|s
+  8     5      511       1         0.610261     0.610261     0/1
+  8     5      1023      1         0.644214     0.644214     0/1
+  8     5      2047      1         0.670012     0.670012     0/1
+  16    9      511       1         0.507777     0.507777     0/1
+  16    9      1023      1         0.508989     0.508989     0/1
+  16    9      2047      1         0.509228     0.509228     0/1
+  24    13     511       1         0.502399     0.502399     0/1
+  24    13     1023      1         0.502510     0.502510     0/1
+  24    13     2047      1         0.502922     0.502922     0/1
+  32    17     511       1         0.501410     0.501410     0/1
+  32    17     1023      1         0.502360     0.502360     0/1
+  32    17     2047      1         0.502364     0.502364     0/1
+  40    21     511       1         0.496865     0.496865     0/1
+  40    21     1023      1         0.500723     0.500723     0/1
+  40    21     2047      1         0.502173     0.502173     0/1
+
+====================================================================================================
+VERDICT
+====================================================================================================
+  M1 two-sector split (even -> {+1,-1} only, odd -> {+i,-i} only)   : LANDED
+  M2 +/-1 norms on the even sectors (Rayleigh gate 1e-06)            : LANDED
+  M3 four-sector consistency and the even/odd attribution           : LANDED
+  M5 rank agreement (definitional == spectral) and +1 Rayleigh      : LANDED
+  M4 AS REGISTERED (LARGEST principal angle closing with degree)    : *** NOT LANDED ***
+  M4 smallest angle closes MONOTONICALLY with degree at EVERY (a, N)  : LANDED (3/3)
+  M4 that smallest angle N-STABLE to >= 3 digits (declared gate)      : *** NOT LANDED ***
+    per a:  a=sqrt2 min-closing True (stable digits over the degree list: min 0, max 1), per-N monotone True, MAX-closing False, coverage-growing True;  a=2 min-closing True (stable digits over the degree list: min 0, max 2), per-N monotone True, MAX-closing False, coverage-growing True;  a=3 min-closing True (stable digits over the degree list: min 0, max 0), per-N monotone True, MAX-closing False, coverage-growing True
+
+  BRANCH LANDED: (A-third)
+    THE SPECTRAL AND DEFINITIONAL HALVES LAND EXACTLY AS REGISTERED (M1, M2, M3, M5): the
+    archimedean constrained sector IS the E_1 of F on the even Sonin part, at every (N, a), to
+    machine. M4 DOES NOT LAND AS REGISTERED: the LARGEST principal angle between W_d and E_1 sits at
+    pi/2 and the coverage stays at ~0, because W_d is NOT CONTAINED in E_1 -- the registered
+    measurement asked for containment. What DOES close is the SMALLEST principal angle: the family
+    reaches INTO E_1 and its best direction approaches E_1 monotonically with degree at EVERY (a, N)
+    -- though the VALUE of that angle is NOT N-stable at the declared gate (see the digit column).
+    Filed openly: the sector identification is (A-yes); the M4 containment reading is (A-no) with
+    its structural reason named below.
+
+  THE STRUCTURAL REASON M4's REGISTERED READING CANNOT CLOSE, STATED PLAINLY AND
+  MEASURED, NOT ASSERTED:
+    (i) W_d consists of EVEN functions (asserted at machine above), and the even Sonin part splits
+    as E_1 (+) E_-1. A subspace of even functions therefore spreads across BOTH sectors; a generic
+    direction in W_d has a nonzero E_-1 component, so the largest principal angle to E_1 is pi/2 and
+    the coverage is ~0 by construction. Containment in E_1 was never available to an unprojected
+    family -- the registration asked the containment question and the bench answers it NO.
+    (ii) the family also LEAKS OUT of the Sonin space: its columns do not vanish on the ball (the
+    'ball leak' column above), and the largest principal angle from W_d to the whole even Sonin part
+    is likewise pi/2 -- so part of the failure is not even about the +/-1 split. Both are printed so
+    the reader can separate them.
+    (iii) what the sitting-12 re-read ('Weil's family REACHES E_1') actually measures is the
+    SMALLEST principal angle. THE DIRECTION closes: at every a and at every single N the min angle
+    is monotonically decreasing across d = 8,16,24,32,40. THE VALUE does not stabilise: the three-N
+    agreement is 0-1-2 digits over the degree list, i.e. below the declared gate of 3. That is the
+    same grid-truncation affordance limit b27 registered for the high-degree Weil columns (the basis
+    of degree k lives on |u| <~ sqrt(2k+1)), and it is reported, not smoothed: the CLOSING is data,
+    the LIMIT VALUE is beyond this model's affordance.
+    (iv) the REVERSE direction, where it has a domain at all (a = 3 only, dim 1): the angle from W_d
+    to the soft-faithful part of E_1 STALLS at about 0.50 rad from d = 16 on and does not close --
+    the family captures roughly cos^2(0.50) = 0.77 of that direction and no more inside this sweep.
+    Reported as measured.
+
+  THE REVERSE DIRECTION, NAMED NOT SMOOTHED: the soft-faithful region is TINY on this
+  grid -- b24's own banked counts are 0 at a = sqrt2, and single digits at a = 2, 3 --
+  so 'how much of E_1 restricted to the soft-faithful region the family covers' has
+  no domain at a = sqrt2 and a domain of dimension sqrt2:0, 2:0, 3:1 elsewhere. That is a property
+  of the soft window at this resolution, reported as measured.
+
+  READ-BOUNDARY, CARRIED: the content-level identification of the banked sandwich
+  norm with the E_1-norm is NOT measured here and is not claimed here; this bench
+  measures the sector geometry of a finite float model of one place. The register is
+  UNTOUCHED. Every number above is FLOAT.
+
+FLOAT BENCH COMPLETE; ASSERTED CHECKS: 220/220 PASS

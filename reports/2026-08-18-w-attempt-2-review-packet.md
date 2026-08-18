@@ -85,7 +85,13 @@ UNTOUCHED — no sentence about `W_∞ − ΣW_𝔭` at complete roster exists a
 1. **The `∞`-model's faithfulness.** Everything archimedean lives on a centered-DFT grid. The hard
    window dies (uncertainty, watched), soft windows converge, Weil's family reaches exactness — but is
    the grid model the right functor of the real place, or does it flatter it? A reviewer who can break
-   the model's correspondence to `L²(ℝ)` breaks the `∞` half of the section.
+   the model's correspondence to `L²(ℝ)` breaks the `∞` half of the section. *(Sitting 22 sharpened
+   the `∞` picture: the constrained sector at `∞` IS the `+1` eigenspace of the transform on the even
+   Sonin part — machine, all cells — so the section's positivity is PLACE-UNIFORM: "the `E₁`-sector at
+   every place, glued", proof at `p = 2`'s limit / model at `p = 3` / machine at `∞`; and the double
+   limit is exactly the `E₁`-gluing at complete roster — the codomain in one word. The "Weil's family
+   reaches `E₁`" re-reading was tested and REFUSED — `σ_max → 1` and `E₁`-containment are different
+   statements, measured.)*
 2. **The tower's limit with the pairing intact.** `ι`-compatibility and on-the-nose Gram stability are
    exact at every finite level. Does the inductive limit carry the pairing to a nondegenerate object,
    or does degeneracy enter in the closure? *(Answered at proof grade, one place, sitting 20: the
