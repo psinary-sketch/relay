@@ -88,7 +88,11 @@ UNTOUCHED — no sentence about `W_∞ − ΣW_𝔭` at complete roster exists a
    the model's correspondence to `L²(ℝ)` breaks the `∞` half of the section.
 2. **The tower's limit with the pairing intact.** `ι`-compatibility and on-the-nose Gram stability are
    exact at every finite level. Does the inductive limit carry the pairing to a nondegenerate object,
-   or does degeneracy enter in the closure? Nothing here constructs the limit pairing.
+   or does degeneracy enter in the closure? *(Answered at proof grade, one place, sitting 20: the
+   `L²(ℚ₂)`-closure carries `F` unitary, radical zero, the four-sector decomposition with `B = ‖·‖²`
+   on `E₁` — the constrained sector positive-definite in the limit — and the compression forced,
+   equal to the strong limit of the level compressions. The ONE remainder: the spectrum of `SUS`.
+   The double limit remains untouched — this question now LIVES THERE.)*
 3. **Does class-resolved gluing at one `K` say anything about `ℚ`?** The coupling consumes the class
    data of `ℚ(√−23)`; the pentagon's law forbids reading cross-register equivalence into that. Is the
    whole construction a fact about one imaginary quadratic field's presentation? *(First measured
