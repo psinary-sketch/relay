@@ -1,10 +1,11 @@
 # `W-ATTEMPT-2` — THE CORRESPONDENCE TABLE (CLOSURE-PROTOCOL STEP TWO, DRAFTED; KEPT CURRENT)
-## ### **EVERY CLAIM OF SITTINGS 1–8 · ITS KERNEL OR BENCH · ITS TERMINAL · ITS AXIOM PROFILE · ITS GRADE — WITH THE NON-CLAIMS AS ROWS, AND NO BLANK CELLS**
+## ### **EVERY CLAIM OF SITTINGS 1–10 · ITS KERNEL OR BENCH · ITS TERMINAL · ITS AXIOM PROFILE · ITS GRADE — WITH THE NON-CLAIMS AS ROWS, AND NO BLANK CELLS**
 
-> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sittings 7–8): sittings 1–6 REVIEW-STAGED
+> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sittings 9–10): sittings 1–6 REVIEW-STAGED
 > (this step-two packet drafted; step three — external review by people able to reject — is the
-> AUTHOR'S act) — TESTING CONTINUES (sittings 7–8, the programme testing its own object under the
-> protocol correction: the closure protocol gates the REGISTER and public claims, not investigation).**
+> AUTHOR'S act) — TESTING CONTINUES (sittings 7–10, the programme testing its own object under the
+> protocol correction: the closure protocol gates the REGISTER and public claims, not investigation;
+> the arc's lessons are ledgered at `THE_ATTEMPT_RECORD` `§0`, PLACE-papers `b7acc3e`).**
 > *Rule-3 flag, reported not smoothed: "REVIEW-STAGED" is navigator-named vocabulary appearing nowhere
 > banked before this line; the attempt is relay-resident, so the arc lives HERE and the method register
 > is untouched.*
@@ -53,6 +54,12 @@ land its registered default branch says so in its status cell; there are three s
 | 26 | sitting 8: the genuine local transform on level-`n` Schwartz–Bruhat `V_n ⊂ L²(ℚ_p)` IS the model DFT entry-exact (no artifact in `F`); `F` commutes with level-inclusion exactly | `b21_attempt2_s8.py` (215/215 exact) | `data/b21_2026-08-18.txt` | exact (float only at declared `(3,3)`) | **MEASURED — VERBATIM** |
 | 27 | sitting 8: all six laws lift VERBATIM (`Q_gen² = Q_model²` exactly incl. new `n = 3` cells; `t_k = 0` exact and level-stable); the model's one artifact located: model `U` = pushforward, genuine `U` compresses to pullback — ADJOINT, hence invisible to transpose-symmetric laws | `b21` parts C–E | `data/b21_2026-08-18.txt` | exact | **MEASURED — the verdict table all-VERBATIM; b8's declared edge upgraded to a derivation** |
 | 28 | sitting 8: both transposition caveats met — the `L²` issue does not arise at finite level (what remains is the `n → ∞` limit, named); the orbital integral regularizes by LEVEL-STABILITY (stable value `0`) | `b21` parts A/D + foot | `data/b21_2026-08-18.txt` | exact | **RESOLVED-BY-COMPUTATION at finite level; the limit stays open, said plainly** |
+| 29 | sitting 9: the sector arithmetic — full-pairing negatives = `λ_prod = −1` sectors ⊗ ℂ[Cl], BOTH channels 2:1; T-fixed negatives structurally anti-invariant; every staircase cell's signature `(d/4, d/4, d/2)` enumerated | `b22_attempt2_s9.py` (139/139 exact; `(5,1)` new over `ℚ(ζ₂₅)`, `i ∉ ℚ(ζ₂₅)` proved in-run) | `data/b22_2026-08-18.txt` | exact | **MEASURED — `(N-edge)` on all three parts; `(N-interior)` did not fire** |
+| 30 | sitting 9: first appearance of negativity at `a² = 3` = a PLACE-ARRIVAL EDGE, both readings, both place sets; the arrival of 5 EXACTLY multiplicative (×16) and provably imbalance-free (flat `(4,4,4,4)`, `tr M = 0`) | `b22` parts 2–3 | `data/b22_2026-08-18.txt` ◆ *(one registration line corrected in-run: growth is strict at CELL-changing steps only, zero at the three non-changing `a²` steps — the `a²`/cell grid conflation, noted not smoothed)* | exact | **MEASURED; `P+` extended along the whole staircase (direct-exact at `{2:2,3:1}`, dim-18 class)** |
+| 31 | sitting 10: the tower on `ℚ₂` is `L-STABLE` — `ι(Son) ⊂ Son` exact `n = 1…6`; the pairing level-stable ON THE NOSE; `Q² = 2(2^{n−1}−1)²` verbatim at all six levels; `Tr(U^kS) = 0` exact, level-stable | `b23_attempt2_s10.py` (203/203 exact; registered float fallbacks went UNUSED — every cell exact) | `data/b23_2026-08-18.txt` | exact | **MEASURED — `(L-stable)`; the limit's structure NAMED (union constructed; `L²`-closure named, not constructed)** |
+| 32 | sitting 10: the compressed scaling is FORCED on `ℚ₂` — exact nonzero witness at every column (`(Uf)^` lands off the Sonin condition's control) — CC's `SUS` structure recovered as necessity; its mass = the fifth law | `b23` T5 | `data/b23_2026-08-18.txt` | exact | **MEASURED, witness exact** |
+| 33 | sitting 10: eigen-dim tower closed forms (`d₁ = 2^{2n−2} − 2^{n−1}`, `dᵢ = d₁+1`; `tr M = i`, `tr Π = −1` at every level, measured); the class punctuation continuation (dead ONLY at arrival depth) | `b23` T3/T4 | `data/b23_2026-08-18.txt` | exact | **MEASURED; closed forms observed in-run, not registered in advance** |
+| 34 | sitting 10 (folded): the soft archimedean window SPLITS the refusal — the refinement-instability was the hard cutoff's artifact (soft statistics `N`-stable to ~5 decimals, clean 4th-root structure, fixed-sector positivity `0.9948`); the EXACTNESS deficit persists under either window (`σ_max < 1`, `N`-independent) — the real place convergently inexact where the finite places are exact | `b24_attempt2_s10_soft.py` (float, declared; log-Gaussian per Weil's lemma mechanics at cite) | `data/b24_2026-08-18.txt` ◆ *(files re-emitted once with print-time ASCII folding, numbers verified identical — disclosed)* | bench float | **MEASURED — `(soft-dissolves)` on its registered clauses, the persistent gap recorded beside it** |
 
 ## §2 — THE NON-CLAIMS, AS ROWS *(each with the place it is refused in writing)*
 
