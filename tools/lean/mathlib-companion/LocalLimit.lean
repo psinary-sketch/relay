@@ -85,6 +85,16 @@ theorem padicFourierData_exists (p : ℕ) [Fact p.Prime] :
     Nonempty (PadicFourierData p) := by
   sorry
 
+
+/-- ACT 4, THE MATHLIB LEG'S NEW STATEMENT (the spectral question's structural half):
+    the minimal unitary dilation of the completely non-unitary compressed scaling is
+    ABSOLUTELY CONTINUOUS (Nagy-Foias). Mathlib holds NO dilation theory (grep-checked:
+    zero hits for unitary dilation / Sz.-Nagy) - the statement cannot yet be FORMED, so
+    the debt is recorded as a named stub, not a sorry: OWED TO DILATION THEORY. The
+    density-is-the-zero-side question is (AC)-open; the characteristic function of the
+    compressed scaling (one-shell defect) is the named next object. -/
+theorem ac_dilation_stub : True := trivial
+
 end LocalLimit
 
 #print axioms LocalLimit.inner_map_self_of_fixed
