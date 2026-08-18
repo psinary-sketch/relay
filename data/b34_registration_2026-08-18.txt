@@ -1,0 +1,23 @@
+====================================================================================================
+b34 -- REGISTRATION.
+====================================================================================================
+W-CONSTRUCTION-1, ACT 2 -- R1-4's BENCH BESIDE THE PROOF: THE FAIR-SLICE COVERAGE.
+
+RELAY-ONLY. Rule 4. SCOPE, once: float, declared; the proof landed separately (Hermite
+completeness under the Gaussian weight + projections-map-dense-to-dense -- the build
+document v0.2); this bench is CORROBORATION of its finite shadow, never the proof.
+
+REGISTERED: for each degree d, the twice-projected Weil family Pi+ S Psi_d has rank k_d;
+the FAIR comparison truncates E_1(inf) to its k_d most-reachable modes (ordered by the
+soft-compression singular value, the prolate ladder's own order) and measures the
+principal angles between the family and THAT slice. (C-dense)'s finite shadow predicts:
+high coverage of the fair slice at every degree (the family fills E_1 from the reachable
+end first), with the un-truncated angles' slow fill (b33, banked) explained as the tail,
+not a wall. Branches: (S-covered) coverage of the fair slice >= ~0.8 of k_d directions
+within 0.1 rad, rising with d; (S-wall) coverage stalls low - the proof's finite shadow
+would be in tension and said so.
+
+N in {1023, 2047}; a in {2, 3}; d in {8, 16, 24, 32, 40}; window/ball as banked.
+Usage: python b34_e1_fair_slice.py register | run
+
+====================================================================================================
