@@ -70,7 +70,7 @@ apex cells, where a tower's cutoff first reaches 2 (the apex-at-`p²`, on the di
 > ### **THE RESIDUAL `T2` QUESTION, NOW EXACT ON THE GLUED OBJECT: the FREE product (places added,
 > cutoffs raised independently — where all of this attempt's objects live) versus the DIAGONAL SECTION
 > (the support-forced simultaneous cutoffs — where the original window lives). The free cells are
-> strictly richer than the staircase; THAT GAP is the deeper form of the four-word question — the
+> strictly richer than the staircase; THAT GAP is the deeper form of the missing-codomain question (self-product / Frobenius lift / leaves) — the
 > support axis is the diagonal, the place axis is free, and `T2` asks whether an object exists on which
 > the diagonal is not a restriction but an identity.** *Named; not attempted this sitting.*
 

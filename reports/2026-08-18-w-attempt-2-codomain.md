@@ -45,8 +45,8 @@ theorem rides) · `T9` complies · `T10` kin-watch armed.*
 ## CHECKPOINT 3 — FALSIFICATION, BOTH BRANCHES *(banked before the run)*
 
 **(F-fail):** four named failing steps — involution non-closure · antipode incoherence · flat coupling
-(the `T7` bite) · total radical (Prop 6.4's fate) — *each the corpus's own name for the four-word
-question over `ℚ`.* **(F-land):** the codomain exists — *then positivity is a PROPERTY OF A CONSTRUCTED
+(the `T7` bite) · total radical (Prop 6.4's fate) — *each the corpus's own name for the missing-codomain
+question (self-product / Frobenius lift / leaves) over `ℚ`.* **(F-land):** the codomain exists — *then positivity is a PROPERTY OF A CONSTRUCTED
 OBJECT, to be checked never asserted; the closure protocol's step one is priced against the
 CONSTRUCTION;* ### **the overclaim PRE-REFUSED IN WRITING: `{∞,2,3}` at `h = 3`, model cutoff `n = 1`,
 is a finite-place-set object at a finite cutoff — the complete roster is the double limit and STAYS

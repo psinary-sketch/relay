@@ -40,7 +40,7 @@ one-screen "WHAT THIS DOCUMENT HOLDS, AT GRADE"** *— the columns `(i)`–`(vi)
 per candidate; the checkpoints (`B1`–`B13`; the acts) one line each, what each landed and what each
 refuted; the held items at their addresses (the `(β)` convention on the TRUE functional · the
 `1807.06400` body read · the two `HELD` carrier acts on counsel · quotient-form positivity UNKNOWN and
-said so); the four-word question with its three-road provenance —* ### **WHAT SUPPLIES THE LEAVES:
+said so); the missing-codomain question (self-product / Frobenius lift / leaves) with its three-road provenance —* ### **WHAT SUPPLIES THE LEAVES:
 Road A's missing SELF-PRODUCT · `(vi)`'s missing LEAFWISE METRIC · the missing FROBENIUS LIFT** *— and
 the plain sentence:* ### **nothing here is a construction, none of it moves `h2`, all of it specifies the
 object `h2` would rest on.** *No internal to-do lists on the face.*
@@ -60,7 +60,7 @@ refuted by its own ordered discriminator), with the two minor flags beside them.
 1. ### **THE TENSOR VERDICT IS `T1` WITH THE STRUCTURE EXPLICIT — the week's last held bench item is
    closed, and it closes by EXPLAINING the week's first law.**
 2. ### **BOTH ROAD DOCUMENTS NOW MEET A STRANGER AT THE DOOR** — one screen each, at grade, with the
-   four-word question and the h2 sentence on the face.
+   missing-codomain question (self-product / Frobenius lift / leaves) and the h2 sentence on the face.
 3. ### **THE WEEK IS CONSOLIDATED IN THE LOOM** — corrections, laws, and the Rule-3 record in one dated
    place.
 4. **Standing open, at their addresses:** the `(β)` convention on the true functional · the `1807.06400`
