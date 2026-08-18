@@ -1,0 +1,64 @@
+====================================================================================================
+b37 RUN - THE RE-RUN UNDER THE REGULARIZED TRACE. Registration banked first.
+====================================================================================================
+
+--- C0: VOID GATES ---
+  carto far-end a=1.30 residual=+6.142e-12 PASS
+  carto far-end a=3.50 residual=+6.569e-08 PASS
+  pin sum lam2                   |delta|=5.82e-11 (tol 1e-06) PASS
+  pin sum lam2 xi1^2             |delta|=1.11e-15 (tol 1e-06) PASS
+  pin epsprime1                  |delta|=1.65e-08 (tol 1e-03) PASS
+  pin epsprime1_even (b35 pin)   |delta|=2.91e-05 (tol 1e-03) PASS
+  pin epsprime1_odd  (b35 pin)   |delta|=3.55e-06 (tol 1e-03) PASS
+
+--- eps grids (full / even / odd; fixed 240 pts on (1,12]) ---
+  mask algebra: max|eps_even + eps_odd - eps_full| = 4.44e-16  PASS
+
+====================================================================================================
+PLACE SET S3={inf,2,3}
+====================================================================================================
+a^2             A         PR |         E2     E2even      E2odd        Thq |   D_dictated     D_sector
+2       -1.990528   0.000000 |   1.679428   1.001814   0.677615   0.000000 |    -2.681242    -1.001814
+        components: (Thq - PR) = +0.000000   -E2even = -1.001814   (E2odd - 2 E2) = -2.681242
+        resid47: 0 by construction (substitution at content)
+3       -1.908900   0.106484 |   1.516645   0.910943   0.605701   0.000000 |    -2.534072    -1.017427
+        components: (Thq - PR) = -0.106484   -E2even = -0.910943   (E2odd - 2 E2) = -2.427588
+        resid47: 0 by construction (substitution at content)
+4       -1.786498   0.249320 |   1.374051   0.834033   0.540018   0.161978 |    -2.295425    -0.921374
+        components: (Thq - PR) = -0.087341   -E2even = -0.834033   (E2odd - 2 E2) = -2.208084
+        resid47: 0 by construction (substitution at content)
+8       -1.525474   0.553060 |   1.096239   0.685514   0.410725   0.317018 |    -2.017796    -0.921557
+        components: (Thq - PR) = -0.236042   -E2even = -0.685514   (E2odd - 2 E2) = -1.781754
+        resid47: 0 by construction (substitution at content)
+9       -1.488337   0.590186 |   1.058309   0.665133   0.393176   0.473862 |    -1.839766    -0.781457
+        components: (Thq - PR) = -0.116324   -E2even = -0.665133   (E2odd - 2 E2) = -1.723442
+        resid47: 0 by construction (substitution at content)
+12      -1.405398   0.656888 |   0.975064   0.620090   0.354973   0.518491 |    -1.733551    -0.758487
+        components: (Thq - PR) = -0.138396   -E2even = -0.620090   (E2odd - 2 E2) = -1.595154
+        resid47: 0 by construction (substitution at content)
+
+====================================================================================================
+PLACE SET S4={inf,2,3,5}
+====================================================================================================
+a^2             A         PR |         E2     E2even      E2odd        Thq |   D_dictated     D_sector
+2       -1.990528   0.000000 |   1.679428   1.001814   0.677615   0.000000 |    -2.681242    -1.001814
+        components: (Thq - PR) = +0.000000   -E2even = -1.001814   (E2odd - 2 E2) = -2.681242
+        resid47: 0 by construction (substitution at content)
+3       -1.908900   0.106484 |   1.516645   0.910943   0.605701   0.000000 |    -2.534072    -1.017427
+        components: (Thq - PR) = -0.106484   -E2even = -0.910943   (E2odd - 2 E2) = -2.427588
+        resid47: 0 by construction (substitution at content)
+4       -1.786498   0.249320 |   1.374051   0.834033   0.540018   0.161978 |    -2.295425    -0.921374
+        components: (Thq - PR) = -0.087341   -E2even = -0.834033   (E2odd - 2 E2) = -2.208084
+        resid47: 0 by construction (substitution at content)
+8       -1.525474   0.561045 |   1.096239   0.685514   0.410725   0.317018 |    -2.025781    -0.929542
+        components: (Thq - PR) = -0.244027   -E2even = -0.685514   (E2odd - 2 E2) = -1.781754
+        resid47: 0 by construction (substitution at content)
+9       -1.488337   0.608882 |   1.058309   0.665133   0.393176   0.473862 |    -1.858463    -0.800154
+        components: (Thq - PR) = -0.135021   -E2even = -0.665133   (E2odd - 2 E2) = -1.723442
+        resid47: 0 by construction (substitution at content)
+12      -1.405398   0.714334 |   0.975064   0.620090   0.354973   0.518491 |    -1.790997    -0.815933
+        components: (Thq - PR) = -0.195843   -E2even = -0.620090   (E2odd - 2 E2) = -1.595154
+        resid47: 0 by construction (substitution at content)
+
+Recorded as data. Verdict per the registered map is written in the act report.
+NO SIGN SENTENCE AT COMPLETE ROSTER. h2 UNCHANGED. NOTHING DEPOSITS.
