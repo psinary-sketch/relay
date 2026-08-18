@@ -1,0 +1,54 @@
+====================================================================================================
+B10 — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B10 — THE ABSORPTION PROOF'S LEMMA CERTIFICATES + THE ORBIT-QUOTIENT CELL.
+
+Relay-only. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+POSITIVITY GUARD: whatever any quantity's sign on the model, it bears not at all on h2.
+
+ITEM 1 — THE PROOF'S THREE LEMMAS, CERTIFIED (the proof itself is longhand in the spec)
+=======================================================================================
+The constraint space decomposes: R_E = ball-supported functions; R_F = {f : f-hat supported
+on the ball} = the p^n-PERIODIC functions (longhand: f-hat on B <=> invariance under
+translation by p^n). The projections are Pi_E = mult by 1_B and Pi_F = the conditional
+expectation over p^n-translates. LEMMAS:
+    L-A  [Pi_E, Pi_F] = 0 and Pi_E Pi_F = Pi_Z (the orthoprojection onto span{1_B}),
+         hence Pi_R = Pi_E + Pi_F - Pi_Z exactly.
+    L-B  Tr(U^k Pi_E) = p^{-k/2}   (only fixed point m = 0, inside the ball)
+    L-C  Tr(U^k Pi_F) = p^{-k/2}   (the (m, m') count: coprimality forces m' in B)
+    L-D  Tr(U^k Pi_Z) = p^{-k/2}   (B is U-invariant and closed: <1_B, U^k 1_B> = p^{n-k/2})
+    =>   Tr(U^k Pi_R) = p^{-k/2} = Tr(U^k), so t_k = 0.   [PROVED longhand; certified here]
+
+ITEM 2 — THE ORBIT-QUOTIENT CELL (definition written BEFORE any run)
+====================================================================
+THE OBJECT: V_inv = { f supported off the ball : f(m') = f(m) whenever m' = p m mod N and
+both m, m' off-ball } -- the model realization of functions on the orbit space x ~ px of
+the non-ball part (the quotient K_p^x / p^Z at model level). S_quot = orthoprojection onto
+V_inv. THE SONIN-TYPE CONDITION TRANSPOSED: support off the ball (the ball-avoidance half).
+THE FOURIER HALF DOES NOT DESCEND -- the transform does not commute with x ~ px -- and this
+is REGISTERED AS INFORMATIVE, not hidden: the quotient keeps the sandwich shape available
+while leaving the Fourier-side Sonin condition behind, exactly as B9's tension predicted a
+weight-carrying trace must change the space.
+THE QUANTITIES: T_quot(k) = |Tr(U^k S_quot)| and the diagonal/norm channels, k = 1..2n-1.
+
+REGISTERED VERDICT MAP:
+    Q1  T_quot(k) NONZERO with Weil-shaped scaling (amplitude ~ q^{-1/2}-type): the
+        fixed-point trace now sits at a closed orbit and is NOT absorbed -- column (beta)
+        has a trace-shaped candidate at last; POSITIVITY UNKNOWN AND SAID SO.
+    Q2  it vanishes again: the leak is deeper than the quotient -- BUT the KNOWN MODEL
+        LIMITATION is registered beside it: the truncated U is not invertible, so true
+        recurrence exists only on the infinite object; a zero at all n that does NOT
+        soften as n grows names the leak "the quotient"; a zero that softens names it
+        "the truncation". The discriminator is the n-trend, registered now.
+    Q3  third shape, filed openly.
+
+THE LEFSCHETZ WONDER (question grade, registered beside): IF Q1, the quotient trace's
+shape (weighted count over closed orbits by period, weight ~ p^{-k/2}, unit log p the
+period) is compared LONGHAND AT CITE against (a) the explicit formula's prime-side term
+and (b) the banked seat claims (Deninger "periodic orbits related to closed points", at
+abstract; CC's arrest sentence "understand the equality as a Lefschetz formula",
+ATTRIBUTED). MATCH-IN-SHAPE / NOT; no promotion either way.
+
+Usage:  python b10_cells.py register | run
+
+====================================================================================================
