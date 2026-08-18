@@ -10,6 +10,7 @@ import Mathlib.Analysis.InnerProductSpace.Projection.Basic
 import Mathlib.Analysis.InnerProductSpace.Projection.Submodule
 import Mathlib.Analysis.InnerProductSpace.Adjoint
 import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.Topology.Algebra.OpenSubgroup
 
 open scoped InnerProductSpace
 
@@ -92,6 +93,20 @@ theorem nested_projection_norm_le [CompleteSpace H] (T S : Submodule ℂ H)
   calc ‖T.starProjection x‖ = ‖T.starProjection (S.starProjection x)‖ := by rw [hx]
     _ ≤ ‖S.starProjection x‖ := T.norm_starProjection_apply_le _
 
+/-- ACT 14 (the no-exact-level obstruction, PROVED): ℝ has no compact open additive
+    subgroup — an open subgroup of the connected line is clopen, hence everything,
+    and the line is noncompact. This is exactly why sitting 8's exact-transport chart
+    (which rides ℚ_p's compact-open levels `ℤ_p ⊃ p^nℤ_p`) cannot transpose to `∞`:
+    the archimedean place is the place WITHOUT finite exact levels — the grid model
+    is an approximation scheme, never a restriction. PROVED, no sorry. -/
+theorem real_no_compact_open_addSubgroup (H : AddSubgroup ℝ)
+    (ho : IsOpen (H : Set ℝ)) : ¬ IsCompact (H : Set ℝ) := by
+  have hclop : IsClopen (H : Set ℝ) := (⟨H, ho⟩ : OpenAddSubgroup ℝ).isClopen
+  have huniv : (H : Set ℝ) = Set.univ := hclop.eq_univ ⟨0, H.zero_mem⟩
+  intro hc
+  rw [huniv] at hc
+  exact noncompact_univ ℝ hc
+
 /-- THE CONCRETE DEBT, in one place: the p-adic Fourier data over `L²(ℚ_p)` — the
     transform as a linear isometry equivalence with `F² = parity`, the Sonin closure as
     a closed subspace, the escape property. OWED TO FILES B–C (the standard character;
@@ -132,4 +147,5 @@ end LocalLimit
 #print axioms LocalLimit.no_unimodular_eigenvalue
 #print axioms LocalLimit.eigenvector_of_commute
 #print axioms LocalLimit.nested_projection_norm_le
+#print axioms LocalLimit.real_no_compact_open_addSubgroup
 #print axioms LocalLimit.padicFourierData_exists
