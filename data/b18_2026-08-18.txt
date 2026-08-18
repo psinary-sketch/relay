@@ -1,0 +1,223 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 5 -- REGISTRATION. NO CERTIFIED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 5 -- THE CYCLOTOMIC HALF: THE SECTION'S PROPERTIES IN EXACT ARITHMETIC.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+THIS INSTRUMENT CERTIFIES THE BUILT OBJECT'S PROPERTIES, ASSERTS NO SIGN, MOVES NO REGISTER.
+
+THE FIELD (exact, no floats): Q(zeta_144), Phi_144(x) = x^48 - x^24 + 1; elements are
+Fraction-coefficient vectors of degree < 48; zeta_16 = zeta^9, zeta_9 = zeta^16, i = zeta^36,
+omega = zeta^48; complex conjugation is zeta^k -> zeta^(144-k), reduced mod Phi_144.
+Every local DFT here has rational normalization: F_N[j,k] = zeta_N^(jk)/sqrt(N) with
+sqrt(N) in {2,3,4} for N in {4,9,16} -- so every matrix entry is IN the field.
+
+THE EXACT BASIS (replacing the float SVD basis of b8, same space): in the chart
+m = alpha + p^n * beta on Z/p^(2n), Son(p,n) = V1 (x) W1 has the exact integer basis
+k_(alpha,j) = delta_alpha (x) (e_j - e_(j+1)), alpha in [1, p^n), j in [0, p^n - 1).
+The certified properties are basis-free (subspace invariance, rank, operator identities);
+the float-era orthonormal-basis forms are their shadows.
+
+CERTIFIED TARGETS -- each a decidable statement, expected verdict registered before the run;
+factors (p,n) in {(2,1), (3,1), (2,2)} (the diagonal cells at a in {sqrt2, sqrt3, 2}):
+ (C1) the basis lands in Son: f|_B = 0 and (F f)|_B = 0 exactly, per basis column
+      (B = the integers' ball, m == 0 mod p^n).
+ (C2) T-invariance, exact form: F K = K M with M = (K^T K)^(-1) K^T F K -- residual
+      EXACTLY zero (the float-era closure ||(1-S)FK|| ~ 1e-16, now exact).
+ (C3) the parity structure at the compressed level: M^2 = Pi, where Pi is the exact signed
+      permutation induced on the basis by m -> -m (F^2 = parity, compressed); det Pi = +/-1.
+ (C4) radical zero, exactly: G_loc = K^T F K = (K^T K) M; det(K^T K) a nonzero integer and
+      M invertible by (C3), hence rank G_loc = dim Son -- the pairing's local radical is ZERO.
+ (C5) twisted-Hermitian, exact form: G_loc symmetric (F = F^T), and conj(G_loc) = G_loc * Pi
+      -- equivalently G_loc^dagger = G_loc * Pi: the float-era line ||G - (P(x)1)G^dag|| ~ 6e-15,
+      now EXACT-ZERO.
+ (C6) the class factor: C[alpha,beta] = coup[(beta-alpha) mod 3] with coup = (2,1,1) = c2*c3:
+      C = C^T; character spectrum chi_k(c2*c3) = (4,1,1) exact in Z[omega] (imaginary parts
+      exactly zero); det C = 4; the trace identity Tr(mult-by-coup) = 6 = 4+1+1 -- the
+      class-character TRACE of Z-hat's label-norm coefficient (the tau-route, question grade).
+ (C7) the glued section at the diagonal cells a in {sqrt2, sqrt3, 2} (cells {2:1},
+      {2:1,3:1}, {2:2,3:1}; dims 3, 12, 108): assembled by the exact tensor laws -- rank is
+      multiplicative; the twist and the invariance are tensor-functorial; the antipode A on
+      C[Cl] satisfies A^2 = 1 -- and the dim-12 cell is ALSO computed directly glued
+      (F_4 (x) F_9 compressed onto K_2 (x) K_3, tensored with C) and checked ENTRY-EXACT
+      against the tensor assembly.
+ (C8) inertia (d/4, d/4, d/2): carried as banked DATA (sitting 2's run), not re-derived --
+      a signature is a real-form computation this exact pass does not repeat; said plainly.
+
+BRANCHES, registered: (pass) every certified line lands EXACT -- the built object's
+properties are certified in exact arithmetic; the Lean companion carries what decide
+reaches and NAMES what needs Mathlib (the cyclotomic tower). (fail) any line lands
+non-zero -- the float-era line it shadows is RE-OPENED, the address named, nothing patched.
+
+Usage:  python b18_attempt2_s5.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. CERTIFICATION BEGINS.
+
+--- F0: THE FIELD Q(zeta_144), Phi_144(x) = x^48 - x^24 + 1 (no floats anywhere) ---
+  PASS  F0a  zeta^144 = 1 exactly (ZPOW[143] * zeta = 1)
+  PASS  F0b  Phi_144(zeta) = zeta^48 - zeta^24 + 1 = 0 exactly
+  PASS  F0c  conj(zeta^k) * zeta^k = 1 for all k in [0,144)
+  PASS  F0d  i = zeta^36 satisfies i^2 = -1 exactly
+  PASS  F0e  omega = zeta^48 satisfies omega^2 + omega + 1 = 0 exactly
+  PASS  F0f  F_4^dagger F_4 = I exactly (rational normalization 1/2 keeps it in the field)
+  PASS  F0f  F_9^dagger F_9 = I exactly (rational normalization 1/3 keeps it in the field)
+  PASS  F0f  F_16^dagger F_16 = I exactly (rational normalization 1/4 keeps it in the field)
+
+--- FACTOR (p,n)=(2,1) : N = p^(2n) = 4, q = p^n = 2, dim Son = (q-1)^2 = 1 ---
+      basis columns (alpha,j): [(1, 0)]
+  PASS  C1a (p,n)=(2,1)  f|_B = 0 on the integers' ball B = {m == 0 mod 2} (all 1 columns)
+  PASS  C1b (p,n)=(2,1)  (F f)|_B = 0 exactly on B (all 1 columns)
+  PASS  C2  (p,n)=(2,1)  F K - K M = 0 entry-exact (M = (K^T K)^-1 K^T F K); residual EXACT ZERO
+  PASS  C3a (p,n)=(2,1)  P K - K Pi = 0 entry-exact (Pi solved, not assumed)
+  PASS  C3b (p,n)=(2,1)  Pi is a signed permutation (one +/-1 per row and per column)
+  PASS  C3c (p,n)=(2,1)  det Pi = -1 in {+1,-1}
+  PASS  C3d (p,n)=(2,1)  M^2 - Pi = 0 entry-exact (F^2 = parity, compressed)
+  PASS  C4a (p,n)=(2,1)  det(K^T K) = 2 is a NONZERO integer
+  PASS  C4b (p,n)=(2,1)  G_loc - (K^T K) M = 0 entry-exact
+      C4 STATEMENT: det(M)^2 = det(M^2) = det(Pi) = -1 != 0, so M is invertible;
+      K^T K is invertible (det = 2 != 0); hence G_loc = (K^T K) M is invertible and
+      rank G_loc = 1 = dim Son(2,1) -- THE PAIRING'S LOCAL RADICAL IS ZERO.
+  PASS  C5a (p,n)=(2,1)  G_loc = G_loc^T entry-exact (F = F^T)
+  PASS  C5b (p,n)=(2,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact (= G_loc^dagger = G_loc Pi)
+      G_loc (p,n)=(2,1) (exact, z = zeta_144):
+        [ 2*z^36 ]
+
+--- FACTOR (p,n)=(3,1) : N = p^(2n) = 9, q = p^n = 3, dim Son = (q-1)^2 = 4 ---
+      basis columns (alpha,j): [(1, 0), (1, 1), (2, 0), (2, 1)]
+  PASS  C1a (p,n)=(3,1)  f|_B = 0 on the integers' ball B = {m == 0 mod 3} (all 4 columns)
+  PASS  C1b (p,n)=(3,1)  (F f)|_B = 0 exactly on B (all 4 columns)
+  PASS  C2  (p,n)=(3,1)  F K - K M = 0 entry-exact (M = (K^T K)^-1 K^T F K); residual EXACT ZERO
+  PASS  C3a (p,n)=(3,1)  P K - K Pi = 0 entry-exact (Pi solved, not assumed)
+  PASS  C3b (p,n)=(3,1)  Pi is a signed permutation (one +/-1 per row and per column)
+  PASS  C3c (p,n)=(3,1)  det Pi = +1 in {+1,-1}
+  PASS  C3d (p,n)=(3,1)  M^2 - Pi = 0 entry-exact (F^2 = parity, compressed)
+  PASS  C4a (p,n)=(3,1)  det(K^T K) = 9 is a NONZERO integer
+  PASS  C4b (p,n)=(3,1)  G_loc - (K^T K) M = 0 entry-exact
+      C4 STATEMENT: det(M)^2 = det(M^2) = det(Pi) = +1 != 0, so M is invertible;
+      K^T K is invertible (det = 9 != 0); hence G_loc = (K^T K) M is invertible and
+      rank G_loc = 4 = dim Son(3,1) -- THE PAIRING'S LOCAL RADICAL IS ZERO.
+  PASS  C5a (p,n)=(3,1)  G_loc = G_loc^T entry-exact (F = F^T)
+  PASS  C5b (p,n)=(3,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact (= G_loc^dagger = G_loc Pi)
+      G_loc (p,n)=(3,1) (exact, z = zeta_144):
+        [ z^16 - z^40 | z^40 | z^32 | -z^8 ]
+        [ z^40 | -z^16 | z^8 - z^32 | z^32 ]
+        [ z^32 | z^8 - z^32 | -z^16 | z^40 ]
+        [ -z^8 | z^32 | z^40 | z^16 - z^40 ]
+
+--- FACTOR (p,n)=(2,2) : N = p^(2n) = 16, q = p^n = 4, dim Son = (q-1)^2 = 9 ---
+      basis columns (alpha,j): [(1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2)]
+  PASS  C1a (p,n)=(2,2)  f|_B = 0 on the integers' ball B = {m == 0 mod 4} (all 9 columns)
+  PASS  C1b (p,n)=(2,2)  (F f)|_B = 0 exactly on B (all 9 columns)
+  PASS  C2  (p,n)=(2,2)  F K - K M = 0 entry-exact (M = (K^T K)^-1 K^T F K); residual EXACT ZERO
+  PASS  C3a (p,n)=(2,2)  P K - K Pi = 0 entry-exact (Pi solved, not assumed)
+  PASS  C3b (p,n)=(2,2)  Pi is a signed permutation (one +/-1 per row and per column)
+  PASS  C3c (p,n)=(2,2)  det Pi = -1 in {+1,-1}
+  PASS  C3d (p,n)=(2,2)  M^2 - Pi = 0 entry-exact (F^2 = parity, compressed)
+  PASS  C4a (p,n)=(2,2)  det(K^T K) = 64 is a NONZERO integer
+  PASS  C4b (p,n)=(2,2)  G_loc - (K^T K) M = 0 entry-exact
+      C4 STATEMENT: det(M)^2 = det(M^2) = det(Pi) = -1 != 0, so M is invertible;
+      K^T K is invertible (det = 64 != 0); hence G_loc = (K^T K) M is invertible and
+      rank G_loc = 9 = dim Son(2,2) -- THE PAIRING'S LOCAL RADICAL IS ZERO.
+  PASS  C5a (p,n)=(2,2)  G_loc = G_loc^T entry-exact (F = F^T)
+  PASS  C5b (p,n)=(2,2)  conj(G_loc) - G_loc * Pi = 0 entry-exact (= G_loc^dagger = G_loc Pi)
+      G_loc (p,n)=(2,2) is 9x9; entries suppressed (row 0 shown):
+        [ -1/2*z^45 | 1/2*z^9 | 1/2*z^45 | 1/2*z^6 + 1/2*z^18 - 1/2*z^30 | -1/2*z^6 + 1/2*z^18 + 1/2*z^30 | -1/2*z^6 - 1/2*z^18 + 1/2*z^30 | 1/2*z^27 | -1/2*z^15 + 1/2*z^39 | -1/2*z^27 ]
+
+--- C6: THE CLASS FACTOR  C[a,b] = coup[(b-a) mod 3],  coup = (2,1,1) = c2 * c3 ---
+  PASS  C6a  chi_0(c2*c3) = 4 exactly in Z[omega] (imaginary part EXACTLY zero)
+  PASS  C6a  chi_1(c2*c3) = 1 exactly in Z[omega] (imaginary part EXACTLY zero)
+  PASS  C6a  chi_2(c2*c3) = 1 exactly in Z[omega] (imaginary part EXACTLY zero)
+      chi = (4, 1, 1)
+  PASS  C6b  C = C^T exactly
+  PASS  C6c  det C = 4 exactly (det = 4)
+  PASS  C6d  Tr(mult-by-coup) = 6 = 4 + 1 + 1 (trace = sum of the character spectrum)
+      C rows: [[2, 1, 1], [1, 2, 1], [1, 1, 2]]   [circulant on Cl of order 3; omega = zeta^48 = -1 + z^24]
+      NOTE (grade): this is the class-character TRACE of Z-hat's label-norm
+      coefficient -- the tau-route, QUESTION GRADE. No sign is asserted here.
+
+--- C7: THE GLUED SECTION AT THE DIAGONAL CELLS a in {sqrt2, sqrt3, 2} ---
+      a        cell         local dims x |Cl|          dim      rank (tensor law)
+      sqrt2    {2:1}        1 * 3                      3        3 = dim  (rank multiplicative: 1 x rank C = 3)
+      sqrt3    {2:1,3:1}    1 * 4 * 3                  12       12 = dim  (rank multiplicative: 1 x 4 x rank C = 3)
+      2        {2:2,3:1}    9 * 4 * 3                  108      108 = dim  (rank multiplicative: 9 x 4 x rank C = 3)
+  PASS  C7a  cell dims by the tensor law = (3, 12, 108) exactly (got (3, 12, 108))
+      each factor's G_loc is invertible (C4), det C = 4 != 0 (C6); rank of a Kronecker
+      product is the product of the ranks -- so rank = dim at every cell above.
+  PASS  C7b  DIRECT GLUED dim-12 cell: K_g^T (F_4 (x) F_9) K_g  ==  G_2 (x) G_3 entry-exact
+  PASS  C7c  glued T-invariance: (F_4 (x) F_9) K_g - K_g (M_2 (x) M_3) = 0 entry-exact
+  PASS  C7d  tensor-functorial parity: (M_2 (x) M_3)^2 - (Pi_2 (x) Pi_3) = 0 entry-exact
+  PASS  C7e  tensor-functorial twist: conj(G_g) - G_g (Pi_2 (x) Pi_3) = 0 entry-exact
+  PASS  C7f  full 12x12 section Gram[(u,a),(v,b)] = G_g[u][v]*coup[(b-a)%3] == G_g (x) C entry-exact
+      rank of the 12x12 section Gram = 4 * 3 = 12 = dim, by the tensor law
+      (det(K2^T K2) = 2, det(K3^T K3) = 9, both G_loc invertible; det C = 4).
+  PASS  C7g  antipode A on C[Cl]: A^2 = 1 exactly (integer)
+  PASS  C7h  A C A = C exactly (integer): the antipode preserves the class factor
+
+--- C8: CARRIED DATA (not re-derived here) ---
+      inertia (d/4, d/4, d/2) on the untwisted symmetrization -- CARRIED from sitting 2's banked run (float era); not re-derived in exact arithmetic; a data row, never a sign datum.
+
+--- LEDGER ---
+  PASS  F0a  zeta^144 = 1 exactly (ZPOW[143] * zeta = 1)
+  PASS  F0b  Phi_144(zeta) = zeta^48 - zeta^24 + 1 = 0 exactly
+  PASS  F0c  conj(zeta^k) * zeta^k = 1 for all k in [0,144)
+  PASS  F0d  i = zeta^36 satisfies i^2 = -1 exactly
+  PASS  F0e  omega = zeta^48 satisfies omega^2 + omega + 1 = 0 exactly
+  PASS  F0f  F_4^dagger F_4 = I exactly (rational normalization 1/2 keeps it in the field)
+  PASS  F0f  F_9^dagger F_9 = I exactly (rational normalization 1/3 keeps it in the field)
+  PASS  F0f  F_16^dagger F_16 = I exactly (rational normalization 1/4 keeps it in the field)
+  PASS  C1a (p,n)=(2,1)  f|_B = 0 on the integers' ball B = {m == 0 mod 2} (all 1 columns)
+  PASS  C1b (p,n)=(2,1)  (F f)|_B = 0 exactly on B (all 1 columns)
+  PASS  C2  (p,n)=(2,1)  F K - K M = 0 entry-exact (M = (K^T K)^-1 K^T F K); residual EXACT ZERO
+  PASS  C3a (p,n)=(2,1)  P K - K Pi = 0 entry-exact (Pi solved, not assumed)
+  PASS  C3b (p,n)=(2,1)  Pi is a signed permutation (one +/-1 per row and per column)
+  PASS  C3c (p,n)=(2,1)  det Pi = -1 in {+1,-1}
+  PASS  C3d (p,n)=(2,1)  M^2 - Pi = 0 entry-exact (F^2 = parity, compressed)
+  PASS  C4a (p,n)=(2,1)  det(K^T K) = 2 is a NONZERO integer
+  PASS  C4b (p,n)=(2,1)  G_loc - (K^T K) M = 0 entry-exact
+  PASS  C5a (p,n)=(2,1)  G_loc = G_loc^T entry-exact (F = F^T)
+  PASS  C5b (p,n)=(2,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact (= G_loc^dagger = G_loc Pi)
+  PASS  C1a (p,n)=(3,1)  f|_B = 0 on the integers' ball B = {m == 0 mod 3} (all 4 columns)
+  PASS  C1b (p,n)=(3,1)  (F f)|_B = 0 exactly on B (all 4 columns)
+  PASS  C2  (p,n)=(3,1)  F K - K M = 0 entry-exact (M = (K^T K)^-1 K^T F K); residual EXACT ZERO
+  PASS  C3a (p,n)=(3,1)  P K - K Pi = 0 entry-exact (Pi solved, not assumed)
+  PASS  C3b (p,n)=(3,1)  Pi is a signed permutation (one +/-1 per row and per column)
+  PASS  C3c (p,n)=(3,1)  det Pi = +1 in {+1,-1}
+  PASS  C3d (p,n)=(3,1)  M^2 - Pi = 0 entry-exact (F^2 = parity, compressed)
+  PASS  C4a (p,n)=(3,1)  det(K^T K) = 9 is a NONZERO integer
+  PASS  C4b (p,n)=(3,1)  G_loc - (K^T K) M = 0 entry-exact
+  PASS  C5a (p,n)=(3,1)  G_loc = G_loc^T entry-exact (F = F^T)
+  PASS  C5b (p,n)=(3,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact (= G_loc^dagger = G_loc Pi)
+  PASS  C1a (p,n)=(2,2)  f|_B = 0 on the integers' ball B = {m == 0 mod 4} (all 9 columns)
+  PASS  C1b (p,n)=(2,2)  (F f)|_B = 0 exactly on B (all 9 columns)
+  PASS  C2  (p,n)=(2,2)  F K - K M = 0 entry-exact (M = (K^T K)^-1 K^T F K); residual EXACT ZERO
+  PASS  C3a (p,n)=(2,2)  P K - K Pi = 0 entry-exact (Pi solved, not assumed)
+  PASS  C3b (p,n)=(2,2)  Pi is a signed permutation (one +/-1 per row and per column)
+  PASS  C3c (p,n)=(2,2)  det Pi = -1 in {+1,-1}
+  PASS  C3d (p,n)=(2,2)  M^2 - Pi = 0 entry-exact (F^2 = parity, compressed)
+  PASS  C4a (p,n)=(2,2)  det(K^T K) = 64 is a NONZERO integer
+  PASS  C4b (p,n)=(2,2)  G_loc - (K^T K) M = 0 entry-exact
+  PASS  C5a (p,n)=(2,2)  G_loc = G_loc^T entry-exact (F = F^T)
+  PASS  C5b (p,n)=(2,2)  conj(G_loc) - G_loc * Pi = 0 entry-exact (= G_loc^dagger = G_loc Pi)
+  PASS  C6a  chi_0(c2*c3) = 4 exactly in Z[omega] (imaginary part EXACTLY zero)
+  PASS  C6a  chi_1(c2*c3) = 1 exactly in Z[omega] (imaginary part EXACTLY zero)
+  PASS  C6a  chi_2(c2*c3) = 1 exactly in Z[omega] (imaginary part EXACTLY zero)
+  PASS  C6b  C = C^T exactly
+  PASS  C6c  det C = 4 exactly (det = 4)
+  PASS  C6d  Tr(mult-by-coup) = 6 = 4 + 1 + 1 (trace = sum of the character spectrum)
+  PASS  C7a  cell dims by the tensor law = (3, 12, 108) exactly (got (3, 12, 108))
+  PASS  C7b  DIRECT GLUED dim-12 cell: K_g^T (F_4 (x) F_9) K_g  ==  G_2 (x) G_3 entry-exact
+  PASS  C7c  glued T-invariance: (F_4 (x) F_9) K_g - K_g (M_2 (x) M_3) = 0 entry-exact
+  PASS  C7d  tensor-functorial parity: (M_2 (x) M_3)^2 - (Pi_2 (x) Pi_3) = 0 entry-exact
+  PASS  C7e  tensor-functorial twist: conj(G_g) - G_g (Pi_2 (x) Pi_3) = 0 entry-exact
+  PASS  C7f  full 12x12 section Gram[(u,a),(v,b)] = G_g[u][v]*coup[(b-a)%3] == G_g (x) C entry-exact
+  PASS  C7g  antipode A on C[Cl]: A^2 = 1 exactly (integer)
+  PASS  C7h  A C A = C exactly (integer): the antipode preserves the class factor
+
+SCOPE, said plainly: these are EXACT properties of a FINITE CONSTRUCTED OBJECT.
+No sign is asserted; no register moves; W_inf - Sum W_p at complete roster is NOT touched.
+
+ALL CERTIFIED LINES EXACT: 55/55 PASS

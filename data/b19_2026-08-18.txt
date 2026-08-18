@@ -1,0 +1,138 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 6 — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 6 — THE ARCHIMEDEAN MODEL: THE ONE UNMODELED SLOT.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+This sitting replaces "at cite by symmetry" with a COMPUTED archimedean factor; whatever
+it shows is a property of the model, never of the Hypothesis.
+
+RULE-3 DISAGREEMENT, FLAGGED NOT SILENTLY RESOLVED
+==================================================
+The ferry writes the window as [a^-1, a]; sitting 4's banked registration wrote the
+diagonal's archimedean window as [1/a^2, a^2] (the staircase counts NORMS p^k <= a^2;
+[a^-1, a] is the absolute-value normalization of the same shape). Per Rule 3 the
+disagreement is flagged here and BOTH radii lambda in {1/a, 1/a^2} are measured; no
+convention is adjudicated by this bench.
+
+THE MODEL, DECLARED (before any run)
+====================================
+The finite Fourier model of the real place: N grid points (N ODD), centered indices
+m in [-(N-1)/2, (N-1)/2], self-dual spacing h = sqrt(2*pi/N), x_m = m*h; the centered
+DFT F[j,k] = exp(2*pi*i*m_j*m_k/N)/sqrt(N), which represents the Fourier transform of
+L^2(R) on this grid and satisfies F^2 = parity EXACTLY (checked in-run), F^4 = 1.
+The factor enters the section CLASS-SILENTLY (B5): it tensors with the identity on
+C[Cl]; nothing archimedean touches the coupling.
+
+THE SONIN CONDITION AT THE REAL PLACE, TWO READINGS — REGISTERED LONGHAND:
+(W1, the ball reading — CC's Sonin condition, the local models' mirror): Son_inf(a) =
+    {f : f = 0 and F f = 0 on the ball |x| < lambda}, lambda the window's inner radius.
+    The outer edge is the GRID EDGE (the model's truncation, the same declared artifact
+    as the local towers' finite n); convergence in N is reported, not assumed.
+(W2, the hard two-sided window): both f and F f vanish OUTSIDE lambda <= |x| <= Lambda
+    (Lambda = a or a^2 per convention). LONGHAND PREDICTION, said before the run: in the
+    continuum a function with f and F f both compactly supported is ZERO (the uncertainty
+    principle / Paley-Wiener, at cite) — so this space should DIE as N refines. If it
+    does, that is not a defect: it is the located reason the archimedean factor is a
+    ball-vanishing space with a soft outer edge, never a hard two-sided window — the
+    real place's distinctive geometry in this construction.
+
+MEASURED QUANTITIES (registered with the branch map, before any number):
+ M1  dim Son_inf(a) under (W1), per (N, lambda): expected positive and N-stable in
+     fraction; if 0 anywhere, the ext-no address is "the window holds no Sonin vector".
+ M2  T-invariance of the factor: ||(1-S) F K|| with S the orthoprojection onto
+     Son_inf(a) — the EXACT mirror of the finite places' certified closure. By the
+     two-sided symmetry of the ball this should land at machine zero (the invariance is
+     structural, the same mechanism as at the finite places); a nonzero value names the
+     failing address at infinity.
+ M3  the pairing at infinity: G = K^dag F K; its radical (rank vs dim), the raw
+     Hermitian residual ||G - G^dag||, and the parity-twisted residual
+     ||G^dag - P_S G|| with P_S = K^dag P K — the real-place instance of the same
+     twisted-Hermitian identity certified exactly at the finite places (sitting 5).
+ M4  the weight channel at infinity: Q_inf(a) = ||K^dag D K||_F with D the scaling
+     GENERATOR D = (X Ptil + Ptil X)/2, Ptil = F X F^dag (the grid's exact affordance;
+     the local channel used the group element U_p — the generator-vs-element difference
+     is DECLARED, not hidden). Reported per (N, lambda); the punctuated-weight re-read
+     places Q_inf beside the banked finite-side weights.
+
+BRANCHES, REGISTERED:
+ (ext-yes)     W1 lands: dim > 0 at every a, M2 at machine zero, radical zero, the twist
+               identity holds at machine, Q_inf stable in N — D-YES EXTENDS to the full
+               section AT THE MODEL (finite factors exact by sitting 5; the infinity
+               factor measured here); "at cite" is retired for this slot.
+ (ext-no)      W1 fails one of these — the archimedean place named as the one that does
+               not interleave; the failing measurement is the codomain absence at its
+               exact address.
+ (ext-partial) W1 lands and W2 dies under refinement (the registered prediction): D-YES
+               extends under the ball reading, and the death of the hard window is
+               recorded as the real place's own geometry (uncertainty at cite) — the
+               sharp local/global asymmetry: finite places afford hard two-sided
+               truncation exactly; the real place does not.
+
+THE PUNCTUATED-WEIGHT RE-READ, registered: the full-section weight at the diagonal cell
+is the product Q_inf(a) * prod_p Q(p, n_p(a)). The banked finite side (sitting 4, exact):
+0 through a = 2; 6*sqrt(6) at a = 3 on {inf,2,3}; 0 at a = 3 on {inf,2,3,5}. The re-read
+reports whether the infinity channel is alive where the finite channels are dead (the
+sawtooth's zeros persist in the product; the ledger PER CHANNEL is the new information).
+
+Usage:  python b19_attempt2_s6.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+--- N = 255 (odd), h = 0.156971, grid extent |x| <= 19.935 ---
+    F^2 = parity, exactly on the centered grid: ||F^2 - P|| = 2.10e-13
+  a       lambda    dim    M2:(1-S)FK   radical      herm raw     herm twist   Q_inf(a)     W2dim aE   W2dim a2E
+  1.3     1/a       237    2.96e-14     237/237      2.18e+01     1.86e-14     2090.5096    0          0
+  1.3     1/a^2     241    2.67e-14     241/241      2.20e+01     1.85e-14     2090.7501    0          0
+  sqrt2   1/a       237    2.96e-14     237/237      2.18e+01     1.86e-14     2090.5096    0          0
+  sqrt2   1/a^2     241    2.67e-14     241/241      2.20e+01     1.85e-14     2090.7501    0          0
+  1.5     1/a       237    2.96e-14     237/237      2.18e+01     1.86e-14     2090.5096    0          0
+  1.5     1/a^2     245    2.27e-14     245/245      2.22e+01     1.89e-14     2090.9615    0          0
+  sqrt3   1/a       241    2.67e-14     241/241      2.20e+01     1.85e-14     2090.7501    0          0
+  sqrt3   1/a^2     245    2.27e-14     245/245      2.22e+01     1.89e-14     2090.9615    0          0
+  2       1/a       241    2.67e-14     241/241      2.20e+01     1.85e-14     2090.7501    0          0
+  2       1/a^2     249    1.78e-14     249/249      2.24e+01     1.89e-14     2091.1510    0          0
+  3       1/a       245    2.27e-14     245/245      2.22e+01     1.89e-14     2090.9615    0          19
+  3       1/a^2     253    2.73e-14     253/253      2.25e+01     2.88e-14     2091.3259    0          27
+
+--- N = 511 (odd), h = 0.110887, grid extent |x| <= 28.276 ---
+    F^2 = parity, exactly on the centered grid: ||F^2 - P|| = 6.05e-13
+  a       lambda    dim    M2:(1-S)FK   radical      herm raw     herm twist   Q_inf(a)     W2dim aE   W2dim a2E
+  1.3     1/a       485    7.26e-14     485/485      3.12e+01     3.21e-14     5982.4672    0          0
+  1.3     1/a^2     489    6.70e-14     489/489      3.13e+01     3.28e-14     5982.6378    0          0
+  sqrt2   1/a       485    7.26e-14     485/485      3.12e+01     3.21e-14     5982.4672    0          0
+  sqrt2   1/a^2     493    5.97e-14     493/493      3.14e+01     3.27e-14     5982.7935    0          0
+  1.5     1/a       485    7.26e-14     485/485      3.12e+01     3.21e-14     5982.4672    0          0
+  1.5     1/a^2     493    5.97e-14     493/493      3.14e+01     3.27e-14     5982.7935    0          0
+  sqrt3   1/a       489    6.70e-14     489/489      3.13e+01     3.28e-14     5982.6378    0          0
+  sqrt3   1/a^2     497    5.29e-14     497/497      3.16e+01     3.28e-14     5982.9368    0          0
+  2       1/a       493    5.97e-14     493/493      3.14e+01     3.27e-14     5982.7935    0          0
+  2       1/a^2     501    4.43e-14     501/501      3.17e+01     3.28e-14     5983.0700    0          0
+  3       1/a       497    5.29e-14     497/497      3.16e+01     3.28e-14     5982.9368    0          14
+  3       1/a^2     505    3.53e-14     505/505      3.18e+01     3.31e-14     5983.1955    0          22
+
+--- N = 1023 (odd), h = 0.078370, grid extent |x| <= 40.047 ---
+    F^2 = parity, exactly on the centered grid: ||F^2 - P|| = 1.65e-12
+  a       lambda    dim    M2:(1-S)FK   radical      herm raw     herm twist   Q_inf(a)     W2dim aE   W2dim a2E
+  1.3     1/a       985    1.66e-13     985/985      4.44e+01     4.49e-14     17029.0382   0          0
+  1.3     1/a^2     993    1.51e-13     993/993      4.46e+01     4.39e-14     17029.2746   0          0
+  sqrt2   1/a       985    1.66e-13     985/985      4.44e+01     4.49e-14     17029.0382   0          0
+  sqrt2   1/a^2     997    1.43e-13     997/997      4.47e+01     4.38e-14     17029.3822   0          0
+  1.5     1/a       989    1.58e-13     989/989      4.45e+01     4.47e-14     17029.1602   0          0
+  1.5     1/a^2     1001   1.34e-13     1001/1001    4.48e+01     4.35e-14     17029.4837   0          0
+  sqrt3   1/a       993    1.51e-13     993/993      4.46e+01     4.39e-14     17029.2746   0          0
+  sqrt3   1/a^2     1005   1.23e-13     1005/1005    4.49e+01     4.35e-14     17029.5801   0          0
+  2       1/a       997    1.43e-13     997/997      4.47e+01     4.38e-14     17029.3822   0          0
+  2       1/a^2     1009   1.11e-13     1009/1009    4.49e+01     4.34e-14     17029.6721   0          0
+  3       1/a       1005   1.23e-13     1005/1005    4.49e+01     4.35e-14     17029.5801   0          9
+  3       1/a^2     1017   7.48e-14     1017/1017    4.51e+01     4.30e-14     17029.8464   0          21
+
+--- THE PUNCTUATED-WEIGHT RE-READ (per-channel ledger at the largest N; lambda = 1/a) ---
+    banked finite side (sitting 4, exact): weight 0 through a = 2;
+    6*sqrt(6) = 14.6969... at a = 3 on {inf,2,3}; 0 at a = 3 on {inf,2,3,5}.
+    Q_inf(a) above is the infinity channel; the full-section weight is the product.
+    The ledger's reading is printed by the report, not asserted by this bench.
