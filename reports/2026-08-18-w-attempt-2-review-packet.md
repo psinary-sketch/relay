@@ -8,10 +8,16 @@
 > RECORD KEPT CURRENT, NOT A NEXT ACT — research continues until the corpus's own light is fully
 > interrelated with what was built. §9 below carries the interrelation's results.**
 
-> ### **THE TARGET IS NOW SPECIFIED: `THE_CODOMAIN_SPECIFICATION.md` (v0.1 DRAFT) — clauses (a)–(d)
-> filled by the built section at finite instance, clause (e) the four-named absence with its
-> falsifier. A reviewer should read the specification's §6 grading and §7 falsifier FIRST; the
-> questions below are its instances.**
+> ### **THE TARGET IS NOW SPECIFIED: `THE_CODOMAIN_SPECIFICATION.md` (v0.2 DRAFT) — clauses (a)–(d)
+> filled by the built section at finite instance; clause (e) BUILT OVER FUNCTION FIELDS AND NOT YET
+> BUILT OVER `ℚ` (the corrected tense), with the falsifier and the `§8` construction routes. A
+> reviewer reads the specification's §6 grading, §7 falsifier, and §8 routes FIRST; the questions
+> below are its instances.**
+>
+> ### **READER-FIRST FRAMING (the corrections-placement ruling): this packet and the documents it
+> assembles carry CURRENT TRUE STATEMENTS; provenance and the corrections register (one through
+> twenty-seven, attribution intact) live at `reports/W-ATTEMPT-2-CORRECTIONS-REGISTER.md` — one
+> pointer, same rigor.**
 >
 > ### **THE IMPLICATIONS (charter `v1.2` `§8`, filed 2026-08-18) NOW FRAME THIS PACKET: the sign is
 > not the target; the target is the codomain — ONE absence, FOUR names (`Z` channel · bright
