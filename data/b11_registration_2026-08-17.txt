@@ -1,0 +1,40 @@
+====================================================================================================
+B11(1) — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+B11(1) — THE CORRECTION FACTOR DISCRIMINATED: the n-trend of the quotient trace's
+per-lag ratio, in EXACT RATIONAL arithmetic (no floats, no dense matrices).
+
+Relay-only. NO SIGN SENTENCE. h2 UNCHANGED. NOTHING DEPOSITS.
+POSITIVITY GUARD: nothing here bears on h2.
+
+THE QUANTITY, EXACT
+===================
+On the model, T_quot(k) = p^{-k/2} * R(k) where R(k) is RATIONAL:
+    R(k) = Sum_{orbit classes j} #{(a,b) in class_j^2 : p^k a == b mod p^{2n}} / |class_j|
+(the 0/1 pushforward matrix traced against the normalized class indicators). Computed with
+Fractions -- the exact rationals ARE the bank; denominators are DATA, checked against the
+p+1 and p^n+1 patterns BEFORE any trend is read (registered order of operations).
+The per-lag ratio r_k(n) = T(k+1)/T(k) = p^{-1/2} * R(k+1)/R(k).
+
+REGISTERED VERDICT MAP (both branches longhand, before any number)
+==================================================================
+F1  GENUINE: at fixed k, r_k(n) -> sqrt(p)/(p+1) as n grows (equivalently
+    R(k+1)/R(k) -> p/(p+1)): the (1+p^{-1})^{-1} is a local Euler-type factor and the
+    quotient trace carries local zeta structure natively -- column (i) entering the
+    trace; MODEL GRADE, OURS, NO PROMOTION.
+F2  TRUNCATION: r_k(n) -> p^{-1/2} (R-ratio -> 1): the factor dies with the cutoff,
+    leaving the pure Weil weight q^{-1/2}.
+F3  third shape, filed openly.
+The k >= n truncation edge is respected (only k <= n-2 ratios read for trend).
+
+CELLS: p in {2,3,5,7}; n up to the grid limit (N = p^{2n} <= ~2*10^5, sparse union-find
+and orbit-wise pair counts -- no matrices).
+
+Usage:  python b11_factor.py register | run
+
+  the two reference ratios per p (R-ratio form):
+    p=2   F1: p/(p+1) = 2/3     F2: 1
+    p=3   F1: p/(p+1) = 3/4     F2: 1
+    p=5   F1: p/(p+1) = 5/6     F2: 1
+    p=7   F1: p/(p+1) = 7/8     F2: 1
+====================================================================================================
