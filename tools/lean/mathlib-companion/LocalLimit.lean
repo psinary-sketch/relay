@@ -80,7 +80,12 @@ structure PadicFourierData (p : ℕ) [Fact p.Prime] where
   F_sq : ∀ x, F (F x) = parity x
   parity_sq : ∀ x, parity (parity x) = x
 
-/-- OWED TO FILES B–C: the realization. (Sorry count: this is the instantiation debt.) -/
+/-- OWED TO FILES B–C: the realization. (Sorry count: this is the instantiation debt.)
+    ACT-5 MOVEMENT: file A is now COMPLETE (the standard character with conductor ℤ_p,
+    zero sorries, profile {propext, Classical.choice, Quot.sound}) — the first of the
+    realization's three ingredients is proof-grade. Remaining owed content: the Fourier
+    transform on LocallyConstant test data against `stdAddChar`, and Plancherel via the
+    tower's level-exact Gram stability (the banked path). The sorry STANDS. -/
 theorem padicFourierData_exists (p : ℕ) [Fact p.Prime] :
     Nonempty (PadicFourierData p) := by
   sorry

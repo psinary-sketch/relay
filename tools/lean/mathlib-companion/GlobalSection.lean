@@ -41,7 +41,16 @@ theorem inner_F_self_of_fixed (D : GlobalSectionData) (x : D.H) (hx : D.F x = x)
 
 /-- OWED TO INFRASTRUCTURE (the Hilbert restricted tensor product over the places, with
     `E₁`-units — Mathlib holds only the topological `RestrictedProduct`): the
-    construction of the data. This is the file's single labeled sorry. -/
+    construction of the data. This is the file's single labeled sorry.
+    ACT-5 CONSTRUCTION PATH, spelled so the debt is priced, not vague:
+    (i) index by places, local space = the completed Sonin limit, unit = the E₁ vector
+        (act 1's forced witness tensors);
+    (ii) the algebraic restricted tensor product as the colimit of finite tensor
+        products along unit-inclusions (Mathlib holds the finite `TensorProduct` and
+        the topological `RestrictedProduct`, NOT this colimit with inner products);
+    (iii) the inner product on the colimit (almost-all factors pair unit-against-unit
+        to 1), then Hilbert completion.
+    Steps (ii)-(iii) are the missing Mathlib infrastructure. The sorry STANDS. -/
 theorem globalSectionData_exists : Nonempty GlobalSectionData := by
   sorry
 
