@@ -1,0 +1,454 @@
+====================================================================================================
+W-ATTEMPT-2 ADJACENT -- THE h = 1 INSTANCE. REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2 ADJACENT -- THE h = 1 INSTANCE: THE SAME CONSTRUCTION OVER Q ITSELF.
+
+RELAY-ONLY. THE CORRECTED STOP IN FORCE: measured properties of constructed objects are
+DATA at bench grade; refused: any promotion to W_inf - Sum W_p at complete roster, or
+register movement. THIS IS THE INSTANCE NEAREST RH PROPER AND THE SCOPE GUARD RIDES
+EVERY LINE: finite place sets, finite cutoffs, a model -- nothing about the Hypothesis.
+
+THE INSTANCE, REGISTERED: over Q (h = 1, Cl trivial, C[Cl] = C, tau = epsilon -- the two
+scalarizations coincide), the class-resolved diagonal section DEGENERATES to the plain
+tensor of local Sonin squares: places {inf, 2, 3}, cutoffs to n = 2 (factors (2,1),
+(2,2), (3,1), (3,2); cells {2:1}, {2:1,3:1}, {2:2,3:1}, {2:2,3:2} -- the last
+cutoff-capped, declared). Every prime of Q is principal: each label is [0] = 1, the
+coupling is the SCALAR 1, and the norm-N coefficient of zeta is a_N = 1 (the count of
+norm-N ideals of Q -- exactly one, (N)). The antipode is TRIVIAL.
+
+REGISTERED LONGHAND, before any number:
+ (i)   the per-factor certificates (F K = K M, M^2 = Pi, radical zero, twist
+       G-dagger = G Pi) are UNCHANGED -- they never involved the class layer;
+ (ii)  H^2 = C, dim 1, antipode-invariant dim 1 (was dim 3 / invariant 2 at h = 3);
+ (iii) the constrained class at h = 1: antipode-fixed is EVERYTHING, so the class =
+       T-fixed = the lam-product = +1 sectors -- THE SAME SECTOR SET as h = 3's class --
+       and B|_class = ||v||^2 * (scalar 1): POSITIVE, by the same sector-forcing, with
+       C|_fix replaced by the positive scalar a_N = 1;
+ (iv)  THE FLIP CHANNEL HAS NO HOME AT h = 1: the T-fixed negatives of h = 3 lived in
+       the antipode-ANTI-invariant channel (lam-product = -1, nu = -1); with the
+       antipode trivial that channel is EMPTY -- at h = 1 there are NO T-fixed negative
+       directions at all (the full pairing's lam-product = -1 negatives remain, off the
+       fixed space). REGISTERED READING: the arrival-edge negativity-in-the-flipped-
+       channel is a CLASS-RESOLUTION phenomenon; what the resolution supplied is the
+       CHANNEL (the home of T-fixed negativity) and the tau/epsilon LEDGER SEPARATION
+       (B5's selection principle: tau class-separating -- vacuous at h = 1), NOT the
+       positivity, which rides the same sector-forcing at both h.
+
+BRANCHES, as ferried:
+ (H1-same)     positivity holds by the same mechanism with C|_fix a positive scalar --
+               the class resolution was STRUCTURE, not the source of the sign; the
+               scalar is the norm-N coefficient count (= 1), positive by construction.
+ (H1-collapse) something the resolution supplied is LOST -- named exactly (the B5
+               selection principle's content at h = 1).
+ (H1-third)    filed openly.
+LONGHAND EXPECTATION: (H1-same) for the sign, WITH the two named losses of (iv) recorded
+as what the resolution actually supplied (channel + ledger separation) -- i.e. the honest
+verdict is expected to be (H1-same)-for-positivity AND the (iv) reading banked beside it.
+
+MEASURED (exact where the cell allows, per the b18/b20 machinery): per factor -- the four
+certificates re-asserted; per cell -- dim; H^2 = C data line; the T-fixed (= class) dims
+by sector arithmetic (expected: {2:1}: 0 -- the death survives h = 1, it was never a
+class phenomenon; {2:1,3:1}: 1 via (i,-i); {2:2,3:1}: 9; {2:2,3:2}: 208 = sum over
+lam-product = +1 of d*d for (2,2)x(3,2)); T-fixed negative count (expected 0 at every
+cell -- assert); full-pairing negative dims (lam-product = -1 sectors, scalar class);
+DIRECT EXACT positivity of B|_class at {2:1,3:1} (dim 1) and {2:2,3:1} (dim 9): build
+the exact eigenbases, restrict the Gram (NO class tensor now), certify positive-definite
+by the rational-SPD factorization route (b20's precedent); the coupling scalar verified:
+the number of ideals of Q of norm 6 (and of norm 36) enumerated = 1 = the coupling.
+
+RECORDED PLAINLY AS DATA. The register is untouched; nothing circulates.
+Usage:  python b31_h1_instance.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+====================================================================================================
+PART 0 -- THE EXACT FIELD LAYERS, AND THE h = 1 CLASS LAYER
+====================================================================================================
+  PASS  F0a  Q(zeta_144): Phi_144(zeta) = zeta^48 - zeta^24 + 1 = 0 exactly (b18)
+  PASS  F0b  Q(zeta_144): i = zeta^36, i^2 = -1 exactly
+  PASS  F0c  Q(zeta_81): Phi = x^54 + x^27 + 1, and the reduction of x^81 is exactly 1 (zeta_81 has order 81)
+  PASS  F0d  Q(zeta_81): the added conjugation is an involution on a test element (conj(conj(x)) = x exactly)
+  PASS  F0e  Q(zeta_81): the added sparse product is exact: zeta^40 * zeta^41 = zeta^81 = 1
+  PASS  F0f  Q(zeta_81): x * conj(x) = 1 for x = zeta_81^k, all k in [0,81) (unit circle)
+
+--- THE h = 1 CLASS LAYER, EXACTLY (registration items (ii) and (iv)) ---
+  PASS  H1a  Cl(Q) is trivial: |Cl| = 1, so C[Cl] = C has dim 1 (h = 3 banked: dim 3)
+  PASS  H1b  the antipode A on C[Cl] is the identity 1x1 matrix and A^2 = 1 exactly
+  PASS  H1c  A C A = C exactly (vacuously: A = 1)
+  PASS  H1d  H^2 = C DATA LINE: dim C[Cl] = 1; antipode-INVARIANT dim = 1; antipode-ANTI-invariant dim = 0 (h = 3 banked: dim 3, invariant 2, anti 1)
+  PASS  H1e  C|_fix = the scalar [1]: exact rational congruence pivot (1) POSITIVE => C|_fix is rational SPD of dim 1 (h = 3 banked spectrum {4,1})
+      REGISTERED READING (iv), stated before the cells: the h = 3 T-fixed
+      NEGATIVES lived in the antipode-ANTI-invariant channel (lam-product = -1,
+      nu = -1).  At h = 1 that channel has dimension 0 -- IT HAS NO HOME.
+      tau = epsilon at h = 1 (the two scalarizations coincide); B5's selection
+      principle (tau class-separating) is VACUOUS here -- the LEDGER SEPARATION
+      is the second thing the class resolution supplied, and it is absent.
+
+====================================================================================================
+PART 1 -- THE FOUR FACTORS: THE FOUR CERTIFICATES RE-ASSERTED (item (i))
+====================================================================================================
+  The certificates never involved the class layer, so they are UNCHANGED at
+  h = 1.  They are re-run here, not cited.
+
+--- FACTOR (2,1) in Q(zeta_144) ---
+  PASS  A1 (2,1)  F K = K M entry-exact, FULL (b18 C2 / b20 P1a re-asserted at h = 1)
+  PASS  A2 (2,1)  P K = K Pi entry-exact, FULL; Pi the signed permutation (a,j) -> -(q-a, q-2-j) (b18 C3a re-asserted)
+  PASS  A3 (2,1)  Pi is a signed permutation, det Pi = -1 in {+1,-1}
+  PASS  A4 (2,1)  M^2 - Pi = 0 entry-exact, FULL (F^2 = parity, compressed; b18 C3d)
+  PASS  A5 (2,1)  det(K^T K) = 2 is a NONZERO integer => K injective, radical ZERO (G_loc = (K^T K) M with M invertible by A4)
+  PASS  A6 (2,1)  G_loc - (K^T K) M = 0 entry-exact (b18 C4b)
+  PASS  A7 (2,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (G_loc^dagger = G_loc Pi; b18 C5b)
+  PASS  A8 (2,1)  tr M is a GAUSSIAN INTEGER: tr M = 0 + (1)*i, no other coefficient nonzero
+  PASS  A9 (2,1)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (0,0,1,0), sum = 1 = 1
+  PASS  A10 (2,1) re-derived eigen-dims [0, 0, 1, 0] == the BANKED eigen-dims [0, 0, 1, 0]
+
+--- FACTOR (3,1) in Q(zeta_144) ---
+  PASS  A1 (3,1)  F K = K M entry-exact, FULL (b18 C2 / b20 P1a re-asserted at h = 1)
+  PASS  A2 (3,1)  P K = K Pi entry-exact, FULL; Pi the signed permutation (a,j) -> -(q-a, q-2-j) (b18 C3a re-asserted)
+  PASS  A3 (3,1)  Pi is a signed permutation, det Pi = +1 in {+1,-1}
+  PASS  A4 (3,1)  M^2 - Pi = 0 entry-exact, FULL (F^2 = parity, compressed; b18 C3d)
+  PASS  A5 (3,1)  det(K^T K) = 9 is a NONZERO integer => K injective, radical ZERO (G_loc = (K^T K) M with M invertible by A4)
+  PASS  A6 (3,1)  G_loc - (K^T K) M = 0 entry-exact (b18 C4b)
+  PASS  A7 (3,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (G_loc^dagger = G_loc Pi; b18 C5b)
+  PASS  A8 (3,1)  tr M is a GAUSSIAN INTEGER: tr M = 0 + (0)*i, no other coefficient nonzero
+  PASS  A9 (3,1)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (1,1,1,1), sum = 4 = 4
+  PASS  A10 (3,1) re-derived eigen-dims [1, 1, 1, 1] == the BANKED eigen-dims [1, 1, 1, 1]
+
+--- FACTOR (2,2) in Q(zeta_144) ---
+  PASS  A1 (2,2)  F K = K M entry-exact, FULL (b18 C2 / b20 P1a re-asserted at h = 1)
+  PASS  A2 (2,2)  P K = K Pi entry-exact, FULL; Pi the signed permutation (a,j) -> -(q-a, q-2-j) (b18 C3a re-asserted)
+  PASS  A3 (2,2)  Pi is a signed permutation, det Pi = -1 in {+1,-1}
+  PASS  A4 (2,2)  M^2 - Pi = 0 entry-exact, FULL (F^2 = parity, compressed; b18 C3d)
+  PASS  A5 (2,2)  det(K^T K) = 64 is a NONZERO integer => K injective, radical ZERO (G_loc = (K^T K) M with M invertible by A4)
+  PASS  A6 (2,2)  G_loc - (K^T K) M = 0 entry-exact (b18 C4b)
+  PASS  A7 (2,2)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (G_loc^dagger = G_loc Pi; b18 C5b)
+  PASS  A8 (2,2)  tr M is a GAUSSIAN INTEGER: tr M = 0 + (1)*i, no other coefficient nonzero
+  PASS  A9 (2,2)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (2,2,3,2), sum = 9 = 9
+  PASS  A10 (2,2) re-derived eigen-dims [2, 2, 3, 2] == the BANKED eigen-dims [2, 2, 3, 2]
+
+--- FACTOR (3,2) in Q(zeta_81) (sparse: no dense F is ever formed) ---
+  PASS  A2 (3,2)  P K = K Pi verified FULLY (all 81 rows; no F is involved)
+  PASS  A3 (3,2)  Pi is a signed permutation, det Pi = +1 in {+1,-1}
+  PASS  A1 (3,2)  F K = K M SPOT-CHECKED entry-exact on 8 deterministic columns (alpha in {1,2,q-2,q-1} x j in {0,1}), all 81 rows each: 0 mismatches (b20 P1a precedent)
+  PASS  A5a (3,2) K^T K == I_8 (x) tridiag(-1,2,-1)_8 entry-exact (the path Laplacian)
+  PASS  A5 (3,2)  det(K^T K) = 43046721 is a NONZERO integer (= det(T_8)^8 = 9^8) => K injective, radical ZERO
+  PASS  A6a (3,2) G_loc = G_loc^T entry-exact, FULL (F = F^T)
+  PASS  A7 (3,2)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (64x64 over Q(zeta_81))
+  PASS  A4a (3,2) F^2 = P over Q(zeta_81): sum_(r) zeta_81^(rt) = 81*delta(t) exactly for all t in [0,81), so (F^2)[m,m'] = delta(m + m' == 0) = P entry-exact
+  PASS  A4 (3,2)  M^2 - Pi = 0 entry-exact, SPOT on 8 deterministic columns (all 64 rows each): 0 mismatches; and DERIVED FULLY: F^2 = P (A4a) with F K = K M (A1) and P K = K Pi (A2) give K M^2 = K Pi, and K is injective (A5) => M^2 = Pi
+  PASS  A8 (3,2)  tr M is a RATIONAL INTEGER in Q(zeta_81) (Q(zeta_81) contains no i, so d_i = d_-i is forced): tr M = 0, no other coefficient nonzero
+  PASS  A9 (3,2)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (16,16,16,16), sum = 64 = 64
+  PASS  A10 (3,2) re-derived eigen-dims [16, 16, 16, 16] == the BANKED eigen-dims [16, 16, 16, 16]
+
+--- DIRECT EXACT NULLITY VERIFICATION OF THE EIGEN-DIMS (small factors) ---
+  PASS  A11 (2,1) direct exact nullity of (M - lambda I) for lambda = 1,-1,i,-i is (0,0,1,0) == the trace-formula dims (0,0,1,0) == BANKED
+  PASS  A11 (3,1) direct exact nullity of (M - lambda I) for lambda = 1,-1,i,-i is (1,1,1,1) == the trace-formula dims (1,1,1,1) == BANKED
+  PASS  A11 (2,2) direct exact nullity of (M - lambda I) for lambda = 1,-1,i,-i is (2,2,3,2) == the trace-formula dims (2,2,3,2) == BANKED
+      (3,2): dims by the trace formulas only -- a direct nullity at dim 64 over
+      Q(zeta_81) would require the dense operator the sparsity rule forbids; declared.
+
+--- PART 1 TABLE ---
+  factor   dim    tr M           tr Pi    d_1    d_-1   d_i    d_-i   det(K^T K)     field
+  (2,1)    1      0 +1*i         -1       0      0      1      0      2              Q(zeta_144)
+  (2,2)    9      0 +1*i         -1       2      2      3      2      64             Q(zeta_144)
+  (3,1)    4      0 +0*i         0        1      1      1      1      9              Q(zeta_144)
+  (3,2)    64     0 +0*i         0        16     16     16     16     43046721       Q(zeta_81)
+
+====================================================================================================
+PART 2 -- THE CELLS AT h = 1 (SECTOR ARITHMETIC: PURE INTEGERS)
+====================================================================================================
+  At h = 1 the class layer is the scalar 1, so T-fixed <=> lam-product = +1
+  (nu is forced to +1: there is only the trivial character).  On a T-fixed
+  vector B(v,v) = (lam-product) * ||v||^2 * a_N = +||v||^2 * 1.
+
+  PASS  P2a  cell {2:1}        glued eigen-dims (D_1,D_-1,D_i,D_-i) = (0,0,1,0) sum to the section's transform dim 1
+  PASS  P2b  cell {2:1}        class dim by sector sums = D_1 * (antipode-fixed dim) = 0 * 1 = 0
+  PASS  P2c  cell {2:1}        class dim 0 == the registration's arithmetic (0)
+  PASS  P2d  cell {2:1}        T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (0 sectors, total dim 0) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 0 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2a  cell {2:1,3:1}    glued eigen-dims (D_1,D_-1,D_i,D_-i) = (1,1,1,1) sum to the section's transform dim 4
+  PASS  P2b  cell {2:1,3:1}    class dim by sector sums = D_1 * (antipode-fixed dim) = 1 * 1 = 1
+  PASS  P2c  cell {2:1,3:1}    class dim 1 == the registration's arithmetic (1)
+  PASS  P2d  cell {2:1,3:1}    T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (1 sectors, total dim 1) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 1 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2a  cell {2:2,3:1}    glued eigen-dims (D_1,D_-1,D_i,D_-i) = (9,9,9,9) sum to the section's transform dim 36
+  PASS  P2b  cell {2:2,3:1}    class dim by sector sums = D_1 * (antipode-fixed dim) = 9 * 1 = 9
+  PASS  P2c  cell {2:2,3:1}    class dim 9 == the registration's arithmetic (9)
+  PASS  P2d  cell {2:2,3:1}    T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (4 sectors, total dim 9) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 9 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2a  cell {2:2,3:2}    glued eigen-dims (D_1,D_-1,D_i,D_-i) = (144,144,144,144) sum to the section's transform dim 576
+  PASS  P2b  cell {2:2,3:2}    class dim by sector sums = D_1 * (antipode-fixed dim) = 144 * 1 = 144
+  NOTE  P2c  cell {2:2,3:2}: REGISTRATION ARITHMETIC CORRECTED IN-RUN -- the registration wrote 208; the computed class dim is 144. The registration's (iii)/(iv) STRUCTURE is what was registered; this specific number was flagged as checkable arithmetic. The COMPUTED value 144 is used.
+  PASS  P2d  cell {2:2,3:2}    T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (4 sectors, total dim 144) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 144 * 0 = 0 -- EMPTY (item (iv))
+
+--- THE {2:2,3:2} CLASS-DIM ARITHMETIC, LONGHAND (the flagged number) ---
+      (2,2):1 x (3,2):1           2 * 16 = 32
+      (2,2):-1 x (3,2):-1         2 * 16 = 32
+      (2,2):i x (3,2):-i          3 * 16 = 48
+      (2,2):-i x (3,2):i          2 * 16 = 32
+      ---------------------------------------------------------------
+      sum over lam-product = +1 of d_x * d_y = 144  (x |Cl| = 1)  = 144
+      the registration wrote 208.  COMPUTED: 144.
+
+--- PER-CELL TABLE ---
+  cell         norm   cell dim  (D_1,D_-1,D_i,D_-i)          class dim   T-fixed negs     full-pairing negs
+  {2:1}        2      1         (0,0,1,0)                    0           0                0
+  {2:1,3:1}    6      4         (1,1,1,1)                    1           0                1
+  {2:2,3:1}    12     36        (9,9,9,9)                    9           0                9
+  {2:2,3:2}    36     576       (144,144,144,144)            144         0                144
+  (cell dim = product of local Sonin dims x |Cl| = ... x 1; the class = the
+   T-fixed space = the lam-product = +1 sectors; full-pairing negs = the
+   lam-product = -1 sectors, OFF the fixed space.)
+
+--- SECTOR LISTS: THE PLACE-SUPPORT OF EVERY LIVE AND EVERY NEGATIVE SECTOR ---
+  cell {2:1} (norm 2)
+     class    (lam-product = +1): NONE
+     negative (lam-product = -1, OFF the fixed space): NONE
+  cell {2:1,3:1} (norm 6)
+     class    (lam-product = +1): dim 1
+        (2,1):i x (3,1):-i -> 1
+     negative (lam-product = -1, OFF the fixed space): dim 1
+        (2,1):i x (3,1):i -> 1
+  cell {2:2,3:1} (norm 12)
+     class    (lam-product = +1): dim 9
+        (2,2):1 x (3,1):1 -> 2
+        (2,2):-1 x (3,1):-1 -> 2
+        (2,2):i x (3,1):-i -> 3
+        (2,2):-i x (3,1):i -> 2
+     negative (lam-product = -1, OFF the fixed space): dim 9
+        (2,2):1 x (3,1):-1 -> 2
+        (2,2):-1 x (3,1):1 -> 2
+        (2,2):i x (3,1):i -> 3
+        (2,2):-i x (3,1):-i -> 2
+  cell {2:2,3:2} (norm 36)
+     class    (lam-product = +1): dim 144
+        (2,2):1 x (3,2):1 -> 32
+        (2,2):-1 x (3,2):-1 -> 32
+        (2,2):i x (3,2):-i -> 48
+        (2,2):-i x (3,2):i -> 32
+     negative (lam-product = -1, OFF the fixed space): dim 144
+        (2,2):1 x (3,2):-1 -> 32
+        (2,2):-1 x (3,2):1 -> 32
+        (2,2):i x (3,2):i -> 48
+        (2,2):-i x (3,2):-i -> 32
+
+  PASS  P2e  the DEATH AT {2:1} SURVIVES h = 1: class dim = 0. The single factor (2,1) has M = [i] and eigen-dims (0,0,1,0); no lam-product = +1 sector exists. It was NEVER a class phenomenon -- it is the sector arithmetic of the place 2 alone.
+  PASS  P2f  the REVIVAL at {2:1,3:1} is through the conjugate sector ((2,1):i x (3,1):-i), class dim = 1 -- THE SAME SECTOR SET as h = 3's class
+
+====================================================================================================
+PART 3 -- DIRECT EXACT POSITIVITY OF B|_class AT {2:1,3:1} AND {2:2,3:1}
+====================================================================================================
+  B(v,w) = v^dagger G_g w with G_g = K_g^T F_g K_g = (K_g^T K_g) M_g.  At h = 1
+  there is NO class tensor: the coupling is the scalar a_N = 1.  On the class
+  (M_g v = v) this collapses to B|_class = E^dagger (K_g^T K_g) E -- a rational
+  SPD form pulled back through a full-column-rank E: POSITIVE-DEFINITE under
+  EVERY embedding.  That is the b20 rational-SPD factorization route, with
+  C|_fix replaced by the positive scalar 1.
+
+--- CELL {2:1,3:1} : section dim 4 (= 1 x 4 x |Cl| 1) ---
+  PASS  P3a {2:1,3:1}    G_g = (K_g^T K_g) M_g entry-exact (the mechanism's engine)
+      class eigenbasis assembled from the lam-product = +1 sector pairs:
+        (2,1):i   x (3,1):-i  -> 1 columns
+  PASS  P3b {2:1,3:1}    the assembled exact eigenbasis has 1 columns == the sector-arithmetic class dim (1)
+  PASS  P3c {2:1,3:1}    M_g E - E = 0 entry-exact: every assembled column really IS T-fixed (eigenvalue +1 of M_g)
+  PASS  P3d {2:1,3:1}    B|_class == E^dagger (K_g^T K_g) E ENTRY-EXACT -- the registered mechanism B|_class = ||v||^2 * (scalar 1), NO class tensor, dim 1
+  PASS  P3e {2:1,3:1}    B|_class is HERMITIAN entry-exact (B = B^dagger)
+  PASS  P3f {2:1,3:1}    K_g^T K_g is RATIONAL SYMMETRIC POSITIVE-DEFINITE -- exact rational congruence pivots all positive (4, 3, 4, 3)
+  PASS  P3g {2:1,3:1}    the class eigenbasis E has FULL COLUMN RANK 1 over Q(zeta_144) (exact rank of E^dagger)
+  PASS  P3h {2:1,3:1}    EXACT POSITIVITY CERTIFICATE (embedding-independent): B|_class = E^dagger S E * a_N with S = K_g^T K_g rational SPD, E of full column rank 1, and a_N = 1 a POSITIVE SCALAR => B|_class is POSITIVE-DEFINITE of dim 1 under EVERY embedding of Q(zeta_144). NO NEGATIVE DIRECTION ON THE CLASS.
+      Hermitian congruence pivots of B|_class over Q(zeta_144):
+        pivot 1 = 144 + 120*z^4 - 48*z^8 - 144*z^12 - 48*z^16 + 120*z^20 - 144*z^28 - 96*z^32 + 72*z^36 + 144*z^40 + 24*z^44
+                  rational? False ; rational part = 144
+  NOTE  P3i  {2:1,3:1}: the b20 FALLBACK is in force -- the congruence pivots are REAL BUT IRRATIONAL (they are ||v||^2, totally positive in the real subfield, not rationals). Reported, not smoothed; the EXACT embedding-independent certificate is P3h.
+
+--- CELL {2:2,3:1} : section dim 36 (= 9 x 4 x |Cl| 1) ---
+  PASS  P3a {2:2,3:1}    G_g = (K_g^T K_g) M_g entry-exact (the mechanism's engine)
+      class eigenbasis assembled from the lam-product = +1 sector pairs:
+        (2,2):1   x (3,1):1   -> 2 columns
+        (2,2):-1  x (3,1):-1  -> 2 columns
+        (2,2):i   x (3,1):-i  -> 3 columns
+        (2,2):-i  x (3,1):i   -> 2 columns
+  PASS  P3b {2:2,3:1}    the assembled exact eigenbasis has 9 columns == the sector-arithmetic class dim (9)
+  PASS  P3c {2:2,3:1}    M_g E - E = 0 entry-exact: every assembled column really IS T-fixed (eigenvalue +1 of M_g)
+  PASS  P3d {2:2,3:1}    B|_class == E^dagger (K_g^T K_g) E ENTRY-EXACT -- the registered mechanism B|_class = ||v||^2 * (scalar 1), NO class tensor, dim 9
+  PASS  P3e {2:2,3:1}    B|_class is HERMITIAN entry-exact (B = B^dagger)
+  PASS  P3f {2:2,3:1}    K_g^T K_g is RATIONAL SYMMETRIC POSITIVE-DEFINITE -- exact rational congruence pivots all positive (4, 3, 4, 3, 3, 9/4, 3, 9/4, 8/3, 2, 8/3, 2, 4, 3, 4, 3, 3, 9/4, 3, 9/4, 8/3, 2, 8/3, 2, 4, 3, 4, 3, 3, 9/4, 3, 9/4, 8/3, 2, 8/3, 2)
+  PASS  P3g {2:2,3:1}    the class eigenbasis E has FULL COLUMN RANK 9 over Q(zeta_144) (exact rank of E^dagger)
+  PASS  P3h {2:2,3:1}    EXACT POSITIVITY CERTIFICATE (embedding-independent): B|_class = E^dagger S E * a_N with S = K_g^T K_g rational SPD, E of full column rank 9, and a_N = 1 a POSITIVE SCALAR => B|_class is POSITIVE-DEFINITE of dim 9 under EVERY embedding of Q(zeta_144). NO NEGATIVE DIRECTION ON THE CLASS.
+      Hermitian congruence pivots of B|_class over Q(zeta_144):
+        pivot 1 = 1440 - 48*z^1 + 576*z^2 + 336*z^5 - 576*z^6 + 96*z^7 - 960*z^8 - 144*z^9 - 192*z^10 - 1008*z^11 - 1008*z^13 - 192*z^14 - 144*z^15 - 960*z^16 + 96*z^17 - 576*z^18 + 336*z^19 + 576*z^22 - 48*z^23 + 144*z^25 - 192*z^26 + 1008*z^27 + 672*z^29 + 576*z^30 + 48*z^31 + 1440*z^32 + 576*z^34 + 336*z^35 + 672*z^37 - 384*z^38 + 144*z^39 - 480*z^40 - 144*z^41 - 1008*z^43 - 1008*z^45 - 384*z^46 - 96*z^47
+                  rational? False ; rational part = 1440
+        pivot 2 = 12096/47 - 1536/47*z^1 - 1728/47*z^2 - 192/47*z^5 + 1728/47*z^6 + 3072/47*z^7 - 8064/47*z^8 - 4608/47*z^9 + 576/47*z^10 + 576/47*z^11 + 576/47*z^13 + 576/47*z^14 - 4608/47*z^15 - 8064/47*z^16 + 3072/47*z^17 + 1728/47*z^18 - 192/47*z^19 - 1728/47*z^22 - 1536/47*z^23 + 4608/47*z^25 + 576/47*z^26 - 576/47*z^27 - 384/47*z^29 - 1728/47*z^30 + 1536/47*z^31 + 12096/47*z^32 - 1728/47*z^34 - 192/47*z^35 - 384/47*z^37 + 1152/47*z^38 + 4608/47*z^39 - 4032/47*z^40 - 4608/47*z^41 + 576/47*z^43 + 576/47*z^45 + 1152/47*z^46 - 3072/47*z^47
+                  rational? False ; rational part = 12096/47
+        pivot 3 = 480 + 16*z^1 - 64*z^2 - 112*z^5 - 192*z^6 + 32*z^7 + 320*z^8 + 48*z^9 - 64*z^10 - 112*z^11 - 112*z^13 - 64*z^14 + 48*z^15 + 320*z^16 + 32*z^17 - 192*z^18 - 112*z^19 - 64*z^22 + 16*z^23 + 16*z^25 - 64*z^26 - 336*z^27 + 224*z^29 + 192*z^30 - 16*z^31 - 160*z^32 - 64*z^34 - 112*z^35 + 224*z^37 + 128*z^38 - 48*z^39 - 160*z^40 - 16*z^41 - 112*z^43 + 336*z^45 + 128*z^46 - 32*z^47
+                  rational? False ; rational part = 480
+        pivot 4 = 4032/47 + 512/47*z^1 + 192/47*z^2 + 64/47*z^5 + 576/47*z^6 + 1024/47*z^7 + 2688/47*z^8 + 1536/47*z^9 + 192/47*z^10 + 64/47*z^11 + 64/47*z^13 + 192/47*z^14 + 1536/47*z^15 + 2688/47*z^16 + 1024/47*z^17 + 576/47*z^18 + 64/47*z^19 + 192/47*z^22 + 512/47*z^23 + 512/47*z^25 + 192/47*z^26 + 192/47*z^27 - 128/47*z^29 - 576/47*z^30 - 512/47*z^31 - 1344/47*z^32 + 192/47*z^34 + 64/47*z^35 - 128/47*z^37 - 384/47*z^38 - 1536/47*z^39 - 1344/47*z^40 - 512/47*z^41 + 64/47*z^43 - 192/47*z^45 - 384/47*z^46 - 1024/47*z^47
+                  rational? False ; rational part = 4032/47
+        pivot 5 = 288 + 240*z^4 - 96*z^8 - 288*z^12 - 96*z^16 + 240*z^20 - 288*z^28 - 192*z^32 + 144*z^36 + 288*z^40 + 48*z^44
+                  rational? False ; rational part = 288
+        pivot 6 = 2880 + 2064*z^1 + 1728*z^2 + 2016*z^3 + 2400*z^4 + 624*z^5 + 576*z^6 + 384*z^7 - 960*z^8 - 1872*z^9 - 1344*z^10 - 1872*z^11 - 2880*z^12 - 1872*z^13 - 1344*z^14 - 1872*z^15 - 960*z^16 + 384*z^17 + 576*z^18 + 624*z^19 + 2400*z^20 + 2016*z^21 + 1728*z^22 + 2064*z^23 - 1104*z^25 - 960*z^26 - 1296*z^27 - 2880*z^28 - 2112*z^29 - 1728*z^30 - 1968*z^31 - 1920*z^32 - 288*z^33 - 192*z^34 - 48*z^35 + 1440*z^36 + 1920*z^37 + 1536*z^38 + 2160*z^39 + 2880*z^40 + 1584*z^41 + 1152*z^42 + 1488*z^43 + 480*z^44 - 720*z^45 - 768*z^46 - 960*z^47
+                  rational? False ; rational part = 2880
+        pivot 7 = 24192/47 + 384/47*z^1 - 5184/47*z^2 - 1152/47*z^3 + 20160/47*z^4 + 192*z^5 - 1728/47*z^6 - 9600/47*z^7 - 8064/47*z^8 + 5760/47*z^9 + 4032/47*z^10 - 5184/47*z^11 - 24192/47*z^12 - 5184/47*z^13 + 4032/47*z^14 + 5760/47*z^15 - 8064/47*z^16 - 9600/47*z^17 - 1728/47*z^18 + 192*z^19 + 20160/47*z^20 - 1152/47*z^21 - 5184/47*z^22 + 384/47*z^23 + 8448/47*z^25 + 2880/47*z^26 - 8640/47*z^27 - 24192/47*z^28 - 1920/47*z^29 + 5184/47*z^30 + 2688/47*z^31 - 16128/47*z^32 - 9216/47*z^33 + 576/47*z^34 + 9408/47*z^35 + 12096/47*z^36 - 4224/47*z^37 - 4608/47*z^38 + 3456/47*z^39 + 24192/47*z^40 + 6912/47*z^41 - 3456/47*z^42 - 7104/47*z^43 + 4032/47*z^44 + 9792/47*z^45 + 2304/47*z^46 - 8832/47*z^47
+                  rational? False ; rational part = 24192/47
+        pivot 8 = 2880 - 1968*z^1 - 192*z^2 + 2016*z^3 - 2400*z^4 + 48*z^5 + 1728*z^6 - 960*z^7 - 960*z^8 + 2160*z^9 - 960*z^10 - 1488*z^11 + 2880*z^12 - 1488*z^13 - 960*z^14 + 2160*z^15 - 960*z^16 - 960*z^17 + 1728*z^18 + 48*z^19 - 2400*z^20 + 2016*z^21 - 192*z^22 - 1968*z^23 + 1584*z^25 - 1344*z^26 - 720*z^27 + 2880*z^28 - 1920*z^29 - 576*z^30 + 2064*z^31 - 1920*z^32 - 288*z^33 + 1728*z^34 - 624*z^35 - 1440*z^36 + 2112*z^37 - 768*z^38 - 1872*z^39 + 2880*z^40 - 1104*z^41 - 1152*z^42 + 1872*z^43 - 480*z^44 - 1296*z^45 + 1536*z^46 + 384*z^47
+                  rational? False ; rational part = 2880
+        pivot 9 = 24192/47 + 2688/47*z^1 + 576/47*z^2 - 1152/47*z^3 - 20160/47*z^4 - 9408/47*z^5 - 5184/47*z^6 - 8832/47*z^7 - 8064/47*z^8 + 3456/47*z^9 + 2880/47*z^10 + 7104/47*z^11 + 24192/47*z^12 + 7104/47*z^13 + 2880/47*z^14 + 3456/47*z^15 - 8064/47*z^16 - 8832/47*z^17 - 5184/47*z^18 - 9408/47*z^19 - 20160/47*z^20 - 1152/47*z^21 + 576/47*z^22 + 2688/47*z^23 + 6912/47*z^25 + 4032/47*z^26 + 9792/47*z^27 + 24192/47*z^28 + 4224/47*z^29 + 1728/47*z^30 + 384/47*z^31 - 16128/47*z^32 - 9216/47*z^33 - 5184/47*z^34 - 192*z^35 - 12096/47*z^36 + 1920/47*z^37 + 2304/47*z^38 + 5760/47*z^39 + 24192/47*z^40 + 8448/47*z^41 + 3456/47*z^42 + 5184/47*z^43 - 4032/47*z^44 - 8640/47*z^45 - 4608/47*z^46 - 9600/47*z^47
+                  rational? False ; rational part = 24192/47
+  NOTE  P3i  {2:2,3:1}: the b20 FALLBACK is in force -- the congruence pivots are REAL BUT IRRATIONAL (they are ||v||^2, totally positive in the real subfield, not rationals). Reported, not smoothed; the EXACT embedding-independent certificate is P3h.
+
+--- THE OTHER TWO CELLS: SECTOR-ASSEMBLED, THE SAME MECHANISM ---
+  cell {2:1}        class dim 0    -- EMPTY (nothing to certify: the class died at the arrival of 2)
+  cell {2:2,3:2}    class dim 144  -- B|_class POSITIVE-DEFINITE of dimension 144 by the same mechanism (not directly diagonalized: the (3,2) factor's dense operator is forbidden by the sparsity rule; the mechanism identity B|_class = E^dagger (K^T K) E is verified ENTRY-EXACT at the two cells above, and K^T K is rational SPD at (3,2) by A5a/A5)
+
+====================================================================================================
+PART 4 -- THE COUPLING SCALAR: THE IDEALS OF Q OF NORM 6 AND OF NORM 36
+====================================================================================================
+  ENUMERATION LOGIC, stated before the count: Z_Q = Z is a PID; every nonzero
+  ideal is (n) for a unique integer n >= 1, and its norm is the INDEX [Z : nZ],
+  which is counted below (not assumed) as the number of residues mod n.
+  So the ideals of norm N are exactly the n in [1, N] whose counted index is N.
+
+  norm N ideals (n) with [Z:nZ] = N               count    a_N (zeta coefficient)
+  2      (2)                                      1        1
+  6      (6)                                      1        1
+  12     (12)                                     1        1
+  36     (36)                                     1        1
+  PASS  P4a  the number of ideals of Q of norm 6, ENUMERATED, is 1 (the single ideal (6)) = the coupling scalar at cell {2:1,3:1}
+  PASS  P4b  the number of ideals of Q of norm 36, ENUMERATED, is 1 (the single ideal (36)) = the coupling scalar at cell {2:2,3:2}
+  PASS  P4c  a_N = 1 at every cell norm (2, 6, 12, 36) -- the coupling matrix is the 1x1 POSITIVE matrix [1]; zeta_Q(s) = sum_(n>=1) n^-s has every coefficient 1
+  CONTRAST, banked (h = 3): the coupling was circulant(2,1,1) = c2*c3 with
+  spectrum (4,1,1) and C|_fix spectrum {4,1}.  At h = 1 it is the scalar 1.
+  Positivity rode the POSITIVITY OF THE EULER COEFFICIENTS at h = 3; it rides
+  the positivity of the single coefficient a_N = 1 here.  SAME MECHANISM.
+
+  PASS  P4d  tau = epsilon at h = 1: with |Cl| = 1 there is exactly ONE class character (the trivial one), so the class-separating scalarization tau and the plain epsilon coincide -- B5's selection principle is VACUOUS, a NAMED LOSS
+
+====================================================================================================
+VERDICT
+====================================================================================================
+  PASS  V1   (H1-same) FOR THE SIGN: B|_class is POSITIVE-DEFINITE at every cell where the class is nonzero, certified EXACTLY and embedding-independently at {2:1,3:1} (dim 1) and {2:2,3:1} (dim 9), with C|_fix replaced by the positive scalar a_N = 1. The class resolution was STRUCTURE, not the source of the sign.
+  PASS  V2   THE (iv) READING, BANKED BESIDE IT: T-fixed negative directions at h = 1 = 0 at EVERY cell (enumerated), because the antipode-ANTI-invariant channel -- the home of h = 3's T-fixed negatives -- has dimension 0. The flip channel has NO HOME at h = 1.
+  THE TWO NAMED LOSSES (what the class resolution actually supplied):
+   (1) THE CHANNEL: the antipode-anti-invariant part of C[Cl] (dim 1 at h = 3,
+       dim 0 at h = 1) -- the home of T-fixed negativity. Without it the
+       arrival-edge negativity-in-the-flipped-channel CANNOT OCCUR at h = 1.
+       (The full pairing's lam-product = -1 negatives DO remain, off the fixed
+       space: {2:1} -> 0; {2:1,3:1} -> 1; {2:2,3:1} -> 9; {2:2,3:2} -> 144.)
+   (2) THE LEDGER SEPARATION: tau class-separating vs epsilon. At h = 1,
+       tau = epsilon and B5's selection principle is vacuous.
+  NEITHER loss touches the POSITIVITY, which rides the same sector-forcing at
+  both h -- exactly as the longhand expectation registered.
+  (H1-collapse) did NOT occur for the sign; its content is instead the two
+  NAMED losses above, recorded as registered. (H1-third) not needed.
+
+  NOT LANDING AS REGISTERED -- REGISTRATION ARITHMETIC CORRECTED IN-RUN:
+    cell {2:2,3:2}: registration wrote 208; COMPUTED 144. The (iii)/(iv) STRUCTURE
+    is what was registered and it stands; the flagged number is replaced by the computed value.
+
+  SCOPE, said plainly: these are EXACT properties of a FINITE CONSTRUCTED MODEL
+  SECTION over Q at finite place sets and finite cutoffs. No sign is asserted
+  about any ledger; the register is untouched; nothing here bears on
+  W_inf - Sum W_p at complete roster, and NOTHING here is about the Hypothesis.
+
+--- EXACT LEDGER ---
+  PASS  F0a  Q(zeta_144): Phi_144(zeta) = zeta^48 - zeta^24 + 1 = 0 exactly (b18)
+  PASS  F0b  Q(zeta_144): i = zeta^36, i^2 = -1 exactly
+  PASS  F0c  Q(zeta_81): Phi = x^54 + x^27 + 1, and the reduction of x^81 is exactly 1 (zeta_81 has order 81)
+  PASS  F0d  Q(zeta_81): the added conjugation is an involution on a test element (conj(conj(x)) = x exactly)
+  PASS  F0e  Q(zeta_81): the added sparse product is exact: zeta^40 * zeta^41 = zeta^81 = 1
+  PASS  F0f  Q(zeta_81): x * conj(x) = 1 for x = zeta_81^k, all k in [0,81) (unit circle)
+  PASS  H1a  Cl(Q) is trivial: |Cl| = 1, so C[Cl] = C has dim 1 (h = 3 banked: dim 3)
+  PASS  H1b  the antipode A on C[Cl] is the identity 1x1 matrix and A^2 = 1 exactly
+  PASS  H1c  A C A = C exactly (vacuously: A = 1)
+  PASS  H1d  H^2 = C DATA LINE: dim C[Cl] = 1; antipode-INVARIANT dim = 1; antipode-ANTI-invariant dim = 0 (h = 3 banked: dim 3, invariant 2, anti 1)
+  PASS  H1e  C|_fix = the scalar [1]: exact rational congruence pivot (1) POSITIVE => C|_fix is rational SPD of dim 1 (h = 3 banked spectrum {4,1})
+  PASS  A1 (2,1)  F K = K M entry-exact, FULL (b18 C2 / b20 P1a re-asserted at h = 1)
+  PASS  A2 (2,1)  P K = K Pi entry-exact, FULL; Pi the signed permutation (a,j) -> -(q-a, q-2-j) (b18 C3a re-asserted)
+  PASS  A3 (2,1)  Pi is a signed permutation, det Pi = -1 in {+1,-1}
+  PASS  A4 (2,1)  M^2 - Pi = 0 entry-exact, FULL (F^2 = parity, compressed; b18 C3d)
+  PASS  A5 (2,1)  det(K^T K) = 2 is a NONZERO integer => K injective, radical ZERO (G_loc = (K^T K) M with M invertible by A4)
+  PASS  A6 (2,1)  G_loc - (K^T K) M = 0 entry-exact (b18 C4b)
+  PASS  A7 (2,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (G_loc^dagger = G_loc Pi; b18 C5b)
+  PASS  A8 (2,1)  tr M is a GAUSSIAN INTEGER: tr M = 0 + (1)*i, no other coefficient nonzero
+  PASS  A9 (2,1)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (0,0,1,0), sum = 1 = 1
+  PASS  A10 (2,1) re-derived eigen-dims [0, 0, 1, 0] == the BANKED eigen-dims [0, 0, 1, 0]
+  PASS  A1 (3,1)  F K = K M entry-exact, FULL (b18 C2 / b20 P1a re-asserted at h = 1)
+  PASS  A2 (3,1)  P K = K Pi entry-exact, FULL; Pi the signed permutation (a,j) -> -(q-a, q-2-j) (b18 C3a re-asserted)
+  PASS  A3 (3,1)  Pi is a signed permutation, det Pi = +1 in {+1,-1}
+  PASS  A4 (3,1)  M^2 - Pi = 0 entry-exact, FULL (F^2 = parity, compressed; b18 C3d)
+  PASS  A5 (3,1)  det(K^T K) = 9 is a NONZERO integer => K injective, radical ZERO (G_loc = (K^T K) M with M invertible by A4)
+  PASS  A6 (3,1)  G_loc - (K^T K) M = 0 entry-exact (b18 C4b)
+  PASS  A7 (3,1)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (G_loc^dagger = G_loc Pi; b18 C5b)
+  PASS  A8 (3,1)  tr M is a GAUSSIAN INTEGER: tr M = 0 + (0)*i, no other coefficient nonzero
+  PASS  A9 (3,1)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (1,1,1,1), sum = 4 = 4
+  PASS  A10 (3,1) re-derived eigen-dims [1, 1, 1, 1] == the BANKED eigen-dims [1, 1, 1, 1]
+  PASS  A1 (2,2)  F K = K M entry-exact, FULL (b18 C2 / b20 P1a re-asserted at h = 1)
+  PASS  A2 (2,2)  P K = K Pi entry-exact, FULL; Pi the signed permutation (a,j) -> -(q-a, q-2-j) (b18 C3a re-asserted)
+  PASS  A3 (2,2)  Pi is a signed permutation, det Pi = -1 in {+1,-1}
+  PASS  A4 (2,2)  M^2 - Pi = 0 entry-exact, FULL (F^2 = parity, compressed; b18 C3d)
+  PASS  A5 (2,2)  det(K^T K) = 64 is a NONZERO integer => K injective, radical ZERO (G_loc = (K^T K) M with M invertible by A4)
+  PASS  A6 (2,2)  G_loc - (K^T K) M = 0 entry-exact (b18 C4b)
+  PASS  A7 (2,2)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (G_loc^dagger = G_loc Pi; b18 C5b)
+  PASS  A8 (2,2)  tr M is a GAUSSIAN INTEGER: tr M = 0 + (1)*i, no other coefficient nonzero
+  PASS  A9 (2,2)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (2,2,3,2), sum = 9 = 9
+  PASS  A10 (2,2) re-derived eigen-dims [2, 2, 3, 2] == the BANKED eigen-dims [2, 2, 3, 2]
+  PASS  A2 (3,2)  P K = K Pi verified FULLY (all 81 rows; no F is involved)
+  PASS  A3 (3,2)  Pi is a signed permutation, det Pi = +1 in {+1,-1}
+  PASS  A1 (3,2)  F K = K M SPOT-CHECKED entry-exact on 8 deterministic columns (alpha in {1,2,q-2,q-1} x j in {0,1}), all 81 rows each: 0 mismatches (b20 P1a precedent)
+  PASS  A5a (3,2) K^T K == I_8 (x) tridiag(-1,2,-1)_8 entry-exact (the path Laplacian)
+  PASS  A5 (3,2)  det(K^T K) = 43046721 is a NONZERO integer (= det(T_8)^8 = 9^8) => K injective, radical ZERO
+  PASS  A6a (3,2) G_loc = G_loc^T entry-exact, FULL (F = F^T)
+  PASS  A7 (3,2)  conj(G_loc) - G_loc * Pi = 0 entry-exact, FULL (64x64 over Q(zeta_81))
+  PASS  A4a (3,2) F^2 = P over Q(zeta_81): sum_(r) zeta_81^(rt) = 81*delta(t) exactly for all t in [0,81), so (F^2)[m,m'] = delta(m + m' == 0) = P entry-exact
+  PASS  A4 (3,2)  M^2 - Pi = 0 entry-exact, SPOT on 8 deterministic columns (all 64 rows each): 0 mismatches; and DERIVED FULLY: F^2 = P (A4a) with F K = K M (A1) and P K = K Pi (A2) give K M^2 = K Pi, and K is injective (A5) => M^2 = Pi
+  PASS  A8 (3,2)  tr M is a RATIONAL INTEGER in Q(zeta_81) (Q(zeta_81) contains no i, so d_i = d_-i is forced): tr M = 0, no other coefficient nonzero
+  PASS  A9 (3,2)  the four trace equations give nonnegative integers summing to dim: (d_1,d_-1,d_i,d_-i) = (16,16,16,16), sum = 64 = 64
+  PASS  A10 (3,2) re-derived eigen-dims [16, 16, 16, 16] == the BANKED eigen-dims [16, 16, 16, 16]
+  PASS  A11 (2,1) direct exact nullity of (M - lambda I) for lambda = 1,-1,i,-i is (0,0,1,0) == the trace-formula dims (0,0,1,0) == BANKED
+  PASS  A11 (3,1) direct exact nullity of (M - lambda I) for lambda = 1,-1,i,-i is (1,1,1,1) == the trace-formula dims (1,1,1,1) == BANKED
+  PASS  A11 (2,2) direct exact nullity of (M - lambda I) for lambda = 1,-1,i,-i is (2,2,3,2) == the trace-formula dims (2,2,3,2) == BANKED
+  PASS  P2a  cell {2:1}        glued eigen-dims (D_1,D_-1,D_i,D_-i) = (0,0,1,0) sum to the section's transform dim 1
+  PASS  P2b  cell {2:1}        class dim by sector sums = D_1 * (antipode-fixed dim) = 0 * 1 = 0
+  PASS  P2c  cell {2:1}        class dim 0 == the registration's arithmetic (0)
+  PASS  P2d  cell {2:1}        T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (0 sectors, total dim 0) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 0 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2a  cell {2:1,3:1}    glued eigen-dims (D_1,D_-1,D_i,D_-i) = (1,1,1,1) sum to the section's transform dim 4
+  PASS  P2b  cell {2:1,3:1}    class dim by sector sums = D_1 * (antipode-fixed dim) = 1 * 1 = 1
+  PASS  P2c  cell {2:1,3:1}    class dim 1 == the registration's arithmetic (1)
+  PASS  P2d  cell {2:1,3:1}    T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (1 sectors, total dim 1) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 1 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2a  cell {2:2,3:1}    glued eigen-dims (D_1,D_-1,D_i,D_-i) = (9,9,9,9) sum to the section's transform dim 36
+  PASS  P2b  cell {2:2,3:1}    class dim by sector sums = D_1 * (antipode-fixed dim) = 9 * 1 = 9
+  PASS  P2c  cell {2:2,3:1}    class dim 9 == the registration's arithmetic (9)
+  PASS  P2d  cell {2:2,3:1}    T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (4 sectors, total dim 9) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 9 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2a  cell {2:2,3:2}    glued eigen-dims (D_1,D_-1,D_i,D_-i) = (144,144,144,144) sum to the section's transform dim 576
+  PASS  P2b  cell {2:2,3:2}    class dim by sector sums = D_1 * (antipode-fixed dim) = 144 * 1 = 144
+  PASS  P2d  cell {2:2,3:2}    T-FIXED NEGATIVE COUNT = 0, by ENUMERATION: every T-fixed sector has lam-product = +1 (4 sectors, total dim 144) so B = +||v||^2 * 1 > 0; and the antipode-ANTI channel that housed h = 3's T-fixed negatives has dim D_-1 * 0 = 144 * 0 = 0 -- EMPTY (item (iv))
+  PASS  P2e  the DEATH AT {2:1} SURVIVES h = 1: class dim = 0. The single factor (2,1) has M = [i] and eigen-dims (0,0,1,0); no lam-product = +1 sector exists. It was NEVER a class phenomenon -- it is the sector arithmetic of the place 2 alone.
+  PASS  P2f  the REVIVAL at {2:1,3:1} is through the conjugate sector ((2,1):i x (3,1):-i), class dim = 1 -- THE SAME SECTOR SET as h = 3's class
+  PASS  P3a {2:1,3:1}    G_g = (K_g^T K_g) M_g entry-exact (the mechanism's engine)
+  PASS  P3b {2:1,3:1}    the assembled exact eigenbasis has 1 columns == the sector-arithmetic class dim (1)
+  PASS  P3c {2:1,3:1}    M_g E - E = 0 entry-exact: every assembled column really IS T-fixed (eigenvalue +1 of M_g)
+  PASS  P3d {2:1,3:1}    B|_class == E^dagger (K_g^T K_g) E ENTRY-EXACT -- the registered mechanism B|_class = ||v||^2 * (scalar 1), NO class tensor, dim 1
+  PASS  P3e {2:1,3:1}    B|_class is HERMITIAN entry-exact (B = B^dagger)
+  PASS  P3f {2:1,3:1}    K_g^T K_g is RATIONAL SYMMETRIC POSITIVE-DEFINITE -- exact rational congruence pivots all positive (4, 3, 4, 3)
+  PASS  P3g {2:1,3:1}    the class eigenbasis E has FULL COLUMN RANK 1 over Q(zeta_144) (exact rank of E^dagger)
+  PASS  P3h {2:1,3:1}    EXACT POSITIVITY CERTIFICATE (embedding-independent): B|_class = E^dagger S E * a_N with S = K_g^T K_g rational SPD, E of full column rank 1, and a_N = 1 a POSITIVE SCALAR => B|_class is POSITIVE-DEFINITE of dim 1 under EVERY embedding of Q(zeta_144). NO NEGATIVE DIRECTION ON THE CLASS.
+  PASS  P3a {2:2,3:1}    G_g = (K_g^T K_g) M_g entry-exact (the mechanism's engine)
+  PASS  P3b {2:2,3:1}    the assembled exact eigenbasis has 9 columns == the sector-arithmetic class dim (9)
+  PASS  P3c {2:2,3:1}    M_g E - E = 0 entry-exact: every assembled column really IS T-fixed (eigenvalue +1 of M_g)
+  PASS  P3d {2:2,3:1}    B|_class == E^dagger (K_g^T K_g) E ENTRY-EXACT -- the registered mechanism B|_class = ||v||^2 * (scalar 1), NO class tensor, dim 9
+  PASS  P3e {2:2,3:1}    B|_class is HERMITIAN entry-exact (B = B^dagger)
+  PASS  P3f {2:2,3:1}    K_g^T K_g is RATIONAL SYMMETRIC POSITIVE-DEFINITE -- exact rational congruence pivots all positive (4, 3, 4, 3, 3, 9/4, 3, 9/4, 8/3, 2, 8/3, 2, 4, 3, 4, 3, 3, 9/4, 3, 9/4, 8/3, 2, 8/3, 2, 4, 3, 4, 3, 3, 9/4, 3, 9/4, 8/3, 2, 8/3, 2)
+  PASS  P3g {2:2,3:1}    the class eigenbasis E has FULL COLUMN RANK 9 over Q(zeta_144) (exact rank of E^dagger)
+  PASS  P3h {2:2,3:1}    EXACT POSITIVITY CERTIFICATE (embedding-independent): B|_class = E^dagger S E * a_N with S = K_g^T K_g rational SPD, E of full column rank 9, and a_N = 1 a POSITIVE SCALAR => B|_class is POSITIVE-DEFINITE of dim 9 under EVERY embedding of Q(zeta_144). NO NEGATIVE DIRECTION ON THE CLASS.
+  PASS  P4a  the number of ideals of Q of norm 6, ENUMERATED, is 1 (the single ideal (6)) = the coupling scalar at cell {2:1,3:1}
+  PASS  P4b  the number of ideals of Q of norm 36, ENUMERATED, is 1 (the single ideal (36)) = the coupling scalar at cell {2:2,3:2}
+  PASS  P4c  a_N = 1 at every cell norm (2, 6, 12, 36) -- the coupling matrix is the 1x1 POSITIVE matrix [1]; zeta_Q(s) = sum_(n>=1) n^-s has every coefficient 1
+  PASS  P4d  tau = epsilon at h = 1: with |Cl| = 1 there is exactly ONE class character (the trivial one), so the class-separating scalarization tau and the plain epsilon coincide -- B5's selection principle is VACUOUS, a NAMED LOSS
+  PASS  V1   (H1-same) FOR THE SIGN: B|_class is POSITIVE-DEFINITE at every cell where the class is nonzero, certified EXACTLY and embedding-independently at {2:1,3:1} (dim 1) and {2:2,3:1} (dim 9), with C|_fix replaced by the positive scalar a_N = 1. The class resolution was STRUCTURE, not the source of the sign.
+  PASS  V2   THE (iv) READING, BANKED BESIDE IT: T-fixed negative directions at h = 1 = 0 at EVERY cell (enumerated), because the antipode-ANTI-invariant channel -- the home of h = 3's T-fixed negatives -- has dimension 0. The flip channel has NO HOME at h = 1.
+
+--- NOTES (recorded, not asserted) ---
+  NOTE  P2c  cell {2:2,3:2}: REGISTRATION ARITHMETIC CORRECTED IN-RUN -- the registration wrote 208; the computed class dim is 144. The registration's (iii)/(iv) STRUCTURE is what was registered; this specific number was flagged as checkable arithmetic. The COMPUTED value 144 is used.
+  NOTE  P3i  {2:1,3:1}: the b20 FALLBACK is in force -- the congruence pivots are REAL BUT IRRATIONAL (they are ||v||^2, totally positive in the real subfield, not rationals). Reported, not smoothed; the EXACT embedding-independent certificate is P3h.
+  NOTE  P3i  {2:2,3:1}: the b20 FALLBACK is in force -- the congruence pivots are REAL BUT IRRATIONAL (they are ||v||^2, totally positive in the real subfield, not rationals). Reported, not smoothed; the EXACT embedding-independent certificate is P3h.
+
+ALL EXACT LINES EXACT: 95/95 PASS

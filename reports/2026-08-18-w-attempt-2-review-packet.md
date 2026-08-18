@@ -91,7 +91,11 @@ UNTOUCHED — no sentence about `W_∞ − ΣW_𝔭` at complete roster exists a
    or does degeneracy enter in the closure? Nothing here constructs the limit pairing.
 3. **Does class-resolved gluing at one `K` say anything about `ℚ`?** The coupling consumes the class
    data of `ℚ(√−23)`; the pentagon's law forbids reading cross-register equivalence into that. Is the
-   whole construction a fact about one imaginary quadratic field's presentation?
+   whole construction a fact about one imaginary quadratic field's presentation? *(First measured
+   answer-fragment, the `h = 1` instance, b31, 95/95 exact: the SIGN's mechanism is not `K`-specific —
+   over `ℚ` positivity holds by the same sector-forcing with the scalar `a_N = 1`; what IS
+   `K`-specific is the CHANNEL: T-fixed negativity has no home at `h = 1` — the flipped channel is a
+   class-resolution phenomenon — and the `τ`/`ε` ledger separation is vacuous.)*
 4. **The `∞`-weight's convention.** The finite weight is exact; the archimedean channel has burned two
    conventions (generator-HS: category error; raw grid: divergent) and the bounded-dilation convention
    is sitting 13's measurement. If no convention makes the `∞` weight a number, the ledger's product
