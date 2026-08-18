@@ -1,0 +1,69 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 2 — REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 2 — THE LIVE-FLOW INSTANCE AND THE SECOND PLACE SET.
+
+RELAY-ONLY. SUB-GATE (restated at this sitting's head): no candidate grades PLAUSIBLE
+across T1-T10. THE PRE-REFUSALS RESTATED: the complete roster is the double limit and
+stays open; a finite-place-set object at a finite cutoff decides nothing global;
+NO SENTENCE ABOUT THE SIGN OF W_inf - Sum W_p LEAVES THE RELAY; inertia numbers are
+GUARDED properties of constructed finite objects. The register is untouched.
+THE RANGE LAW GOVERNS: nothing is inherited from n = 1; every n = 2 quantity is measured.
+
+REGISTRATION — ITEM 1, THE n >= 2 INSTANCE ({inf,2,3}, cutoff n = 2; glued core dim
+9 * 64 * 3 = 1728):
+  (K1) the glued object KEEPS its H^2 (dim h = 3, antipode-invariant dim 2), radical 0,
+       twisted-Hermitian at machine precision, WITH THE SCALING NOW LIVE (per-place n=2
+       laws confirmed by measurement: dim Son = (p^2-1)^2; Q(p,2) = sqrt(p)(p-1));
+  (K2) it LOSES the codomain at a named step (involution closure / antipode coherence /
+       radical / H^2) — that step is the finding.
+  The inertia of the Hermitian part is RECORDED AND GUARDED, never read as a sentence
+  about W_inf - Sum W_p.
+
+REGISTRATION — ITEM 2, THE SECOND PLACE SET ({inf,2,3,5}):
+  LONGHAND, BEFORE ANY RUN: 5 is INERT in Q(sqrt(-23)) (-23 == 2 mod 5, a non-residue),
+  so the prime above 5 is (5), norm 25, PRINCIPAL: c_5 = [0] (the identity label),
+  antipode-self-dual trivially.
+  ### THE NAIVE-COMPARISON TRAP, REGISTERED SO IT CANNOT BITE SILENTLY: a30(zeta_K) = 0
+  (no ideals of norm 5 exist), so comparing the coupling element to the NORM-30
+  coefficients would fail vacuously. The correct comparison is the LABEL-NORM
+  150 = 2 * 3 * 25 coefficients.
+  PREDICTION (longhand, from the ideal count): ideals of norm 150 are P2^{+-} P3^{+-} (5);
+  with labels a2 = 1, a3 = 2, a5 = 0 the class multiset is {0, 2, 1, 0}: the coefficient
+  element 2[0]+[1]+[2], character spectrum (4, 1, 1).
+  THE GENERAL GLUING LAW, DERIVED (to be confirmed by the measurement, not replaced by
+  it): the coupling element c_S = prod c_p has [C]-coefficient = #{one prime above each
+  p in S with class product C} = the [C]-coefficient of Z-hat at the label norm
+  prod N(P_p) — multiplicativity in C[Cl] by unique factorization. EULER-EXACT branch:
+  the measured spectrum equals the predicted label-norm coefficients; NOT branch: the
+  norm-6 match was a small-prime coincidence, said so.
+  Four places at n = 1: full Gram (dim 1*4*16*3 = 192) — H^2 and radical re-checked
+  directly. Four places at n = 2 (dim 9*64*16*3 = 27648): FACTOR-CERTIFIED, declared —
+  the Gram is (compressed F_2 (x) F_3 (x) F_5) (x) (coupling circulant); each factor's
+  unitarity/invertibility is measured and the product's rank/twisted-Hermiticity follows
+  structurally; a dense 27648^2 object is not materialized, and this certification mode
+  is DECLARED, not hidden.
+
+Usage:  python b15_attempt2_s2.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+  5 inert verified (-23 is a non-residue mod 5); c5 = [0]
+
+--- ITEM 1: {inf,2,3} at n = 2 (nothing inherited; per-place laws measured) ---
+  per-place: dim Son(2,2) = 9 (law 9), dim Son(3,2) = 64 (law 64)
+  per-place live flow: Q(2,2) = 1.414214 (law sqrt2 = 1.414214), Q(3,2) = 3.464102 (law 2sqrt3 = 3.464102)
+  involution closure: 3.84e-15 / 5.46e-14 ; compressed-F unitarity: 5.36e-15 / 1.13e-13
+  [n=2 three-place] dim 1728  RANK 1728  RADICAL 0  twisted-Herm 1.445e-12  inertia GUARDED (+432,-432,0:864)
+  glued flow: |Tr(UgSg)| = 1.159e-30 ; ||SgUgSg||_F = 4.898979 (per-factor product q2*q3 = 4.898979)
+
+--- ITEM 2: {inf,2,3,5} ---
+  coupling c2*c3*c5 = [2.0, 1.0, 1.0] ; character spectrum [(4+0j), (1+0j), (1+0j)]  (REGISTERED prediction: 2[0]+[1]+[2], (4,1,1) = the LABEL-NORM 150 coefficients; a30 = 0 is the registered trap)
+  place 5 at n=1: dim Son(5,1) = 16 (law 16); closure 6.96e-15; unitarity 1.21e-14
+  [n=1 four-place] dim 192  RANK 192  RADICAL 0  twisted-Herm 1.079e-13  inertia GUARDED (+48,-48,0:96)
+  four-place n=2 FACTOR-CERTIFIED (declared; no dense 27648^2 object): factor dims 9,64,576;
+    closures 3.84e-15/5.46e-14/5.62e-13 ; unitarity 5.36e-15/1.13e-13/2.80e-12 ; coup4 spectrum invertible: True
+    -> rank = full and twisted-Hermiticity follow from unitary factors (x) invertible circulant, STRUCTURALLY;
+       the structural step is the same identity measured directly at the three smaller Grams above.
