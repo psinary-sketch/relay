@@ -1,0 +1,35 @@
+====================================================================================================
+b41 RUN - THE SCALE-COVARIANT FAMILY. Registration banked first (D1-D4; the anchor;
+the longhand prediction; the next-name candidate).
+====================================================================================================
+
+--- C0: VOID GATES (the anchor layer must reproduce the battery) ---
+  carto far-end a=1.30 residual=+6.142e-12 PASS
+  carto far-end a=3.50 residual=+6.569e-08 PASS
+  pin anchor sum lam2 (even 11)  |delta|=5.82e-11 (tol 1e-06) PASS
+  pin anchor tr Q_c vs 2c/pi=4   |delta|=3.02e-14 (tol 4e-02) PASS
+
+a^2        c/pi trQ gate N_eff=2c/pi -A (bound) | Tr_E1 (band)     spread | verdict row
+2          2.00    0.000        4.0    1.99053 |      2.11627    0.00073 | band form > bound  fails
+        E1 rule per c: even-ladder phase pattern +-+-+-+-  alternation YES  E1 modes [0, 2, 4, 6]
+        E1 terms: +0.9892 +0.5427 +0.3275 +0.2569
+3          3.00    0.000        6.0    1.90890 |      1.93372    0.00013 | band form > bound  fails
+        E1 rule per c: even-ladder phase pattern +-+-+-+-+  alternation YES  E1 modes [0, 2, 4, 6, 8]
+        E1 terms: +0.9757 +0.5200 +0.1645 +0.1481 +0.1253
+4          4.00    0.000        8.0    1.78650 |      1.73504    0.01124 | band form <= bound  REPAIRED
+        E1 rule per c: even-ladder phase pattern +-+-+-+-+-  alternation NO (fallback: even n)  E1 modes [0, 2, 4, 6, 8, 10]
+        E1 terms: +0.9637 +0.4619 +0.1076 +0.0973 +0.0899 +0.0146
+8          8.00    0.000       16.0    1.52547 |      1.54614    0.07561 | band form > bound  fails
+        E1 rule per c: even-ladder phase pattern +++-+-+-+-  alternation NO (fallback: even n)  E1 modes [0, 2, 4, 6, 8, 10]
+        E1 terms: +0.8884 +0.2947 +0.1420 +0.0801 +0.0323 +0.0321 +0.0325 +0.0311
+9          9.00    0.000       18.0    1.48834 |      1.66594    0.35275 | band form > bound  fails
+        E1 rule per c: even-ladder phase pattern +---+-+-+-  alternation NO (fallback: even n)  E1 modes [0, 2, 4, 6, 8, 10]
+        E1 terms: +0.6948 +0.5950 +0.1375 +0.0813 +0.0456 +0.0241 +0.0276 +0.0282
+12        12.00    0.000       24.0    1.40540 |      0.91496    0.76637 | band form <= bound  REPAIRED
+        E1 rule per c: even-ladder phase pattern -++++-+-+-  alternation NO (fallback: even n)  E1 modes [0, 2, 4, 6, 8, 10]
+        E1 terms: +0.2206 +0.3727 +0.0580 +0.0789 +0.0543 +0.0377 +0.0170 +0.0171
+
+repaired cells: 2 of 6
+(COV-partial) numerically indicated; the failing cells' addresses in the rows.
+
+Recorded as data. NO SIGN SENTENCE AT COMPLETE ROSTER. h2 UNCHANGED. NOTHING DEPOSITS.
