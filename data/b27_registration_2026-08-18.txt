@@ -1,0 +1,59 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 12 -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 12 -- DOES WEIL'S FAMILY REACH EXACTNESS: THE POLYNOMIAL-DEGREE SWEEP.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+TESTING CONTINUES; the register is untouched. The ferry's correction carried on the face:
+"0.872 is the archimedean deficit" was an over-read of a model number -- RETIRED; the
+window-independent fact is the residual.
+
+THE OBJECT, DISTINGUISHED FROM SITTING 11's (registered so the two sigma_max's cannot be
+conflated): sitting 11 measured multiplication-window compressions G F G (the shape
+applied twice as a multiplier). THIS sitting measures the compression of F to WEIL'S
+TEST-CLASS SUBSPACE at degree d:
+    W_d(a) = span{ u^k e^(-u^2/2) : k <= d, k even },  u = ln|x| / ln(a)
+(even k = symmetric under the window's own inversion x <-> 1/x; the 1952 lemma's
+polynomial-times-Gaussian family at cite, calibrated to the diagonal's window as in
+sitting 11). sigma_max(d, a) = the largest singular value of P_W F P_W -- equivalently
+the generalized eigenproblem (B* F* B)(B* B)^(-1)(B* F B) w = sigma^2 (B* B) w over the
+degree-d coefficient space -- SOLVED EXACTLY (QR-orthonormalize the basis on the grid,
+SVD the compressed matrix Q* F Q), NOT SEARCHED. This is the lemma's own exactness
+question: how faithfully does the transform act on Weil's family at degree d.
+
+THE DENSITY LONGHAND, registered before any number: in u-coordinates the family's weight
+is Gaussian, whose moment problem is DETERMINATE (Hermite completeness), so the span over
+all degrees is dense in the relevant even sector and IN THE CONTINUUM sigma_max(d) -> 1
+as d -> infinity is the expected shape. The measured content is therefore: (i) whether
+the MODEL reproduces the approach within N-stability, and at what RATE (successive
+deficit ratios reported plainly -- no fitted constants); (ii) the a-dependence; (iii) the
+branch sentence.
+
+BRANCHES:
+ (W-exact) the deficit 1 - sigma_max(d) decays through the N-stable range with a
+           consistent rate -- THE ARCHIMEDEAN INTERLEAVE IS EXACT IN THE LIMIT OF WEIL'S
+           FAMILY AT THE MODEL: the real place's inexactness was finite-degree. SCOPE
+           SAID WITH IT: the centered-DFT archimedean model, calibrated windows; the
+           continuum-density longhand above is the shape it confirms.
+ (W-floor) the deficit stalls at a positive value across >= 4 consecutive even degrees
+           while N-stable -- the floor banked to full precision as the archimedean
+           residual in Weil's natural family; its a-dependence recorded; candidates
+           compared at >= 6 digits from the FIXED sitting-11 point list (the prolate
+           quantities at c = 2*pi; Si(4pi)/(4pi) and its complement; cos(1/2); sqrt(3)/2;
+           e^(-1/8); 2/sqrt(2*pi)), NO FITTING.
+ (W-third) filed openly as found.
+
+MEASUREMENT DISCIPLINE: a in {sqrt2, 2, 3}; N in {1023, 4095, 16383}; even degrees
+d = 0, 2, 4, ..., 40. Basis: Hermite-recursion polynomials in u (same span as monomials,
+conditioned), evaluated on the grid, QR-orthonormalized; the compressed (dim W_d)-square
+matrix Q* F Q via one FFT matvec per basis column. A degree's sigma_max is REPORTED AS A
+NUMBER only when >= 6 digits agree across the three N -- degrees beyond that gate are
+listed as BEYOND THE MODEL'S AFFORDANCE, not reported. Secondary column, cheap and
+declared: the full-degree sweep (odd u-powers included) beside the ferried even list.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b27_attempt2_s12.py register | run
+
+====================================================================================================

@@ -1,0 +1,420 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 12 -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 12 -- DOES WEIL'S FAMILY REACH EXACTNESS: THE POLYNOMIAL-DEGREE SWEEP.
+
+RELAY-ONLY. SUB-GATE (restated): no candidate grades PLAUSIBLE across T1-T10.
+THE CORRECTED STOP IN FORCE: measured properties of constructed objects are DATA at bench
+grade; refused: any promotion to W_inf - Sum W_p at complete roster, or register movement.
+TESTING CONTINUES; the register is untouched. The ferry's correction carried on the face:
+"0.872 is the archimedean deficit" was an over-read of a model number -- RETIRED; the
+window-independent fact is the residual.
+
+THE OBJECT, DISTINGUISHED FROM SITTING 11's (registered so the two sigma_max's cannot be
+conflated): sitting 11 measured multiplication-window compressions G F G (the shape
+applied twice as a multiplier). THIS sitting measures the compression of F to WEIL'S
+TEST-CLASS SUBSPACE at degree d:
+    W_d(a) = span{ u^k e^(-u^2/2) : k <= d, k even },  u = ln|x| / ln(a)
+(even k = symmetric under the window's own inversion x <-> 1/x; the 1952 lemma's
+polynomial-times-Gaussian family at cite, calibrated to the diagonal's window as in
+sitting 11). sigma_max(d, a) = the largest singular value of P_W F P_W -- equivalently
+the generalized eigenproblem (B* F* B)(B* B)^(-1)(B* F B) w = sigma^2 (B* B) w over the
+degree-d coefficient space -- SOLVED EXACTLY (QR-orthonormalize the basis on the grid,
+SVD the compressed matrix Q* F Q), NOT SEARCHED. This is the lemma's own exactness
+question: how faithfully does the transform act on Weil's family at degree d.
+
+THE DENSITY LONGHAND, registered before any number: in u-coordinates the family's weight
+is Gaussian, whose moment problem is DETERMINATE (Hermite completeness), so the span over
+all degrees is dense in the relevant even sector and IN THE CONTINUUM sigma_max(d) -> 1
+as d -> infinity is the expected shape. The measured content is therefore: (i) whether
+the MODEL reproduces the approach within N-stability, and at what RATE (successive
+deficit ratios reported plainly -- no fitted constants); (ii) the a-dependence; (iii) the
+branch sentence.
+
+BRANCHES:
+ (W-exact) the deficit 1 - sigma_max(d) decays through the N-stable range with a
+           consistent rate -- THE ARCHIMEDEAN INTERLEAVE IS EXACT IN THE LIMIT OF WEIL'S
+           FAMILY AT THE MODEL: the real place's inexactness was finite-degree. SCOPE
+           SAID WITH IT: the centered-DFT archimedean model, calibrated windows; the
+           continuum-density longhand above is the shape it confirms.
+ (W-floor) the deficit stalls at a positive value across >= 4 consecutive even degrees
+           while N-stable -- the floor banked to full precision as the archimedean
+           residual in Weil's natural family; its a-dependence recorded; candidates
+           compared at >= 6 digits from the FIXED sitting-11 point list (the prolate
+           quantities at c = 2*pi; Si(4pi)/(4pi) and its complement; cos(1/2); sqrt(3)/2;
+           e^(-1/8); 2/sqrt(2*pi)), NO FITTING.
+ (W-third) filed openly as found.
+
+MEASUREMENT DISCIPLINE: a in {sqrt2, 2, 3}; N in {1023, 4095, 16383}; even degrees
+d = 0, 2, 4, ..., 40. Basis: Hermite-recursion polynomials in u (same span as monomials,
+conditioned), evaluated on the grid, QR-orthonormalized; the compressed (dim W_d)-square
+matrix Q* F Q via one FFT matvec per basis column. A degree's sigma_max is REPORTED AS A
+NUMBER only when >= 6 digits agree across the three N -- degrees beyond that gate are
+listed as BEYOND THE MODEL'S AFFORDANCE, not reported. Secondary column, cheap and
+declared: the full-degree sweep (odd u-powers included) beside the ferried even list.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b27_attempt2_s12.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+DECLARED THRESHOLDS (fixed before the numbers):
+  N-stability gate            : >= 6 agreeing digits across N = [1023, 4095, 16383]
+  stalled step                : deficit ratio >= 0.9990
+  floor needs                 : >= 4 consecutive gated degrees inside a stall
+  decaying step               : deficit ratio <= 0.9900
+  CONSISTENT decay (W-exact)  : EVERY resolved gated step decays, no reversal
+  rate DESCRIPTOR (not a gate): geometric if ratio max/min <= 3.0, else accelerating
+  double-precision floor      : deficit <= 1e-14 is NOT resolvable in float64 --
+                                such steps are excluded from the rate reading
+  monotonicity slack          : 1e-12 ; QR rank floor 1e-12 ; unitarity slack 1e-12
+  QR rank truncation          : RECORDED AS DATA (a note), not scored as a check
+
+====================================================================================================
+V. VERIFICATION (dense matrix vs FFT operator at N = 255; F^2 = parity at every N)
+====================================================================================================
+  A1 FFT matvec vs dense F (N=255)            : 1.214e-14
+  A2 FFT matvec vs dense F^dag (N=255)        : 1.216e-14
+  A3 F^dag F = 1 on the matvec (N=255)        : 3.858e-16
+  A4 F^2 = parity on the matvec (N=255)       : 9.688e-16
+  A5 compressed matrix and sigma_max, FFT route vs DENSE route (N = 255):
+     a        d      sigma dense      sigma FFT        |dC|        |dsigma|   
+     sqrt2    0      0.188627300657   0.188627300657   6.65e-15    1.11e-16   
+     sqrt2    10     0.915495728607   0.915495728607   6.65e-15    2.22e-16   
+     sqrt2    40     1.000000000000   1.000000000000   6.65e-15    0.00e+00   
+     2        0      0.094612170750   0.094612170750   2.10e-14    1.11e-16   
+     2        10     0.999622124747   0.999622124747   2.10e-14    5.55e-16   
+     2        40     1.000000000000   1.000000000000   2.10e-14    2.22e-16   
+     3        0      0.089834345014   0.089834345014   2.19e-14    2.91e-16   
+     3        10     0.995354696909   0.995354696909   2.19e-14    8.88e-16   
+     3        40     1.000000000000   1.000000000000   2.19e-14    1.11e-16   
+  A6 F^2 = parity on a test vector, at every measurement N:
+     N = 1023    |F^2 v - P v| = 8.590e-16
+     N = 4095    |F^2 v - P v| = 9.020e-16
+     N = 16383   |F^2 v - P v| = 1.159e-15
+  verification checks so far: 19/19 PASS
+
+====================================================================================================
+G. THE GRID'S REACH IN u = ln|x|/ln(a) -- the model's affordance, stated in advance
+====================================================================================================
+  a        N        h            |x|max       u range      du at |x|=1    He_40 turning pt sqrt(2k+1)
+  sqrt2    1023     0.078370     40.0473      [ -7.347, 10.647] 0.22613        9.000
+  sqrt2    4095     0.039171     80.1827      [ -9.348, 12.650] 0.11302        9.000
+  sqrt2    16383    0.019584     160.4095     [-11.348, 14.651] 0.05651        9.000
+  2        1023     0.078370     40.0473      [ -3.674,  5.324] 0.11306        9.000
+  2        4095     0.039171     80.1827      [ -4.674,  6.325] 0.05651        9.000
+  2        16383    0.019584     160.4095     [ -5.674,  7.326] 0.02825        9.000
+  3        1023     0.078370     40.0473      [ -2.318,  3.359] 0.07134        9.000
+  3        4095     0.039171     80.1827      [ -2.949,  3.991] 0.03565        9.000
+  3        16383    0.019584     160.4095     [ -3.580,  4.622] 0.01783        9.000
+  (READ PLAINLY: a basis function of degree k lives on |u| <~ sqrt(2k+1) = 9.00 at
+   k = 40; where the grid's u-range is shorter than that, the high-degree columns are
+   TRUNCATED by the grid, not resolved -- this is exactly what the N-stability gate is
+   there to catch, and it is registered here BEFORE the numbers.)
+
+====================================================================================================
+M1. THE EVEN FAMILY (WEIL'S LIST): sigma_max(P_W F P_W), d = 0,2,...,40
+====================================================================================================
+
+--- a = sqrt2   (dim W_d = d/2 + 1) ---
+  d    dim   N=1023          N=4095          N=16383         dig  [pair] sigma_max (conv)  deficit (FL=floor) ratio
+  0    1     0.188626304353  0.188626304644  0.188626304644  8    [13 ] 0.18862630454682  +8.113737e-01    -
+  2    2     0.365373685767  0.365373679604  0.365373679604  7    [12 ] 0.36537368165854  +6.346263e-01    0.782163
+  4    3     0.802575453578  0.802575282458  0.802575282461  6    [11 ] 0.80257533949901  +1.974247e-01    0.311088
+  6    4     0.857866195500  0.857865576044  0.857865576037  6    [11 ] 0.85786578252690  +1.421342e-01    0.719942
+  8    5     0.871896186138  0.871888309746  0.871888309909  5    [9  ] BEYOND AFFORDANCE -                -
+  10   6     0.896310631392  0.896262987224  0.896262986962  4    [9  ] BEYOND AFFORDANCE -                -
+  12   7     0.929950020480  0.930855796002  0.930855889942  3    [6  ] BEYOND AFFORDANCE -                -
+  14   8     0.977953326306  0.975215827653  0.975215776331  2    [7  ] BEYOND AFFORDANCE -                -
+  16   9     0.986938608088  0.985251662538  0.985250029759  2    [5  ] BEYOND AFFORDANCE -                -
+  18   10    0.987372111042  0.986381838813  0.986382734668  2    [6  ] BEYOND AFFORDANCE -                -
+  20   11    0.989376404836  0.987603807241  0.987591852513  2    [4  ] BEYOND AFFORDANCE -                -
+  22   12    0.990064792019  0.989523426496  0.989555126528  3    [4  ] BEYOND AFFORDANCE -                -
+  24   13    0.991342621167  0.991264142919  0.991324705843  4    [4  ] BEYOND AFFORDANCE -                -
+  26   14    0.995644117724  0.992576168532  0.992506427634  2    [4  ] BEYOND AFFORDANCE -                -
+  28   15    0.997651411340  0.995311257156  0.995380166199  2    [4  ] BEYOND AFFORDANCE -                -
+  30   16    0.998295021134  0.998651310185  0.998866761229  3    [3  ] BEYOND AFFORDANCE -                -
+  32   17    0.998907748138  0.999033837652  0.999183847927  3    [3  ] BEYOND AFFORDANCE -                -
+  34   18    0.999223030061  0.999137216814  0.999247656089  3    [3  ] BEYOND AFFORDANCE -                -
+  36   19    0.999476159205  0.999152258621  0.999247680863  3    [4  ] BEYOND AFFORDANCE -                -
+  38   20    0.999753636893  0.999187092762  0.999290199526  3    [3  ] BEYOND AFFORDANCE -                -
+  40   21    0.999971245581  0.999469422507  0.999512656537  3    [4  ] BEYOND AFFORDANCE -                -
+  QR rank: full at every N (no collinear column at grid resolution).
+  ([pair] = agreeing digits across the two largest N only -- a DIAGNOSTIC, not a
+   reported number; the registered gate is the three-N digit count.)
+
+--- a = 2   (dim W_d = d/2 + 1) ---
+  d    dim   N=1023          N=4095          N=16383         dig  [pair] sigma_max (conv)  deficit (FL=floor) ratio
+  0    1     0.094502503380  0.094497926083  0.094497956023  4    [6  ] BEYOND AFFORDANCE -                -
+  2    2     0.393134690531  0.393210141395  0.393210232486  3    [6  ] BEYOND AFFORDANCE -                -
+  4    3     0.912734713153  0.912664832769  0.912668265903  4    [5  ] BEYOND AFFORDANCE -                -
+  6    4     0.956116934541  0.956244882843  0.956243650465  3    [5  ] BEYOND AFFORDANCE -                -
+  8    5     0.993765101002  0.993883796022  0.993886409019  3    [5  ] BEYOND AFFORDANCE -                -
+  10   6     0.995961992167  0.995957519689  0.995966034761  5    [5  ] BEYOND AFFORDANCE -                -
+  12   7     0.999860243662  0.999760642415  0.999771279665  4    [4  ] BEYOND AFFORDANCE -                -
+  14   8     0.999996244504  0.999767368530  0.999778798866  3    [4  ] BEYOND AFFORDANCE -                -
+  16   9     0.999996244596  0.999959041473  0.999969701278  4    [4  ] BEYOND AFFORDANCE -                -
+  18   10    0.999997574861  0.999989072691  0.999992624490  5    [5  ] BEYOND AFFORDANCE -                -
+  20   11    0.999999715695  0.999999804364  0.999994099970  5    [5  ] BEYOND AFFORDANCE -                -
+  22   12    0.999999983969  0.999999876286  0.999996989263  5    [5  ] BEYOND AFFORDANCE -                -
+  24   13    0.999999999871  0.999999950207  0.999999749233  6    [6  ] 0.99999989977005  +1.002300e-07    -
+  26   14    0.999999999954  0.999999968823  0.999999983900  7    [7  ] 0.99999998422569  +1.577431e-08    0.157381
+  28   15    0.999999999959  0.999999995714  0.999999996127  8    [9  ] 0.99999999726704  +2.732961e-09    0.173254
+  30   16    1.000000000000  0.999999999833  0.999999996527  8    [8  ] 0.99999999878653  +1.213474e-09    0.444014
+  32   17    1.000000000000  0.999999999989  0.999999999877  9    [9  ] 0.99999999995530  +4.470435e-11    0.036840
+  34   18    1.000000000000  0.999999999994  0.999999999951  10   [10 ] 0.99999999998149  +1.850520e-11    0.413946
+  36   19    1.000000000000  1.000000000000  0.999999999998  11   [11 ] 0.99999999999942  +5.759837e-13    0.031126
+  38   20    1.000000000000  1.000000000000  0.999999999999  11   [11 ] 0.99999999999955  +4.537482e-13    0.787779
+  40   21    1.000000000000  1.000000000000  1.000000000000  12   [12 ] 0.99999999999992  +7.582823e-14    0.167115
+  QR rank: full at every N (no collinear column at grid resolution).
+  ([pair] = agreeing digits across the two largest N only -- a DIAGNOSTIC, not a
+   reported number; the registered gate is the three-N digit count.)
+
+--- a = 3   (dim W_d = d/2 + 1) ---
+  d    dim   N=1023          N=4095          N=16383         dig  [pair] sigma_max (conv)  deficit (FL=floor) ratio
+  0    1     0.090675614686  0.091003985659  0.091030658858  2    [3  ] BEYOND AFFORDANCE -                -
+  2    2     0.125606945706  0.125281380242  0.125264709072  2    [3  ] BEYOND AFFORDANCE -                -
+  4    3     0.129667805225  0.128637425944  0.128613657561  2    [3  ] BEYOND AFFORDANCE -                -
+  6    4     0.442091383152  0.366580269538  0.357675442177  0    [1  ] BEYOND AFFORDANCE -                -
+  8    5     0.762977308586  0.653065670456  0.610654923462  0    [1  ] BEYOND AFFORDANCE -                -
+  10   6     0.950178969076  0.877612078525  0.824470815942  0    [1  ] BEYOND AFFORDANCE -                -
+  12   7     0.997218897713  0.979758263573  0.952689107728  1    [1  ] BEYOND AFFORDANCE -                -
+  14   8     0.999955532368  0.999059172593  0.994578424289  2    [2  ] BEYOND AFFORDANCE -                -
+  16   9     0.999999977551  0.999989713801  0.999835798019  3    [3  ] BEYOND AFFORDANCE -                -
+  18   10    0.999999999501  0.999999999798  0.999999474100  6    [6  ] 0.99999982446640  +1.755336e-07    -
+  20   11    0.999999999972  0.999999999984  0.999999985915  7    [7  ] 0.99999999529040  +4.709598e-09    0.026830
+  22   12    0.999999999975  0.999999999993  0.999999999934  10   [10 ] 0.99999999996721  +3.278977e-11    0.006962
+  24   13    0.999999999994  0.999999999993  0.999999999999  11   [11 ] 0.99999999999546  +4.544254e-12    0.138588
+  26   14    0.999999999999  0.999999999997  1.000000000000  11   [11 ] 0.99999999999862  +1.375011e-12    0.302582
+  28   15    1.000000000000  0.999999999999  1.000000000000  12   [12 ] 0.99999999999963  +3.727019e-13    0.271054
+  30   16    1.000000000000  1.000000000000  1.000000000000  12   [13 ] 0.99999999999991  +8.704149e-14    0.233542
+  32   17    1.000000000000  1.000000000000  1.000000000000  13   [13 ] 0.99999999999998  +1.953993e-14    0.224490
+  34   18    1.000000000000  1.000000000000  1.000000000000  14   [14 ] 1.00000000000000  +3.885781e-15 FL at float floor
+  36   19    1.000000000000  1.000000000000  1.000000000000  14   [14 ] 1.00000000000000  +1.443290e-15 FL at float floor
+  38   20    1.000000000000  1.000000000000  1.000000000000  14   [14 ] 1.00000000000000  +2.109424e-15 FL at float floor
+  40   21    1.000000000000  1.000000000000  1.000000000000  14   [14 ] 1.00000000000000  +1.776357e-15 FL at float floor
+  !! QR RANK TRUNCATION at N = 1023: degrees [40] collinear at grid resolution (min |R_jj| =
+  9.19e-13) -- RECORDED AS DATA, sweep continued.
+  ([pair] = agreeing digits across the two largest N only -- a DIAGNOSTIC, not a
+   reported number; the registered gate is the three-N digit count.)
+
+====================================================================================================
+M2. SECONDARY, DECLARED: THE FULL-DEGREE SWEEP (odd u-powers included), d = 0..40
+====================================================================================================
+
+--- a = sqrt2   (dim W_d = d + 1; all k, not just even) ---
+  d    dim   dig  sigma_max (conv)    deficit (FL=floor) ratio      | d    dim   dig  sigma_max (conv)    deficit (FL=floor) ratio
+  0    1     8    0.18862630454682    +8.113737e-01    -         | 21   22    12   0.99999999999994    +5.651035e-14    0.028549  
+  1    2     8    0.61554454377635    +3.844555e-01    0.473833  | 22   23    14   1.00000000000000    +4.329870e-15 FL floor     
+  2    3     8    0.66671190643801    +3.332881e-01    0.866910  | 23   24    15   1.00000000000000    +0.000000e+00 FL floor     
+  3    4     7    0.77326267565564    +2.267373e-01    0.680304  | 24   25    15   1.00000000000000    +0.000000e+00 FL floor     
+  4    5     6    0.88757165696107    +1.124283e-01    0.495853  | 25   26    15   1.00000000000000    -2.220446e-16 FL floor     
+  5    6     6    0.98660941767084    +1.339058e-02    0.119103  | 26   27    15   1.00000000000000    -4.440892e-16 FL floor     
+  6    7     7    0.99555080206324    +4.449198e-03    0.332263  | 27   28    15   1.00000000000000    -2.220446e-16 FL floor     
+  7    8     6    0.99944523120623    +5.547688e-04    0.124690  | 28   29    15   1.00000000000000    -4.440892e-16 FL floor     
+  8    9     5    BEYOND AFFORDANCE   -                -         | 29   30    15   1.00000000000000    -2.220446e-16 FL floor     
+  9    10    6    0.99964229867781    +3.577013e-04    -         | 30   31    15   1.00000000000000    -2.220446e-16 FL floor     
+  10   11    5    BEYOND AFFORDANCE   -                -         | 31   32    15   1.00000000000000    -4.440892e-16 FL floor     
+  11   12    5    BEYOND AFFORDANCE   -                -         | 32   33    15   1.00000000000000    -6.661338e-16 FL floor     
+  12   13    6    0.99999590801681    +4.091983e-06    -         | 33   34    15   1.00000000000000    -4.440892e-16 FL floor     
+  13   14    6    0.99999963769625    +3.623037e-07    0.088540  | 34   35    15   1.00000000000000    -2.220446e-16 FL floor     
+  14   15    8    0.99999998847767    +1.152233e-08    0.031803  | 35   36    15   1.00000000000000    -6.661338e-16 FL floor     
+  15   16    9    0.99999999580311    +4.196890e-09    0.364240  | 36   37    15   1.00000000000000    -4.440892e-16 FL floor     
+  16   17    9    0.99999999949287    +5.071263e-10    0.120834  | 37   38    15   1.00000000000000    -6.661338e-16 FL floor     
+  17   18    9    0.99999999968187    +3.181276e-10    0.627314  | 38   39    15   1.00000000000000    -6.661338e-16 FL floor     
+  18   19    9    0.99999999970844    +2.915587e-10    0.916483  | 39   40    15   1.00000000000000    -6.661338e-16 FL floor     
+  19   20    10   0.99999999997857    +2.142764e-11    0.073493  | 40   41    15   1.00000000000000    -6.661338e-16 FL floor     
+  20   21    11   0.99999999999802    +1.979417e-12    0.092377  | 
+
+--- a = 2   (dim W_d = d + 1; all k, not just even) ---
+  d    dim   dig  sigma_max (conv)    deficit (FL=floor) ratio      | d    dim   dig  sigma_max (conv)    deficit (FL=floor) ratio
+  0    1     4    BEYOND AFFORDANCE   -                -         | 21   22    14   1.00000000000000    -1.776357e-15 FL floor     
+  1    2     5    BEYOND AFFORDANCE   -                -         | 22   23    14   1.00000000000000    -1.554312e-15 FL floor     
+  2    3     5    BEYOND AFFORDANCE   -                -         | 23   24    14   1.00000000000000    -1.554312e-15 FL floor     
+  3    4     5    BEYOND AFFORDANCE   -                -         | 24   25    14   1.00000000000000    -1.554312e-15 FL floor     
+  4    5     5    BEYOND AFFORDANCE   -                -         | 25   26    14   1.00000000000000    -1.554312e-15 FL floor     
+  5    6     6    0.99999418962521    +5.810375e-06    -         | 26   27    14   1.00000000000000    -1.776357e-15 FL floor     
+  6    7     7    0.99999998963060    +1.036940e-08    0.001785  | 27   28    14   1.00000000000000    -1.332268e-15 FL floor     
+  7    8     9    0.99999999859103    +1.408974e-09    0.135878  | 28   29    14   1.00000000000000    -1.554312e-15 FL floor     
+  8    9     9    0.99999999970795    +2.920540e-10    0.207281  | 29   30    14   1.00000000000000    -1.110223e-15 FL floor     
+  9    10    11   0.99999999999750    +2.498446e-12    0.008555  | 30   31    14   1.00000000000000    -1.554312e-15 FL floor     
+  10   11    11   0.99999999999919    +8.070211e-13    0.323009  | 31   32    14   1.00000000000000    -1.554312e-15 FL floor     
+  11   12    12   0.99999999999993    +6.716849e-14    0.083230  | 32   33    14   1.00000000000000    -1.554312e-15 FL floor     
+  12   13    14   1.00000000000000    -2.220446e-16 FL floor     | 33   34    14   1.00000000000000    -1.110223e-15 FL floor     
+  13   14    14   1.00000000000000    -8.881784e-16 FL floor     | 34   35    14   1.00000000000000    -1.554312e-15 FL floor     
+  14   15    14   1.00000000000000    -6.661338e-16 FL floor     | 35   36    14   1.00000000000000    -1.554312e-15 FL floor     
+  15   16    14   1.00000000000000    -1.554312e-15 FL floor     | 36   37    14   1.00000000000000    -1.554312e-15 FL floor     
+  16   17    14   1.00000000000000    -1.776357e-15 FL floor     | 37   38    14   1.00000000000000    -1.554312e-15 FL floor     
+  17   18    14   1.00000000000000    -1.776357e-15 FL floor     | 38   39    14   1.00000000000000    -1.554312e-15 FL floor     
+  18   19    14   1.00000000000000    -1.554312e-15 FL floor     | 39   40    14   1.00000000000000    -1.776357e-15 FL floor     
+  19   20    14   1.00000000000000    -1.554312e-15 FL floor     | 40   41    14   1.00000000000000    -1.554312e-15 FL floor     
+  20   21    14   1.00000000000000    -1.776357e-15 FL floor     | 
+
+--- a = 3   (dim W_d = d + 1; all k, not just even) ---
+  d    dim   dig  sigma_max (conv)    deficit (FL=floor) ratio      | d    dim   dig  sigma_max (conv)    deficit (FL=floor) ratio
+  0    1     2    BEYOND AFFORDANCE   -                -         | 21   22    15   1.00000000000000    -2.220446e-16 FL floor     
+  1    2     4    BEYOND AFFORDANCE   -                -         | 22   23    15   1.00000000000000    -6.661338e-16 FL floor     
+  2    3     5    BEYOND AFFORDANCE   -                -         | 23   24    15   1.00000000000000    -2.220446e-16 FL floor     
+  3    4     5    BEYOND AFFORDANCE   -                -         | 24   25    15   1.00000000000000    -6.661338e-16 FL floor     
+  4    5     5    BEYOND AFFORDANCE   -                -         | 25   26    15   1.00000000000000    -6.661338e-16 FL floor     
+  5    6     7    0.99999997719419    +2.280581e-08    -         | 26   27    15   1.00000000000000    -2.220446e-16 FL floor     
+  6    7     7    0.99999999234575    +7.654247e-09    0.335627  | 27   28    15   1.00000000000000    -6.661338e-16 FL floor     
+  7    8     9    0.99999999974838    +2.516166e-10    0.032873  | 28   29    15   1.00000000000000    -6.661338e-16 FL floor     
+  8    9     11   0.99999999999729    +2.706835e-12    0.010758  | 29   30    15   1.00000000000000    -2.220446e-16 FL floor     
+  9    10    12   0.99999999999989    +1.105782e-13    0.040851  | 30   31    15   1.00000000000000    -4.440892e-16 FL floor     
+  10   11    14   1.00000000000000    +3.552714e-15 FL floor     | 31   32    15   1.00000000000000    -6.661338e-16 FL floor     
+  11   12    15   1.00000000000000    +8.881784e-16 FL floor     | 32   33    15   1.00000000000000    +0.000000e+00 FL floor     
+  12   13    15   1.00000000000000    +1.110223e-16 FL floor     | 33   34    15   1.00000000000000    -6.661338e-16 FL floor     
+  13   14    15   1.00000000000000    +0.000000e+00 FL floor     | 34   35    15   1.00000000000000    -4.440892e-16 FL floor     
+  14   15    15   1.00000000000000    +0.000000e+00 FL floor     | 35   36    15   1.00000000000000    -6.661338e-16 FL floor     
+  15   16    15   1.00000000000000    -2.220446e-16 FL floor     | 36   37    15   1.00000000000000    -6.661338e-16 FL floor     
+  16   17    15   1.00000000000000    -2.220446e-16 FL floor     | 37   38    15   1.00000000000000    -2.220446e-16 FL floor     
+  17   18    15   1.00000000000000    -2.220446e-16 FL floor     | 38   39    15   1.00000000000000    -4.440892e-16 FL floor     
+  18   19    15   1.00000000000000    -4.440892e-16 FL floor     | 39   40    15   1.00000000000000    -6.661338e-16 FL floor     
+  19   20    15   1.00000000000000    -2.220446e-16 FL floor     | 40   41    15   1.00000000000000    -6.661338e-16 FL floor     
+  20   21    15   1.00000000000000    -6.661338e-16 FL floor     | 
+  !! QR RANK TRUNCATION at N = 1023: degrees [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40] (min
+  |R_jj| = 1.04e-13)
+  !! QR RANK TRUNCATION at N = 4095: degrees [36, 38, 39, 40] (min |R_jj| = 4.97e-13)
+
+====================================================================================================
+M3. BRANCH ANALYSIS PER a (even family = Weil's list; the full sweep beside it)
+====================================================================================================
+
+--- a = sqrt2 ---
+  EVEN family: gated degrees [0, 2, 4, 6]
+    WHERE THE N-STABILITY GATE CUTS: gated band d = 0 .. 6
+      ungated BELOW the band (too coarse / not yet stable): none
+      ungated GAPS inside the band                        : none
+      ungated ABOVE the band (grid truncates the basis)   : [8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+    deficits at the gated degrees:
+      d = 0    deficit = +8.113736954531755e-01   sigma_max = 0.188626304546824
+      d = 2    deficit = +6.346263183414609e-01   sigma_max = 0.365373681658539
+      d = 4    deficit = +1.974246605009881e-01   sigma_max = 0.802575339499012
+      d = 6    deficit = +1.421342174730977e-01   sigma_max = 0.857865782526902
+    successive deficit ratios (deficit(d)/deficit(d-2)):
+      d=2:0.782163, d=4:0.311088, d=6:0.719942
+    ratio spread (max/min) = 2.514 -> geometric (ratios within max/min <= 3.0) ; stalled-degree
+    run = 0 ; decaying steps 3/3 resolved
+    BRANCH (a = sqrt2, even) : (W-exact)
+      the deficit DECAYS at EVERY resolved gated step with no reversal (3/3 steps, rate
+      geometric (ratios within max/min <= 3.0)) and is still decaying at the last gated degree
+      (terminal deficit 1.421342e-01).
+    !! CAUTION, SAID PROMINENTLY: the gated band ENDS with the deficit still
+       at 1.421342e-01. (W-exact) here reads the DIRECTION of 3 steps only; it is
+       NOT an observed approach to 1 inside this a's affordance. The rest of
+       the sweep is BEYOND THE MODEL'S AFFORDANCE and is not reported.
+  FULL sweep: gated degrees [0, 1, 2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+  22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40] -> branch
+  (W-exact)
+      the deficit DECAYS at EVERY resolved gated step with no reversal (16/16 steps, rate
+      ACCELERATING / irregular (ratio max/min = 32.1)) and reaches the DOUBLE-PRECISION FLOOR at
+      d = 22 (1 - sigma_max no longer resolvable in float64).
+
+--- a = 2 ---
+  EVEN family: gated degrees [24, 26, 28, 30, 32, 34, 36, 38, 40]
+    WHERE THE N-STABILITY GATE CUTS: gated band d = 24 .. 40
+      ungated BELOW the band (too coarse / not yet stable): [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
+      ungated GAPS inside the band                        : none
+      ungated ABOVE the band (grid truncates the basis)   : none
+    deficits at the gated degrees:
+      d = 24   deficit = +1.002299544472507e-07   sigma_max = 0.999999899770046
+      d = 26   deficit = +1.577430774890587e-08   sigma_max = 0.999999984225692
+      d = 28   deficit = +2.732961079665586e-09   sigma_max = 0.999999997267039
+      d = 30   deficit = +1.213474210004506e-09   sigma_max = 0.999999998786526
+      d = 32   deficit = +4.470435133185902e-11   sigma_max = 0.999999999955296
+      d = 34   deficit = +1.850519737445211e-11   sigma_max = 0.999999999981495
+      d = 36   deficit = +5.759837051755312e-13   sigma_max = 0.999999999999424
+      d = 38   deficit = +4.537481501643015e-13   sigma_max = 0.999999999999546
+      d = 40   deficit = +7.582823258189819e-14   sigma_max = 0.999999999999924
+    successive deficit ratios (deficit(d)/deficit(d-2)):
+      d=26:0.157381, d=28:0.173254, d=30:0.444014, d=32:0.036840, d=34:0.413946, d=36:0.031126,
+      d=38:0.787779, d=40:0.167115
+    ratio spread (max/min) = 25.31 -> ACCELERATING / irregular (ratio max/min = 25.3) ; stalled-
+    degree run = 0 ; decaying steps 8/8 resolved
+    BRANCH (a = 2, even) : (W-exact)
+      the deficit DECAYS at EVERY resolved gated step with no reversal (8/8 steps, rate
+      ACCELERATING / irregular (ratio max/min = 25.3)) and is still decaying at the last gated
+      degree (terminal deficit 7.582823e-14).
+  FULL sweep: gated degrees [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40] -> branch (W-exact)
+      the deficit DECAYS at EVERY resolved gated step with no reversal (6/6 steps, rate
+      ACCELERATING / irregular (ratio max/min = 181)) and reaches the DOUBLE-PRECISION FLOOR at
+      d = 12 (1 - sigma_max no longer resolvable in float64).
+
+--- a = 3 ---
+  EVEN family: gated degrees [18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+    WHERE THE N-STABILITY GATE CUTS: gated band d = 18 .. 40
+      ungated BELOW the band (too coarse / not yet stable): [0, 2, 4, 6, 8, 10, 12, 14, 16]
+      ungated GAPS inside the band                        : none
+      ungated ABOVE the band (grid truncates the basis)   : none
+    deficits at the gated degrees:
+      d = 18   deficit = +1.755335987674300e-07   sigma_max = 0.999999824466401
+      d = 20   deficit = +4.709598377949931e-09   sigma_max = 0.999999995290402
+      d = 22   deficit = +3.278977089848922e-11   sigma_max = 0.999999999967210
+      d = 24   deficit = +4.544253862093228e-12   sigma_max = 0.999999999995456
+      d = 26   deficit = +1.375011215998256e-12   sigma_max = 0.999999999998625
+      d = 28   deficit = +3.727018693666651e-13   sigma_max = 0.999999999999627
+      d = 30   deficit = +8.704148513061227e-14   sigma_max = 0.999999999999913
+      d = 32   deficit = +1.953992523340276e-14   sigma_max = 0.999999999999980
+      d = 34   deficit = +3.885780586188048e-15   sigma_max = 0.999999999999996   [AT THE DOUBLE-PRECISION FLOOR]
+      d = 36   deficit = +1.443289932012704e-15   sigma_max = 0.999999999999999   [AT THE DOUBLE-PRECISION FLOOR]
+      d = 38   deficit = +2.109423746787797e-15   sigma_max = 0.999999999999998   [AT THE DOUBLE-PRECISION FLOOR]
+      d = 40   deficit = +1.776356839400250e-15   sigma_max = 0.999999999999998   [AT THE DOUBLE-PRECISION FLOOR]
+    successive deficit ratios (deficit(d)/deficit(d-2)):
+      d=20:0.026830, d=22:0.006962, d=24:0.138588, d=26:0.302582, d=28:0.271054, d=30:0.233542,
+      d=32:0.224490, d=34:floor, d=36:floor, d=38:floor, d=40:floor
+    ratio spread (max/min) = 43.46 -> ACCELERATING / irregular (ratio max/min = 43.5) ; stalled-
+    degree run = 0 ; decaying steps 7/7 resolved
+    FIRST GATED DEGREE AT THE DOUBLE-PRECISION FLOOR: d = 34
+    BRANCH (a = 3, even) : (W-exact)
+      the deficit DECAYS at EVERY resolved gated step with no reversal (7/7 steps, rate
+      ACCELERATING / irregular (ratio max/min = 43.5)) and reaches the DOUBLE-PRECISION FLOOR at
+      d = 34 (1 - sigma_max no longer resolvable in float64).
+  FULL sweep: gated degrees [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40] -> branch (W-exact)
+      the deficit DECAYS at EVERY resolved gated step with no reversal (4/4 steps, rate
+      ACCELERATING / irregular (ratio max/min = 31.2)) and reaches the DOUBLE-PRECISION FLOOR at
+      d = 10 (1 - sigma_max no longer resolvable in float64).
+
+====================================================================================================
+M4. THE FLOOR AND ITS a-DEPENDENCE (banked to full precision where W-floor landed)
+====================================================================================================
+  NO (W-floor) landed at any a -- no floor is banked, and the fixed candidate
+  list is NOT exercised (comparing it to a non-floor would be exactly the
+  over-read the ferry's correction retired).
+
+====================================================================================================
+VERDICT
+====================================================================================================
+  a = sqrt2   BRANCH (W-exact)  gated band d = 0..6 (4 degrees), terminal deficit +1.4213e-01
+  a = 2       BRANCH (W-exact)  gated band d = 24..40 (9 degrees), terminal deficit +7.5828e-14
+  a = 3       BRANCH (W-exact)  gated band d = 18..40 (12 degrees), terminal deficit +1.7764e-15, AT THE DOUBLE-PRECISION FLOOR from d = 34
+
+  OVERALL BRANCH LANDED: (W-exact) -- the same at every a in {sqrt2, 2, 3}.
+
+  !! NOT LANDING AS REGISTERED, SAID PROMINENTLY: at a = sqrt2 the gated band ends
+     with the deficit still far from 0, so the (W-exact) reading there is the
+     DIRECTION of a handful of steps, NOT an observed approach to 1. The a where
+     the model actually carries the question to the double-precision floor inside
+     the gate is 3.
+  the DENSITY LONGHAND registered before the run said sigma_max(d) -> 1 IN THE
+  CONTINUUM; what is measured here is whether the MODEL reproduces that approach
+  inside the N-stable range, and nothing more.
+
+  SECONDARY, DECLARED -- DOES INCLUDING THE ODD u-POWERS CHANGE THE STORY?
+  a        EVEN family (Weil's list)                FULL sweep (odd included)                same story?
+  sqrt2    (W-exact)  4 gated, d<=6   def +1.421e-01 (W-exact) 38 gated, d<=40  def -6.661e-16 YES
+  2        (W-exact)  9 gated, d<=40  def +7.583e-14 (W-exact) 36 gated, d<=40  def -1.554e-15 YES
+  3        (W-exact) 12 gated, d<=40  def +1.776e-15 (W-exact) 36 gated, d<=40  def -6.661e-16 YES
+  (the FULL sweep is a richer family at the same degree label d -- dim d+1 against
+   dim d/2+1 -- so a faster approach is EXPECTED; what is measured is whether the
+   branch sentence itself changes, not whether the numbers move.)
+  SECONDARY branches: a=sqrt2 -> (W-exact); a=2 -> (W-exact); a=3 -> (W-exact)
+  the register is UNTOUCHED; this is bench-grade DATA about a constructed object.
+  the sitting-11 sigma_max (||G F G||) and this sitting's sigma_max (||P_W F P_W||)
+  are DIFFERENT OBJECTS, as registered -- they are not to be conflated.
+
+FLOAT BENCH COMPLETE; ASSERTED CHECKS: 91/91 PASS

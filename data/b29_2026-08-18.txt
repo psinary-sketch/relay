@@ -1,0 +1,171 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 12 (item 3) -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 12 (item 3) -- THE Q_3 LEVEL-4 PAIRING CELL, RE-RUN AT AN HONEST BUDGET.
+
+RELAY-ONLY. SUB-GATE (restated). THE CORRECTED STOP IN FORCE. TESTING CONTINUES; the
+register is untouched.
+
+THE ONE DECLARED-SKIPPED CELL of sitting 11's p = 3 tower (b26): T2 at n = 4 -- the
+level-stability of the pairing on Q_3 at the 6400-dimensional Sonin space (all 6400^2 =
+40,960,000 Gram entries, exact cyclotomic arithmetic in the zeta_(3^10) coefficient-dict
+representation), skipped when the projection (591 s) exceeded the registered budget
+(420 s), with the budget honestly not raised after the fact. THIS RUN'S BUDGET, SET
+BEFORE RUNNING: 1800 s. The claim checked, exact: host Gram = 9 * level Gram on the nose
+(the mass normalization as stated in b26).
+
+BRANCHES: (closed) the sweep completes within budget and lands entry-exact -- the p = 3
+tower's T2 is exact at ALL levels 1..4 and the declared-skip is retired. (still-declared)
+the sweep exceeds even this budget or a mismatch appears -- reported exactly as found (a
+mismatch would be a FINDING, the first break in the tower structure, and would be
+reported at its entry address, never smoothed).
+
+EXACT ARITHMETIC. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b29_attempt2_s12_t2n4.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+LEVELS BUILT (cross-validation): n=1 (q=3, N=9, dim Son=4), n=2 (q=9, N=81, dim Son=64), n=3 (q=27, N=729, dim Son=676)
+TARGET CELL: n = 4 (q = 81, N = 6561, dim Son = 6400, host N_h = 9^5 = 59049)
+BUDGET, SET BEFORE RUNNING: 1800 s (b26's was 420 s and its projection 591 s)
+
+====================================================================================================
+R1.  THE TWO ROUTES, CROSS-VALIDATED ENTRY BY ENTRY BEFORE ROUTE B IS USED
+====================================================================================================
+      ROUTE A = b26's own inner loop (coefficient dictionaries, b26.ZD imported
+                unchanged).  ROUTE B = the same 40 folded terms per entry, done
+                a Gram row at a time in exact int64 arrays with an exact
+                sorted-key zero test.  NO TOLERANCE ANYWHERE.
+
+  PASS  R1a n=1  the embedded columns have exactly 6 nonzeros each (2 Sonin nonzeros x 3 = p host cells), all 4 of them; the level columns have 2
+  PASS  R1b n=1  ROUTE A == ROUTE B on ALL 4 x 4 = 16 entries of the real comparison (A: 0.0 s, B: 0.0 s; speedup 1035213.5x) -- and both find 0 mismatches
+  PASS  R1c n=1  NEGATIVE CONTROL (mass constant 3 instead of 9): both routes flag the SAME 16 entries (nonempty: yes) -- the test is not vacuous
+  PASS  R1d n=1  NEGATIVE CONTROL (level column 3 corrupted by one chart step): both routes agree on the EXACT ADDRESS SET -- 7 entries spread over 4 distinct rows (the full cross of row 3 with column 3 would be 2d - 1 = 7 entries) -- so the fast route reports WHERE a break is, not merely THAT there is one
+  PASS  R1e n=1  the mismatch matrix is SYMMETRIC on the corrupted control (S_h and S_n are symmetric in (c1,c2) since zeta^(m1 m2) is) -- so the upper triangle would have sufficed; it is NOT used, the FULL square is computed below
+  PASS  R1a n=2  the embedded columns have exactly 6 nonzeros each (2 Sonin nonzeros x 3 = p host cells), all 64 of them; the level columns have 2
+  PASS  R1b n=2  ROUTE A == ROUTE B on ALL 64 x 64 = 4096 entries of the real comparison (A: 0.1 s, B: 0.0 s; speedup 4.4x) -- and both find 0 mismatches
+  PASS  R1c n=2  NEGATIVE CONTROL (mass constant 3 instead of 9): both routes flag the SAME 4096 entries (nonempty: yes) -- the test is not vacuous
+  PASS  R1d n=2  NEGATIVE CONTROL (level column 5 corrupted by one chart step): both routes agree on the EXACT ADDRESS SET -- 127 entries spread over 64 distinct rows (the full cross of row 5 with column 5 would be 2d - 1 = 127 entries) -- so the fast route reports WHERE a break is, not merely THAT there is one
+  PASS  R1e n=2  the mismatch matrix is SYMMETRIC on the corrupted control (S_h and S_n are symmetric in (c1,c2) since zeta^(m1 m2) is) -- so the upper triangle would have sufficed; it is NOT used, the FULL square is computed below
+  PASS  R1a n=3  the embedded columns have exactly 6 nonzeros each (2 Sonin nonzeros x 3 = p host cells), all 676 of them; the level columns have 2
+  PASS  R1b n=3  ROUTE A == ROUTE B on ALL 676 x 676 = 456976 entries of the real comparison (A: 6.5 s, B: 1.4 s; speedup 4.6x) -- and both find 0 mismatches
+  PASS  R1c n=3  NEGATIVE CONTROL (mass constant 3 instead of 9): both routes flag the SAME 456976 entries (nonempty: yes) -- the test is not vacuous
+  PASS  R1d n=3  NEGATIVE CONTROL (level column 5 corrupted by one chart step): both routes agree on the EXACT ADDRESS SET -- 1351 entries spread over 676 distinct rows (the full cross of row 5 with column 5 would be 2d - 1 = 1351 entries) -- so the fast route reports WHERE a break is, not merely THAT there is one
+  PASS  R1e n=3  the mismatch matrix is SYMMETRIC on the corrupted control (S_h and S_n are symmetric in (c1,c2) since zeta^(m1 m2) is) -- so the upper triangle would have sufficed; it is NOT used, the FULL square is computed below
+
+====================================================================================================
+R2.  b26's OWN t2_pairing() CALLED DIRECTLY AT n = 1..3 (b26 IMPORTED, NOT MODIFIED)
+====================================================================================================
+====================================================================================================
+T2.  <iota v, F iota w> = <v, F w>  --  THE GRAM OF iota(Son(n)) INSIDE V_(n+1) vs THE LEVEL-n GRAM, ENTRY-EXACT
+====================================================================================================
+      NORMALIZATION: level entry = 9^(-n) S_n, host entry = 9^(-(n+1)) S_h; equality ON THE NOSE <=> S_h = 9 S_n, compared inside the host field.
+  PASS  T2  n=1  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 4 x 4 = 16 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) [0.0 s]
+  PASS  T2  n=2  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 64 x 64 = 4096 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) [0.1 s]
+  PASS  T2  n=3  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 676 x 676 = 456976 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) [6.5 s]
+
+
+      b26's own ledger lines produced by that call:
+        PASS   T2  n=1  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 4 x 4 = 16 entries -- the pairing is LEVEL
+        PASS   T2  n=2  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 64 x 64 = 4096 entries -- the pairing is L
+        PASS   T2  n=3  the host Gram (iota K)^T W_h F_h (iota K) equals the level-n Gram K^T W_n F_n K ENTRY-EXACT on all 676 x 676 = 456976 entries -- the pairing 
+      b26's DECLARED lines produced by that call: 0
+
+  PASS  R2a  b26's OWN t2_pairing() ran at n = 1..3 and produced 3 T2 lines, ALL PASS in b26's own ledger -- this file reproduces b26's exact T2 result because it CALLS b26's code path, unmodified
+
+====================================================================================================
+R3.  T2 AT n = 4 -- THE CELL b26 DECLARED-SKIPPED
+====================================================================================================
+      level n = 4: q = 3^4 = 81, N = 9^4 = 6561, dim Son(3,4) = (81 - 1)^2 = 6400
+      host h = 5: N_h = 9^5 = 59049 = 3^10, field Q(zeta_(3^10)) of degree 2*3^9 = 39366
+      entries to sweep: 6400 x 6400 = 40,960,000 (each a 36-term host zeta sum against a 9-scaled 4-term lifted level sum)
+      BUDGET, SET BEFORE RUNNING: 1800 s.  b26's projection at its own entry rate was 591 s against its registered 420 s.
+
+      ROUTE NOTE, said plainly: the sweep below is ROUTE B (R1: cross-validated
+      against b26's own route entry by entry at n = 1, 2, 3, including two
+      negative controls where both routes must agree on the mismatch ADDRESSES).
+      It is EXACT INTEGER ARITHMETIC throughout -- the same power basis, the
+      same two-term p = 3 fold, an exact sorted-key zero test, no tolerance.
+      THE FULL SQUARE IS COMPUTED, both triangles: the symmetry of the Gram
+      (R1e) would have licensed halving the work, and it is NOT used -- the
+      route is fast enough that the stronger sweep fits the budget.
+
+  PASS  R3a n=4  the 6400 embedded columns each have exactly 6 nonzeros; the 6400 level columns each have 2
+  PASS  R3b n=4  ROUTE A == ROUTE B on 18 COMPLETE RANDOM GRAM ROWS = 115,200 entries drawn at n = 4 ITSELF (the field Q(zeta_(3^10)) is NOT the field the n <= 3 cross-validation used), and ROUTE A finds 0 mismatches among them [1.7 s]
+      ROUTE A's measured entry rate here (b26's own inner loop, whole rows): 1.50e-05 s/entry
+      -> the full n = 4 square by ROUTE A alone would be 615 s on this machine.  b26's registered projection was 591 s; the two are the same order,
+      and either way the point stands: ROUTE A does not fit a 420 s budget, which is why b26 declared the skip rather than quietly running it.
+
+      progress: 998,400 / 40,960,000 entries (2.44%), 3.7 s elapsed, 150 s projected total, mismatches so far: 0
+      progress: 1,996,800 / 40,960,000 entries (4.88%), 7.5 s elapsed, 154 s projected total, mismatches so far: 0
+      progress: 2,995,200 / 40,960,000 entries (7.31%), 11.2 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 3,993,600 / 40,960,000 entries (9.75%), 14.9 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 4,992,000 / 40,960,000 entries (12.19%), 18.6 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 5,990,400 / 40,960,000 entries (14.62%), 22.3 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 6,988,800 / 40,960,000 entries (17.06%), 26.0 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 7,987,200 / 40,960,000 entries (19.50%), 29.7 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 8,985,600 / 40,960,000 entries (21.94%), 33.4 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 9,984,000 / 40,960,000 entries (24.38%), 37.0 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 10,982,400 / 40,960,000 entries (26.81%), 40.8 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 11,980,800 / 40,960,000 entries (29.25%), 44.5 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 12,979,200 / 40,960,000 entries (31.69%), 48.2 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 13,977,600 / 40,960,000 entries (34.12%), 52.0 s elapsed, 152 s projected total, mismatches so far: 0
+      progress: 14,976,000 / 40,960,000 entries (36.56%), 55.8 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 15,974,400 / 40,960,000 entries (39.00%), 59.5 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 16,972,800 / 40,960,000 entries (41.44%), 63.3 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 17,971,200 / 40,960,000 entries (43.88%), 67.0 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 18,969,600 / 40,960,000 entries (46.31%), 70.7 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 19,968,000 / 40,960,000 entries (48.75%), 74.4 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 20,966,400 / 40,960,000 entries (51.19%), 78.2 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 21,964,800 / 40,960,000 entries (53.62%), 81.9 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 22,963,200 / 40,960,000 entries (56.06%), 85.6 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 23,961,600 / 40,960,000 entries (58.50%), 89.3 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 24,960,000 / 40,960,000 entries (60.94%), 93.0 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 25,958,400 / 40,960,000 entries (63.38%), 96.8 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 26,956,800 / 40,960,000 entries (65.81%), 100.5 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 27,955,200 / 40,960,000 entries (68.25%), 104.3 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 28,953,600 / 40,960,000 entries (70.69%), 108.0 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 29,952,000 / 40,960,000 entries (73.12%), 111.7 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 30,950,400 / 40,960,000 entries (75.56%), 115.4 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 31,948,800 / 40,960,000 entries (78.00%), 119.1 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 32,947,200 / 40,960,000 entries (80.44%), 122.8 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 33,945,600 / 40,960,000 entries (82.88%), 126.6 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 34,944,000 / 40,960,000 entries (85.31%), 130.3 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 35,942,400 / 40,960,000 entries (87.75%), 134.0 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 36,940,800 / 40,960,000 entries (90.19%), 137.8 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 37,939,200 / 40,960,000 entries (92.62%), 141.4 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 38,937,600 / 40,960,000 entries (95.06%), 145.1 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 39,936,000 / 40,960,000 entries (97.50%), 148.8 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 40,934,400 / 40,960,000 entries (99.94%), 152.6 s elapsed, 153 s projected total, mismatches so far: 0
+      progress: 40,960,000 / 40,960,000 entries (100.00%), 152.7 s elapsed, 153 s projected total, mismatches so far: 0
+
+  PASS  T2  n=4  the host Gram (iota K)^T W_h F_h (iota K) equals the level-4 Gram K^T W_n F_n K ENTRY-EXACT on ALL 6400 x 6400 = 40,960,000 entries -- the pairing is LEVEL-STABLE ON THE NOSE (no scalar) at the level b26 declared-skipped [152.7 s of a 1800 s budget]
+
+====================================================================================================
+THE BRANCH
+====================================================================================================
+  BRANCH LANDED: (closed)
+  The sweep completed WITHIN BUDGET (152.7 s of 1800 s) and landed ENTRY-EXACT:
+  all 40,960,000 Gram entries at n = 4 satisfy S_h = 9 S_n exactly, with ZERO mismatches.
+
+  CONSEQUENCE, stated exactly and no further: the p = 3 tower's T2 -- the
+  pairing level-stable ON THE NOSE under the stated mass normalization --
+  is EXACT AT ALL LEVELS n = 1, 2, 3, 4.  THE DECLARED-SKIP IS RETIRED:
+  sitting 11's one honestly-skipped cell is now computed, and it landed as
+  the other three did.  Nothing else about the tower changes; no claim is
+  extended past n = 4, and the inductive limit remains NAMED, not built.
+
+====================================================================================================
+SCOPE, said plainly: this is an EXACT property of a FINITE CONSTRUCTED OBJECT on Q_3.
+No sign is asserted; no register moves; W_inf - Sum W_p at complete roster is NOT touched.
+====================================================================================================
+
+NOTHING FAILED TO LAND: every EXACT line landed as registered.
+
+DECLARED LINES (skipped or out of budget; NEVER counted as EXACT): 0
+
+TOTAL RUNTIME: 185.0 s
+
+ALL EXACT LINES EXACT: 19/19 PASS

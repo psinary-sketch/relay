@@ -1,0 +1,174 @@
+====================================================================================================
+W-ATTEMPT-2 SITTING 12 (item 2) -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+W-ATTEMPT-2, SITTING 12 (item 2) -- THE INFINITY-WEIGHT IN THE HILBERT-SCHMIDT CONVENTION.
+
+RELAY-ONLY. SUB-GATE (restated). THE CORRECTED STOP IN FORCE: measured properties of
+constructed objects are DATA at bench grade; refused: any promotion to W_inf - Sum W_p at
+complete roster, or register movement. TESTING CONTINUES; the register is untouched.
+
+THE NAMED CANDIDATE, measured: Q_HS(a) = h * ||G D G||_F -- the h-weighted (continuum
+measure) Hilbert-Schmidt norm, the normalization the raw grid sum lacks (sitting 11's
+raw Frobenius grew ~N^0.77 after Gaussian suppression; the banked unwindowed channel grew
+~N^1.5). G = the log-Gaussian window (W-lg1, the banked shape); D = the scaling generator
+(X Ptil + Ptil X)/2, Ptil = F X F^dagger.
+
+THE REGISTERED LONGHAND, said against the candidate before the run: D is a first-order
+(derivative-type) operator; its continuum kernel is delta'-supported on the diagonal, so
+G D G is NOT Hilbert-Schmidt in the continuum -- no h-weighting of a grid Frobenius sum
+can converge; the predicted behaviour is residual growth Q_HS ~ N^(~1/4) (the h factor
+removes N^(1/2) from the measured ~N^0.77). If that lands, the failure is the
+CONVENTION'S CATEGORY, not the model's: the finite-place weight law Q(p,n) = ||S U S||_F
+is built on the GROUP ELEMENT U (a bounded unitary), while the infinity channel has been
+using the GENERATOR (unbounded). THE SECOND CANDIDATE, NAMED WITH ITS DERIVATION AND NOT
+RUN THIS SITTING: the group-element convention -- the infinity channel measured on a
+bounded dilation U_lambda f(x) = lambda^(-1/2) f(x/lambda) (mirroring the finite places'
+unitary U_p exactly), whose windowed h-weighted HS norm CONVERGES in the continuum
+(h Sum -> integral of |g(lambda x) g(x)|^2 dx / lambda, finite -- the composition-kernel
+computation), with the grid representation of U_lambda (off-grid points; band-limited
+interpolation) the declared implementation question for the sitting that runs it.
+
+BRANCHES: (H-stable) Q_HS N-stable to >= 4 digits across N in {1023, 4095, 16383} -- it
+is a number; its value beside the finite weight laws and the punctuated ledger re-read
+with infinity live. (H-fails) growth persists -- the measured exponent banked; the
+convention question FILED with the second candidate above; the ledger keeps its caveat.
+LONGHAND EXPECTATION: (H-fails), by the delta'-kernel derivation.
+
+FLOAT BENCH, declared. RECORDED PLAINLY AS DATA. The register is untouched.
+Usage:  python b28_attempt2_s12_hs.py register | run
+
+====================================================================================================
+
+### REGISTRATION CLOSED. MEASUREMENT BEGINS.
+
+====================================================================================================
+V.  VERIFICATION AT N = 255 (dense matrix vs the FFT column sweep) -- before any measurement
+====================================================================================================
+  PASS  V1  FFT matvec == dense centered F (N = 255)  [4.850e-14]
+  PASS  V2  FFT matvec == dense F^dagger (N = 255)  [4.991e-14]
+  PASS  V3  Ptil matvec == dense F X F^dagger (N = 255)  [5.093e-13]
+  PASS  V4  the D column identity  D e_j = ((x + x_j)/2) .* (Ptil e_j)  (N = 255)  [6.091e-15]
+
+  the column sweep against the dense Frobenius norm, G = W-lg1, all four a:
+  a        dense ||G D G||_F    sweep ||G D G||_F    |diff|       rel         
+  1.3      19.333980383204      19.333980383204      7.105e-15    3.675e-16   
+  sqrt2    24.565864947764      24.565864947764      7.105e-15    2.892e-16   
+  2        47.483941557495      47.483941557495      0.000e+00    0.000e+00   
+  3        93.711084793057      93.711084793057      5.684e-14    6.066e-16   
+
+  PASS  V5  ||G D G||_F COLUMN SWEEP == DENSE at N = 255, all four a, relative agreement <= 1e-11 (b25's verification RE-ASSERTED here; worst rel = 6.066e-16, i.e. ~1e-15 as banked)  [worst rel 6.066e-16]
+
+====================================================================================================
+M.  Q_HS(a) = h * ||G D G||_F,  h = sqrt(2 pi / N),  G = W-lg1,  D = (X Ptil + Ptil X)/2
+====================================================================================================
+    ROUTE: b25's exact column sweep (blocks of 128 columns; each block is one
+    F^dagger and one F on a 128-column bundle, so the N = 16383 sweep is 16383
+    matvecs carried as 128 blocked FFT pairs).  NOTHING IS SUBSAMPLED: every one
+    of the N^2 entries of G D G enters the sum.
+
+    N = 1023   h = 0.0783704097   sweep done for all four a  [0.5 s]
+    N = 4095   h = 0.0391708487   sweep done for all four a  [10.6 s]
+    N = 16383  h = 0.0195836310   sweep done for all four a  [288.5 s]
+
+--- THE TABLE, per (a, N) ---
+  a        N        raw ||G D G||_F      h              Q_HS = h * ||.||_F  
+  --------------------------------------------------------------------------
+  1.3      1023     62.2164634411        0.0783704097   4.8759297319        
+  1.3      4095     186.6264161555       0.0391708487   7.3103151071        
+  1.3      16383    542.9052050335       0.0195836310   10.6320552303       
+  --------------------------------------------------------------------------
+  sqrt2    1023     76.0167359226        0.0783704097   5.9574627407        
+  sqrt2    4095     224.2013626905       0.0391708487   8.7821576520        
+  sqrt2    16383    647.0937864193       0.0195836310   12.6724459678       
+  --------------------------------------------------------------------------
+  2        1023     138.6738520320       0.0783704097   10.8679266027       
+  2        4095     398.2521299354       0.0391708487   15.5998739185       
+  2        16383    1134.8234386139      0.0195836310   22.2239635283       
+  --------------------------------------------------------------------------
+  3        1023     268.0020869536       0.0783704097   21.0034333633       
+  3        4095     761.9503647926       0.0391708487   29.8462424415       
+  3        16383    2160.4568242520      0.0195836310   42.3095893449       
+  --------------------------------------------------------------------------
+
+--- THE RATIO BETWEEN SUCCESSIVE N, and the exponent it implies ---
+    (N steps by a factor of almost exactly 4: 1023 -> 4095 -> 16383; a converged
+     quantity would show ratio 1.0000 in both steps.)
+  a        Q(4095)/Q(1023) exp            Q(16383)/Q(4095) exp            fitted exp (3 pts)
+  ------------------------------------------------------------------------------------
+  1.3      1.499266       0.291974       1.454391       0.270172       0.281076      
+  sqrt2    1.474144       0.279791       1.442976       0.264489       0.272142      
+  2        1.435405       0.260591       1.424625       0.255257       0.257925      
+  3        1.421017       0.253328       1.417585       0.251684       0.252507      
+  ------------------------------------------------------------------------------------
+    THE EXPONENTS ARE REPORTED AS MEASURED, NOT AS A CLAIM: they are the slope
+    of log Q_HS against log N on the three registered grid sizes, nothing more.
+    No asymptotic law is asserted from three points.
+
+--- THE RAW (UNWEIGHTED) FROBENIUS, for the record beside sitting 11's ~N^0.77 ---
+  a        fitted exp of raw      fitted exp of Q_HS    
+  1.3      0.781076               0.281076              
+  sqrt2    0.772142               0.272142              
+  2        0.757925               0.257925              
+  3        0.752507               0.252507              
+    (h = sqrt(2 pi / N) contributes exactly -1/2 to the exponent; the two
+     columns differ by 0.500000 by construction, and are printed so the
+     arithmetic is visible rather than asserted.)
+
+--- N-STABILITY, the registered (H-stable) criterion: >= 4 agreeing digits ---
+  a        min Q_HS             max Q_HS             rel spread     digits    
+  --------------------------------------------------------------------------
+  1.3      4.8759297319         10.6320552303        7.568e-01      0          MOVES
+  sqrt2    5.9574627407         12.6724459678        7.349e-01      0          MOVES
+  2        10.8679266027        22.2239635283        6.997e-01      0          MOVES
+  3        21.0034333633        42.3095893449        6.861e-01      0          MOVES
+  --------------------------------------------------------------------------
+
+====================================================================================================
+THE BRANCH
+====================================================================================================
+  BRANCH LANDED: (H-fails)
+  The h-weighting does NOT make the infinity channel converge: growth
+  persists across N in {1023, 4095, 16383} at every a.
+
+  THE MEASURED EXPONENT, BANKED (three-point least-squares slope of
+  log Q_HS against log N; measured, not claimed):
+  a        fitted exponent    step exponents     registered longhand
+  1.3      0.281076           0.291974 / 0.270172 ~1/4 = 0.250000
+  sqrt2    0.272142           0.279791 / 0.264489 ~1/4 = 0.250000
+  2        0.257925           0.260591 / 0.255257 ~1/4 = 0.250000
+  3        0.252507           0.253328 / 0.251684 ~1/4 = 0.250000
+
+  mean fitted exponent over the four a: 0.265912  (the registered longhand said
+  ~1/4 = 0.250000, from removing N^(1/2) off sitting 11's measured ~N^0.77;
+  the difference between the two is recorded as measured, with no fitting
+  of anything else and no claim about the true asymptotics.)
+
+  THE FAILURE'S CATEGORY, as registered in advance: this is the CONVENTION'S
+  category, not the model's.  G D G is not Hilbert-Schmidt in the continuum
+  because D is a first-order operator with a delta'-supported diagonal
+  kernel, so no h-weighting of a grid Frobenius sum can converge.  The
+  finite-place weight law Q(p,n) = ||S U S||_F is built on the GROUP ELEMENT
+  U (bounded unitary); the infinity channel has been using the GENERATOR
+  (unbounded).  The two are not the same convention.
+
+  FILED WITH THE SECOND CANDIDATE (named and derived in the registration,
+  NOT RUN THIS SITTING): the group-element convention -- the infinity
+  channel measured on the bounded dilation U_lambda f(x) = lambda^(-1/2)
+  f(x/lambda), mirroring U_p exactly, whose windowed h-weighted HS norm
+  CONVERGES in the continuum (h Sum -> integral |g(lambda x) g(x)|^2 dx /
+  lambda, finite).  Its declared implementation question, also filed: the
+  grid representation of U_lambda at off-grid points (band-limited
+  interpolation).  THE LEDGER KEEPS ITS CAVEAT: no infinity weight is
+  promoted, and the register is untouched.
+
+  LONGHAND EXPECTATION said before the run: (H-fails).  LANDED: (H-fails).  The registered expectation LANDED.
+
+====================================================================================================
+SCOPE, said plainly: this is a FLOAT BENCH on a CONSTRUCTED FINITE-GRID object.
+It is DATA at bench grade.  No promotion to W_inf - Sum W_p at complete roster
+is made, and no register line moves.
+====================================================================================================
+
+TOTAL RUNTIME: 299.7 s
+
+FLOAT BENCH COMPLETE; ASSERTED CHECKS: 5/5 PASS
