@@ -50,8 +50,12 @@ declared float model at `∞` — across sittings 1–12, with every registratio
 **The towers at two primes:** level-compatible on the nose, the fifth law verbatim at every level run
 (`2(2^{n−1}−1)²` at `n ≤ 6`; `3(3^{n−1}−1)²` at `n ≤ 4`), localization traces exactly zero and
 level-stable, **the compressed scaling FORCED** (exact witnesses at every column, both primes) — CC's
-`SUS` structure recovered as necessity. **The formal module:** `DiagonalSection.lean`, 16/16 terminals
-"does not depend on any axioms" at pinned v4.29.1. **At `∞` (float model, declared): `W-exact`** — the
+`SUS` structure recovered as necessity. **The formal modules (kept current, sittings 17–18): 57
+terminals across six vanilla modules — `GroupRingGlue` 11 · `DiagonalSection` 16 ·
+`StaircaseAddresses` 6 (the address and weight-death laws) · `CouplingArrival` 4 (the norm-150
+arrival law) · `SectorArithmetic` 15 (flatness; the twist signature at every banked cell) ·
+`TowerInstance` 5 (`ι(Son) ⊂ Son` and Gram stability kernel-checked in `ℤ[ζ₁₆]`) — EVERY ONE "does
+not depend on any axioms" at pinned v4.29.1.** **At `∞` (float model, declared): `W-exact`** — the
 deficit of the compression of `F` to Weil's degree-`d` family decays to the double-precision floor:
 the archimedean interleave is exact in the limit of Weil's family at the model.
 
@@ -97,10 +101,11 @@ UNTOUCHED — no sentence about `W_∞ − ΣW_𝔭` at complete roster exists a
 
 - **The correspondence table** — `reports/2026-08-18-w-attempt-2-correspondence.md`: rows 1–42+ (every
   claim · instrument · terminal · axiom profile · grade; non-claims as rows; disclosures marked ◆).
-- **The formal module** — `tools/lean/DiagonalSection.lean` + `AxiomCheckDiagonalSection.lean`;
-  build: `lean DiagonalSection.lean -o DiagonalSection.olean && LEAN_PATH=. lean
-  AxiomCheckDiagonalSection.lean` at toolchain v4.29.1 (`D:\elan\toolchains\…\bin\lean.exe`);
-  expected: 16 × "does not depend on any axioms". (`GroupRingGlue.lean`: 11 more, same standard.)
+- **The formal modules** — `tools/lean/{GroupRingGlue, DiagonalSection, StaircaseAddresses,
+  CouplingArrival, SectorArithmetic, TowerInstance}.lean` with their axiom-check files; build each
+  with `lean <M>.lean -o <M>.olean` (compile `GroupRingGlue` first; then `LEAN_PATH=. lean
+  AxiomCheckIdentities.lean` etc.) at toolchain v4.29.1 (`D:\elan\toolchains\…\bin\lean.exe`);
+  expected: 57 × "does not depend on any axioms".
 - **The exact-arithmetic certificates** — `tools/e16/b14…b30_*.py`, each `register` (the banked
   registration precedes every run) then `run`; data in `data/b*_2026-08-18.txt`.
 - **The road documents** — `THE_SEMILOCAL_CARRIER_SPECIFICATION.md` v0.12 · `THE_CARRIER_BUILD.md`

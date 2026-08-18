@@ -1,11 +1,12 @@
 # `W-ATTEMPT-2` — THE CORRESPONDENCE TABLE (CLOSURE-PROTOCOL STEP TWO, DRAFTED; KEPT CURRENT)
 ## ### **EVERY CLAIM OF SITTINGS 1–12 · ITS KERNEL OR BENCH · ITS TERMINAL · ITS AXIOM PROFILE · ITS GRADE — WITH THE NON-CLAIMS AS ROWS, AND NO BLANK CELLS**
 
-> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sitting 13): SITTINGS 1–12 REVIEW-STAGED
-> (FINAL). The step-two packet is FINALIZED and staged (relay + `internal/`), NOT circulated —
-> circulation waits on counsel and on `WIDEN`. Step three — external review by people able to
-> reject — is the AUTHOR'S act; step four — the register — is last, if ever. The arc's lessons are
-> ledgered at `THE_ATTEMPT_RECORD` `§0`.**
+> ### **THE ATTEMPT'S ARC, ON THE FACE (updated 2026-08-18, sittings 17–18): SITTINGS 1–12
+> REVIEW-STAGED (FINAL); the packet a RECORD KEPT CURRENT (the framing correction); RESEARCH
+> CONTINUES — sittings 14–16 the interrelation, sittings 17–18 THE IDENTITIES COMPILED (57 axiom-free
+> terminals across six vanilla modules). Circulation waits on counsel and `WIDEN` (which gate the
+> packet only, not research). Step three — external review by people able to reject — is the AUTHOR'S
+> act; step four — the register — is last, if ever. The arc's lessons: `THE_ATTEMPT_RECORD` `§0`.**
 > *Rule-3 flag, reported not smoothed: "REVIEW-STAGED" is navigator-named vocabulary appearing nowhere
 > banked before this line; the attempt is relay-resident, so the arc lives HERE and the method register
 > is untouched.*
@@ -78,6 +79,11 @@ land its registered default branch says so in its status cell; there are three s
 | 46 | sittings 14–16: the interrelation — R4 instantiated-and-checked at the model; `N5`'s two halves both measured on one object; the diagonal as R3's shadow-instance (not a discharge); Voice7/flip-channel role-kinship at `OURS` | sitting-14 table | `reports/2026-08-18-w-attempt-2-sitting-14.md` | reading at grade (no bench) | **INTERRELATED — no cross-register equivalence compiled or claimed** |
 | 47 | sittings 14–16: the object on the maps — Weil-positivity family, fiber-aware in class resolution, non-completing at the model by the census's own criterion; the keyhole's three NAMED conditions graded (the corpus's own "numbered list not stated" probe carried); `T1`–`T10` re-graded fresh (the table's first measured candidate-row; `T2` partial-at-one-place; SUB-GATE HONESTLY UNCHANGED); the `S`-table's addresses incl. `S3b ⟹ S2` as label-coherence; the arrival-edge structure is BIRTH not transversality | sitting-15 tables | `reports/2026-08-18-w-attempt-2-sitting-15.md` | reading at grade | **INTERRELATED; the sub-gate stands declared** |
 | 48 | sittings 14–16: the bench lineage — the one-axis event table (match-at-address, mechanisms distinct); the atlas match-at-shape; `−2.000127` non-match named with its reason (the object ate the pole); `2T²` refused by `T9`; `Z = P + A − PR` on the object with `P` a constraint and `Z` ABSENT (the missing codomain in ledger form); six compilation targets named and sized, none started | sitting-16 tables | `reports/2026-08-18-w-attempt-2-sitting-16.md` | reading at grade | **INTERRELATED; every non-match named** |
+
+| 49 | sittings 17–18: THE PRIME-POWER-ADDRESS LAW compiled — cell change ⟺ `A = p^k` on `[2,145]`; weight-death `⟺ A ≥ p²`; the prime-free window; the apex instances (upgrades the sitting-16 one-axis table's ADDRESS half from reading to DERIVED; the lag-axis identification stays a reading) | `StaircaseAddresses.lean` (6 terminals) | `AxiomCheckIdentities` print-out | **does not depend on any axioms** (6/6) | **DERIVED (compiled)** |
+| 50 | sittings 17–18: THE ARRIVAL LAW AT NORM 150 compiled — enumeration `(2,1,1)`; `(c₂c₃)·c₅` multiplicativity; the trace identity (upgrades rows 5/16's integer shadow one norm further; the Dirichlet identification stays bench) | `CouplingArrival.lean` (4 terminals) | `AxiomCheckIdentities` | **no axioms** (4/4) | **DERIVED (compiled)** |
+| 51 | sittings 17–18: THE FLATNESS SOLVER (`p = 3, n ≤ 4`, with the `p = 2` contrast) and THE TWIST SIGNATURE `(d/4, d/4, d/2)` at every banked cell, `pos = neg`, the ×16 flat-arrival law, the class death/revival dims (upgrades rows 25/29/30/33's combinatorial content to DERIVED; the eigen-dims stay banked bench data) | `SectorArithmetic.lean` (15 terminals) | `AxiomCheckIdentities` ◆ *(one intermediate `propext` leak via `List.getD` caught by the axiom print and rewritten match-free — disclosed)* | **no axioms** (15/15) | **DERIVED (compiled)** |
+| 52 | sittings 17–18: THE TOWER'S SMALLEST INSTANCE kernel-checked in `ℤ[ζ₁₆]` — `ι(Son(2,1)) ⊂ Son(2,2)`; Gram level-stability `16i = 4·4i` on the nose; the fifth-law integers both primes (upgrades row 31's smallest cell to DERIVED; all other levels stay exact-bench; the `(3,·)` instances extend the Mathlib companion's spec) | `TowerInstance.lean` (5 terminals) | `AxiomCheckIdentities` | **no axioms** (5/5) | **DERIVED (compiled); the attempt's formal count: 57 axiom-free terminals** |
 
 ## §2 — THE NON-CLAIMS, AS ROWS *(each with the place it is refused in writing)*
 
