@@ -8,6 +8,11 @@
 > RECORD KEPT CURRENT, NOT A NEXT ACT — research continues until the corpus's own light is fully
 > interrelated with what was built. §9 below carries the interrelation's results.**
 
+> ### **THE IMPLICATIONS (charter `v1.2` `§8`, filed 2026-08-18) NOW FRAME THIS PACKET: the sign is
+> not the target; the target is the codomain — ONE absence, FOUR names (`Z` channel · bright
+> interface · leaves · `E₁` gluing) — and any closure claim must fill all four. The reviewer
+> questions of `§5` are instances of that frame.**
+>
 > ### **THE COVER IS THE CHARTER'S `§3`, VERBATIM IN FORCE:** *if an attempt ever appears to close the
 > sign step, ALL FOUR happen IN ORDER before the register's own statement changes: (1) independent
 > formalization of the sign step; (2) full correspondence with verify-by, 0 blank cells; (3) EXTERNAL
