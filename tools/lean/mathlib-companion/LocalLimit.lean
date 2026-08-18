@@ -67,6 +67,17 @@ theorem no_unimodular_eigenvalue [CompleteSpace H]
     files B–C. -/
 theorem four_sector_decomposition_stub : True := trivial
 
+/-- ACT 6 (the ε-lemma's clean half): eigenvectors of `F` stay eigenvectors under any
+    commuting operator — if `A∘F = F∘A` and `F x = λ•x` then `F (A x) = λ•(A x)`.
+    THE USE: on Weil-even test data `ϑ(g)` commutes with `F` (the intertwining
+    `F U_λ = U_{1/λ} F` plus `g(λ) = g(1/λ)`), so the `±1` sectors of the even Sonin
+    space are `ϑ(g)`-invariant and the trace SPLITS: our `Θ` is CC Thm 4.7's trace
+    MINUS the `(−1)`-sector term. The trace-class bookkeeping of that split is OWNED
+    by the ε-lemma (build document §14). PROVED, no sorry. -/
+theorem eigenvector_of_commute (A F : H →ₗ[ℂ] H) (hc : ∀ x, A (F x) = F (A x))
+    (lam : ℂ) (x : H) (hx : F x = lam • x) : F (A x) = lam • A x := by
+  rw [← hc, hx, map_smul]
+
 /-- THE CONCRETE DEBT, in one place: the p-adic Fourier data over `L²(ℚ_p)` — the
     transform as a linear isometry equivalence with `F² = parity`, the Sonin closure as
     a closed subspace, the escape property. OWED TO FILES B–C (the standard character;
@@ -105,4 +116,5 @@ end LocalLimit
 #print axioms LocalLimit.inner_map_self_of_fixed
 #print axioms LocalLimit.radical_zero
 #print axioms LocalLimit.no_unimodular_eigenvalue
+#print axioms LocalLimit.eigenvector_of_commute
 #print axioms LocalLimit.padicFourierData_exists
