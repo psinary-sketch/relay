@@ -8,6 +8,11 @@
 > RECORD KEPT CURRENT, NOT A NEXT ACT — research continues until the corpus's own light is fully
 > interrelated with what was built. §9 below carries the interrelation's results.**
 
+> ### **THE TARGET IS NOW SPECIFIED: `THE_CODOMAIN_SPECIFICATION.md` (v0.1 DRAFT) — clauses (a)–(d)
+> filled by the built section at finite instance, clause (e) the four-named absence with its
+> falsifier. A reviewer should read the specification's §6 grading and §7 falsifier FIRST; the
+> questions below are its instances.**
+>
 > ### **THE IMPLICATIONS (charter `v1.2` `§8`, filed 2026-08-18) NOW FRAME THIS PACKET: the sign is
 > not the target; the target is the codomain — ONE absence, FOUR names (`Z` channel · bright
 > interface · leaves · `E₁` gluing) — and any closure claim must fill all four. The reviewer

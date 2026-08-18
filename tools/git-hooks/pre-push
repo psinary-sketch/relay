@@ -1,0 +1,37 @@
+#!/bin/sh
+# relay pre-push hook — Rule 4 hardenings (minted 2026-08-18, author-ruled).
+# (i) pushes to origin main only from push-* / repair-* branches;
+# (ii) refuse any outgoing ancestry containing a HELD commit;
+# (iii) refuse pushing any held/* ref anywhere.
+# Tracked copy: tools/git-hooks/pre-push. Install: cp tools/git-hooks/pre-push .git/hooks/pre-push
+
+remote="$1"
+branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+while read local_ref local_sha remote_ref remote_sha; do
+  case "$local_ref" in
+    refs/heads/held/*)
+      echo "pre-push: REFUSED — held/* branches are local-only (Rule 4.11)." >&2
+      exit 1;;
+  esac
+  if [ "$remote_ref" = "refs/heads/main" ]; then
+    case "$branch" in
+      push-*|repair-*) : ;;
+      *)
+        echo "pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: $branch" >&2
+        exit 1;;
+    esac
+    if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+      range="$local_sha"
+    else
+      range="$remote_sha..$local_sha"
+    fi
+    # the HELD marker is the exact subject prefix; a bare "HELD" grep false-positived on its
+    # first live use (a commit MESSAGE that mentioned the arrangement) — refined 2026-08-18.
+    if git log --format=%s "$range" 2>/dev/null | grep -q "DO NOT PUSH"; then
+      echo "pre-push: REFUSED — outgoing ancestry contains a HELD (DO NOT PUSH) commit (Rule 4.10)." >&2
+      exit 1
+    fi
+  fi
+done
+exit 0
