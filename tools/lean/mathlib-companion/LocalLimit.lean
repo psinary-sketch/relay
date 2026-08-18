@@ -78,6 +78,20 @@ theorem eigenvector_of_commute (A F : H →ₗ[ℂ] H) (hc : ∀ x, A (F x) = F 
     (lam : ℂ) (x : H) (hx : F x = lam • x) : F (A x) = lam • A x := by
   rw [← hc, hx, map_smul]
 
+/-- ACT 12 (the inequality's L2 link, PROVED): for nested closed subspaces `T ≤ S`
+    the compressed positive form is dominated — `‖P_T x‖ ≤ ‖P_S x‖`. With `T` the
+    `E₁` sector (`Π₊S`, sitting 22's decomposition) inside `S` the Sonin space, this
+    is "the `E₁` positive form ≤ the full one": the chain's sound archimedean link.
+    PROVED, no sorry. -/
+theorem nested_projection_norm_le [CompleteSpace H] (T S : Submodule ℂ H)
+    [T.HasOrthogonalProjection] [S.HasOrthogonalProjection] (hTS : T ≤ S) (x : H) :
+    ‖T.starProjection x‖ ≤ ‖S.starProjection x‖ := by
+  have h := Submodule.starProjection_comp_starProjection_of_le (𝕜 := ℂ) hTS
+  have hx : T.starProjection (S.starProjection x) = T.starProjection x := by
+    simpa using DFunLike.congr_fun h x
+  calc ‖T.starProjection x‖ = ‖T.starProjection (S.starProjection x)‖ := by rw [hx]
+    _ ≤ ‖S.starProjection x‖ := T.norm_starProjection_apply_le _
+
 /-- THE CONCRETE DEBT, in one place: the p-adic Fourier data over `L²(ℚ_p)` — the
     transform as a linear isometry equivalence with `F² = parity`, the Sonin closure as
     a closed subspace, the escape property. OWED TO FILES B–C (the standard character;
@@ -117,4 +131,5 @@ end LocalLimit
 #print axioms LocalLimit.radical_zero
 #print axioms LocalLimit.no_unimodular_eigenvalue
 #print axioms LocalLimit.eigenvector_of_commute
+#print axioms LocalLimit.nested_projection_norm_le
 #print axioms LocalLimit.padicFourierData_exists

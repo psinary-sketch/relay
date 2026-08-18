@@ -1,0 +1,76 @@
+====================================================================================================
+b40 RUN - THE INEQUALITY ROWS + OUT-OF-RANGE CELLS. Registration banked first (F1-F3).
+====================================================================================================
+
+--- C0: VOID GATES ---
+  carto far-end a=1.30 residual=+6.142e-12 PASS
+  carto far-end a=3.50 residual=+6.569e-08 PASS
+  pin sum lam2         |delta|=5.82e-11 (tol 1e-06) PASS
+  pin sum lam2 xi1^2   |delta|=1.11e-15 (tol 1e-06) PASS
+  pin epsprime1        |delta|=1.65e-08 (tol 1e-03) PASS
+
+(rows with a^2 > 12 carry: staircase CAP n<=3 where exceeded; eps truncation beyond
+ rho=20 unquantified by the lemma52 ladder - the caveat rides; per-cell atlas residual shown)
+
+a^2=2    A= -1.990528 Z= 0.018987 PR= 0.00000 Thq= 0.00000  atlas-resid=+1.22e-13
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  3.737476  Tr_raw_even =  2.119628
+  F1 test:  resid47(atlas) =  +4.04889    resid47'(CC dict) =  +0.06783
+  D_closed = -1.614016   SIGN: NEG
+  dictated ineq (atlas signs): object  -0.37651  <=?  ledger  -1.99053  : fails
+  dictated ineq (CC dict):     object  +2.11963  <=?  ledger  +1.99053  : fails
+a^2=3    A= -1.908900 Z= 0.008592 PR= 0.10648 Thq= 0.00000  atlas-resid=+4.14e-08
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  2.981721  Tr_raw_even =  1.723849
+  F1 test:  resid47(atlas) =  +3.37417    resid47'(CC dict) =  -0.44363
+  D_closed = -1.659057   SIGN: NEG
+  dictated ineq (atlas signs): object  -0.35633  <=?  ledger  -2.01538  : fails
+  dictated ineq (CC dict):     object  +1.72385  <=?  ledger  +1.80242  : HOLDS
+a^2=4    A= -1.786498 Z= 0.002475 PR= 0.24932 Thq= 0.16198  atlas-resid=+8.55e-09
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  2.635303  Tr_raw_even =  1.545810
+  F1 test:  resid47(atlas) =  +3.04794    resid47'(CC dict) =  -0.52505
+  D_closed = -1.540593   SIGN: NEG
+  dictated ineq (atlas signs): object  -0.17127  <=?  ledger  -2.03582  : fails
+  dictated ineq (CC dict):     object  +1.70779  <=?  ledger  +1.53718  : fails
+a^2=8    A= -1.525474 Z= 0.000517 PR= 0.56105 Thq= 0.31702  atlas-resid=+5.03e-08
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  2.091552  Tr_raw_even =  1.284639
+  F1 test:  resid47(atlas) =  +2.52095    resid47'(CC dict) =  -0.53000
+  D_closed = -1.499976   SIGN: NEG
+  dictated ineq (atlas signs): object  +0.04749  <=?  ledger  -2.08652  : fails
+  dictated ineq (CC dict):     object  +1.60166  <=?  ledger  +0.96443  : fails
+a^2=9    A= -1.488337 Z= 0.000123 PR= 0.60888 Thq= 0.47386  atlas-resid=+2.27e-08
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  2.023971  Tr_raw_even =  1.254591
+  F1 test:  resid47(atlas) =  +2.45409    resid47'(CC dict) =  -0.52258
+  D_closed = -1.365001   SIGN: NEG
+  dictated ineq (atlas signs): object  +0.21551  <=?  ledger  -2.09722  : fails
+  dictated ineq (CC dict):     object  +1.72845  <=?  ledger  +0.87945  : fails
+a^2=12   A= -1.405398 Z= 0.000163 PR= 0.71433 Thq= 0.51849  atlas-resid=+7.39e-08
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  1.883111  Tr_raw_even =  1.190106
+  F1 test:  resid47(atlas) =  +2.31352    resid47'(CC dict) =  -0.49727
+  D_closed = -1.365061   SIGN: NEG
+  dictated ineq (atlas signs): object  +0.28231  <=?  ledger  -2.11973  : fails
+  dictated ineq (CC dict):     object  +1.70860  <=?  ledger  +0.69106  : fails
+a^2=16   A= -1.332102 Z= 5.553575 PR= 0.79915 Thq= 0.54149  atlas-resid=+5.55e+00  ATLAS-RESID FLAG
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  1.757528  Tr_raw_even =  1.136804
+  F1 test:  resid47(atlas) =  +2.18663    resid47'(CC dict) =  -0.47758
+  D_closed = -1.378514   SIGN: NEG
+  dictated ineq (atlas signs): object  +0.33023  <=?  ledger  -2.13125  : fails
+  dictated ineq (CC dict):     object  +1.67829  <=?  ledger  +0.53295  : fails
+a^2=25   A= -1.233916 Z= 5.873916 PR= 0.89629 Thq= 0.67740  atlas-resid=+5.87e+00  ATLAS-RESID FLAG
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  1.602839  Tr_raw_even =  1.069365
+  F1 test:  resid47(atlas) =  +2.02768    resid47'(CC dict) =  -0.44016
+  D_closed = -1.272108   SIGN: NEG
+  dictated ineq (atlas signs): object  +0.49670  <=?  ledger  -2.13021  : fails
+  dictated ineq (CC dict):     object  +1.74676  <=?  ledger  +0.33763  : fails
+a^2=36   A= -1.164932 Z= 6.026581 PR= 0.94728 Thq= 0.76458  atlas-resid=+6.03e+00  ATLAS-RESID FLAG
+  raw modes >= 0: PASS   corr_min = +0.00e+00   Tr_raw =  1.497097  Tr_raw_even =  1.023325
+  F1 test:  resid47(atlas) =  +1.91704    resid47'(CC dict) =  -0.41282
+  D_closed = -1.189105   SIGN: NEG
+  dictated ineq (atlas signs): object  +0.60605  <=?  ledger  -2.11221  : fails
+  dictated ineq (CC dict):     object  +1.78790  <=?  ledger  +0.21765  : fails
+
+no stop: D_closed negative at every cell including the out-of-range three (the
+registered prediction held).
+
+L1 TRANSPORT TEST (the boundary cell a^2 = 2, CC window edge): Tr_raw = see row 1;
+W_inf^CC = -A = +1.99 there. The comparison is in the rows; the verdict in the report.
+
+Recorded as data. NO SIGN SENTENCE AT COMPLETE ROSTER. h2 UNCHANGED. NOTHING DEPOSITS.
