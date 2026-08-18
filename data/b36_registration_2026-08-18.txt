@@ -1,0 +1,109 @@
+====================================================================================================
+b36 REGISTRATION - BOTH SIDES AT THE MODEL. NO MEASURED NUMBER IN THIS BLOCK.
+====================================================================================================
+W-CONSTRUCTION-1 act 8, item 1. Relay-only, bench-grade. ON THE FACE: this instrument
+COMPUTES both sides of the section-19 comparison at the model and RECORDS the difference
+as data. It decides nothing. If anything matches, it is a FINITE-INSTANCE statement;
+complete roster is untouched; the register moves only via the closure protocol's four
+steps in order. NO SIGN SENTENCE ABOUT W_inf - Sum W_p AT COMPLETE ROSTER, regardless of
+what any cell shows. h2 UNCHANGED. NOTHING DEPOSITS. NOTHING CIRCULATES.
+
+RULE-3 FLAG (convention, resolved to the bank): the ferry writes W_p = sqrt(p) log p
+(f(p)+f(1/p)); the ATLAS's banked convention (carto_auto.py, certified residual 1.2e-13)
+is W_p term = 2 log p p^{-k/2} corr(k log p), corr the additive autocorrelation of the
+bump. Per the ferry's own "the atlas's own certified columns", THE BANKED CONVENTION
+RULES; the ferry's line is read as shorthand for the same object. Flagged, not smoothed.
+
+THE CELLS: a^2 in {2, 3, 4, 8, 9, 12}; place sets S3 = {inf,2,3} and S4 = {inf,2,3,5}
+(the finite-prime loops restricted to the set; W_inf/arch unrestricted). Staircase
+cutoff n_p(a) = #{k>=1 : p^k <= a^2} (banked b17 convention). Note: f_a vanishes at its
+support edge, so exact-boundary prime terms (p^k = a^2) auto-vanish; said here so a zero
+there is not misread.
+
+THE FAMILY: the atlas's own f_a = g_a corr g~_a (carto_atlas.bump; supp [1/a^2, a^2];
+fhat = |ghat|^2 >= 0; the Weil-form-compatible element). ONE f per cell, shared by both
+sides.
+
+LEFT(a, S) = A(a) - PR_S(a): the atlas's own certified channels (carto_atlas constants
+NV=4001, NU=12001, UMAX=600), computed fresh at the cells with the prime loop over S.
+
+RIGHT(a, S) = [Tr_full(a) + E2(a) - Delta_-(a)] - Thq_S(a):
+
+ (R1) Tr_full(a) = sum_{n=0}^{NMODE-1} <xi~_n, theta(f_a) xi~_n>, the prolate layer
+      (prolate_layer.prolate(NQ), the certified substrate; xi~_n = sqrt(2) xi_n per P2
+      half-line normalization). Per-mode overlap A_n(lam) = 2 sqrt(lam)
+      int_0^min(1,1/lam) xi_n(x) xi_n(lam x) dx (xi even; interp off-grid); trace term
+      = int corr_a(u) A_n(e^u) du, u-grid NU_TR = 801 on [-2L, 2L] (u >= 0 doubled;
+      A_n(1/lam) = A_n(lam), checked in-run). READING, registered: the prolate ladder
+      at c = 2pi IS the soft-window Sonin model (b19's (W1): ball reading, soft outer
+      edge = band concentration). NMODE the declared truncation; the mode tail reported.
+ (R2) E2(a) = 2 int_1^{rhomax} f_a(rho) eps(rho) drho/rho, rhomax = a^2. The form is the
+      BANKED Thm 4.7 statement (sitting-5 retrieval bank: Tr = W_inf + int f eps d*rho,
+      d*rho multiplicative). THE FACTOR 2 (symmetric extension to rho < 1) is a
+      REGISTERED CHOICE - the banked statement's one-sided/two-sided domain is not on
+      disk; check clause C1 measures the effective calibration and the verdict must
+      carry it. eps by the qeps series at NTERM = 48 (truncation <= ~1e-8 on the whole
+      range per the lemma52 ladder). VALIDITY CAVEAT ON THE FACE: Lemma 5.2 is derived
+      on (1,2]; beyond, the warrant is the corpus's own re-derivation (P-STRUCT PASS,
+      at its scope); every cell with a^2 > 2 rides that warrant and its row says so.
+      eps evaluated on a fixed log-spaced rho-grid (240 points, (1, 12]), interpolated;
+      convergence spot-check at 2 rho points with NG doubled.
+ (R3) Delta_-(a) = the odd-n part of the same mode sum (the (-1)-sector trace at the
+      model; act-6 sec 14 / act-7 sec 17 naming; the b35 series split is the cross-
+      check C3, not the definition here).
+ (R4) Thq_S(a) = sum_{p in S} log p sum_{k>=1} tau_q(p,k) 2 corr_a(k log p), with
+      tau_q(p,k) = T_quot(p, n_p(a), k) / dim V_inv - the b10 definition recomputed
+      fresh (b10_cells.quotient_basis + b8_sonin_dim.scaling_matrix, U carrying the
+      p^{1/2} unitarization; T_quot(k) = |Tr(U^k S_quot)|). The dim-V_inv normalization
+      is the sec-18 volume convention transported to the quotient cell (the quotient's
+      identity coefficient = 1 by construction); the k-shape is MEASURED, not assumed.
+
+THE HEADLINE TABLE: D(a, S) = LEFT - RIGHT per cell, sign and size, with the stability
+spread. NOTHING is fitted; every term's formula is fixed above before any run.
+
+STABILITY TRIPLE: NQ in {500, 700, 900} x NMODE in {8, 10, 12} on the diagonal
+(500/8, 700/10, 900/12); headline at 700/10; spread = max |D_i - D_headline| over the
+triple. STABLE means spread < max(5% of |D_headline|, 0.005). The atlas side is fixed
+at its certified constants (its own convergence is the banked residual).
+
+CHECK CLAUSES:
+ C0 (VOID gates, run before the table): carto far-end residuals (a = 1.30, 3.50)
+    <= TOL = 1e-3; prolate pins: |sum lam^2 - 2.237484835| <= 1e-6,
+    |sum lam^2 xi1^2 - 2| <= 1e-6, |epsprime1 - 22.9964757| <= 1e-3 (series at the
+    grid's own truncation). ANY failure -> the run is VOID, said so, no table.
+ C1 (CC-4.7 calibration, per cell): resid47(a) = Tr_full(a) - [A(a) + E2(a)].
+    A MEASUREMENT, not a gate. If |resid47| is comparable to |D|, the verdict must say
+    the archimedean calibration is unresolved at the bench and (I-third) is the honest
+    landing for that cell.
+ C2 (quotient shape, per p,k): tau_q(p,k) p^{k/2} - the Weil-shape ratio, data.
+ C3 (odd-sector consistency): Delta_-/Tr_full vs the b35 series share (0.383 at the
+    eps'(1+) pin) - consistency data, different evaluations, not a gate.
+
+REGISTERED VERDICT MAP, both longhand:
+ (I-match): |D| < 0.01 at EVERY cell and STABLE and |resid47| small -> the identity
+    holds AT THE MODEL - a finite-instance statement with the range law on the face
+    (the double limit untouched); the closure protocol's STEP ONE (the formal statement
+    of the finite-instance identity in Lean at the classical profile, B-C debt named)
+    becomes the next task, in its order.
+ (I-differ): a stable nonzero D -> its form fitted to NOTHING; its address located by
+    the channel decomposition (resid47 -> archimedean calibration; C2 -> quotient
+    coefficients; C3 -> odd sector; else norm); banked as the exact obstruction to
+    (L-identity) at the model.
+ (I-third): mixed, unstable, or calibration-dominated -> named per cell, no verdict
+    forced.
+NO sentence promotes any outcome to complete roster.
+
+ALGEBRAIC EXPECTATION, registered longhand BEFORE the run (Rule 4; a prediction, not a
+fit): IF CC 4.7 reproduces at the model (resid47 ~ 0 under the registered E2 calibration)
+AND the quotient's tau_q matched the Weil weights exactly (C2 ratios = 1), then
+D = LEFT - RIGHT = -2 E2(a) + Delta_-(a) + [PR_S mismatch terms]: the dictated equation
+would show a stable epsilon-channel difference of that form. Said now so that, if seen,
+it is recognized as the equation's calibration anatomy and not fitted after the fact.
+
+ROUTING (Rule 4, recorded inside the registration): Fable wrote this registration and
+the instrument; the run goes to the OPUS lane if available, Fable otherwise.
+Outcome: the instrument was debugged on Fable (one fix: the qeps layer holds NTERM = 11
+modes, so the registered NMODE = 12 was capped to 11 - recorded here and in the
+instrument); THE BANKED RUN EXECUTED ON THE OPUS LANE (agent a5bb9c578c278600a), all C0
+gates PASS, deterministic re-run of the fixed instrument.
+====================================================================================================
