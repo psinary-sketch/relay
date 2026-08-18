@@ -32,13 +32,14 @@ packet        reports/2026-08-18-w-attempt-2-review-packet.md — staged also at
    convention. The entire mismatch of the registered route is the band-limited kernel's `O(h)` surface
    term (measured order `p ∈ [0.998, 1.001]` across all 12 cells; the `h`-extrapolation diagnostic
    lands on the closed form at `10⁻⁶`–`10⁻⁷`).*
-2. ### **THE REGISTERED ARTIFACT PROBE IS BLIND — A DEFECT OF THE PROBE, RECORDED.** *The unitarity
-   deficit sat at the float floor at every `N` (norm-blind: `U_λ` is unitary on the band-limited class
-   while the Frobenius-mass artifact lives in the off-diagonal spread), so by its letter it could not
-   charge the implementation; the CONTROL is what charges it.*
+2. ### **THE REGISTERED ARTIFACT PROBE IS INSENSITIVE TO WHAT IT WAS POSTED TO WATCH — A DEFECT OF THE
+   PROBE, RECORDED.** *The unitarity deficit sat at the float floor at every `N` (it is insensitive to
+   the norm: `U_λ` is unitary on the band-limited class while the Frobenius-mass artifact lives in the
+   off-diagonal spread), so by its letter it could not charge the implementation; the CONTROL is what
+   charges it. (Term repaired from a "-blind" coinage by correction twenty-six, this ferry.)*
 3. ### **BY THE REGISTRATION'S OWN GATE THE BRANCH IS `(U-fails)`: THE LEDGER WAS NOT READ, THE BANKED
    CAVEAT STANDS with that exact reason, and NO CONVENTION WAS SWITCHED INSIDE THE SITTING.** *The
-   third convention (`‖GU_λG‖_op`) is named with its resolution-blindness said; the exact-composition
+   third convention (`‖GU_λG‖_op`) is named with its insensitivity to resolution said; the exact-composition
    route is the natural NEXT registration — named, not run. (Also recorded as measured, not promoted:
    the registration's literal "one entry per column" nearest-point route converges at order ~2,
    faster than band-limited's 1.0.)*

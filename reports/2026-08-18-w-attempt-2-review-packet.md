@@ -1,8 +1,12 @@
 # `W-ATTEMPT-2` — THE REVIEW PACKET *(staged for closure-protocol step three; NOT circulated)*
 ## ### **WHAT WAS BUILT, WHAT HOLDS EXACTLY, WHAT THE SIGN IS ON THE BUILT OBJECT, WHAT IS SCOPE — AND THE QUESTIONS A REVIEWER SHOULD ATTACK FIRST, IN THE BUILDERS' OWN WORDS**
 
-**Relay + `PLACE-papers/internal/` staging · 2026-08-18 · sittings 1–12 (+13) · sub-gate, declared ·
+**Relay + `PLACE-papers/internal/` staging · 2026-08-18 · sittings 1–16 · sub-gate, declared ·
 ### CIRCULATION WAITS ON COUNSEL AND ON `WIDEN`; THIS DOCUMENT LEAVES NEITHER REPOSITORY.**
+
+> ### **THE FRAMING CORRECTION (the sittings-14–16 ferry, carried on this face): THIS PACKET IS A
+> RECORD KEPT CURRENT, NOT A NEXT ACT — research continues until the corpus's own light is fully
+> interrelated with what was built. §9 below carries the interrelation's results.**
 
 > ### **THE COVER IS THE CHARTER'S `§3`, VERBATIM IN FORCE:** *if an attempt ever appears to close the
 > sign step, ALL FOUR happen IN ORDER before the register's own statement changes: (1) independent
@@ -122,12 +126,24 @@ CONTROL.** *The bounded-dilation closed form `Q_λ² = s√(2π)·e^{s²/8}·e^{
 confirmed by independent quadrature (`2×10⁻¹²`) and reproduced to `6.9×10⁻¹⁵` by the exact-composition
 control — the `∞`-weight's NUMBER EXISTS in this convention. But the registered band-limited
 implementation converges only at `O(h)` (2 digits at feasible `N`), the registered artifact probe
-(unitarity deficit) proved NORM-BLIND (at the float floor at every `N` — a recorded defect of the
-probe, not of the operator), and by the registration's own letter the branch is `(U-fails)`: the
+(unitarity deficit) proved INSENSITIVE TO THE NORM it was posted to watch (at the float floor at every
+`N` — a recorded defect of the probe, not of the operator; term repaired by correction twenty-six),
+and by the registration's own letter the branch is `(U-fails)`: the
 ledger was NOT read, the banked caveat STANDS with that exact reason, and no convention was switched
 inside the sitting. The exact-composition route is the natural next registration — named, not run.*
 *(Reviewer question 4 in §5 updates accordingly: the convention question is now an IMPLEMENTATION
 question, with the number's existence control-established.)*
+
+## §9 — THE INTERRELATION *(sittings 14–16; kept current per the framing correction)*
+
+*The built object read against the corpus's own light — the pentagon and voices (sitting 14), the
+foundations' maps (sitting 15), the bench lineage (sitting 16); correspondence rows 45–48. The
+headlines a reviewer should have: R4 instantiated-and-checked at the model (the four separations from
+complete roster in the pentagon's own terms) · `N5`'s two halves both measured on one object · the
+`T`-table's first measured candidate-row with the SUB-GATE HONESTLY UNCHANGED · the one-axis
+prime-power address law (`T1`'s own boundary) · and the arrangement `Z = P + A − PR` realized on the
+object with `P` a constraint and `Z` ABSENT — the missing codomain in ledger form. Six compilation
+targets named and sized, none started. Correction twenty-six filed the same ferry.*
 
 **NOTHING CIRCULATES UNTIL COUNSEL ANSWERS AND `WIDEN` IS RULED. STEP THREE IS THE AUTHOR'S ACT.
 `h2` UNCHANGED. THE REGISTER SENTENCE UNTOUCHED. NOTHING DEPOSITS.**
