@@ -17,6 +17,7 @@
   argument with the explicit witness x₀ = p^(m−1).
 -/
 import Mathlib.MeasureTheory.Measure.Haar.Basic
+import Mathlib.MeasureTheory.Group.Integral
 import Mathlib.MeasureTheory.Integral.Bochner.Set
 import Mathlib.NumberTheory.Padics.ProperSpace
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
@@ -69,16 +70,97 @@ theorem fourier_indicator_zp_mem (hψ : ∀ x : ℚ_[p], ψ x = 1 ↔ ‖x‖ �
     rw [Complex.real_smul, mul_one]
   exact hclose
 
-/-- UNIT 1b (the non-member branch): for `‖y‖ > 1` the transform of the indicator of
-    ℤ_p at `y` VANISHES — the translation argument: with `‖y‖ = p^m`, the witness
-    `x₀ = p^(m−1) ∈ ℤ_p` has `‖x₀y‖ = p > 1`, so `ψ(x₀y) ≠ 1`; Haar invariance under
-    `x ↦ x + x₀` (which preserves ℤ_p) gives `I = ψ(x₀y)·I`, hence `I = 0`.
-    SORRY — owner: FILE B, THIS UNIT (the set-integral translation plumbing; the
-    mathematics is written in this docstring and is one page). -/
+/-- UNIT 1b (the non-member branch — PROVED, the era's ruling: no sorry in a kernel):
+    for `‖y‖ > 1` the transform of the indicator of ℤ_p at `y` VANISHES — the
+    translation argument: with `m = −v(y) ≥ 1`, the witness `x₀ = p^(m−1) ∈ ℤ_p` has
+    `‖x₀y‖ = p > 1`, so `ψ(x₀y) ≠ 1`; Haar invariance under `x ↦ x + x₀` (which
+    preserves ℤ_p) gives `I = ψ(x₀y)·I`, hence `I = 0`. -/
 theorem fourier_indicator_zp_not_mem (hψ : ∀ x : ℚ_[p], ψ x = 1 ↔ ‖x‖ ≤ 1)
     (y : ℚ_[p]) (hy : 1 < ‖y‖) :
     fourier p ψ μ ((zpSet p).indicator 1) y = 0 := by
-  sorry
+  haveI : μ.IsAddRightInvariant := inferInstance
+  have hy0 : y ≠ 0 := by
+    intro h
+    rw [h, norm_zero] at hy
+    linarith
+  have hp1 : (1 : ℝ) < (p : ℝ) := by exact_mod_cast (Fact.out : p.Prime).one_lt
+  have hp0 : (p : ℝ) ≠ 0 := by positivity
+  set v : ℤ := y.valuation with hv
+  have hvneg : v < 0 := by
+    by_contra hnn
+    push_neg at hnn
+    have hle : ‖y‖ ≤ 1 := (Padic.norm_le_one_iff_val_nonneg y).mpr hnn
+    linarith
+  set m : ℕ := (-v).toNat with hm
+  have hm1 : 1 ≤ m := by omega
+  have hmv : (m : ℤ) = -v := Int.toNat_of_nonneg (by omega)
+  set x₀ : ℚ_[p] := (p : ℚ_[p]) ^ (m - 1) with hx₀
+  have hx₀mem : ‖x₀‖ ≤ 1 := by
+    rw [hx₀, Padic.norm_p_pow]
+    calc (p : ℝ) ^ (-((m - 1 : ℕ) : ℤ)) ≤ (p : ℝ) ^ (0 : ℤ) := by
+          apply zpow_le_zpow_right₀ (le_of_lt hp1)
+          omega
+      _ = 1 := zpow_zero _
+  have hx₀y : 1 < ‖x₀ * y‖ := by
+    have hxy : ‖x₀ * y‖ = (p : ℝ) ^ (1 : ℤ) := by
+      rw [norm_mul, hx₀, Padic.norm_p_pow, Padic.norm_eq_zpow_neg_valuation hy0,
+        ← zpow_add₀ hp0]
+      congr 1
+      have hcast : ((m - 1 : ℕ) : ℤ) = (m : ℤ) - 1 := by
+        omega
+      rw [hcast]
+      omega
+    rw [hxy, zpow_one]
+    exact hp1
+  have hcirc : ψ (x₀ * y) ≠ 1 := fun h1 => (not_le.mpr hx₀y) ((hψ _).mp h1)
+  have hchar : (ψ (x₀ * y) : ℂ) ≠ 1 := by
+    intro h
+    exact hcirc (Subtype.coe_injective (by simpa using h))
+  have hind : ∀ x : ℚ_[p], (zpSet p).indicator (1 : ℚ_[p] → ℂ) (x + x₀)
+      = (zpSet p).indicator (1 : ℚ_[p] → ℂ) x := by
+    intro x
+    by_cases hx : x ∈ zpSet p
+    · have hmem : x + x₀ ∈ zpSet p :=
+        le_trans (Padic.nonarchimedean _ _) (max_le hx hx₀mem)
+      simp [Set.indicator_of_mem, hx, hmem]
+    · have hnot : x + x₀ ∉ zpSet p := by
+        intro hmem
+        apply hx
+        have hxe : x = (x + x₀) + (-x₀) := by ring
+        have hb : ‖(x + x₀) + (-x₀)‖ ≤ 1 :=
+          le_trans (Padic.nonarchimedean _ _)
+            (max_le hmem (by rwa [norm_neg]))
+        rw [hxe]
+        exact hb
+      simp [Set.indicator_of_notMem, hx, hnot]
+  have hadd : ∀ x : ℚ_[p], (ψ ((x + x₀) * y) : ℂ) = (ψ (x * y) : ℂ) * (ψ (x₀ * y) : ℂ) := by
+    intro x
+    have hsplit : (x + x₀) * y = x * y + x₀ * y := by ring
+    rw [hsplit, AddChar.map_add_eq_mul]
+    push_cast
+    ring
+  have key : fourier p ψ μ ((zpSet p).indicator 1) y
+      = (ψ (x₀ * y) : ℂ) * fourier p ψ μ ((zpSet p).indicator 1) y := by
+    unfold fourier
+    calc ∫ x, (zpSet p).indicator (1 : ℚ_[p] → ℂ) x * (ψ (x * y) : ℂ) ∂μ
+        = ∫ x, (zpSet p).indicator (1 : ℚ_[p] → ℂ) (x + x₀) * (ψ ((x + x₀) * y) : ℂ) ∂μ :=
+          (MeasureTheory.integral_add_right_eq_self
+            (μ := μ) (fun x => (zpSet p).indicator (1 : ℚ_[p] → ℂ) x * (ψ (x * y) : ℂ)) x₀).symm
+      _ = ∫ x, (ψ (x₀ * y) : ℂ) * ((zpSet p).indicator (1 : ℚ_[p] → ℂ) x * (ψ (x * y) : ℂ)) ∂μ := by
+          simp_rw [hind, hadd]
+          congr 1
+          funext x
+          ring
+      _ = (ψ (x₀ * y) : ℂ) * ∫ x, (zpSet p).indicator (1 : ℚ_[p] → ℂ) x * (ψ (x * y) : ℂ) ∂μ :=
+          MeasureTheory.integral_const_mul ((ψ (x₀ * y) : ℂ))
+            (fun x => (zpSet p).indicator (1 : ℚ_[p] → ℂ) x * (ψ (x * y) : ℂ))
+  have hzero : (1 - (ψ (x₀ * y) : ℂ)) * fourier p ψ μ ((zpSet p).indicator 1) y = 0 := by
+    rw [sub_mul, one_mul]
+    rw [← key]
+    ring
+  rcases mul_eq_zero.mp hzero with h | h
+  · exact absurd (by linear_combination -h : (ψ (x₀ * y) : ℂ) = 1) hchar
+  · exact h
 
 end PadicFourier
 

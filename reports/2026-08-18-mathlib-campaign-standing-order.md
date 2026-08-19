@@ -9,6 +9,10 @@
 ON THE AUTHOR'S CALL · nothing deposits · nothing circulates**
 
 ## THE PROGRAM, WITH PRICES
+*(2026-08-19 note: per the kernel-purity ruling these are no longer sorries — the kernels print
+0 everywhere; the items below are REGISTERED STATEMENTS living at
+`reports/2026-08-19-sorry-ledger-cleared.md`, entering kernels only as proved. File B's unit 1b
+PROVED at the clearing; its remaining units queue here.)*
 
 | item | statement | owner file | price (est.) |
 |:--|:--|:--|:--|

@@ -144,15 +144,10 @@ structure PadicFourierData (p : ℕ) [Fact p.Prime] where
   F_sq : ∀ x, F (F x) = parity x
   parity_sq : ∀ x, parity (parity x) = x
 
-/-- OWED TO FILES B–C: the realization. (Sorry count: this is the instantiation debt.)
-    ACT-5 MOVEMENT: file A is now COMPLETE (the standard character with conductor ℤ_p,
-    zero sorries, profile {propext, Classical.choice, Quot.sound}) — the first of the
-    realization's three ingredients is proof-grade. Remaining owed content: the Fourier
-    transform on LocallyConstant test data against `stdAddChar`, and Plancherel via the
-    tower's level-exact Gram stability (the banked path). The sorry STANDS. -/
-theorem padicFourierData_exists (p : ℕ) [Fact p.Prime] :
-    Nonempty (PadicFourierData p) := by
-  sorry
+/- THE REALIZATION over L²(ℚ_p): NOT claimed here. Per the 2026-08-19 ruling (no sorry
+    in a kernel) the former existence statement moved to the working layer
+    (relay/reports/2026-08-19-sorry-ledger-cleared.md, item 1) until it can enter
+    PROVED. The structure above carries no proof obligation. -/
 
 
 /-- ACT 4, THE MATHLIB LEG'S NEW STATEMENT (the spectral question's structural half):
@@ -173,4 +168,3 @@ end LocalLimit
 #print axioms LocalLimit.nested_projection_norm_le
 #print axioms LocalLimit.real_no_compact_open_addSubgroup
 #print axioms LocalLimit.general_p_no_fixed_cell
-#print axioms LocalLimit.padicFourierData_exists

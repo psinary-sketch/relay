@@ -1,6 +1,34 @@
 # BREADTH — TIER ONE
 ## ### **BOTH GRADE-RAISES BLOCKED HONESTLY, AND THE BLOCKERS SHARE A FINDING: BOTH ◇ MARKS ARE INTENDED-BOUNDARY SORRIES, NOT DEBTS — THE KEYSTONE'S SORRY IS THE OPEN PREMISE'S OWN MARKER (DISCHARGE REFUSED BY DESIGN); THE E-DIFFICULTY LEG'S SORRIES ARE THREE MARKED CLASSICAL-ANALYTIC MILESTONES ABSENT FROM MATHLIB — TIERS TWO AND THREE STAGED FOR THE WORD**
 
+## §0 — ORIENTATION FOR THE NAVIGATOR *(added 2026-08-19 at the author's order; one screen, so the next ferry is written on content, not recap)*
+
+**BANKED (this report, relay `a29deb7`):** tier one ran two ◇→◆ attempts; **neither moved, both
+honestly** — (1) the Phase-1.5 keystone kernel's one sorry is the INTENDED T3 boundary (the
+pinned `∃Φ` joint-witness at totality = the open premise itself; "excluded by design" in its own
+AxiomCheck): discharge REFUSED — the blocker's name is `h2`; (2) the E-Difficulty leg's three
+sorries are MARKED CLASSICAL BOUNDARIES (Hardy–Littlewood / circle method / sieve density — each
+absent from Mathlib, grep-confirmed; each a major project; owner: classical ANT formalization);
+`EDifficultyTop` is a named-premise def, nothing re-grades.
+
+**THE SHARED FINDING:** both targets are designed boundaries wearing the debt mark — the
+registry's ◇ conflates two species.
+
+**AWAITING THE AUTHOR'S RULING (three items, evidence at the cited sections):** (i) ◇-debt vs
+◇-boundary — the mark vocabulary (§3; one ruling + a one-sitting sweep); (ii) the tier
+sequencing — tier two = the Phase-2 correspondence passes, sized YM 1 / BSD 1–2 / Trivium 1 /
+cosmology 2 sittings (§4a); tier three = the `Θ_T`/simplicity kinship question (§4b, route priced
+1 sitting, non-fusion standing) and T7's derive-then-register vs honest-boundary close (§4c, the
+paper's own clause quoted; the theory item is theorem-first species, 1–2 sittings; any re-run
+waits on post-Planck data regardless).
+
+**SINCE THIS REPORT (2026-08-19):** the KERNEL-PURITY RULING executed — the five-sorry ledger
+CLEARED (file B's unit 1b PROVED; four statements removed to the working layer with sketches:
+`reports/2026-08-19-sorry-ledger-cleared.md`); correction 28 filed (the 2→5 growth was
+ferry-authorized drift, both roles owned); every kernel file prints 0 sorries.
+
+---
+
 **Relay report · 2026-08-18 · Rules 4/5 · Fable/Lean-and-reading · nothing deposits · nothing
 circulates**
 

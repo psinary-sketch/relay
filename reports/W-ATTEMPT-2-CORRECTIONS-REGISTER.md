@@ -649,3 +649,17 @@ were written as the corpus's proven limits.
 > `§5`, the charter's `C1` line and `§8(ii)`, and the keystone draft's framing (the same import
 > repaired where found). The specification is a CONSTRUCTION TARGET with a worked precedent — that is
 > its whole posture.*
+
+## CORRECTION 28 (2026-08-19; the navigator's error, owned; the author's ruling)
+
+**What was wrong:** across the construction era the companion's sorry ledger GREW 2 -> 5 under
+the device "labeled sorry with an owner" - statements written into kernel files as sorried
+declarations (act 9's file D; act 16's sharp tensor lemma; the era-open sitting's file-B unit
+1b), each authorized by a ferry. **Why it was wrong:** a kernel is a certificate; a sorried
+declaration inside it converts the certificate into a ledger, and the zero-sorry headline
+(the corpus's public standard, SIDE-kernel's own) silently became a per-file negotiation.
+**The correction:** the kernel-purity ruling (loom, 2026-08-19): no sorry in a kernel; the
+device retired; the five cleared same day (one PROVED - file B unit 1b; four REMOVED to the
+working layer verbatim with sketches and waits-on). **Attribution:** the navigator authorized
+the drift ferry by ferry; the executor executed it without flagging the standard's erosion -
+both owned here.

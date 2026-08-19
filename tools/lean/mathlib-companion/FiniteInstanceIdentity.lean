@@ -19,7 +19,10 @@
   · Weil's ledger — the atlas's certified columns at the cell, in the CC sign
     convention (the act-12 dictionary).
 
-  SORRY COUNT OF THIS FILE: 0. The owners' sorries live at their own addresses.
+  SORRY COUNT OF THIS FILE: 0 — and, per the 2026-08-19 ruling, EVERY kernel file's.
+  The constituents are DATA PARAMETERS (Props over supplied structures), NOT sorried
+  declarations; their realizations live in the WORKING LAYER as recorded statements
+  (relay/reports/2026-08-19-sorry-ledger-cleared.md) until they can enter proved.
 -/
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Rat.Defs
