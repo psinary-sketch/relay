@@ -1,4 +1,9 @@
-# THE MATHLIB CAMPAIGN — THE STANDING ORDER (filed at the construction era's close)
+# THE CLASSICAL-PROFILE LEG — THE LOCAL FORMALIZATION PROGRAM (the standing order)
+## (RENAMED 2026-08-18 by the author's ruling, from "THE MATHLIB CAMPAIGN": the leg is built
+## LOCALLY against the Mathlib checkout at full standard, in the programme's own repositories,
+## as SIDE-kernel always has been; UPSTREAM SUBMISSION IS A DEFERRED LOOSE END, NOT A RESEARCH
+## DEPENDENCY. The friction note and the author's-hand rule below apply IF AND WHEN upstream
+## is ever opened; nothing waits on it.)
 
 **Relay filing · 2026-08-18 · the corpus's formalization program · runs beside the other strands
 ON THE AUTHOR'S CALL · nothing deposits · nothing circulates**
@@ -15,7 +20,7 @@ ON THE AUTHOR'S CALL · nothing deposits · nothing circulates**
 **THE HEADLINE STAYS THE VANILLA LEG: 96 theorems at "does not depend on any axioms" — the
 kernels' own certificates, no dependency on this program's schedule.**
 
-## THE PRECEDENT AND THE RULES
+## THE PRECEDENT AND THE RULES (for the DEFERRED upstream loose end only)
 
 *The closed-PR friction note (the campaign's own history, read at content): the corpus's April
 PRs were CLOSED-UNMERGED — upstreaming friction is REAL and priced; the campaign's precedent
