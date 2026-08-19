@@ -107,6 +107,30 @@ theorem real_no_compact_open_addSubgroup (H : AddSubgroup ℝ)
   rw [huniv] at hc
   exact noncompact_univ ℝ hc
 
+/-- THE NEXT ERA's OPENING THEOREM (theorem-first; the finite places closed at EVERY p):
+    the fixed-point localization, GENERAL p — for any prime `p`, level `n ≥ 1`, step
+    `k ≥ 1`, NO Sonin cell `1 ≤ α < p^n` satisfies `p^n ∣ α(p^k − 1)`. This is the
+    general-`p` core of trace silence and of the escape hypothesis' arithmetic: the
+    banked `p = 2, 3` instances (TraceSilence, no axioms) are its shadows; every other
+    step of sitting 20's chain is p-free by construction (the abstract theorems above;
+    file A proved for arbitrary p). PROVED, no sorry. -/
+theorem general_p_no_fixed_cell (p n k α : ℕ) (hp : p.Prime)
+    (hn : 1 ≤ n) (hk : 1 ≤ k) (hα1 : 1 ≤ α) (hαn : α < p ^ n) :
+    ¬ (p ^ n ∣ α * (p ^ k - 1)) := by
+  intro hdvd
+  have hpk : 1 ≤ p ^ k := Nat.one_le_pow _ _ hp.pos
+  have hndvd : ¬ (p ∣ p ^ k - 1) := by
+    intro h
+    have h2 : p ∣ p ^ k := dvd_pow_self p (Nat.one_le_iff_ne_zero.mp hk)
+    have h3 : p ∣ 1 := by
+      have h4 := Nat.dvd_sub h2 h
+      rwa [Nat.sub_sub_self hpk] at h4
+    exact hp.one_lt.not_ge (Nat.le_of_dvd one_pos h3)
+  have hcop : Nat.Coprime (p ^ n) (p ^ k - 1) :=
+    Nat.Coprime.pow_left _ ((Nat.Prime.coprime_iff_not_dvd hp).mpr hndvd)
+  have hα : p ^ n ∣ α := (Nat.Coprime.dvd_of_dvd_mul_right hcop) hdvd
+  exact (Nat.le_of_dvd (Nat.lt_of_lt_of_le Nat.zero_lt_one hα1) hα).not_gt hαn
+
 /-- THE CONCRETE DEBT, in one place: the p-adic Fourier data over `L²(ℚ_p)` — the
     transform as a linear isometry equivalence with `F² = parity`, the Sonin closure as
     a closed subspace, the escape property. OWED TO FILES B–C (the standard character;
@@ -148,4 +172,5 @@ end LocalLimit
 #print axioms LocalLimit.eigenvector_of_commute
 #print axioms LocalLimit.nested_projection_norm_le
 #print axioms LocalLimit.real_no_compact_open_addSubgroup
+#print axioms LocalLimit.general_p_no_fixed_cell
 #print axioms LocalLimit.padicFourierData_exists
