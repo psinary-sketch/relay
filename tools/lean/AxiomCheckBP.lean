@@ -1,0 +1,4 @@
+import BallPairShadow
+open BallPairShadow
+#print axioms sonin_dim_inclusion_exclusion
+#print axioms constraint_span_dims
