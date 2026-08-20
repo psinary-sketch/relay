@@ -88,7 +88,13 @@ at the fold.
 pre-act `origin/main = 5a8931a`; this act's pin read back below. Mirror: refreshed at the new
 PLACE-papers HEAD under the collision clause (`-c`, the third export of the date).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = 993bbcbe50e94ce939f9b122016c6c434e4144d9` (the fold's ledger
+> commit) · `relay origin/main = d69afef8c70dd50ea9c94379236e63bea66f27e4` (this act's commit,
+> parent `5a8931a`; pushed from `push-cartanb-fold` per Rule 4.10, hook standing; HELD ancestry
+> clean). **MIRROR:** `mirror-refresh-2026-08-20-c.zip` built at PLACE-papers `993bbcb`
+> (22-file roster + MANIFEST; the collision clause exercised — third export of the date). *This
+> pin-line commit's own SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT — THE AUTHOR'S DESK, RESTATED, NO ACTION TAKEN
 
