@@ -117,7 +117,14 @@ pre-act `origin/main = d61dda8`; this act's pin read back below. Mirror:
 `mirror-refresh-2026-08-20` already exists from the diamond act — rebuilt as
 `mirror-refresh-2026-08-20-b` at the new HEAD per the ferry's collision clause.*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = 2670d385be29e155cf2c510a03d1e1e9f40cbd4d` (the ledger commit) ·
+> `relay origin/main = 954615d009f40ce1927fd75b0143f6cd15d10047` (this act's commit, parent
+> `d61dda8`; pushed from `push-protection-act` per Rule 4.10, hook standing; HELD ancestry
+> clean). **MIRROR:** `mirror-refresh-2026-08-20-b.zip` built at PLACE-papers `2670d38`
+> (22-file roster + MANIFEST; the collision clause exercised — the `-b` name beside the
+> morning's export). *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
 
 ## FOOT — THE AUTHOR'S DESK, RESTATED, NO ACTION TAKEN
 
