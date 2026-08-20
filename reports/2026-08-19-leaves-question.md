@@ -94,3 +94,19 @@ rebuilt at HEAD with the lag explained.*
 
 **`h2` UNCHANGED. THE REGISTER SENTENCE UNTOUCHED. NO IDENTITY DECIDED; NO REGISTER MOVED.
 NOTHING PROMOTED. NOTHING DEPOSITS. NOTHING CIRCULATES.**
+
+---
+
+## PROVENANCE BLOCK — 2026-08-20 (appended; no line of the original rewritten)
+
+> **The named-step layer's best-case supposition is SUPERSEDED AT THE BANKED CELLS: the one
+> licensed check ran at the author's word (ferry 2026-08-19) and landed MIXED — MIXED-FORCED at
+> (3,1) and (2,2) (no nonzero Schmidt-pure vector exists in `E₁` there over any field
+> extension), MIXED-generic at (5,1)/(2,3)/(3,2), NO-UNIT at (2,1).** The `§2.2` proved layer
+> stands untouched (it was an even-if); `§2.3`'s "at (2,1) purity is trivial [1×1]" is refined
+> by the banked `d₁(2,1) = 0` (no `E₁`-unit exists there); the graph-shape clause in `§2.3` was
+> not used by the check (the minor test stands without it). **The verdict's (c) clause is now
+> CLOSED in the negative direction at the banked cells.** Full record:
+> `relay/reports/2026-08-19-e1-unit-purity.md` (act `b2163d8`, pin `4fa045c`); the final filing:
+> `relay/reports/2026-08-20-diamond-sweep-and-purity-filing.md`; FINDINGS anchor
+> `e1-units-schmidt-mixed-at-banked-cells`. Range law: the banked cells only, nothing wider.
