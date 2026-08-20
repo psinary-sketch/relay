@@ -95,7 +95,16 @@ commit, VERIFIED by ls-remote read-back; parent `d1ef1a6`. Relay (public): pre-a
 `origin/main = 4fa045c`; this act's own commit pin read back after the push and stated in the
 pin line below, per the regress rule.*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):** `relay origin/main = 7caa7076ffc86056897b65681f6b8ce3d60da746`
+> *(this act's commit, VERIFIED by remote read; parent `4fa045c`; pushed from `push-diamond-sweep`
+> per Rule 4.10, hook standing; the leaves-report edit verified append-only — 125 insertions,
+> 0 deletions; HELD material verified absent; the mirror result appended below this line by the
+> same pin commit.)*
+>
+> **MIRROR:** `mirror-refresh-2026-08-20.zip` built at PLACE-papers `08472c2` — 22-file roster
+> + MANIFEST (23 entries), roster unchanged since 2026-08-06 (the roster line computed at build
+> time, not carried forward); verified by content (MANIFEST source line + entry count read from
+> the zip). The next session's currency chain is unbroken.
 
 ## FOOT — THE AUTHOR'S DESK, RESTATED, NO ACTION TAKEN
 
