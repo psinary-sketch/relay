@@ -1,0 +1,64 @@
+====================================================================================================
+b45 -- THE KNILL-LAFLAMME DISTANCE CHECK AT THE BANKED CELLS -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (THE PROTECTION ACT, part 1 of 1, receipt confirmed), Component B.
+Relay-only. NO SIGN SENTENCE. h2 UNCHANGED BY CONSTRUCTION (finite exact checks at the
+banked cells; nothing about the identity claimed). NOTHING DEPOSITS. NOTHING CIRCULATES.
+
+SETTING, registered: per cell with d_1 >= 1 -- roster (3,1), (2,2), (5,1), (2,3), (3,2);
+(2,1) has no unit and keeps its registered zero weight. The ambient tensor product is the
+b13 chart's L^2(Z/q) (x) L^2(Z/q) (chart m = a + q b, bijectivity verified in-run); the
+code space is C = E_1(Son) (dim d_1, banked and re-derived at b44 G4/G5), constructed as
+in b44 via 4q P_1 = (q + S)(1 + Pi) with a mod-ell-certified independent subset of the
+projector images as basis B. FACTOR DIMS: the (a,a) reading is an EXPECTATION from the
+square Sonin dims; the run verifies the chart bijection and records the true factor dims
+(expected (q,q) ambient, (q-1,q-1) Sonin) -- a deviation is recorded if the shapes differ.
+
+ERROR MODEL, registered: factor-block, S = 2. Weight-1 basis operators: E_ij (x) 1 and
+1 (x) E_ij over the matrix units of each factor (matrix units span each factor's operator
+space; the KL condition is linear in E, so the basis decides the class).
+
+THE TEST, exact (identity (b), stated longhand): with B the basis matrix, G = B*B the
+Gram (conjugation zeta -> zeta^{-1}), X_E = B* E B, the KL detection condition
+P E P = c(E) P on the code space is EQUIVALENT to X_E = c(E) G (apply B* .. B; B has
+full column rank). Decided WITHOUT division by cross-multiplication:
+    X_E[r][s] * G[0][0] == G[r][s] * X_E[0][0]   for all r, s,   in Z[zeta_N] mod Phi_N,
+with G[0][0] != 0 verified. c(E) = X_E[0][0]/G[0][0] reported as an exact pair.
+No floating point anywhere; mod-ell enters nowhere in the verdicts (basis independence
+only, as in b44, certificate direction only).
+
+TIER 1 (detection, distance >= 2): the condition above for every weight-1 basis operator.
+TIER 2 (correction as ferried: recoverable from either factor alone): P E+F P = c(E,F) P
+for all weight-1 pairs on the same factor.
+  EXECUTOR DERIVATION, RECORDED BEFORE THE RUN, NOT SMOOTHED: on the matrix-unit basis
+  E_ij+ E_kl = delta_ik E_jl, so the same-factor pair set spans exactly the same operator
+  class as Tier 1's single-factor class: Tier 2 AS REGISTERED is implied by Tier 1. The
+  run still executes the pair form directly (content, not expectation), and the report
+  states the implication plainly. The operationally stronger CROSS-factor class (weight-2
+  products) is NOT registered and is NOT decided by this instrument.
+  VACUITY NOTE, registered: at d_1 = 1 ((3,1)) the KL conditions are satisfied for EVERY
+  operator (any 1x1 X is proportional to the 1x1 G != 0) -- a dim-1 code space carries no
+  logical information; a pass there is VACUOUS and is reported as such, counted for
+  nothing (the (2,1) precedent).
+
+BRANCHES, pre-registered (the ferry's, verbatim in content):
+(alpha)  Tier 1 passes at every cell -> distance >= 2 confirmed; the protection reading
+         PROMOTES from synthesis-suggested to computationally-verified at the cells; the
+         forced-mixedness certificates stand revealed as the d >= 2 signature they are.
+(alpha+) Tier 2 also passes -> the SEC formula's d_eff = 2S-1 = 3 at S = 2 is CONFIRMED
+         in a new domain -- subject to the recorded implication note above: as registered,
+         (alpha+) follows from (alpha), and the report says so rather than presenting an
+         independent confirmation.
+(beta)   Tier 1 fails at some cell -> the protection reading files as a NULL at that cell
+         with the failing operator named as an exact witness; mixedness stands alone
+         there as the weaker fact; nothing downstream carries the code frame for that
+         cell.
+Pre-committed weight note: partial passes file per-cell; no averaging, no rounding a
+mixed outcome to a slogan.
+
+PREDICTION (identity (d), context grade -- the Formation Distance Theorem d_eff >= 2S-1
+and rank-1 tightness, FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION ch. 3-4, read at
+content): supplies the REGISTERED EXPECTATION only; no verdict rests on it.
+
+Usage: python b45_kl_distance.py register | run
+====================================================================================================

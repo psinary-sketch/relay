@@ -1,0 +1,88 @@
+====================================================================================================
+b46 -- THE SEGRE-INTERSECTION DECISION AT THE d_1 > 2 CELLS -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (THE PROTECTION ACT, part 1 of 1), Component C. Work-order
+W-ORD-SEGRE-D1-GT-2, TRIGGER FIRED: the diamond ruling landed 2026-08-20 and the author's
+word (this ferry). Relay-only. NO SIGN SENTENCE. h2 UNCHANGED BY CONSTRUCTION. NOTHING
+DEPOSITS. NOTHING CIRCULATES.
+
+QUESTION, one per cell -- (5,1), (2,3), (3,2): does ANY nonzero Schmidt-pure vector exist
+in E_1 -- the quadric system (all 2x2 minors of C(t) = sum t_k C_k, the C_k the
+coefficient matrices of a mod-ell-certified basis of E_1) on P^(d_1 - 1), over the
+algebraic closure. Identity (c): Schmidt-pure <=> rank 1 <=> all 2x2 minors vanish (b44's
+verified identity), quadric-system form.
+
+METHOD, exact, stated longhand BEFORE the run (EXECUTOR-ADDED LOAD-BEARING IDENTITY,
+flagged per Rule 3 -- the specialization/properness argument):
+  The minors have coefficients in Z[zeta_N]. Reduce via the ring homomorphism
+  zeta -> g (mod ell), ell prime, ell = 1 mod N, g of exact order N -- the b44 hom. If a
+  nonzero pure vector existed over ANY extension field of Q(zeta_N), it would give a
+  projective point of the minor scheme over the algebraic closure of Q; a projective
+  point's coordinates can be scaled to be integral at a chosen prime above ell with at
+  least one coordinate a unit (projective properness -- the valuative criterion in its
+  elementary form), and its reduction is a projective point of the reduced scheme over
+  the algebraic closure of F_ell. CONTRAPOSITIVE, the certificate direction used:
+      the reduced quadric system EMPTY over closure(F_ell)  ==>  EMPTY over closure(Q).
+  Emptiness over closure(F_ell) is certified by MACAULAY SATURATION: if the degree-D
+  graded piece of the ideal (the span of {monomial x quadric} products at degree D)
+  equals the FULL space of degree-D forms, the ideal contains a power of every variable,
+  so the projective variety is empty over the closure (Nullstellensatz over the
+  algebraically closed field, homogeneous form). The rank computation is exact linear
+  algebra over F_ell -- integer arithmetic, no floating point. Failure to saturate at the
+  tried degrees or a bad prime is INCONCLUSIVE, not a nonemptiness verdict; the run then
+  escalates degree, tries a second ell, and if still unresolved files the cell OPEN with
+  the state recorded -- never guessed.
+
+PREDICTION, pre-registered (the codimension instrument, synthesis grade -- decided by the
+run, not the heuristic): EMPTY at all three. Longhand: the Sonin block is a
+(q-1) x (q-1) matrix space (the a = 0 row is zero); the rank-<=1 locus in m x n matrices
+has codimension (m-1)(n-1), here (q-2)^2 = the ferry's (a-1)^2 with a = q-1 the Sonin
+factor dim; a generic linear subspace of dimension d_1 misses the cone iff
+d_1 <= (q-2)^2: 4 <= 9 at (5,1); 12 <= 36 at (2,3); 16 <= 49 at (3,2) -- margin widening
+up the tower, exactly as ferried. (EXECUTOR SLIP CAUGHT PRE-RUN, recorded not smoothed:
+a first draft of this paragraph mis-derived the codimension as (q-1)^2 and wrongly
+flagged the ferry's arithmetic; the ferry's numbers are correct. E_1 is NOT generic --
+the prediction is heuristic and the run decides.)
+
+BRANCHES (the ferry's, verbatim in content):
+(a) Empty at all three -> MIXED-FORCED extends to the whole exact roster; the local
+    residue is total; the codimension diagnosis gains a confirmation domain; FINDINGS
+    e1-units-schmidt-mixed-at-banked-cells upgrades its three generic cells to forced,
+    APPENDING not rewriting.
+(b) Nonempty somewhere -> the pure locus's exact address named; the protection reading
+    CONSTRAINED at that cell (a pure codeword bounds the factor-distance); the deviation
+    from the codimension prediction files as a named question against the instrument, at
+    question grade.
+Routing deviations recorded inside this registration per the standing rule.
+
+Usage: python b46_segre.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b46_registration_2026-08-20.txt, banked before this run).
+### MEASUREMENT BEGINS. F_ell arithmetic in the certificate direction only;
+### the emptiness verdict transfers to characteristic 0 by the registered
+### specialization/properness argument (stated longhand in the registration).
+
+CELL (5,1)  q = 5  d_1 = 4  [ell = 101, g = 16]  codimension bound (q-2)^2 = 9, margin 5
+  quadrics: 60 nonzero minors of 60
+  degree 3: Macaulay rank 20 / 20 monomials  -> SATURATED
+  VERDICT (5,1): EMPTY -- the degree-3 piece of the ideal is the full space over F_101; the projective variety is empty over closure(F_101); by the registered specialization argument, EMPTY over closure(Q): E_1(5,1) contains NO nonzero Schmidt-pure vector over any field extension. MIXED-FORCED.
+
+CELL (2,3)  q = 8  d_1 = 12  [ell = 193, g = 125]  codimension bound (q-2)^2 = 36, margin 24
+  quadrics: 588 nonzero minors of 588
+  degree 3: Macaulay rank 364 / 364 monomials  -> SATURATED
+  VERDICT (2,3): EMPTY -- the degree-3 piece of the ideal is the full space over F_193; the projective variety is empty over closure(F_193); by the registered specialization argument, EMPTY over closure(Q): E_1(2,3) contains NO nonzero Schmidt-pure vector over any field extension. MIXED-FORCED.
+
+CELL (3,2)  q = 9  d_1 = 16  [ell = 163, g = 4]  codimension bound (q-2)^2 = 49, margin 33
+  quadrics: 1008 nonzero minors of 1008
+  degree 3: Macaulay rank 816 / 816 monomials  -> SATURATED
+  VERDICT (3,2): EMPTY -- the degree-3 piece of the ideal is the full space over F_163; the projective variety is empty over closure(F_163); by the registered specialization argument, EMPTY over closure(Q): E_1(3,2) contains NO nonzero Schmidt-pure vector over any field extension. MIXED-FORCED.
+
+--- POST-RUN (banked with the run) ---
+VERDICT: BRANCH (a) -- EMPTY AT ALL THREE, degree-3 Macaulay saturation at every cell
+(ranks 20/20 at (5,1) over F_101; 364/364 at (2,3) over F_193; 816/816 at (3,2) over
+F_163). By the registered specialization/properness argument the emptiness transfers to
+characteristic zero: E_1 contains NO nonzero Schmidt-pure vector over any field extension
+at (5,1), (2,3), (3,2). MIXED-FORCED EXTENDS TO THE WHOLE EXACT ROSTER; the local residue
+is total. The codimension prediction (d_1 <= (q-2)^2, margins 5/24/33) confirmed by the
+run -- the heuristic gains a confirmation domain, at its synthesis grade, nothing
+promoted. W-ORD-SEGRE-D1-GT-2: CLOSED by this run.

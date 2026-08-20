@@ -1,0 +1,143 @@
+====================================================================================================
+b45 -- THE KNILL-LAFLAMME DISTANCE CHECK AT THE BANKED CELLS -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (THE PROTECTION ACT, part 1 of 1, receipt confirmed), Component B.
+Relay-only. NO SIGN SENTENCE. h2 UNCHANGED BY CONSTRUCTION (finite exact checks at the
+banked cells; nothing about the identity claimed). NOTHING DEPOSITS. NOTHING CIRCULATES.
+
+SETTING, registered: per cell with d_1 >= 1 -- roster (3,1), (2,2), (5,1), (2,3), (3,2);
+(2,1) has no unit and keeps its registered zero weight. The ambient tensor product is the
+b13 chart's L^2(Z/q) (x) L^2(Z/q) (chart m = a + q b, bijectivity verified in-run); the
+code space is C = E_1(Son) (dim d_1, banked and re-derived at b44 G4/G5), constructed as
+in b44 via 4q P_1 = (q + S)(1 + Pi) with a mod-ell-certified independent subset of the
+projector images as basis B. FACTOR DIMS: the (a,a) reading is an EXPECTATION from the
+square Sonin dims; the run verifies the chart bijection and records the true factor dims
+(expected (q,q) ambient, (q-1,q-1) Sonin) -- a deviation is recorded if the shapes differ.
+
+ERROR MODEL, registered: factor-block, S = 2. Weight-1 basis operators: E_ij (x) 1 and
+1 (x) E_ij over the matrix units of each factor (matrix units span each factor's operator
+space; the KL condition is linear in E, so the basis decides the class).
+
+THE TEST, exact (identity (b), stated longhand): with B the basis matrix, G = B*B the
+Gram (conjugation zeta -> zeta^{-1}), X_E = B* E B, the KL detection condition
+P E P = c(E) P on the code space is EQUIVALENT to X_E = c(E) G (apply B* .. B; B has
+full column rank). Decided WITHOUT division by cross-multiplication:
+    X_E[r][s] * G[0][0] == G[r][s] * X_E[0][0]   for all r, s,   in Z[zeta_N] mod Phi_N,
+with G[0][0] != 0 verified. c(E) = X_E[0][0]/G[0][0] reported as an exact pair.
+No floating point anywhere; mod-ell enters nowhere in the verdicts (basis independence
+only, as in b44, certificate direction only).
+
+TIER 1 (detection, distance >= 2): the condition above for every weight-1 basis operator.
+TIER 2 (correction as ferried: recoverable from either factor alone): P E+F P = c(E,F) P
+for all weight-1 pairs on the same factor.
+  EXECUTOR DERIVATION, RECORDED BEFORE THE RUN, NOT SMOOTHED: on the matrix-unit basis
+  E_ij+ E_kl = delta_ik E_jl, so the same-factor pair set spans exactly the same operator
+  class as Tier 1's single-factor class: Tier 2 AS REGISTERED is implied by Tier 1. The
+  run still executes the pair form directly (content, not expectation), and the report
+  states the implication plainly. The operationally stronger CROSS-factor class (weight-2
+  products) is NOT registered and is NOT decided by this instrument.
+  VACUITY NOTE, registered: at d_1 = 1 ((3,1)) the KL conditions are satisfied for EVERY
+  operator (any 1x1 X is proportional to the 1x1 G != 0) -- a dim-1 code space carries no
+  logical information; a pass there is VACUOUS and is reported as such, counted for
+  nothing (the (2,1) precedent).
+
+BRANCHES, pre-registered (the ferry's, verbatim in content):
+(alpha)  Tier 1 passes at every cell -> distance >= 2 confirmed; the protection reading
+         PROMOTES from synthesis-suggested to computationally-verified at the cells; the
+         forced-mixedness certificates stand revealed as the d >= 2 signature they are.
+(alpha+) Tier 2 also passes -> the SEC formula's d_eff = 2S-1 = 3 at S = 2 is CONFIRMED
+         in a new domain -- subject to the recorded implication note above: as registered,
+         (alpha+) follows from (alpha), and the report says so rather than presenting an
+         independent confirmation.
+(beta)   Tier 1 fails at some cell -> the protection reading files as a NULL at that cell
+         with the failing operator named as an exact witness; mixedness stands alone
+         there as the weaker fact; nothing downstream carries the code frame for that
+         cell.
+Pre-committed weight note: partial passes file per-cell; no averaging, no rounding a
+mixed outcome to a slogan.
+
+PREDICTION (identity (d), context grade -- the Formation Distance Theorem d_eff >= 2S-1
+and rank-1 tightness, FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION ch. 3-4, read at
+content): supplies the REGISTERED EXPECTATION only; no verdict rests on it.
+
+Usage: python b45_kl_distance.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b45_registration_2026-08-20.txt, banked before this run).
+### MEASUREMENT BEGINS. Exact Z[zeta]; conjugation zeta -> zeta^{-1}; verdicts never mod-ell.
+
+CELL (3,1)  N = 9  q = 3  d_1 = 1
+  PASS chart bijective Z/3 x Z/3 -> Z/9; ambient factor dims (3,3); Sonin block (2,2) (a=0 row zero) -- the (a,a) square reading verified
+  basis: 1 projector images, independence certified mod 19
+  PASS G[0][0] != 0 (exact)
+  TIER 1: VACUOUS PASS (d_1 = 1: any 1x1 X is proportional to G != 0; a dim-1 code space carries no logical information -- counted for nothing, per the registration's vacuity note)
+
+CELL (2,2)  N = 16  q = 4  d_1 = 2
+  PASS chart bijective Z/4 x Z/4 -> Z/16; ambient factor dims (4,4); Sonin block (3,3) (a=0 row zero) -- the (a,a) square reading verified
+  basis: 2 projector images, independence certified mod 17
+  PASS G[0][0] != 0 (exact)
+  TIER 1: FAIL at 25/32 operators; first witness: E_{1,1} on factor 1, condition breaks at Gram entry (0,1) -- exact nonzero discrepancy in Z[zeta_16]
+    also: E_{1,2} factor 1 at (0,1)
+    also: E_{1,3} factor 1 at (0,1)
+    also: E_{2,1} factor 1 at (0,1)
+    also: E_{2,2} factor 1 at (0,1)
+    also: E_{2,3} factor 1 at (0,1)
+    ... 19 more (bank holds the count per factor)
+  TIER 2: FAIL at 100 pairs; first: (1, (0, 1), (0, 1))
+
+CELL (5,1)  N = 25  q = 5  d_1 = 4
+  PASS chart bijective Z/5 x Z/5 -> Z/25; ambient factor dims (5,5); Sonin block (4,4) (a=0 row zero) -- the (a,a) square reading verified
+  basis: 4 projector images, independence certified mod 101
+  PASS G[0][0] != 0 (exact)
+  TIER 1: FAIL at 41/50 operators; first witness: E_{1,1} on factor 1, condition breaks at Gram entry (0,1) -- exact nonzero discrepancy in Z[zeta_25]
+    also: E_{1,2} factor 1 at (0,1)
+    also: E_{1,3} factor 1 at (0,1)
+    also: E_{1,4} factor 1 at (0,1)
+    also: E_{2,1} factor 1 at (0,1)
+    also: E_{2,2} factor 1 at (0,1)
+    ... 35 more (bank holds the count per factor)
+  TIER 2: FAIL at 205 pairs; first: (1, (0, 1), (0, 1))
+
+CELL (2,3)  N = 64  q = 8  d_1 = 12
+  PASS chart bijective Z/8 x Z/8 -> Z/64; ambient factor dims (8,8); Sonin block (7,7) (a=0 row zero) -- the (a,a) square reading verified
+  basis: 12 projector images, independence certified mod 193
+  PASS G[0][0] != 0 (exact)
+  TIER 1: FAIL at 113/128 operators; first witness: E_{1,1} on factor 1, condition breaks at Gram entry (0,1) -- exact nonzero discrepancy in Z[zeta_64]
+    also: E_{1,2} factor 1 at (0,1)
+    also: E_{1,3} factor 1 at (0,1)
+    also: E_{1,4} factor 1 at (0,1)
+    also: E_{1,5} factor 1 at (0,1)
+    also: E_{1,6} factor 1 at (0,1)
+    ... 107 more (bank holds the count per factor)
+  TIER 2: FAIL at 904 pairs; first: (1, (0, 1), (0, 1))
+
+CELL (3,2)  N = 81  q = 9  d_1 = 16
+  PASS chart bijective Z/9 x Z/9 -> Z/81; ambient factor dims (9,9); Sonin block (8,8) (a=0 row zero) -- the (a,a) square reading verified
+  basis: 16 projector images, independence certified mod 163
+  PASS G[0][0] != 0 (exact)
+  TIER 1: FAIL at 145/162 operators; first witness: E_{1,1} on factor 1, condition breaks at Gram entry (0,1) -- exact nonzero discrepancy in Z[zeta_81]
+    also: E_{1,2} factor 1 at (0,1)
+    also: E_{1,3} factor 1 at (0,1)
+    also: E_{1,4} factor 1 at (0,1)
+    also: E_{1,5} factor 1 at (0,1)
+    also: E_{1,6} factor 1 at (0,1)
+    ... 139 more (bank holds the count per factor)
+  TIER 2: FAIL at 1305 pairs; first: (1, (0, 1), (0, 1))
+
+--- POST-RUN (banked with the run) ---
+VERDICT: (beta) AT EVERY CELL WITH d_1 >= 2 -- Tier 1 FAILS: (2,2) 25/32 operators,
+(5,1) 41/50, (2,3) 113/128, (3,2) 145/162; first witness everywhere E_{1,1} (x) 1 at Gram
+entry (0,1), exact nonzero discrepancy in Z[zeta_N]. (3,1) VACUOUS PASS (d_1 = 1, no
+logical information -- counted for nothing). Tier 2 as registered fails wherever Tier 1
+fails (the recorded implication, confirmed in-run by the direct pair enumeration).
+THE PROTECTION READING FILES AS NULL AT EVERY NONTRIVIAL CELL; mixedness stands alone as
+the weaker fact; nothing downstream carries the code frame. The identity-(d) prediction
+(d_eff >= 2S-1) is NOT confirmed at this model -- no verdict rested on it (registered).
+BASIS IDENTITY (banked for the Lean cores): (2,2) basis = u_(1,1), u_(1,2);
+(5,1) basis = u_(1,1), u_(1,2), u_(1,3), u_(2,1) -- verified by exact reconstruction.
+WITNESS DISCREPANCIES, reduced mod Phi_N (X01*G00 - G01*X00 for E_{1,1}(x)1):
+(2,2): [1024, 512, 0, 512, 0, -512, 0, -512] -- 5/8 nonzero.
+(5,1): [-1000, -500, 0, 0, 500, 0, -500, 0, 0, 500, -2000, -1500, 0, 0, -1000, -2000, 0, 0, 0, 0] -- 9/20 nonzero.
+LEAN EXTENSION (working layer only, E1UnitPurityDraft.lean, NOT kernel-placed): terminals
+kl_fail_2_2, kl_fail_5_1 -- both "does not depend on any axioms" (draft total 11/11;
+set_option maxRecDepth 8192, a compiler option, disclosed; the (2,3)/(3,2) witnesses and
+the b46 Macaulay certificates declared beyond sensible decide reach, in the banks).

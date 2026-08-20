@@ -146,4 +146,55 @@ def u32 : Nat → Sp := entry 9 81 h32
 
 theorem witness32 : isZero 3 81 (minor u32 1 11 10 2) = false := by decide
 
+/- ══════════════════════════════════════════════════════════════════════════════════
+   EXTENSION (2026-08-20, the Protection Act, step 4) — THE KL-FAILURE WITNESSES
+   ══════════════════════════════════════════════════════════════════════════════════
+
+   b45's Tier-1 verdict (β): E₁ is NOT a distance-≥2 code in the factor-block model —
+   at every cell with d₁ ≥ 2 the Knill–Laflamme detection condition P·E·P = c(E)·P
+   fails, first witness E = E_{1,1}⊗1 at Gram entry (0,1). The decidable core encoded
+   here: with basis u₀ = u_{1,1}, u₁ = u_{1,2} (independence banked, b44/b45), Gram
+   entries G_{rs} = Σ_m conj(u_r(m))·u_s(m), and X_{rs} = Σ_t conj(u_r(1+qt))·u_s(1+qt)
+   (the E_{1,1}⊗1 compression), the cross-multiplied discrepancy
+       X_{01}·G_{00} − G_{01}·X_{00}   ≠ 0   in ℤ[ζ_N]
+   — which refutes X = c·G for every scalar c, hence refutes the KL condition, exactly.
+   Conjugation is ζ ↦ ζ^{-1} on monomials. Encoded at (2,2) and (5,1); the (2,3)/(3,2)
+   witnesses and b46's Segre–Macaulay certificates (rank 364/816 mod ℓ) are DECLARED
+   beyond sensible decide reach and live in the banks. Framing data (d₁, basis
+   identity) enters banked, declared in the head. -/
+
+set_option maxRecDepth 8192
+
+def conjSp (N : Nat) (a : Sp) : Sp := a.map fun p => (p.1, (N - p.2 % N) % N)
+
+/-- normalize: reduce mod Φ, re-express as sparse monomials on the power basis -/
+def redSp (p N : Nat) (v : Sp) : Sp :=
+  let d := phiRed p N v
+  (List.zip (List.range d.length) d).filterMap fun q =>
+    if q.2 == 0 then none else some (q.2, q.1)
+
+/-- Gram entry Σ_{m<N} conj(u m)·(v m), normalized -/
+def gramE (p N : Nat) (u v : Nat → Sp) : Sp :=
+  redSp p N ((List.range N).foldl (fun acc m => acc ++ mulSp (conjSp N (u m)) (v m)) [])
+
+/-- E_{1,1}⊗1 compression entry Σ_{t<q} conj(u (1+qt))·(v (1+qt)), normalized -/
+def xE11 (p N q : Nat) (u v : Nat → Sp) : Sp :=
+  redSp p N ((List.range q).foldl
+    (fun acc t => acc ++ mulSp (conjSp N (u (1 + q * t))) (v (1 + q * t))) [])
+
+/- (2,2): u₀ = uA (h22a), u₁ = uB (h22b) — b44's own pencil basis -/
+theorem kl_fail_2_2 :
+    isZero 2 16 (subSp
+      (mulSp (xE11 2 16 4 uA uB) (gramE 2 16 uA uA))
+      (mulSp (gramE 2 16 uA uB) (xE11 2 16 4 uA uA))) = false := by decide
+
+/- (5,1): u₀ = u_{1,1} (h51), u₁ = u_{1,2} (h51b) — the b45 greedy basis, identity banked -/
+def h51b : Sp := [(1, 11), (-1, 1), (1, 14), (-1, 24)]
+def u51b : Nat → Sp := entry 5 25 h51b
+
+theorem kl_fail_5_1 :
+    isZero 5 25 (subSp
+      (mulSp (xE11 5 25 5 u51 u51b) (gramE 5 25 u51 u51))
+      (mulSp (gramE 5 25 u51 u51b) (xE11 5 25 5 u51 u51))) = false := by decide
+
 end E1UnitPurityDraft
