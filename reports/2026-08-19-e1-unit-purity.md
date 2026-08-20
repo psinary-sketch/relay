@@ -130,7 +130,11 @@ in its head. Correspondence rows 175–176. Pins: pre-act `origin/main = 7142eac
 verified); this act's own pin read back with ls-remote after the push and recorded in the pin
 line below.*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):** `relay origin/main = b2163d85990e92fd4696e34c879d3ef78585b083`
+> *(this act's commit, VERIFIED by remote read; pre-act tip `7142eac` its parent; pushed from
+> `push-e1-unit-purity` per Rule 4.10, the pre-push hook standing; the HELD commit's two files
+> verified ABSENT from the pushed tree; no `held/*` ref on the remote. This pin-line commit's own
+> SHA is stated in the closing message, per the regress rule.)*
 
 ## FOOT — THE AUTHOR'S DESK, RESTATED, NO ACTION TAKEN
 
