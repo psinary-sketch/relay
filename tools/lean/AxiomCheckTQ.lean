@@ -1,0 +1,4 @@
+import TensorSquareShadow
+open TensorSquareShadow
+#print axioms interleaving_index_law
+#print axioms sector_pattern_gap
