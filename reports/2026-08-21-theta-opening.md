@@ -95,9 +95,9 @@ loom naming line + the act record. Mirror: refreshed (PLACE-papers moved).*
 > `SIDE-global-section origin/main = 6422af42d4c031b73b05d45778354725ce3fdb80` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 3d9a36b06663017daa6919f72b966e7152047de3` (parent `f17a2ce`) · `relay origin/main =
-> [READ BACK AT PUSH]` (pushed from `push-theta-opening` per Rule 4.10, hook standing;
-> HELD ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
-> from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-i.zip` built
+> a1c3ded62e7d1966971e5f23ce15074a04960179` (this act, parent `7a17927`; pushed from
+> `push-theta-opening` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-i.zip` built
 > at PLACE-papers `3d9a36b`. *This pin-line commit's own SHA is stated in the closing
 > message, per the regress rule.*
 
