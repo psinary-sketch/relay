@@ -90,7 +90,15 @@ THE_METHOD_CANON — additive, diff-proven) read back below. Relay (public): pre
 append, this report) read back below. Mirror: refreshed at the new HEAD under the collision
 clause (`-e`, fifth export of the date).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = d2b75df1f5cd35c62b5460998d14d9a9d3208c52` (the ledger commit —
+> 34 insertions, 1 deletion; the one deletion is the p2-9 row cell replaced by its instructed
+> flag resolution, said exactly; the editorial items are pure additions) ·
+> `relay origin/main = bd6ea7ba6e9995279f241a4996bd338254962721` (this act's commit, parent
+> `41a3045`; pushed from `push-consolidated-triggers` per Rule 4.10, hook standing; HELD
+> ancestry clean). **MIRROR:** `mirror-refresh-2026-08-20-e.zip` built at PLACE-papers
+> `d2b75df` (22-file roster + MANIFEST; fifth export of the date, collision clause). *This
+> pin-line commit's own SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT — THE AUTHOR'S DESK, TWO ITEMS
 
