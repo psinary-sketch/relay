@@ -93,9 +93,10 @@ record + the loom's vocabulary line. Mirror: refreshed (PLACE-papers moved).*
 > `SIDE-global-section origin/main = 07b6f4ca2b082e626f8a69bcfe564d67be877b6e` (tag
 > `v0.1.0` = peeled `706a81b` unmoved; Core 183/183 unchanged) · `PLACE-papers
 > origin/main = 6b0bb46eec686361ecd5a30cccb637a74ad8707a` (parent `3f6d36d`) ·
-> `relay origin/main = [READ BACK AT PUSH]` (pushed from `push-junction-revisit` per
-> Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two carrier-build
-> act files verified ABSENT from the public tree by name). **MIRROR:**
+> `relay origin/main =
+> 96d5efd7d53592b32e26de29f161144e1698c9a9` (this act, parent `88b1fd7`; pushed from
+> `push-junction-revisit` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-k.zip` built at PLACE-papers `6b0bb46`. *This pin-line
 > commit's own SHA is stated in the closing message, per the regress rule.*
 
