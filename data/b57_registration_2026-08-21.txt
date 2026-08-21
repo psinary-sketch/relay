@@ -1,0 +1,141 @@
+====================================================================================================
+b57 -- THE DEPTH ACT, ROW 31 -- REGISTRATION. BANKED BEFORE ANY CODE OR ALGEBRA RUNS.
+====================================================================================================
+FERRY 2026-08-21 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION; the range law and the leaves distinction govern every
+sentence. Compatibility, not factorization. NOTHING DEPOSITS.
+
+INPUTS READ AT CONTENT (rule a/b): form_level_lift at its statement (PairingShadow.lean
+L57-63: abstract R, add/mul, hlin = trace-linearity 4 tr(P1 A) = sum_j t j, hmul =
+trace-multiplicativity t j = a j * b j); the banked sector dims VERBATIM from the b53
+bank (L37-39) and b55 (NEWDIMS): tuple order (d_1, d_-1, d_i, d_-i), confirmed against
+PairingShadow.dead_cell_power_traces:
+    (2,1)=(0,0,1,0)  (3,1)=(1,1,1,1)  (2,2)=(2,2,3,2)  (5,1)=(4,4,4,4)
+    (2,3)=(12,12,13,12)  (3,2)=(16,16,16,16)  (2,4)=(56,56,57,56)  (3,3)=(169,169,169,169)
+The purity-locus law (I-12b's ground) enters as the registered EXPLANATION-CANDIDATE for
+P3, not as a premise (rule c). COMPONENT ORDER (rule d): 2 uses 1's statement shape;
+3 is independent of both; a failure in one does not void the others.
+
+REGISTERED NUMERIC PREDICTIONS (the ferry's, verbatim commitments, targets computed here
+longhand BEFORE any run):
+(P1) THE CONJUGATE-PAIR LEMMA at every banked cell: with t_j = sum_lambda lambda^j
+  d_lambda: t_3 = conj(t_1) and t_2 real. From the tuple order: t_1 =
+  (d_1 - d_-1) + i(d_i - d_-i); t_3 = (d_1 - d_-1) - i(d_i - d_-i); t_2 =
+  d_1 + d_-1 - d_i - d_-i (an integer). TARGETS, computed longhand from the banked dims:
+    odd cells (3,1)/(5,1)/(3,2)/(3,3): t_1 = 0, t_2 = 0, t_3 = 0 = conj(0)
+    place-2 cells (2,1)/(2,2)/(2,3)/(2,4): t_1 = i, t_3 = -i = conj(i), t_2 = -1
+  The run verifies these from the bank-read dims before any mechanization is attempted.
+(P2) THE FLATNESS PATTERN AS BANKED: every odd-place cell exactly flat (all four dims
+  equal; twisted traces zero); every place-2 cell twisted trace exactly i (i-sector
+  excess exactly one, the other three sectors equal). Longhand check against the tuples
+  above: odd all-equal at 1, 4, 16, 169; place-2 tuples (d, d, d+1, d) at d = 0, 2, 12,
+  56. Re-verified from the banks at all banked levels before Component 3 runs.
+(P3) THE SEED-LINE IDENTIFICATION at each place-2 cell: the i-sector excess direction is
+  spanned by the imported boundary seed (the iota-chain of the (2,1) generator).
+  DECIDABLE CONTENT, stated exactly: (i) the chain iota^(n-1)(u_i(2,1)) is a NONZERO
+  EXACT i-eigenvector of M = S/q lying in E_i at each banked place-2 cell -- banked at
+  (2,2) (b53) and (2,4) (b55, row 8); the INTERMEDIATE CELL (2,3) is the unverified
+  instance and is RUN THIS ACT; (ii) the excess count d_i - d_-i = 1 equals the number
+  of imported seed lines (one; place 2 has exactly one boundary seed line, the dead
+  cell's 1x1 E_i), and by the purity-locus law (the pure locus = exactly the imported
+  locus, b53/b55) the seed line is the CANONICAL representative of the excess.
+  EXTENSION CLAUSE, stated not assumed: the prediction extends one level past wherever
+  checked, by the tower-import mechanism (iota lands E_i in E_i with single-row support
+  2 -> 4 -> 8 -> 16).
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- THE ABSTRACT GENERAL THEOREM (the statement, fixed before mechanization):
+For commuting order-four local transforms on a tensor product over a roster of k places
+with sector dimensions d_lambda(v), lambda in mu_4 = {1, i, -1, -i}:
+    4 * dim(principal sector)  =  sum_{j=0}^{3}  prod_v  t_j(v),
+    t_j(v) = sum_lambda lambda^j d_lambda(v),
+where the principal (product-of-labels = 1) sector dimension is
+    N_1 = sum over label patterns (lambda_v) with prod_v lambda_v = 1 of prod_v d_{lambda_v}(v).
+DERIVATION, longhand (the identity-operator instance of form_level_lift): the global
+projector P_1 = (1/4) sum_j (tensor_v M_v)^j; trace-linearity (hlin) gives 4 tr(P_1) =
+sum_j tr(prod tensor M_v^j); trace-multiplicativity (hmul) gives tr(tensor M_v^j) =
+prod_v t_j(v). Expanding prod_v t_j(v) = sum_patterns (prod lambda_v)^j prod d and
+summing over j: sum_j mu^j = 4 if mu = 1 else 0 (the mu_4 geometric sum). HYPOTHESES
+NAMED AND NO MORE: trace-linearity, trace-multiplicativity (form_level_lift's own two),
+plus the mu_4 spectral decomposition with integer sector dims. Values in the Gaussian
+integers; REALITY of the total follows from the conjugate-pair lemma (t_3 = conj t_1
+place-wise, conj multiplicative over the product, t_0/t_2 real), NOT from expansion.
+GENERAL roster, GENERAL k. The five banked roster instances become corollaries.
+
+COMPONENT 2 -- THE MECHANIZATION BY CONJUGATE PAIRS (the registered smarter route; the
+forty-monomial brute expansion is the FALLBACK, not the plan):
+Gaussian integers as pairs over an abstract commutative coefficient structure with the
+ring laws NAMED as hypotheses (the corpus's established device, row 32); the four local
+traces as pairs t_0 = (d_1+d_-1+d_i+d_-i, 0), t_1 = (d_1-d_-1, d_i-d_-i), t_2 =
+(d_1+d_-1-d_i-d_-i, 0), t_3 = conj(t_1); the pattern-count quadruple (N_1, N_i, N_-1,
+N_-i) by structural recursion over the roster list with the convolution step
+N_mu(d::L) = sum_k d_k N_{mu * i^{-k}}(L); THE INVARIANT, proved by list induction:
+    prodT_0 L = (N_1+N_i+N_-1+N_-i, 0)      prodT_1 L = (N_1-N_-1, N_i-N_-i)
+    prodT_2 L = (N_1-N_i+N_-1-N_-i, 0)      prodT_3 L = (N_1-N_-1, -(N_i-N_-i))
+whence sum_j prodT_j = (4 N_1, 0): REAL, and the theorem. Conjugation proved
+multiplicative over products; prodT_3 = conj(prodT_1) as a THEOREM, closing reality by
+pairing first with third powers and the even powers real -- no expansion. TARGET: the
+zero-axiom bar in Core (known taints routed around: omega, funext, List lemmas,
+Nat.mul_assoc, Nat.add_sub_cancel; Int core lemmas print-checked before use, else the
+named-hypothesis route carries everything). Whatever still resists lands as a SHARPENED
+NAMED-OPEN STATEMENT in row 31's cell with the resistance located exactly (which lemma,
+which step). Row 29's general-q only-if is NOT this act.
+
+COMPONENT 3 -- THE FLATNESS LAW AND THE ARBITRATION (both branches longhand):
+THE QUESTION: is odd-place flatness, and the place-2 unit trace, a THEOREM of the
+sector arithmetic at every level?
+THE LONGHAND DERIVATION, banked here BEFORE the run (each step elementary, on the
+corpus's own objects; the ball-pair inclusion-exclusion (row 15) is the ground):
+ (1) THE CHART GAUSS COMPUTATION. tr(S) over Z/q^2 = sum_m zeta^(m^2), zeta = zeta_{q^2}.
+     Chart m = a + qb: m^2 = a^2 + 2qab + q^2 b^2 == a^2 + 2qab (mod q^2) -- the
+     interleaving shape (row 1). sum_b zeta^(2qab) = q * [q | 2a]. ODD q: q | 2a iff
+     a = 0: tr(S) = q. PLACE 2 (q = 2^n): a in {0, q/2}: tr(S) = q * (1 +
+     zeta^((q/2)^2)) = q * (1 + zeta^(q^2/4)) = q(1 + i), by the fold convention
+     i = zeta^(N/4). No quadratic reciprocity used; the computation is the chart.
+ (2) THE BALL TRACES. P_ball = the coordinate projector on the ball {m = qb}:
+     tr(S P_ball) = sum_b zeta^((qb)^2) = sum_b zeta^(q^2 b^2) = q (every term 1).
+     P_tball = the averaging projector onto functions of m mod q (the transform ball);
+     P_ball and P_tball COMMUTE (checked pointwise), so P_ball+tball = P_ball + P_tball
+     - P_int with P_int = P_ball P_tball = the rank-one projector on u = 1_{qZ}
+     (row 15's rank-1 intersection). tr(S P_tball) = (1/q) sum_m zeta^(m^2) * q[q|m]
+     = q. Su = qu (computed: (Su)(m') = q[q|m']), so tr(S P_int) = <u, Su>/<u,u> = q.
+     THEREFORE tr(S restricted to Son) = tr S - q - q + q = tr S - q:
+         ODD q:    tr(M|Son) = (q - q)/q = 0
+         PLACE 2:  tr(M|Son) = (q(1+i) - q)/q = i        -- THE UNIT TRACE, EVERY LEVEL.
+ (3) THE PARITY TRACES. tr(Pi) whole = #{m: 2m == 0 mod q^2} = 1 (odd), 2 (q even).
+     tr(Pi P_ball) = #{b: 2b == 0 mod q} = 1 (odd), 2 (even); tr(Pi P_tball) = #{m mod
+     q: 2m == 0} = 1 (odd), 2 (even); tr(Pi P_int) = <u, Pi u>/<u,u> = 1 (u symmetric).
+         ODD q:    tr(Pi|Son) = 1 - 1 - 1 + 1 = 0
+         PLACE 2:  tr(Pi|Son) = 2 - 2 - 2 + 1 = -1
+ (4) THE LINEAR SOLVE (four real equations, four unknowns, full rank):
+     d_1+d_-1+d_i+d_-i = (q-1)^2 [t_0]; Re t_1 = d_1-d_-1; Im t_1 = d_i-d_-i;
+     t_2 = d_1+d_-1-d_i-d_-i.
+     ODD q (t_1 = 0, t_2 = 0): d_1 = d_-1, d_i = d_-i, halves equal => ALL FOUR EQUAL
+       = (q-1)^2/4 (integral since q odd => (q-1)^2 == 0 mod 4). FLATNESS IS FORCED.
+     PLACE 2 (t_1 = i, t_2 = -1): d_1 = d_-1, d_i = d_-i + 1, 2d_1 - 2d_-i - 1 = -1 =>
+       d_1 = d_-1 = d_-i = ((q-1)^2 - 1)/4 = q(q-2)/4 and d_i = q(q-2)/4 + 1.
+       VERIFICATION TARGETS from the law, computed longhand BEFORE the run:
+       q=2: (0,0,1,0); q=4: (2,2,3,2); q=8: (12,12,13,12); q=16: (56,56,57,56) --
+       to be checked against the bank-read tuples, and the odd cells against (q-1)^2/4
+       = 1, 4, 16, 169.
+BRANCH (a) -- PROVED (in whole or in named parts): the flat-place collapse becomes a
+LAW rather than a per-instance fact; the character weight of the cross-place identity
+concentrates at the place 2 BY THEOREM, carried by the boundary seed's unit trace; the
+place-2/Z[i] reading is CONFIRMED-AS-STRUCTURE at the proved scope; the keystone's
+section-4 one-sentence addition is STAGED for the author's approval, NOT filed.
+BRANCH (b) -- RESISTS beyond the banked instances: the exact frontier named (which
+generalization step, at which object); the banked P2/P3 verifications still file as the
+pattern's exact record; the arbitration stays open with its evidence stated; the reading
+remains at wonder grade, so marked.
+SCOPE SENTENCE FOR EITHER BRANCH: the derivation above is a statement about the finite
+places' sector arithmetic at exact levels; nothing about the level limit, the
+archimedean junction, or h2 follows from it.
+P3 RUN PLAN: the iota-chain from the (2,1) seed u = delta_1 - delta_3 (the 1-dim Sonin
+space, Su = 2i u checked longhand here) through (2,2), (2,3), (2,4): at each cell the
+exact i-eigenvector check S u_chain = i q u_chain, the single-row support read, and
+E_i membership -- (2,3) is the new instance; (2,2)/(2,4) re-verified in the same run
+against their banks.
+
+Deviation rule standing. Bank: data/b57_row31_depth.txt.
+Usage: python b57_row31_depth.py register | run
+====================================================================================================
