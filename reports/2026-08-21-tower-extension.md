@@ -62,7 +62,14 @@ the range law governs · nothing deposits · nothing circulates beyond this repo
 record (`c75d1f5` + the disclosed follow-up `e6df7b2`). SIDE-global-section: unmoved this
 act (no new draft entry — declared). Mirror: rebuilt at the new PLACE-papers HEAD below.*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = e6df7b2de8cc8535c1f9a8f3ba6ab30c3b115da3` (components 5–7 at
+> `c75d1f5` + the disclosed trails follow-up) · `relay origin/main =
+> 4382f58414ac6ef5d391182ec909a5ac34f1b7ad` (this act, parent `742366a`; pushed from
+> `push-tower-ext` per Rule 4.10, hook standing; HELD ancestry clean). **MIRROR:**
+> `mirror-refresh-2026-08-21-d.zip` built at PLACE-papers `e6df7b2` (22-file roster +
+> MANIFEST; the date's fourth export, collision clause). *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
