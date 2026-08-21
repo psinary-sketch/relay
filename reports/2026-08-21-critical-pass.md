@@ -154,13 +154,16 @@ addition + FINDINGS `class-bit-gauge-dissolution`. Mirror: refreshed —
 **`mirror-refresh-2026-08-21-y.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section origin/main = SGS_SHA` · `PLACE-papers origin/main =
-> PP_SHA` · `relay origin/main = RELAY_SHA` (pushed from `push-critical-pass` per
-> Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two
-> carrier-build act files verified ABSENT from the public tree by name).
-> **MIRROR:** `mirror-refresh-2026-08-21-y.zip` built at this act's PLACE-papers
-> tip. *This pin-line commit's own SHA is stated in the closing message, per the
-> regress rule.*
+> `SIDE-global-section origin/main = f4f4f252628d4567ec6277ad954f9f023738cc02`
+> (the act commit; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = 40d69b2daead908951db8561834c4635c2c25027` (parent `7b75f11`) ·
+> `relay origin/main = 5eba5e85cc91644c602b1948f711b4039188785d` (this act, parent
+> `fc060cf`; pushed from `push-critical-pass` per Rule 4.10, hook standing; HELD
+> ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
+> from the public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-21-y.zip` built at PLACE-papers `40d69b2`. *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
