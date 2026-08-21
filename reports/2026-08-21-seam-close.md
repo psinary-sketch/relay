@@ -109,8 +109,9 @@ date's sixteenth export, collision clause).*
 > `PLACE-papers origin/main = 4a6693e479876b250040c6f6ac2b6dc97c7c0fc2` (the
 > seam-close commit, parent `e6a0877`) · `SIDE-global-section origin/main =
 > 17832dc2d44bc676b7363879ef72d729b53fdebf` unmoved (tag `v0.1.0` = peeled `706a81b`
-> unmoved) · `relay origin/main = [READ BACK AT PUSH] (pushed from `push-seam-close`
-> per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two
+> unmoved) · `relay origin/main =
+> 35701a3d3ea4b5e619f9e7bfe8ffc170b4830a4a` (this act, parent `b509593`; pushed
+> from `push-seam-close` per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two
 > carrier-build act files verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-p.zip` built at PLACE-papers `4a6693e`. *This pin-line
 > commit's own SHA is stated in the closing message, per the regress rule.*
