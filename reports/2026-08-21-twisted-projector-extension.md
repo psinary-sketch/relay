@@ -75,8 +75,13 @@ mixed counts decided; the tower witness PURE and in E_i, both kernel-checked); C
 instruments; the working-layer copy. No PLACE-papers edit; no mirror rebuild (disclosed).*
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section main = 70cac2aed06bab68832ec7a54ef0a8721ede53af` ·
-> `relay origin/main =` *the act's commit, read back below by the pin commit.*
+> `SIDE-global-section main = 70cac2aed06bab68832ec7a54ef0a8721ede53af` (TwistedShadow +
+> row 33; Core 138/138; tag `v0.1.0` = peeled `706a81b` unmoved) ·
+> `relay origin/main = 09d1e57978470db2d74d779934c325c874a55e26` (this act, parent
+> `ac7303c`; pushed from `push-twisted-ext` per Rule 4.10, hook standing; HELD ancestry
+> clean). **MIRROR:** unchanged and current — PLACE-papers HEAD `cfb2fa1` did not move;
+> `mirror-refresh-2026-08-21-c` remains the live export. *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
