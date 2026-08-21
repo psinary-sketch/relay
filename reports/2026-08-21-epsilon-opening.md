@@ -152,8 +152,8 @@ OPEN_TRAILS staging + the poster linkage + the act record. Mirror: refreshed
 > `SIDE-global-section origin/main = 7508d145d058fdc94a5f263fcb8f064fad897f84` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > a1168f957218318d5076865703a3d0df0552da9e` (parent `6b0bb46`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-epsilon-opening` per Rule 4.10, hook
-> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
+> 6a3b8512c89f7a0efbfc975866494533f1e63f8d` (this act, parent `58c9360`; pushed
+> from `push-epsilon-opening` per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two carrier-build act files
 > verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-l.zip` built at PLACE-papers `a1168f9`. *This pin-line
 > commit's own SHA is stated in the closing message, per the regress rule.*
