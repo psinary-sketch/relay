@@ -1,0 +1,30 @@
+### REGISTRATION CLOSED (data/b56_registration_2026-08-21.txt, banked before this run).
+### COMPONENT 1: the closed form against all six banked values, integer form.
+  R5: prod(q-1)^2 - 4*sum d_1 = 4 - 4 = 0 = 4*0: EXACT
+  R1: prod(q-1)^2 - 4*sum d_1 = 64 - 20 = 44 = 4*11: EXACT
+  R2: prod(q-1)^2 - 4*sum d_1 = 576 - 72 = 504 = 4*126: EXACT
+  R3: prod(q-1)^2 - 4*sum d_1 = 9216 - 88 = 9128 = 4*2282: EXACT
+  R4: prod(q-1)^2 - 4*sum d_1 = 50176 - 128 = 50048 = 4*12512: EXACT
+  EXT: prod(q-1)^2 - 4*sum d_1 = 152100 - 900 = 151200 = 4*37800: EXACT
+COMPONENT 1 VERDICT: the closed form deficit = (1/4)prod(q_v-1)^2 - sum d_1 VERIFIED EXACTLY at all six banked values
+  local-data reduction checked: odd d_1 = (q-1)^2/4 (flatness); even d_1(2,n) = 2^(2n-2) - 2^(n-1) = [0, 2, 12, 56] vs banked [0, 2, 12, 56]: EXACT
+
+### COMPONENT 2: the registered candidates, within the guard (no others evaluated).
+  B1 (the grid-rank dimension-analogue; banked value 21 at the banked grid):
+    R5: closed form 0 vs B1 = 21: NO MATCH
+    R1: closed form 11 vs B1 = 21: NO MATCH
+    R2: closed form 126 vs B1 = 21: NO MATCH
+    R3: closed form 2282 vs B1 = 21: NO MATCH
+    R4: closed form 12512 vs B1 = 21: NO MATCH
+    EXT: closed form 37800 vs B1 = 21: NO MATCH
+    B1 STANDING DISQUALIFICATION: resolution-dependent by the no-finite-levels
+    theorem -- cannot supply a roster-independent integer; not principled.
+  B2 (the epsilon'(1+) E_1 share, 14.1773 at the banked pins): a real-valued
+    trace MASS in the functional's own units -- INCOMMENSURABLE with the integer
+    closed form without a normalization the sources do not derive; no numerical
+    comparison is licensed; recorded as such, evaluated no further.
+  NO THIRD CANDIDATE derives from the sources (registered).
+
+VERDICT: BRANCH (c) -- the registered expectation. No principled bridge derives
+from the corpus's archimedean sources; the act closes as a SPECIFICATION (the
+wanted-poster paragraph, filed to OPEN_TRAILS with the closed form as target).
