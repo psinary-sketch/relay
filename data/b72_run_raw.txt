@@ -1,0 +1,37 @@
+b72 raw run record (the audit greps + kernel prints), 2026-08-21
+=== L-sym / numeric layer ===
+grep -rlE "exp\(" tools/e16/*.py                -> 35 files (numeric instruments exist:
+  the registered "embedding-free symbolic layer" clause WRONG AS STATED; deviation
+  recorded in the registration)
+grep -rnoE "exp\([^)]*\)" (uniq -c, top forms)  -> complex kernels all "exp(2j * np.pi * ..."
+  (plus); real Gaussians (exp(u), exp(-t/2), ...) dictionary-free
+grep -rnE "\-2j" tools/e16/*.py                 -> 3 dictionary-relevant lines:
+  b25_attempt2_s11.py:139  self.p = np.exp(-2j * np.pi * c * k / N)
+  b27_attempt2_s12.py:154  self.p = np.exp(-2j * np.pi * ((c * k) % N) / N)
+  b32_arch_e1.py:173       self.p = np.exp(-2j * np.pi * ((c * k) % N) / N)
+  each inside class DFT with docstring "F[m,m'] = exp(2 pi i m m'/N)/sqrt(N) on
+  centered indices" and the line-by-line centered-index factorization deriving the
+  minus prefactor from the PLUS kernel; numpy ifft carries the +2 pi i kernel.
+conj usages: 108 (adjoint/pairing operations, not dictionary choices)
+=== L-read / reading layer ===
+plus-identifications in banks ("q(1+i)", "center phase i", ...): 30
+minus-readings: all in explicit tr S* / conjugate-contrast contexts (b62 lines checked)
+zpow4 tables in Core: "| 1 => (0, 1)" (the +i cell) in CoherenceShadow,
+  FrameBoundaryShadow, OddPairingShadow (+ CriticalPassShadow this act) -- uniform
+=== inventory site enumeration ===
+S1 quote sites (relay): epsilon_minus / index_route / junction_reciprocity /
+  radialization / tower_limit STAGED + dictionary_note_mod4  -> six files appended
+VERIFICATION_LOOM "S1" matches: 3, all old era-map spec numbering (lines 3659, 3680,
+  3686 region) -- NOT the junction clause; no edit
+THE_GLOBAL_SECTION "S1" mentions: 9 -- keystone touch OWED at next seam close (ferry FOOT)
+=== fence-language check (A3's per-row half) ===
+every "suspect" mention rows 44-51 carries its condition (registered-candidate grade /
+IFF clause / navigator-asserted mark / [UNDER H-COH] tag) -- checked at content
+=== kernel ===
+lean Core/CriticalPassShadow.lean -> COMPILE-CLEAN (after abbrev V6 for DecidableEq)
+AllPrints regenerated: modules 42, terminals 219; grep -c "does not depend on any
+axioms" AXIOM_PRINTS.txt -> 219; non-matching lines -> 0; the four new prints:
+'CriticalPassShadow.monomial_trace_fixed_phase' does not depend on any axioms
+'CriticalPassShadow.row47_corollary_2_1' does not depend on any axioms
+'CriticalPassShadow.row47_corollary_3_1' does not depend on any axioms
+'CriticalPassShadow.gauge_covariance_2_1' does not depend on any axioms
