@@ -1,0 +1,112 @@
+====================================================================================================
+b48 -- THE ARRIVAL-DEPTH ALIGNMENT CHECK -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (THE CONSOLIDATED TRIGGERS ACT component 1; part 1 of 1, receipt
+confirmed). Relay-only. NO SIGN SENTENCE. h2 UNCHANGED BY CONSTRUCTION (finite exact
+alignment questions at the banked cells). NOTHING DEPOSITS. NOTHING CIRCULATES.
+
+QUESTION, per cell with d_1 >= 2 -- (2,2), (5,1), (2,3), (3,2): does the pattern of b45
+distance-check failures align with the arrival-depth structure?
+
+DEPTH, AS THE BANKS DEFINE IT (read at content, cited before use): the chart m = a + q b
+(b13) puts the ball {q | m} at {a = 0} -- the DEPTH-MAXIMAL position class (valuation
+>= n); the shells of Z/q are the valuation classes v_p(a) = 0, 1, ..., n with v = 0
+(units, phi(q) elements) DEPTH-MINIMAL (b8's shell vocabulary: "shell-constant",
+"strictly shell-lowering"; b23's level-independent ball). Index a = 1 is a unit:
+depth-minimal.
+
+SUB-QUESTION (i), registered: is the universal first witness E_{1,1} (x) 1 (b45: first
+at every cell) acting along the depth-minimal coordinate -- i.e., is its index a = 1 in
+the v_p = 0 shell, and is the witness's action off-ball? Decided by the chart, exactly.
+
+SUB-QUESTION (ii), registered -- CANDIDATE STATISTICS NAMED NOW, BEFORE TESTING, from
+the banks' own quantities; no after-the-fact fitting:
+  S1 (PRIMARY -- the ball-silence law): on the position factor, E_{ij} with i = 0 or
+     j = 0 PASSES with c = 0 -- LONGHAND, derivable, written here before the run: every
+     Sonin vector vanishes on the ball row (u(0,.) = 0, b13/b44 G3), so X_E[r][s] =
+     sum_t conj(u_r(i,t)) u_s(j,t) is IDENTICALLY ZERO whenever i = 0 (the conjugated
+     slice is the zero row) or j = 0 (the plain slice is the zero row); X = 0 = 0 * G
+     satisfies the KL condition trivially. The MEASURED half of S1, the actual test:
+     EVERY OTHER operator fails -- i.e. per cell the failure counts split exactly as
+        position factor: (q-1)^2   (all operators avoiding the ball coordinate)
+        frequency factor: q^2      (all operators -- W_1 is not coordinate-aligned,
+                                    no zero slice exists on that side)
+     predicting fails = (q-1)^2 + q^2 = 25 (q=4), 41 (q=5), 113 (q=8), 145 (q=9) --
+     matching b45's banked counts IS the test; the per-operator split must confirm it.
+  S2 (secondary, tested and reported): does the failure count track d_1 (the sector
+     dims, b20/b22/b23/b26) in any affine form? Tested against the four cells; expected
+     NO (the S1 law has no d_1 dependence); reported either way.
+  S3 (secondary): does the pass set refine along the shell filtration BELOW the ball
+     (v = 0 vs 0 < v < n distinctions among nonzero indices)? Expected NO under S1
+     (S1 predicts the ONLY distinction is ball vs off-ball); reported either way.
+
+DEVIATION, RECORDED INSIDE THE REGISTRATION (the ferry's own rule): the b45 bank holds
+first witnesses and per-cell counts but NOT the full per-operator pass/fail table;
+sub-question (ii) therefore RE-RUNS the weight-1 class per cell with per-operator
+resolution (the same exact Z[zeta] instrument, b45's construction re-imported), and the
+per-factor split is read from that re-run. The re-run's counts must reproduce b45's
+banked totals exactly or the act VOIDS.
+
+BRANCHES, registered longhand:
+(a) ALIGNMENT FOUND -- (i) yes and (ii)'s S1 confirmed exactly: the local readability is
+    STRUCTURED: the silent operators are exactly the ball-touching position operators
+    (the depth-maximal coordinate is silent; everything off-ball is readable); the
+    finding files at SYNTHESIS grade -- the per-place local address named by the leaves
+    verdict is carried by the witness pattern -- and ONE FOLLOW-ON QUESTION (the
+    assembly reading: what the cross-place pattern of readable coordinates says about
+    the restricted-product gluing) is STAGED FOR THE AUTHOR, NOT RUN.
+(b) NO ALIGNMENT -- (i) fails or S1's measured half fails: the wonder files
+    closed-as-null with EVERY tested correspondence listed (S1, S2, S3, the witness
+    shell reading), nothing salvaged by inspection.
+Partial outcomes file per-cell; no averaging; no rounding to a slogan.
+
+Usage: python b48_depth_alignment.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b48_registration_2026-08-20.txt, banked before this run).
+### MEASUREMENT BEGINS. Exact Z[zeta]; the registered deviation: the weight-1 class
+### re-run with per-operator resolution; totals must reproduce b45's bank or VOID.
+
+CELL (2,2)  q = 4  d_1 = 2
+  re-run totals: factor-1 fails 9, factor-2 fails 16, total 25  (b45 banked total 25)  REPRODUCED
+  S1 position half (pass iff i=0 or j=0): HOLDS EXACTLY  -> fails (q-1)^2 = 9
+  S1 frequency half (no passes): HOLDS EXACTLY  -> fails q^2 = 16
+  (i) first witness in canonical order: E_{1,1} on factor 1; index a = 1: v_p = 0 (DEPTH-MINIMAL (unit shell)); off-ball: True
+  S3 off-ball position passes: 0 (S1 predicts 0; shell refinement ABSENT as predicted)
+
+CELL (5,1)  q = 5  d_1 = 4
+  re-run totals: factor-1 fails 16, factor-2 fails 25, total 41  (b45 banked total 41)  REPRODUCED
+  S1 position half (pass iff i=0 or j=0): HOLDS EXACTLY  -> fails (q-1)^2 = 16
+  S1 frequency half (no passes): HOLDS EXACTLY  -> fails q^2 = 25
+  (i) first witness in canonical order: E_{1,1} on factor 1; index a = 1: v_p = 0 (DEPTH-MINIMAL (unit shell)); off-ball: True
+  S3 off-ball position passes: 0 (S1 predicts 0; shell refinement ABSENT as predicted)
+
+CELL (2,3)  q = 8  d_1 = 12
+  re-run totals: factor-1 fails 49, factor-2 fails 64, total 113  (b45 banked total 113)  REPRODUCED
+  S1 position half (pass iff i=0 or j=0): HOLDS EXACTLY  -> fails (q-1)^2 = 49
+  S1 frequency half (no passes): HOLDS EXACTLY  -> fails q^2 = 64
+  (i) first witness in canonical order: E_{1,1} on factor 1; index a = 1: v_p = 0 (DEPTH-MINIMAL (unit shell)); off-ball: True
+  S3 off-ball position passes: 0 (S1 predicts 0; shell refinement ABSENT as predicted)
+
+CELL (3,2)  q = 9  d_1 = 16
+  re-run totals: factor-1 fails 64, factor-2 fails 81, total 145  (b45 banked total 145)  REPRODUCED
+  S1 position half (pass iff i=0 or j=0): HOLDS EXACTLY  -> fails (q-1)^2 = 64
+  S1 frequency half (no passes): HOLDS EXACTLY  -> fails q^2 = 81
+  (i) first witness in canonical order: E_{1,1} on factor 1; index a = 1: v_p = 0 (DEPTH-MINIMAL (unit shell)); off-ball: True
+  S3 off-ball position passes: 0 (S1 predicts 0; shell refinement ABSENT as predicted)
+
+S2 (failure total affine in d_1 across the four cells): FAILS -- as registered/expected; totals are (q-1)^2 + q^2, a q-statistic not a d_1-statistic
+
+--- POST-RUN (banked with the run) ---
+VERDICT: BRANCH (a) -- ALIGNMENT FOUND, AT EVERY CELL, EXACTLY. (i) the universal first
+witness E_{1,1}(x)1 acts along the depth-minimal (unit-shell, v_p = 0) coordinate,
+off-ball, at all four cells. (ii) S1 CONFIRMED EXACTLY: the pass set is exactly the
+ball-touching position operators (the longhand half: X = 0 identically from the Sonin
+ball vanishing; the measured half: EVERY other operator fails) -- the failure counts are
+the q-statistic (q-1)^2 + q^2, with the frequency factor fully readable (no zero slice)
+and no shell refinement below the ball (S3 absent as predicted); S2 (d_1 tracking) FAILS
+as registered. THE FINDING, synthesis grade: the local readability is STRUCTURED BY
+DEPTH -- the depth-maximal (ball) coordinate is silent by the Sonin condition itself;
+everything off-ball is readable; the per-place local address named by the leaves verdict
+is carried by the witness pattern. THE FOLLOW-ON (the assembly reading: the cross-place
+pattern of readable coordinates against the restricted-product gluing) is STAGED FOR THE
+AUTHOR, NOT RUN. Range law: the banked cells only; nothing about h2 claimed.
