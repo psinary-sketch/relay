@@ -112,7 +112,8 @@ replacing the project-mirror files: the export built this act,
 > `SIDE-global-section origin/main = b1784cacad95e4b72901fa06d644ecadf7c2844b` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 70c696f390a33b0e877fba626c47ec3dcd104e9a` (parent `4a6693e`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-tower-limit` per Rule 4.10, hook standing;
+> 43a50d20d85189ed232eff967af0300babb8b6cc` (this act, parent `5072792`; pushed
+> from `push-tower-limit` per Rule 4.10, hook standing;
 > HELD ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
 > from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-q.zip` built
 > at PLACE-papers `70c696f` — the one to load. *This pin-line commit's own SHA is
