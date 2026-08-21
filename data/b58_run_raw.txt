@@ -1,0 +1,23 @@
+### REGISTRATION CLOSED (data/b58_registration_2026-08-21.txt, banked before this run).
+### THE SCHEMA RUN: exhaustive per-operator, exact rings, verdicts vs the banks.
+
+CELL (2,2)  q = 4  N = 16  [Z[zeta_16]]
+  family: 2 free-orbit witnesses (= d_1 = 2); degenerate starts [(2, 2)]
+  PASS  E_1 membership exact: S u = q u for every family member
+  silent (ball-touching, c = 0 on the family): 7 = 2q-1 = 7: MATCH
+  non-silent certified: 25 = (q-1)^2 + q^2 = 25: MATCH
+  uncertified: 0 
+  first-witness E1_(1,1) certificate: ratio pair (0,1); exact value {0: 8, 1: 2, 7: 2, 9: 2, 15: 2}
+
+CELL (5,1)  q = 5  N = 25  [Z[zeta_25]]
+  family: 4 free-orbit witnesses (= d_1 = 4); degenerate starts []
+  PASS  E_1 membership exact: S u = q u for every family member
+  silent (ball-touching, c = 0 on the family): 9 = 2q-1 = 9: MATCH
+  non-silent certified: 41 = (q-1)^2 + q^2 = 41: MATCH
+  uncertified: 0 
+  first-witness E1_(1,1) certificate: ratio pair (0,1); exact value (large, banked)
+
+P1 VERDICT: the (2,2) verdict set matches the banked b45 set exactly -- 25 non-silent / 7 silent, the pass set exactly the ball-touching position ops (the b48 law); the E1_(1,1) first-witness value banked above in Z[zeta_16].
+P2 VERDICT: every certificate above is an exact nonzero value in the cyclotomic ring (unit-valued per the registered lemma); the (5,1) run instantiates the general schema at an odd cell: 41 non-silent / 9 silent as banked.
+
+ROW 29 CLOSES: the only-if holds at general q by the registered schema (q >= 5 longhand, unit-valued discrepancies; q = 4 exhaustive-exact here; q <= 3 vacuous, d_1 <= 1) -- with the proved silence direction and the count law, THE SILENCE THEOREM IS WHOLE: silent exactly on the ball, at general q.

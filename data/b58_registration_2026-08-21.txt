@@ -1,0 +1,131 @@
+====================================================================================================
+b58 -- THE DEPTH ACT, ROW 29 -- REGISTRATION. BANKED BEFORE THE INSTRUMENT RUNS AND BEFORE
+ANY LEAN CONSTRUCTION. THE LONGHAND DERIVATION IS THIS REGISTRATION'S BODY.
+====================================================================================================
+FERRY 2026-08-21 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION; the range law governs every sentence. NOTHING DEPOSITS.
+
+INPUTS READ AT CONTENT (rule a/b/c): KLSilence at its statements (the silence direction:
+ball-touching position operators act identically zero on Sonin-supported pairs, general
+q; the count law (q-1)^2 + q^2; the only-if named open verbatim in the module header --
+"(3) THE ONLY-IF DIRECTION IS THE MEASURED HALF AND IS NOT PROVED HERE IN GENERALITY");
+the flatness act's chart machinery (b57: the chart m = a + qb, the geometric-sum
+collapse, the explicit solves); the banked per-operator certificates (b45: 25/32 fails
+at (2,2) with first witness E_{1,1} on factor 1; 41/50 at (5,1); b48: the pass set is
+EXACTLY the ball-touching position operators). Independence (rule d): the three
+components touch disjoint files (relay+SIDE-global-section / PLACE-papers ledger /
+SIDE-kernel) and are pairwise independent.
+
+REGISTERED PREDICTIONS (the ferry's, verbatim), WITH THE OPERATIONALIZATION REGISTERED
+HERE BEFORE THE RUN:
+(P1) "the witness construction specializes at (2,2) to a discrepancy matching the
+  banked b45 certificate exactly." OPERATIONALIZED (registered interpretation, recorded
+  as a deviation-note candidate): the b45 certificate is basis-dependent (its Gram rows
+  are the b44 E_1 basis; the schema's witnesses are a different exact basis), so
+  "matching exactly" is verified as: (i) the schema's per-operator verdict SET at (2,2)
+  equals the banked one exactly -- the same 25 off-ball operators certified non-silent,
+  the same 7 ball-touching operators verified silent on the witness family (c = 0); (ii)
+  the first-witness operator E_{1,1} (factor 1)'s schema discrepancy is computed exactly
+  in the same ring Z[zeta_16] and banked beside the b45 entry.
+(P2) "the general witness's discrepancy formula is nonzero for every off-ball position
+  by an explicit nonvanishing argument (a unit or a stated congruence), not by
+  inspection -- the nonvanishing is the theorem's content and gets its own lemma."
+  THE LEMMA, registered: every schema discrepancy below is q * (a root of unity), a
+  single root of unity, or a sum zeta^e1 + zeta^e2 with e1 - e2 controlled; nonvanishing
+  by THE UNIT CRITERION: roots of unity are units (never zero); q /= 0; and a sum of two
+  roots of unity vanishes only if their ratio is -1 -- at odd q the ratio lies in the
+  order-q group <omega> which contains no -1; at even q the free parameter is chosen so
+  the ratio's exponent misses q/2 (an explicit congruence choice, stated per family).
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- THE LONGHAND DERIVATION (the general only-if), banked before the run.
+
+THE WITNESS FAMILY. N = q^2, zeta = zeta_N, omega = zeta^q (the order-q character).
+For a in [1, q-1] (an off-ball row) and t in [1, q-1] (a nontrivial frequency), define
+the single-row character vector
+    g_{a,t} = sum_b omega^{t b} delta_{a + q b}.
+(S1) g_{a,t} IS IN SON: it vanishes on the ball row a = 0; and (S g)(q b') =
+  zeta^{a q b'} sum_b omega^{t b} = 0 since t /= 0 -- the transform vanishes on the
+  ball. (The same geometric-sum collapse as the b57 chart computation.)
+(S2) THE S-ACTION IS MONOMIAL ON THE FAMILY:
+    (S g_{a,t})(m') = sum_b omega^{tb} zeta^{(a+qb)m'} = zeta^{a m'} * q * [m' == -t mod q]
+  so with M = S/q:   M g_{a,t} = zeta^{a(q-t)} g_{q-t, a}.
+  THE ORBIT MAP phi(a,t) = (q-t, a) has order four: (a,t) -> (q-t,a) -> (q-a,q-t) ->
+  (t,q-a) -> (a,t). Consistency: the M^2 coefficient zeta^{a(q-t)+(q-t)(q-a)} =
+  zeta^{q^2 - qt} = omega^{-t}, matching Pi g_{a,t} = omega^{-t} g_{q-a,q-t} computed
+  directly -- M^2 = Pi checked on the family.
+(S3) THE E_1 WITNESSES: for (a,t) on a FREE orbit (all four grid points distinct),
+    u_{a,t} = (1 + M + M^2 + M^3) g_{a,t} = sum_k c_k g_{phi^k(a,t)},  c_0 = 1,
+    c_{k+1} = c_k * zeta^{a_k (q - t_k)} -- each c_k a root of unity.
+  u = 4 P_1 g lies in E_1 of the Sonin sector (S preserves Son by (S2)); u /= 0 with
+  ||u||^2 = 4q since the four g's are pairwise orthogonal (<g_{a,t}, g_{a',t'}> =
+  q delta_{aa'} delta_{tt'} -- disjoint rows / character orthogonality).
+  DEGENERATE ORBITS: at even q the point (q/2, q/2) is phi-fixed and its u is
+  (1 + i + i^2 + i^3) g = 0 -- the b55 screen-artifact mechanism, now derived; short
+  orbits are excluded from the family (they occur only at 2a = q or 2t = q crossings).
+(S4) THE PAIRING TABLES (all exact, single geometric sums):
+  position op E1_{j,k} (j,k in [1,q-1]):  <g_{a,t}, E1_{j,k} g_{a',t'}> =
+      [a=j][a'=k] q delta_{tt'}
+  frequency op E2_{j,k} (j,k in [0,q-1]): <g_{a,t}, E2_{j,k} g_{a',t'}> =
+      [a=a'] omega^{t'k - tj}.
+
+THE WITNESS SCHEMA (each discrepancy exact; nonvanishing by the P2 lemma):
+(W1) OFF-DIAGONAL POSITION E1_{j,k}, j /= k, k /= q-j: take u = u_{j,j}, u' = u_{k,j}
+  (t = j on both). The orbits are disjoint (checked: every cross-collision needs
+  k = q-j or j = k), so <u, u'> = 0; the A-pairing has exactly one frequency-matched
+  term: <u, E1_{j,k} u'> = q * conj(c)*c' = q * (a root of unity) /= 0. NON-SILENT
+  (silence would force <u, A u'> = c<u,u'> = 0).
+(W2) THE CONJUGATE PAIR E1_{j,q-j} (j /= q-j): take u = u_{j,s}, u' = u_{q-j,s} with
+  s not in {j, q-j, q/2}: orbits disjoint, single frequency-matched term q * (unit).
+  Such s exists for q >= 5 with at most three exclusions among q-1 values... for q = 5,
+  j = 1: s not in {1, 4} (q/2 empty at odd q): s in {2, 3} -- exists; general odd q:
+  q - 3 >= 2 choices; even q >= 6: q - 4 >= 2. q = 4: NO generic s -- the q = 4 cell
+  is covered EXHAUSTIVELY by the instrument (P1) and the banked b45 certificates.
+(W3) DIAGONAL POSITION E1_{j,j}: the ratio witness. <u_{j,t}, A u_{j,t}> = q (row j
+  carries the single component g_{j,t} at generic t; at j = q/2 two components, value
+  2q) with ||u||^2 = 4q -- ratio 1/4 (or 1/2). Against it, u_{a,a} with a not in
+  {j, q-j}: its orbit rows {a, q-a} avoid j entirely -- <u, A u> = 0, ratio 0.
+  0 /= 1/4: NON-SILENT. Exists a for q >= 4 (q = 4, j = 2: a in {1,3}; j /= 2: a = 2).
+(W4) FREQUENCY E2_{j,k} (ALL j,k, ball index included -- the frequency factor has no
+  ball): take u = u_{a,t}, u' = u_{q-a,t'} with a /= q/2, t' not in {t, q-t}: orbits
+  disjoint, <u,u'> = 0; exactly two row-matched terms survive (rows a and q-a):
+      <u, E2_{j,k} u'> = omega^{-t' - tj - t'k} + omega^{t + tj + t'k}
+  = omega^{-t'-tj-t'k} (1 + omega^{t + t' + 2tj + 2t'k}). At ODD q the inner factor
+  never vanishes (-1 is not in the order-q group). At EVEN q choose t' so that
+  e = t + t' + 2tj + 2t'k /== q/2 (mod q): e moves by the ODD step 1 + 2k as t'
+  steps by 1 (gcd(1+2k, 2^n) = 1), so among the >= q-3 admissible t' every residue
+  class is reachable -- an admissible t' with e /= q/2 exists for q >= 6; q = 4 by
+  the exhaustive instrument.
+(W5) BALL-TOUCHING POSITION OPS (j = 0 or k = 0): silent with c = 0 -- ALREADY THE
+  PROVED DIRECTION (KLSilence.silence_of_ball_touching); the instrument re-verifies
+  c = 0 on the witness family as a consistency check, not as new content.
+
+THE THEOREM (row 29's only-if, closed): for every q >= 5, every off-ball weight-one
+operator is NON-SILENT on E_1(Son(q)) -- witnesses (W1)-(W4), discrepancies unit-valued
+by the P2 lemma; q = 4 is exact and exhaustive (the b45 bank + this act's schema run);
+q <= 3 is vacuous (d_1 <= 1 -- no scalar mismatch is expressible; stated, not hidden).
+WITH THE PROVED DIRECTION AND THE COUNT LAW: silent exactly on the ball, non-silent
+count (q-1)^2 + q^2 -- THE SILENCE THEOREM IS WHOLE AT GENERAL q (d_1 >= 2).
+
+REGISTERED VERIFICATION PLAN (before the run): (i) at (2,2), q = 4: build the family
+exactly in Z[zeta_16]; verify u in E_1 exactly (S u = 4u) for every family member; run
+ALL 32 weight-one operators: the 7 ball-touching verified c = 0 on the family; the 25
+off-ball each certified by an exact nonzero discrepancy (orthogonal-pair or ratio); the
+verdict set compared with the banked b45 set (P1); the E_{1,1} first-witness value
+banked. (ii) at (5,1), q = 5: the same, ALL 50 operators in Z[zeta_25], expected
+41 non-silent / 9 silent; the schema's (W1)-(W4) selections used where their genericity
+holds, search-fallback recorded if any selection needs it (deviation rule). Zero tests
+by reduction mod the cyclotomic polynomial (the b45 machinery).
+
+LEAN PLAN (registered): the abstract orbit-four-periodicity lemma at named hypotheses
+(zero-axiom); the degenerate-center vanishing 1 + i + i^2 + i^3 = 0 decided in the
+8-coordinate ring Z[zeta_16] = Z[x]/(x^8+1); the (2,2) schema discrepancy values
+(bank-sourced from the run, declared) decided nonzero in coordinates. The GENERAL
+schema stays longhand (this registration + the bank) -- the cyclotomic ring at general
+q is beyond decide, stated plainly; row 29's cell updates additively with row 37 filed.
+
+STRIKEABLE 2 (the p2-10 supersession) and STRIKEABLE 3 (the formation-card in-kernel
+conversion) as the ferry states them; disjoint files; either strikeable's failure voids
+nothing else. Deviation rule standing. Bank: data/b58_row29_onlyif.txt.
+Usage: python b58_row29_onlyif.py register | run
+====================================================================================================
