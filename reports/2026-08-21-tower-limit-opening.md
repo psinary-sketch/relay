@@ -166,8 +166,8 @@ Mirror: refreshed (PLACE-papers moved).*
 > `SIDE-global-section origin/main = 17832dc2d44bc676b7363879ef72d729b53fdebf`
 > unmoved (tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > e6a08770d361028abe8c2a9c10ef7ed25a0cad0d` (parent `2440c20`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-tower-limit-opening` per Rule 4.10, hook
-> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
+> 0024bd304fe5d750ae7ecc574f03d5ad799203ae` (this act, parent `b2cfdbc`; pushed
+> from `push-tower-limit-opening` per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two carrier-build act files
 > verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-o.zip` built at PLACE-papers `e6a0877`. *This pin-line
 > commit's own SHA is stated in the closing message, per the regress rule.*
