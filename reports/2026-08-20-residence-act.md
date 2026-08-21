@@ -72,7 +72,15 @@ Relay (public): pre-act `origin/main = b629ea0`; this act's pin read back below.
 refreshed at the new PLACE-papers HEAD under the collision clause (`-f`, sixth export of the
 date).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `SIDE-global-section v0.1.0` = annotated `ffc7377`, **peeled `706a81b9e329e220a6448b4296e5cc42c9433670`** = HEAD = local = remote ·
+> `PLACE-papers origin/main = 13d8b2f2853da58396209bad63a0437886bc0d96` (the ledger + monograph
+> commit; the monograph edit pure-addition at word level, verified) ·
+> `relay origin/main = e8898cfccbbaf15fb1ce00a3b9583ed521b114d3` (this act + RESIDENCE.md,
+> parent `b629ea0`; pushed from `push-residence-act` per Rule 4.10, hook standing; HELD
+> ancestry clean). **MIRROR:** `mirror-refresh-2026-08-20-f.zip` built at PLACE-papers
+> `13d8b2f` (22-file roster + MANIFEST; sixth export of the date, collision clause). *This
+> pin-line commit's own SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT
 
