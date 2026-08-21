@@ -117,9 +117,10 @@ UNTOUCHED (the staged sentence awaits the author) — mirror NOT refreshed, per 
 > **PIN LINE (post-push read-back, ls-remote):**
 > `SIDE-global-section origin/main = a3fbc73af79e49df74a9f028a211f624900fe873` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main = a565095` unmoved ·
-> `relay origin/main = [READ BACK AT PUSH]` (pushed from `push-depth-row31` per Rule
-> 4.10, hook standing; HELD ancestry clean; the HELD commit's two carrier-build act
-> files verified ABSENT from the public tree by name). **MIRROR:** unchanged —
+> `relay origin/main =
+> f639e4a7ff6619bc42f17baf1f79e856628b6dc4` (this act, parent `2c2a124`; pushed from
+> `push-depth-row31` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree by name). **MIRROR:** unchanged —
 > `mirror-refresh-2026-08-21-f.zip` @ PLACE-papers `a565095`. *This pin-line commit's
 > own SHA is stated in the closing message, per the regress rule.*
 
