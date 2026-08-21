@@ -108,9 +108,9 @@ keystone §4 filing + the wanted-poster sentence + the act record. Mirror: refre
 > `SIDE-global-section origin/main = eee065aebbae948d0b9114e4917b949eabdc3a2a` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > f17a2ce1e4beff8f337bfca4c5683b21df9e4988` (parent `454197c`) · `relay origin/main =
-> [READ BACK AT PUSH]` (pushed from `push-reciprocity-frame` per Rule 4.10, hook
-> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
-> verified ABSENT from the public tree by name). **MIRROR:**
+> fdc345b27143316d75d9f9120f47717ad48529de` (this act, parent `09a696c`; pushed from
+> `push-reciprocity-frame` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-h.zip` built at PLACE-papers `f17a2ce`. *This pin-line
 > commit's own SHA is stated in the closing message, per the regress rule.*
 
