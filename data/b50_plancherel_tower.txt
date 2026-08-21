@@ -1,0 +1,115 @@
+====================================================================================================
+b50 -- THE PLANCHEREL-BY-THE-TOWER UNIT -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION (exact finite checks at banked cells and banked levels
+only; the level-limit remains undecided). NOTHING DEPOSITS.
+
+THE REGISTERED NUMERIC PREDICTIONS, QUOTED VERBATIM FROM THE FERRY (the verdicts land
+beside them in the report):
+(P1) "The finite-level Plancherel constant is forced by S^2 = q^2 Pi to make S/q an
+     isometry-like operator: the exact Parseval identity holds with constant q^2, and
+     on the E_1 sector it specializes consistently with Su = qu (norms scale by q
+     there). A different forced constant is a finding, not a failure -- report it
+     against this line."
+(P2) "Under the tower embedding, the level-(k+1) identity restricted to the embedded
+     level-k data reproduces the level-k identity with normalization matching the
+     banked exponents -- table-type pairings by p, discrepancy-type by p^2, trace-type
+     by p^4. Any exponent mismatch between the formalized identity and the b49
+     measurements is banked as an exact witness and reported as a finding."
+
+COMPOSITE EXPONENTS, DERIVED IN THIS REGISTRATION BEFORE THE RUN (from P1 + the b49
+normalizations, never fitted): the TRANSFORM-SIDE pairing <S+ iota u, S+ iota v>
+combines the table exponent p (iota copies each level point to p host points) with the
+Plancherel-constant ratio N+/N = q+^2/q^2 = p^2:
+    <S+ iota u, S+ iota v>  =  p^3 * emb(<S u, S v>)        (composite p * p^2),
+and the Galois trace of that transform-side pairing adds the degree factor p^2:
+    Tr(<S+ iota u, S+ iota v>)  =  p^5 * emb(<S u, S v>)    (composite p^3 * p^2).
+These composite exponents are REGISTERED PREDICTIONS of the same species as P2's
+p/p^2/p^4: any exact mismatch is banked as a witness and reported as a finding.
+Note the identity Su = qu on E_1 makes the transform-side pairing on the E_1 bases
+equal q^2 * G[r][s] exactly at each level -- the P1 sector specialization -- so the
+p^3 law is equivalent to (q+^2 * G'') = p^3 * emb(q^2 * G) given G'' = p * emb(G)
+(the b49 M1 law, here RE-MEASURED, not assumed: identity (c) of the Rule-3 line is
+predictions-only and the run recomputes everything it uses).
+
+RULE-(b) GATES, re-verified in-run before dependence: (G1) the geometric-sum identity
+sum_{m'} zeta^{t m'} = N delta(t) reduced mod Phi_N, per level; (G2) S^2 = q^2 Pi with
+Pi the involutive permutation; (G3) Su = qu on the E_1 bases, both levels, exact.
+
+COMPONENT-1 FORMALIZATION SCOPE, declared before writing (the ferry's own fallback
+clause governs): the vanilla Core reaches (i) the delta-basis Parseval EXACTLY at the
+cells N = 4, 9, 16, 25 by decide (the orthogonality core -- the computational content
+of the identity; the N = 64, 81 instances are cited to the banked G1 gates, exact,
+b44/b45/b49, and re-verified here at G1); (ii) the E_1-sector specialization at
+GENERAL q as an abstract theorem with named hypotheses (the KLSilence pattern); (iii)
+the P2 exponent-forcing at GENERAL p as abstract theorems (tables-by-p FORCES
+discrepancies-by-p^2; trace-linearity + degree-p^2 FORCES p^4) -- the formalized
+compatibility core. THE GENERAL-q FULL PARSEVAL (the bilinear/Fubini extension from
+the delta basis over the abstract coefficient structure) is a NAMED OPEN STATEMENT in
+the correspondence -- never a sorry; the kernel-purity ruling stands. Files B and C
+read at content and EXTENDED BESIDE, not forked: the finite-level objects are
+vanilla-reachable and no Mathlib-shaped statement was required this act.
+
+BRANCHES, longhand:
+(1a) P1 lands: the constant is q^2 exactly at every tested cell and the E_1
+     specialization is consistent -- the identity files at its grades (decided
+     instances + general abstract sector law).
+(1b) a DIFFERENT constant is forced somewhere: the finding files against P1's own
+     line, with the exact constant named; not a failure.
+(2a) P2 + the composite exponents land exactly at both live pairs: the Plancherel
+     identity is TOWER-COMPATIBLE at the banked levels; with b49, the coherent
+     per-place data now carries its Parseval structure coherently too; the
+     cross-place act inherits a sharper registration.
+(2b) any exponent mismatches: banked as exact witnesses, reported as findings against
+     P2's line; the formalized exponent-forcing theorems then LOCATE the mismatch
+     (which hypothesis fails at the instance).
+The (2,1)->(2,2) step stays vacuous (d_1(2,1) = 0); partial outcomes file per-pair.
+
+Usage: python b50_plancherel_tower.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b50_registration_2026-08-20.txt, banked before this run).
+### MEASUREMENT BEGINS. Exact Z[zeta]; gates re-verified before dependence;
+### composite exponents (p^3, p^5) pre-derived in the registration, never fitted.
+### The (2,1)->(2,2) step stays VACUOUS (d_1(2,1) = 0) -- recorded.
+
+PAIR (2,2) -> (2,3)   q = 4 -> 8   d_1(level) = 2
+  PASS G1  geometric sums = N*delta at N = 16 (t = 1..15, exact)
+  PASS G2  Pi involutive at N = 16 (S^2 = q^2 Pi rides G1, the b44 derivation)
+  PASS G1  geometric sums = N*delta at N = 64 (t = 1..63, exact)
+  PASS G2  Pi involutive at N = 64 (S^2 = q^2 Pi rides G1, the b44 derivation)
+  PASS G3  Su = qu (level) and S+iota(u) = q+iota(u) (host), u_0, exact
+  PASS G3  Su = qu (level) and S+iota(u) = q+iota(u) (host), u_1, exact
+  P1 level: <Su_r,Su_s> = q^2 G[r][s] EXACT (constant q^2 = 16)
+  P1 host:  <S+v_r,S+v_s> = q+^2 G''[r][s] EXACT (constant q+^2 = 64)
+  P2 composite: transform-pairings host = p^3 * emb(level) EXACT (p^3 = 8)
+  P2 composite: Tr(transform-pairings) = p^5 * emb(level) EXACT (p^5 = 32)
+
+PAIR (3,1) -> (3,2)   q = 3 -> 9   d_1(level) = 1
+  PASS G1  geometric sums = N*delta at N = 9 (t = 1..8, exact)
+  PASS G2  Pi involutive at N = 9 (S^2 = q^2 Pi rides G1, the b44 derivation)
+  PASS G1  geometric sums = N*delta at N = 81 (t = 1..80, exact)
+  PASS G2  Pi involutive at N = 81 (S^2 = q^2 Pi rides G1, the b44 derivation)
+  PASS G3  Su = qu (level) and S+iota(u) = q+iota(u) (host), u_0, exact
+  P1 level: <Su_r,Su_s> = q^2 G[r][s] EXACT (constant q^2 = 9)
+  P1 host:  <S+v_r,S+v_s> = q+^2 G''[r][s] EXACT (constant q+^2 = 81)
+  P2 composite: transform-pairings host = p^3 * emb(level) EXACT (p^3 = 27)
+  P2 composite: Tr(transform-pairings) = p^5 * emb(level) EXACT (p^5 = 243)
+
+--- POST-RUN (banked with the run) ---
+VERDICT: (1a) AND (2a), EXACT EVERYWHERE. P1: the Parseval constant is q^2 exactly on
+the E_1 bases at both levels of both live pairs (16/64 at place 2; 9/81 at place 3),
+consistent with Su = qu; no different constant was forced. P2 + composites: the
+transform-side pairings transport at EXACTLY p^3 (= the b49 table exponent p times the
+Plancherel-constant ratio p^2) and their Galois traces at EXACTLY p^5 (p^3 times the
+degree p^2) -- the pre-derived composite exponents, nothing fitted, no mismatch, no
+witness needed. Gates G1/G2/G3 re-verified exact at every level before dependence.
+THE PLANCHEREL IDENTITY IS TOWER-COMPATIBLE AT THE BANKED LEVELS: with b49, the
+coherent per-place data now carries its Parseval structure coherently too; the
+cross-place act inherits a sharper registration. FORMALIZED (PlancherelShadow, Core,
+8/8 zero-axiom): the delta-basis Parseval decided at N = 4, 9, 16, 25 (the N = 64, 81
+instances are this run's G1 gates, exact); the E_1-sector specialization at GENERAL q;
+the P2 exponent-forcing at GENERAL p (tables-by-p FORCES discrepancies-by-p^2;
+trace-linearity + degree forces p^4). The GENERAL-q full Parseval (bilinear/Fubini
+extension) is a NAMED OPEN STATEMENT (correspondence row 30), never a sorry. Range
+law: banked cells and banked levels only; the level-limit undecided; nothing about h2.
