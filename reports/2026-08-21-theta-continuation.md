@@ -103,8 +103,8 @@ Mirror: refreshed — **the export built this act after the repair,
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 0f794af2c4fc312286cf939c034d04f818e8e1c2` (the act commit `3615b00` + the disclosed
 > repair; parent `0dc35c0`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-theta-continuation` per Rule 4.10, hook
-> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
+> 221e0a3eced534aa38186ddb15619f51633eb642` (this act, parent `422687e`; pushed
+> from `push-theta-continuation` per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two carrier-build act files
 > verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-w.zip` built at PLACE-papers `0f794af` (the -v export was
 > superseded by the repair; -w is the one to load). *This pin-line commit's own SHA is stated in the closing message, per the
