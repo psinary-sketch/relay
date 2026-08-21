@@ -70,7 +70,14 @@ paper's own scoping never weakened.**
 
 ## §4 — PINS
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = cfb2fa1febd16e5a8fba641276897ec948677b19` (the seven annotations
+> + the block-close trails record; 119 insertions, 0 deletions, word-level removals zero) ·
+> `relay origin/main = 29809fcafcc34cfabb1c5641c6c38dd1203c42aa` (this act, parent `bbc288d`;
+> pushed from `push-cosmology-two` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** `mirror-refresh-2026-08-21-c.zip` built at PLACE-papers `cfb2fa1` (22-file
+> roster + MANIFEST; the date's third export, collision clause). *This pin-line commit's own
+> SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT — THE FRONTIER, NOW LIVE: THE NAVIGATOR'S SEQUENCING WITH FULL STAKES
 
