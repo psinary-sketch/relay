@@ -129,9 +129,10 @@ below (the date's fifth export, collision clause).*
 > **PIN LINE (post-push read-back, ls-remote):**
 > `SIDE-global-section origin/main = 0576091fa6641655901f2e4f258fcce62b6bafa8` (tag
 > `v0.1.0` = `706a81b` unmoved) · `PLACE-papers origin/main =
-> 38fd8335b5ce54d7f949048c820db638ccdf8401` · `relay origin/main = [READ BACK AT PUSH]`
-> (pushed from `push-deficit-comparison` per Rule 4.10, hook standing; HELD ancestry
-> clean; HELD absence verified in the public tree). **MIRROR:**
+> 38fd8335b5ce54d7f949048c820db638ccdf8401` · `relay origin/main =
+> 3292b42859de77d4d93cf1908c491370bd8c23a4` (this act, parent `7593d4c`; pushed from
+> `push-deficit-comparison` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-e.zip` built at PLACE-papers `38fd833`. *This pin-line
 > commit's own SHA is stated in the closing message, per the regress rule.*
 
