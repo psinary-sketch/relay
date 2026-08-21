@@ -91,7 +91,8 @@ note. Mirror: refreshed (PLACE-papers moved).*
 > `SIDE-global-section origin/main = 17832dc2d44bc676b7363879ef72d729b53fdebf` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 2440c20a8a08fb94e7c1ec4018c52778220c9cbf` (parent `2d46c4d`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-third-visit` per Rule 4.10, hook standing;
+> 8566fe5282e0203522b32b75581b3b1c115b66ed` (this act, parent `bf10913`; pushed
+> from `push-third-visit` per Rule 4.10, hook standing;
 > HELD ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
 > from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-n.zip` built
 > at PLACE-papers `2440c20`. *This pin-line commit's own SHA is stated in the closing
