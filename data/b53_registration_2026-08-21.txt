@@ -1,0 +1,61 @@
+====================================================================================================
+b53 -- THE TWISTED-PROJECTOR EXTENSION: THE BASES AND THEIR MEASUREMENTS -- REGISTRATION.
+====================================================================================================
+FERRY 2026-08-21 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION. Compatibility, not factorization; the range law governs.
+NOTHING DEPOSITS.
+
+THE RING CONVENTIONS, DECLARED PER CELL (rule a): the twisted coefficients require i.
+At p = 2 cells ((2,1), (2,2), (2,3)): i = zeta_N^{N/4} lies IN Z[zeta_N]; the working
+ring is Z[zeta_N] with the pair representation (a, b) ~ a + i b FOLDED through the
+quotient hom a + zeta^{N/4} b before every zero test (the hom is exact; computing
+pairwise then folding is correct). At odd-p cells ((3,1), (5,1), (3,2)): i is not in
+Q(zeta_N) (x^2 + 1 irreducible there), and the working ring is the banked composite
+Z[zeta_N][i] represented as pairs with COMPONENTWISE zero tests. Mod-ell screens use
+ell = 1 mod lcm(N, 4) with g of order N and an order-4 element for i -- certificate
+direction only, never for vanishing.
+
+THE PROJECTOR FAMILY, DERIVED LONGHAND (rule b; verified as gates before any basis is
+trusted): with M = S/q, M^4 = 1, Pi = M^2:
+    4 q P_lambda = (q + conj(lambda) S)(1 + conj(lambda)^2 Pi),  lambda in {1,-1,i,-i}:
+    lambda = 1:  (q + S)(1 + Pi)     [the b44 projector]
+    lambda = -1: (q - S)(1 + Pi)
+    lambda = i:  (q - i S)(1 - Pi)
+    lambda = -i: (q + i S)(1 - Pi)
+GATES: (G-A) the geometric-sum identity => S^2 = q^2 Pi, exact, per cell; (G-B)
+COMPLETENESS in numbers: sum_lambda u_lambda = 4q f per basis vector f, exact (the
+scalar sums sum lambda-bar^j vanish for j = 1,2,3 -- verified numerically, not assumed);
+(G-C) each image is an exact eigenvector: S u_lambda = lambda q u_lambda (orthogonality
+across distinct eigenvalues is then structural; the INTER-SECTOR LOCAL ORTHOGONALITY
+<u_lambda, u_mu> = 0 for lambda != mu is nevertheless verified EXACTLY per cell -- b54
+consumes it); (G-D = P1) the trace of each twisted projector re-derives the banked
+sector dimension: sum_(i,j) u_lambda,(i,j)(i + qj) = 4 q d_lambda at every cell and
+every lambda, with the four dims summing to (q-1)^2 -- completeness in numbers.
+VOID on any gate failure.
+
+REGISTERED NUMERIC PREDICTIONS (before any construction):
+(P1) as G-D above, with the banked dims: (2,1)=(0,0,1,0); (3,1)=(1,1,1,1);
+     (2,2)=(2,2,3,2); (5,1)=(4,4,4,4); (2,3)=(12,12,13,12); (3,2)=(16,16,16,16);
+     sums 1, 4, 9, 16, 49, 64 = the Sonin dims, checked here longhand.
+(P2) THE TWISTED PURITY CALL (the codimension instrument, synthesis grade; the minor
+     test decides): at every cell with a (q-1)x(q-1) Sonin block of size >= 2x2, every
+     twisted sector dimension satisfies d_lambda <= (q-2)^2 ((3,1): 1 <= 1, the
+     boundary case, generic still empty; (2,2): 3 <= 4; (5,1): 4 <= 9; (2,3): 13 <= 36;
+     (3,2): 16 <= 49), so generic position predicts NO nonzero Schmidt-pure vector in
+     any twisted sector -- mixedness generic across all four sectors. THE REGISTERED
+     EXCEPTION, in advance: (2,1)'s block is 1x1 -- EVERY vector there is pure by shape
+     (no 2x2 minors exist; the b44 no-weight precedent) -- its 1-dimensional E_i is
+     pure-by-shape and is NOT a finding against the instrument. Any pure vector found
+     elsewhere IS a finding against the instrument, banked with its witness.
+(P2') THE TWISTED BALL-SILENCE TRANSFER: the ball-silence law (X_E = 0 identically, the
+     c = 0 region, for ball-touching position operators) holds VERBATIM in the twisted
+     sectors -- registered expectation YES, since the Sonin vanishing u(0,.) = 0 is
+     sector-independent (every twisted image lies in Son); VERIFIED, not assumed.
+
+COMPONENT-2 MEASUREMENTS: the minor test per twisted sector per cell (mod-ell screen
+for mixedness certificates, exact Z[zeta][i] for any vanishing claim); the twisted
+ball-silence check per sector (the X = 0 identity on ball-touching operators, exact).
+Certificates banked in this file with full provenance.
+
+Usage: python b53_twisted.py register | run
+====================================================================================================

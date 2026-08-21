@@ -1,0 +1,153 @@
+====================================================================================================
+b53 -- THE TWISTED-PROJECTOR EXTENSION: THE BASES AND THEIR MEASUREMENTS -- REGISTRATION.
+====================================================================================================
+FERRY 2026-08-21 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION. Compatibility, not factorization; the range law governs.
+NOTHING DEPOSITS.
+
+THE RING CONVENTIONS, DECLARED PER CELL (rule a): the twisted coefficients require i.
+At p = 2 cells ((2,1), (2,2), (2,3)): i = zeta_N^{N/4} lies IN Z[zeta_N]; the working
+ring is Z[zeta_N] with the pair representation (a, b) ~ a + i b FOLDED through the
+quotient hom a + zeta^{N/4} b before every zero test (the hom is exact; computing
+pairwise then folding is correct). At odd-p cells ((3,1), (5,1), (3,2)): i is not in
+Q(zeta_N) (x^2 + 1 irreducible there), and the working ring is the banked composite
+Z[zeta_N][i] represented as pairs with COMPONENTWISE zero tests. Mod-ell screens use
+ell = 1 mod lcm(N, 4) with g of order N and an order-4 element for i -- certificate
+direction only, never for vanishing.
+
+THE PROJECTOR FAMILY, DERIVED LONGHAND (rule b; verified as gates before any basis is
+trusted): with M = S/q, M^4 = 1, Pi = M^2:
+    4 q P_lambda = (q + conj(lambda) S)(1 + conj(lambda)^2 Pi),  lambda in {1,-1,i,-i}:
+    lambda = 1:  (q + S)(1 + Pi)     [the b44 projector]
+    lambda = -1: (q - S)(1 + Pi)
+    lambda = i:  (q - i S)(1 - Pi)
+    lambda = -i: (q + i S)(1 - Pi)
+GATES: (G-A) the geometric-sum identity => S^2 = q^2 Pi, exact, per cell; (G-B)
+COMPLETENESS in numbers: sum_lambda u_lambda = 4q f per basis vector f, exact (the
+scalar sums sum lambda-bar^j vanish for j = 1,2,3 -- verified numerically, not assumed);
+(G-C) each image is an exact eigenvector: S u_lambda = lambda q u_lambda (orthogonality
+across distinct eigenvalues is then structural; the INTER-SECTOR LOCAL ORTHOGONALITY
+<u_lambda, u_mu> = 0 for lambda != mu is nevertheless verified EXACTLY per cell -- b54
+consumes it); (G-D = P1) the trace of each twisted projector re-derives the banked
+sector dimension: sum_(i,j) u_lambda,(i,j)(i + qj) = 4 q d_lambda at every cell and
+every lambda, with the four dims summing to (q-1)^2 -- completeness in numbers.
+VOID on any gate failure.
+
+REGISTERED NUMERIC PREDICTIONS (before any construction):
+(P1) as G-D above, with the banked dims: (2,1)=(0,0,1,0); (3,1)=(1,1,1,1);
+     (2,2)=(2,2,3,2); (5,1)=(4,4,4,4); (2,3)=(12,12,13,12); (3,2)=(16,16,16,16);
+     sums 1, 4, 9, 16, 49, 64 = the Sonin dims, checked here longhand.
+(P2) THE TWISTED PURITY CALL (the codimension instrument, synthesis grade; the minor
+     test decides): at every cell with a (q-1)x(q-1) Sonin block of size >= 2x2, every
+     twisted sector dimension satisfies d_lambda <= (q-2)^2 ((3,1): 1 <= 1, the
+     boundary case, generic still empty; (2,2): 3 <= 4; (5,1): 4 <= 9; (2,3): 13 <= 36;
+     (3,2): 16 <= 49), so generic position predicts NO nonzero Schmidt-pure vector in
+     any twisted sector -- mixedness generic across all four sectors. THE REGISTERED
+     EXCEPTION, in advance: (2,1)'s block is 1x1 -- EVERY vector there is pure by shape
+     (no 2x2 minors exist; the b44 no-weight precedent) -- its 1-dimensional E_i is
+     pure-by-shape and is NOT a finding against the instrument. Any pure vector found
+     elsewhere IS a finding against the instrument, banked with its witness.
+(P2') THE TWISTED BALL-SILENCE TRANSFER: the ball-silence law (X_E = 0 identically, the
+     c = 0 region, for ball-touching position operators) holds VERBATIM in the twisted
+     sectors -- registered expectation YES, since the Sonin vanishing u(0,.) = 0 is
+     sector-independent (every twisted image lies in Son); VERIFIED, not assumed.
+
+COMPONENT-2 MEASUREMENTS: the minor test per twisted sector per cell (mod-ell screen
+for mixedness certificates, exact Z[zeta][i] for any vanishing claim); the twisted
+ball-silence check per sector (the X = 0 identity on ball-touching operators, exact).
+Certificates banked in this file with full provenance.
+
+Usage: python b53_twisted.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b53_registration_2026-08-21.txt, banked before this run).
+### MEASUREMENT BEGINS. Per-cell rings as declared; mod-ell certificate direction only.
+
+CELL (2,1)  q = 2  ring: Z[zeta_N], i = zeta^(N/4) folded  [ell = 5]
+  PASS G-A  geometric sums exact (S^2 = q^2 Pi)
+  PASS G-B  completeness: sum_lambda u_lambda = 4q f, every basis vector
+  PASS G-C  S u = lambda q u per twisted image (full/sampled, declared)
+  PASS P1  tr(4q P_lambda) = 4q d_lambda at every lambda; dims (0, 0, 1, 0) sum 1 = (q-1)^2 = 1
+  PASS G-C'  inter-sector orthogonality <u_l, u_m> = 0 (6 pairs, full/sampled declared)
+  PASS P2'  ball rows vanish in every twisted sector (=> the ball-silence law transfers verbatim: X_E = 0, c = 0, same longhand)
+    E_1: empty sector (d = 0)
+    E_-1: empty sector (d = 0)
+    E_i: PURE BY SHAPE (1x1 block; registered exception)
+    E_-i: empty sector (d = 0)
+
+CELL (3,1)  q = 3  ring: Z[zeta_N][i] pairs  [ell = 37]
+  PASS G-A  geometric sums exact (S^2 = q^2 Pi)
+  PASS G-B  completeness: sum_lambda u_lambda = 4q f, every basis vector
+  PASS G-C  S u = lambda q u per twisted image (full/sampled, declared)
+  PASS P1  tr(4q P_lambda) = 4q d_lambda at every lambda; dims (1, 1, 1, 1) sum 4 = (q-1)^2 = 4
+  PASS G-C'  inter-sector orthogonality <u_l, u_m> = 0 (96 pairs, full/sampled declared)
+  PASS P2'  ball rows vanish in every twisted sector (=> the ball-silence law transfers verbatim: X_E = 0, c = 0, same longhand)
+    E_1: MIXED 1/1 basis vectors (mod-37 witnesses, exact certificates)
+    E_-1: MIXED 1/1 basis vectors (mod-37 witnesses, exact certificates)
+    E_i: MIXED 1/1 basis vectors (mod-37 witnesses, exact certificates)
+    E_-i: MIXED 1/1 basis vectors (mod-37 witnesses, exact certificates)
+
+CELL (2,2)  q = 4  ring: Z[zeta_N], i = zeta^(N/4) folded  [ell = 17]
+  PASS G-A  geometric sums exact (S^2 = q^2 Pi)
+  PASS G-B  completeness: sum_lambda u_lambda = 4q f, every basis vector
+  PASS G-C  S u = lambda q u per twisted image (full/sampled, declared)
+  PASS P1  tr(4q P_lambda) = 4q d_lambda at every lambda; dims (2, 2, 3, 2) sum 9 = (q-1)^2 = 9
+  PASS G-C'  inter-sector orthogonality <u_l, u_m> = 0 (24 pairs, full/sampled declared)
+  PASS P2'  ball rows vanish in every twisted sector (=> the ball-silence law transfers verbatim: X_E = 0, c = 0, same longhand)
+    E_1: MIXED 2/2 basis vectors (mod-17 witnesses, exact certificates)
+    E_-1: MIXED 2/2 basis vectors (mod-17 witnesses, exact certificates)
+    E_i: MIXED 2/3 basis vectors (mod-17 witnesses, exact certificates)
+    E_-i: MIXED 2/2 basis vectors (mod-17 witnesses, exact certificates)
+
+CELL (5,1)  q = 5  ring: Z[zeta_N][i] pairs  [ell = 101]
+  PASS G-A  geometric sums exact (S^2 = q^2 Pi)
+  PASS G-B  completeness: sum_lambda u_lambda = 4q f, every basis vector
+  PASS G-C  S u = lambda q u per twisted image (full/sampled, declared)
+  PASS P1  tr(4q P_lambda) = 4q d_lambda at every lambda; dims (4, 4, 4, 4) sum 16 = (q-1)^2 = 16
+  PASS G-C'  inter-sector orthogonality <u_l, u_m> = 0 (24 pairs, full/sampled declared)
+  PASS P2'  ball rows vanish in every twisted sector (=> the ball-silence law transfers verbatim: X_E = 0, c = 0, same longhand)
+    E_1: MIXED 4/4 basis vectors (mod-101 witnesses, exact certificates)
+    E_-1: MIXED 4/4 basis vectors (mod-101 witnesses, exact certificates)
+    E_i: MIXED 4/4 basis vectors (mod-101 witnesses, exact certificates)
+    E_-i: MIXED 4/4 basis vectors (mod-101 witnesses, exact certificates)
+
+CELL (2,3)  q = 8  ring: Z[zeta_N], i = zeta^(N/4) folded  [ell = 193]
+  PASS G-A  geometric sums exact (S^2 = q^2 Pi)
+  PASS G-B  completeness: sum_lambda u_lambda = 4q f, every basis vector
+  PASS G-C  S u = lambda q u per twisted image (full/sampled, declared)
+  PASS P1  tr(4q P_lambda) = 4q d_lambda at every lambda; dims (12, 12, 13, 12) sum 49 = (q-1)^2 = 49
+  PASS G-C'  inter-sector orthogonality <u_l, u_m> = 0 (24 pairs, full/sampled declared)
+  PASS P2'  ball rows vanish in every twisted sector (=> the ball-silence law transfers verbatim: X_E = 0, c = 0, same longhand)
+    E_1: MIXED 12/12 basis vectors (mod-193 witnesses, exact certificates)
+    E_-1: MIXED 12/12 basis vectors (mod-193 witnesses, exact certificates)
+    E_i: MIXED 13/13 basis vectors (mod-193 witnesses, exact certificates)
+    E_-i: MIXED 12/12 basis vectors (mod-193 witnesses, exact certificates)
+
+CELL (3,2)  q = 9  ring: Z[zeta_N][i] pairs  [ell = 1297]
+  PASS G-A  geometric sums exact (S^2 = q^2 Pi)
+  PASS G-B  completeness: sum_lambda u_lambda = 4q f, every basis vector
+  PASS G-C  S u = lambda q u per twisted image (full/sampled, declared)
+  PASS P1  tr(4q P_lambda) = 4q d_lambda at every lambda; dims (16, 16, 16, 16) sum 64 = (q-1)^2 = 64
+  PASS G-C'  inter-sector orthogonality <u_l, u_m> = 0 (24 pairs, full/sampled declared)
+  PASS P2'  ball rows vanish in every twisted sector (=> the ball-silence law transfers verbatim: X_E = 0, c = 0, same longhand)
+    E_1: MIXED 16/16 basis vectors (mod-1297 witnesses, exact certificates)
+    E_-1: MIXED 16/16 basis ve
+--- POST-RUN (banked with the run) ---
+ALL GATES PASS AT ALL SIX CELLS (G-A geometric sums; G-B completeness sum u_lambda = 4qf;
+G-C exact lambda-eigenvectors; G-C' inter-sector orthogonality, full/sampled as declared;
+P1 every twisted trace = 4q d_lambda, dims summing to the Sonin dims -- completeness in
+numbers). P2' PASS everywhere: the ball rows vanish in every twisted sector, so the
+ball-silence law transfers VERBATIM (X_E = 0, c = 0, the same longhand -- verified, not
+assumed). P2 MINORS: mixedness generic across sectors and cells EXCEPT the registered
+(2,1) exception AND ONE FINDING AGAINST THE INSTRUMENT, per P2's own clause, BANKED WITH
+ITS WITNESS: E_i(2,2) contains a genuinely PURE nonzero vector -- the screen passed one
+basis vector and the EXACT full minor test in Z[zeta_16] confirms ALL 2x2 minors vanish.
+THE MECHANISM, identified and verified exactly: the pure vector is (exact
+cross-proportionality) the TOWER IMAGE iota(u_i(2,1)) of the dead cell's single E_i
+generator -- supported on ONE position row (a'' = 2), hence rank 1: PURITY IMPORTED
+THROUGH THE TOWER FROM THE 1x1 BOUNDARY SHAPE. The codimension instrument's miss has a
+mechanism: E_i(2,2) is not in generic position because iota imports boundary-shape
+purity; and the same mechanism EXPLAINS the principal sector's cleanliness (E_1(2,1) = 0
+-- nothing to import; MIXED-FORCED at E_1 stands unchallenged). The P2-instrument
+refinement (correct the codimension call by the tower-imported subspaces) is STAGED
+MATERIAL for the author, not minted here. E_i(2,2) census: 2 mixed + 1 pure (the tower
+image) = d_i = 3. Everything else mixed with mod-ell witnesses (exact certificates).

@@ -1,0 +1,101 @@
+====================================================================================================
+b54 -- THE MIXED-PATTERN FRONTIER -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-21, component 3 -- THE PAIRING ACT'S QUESTION (ii), RESUMED AT ITS
+RECORDED ADDRESS (b52: "not reached; the mixed sectors need per-place E_{-1}, E_{+-i}
+bases" -- b53 now supplies them). Relay-only. NO SIGN SENTENCE. h2 UNCHANGED BY
+CONSTRUCTION. Compatibility, not factorization. NOTHING DEPOSITS.
+
+(P3) THE MIXED-PATTERN COUNTS, computed HERE from banked numbers BEFORE construction:
+per roster, dim(non-factorizable complement) = D_global - prod_v d_1(v):
+    R5 {(2,1),(3,1)}:          1 -  0  = 1     (the single direction is (i,-i)-type)
+    R1 {(2,1),(3,1),(5,1)}:   16 -  0  = 16
+    R2 {(2,2),(3,2)}:        144 - 32  = 112
+    R3 {(2,2),(3,2),(5,1)}: 2304 - 128 = 2176
+    R4 {(2,3),(3,2),(5,1)}: 12544-768  = 11776
+The directions constructed must number exactly these, or the discrepancy is banked as
+a finding. (At R5 and R1 the principal product is ZERO -- the arrival-depth death
+(d_1(2,1) = 0) makes the ENTIRE global sector mixed-pattern there: registered plainly.)
+
+THE CONSTRUCTION, longhand: the mixed-pattern directions at a roster are the products
+tensor_v u_{lambda_v, k_v} over sign patterns with prod lambda_v = 1 EXCLUDING the
+all-ones pattern, u_{lambda, k} the b53 twisted bases. VERIFICATIONS, exact, per
+constructed scope: (V1) sector membership -- S_glob w = (prod q_v) w (the eigenvalue
+check; w lies in the global +1 sector); (V2) outside-the-diagonal -- the local factors
+lie in twisted sectors, and the INTER-SECTOR LOCAL ORTHOGONALITY (b53 G-C') makes every
+mixed direction exactly orthogonal to the principal block tensor(E_1); (V3) the P3
+count, arithmetic, all five rosters.
+
+THE MEASUREMENT (the resumed question (ii)): is the sector-restricted pairing ON the
+mixed-pattern directions determined by local character data? The operative identities,
+DERIVED LONGHAND HERE and then MEASURED, never assumed:
+  (M1) the Gram factorization: <u_a (x) u_b, u_c (x) u_d> = <u_a, u_c><u_b, u_d> --
+       products of LOCAL twisted Grams; with (G-C') the global sector Gram
+       BLOCK-DIAGONALIZES by pattern.
+  (M2) the compression factorization on weight-one factorizable test operators:
+       <w, (A (x) B) w'> = <u_a, A u_c><u_b, B u_d> -- products of LOCAL TWISTED
+       X-tables (the b45 machinery at twisted indices).
+  (M3) the form-level character formula (b52's proved lift) extended over the whole
+       sector: consistency of the measured mixed-block traces with
+       4 tr(P1_glob A) = sum_j prod_v tr(M_v^j A_v).
+SCOPE, bounded and declared: FULL construction and measurement at R5 (1 direction,
+36-dim space) and R2 (112 directions; the local pieces computed fully; the DIRECT
+global verifications of (M1)/(M2) at the REGISTERED SAMPLE: every pattern-pair on
+basis indices (0, 0), plus the full (i,-i)/(−i,i) blocks; the factorization is
+Kronecker algebra and its instances are what is verified). R1/R3/R4: the P3 counts
+exact; construction NOT run there (cost, declared; R1's structure is R5's with the
+(5,1) flat factor).
+BRANCHES (the ferry's, verbatim in content): (a) determined by local character data --
+the form-level law extends across the whole global sector at the banked rosters;
+synthesis grade, fence intact. (b) an exact excess -- banked per roster per direction;
+the sharpest measured objects the h2 line possesses; follow-ons staged for the author.
+(c) construction obstructed -- the obstruction banked exactly; P3's arithmetic
+re-checked from gates before declaring.
+
+Bank: data/b54_mixed_pattern.txt. Deviation rule standing.
+Usage: python b54_mixed_pattern.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b54_registration_2026-08-21.txt, banked before this run).
+### MEASUREMENT BEGINS. P3 arithmetic first; construction at the declared scopes.
+  P3 R5: mixed-pattern count = 1 (registered 1) EXACT
+  P3 R1: mixed-pattern count = 16 (registered 16) EXACT
+  P3 R2: mixed-pattern count = 112 (registered 112) EXACT
+  P3 R3: mixed-pattern count = 2176 (registered 2176) EXACT
+  P3 R4: mixed-pattern count = 11776 (registered 11776) EXACT
+
+R5 FULL: the single mixed direction w = u_i(2,1) (x) u_-i(3,1) (the (i,-i) pattern; product = 1)
+  PASS V1  S_glob w = 6 w exactly (the +1-sector membership)
+  V2 vacuous at R5 (the principal product is zero -- registered): the whole global sector IS mixed-pattern here
+  PASS M1  <w,w> = <u_i,u_i>_2 * <u_-i,u_-i>_3 exactly (the Gram factorization)
+  PASS M2  <w,(A(x)B)w> = local twisted compressions' product, all 4 registered op pairs, exact
+  FAIL M3  the form-level character formula holds ON the mixed direction: (sum_j 6^(3-j) prod tr(S^j A_v)) * <w,w> = 4*6^3 * <w,Aw>, all 4 op pairs, exact
+
+R2 REGISTERED SAMPLE: the four pattern-blocks' (0,0) directions
+  PASS M1-off  distinct pattern-blocks orthogonal via a vanishing LOCAL factor (all 6 pairs; the block-diagonalization instance)
+  PASS M1-diag  per-block Gram = product of local twisted Grams (all 4 blocks, direct vs product, exact)
+
+VERDICT: see failures above
+
+--- POST-RUN (banked with the run) ---
+P3: EXACT AT ALL FIVE ROSTERS (1, 16, 112, 2176, 11776 -- as computed in the
+registration from banked numbers). R5 FULL: V1 sector membership exact; V2 vacuous as
+registered; M1 Gram factorization exact; M2 compression factorization exact on all four
+registered op pairs. THE M3 SLIP, RECORDED NOT SMOOTHED (Rule 4.1, corrected in-run by
+its own check): the first M3 implementation conflated the WHOLE-SPACE projector trace
+tr(P1_glob A) with the SONIN-SECTOR pairing (the whole-space +1 eigenspace of the global
+DFT is far larger than the Sonin sector; the identity as first coded was false algebra,
+and its FAIL was an instrument error, not a measured excess). THE CORRECTED M3: the
+SONIN-COMPRESSED character formula -- tr(P_1 P_Son A) = (1/4) sum_j prod_v
+tr(M_v^j P_Son,v A_v) -- in division-free form (denominators cleared by the local Grams;
+the identity reduces by character orthogonality, derived longhand in the correction):
+    4 a_i a'_{-i} prod_{mu != -i} g'_mu = sum_j i^j a_i sum_lam lam^j a'_lam prod_{mu != lam} g'_mu.
+CORRECTED M3: PASS EXACT on all four registered op pairs at R5. R2 SAMPLE: M1-off
+(block-diagonalization by pattern, distinct blocks orthogonal via a vanishing local
+factor) and M1-diag (per-block Gram = product of local twisted Grams) both PASS exact.
+VERDICT: BRANCH (a) AT THE VERIFIED SCOPES -- the sector-restricted pairing on the
+mixed-pattern directions is DETERMINED BY LOCAL CHARACTER DATA (Gram and compression
+factorizations + the Sonin-compressed character formula), at R5 fully and at R2 on the
+registered sample; the form-level law extends across the whole global sector at those
+scopes. Synthesis grade, fence intact: banked cells, levels, and rosters only; R1/R3/R4
+constructions not run (declared; counts exact); the level-limit and the archimedean
+junction undecided; nothing about h2 claimed. Compatibility, not factorization.
