@@ -1,6 +1,10 @@
 /-
-  THE DEFICIT ANATOMY IDENTITY · DeficitAnatomyShadow.lean
-  =========================================================
+  THE PRODUCT-MINUS-SUM IDENTITY · ProductMinusSumShadow.lean
+  =============================================================
+
+  (Formerly THE DEFICIT ANATOMY IDENTITY / DeficitAnatomyShadow.lean — renamed
+  2026-08-21 by the author's ruling, the theta-opening act; the b59 banks and pins
+  are untouched and keep their filed names.)
 
   Ferry 2026-08-21 (b59, component 2). Vanilla Lean 4 (v4.29.1 pinned), no imports;
   expected profile per terminal: "does not depend on any axioms".
@@ -22,7 +26,7 @@
   junction's missing invariant is trace-of-log-shaped.
 -/
 
-namespace DeficitAnatomyShadow
+namespace ProductMinusSumShadow
 
 /-- the six banked rosters' anatomy instances, decided exactly in the
     subtraction-free form ∏x + c₂ = 4·deficit + Σx (c₂ = 1 at every banked roster):
@@ -100,4 +104,4 @@ theorem anatomy_assembled (add mul : A → A → A) (neg : A → A) (zero four o
 
 end Abstract
 
-end DeficitAnatomyShadow
+end ProductMinusSumShadow

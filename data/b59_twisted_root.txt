@@ -1,0 +1,36 @@
+====================================================================================================
+b60 COMPONENT 3 BANK -- THE TWISTED-SECTOR ROOT CHECK AT (2,2), E_i (+) E_-i
+(file name per the ferry, verbatim: data/b59_twisted_root.txt)
+====================================================================================================
+Registration: data/b60_registration_2026-08-21.txt (banked before the decide; both
+branches longhand there; the ferry's registered prediction: branch (a) expected).
+
+THE CONSTRAINT (registration-derived): W^2 = M => W commutes with M => W preserves
+E_i and E_-i; W|E_i squares to i*Id, W|E_-i to (-i)*Id. On the twisted half M^2 = -1
+already, so W^4 = -1 is AUTOMATIC for any square root -- the row-39 parity
+obstruction is absent by construction.
+
+THE EIGENVALUE SQUARE-ROOT PAIRING (decided, kernel -- TwistedRootShadow, Core
+180/180): the odd-index eighth roots zeta_16^{2j}, j = 1, 3, 5, 7, square to
+i, -i, i, -i and ALL have fourth power -1 (eighth_root_pairing, all in Z[zeta_16]
+8-coordinates). The scalar-root mechanism compiled abstract
+(scalar_root_on_eigenvector): a scalar c with c^2 = lambda on a lambda-eigenvector
+of M gives W^2 v = M v; the instance's eigenvector is row 33's compiled tower
+witness M(iota u) = i * iota u.
+
+VERDICT: ### BRANCH (a) -- AS REGISTERED. The witness W = zeta^2 * Id on E_i (+)
+zeta^6 * Id on E_-i satisfies W^2 = M and W^4 = -1 on the twisted half: THE TWISTED
+HALF OF THE CHART SITS INSIDE THE C_8 FRAME AT (2,2) -- 5 of the 9 Sonin dimensions
+(E_i = 3, E_-i = 2, banked dims). With row 39: the frame boundary is exactly the
+parity split -- the parity-even half obstructs (row 39's exact witness), the twisted
+half embeds (this bank's witness).
+
+EXTENSION QUESTIONS, STAGED NOT RUN (the branch-(a) text): the other banked cells
+(the same pairing arithmetic at odd q needs square roots of +-i in the pair ring --
+existence to be derived, not assumed); the frame boundary under the tower (does
+iota carry the C_8 structure coherently); the non-scalar root classes (the full
+square-root variety on the 3+2-dimensional half).
+
+RANGE LAW: a statement about the banked (2,2) chart's twisted sectors at the exact
+level. Nothing about h2.
+====================================================================================================
