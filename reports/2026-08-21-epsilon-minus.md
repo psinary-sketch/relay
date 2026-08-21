@@ -112,7 +112,8 @@ refreshed (PLACE-papers moved).*
 > `SIDE-global-section origin/main = 6040be06aa65f490d029ea040a67a9bed9c3689a` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 2d46c4ddc20b4efe80d13ebaa6f094606e4765f0` (parent `a1168f9`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-epsilon-minus` per Rule 4.10, hook standing;
+> ed8fba49e5b1a8ec840c041fcd8bdab92e7122d8` (this act, parent `09b70b2`; pushed
+> from `push-epsilon-minus` per Rule 4.10, hook standing;
 > HELD ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
 > from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-m.zip` built
 > at PLACE-papers `2d46c4d`. *This pin-line commit's own SHA is stated in the closing
