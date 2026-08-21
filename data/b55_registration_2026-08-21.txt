@@ -1,0 +1,68 @@
+====================================================================================================
+b55 -- THE TOWER EXTENSION ACT -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-21 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION. Compatibility, not factorization; the range law governs.
+NOTHING DEPOSITS.
+
+THE EXTENSION TARGETS, DERIVED FROM THE BANKED TOWER SHAPES AND PRICED (rule a):
+  Place 2, one level past the banked top (2,3): THE NEW CELL (2,4) -- q = 16, N = 256,
+  ring Z[zeta_256] with i = zeta^64 folded (the p = 2 convention). Banked sector dims
+  ALREADY EXIST at this depth (b23 ran to n = 6): (2,4) = (56, 56, 57, 56), sum 225 =
+  15^2 = the Sonin dim. PRICED FEASIBLE (mod-ell screens at ell = 257 -- the Fermat
+  prime, = 1 mod 256 and 1 mod 4; minors ~2.5M modular ops).
+  Place 3, one level past the banked top (3,2): THE NEW CELL (3,3) -- q = 27, N = 729,
+  the composite pair ring Z[zeta_729][i]. Banked dims (b26 ran to n = 4): (3,3) =
+  (169, 169, 169, 169), sum 676 = 26^2. PRICED FEASIBLE WITH A DECLARED BOUND: full
+  gates + P1 + coherence + silence; the minor sweep SAMPLED (first 8 basis vectors per
+  sector; ~105k minors per vector at q = 27 makes the full sweep the priced-out part;
+  the P3 protocol needs only seed-tracking plus the sample -- declared, not silent).
+  BOTH towers extend; no deviation needed.
+
+GATES AT EVERY NEW CELL BEFORE ANYTHING IS TRUSTED (rule b): the geometric-sum identity
+(=> S^2 = q^2 Pi); the four projector identities via the b53 family
+4qP_lambda = (q + conj(lambda) S)(1 + conj(lambda)^2 Pi); completeness in numbers
+(sum_lambda u_lambda = 4qf per basis vector, sampled at (3,3), full at (2,4) -- declared);
+exact lambda-eigenvectors (sampled as in b53); P1 traces per sector.
+
+REGISTERED NUMERIC PREDICTIONS:
+(P1) COHERENCE PERSISTS at the new levels: the E_1-basis tables and pairings cohere under
+  the embedding at the proved exponents -- X''/G'' = p * emb (tables), D'' = p^2 * emb
+  (discrepancies), Tr = p^4 (the Galois trace; p^2 the degree), the transform-pairing
+  composites p^3/p^5 -- at (2,3)->(2,4) and (3,2)->(3,3), on the E_1 bases (the b49/b50
+  protocol, iota-images against level tables). THE SILENCE LAW at the new cells:
+  non-silent count (q-1)^2 + q^2 = 481 at (2,4), 1405 at (3,3) (the KLSilence general-q
+  law's instances; verified by the ball-silence identity and a SAMPLED off-ball fail
+  check -- full per-operator sweeps priced out at q = 16/27, declared: the general
+  theorem covers the silent side; the measured side sampled at 12 off-ball operators per
+  factor per cell). THE SECTOR DIMS re-derive from the twisted traces and sum to the
+  Sonin dims (full P1, both cells).
+(P2) THE R5 DISCRIMINATOR, both readings pre-committed in the corpus's coincidence
+  vocabulary: recompute D_global vs sum d_1 (the additive route) at (i) the transported
+  pair {(2,2),(3,2)} (= R2, banked: 144 vs 18) and (ii) the EXTENDED pair {(2,4),(3,3)}:
+  D_global = (1/4)(225)(676) = 38025; sum d_1 = 56 + 169 = 225; deficit 37800 -- computed
+  HERE from banked dims. If the R5-type zero PERSISTS at the transported normalizations,
+  STRUCTURAL (named work-order); if it BREAKS, the zero was the registered COINCIDENCE
+  and the deficit family is uniform. The arithmetic above already shows BREAKS at both
+  readings; the run re-verifies by enumeration and the verdict is stated in the
+  registered vocabulary. Either verdict feeds the deficit comparison next.
+(P3) THE PURITY LOCUS: the pure vectors in the twisted sectors at the extended cells are
+  EXACTLY the tower images of boundary seeds. The seed inventory, derived here: place 2
+  has ONE seed line (the dead cell's E_i, 1x1 shape); its iota-chain lands in E_i at
+  every deeper level with SINGLE-ROW support (rows 2 -> 4 -> 8 under (a,b) -> (2a, .)),
+  hence pure: iota^3(u_i(2,1)) is predicted PURE at (2,4) E_i, and E_i(2,4)'s pure locus
+  is predicted to be EXACTLY that line; the other (2,4) sectors have NO seeds (their
+  (2,1) sectors are zero) and are predicted all-mixed. Place 3 has NO seeds (b53: all
+  four (3,1) sectors MIXED at their 2x2 block), so (3,3)'s twisted sectors are predicted
+  all-mixed at the sample. ANY pure vector outside the imported locus is a finding
+  against the REFINED instrument, banked with its witness. Protocol: minor screens; any
+  screened-pure candidate gets the exact minor test AND the exact proportionality test
+  against the seed image (the b53 protocol).
+
+COMPONENT ORDER AND INDEPENDENCE (rule d): 1 (extension) feeds 2 (discriminator, which
+also stands alone on banked+new dims) and 3 (purity locus); the strikeable components
+4-7 touch disjoint files and are independent of 1-3 and of each other.
+
+Bank: data/b55_tower_extension.txt. Deviation rule standing.
+Usage: python b55_tower_ext.py register | run
+====================================================================================================
