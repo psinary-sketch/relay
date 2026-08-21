@@ -1,0 +1,70 @@
+====================================================================================================
+b71 -- THE COHERENCE ACT -- THE BANK. Registration: data/b71_registration_2026-08-21.txt
+(H-COH named there at first use; every dependent line below carries the tag inline).
+Raw run: data/b71_run_raw.txt. Instrument: tools/e16/b71_coherence.py.
+====================================================================================================
+
+P1 -- THE RATIONAL RECIPROCITY THEOREM. VERDICT: LANDS at the registered generality.
+  The general statement (x minus the sum of its p-adic fractional parts is an
+  integer, rational x) carried by the registration's CRT/Bezout longhand; THE
+  DECIDED INSTANCES, full residue ranges, all PASS (instrument + kernel):
+    D = 36  = 4*9:    a == 9*(a mod 4) + 4*((7a) mod 9)                  mod 36   PASS
+    D = 100 = 4*25:   a == 25*(a mod 4) + 4*((19a) mod 25)               mod 100  PASS
+    D = 1296 = 16*81: a == 81*(a mod 16) + 16*((76a) mod 81)             mod 1296 PASS
+    D = 900 = 4*9*25: a == 225*(a mod 4) + 100*(a mod 9) + 36*((16a) mod 25) mod 900 PASS
+  Kernel: CoherenceShadow.reciprocity_instances -- decided, zero-axiom (the 1296
+  range needed maxRecDepth raised to 8192, a compiler recursion limit on the list
+  equality, no axiom content; disclosed). The general-Q COMPILE stays longhand as
+  registered in advance (vanilla Q-arithmetic beyond the kit) -- the named open:
+  W-LEAN-RECIPROCITY-GENERAL-Q (the general rational statement at the zero-axiom
+  bar; what is missing: rational arithmetic in the vanilla kit).
+
+P2 -- THE CONVENTION SURVEY. VERDICT: THE GATE HOLDS -- the plus orientation is
+  UNIFORM across every banked cell and the constructed limit. The survey:
+  (i) the instruments' transform exponent is +m*m' in every banked act -- grep
+      across b53_twisted.py / b57_row31_depth.py / b58_row29_onlyif.py (the b65/b66
+      instruments import b58's S_apply -- one shared kernel line: ee = (e + m*mp) % NN);
+  (ii) the g-action law's phase is +a(q-t) (b58 bank, row 45);
+  (iii) the limit's phase fraction is +alpha(1-tau) (row 45);
+  (iv) the decided discriminators: tr S = q(1+i) with the PLUS imaginary part --
+      (2,1): (2,2) /= (2,-2) DECIDED THIS ACT (CoherenceShadow.
+      orientation_discriminator_2_1); (2,2): b70's decided orientation break, cited.
+  No mixed convention found; (D3) ran.
+
+P3 -- THE FORCED ORIENTATION AND THE CONDITIONAL CLASS BIT. VERDICT: THE CHAIN
+  LANDS -- branch (a), both steps.
+  STEP 1 (UNCONDITIONAL implication, from P1 + P2): a character family assigning
+  each finite place its plus-convention character e^{2 pi i {x}_p} and trivial on Q
+  has its real component FORCED CONJUGATE: chi_inf(x) = e^{-2 pi i x}. (The
+  reciprocity theorem makes the finite product e^{2 pi i x} on Q; triviality
+  forces the conjugate at the real place. The decidable shadow: the
+  conjugate-complement instances, decided.)
+  STEP 2 [UNDER H-COH]: the real place carries the conjugate orientation; the
+  coherent archimedean center phase is the conjugate faithful value e^{-2 pi i/4}
+  = -i; the boundary family is THE CONJUGATE CLASS {+-zeta_8^{-1}}; the suspect
+  e^{-i pi/4} is its plus-sign member. THE CLASS BIT DERIVES [UNDER H-COH].
+  THE RESTATEMENT (filed to the fourth-visit registration and the poster, dated):
+  S1's value content = (THE SIGN BIT; owner: the identity limit's value) +
+  (H-COH OR ITS REPLACEMENT; owner: the global coherence construction -- the
+  corpus's own adelic-character self-duality, unbuilt) -- and the invariance
+  clause (owner: the index face, NA-3). Row 50's obstruction is the act's logic,
+  quoted in the registration: the local recorded ground is orientation-symmetric,
+  so the chooser MUST be global -- H-COH is that global chooser, named as premise.
+
+P4 -- THE DICTIONARY-IDENTITY READ. VERDICT: COINCIDENCE at the requested-
+  construction level -- step A of the theta bridge (the chart summed along shells
+  into a theta-like series) and N5's radial-compression dictionary (the chart
+  transfer compressed along shells onto the shell model) REQUEST THE SAME OBJECT:
+  the shell-summing map from the chart/g-family to the shell model. THE TWO OPENS
+  MERGE into ONE named construction -- THE RADIALIZATION -- staged for the author
+  (data/radialization_construction_STAGED_2026-08-21.txt); what each open would DO
+  with the map differs (the theta series toward the functional-equation frame vs
+  the defect dictionary toward N5's (1,1)) and survives as the construction's two
+  clients, stated there. Nothing built this act.
+
+KERNEL: CoherenceShadow.lean, 3 terminals, each "does not depend on any axioms"
+(AXIOM_PRINTS.txt regenerated, Core 215/215). Row 51 filed.
+HIT RECORD: all four components landed on their registered branches (P2's gate the
+registered expectation; P3 branch (a) with no step failing; P4 at the sharp end of
+the PARTIAL-or-same prior).
+====================================================================================================
