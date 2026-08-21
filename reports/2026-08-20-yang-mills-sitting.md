@@ -69,7 +69,15 @@ completed conversion, and the rubric now has both verdict-species exercised.**
 
 ## §4 — PINS
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `SIDE-trivium main = 1aac3a9e19393f04b97f316ae6ab128225cde5fe` (CardDerived — the
+> conversion) · `PLACE-papers origin/main = 56669aa4436f3ee29f87e0ded0e2dc3a9004cc98` (the
+> annotation + sub-rule + loom series + trails; 62 insertions, 0 deletions) ·
+> `relay origin/main = a579f56b8ca97c734548a999f24669931a706782` (this act, parent `ac006dd`;
+> pushed from `push-yang-mills` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** `mirror-refresh-2026-08-20-h.zip` built at PLACE-papers `56669aa` (22-file
+> roster + MANIFEST; eighth export of the date, collision clause). *This pin-line commit's own
+> SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT
 
