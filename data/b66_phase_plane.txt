@@ -1,0 +1,66 @@
+====================================================================================================
+b66 -- THE PHASE-PLANE ACT -- BANK. Run-registration: data/b66_registration_2026-08-21
+.txt (the deciding derivations D1-D5 longhand there BEFORE the run; the P4 wording
+correction registered in advance as the deviation note). Raw run: data/b66_run_raw.txt
+(every check PASS).
+====================================================================================================
+
+P1 -- THE FIXED LOCUS: LANDS AS REGISTERED. sigma(a,t) = ((q-t) mod q, a) on the full
+grid: fixed exactly {origin} at odd q (3, 5, 9) and {origin, center (q/2,q/2)} at
+q = 2, 4, 8, 16 -- instrument PASS at every q; kernel decide fixed_locus_instances.
+The center lies in the Sonin grid; the origin on the axes (the ball).
+
+P2 -- THE TRACE AS THE STATIONARY-PHASE SUM: LANDS AS REGISTERED. tr S = the sum of
+the monomial diagonal coefficients at the fixed points: the origin contributes q, the
+center contributes q * zeta^{(q/2)^2} = q * zeta^{N/4} = q * i (the exponent fraction
+1/4, level-independent -- decided). Verified EXACTLY against the direct diagonal sum
+at (3,1), (5,1), (2,1), (2,2) (instrument PASS) -- rows 35-36's values q and q(1+i)
+REPRODUCED BY MECHANISM. Sonin-restricted (the axes removed): 0 (odd) and q*i
+(place 2) -- row 36 again.
+
+P3 -- THE MECHANISM IDENTIFICATIONS: LAND, the derivation displayed.
+  FLATNESS IS FREENESS ON THE LIVE LOCUS: at odd q both fixed filters on the Sonin
+  grid are EMPTY (instrument PASS; decided) -- the four-group acts freely, the Sonin
+  grid is a union of free 4-orbits, each orbit's span a copy of the C_4-regular
+  representation contributing one dimension per sector: ALL SECTORS EQUAL. The
+  ball's silencing of the origin (the silence theorem's forced zero at the dark
+  fixed point) is exactly what leaves the live locus free.
+  THE EXCESS IS THE LIVE STATIONARY POINT: at q = 2^n the center is the UNIQUE
+  non-free Sonin point (decided); its line is a one-dimensional i-eigenline (the
+  phase i at the fraction 1/4); Son minus the center is free: dims (d, d, d+1, d)
+  with 4d = (q-1)^2 - 1. THE EXCESS, THE UNIT TRACE, THE i-SECTOR PLACEMENT, AND
+  THE LEVEL-CONSTANCY ARE ONE FACT: the live stationary point's phase.
+  THE CENTER'S CLASS IS THE SEED CHAIN: iota's grid map fixes the center (decided);
+  at (2,1) the center (1,1) IS the seed's grid point; the seed chain = the center
+  line at every level = the boundary line (row 45) -- consistent with every banked
+  witness (the b53 pure vector at (2,2) is g_{2,2}, the center).
+
+P4 -- THE DICTIONARY'S PREREQUISITES: LANDS IN THE REGISTERED CORRECTED FORM.
+  THE SCALING ON THE g-FAMILY (V : delta_m -> delta_{pm}, unnormalized, exact): V
+  KILLS primitive frequencies (V g_{1,1} = 0 -- instrument PASS; decided); on
+  divisible frequencies V is THE p-TERM TRANSFER (V g_{1,2} = g_{2,1} + g_{2,3} --
+  PASS; decided): the prediction's "monomial operator" is CORRECTED by the exact
+  computation to "p-term transfer with primitive-frequency kernel" -- the deviation
+  registered in advance, banked openly. THE BOUNDARY CONNECTION: V(center) is
+  BALL-SUPPORTED and nonzero (V g_{2,2} = 2 delta_4 - 2 delta_12 -- PASS; decided):
+  THE BOUNDARY LINE LIES IN THE DEFECT OF THE COMPRESSED SCALING ON THE CONSTRUCTED
+  OBJECT -- the N5 operator half ADVANCES to this exact algebraic statement (the
+  identification of the boundary-weight shift's finite shadow: the compressed p-term
+  transfer, its Sonin defect containing the center's class). WHAT RESISTS, at its
+  exact step: the Theta_T SOT clause -- the operator's ALGEBRAIC limit is explicit
+  (the p-term transfer on limit classes), but the SOT statement needs the metric
+  completion, which stays interface-declared (row 21) -- THE COMPLETION STEP, named.
+  Row 41's named opens updated additively per this outcome.
+
+Kernel: PhasePlaneShadow (5 terminals, each "does not depend on any axioms"; Core
+199/199); correspondence row 46; row 41's cell updated additively.
+
+COMPONENT 3 (computed nothing): the index-route registration WRITTEN AND STAGED
+(data/index_route_registration_STAGED_2026-08-21.txt) -- the junction's fourth
+visit; trigger: the author schedules.
+
+RANGE LAW: every statement above is finite-side exact algebra on banked or
+constructed objects; nothing archimedean was computed; the SOT clause and S1 stay at
+their rows; the junction stays a fence; nothing about h2. Compatibility, not
+factorization.
+====================================================================================================
