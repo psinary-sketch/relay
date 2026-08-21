@@ -65,7 +65,14 @@ the archimedean junction undecided; nothing about the `h2` identity claimed.**
 `v0.1.0` unmoved). Relay: the b52 registration + bank + instrument; the working-layer copy.
 No PLACE-papers edit; no mirror rebuild (HEAD `13d8b2f` unmoved, `-f` current).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `SIDE-global-section main = f11a5aadf50d709ba3adee668971eba603add023` (PairingShadow +
+> row 32; Core 135/135; tag `v0.1.0` = peeled `706a81b` unmoved) ·
+> `relay origin/main = cf77fe3a410ca349efd15e99a199924b9f5e0c4d` (this act, parent
+> `eea4b60`; pushed from `push-pairing-act` per Rule 4.10, hook standing; HELD ancestry
+> clean). **MIRROR:** unchanged and current — PLACE-papers HEAD `13d8b2f` did not move;
+> `mirror-refresh-2026-08-20-f` remains the live export. *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
