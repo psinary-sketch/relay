@@ -253,13 +253,16 @@ staged-list update. SIDE-global-section: UNTOUCHED this act. Mirror: refreshed �
 **`mirror-refresh-2026-08-21-z.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section origin/main = SGS_SHA (untouched this act)` ·
-> `PLACE-papers origin/main = PP_SHA` · `relay origin/main = RELAY_SHA` (pushed
-> from `push-adelic-opening` per Rule 4.10, hook standing; HELD ancestry clean;
-> the HELD commit's two carrier-build act files verified ABSENT from the public
-> tree by name). **MIRROR:** `mirror-refresh-2026-08-21-z.zip` built at this
-> act's PLACE-papers tip. *This pin-line commit's own SHA is stated in the
-> closing message, per the regress rule.*
+> `SIDE-global-section origin/main = f4f4f252628d4567ec6277ad954f9f023738cc02`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed) · `PLACE-papers
+> origin/main = ea27ecddafc8a1684fb16d4067e5768fb27d1378` (parent `40d69b2`) ·
+> `relay origin/main = 77b0f7be671d0d5da14e847b3ab2b923a2d86e80` (this act,
+> parent `aafd8ed`; pushed from `push-adelic-opening` per Rule 4.10, hook
+> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
+> verified ABSENT from the public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-21-z.zip` built at PLACE-papers `ea27ecd`. *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
