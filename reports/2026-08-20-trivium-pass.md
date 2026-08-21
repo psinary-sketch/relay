@@ -68,7 +68,14 @@ verification, which is an explicit matrix computation at its own scoped grade an
 notes + the OPEN_TRAILS tier-two record — read back below. Relay: this report. Mirror:
 rebuilt at the new PLACE-papers HEAD below.*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = 8f5b54e7b0910432b7a827ea4f7aab488fac94b2` (the five annotations +
+> loom + REGISTRY notes + OPEN_TRAILS; papers 87 insertions / 0 deletions / 0 word-level
+> removals) · `relay origin/main = 7cd0383a1fdeba253bf47772f58629683e4e3ce9` (this act, parent
+> `8343f5a`; pushed from `push-trivium-pass` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** `mirror-refresh-2026-08-20-g.zip` built at PLACE-papers `8f5b54e` (22-file roster
+> + MANIFEST; seventh export of the date, collision clause). *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
