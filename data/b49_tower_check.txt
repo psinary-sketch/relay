@@ -1,0 +1,124 @@
+====================================================================================================
+b49 -- THE TOWER-COMPATIBILITY CHECK -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (THE ASSEMBLY ACT, OPENING; component 2; part 1 of 1, receipt
+confirmed). Relay-only. NO SIGN SENTENCE. h2 UNCHANGED BY CONSTRUCTION (exact
+finite checks at the banked cells and banked levels only; the level-limit object
+remains undecided and this registration says so). NOTHING DEPOSITS.
+
+QUESTION: within a single place, do the readable data at successive banked levels
+cohere under a natural map between their coefficient rings? Banked towers: place 2
+at levels 1, 2, 3; place 3 at levels 1, 2.
+
+STRUCTURE READ AT CONTENT BEFORE REGISTRATION (cited): the chart refinement
+(TowerInstance, banked): iota maps the level point (a, b) to the p host points
+(p a, b + q j), j = 0..p-1, VALUES COPIED (the (2,1)->(2,2) instance m'' = 2m + 8j
+generalizes to m'' = p m + (N+/p) j; re-derived here longhand from the charts).
+The banked intertwining (b23 T1/T2): F+ iota = iota F on Sonin columns; hence
+iota(E_1(level n)) is contained in E_1(level n+1) -- VERIFIED IN-RUN as gate G1
+(S+ iota(u) = q+ iota(u) exactly, per vector). The (2,1)->(2,2) step: d_1(2,1) = 0
+(the arrival-depth death) -- NO units exist at the lower level; that step is
+VACUOUS and recorded, not tested. The live pairs: (2,2)->(2,3), (3,1)->(3,2).
+At d_1(level) = 1 ((3,1)) the discrepancy table is IDENTICALLY ZERO (the b45
+vacuity note: 1x1 X is always proportional to G) -- pre-computed here, so the
+(3,1)->(3,2) test proper is on the X and G tables; the D-table test is nonvacuous
+only at (2,2)->(2,3). Registered in advance, not discovered.
+
+SCOPE DEVIATION, RECORDED BEFORE COMPUTING: the position-factor tables are the test
+object (operator correspondence E_ij -> E_{pi,pj}, deterministic under iota since
+a -> pa); the frequency side has NO deterministic index correspondence under iota
+(b spreads to {b + qj}) and is not tested this act -- said exactly, not smoothed.
+The host tables are computed on the iota-image SUB-basis (dimension d_1(level n),
+a proper subspace of the host E_1); the coherence claim is about the embedded data.
+
+THE CANDIDATE MAPS, NAMED BEFORE COMPUTING (the three natural maps; no further
+candidate is tested):
+  M1 COEFFICIENT REDUCTION/EMBEDDING: emb: Z[zeta_N] -> Z[zeta_N+], zeta_N |->
+     zeta_N+^{p^2} (a ring embedding; conj-compatible). The transport test: the
+     host tables on the iota-basis with corresponding operators equal the embedded
+     level tables UP TO THE PROJECTOR NORMALIZATION -- computed IN ADVANCE from the
+     banked identities, not fitted: iota copies each level point to p host points
+     (chart refinement), so every bilinear table gains EXACTLY the factor p:
+         X'' = p emb(X),   G'' = p emb(G)   (entrywise, exact),
+     and the KL discrepancy D[r][s] = X[r][s] G[0][0] - G[r][s] X[0][0], being
+     quadratic in the tables, gains p^2:
+         D'' = p^2 emb(D)   (entrywise, exact).
+     (The host-projector-built basis u+ = p iota(u) -- derived from
+     4q P_1 = (q + S)(1 + Pi) + the banked intertwining -- would add p per vector,
+     p^2 per table, p^4 on D; the iota-image basis is the registered object and the
+     u+ relation is stated for completeness, both normalizations pre-committed.)
+  M2 THE GALOIS TRACE: Tr = sum over sigma_c, c = 0..p^2-1, sigma_c: zeta_N+ |->
+     zeta_N+^{1+cN} (the Galois group of the level-(n+1)/level-n subextension).
+     Prediction, in advance: Tr is Z[zeta_N]-linear and Tr(emb(x)) = p^2 x, so
+         Tr(D'') = p^4 emb(D)   (entrywise, exact).
+  M3 THE NORM: Nm = product over the same sigma_c. Prediction, in advance: FAILS as
+     a table transport -- multiplicative, not linear; tested by cross-proportionality
+     across two nonzero table entries (Nm(D''[e1]) emb(D[e2]) =? Nm(D''[e2]) emb(D[e1]));
+     expected inequality exhibited exactly.
+
+REGISTERED NUMERIC PREDICTIONS (before any run): the silence-count law transports
+by Component 1's formula -- at level n+1 standalone the non-silent count is
+(q+ - 1)^2 + q+^2 (b45 banked: 113 at (2,3), 145 at (3,2)) and at level n it is
+(q - 1)^2 + q^2 (25 at (2,2), 41 at (3,1)... 41 is (5,1)'s; (3,1) has the vacuous
+d_1 = 1 count) -- the counts are the law's instances at each level, already banked;
+the test proper is the table transport above. Silence transports: ball-touching
+level operators map to ball-touching host operators (p i = 0 iff i = 0) -- the
+silent set maps into the silent set under the correspondence, an exact consequence
+of Component 1's theorem at both levels; verified as a check line.
+
+BRANCHES, longhand:
+(a) some named candidate carries the level-(k+1) table exactly onto the level-k
+    table: TOWER COHERENCE HOLDS AT THE BANKED LEVELS; files at synthesis grade --
+    the readable local data is coherent up the tower, the first positive evidence
+    about the level-limit object the range law has fenced off (said carefully: the
+    banked levels only; the limit remains undecided); the cross-place question (the
+    product-formula shape) is REGISTERED as the next act with its own branches, NOT
+    run in this one.
+(b) no named candidate carries any table onto its neighbor: coherence FAILS at the
+    banked levels; exact witnesses banked per map per level; the assembly reading
+    is CONSTRAINED and the report says exactly how; the cross-place question
+    INHERITS the constraint rather than dying (the leaves verdict's global
+    obstruction never required tower coherence -- the two questions stay distinct).
+Partial outcomes (one pair coheres, one fails) file per-pair; no averaging.
+
+Usage: python b49_tower_check.py register | run
+====================================================================================================
+### REGISTRATION CLOSED (data/b49_registration_2026-08-20.txt, banked before this run).
+### MEASUREMENT BEGINS. Exact Z[zeta] at both levels; normalizations pre-computed
+### in the registration (p on tables, p^2 on discrepancies, p^4 on the trace).
+### The (2,1)->(2,2) step is VACUOUS (d_1(2,1) = 0, arrival-depth death) -- recorded.
+
+PAIR (2,2) -> (2,3)   q = 4 -> 8   d_1(level) = 2
+  PASS G1  S+ iota(u_0) = q+ iota(u_0) exactly
+  PASS G1  S+ iota(u_1) = q+ iota(u_1) exactly
+  M1 G-table: G'' = p*emb(G) HOLDS EXACTLY
+  M1 X-tables (all 16 position operators): X'' = p*emb(X) HOLDS EXACTLY
+  M1 D-tables: D'' = p^2*emb(D) HOLDS EXACTLY
+  M2 trace: Tr(D'') = p^4*emb(D) HOLDS EXACTLY
+  silence transport: ball-touching (i=0 or j=0) level ops map to ball-touching host ops (p*i = 0 iff i = 0) -- exact by the correspondence; consistent with Component 1's theorem at both levels
+  M3 norm: cross-proportionality across ops (1, 1), (1, 2): FAILS -- as registered (multiplicative, not a table transport); exact witness banked
+
+PAIR (3,1) -> (3,2)   q = 3 -> 9   d_1(level) = 1
+  PASS G1  S+ iota(u_0) = q+ iota(u_0) exactly
+  M1 G-table: G'' = p*emb(G) HOLDS EXACTLY
+  M1 X-tables (all 9 position operators): X'' = p*emb(X) HOLDS EXACTLY
+  M1 D-tables: D'' = p^2*emb(D) HOLDS EXACTLY  [note: at d_1 = 1 the D-tables are identically zero -- the registered vacuity]
+  M2 trace: Tr(D'') = p^4*emb(D) HOLDS EXACTLY  [vacuous at d_1 = 1]
+  silence transport: ball-touching (i=0 or j=0) level ops map to ball-touching host ops (p*i = 0 iff i = 0) -- exact by the correspondence; consistent with Component 1's theorem at both levels
+  M3 norm: no two nonzero D entries at this pair (d_1 = 1 vacuity) -- the norm test is vacuous here, registered
+
+--- POST-RUN (banked with the run) ---
+VERDICT: BRANCH (a) -- TOWER COHERENCE HOLDS AT THE BANKED LEVELS, EXACTLY. The named
+candidate M1 (coefficient embedding/reduction) carries the level-(k+1) tables exactly
+onto the level-k tables at both live pairs, at the PRE-COMPUTED normalizations (p on
+X/G, p^2 on D; nothing fitted); M2 (Galois trace) carries them at p^4, exactly, where
+nonvacuous; M3 (norm) FAILS exactly as registered (multiplicative). Gates: iota-images
+verified inside the host E_1 (S+ iota(u) = q+ iota(u) exact, every vector). The
+(2,1)->(2,2) step vacuous (arrival-depth death); the (3,1)->(3,2) D/trace tests vacuous
+at d_1 = 1 (pre-registered); the nonvacuous discrepancy transport holds at (2,2)->(2,3).
+THE FINDING, synthesis grade: the readable local data is not merely structured within
+each level (b48) but COHERENT UP THE TOWER at the banked levels -- the first positive
+evidence about the level-limit object, said carefully: BANKED LEVELS ONLY; the
+level-limit itself remains undecided and nothing about it is claimed. THE CROSS-PLACE
+QUESTION (the product-formula shape) is REGISTERED as the next act with its own
+branches, NOT run in this one. Nothing about h2 claimed.
