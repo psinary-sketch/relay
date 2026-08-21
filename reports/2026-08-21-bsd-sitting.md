@@ -67,7 +67,14 @@ zero.**
 
 ## §4 — PINS
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = 7152f1f4ed6bcc939a88148aa7c2b03f683eeeb7` (I-12a + the loom
+> retro-table + the annotation + trails; 74 insertions, 0 deletions, word-level removals
+> zero) · `relay origin/main = 87befa188ee353b0d32d8736911cc33493fa0e09` (this act, parent
+> `96dd996`; pushed from `push-bsd-sitting` per Rule 4.10, hook standing; HELD ancestry
+> clean). **MIRROR:** `mirror-refresh-2026-08-21.zip` built at PLACE-papers `7152f1f`
+> (22-file roster + MANIFEST; the date's first export). *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
