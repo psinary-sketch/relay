@@ -103,8 +103,9 @@ Mirror: rebuilt at the new PLACE-papers HEAD (the date's sixth export, collision
 > **PIN LINE (post-push read-back, ls-remote):**
 > `PLACE-papers origin/main = a565095f64893bd4c7952623bd46544bface751b` (the consolidation
 > commit, parent `38fd833`) · `SIDE-global-section origin/main = 0576091` unmoved, tag
-> `v0.1.0` = peeled `706a81b` unmoved · `relay origin/main = [READ BACK AT PUSH]` (pushed
-> from `push-consolidation` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
+> `v0.1.0` = peeled `706a81b` unmoved · `relay origin/main =
+> 75f76c26b8d70c23c04954ce4ec4e06f9b0fdca1` (this act, parent `7c7293b`; pushed from
+> `push-consolidation` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
 > commit's two carrier-build act files verified ABSENT from the public tree by name).
 > **MIRROR:** `mirror-refresh-2026-08-21-f.zip` built at PLACE-papers `a565095`. *This
 > pin-line commit's own SHA is stated in the closing message, per the regress rule.*
