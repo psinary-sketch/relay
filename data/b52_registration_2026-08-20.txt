@@ -1,0 +1,74 @@
+====================================================================================================
+b52 -- THE PAIRING ACT -- REGISTRATION. NO MEASURED NUMBER.
+====================================================================================================
+FERRY 2026-08-20 (part 1 of 1, receipt confirmed). Relay-only. NO SIGN SENTENCE.
+h2 UNCHANGED BY CONSTRUCTION. THE LEAVES DISTINCTION, ONCE: factorization stays closed;
+this act's objects are compatibility structure. NOTHING DEPOSITS.
+
+COMPONENT 1 (the theorem about the number) -- scope declared: the general character-sum
+theorem. THE ALGEBRA, LONGHAND: for commuting order-four local transforms on a tensor
+product, the +1-sector dimension is tr of the global projector (1/4) sum_{j<4} (prod M_v)^j;
+trace is multiplicative across the tensor product, so
+    4 D = sum_{j<4} prod_v tr(M_v^j),   tr(M_v^j) = sum_lambda lambda^j d_lambda(v),
+values in Z[i], imaginary parts cancelling (j and 4-j pair up). REAL FORM AT k = 2,
+derived longhand (T3 = conj T1; T1 T1' + conj = 2 Re):
+    4 (d1 e1 + dm1 em1 + di emi + dmi ei)
+      = (d1+dm1+di+dmi)(e1+em1+ei+emi) + (d1+dm1-di-dmi)(e1+em1-ei-emi)
+        + 2[(d1-dm1)(e1-em1) - (di-dmi)(ei-emi)].
+Hand check at R5 dims ((0,0,1,0),(1,1,1,1)): LHS 4, RHS 4 + 0 + 0 = 4. OK.
+FORMALIZATION SCOPE: the k = 2 general-dims identity over Int at the zero-axiom bar
+(attempted by AC-rewriting; the fallback is the ferry's own clause); the flat-place
+corollary (equal dims force the twisted traces to zero and the collapse follows); the
+five banked roster instances already decided (CrossPlaceShadow, cited). Whatever resists
+(the general-k statement; k = 3 general dims if the tactic budget fights it) lands as a
+NAMED OPEN STATEMENT -- never a sorry.
+
+COMPONENT 2 -- THE FORM-LEVEL LIFT.
+THEOREM HALF, longhand: for factorizable test operators A = tensor(A_v),
+    4 tr(P1 A) = sum_{j<4} tr(M^j A) = sum_{j<4} prod_v tr(M_v^j A_v)
+-- the first equality is TRACE-LINEARITY over the projector's four terms, the second is
+TRACE-MULTIPLICATIVITY on Kronecker products; both enter as NAMED HYPOTHESES in the
+formalized statement, and the statement SAYS PLAINLY it inherits Component 1's mechanism
+(the same projector algebra one level up; independence with Component 1 is NOT claimed
+for this half -- rule (d)).
+MEASURED HALF -- the registered questions, sharpened longhand from the banks:
+ (i) SPANNING: the banked global test directions are products tensor(A_v) of banked
+     per-place data compressed to the banked E_1 BASES (b44/b45: the only banked bases
+     are E_1 bases; no E_{-1}, E_{+-i} basis exists in any bank). LONGHAND STRUCTURAL
+     DERIVATION, to be gate-verified not assumed: every banked basis vector satisfies
+     S u = q u exactly (the gates); hence every banked product vector lies in the
+     PRINCIPAL sector (all-ones pattern) of the global E_1; hence the banked span has
+     ZERO component in every mixed-pattern direction. The spanning verdict is therefore
+     decided by the gates: if they pass, branch (c) -- NOT VISIBLE IN THE BANKED SPAN --
+     lands with the shortfall EXACT: the mixed sectors need per-place E_{-1}, E_{+-i}
+     bases, constructible by the b44 projector method with the three twisted projectors
+     (1/4) sum (-1)^j M^j, (1/4) sum (-+i)^j M^j. PRICE, stated: one instrument sitting
+     (the b44/b45 machinery, three more projectors per cell, the same gates).
+ (ii) DETERMINATION: runs only if (i) finds visible mixed directions (it will not if the
+     gates pass -- said in advance); otherwise recorded as NOT REACHED with (c).
+CONSISTENCY GATE (the theorem half's run): at R5 = {(2,1),(3,1)}, direct 36-dimensional
+computation in the two-ring tensor ring Z[zeta_4] (x) Z[zeta_9] (exponent pairs mod
+(4, 9), componentwise reduction mod Phi_4 and Phi_9): for the registered operator list
+(per place: the identity; the silent E_{0,1}; the readable E_{1,1}), verify
+    tr(P1_global (A (x) B)) * 4 = sum_j tr(M_2^j A) * tr(M_3^j B)
+with the LEFT side computed ENTRYWISE on the global 36-dim space (never via the product
+shortcut) and the RIGHT side from per-place matrices. ANY FAILURE VOIDS THE ACT FOR
+REPAIR, not reinterpretation (the ferry's own clause). Further rosters add no new
+mechanism to this gate (the Kronecker-diagonal argument is roster-independent) --
+declared, with R5 chosen as the smallest live pair.
+PREDICTIONS: the factorizable identity holds exactly wherever tested; all surviving
+quantities transport by the proved exponent laws (count/form-type here -- the same
+screen reading as b51, stated); (2,1) enters through its FULL four-sector data (its
+M-powers' traces: tr M^0 = 1, tr M = i, tr M^2 = -1, tr M^3 = -i from the banked
+(0,0,1,0)) -- in advance.
+
+BRANCHES (the ferry's, verbatim in content): (a) mixed component visible and determined
+by local character data; (b) visible and NOT determined -- the excess banked exactly per
+roster, the form-level analogue of the deficits; (c) not visible in the banked span --
+said exactly, the spanning shortfall banked, the extension question STAGED AND PRICED
+for the author. Per the longhand derivation above, (c) is the registered expectation IF
+the gates pass; the gates decide, not the expectation.
+
+Bank: data/b52_pairing_act.txt. Deviation rule standing.
+Usage: python b52_pairing_act.py register | run
+====================================================================================================
