@@ -90,7 +90,8 @@ export built this act, `mirror-refresh-2026-08-21-u.zip`, is the one to load.***
 > `SIDE-global-section origin/main = a321b77fb868e38fc2a5869397dd6a8fd2e4ccc2` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 0dc35c03acbdb07b94a98b8224b91764c0949a81` (parent `9f8c7ce`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-fourth-visit` per Rule 4.10, hook standing;
+> 2236dcef0bd832eda808d12c64bcd9083d21cb05` (this act, parent `e342586`; pushed
+> from `push-fourth-visit` per Rule 4.10, hook standing;
 > HELD ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
 > from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-u.zip` built
 > at PLACE-papers `0dc35c0` — the one to load. *This pin-line commit's own SHA is
