@@ -85,7 +85,14 @@ EXECUTOR_RULES — all additive, diffs prove it). Relay (public): pre-act `origi
 3d47116`; this act's two reports; pin read back below. Mirror: refreshed at the new HEAD
 under the collision clause (`-d`, fourth export of the date).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = ad585d7e11696af2486dd80f87cbc63a78d1b2da` (the ledger commit —
+> 85 insertions, 0 deletions, additive proven) · `relay origin/main =
+> 511291a26c26a8cd830113ca057e4c4bec4a686d` (this act + the intake bank, parent `3d47116`;
+> pushed from `push-activation-act` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** `mirror-refresh-2026-08-20-d.zip` built at PLACE-papers `ad585d7` (22-file
+> roster + MANIFEST; the collision clause exercised — fourth export of the date). *This
+> pin-line commit's own SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT — THE AUTHOR'S DESK, THE DESK-SPLIT
 
