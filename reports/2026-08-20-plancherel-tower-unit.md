@@ -79,7 +79,14 @@ stands — the repository moves by commit only, no new tag, per the ferry). Rela
 registration + bank + instrument; the working-layer copy of PlancherelShadow. No PLACE-papers
 edit; no mirror rebuild (disclosed).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `SIDE-global-section main = 13e34b9c370cc9ff13bec5a0655e231f7ffbf202` (PlancherelShadow +
+> row 30; Core 129/129; tag `v0.1.0` = peeled `706a81b` unmoved) ·
+> `relay origin/main = cb666fa38deaa9710568ae7ae703a92da3031c33` (this act, parent `77f8b56`;
+> pushed from `push-plancherel-unit` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** unchanged and current — PLACE-papers HEAD `13d8b2f` did not move;
+> `mirror-refresh-2026-08-20-f` remains the live export. *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
