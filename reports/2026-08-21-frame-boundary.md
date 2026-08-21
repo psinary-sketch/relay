@@ -101,8 +101,8 @@ load.***
 > `SIDE-global-section origin/main = 134180b2e242fcf2da7c7329d53be64a9ce83191` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 9f8c7ce51b693b7d89c023ddd8525c725d7dc08c` (parent `0c6e4ca`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-frame-boundary` per Rule 4.10, hook
-> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
+> 6c6a5e9e8d40b47299db2b09a20b68ed3504dbcd` (this act, parent `91d2fae`; pushed
+> from `push-frame-boundary` per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two carrier-build act files
 > verified ABSENT from the public tree by name). **MIRROR:**
 > `mirror-refresh-2026-08-21-t.zip` built at PLACE-papers `9f8c7ce` — the one to
 > load. *This pin-line commit's own SHA is stated in the closing message, per the
