@@ -86,7 +86,14 @@ lives in the b49 bank and this report; the standing sequence is unchanged).*
 
 ## §4 — PINS
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `SIDE-global-section main = bca4923ece42f53f4bb82143e465a111db4e0d23` (KLSilence + row 29;
+> Core 121/121; the residence tag `v0.1.0` = peeled `706a81b` stands unmoved) ·
+> `relay origin/main = a45f5959b12f35e3e5de75ba9428f01275596a82` (this act, parent `ba24697`;
+> pushed from `push-assembly-opening` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** unchanged and current — PLACE-papers HEAD `13d8b2f` did not move this act;
+> `mirror-refresh-2026-08-20-f` remains the live export (the disclosed no-rebuild note).
+> *This pin-line commit's own SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT
 
