@@ -108,7 +108,8 @@ refreshed — **the author's project mirror should load this act's export,
 > `SIDE-global-section origin/main = d4b8ab4aaef8522efd08fcc83f3dc153deaf076e` (tag
 > `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
 > 0c6e4cacf846a4aaa9854a244ad30a5cf78ebf72` (parent `cf14930`) · `relay origin/main =
-> [READ BACK AT PUSH] (pushed from `push-congruence` per Rule 4.10, hook standing;
+> 0e9e39d3c0edae1f18751ec80a4ee0dc44454352` (this act, parent `9df3f28`; pushed
+> from `push-congruence` per Rule 4.10, hook standing;
 > HELD ancestry clean; the HELD commit's two carrier-build act files verified ABSENT
 > from the public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-s.zip` built
 > at PLACE-papers `0c6e4ca` — the one to load. *This pin-line commit's own SHA is
