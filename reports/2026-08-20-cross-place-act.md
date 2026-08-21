@@ -83,7 +83,14 @@ the b51 registration + bank + instrument; the working-layer copy of CrossPlaceSh
 PLACE-papers edit; no mirror rebuild (disclosed: HEAD `13d8b2f` unmoved,
 `mirror-refresh-2026-08-20-f` current).*
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `SIDE-global-section main = 42b264ebcf3843acdbb92106777e8e1f1c105bc9` (CrossPlaceShadow +
+> row 31; Core 132/132; tag `v0.1.0` = peeled `706a81b` unmoved) ·
+> `relay origin/main = 7d7f36c0616435a31fd1c16859382c1499d3e39d` (this act, parent `3d22710`;
+> pushed from `push-cross-place` per Rule 4.10, hook standing; HELD ancestry clean).
+> **MIRROR:** unchanged and current — PLACE-papers HEAD `13d8b2f` did not move;
+> `mirror-refresh-2026-08-20-f` remains the live export. *This pin-line commit's own SHA is
+> stated in the closing message, per the regress rule.*
 
 ## FOOT
 
