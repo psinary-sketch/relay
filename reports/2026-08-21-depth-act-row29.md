@@ -123,7 +123,8 @@ HEAD (PLACE-papers moves this act).*
 > 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164` (parent `5e668b4`; tag `v1.5` peeled =
 > `0e5233f` unmoved by ls-remote; the deposit line untouched) · `PLACE-papers
 > origin/main = 454197caad647eef17b42079f126a45a63ba5122` (parent `a565095`) ·
-> `relay origin/main = [READ BACK AT PUSH]` (pushed
+> `relay origin/main =
+> 005d8e1360dd95b4eb9daf8cd6377766bd915311` (this act, parent `44fcb12`; pushed
 > from `push-depth-row29` per Rule 4.10, hook standing; HELD ancestry clean; the HELD
 > commit's two carrier-build act files verified ABSENT from the public tree by name).
 > **MIRROR:** `mirror-refresh-2026-08-21-g.zip` at the new PLACE-papers HEAD. *This
