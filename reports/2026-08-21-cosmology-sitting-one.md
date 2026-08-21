@@ -68,7 +68,14 @@ insertions, 0 deletions; word-level removals zero.**
 
 ## §4 — PINS
 
-> **PIN LINE (post-push read-back):** *appended by the pin commit after ls-remote verification.*
+> **PIN LINE (post-push read-back, ls-remote):**
+> `PLACE-papers origin/main = 0f039ac5b52a195a482f4a7badf883cacd6e305d` (the three
+> annotations + the loom component-1 line + trails; 89 insertions, 0 deletions, word-level
+> removals zero) · `relay origin/main = c5f93feaace530ea5df6e101356b905b49f18a36` (this act,
+> parent `18ee3f3`; pushed from `push-cosmology-one` per Rule 4.10, hook standing; HELD
+> ancestry clean). **MIRROR:** `mirror-refresh-2026-08-21-b.zip` built at PLACE-papers
+> `0f039ac` (22-file roster + MANIFEST; the date's second export, collision clause). *This
+> pin-line commit's own SHA is stated in the closing message, per the regress rule.*
 
 ## FOOT
 
