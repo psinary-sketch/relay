@@ -1,0 +1,36 @@
+====================================================================================================
+b59 COMPONENT 3 BANK -- THE METAPLECTIC SQUARE-ROOT CHECK AT (2,2)
+(file name per the ferry, verbatim: data/b58_metaplectic_root.txt)
+====================================================================================================
+Registration: data/b59_registration_2026-08-21.txt (banked before the decide; both
+branches longhand there).
+
+THE CONSTRAINT (registration-derived): W^2 = M forces W^4 = (W^2)^2 = M^2 = Pi (the
+parity; S^2 = q^2 Pi banked). W^4 = -1 therefore forces Pi = -1 on the whole chart.
+
+THE DECIDE (kernel, zero-axiom -- MetaplecticRootShadow, Core 178/178):
+  u_gauss_eigen: the u-line (u = 1_{4Z}, the ball indicator) satisfies S u = 4 u --
+    all 16 coordinate rows decided in Z[zeta_16] 8-coordinates (the geometric sum
+    collapses to 4 on ball rows, 0 off) => M u = u with M = S/4.
+  parity_and_sign: Pi u = u (the parity permutation fixes the ball indicator) and
+    u /= -u -- decided.
+  square_root_obstruction (abstract): if W^2 fixes u and W^4 sends u to -u while
+    -u /= u, no such W -- False.
+
+VERDICT: ### BRANCH (b) -- THE REGISTERED EXPECTATION. No operator W on the (2,2)
+chart has W^2 = M and W^4 = -1. THE OBSTRUCTION EXACT: the spectral constraint that
+fails is the parity constraint W^4 = M^2 = Pi = -1, refuted on the parity-even sector
+by the banked u-line witness (M u = u, Pi u = u, u /= -u -- every piece decided).
+
+THE FRAME BOUNDARY, NAMED: the -1-fourth-power condition HOLDS exactly on the twisted
++-i sectors (M^2 = (+-i)^2 = -1 there; row 33's compiled tower witness
+M(iota u) = i * iota u gives M^2(iota u) = -iota u). So the C_8 frame lives on the
+twisted sectors only -- THE FRAME BOUNDARY IS THE PARITY SPLIT. The companion wonder
+(M^4 = +1 vs W^4 = -1, one sign apart) keeps its wonder grade with its first hard
+datum: on the chart the sign is unreachable; on the twisted sectors it is already
+present.
+
+RANGE LAW: a statement about the banked (2,2) chart and its sectors at the exact
+level; the extension questions (other cells, tower behavior of the frame boundary)
+are STAGED per the ferry's branch text, not run. Nothing about h2.
+====================================================================================================
