@@ -187,7 +187,20 @@ line) + TECHNE_INTAKE §5. Mirror: refreshed —
 **`mirror-refresh-2026-08-22-r.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = 67afb4bad1b59bfb6b1d79e979643e68be80ee82`
+> (the strikeable's commit — the all-levels block at the classical profile,
+> row 65 amended; **Core unchanged at 262/262**; parent `fd649c1`; tag
+> `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers origin/main =
+> c2b7eb2e711b876d9bcf43b39e3537f6077a336c` (the v2.8 commit; parent
+> `3a8c177`) · `relay origin/main =
+> bd7c8259082519dd9c4c80c55e841e8ff2f2f70f` (this act — the registration
+> commit `bea2f94` then the report commit, the chain continuous from
+> `10df6b8`; pushed from `push-eighth-seam-close` per Rule 4.10, hook
+> standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-r.zip` built at
+> PLACE-papers `c2b7eb2`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
