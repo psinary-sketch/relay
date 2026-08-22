@@ -216,7 +216,18 @@ record + the sequence's dated b93 line. Mirror: refreshed —
 **`mirror-refresh-2026-08-22-i.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = 267ef9d0a852ba6ac93e57cdb7553d36aac3f87b`
+> (this act's kernel commit — BridgeShadow, row 62, Core 254/254; parent
+> `f318b35`; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = f7a258f504e02c53627fee326ab5c60927f3e487` (parent `1301788`) ·
+> `relay origin/main = 0a3b4d2806937f27cd8707797ef8341415659d46` (this act —
+> the registration commit `b55ebc6` then the act commit, the chain continuous
+> from `81936b6`; pushed from `push-b93-bridge-half` per Rule 4.10, hook
+> standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-i.zip` built at
+> PLACE-papers `f7a258f`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
