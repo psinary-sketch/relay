@@ -1,0 +1,25 @@
+  P1 (2,1) N=4: shell count 3 == 3; sizes [2, 1, 1]: PASS
+  P1 (2,2) N=16: shell count 5 == 5; sizes [8, 4, 2, 1, 1]: PASS
+  P1 (2,3) N=64: shell count 7 == 7; sizes [32, 16, 8, 4, 2, 1, 1]: PASS
+  P1 (2,4) N=256: shell count 9 == 9; sizes [128, 64, 32, 16, 8, 4, 2, 1, 1]: PASS
+  P1 (3,1) N=9: shell count 3 == 3; sizes [6, 2, 1]: PASS
+  P1 (3,2) N=81: shell count 5 == 5; sizes [54, 18, 6, 2, 1]: PASS
+  P1 seed address level 1: gcd(1,2) = 1 == 2^0: PASS
+  P1 seed address level 2: gcd(2,4) = 2 == 2^1: PASS
+  P1 seed address level 3: gcd(4,8) = 4 == 2^2: PASS
+  P1 seed address level 4: gcd(8,16) = 8 == 2^3: PASS
+  P1 boundary index at N=4: primitive shell off the doubling image AND zero terminal: PASS
+  P1 boundary index at N=16: primitive shell off the doubling image AND zero terminal: PASS
+  P1 boundary index at N=64: primitive shell off the doubling image AND zero terminal: PASS
+  P2 intertwining gcd law at N=4 (full range): PASS
+  P2 intertwining gcd law at N=16 (full range): PASS
+  P2 intertwining gcd law at N=64 (full range): PASS
+  P2 intertwining gcd law at N=256 (full range): PASS
+  P2 ball-boundary transition at level 1: shells [1] == [2^0]: PASS
+  P2 ball-boundary transition at level 2: shells [2] == [2^1]: PASS
+  P2 ball-boundary transition at level 3: shells [4] == [2^2]: PASS
+  P3 (2,1) shells [(0, (0, 2)), (1, (1, 0)), (2, (1, 0))] total (2, 2) == (2,2)=q(1+i): PASS
+  P3 (3,1) primitive shell silent, total (3, 0, 0, 0, 0, 0) == 3=q: PASS
+  P3 (2,2) primitive shell silent, shells-by-v [(0, (0, 0, 0, 0, 0, 0, 0, 0)), (1, (0, 0, 0, 0, 4, 0, 0, 0)), (2, (2, 0, 0, 0, 0, 0, 0, 0)), (3, (1, 0, 0, 0, 0, 0, 0, 0)), (4, (1, 0, 0, 0, 0, 0, 0, 0))], total (4, 0, 0, 0, 4, 0, 0, 0) == 4+4i=q(1+i): PASS
+  P4 radial coordinate factors through the place split at D=36: PASS
+  P4 radial coordinate factors through the place split at D=100: PASS
