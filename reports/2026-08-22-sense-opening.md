@@ -352,7 +352,18 @@ line. Mirror: refreshed — **`mirror-refresh-2026-08-22-o.zip` is the one to
 load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = 395f8fa1d0d5ff7a3fa157d641fe2681b3a09886`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; Core 258/258,
+> rows 1–63; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = 9c0941a46e7069a6eb2d50baa0481d4bee95504e` (parent `d2818c5`) ·
+> `relay origin/main = a6008bd8c52bc331a7b5295c89455731332de24f` (this act —
+> the registration commit `57cbfd7` then the act commit, the chain
+> continuous from `0ecddb0`; pushed from `push-sense-opening` per Rule 4.10,
+> hook standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-o.zip` built at
+> PLACE-papers `9c0941a`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
