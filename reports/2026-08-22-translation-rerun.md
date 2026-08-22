@@ -171,7 +171,18 @@ law. Mirror: refreshed — **`mirror-refresh-2026-08-22-j.zip` is the one to
 load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = 267ef9d0a852ba6ac93e57cdb7553d36aac3f87b`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; Core 254/254,
+> rows 1–62; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = a616c17f6749c6434f8dc4d10f73354df4e01531` (parent `f7a258f`) ·
+> `relay origin/main = 85fa44eb590cfccb3d0fdbf9b1161a76773a97ba` (this act —
+> the registration commit `daf8608` then the act commit, the chain continuous
+> from `09f7a0c`; pushed from `push-b94-translation-rerun` per Rule 4.10,
+> hook standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-j.zip` built at
+> PLACE-papers `a616c17`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
