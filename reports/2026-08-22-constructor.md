@@ -148,13 +148,16 @@ SIDE-global-section: `ConstructorShadow` + rows 61/41 + regenerated prints
 the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section origin/main = SGS_SHA` · `PLACE-papers origin/main =
-> PP_SHA` · `relay origin/main = RELAY_SHA` (pushed from `push-constructor`
-> per Rule 4.10, hook standing; HELD ancestry clean; the HELD commit's two
-> carrier-build act files verified ABSENT from the public tree by name).
-> **MIRROR:** `mirror-refresh-2026-08-22-f.zip` built at this act's
-> PLACE-papers tip. *This pin-line commit's own SHA is stated in the closing
-> message, per the regress rule.*
+> `SIDE-global-section origin/main = 1f423da0a62ef90dfcfa16351c050e6da4cd625f`
+> (the act commit; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = a3cb4ff8f6adf95c602584449efc57ed9fb4de15` (parent `616d1f0`) ·
+> `relay origin/main = 3c50fbf450e4f5ec6ddf1d0d68b2112d5a675cff` (this act,
+> parent `179c915`; pushed from `push-constructor` per Rule 4.10, hook
+> standing; HELD ancestry clean; the HELD commit's two carrier-build act
+> files verified ABSENT from the public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-22-f.zip` built at PLACE-papers `a3cb4ff`. *This
+> pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
 
 ## FOOT
 
