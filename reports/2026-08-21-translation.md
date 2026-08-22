@@ -100,13 +100,17 @@ record + the sixth-step clause + Gate 5's exercised line. Mirror: refreshed —
 **`mirror-refresh-2026-08-21-aj.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section origin/main = SGS_SHA (row 58 only)` · `PLACE-papers
-> origin/main = PP_SHA` · `relay origin/main = RELAY_SHA` (pushed from
-> `push-translation` per Rule 4.10, hook standing; HELD ancestry clean; the
-> HELD commit's two carrier-build act files verified ABSENT from the public
-> tree by name). **MIRROR:** `mirror-refresh-2026-08-21-aj.zip` built at this
-> act's PLACE-papers tip. *This pin-line commit's own SHA is stated in the
-> closing message, per the regress rule.*
+> `SIDE-global-section origin/main = 1d653876fee5bb292568d0c2b267d9d1156f7a8b`
+> (the row-58 commit only; tag `v0.1.0` = peeled `706a81b` unmoved) ·
+> `PLACE-papers origin/main = e7a9ecf95d56e0dd54c13e2dd68801fbb0a22e13`
+> (parent `ef6a2cc`) · `relay origin/main =
+> 091a1e0537297b38cf5b4715d4cebb26756c8142` (this act, parent `1fc3a6c`;
+> pushed from `push-translation` per Rule 4.10, hook standing; HELD ancestry
+> clean; the HELD commit's two carrier-build act files verified ABSENT from
+> the public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-21-aj.zip` built at PLACE-papers `e7a9ecf`. *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
