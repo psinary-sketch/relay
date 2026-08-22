@@ -254,13 +254,16 @@ Mirror: refreshed — **`mirror-refresh-2026-08-21-af.zip` is the one to
 load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section origin/main = SGS_SHA` · `PLACE-papers origin/main =
-> PP_SHA` · `relay origin/main = RELAY_SHA` (pushed from
-> `push-window-existence` per Rule 4.10, hook standing; HELD ancestry clean;
-> the HELD commit's two carrier-build act files verified ABSENT from the
-> public tree by name). **MIRROR:** `mirror-refresh-2026-08-21-af.zip` built
-> at this act's PLACE-papers tip. *This pin-line commit's own SHA is stated in
-> the closing message, per the regress rule.*
+> `SIDE-global-section origin/main = 236e669cb2d1c6c6bef90ea8ea75cbf6a80c4fad`
+> (the act commit; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = 48642ba85c2943c607726370735deff510e4d8aa` (parent `2ebf259`) ·
+> `relay origin/main = a727e417805dbd5ffb211d93e631aeb4d11c083f` (this act,
+> parent `c38f524`; pushed from `push-window-existence` per Rule 4.10, hook
+> standing; HELD ancestry clean; the HELD commit's two carrier-build act files
+> verified ABSENT from the public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-21-af.zip` built at PLACE-papers `48642ba`. *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
