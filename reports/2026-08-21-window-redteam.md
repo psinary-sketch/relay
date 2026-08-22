@@ -134,14 +134,17 @@ repos: UNTOUCHED except CORRESPONDENCE row 57's dated tag-correction note
 **`mirror-refresh-2026-08-21-ai.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> `SIDE-global-section origin/main = SGS_SHA (the row-57 note only)` ·
-> `PLACE-papers origin/main = PP_SHA` · `relay origin/main = RELAY_SHA`
-> (pushed from `push-window-redteam` per Rule 4.10, hook standing; HELD
-> ancestry clean; the HELD commit's two carrier-build act files verified
-> ABSENT from the public tree by name). **MIRROR:**
-> `mirror-refresh-2026-08-21-ai.zip` built at this act's PLACE-papers tip.
-> *This pin-line commit's own SHA is stated in the closing message, per the
-> regress rule.*
+> `SIDE-global-section origin/main = 6ae670107dc6e26647444dd13540f897a29cc940`
+> (the row-57 tag-correction commit only; tag `v0.1.0` = peeled `706a81b`
+> unmoved) · `PLACE-papers origin/main =
+> ef6a2cc02621e71707e0f0497603eec995b9aae6` (parent `ebcfe47`) · `relay
+> origin/main = 503e467e1335a83f771040f25639589ac180a6b7` (this act, parent
+> `b65d35b`; pushed from `push-window-redteam` per Rule 4.10, hook standing;
+> HELD ancestry clean; the HELD commit's two carrier-build act files verified
+> ABSENT from the public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-21-ai.zip` built at PLACE-papers `ef6a2cc`. *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
