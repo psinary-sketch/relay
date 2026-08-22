@@ -1,0 +1,137 @@
+====================================================================================================
+b104 -- THE ORIENTATION-DEPENDENCE READ -- THE BANK. Registration:
+data/b104_registration_2026-08-22.txt (the orbit argument written out BEFORE
+the grading, with its equivariance premise, its pre-named failure mode, and
+its scope limits fixed in advance). Kernel: OrientationShadow (3 terminals,
+zero-axiom; Core 268/268; row 67). Components ordered: 3 consumes 1-2.
+NOTHING BUILT; a grading read plus decidable checks.
+====================================================================================================
+
+COMPONENT 1 -- THE INVARIANCE CENSUS (P1), TERM BY TERM, THE WORDS AND
+DECLARED TYPES QUOTED FROM THE OWNER FILE.
+
+ (1) THE CELL. Words: "a banked diagonal cell: the window a^2 > 1".
+   Declared: `structure DiagonalCell where a_sq : Q ; one_lt : 1 < a_sq`.
+   ### INVARIANT. The cell's datum is RATIONAL and its condition is a
+   rational inequality; conjugation fixes Q pointwise and therefore fixes
+   both the datum and the window. No orientation enters the index set.
+ (2) THE ARCHIMEDEAN TRACE. Words: "the epsilon-regularized archimedean
+   E1-trace on the constrained class at a cell". Declared:
+   `structure ArchimedeanE1Trace (cell) where value : R`.
+   ### INVARIANT AT STATEMENT LEVEL. The term the identity consumes is
+   `value : R` -- a REAL number, pointwise fixed by conjugation.
+ (3) THE CONSTRAINED CLASS (the one census item not settled by a type, and
+   the one that needed a citation rather than a glance). The class is the
+   E1 sector, the +1-eigenspace of F. ### CONJUGATION-STABLE, with support:
+   the eigenvalue +1 is real and therefore fixed by conjugation; and the
+   sector's projection is `proj4 F 1` = (1/4)(1 + F + F^2 + F^3) [b100,
+   proved at the owner], whose coefficients are REAL, so the projection
+   commutes with conjugation and the sector maps to itself. (Contrast, and
+   this is why the item deserved checking: the C8 frame lives on the TWISTED
+   sectors, which conjugation EXCHANGES -- rows 39/40/66. The constrained
+   class is on the fixed side of that split, not the exchanged side.)
+ (4) THE QUOTIENT TRACE. Declared: `value : R`. ### INVARIANT AT STATEMENT
+   LEVEL, same reason as (2).
+ (5) WEIL'S LEDGER. Words: "W_inf (CC convention, the act-12 dictionary) and
+   the prime sum, the atlas's certified columns". Declared:
+   `wInf : R ; wPrimes : R`. ### INVARIANT AT STATEMENT LEVEL: both real.
+   NOTE ON "THE CC CONVENTION", named rather than passed over: the docstring
+   attaches a CONVENTION to W_inf. A convention is precisely what row 52's
+   audit rules gauge -- and the identity consumes the convention's OUTPUT
+   (a real number), not the convention itself.
+ (6) THE RELATION. Declared: `T.value + Q.value = W.wInf - W.wPrimes` -- an
+   equation between real numbers. ### INVARIANT.
+
+### P1 VERDICT: BRANCH (a) -- EVERY TERM CONJUGATION-INVARIANT AT STATEMENT
+LEVEL. No orientation-dependent term exists to name. THE DECISIVE MATERIAL
+IS THE FILE'S OWN SIGNATURES: the identity is an equation in R over a
+rational index, and the only item requiring an argument rather than a glance
+(the class) is on conjugation's FIXED side by a real-coefficient projection.
+
+COMPONENT 2 -- THE LEDGER CHECK (P2), DECIDED IN KERNEL (row 67).
+ conj_fixes_real_flips_imaginary: the junction ledger's own summands and
+   total under (a,b) -> (a,-b): (1,0) fixed; (0,-1) -> (0,+1); the suspect's
+   value (1,-1) -> (1,+1); THE REAL PART INVARIANT AT 1 on both. Exactly the
+   ferry's P2 sentence, decided.
+ twin_conjugate_sum_real: at every banked q in {2,3,4,5,8,9,16,27},
+   q(1+i) + q(1-i) = (2q, 0) -- the conjugate-pair sum is REAL, and it is the
+   same real number from either wing.
+ real_functionals_agree_on_the_orbit: at the ledger's own value and at every
+   banked twin, the REAL PART and the NORM-SQUARE agree on a point and on its
+   conjugate (norm^2 = 2 at the suspect, matching row 57's decided value).
+### P2 VERDICT: LANDS AS REGISTERED, all three decided, zero-axiom.
+
+COMPONENT 3 -- THE VERDICT (P3) AND THE FILINGS.
+
+THE CHAIN, as registered before the grading and now run:
+ (a) every term of the identity is real over a rational index [C1, decided
+     at the file's signatures];
+ (b) conjugation EXCHANGES the two wings and fixes neither [row 66, b103];
+ (c) THE ORBIT ARGUMENT: a real-valued quantity produced from the recorded
+     data by a conjugation-EQUIVARIANT construction takes the same value on
+     both wings -- equivariance sends its value to that value's conjugate,
+     and a real number is its own conjugate. The two wings therefore yield
+     THE SAME REAL TERM. [Derived, general; its arithmetic at the recorded
+     data decided at row 67.]
+ (d) THE EQUIVARIANCE PREMISE, and its support: row 50's audit (the recorded
+     standard's weight-bearing facts are F -> F^3-symmetric) and row 52's
+     one-dictionary audit. The premise is supported; the pre-named failure
+     mode did NOT fire.
+
+### P3 VERDICT: THE ABSOLUTE ORIENTATION DISSOLVES ON THE IDENTITY'S PATH.
+File E's identity consumes the RELATIVE correlation (derived, D3) and REAL,
+orientation-indifferent terms; it consumes NO absolute wing selection.
+Whichever wing one "chooses", the identity's terms are literally identical --
+so the choice is not underdetermined for the identity, it is IMMATERIAL to
+it. THE ROW-52 PRECEDENT CITED AS THE SHAPE'S SECOND INSTANCE, with the
+difference stated precisely: row 52 dissolved what the RECORD CAN SAY about
+the absolute class (a pseudo-question by construction); this act dissolves
+what THE IDENTITY CONSUMES of it (immaterial to a real-termed equation).
+Related shape, distinct claims -- neither imported into the other.
+
+*** THE SCOPE, FIXED IN THE REGISTRATION AND HELD HERE. WHAT THIS VERDICT
+DOES NOT DO: (i) it says nothing about claims ABOUT the wing or the class
+themselves -- every such claim KEEPS ITS NAMED MISSING FACT, and the
+orientation fact retires only from the identity's path, not from the record;
+(ii) it does NOT re-grade row 57's three-tag sentence -- whether the
+[UNDER H-COH-inf] tag is still needed where the value is read as a real
+quantity is a CONSEQUENCE CANDIDATE for a later act with its own gate, named
+here at candidate grade and NOT acted on; (iii) it does not touch the
+canon-XIX bar's text; (iv) it does not make the identity true, provable, or
+its terms computable -- IT REMOVES AN OBSTACLE FROM THE PATH; IT DOES NOT
+WALK THE PATH. The distinction is the whole of the verdict's modesty and is
+stated here so no later reader can borrow more. ***
+
+ONE ABSENCE, NAMED IN ADVANCE AND STILL STANDING: the record states the
+ledger's sum as the COMPLEX value 1 - i and file E's terms as REAL, and it
+does not state anywhere WHICH real functional of the ledger data the
+identity's archimedean term is. The orbit argument was built not to need
+that -- it holds for ANY real-valued equivariant functional -- and the act
+says so plainly rather than quietly fixing one. The absence is unchanged by
+this act and is not a blocker for the verdict as scoped.
+
+THE FILINGS (P3 branch (a)):
+ THE MAP RE-ORDERED, per the cell: THE IDENTITY'S BLOCKER LIST = G-EXT-3 +
+ THE RE-RERUN + THE GUARDED BOUNDARY. The orientation fact moves OFF the
+ identity's path and into THE ABSOLUTE-CLAIMS LANE, where it keeps its full
+ force. L2's obstruction (b103) is unchanged as a fact but its CONSEQUENCE
+ narrows: the transport was wanted for the absolute reading, and the
+ identity's path no longer waits on it -- so L2 stays a named obstruction in
+ the absolute-claims lane rather than a blocker on the identity.
+ THE D3 RE-GRADE: still HELD -- its own blocker list (L2 + G-EXT-3) is a
+ different list from the identity's, and this act does not shorten it. Read
+ from the cell.
+ ROWS: row 67 records the decided core; rows 57/61/63/66 cited, not moved;
+ file E's row untouched (the file states, it does not prove, and this act
+ changes nothing about that).
+ THE NINTH SEAM CLOSE'S DEBT: b103 + this act (rows 66-67), owed at the
+ cadence.
+
+HIT RECORD: P1 branch (a) as registered, with the class item flagged in
+advance as the one needing an argument and duly supported; P2 as registered,
+all three decided; P3 branch (a) with the row-52 precedent cited as a shape
+and its difference stated. The pre-named failure mode (the equivariance
+premise) did not fire and was checked rather than assumed. The scope limits
+registered in advance were held verbatim at the verdict. Deviations: none.
+Divergences: none. The surprise protocol: NOT FIRED.
+====================================================================================================
