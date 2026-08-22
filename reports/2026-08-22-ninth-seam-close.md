@@ -157,7 +157,19 @@ two-lane map line). SIDE-global-section: UNTOUCHED this act (Core stands
 **`mirror-refresh-2026-08-22-u.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = a2565c719b4a492cacb52cd29a57a194d86126a3`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; Core 268/268,
+> rows 1–67; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = fb107dae9860e09b01668009d2145a62e2877152` (the v2.9 commit;
+> parent `922bfab`) · `relay origin/main =
+> 21b33df21218678e4e6dbab7cf6e946c07c1c083` (this act — the registration
+> commit `bf197e3` then the report commit, the chain continuous from
+> `a665293`; pushed from `push-ninth-seam-close` per Rule 4.10, hook
+> standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-u.zip` built at
+> PLACE-papers `fb107da`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
