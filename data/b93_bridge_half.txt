@@ -1,0 +1,175 @@
+====================================================================================================
+b93 -- THE BRIDGE-HALF ACT -- THE BANK. Registration:
+data/b93_registration_2026-08-22.txt (the chain S0-S7 longhand, the labels,
+P2's specialization dictionary and P3's audit ground ALL FIXED BEFORE THE
+RUN). Instrument: tools/e16/b93_bridge_half.py (K1-K4 cross-checked at 1e-9,
+ALL PASS, before the Lean decide). Kernel: BridgeShadow (4 terminals,
+zero-axiom; Core 254/254; row 62). Components ORDERED per rule (d): 2
+consumes 1; 3 consumes 2.
+====================================================================================================
+
+COMPONENT 1 -- THE DERIVATION (P1, P2). THE CHAIN AS RUN (identical to the
+registered chain; divergence: none; every label at first appearance):
+
+S0 [recorded/built]: Theta per b90 AS CORRECTED -- carrier the shell model's
+  limit space over the real fiber at the CC scale; the mass series summable
+  by the corrected two-half chain (the odd half by part A's discharged
+  bookkeeping, the even half by the even machinery's own recorded bookkeeping
+  at the same cite grade); formal rational data the chart theta. psi(x) :=
+  the real-fiber profile read as the classical-side kernel
+  Sigma_{n>=1} exp(-pi n^2 x), x > 0. THE ATTACHMENT of everything below to
+  Theta rides step A's identification (rows 59/61) and the recorded SOT
+  caveat (stated-not-proved at its owner) -- the labels ride every consuming
+  sentence.
+S1 [cite, at the proved profile]: Lambda_0(1-s) = Lambda_0(s) -- fe_symmetry,
+  D:\SIDE-kernel\Bridge\Voice3_FE.lean, = mathlib
+  completedRiemannZeta_0_one_sub. THE PRINT, taken this act via the
+  SIDE-kernel build (#print axioms fe_symmetry):
+  'fe_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+  -- VERBATIM, the expected proved profile exactly; S1's consumption
+  unblocked at this line; the chain stands at its registered grades.
+S2 [cite]: Lambda(s) = Lambda_0(s) - 1/s - 1/(1-s) (mathlib's pole
+  normalization); [derived, one line] Lambda(1-s) = Lambda(s), the pole part
+  itself s <-> 1-s symmetric. Pole data [derived from S2]: residue of Lambda
+  at s = 1 is +1 (pi^{-1/2} Gamma(1/2) = 1 against zeta's simple pole);
+  residue at s = 0 is -1 (Gamma(s/2) ~ 2/s against zeta(0) = -1/2).
+S3 [cite, the recorded theta--Mellin line]: Lambda(s) =
+  integral_0^inf psi(x) x^{s/2-1} dx, Re(s) > 1 -- the cite
+  (TheBridgeComplete.lean:50-52) and its definitional home (mathlib:
+  completedRiemannZeta = (hurwitzEvenFEPair 0).Lambda(s/2)/2, the Mellin
+  transform of the even theta kernel).
+S4 [cite + the record's ground]: Mellin inversion at Re t = c' > 1/2
+  (t = s/2): psi(x) = (1/2 pi i) integral_{(c')} Lambda(2t) x^{-t} dt.
+  Ground: psi continuous on (0, inf) and the mass series summable [S0]; the
+  inversion theorem at CITE (classical Mellin inversion; mathlib's
+  mellin_inversion the cite's home).
+S5 [derived arithmetic + ONE BENCH STEP, labeled]: the line shifts c' ->
+  1/2 - c'. Lambda_0 entire [cite]; Lambda(2t)'s poles at t = 1/2 (residue
+  1/2, from S2's +1) and t = 0 (residue -1/2, from S2's -1) [derived]; the
+  rectangle's horizontal sides vanish by the vertical-decay bound [BENCH --
+  Stirling + Phragmen-Lindelof grade; NOT in the record at proved grade; THE
+  ONE BENCH STEP OF THE CHAIN, the label rides every consumption]. Yield:
+  psi(x) = (1/2) x^{-1/2} - 1/2 +
+  (1/2 pi i) integral_{(1/2-c')} Lambda(2t) x^{-t} dt.
+S6 [derived]: u := 1/2 - t (the orientation double-flip checked longhand:
+  dt = -du and the traversal direction reverses, net sign +): the shifted
+  integral = (1/2 pi i) integral_{(c')} Lambda(1-2u) x^{-1/2+u} du =
+  x^{-1/2} (1/2 pi i) integral_{(c')} Lambda(2u) x^{u} du [S2's symmetry] =
+  x^{-1/2} psi(1/x) [S4 read at 1/x].
+S7 [derived -- THE LAW, at its landed grade]: for all x > 0:
+      psi(x) = x^{-1/2} psi(1/x) + (1/2) x^{-1/2} - 1/2,
+  equivalently theta(x) = x^{-1/2} theta(1/x), theta := 1 + 2 psi.
+  Sanity longhand: x = 1 trivially equal; theta-form checked by 1 + 2 psi
+  substitution.
+  THE LANDED GRADE, exact: DERIVED-AT-CITE-CHAIN with ONE BENCH STEP (S5's
+  decay bound) and the S0 attachment caveat (step A's identification + the
+  SOT sense's own proof-status). The grade travels with every consumption.
+
+P1 VERDICT: ### BRANCH (a) AT THE REACHABLE GRADE -- THE LAW DERIVES, the
+chain complete S0-S7, no step stalled; the reachable grade is cite-chain
+with the one bench step and the attachment caveat, said exactly.
+
+PROVENANCE DISCLOSURE (registered in advance; restated wherever P1 is
+consumed): the cite's own upstream proof route in mathlib reaches the
+symmetry THROUGH the theta transformation law
+(jacobiTheta_2_functional_equation -> evenKernel_functional_equation ->
+hurwitzEvenFEPair.h_feq -> WeakFEPair.functional_equation ->
+completedRiemannZeta_0_one_sub). The derivation RUNS THAT BRIDGE BACKWARDS:
+its value to the record is the LOCATION of the transformation statement on
+the record's sanctioned ground with every step labeled, and the
+finite-shadow tie below -- NEVER provenance-independence from
+Poisson-summation ground. The act-6 caution is honored exactly thus: the
+classical law did not enter by familiarity; the record gains the statement
+the chain reaches, at its grades.
+
+P2 -- THE FINITE SHADOW GATE (rule (b), the dictionary as registered): the
+derived law's automorphy content = theta self-reciprocal under the inversion
+with multiplier x^{-1/2} at the positive real branch. The dictionary: the
+inversion's finite shadow = the finite Fourier fold on Z/N; the multiplier
+<-> G/q with G the decided Gauss value; the law <->
+Sigma_m zeta^{m^2+2mk} = zeta^{-k^2} G, every k. AT THE BANKED CELLS this
+lands on the decided statements VERBATIM: transformation_shadow_odd (N = 9,
+G = 3; row 59) and shift_shadow_25 (N = 25, G = 5; row 61) -- AG-3's decided
+content exactly. ### THE GATE IS MET; nothing voided.
+THE MULTIPLIER'S FINITE READING: G = +q at both odd banked cells (rows
+59/61, decided) -- the finite multiplier G/q = +1, the TRIVIAL branch,
+matching the derived law's positive real branch x^{-1/2} on the ray.
+NEW DECIDED CONTENT (BridgeShadow, row 62; instrument-crosschecked then
+decided; prints verbatim in AXIOM_PRINTS.txt):
+  mirror_shadow_9   -- the F -> F^3 image law at N = 9: for every k,
+                       Sigma_m zeta^{-(m^2+2mk)} = zeta^{+k^2} * 3;
+  mirror_shadow_25  -- the same at N = 25 with G = 5;
+  mirror_gauss_values -- Sigma_m zeta^{-m^2} = q*e_0 at N = 9 and 25 (the
+                       conjugated Gauss value equals the original: the
+                       multiplier itself mirror-fixed);
+  round_trip_shadow_9 -- for every j, Sigma_k Sigma_m zeta^{m^2+2mk+2kj} =
+                       9 * zeta^{j^2} (the double transform; the finite
+                       shadow of |G|^2 = N -- the x^{-1/2} * x^{+1/2} = 1
+                       round trip).
+Core 254/254; module hygiene: zero matches for sorry and native_decide.
+
+COMPONENT 2 -- THE ORIENTATION READING (P3; consumes Component 1's law; the
+audit ground exactly as fixed in the registration, no item added or
+dropped). THE INVENTORY, item by item under F -> F^3 (conjugation on the
+instrument's phase, fixing every real datum; row 50's audit):
+  (i)   the carrier ray (0, inf): real -- FIXED.
+  (ii)  psi's coefficients (all 1): real -- FIXED.
+  (iii) the multiplier x^{-1/2} at the positive real branch: real-valued on
+        the ray -- FIXED.
+  (iv)  the affine constants +1/2, -1/2: real -- FIXED.
+  (v)   the symmetry point s = 1/2: real -- FIXED.
+  (vi)  the finite multipliers G = +q at the banked odd cells: real --
+        FIXED, and the finite half DECIDED THIS ACT: the mirror laws
+        (mirror_shadow_9/25 -- the conjugated law holds identically) and the
+        mirror Gauss values (the conjugated multiplier equals the original).
+  The derivation's own i's (the 1/(2 pi i), the contour orientation):
+        CONVENTIONS by row 52's one-dictionary audit standard (b72/b63),
+        weight zero, exactly as registered.
+P3 VERDICT: ### BRANCH (b) -- THE LAW LANDS SYMMETRIC. Every datum of the
+derived law is real-or-convention; the new recorded fact JOINS row 50's
+orientation-symmetric inventory (the theorem's reach extends to it; the
+finite half of that extension is decided, not inspected). THE MISS
+LOCALIZES to the named candidate step, exactly as fixed in advance: THE
+COMPLEX EXTENSION OFF THE REAL RAY -- the classical multiplier's branch
+datum (the eighth root at the metaplectic frame; rows 39-40's territory,
+where the place-2 twist was already routed) lives only off the ray; the
+recorded carrier is the REAL fiber; the Mellin line from the proved
+symmetry reaches only the ray. THE FETCH ROUTE'S REMAINDER, one sentence:
+what remains is the built object's extension off the real fiber -- the
+complex-parameter extension whose multiplier branch is the first place an
+orientation-bearing archimedean datum CAN appear -- because the real ray
+cannot supply one (every real-ray datum is fixed, the finite shadows
+decidedly so).
+
+COMPONENT 3 -- THE AG-5 REVISIT: ### NOT TRIGGERED (rule (c): the revisit
+runs only on P3's branch (a); P3 landed (b); no new orientation-bearing fact
+was derived onto the record, so there is nothing for the decision to
+consume). P4: NOT-REACHED, first-class, per the registered conditional. THE
+BAR'S STATUS: the canon-XIX bar RIDES, unchanged; the tagged expectation
+(the conjugate class) stays a tagged expectation; no sentence consumes a
+lift because there is no lift. AG-5's STAND is REINFORCED, not revisited:
+the act added one new recorded archimedean fact (the derived law) and that
+fact is itself orientation-symmetric -- row 50's audit, exercised once more,
+on new material, same verdict.
+
+THE CAMPAIGN STATE RESTATED (per the symmetric-landing route of the FOOT):
+the junction's remaining selection content is still ONE orientation-bearing
+recorded fact, and its ADDRESS SHARPENS: not merely "an archimedean recorded
+fact neither F -> F^3-invariant nor a convention" but one living OFF THE
+REAL RAY -- the complex-fiber extension of the built object (the multiplier's
+branch at the metaplectic frame) or an independent archimedean fact fixing
+that branch; nothing on the real ray can decide it (derived + decided this
+act). THE DOUBLE PAYOFF'S LEDGER: the ANALYTIC HALF LANDS (the
+transformation law at its landed grade -- the translation rerun proceeds
+with it, per the FOOT); the ORIENTATION HALF does not land and its remainder
+is named in one sentence (above). The named remainder routes to the
+sequence.
+
+HIT RECORD: P1 branch (a) as registered; P2 the gate MET with four new
+decided terminals; P3 the registered (a)-expectation did NOT land -- branch
+(b) landed exactly on the pre-named candidate step (the audit ground fixed
+in advance; the outcome not smoothed toward the expectation); P4
+NOT-REACHED per its own conditional. The consistency gate (rule b) never
+fired its void clause. Deviations: none. Divergences from the registered
+chain: none.
+====================================================================================================
