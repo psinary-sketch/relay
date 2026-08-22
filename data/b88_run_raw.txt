@@ -1,0 +1,5 @@
+  (ii) normalization survives convex combination (p*1 + (q-p)*1 = q, all weights p/q, q <= 32): PASS [DECIDED]
+  (iii) vanishing survives convex combination (p*0 + (q-p)*0 = 0, same grid): PASS [DECIDED]
+  (i) a convex combination of functions of u is a function of u [STRUCTURAL, longhand -- linearity]
+  (iv) no independent width parameter enters a convex combination of calibrated shapes [STRUCTURAL, longhand -- the weights are scalars, not widths]
+  HULL: the convex hull of the finite roster is path-connected by straight-line interpolation; every interpolant satisfies (i)-(iv) by the above -- THE WALK DERIVES [DERIVED, the chain above]
