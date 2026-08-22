@@ -1,0 +1,163 @@
+====================================================================================================
+b101 -- THE MONOTONICITY ACT -- THE BANK. Registration:
+data/b101_registration_2026-08-22.txt (the P1 chain written longhand BEFORE
+computing; the planned checks; AND THE REGISTERED DISSENT from the ferry's
+prior, disclosed in advance with its ground). Instrument:
+tools/e16/b101_monotonicity.py. Kernel: Core/TowerMonotoneShadow.lean (4
+terminals, zero-axiom; Core 262/262; row 65) and Interfaces/LocalLimit.lean
+(4 hull terminals at the classical profile). Components ordered: 3 consumes
+1-2.
+====================================================================================================
+
+COMPONENT 1 -- THE INCLUSION (P1): ### BRANCH (b) -- MONOTONE AS-IS.
+THE PREDICTION, VERBATIM: "(P1) THE INCLUSION DECIDED: V_n subset V_{n+1}
+decided at every banked truncation pair -- expectation per (b): failure at a
+named level, with the witness vector exhibited; branch (b): monotone as-is,
+the hull coinciding, filed plainly."
+### THE VERDICT: THE INCLUSION HOLDS AT EVERY BANKED PAIR. No failure level
+exists to name; no witness vector of failure exists to exhibit. THE FERRY'S
+REGISTERED PRIOR DID NOT LAND, AND THE EXECUTOR'S REGISTERED DISSENT DID --
+both were on the record before the computation ran.
+
+THE CHAIN AS RUN (identical to the registered chain except K3's scale factor,
+corrected below; every step index arithmetic, decided at the banked pairs
+(2,1)->(2,2), (2,2)->(2,3), (3,1)->(3,2)):
+ (S) THE SUPPORT SIDE: an image index p*m + p^{2n+1}*j lies in the
+   level-(n+1) ball exactly when m lies in the level-n ball -- so iota
+   carries ball-vanishing vectors to ball-vanishing vectors.
+   [ball_pullback, decided]
+ (T) THE TRANSFORM SIDE: on a level-(n+1) ball row every j-term of the
+   embedding's inner sum is 1, so that sum is p and not 0 [inner_sum_rule,
+   decided]; the remaining exponent transports under the scale map
+   [transform_index_shift, decided]; and the transported row index r/p lands
+   in the level-n ball, where the level-n transform vanishes
+   [quotient_in_ball, decided]. Hence (F_{n+1} iota(v))(r) = p *
+   (F_n v)(r/p) = 0.
+ THEREFORE iota(Son(p,n)) is contained in Son(p,n+1) at every banked pair:
+ THE LEVEL FAMILY IS MONOTONE AS A FAMILY OF SUBSPACES.
+
+TWO ERRORS CAUGHT AND CORRECTED IN-ACT, BOTH DISCLOSED (neither reached a
+shipped statement):
+ (E1) THE REGISTERED CHAIN'S OWN K3 LINE WAS WRONG. The registration's "i.e."
+   spelled the transform index shift with scale factor p; the correct factor
+   is p^2, because N_{n+1} = p^2 * N_n. THE INSTRUMENT CAUGHT IT (104 failures
+   at the first run, all K3), BEFORE ANY LEAN WAS WRITTEN. The underlying
+   root-of-unity identity was never in doubt (both exponents reduce to the
+   same fraction); the integer restatement was the slip. The corrected form
+   is what the kernel decides.
+ (E2) THE FIRST KERNEL DRAFT CARRIED A propext TAINT. `ball_pullback` was
+   first written as `decide ((P) = (Q))` -- an equality of PROPOSITIONS,
+   whose decision routes through propext -- and THE PRINT CAUGHT IT: the
+   pass returned 261/262 with
+   "'TowerMonotoneShadow.ball_pullback' depends on axioms: [propext]".
+   Rerouted to Bool-level equality (`decide P == decide Q`); the re-run
+   returns 262/262, all four terminals "does not depend on any axioms". THE
+   VERIFICATION LAW WORKING AS DESIGNED (the b80 List.getD precedent).
+
+THE INDEPENDENT END-TO-END CONFIRMATION (so the index chain is not a
+caricature of the real condition): at (2,1)->(2,2) the instrument built
+Son(2,1) directly from its definition -- vectors on Z/4 vanishing on the ball
+with transform vanishing on the ball -- found dimension 1, matching the
+recorded (p^n - 1)^2 = 1, embedded the basis vector by the recorded chart
+refinement, and verified BOTH level-2 conditions numerically at 1e-9. The
+kernel decides the index chain; this checks the chain against the object.
+
+*** THE RE-POINTING OF b70's WITNESS (branch (b)'s stated obligation): b70's
+decided witness V_{n+1} o iota != iota o V_n is TRUE and UNTOUCHED. It says
+the compressed TRANSFERS do not commute with the embedding -- a statement
+about OPERATORS. Monotonicity is a statement about SUBSPACES. The two are
+different, and the compression lemma's hypothesis asks only for the second.
+THE WITNESS IS NOT WRONG AND IS NOT WEAKENED; it is RE-POINTED to the clause
+it actually governs (operator compatibility), and the b100 precision's fear
+that it obstructed monotonicity is resolved in the negative -- correctly
+flagged there as open, decided here. ***
+
+COMPONENT 2 -- THE HULL AND ITS LIMIT (P2): ### COMPILED, UNCONDITIONAL.
+Built whatever P1 said, per rule (c). At Interfaces/LocalLimit.lean:
+ `hull U i` := the supremum of U j over j <= i (the running span);
+ `hullMono` -- MONOTONE BY CONSTRUCTION, no hypothesis on U;
+ `hull_ge` -- each U i sits inside its hull;
+ `hull_iSup_eq` -- the hull's supremum EQUALS the original family's
+   supremum (so the limit object is the same object, not a larger one);
+ `hull_compression_tendsto` -- the SOT limit of the hull's compressions onto
+   the closure of that supremum, FOR ANY FAMILY WHATEVER, by composition with
+   c1's `compression_tendsto`.
+ PRINTS, VERBATIM: 'LocalLimit.hullMono' / 'LocalLimit.hull_ge' /
+ 'LocalLimit.hull_iSup_eq' / 'LocalLimit.hull_compression_tendsto' -- each
+ "depends on axioms: [propext, Classical.choice, Quot.sound]", the interface
+ profile in full. The owner file compiles with ZERO errors and all FOURTEEN
+ terminals printing; no sorry.
+ A NOTE ON THE STATEMENT'S FORM (disclosed): the conclusion is stated at the
+ hull's own supremum rather than rewritten to the original family's, because
+ the rewrite is instance-dependent (the HasOrthogonalProjection instance
+ travels with the submodule) and produced a motive error. `hull_iSup_eq` is
+ the proved bridge and says the two suprema are equal; the mathematics is
+ identical, the form is the one Lean accepts without instance surgery.
+ SINCE P1 LANDED (b): the hull COINCIDES with the family at the banked pairs
+ (a monotone family is its own running span), so the hull is insurance that
+ was not needed at these levels -- and it remains the guarantee for any
+ level or family where monotonicity is not decided.
+
+COMPONENT 3 -- THE ATTACHMENT READ (P3) AND THE FILINGS.
+THE READ, from the owner's words: S0's attachment says the analytic
+sentences ride "step A's identification (rows 59/61) and -- as of b100 --
+THE CONCRETE FAMILY'S SENSE". The two candidate limits are (i) the
+union-closure limit of the raw level family and (ii) the hull's limit. Since
+P1 decided the raw family MONOTONE at the banked pairs, the two candidates
+COINCIDE there, and the raw family's own limit exists by c1's theorem
+applied directly -- no hull needed, no joint to name.
+### P3 LANDS BRANCH (a): the need is met by the union-closure limit. The
+attachment's sense-dependency is DISCHARGED AT THE BANKED PAIRS: the
+concrete family satisfies the abstract theorem's hypothesis (decided), so
+the abstract theorem delivers the concrete limit object there.
+*** THE SCOPE, STATED SO THIS LANDING IS NOT OVER-READ IN ITS TURN (the same
+discipline b100 applied to itself): the discharge is AT THE BANKED
+TRUNCATION PAIRS, which is where the record's evidence lives. The inclusion
+was decided at three pairs and derived by an index chain that is uniform in
+p and n; the chain's uniformity is written longhand in the registration and
+is the reason to expect it at every level, but "decided at the banked pairs
++ a uniform longhand chain" is not the same grade as "proved for all n", and
+this act claims the former. THE REMAINING RESIDUE, named: THE ALL-LEVELS
+STATEMENT (the index chain as a theorem quantified over n, not a decision at
+three pairs). ***
+
+THE FILINGS, from the cells:
+ FAMILY B's CAVEAT -- SHOWN RETIRING (per the re-grade commitment, enumerated
+ not swept): sentences about the programme's CONCRETE limit object carried
+ the caveat with THE MONOTONICITY QUESTION as its ground (b100's filing). The
+ monotonicity question is DECIDED AFFIRMATIVELY at the banked pairs, so those
+ sentences' ground is discharged there; the caveat RETIRES from them AT THE
+ BANKED PAIRS and is REPLACED -- not removed silently -- by the narrower
+ all-levels residue named above. Family A retired at b100; Family C (the
+ off-ray sentences) is untouched by this act and travels on c3's two named
+ absences exactly as before.
+ L3's STATE, restated from the cells: L3 carried two members -- the
+ undischarged sense and the attachment. The abstract sense went at b100; the
+ concrete sense goes here at the banked pairs; the attachment's own
+ dependency (step A's identification) REMAINS. ### L3 IS THEREFORE NOT YET
+ CLEAR: its remaining member is step A's identification, which is D2's
+ territory (blocked at G-EXT-3's single remaining need), plus the all-levels
+ residue. THE D3 RE-GRADE DOES NOT RUN THIS ACT -- the ferry conditions it on
+ P3 landing (a) AND the cell so directing; P3 did land (a), but the cell's
+ direction is that the re-grade may run "once L3's remainder is named clear",
+ and it is not clear. Read from the cell, not from momentum.
+ ROWS: row 41's concrete half (b100's new residue, THE MONOTONICITY
+ QUESTION) is DECIDED at the banked pairs and re-graded UPWARD; the
+ all-levels residue takes its place as the narrower open. Row 65 records the
+ decisions; the hull terminals join row 64's family at the owner.
+ THE TRANSLATION RE-RERUN: STAGED, not run (unchanged by this act's
+ landings; its trigger is D2's clearance).
+ THE EIGHTH SEAM CLOSE'S DEBT: the sense arc b99-b101 with rows 64-65, owed
+ at the cadence.
+
+HIT RECORD: P1 branch (b) -- the ferry's prior did NOT land, the executor's
+registered dissent DID, both on the record in advance; the productive
+finding is the re-pointing of b70's witness, not a failure level. P2
+compiled unconditionally as required. P3 branch (a) with its own scope
+precision attached in the same act, so the landing cannot be over-read
+later. Two errors caught in-act (the registration's K3 slip, by the
+instrument; the propext taint, by the print) -- both disclosed, neither
+shipped. Deviations: the registered dissent (disclosed in advance); K3's
+correction; the hull statement's form. Divergences: none beyond these. The
+surprise protocol: NOT FIRED.
+====================================================================================================
