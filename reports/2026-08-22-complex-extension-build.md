@@ -179,7 +179,19 @@ filed as the value clause's named frontier). Mirror: refreshed —
 **`mirror-refresh-2026-08-22-m.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = 395f8fa1d0d5ff7a3fa157d641fe2681b3a09886`
+> (this act's kernel commit — ExtensionShadow, row 63, Core 258/258; parent
+> `267ef9d`; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = 79ddd07689691a997fb7372484e6f87f34195d7e` (parent `ce954f1`) ·
+> `relay origin/main = 7a8def3e6fde15658fc601bbbb6d2815400f6360` (this act —
+> the registration commit `dbd3461` then the act commit, the chain
+> continuous from `e36338b`; pushed from `push-complex-extension-build` per
+> Rule 4.10, hook standing; HELD ancestry clean (`6eada6a` not an ancestor);
+> the HELD commit's two carrier-build act files verified ABSENT from the
+> public tree by name, count 0). **MIRROR:**
+> `mirror-refresh-2026-08-22-m.zip` built at PLACE-papers `79ddd07`. *This
+> pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
 
 ## FOOT
 
