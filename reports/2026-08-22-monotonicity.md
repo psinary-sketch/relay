@@ -139,7 +139,19 @@ the act record + the sequence's dated b101 map-state line. Mirror:
 refreshed — **`mirror-refresh-2026-08-22-q.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = fd649c12d241687e8a3f47099c21f969b0a0ab08`
+> (this act's kernel commit — `TowerMonotoneShadow` + the hull terminals, row
+> 65; **Core 262/262**; parent `9be26b5`; tag `v0.1.0` = peeled `706a81b`
+> unmoved) · `PLACE-papers origin/main =
+> 3a8c1770c04eb1bf7c23e85676fb2e6a8409e387` (parent `fb28ddd`) · `relay
+> origin/main = 8be498a1960921fc2b417a16cab53eb8ba7ad66b` (this act — the
+> registration commit `6d8a26b` then the act commit, the chain continuous
+> from `858fea1`; pushed from `push-monotonicity` per Rule 4.10, hook
+> standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-q.zip` built at
+> PLACE-papers `3a8c177`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
