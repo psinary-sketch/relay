@@ -1,0 +1,107 @@
+====================================================================================================
+b110 -- THE CROSSING ACT -- THE RUN-REGISTRATION. BANKED BEFORE ANY
+COMPUTATION. *** AND IT RECORDS A REFUSAL: THE EXTENSION AS SPECIFIED CANNOT
+BE RUN HONESTLY, FOR TWO REASONS FOUND AT THE MANDATORY SOURCE READ. Both are
+named below with their evidence, and what CAN be done honestly is registered
+in their place. *** b38's verdicts fenced throughout; the grade-indexed
+convention governs; THE GUARD armed (the crossing's location carries zero
+interpretive weight until a mechanism derives it); no promotion of any bench
+value; nothing about h2; nothing deposits.
+====================================================================================================
+FERRY 2026-08-22 (part 1 of 1, receipt confirmed in full). Relay-only.
+
+SOURCES (rule a, at content, read BEFORE naming any cell -- which the ferry
+required and which is what produced the refusal):
+(S1) b38's INSTRUMENT at its pin: tools/e16/b38_act10.py, with
+  CELLS = [(sqrt2,"2"), (sqrt3,"3"), (2.0,"4"), (sqrt8,"8"), (3.0,"9"),
+  (sqrt12,"12")]; TRIPLE = [(500,8),(700,10),(900,11)]; EPS_NQ, EPS_NG,
+  EPS_NRHO = 700, 400, 240.
+(S2) b36's REGISTRATION, which fixes the grid, verbatim: "THE CELLS: a^2 in
+  {2, 3, 4, 8, 9, 12}" -- A FLAT LIST. No generating rule accompanies it,
+  here or at b37/b38/b39 (each repeats the identical hand-written CELLS
+  line).
+(S3) THE INSTRUMENT'S EPSILON DOMAIN, at b38_act10.py line 152, verbatim:
+      rr = np.exp(np.linspace(1e-4, math.log(12.001), EPS_NRHO))
+  and its use at line 98: eu = np.interp(np.exp(uu), rr, ee).
+  b36's registration says the same in words: "eps evaluated on a fixed
+  log-spaced rho-grid (240 points, (1, 12]), interpolated", with
+  "E2(a) = 2 int_1^{rhomax} f_a(rho) eps(rho) drho/rho, rhomax = a^2".
+(S4) b109's reduction identity and deviation series, quoted verbatim at
+  their grades (the identity: W+ - sigma_even*A = [the raw trace's
+  even-share excess] - [the epsilon integral's even-share excess]; the
+  deviations +0.0758, +0.0473, +0.0368, +0.0095, +0.0039, -0.0073).
+
+*** THE REFUSAL, WITH ITS TWO GROUNDS. The ferry's rule (a) requires "the
+SAME instrument at the SAME tolerance, cells taken from b38's own grid
+continuation (the next six cells beyond a^2 = 12, per the grid's own rule)".
+NEITHER CLAUSE CAN BE HONORED:
+
+ (R1) THERE IS NO GRID RULE TO READ. The cells are a flat hand-picked list
+   in b36's registration and are re-typed identically in four instruments;
+   no generator, no continuation rule, no stated principle appears anywhere
+   at content. The sequence 2, 3, 4, 8, 9, 12 admits no rule the record
+   states (4, 8, 9 are prime powers; 2, 3 are primes; 12 is neither). TO
+   NAME "the next six cells" I WOULD HAVE TO CHOOSE THEM, and choosing the
+   author's grid is not the executor's to do -- the same law that refused
+   the unstruck breadth ruling refuses this. THE ABSENCE IS NAMED, NOT
+   FILLED.
+
+ (R2) AND EVEN WITH CELLS NAMED, THE INSTRUMENT CANNOT RUN THERE. Its
+   epsilon layer is evaluated on a grid hard-stopped at rho = 12.001 (S3),
+   while E2 integrates out to rho_max = a^2. For any a^2 > 12 the
+   integrand's epsilon values beyond 12.001 come from np.interp, WHICH
+   CLAMPS TO THE ENDPOINT SILENTLY -- no error, no warning, a number
+   returned. THE INSTRUMENT WOULD PRODUCE OUTPUT AND THE OUTPUT WOULD BE
+   WRONG, which is precisely the failure the verification law exists to
+   catch. "The same instrument at the same tolerance" is not a tolerance
+   question here but a DOMAIN question: a^2 <= 12 is the instrument's
+   recorded domain, and the grid stops at 12 because the machinery does.
+   *THIS ALSO EXPLAINS THE GRID*: the hand-picked list's largest cell is
+   exactly the epsilon grid's endpoint. The two facts are one fact.
+
+ CONSEQUENCE: P1 AS SPECIFIED IS NOT EXECUTABLE, and no substitute
+ extension is invented. A bench extension is a real and reachable act -- it
+ requires the epsilon layer rebuilt on a wider rho-grid, which is a
+ construction with its own registration and its own author's call on the
+ cells -- and this act names that rather than performing a silent
+ extrapolation dressed as a run. ***
+
+WHAT IS REGISTERED IN ITS PLACE (all within the recorded domain; nothing
+invented):
+(Q1) P1: REFUSED, with (R1) and (R2) filed first-class and the branch
+  language left UNQUOTED AND UNDECIDED -- monotone continuation, return, and
+  oscillation ALL REMAIN OPEN, and this act pronounces on none of them. The
+  registered branch texts stand unconsumed for the act that can run.
+(Q2) P2 IS REACHABLE AND IS RUN, at the existing cells: the sign change is
+  bracketed to ADJACENT GRID CELLS from the recorded deviations. NOTE, and
+  it is a correction of this executor's own prior wording: b109's report
+  said "bracketed between a^2 = 8 and a^2 = 12"; the adjacent-cell bracket
+  is a^2 = 9 to a^2 = 12 (the deviation is +0.0039 at 9 and -0.0073 at 12),
+  and b109's phrasing was loose. Filed as a precision correction. THE GUARD:
+  the location is banked at ZERO INTERPRETIVE WEIGHT, dated, uninterpreted,
+  with the sqrt(2) precedent cited beside it; no mechanism derives it and
+  none is claimed.
+(Q3) P3: NOT RUNNABLE AS SPECIFIED -- it asks for the reduction verified AT
+  THE NEW CELLS, and there are no new cells. THE HONEST SUBSTITUTE,
+  registered here and attempted: verify b109's identity AT THE EXISTING SIX
+  CELLS, which is in-domain and needs no new grid. This requires the
+  component quantities (the even-sector and total raw traces; the
+  even-sector and total epsilon parts), which b38's bank prints only in
+  part (E2even is printed; the raw-trace sums are not). SO THE SUBSTITUTE
+  IS ATTEMPTED BY RE-RUNNING b38's INSTRUMENT AT ITS OWN CELLS to extract
+  the components; IF the stack does not run in this environment, THAT IS
+  REPORTED AS THE OUTCOME rather than worked around, and the identity
+  remains verified only as the exact algebra b109 derived it to be.
+
+(rule b) The branch language is fixed by the ferry and this act QUOTES IT
+ONLY TO SAY IT IS NOT CONSUMED. (rule c) The components are ordered.
+
+THE PLAN: (C1) the refusal, with its evidence; (C2) the bracket and the
+guard filing; (C3) the substitute reduction check and the filings. Kernel
+only if a finite decidable core appears; none is anticipated.
+
+Bank: data/b110_crossing.txt. Report: reports/2026-08-22-crossing.md.
+Deviation rule standing. Divergence note (rule a): THE REFUSAL ITSELF is
+this act's divergence from the ferry as written, disclosed here in advance
+with both grounds evidenced at content.
+====================================================================================================
