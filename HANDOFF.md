@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the prolate repair act (b124).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the seventeenth seam close (b125).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,10 +22,10 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **a80ae1c** | the keystone at **v2.16**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b124 pin-line commit** | registrations and banks b1–b124 |
+| `PLACE-papers` | `main` **at the b125 pin line** | the keystone at **v2.17**; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b125 pin-line commit** | registrations and banks b1–b125 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
-| mirror | **`mirror-refresh-2026-08-23-m.zip`** | **the load-this-export note in the latest report names which** |
+| mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
 **Deposits are frozen. Nothing circulates beyond relay reports. Step seven's
 door is shut with both locks. TECHNE-Core is private and untouched.**
