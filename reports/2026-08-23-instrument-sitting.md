@@ -161,7 +161,22 @@ OPEN_TRAILS + the loom's dated line. Mirror: refreshed —
 **`mirror-refresh-2026-08-23-j.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED this act**, confirmed by ls-remote; **Core 271/271**, rows 1–68;
+> tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) ·
+> `PLACE-papers origin/main = e995d6026f0d65c6ac78bcd72bd41b457d3c29ec` (parent
+> `423987e`; **carrying the withdrawal fence in the keystone's section 20**) ·
+> `relay origin/main = c0aacb9c19d9c8feb612958da6ddf970a916151e` (this act — the
+> registration `4bde896` then the act commit, the chain continuous from
+> `af83807`; pushed from `push-instrument-sitting` per Rule 4.10, hook standing
+> and content-verified; **HELD ancestry clean** — `6eada6a` at its pinned SHA,
+> confirmed NOT an ancestor; **carrier-build act files ABSENT from the pushed
+> tree by name, count 0**) · `SIDE-kernel origin/main = 0256e9e`, deposit `v1.5`
+> = peeled `0e5233f`. **MIRROR:** `mirror-refresh-2026-08-23-j.zip` built at
+> PLACE-papers `e995d60` and verified by content (22 files, 0 md5 mismatches;
+> this act's OPEN_TRAILS record, the FINDINGS downgrade and the loom's new law
+> all present inside the zip). *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
