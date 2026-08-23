@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the trim completion act (b123).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the prolate repair act (b124).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,10 +22,10 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **e8d7e43** | the keystone at **v2.16**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b123 pin-line commit** | registrations and banks b1–b123 |
+| `PLACE-papers` | `main` **a80ae1c** | the keystone at **v2.16**; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b124 pin-line commit** | registrations and banks b1–b124 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
-| mirror | **`mirror-refresh-2026-08-23-l.zip`** | **the load-this-export note in the latest report names which** |
+| mirror | **`mirror-refresh-2026-08-23-m.zip`** | **the load-this-export note in the latest report names which** |
 
 **Deposits are frozen. Nothing circulates beyond relay reports. Step seven's
 door is shut with both locks. TECHNE-Core is private and untouched.**
@@ -121,13 +121,17 @@ fences.
 
 ## 3. THE STAGED LANES
 
-- ### **THE PROLATE REPAIR ACT — the lane's head, and a CONSTRUCTION.** The
-  dilated-abscissae evaluation rebuilt (spectral reconstruction from Legendre
-  coefficients, or direct Nyström evaluation), gate-verified against the banked
-  cells, **every downstream Ψ verdict re-run on repaired samples**, and the
-  dominance question re-asked once on honest ground with the basis sweep built
-  in. ***Until it exists, every Ψ-derived quantity carries a sampling error of
-  order 0.4 — not the retired 2.774e−05.***
+- ### **THE INSTRUMENT ITEM — the lane's head, and HARDER than it was.** b124
+  built both registered repairs (Nyström extension; spectral reconstruction) and
+  **both failed**: the NQ excursion did not move under any of four evaluation
+  schemes. ***So the interpolant is not the whole cause and the instability's
+  source is UNLOCATED.*** The task is no longer *replace a known-bad component*
+  but ***find what four replacements did not change*** — bound by the new law
+  that **a replacement must be better where the answer is known** (every
+  replacement got Ψ(0) wrong, where the original is exact). *Until it is solved,
+  every Ψ-derived quantity carries a sampling error of order 0.2–0.4.*
+- **The dominance question** — still withdrawn to the recorded basis, **and its
+  one permitted re-asking is unspent**, the b124 halt not having consumed it.
 - **THE CLOSED-FORM CROWN** — the research target.
 - **The instrument sitting** — a rigorous error bound for the prolate layer, and
   the continuum step; **one sitting**, at the author's schedule. These are the

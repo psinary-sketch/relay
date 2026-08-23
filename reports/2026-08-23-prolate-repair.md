@@ -147,7 +147,20 @@ loom's dated line. Mirror: refreshed — **`mirror-refresh-2026-08-23-m.zip` is 
 one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = a80ae1c89daccb98b97ae1e2926b1fceca285cfe` (parent `e8d7e43`) ·
+> `relay origin/main = 2b23c36d2d3d1b4a681de41cc48f5311543f03e5` (this act — the
+> registration `5b1bb00` then the act commit, the chain continuous from
+> `2b602fe`; pushed from `push-prolate-repair` per Rule 4.10, hook
+> content-verified; **HELD ancestry clean** — `6eada6a` at its pinned SHA, NOT an
+> ancestor; **carrier files ABSENT from the pushed tree by name, count 0**) ·
+> `SIDE-kernel origin/main = 0256e9e`, deposit `v1.5` = peeled `0e5233f`.
+> **MIRROR:** `mirror-refresh-2026-08-23-m.zip` built at PLACE-papers `a80ae1c`
+> and verified by content (22 files, 0 md5 mismatches; this act's record and
+> **both** new conventions lines present inside). *This pin-line commit's own SHA
+> is stated in the closing message, per the regress rule.*
 
 ## FOOT
 
