@@ -1,0 +1,151 @@
+====================================================================================================
+b121 -- THE INSTRUMENT SITTING -- THE RUN-REGISTRATION. BANKED BEFORE ANY
+SUBSTANTIVE COMPUTATION, with BOTH SEATS' EXPECTATIONS and TWO PRE-REGISTRATION
+PROBES DISCLOSED WITH THEIR OUTPUTS EMBEDDED (b112 convention). Rigorous-numerics
+instrument work; THE REPRODUCE-BEFORE-EXTEND GATE governs every tool built or
+modified; THE GRADE-INDEX CONVENTION governs every re-grade (shown upgrading,
+never rounded); the guard rides every location; b38's verdicts FENCED; nothing
+about h2; nothing deposits.
+====================================================================================================
+FERRY 2026-08-23 (part 1 of 1, receipt confirmed in full, Rule 1). Relay-only.
+
+(a) LOAD-BEARING, READ AT CONTENT THIS ACT:
+ - THE PROLATE LAYER'S EXACT CONSTRUCTION, at prolate_layer.prolate(NQ): a
+   Nystrom discretization of the sinc kernel on NQ Gauss-Legendre nodes,
+   symmetrized, then ### numpy.linalg.eigh -- A NUMERICAL EIGENDECOMPOSITION.
+   xi = V/sqrt(w); xi1 from the eigenfunction equation. *** THE RECORD'S
+   "CERTIFIED 15/15" IS AN AGREEMENT CHECK AGAINST BANKED ROWS, NOT AN ERROR
+   BOUND. That distinction decides this act. ***
+ - The dilation overlap's interpolant (b116's isolated noise source):
+   np.interp(lamd*x, x, f) inside A_n.
+ - The epsilon integral at its rebuilt domain (b113: rho in (1, 48.001], 400
+   points) and its own np.interp consumer.
+ - b117's enclosures and floor (2.774e-05); b119's split, bounds, and ratio
+   table (worst ratio 0.462); the licensed L-range.
+
+(b) THE TARGET GRADE, STATED IN ADVANCE: CERTIFIED-NUMERICS AS MINTED --
+rigorous error bounds END TO END, every rounding outward, the finite-range
+ceiling stated -- REACHED ONLY IF BOTH COMPONENTS LAND. *** PARTIALS RE-GRADE
+NOTHING AND SAY SO. The executor commits here: if P1 or P2 falls short, P3
+re-grades nothing, the conditional verdicts stay conditional, and the report
+says so in those words. ***
+
+*** (c) TWO PRE-REGISTRATION PROBES, DISCLOSED WITH OUTPUTS EMBEDDED. Both are
+owner reads of the layer's own numbers; both decide the act's shape; neither is
+a verdict.
+
+ PROBE A -- THE EIGENVALUE SEPARATIONS OF THE MODES IN USE (NTERM = 11, even
+ index, NQ = 700). Output verbatim:
+   n   lam2_n                      separation to nearest neighbour
+   0   9.99942753354103098e-01     4.055e-02
+   1   9.59390345447918569e-01     4.055e-02
+   2   2.74666026625416504e-01     2.712e-01
+   3   3.47823807158480778e-03     3.471e-03
+   4   7.46562036048944813e-06     7.460e-06
+   5   5.82037150304718231e-09     5.818e-09
+   6   2.07207366089043352e-12     2.072e-12
+   7   4.74560737942134084e-16     1.464e-16
+   8   3.28137813337192088e-16     5.561e-17
+   9   2.72529932993541483e-16     4.271e-17
+  10   2.29821658590360587e-16     4.271e-17
+  smallest separation among modes 0..10: 4.271e-17
+ ### CONSEQUENCE, RECORDED NOW: MODES 7-10 HAVE EIGENVALUES AT THE
+ DOUBLE-PRECISION FLOOR (2e-16 to 5e-16) AND MUTUAL SEPARATIONS SMALLER THAN
+ THE VALUES THEMSELVES. Any eigenvector perturbation bound of the standard kind
+ scales as (perturbation)/(separation); with separation 4.3e-17 and a
+ perturbation no better than machine epsilon on an O(1) matrix, ### THE BOUND IS
+ VACUOUS -- it exceeds 1 before it is written. This is stronger than "no bound
+ is available": IT IS THAT THE STANDARD ROUTE CANNOT PRODUCE A NON-VACUOUS BOUND
+ AT THESE MODES.
+
+ PROBE B -- CAN THE INTERPOLANT BE REPLACED BY DIRECT EVALUATION, as P1's first
+ option asks? The layer supplies an(X) = (2/lam) int_0^1 xi(t) cos(2 pi t X) dt,
+ the analytic continuation. Output verbatim:
+   max |an(x_i) - xi_n(x_i)| over the nodes and the 11 modes = 3.626e+02
+ ### SO an() IS NOT A DROP-IN EVALUATOR FOR xi ON [-1,1]. The reason is on the
+ formula's face: the 1/lam factor. For modes with lam^2 ~ 1e-16 the division
+ amplifies by ~1e8, so an() is numerically explosive exactly where the
+ interpolant was to be replaced. ### P1's FIRST OPTION IS CLOSED, AND CLOSED FOR
+ A STATED REASON RATHER THAN FOR WANT OF TRYING. ***
+
+*** (d) A CHECK THIS ACT ADDS WITHIN P1's SCOPE, BECAUSE THE PROBES MAKE IT THE
+HONEST FIRST QUESTION, AND IT HAS NEVER BEEN RUN.
+ P1 asks for a per-sample bound B on the prolate layer's samples. Before asking
+ how large the error is, one must ask WHETHER THE SAMPLES ARE STABLE UNDER THE
+ ONE PERTURBATION THE RECORD HAS NEVER VARIED: ### THE EIGENBASIS ITSELF.
+ Every stability test in the record so far varied N_rho (b116, b117) or the u
+ grid. ### NQ HAS BEEN FIXED AT 700 THROUGHOUT, SO THE EIGENBASIS HAS NEVER
+ BEEN VARIED.
+ WHY IT MATTERS, stated before running: within a near-degenerate cluster an
+ eigensolver returns an ARBITRARY ORTHONORMAL BASIS. Quantities that are traces
+ over the whole cluster are invariant under that arbitrariness; quantities that
+ sum over a SUBSET are not. ### Psi's trace half sums A_n over EVEN INDICES
+ ONLY, at weight 1 each -- INCLUDING modes 7-10, whose t-weight is negligible
+ but whose A-weight is full (A_n(0) = 1 for every mode). SO THE EVEN-SUM COULD
+ IN PRINCIPLE DEPEND ON THE ARBITRARY BASIS OF A DEGENERATE CLUSTER.
+ THE CHECK: recompute Psi at NQ = 600, 700, 800, 900 and measure the spread.
+ ### THIS IS REGISTERED AS A FIRST-CLASS CHECK WITH A REAL FAILURE MODE. If Psi
+ moves materially, it bears on b117 and b119, and THE REPORT WILL SAY SO AT FULL
+ PROMINENCE RATHER THAN BURY IT. If Psi is stable, that is a substantive
+ exoneration and the reason will be stated, not assumed. ***
+
+*** (e) THE TWO SEATS, BEFORE ANY SUBSTANTIVE COMPUTATION.
+THE NAVIGATOR'S: the ferry's P1/P2/P3 read as expecting both components to land
+and the re-grade to follow; recorded as given.
+THE EXECUTOR'S, DISSENTING AND SPECIFIC:
+ ON P1 -- ### BRANCH (b). THE UNBOUNDABLE CONSTITUENT IS THE PROLATE
+   EIGENFUNCTIONS THEMSELVES. Ground, from probe A: the standard perturbation
+   route is vacuous at modes 7-10; and from probe B: the direct-evaluation
+   escape is closed by the 1/lam amplification. What CAN be bounded (quadrature
+   remainders, interpolation by derivative estimates) all sits DOWNSTREAM of
+   eigenvectors whose own error is unbounded, so the composition has no
+   non-vacuous B. MY TRANSFER, named: I transfer b116's diagnosis of the
+   interpolant as a noise source and NOTHING from b117/b119's margins.
+ ON P2 -- ### BRANCH (b) ON GRADE, but I expect the modulus itself to compute
+   cleanly and the mesh-times-modulus total to sit inside the margins. That
+   would be a COVERAGE upgrade (sampled points to full range) CONDITIONAL ON THE
+   SAMPLES, and explicitly NOT a grade upgrade. I register the distinction now
+   so the report cannot blur it.
+ ON P3 -- ### RE-GRADES NOTHING, following from the two above.
+ ON THE ADDED CHECK (d) -- I expect Psi to be STABLE under NQ variation, on the
+   ground that the degenerate cluster's modes have exponentially small
+   contribution to the DILATION OVERLAP at u > 0 even though A_n(0) = 1; but I
+   hold this weakly and I have registered the failure mode because I would
+   rather be wrong on the record than quiet.
+ THESE EARN NOTHING. ***
+
+(f) INDEPENDENCE CHECK, RUN: components 1-2 independent; 3 consumes both; the
+strikeables (4, 5) stand alone.
+
+REGISTERED PREDICTIONS (P1)-(P3), VERBATIM FROM THE FERRY, banked as given:
+ (P1) "THE PROLATE BOUND: a rigorous error bound for the prolate layer's
+   samples -- the quadrature error bounded by its own theory (the rule's
+   remainder term at the recorded parameters), the interpolant either replaced
+   by direct evaluation at the needed nodes or bounded by a derivative estimate,
+   and the epsilon-integral's error bounded on the rebuilt grid -- composing to
+   a per-sample bound B with B stated, its derivation longhand, and B compared
+   to the b117/b119 margins; branch (b): the unboundable constituent named
+   exactly."
+ (P2) "THE CONTINUUM STEP: the sign conclusions extended from sampled points to
+   the full licensed range -- a rigorous modulus (derivative or Lipschitz bound
+   for I(L) and the two pairings in L, derived from the same theory) times the
+   mesh, added to B, and the total shown strictly inside the margins across the
+   range; branch (b): the failing subinterval named."
+ (P3) "THE RE-GRADE, on P1+P2 landing: the one-sign verdict (b117) and the
+   dominance verdict (b119) upgrade from conditional-on-samples to
+   CERTIFIED-NUMERICS on the licensed range -- shown upgrading under the
+   convention, the finite-range ceiling and the no-closed-form limit restated
+   verbatim; the mechanism's status line updated; anything short re-grades
+   nothing."
+
+THE PLAN: (C1) the prolate bound, derivation and verdict, INCLUDING the added
+eigenbasis check; (C2) the continuum step, modulus and totals tabulated, with
+its grade stated exactly; (C3) the re-grade or its refusal, and the lane
+filings; (C4, STRIKEABLE) the ledger ruling; (C5, STRIKEABLE) the axis ruling;
+(C6) the audits and the banned-term review's HIT TABLE at section 5.
+Kernel: none anticipated.
+
+Bank: data/b121_instrument_sitting.txt. Report:
+reports/2026-08-23-instrument-sitting.md. Deviation rule standing.
+Divergence note (rule a): none at registration.
+====================================================================================================
