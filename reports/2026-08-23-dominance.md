@@ -197,7 +197,24 @@ SIDE-global-section: UNTOUCHED this act (Core 271/271, rows 1–68). PLACE-paper
 UNTOUCHED this act — **no mirror refresh is owed, and none was built.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED this act** — confirmed by ls-remote, not assumed; **Core
+> 271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = 4a9c596a2d3b18dddb880aec876431f2670b86a4` (**UNTOUCHED this act
+> — the same SHA the fourteenth seam close left, confirmed by read-back; no
+> mirror is owed and none was built**) · `relay origin/main =
+> c094f9e5252b35a451cfd5932b3ece0556e34d7d` (this act — the registration
+> `d0d7bff` then the act commit, the chain continuous from `3cbb824`; pushed
+> from `push-dominance` per Rule 4.10, hook standing and its installed copy
+> content-verified against the tracked one; **HELD ancestry clean** — `6eada6a`
+> read at its pinned SHA and confirmed NOT an ancestor; **the HELD commit's
+> carrier-build act files verified ABSENT from the pushed public tree by name,
+> count 0**) · `SIDE-kernel origin/main = 0256e9e`, citable deposit `v1.5` =
+> peeled `0e5233f`. **MIRROR:** none built — PLACE-papers did not move, so
+> **`mirror-refresh-2026-08-23-h.zip` remains the one to load**, unchanged from
+> the fourteenth seam close. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
