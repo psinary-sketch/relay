@@ -120,7 +120,22 @@ v2.17 + the loom's dated line + FINDINGS + OPEN_TRAILS. Mirror: refreshed —
 **`mirror-refresh-2026-08-23-n.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = c1aae0d1ae7211d9df453cc08b7a8856264a28f1` (the v2.17 commit;
+> parent `a80ae1c`) · `relay origin/main =
+> 3eecc3ba5a8bb129d5d0f07ff8e1658f4435a2f7` (this act — the registration
+> `058fa4d` then the act commit, the chain continuous from `ca42029`; pushed
+> from `push-seventeenth-seam-close` per Rule 4.10, hook content-verified;
+> **HELD ancestry clean** — `6eada6a` at its pinned SHA, NOT an ancestor;
+> **carrier files ABSENT from the pushed tree by name, count 0**) ·
+> `SIDE-kernel origin/main = 0256e9e`, deposit `v1.5` = peeled `0e5233f`.
+> **MIRROR:** `mirror-refresh-2026-08-23-n.zip` built at PLACE-papers `c1aae0d`
+> and verified by content (22 files, 0 md5 mismatches; this act's record, the
+> staged localization act and the loom's seventeenth pass all present inside).
+> *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
 
 ## FOOT
 
