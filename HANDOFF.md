@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the fourteenth seam close (b118).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the fifteenth seam close (b120).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,10 +22,10 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **4a9c596** | the keystone at **v2.14** |
-| `relay` | `main` **the b118 pin-line commit** | registrations and banks b1–b118 |
+| `PLACE-papers` | `main` **at the b120 pin line** | the keystone at **v2.15** |
+| `relay` | `main` **at the b120 pin line** | registrations and banks b1–b120 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
-| mirror | **`mirror-refresh-2026-08-23-h.zip`** | **the load-this-export note in the latest report names which** |
+| mirror | **`mirror-refresh-2026-08-23-i.zip`** | **the load-this-export note in the latest report names which** |
 
 **Deposits are frozen. Nothing circulates beyond relay reports. Step seven's
 door is shut with both locks. TECHNE-Core is private and untouched.**
@@ -68,6 +68,17 @@ single question:
   REFUTED: Ψ is not monotone increasing**, 149 descents all above the
   2.774e−05 scale. ***The fact holds and the mechanism that would explain it
   does not.***
+- **b119** — **the mechanism is derived at enclosure grade.** A decomposition
+  fixed in the registration and never revisited: ψ_coarse = the density
+  convolved with the channel's own kernel at its own width, ψ_fine the
+  remainder. The coarse part carries **56.8%** of the rise; the coarse pairing
+  is **strictly negative at every cell**; the two pairings **sum exactly** to
+  b117's scale-average; and the remainder is **dominated at 9 of 9 cells and 60
+  of 60 sweep points, worst ratio 0.462.** ***THE SIGN'S REASON: coarse-trend
+  dominance through a fine-suppressing channel — quantified, not asserted, the
+  two parts comparable in amplitude (0.593 vs 0.572) and their pairings a factor
+  of 2.2–3.5 apart.*** **Three limits travel with it: conditional on the
+  samples, sampled not continuous, margin about a factor of two.**
 - **b118** — the seam absorbs it and names the species. **THE THIRD OUTCOME:
   true conclusion under refuted hypothesis** — the implication stays a true
   theorem, the conclusion banks at its own evidence grade and borrows no credit
@@ -97,8 +108,10 @@ outputs embedded); grade-indexed status; the interpolation-floor lesson
 the snapshot convention (amended on its first use to LF-normalized bytes);
 the superlative ledger, with superlatives entering at shipping; **the
 third-outcome cell** (true conclusion under refuted hypothesis, with its reading
-pre-committed); and **the verification law's self-application corollary** — run a
-new convention against its own first artifact in the act that mints it.
+pre-committed); **the verification law's self-application corollary** — run a new convention
+against its own first artifact in the act that mints it; **a check claimed is a
+check run** — any claimed check carries its artifact or is not claimed; and
+**author catches cite the conversation layer.**
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -108,11 +121,18 @@ fences.
 
 ## 3. THE STAGED LANES
 
-- **THE DOMINANCE ACT** — the next act: the coarse/fine decomposition of Ψ at
-  the refinement-stable scale, the remainder's kernel-pairing bounded above and
-  the trend's bounded below, one sign derived or the withholding estimate named.
+- **THE CLOSED-FORM CROWN** — the mechanism is named and bounded; what is not
+  reached is a closed-form statement of the same thing.
 - **The instrument sitting** — a rigorous error bound for the prolate layer, and
-  the continuum step; filed at the author's schedule as one sitting.
+  the continuum step; **one sitting**, at the author's schedule. These are the
+  only things between the verdict and a grade that does not need the word
+  *conditional*.
+- **The re-rerun's revisit** — staged by the derived dominance.
+- **The decomposition's canonicity** — newly named: the split was fixed in
+  advance and honoured, and nothing shows it is *the* right one rather than one
+  that works.
+- **Referred to the author** — the superlative ledger's status question
+  (inventory or enforcement); the interface taxonomy's missing graded axis.
 - **The v4.3 TECHNE increment** — drafted whole, **unspliced**; the author's
   word is the trigger.
 - **The navigator-bias pricing** — referred back; its premise failed a content
