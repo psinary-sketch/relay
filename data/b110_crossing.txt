@@ -1,0 +1,148 @@
+====================================================================================================
+b110 -- THE CROSSING ACT -- THE BANK. Registration:
+data/b110_registration_2026-08-22.txt (banked before any computation, AND IT
+RECORDS THE REFUSAL with both grounds evidenced at content). Instrument:
+tools/e16/b110_reduction_check.py (b38's own functions imported, not
+re-implemented). NO KERNEL CHANGES; Core stands 268/268. b38's verdicts
+FENCED throughout. THE GUARD ARMED: the crossing's location carries ZERO
+interpretive weight; banked, dated, uninterpreted.
+====================================================================================================
+
+COMPONENT 1 -- THE EXTENSION (P1): ### REFUSED. NOT RUN. The branch texts
+are quoted below ONLY to record that NONE of them is consumed.
+
+THE PREDICTION, VERBATIM: "(P1) THE EXTENDED SERIES computes at the
+instrument; the pattern decides among the registered branches ... (i)
+MONOTONE CONTINUATION ...; (ii) RETURN ...; (iii) OSCILLATION ...; whichever
+lands, the verdict is the branch text, nothing composed after the fact."
+
+### NO BRANCH LANDS, BECAUSE NO EXTENSION RAN. THE TWO GROUNDS, both found
+at the mandatory source read that the ferry itself ordered first, both
+evidenced:
+
+(R1) THERE IS NO GRID RULE TO READ. b36's registration fixes the cells as a
+  flat list -- "THE CELLS: a^2 in {2, 3, 4, 8, 9, 12}" -- and the identical
+  hand-written CELLS line is re-typed in b36, b37, b38 and b39's
+  instruments. No generator, no continuation rule, no stated principle
+  appears anywhere at content. The sequence admits none the record states
+  (4, 8, 9 are prime powers; 2, 3 primes; 12 neither). To name "the next six
+  cells per the grid's own rule" the executor would have to CHOOSE the
+  author's grid, and choosing the author's grid is not his to do -- the same
+  law that refused the unstruck breadth ruling refuses this. THE ABSENCE IS
+  NAMED, NOT FILLED.
+
+(R2) AND EVEN WITH CELLS NAMED, THE INSTRUMENT CANNOT RUN THERE. Its
+  epsilon layer is built on a grid hard-stopped at rho = 12.001
+  (b38_act10.py line 152, verbatim:
+     rr = np.exp(np.linspace(1e-4, math.log(12.001), EPS_NRHO))
+  and used at line 98 by np.interp), while E2 integrates out to
+  rho_max = a^2 (b36's registration: "E2(a) = 2 int_1^{rhomax} f_a(rho)
+  eps(rho) drho/rho, rhomax = a^2"; "eps evaluated on a fixed log-spaced
+  rho-grid (240 points, (1, 12]), interpolated"). For a^2 > 12 the epsilon
+  values past 12.001 come from np.interp, WHICH CLAMPS TO THE ENDPOINT
+  SILENTLY -- no error, no warning, a number returned. THE RUN WOULD PRODUCE
+  OUTPUT AND THE OUTPUT WOULD BE WRONG. "The same instrument at the same
+  tolerance" is not a tolerance question here but a DOMAIN question.
+  *** AND THE TWO GROUNDS ARE ONE FACT: the hand-picked grid's largest cell
+  IS the epsilon grid's endpoint. The grid stops at 12 because the machinery
+  stops at 12. ***
+
+WHAT A REAL EXTENSION WOULD REQUIRE, named so the item is actionable rather
+than merely refused: the epsilon layer rebuilt on a wider rho-grid (a
+construction with its own registration, its own gates, and its own cost),
+AND the author's call on which cells the continued grid contains. Both are
+outside this act, and no substitute extension was invented in their place.
+
+COMPONENT 2 -- THE BRACKET AND THE GUARD (P2): ### RUN, at the existing
+cells, in-domain.
+THE PREDICTION, VERBATIM: "(P2) THE BRACKET: the sign-change interval
+narrowed to adjacent grid cells at instrument precision; the location banked
+under the guard at zero weight, the sqrt(2) precedent cited beside it."
+### THE BRACKET: THE SIGN CHANGE LIES BETWEEN THE ADJACENT GRID CELLS
+a^2 = 9 AND a^2 = 12. The deviations at those cells are +0.003946 and
+-0.007261 (recomputed this act; see Component 3, and matching b38's banked
+f values to their printed digits). These are ADJACENT cells of the recorded
+grid, so the bracket cannot be narrowed further without new cells -- which
+Component 1 refused.
+### A PRECISION CORRECTION OF THIS EXECUTOR'S OWN PRIOR WORDING, filed
+(registered in advance at b110's registration): b109's report wrote
+"bracketed between a^2 = 8 and a^2 = 12". That was LOOSE -- a^2 = 9 lies
+between them and its deviation is positive, so the adjacent-cell bracket is
+9 to 12, not 8 to 12. b109's instrument printed the tighter bracket
+correctly; the report's prose widened it. The verdict is unaffected; the
+wording is corrected here and every inheriting sentence reads under it.
+### THE GUARD, ARMED AND HONORED: the crossing's location is banked at ZERO
+INTERPRETIVE WEIGHT -- dated, uninterpreted, no mechanism derives it and
+none is claimed. THE sqrt(2) PRECEDENT is cited beside it: a number that
+sits near a recognizable value earns nothing by the resemblance, and the
+corpus's standing anti-numerology guard applies to a crossing location
+exactly as it applies to a constant. No interpolated value is promoted; the
+interpolation reported at b109 (a^2 ~ 10) remains instrument grade and
+remains weightless.
+
+COMPONENT 3 -- THE REDUCTION CHECK (P3): ### NOT RUNNABLE AS SPECIFIED (it
+asks for new cells and there are none) -- AND THE REGISTERED IN-DOMAIN
+SUBSTITUTE RAN, AND LANDED.
+THE PREDICTION, VERBATIM: "(P3) THE REDUCTION VERIFIED AT THE NEW CELLS: the
+two excesses computed separately at each new cell and their difference
+matching W+ - sigma_even*A at tolerance -- b109's identity holding on fresh
+cells it was not derived from."
+### THE SUBSTITUTE, as registered: b109's identity verified at b38's OWN SIX
+CELLS, in-domain, using b38's OWN functions (imported, not re-implemented).
+This is not a re-run of a recorded verdict: b38 never checked this identity,
+and its bank prints W+, W-, f_cell and E2even but NOT the raw-trace sums the
+identity needs -- so the components were recomputed to test something new.
+### THE RESULT: THE IDENTITY HOLDS AT MACHINE PRECISION AT EVERY CELL.
+  a^2      LHS = W+ - sigma_even*A        RHS = excess difference   |LHS-RHS|
+   2         -1.509724e-01                  -1.509724e-01            6.66e-16
+   3         -9.031461e-02                  -9.031461e-02            2.22e-16
+   4         -6.578520e-02                  -6.578520e-02            0.00e+00
+   8         -1.448561e-02                  -1.448561e-02            3.33e-16
+   9         -5.873429e-03                  -5.873429e-03            1.11e-16
+  12         +1.020489e-02                  +1.020489e-02            1.11e-16
+  worst |LHS - RHS| = 6.661e-16. [DERIVED identity; the check at INSTRUMENT
+  grade at the recorded triple (700,10).] b109's exact algebra is confirmed
+  numerically on components its derivation never touched.
+
+### AND THE CHECK RETURNED A STRUCTURAL FACT THE ACT DID NOT REGISTER AND
+DOES NOT INFLATE -- BANKED OPENLY AS A FINDING: sigma_even = 0.616500 AT
+EVERY CELL, IDENTICALLY. The t-mass even share is CELL-INDEPENDENT (the
+t-masses are the prolate layer's own fixed sequence, independent of a; only
+the truncation could move the share, and at NMODE = 10 it does not). [The
+value at INSTRUMENT grade; the cell-independence a structural observation at
+the same grade.] CONSEQUENCE, stated flatly and no further: the share
+statement's target is A CONSTANT, so the recorded decline is a monotone
+approach to and passage through A FIXED HORIZONTAL LINE, not a chase of a
+moving one. THIS SHARPENS WHAT THE CROSSING IS; IT DECIDES NO BRANCH, and
+Component 1's refusal stands untouched by it.
+  A CONSISTENCY NOTE: the f_cell values recomputed here (0.692346, 0.663813,
+  0.653324, 0.625996, 0.620447, 0.609239) reproduce b38's banked f column to
+  its printed digits -- an independent confirmation of the recorded numbers,
+  obtained from the instrument's own functions at the same triple.
+
+THE FILINGS:
+ THE IDENTITY LANE, RESTATED: (1) THE APPORTIONMENT AT DERIVATION GRADE --
+ still the near item, its interior mapped at b109 (the two even-share
+ excesses) AND its identity now numerically confirmed at six cells; the
+ crossing still to be accounted for by whatever derives the excesses; AND
+ NEWLY NAMED: THE EPSILON LAYER'S DOMAIN -- any bench extension of the
+ series requires the rho-grid rebuilt past 12, a construction with its own
+ registration and the author's call on cells; (2) the T-reading's
+ completion, behind it; (3) the translation re-rerun, HELD; (4) the boundary
+ question, guarded. LANE TWO unchanged. The D3 re-grade stays HELD.
+ THE ELEVENTH SEAM CLOSE'S DEBT: b109 + this act, owed at the cadence.
+ STATUS UNDER THE b108 CONVENTION: the apportionment remains
+ CLOSED-AT-BENCH, OPEN-AT-DERIVATION -- unchanged by this act, which added a
+ numerical confirmation of a derived identity and no discharge.
+
+HIT RECORD: P1 REFUSED with both grounds evidenced at content and the branch
+texts left unconsumed -- the registered refusal, disclosed in advance, is the
+act's principal outcome. P2 run, with a precision correction of the
+executor's own prior wording and the guard honored. P3 not runnable as
+specified; the registered in-domain substitute ran and the identity held at
+machine precision, returning one unregistered structural fact (sigma_even's
+cell-independence) which is banked openly and inflated nowhere. Deviations:
+the refusal. Divergences: none beyond it. The surprise protocol: NOT FIRED
+(the unregistered fact is a finding, not a surprise-protocol event -- it
+contradicts nothing registered).
+====================================================================================================
