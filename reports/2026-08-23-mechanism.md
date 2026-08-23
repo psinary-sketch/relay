@@ -175,7 +175,24 @@ conventions line + OPEN_TRAILS (the act record, the restated sequence line).
 Mirror: refreshed — **`mirror-refresh-2026-08-23-e.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = fd80f14152d58225b1f83b5bca8a86921ef73fc3`
+> (**MOVED this act** — `MechanismShadow` + the regenerated spine + row 68;
+> parent `a2565c7`; **Core 271/271**, rows 1–68, no blank cells, every print
+> re-run at build; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, **unmoved**) · `PLACE-papers
+> origin/main = 614c7c1b19215eb7c8b2f0eca58cd9207205fc44` (parent `9dd4c61`) ·
+> `relay origin/main = e338fa604fc22f39902a18329c3c7cc9c35356f5` (this act —
+> the registration commit `074b642` then the act commit, the chain continuous
+> from `6efc7ce`; pushed from `push-mechanism` per Rule 4.10, hook standing and
+> its installed copy content-verified against the tracked one; **HELD ancestry
+> clean** — `6eada6a` read at its pinned SHA and confirmed NOT an ancestor;
+> **the HELD commit's two carrier-build act files verified ABSENT from the
+> pushed public tree by name, count 0**). **MIRROR:**
+> `mirror-refresh-2026-08-23-e.zip` built at PLACE-papers `614c7c1` and
+> verified by content (22 files, 0 md5 mismatches, this act's OPEN_TRAILS
+> record and the loom's adopted gate both present inside the zip). *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
