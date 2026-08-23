@@ -235,7 +235,26 @@ this act (Core 268/268, rows 1–67). Mirror: refreshed —
 **`mirror-refresh-2026-08-23-d.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = a2565c719b4a492cacb52cd29a57a194d86126a3`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; Core 268/268,
+> rows 1–67; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = 9dd4c6118fcb385a857b266a8382a0333d3db27a` (the v2.12 commit;
+> parent `19058ac`) · `relay origin/main =
+> c02424f695504cc2a2df3e54c772fd2f2d7c2fc1` (this act — the registration
+> commit `c4ac7fb` then the act commit, the chain continuous from `17cad2d`;
+> pushed from `push-twelfth-seam-close` per Rule 4.10, hook standing and its
+> installed copy content-verified against the tracked one; **HELD ancestry
+> clean** — `6eada6a` read at its pinned SHA and confirmed NOT an ancestor of
+> the pushed main; **the HELD commit's two carrier-build act files verified
+> ABSENT from the pushed public tree by name, count 0**) ·
+> **`SIDE-kernel origin/main = 0256e9e`, citable deposit `v1.5` = peeled
+> `0e5233f`** — both re-read by ls-remote this act for the addendum rather
+> than carried forward. **MIRROR:** `mirror-refresh-2026-08-23-d.zip` built
+> at PLACE-papers `9dd4c61` and verified by content (22 files, 0 md5
+> mismatches, this act's OPEN_TRAILS, FINDINGS and loom entries all present
+> inside the zip). *This pin-line commit's own SHA is stated in the closing
+> message, per the regress rule.*
 
 ## FOOT
 
