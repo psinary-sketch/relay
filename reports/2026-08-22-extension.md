@@ -151,7 +151,21 @@ PLACE-papers: the act record + the re-stated sequence line. Mirror:
 refreshed — **`mirror-refresh-2026-08-23-c.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = a2565c719b4a492cacb52cd29a57a194d86126a3`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; local HEAD reads
+> the same SHA; Core 268/268 by the axiom prints, rows 1–67; tag `v0.1.0` =
+> peeled `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = 19058acf8d2bba6354f6b30ffe87036527dd8179` (parent `ae0d462`) ·
+> `relay origin/main = a039d0dcbf3528b82ed3705a5b1c23c170fbe3a5` (this act —
+> the registration commit `485167e` then the act commit, the chain continuous
+> from `0909596`; pushed from `push-extension` per Rule 4.10, hook standing and
+> its installed copy content-verified against the tracked one; **HELD ancestry
+> clean** — `6eada6a` read at its pinned SHA and confirmed NOT an ancestor of
+> main; **the HELD commit's two carrier-build act files verified ABSENT from
+> the pushed public tree by name, count 0**). **MIRROR:**
+> `mirror-refresh-2026-08-23-c.zip` built at PLACE-papers `19058ac`. *This
+> pin-line commit's own SHA is stated in the closing message, per the regress
+> rule.*
 
 ## FOOT
 
