@@ -1,0 +1,201 @@
+====================================================================================================
+b121 -- THE INSTRUMENT SITTING -- THE BANK. Registration:
+data/b121_registration_2026-08-23.txt (banked before any substantive
+computation, with TWO PROBES DISCLOSED and AN ADDED CHECK REGISTERED WITH ITS
+FAILURE MODE). Instrument: tools/e16/b121_instrument.py. NO KERNEL CHANGES;
+Core 271/271. THE REPRODUCE-BEFORE-EXTEND GATE applied to this act's own tool
+and PASSED (worst |I(L) reproduced - banked| = 5.88e-07) before any varied
+number was read. b38's verdicts FENCED.
+====================================================================================================
+
+*** THE HEADLINE, STATED FIRST BECAUSE IT GOES AGAINST THE RECORD'S MOST RECENT
+POSITIVE RESULT AND MUST NOT BE REACHED ONLY AT THE END:
+### THE EIGENBASIS CHECK FIRED. Psi MOVES BY 4.361e-01 UNDER VARIATION OF THE
+PROLATE QUADRATURE SIZE -- FOUR ORDERS ABOVE THE 2.774e-05 FLOOR THE RECORD HAS
+BEEN QUOTING SINCE b117.
+### THE ONE-SIGN VERDICT (b117) SURVIVES: max I(L) over every cell and every
+basis tested = -0.028796, strictly negative.
+### THE DOMINANCE VERDICT (b119) DOES NOT. At a^2 = 2 the remainder EXCEEDS the
+trend at two of the three alternative bases (|fine|/|coarse| = 1.541 at NQ=600
+and 1.432 at NQ=800, against 0.756 at the recorded NQ=700). b119 reported
+dominance at 9 of 9 cells and 60 of 60 sweep points with worst ratio 0.462;
+THAT VERDICT IS A PROPERTY OF THE RECORDED BASIS AND NOT OF THE MATHEMATICS. ***
+
+COMPONENT 1 -- THE PROLATE BOUND (P1). ### BRANCH (b). NO BOUND B EXISTS, AND
+THE UNBOUNDABLE CONSTITUENT IS NAMED EXACTLY.
+
+ (1a) THE GATE, on this act's own tool, before anything varied was read:
+   worst |I(L) reproduced - I(L) banked| over the nine cells = 5.88e-07. PASSES.
+
+ (1b) THE TWO ROUTES P1 OFFERS, BOTH CLOSED, EACH FOR A STATED REASON.
+   *** DIRECT EVALUATION: CLOSED. The layer's analytic continuation an(X) =
+   (2/lam) int_0^1 xi(t) cos(2 pi t X) dt is not a drop-in evaluator for xi on
+   [-1,1]: max |an(x_i) - xi_n(x_i)| over the nodes and the eleven modes is
+   3.626e+02. The reason is on the formula's face -- the 1/lam factor, which for
+   modes at lam^2 ~ 1e-16 amplifies by ~1e8. (Probe B, disclosed at
+   registration.) ***
+   *** A DERIVATIVE ESTIMATE FOR THE INTERPOLANT: CLOSED UPSTREAM. Such an
+   estimate bounds interpolation error in terms of max|xi_n''|, which is a
+   property of the TRUE prolate function; the record holds only NUMERICAL
+   eigenvectors, and bounding THEIR error is the very thing at issue. ***
+
+ (1c) ### THE UNBOUNDABLE CONSTITUENT, NAMED: THE PROLATE EIGENVECTORS
+   THEMSELVES. prolate_layer.prolate(NQ) forms a Nystrom discretization of the
+   sinc kernel on NQ Gauss-Legendre nodes and calls numpy.linalg.eigh. *** THE
+   RECORD'S "CERTIFIED 15/15" IS AN AGREEMENT CHECK AGAINST BANKED ROWS, NOT AN
+   ERROR BOUND, and this act is where that distinction becomes load-bearing. ***
+   AND THE STANDARD PERTURBATION ROUTE IS NOT MERELY UNAVAILABLE BUT VACUOUS:
+   probe A records modes 7-10 at lam^2 = 2.3e-16 .. 4.7e-16 with mutual
+   separations down to 4.271e-17. A bound scaling as (perturbation)/(separation)
+   exceeds 1 before it is written.
+
+ (1d) ### THE ADDED CHECK, REGISTERED WITH ITS FAILURE MODE, AND IT FIRED.
+   NQ had never been varied: every stability test in the record moved N_rho
+   (b116, b117) or the u grid, while the prolate quadrature stayed at 700.
+     NQ    max|Psi(NQ) - Psi(700)|    Psi(0)          Psi(umax)
+     700   (reference)                -1.165002987    +0.173014326
+     600   4.361e-01                  -1.165002987    +0.088516989
+     800   3.428e-01                  -1.165002987    +0.123655930
+     900   3.095e-01                  -1.165002987    +0.087496854
+   ### WORST SPREAD 4.361e-01, AGAINST b117's QUOTED FLOOR OF 2.774e-05.
+   Psi(0) is IDENTICAL across all four -- as the derivation predicts, it being
+   N_even - sigma_even*NMODE and so basis-invariant. The u-dependent part is
+   what moves, and it does not converge with NQ (700 -> 0.173, 800 -> 0.124,
+   900 -> 0.087, 600 -> 0.089): no monotone approach, which is the signature of
+   sampling error rather than of discretization convergence.
+
+ (1e) THE CAUSE, TESTED RATHER THAN ASSUMED -- AND THE EXECUTOR'S FIRST
+   HYPOTHESIS WAS WRONG. He supposed the degenerate cluster (modes 7-10) was
+   responsible, since an eigensolver returns an arbitrary basis there and Psi's
+   trace half sums over EVEN INDICES ONLY at full weight. THE TRUNCATION TEST
+   REFUTES IT:
+     NMODE  worst spread over NQ in {600,800,900}
+      11    3.879e-01
+      10    3.758e-01
+       9    3.549e-01
+       8    3.608e-01
+       7    2.967e-01
+       6    2.373e-01
+   ### THE INSTABILITY PERSISTS AT SIX MODES, where every eigenvalue is
+   well-separated. SO IT IS NOT THE DEGENERATE CLUSTER.
+   *** THE REMAINING CAUSE, NAMED AND CONSISTENT WITH b116: THE DILATED-
+   EVALUATION INTERPOLANT. A_n(u) needs xi_n at the dilated abscissae e^u x_i,
+   obtained by linear interpolation on GAUSS-LEGENDRE NODES, which cluster at
+   the endpoints and are sparse in the middle -- precisely where the dilated
+   points fall. b116 identified this interpolant as the noise source and
+   measured its effect on a DERIVATIVE COUNT. ### THIS ACT MEASURES ITS EFFECT ON
+   THE VALUES, AND IT IS ~0.4, NOT ~1e-05. b116's diagnosis is confirmed and its
+   magnitude was understated by four orders, because the test that would have
+   shown it -- varying the prolate grid -- was never run. ***
+
+COMPONENT 2 -- THE CONTINUUM STEP (P2). ### THE MODULUS COMPUTES; THE GRADE DOES
+NOT FOLLOW.
+ A Lipschitz modulus for I(L) in L, measured on a 601-point sweep of the
+ licensed range: max |dI/dL| = 0.216675.
+   b119's 60-point sweep mesh                = 0.026933
+   Lipschitz x half-mesh                     = 0.002918
+   max I over the fine sweep                 = -0.059478
+   worst case between b119's samples         = -0.056560   -> STRICTLY NEGATIVE
+   fine sweep mesh (601 points)              = 0.002648
+   Lipschitz x half-mesh                     = 2.869e-04
+   worst case across the continuum           = -0.059191   -> STRICTLY NEGATIVE
+ ### SO THE SAMPLED-TO-CONTINUUM STEP CLOSES IN FORM: b117's and b119's sign
+ conclusions do extend from the sampled points to the whole licensed range, with
+ room to spare.
+ *** AND IT CLOSES AT THE SAME GRADE IT STARTED, NOT A HIGHER ONE. The modulus
+ is MEASURED from the same samples whose error component 1 could not bound; it
+ is not derived from theory. So this is A COVERAGE UPGRADE (sampled points to
+ full range) CONDITIONAL ON THE SAMPLES, AND NOT A GRADE UPGRADE. The executor
+ registered that distinction before computing and holds it here. ***
+ BRANCH: (b) on grade; the coverage half lands.
+
+COMPONENT 3 -- THE RE-GRADE (P3). ### NOTHING UPGRADES. AND ONE THING MUST COME
+DOWN.
+ P1 did not land and P2 did not land on grade, so by the registration's own
+ commitment THE CONDITIONAL VERDICTS STAY CONDITIONAL. Certified-numerics is not
+ reached and is not claimed.
+ *** BUT THE ACT CANNOT STOP THERE, BECAUSE ITS OWN MEASUREMENT BEARS ON THE
+ VERDICTS IT WAS SENT TO CERTIFY.
+ ### THE ONE-SIGN VERDICT (b117): SURVIVES, AND IS STRENGTHENED IN ONE RESPECT.
+ Across all nine cells and all four bases, max I(L) = -0.028796 -- strictly
+ negative everywhere. The sign conclusion is robust to the perturbation that
+ breaks the finer one. Its grade is UNCHANGED (conditional on the samples), and
+ the conditionality is now known to be doing real work.
+ ### THE DOMINANCE VERDICT (b119): DOES NOT SURVIVE AS A RANGE-WIDE STATEMENT,
+ AND IS WITHDRAWN TO ITS BASIS.
+   a^2 = 2:  NQ=600  |fine|/|coarse| = 1.541  *** NOT DOMINATED ***
+             NQ=700  |fine|/|coarse| = 0.756      dominated (the recorded basis)
+             NQ=800  |fine|/|coarse| = 1.432  *** NOT DOMINATED ***
+             NQ=900  |fine|/|coarse| = 0.107      dominated
+   At a^2 = 3, 4, 9, 48 dominance holds at every basis tested.
+ b119 reported dominance at 9 of 9 cells and 60 of 60 sweep points, worst ratio
+ 0.462. ### AT THE SMALLEST CELL THAT VERDICT IS A PROPERTY OF THE RECORDED
+ BASIS AND NOT OF THE MATHEMATICS. THE DOWNGRADE, STATED UNDER THE GRADE-INDEX
+ CONVENTION AND SHOWN: the dominance conclusion moves from "holds across the
+ licensed range at enclosure grade conditional on the samples" to ### "HOLDS AT
+ THE RECORDED BASIS; BASIS-DEPENDENT AT THE SMALLEST CELL; NOT ESTABLISHED
+ RANGE-WIDE." The mechanism it named -- coarse-trend dominance through a
+ fine-suppressing channel -- RETURNS TO CANDIDATE STATUS at a^2 = 2 and stands
+ at the recorded basis elsewhere.
+ *** WHAT IS NOT WITHDRAWN, said so the downgrade is not over-read: the SPLIT'S
+ EXACTNESS (the two pairings summing to I(L)) is algebra and is untouched; the
+ SIGN is untouched; the COLLAPSE and SCALE-AVERAGE forms (b115) are exact
+ algebra and are untouched; the b116 orientation is untouched. What is withdrawn
+ is one verdict's range-wide reach. *** ***
+
+ THE LANE, RESTATED: (1) ### THE INSTRUMENT ITEM IS NOW THE LANE'S HEAD, not a
+ side sitting -- A RIGOROUS (OR AT LEAST STABLE) EVALUATION OF THE PROLATE MODES
+ AT DILATED ABSCISSAE. Until it exists, every Psi-derived quantity carries an
+ unmeasured-until-now sampling error of order 0.4, and the finer the verdict the
+ less it can bear. THE CONCRETE REPAIR, named: replace the Gauss-node linear
+ interpolation with an evaluation that does not degrade off-node -- a spectral
+ reconstruction of xi_n from its Legendre coefficients, or a direct Nystrom
+ evaluation of the eigenfunction equation at the dilated points. Both are
+ constructions with their own registrations; neither is attempted here.
+ (2) the closed-form crown, standing. (3) THE RE-RERUN REVISIT -- and it should
+ be re-staged behind the instrument item, since it would inherit the same
+ samples. (4) the boundary, guarded. LANE TWO unchanged; D3 HELD.
+ THE SIXTEENTH SEAM CLOSE'S DEBT: this act, owed at the cadence.
+
+STRIKEABLE COMPONENT 4 -- THE LEDGER RULING (ratified by paste). ### ADOPTED.
+ THE TWO-LANE READING: (i) THE SUPERLATIVE LEDGER IS INVENTORY AND JUDGMENT-FREE
+ AS MINTED -- unchanged, its founding terms standing; (ii) THE BANNED-STEM LIST
+ IS ENFORCEMENT AS ALWAYS -- unchanged; (iii) the author-caught totalizer of b120
+ is filed TO THE INVENTORY LANE; (iv) ### THE "VIOLATION" FRAMING IS WITHDRAWN
+ AS THE NAVIGATOR'S MISLABEL. The distinction is filed at the conventions lines.
+ *** THE EXECUTOR'S b120 REFUSAL IS THEREBY SATISFIED, NOT OVERRIDDEN: he
+ declined to convert inventory into enforcement and named both readings; the
+ author has now ruled, and the ruling is reading (B) -- the framing was loose,
+ the ledger's status stands. ***
+
+STRIKEABLE COMPONENT 5 -- THE AXIS RULING (ratified by paste). ### ADOPTED BY
+ STAGING. The graded transmission-weight axis is DRAFTED INTO THE STAGED v4.3
+ INCREMENT as an ADDITIVE axis beside rank; b119 the founding instance; ### D.27
+ AND D.30 UNTOUCHED; the splice remains ONE DECISION AT THE AUTHOR'S WORD.
+ *** AND A NOTE THE RULING NOW REQUIRES, filed with it rather than left for a
+ later reader to discover: b119's dominance verdict is DOWNGRADED by component 3
+ above. THE FOUNDING INSTANCE THEREFORE CITES A MEASUREMENT THAT IS
+ BASIS-DEPENDENT AT ITS SMALLEST CELL. The axis itself is untouched by that --
+ unequal transmission weighting is visible at every basis tested, only its
+ MAGNITUDE moves -- but the draft must not cite the 2.2-to-3.5 factor as fixed,
+ and it does not. ***
+
+COMPONENT 6 -- THE AUDITS: at the report's named sections, with the banned-term
+review's HIT TABLE at section 5 per the standing repair.
+
+HIT RECORD: P1 BRANCH (b), the unboundable constituent named exactly and BOTH
+offered routes closed for stated reasons; P2 the modulus computed and the
+coverage half landing, the grade half not, the distinction registered in advance
+and held; P3 NOTHING UPGRADED and ONE VERDICT DOWNGRADED. THE ADDED CHECK FIRED,
+as its registration allowed for.
+*** THE SEATS: the executor registered branch (b) on P1, branch (b)-on-grade on
+P2, and no re-grade on P3 -- ALL THREE LANDED, dissenting from the ferry, which
+expected the components to land and the re-grade to follow. ### AND HIS FOURTH
+REGISTERED EXPECTATION MISSED, THE ONE HE HELD WEAKLY AND REGISTERED ANYWAY: he
+expected Psi to be STABLE under NQ variation. IT MOVED BY 0.4. He wrote at
+registration that he would "rather be wrong on the record than quiet," and the
+record now holds the wrong prediction and the finding it was wrong about. AND
+HIS FIRST DIAGNOSIS OF THE CAUSE WAS ALSO WRONG (the degenerate cluster), which
+the truncation test refuted and which is recorded rather than quietly dropped. ***
+DEVIATIONS: none. Divergences: none.
+====================================================================================================
