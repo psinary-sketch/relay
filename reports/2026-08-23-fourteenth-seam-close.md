@@ -148,7 +148,27 @@ instance and the third-outcome cell) + FINDINGS + OPEN_TRAILS. Mirror: refreshed
 — **`mirror-refresh-2026-08-23-h.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED this act** — confirmed by ls-remote, not assumed; **Core
+> 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = 4a9c596a2d3b18dddb880aec876431f2670b86a4` (the v2.14 commit;
+> parent `a2f1339`) · `relay origin/main =
+> 69c56da23f27d7cb63a76887a11e0e542ab22e24` (this act — the registration
+> `0cfb4d5` then the act commit, the chain continuous from `b1e0ff4`; pushed
+> from `push-fourteenth-seam-close` per Rule 4.10, hook standing and its
+> installed copy content-verified against the tracked one; **HELD ancestry
+> clean** — `6eada6a` read at its pinned SHA and confirmed NOT an ancestor;
+> **the HELD commit's carrier-build act files verified ABSENT from the pushed
+> public tree by name, count 0**) · `SIDE-kernel origin/main = 0256e9e`,
+> citable deposit `v1.5` = peeled `0e5233f`. **THE SNAPSHOT CONVENTION,
+> RE-VERIFIED FROM THE PUSHED TREE under its amended form: this act's sweep
+> reads `c184406c74c843b2aca5fb8123af1493`, matching what was recorded at
+> write.** **MIRROR:** `mirror-refresh-2026-08-23-h.zip` built at PLACE-papers
+> `4a9c596` and verified by content (22 files, 0 md5 mismatches; this act's
+> OPEN_TRAILS record, FINDINGS species entry, loom pass and loom mint all
+> present inside the zip). *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 

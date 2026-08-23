@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **at the b118 pin line** | the keystone at **v2.14** |
-| `relay` | `main` **at the b118 pin line** | registrations and banks b1–b118 |
+| `PLACE-papers` | `main` **4a9c596** | the keystone at **v2.14** |
+| `relay` | `main` **the b118 pin-line commit** | registrations and banks b1–b118 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-h.zip`** | **the load-this-export note in the latest report names which** |
 
