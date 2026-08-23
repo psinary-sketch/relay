@@ -1,0 +1,233 @@
+====================================================================================================
+b117 -- THE ONE-SIGN ACT AND THE LEDGERS -- THE BANK. Registration:
+data/b117_registration_2026-08-23.txt (banked before any computation, with both
+seats' expectations, both transfers disclosed and one REFUSED, THE GRADE HAZARD
+NAMED IN ADVANCE, and the scale law fixed). Instruments:
+tools/e16/b117_enclosure.py, tools/e16/b117_superlative_sweep.py.
+NO KERNEL CHANGES; Core stands 271/271, rows 1-68. b38's verdicts FENCED. THE
+GUARD rides every location and every coincidence. THE INTERPOLATION-FLOOR
+LESSON GOVERNS: no conclusion rests on Psi's fine structure below the
+refinement-stable scale, and EVERY PSI CLAIM BELOW STATES ITS SCALE.
+====================================================================================================
+
+*** THE SCALE, MEASURED FIRST AND QUOTED THROUGHOUT: the refinement-stable
+scale for Psi is 2.774e-05, measured as max|Psi(N_rho) - Psi(2 N_rho)| over
+N_rho = 400 -> 3200. Every Psi claim in this bank states it. ***
+
+COMPONENT 1 -- THE ENCLOSURE (P1, P2).
+
+THE GATE, APPLIED TO THE ENCLOSURE INSTRUMENT ITSELF BEFORE ANY NEW CLAIM
+(the reproduce-before-extend law turned on this act's own tooling):
+  int_0^2 K      enclosure = [0.500000000000, 0.500000000000]   target 1/2   PASS
+  int_0^2 PhiK   enclosure = [-1.661e-16, -1.661e-16]           target 0     PASS
+  PhiK sign changes: 1, at sigma = 0.621                        target 1     PASS
+  PhiK >= 0 before the crossover and > 0 at 0                                PASS
+  PhiK <= 0 after it, strictly negative somewhere                            PASS
+ A DISCLOSURE THE GATE FORCED, STATED AND NOT HIDDEN: PhiK's TAIL IS EXACTLY
+ ZERO past the bump's support, so a strict endpoint comparison (PhiK(2) < 0)
+ FAILS on a legitimate exact zero. The gate's first form did fail on it; the
+ condition was corrected to ask the right question -- positive before the
+ crossover, never positive after, strictly negative somewhere -- and the
+ correction is recorded rather than quietly applied.
+ ### GATE PASSES. New claims licensed, and not before.
+
+THE PREDICTION, VERBATIM: "(P1) THE ENCLOSURE: rigorous bounds on the
+scale-average int_0^2 PhiK(sigma) Psi(L sigma) d sigma across the licensed
+L-range at the refinement-stable scale -- branch (a): one sign certified across
+the range at certified-numerics grade, the balanced window's uniqueness
+upgrading to that grade (the axis stated; location still banked at zero
+weight); branch (b): the range where the enclosure cannot certify named
+exactly, with the floor's contribution separated from the trend's."
+
+### P1's VERDICT: THE SIGN LANDS; THE GRADE DOES NOT. Neither branch as
+written -- and the split is reported rather than forced into one.
+
+ THE ENCLOSURE, at the nine cells (mpmath.iv, dps 40, EVERY ROUNDING OUTWARD;
+ quadrature enclosure width < 1e-30 at every row):
+   a^2=2   L=0.346574  I in [-0.083077396, -0.083077396]   margin/floor 5977
+   a^2=3   L=0.549306  I in [-0.059667687, -0.059667687]   margin/floor 4293
+   a^2=4   L=0.693147  I in [-0.060113821, -0.060113821]   margin/floor 4325
+   a^2=8   L=1.039721  I in [-0.071923801, -0.071923801]   margin/floor 5175
+   a^2=9   L=1.098612  I in [-0.073759303, -0.073759303]   margin/floor 5307
+   a^2=12  L=1.242453  I in [-0.077118973, -0.077118973]   margin/floor 5548
+   a^2=16  L=1.386294  I in [-0.078592093, -0.078592093]   margin/floor 5654
+   a^2=24  L=1.589027  I in [-0.077818000, -0.077818000]   margin/floor 5599
+   a^2=48  L=1.935601  I in [-0.070591879, -0.070591879]   margin/floor 5079
+ AND A DENSE SWEEP, 60 values of L spanning a^2 = 2 to 48.001:
+   enclosure upper bound NEGATIVE at EVERY sampled L: TRUE
+   least negative upper bound: -0.059482665 at L = 0.615902 (a^2 = 3.427)
+   margin there / floor-induced uncertainty: 4280
+ THE FLOOR'S CONTRIBUTION, SEPARATED FROM THE TREND'S exactly as branch (b)
+ asks: int_0^2 |PhiK| = [0.500969953, 0.500969953], so a uniform perturbation
+ of Psi at the floor moves I(L) by AT MOST 1.390e-05. The smallest observed
+ margin is 0.059483. ### THE TREND'S CONTRIBUTION EXCEEDS THE FLOOR'S BY A
+ FACTOR OF ROUGHLY 4,280.
+ ### SO: I(L) < 0 ACROSS THE LICENSED RANGE, and since dN/dL = -(2/L) I(L),
+ dN/dL > 0 THROUGHOUT. THE ONE-SIGN PROPERTY HOLDS.
+
+*** THE GRADE, STATED PLAINLY AND NOT INFLATED, PER THE HAZARD NAMED IN THE
+REGISTRATION BEFORE ANY COMPUTATION. THIS IS NOT CERTIFIED-NUMERICS AND IS NOT
+CALLED IT. The interval arithmetic is rigorous and yields A THEOREM ABOUT THE
+QUADRATURE GIVEN ITS INPUTS. The inputs are Psi's sampled values, produced by a
+floating-point prolate quadrature and a floating-point epsilon integral, AND
+THE RECORD HOLDS NO RIGOROUS ERROR BOUND FOR EITHER. What is earned, exactly:
+(i) a rigorous enclosure CONDITIONAL ON THE SAMPLES, width < 1e-30; (ii) a
+SEPARATELY MEASURED refinement floor of 2.774e-05, which is a measured
+stability scale and NOT a rigorous error bound; (iii) the margin between them,
+about 4,280. That is a strong result at a grade BELOW the one the route was
+sent to reach, and the distinction is kept because the executor committed to
+keeping it whichever way it fell.
+### THE BLOCKER IS EXACTLY ONE THING, NAMED SO THE NEXT ACT CAN AIM AT IT: A
+RIGOROUS ERROR BOUND FOR THE PROLATE LAYER (and for the epsilon integral).
+With that in hand this same instrument reaches certified-numerics unchanged.
+AND THE SAMPLING LIMIT, stated beside it: SIXTY POINTS DO NOT CERTIFY A
+CONTINUUM. The range is densely sampled, not exhausted. ***
+
+THE PREDICTION, VERBATIM: "(P2) THE TREND QUESTION, enclosure form: Psi's gross
+rise bounded below away from zero at the stable scale on the licensed range --
+the increasing hypothesis certified or its failure window named."
+
+### P2's VERDICT: THE RISE IS BOUNDED BELOW; THE INCREASING HYPOTHESIS IS
+REFUTED; THE FAILURE WINDOW IS NAMED.
+ Psi(umax) - Psi(0) enclosure = [+1.338017313, +1.338017313]: bounded below
+ away from zero by +1.338017, FIVE ORDERS above the 2.774e-05 floor.
+ ### IS PSI MONOTONE INCREASING? NO. 149 descending steps, and ### ALL 149 ARE
+ ABOVE THE FLOOR -- this is not resolution noise and the floor lesson does not
+ excuse it. Largest above-floor descent 0.248010 at u = 2.8816. THE FAILURE
+ WINDOW, NAMED: u in [0.0582, 3.8421], which is essentially the whole licensed
+ range; 28 of the 149 lie at u < 0.75.
+
+*** THE ACT'S CENTRAL FINDING, WHICH IS NEITHER BRANCH AND IS BETTER THAN
+EITHER: THE SUFFICIENT CONDITION IS REFUTED WHILE ITS CONCLUSION HOLDS. b116
+derived that Psi monotone increasing => dN/dL >= 0 => N monotone => the
+balanced window unique. THE HYPOTHESIS IS FALSE, decisively and above the
+floor. THE CONCLUSION IS NEVERTHELESS TRUE at the enclosure's grade, with a
+4,280x margin. So b116's implication stands as A TRUE THEOREM WITH A FALSE
+HYPOTHESIS, and the one-sign property holds FOR SOME REASON THE RECORD DOES NOT
+YET NAME.
+THE LANE'S QUESTION IMPROVES RATHER THAN CLOSES: it was "is the sign one?" and
+it is now ### "WHY IS THE SIGN ONE, WHEN THE OBVIOUS REASON IS REFUTED?" That
+is a better-posed question than the one it replaces, and it is the identity
+lane's open content.
+THE GUARD, HELD: even with the sign firm, THE BALANCED WINDOW'S LOCATION
+REMAINS BANKED AT ZERO INTERPRETIVE WEIGHT. Nothing about the location is
+derived, and nothing about it is earned by the sign's firmness. ***
+
+COMPONENT 2 -- THE FACE READ (P3).
+THE PREDICTION, VERBATIM: "(P3) THE FACE READ: the total-positivity ground the
+record actually reaches (the prolate family's variation-diminishing face)
+located at a citable source or its absence recorded -- no weight either way
+without the read landing."
+
+### P3's VERDICT: ABSENT, DECISIVELY, AND ABSENCE IS THE LAWFUL VERDICT.
+ The corpus was swept at content for: totally positive, total positivity,
+ variation diminishing / variation-diminishing, Polya frequency, Schoenberg,
+ Karlin.
+ RESULT: total-positivity vocabulary occurs at EXACTLY TWO PLACES IN THE ENTIRE
+ CORPUS, and BOTH ARE THIS CAMPAIGN'S OWN SENTENCES -- the keystone lines
+ written at b115/b116 filing the route AT ZERO WEIGHT. SCHOENBERG: zero hits.
+ KARLIN: exactly one hit, and it is an EPIGRAPH about models and data at the
+ head of an unrelated chapter of CONVERGENCE.md -- ### A NAME COLLISION, NOT A
+ SOURCE.
+ ### SO THE NAVIGATOR-ASSERTED CLASSICAL FACE HAS NO SOURCE IN HAND. Per the
+ act's own clause (c), lore without a source earns nothing, and the route's
+ ZERO WEIGHT IS CONFIRMED AS CORRECTLY ASSIGNED AND STAYS.
+*** THE DISTINCTION HELD, because the verdict is easy to over-read: ABSENT FROM
+THE RECORD IS NOT NONEXISTENT IN MATHEMATICS. Total positivity is real
+classical material with real owners. What this read establishes is (i) that THE
+RECORD reaches none of it, and (ii) that no statement exists anywhere in the
+record that THIS kernel has the property. Both are facts about the record. ***
+
+COMPONENT 3 -- THE SUPERLATIVE LEDGER, MINTED WITH ITS RETROACTIVE SWEEP.
+ SCOPE: 417 relay reports + the keystone. STEMS as the instruction fixes them:
+ most, deepest, finest, cleanest, first-ever, strongest, best, thinnest.
+ ### TOTAL SUPERLATIVE CONSTRUCTIONS: 153.
+ ADVERBIAL USES SET ASIDE AND COUNTED, NOT SILENTLY DROPPED: 26 (at most /
+ most of / almost / mostly / for the most part). The filter reports what it set
+ aside so a reader can see what it did.
+ BY STEM: most 70; strongest 36; best 35; deepest 7; cleanest 4; finest 1;
+ first-ever 0; thinnest 0.
+ THE FULL LEDGER -- every entry with file, line, stem and verbatim span -- is
+ stored PER THE SNAPSHOT CONVENTION MINTED THIS ACT at
+ relay/snapshots/2026-08-23-superlative-sweep.txt, md5
+ 5cbdb2a13acc30f7504ff48f5cca6d90 at write, 25,592 bytes.
+*** JUDGMENT-FREE, ZERO INTERPRETIVE WEIGHT. It is an inventory. No entry is a
+criticism, no entry is evidence of anything, and no entry is re-graded by being
+listed. THE CONVENTION STANDING FORWARD: SUPERLATIVES IN SHIPPED PROSE ENTER
+THE LEDGER AT SHIPPING. ***
+
+COMPONENT 4 -- THE STORAGE FILINGS, one line each, at existing lanes.
+ (1) THE SNAPSHOT CONVENTION, filed at OPEN_TRAILS at the very lane whose
+   absence founded it (the 2026-08-04 federation snapshot that did not exist):
+   a dated survey is written to relay/snapshots/<yyyy-mm-dd>-<name>.txt WITH
+   ITS md5 RECORDED AT WRITE, so a later act can cite the survey instead of
+   re-deriving it and can verify it has not moved. THIS ACT IS ITS FIRST USE.
+ (2) THE TAGS-NOT-HEADS CITATION LINE, restated at OPEN_TRAILS immediately
+   beneath the stale family's own entry, WHERE ITS OWNERS WILL MEET IT (the
+   SIDE-kernel main-HEAD reference ce5d7bd, 13 occurrences across 9 documents,
+   owners: REGISTRY's next deposit-currency touch and each paper's next
+   loom-anchored citation pass): a present-tense citation to a branch HEAD goes
+   stale BY CONSTRUCTION; a citation that must remain true cites A TAG or a
+   peeled tag SHA, and a citation to a HEAD must carry its date and read as
+   historical.
+ (3) THE INTERPOLATION-FLOOR LESSON, filed at the loom as a dated conventions
+   line: ### DERIVED DATA INHERITS ITS INTERPOLANT'S FLOOR. Founding instance
+   b116; the scale measured at b117 (2.774e-05). Standing rule: no conclusion
+   rests on structure below the refinement-stable scale, and every claim about
+   interpolated data STATES ITS SCALE. *** AND ITS LIMIT, FILED WITH IT SO IT IS
+   NOT OVER-APPLIED: a floor bars claims BELOW it, not claims ABOVE it -- this
+   act's 4,280x margin is untouched by the lesson. The lesson disciplines
+   resolution; it does not discount magnitude. ***
+
+STRIKEABLE COMPONENT 5 -- THE HANDOFF COMPACTION.
+ ### THE TWELVE ADDENDA ARE CONSOLIDATED INTO ONE CURRENT HANDOFF:
+ relay/HANDOFF.md, carrying the superseding pin block, the campaign state
+ whole (the object; the two legs; the identity lane's four-act reduction
+ b109 -> b115 -> b116 -> b117; the named opens in both lanes; the standing laws;
+ the guard), and the staged lanes.
+ ### THE SUPERSEDED ADDENDA ARE ARCHIVED DATED AND NEVER DELETED: each remains
+ VERBATIM in its own relay report at its own commit, and HANDOFF.md carries an
+ archive index naming all twelve with their reports. They are superseded AS THE
+ CURRENT HANDOFF, not as history, and any may still be read for the state as of
+ its own date.
+ ### THE RESTART KIT IS NOW ONE DOCUMENT PLUS THE NEWEST MIRROR.
+
+COMPONENT 6 -- THE FILINGS.
+ THE IDENTITY LANE, RESTATED PER P1-P2's SPLIT: (1) the apportionment at
+ derivation grade -- ### THE SIGN QUESTION IS ANSWERED AT THE ENCLOSURE'S GRADE
+ AND THE SUFFICIENT CONDITION IS REFUTED, so what wants deriving is WHY the
+ mean-zero average keeps one sign when the density is not monotone; (1b) ### A
+ RIGOROUS ERROR BOUND FOR THE PROLATE LAYER, NEWLY NAMED -- the one thing
+ between this enclosure and certified-numerics grade; (1c) the arch column's
+ non-vanishing, bench and not derived; (2) the T-reading's completion; (3) the
+ re-rerun, HELD; (4) the boundary, guarded. LANE TWO unchanged; D3 HELD.
+ CLOSED THIS ACT: THE TOTAL-POSITIVITY ROUTE, closed BY ABSENCE OF SOURCE and
+ remaining at zero weight.
+ THE FOURTEENTH SEAM CLOSE'S DEBT: this act (b117), owed at the cadence.
+
+HIT RECORD: P1 the sign LANDS across nine cells and a sixty-point sweep at a
+4,280x margin, AND THE GRADE FALLS SHORT and is not called what it is not;
+P2 the rise bounded below, THE INCREASING HYPOTHESIS REFUTED above the floor
+with its failure window named; P3 ABSENT, decisively, with the record/mathematics
+distinction held. THE EXECUTOR'S THREE REGISTERED EXPECTATIONS ALL LANDED --
+the wide margin, the grade shortfall, and the absent face -- and the one he
+refused to let stand in for the read (his own guess about the face) was decided
+by the grep and not by the paragraph, as registered. THE CENTRAL FINDING WAS
+REGISTERED BY NEITHER SEAT: the sufficient condition's refutation alongside its
+conclusion's survival.
+DEVIATIONS: TWO, both procedural, both recorded rather than absorbed.
+ (1) The gate's first form failed on PhiK's LEGITIMATE EXACT ZERO at the support
+ edge; the condition was corrected to ask the right question and THE CORRECTION
+ IS RECORDED rather than quietly applied.
+ (2) ### THE PRE-SHIP BANNED-TERM GREP CAUGHT FIVE USES OF A BARRED WORD IN THIS
+ ACT'S OWN FILES -- in the registration, the handoff, the enclosure script's
+ docstring, and the FINDINGS entry. All five were replaced and the sweep re-run
+ clean before anything shipped. *** ONE OF THEM WAS IN THE REGISTRATION, WHICH
+ HAD ALREADY BEEN BANKED AT COMMIT 439c71d. It is corrected in a SEPARATE,
+ DISCLOSING COMMIT rather than silently: the original text remains visible in
+ git history, nothing is lost, and the amendment is named here so no reader
+ finds a banked document quietly different from the one that was banked. ***
+ THIS IS THE THIRD ACT IN FOUR IN WHICH A DISCIPLINE HAS CAUGHT ITS OWN AUTHOR,
+ and the pattern is worth more than any single catch.
+Divergences: none.
+====================================================================================================
