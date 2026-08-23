@@ -1,0 +1,145 @@
+====================================================================================================
+b124 -- THE PROLATE REPAIR ACT -- THE BANK. Registration:
+data/b124_registration_2026-08-23.txt (routes, gates and both seats' expectations
+banked before any computation; the fresh draw fixed at NQ = 1100 in advance).
+Instruments: tools/e16/b124_repair.py, tools/e16/b124_fallback.py.
+NO KERNEL CHANGES; Core 271/271. b38's verdicts FENCED.
+### THE ACT HALTS AT G2 PER ITS OWN REGISTRATION. NO VERDICT IS RE-RUN, NOTHING
+IS RE-GRADED, AND THE WITHDRAWAL FENCE AT b119 STANDS EXACTLY AS IT WAS.
+====================================================================================================
+
+*** THE HEADLINE, FIRST, BECAUSE IT IS A FAILURE AND FAILURES MUST NOT BE
+REACHED ONLY AT THE END: ### BOTH REGISTERED ROUTES FAIL G2, AND IN FAILING THEY
+PUT b121's OWN DIAGNOSIS IN QUESTION. The NQ excursion does not collapse under
+any evaluation scheme tried: 4.361e-01 with the original interpolant,
+1.056e+07 with the Nystrom extension, 4.109e-01 with spectral reconstruction,
+3.684e-01 with a split-integral variant. ### THE INTERPOLANT CANNOT BE THE WHOLE
+CAUSE, BECAUSE REPLACING IT CHANGES NOTHING. The instability's source is
+UNLOCATED, and this act's honest product is that fact plus the four routes that
+failed to locate it. ***
+
+COMPONENT 1 -- THE REPAIR AND THE GATES (P1). ### BRANCH (b).
+
+ (1a) THE PRIMARY ROUTE -- THE NYSTROM EXTENSION -- BUILT AND MEASURED.
+   xi_n(z) = (1/lam_n) SUM_j w_j K(z, x_j) xi_n(x_j), for any z, no interpolant.
+   Its provenance was recorded at registration: THE LAYER ALREADY DOES THIS AT
+   z = 1, under its own comment "xi_n(1) from the eigenfunction equation, not
+   from the grid". The repair generalized a step the layer already trusts.
+   ### AND IT FAILS ITS OWN EXACTNESS TEST: max|nystrom(x_i) - xi_n(x_i)| =
+   3.631e+02, against a theoretical zero.
+   *** THE CAUSE, MEASURED PER MODE, AND IT IS THE HAZARD NAMED AT REGISTRATION:
+   THE RELATIVE ERROR TRACKS MACHINE-EPSILON DIVIDED BY lam.
+     n   lam2_n      max|err|    rel err
+     0   9.999e-01   2.553e-14   1.5e-14
+     3   3.478e-03   3.323e-12   9.4e-13
+     4   7.466e-06   8.183e-10   2.0e-10
+     5   5.820e-09   2.787e-07   6.1e-08
+     6   2.072e-12   1.669e-03   3.3e-04
+     7   4.746e-16   1.089e+02   9.99e-01
+     8   3.281e-16   3.631e+02   1.00e+00
+     9   2.725e-16   5.493e+01   9.93e-01
+    10   2.298e-16   2.590e+01   1.04e+00
+   THE EXTENSION IS EXACT IN THEORY AND ITS NUMERICAL ERROR IS eps/lam. It is
+   excellent where lam is not at the floor and worthless at the four modes where
+   it is. The registration named the division as "the place the repair can fail,
+   and if it does the residual will show at the small modes". ### IT DID, AND IT
+   DID THERE. ***
+   G2 on this route: NQ excursion 1.056e+07. ### FAILS, catastrophically.
+
+ (1b) THE FALLBACK -- SPECTRAL (LEGENDRE) RECONSTRUCTION -- BUILT AND MEASURED.
+   c_k = (2k+1)/2 SUM_j w_j xi(x_j) P_k(x_j); xi(z) = SUM_k c_k P_k(z) inside
+   [-1,1], zero outside. NO DIVISION BY lam ANYWHERE.
+   *** A READING OF THE ORIGINAL CODE LICENSED THIS ROUTE AND IS RECORDED: the
+   original uses np.interp(..., left=0.0, right=0.0), so THE MODES ARE NEVER
+   EXTRAPOLATED -- they are evaluated at dilated abscissae INSIDE [-1,1] and
+   taken zero outside. A Legendre series is excellent there and would diverge
+   outside; the semantic and the method match exactly. ***
+   Node exactness: 1.484e-11 (n=0) rising to 1.250e-03 (n=6) and then
+   5.754e+01 .. 8.296e+01 at n = 7..10.
+   ### SO THE FALLBACK FAILS AT THE SAME FOUR MODES, BY A DIFFERENT MECHANISM:
+   there is no lam to divide by, and the failure is instead that THOSE
+   EIGENVECTORS ARE NOT SMOOTH FUNCTIONS AT ALL. They are numerical null-space
+   noise, and a polynomial series cannot reproduce noise.
+   G2 on this route: NQ excursion 4.109e-01 against the broken 4.361e-01 --
+   ### A COLLAPSE OF 0.03 ORDERS. FAILS.
+
+ (1c) ### G2 FAILS ON BOTH REGISTERED ROUTES. THE ACT HALTS PER THE
+   REGISTRATION. Components 2, 3 and 4's re-runs are NOT performed: there are no
+   repaired samples to re-run them on, and running them on unrepaired samples
+   would be the exact error this act was sent to correct.
+
+ (1d) TWO FURTHER DIAGNOSTICS WERE RUN TO NAME THE RESIDUAL'S CAUSE, WHICH THE
+   G2 CLAUSE REQUIRES. *** AND THE EXECUTOR RECORDS THAT THESE EXCEED THE TWO
+   REGISTERED ROUTES: they are diagnostics and not candidate repairs, run to
+   satisfy "the residual excursion named with its tested cause", and NEITHER IS
+   ADOPTED. ***
+   DIAGNOSTIC A -- RESTRICT TO THE EVALUABLE MODES. If the four null-adjacent
+   modes are the cause, excluding them should restore stability.
+     NMODE 11 -> excursion 3.643e-01 ; NMODE 7 -> 2.795e-01 ; NMODE 6 -> 2.105e-01
+   ### IT DOES NOT. The excursion persists at six well-separated modes, exactly
+   as b121's own truncation test found for the interpolant. THE NULL-ADJACENT
+   MODES ARE NOT THE CAUSE.
+   DIAGNOSTIC B -- THE DISCONTINUOUS-INTEGRAND HYPOTHESIS. A_n(u) integrates
+   xi(x) xi(e^u x) with xi zero outside [-1,1], so the integrand JUMPS at
+   |x| = e^-u, and a Gauss rule on a jump converges slowly and non-monotonically
+   -- which would explain every route's behaviour. Tested by integrating the
+   smooth subinterval |x| <= e^-u with its own 400-point Gauss rule:
+     split-integral excursion 3.684e-01. ### NOT THE CAUSE EITHER.
+
+ (1e) *** AND A FACT THE FOUR ROUTES TOGETHER FORCE, WHICH IS THE ACT'S SHARPEST
+   FINDING AND WHICH CUTS AGAINST ITS OWN PREMISE. Psi(0) is DERIVED, exactly:
+   A_n(0) = 1 for every mode, e_n(0) = 0 exactly, so Psi(0) = N_even -
+   sigma_even * NMODE = -1.165002987. b121 confirmed it holds at every NQ.
+     original interpolant : Psi(0) = -1.165002987   ### EXACT
+     spectral             : Psi(0) = -0.705202223   WRONG
+     split-integral       : Psi(0) = -0.479634      WRONG
+     spectral, NMODE 7    : Psi(0) = -0.315502      WRONG
+   ### THE ORIGINAL INTERPOLANT IS EXACT AT u = 0 AND EVERY REPLACEMENT IS NOT.
+   At u = 0 the dilation is the identity and np.interp returns the node values
+   themselves; the replacements re-approximate what was already exact.
+   *** SO THE REPLACEMENTS ARE NOT UNIFORMLY BETTER THAN THE THING THEY REPLACE.
+   THEY ARE BETTER NOWHERE THAT HAS BEEN DEMONSTRATED AND WORSE AT THE ONE POINT
+   WHERE THE ANSWER IS KNOWN. *** ***
+
+COMPONENTS 2, 3, 4 -- NOT PERFORMED. The registration binds: a G2 failure halts
+the act. ### P2, P3 AND P4 ARE NOT ANSWERED, NOTHING IS RE-PROFILED, THE
+ONE-SIGN VERDICT IS NOT RE-RUN, AND THE DOMINANCE QUESTION IS NOT RE-ASKED.
+*** P4's "NO THIRD ASKING" CLAUSE IS THEREFORE NOT SPENT: the question was never
+asked on repaired samples, because there are none. The one asking the paste
+allows REMAINS AVAILABLE, and the executor states that explicitly so no later
+act believes the allowance was used up by a halt. ***
+
+THE FILINGS.
+ ### b119's DOMINANCE VERDICT KEEPS ITS WITHDRAWN-TO-BASIS STATUS EXACTLY. The
+ withdrawal fence in the keystone stands unchanged; no restoration record is
+ written; the mechanism's status line is untouched.
+ ### b117's ONE-SIGN VERDICT KEEPS ITS GRADE, conditional on the samples.
+ ### AND ONE THING IS NEWLY OPEN THAT WAS THOUGHT CLOSED: b121 named the
+ dilated-evaluation interpolant as the cause of the 0.4 excursion, on the
+ strength of a truncation test. ### THAT DIAGNOSIS IS NOW IN QUESTION, because
+ three independent replacements for that interpolant exhibit the SAME excursion.
+ The interpolant may still contribute; it cannot be the whole of it. THE
+ INSTABILITY'S SOURCE IS UNLOCATED AND IS RE-OPENED AS A NAMED ITEM.
+ THE LANE: the instrument item STAYS AT THE HEAD and is now HARDER than b121
+ left it -- not "replace a known-bad component" but "find what four
+ replacements did not change". The closed-form crown stands. The re-rerun
+ revisit STAYS BEHIND the instrument item and inherits nothing new.
+ THE SEVENTEENTH SEAM CLOSE'S DEBT: this act, owed at the cadence.
+
+*** THE SEATS. THE EXECUTOR'S P1 EXPECTATION ("the repair lands, large
+collapse") ### MISSED. He predicted qualitative collapse and declined to name an
+order; the collapse was 0.03 orders on one route and negative seven on the
+other. His P2 and P3 expectations are UNSCORED, the components not having run.
+### HIS P4 DECLINE-TO-PREDICT IS SCORED AS CORRECT IN POSTURE AND EMPTY IN
+CONTENT: the question was not reached, so the decline cost nothing and proved
+nothing. THE NAVIGATOR'S expectations are likewise UNSCORED for P3, and its
+LOW-CONFIDENCE-EITHER-WAY on dominance was the right posture for a question that
+turned out not to be askable this act.
+### THE HAZARD THE EXECUTOR NAMED AT REGISTRATION -- the division by lam, "the
+place the repair can fail" -- FIRED EXACTLY AS NAMED, WHICH IS THE ONE THING
+THIS ACT GOT RIGHT IN ADVANCE. ***
+DEVIATIONS: ONE, disclosed -- two diagnostics beyond the two registered routes
+were run to satisfy the G2 clause's requirement that the residual's cause be
+named; both are recorded as diagnostics, NEITHER IS ADOPTED, and neither
+succeeded. Divergences: none.
+====================================================================================================
