@@ -157,7 +157,19 @@ sequence line). SIDE-global-section: UNTOUCHED this act (Core stands
 **`mirror-refresh-2026-08-22-x.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = a2565c719b4a492cacb52cd29a57a194d86126a3`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; Core 268/268,
+> rows 1–67; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = b16ff6a3abeb66a19b0784dc2b750f9fbd1f2fb0` (the v2.10 commit;
+> parent `a2b48ef`) · `relay origin/main =
+> b7683be137021f5036e36f4e1af5ec5d804d2203` (this act — the registration
+> commit `8e97490` then the report commit, the chain continuous from
+> `618153b`; pushed from `push-tenth-seam-close` per Rule 4.10, hook
+> standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-x.zip` built at
+> PLACE-papers `b16ff6a`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
