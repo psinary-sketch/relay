@@ -190,7 +190,25 @@ the keystone at v2.15 + the loom's two dated lines + FINDINGS + OPEN_TRAILS.
 Mirror: refreshed — **`mirror-refresh-2026-08-23-i.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED this act** — confirmed by ls-remote, not assumed; **Core
+> 271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = 423987e45e5b733a2b97651998222737c65b97ba` (the v2.15 commit;
+> parent `4a9c596`) · `relay origin/main =
+> 9b3c8f43bcdc691d4ea6523f675a13b572e32a44` (this act — the registration
+> `c0bfc10` then the act commit, the chain continuous from `db9f192`; pushed
+> from `push-fifteenth-seam-close` per Rule 4.10, hook standing and its
+> installed copy content-verified against the tracked one; **HELD ancestry
+> clean** — `6eada6a` read at its pinned SHA and confirmed NOT an ancestor;
+> **the HELD commit's carrier-build act files verified ABSENT from the pushed
+> public tree by name, count 0**) · `SIDE-kernel origin/main = 0256e9e`, citable
+> deposit `v1.5` = peeled `0e5233f`. **MIRROR:**
+> `mirror-refresh-2026-08-23-i.zip` built at PLACE-papers `423987e` and verified
+> by content (22 files, 0 md5 mismatches; this act's OPEN_TRAILS record, FINDINGS
+> ledger entry, congruence pass and **both** new conventions lines all present
+> inside the zip). *This pin-line commit's own SHA is stated in the closing
+> message, per the regress rule.*
 
 ## FOOT
 
