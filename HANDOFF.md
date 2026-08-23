@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the fifteenth seam close (b120).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the sixteenth seam close (b122).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,10 +22,10 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **423987e** | the keystone at **v2.15** |
-| `relay` | `main` **the b120 pin-line commit** | registrations and banks b1–b120 |
+| `PLACE-papers` | `main` **252225a** | the keystone at **v2.16** |
+| `relay` | `main` **the b122 pin-line commit** | registrations and banks b1–b122 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
-| mirror | **`mirror-refresh-2026-08-23-i.zip`** | **the load-this-export note in the latest report names which** |
+| mirror | **`mirror-refresh-2026-08-23-k.zip`** | **the load-this-export note in the latest report names which** |
 
 **Deposits are frozen. Nothing circulates beyond relay reports. Step seven's
 door is shut with both locks. TECHNE-Core is private and untouched.**
@@ -121,8 +121,14 @@ fences.
 
 ## 3. THE STAGED LANES
 
-- **THE CLOSED-FORM CROWN** — the mechanism is named and bounded; what is not
-  reached is a closed-form statement of the same thing.
+- ### **THE PROLATE REPAIR ACT — the lane's head, and a CONSTRUCTION.** The
+  dilated-abscissae evaluation rebuilt (spectral reconstruction from Legendre
+  coefficients, or direct Nyström evaluation), gate-verified against the banked
+  cells, **every downstream Ψ verdict re-run on repaired samples**, and the
+  dominance question re-asked once on honest ground with the basis sweep built
+  in. ***Until it exists, every Ψ-derived quantity carries a sampling error of
+  order 0.4 — not the retired 2.774e−05.***
+- **THE CLOSED-FORM CROWN** — the research target.
 - **The instrument sitting** — a rigorous error bound for the prolate layer, and
   the continuum step; **one sitting**, at the author's schedule. These are the
   only things between the verdict and a grade that does not need the word
