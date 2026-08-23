@@ -257,8 +257,49 @@ PLACE-papers: **UNTOUCHED** — the keystone increment belongs to the eighteenth
 seam close, not to a diagnostic act. **Mirror: not refreshed, PLACE-papers having
 not moved.***
 
-> **PIN LINE (post-push read-back, `ls-remote`):** *stated in the closing
-> message with the act commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = b0f4355384e40436d443e9cbc1e89aee2eaabefe` (this act;
+> the registration `d27ba16` its parent, chain continuous
+> `3eecc3b → 31cb95f → d27ba16 → b0f4355`; pushed from `push-localization` per
+> Rule 4.10, **the hook refusing the first attempt from `main` and the refusal
+> recorded rather than worked around**) · `SIDE-global-section origin/main =
+> dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core **271/271**,
+> rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = c1aae0d1ae7211d9df453cc08b7a8856264a28f1` (**UNTOUCHED**) ·
+> `SIDE-kernel origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`,
+> deposit `v1.5` = peeled `0e5233f011533d09e4799107394c216a915028a1`.
+> **HELD:** `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4` at its pinned SHA,
+> **NOT an ancestor** of the pushed head. **MIRROR:** not refreshed —
+> `mirror-refresh-2026-08-23-n.zip` remains the one to load, PLACE-papers
+> having not moved.
+> *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
+
+### ***THE CARRIER CHECK'S OWN CORRECTION, DISCLOSED RATHER THAN QUIETLY REPHRASED***
+
+The by-name carrier check **returned 3, not the 0 every prior act recorded, and
+the push was halted on it.** Investigated at content: the three are
+`reports/2026-08-18-carrier-build-narrative-v0.7.md`,
+`2026-08-18-corpus-light-on-carrier.md` and
+`2026-08-18-semilocal-carrier-spec-narrative-v0.12.md` — **pre-existing relay
+reports that merely carry the word in their filenames**, pushed long before this
+act. ### **My pattern was too broad; it was matching a word rather than the objects the check exists to protect.** Re-run at its correct object — *the files that actually live on `held/carrier-acts` and nowhere else* — the check is **clean**:
+
+```
+  files unique to held/carrier-acts : 8
+    reports/2026-08-13-carrier-build-act1.md, -act2.md
+    tools/lean/{CouplingArrival, DiagonalSection, GroupRingGlue,
+                SectorArithmetic, StaircaseAddresses, TowerInstance}.olean
+  of those, present in the pushed tree : 0     <-- the check that matters
+```
+
+***And a standing hazard named while I was in there: six of those eight `.olean`
+files are present in the working tree as UNTRACKED build artifacts.*** They
+cannot reach a push while untracked and none was staged — the stage was seven
+explicit paths — **but a future `git add -A` would carry HELD material onto main
+in one keystroke.** Filed for the author; *the executor does not change the
+repository's protections on his own motion.*
 
 ## FOOT
 
