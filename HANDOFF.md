@@ -20,12 +20,12 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 
 | repository | pin | note |
 |:--|:--|:--|
-| `SIDE-global-section` | `main` at the one-sign act's pin line | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
+| `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` at the pin line | the keystone at **v2.13** |
-| `relay` | `main` at the pin line | registrations and banks b1–b117 |
+| `PLACE-papers` | `main` **5b69dcc** | the keystone at **v2.13** |
+| `relay` | `main` **the one-sign pin-line commit** | registrations and banks b1–b117 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
-| mirror | the newest `mirror-refresh-*.zip` | **the load-this-export note in the latest report names which** |
+| mirror | **`mirror-refresh-2026-08-23-g.zip`** | **the load-this-export note in the latest report names which** |
 
 **Deposits are frozen. Nothing circulates beyond relay reports. Step seven's
 door is shut with both locks. TECHNE-Core is private and untouched.**
