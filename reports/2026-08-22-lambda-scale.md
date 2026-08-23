@@ -136,7 +136,18 @@ absence + the re-read map line. Mirror: refreshed —
 **`mirror-refresh-2026-08-22-v.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = a2565c719b4a492cacb52cd29a57a194d86126a3`
+> (UNTOUCHED this act — confirmed by ls-remote, not assumed; Core 268/268,
+> rows 1–67; tag `v0.1.0` = peeled `706a81b` unmoved) · `PLACE-papers
+> origin/main = 5d40b1e1d33e726ac0b4e8946928283c7fe03ed5` (parent `fb107da`) ·
+> `relay origin/main = eb899f56c65ae05da0300bc849847d93140b88db` (this act —
+> the registration commit `77b384a` then the act commit, the chain continuous
+> from `3b386a8`; pushed from `push-lambda-scale` per Rule 4.10, hook
+> standing; HELD ancestry clean (`6eada6a` not an ancestor); the HELD
+> commit's two carrier-build act files verified ABSENT from the public tree
+> by name, count 0). **MIRROR:** `mirror-refresh-2026-08-22-v.zip` built at
+> PLACE-papers `5d40b1e`. *This pin-line commit's own SHA is stated in the
+> closing message, per the regress rule.*
 
 ## FOOT
 
