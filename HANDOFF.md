@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117), the author's word by paste.**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the fourteenth seam close (b118).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,10 +22,10 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **5b69dcc** | the keystone at **v2.13** |
-| `relay` | `main` **the one-sign pin-line commit** | registrations and banks b1–b117 |
+| `PLACE-papers` | `main` **at the b118 pin line** | the keystone at **v2.14** |
+| `relay` | `main` **at the b118 pin line** | registrations and banks b1–b118 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
-| mirror | **`mirror-refresh-2026-08-23-g.zip`** | **the load-this-export note in the latest report names which** |
+| mirror | **`mirror-refresh-2026-08-23-h.zip`** | **the load-this-export note in the latest report names which** |
 
 **Deposits are frozen. Nothing circulates beyond relay reports. Step seven's
 door is shut with both locks. TECHNE-Core is private and untouched.**
@@ -60,10 +60,23 @@ single question:
   dN/dL ≥ 0 ⇒ N monotone ⇒ the balanced window is unique.** *Derived.*
 - **b117** — the enclosure runs. **The scale-average is strictly negative at
   every tested L across the licensed range, by a margin some four thousand
-  times the measured floor** — so the one-sign property holds firmly. **But the
-  sufficient condition is REFUTED: Ψ is not monotone increasing**, with 149
-  above-floor descents. ***The fact holds and the mechanism that would explain
-  it does not. That shortfall is the lane’s open content.***
+  times the measured floor** — so the one-sign property holds. ***The grade is
+  exact and conditional: rigorous over the quadrature, conditional on samples
+  whose error the record does not bound. It is NOT certified-numerics. The one
+  blocker is a rigorous error bound for the prolate layer; and sixty points
+  sample a range, they do not certify it.*** **And the sufficient condition is
+  REFUTED: Ψ is not monotone increasing**, 149 descents all above the
+  2.774e−05 scale. ***The fact holds and the mechanism that would explain it
+  does not.***
+- **b118** — the seam absorbs it and names the species. **THE THIRD OUTCOME:
+  true conclusion under refuted hypothesis** — the implication stays a true
+  theorem, the conclusion banks at its own evidence grade and borrows no credit
+  from it, and the mechanism question opens by name. **THE DOMINANCE CANDIDATE**
+  is staged as the next act's target, at **synthesis grade**: the density's
+  coarse rise plus the channel's fine-suppression suggest the trend dominates
+  the oscillation in the mean-zero average — *two facts pointing the right way,
+  which is not yet a derivation.* What would make it one: **the remainder's
+  kernel-pairing bounded above and the trend's bounded below.**
 
 **The named opens, on the identity's path.** The one-sign question's
 *mechanism*; the arch column's non-vanishing on the family (bench, not
@@ -81,7 +94,11 @@ instrument rebuild reproduces its banked cells at recorded tolerance first);
 the probe convention (pre-registration probes lawful **iff** disclosed with
 outputs embedded); grade-indexed status; the interpolation-floor lesson
 (derived data inherits its interpolant's floor; every claim states its scale);
-the snapshot convention; the superlative ledger.
+the snapshot convention (amended on its first use to LF-normalized bytes);
+the superlative ledger, with superlatives entering at shipping; **the
+third-outcome cell** (true conclusion under refuted hypothesis, with its reading
+pre-committed); and **the verification law's self-application corollary** — run a
+new convention against its own first artifact in the act that mints it.
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -91,8 +108,11 @@ fences.
 
 ## 3. THE STAGED LANES
 
-- **The identity lane's next act** — the mechanism behind the one-sign fact,
-  now that the fact is firm and the sufficient condition is refuted.
+- **THE DOMINANCE ACT** — the next act: the coarse/fine decomposition of Ψ at
+  the refinement-stable scale, the remainder's kernel-pairing bounded above and
+  the trend's bounded below, one sign derived or the withholding estimate named.
+- **The instrument sitting** — a rigorous error bound for the prolate layer, and
+  the continuum step; filed at the author's schedule as one sitting.
 - **The v4.3 TECHNE increment** — drafted whole, **unspliced**; the author's
   word is the trigger.
 - **The navigator-bias pricing** — referred back; its premise failed a content
