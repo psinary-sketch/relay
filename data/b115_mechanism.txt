@@ -1,0 +1,282 @@
+====================================================================================================
+b115 -- THE MECHANISM ACT -- THE BANK. Registration:
+data/b115_registration_2026-08-23.txt (banked before any work, with BOTH
+SEATS' expectations, BOTH transfer disclosures, and two pre-registration
+owner-normalization probes DISCLOSED WITH THEIR OUTPUTS EMBEDDED per the b112
+convention). Instruments: tools/e16/b115_mechanism.py,
+tools/e16/b115_mechanism2.py. Kernel: Core/MechanismShadow.lean, THREE new
+terminals; Core 268 -> 271/271, every print "does not depend on any axioms".
+b38's verdicts FENCED. THE GUARD ARMED on every location sentence.
+====================================================================================================
+
+*** THE CIRCULARITY GATE -- ARMED AT REGISTRATION, RE-VERIFIED HERE AT THE
+CLOSE, LINE BY LINE. THE ENUMERATION OF INPUTS TO THE DERIVATION, written in
+the registration before any deriving and re-checked against the written
+chain: (1) b109's reduction identity; (2) b38's definitions of family(a),
+trace_modes, per_mode_eps_grids, e2_of_grid, left_side; (3)
+carto_atlas.bump's window construction; (4) sigma_even's value (bench, b111
+cell-independent); (5) the prolate layer's quadrature normalization (probe A,
+disclosed). NOTHING ELSE. THE b113 DEVIATION PATTERN -- the decline, the
+crossing, the eleven cells and their values -- APPEARS IN NO DERIVED LINE and
+was not consulted while deriving. RE-VERIFIED: the derived chain below cites
+(1)-(5) only. The instrument's CHECK 2 compares the derived form against
+b38's OWN N at the banked cells; that is a correctness check of the
+derivation against the instrument's own algebra, reported as such, and it is
+not an input to any step. ***
+
+COMPONENT 1 -- THE STATEMENT (P1).
+THE PREDICTION, VERBATIM: "(P1) THE STATEMENT FORMS: the monotonicity claim
+stated from recorded ground -- the deviation D(a) as a function of the window
+parameter on the calibrated family, its constituents' owners and grades
+listed, the derivative's decomposition through the reduction identity (the
+two excesses' a-derivatives) written longhand; branch (b): the non-formable
+constituent named (candidate, disclosed: the raw-trace excess's a-dependence
+may not be fixed by the record off the sampled cells)."
+
+### P1 LANDS -- THE STATEMENT FORMS, AND THE DISCLOSED BRANCH-(b) CANDIDATE IS
+REFUTED IN THE FAVOURABLE DIRECTION.
+
+ THE TARGET, stated: D(a) := f_cell(a) - sigma_even, the deviation of the
+ apportioned even share from the t-mass share, as a function of the window
+ parameter a on the calibrated family. THE MONOTONICITY CLAIM: D is strictly
+ monotone in a on the licensed range.
+
+ CONSTITUENT     OWNER                                        GRADE
+ D = N/A         b109's identity divided by the arch column   the FORM derived;
+                                                              values bench
+ N = W+ - sig*A  b109's reduction, exact algebra on b38's     DERIVED (b109)
+                 registered definition
+ tr_n(a)         b38 trace_modes: 2*int_0^{2L} C_a(u) A_n(u)  definition, read at
+                                                              content this act
+ E2_n(a)         b38 e2_of_grid: 2*int_0^{2L} C_a(u) e_n(u)   definition, ditto
+ A_n(u)          the prolate dilation overlap,                *** TAKES NO a ***
+                 sqrt(e^u)*0.5*sum_i w_i f_n(x_i) f_n(e^u x_i)
+ e_n(u)          eps_n(e^u), the mode-n epsilon part          *** TAKES NO a ***
+ C_a(u)          the window autocorrelation, conv(w,w)        a-dependent
+ L               log a                                        a-dependent
+ A(a)            the certified arch column                    BENCH at its pins
+ sigma_even      the t-mass even share                        cell-independence
+                                                              DERIVED (b111);
+                                                              VALUE bench
+ *** THE DECISIVE STRUCTURAL FACT, from the owner read: A_n AND e_n CARRY NO
+ WINDOW PARAMETER. The entire a-dependence of BOTH excesses flows through the
+ SAME two objects, C_a and its cutoff 2L. ***
+
+COMPONENT 2 -- THE DERIVATION (P2), WRITTEN LONGHAND.
+THE PREDICTION, VERBATIM: "(P2) THE DERIVATION: the honest prior
+PARTIAL-OR-BETTER with the candidates fixed in advance -- (i) the
+epsilon-integral excess's a-derivative from the closed-form mass structure;
+(ii) the raw-trace excess's a-derivative from the recorded trace forms; (iii)
+the difference's sign analysis on the licensed domain; branch (a) whole:
+strict monotonicity DERIVED on the recorded family -- and with continuity in
+a (derived or cited at its grade), the balanced window's existence and
+uniqueness upgrade to derivation grade via the intermediate-value mechanism,
+shown upgrading under the convention, the location staying banked; branch
+(b): the withholding step named exactly, the partial banked at its grade,
+what it would take stated in one sentence."
+
+### THE VERDICT: BRANCH (b) -- PARTIAL, WITH THE WITHHOLDING STEP NAMED
+EXACTLY. And the partial carries a derived collapse and a BENCH REFUTATION OF
+THE EASY ROUTE, so it is not a bare stall.
+
+(2a) ### STEP 1 -- THE COLLAPSE TO ONE DENSITY. DERIVED, exact, from
+  (1)+(2) alone. b109 gives
+    N(a) = [sum_even tr_n - sigma_even*Tr_N] - [sum_even E2_n - sigma_even*E2_N].
+  Substituting b38's own integral forms and using LINEARITY OF THE INTEGRAL
+  (the mode sums are finite; the shares are scalars):
+    N(a) = 2*int_0^{2L} C_a(u) * Psi(u) du,
+    Psi(u) := [sum_even A_n(u) - sigma_even*sum_n A_n(u)]
+            - [sum_even e_n(u) - sigma_even*sum_n e_n(u)].
+  *** Psi TAKES NO a PARAMETER. The two excesses of b109 are not two separate
+  a-dependent objects at all: they combine into ONE FIXED DENSITY integrated
+  against ONE a-dependent weight. ***
+  VERIFIED against b38's own N at all six banked cells, worst |diff| =
+  2.91e-16 (instrument grade; a correctness check of the algebra, not an
+  input).
+
+(2b) ### STEP 2 -- THE SCALE-AVERAGE FORM. DERIVED from (3).
+  carto_atlas.bump builds w(v) = beta(v/L)/(L*c_beta) with beta a FIXED
+  profile on (-1,1) and int w dv = 1: THE WINDOW IS A PURE DILATION. Hence
+  its autocorrelation is
+    C_a(u) = (w*w)(u) = K(u/L)/L,  K FIXED, even, K >= 0, int_{-2}^{2} K = 1,
+  supported on |sigma| <= 2 with K(2) = 0 at the support edge. Substituting
+  u = L*sigma into (2a), THE 1/L CANCELS EXACTLY:
+    ### N(L) = 2 * int_0^2 K(sigma) Psi(L*sigma) d sigma,   L = log a.
+  *** THE DEVIATION'S NUMERATOR IS A FIXED-KERNEL SCALE-AVERAGE OF ONE FIXED
+  FUNCTION. That is the whole of the a-dependence. ***
+  VERIFIED: L*C_a(L*sigma) agrees across the six cells to 5.96e-14 (a-free as
+  derived); K >= 0 confirmed; int_0^2 K = 0.500000000 exactly as derived
+  (K even, total 1).
+
+(2c) ### CONSEQUENCE (i) -- THE ARCH COLUMN DIVIDES OUT OF THE EXISTENCE AND
+  UNIQUENESS QUESTION. DERIVED. D = N/A, so wherever A does not vanish the
+  ZERO SET OF D IS THE ZERO SET OF N. Existence and uniqueness of the
+  balanced window therefore do NOT require A's a-dependence at all; A enters
+  only the deviation's magnitude and the monotonicity of D itself. *** A
+  SECOND, SMALLER OPEN STEP, named rather than passed over: A's NON-VANISHING
+  on the family is a BENCH fact at the recorded cells and is NOT DERIVED
+  here. ***
+
+(2d) ### CONSEQUENCE (ii) -- THE DERIVATIVE, FIRST FORM. DERIVED.
+    dN/dL = 2 * int_0^2 K(sigma) * sigma * Psi'(L*sigma) d sigma.
+  Since K >= 0 and sigma >= 0 on [0,2], A SUFFICIENT CONDITION FOR STRICT
+  MONOTONICITY IS Psi' < 0 on (0, 2L]. And strict monotonicity of N alone
+  gives UNIQUENESS of the balanced window outright (a strictly monotone
+  function has at most one zero) -- with existence then following from a sign
+  change at the range's ends by the intermediate-value mechanism, if N is
+  continuous.
+
+(2e) ### CONSEQUENCE (iii) -- THE DERIVATIVE, SECOND FORM, AND WHY IT IS THE
+  RIGHT ONE. DERIVED by parts, using K(2) = 0 and the vanishing u = 0
+  endpoint term:
+    dN/dL = -(2/L^2) * int_0^{2L} PhiK(u/L) * Psi(u) du,
+    PhiK(s) := d/ds [ s*K(s) ],   int_0^2 PhiK ds = [s K(s)]_0^2 = 0.
+  *** PhiK IS A MEAN-ZERO KERNEL. *** VERIFIED: K(2) = 0.000e+00;
+  int_0^2 PhiK = 0.000e+00; PhiK has EXACTLY ONE SIGN CHANGE. The three forms
+  of dN/dL -- direct difference, form (ii), form (iii) -- agree at every cell
+  tested (a^2 = 2 ... 48), which verifies the calculus.
+
+(2f) ### THE BENCH REFUTATION OF THE EASY ROUTE -- THE ACT'S SHARPEST CONTENT,
+  AND IT GOES AGAINST THE CONVENIENT DIRECTION. Psi was computed on the
+  licensed range u in [0, 3.8712]:
+    Psi(0) = -1.165003 ; Psi(umax) = +0.173014 ; min -1.165003 ; max +0.379533
+    ### Psi SIGN CHANGES: 5.   Psi' SIGN CHANGES: 92.   Psi' < 0 throughout: FALSE.
+  *** SO CONDITION (2d) IS NOT MERELY UNPROVED -- IT IS FALSE. Psi oscillates,
+  and NO POINTWISE CONDITION ON THE DENSITY CAN DELIVER THE MONOTONICITY. ***
+  AND THE STRUCTURAL READING, which form (iii) supplies: where the record does
+  show monotone behaviour, THE MONOTONICITY IS MANUFACTURED BY THE SMOOTHING
+  AND NOT INHERITED FROM THE DENSITY -- a mean-zero kernel is insensitive to
+  Psi's constant part and nearly insensitive to oscillation fine against its
+  width, and reads the trend. The oscillation is averaged away; the trend is
+  not.
+  [All Psi values BENCH grade. They are evidence ON the named open step and
+  are NOT its discharge.]
+
+(2g) ### THE DERIVED SMALL-L LIMIT, a boundary value of the derivation's own
+  expression. e_n(0) = 0 EXACTLY (the epsilon integral's range [1/rho, 1] is
+  empty at rho = 1) and A_n(0) = 1 for every mode (probe A: the quadrature
+  norms of xi_n are all 2, and A_n(0) = 0.5*2). Hence
+    Psi(0) = N_even - sigma_even*NMODE,
+  and since int_0^2 K = 1/2, N(L) -> Psi(0) as L -> 0+. With NMODE = 10:
+  Psi(0) = 5 - 6.165003 = -1.165003 < 0. VERIFIED to 1.42e-11.
+  *** SCOPE, stated to prevent a misreading: this is the WINDOW FAMILY's
+  small-parameter end and has NOTHING to do with N-EXT-2, which bars boundary
+  values of the COMPLEX EXTENSION. Different object; N-EXT-2 is untouched and
+  no extension boundary value is computed, approached or cited. A further
+  scope note: L -> 0 lies OUTSIDE the calibrated family (which begins at
+  a^2 = 2), so this is a limit of the derived expression and not a claim about
+  a recorded cell. ***
+
+(2h) ### THE NAMED OPEN STEP, STATED EXACTLY:
+  *** SHOW THAT THE MEAN-ZERO SCALE-AVERAGE int_0^2 PhiK(sigma) Psi(L*sigma)
+  d sigma KEEPS ONE SIGN FOR L IN THE LICENSED RANGE. ***
+  WHAT IT WOULD TAKE, in one sentence as registered: a decomposition of Psi
+  into a trend plus an oscillation together with a bound showing the
+  oscillation's PhiK-average is dominated by the trend's -- which requires
+  control of the PROLATE DILATION OVERLAPS A_n(u) and the epsilon mode parts
+  e_n(u), and the closed forms govern only t(n).
+  ### SO b109's BARRIER SURVIVES, BUT THE STEP IT GUARDS IS STRICTLY SMALLER:
+  from "the raw-trace and epsilon-integral even-share excesses agree, cell by
+  cell" to "ONE FIXED FUNCTION'S MEAN-ZERO SCALE-AVERAGE KEEPS ONE SIGN". The
+  question is no longer cell-by-cell and no longer about two objects.
+
+(2i) THE THREE PRE-FIXED CANDIDATES, each reported rather than quietly
+  dropped, as registered:
+  (i) THE EPSILON-INTEGRAL EXCESS'S a-DERIVATIVE FROM THE CLOSED-FORM MASS
+    STRUCTURE -- REACHED IN FORM, NOT IN SIGN. Its a-dependence is exactly
+    2*int K(sigma) phi_e(L sigma) d sigma with phi_e a-free; but the closed
+    forms do not govern phi_e's shape. A STRUCTURAL FACT WORTH RECORDING:
+    phi_e MEASURES DEPARTURE FROM t-PROPORTIONALITY -- if e_n were exactly
+    t_n times a mode-independent function, phi_e would VANISH IDENTICALLY,
+    because sigma_even is by definition the t-mass even share. The epsilon
+    excess is a pure non-proportionality term. [Derived from the definitions.]
+  (ii) THE RAW-TRACE EXCESS'S a-DERIVATIVE FROM THE RECORDED TRACE FORMS --
+    REACHED IN FORM, AND THE DISCLOSED BRANCH-(b) CANDIDATE IS THEREBY
+    REFUTED IN THE FAVOURABLE DIRECTION. The ferry disclosed as a candidate
+    that "the raw-trace excess's a-dependence may not be fixed by the record
+    off the sampled cells". IT IS FIXED -- completely, exactly, and in closed
+    form: 2*int K(sigma) phi_A(L sigma) d sigma with phi_A a-free. What is
+    NOT fixed by the CLOSED FORMS is phi_A's SHAPE, which is a different and
+    smaller deficiency. *** THE DISCLOSED CANDIDATE WAS WRONG, AND WRONG IN
+    THE DIRECTION THAT HELPS; recorded as a deviation. ***
+  (iii) THE DIFFERENCE'S SIGN ANALYSIS ON THE LICENSED DOMAIN -- NOT REACHED,
+    and (2f) says why with evidence: the natural pointwise route is refuted at
+    bench, and the surviving route runs through a mean-zero average whose sign
+    is the named open step.
+  A FOURTH ROUTE, NAMED AS A CANDIDATE FOR A LATER ACT AND NOT WALKED HERE:
+  if the scale kernel is TOTALLY POSITIVE OF ORDER 2, a variation-diminishing
+  argument would bound N's sign changes by Psi's. PhiK's single sign change is
+  suggestive and NOTHING MORE; total positivity is NOT established and is not
+  assumed. Filed as a route, at zero weight.
+
+THE STOP-LAW: armed at every matching step; NO TRIGGER. Nothing was matched by
+likeness; STEP 1 is linearity of the integral on a registered definition and
+STEP 2 is the window's own construction.
+
+THE GRADE, UNDER THE b108 CONVENTION: the apportionment's status is UNCHANGED
+by this act -- CLOSED-AT-BENCH, OPEN-AT-DERIVATION. What this act adds at
+DERIVATION grade is a COLLAPSE and two derivative forms, not a discharge; the
+monotonicity is NOT derived, and therefore the balanced window's uniqueness is
+NOT upgraded. *** THE GUARD, on the location sentence: even had uniqueness been
+derived, THE WINDOW'S LOCATION WOULD REMAIN BANKED AT ZERO WEIGHT. None is
+derived, and the location's grade is unchanged. ***
+
+COMPONENT 2 (cont.) -- THE KERNEL. Core/MechanismShadow.lean, THREE terminals,
+each printing "does not depend on any axioms": collapse_to_one_density (the
+finite bilinear rearrangement STEP 1 rests on -- mode sums and the quadrature
+sum commute, shares are scalars, rationals cleared to integer pairs, decided
+at five instances); one_density_two_windows (the SAME density list serving two
+different weight vectors -- the finite shadow of "Psi takes no a parameter");
+sector_numerators_cancel (b109's 0 = 0 note as arithmetic: complementary
+shares make the two sector numerators cancel exactly).
+### CORE 268 -> 271/271. Correspondence row 68 added; header counts updated;
+no blank cells. THE ANALYSIS IS NOT IN THE KERNEL AND THE ROW SAYS SO.
+
+STRIKEABLE COMPONENT 3 -- THE GATE RULING (the author's, ratified by this
+paste). ### ADOPTED AS STANDING LAW: ANY INSTRUMENT REBUILD, DOMAIN CHANGE, OR
+RE-PARAMETERIZATION MUST REPRODUCE ITS BANKED CELLS AT RECORDED TOLERANCE
+BEFORE ANY NEW CELL RUNS. Filed at the conventions lines. FOUNDING INSTANCE:
+b113, where the widened epsilon grid reproduced all six banked cells (worst
+4.66e-05 against a tolerance fixed in advance at 1e-04) before a single new
+cell was permitted to exist. KINSHIP CITED: the deposit-verification protocol,
+whose gates screen what is written in and what is read out by the same move --
+REPRODUCE BEFORE EXTEND. *** PROVENANCE, recorded because it matters: the gate
+was RAISED BY THE EXECUTOR at b114's congruence pass as a CANDIDATE and
+explicitly NOT adopted there, on the ground that the executor does not
+institute the author's gates; it is adopted HERE because the author has now
+ruled and the paste ratifies. The refusal at b114 is satisfied, not
+overridden. ***
+
+COMPONENT 4 -- THE FILINGS.
+ THE IDENTITY LANE, RESTATED PER P2's BRANCH (b): (1) THE APPORTIONMENT AT
+ DERIVATION GRADE -- still the near item, its interior now ONE FIXED DENSITY
+ and ONE MEAN-ZERO SCALE-AVERAGE rather than two cell-indexed excesses; the
+ next step is THE SIGN OF THAT AVERAGE, with the trend/oscillation
+ decomposition named as what would supply it and the total-positivity route
+ named at zero weight; (1b) A's NON-VANISHING on the family, the second and
+ smaller named step; (2) the T-reading's completion; (3) the re-rerun, HELD --
+ and the derived collapse FEEDS ITS STAGING QUESTION, since the re-rerun's
+ object is a window-family statement and the collapse says exactly which part
+ of such a statement is window-dependent; (4) the boundary, guarded.
+ LANE TWO unchanged. The D3 re-grade stays HELD.
+ THE THIRTEENTH SEAM CLOSE'S DEBT: b114's close absorbed b112-b113; this act
+ (b115) is owed at the thirteenth, together with whatever follows it.
+ AT THE AUTHOR'S WORD: the v4.3 splice; the navigator-bias pricing, still
+ referred back.
+
+HIT RECORD: P1 LANDS, and the disclosed branch-(b) candidate is REFUTED IN THE
+FAVOURABLE DIRECTION. P2 BRANCH (b) PARTIAL, the withholding step named
+exactly and made strictly smaller, with the easy route REFUTED AT BENCH rather
+than left unproved. Three new zero-axiom terminals; Core 271/271. The
+strikeable adopted with its provenance recorded. THE TWO SEATS: both
+registered PARTIAL-OR-BETTER and both LAND on the branch; the executor's
+sharper sub-prediction (that the a-dependence would FACTORIZE) LANDS, and is
+worth little because it was read off the definitions rather than derived --
+its value is that it was registered before the reading was written out.
+DEVIATIONS: ONE -- the ferry's disclosed branch-(b) candidate is refuted, and
+in the favourable direction; recorded here and in the report rather than
+absorbed silently. A SECOND, PROCEDURAL, RECORDED AT ITS OWN PROMINENCE: the
+banned-term grep CAUGHT TWO USES OF A BANNED WORD IN THE EXECUTOR'S OWN DRAFT
+CORRESPONDENCE ROW before shipping; both were replaced and the sweep re-run
+clean. The pre-ship grep worked exactly as designed. Divergences: none.
+====================================================================================================
