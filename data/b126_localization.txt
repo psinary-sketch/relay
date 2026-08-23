@@ -1,0 +1,317 @@
+====================================================================================================
+b126 -- THE LOCALIZATION ACT -- THE BANK. Registration:
+data/b126_registration_2026-08-23.txt (banked before any computation, commit
+d27ba16). ### DIAGNOSTIC ONLY: NOTHING REPAIRED, NO DOWNSTREAM VERDICT RE-RUN,
+THE DOMINANCE QUESTION'S ONE ASKING STILL BANKED AND UNSPENT. No kernel changes;
+Core 271/271, rows 1-68. Nothing about h2 beyond the register sentence exact.
+### THE VERDICT IS **NEITHER**, AND THE THIRD SUSPECT IS **LOCATED** RATHER THAN
+MERELY NAMED.
+====================================================================================================
+
+THE SELF-BINDING CLAUSE, DISCHARGED FIRST, BEFORE ANY VERDICT RESTED ON IT.
+The registration bound the executor to verify the frozen-weight claim at content.
+DONE, both files read line by line:
+  b124_repair.py::psi_repaired -- "xq, wq, lamq, lam2q, xiq, xi1q, anq, danq =
+    Q.layer(700)" then "tn = lam2q / (1 - lam2q) * xi1q ** 2". MASS WEIGHTS
+    FROZEN AT 700 while NQ varied elsewhere. ### THE CLAIM HOLDS.
+  b121_instrument.py::psi_at -- "x, w, lam, lam2, xi, xi1, an, dan = Q.layer(NQ)"
+    then the same tn line. MASS WEIGHTS VARY WITH NQ.
+So b124's 3.4e-01..4.1e-01 excursions were already F1-like. The executor's
+registered ground SURVIVED ITS OWN TEST. Had it not, the ground was to collapse
+and be said so; it did not.
+
+A CORRECTION OF FACT, MADE AT CONTENT AND CHANGING NOTHING DOWNSTREAM.
+NMODE = 10, not 11. Read from B38.TRIPLE = [(500, 8), (700, 10), (900, 11)];
+the reference is THE MIDDLE CELL. The count 11 belongs to the 900 cell. The
+known answer reconciles arithmetically at 10: five even modes among 0..9, and
+5 - 0.616500298741 * 10 = -1.165002987, THE STANDING VALUE UNCHANGED.
+### A HELD AXIS, STATED: NMODE is pinned to the reference cell's 10 while NQ
+varies, so that NQ changes ONE thing and not two.
+
+*** THE GATE ON THIS ACT'S OWN INSTRUMENT (reproduce-before-extend, applied to
+the tool doing the localizing). b126_gate.py calls B121_INSTRUMENT.PSI_AT
+ITSELF -- the incumbent's own code, not a re-implementation, so the comparison
+cannot drift.
+   u pts     NQ set     worst |dPsi|
+     400   600..900     4.360826e-01     <-- b121 RECORDED 4.361e-01. REPRODUCED.
+     400  600..1100     4.360826e-01
+     200   600..900     3.740470e-01     <-- this act's baseline. REPRODUCED.
+     200  600..1100     3.740470e-01
+### THE GATE PASSES AND THE TWO FIGURES ARE RECONCILED AT CONTENT: the whole
+difference is THE U GRID (b121 line 73 uses 400 points; this act used 200).
+### AND A NEW MEASURED FACT FALLS OUT OF THE RECONCILIATION: DOUBLING THE U GRID
+RAISES THE EXCURSION BY 17%. The maximum has not converged in u either. That is
+recorded here because it was discovered while reconciling, and it BEARS ON THE
+VERDICT rather than merely tidying the books. ***
+
+DEVIATION, DISCLOSED: (P1) directed the F1+F2 sum to be "reconciled against the
+unfrozen 4.361e-01". Reconciliation is performed instead against THIS ACT'S OWN
+unfrozen baseline (3.740470e-01), because the registered figure was measured on
+a different u grid -- as the gate above now shows. Both figures are quoted with
+their axes named rather than one being silently substituted for the other.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 (P1) -- THE TWO-FACTOR FREEZE. Reference NQ = 700, md5-banked:
+  x 2b9f0b6dc847a1489e0f5655a7aa7151 · w f746ca9669e01ce8eee28026edb51f60
+  lam2[0:10] b63c4e8e9236a575936dabca2ab3131e · xi 4dd865970799f086a0a7c168d9ac8f46
+  xi1[0:10] f5530468de3604d9eb049930d9ccc674 · sigma_even 0.616500298741
+  Psi(0) = -1.165002987 AT THE KNOWN ANSWER. Seed structure: NONE, as registered.
+
+    NQ       baseline  F1 wts frozen F2 eval frozen    interaction
+   600   3.740470e-01   3.740470e-01   6.427645e-10  -1.077046e-09
+   800   3.414606e-01   3.414606e-01   9.982681e-11  -3.394374e-11
+   900   2.729392e-01   2.729392e-01   8.195851e-10  -2.765598e-10
+  1100   3.300078e-01   3.300078e-01   2.190043e-09  -7.558190e-10
+
+  F1 (evaluation, weights frozen) : 3.740470e-01 = 100.0% of baseline
+  F2 (weights, evaluation frozen) : 2.190043e-09 =   0.0% of baseline
+  F1+F2 vs baseline: reconciled to 2.624e-09. ### THE SPLIT IS ADDITIVE TO NINE
+  ORDERS; there is no interaction term to apportion or to name.
+  ### THE SPLIT IS EVALUATION-DOMINATED.
+
+*** WHAT F2's ZERO IS A FACT ABOUT, NAMED AS AN OBJECT AND NOT AS A LABEL --
+because a careless reading of "0.0%" would appear to exonerate more than it does.
+F2 varied ONLY sigma_even, the MASS weights t_n = lam^2/(1-lam^2)*xi_n(1)^2.
+  sigma_even across NQ:  600  0.616500298677  (-6.429e-11)
+                         700  0.616500298741  ( reference )
+                         800  0.616500298751  (+9.985e-12)
+                         900  0.616500298659  (-8.198e-11)
+                        1100  0.616500298522  (-2.191e-10)
+### H1 IS REFUTED AT ITS OWN OBJECT: mode 0 carries 1/(1-lam^2) = 1.746827e+04,
+and sigma_even is nonetheless STABLE TO 2.2e-10 ACROSS NQ. THE AMPLIFICATION
+H1 PREDICTS DOES NOT OCCUR.
+### AND WHAT F2 DOES **NOT** EXCLUDE: THE QUADRATURE WEIGHTS w ARE NOT FROZEN BY
+IT. They vary with NQ inside A_n at every configuration above. F2 excludes the
+mass-weight denominator and EXCLUDES NOTHING ELSE. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 (P2) -- THE PER-MODE ATTRIBUTION, and the spectrum it is read against.
+
+   n           lam2     1/(1-lam2)     sep to next        max|dA_n|   share%
+   0   9.999428e-01   1.746827e+04    4.055241e-02     1.131500e-03     0.05
+   1   9.593903e-01   2.462469e+01    6.847243e-01     1.631681e-02     0.74
+   2   2.746660e-01   1.378675e+00    2.711878e-01     5.521876e-02     2.49
+   3   3.478238e-03   1.003490e+00    3.470772e-03     9.511436e-02     4.29
+   4   7.465620e-06   1.000007e+00    7.459800e-06     1.166277e-01     5.26
+   5   5.820372e-09   1.000000e+00    5.818299e-09     1.557611e-01     7.02
+   6   2.072074e-12   1.000000e+00    2.071599e-12     1.946388e-01     8.77
+   7   4.745607e-16   1.000000e+00    1.464229e-16     5.540273e-01    24.97
+   8   3.281378e-16   1.000000e+00    5.560788e-17     6.702887e-01    30.21
+   9   2.725299e-16   1.000000e+00    4.270827e-17     3.595044e-01    16.20
+
+  modes 0-2 (the only modes whose 1/(1-lam^2) is meaningfully above 1) : 3.3%
+  modes 7-9 (the floor cluster, separations 4e-17..1e-16)              : 71.4%
+  ### H1 SIGNATURE ("largest modes, scaling with 1/(1-lam^2)")  : DOES NOT MATCH.
+  ### H2 SIGNATURE, ITS FIRST HALF ("the precision-floor tail") : MATCHES.
+
+*** THE GRADE ON THIS TABLE, STATED BEFORE IT IS USED. max|dA_n| is an UNSIGNED
+PER-MODE MOTION. Psi combines the modes WITH SIGNS (even minus sigma times all),
+so "share%" is a share of the total per-mode motion and is NOT an apportionment
+of Psi's excursion. THE CLIFF TEST IS THE ONE THAT ACTUALLY REMOVES MODES FROM
+PSI, AND IT IS THE AUTHORITATIVE ONE. ***
+
+*** AND THE STRUCTURE THE TABLE CARRIES THAT NEITHER SIGNATURE ANTICIPATED:
+max|dA_n| RISES MONOTONICALLY WITH MODE INDEX ACROSS MODES 0-6 -- a factor of
+about 170 -- WHILE 1/(1-lam^2) IS FLAT AT 1.000000 ACROSS MODES 3-6 AND lam^2
+FALLS NINE ORDERS. The scaling variable is THE MODE INDEX. It is not lam^2, and
+the trend is FULLY ESTABLISHED BY MODE 6, whose separation to its neighbour is
+2.07e-12 -- four orders clear of the floor cluster's 4e-17..1e-16. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 (P3) -- THE CLIFF TEST, and H2's second half.
+
+  NMODE        excursion   Psi(0) truncated     known answer   deviation
+     10     3.740470e-01       -1.165002987     -1.165002987   0.000000000
+      7     2.469093e-01       -0.315502091     -0.315502091   0.000000000
+      6     1.993185e-01       -0.699001792     -0.699001792   0.000000000
+      3     3.159458e-02       +0.147008440     +0.147008440   0.000000000
+
+  ### THE TRUNCATED SUM PASSES ITS OWN KNOWN-ANSWER GATE AT ALL FOUR DEPTHS,
+  deviation 0.000000000 throughout -- so the truncation is correctly implemented
+  and the excursion column may be read. (P3's stated sub-test, PASSED.)
+
+  ### H2's REMOVAL SIGNATURE **FAILS**. Cutting the ENTIRE floor cluster -- modes
+  7, 8, 9, which carry 71.4% of the per-mode motion -- removes only 34% of the
+  excursion. SIXTY-SIX PERCENT SURVIVES the removal of the modes H2 blames.
+
+*** THE TWO NUMBERS DISAGREE, AND THE DISAGREEMENT IS THE FINDING. 71.4% of the
+motion buys 34% of the excursion; the tail's large per-mode motion LARGELY
+CANCELS INSIDE PSI. Meanwhile MODE 6 ALONE -- 8.8% of the motion -- is worth 19%
+of the excursion (2.469e-01 -> 1.993e-01). PER UNIT OF MOTION MODE 6 IS WORTH
+ABOUT FOUR AND A HALF TIMES THE WHOLE FLOOR CLUSTER, and mode 6 is well
+separated and nowhere near the floor. ***
+
+*** AND THE STRUCTURAL NEGATIVE THAT SETTLES H2: THERE IS NO CLIFF IN THE
+EXCURSION WHERE THE SPECTRUM HAS ONE. lam^2 falls FOUR ORDERS from mode 6 to
+mode 7; the excursion falls SMOOTHLY, 3.74e-01 -> 2.47e-01 -> 1.99e-01 ->
+3.16e-02. THE EXCURSION'S STRUCTURE DOES NOT FOLLOW THE SPECTRUM'S STRUCTURE.
+A quantity caused by the precision floor would inherit the floor's edge. ***
+
+----------------------------------------------------------------------------------------------------
+THE U-AXIS READING -- DEVIATION, DISCLOSED AND REASONED.
+### WHAT IT IS: an added READING of component 2's own quantity along its other
+axis. NO new hypothesis, NO new sample family -- the same A_n(u) arrays,
+tabulated against u instead of against n. It is recorded as a deviation because
+it was not among the registered components, and it is run because P4 requires
+the next suspect be named FROM THE TABLE'S OWN STRUCTURE and the structure had
+narrowed to two suspects that the registered tables could not separate.
+
+### WHY IT SEPARATES THEM: at u = 0 the dilation is the identity,
+np.interp(x, x, f) returns f EXACTLY, and no interpolation of a dilated copy
+occurs at all. Any deviation surviving at u = 0 is the QUADRATURE WEIGHTS'
+SCALING (suspect 1) and cannot be the dilation (suspect 2).
+
+  A_n(0) across NQ -- the derived fact is A_n(0) = 1 for every mode:
+    every mode returns 1.000000000000; worst |A_n(0) - 1| = 2.997602e-15
+    ### WORST PER-MODE DEVIATION AT u = 0 OVER ALL NQ AND ALL MODES: 2.997602e-15
+
+  the deviation as a function of u (max over modes and over NQ):
+         u   dilation    max|dA_n(u)|
+    0.0000     1.0000    2.997602e-15
+    0.3891     1.4756    1.994560e-02
+    0.7781     2.1774    5.818579e-02
+    1.1672     3.2130    3.417506e-02
+    1.5563     4.7411    4.113658e-02
+    1.9453     6.9960    7.992377e-02
+    2.3344    10.3233    6.464333e-02
+    2.7235    15.2331    7.480724e-02
+    3.1125    22.4781    1.342331e-01
+    3.5016    33.1687    6.883379e-02
+    3.8712    48.0010    8.272483e-02
+
+### SUSPECT (1), THE QUADRATURE WEIGHTS' SCALING: **EXCLUDED**. With the dilation
+switched off the evaluation is exact to 3.0e-15 at every NQ and every mode. The
+weight scaling is sound. ### AND THIS IS THE EXECUTOR'S OWN REGISTERED
+EXPECTATION FAILING: he named suspect (1) as most likely, reasoning that
+xi = V/sqrt(w) carries a sqrt(w) scaling the dilated evaluation might not undo.
+IT UNDOES IT EXACTLY. The reasoning was wrong and the measurement says so.
+### SUSPECT (2), THE DILATION INTERACTION: **LOCATED**. The deviation is created
+by the dilation and by nothing else in the evaluation. It does not ramp in
+gently either -- it is at 2.0e-02 by a dilation of 1.48.
+### SUSPECT (3), THE EPSILON COUPLING: **EXCLUDED BY CONSTRUCTION, and the
+species of that exclusion stated** -- E is computed once and held IDENTICAL
+across every configuration in every table above, so under F1 (sigma frozen) it
+cancels EXACTLY in the difference. Its contribution to the excursion is zero as
+an algebraic fact, not as a measurement.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 (P4) -- THE VERDICT, QUOTED FROM THE PRE-COMMITTED READING MAP.
+
+### THE VERDICT IS "NEITHER-WITH-THE-THIRD-SUSPECT-NAMED", and the third suspect
+is the SECOND in the pre-committed order: THE U-GRID/DILATION INTERACTION.
+### AND IT IS **LOCATED**, NOT MERELY NAMED -- it survived a controlled
+substitution in which the component was switched off and the excursion went to
+machine precision.
+
+ H1 dies twice over: at its own object (sigma_even stable to 2.2e-10 against a
+   1.7e+04 denominator) and in the attribution table (modes 0-2 carry 3.3%).
+ H2's signature is a CONJUNCTION -- location AND removal. Its location half
+   matches at 71.4%; its removal half FAILS, 66% of the excursion surviving the
+   cut. ### THE REGISTRATION ANTICIPATED EXACTLY THIS TEMPTATION -- "A TABLE
+   MATCHING NEITHER NAMES A THIRD SUSPECT RATHER THAN STRETCHING EITHER" -- and
+   a 71.4% first half is precisely the partial match that invites the stretch.
+   IT IS NOT TAKEN. H2 is recorded as NOT FIRING, with its matching half quoted
+   in full so that the record shows what was declined and not merely what was
+   concluded.
+
+*** THE RECONCILIATION WITH b124, WHICH THE VERDICT WOULD OTHERWISE CONTRADICT,
+AND WHICH IS OWED BEFORE THE VERDICT CAN STAND. b124 replaced the interpolant
+THREE WAYS and the excursion did not move -- "acquittal by replacement". If the
+cause is the dilated evaluation, why did replacing the evaluation not fix it?
+BECAUSE ALL FOUR SCHEMES READ THE SAME SAMPLED NODE VALUES. Nystrom uses the
+same nodes and weights; the spectral route fits Legendre coefficients to the
+same node values; the split integral re-partitions the same data. NONE OF THEM
+ADDS INFORMATION ABOUT xi_n BETWEEN THE NODES. ### b124 REPLACED THE
+INTERPOLATION SCHEME; IT DID NOT REPLACE THE SAMPLING. b126 locates the cause
+UPSTREAM OF THE SCHEME, where every replacement shared it. THE TWO RESULTS ARE
+CONSISTENT AND NEITHER IS WITHDRAWN.
+GRADE: this reconciliation is A READING OVER TWO MEASURED TABLES, not a separate
+measurement. It is not promoted, and the repair act tests it. ***
+
+*** A STANDING RESULT PROMOTED, AND THE PROMOTION IS THIS ACT'S CLEANEST GAIN.
+b125 filed the COMPLETENESS READING at NAVIGATOR-ASSERTED grade and recorded
+explicitly that it "HAS NOT BEEN TESTED": that Psi(0) is protected because u = 0
+is the identity dilation, and that the protection lapses off it. ### IT HAS NOW
+BEEN TESTED AND IT HOLDS: 2.997602e-15 at u = 0 against ~1e-01 off it, across
+every NQ and every mode. PROMOTED FROM NAVIGATOR-ASSERTED TO MEASURED. The
+mechanism it proposed is the mechanism the localization found. ***
+
+THE NEW LAW THIS ACT MINTS, and it extends b125's replacement-isolation law
+rather than competing with it:
+### A NULL CONFIGURATION LOCATES WHAT A REPLACEMENT CANNOT.
+ Replacement varies HOW a component acts and can only EXCLUDE; a configuration
+ in which the component does nothing at all varies WHETHER it acts, and can
+ LOCATE. Three replacements left the excursion unmoved and taught the record
+ what the cause was not. One null configuration -- the identity dilation --
+ moved it to 3.0e-15 and taught the record what the cause is.
+ ### THE COROLLARY WORTH MORE THAN THE LAW: b124's three replacements were the
+ EXPENSIVE route and the null test was nearly free, being one column of an array
+ already computed. THE CHEAP TEST WAS AVAILABLE THE WHOLE TIME AND WAS NOT RUN,
+ because the record was reaching for better instruments before asking what the
+ existing one did when the suspected component was absent.
+
+THE EXECUTOR'S SCORECARD, BOTH HALVES, FILED AS THE MIRROR OF b124's ENTRY.
+ ### HIT, ON THE VERDICT: he registered **NEITHER** against the navigator's H1,
+ at the cost of dissenting, and NEITHER is what the tables returned. His ground
+ -- that b124 had already frozen the weights -- was verified at content and held.
+ ### MISS, ON THE IDENTIFICATION: he named suspect (1), the quadrature weights'
+ scaling, as most likely. It is EXCLUDED at 3.0e-15. His stated reason (the
+ sqrt(w) scaling not being undone) is simply false, and the u = 0 column is the
+ refutation.
+ *** b125 filed that a seat predicting the wrong outcome and the right failure
+ mode "has told the record two different things, and only one of them is a miss".
+ THIS IS THE MIRROR CASE -- the right outcome and the wrong mechanism -- AND IT
+ IS FILED THE SAME WAY, IN ONE ENTRY WITH BOTH HALVES. A record that logs only
+ the flattering half of a split result is not keeping score, it is advertising. ***
+
+THE REPAIR ACT'S SPECIFICATION, DRAFTED FROM THE LOCATED CAUSE AND NOT COMPOSED
+AFTER THE FACT. ### THE NEITHER BRANCH WAS THE ONE BRANCH OF THE READING MAP
+WITH NO PRE-COMMITTED REPAIR SHAPE, so this specification is NEW and is marked
+as such rather than quoted as if pre-registered.
+ THE SHAPE: the dilated integrand's support is [-1/lambda, +1/lambda], which at
+ lambda = 48 is a small central region of a Gauss-Legendre grid whose nodes
+ cluster at the ENDPOINTS -- so the dilated evaluation reads xi_n exactly where
+ the grid is sparsest, and reads it more finely the higher the mode oscillates.
+ The candidate is to integrate on a quadrature ADAPTED TO THE SURVIVING INTERVAL
+ with xi_n supplied by the Nystrom extension, RESTRICTED TO THE MODES WHOSE
+ lambda_n is above the floor, since b124 measured Nystrom's error tracking
+ eps/lambda across nine orders. ### THE MECHANISM SENTENCE IS A HYPOTHESIS ABOUT
+ WHY AND IS GRADED AS ONE; what is MEASURED is that the dilation causes it.
+ THE GATES IT MUST PASS, and the second is new to this act:
+  (i) THE KNOWN ANSWER, standing: Psi(0) = -1.165002987 at every quadrature size,
+      or dead on arrival. The incumbent-preservation law governs.
+  (ii) ### THE U-GRID CONVERGENCE GATE, MINTED HERE: the repaired quantity's
+      maximum over u must STOP GROWING when the u grid doubles. THE INCUMBENT
+      FAILS THIS GATE -- 3.740470e-01 at 200 points, 4.360826e-01 at 400, a rise
+      of 17% -- and the record did not previously know that, because no act had
+      varied the u grid. A repair that improved the NQ stability while still
+      failing this gate would have moved the instability rather than removed it.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 4 (STRIKEABLE) -- THE STOP-LOSS RULING, FILED AS OFFERED.
+Quoted from the ferry's such-that clause: "the instrument serves the lane such
+that no question waits indefinitely on a tool that cannot be made honest in
+bounded attempts". ### FILED AT THE CONVENTIONS LINES AS OFFERED AND NOT AS
+ADOPTED -- it is the author's to strike, and the executor does not make the
+author's rulings. ### AND THE EXECUTOR RECORDS THAT ITS TRIGGER HAS NOT FIRED
+AND IS FURTHER FROM FIRING THAN WHEN IT WAS DRAFTED: the act that would have
+justified a stop-loss is the act that located the cause.
+
+----------------------------------------------------------------------------------------------------
+WHAT THIS ACT DID NOT DO, STATED SO THAT NO READER INFERS IT.
+ The excursion is LOCATED, NOT REPAIRED. No downstream verdict is re-run.
+ ### THE DOMINANCE QUESTION'S ONE ASKING REMAINS BANKED AND UNSPENT.
+ b119's dominance result STAYS WITHDRAWN TO ITS BASIS, exactly as b121 left it.
+ Nothing is promoted except the completeness reading, which is named above.
+ Nothing about h2. THE REGISTER SENTENCE IS UNTOUCHED. Nothing deposits.
+
+HIT RECORD: P1 the freeze split measured, EVALUATION-DOMINATED, additive to nine
+orders, H1 refuted at its own object; P2 the attribution tabulated with its grade
+stated and its unanticipated structure named; P3 the cliff test run at four
+depths with the known-answer sub-test passing at all four, H2's removal half
+FAILING; P4 the verdict NEITHER with the third suspect LOCATED, the b124
+reconciliation owed and paid, the completeness reading promoted, one law minted,
+the repair specification drafted with a new gate. DEVIATIONS: two, both
+disclosed above with their reasons (the reconciliation target; the u-axis
+reading). Divergences: none.
+====================================================================================================

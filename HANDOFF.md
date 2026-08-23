@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the seventeenth seam close (b125).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the localization act (b126).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -23,7 +23,7 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
 | `PLACE-papers` | `main` **c1aae0d** | the keystone at **v2.17**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b125 pin-line commit** | registrations and banks b1–b125 |
+| `relay` | `main` **the b126 pin-line commit** | registrations and banks b1–b126 |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -110,8 +110,19 @@ the superlative ledger, with superlatives entering at shipping; **the
 third-outcome cell** (true conclusion under refuted hypothesis, with its reading
 pre-committed); **the verification law's self-application corollary** — run a new convention
 against its own first artifact in the act that mints it; **a check claimed is a
-check run** — any claimed check carries its artifact or is not claimed; and
-**author catches cite the conversation layer.**
+check run** — any claimed check carries its artifact or is not claimed;
+**author catches cite the conversation layer**; **a replacement must be better
+where the answer is known**; **replacing a component is the only test that
+isolates it**; **a diagnosis that has not survived a replacement is a suspicion,
+not a cause**; and ### **A NULL CONFIGURATION LOCATES WHAT A REPLACEMENT CANNOT**
+— *replacement varies **how** a component acts and can only exclude; a
+configuration in which the component does nothing at all varies **whether** it
+acts, and can locate.* **Its corollary, minted with it and worth more than it:
+b124's three replacements were the expensive route and b126's null test was
+nearly free — one column of an array already computed. The cheap test was
+available the whole time and was not run, because the record reached for better
+instruments before asking what the existing one did with the suspected component
+absent.**
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -121,15 +132,24 @@ fences.
 
 ## 3. THE STAGED LANES
 
-- ### **THE INSTRUMENT ITEM — the lane's head, and HARDER than it was.** b124
+- ### **THE INSTRUMENT ITEM — the lane's head, and the cause is now LOCATED.** b124
   built both registered repairs (Nyström extension; spectral reconstruction) and
   **both failed**: the NQ excursion did not move under any of four evaluation
-  schemes. ***So the interpolant is not the whole cause and the instability's
-  source is UNLOCATED.*** The task is no longer *replace a known-bad component*
-  but ***find what four replacements did not change*** — bound by the new law
-  that **a replacement must be better where the answer is known** (every
-  replacement got Ψ(0) wrong, where the original is exact). *Until it is solved,
-  every Ψ-derived quantity carries a sampling error of order 0.2–0.4.*
+  schemes. **b126 then located what four replacements did not change.** The
+  two-factor freeze is **evaluation-dominated and additive to nine orders** (F1
+  100.0%, F2 0.0%), so **H1 is refuted at its own object** — σ_even is stable to
+  2.2e−10 across NQ against a 1/(1−λ²) of 1.7e+04. **H2 does not fire either:**
+  its location half matches at 71.4% but cutting the whole floor cluster removes
+  only 34% of the excursion, and **there is no cliff in the excursion where the
+  spectrum has one.** ***The verdict is NEITHER, and the located cause is THE
+  DILATION INTERACTION*** — at u = 0, the identity dilation, the deviation is
+  **3.0e−15** across every NQ and every mode; it is 2.0e−02 by a dilation of 1.48.
+  **b124 replaced the interpolation *scheme*; it never replaced the *sampling*,
+  which all four schemes shared** — so the two results are consistent and neither
+  is withdrawn. *Until the repair lands, every Ψ-derived quantity still carries a
+  sampling error of order 0.2–0.4.* **Two gates govern the repair: the known
+  answer Ψ(0) = −1.165002987, and the newly minted U-GRID CONVERGENCE GATE, which
+  the incumbent FAILS (3.740470e−01 at 200 u-points, 4.360826e−01 at 400).**
 - **The dominance question** — still withdrawn to the recorded basis, **and its
   one permitted re-asking is unspent**, the b124 halt not having consumed it.
 - **THE CLOSED-FORM CROWN** — the research target.
