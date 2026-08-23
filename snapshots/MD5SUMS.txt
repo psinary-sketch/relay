@@ -1,1 +1,11 @@
-5cbdb2a13acc30f7504ff48f5cca6d90  2026-08-23-superlative-sweep.txt  25592 bytes  written 2026-08-23 (b117)
+# Snapshot integrity. THE CONVENTION, AMENDED 2026-08-23 ON ITS FIRST USE:
+# the md5 is taken over LF-NORMALIZED BYTES, and snapshots are pinned to LF by
+# .gitattributes (snapshots/** text eol=lf). WHY: the first recording took the
+# md5 of a CRLF working copy while git stored the LF-normalized blob, so a
+# later verifier reading from the repository would have seen a mismatch that
+# was an artifact of line-endings and not of content. Found by running the
+# convention against its own first snapshot. Nothing was lost; both byte
+# streams were intact; the SPECIFICATION was incomplete and is now complete.
+#
+# md5 (LF bytes)                    file                                bytes
+fe094332822a89086c79823a0e4c25bb  2026-08-23-superlative-sweep.txt  25259 bytes  written 2026-08-23 (b117)

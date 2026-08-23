@@ -150,7 +150,7 @@ COMPONENT 3 -- THE SUPERLATIVE LEDGER, MINTED WITH ITS RETROACTIVE SWEEP.
  THE FULL LEDGER -- every entry with file, line, stem and verbatim span -- is
  stored PER THE SNAPSHOT CONVENTION MINTED THIS ACT at
  relay/snapshots/2026-08-23-superlative-sweep.txt, md5
- 5cbdb2a13acc30f7504ff48f5cca6d90 at write, 25,592 bytes.
+ fe094332822a89086c79823a0e4c25bb at write, 25,259 bytes.
 *** JUDGMENT-FREE, ZERO INTERPRETIVE WEIGHT. It is an inventory. No entry is a
 criticism, no entry is evidence of anything, and no entry is re-graded by being
 listed. THE CONVENTION STANDING FORWARD: SUPERLATIVES IN SHIPPED PROSE ENTER
@@ -229,5 +229,21 @@ DEVIATIONS: TWO, both procedural, both recorded rather than absorbed.
  finds a banked document quietly different from the one that was banked. ***
  THIS IS THE THIRD ACT IN FOUR IN WHICH A DISCIPLINE HAS CAUGHT ITS OWN AUTHOR,
  and the pattern is worth more than any single catch.
+ (3) ### THE SNAPSHOT CONVENTION FAILED ITS OWN FIRST VERIFICATION, AND THE
+ FAILURE WAS THE CONVENTION'S AND NOT THE SNAPSHOT'S. Re-verifying the stored
+ survey from the PUSHED TREE returned md5 fe0943... against the recorded
+ 5cbdb2... DIAGNOSED, not assumed: the working copy is CRLF (25,592 bytes) and
+ git stores the LF-normalized blob (25,259 bytes). *** BOTH BYTE STREAMS WERE
+ INTACT AND NOTHING WAS LOST; THE SPECIFICATION WAS DEFECTIVE -- "md5 at write"
+ never said WHICH BYTES, so a later verifier reading from the repository would
+ have seen a line-ending artifact and read it as corruption. *** AMENDED ON ITS
+ FIRST USE: the md5 is taken over LF-NORMALIZED BYTES, and snapshots/** is
+ pinned to text eol=lf by a new .gitattributes so working copy and blob agree on
+ every platform. The recorded md5 is corrected to
+ fe094332822a89086c79823a0e4c25bb wherever quoted, and MD5SUMS.txt carries the
+ amendment and its reason at its head. THE LESSON: a convention that cannot
+ verify its own first artifact is worth less than the act that minted it -- this
+ one was run against itself immediately, which is why the defect surfaced here
+ rather than in a later act that would have mistaken it for corruption.
 Divergences: none.
 ====================================================================================================
