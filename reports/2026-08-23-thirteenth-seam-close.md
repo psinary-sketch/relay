@@ -215,7 +215,25 @@ congruence line + the INVARIANCE_BARRIERS intake note + FINDINGS + OPEN_TRAILS.
 Mirror: refreshed — **`mirror-refresh-2026-08-23-f.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**MOVED this act — for the row-68 CORRECTION only; no kernel change**; parent
+> `fd80f14`; **Core 271/271**, rows 1–68, no blank cells, every print unchanged;
+> tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) ·
+> `PLACE-papers origin/main = 86bff7b9b70ce191be9f967f6673569e54d30ad1` (the
+> v2.13 commit; parent `614c7c1`) · `relay origin/main =
+> 86b54e8b92a9cecec74b92bfe9cd49a8021f6e41` (this act — the registration commit
+> `213efd1` then the act commit, the chain continuous from `3375c3b`; pushed
+> from `push-thirteenth-seam-close` per Rule 4.10, hook standing and its
+> installed copy content-verified against the tracked one; **HELD ancestry
+> clean** — `6eada6a` read at its pinned SHA and confirmed NOT an ancestor;
+> **the HELD commit's carrier-build act files verified ABSENT from the pushed
+> public tree by name, count 0**) · **`SIDE-kernel origin/main = 0256e9e`,
+> citable deposit `v1.5` = peeled `0e5233f`.** **MIRROR:**
+> `mirror-refresh-2026-08-23-f.zip` built at PLACE-papers `86bff7b` and verified
+> by content (22 files, 0 md5 mismatches; this act's OPEN_TRAILS record, loom
+> instance, FINDINGS correction and barriers note all present inside the zip).
+> *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
 
 ## FOOT
 
