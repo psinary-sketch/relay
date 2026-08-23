@@ -130,7 +130,22 @@ backfill** + OPEN_TRAILS. SIDE-global-section: UNTOUCHED (Core 271/271). Mirror:
 refreshed — **`mirror-refresh-2026-08-23-l.zip` is the one to load.***
 
 > **PIN LINE (post-push read-back, ls-remote):**
-> [PIN-LINE-SPLICE]
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `PLACE-papers
+> origin/main = e8d7e432da8af50c95c2c79c5db31d97143b2b50` — **the backfill is at
+> `54f3e60`, this commit's parent**, and every archived file was re-verified
+> byte-exact from that tree · `relay origin/main =
+> f5a5ce71a610ff0f0c8a84611ccfcd3636fc9f4b` (this act — the registration
+> `f214cfd` then the act commit, the chain continuous from `bab98ff`; pushed from
+> `push-trim-completion` per Rule 4.10, hook content-verified; **HELD ancestry
+> clean** — `6eada6a` at its pinned SHA, NOT an ancestor; **carrier files ABSENT
+> from the pushed tree by name, count 0**) · `SIDE-kernel origin/main =
+> 0256e9e`, deposit `v1.5` = peeled `0e5233f`. **MIRROR:**
+> `mirror-refresh-2026-08-23-l.zip` built at PLACE-papers `e8d7e43` and verified
+> by content (22 files, 0 md5 mismatches; this act's record present inside).
+> *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
 
 ## FOOT
 
