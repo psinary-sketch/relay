@@ -121,8 +121,27 @@ between two transforms, resolved at **R4** and named by variable throughout.
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = b88fe8e7ebfd005e1bd7a6653e77ced21161971c` (this act; the
+> in-act registration `9c54047` its parent, chain continuous
+> `2af4540 → a2bb6c0 → 9c54047 → b88fe8e`; pushed from `push-scaling-channel`
+> per Rule 4.10) · `PLACE-papers origin/main =
+> c9eda76fcf022d48880d786387064963936d3b5f` — ### **UNMOVED. A derivation act
+> that did not pass earns no keystone increment; the twenty-first seam close
+> absorbs it.** · `SIDE-global-section origin/main =
+> dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core **271/271**,
+> rows 1–68; tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`,
+> unmoved) · `SIDE-kernel origin/main =
+> 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` = peeled
+> `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **NOT REFRESHED, PLACE-papers having not moved** —
+> **`mirror-refresh-2026-08-24-c.zip` remains the one to load.** *The
+> stale-build law's second clause is what licenses saying so: the mirror's
+> source HEAD `c9eda76` still equals the repository HEAD read by `ls-remote`,
+> so the standing export is current rather than merely unrebuilt.*
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
