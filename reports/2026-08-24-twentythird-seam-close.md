@@ -92,8 +92,31 @@ check ran.**
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = e8f9f8a9f44281b766d2e054fe1be3e17f62a7f4` (this act; the
+> registration `485ac52` its parent, chain continuous
+> `c8f7620 → 485ac52 → e8f9f8a`; pushed from `push-twentythird-seam` per
+> Rule 4.10) · `PLACE-papers origin/main =
+> 5ca7b31624987db36af2baf4fb83baac90bd0399` (the **v2.23** commit) ·
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-g.zip` is the one to load** —
+> verified under **both clauses of the stale-build law**: *clause 1* the
+> manifest (23 files, 23 rows, **0 mismatches**); *clause 2* the build's source
+> HEAD `5ca7b31` read against `ls-remote` `5ca7b31` — **they agree.** Keystone
+> section 28, the words-vs-intent law, the motif's first-instance line, the
+> staged two-bounds act and the FINDINGS species line all confirmed present.
+> *This pin-line commit's own SHA is stated in the closing message.*
+
+***A NOTE ON THIS ACT'S EXECUTION, RECORDED BECAUSE IT COST A STEP.*** One
+compound shell command failed to parse and **nothing in it ran** — caught by
+checking the working tree rather than assuming, and the OPEN_TRAILS edit was
+redone through a script file. ### **No partial state was written and no file was left half-edited; the failure was total, which is the safe kind.** *Recorded so the next act knows the heredoc chain has a length beyond which it is worth splitting.*
 
 ## FOOT
 
