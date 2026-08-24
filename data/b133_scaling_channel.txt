@@ -1,0 +1,172 @@
+====================================================================================================
+b133 -- THE SCALING-CHANNEL ACT -- THE BANK. In-act registration:
+data/b133_registration_2026-08-24.txt (banked after the setting read and before
+component 2 computed, commit 9c54047). ### P2 BRANCH (b): THE NON-PASSING STEP
+NAMED AND MEASURED. P3 BRANCH (b) WITH THE STRUCTURE NAMED. No kernel changes;
+Core 271/271 and NOTHING ENTERS CORE. Nothing about h2. Nothing deposits.
+====================================================================================================
+
+COMPONENT 1 (P1) -- THE SETTING READ. Banked in full at the registration.
+ R1 the corpus holds NO conditions citation for Mellin -- ABSENCE RECORDED.
+ R2 DLMF section 1.14 READ AT CONTENT: (1.14.32), (1.14.35), the strip
+   criterion and the inversion condition quoted verbatim; (1.14.40) quoted.
+ R3 ### (1.14.40) NOT CITED FOR THIS ACT'S IDENTITY -- it names the Mellin
+   CONVOLUTION and this act's object is a PARSEVAL-TYPE pairing. The identity
+   is the executor's own algebra and is graded as such.
+ R4 ### TWO MELLIN TRANSFORMS, NAMED BY VARIABLE THROUGHOUT: MELLIN-1 in
+   rho = e^u (already built -- Psihat IS a Mellin-side object, so that passage
+   is a NO-OP) and MELLIN-2 in the dual variable s (the new one).
+ R5 the strips: common strip 0 < Re z < 1, CONDITIONAL on Psihat's unmeasured
+   decay, which is NAVIGATOR-OPEN.
+ R6 ### THE LICENSED RANGE HAS NO IMAGE: a compact subinterval against a
+   representation global on (0, infty). Stated in advance.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 (P2) -- THE REFORMULATION. ### BRANCH (b).
+
+THE TWO IDENTITIES WRITTEN, both the executor's own algebra:
+ (E1) M_z[F](z) = M_z[Khat](z) * M_z[Psihat](1-z), F(L) = INT Khat(Ls)Psihat(s)ds
+ (E2) M_z[L F'(L)](z) = -z M_z[F](z), boundary terms [L^z F(L)] at 0 and infinity.
+### NEITHER IS VERIFIED, AND THE ACT SAYS SO PLAINLY RATHER THAN STANDING ON
+THE ALGEBRA'S PLAUSIBILITY.
+
+FIRST TEST, on the record's arrays (s to 200, L to 40):
+   z      M_z[F](z)   M_z[Kh](z)M_z[Ph](1-z)   rel diff
+  0.20  -5.116132202e+00  -3.714471230e+00     2.740e-01
+  0.35  -1.827403251e+00  -1.450530579e+00     2.062e-01
+  0.50  -4.717292689e-02   7.724093739e-02     2.637e+00
+  0.65   1.234304054e+00   1.399911479e+00     1.342e-01
+  0.80   2.480226151e+00   2.859646433e+00     1.530e-01
+ (E1) NOT VERIFIED. (E2) NOT VERIFIED, worst 9.798e-01.
+ *** THE z = 0.50 ROW'S 2.637 IS THE ZERO-CROSSING ARTIFACT AGAIN -- M_z[F] is
+ -0.047 there. b131 minted "relative error is the wrong metric for a quantity
+ that crosses zero"; THE LESSON IS APPLIED HERE RATHER THAN RE-LEARNED, and the
+ refinement below is run at z = 0.35, away from the crossing. ***
+
+*** THE DISCRIMINATOR APPLIED -- b131's OWN LAW, THAT FLATNESS UNDER REFINEMENT
+DISTINGUISHES A RESULT FROM AN ARTIFACT. Refining the s-domain and the L-domain
+together at z = 0.35:
+    SMAX   LMAX        M_z[F](z)          product      rel diff
+     100     20  -1.473379619e+00  -1.255221524e+00   1.481e-01
+     200     40  -1.827403251e+00  -1.450530579e+00   2.062e-01
+     400     80  -2.903835895e+00  -1.619890710e+00   4.422e-01
+     800    160  -5.977844935e+00  -1.797799465e+00   6.993e-01
+### THE DISCREPANCY GROWS AND NEITHER SIDE SETTLES. M_z[F] runs from -1.47 to
+-5.98 and is still moving; the product drifts too.
+### THE READING, AND IT IS NOT THE ONE THE DISCRIMINATOR USUALLY GIVES: this is
+NOT an algebra error and NOT a truncation artifact around a true value. IT IS
+BOTH TRANSFORMS FAILING TO EXIST ON THE RECORD'S DATA. ***
+
+THE DIRECT MEASUREMENT OF THAT, at z = 0.5, as the s-domain grows:
+   s <=  50.0 : 1.027476059e-01
+   s <= 100.0 : 6.373812479e-02
+   s <= 150.0 : 4.337116738e-02
+   s <= 200.0 : 3.087058595e-02
+### M_z[Psihat](1-z) SHRINKS MONOTONICALLY AND DOES NOT SETTLE. It is not
+determined by the record's data.
+
+*** THE NON-PASSING STEP, NAMED EXACTLY, AND IT IS SHARPER THAN THE
+REGISTRATION EXPECTED. The registration predicted candidate class 3 -- "a
+convergence license the record cannot supply" -- in the form "forming
+M_z[Psihat] requires Psi on all of R". THAT IS RIGHT AND IT IS NOT THE WHOLE
+REASON. THE WHOLE REASON:
+### Psihat's TAIL IS TRUNCATION RINGING, NOT SIGNAL. b131 measured that Psi does
+not decay at the right edge (|Psi(umax)|/|Psi(0)| = 0.1485) and, on exactly that
+ground, RECORDED THAT Psihat's FINE STRUCTURE WOULD NOT BE RELIED ON.
+### THE MELLIN-2 TRANSFORM IS AN INTEGRAL OVER PRECISELY THAT FINE STRUCTURE.
+### SO THE REFORMULATION REQUIRES THE ONE THING THE PREVIOUS ACT DECLINED TO
+RELY ON, AND IT REQUIRES IT NOT AS A DETAIL BUT AS THE WHOLE TAIL OF ITS
+INTEGRAND. The two acts are consistent; the second one asks for what the first
+one fenced. ***
+ THE VERDICT: ### (P2) BRANCH (b). The reformulation is WRITTEN AND NOT PASSED.
+ The identities stand as algebra, UNVERIFIED, and are so marked wherever used.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 (P3) -- THE STRUCTURE VERDICT. ### BRANCH (b), THE STRUCTURE NAMED.
+
+WHAT THE MELLIN-2 SIDE DOES DELIVER, and it is not nothing:
+ (S1) ### THE DILATION DOES DIAGONALIZE. The transform side is a PRODUCT,
+   M_z[Khat](z) * M_z[Psihat](1-z). That was the point of going there and it
+   is the one thing that worked as intended.
+ (S2) ### THE KERNEL FACTOR IS POSITIVE ACROSS THE WHOLE STRIP, MEASURED:
+     z      M_z[Khat](z)
+    0.20   3.313686998e+00
+    0.35   2.825473929e+00
+    0.50   2.502088477e+00
+    0.65   2.293588138e+00
+    0.80   2.168088038e+00
+   inherited from Khat >= 0 pointwise (b131's checked fact).
+ (S3) ### AND THE DENSITY FACTOR IS MIXED IN SIGN ON THE STRIP, MEASURED:
+     z    M_z[Psihat](1-z)
+    0.20  -1.120948126e+00
+    0.35  -5.133760264e-01
+    0.50  +3.087058595e-02
+    0.65  +6.103587022e-01
+    0.80  +1.318971547e+00
+   changing sign between z = 0.35 and z = 0.50.
+
+*** THE STRUCTURE, IN ONE SENTENCE AS THE SUCCESS CONDITION REQUIRED:
+### THE MELLIN-2 LINE FACTORS THE PAIRING INTO A PROVABLY POSITIVE KERNEL FACTOR
+AND A SIGN-INDETERMINATE DENSITY FACTOR, SO THE ENTIRE SIGN CONTENT OF THE
+ONE-SIGN QUESTION IS NOW LOCALIZED IN A SINGLE FACTOR, M_z[Psihat](1-z) -- AND
+THAT FACTOR IS MEASURED TO CHANGE SIGN ON THE STRIP, SO THE REFORMULATION
+RELOCATES THE SIGN PROBLEM WITHOUT REDUCING IT. ***
+### THE GAIN IS REAL AND IT IS ONE OF LOCALIZATION, NOT OF PROGRESS: before
+this act the sign question involved two objects; after it, one of them is
+provably out of the question. THE LOSS IS ALSO REAL: the factor it is localized
+into cannot be evaluated on the record's data.
+ *** AND THE THING THE ACT WILL NOT CLAIM: that no positivity criterion exists
+ on the Mellin line. The registration named this in advance -- the executor does
+ not expect one, HAS NOT READ A THEOREM SAYING SO, and therefore MARKS IT
+ NAVIGATOR-OPEN rather than asserting a non-existence. ***
+
+THE EXACT FACTS CHECKED AGAINST, per P3:
+ the endpoint sign sigma_even > 1/2 -- CONSISTENT: M_z[F] is negative at the
+   small-z end of the strip, which is the L -> 0 behaviour the endpoint governs.
+   ### CONSISTENCY IS NOT DERIVATION and no sub-case is claimed derived.
+ the two-sidedness and the parity correction (Fourier-sign channels) -- neither
+   enters the Mellin-2 factorization at any step. ### THEY DO NOT BEAR ON IT,
+   and the act says so rather than listing them as though they had been used.
+ ### NO DERIVABLE SUB-CASE WAS FOUND. Stated plainly.
+
+### CORE: NOTHING ENTERS. Nothing this act produced is a finite decidable
+statement -- the setting read is citation, the reformulation is analysis, the
+verdict is a measured non-convergence. Core stands at 271/271, rows 1-68,
+UNTOUCHED. The b131 pre-commitment is honoured a second time.
+
+THE DUAL-PAYOFF CLAUSE, DISCHARGED: ### ONE FACT LEARNED ABOUT THE SPECTRAL
+MEASURES, ROUTED TO THE ENGINEERING ENTRY VERBATIM. Psihat's tail on the
+record's data is TRUNCATION RINGING RATHER THAN SIGNAL, and this act measured
+how much that costs: an integral over that tail (M_z[Psihat]) does not converge,
+drifting by a factor of three across a fourfold domain increase.
+### SO ANY FUTURE ROUTE THAT INTEGRATES AGAINST Psihat's TAIL IS BLOCKED BY THE
+SAME DEFECT, AND THE ENGINEERING ITEM GAINS A SECOND REASON TO EXIST: not only
+are the eigenvectors at the floor unusable, but THE DENSITY'S HIGH-FREQUENCY
+CONTENT IS UNUSABLE TOO, and the second was not previously priced.
+*** THIS DOES NOT CHANGE THE b132 AUTHORIZATION'S GATES and does not license a
+different route; it is filed as a fact the second attempt may consult. ***
+
+THE FENCE SET, CARRIED VERBATIM AND NOT SOFTENED: "one species shared is not one
+proof shared, neither instance discharges the other -- AND the open step is an
+instrument quantity of the construction's own bookkeeping, NOT a statement about
+zeta's zeros, BEARING ON h2 NOT AT ALL." AND: ### A ROUTE'S ADDRESS IS NOT A
+ROUTE WALKED -- which this act demonstrates in the strongest available form,
+having walked toward the address and found the road unpaved.
+
+THE TWENTY-FIRST SEAM CLOSE'S DEBT: the DLMF read with its grades and the
+non-citation of (1.14.40); the two-Mellin distinction; the strips with their
+NAVIGATOR-OPEN decay; the non-convergence tables; the localization structure;
+the dual-payoff fact; the empty Core, twice honoured.
+
+HIT RECORD: P1 the setting read with one absence recorded, one authoritative
+source read at content with equation numbers, one cited theorem DECLINED as
+inapplicable, and the two-Mellin ambiguity resolved before use; the seats
+registered in-act with the navigator's absence RECORDED RATHER THAN INVENTED.
+P2 BRANCH (b) with the non-passing step measured, the discriminator applied and
+returning a third possibility the law had not anticipated -- not artifact, not
+error, but NON-EXISTENCE -- and the zero-crossing lesson applied rather than
+re-learned. P3 BRANCH (b) with the structure named in one sentence, the gain
+and the loss both stated, and a non-existence explicitly NOT claimed. Core
+untouched. DEVIATIONS: none. Divergences: one, the ferry's ambiguous "Mellin
+side", resolved at R4.
+====================================================================================================
