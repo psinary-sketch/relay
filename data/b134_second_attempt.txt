@@ -1,0 +1,248 @@
+====================================================================================================
+b134 -- THE SECOND ATTEMPT -- THE BANK. Registration:
+data/b134_registration_2026-08-24.txt (banked before any computation, commit
+30e1d5f, with two hazards declared that govern how the gates are read).
+### ALL FOUR GATES PASS. P2 LANDS AND THE ONE-SIGN VERDICT STRENGTHENS BY FIVE
+ORDERS IN MARGIN-OVER-FLOOR. ### THE ONE ASKING IS SPENT AND RETURNS BRANCH (b):
+DOMINANCE IS **REFUTED** AT a^2 = 2 ON REPAIRED GROUND.
+No kernel changes; Core 271/271, UNTOUCHED. Nothing about h2. Nothing deposits.
+====================================================================================================
+
+COMPONENT 1 (P1) -- THE ROUTE AND THE FOUR GATES.
+
+THE ROUTE, A HYBRID AS THE REGISTRATION DECLARED: xi_n from diagonalising
+W = diag(k(k+1)) + c^2 X^2 in the orthonormal Legendre basis, eigenvector index
+2n (pin P1), normalised to INT xi^2 = 2 (pin P2) -- A POLYNOMIAL, evaluable
+anywhere, no interpolation, no 1/lambda. ### lambda_n^2 STILL FROM Q's eigh, AND
+NO GATE HERE TESTS IT.
+A_n(u) = sqrt(L) (1/2) INT_{-1/L}^{1/L} xi_n(x) xi_n(Lx) dx with L = e^u; the
+integrand is a POLYNOMIAL on the surviving interval, so Gauss-Legendre of order
+NGQ is exact once the degree is covered. ### NGQ IS AN EXPLICIT AXIS, per the
+registration, and NOT fixed by taste.
+
+ G-A THE KNOWN ANSWER, FIRST AND ABSOLUTE.
+      NQ        Psi_W(0)     dev from -1.165002987
+     600    -1.165002987            2.469e-10
+     700    -1.165002987            3.958e-10
+     800    -1.165002987            4.957e-10
+     900    -1.165002987            4.237e-10
+   A_n(0) on the W route: 1.000000000 for ALL TEN MODES, including 7-9.
+   worst |dev| = 4.957e-10 against the criterion 1e-9. ### G-A: PASS.
+   *** AND ITS GRADE HELD AT WHAT THE REGISTRATION SET: LARGELY INHERITED.
+   A_n(0) = 1 by the P2 normalisation and by construction, so Psi(0) reduces to
+   N_even - sigma_even*NMODE with sigma_even carried unchanged from Q. Passing
+   G-A is evidence for the normalisation, not for the route. ***
+
+ G-B THE COMPLETENESS REFEREE.
+   Selecta Remark 4.5, quoted from the layer's pins:
+     delta(1) = sum lambda(n)^2 = 2(Si(4pi)/(4pi)+1) = 2.237484834942
+     NQ = 700 : 2.237484834942, dev 8.882e-16
+     NQ = 900 : 2.237484834942, dev 4.441e-15
+   ### G-B: PASS, at fifteen digits.
+   *** AND WHAT IT DOES NOT TEST, DECLARED IN THE REGISTRATION AND REPEATED
+   HERE BECAUSE THE NUMBER IS SEDUCTIVE: THIS IDENTITY IS A STATEMENT ABOUT THE
+   EIGENVALUES. IT TESTS THE W ROUTE'S EIGENVECTORS NOT AT ALL. A
+   fifteen-digit pass on the part that was not replaced is not evidence about
+   the part that was. ***
+
+ G-C THE MODE-WISE VALIDITY TABLE -- ### THE ONLY GATE THE REGISTRATION EXPECTED
+   TO CARRY WEIGHT, AND IT CARRIES IT.
+   mode  lambda^2        W/Q overlap (0-6)   W-internal flatness, NLEG 100/200/400
+     0   9.999428e-01    1.000000000         0.0 / 0.0 / 2.2e-16
+     1   9.593903e-01    1.000000000         0.0 / 0.0 / 0.0
+     2   2.746660e-01    1.000000000         0.0 / 1.1e-16 / 0.0
+     3   3.478238e-03    1.000000000         0.0 / 0.0 / 2.2e-16
+     4   7.465620e-06    1.000000000         0.0 / 0.0 / 0.0
+     5   5.820372e-09    1.000000000         0.0 / 1.1e-16 / 0.0
+     6   2.072074e-12    0.999999999         2.2e-16 / 0.0 / 2.2e-16
+     7   4.745607e-16    -- no comparison -- 0.0 / 1.1e-16 / 0.0
+     8   3.281378e-16    -- no comparison -- 2.2e-16 / 2.2e-16 / 2.2e-16
+     9   2.725299e-16    -- no comparison -- 0.0 / 0.0 / 0.0
+   ### EVERY MODE HAS AN ENTRY. Modes 0-6 by comparison with Q where Q is
+   trustworthy; modes 7-9 by W-INTERNAL FLATNESS at machine precision across a
+   fourfold basis increase, since no comparison exists. ### THE TABLE CANNOT
+   REPORT SUCCESS ON MODES 0-6 ALONE AND DOES NOT. G-C: PASS.
+   *** AND THE NAVIGATOR'S NAMED RISK DID NOT FIRE. He wrote that "the
+   polynomial degree needed for the high modes may exceed what the quadrature
+   order supports, which would show at G-C's flatness test". The executor
+   adopted it as his own test and ran NGQ as an explicit axis: NGQ 240 against
+   160 moves Psi by 2.264855e-13. THE RISK WAS REAL, WAS TESTED, AND IS CLEARED.
+   A hazard named and cleared is worth recording as such. ***
+
+ G-D THE b121 NQ TEST, AND THE ROUTE'S OWN AXES.
+   Psi excursion over NQ in {600,800,900} : 8.195851e-10, against the incumbent's
+   4.361e-01 -- ### A COLLAPSE OF ABOUT 8.7 ORDERS.
+   *** AND THE PASS IS NEAR-VACUOUS, EXACTLY AS THE REGISTRATION DECLARED IN
+   ADVANCE. W does not depend on NQ at all; the only residual dependence is
+   sigma_even. THIS MEASURES THAT THE PARAMETER WAS REMOVED, NOT THAT THE ANSWER
+   IS RIGHT. A gate passed for the wrong reason is not a gate passed, and the
+   act refuses to bank the 8.7 orders as if it were a repair's yield. ***
+   ### THE FLOOR ON ALL AXES, THE FLOOR-AXIS LAW HONOURED AND THE ROUTE'S OWN
+   AXES INCLUDED AS PRE-COMMITTED:
+     AXIS                        varied         spread on Psi
+     NQ (via sigma_even only)    600/800/900    8.195851e-10
+     NLEG (the route's own)      200/400        2.3e-13
+     NGQ  (the route's own)      80/240         2.3e-13
+     epsilon grid n_rho          400/1600       2.774493e-05
+   ### THE ROUTE'S FLOOR ON Psi = 2.774493e-05, AND ITS AXIS IS THE EPSILON GRID.
+   G-D: PASS.
+
+*** AND THE FINDING THE FLOOR TABLE HANDS BACK, WHICH IS THE ACT'S QUIETEST AND
+MAYBE ITS BEST: 2.774493e-05 IS b117's ORIGINALLY QUOTED FLOOR, 2.774e-05, TO
+FOUR FIGURES. b121 said that figure was understated by four orders because the
+NQ axis had never been varied. ### WITH THE EIGENVECTOR DEFECT REPAIRED THE
+EPSILON AXIS BINDS AGAIN AND b117's NUMBER IS THE ANSWER ONCE MORE. IT WAS NEVER
+WRONG; IT WAS SCOPED. The floor-axis law is vindicated from both directions in
+one table -- the figure was correct for the axes it varied, and it becomes the
+instrument's floor the moment the out-of-scope axis stops dominating. ***
+
+THE INCUMBENT COMPARISON, and it lands exactly where the registration said it
+must: |Psi_W - Psi_Q| at u = 0 is 1.714e-13 -- ### THE INCUMBENT IS PRESERVED
+WHERE IT IS RIGHT -- and max|Psi_W - Psi_Q| over u is 5.509224e-01.
+### THE LARGE TAIL DIFFERENCE IS THE REPAIR WORKING, NOT FAILING, and it was
+declared as such before it was measured so that neither reading could be
+substituted for the other.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 (P2) -- THE RE-RUNS ON REPAIRED GROUND.
+
+ Psi RE-PROFILED: Psi_W(0) = -1.165002987; Psi_W(umax) = +0.134177077 against
+ Psi_Q(umax) = +0.173014326; gross rise +1.299180064. The refinement-stable
+ scale is 2.774493e-05 WITH ITS AXIS NAMED (the epsilon grid).
+
+ ### THE ONE-SIGN VERDICT RE-RUN, AND IT SURVIVES AND STRENGTHENS.
+    a^2          I_W(L)     I_Q(L) incumbent      difference
+      2    -0.141878140       -0.083077167        5.880e-02
+      3    -0.101477080       -0.059668275        4.181e-02
+      4    -0.094958250       -0.060114289        3.484e-02
+      8    -0.096080946       -0.071923922        2.416e-02
+      9    -0.096586799       -0.073759387        2.283e-02
+     12    -0.097074298       -0.077118983        1.996e-02
+     16    -0.096237114       -0.078592047        1.765e-02
+     24    -0.092834735       -0.077817901        1.502e-02
+     48    -0.082552767       -0.070591742        1.196e-02
+ ### max I_W over the nine cells AND over a 601-point sweep = -0.082552767.
+ ### THE FLOOR ON THE PAIRINGS, worst axis (epsilon): 4.798446e-07.
+ ### MARGIN OVER FLOOR = 1.720e+05.
+ *** COMPARE THE STANDING POSITION: the incumbent's max was -0.028796 against a
+ floor of 4.288e-02 -- a ratio of 0.67 and a CAVEAT. ### THE VERDICT MOVES FROM
+ "CLEAR BY RULING, ONE THIRD OF THE FLOOR AWAY FROM TROUBLE" TO "CLEAR BY
+ MEASUREMENT, FIVE ORDERS CLEAR". THAT IS THE ACT'S LARGEST POSITIVE RESULT. ***
+ *** AND THE BASIS AXIS, WHICH IS NOT MERELY STABLE BUT GONE: W's spectrum is
+ SIMPLE (smallest separation 7.709623), so THE PROLATE BASIS IS UNIQUE. ### THERE
+ WAS NEVER A FAMILY OF LEGITIMATE ALTERNATIVE BASES; b121's "basis variation" WAS
+ VARYING NOISE. That reframes b121's finding without withdrawing its
+ measurement: what it measured was real, and what it was measuring was error. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 (P3) -- ### THE ONE ASKING, SPENT. BRANCH (b).
+
+ The b119 split reproduced from b119_dominance.py's own definition.
+ psi_coarse endpoint rise +0.767322310 = 59.1% of Psi_W's (b119 recorded 56.8%).
+    a^2   coarse pairing    fine pairing        sum = I_W     ratio   b119
+      2    -0.065875661    -0.076002479     -0.141878140     1.154   0.282
+      3    -0.097439521    -0.004037559     -0.101477080     0.041   0.373
+      4    -0.114692533     0.019734283     -0.094958250     0.172   0.461
+      8    -0.138188580     0.042107634     -0.096080946     0.305   0.462
+      9    -0.139965962     0.043379163     -0.096586799     0.310   0.455
+     12    -0.142239831     0.045165532     -0.097074298     0.318   0.438
+     16    -0.142129899     0.045892785     -0.096237114     0.323   0.427
+     24    -0.138975279     0.046140544     -0.092834735     0.332   0.420
+     48    -0.128286429     0.045733662     -0.082552767     0.356   0.431
+ ### WORST RATIO 1.154 AT a^2 = 2 -- NOT DOMINATED. Dominated at 8 of 9 cells
+ and at 59 of 60 sweep points.
+ THE BASIS SWEEP, ANSWERED STRUCTURALLY: the recorded basis, b121's alternates
+ and any fresh draw ALL COLLAPSE TO ONE BASIS on the W route. Seed structure:
+ NONE.
+
+ ### THE VERDICT, QUOTED FROM ITS REGISTERED BRANCH: **BRANCH (b)** -- dominance
+ fails; resolved per the third-outcome cell; the sign banking unchanged; the
+ mechanism's remainder unmoved.
+
+ *** AND THE CHANGE IN KIND, WHICH IS THE POINT AND IS NOT A REPETITION OF b121.
+ b121 said dominance was BASIS-DEPENDENT at the smallest cell -- an epistemic
+ verdict: we cannot tell. ### THE BASIS IS UNIQUE, SO THERE IS NOTHING TO DEPEND
+ ON, AND THE ANSWER IS SIMPLY NO. b119's branch (a) -- "dominance at 9 of 9
+ cells, worst ratio 0.462" -- IS **REFUTED ON REPAIRED GROUND**, NOT MERELY
+ WITHDRAWN. A withdrawal says the evidence failed; a refutation says the claim
+ is false. THIS ACT UPGRADES THE ONE INTO THE OTHER, AND THAT IS A DOWNGRADE FOR
+ THE RESULT. ***
+ WHAT IS NOT REFUTED, LISTED SO THE CORRECTION IS NOT OVER-READ: the split's
+ EXACTNESS is algebra and is untouched (the two pairings sum to I_W at every
+ cell, visible in the table); the ONE-SIGN CONCLUSION is untouched and
+ strengthened; the collapse and scale-average forms are algebra.
+
+ *** AND THE STRUCTURAL FACT THAT KEEPS THE REFUTATION FROM THREATENING THE
+ SIGN: AT a^2 = 2 BOTH PAIRINGS ARE NEGATIVE AND REINFORCE. Dominance is a
+ SUFFICIENT condition for the sign; its failure at that cell is IN THE SAFE
+ DIRECTION -- the sum is MORE negative there (-0.1419, the largest magnitude in
+ the table), not less. ### SO THE MECHANISM'S SUFFICIENT CONDITION FAILS EXACTLY
+ WHERE THE CONCLUSION IS SAFEST, and that is worth more than either fact alone. ***
+ *** AND b129's ZERO-WEIGHT ARITHMETIC OBSERVATION IS CORROBORATED ON REPAIRED
+ GROUND: it noticed that the fine pairing opposes the coarse at eight cells and
+ REINFORCES at a^2 = 2, and banked it at zero interpretive weight under the
+ guard. IT REPRODUCES HERE. ### THE GUARD IS NOT LIFTED BY THIS: it was banked
+ as an unearned noticing and it is now a measured fact on better ground, which
+ is a promotion of the OBSERVATION and not of any reading of it. ***
+
+ ### THE ASKING IS SPENT BY THIS ACT. NO FURTHER ASKING, EITHER WAY.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 4 (P4) -- THE MELLIN DUAL PAYOFF, ASSESSED, AND THE FILINGS.
+
+ (1) THE A-SIDE, MEASURED: A_n evaluates at ANY u on the W route and decays as
+     e^{-u/2} to three figures --
+        u = 3.87122  sum A_n = 1.443987343e-01   e^{-u/2} = 1.443e-01
+        u = 7.74244             2.083290324e-02              2.083e-02
+        u = 15.48489            4.340096939e-04              4.340e-04
+        u = 30.96977            1.883644144e-07              1.884e-07
+     ### THE TRUNCATION THAT BLOCKED b133 IS REMOVED ON THE A-SIDE.
+ (2) THE EPSILON SIDE, READ AT CONTENT: the grid is hard-capped at
+     RHO_MAX = 48.001, i.e. u <= 3.871222. A probe at rho = 100 and 500 shows
+     B38.per_mode_eps_grids RETURNS rather than raising -- but returns
+     -3.700e+00 at rho = 500 for mode 0 against 1.358e-03 at rho = 100.
+     ### THOSE VALUES ARE UNVALIDATED. The record has never used or checked
+     per_mode_eps_grids beyond the cap, and this act does not adopt them.
+
+ ### THE ASSESSMENT, IN ONE SENTENCE WITH ITS GRADE, AS P4 REQUIRED:
+ **OBSTRUCTED-WITH-THE-OBSTRUCTION-NAMED** -- the W route removes b133's
+ truncation obstruction on the A-side, where Psi is now evaluable at any u and
+ decays as e^{-u/2}, but the epsilon side remains capped at rho = 48.001 with
+ unvalidated values beyond it, so the Mellin-2 transform of Psi_hat is
+ UNBLOCKED IN ONE OF ITS TWO CONSTITUENTS AND STILL BLOCKED IN THE OTHER.
+ GRADE: ASSESSMENT ONLY; nothing derived beyond it; routed verbatim to the
+ scaling-channel lane's entry.
+ *** AND THE PRECISE NEXT THING THAT LANE WOULD NEED, NAMED BUT NOT ATTEMPTED:
+ a validated epsilon evaluation beyond rho = 48.001, or a bound showing the
+ epsilon tail's contribution to the Mellin integral is negligible. NEITHER IS
+ IN THE RECORD. ***
+
+ ### CORE: NOTHING ENTERS. Nothing this act produced is a finite decidable
+ statement. Core stands at 271/271, rows 1-68, UNTOUCHED -- the third
+ consecutive act to honour that pre-commitment.
+
+ THE LANE RESTATED PER THE BRANCHES: repaired ground now EXISTS and carries the
+ re-rerun revisit; the one-sign verdict stands at five orders clear; ### THE
+ DOMINANCE QUESTION IS CLOSED BY REFUTATION AND THE ASKING IS SPENT; the
+ mechanism's remainder (b131's withholding sentence) stands UNMOVED as the named
+ structure at the exact level; the Mellin lane holds the assessment above; the
+ boundary guarded; the protocol last.
+ THE TWENTY-FIRST SEAM CLOSE'S DEBT: b133 and this act -- the Mellin
+ non-existence finding; the four gates with their two near-vacuous passes named;
+ the b117 floor's vindication; the one-sign strengthening; the dominance
+ refutation and its change in kind; the safe-direction fact; the payoff
+ assessment; three consecutive empty Cores.
+
+HIT RECORD: P1 all four gates PASS, with G-A and G-D declared near-vacuous IN
+ADVANCE and reported as such, G-B's fifteen-digit pass explicitly denied
+evidential weight for the eigenvectors, G-C carrying the act on a table that
+covers every mode, and the navigator's named risk tested and cleared. P2 the
+one-sign verdict RE-RUN AND STRENGTHENED from a 0.67 ratio under caveat to five
+orders clear. P3 THE ASKING SPENT, BRANCH (b), with b119's dominance REFUTED
+rather than withdrawn and the safe-direction structure named. P4 assessed at
+OBSTRUCTED-WITH-THE-OBSTRUCTION-NAMED. Core untouched.
+### THE EXECUTOR'S REGISTERED EXPECTATION LANDED IN FULL, INCLUDING ITS TWO
+"WORTH LESS THAN THEY LOOK" CLAUSES; the navigator's "the gates pass" also
+landed, and his named risk was the one thing that could have stopped it and did
+not. DEVIATIONS: none. Divergences: none.
+====================================================================================================
