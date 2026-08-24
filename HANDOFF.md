@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the twentieth seam close (b132).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-first seam close (b135).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b132 keystone commit** | the keystone at **v2.20**, section 25 *The crown and the channels*; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b132 pin-line commit** | registrations and banks b1–b132; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| `PLACE-papers` | `main` **the b135 keystone commit** | the keystone at **v2.21**, section 26 *The repaired ground and the refutation*; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b135 pin-line commit** | registrations and banks b1–b135; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -170,24 +170,36 @@ fences.
   (a² = 8, 12, 16, 24) were never basis-tested: untested, not established.***
 - **The dominance question** — still withdrawn to the recorded basis, **and its
   one permitted re-asking is unspent**, the b124 halt not having consumed it.
-- ### **THE MECHANISM'S REMAINDER — THE LANE'S HEAD, AND IT NOW HAS AN ADDRESS.**
-  The crown act (b131) did **not** derive the sign, as its registered prior said
-  was modal. What it produced instead: ### **the one-line positivity argument is CLOSED BY MEASUREMENT** — K̂ ≥ 0 holds (min +6.860831e−16, no negative part) but **Ψ̂ takes both signs**, so a non-negative weight against it has no determined sign. ***One endpoint is derived and its license stated:*** N → Ψ(0) < 0 ⟺ **σ_even > ½** (0.616500298741), so the apportionment constant *is* the origin's sign — **but that limit lies outside the licensed range and is an anchor, not coverage.**
-  ### **THE EXACT MISSING STATEMENT: d/dL ∫K̂(Ls)Ψ̂(s)ds > 0 on the licensed range** — a relation between the scaling-spectral measures of the two **Fourier-sign** channels (λ(n) = (−1)ⁿ√μ_{2n}), which no object in the record constrains. ***The channels are NOT parity channels: every mode in play is an even prolate function.***
-- ### **AND THE CONFLATION THE RECORD HAD CARRIED FOR FOUR SEAMS, CORRECTED.**
-  **N** (against K) and **I** (against Φ_K) are different pairings. ### **N is NOT one-signed** — −0.153953522 to +0.080047477, crossing zero. **I carries the one-sign verdict.** Linked by b115's dN/dL relation, so ### **"why one sign" is "why is N monotone" — and the balanced window's uniqueness is that same statement a third time.** *Nothing is withdrawn: every act computed the object it meant. The defect was the name.*
-- ### **THE SCALING-CHANNEL ACT — STAGED, at the author's schedule.** The pairing
-  passed to the Mellin side **where dilation is diagonal**, the remainder
-  re-expressed as a positivity on that line, the **meets-a-read law governing
-  every classical fact** (the transform pair's conditions read at content before
-  use), the licensed range's image under the transform part of the setting, both
-  branches longhand with the modal prior standing, the guard riding. **Both
-  seats' expectations belong to that act's own registration, not here.**
-- ### **THE SECOND REPAIR ATTEMPT — AUTHORIZED (b132 strikeable), at the author's discretion.**
-  The **W-diagonalization route**: ξ_n as polynomials between the nodes, **no
-  division by λ, no quadrature grid**. W's smallest separation **7.709623**
-  against Q's **5.560788e−17** — sixteen orders of conditioning. **One attempt;
-  the stop-loss governs as before.** Gates fixed in advance: ### **the known answer Ψ(0) = −1.165002987 FIRST AND ABSOLUTE**; the completeness identity as referee; **a mode-wise validity table carrying the modes-7–9 untestability honestly**, so the attempt *cannot* report success on modes 0–6 alone; and the b121 NQ test as the collapse referee.
+- ### **THE INSTRUMENT IS REPAIRED. This item leaves the lane's head.**
+  The **W-diagonalization route** passed all four gates (b134): ξ_n as
+  polynomials, evaluable between nodes, **no interpolation, no division by λ**.
+  ***A hybrid — the eigenvalues were not replaced and no gate tested them.***
+  ### **The route's floor is 2.774493e−05 at the ε axis — b117's original figure to four figures.** *Indicted by axis at b121, acquitted by repair at b134.*
+  **The basis is UNIQUE** (spectrum simple, smallest separation 7.709623), so
+  the basis axis is **retired as an artifact.**
+- ### **THE ONE-SIGN VERDICT — FIVE ORDERS CLEAR.** max −0.082552767 over nine
+  cells and a 601-point sweep against a multi-axis floor of **4.798446e−07**
+  (axes: NQ, NLEG, NGQ, ε — the ε grid binding). **Margin 1.720e+05**, against
+  the standing 0.67 under caveat.
+- ### **THE DOMINANCE VERDICT — REFUTED, NOT WITHDRAWN, AND THE ASKING IS SPENT.**
+  Ratio **1.154 at a² = 2**; holds at 8 of 9 cells and 59 of 60 sweep points.
+  *A withdrawal says the evidence failed; a refutation says the claim is false.*
+  ***And the failure is in the SAFE DIRECTION*** — both pairings negative there,
+  the sum the largest-magnitude negative in the table. **Section 20's fence is
+  superseded in place, its wording left visible.**
+- ### **THE MECHANISM'S REMAINDER — STILL THE OPEN ITEM, AND STILL AT ITS ADDRESS.**
+  **d/dL ∫K̂(Ls)Ψ̂(s)ds > 0 on the licensed range** — a relation between the
+  scaling-spectral measures of the two **Fourier-sign** channels. **Two routes
+  noted, both at the author's schedule:** ***(1) the disjunctive-mechanism act*** —
+  at every cell the fine pairing is **dominated or reinforcing** (9 of 9, 601 of
+  601), ### **OBSERVATION grade, read off the table it explains, claimable only by a PRE-REGISTERED derivation or on cells not used to form it**; ***(2) the per-mode Mellin route***, behind the ε-extension.
+- ### **THE ENGINEERING QUEUE.** ***Its first delivered specification is the W
+  route*** — b129 asked for *a source of ξ_n between the Gauss–Legendre nodes*
+  and b134 delivered it. **The queue's named item is now THE ε-EXTENSION BEYOND
+  ρ = 48.001**: a validated evaluation, or a bound making the ε tail's Mellin
+  contribution negligible. **Neither is in the record**, and the values the
+  function returns past the cap are **unvalidated** (a probe gives −3.700 where
+  ρ = 100 gives 1.358e−03).
 - **The instrument sitting** — a rigorous error bound for the prolate layer, and
   the continuum step; **one sitting**, at the author's schedule. These are the
   only things between the verdict and a grade that does not need the word
