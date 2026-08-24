@@ -2,11 +2,31 @@
 # relay pre-push hook — Rule 4 hardenings (minted 2026-08-18, author-ruled).
 # (i) pushes to origin main only from push-* / repair-* branches;
 # (ii) refuse any outgoing ancestry containing a HELD commit;
-# (iii) refuse pushing any held/* ref anywhere.
+# (iii) refuse pushing any held/* ref anywhere;
+# (iv) refuse any outgoing tree containing a HELD carrier artifact BY NAME
+#      (added 2026-08-23 by the eighteenth seam close's protection ruling,
+#       on b126's finding that six of these sit UNTRACKED in the working tree
+#       where a single `git add -A` would carry them onto main).
 # Tracked copy: tools/git-hooks/pre-push. Install: cp tools/git-hooks/pre-push .git/hooks/pre-push
 
 remote="$1"
 branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+# The HELD carrier artifacts, by name. This is the set measured at b126 as
+# unique to held/carrier-acts. It is EIGHT paths, not the six .olean files:
+# a protection scoped to six of eight objects is the same defect b126 caught
+# in the carrier check itself, which had been matching a word rather than the
+# objects the check exists to protect.
+HELD_CARRIER_PATHS="
+reports/2026-08-13-carrier-build-act1.md
+reports/2026-08-13-carrier-build-act2.md
+tools/lean/CouplingArrival.olean
+tools/lean/DiagonalSection.olean
+tools/lean/GroupRingGlue.olean
+tools/lean/SectorArithmetic.olean
+tools/lean/StaircaseAddresses.olean
+tools/lean/TowerInstance.olean
+"
 
 while read local_ref local_sha remote_ref remote_sha; do
   case "$local_ref" in
@@ -14,6 +34,20 @@ while read local_ref local_sha remote_ref remote_sha; do
       echo "pre-push: REFUSED — held/* branches are local-only (Rule 4.11)." >&2
       exit 1;;
   esac
+
+  # (iv) by-name carrier refusal — checked on EVERY outgoing ref, not only main,
+  # because a HELD artifact on any pushed branch is equally out of the vault.
+  if [ "$local_sha" != "0000000000000000000000000000000000000000" ]; then
+    outgoing=$(git ls-tree -r --name-only "$local_sha" 2>/dev/null)
+    for path in $HELD_CARRIER_PATHS; do
+      if printf '%s\n' "$outgoing" | grep -qxF "$path"; then
+        echo "pre-push: REFUSED — outgoing tree contains HELD carrier artifact by name: $path" >&2
+        echo "pre-push:   (protection ruling, eighteenth seam close 2026-08-23; HELD is local-only, Rule 4.11)" >&2
+        exit 1
+      fi
+    done
+  fi
+
   if [ "$remote_ref" = "refs/heads/main" ]; then
     case "$branch" in
       push-*|repair-*) : ;;

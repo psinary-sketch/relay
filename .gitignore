@@ -3,3 +3,15 @@
 # It stays ON DISK (it is the bank the completion report's lambda values were
 # recomputed from) but is not tracked -- 204 MB exceeds GitHub's 100 MB limit.
 tools/e16/epstein_li_v3_chunks.jsonl
+
+# HELD carrier artifacts — quarantined by the eighteenth seam close's protection
+# ruling (2026-08-23), on b126's finding that these six sit UNTRACKED in the
+# working tree where a single `git add -A` would carry HELD material onto main.
+# HELD is local-only (Rule 4.11); these belong to held/carrier-acts and nowhere
+# else. The pre-push hook refuses them by name as the second layer.
+tools/lean/CouplingArrival.olean
+tools/lean/DiagonalSection.olean
+tools/lean/GroupRingGlue.olean
+tools/lean/SectorArithmetic.olean
+tools/lean/StaircaseAddresses.olean
+tools/lean/TowerInstance.olean
