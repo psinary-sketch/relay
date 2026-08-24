@@ -140,8 +140,26 @@ registration *before* use and both resolved toward the record's own wording.
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 2af45402fe2bee38bcee5b79e9d190390a3d64b0` (this act; the
+> registration `fe73342` its parent, chain continuous
+> `cf2e332 → 8c5bab5 → fe73342 → 2af4540`; pushed from `push-twentieth-seam`
+> per Rule 4.10) · `PLACE-papers origin/main =
+> c9eda76fcf022d48880d786387064963936d3b5f` (the **v2.20** commit) ·
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-c.zip` is the one to load** —
+> verified under **both clauses of the stale-build law**: *clause 1* the
+> manifest (23 files, 23 rows, **0 mismatches**); *clause 2* the build's source
+> HEAD `c9eda76` read against `ls-remote` `c9eda76` — **they agree, so the build
+> is not stale.** Keystone section 25, the new convention, and this act's
+> FINDINGS, loom and OPEN_TRAILS entries all confirmed present inside.
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
