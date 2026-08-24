@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the localization act (b126).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the eighteenth seam close (b127).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **c1aae0d** | the keystone at **v2.17**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b126 pin-line commit** | registrations and banks b1–b126 |
+| `PLACE-papers` | `main` **the b127 keystone commit** | the keystone at **v2.18**, section 23 *The cause located*; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b127 pin-line commit** | registrations and banks b1–b127; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -122,7 +122,15 @@ b124's three replacements were the expensive route and b126's null test was
 nearly free — one column of an array already computed. The cheap test was
 available the whole time and was not run, because the record reached for better
 instruments before asking what the existing one did with the suspected component
-absent.**
+absent.** Two further additions this seam makes: ### **A SHARED INPUT IS INVISIBLE
+TO REPLACEMENT TESTING** — *a replacement panel measures only what its members do
+not have in common* — and ### **AN INSTRUMENT'S INPUT INVENTORY IS A RESEARCH
+OBJECT** — *which knobs exist is found incompletely by looking, not read off the
+code once and filed; three axes have now been discovered after the instrument
+entered production use, and the record does not assert the third is the last.*
+**And a limitation found in a standing law rather than a new law: REPRODUCE-
+BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
+and failed u-convergence in the same act, on the same instrument.
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -150,6 +158,19 @@ fences.
   sampling error of order 0.2–0.4.* **Two gates govern the repair: the known
   answer Ψ(0) = −1.165002987, and the newly minted U-GRID CONVERGENCE GATE, which
   the incumbent FAILS (3.740470e−01 at 200 u-points, 4.360826e−01 at 400).**
+  ### **AND THE REPAIR IS BOUNDED TO ONE ATTEMPT** by the stop-loss ruling
+  (b126-ratified): *"the instrument serves the lane such that no question waits
+  indefinitely on a tool that cannot be made honest in bounded attempts."* Two
+  candidate shapes stand and **neither is adopted** — the drafted specification
+  **marked NEW** (a quadrature adapted to the surviving interval [−1/λ, +1/λ],
+  ξ_n by Nyström, restricted to modes above the floor), and the
+  **change-of-variables candidate at navigator-asserted grade** (the dilation
+  transferred onto the explicit kernel so the pairings are read at native nodes
+  only, and the unsupported operation never occurs). ***On failure the ruling
+  re-scopes rather than re-attempts: the one-sign floor stands, the mechanism
+  question routes to the crown, and the instrument goes to the engineering
+  queue.*** **No scheme that reads only the node values can help — that is the
+  shared input.**
 - **The dominance question** — still withdrawn to the recorded basis, **and its
   one permitted re-asking is unspent**, the b124 halt not having consumed it.
 - **THE CLOSED-FORM CROWN** — the research target.
