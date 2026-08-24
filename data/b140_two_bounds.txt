@@ -1,0 +1,153 @@
+====================================================================================================
+b140 -- THE TWO-BOUNDS ACT -- THE BANK. Registration:
+data/b140_registration_2026-08-24.txt (banked before any work, commit 2db2242,
+with the circularity enumeration written first and the substantive prediction
+registered for scoring). ### BOTH BOUNDS DERIVED AS FORMS WITH THEIR KERNEL
+CONSTANTS EXACT; BOTH WITHHOLDINGS ARE PROPERTIES OF ONE OBJECT. P3 NOT DECIDED.
+No kernel changes; Core 271/271, UNTOUCHED. Nothing about h2. Nothing deposits.
+====================================================================================================
+
+COMPONENT 1 (P1) -- THE ENVELOPE BOUND. ### DERIVED AS A FORM; BRANCH (b) ON ITS
+CONTENT.
+ THE CHAIN, written before any computation and using only Phi_K's b116 facts:
+ with sigma_0 the crossing and any 0 < a < sigma_0 < b < 2,
+   on [0,a]: Phi_K >= 0 and M(Ls) - M(L sigma_0) <= M(La) - M(L sigma_0) <= 0;
+   on [b,2]: Phi_K <= 0 and M(Ls) - M(L sigma_0) >= M(Lb) - M(L sigma_0) >= 0;
+   the two middle strips contribute <= 0.
+ ### HENCE |C_M(L)| >= A*[M(L sigma_0) - M(La)] + B*[M(Lb) - M(L sigma_0)]
+                    >= min(A,B) * [M(Lb) - M(La)].
+ THE KERNEL CONSTITUENTS, DERIVED FROM THE WINDOW ALONE AND CARRYING NO Psi
+ CONTENT: crossing sigma_0 = 0.621000 (b116 records 0.6215); positive mass
+ +0.259372; negative mass -0.259372 (mean-zero to 2e-16); best min(A,B) =
+ ### 0.230656179 at (a,b) = (0.50, 0.80).
+ ### THE DERIVED FORM: |C_M(L)| >= 0.230656 * [M(0.80 L) - M(0.50 L)].
+ ### THE WITHHELD CONSTITUENT: THE ENVELOPE'S RISE M(0.80L) - M(0.50L), which is
+ a property of psi_coarse and is NOT DERIVED.
+
+COMPONENT 2 (P2) -- THE DESCENT BOUND. ### DERIVED AS A FORM; BRANCH (b) ON ITS
+CONTENT.
+ THE CHAIN: r <= 0 and r vanishes on [0, u*]. Hence
+   ### |C_r(L)| <= ||Phi_K||_inf * (1/L) * ||r||_{L1[0,2L]},
+ and the localization sharpens it: where u*/L >= sigma_0 the support of r(L.)
+ lies wholly in the region where Phi_K <= 0, so Phi_K*r >= 0 there and the
+ constant improves to ||Phi_K||_{inf,[sigma_0,2]}.
+ THE KERNEL CONSTITUENTS, DERIVED: ||Phi_K||_inf = ### 0.675115774; on the
+ negative region ### 0.379498430; INT|Phi_K| = 0.518744.
+ ### THE WITHHELD CONSTITUENT: ||r||_{L1}, THE DEFICIT'S SIZE, NOT DERIVED.
+
+*** THE TWO REGISTERED "WHERE I COULD BE WRONG" CHECKS, BOTH RESOLVED.
+ (i) ### THE TOTAL-RISE ALTERNATE DEGENERATES, AS REGISTERED. Its constant
+   min(A,B) collapses as the split reaches the endpoints: 2.04e-19 at
+   (0.05,1.95), 1.27e-44 at (0.02,1.98), 1.20e-82 at (0.01,1.99). ### SO P1
+   DOES **NOT** DERIVE OUTRIGHT FROM THE ENDPOINT ANCHOR. The endpoint anchor
+   gives the TOTAL rise and the kernel gives it ZERO WEIGHT.
+ (ii) ### THE LOCALIZATION'S SIGN CONDITION IS STATED AS A CONDITION AND NOT
+   EVALUATED, because u* is a measured quantity (E6). For C_r's SIGN to be
+   derived across the whole licensed range one needs u* >= sigma_0 * L_HI =
+   0.621000 * 1.935601 = ### 1.202008, i.e. psi_coarse MONOTONE ON [0, 1.202008].
+   ### THAT IS A STATEMENT ABOUT Psi AND IS NOT DERIVED. It is banked as the
+   EXACT HYPOTHESIS THAT WOULD BUY C_r's SIGN, and no more. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 (P3) -- THE COMPARISON. ### BRANCH (b): NOT DECIDED AT DERIVATION
+GRADE, AND THE REASON IS EXACT.
+ The comparison M(L) < m(L) requires both shape functionals; ### BOTH ARE
+ WITHHELD, SO THE COMPARISON CANNOT BE FORMED, LET ALONE DECIDED. The two bounds
+ are banked at their grades: DERIVED FORMS, EXACT KERNEL CONSTANTS, ABSENT
+ DENSITY CONSTITUENTS.
+
+*** THE REGISTERED SUBSTANTIVE PREDICTION, AND ITS VERDICT.
+REGISTERED: "THE TWO WITHHOLDINGS WILL PROVE TO BE ONE WITHHOLDING ... the
+record derives Psi at exactly two places, ITS ENDPOINT and ITS DECAY ... THE
+RECORD HAS THE TWO ENDS AND NOTHING IN THE MIDDLE."
+### VERDICT: **LANDS, WITH A REFINEMENT THAT MAKES IT MORE USEFUL AND LESS
+FLATTERING.** Both withheld constituents are functionals of ONE OBJECT --
+psi_coarse's profile, hence Psi's -- and the record's derived knowledge of Psi is
+exactly its endpoint (Psi(0), from the mass forms and sigma_even > 1/2) and its
+decay (A_n ~ e^{-u/2}). ### SO THE REMAINDER IS ONE OBJECT AND NOT TWO
+ESTIMATES.
+ ### AND THE REFINEMENT: THEY ARE TWO **DIFFERENT FUNCTIONALS** OF THAT ONE
+ OBJECT -- a RISE bounded from below, and a DEFICIT NORM bounded from above --
+ AND DERIVING ONE WOULD NOT GIVE THE OTHER. "One withholding" is right at the
+ level of the object and wrong at the level of the work. The executor's
+ registration said the first and not the second, and the correction is recorded
+ rather than absorbed. ***
+
+*** POST-DERIVATION CHECKS, run after every derived step and labelled as checks
+per the gate.
+ BOTH DERIVED INEQUALITIES HOLD AT ALL NINE CELLS.
+   a^2      |C_M|      P1 rhs      |C_r|      P2 rhs
+     2   0.065876   0.020252   0.000000   0.000000
+     3   0.097440   0.030519   0.000000   0.000000
+     4   0.114693   0.036418   0.000000   0.000000
+     8   0.138189   0.044938   0.000000   0.000000
+     9   0.139966   0.045546   0.000000   0.000013
+    12   0.142240   0.046032   0.000000   0.000723
+    16   0.142145   0.045200   0.000015   0.003048
+    24   0.139211   0.042117   0.000236   0.009478
+    48   0.130274   0.033521   0.001988   0.025377
+ ### AND A FACT THE CHECK EXPOSES THAT THE REGISTRATION DID NOT ANTICIPATE:
+ **FED WITH THE TRUE SHAPE FUNCTIONALS, THE TWO DERIVED BOUNDS DO CLOSE THE
+ COMPARISON AT ALL NINE CELLS** -- P1's right-hand side exceeds P2's at every
+ cell -- ### BUT WITH ONLY 32% ROOM AT THE LARGEST (0.033521 against 0.025377,
+ ratio 1.321).
+ *** THE GUARD RIDES THIS ABSOLUTELY AND ITS PROXIMITY IS EXACTLY WHY: the
+ numbers above are MEASURED shape functionals in a DERIVED inequality. THE
+ INEQUALITIES ARE DERIVED; THE QUANTITIES IN THEM ARE NOT. Nothing here is a
+ bound, and the 1.321 is a BENCH SILHOUETTE carrying ZERO interpretive weight. ***
+ ### WHAT IT DOES SUPPLY, AND IT IS A CONSTRAINT ON THE NEXT ACT RATHER THAN A
+ RESULT: THE BOUND STRUCTURE IS NEARLY TIGHT. Any derivation of the two
+ functionals must be reasonably SHARP -- a crude estimate losing a factor of 1.4
+ at the largest cell would fail to close even though the structure is adequate.
+ That is worth knowing before the estimate is attempted. ***
+
+THE CIRCULARITY ENUMERATION, RE-VERIFIED AT THE CLOSE AS REGISTERED:
+ P1's chain cites Phi_K's sign structure and the running maximum's
+   monotonicity-by-construction. No E1-E6.
+ P1's constants A, B, sigma_0 are integrals of Phi_K -- window-only, admissible
+   and marked.
+ P2's chain cites r <= 0 (by construction), its support, and ||Phi_K||_inf. No
+   E1-E6.
+ Check (i) uses only Phi_K. Check (ii) STATES a condition on u* and DOES NOT
+   EVALUATE IT, precisely because u* is E6.
+ The nine-cell table is measured C_M, C_r, M and r -- E5 and E6 -- and appears
+   ONLY AFTER every derived step, labelled as a check. ### THE GATE HOLDS.
+
+THE FEED, RE-READ UNDER THE LICENCE AND WORDS-VS-INTENT LAWS: ### UNCHANGED FROM
+b138's PARTIAL. This act derived no coarse-channel sign, so nothing new is
+offered to the translation cell's predicate. The cell stands at HELD, RE-ROUTED.
+
+THE MECHANISM'S REMAINDER, RESTATED EXACTLY:
+ ### ONE OBJECT -- QUANTITATIVE CONTROL OF psi_coarse's PROFILE ON THE INTERIOR
+ OF THE LICENSED WINDOW -- ENTERING THROUGH TWO FUNCTIONALS: a lower bound on
+ the rise M(0.80L) - M(0.50L), and an upper bound on ||r||_{L1[0,2L]}.
+ The kernel side is CLOSED: both constants are exact.
+ b133's Mellin structure stands. The epsilon-extension is unchanged.
+ ### AND THE COORDINATE THIS ACT ADDS: the estimate must be SHARP, not merely
+ correct.
+
+### CORE: NOTHING ENTERS. The bounds are analysis; the constants are quadrature;
+the checks are measurements. Core 271/271, rows 1-68, UNTOUCHED -- ### THE SIXTH
+CONSECUTIVE ACT.
+
+COMPONENT 4 (STRIKEABLE) -- THE RENAMED-CONCLUSION GATE. ### RATIFIED AND FILED
+at the conventions lines (PLACE-papers c73a280). Every future mechanism-candidate
+or reformulation registration carries the equivalence audit as a STRUCTURAL FIRST
+STEP. Founding instance b138; warrant b139's build-the-check finding, quoted.
+### AND ITS SCOPE STATED SO IT IS NOT READ WIDER THAN IT IS: it applies to
+candidates offered as EXPLAINING or REDUCING a target, NOT to measurements,
+lemmas-as-steps, or constructions. A GATE THAT FIRES ON EVERYTHING IS A TAX, NOT
+A CHECK.
+
+HIT RECORD: P1 and P2 both DERIVED AS FORMS with exact kernel constants and both
+BRANCH (b) on content; the two registered where-I-could-be-wrong checks BOTH
+RESOLVED, the alternate degenerating as registered and the sign condition stated
+rather than evaluated; P3 NOT DECIDED with the reason exact; ### THE REGISTERED
+SUBSTANTIVE PREDICTION LANDING WITH A REFINEMENT THAT IS LESS FLATTERING THAN
+THE PREDICTION -- one object, but two functionals, and deriving one would not
+give the other; the post-derivation check exposing a NEARLY-TIGHT bound
+structure, guarded absolutely and filed as a constraint rather than a result;
+the circularity gate re-verified; the feed unchanged; Core untouched a sixth
+time; the strikeable ratified with its scope fenced. DEVIATIONS: none.
+Divergences: none.
+====================================================================================================
