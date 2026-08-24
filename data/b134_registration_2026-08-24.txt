@@ -1,0 +1,121 @@
+====================================================================================================
+b134 -- THE SECOND ATTEMPT -- THE RUN-REGISTRATION. BANKED BEFORE ANY
+COMPUTATION. ### THIS IS THE AUTHORIZED SECOND ATTEMPT AND THE STOP-LOSS
+GOVERNS: ONE ATTEMPT, ANY GATE FAILURE ENDS IT, NO TUNING. The
+incumbent-preservation law governs; the floor-axis law governs every floor; the
+pairing-named-by-its-kernel and named-by-its-variable laws govern every equation
+head; the guard rides; b38's verdicts fenced. Nothing about h2. Nothing deposits.
+====================================================================================================
+FERRY 2026-08-24 (part 1 of 1, receipt confirmed in full, Rule 1).
+
+(a) LOAD-BEARING, READ AT CONTENT: b131's engineering facts and its convention
+pins P1-P3; the known answer Psi(0) = -1.165002987 with NMODE = 10; the
+completeness material in prolate_layer.py; the b121 NQ test at its recorded
+form; b133's blocked-tail finding.
+
+*** (b) WHAT THE ROUTE ACTUALLY REPLACES, STATED BEFORE IT IS BUILT, BECAUSE THE
+FERRY'S NAME FOR IT IS SHORTER THAN THE THING.
+ THE W ROUTE REPLACES THE EIGENVECTORS ONLY. xi_n comes from diagonalising W in
+ the Legendre basis -- a polynomial, evaluable anywhere, no interpolation, no
+ division by lambda_n. ### BUT lambda_n^2 STILL COMES FROM Q's eigh, AND NO
+ GATE IN THIS SPECIFICATION TESTS IT. The route is therefore A HYBRID and the
+ act will call it one.
+ ### THE REASON THE HYBRID IS THE RIGHT SHAPE, and it is a real asymmetry rather
+ than a convenience: for a symmetric matrix the EIGENVALUES are well-conditioned
+ under perturbation while the EIGENVECTORS are ill-conditioned exactly when the
+ eigenvalues cluster. Q's clustering at 1e-16 destroys its eigenvectors and
+ leaves its eigenvalues at their own (absolute) accuracy. ### SO THE DEFECT WAS
+ ALWAYS IN THE EIGENVECTORS AND THE REPAIR REPLACES EXACTLY THOSE.
+ AND THE LIMIT OF THAT ARGUMENT, NAMED: at modes 7-9 the eigenvalues are
+ ~1e-16 with absolute error ~1e-16, so they are ACCURATE IN ABSOLUTE TERMS AND
+ MEANINGLESS IN RELATIVE TERMS. They enter only through t_n = lambda^2
+ xi_n(1)^2/(1-lambda^2) ~ 1e-16, which is negligible against t_0 ~ O(1), SO
+ sigma_even IS UNAFFECTED. *** BUT THE A_n SUM IS UNWEIGHTED: Psi sums A_n with
+ coefficient 1, not with t_n. SO MODES 7-9 CONTRIBUTE AT FULL STRENGTH TO Psi
+ WHILE CONTRIBUTING NOTHING TO sigma_even. THAT ASYMMETRY IS WHY THE EXCURSION
+ WAS 0.374 AND IT IS EXACTLY WHAT THIS ROUTE ADDRESSES. *** ***
+
+*** (c) A HAZARD IN GATE G-D THAT I DECLARE NOW RATHER THAN DISCOVER LATER, AND
+IT IS THE MOST IMPORTANT PARAGRAPH IN THIS REGISTRATION.
+ W = diag(k(k+1)) + c^2 X^2 IN THE LEGENDRE BASIS DEPENDS ON NLEG AND c AND
+ **NOT ON NQ AT ALL**. If xi_n comes from W and the A_n integrals use their own
+ fixed quadrature, then Psi's ONLY residual NQ dependence is through sigma_even,
+ which b126 measured stable to 2.2e-10.
+ ### SO I EXPECT G-D's EXCURSION TO COLLAPSE BY ROUGHLY EIGHT ORDERS -- AND I
+ EXPECT THAT PASS TO BE NEAR-VACUOUS. A quantity that does not depend on a
+ parameter does not vary with it; measuring that is not evidence of correctness,
+ it is evidence that the parameter was removed.
+ ### THE FLOOR-AXIS LAW DEMANDS THE REMEDY AND I PRE-COMMIT TO IT: THE W ROUTE'S
+ OWN AXES ARE **NLEG** AND **THE A_n QUADRATURE ORDER**, NOT NQ. I WILL MEASURE
+ THE FLOOR ON THOSE AXES AND QUOTE IT AS THE ROUTE'S FLOOR, AND I WILL STATE
+ THAT G-D's HEADLINE COLLAPSE IS NEAR-VACUOUS EVEN IF IT PASSES. A gate passed
+ for the wrong reason is not a gate passed. ***
+
+*** (d) AND A SECOND THING THAT MUST NOT BE MISREAD: I EXPECT Psi_W TO DIFFER
+FROM Psi_Q SUBSTANTIALLY -- of order the 0.374 excursion itself -- somewhere off
+u = 0. ### THAT IS THE REPAIR WORKING, NOT FAILING. The incumbent-preservation
+law asks the route to MATCH where the incumbent is RIGHT (u = 0, and the
+resolved modes) and to FIX it where it is WRONG (the tail modes). A large
+difference in the tail is the intended outcome; a large difference at u = 0
+would be a failure. I state the distinction now so that neither is read as the
+other. ***
+
+(e) THE GATES, per the ferry, with my criteria fixed here:
+ G-A THE KNOWN ANSWER, FIRST AND ABSOLUTE: the W-route Psi(0) at every NQ
+   against -1.165002987. ### PASS IFF |dev| < 1e-9 at every NQ tested.
+ G-B THE COMPLETENESS REFEREE: the aggregate identity on the W basis at stated
+   tolerance. ### AND ITS LIMIT DECLARED IN ADVANCE: the aggregate identity the
+   record actually holds (Selecta Remark 4.5, sum lambda(n)^2 = 2(Si(4pi)/(4pi)+1))
+   IS A STATEMENT ABOUT THE EIGENVALUES AND TESTS THE EIGENVECTORS NOT AT ALL.
+   I will run it, and I will say plainly what it does not test.
+ G-C THE MODE-WISE VALIDITY TABLE. Modes 0-6: W/Q agreement where Q is
+   trustworthy. Modes 7-9: W-INTERNAL basis-growth stability per the b131
+   discriminator -- ### FLATNESS, NOT SMALLNESS. ### PASS IFF every mode has an
+   entry and the 7-9 entries are FLAT across a fourfold NLEG increase. ### THE
+   TABLE IS THE GATE: the attempt CANNOT report success on modes 0-6 alone.
+ G-D THE b121 NQ TEST: the excursion of Psi and of the pairings under NQ
+   variation on the W route, the collapse in orders against 4.288e-02, and
+   ### THE NEW FLOOR MEASURED ACROSS ALL AXES INCLUDING THE ROUTE'S OWN,
+   each quoted with its axis.
+
+*** (f) THE TWO SEATS.
+THE NAVIGATOR'S, quoted: the gates pass, at moderate confidence; transfers named
+-- "sixteen orders of separation is the difference between a resolvable spectrum
+and noise, and the aggregate referees judge modes 7-9 where no comparison can";
+counter-weight -- seven misses and one landing, priced; ### THE SPECIFIC RISK
+NAMED: "the polynomial degree needed for the high modes may exceed what the
+quadrature order supports, which would show at G-C's flatness test."
+### THE EXECUTOR'S: I EXPECT ALL FOUR GATES TO PASS, AND I EXPECT TWO OF THE
+FOUR PASSES TO BE WORTH LESS THAN THEY LOOK.
+ G-A PASS: A_n(0) = (1/2) INT xi_n^2 = 1 by the P2 normalisation, for every mode
+   and by construction, so Psi(0) reduces to N_even - sigma_even*NMODE and
+   sigma_even is carried unchanged from Q. ### SO G-A IS LARGELY INHERITED, AS
+   IT WAS AT b128's ID-b, AND I SAY SO IN ADVANCE.
+ G-B PASS AND WEAK, for the reason at (e).
+ G-C PASS -- ### AND THIS IS THE ONLY GATE I EXPECT TO CARRY REAL WEIGHT. The
+   high modes are genuine polynomials of modest degree; a Legendre basis of a
+   few hundred resolves them to machine precision, so I expect flatness. ### AND
+   I ADOPT THE NAVIGATOR'S NAMED RISK AS MY OWN TEST: if the degree outruns the
+   A_n quadrature order, G-C's flatness fails, and I will run the quadrature
+   order as an explicit axis rather than fixing it by taste.
+ G-D PASS AND NEAR-VACUOUS, for the reason at (c).
+ ### WHERE I COULD BE WRONG, NAMED: if W's eigenvectors at indices 14, 16, 18
+   are NOT the objects the record's modes 7-9 were meant to be -- if the layer's
+   tail modes were never approximating those polynomials at all -- then the
+   route does not repair the instrument, it REPLACES THE MODEL. G1 could not
+   test that and neither can this act. ### THAT IS AN UNTESTABLE SUBSTITUTION
+   AND IT WILL BE MARKED, NOT PASSED OVER.
+ MY TRANSFER: b131's measured facts and the convention pins; the conditioning
+   asymmetry between eigenvalues and eigenvectors, which I assert as standard and
+   mark as ASSERTED-NOT-READ. I transfer nothing from the navigator's confidence.
+ THESE EARN NOTHING. Only the gates decide. ***
+
+(g) INDEPENDENCE CHECK, RUN: components ordered, 2 consumes 1, 3 consumes 2,
+4 consumes 3.
+
+REGISTERED PREDICTIONS (P1)-(P4): banked verbatim from the ferry in the bank
+file; they are long and are reproduced there rather than duplicated here.
+
+Bank: data/b134_second_attempt.txt. Report: reports/2026-08-24-second-attempt.md.
+Deviation rule standing. Divergence note (rule a): none at registration.
+====================================================================================================
