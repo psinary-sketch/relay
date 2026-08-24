@@ -25,6 +25,9 @@ $rel = @(
   'phase1.5\proofs\INDEX_ARITY_AT_THE_CRITICAL_LINE.md',  # roster ADDITION 2026-08-04 (ferry-required)
   'phase1.5\method\INSTRUMENTS.md',                       # roster ADDITION 2026-08-05 (author-called)
   'phase1.5\method\THE_METHOD_CANON.md',                  # roster ADDITION 2026-08-06 (author's taste, recorded as such)
+  'phase1.5\method\GAUGE_AND_INVARIANT.md',              # roster ADDITION 2026-08-24, b147: the synthesis
+                                                          #   keystone, adopted this act. Ferry-required: "joining the
+                                                          #   mirror roster". Its content lives here now, not in relay/data.
   'phase2\method\THE_GLOBAL_SECTION.md',                  # roster ADDITION 2026-08-24 (the crown opening's ROSTER RULING,
                                                           #   strikeable: closes the b129 filing-scope class structurally --
                                                           #   the keystone carried substance that reached no exported file)
