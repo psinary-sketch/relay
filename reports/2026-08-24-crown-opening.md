@@ -152,8 +152,31 @@ correct citation. **The refusal is the part worth keeping.***
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 0430ad483f88f5c78d70cc5bab8edaaab1e46c45` (this act;
+> chain continuous `4d615d9 → 4beea8c → b072f2a → 0430ad4`; pushed from
+> `push-crown-opening` per Rule 4.10) · `PLACE-papers origin/main =
+> 5b5c5fa218284a500f197ab7c5454658e6f9b1bc` (the roster ruling `882c682` then
+> the truncation ruling `5b5c5fa`) · `SIDE-global-section origin/main =
+> dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core **271/271**,
+> rows 1–68; tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`,
+> unmoved) · `SIDE-kernel origin/main =
+> 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` = peeled
+> `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4` at its pinned SHA, **NOT an
+> ancestor**; all eight HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-a.zip` is the one to load** —
+> **23 files, the keystone now among them**, rebuilt at `5b5c5fa` and verified
+> by content (0 md5/byte mismatches; both rulings confirmed present inside).
+
+### ***A BUILD-ORDER CATCH, RECORDED BECAUSE THE FIRST BUILD WAS WRONG***
+
+The mirror was first built at `882c682` — **after** the roster ruling but
+**before** the truncation ruling — so it verified CLEAN at 23 files while
+**silently missing the conventions line this same act had just filed.** Caught by
+reading the pin `ls-remote` against the build's reported source HEAD and seeing
+them differ. Rebuilt at `5b5c5fa` and re-verified with both rulings probed by
+name. ### **A mirror verifies what it contains, not what it should contain — so the build's source HEAD must be checked against the repository's, and a CLEAN verdict on a stale build is exactly as clean-looking as a correct one.**
 
 ## FOOT
 
