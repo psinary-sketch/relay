@@ -5,6 +5,14 @@ param([string]$DateTag = (Get-Date -Format 'yyyy-MM-dd'))
 
 $repo = 'D:\MY-DOwnloads\PLACE-papers'
 $rel = @(
+  # ### roster ADDITION 2026-08-24, b144, DECLARED DEVIATION. The repo's front-door
+  # ### README was NEVER in the roster. The reconcile act EDITED it as a primary
+  # ### deliverable, so those edits would have reached no exported file -- the exact
+  # ### b129 filing-scope class the b130 roster ruling was minted to close. Caught by
+  # ### a mechanical probe returning ABSENT. It is listed FIRST deliberately: the flat
+  # ### export resolves names in roster order, so the front-door README takes the
+  # ### plain `README.md` slot and the archive's README is disambiguated after it.
+  'README.md',
   'FINDINGS.md','REGISTRY.md','OPEN_TRAILS.md','SPIRAL_MAP.md','VERIFICATION_LOOM.md','ERRATA.md',
   'phase1.5\proofs\THE_RESIDUE_OF_RH.md','day1\A_Place_to_Stand.md',
   'phase1.5\proofs\PATHS_TO_THE_CRITICAL_LINE.md','phase1.5\proofs\THE_UNCONDITIONAL_SURROUND.md',
@@ -47,6 +55,21 @@ foreach ($r in $rel) {
   $src = Join-Path $repo $r
   if (-not (Test-Path $src)) { Write-Host "MISSING: $r"; continue }
   $leaf = Split-Path $r -Leaf
+  # ### DEFECT FIXED b144, CAUGHT BY A MECHANICAL PROBE. The export is FLAT, so two
+  # ### roster paths with the same leaf name silently collide -- the second copy
+  # ### overwrites the first and the MANIFEST still verifies CLEAN, because clause 1
+  # ### checks the export against ITSELF and cannot see a file that never survived
+  # ### staging. b143 added archive\...\README.md to the roster and it took the flat
+  # ### `README.md` slot, so the export shipped the LEDGER-SPLIT README where a
+  # ### reviewer would open the REPO FRONT DOOR. ### A FLAT EXPORT MUST DISAMBIGUATE
+  # ### ITS OWN NAMESPACE OR IT IS NOT A FAITHFUL EXPORT.
+  $dir = Split-Path $r -Parent
+  if ($dir -and (Test-Path (Join-Path $stage $leaf))) {
+    $leaf = ((Split-Path $dir -Leaf) + '__' + $leaf)
+  }
+  if (Test-Path (Join-Path $stage $leaf)) {
+    throw "ROSTER COLLISION unresolved for '$r' -> '$leaf'. Refusing to build a flat export that would silently drop a file."
+  }
   Copy-Item $src (Join-Path $stage $leaf)
   $bytes = (Get-Item $src).Length
   $md5 = (Get-FileHash $src -Algorithm MD5).Hash.ToLower()

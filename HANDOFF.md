@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-fifth seam close (b143) — ### THE LABORATORY LANE IS CLOSED AND THE CAMPAIGN'S HEAD IS THE MAIN SPINE.**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the reconcile act (b144) — ### THE DEPOSIT-STATE GATE IS CLEARED BY A LIVE READ-ONLY FETCH; THE CAMPAIGN'S HEAD IS THE MAIN SPINE.**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,9 +22,9 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b143 split commit** | the keystone at **v2.25**, section 30 *The laboratory closed*; ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b143 pin-line commit** | registrations and banks b1–b143; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
-| **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` · `tools/banned_terms.py` · `tools/mirror_verify.py` · `tools/ledger_split.py` | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced**; the banned-term review **scoped by the act's own diff**; the mirror verified on **both clauses of the stale-build law in one command**. ***FIVE instances now of a newly built check failing its own first run — and the standing inference is not that the executor writes bad checks but that ### A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE.*** |
+| `PLACE-papers` | `main` **the b144 addendum commit** | the keystone at **v2.25**, section 30 *The laboratory closed*, ### **its era assigned by REGISTRY's dated phase row**; ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b144 pin-line commit** | registrations and banks b1–b144; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` · `tools/banned_terms.py` · `tools/mirror_verify.py` · `tools/ledger_split.py` · **the loom's STANDING-LAWS ANNEX** (24 laws, 11 archived + 13 working; *not an authority — if it disagrees with the archive, the archive wins*) | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced**; the banned-term review **scoped by the act's own diff**; the mirror verified on **both clauses of the stale-build law in one command**. ***FIVE instances now of a newly built check failing its own first run — and the standing inference is not that the executor writes bad checks but that ### A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE.*** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -138,7 +138,7 @@ should be read as one requirement rather than three.*
 **And a limitation found in a standing law rather than a new law: REPRODUCE-
 BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
 and failed u-convergence in the same act, on the same instrument.
-**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A CERTIFICATE IS ABOUT AN OBJECT, AND OUTWARD ROUNDING DOES NOT REPAIR A SUBSTITUTED ONE — IT DRESSES IT**; ### **A JUSTIFICATION ARRIVING AFTER A RULING IS NOT EVIDENCE FOR THE RULING**; ### **A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN SHRUNK BY THE SMOOTHING WIDTH** — *convolution does not preserve a domain; it consumes one*; ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
+**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE** — *because its verdict is **uninterpreted either way**, not because it is usually wrong: five false alarms and one real catch, and a fixture is what tells them apart*; ### **A CERTIFICATE IS ABOUT AN OBJECT, AND OUTWARD ROUNDING DOES NOT REPAIR A SUBSTITUTED ONE — IT DRESSES IT**; ### **A JUSTIFICATION ARRIVING AFTER A RULING IS NOT EVIDENCE FOR THE RULING**; ### **A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN SHRUNK BY THE SMOOTHING WIDTH** — *convolution does not preserve a domain; it consumes one*; ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -217,6 +217,24 @@ fences.
   so any derivation must be **sharp**, not merely correct. *That is a constraint
   on required precision and supplies no evidence — the guard's first permissive
   cell.*
+- ### **THE DEPOSIT-STATE GATE IS CLEARED (b144) — BY A READ-ONLY LIVE FETCH, AND NOTHING DEPOSITED.**
+  All four deposited rows match REGISTRY on **DOI, concept DOI, version and date**
+  — monograph Zenodo **v1.1.2** / `21539167`, SIDE-kernel **v1.5** / `21520474`,
+  lv-conservation **v0.10.0** / `21539068`, T7 `21436282` — and ### **both concept
+  DOIs resolve to REGISTRY's recorded version as `is_last`, so no latest-version
+  pointer has drifted.** **The parked waves stay PARKED.**
+- ### **AND THE PRECEDENCE SOURCE CONTRADICTS ITSELF IN FOUR PLACES — NONE CORRECTED, ALL FOUR AT THE DESK.**
+  REGISTRY's Day-1 header still reads *v1.0.2 / `19938917` / "monograph + 6
+  companions + kernel"* against its own `d1-1` row's **v1.1.2 / `21539167`**; the
+  **DAY 1 DEPOSIT HISTORY** table ends at v1.0.2 calling it *"Current immutable
+  Zenodo state"*; **Last updated** reads **2026-06-04** beside 2026-08-22 rows; and
+  the `1.5c-13` note carries the keystone at **v2.0** where it stands at **v2.25**.
+  ### **A reconcile that edits its own precedence source has stopped being a
+  reconcile**, so the executor read `d1-1` as governing and **edited nothing**.
+  ***The author's ruling is owed.*** ### **A FIFTH DESK ITEM: the deposited titles
+  read "Proof of the Riemann Hypothesis" against the register sentence and
+  README's "Not supportable: RH proved" — no ERRATA entry addresses it, and the
+  executor does not rule on a deposited title.**
 - ### **THE CAMPAIGN'S HEAD IS THE MAIN SPINE (b143). FOUR STANDING ITEMS.**
   ### **THE GUARDED BOUNDARY** — licence unissued; the boundary question's routing
   takes **its own gated registration at the author's word**. ### **THE PROTOCOL'S
