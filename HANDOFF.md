@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-second seam close (b137).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-third seam close (b139).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b137 keystone commit** | the keystone at **v2.22**, section 27 *The held revisit and the licence law*; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b137 pin-line commit** | registrations and banks b1–b137; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| `PLACE-papers` | `main` **the b139 keystone commit** | the keystone at **v2.23**, section 28 *The audit and the majorant*; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b139 pin-line commit** | registrations and banks b1–b139; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -137,7 +137,7 @@ should be read as one requirement rather than three.*
 **And a limitation found in a standing law rather than a new law: REPRODUCE-
 BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
 and failed u-convergence in the same act, on the same instrument.
-**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
+**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -197,7 +197,25 @@ fences.
   identification**, unchanged. ### **Its staging licence was found VOID** — it
   was staged on a *derived dominance* that b134 refuted — so its dependency
   moves from *behind the instrument* to ### **behind a DERIVED window-family statement.** ***The one-sign verdict does not substitute: five orders of margin improves a measurement, it does not convert it into a derivation.***
-- ### **THE MECHANISM'S REMAINDER — STILL THE OPEN ITEM, AND STILL AT ITS ADDRESS.**
+- ### **THE MECHANISM'S REMAINDER — NOW TWO ANALYTIC BOUNDS AND ONE DERIVED HALF.**
+  The candidate disjunction is **RETIRED as a renamed conclusion** (b138's audit:
+  given derived coarse negativity it is materially equivalent to what it was
+  offered to explain), ***and the executor's replacement was retired by the same
+  criterion in the same act.***
+  ### **WHAT IS DERIVED: the running majorant's pairing is NON-POSITIVE at every scale** — by construction, with no measurement entering the chain.
+  ### **WHAT IS MISSING, EXACTLY: an upper bound on the deficit's pairing and a lower bound on the majorant's.** *Two ordinary analytic estimates. Measured room, under the guard and carrying no weight: the deficit's share reaches at most ~1.5%.*
+  ### **AND THE OBSTRUCTION IS LOCALIZED:** the smoothed density is genuinely
+  monotone on the initial segment — the deficit is **exactly zero at the five
+  smallest cells** — so every descent is a **large-argument** phenomenon.
+- ### **THE TWO-BOUNDS ACT — STAGED, at the author's schedule.** The
+  descent-pairing bounded **above** (the deficit's total variation against the
+  kernel's tail mass beyond the crossing; the localization restricting the
+  estimate to the large-cell window) and the envelope-pairing bounded **below**
+  (the endpoint anchor σ_even > ½; the majorant's derived sign with a
+  quantitative floor). **Both branches longhand; the banked tables entering ONLY
+  as post-derivation checks; both seats' expectations reserved for its own
+  registration.**
+- ### **THE MECHANISM'S REMAINDER — THE ORIGINAL ADDRESS, STILL STANDING.**
   **d/dL ∫K̂(Ls)Ψ̂(s)ds > 0 on the licensed range** — a relation between the
   scaling-spectral measures of the two **Fourier-sign** channels. **Two routes
   noted, both at the author's schedule:** ***(1) the disjunctive-mechanism act*** —
