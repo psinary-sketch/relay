@@ -1,0 +1,195 @@
+====================================================================================================
+b142 -- THE PROFILE ACT -- THE BANK. Registration:
+data/b142_registration_2026-08-24.txt (banked before any computation, commit
+a569071, with both seats' expectations, the transfer disclosed, the seats FORKED
+on which functional binds, and the ferry's unlocatable warrant recorded before
+the check ran).
+### THE STAGED HALT FIRED AT THE OPENING GATE. THE EPSILON-CAP BINDS. COMPONENTS
+### 2 AND 3 DID NOT RUN. THE LABORATORY LANE IS CLOSED AT ITS EARNED STATE.
+No kernel changes; Core 271/271, rows 1-68, UNTOUCHED -- the SEVENTH consecutive
+act. Nothing about h2. Nothing deposits.
+====================================================================================================
+
+COMPONENT 1 (P1) -- THE CAP READ. Instrument: tools/e16/b142_capread.py.
+### THE VERDICT: THE CAP BINDS -- AND IT DIVIDES THE TWO LICENSED FUNCTIONALS
+### RATHER THAN BLOCKING BOTH.
+
+ THE OPERATIVE DEFINITION, quoted from b138_coarse.py and not re-derived:
+   psi_coarse(u) = INT_{-2}^{+2} Kn(s) Psi(clip(u+s, ug[0], ug[-1])) ds
+ ### THE CLIP IS THE CAP MADE OPERATIONAL. Everything below is rho-support read
+ off that one line. No density VALUE enters this component -- the domain of a
+ functional's evaluation is a fact about its domain, not about the data.
+
+ THE RHO-SUPPORT, per cell (a functional needing psi_coarse to u_top reads Psi to
+ u_top + 2, i.e. rho to exp(u_top+2)):
+
+   a^2        L    rise u_top   rise rho    cap?  |  dfct u_top   dfct rho    cap?
+     2  0.346574     0.277259     9.7499   clear  |    0.693147    14.7781   clear
+     3  0.549306     0.439445    11.4667   clear  |    1.098612    22.1672   clear
+     4  0.693147     0.554518    12.8651   clear  |    1.386294    29.5562   clear
+     8  1.039721     0.831777    16.9756   clear  |    2.079442    59.1124   BINDS
+     9  1.098612     0.878890    17.7945   clear  |    2.197225    66.5015   BINDS
+    12  1.242453     0.993963    19.9646   clear  |    2.484907    88.6687   BINDS
+    16  1.386294     1.109035    22.3994   clear  |    2.772589   118.2249   BINDS
+    24  1.589027     1.271222    26.3435   clear  |    3.178054   177.3373   BINDS
+    48  1.935601     1.548480    34.7605   clear  |    3.871201   354.6747   BINDS
+
+ THE THRESHOLDS, SOLVED RATHER THAN SCANNED:
+   psi_coarse is cap-free only for u <= UMAX - 2 = 1.871222.
+   ### THE DEFICIT NORM binds when 2L > 1.871222, i.e. a^2 > 6.4962 -- SIX of
+   nine cells (8, 9, 12, 16, 24, 48), CLEAR at three (2, 3, 4).
+   ### THE RISE binds when 0.80L > 1.871222, i.e. a^2 > 107.5606 -- OUTSIDE the
+   licensed range entirely. IT IS CLEAR EVERYWHERE.
+
+*** THE THREE REGISTERED WHERE-I-COULD-BE-WRONG CHECKS, ALL RESOLVED.
+ (i) ### THE CLIP IS A BITE, NOT A FORMALITY -- MEASURED, NOT ASSERTED, as
+   registered. Kn mass clamped: 0.000000000 at u <= 1.871222 (exactly zero,
+   confirming the threshold), 0.003191 at u = 2.5, 0.063828 at u = 3.0,
+   0.212231 at u = 3.4, ### 0.499156 AT u = 3.871201. Kn is even in s, so the
+   top sample clamps essentially half the kernel's mass. ### THE REGISTERED
+   ESCAPE ROUTE -- "if the mass is negligible the halt is wrong" -- IS CLOSED BY
+   MEASUREMENT AND NOT BY ASSERTION.
+ (ii) ### ug's RANGE READ, NOT ASSUMED, as registered: ug[0] = 0.000000000,
+   ug[-1] = 3.871221844, 400 points; UMAX = 3.871221844; the difference is
+   0.000e+00. ### THE CLIP'S CEILING **IS** THE EPSILON-CAP, confirmed rather
+   than supposed.
+ (iii) ### THE DOWNWARD CLIP NAMED AND NOT COUNTED. psi_coarse(u) for u < 2 also
+   reads Psi below ug[0], clamped to Psi(0). That is b119's registered downward
+   endpoint extension, a SEPARATE convention. ### COUNTING IT WOULD HAVE
+   INFLATED THE READ, and it is not counted. ***
+
+ HOW HARD IT BITES -- the deficit norm's integrand, the clamped Kn-mass fraction
+ averaged over the domain [0, 2L] that ||r||_{L1} actually integrates:
+   a^2          2L    mean clamped     max clamped
+     2    0.693147     0.000000000     0.000000000
+     3    1.098612     0.000000000     0.000000000
+     4    1.386294     0.000000000     0.000000000
+     8    2.079442     0.000000001     0.000000189
+     9    2.197225     0.000000343     0.000023978
+    12    2.484907     0.000090998     0.002756161
+    16    2.772589     0.001171596     0.022615883
+    24    3.178054     0.008980283     0.117020154
+    48    3.871201     0.059324710     0.499156104
+
+*** THE STRUCTURAL FACT THE READ EXPOSED, WHICH THE REGISTRATION DID NOT
+ ANTICIPATE: 2*L_HI = log 48 = 3.871201 and UMAX = log 48.001 = 3.871222.
+ ### THE LICENSED RANGE'S TOP AND THE VALIDATED DOMAIN'S TOP ARE THE SAME POINT.
+ The deficit norm's domain EXACTLY EXHAUSTS the validated density -- and then the
+ smoothing asks for 2 MORE. ### THE b119 SPLIT AND THE LICENSED RANGE WERE NEVER
+ COMPATIBLE AT THE TOP END, from the split's birth. This read is where it becomes
+ visible, and it was invisible for six acts because nothing had asked what the
+ split's evaluation COSTS in domain. ***
+
+### THE HALT FIRES. Per the b141-staged registration and the ferry's opening-gate
+### clause, components 2 and 3 CONSUME component 1 and DO NOT RUN. No enclosure
+### was computed. No comparison was formed. NOTHING WAS TUNED.
+ ### WHY A HALT AND NOT A CAVEAT, IN ONE SENTENCE: a certified enclosure computed
+ on clamped samples would be RIGOROUS ABOUT THE WRONG INTEGRAND, and outward
+ rounding does not repair a substituted integrand -- it dresses it.
+
+THE REQUIREMENT, QUANTIFIED FOR THE ENGINEERING QUEUE (the halt clause's own
+deliverable). The queue's item has stood since b134 as "a validated epsilon
+evaluation beyond rho = 48.001, or a bound making the epsilon tail's Mellin
+contribution negligible" -- a requirement carrying NO NUMBER.
+ ### THE NUMBER: a validated evaluation to u = 2*L_HI + 2 = 5.871201, i.e.
+ ### rho = 354.6747, against the present validated cap 48.001.
+ ### A FACTOR OF exp(2) = 7.388902 IN rho AND 1.516627 IN u.
+ The shortfall in u is EXACTLY 2.0 -- the smoothing kernel's own half-width.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 (P2) -- THE FUNCTIONALS. ### NOT REACHED. Registered expectations
+banked UNSCORED and handed forward to the epsilon-extension act rather than
+discarded: the executor expected both enclosures obtainable at certified grade on
+the unbound sub-range (a^2 <= 6.4962) and not across the licensed range; the
+navigator expected the deficit norm the harder of the two to enclose outward
+because its L1 mass is dominated by the far end -- precisely the end the cap
+removes. ### NEITHER IS SCORED. The act did not run them.
+
+COMPONENT 3 (P3) -- THE COMPARISON. ### NOT REACHED. Both seats had registered
+branch (a); ### BOTH ARE BANKED UNSCORED AND NEITHER IS EVIDENCE FOR ANYTHING.
+ ### THE COMPARISON M(L) < m(L) IS NOT DECIDED AND THIS ACT CLAIMS NOTHING ABOUT
+ IT. The two derived forms stand EXACTLY as b140 left them, with their kernel
+ constants exact and their density constituents absent.
+
+COMPONENT 4 (STRIKEABLE) -- THE TERMINUS RULING. ### RATIFIED BY PASTE AND FILED
+at the conventions lines (PLACE-papers VERIFICATION_LOOM.md, b140's precedent at
+c73a280 followed -- and per that precedent ### THE KEYSTONE VERSION IS NOT
+BUMPED; it stands at v2.24 and the keystone is not touched this act).
+ THE RULING: this act is the laboratory lane's TERMINAL act. On either branch, or
+ on the cap halt, ### THE LANE CLOSES AT ITS EARNED STATE, its terminal summary
+ drafting into the twenty-fifth seam close. The campaign's next research attention
+ returns to the MAIN SPINE -- the guarded boundary, the protocol's two locks, the
+ desk's standing rulings, the parked deposit gates. Further lane work (the
+ epsilon-extension, the closed-form crown, the disjunct routes) moves to the
+ SCHEDULED QUEUES at the author's word, NEVER AS THE CAMPAIGN'S HEAD.
+ ### WHY A RULING AND NOT A PREFERENCE: a lane that closes only when it succeeds
+ cannot close. This one closes on the state it reached, which makes the survey a
+ first-class ending rather than a consolation.
+ ### ITS WARRANT, WITH THE DISCLOSURE THE WARRANT REQUIRES: the ferry cites "the
+ author's 300-steps question". ### THAT QUESTION IS NOT LOCATED AT CONTENT in
+ either repository -- searched for the phrase, the bare token, and author-question
+ records generally; the only corpus match is an mpmath precision argument in an
+ unrelated tool. Per Rule 3 the wording is NOT supplied from recall and the
+ citation is NOT silently dropped: it is filed as the ferry states it and marked
+ ### CITED-FROM-THE-FERRY, NOT LOCATED AT CONTENT.
+
+----------------------------------------------------------------------------------------------------
+THE LAW THIS ACT MINTS, as a new member of the family that begins "an
+instrument's domain is part of its result":
+ ### A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN
+ ### SHRUNK BY THE SMOOTHING WIDTH.
+ Convolution does not preserve a domain; it CONSUMES one. The width is not a
+ detail of the kernel -- it is a debt charged against the data at both ends, and
+ here the debt is exactly the kernel's own half-width, 2.0 in u.
+ GRADE: OBSERVATION, derived from the split's definition and the array's read
+ range. No density values enter it.
+
+WHAT THE READ RETRO-QUALIFIES, STATED AS A QUALIFICATION AND NOT A REFUTATION:
+ every post-derivation check evaluating psi_coarse above u = 1.871222 -- b138's
+ C(L) at the upper cells, b140's nine-cell silhouette -- was computed on PARTLY
+ CLAMPED samples (mean clamped fraction 9.1e-05 at a^2 = 12 rising to 5.93e-02 at
+ a^2 = 48). ### THOSE WERE LABELLED BENCH CHECKS AND WERE NEVER LOAD-BEARING, SO
+ NOTHING STANDING IS DISTURBED. What changes is only how little the 1.321 margin
+ may be leaned on -- ### and the guard already required ZERO weight, so the cap
+ read explains WHY the guard was right rather than adding a new prohibition.
+
+THE CIRCULARITY GATE, RE-VERIFIED AT THE CLOSE: component 1 cites no ratio table,
+no sweep, and no measured C/F/I. It reads a definition, an array's range, and a
+kernel's mass distribution. ### THE BANKED TABLES APPEAR NOWHERE IN IT. The one
+banked figure quoted anywhere in this bank -- b140's 1.321 -- appears ONLY in the
+retro-qualification paragraph, as the object being qualified, never as a premise.
+### THE GATE HOLDS.
+
+THE FEED, RE-READ UNDER THE LICENCE AND WORDS-VS-INTENT LAWS: ### UNCHANGED. This
+act derived no coarse-channel sign and offered the translation cell's predicate
+nothing. The cell stands at HELD, RE-ROUTED.
+
+THE MECHANISM'S REMAINDER, RESTATED AT THE LANE'S CLOSE:
+ ### ONE OBJECT -- quantitative control of psi_coarse's profile on the interior of
+ the licensed window -- ENTERING THROUGH TWO FUNCTIONALS: a lower bound on the
+ rise M(0.80L) - M(0.50L), and an upper bound on ||r||_{L1[0,2L]}.
+ The kernel side is CLOSED; both constants exact. The density side is UNTOUCHED.
+ The estimate must be SHARP, not merely correct -- a precision requirement only,
+ the guard's first permissive cell, carrying no evidence.
+ ### AND THE COORDINATE THIS ACT ADDS: ONE OF THE TWO IS PRESENTLY UNCOMPUTABLE
+ AT ANY GRADE, and the other is not. The remainder is not uniformly out of reach;
+ it is out of reach at one functional and at six of nine cells, with a number on
+ what would buy it.
+
+### CORE: NOTHING ENTERS. Nothing here is finite decidable content; a domain read
+is not a theorem. Core 271/271, rows 1-68, UNTOUCHED -- ### THE SEVENTH
+CONSECUTIVE ACT.
+
+HIT RECORD: P1 EXECUTOR SEAT LANDS and lands to four figures (threshold 6.4966
+predicted against 6.4962 computed, rho 354.6 against 354.6747, rise-threshold
+107.6 against 107.5606); ### P1 NAVIGATOR SEAT MISSES -- both functionals
+predicted to bind, the rise does not, the running maximum M(0.80L) taking its
+maximum over [0, 0.80L] and inheriting nothing above it; all three
+where-I-could-be-wrong checks RESOLVED, one of them closing a cheap dismissal by
+measurement; ### THE HALT FIRED AS STAGED and components 2 and 3 DID NOT RUN;
+P2 and P3 BANKED UNSCORED; component 4 RATIFIED and filed with its warrant's
+absence disclosed; one law minted at OBSERVATION grade; the circularity gate
+re-verified; the feed unchanged; Core untouched a seventh time.
+DEVIATIONS: none. DIVERGENCES: one -- the ferry's cited warrant is not locatable
+at content, recorded in the registration BEFORE the check ran and filed marked.
+====================================================================================================
