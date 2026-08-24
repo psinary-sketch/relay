@@ -172,8 +172,45 @@ strikeable independently. **No divergence.**
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 29ce1ea0bf5b8d10130939c5635ff424c546f975` (this act; the
+> chain continuous `b0f4355 → ecbbfac → f68aa26` (registration) `→ 323fd7a`
+> (**the strikeable, alone**) `→ 29ce1ea`; pushed from `push-eighteenth-seam`
+> per Rule 4.10) · `PLACE-papers origin/main =
+> d61c5b45f3989b840e869f7bfc2e4d70fcd28344` (the **v2.18** commit; parent
+> `c1aae0d`) · `SIDE-global-section origin/main =
+> dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core **271/271**,
+> rows 1–68; tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`,
+> unmoved) · `SIDE-kernel origin/main =
+> 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` = peeled
+> `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4` at its pinned SHA, **NOT an
+> ancestor**; **all eight HELD-unique paths verified ABSENT from the pushed tree,
+> checked per-path with `git cat-file -e` rather than by pattern.**
+> **MIRROR:** ### **`mirror-refresh-2026-08-23-o.zip` is the one to load** —
+> built at PLACE-papers `d61c5b4` and verified by content (**22 files, roster
+> unchanged, 0 md5/byte mismatches**; this act's records present inside
+> `OPEN_TRAILS.md`, `FINDINGS.md` and `VERIFICATION_LOOM.md`). *The keystone is
+> **not** in the mirror roster and its absence is by design, recorded in its own
+> back matter — the act's content reaches the mirror through those three files.*
+> *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
+
+### ***A NEAR-MISS RECORDED AT FULL PROMINENCE, BECAUSE IT IS THE SAME ERROR TWICE IN TWO ACTS AND THE SECOND TIME WAS MINE IN THE ACT THAT HARDENS AGAINST IT***
+
+The post-push by-name check **returned 7 and I halted on it.** Inspected at
+content, all seven were `.lean` **source** files — `CouplingArrival.lean`,
+`DiagonalSection.lean`, `GroupRingGlue.lean` and the rest — **legitimately
+tracked on main and legitimately shared with the HELD branch.** Re-checked
+per-path with `git cat-file -e`, **all eight HELD-unique artifacts are absent
+from the pushed tree.** Clean.
+
+***But the pattern that produced the 7 was mine, written this act, and it is the
+same loose-matching defect b126 caught in the carrier check — a stem matching a
+word rather than an object.*** Twice in two acts, the second time while writing
+the protection against it.
+
+### **AND THE FINDING THAT SAVES IT FROM BEING MERELY EMBARRASSING: THE HOOK IS NOT LOOSE.** Clause (iv) matches with `grep -qxF` — **exact, whole-line, fixed-string** — so it cannot make this error at all. **The defect was in the hand-rolled one-liner, not in the committed protection.** *That is the argument for putting a check in the hook rather than retyping it per act, stated by an instance rather than asserted: a protection written once and exercised is exact; a check retyped each time inherits whatever the typist was thinking that hour.*
 
 ## FOOT
 
