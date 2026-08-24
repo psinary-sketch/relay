@@ -124,8 +124,23 @@ The ferry cites **the author's 300-steps question**. ### **That question is NOT 
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 369451336970b16fca91b140f2db7904022e2ece` (this act; the
+> registration `a569071` its parent, chain continuous
+> `788d2ed → a569071 → 3694513`; pushed from `push-profile-terminus` per
+> Rule 4.10) · `PLACE-papers origin/main =
+> 6b3c35bbaa97ca95469d7ae9b7ea2f0040f18178` (the three-ledger filings commit;
+> **the keystone NOT touched, standing at v2.24**) · `SIDE-global-section
+> origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core
+> **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path with `git cat-file -e`.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-j.zip` is the one to load** —
+> and it is the first export verified by ### **a COMMITTED tool that runs BOTH CLAUSES OF THE STALE-BUILD LAW IN ONE COMMAND** (`tools/mirror_verify.py`), rather than two ad-hoc commands of which one may be skipped: *clause 1* the archive against its own manifest — **23 files, 23 rows, 0 md5 and 0 byte mismatches**; *clause 2* the manifest's declared source HEAD `6b3c35b` against `ls-remote` `6b3c35b` — **they agree**; and the content check by `tools/probe_from_diff.py`, **12 probes extracted from this act's own diff, 12 PRESENT, 0 absent** — the probe convention's **second** use and its first clean first-run.
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
