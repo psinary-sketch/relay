@@ -106,8 +106,29 @@ The live records' own titles read ***"A Place To Stand: Proof of the Riemann Hyp
 
 ## §7 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = ce7812469ae32b94845b26e7be3f2f2a3d9f40bd` (this act; the
+> registration `28f6685` its parent, chain continuous
+> `2e12131 → 28f6685 → ce78124`; pushed from `push-reconcile` per Rule 4.10) ·
+> `PLACE-papers origin/main = f7aae45e04a253d47c2bd9a29d98e72468a8cb00` (the
+> nursery-convention addendum; the reconcile and filings at `16379d3`) ·
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, ### **deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1` — and the deposit's own
+> Zenodo record was fetched this act and agrees.** **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path with `git cat-file -e`.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-n.zip` is the one to load** — **30
+> files**, clause 1 (30 rows, 0 md5 and 0 byte mismatches) and clause 2 (build
+> HEAD `f7aae45` = `ls-remote` `f7aae45`) both CLEAN, **12 of 12 mechanical probes
+> PRESENT.** ### **It is the first export to carry the repo's front-door README**,
+> and the first in which the flat namespace is disambiguated — *the two exports
+> built earlier in this act were discarded rather than pinned, because the first
+> shipped the ledger-split README in the front door's slot and the second predated
+> the addendum.*
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
