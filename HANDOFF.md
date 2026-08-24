@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-third seam close (b139).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-fourth seam close (b141).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,9 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b139 keystone commit** | the keystone at **v2.23**, section 28 *The audit and the majorant*; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b139 pin-line commit** | registrations and banks b1–b139; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| `PLACE-papers` | `main` **the b141 keystone commit** | the keystone at **v2.24**, section 29 *The two forms and the middle*; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b141 pin-line commit** | registrations and banks b1–b141; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -137,7 +138,7 @@ should be read as one requirement rather than three.*
 **And a limitation found in a standing law rather than a new law: REPRODUCE-
 BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
 and failed u-convergence in the same act, on the same instrument.
-**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
+**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -207,7 +208,23 @@ fences.
   ### **AND THE OBSTRUCTION IS LOCALIZED:** the smoothed density is genuinely
   monotone on the initial segment — the deficit is **exactly zero at the five
   smallest cells** — so every descent is a **large-argument** phenomenon.
-- ### **THE TWO-BOUNDS ACT — STAGED, at the author's schedule.** The
+- ### **THE KERNEL SIDE IS CLOSED; THE DENSITY SIDE IS UNTOUCHED.** Both bounds
+  are **derived forms with every kernel constant exact and final** — the crossing,
+  the two masses, the sup-norm, the best interior split, all facts about the
+  window alone. ### **What remains is ONE UNKNOWN PROFILE entering through TWO FUNCTIONALS** — a rise bounded below, a deficit norm bounded above — *and deriving either would not give the other.*
+  ### **The record has the density's two ends and NOTHING IN THE MIDDLE, and the middle is the whole remainder.** ***And it is localized: the endpoint anchor's free total-rise information is given ZERO WEIGHT by the kernel, so the mechanism is a MID-WINDOW phenomenon.***
+  **The sharpness constraint, under the guard:** the structure is nearly tight,
+  so any derivation must be **sharp**, not merely correct. *That is a constraint
+  on required precision and supplies no evidence — the guard's first permissive
+  cell.*
+- ### **THE PROFILE ACT — STAGED, at the author's schedule, WITH A HALT AT ITS OPENING GATE.**
+  **(1) the cap read FIRST:** whether the ε-cap at ρ = 48.001 binds in the
+  licensed functionals' evaluation. **If bound, the act HALTS at the read**, the
+  ε-extension's requirement stated exactly and the queue's item **quantified**.
+  **(2)** the two functionals at **certified-numerics grade** — outward rounding,
+  the finite-range ceiling stated. **(3)** fed into the derived forms, the
+  comparison decided ### **at the COMBINED grade — derived structure, certified constants — never rounded to either half.**
+- ### **THE TWO-BOUNDS ACT — DONE (b140).** The
   descent-pairing bounded **above** (the deficit's total variation against the
   kernel's tail mass beyond the crossing; the localization restricting the
   estimate to the large-cell window) and the envelope-pairing bounded **below**
