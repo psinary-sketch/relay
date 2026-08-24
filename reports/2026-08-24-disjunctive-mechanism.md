@@ -137,8 +137,26 @@ component took its place. ### **The only part of my registration that landed was
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = b73bbc5127d3a6b64ead1f67a15882dee335ac01` (this act; the
+> registration `255c10a` its parent, chain continuous
+> `7af4035 → 255c10a → b73bbc5`; pushed from `push-disjunctive` per Rule 4.10) ·
+> `PLACE-papers origin/main = 24083a2a4015c31c01b92b3fdf51242eba668e09` —
+> **UNMOVED; a derivation act landing branch (b) earns no keystone increment,
+> and the twenty-third seam close absorbs it** · `SIDE-global-section
+> origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core
+> **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **NOT REFRESHED, PLACE-papers having not moved** —
+> **`mirror-refresh-2026-08-24-f.zip` remains the one to load**, and the
+> stale-build law's second clause licenses calling it **current** rather than
+> merely unrebuilt: its source HEAD `24083a2` still equals the repository HEAD
+> read by `ls-remote`.
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
