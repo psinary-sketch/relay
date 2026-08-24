@@ -1,0 +1,133 @@
+====================================================================================================
+b133 -- THE SCALING-CHANNEL ACT -- THE IN-ACT REGISTRATION (component 1's close).
+BANKED AFTER THE SETTING READ AND BEFORE COMPONENT 2 COMPUTES, per the b132
+staging design. The meets-a-read law governs every classical fact; APPLICABILITY
+IS A SEPARATE READ. The modal prior stands and branch (b) is first-class. The
+guard rides. The asking stays banked. Nothing promoted. Nothing about h2.
+====================================================================================================
+FERRY 2026-08-24 (part 1 of 1, receipt confirmed in full, Rule 1).
+
+----------------------------------------------------------------------------------------------------
+(A) THE SETTING READ (P1), WITH CITATIONS AND GRADES.
+
+R1. ### THE CORPUS HOLDS NO STANDARD-AT-TEXT ENTRY FOR THE MELLIN TRANSFORM
+ PAIR'S CONDITIONS. Searched at content: BIBLIOGRAPHY.md has no Mellin row; the
+ corpus USES Mellin inversion (keystone line 672, the theta-Mellin
+ representation; OPEN_TRAILS line 1922) without a conditions citation.
+ ### RECORDED AS AN ABSENCE, which is a lawful verdict here.
+
+R2. ### READ AT CONTENT -- DLMF (NIST Digital Library of Mathematical
+ Functions) section 1.14. Retrieved from dlmf.nist.gov/1.14; no block.
+ QUOTED VERBATIM WITH EQUATION NUMBERS:
+  (1.14.32)  M(f)(s) = INT_0^infty x^{s-1} f(x) dx
+  (1.14.35)  f(x) = (1/(2 pi i)) INT_{sigma-i infty}^{sigma+i infty} x^{-s} Mf(s) ds
+  THE STRIP CRITERION, quoted: "If x^{sigma-1} f(x) is integrable on (0,infty)
+   for all sigma in a<sigma<b, then the integral converges and Mf(s) is an
+   analytic function of s in the vertical strip a < Re s < b."
+  THE INVERSION CONDITION, quoted: "If f(x) is continuous on (0,infty) and
+   Mf(sigma+it) is integrable on (-infty,infty), then [the inversion formula
+   holds]."
+  (1.14.40) the CONVOLUTION formula, quoted with its condition: "If
+   x^{sigma-1} f(x) and x^{sigma-1} g(x) are absolutely integrable on
+   (0,infty), then for s = sigma + it,
+   INT_0^infty x^{s-1} (f*g)(x) dx = Mf(s) Mg(s)."
+ GRADE: definitions, strip criterion and inversion condition READ AT CONTENT.
+
+*** R3. APPLICABILITY, READ SEPARATELY PER THE b130 LAW, AND (1.14.40) DOES NOT
+ APPLY. DLMF's (1.14.40) is for the MELLIN CONVOLUTION f*g. The object of this
+ act is INT_0^infty Khat(Ls) Psihat(s) ds, which is a PARSEVAL-TYPE pairing and
+ NOT that convolution. ### THE CONVOLUTION THEOREM IS THEREFORE NOT CITED FOR
+ THE PAIRING IDENTITY. DLMF supplies the definitions, the strip criterion and
+ the inversion conditions ONLY; the pairing identity is the executor's own
+ elementary substitution, graded as HIS OWN ALGEBRA and verified numerically,
+ not borrowed from a theorem whose hypothesis names a different object. ***
+
+*** R4. ### AND THE AMBIGUITY IN "THE MELLIN SIDE", WHICH THE FERRY'S PHRASE
+ DOES NOT RESOLVE AND WHICH IS THE SAME SPECIES AS b132's N/I CATCH.
+ THERE ARE TWO MELLIN TRANSFORMS IN PLAY, IN DIFFERENT VARIABLES.
+  MELLIN-1, in rho = e^u. Since u IS the log-scale variable, the Fourier
+   transform of Psi in u IS the Mellin transform of Psi(log .) on the imaginary
+   axis. ### SO Psihat IS ALREADY A MELLIN-SIDE OBJECT, AND b131 ALREADY BUILT
+   IT. Passing Psi "to the Mellin side" in this sense is a NO-OP.
+  MELLIN-2, in the dual variable s. The parameter L acts on u by
+   MULTIPLICATION (u = L sigma), so L is a dilation OF THE ADDITIVE VARIABLE u,
+   and what diagonalizes THAT is a Mellin transform in s. ### THIS IS THE NEW
+   ONE AND IT IS THE ONE THE ACT MUST USE.
+ ### THE ACT WILL NAME EVERY TRANSFORM BY ITS VARIABLE AT EVERY APPEARANCE,
+ which is the pairing-named-by-its-kernel law extended to transforms. ***
+
+R5. THE STRIPS, DERIVED FROM THE RECORD'S OWN DECAY FACTS, EACH AT ITS GRADE.
+ Khat: Khat(0) = 1 (measured b131; INT K over [-2,2] = 1.000000000) and Khat
+  decays rapidly (w smooth and compactly supported). So x^{z-1}Khat integrable
+  at 0 needs Re z > 0; at infinity rapid decay gives no upper constraint.
+  ### STRIP: Re z > 0. GRADE: the endpoint value MEASURED; the decay
+  ASSERTED FROM w's smoothness and NOT separately measured -- so marked.
+ Psihat: Psihat(0) = +1.226766394 (measured b131), finite and nonzero, so
+  s^{-z}Psihat integrable at 0 needs Re z < 1. At infinity Psihat's decay
+  follows from Psi's smoothness; ### THE RECORD HAS NOT MEASURED IT and the
+  executor does not assert a rate. NAVIGATOR-OPEN.
+ ### THE COMMON STRIP IS THEREFORE 0 < Re z < 1, CONDITIONAL ON Psihat's
+ UNMEASURED DECAY AT INFINITY. So marked wherever used.
+
+*** R6. THE LICENSED RANGE'S IMAGE -- AND IT HAS NONE, WHICH IS PART OF THE
+ SETTING AND IS STATED HERE RATHER THAN DISCOVERED IN COMPONENT 2.
+ The licensed range is L in [log sqrt 2, log sqrt 48] = [0.34657, 1.93563], a
+ COMPACT SUBINTERVAL. ### THE MELLIN REPRESENTATION IS GLOBAL ON (0, infty):
+ (1.14.32) integrates over all of (0,infty) and (1.14.35) reconstructs f at a
+ point from the whole vertical line. A COMPACT SUBINTERVAL HAS NO IMAGE AS A
+ SUBSET OF THE MELLIN LINE. Passing a LOCAL positivity claim to the Mellin side
+ converts it into a statement about a GLOBAL object. STATED IN ADVANCE. ***
+
+----------------------------------------------------------------------------------------------------
+(B) THE TWO SEATS, REGISTERED HERE AND NOT BEFORE, AGAINST THE READ SETTING.
+
+THE NAVIGATOR'S SEAT: the ferry reserved both seats to this act and supplied no
+navigator expectation in its text. ### THE EXECUTOR RECORDS THAT ABSENCE RATHER
+THAN INVENTING A NAVIGATOR POSITION TO DISSENT FROM. No navigator expectation is
+registered for b133, and none is scored.
+
+### THE EXECUTOR'S:
+ (P2) I EXPECT THE REFORMULATION TO PASS ALGEBRAICALLY. The substitution
+  t = Ls in F(L) = INT_0^infty Khat(Ls) Psihat(s) ds gives
+      Mellin_s[F](z) = Mellin[Khat](z) * Mellin[Psihat](1-z)
+  on the common strip, and the derivative carries through as
+      Mellin[L F'(L)](z) = -z Mellin[F](z),
+  whose boundary terms [L^z F(L)] vanish at 0 for Re z > 0 (F(0) = Psi(0),
+  finite) and at infinity if F decays. ### I EXPECT BOTH IDENTITIES TO VERIFY
+  NUMERICALLY ON THE RECORD'S OWN ARRAYS, and I will test them rather than
+  assert them.
+ (P3) I EXPECT BRANCH (b), and I name the obstruction I expect IN ADVANCE so it
+  is not produced afterwards as a discovery. It is candidate class 3 of the
+  three the ferry disclosed -- "a convergence license the record cannot supply"
+  -- IN THIS SPECIFIC FORM:
+  ### FORMING Mellin[Psihat](1-z) REQUIRES Psihat ON ALL OF (0,infty), WHICH
+  REQUIRES Psi ON ALL OF R. THE RECORD COMPUTES Psi ONLY ON [0, UMAX], WHERE
+  UMAX = log 48.001 IS EXACTLY THE TOP OF WHAT THE LICENSED RANGE NEEDS.
+  ### SO THE REFORMULATION IS MATHEMATICALLY AVAILABLE AND NUMERICALLY
+  UNAVAILABLE: it trades a local claim the record can sample for a global object
+  the record cannot form. THAT TRADE IS THE FINDING I EXPECT.
+ ### AND WHERE I COULD BE WRONG, NAMED: if the Mellin form admitted a positivity
+  criterion on the line -- some condition on Mellin[Khat](z)Mellin[Psihat](1-z)
+  implying positivity of the inverse -- then the global/local trade might be
+  worth making. I DO NOT EXPECT ONE TO EXIST, because positivity of a function
+  is not in general a condition on its Mellin transform; but I have NOT read a
+  theorem saying so, and I will NOT assert its non-existence. ### THAT
+  NON-EXISTENCE IS NAVIGATOR-OPEN AND WILL BE MARKED, NOT CLAIMED.
+ MY TRANSFER, disclosed: DLMF 1.14 at the grades above; b131's measured Khat,
+  Psihat and endpoint values; b132's fence set. I transfer NOTHING from
+  familiarity with Mellin practice: every condition used is quoted or marked.
+ THESE EARN NOTHING. Only the computation and the reading decide.
+
+(C) INDEPENDENCE CHECK, RUN: components ordered, 2 consumes 1, 3 consumes 2.
+
+(D) THE FENCE SET, CARRIED VERBATIM FROM b132 AND NOT SOFTENED: "one species
+shared is not one proof shared, neither instance discharges the other -- AND the
+open step is an instrument quantity of the construction's own bookkeeping, NOT a
+statement about zeta's zeros, BEARING ON h2 NOT AT ALL." And the third fence:
+### A ROUTE'S ADDRESS IS NOT A ROUTE WALKED.
+
+Bank: data/b133_scaling_channel.txt. Report: reports/2026-08-24-scaling-channel.md.
+Deviation rule standing. Divergence note (rule a): the ferry's "the Mellin side"
+is ambiguous between two transforms; resolved at R4 and named by variable
+throughout.
+====================================================================================================
