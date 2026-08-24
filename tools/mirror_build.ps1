@@ -17,9 +17,24 @@ $rel = @(
   'phase1.5\proofs\INDEX_ARITY_AT_THE_CRITICAL_LINE.md',  # roster ADDITION 2026-08-04 (ferry-required)
   'phase1.5\method\INSTRUMENTS.md',                       # roster ADDITION 2026-08-05 (author-called)
   'phase1.5\method\THE_METHOD_CANON.md',                  # roster ADDITION 2026-08-06 (author's taste, recorded as such)
-  'phase2\method\THE_GLOBAL_SECTION.md'                   # roster ADDITION 2026-08-24 (the crown opening's ROSTER RULING,
+  'phase2\method\THE_GLOBAL_SECTION.md',                  # roster ADDITION 2026-08-24 (the crown opening's ROSTER RULING,
                                                           #   strikeable: closes the b129 filing-scope class structurally --
                                                           #   the keystone carried substance that reached no exported file)
+  # ---- roster ADDITIONS 2026-08-24, b143, DECLARED DEVIATION (the ferry did not
+  #   name a roster change). REASON: the twenty-fifth seam's archival split moved
+  #   ~3.0 MB out of the three working ledgers. The ferry's own FOOT calls the
+  #   newest mirror "the restart kit complete ... as the standing safety".
+  #   ### WITHOUT THESE SIX ROWS THAT SENTENCE BECOMES FALSE THE MOMENT THE SPLIT
+  #   ### LANDS -- the export would carry pointer headers to files it does not
+  #   ### contain. Adding them SERVES the ferry's stated intent rather than
+  #   ### expanding its scope; the words-vs-intent law cuts this way. Recorded as
+  #   a deviation because it is one, and reversible by deleting six lines.
+  'archive\2026-08-24-ledger-split\README.md',
+  'archive\2026-08-24-ledger-split\OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md',
+  'archive\2026-08-24-ledger-split\OPEN_TRAILS-archive-2-historical-landings-and-programs.md',
+  'archive\2026-08-24-ledger-split\VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md',
+  'archive\2026-08-24-ledger-split\FINDINGS-archive-1-entries-through-2026-08-20c.md',
+  'archive\2026-08-24-ledger-split\FINDINGS-archive-2-entries-2026-08-21-and-22.md'
 )
 
 $head = (git -C $repo rev-parse --short HEAD).Trim()

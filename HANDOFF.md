@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the profile act (b142) — ### THE LABORATORY LANE IS CLOSED.**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the twenty-fifth seam close (b143) — ### THE LABORATORY LANE IS CLOSED AND THE CAMPAIGN'S HEAD IS THE MAIN SPINE.**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,9 +22,9 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b142 filings commit** | the keystone at **v2.24** (NOT incremented — a conventions filing does not bump the version), section 29 *The two forms and the middle*; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b142 pin-line commit** | registrations and banks b1–b142; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
-| **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` · `tools/banned_terms.py` · `tools/mirror_verify.py` | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced**; the banned-term review **scoped by the act's own diff**; the mirror verified on **both clauses of the stale-build law in one command**. ***Each of the three failed on its first run and each was fixed in the TOOL rather than the output.*** |
+| `PLACE-papers` | `main` **the b143 split commit** | the keystone at **v2.25**, section 30 *The laboratory closed*; ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b143 pin-line commit** | registrations and banks b1–b143; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` · `tools/banned_terms.py` · `tools/mirror_verify.py` · `tools/ledger_split.py` | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced**; the banned-term review **scoped by the act's own diff**; the mirror verified on **both clauses of the stale-build law in one command**. ***FIVE instances now of a newly built check failing its own first run — and the standing inference is not that the executor writes bad checks but that ### A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE.*** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -138,7 +138,7 @@ should be read as one requirement rather than three.*
 **And a limitation found in a standing law rather than a new law: REPRODUCE-
 BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
 and failed u-convergence in the same act, on the same instrument.
-**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN SHRUNK BY THE SMOOTHING WIDTH** — *convolution does not preserve a domain; it consumes one*; ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
+**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A CERTIFICATE IS ABOUT AN OBJECT, AND OUTWARD ROUNDING DOES NOT REPAIR A SUBSTITUTED ONE — IT DRESSES IT**; ### **A JUSTIFICATION ARRIVING AFTER A RULING IS NOT EVIDENCE FOR THE RULING**; ### **A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN SHRUNK BY THE SMOOTHING WIDTH** — *convolution does not preserve a domain; it consumes one*; ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -217,6 +217,27 @@ fences.
   so any derivation must be **sharp**, not merely correct. *That is a constraint
   on required precision and supplies no evidence — the guard's first permissive
   cell.*
+- ### **THE CAMPAIGN'S HEAD IS THE MAIN SPINE (b143). FOUR STANDING ITEMS.**
+  ### **THE GUARDED BOUNDARY** — licence unissued; the boundary question's routing
+  takes **its own gated registration at the author's word**. ### **THE PROTOCOL'S
+  TWO LOCKS** — step seven shut with both; the review phase runs **per lock one**;
+  the **Phase 1.5 keystone review PENDING**, the **TECHNE reconcile SEQUENCED**,
+  the **re-sync QUEUED**, the **posture lock** with its pre-deposit work-order.
+  ### **THE DESK** — the v4.3 splice, unspliced, **three candidates**. ### **THE
+  PARKED DEPOSIT GATES — FROZEN.**
+- ### **THE LEDGER SPLIT — EXECUTED AND VERIFIED FROM THE PUSHED TREE (b143), AWAITING THE AUTHOR'S UI ACTION.**
+  Five byte-exact archives at `archive/2026-08-24-ledger-split/` with a README of
+  md5 rows; the three working copies rewritten as **pointer header + current
+  segment**, each pointer carrying **a full index of the archived headings** so a
+  citation resolves in one hop. ### **THE PROOF IS REASSEMBLY, NOT md5:** archive
+  + retained = pre-split, **byte for byte**, on all three — re-verified from the
+  pushed tree by a check that does not use the splitter's plan.
+  ***And the disclosure it owes: ELEVEN named standing laws now live in the
+  archive rather than the working loom*** — the stale-build law, the truncation
+  ruling, the kernel-purity ruling, the probe convention, *a check's species is
+  part of its report*, the reflexive clause, *an instrument's domain is part of
+  its result*, among them. ### **A consequence of the boundary, not an accident;
+  the author can move the boundary now that the list exists.**
 - ### **THE LABORATORY LANE IS CLOSED — THE TERMINUS RULING, RATIFIED (b142).**
   On either branch **or on the cap halt**, the lane closes at its earned state.
   ### **The campaign's head returns to the MAIN SPINE** — the guarded boundary,

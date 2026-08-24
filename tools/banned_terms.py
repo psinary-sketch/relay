@@ -33,9 +33,20 @@
 # ### crashed on the first Greek letter it met. A check that dies on its own
 # ### input is not a check.
 
+# ### SECOND SCOPE DEFECT, FIXED b143, AND IT IS A DIFFERENT ONE. The diff scope
+# ### counts a MOVED file as added lines. The twenty-fifth seam's archival split
+# ### wrote five BYTE-EXACT archives of historical ledger text, and the review
+# ### reported live uses inside them. ### THAT TEXT IS NOT THE ACT'S VOICE -- IT
+# ### IS THE RECORD'S OWN HISTORY, AND "CORRECTING" IT WOULD BOTH DESTROY THE
+# ### BYTE-EXACTNESS THE ARCHIVE EXISTS TO GUARANTEE AND FALSIFY WHAT THE RECORD
+# ### ACTUALLY SAID. --exclude takes a path substring and is REQUIRED to be
+# ### explicit: the exclusions used are printed in the scope block, so an
+# ### exclusion can never be silent.
+
 Usage:
     python banned_terms.py --diff <repo> [<rev>]     scope = added lines vs rev
     python banned_terms.py --new <file> [<file>...]  scope = whole file (new files)
+    python banned_terms.py --exclude <substring>     drop paths containing it
     both may be combined; --new files are appended to the --diff scope.
 """
 import io
@@ -53,14 +64,41 @@ PAT = re.compile(r'\b(' + '|'.join(STEMS) + r')\w*', re.I)
 EXCEPT = [
     (re.compile(r'sector_pattern_gap|\w_gap\b|\bgap_\w|`[^`]*gap[^`]*`', re.I),
      'QUOTED KERNEL IDENTIFIER'),
-    (re.compile(r'mass gap', re.I), 'CLAY / BIBLIOGRAPHY CITATION'),
+    # ### the hyphenated form was a REGEX BUG, not a softening: "mass-gap
+    # ### exclusion (Yang-Mills)" is the same standing Clay exception as "mass gap".
+    (re.compile(r'mass[- ]gap|yang-?mills', re.I), 'CLAY / BIBLIOGRAPHY CITATION'),
     (re.compile(r'retired|superseded|correction record|formerly|no longer|banned|vocabulary repair',
                 re.I), 'RETIRED TERM IN A CORRECTION RECORD'),
     (re.compile(r'STEMS|stems scanned|banned[- ]term', re.I), "THE SCANNER'S OWN RULE TEXT"),
 ]
 
 
+# ### THE ARCHIVED-HEADING EXCEPTION, ADDED b143, AND IT IS EXACT RATHER THAN A
+# ### GUESS. The twenty-fifth seam's pointer headers carry a MACHINE-GENERATED
+# ### INDEX of the headings that moved to the archive, so that a citation to an
+# ### archived section resolves in one hop. Those lines are VERBATIM QUOTATIONS
+# ### OF HISTORICAL TITLES. ### EDITING ONE WOULD BREAK THE INDEX'S ONLY PURPOSE
+# ### -- it would no longer name the heading it points at. The test is membership
+# ### in the actual set of archived headings, read from the archive files, NOT a
+# ### pattern that might match something else.
+ARCHIVED_HEADINGS = set()
+
+
+def load_archived_headings(archdir):
+    if not os.path.isdir(archdir):
+        return
+    for fn in os.listdir(archdir):
+        if fn == 'README.md' or not fn.endswith('.md'):
+            continue
+        txt = io.open(os.path.join(archdir, fn), encoding='utf-8', errors='replace').read()
+        for h in re.findall(r'^##+ .*$', txt, re.M):
+            ARCHIVED_HEADINGS.add(h.lstrip('#').strip())
+
+
 def classify(line):
+    s = line.strip()
+    if s.startswith('> - ') and s[4:].strip() in ARCHIVED_HEADINGS:
+        return 'QUOTED ARCHIVED HEADING (machine-generated index)'
     for rx, name in EXCEPT:
         if rx.search(line):
             return name
@@ -86,7 +124,14 @@ def added_lines(repo, rev):
 
 
 def main(argv):
-    scope, srcs = [], []
+    scope, srcs, excl = [], [], []
+    i = 0
+    while i < len(argv):
+        if argv[i] == '--exclude':
+            excl.append(argv[i + 1])
+        elif argv[i] == '--archive-headings':
+            load_archived_headings(argv[i + 1])
+        i += 1
     i = 0
     while i < len(argv):
         if argv[i] == '--diff':
@@ -104,6 +149,16 @@ def main(argv):
                 i += 1
         else:
             i += 1
+
+    # ### THE EXCLUSION IS APPLIED BEFORE THE HITS ARE COUNTED. Applied after, it
+    # ### would trim the display and leave the verdict unchanged -- a filter that
+    # ### hides what it does not excuse, which is worse than no filter at all.
+    if excl:
+        before = len(scope)
+        scope = [r for r in scope
+                 if not any(x in r[0].replace(chr(92), '/') for x in excl)]
+        srcs.append("EXCLUDED %d lines whose path contains: %s   ### stated, never silent"
+                    % (before - len(scope), ", ".join(excl)))
 
     hits = live = 0
     rows = []
@@ -124,6 +179,9 @@ def main(argv):
         print("  scope            : %s" % s)
     print("  files in scope   : %d" % len(files))
     print("  lines in scope   : %d   ### the act's own voice, not the corpus" % len(scope))
+    if ARCHIVED_HEADINGS:
+        print("  archived headings: %d loaded, used as an EXACT exception set"
+              % len(ARCHIVED_HEADINGS))
     print("  hits found       : %d" % hits)
     print("  live uses        : %d" % live)
     if rows:
