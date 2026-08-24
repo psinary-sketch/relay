@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the reconcile act (b144) — ### THE DEPOSIT-STATE GATE IS CLEARED BY A LIVE READ-ONLY FETCH; THE CAMPAIGN'S HEAD IS THE MAIN SPINE.**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the census seam (b145) — ### THE PRE-DEPOSIT WORK-ORDER IS DISCHARGED; THE CORPUS HAS AN EXACT COUNT; TWO ARTIFACTS WERE FOUND IN NO LEDGER.**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b144 addendum commit** | the keystone at **v2.25**, section 30 *The laboratory closed*, ### **its era assigned by REGISTRY's dated phase row**; ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b144 pin-line commit** | registrations and banks b1–b144; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| `PLACE-papers` | `main` **the b145 census commit** | the keystone at **v2.26**, §30 *The laboratory closed* (### **precision-bracketed**), §31 *The reconcile and the map*; ### **REGISTRY REPAIRED at four sites, `d1-1` ruled governing**; ERRATA `E-2026-08-24-1` (corrected) and `E-2026-08-24-2` (the titles, **routed not ruled**); ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b145 pin-line commit** | registrations and banks b1–b145; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
 | **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` · `tools/banned_terms.py` · `tools/mirror_verify.py` · `tools/ledger_split.py` · **the loom's STANDING-LAWS ANNEX** (24 laws, 11 archived + 13 working; *not an authority — if it disagrees with the archive, the archive wins*) | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced**; the banned-term review **scoped by the act's own diff**; the mirror verified on **both clauses of the stale-build law in one command**. ***FIVE instances now of a newly built check failing its own first run — and the standing inference is not that the executor writes bad checks but that ### A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE.*** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
@@ -217,13 +217,35 @@ fences.
   so any derivation must be **sharp**, not merely correct. *That is a constraint
   on required precision and supplies no evidence — the guard's first permissive
   cell.*
+- ### **THE CENSUS (b145): THE PROGRAMME'S "DOZENS" HAS AN EXACT NUMBER.**
+  **106 distinct REGISTRY paper rows** (Day-1 8 · Phase 1.5 55 · Phase 2 34 ·
+  simulators 9) + 5 method rows + 13 support-tier rows; **269 `.md` files** in the
+  repo tree; shelves at **7** and **9**; **30** ratified-title rows; ### **43
+  federation kernel repos, every head and tag READ LIVE** (3 untagged); **4**
+  deposited records, all fetched and matching.
+- ### **TWO FORGOTTEN-CANDIDATES — ZERO HITS ACROSS FIVE INDICES — AND ONE IS AN OWED AUTHOR ACTION.**
+  ### **`internal/GITHUB_PURGE_REQUEST_DRAFT.md`** (staged 2026-08-18) — *"READY
+  TO SEND"*, and **submission requires the account owner**; the executor cannot
+  file it. ***It sat ready for six days behind no trail, no work-order and no desk
+  line.*** And **`internal/W_ATTEMPT_2_REVIEW_PACKET.md`** (same day) — the
+  closure-protocol step-three packet, not circulated. ### **Both staged the same
+  day; both with someone else's action attached.** *An act that ends by handing
+  something off is the act least likely to file the handoff.*
+- ### **SECTION 30 CORRECTED IN THE DEFLATIONARY DIRECTION — the author's catch.**
+  b143 wrote the lane *"produced no theorem"*. **False:** `C_M ≤ 0` is **derived**,
+  the b138 audit equivalence is **proved in both directions**, the two bound forms
+  are **derived**. *What it did not produce is its **target** theorem.* ### **A
+  DEFLATIONARY ERROR IS STILL AN ERROR, AND IT IS THE ONE THIS RECORD HAS NO
+  STANDING CHECK AGAINST** — every check it owns fires on claims that are too
+  strong.
 - ### **THE DEPOSIT-STATE GATE IS CLEARED (b144) — BY A READ-ONLY LIVE FETCH, AND NOTHING DEPOSITED.**
   All four deposited rows match REGISTRY on **DOI, concept DOI, version and date**
   — monograph Zenodo **v1.1.2** / `21539167`, SIDE-kernel **v1.5** / `21520474`,
   lv-conservation **v0.10.0** / `21539068`, T7 `21436282` — and ### **both concept
   DOIs resolve to REGISTRY's recorded version as `is_last`, so no latest-version
   pointer has drifted.** **The parked waves stay PARKED.**
-- ### **AND THE PRECEDENCE SOURCE CONTRADICTS ITSELF IN FOUR PLACES — NONE CORRECTED, ALL FOUR AT THE DESK.**
+- ### **THE PRECEDENCE SOURCE'S FOUR SELF-CONTRADICTIONS — NOW REPAIRED (b145) AND FILED AT ERRATA `E-2026-08-24-1`.** *`d1-1` ruled governing by the author; every prior wording quoted in place.* **The deposited-title question stands ROUTED at `E-2026-08-24-2` — platform metadata on immutable records, not a claim about the mathematics, awaiting the author's ruling at the methodology/patent day.** *The original b144 statement of the four is retained below.*
+- ### **[b144, retained] THE PRECEDENCE SOURCE CONTRADICTS ITSELF IN FOUR PLACES — NONE CORRECTED, ALL FOUR AT THE DESK.**
   REGISTRY's Day-1 header still reads *v1.0.2 / `19938917` / "monograph + 6
   companions + kernel"* against its own `d1-1` row's **v1.1.2 / `21539167`**; the
   **DAY 1 DEPOSIT HISTORY** table ends at v1.0.2 calling it *"Current immutable
