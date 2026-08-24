@@ -1,0 +1,168 @@
+====================================================================================================
+b128 -- THE REPAIR ACT -- THE RUN-REGISTRATION. BANKED BEFORE ANY COMPUTATION,
+with THE ROUTE STATED AS ALGEBRA, THE GATES CARRYING PRE-COMMITTED NUMERIC
+CRITERIA, and BOTH SEATS' EXPECTATIONS. ### THE STOP-LOSS RULING GOVERNS
+ABSOLUTELY: THIS IS THE ONE ATTEMPT. Any gate failure ends it and routes to the
+re-scope filings -- no second try, no tuning, no threshold moved after a number
+is seen. The incumbent-preservation law governs; the floor-axis law governs
+every floor; the guard rides; b38's verdicts fenced. Nothing about h2. Nothing
+deposits.
+====================================================================================================
+FERRY 2026-08-23 (part 1 of 1, receipt confirmed in full, Rule 1 -- "paste ends
+(part 1 of 1)" present).
+
+(a) OWNERS READ AT CONTENT THIS ACT: b121_instrument.py whole (psi_at,
+build_kernel, I_of_L, BANKED_I, B119_MARGIN); b38_act10.py family() and
+trace_modes(); b121's bank; b126's bank and report; the keystone at v2.18.
+
+*** (b) THE ROUTE, STATED AS ALGEBRA AND AS CODE, AND WHAT IT DOES **NOT** DO.
+THE IDENTITY, exact: with u = L*sigma,
+   I(L) = INT_0^2 Phi_K(sigma) Psi(L sigma) dsigma
+        = (1/L) INT_0^{2L} Phi_K(u/L) Psi(u) du.
+THE INCUMBENT (b121 I_of_L) evaluates the LEFT side: it interpolates PSI at the
+dilated points L*sigma -- "q = np.interp(L * sg, ug, psi, right=psi[-1])".
+THE REPAIR evaluates the RIGHT side: PSI is read AT ITS NATIVE u NODES and the
+dilation is carried by Phi_K.
+
+### AND THE HONEST DESCRIPTION OF WHAT THAT BUYS, WHICH IS NOT "NO
+INTERPOLATION". Phi_K must still be evaluated at u/L, and Phi_K is NOT an
+analytic closed form: read at content, B38.family builds corr = convolve(w, w)
+-- a NUMERICAL autocorrelation of the bump window on the v grid -- and
+build_kernel forms K = L0 * interp(L0*sg, vc, corr), Phi = gradient(sg*K, sg) on
+a 2001-point grid. ### SO THE REPAIR DOES NOT DELETE INTERPOLATION; IT MOVES THE
+INTERPOLATION OFF AN NQ-CONTAMINATED OBJECT AND ONTO AN NQ-INDEPENDENT ONE.
+corr depends on the window alone and on NO quadrature size; that is the whole of
+the repair's mechanism, and it is stated this way rather than as the ferry's
+"explicit analytic kernel", which the code does not support.
+
+*** (c) THE TWO INSTANCES OF THE DEFECT SPECIES, AND WHICH ONE THIS REPAIR
+REACHES. THIS IS THE REGISTRATION'S MOST IMPORTANT PARAGRAPH.
+ INSTANCE 1: xi_n sampled at Gauss-Legendre nodes x_j, READ AT DILATED ABSCISSAE
+   e^u * x_j, inside A_n. ### THIS IS THE CAUSE b126 LOCATED (2.997602e-15 at
+   the identity dilation, 1.994560e-02 by a dilation of 1.48). It is what makes
+   PSI itself move by 3.740470e-01 across NQ.
+ INSTANCE 2: Psi sampled at native u nodes, READ AT DILATED POINTS L*sigma,
+   inside I_of_L. Same species, one layer up.
+ ### THE CHANGE OF VARIABLES DELETES INSTANCE 2. IT DOES NOT TOUCH INSTANCE 1.
+ Psi's own native values still come from A_n, and A_n still interpolates xi_n at
+ dilated abscissae. THE REPAIR THEREFORE ADDRESSES THE SECOND INSTANCE OF THE
+ SPECIES, NOT THE LOCATED ONE. The executor states this BEFORE computing, and
+ the gates are what decide whether instance 2 was nevertheless the dominant term
+ in the PAIRINGS. ***
+
+*** (d) A DEVIATION IN THE GATE'S OWN REFERENCE FIGURE, DISCLOSED BEFORE USE.
+(b) of the ferry directs G-NQ to quantify "the NQ excursion of the PAIRINGS ...
+against the old 4.361e-01". ### 4.361e-01 IS PSI'S SPREAD, NOT THE PAIRINGS'.
+Read at content: b121 line 108 prints it as "WORST |Psi(NQ) - Psi(700)|"; the
+pairings' excursion is a separate quantity printed at b121 line 125 and NOT
+carried into b121's bank. Comparing a pairing excursion to a density excursion
+is a category mismatch -- the same species of error b126 caught in its own
+registered reconciliation target. ### THEREFORE: G-NQ IS EVALUATED AGAINST THE
+INCUMBENT'S OWN PAIRING EXCURSION, MEASURED IN THIS ACT ON THE SAME AXES, and
+4.361e-01 is quoted beside it with its quantity named. The scale to expect from
+the record: b121 reports max I(L) over all cells and all four bases = -0.028796
+against banked values near -0.06 to -0.083, so the pairing excursion is of order
+a few times 1e-02 and not 4e-01. ***
+
+*** (e) THE GATES, WITH NUMERIC CRITERIA FIXED HERE AND NOT MOVEABLE LATER.
+ G-ID (the identity-configuration reproduction), two clauses, BOTH required:
+  (ID-a) the nine banked pairings reproduced through the change-of-variables
+    form at the recorded configuration (NQ = 700, u grid 400):
+    ### PASS IFF worst |I_repaired - I_banked| < 5.0e-03.
+    Tolerance reasoned before the run: the repair is a DIFFERENT discretization
+    of the same integral (native nodes over [0, 2L] rather than 2001 upsampled
+    points), so it cannot match the incumbent's 5.88e-07 reproduction; 5.0e-03
+    is about 8% of the smallest b119 coarse margin (0.064826976) and about 8% of
+    the smallest banked |I| (0.059667687). Stated now so it cannot be fitted
+    later.
+  (ID-b) the known answer returned exactly: Psi(0) = -1.165002987, NMODE = 10.
+    ### AND THE GRADE ON THIS CLAUSE, STATED IN ADVANCE SO IT IS NOT OVER-READ:
+    the repair does not touch how Psi is computed, so ID-b is INHERITED FROM THE
+    INCUMBENT AND NOT EARNED BY THE REPAIR. It is checked because the
+    incumbent-preservation law requires it, not because passing it is evidence
+    for the route.
+ G-U (the u-convergence gate), refinement 200 -> 400 -> 800, BOTH clauses:
+  (U-a) ### PASS IFF max_cells |I(800) - I(400)| < max_cells |I(400) - I(200)|
+    (the differences shrink), AND
+  (U-b) ### PASS IFF max_cells |I(800) - I(400)| < 5.0e-03.
+  The incumbent's non-convergence to beat, quoted with its quantity named:
+  PSI's maximum grew 3.740470e-01 -> 4.360826e-01 (+17%) from 200 to 400 u
+  points. The gate here is on THE PAIRINGS, and the incumbent's pairing
+  behaviour under the same refinement is measured in this act as the referee.
+ G-NQ (the b121 test re-run on the pairings), BOTH clauses:
+  (NQ-a) THE COLLAPSE: ### PASS IFF excursion_repaired <= excursion_incumbent /
+    10 -- at least one order, "the collapse stated in orders" made numeric.
+  (NQ-b) THE USABILITY: ### PASS IFF excursion_repaired < 0.064826976, the
+    smallest b119 coarse margin. A floor that swamps the verdict is not repaired
+    ground however much it improved.
+  Then THE NEW FLOOR MEASURED ACROSS ALL FOUR AXES -- NQ, u, epsilon,
+  truncation -- each quoted WITH ITS AXIS NAMED per the floor-axis law, and the
+  floor is the MAXIMUM over the four, never one axis passed off as the
+  instrument's. ***
+
+*** (f) THE TWO SEATS, BEFORE ANY COMPUTATION.
+THE NAVIGATOR'S, quoted: ALL THREE GATES PASS, at MODERATE confidence; transfer
+named -- "the cause is located AT the deleted operation, and the repair deletes
+it by algebra"; counter-weight -- six entries on the miss ledger, priced.
+### THE EXECUTOR'S: I EXPECT G-ID PASS, G-U PASS, AND **G-NQ FAIL**.
+ THE GROUND, and it is the algebra rather than a feeling: the navigator's
+ transfer contains the error. ### THE CAUSE IS **NOT** LOCATED AT THE DELETED
+ OPERATION. b126 located it at INSTANCE 1 -- xi_n at dilated abscissae inside
+ A_n -- and this repair deletes INSTANCE 2. Psi's native values are computed by
+ exactly the same code before and after, so Psi's NQ error delta_Psi is
+ UNCHANGED by the repair, and the pairing error is
+ delta_I = (1/L) INT Phi_K(u/L) delta_Psi(u) du, the same integral of the same
+ delta_Psi, merely discretized differently. I therefore expect the pairing
+ excursion to move by a modest factor and NOT by an order.
+ ### WHERE I COULD BE WRONG, NAMED HONESTLY: if instance 2 was contributing
+ MORE to the pairing excursion than instance 1 does -- plausible at the small
+ cells, where the incumbent upsamples roughly 72 native u nodes to 2001 points
+ across [0, 2L] with L = log(sqrt(2)) -- then deleting it could collapse the
+ excursion after all. THAT IS A REAL POSSIBILITY AND IT IS WHY THE GATE IS RUN
+ RATHER THAN ARGUED. I will also report the two contributions separately so the
+ answer is decomposed and not merely scored.
+ MY TRANSFER, disclosed: b126's u-axis table and the code structure of A_n and
+ I_of_L, both read at content this act. I transfer NOTHING from the navigator's
+ "located AT the deleted operation" claim, which I hold to be false at content.
+ ### AND IF G-NQ FAILS I DO NOT GET TO CALL IT A SUCCESS. The stop-loss ruling
+ ends the attempt and component 4 files the re-scope. I record in advance that I
+ will not soften a FAIL into a "partial pass", and that the ONE ASKING IS THEN
+ PRESERVED, NOT SPENT.
+ THESE EARN NOTHING. Only the gates decide. ***
+
+(g) INDEPENDENCE CHECK, RUN: components ordered, 2 consumes 1, 3 consumes 2, 4
+consumes 3. No component's criterion depends on another's outcome except through
+the registered halt structure.
+
+REGISTERED PREDICTIONS (P1)-(P4), VERBATIM FROM THE FERRY, banked as given:
+ (P1) "THE GATES: G-ID, G-U, G-NQ in order -- each PASS/FAIL with its table; any
+   FAIL halts per the stop-loss and routes to component 4's re-scope branch."
+ (P2) "THE RE-RUNS, on all gates passing: Psi's coarse profile restated (the
+   gross rise against its enclosure); the ONE-SIGN verdict re-run across cells,
+   sweep, and bases on repaired pairings -- its margin restated at the new floor
+   with axes; branch (b) first-class."
+ (P3) "THE ONE ASKING, spent only if P1 and P2 land: the dominance question
+   re-asked ONCE on repaired ground -- the b119 split re-run with the basis
+   sweep built in (the recorded basis, the b121 alternates, one registered fresh
+   draw) -- branch (a): dominance holds basis-independently: RESTORED at its
+   grade on repaired ground, the mechanism's status updated, the withdrawal
+   fence replaced by the restoration record; branch (b): fails or stays
+   basis-dependent: the candidate mechanism resolved per the third-outcome cell,
+   the sign banking unchanged, the mechanism question routing to the crown; NO
+   further asking either way -- the clause is spent by this act or preserved by
+   its halt, stated which in the report's last line."
+ (P4) "THE FILINGS, per the branches: on gates passing -- the lane restated (the
+   re-rerun revisit staged next on repaired ground per the author's proceed
+   ruling; the crown standing); on any gate failing -- THE RE-SCOPE per the
+   stop-loss ruling verbatim: the one-sign floor standing at its basis-robust
+   margin; the mechanism question routed to the closed-form crown; the
+   instrument item to the engineering queue at the author's schedule; the asking
+   preserved; the nineteenth seam close's debt restated either way; the tag,
+   grade-label, scale, and floor-axis audits as named sections."
+
+Bank: data/b128_repair.txt. Report: reports/2026-08-23-repair.md.
+Deviation rule standing: every departure recorded inside the act at full
+prominence. Divergence note (rule a): the two recorded in (b) and (d) above --
+the "explicit analytic kernel" description corrected at content, and the G-NQ
+reference figure corrected from Psi's spread to the pairings' own.
+====================================================================================================
