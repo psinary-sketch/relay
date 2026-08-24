@@ -1,0 +1,201 @@
+====================================================================================================
+b128 -- THE REPAIR ACT -- THE BANK. Registration:
+data/b128_registration_2026-08-23.txt (banked before any computation, commit
+fa13cbc, with the gate criteria fixed there and not moved here).
+### THE ONE ATTEMPT IS SPENT. G-ID PASS, G-U PASS, **G-NQ FAIL**. THE STOP-LOSS
+RULING FIRES: no second try, no tuning. P2 AND P3 ARE NOT RUN.
+### THE ONE ASKING IS **PRESERVED, NOT SPENT**.
+No kernel changes; Core 271/271. PLACE-papers UNTOUCHED. Nothing about h2.
+Nothing deposits.
+====================================================================================================
+
+COMPONENT 1 (P1) -- THE ROUTE BUILT AND G-ID SAT.
+
+ THE ROUTE, exact: I(L) = INT_0^2 Phi_K(s) Psi(Ls) ds = (1/L) INT_0^{2L}
+ Phi_K(u/L) Psi(u) du. The incumbent evaluates the left side (Psi interpolated
+ at dilated points L*sigma); the repair evaluates the right side (Psi at NATIVE
+ u nodes, the dilation carried by Phi_K, which is NQ-independent).
+
+ (ID-a) THE NINE BANKED PAIRINGS THROUGH THE CHANGE-OF-VARIABLES FORM
+        recorded configuration NQ = 700, u grid 400 points
+   a^2           banked         repaired        incumbent   |rep-banked|
+     2     -0.083077396     -0.083119244     -0.083077167      4.185e-05
+     3     -0.059667687     -0.059674727     -0.059668275      7.040e-06
+     4     -0.060113821     -0.060119335     -0.060114289      5.514e-06
+     8     -0.071923801     -0.071921153     -0.071923922      2.648e-06
+     9     -0.073759303     -0.073757871     -0.073759387      1.432e-06
+    12     -0.077118973     -0.077115962     -0.077118983      3.011e-06
+    16     -0.078592093     -0.078593862     -0.078592047      1.769e-06
+    24     -0.077818000     -0.077815037     -0.077817901      2.963e-06
+    48     -0.070591879     -0.070591979     -0.070591742      1.001e-07
+   worst |repaired - banked|  = 4.184802e-05   (criterion < 5.0e-03)
+   worst |incumbent - banked| = 5.879338e-07   (the incumbent's own, for scale)
+   ### (ID-a) PASS, by two orders of margin.
+ (ID-b) THE KNOWN ANSWER: Psi(0) = -1.165002987, deviation 3.96e-10. PASS.
+   ### AND ITS GRADE HELD AT WHAT THE REGISTRATION SET IN ADVANCE: INHERITED
+   FROM THE INCUMBENT, NOT EARNED BY THE REPAIR. The repair does not touch how
+   Psi is computed. Passing ID-b is evidence for nothing about the route.
+ ### G-ID: PASS. *** AND THE POSITIVE RESULT THIS ESTABLISHES, WHICH SURVIVES
+ EVERYTHING BELOW: THE CHANGE OF VARIABLES IS ALGEBRAICALLY CORRECT AND
+ CORRECTLY IMPLEMENTED. It reproduces nine banked pairings through a different
+ discretization of the same integral. The route is not wrong. It is ineffective
+ against the located cause, which is a different finding and is not a defect in
+ the algebra. ***
+
+COMPONENT 2 (P1 cont.) -- G-U AND G-NQ.
+
+ (G-U) u-GRID REFINEMENT 200 -> 400 -> 800, at NQ = 700, ON THE PAIRINGS
+   a^2        rep@200        rep@400        rep@800      |400-200|      |800-400|
+     2   -0.090832407   -0.083119244   -0.080750223      7.713e-03      2.369e-03
+     3   -0.063983485   -0.059674727   -0.057757449      4.309e-03      1.917e-03
+     4   -0.062683267   -0.060119335   -0.058548952      2.564e-03      1.570e-03
+     8   -0.073590279   -0.071921153   -0.071630258      1.669e-03      2.909e-04
+     9   -0.075591612   -0.073757871   -0.073531473      1.834e-03      2.264e-04
+    12   -0.079240791   -0.077115962   -0.076897759      2.125e-03      2.182e-04
+    16   -0.080693515   -0.078593862   -0.078282934      2.100e-03      3.109e-04
+    24   -0.079391342   -0.077815037   -0.077436245      1.576e-03      3.788e-04
+    48   -0.071683634   -0.070591979   -0.070157376      1.092e-03      4.346e-04
+   REPAIRED  : max|400-200| = 7.713163e-03 ; max|800-400| = 2.369021e-03
+   INCUMBENT : max|400-200| = 7.569031e-03 ; max|800-400| = 2.336690e-03
+   (U-a) differences shrink: PASS.  (U-b) max|800-400| < 5.0e-03: PASS.
+   ### G-U: PASS.
+
+ *** AND G-U's PASS IS WORTH NOTHING AS EVIDENCE FOR THE REPAIR, WHICH THE
+ EXECUTOR STATES RATHER THAN BANKING A HOLLOW PASS. THE INCUMBENT PASSES THE
+ SAME GATE, AND MARGINALLY BETTER (2.337e-03 against the repair's 2.369e-03).
+ The gate does not discriminate between the two routes at all. ***
+
+ *** A CORRECTION OWED TO b127, AND IT IS THE EXECUTOR'S OWN TEXT FROM ONE ACT
+ AGO. b127 minted the u-convergence gate and wrote, in the keystone at section
+ 23 and in the report, "the incumbent FAILS it". ### THAT SENTENCE DOES NOT NAME
+ ITS QUANTITY, AND IT IS TRUE OF ONE QUANTITY AND FALSE OF ANOTHER. The
+ incumbent fails u-convergence AT PSI (3.740470e-01 -> 4.360826e-01, +17%). THE
+ INCUMBENT PASSES u-CONVERGENCE AT THE PAIRINGS, as the table above measures.
+ A convergence claim quoted without naming its quantity is the same defect the
+ floor-axis law was minted against, committed by the act that was hardening the
+ record against exactly this. ### FILED AS A DEBT TO THE NINETEENTH SEAM CLOSE:
+ the keystone sentence must gain its quantity. THE KEYSTONE IS NOT EDITED THIS
+ ACT -- this act has no keystone increment in scope, and a silent edit would be
+ worse than the debt. ***
+
+ *** AND ONE FACT THE REFINEMENT EXPOSED THAT NO ACT HAD RECORDED: THE BANKED
+ PAIRINGS THEMSELVES CARRY A u-DISCRETIZATION ERROR OF ABOUT 2.4e-03. The banked
+ values were computed at 400 u points; at 800 they move by up to 2.369e-03, and
+ both routes show it identically. The banked numbers are not exact and were not
+ known not to be. Small against the NQ floor below, but not zero, and recorded
+ rather than left for a later act to rediscover. ***
+
+ (G-NQ) THE b121 TEST RE-RUN **ON THE PAIRINGS**, u grid 400, NQ in {600,800,900}
+   a^2        rep@700  rep excursion        inc@700  inc excursion
+     2   -0.083119244      4.288e-02   -0.083077167      4.286e-02
+     3   -0.059674727      3.113e-02   -0.059668275      3.113e-02
+     4   -0.060119335      2.579e-02   -0.060114289      2.579e-02
+     8   -0.071921153      1.816e-02   -0.071923922      1.815e-02
+     9   -0.073757871      1.716e-02   -0.073759387      1.715e-02
+    12   -0.077115962      1.505e-02   -0.077118983      1.505e-02
+    16   -0.078593862      1.354e-02   -0.078592047      1.354e-02
+    24   -0.077815037      1.166e-02   -0.077817901      1.165e-02
+    48   -0.070591979      9.689e-03   -0.070591742      9.689e-03
+   ### INCUMBENT pairing excursion over NQ : 4.285867e-02
+   ### REPAIRED  pairing excursion over NQ : 4.287821e-02
+   ### RATIO (incumbent / repaired) = 1.000, criterion >= 10.
+   [Psi's own spread, A DIFFERENT QUANTITY, was 4.361e-01 -- quoted with its name
+    per the registration's disclosed deviation (d).]
+   (NQ-a) collapse >= 1 order: ### FAIL.
+   (NQ-b) < 0.064826976, the smallest b119 coarse margin: PASS.
+   ### G-NQ: **FAIL**. THE STOP-LOSS FIRES.
+   *** THE REPAIRED EXCURSION IS A HAIR **LARGER** THAN THE INCUMBENT'S, NOT
+   SMALLER. The repair did not merely fail to help; on this axis it is
+   fractionally worse, and that is recorded rather than rounded to "no change". ***
+
+ *** THE DECOMPOSITION, RUN BECAUSE THE REGISTRATION PROMISED THE ANSWER WOULD
+ BE DECOMPOSED AND NOT MERELY SCORED:
+   instance-2 contribution (Psi read at dilated points; DELETED by the repair)
+     = 1.953679e-05  -- ### 0.046% of the incumbent's pairing excursion
+   instance-1 contribution (xi_n at dilated abscissae inside A_n; UNTOUCHED;
+     THE CAUSE b126 LOCATED) = 4.287821e-02  -- ### 100.0%
+ ### THE LOCATED CAUSE CARRIES THE WHOLE OF THE PAIRING EXCURSION, AND THE
+ OPERATION THE REPAIR DELETED CARRIED FOUR AND A HALF PARTS IN TEN THOUSAND. ***
+
+ THE FOUR-AXIS FLOOR, run to complete G-NQ's own reporting clause because
+ component 4's re-scope filing requires it. ### THIS IS DOCUMENTING THE HALT,
+ NOT A SECOND ATTEMPT: nothing tuned, no route rebuilt, no threshold touched.
+ Quantity: the pairings I(L), repaired route, nine cells. Reference: NQ = 700,
+ u = 400, n_rho = 800, NMODE = 10.
+   AXIS                             varied over              spread
+   NQ (prolate quadrature size)     600/800/900        4.287821e-02
+   u grid                           200/800            7.713163e-03
+   epsilon grid n_rho               400/1600           4.797947e-07
+   truncation (mode count)          7/9                2.193267e-02
+   ### THE FLOOR IS THE MAXIMUM OVER THE FOUR: 4.287821e-02, AND ITS AXIS IS
+   THE PROLATE QUADRATURE SIZE. 66.1% of the smallest b119 coarse margin.
+   ### b117's QUOTED FLOOR OF 2.774e-05 UNDERSTATED THIS BY A FACTOR OF 1546 --
+   and b117's figure was correct for the axes IT varied, which is precisely the
+   floor-axis law's point restated with a number.
+   *** A JUDGEMENT DECLARED RATHER THAN SLIPPED IN: TRUNCATION IS A MODEL AXIS,
+   NOT A DISCRETIZATION AXIS -- changing the mode count changes what is being
+   computed, not how finely. Folding it into an error floor is questionable. IT
+   CHANGES NOTHING HERE, the maximum being NQ's either way, and the executor
+   says so rather than quietly including or quietly dropping it. ***
+   *** AND A NAMED OPEN THE MEASUREMENT CREATES: THE FOUR AXES WERE VARIED
+   INDEPENDENTLY AND THE RECORD HAS NO COMBINED-AXIS MEASUREMENT. A naive
+   additive combination is 7.25e-02, which EXCEEDS the reference maximum |I| of
+   5.97e-02. ### SO THE ONE-SIGN VERDICT'S ROBUSTNESS TO **SIMULTANEOUS**
+   VARIATION ACROSS ALL FOUR AXES IS NOT ESTABLISHED BY THIS ACT AND IS NOT
+   CLAIMED. b121's four-basis result (max I = -0.028796, strictly negative)
+   remains the authority, and it covers the NQ axis alone. The floor-axis law
+   gets a sequel here: SEVERAL AXES MEASURED SEPARATELY ARE NOT A COMBINED
+   FLOOR. ***
+
+COMPONENT 3 (P2, P3) -- ### NOT RUN. NOT RUN. NOT RUN.
+ P2 was conditional on all gates passing. G-NQ failed. THE ONE-SIGN VERDICT IS
+ NOT RE-RUN, Psi's coarse profile is NOT restated, and no margin is restated on
+ "repaired ground" because THERE IS NO REPAIRED GROUND.
+ P3 was conditional on P1 and P2 landing. ### THE DOMINANCE QUESTION IS NOT
+ RE-ASKED. **THE ONE ASKING IS PRESERVED, NOT SPENT.** The halt protected it,
+ which is the second time a halt has protected this same allowance (b124 was the
+ first) and the reason the clause was written as it was.
+ *** THE EXECUTOR RECORDS THAT HE HELD HIS OWN PRE-COMMITMENT. The registration
+ said: "IF G-NQ FAILS I DO NOT GET TO CALL IT A SUCCESS ... I will not soften a
+ FAIL into a partial pass." Two of three gates passed and the route is
+ algebraically sound; the temptation to report "substantially passing" was real
+ and is declined. ONE GATE FAILED, SO THE ATTEMPT FAILED. ***
+
+COMPONENT 4 (P4) -- THE FILINGS, RE-SCOPE BRANCH, PER THE STOP-LOSS RULING.
+ (1) ### THE ONE-SIGN FLOOR STANDS AT ITS BASIS-ROBUST MARGIN: b121's max I(L)
+   over all nine cells and all four bases = -0.028796, strictly negative. Its
+   grade is UNCHANGED -- conditional on the samples -- and this act adds the
+   four-axis floor beside it with the combined-axis open named above. NOTHING
+   UPGRADED.
+ (2) ### THE MECHANISM QUESTION IS ROUTED TO THE CLOSED-FORM CROWN. It does not
+   wait on the instrument any longer.
+ (3) ### THE INSTRUMENT ITEM GOES TO THE ENGINEERING QUEUE at the author's
+   schedule. What it needs is now stated precisely rather than vaguely: not a
+   better evaluation scheme -- four have been tried and a fifth proved
+   algebraically correct and irrelevant -- but ### A SOURCE OF xi_n BETWEEN THE
+   GAUSS-LEGENDRE NODES. Every route that reads only the node values is
+   excluded by the shared-input corollary, and that now includes this one.
+   THE DRAFTED RESAMPLING SPECIFICATION IS THE RECORDED FALLBACK AND WAS NOT RUN
+   THIS ACT, per the one-attempt bound; its existence is noted and its use here
+   was forbidden by the ferry and is not attempted.
+ (4) ### THE ASKING IS PRESERVED.
+ (5) THE NINETEENTH SEAM CLOSE'S DEBT: this act's gate tables; the b127
+   u-gate correction (the keystone sentence must gain its quantity); the
+   banked pairings' newly measured 2.4e-03 u-error; the combined-axis open;
+   the floor-axis sequel; and the re-scope itself.
+
+HIT RECORD: P1 the three gates sat in order with pre-committed criteria, G-ID
+PASS by two orders, G-U PASS but NON-DISCRIMINATING and said so, G-NQ FAIL at
+ratio 1.000; the decomposition delivered as promised and it is decisive (0.046%
+against 100.0%); the four-axis floor measured with every axis named and two
+judgements declared rather than slipped in. P2, P3 NOT RUN per the halt. P4 the
+re-scope filed in five parts.
+### THE EXECUTOR'S REGISTERED DISSENT LANDED: he predicted G-ID PASS, G-U PASS,
+G-NQ FAIL, against the navigator's all-three-pass, and named the reason -- that
+the navigator's transfer was false because the cause is NOT located at the
+deleted operation. THE DECOMPOSITION CONFIRMS THE REASON AND NOT MERELY THE
+VERDICT: the deleted operation carried 0.046%.
+DEVIATIONS: the two declared in the registration before use (the "explicit
+analytic kernel" description corrected at content; the G-NQ reference figure
+corrected from Psi's spread to the pairings' own). Divergences: none.
+====================================================================================================
