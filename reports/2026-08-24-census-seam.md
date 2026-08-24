@@ -102,8 +102,25 @@ PRODUCED NOTHING — BUT IT HAS NOT PRODUCED A THEOREM."* ### **That is false as
 
 ## §7 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 7e166fba1139eae280dceda171f6a32586bdff3f` (this act; the
+> registration `251280a` its parent, chain continuous
+> `f2d21a9 → 251280a → 7e166fb`; pushed from `push-census-seam` per Rule 4.10) ·
+> `PLACE-papers origin/main = d4e13e015244be102e7fe2cbde98b464bd03e8f2` (the
+> keystone at **v2.26**, the REGISTRY repair and both ERRATA entries) ·
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path with `git cat-file -e`.
+> ### **AND THE CENSUS'S OWN FEDERATION READ IS THE PIN LINE'S CORROBORATION THIS ACT:** the four repositories pinned above were read **twice by independent routes** — once from disk in the census (`SIDE-global-section dc4c32e`, `SIDE-kernel 0256e9e`) and once from the remote here — ***and they agree.***
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-o.zip` is the one to load** — **30
+> files**, clause 1 (30 rows, 0 md5 and 0 byte mismatches) and clause 2 (build
+> HEAD `d4e13e0` = `ls-remote` `d4e13e0`) both CLEAN, **12 of 12 mechanical probes
+> PRESENT.**
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
