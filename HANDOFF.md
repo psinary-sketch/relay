@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the eighteenth seam close (b127).**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the nineteenth seam close (b129).**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b127 keystone commit** | the keystone at **v2.18**, section 23 *The cause located*; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b127 pin-line commit** | registrations and banks b1–b127; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| `PLACE-papers` | `main` **the b129 keystone commit** | the keystone at **v2.19**, section 24 *The one attempt and the specification*; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b129 pin-line commit** | registrations and banks b1–b129; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
 
@@ -128,6 +128,12 @@ not have in common* — and ### **AN INSTRUMENT'S INPUT INVENTORY IS A RESEARCH
 OBJECT** — *which knobs exist is found incompletely by looking, not read off the
 code once and filed; three axes have now been discovered after the instrument
 entered production use, and the record does not assert the third is the last.*
+### **SEVERAL AXES MEASURED SEPARATELY ARE NOT A COMBINED FLOOR** — the sequel to
+the floor-axis law. And ### **A FIGURE TRAVELS WITH ITS QUANTITY OR IT DOES NOT
+TRAVEL** — the same-name-different-quantity hazard, two instances on record
+(b126's reconciliation target caught mid-act, b128's gate reference caught before
+computing), *and the floor-axis law, the convergence-quantity rule and this one
+should be read as one requirement rather than three.*
 **And a limitation found in a standing law rather than a new law: REPRODUCE-
 BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
 and failed u-convergence in the same act, on the same instrument.
@@ -140,40 +146,35 @@ fences.
 
 ## 3. THE STAGED LANES
 
-- ### **THE INSTRUMENT ITEM — the lane's head, and the cause is now LOCATED.** b124
-  built both registered repairs (Nyström extension; spectral reconstruction) and
-  **both failed**: the NQ excursion did not move under any of four evaluation
-  schemes. **b126 then located what four replacements did not change.** The
-  two-factor freeze is **evaluation-dominated and additive to nine orders** (F1
-  100.0%, F2 0.0%), so **H1 is refuted at its own object** — σ_even is stable to
-  2.2e−10 across NQ against a 1/(1−λ²) of 1.7e+04. **H2 does not fire either:**
-  its location half matches at 71.4% but cutting the whole floor cluster removes
-  only 34% of the excursion, and **there is no cliff in the excursion where the
-  spectrum has one.** ***The verdict is NEITHER, and the located cause is THE
-  DILATION INTERACTION*** — at u = 0, the identity dilation, the deviation is
-  **3.0e−15** across every NQ and every mode; it is 2.0e−02 by a dilation of 1.48.
-  **b124 replaced the interpolation *scheme*; it never replaced the *sampling*,
-  which all four schemes shared** — so the two results are consistent and neither
-  is withdrawn. *Until the repair lands, every Ψ-derived quantity still carries a
-  sampling error of order 0.2–0.4.* **Two gates govern the repair: the known
-  answer Ψ(0) = −1.165002987, and the newly minted U-GRID CONVERGENCE GATE, which
-  the incumbent FAILS (3.740470e−01 at 200 u-points, 4.360826e−01 at 400).**
-  ### **AND THE REPAIR IS BOUNDED TO ONE ATTEMPT** by the stop-loss ruling
-  (b126-ratified): *"the instrument serves the lane such that no question waits
-  indefinitely on a tool that cannot be made honest in bounded attempts."* Two
-  candidate shapes stand and **neither is adopted** — the drafted specification
-  **marked NEW** (a quadrature adapted to the surviving interval [−1/λ, +1/λ],
-  ξ_n by Nyström, restricted to modes above the floor), and the
-  **change-of-variables candidate at navigator-asserted grade** (the dilation
-  transferred onto the explicit kernel so the pairings are read at native nodes
-  only, and the unsupported operation never occurs). ***On failure the ruling
-  re-scopes rather than re-attempts: the one-sign floor stands, the mechanism
-  question routes to the crown, and the instrument goes to the engineering
-  queue.*** **No scheme that reads only the node values can help — that is the
-  shared input.**
+- ### **THE INSTRUMENT ITEM — NOW A SPECIFICATION, AND IN THE ENGINEERING QUEUE.**
+  Two repairs have failed and the second failed informatively. b128 built the
+  change-of-variables route, **passed the identity gate by two orders (4.18e−05)
+  and failed the quadrature gate at ratio 1.000** — because one defect species
+  occurs at two places and the route deleted the wrong one: **instance 2 (Ψ read
+  at dilated points) carries 0.046%; instance 1 (ξ_n at dilated abscissae, the
+  located cause) carries 100.0% and was untouched.** ### **The shared-input corollary now closes a whole route class: no scheme that reads only the node values can help.** ***So what is wanted is stated exactly, and it is the yield of two failures:*** ### **A SOURCE OF ξ_n BETWEEN THE GAUSS–LEGENDRE NODES** — information the record does not hold in any representation. *Beside it and NOT adopted: the prolate-equation candidate, at **navigator-asserted grade and explicitly UNREAD** — no source consulted at content, so it is a direction and not a plan.* **THE STOP-LOSS HAS FIRED; the one attempt is spent; the item waits on the author's schedule, not on another act.**
+  **THE FLOOR: 4.287821e−02, AXIS = the prolate quadrature size** (u 7.713e−03,
+  ε 4.798e−07, truncation 2.193e−02) — **1546×** b117's quoted figure, which was
+  correct for the axes it varied. ***Sequel law: several axes measured separately
+  are not a combined floor*** — the axes were varied independently and robustness
+  to simultaneous variation is **not established and not claimed.** Also newly on
+  record: the banked pairings carry a **~2.4e−03 u-discretization error.**
+- ### **THE FLOOR-VERSUS-MARGIN TABLE (b129) — nothing re-graded, everything flagged.**
+  The b117 enclosures **CLEAR** at worst 1.392; the b119 coarse margins **CLEAR**
+  at worst 1.512; the dominance rows carry the caveat they already carried; the
+  b121 one-sign row **CLEARS** the largest un-varied axis (1.313) and against a
+  naive additive combination *including truncation* reads **CAVEAT** (0.971),
+  truncation's status being **undecided and both readings carried.** **I(L)
+  remained negative at every tested NQ** — worst upper bound −0.028544727, which
+  cross-checks b121's directly measured −0.028796 to 2.51e−04. ***And four cells
+  (a² = 8, 12, 16, 24) were never basis-tested: untested, not established.***
 - **The dominance question** — still withdrawn to the recorded basis, **and its
   one permitted re-asking is unspent**, the b124 halt not having consumed it.
-- **THE CLOSED-FORM CROWN** — the research target.
+- ### **THE CLOSED-FORM CROWN — NOW THE LANE'S HEAD, THE MECHANISM QUESTION HAVING BEEN ROUTED TO IT.**
+  **THE CROWN OPENING is staged corpus-first:** the analytic structure of
+  **N(L) = 2∫₀²K(σ)Ψ(Lσ)dσ** attacked at the exact objects — *the sinc kernel's
+  spectral theory; the mass forms; the completeness identity that protects
+  Ψ(0)*. ### **THE PROLATE-EQUATION FACE IS READ AT CONTENT FIRST — meets-a-read before any weight.** Both branches longhand; the mechanism question's target (**why one sign**) restated ***in the exact setting where no quadrature exists to lie.*** Trigger: the author's standing proceed ruling.
 - **The instrument sitting** — a rigorous error bound for the prolate layer, and
   the continuum step; **one sitting**, at the author's schedule. These are the
   only things between the verdict and a grade that does not need the word

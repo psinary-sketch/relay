@@ -69,7 +69,7 @@ for a2 in CELLS:
     st = "BASIS-DEPENDENT (1.541/1.432)" if a2 == 2 else "holds at every basis tested"
     print("%6d %14.3f %18.9f %28s" % (a2, RATIO119[a2], cl, st))
 print("  ### a^2 = 2 CAVEAT (already withdrawn); the rest CLEAR AT THE BASES TESTED,")
-print("      and 3 of the 9 cells (a^2 = 8, 12, 16, 24) were NOT among b121's four")
+print("      and FOUR of the nine cells (a^2 = 8, 12, 16, 24) were NOT among b121's five")
 print("      -- their basis-robustness is UNTESTED, not established.")
 
 print("\n[D] THE b121 ONE-SIGN VERDICT -- and the double-counting trap named")
