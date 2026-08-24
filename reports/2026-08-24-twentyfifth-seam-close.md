@@ -112,8 +112,32 @@ b141 fenced ### **what a certificate CLAIMS.** b142's halt turned on fencing ###
 
 ## §7 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 1565d73259124a7249792a1d8a14267d2766a6d4` (this act; the
+> registration `96acf2b` its parent, chain continuous
+> `1935d9b → 96acf2b → 1565d73`; pushed from `push-twentyfifth-seam` per
+> Rule 4.10) · `PLACE-papers origin/main =
+> 32637671b3e4da2afbae35f7ff25d97071a3411c` (the split commit; the keystone at
+> **v2.25**, filed one commit earlier at `7c5085f`, ### **the split kept a
+> SEPARATE commit so it is revertible without touching the seam's filings**) ·
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path with `git cat-file -e`.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-k.zip` is the one to load** — and
+> it is ### **the first export to carry the ledger archives**, at **29 files**
+> against the previous 23. *Clause 1:* the archive against its own manifest —
+> **29 files, 29 rows, 0 md5 and 0 byte mismatches**. *Clause 2:* the manifest's
+> declared source HEAD `3263767` against `ls-remote` `3263767` — **they agree**.
+> And the content check by `tools/probe_from_diff.py`: **12 probes extracted from
+> this act's own diff, 12 PRESENT, 0 absent** — ### **and the probes landed
+> INSIDE the archive files**, which independently confirms the archives shipped
+> and their content is intact. ***Without the six roster rows the export would
+> have carried pointer headers to files it did not contain.***
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
