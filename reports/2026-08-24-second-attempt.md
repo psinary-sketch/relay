@@ -174,8 +174,26 @@ it were declared worth little before they were run. **The attempt is spent.***
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 51bc2be04b144a78f712c98264bc54eb748956a3` (this act; the
+> registration `30e1d5f` its parent, chain continuous
+> `b88fe8e → 92bc4d3 → 30e1d5f → 51bc2be`; pushed from `push-second-attempt`
+> per Rule 4.10) · `PLACE-papers origin/main =
+> c9eda76fcf022d48880d786387064963936d3b5f` — **UNMOVED; the twenty-first seam
+> close absorbs b133 and this act together** · `SIDE-global-section origin/main =
+> dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core **271/271**,
+> rows 1–68; tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`,
+> unmoved) · `SIDE-kernel origin/main =
+> 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` = peeled
+> `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **NOT REFRESHED, PLACE-papers having not moved** —
+> **`mirror-refresh-2026-08-24-c.zip` remains the one to load**, and the
+> stale-build law's second clause licenses calling it **current** rather than
+> merely unrebuilt: its source HEAD `c9eda76` still equals the repository HEAD
+> read by `ls-remote`.
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
