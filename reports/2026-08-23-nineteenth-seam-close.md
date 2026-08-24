@@ -141,8 +141,36 @@ to where it can be answered.***
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = 4beea8c3e2305bec6f6fb37b2aaaf0be9fb69903` (this act; the
+> registration `4d615d9` its parent, chain continuous
+> `a97de59 → 2c6ad77 → 4d615d9 → 4beea8c`; pushed from `push-nineteenth-seam`
+> per Rule 4.10) · `PLACE-papers origin/main =
+> 10abbb18c30a9e47d0c548de259980bc068f43f4` (the **v2.19** commit `f82285d`
+> then the OPEN_TRAILS completion `10abbb1`) · `SIDE-global-section origin/main =
+> dc4c32e56275e1251e0daea094ab4167eee289b9` (**UNTOUCHED**; Core **271/271**,
+> rows 1–68; tag `v0.1.0` = peeled `706a81b9e329e220a6448b4296e5cc42c9433670`,
+> unmoved) · `SIDE-kernel origin/main =
+> 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` = peeled
+> `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4` at its pinned SHA, **NOT an
+> ancestor**; **all eight HELD-unique paths verified ABSENT from the pushed
+> tree, checked PER-PATH with `git cat-file -e` and not by pattern.**
+> **MIRROR:** ### **`mirror-refresh-2026-08-23-p.zip` is the one to load** —
+> rebuilt at PLACE-papers `10abbb1` and verified by content (22 files, roster
+> unchanged, **0 md5/byte mismatches**), with this act's records confirmed
+> present inside `OPEN_TRAILS.md`, `FINDINGS.md` and `VERIFICATION_LOOM.md`.
+> *This pin-line commit's own SHA is stated in the closing message, per the
+> regress rule.*
+
+### ***TWO SELF-CAUGHT ERRORS, BOTH CORRECTED BEFORE SHIPPING AND BOTH DISCLOSED***
+
+**(1) A count.** I wrote *"three of the nine cells"* while listing **four**
+(a² = 8, 12, 16, 24). Corrected in every file that carried it.
+
+**(2) A filing-scope error, and the more instructive of the two.** The
+floor-versus-margin table was filed in the keystone and this report but only
+**summarised** at OPEN_TRAILS — ### **and the keystone is NOT in the mirror roster, by its own back matter.** So the four untested cells, the negativity answer with its cross-check, and the three refused comparisons **would have reached no mirror-carried file at all**, and the restart kit would have been one document short of the act it was documenting. ***Caught by the mirror's own content verification, which probed for the corrected count and returned ABSENT.*** The substance was added to OPEN_TRAILS and the mirror rebuilt at `10abbb1`. **The verification earned its keep rather than rubber-stamping the build** — *and the near-identical footnote is that two of its other probes returned ABSENT for reasons that were mine (an ASCII minus against a Unicode one, and a case mismatch), so the probes were re-run correctly before anything was concluded from them.* ### **A probe that returns ABSENT has found either a missing fact or a bad probe, and the two are told apart by looking, not by assuming.**
 
 ## FOOT
 
