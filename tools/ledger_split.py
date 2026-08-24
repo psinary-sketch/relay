@@ -27,6 +27,14 @@ import os
 import re
 import sys
 
+# ### SWEPT b146: the same cp1252 stdout defect fixed in banned_terms.py and
+# ### mirror_verify.py at b142 and in probe_from_diff.py at b146. This file had
+# ### not met a triggering character, which is exactly why it was still carrying
+# ### the defect. ### FIXING A CLASS OF DEFECT IN ONE TOOL IS NOT FIXING THE
+# ### CLASS -- the sweep is the fix.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 SRC = r'D:\MY-DOwnloads\PLACE-papers'
 ARCH = os.path.join(SRC, 'archive', '2026-08-24-ledger-split')
 

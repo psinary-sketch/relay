@@ -1,6 +1,6 @@
 # THE HANDOFF — the current restart document
 
-**Minted 2026-08-23 at the one-sign act (b117); brought current at the census seam (b145) — ### THE PRE-DEPOSIT WORK-ORDER IS DISCHARGED; THE CORPUS HAS AN EXACT COUNT; TWO ARTIFACTS WERE FOUND IN NO LEDGER.**
+**Minted 2026-08-23 at the one-sign act (b117); brought current at the synthesis read (b146) — ### THE TRANS-ARC LAW IS NOT ADOPTED AS HANDED; THE DRAFT IS STAGED UNSPLICED; THE BOUNDARY ROUTING REGISTRATION IS NEXT AT THE AUTHOR'S WORD.**
 This document **supersedes the twelve addenda** that ran from the second seam
 close through the thirteenth. The superseded addenda are **archived, dated, and
 never deleted** — each remains verbatim in its own relay report at its own
@@ -22,8 +22,8 @@ Read back by `ls-remote` at the one-sign act's close; the act's own pin line in
 |:--|:--|:--|
 | `SIDE-global-section` | `main` **dc4c32e** | **Core 271/271**, rows 1–68, no blank cells; tag `v0.1.0` = peeled `706a81b`, unmoved |
 | `SIDE-kernel` | `main` `0256e9e` | citable deposit **v1.5** = peeled `0e5233f` |
-| `PLACE-papers` | `main` **the b145 census commit** | the keystone at **v2.26**, §30 *The laboratory closed* (### **precision-bracketed**), §31 *The reconcile and the map*; ### **REGISTRY REPAIRED at four sites, `d1-1` ruled governing**; ERRATA `E-2026-08-24-1` (corrected) and `E-2026-08-24-2` (the titles, **routed not ruled**); ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
-| `relay` | `main` **the b145 pin-line commit** | registrations and banks b1–b145; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
+| `PLACE-papers` | `main` **the b146 synthesis commit** | the keystone at **v2.26** (unchanged this act), §30 *The laboratory closed* (### **precision-bracketed**), §31 *The reconcile and the map*; ### **REGISTRY REPAIRED at four sites, `d1-1` ruled governing**; ERRATA `E-2026-08-24-1` (corrected) and `E-2026-08-24-2` (the titles, **routed not ruled**); ### **the three ledgers SPLIT** — working copies + `archive/2026-08-24-ledger-split/`, ### **awaiting the AUTHOR'S UI replacement, which is the sole project-side path**; the trim backfill at `54f3e60` |
+| `relay` | `main` **the b146 pin-line commit** | registrations and banks b1–b146; ### **the synthesis draft STAGED at `data/b146_synthesis_draft_STAGED.md`, unadopted**; **the pre-push hook carries four clauses, the fourth a by-name HELD-carrier refusal** |
 | **conventions built** | `tools/git-hooks/pre-push` (4 clauses) · `tools/probe_from_diff.py` · `tools/banned_terms.py` · `tools/mirror_verify.py` · `tools/ledger_split.py` · **the loom's STANDING-LAWS ANNEX** (24 laws, 11 archived + 13 working; *not an authority — if it disagrees with the archive, the archive wins*) | the by-name HELD-carrier refusal; **probes extracted mechanically from an act's own diff, used as produced**; the banned-term review **scoped by the act's own diff**; the mirror verified on **both clauses of the stale-build law in one command**. ***FIVE instances now of a newly built check failing its own first run — and the standing inference is not that the executor writes bad checks but that ### A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE.*** |
 | **HELD** | `held/carrier-acts` = `6eada6a` | **LOCAL-ONLY.** Never pushed; ancestry and by-name checks run on every push |
 | mirror | **`mirror-refresh-2026-08-23-n.zip`** | **the load-this-export note in the latest report names which** |
@@ -138,7 +138,7 @@ should be read as one requirement rather than three.*
 **And a limitation found in a standing law rather than a new law: REPRODUCE-
 BEFORE-EXTEND IS A GATE AGAINST REGRESSION, NOT AGAINST ERROR** — b126 passed it
 and failed u-convergence in the same act, on the same instrument.
-**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE** — *because its verdict is **uninterpreted either way**, not because it is usually wrong: five false alarms and one real catch, and a fixture is what tells them apart*; ### **A CERTIFICATE IS ABOUT AN OBJECT, AND OUTWARD ROUNDING DOES NOT REPAIR A SUBSTITUTED ONE — IT DRESSES IT**; ### **A JUSTIFICATION ARRIVING AFTER A RULING IS NOT EVIDENCE FOR THE RULING**; ### **A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN SHRUNK BY THE SMOOTHING WIDTH** — *convolution does not preserve a domain; it consumes one*; ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
+**The later seams add:** ### **A PAIRING IS NAMED BY ITS KERNEL**; ### **A BUILD VERIFIES AGAINST ITS MANIFEST *AND* ITS MANIFEST'S SOURCE HEAD**; ### **A RESULT IS DISTINGUISHED FROM A TRUNCATION ARTIFACT BY FLATNESS UNDER REFINEMENT, NOT BY SIZE**; ### **A WITHDRAWAL SAYS THE EVIDENCE FAILED; A REFUTATION SAYS THE CLAIM IS FALSE**; ### **A CONVENTION THAT CAN LOSE AN AXIS ON EVIDENCE IS WORKING**; and ### **OWN-CORPUS-FIRST: INTERNAL CITATION AT CONTENT, OR NOTHING** — *a law true of mathematics but not read in this corpus would pass every check this record owns and still be an import wearing its clothes*; ### **PRECISION IS REFUTABILITY** — *a vague instance cannot be refused, only graded partial; a synthesis that collects only vague instances can never be wrong and is worth nothing*; ### **A CHECK'S FIRST RUN IS PART OF ITS CONSTRUCTION, NOT PART OF ITS SERVICE** — *because its verdict is **uninterpreted either way**, not because it is usually wrong: five false alarms and one real catch, and a fixture is what tells them apart*; ### **A CERTIFICATE IS ABOUT AN OBJECT, AND OUTWARD ROUNDING DOES NOT REPAIR A SUBSTITUTED ONE — IT DRESSES IT**; ### **A JUSTIFICATION ARRIVING AFTER A RULING IS NOT EVIDENCE FOR THE RULING**; ### **A SMOOTHED QUANTITY'S VALIDATED DOMAIN IS ITS SOURCE'S VALIDATED DOMAIN SHRUNK BY THE SMOOTHING WIDTH** — *convolution does not preserve a domain; it consumes one*; ### **A CERTIFIED NUMERIC IS A PROOF OF NOTHING EXCEPT THE NUMERIC**; ### **A BENCH NUMBER MAY CONSTRAIN REQUIRED PRECISION WITHOUT SUPPLYING EVIDENCE** — *the guard's first permissive cell*; ### **A PREDICATE MET IN ITS WORDS BUT NOT IN ITS INTENT IS NOT MET** — the licence law's completion, *a licence re-read against predicate **and** purpose*; ### **A STAGING LICENCE CARRIES ITS PREDICATE, AND A CLEARED BLOCKER DOES NOT REVIVE A REFUTED LICENCE** — *when a dependency's ground changes, downstream licences are re-read rather than inherited.* ***The last two and the stale-build law are siblings: internal consistency is not currency, and an artifact must be checked against what it was derived from.***
 
 **The guard, standing over everything numerical:** *noticed is not earned.* The
 balanced window's **location** is banked at **zero interpretive weight**, and so
@@ -217,6 +217,19 @@ fences.
   so any derivation must be **sharp**, not merely correct. *That is a constraint
   on required precision and supplies no evidence — the guard's first permissive
   cell.*
+- ### **THE SYNTHESIS READ (b146): THE TRANS-ARC LAW IS NOT ADOPTED AS HANDED.**
+  **The map: 2 SUPPORTED, 4 PARTIAL, 2 REFUSED.** ### **Correspondence rows 52 and
+  67 support it — both compiled, `no axioms`, `DERIVES` — but the corpus had
+  ALREADY fenced them against each other**: *"Related shape, distinct claims;
+  neither imported into the other."* ### **b134's UNIQUE BASIS REFUSES the
+  unconditional form** — there, representation-dependence was **error, not gauge**.
+  ### **The access theory is REFUSED AS NAMED**, resting on a term the title law
+  retired. **The draft carries the CONDITIONAL law with its hypothesis load-bearing,
+  and is STAGED UNSPLICED** at `data/b146_synthesis_draft_STAGED.md`. ***The
+  author's word is the adoption trigger.***
+- ### **THE SPINE IS TEN ROWS WIDE.** 106 census rows classified by REGISTRY's own
+  marks: **KEYSTONE-GRADE 10** · kernel-adjacent 36 · support 58 · unmarked 2.
+  *"Kernel-backed" is a stricter test than "has a kernel cited near it."*
 - ### **THE CENSUS (b145): THE PROGRAMME'S "DOZENS" HAS AN EXACT NUMBER.**
   **106 distinct REGISTRY paper rows** (Day-1 8 · Phase 1.5 55 · Phase 2 34 ·
   simulators 9) + 5 method rows + 13 support-tier rows; **269 `.md` files** in the

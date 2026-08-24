@@ -29,6 +29,18 @@ import subprocess
 import sys
 import zipfile
 
+# ### DEFECT FIXED b146, IN A TOOL THAT HAD BEEN IN SERVICE SINCE b141. stdout
+# ### inherited cp1252 and died on the first character outside it -- here a
+# ### confidence mark from the discernment table. ### THE IDENTICAL DEFECT WAS
+# ### FIXED IN banned_terms.py AND mirror_verify.py AT b142 AND THIS FILE WAS NOT
+# ### SWEPT, because it had not yet met a character that triggered it. A latent
+# ### defect in a tool in service is not caught by the nursery convention, which
+# ### governs FIRST runs; it is caught only by a sweep of sibling tools when one
+# ### of them is repaired. ### FIXING A CLASS OF DEFECT IN ONE TOOL IS NOT
+# ### FIXING THE CLASS.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 MINLEN, MAXLEN, NPROBE = 28, 70, 12
 # strings that carry no discriminating power
 BORING = re.compile(r'^[\s\W\d]*$')

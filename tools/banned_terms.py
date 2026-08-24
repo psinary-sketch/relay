@@ -95,12 +95,38 @@ def load_archived_headings(archdir):
             ARCHIVED_HEADINGS.add(h.lstrip('#').strip())
 
 
-def classify(line):
+# ### DEFECT FIXED b146, AND IT IS THE FIRST DEFECT IN THIS FAMILY THAT MADE A
+# ### CHECK FALSELY PASS RATHER THAN FALSELY FAIL. Exceptions were matched against
+# ### the WHOLE LINE, so any exception trigger anywhere on a line excused EVERY
+# ### banned stem on that line. A genuine live use in this act's own draft --
+# ### "THIS IS A REFUSAL, NOT A GAP" -- was excused because the same sentence
+# ### ended "...retired the axis", which fired the retired-term exception thirty
+# ### words away. ### AN EXCEPTION MUST BE ADJACENT TO WHAT IT EXCUSES. Matching
+# ### is now done in a WINDOW around each individual hit, not across the line.
+# ### A CHECK THAT WRONGLY EXCUSES IS WORSE THAN ONE THAT WRONGLY ALARMS: a false
+# ### alarm is investigated, a false pass is filed as CLEAN and never seen again.
+WINDOW = 40
+
+
+# ### THE FOURTH DECLARED EXCEPTION, IMPLEMENTED b146. The docstring has listed
+# ### "this file itself, which cannot state the rule without naming the stems"
+# ### since b142, but it was never coded -- it only ever fired INCIDENTALLY, when
+# ### a stem happened to sit near the words "stems scanned". The b146 windowing
+# ### fix removed that accident and exposed the hole. ### A DECLARED EXCEPTION
+# ### THAT IS NOT IMPLEMENTED IS NOT AN EXCEPTION; IT IS A COINCIDENCE THAT HAS
+# ### BEEN HOLDING.
+SELF = os.path.basename(__file__)
+
+
+def classify(line, at=None, path=None):
+    if path and os.path.basename(path) == SELF:
+        return "THE SCANNER'S OWN SOURCE (declared exception, file-level)"
     s = line.strip()
     if s.startswith('> - ') and s[4:].strip() in ARCHIVED_HEADINGS:
         return 'QUOTED ARCHIVED HEADING (machine-generated index)'
+    seg = line if at is None else line[max(0, at - WINDOW):at + WINDOW]
     for rx, name in EXCEPT:
-        if rx.search(line):
+        if rx.search(seg):
             return name
     return None
 
@@ -163,12 +189,14 @@ def main(argv):
     hits = live = 0
     rows = []
     for path, ln, text in scope:
-        if PAT.search(text):
+        # ### EVERY hit on a line is classified SEPARATELY, in its own window.
+        for m in PAT.finditer(text):
             hits += 1
-            cls = classify(text)
+            cls = classify(text, m.start(), path)
             if cls is None:
                 live += 1
-            rows.append((path, ln, cls, text.strip()[:88]))
+            rows.append((path, ln, cls,
+                         (text.strip()[:60] + "   <<hit: " + m.group(0) + ">>")))
 
     files = sorted({p for p, _, _ in scope})
     print("=" * 78)
