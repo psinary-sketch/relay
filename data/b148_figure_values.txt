@@ -1,0 +1,156 @@
+====================================================================================================
+b148 -- THE FIGURE VALUES DOSSIER -- THE BANK. Registration:
+data/b148_registration_2026-08-24.txt (banked before any reading, commit 28a38d5).
+### THIS ACT BREACHED THE DECONFLICTION RULING RATIFIED ONE ACT EARLIER. THE
+### BREACH IS THE FIRST ITEM IN THIS BANK BECAUSE IT IS THE MOST IMPORTANT THING
+### THAT HAPPENED, AND THE DOSSIER IS THE SECOND.
+Core 271/271, rows 1-68, UNTOUCHED -- the THIRTEENTH consecutive act.
+====================================================================================================
+
+*** THE BREACH, FIRST.
+ WHAT HAPPENED: the C3/C4 commit was made with `git add -A` in PLACE-papers and
+ swept in ### EIGHT UNTRACKED FILES BELONGING TO THE PATENT SEAT -- seven PZONE
+ figure SVGs and PZONE_FIGURES.md under phase1.5/method/patent-package/figures/
+ pzone/. ### ONLY TWO OF THAT COMMIT'S TEN FILES WERE THIS SEAT'S. Committed and
+ pushed as 49cd156.
+ ### THE RULING BREACHED WAS RATIFIED ONE ACT AGO, AT b147, BY THIS SEAT: "the
+ patent seat writes only within the patent-package tree ... the research seat owns
+ the ledgers, the keystones, and HANDOFF; ANY EDIT EITHER SEAT NEEDS ACROSS THE
+ LINE ROUTES TO THE AUTHOR." Nothing was routed to anyone.
+ ### AND THE COMMIT MESSAGE MADE IT WORSE. It ended: "The patent package was READ,
+ NEVER WRITTEN, per the deconfliction." ### THAT SENTENCE WAS FALSE AT THE MOMENT
+ IT WAS WRITTEN, IN THE SAME COMMIT THAT FALSIFIED IT. ### NOTHING IN THE CLOSING
+ SEQUENCE COMPARES A COMMIT'S SELF-DESCRIPTION AGAINST ITS OWN FILE LIST, so a
+ claim of compliance asserted in the act that breaches passes every check this
+ record owns.
+ THE REPAIR, CHOSEN NON-DESTRUCTIVE: `git rm --cached` on the eight paths ->
+ ### UNTRACKED, LEFT ON DISK BYTE-FOR-BYTE UNTOUCHED (md5 set captured before and
+ after, diff empty). The patent seat's files are back in exactly the state they
+ were in, and ### THE PATENT SEAT RETAINS THE DECISION about whether and when to
+ commit its own work. ### THE HISTORY IS NOT REWRITTEN: breach and correction both
+ stand in the log, because a breach repaired by force-push is a breach the record
+ cannot learn from.
+ ### THE MECHANISM, WHICH IS THE PART WORTH BUILDING AGAINST: `git add -A` stages
+ the whole worktree, and this seat used it safely for many acts BECAUSE IT WAS THE
+ ONLY WRITER. ### THE DECONFLICTION CHANGED THE GROUND UNDER A HABIT AND THE HABIT
+ DID NOT NOTICE. A command that was safe under one-writer assumptions is not safe
+ under two, and NOTHING ABOUT THE COMMAND CHANGED TO SIGNAL IT.
+ ### THE GUARD BUILT, NOT THE HABIT PRAISED: tools/place_add.py. It refuses -A /
+ --all / . / -u outright, refuses any path under a foreign-seat prefix, and stages
+ only what it is given. ### NOT VIA .git/info/exclude, BECAUSE BOTH SEATS SHARE ONE
+ CLONE and excluding the patent tree would break the PATENT seat's ability to stage
+ its own work -- ### A GUARD MUST CONSTRAIN THE SEAT THAT NEEDS CONSTRAINING, NOT
+ THE REPOSITORY. ### TESTED AGAINST THE EXACT BREACH before entering service, per
+ the nursery convention: `-A` REFUSED; the patent path REFUSED; this seat's two
+ ledgers STAGED. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1-2 -- THE EXTRACTION, THE VERIFICATION, AND THE DOSSIER.
+ THE DOSSIER: data/b148_figure_values_dossier.md, in THIS SEAT'S TREE.
+ ### IT CROSSES TO THE PATENT SEAT THROUGH THE AUTHOR ONLY. This seat does not
+ deliver it.
+ SOURCES: the three filed specifications read at content --
+ P_ZONE_PROVISIONAL_FILING.pdf (FIG. 1-7), P_FANO_WPT_PROVISIONAL_FILING.pdf
+ (FIG. 1-11), PROV1_FILING.pdf (Figures 1-13 at section 13).
+ ### THE PACKAGE'S RECONSTRUCTIONS WERE NOT CONSULTED, NOT CROSS-CHECKED AGAINST,
+ AND ARE NOT CITED EVEN WHERE THEY MIGHT AGREE.
+
+ TALLY: 8 CONFIRMED-AT-OWNER | 1 DIVERGES | 11 NO-OWNER-FOUND |
+        ### 8 UNVERIFIED-AS-EXACT (the tilde law fired) |
+        1 NAME-COLLISION HAZARD | 3 DERIVED CHECKS RUN AND PASSED.
+
+ ### THE HIGHEST-CONSEQUENCE FINDING, FLAGGED AT FULL PROMINENCE AS REGISTERED:
+ the P-ZONE filing's FIG. 4 labels its 3x3 matrix "C_1"; the owner
+ (phase2/quantum/TRIVIUM_CODE_VERIFICATION.md) carries BOTH a 3x3 "C" (section 3,
+ weight-1 errors {E_P, E_T, E_O}) AND a 4x4 "C^(1)" (section 4.1, {I, E_P, E_T,
+ E_O}) with DIFFERENT ENTRIES. ### THE FILING'S "C_1" AND THE OWNER'S "C^(1)" ARE
+ TYPOGRAPHICALLY NEAR-IDENTICAL AND ARE DIFFERENT MATRICES OF DIFFERENT SIZES.
+ ### A RENDERER TOLD "C1" WHO CHECKS THE OWNER LANDS ON C^(1) AND DRAWS A 4x4
+ MATRIX THE FIGURE DOES NOT DESCRIBE. FIG. 4 Matrix A is the 3x3 C.
+ AND TWO THINGS THE FILING'S FIG. 4 TEXT DOES NOT CARRY:
+   - ### THE OWNER'S MATRIX IS EXACTLY SYMMETRIC AS WRITTEN (C12=C21=0.921,
+     C13=C31=0.974, C23=C32=0.941) where the filing says "approximately
+     symmetric". ### DIVERGES ON THE DESCRIPTOR; the three VALUES are CONFIRMED.
+     No resolution attempted -- that is the author's or counsel's.
+   - ### THE ENTRIES ARE CONDITIONED ON delta = 0.3. They are not universal
+     constants and the figure is unreproducible from the drawing without it.
+
+ THE TWO CODE PARAMETERS, ### BOTH CORRECT AND DIFFERENT OBJECTS: [[7,1,3]] is the
+ underlying PHYSICAL Steane CSS code (FIG. 7 solid curve; section 6); [[7,1,5]] is
+ the EFFECTIVE parameter under the formation-block model at S=3 (FIG. 5; Claim 5;
+ Embodiment 9.1), via d_eff = 2S-1. Both CONFIRMED-AT-OWNER (FINDINGS.md:483;
+ DESIGN_PRINCIPLE_MINIMAL_COMPUTE.md:11).
+ THE TWO Q FORMS, ### ALSO BOTH IN THE FILING AND BOTH CORRECT IN THEIR PLACES:
+ Q >= 2000 is the CLAIM LIMITATION (Claims 3 and 12; "The Q target of >= 2000");
+ Q ~ 2000 appears ONLY in FIG. 6, describing the drawn spectrum. ### A RENDERER
+ MUST NOT SWAP THEM. The ferry named "Q >= 2000" and the filing confirms it as the
+ claim value -- ### SO THE NAMED-CANDIDATE HAZARD DID NOT FIRE HERE, and the
+ registration's insistence on checking it is what established that rather than
+ assumed it.
+
+ ### THREE DERIVED CHECKS RUN AND PASSED -- COMPUTATIONS, NOT CITATIONS:
+  (1) ### EVERY FILED FANO LINE XORs TO (0,0,0) OVER F2 and every point lies on
+    EXACTLY THREE LINES. The filed incidence structure is a correct PG(2,F2).
+  (2) P-ZONE FIG. 2 and FIG. 3 CROSS-CHECK EXACTLY once 1-indexed rows are matched
+    to 0-indexed qubits: Row2->q1, Row6->q5 = Stage 1 {1,5}; Row1->q0, Row5->q4,
+    Row7->q6 = Stage 2 {0,4,6}; Row3->q2 = Stage 3 {2}; Row4->q3 = the silent
+    interface. ### THE TWO FIGURES ARE MUTUALLY CONSISTENT.
+  (3) PROV-1's OWN ARITHMETIC HOLDS: 5,502 + 4,298 + 1,575 = 11,375 EXACTLY as
+    stated; 881/10,494 = 8.395% -> the stated 8.4% EXACT; and ### THE FILING
+    STATES ITS OWN OVERHEAD AGAINST ITSELF ("the decomposed total exceeds the
+    monolithic total"). ### ONE ROUNDING FOUND: the stated 48% reduction is
+    47.57% -- draw it as ~48%, not as exact.
+
+ ### A DIVERGENCE FROM THE FERRY'S PREMISE, RECORDED: THE TECHNE DRAWING
+ CONVENTIONS ARE NOT LOCATABLE AT CONTENT. Searched across PLACE-papers;
+ internal/TECHNE_ELEMENTS.md and internal/TECHNE_INTAKE.md exist and carry no
+ drawing standard. ### NO STANDARD WAS INVENTED, per the registration. If they
+ live in the patent seat's tree, this seat did not locate them and the author
+ should point the renderer at them directly.
+
+COMPONENT 3 (STRIKEABLE) -- THE APPROXIMATION-MARK LAW. ### RATIFIED AND FILED at
+ the conventions lines. An approximation mark in a live ledger row IS A DEBT: it
+ resolves to a read, or the row carries UNVERIFIED explicitly.
+ FOUNDING INSTANCES with their costs: "~August 2027" (### FOUR MONTHS on a patent
+ wall) and "(Wanted-Poster-Technique?)" (a name carried forward as if checked).
+ ### WHY A MARK IS WORSE THAN A BLANK: a blank cell is visibly missing and gets
+ filled; A MARKED CELL LOOKS FILLED. The caveat is exactly the part a later reader
+ drops, because the row still parses, still tabulates, and still answers the
+ question it was asked.
+ ### AND THE LAW IS NOT A BAN ON APPROXIMATION -- it governs LEDGER ROWS, not
+ source documents. A filed spec may properly say "approximately 150mm"; when that
+ value enters a ledger it enters FLAGGED. ### FIRST USE, SAME DAY: eight dossier
+ values flagged UNVERIFIED-AS-EXACT, every one approximate in the filing itself.
+
+COMPONENT 4 -- THE RECORDS. OPEN_TRAILS carries the act's record, the
+ twenty-eighth seam close's debt (b147 + b148), and the desk restated with the
+ TECHNE umbrella ruling and the boundary act at the author's schedule.
+ HANDOFF current with both seats' state.
+
+SCORING.
+ (P1 fork) ### NEITHER SEAT CLEANLY LANDS, AND THE HONEST ANSWER IS THAT THE FORK
+   WAS BADLY POSED BY THE EXECUTOR. He predicted at least one ferry-NAMED value
+   would not appear as stated; the navigator predicted the misses would be among
+   the UNNAMED. ### EVERY FERRY-NAMED VALUE CHECKED OUT. The closest thing to a
+   miss is that the ferry named "Q >= 2000" while FIG. 6 says "Q ~ 2000" -- and
+   ### BOTH ARE IN THE FILING, IN DIFFERENT ROLES, so it is not a miss at all.
+   ### NAVIGATOR MARGINALLY AHEAD: the genuinely dangerous findings (the C_1 /
+   C^(1) collision, the delta = 0.3 condition, the 48% rounding) are all in values
+   the ferry did NOT name.
+ (P2, P3) delivered under the rubric; NO-OWNER-FOUND written as a fact and not a
+   failure, as registered.
+
+### CORE: NOTHING ENTERS. A dossier is a read. Core 271/271, rows 1-68, UNTOUCHED
+-- ### THE THIRTEENTH CONSECUTIVE ACT.
+
+HIT RECORD: the dossier delivered whole with 8/1/11/8/1/3 under the rubric, its
+one name-collision hazard flagged at full prominence, three derived checks run and
+passed, one rounding caught, and the TECHNE conventions reported ABSENT rather
+than invented; the approximation-mark law ratified and used the same day;
+### AND A DECONFLICTION BREACH BY THIS SEAT, REPAIRED NON-DESTRUCTIVELY, ITS FALSE
+COMPLIANCE SENTENCE NAMED, AND A GUARD BUILT AND TESTED AGAINST THE EXACT BREACH.
+DEVIATIONS: ### ONE, AND IT IS A BREACH RATHER THAN A DEVIATION -- the patent
+seat's files were staged, committed and pushed by this seat, then untracked and
+left byte-identical on disk. DIVERGENCES: one -- the TECHNE drawing conventions
+are not locatable at content.
+====================================================================================================
