@@ -1,0 +1,232 @@
+====================================================================================================
+b131 -- THE CROWN ACT -- THE BANK. Registration: data/b131_registration_2026-08-24.txt
+(banked before any work, commit 3d32367). ### G1 MATCHED-UP-TO-NAMED-NORMALIZATION
+ON THE RESOLVED MODES. D1 BRANCH (b) WITH THE STRUCTURE NAMED, AND ONE
+PRECISION THE FERRY'S TEXT BLURRED SETTLED AT CONTENT. No kernel changes; Core
+271/271 and NOTHING ENTERS CORE THIS ACT, as pre-committed. Nothing about h2.
+Nothing deposits.
+====================================================================================================
+
+COMPONENT 1 (P1 = G1) -- THE VERDICT WITH ITS CHAIN.
+
+### THE GATE IS NOT AN ARITHMETIC MATCH, AND THE ACT SAYS SO BEFORE PASSING IT.
+The layer stores NO differential operator -- it is the integral kernel plus
+eigh -- so there is nothing to compare symbol to symbol. The arithmetic does
+meet: CM eq.(1) at lambda = 1 gives (2 pi)^2 = 39.478417604 and the layer's
+c^2 = 39.478417604. ### THAT IS NOT THE GATE. The gate is commutation with the
+layer's ACTUAL kernel, which is a separate statement, exactly as registered.
+
+THE METHOD, chosen so no second derivative is ever taken numerically: in the
+orthonormal Legendre basis, -d_x(1-x^2)d_x P_k = k(k+1) P_k EXACTLY (Legendre's
+equation) and multiplication by x is the exact tridiagonal X, so
+W = diag(k(k+1)) + c^2 (X @ X) is exact in that basis.
+
+*** THE FIRST INSTRUMENT FAILED ITS OWN CHECK AND WAS REPLACED, DISCLOSED.
+Attempt 1 tested the RESIDUAL |W a - chi a|/|a|. Its completeness diagnostic
+returned 2.000000 where 1.000000 was required, and the residuals GREW with the
+basis size (mode 0: 4.113e-11 at NLEG=80 rising to 1.041e-08 at NLEG=480).
+### A RESIDUAL THAT GROWS WITH RESOLUTION IS THE INSTRUMENT'S NOISE, NOT THE
+OBJECT'S: W multiplies the k-th coefficient by k(k+1), so a noise tail is
+amplified by k^2. THE VERDICT WAS NOT READ THROUGH THE FAILED CHECK.
+Attempt 2 uses the WEAK FORM <xi_m, W xi_n>, in which k(k+1) multiplies a
+PRODUCT of two coefficient tails and is therefore not amplified. ***
+
+THE CHAIN, attempt 2:
+ (1) LEGENDRE CAPTURE of the layer's own modes, at NLEG = 480:
+     modes 0-6 : 1.0000 each -- convergent expansions.
+     modes 7-9 : 0.6692, 0.9100, 0.6986 -- and STILL CLIMBING with NLEG
+       (0.2688/0.0478/0.0580 at 80; 0.4340/0.5941/0.4219 at 320).
+     ### MODES 7-9 HAVE NO CONVERGENT LEGENDRE EXPANSION. This is b124's
+     finding -- "those eigenvectors are not smooth functions at all" --
+     REPRODUCED INDEPENDENTLY AND FROM A DIFFERENT DIRECTION.
+ (2) W IN THE LAYER'S OWN BASIS, resolved modes 0-6:
+     NLEG= 80 : max|off-diagonal| 1.816e-08 ; relative 1.03e-10
+     NLEG=160 : 1.826e-08 ; relative 1.04e-10
+     NLEG=320 : 1.831e-08 ; relative 1.04e-10
+     NLEG=480 : 2.043e-08 ; relative 1.16e-10
+     ### FLAT ACROSS A SIXFOLD BASIS INCREASE. That stability is what
+     distinguishes a result from a truncation artifact, and it is the exact
+     opposite of attempt 1's behaviour.
+ (3) ORDERING: chi strictly increasing (5.494094, 26.834164, 42.916034,
+     63.158589, 92.517013, 130.238912, 176.088666) while lambda^2 strictly
+     decreases. HOLDS.
+### G1 VERDICT: **MATCHED-UP-TO-NAMED-NORMALIZATION** on modes 0-6.
+### G1 ON MODES 7-9: **UNTESTABLE**, and the reason is the object's, not the
+test's -- the test's own basis cannot represent them. NOT counted as a match.
+
+THE NAMED NORMALIZATION, stated exactly:
+ (i) lambda = 1: CM's half-width is the layer's interval [-1,1];
+ (ii) the layer's c = 2 pi enters as CM's (2 pi lambda)^2 = c^2;
+ (iii) W is POSITIVE and orders the modes OPPOSITELY to lambda^2;
+ (iv) ### AND THE ONE THE ACT DID NOT EXPECT: the layer's mode n is CLASSICAL
+   INDEX 2n. W's full spectrum is 5.494, 16.869, 26.834, 35.206, 42.916,
+   51.874, 63.159, ... and the layer's seven resolved chi are W's entries at
+   indices 0, 2, 4, 6, 8, 10, 12 -- THE EVEN-INDEXED ONES ONLY.
+
+*** AND THE RECORD ALREADY KNEW IT, WHICH THE EXECUTOR FOUND ONLY BY READING
+FURTHER. prolate_layer.py's CONVENTION PINS, at content:
+  P1 "CC's lambda(n) are the EVEN-INDEXED truncated-Fourier eigenvalues,
+     SIGNED: lambda(n) = (-1)^n sqrt(mu_{2n})", with Selecta footnote 10 quoted
+     in the file: "We are only using the even prolate functions".
+  P2 "xi_n = sqrt(2) * psi_{2n}".
+### SO G1 INDEPENDENTLY REDISCOVERED P1 FROM THE OPERATOR SIDE. That is a
+corroboration of the pins by a route that did not consult them.
+### AND A FALSE FLAG OF THE EXECUTOR'S OWN, WITHDRAWN. Mid-act he recorded a
+"doc/array divergence" -- the docstring stating INT xi^2 = 1 while the array
+carries 2. IT IS NOT A DIVERGENCE. P2 documents it eleven lines below the
+docstring he stopped reading at. THE FLAG IS WITHDRAWN AND THE CAUSE NAMED:
+he read a docstring and stopped before the conventions block in the same file. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 (P2 = D1) -- THE SIGN AT THE EXACT OBJECTS. BRANCH (b).
+
+*** A PRECISION THE FERRY'S TEXT BLURRED, SETTLED AT CONTENT AND LOAD-BEARING
+FOR EVERYTHING BELOW. The ferry's (a) names "the pairing N(L) = 2 INT K Psi"
+and D1 names "the kernel's mean-zero one-crossing form" -- but those are TWO
+DIFFERENT KERNELS and TWO DIFFERENT PAIRINGS. K is the self-convolution;
+Phi_K = d/dsigma[sigma K] is the mean-zero one-crossing object.
+### MEASURED THIS ACT: N(L), the K-pairing, IS NOT ONE-SIGNED. Over the nine
+cells it runs -0.153953522 (a^2=2) to +0.080047477 (a^2=48), crossing zero
+between a^2 = 9 and a^2 = 12.
+### THE ONE-SIGN VERDICT OF THIS RECORD IS ABOUT I(L), THE Phi_K PAIRING, which
+is negative everywhere (-0.083 .. -0.0597). And b115 line 132, read at content,
+gives the link: dN/dL = -(2/L^2) INT_0^{2L} PhiK(u/L) Psi(u) du.
+### SO "WHY ONE SIGN" IS EXACTLY "WHY IS N MONOTONE INCREASING", AND THE ACT
+TARGETS THAT. Writing this down is the act's first substantive correction. ***
+
+THE REDUCTION, REGISTERED IN ADVANCE AND TESTED:
+ (i) A_n(u) = <xi_n, D_u xi_n>, D_u the unitary dilation -- EVEN and
+   POSITIVE-DEFINITE by Bochner, A_n(0) = 1. Structural; the evenness is the
+   substitution x -> e^{-u}x and the record already measures A_n(0) = 1 exactly.
+ (ii) ### K IS A SELF-CONVOLUTION SO ITS TRANSFORM IS A SQUARE. CHECKED, NOT
+   ASSERTED: the window is EVEN to 1.082e-15 and corr is EVEN to 6.130e-16, and
+   Khat over xi in [0,60] has MINIMUM +6.860831e-16 -- ### NO NEGATIVE PART AT
+   ALL. INT K over [-2,2] = 1.000000000, the record's 1/2 on [0,2] doubled.
+   ### CLAIM (ii) HOLDS.
+ (iii) THE PLANCHEREL REDUCTION N(L) = (1/2 pi) INT Khat(Ls) Psihat(s) ds,
+   ### VERIFIED NUMERICALLY against the direct pairing at all nine cells:
+   worst ABSOLUTE agreement about 3e-05.
+   *** AND A CRITERION OF THE EXECUTOR'S OWN CORRECTED: he set a RELATIVE
+   tolerance of 1e-3, which the a^2 = 9 cell "failed" at 4.988e-03 -- because
+   N is -0.006 there, near its zero crossing. RELATIVE ERROR IS THE WRONG
+   METRIC FOR A QUANTITY THAT CROSSES ZERO. The reduction is verified in
+   absolute terms; the gate was mis-specified and is corrected here rather
+   than quietly re-run. ***
+
+### THE DECISIVE TEST, AND IT CLOSES BRANCH (a): IS Psihat SIGNED?
+If Khat >= 0 and Psihat <= 0 then N(L) < 0 for every L in one line. MEASURED:
+Psihat(0) = +1.226766394, max +1.226766 at tau = 0, min -7.688625e-01, and
+POSITIVE AT 243 OF 1601 SAMPLED tau (15.18%).
+### PSIHAT TAKES BOTH SIGNS. A non-negative weight paired against a
+sign-changing transform HAS NO DETERMINED SIGN. THE ONE-LINE ARGUMENT FAILS.
+*** AND ITS OWN CAVEAT, STATED: Psi does not decay at the right edge
+(|Psi(umax)|/|Psi(0)| = 0.1485), so the even extension is TRUNCATED and the
+FINE sign structure of Psihat carries ringing. The GROSS fact is robust --
+Psihat(0) = INT Psi > 0 while Psi(0) < 0 -- and the gross fact is what defeats
+the one-line argument. The fine structure is NOT relied on. ***
+
+### D1 VERDICT: **BRANCH (b)**, as the honest prior registered, and the
+structure is named. AND ONE ENDPOINT IS DERIVED:
+ DERIVED: as L -> 0, N(L) -> Psi(0) INT K = Psi(0) = N_even - sigma_even*NMODE,
+   which is negative EXACTLY WHEN sigma_even > N_even/NMODE = 1/2; measured
+   sigma_even = 0.616500298741 > 1/2. ### THE REASON, AT THE EXACT OBJECTS: THE
+   MASS-WEIGHTED SHARE OF ONE CHANNEL EXCEEDS ITS UNWEIGHTED COUNT SHARE.
+   *** AND ITS LIMIT NAMED HONESTLY: L -> 0 IS OUTSIDE THE LICENSED RANGE
+   (L in [log sqrt 2, log sqrt 48] = [0.347, 1.936]). It is an anchor, not
+   coverage, and it is not quoted as coverage. ***
+ THE WITHHOLDING STRUCTURE, ONE SENTENCE AS REGISTERED: the objects supply the
+ non-negativity of the pairing weight (Khat = what-hat squared, >= 0, measured),
+ the positive-definiteness of every channel (A_n = <xi_n, D_u xi_n>), and -- via
+ G1 -- the exact identification of the record's even/odd split as the SIGN OF
+ THE FOURIER EIGENVALUE, lambda(n) = (-1)^n sqrt(mu_{2n}); ### WHAT THEY
+ WITHHOLD IS ANY RELATION BETWEEN THE SCALING-SPECTRAL MEASURES OF THE TWO
+ FOURIER-SIGN CHANNELS, AND THE EXACT MISSING STATEMENT IS THAT
+ d/dL INT Khat(Ls) Psihat(s) ds > 0 ON THE LICENSED RANGE -- a correlation
+ between the kernel transform's derivative and the density transform's sign
+ pattern, which no object read this act constrains.
+### AND THE REGISTERED SHAPE HELD AT (i)-(iii) AND WAS WRONG AT (iv): the
+executor predicted the withholding would be about "even and odd prolate
+channels", i.e. parity. IT IS NOT PARITY -- P1 shows every mode in play is an
+EVEN prolate function and the split is by the SIGN of the Fourier eigenvalue.
+The shape held; the naming of the channels was wrong and is corrected.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 (P3 = D2) -- THE UNIQUENESS QUESTION AT THE EXACT LEVEL.
+
+D1 supplies the exact restatement, and it is cleaner than the record has had it:
+### THE BALANCED WINDOW IS THE ZERO OF N, AND ITS UNIQUENESS IS EXACTLY THE
+MONOTONICITY OF N, WHICH IS EXACTLY THE ONE-SIGN VERDICT ON I. The three are one
+statement: I(L) < 0 <=> dN/dL > 0 <=> N crosses zero at most once.
+MEASURED THIS ACT: N does cross, from -0.153953522 to +0.080047477 across the
+licensed cells, and it is increasing at every cell tested.
+### SO THE EXISTENCE OF THE BALANCED WINDOW IS VISIBLE IN THE SAME TABLE THAT
+SHOWS N IS NOT ONE-SIGNED -- the two facts are the same fact.
+*** THE GUARD RIDES ITS LOCATION ABSOLUTELY. The crossing lies between the
+a^2 = 9 and a^2 = 12 cells. THAT LOCATION IS BANKED AT ZERO INTERPRETIVE WEIGHT.
+No numeral is reasoned from, no coincidence is noticed, and sigma = 0.6215 is
+likewise untouched. NOTICED IS NOT EARNED. ***
+NOTHING IS PROMOTED HERE: uniqueness remains conditional on the monotonicity
+that D1 did not derive.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 4 (P4 = D3) AND THE FILINGS.
+
+### THE ENGINEERING FACT, MEASURED THIS ACT AND THE ACT'S LARGEST PRACTICAL
+YIELD. W's own spectrum, from its exact Legendre matrix:
+   n :   0      1      2      3      4      5      6      7      8      9     10
+ chi : 5.494 16.869 26.834 35.206 42.916 51.874 63.159 76.760 92.517 110.354 130.239
+ ### SMALLEST SEPARATION OVER n = 0..11 : 7.709623
+ ### Q's SMALLEST lambda^2 SEPARATION over n = 7..9 : 5.560788e-17
+### SIXTEEN ORDERS OF CONDITIONING BETWEEN THE TWO ROUTES TO THE SAME
+EIGENFUNCTIONS. W's spectrum is separated exactly where Q's is at the floor.
+ CONSEQUENCES FOR THE QUEUE, and the first is stronger than b130's ODE reading:
+ (a) ### DIAGONALISING W IN THE LEGENDRE BASIS RETURNS xi_n AS A POLYNOMIAL,
+   EVALUABLE ANYWHERE INCLUDING BETWEEN THE NODES, WITH NO DIVISION BY lambda_n
+   AND NO QUADRATURE GRID AT ALL. That is the b129 specification met in form.
+   b130 confirmed the no-division property from the equation; THIS ACT CONFIRMS
+   IT AT CONTENT ON THE RECORD'S OWN OBJECT, which is what P4 asked for.
+ (b) ### AND IT IS NOT ADOPTED, FOR THREE NAMED REASONS. G1 is verified ONLY on
+   modes 0-6; on 7-9 -- the very modes the instrument needs -- the match is
+   UNTESTABLE, so using W there is an EXTRAPOLATION and is marked as one. The
+   stop-loss's sequel clause makes a second attempt lawful only at the author's
+   word. And nothing here has been checked against the known answer.
+ (c) THE HONEST SHAPE OF THE OPPORTUNITY: W is well-conditioned where Q is not,
+   which is a reason to expect it to help, NOT a demonstration that it does.
+
+### CORE: NOTHING ENTERS, AND THE ACT SAYS SO PLAINLY AS PRE-COMMITTED. Nothing
+this act produced is a FINITE DECIDABLE statement -- the reduction is analysis,
+the gate is numerical linear algebra, the withholding is an open analytic
+statement. Core stands at 271/271, rows 1-68, no blank cells, UNTOUCHED.
+A terminal manufactured to satisfy a component is worse than an empty component.
+
+### THE STALE-BUILD LAW, MINTED AT THE CONVENTIONS: A BUILD VERIFIES AGAINST ITS
+MANIFEST **AND** ITS MANIFEST'S SOURCE HEAD. b130 is the founding instance -- a
+mirror verified CLEAN at 23 files while silently missing a conventions line the
+same act had filed, because it was built one commit early. A clean verdict on a
+stale build is exactly as clean-looking as a correct one.
+
+### THE UN-HOUSED FACT, HOUSED: the truncation sensitivity 2.193267e-02 filed as
+a dated MODEL-SENSITIVITY line at the conventions ledger, with its provenance
+(b128's four-axis measurement) and its BY-RULING status (b130's truncation
+ruling made it a model axis, excluding it from additive floors and thereby
+leaving it in no ledger) quoted.
+
+THE TWENTIETH SEAM CLOSE'S DEBT: G1's chain and its two-instrument story; the
+I-versus-N precision; the withholding statement; the D2 identification; the W
+spectrum and its three not-adopted reasons; the withdrawn false flag; the
+corrected relative-error criterion; both new conventions lines.
+
+HIT RECORD: P1 MATCHED-UP-TO-NAMED-NORMALIZATION with the chain quoted, one
+instrument discarded for failing its own check and the replacement's stability
+demonstrated across a sixfold basis increase, and the named normalization
+carrying a fourth clause the act did not expect and the record already held;
+P2 BRANCH (b) as registered, with claim (ii) checked and holding, the reduction
+verified, the one-line argument CLOSED by measurement, one endpoint derived with
+its out-of-range limit named, and the withholding stated in one sentence;
+P3 the uniqueness question identified with the one-sign verdict exactly, the
+guard riding; P4 the engineering fact measured at sixteen orders and NOT
+adopted for three named reasons, Core untouched by pre-commitment, both
+conventions lines filed. DEVIATIONS: the notational one at registration.
+Divergences: the I-versus-N blur in the ferry's own text, settled at content in
+the staged registration's favour. Banned-term review: run, its table on the face.
+====================================================================================================
