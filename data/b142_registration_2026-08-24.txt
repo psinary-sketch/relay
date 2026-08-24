@@ -1,0 +1,138 @@
+====================================================================================================
+b142 -- THE PROFILE ACT -- THE RUN-REGISTRATION. Banked BEFORE ANY COMPUTATION.
+Ferry: THE PROFILE ACT, part 1 of 1, receipt confirmed in full (Rule 1).
+Governing document: the b141-STAGED REGISTRATION (data/b141_twentyfourth_seam_close.txt,
+COMPONENT 3), which the ferry names as controlling -- divergences resolve in its
+favour and are recorded here.
+====================================================================================================
+
+RULE-3 LOG -- WHAT WAS READ AT CONTENT BEFORE THIS REGISTRATION WAS WRITTEN.
+ (a) data/b140_two_bounds.txt in full: both derived forms with their exact kernel
+     constants verbatim -- |C_M(L)| >= 0.230656 * [M(0.80L) - M(0.50L)] at
+     (a,b) = (0.50,0.80) with sigma_0 = 0.621000, masses +/-0.259372; and
+     |C_r(L)| <= ||Phi_K||_inf * (1/L) * ||r||_{L1[0,2L]} with ||Phi_K||_inf =
+     0.675115774, the negative-region constant 0.379498430, INT|Phi_K| = 0.518744.
+     The one-object/two-functionals correction; the 32% room as CONSTRAINT and not
+     result; the circularity enumeration.
+ (b) data/b141_twentyfourth_seam_close.txt COMPONENT 3, the staged registration,
+     at content: the cap read first as the opening gate WITH A HALT WRITTEN IN.
+ (c) tools/e16/b138_coarse.py at content -- THE OPERATIVE DEFINITION OF
+     psi_coarse, lines 33-37, quoted exactly:
+         ss = np.linspace(-2.0, 2.0, 1601)
+         Kn = np.interp(np.abs(ss), sg, K) ; Kn /= trapezoid(Kn, ss)
+         coarse(u) = trapezoid(Kn * Psi(clip(u + ss, ug[0], ug[-1])), ss)
+     *** THE CLIP IS THE CAP MADE OPERATIONAL. Psi outside [ug[0], ug[-1]] is
+     replaced by its endpoint value -- the b119 registration convention -- and
+     ug[-1] is UMAX = 2*log(sqrt(48.001)) = log(48.001), i.e. rho = 48.001. ***
+ (d) tools/e16/b119_dominance.py lines 1-80 at content: the split's registered
+     form, and psi_on's epsilon path np.interp(exp(ug), rr, ee[n]) with rr topping
+     out at RHO_MAX = 48.001 -- numpy's interp CLAMPS above its range, so values
+     past the cap are the endpoint repeated, which is what b134 recorded as
+     UNVALIDATED.
+ (e) The known answer stands as reference only. The sharpness constraint is
+     carried as A PRECISION REQUIREMENT ONLY -- the guard's first permissive cell,
+     stated in its own words wherever used.
+ VOICE FLAGS: none.
+
+----------------------------------------------------------------------------------------------------
+### DIVERGENCE, RECORDED BEFORE THE CHECK RAN.
+The ferry files the terminus ruling "with the author's 300-steps question cited
+as its warrant." ### THAT QUESTION IS NOT FOUND AT CONTENT IN EITHER REPOSITORY.
+Searched: relay (all *.md, *.txt, *.py) and PLACE-papers/phase2/method for
+"300 steps", "300-step", "three hundred", the bare token 300, and for
+author-question records generally. The only 300 in the corpus is an mpmath
+extraprec argument in tools/e3/duursma_ladder.py. ### PER RULE 3 I DO NOT SUPPLY
+ITS WORDING FROM RECALL AND I DO NOT SILENTLY DROP IT. The ruling is filed with
+its warrant cited AS THE FERRY STATES IT and marked ### CITED-FROM-THE-FERRY,
+NOT LOCATED AT CONTENT. If the question lives outside these two repositories the
+citation is sound and only my reach is short; that is the honest form of the
+statement and it is the form filed.
+
+----------------------------------------------------------------------------------------------------
+REGISTERED PREDICTIONS, BOTH SEATS, BEFORE ANY COMPUTATION.
+
+*** TRANSFER DISCLOSED FIRST, because it is large this act. I hold both seats,
+and to write P1 at all I had to read psi_coarse's definition at content. THE
+DEFINITION IS MOST OF THE ANSWER. The navigator seat therefore cannot be
+independent on the yes/no of P1 and I do not pretend it is. ### WHAT THE TWO
+SEATS CAN STILL FORK ON, AND DO, IS **WHICH** FUNCTIONAL BINDS -- and that fork
+is written below and will be scored. ***
+
+(P1) THE CAP READ. BINDS / DOES NOT BIND, with the licensed functionals'
+     rho-support shown.
+  EXECUTOR SEAT: ### IT BINDS, AND IN EXACTLY ONE OF THE TWO FUNCTIONALS.
+    The chain, from the definitions above and no computation:
+      psi_coarse(u) reads Psi on [u-2, u+2]; so evaluating it at u costs
+      rho-support up to exp(u+2) = e^2 * exp(u).
+      THE DEFICIT NORM ||r||_{L1[0,2L]} needs psi_coarse across [0, 2L]. At the
+      licensed top L_HI = log(sqrt(48)) = 1.935601, 2L_HI = log 48 = 3.871201,
+      so it reads Psi to u = 5.871201, ### rho = 354.6 AGAINST A VALIDATED CAP OF
+      48.001. It first bites where 2L > UMAX - 2 = 1.871222, i.e.
+      ### a^2 > e^1.871222 = 6.4966 -- so at SIX of the nine banked cells
+      (8, 9, 12, 16, 24, 48) and NOT at 2, 3, 4.
+      THE RISE M(0.80L) - M(0.50L) needs psi_coarse only to u = 0.80 L_HI =
+      1.548481, reading Psi to 3.548481 < UMAX = 3.871222. ### SO THE RISE DOES
+      NOT BIND ANYWHERE IN THE LICENSED RANGE, with room to spare
+      (it would first bite at a^2 = 107.6, far outside).
+    ### HENCE THE HALT FIRES, and the requirement quantifies as: A VALIDATED
+    EPSILON EVALUATION TO rho = 354.6, i.e. e^2 = 7.389x BEYOND THE PRESENT CAP.
+  NAVIGATOR SEAT: ### IT BINDS IN **BOTH** FUNCTIONALS. The reading is that M is
+    the running maximum of psi_coarse over the whole window and the b140 form's
+    M(0.80L) is a sample of an object built across [0, 2L], so the rise inherits
+    the deficit norm's rho-support and binds wherever it does.
+  ### THE FORK IS EXACT AND WILL BE SCORED: does the rise bind, yes or no.
+
+(P2) THE FUNCTIONALS, ON CLEARANCE ONLY. ### REGISTERED, AND REGISTERED AS **NOT
+     REACHED** IF THE HALT FIRES -- banked unscored and handed forward to the
+     epsilon-extension act rather than quietly discarded.
+  EXECUTOR SEAT: on the unbound sub-range (a^2 <= 6.4966, i.e. cells 2, 3, 4)
+    both enclosures are obtainable at certified grade; across the full licensed
+    range they are not, and no amount of care inside the instrument changes that,
+    because the missing samples do not exist.
+  NAVIGATOR SEAT: the deficit norm is the harder of the two to enclose OUTWARD,
+    because r <= 0 is exact but its L1 mass is dominated by the far end of
+    [0, 2L] -- precisely the end the cap removes.
+  ### BOTH SEATS AGREE ON ONE THING WORTH REGISTERING: A CERTIFIED ENCLOSURE
+  COMPUTED ON CLAMPED SAMPLES WOULD BE RIGOROUS ABOUT THE WRONG INTEGRAND. That
+  is the reason the halt is a halt and not a caveat.
+
+(P3) THE COMPARISON AT COMBINED GRADE. ### REGISTERED AS **NOT REACHED** IF THE
+     HALT FIRES.
+  EXECUTOR SEAT: branch (a) -- M(L) < m(L) across the licensed range -- with the
+    largest cell the tightest. ### THE BASIS IS b140's NINE-CELL SILHOUETTE AND
+    THAT BASIS IS THE REASON THIS EXPECTATION CARRIES NO WEIGHT: it is a bench
+    number, it is guarded absolutely, and an expectation formed from it is an
+    expectation and not evidence.
+  NAVIGATOR SEAT: branch (a) as well, and flags that the 1.321 ratio at the
+    largest cell means a certified route must lose less than 32% at a place where
+    outward rounding on a clamped tail would lose far more.
+  MODAL PRIOR STANDS. BOTH ENDINGS FIRST-CLASS.
+
+----------------------------------------------------------------------------------------------------
+INDEPENDENCE CHECK, RUN AS THE FERRY REQUIRES.
+ Components 2 and 3 CONSUME component 1 -- they take its clearance as input, so
+ on a halt they do not run. Component 4, the terminus ruling, is RATIFIED BY
+ PASTE and consumes nothing; ### IT STANDS ALONE AND RIDES ON EITHER BRANCH,
+ including the halt. That is the whole content of the independence check and it
+ decides what executes.
+
+WHERE I COULD BE WRONG, REGISTERED.
+ (i) The clip could be a boundary formality rather than a bite -- if Kn's mass
+   near |s| = 2 were negligible, clamping there would change nothing measurable.
+   ### I WILL MEASURE THE CLAMPED MASS FRACTION RATHER THAN ASSERT IT, and if it
+   is negligible the halt is wrong and I will say so.
+ (ii) ug's actual range is an assumption until read. If ug[-1] < UMAX the cap
+   bites EARLIER than predicted; if the array carries a longer tail it bites
+   later. ### READ, NOT ASSUMED.
+ (iii) The lower clip at ug[0] is a SEPARATE convention (b119's endpoint
+   extension downward) and is NOT the epsilon-cap. I will name it and NOT count
+   it as the cap binding, because that would inflate the read.
+
+FENCES ON THIS ACT'S FACE.
+ The circularity gate ABSOLUTE: the banked ratio and sign tables are
+ post-derivation checks only, never premises. The guard rides. The quadruple
+ fence rides. Nothing promoted. NOTHING ABOUT THE h2 IDENTITY IS CLAIMED.
+ Nothing deposits. Nothing circulates beyond the relay report. No sorry (Rule 5).
+ Core expected UNTOUCHED, a seventh consecutive act.
+ Bank: data/b142_profile_terminus.txt. Deviation rule standing.
+====================================================================================================
