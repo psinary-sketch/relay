@@ -106,8 +106,27 @@ yields is plausible."* ### **No row moved, and the reason is structural rather t
 
 ## §8 — THE RECORD AND PINS
 
-> **PIN LINE (post-push read-back, `ls-remote`, not push output):** *stated in
-> the closing message with this pin-line commit's own SHA, per the regress rule.*
+> **PIN LINE (post-push read-back, `ls-remote`, not push output):**
+> `relay origin/main = bd7c8acc69527844407ea0bc31f08a090983506e` (this act;
+> chain continuous `e1fbf09 → 693f8d8 → bd7c8ac`; pushed from
+> `push-rerun-revisit` per Rule 4.10) · `PLACE-papers origin/main =
+> 70cba89dde07cc32503da2cbf8cb3bad662e5ed7` (the OPEN_TRAILS revisit record;
+> ### **the keystone is UNTOUCHED — a HELD verdict that re-grades no row earns
+> no keystone increment; the twenty-second seam close absorbs it**) ·
+> `SIDE-global-section origin/main = dc4c32e56275e1251e0daea094ab4167eee289b9`
+> (**UNTOUCHED**; Core **271/271**, rows 1–68; tag `v0.1.0` = peeled
+> `706a81b9e329e220a6448b4296e5cc42c9433670`, unmoved) · `SIDE-kernel
+> origin/main = 0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`, deposit `v1.5` =
+> peeled `0e5233f011533d09e4799107394c216a915028a1`. **HELD:**
+> `6eada6a5ca6368a70b7c5afcbb80224ec16ac3a4`, **NOT an ancestor**; all eight
+> HELD-unique paths verified **ABSENT**, checked per-path.
+> **MIRROR:** ### **`mirror-refresh-2026-08-24-e.zip` is the one to load** —
+> verified under **both clauses of the stale-build law**: *clause 1* the
+> manifest (23 files, 23 rows, **0 mismatches**); *clause 2* the build's source
+> HEAD `70cba89` read against `ls-remote` `70cba89` — **they agree.** The
+> revisit record, the void licence and the declined feeder all confirmed
+> present inside.
+> *This pin-line commit's own SHA is stated in the closing message.*
 
 ## FOOT
 
