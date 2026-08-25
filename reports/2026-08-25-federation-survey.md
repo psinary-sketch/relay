@@ -300,7 +300,7 @@ predicted from arithmetic.** ***A pattern worth the record, not a score worth de
 | repository | pin |
 |:--|:--|
 | `PLACE-papers` `main` | `3f8676fd47e1c3a1a474120c3115c8075168d723` |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`f958040057aa025827758db385bf08ef20cd7405`** *(the act's commit; this pin line follows it, per the established two-step)* |
 | `SIDE-global-section` `main` | `83ef81b98ed9bd1a13608659771a9edc62965ba7` — **unchanged; not touched** |
 | the other 42 `SIDE-*` | **read only; every pin in the loom's table** |
 | mirror | `mirror-refresh-2026-08-25.zip` — rebuilt at the new HEAD, **clean on both clauses** |
