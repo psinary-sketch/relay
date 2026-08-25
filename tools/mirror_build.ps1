@@ -26,6 +26,7 @@ $rel = @(
   'phase1.5\method\INSTRUMENTS.md',                       # roster ADDITION 2026-08-05 (author-called)
   'phase1.5\method\THE_METHOD_CANON.md',                  # roster ADDITION 2026-08-06 (author's taste, recorded as such)
   'phase1.5\method\THE_METHOD_AS_IT_STANDS.md',        # roster ADDITION 2026-08-25, b162: the method's self-description at grade
+  'phase2\method\THE_FINDINGS_AS_THEY_STAND.md',       # roster ADDITION 2026-08-25, b163: the findings' self-description at grades
   'phase1.5\method\GAUGE_AND_INVARIANT.md',              # roster ADDITION 2026-08-24, b147: the synthesis
                                                           #   keystone, adopted this act. Ferry-required: "joining the
                                                           #   mirror roster". Its content lives here now, not in relay/data.
