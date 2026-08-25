@@ -236,7 +236,7 @@ it.** *The b159 trigger does not fire: this is a correct call, not a same-direct
 | repository | pin |
 |:--|:--|
 | `PLACE-papers` `main` | `8bf72eb521c5ec1cf567fcd3563c12dcf1f99abe` — **keystone v2.33** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`8461d2f14283e46eeace4ef7322afffb7f6ca16d`** *(the act commit; this pin line follows it, per the established two-step)* |
 | `SIDE-global-section` `main` | `113c37bbb1baaf531221db914dda1338c09ccc94` — **unchanged; not touched** |
 | mirror | `mirror-refresh-2026-08-25.zip` — rebuilt at the new HEAD, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
