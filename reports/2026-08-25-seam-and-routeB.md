@@ -200,7 +200,7 @@ verifier as **UNUSED**, which is run-but-not-quoted and not a failure.*
 |:--|:--|
 | `PLACE-papers` `main` | `9cdb4a0f93ddbf6524b1443a2fdfca295521fd7c` — **keystone v2.35, §40; the route-B addendum** |
 | `SIDE-global-section` `main` | `d705a9fb22b66f1940e1159508f02dc2c2d047e1` — **unchanged; Core 292/292, rows 1–75** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `63269f6d14df168541ec635295f67fd1539e4fb3` — **the act; read back by `ls-remote`** *(this pin line is the commit after it)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `9cdb4a0`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
