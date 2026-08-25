@@ -208,7 +208,7 @@ IS NOT MORE CORRECT.**
 | repository | pin |
 |:--|:--|
 | `PLACE-papers` `main` | `781b8e27611d478694e3497f1ee10595ba11b43e` |
-| `relay` `main` | *stated in the closing line below, read back after the push* |
+| `relay` `main` | **`7034fe488547b21f77f2c69a9560626f8d8a6a6c`** *(the act's commit; this pin line follows it, per the established two-step)* |
 | mirror | `mirror-refresh-2026-08-24.zip` — **31 files, roster unchanged, CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
