@@ -323,10 +323,24 @@ named rather than left to be found.*
 |:--|:--|
 | `SIDE-global-section` `main` | `d4489f164832226e92ed23b9808649586fb78b34` — **Core 275/275, rows 1–69** |
 | `PLACE-papers` `main` | `9fd47a5ff02c7172276c29c3bfec07d437deca24` |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`0a8945d633ca04d95232c491dfd2528f2101b8d5`** *(the act's commit; this pin line follows it, per the established two-step)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — 31 files, roster unchanged, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
 **Load this export:** `mirror-refresh-2026-08-25.zip`.
+
+
+
+---
+
+## ONE MORE OBSERVATION, ON A TOOL BUILT YESTERDAY
+
+`audit_verify.py`'s **UNUSED** list is **act-blind**: run against this report it named
+b153's five sidecars as unused, because they belong to *yesterday's* report. That is not
+a false verdict — UNUSED is explicitly not a failure — but ### **the list grows
+monotonically and will become noise**, and a check whose output becomes noise stops being
+read. The tool is **in service** as of yesterday, so it was **not changed mid-act**; the
+defect is named here and left for its own act. *Filed rather than fixed, deliberately.*
+
 
 *STOP — the ferry's end.*
