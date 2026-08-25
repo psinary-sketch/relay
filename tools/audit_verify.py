@@ -19,8 +19,18 @@
 ###              failure: a check may be run without being quoted. Reported so
 ###              the operator can see what was run and not shown.
 
+### THE UNUSED LIST IS SCOPED BY ACT (b155). Before that it took no account of
+### which act a sidecar belonged to: run against one act's report it named every
+### PRIOR act's sidecars as unused, so
+### the list grew monotonically and would have become noise. ### A CHECK WHOSE
+### OUTPUT BECOMES NOISE STOPS BEING READ, which is a slower version of the
+### failure this file exists to prevent. With `--act X` the listing covers X and
+### its suffixed companions (X-core, X-relay) and nothing older. ### MATCHING IS
+### NEVER SCOPED -- only the reporting is; a block must still match SOME sidecar
+### byte-for-byte, and an ORPHAN is an ORPHAN whatever act it claims.
+
 Usage:
-    python audit_verify.py <report.md> [<report.md> ...]
+    python audit_verify.py <report.md> [<report.md> ...] [--act <name>]
 """
 import os
 import sys
@@ -43,7 +53,22 @@ def sidecars():
     return out
 
 
+def act_of(fn):
+    """audit_<act>_<tool>.txt -- the act field holds no underscore, tool names do."""
+    return fn[len('audit_'):-len('.txt')].split('_', 1)[0]
+
+
+def in_act(fn, act):
+    a = act_of(fn)
+    return a == act or a.startswith(act + '-')
+
+
 def main(argv):
+    act = None
+    if '--act' in argv:
+        i = argv.index('--act')
+        act = argv[i + 1] if i + 1 < len(argv) else None
+        argv = argv[:i] + argv[i + 2:]
     if not argv:
         print(__doc__)
         return 2
@@ -74,6 +99,11 @@ def main(argv):
                 print("   %2d  MATCHED  %s  (self-hash ok)" % (i, hit[0]))
                 matched.update(hit)
     unused = sorted(set(side) - matched)
+    if act is not None:
+        before = len(unused)
+        unused = [u for u in unused if in_act(u, act)]
+        print("\n  UNUSED scoped to act '%s': %d in scope, %d older suppressed"
+              % (act, len(unused), before - len(unused)))
     if unused:
         print("\n  UNUSED sidecars (run but not embedded) — not a failure:")
         for u in unused:
