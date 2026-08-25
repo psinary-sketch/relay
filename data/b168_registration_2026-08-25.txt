@@ -1,0 +1,129 @@
+====================================================================================================
+b168 REGISTRATION -- THE LEFT-ENDPOINT REPAIR. BANKED AFTER THE OWNER READS, BEFORE ANY
+COMPUTATION. ONE ATTEMPT ON THIS SPECIFICATION PER THE STOP-LOSS.
+====================================================================================================
+FERRY 2026-08-25 (part 1 of 1; receipt confirmed IN FULL before execution, Rule 1 --
+FOOT present, paste-ends marker present).
+
+SCOPE, QUOTED: "instrument repair plus the measurement it unblocks; the repair is a DOMAIN
+fix, not a resolution change -- refinement cannot cure a domain defect and no resolution
+increase substitutes; ### the incumbent-preservation law governs (every banked object the
+current grid gets right must be reproduced unchanged)."
+
+THE REGISTER SENTENCE, QUOTED UNCHANGED: RH reduced to a single located clause,
+reduction machine-verified.
+
+----------------------------------------------------------------------------------------------------
+### THE OWNER READ THAT DECIDES THE REPAIR'S SHAPE, DECLARED AS AN OBSERVATION AND NOT A
+### PREDICTION, BECAUSE IT WAS MADE BEFORE THIS REGISTRATION WAS WRITTEN.
+
+tools/e16/b38_act10.py, per_mode_eps_grids, read at content, lines 84-91:
+    for k, r in enumerate(rr):
+        lo, hi = 1.0 / r, 1.0
+        ### if hi - lo <= 0:
+        ###     continue
+        ...
+### AT rho = 1 THE ROUTINE TAKES ITS OWN EMPTY-RANGE BRANCH AND LEAVES THE ENTRY AT ZERO.
+### b115 (2g)'s DERIVED VALUE -- "e_n(0) = 0 EXACTLY, the epsilon integral's range [1/rho, 1]
+### being empty at rho = 1" -- IS ALREADY IMPLEMENTED IN THE ROUTINE ITSELF.
+
+*** ### THEREFORE THE DEFECT b167 FOUND WAS NEVER IN THE ROUTINE. IT WAS IN THE GRID HANDED
+TO IT, WHOSE FIRST NODE IS exp(1e-4), AND IN np.interp CLAMPING BELOW THAT NODE.
+### THE ROUTINE HAS BEEN HONEST AT rho = 1 ALL ALONG AND NOBODY EVER ASKED IT. ***
+
+----------------------------------------------------------------------------------------------------
+THE REPAIR, FIXED HERE BEFORE IT IS BUILT -- AND THE ROUTE NOT TAKEN RECORDED.
+
+### ROUTE TAKEN -- THE NODE ADDED AT ITS TRUE VALUE, THE INCUMBENT NODES UNTOUCHED:
+  rr_repaired = [1.0] + rr_incumbent          (rr_incumbent = exp(linspace(1e-4, ln(RHO_MAX), n)))
+  and the value at that node taken FROM THE ROUTINE, not asserted.
+### WHY THIS ROUTE AND NOT THE OTHER: rebuilding the grid as linspace(0, ln(RHO_MAX), n)
+ would ALSO reach rho = 1, but it REDISTRIBUTES EVERY NODE, so every interpolated value in
+ the record would shift. ### PREPENDING ONE NODE LEAVES EVERY INCUMBENT NODE IN PLACE, so
+ np.interp at any rho >= exp(1e-4) uses THE SAME NEIGHBOURING NODES AND RETURNS THE SAME
+ NUMBER. ### THE INCUMBENT-PRESERVATION LAW IS SATISFIED BY CONSTRUCTION AND NOT BY LUCK.
+### ROUTE NOT TAKEN, RECORDED: adding several nodes inside [1, exp(1e-4)] would be a
+ RESOLUTION change in that subinterval, which the ferry excludes and which would move nothing
+ the domain fix does not already move.
+### AND WHAT IS NOT DONE: e_n(0) IS NOT SET TO ZERO BY HAND. b167 named that in advance as
+ the thing a repair must not do. The value comes from the routine's own empty-range branch.
+
+### WHERE THE REPAIR LIVES: a NEW module, tools/e16/b168_epsgrid.py.
+### b134_wroute.py IS NOT MODIFIED. Its E is injectable through psi_W's own `E=` parameter,
+so the repaired grid is passed in rather than patched over. ### A PRIOR ACT'S INSTRUMENT
+STAYS REPRODUCIBLE AS THAT ACT RAN IT; the archive wins.
+
+----------------------------------------------------------------------------------------------------
+THE GATES, IN ORDER, EACH A HALT (the ferry's, with tolerances fixed here).
+
+ (G-L) THE REPAIRED GRID EVALUATES AT rho = 1 WITHOUT EXTRAPOLATION OR CLAMPING.
+   Shown at content: the first node IS 1.0, so np.interp at rho = 1 hits a node and does not
+   clamp; and per_mode_eps_grids returns 0 there by its own empty-range branch.
+   CRITERION: sum_n e_n(1) == 0.0 exactly, and rr[0] == 1.0 exactly.
+ (G-K) ### Delta(0) = 10 TO TOLERANCE 1e-9 -- the derived known answer, the gate b167 added
+   and the one that fired.
+ (G-R) ### THE INCUMBENT REPRODUCES. b167's G1-G3 re-run on the repaired grid:
+   Psi_W(0) vs -1.165002987 ; sum_n A_n(UMAX) vs 1.443987343e-01 ; b134's I_W column at the
+   nine cells. CRITERION, THE FERRY'S OWN: ### reproduction TO PRINTED DIGITS.
+   *** ### AND A MOVEMENT IS EXPECTED AND IS DECLARED IN ADVANCE RATHER THAN EXPLAINED
+   AFTERWARDS -- see (e2). A repair that moves a banked value BEYOND ITS PRINTED DIGITS is a
+   HALT with the divergence reported. A movement BELOW them is reported, not hidden. ***
+ ### ANY FAIL HALTS AND ROUTES TO A RE-SCOPE WITH THE RESIDUAL NAMED. ONE ATTEMPT ON THIS
+ SPECIFICATION; a FAIL is not softened into a partial pass (b128's law).
+
+----------------------------------------------------------------------------------------------------
+### THE TWO SEATS.
+
+NAVIGATOR: P1 the repair with its three gates; P2 Delta banked on all gates passing; P3 the
+ one-sign verdict under the three-way rubric. ### DOMINANCE IS NOT EVALUATED -- the ferry
+ declines to spend a second asking, which settles b167's routed question in the direction of
+ NOT SPENDING, and the executor records that the author has now answered it.
+
+EXECUTOR (SCOREABLE, WRITTEN BEFORE ANY COMPUTATION):
+ (e1) G-L PASSES BY DIRECT EVALUATION. Weak-but-registered: the code read shows the branch,
+   but a branch read is not a branch run, and 1.0/1.0 - 1.0 <= 0 is asserted here as an
+   arithmetic fact that the run will confirm or refute.
+ (e2) ### G-R PASSES TO PRINTED DIGITS BUT NOT EXACTLY, AND I NAME THE MOVEMENT AND ITS SIZE
+   IN ADVANCE: ### Psi_W(0) WILL MOVE BY ABOUT 1.42e-11, and that number is not a guess --
+   ### IT IS phi_e(0), THE CANCELLATION RESIDUE b115 BANKED AS -1.42e-11 AND b167 REPRODUCED
+   AT -1.422267621e-11. The clamped epsilon half at u = 0 contributes exactly that residue;
+   the repair sets the half to zero, so the residue is removed and Psi_W(0) shifts by it.
+   ### EVERY OTHER BANKED OBJECT SHOULD MOVE BY EXACTLY NOTHING, because it samples
+   rho >= exp(1e-4) where the incumbent nodes are untouched.
+   ### THIS IS THE SHARPEST THING THIS SEAT CAN BE WRONG ABOUT TODAY: a predicted movement,
+   with its cause, its sign-free magnitude and its source in another act's banked number.
+ (e3) G-K PASSES, with Delta(0) = 10 to about 5e-10 -- the W route's own accuracy on
+   sum_n A_n(0), not better, since the epsilon half will now be exactly zero.
+ (e4) ### DELTA'S FLOOR WILL BE LOWER THAN PSI_W's AND ITS AXIS WILL NOT BE NQ.
+   Re-registered from b167, where the act halted before it could be scored. Ground unchanged:
+   b134 records Psi_W's floor as 8.195851e-10 with "axis = NQ, entering ONLY through
+   sigma_even", and ### DELTA CONTAINS NO sigma_even AT ALL.
+ (e5) ### THE ONE-SIGN VERDICT WILL LAND ON "HOLDS ON A NAMED SUBRANGE", not on "holds for
+   every admissible member". Ground: I_mu(L) = I_sigma(L) + (sigma_even - mu)*J(L) is affine
+   in mu, and an affine function with nonzero slope changes sign. SUB-PREDICTION: ### THE
+   SUBRANGE CONTAINS b38's MEMBER, since I_sigma is negative with margin at every cell.
+   ### NO PREDICTION IS MADE ABOUT WHETHER mu = 0 LIES INSIDE IT. That turns on J's
+   magnitude, which is unmeasured, and a guess there would be decoration.
+ (e6) ON CORE: ### SOMETHING ENTERS, on P2 and P3 landing. Calibration carried honestly: this
+   seat's Core predictions read wrong, wrong, right, right, wrong.
+
+### THE GUARDS:
+ · ### A REPAIR IS NOT A RESULT. Delta banked at bench grade upgrades no verdict that consumes
+   it; every downstream figure carries the grade its instrument supports and the
+   conditionality b117/b119/b121/b134 recorded VERBATIM.
+ · ### THE REPAIR MUST NOT IMPROVE ANYTHING SILENTLY. If a banked number moves, it is
+   reported with its size and cause whether or not it clears a tolerance.
+ · ### NO MEMBER IS PREFERRED. A subrange with endpoints is a fact about the family and NEVER
+   an argument for a member. b155's guard rides verbatim. ### NOTICED IS NOT EARNED.
+ · ### DOMINANCE IS NOT EVALUATED AND NOT APPROACHED. The asking stays spent.
+ · b163's three fences and b166's verdict table travel with any dependence statement.
+ · ### NOTHING BEYOND THE CAP. UMAX = ln(RHO_MAX) is unchanged and no value at rho > 48.001
+   is computed, used, cited or quoted.
+
+THE FENCES: N-EXT-2 absolute; (I-differ) at grade; h2 STATED NOT PROVED; nothing promoted;
+nothing deposits; nothing circulates beyond relay reports; HELD (6eada6a) LOCAL-ONLY;
+TECHNE-Core untouched; the patent seat's tree READ NEVER WRITTEN; no sorry.
+
+DEVIATION RULE STANDING.
+BANK: data/b168_left_endpoint.txt.
+====================================================================================================
