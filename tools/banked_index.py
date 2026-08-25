@@ -28,6 +28,20 @@
 ### grade ITS OWN ACT recorded. ### WHERE THE INDEX AND THE ACT DISAGREE, THE ACT
 ### WINS. Nothing is re-graded by being indexed.
 
+### THE KEY REPAIR (b164). Retrieval was by SUBSTRING over names and statements,
+### and it produced FALSE HITS TWICE IN THREE ACTS: at b161 a harness matched this
+### tool's own REFUSAL sentence; at b163 the query "the identity" returned a row
+### about the share's physicality because that row's STATEMENT contains the word.
+### ### THE CORPUS'S CENTRAL OBJECT HAD NO ROW AT ALL AND THE QUERY STILL SAID HIT.
+### THE AMENDED CONVENTION, IN ONE LINE:
+### ### RETRIEVAL BY STRING IS NOT RETRIEVAL BY OBJECT.
+### Every row carries an explicit KEY; queries match KEYS AND ALIASES ONLY, never
+### free text; ### AN UNMATCHED QUERY REPORTS **NO KEY** AND NAMES NO NEAREST
+### STRING, because a nearest string is how a miss becomes a false hit.
+### ITS LIMIT: ### KEYS CLOSE FALSE HITS. THEY DO NOT CLOSE FALSE MISSES -- an
+### object whose key nobody declared is as invisible as before, and this repair
+### must not read as a solved problem.
+
 Usage:
     python banked_index.py --scan                 candidates, with the curation boundary
     python banked_index.py --query <object> ...   what the record holds about an object
@@ -55,67 +69,90 @@ REACH = [
 ]
 
 # ---------------------------------------------------------------------------
-# THE CURATED INDEX. Every row was read at content in its own file. The `grade`
-# column is quoted from the act that produced the result, never re-assigned.
+# THE CURATED INDEX, KEYED (b164). Every row was read at content in its own file.
+# The `grade` column is quoted from the act that produced the result, never
+# re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
+KEYS = {
+    'identity': ['the identity', 'file e', 'l-identity', 'finite-instance identity', 'h2'],
+    'e1-even-bridge': ['e1/even', 'e1 even', 'sector correspondence', 'the bridge'],
+    'sector-occupancy': ['sector occupancy', 'arity', 'four sectors'],
+    'void-gate': ['void gate', 'the void gate', 'normalization'],
+    'apportionment-family': ['apportionment family', 'the family', 'unpinned share'],
+    'share-physicality': ["share's physicality", 'physicality', 'physical not gauge'],
+    'double-entry': ['double entry', 'certified column double entry'],
+    'apportionment-free': ['apportionment-free candidate', 'free end', 'subtract nothing'],
+    'selection-criterion': ["file e's requirements", 'selection criterion', 'selection'],
+    'refinement-arity': ['refinement arity', 'two-fold four-fold'],
+    'exact-reduction': ['exact reduction', 'the two excesses'],
+    'apportionment-grade': ["apportionment's grade", 'closed-at-bench'],
+    'boundary-license': ['boundary license', 'the boundary', 'carrier edge'],
+    'density-collapse': ['collapse to one density', 'the density', 'one density'],
+    'mean-zero-kernel': ['mean-zero kernel', 'uniqueness sufficient condition'],
+}
+
 INDEX = [
-    # (object, act, one-line statement, grade as its own act recorded it, location)
-    ("E1/even identification; sector correspondence", "b35",
-     "xi_n = sqrt(2)*psi_{2n}, so the E1 sector is xi_n with n EVEN and the (-1) sector n ODD",
-     "banked read (P2 resurrection part 2); used at b159 as the bridge's derivation",
-     "data/b35_registration_2026-08-18.txt"),
-    ("sector occupancy; the arity question", "b159",
+    # (key, act, one-line statement, grade as its own act recorded it, location)
+    ('identity', 'row 24 / file E',
+     "the built object's trace equals Weil's ledger on the constrained class at a cell",
+     'BOUNDARY: STATED, NOT PROVED, NOT CLAIMED; its truth at complete roster is h2',
+     'SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean'),
+    ('e1-even-bridge', 'b35',
+     'xi_n = sqrt(2)*psi_{2n}, so the E1 sector is xi_n with n EVEN and the (-1) sector n ODD',
+     "banked read; used at b159 as the bridge's derivation",
+     'data/b35_registration_2026-08-18.txt'),
+    ('sector-occupancy', 'b159',
      "the layer occupies only two of proj4's four sectors; the +-i sectors are unoccupied",
-     "DERIVES (instances) + derived read at owners",
-     "data/b159_seam_and_arity.txt; Core/SectorOccupancyShadow.lean"),
-    ("the void gate", "b154",
-     "sum_n w_n - A = -resid_N*(sum_n u_n - 1): the gate forces the normalization ALONE",
-     "DERIVED (exact algebra); decided at instances in Core",
-     "data/b154_apportionment_characterization.txt; Core/ApportionmentShadow.lean"),
-    ("the apportionment family; the unpinned share", "b154",
+     'DERIVES (instances) + derived read at owners',
+     'data/b159_seam_and_arity.txt; Core/SectorOccupancyShadow.lean'),
+    ('void-gate', 'b154',
+     'sum_n w_n - A = -resid_N*(sum_n u_n - 1): the gate forces the normalization ALONE',
+     'DERIVED (exact algebra); decided at instances in Core',
+     'data/b154_apportionment_characterization.txt; Core/ApportionmentShadow.lean'),
+    ('apportionment-family', 'b154',
      "the admissible apportionments form a ONE-PARAMETER FAMILY containing b38's as one member",
-     "DERIVED",
-     "data/b154_apportionment_characterization.txt"),
-    ("the share's physicality", "b155",
-     "the identity's residual moves with the share at rate resid_N; at most one share admits it",
+     'DERIVED',
+     'data/b154_apportionment_characterization.txt'),
+    ('share-physicality', 'b155',
+     'the identity residual moves with the share at rate resid_N; at most one share admits it',
      "DERIVED, conditional on b107's undischarged T-reading",
-     "data/b155_nu.txt; Core/ShareDependenceShadow.lean"),
-    ("the certified column's double entry", "b156",
-     "the column enters the closed equation twice; the entries net to (1 - mu), not cancelling",
-     "DERIVED (exact); decided at instances",
-     "data/b156_seam_and_joint.txt; Core/DoubleEntryShadow.lean"),
-    ("the apportionment-free candidate", "b156",
-     "the purely object-side formula equals W+(0): a FAMILY MEMBER, not an escape",
-     "DERIVED",
-     "data/b156_seam_and_joint.txt"),
-    ("file E's requirements as a selection criterion", "b158",
-     "no owner-quotable requirement constrains the share; the freedom is DEFINITIONAL",
-     "DERIVED (reads at owners); branch (c)",
-     "data/b158_selection.txt"),
-    ("refinement arity", "b158",
-     "a two-fold aggregate does not determine a four-fold split",
-     "DERIVES (instances)",
-     "data/b158_selection.txt; Core/RefinementArityShadow.lean"),
-    ("the exact reduction; the two excesses", "b109",
+     'data/b155_nu.txt; Core/ShareDependenceShadow.lean'),
+    ('double-entry', 'b156',
+     'the column enters the closed equation twice; the entries net to (1 - mu), not cancelling',
+     'DERIVED (exact); decided at instances',
+     'data/b156_seam_and_joint.txt; Core/DoubleEntryShadow.lean'),
+    ('apportionment-free', 'b156',
+     'the purely object-side formula equals W+(0): a FAMILY MEMBER, not an escape',
+     'DERIVED',
+     'data/b156_seam_and_joint.txt'),
+    ('selection-criterion', 'b158',
+     'no owner-quotable requirement constrains the share; the freedom is DEFINITIONAL',
+     'DERIVED (reads at owners); branch (c)',
+     'data/b158_selection.txt'),
+    ('refinement-arity', 'b158',
+     'a two-fold aggregate does not determine a four-fold split',
+     'DERIVES (instances)',
+     'data/b158_selection.txt; Core/RefinementArityShadow.lean'),
+    ('exact-reduction', 'b109',
      "W+ - sigma_even*A = the raw trace's even-share excess minus the eps integral's",
-     "DERIVED, exact algebra",
-     "data/b109_apportionment_derivation.txt"),
-    ("the apportionment's grade", "b107",
-     "the joint is CLOSED-AT-BENCH and OPEN-AT-DERIVATION",
-     "the two-grade reconciliation, decided at content",
-     "data/b107_apportionment.txt"),
-    ("the boundary license", "b151",
-     "no license derives; all three routed candidates were reads, and a license needs a construction",
-     "branch (b); the negative-read fence rides",
-     "data/b151_boundary.txt"),
-    ("the collapse to one density", "b115",
+     'DERIVED, exact algebra',
+     'data/b109_apportionment_derivation.txt'),
+    ('apportionment-grade', 'b107',
+     'the joint is CLOSED-AT-BENCH and OPEN-AT-DERIVATION',
+     'the two-grade reconciliation, decided at content',
+     'data/b107_apportionment.txt'),
+    ('boundary-license', 'b151',
+     'no license derives; all three routed candidates were reads, and a license needs a construction',
+     'branch (b); the negative-read fence rides',
+     'data/b151_boundary.txt'),
+    ('density-collapse', 'b115',
      "the deviation's window-dependence reduces to a fixed-kernel scale-average of ONE density",
-     "DERIVED; decided at instances",
-     "data/b115_mechanism.txt; Core/MechanismShadow.lean"),
-    ("the mean-zero kernel; uniqueness's sufficient condition", "b116",
-     "Phi_K is mean-zero with one sign change, so Psi monotone increasing => the window is unique",
-     "DERIVED",
-     "data/b116_thirteenth_seam_close.txt"),
+     'DERIVED; decided at instances',
+     'data/b115_mechanism.txt; Core/MechanismShadow.lean'),
+    ('mean-zero-kernel', 'b116',
+     'Phi_K is mean-zero with one sign change, so Psi monotone increasing => the window is unique',
+     'DERIVED',
+     'data/b116_thirteenth_seam_close.txt'),
 ]
 
 
@@ -163,18 +200,26 @@ def cmd_query(terms):
     print("=" * 78)
     print("BANKED-RESULT INDEX -- QUERY: %r" % q)
     print("=" * 78)
-    found = [e for e in INDEX
-             if q in e[0].lower() or q in e[2].lower() or q in e[1].lower()]
+    # ### KEYED RETRIEVAL: the query must match a DECLARED key or alias.
+    # ### It is NEVER matched against statements -- that produced b163's false hit.
+    key = None
+    for k, aliases in KEYS.items():
+        if q == k or q in [a.lower() for a in aliases]:
+            key = k
+            break
+    found = [e for e in INDEX if key is not None and e[0] == key]
     if found:
         print("  ### THE RECORD HOLDS %d INDEXED RESULT(S) ABOUT THIS OBJECT:" % len(found))
         for obj, act, stmt, grade, loc in found:
-            print("\n    object   : %s" % obj)
+            print("\n    key      : %s" % obj)
             print("    act      : %s" % act)
             print("    result   : %s" % stmt)
             print("    grade    : %s   ### as its own act recorded it" % grade)
             print("    location : %s" % loc)
     else:
-        print("  ### NO INDEXED RESULT MATCHES.")
+        print("  ### NO KEY.")
+        print("  ### The query matched no DECLARED key or alias. No nearest string")
+        print("  ### is offered: a nearest string is how a miss becomes a false hit.")
         print("  ### THIS IS NOT A FINDING THAT THE RECORD HOLDS NOTHING.")
     print()
     for s in REACH:
@@ -183,10 +228,10 @@ def cmd_query(terms):
 
 
 def cmd_table():
-    print("| object | act | the result, in one line | grade, as its own act recorded it | location |")
+    print("| key | act | the result, in one line | grade, as its own act recorded it | location |")
     print("|:--|:--|:--|:--|:--|")
     for obj, act, stmt, grade, loc in INDEX:
-        print("| **%s** | `%s` | %s | *%s* | `%s` |" % (obj, act, stmt, grade, loc))
+        print("| `%s` | `%s` | %s | *%s* | `%s` |" % (obj, act, stmt, grade, loc))
     return 0
 
 
