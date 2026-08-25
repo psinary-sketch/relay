@@ -203,7 +203,7 @@ trigger does not fire.**
 | repository | pin |
 |:--|:--|
 | `PLACE-papers` `main` | `c1e4dcd4192674ed91820965f9c6e4a43316fcf7` |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`79d71a83f800bc79426715672050e4f3d1b6d5e9`** *(the act commit; this pin line follows it, per the established two-step)* |
 | `SIDE-global-section` `main` | `113c37bbb1baaf531221db914dda1338c09ccc94` — **unchanged; not touched** |
 | mirror | `mirror-refresh-2026-08-25.zip` — rebuilt at the new HEAD, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
