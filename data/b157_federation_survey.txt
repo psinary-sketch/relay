@@ -1,0 +1,297 @@
+====================================================================================================
+b157 -- THE FEDERATION ORIENTATION SURVEY -- THE BANK.
+Registration: data/b157_registration_2026-08-25.txt, banked at 046570c BEFORE ANY WORK.
+Instruments: tools/b157_census.py, tools/b157_table.py (both READ-ONLY).
+Components ordered; 2 and 3 consumed 1.
+### READ-ONLY ACROSS THE FEDERATION: no kernel was modified, built, or tagged; no repo was
+pushed except relay and PLACE-papers. ### CORE UNCHANGED at 281/281, rows 1-71.
+NOTHING PROMOTED. NOTHING DEPOSITS. ### A SURVEY IS NOT A PREDICATE.
+====================================================================================================
+
+====================================================================================================
+COMPONENT 1 (P1) -- THE LIVE CENSUS.
+====================================================================================================
+### P1 LANDS, and its result is the one the executor did not predict.
+
+ 43 SIDE-* git repositories on D:. Every figure read at run time -- local HEAD, branch,
+ latest tag with peeled SHA, toolchain pin, last commit date, working-tree state, and the
+ remote HEAD by ls-remote. The per-repo table is filed at the working loom.
+
+ ### THE DIVERGENCES: THERE ARE NONE.
+   43 repos; 0 with local != remote; 0 with an unread remote; 0 with a dirty working tree;
+   3 with no tag at all (SIDE-constants, SIDE-fano-darkness, SIDE-li-map).
+
+ *** ### THE EXECUTOR'S REGISTERED PREDICTION (e1) IS WRONG AND IS SCORED WRONG. He wrote,
+ before the work: "THE CENSUS WILL SHOW REAL DIVERGENCE, not a clean federation ... several
+ repositories with local ahead of remote or with NO remote configured", on the ground that
+ "unpushed local work is the normal residue" of a burst-pushed federation. ### THE
+ FEDERATION IS FULLY SYNCHRONISED. The ground was plausible and the fact is otherwise. ***
+
+ ### AND THE EVEN COUNT WAS COUNTER-CHECKED, because the registration named the risk
+ ("a count that comes out even is not evidence the right things were counted"). The first
+ pass compared local HEAD against `ls-remote origin HEAD` -- THE REMOTE'S DEFAULT BRANCH --
+ which would agree BY ACCIDENT for any repo sitting on some other branch. The comparison
+ was redone against refs/heads/<the repo's own branch>:
+   ### all 43 on `main`; 0 detached HEADs; 0 whose local branch fails to match its own
+   ### remote branch ref.
+ ### THE EVEN COUNT SURVIVES ITS COUNTER-CHECK. Recorded because the check could have
+ changed the answer and the reader cannot see that it was run unless it is written down.
+
+ THE TOOLCHAIN PINS, read from each lean-toolchain:
+   leanprover/lean4:v4.29.0-rc8   30 repos
+   leanprover/lean4:v4.29.1       11 repos
+   leanprover/lean4:v4.30.0-rc2    2 repos (SIDE-cosmo, SIDE-effects)
+ ### THIS IS THE ONE CENSUS FACT WITH A COST ATTACHED: a federation-wide rebuild crosses
+ three pins. No such rebuild is proposed here.
+
+ ### THE SET DIFFERENCE, BOTH DIRECTIONS, as the ferry requires:
+  · ON DISK BUT NAMED BY NO REGISTRY ROW -- 10: SIDE-class-coupling, SIDE-coupling,
+    SIDE-cubit-axis, SIDE-dark-interface, SIDE-formation-arithmetic,
+    SIDE-formation-procedure, SIDE-meta, SIDE-orchestrator, SIDE-residual-bridge,
+    SIDE-t7-topology-cmb. ### NAMED, NOT JUDGED: a kernel no paper cites is not thereby
+    defective, and this survey does not rule on whether any of them should be cited.
+  · NAMED IN REGISTRY BUT ABSENT FROM DISK -- 3, ### AND TWO OF THEM ARE THIS SURVEY'S OWN
+    FALSE POSITIVES. See Component 3, finding 5.
+
+====================================================================================================
+COMPONENT 2 (P2) -- THE CONTENT INVENTORY.
+====================================================================================================
+
+--- (2a) ### THE SCALE, AND THE DEPTH SPLIT STATED IN THE OPEN. ---
+
+ 2005 theorem/lemma declarations across 414 Lean files in 43 repositories.
+ ### THE EXECUTOR'S REGISTERED PREDICTION (e3) LANDS: a statement-level read-and-grade of
+ all of them is not one act's work at the depth the rubric requires.
+ ### THE SPLIT, AS REGISTERED -- BY DEPTH, NOT BY SILENCE:
+   ### 6 of 43 REPOSITORIES WERE READ AT CONTENT THIS ACT. 37 ARE ENUMERATED ONLY.
+ The read set and its one-line result per repo is carried IN THE TABLE'S OWN LAST COLUMN,
+ so the boundary travels with the data instead of living in a report nobody re-opens.
+ ### AN UNSTATED TRUNCATION WOULD READ AS COVERAGE, which is the failure this record has
+ named before; this one is stated in the table, in the bank, and in the report.
+
+--- (2b) ### THE SORRY COUNT, AND WHY ITS FIRST VERSION WAS WORTHLESS. ---
+
+ A crude line scan reported 158 sorry-bearing lines federation-wide, including 15 in
+ SIDE-global-section -- ### WHICH WOULD HAVE CONTRADICTED THE KERNEL-PURITY RULING AND FILE
+ E'S OWN "SORRY COUNT OF THIS FILE: 0". ### IT WAS A REGEX OVER DOCUMENTS, NOT A READ OF
+ THEM (the b147 lesson, re-earned rather than remembered): it matched PROSE MENTIONING
+ sorry, file E's own zero-count line included.
+ Stripping block comments and line comments first:
+   ### 158 -> 37 apparent sorry tokens outside comments, and SIDE-global-section -> ZERO.
+ The 37 survivors, by repository:
+   SIDE-effects           3   SIDEEffects/Milestones.lean lines 32, 49, 63
+   SIDE-kernel           32   ALL under legacy/ (see 2c)
+   SIDE-lv-conservation   2   PinnedGoal.lean:23; SIDELvConservation/T3_StepNineBridge.lean:108
+ ### EVERY SURVIVOR IS PRINTED WITH ITS FILE AND LINE so each can be READ rather than
+ tallied. ### REACH, STATED: this strips comments; it does not elaborate Lean. ### ONLY A
+ BUILD DECIDES A SORRY, AND NO REPO WAS BUILT BY THIS ACT.
+
+--- (2c) SIDE-kernel: THE SORRIES ARE OUTSIDE THE BUILD. ---
+
+ All 32 sit under legacy/. lakefile.lean's targets, read at content:
+   @[default_target] lean_lib Kernel ; lean_lib Bridge ; lean_lib MetaKernel
+ ### legacy IS NOT AMONG THEM. The built libraries carry NONE.
+ ### CONSISTENT WITH THE 2026-08-19 KERNEL-PURITY RULING -- and CHECKED, not assumed.
+ ### THE READING'S LIMIT: this says the sorries are not in the declared build targets. It
+ does not say the legacy tree is harmless, and nothing here re-grades legacy.
+
+--- (2d) ### SIDE-effects: THE SCAFFOLD RULING RE-VERIFIED, AND FOUND SUPERSEDED. ---
+
+ THE FERRY'S PREMISE, quoted: "the SIDE-effects scaffold ruling (GRH.grh_exclusion and
+ LandauSiegel.no_ls_zero remain scaffold-pattern -- citation-banned) re-verified rather
+ than assumed."
+
+ ### THEY DO NOT REMAIN SCAFFOLD-PATTERN. THEY ARE RETIRED AND GONE.
+ SIDEEffects/Structural.lean carries an explicit RETIREMENT LEDGER (audit Phase S.2-S.4):
+ "The following framework-consequence skeletons were retired as content-free (True-stub or
+ opaque-Prop). Honest status of each named problem and where genuine content lives, if
+ anywhere" -- and under GRH: "(Retired: opaque-Prop `grh_exclusion`, `twist_cancels :
+ balance <-> balance`.)"; under Landau-Siegel: "(Retired: opaque-Prop `no_ls_zero`.)"
+
+ ### AND THE REPO'S OWN FRONT DOCUMENT STILL LISTS THEM AS EXPORTS. AGENTS.md, under
+ "Theorems exported", names TWENTY theorems. Checked one by one against the source:
+   PRESENT (2): no_type_d, formation_seven
+   ### ABSENT (18): all_gapped, mass_gap, all_excluded, sectors_complete, gap_bounds,
+   ### twist_cancels, formation_preserved_grh, grh_exclusion, no_ls_zero,
+   ### no_conspiracy_twins, no_conspiracy_goldbach, no_conspiracy_sg, all_bound,
+   ### sha_bounded, all_mismatch_absent, bsd_full, artin_from_grh, side_exclusion
+ ### THE SOURCE IS THE HONEST PARTY AND THE FRONT DOCUMENT IS THE STALE ONE.
+ ### THE CITATION BAN IS RESTATED AND IS NOW STRICTLY REDUNDANT FOR THESE TWO: a terminal
+ that does not exist cannot be cited. ### THE BAN STANDS ANYWAY, because a name can return.
+
+ THE TWO SURVIVORS, GRADED BY READING THE STATEMENT:
+  · formation_seven : 2 + 3 + 2 + 0 = 7 := rfl
+    ### DERIVES (at the instance) -- and its content is ARITHMETIC. It decides a sum. It
+    says nothing about formation, and the grade must not be read as though it did.
+  · no_type_d (alpha) (coupling modular) (h : forall a, coupling a -> modular a) :
+      not (TypeD alpha coupling modular)
+    ### DERIVES. A genuine, elementary logical lemma: if coupling implies modular
+    everywhere, no counterexample exists. Small, true, and honestly stated.
+ THE GENUINE CONTENT THE LEDGER POINTS TO, verified present:
+   Phase15/Module1.lean : crt_exhaustiveness, no_type_d_conspiracies : IsEmpty TypeD
+   Phase15/SIDEFramework.lean : SIDE_exclusion, determination_collapse, side_bridge
+ ### NOT READ AT STATEMENT LEVEL THIS ACT -- named as present, not graded. Said so.
+
+--- (2e) ### THE FLAG AT FULL PROMINENCE, AS THE RUBRIC REQUIRES. ---
+
+ SIDEEffects/Milestones.lean holds three terminals -- twin_primes_infinite, goldbach,
+ sophie_germain_infinite -- each STATING A KNOWN-OPEN CONJECTURE AT ITS REAL TYPE and each
+ closed by `sorry` at a marked boundary. ### GRADE: SCAFFOLDING-OR-SHELL, and the file
+ SAYS SO ITSELF in its header ("is proved by sorry at the marked boundary"), names the
+ Mathlib infrastructure each would need, and does not overstate. ### THAT PART IS
+ EXEMPLARY.
+ ### THE FLAG: the file's status block reads "3 theorems, 3 sorrys, 0 axioms."
+ ### "0 AXIOMS" IS TRUE ONLY UNDER THE READING "no `axiom` DECLARATIONS". A sorry-closed
+ theorem depends on sorryAx, so all three terminals DO carry an axiom.
+ ### IN A FILE WHOSE ENTIRE PURPOSE IS HONESTY ABOUT WHAT IS AND IS NOT PROVED, THAT LINE
+ IS THE ONE SENTENCE A READER COULD TAKE THE WRONG WAY.
+ ### THE EXECUTOR'S PREDICTION (e4) THEREBY LANDS -- at DOCUMENT grade rather than at the
+ docstring-versus-statement grade he had in mind, and the difference is stated rather than
+ smoothed. ### AND THE REACH: ONE WAS FOUND. THE SURVEY'S REACH IS WHAT IT READ, and 37 of
+ 43 repositories were not read at content, so ### THIS IS "ONE FOUND", NOT "ONE EXISTS".
+
+--- (2f) ### AXIOM-CLEAN, COMPILE-CLEAN, AND CONTENT-FREE ARE COMPATIBLE. ---
+
+ Read at content in SIDE-bsd-formation-transfer/SIDEBSDFormationTransfer/Basic.lean:
+   def Sha_finite_via_SIDE : Bool := true
+   theorem Sha_finite : Sha_finite_via_SIDE = true := by decide
+ ### A DEFINITIONAL TAUTOLOGY: THE BOOL JUST SET TO true IS true.
+ Same shape: theorem bsd_fully_closed : fully_closed bsd_closure = true := by decide; and
+ in SIDE-bsd-multiplicity, BSD_architecture_fully_closed over a BSD_status record whose
+ sha_finite field is assigned true.
+ ### THESE PRINT ZERO AXIOMS AND COMPILE CLEANLY.
+ ### THIS IS THE SALT-CHECK'S JUSTIFICATION, NOT AN ILLUSTRATION OF IT: a grade taken from
+ an axiom profile or a compile status would have called them clean. ### GRADED
+ SCAFFOLDING-OR-SHELL BY READING THE STATEMENT, WHICH IS THE ONLY WAY THE GRADE IS
+ AVAILABLE.
+ ### AND THE RETIREMENT LEDGER SAYS SO FIRST: SIDE-effects names these very declarations --
+ "The Sha_finite/sha_finite/bsd_fully_closed/BSD_architecture_fully_closed decls in those
+ formation kernels are likewise `True`-stubs" -- so ### THE RECORD ALREADY KNEW, IN ONE
+ REPOSITORY, WHAT ANOTHER REPOSITORY STILL SHIPS. This survey's contribution is to have
+ read both and put them beside each other.
+
+====================================================================================================
+COMPONENT 3 (P3) -- THE ORIENTATION TABLE AND THE FILINGS.
+====================================================================================================
+
+ THE TABLE is filed at the working loom (VERIFICATION_LOOM.md), one row per repository:
+ repo, citable tag with peeled SHA, HEAD, theorem-declaration count, apparent sorry count,
+ REGISTRY reference count, citation status, ### AND READ DEPTH THIS ACT.
+ ### IT IS CARRIED IN THE MIRROR ROSTER WITHOUT A ROSTER CHANGE, because
+ VERIFICATION_LOOM.md is already a roster member; the table therefore travels in every
+ export from now on. Stated rather than assumed -- the roster was checked.
+
+ CITATION STATUS, from the live pins:
+   26 repositories: HEAD == the latest tag. ### THE CITABLE POINT IS THE CURRENT STATE.
+   14 repositories: ### HEAD IS AHEAD OF THE LATEST TAG -- work-grade content stands beyond
+     the citable point (SIDE-carrier-spec, SIDE-cosmo, SIDE-effects, SIDE-global-section,
+     SIDE-grh-transfer, SIDE-interfaces, SIDE-kernel, SIDE-lv-conservation,
+     SIDE-residual-bridge, SIDE-silence-principle, SIDE-spinor, SIDE-substrate-cluster,
+     SIDE-t7-topology-cmb, SIDE-trivium).
+   3 repositories: ### NO TAG AT ALL -- work-grade HEAD only (SIDE-constants,
+     SIDE-fano-darkness, SIDE-li-map).
+ ### NAMED, NOT JUDGED. Whether any of the 14 should be re-tagged, and whether the 3 should
+ be tagged at all, is a DEPOSIT-ADJACENT question and the deposit gates are PARKED. ### THE
+ EXECUTOR DOES NOT RULE ON IT AND DOES NOT RECOMMEND.
+
+ ### FINDING 5 -- TWO OF THIS SURVEY'S OWN "MISSING REPOSITORIES" WERE ITS OWN FALSE
+ POSITIVES, and they are filed as artifacts rather than findings.
+ A pattern scan of REGISTRY.md produced three SIDE-* names with no directory on disk. Read
+ at content:
+  · SIDE-method -- ### NOT A REPOSITORY. It names a consult METHOD: the rows read
+    "`clusters/CARMICHAEL_SIDE_CONSULT.md` | SIDE-method exploratory consult, Carmichael
+    numbers". ARTIFACT.
+  · SIDE-closure -- ### NOT A REPOSITORY. Prose: "Its Phase-66 SIDE-closure ...". ARTIFACT.
+  · SIDE-steane-arithmetic -- a real citation, and see finding 6.
+ ### A REGEX OVER A DOCUMENT IS NOT A READ OF IT -- twice in one act, once against the
+ sorry count and once against the repository list. ### A SURVEY THAT REPORTS ITS OWN FALSE
+ POSITIVES AS FINDINGS IS WORSE THAN NO SURVEY, so both are named as artifacts here.
+ [An unauthenticated remote probe of all three returned "could not read Username", which
+ distinguishes NEITHER private-but-existing FROM absent -- the b149 lesson. Re-probed with
+ the credentials the census already used: "Repository not found" for all three. ### REACH:
+ that is "not found under these credentials", which does not distinguish nonexistent from
+ existing under another owner. For the two artifacts the question is moot; for the third,
+ finding 6 answers it from the record instead.]
+
+ ### FINDING 6 -- A CURED DEFECT WHOSE FILING WAS NEVER CLOSED.
+ REGISTRY.md files: "Carry-over defect (not introduced here): `phase1.5/method/
+ A_METHODOLOGY.md` (lines 120, 539) also cites the phantom `SIDE-steane-arithmetic v0.1`.
+ Filed for correction."
+ ### THE CORRECTION WAS MADE. A_METHODOLOGY.md's own version log reads: "v0.5.1
+ (2026-07-13): phantom-kernel correction -- the two citations of `SIDE-steane-arithmetic
+ v0.1` (the SIV kernel list and the references entry) repointed to `SIDE-substrate-cluster`
+ (`SteaneLabeling.lean`)". The live file cites SIDE-substrate-cluster by named terminal,
+ and the terminal is real: `theorem steane_count : SteaneQubit.all.length = 7 := by rfl`,
+ read at content.
+ ### SO THE FILING IS STALE, NOT THE PAPER. ### ROUTED; REGISTRY IS NOT EDITED THIS ACT,
+ per the ferry. ### AND THE SHAPE IS WORTH NAMING: a defect ledger that never closes its
+ entries becomes a list of things that MIGHT be wrong, which is a different and much less
+ useful object than a list of things that ARE.
+
+ THE STALE-SNAPSHOT DELTA, IN ONE PARAGRAPH: measured against the 2026-08-04 prior, ### THE
+ FEDERATION HAS NOT DRIFTED -- IT HAS CONSOLIDATED. All 43 repositories are on main, clean,
+ and identical to their remotes, which is not what a burst-pushed federation usually looks
+ like four weeks on. What moved is concentrated in acts this record already carries:
+ SIDE-global-section to 281/281, rows 1-71 across b154-b156; SIDE-kernel to v1.7; and the
+ toolchain spread now stands at three pins. ### NOTHING ELSE MOVED, AND THE SURVEY'S VALUE
+ IS LARGELY THAT IT CAN NOW SAY SO FROM LIVE PINS RATHER THAN FROM BELIEF.
+
+ THE THIRTY-SECOND SEAM'S DEBT, RESTATED: b156 and this act; the methodology day's returns;
+ route A's ruling if it comes; the deep items reserved for a session with breadth (the
+ relative identification; the boundary construction; the lock-one review) -- ### for which
+ the kernel layer is now oriented; and ### the six findings above, none of which is acted
+ on by this act.
+
+====================================================================================================
+THE GRADE
+====================================================================================================
+ · READ AT CONTENT AND GRADED: SIDE-effects' two survivors (DERIVES, with formation_seven's
+   arithmetic content named); its three milestone terminals (SCAFFOLDING-OR-SHELL, as the
+   file itself says); the BSD stub family (SCAFFOLDING-OR-SHELL); SIDE-substrate-cluster's
+   steane_count (DERIVES at the instance).
+ · READ AT CONTENT, NOT GRADED: SIDE-kernel's build targets; SIDE-global-section's prints;
+   the Phase15 declarations named as present.
+ · ### ENUMERATED ONLY, NOT READ: 37 of 43 repositories. ### THEIR GRADES ARE NOT ASSIGNED
+   AND MUST NOT BE INFERRED FROM THIS TABLE.
+ · ### NOTHING PROMOTED, NOTHING DEMOTED, NOTHING RE-GRADED. ### A SURVEY IS NOT A
+   PREDICATE, and the grades here are READINGS, not rulings: where one disagrees with a
+   filed ruling, ### THE FILED RULING WINS.
+ CORE UNCHANGED at 281/281, rows 1-71. No kernel modified, built, or tagged. Nothing about
+ h2 beyond the register sentence exact -- RH reduced to a single located clause, reduction
+ machine-verified.
+
+====================================================================================================
+THE SEATS, SCORED
+====================================================================================================
+ NAVIGATOR: ### NO PREDICTION TO SCORE. The ferry fixed the survey's shape and stated no
+ expected outcome; none was invented on its behalf, and the seat is recorded as UNSCORED
+ rather than as landed.
+
+ EXECUTOR: ### ONE WRONG, THREE RIGHT, AND THE WRONG ONE IS THE INTERESTING ONE.
+  (e1) the census will show real divergence -- ### WRONG. The federation is fully
+    synchronised: 0 divergences, 0 dirty trees, 0 unread remotes. Scored wrong.
+  (e2) the scaffold terminals will still be scaffold-pattern -- ### WRONG IN THE
+    FAVOURABLE DIRECTION, and this is the second miss rather than a hit: they are not
+    scaffold-pattern, they are RETIRED. The executor expected staleness and found a
+    correction. ### RECORDED AS A MISS, because "wrong about which good thing happened" is
+    still wrong, and grading it a hit would teach the wrong lesson.
+  (e3) the inventory will exceed one act at full depth -- ### LANDED (2005 declarations;
+    6 of 43 read at content), and the registered remedy was applied: scope by depth, split
+    stated in the open.
+  (e4) at least one docstring-versus-statement disagreement -- ### LANDED, at document
+    grade rather than terminal grade, with the difference stated and the reach limited to
+    "one found, not one exists".
+ ### NET: the executor was wrong about the two things he predicted from the record's shape,
+ and right about the two he predicted from arithmetic. ### THAT IS A PATTERN WORTH THE
+ RECORD, NOT A SCORE WORTH DEFENDING.
+
+THE STOP-LAW: armed; ### NO TRIGGER.
+
+HIT RECORD: P1 lands with the executor's own prediction refuted and the even count
+counter-checked. P2 lands with the depth split stated, the sorry count corrected from 158
+to 37 by a comment-aware read, and the ferry's own scaffold premise found SUPERSEDED. P3
+files the table at the loom, states the citation status, names 10 uncited repos and 3
+untagged ones without judging them, and files six findings -- ### two of which are this
+survey's own false positives, named as artifacts. Deviations: NONE from the registration;
+NONE from the ferry. Divergences: none. The surprise protocol: NOT FIRED.
+====================================================================================================
