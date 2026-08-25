@@ -253,7 +253,7 @@ that leaves no trace is the one most likely to be forgotten.
 |:--|:--|
 | `SIDE-global-section` `main` | `01faf64eeed622f975925e4454b283ddb68f9825` — **Core 282/282, rows 1–72** |
 | `PLACE-papers` `main` | `a3558e93cc46a7e02ba56c51ea88c13ce2de8196` |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`5b92f193c903ec41a4d02b67c97d096a49d92682`** *(the act's commit; this pin line follows it, per the established two-step)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — rebuilt at the new HEAD, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
