@@ -239,7 +239,7 @@ two-act bias, and reversing a known bias is not the same as seeing the mathemati
 |:--|:--|
 | `SIDE-global-section` `main` | `113c37bbb1baaf531221db914dda1338c09ccc94` — **Core 284/284, rows 1–73** |
 | `PLACE-papers` `main` | `6007526ee90127b7eac2f8c381a857ca11d0a33f` — **keystone v2.32** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`13bc3173f3f6b6429e338fcefc1a87e73df13703`** *(the act commit; this pin line follows it, per the established two-step)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — rebuilt at the new HEAD, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
