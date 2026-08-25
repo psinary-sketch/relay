@@ -1,0 +1,228 @@
+====================================================================================================
+b168 -- THE LEFT-ENDPOINT REPAIR -- THE BANK. Registration:
+data/b168_registration_2026-08-25.txt (banked at 9ac1f2b after the owner reads and BEFORE any
+computation, with the repair's route fixed in advance, the route not taken recorded, three
+gates with tolerances, and SIX executor grounds including a PREDICTED MOVEMENT with its size).
+Instruments: tools/e16/b168_epsgrid.py (new), b168_delta.py, b168_jfloor.py.
+Kernel: Core/FamilySignShadow.lean, FOUR terminals; Core 288 -> 292/292, correspondence row 75.
+### ALL THREE GATES PASS. DELTA IS BANKED. THE ONE-SIGN VERDICT IS DECIDED ACROSS THE FAMILY.
+b38's verdicts FENCED; (I-differ) at grade; N-EXT-2 untouched; nothing beyond the cap.
+====================================================================================================
+
+*** THE HEADLINE: ### THE ROUTINE WAS NEVER AT FAULT. b38_act10.per_mode_eps_grids takes its
+own empty-range branch at rho = 1 -- "lo, hi = 1.0/r, 1.0; if hi - lo <= 0: continue" -- and
+leaves the entry at ZERO, which IS b115 (2g)'s derived e_n(0) = 0.
+### THE DERIVED ANSWER WAS ALREADY IMPLEMENTED IN THE INSTRUMENT AND NOBODY HAD EVER ASKED IT.
+b167's defect was in the GRID handed to the routine, whose first node is exp(1e-4), and in
+np.interp clamping below it. ***
+
+--- (1) COMPONENT 1 -- THE REPAIR AND ITS THREE GATES. ---
+
+ THE ROUTE TAKEN, fixed at registration before it was built: ### PREPEND rho = 1.0 TO THE
+ INCUMBENT GRID, ITS VALUE TAKEN FROM THE ROUTINE, EVERY INCUMBENT NODE LEFT IN PLACE.
+ THE ROUTE NOT TAKEN, recorded: rebuilding as linspace(0, ln(RHO_MAX), n) also reaches rho = 1
+ but REDISTRIBUTES EVERY NODE, so every interpolated value in the record would shift.
+ ### PREPENDING ONE NODE MEANS np.interp AT ANY rho >= exp(1e-4) USES THE SAME NEIGHBOURING
+ ### NODES AND RETURNS THE SAME NUMBER. THE INCUMBENT-PRESERVATION LAW IS SATISFIED BY
+ ### CONSTRUCTION AND NOT BY LUCK.
+ ### e_n(0) WAS NOT SET TO ZERO BY HAND -- b167 named that in advance as the thing a repair
+ must not do. And ### b134_wroute.py WAS NOT MODIFIED: its psi_W takes E as a parameter, so the
+ repaired grid is INJECTED rather than patched over, and a prior act's instrument stays
+ reproducible exactly as that act ran it.
+
+ (G-L) ### THE REPAIRED GRID EVALUATES AT rho = 1 WITH NO CLAMP AND NO EXTRAPOLATION. PASS.
+   incumbent first node 1.0001000050   ### the defect
+   repaired  first node 1.0000000000
+   sum_n e_n at the repaired first node = 0   (exactly; from the routine's own branch)
+ (G-K) ### Delta(0) = 10, THE DERIVED KNOWN ANSWER -- THE GATE THAT FIRED AT b167. PASS.
+   incumbent Delta(0) = 9.997700582621   |dev| 2.299e-03   ### b167's failure, REPRODUCED
+   repaired  Delta(0) = 10.000000000001  |dev| 9.877e-13   tol 1e-9
+ (G-R) ### THE INCUMBENT REPRODUCES TO PRINTED DIGITS. PASS.
+   Psi_W(0)         repaired -1.165002987410 vs banked -1.165002987   dev -4.101e-10
+   sum_n A_n(UMAX)  repaired 1.443987342550e-01 vs banked 1.443987343e-01  dev -4.498e-11
+   b134's I_W column, worst |repaired - banked| = 4.824e-10
+     ### IDENTICAL TO b167's INCUMBENT RUN (4.824e-10) -- the repair did not move it.
+   ### WORST |REPAIRED - INCUMBENT| ACROSS THE I_W COLUMN = 1.343e-13.
+
+ *** ### THE PREDICTED MOVEMENT, REGISTERED BEFORE THE RUN AND LANDED ON THE NUMBER RATHER
+ THAN THE DIRECTION. (e2) said Psi_W(0) would move by phi_e(0) -- the cancellation residue
+ b115 banked at -1.42e-11 and b167 reproduced at -1.422267621e-11.
+ ### MEASURED: Psi_W(0) repaired - incumbent = -1.422262307926e-11.
+ ### THE REPAIR'S ONLY FOOTPRINT ON THE RECORD IS EXACTLY THE RESIDUE THAT HID THE DEFECT.
+ It is four orders below Psi_W(0)'s printed precision, so G-R passes on the ferry's own
+ criterion -- ### AND IT IS REPORTED RATHER THAN HIDDEN, BECAUSE A REPAIR MUST NOT IMPROVE
+ ### ANYTHING SILENTLY. ***
+
+--- (2) COMPONENT 2a -- DELTA, BANKED ON THE LICENSED RANGE. BENCH GRADE. ---
+
+        u          sum_n A_n          sum_n e_n              Delta
+   0.00000       10.000000000        0.000000000       10.000000000
+   0.09702        4.697196819        1.837666040        2.859530779
+   0.25226        2.218815249        2.277481837       -0.058666588
+   0.50452        1.222883878        0.562085144        0.660798734
+   0.99934        0.701841186        0.266629279        0.435211907
+   1.50386        0.495958744        0.109732635        0.386226108
+   1.99868        0.375009827        0.050409393        0.324600434
+   2.50320        0.287975315        0.023121120        0.264854195
+   2.99801        0.223909073        0.010992109        0.212916964
+   3.50253        0.173711511        0.005207257        0.168504253
+   3.87122        0.144398734        0.002987733        0.141411001
+ Delta(0) = 10.000000000 ; Delta(umax) = 0.141411001 ; gross change = -9.858588999
+ max|Delta| = 10.000000000 ; min Delta = -0.068056008 ; ### SIGN CHANGES: 2.
+ ### DELTA IS NOT A SMALL PERTURBATION OF ANYTHING: it falls by an order within a tenth of
+ the range and dips negative near u = 0.25.
+
+--- (3) COMPONENT 2b -- DELTA'S FLOOR, EVERY AXIS, WITH ITS AXIS NAMED. ---
+
+   u-grid 200 vs 400 : 4.671449e-02      ### THE BINDING AXIS
+   u-grid 800 vs 400 : 1.557044e-04
+   n_rho 400 vs 800  : 6.592388e-05
+   n_rho 1600 vs 800 : 2.578172e-05
+   NGQ 240 vs 160    : 1.314504e-12       NGQ 80 vs 160  : 1.117328e-12
+   NLEG 400 vs 300   : 6.994405e-15       NLEG 200 vs 300: 6.328271e-15
+   ### NQ 600/800/900 vs 700 : 0.000000e+00 EXACTLY, ALL THREE.
+ ### DELTA'S FLOOR = 4.671449e-02, AXIS = THE u GRID.
+ Psi_W's floor for comparison: 8.195851e-10, axis NQ via sigma_even (b134 G-D).
+
+ *** ### (e4) SPLITS, AND IS REPORTED SPLIT RATHER THAN AS A PARTIAL WIN.
+ ### THE AXIS HALF LANDS, ON PRECISELY THE REASONING GIVEN: Delta contains no sigma_even, and
+ the NQ axis measures EXACTLY ZERO at all three variations -- not "small", zero.
+ ### THE MAGNITUDE HALF MISSES BY SEVEN ORDERS: 4.671e-02 against Psi_W's 8.196e-10, and the
+ prediction said LOWER.
+ ### THE LESSON, WHICH IS WORTH MORE THAN THE PREDICTION WAS: REMOVING THE AXIS THAT DOMINATED
+ ### ONE OBJECT'S FLOOR DOES NOT LOWER ANOTHER OBJECT'S FLOOR, BECAUSE THE NEW OBJECT HAS ITS
+ ### OWN STRUCTURE. Delta plunges from 10 to 2.86 within a tenth of the range; Psi does not.
+ The u grid that resolves Psi cannot resolve Delta, and that has nothing to do with which axis
+ carried Psi's floor. ### THE EXECUTOR REASONED ABOUT WHAT HE WAS REMOVING AND NOT ABOUT WHAT
+ ### WAS LEFT -- the same species of error b119 scored against him ("an amplitude argument is
+ not a pairing argument"). ***
+
+--- (4) THE FLOOR ON THE QUANTITY THE VERDICT ACTUALLY DEPENDS ON. ---
+
+ ### DELTA'S POINTWISE FLOOR IS NOT THE VERDICT'S FLOOR. The verdict depends on
+ J(L) = <PhiK, Delta(L.)> and on the subrange endpoint, not on Delta pointwise. Measured over
+ NINE CONFIGURATIONS (u-grid 200/400/800 x n_rho 400/800/1600):
+   u-grid  200: mu_lo = 0.483689186, 0.483686706, 0.483683172
+   u-grid  400: mu_lo = 0.483699369, 0.483698412 (reference), 0.483697891
+   u-grid  800: mu_lo = 0.483740728, 0.483702028, 0.483701148
+ ### SPREAD OF THE ENDPOINT = 5.755675e-05; range [0.483683172, 0.483740728].
+ ### FOUR ORDERS BELOW DELTA's OWN FLOOR, because the PhiK pairing integrates the plunge that
+ the pointwise floor is made of.
+ ### THE LAW THIS INSTANCES: A FLOOR QUOTED ON THE WRONG QUANTITY IS NOT THE FLOOR THAT
+ ### GOVERNS THE VERDICT. Both are reported here with their axes, and neither is dropped.
+
+--- (5) THE POST-DERIVATION CHECK AGAINST b155's BANKED d(mu). ---
+ b166's derived law needs d(mu) = 0.004411214 to erase the a^2 = 12 deviation; b155 banks
+ 0.004435. ### RESIDUAL 2.379e-05, AND ITS SOURCE IS STATED: b155 computed from b109's ROUNDED
+ -0.0073, the law here from b110's -0.007261299. ### NEITHER IS WRONG AT ITS OWN INPUT.
+ ### THIS CHECK IS INDEPENDENT OF DELTA and would have held had the act halted again.
+
+--- (6) COMPONENT 2c (P3) -- THE ONE-SIGN VERDICT ACROSS THE FAMILY. ---
+
+ I_mu(L) = I_sigma(L) + (sigma_even - mu)*J(L),  J(L) = <PhiK, Delta(L.)>.
+ sigma_even (layer, NQ=700) = 0.616500298741.
+
+     a^2         L          I_sigma(L)               J(L)
+       2  0.346574     -0.141878140014     1.068344313137
+       3  0.549306     -0.101477079811     0.677840421280
+       4  0.693147     -0.094958249834     0.540571529946
+       8  1.039721     -0.096080945837     0.371318540385
+       9  1.098612     -0.096586799482     0.353989310753
+      12  1.242453     -0.097074298101     0.319441864457
+      16  1.386294     -0.096237114469     0.293121139854
+      24  1.589027     -0.092834734594     0.265584214351
+      48  1.935601     -0.082552767163     0.234599094014
+ ### OVER THE 601-POINT SWEEP: J in [+0.234599094, +1.068344313], ### SIGN CHANGES: 0.
+
+ *** ### THE VERDICT: **HOLDS ON A NAMED SUBRANGE.**
+ ### THE ONE-SIGN PROPERTY HOLDS EXACTLY FOR mu > 0.483698412 (endpoint spread 5.8e-05),
+ ### AND THE ADMISSIBLE SET IS A HALF-LINE RATHER THAN AN INTERVAL -- because J keeps ONE SIGN
+ ### across the sweep, so the constraint binds from one side only. The binding L is 0.346574,
+ ### which is a^2 = 2, the smallest cell. ***
+   b38's member mu = 0.616500299 : INSIDE, max I_mu = -0.082552767
+   mu = 1                        : INSIDE, max I_mu = -0.172521450
+   mu = 0.5                      : INSIDE, max I_mu = -0.017165264
+   ### mu = 0, THE FAMILY'S FREE END : OUTSIDE, max I_mu = +0.516756448
+   ### THE ILLUSTRATIVE BRACKET [0,1] IS NOT WHOLLY INSIDE.
+
+ *** ### THE GUARD, AT FULL PROMINENCE, BECAUSE THIS IS THE MOST OVER-READABLE RESULT THE LANE
+ HAS PRODUCED. ### THAT THE ONE-SIGN PROPERTY FAILS AT mu = 0 IS NOT EVIDENCE AGAINST mu = 0.
+ The inference "this member breaks the lane, so this member is wrong" requires a premise
+ NOBODY HAS: that the lane's monotonicity is a REQUIREMENT. ### IT NEVER WAS. b115, b116 and
+ b117 were finding out WHETHER it holds, not assuming it must. A member outside the subrange
+ simply leaves the balanced window's uniqueness UNDERIVED -- it does not contradict anything.
+ ### THE SUBRANGE IS A FACT ABOUT THE FAMILY AND NEVER AN ARGUMENT FOR A MEMBER.
+ ### AND THE SYMMETRIC WARNING: THAT b38's MEMBER LIES INSIDE IS NOT EVIDENCE FOR IT EITHER.
+ b155's guard rides verbatim: the freedom is not an uncertainty, it is an unpinned definitional
+ choice, and until it is pinned there is no fact of the matter about which pattern is "the"
+ pattern. ### NOTICED IS NOT EARNED. ***
+
+ ### THE CONDITIONALITY, CARRIED VERBATIM FROM THE INSTRUMENT'S OWN GRADE AND NOT SOFTENED:
+ every I value is an enclosure "RIGOROUS OVER THE QUADRATURE AND CONDITIONAL ON THE SAMPLES"
+ (b119's head), the prolate error bound remains the named blocker to any higher grade, and
+ ### 601 SWEEP POINTS SAMPLE THE RANGE, THEY DO NOT CERTIFY A CONTINUUM. Nothing here is
+ certified-numerics and nothing here is called it.
+
+--- (7) DOMINANCE. ### NOT EVALUATED AND NOT APPROACHED. ---
+ The ferry declines to spend a second asking. ### THIS ANSWERS b167's ROUTED QUESTION IN THE
+ DIRECTION OF NOT SPENDING, and the executor records that the author has now answered it.
+ b134's status stands: REFUTED ON REPAIRED GROUND, the asking SPENT.
+
+--- (8) THE KERNEL. Core/FamilySignShadow.lean, FOUR terminals, zero axioms. 288 -> 292/292;
+    correspondence row 75; no blank cells; 75 of 75 rows parse at six cells. ---
+ ### WITNESSES POLARITY-VERIFIED BEFORE ANY LEAN WAS WRITTEN: 6 positive, 6 negative, each
+ mutated witness required to FAIL, including a d just past the threshold (0.133 breaks it) and
+ one just inside (0.132 does not).
+  · pairings_all_negative_and_slopes_all_positive -- and ### the second clause is the
+    structural one: J has no sign change, which is WHY the admissible set is a half-line.
+  · binding_cell_is_the_smallest -- a^2 = 2 minimises -I/J, decided by CROSS-MULTIPLICATION so
+    no division and no rounding enters.
+  · holds_at_b38_member_and_at_one_fails_at_zero.
+  · threshold_brackets_the_endpoint -- decided at BOTH ends so neither side is assumed.
+ ### COMPILED FIRST BUILD, no defects. ### THE INPUTS ARE BENCH VALUES CARRYING THEIR
+ ### INSTRUMENT'S GRADE; DECIDING THEM IN CORE DOES NOT UPGRADE THEM.
+
+--- (9) THE PREDICTIONS, SCORED. ---
+ NAVIGATOR: P1 the repair with its three gates -- ### LANDS, branch (a). P2 Delta banked --
+  ### LANDS. P3 the three-way rubric -- ### LANDS on "HOLDS ON A NAMED SUBRANGE".
+ EXECUTOR:
+  (e1) G-L passes by direct evaluation -- ### LANDS.
+  (e2) ### G-R passes to printed digits but NOT exactly, with the movement named in advance at
+    ~1.42e-11 and identified as phi_e(0) -- ### LANDS, MEASURED -1.422262307926e-11.
+    ### THE SHARPEST REGISTERED CALL THIS SEAT HAS MADE, AND IT CAME FROM ANOTHER ACT'S BANKED
+    ### NUMBER RATHER THAN FROM INTUITION.
+    ### ONE CLAUSE OF IT WAS TOO STRONG AND IS CORRECTED: "every other banked object should
+    move by EXACTLY nothing" -- the I_W column moved by up to 1.343e-13. That is round-off in
+    the pairing, not the epsilon repair, ### BUT "EXACTLY NOTHING" IS NOT WHAT WAS MEASURED
+    ### AND THE PREDICTION IS NOT RE-WORDED TO FIT.
+  (e3) G-K passes with Delta(0) = 10 to about 5e-10 -- ### LANDS, and CONSERVATIVELY: the
+    measured deviation is 9.877e-13, three orders better than predicted.
+  (e4) ### SPLITS -- axis half lands exactly (NQ = 0.000e+00); magnitude half misses by seven
+    orders. See (3).
+  (e5) ### LANDS: "HOLDS ON A NAMED SUBRANGE", and the sub-prediction that the subrange
+    contains b38's member LANDS. ### AND THE DECLINE TO PREDICT WHETHER mu = 0 LIES INSIDE WAS
+    ### THE RIGHT CALL: IT DOES NOT, and a guess either way would have been decoration.
+  (e6) something enters Core -- ### LANDS, four terminals.
+
+--- (10) THE FILINGS AND THE THIRTY-FIFTH SEAM'S DEBT. ---
+ FILED: the ruling brief's addendum restated in MEASURED terms; the register's route-A row
+ updated with the subrange; the left-endpoint defect filed at the loom with its species and
+ its scope.
+ ### THE DEFECT'S SCOPE, STATED SO IT IS NEITHER OVER- NOR UNDER-READ:
+  PROTECTED (unaffected, because they consume the t-proportional DIFFERENCE): b115's Psi and
+   collapse, b116's orientation, b117's enclosure, b119's split, b121's excursion, b134's
+   repaired re-runs -- ### and G-R MEASURED that protection rather than assuming it.
+  BLOCKED (any RAW-SUM object over the epsilon modes): Delta was the first ever asked for, and
+   ### ANY FUTURE ONE WOULD HAVE HIT THE SAME WALL.
+ ### THE SPECIES: A CANCELLATION THAT PROTECTS ONE OBJECT IS NOT A PROPERTY OF THE INSTRUMENT.
+ ### THE DEBT, RESTATED: whatever the next arc lands; the rulings if any come -- item 1's,
+ route B's, and the methodology day's; b157's six findings; the three front-door items, drafted
+ at b166 and still the author's to apply; ### the Q-route Psi instability, still UNLOCATED and
+ untouched by this act; ### and the dominance second asking, NOT SPENT.
+ ### DISCHARGED THIS ACT: the epsilon grid's left endpoint, and Delta on the licensed range.
+
+DEVIATIONS: none. The ferry's ordering was followed exactly.
+DIVERGENCES: none.
+### NO MEMBER IS PREFERRED, RECOMMENDED OR ARGUED FOR. ROUTE A AND ROUTE B REMAIN THE
+### AUTHOR'S. THE SUBRANGE IS A FACT ABOUT THE FAMILY. NOTICED IS NOT EARNED.
+====================================================================================================
