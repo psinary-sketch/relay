@@ -55,6 +55,9 @@ import re
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import audit_emit as AE
+
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
@@ -219,7 +222,19 @@ def main(argv):
             print("   %-32s :%-6d %s" % (os.path.basename(p), ln,
                                          cls or "### LIVE USE -- CORRECT BEFORE SHIPPING"))
             print("      %s" % text)
-    print("\n  VERDICT          : %s" % ("CLEAN" if live == 0 else "NOT CLEAN"))
+    verdict = "CLEAN" if live == 0 else "NOT CLEAN"
+    # ### --emit: THE TOOL WRITES ITS OWN AUDIT BLOCK (b153). The actor
+    # ### embeds it verbatim and never retypes it.
+    if '--emit' in argv:
+        i = argv.index('--emit')
+        act = argv[i + 1] if i + 1 < len(argv) else 'unknown'
+        blk, sp = AE.emit('banned_terms', act, srcs,
+                          [('stems', ', '.join(STEMS)), ('files', len(files)),
+                           ('lines', len(scope)), ('hits', hits),
+                           ('live uses', live)], verdict)
+        print("\n" + blk)
+        print("  sidecar written: %s" % sp)
+    print("\n  VERDICT          : %s" % verdict)
     print("  ### the verdict reads the LIVE count, not the hit count -- a scope may")
     print("  ### carry excepted hits and still be clean, and that is the whole")
     print("  ### reason the classes are printed rather than filtered silently.")

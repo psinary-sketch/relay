@@ -35,6 +35,9 @@ import re
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import audit_emit as AE
+
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
@@ -159,7 +162,17 @@ def main(argv):
     else:
         print("      none detected")
 
-    print("\n  ### VERDICT: %s" % ("CLEAN" if not fails else "FAIL"))
+    verdict = "CLEAN" if not fails else "FAIL"
+    if '--emit' in argv:
+        i = argv.index('--emit')
+        act = argv[i + 1] if i + 1 < len(argv) else 'unknown'
+        blk, sp = AE.emit('commit_selfcheck', act, [repo, str(rev or '(staged)')],
+                          [('written', len(files)), ('foreign', len(hits)),
+                           ('ro-claim', 'yes' if any_claim else 'none'),
+                           ('compliance', 'yes' if c else 'none')], verdict)
+        print("\n" + blk)
+        print("  sidecar written: %s" % sp)
+    print("\n  ### VERDICT: %s" % verdict)
     for f in fails:
         print("      - %s" % f)
     print("  ### REACH: explicit patterns only. This cannot read meaning and does")

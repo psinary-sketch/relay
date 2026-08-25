@@ -1,0 +1,118 @@
+b153 — THE AUDIT EMIT ACT — BANK
+================================
+Registration: 0e12bad (banked before any component, per Rule 4).
+Date: 2026-08-24.
+
+THE ACT'S OWN TEST, REGISTERED IN ADVANCE
+-----------------------------------------
+The registration wrote, before a line of the tool existed:
+
+    "this act's own report must carry EMITTED blocks. ### IF IT CARRIES A
+     HAND-TYPED ONE, THE ACT HAS VIOLATED THE CONVENTION IT MINTS, IN THE
+     ACT THAT MINTS IT — which is precisely the b148 shape. The verifier is
+     run against this act's own report before it ships."
+
+### That sentence is the whole act in miniature. b148's breach was not that a
+### rule was broken but that THE BREACHING ACT ASSERTED ITS OWN COMPLIANCE.
+### An act that mints an authorship convention and then hand-types its own
+### audit block would be the same shape at one higher level — and it would be
+### the most quotable false pass in the record, because it would sit inside
+### the very line forbidding it.
+
+COMPONENT 1 — THE EMITTER AND THE VERIFIER
+------------------------------------------
+  tools/audit_emit.py     — a tool that renders a verdict writes its own block:
+                            tool, act, run timestamp, inputs, counts, verdict,
+                            and a sha256/32 self-hash over the block's own body.
+                            Sidecar written to relay/data/audit_<act>_<tool>.txt.
+  tools/audit_verify.py   — reads a REPORT, extracts every audit block, requires
+                            each to match a sidecar BYTE-FOR-BYTE with its
+                            self-hash intact.
+
+  --emit wired into: banned_terms.py, mirror_verify.py, commit_selfcheck.py.
+  (The wiring was done by a SCRIPT FILE after a heredoc replacement wrote
+   nothing — the standing fix for the escaping failure class, applied on sight
+   rather than after a second failure.)
+
+  ### THE THREE VERDICTS ARE DIFFERENT AND ARE KEPT DIFFERENT:
+    ORPHAN   — a block in a report matching no sidecar. ### THE b151 SHAPE:
+               a verdict no tool produced. FAIL.
+    TAMPERED — a block whose self-hash does not recompute. Emitted, then
+               edited. FAIL.
+    UNUSED   — a sidecar emitted that no report embeds. ### NOT A FAILURE.
+               A check may be RUN without being QUOTED, and collapsing that
+               into a failure would push the operator toward quoting
+               everything, which is how a report becomes unreadable and its
+               audit blocks become scenery.
+
+COMPONENT 2 — THE FIXTURES (nursery convention: first run is construction)
+--------------------------------------------------------------------------
+ banned_terms.py     dirty exit 1 PASS | clean exit 0 PASS | empty exit 0 PASS
+ commit_selfcheck.py 49cd156 exit 1 PASS | 084efbe exit 0 PASS | no-args exit 2 PASS
+ mirror_verify.py    real exit 0 PASS | tampered exit 1 PASS | zero-row exit 2 PASS
+ audit_verify.py     matched exit 0 PASS | edited->TAMPERED exit 1 PASS | no-blocks exit 0 PASS
+  ### FIXTURES: ALL PASS (12 of 12)
+
+  The known-dirty cases are the record's own: 49cd156 IS the b148 breach commit;
+  084efbe IS its correction. ### THE FIXTURE IS NOT A SIMULATION OF THE FAILURE.
+  ### IT IS THE FAILURE, KEPT.
+
+  ### THE THREE ZEROES, DISTINGUISHED RATHER THAN CONFLATED:
+    an empty FILE is a real scope of zero lines and legitimately CLEAN;
+    zero PROBES made a verdict vacuous and is a HARD FAILURE (b152);
+    a report with NO audit block claims nothing and is NOT a false pass.
+  ### Three different zeroes, three different right answers. A tool that
+  ### answered all three the same way would be wrong twice whichever way it chose.
+
+COMPONENT 3 — THE CONVENTION MINTED
+-----------------------------------
+  Filed at the conventions lines of VERIFICATION_LOOM.md, dated 2026-08-24:
+  AN AUDIT BLOCK IS WRITTEN BY THE TOOL, NOT ABOUT IT. HAND-TYPED VERDICTS
+  ARE VIOLATIONS. Standing-laws annex row added.
+
+  Founding instances, named as one hole seen three times:
+    b146 — a scanner EXCUSED a live use (per-line exception window) and
+           reported CLEAN.
+    b148 — a commit message ASSERTED its own compliance in the act that
+           breached the deconfliction ruling.
+    b151 — a report CLAIMED "VERDICT: CLEAN" for a vocabulary review that was
+           never run, with the banned stem sitting in the text it certified.
+
+  ### THE FIRST TWO WERE PATCHED AT THEIR SITES. THE THIRD COULD NOT BE,
+  ### because the defect was not in any tool: a report's audit block is PROSE,
+  ### and prose is free. The fix is not a better tool but A CHANGE OF
+  ### AUTHORSHIP. What was a risk becomes a violation, and a violation is
+  ### DETECTABLE where a risk is not.
+
+THE REACH, STATED — because a check whose reach is not stated will be
+trusted beyond it
+---------------------------------------------------------------------
+  ### IT CLOSES: a verdict typed into a report that no tool produced; a
+  ###            sidecar edited after emission (self-hash).
+  ### IT DOES NOT CLOSE: a sidecar fabricated wholesale. Nothing here
+  ###            distinguishes a forged sidecar from a real one, and a forger
+  ###            can compute a hash.
+  ### SO: it raises the cost of a false audit FROM ZERO TO DELIBERATE. It does
+  ### not make one impossible, and THE CONVENTION MAY NOT BE CITED AS THOUGH
+  ### IT DID. The tools' own headers carry this sentence, so the reach travels
+  ### with the tool and not only with this bank.
+
+WHAT THIS ACT DID NOT DO
+------------------------
+  No mathematics. No claim advanced, weakened or strengthened. The identity
+  lane stays closed (b142/b143); the boundary stays refused and typed (b151);
+  the negative-read fence of b152 stands unchanged and nothing here may be
+  cited as progress toward the license. Core 271/271, rows 1–68, UNTOUCHED.
+  No deposit. No circulation beyond relay reports. HELD (6eada6a,
+  held/carrier-acts) LOCAL-ONLY. TECHNE-Core untouched.
+
+  ### AND THE HONEST DEFLATION: this act built a mechanism against a class of
+  ### DISHONEST-LOOKING RECORD, not against being WRONG. Every false pass in
+  ### the trilogy was a true statement about nothing or a false statement about
+  ### a check — none of them was a mathematical error. ### THE RECORD IS NOW
+  ### HARDER TO MISREAD. IT IS NOT MORE CORRECT.
+
+PINS AT CLOSE (by ls-remote, never from recall)
+-----------------------------------------------
+  PLACE-papers  main   781b8e27611d478694e3497f1ee10595ba11b43e
+  mirror        31 files, roster unchanged, CLEAN ON BOTH CLAUSES

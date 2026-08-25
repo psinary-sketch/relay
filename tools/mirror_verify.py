@@ -27,10 +27,14 @@ Usage:
     python mirror_verify.py <zip> <remote-url-or-repo-path> [<branch>]
 """
 import hashlib
+import os
 import re
 import subprocess
 import sys
 import zipfile
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import audit_emit as AE
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
@@ -94,7 +98,17 @@ def main(zpath, remote, branch='main'):
     print("  CLAUSE 2 : %s" % ("CLEAN -- they agree" if agree else "NOT CLEAN -- STALE BUILD"))
 
     ok = (bad == 0) and agree
-    print("\n  ### VERDICT: %s" % ("CLEAN ON BOTH CLAUSES" if ok else "NOT CLEAN"))
+    verdict = "CLEAN ON BOTH CLAUSES" if ok else "NOT CLEAN"
+    if '--emit' in sys.argv:
+        i = sys.argv.index('--emit')
+        act = sys.argv[i + 1] if i + 1 < len(sys.argv) else 'unknown'
+        blk, sp = AE.emit('mirror_verify', act, [os.path.basename(zpath)],
+                          [('files', len(names)), ('rows', len(rows)),
+                           ('mismatch', bad), ('declared', declared),
+                           ('ls-remote', live[:12] if live else '-')], verdict)
+        print("\n" + blk)
+        print("  sidecar written: %s" % sp)
+    print("\n  ### VERDICT: %s" % verdict)
     print("  ### neither clause alone is the verification; the law requires both.")
     return 0 if ok else 1
 
