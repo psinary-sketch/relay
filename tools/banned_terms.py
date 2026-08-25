@@ -67,7 +67,8 @@ EXCEPT = [
     # ### the hyphenated form was a REGEX BUG, not a softening: "mass-gap
     # ### exclusion (Yang-Mills)" is the same standing Clay exception as "mass gap".
     (re.compile(r'mass[- ]gap|yang-?mills', re.I), 'CLAY / BIBLIOGRAPHY CITATION'),
-    (re.compile(r'retired|superseded|correction record|formerly|no longer|banned|vocabulary repair',
+    (re.compile(r'retired|superseded|correction record|corrected in place|CORRECTED IN PLACE|'
+                r'formerly|no longer|banned|vocabulary repair',
                 re.I), 'RETIRED TERM IN A CORRECTION RECORD'),
     (re.compile(r'STEMS|stems scanned|banned[- ]term', re.I), "THE SCANNER'S OWN RULE TEXT"),
 ]

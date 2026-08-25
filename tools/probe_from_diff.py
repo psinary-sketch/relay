@@ -116,6 +116,17 @@ def main():
             print("%2d  [%s]\n    %s" % (i, os.path.basename(path), frag))
         return 0
 
+    # ### DEFECT FIXED b152, AND IT IS THE ZERO-ROWS CLASS AGAIN. A diff that
+    # ### yields NO candidate strings emitted zero probes and the run printed
+    # ### "0 of 0 probes PRESENT ... VERDICT: CLEAN". ### ZERO PROBES PRODUCE ZERO
+    # ### ABSENCES, SO THE VERDICT WAS VACUOUS -- the same shape mirror_verify.py
+    # ### was repaired for at b142 (zero manifest rows, zero mismatches, CLEAN).
+    # ### AN EMPTY CHECK IS NOT A PASSING CHECK.
+    if not probes:
+        print("### HARD FAILURE: ZERO PROBES EMITTED from this diff.")
+        print("### A run with no probes cannot verify anything, and reporting")
+        print("### CLEAN on it would be a false pass. Widen the diff range.")
+        return 2
     z = zipfile.ZipFile(zpath)
     names = [n for n in z.namelist() if n != 'MANIFEST.md']
     # ### DEFECT FIXED b141, ON THE CONVENTION'S FIRST USE: the probe was
