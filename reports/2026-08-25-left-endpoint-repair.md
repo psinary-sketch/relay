@@ -382,7 +382,7 @@ verifier as **UNUSED**, which is run-but-not-quoted and not a failure.*
 |:--|:--|
 | `PLACE-papers` `main` | `b1b1f95f0c8f6a51b241412be6dd9df4c6401d9f` — the measured addendum and the defect filing |
 | `SIDE-global-section` `main` | `d705a9fb22b66f1940e1159508f02dc2c2d047e1` — ### **Core 292/292, row 75** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `b8caf65611bd513e8dbaae1b9cf8d4fdf91e3c82` — **the act; read back by `ls-remote`** *(this pin line is the commit after it)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `b1b1f95`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
