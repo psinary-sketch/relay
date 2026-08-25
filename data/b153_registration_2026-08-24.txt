@@ -1,0 +1,65 @@
+====================================================================================================
+b153 -- THE AUDIT EMIT ACT -- THE RUN-REGISTRATION. Banked BEFORE ANY COMPONENT.
+Ferry: part 1 of 1, receipt confirmed in full (Rule 1).
+### TOOL WORK AND ONE CONVENTIONS LINE. NO KEYSTONE INCREMENT (a conventions
+filing does not bump the version, per the b140/c73a280 precedent).
+====================================================================================================
+
+### WHAT THIS ACT IS ACTUALLY CLOSING, STATED PRECISELY.
+The trilogy is not three careless moments. ### IT IS ONE STRUCTURAL HOLE SEEN
+THREE TIMES: in every instance THE CHECK AND THE THING CHECKED WERE THE SAME
+ACTOR, and the record had no mechanism that could tell a run from a claim.
+ b146 -- a scanner EXCUSED a live use and reported CLEAN (per-line exception).
+ b148 -- a commit message ASSERTED its own compliance in the act that breached it.
+ b151 -- a report CLAIMED an audit verdict for a check THAT WAS NEVER RUN.
+### THE FIRST TWO WERE PATCHED AT THEIR OWN SITES. THE THIRD CANNOT BE, because
+the defect is not in any tool -- ### IT IS IN THE FACT THAT A REPORT'S AUDIT BLOCK
+IS PROSE, AND PROSE IS FREE.
+
+### THE FIX'S SHAPE, AND WHY IT IS THE RIGHT ONE: MOVE THE AUTHORSHIP.
+An audit block is currently written BY THE ACTOR ABOUT THE TOOL. ### AFTER THIS
+ACT IT IS WRITTEN BY THE TOOL AND ONLY EMBEDDED BY THE ACTOR.
+### A HAND-TYPED VERDICT BECOMES A VIOLATION RATHER THAN A RISK, and the closing
+sequence gains a member that can detect one -- ### BECAUSE AN EMBEDDED BLOCK WITH
+NO MATCHING SIDECAR IS A FACT ABOUT FILES, NOT A JUDGEMENT ABOUT INTENT.
+
+----------------------------------------------------------------------------------------------------
+REGISTERED EXPECTATIONS AND HAZARDS.
+
+(C1) THE EMIT MODE. Three tools gain --emit: banned_terms.py, mirror_verify.py,
+  commit_selfcheck.py. Each writes its own audit block to a sidecar in data/ with
+  ### the scanned counts, the verdict, a RUN TIMESTAMP, and a SELF-HASH.
+  ### AND THE MEMBER THAT MAKES IT STRUCTURAL RATHER THAN ASPIRATIONAL: a verifier
+  that reads a REPORT, finds its audit blocks, and REQUIRES each to match a
+  sidecar BYTE-FOR-BYTE. ### WITHOUT THAT VERIFIER THIS IS A NEW HABIT, NOT A NEW
+  STRUCTURE, and the record has spent five acts learning the difference.
+  ### THE HAZARD REGISTERED: an emit mode can be run and its sidecar then EDITED,
+  or a sidecar can be written by hand. ### THE SELF-HASH CLOSES THE FIRST AND
+  NOTHING CLOSES THE SECOND -- and the tool's header will say so rather than
+  implying the convention is airtight. ### A CHECK WHOSE REACH IS NOT STATED WILL
+  BE TRUSTED BEYOND IT.
+
+(C2) THE FIXTURES. ### THE NURSERY CONVENTION GOVERNS ABSOLUTELY: every changed
+  tool is fixture-tested IN BOTH POLARITIES BEFORE SERVICE -- known-dirty
+  (expect FAIL), known-clean (expect CLEAN) -- ### PLUS THE ZERO-INPUT CASE, which
+  must be a HARD FAILURE per b152, because an empty check is not a passing check.
+  ### A CHECK EXERCISED ONLY AGAINST THE FAILURE IT WAS BUILT FOR HAS BEEN SHOWN
+  TO FIRE, NOT TO DISCRIMINATE.
+  ### AND THE EXECUTOR REGISTERS THE OBVIOUS EMBARRASSMENT IN ADVANCE: this act's
+  own report must carry EMITTED blocks. ### IF IT CARRIES A HAND-TYPED ONE, THE
+  ACT HAS VIOLATED THE CONVENTION IT MINTS, IN THE ACT THAT MINTS IT -- which is
+  precisely the b148 shape. The verifier is run against this act's own report
+  before it ships.
+
+(C3) THE CONVENTION. ### AN AUDIT BLOCK IS WRITTEN BY THE TOOL, NOT ABOUT IT.
+  Hand-typed verdicts are violations. Founding instances: the trilogy. Filed at
+  the conventions lines; the standing-laws annex gains its row.
+
+INDEPENDENCE CHECK. Components ordered: C2 consumes C1; C3 stands alone.
+
+FENCES. Tool work and one conventions line. ### NO KEYSTONE INCREMENT. Commits via
+the guarded add tool. The patent seat's tree is read, never written. No kernel
+changes. Nothing deposits. Nothing circulates. ### NOTHING ABOUT THE h2 IDENTITY
+IS CLAIMED. No sorry (Rule 5). Core expected UNTOUCHED, an EIGHTEENTH consecutive
+act. Bank: data/b153_audit_emit.txt. Deviation rule standing.
+====================================================================================================
