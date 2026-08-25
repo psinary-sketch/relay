@@ -330,7 +330,7 @@ entered. *Scored wrong, as registered.*
 |:--|:--|
 | `SIDE-global-section` `main` | `83ef81b98ed9bd1a13608659771a9edc62965ba7` — **Core 281/281, rows 1–71** |
 | `PLACE-papers` `main` | `d0c657de6ca6739044f9f4a058efaa3fa07e4ebf` — **keystone v2.31** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`c82c3fbb15b3a264ea8b5d66cf4ad09842ef41b4`** *(the act's commit; this pin line follows it, per the established two-step)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — rebuilt at the new HEAD, 31 files, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
