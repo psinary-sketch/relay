@@ -346,7 +346,7 @@ in `git status` and* ### **left untouched — read, never written.**
 |:--|:--|
 | `PLACE-papers` `main` | `fa2b464f086a929d909b519122d06df87c54dd24` — the loom filings |
 | `SIDE-global-section` `main` | `2b6bac63031936ec2c9de06b7579ec3aab10c56d` — **Core 288/288, row 74, the pipe repair** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `682c55306ba51835b35148491f745c22ba601e90` — **the act; read back by `ls-remote`** *(this pin line is the commit after it)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `fa2b464`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
