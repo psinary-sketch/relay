@@ -194,7 +194,7 @@ rejects at least one parent — **landed, by three.** On Core — **landed**, no
 | repository | pin |
 |:--|:--|
 | `PLACE-papers` `main` | `18e55d01e933d434916cc861da81e4a5b40fc860` |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | **`71d02b7831f139559495080fc12ec0b88cc3a26d`** *(the act commit; this pin line follows it, per the established two-step)* |
 | `SIDE-global-section` `main` | `113c37bbb1baaf531221db914dda1338c09ccc94` — **unchanged; not touched** |
 | mirror | `mirror-refresh-2026-08-25.zip` — **32 files**, rebuilt at the new HEAD, **clean on both clauses** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
