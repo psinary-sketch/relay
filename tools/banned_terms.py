@@ -222,6 +222,26 @@ def main(argv):
             print("   %-32s :%-6d %s" % (os.path.basename(p), ln,
                                          cls or "### LIVE USE -- CORRECT BEFORE SHIPPING"))
             print("      %s" % text)
+    # ### THE EMPTY-SCOPE GATE, ADDED b167 AT THE AUTHOR'S RULING. Before b167 an
+    # ### empty scope printed "files in scope: 0" and "VERDICT: CLEAN" on the same
+    # ### screen -- a checker reporting clean because IT LOOKED AT NOTHING. Found at
+    # ### b166, when bare filenames (which this tool ignores; it needs --new/--diff)
+    # ### produced a clean verdict over zero lines.
+    # ### AND THE HONEST FRAMING, RECORDED SO THE HISTORY IS NOT REWRITTEN: THE TOOL
+    # ### WAS NOT VIOLATING ITS SPECIFICATION. b153's fixture table asserts
+    # ### "banned_terms.py ... empty exit 0 PASS" -- the empty-clean behaviour was
+    # ### DELIBERATE AND TESTED. What changed at b167 is the RULING, not the code's
+    # ### conformance to it: an empty scope is now a HARD FAILURE, because a verdict
+    # ### over nothing is not a verdict. b153's fixture is superseded, not falsified.
+    if not scope:
+        print("\n  VERDICT          : ### NO SCOPE -- HARD FAILURE")
+        print("  ### THE SCANNER WAS GIVEN NOTHING TO READ, so it reports NOTHING,")
+        print("  ### not CLEAN. A verdict over an empty scope is not a verdict.")
+        print("  ### Scope must be given with --new <files> or --diff <repo> [rev];")
+        print("  ### BARE FILENAMES ARE IGNORED, which is how b166 got a clean")
+        print("  ### verdict over zero lines.")
+        return 2
+
     verdict = "CLEAN" if live == 0 else "NOT CLEAN"
     # ### --emit: THE TOOL WRITES ITS OWN AUDIT BLOCK (b153). The actor
     # ### embeds it verbatim and never retypes it.

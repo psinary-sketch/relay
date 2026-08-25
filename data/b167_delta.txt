@@ -1,0 +1,239 @@
+====================================================================================================
+b167 -- THE DELTA ACT -- THE BANK. Registration: data/b167_registration_2026-08-25.txt
+(banked at 0460e40 after the ordered owner reads and BEFORE any computation, with four gates
+and their tolerances fixed, five executor grounds, and ONE DIVERGENCE DECLARED IN ADVANCE).
+Instruments: tools/e16/b167_delta.py, tools/e16/b167_diagnose.py.
+### THE ACT HALTS AT ITS OWN FOURTH GATE. DELTA IS NOT BANKED. P2 AND P3 ARE NOT PERFORMED.
+### NO KERNEL CHANGES; Core stands 288/288, rows 1-74.
+b38's verdicts FENCED; (I-differ) at grade; N-EXT-2 untouched; nothing beyond the cap.
+====================================================================================================
+
+*** THE HEADLINE, STATED FIRST BECAUSE IT IS A FAILURE AND FAILURES MUST NOT BE REACHED ONLY
+AT THE END:
+### THE THREE GATES THE FERRY ASKED FOR PASS. THE FOURTH -- A KNOWN ANSWER FOR THE NEW
+### OBJECT, DERIVED BEFORE IT WAS MEASURED -- FAILS BY SIX ORDERS.
+###   Delta(0) = 9.997700582621   against the DERIVED 10.   |dev| = 2.299e-03, tol 1e-9.
+### THE INSTRUMENT CANNOT DELIVER DELTA AT THE LEFT ENDPOINT OF THE LICENSED RANGE, AND THE
+### DEFECT DOES NOT SHRINK UNDER REFINEMENT AT ANY RESOLUTION TESTED.
+### THE FERRY ASKED FOR ONE MEASUREMENT; THE MEASUREMENT'S OWN KNOWN ANSWER SAYS THE
+### INSTRUMENT IS NOT READY TO MAKE IT. ***
+
+--- (0) RULE 3 (b) -- THE INDEX, QUERIED BY KEY. ---
+ HIT (4): density-collapse, mean-zero-kernel, apportionment-family, exact-reduction.
+ ### NO KEY (4): "delta", "one-sign verdict", "dominance", "epsilon cap".
+ ### THE OBJECT THIS ACT IS NAMED FOR HAS NO INDEX ROW. Read at owners instead.
+
+--- (1) THE CAP READ -- GATE (c). ### PASSES, AND THE READING IS EXACT. ---
+ tools/e16/b134_wroute.py, lines 27-28 at content:
+   UMAX = 2.0 * math.log(math.sqrt(48.001))      RHO_MAX = 48.001
+ ### THE LICENSED RANGE'S UPPER ENDPOINT IS THE EPSILON GRID'S OWN BOUND IN LOGARITHMIC
+ COORDINATES: ln(48.001) = 3.871222 = UMAX. Evaluating Delta on [0, UMAX] needs
+ rho in (1, 48.001] exactly -- the validated domain, no clamped sample at the top.
+ Cross-read at b134 component 4(2): "the grid is hard-capped at RHO_MAX = 48.001, i.e.
+ u <= 3.871222 ... a probe at rho = 100 and 500 shows per_mode_eps_grids RETURNS rather than
+ raising ... THOSE VALUES ARE UNVALIDATED."
+ ### NO VALUE BEYOND THE CAP IS COMPUTED, USED, CITED OR QUOTED IN THIS ACT.
+ ### AND THE IRONY IS RECORDED RATHER THAN ENJOYED: THE GATE THE FERRY BUILT WAS AIMED AT
+ ### THE TOP OF THE RANGE, AND THE RANGE FAILED AT THE BOTTOM.
+
+--- (2) COMPONENT 1a -- THE REPRODUCE-BEFORE-EXTEND GATE. THREE PASS, ONE FAILS. ---
+
+ (G1) Psi_W(0)        = -1.165002987   vs banked -1.165002987   |dev| 3.958e-10  tol 1e-9  PASS
+ (G2) sum_n A_n(UMAX) = 1.443987343e-01 vs banked 1.443987343e-01 |dev| 4.498e-11 tol 1e-9  PASS
+ (G3) b134's I_W column, worst |dev| over the nine cells = 4.824e-10             tol 1e-9  PASS
+ ### (G4) Delta(0) = 9.997700582621 vs DERIVED 10        |dev| 2.299e-03  tol 1e-9  ### FAIL
+
+ ### G4 IS THIS EXECUTOR'S OWN ADDITION, NOT THE FERRY'S. The ferry's gate is
+ reproduce-before-extend on banked cells; G1-G3 are that gate and they pass. G4 came from a
+ DERIVED known answer for the new object -- b115 (2g): A_n(0) = 1 for every mode and
+ e_n(0) = 0 EXACTLY, because the epsilon integral's range [1/rho, 1] is empty at rho = 1,
+ so Delta(0) = NMODE - 0 = 10. ### THE ACT ADDED A GATE IT DID NOT HAVE TO ADD, AND THAT GATE
+ ### IS THE ONE THAT FIRED. Had it not been written, a defective Delta would have been banked
+ ### and two verdicts computed on top of it, and nothing in the ferry's own three gates would
+ ### have said a word.
+
+ THE HALT, PER THE REGISTRATION'S OWN BINDING: "IF ANY GATE FAILS THE ACT HALTS AND SAYS SO;
+ a failed gate is not softened into a partial pass (b128's law, cited)."
+ ### DELTA IS NOT BANKED. THE FLOOR IS NOT MEASURED. P2 IS NOT EVALUATED. P3 WAS ALREADY
+ ### REFUSED ON OTHER GROUNDS. Precedent: b124 halted at G2 and did not perform components
+ 2-4; b128 halted on G-NQ. ### THE HALT IS THE DISCIPLINE WORKING, NOT THE DISCIPLINE FAILING.
+
+--- (3) THE CAUSE, LOCATED AND TESTED RATHER THAN ASSERTED. ---
+
+ THE EPSILON GRID IS BUILT AS rr = exp(linspace(1e-4, log(RHO_MAX), n_rho)), so
+   ### rr[0] = exp(1e-4) = 1.0001000050, NOT 1,
+ and the mode parts are read off it by np.interp, WHICH CLAMPS BELOW THE FIRST NODE. At u = 0
+ the evaluation asks for rho = 1, which lies BELOW rr[0], so it returns e_n(rr[0]) instead of
+ e_n(1) = 0. The deficit is exactly sum_n e_n(rr[0]) = 2.299417380e-03.
+
+ ### AND IT IS NOT A RESOLUTION ARTIFACT. Measured at four resolutions:
+   n_rho  400: rr[0] = 1.0001000050   sum_n e_n(rr[0]) = 2.299417380e-03
+   n_rho  800: rr[0] = 1.0001000050   sum_n e_n(rr[0]) = 2.299417380e-03
+   n_rho 1600: rr[0] = 1.0001000050   sum_n e_n(rr[0]) = 2.299417380e-03
+   n_rho 3200: rr[0] = 1.0001000050   sum_n e_n(rr[0]) = 2.299417380e-03
+ ### IDENTICAL AT EVERY RESOLUTION, BECAUSE THE LEFT ENDPOINT IS FIXED AT exp(1e-4)
+ ### INDEPENDENTLY OF n_rho. ### REFINEMENT CANNOT CURE A DOMAIN DEFECT, and this is the same
+ SPECIES b110 found at the other end of the same grid -- np.interp clamping silently and
+ returning a number -- ### now at the LEFT endpoint, where nobody had looked.
+
+ THE DEFECT'S REACH, MEASURED: clamping bites only u < 1e-4 (rho < rr[0]); above it the
+ interpolation is proper.
+   u = 0e+00  rho = 1.00000000 : sum_n e_n = 2.299417380e-03   CLAMPED
+   u = 1e-05  rho = 1.00001000 : sum_n e_n = 2.299417380e-03   CLAMPED
+   u = 1e-04  rho = 1.00010001 : sum_n e_n = 2.299417380e-03
+   u = 1e-03  rho = 1.00100050 : sum_n e_n = 2.284624431e-02
+   u = 1e-02  rho = 1.01005017 : sum_n e_n = 2.274032261e-01
+ ### THE TRUE FUNCTION RISES STEEPLY FROM ZERO AT rho = 1; the instrument replaces that rise
+ with a constant on [0, 1e-4]. ### THE ERROR IS LARGE WHERE IT BITES AND ITS SUPPORT IS SMALL,
+ ### AND THIS ACT DOES NOT TRADE THOSE OFF -- THAT TRADE IS A JUDGEMENT ABOUT MATERIALITY AND
+ ### THE GATE WAS FIXED IN ADVANCE PRECISELY SO IT WOULD NOT BE MADE AFTER SEEING THE NUMBER.
+
+--- (4) WHY Psi NEVER SAW THIS AND DELTA DOES. ### THE STRUCTURAL FINDING OF THE ACT. ---
+
+ MEASURED at n_rho = 800:
+   sum_n e_n(rr[0])                = 2.299417380e-03
+   sum_even e_n(rr[0])             = 1.417591487e-03
+   sigma_even * sum_n e_n(rr[0])   = 1.417591502e-03
+   ### phi_e(0) = even - sigma*tot = -1.422267621e-11
+   ### b115 BANKED phi_e(0) = -1.42e-11. ### REPRODUCED TO ITS PRINTED DIGITS.
+   the even share of the total     = 0.616500293   against sigma_even = 0.616500299
+
+ ### AT rho -> 1 THE EPSILON PARTS ARE t-PROPORTIONAL TO EIGHT DIGITS, and b115 already said
+ why: "phi_e MEASURES DEPARTURE FROM t-PROPORTIONALITY -- if e_n were exactly t_n times a
+ mode-independent function, phi_e would VANISH IDENTICALLY, because sigma_even is by
+ definition the t-mass even share." ### SO Psi's EPSILON HALF IS A t-PROPORTIONAL DIFFERENCE
+ AND THE CLAMP CANCELS OUT OF IT ALMOST EXACTLY. ### DELTA IS A RAW SUM AND SEES THE CLAMP
+ WHOLE.
+
+ *** ### NO PRIOR RESULT IS IMPUGNED, AND THIS MUST BE SAID PLAINLY SO THE FINDING IS NOT
+ OVER-READ. b115's Psi(0), b117's enclosure, b119's split, b121's excursion, b134's repaired
+ re-runs -- every one of them is built on the CANCELLING combination, and G1 confirmed
+ Psi_W(0) to 3.958e-10 in this very run. ### THE DEFECT BITES ONLY A RAW-SUM OBJECT, AND
+ DELTA IS THE FIRST RAW-SUM OBJECT THE RECORD HAS EVER ASKED FOR. ### THE ERROR HAS BEEN IN
+ THE GRID SINCE b113 AND WAS INVISIBLE BECAUSE NOTHING HAD YET LOOKED THROUGH A WINDOW THAT
+ FAILS TO CANCEL IT. ***
+
+ ### AND THE LESSON, FILED: A CANCELLATION THAT PROTECTS ONE OBJECT IS NOT A PROPERTY OF THE
+ ### INSTRUMENT. Every quantity the record has drawn from this grid inherited a protection it
+ ### did not know it was relying on; the first object that does not share the protection is
+ ### the first to find the fault.
+
+--- (5) WHAT A REPAIR REQUIRES, QUANTIFIED AND NOT ATTEMPTED. ---
+
+ THE REQUIREMENT: the epsilon evaluation must reach rho = 1 exactly, where b38's own
+ definition gives e_n(1) = 0 with an empty integration range -- either by building the grid
+ from rho = 1 rather than from exp(1e-4), or by an evaluator that does not clamp below its
+ first node.
+ THE COST, STATED: it is a DOMAIN CHANGE to the epsilon layer, so the reproduce-before-extend
+ law adopted at b115 applies in full -- the rebuilt grid must reproduce the banked cells at
+ recorded tolerance BEFORE any new quantity is read. b113 is the founding instance and did
+ exactly this when it widened the same grid to 48.001.
+ ### IT IS AN INSTRUMENT CHANGE WITH ITS OWN REGISTRATION AND ITS OWN GATES, AND IT IS NOT
+ ### THIS ACT'S TO MAKE. Precedent quoted from b121: "Both are constructions with their own
+ registrations; neither is attempted here."
+ ### AND ONE THING A REPAIR MUST NOT DO, NAMED IN ADVANCE: it must not simply SET e_n(0) = 0
+ by hand. That would be the executor making a modelling choice about the instrument, and the
+ true function's steep rise on [1, 1.0001] would still be unrepresented.
+
+--- (6) P2 AND P3 -- NOT PERFORMED, FOR TWO DIFFERENT REASONS, AND THE REASONS DIFFER IN KIND. ---
+
+ P2 (THE ONE-SIGN VERDICT ACROSS THE FAMILY): ### NOT PERFORMED BECAUSE THE ACT HALTED. It
+ carries no fence and would have been executed in full. ### THE DERIVED SHAPE IT WOULD HAVE
+ TAKEN IS ALREADY KNOWN FROM b166 AND IS NOT A RESULT OF THIS ACT: I_mu(L) = I_sigma(L)
+ + (sigma_even - mu)*J(L), affine in mu with slope -J. ### NO VALUE OF J IS REPORTED HERE.
+ The one quantity that would decide it remains unbanked, exactly as it was before this act.
+
+ P3 (DOMINANCE ACROSS THE FAMILY): ### REFUSED, AND THE REFUSAL WAS REGISTERED BEFORE THE
+ WORK AND IS INDEPENDENT OF THE HALT. Two grounds, each read at content:
+  (d1) ### THE FERRY'S PREMISE IS SUPERSEDED. It asks for the evaluation "at its
+    withdrawn-to-basis status". That was b121's status. ### b134 REPLACED IT, quoted verbatim:
+    "THE BASIS IS UNIQUE, SO THERE IS NOTHING TO DEPEND ON, AND THE ANSWER IS SIMPLY NO.
+    b119's branch (a) ... IS **REFUTED ON REPAIRED GROUND**, NOT MERELY WITHDRAWN. A
+    withdrawal says the evidence failed; a refutation says the claim is false."
+    Worst ratio 1.154 at a^2 = 2; dominated at 8 of 9 cells and 59 of 60 sweep points.
+  (d2) ### THE ONE ASKING IS SPENT. The dominance question carried a single allowance from an
+    author's paste, explicitly preserved through b124, b125, b126, b127 and b128 ("THE ONE
+    ASKING IS PRESERVED, NOT SPENT"), and spent at b134: ### "THE ASKING IS SPENT BY THIS ACT.
+    NO FURTHER ASKING, EITHER WAY."
+ ### THE EXECUTOR DOES NOT SPEND THE AUTHOR'S ASKINGS, AND DOES NOT NARROW THE AUTHOR'S OWN
+ ### FENCE BY FINDING A READING UNDER WHICH HIS DESIRED COMPUTATION ESCAPES IT.
+ WHAT IS DELIVERED INSTEAD: the status quoted at its owner, and the price of a second asking
+ stated -- ### with Delta banked it would be a few lines on top of this act's harness, and
+ without Delta it cannot be done at all. ### THE QUESTION IS ROUTED, NOT ANSWERED.
+ ### IF THE AUTHOR INTENDED THE FERRY TO SPEND A SECOND ASKING, THAT IS HIS TO SAY.
+ PRECEDENT CITED, NOT INVENTED -- b116: "A ferry's wording does not override a finding made
+ under its own instructions to read at content."
+
+--- (7) COMPONENT 3 -- THE ONE FILING THE HALT DOES NOT BAR. ---
+
+ ### THE HALT BARS THE MEASUREMENT-DEPENDENT COMPONENTS. The scanner repair reads no gated
+ quantity and is performed; the reading is stated rather than left implicit.
+
+ ### THE EMPTY-SCOPE GATE, ADDED TO tools/banned_terms.py AT THE AUTHOR'S RULING.
+ An empty scope now prints "### NO SCOPE -- HARD FAILURE" and exits 2, naming the correct
+ invocation (--new / --diff) and the fact that bare filenames are ignored.
+ *** ### AND THE HONEST FRAMING, WHICH MATTERS MORE THAN THE PATCH: THE TOOL WAS NOT
+ VIOLATING ITS SPECIFICATION. b153's fixture table asserts, at content, "banned_terms.py
+ dirty exit 1 PASS | clean exit 0 PASS | ### empty exit 0 PASS". ### THE EMPTY-CLEAN
+ BEHAVIOUR WAS DELIBERATE AND TESTED. What changed at b167 is THE RULING, not the code's
+ conformance to it. ### b153's FIXTURE IS SUPERSEDED, NOT FALSIFIED, and b166's finding was
+ a real hazard rather than a real bug. Recorded so no later reader takes b153 for careless. ***
+ FIXTURES, BOTH POLARITIES, BEFORE SERVICE (tools/b167_fixtures.py): ### 9 OF 9 PASS.
+ NEGATIVE: no arguments -> 2; bare filenames (b166's own case) -> 2; --new with no files -> 2.
+ POSITIVE: --new on a clean file -> 0; --new on a live use -> 1.
+ AND THE GATE MUST NOT SWALLOW A REAL VERDICT: a clean run still prints VERDICT and does NOT
+ print NO SCOPE; an empty run prints NO SCOPE and does NOT print "VERDICT : CLEAN".
+
+--- (8) CORE. ### NOTHING ENTERS. ---
+ Nothing this act produced is a finite decidable statement: the measurement did not bank and
+ no family verdict was formed. Core stands at 288/288, rows 1-74, UNTOUCHED.
+ ### THE PRE-COMMITMENT IS HONOURED RATHER THAN WORKED AROUND -- no module was manufactured
+ out of the failure to have something to show.
+
+--- (9) THE PREDICTIONS, SCORED HONESTLY, INCLUDING THE TWO THAT CANNOT BE SCORED. ---
+
+ NAVIGATOR: P1 branch (b) in a form the ferry did not enumerate -- the ferry's branch (b) was
+  "the cap binds, the requirement quantified, the act halts", and ### THE ACT DID HALT WITH A
+  REQUIREMENT QUANTIFIED, BUT NOT BECAUSE THE CAP BOUND. The cap passed; a different gate
+  failed. ### THE BRANCH'S SHAPE WAS RIGHT AND ITS CAUSE WAS WRONG, and that is recorded as a
+  partial landing rather than claimed as a hit.
+  P2, P3: not reached / refused, as above.
+
+ EXECUTOR:
+  (e1) Delta's floor lower than Psi's, axis not NQ -- ### NOT SCORED. THE ACT HALTED BEFORE
+    THE FLOOR RAN. ### AND THE TEMPTATION IS NAMED: the diagnostic showed the deficit is
+    n_rho-INDEPENDENT, which LOOKS like evidence about an axis, and it is not the measurement
+    that was predicted. ### A PARTIAL SIGHTING IS NOT A SCORE.
+  (e2) the one-sign verdict lands on a named subrange -- ### NOT SCORED. Not reached.
+  (e3) ### Delta(0) = 10 exactly and the run confirms it -- ### MISSED, DECISIVELY, AND THIS
+    IS THE ACT'S CENTRAL EVENT. ### THE DERIVATION IS RIGHT ABOUT THE OBJECT AND WRONG ABOUT
+    THE INSTRUMENT: e_n(0) = 0 is exact mathematics, and the grid does not implement it.
+    ### A KNOWN ANSWER IS ONLY AS GOOD AS THE MACHINE'S ABILITY TO RETURN IT, and the value of
+    writing one down is precisely that it fails out loud when the machine cannot.
+  (e4) something enters Core -- ### MISSED. Nothing enters. The calibration trigger is
+    re-armed: this seat's Core predictions now read wrong, wrong, right, right, wrong.
+  (e5) P3 refused -- ### HELD, and held for reasons fixed before the work rather than found
+    after the halt made refusing convenient. ### THE DISTINCTION IS THE WHOLE VALUE OF
+    REGISTERING IT IN ADVANCE.
+
+--- (10) THE FILINGS AND THE THIRTY-FIFTH SEAM'S DEBT. ---
+
+ ### THE LANE'S HEAD ITEM IS NOW TWO THINGS, NOT ONE: (i) the unlocated Psi instability on the
+ Q route, which b121 measured at 4.361e-01 and b124/b128 failed to locate -- untouched by this
+ act; and (ii) ### NEWLY NAMED: THE EPSILON GRID'S LEFT ENDPOINT, which blocks every raw-sum
+ object including Delta, and with it BOTH of b166's undecided verdicts.
+ ### THE DEBT, RESTATED: whatever the next arc lands; the rulings if any come -- item 1's,
+ route B's, and the methodology day's; b157's six findings; the three front-door items, drafted
+ at b166 and still the author's to apply; ### DELTA ON THE LICENSED RANGE, NOW BLOCKED BEHIND
+ AN INSTRUMENT REPAIR RATHER THAN MERELY UNMEASURED; ### AND THE SECOND ASKING ON DOMINANCE,
+ ROUTED TO THE AUTHOR AND NOT SPENT; and the deep items reserved for a session with breadth.
+
+DEVIATIONS: none on ordering -- the ferry's owners-read-first was followed exactly.
+### ONE DEPARTURE FROM THE FERRY'S EXPECTED SHAPE, DECLARED: the ferry's P1 branch (b) named
+the cap as the halting cause; the act halted on a different gate and says so rather than
+presenting the halt as the branch the ferry drew.
+DIVERGENCES: ### TWO, BOTH AGAINST THE FERRY'S P3 PREMISE (6), both read at content, both
+declared in the registration before any computation.
+### NO MEMBER IS PREFERRED, RECOMMENDED OR ARGUED FOR. NOTHING HERE MAY BE CITED AS EVIDENCE
+### FOR ANY MEMBER. ROUTE A AND ROUTE B REMAIN THE AUTHOR'S. NOTICED IS NOT EARNED.
+====================================================================================================
