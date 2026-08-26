@@ -1,0 +1,47 @@
+==========================================================================
+b186 -- THE DOCUMENT-CLASS CHECK, BOTH POLARITIES + THE ZERO CASE
+==========================================================================
+### run BEFORE the check enters service, per the nursery convention.
+
+--- POLARITY 1 -- b182's PROGRAM declared SYNTHESIS (12 marks)
+    ### the founding instance: a plan sitting in the restart kit
+    result: HARD FAILURE   (as expected)
+   ### FAIL phase2/method/THE_BOUNDARY_CONSTRUCTION_PROGRAM.md   marks=12 {'NAVIGATOR-ASSERTED': 5, 'UNREAD': 7}
+   ### WITHOUT a declared class : 0   (### not in the restart kit)
+   ### HARD FAILURE -- synthesis documents carry open-species marks
+   ### outside an explicit open-items section.
+
+--- POLARITY 1b -- a roster document with NO declared class
+    ### the rule: a document with no declared class is not in the restart kit
+    result: HARD FAILURE   (as expected)
+   ### WITHOUT a declared class : 1   (### not in the restart kit)
+   ### HARD FAILURE -- undeclared documents are in the roster.
+
+--- POLARITY 2 -- current SYNTHESIS documents (the b185 spec, the method
+    self-description) as they actually stand
+    result: CLEAN          (as expected)
+   ### WITHOUT a declared class : 0   (### not in the restart kit)
+   VERDICT : CLEAN
+   ### and that means ONE thing: every roster document declares a class,
+   ### and no synthesis document carries an unexempted mark.
+   ### IT IS NOT A REVIEW OF WHETHER THE DECLARATIONS ARE TRUE.
+
+--- POLARITY 2b -- the SAME program declared NOTES: 12 marks, and permitted
+    ### a notes document may carry them freely
+    result: CLEAN          (as expected)
+   ### WITHOUT a declared class : 0   (### not in the restart kit)
+   VERDICT : CLEAN
+   ### and that means ONE thing: every roster document declares a class,
+   ### and no synthesis document carries an unexempted mark.
+   ### IT IS NOT A REVIEW OF WHETHER THE DECLARATIONS ARE TRUE.
+
+--- ZERO CASE -- an EMPTY roster
+    ### the trap: nothing examined, no failures found, reads as clean
+    result: HARD FAILURE   (as expected)
+   ### HARD FAILURE -- EMPTY ROSTER. Nothing was examined, so nothing
+   ### was verified. A verdict over an empty scope is not a verdict.
+
+==========================================================================
+### FIXTURES PASSED: 5 of 5
+### THE INFORMATIVE ONES ARE POLARITY 2 AND 2b: ### THE SAME DOCUMENT PASSES
+### AS NOTES AND FAILS AS SYNTHESIS, WHICH IS THE WHOLE POINT OF THE RULE.
