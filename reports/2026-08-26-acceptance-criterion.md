@@ -251,9 +251,11 @@ MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
 |:--|:--|
 | `PLACE-papers` `main` | `7667a2fddb42dfbc70d1c10a60f82974ceca7f61` — **30 files, no patent paths** |
 | `SIDE-global-section` `main` | `755227818c020983fc3f99dca768a3706f1835be` — **unchanged; Core 304/304, rows 1–79** |
-| `relay` `main` | `@@RELAY@@` — **the act; read back by `ls-remote`** |
+| `relay` `main` | `75f5b8a6d31921075e3ecc1623bc24eaa64a3852` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **35 files**, rebuilt at `7667a2f`, ### **CLEAN ON ALL THREE CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
+
+> ### **The relay pin above is THIS ACT'S CONTENT COMMIT, read back by ls-remote.** *A pin-filling commit follows it carrying only this substitution.*
 
 **Load this export:** `mirror-refresh-2026-08-26.zip`.
 
