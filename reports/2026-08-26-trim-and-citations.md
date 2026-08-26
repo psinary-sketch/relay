@@ -303,7 +303,7 @@ be, and the backlog one batch shorter with its remainder counted.
 |:--|:--|
 | `PLACE-papers` `main` | `dd712ad` — the eight keys, the loom entry |
 | `SIDE-global-section` `main` | `7552278` — **unchanged; Core 304/304, rows 1–79** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `a65fa3511d5da9f282bff52f2429db847aa8edf5` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **33 files**, rebuilt at `dd712ad`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
