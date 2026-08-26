@@ -29,6 +29,33 @@ amendments    FACES_OF_H2_AT_FINITE_INSTANCE.md (the softening, at the author's 
 | `(R-proj′)` — the registered sub-branch: two projections | ### **LANDS: the twice-projected family `Π₊SΨ_d` reaches into `E₁` with GROWING rank (9 → 21 at `a = 3`; no collapse) and the count of exact `E₁`-directions within 0.1 rad rises with degree (2–4 → 10–11). The reconciliation of `W-exact` with the sector structure costs exactly TWO projections: Sonin, then the `+1` sector.** |
 | `(R-prolate)` — `E₁` named by CC's basis | ### **LANDS: the even soft-compression ladder alternates `+ − + − …` EXACTLY (top 12, every `(N, a)`), each mode concentrated `~0.95–0.97` in its matching sector — `E₁` is the EVERY-OTHER-EVEN prolate list (the Hermite shadow `(−i)ⁿ`: `n ≡ 0 (mod 4)`), CC's own basis naming the constrained sector.** *Odd control: `⟨v, Fv⟩` purely `±i` ✓ — the parity structure rides the whole prolate ladder.* |
 
+> *** ### **CORRECTED 2026-08-26 (b201, component 3), AGAINST THIS ACT'S OWN BANK. THE ROW ABOVE
+> IS LEFT VISIBLE BECAUSE IT RECORDS WHAT WAS WRITTEN.**
+>
+> ### **THE WORD “EVERY” IS REFUTED BY `data/b33_2026-08-18.txt` AT THREE OF ITS NINE CELLS.**
+> ### **THE REFUTING CELLS, NAMED: `(N, a) = (511, √2)`, `(1023, √2)`, `(2047, √2)`.**
+> At each, the bank's own printed line is
+> ### **`sign pattern (top 12): + − + + − + − + − + − +`** — ***not alternating: `k = 2` and
+> `k = 3` are both `+`.***
+>
+> ### **AND THE CONCENTRATION CLAIM FAILS AT THE SAME CELLS.** The bank prints, for the top three
+> modes at `a = √2`: `‖Π₊v‖, ‖Π₋v‖ = 0.7359, 0.2954` · `0.3789, 0.7038` · `0.6684, 0.5019`
+> — ### **near one half, not `~0.95–0.97`** — with `⟨v, Fv⟩ = +0.465, −0.589, +0.194`,
+> ### **nowhere near `±1`, so those modes are not `F`-eigenvectors at all.**
+>
+> ### **WHAT THE BANK DOES SUPPORT, RE-STATED AT ITS OWN RANGE:** ### **the alternation and the
+> `~0.95–0.97` concentration hold at `a = 2` and `a = 3`, at all three `N` — SIX OF NINE CELLS —
+> and fail at `a = √2` at all three.** ### **`(R-prolate)` LANDS AT `a ∈ {2, 3}` AND NOT AT
+> `a = √2`.**
+>
+> ### **NOTHING IS PROMOTED OR DEMOTED BY THIS CORRECTION: the whole cell is FLOAT BENCH under
+> this sitting's own declaration and b32's refusal of promotion.** ### **What is corrected is the
+> RANGE of a claim, not its grade.**
+> ### **THE SPECIES: a finding carried past its own stated range — and this is the FIRST INSTANCE
+> FOUND IN A FOUNDING TEXT rather than in a navigator act** (b194, b195 and b194-again were mine;
+> see the loom's range-law species entry). ***Found by b200's naming census, which was not looking
+> for it.*** ***
+
 > ### **THE ARCHIMEDEAN CONSTRAINED SECTOR NOW HAS BOTH A NAME AND A REACHING FAMILY:** *named — the
 > every-other-even prolate modes; reached — by `Π₊SΨ_d` with growing dimension. And the even ½–½
 > split of the projected Weil family is itself a clean structural fact, recorded plainly.*
