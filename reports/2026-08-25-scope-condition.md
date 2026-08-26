@@ -196,7 +196,7 @@ commit that would contain it, so embedding it cannot reach a fixed point.*
 |:--|:--|
 | `PLACE-papers` `main` | `20481f0085ea914a6de939a6c81acb242b384105` |
 | `SIDE-global-section` `main` | `9997c6f7e7bdfd789d12b27d09f59ad21cc19130` — ### **Core 302/302, row 78** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `361374ae4961c64b2c9458e9bf9bbf85a36c6167` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `20481f0`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
