@@ -214,7 +214,7 @@ methodology day; the deep items. ### **The thirty-sixth seam close follows at th
 |:--|:--|
 | `PLACE-papers` `main` | `e6dfd37` — the sweep's bibliography and loom filings |
 | `SIDE-global-section` `main` | `a6a1356` — **unchanged; Core 302/302, rows 1–78** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `156fad8a55669720a543f77d9c63cf3573fe13b1` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **33 files**, rebuilt at `e6dfd37`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
