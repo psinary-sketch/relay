@@ -288,9 +288,11 @@ BANNED-TERM REVIEW (banned_terms.py, b142) -- RUN, NOT CLAIMED
 |:--|:--|
 | `PLACE-papers` `main` | `dc3f80b10b40b2454572828bae54f10aee4ac77a` — ### **unchanged; this act touched no papers** |
 | `SIDE-global-section` `main` | `755227818c020983fc3f99dca768a3706f1835be` — **unchanged; Core 304/304, rows 1–79** |
-| `relay` `main` | `@@RELAY@@` — **the act; read back by `ls-remote`** |
+| `relay` `main` | `58710bcc82dbf1fc194273d34d72bcace6191ad3` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **34 files**, ### **CLEAN ON ALL THREE CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
+
+> ### **The relay pin above is THIS ACT'S CONTENT COMMIT, read back by `ls-remote`.** *A pin-filling commit follows it carrying only this substitution —* ### **a report cannot contain its own hash, and saying so is cheaper than pretending it can.**
 
 **Load this export:** `mirror-refresh-2026-08-26.zip`.
 
