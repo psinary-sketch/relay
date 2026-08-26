@@ -164,7 +164,7 @@ items; **the dominance second asking, not spent**; the tense hazard; the bra-ket
 |:--|:--|
 | `PLACE-papers` `main` | `8739114` — the corrected bibliography and loom |
 | `SIDE-global-section` `main` | `a6a1356` — ### **row 77 corrected; Core 302/302, rows 1–78** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `7f19a1926da737af94e36cbc8da13325e3549707` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **33 files**, rebuilt at `8739114`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
