@@ -47,7 +47,21 @@ $rel = @(
   'archive\2026-08-24-ledger-split\OPEN_TRAILS-archive-2-historical-landings-and-programs.md',
   'archive\2026-08-24-ledger-split\VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md',
   'archive\2026-08-24-ledger-split\FINDINGS-archive-1-entries-through-2026-08-20c.md',
-  'archive\2026-08-24-ledger-split\FINDINGS-archive-2-entries-2026-08-21-and-22.md'
+  'archive\2026-08-24-ledger-split\FINDINGS-archive-2-entries-2026-08-21-and-22.md',
+
+  # ---- roster ADDITION 2026-08-26, b182. The ferry required the construction
+  #   program be "carried in the mirror", so this row is ferry-required, not a
+  #   deviation.
+  # ### AND THE REASON THIS COMMENT IS LONGER THAN THE ROW: I FIRST ADDED THE
+  # ### PROGRAM TO tools\mirror_roster.json AND REBUILT, AND THE BUILD CAME BACK
+  # ### CLEAN ON BOTH CLAUSES AT 33 FILES -- WITHOUT THE PROGRAM.
+  # ### THE JSON IS NOT THE ROSTER THIS SCRIPT READS. THE ROSTER IS THIS ARRAY.
+  # ### Both clauses passed because clause 1 checks the archive against ITS OWN
+  # ### manifest and clause 2 checks only the HEAD: ### A FILE THAT NEVER ENTERED
+  # ### THE STAGING DIRECTORY IS INVISIBLE TO BOTH. That is b130's stale-build
+  # ### law in a new dress, and it was caught by counting files against the
+  # ### roster, NOT by the verifier.
+  'phase2\method\THE_BOUNDARY_CONSTRUCTION_PROGRAM.md'
 )
 
 $head = (git -C $repo rev-parse --short HEAD).Trim()
