@@ -262,13 +262,23 @@ MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
 
 ---
 
+## THE DEVIATION — CAUGHT IN THIS ACT'S OWN CLOSING
+
+> ### **I announced “re-verified after the banner” when the banner had never been written.** The banner-writing step sat in a shell chain that was **backgrounded with `&`**, so it never ran — ### **and its success line never printed, which I did not notice.** ### **The rebuild I then ran was of the UNCHANGED file. The verification was real; my description of what it verified was not.**
+>
+> **And a second symptom of the same chain:** ### **I reported “compiling” through four polls while ZERO lean processes were running** — the job had died with its parent shell. ### **Caught by checking the process table instead of trusting an empty output file.** ***An empty output file means “no output”, not “still working”, and I read it as the second for four polls.***
+>
+> **Repaired:** banner written with the Write tool (### **no shell escaping at all**), ### **recompiled with the banner present — 3 terminals, no `sorryAx`, exit 0** — and only then committed and pushed. ### **The shape is this session's own M12: a value taken from a display instead of from its source** — here, a job's liveness inferred from an empty file rather than read from the process table.
+
+---
+
 ## PINS AT CLOSE — by `ls-remote`, never from recall
 
 | repository | pin |
 |:--|:--|
 | `PLACE-papers` `main` | `157f18b30b73cdda422f73d2fdb1650245a6639d` — **the retirement filed; 2 files, no patent paths** |
-| `SIDE-global-section` `main` | `@@SIDE@@` |
-| `relay` `main` | `@@RELAY@@` — **the act; read back by `ls-remote`** |
+| `SIDE-global-section` `main` | `### **`04573ab7af90bce12afc47ae4f1853c587b17466`** — **layer one kept, marked RETIRED-AS-PLAN, recompiled WITH the banner; Core 304/304, rows 1–79 untouched**` |
+| `relay` `main` | `7de634e9a1ffaf8c809538435c4a88a766149606` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **40 files**, rebuilt at `157f18b`, ### **CLEAN ON ALL THREE CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
