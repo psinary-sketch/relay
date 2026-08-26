@@ -1,0 +1,38 @@
+==========================================================================
+b185 -- THE INDEX-QUERY GATE, FIXTURE-TESTED IN BOTH POLARITIES + ZERO CASE
+==========================================================================
+### run BEFORE the gate enters service, per the nursery convention.
+
+--- POLARITY 1a -- b182's REGISTRATION (the ferry's named fixture)
+    result: HARD FAILURE               (as expected)
+   marks found  : 4
+   query result : ### ABSENT
+   ### VERDICT   : HARD FAILURE -- NOT BANKABLE.
+
+--- POLARITY 1b -- b182's PROGRAM DOCUMENT, which is where (e4) predicted
+    the marks actually live
+    result: HARD FAILURE               (as expected)
+   marks found  : 12
+   query result : ### ABSENT
+   ### VERDICT   : HARD FAILURE -- NOT BANKABLE.
+
+--- POLARITY 2 -- THIS ACT'S OWN REGISTRATION: marks present, query recorded
+    result: PASS                       (as expected)
+   marks found  : 3
+   query result : RECORDED at line 3
+   VERDICT      : PASS -- marks present and a query result is recorded
+
+--- POLARITY 2b -- a registration carrying no mark at all
+    result: PASS                       (as expected)
+   marks found  : 0
+   VERDICT      : PASS -- no mark requires a query
+
+--- ZERO CASE -- an EMPTY registration
+    ### the trap: no marks found reads as a clean pass
+    result: HARD FAILURE (zero/absent) (as expected)
+   ### HARD FAILURE -- THE REGISTRATION IS EMPTY.
+
+==========================================================================
+### FIXTURES PASSED: 5 of 5
+### THE INFORMATIVE ONES ARE POLARITY 2 AND 2b: a gate that failed
+### everything would also 'catch' b182.
