@@ -248,7 +248,7 @@ verifier as **UNUSED**, which is run-but-not-quoted and not a failure.*
 |:--|:--|
 | `PLACE-papers` `main` | `74b38772ec7c6ab5b30678618a40783bf471a5fc` — the bibliography, the notes, route B's close |
 | `SIDE-global-section` `main` | `0a9e451684d3379046e21a088708b3638a9e49ed` — **unchanged; Core 299/299, rows 1–77** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `959cbeab8f25e2dc4e5b82ba7f2538249bbc8362` — **the act; read back by `ls-remote`** *(this pin line is the commit after it)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `74b3877`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
