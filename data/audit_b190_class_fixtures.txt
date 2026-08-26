@@ -1,0 +1,46 @@
+==========================================================================
+b190 -- THE REWRITTEN CHECK: BOTH POLARITIES + THE ZERO CASE
+==========================================================================
+### run BEFORE the rewritten check enters service, per the nursery convention.
+
+--- POLARITY 1 -- b189's ACTUAL HARD FAILURE: a roster document declaring
+    ### no tier of the STANDING taxonomy
+    result: HARD FAILURE   (as expected)
+   tiers declared         : none
+   ### WITHOUT a declared tier: 1
+   ### UNDECLARED : phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md (as it stood at b189)
+   ### HARD FAILURE -- documents in the roster declare no tier of the
+   ### STANDING taxonomy. A document with no declared tier is not in the
+   ### restart kit.
+
+--- POLARITY 2 -- correctly declared: a TIER K keystone and a TIER C synthesis
+    result: CLEAN          (as expected)
+   tiers declared         : C=1  K=1
+   ### WITHOUT a declared tier: 0
+   VERDICT : CLEAN
+   ### and that means ONE thing: every roster document declares a tier of
+   ### the corpus's own author-ruled standard, or is ROUTED.
+   ### IT IS NOT A REVIEW OF WHETHER THE DECLARATIONS ARE TRUE, AND IT DOES
+   ### NOT CHECK THE TIERS' OBLIGATIONS.
+
+--- POLARITY 2b -- a LEDGER, declared ### NOT PLACED / ROUTED
+    ### the refusal is a result; the checker must not read it as undeclared
+    result: CLEAN          (as expected)
+   tiers declared         : ROUTED=1
+   ### WITHOUT a declared tier: 0
+   VERDICT : CLEAN
+   ### and that means ONE thing: every roster document declares a tier of
+   ### the corpus's own author-ruled standard, or is ROUTED.
+   ### IT IS NOT A REVIEW OF WHETHER THE DECLARATIONS ARE TRUE, AND IT DOES
+   ### NOT CHECK THE TIERS' OBLIGATIONS.
+
+--- ZERO CASE -- an EMPTY roster
+    ### the trap: no undeclared documents found, reads as clean
+    result: HARD FAILURE   (as expected)
+   ### HARD FAILURE -- EMPTY ROSTER. Nothing examined, so nothing verified.
+   ### An empty set trivially has no undeclared document. THAT IS NOT A PASS.
+
+==========================================================================
+### FIXTURES PASSED: 4 of 4
+### THE INFORMATIVE ONE IS POLARITY 2b: ### A REFUSAL RECORDED IS A DECLARATION,
+### AND A CHECKER THAT COUNTED IT AS SILENCE WOULD PUNISH THE HONEST ANSWER.
