@@ -1,0 +1,36 @@
+==========================================================================
+b194 -- THE ROW TOOL, BOTH POLARITIES + THE BACKTICK CASE + THE EMPTY CASE
+==========================================================================
+### run BEFORE the tool enters service, per the nursery convention.
+
+--- POLARITY 1 -- six plain cells
+    result: WRITTEN        (as expected)
+   VERDICT     : WRITTEN, verified by read-back
+   ### and that means the CELLS SURVIVED. It does not mean they are true.
+   on disk: | s | t | a | g | x | y |
+
+--- POLARITY 1b -- ### A FIELD OF BACKTICKS AND A CODE-SPAN FIELD
+    ### this exact content vanished at b178 and again at b193
+    result: WRITTEN        (as expected)
+   VERDICT     : WRITTEN, verified by read-back
+   ### and that means the CELLS SURVIVED. It does not mean they are true.
+   on disk: | the `Ftensor_sq` statement | `Interfaces/RestrictedTensorLayer1.lean` | `[propext, Classical.choice, Quot.sound]`, no `sorryAx` | **DERIVES** | laye
+
+--- POLARITY 2 -- a BLANK cell among six
+    result: HARD FAILURE   (as expected)
+   ### HARD FAILURE -- BLANK CELL(S) at position(s) [1].
+   ### The ledger's own rule: NO BLANK CELLS.
+
+--- POLARITY 2b -- four cells where six are required
+    result: HARD FAILURE   (as expected)
+   ### HARD FAILURE -- 4 cells given, 6 required.
+
+--- ZERO CASE -- no cells at all
+    ### the trap: nothing to check, nothing fails, reads as success
+    result: HARD FAILURE   (as expected)
+   ### HARD FAILURE -- NO CELLS GIVEN. An empty row is not a row.
+
+==========================================================================
+### FIXTURES PASSED: 5 of 5
+### THE INFORMATIVE ONE IS POLARITY 1b: ### THE CONTENT THAT VANISHED TWICE
+### SURVIVES, AND THE TOOL PROVES IT BY READING THE ROW BACK OFF DISK.

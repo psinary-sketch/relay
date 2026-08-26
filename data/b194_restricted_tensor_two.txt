@@ -1,0 +1,140 @@
+====================================================================================================
+b194 -- THE RESTRICTED TENSOR CONSTRUCTION, ACT TWO -- THE BANK. 2026-08-26.
+Registration: data/b194_registration_2026-08-26.txt, commit 4608619, banked after the owner reads
+-- including the E1-unit purity finding -- and BEFORE any Lean.
+### THE FALSIFIER WAS THE ACT'S FIRST WORK. ### IT FIRED. ### THE PLAN IS RETIRED, NOT PATCHED.
+### CORE UNTOUCHED at 304/304, rows 1-79.
+====================================================================================================
+
+*** ### THE PLAN IS RETIRED AT ITS OWN FALSIFIER, ON THREE INDEPENDENT GROUNDS, ### AND THE ANSWER
+### WAS IN THE RECORD ELEVEN ACTS BEFORE THE PLAN WAS WRITTEN. ***
+
+--- (1) COMPONENT 1 -- THE FALSIFIER (P1). ### BRANCH: **NOT ISOMETRIES** -- AND WORSE. ---
+ ### b193's FALSIFIER, QUOTED VERBATIM SO THE TEST IS THE ONE THAT WAS WRITTEN:
+ "IF THE E1-UNIT INCLUSIONS OF L3 ARE NOT ISOMETRIES -- ### OR IF THE RECORD'S E1-UNITS DO NOT
+ SUPPLY WHAT A DIRECTED SYSTEM OF HILBERT SPACES REQUIRES -- ### THE CONSTRUCTION AS PLANNED IS
+ RETIRED, NOT PATCHED."
+
+ ### WHAT A RESTRICTED TENSOR PRODUCT REQUIRES, FIXED IN THE REGISTRATION BEFORE THE READ WAS
+ ### APPLIED TO IT: (i) a vector AT EVERY PLACE; (ii) that vector ### PURE with respect to the
+ place-decomposition; (iii) NORM ONE; (iv) ### A CHOICE, since the object is defined relative to
+ one.
+
+ ### THE OWNER, READ AT CONTENT (relay/reports/2026-08-19-e1-unit-purity.md):
+  (i)  ### FAILS. Cell (2,1): d1 = 0, ### NO-UNIT -- "(1+Pi)f = 0 -- the projector image is 0
+       exactly".
+  (ii) ### FAILS, AND AT THE FORCED GRADE. "### E1(3,1) AND E1(2,2) CONTAIN NO NONZERO
+       SCHMIDT-PURE VECTOR AT ALL"; of (3,1): "the unit is UNIQUE up to scale ... ### E1(3,1)
+       CONTAINS NO NONZERO PURE VECTOR; ### NO CHOICE EXISTS TO MAKE". (5,1), (2,3), (3,2)
+       MIXED-generic -- "all canonical spanning units MIXED, exact witness minors each".
+  (iii) ### NOT REACHED -- requirement (ii) fails first, and saying "the norms are wrong" would
+       misdescribe a failure that happens earlier.
+  (iv) ### FAILS. "The E1-units are banked as ... a proved-existence ### CHOICE CLASS ('the units
+       exist; ### NO CANONICAL CHOICE IS CLAIMED')."
+ ### THE OWNER'S OVERALL VERDICT: "### (b) LANDS -- MIXED, AT EVERY CELL THAT HAS UNITS AT ALL."
+ ### ANY ONE OF THE THREE RETIRES THE PLAN. ### ALL THREE HOLD.
+
+ *** ### AND THE FAILURE IS **STRONGER THAN THE FALSIFIER I WROTE** -- RECORDED, NOT BLURRED.
+ ### b193's FALSIFIER SAID "NOT ISOMETRIES". ### THAT PRESUMES THE MAPS CAN BE FORMED AND ASKS
+ ### WHETHER THEY PRESERVE NORMS.
+ ### THE ACTUAL FINDING IS THAT ### THE MAPS CANNOT BE FORMED AT ALL: there is no pure
+ ### distinguished vector to tensor with. ### THAT IS NOT A WEAKER ISOMETRY; IT IS AN ABSENT MAP.
+ ### THE CLAUSE THAT FIRES IS THE FALSIFIER'S **SECOND**, AND IT IS THE ONE I ADDED ALMOST AS AN
+ ### AFTERTHOUGHT. ***
+
+ ### DECIDED AT CONTENT, NOT IN LEAN, AND THE REASON IS STATED: ### THE QUESTION IS WHETHER THE
+ ### RECORD'S UNITS ARE PURE, WHICH IS A FACT ABOUT THE BANKED E1-SPACES AND IS ALREADY DECIDED AT
+ ### ITS OWNER WITH EXACT WITNESS MINORS IN Z[zeta_N]. ### RE-DERIVING IT IN LEAN WOULD BE
+ ### RE-DECIDING A DECIDED QUESTION, AND THE ACT CITES IT AT ITS GRADE INSTEAD.
+
+--- (2) COMPONENT 2 -- ### DID NOT RUN. ---
+ ### THE FERRY GATES IT "on branch (ISOMETRIES) only". ### THE BRANCH DID NOT OBTAIN.
+ ### NO SECOND LAYER WAS BUILT. ### NO ALTERNATIVE SHAPE WAS TRIED. ### NO PATCH WAS PROPOSED.
+ ### THE STOP-LOSS FORBIDS TUNING AND ### THE RE-SCOPE IS THE AUTHOR'S.
+ ### WHAT WAS NOT DONE IS RECORDED AT THE SAME WEIGHT AS WHAT WAS.
+
+--- (3) COMPONENT 3 -- THE ROW TOOL. ---
+ BUILT: tools/corr_row.py. ### IT TAKES EACH CELL AS A SEPARATE argv ENTRY, ### SO NO ROW EVER
+ PASSES THROUGH A HAND-QUOTED SHELL STRING -- argv is delivered by the OS as a list and ### THE
+ SHELL NEVER SEES THE CELL BODIES AS CODE, ONLY AS DATA.
+ ### AND IT READS THE ROW BACK OFF DISK AND RE-COUNTS ITS CELLS, ### BECAUSE b193's DEFECT WAS
+ ### CAUGHT BY READING BACK.
+ ### THE TWO FOUNDING INSTANCES, CITED: ### b178 (a bibliography patch: the backticks ate every
+ code-span and the script reported success) and ### b193 (a correspondence row: the terminal
+ names, the file path, the axiom list and the word sorryAx all vanished, and it reported success).
+ ### THE CONVENTION, MINTED IN ONE LINE AS THE FERRY ASKS:
+ ### **A RULE THAT HAS FAILED TWICE IN THE SAME SHAPE BELONGS IN A TOOL.**
+ ### FIXTURE-TESTED BEFORE SERVICE -- ### 5 OF 5:
+  1  six plain cells -> WRITTEN.
+  1b ### A FIELD OF BACKTICKS AND A CODE-SPAN FIELD -- ### THE EXACT CONTENT THAT VANISHED AT
+     b178 AND AGAIN AT b193, plus `$(whoami)` and `rm -rf` as literal text -> ### WRITTEN, AND
+     ### PROVEN INTACT BY READ-BACK.
+  2  a blank cell among six -> ### HARD FAILURE (the ledger's own no-blank-cells rule).
+  2b four cells where six are required -> ### HARD FAILURE.
+  ZERO no cells at all -> ### HARD FAILURE. ### THE TRAP: NOTHING TO CHECK, NOTHING FAILS, READS
+     AS SUCCESS.
+ ### ITS LIMITS, IN ITS OWN HEADER: ### IT CANNOT STOP A CALLER FROM STILL WRAPPING ITS ARGUMENTS
+ ### IN A DOUBLE-QUOTED SHELL STRING -- ### IT REMOVES THE NEED, NOT THE POSSIBILITY, AND THE
+ ### HABIT IS THE HAZARD; it checks cell COUNT and EMPTINESS, ### NOT CELL TRUTH -- a row of six
+ ### honest-looking lies passes; and it does not verify that a quoted axiom print matches a build.
+
+--- (4) COMPONENT 4 -- THE STATE (P3). ---
+ L1 ### BUILT, COMPILED, AND **KEPT**. ### NOT WITHDRAWN: it compiled and what it states is true.
+    ### WHAT IS RETIRED IS THE ROUTE THAT WOULD HAVE USED IT, NOT THE THEOREM.
+    A dated retirement banner was added to the file ### AND THE FILE WAS RECOMPILED AFTER THE
+    BANNER, so the artifact is verified in the state it now sits in rather than in the state it
+    was in before the edit.
+ L2 ### RETIRED WITH THE PLAN (it existed only to feed L3).
+ L3 ### THE FALSIFIER'S SUBJECT. ### RETIRED.
+ L4 ingredients HELD (Completion.lean) ### BUT NOTHING TO COMPLETE. ### RETIRED WITH THE PLAN.
+ L5 ### RETIRED WITH THE PLAN.
+ ### NO EFFORT ESTIMATE. ### NO RANKING. ### NO CLAIM ANY CONSTRUCTION WILL SUCCEED.
+ ### TERM 3's DEBT IS **UNDISCHARGED AND NOW WITHOUT A PLAN**. ### THAT IS A WORSE POSITION THAN
+ ### b193 LEFT, AND IT IS THE TRUE ONE.
+
+--- (5) THE PREDICTIONS, SCORED. ---
+ NAVIGATOR: the falsifier; the row tool; the filings -- delivered. ### COMPONENT 2's DELIVERABLE
+ DID NOT EXIST TO DELIVER, BY THE FERRY'S OWN GATING.
+ EXECUTOR:
+  (e1) ### THE FALSIFIER FIRES ON THREE INDEPENDENT GROUNDS -- ### LANDS, on all three, each
+    quoted at its owner.
+  (e2) ### THE FAILURE IS STRONGER THAN THE FALSIFIER I WROTE -- ### LANDS, and it is the finding
+    that most needed saying, because ### A RETIREMENT REPORTED AS "THE ISOMETRIES FAILED" WOULD
+    ### HAVE BEEN A SMALLER AND FALSER STORY THAN "THE MAPS CANNOT BE FORMED".
+  (e3) ### COMPONENT 2 DOES NOT RUN -- ### HELD. Nothing was built, tried, or proposed.
+  (e4) ### COMPONENTS 3 AND 4 DO RUN, with the reading recorded -- ### HELD, and the reading is
+    offered for correction rather than assumed: ### "THE ACT STOPS THERE" GOVERNS THE
+    ### CONSTRUCTION; A RETIRED PLAN STILL OWES ITS RECORD.
+  (e5) ### CORE UNTOUCHED; LAYER ONE KEPT -- ### HELD. 304/304, rows 1-79.
+
+--- (6) THE FINDING THAT COSTS THE MOST, SAID PLAINLY. ---
+ *** ### THE ANSWER WAS IN THE RECORD BEFORE THE PLAN WAS WRITTEN.
+ ### b193 PLANNED A CONSTRUCTION ON E1-UNIT INCLUSIONS ### WITHOUT ASKING WHAT THE RECORD ALREADY
+ ### HELD ABOUT THOSE UNITS. ### THE FINDINGS KEY `e1-units-schmidt-mixed-at-banked-cells` WAS
+ ### FILED 2026-08-19 -- ### ELEVEN ACTS EARLIER.
+ ### THAT IS b160's CONVENTION FAILING AGAIN, IN A NEW PLACE: ### THE INDEX WAS NOT ASKED ABOUT
+ ### THE **INGREDIENT**.
+ ### AND THE INSTRUMENT BUILT AT b185 DOES NOT CATCH IT: ### registration_gate.py CHECKS
+ ### REGISTRATIONS FOR OPEN-SPECIES MARKS; ### IT DOES NOT CHECK THAT A **BUILD** QUERIED ITS
+ ### INGREDIENTS. ### b193's REGISTRATION CARRIED NO SUCH MARK AND PASSED THE GATE CLEANLY.
+ ### FILED AS M21. ### THE EXECUTOR DOES NOT MINT THE REMEDY; the shape of one is the author's. ***
+
+--- (7) THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED. ---
+ ### TERM 3: ### THE DEBT IS UNDISCHARGED AND ITS PLAN IS RETIRED. ### A RE-SCOPE IS THE AUTHOR'S.
+ ### TERM 2: the absent formalization and the class-richness lemma at cite -- unchanged.
+ ### M21 (a build's ingredients unqueried), new this act. ### M20 IS DISCHARGED -- the E1-unit
+ isometry question is ANSWERED, and the answer retired the plan.
+ ### M17, M18, M19 stand with the author. ### MU'S VALUE REMAINS THE AUTHOR'S.
+ M16; b155's unchased thread; the boundary's two NOT-HELD ingredients; M12; M11; M9; the
+ cross-language coupling; the in-flight items; 104 references; ~158 unswept W-codes; the
+ definitional fork; gates 2 and 6; the seat boundary's form; the Q-route Psi instability; b157's
+ six findings; the three front-door items; the tense hazard; the bra-ket convention; Prop 5.5's
+ hazard; the methodology day (M1-M21).
+ ### THE DEEP ITEMS: the relative identification; the h1/h2 statement drafting.
+
+DEVIATIONS: none this act.
+DIVERGENCES: none. ### COMPONENT 2's NON-EXECUTION IS THE FERRY'S OWN GATING, NOT A DIVERGENCE.
+### THE PLAN IS RETIRED, NOT PATCHED. ### NO ALTERNATIVE CONSTRUCTION IS PROPOSED.
+### CORE IS UNTOUCHED. ### h2 IS STATED, NOT PROVED, AND THIS ACT MOVES IT NOT AT ALL.
+### THE REGISTER SENTENCE STANDS EXACT. NOTICED IS NOT EARNED.
+====================================================================================================
