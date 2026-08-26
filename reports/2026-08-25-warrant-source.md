@@ -251,7 +251,7 @@ verifier as **UNUSED**, which is run-but-not-quoted and not a failure.*
 |:--|:--|
 | `PLACE-papers` `main` | `7ea614fb4ba16f2579a83a8531372c6daa206312` — (v-ter) and route B's close |
 | `SIDE-global-section` `main` | `0a9e451684d3379046e21a088708b3638a9e49ed` — ### **Core 299/299, row 77** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `ee08eb1c8fdbf399baca8618f1fa96ef02d79afc` — **the act; read back by `ls-remote`** *(this pin line is the commit after it)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `7ea614f`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
