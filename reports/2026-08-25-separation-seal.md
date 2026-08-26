@@ -239,7 +239,7 @@ verifier as **UNUSED**, which is run-but-not-quoted and not a failure.*
 |:--|:--|
 | `PLACE-papers` `main` | `671a5178904694c73e9562ef092d64f3b6423b88` — the seal filed at the brief |
 | `SIDE-global-section` `main` | `a70879d95bffba874afbe096f0592ae82b1eddf5` — ### **Core 296/296, row 76** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `e7a288c4883be2177edaaaedf8d6267bb2843a6b` — **the act; read back by `ls-remote`** *(this pin line is the commit after it)* |
 | mirror | `mirror-refresh-2026-08-25.zip` — **33 files**, rebuilt at `671a517`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
