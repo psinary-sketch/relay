@@ -280,9 +280,11 @@ MIRROR VERIFICATION -- BOTH CLAUSES OF THE STALE-BUILD LAW (b142)
 |:--|:--|
 | `PLACE-papers` `main` | `088d51ab3250fa516e43f5cb1ecf899850ada2e5` — **the loom entry; 1 file, no patent paths** |
 | `SIDE-global-section` `main` | `755227818c020983fc3f99dca768a3706f1835be` — **unchanged; Core 304/304, rows 1–79** |
-| `relay` `main` | `@@RELAY@@` — **the act; read back by `ls-remote`** |
+| `relay` `main` | `57766f38d1dd2b89be82a7413f121e48236f79bd` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **33 files**, rebuilt at `088d51a`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
+
+> ### **The relay pin above is THIS ACT'S CONTENT COMMIT, read back by `ls-remote`.** *A pin-filling commit follows it carrying only this substitution —* ### **a report cannot contain its own hash, and saying so is cheaper than pretending it can.**
 
 **Load this export:** `mirror-refresh-2026-08-26.zip`.
 
