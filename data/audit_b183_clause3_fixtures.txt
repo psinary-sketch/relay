@@ -1,0 +1,36 @@
+==========================================================================
+b183 -- CLAUSE 3, FIXTURE-TESTED IN BOTH POLARITIES PLUS THE ZERO CASE
+==========================================================================
+### run BEFORE the clause enters service, per the nursery convention.
+
+--- POLARITY 1 -- THE b182 INSTANCE: roster 34, archive 33, program absent
+    ### this exact archive PASSED clauses 1 and 2 at b182.
+    result: HARD FAILURE  (as expected)
+   in roster, MISSING from archive : 1
+   MISSING : THE_BOUNDARY_CONSTRUCTION_PROGRAM.md
+   ### CLAUSE 3 : NOT CLEAN -- HARD FAILURE.
+
+--- POLARITY 2 -- a clean build: archive matches the roster exactly
+    result: CLEAN         (as expected)
+   in roster, MISSING from archive : 0
+   CLAUSE 3 : CLEAN -- archive and roster agree, name for name
+
+--- ZERO CASE -- an empty roster against an empty archive
+    ### the trap: emptiness matches emptiness and reads as success
+    result: HARD FAILURE  (as expected)
+   ### CLAUSE 3 : HARD FAILURE -- THE ROSTER IS EMPTY.
+
+--- POLARITY 1b -- an archive file the roster does not list
+    result: HARD FAILURE  (as expected)
+   in roster, MISSING from archive : 0
+   EXTRA   : SMUGGLED.md
+   ### CLAUSE 3 : NOT CLEAN -- HARD FAILURE.
+
+--- MISSING ROSTER -- no roster file on disk
+    result: HARD FAILURE  (as expected)
+   ### CLAUSE 3 : HARD FAILURE -- ROSTER NOT FOUND at D:\relay\tools\__no_such_roster__.json
+
+==========================================================================
+### FIXTURES PASSED: 5 of 5
+### THE INFORMATIVE ONES ARE POLARITY 2 AND THE ZERO CASE:
+### a clause that failed everything would also 'catch' b182.

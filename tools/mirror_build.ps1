@@ -4,65 +4,30 @@
 param([string]$DateTag = (Get-Date -Format 'yyyy-MM-dd'))
 
 $repo = 'D:\MY-DOwnloads\PLACE-papers'
-$rel = @(
-  # ### roster ADDITION 2026-08-24, b144, DECLARED DEVIATION. The repo's front-door
-  # ### README was NEVER in the roster. The reconcile act EDITED it as a primary
-  # ### deliverable, so those edits would have reached no exported file -- the exact
-  # ### b129 filing-scope class the b130 roster ruling was minted to close. Caught by
-  # ### a mechanical probe returning ABSENT. It is listed FIRST deliberately: the flat
-  # ### export resolves names in roster order, so the front-door README takes the
-  # ### plain `README.md` slot and the archive's README is disambiguated after it.
-  'README.md',
-  'FINDINGS.md','REGISTRY.md','OPEN_TRAILS.md','SPIRAL_MAP.md','VERIFICATION_LOOM.md','ERRATA.md',
-  'phase1.5\proofs\THE_RESIDUE_OF_RH.md','day1\A_Place_to_Stand.md',
-  'phase1.5\proofs\PATHS_TO_THE_CRITICAL_LINE.md','phase1.5\proofs\THE_UNCONDITIONAL_SURROUND.md',
-  'phase1.5\simplicity\SIMPLICITY_OF_RIEMANN_ZEROS.md','phase1.5\method\EXCLUSION_ENGINE.md',
-  'phase1.5\structural\FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md','phase1.5\method\INVARIANCE_BARRIERS.md',
-  'phase1.5\spectral\GRH_CASCADE.md','phase1.5\spectral\BALANCE_AND_POSITIVITY.md',
-  'phase2\method\ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md',
-  'phase2\quantum\FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION.md',
-  'phase2\quantum\SILENCE_STAGES_DEALIGNMENT.md',
-  'phase1.5\proofs\INDEX_ARITY_AT_THE_CRITICAL_LINE.md',  # roster ADDITION 2026-08-04 (ferry-required)
-  'phase1.5\method\INSTRUMENTS.md',                       # roster ADDITION 2026-08-05 (author-called)
-  'phase1.5\method\THE_METHOD_CANON.md',                  # roster ADDITION 2026-08-06 (author's taste, recorded as such)
-  'phase1.5\method\THE_METHOD_AS_IT_STANDS.md',        # roster ADDITION 2026-08-25, b162: the method's self-description at grade
-  'phase2\method\THE_FINDINGS_AS_THEY_STAND.md',       # roster ADDITION 2026-08-25, b163: the findings' self-description at grades
-  'phase1.5\method\GAUGE_AND_INVARIANT.md',              # roster ADDITION 2026-08-24, b147: the synthesis
-                                                          #   keystone, adopted this act. Ferry-required: "joining the
-                                                          #   mirror roster". Its content lives here now, not in relay/data.
-  'phase2\method\THE_GLOBAL_SECTION.md',                  # roster ADDITION 2026-08-24 (the crown opening's ROSTER RULING,
-                                                          #   strikeable: closes the b129 filing-scope class structurally --
-                                                          #   the keystone carried substance that reached no exported file)
-  # ---- roster ADDITIONS 2026-08-24, b143, DECLARED DEVIATION (the ferry did not
-  #   name a roster change). REASON: the twenty-fifth seam's archival split moved
-  #   ~3.0 MB out of the three working ledgers. The ferry's own FOOT calls the
-  #   newest mirror "the restart kit complete ... as the standing safety".
-  #   ### WITHOUT THESE SIX ROWS THAT SENTENCE BECOMES FALSE THE MOMENT THE SPLIT
-  #   ### LANDS -- the export would carry pointer headers to files it does not
-  #   ### contain. Adding them SERVES the ferry's stated intent rather than
-  #   ### expanding its scope; the words-vs-intent law cuts this way. Recorded as
-  #   a deviation because it is one, and reversible by deleting six lines.
-  'archive\2026-08-24-ledger-split\README.md',
-  'archive\2026-08-24-ledger-split\OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md',
-  'archive\2026-08-24-ledger-split\OPEN_TRAILS-archive-2-historical-landings-and-programs.md',
-  'archive\2026-08-24-ledger-split\VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md',
-  'archive\2026-08-24-ledger-split\FINDINGS-archive-1-entries-through-2026-08-20c.md',
-  'archive\2026-08-24-ledger-split\FINDINGS-archive-2-entries-2026-08-21-and-22.md',
-
-  # ---- roster ADDITION 2026-08-26, b182. The ferry required the construction
-  #   program be "carried in the mirror", so this row is ferry-required, not a
-  #   deviation.
-  # ### AND THE REASON THIS COMMENT IS LONGER THAN THE ROW: I FIRST ADDED THE
-  # ### PROGRAM TO tools\mirror_roster.json AND REBUILT, AND THE BUILD CAME BACK
-  # ### CLEAN ON BOTH CLAUSES AT 33 FILES -- WITHOUT THE PROGRAM.
-  # ### THE JSON IS NOT THE ROSTER THIS SCRIPT READS. THE ROSTER IS THIS ARRAY.
-  # ### Both clauses passed because clause 1 checks the archive against ITS OWN
-  # ### manifest and clause 2 checks only the HEAD: ### A FILE THAT NEVER ENTERED
-  # ### THE STAGING DIRECTORY IS INVISIBLE TO BOTH. That is b130's stale-build
-  # ### law in a new dress, and it was caught by counting files against the
-  # ### roster, NOT by the verifier.
-  'phase2\method\THE_BOUNDARY_CONSTRUCTION_PROGRAM.md'
-)
+# ### THE ROSTER MOVED OUT OF THIS FILE ON 2026-08-26 (b183).
+# ### IT NOW LIVES IN tools\mirror_roster.json, WHICH IS THE SINGLE SOURCE OF TRUTH.
+# ### WHY: until b183 there were TWO roster artifacts -- this array, which the builder
+# ### read, and mirror_roster.json, which NOTHING read and which held STAGED ARCHIVE
+# ### NAMES rather than source paths. ### AT b182 A ROW ADDED TO THE JSON CHANGED
+# ### NOTHING AND THE MIRROR VERIFIED **CLEAN AT 33 FILES WITHOUT THE FILE IN IT**.
+# ### THE JSON WAS AN OUTPUT WRITTEN AS THOUGH IT WERE AN INPUT.
+# ### DIRECTION OF THE MERGE: ps1 -> json. The artifact carrying MORE information
+# ### survives -- paths determine staged names, staged names do not determine paths.
+# ### AND AN EMPIRICAL GROUND FROM b183 ITSELF: a Python reader of THIS array got it
+# ### wrong on its first run, harvesting apostrophes out of these very comments.
+# ### A ROSTER EVERY NON-POWERSHELL READER MUST PARSE POWERSHELL TO READ IS A ROSTER
+# ### THAT WILL BE MISREAD.
+$rosterPath = Join-Path $PSScriptRoot 'mirror_roster.json'
+if (-not (Test-Path $rosterPath)) { throw "ROSTER MISSING: $rosterPath. Refusing to build "
+  + 'an export with no roster -- an empty roster is a hard failure, never an empty build.' }
+$rel = (Get-Content $rosterPath -Raw | ConvertFrom-Json).files
+if (-not $rel -or $rel.Count -eq 0) {
+  # ### THE ZERO CASE, AT THE BUILDER TOO AND NOT ONLY AT THE VERIFIER: b167 had to add
+  # ### an empty-scope hard failure to banned_terms.py and b179's hook cleared an empty
+  # ### staged set. ### IN THIS RECORD EMPTINESS READS AS SUCCESS UNLESS A LINE IS
+  # ### WRITTEN AGAINST IT.
+  throw 'EMPTY ROSTER. Refusing to build a zero-file export that would verify CLEAN.'
+}
 
 $head = (git -C $repo rev-parse --short HEAD).Trim()
 $stage = Join-Path $env:TEMP "mirror-build-$DateTag"
@@ -106,10 +71,18 @@ $man = @()
 $man += "# MANIFEST - mirror-refresh-$DateTag"
 $man += ""
 $man += "Source: PLACE-papers @ ``$head`` (main). Export $DateTag. $($rows.Count) files flat."
-# ---- roster line, DERIVED at build time (never authored, never carried forward) ----
-# The previous build's roster is stored beside this script; the line below is computed by
-# diffing it against the roster this build actually assembled.
-$rosterState = Join-Path $PSScriptRoot 'mirror_roster.json'
+# ---- roster-CHANGE line, DERIVED at build time (never authored, never carried forward) ----
+# The PREVIOUS BUILD'S STAGED-NAME LIST is stored beside this script in
+# mirror_prevbuild.json; the line below diffs it against the staged names THIS build
+# assembled. ### IT IS BUILD STATE, NOT THE ROSTER, AND IT IS OVERWRITTEN EVERY RUN.
+# ### THE STATE FILE IS **NOT** THE ROSTER. b183 split them.
+# ### Until b183 this line pointed at mirror_roster.json and the block below
+# ### OVERWROTE IT with STAGED NAMES at the end of every build. ### THE FILE WAS
+# ### PLAYING TWO ROLES: it looked like the builder's INPUT and it was the
+# ### builder's OUTPUT. ### THAT IS WHY THE ROW ADDED AT b182 VANISHED.
+# ### An input a process overwrites is not an input; it is a scratch pad with a
+# ### misleading name.
+$rosterState = Join-Path $PSScriptRoot 'mirror_prevbuild.json'
 $now = $rows | ForEach-Object { $_.file } | Sort-Object
 $prev = @()
 $prevDate = $null

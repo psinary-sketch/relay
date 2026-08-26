@@ -1,0 +1,170 @@
+====================================================================================================
+b183 -- THE THIRD CLAUSE AND THE ROSTER REPAIR -- THE BANK. 2026-08-26.
+Registration: data/b183_registration_2026-08-26.txt, commit cd942e0, banked after the load-bearing
+reads and the PRE-MERGE comparison, before the reconciliation and before the clause was written.
+### TOOL AND CONFIGURATION WORK. ### NO MATHEMATICAL CLAIM.
+### NO KERNEL CHANGES; Core stands 304/304, rows 1-79.
+====================================================================================================
+
+*** ### THE FERRY'S PREMISE WAS WRONG IN THE PROGRAMME'S FAVOUR, AND FINDING OUT WHY IS THE ACT.
+### THE FERRY CALLS mirror_roster.json "THE DECORATIVE ARTIFACT". ### AT CONTENT IT WAS NOT
+### DECORATIVE: ### THE BUILDER **OVERWRITES IT AT THE END OF EVERY BUILD**, with the STAGED
+### ARCHIVE NAMES, as its PREVIOUS-BUILD STATE for the manifest's "ROSTER CHANGE" line.
+### THE FILE WAS PLAYING TWO ROLES AT ONCE -- IT **LOOKED** LIKE THE BUILDER'S INPUT AND IT
+### **WAS** THE BUILDER'S OUTPUT. ### THAT, AND NOT NEGLECT, IS WHY b182's ROW VANISHED. ***
+
+--- (0) COMPONENT 1's PRE-MERGE COMPARISON, RUN AND REPORTED BEFORE ANY MERGE. ---
+ ### THE FERRY REQUIRED THE DIFFERENCE BE REPORTED FIRST, ### BECAUSE A MERGE THAT REPORTS NO
+ ### DIFFERENCE AFTER THE FACT CANNOT BE CHECKED.
+ RESULT: both artifacts carried ### 34 ENTRIES, but they were ### NOT TWO COPIES OF ONE LIST:
+  · mirror_build.ps1 held ### SOURCE PATHS -- 27 of 34 with a directory -- and "README.md"
+    ### APPEARED TWICE (the repo front door and the ledger-split archive).
+  · mirror_roster.json held ### STAGED ARCHIVE NAMES, including
+    "2026-08-24-ledger-split__README.md", ### WHICH IS THE BUILDER'S POST-COLLISION RENAME AND
+    ### IS NOT A PATH THAT EXISTS IN THE REPOSITORY.
+ ### SO THE JSON WAS A **DERIVED** LIST. ### THAT IS A WORSE FAILURE THAN A STALE DUPLICATE.
+
+ ### AND A DEFECT IN THIS ACT'S OWN COMPARISON INSTRUMENT, RECORDED RATHER THAN QUIETLY FIXED:
+ ### THE FIRST RUN REPORTED **39 ENTRIES, NINETEEN OF THEM PROSE FRAGMENTS** -- it ran a naive
+ ### quoted-string match over the array body and ### HARVESTED APOSTROPHES OUT OF THE COMMENTS
+ ### ("repo's", "ferry's", "b130's"). It even reported a duplicate basename of ",\n  ".
+ ### AN INSTRUMENT BUILT TO CHECK A ROSTER MUST FIRST BE ABLE TO READ ONE.
+ ### CAUGHT BY THE OUTPUT LOOKING ABSURD, NOT BY A TEST. Fixed by stripping comments line by
+ line before extracting, and ### THE CORRECTED RUN IS THE ONE OF RECORD.
+ *** ### AND IT BECAME EVIDENCE: ### IT IS THE EMPIRICAL GROUND FOR THE MERGE'S DIRECTION. ***
+
+--- (1) COMPONENT 1 -- THE SINGLE ROSTER. ---
+ ### DIRECTION: **ps1 -> json**, FIXED IN THE REGISTRATION BEFORE THE WORK.
+ GROUND ONE: ### THE ARTIFACT CARRYING MORE INFORMATION SURVIVES -- paths determine staged
+   names; staged names do not determine paths.
+ GROUND TWO, EMPIRICAL, FROM THIS ACT: ### A PYTHON READER OF THE POWERSHELL ARRAY GOT IT WRONG
+   ON ITS FIRST RUN. ### A ROSTER EVERY NON-POWERSHELL READER MUST PARSE POWERSHELL TO READ IS A
+   ### ROSTER THAT WILL BE MISREAD. ### THAT IS NOT A HYPOTHETICAL RISK; IT IS A MEASUREMENT
+   ### TAKEN INSIDE THIS ACT.
+
+ ### WHAT WAS DONE:
+  · tools/mirror_roster.json ### IS NOW THE SINGLE SOURCE OF TRUTH and holds ### 34 REPO-RELATIVE
+    SOURCE PATHS IN ROSTER ORDER, with ### THREE SELF-DESCRIBING FIELDS IN THE FILE ITSELF --
+    _authority (it is the roster and the builder reads it), _what_these_are (source paths, NOT
+    archive names; the flat-naming rule; ### ORDER IS SIGNIFICANT), and _history (what it used to
+    hold and why b182's row changed nothing).
+    ### THE FILE NOW SAYS WHAT IT IS **IN ITSELF**, not only in this bank -- because ### ANYONE
+    ### WHO READ THE OLD FILE READ A DIFFERENT KIND OF LIST AND HAD NO WAY TO KNOW.
+  · tools/mirror_build.ps1 ### NO LONGER CARRIES A ROSTER. Its hardcoded array is replaced by a
+    read of the JSON, ### WITH THE ROSTER'S HISTORY PRESERVED IN COMMENTS -- ### DELETING THE
+    REASON A ROW EXISTS IS HOW A ROSTER BECOMES A LIST NOBODY DARES TOUCH. It ### THROWS on a
+    missing roster and ### THROWS on an empty one.
+  · ### THE TWO ROLES ARE SPLIT: the builder's previous-build state moved to
+    ### tools/mirror_prevbuild.json. ### HAD THIS NOT BEEN CAUGHT, THE FIRST BUILD AFTER THE
+    ### MERGE WOULD HAVE OVERWRITTEN THE SOURCE-PATH ROSTER WITH STAGED NAMES, AND THE BUILD
+    ### AFTER THAT WOULD HAVE LOOKED FOR 34 FILES THAT DO NOT EXIST AT THOSE PATHS.
+    ### AN INPUT A PROCESS OVERWRITES IS NOT AN INPUT; IT IS A SCRATCH PAD WITH A MISLEADING
+    ### NAME.
+ ### NO FILE IS LEFT LOOKING AUTHORITATIVE THAT IS NOT: nothing was deleted, and each of the two
+ files now declares its own role in its own text.
+
+--- (2) COMPONENT 2 -- THE THIRD CLAUSE. ---
+ ### CLAUSE 3: THE ARCHIVE'S CONTENTS AGAINST **THE ROSTER**. Every roster entry present in the
+ archive; every archive entry in the roster; ### ANY MISMATCH A HARD FAILURE.
+ It replicates the builder's flat-naming rule exactly: leaf; on collision parent + "__" + leaf;
+ ### if it still collides, a hard error, matching the builder's own throw.
+
+ ### FIXTURE-TESTED BEFORE SERVICE, BOTH POLARITIES PLUS THE ZERO CASE. ### 5 OF 5 AS EXPECTED:
+  POLARITY 1  ### THE b182 INSTANCE REPLAYED -- roster 34, archive 33, program absent:
+              ### HARD FAILURE, and it NAMES the missing file.
+              *** ### THIS EXACT ARCHIVE PASSED CLAUSES 1 AND 2 AT b182. ***
+  POLARITY 1b an archive file the roster does not list ("SMUGGLED.md"): ### HARD FAILURE, named.
+  POLARITY 2  a clean build: ### CLEAN.
+  ZERO CASE   an empty roster against an empty archive: ### HARD FAILURE.
+              ### THE TRAP IT CLOSES: EMPTINESS MATCHES EMPTINESS AND READS AS SUCCESS.
+  MISSING     no roster file on disk: ### HARD FAILURE -- a verification with no roster is not a
+              verification.
+ ### THE INFORMATIVE FIXTURES ARE POLARITY 2 AND THE ZERO CASE: ### A CLAUSE THAT FAILED
+ ### EVERYTHING WOULD ALSO "CATCH" b182.
+
+ ### THE CLAUSE'S LIMITS, IN THE TOOL'S OWN HEADER SO IT IS NOT TRUSTED BEYOND THEM:
+  (1) *** ### IT REPLICATES THE BUILDER'S NAMING RULE IN A SECOND LANGUAGE. The builder is
+      PowerShell; the clause is Python. ### IF ONE IS EDITED AND NOT THE OTHER THEY DRIFT, AND
+      THIS CLAUSE WOULD THEN FAIL A GOOD BUILD OR PASS A BAD ONE.
+      ### THIS ACT **CREATED** THAT COUPLING; IT DID NOT CLOSE IT. The mitigation is only that it
+      ### FAILS CLOSED. ### REGISTERED AS (e1) BEFORE THE WORK SO IT COULD NOT BE PRESENTED
+      ### AFTERWARDS AS THOUGH THE CLASS WERE SHUT. ***
+  (2) It compares NAMES, not contents -- clause 1 owns bytes and md5s.
+  (3) ### A ROSTER THAT IS ITSELF WRONG PRODUCES A CLEAN CLAUSE 3, and no clause checks the
+      roster against the author's intent, ### BECAUSE NO INSTRUMENT CAN.
+
+ ### THE LIVE RUN: rebuilt from the reconciled roster and verified ### CLEAN ON ALL THREE
+ CLAUSES at 34 files, HEAD dc3f80b agreeing with ls-remote, ### and the roster VERIFIED TO HAVE
+ SURVIVED THE BUILD (34 source paths, first entry still README.md) with the prevbuild state
+ written to its own file.
+ ### AND THE VERDICT LINE WAS REPAIRED: it still read "the law requires both" after a third
+ clause existed. ### A CHECK THAT MISCOUNTS ITS OWN CLAUSES IS A CHECK MISREPORTING ITSELF.
+
+--- (3) COMPONENT 3 -- THE FILINGS. ---
+ ### THE STALE-BUILD LAW'S INSTANCE COUNT, WITH THIS DRESS ADDED: ### FOUR.
+  b130 -- built one commit early; verified CLEAN at 23 files while missing a conventions line.
+  b144 -- a flat-namespace COLLISION dropped a file; the manifest still verified CLEAN.
+  b182 -- a roster edit the builder never read; ### CLEAN AT 33 FILES WITHOUT THE FILE IN IT.
+  b183 -- ### THE SAME ARTIFACT WAS ALSO THE BUILD'S OUTPUT, WHICH IS **WHY** b182 HAPPENED;
+          found only because this act read the builder to the end.
+ ### THE COMMON SHAPE IS **NOT** STALENESS, AND CALLING IT "THE STALE-BUILD LAW" HAS BEEN
+ ### QUIETLY MISLEADING FOR FOUR INSTANCES.
+
+ *** ### THE SPECIES, NAMED AS THE FERRY ASKS:
+ ### **A CHECK THAT PASSES BECAUSE ITS SCOPE EXCLUDES THE DEFECT.**
+ ### IT PASSES **BECAUSE** IT IS BLINKERED, NOT DESPITE IT -- and that is why adding effort to
+ ### such a check never finds the fault, and why the only repair is to WIDEN THE SCOPE.
+ ### RELATIVES ALREADY IN THE RECORD, WHICH IS HOW A SPECIES IS ESTABLISHED RATHER THAN COINED:
+  · b167's banned_terms.py printing CLEAN over an EMPTY scope.
+  · b179's pre-commit hook clearing an EMPTY staged set on its first control run.
+  · b180's index returning EIGHT MISSES that carried no information because ### ITS KEYS COVERED
+    ONE LANE AND THE QUESTION WAS IN ANOTHER.
+  · b148's commit message asserting compliance ### IN THE SAME COMMIT THAT FALSIFIED IT, with
+    nothing in the closing sequence comparing a message to its own file list.
+ ### THE PATTERN ACROSS ALL OF THEM: ### THE SCOPE IS THE VERDICT'S SILENT PREMISE, AND A VERDICT
+ ### THAT DOES NOT PRINT ITS SCOPE CANNOT BE AUDITED. ### FILED FOR THE METHODOLOGY DAY (M7).
+
+--- (4) THE PREDICTIONS, SCORED. ---
+ NAVIGATOR: one roster; a third clause; the filings -- all delivered.
+ EXECUTOR:
+  (e1) ### THE CLAUSE CREATES A NEW CROSS-LANGUAGE COUPLING RATHER THAN CLOSING THE CLASS --
+    ### HOLDS, and it is in the tool's header, this bank and the report. ### REGISTERING A
+    ### HAZARD BEFORE BUILDING THE THING THAT CARRIES IT IS THE ONLY WAY THE ADMISSION COSTS
+    ### ANYTHING.
+  (e2) ### THE ZERO CASE WOULD HAVE BEEN THE ONE TO SLIP -- ### UNTESTABLE AS REGISTERED, AND I
+    SAY SO RATHER THAN CLAIM IT: ### THE FERRY NAMED THE ZERO CASE EXPLICITLY, SO I CANNOT KNOW
+    ### WHETHER I WOULD HAVE MISSED IT. ### THE CREDIT IS THE FERRY'S. What the record does show
+    is that b167 and b179 both had to add empty-scope failures after the fact.
+  (e3) ### THE b182 INSTANCE CAUGHT BY CLAUSE 3 WHILE STILL PASSING 1 AND 2 -- ### LANDS, and it
+    is reported as the side-by-side it needs to be rather than as a bare "it works".
+  (e4) ### THE JSON REWRITE CHANGES THE FILE'S **MEANING**, NOT ONLY ITS CONTENT -- ### LANDS,
+    and the file now declares its own role in three self-describing fields.
+  (e5) ### CORE: NOTHING ENTERS -- ### HOLDS. 304/304, rows 1-79.
+ ### AND THE THING NO PREDICTION CAUGHT: ### THAT THE ROSTER FILE WAS THE BUILDER'S OWN OUTPUT.
+ ### I REGISTERED THE MERGE'S DIRECTION CORRECTLY AND FOR THE RIGHT REASONS, ### AND STILL DID
+ ### NOT KNOW, WHEN I WROTE IT, THAT THE MERGE AS FIRST IMPLEMENTED WOULD HAVE DESTROYED ITSELF
+ ### ON THE NEXT BUILD. ### IT WAS FOUND BY READING THE BUILDER TO THE END RATHER THAN TO THE
+ ### PART I WAS EDITING.
+
+--- (5) THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED. ---
+ ### THE CROSS-LANGUAGE NAMING-RULE COUPLING, NEW THIS ACT AND UNCLOSED.
+ ### THE SIX FORMERLY-UNTRACKED IN-FLIGHT ITEMS (b182): the STAGED boundary registration; the
+ stop-loss ruling; the engineering queue's named item (the epsilon extension beyond rho=48.001);
+ the parked deposit gates; the pending Phase 1.5 keystone review; the dominance second asking
+ with its spending condition.
+ ### 104 remaining references; ~158 unswept W-codes; the definitional fork; gates 2 and 6's
+ reviewable attempts; the seat boundary's operational form; the Q-route Psi instability; b157's
+ six findings; the three front-door items; the tense hazard; the bra-ket convention; Prop 5.5's
+ hazard; the methodology day (M1-M7).
+ ### THE DEEP ITEMS: the relative identification; the h1/h2 statement drafting.
+ ### THE BOUNDARY PROGRAM'S CP-1 STANDS RUNNABLE AT THE AUTHOR'S SCHEDULE.
+
+DEVIATIONS: ### ONE, IN THIS ACT'S OWN COMPARISON INSTRUMENT, CAUGHT BEFORE ITS OUTPUT WAS USED
+ (the 39-entry apostrophe harvest, above). ### NO FIGURE FROM THE BROKEN RUN WAS CARRIED FORWARD.
+DIVERGENCES: ### ONE, FROM THE FERRY'S PREMISE, AND IT IS RECORDED AS A DIVERGENCE RATHER THAN
+ SILENTLY ABSORBED: ### THE FERRY CALLS mirror_roster.json "DECORATIVE"; ### AT CONTENT IT WAS
+ THE BUILDER'S OWN PER-BUILD OUTPUT STATE. ### THE REPAIR THE FERRY ASKED FOR WAS STILL THE RIGHT
+ ONE, ### BUT IT NEEDED A STEP THE FERRY COULD NOT HAVE KNOWN TO NAME.
+### NO MATHEMATICAL CLAIM WAS ADDED OR CHANGED. NOTHING OPENED, CLOSED, OR REOPENED.
+### THE REGISTER SENTENCE STANDS EXACT. NOTICED IS NOT EARNED.
+====================================================================================================
