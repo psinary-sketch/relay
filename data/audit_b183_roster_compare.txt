@@ -1,0 +1,22 @@
+==========================================================================
+b183 -- THE TWO ROSTER ARTIFACTS, COMPARED BEFORE THE MERGE
+==========================================================================
+  tools/mirror_build.ps1   (the one the builder READS) : 34 entries
+  tools/mirror_roster.json (the one nothing reads)     : 34 entries
+
+--- MEMBERSHIP, BY BASENAME ---
+  in ps1 but not json : NONE
+  in json but not ps1 : ['2026-08-24-ledger-split__README.md']
+  duplicate basenames in ps1 : ['README.md']
+
+--- THE STRUCTURAL DIFFERENCE, WHICH IS THE REAL ONE ---
+  ### ps1 carries REPO-RELATIVE PATHS : 27 of 34 entries have a directory
+  ### json carries BARE BASENAMES     : 0 of 34 have a directory
+  example ps1  : phase2\method\ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md
+  example json : OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md
+
+  ### SO THE JSON IS **LOSSY**: it cannot say WHERE a file lives, and two
+  ### roster paths sharing a leaf would be indistinguishable in it -- which
+  ### is a collision the builder's own comments say it already guards against.
+  ### THE MERGE THEREFORE RUNS ps1 -> json, NOT json -> ps1:
+  ### THE ARTIFACT CARRYING MORE INFORMATION IS THE ONE THAT SURVIVES.

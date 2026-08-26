@@ -1,0 +1,84 @@
+====================================================================================================
+b183 REGISTRATION -- THE THIRD CLAUSE AND THE ROSTER REPAIR.
+BANKED AFTER THE LOAD-BEARING READS AND THE PRE-MERGE COMPARISON, BEFORE THE RECONCILIATION AND
+BEFORE THE CLAUSE IS WRITTEN.
+====================================================================================================
+FERRY 2026-08-26 (part 1 of 1; receipt confirmed IN FULL, Rule 1).
+
+SCOPE, QUOTED: "tool and configuration work; NO mathematical claim; the nursery convention governs
+(fixtures in both polarities plus the zero case before service)."
+
+THE REGISTER SENTENCE, QUOTED UNCHANGED: RH reduced to a single located clause,
+reduction machine-verified.
+
+----------------------------------------------------------------------------------------------------
+### WHAT THE PRE-MERGE COMPARISON FOUND, AND IT CHANGES THE REPAIR.
+
+ ### THE FERRY CALLS ONE ARTIFACT "DECORATIVE". ### AT CONTENT THEY ARE NOT TWO COPIES OF ONE
+ ### LIST -- THEY HOLD **DIFFERENT KINDS OF THING**:
+  · tools/mirror_build.ps1 holds ### SOURCE PATHS (27 of 34 carry a directory), and
+    ### "README.md" APPEARS TWICE in it -- the repo front door and the ledger-split archive.
+  · tools/mirror_roster.json holds ### STAGED ARCHIVE NAMES: it carries
+    "2026-08-24-ledger-split__README.md", ### WHICH IS THE BUILDER'S POST-COLLISION RENAME, NOT A
+    ### PATH THAT EXISTS IN THE REPOSITORY.
+ ### SO THE JSON IS NOT A STALE COPY OF THE ps1. ### IT IS A **DERIVED** LIST -- an output written
+ ### as though it were an input. ### THAT IS A WORSE FAILURE THAN A STALE DUPLICATE AND IT IS THE
+ ### REASON THE ROW I ADDED AT b182 CHANGED NOTHING.
+
+ ### THE BUILDER'S NAMING RULE, READ AT CONTENT so any checker can replicate it exactly:
+   leaf = basename(path);
+   if that leaf is already staged AND the path has a parent: leaf = basename(parent) + "__" + leaf;
+   if it still collides: ### THROW -- "Refusing to build a flat export that would silently drop a
+   file."
+ ### IT IS ORDER-DEPENDENT: first entry wins the plain slot, and the ps1 says the front-door
+ README is listed first deliberately.
+
+### THE MERGE'S DIRECTION, FIXED BEFORE THE WORK: ### ps1 -> json. THE JSON BECOMES THE SINGLE
+### SOURCE OF TRUTH AND WILL HOLD **SOURCE PATHS**, IN ROSTER ORDER; THE BUILDER WILL READ IT.
+ GROUND ONE: ### THE ARTIFACT CARRYING MORE INFORMATION SURVIVES. Paths determine staged names;
+   staged names do not determine paths.
+ GROUND TWO, AND IT IS EMPIRICAL, FROM THIS ACT: ### MY FIRST COMPARISON SCRIPT PARSED THE ps1
+   FROM PYTHON AND GOT IT WRONG -- it harvested apostrophes out of the comments and reported
+   ### 39 ENTRIES, NINETEEN OF THEM PROSE FRAGMENTS, including a "duplicate basename" of ",\n  ".
+   ### IF THE ROSTER LIVES IN A POWERSHELL ARRAY, EVERY NON-POWERSHELL READER MUST PARSE
+   ### POWERSHELL, AND I HAVE JUST DEMONSTRATED THAT GOING WRONG INSIDE THIS ACT.
+   ### THAT IS NOT A HYPOTHETICAL RISK; IT IS A MEASUREMENT.
+
+----------------------------------------------------------------------------------------------------
+### THE TWO SEATS.
+NAVIGATOR: one roster; a third clause; the filings.
+
+EXECUTOR (SCOREABLE, BEFORE THE RECONCILIATION AND BEFORE THE CLAUSE):
+ (e1) ### CLAUSE 3 WILL HAVE TO REPLICATE THE BUILDER'S COLLISION RULE IN A SECOND LANGUAGE, AND
+   ### THAT IS A NEW COUPLING THIS ACT CREATES RATHER THAN CLOSES. ### I REGISTER IT NOW SO IT
+   ### CANNOT BE PRESENTED LATER AS THOUGH THE CLASS WERE SHUT. The mitigation I intend is to
+   name it in the tool's header and fail closed on any mismatch; ### I DO NOT INTEND TO CLAIM THE
+   ### HAZARD IS REMOVED.
+ (e2) ### THE ZERO CASE WILL BE THE ONE THAT ALMOST SLIPPED. Ground: b167 had to add an
+   empty-scope hard failure to banned_terms.py, b179's hook cleared an EMPTY staged set on its
+   first control run, and ### THE PATTERN IN THIS RECORD IS THAT EMPTINESS READS AS SUCCESS
+   ### UNLESS SOMEONE WRITES A LINE AGAINST IT. ### THE FERRY ASKS FOR IT EXPLICITLY, WHICH IS
+   ### WHY IT WILL NOT SLIP THIS TIME -- AND THAT IS THE FERRY'S CREDIT, NOT MINE.
+ (e3) ### THE b182 INSTANCE, REPLAYED AS THE FAILING FIXTURE, WILL BE CAUGHT BY CLAUSE 3 AND
+   ### WOULD STILL PASS CLAUSES 1 AND 2. ### THAT CONTRAST IS THE WHOLE POINT AND IT WILL BE
+   ### REPORTED AS A SIDE-BY-SIDE, not as a bare "clause 3 works".
+ (e4) ### THE JSON REWRITE WILL CHANGE THE FILE'S MEANING, NOT ONLY ITS CONTENT -- from staged
+   names to source paths. ### ANYONE WHO READ THE OLD FILE READ A DIFFERENT KIND OF LIST, and the
+   new file must say so in itself rather than only in this bank.
+ (e5) ### CORE: NOTHING ENTERS. Tool and configuration work contains no finite decidable
+   statement about the mathematics.
+
+### THE GUARDS:
+ · ### NO MATHEMATICAL CLAIM. Nothing is opened, closed, or reopened; no member is preferred.
+ · ### THE NURSERY CONVENTION: fixtures in BOTH polarities PLUS the zero case, ### RUN BEFORE
+   SERVICE, and ### THE FAILING FIXTURE IS THE b182 INSTANCE ITSELF.
+ · ### NO FILE IS LEFT LOOKING AUTHORITATIVE THAT IS NOT.
+ · ### THE MIRROR IS REBUILT AND VERIFIED UNDER ALL THREE CLAUSES BEFORE THE ACT CLOSES.
+ · ### A RESIDUAL HAZARD IS NAMED, NEVER PAPERED OVER. NOTICED IS NOT EARNED.
+
+THE FENCES: N-EXT-2 absolute; (I-differ) at grade; h2 STATED NOT PROVED; nothing promoted;
+nothing deposits; HELD (6eada6a) LOCAL-ONLY; TECHNE-Core untouched; no sorry.
+
+DEVIATION RULE STANDING.
+BANK: data/b183_third_clause.txt.
+====================================================================================================
