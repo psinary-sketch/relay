@@ -1,0 +1,158 @@
+====================================================================================================
+b193 -- THE RESTRICTED TENSOR CONSTRUCTION, ACT ONE -- THE BANK. 2026-08-26.
+Registration: data/b193_registration_2026-08-26.txt, commit 09c1758, banked after the owner reads,
+the toolchain feasibility test and the Mathlib read, BEFORE any Lean was written.
+### A BUILD. ### THE ACT PRODUCED CONSTRUCTION, NOT ONLY READS.
+### CORE UNTOUCHED at 304/304, rows 1-79. ### THE NEW WORK IS INTERFACES-LAYER; row 80.
+====================================================================================================
+
+*** ### LAYER ONE IS BUILT AND COMPILED. ### THREE TERMINALS, AXIOM PROFILE
+### [propext, Classical.choice, Quot.sound], ### NO sorryAx, ### ZERO ERRORS, EXIT 0.
+### AND THE GATE -- THE ONE THAT COULD FAIL -- PASSED. ***
+
+--- (0) THE TOOLCHAIN, ESTABLISHED BY TEST, AND IT NEARLY HALTED THE ACT. ---
+ · SIDE-global-section has ### NO lakefile AND NO .lake/packages.
+ · The first probe against the mathlib4 checkout failed: ### "INCOMPATIBLE HEADER".
+ · CAUSE, READ AT CONTENT: mathlib4's lean-toolchain says ### v4.29.0; the default is v4.29.1.
+   ### THE TOOLCHAIN IS PART OF THE PATH, AND A VERSION MISMATCH IS NOT A MISSING LIBRARY.
+ · v4.29.0 is installed; the eight dependency packages are present and built.
+ · RECIPE, RECORDED SO A LATER ACT NEED NOT REDISCOVER IT: LEAN_PATH = mathlib4's
+   .lake/build/lib/lean plus each .lake/packages/*/.lake/build/lib/lean, and
+   ### `elan run leanprover/lean4:v4.29.0 lean <file>`.
+ ### A PROBE FILE COMPILED CLEAN BEFORE ANY CONSTRUCTION WAS ATTEMPTED. ### FEASIBILITY WAS
+ ### TESTED, NOT ASSUMED, AND THE HALT AT THE TOOLCHAIN WAS A LIVE POSSIBILITY UNTIL v4.29.0
+ ### WAS READ.
+
+--- (1) COMPONENT 1 -- THE INGREDIENT READ (P1). ---
+ *** ### AND IT CORRECTS b189, WHICH IS MY OWN PRIOR ACT.
+ ### b189 READ Analysis/InnerProductSpace/CanonicalTensor.lean, FOUND IT "canonical tensors in
+ ### REAL inner product spaces" WITH A FINITE-DIMENSIONAL COVARIANT TENSOR, AND CONCLUDED
+ ### "MATHLIB HOLDS THE PARTS AND NOT THEIR COMBINATION".
+ ### THERE IS A WHOLE FILE b189 DID NOT FIND: ### Analysis/InnerProductSpace/TensorProduct.lean.
+ ### b189's SENTENCE WAS TOO STRONG AND IT WAS MINE. ### THE CORRECTION IS STATED PLAINLY AND THE
+ ### EARLIER SENTENCE IS NOT QUIETLY DROPPED. ***
+
+ ### HELD, EACH LOCATED WITH ITS FILE AND NAME AND ITS STATEMENT QUOTED:
+  · `TensorProduct.instInnerProductSpace` (Analysis/InnerProductSpace/TensorProduct.lean) --
+    "the inner product space structure on tensor products, where <a (x) b, c (x) d> =
+    <a, c> * <b, d>". ### HELD.
+  · `TensorProduct.instNormedAddCommGroup` -- "the normed additive group structure on tensor
+    products, where ||x (x) y|| = ||x|| * ||y||". ### HELD.
+  · ### `TensorProduct.congrIsometry` -- "the linear isometry EQUIVALENCE version of
+    TensorProduct.congr f g when f and g are linear isometry equivalences". ### HELD, ### AND IT
+    ### IS EXACTLY WHAT F = F_v (x) F_w NEEDS.
+  · `TensorProduct.mapIsometry`, `lidIsometry`, `assocIsometry`, `commIsometry`,
+    `OrthonormalBasis.tensorProduct`. ### HELD.
+  · THE COMPLETION OF A PRE-INNER-PRODUCT SPACE: Analysis/InnerProductSpace/Completion.lean --
+    "Completion of an inner product space", with the `Inner` instance on
+    `UniformSpace.Completion`. ### HELD.
+  · DIRECTED-COLIMIT MACHINERY: Algebra/Colimit/DirectLimit.lean and
+    LinearAlgebra/TensorProduct/DirectLimit.lean. ### HELD (ALGEBRAICALLY).
+ ### NOT HELD:
+  · ### AN INNER PRODUCT ON AN ARBITRARY-INDEX `PiTensorProduct`. What Mathlib carries under
+    Analysis/Normed/Module/PiTensorProduct/ is ### InjectiveSeminorm AND ProjectiveSeminorm --
+    ### SEMINORMS, NOT AN INNER PRODUCT. ### SO THE ARBITRARY-INDEX ROUTE IS NOT AVAILABLE AND
+    ### THE PLAN ROUTES AROUND IT VIA ITERATED BINARY TENSORS.
+  · ### THE ISOMETRY FACTS A DIRECTED SYSTEM OF E1-UNIT INCLUSIONS WOULD NEED: ### NOT LOCATED,
+    ### AND NOT ASSUMED. Named as the next layer's live question rather than waved at.
+
+--- (2) COMPONENT 2 -- THE PLAN AND ITS FALSIFIER (P2). ---
+ ### THE OBJECT TO BE BUILT: an INSTANCE of the corpus's own `GlobalSectionData`, realized as
+ (x)'_v S-bar_v. ### THE STRUCTURE IS NOT REDEFINED, RENAMED, OR WEAKENED -- incumbent
+ preservation binds, and this act CONSUMES it.
+ THE LAYERS, IN ORDER, EACH WITH WHAT IT RESTS ON:
+  L1 ### THE TWO-FACTOR TENSOR CARRIES THE SHAPE. Rests on: instInnerProductSpace,
+     instNormedAddCommGroup, congrIsometry. ### ALL HELD. ### BUILT THIS ACT.
+  L2  the FINITE-INDEX tensor, by iterating L1. Rests on L1 only. ### ROUTED AROUND THE NOT-HELD
+     PiTensorProduct inner product, ### WHICH IS WHY THE ROUTE IS ITERATION AND NOT A PRODUCT.
+  L3  the DIRECTED SYSTEM over finite sets of places, inclusions given by the E1-units.
+     Rests on colimit machinery (HELD) ### PLUS the inclusion isometry facts (### NOT HELD).
+     ### THIS IS THE FIRST LAYER WITH A NOT-HELD INGREDIENT AND IT IS NAMED AS SUCH.
+  L4  the COMPLETION of L3's pre-inner-product space. Rests on Completion.lean. ### HELD.
+  L5  `F` and `parity` transported to the completion, and the two identities re-proved there.
+     Rests on L1's proofs plus L4. ### THE IDENTITIES' TRANSPORT IS NOT YET READ.
+ *** ### THE FALSIFIER, NAMED IN ADVANCE PER THE CODOMAIN PRECEDENT:
+ ### IF THE E1-UNIT INCLUSIONS OF L3 ARE NOT ISOMETRIES -- OR IF THE RECORD'S E1-UNITS DO NOT
+ ### SUPPLY WHAT A DIRECTED SYSTEM OF HILBERT SPACES REQUIRES -- ### THE CONSTRUCTION AS PLANNED
+ ### IS RETIRED, NOT PATCHED. ### THE COLIMIT WOULD THEN NOT BE A PRE-INNER-PRODUCT SPACE AND L4
+ ### WOULD HAVE NOTHING TO COMPLETE. ***
+
+--- (3) COMPONENT 3 -- THE FIRST LAYER, BUILT (P3). ---
+ FILE: SIDE-global-section/Interfaces/RestrictedTensorLayer1.lean. ### SORRY COUNT 0.
+ WHAT IT BUILDS: given two factors carrying the shape, the tensor carries it, with
+  · `Ftensor := TensorProduct.congrIsometry A.F B.F` -- ### BUILT, NOT ASSUMED;
+  · `parityTensor := TensorProduct.congrIsometry A.parity B.parity` -- ### BUILT;
+  · `Ftensor_sq` : F(F x) = parity x -- ### A THEOREM, proved by TensorProduct.induction_on;
+  · `parityTensor_sq` : parity(parity x) = x -- ### A THEOREM;
+  · `tensorFactor` -- the assembled instance.
+ ### THE AXIOM PRINT, RE-RUN AT BUILD AND NOT CARRIED FROM MEMORY:
+   'RestrictedTensorLayer1.Ftensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+   'RestrictedTensorLayer1.parityTensor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+   'RestrictedTensorLayer1.tensorFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+ ### BUILD EXIT 0. ### ZERO ERROR LINES. ### ZERO sorryAx.
+ ### CORRESPONDENCE ROW 80 FILED, SIX CELLS, ### NO BLANK CELLS, verified by count.
+
+ *** ### THE GATE, AND THE HONESTY ABOUT IT THAT WAS REGISTERED BEFORE IT RAN.
+ ### THE FERRY'S KNOWN-ANSWER GATE -- "on a finite index set the constructed object must agree
+ ### with the finite tensor product Mathlib already holds" -- ### IS DEFINITIONAL HERE AND
+ ### THEREFORE CANNOT FAIL: the layer is built ON Mathlib's tensor product.
+ ### A GATE THAT CANNOT FAIL IS NOT A GATE, AND THAT WAS SAID IN THE REGISTRATION BEFORE THE RUN,
+ ### NOT DISCOVERED AFTERWARDS.
+ ### THE GATE ACTUALLY RUN, WHICH CAN FAIL: ### THE TWO IDENTITIES THE CORPUS'S OWN STRUCTURE
+ ### DEMANDS -- F^2 = parity AND parity^2 = 1 -- ### CHECKED ON THE BUILT OBJECT.
+ ### BOTH PASSED, AS THEOREMS. ### HAD EITHER FAILED, THE ACT WOULD HAVE HALTED PER THE
+ ### STOP-LOSS AND ROUTED TO A RE-SCOPE, WITH NO TUNING. ***
+
+--- (4) COMPONENT 4 -- THE STATE (P4). ---
+ L1 ### DONE, COMPILED, PROFILED.
+ L2 ingredients ### HELD (L1 alone). ### NOT BUILT.
+ L3 ingredients ### PART HELD (colimit machinery) / ### PART NOT HELD (the E1-unit inclusion
+    isometry facts). ### NOT BUILT.
+ L4 ingredients ### HELD (Completion.lean). ### NOT BUILT.
+ L5 ingredients ### NOT YET READ. ### NOT BUILT.
+ ### NO ESTIMATE OF EFFORT. ### NO RANKING. ### NO CLAIM THAT THE CONSTRUCTION WILL SUCCEED.
+ ### L1 IS ONE LAYER OF FIVE AND THE ONLY ONE BUILT.
+
+--- (5) THE PREDICTIONS, SCORED. ---
+ NAVIGATOR: the ingredient read; the plan and its falsifier; the first layer and its gate.
+ EXECUTOR:
+  (e1) ### THE READ WILL CORRECT b189 -- ### LANDS, and it is the act's most uncomfortable
+    finding because b189 was mine.
+  (e2) ### LAYER 1 BUILDABLE NOW; THE REWRITING HARDER THAN THE MATHEMATICS -- ### LANDS, and
+    ### THE PROOFS WERE THREE LINES EACH VIA induction_on. ### THE PREDICTION THAT THE HARD PART
+    ### WOULD BE REWRITING WAS RIGHT AND THE DIFFICULTY WAS SMALLER THAN EXPECTED.
+  (e3) ### LATER LAYERS' INGREDIENTS NOT ASSUMED -- ### HELD: two located, one part-located, one
+    unread, ### AND THE NOT-HELD ONE IS NAMED AS THE FALSIFIER'S SUBJECT.
+  (e4) ### THE KNOWN-ANSWER GATE IS DEFINITIONAL AND WEAK, SAID BEFORE RUNNING IT -- ### HOLDS,
+    and a gate that can fail was substituted and run.
+  (e5) ### NOTHING ENTERS **Core**; the Interfaces profile is the standard three -- ### HOLDS.
+    ### Core 304/304, rows 1-79, UNTOUCHED. ### THE NEW ROW IS 80 AND IT IS AN INTERFACES ROW.
+
+--- (6) THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED. ---
+ ### TERM 3's CONSTRUCTION IS A **LIVE PROGRAM** WITH FIVE LAYERS, ONE BUILT, ### AND ITS OWN
+ ### FALSIFIER NAMED. ### ITS NEXT LIVE QUESTION: ### THE E1-UNIT INCLUSION ISOMETRY FACTS (M20).
+ ### TERM 2's FORMALIZATION follows at the author's schedule -- the file that does not exist, and
+ the class-richness lemma at cite.
+ ### M17, M18, M19 stand with the author. ### MU'S VALUE REMAINS THE AUTHOR'S.
+ M16; b155's unchased thread; the boundary's two NOT-HELD ingredients; M12; M11; M9; the
+ cross-language coupling; the in-flight items; 104 references; ~158 unswept W-codes; the
+ definitional fork; gates 2 and 6; the seat boundary's form; the Q-route Psi instability; b157's
+ six findings; the three front-door items; the tense hazard; the bra-ket convention; Prop 5.5's
+ hazard; the methodology day (M1-M20).
+ ### THE DEEP ITEMS: the relative identification; the h1/h2 statement drafting.
+
+DEVIATIONS: ### ONE, AND IT IS b158's RULE BROKEN A SECOND TIME.
+ ### I WROTE THE CORRESPONDENCE ROW AS A `python -c` STRING INSIDE A DOUBLE-QUOTED BASH COMMAND,
+ ### AND THE SHELL'S BACKTICKS ATE EVERY CODE-SPAN -- the terminal names, the file path, the
+ ### axiom list and the word sorryAx ### ALL VANISHED, AND THE SCRIPT REPORTED SUCCESS.
+ ### b178 SUFFERED THE IDENTICAL DEFECT AND b158's STANDING RULE EXISTS FOR EXACTLY IT.
+ ### CAUGHT BY READING THE WRITTEN ROW BACK. Repaired with a Write-tool script; the row now has
+ ### SIX CELLS AND NO BLANKS, ### VERIFIED BY COUNT AND NOT BY EYE.
+ ### AND A SECOND, SMALLER ONE IN THE SAME BREATH: the scratch build helper `lp.sh` was committed
+ ### into the KERNEL REPO by a wildcard add. ### REMOVED; the toolchain recipe lives in this bank
+ ### and in the Lean file's header, where it belongs.
+DIVERGENCES: none.
+### CORE IS UNTOUCHED. ### NOTHING DEPOSITS. ### h2 IS STATED, NOT PROVED, AND THIS LAYER BEARS
+### ON IT NOT AT ALL -- ### IT IS ONE LAYER OF AN INFRASTRUCTURE DEBT, NOT A STEP TOWARD THE
+### IDENTITY. ### THE REGISTER SENTENCE STANDS EXACT. NOTICED IS NOT EARNED.
+====================================================================================================
