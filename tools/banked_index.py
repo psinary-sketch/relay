@@ -42,6 +42,15 @@
 ### object whose key nobody declared is as invisible as before, and this repair
 ### must not read as a solved problem.
 
+### THE LANE LIMIT, ADDED b181 AFTER b180 RAN EIGHT QUERIES AND GOT EIGHT MISSES:
+### ### A LANE WITHOUT KEYS RETURNS MISSES THAT CARRY NO INFORMATION.
+### Until b181 every key here was in the density/apportionment lane, so a query
+### about the prolate/place lane could only miss -- and a miss reads like a
+### finding. b181 added the prolate/place and gate lanes. ### THE LIMIT IS NOT
+### RETIRED BY THAT: it now applies to whichever lane is next, and a reader who
+### treats this index as covering the corpus will be wrong in the same way for a
+### different reason.
+
 Usage:
     python banked_index.py --scan                 candidates, with the curation boundary
     python banked_index.py --query <object> ...   what the record holds about an object
@@ -89,6 +98,25 @@ KEYS = {
     'boundary-license': ['boundary license', 'the boundary', 'carrier edge'],
     'density-collapse': ['collapse to one density', 'the density', 'one density'],
     'mean-zero-kernel': ['mean-zero kernel', 'uniqueness sufficient condition'],
+    # ### THE PROLATE/PLACE LANE, ADDED b181. ### BEFORE THIS THE INDEX HELD ONE
+    # ### LANE ONLY (density/apportionment), so b180's eight queries returned
+    # ### eight misses that LOOKED LIKE EVIDENCE AND WERE NOT.
+    'prolate-continuum-positivity': ['prolate continuum positivity', 'continuum positivity',
+                                     'prolate positivity'],
+    'archimedean-positivity': ['archimedean positivity', 'archimedean-place positivity',
+                              'sonin compression', 'sonin trace'],
+    'w-union': ['w-union', 'the quadrant', 'nonarchimedean unbounded quadrant',
+                'the residue', 't2'],
+    'weil-criterion': ['weil criterion', 'the classical equivalence', 'explicit formula',
+                       'equation 2', 'weil positivity'],
+    'prolate-operator': ['prolate operator', 'ccm prolate', 'scaling hamiltonian',
+                         'metaplectic framework'],
+    # ### THE GATE LANE, ADDED b181.
+    'stall-ledger': ['stall ledger', 'the traps', 'salt-check traps', 'the gates'],
+    'w-family': ['w-family', 'average-vs-uniform', 'measure-zero escape',
+                 'proportion not the whole'],
+    'de-branges-refutation': ['de branges', 'hb-positivity', 'conrey-li',
+                              'de branges positivity'],
 }
 
 INDEX = [
@@ -153,6 +181,51 @@ INDEX = [
      'Phi_K is mean-zero with one sign change, so Psi monotone increasing => the window is unique',
      'DERIVED',
      'data/b116_thirteenth_seam_close.txt'),
+
+    # ### THE PROLATE/PLACE LANE AND THE GATE LANE, ADDED b181.
+    # ### EVERY GRADE BELOW IS THE ONE ITS OWN ACT RECORDED. ### A KEY IS A POINTER,
+    # ### NEVER A PROMOTION: adding a key for an object the corpus calls UNPROVEN
+    # ### does not make it less unproven, and the grade column says so.
+    ('prolate-continuum-positivity', 'b180',
+     'the object the gamma-04 stall ledger calls RH-equivalent; NAMED TWICE IN THE LIVE '
+     'CORPUS AND DEFINED NOWHERE, and it carries NO PLACE QUANTIFIER',
+     "UNPROVEN -- the corpus's own word at GAMMA04_ATTEMPT_SPEC.md:34; and b180: the "
+     'derivation to the classical equivalence is NOT HELD in the record',
+     'data/b180_derivation_search.txt'),
+    ('archimedean-positivity', 'b180',
+     'the Sonin-compression positivity at the archimedean place',
+     'PROVED AT THE ARCHIMEDEAN TRUNCATION; OPEN BEYOND IT -- the record\'s own words',
+     'data/b180_derivation_search.txt'),
+    ('w-union', 'b180',
+     "the (nonArchimedean, unbounded) quadrant -- the record's own name for the distance "
+     'between one place\'s term and the sum over all places; technique T2',
+     'THE QUADRANT LOCATED; COMPILED axiom-free. ### CARRIED AS AN OPEN OBSTRUCTION, '
+     'NOT AS A DERIVATION -- "where every located attempt stops"',
+     'data/b180_derivation_search.txt'),
+    ('weil-criterion', 'b179',
+     'RH <==> sum over ALL PLACES of W_v(g*g-bar-sharp) <= 0 -- eq. (2) of 2006.13771v1',
+     'EXTERNAL, quoted at content; credited by that work to A. Weil [33] following '
+     'H. Yoshida [34]. ### NOT the corpus\'s result and NOT about one place',
+     'data/b179_enforcement_and_equivalence.txt'),
+    ('prolate-operator', 'b177',
+     'the CCM prolate / metaplectic framework, the scaling Hamiltonian',
+     'EXTERNAL, CONFIRMED-AT-CONTENT at 2310.18423 (abs as served 2026-08-25)',
+     'data/b177_trim_print_and_citations.txt'),
+    ('stall-ledger', 'b181',
+     "GAMMA04_ATTEMPT_SPEC.md (d): six salt-check traps that close attempts in advance",
+     'SWEPT b181: 3 grounds HELD at content (items 1, 4, 5), 1 external citation '
+     'UNRESOLVED (item 3), ### 2 resting on objects NOT LOCATED at content (items 2, 6)',
+     'data/b181_gate_sweep.txt'),
+    ('w-family', 'b181',
+     'the average-vs-uniform wall: a proportion is never the whole (the measure-zero escape)',
+     'GROUND HELD AT CONTENT -- owners beyond the gate: HELD_COMPLETER_ASSESSMENT.md:13, '
+     'HELD_WPRIMEPHYS_crystallization.md:20, THE_CORNER_MAP.md:24',
+     'data/b181_gate_sweep.txt'),
+    ('de-branges-refutation', 'b181',
+     'the direct HB-positivity route for zeta, closed by a cited external refutation',
+     '### EXTERNAL CITATION (Conrey-Li 2000), TWO INTERNAL OWNERS, ### NO BIBLIOGRAPHY '
+     'KEY -- unresolved in the b175 backlog. ### AN UNVERIFIED CITATION IS NOT A FALSE ONE',
+     'data/b181_gate_sweep.txt'),
 ]
 
 
