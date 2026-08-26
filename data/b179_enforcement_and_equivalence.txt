@@ -1,0 +1,219 @@
+====================================================================================================
+b179 -- THE ENFORCEMENT FIX AND THE EQUIVALENCE QUESTION -- THE BANK. 2026-08-26.
+Registration: data/b179_registration_2026-08-26.txt, commit 87fb2e9, banked AFTER the load-bearing
+source reads and BEFORE the hook was built and BEFORE the external read.
+### AN APPLICABILITY READ PLUS ONE CONFIGURATION CHANGE. NO ROUTE REOPENED OR CLOSED.
+### NO KERNEL CHANGES; Core stands 304/304, rows 1-79.
+====================================================================================================
+
+--- (0) THE FERRY'S STATED CAUSE, CORRECTED BEFORE THE WORK. ---
+ THE FERRY: b178's cause is "a boundary that lives as an intention is not enforced."
+ ### AT CONTENT THAT IS NOT WHAT THE RECORD SAYS, AND THE TRUTH IS WORSE.
+ ### THE BOUNDARY DID NOT LIVE AS AN INTENTION. IT LIVED AS TWO BUILT, TESTED, COMMITTED TOOLS:
+  - tools/place_add.py (b148): "refuses -A / --all / . / -u outright, refuses any path under a
+    foreign-seat prefix"; b148's bank: ### "TESTED AGAINST THE EXACT BREACH before entering
+    service."
+  - tools/commit_selfcheck.py (b149): checks foreign-seat paths, read-only claims, and
+    compliance assertions against the staged file list.
+ ### AT b178 I USED NEITHER. I typed `git add -A`.
+ *** ### SO THE CAUSE IS NOT A MISSING GUARD. IT IS A GUARD THAT HAD TO BE CHOSEN.
+ ### A GUARD THAT MUST BE CHOSEN IS NOT ENFORCEMENT -- IT IS THE SAME INTENTION WEARING A
+ ### TOOL'S CLOTHES. ***
+ ### THE FERRY'S REMEDY IS RIGHT EVEN THOUGH ITS STATED CAUSE IS NOT: a pre-commit hook sits in
+ ### THE PATH OF THE ORDINARY COMMAND and cannot be forgotten by the seat it constrains.
+
+ ### THE TWO BREACHES, BOTH CITED:
+  b148 -- EIGHT untracked patent files, commit 49cd156, ### COMMITTED AND PUSHED. Repaired by
+    `git rm --cached`; files left on disk byte-for-byte (md5 before/after, diff empty);
+    ### HISTORY NOT REWRITTEN, "because a breach repaired by force-push is a breach the record
+    cannot learn from." ### AND ITS COMMIT MESSAGE ASSERTED COMPLIANCE IN THE ACT THAT BROKE IT.
+  b178 -- ### EIGHTY-SIX untracked patent files, caught BEFORE the push, repaired by
+    `git reset --mixed HEAD~1`, recommitted 25d2f44 on an explicit six-path pathspec.
+  ### THE COMPARISON, NOT IN MY FAVOUR: the second breach was TEN TIMES LARGER and was caught
+  ### by 86 lines of incidental warning text. b148's was found by a check of the act; MINE WAS
+  ### FOUND BY NOISE.
+
+--- (1) COMPONENT 1 -- THE ENFORCEMENT. ---
+ BUILT: tools/hooks/place_papers_pre_commit.py, committed WITH ITS REASON IN ITS OWN TEXT.
+ INSTALLED: PLACE-papers/.git/hooks/pre-commit, a shell shim that execs it.
+ ### SINGLE SOURCE OF TRUTH: the foreign prefixes are READ FROM place_add.py at run time, not
+ copied. ### TWO GUARDS WITH TWO COPIES OF ONE LIST IS A LIE WAITING FOR ONE TO BE EDITED.
+ ### AND IT FAILS CLOSED: if it cannot find the FOREIGN list it REFUSES THE COMMIT rather than
+ allowing it.
+
+ ### WHY A DENY-LIST AND NOT THE ALLOW-LIST THE FERRY'S WORDING SUGGESTS -- RECORDED BECAUSE IT
+ ### IS A DEPARTURE FROM THE LITERAL INSTRUCTION:
+ The ferry asked for refusal of "any staged path outside the research seat's tree." ### AN
+ ALLOW-LIST WOULD REQUIRE ENUMERATING THE RESEARCH SEAT'S TREE, AND THE b147 DECONFLICTION NEVER
+ ENUMERATED IT -- it named what the PATENT seat owns and said the research seat owns the ledgers,
+ the keystones and HANDOFF. ### INVENTING THAT ENUMERATION WOULD BE MAKING THE AUTHOR'S
+ DEFINITION, WHICH THE EXECUTOR DOES NOT DO. The deny-list encodes the boundary exactly as
+ ratified and nothing further. ### THE ALLOW-LIST FORM IS AVAILABLE AND IS THE AUTHOR'S TO
+ CHOOSE.
+
+ ### THE TESTS, BOTH REPORTED, INCLUDING THE ONE THAT DID NOT PASS.
+ TEST 1 -- THE FIXTURE, THE EXACT b178 BREACH: the patent REVIEW_SET tree staged with
+   `git add -f`. ### RESULT: REFUSED, exit 1, ### 36 FOREIGN HITS NAMED. Then unstaged; the
+   patent files are untracked again and the working tree was never touched.
+ TEST 2 -- THE NEGATIVE CONTROL, FIRST ATTEMPT: ### VOID, AND REPORTED AS VOID.
+   ### IT PRINTED "CLEAN" OVER **ZERO** STAGED PATHS. The file I staged was unmodified, so
+   nothing entered the index and the hook cleared an empty scope.
+   *** ### THAT IS EXACTLY THE DEFECT b167 BUILT A HARD-FAILURE GATE FOR IN banned_terms.py,
+   ### REAPPEARING IN A NEW TOOL ON ITS FIRST CONTROL RUN. ### A VERDICT OVER AN EMPTY SCOPE IS
+   ### NOT A VERDICT, AND THE CLASS IS OLDER THAN THIS TOOL. ***
+   REPAIRED: an empty staged set now prints ### "NOTHING STAGED -- NOTHING VERIFIED" and says in
+   its own output that it is NOT a clean verdict.
+   ### WHY THE EXIT CODE IS 0 HERE AND 2 IN banned_terms.py, since the difference will be asked:
+   ### a scanner asked to verify nothing HAS FAILED AT ITS JOB; a commit hook seeing nothing
+   ### staged HAS NOT BEEN ASKED YET, and git refuses the empty commit itself. ### THE VERDICT
+   ### LANGUAGE MUST STILL NOT READ AS A CLEARANCE, WHICH IS THE PART THAT MATTERS.
+ TEST 2 -- SECOND ATTEMPT, THE REAL CONTROL: this act's own PLACE-papers commit, which stages
+   four of this seat's own files. ### RESULT REPORTED IN THE AUDIT SIDECAR, from the hook's run
+   in the actual `git commit`.
+ ### AND A BUILD ERROR, RECORDED BECAUSE IT TAUGHT SOMETHING: the hook's first run died on an
+ ### UNCLOSED MODULE DOCSTRING (IndentationError). ### IT EXITED 1 -- WHICH WOULD HAVE BLOCKED
+ ### THE COMMIT. ### THAT IS FAIL-CLOSED BY ACCIDENT, NOT BY DESIGN, AND AN ACCIDENT THAT LANDS
+ ### THE RIGHT WAY UP IS NOT A PROPERTY OF THE INSTRUMENT.
+
+ ### THE LIMITS, STATED IN THE HOOK'S OWN HEADER SO IT CANNOT BE TRUSTED BEYOND THEM:
+  (1) ### .git/hooks IS NOT VERSIONED AND IS NOT CLONED. The committed file is the hook's SOURCE
+      AND ITS REASON; the installed copy lives outside the repository. ### A FRESH CLONE HAS NO
+      ENFORCEMENT UNTIL SOMEONE INSTALLS IT -- ### WHICH IS "A GUARD THAT MUST BE CHOSEN", ONE
+      LEVEL UP. ### THE FIX IS REAL AND IT IS PARTIAL. THE CLASS IS NOT CLOSED.
+  (2) `git commit --no-verify` bypasses it. ### A HOOK CONSTRAINS A HABIT; IT DOES NOT CONSTRAIN
+      A DECISION.
+  (3) It reads PATHS and knows nothing of the commit message -- that is commit_selfcheck.py's
+      job, and this does not replace it.
+
+ ### THE OPERATIONAL FORM, FOR THE AUTHOR'S RULING. ALTERNATIVES NAMED, ONE LINE EACH, NOT
+ ### CHOSEN -- THE AUTHOR SETS THE BOUNDARY'S FORM:
+  (A) THIS HOOK, deny-list of foreign prefixes, local to this clone. [built, in service]
+  (B) An ALLOW-LIST hook naming the research seat's tree explicitly -- stronger, and it requires
+      the author to define that tree.
+  (C) core.hooksPath pointed at a versioned directory -- makes the hook travel with the clone.
+  (D) A SERVER-SIDE pre-receive hook -- the only form no local bypass can defeat.
+  (E) SEPARATE CLONES per seat -- removes the shared worktree that makes the hazard possible.
+  (F) Status quo plus discipline -- ### NAMED FOR COMPLETENESS AND ALREADY FALSIFIED TWICE.
+
+--- (2) COMPONENT 2 -- THE ATTRIBUTION DECIDED. ---
+ THE CORPUS'S SENTENCE, QUOTED WHOLE AT ITS OWN LINE (phase1.5/method/GAMMA04_ATTEMPT_SPEC.md:46):
+   "Prolate continuum positivity is RH-equivalent -- by CCM's own statement; proving it is
+    proving RH, not a step toward it."
+ THE SOURCE, AT ITS OWN DOCUMENT, WITH ITS VERSION: ### arXiv:2006.13771v1 [math.NT] 24 Jun 2020
+ (the PDF names its own version in its margin), Connes-Consani, "Weil positivity and Trace
+ formula: the archimedean place." 57 pages, extracted locally with pypdf.
+
+ ### VERDICT: **NOT-SUPPORTED-AS-ATTRIBUTED.**
+ ### THE NAMED STEP: ### OBJECT MATCHING -- not strength, not modality.
+ ### (AND THE REGISTRATION NAMED THAT STEP IN ADVANCE, AT (e4), AS THE ONE MOST LIKELY TO DECIDE
+ ### IT.)
+
+ WHAT THE WORK STATES, QUOTED:
+  (i) ### ITS OWN MAIN RESULT IS AN INEQUALITY. "The main result of the present paper is the
+      following strengthening of the above positivity which provides an operator theoretic
+      conceptual reason for Weil's positivity, rooted in the compression of the scaling action
+      ... Theorem 1 ... W_inf(g * g-bar-sharp) >= Tr(theta(g) S theta(g)*)."
+      ### A STRENGTHENING OF A POSITIVITY IS NOT AN EQUIVALENCE TO RH.
+  (ii) ### ITS OWN FRAMING OF THE GENERAL CASE IS AN IMPLICATION. "All the ingredients and tools
+      used above make sense in the general semi-local case, ### WHERE WEIL POSITIVITY IMPLIES
+      RH."
+  (iii) ### THE ONLY EQUIVALENCE IN THE WORK IS ITS EQUATION (2). "RH <==> sum_v W_v(g * g-bar-
+      sharp) <= 0, for all g in C_c^inf(R*_+) with g-tilde(z) = 0 for all z in F."
+      ### CREDITED TO A. WEIL [33], FOLLOWING [34]. ### AND IT IS OVER THE SUM ACROSS **ALL
+      PLACES**, NOT THE ARCHIMEDEAN TERM W_inf ALONE, AND NOT THE PROLATE/SONIN COMPRESSION.
+      ### THE WORK'S TITLE IS "THE ARCHIMEDEAN PLACE."
+
+ ### THE OBJECTS COMPARED AT CONTENT, WHICH IS WHAT THE FERRY ASKED FOR:
+  THE CORPUS'S OBJECT: "prolate continuum positivity."
+  THE SOURCE'S OBJECTS: W_inf(f) >= 0 on a test-function class with vanishing conditions; and
+  the negativity of the full sum over all places.
+  ### THE PHRASES "prolate continuum", "continuum positivity" AND "prolate positivity" OCCUR
+  ### **ZERO** TIMES IN 2006.13771v1. Absence established AT THE SOURCE DOCUMENT, renderer law.
+ *** ### SO THE FINDING IS NOT "THE SOURCE SAYS SOMETHING WEAKER." ### IT IS "THE SOURCE DOES
+ ### NOT SPEAK ABOUT THIS OBJECT AT ALL." ### IF THE CORPUS CAN DERIVE AN RH-EQUIVALENCE FOR ITS
+ ### OWN OBJECT FROM EQUATION (2), THAT DERIVATION IS **THE CORPUS'S OWN WORK** AND IS NOT
+ ### "THAT WORK'S OWN STATEMENT" -- WHICH IS WHAT THE ATTRIBUTION CLAIMS. ***
+
+ ### THE CORPUS'S SENTENCE IS **NOT WITHDRAWN**. THE SPEC IS **NOT EDITED**.
+ ### HOW I READ THAT INSTRUCTION, STATED SO THE AUTHOR CAN CORRECT ME: I added a dated VERDICT
+ ### annotation beside b178's existing key and ### CHANGED NO WORD OF THE CORPUS'S OWN SENTENCE.
+ ### IF "NOT EDITED" WAS MEANT TO FORBID EVEN THE ANNOTATION, SAY SO AND IT COMES OUT.
+
+ ### WHAT RESTS ON IT, EXACTLY AND NOTHING MORE: the gamma-04 spec uses the sentence to set
+ ### A SCOPING GATE -- "proving it is proving RH, not a step toward it" -- ### WHICH CLOSED AN
+ ### ATTEMPT. ### IT SUPPORTS A DECISION ABOUT WHAT TO ATTEMPT, NOT A MATHEMATICAL RESULT.
+ ### NO LANE RESULT DEPENDS ON IT. Nothing is re-graded; no member is preferred.
+
+ ### THE SEPARATE MATHEMATICAL QUESTION, ONE LINE, FOR THE AUTHOR, NOT ANSWERED:
+ ### IS THE CORPUS'S POSITIVITY STATEMENT EQUIVALENT TO RH, OR ONLY SUFFICIENT FOR IT?
+ ### WHAT EACH ANSWER DOES TO THE GATE: ### IF EQUIVALENT, the gate stands as written and only
+ ### its citation was wrong. ### IF MERELY SUFFICIENT, THE GATE CLOSED AN ATTEMPT ON A GROUND
+ ### THE RECORD DOES NOT HAVE -- and whether to reopen it is ### THE AUTHOR'S RULING, NOT THE
+ ### EXECUTOR'S.
+
+--- (3) COMPONENT 3 -- THE FILINGS. ---
+ ### THE ONWARD-CREDITED THEOREM: **DECIDED, NOT LEFT OPEN.** The ferry asked for it to be
+ recorded as an open attribution with what was tried. ### WHAT WAS TRIED SUCCEEDED: the source's
+ own REFERENCE LIST was read at content.
+   ### [34] = H. YOSHIDA, "On Hermitian forms attached to zeta functions", Zeta functions in
+   geometry (Tokyo, 1990), 281-325, Adv. Stud. Pure Math. 21, Kinokuniya, Tokyo, 1992.
+   ### [33] = A. WEIL, "Sur les 'formules explicites' de la theorie des nombres premiers" (1952).
+ ### SO THE S-FREE POSITIVITY THE CORPUS CREDITS AS "CC's THEOREM" IS CREDITED BY ITS OWN SOURCE
+ ### TO YOSHIDA (1992). b178 left this open; ### IT IS NOW DECIDED.
+ BIBLIOGRAPHY: Weil (1952) and Yoshida (1992) added, ### MARKED AS READ IN 2006.13771v1's
+ REFERENCE LIST AND **NOT** AT THEIR OWN DOCUMENTS. ### A CITATION READ INSIDE ANOTHER WORK IS A
+ WEAKER THING AND IS RECORDED AS THE WEAKER THING IT IS.
+
+ ### THE BACKLOG: 105 - 1 (item 8, decided) = ### 104 REMAINING. Owner: the author.
+ ### ITEM 1 IS **NOT** SUBTRACTED: ITS ATTRIBUTION IS REFUTED, NOT REPAIRED.
+
+ ### THE SEAT-BOUNDARY FINDING, FILED FOR THE METHODOLOGY DAY, BOTH BREACHES CITED (b148, b178):
+ ### THE PATTERN IS NOT CARELESSNESS TWICE. IT IS THAT BOTH REMEDIES SO FAR HAVE BEEN
+ ### OPT-IN INSTRUMENTS, AND AN OPT-IN INSTRUMENT INHERITS THE RELIABILITY OF THE MEMORY THAT
+ ### REACHES FOR IT. ### THE HOOK IS THE FIRST REMEDY THAT DOES NOT. ### AND IT IS STILL
+ ### LOCAL, STILL BYPASSABLE, AND STILL INSTALLED BY CHOICE.
+
+--- (4) THE PREDICTIONS, SCORED. ---
+ NAVIGATOR: the enforcement in the command path; the attribution decided; the filings -- all
+ delivered.
+ EXECUTOR:
+  (e1) hook refuses the fixture, passes the clean control -- ### HALF LANDS, AND THE HALF I
+    CALLED THE VALUABLE ONE IS THE HALF THAT FAILED. The fixture refused. ### THE NEGATIVE
+    CONTROL WAS **VOID** ON ITS FIRST RUN -- it cleared an empty scope. ### I HAD WRITTEN IN THE
+    REGISTRATION THAT THE CONTROL WAS THE INFORMATIVE HALF *BECAUSE* A GUARD THAT REFUSES
+    EVERYTHING ALSO REFUSES THE BREACH -- ### AND THEN RAN A CONTROL THAT COULD NOT HAVE
+    DETECTED THAT. ### THE PREDICTION WAS RIGHT ABOUT WHAT MATTERED AND THE EXECUTION MISSED IT.
+  (e2) the hook will not travel; the fix is real and partial -- ### LANDS. Stated in the hook's
+    own header and in this bank.
+  (e3) Component 2 returns NOT-SUPPORTED-AS-ATTRIBUTED -- ### LANDS. ### AND THE WIDER READ THE
+    REGISTRATION PROMISED WAS ACTUALLY RUN: the main theorem was read, not just searched, and
+    ### IT COULD HAVE FLIPPED THE VERDICT TO SUPPORTED. IT DID NOT.
+  (e4) the objects may not be the same object, and that is the deciding step -- ### LANDS, AND
+    ### IT IS THE MOST USEFUL THING IN THE ACT. Zero occurrences of the corpus's phrase.
+  (e5) Core: nothing enters -- ### HOLDS. 304/304, rows 1-79, repository untouched.
+
+--- (5) THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED. ---
+ ### 104 REMAINING REFERENCES, owner the author. ### THE RH-EQUIVALENCE QUESTION, NOW SHARPENED
+ AND STILL THE AUTHOR'S: equivalent, or only sufficient -- and the gate's fate rides on it.
+ ### THE SEAT BOUNDARY'S OPERATIONAL FORM, six alternatives named, ### THE AUTHOR'S RULING.
+ ### THE Q-ROUTE PSI INSTABILITY, STILL UNLOCATED. b157's six findings; the three front-door
+ items; the dominance second asking, NOT SPENT; the tense hazard; the bra-ket convention;
+ Prop 5.5's hazard; the methodology day.
+ ### THE DEEP ITEMS, RESERVED: the relative identification; the boundary construction; the
+ h1/h2 statement drafting.
+
+DEVIATIONS: ### ONE, AND IT IS MINE, AND IT IS THE SAME CLASS AS b158's STANDING RULE.
+ I wrote a bibliography patch as a `python -c` string inside a double-quoted bash command, and
+ ### THE SHELL'S BACKTICKS ATE EVERY CODE-SPAN: "[33]" AND THE VERSION POINTERS WERE SILENTLY
+ ### DELETED FROM TWO ROWS THAT OTHERWISE LOOKED CORRECT AND REPORTED SUCCESS.
+ ### b158's RULE EXISTS FOR EXACTLY THIS AND SAYS TO WRITE SCRIPT FILES WITH THE Write TOOL.
+ ### I FOLLOWED IT FOR FOUR SCRIPTS THIS ACT AND ABANDONED IT FOR THE FIFTH BECAUSE THE EDIT
+ ### LOOKED SMALL. Caught by reading the written rows back, repaired by a Write-tool script,
+ pointers restored and verified in place.
+ ### THE SHAPE IS THE ACT'S OWN SUBJECT: ### A RULE I HOLD BY MEMORY FAILED AT THE MOMENT THE
+ ### TASK LOOKED TOO SMALL TO DESERVE IT -- ### WHICH IS PRECISELY HOW BOTH SEAT BREACHES
+ ### HAPPENED. ### AN ACT ABOUT UNENFORCED RULES BREAKING BROKE AN UNENFORCED RULE.
+DIVERGENCES: none.
+### NO MATHEMATICAL CLAIM WAS ADDED OR CHANGED. NO ROUTE REOPENED OR CLOSED. NO MEMBER PREFERRED.
+### THE REGISTER SENTENCE STANDS EXACT. NOTICED IS NOT EARNED.
+====================================================================================================

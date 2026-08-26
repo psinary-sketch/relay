@@ -1,0 +1,18 @@
+==============================================================================
+MIRROR VERIFICATION -- BOTH CLAUSES OF THE STALE-BUILD LAW (b142)
+  archive: D:/MY-DOwnloads/mirror-refresh-2026-08-26.zip
+==============================================================================
+
+--- CLAUSE 1: THE ARCHIVE AGAINST ITS OWN MANIFEST ---
+  files in archive (excl MANIFEST) : 33
+  rows parsed from MANIFEST        : 33
+  md5 / byte mismatches            : 0
+  CLAUSE 1 : CLEAN
+
+--- CLAUSE 2: THE BUILD'S SOURCE HEAD AGAINST ls-remote ---
+  manifest declares source HEAD    : beedb44
+  ls-remote origin/main              : beedb447db5a7c305ba57c8640cafb6136917a19
+  CLAUSE 2 : CLEAN -- they agree
+
+  ### VERDICT: CLEAN ON BOTH CLAUSES
+  ### neither clause alone is the verification; the law requires both.
