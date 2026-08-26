@@ -1,0 +1,178 @@
+====================================================================================================
+b202 BANK -- THE SUM TEST. Registration b067da5, banked before the verdict. 2026-08-26.
+Ferry part 1 of 1, receipt confirmed IN FULL.
+====================================================================================================
+
+### A READ AND ONE VERDICT. ### THE OBJECT IS (A)'s +1 SECTOR AND NO OTHER.
+### NO VALUE DERIVED OR APPROACHED; NO NUMERICAL EVALUATION PERFORMED OR PROPOSED.
+### THE FENCE RODE EVERY STEP: ### F phi = xi IS NOT F phi = phi.
+### CORE UNTOUCHED AT 314/314, ROWS 1-81. NO LEAN WRITTEN, SO NO COMPILE CLAIMED.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE SOURCE'S STATEMENTS.
+----------------------------------------------------------------------------------------------------
+
+### SOURCE: arXiv:2112.05500v1 [math.NT], 10 Dec 2021, Connes-Moscovici, "Prolate spheroidal
+### operator and Zeta". ### M12 GUARD RUN FIRST.
+### THE SYMBOL COUNTS, READ FROM THE DOCUMENT: ### "phi_mu" 5 OCCURRENCES, "xi_mu" 3, ### ALL IN
+### SECTION 3. ### THERE IS NOWHERE ELSE TO LOOK, AND THE COUNTS SAY SO RATHER THAN A CLAIM THAT
+### I LOOKED EVERYWHERE.
+
+### LEMMA 3.1, WHOLE: "For any mu in R the asymptotic expansion of the unique solution xi_mu which
+### at infinity is asymptotically ~ - sin(2 pi x)/(pi x) is Borel summable and is equal to the
+### Fourier transform of the unique even solution phi_mu which is zero on [-1,1] and agrees with
+### f_mu(x) for x > 1." ### PROOF'S CLOSING LINE: "Thus it follows that the Fourier transform
+### F_eR phi_mu = xi_mu."
+### COROLLARY 3.2, WHOLE: "With the above notation, assume mu is a negative eigenvalue. Then
+### phi_mu belongs to the Sonin space." ### PROOF: "Sonin's space is the orthogonal of the
+### eigenspaces of Wsa associated to the classical prolate functions and their Fourier transforms."
+
+### WHAT THE SOURCE SAYS ABOUT phi_mu, SEPARATELY:
+ · SUPPORT: "even and VANISHES ON [-1,1]".
+ · A VALUE AT A POINT, PINNED: "agrees with f_mu(x) for x > 1" with "f_mu(x) = SUM U_n(mu)(x-1)^n,
+   ### U_0(mu) = 1". ### SO phi_mu != 0, FROM THE SOURCE'S OWN NORMALIZATION.
+ · MEMBERSHIP: in the SONIN SPACE, for negative mu (Cor 3.2).
+ · ASYMPTOTIC AT INFINITY: Cor 2.7(ii) -- "the leading term ... is ### PROPORTIONAL TO
+   sin(2 pi lambda x)/x if phi is even." ### THE CONSTANT IS NOT STATED.
+ · NORM: ABSENT. POSITIVITY: ABSENT. ORTHOGONALITY TO xi_mu: ABSENT.
+
+### WHAT THE SOURCE SAYS ABOUT xi_mu, SEPARATELY -- ALL THREE OCCURRENCES:
+ (1) SECTION 3's opening: "xi_mu(x) ~ ### sin(2 pi x)/x + (mu - 4 pi^2) cos(2 pi x)/(4 pi x^2)+..."
+ (2) LEMMA 3.1: "the unique solution xi_mu which at infinity is asymptotically
+     ### ~ - sin(2 pi x)/(pi x)".
+ (3) LEMMA 3.1's proof: "### F_eR phi_mu = xi_mu".
+ · NORM, POSITIVITY, SUPPORT, VALUE AT A POINT, DECAY, ORTHOGONALITY: ### ALL ABSENT.
+
+### WHAT THE SOURCE SAYS ABOUT THEIR RELATION: ### ONLY "F_eR phi_mu = xi_mu". ### NOTHING ELSE.
+
+### THE ABSENCES, WITH WHAT WAS SEARCHED (counts over the document, not over recall):
+ "decay" ### 0 hits. "normaliz" ### 1 hit -- "up to normalization", about the BOREL TRANSFORM
+ B(y), ### NOT about either function. "norm" ### 5 hits -- ### ALL FIVE the GRAPH NORM of
+ Dom(W_max); ### NONE a norm of phi_mu or xi_mu. "orthogonal" 6 hits -- the pertinent one is
+ Cor 3.2's proof, ### not a relation between the two functions.
+
+*** ### AND THE FINDING THAT DECIDES THIS ACT, FOUND BY PUTTING (1) AND (2) SIDE BY SIDE:
+### **THE SYMBOL xi_mu CARRIES TWO DIFFERENT NORMALIZATIONS WITHIN SECTION 3** --
+### "~ sin(2 pi x)/x" at its introduction and "~ - sin(2 pi x)/(pi x)" in Lemma 3.1's statement.
+### THEY DIFFER BY THE FACTOR -1/pi. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE VERDICT.
+----------------------------------------------------------------------------------------------------
+
+### THE TEST, AS THE FERRY POSES IT: phi_mu + xi_mu is F-fixed by construction, hence lies in (A)'s
+### +1 sector; it is an exhibit exactly when it is nonzero; it is ZERO exactly when
+### xi_mu = -phi_mu.
+
+*** ### THE VERDICT: **UNSETTLED** -- ### AND FOR A STRONGER REASON THAN "THE SOURCE DOES NOT SAY".
+
+### **THE EQUATION xi_mu = -phi_mu IS NOT WELL-POSED AT THE SOURCE'S OWN LEVEL OF NORMALIZATION**,
+### on two counts, both read at content:
+###  (i) ### xi_mu IS USED AT TWO NORMALIZATIONS DIFFERING BY -1/pi, WITHIN ONE SECTION;
+### (ii) ### phi_mu's LEADING COEFFICIENT AT INFINITY IS GIVEN ONLY AS "PROPORTIONAL TO"
+###      (Cor 2.7(ii)), and the constant is never stated.
+### AN EQUATION BETWEEN TWO FUNCTIONS NEITHER OF WHICH IS PINNED TO A SCALAR IS NOT A QUESTION THE
+### SOURCE HAS LEFT OPEN. ### IT IS A QUESTION THE SOURCE HAS NOT POSED. ***
+
+### THE SETTLING STEP, NAMED -- AND THE SOURCE POINTS AT IT ITSELF:
+### "In fact as shown in ### PROPOSITION 14 OF [13], the coefficients of this expansion are
+### DIRECTLY RELATED to the coefficients of the expansion of the finite solution at lambda."
+### [13] = F. Richard-Jung, J.-P. Ramis, J. Thomann, F. Fauvet, "New characterization for the
+### eigenvalues of the prolate spheroidal wave equation", Stud. Appl. Math. 138 (2017), 3-42.
+### ### IT WANTS A **READ FIRST**, AND THE READ IS NAMED TO THE PROPOSITION.
+### If that read pins phi_mu's leading coefficient in the U_0(mu) = 1 normalization, the equation
+### becomes decidable. ### If it does not, a RESULT is wanted.
+### ### THE DOCUMENT IS NOT IN THIS CORPUS. ### It would enter as an IMPORT under b146.
+
+### THE PARALLEL -1 LINE, PER (c): ### phi_mu - xi_mu is F-ANTI-fixed by the same construction, so
+### it lies in the -1 sector; it is nonzero exactly when xi_mu != phi_mu.
+### ### SAME VERDICT: **UNSETTLED**, by the same two absences and the same settling step.
+### ### NEITHER LINE IS CLAIMED TO BE WHAT TERM 3 NEEDS.
+
+*** ### AND ONE THING THE TWO LINES SETTLE **JOINTLY**:
+### 2*phi_mu = (phi_mu + xi_mu) + (phi_mu - xi_mu), ### AND phi_mu != 0 BY THE SOURCE'S OWN
+### U_0(mu) = 1. ### **SO AT LEAST ONE OF THE TWO NAMED ELEMENTS IS NONZERO.**
+### ### AND ITS HONEST SIZE, STATED SO IT IS NOT INFLATED:
+### THIS IS THE SAME LOGICAL STRENGTH AS b199's "Son_infinity IS NONZERO" -- ### NOW CARRIED BY
+### **NAMED WITNESSES** INSTEAD OF A DIMENSION COUNT. ### IT DOES NOT SAY WHICH SECTOR.
+### ### WHICH SECTOR IS THE WHOLE OF M22, AND IT IS EXACTLY WHAT IS STILL UNSETTLED. ***
+
+### NO BUILD. ### NOTHING HERE IS FINITE-DECIDABLE: the involution split and the two-halves
+### argument are general facts over a complex vector space, not decidable instances.
+### CORE STAYS AT 314/314, ROWS 1-81. ### NO LEAN WRITTEN, SO NO COMPILE CLAIMED.
+
+### THE FENCE, AND IT HELD: ### AT NO STEP WAS F phi = xi READ AS F phi = phi. ### The nearest
+### this act came was noting that BOTH functions have leading term proportional to sin(2 pi x)/x
+### at infinity (Cor 2.7(ii) for phi_mu; the two expansions for xi_mu) -- ### AND THAT IS WHY THE
+### COEFFICIENTS, NOT THE SHAPES, ARE WHAT WOULD SETTLE IT.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- THE FILINGS, AND THE INDEX REPAIR WITH ITS MEASURED COST.
+----------------------------------------------------------------------------------------------------
+
+### THE KEYS ARE ADDED, AND THE QUERIES THAT RAN **BEFORE** THEY WERE ADDED ARE ON THE RECORD SO
+### THE COST IS NOT HIDDEN BY THE REPAIR:
+### BEFORE: sonin space, sonin's space, archimedean sector, e1(infinity), phi_mu, the named
+### eigenfunctions -- ### ALL NO KEY.
+### THE COST, NAMED: ### b199 WROTE "the record names NO element of the archimedean Sonin space at
+### all" WHILE THE CROWN ACT HAD HELD ONE FOR TWO DAYS; ### b201 FOUND IT BY READING THE CROWN ACT,
+### NOT BY QUERYING. ### b164's OWN LIMIT WAS THE DIAGNOSIS IN ADVANCE: ### "KEYS CLOSE FALSE
+### HITS. THEY DO NOT CLOSE FALSE MISSES."
+
+### THREE KEYS ADDED, EACH WITH ALIASES AND A ROW CARRYING ITS OWN ACT'S GRADE:
+ · ### sonin-space -- aliases: sonin space, sonin's space, s(1,1), s(lambda,lambda), the
+   archimedean sonin space. ### ROW: the Def 4.4 definition and the INFINITE DIMENSIONALITY,
+   ### IMPORT at CC 2006.13771v1's text grade, ### with "the SPLIT is NOT at this grade" on the row.
+ · ### archimedean-sector -- aliases: archimedean sector, e1 at infinity, e1(infinity), the
+   archimedean e1, plus-one sector, the +1 sector. ### ROW: b200's THREE SPACES, ### with "THE
+   NAMING IS THE AUTHOR'S AND IS ROUTED, NEITHER RECOMMENDED" on the row itself.
+ · ### sonin-eigenfunctions -- aliases: sonin eigenfunctions, phi_mu, the named eigenfunctions,
+   negative-eigenvalue eigenfunctions. ### ROW: Cor 3.2 and Lemma 3.1, IMPORT at CM 2112.05500v1's
+   text grade, ### with "WHICH F-SECTOR THEY SIT IN IS NOT STATED -- that is M22" ### AND THE FENCE
+   ### "F phi = xi IS NOT F phi = phi" ON THE ROW.
+
+### ONE ALIAS DELIBERATELY **NOT** ADDED: ### the bare word "prolate". ### It is ambiguous across
+### prolate-continuum-positivity, prolate-operator and sonin-eigenfunctions, and b181's precedent
+### is that the bare "positivity" MUST keep returning NO KEY for exactly that reason.
+### ### A NEAREST STRING IS HOW A MISS BECOMES A FALSE HIT.
+### "the sector" and "nonvanishing" likewise stay unkeyed -- the first ambiguous across b200's
+### three spaces, the second a PROPERTY and not an object.
+
+### FIXTURE-TESTED IN BOTH POLARITIES BEFORE SERVICE: ### 15/15 MUST-HIT, ### 7/7 MUST-NOT-HIT
+### (prolate, positivity, the sector, nonvanishing, elliptic curve rank, langlands functoriality,
+### the tortoise). ### VERDICT PASS ON BOTH.
+### ### AND THE HALF THAT CARRIES INFORMATION IS THE SECOND, because I wrote the aliases the first
+### half matches. ### THE LIMIT IS NOT RETIRED: keys still do not close false misses, and the
+### next lane without keys will fail the same way.
+
+----------------------------------------------------------------------------------------------------
+### (P3) THE CONSEQUENCE, WITHOUT INFLATION.
+----------------------------------------------------------------------------------------------------
+
+### M22 STANDS, ### WITH A SINGLE EQUATION AS ITS CONTENT -- which is what the FOOT allows for:
+*** ### **IS xi_mu = -phi_mu?** ### EQUIVALENTLY: is phi_mu + xi_mu, which lies in (A)'s +1 sector
+### by construction, ### NONZERO?
+### ### AND THE ACT'S SHARPEST FINDING IS THAT THIS EQUATION IS **NOT YET WELL-POSED** AT THE
+### SOURCE'S NORMALIZATION, SO THE FIRST MOVE IS A READ AND NOT A PROOF. ***
+
+### THE ARC, IN ONE LINE, SO THE NARROWING IS VISIBLE AND NOT INFLATED:
+ · b198 -- is E_1 nonzero at infinity, above bench?
+ · b199 -- the SPACE is above bench; the SPLIT is on the bench.
+ · b200 -- and the object is named exactly: (A), the sector of the Sonin space.
+ · b201 -- and the space has NAMED OCCUPANTS; two missing steps named.
+ · b202 -- ### AND THE SECOND OF THOSE STEPS IS NOW A SINGLE EQUATION WITH A NAMED READ IN FRONT
+   ### OF IT. ### AT LEAST ONE OF THE TWO SECTORS CONTAINS A NAMED NONZERO ELEMENT; WHICH ONE IS
+   ### THE EQUATION.
+
+### TERM 3's ROUTE: ### NO ROUTE BECOMES AVAILABLE. ### NOTHING IS CONSTRUCTED, AND NO CLAIM
+### WHATEVER IS MADE THAT THE CONSTRUCTION SUCCEEDS. ### An undecided sector is not a held unit.
+
+### AND THE APPLICABILITY CAVEAT, SEPARATE FROM CORRECTNESS, DOUBLY LIVE THIS ACT:
+### G1 matched CM's operator to the corpus's layer ### ONLY UP TO A NAMED NORMALIZATION and
+### UNTESTABLE ON MODES 7-9 -- ### AND THIS ACT'S OWN FINDING IS THAT THE SOURCE'S SYMBOL IS
+### ITSELF UNPINNED BY A SCALAR. ### TWO NORMALIZATION QUESTIONS STACKED, AND NEITHER IS CLOSED.
+
+====================================================================================================
+### h2 UNCHANGED. THE REGISTER SENTENCE UNTOUCHED. NOTHING PROMOTED. N-EXT-2 ABSOLUTE.
+### NOTHING DEPOSITS. NOTHING CIRCULATES. HELD LOCAL-ONLY. TECHNE-Core UNTOUCHED. NO SORRY.
+====================================================================================================

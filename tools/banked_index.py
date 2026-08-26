@@ -111,6 +111,22 @@ KEYS = {
                        'equation 2', 'weil positivity'],
     'prolate-operator': ['prolate operator', 'ccm prolate', 'scaling hamiltonian',
                          'metaplectic framework'],
+    # ### THE ARCHIMEDEAN-SECTOR LANE, ADDED b202. ### ITS ABSENCE HAD A MEASURED COST:
+    # ### b199 wrote "the record names NO element of the archimedean Sonin space at all"
+    # ### while the crown act had held one for two days, and b201 found it by READING the
+    # ### crown act rather than by querying. ### b164's limit was the diagnosis in advance:
+    # ### KEYS CLOSE FALSE HITS; THEY DO NOT CLOSE FALSE MISSES.
+    'sonin-space': ['sonin space', "sonin's space", 's(1,1)', 's(lambda,lambda)',
+                    'the archimedean sonin space'],
+    'archimedean-sector': ['archimedean sector', 'e1 at infinity', 'e1(infinity)',
+                           'the archimedean e1', 'plus-one sector', 'the +1 sector'],
+    'sonin-eigenfunctions': ['sonin eigenfunctions', 'phi_mu', 'the named eigenfunctions',
+                             'negative-eigenvalue eigenfunctions'],
+    # ### AND ONE ALIAS DELIBERATELY **NOT** ADDED: the bare word 'prolate'.
+    # ### It is ambiguous across prolate-continuum-positivity, prolate-operator and
+    # ### sonin-eigenfunctions, and b181's precedent is that the bare 'positivity' MUST
+    # ### keep returning NO KEY for exactly that reason. ### A NEAREST STRING IS HOW A MISS
+    # ### BECOMES A FALSE HIT.
     # ### THE GATE LANE, ADDED b181.
     'stall-ledger': ['stall ledger', 'the traps', 'salt-check traps', 'the gates'],
     'w-family': ['w-family', 'average-vs-uniform', 'measure-zero escape',
@@ -121,6 +137,29 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ARCHIMEDEAN-SECTOR LANE'S ROWS (b202). ### EVERY GRADE IS THE ONE ITS OWN ACT
+    # ### RECORDED, and two of these are IMPORTS under b146, marked as such with versions.
+    ('sonin-space', 'b199 / b201 (imports, read at content)',
+     "S(alpha,beta) = {xi in L2(R)_ev : xi = 0 on |q|<=alpha, F_eR xi = 0 on |p|<=beta};"
+     " the archimedean one is INFINITE DIMENSIONAL",
+     'IMPORT at the source text grade -- CC arXiv 2006.13771v1 (Def 4.4; intro), 24 Jun 2020.'
+     ' ### ABOVE BENCH. ### The SPLIT into F-sectors is NOT at this grade',
+     'data/b199_archimedean_nonvanishing.txt; data/b201_eigenfunction_exhibit.txt'),
+    ('archimedean-sector', 'b200 (the naming census)',
+     "THREE distinct spaces carry the name at infinity: (A) the +1 eigenspace of F on the"
+     " Sonin space; (B) the +1 sector of the constraint span E+B (act 15's v_n^+, ORTHOGONAL"
+     " to (A)); (C) the +1-ish modes of G F G on L2_ev (b33's R-prolate)",
+     'CENSUS at content, 1656 files. ### THE NAMING IS THE AUTHORS AND IS ROUTED --'
+     ' both readings at THE_IDENTITY_CHAIN section 13, NEITHER RECOMMENDED.'
+     ' ### The gluing sentence names (A)',
+     'data/b200_sector_naming.txt; PLACE-papers phase2/method/THE_IDENTITY_CHAIN.md s13'),
+    ('sonin-eigenfunctions', 'b201 / b202 (import, read at content)',
+     "phi_mu, the eigenfunctions for the NEGATIVE eigenvalues of W_sa, BELONG TO THE SONIN"
+     " SPACE; F_eR phi_mu = xi_mu; phi_mu != 0 by the source's own U_0(mu) = 1",
+     'IMPORT at the source text grade -- Connes-Moscovici arXiv 2112.05500v1 (Cor 3.2,'
+     ' Lemma 3.1), 10 Dec 2021. ### WHICH F-SECTOR THEY SIT IN IS **NOT STATED** -- that is'
+     ' M22. ### AND THE FENCE: F phi = xi IS NOT F phi = phi',
+     'data/b201_eigenfunction_exhibit.txt; data/b202_sum_test.txt'),
     ('identity', 'row 24 / file E',
      "the built object's trace equals Weil's ledger on the constrained class at a cell",
      'BOUNDARY: STATED, NOT PROVED, NOT CLAIMED; its truth at complete roster is h2',
