@@ -142,7 +142,7 @@ def main(zpath, remote, branch='main'):
     byname = {n.split('/')[-1]: n for n in names}
 
     print("=" * 78)
-    print("MIRROR VERIFICATION -- BOTH CLAUSES OF THE STALE-BUILD LAW (b142)")
+    print("MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)")
     print("  archive: %s" % zpath)
     print("=" * 78)
 
