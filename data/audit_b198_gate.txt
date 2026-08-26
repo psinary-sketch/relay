@@ -1,0 +1,28 @@
+b198 -- THE GATE, RUN BEFORE ANY BUILD. Row 36's two laws against the eight banked cells.
+### THE GATE CAN FAIL: any disagreement withdraws the build and is reported instead.
+
+  THE LAWS AS ROW 36 STATES THEM (longhand general in the b57 registration):
+    odd q      : 4*d = (q-1)^2          shape (d,d,d,d)
+    place 2    : 4*d = q*(q-2)          shape (d,d,d+1,d)
+
+  cell     q      law           d1 from law   d1 banked   agree?
+  (2,1)   2      place 2      0             0           YES
+  (2,2)   4      place 2      2             2           YES
+  (2,3)   8      place 2      12            12          YES
+  (2,4)   16     place 2      56            56          YES
+  (3,1)   3      odd          1             1           YES
+  (3,2)   9      odd          16            16          YES
+  (3,3)   27     odd          169           169         YES
+  (5,1)   5      odd          4             4           YES
+
+  ### THE POLARITY CONTROL, CHECKED FIRST: the ZERO cell.
+  ### (2,1): q = 2, q*(q-2) = 2*0 = 0, so d1 = 0 -- ### THE LAW PRODUCES ITS OWN ZERO.
+  ### zero cell present in scope : YES
+
+  GATE VERDICT : PASS -- 8/8 cells agree, and the zero cell is among them
+  ### A GATE THAT COULD ONLY PASS WOULD BE NO GATE: the zero cell is the one that
+  ### can break a positivity claim, and it is checked before the claim is made.
+
+  ### AND WHAT THE GATE DOES NOT CHECK, SAID SO: it checks the laws' ARITHMETIC against
+  ### the banked integers. ### IT DOES NOT RE-DERIVE ROW 36's LONGHAND, which stays at
+  ### its own owner at DERIVES grade.
