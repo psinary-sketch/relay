@@ -1,0 +1,96 @@
+====================================================================================================
+b193 REGISTRATION -- THE RESTRICTED TENSOR CONSTRUCTION, ACT ONE.
+BANKED AFTER THE OWNER READS, THE TOOLCHAIN FEASIBILITY TEST AND THE MATHLIB READ,
+### BEFORE ANY LEAN IS WRITTEN.
+====================================================================================================
+FERRY 2026-08-26 (part 1 of 1; receipt confirmed IN FULL, Rule 1).
+
+SCOPE, QUOTED: "a BUILD; this is construction work, not a program or a scope -- no checkpoint list
+is written, and ### AN ACT THAT PRODUCES ONLY READS HAS FAILED ITS OWN PURPOSE AND SAYS SO; the
+stop-loss governs (one attempt on this specification; ### A GATE FAILURE HALTS THE ACT AND ROUTES
+TO A RE-SCOPE, NO TUNING)."
+
+THE REGISTER SENTENCE, QUOTED UNCHANGED: RH reduced to a single located clause,
+reduction machine-verified.
+
+### INDEX QUERIES PER (c): identity HIT | boundary license HIT | exact reduction HIT |
+### restricted tensor, the construction, global section, hilbert, tensor product -- ### ALL NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### THE TARGET, READ WHOLE AT ITS OWNER. GlobalSection.lean's structure, verbatim:
+   structure GlobalSectionData where
+     H : Type ; [ncg : NormedAddCommGroup H] ; [ips : InnerProductSpace C H]
+     F : H <=L>i[C] H ; parity : H <=L>i[C] H
+     F_sq : forall x, F (F x) = parity x
+     parity_sq : forall x, parity (parity x) = x
+ AND ITS DEBT LINE, VERBATIM: "### THE CONSTRUCTION OF THIS DATA AS (x)'_v S-bar_v IS THE
+ INFRASTRUCTURE DEBT."
+ ### SO THE TARGET IS NOT A NEW STRUCTURE. ### IT IS AN **INSTANCE** OF THE ONE THE CORPUS ALREADY
+ ### DECLARED, BUILT RATHER THAN ASSUMED. ### THE INCUMBENT-PRESERVATION LAW THEREFORE BINDS:
+ ### GlobalSectionData IS NOT REDEFINED, RENAMED, OR WEAKENED BY THIS ACT.
+
+### THE TOOLCHAIN, ESTABLISHED BY TEST AND NOT BY ASSUMPTION -- AND IT NEARLY STOPPED THE ACT:
+ · SIDE-global-section has ### NO lakefile AND NO .lake/packages. Core is vanilla; Interfaces
+   import Mathlib but carry no build configuration.
+ · A first probe against the mathlib4 checkout failed: ### "INCOMPATIBLE HEADER".
+ · ### THE CAUSE, READ AT CONTENT: mathlib4's own lean-toolchain says ### v4.29.0; the default is
+   ### v4.29.1. ### THE TOOLCHAIN IS PART OF THE PATH, AND A VERSION MISMATCH IS NOT A MISSING
+   ### LIBRARY.
+ · v4.29.0 IS installed; the dependency packages (batteries, aesop, Qq, plausible, proofwidgets,
+   importGraph, Cli, LeanSearchClient) are present and built.
+ ### SO A COMPILED MATHLIB LAYER IS FEASIBLE. ### HAD IT NOT BEEN, THE HONEST ACT WOULD HAVE BEEN
+ ### A HALT AT THE TOOLCHAIN, AND THAT WAS THE LIVE POSSIBILITY UNTIL THE VERSION WAS READ.
+
+----------------------------------------------------------------------------------------------------
+### THE TWO SEATS.
+NAVIGATOR: the ingredient read; the plan and its falsifier; the first layer and its gate.
+
+EXECUTOR (SCOREABLE, BEFORE ANY LEAN):
+ (e1) *** ### THE INGREDIENT READ WILL **CORRECT b189**, WHICH IS MY OWN PRIOR ACT.
+   ### b189 READ Analysis/InnerProductSpace/CanonicalTensor.lean, FOUND IT "REAL" AND
+   ### FINITE-DIMENSIONAL, AND CONCLUDED "MATHLIB HOLDS THE PARTS AND NOT THEIR COMBINATION".
+   ### THERE IS A WHOLE FILE b189 DID NOT FIND: ### Analysis/InnerProductSpace/TensorProduct.lean,
+   ### PROVIDING `TensorProduct.instInnerProductSpace` ("the inner product on E (x) F by
+   ### <a (x) b, c (x) d> = <a,c> * <b,d>"), `instNormedAddCommGroup`, `mapIsometry`, AND
+   ### **`congrIsometry`** -- the linear isometry EQUIVALENCE on a tensor product.
+   ### THAT LAST ONE IS EXACTLY WHAT F = F_v (x) F_w NEEDS.
+   ### b189's SENTENCE WAS TOO STRONG AND IT WAS MINE. ### SAID PLAINLY, NOT SOFTENED. ***
+ (e2) ### THEREFORE LAYER 1 IS BUILDABLE **NOW**, FROM HELD PARTS: given two local data with
+   F^2 = parity and parity^2 = 1, ### THE TENSOR OF THE TWO CARRIES F := congrIsometry F_v F_w
+   ### AND parity := congrIsometry parity_v parity_w, ### AND THE TWO IDENTITIES SHOULD FOLLOW
+   ### FROM THE FACTORS' BY FUNCTORIALITY. ### I EXPECT THE PROOF TO BE SHORT AND I EXPECT THE
+   ### REWRITING TO BE THE HARD PART, NOT THE MATHEMATICS.
+ (e3) ### THE LATER LAYERS' INGREDIENTS ARE **NOT YET READ** AND I DO NOT ASSUME THEM: the
+   directed system over finite sets of places, the colimit, and the completion of a
+   pre-inner-product space. ### EACH WILL BE LOCATED IN MATHLIB OR MARKED NOT HELD.
+   ### I DO NOT PREDICT THE CONSTRUCTION SUCCEEDS. ### THIS ACT BUILDS ONE LAYER.
+ (e4) *** ### THE KNOWN-ANSWER GATE WILL BE **DEFINITIONAL AND THEREFORE WEAK**, AND I SAY SO
+   ### BEFORE RUNNING IT RATHER THAN DRESSING IT UP AFTER. ### THE LAYER IS BUILT **ON** MATHLIB'S
+   ### TENSOR PRODUCT, SO "AGREES WITH THE FINITE TENSOR PRODUCT MATHLIB HOLDS" IS TRUE BY
+   ### CONSTRUCTION. ### A GATE THAT CANNOT FAIL IS NOT A GATE.
+   ### WHAT I CAN MAKE IT DO INSTEAD: check the two IDENTITIES the corpus's structure demands
+   ### (F^2 = parity, parity^2 = 1) ### ON THE BUILT OBJECT, WHICH CAN FAIL. ### THAT IS THE
+   ### HONEST GATE AND IT IS THE ONE I WILL RUN. ***
+ (e5) ### CORE: NOTHING ENTERS **Core**. ### THIS IS MATHLIB-LAYER WORK AND ITS HOME IS
+   Interfaces/. ### THE ZERO-AXIOM BAR IS A **CORE** BAR; an Interfaces file profiles the standard
+   three {propext, Classical.choice, Quot.sound}, ### AS EVERY EXISTING INTERFACES TERMINAL DOES
+   (AXIOM_PRINTS_INTERFACES, read at content). ### THE PROFILE IS PRINTED, NEVER ASSUMED, AND
+   ### ANY sorryAx IS A HALT.
+
+### THE GUARDS:
+ · ### ONE ATTEMPT ON THIS SPECIFICATION. ### A GATE FAILURE HALTS THE ACT AND ROUTES TO A
+   RE-SCOPE. ### NO TUNING, NO SECOND SHAPE TRIED QUIETLY.
+ · ### INCUMBENT PRESERVATION: GlobalSectionData is NOT redefined, renamed or weakened; the new
+   file CONSUMES it.
+ · ### MATHLIB IS READ AT CONTENT: every ingredient located with its file and name and its
+   statement quoted, or marked NOT HELD.
+ · ### NO sorry. ### THE AXIOM PROFILE IS PRINTED.
+ · ### AN ACT THAT PRODUCES ONLY READS HAS FAILED ITS OWN PURPOSE AND SAYS SO.
+ · NOTICED IS NOT EARNED.
+
+THE FENCES: N-EXT-2 absolute; (I-differ) at grade; h2 STATED NOT PROVED; nothing promoted;
+nothing deposits; HELD (6eada6a) LOCAL-ONLY; TECHNE-Core untouched; no sorry.
+
+DEVIATION RULE STANDING.
+BANK: data/b193_restricted_tensor_one.txt.
+====================================================================================================
