@@ -182,7 +182,7 @@ question closed at content.
 |:--|:--|
 | `PLACE-papers` `main` | `bc3b309` — keystone v2.36, §41; the loom's settlements |
 | `SIDE-global-section` `main` | `7552278` — ### **Core 304/304, rows 1–79** |
-| `relay` `main` | *the pin line below, read back after the push* |
+| `relay` `main` | `f41d11214c2b11cab7157585569a04f582772fff` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **33 files**, rebuilt at `bc3b309`, **CLEAN ON BOTH CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed** |
 
