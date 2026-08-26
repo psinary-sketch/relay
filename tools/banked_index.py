@@ -157,9 +157,15 @@ INDEX = [
      "phi_mu, the eigenfunctions for the NEGATIVE eigenvalues of W_sa, BELONG TO THE SONIN"
      " SPACE; F_eR phi_mu = xi_mu; phi_mu != 0 by the source's own U_0(mu) = 1",
      'IMPORT at the source text grade -- Connes-Moscovici arXiv 2112.05500v1 (Cor 3.2,'
-     ' Lemma 3.1), 10 Dec 2021. ### WHICH F-SECTOR THEY SIT IN IS **NOT STATED** -- that is'
-     ' M22. ### AND THE FENCE: F phi = xi IS NOT F phi = phi',
-     'data/b201_eigenfunction_exhibit.txt; data/b202_sum_test.txt'),
+     ' Lemma 3.1), 10 Dec 2021. ### UPDATED b203: the eigenspace is ONE-DIMENSIONAL'
+     ' (Ramis-Richard-Jung-Thomann, C. R. Math. 363 (2025), 1065-1081, DOI'
+     ' 10.5802/crmath.780, Lemma 2(ii) -- IMPORT), ### so with commutation F phi = c phi and'
+     ' with F^2 = 1 on evens (a FURTHER import, UNSTATED by either source) c = +-1.'
+     ' ### SO phi_mu IS an F-eigenvector and lies in E_1 or E_-1. ### WHICH SIGN IS NOT'
+     ' STATED -- ### M22 IS NOW A SIGN. ### AND THE FENCE: F phi = xi IS NOT F phi = phi --'
+     ' the relation is DERIVED from simplicity, not substituted',
+     'data/b201_eigenfunction_exhibit.txt; data/b202_sum_test.txt;'
+     ' data/b203_transform_convention.txt'),
     ('identity', 'row 24 / file E',
      "the built object's trace equals Weil's ledger on the constrained class at a cell",
      'BOUNDARY: STATED, NOT PROVED, NOT CLAIMED; its truth at complete roster is h2',
