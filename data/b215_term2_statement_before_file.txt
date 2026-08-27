@@ -1,0 +1,154 @@
+====================================================================================================
+b215 BANK -- TERM 2, THE STATEMENT BEFORE THE FILE. Registration ee8e375, banked before the
+statement was written. 2026-08-27. Ferry part 1 of 1, receipt confirmed IN FULL.
+Index queries: data/audit_b215_index_query.txt.
+====================================================================================================
+
+*** ### THE VERDICT: **BRANCH (HALT) AT (b).**
+### ### THE MISSING SENTENCE IS **THE AGGREGATION**: how the quotient channel's per-place,
+### ### per-level values become the SINGLE REAL Q.value at a diagonal cell.
+### ### IT WANTS A **RULING** OR A **RESULT**. ### IT DOES NOT WANT A READ.
+### ### AND THE FERRY CALLED THIS OUTCOME IN ADVANCE: "that halt is a first-class outcome and
+### ### the act's likeliest one." ***
+
+### NO FILE D WAS WRITTEN. ### FILE E IS UNTOUCHED. ### NOTHING WAS WEAKENED, and in particular
+### ClassRichness was NOT discharged by trivial and NOT written as "fun _ => True", ### because
+### NO STATEMENT WAS WRITTEN AT ALL. ### CORE UNTOUCHED; the Interfaces layer untouched.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE STATEMENT, ATTEMPTED; AND (P2) THE SHELL TEST.
+----------------------------------------------------------------------------------------------------
+
+### THE ATTEMPT WAS MADE RATHER THAN THE HALT ASSERTED. Here is term 2's object written out as
+far as the owners carry it, with each line's owner and grade beside it:
+
+  cell        : a_sq : Q with 1 < a_sq                    ### File E, EXISTS
+  k(p, cell)  : the per-place cutoff from the staircase   ### RECORDED -- the diagonal section,
+                                                          "one bound a, every place's cutoff by
+                                                          the staircase; the T1 boundary p^k
+                                                          enters at sqrt(p^k), compiled"
+                                                          (D-yes, f967f10)
+  tauQ p n k  : (p^n - p^k) / ((p^n - 1) * p^(k/2))       ### PROVED longhand (act 9), every
+                                                          banked integer re-derived; and a
+                                                          vanilla Core shadow HELD at
+                                                          Core/QuotientLemmaShadow.lean,
+                                                          zero axioms
+  level limit : lim_{n -> inf} tauQ p n k = p^(-k/2)      ### THEOREM at the level limit; "the
+                                                          quotient channel converges to Weil's
+                                                          coefficients at the level limit"
+  volume norm : FORCED                                    ### act 7
+  ClassRichness : Prop                                    ### PREMISE, carried AT CITE -- an
+                                                          opaque Prop parameter, which is what
+                                                          "at cite" means
+  ------------------------------------------------------------------------------------------
+  Q.value     : R                                          ### ??? -- THE AGGREGATION
+  ------------------------------------------------------------------------------------------
+
+*** ### EVERY LINE ABOVE THE RULE HAS AN OWNER AND A GRADE. ### THE LINE BELOW IT HAS NEITHER.
+### ### THE PER-PLACE VALUES EXIST AND THE CELL DETERMINES EACH PLACE'S CUTOFF, ### BUT NO
+### ### STATEMENT IN THE RECORD SAYS HOW THE FAMILY { p^(-k(p,cell)/2) }_p BECOMES ONE REAL. ***
+
+### THE CANDIDATES THE RECORD DOES NOT CHOOSE BETWEEN, LISTED SO THE ABSENCE IS CONCRETE AND NOT
+### A GESTURE: a bare sum over p; a sum with Weil's weights (a log p, a density factor); a
+### product; a restricted or regularized sum; a limit of finite truncations. ### FILE E's OWN
+### IDENTITY (T.value + Q.value = W.wInf - W.wPrimes) COMPARES Q AGAINST A LEDGER WHOSE PRIME
+### SIDE IS ITSELF ONE REAL, ### SO THE SHAPE IS PLAUSIBLY A WEIGHTED SUM -- ### AND THE WEIGHT
+### IS EXACTLY WHAT IS UNSTATED. ### PLAUSIBLE IS NOT STATED, AND THE EXECUTOR STOPS HERE.
+
+### AND THE HALT IS NOT THIS ACT'S DISCOVERY. b197 RECORDED IT, QUOTED WHOLE:
+### "WHAT IS NOT STATED -- AND IT IS THE AGGREGATION. File E's Q is indexed by a DIAGONAL CELL
+### (a_sq : Q, 1 < a_sq). The quotient lemma is indexed by (p, n, k). THE CELL DOES INDEX THE
+### PLACES ... BUT NO STATEMENT ASSEMBLES THE CHANNEL'S PER-PLACE VALUES INTO THE SINGLE REAL
+### Q.value AT THE CELL."
+### ### b215 RE-READ IT AT CONTENT AND CONFIRMS IT. ### THE REGISTRATION SAID SO BEFORE THE
+### ### ATTEMPT, AND THE ATTEMPT AGREES WITH THE REGISTRATION.
+
+### WHAT THE MISSING SENTENCE WANTS: ### A **RULING** -- the combination rule over places is a
+### definitional choice about the built object, and definitional choices are the author's --
+### ### OR A **RESULT**, if a derivation from the staircase and the forced volume normalization
+### can be shown to FORCE one rule rather than permit several.
+### ### IT DOES **NOT** WANT A READ. b197 performed the read and found nothing to read, and
+### b215 performed it again with the same outcome. ### TWO ACTS HAVE NOW LOOKED.
+
+*** ### (P2) THE SHELL TEST, RUN -- AND RUN ON THE **CURRENT** FILE E TERM 2 AS THE REGISTRATION
+### PROMISED, BECAUSE THE ANSWER IS INFORMATIVE EITHER WAY.
+### ### "structure QuotientTrace (cell : DiagonalCell) where value : R"
+### ### IS INHABITED BY <0> AT EVERY CELL. ### A TRIVIAL INSTANCE SATISFIES IT. ### BY THE
+### ### FERRY'S OWN TEST IT IS A **SHELL**.
+### AND THAT IS A FACT ABOUT THE FILE AS IT STANDS AND **NOT A CRITICISM OF IT**: File E's own
+### header says "THIS FILE STATES; IT DOES NOT PROVE" and calls its constituents "DATA
+### PARAMETERS (Props over supplied structures), NOT sorried declarations".
+### ### SO THE SHELL TEST DOES NOT CONVICT FILE E. ### IT MEASURES EXACTLY THE DISTANCE FILE D
+### ### WAS SUPPOSED TO CLOSE, AND SHOWS THAT NOTHING HAS CLOSED IT. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P3) THE BUILD. ### NOT REACHED.
+----------------------------------------------------------------------------------------------------
+### THE BUILD IS GATED ON (b) AND (b) HALTED. ### NO Interfaces/QuotientTrace.lean WAS WRITTEN.
+### NO FILE E EDIT WAS MADE. ### G-CONSUME WAS NOT RUN BECAUSE THERE IS NOTHING TO CONSUME.
+
+*** ### AND A SECOND, INDEPENDENT OBSTACLE, MEASURED RATHER THAN ASSUMED, WHICH WOULD HAVE
+### STOPPED (d) EVEN IF (b) HAD PASSED:
+### ### **THE INTERFACES LAYER CANNOT BE COMPILED IN THIS ENVIRONMENT.**
+### Attempted: "lean Interfaces/FiniteInstanceIdentity.lean" with LEAN_PATH=build. Returned:
+### ### "error: unknown module prefix 'Mathlib' -- No directory 'Mathlib' or file
+### ### 'Mathlib.olean' in the search path entries: build, <toolchain>/lib/lean".
+### AND THE REASON IS TWOFOLD AND BOTH HALVES ARE CHECKED:
+###   (i)  Mathlib IS present on D: (/d/mathlib4/Mathlib) and its .lake/build/lib EXISTS, ### BUT
+###        Mathlib/Data/Real/Basic.olean IS **ABSENT** -- ### IT IS NOT BUILT.
+###   (ii) ### **TOOLCHAIN MISMATCH**: /d/mathlib4 pins leanprover/lean4:v4.30.0-rc1 while
+###        SIDE-global-section pins **v4.29.1**. ### Oleans are toolchain-specific, ### SO EVEN A
+###        FULLY BUILT MATHLIB AT 4.30.0-rc1 COULD NOT BE IMPORTED BY A 4.29.1 COMPILATION.
+### ### CONSEQUENCE FOR THE EXECUTION LINE: "a claimed compile reported only from its own printed
+### ### axiom profile" ### COULD NOT HAVE BEEN SATISFIED FOR AN Interfaces FILE IN THIS
+### ### ENVIRONMENT. ### THE Core LAYER IS UNAFFECTED -- it is vanilla Lean with no imports, which
+### is why b211, b212 and b214 could build and print. ###
+### ### SO TERM 2's FORMALIZATION IS BLOCKED BY **TWO** THINGS, AND ONLY ONE OF THEM IS
+### ### MATHEMATICAL. ### The record has been carrying the mathematical one since b189 and has
+### ### not been carrying the other. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### THE IDENTITY CHAIN's TERM-2 ROW, RESTATED WITH ITS **TWO DEBTS SEPARATED** AS THE FERRY
+### REQUIRES -- and this act finds they are not two but THREE:
+###   DEBT 1 -- ### THE FILE. file D does not exist (b189) and cannot be written, because the
+###             statement it would carry cannot be written: ### THE AGGREGATION IS MISSING.
+###             ### WANTS A RULING OR A RESULT. Owner: the author (ruling) or a future act
+###             (result).
+###   DEBT 2 -- ### THE LEMMA. ClassRichness, carried at cite. ### AND IT HAS TWO PARTS, WHICH
+###             THIS ACT SEPARATES: ### (2a) ITS CITATION'S EXACT STATEMENT IS **UNREAD** (M16:
+###             "the class-richness lemma at cite, OWNER UNREAD"), and ### (2b) the lemma is
+###             undischarged. ### YOU CANNOT DISCHARGE WHAT YOU HAVE NOT READ, so 2a precedes 2b.
+###   DEBT 3 -- ### NEW THIS ACT: ### THE TOOLCHAIN. The Interfaces layer cannot be compiled here
+###             (no built Mathlib; and a 4.30.0-rc1 / 4.29.1 mismatch). ### THIS IS NOT A
+###             MATHEMATICAL DEBT AND IT IS NOT THE AUTHOR'S RULING TO GIVE. It is an environment
+###             repair, and it blocks ANY Interfaces-grade construction, not just term 2's.
+### ### THREE DEBTS, THREE OWNERS, AND THE RECORD SHOULD NOT CARRY THEM AS ONE.
+
+### THE IN-FLIGHT REGISTER: term 2's formalization restated as LIVE with its three debts; the
+### class-richness lemma registered as ITS OWN ITEM with its two parts, as (P3) requires in every
+### branch.
+### THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED: ### term 2's formalization IS that debt, and this
+### act does not pay it. ### IT NAMES WHY IT CANNOT BE PAID AND BY WHOM, which is what the FOOT
+### asked for as the alternative outcome. ### LOCKS LAST.
+
+----------------------------------------------------------------------------------------------------
+HIT RECORD, DEVIATIONS, DIVERGENCES.
+----------------------------------------------------------------------------------------------------
+HIT RECORD: the owners read at content; the statement ATTEMPTED and written out line by line with
+each line's owner and grade, so the halt is exhibited rather than asserted; the missing sentence
+named and its want classified (ruling or result, not a read); the shell test run on the current
+File E term 2 and returning SHELL, with the reason it is not a criticism stated; the build not
+reached and a second independent obstacle measured; three debts separated where the record carried
+two.
+### THE PREDICTIONS: (P1) LANDED -- (HALT) at (b), the aggregation, wanting a ruling or a result.
+### (P2) LANDED -- shell, shown. (P3) LANDED -- (HALT), with the class-richness lemma registered
+### as its own item and now split into two parts.
+
+DEVIATIONS: none. ### AND THE ONE THE EXECUTOR REGISTERED AGAINST ITSELF DID NOT OCCUR:
+### NO AGGREGATION WAS INVENTED. ### The registration named that temptation before the attempt,
+### and the attempt stopped at the rule rather than crossing it.
+
+DIVERGENCES: none with the ferry. ### THE FERRY PREDICTED THIS OUTCOME AND THE ACT CONFIRMS IT.
+====================================================================================================
