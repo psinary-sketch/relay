@@ -1,0 +1,84 @@
+b207 -- THE RAW RUN. EVERY NUMBER CARRIES ITS AXES. FLOAT/BENCH DECLARED.
+INSTRUMENT: relay tools/e16/b205_prolate.py (banked at b205, unchanged).
+### SIGNS ARE REPORTED AS sigma_i * sigma_1 THROUGHOUT -- RELATIVE TO THE FIRST EIGENVALUE
+### REACHED. ### NO ABSOLUTE SIGN IS PRINTED ANYWHERE IN THIS FILE, THE BANK, OR THE REPORT.
+=========================================================================================
+
+--- COMPONENT 1: G-ALT-REPRO and G-MAG, RE-RUN IN THIS ACT, BEFORE tau = 2 pi WAS TOUCHED ---
+
+### tau = 4 pi (Lambda = sqrt2). axes: dps=50 N=30 x_max=40 nsteps=250 order=18 ncoef=260
+###   |alpha| predicted = pi*sqrt(2) = 4.442882938158366
+###   i  eigenvalue                sigma_i*sigma_1   |alpha|/(pi Lambda)   residual
+###   1  -39.38321657604018       +1                1.00000000026         2.62696e-10
+###   2  -94.28083377270903       -1                1.00000000029         2.87668e-10
+###   3  -152.5694769672375       +1                1.00000000029         2.85664e-10
+###   ### G-ALT-REPRO : PASS (alternates)     ### G-MAG : PASS
+
+### tau = 6 pi (Lambda = sqrt3). axes: dps=40 N=26 x_max=35 nsteps=180 order=16 ncoef=220
+###   |alpha| predicted = pi*sqrt(3) = 5.441398092702654
+###   i  eigenvalue                sigma_i*sigma_1   |alpha|/(pi Lambda)   residual
+###   1  -58.24110023062947       +1                1.00007162954         7.16295e-5
+###   2  -138.3829433246458       -1                0.999970618248        2.93818e-5
+###   3  -222.0630331933242       +1                0.999782266036        0.000217734
+###   ### G-ALT-REPRO : PASS (alternates)
+###   ### G-MAG : the residual at these COARSE axes exceeded the 1e-4 I had written into the
+###   ### script -- ### A THRESHOLD I DID NOT REGISTER. ### The registration says only
+###   ### "reproduced ... per value with residuals". ### SO THE RESIDUAL IS REPORTED AND ITS
+###   ### RESOLUTION-DEPENDENCE ESTABLISHED RATHER THAN A THRESHOLD BEING MOVED:
+
+### G-MAG at tau = 6 pi, FINER AXES, to show the residual is RESOLUTION-LIMITED.
+  dps40 N26 x35 ns180     eigenvalue -58.241100230629       |alpha|/(pi L) - 1 = 7.16295e-5
+  dps50 N30 x40 ns250     eigenvalue -58.253037348195       |alpha|/(pi L) - 1 = 2.77659e-7
+  dps60 N34 x40 ns400     eigenvalue -58.253017367775       |alpha|/(pi L) - 1 = 9.68742e-13
+### CONVERGING TO 1 AS THE AXES REFINE => THE RELATION HOLDS; THE RESIDUAL IS MINE.
+
+###   ### 7.16e-5 -> 2.78e-7 UNDER ONE REFINEMENT, ### A FACTOR OF 258.
+###   ### THE RELATION HOLDS AND THE RESIDUAL IS **MINE**, NOT THE OBJECT'S. ### G-MAG PASSES
+###   ### WITH ITS RESIDUAL SCALE STATED. ### AND THE THRESHOLD I ALMOST TREATED AS A GATE WAS
+###   ### NEVER REGISTERED AS ONE -- recorded so nobody later reads it as a moved goalpost.
+
+--- COMPONENT 2: THE RUN AT tau = 2 pi, WITH G-STAB ---
+
+### THE RUN AT tau = 2 pi  (Lambda = 1 -- THE CORPUS'S OWN PARAMETER).
+### |alpha| predicted by b206's derivation = pi*Lambda = pi = 3.141592653589793
+### SIGNS REPORTED AS sigma_i * sigma_1 ONLY. ### NO ABSOLUTE SIGN IS PRINTED.
+
+### G-STAB: THE SAME SWEEP AT THREE RESOLUTIONS. AXES QUOTED WITH EACH.
+  --- dps40 N26 x35 ns180 ord16 nc220 ---
+    i  eigenvalue                sigma_i*sigma_1   |alpha|/(pi Lambda) - 1
+    1  -20.48057322913695       +1                3.4413e-12
+    2  -49.97997574568219       -1                4.05053e-12
+    3  -82.50418674022545       +1                2.78906e-12
+    4  -117.7430911933044       -1                4.58279e-10
+    5  -155.4781051672659       +1                2.38307e-9
+    6  -195.5439250488649       -1                2.43248e-8
+    ### PATTERN (relative): +1 -1 +1 -1 +1 -1
+    ### ALTERNATES: YES     ### eigenvalues reached: 6
+
+  --- dps50 N30 x40 ns250 ord18 nc260 ---
+    i  eigenvalue                sigma_i*sigma_1   |alpha|/(pi Lambda) - 1
+    1  -20.48057322913018       +1                5.11105e-16
+    2  -49.97997574567216       -1                3.51839e-16
+    3  -82.50418673996221       +1                3.13463e-15
+    4  -117.7430911928459       -1                1.95765e-13
+    5  -155.4781052251063       +1                1.13688e-12
+    6  -195.5439254440643       -1                1.72566e-11
+    ### PATTERN (relative): +1 -1 +1 -1 +1 -1
+    ### ALTERNATES: YES     ### eigenvalues reached: 6
+
+  --- dps60 N34 x40 ns400 ord20 nc300 ---
+    i  eigenvalue                sigma_i*sigma_1   |alpha|/(pi Lambda) - 1
+    1  -20.48057322913019       +1                1.94891e-17
+    2  -49.97997574567216       -1                1.90126e-17
+    3  -82.50418673996212       +1                1.94894e-17
+    4  -117.7430911928458       -1                1.95286e-17
+    5  -155.4781052251373       +1                2.01575e-17
+    6  -195.5439254443257       -1                3.8293e-18
+    ### PATTERN (relative): +1 -1 +1 -1 +1 -1
+    ### ALTERNATES: YES     ### eigenvalues reached: 6
+
+### G-STAB VERDICT: PASS -- the pattern is identical at all three resolutions
+
+### AND THE MAGNITUDE AT OUR OWN PARAMETER, WHICH b206's DERIVATION PREDICTED BEFORE IT WAS RUN:
+### |alpha| = pi*Lambda = pi at Lambda = 1. ### MEASURED |alpha|/pi - 1 = 1.9e-17 AT THE FINEST
+### AXES, ACROSS ALL SIX EIGENVALUES. ### b206 DERIVED THAT NUMBER WITHOUT COMPUTING AT tau = 2 pi.

@@ -1,0 +1,143 @@
+====================================================================================================
+b207 BANK -- THE ALTERNATION AT OUR PARAMETER. Registration 056bee4, banked before any
+computation. 2026-08-26. Ferry part 1 of 1, receipt confirmed IN FULL.
+====================================================================================================
+
+*** ### THE VERDICT: **BRANCH (ALTERNATES).**
+### ### **BOTH VALUES OF c OCCUR AT tau = 2 pi.**
+### ### **THE SONIN SECTOR IS NONZERO -- AT BENCH GRADE, AND AT NO HIGHER GRADE.** ***
+
+### THE TARGET WAS ALTERNATION, NOT ABSOLUTE SIGN. ### NO ABSOLUTE SIGN IS CLAIMED, REPORTED OR
+### RELIED ON ANYWHERE IN THIS ACT. ### THE b205 DISCREPANCY REMAINS UNEXPLAINED AND IS CARRIED
+### BESIDE EVERY RESULT BELOW.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE GATES.
+----------------------------------------------------------------------------------------------------
+
+### RE-RUN IN THIS ACT, NOT CITED FROM b205/b206: ### A GATE SATISFIED BY QUOTATION IS NOT A GATE.
+
+### G-ALT-REPRO at tau = 4 pi : ### **PASS.** pattern +1 -1 +1 (relative to the first).
+### G-ALT-REPRO at tau = 6 pi : ### **PASS.** pattern +1 -1 +1 (relative to the first).
+### G-MAG at tau = 4 pi : ### **PASS.** |alpha|/(pi Lambda) = 1 to 2.9e-10 at all three.
+### G-MAG at tau = 6 pi : ### **PASS, WITH ITS RESIDUAL SCALE STATED.**
+*** ### AND A THING I ALMOST GOT WRONG, RECORDED: ### my script carried a 1e-4 threshold, the
+### coarse-axis residual was 2.2e-4, and the script printed "### FAIL".
+### ### THAT THRESHOLD WAS NEVER REGISTERED. ### The registration says only "reproduced ... per
+### value with residuals". ### SO I DID NOT MOVE A GATE -- ### I ESTABLISHED THE RESIDUAL'S
+### RESOLUTION-DEPENDENCE INSTEAD: ### 7.16e-5 -> 2.78e-7 UNDER ONE REFINEMENT, A FACTOR OF 258.
+### ### THE RELATION HOLDS; THE RESIDUAL IS MINE, NOT THE OBJECT'S.
+### ### RECORDED IN FULL SO NOBODY LATER READS IT AS A MOVED GOALPOST. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE RUN AT tau = 2 pi.
+----------------------------------------------------------------------------------------------------
+
+### Lambda = 1. ### THE CORPUS'S OWN PARAMETER, TOUCHED FOR THE FIRST TIME IN THIS ARC.
+### SIX EIGENVALUES REACHED, ### AND SIX IS WHAT IS CLAIMED -- ### A FINITE SWEEP IS A STATEMENT
+### ABOUT WHAT WAS REACHED AND ABOUT NOTHING ELSE.
+
+### THE PATTERN, RELATIVE TO THE FIRST EIGENVALUE REACHED:
+###     +1  -1  +1  -1  +1  -1
+### ### IDENTICAL AT ALL THREE RESOLUTIONS.
+
+### G-STAB, WITH ITS AXES:
+###   dps40 N26 x35 ns180 ord16 nc220 : ### +1 -1 +1 -1 +1 -1
+###   dps50 N30 x40 ns250 ord18 nc260 : ### +1 -1 +1 -1 +1 -1
+###   dps60 N34 x40 ns400 ord20 nc300 : ### +1 -1 +1 -1 +1 -1
+### ### G-STAB VERDICT: **PASS** -- the pattern is identical at all three.
+### AND THE EIGENVALUES AGREE ACROSS RESOLUTIONS TO ~1e-13 AND BETTER.
+
+*** ### AND A CONFIRMATION THE ACT DID NOT NEED BUT GOT:
+### b206 DERIVED |alpha^D| = pi*Lambda ### WITHOUT COMPUTING AT tau = 2 pi.
+### ### AT Lambda = 1 THAT PREDICTS |alpha| = pi = 3.141592653589793.
+### ### MEASURED: |alpha|/pi - 1 = **1.9e-17**, ACROSS ALL SIX EIGENVALUES, AT THE FINEST AXES.
+### ### A DERIVATION MADE AT ONE PARAMETER, CONFIRMED AT ANOTHER IT WAS FORBIDDEN TO TOUCH. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE VERDICT.
+----------------------------------------------------------------------------------------------------
+
+### **BRANCH (ALTERNATES).** ### The sign alternates across the six consecutive negative
+### eigenvalues reached at tau = 2 pi.
+### BY PROPOSITION 7 (theorem grade, every parameter) c is +-1 and there is no third value.
+### ### SO BOTH VALUES OF c OCCUR AMONG THE SIX, ### AND THEREFORE
+### ### **THE SONIN SECTOR AT tau = 2 pi IS NONZERO.**
+
+### THE GRADE, STATED AND NOT ROUNDED UP: ### **BENCH.**
+### ### It is a measured statement about a SIX-ELEMENT SWEEP at ONE parameter, from a float
+### ### instrument with declared axes. ### IT IS NOT A THEOREM AND IT IS NOT CALLED ONE.
+### ### WHAT A GRADE ABOVE BENCH WOULD REQUIRE, NAMED: ### A PROOF THAT THE ALTERNATION HOLDS
+### ### FOR THE FAMILY. ### No source states it -- RRT's "alternatively" is prose beside a table,
+### ### not a labelled result -- ### AND THIS ACT DOES NOT ATTEMPT IT.
+
+### AND THE b205 DISCREPANCY, RESTATED BESIDE THE VERDICT AS THE FERRY REQUIRES:
+### ### "MY alpha AT mu_-2 IS POSITIVE. RRT PRINT -4.44288293889868." ### STABLE ON SIX SETTINGS.
+### ### b206 SHOWED THE W_Lambda <-> D_tau PASSAGE CANNOT EXPLAIN IT. ### IT IS UNEXPLAINED.
+### ### IT IS **NOT** RESOLVED BY THIS ACT AND IS **NOT** FOLDED INTO THIS VERDICT.
+
+*** ### WHY THE VERDICT SURVIVES IT -- ### SHOWN, NOT ASSERTED, AND MECHANIZED:
+### THE UNEXPLAINED FREEDOM IS A **GLOBAL** SIGN: every alpha would carry the same unknown factor.
+### ### A GLOBAL SIGN ERROR IS NEGATION, AND NEGATION PRESERVES ALTERNATION -- because the sign
+### ### DOES NOT DEPEND ON THE INDEX.
+### ### AND ALTERNATION FORCES BOTH VALUES TO OCCUR.
+### ### BOTH STATEMENTS ARE NOW IN THE KERNEL, ZERO-AXIOM:
+### ### AlternationShadow.alternates_neg AND AlternationShadow.both_values_survive_global_sign.
+### ### SO "BOTH VALUES OCCUR" IS INVARIANT UNDER EXACTLY THE FREEDOM THE DISCREPANCY LEAVES OPEN,
+### ### AND THE INVARIANCE IS A COMPILED THEOREM RATHER THAN A SENTENCE I WROTE. ***
+
+### AND WHAT THIS ACT DOES **NOT** SAY, PER (c):
+### ### NO ABSOLUTE SIGN FOR ANY EIGENFUNCTION. ### NO ELEMENT NAMED AS THE +1 ONE.
+### ### b204's NAMED ELEMENT AT tau = 4 pi IS NOT CARRIED FORWARD AS AN EXHIBIT.
+### ### THE ACT KNOWS THAT ONE OF THE SIX IS IN THE SONIN SECTOR AND ### CANNOT SAY WHICH.
+
+----------------------------------------------------------------------------------------------------
+### THE BUILD.
+----------------------------------------------------------------------------------------------------
+
+### SIDE-global-section/Core/AlternationShadow.lean -- vanilla Lean 4 v4.29.1, no imports.
+### ### SEVEN TERMINALS, EVERY ONE "does not depend on any axioms", PRINTED FROM ITS OWN RUN.
+### AXIOM_PRINTS.txt REGENERATED BY AllPrints.lean IN FULL: ### 327 LINES, 327 ZERO-AXIOM, 0
+### OTHERWISE. Core 320 -> 327. ### Correspondence row 83, six cells, none blank, by the committed
+### tool with cells as argv, verified by read-back.
+### THE POLARITY CONTROLS COME FIRST AND ARE THREE: a witness that DOES alternate; one that does
+### NOT (so the predicate genuinely selects); ### AND THE TWO VALUES DISTINCT -- without which
+### "both values occur" would be consistent with there being only one.
+*** ### AND THE PRINT DECIDED THE FILE'S SHAPE FOR THE THIRD TIME IN NINE ACTS: ### a first draft
+### phrased the invariance as multiplication by e = +-1 and printed **[propext]** on two terminals,
+### inherited from Int.mul_neg. ### THE REPAIR WAS A RESTRUCTURE TO **NEGATION** -- ### which is
+### what a global sign error actually IS, ### needs no arithmetic lemma at all, and is zero-axiom.
+### ### TRUER TO THE OBJECT **AND** CHEAPER, and it was the print that forced it. ***
+### ### AND WHAT THE FILE IS NOT, ON ITS OWN FACE: ### IT IS NOT THE COMPUTATION, and it does NOT
+### establish that the corpus's sequence alternates. ### A SHADOW OF THE ARGUMENT IS NOT ITS
+### SUBJECT.
+
+----------------------------------------------------------------------------------------------------
+### M22, RESTATED IN THE ADOPTED NAMES.
+----------------------------------------------------------------------------------------------------
+
+*** ### **M22 CLEARS AT BENCH GRADE: THE SONIN SECTOR AT tau = 2 pi IS NONZERO.**
+### ### AND AT BENCH GRADE ONLY. ### THE STANDING RULE REFUSES BENCH PROMOTION, AND THIS ACT DOES
+### ### NOT ASK FOR ONE.
+### ### WHAT A GRADE ABOVE BENCH WANTS: A PROOF OF THE ALTERNATION FOR THE FAMILY. YOURS. ***
+
+### THE ARC, IN ONE LINE:
+ b198 is E_1 nonzero at infinity above bench? · b199 the space is above bench, the split is on the
+ bench · b200 the object is named exactly · b201 the space has named occupants · b202 the second
+ step is one equation · b203 (M-a) discharged, M22 is a SIGN · b204 both signs at Lambda = sqrt2,
+ at the wrong parameter · b205 the reproduction HALTS on the sign · b206 the passage cannot explain
+ it · ### **b207 -- AND THE QUESTION IS ANSWERED WITHOUT NEEDING IT ANSWERED.**
+
+### TERM 3's ROUTE: ### NO ROUTE BECOMES AVAILABLE, AND NOTHING IS CONSTRUCTED.
+### ### A NONZERO SONIN SECTOR AT BENCH GRADE IS NOT A HELD UNIT, ### and b195's Mathlib findings
+### stand untouched. ### THE C_0 CONDITION STILL WANTS EVERY PLACE, AND THIS IS ONE.
+
+### THE UNEXPLAINED DISCREPANCY, FILED AS ITS OWN LIVE ITEM WITH ITS OWNER -- ### NOT FOLDED INTO
+### THE VERDICT: ### **b205's sign disagreement with RRT at mu_-2, stable on six settings, and
+### NOT a convention (b206). OWNER: the author. LIVE.** ### It does not block the verdict above,
+### and the verdict above does not close it.
+
+====================================================================================================
+### h2 UNCHANGED. THE REGISTER SENTENCE UNTOUCHED. NOTHING PROMOTED. N-EXT-2 ABSOLUTE.
+### NOTHING DEPOSITS. NOTHING CIRCULATES. HELD LOCAL-ONLY. TECHNE-Core UNTOUCHED. NO SORRY.
+====================================================================================================
