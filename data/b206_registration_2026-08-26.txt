@@ -1,0 +1,115 @@
+====================================================================================================
+b206 REGISTRATION -- THE VARIABLE PASSAGE.
+BANKED AFTER THE OWNERS AND THE SOURCE WERE READ -- ### BEFORE THE DERIVATION, as the execution
+clause orders.
+====================================================================================================
+FERRY 2026-08-26 (part 1 of 1; receipt confirmed IN FULL, Rule 1).
+
+SCOPE, QUOTED: "a DERIVATION at content plus verification against banked values; ### NO VALUE AT
+THE CORPUS'S PARAMETER IS COMPUTED -- b205's halt stands until this act pins the convention;
+### THE NAMING BELOW IS ADOPTED AND USED THROUGHOUT."
+
+THE REGISTER SENTENCE, QUOTED UNCHANGED: RH reduced to a single located clause,
+reduction machine-verified.
+
+### INDEX QUERIES PER (d): 10 OF 10 HIT.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE NAMES, ADOPTED BY THIS FERRY AND USED FROM HERE.
+### THE THREE ARCHIMEDEAN +1 OBJECTS (b200's census, now named by the author's ferry):
+###   THE SONIN SECTOR      -- in the archimedean Sonin space. ### THE GLUING SENTENCE'S OBJECT.
+###   THE CONSTRAINT SECTOR -- act 15's constraint span E+B. ### ORTHOGONAL TO THE SONIN SECTOR.
+###   THE COMPRESSION SECTOR-- the prolate soft-compression modes (b33's (R-prolate), G F G on
+###                            L^2_ev).
+### THE THREE NORMALIZATIONS (b204's section-18 species, now named):
+###   THE OPERATOR MATCH      -- the crown act's four clauses (lambda = 1; c = 2 pi as (2 pi
+###                              lambda)^2; W's ordering; ### the mode index n <-> 2n).
+###   THE TRANSFORM CONVENTION-- the Fourier exponent and scaling (b203).
+###   THE EIGENFUNCTION SCALE -- the scalar fixing an individual eigenfunction (b202).
+### ### THE EXECUTOR DOES NOT MINT THESE. THE FERRY DOES, AND THIS ACT ADOPTS AND APPLIES THEM.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2's LOAD-BEARING READS.
+### SOURCE: RRT, C. R. Math. 363 (2025), 1065-1081, DOI 10.5802/crmath.780. ### M12 GUARD FIRST.
+
+### THE TWO OPERATORS, QUOTED WHOLE (section 1.1):
+### "D_tau = - d/dx (1 - x^2) d/dx + tau^2 x^2, tau in C"
+### "In [8], A. Connes and H. Moscovici use a slightly different version of the prolate spheroidal
+### operator: ### W_Lambda = - d/dx ( (Lambda^2 - x^2) d/dx ) + (2 pi Lambda x)^2."
+### AND THE PASSAGE, QUOTED AS THE DOCUMENT'S TEXT LAYER RENDERS IT: "### The variable change
+### x = Lambda e^x and e^x = x reduces W_Lambda to D_tau, where ### tau = 2 pi Lambda^2."
+*** ### THAT SENTENCE IS GARBLED IN THE EXTRACTION -- ### TWO DIFFERENT VARIABLES ARE BOTH
+### RENDERED "x", AND THE "e^x" IS ALMOST CERTAINLY A MANGLED ACCENT OR TILDE.
+### ### SO THE PAPER'S OWN STATEMENT OF THE PASSAGE IS, AS I CAN READ IT, ### UNDERSPECIFIED AT
+### THE LEVEL OF THE TEXT LAYER. ### I DO NOT GUESS ITS INTENT; ### I DERIVE THE PASSAGE FROM THE
+### TWO OPERATOR DEFINITIONS, WHICH ARE NOT GARBLED, ### AND CHECK THE DERIVATION AGAINST THE
+### PAPER'S OWN tau = 2 pi Lambda^2. ***
+
+### b205's INSTRUMENT AND ITS BANKED OUTPUT, CARRIED:
+ · tools/e16/b205_prolate.py, with its self-checks (y_I residual -1.78e-35; stepper 8.2e-16 flat;
+   psi residual 1.5e-16) and its declared axes.
+ · REPRODUCED: mu_-2 to 8.8e-16; ### |alpha^D| = 4.442882938158366 = pi*sqrt(2) TO ALL 16 DIGITS;
+   the alternation (+pi sqrt2 at -39.3832165742615404, -pi sqrt2 at -94.2808337708104845).
+ · NOT REPRODUCED: ### THE SIGN AT mu_-2. Mine POSITIVE; RRT print -4.44288293889868.
+ · G-STAB: ### STABLE POSITIVE ON ALL SIX SETTINGS, |alpha|/(pi sqrt2) -> 1.0.
+
+### b203's TRANSFORM-CONVENTION FINDING, CARRIED: the corpus's F is exp(+2 pi i m_j m_k/N)/sqrt(N)
+### and the source's is exp(-2 pi i x y); ### THEY DIFFER BY PARITY AND SO AGREE ON EVENS, by the
+### Fourier-inversion import. ### THAT IS THE TRANSFORM CONVENTION AND IT IS **NOT** THE PASSAGE
+### THIS ACT DERIVES.
+
+----------------------------------------------------------------------------------------------------
+### THE TWO SEATS.
+NAVIGATOR: the naming pass; the derivation; the test.
+
+EXECUTOR (SCOREABLE, WRITTEN BEFORE THE DERIVATION IS PERFORMED):
+ (e1) *** ### I EXPECT THE PASSAGE TO BE A **PURE POSITIVE RESCALING OF THE INDEPENDENT VARIABLE**,
+   ### x = Lambda u, ### AND THEREFORE TO CARRY A **POSITIVE** FACTOR ON psi AND **NO SIGN**.
+   ### GROUND, STATED BEFORE THE ALGEBRA IS SHOWN: W_Lambda's coefficient (Lambda^2 - x^2) becomes
+   ### Lambda^2(1 - u^2) under x = Lambda u, and (2 pi Lambda x)^2 becomes (2 pi Lambda^2 u)^2 --
+   ### ### WHICH IS EXACTLY tau^2 u^2 WITH tau = 2 pi Lambda^2, THE PAPER'S OWN RELATION.
+   ### THE TWO d/dx's SUPPLY 1/Lambda^2 AND CANCEL THE Lambda^2. ***
+ (e2) *** ### SO I EXPECT THE VERDICT TO BE **(NOT PINNED)**, AND I SAY SO BEFORE DERIVING:
+   ### **A POSITIVE RESCALING CANNOT FLIP A SIGN**, ### SO THE PASSAGE WILL NOT ACCOUNT FOR THE
+   ### DISCREPANCY, ### AND THAT MEANS THE DISCREPANCY IS **NOT A CONVENTION**.
+   ### THE HIGHER BAR THE FERRY PUTS ON (PINNED) IS THEREFORE NOT REACHED FOR. ***
+ (e3) ### THE TRANSFER, NAMED IN ADVANCE: ### b205's HALT STANDS, ### BUT ITS **REASON CHANGES** --
+   ### from "an unpinned convention" to ### "AN UNEXPLAINED SIGN DISAGREEMENT WITH THE SOURCE AT
+   ### THE SOURCE'S OWN PARAMETER". ### THAT IS A WORSE OBSTACLE, NOT A BETTER ONE, and I report
+   ### it as such rather than softening it.
+ (e4) ### THE DERIVATION'S OWN CHECK, REGISTERED IN ADVANCE: if the passage is x = Lambda u, then
+   ### alpha^D = pi*Lambda * alpha^W, and Proposition 7 gives alpha^W = +-1, ### SO
+   ### |alpha^D| = pi*Lambda. ### AT Lambda = sqrt(2) THAT IS pi*sqrt(2) = 4.442882938158366 --
+   ### ### WHICH IS EXACTLY WHAT b205 MEASURED TO 16 DIGITS AND EXACTLY WHAT section 4.2.3 PRINTS.
+   ### ### THE DERIVATION IS THEREFORE CONFIRMED BY TWO INDEPENDENT NUMBERS BEFORE IT IS USED.
+ (e5) *** ### AND AN INDEPENDENT TEST AT A **THIRD** PARAMETER, WHICH IS LICENSED BECAUSE IT IS
+   ### NEITHER THE SOURCE'S NOR OURS: ### at tau = 6 pi (Lambda = sqrt(3)) the derivation predicts
+   ### |alpha^D| = pi*sqrt(3) = 5.441398092702653. ### I WILL RUN THAT AND REPORT IT.
+   ### ### tau = 2 pi IS **NOT** RUN. THE FERRY FORBIDS IT AND b205's HALT STANDS. ***
+ (e6) ### AND ONE CONSEQUENCE I EXPECT TO BE ABLE TO STATE FOR THE RE-SCOPE, REGISTERED HERE SO IT
+   ### IS NOT INVENTED LATER: ### **"BOTH SIGNS OCCUR" IS INVARIANT UNDER A GLOBAL SIGN ERROR.**
+   ### If the alternation holds at tau = 2 pi, then SOME eigenfunction carries each value --
+   ### ### AND WHICH LABEL IS WHICH DOES NOT MATTER TO THAT STATEMENT.
+   ### SO A FUTURE GATE THAT TESTS **ALTERNATION** RATHER THAN ABSOLUTE SIGN WOULD BE IMMUNE TO
+   ### EXACTLY THE DISCREPANCY THIS ACT LEAVES OPEN. ### THAT IS A PROPOSAL FOR THE AUTHOR'S NEXT
+   ### FERRY AND IS **NOT ACTED ON HERE**.
+ (e7) ### CORE: I EXPECT NO NEW LEAN. ### If nothing lands finite-decidable I say so and Core
+   ### stays at 320/320.
+
+### THE GUARDS:
+ · ### NO VALUE AT tau = 2 pi IS COMPUTED. ### b205's HALT STANDS UNTIL THE CONVENTION IS PINNED,
+   and this act's verdict is that it is NOT the convention.
+ · ### THE NAMING IS THE FERRY'S, ADOPTED, NOT MINTED BY THE EXECUTOR. ### Where an occurrence's
+   object is NOT determinable at content it is ### FLAGGED AND LEFT, NOT GUESSED.
+ · ### WHERE THE PAPER'S TEXT IS GARBLED IN EXTRACTION, THAT IS NAMED AS A LIMIT OF MY READ, ###
+   NOT AS A DEFECT IN THE PAPER.
+ · ### I DO NOT CLAIM RRT ARE WRONG. ### The act establishes only that the passage cannot explain
+   the sign.
+ · NOTICED IS NOT EARNED.
+
+THE FENCES: N-EXT-2 absolute; (I-differ) at grade; h2 STATED NOT PROVED; nothing promoted;
+nothing deposits; HELD (6eada6a) LOCAL-ONLY; TECHNE-Core untouched; no sorry.
+
+DEVIATION RULE STANDING.
+BANK: data/b206_variable_passage.txt.
+====================================================================================================
