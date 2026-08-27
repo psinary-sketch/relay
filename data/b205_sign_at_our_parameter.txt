@@ -1,0 +1,142 @@
+====================================================================================================
+b205 BANK -- THE SIGN AT THE CORPUS'S PARAMETER. Registration f0fd461, banked before any
+computation. 2026-08-26. Ferry part 1 of 1, receipt confirmed IN FULL.
+====================================================================================================
+
+*** ### THE VERDICT: **BRANCH (HALT).** ### G-REPRO FIRED ON THE SIGN.
+### ### NOTHING WAS COMPUTED AT tau = 2 pi, AND THE RUN AT OUR PARAMETER WAS NEVER STARTED. ***
+
+### BENCH GRADE THROUGHOUT AND NOTHING ABOVE IT. ### CORE UNTOUCHED AT 320/320.
+### THE NAMING QUESTION IS NOT PRE-EMPTED. ### THE F phi = xi FENCE STOOD.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) G-REPRO.
+----------------------------------------------------------------------------------------------------
+
+### THE INSTRUMENT: relay tools/e16/b205_prolate.py, banked. ### mpmath 1.3.0; ### ore_algebra
+### ABSENT; scipy ABSENT. ### MY OWN Taylor stepper + Frobenius series, DECLARED at (u3) BEFORE
+### THE RUN. ### RAW OUTPUT: data/b205_raw_run.txt.
+
+### THE INSTRUMENT'S SELF-CHECKS, RUN BEFORE ANY GATE:
+ · y_I's ODE residual at x_0 = sqrt(2): ### -1.78e-35, with y_I(1) = 1 exactly.
+ · the stepper against the y_I series on [sqrt2, 2.5]: ### rel err 8.2e-16, ### FLAT across
+   nsteps 50 -> 800 and order 14 -> 20, ### SO IT IS NOT STEPPER ERROR.
+ · psi's ODE residual: 6.2e-16 at (x_max=30, N=20); ### 1.5e-16 at (40, 30); 7.0e-13 at (60, 40),
+   the last being the divergent series' optimal-truncation degradation, ### recorded rather than
+   hidden by choosing only the good cell.
+
+### psi's NORMALIZATION, CHECKED NUMERICALLY -- because it is what fixes alpha's SIGN:
+ ### at six points where sin(tau x) = +-1, psi agrees IN SIGN with its declared leading term
+ ### -sin(tau x)/x, and in magnitude to ~2.5% (the O(1/x^2) tail).
+ *** ### AND A FIRST READING OF THIS CHECK LOOKED LIKE A FAILURE AND WAS NOT: I first evaluated
+ ### at x = 35, 37.5, 40, ... where at tau = 4 pi one has tau x = 140 pi, 150 pi, ... so
+ ### sin(tau x) = 0 IDENTICALLY. ### THE TEST POINTS WERE USELESS, NOT THE FUNCTION.
+ ### IT IS RECORDED BECAUSE AN ACT THAT HAD STOPPED THERE WOULD HAVE REPORTED A FALSE HALT. ***
+
+### G-REPRO's FOUR TARGETS:
+ (1) ### THE EIGENVALUE: ### **REPRODUCED.** My bisected zero of Re(beta) is
+     -39.38321657426154036002 against RRT's 5.5.2 bracket -39.38321657426153947615056322,
+     ### |difference| 8.8e-16. ### THAT IS OUTSIDE THEIR 5e-27 BRACKET, AND THE EXCESS IS **MY**
+     ### PRECISION LIMIT, STATED AS MINE AND NOT AS A DISAGREEMENT.
+     beta at my zero 2.19e-22; at their bracket 1.48e-16.
+ (2) ### |ALPHA|: ### **REPRODUCED, AND EXACTLY.** At their own bracket, best axes,
+     ### my alpha = 4.442882938158366 and pi*sqrt(2) = 4.442882938158366 -- ### ALL 16 DIGITS.
+     ### AND BETTER THAN THE PAPER'S OWN PRINTED |alpha| FOR THAT ROW (4.44288293889868), which
+     ### is off pi*sqrt(2) in the 10th digit.
+ (3) ### THE ALTERNATION: ### **REPRODUCED INDEPENDENTLY.** My two consecutive negative
+     eigenvalues at tau = 4 pi give ### alpha = +pi*sqrt(2) at -39.3832165742615404 and
+     ### alpha = -pi*sqrt(2) at -94.2808337708104845. ### BOTH SIGNS OCCUR AND THEY ALTERNATE.
+ (4) *** ### THE SIGN AT mu_-2: ### **NOT REPRODUCED.**
+     ### MY alpha IS **POSITIVE**. ### RRT PRINT **-4.44288293889868**. ***
+
+### AND A SECOND FINDING, INTERNAL TO THE PAPER, FOUND WHILE REPRODUCING:
+ ### section 4.2.3's column-2 value for mu_-2 is -39.3832165744668224;
+ ### section 5.5.2's bracket for the same eigenvalue is -39.38321657426153947615056322.
+ ### ### THEY DIFFER BY 2.05e-10, AND MY beta SAYS 5.5.2's IS THE EIGENVALUE (1.5e-16) WHILE
+ ### ### 4.2.3's IS NOT (3.4e-11). ### THE PAPER IS INTERNALLY INCONSISTENT ABOUT mu_-2 AT THE
+ ### ### 11th DECIMAL.
+ ### THIS IS REPORTED AND **NOT USED**: ### it does not make their sign wrong, my alpha is
+ ### positive at BOTH of their values, ### AND I DO NOT CLAIM IT EXPLAINS ANYTHING.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- G-STAB ON THE FAILING QUANTITY, AND G-KNOWN.
+----------------------------------------------------------------------------------------------------
+
+### G-STAB WAS RUN ON THE **FAILING** QUANTITY, WHICH IS THE ONLY PLACE IT CAN EARN ANYTHING:
+### is my sign my own noise? ### AXES VARIED: (a1) dps, (a2) N_trunc, (a3) x_max, (a4) nsteps.
+###   (40,26,30,200) + | (50,30,40,250) + | (50,30,50,250) + | (60,34,40,400) + |
+###   (60,40,60,400) + | (70,34,40,600) +
+### ### SIGN STABLE POSITIVE ON ALL SIX SETTINGS, WITH |alpha|/(pi sqrt2) -> 1.0.
+*** ### SO THE DISCREPANCY IS REAL AND IS NOT MY NOISE. ### A HALT ON NOISE WOULD BE A WASTED
+### ACT; A HALT ON A STABLE DISAGREEMENT IS THE GATE DOING ITS WORK. ***
+
+### G-KNOWN: ### **SCOPE EMPTY.** ### THE RECORD HOLDS NO COMPUTED QUANTITY FOR THIS ODE AT ALL.
+### b32/b33's archimedean bench is a GRID DFT MODEL -- a different construction entirely.
+### ### REPORTED AS EMPTY, NOT AS A PASS. ### b167 and b179 both recorded acts that printed CLEAN
+### over zero items, and that defect is not repeated here.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE VERDICT: BRANCH (HALT).
+----------------------------------------------------------------------------------------------------
+
+### THE GATE THAT FIRED: ### **G-REPRO, ON THE SIGN.**
+### ITS CONSEQUENCE, AS THE FERRY SPECIFIES IT: ### "a reproduction failure halts the act with the
+### discrepancy reported and ### NO VALUE AT OUR PARAMETER COMPUTED."
+### ### THE RUN AT tau = 2 pi WAS NEVER STARTED. ### NOT STARTED AND ABANDONED -- ### NOT STARTED.
+
+*** ### AND THE REASON THE GATE IS RIGHT TO FIRE HERE, SAID PLAINLY:
+### **THE SIGN IS THE ONE QUANTITY THIS ENTIRE ARC TURNS ON.** ### A sign I cannot reproduce at
+### the source's own parameter is a sign I have no business computing at ours.
+### ### I COULD HAVE RUN tau = 2 pi IN THE SAME MINUTE AND REPORTED "BOTH SIGNS, M22 CLEARS AT
+### ### BENCH GRADE". ### THE GATE EXISTS TO STOP EXACTLY THAT, AND IT DID. ***
+
+### THE STOP-LOSS, HONOURED: ### ONE ATTEMPT ON THIS SPECIFICATION. ### NO TUNING. ### The axes
+### were varied AFTER the fact for G-STAB, ### never fitted before it to make the sign agree.
+
+### WHERE THE DISCREPANCY MOST LIKELY LIVES -- ### NAMED AS A CANDIDATE, NOT DIAGNOSED:
+*** ### THE W_Lambda <-> D_tau PASSAGE. ### The paper writes, of Proposition 6's variant,
+### "### There is a variant of the above proposition, replacing W_Lambda by D_tau. ### IT IS ONLY
+### A CHANGE OF NOTATIONS." ### A CHANGE OF VARIABLES IS NOT ONLY NOTATION: x = Lambda e^xi
+### rescales the function and can carry a sign or a factor.
+### Proposition 7 states psi(Lambda) = +-1 for W_Lambda; section 4.2.3 states alpha = psi(1) =
+### +- sqrt(2) pi for D_tau. ### THE TWO psi's ARE RELATED BY THAT PASSAGE.
+### ### THIS IS THE THREE-NORMALIZATIONS SPECIES (identity chain section 18) FIRING A **FOURTH**
+### ### TIME, AND IT IS NAMED AS A CANDIDATE LOCUS RATHER THAN AS A DIAGNOSIS. ***
+
+### AND WHAT IS **NOT** CLAIMED, AT FULL PROMINENCE:
+### ### I DO NOT CLAIM RRT ARE WRONG AND I AM RIGHT. ### I claim only that I cannot reproduce
+### their sign, that my sign is stable across six settings, that the eigenvalue, |alpha| and the
+### alternation all reproduce, ### AND THAT THE ABSOLUTE ASSIGNMENT IS WHERE WE DIFFER.
+### ### A PUBLISHED AUTHOR'S NUMERIC DOES NOT PROMOTE MINE, AND MINE DOES NOT DEMOTE THEIRS.
+
+----------------------------------------------------------------------------------------------------
+### M22, RESTATED PER THE BRANCH.
+----------------------------------------------------------------------------------------------------
+
+*** ### M22 **STANDS, UNCHANGED IN CONTENT** -- what is sign(alpha) at tau = 2 pi -- ### AND IT
+### GAINS AN OBSTACLE **TO THE METHOD** THAT MUST BE CLEARED FIRST:
+### ### **THE SIGN CONVENTION IN THE W_Lambda <-> D_tau PASSAGE MUST BE PINNED BEFORE ANY
+### ### COMPUTATION AT tau = 2 pi CAN BE TRUSTED.**
+### THE RE-SCOPE THE STOP-LOSS ROUTES TO IS THEREFORE NAMED: ### pin that passage -- by deriving
+### the transformation explicitly, or by a read that states it -- ### AND ONLY THEN RUN OUR
+### PARAMETER. ### YOURS. ***
+
+### WHAT THIS ACT DID ESTABLISH AT BENCH GRADE, AND IT IS NOT NOTHING:
+ · ### AN INDEPENDENT IMPLEMENTATION OF RRT's beta-DICHOTOMY EXISTS AND IS BANKED, with its
+   self-checks printed and its axes declared.
+ · ### THE EIGENVALUE, |alpha| = pi*sqrt(2), AND THE ALTERNATION ALL REPRODUCE.
+ · ### AND THE PAPER'S OWN mu_-2 IS INTERNALLY INCONSISTENT AT THE 11th DECIMAL between its
+   sections 4.2.3 and 5.5.2, with my beta favouring 5.5.2's.
+### ### NONE OF THAT IS A STATEMENT ABOUT (A) AT OUR PARAMETER, AND NONE IS OFFERED AS ONE.
+
+### TERM 3's ROUTE: ### NO ROUTE BECOMES AVAILABLE. ### Nothing is constructed. ### An unpinned
+### sign convention at the corpus's own parameter is not a held unit.
+
+### NO BUILD: ### nothing finite-decidable landed. b204 built the arithmetic core this act would
+### have needed, ### and rebuilding it to have something to compile is inventing work.
+### ### CORE STAYS AT 320/320, ROWS 1-82.
+
+====================================================================================================
+### h2 UNCHANGED. THE REGISTER SENTENCE UNTOUCHED. NOTHING PROMOTED. N-EXT-2 ABSOLUTE.
+### NOTHING DEPOSITS. NOTHING CIRCULATES. HELD LOCAL-ONLY. TECHNE-Core UNTOUCHED. NO SORRY.
+====================================================================================================
