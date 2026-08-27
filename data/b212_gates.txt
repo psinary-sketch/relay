@@ -1,0 +1,133 @@
+b212 -- COMPONENT 1: THE GATES.
+INSTRUMENT: relay tools/e16/b205_prolate.py (banked b205, UNCHANGED, imported).
+### EACH GATE IS A HALT. ### NO ODD SIGN IS READ UNTIL G-PARITY PASSES AT ALL THREE.
+
+====================================================================================================
+### G-PARITY -- THE INTERLEAVING, REPRODUCED IN THIS ACT'S OWN RUN, AT ALL THREE PARAMETERS.
+### b210 MEASURED ONLY tau = 2 pi AND 4 pi, AND THAT MEASUREMENT WAS ITSELF b210's ONE
+### DEVIATION -- an addition to its registration. ### tau = 6 pi HAS NEVER BEEN MEASURED.
+====================================================================================================
+  tau = 2 pi  axes: dps50 N30 x40 ns250 ord18 nc260   (158s)
+    even roots: 6   odd roots: 7   merged ranks: 13
+    rank : parity  eigenvalue
+     1   : odd    -7.007976205617487
+     2   : even   -20.48057322913018
+     3   : odd    -34.827354066941
+     4   : even   -49.97997574567216
+     5   : odd    -65.88618211253971
+     6   : even   -82.50418673996221
+     7   : odd    -99.79952175519699
+     8   : even   -117.7430911928459
+     9   : odd    -136.3098877522534
+     10  : even   -155.4781052251063
+     11  : odd    -175.2285011947892
+     12  : even   -195.5439254440643
+     13  : odd    -216.4089621972478
+    ### STRICT ODD/EVEN ALTERNATION BY RANK: YES
+    ### RANK 2 IS EVEN   (RRT's caption: 'First even negative eigenvalue mu_-2')
+
+  tau = 4 pi  axes: dps50 N30 x40 ns250 ord18 nc260   (129s)
+    even roots: 3   odd roots: 4   merged ranks: 7
+    rank : parity  eigenvalue
+     1   : odd    -13.30274638505765
+     2   : even   -39.38321657604017
+     3   : odd    -66.39029814028322
+     4   : even   -94.28083377270903
+     5   : odd    -123.0179111844916
+     6   : even   -152.5694769672375
+     7   : odd    -182.9073491750388
+    ### STRICT ODD/EVEN ALTERNATION BY RANK: YES
+    ### RANK 2 IS EVEN   (RRT's caption: 'First even negative eigenvalue mu_-2')
+
+  tau = 6 pi  axes: dps50 N30 x40 ns250 ord18 nc260   (171s)
+    even roots: 3   odd roots: 3   merged ranks: 6
+    rank : parity  eigenvalue
+     1   : odd    -19.59022231916705
+     2   : even   -58.25303734819534
+     3   : odd    -97.86388777279438
+     4   : even   -138.3911719938972
+     5   : odd    -179.8066031852788
+     6   : even   -222.0846444564911
+    ### STRICT ODD/EVEN ALTERNATION BY RANK: YES
+    ### RANK 2 IS EVEN   (RRT's caption: 'First even negative eigenvalue mu_-2')
+
+  ### G-PARITY VERDICT: **PASS** at all three parameters
+
+====================================================================================================
+### G-REPRO-ODD -- THE COSINE SOLUTION'S ODE RESIDUAL, AND ITS NORMALIZATION AGAINST
+### THE ODD ASYMPTOTIC **AT GENERIC POINTS AND NOT AT ZEROS OF THE LEADING TERM**.
+### b205's LESSON: a ratio tested where its denominator vanishes reports the test's own
+### arithmetic and nothing about the object.
+====================================================================================================
+  tau = 2 pi   mu = -20.5 (a generic NON-eigenvalue: the gate tests the SOLUTION, not a root)
+  N = %d terms in the asymptotic series; f'' by central difference h = 1e-15 at dps 60.
+
+  --- (1) ODE RESIDUAL  (x^2-1) f'' + 2x f' + (tau^2 x^2 - mu) f ,  RELATIVE ---
+    x = 25    |residual| / |(tau^2 x^2 - mu) f| = 3.40148e-30
+    x = 30    |residual| / |(tau^2 x^2 - mu) f| = 3.29516e-30
+    x = 35    |residual| / |(tau^2 x^2 - mu) f| = 3.22522e-30
+    x = 40    |residual| / |(tau^2 x^2 - mu) f| = 3.2884e-30
+
+  --- (2) NORMALIZATION  psi_odd(x) * x / (-cos(tau x))  ->  1,  AT GENERIC POINTS ---
+      ### POINTS CHOSEN SO |cos(tau x)| IS NOT SMALL. |cos| PRINTED SO THE READER CAN SEE
+      ### THE DENOMINATOR IS NOT NEAR A ZERO.
+    x = 25.0    |cos(tau x)| = 1.0         ratio = 0.98200824443520148     |ratio - 1| = 0.0179918
+    x = 30.0    |cos(tau x)| = 1.0         ratio = 0.987497101414264403    |ratio - 1| = 0.0125029
+    x = 35.0    |cos(tau x)| = 1.0         ratio = 0.99081037621984251     |ratio - 1| = 0.00918962
+    x = 40.0    |cos(tau x)| = 1.0         ratio = 0.9929622955751759      |ratio - 1| = 0.0070377
+    x = 50.0    |cos(tau x)| = 1.0         ratio = 0.995494440041453462    |ratio - 1| = 0.00450556
+
+  --- (2b) THE CONTROL: THE SAME RATIO AT A NEAR-ZERO OF cos(tau x) ---
+      ### RUN TO SHOW THE GATE'S OWN FAILURE MODE, NOT TO PASS IT.
+    x = 25.25   |cos(tau x)| = 1.7006e-60    ratio = -1.10550677841e+59
+      ### THIS NUMBER IS ABOUT THE DENOMINATOR AND NOT ABOUT psi_odd, WHICH IS EXACTLY
+      ### WHY THE GATE FORBIDS TESTING THERE.
+
+
+----------------------------------------------------------------------------------------------------
+### G-REPRO-ODD, PART (2): THE REGISTERED THRESHOLD IS NOT MET, AND IT WAS MIS-REGISTERED.
+----------------------------------------------------------------------------------------------------
+### THE REGISTRATION SAID: "normalization ratio -> 1 to < 1e-8 at the finest axes at every
+### generic point tested." ### MEASURED: 4.5e-3 AT x = 50. ### THE THRESHOLD IS NOT MET AND THE
+### EXECUTOR DOES NOT MOVE IT.
+
+### WHAT IT WAS: A THRESHOLD ON A QUANTITY WHOSE LIMIT IS APPROACHED AS O(1/x^2) BY THE
+### OBJECT'S OWN DEFINITION. psi_odd = -cos(tau x)/x + O(1/x^2) IS THE DEFINITION, so
+### psi_odd * x / (-cos) = 1 + O(1/x). ### NO FINITE x REACHES 1e-8: it would need x ~ 3e4,
+### far outside where a truncated asymptotic series is usable at all. ### THE THRESHOLD COULD
+### NOT HAVE BEEN MET BY A CORRECT OBJECT, WHICH IS WHAT MAKES IT A DEFECTIVE THRESHOLD AND NOT
+### A FAILING GATE.
+
+### AND THE FERRY DID NOT ASK FOR IT. Clause (c) says only: "its normalization against the
+### paper's odd asymptotic AT GENERIC POINTS, not at zeros of the leading term". ### THE 1e-8
+### WAS THE EXECUTOR'S OWN ADDITION IN ITS OWN REGISTRATION, AND IT IS THE EXECUTOR'S OWN ERROR.
+
+### THE TEST THAT ACTUALLY DECIDES THE QUESTION, RUN NOW AND LABELLED AS **NOT REGISTERED IN
+### ADVANCE**: if the leading coefficient is exactly 1, then |ratio - 1| must decay like C/x^2
+### with C finite. If the coefficient were anything else, |ratio - 1| would tend to a NONZERO
+### CONSTANT. ### THE TWO CASES ARE DISTINGUISHED BY THE PRODUCT |ratio - 1| * x^2:
+
+  x        |ratio-1|             |ratio-1|*x        |ratio-1|*x^2
+  25       0.0179918             0.449794           11.244847
+  30       0.0125029             0.375087           11.252609
+  35       0.00918962            0.321637           11.257289
+  40       0.0070377             0.281508           11.260327
+  50       0.00450556            0.225278           11.2639
+  60       0.0031294             0.187764           11.265841
+  80       0.00176059            0.140847           11.267771
+  100      0.00112687            0.112687           11.268664
+
+### |ratio - 1| * x  FALLS  (0.4498 -> 0.1127); ### |ratio - 1| * x^2 IS FLAT AND CONVERGING
+### (11.2448 -> 11.2687 over a factor of four in x). ### SO THE RESIDUAL IS EXACTLY O(1/x^2)
+### AND THE LEADING COEFFICIENT IS EXACTLY 1.
+### ### psi_odd ~ -cos(tau x)/x, WITH NO RESCALING. ### THE FERRY'S GATE PASSES.
+
+*** ### THE VERDICT, STATED IN THE FORM THAT KEEPS BOTH FACTS: ### G-REPRO-ODD PASSES ON THE
+### FERRY'S CLAUSE AND FAILS ON THE EXECUTOR'S OWN REGISTERED NUMBER. ### THE ACT DOES NOT HALT,
+### BECAUSE THE HALTING CONDITION THE FERRY SET IS MET. ### THE MIS-REGISTERED THRESHOLD IS
+### REPORTED AS MIS-REGISTERED RATHER THAN MOVED, DROPPED, OR QUIETLY SATISFIED. ***
+### ### AND THE DIFFERENCE FROM b207 IS THE POINT: b207's THRESHOLD WAS NEVER REGISTERED, SO
+### THERE WAS NOTHING TO MOVE. ### THIS ONE **WAS** REGISTERED, IN THIS ACT'S OWN REGISTRATION,
+### AND THAT IS WHY IT IS PRINTED HERE BESIDE THE MEASUREMENT THAT DEFEATS IT.
+### ### THE STANDING INFERENCE: ### A THRESHOLD REGISTERED BEFORE THE OBJECT'S CONVERGENCE RATE
+### IS KNOWN IS A GUESS WEARING A GATE'S CLOTHES.
