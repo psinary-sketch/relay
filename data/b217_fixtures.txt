@@ -1,0 +1,25 @@
+b217 -- COMPONENT 1: FIXTURES ON THE HARNESS ITSELF. BOTH POLARITIES.
+### A HARNESS THAT CANNOT REFUSE IS NOT A HARNESS, so the refusal cases come first.
+
+  good check + honest must-fail fixture                      got PASS     want PASS     OK
+  ### fixture wrongly PASSES -> harness must REFUSE          got REFUSED  want REFUSED  OK
+  fixture ERRORS -> harness must REFUSE                      got REFUSED  want REFUSED  OK
+  honest fixture, check genuinely fails                      got FAIL     want FAIL     OK
+  ### empty stdout is a FAIL, not a pass                     got FAIL     want FAIL     OK
+  working shell check + failing shell fixture                got PASS     want PASS     OK
+  check raises -> ERROR (loud, not silent)                   got ERROR    want ERROR    OK
+  check returns a non-bool -> ERROR                          got ERROR    want ERROR    OK
+  ### witness cannot PASS -> harness must REFUSE             got REFUSED  want REFUSED  OK
+  witness ERRORS -> harness must REFUSE                      got REFUSED  want REFUSED  OK
+  fixture fails AND witness passes -> check is read          got PASS     want PASS     OK
+
+  ### cwd assertion raises from the wrong directory          OK
+
+  harness rows: 11   pass 3   fail 2   error 2   refused 4
+  ### MUST-BEHAVE FIXTURES: 12 of 12
+  ### VERDICT: PASS -- both polarities
+
+### AND THE COUNTS ABOVE ARE THE HARNESS BEHAVING CORRECTLY, NOT A CLEAN RUN:
+### the fail/error/refused rows are the fixtures that were SUPPOSED to fail, error and
+### be refused. ### A HARNESS FIXTURE SUITE THAT REPORTS ALL-PASS HAS NOT TESTED THE
+### REFUSAL PATH, WHICH IS THE ONLY PATH THAT MATTERS.

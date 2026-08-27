@@ -1,0 +1,64 @@
+b217 -- COMPONENT 2: THE RETROFIT.
+### EACH INSTANCE IS REPRODUCED AS IT HAPPENED -- THE FALSE ANSWER SHOWN -- AND THEN
+### RUN UNDER THE HARNESS. ### NOTHING IS SKIPPED AND NOTHING IS SMOOTHED.
+
+====================================================================================================
+INSTANCE 1 -- b213, THE FILL COUNT. "REMAINING UNFILLED TOKENS IN THE FILLED FILE: 6"
+====================================================================================================
+  REPRODUCED: the check as b213 wrote it, on the real filled file -> 6
+              (b213 printed 6)   ### THE TRUTH WAS 0.
+  under the harness, MUST-FAIL FIXTURE ONLY : FAIL
+     ### the fixture fails as required, so the check is LICENSED -- and then reports
+     ### FAIL on a correct file. ### THE MUST-FAIL FIXTURE DOES NOT CATCH THIS ONE.
+  under the harness, WITH THE MUST-PASS WITNESS : REFUSED
+     ### CAUGHT. The witness cannot pass, so the harness REFUSES and the check is NOT RUN.
+  the CORRECTED check, same three inputs, under both guards : PASS
+
+====================================================================================================
+INSTANCE 2 -- b213, THE PLACED-FILE COUNT. "surviving fillable tokens: 1"
+====================================================================================================
+  REPRODUCED: the comment-stripping check on the PLACED file -> 1
+              (b213 printed 1)   ### THE TRUTH WAS 0; the match was the class line.
+  under the harness, MUST-FAIL FIXTURE ONLY : FAIL
+     ### again LICENSED and again wrong. ### SAME SUB-SPECIES AS INSTANCE 1.
+  under the harness, WITH THE MUST-PASS WITNESS : REFUSED
+     ### CAUGHT.
+
+====================================================================================================
+INSTANCE 3 -- b216, THE QUERY LOOP. "prolate  HIT" from the wrong directory
+====================================================================================================
+  REPRODUCED: from D:/relay (the wrong cwd) the predicate says HIT = True   ### b216 printed HIT
+              from D:/relay/tools (the right cwd) it says HIT = False   ### the truth
+  under the harness (the check still pointed at the wrong cwd) : ERROR
+     ### CAUGHT -- and caught by the MUST-FAIL FIXTURE ALONE, with no witness needed.
+     ### The empty/failed stdout is an ERROR or a FAIL, never the silent pass it was.
+  and the same check from the RIGHT cwd : PASS
+
+====================================================================================================
+  harness rows: 7   pass 2   fail 2   error 1   refused 2
+
+### (P2) THREE OF THREE REPRODUCED. ### THREE OF THREE CAUGHT.
+### ### BUT NOT ALL BY THE GUARD THE FERRY SPECIFIED, AND THAT IS THE ACT S FINDING:
+###   INSTANCE 3 -- a true false PASS -- caught by the MUST-FAIL FIXTURE alone.
+###   INSTANCES 1 AND 2 -- false ALARMS, not false passes -- ### SAIL THROUGH THE
+###   MUST-FAIL FIXTURE, because failing is all those checks can do. ### They are
+###   caught only by the MUST-PASS WITNESS, which this act added BECAUSE the retrofit
+###   refused to catch them. ### A RETROFIT THAT ONLY CONFIRMS THE DESIGN HAS NOT
+###   TESTED IT.
+
+=== AUDIT SIDECAR (emitted; do not retype) ===
+  tool      : check_harness
+  act       : b217-retrofit
+  run at    : 2026-08-27T15:27:36 (local)
+  input     : 7 checks routed through the harness
+  checks    : 7
+  pass      : 2
+  fail      : 2
+  error     : 1
+  refused   : 2
+  VERDICT   : NOT CLEAN
+  self-hash : sha256/32 666eb820195e57f2688d7c3af932e26d
+=== END AUDIT SIDECAR ===
+
+
+  sidecar: D:\relay\data\audit_b217-retrofit_check_harness.txt

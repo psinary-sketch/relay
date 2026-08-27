@@ -1,0 +1,130 @@
+====================================================================================================
+b217 BANK -- THE CHECK HARNESS. Registration bcb2928, banked before the tool was written.
+2026-08-27. Ferry part 1 of 1, receipt confirmed IN FULL.
+Fixtures: data/b217_fixtures.txt. Retrofit: data/b217_retrofit.txt.
+This act's own checks: data/b217_own_checks.txt.
+### AN INSTRUMENT. ### NO RESEARCH CONTENT MOVED. ### NO GRADE CONFERRED, RAISED OR LOWERED.
+### NO NEW TRACKING DOCUMENT -- the rule is a FIELD in the existing loom. Nothing deposits.
+====================================================================================================
+
+*** ### THE RULE, FILED: ### **NO ONE-LINE CHECK IS READ UNTIL IT HAS FAILED ON A FIXTURE IN
+### THE SAME RUN.** ### A CHECK THAT HAS NOT BEEN SEEN TO FAIL HAS NOT BEEN SEEN TO WORK. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE TOOL.
+----------------------------------------------------------------------------------------------------
+### relay tools/check_harness.py. WHAT IT DOES:
+ · a check is passed as a CALLABLE or a SHELL LINE with a MUST-FAIL fixture;
+ · ### THE FIXTURE RUNS FIRST AND THE CHECK IS **NOT RUN AT ALL** IF THE FIXTURE PASSES;
+ · ### IT ASSERTS ITS CWD IS THE DECLARED REPO ROOT and raises CwdError if not --
+   ### b209's WRONG-REPO PUSH AND b216's WRONG-CWD LOOP ARE ONE SPECIES AND THIS IS WHERE IT DIES;
+ · ### ANY EXCEPTION IS A LOUD ERROR, printed whole, never swallowed and never silently
+   converted to a FAIL -- ### AN ERROR MEANS THE CHECK DID NOT REPORT ON THE OBJECT AT ALL,
+   which is a different thing from reporting badly;
+ · ### AN EMPTY STDOUT IS A **FAIL**, NOT A PASS. ### That one line is b216's instance;
+ · a non-bool return is an ERROR, not silently truthy;
+ · it EMITS ITS OWN AUDIT BLOCK via audit_emit, so its verdicts are not prose.
+
+### FIXTURES ON THE HARNESS ITSELF, BOTH POLARITIES: ### **12 OF 12.**
+   the ordinary case (honest fixture, check passes) -> PASS
+   ### THE CASE THE FERRY NAMED: the fixture WRONGLY PASSES -> **REFUSED**
+   the fixture ERRORS -> REFUSED (an errored fixture licenses nothing)
+   honest fixture, check genuinely fails -> FAIL
+   ### empty stdout -> FAIL (b216 in one row)
+   working shell check + failing shell fixture -> PASS
+   check raises -> ERROR;  check returns a non-bool -> ERROR
+   ### the WITNESS rows (added mid-act; see Component 2): witness cannot pass -> REFUSED;
+     witness errors -> REFUSED; both guards honest -> the check is read
+   ### the CWD assertion, tested by violating it -> raises
+*** ### AND THE COUNTS ARE THE HARNESS BEHAVING CORRECTLY, NOT A CLEAN RUN: 3 pass, 2 fail,
+### 2 error, 4 refused. ### A HARNESS FIXTURE SUITE THAT REPORTS ALL-PASS HAS NOT TESTED THE
+### REFUSAL PATH, WHICH IS THE ONLY PATH THAT MATTERS. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE RETROFIT. ### AND IT CHANGED THE TOOL.
+----------------------------------------------------------------------------------------------------
+### THREE OF THREE REPRODUCED, WITH THEIR ORIGINAL NUMBERS:
+ INSTANCE 1 -- b213's fill count. The check as written, re-run on the real filled file, returns
+   ### **6** -- ### THE NUMBER b213 PRINTED. The truth was 0; it re-matched the original tokens
+   preserved inside the act's own HTML comments.
+ INSTANCE 2 -- b213's placed-file count. The comment-stripping check on the placed file returns
+   ### **1** -- ### THE NUMBER b213 PRINTED. The truth was 0; the match was the class line the
+   executor had just written.
+ INSTANCE 3 -- b216's query loop. From D:/relay the predicate returns HIT = **True**; from
+   D:/relay/tools it returns False. ### THE FALSE PASS REPRODUCES EXACTLY.
+
+### THREE OF THREE CAUGHT -- ### BUT **NOT ALL BY THE GUARD THE FERRY SPECIFIED**, AND THAT IS
+### THIS ACT'S FINDING:
+ INSTANCE 3 is caught by the MUST-FAIL FIXTURE ALONE. Under the harness the wrong-cwd check
+   returns **ERROR**, not the silent pass it was.
+ *** ### INSTANCES 1 AND 2 SAIL STRAIGHT THROUGH THE MUST-FAIL FIXTURE. Under it they return
+ ### FAIL -- the wrong answer, but licensed. ### THE REASON IS EXACT: ### THEY ARE FALSE
+ ### **ALARMS**, NOT FALSE PASSES. Their checks report failure on a correct state, AND they
+ ### report failure on a broken state too. ### FAILING IS ALL THEY CAN DO, so a fixture that
+ ### asks them to fail proves nothing about them. ***
+ ### ### THE FERRY CALLS ALL THREE "false passes". ### AT CONTENT ONLY ONE IS. ### Recorded as
+ ### a correction to the brief's own wording, because the distinction is what forced the fix.
+
+### SO THE HARNESS GAINED A SECOND GUARD **BECAUSE THE RETROFIT REFUSED TO CONFIRM THE DESIGN**:
+### ### AN OPTIONAL **WITNESS** -- A STATE WHERE THE CHECK MUST **PASS**. A check that cannot
+### pass its own witness has not been shown to discriminate, and is REFUSED exactly as a
+### passing fixture is refused. ### UNDER THE WITNESS, INSTANCES 1 AND 2 ARE **REFUSED** AND
+### THE CHECK IS NOT RUN.
+### ### THE TWO GUARDS ARE MIRRORS: ### THE FIXTURE PROVES THE CHECK CAN SAY NO; THE WITNESS
+### ### PROVES IT CAN SAY YES; ### AND A CHECK THAT CANNOT DO BOTH IS NOT A CHECK.
+### AND THE CORRECTED VERSION OF INSTANCE 1's CHECK (strip comments first) PASSES UNDER BOTH
+### GUARDS -- ### SO THE HARNESS LICENSES GOOD CHECKS AND REFUSES BAD ONES, which is the only
+### test of a guard that matters.
+
+*** ### A RETROFIT THAT ONLY CONFIRMS THE DESIGN HAS NOT TESTED IT. ### THIS ONE DID NOT
+### CONFIRM THE DESIGN, AND THE TOOL IS BETTER FOR IT. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### THE RULE IS FILED AS A **DATED FIELD** IN THE LOOM, in the same form as the audit-authorship
+### convention: "Dated line (2026-08-27, the check-harness act) -- NO ONE-LINE CHECK IS READ
+### UNTIL IT HAS FAILED ON A FIXTURE IN THE SAME RUN. RATIFIED BY PASTE."
+### ### NO NEW DOCUMENT. ### The field carries the four founding instances, the common shape,
+### the retrofit's discovery of the witness, and the reach.
+### THE REACH, FILED WITH IT: ### IT CLOSES a check read as passing when it never ran; a check
+### that cannot discriminate in either direction; a check run from the wrong directory.
+### ### IT DOES **NOT** CLOSE: ### a fixture that fails FOR THE WRONG REASON -- the harness
+### checks that the fixture failed, not why, ### AND NO TOOL CAN CHECK THAT; a one-liner typed
+### straight into a shell, untouched by it; ### and WRONG SCOPE, which is b142's own lesson and
+### remains its own. ### THE HABIT IS STILL THE HAZARD; THIS LOWERS ITS COST.
+
+### THIS ACT'S OWN CHECKS, RUN UNDER THE HARNESS AS THE EXECUTION LINE REQUIRED: ### 4 OF 4
+### PASS, each with a must-fail fixture AND a must-pass witness -- the loom carries the rule;
+### the tool imports from the root; no new tracking document was created; the relay worktree
+### carried no stray edits.
+*** ### AND AN HONEST NOTE ON THOSE FOUR, BECAUSE THE TOOL'S OWN HEADER INVITES IT: ### THREE OF
+### THE FOUR FIXTURES ARE THE SAME TRIVIAL SHAPE (must_contain='### never'), WHICH FAILS FOR A
+### REASON UNRELATED TO WHAT THE CHECK MEASURES. ### THAT IS EXACTLY LIMIT (1) IN THE TOOL'S
+### HEADER -- "a fixture that fails for the wrong reason still licenses the check" -- ### AND THE
+### EXECUTOR HIT IT ON THE TOOL'S FIRST DAY OF SERVICE. ### THE CHECKS ARE STILL BETTER GUARDED
+### THAN THEY WOULD HAVE BEEN UNGUARDED, AND THAT IS THE MOST THAT SHOULD BE CLAIMED. ***
+
+### THE IN-FLIGHT REGISTER: no research item moves. ### THE THIRTY-SEVENTH SEAM'S DEBT RESTATED:
+### term 2's formalization stands, with b215's three parts -- the file (blocked on the
+### aggregation), the lemma (its citation unread), and the toolchain. ### THE FOOT NAMES THE
+### TOOLCHAIN REPAIR AS NEXT AND THIS ACT DOES NOT TOUCH IT. ### LOCKS LAST.
+
+----------------------------------------------------------------------------------------------------
+HIT RECORD, DEVIATIONS, DIVERGENCES.
+----------------------------------------------------------------------------------------------------
+HIT RECORD: the tool built with the cwd assertion, the loud error, and the empty-stdout FAIL;
+12 of 12 fixtures in both polarities including the refusal path; three of three instances
+reproduced with their original numbers and three of three caught; the witness guard added
+because the retrofit demanded it; the rule filed as a field with its reach; this act's own four
+checks routed through the harness.
+### (P1), (P2) AND (P3) ALL DELIVERED. ### AND (P2) LANDED ITS REGISTERED NUMBER -- 3 of 3
+### reproducible, as registered -- ### WHILE OVERTURNING THE ASSUMPTION UNDERNEATH IT.
+
+DEVIATIONS: none.
+
+DIVERGENCES: ### ONE, WITH THE FERRY'S OWN WORDING. ### The brief calls the three instances
+"the three historical false passes". ### AT CONTENT ONLY b216's IS A FALSE PASS; b213's TWO ARE
+FALSE **ALARMS**. ### The distinction is not pedantry -- ### IT IS THE REASON THE MUST-FAIL
+FIXTURE ALONE WOULD HAVE CAUGHT ONE OF THREE, and it is why the tool now has two guards.
+====================================================================================================
