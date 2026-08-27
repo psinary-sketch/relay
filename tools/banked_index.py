@@ -162,7 +162,14 @@ INDEX = [
      ' 10.5802/crmath.780, Lemma 2(ii) -- IMPORT), ### so with commutation F phi = c phi and'
      ' with F^2 = 1 on evens (a FURTHER import, UNSTATED by either source) c = +-1.'
      ' ### SO phi_mu IS an F-eigenvector and lies in E_1 or E_-1. ### WHICH SIGN IS NOT'
-     ' STATED -- ### M22 IS NOW A SIGN. ### AND THE FENCE: F phi = xi IS NOT F phi = phi --'
+     ' STATED -- ### M22 IS NOW A SIGN. ### UPDATED b204: Proposition 7 of the same 2025'
+     ' paper gives psi(Lambda) = +-1 at every non-classical eigenvalue -- THE SOURCE'
+     ' CONFIRMING c = +-1 AT THEOREM GRADE FOR EVERY Lambda > 0 -- and its section 4.2.3'
+     ' EXHIBITS BOTH SIGNS NUMERICALLY (alpha(mu_-2) < 0, alpha(mu_-148) > 0), ### SO AT'
+     ' Lambda = sqrt(2) A NAMED ELEMENT HAS c = +1. ### BUT EVERY NUMERIC IS AT tau = 4 pi,'
+     ' i.e. Lambda = sqrt(2), AND THE CORPUS S SPACE IS S(1,1), Lambda = 1: ### THE'
+     ' STRUCTURE TRANSFERS, THE NUMERICS DO NOT. ### M22 IS NOW sign(alpha) AT tau = 2 pi.'
+     ' ### AND THE FENCE: F phi = xi IS NOT F phi = phi --'
      ' the relation is DERIVED from simplicity, not substituted',
      'data/b201_eigenfunction_exhibit.txt; data/b202_sum_test.txt;'
      ' data/b203_transform_convention.txt'),
