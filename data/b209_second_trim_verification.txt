@@ -1,0 +1,215 @@
+====================================================================================================
+b209 -- THE SECOND TRIM VERIFICATION -- THE BANK. Registration:
+data/b209_registration_2026-08-27.txt (banked before any verification, with Gate
+Zero's outputs embedded and one divergence noted). The table: data/
+b209_table_of_the_pile.txt, all 84 rows.
+### VERIFY AND BACKFILL ONLY: NO PROJECT FILE WAS DELETED, MOVED OR MODIFIED;
+### THE AUTHOR'S UI ACTION IS THE SOLE DELETION PATH; A SAFE ROW MEANS A VERIFIED
+### COPY EXISTS ELSEWHERE AND NOT THAT THE FILE SHOULD GO.
+No kernel changes; Core unmoved. No promotion, no re-grade, no deposit beyond the
+backfill commit's push to the already-public PLACE-papers.
+====================================================================================================
+
+*** THE ARTIFACT ARRIVED AS PART 2 AND THE ACT RAN. Part 1's Rule-3 (a) slot
+carried the INSTRUCTION to paste rather than the paste; the executor held and
+banked nothing. Part 2 carried the manifest and the carrier. ### THE REFUSAL WAS
+SATISFIED AND NOT OVERRIDDEN -- the b122 -> b123 sequence, run a second time. ***
+
+GATE ZERO (amendment (a'), before registration). Carrier md5
+cda111e1b40bab964c3c78877147a593 and manifest md5 215e10777e13d2308ae9295c354e39f9
+BOTH AGREE with the declared values. Extracted to scratch, never into a repository
+tree: 84 entries, 1,681,784 bytes, both as declared. ### EVERY ONE OF THE 84 ROWS
+VERIFIED AGAINST ITS MANIFEST RAW md5 AND BYTE LENGTH: 84 OK, 0 mismatches, 0
+missing. Six CRLF rows declared, six counted. ### GATE ZERO: CLEAN.
+
+COMPONENT 1 -- THE RECONCILE AGAINST b123 (P1).
+ ### DONE AT CONTENT AND NOT BY NAME, and the distinction paid immediately.
+ b123's numbers reconcile exactly and carry no defect: 16 successor-backed + 10
+ unbacked-from-the-lists + 5 not-present-on-D: + 1 non-candidate = THE 32
+ CANDIDATE NAMES; CONSTANCE.md is the eleventh backfill and was carried from b122
+ by the paste, not drawn from the lists. The apparent 32-vs-33 is not an error.
+
+ THE RECONCILE'S RESULT: ### SEVEN of the 84 carry a b123 row; SEVENTY-SEVEN ARE
+ NEW. The seven split into two kinds that must not be conflated:
+   THREE reconcile to a b123 artifact AT CONTENT --
+     row 58 SILENCE_AND_EMERGENCE_SUBMISSION -> b123's successor-backed row, 1.0000
+     row 59 Silence_of_Foundations           -> b123's successor-backed row, 0.9938
+     row 31 IDENTITY_SUBSPACE_PAPER          -> b123's BACKFILLED TRIVIUM monograph,
+                                                0.5382
+   FOUR correspond to b123 rows THAT HAD NO CONTENT AT ALL -- the four DO-NOT-TRIM
+   refusals (rows 03, 14, 42, 78). b123 could not read them and so could not look
+   for them; there is no artifact to reconcile against, only a name and a refusal.
+   ### THIS ACT SUPPLIES THEIR CONTENT AND THEIR VERDICT FOR THE FIRST TIME.
+
+ *** AND THE ONE RESULT THAT JUSTIFIES THE WHOLE never-by-filename RULE: b123's
+ backfilled artifact is named TRIVIUM_The_Third_Identity_Element.md and the pile
+ contains a file named Third_Identity_Element.md. ### A FILENAME MATCH WOULD HAVE
+ PAIRED THEM AND BEEN WRONG. At content the pairing is 0.0767 -- they are
+ different papers. The artifact is a 73,971-byte monograph, and the pile row it
+ actually absorbs is IDENTITY_SUBSPACE_PAPER.md at 0.5382. ### THE RULE DID NOT
+ PREVENT A HYPOTHETICAL ERROR; IT CAUGHT A REAL ONE WAITING TO BE MADE. ***
+
+ ### P1's REGISTERED EXPECTATION WAS WRONG, AND WRONG IN THE STATED DIRECTION OF
+ TOO MUCH OVERLAP. The executor registered 12-18 of 84 reconciling to a b123 row
+ and 66-72 new. ### MEASURED: 7 AND 77. The reason, found at content: b123 swept a
+ list of WORKING-FOLDER names, and the current pile is a different population
+ almost entirely -- not a later view of the same one.
+
+COMPONENT 2 -- THE VERIFICATION AND THE BACKFILL (P2).
+ THE METHOD: presence sought by TITLE LINE or by interior CONTENT SIGNATURE across
+ the four pushed repos (2,216 tracked files indexed, both md5 columns), NEVER BY
+ FILENAME; blob identity accepting EITHER md5 column.
+
+ *** A LINE-BASED SEARCH WAS BUILT, RUN, AND THEN REFUSED AS THE INSTRUMENT.
+ It reported ALL_ZEROS_ARE_SIMPLE_v4 at 0.3234 coverage against its successor and
+ THE_STRUCTURAL_COUNT at 0.3277 -- both of which would have read as heavy
+ divergence. ### THEY ARE RE-WRAPS. A successor that reflows a paragraph changes
+ every line and no word. The verdicts rest instead on WORD-5-GRAM CONTAINMENT,
+ which is indifferent to reflow; on that instrument the same two rows read 0.9992 and
+ 0.9993. ### THE FIRST INSTRUMENT WOULD HAVE PRODUCED FALSE DIVERGENCE ON ROUGHLY
+ A DOZEN ROWS AND IS REPORTED HERE BECAUSE IT WAS RUN, NOT BECAUSE IT WAS USED. ***
+
+ ### THE CRLF TRAP, CAUGHT IN THE COMMAND PATH. core.autocrlf is TRUE in
+ PLACE-papers. The first staging warned that six files' CRLF would be replaced by
+ LF -- ### WHICH WOULD HAVE STORED LF BLOBS AND MADE THE BYTE-EXACT PRESERVATION
+ CLAIM FALSE FOR EXACTLY THE SIX ROWS THE MANIFEST'S LINE-ENDING COLUMN EXISTS TO
+ PROTECT. A .gitattributes pinning `* -text` was written into the archive before
+ the commit, and all six index blobs then matched the manifest's RAW md5 column.
+ ### THE COLUMN THE FERRY ADDED IS THE REASON THIS WAS VISIBLE AT ALL.
+
+ THE BACKFILL. Destination PLACE-papers/archive/2026-08-27-trim-backfill/,
+ filenames preserved, README stating what the archive is and is not. ### 72 FILES
+ WRITTEN, md5-VERIFIED AT BOTH ENDS OF THE WRITE, 0 FAILURES. Committed at 7d02df5
+ with the seat-boundary pre-commit hook EXERCISED AND CLEAN (74 staged, 0 foreign).
+ Pushed; ls-remote reads back 7d02df5. ### AND RE-VERIFIED FROM THE PUSHED TREE BY
+ FRESH SHALLOW CLONE -- 72 OF 72 BYTE-EXACT AGAINST BOTH THE MANIFEST AND THE
+ CARRIER, 0 MISMATCHES. Ten rows were NOT copied because they are already
+ byte-identical to a pushed blob and need no copy.
+
+ THE VERDICTS OVER THE 84:
+   SAFE-AGAINST-SUCCESSOR  10   byte-identical to a pushed blob, path and md5 named
+   SAFE-AGAINST-BACKFILL   72   archive path and md5 named, re-verified at 7d02df5
+   DO-NOT-TRIM              2   withheld, reason stated, nothing certified
+   NOT-A-CANDIDATE          0   no pile row is a tracked repository file: the
+                                carrier came from the project, not from D:
+ ### SIXTEEN OF THE 72 HAVE NO SUCCESSOR ANYWHERE IN THE FOUR PUSHED REPOS. Before
+ this act those sixteen texts existed in ONE place. They now exist in TWO.
+
+ *** THE ACT'S DEVIATION, AND IT IS ONE: CLAUSE (d) TRIGGERS THE BACKFILL ON "NO
+ CONTENT MATCH", WHICH WOULD HAVE COPIED SIXTEEN ROWS. ### SEVENTY-TWO WERE
+ COPIED -- every row not byte-identical to a pushed blob. THE REASON: only byte
+ identity certifies that no text is lost. A successor at 0.93 containment is
+ missing something, and the executor cannot certify which words that something
+ contains. The FOOT of the ferry says that after this act NO TRIM CAN DESTROY A
+ SOLE SURVIVOR; at any grade short of byte identity that sentence would have been
+ an estimate. ### THE WIDENING IS A PURE ADDITION TO AN ARCHIVE DIRECTORY. It
+ deletes nothing, modifies nothing, and promotes nothing. Recorded as a deviation
+ rather than folded into the protocol. ***
+
+ ### P2's REGISTERED EXPECTATION LANDED ON THE NUMBER AND ONLY HALF LANDED ON THE
+ PLACE. Registered: 8-25 rows requiring the backfill. ### MEASURED 16, INSIDE THE
+ BAND. Registered further that the unbacked would concentrate in the May-June v0_1
+ drafts, naming twelve rows in advance: SIX of the sixteen were among those named
+ (12, 37, 43, 64, 80, 81); six named rows (17, 24, 48, 66, 69, 79) turned out
+ BACKED; and ten unbacked rows were NOT anticipated at all (16, 35, 38, 42, 51, 54,
+ 57, 62, 73, 84). ### THE COUNT WAS A GOOD PREDICTION AND THE MECHANISM WAS A
+ MEDIOCRE ONE, and the mechanism is the half that was supposed to be explanatory.
+
+ ### P0's SECOND HALF LANDED EXACTLY, INCLUDING THE NAMED GUESS. Registered: at
+ least one of the four former DO-NOT-TRIM rows would prove unbacked, and the
+ executor named PAPER_021_LOCIS_CRITICAL_RATCHET as the one it expected.
+ ### MEASURED: row 42 PAPER_021_LOCIS_CRITICAL_RATCHET, best containment 0.0214 --
+ UNBACKED, and the only unbacked one of the four. The other three are backed at
+ 0.9992 (row 03), 0.9812 (row 14) and 0.8295 (row 78). All four were backfilled
+ regardless, none being byte-identical. ### THE FOUR ROWS b123 REFUSED TO CERTIFY
+ NOW CARRY VERDICTS, AND THE REFUSAL'S REASON IS DISCHARGED RATHER THAN INHERITED.
+
+COMPONENT 3 -- THE TABLE AND THE FILINGS (P3).
+ The table is filed whole at data/b209_table_of_the_pile.txt, 84 rows, headed with
+ the sentence that the author's UI action is the sole deletion path and that a safe
+ row means a verified copy exists elsewhere and not that the file should go. Every
+ row carries its verdict, its warrant, and where a successor exists its path and
+ measured containment.
+
+ ### THE MIRROR ROSTER, PRINTED BESIDE THE TABLE (P3), AND IT ANSWERS THE
+ AUTHOR'S QUESTION IN THE NEGATIVE. The roster is 40 source paths, unchanged.
+ ### AT CONTENT THE MIRROR CARRIES ONLY TWO OF THE EIGHTY-FOUR: row 39
+ ONE_PAGE_PROOF against day1/A_Place_to_Stand.md at 0.8284, and row 60
+ SILENCE_PRINCIPLE_FORMAL against phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_
+ PROGRAMME.md at 0.3265. ### RE-ADDING THE MIRROR REPLACES ALMOST NOTHING IN THE
+ PILE -- the roster holds the ledgers, keystones and canonical papers, and the pile
+ holds the working manuscripts. They are very nearly disjoint populations, which is
+ not what "which pile rows will the mirror replace" presupposes.
+ PLACE-papers moved, so the mirror was REBUILT (mirror-refresh-2026-08-27.zip) and
+ verified CLEAN ON ALL THREE CLAUSES at the new HEAD 7d02df5.
+
+*** THE TWO ROWS THIS ACT REFUSED TO BACKFILL, AND THE REFUSAL IS THE MOST
+CONSEQUENTIAL THING IN IT. Rows 46 and 47 -- PROV1_FORMATION_VERIFICATION_
+ARCHITECTURE.md (44,540 b) and PROV2_CONSERVATION_GRADE_VERIFICATION.md (12,966 b)
+-- are PROVISIONAL PATENT APPLICATIONS. Both carry a BLANK FILING DATE
+("____________, 2026"); PROV1 is marked CONFIDENTIAL. Both are UNBACKED at 0.0000
+against all four pushed repos. ### CLAUSE (d) AS WRITTEN WOULD THEREFORE HAVE
+COPIED THEM INTO A PUBLIC REPOSITORY AND PUSHED THEM.
+### THEY WERE NOT WRITTEN AND NOT PUSHED.
+THE GROUND, CHECKED AT CONTENT AND NOT ASSUMED: PLACE-papers already tracks
+phase1.5/method/patent-package/filings/PROV-1.md and PROV-2.md, so it might be
+argued the material is already public. ### IT IS NOT THE SAME MATERIAL. Containment
+of row 46 in PROV-1.md, in PROVISIONAL_A_SPECIFICATION.md and in A-CANDIDATE.md is
+0.0000, 0.0000 and 0.0000; row 47 in PROV-2.md is 0.0000. And the repository's
+PROV-1.md says on its own face: "Tier N, private, attorney-facing ... THE EXECUTOR
+CANNOT READ THE FILED PROV-1 CLAIMS (author-held scope docs)". ### THE PILE HOLDS
+THE SPECIFICATIONS THE RECORD SAYS THIS SEAT CANNOT READ. Pushing them would be a
+FIRST PUBLIC DISCLOSURE of unfiled patent material, it would be irreversible, and
+it is the author's decision and not this seat's. ### ROUTED, WITH A DO-NOT-TRIM
+VERDICT MEANING ONLY THAT NOTHING WAS CERTIFIED -- NOT THAT THE FILES MATTER, AND
+NOT THAT THEY DO NOT. Their project copies are untouched and remain the only copies
+this act knows of. ***
+
+WHAT THIS ACT DID NOT DO: no project file deleted, moved or modified. The backfill
+wrote ONLY into PLACE-papers/archive/2026-08-27-trim-backfill/. No kernel terminal,
+no promotion, no re-grade, no claim about the h2 identity beyond the register
+sentence exact. The patent-package tree was compared at word-grams against two of
+its filings and NOT otherwise read and NOT written.
+
+TWO OBSERVATIONS FILED AGAINST THE CHECKS THEMSELVES, NEITHER FIXED HERE:
+ (i) commit_selfcheck's clause (2) reported "no read-only claim detected" over a
+ message containing "The patent-package tree was NEITHER READ FOR CONTENT NOR
+ WRITTEN by this commit". ### THE CLAIM IS TRUE AND THE CHECK DID NOT SEE IT. This
+ is the limit its own header states -- explicit patterns, cannot read meaning --
+ observed live rather than quoted. The class is not closed.
+ (ii) banned_terms over the WHOLE COMMIT returns NOT CLEAN, on hits inside verbatim
+ author papers (Third_Identity_Element.md, UNIFIED_INDEPENDENCE_PRINCIPLE.md and
+ others). ### THE GOVERNING SCOPE IS THE ACT'S OWN VOICE AND IT IS CLEAN AT 0 LIVE
+ USES OVER 118 LINES. Correcting the corpus hits would require editing preserved
+ quotations, which would destroy the byte-identity that is the backfill's entire
+ warrant. ### RULE 3 GOVERNS THE RECORD'S VOICE, NOT ITS PRESERVED QUOTATIONS, and
+ this act is the sharpest case of that distinction the record has yet produced.
+
+PINS, READ BACK BY ls-remote: PLACE-papers MOVED TWICE -- eae2d3d -> 7d02df5 (the
+backfill, 74 files) -> 4733945 (the register entry, 1 file); SIDE-global-section
+76d5182 UNMOVED; SIDE-kernel 0256e9e UNMOVED; relay a148fc8 at registration plus
+this act's pin-line commit; mirror mirror-refresh-2026-08-27.zip REBUILT TWICE and
+CLEAN ON ALL THREE CLAUSES both times, final build declaring 4733945; HELD
+held/carrier-acts = 6eada6a, LOCAL-ONLY and untouched.
+### AND ONE INCIDENT AT THE SECOND PUSH, FILED BECAUSE THE READ-BACK IS WHAT CAUGHT
+IT: the register commit's push was first issued from a shell whose working directory
+had been changed to relay/tools, so `git push origin main` addressed RELAY and
+returned "Everything up-to-date" while PLACE-papers sat unpushed. ### A PUSH THAT
+REPORTS SUCCESS AGAINST THE WRONG REPOSITORY IS INDISTINGUISHABLE FROM ONE THAT DID
+NOTHING. It was caught only because the read-back SHA was recognised as relay's, and
+re-issued with an explicit -C. The convention of reading back by ls-remote earned
+its place here rather than merely being observed.
+
+HIT RECORD: Gate Zero clean at 84 of 84; the reconcile ran at content and returned
+7 and 77 against a registered 12-18 and 66-72; 72 of 72 backfilled, pushed and
+re-verified byte-exact from a fresh clone of the pushed tree; the hook exercised and
+clean; the mirror rebuilt and clean on all three clauses at the new HEAD; the table
+carries all 84 rows with 10 successor-safe, 72 backfill-safe, 2 refusals and 0
+non-candidates. ### P0 LANDED INCLUDING ITS NAMED GUESS. P1 WAS WRONG AND IS
+RECORDED AS WRONG. P2 LANDED ON THE COUNT AND ONLY HALF ON THE MECHANISM. P3 IS
+ANSWERED AND ANSWERS AGAINST ITS OWN PREMISE.
+DEVIATIONS: one, stated in full at Component 2 -- the backfill widened from
+sixteen rows to seventy-two. DIVERGENCES: one, noted at registration -- the ferry's
+description of row 18 does not match the manifest's row 18; the manifest governed.
+REFUSALS: one, rows 46 and 47, routed to the author.
+====================================================================================================
