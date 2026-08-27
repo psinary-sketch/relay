@@ -1,0 +1,44 @@
+b210 -- G-NORM: THE TAIL, BOUNDED AND QUOTED; THE TOTAL AT TWO VALUES OF X.
+### THE TAIL IS NOT NEGLIGIBLE AND IS NOT DROPPED: at X = 40 it is ~1.2e-2,
+### i.e. THIRTEEN ORDERS ABOVE the residual being tested. Dropping it would have
+### produced a clean-looking FAILURE.
+
+================================================================================================
+tau = 2 pi   mu = -20.480573229130187291   alpha = 3.14159265359
+  X = 40  ns=400   J1(1..x0) = 0.3414846388211245   J2(x0..X) = 0.354899322729187   J3(X..inf) = 0.0124946556244
+            tail split: non-oscillatory 0.0125006269439   oscillatory -5.9713194e-6
+            ### IBP TRUNCATION BOUND ON THE OSCILLATORY TAIL: 6.44326e-81
+            TOTAL J = 0.70887861717473852076
+  X = 60  ns=600   J1(1..x0) = 0.3414846388211245   J2(x0..X) = 0.35906223851979   J3(X..inf) = 0.00833173983382
+            tail split: non-oscillatory 0.0083335190362   oscillatory -1.7792024e-6
+            ### IBP TRUNCATION BOUND ON THE OSCILLATORY TAIL: 3.8841e-92
+            TOTAL J = 0.70887861717473852076
+  ### G-NORM, TWO VALUES OF X: |J(40) - J(60)| / J = 6.42336e-23
+  ### VERDICT: PASS
+
+================================================================================================
+tau = 2 pi   mu = -49.979975745672160471   alpha = -3.14159265359
+  X = 40  ns=400   J1(1..x0) = 0.2739288987166961   J2(x0..X) = 0.3488076879343887   J3(X..inf) = 0.0124909022736
+            tail split: non-oscillatory 0.0124996543095   oscillatory -8.7520359e-6
+            ### IBP TRUNCATION BOUND ON THE OSCILLATORY TAIL: 2.87683e-80
+            TOTAL J = 0.63522748892469855934
+  X = 60  ns=600   J1(1..x0) = 0.2739288987166961   J2(x0..X) = 0.352967985183349   J3(X..inf) = 0.00833060502465
+            tail split: non-oscillatory 0.00833323079567   oscillatory -2.625771e-6
+            ### IBP TRUNCATION BOUND ON THE OSCILLATORY TAIL: 1.22296e-91
+            TOTAL J = 0.63522748892469855934
+  ### G-NORM, TWO VALUES OF X: |J(40) - J(60)| / J = 6.39138e-23
+  ### VERDICT: PASS
+
+================================================================================================
+tau = 4 pi   mu = -39.38321657426154036   alpha = 4.44288293816
+  X = 40  ns=400   J1(1..x0) = 0.3646728282292084   J2(x0..X) = 0.3662598518122043   J3(X..inf) = 0.0124961988649
+            tail split: non-oscillatory 0.0125009776784   oscillatory -4.7788135e-6
+            ### IBP TRUNCATION BOUND ON THE OSCILLATORY TAIL: 3.5372e-98
+            TOTAL J = 0.74342887890635382633
+  X = 60  ns=600   J1(1..x0) = 0.3646728282292084   J2(x0..X) = 0.3704238643942107   J3(X..inf) = 0.00833218628293
+            tail split: non-oscillatory 0.00833362296134   oscillatory -1.4366784e-6
+            ### IBP TRUNCATION BOUND ON THE OSCILLATORY TAIL: 1.41417e-109
+            TOTAL J = 0.74342887890635368493
+  ### G-NORM, TWO VALUES OF X: |J(40) - J(60)| / J = 1.90201e-16
+  ### VERDICT: PASS
+

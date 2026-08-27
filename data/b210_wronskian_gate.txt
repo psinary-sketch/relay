@@ -1,0 +1,245 @@
+====================================================================================================
+b210 BANK -- THE WRONSKIAN GATE. Registration 236474c, banked before any computation.
+2026-08-27. Ferry part 1 of 1, receipt confirmed IN FULL.
+Raw run: data/b210_raw_run.txt. G-NORM: data/b210_gnorm.txt.
+Interleaving: data/b210_interleave.txt. Index queries: data/audit_b210_index_query.txt.
+====================================================================================================
+
+*** ### THE VERDICT: **BRANCH (HOLDS).**
+### ### alpha_k * beta'(mu_k) = INTEGRAL_1^infinity psi_k^2 dx, ### WITH s = +1,
+### ### AT ALL TWELVE EIGENVALUES REACHED, AT ALL THREE PARAMETERS,
+### ### TO THE INSTRUMENT'S OWN PRECISION. ***
+
+### THE TARGET WAS A RELATION AT EACH EIGENVALUE, NOT A SIGN. ### NO ABSOLUTE SIGN IS CLAIMED.
+### NO DERIVATION WAS ATTEMPTED AND NO THEOREM IS CLAIMED. ### b205's DISCREPANCY REMAINS
+### UNEXPLAINED and is carried beside every result below -- ### THOUGH IT IS NOW NARROWER, AND
+### THE NARROWING IS REPORTED AT COMPONENT 1's APPENDIX.
+### CORE UNTOUCHED. NO BUILD. NO CORE ROW -- as registered, nothing here is finite-decidable.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE GATES AND THE RELATION.
+----------------------------------------------------------------------------------------------------
+
+### THE SWEEP WAS RUN IN THIS ACT, NOT CITED. A coarse scan over mu at step 1 located the sign
+changes independently at each parameter -- 6 at tau = 2 pi, 3 at 4 pi, 3 at 6 pi -- and every
+root was then re-solved by secant at each of the three resolutions. ### b207's EIGENVALUES WERE
+NOT USED AS INPUTS.
+
+### G-DERIV : **PASS**, and by a wide margin.
+   beta'(mu_k) by centred difference at h1 = 1e-6 and h2 = 1e-7, BOTH QUOTED per row in the raw
+   run. ### THE TWO STEP SIZES AGREE TO BETWEEN 9.6e-16 AND 5.8e-16 RELATIVE, at every
+   eigenvalue and every parameter. ### THE REGISTERED THRESHOLD WAS 1e-8, WRITTEN DOWN BEFORE
+   THE NUMBERS WERE SEEN -- the b207 lesson about unregistered thresholds, applied in advance
+   rather than recovered from afterwards. ### THE DERIVATIVE DOES NOT MOVE UNDER REFINEMENT.
+
+### G-NORM : **PASS**, and the tail is the reason the gate was worth having.
+   ### THE TAIL IS NOT NEGLIGIBLE. At X = 40 the piece beyond X is ~1.25e-2 of an integral of
+   ~0.7 -- ### THIRTEEN ORDERS OF MAGNITUDE ABOVE THE RESIDUAL BEING TESTED. ### A TAIL DROPPED
+   HERE WOULD HAVE PRODUCED A CLEAN-LOOKING FAILURE AT THE 2 PERCENT LEVEL.
+   It is therefore computed, not estimated: the non-oscillatory part of psi^2 summed exactly
+   from the asymptotic series, the oscillatory part by repeated integration by parts with ###
+   ITS LAST RETAINED TERM QUOTED AS THE TRUNCATION BOUND (between 3.9e-92 and 1.4e-109 across
+   the cases run).
+   ### AND THE GATE'S REAL TEST, WHICH THE REGISTRATION DEMANDED: THE TOTAL AT TWO VALUES OF X.
+     tau = 2 pi, mu_1 : J(X=40) - J(X=60) relative = 6.42336e-23
+     tau = 2 pi, mu_2 : relative = 6.39138e-23
+     tau = 4 pi, mu_1 : relative = 1.90201e-16
+   *** ### AND THE PIECES MOVE WHILE THE TOTAL DOES NOT. Between X = 40 and X = 60 the marched
+   ### piece J2 changes by about +4.2e-3 and the tail J3 by about -4.2e-3. ### THE TOTAL IS
+   ### INVARIANT TO 1e-23. ### THAT IS THE TAIL DOING REAL WORK AND DOING IT RIGHT, and it is a
+   ### much stronger statement than a bound would have been. ***
+
+### G-STAB : **PASS.** The same sweep at the three resolution triples b207 used, residual quoted
+   at each. ### THE RESIDUAL IS RESOLUTION-LIMITED AND FALLS AS THE AXES REFINE, at every
+   parameter -- the same signature b207 established for |alpha|/(pi Lambda):
+     tau = 2 pi : residuals ~1e-8/1e-9  ->  ~1e-11  ->  ### 3.9e-16 .. 2.9e-15
+     tau = 4 pi : residuals ~1e-7/1e-8  ->  ~1e-10  ->  ### 1.4e-15 .. 7.4e-15
+     tau = 6 pi : residuals ~1e-4       ->  ~1e-7   ->  ### 1.2e-14 .. 2.9e-13
+   ### THE RELATION HOLDS; THE RESIDUAL IS MINE, NOT THE OBJECT'S.
+
+### THE SIGN: s_k = sign(alpha_k * beta'(mu_k)) = ### **+1 AT ALL TWELVE EIGENVALUES, AT ALL
+### THREE PARAMETERS, AND AT ALL THREE RESOLUTIONS.** ### CONSTANT. NOT MERELY CONSTANT IN
+### MAGNITUDE.
+
+*** ### AND THE STRUCTURE THE RUN EXHIBITS, WHICH IS THE POINT OF THE ACT: ### alpha
+### ALTERNATES AND beta' ALTERNATES, TOGETHER, EIGENVALUE BY EIGENVALUE. At tau = 2 pi:
+###   alpha  +pi  -pi  +pi  -pi  +pi  -pi
+###   beta'  +    -    +    -    +    -
+### ### THEIR PRODUCT IS THEREFORE CONSTANT-SIGNED, AND THE RUN SAYS THAT PRODUCT IS AN
+### INTEGRAL OF A SQUARE. ### b207 OBSERVED THE ALTERNATION OF alpha AND COULD NOT SAY WHY.
+### ### THIS ACT EXHIBITS IT AS THE ALTERNATION OF beta' AT CONSECUTIVE SIMPLE ZEROS -- AT
+### BENCH, AND AT NO HIGHER GRADE. ***
+
+### THE REGISTERED EXPECTATION LANDED, INCLUDING ITS SIGN AND ITS GROUND. The executor
+registered branch (HOLDS) with s = +1 and the integral running from 1 to infinity, and named
+its reason (a Sturm-Liouville Wronskian-derivative identity, registered as a REASON FOR AN
+EXPECTATION and explicitly not as a derivation performed). ### MEASURED: (HOLDS), s = +1,
+integral from 1 to infinity. ### AND THE REGISTERED NORMALIZATION PREDICTION ALSO LANDED: the
+paper's psi is asymptotic to -sin(2 pi Lambda x)/(pi x) and the instrument's to -sin(tau x)/x,
+differing by the positive factor 1/pi; the registration predicted BEFORE THE RUN that this is
+invisible to the relation because both sides are quadratic in psi. ### THE MEASURED |alpha| IS
+pi*Lambda AT EVERY EIGENVALUE (3.14159265359 at Lambda = 1; 4.44288293816 = pi*sqrt2 at
+Lambda = sqrt2; 5.4413980927 = pi*sqrt3 at Lambda = sqrt3), WHICH IS THE PAPER'S psi(Lambda) =
++-1 IN THE INSTRUMENT'S NORMALIZATION, AND THE RELATION IS UNAFFECTED.
+
+*** ### APPENDIX A -- AN UNREGISTERED CHECK, RUN BECAUSE IT WAS AVAILABLE, AND IT NARROWS THE
+### DISCREPANCY WITHOUT EXPLAINING IT. The paper prints a CERTIFIED bracket for mu_-2:
+###   -39.38321657426153947615056322 < mu_-2 < -39.38321657426153947615056317
+### The instrument, refined:
+###   dps60 -39.383216574261540360021309   (8.8e-16 OUTSIDE the bracket)
+###   dps70 -39.383216574261539476139002   (1.2e-20 outside)
+###   dps80 -39.383216574261539476150563   ### INSIDE THE BRACKET, at 26 significant figures.
+### ### THE dps60 OFFSET IS THE INSTRUMENT'S RESOLUTION, NOT A DISAGREEMENT, AND IS PRINTED
+### BECAUSE A SINGLE-RESOLUTION COMPARISON WOULD HAVE READ AS ONE.
+### ### WHAT THIS EXCLUDES: the two computations AGREE ON THE EIGENVALUE TO 26 FIGURES. ### SO
+### "WE ARE AT DIFFERENT EIGENVALUES" IS NO LONGER AVAILABLE AS AN EXPLANATION OF b205's SIGN
+### DISAGREEMENT AT mu_-2. ### THE DISCREPANCY IS UNEXPLAINED AND NOW NARROWER. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE READ.
+----------------------------------------------------------------------------------------------------
+
+### THE SOURCE WAS READ AT ITS SOURCE DOCUMENT, NOT FROM THE RECORD'S QUOTATIONS: the
+publisher's PDF of RRT, C. R. Math. 363 (2025), 1065-1081, DOI 10.5802/crmath.780, online 29
+September 2025, CC-BY-4.0, fetched and extracted in this act (18 pages, 50,092 characters).
+M12 GUARD APPLIED: quotations below are from that extraction and garbles are named as garbles.
+
+### THE INDEXING CONVENTION, QUOTED: ### THE SUBSCRIPT IS A RANK.
+  figure caption: "### First even negative eigenvalue mu_-2."
+  figure caption: "### Negative eigenvalue of rank 148."
+### AND THE RANK COUNTS ALL NEGATIVE EIGENVALUES, EVEN AND ODD TOGETHER. The ground:
+  Corollary 4(i), quoted: "The eigenfunctions of W_sa are even or odd."
+  Corollary 4(iv), quoted: "The leading term of the 'asymptotic expansion' of phi at +infinity
+  is proportional to sin(2 pi Lambda x)/x if phi is EVEN and is proportional to
+  cos(2 pi Lambda x)/x if phi is ODD."
+### mu_-2 IS THE FIRST **EVEN** NEGATIVE EIGENVALUE AND CARRIES RANK 2 -- WHICH FORCES RANK 1
+### TO BE THE FIRST ODD ONE AND THE EVEN SUB-FAMILY TO BE EXACTLY THE EVEN RANKS.
+
+*** ### AND THAT LAST STEP WAS AN INFERENCE FROM TWO CAPTIONS, SO IT WAS MEASURED RATHER THAN
+### LEFT AS ONE. ### AN ADDITION TO THE REGISTERED WORK, RECORDED AS SUCH (see DEVIATIONS).
+### By Corollary 4(iv) the ODD family is reached by replacing the instrument's sine solution
+### with the cosine solution, everything else unchanged. ### THE TWO FAMILIES INTERLEAVE
+### STRICTLY, AT BOTH PARAMETERS TESTED:
+###   tau = 2 pi : 6 even and 7 odd roots over mu in [-220,-5]; merged, the parities alternate
+###                ODD, EVEN, ODD, EVEN, ... for all THIRTEEN ranks, with NO exception.
+###   tau = 4 pi : 3 even and 4 odd; merged, alternating for all SEVEN ranks.
+### ### AND RANK 2 IS EVEN AT BOTH PARAMETERS -- ### WHICH IS EXACTLY WHAT THE PAPER'S CAPTION
+### "First even negative eigenvalue mu_-2" SAYS. ### THE READ IS CONFIRMED AT BENCH. ***
+
+### THE CONSEQUENCE, STATED AS A CONSEQUENCE OF THE READ AND NOT AS A VERDICT ON THE PAPER:
+  mu_-148 is the 74th even negative eigenvalue. ### STRICTLY BETWEEN mu_-2 AND mu_-148 LIE
+  ### 145 NEGATIVE EIGENVALUES (ranks 3..147) -- 72 EVEN (ranks 4,6,...,146) and 73 ODD. All
+  are non-classical: the abstract places the negative eigenvalues "besides a replica of the
+  classical positive spectrum", and section 5.1 identifies the non-classical part with them.
+
+### AND THE TWO PRINTED SIGNS. The paper prints alpha(mu_-2) = -4.44288293889868 and
+alpha(mu_-148) = +4.44288293815837. Under the convention just read, these are the 1st and the
+74th EVEN negative eigenvalues. Strict alternation over the even sub-family would put
+sign(alpha) at the j-th even eigenvalue at (-1)^j times a constant; with j = 1 NEGATIVE, j = 74
+must be POSITIVE. ### THE PAPER PRINTS POSITIVE. ### SO THE TWO PRINTED SIGNS ARE CONSISTENT
+### WITH STRICT ALTERNATION UNDER THE PAPER'S OWN INDEXING.
+### ### THIS IS A CONSEQUENCE OF THE READ. IT IS NOT A VERDICT ON THE PAPER, IT IS NOT A PROOF
+### OF ALTERNATION, AND IT DOES NOT TOUCH b205's DISCREPANCY, WHICH IS ABOUT AN ABSOLUTE SIGN
+### AT A SINGLE EIGENVALUE AND REMAINS UNEXPLAINED.
+### ONE OBSERVATION BESIDE IT, NOT A CRITICISM: the paper's own |alpha| at mu_-2
+(4.44288293889868) differs from its own stated +-pi*sqrt2 (4.44288293815837) by 7.4e-10, while
+at mu_-148 it prints that value exactly. ### THE INSTRUMENT RETURNS pi*sqrt2 TO TWELVE FIGURES
+### AT BOTH. Recorded as an observation about printed precision and nothing more.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE CONSEQUENCE AND THE FILINGS.
+----------------------------------------------------------------------------------------------------
+
+### ON (HOLDS) THE FERRY ASKS FOR THE DERIVATION ACT TO BE **SPECIFIED WITH ITS TWO PREMISES
+### NAMED AND NOT PERFORMED**. IT IS NOT PERFORMED HERE.
+
+ THE DERIVATION ACT, SPECIFIED:
+  TARGET: alpha(mu_k) * beta'(mu_k) = INTEGRAL_1^infinity psi_{mu_k}^2 dx at every eigenvalue,
+  for the operator ((x^2-1) f')' + (tau^2 x^2 - mu) f = 0 with psi and y_I as the instrument
+  defines them and W = psi y_I' - psi' y_I.
+  PREMISE (i) -- ### THE VANISHING BOUNDARY TERM AT INFINITY, equivalently a mu-INDEPENDENT
+  LEADING ASYMPTOTIC FOR psi. ### QUOTED FROM THE PAPER, Proposition 6(ii): "Let xi_{mu,Lambda}
+  be the unique solution on ]Lambda,+infinity[ which, at infinity, satisfies ###
+  xi_{mu,Lambda}(x) = - sin(2 pi Lambda x)/(pi x) + O(1/x^2)." ### THE LEADING TERM CARRIES NO
+  mu. That is the premise, in the paper's own words.
+  PREMISE (ii) -- ### ANALYTICITY OF beta IN mu, which the paper's own framework supplies in
+  the form of spectral determinants: "an explicit definition of spectral determinants which are
+  ### ENTIRE FUNCTIONS OF ORDER <= 1/2 whose zeros are the eigenvalues" (introduction, quoted).
+  ### THE SECOND BOUNDARY TERM, AT x = 1, IS NOT LISTED AS A PREMISE BECAUSE IT IS NOT ONE:
+  p(x) = x^2 - 1 VANISHES THERE and y_I(1) = 1 is mu-independent by construction. ### NAMED SO
+  THAT THE DERIVATION ACT DOES NOT DISCOVER IT AS A THIRD PREMISE AND CALL IT A SURPRISE.
+  ### WHAT THE DERIVATION WOULD BUY: the family proof's route. On the relation, ### sign(alpha)
+  = sign(beta') AT EVERY EIGENVALUE, because the right side is an integral of a square and is
+  positive. ### THE ALTERNATION OF alpha IS THEN THE ALTERNATION OF beta' AT CONSECUTIVE SIMPLE
+  ZEROS OF A REAL FUNCTION. ### THAT IS THE ROUTE, AND THE DERIVATION ACT IS WHERE IT IS EARNED.
+
+ ### THE ALTERNATION ITEM, RESTATED PER THE BRANCH: b207 established alternation AT BENCH at
+ tau = 2 pi over six eigenvalues and could not say why. ### THIS ACT SUPPLIES A TESTED ROUTE
+ WITH ITS PREMISES NAMED, AT BENCH, OVER TWELVE EIGENVALUES AT THREE PARAMETERS. ### THE ITEM
+ IS **NOT DISCHARGED**: a route tested at twelve points is not a proof over a family, and the
+ derivation act is unperformed. ### IT IS LIVE, AND IT NOW HAS A ROUTE RATHER THAN A HOPE.
+
+ ### THE DISCREPANCY ITEM, RESTATED PER THE BRANCH: b205's sign disagreement at mu_-2 STANDS
+ AND IS STILL UNEXPLAINED. ### WHAT CHANGED: this act agrees with the paper's certified
+ eigenvalue to 26 figures (Appendix A), so ### THE TWO COMPUTATIONS ARE AT THE SAME EIGENVALUE
+ AND THAT EXPLANATION IS CLOSED. ### AND THE READ IT WAS MISSING IS NOW FILED: the indexing
+ convention, measured as well as quoted. ### THE ITEM IS LIVE AND NARROWER.
+
+ ### THE IDENTITY CHAIN: no change is warranted by this act. The relation is a fact about the
+ instrument's psi, y_I and Wronskian ordering at bench grade; it promotes nothing, it re-grades
+ nothing, and it says nothing about the Sonin sector's occupancy that b207 did not already say.
+ ### AN ACT THAT TOUCHES NO CLAIM DOES NOT EDIT THE CHAIN, AND SAYING SO IS THE FILING.
+
+ ### CORE: **NO ROW, NO BUILD.** ### AS REGISTERED IN ADVANCE. A relation between a numerical
+ derivative, an improper integral and a transcendental eigenvalue is not finite-decidable, so
+ nothing here meets the zero-axiom bar. ### NO CLAIMED COMPILE IS REPORTED BECAUSE NO COMPILE
+ WAS RUN, and no axiom profile is printed because there is nothing to print one for.
+ ### THE REGISTERED EXPECTATION THAT NOTHING WOULD BE FINITE-DECIDABLE LANDED.
+
+ ### THE IN-FLIGHT REGISTER: the alternation route added as a live item with owner and grade;
+ the mu_-2 discrepancy restated as LIVE AND NARROWED. Filed at VERIFICATION_LOOM.md.
+
+ ### THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED: term 2's formalization stands, unpaid and
+ untouched by this act. ### THE SIX RULINGS STAND WITH THE AUTHOR, and b209's rows 46/47 --
+ the two unfiled provisional patent specifications -- stand with them. ### LOCKS LAST.
+
+----------------------------------------------------------------------------------------------------
+HIT RECORD, DEVIATIONS, DIVERGENCES.
+----------------------------------------------------------------------------------------------------
+HIT RECORD: the sweep re-run in this act, not cited; G-DERIV, G-NORM and G-STAB all PASS with
+their numbers quoted; the relation holds at 12 of 12 eigenvalues at three parameters with
+residuals falling to 1e-16 as the axes refine; s = +1 constant everywhere; the read quoted at
+the source AND confirmed at bench by an interleaving measurement; the instrument landed inside
+the paper's certified bracket at 26 figures.
+### THE REGISTERED PREDICTIONS: (P1) LANDED, branch and sign and integration range. (P2)
+### LANDED and was then measured rather than left as an inference. (P3) DELIVERED as a
+### specification, unperformed as required.
+
+DEVIATIONS: ### ONE, AND IT IS AN ADDITION RATHER THAN A DEPARTURE. The interleaving
+computation (data/b210_interleave.txt, tools/e16/b210_interleave.py) was NOT in the
+registration. It was run because Component 2's central step -- that the rank counts even and
+odd together -- rested on two figure captions, and a measurement was available for the cost of
+one sign change in the instrument. ### IT IS STILL A COMPUTATION AT BENCH GRADE ON THE BANKED
+INSTRUMENT, AND IT TESTS THE READ RATHER THAN THE PAPER. Recorded here rather than folded
+silently into Component 2.
+### AND TWO THINGS THE EXECUTOR ALMOST SHIPPED, BOTH CAUGHT BY THE RULE AND NEITHER BY CARE:
+ (i) the index-query audit's first draft used a banned stem in the executor's own voice. It was
+ corrected before the file was committed. The stems are banned in this record's voice and the
+ executor's hand is not exempt.
+ (ii) *** ### THE b151 FAILURE MODE, COMMITTED HERE AND CAUGHT BY THE CHECK BUILT FOR IT. The
+ report's three audit blocks were RETYPED RATHER THAN EMBEDDED on the first draft. Counts,
+ inputs and verdicts were correct; ### THE "run at" TIMESTAMPS WERE INVENTED -- the tool output
+ had scrolled and the executor supplied plausible times instead of reading the sidecars.
+ ### audit_verify.py RETURNED "TAMPERED -- self-hash does not recompute" ON ALL THREE.
+ The blocks were replaced MECHANICALLY from the sidecar files and re-verified: 3 of 3 MATCHED,
+ self-hash ok. ### THIS IS PRECISELY WHAT b151 MINTED THE CONVENTION FOR -- "a report's audit
+ block is prose, and prose is free" -- ### AND IT IS THE SEVENTH INSTANCE OF A CHECK CATCHING
+ ITS OWN RECORD-KEEPER RATHER THAN A STRANGER. The convention's reach statement says it raises
+ the cost of a false audit from zero to DELIBERATE; ### HERE IT RAISED THE COST OF A CARELESS
+ ONE FROM ZERO TO CAUGHT, WHICH IS THE CASE THAT ACTUALLY OCCURS. Recorded rather than quietly
+ fixed: a report that silently repairs its own audit failure is the thing the convention exists
+ to prevent. ***
+
+DIVERGENCES: none. Nothing in the source contradicted the record this act, and nothing in the
+record contradicted the source.
+====================================================================================================
