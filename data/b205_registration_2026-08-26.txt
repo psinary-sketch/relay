@@ -1,0 +1,169 @@
+====================================================================================================
+b205 REGISTRATION -- THE SIGN AT THE CORPUS'S PARAMETER.
+BANKED AFTER THE SOURCE WAS READ WHOLE -- ### BEFORE ANY COMPUTATION, as the execution clause
+orders. ### NO MEASURED NUMBER APPEARS IN THIS BLOCK.
+====================================================================================================
+FERRY 2026-08-26 (part 1 of 1; receipt confirmed IN FULL, Rule 1).
+
+SCOPE, QUOTED: "a COMPUTATION at ### BENCH GRADE AND NOTHING ABOVE IT; the result enters at the
+grade the computation supports, and ### A PUBLISHED AUTHOR'S NUMERIC DOES NOT PROMOTE OURS NOR
+OURS THEIRS; the object is (A) ... ### THE NAMING QUESTION IS NOT PRE-EMPTED: whatever this act
+finds is a fact about (A), not a claim that (A) is what term 3 needs; the F phi = xi fence stands."
+
+THE REGISTER SENTENCE, QUOTED UNCHANGED: RH reduced to a single located clause,
+reduction machine-verified.
+
+### INDEX QUERIES PER (d): 10 OF 10 HIT. ### AND THE ONE THAT MATTERS: the rows carry READS AND
+### IMPORTS, ### NOT ONE COMPUTED QUANTITY FOR THIS ODE.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1's READS -- THE SOURCE'S CONSTRUCTION, READ WHOLE.
+### RRT, C. R. Math. 363 (2025), 1065-1081, DOI 10.5802/crmath.780. M12 GUARD FIRST.
+
+### THE OPERATOR, QUOTED (section 1.1): "### D_tau = - d/dx (1 - x^2) d/dx + tau^2 x^2, tau in C
+### and its spectral version D_tau - mu = 0."
+### EXPANDED (the executor's algebra, shown so it can be checked):
+### ### (x^2 - 1) f'' + 2 x f' + (tau^2 x^2 - mu) f = 0.
+### "This polynomial operator has three singular points on the Riemann sphere. Two regular
+### singular points at x = +-1 and an irregular point (of Katz rank one) at infinity ... the
+### exponential exponents at infinity are +- i tau."
+
+### THE PARAMETRIZATION, QUOTED: "### The variable change ... reduces W_Lambda to D_tau, where
+### ### tau = 2 pi Lambda^2." ### SO tau = 4 pi <=> Lambda = sqrt(2); tau = 2 pi <=> Lambda = 1.
+### b204's FINDING, CARRIED: ### THE PUBLISHED TABLE IS AT tau = 4 pi AND THE CORPUS'S SPACE IS
+### S(1,1), i.e. Lambda = 1, i.e. tau = 2 pi. ### THE STRUCTURE TRANSFERS; THE NUMERICS DO NOT.
+
+### THE LOCAL BASIS AT THE REGULAR SINGULAR POINT, QUOTED (section 2.1.1): "y_I(x) = P_I(Lambda -
+### x), P_I(0) = 1, y_II(x) = P_II(Lambda - x) - (1/(2 Lambda)) P_I(Lambda - x) log(Lambda - x),
+### where P_I, P_II are analytic for |xi| < 2 Lambda. ### Wronskian: W(y_I,y_II) = 1/(Lambda^2 -
+### x^2)." ### RESONANT FROBENIUS CASE; the exponents coincide and a log appears.
+
+### THE FORMAL SOLUTIONS AT INFINITY, QUOTED (section 2.1.2): "There is a basis
+### (y^-_ = e^{-2 i pi Lambda x}/x v^-_, y^+_ = e^{2 i pi Lambda x}/x v^+_) of formal solutions
+### ... where v^{-+}_ = SUM V^{-+}_n x^{-n}, with V^-_0 = 1, V^+_0 = 1. ### THE FORMAL POWER
+### SERIES v^{-+}_ ARE DIVERGENT and 1-summable in every direction, except R^{-i} for v^- and
+### R^{+i} for v^+."
+
+### THE beta-DICHOTOMY, QUOTED WHOLE (section 4.2.2): "We work with D_tau - mu. Let
+### psi = - sin(tau x)/x + O(1/x^2) interpreted as a Borel sum of a formal solution. We have a
+### basis of solutions of D_tau - mu at x = 1: (y_I, y_II), ### y_I is analytic, y_I(1) = 1,
+### W(y_I,y_II) = 1/(1-x^2). ### We have a connection formula for 1 <-> +infinity:
+### ### psi = alpha y_I + beta y_II, where alpha, beta in C. Then
+### ### alpha = W(psi,y_II)/W(y_I,y_II) = (1 - x^2) W(psi,y_II),
+### ### beta = -W(psi,y_I)/W(y_I,y_II) = (x^2 - 1) W(psi,y_I).
+### For tau = tau_0 and x_0 in ]1,+infinity[ fixed ... ### CHOOSING x_0 = sqrt(2), we get
+### F(tau_0, mu) = W(psi,y_I)(sqrt(2))(tau_0,mu) = beta." ### F IS A SPECTRAL DETERMINANT; ITS
+### ZEROS ARE THE EIGENVALUES.
+### ### AND NOTE, RECORDED SO IT IS NOT CONFLATED: ### x_0 = sqrt(2) IS AN EVALUATION POINT IN
+### ]1,+inf[, ### NOT THE PARAMETER Lambda = sqrt(2). ### TWO DIFFERENT sqrt(2)'s IN ONE SECTION.
+
+### THE SIGN STATEMENT, QUOTED (section 4.2.3): "Let Lambda = sqrt(2), i.e. tau = 4 pi. ### If mu
+### is a non classical CM eigenvalue, then beta = 0 and ### alpha = psi(1) = +- sqrt(2) pi (cf.
+### Proposition 7)."
+### AND A THIRD NORMALIZATION OF psi, RECORDED PER section 18's SPECIES: ### Prop 6(ii) writes
+### psi ~ - sin(2 pi Lambda x)/(pi x) for W_Lambda; ### section 4.2.2 writes psi ~ - sin(tau x)/x
+### for D_tau. ### THE TWO DIFFER BY A POSITIVE CONSTANT, ### SO THE SIGN OF alpha IS UNAFFECTED
+### -- and that is stated here rather than assumed silently.
+
+### THE PUBLISHED TABLE, QUOTED AS THE TARGET OF G-REPRO:
+###   mu_{-2}   : -39.3832165744668224 (the [8] approximation) | -39.3832165742615394 (their
+###               dichotomy) | beta = -2.09497516339781e-18 | ### alpha = -4.44288293889868
+###   mu_{-148} : -9100 | -9104.3331714128495040 | beta = 1.88990889191427e-18 |
+###               ### alpha = +4.44288293815837
+### AND THEIR BRACKETS (section 5.5.2): -39.38321657426153947615056322 < mu_{-2} <
+### -39.38321657426153947615056317; -9104.3331714128495039994 < mu_{-148} <
+### -9104.3331714128495039985.
+
+----------------------------------------------------------------------------------------------------
+### THE METHOD AS I WILL IMPLEMENT IT, STATED AGAINST THE PAPER'S OWN DESCRIPTION.
+### THE PAPER, QUOTED: "All computations are done with SageMath. ### We compute numerically psi by
+### TRUNCATING THE SERIES appearing in the solutions near infinity and we evaluate y_I and y_II
+### using the tools developped by Marc Mezzarobba for computation of D-finite (or holonomic)
+### functions [19], with a great (certified) precision. We replaced pi by a rational number
+### approximating the exact value with 300 digits precision."
+
+*** ### WHERE THE PAPER UNDERSPECIFIES, NAMED RATHER THAN FILLED IN:
+### ### (u1) IT DOES NOT GIVE THE TRUNCATION ORDER, nor the matching point at which the truncated
+### asymptotic series is evaluated. ### The series are DIVERGENT (its own section 2.1.2), so a
+### truncation order and a matching point are BOTH required and BOTH are mine.
+### ### (u2) IT DOES NOT SAY HOW psi IS CONTINUED FROM INFINITY TO x_0. ### I will integrate the
+### ODE inward; they may have used ore_algebra's analytic continuation. ### A DIFFERENT ROUTE TO
+### THE SAME OBJECT IS NOT THE SAME METHOD, AND G-REPRO IS THE ONLY THING THAT MAKES MINE
+### CREDIBLE.
+### ### (u3) ore_algebra IS NOT AVAILABLE HERE. ### scipy IS ABSENT. ### The implementation is
+### mpmath + my own Taylor stepper, DECLARED. ***
+
+### MY IMPLEMENTATION, DECLARED BEFORE IT RUNS:
+ (m1) v^{-}_n by RECURRENCE derived from the ODE directly -- ### NOT from Proposition 5, so the
+      two are independent and Prop 5 becomes a CHECK rather than an input.
+ (m2) psi and psi' at a matching point x_max by truncating at an order I choose and declare.
+ (m3) inward integration of the ODE from x_max to x_0 = sqrt(2), high precision.
+ (m4) y_I by Frobenius series at x = 1 (exponent 0, analytic branch, y_I(1) = 1), radius 2, so
+      it converges at x_0 = sqrt(2) since |sqrt(2) - 1| < 2.
+ (m5) beta(mu) = (x^2 - 1) W(psi, y_I) at x_0; eigenvalues by bracketing sign changes.
+ (m6) ### AT AN EIGENVALUE beta = 0, SO psi = alpha y_I AND ### alpha = psi(x_0)/y_I(x_0) --
+      evaluated at x_0, NOT at x = 1 where the basis is singular. ### THE SIGN OF alpha IS c.
+
+----------------------------------------------------------------------------------------------------
+### THE GATES, EACH A HALT, IN ORDER.
+### G-REPRO: the source's own published values reproduced AT tau = 4 pi TO THE DIGITS IT PRINTS,
+###   ### BEFORE ANY NEW PARAMETER IS RUN. ### A REPRODUCTION FAILURE HALTS THE ACT with the
+###   discrepancy reported and ### NO VALUE AT OUR PARAMETER COMPUTED.
+### G-KNOWN: *** ### ITS SCOPE IS **EMPTY**, AND THAT IS REPORTED AS EMPTY RATHER THAN AS A PASS.
+###   ### THE RECORD HOLDS NO COMPUTED QUANTITY FOR THIS ODE AT ALL. b32/b33's archimedean bench
+###   is a GRID DFT MODEL, a different construction. ### AN EMPTY-SCOPE CHECK THAT PRINTS "CLEAN"
+###   IS b167's AND b179's DEFECT, AND IT IS NOT REPEATED HERE. ***
+### G-STAB: the computed SIGN stable across the method's own resolution parameters, varied and
+###   quoted with their axes per the floor-axis law. ### A SIGN THAT MOVES UNDER REFINEMENT IS A
+###   HALT, NOT A RESULT.
+###   ### THE AXES, NAMED IN ADVANCE: (a1) mp.dps working precision; (a2) the truncation order
+###   N_trunc of the divergent series; (a3) the matching point x_max; (a4) the inward stepper's
+###   step count. ### EVERY QUOTED SIGN CARRIES ITS AXES.
+### THE STOP-LOSS: ### ONE ATTEMPT ON THIS SPECIFICATION. ### A GATE FAILURE ROUTES TO A
+###   RE-SCOPE. ### NO TUNING -- and in particular I do not adjust (a1)-(a4) until G-REPRO passes
+###   and then freeze them; ### THE AXES ARE VARIED FOR G-STAB AFTER THE FACT, NOT FITTED BEFORE.
+
+----------------------------------------------------------------------------------------------------
+### THE TWO SEATS.
+NAVIGATOR: G-REPRO; the run at our parameter; the verdict.
+
+EXECUTOR (SCOREABLE, WRITTEN BEFORE ANY COMPUTATION):
+ (e1) ### I EXPECT G-REPRO TO PASS ON mu_{-2} to the printed digits. ### I EXPECT mu_{-148} TO BE
+   ### EXPENSIVE and possibly out of reach at this act's cost: psi oscillates with tau x and
+   ### |mu| ~ 9104 forces a fine inward integration. ### IF IT IS OUT OF REACH I WILL SAY WHICH
+   ### VALUES WERE REPRODUCED AND WHICH WERE NOT, ### AND NOT CLAIM THE TABLE.
+ (e2) ### I EXPECT alpha's MAGNITUDE AT tau = 4 pi TO COME OUT NEAR 4.4428829..., which is the
+   ### paper's own |alpha|. ### THAT IS THE REAL G-REPRO: reproducing an eigenvalue only tests
+   ### beta's zero; ### REPRODUCING alpha TESTS THE VERY QUANTITY THIS ACT IS ABOUT.
+ (e3) *** ### AT tau = 2 pi I EXPECT **BRANCH (BOTH SIGNS)** -- some reached eigenfunction with
+   ### c = +1 -- ### ON THE GROUND THAT RRT's PROSE SAYS THE SIGN ALTERNATES AND ALTERNATION IS A
+   ### PROPERTY OF THE LADDER RATHER THAN OF tau. ### THE TRANSFER: M22 WOULD CLEAR ### AT BENCH
+   ### GRADE AND AT NO HIGHER GRADE. ### AND I REGISTER THE ALTERNATIVE PLAINLY: if every reached
+   ### eigenfunction carries c = -1, ### THAT IS BRANCH (ONE SIGN) AND I REPORT IT AT FULL
+   ### PROMINENCE WITH THE RANGE REACHED, ### since a finite sweep is not a statement about an
+   ### infinite family. ***
+ (e4) *** ### THE GRADE, AND IT IS THE WHOLE DISCIPLINE OF THIS ACT: ### WHATEVER COMES OUT IS
+   ### **BENCH**. ### It does not become a theorem by agreeing with a published table, and the
+   ### published table does not become a theorem by agreeing with me. ### THE FERRY SAYS IT AND I
+   ### REGISTER IT: a published author's numeric does not promote ours nor ours theirs. ***
+ (e5) ### THE HIGHER BAR ON ANY VERDICT THAT CLEARS M22: re-checked at a SECOND RESOLUTION and
+   ### AGAINST G-REPRO's OWN RESIDUAL SCALE before it is reported. ### A sign whose margin is
+   ### smaller than the reproduction residual is not a sign; it is noise, and would be a HALT.
+ (e6) ### CORE: I EXPECT **NO NEW LEAN**. b204 built the arithmetic core this act would need, and
+   ### rebuilding it would be inventing work. ### If nothing lands finite-decidable I will say so
+   ### and Core stays at 320/320.
+
+### THE GUARDS:
+ · ### BENCH GRADE AND NOTHING ABOVE IT. ### N-EXT-2 ABSOLUTE.
+ · ### THE NAMING QUESTION IS NOT PRE-EMPTED: whatever this act finds is a fact about (A), ### NOT
+   a claim that (A) is what term 3 needs.
+ · ### THE F phi = xi FENCE STANDS.
+ · ### FLOAT/BENCH DECLARED THROUGHOUT; every number carries its axes.
+ · NOTICED IS NOT EARNED.
+
+THE FENCES: N-EXT-2 absolute; (I-differ) at grade; h2 STATED NOT PROVED; nothing promoted;
+nothing deposits; HELD (6eada6a) LOCAL-ONLY; TECHNE-Core untouched; no sorry.
+
+DEVIATION RULE STANDING.
+BANK: data/b205_sign_at_our_parameter.txt.
+====================================================================================================
