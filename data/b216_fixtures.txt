@@ -1,0 +1,48 @@
+b216 -- INDEX COVERAGE FIXTURES. BOTH POLARITIES, RUN BEFORE SERVICE.
+### A REPAIR TESTED ONLY ON WHAT IT ADDS IS UNTESTED: the must-not-hit set is the half
+### that keeps a repair from becoming a false-hit machine, and b181 minted that rule.
+
+--- MUST HIT ---
+  alpha                      HIT
+  beta                       HIT
+  psi                        HIT
+  wronskian                  HIT
+  alternation                HIT
+  the wronskian identity     HIT
+  the ladder                 HIT
+  the orientation bits       HIT
+  the odd family             HIT
+  parity                     HIT
+  the parked note            HIT
+  the naming ruling          HIT
+  transform convention       HIT
+  the eigenfunction scalar   HIT
+  class richness             HIT
+  file d                     HIT
+  quotient trace             HIT
+  term 2                     HIT
+  weil ledger                HIT
+  the sonin sector           HIT
+  sonin space                HIT
+  sonin eigenfunctions       HIT
+  prolate operator           HIT
+  archimedean sector         HIT
+  e1-even-bridge             HIT
+  the identity               HIT
+  archimedean positivity     HIT
+
+--- MUST NOT HIT (the ambiguous bare words, and the genuinely absent) ---
+  prolate                    NO KEY
+  positivity                 NO KEY
+  sign                       NO KEY
+  the sign                   NO KEY
+  convention                 NO KEY
+  the trace                  NO KEY
+  term 4                     NO KEY
+  the fifth sector           NO KEY
+  riemann hypothesis proof   NO KEY
+  nonexistent object xyzzy   NO KEY
+
+### MUST-HIT     : 27 of 27   failures: none
+### MUST-NOT-HIT : 10 of 10   failures: none
+### VERDICT      : PASS -- both polarities

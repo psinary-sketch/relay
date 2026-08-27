@@ -134,6 +134,47 @@ KEYS = {
                  'proportion not the whole'],
     'de-branges-refutation': ['de branges', 'hb-positivity', 'conrey-li',
                               'de branges positivity'],
+    # ### THE PROLATE-ARC LANE, ADDED b216. ### ITS ABSENCE HAD A MEASURED COST AND THE
+    # ### COST WAS RECORDED SIX TIMES: b210, b211, b212, b213, b214 and b215 each queried
+    # ### the objects their own act was about and each got misses. ### b211's five
+    # ### (alpha, beta, psi, wronskian, alternation) are the list this act was sent to close.
+    'alpha': ['alpha', 'the connection coefficient', 'connection coefficient',
+              'alpha(mu)', 'psi(lambda)'],
+    'beta': ['beta', 'the spectral determinant', 'spectral determinant',
+             'the connection coefficient beta', 'f(tau,mu)'],
+    'psi': ['psi', 'the asymptotic solution', 'psi_mu', 'the sine solution',
+            'the cosine solution'],
+    'wronskian-identity': ['wronskian', 'the wronskian identity', 'wronskian identity',
+                           'the wronskian gate', 'alpha beta prime'],
+    'alternation': ['alternation', 'the alternation', 'sign alternation',
+                    'alternates'],
+    'the-ladder': ['the ladder', 'rank ladder', 'the rank ladder', 'i^k ladder',
+                   'the orientation bits', 'orientation bits', 'epsilon and orientation'],
+    'odd-family': ['odd family', 'the odd family', 'odd eigenfunctions', 'parity',
+                   'the parity families'],
+    'transform-convention': ['transform convention', 'the transform convention',
+                             'fourier convention', 'the exponent sign'],
+    'eigenfunction-scale': ['eigenfunction scale', 'the eigenfunction scalar',
+                            'eigenfunction scalar', 'xi normalization'],
+    # ### THE TERM-2 LANE, ADDED b216. ### b215's four misses were EVERY OBJECT THAT ACT
+    # ### WAS ABOUT, and 'class richness' had missed in every query since b188.
+    'class-richness': ['class richness', 'the class-richness lemma', 'classrichness',
+                       'class-richness'],
+    'file-d': ['file d', 'the quotient trace file', 'the missing file'],
+    'quotient-trace': ['quotient trace', 'term 2', 'the quotient channel', 'tau_q'],
+    'weil-ledger': ['weil ledger', 'the atlas columns', 'w_infinity', 'the ledger'],
+    # ### THE FILING LANE, ADDED b216 -- two objects that are NOT results and whose rows
+    # ### say so on their face.
+    'parked-note': ['the parked note', 'parked note', 'the external note',
+                    'note to rrt', 'the rrt note'],
+    'naming-ruling': ['the naming ruling', 'naming ruling', "term 3's archimedean factor",
+                      'term 3 archimedean factor'],
+    # ### AND THE ALIASES DELIBERATELY **NOT** ADDED, EXTENDING b181's PRECEDENT:
+    # ### the bare 'prolate' (ambiguous across three keys -- b181's own reason, unchanged);
+    # ### the bare 'sign' (ambiguous across alpha, alternation, the-ladder and b205's
+    # ### discrepancy); the bare 'the identity' is already taken by row 24 and is NOT
+    # ### reused for the Wronskian identity. ### A NEAREST STRING IS HOW A MISS BECOMES A
+    # ### FALSE HIT, AND THAT SENTENCE IS OLDER THAN THIS ACT.
 }
 
 INDEX = [
@@ -281,6 +322,134 @@ INDEX = [
      '### EXTERNAL CITATION (Conrey-Li 2000), TWO INTERNAL OWNERS, ### NO BIBLIOGRAPHY '
      'KEY -- unresolved in the b175 backlog. ### AN UNVERIFIED CITATION IS NOT A FALSE ONE',
      'data/b181_gate_sweep.txt'),
+    # ### THE PROLATE-ARC LANE'S ROWS (b216). ### EVERY GRADE IS THE ONE ITS OWN ACT
+    # ### RECORDED. ### NO ROW HERE PROMOTES ANYTHING.
+    ('alpha', 'b205 / b210 / b212 / b214',
+     'the connection coefficient: at an eigenvalue psi = alpha * y_I, so alpha = '
+     'psi(x0)/y_I(x0); |alpha| = pi*Lambda at every eigenvalue in BOTH parity families',
+     'BENCH for the magnitude (b210 even, b212 odd, measured 1.0 to twelve figures). '
+     '### THE ABSOLUTE SIGN AT mu_-2 WAS b205 DISCREPANCY AND IS **DECIDED AT b214** by '
+     'F phi / phi = +1, ### CONVENTION-FREE. ### b212 note: |alpha_odd| = pi*Lambda was the '
+     "FERRY's prediction and the executor registered dissent and WAS WRONG",
+     'data/b205_sign_at_our_parameter.txt; data/b210_wronskian_gate.txt; '
+     'data/b212_odd_family.txt; data/b214_orientation_bits.txt'),
+    ('beta', 'b205 (instrument) / b211 / b212',
+     'beta = (x^2-1) W(psi, y_I), CONSTANT in x, its zeros the eigenvalues; at x0 = sqrt2 '
+     'the weight is 1 so beta IS the paper F there',
+     'IMPORT for the definition -- RRT sec 4.2.2 (C. R. Math. 363 (2025), DOI '
+     '10.5802/crmath.780), read at source. ### THE SIMPLICITY OF ITS ZEROS **DERIVES** at '
+     'b211 (even) and b212 (odd) on premises (i) and (ii) -- ### AND THAT IS THE PAPER OWN '
+     'OPEN CONJECTURE (sec 4.2.2: "We conjecture that the zeros of F are simple")',
+     'tools/e16/b205_prolate.py; data/b211_alternation_derived.txt; data/b212_odd_family.txt'),
+    ('psi', 'b205 (instrument) / b212',
+     'the solution fixed by its behaviour at infinity: EVEN ~ -sin(tau x)/x, '
+     'ODD ~ -cos(tau x)/x, leading coefficient mu-INDEPENDENT (V_0 = 1)',
+     'IMPORT for the even D_tau form -- RRT sec 4.2.2, quoted. ### THE ODD D_tau FORM IS AN '
+     '**EXECUTOR INFERENCE** from a variant the paper DELEGATES ("It is only a change of '
+     'notations. We leave it to the reader"), ### NOT A QUOTATION -- b212 graded it as one '
+     'and G-REPRO-ODD tested it rather than trusting it',
+     'tools/e16/b205_prolate.py; tools/e16/b212_odd.py; data/b212_odd_family.txt'),
+    ('wronskian-identity', 'b211 (even) / b212 (odd)',
+     'alpha(mu_k) * beta_prime(mu_k) = INTEGRAL_1^inf psi^2 dx, with c_0 = +1 in BOTH '
+     'parity families; the right side is an integral of a square and is strictly positive',
+     'DERIVED AT CONTENT in seven steps, ON NAMED IMPORTS (I1-I11 at b211; re-earned on the '
+     'cosine solution at b212). ### NOT A PROOF FROM NOTHING. ### Measured first at BENCH '
+     'grade at b210 (residuals to 1e-16) and DERIVED afterwards',
+     'data/b210_wronskian_gate.txt; data/b211_alternation_derived.txt; '
+     'data/b212_odd_family.txt'),
+    ('alternation', 'b207 (bench) / b211 / b212 (derived)',
+     'sign(alpha_k) alternates at consecutive eigenvalues within each parity family',
+     'BENCH at b207 (six eigenvalues, tau = 2 pi). ### **DERIVES** at b211 on premise (ii) '
+     '(beta entire of order <= 1/2) plus the derived simplicity; re-earned for the odd '
+     'family at b212. ### Core shadows: AlternationShadow (row 83), SignTransferShadow '
+     '(row 84)',
+     'data/b207_alternation.txt; data/b211_alternation_derived.txt; data/b212_odd_family.txt'),
+    ('the-ladder', 'b212 (form) / b214 (bits)',
+     'by merged rank the Fourier eigenvalue runs c_k = -(-i)^k, i.e. epsilon = -1 with '
+     'orientation i^{-k}, under the b19 transform convention',
+     'BENCH. ### THE FORM was fixed at b212 UP TO TWO BITS and the shadow proved they are '
+     'underdetermined by alternation alone (row 85, alt2_does_not_imply_stepsI). ### THE '
+     'BITS were MEASURED at b214 from F phi / phi directly. ### epsilon IS CONVENTION-FREE; '
+     'THE ORIENTATION FLIPS under the conjugate convention. ### A grade above bench wants an '
+     'ANALYTIC evaluation of F phi at one point',
+     'data/b212_odd_family.txt; data/b214_orientation_bits.txt; '
+     'Core/LadderOrientationShadow.lean (rows 85, 86)'),
+    ('odd-family', 'b212',
+     'the cos-asymptotic family; c^2 = -1 from F^2 = parity on odds gives c = +-i, both '
+     'values occur, so E_i(S(1,1)) and E_-i(S(1,1)) are NONZERO',
+     'DERIVES ON NAMED IMPORTS. ### c = +-i has NO MISSING STEP because RRT Lemma 2 carries '
+     'NO PARITY RESTRICTION while Prop 7 says "even" -- ### the paper restricts where it '
+     'means to. ### Under the author ruling this is a fact about term 3 archimedean unit',
+     'data/b212_odd_family.txt; PLACE-papers phase2/method/THE_IDENTITY_CHAIN.md s23'),
+    ('transform-convention', 'b203 (named) / b214 (pinned)',
+     "b19 centered DFT F[j,k] = exp(2*pi*i*m_j*m_k/N)/sqrt(N), positive exponent, self-dual "
+     'scaling; continuum limit (F f)(y) = INT f(x) e^{+2 pi i x y} dx',
+     'ADOPTED, NOT DERIVED. ### THE KEYSTONE "F^2 = parity, F^4 = 1" DOES NOT PICK THE SIGN '
+     '-- both exponents satisfy it. ### b203: the two conventions AGREE ON EVENS and '
+     'CONJUGATE ON ODDS, so the even bit is convention-free and the odd bit travels with its '
+     'convention. ### The record contains both signs (b19 positive; b71 chi_inf conjugate)',
+     'data/b19_2026-08-18.txt; data/b203_transform_convention.txt; '
+     'data/b214_orientation_bits.txt'),
+    ('eigenfunction-scale', 'b202',
+     "xi_mu two normalizations in CM differing by -1/pi -- the third of the three distinct "
+     'things the corpus had been calling "normalization"',
+     'THE OWNER IS b202 AND THE AMBIGUITY IS THE SOURCE OWN, resolved by its own cited '
+     'authors. ### DISTINCT from G1 operator/index normalization and from the transform '
+     'convention; b203 separated the three and named this one',
+     'data/b202_sum_test.txt; data/b203_transform_convention.txt'),
+    # ### THE TERM-2 LANE'S ROWS (b216).
+    ('quotient-trace', 'act 9 (longhand) / b197 / b215',
+     'tau_q * p^(k/2) = (p^n - p^k)/(p^n - 1); the quotient channel CONVERGES TO WEIL '
+     'COEFFICIENTS AT THE LEVEL LIMIT; per place, per level',
+     'LONGHAND **PROVED** (act 9), every banked integer re-derived; volume normalization '
+     'FORCED (act 7); a vanilla Core shadow HELD at Core/QuotientLemmaShadow.lean, zero '
+     'axioms. ### THE FORMALIZATION IS ABSENT AND THE DEBT IS "WRITE IT AT ALL" (b189). '
+     '### AND **THE AGGREGATION IS UNSTATED**: no statement assembles the per-place values '
+     'into the single real Q.value at a cell (b197, re-confirmed b215)',
+     'data/b197_values_and_c0.txt; data/b215_term2_statement_before_file.txt'),
+    ('file-d', 'b189 / b215',
+     'the file File E names as term 2 owner. ### IT DOES NOT EXIST, and it cannot be '
+     'written because the statement it would carry cannot be written',
+     'ABSENT. ### "THERE IS NO FILE D. THERE ARE ALSO NO FILES A, B OR C" (b189). '
+     '### b215 HALTED at the statement gate: the missing sentence is THE AGGREGATION, and it '
+     'WANTS A RULING OR A RESULT, NOT A READ. ### b215 also found a SECOND, independent '
+     'blocker: the Interfaces layer cannot be compiled in this environment (no built Mathlib; '
+     'v4.30.0-rc1 against the repo v4.29.1)',
+     'data/b189_roster_and_scope.txt; data/b215_term2_statement_before_file.txt'),
+    ('class-richness', 'file E (at cite) / M16 / b215',
+     "term 2 named premise, carried AT CITE by File E owner line",
+     '### ITS CITATION EXACT STATEMENT IS **UNREAD** -- M16, quoted: "the class-richness '
+     'lemma at cite, OWNER UNREAD". ### b215 SPLIT THE ITEM INTO TWO PARTS: (a) read the '
+     'citation, (b) discharge the lemma -- ### YOU CANNOT DISCHARGE WHAT YOU HAVE NOT READ. '
+     '### It is a HYPOTHESIS carrying its name, never to be discharged by trivial',
+     'SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean; '
+     'data/b215_term2_statement_before_file.txt'),
+    ('weil-ledger', 'File E / the act-12 dictionary',
+     'W_infinity and the prime sum at the cell -- the atlas certified columns in the CC sign '
+     'convention',
+     'AS FILE E RECORDS IT: a DATA PARAMETER, stated and not proved. ### File E own header: '
+     '"THIS FILE STATES; IT DOES NOT PROVE"',
+     'SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean'),
+    # ### THE FILING LANE ROWS (b216) -- ### NEITHER OF THESE IS A RESULT, AND BOTH ROWS SAY SO.
+    ('parked-note', 'b213',
+     'the draft note to the source authors: filled from its named banks, placed private at '
+     'PLACE-papers phase2/notes/, class line TIER N / DRAFT / NOT CIRCULATED',
+     '### A FILING, NOT A RESULT. ### PARKED-BY-RULING and NOT discharged-by-posture -- the '
+     'item asked for a posture ruling and the answer is that NO POSTURE IS RULED. '
+     '### NOTHING SENT, NO CONTACT ATTEMPTED. ### Trigger: reopen only on the author explicit '
+     'ask',
+     'data/b213_note_filled_and_parked.txt; '
+     'PLACE-papers phase2/notes/DRAFT_note_to_RRT_2026-08-27.md'),
+    ('naming-ruling', 'the author, 2026-08-27 (filed b212)',
+     "term 3 archimedean factor is the archimedean Sonin space S(1,1); its E_1 is THE SONIN "
+     'SECTOR; the CONSTRAINT and COMPRESSION sectors are bench objects that do not enter the '
+     'identity; b159 constrained-class statements remain as filed and do not govern S(1,1)',
+     '### PROVENANCE: THE CONVERSATION LAYER. ### NOT A DERIVATION. ### NOT CITABLE AS '
+     'EVIDENCE ABOUT THE SECTOR. ### STRIKEABLE. ### It settles a NAME, not a fact -- that '
+     'the Sonin sector is nonzero is b211 derivation, and the ruling ATTACHES that result to '
+     'term 3 without supplying evidence for it',
+     'data/b212_odd_family.txt; PLACE-papers phase2/method/THE_IDENTITY_CHAIN.md s13; '
+     'PLACE-papers phase2/method/THE_CODOMAIN_SPECIFICATION.md s1'),
 ]
 
 
