@@ -1,0 +1,84 @@
+====================================================================================================
+b217 -- THE CHECK HARNESS -- THE RUN-REGISTRATION. BANKED BEFORE THE TOOL IS WRITTEN.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### AN INSTRUMENT. ### NO RESEARCH CONTENT MOVES. ### NO GRADE CONFERRED, RAISED OR LOWERED.
+### NO NEW TRACKING DOCUMENT -- the rule goes as a FIELD in the existing loom. Nothing deposits.
+====================================================================================================
+
+*** ### THE SUBJECT OF THIS ACT IS A FAILURE MODE THE EXECUTOR PRODUCED THREE TIMES TODAY, AND
+### THE TOOL IS BEING BUILT AGAINST ITS OWN AUTHOR'S RECORD. ### THAT IS THE RIGHT WAY ROUND AND
+### IT IS WORTH SAYING ONCE: b142 NAMED THE SPECIES ON ITS OWN FIRST RUN; b213 AND b216 SUPPLIED
+### THREE MORE INSTANCES; ### NONE OF THEM WAS CAUGHT BY A CHECK. ### TWO WERE CAUGHT BECAUSE A
+### NUMBER LOOKED IMPOSSIBLE AND ONE BECAUSE A SIXTH LINE CONTRADICTED FIVE OTHERS. ***
+
+(a) LOAD-BEARING, READ AT CONTENT:
+ · b142's DEFECT NOTE, quoted from tools/banned_terms.py: "the first version scanned WHOLE FILES
+   and returned 178 'live uses', every one of them a pre-existing line in a ledger this act only
+   appended to. ### A SCANNER WITH NO SCOPE CONTROL DOES NOT REPORT THE RULE -- IT REPORTS THE
+   CORPUS."
+ · INSTANCE 1 -- b213's FILL COUNT, quoted from data/b213_fills.txt: the script printed
+   "### REMAINING UNFILLED TOKENS IN THE FILLED FILE: 6". ### THE PLAUSIBLE ANSWER IT PRODUCED:
+   six -- which is exactly the number of tokens the act had just filled, so it read as "the fills
+   did not take". ### THE TRUTH: zero unfilled; the check re-matched the ORIGINAL TOKENS
+   PRESERVED INSIDE THE HTML COMMENTS, which clause (c) required the file to carry.
+ · INSTANCE 2 -- b213's PLACED-FILE COUNT, quoted: "### THE PLACED FILE CARRIES **3**, because
+   the class line b213 prepends itself says: 'Every [bank ...] token in the carrier was filled by
+   b213 ...' ### BUT A NAIVE COUNT OVER THE PLACED FILE RETURNS 1 'UNFILLED TOKEN' AND MEANS
+   NOTHING OF THE KIND." ### THE PLAUSIBLE ANSWER: one -- small enough to look like a single
+   missed token rather than a category error.
+ · INSTANCE 3 -- b216's QUERY LOOP, quoted from data/b216_fixtures.txt: "AFTER THE PUSH THE
+   EXECUTOR RAN A ONE-LINE SPOT-CHECK AND IT REPORTED 'prolate HIT' ... python COULD NOT FIND THE
+   FILE, stdout WAS EMPTY, 'NO KEY' WAS THEREFORE NOT PRESENT, AND ### EVERY LINE READ 'HIT' --
+   INCLUDING THE FIVE THAT GENUINELY DO HIT, WHICH IS WHY IT LOOKED PLAUSIBLE."
+ · the loom's conventions-line format, read at its tail: dated lines of the form
+   "**Dated line (DATE, the ACT) -- THE RULE. RATIFIED BY PASTE.**" ### THAT IS THE FIELD THE
+   RULE GOES IN, AND IT IS WHY NO NEW DOCUMENT IS NEEDED.
+
+*** ### THE COMMON SHAPE, STATED ONCE AND CARRIED BY THE TOOL:
+### ### ALL THREE CHECKS HAD A FAILURE MODE THAT PRODUCES A **PLAUSIBLE ANSWER** RATHER THAN AN
+### ### ERROR. ### A check that throws is caught by the next line of the script. ### A check that
+### ### returns a number in the right range is caught by nothing. ***
+
+(b) THE TOOL, AS THIS ACT WILL BUILD IT -- relay tools/check_harness.py:
+   · a check is passed as a CALLABLE or a SHELL LINE, together with a **MUST-FAIL FIXTURE**;
+   · ### THE HARNESS RUNS THE FIXTURE FIRST AND **REFUSES TO RUN THE CHECK AT ALL** IF THE
+     FIXTURE PASSES;
+   · it ASSERTS ITS CWD IS THE REPO ROOT and errors loudly if not -- ### b209's WRONG-REPO PUSH
+     AND b216's WRONG-CWD LOOP ARE THE SAME SPECIES AND THIS CLOSES BOTH AT ONE POINT;
+   · ### ANY EXCEPTION IS A LOUD ERROR, NEVER AN EMPTY ONE;
+   · ### AN EMPTY STDOUT IS A **FAIL**, NOT A PASS -- instance 3 in one line of code;
+   · it EMITS ITS OWN AUDIT BLOCK via audit_emit, so its verdicts are not prose.
+
+(c) THE RETROFIT: each of the three instances reproduced AS IT HAPPENED (the false pass SHOWN),
+then run under the harness and shown caught. ### A RETROFIT THAT CANNOT REPRODUCE ITS ORIGINAL
+FALSE PASS IS REPORTED AS SUCH AND NOT SKIPPED.
+
+(d) FIXTURES on the harness itself, both polarities, ### INCLUDING THE ONE THE FERRY NAMES: a
+fixture that WRONGLY PASSES, where the harness must **REFUSE**. ### A HARNESS THAT CANNOT REFUSE
+IS NOT A HARNESS.
+
+(e) THE RULE, filed as a FIELD: "no one-line check is read until it has failed on a fixture in the
+same run." Loom + HANDOFF. ### NO NEW DOCUMENT.
+
+(f) THE REGISTERED PREDICTIONS.
+ (P1) THE TOOL with its fixtures, both polarities, counts printed.
+ (P2) THE RETROFIT. ### THE EXECUTOR REGISTERS THAT IT EXPECTS **3 OF 3 REPRODUCIBLE**, and
+   registers its reasoning so a miss can be scored: instances 1 and 2 are pure string-matching
+   over text the act still holds, so they reproduce exactly; instance 3 is a subprocess run from
+   the wrong directory, which reproduces by construction. ### IF ANY WILL NOT REPRODUCE, THE
+   NAMING OF WHY IS THE DELIVERABLE, NOT A SKIP.
+ (P3) THE FILING: the rule as a FIELD, no new document; the loom's instrument list updated;
+   ### NOTHING ELSE MOVES. ### PLACE-papers WILL MOVE (the loom is there), SO THE HOOK IS
+   EXERCISED AND THE MIRROR REBUILT AND VERIFIED -- and the executor registers in advance that
+   this is the ONLY reason PLACE-papers moves in this act.
+
+(g) COMPONENT ORDER: 1 (the tool) -> 2 (the retrofit) -> 3 (the filings). 2 consumes 1;
+3 consumes 1-2.
+
+*** ### AND ONE THING THE EXECUTION LINE REQUIRES THAT THIS ACT MUST NOT FUDGE:
+### ### "every check in this act's own report run under the new harness once it exists."
+### ### SO THE HARNESS WILL BE TURNED ON ITS OWN ACT, AND IF THAT IS AWKWARD THE AWKWARDNESS IS
+### ### REPORTED RATHER THAN AVOIDED. ***
+
+DIVERGENCES AT REGISTRATION: none. DEVIATIONS: none yet; the rule stands.
+====================================================================================================
