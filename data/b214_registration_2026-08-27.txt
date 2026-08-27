@@ -1,0 +1,128 @@
+====================================================================================================
+b214 -- THE ORIENTATION BITS -- THE RUN-REGISTRATION. BANKED BEFORE ANY TRANSFORM IS COMPUTED.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### A COMPUTATION AT BENCH GRADE. ### THE OBJECT IS THE ARCHIMEDEAN SONIN SPACE S(1,1) AT THE
+### CORPUS'S OWN PARAMETER tau = 2 pi. ### THE QUANTITY IS F phi / phi ITSELF, NOT alpha --
+### THIS IS THE ONE ACT IN THE ARC THAT TOUCHES THE TRANSFORM DIRECTLY.
+The stop-loss governs. Nothing deposits. Nothing about the h2 identity beyond the register
+sentence exact.
+====================================================================================================
+
+*** ### (a) THE TRANSFORM CONVENTION, PINNED HERE, ADOPTED FOR THIS ACT, AND STATED ONCE.
+
+### THE KEYSTONE DOES NOT FIX THE SIGN. Read at source, THE_GLOBAL_SECTION.md: "the global
+### transform is F = (x)F_v with ### F^2 = parity, F^4 = 1". ### BOTH EXPONENT SIGNS SATISFY
+### THAT LAW -- with kernel e^{+2 pi i x y} and with e^{-2 pi i x y} alike, F^2 f (x) = f(-x).
+### ### SO THE KEYSTONE'S LINE CONSTRAINS F AND DOES NOT PICK THE CONVENTION, and saying so is
+### part of pinning it.
+
+### THE OWNER IS b19, AND IT IS EXPLICIT. Quoted from data/b19_2026-08-18.txt: "the centered
+### DFT ### F[j,k] = exp(2*pi*i*m_j*m_k/N)/sqrt(N), which represents the Fourier transform of"
+### -- with "self-dual spacing h = sqrt(2*pi/N), x_m = m*h".
+### ### THE EXPONENT IS **POSITIVE** AND THE SCALING IS **1/sqrt(N)**, i.e. the self-dual
+### (unitary) normalization.
+
+### ### THE CONVENTION ADOPTED FOR THIS ACT, STATED ONCE AND USED EVERYWHERE BELOW:
+### ###        (F f)(y)  =  INTEGRAL_{-infinity}^{+infinity} f(x) e^{+2 pi i x y} dx
+### ### the continuum limit of b19's centered DFT, positive exponent, self-dual scaling.
+
+### AND b203's FINDING, CARRIED AND REGISTERED BEFORE THE RUN: the two exponent conventions
+### AGREE ON EVENS and are CONJUGATE ON ODDS. ### THEREFORE:
+###   THE EVEN BIT epsilon IS **CONVENTION-FREE** and is a fact about the object.
+###   THE ODD BIT **FLIPS** under the conjugate convention and is a fact about the object
+###   ### TOGETHER WITH THE CONVENTION IT IS READ UNDER, and it will be stated that way --
+###   ### with BOTH values printed, so the author is not locked into b19's sign by this act.
+### ### AND THE RECORD ITSELF CONTAINS BOTH SIGNS: b19's instrument uses e^{+2 pi i(...)},
+### while b71 records the archimedean character as FORCED CONJUGATE, chi_inf(x) = e^{-2 pi i x}.
+### ### THAT IS EXACTLY WHY THE ODD BIT MUST TRAVEL WITH ITS CONVENTION. ***
+
+(b) LOAD-BEARING, READ AT CONTENT BEFORE THIS REGISTRATION:
+ · the keystone's F line and b19's kernel, above.
+ · b203's convention finding and its three-normalizations census.
+ · b212's rank pattern - + + - at three parameters, and Core/LadderOrientationShadow.lean's
+   statement that the two bits are UNDERDETERMINED by alternation alone (row 85,
+   alt2_does_not_imply_stepsI, ladder_up_to_orientation).
+ · CM Corollary 3.2: phi_mu is in the Sonin space, so phi vanishes on |x| < 1 and F phi must
+   too -- ### THE OBJECT SUPPLIES ITS OWN CONTROL, and G-SONIN is that control.
+ · the banked instruments: tools/e16/b205_prolate.py (y_I, both parities via b212_odd.py).
+
+(c) THE OBJECT, AS THIS ACT COMPUTES IT. At tau = 2 pi, Lambda = 1, NO RESCALING:
+   phi(x) = y_I(x; mu) for x >= 1, 0 for |x| < 1, extended EVEN or ODD.
+   Under the adopted convention, for real y_I:
+     EVEN: (F phi)(y) = 2 * INTEGRAL_1^infinity y_I(x) cos(2 pi x y) dx           -- REAL
+     ODD : (F phi)(y) = 2i * INTEGRAL_1^infinity y_I(x) sin(2 pi x y) dx          -- IMAGINARY
+   ### SO THE EVEN RATIO IS REAL AND THE ODD RATIO IS PURELY IMAGINARY BEFORE ANY NUMBER IS
+   ### READ, WHICH IS ITSELF A CHECK: an odd ratio with a real part is a defect, not a sign.
+   The split is INTEGRAL_1^X by quadrature + INTEGRAL_X^infinity ANALYTICALLY from the
+   asymptotic form, its truncation error bounded and quoted.
+
+(d) THE GATES, EACH A HALT, WITH THRESHOLDS REGISTERED BEFORE THE NUMBERS ARE SEEN -- and the
+b212 lesson applied: ### A THRESHOLD REGISTERED BEFORE THE OBJECT'S CONVERGENCE RATE IS KNOWN IS
+A GUESS WEARING A GATE'S CLOTHES, ### so each threshold below is stated WITH the rate it assumes,
+and if the rate is wrong the threshold is reported mis-registered rather than moved.
+ G-SONIN  -- F phi(y) vanishes on 0 <= y < 1. ### REPORTED FIRST, as (P1) requires.
+             Threshold: |F phi(y)| < 1e-12 relative to max_{y in [1,X]} |F phi(y)|, at the
+             finest axes. ### ASSUMES the quadrature and tail errors are the only floor.
+ G-RATIO  -- F phi(y)/phi(y) constant across y in (1, X] with |ratio| = 1, both parities.
+             Threshold: spread of the ratio across the sampled y below 1e-8 relative, and
+             ||ratio| - 1| < 1e-8. ### SAMPLED AT GENERIC y ONLY: away from y = 1 (where the
+             difference frequency vanishes) and away from the ZEROS OF y_I -- ### b205's lesson,
+             which this act inherits and does not have to relearn.
+ G-STAB   -- the ratio stable under varied quadrature axes per the floor-axis law.
+ ### A RATIO THAT IS NOT CONSTANT, NOT UNIMODULAR, OR NOT STABLE IS A HALT AND NOT A SIGN.
+
+(e) THE INDEX, QUERIED FOR EVERY OBJECT NAMED: data/audit_b214_index_query.txt.
+    ### 8 OF 16 HIT. The eight misses now include "transform convention" and "eigenfunction
+    ### scale" -- ### TWO NAMES b203 MINTED EXPLICITLY AND WHICH THE INDEX STILL CANNOT REACH.
+    ### FIFTH CONSECUTIVE ACT TO NAME THIS QUEUE.
+
+(f) THE REGISTERED PREDICTIONS.
+
+ (P1) THE GATES per family with residuals, G-SONIN first.
+
+ (P2) THE BITS. ### THE EXECUTOR'S HONEST EXPECTATION, WITH ITS TRANSFER NAMED:
+   ### EVEN BIT: **c(rank 2) = +1**, EXPECTED. ### THE GROUND, and it is an IMPORT CHAIN this
+   act is being asked to TEST rather than use: CM Lemma 3.1 identifies F phi_mu with xi_mu;
+   RRT Prop 6(ii) normalizes xi ~ -sin(2 pi Lambda x)/(pi x) while the instrument's psi ~
+   -sin(tau x)/x, so at Lambda = 1 xi = psi/pi; and at an eigenvalue psi = alpha y_I, whence
+   ### F phi = (alpha/pi) y_I, i.e. **c = alpha/pi**. b210 measured alpha = +pi at
+   mu = -20.4806 (rank 2), giving c = +1.
+   ### ### SO THE EVEN BIT IS PREDICTED **FROM THE CHAIN**, AND THE POINT OF THIS ACT IS THAT
+   ### ### THE NUMBER COMES FROM F phi / phi INSTEAD. ### IF THEY DISAGREE, THE CHAIN IS WRONG
+   ### ### SOMEWHERE AND THAT IS THE FINDING, NOT AN ERROR TO BE TIDIED.
+   ### ODD BIT: **NOT PREDICTED.** ### THE EXECUTOR DOES NOT KNOW IT AND REGISTERS THAT IT DOES
+   ### NOT. Prop 7 has no odd analogue (b212, (b-2)), F of a real odd function is imaginary
+   while the paper's odd xi is written real, so the chain that fixes the even bit DOES NOT
+   REACH THE ODD ONE. ### IT WILL BE MEASURED AND STATED WITH ITS CONVENTION, AND ITS
+   ### CONJUGATE PRINTED BESIDE IT.
+
+ (P3) THE VERDICT. Branch (FIXED) with epsilon and the orientation stated, ### GRADE BENCH; what
+   a grade above bench wants NAMED. Branch (UNSETTLED) with the gate that fired.
+   ### AND THE SHADOW CONSTRAINT, REGISTERED SO IT CANNOT BE FORGOTTEN AT THE FILING:
+   ### THE SHADOW IS UPDATED **ONLY BY ADDING THE FIXED ASSIGNMENT AS AN INSTANCE**, ### NEVER
+   ### BY WEAKENING ITS UNDERDETERMINATION STATEMENT. ### alt2_does_not_imply_stepsI IS A
+   ### THEOREM AND A MEASUREMENT CANNOT REPEAL IT. What the measurement supplies is the extra
+   ### hypothesis the theorem says is needed, and the file will say exactly that.
+
+ (P4) THE SAME INSTRUMENT AT tau = 4 pi, mu_-2 ONLY, ### REPORTED BESIDE b205 AND NOT FOLDED
+   INTO IT. ### THE EXECUTOR'S EXPECTATION: the instrument's alpha sign will be the one
+   satisfying F phi = c phi under the stated convention -- because the instrument's alpha and
+   its psi solve the same ODE under one normalization, and b205 already found the paper's
+   printed |alpha| at that row off in the tenth digit while ours matches pi*sqrt2 to 16.
+   ### AND THE EXECUTOR REGISTERS THE OTHER OUTCOME AS LIVE: if F phi / phi returns the
+   ### PAPER'S sign, then this corpus's alpha convention differs from the transform's and
+   ### ### THAT WOULD BE THE MOST IMPORTANT NUMBER IN THE ARC. Either way at full prominence.
+   ### RRT's AUTHORS ARE NOT CONTACTED. b213's ruling stands: parked.
+
+ (P5) THE SHADOW: if finite-decidable, Core at the zero-axiom bar, correspondence row by the
+   committed tool FROM A SCRIPT FILE, polarity controls first, ### AXIOM PROFILE PRINTED AND
+   READ; else nothing built to have built.
+
+(g) COMPONENT ORDER: 1 (the gates) -> 2 (the bits and the read) -> 3 (the verdict, the mu_-2
+check, the shadow, the filings). 2 consumes 1; 3 consumes 2.
+
+DIVERGENCES AT REGISTRATION: none. DEVIATIONS: none yet; the rule stands.
+### AND ONE PROCEDURAL NOTE: a second ferry (b215, TERM 2) ARRIVED WHILE THIS ACT WAS IN FLIGHT.
+### IT IS QUEUED AND NOT STARTED. ### THIS ACT'S OWN FOOT SEQUENCES THEM -- "term 2's
+### formalization is next" -- so arrival order and the author's stated order agree.
+====================================================================================================
