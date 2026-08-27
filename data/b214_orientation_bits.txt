@@ -1,0 +1,180 @@
+====================================================================================================
+b214 BANK -- THE ORIENTATION BITS. Registration 672c9b3, banked before any transform.
+2026-08-27. Ferry part 1 of 1, receipt confirmed IN FULL.
+Raw run: data/b214_raw_run.txt. Index queries: data/audit_b214_index_query.txt.
+====================================================================================================
+
+*** ### THE VERDICT: **BRANCH (FIXED).**
+### ### c_k = -(-i)^k, i.e. **epsilon = -1 WITH ORIENTATION i^{-k}**, under the stated
+### ### convention. ### GRADE BENCH.
+### ### AND b205's DISCREPANCY IS **DECIDED**: at mu_-2, tau = 4 pi, F phi / phi = **+1**,
+### ### so the INSTRUMENT'S alpha (POSITIVE) is the one satisfying F phi = c phi,
+### ### and the decision is **CONVENTION-FREE** because the even bit is. ***
+
+### THE TRANSFORM CONVENTION, ADOPTED AND STATED ONCE:
+###   (F f)(y) = INTEGRAL f(x) e^{+2 pi i x y} dx
+### the continuum limit of b19's centered DFT, "F[j,k] = exp(2*pi*i*m_j*m_k/N)/sqrt(N)",
+### positive exponent, self-dual scaling.
+### ### THE KEYSTONE DOES NOT PICK THE SIGN. "F^2 = parity, F^4 = 1" holds for BOTH exponent
+### signs, so the keystone constrains F without choosing the convention. ### THE SIGN IS
+### ADOPTED HERE, NOT DERIVED, and the record contains both (b19 positive; b71's chi_inf
+### conjugate).
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE GATES.
+----------------------------------------------------------------------------------------------------
+### G-SONIN, REPORTED FIRST AS THE FERRY REQUIRES. ### THIS IS THE OBJECT'S OWN CONTROL AND THE
+### STRONGEST AVAILABLE: phi is in the Sonin space (CM Cor 3.2), so F phi MUST vanish on
+### |y| < 1, ### AND NOTHING IN THE CONSTRUCTION FORCES IT TO. The quadrature, the tail and the
+### eigenvalue are all free to be wrong, and if any of them is, this number is not small.
+   tau = 2 pi, EVEN : |F phi| = 8.4e-15, 8.6e-15, 4.3e-15, 1.2e-14, 4.1e-15 at
+                      y = 0.00, 0.15, 0.37, 0.61, 0.83
+   tau = 2 pi, ODD  : |F phi| = 0.0 (exactly), 1.4e-15, 4.8e-15, 8.0e-15, 5.6e-15 at the same y
+   ### AGAINST A RATIO SCALE OF O(0.2). ### RELATIVE ~5e-14. ### **PASS** at the registered
+   ### 1e-12 relative threshold.
+ *** ### AND ONE SAMPLED POINT THAT IS **NOT** A PASS AND IS REPORTED AS SUCH: y = 0.97 returns
+ ### 2.0e-4 (even) and 1.7e-4 (odd). ### THAT POINT IS INSIDE THE NEIGHBOURHOOD OF y = 1 THAT
+ ### THE REGISTRATION ITSELF EXCLUDED -- "away from y = 1, where the difference frequency
+ ### vanishes" -- ### BECAUSE THE TAIL'S INTEGRATION-BY-PARTS EXPANSION IS IN POWERS OF
+ ### 1/(a X) AND a = tau(y-1) -> 0 THERE. ### THE EXECUTOR SAMPLED IT ANYWAY, IN ITS OWN
+ ### G-SONIN SET, HAVING WRITTEN THE EXCLUSION INTO ITS OWN REGISTRATION ONE HOUR EARLIER.
+ ### ### THE NUMBER IS PRINTED RATHER THAN DROPPED, AND IT IS THE EXECUTOR'S SAMPLING ERROR
+ ### ### AND NOT THE OBJECT'S. ***
+
+### G-RATIO at tau = 2 pi. ### |phi(y)| PRINTED AT EVERY POINT so the reader can see the
+### denominator is not near a zero -- b205's lesson, inherited rather than relearned.
+   EVEN (rank 2, mu = -20.48057322913694697, alpha = +3.141592653579):
+     ratio = 1.0 at every sampled y in {1.31, 1.73, 2.29, 2.87, 3.41, 4.13};
+     ### IMAGINARY PART ~1e-58, i.e. ZERO -- and the registration predicted the even ratio must
+     ### be REAL before any number was read, so its vanishing is a check and not a coincidence.
+     spread across y = 2.87e-12 ; ||ratio| - 1| max = 2.07e-12.
+   ODD (rank 1, mu = -7.007976205624198572, alpha = -3.1415926535789):
+     ratio = +1.0 * i at every sampled y; ### REAL PART ~1e-54, i.e. ZERO -- again predicted in
+     advance ("an odd ratio with a real part is a defect, not a sign").
+     spread = 1.42e-11 ; ||ratio| - 1| max = 7.68e-12.
+   ### **PASS** on both, at the registered 1e-8 thresholds, by four orders.
+
+### G-STAB: two axis settings (dps50 X40 nsteps400 order18 ncoef260 N30 M34 nsub40; and
+### dps55 X50 nsteps600 order20 ncoef300 N34 M38 nsub48). ### THE RATIOS AGREE TO ~3e-14 AND
+### THE BITS ARE IDENTICAL. **PASS.** The IBP truncation bound on the tail is 2.8e-93 and
+### 2.6e-99 respectively -- ### the tail is not the limiting error and its bound says so.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE BITS, AND (d) THE READ.
+----------------------------------------------------------------------------------------------------
+*** ### THE TWO BITS, MEASURED FROM F phi / phi AND NOT FROM alpha:
+### ###   rank 1 (the FIRST ODD)  : c = **+i**
+### ###   rank 2 (the FIRST EVEN) : c = **+1**
+### AND WITH EACH FAMILY'S ALTERNATION FROM b211 AND b212, THOSE TWO VALUES FIX EVERY RANK:
+### ###   c_k = -(-i)^k  =  epsilon * i^{-k}  with  **epsilon = -1**.
+### ### CHECKED AGAINST b212's MEASURED RANK PATTERN - + + - : the even ranks give
+### c = alpha/pi and rank 2 = +1, rank 4 = -1; the odd ranks give c = u_o * sign(alpha_odd)
+### with u_o = -i, and rank 3 = -i. ### THE WHOLE PATTERN RECONCILES. ***
+
+### THE EVEN BIT'S EXPECTATION LANDED, AND THE POINT IS **HOW** IT LANDED. The registration
+predicted c(rank 2) = +1 FROM THE IMPORT CHAIN -- CM Lemma 3.1 plus RRT Prop 6(ii) give
+xi = psi/pi at Lambda = 1, and psi = alpha y_I at an eigenvalue, whence c = alpha/pi = +1.
+### ### THIS ACT DID NOT USE THAT CHAIN. IT COMPUTED F phi / phi. ### THEY AGREE.
+### ### SO THE CHAIN IS CONFIRMED BY AN INDEPENDENT ROUTE RATHER THAN ASSUMED.
+
+### THE ODD BIT WAS **NOT PREDICTED**, AND THE REGISTRATION SAID SO PLAINLY. It is measured
+### **+i UNDER b19's CONVENTION**, and ### **-i UNDER THE CONJUGATE CONVENTION** (b203: the two
+### exponent conventions agree on evens and conjugate on odds). ### BOTH ARE PRINTED SO THE
+### AUTHOR IS NOT LOCKED INTO b19's SIGN BY THIS ACT.
+*** ### AND THE STRUCTURE THAT FALLS OUT IS CLEANER THAN EITHER BIT ALONE:
+### ### **epsilon = -1 IN BOTH CONVENTIONS. ONLY THE ORIENTATION FLIPS.**
+### Under b19's convention c_k = -i^{-k}; under the conjugate, c_k = -i^{+k}.
+### ### SO THE SIGN epsilon IS A FACT ABOUT THE OBJECT AND THE ORIENTATION IS A FACT ABOUT THE
+### ### OBJECT **TOGETHER WITH** THE CONVENTION -- which is exactly the split b203 predicted for
+### the even and odd bits, now visible in the ladder itself. ***
+
+### (d) THE READ -- RRT PROPOSITION 5. QUOTED WHOLE: "We have: V^{-,+}_n = n! (+-2 i pi)^{-n} U_n.
+### The coefficients of the power expansion at x = Lambda 'resurge' in the coefficients of the
+### power series expansions at x = infinity", with the basis "by^- = x^{-1} e^{-2 i pi Lambda x}
+### bv^-, by^+ = x^{-1} e^{2 i pi Lambda x} bv^+ ... with V^-_0 = 1, V^+_0 = 1".
+### ### IT DOES **NOT** DECIDE EITHER BIT, AND THE REASON IS STRUCTURAL RATHER THAN
+### ### CIRCUMSTANTIAL: ### PROPOSITION 5 IS A RELATION BETWEEN **FORMAL** SERIES COEFFICIENTS.
+### alpha and c are Borel-sum / Stokes data -- properties of the SUMMED solutions and of the
+### transform -- ### AND A RELATION AMONG FORMAL COEFFICIENTS CANNOT SUPPLY THEM. The phase
+### (+-2 i pi)^{-n} constrains the FORM of the resurgence and not the connection constant.
+### ### RECORDED AS NOT DECIDING IT, WHICH IS WHAT CLAUSE (d) ASKED FOR.
+### AND ONE CORROBORATION IT DOES GIVE, WORTH KEEPING: ### V^-_0 = V^+_0 = 1 AT SOURCE, which is
+### exactly the mu-independence b211's and b212's Step 4 leaned on.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE VERDICT, (P4) THE mu_-2 CHECK, (P5) THE SHADOW, AND THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### (P3) BRANCH **(FIXED)**. epsilon = -1, orientation i^{-k}, under the stated convention.
+### GRADE **BENCH**. ### WHAT A GRADE ABOVE BENCH WANTS, NAMED: an ANALYTIC evaluation of
+### F phi at a single point -- one closed-form value of the transform at one y would replace the
+### whole quadrature -- or a source statement of the kind clause (d) looked for and did not find.
+### ### THE MEASUREMENT IS SIX SAMPLED y AT TWO AXIS SETTINGS. IT IS NOT A PROOF.
+
+*** ### (P4) THE mu_-2 CHECK. ### IT HALTED FIRST, AND THE HALT IS THE MOST INSTRUCTIVE THING
+### IN THE ACT.
+### FIRST RUN: G-SONIN returned ~1e-3 instead of ~1e-15 and the ratio spread was 29.
+### ### THE GATE FIRED EXACTLY AS THE FERRY DESIGNED IT TO.
+### THE EXECUTOR'S FIRST DIAGNOSIS WAS **WRONG**: it blamed an under-refined root, having used
+### coarse axes for the root-finding, and showed that beta at that root was 8.5e-7 rather than
+### zero. ### RE-RUN AT A GENUINE ROOT (beta = 4.9e-57, alpha = pi*sqrt2 to 16 digits) THE HALT
+### ### PERSISTED UNCHANGED. ### SO THE DIAGNOSIS WAS REFUTED BY THE RE-RUN, NOT CONFIRMED.
+### THE REAL CAUSE IS THE EXECUTOR'S INSTRUMENT: ### AT tau = 4 pi, Lambda = sqrt2, AND THE
+### PHYSICAL TRANSFORM CARRIES FREQUENCY tau AND A FACTOR Lambda -- ### Lambda * INTEGRAL
+### phi(u) e^{i tau u v} du = c phi(v) -- ### WHEREAS THE INSTRUMENT USED FREQUENCY 2 pi AND NO
+### FACTOR, WHICH IS CORRECT ONLY AT Lambda = 1.
+### ### THE FERRY'S OWN CLAUSE (b) SAID IT: "at tau = 2 pi (Lambda = 1, NO RESCALING)".
+### ### THE EXECUTOR CARRIED THE Lambda = 1 INSTRUMENT TO tau = 4 pi AND G-SONIN CAUGHT IT.
+### CORRECTED (frequency tau, factor Lambda) AND RE-RUN:
+###   G-SONIN : |F phi| = 3.7e-19, 4.0e-19, 3.7e-19, 1.6e-19, 1.2e-18   ### PASS
+###   G-RATIO : ratio = **1.0** at every sampled y; spread 1.42e-15; ||ratio|-1| 1.02e-15
+### ### AND THE tau = 2 pi RESULTS ARE UNAFFECTED, SPOT-CHECKED UNDER THE PATCHED CODE:
+### at Lambda = 1 the patch is a no-op and both bits are unchanged.
+### ### THE VERDICT AT mu_-2: **c = +1**, so alpha = +pi*sqrt2 IS THE SIGN SATISFYING
+### F phi = c phi. ### THE INSTRUMENT'S SIGN, NOT THE PAPER'S PRINTED -4.44288293889868.
+### ### AND IT IS **CONVENTION-FREE**: the even bit does not move under the conjugate
+### convention, so this decision does not rest on the sign adopted at (a).
+### ### b205's DISCREPANCY IS THEREFORE **DECIDED, NOT MERELY SHARPENED** -- reported at full
+### prominence, beside b205 and NOT folded into it. ### RRT's AUTHORS ARE NOT CONTACTED;
+### b213's ruling stands and the note remains parked. ***
+
+### (P5) THE SHADOW. Core/LadderOrientationShadow.lean gains SIX terminals -- measured_rank1,
+### measured_rank2, measured_stepsMI, measured_alt2, measured_is_ladder, measured_not_stepsI --
+### every one zero-axiom ON THE FIRST COMPILE. AXIOM_PRINTS.txt regenerated: **366 lines, 366
+### zero-axiom, 0 otherwise. Core 360 -> 366.** Correspondence row 86 by the committed tool from
+### a script file, verified by read-back.
+### ### AND THE CONSTRAINT THE REGISTRATION CARRIED WAS KEPT: ### THE SHADOW IS UPDATED ONLY BY
+### ADDING THE FIXED ASSIGNMENT AS AN INSTANCE. ### alt2_does_not_imply_stepsI IS UNTOUCHED.
+### ### A MEASUREMENT CANNOT REPEAL A THEOREM; what it supplies is the extra hypothesis the
+### theorem says is needed, and measured_not_stepsI excludes the other branch rather than
+### leaving it unused.
+
+### THE FILINGS: the ladder restated with its bits; the identity chain updated; the discrepancy
+### item restated as DECIDED; the in-flight register updated; the thirty-seventh seam's debt
+### restated -- term 2's formalization stands and is next; locks last.
+
+----------------------------------------------------------------------------------------------------
+HIT RECORD, DEVIATIONS, DIVERGENCES.
+----------------------------------------------------------------------------------------------------
+HIT RECORD: the convention pinned from its owner before any transform; G-SONIN, G-RATIO and
+G-STAB all PASS at tau = 2 pi in both parities with the predicted vanishing of the wrong
+component confirming the setup; both bits measured directly and reconciling with b212's rank
+pattern; Prop 5 read and recorded as not deciding either bit; the mu_-2 check halted, was
+mis-diagnosed, was re-diagnosed against the executor's instrument, and then DECIDED b205;
+the shadow extended by an instance with nothing weakened; Core 360 -> 366.
+### PREDICTIONS: (P1) LANDED. (P2) EVEN BIT LANDED AND BY AN INDEPENDENT ROUTE; ODD BIT WAS NOT
+### PREDICTED AND IS RECORDED AS MEASURED. (P3) (FIXED). (P4) DECIDED. (P5) BUILT.
+
+DEVIATIONS: none.
+
+DIVERGENCES: none with the ferry.
+
+*** ### THREE ERRORS OF THE EXECUTOR'S OWN, ALL RECORDED:
+### (i) ### THE INSTRUMENT ASSUMED Lambda = 1 AND WAS CARRIED TO tau = 4 pi ANYWAY, against the
+### ferry's own clause (b). ### G-SONIN CAUGHT IT. ### THE GATE THE FERRY CALLED "the strongest
+### available" WAS THE THING THAT CAUGHT THE EXECUTOR, WHICH IS WHAT IT WAS FOR.
+### (ii) ### THE FIRST DIAGNOSIS OF THAT HALT WAS WRONG -- an under-refined root -- ### AND WAS
+### REFUTED BY THE EXECUTOR'S OWN RE-RUN AT A GENUINE ROOT BEFORE IT WAS REPORTED. ### A
+### PLAUSIBLE DIAGNOSIS THAT SURVIVES ONE TEST IS NOT A DIAGNOSIS.
+### (iii) ### y = 0.97 WAS SAMPLED IN G-SONIN'S OWN SET, INSIDE THE NEIGHBOURHOOD THE
+### EXECUTOR'S OWN REGISTRATION HAD EXCLUDED AN HOUR EARLIER. Reported, not dropped. ***
+====================================================================================================

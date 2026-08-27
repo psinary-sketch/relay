@@ -1,0 +1,123 @@
+b214 -- THE ORIENTATION BITS -- THE RAW RUN.
+### THE TRANSFORM CONVENTION, STATED ONCE: (F f)(y) = INT f(x) e^{+2 pi i x y} dx,
+### the continuum limit of b19's centered DFT. ### THE KEYSTONE'S F^2 = parity DOES NOT
+### PICK THE SIGN; IT IS ADOPTED HERE. ### The odd bit flips under the conjugate
+### convention (b203) and is printed both ways. ### The even bit is convention-free.
+
+========================================================================================================
+### RANK 2 (the FIRST EVEN) -- THE BIT epsilon   tau = 2 pi   parity = EVEN
+    mu = -20.48057322913694697      alpha = 3.141592653579
+========================================================================================================
+  --- axes: dps50 X40 nsteps400 order18 ncoef260 N30 M34 nsub40 ---
+  ### G-SONIN -- F phi(y) ON 0 <= y < 1. ### THE OBJECT'S OWN CONTROL,
+  ### AND THE STRONGEST AVAILABLE: phi is in the Sonin space, so F phi MUST
+  ### vanish there. Nothing in the construction forces it to.
+      y = 0.0      |F phi(y)| = 8.44547e-15
+      y = 0.15     |F phi(y)| = 8.64635e-15
+      y = 0.37     |F phi(y)| = 4.33514e-15
+      y = 0.61     |F phi(y)| = 1.2103e-14
+      y = 0.83     |F phi(y)| = 4.13241e-15
+      y = 0.97     |F phi(y)| = 0.000202124
+
+  ### G-RATIO -- F phi(y) / phi(y) AT GENERIC y > 1.
+  ### |phi(y)| PRINTED SO THE READER SEES THE DENOMINATOR IS NOT NEAR A ZERO
+  ### (b205's lesson, inherited).
+      y = 1.31  |phi| = 0.204107        ratio = (0.99999999999921 - 2.8245140742869e-71j) |ratio| = 0.99999999999921
+      y = 1.73  |phi| = 0.195691        ratio = (1.0 + 5.1826203878746e-58j)   |ratio| = 1.0
+      y = 2.29  |phi| = 0.0491295       ratio = (1.0000000000021 + 4.1286577703241e-57j) |ratio| = 1.0000000000021
+      y = 2.87  |phi| = 0.06547         ratio = (0.99999999999895 + 7.747378353005e-58j) |ratio| = 0.99999999999895
+      y = 3.41  |phi| = 0.0862613       ratio = (0.99999999999967 + 6.0196990965779e-55j) |ratio| = 0.99999999999967
+      y = 4.13  |phi| = 0.0268106       ratio = (1.0000000000021 + 9.4570072712761e-58j) |ratio| = 1.0000000000021
+      ### spread across y  : 2.86647e-12
+      ### ||ratio| - 1| max: 2.0718e-12
+      ### tail (last y)    : (-2.4994034e-5 + 2.5354845e-59j)   IBP truncation bound 2.78541e-93
+      elapsed 139s
+
+  --- axes: dps55 X50 nsteps600 order20 ncoef300 N34 M38 nsub48 ---
+  ### G-RATIO -- F phi(y) / phi(y) AT GENERIC y > 1.
+  ### |phi(y)| PRINTED SO THE READER SEES THE DENOMINATOR IS NOT NEAR A ZERO
+  ### (b205's lesson, inherited).
+      y = 1.31  |phi| = 0.204107        ratio = (0.99999999999922 + 7.0612851858199e-72j) |ratio| = 0.99999999999922
+      y = 1.73  |phi| = 0.195691        ratio = (1.0 + 4.048922178027e-60j)    |ratio| = 1.0
+      y = 2.29  |phi| = 0.0491295       ratio = (1.0000000000021 + 8.0795342871714e-60j) |ratio| = 1.0000000000021
+      y = 2.87  |phi| = 0.06547         ratio = (0.99999999999892 + 6.1516207422878e-60j) |ratio| = 0.99999999999892
+      y = 3.41  |phi| = 0.0862613       ratio = (0.99999999999967 - 3.1262274319015e-71j) |ratio| = 0.99999999999967
+      y = 4.13  |phi| = 0.0268106       ratio = (1.0000000000021 + 8.8075243683733e-67j) |ratio| = 1.0000000000021
+      ### spread across y  : 2.83434e-12
+      ### ||ratio| - 1| max: 2.05487e-12
+      ### tail (last y)    : (-0.00012571991 + 2.361354e-68j)   IBP truncation bound 2.63185e-99
+      elapsed 183s
+
+========================================================================================================
+### RANK 1 (the FIRST ODD) -- THE ORIENTATION BIT   tau = 2 pi   parity = ODD
+    mu = -7.007976205624198572      alpha = -3.1415926535789
+========================================================================================================
+  --- axes: dps50 X40 nsteps400 order18 ncoef260 N30 M34 nsub40 ---
+  ### G-SONIN -- F phi(y) ON 0 <= y < 1. ### THE OBJECT'S OWN CONTROL,
+  ### AND THE STRONGEST AVAILABLE: phi is in the Sonin space, so F phi MUST
+  ### vanish there. Nothing in the construction forces it to.
+      y = 0.0      |F phi(y)| = 0.0
+      y = 0.15     |F phi(y)| = 1.44932e-15
+      y = 0.37     |F phi(y)| = 4.76043e-15
+      y = 0.61     |F phi(y)| = 8.0033e-15
+      y = 0.83     |F phi(y)| = 5.57377e-15
+      y = 0.97     |F phi(y)| = 0.000173903
+
+  ### G-RATIO -- F phi(y) / phi(y) AT GENERIC y > 1.
+  ### |phi(y)| PRINTED SO THE READER SEES THE DENOMINATOR IS NOT NEAR A ZERO
+  ### (b205's lesson, inherited).
+      y = 1.31  |phi| = 0.038679        ratio = (5.705649933938e-54 + 0.99999999999349j) |ratio| = 0.99999999999349
+      y = 1.73  |phi| = 0.125893        ratio = (-1.3198994932487e-53 + 0.99999999999899j) |ratio| = 0.99999999999899
+      y = 2.29  |phi| = 0.144166        ratio = (-2.8702453576698e-54 + 1.0000000000001j) |ratio| = 1.0000000000001
+      y = 2.87  |phi| = 0.0618148       ratio = (8.6857808044708e-80 + 1.0000000000012j) |ratio| = 1.0000000000012
+      y = 3.41  |phi| = 0.00968051      ratio = (-2.1456182458638e-53 + 1.0000000000077j) |ratio| = 1.0000000000077
+      y = 4.13  |phi| = 0.0777192       ratio = (5.3241809945877e-54 + 0.99999999999993j) |ratio| = 0.99999999999993
+      ### spread across y  : 1.41902e-11
+      ### ||ratio| - 1| max: 7.67538e-12
+      ### tail (last y)    : (4.1379107e-55 + 0.00018731822j)   IBP truncation bound 1.5052e-93
+      elapsed 134s
+
+  --- axes: dps55 X50 nsteps600 order20 ncoef300 N34 M38 nsub48 ---
+  ### G-RATIO -- F phi(y) / phi(y) AT GENERIC y > 1.
+  ### |phi(y)| PRINTED SO THE READER SEES THE DENOMINATOR IS NOT NEAR A ZERO
+  ### (b205's lesson, inherited).
+      y = 1.31  |phi| = 0.038679        ratio = (-4.0009792650081e-62 + 0.99999999999355j) |ratio| = 0.99999999999355
+      y = 1.73  |phi| = 0.125893        ratio = (1.8317285094943e-70 + 0.99999999999904j) |ratio| = 0.99999999999904
+      y = 2.29  |phi| = 0.144166        ratio = (1.9530578814225e-74 + 1.0000000000001j) |ratio| = 1.0000000000001
+      y = 2.87  |phi| = 0.0618148       ratio = (-1.0014023473776e-61 + 1.0000000000013j) |ratio| = 1.0000000000013
+      y = 3.41  |phi| = 0.00968051      ratio = (-3.172242050346e-61 + 1.0000000000077j) |ratio| = 1.0000000000077
+      y = 4.13  |phi| = 0.0777192       ratio = (2.2106650596418e-78 + 0.9999999999999j) |ratio| = 0.9999999999999
+      ### spread across y  : 1.41475e-11
+      ### ||ratio| - 1| max: 7.69267e-12
+      ### tail (last y)    : (1.7181111e-79 - 0.00051986338j)   IBP truncation bound 1.53953e-99
+      elapsed 169s
+
+========================================================================================================
+### (P4) mu_-2 AT tau = 4 pi -- THE b205 CHECK   tau = 4 pi   parity = EVEN
+    mu = -39.383211515496375489      alpha = 4.4428814811041
+========================================================================================================
+  --- axes: dps50 X40 nsteps400 order18 ncoef260 N30 M34 nsub40 ---
+  ### G-SONIN -- F phi(y) ON 0 <= y < 1. ### THE OBJECT'S OWN CONTROL,
+  ### AND THE STRONGEST AVAILABLE: phi is in the Sonin space, so F phi MUST
+  ### vanish there. Nothing in the construction forces it to.
+      y = 0.0      |F phi(y)| = 0.000876353
+      y = 0.15     |F phi(y)| = 0.000911636
+      y = 0.37     |F phi(y)| = 0.00046313
+      y = 0.61     |F phi(y)| = 0.00164906
+      y = 0.83     |F phi(y)| = 0.000493826
+      y = 0.97     |F phi(y)| = 0.0161495
+
+  ### G-RATIO -- F phi(y) / phi(y) AT GENERIC y > 1.
+  ### |phi(y)| PRINTED SO THE READER SEES THE DENOMINATOR IS NOT NEAR A ZERO
+  ### (b205's lesson, inherited).
+      y = 1.31  |phi| = 0.0269105       ratio = (0.13805490920908 + 8.5277550545213e-56j) |ratio| = 0.13805490920908
+      y = 1.73  |phi| = 0.124187        ratio = (0.0036143877009371 - 2.2028837620238e-63j) |ratio| = 0.0036143877009371
+      y = 2.29  |phi| = 0.00523181      ratio = (-29.015348116621 + 5.2289492955766e-62j) |ratio| = 29.015348116621
+      y = 2.87  |phi| = 0.0776415       ratio = (-1.2014499201829 - 1.850929177601e-57j) |ratio| = 1.2014499201829
+      y = 3.41  |phi| = 0.0223075       ratio = (-2.8501802832224 + 1.28592239311e-56j) |ratio| = 2.8501802832224
+      y = 4.13  |phi| = 0.0159382       ratio = (-0.38035527447052 + 8.9902372678415e-57j) |ratio| = 0.38035527447052
+      ### spread across y  : 29.1534
+      ### ||ratio| - 1| max: 28.0153
+      ### tail (last y)    : (-5.1382214e-5 + 1.4328864e-58j)   IBP truncation bound 7.99518e-93
+      elapsed 153s
+
