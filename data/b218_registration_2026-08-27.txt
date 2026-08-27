@@ -1,0 +1,107 @@
+====================================================================================================
+b218 -- THE TOOLCHAIN REPAIR -- THE RUN-REGISTRATION. BANKED AFTER THE SURVEY AND BEFORE THE
+REPAIR, as the execution line orders. Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### A FEDERATION ACT. ### THE REPO'S PIN IS RESTORED, NOT MOVED -- moving a pin is a version
+### change with its own Provenance and is NOT DONE HERE. ### Core is vanilla and must print
+### identically before and after. No research content moves. Nothing deposits.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE SURVEY, DONE BEFORE ANYTHING WAS FETCHED.
+----------------------------------------------------------------------------------------------------
+### THE REPO'S OWN BUILD CONFIGURATION, READ AT CONTENT:
+   lean-toolchain      PRESENT -- leanprover/lean4:v4.29.1
+   lakefile.lean       ### ABSENT
+   lakefile.toml       ### ABSENT
+   lake-manifest.json  ### ABSENT
+   .lake/              ### ABSENT
+*** ### SO THE FERRY'S CLAUSE (a) NAMES TWO ARTIFACTS THAT DO NOT EXIST, AND CLAUSE (c)'s
+### "the equivalent the manifest names" HAS NO MANIFEST TO NAME IT. ### **SIDE-global-section
+### HAS NEVER BEEN A LAKE PACKAGE.** It pins a LEAN TOOLCHAIN and declares NO Mathlib
+### dependency at all. ### THAT IS THE SURVEY'S FIRST FINDING AND IT RESHAPES THE ACT. ***
+
+### AND ITS SIBLINGS ARE NOT LIKE IT, WHICH IS WHAT MAKES IT A DEFECT RATHER THAN A STYLE:
+   SIDE-archimedean     lakefile.lean PRESENT   lake-manifest.json PRESENT   .lake/packages PRESENT
+   SIDE-kernel          lakefile.lean PRESENT   lake-manifest.json PRESENT
+   ### SIDE-global-section  ALL THREE ABSENT.
+
+### THE MATHLIB TREES ON D:, READ FOR WHAT THEY ACTUALLY HOLD:
+   /d/mathlib4                    head cecd0c4d56   toolchain v4.30.0-rc1   ### NOT BUILT
+   /d/mathlib4-e960b84-tmp        head e960b84129   toolchain v4.29.0-rc8   ### NOT BUILT
+   /d/SIDE-archimedean/.lake/packages/mathlib
+                                  head 5e932f97dd   toolchain **v4.29.1**   ### NOT BUILT
+   /d/mathlib-cache               ### 104,092 .ltar FILES -- a real Mathlib cache, unpacked
+                                  into no build tree.
+### ### NOT ONE MATHLIB ON THIS DISK IS BUILT. Mathlib/Data/Real/Basic.olean is ABSENT in all
+### ### THREE CHECKOUTS. ### THE CACHE IS RAW MATERIAL, NOT A BUILD.
+
+*** ### AND A CORRECTION TO THE EXECUTOR'S OWN INTERMEDIATE CONCLUSION, MADE INSIDE THE SURVEY
+### AND RECORDED RATHER THAN QUIETLY DROPPED: ### THE EXECUTOR FIRST CONCLUDED "MATHLIB HAS
+### NEVER PINNED v4.29.1", reading /d/mathlib4's own lean-toolchain history, which runs
+### ... v4.29.0-rc8 -> v4.29.0 -> v4.30.0-rc1 WITH NO v4.29.1.
+### ### THAT CONCLUSION WAS **WRONG**. ### A Mathlib checkout at v4.29.1 exists on this disk,
+### vendored at SIDE-archimedean/.lake/packages/mathlib, head 5e932f97dd.
+### ### THE ERROR WAS GENERALISING FROM ONE CLONE'S HISTORY TO "MATHLIB". ### One clone is not
+### the project, and a survey that reads one tree has surveyed one tree. ***
+
+### THE FEDERATION SNAPSHOT: 43 SIDE-* repos + 2 PLACE-* enumerated with branch, head, latest
+### tag and toolchain (the table is filed whole in the bank). ### THE SHAPE:
+   v4.29.0-rc8  : ~28 repos   ### THE MAJORITY
+   v4.29.1      : 10 repos    (incl. SIDE-global-section)
+   v4.30.0-rc2  : 2 repos     (SIDE-cosmo, SIDE-effects)
+### ### THE LAST SURVEY WAS 2026-08-04 AND THE FERRY IS RIGHT THAT PINS MOVE: this one supersedes
+### it. ### ALL 43 ARE ON main AND ALL BUT THREE CARRY A TAG.
+
+### (b) THE b215 FINDING, RESTATED AND SHARPENED: b215 said Mathlib/Data/Real/Basic.olean absent
+### and /d/mathlib4 at v4.30.0-rc1 against v4.29.1. ### BOTH TRUE. ### AND INCOMPLETE: the real
+### obstruction is that ### THE REPO DECLARES NO MATHLIB DEPENDENCY AT ALL, so there is nothing
+### to fetch a cache *for*.
+### THE BANKED INTERFACES PROFILES -- the values this act must reproduce EXACTLY -- are the 27
+### lines of AXIOM_PRINTS_INTERFACES.txt, quoted whole in the bank, including
+### RestrictedTensorLayer1's three, whose header records ### "b193, 2026-08-26; built with Lean
+### **v4.29.0** against Mathlib" -- ### A THIRD TOOLCHAIN VALUE, AND NOT THE REPO'S PIN.
+
+----------------------------------------------------------------------------------------------------
+(P2) AND (P3) -- THE REGISTERED EXPECTATIONS, BANKED BEFORE THE REPAIR IS ATTEMPTED.
+----------------------------------------------------------------------------------------------------
+ (P2) ### THE EXECUTOR REGISTERS THAT IT EXPECTS BRANCH **(HALT)**, and registers the reason so
+   the expectation can be scored rather than admired: ### THE REPAIR CLAUSE ASKS FOR A CACHE
+   FETCH AT A PINNED REV, AND THE REPO HAS NO PIN AND NO PACKAGE. ### Giving it a lakefile and a
+   manifest is not "restoring a pin" -- ### IT IS CREATING ONE, WHICH IS A STRUCTURAL ADDITION
+   THE FERRY DID NOT AUTHORISE AND WHICH THE EXECUTOR WILL NOT MAKE UNASKED.
+   ### THE EXECUTOR WILL NEVERTHELESS **ATTEMPT** THE ONE PATH THAT NEEDS NO NEW PIN: unpack the
+   ### existing v4.29.1 Mathlib from /d/mathlib-cache into the ALREADY-VENDORED checkout at
+   ### SIDE-archimedean/.lake/packages/mathlib and compile the Interfaces layer against it by
+   ### LEAN_PATH. ### THAT TOUCHES NO PIN AND NO REPO FILE. ### IF IT WORKS, (RESTORED). IF IT
+   ### DOES NOT, (HALT) WITH THE ALTERNATIVES NAMED AND NONE TAKEN.
+   ### ALTERNATIVES, NAMED IN ADVANCE SO THE HALT IS NOT AN EMPTY ONE:
+     (i)  give SIDE-global-section a lakefile + manifest pinning Mathlib at v4.29.1 head
+          5e932f97dd -- ### the sibling repos' own shape. COST: a structural change to a
+          federation repo, with its own Provenance, and a first build of Mathlib.
+     (ii) move the repo pin to v4.29.0 to match the toolchain that actually produced the banked
+          Interfaces profiles. COST: a VERSION CHANGE, explicitly out of scope here, and it
+          would make the pin describe the past rather than the present.
+     (iii) vendor the needed Mathlib modules. COST: the Interfaces imports pull
+          InnerProductSpace.Projection and PiTensorProduct, whose closures are most of Mathlib;
+          ### VENDORING THESE IS NOT A SMALL SUBSET AND SHOULD NOT BE DESCRIBED AS ONE.
+     ### NONE OF THE THREE IS TAKEN IN THIS ACT UNDER ANY BRANCH.
+
+ (P3) Core must print **366/366 byte-identically** before and after (G-CORE). ### THE EXECUTOR
+   REGISTERS THAT IT EXPECTS CORE TO BE UNTOUCHED, because Core is vanilla and this act adds no
+   import to it. ### AND THE FEDERATION SNAPSHOT IS FILED AS A DATED FIELD IN THE LOOM,
+   SUPERSEDING 2026-08-04.
+
+ (e) ### EVERY CHECK IN THIS ACT RUNS UNDER THE b217 HARNESS WITH A MUST-FAIL FIXTURE.
+   *** ### AND THE ACT HAS ALREADY EARNED THAT CLAUSE THE HARD WAY: ### DURING THE SURVEY THE
+   ### EXECUTOR RAN A ONE-LINE lakefile/manifest PROBE OF THE FORM
+   ### "[ -f a ] || [ -f b ] && echo yes || echo NO" ### WHOSE PRECEDENCE GROUPS WRONGLY, AND IT
+   ### REPORTED "lakefile=yes manifest=yes" FOR A REPO WITH NEITHER. ### THAT IS b217's SPECIES,
+   ### ON THE DAY AFTER THE RULE WAS FILED, IN THE ACT WHOSE OWN CLAUSE (e) REQUIRES THE HARNESS.
+   ### ### IT WAS CAUGHT BECAUSE THE NEXT CHECK CONTRADICTED IT. ### THE FACTS WERE RE-ESTABLISHED
+   ### ONE CHECK AT A TIME AND THE FALSE LINE IS RECORDED. ***
+
+DIVERGENCES AT REGISTRATION: ### ONE -- the ferry's clause (a) names a lakefile and a
+lake-manifest that SIDE-global-section does not have, and clause (c) presumes a pinned rev it
+does not declare. Named, not worked around.
+DEVIATIONS: none yet; the rule stands.
+====================================================================================================
