@@ -1,0 +1,70 @@
+====================================================================================================
+b220 -- THE SHADOW'S PROFILE, AND A FAILED ATTEMPT AT A FULL CORE RE-PRINT.
+====================================================================================================
+
+--- (1) THE NEW FILE'S PROFILE, PRINTED AND READ. Core/AggregationCircularityShadow.lean ---
+
+'AggregationCircularityShadow.identity_iff_forced' does not depend on any axioms
+'AggregationCircularityShadow.unique' does not depend on any axioms
+'AggregationCircularityShadow.cweil_determines' does not depend on any axioms
+'AggregationCircularityShadow.cweil_inhabited' does not depend on any axioms
+'AggregationCircularityShadow.cweil_is_the_assumption' does not depend on any axioms
+'AggregationCircularityShadow.underdetermined_without_cweil' does not depend on any axioms
+'AggregationCircularityShadow.boolGrp' does not depend on any axioms
+'AggregationCircularityShadow.boolGrp_has_two_elements' does not depend on any axioms
+'AggregationCircularityShadow.underdetermined_bool' does not depend on any axioms
+
+### 9 OF 9 AT ZERO AXIOMS. ### Core: 366 -> 375. ### AXIOM_PRINTS.txt still carries
+### **ZERO** axiom-bearing lines, and this act did not become the first to add one.
+
+*** ### AND THAT COST A REWRITE, WHICH IS RECORDED BECAUSE THE FIRST VERSION COMPILED FINE.
+### THE FIRST BUILD USED `Int` AND `omega`, AND IT **WORKED** -- all statements proved. Its
+### profile:
+###   identity_iff_forced      depends on axioms: [propext, Classical.choice, Quot.sound]
+###   unique                   depends on axioms: [propext, Quot.sound]
+###   cweil_determines         depends on axioms: [propext, Classical.choice, Quot.sound]
+###   cweil_inhabited          depends on axioms: [propext, Classical.choice, Quot.sound]
+### ### FOUR OF SIX CARRIED AXIOMS BECAUSE `omega` CARRIES THEM. ### THE REGISTRATION HAD SET
+### THE ZERO-AXIOM BAR AND SAID THE FILE WOULD BE DROPPED IF IT MISSED IT.
+### ### IT WAS NOT DROPPED AND IT WAS NOT ACCEPTED -- ### **IT WAS REWRITTEN**, on b211's
+### precedent (where `simp` pulled `[propext]` and the witness was redefined by recursion).
+### The decision procedure was replaced by explicit `congrArg`/`Eq.trans` term proofs over an
+### ABSTRACT additive group whose laws are fields of a structure. ### AND THE REWRITE MADE THE
+### FILE **HONESTER**, not merely cleaner: the abstract version states exactly what the
+### argument uses -- ### ADDITIVE CANCELLATION AND NOTHING ELSE -- where the `Int` version had
+### silently helped itself to a decision procedure over a ring.
+
+*** ### A SECOND DECISION, RECORDED BECAUSE IT WAS CLOSE.
+### The abstract structure needs an INHABITANT or every theorem is vacuous -- ### b215's OWN
+### SHELL TEST. ### `Int` was the natural stand-in for R, and `intGrp` COMPILED --
+### ### BUT ITS PROFILE READ `depends on axioms: [propext]`, inherited from core Lean's own
+### ### `Int.add_assoc`. ### AND CORE'S PRINT IS 366 LINES WITH **ZERO** AXIOM-BEARING ENTRIES.
+### ### THIS ACT DECLINED TO BE THE FIRST TO BREAK THAT BAR FOR A CONVENIENCE INSTANCE.
+### `Bool` under XOR was used instead -- ### Z/2, A GENUINE GROUP WITH TWO DISTINCT ELEMENTS,
+### fully decidable, zero axioms -- ### AND IT IS THE BETTER WITNESS ANYWAY, because it also
+### instantiates `underdetermined_without_cweil` with a real pair of distinct aggregations
+### rather than satisfying it trivially. ### THE `Int` TRANSFER IS STATED IN THE FILE'S PROSE
+### AND NOT SMUGGLED IN AS AN AXIOM. ***
+
+--- (2) THE FULL CORE RE-PRINT: ### **ATTEMPTED AND NOT ACHIEVED. NO G-CORE IS CLAIMED.** ---
+
+### THE ATTEMPT: `lean` run over all 88 Core/*.lean files individually.
+### THE RESULT: 184 output lines -- ### **104 profiles, NOT 375**, and 80 error lines.
+### THE CAUSE, READ AT CONTENT RATHER THAN GUESSED: the `AxiomCheck*.lean` files each IMPORT
+### their companion module, e.g.
+###   "Core/AxiomCheckBP.lean:1:0: error: unknown module prefix 'BallPairShadow'
+###    No directory 'BallPairShadow' or file 'BallPairShadow.olean' in the search path"
+### ### SO A PER-FILE `lean` SWEEP IS **THE WRONG INSTRUMENT** for this repo's Core: the
+### ### AxiomCheck files need BUILT OLEANS ON `LEAN_PATH`, which is b218's finding in a new
+### ### place. ### THE 366-LINE AXIOM_PRINTS.txt WAS PRODUCED BY A REAL BUILD, NOT BY THIS.
+
+*** ### SO THE HONEST STATEMENT OF WHAT WAS VERIFIED, AND IT IS NARROWER THAN A G-CORE:
+### ### (i) THE NEW FILE COMPILES AND PRINTS 9/9 AT ZERO AXIOMS -- ### DIRECTLY MEASURED.
+### ### (ii) NO OTHER Core FILE WAS TOUCHED -- ### `git status` shows exactly one untracked
+### ###      file and one modified file (AXIOM_PRINTS.txt, the appended print), and ### ZERO
+### ###      modifications to any `.lean` file in the repository.
+### ### (iii) THE 366 PRIOR PROFILES WERE **NOT** RE-MEASURED IN THIS ACT AND ARE NOT CLAIMED
+### ###      TO HAVE BEEN. ### b218 re-measured them with a proper build; this act did not, and
+### ###      says so rather than inheriting b218's verdict silently.
+### ### A CLAIM OF "366/366 UNCHANGED" WOULD HAVE BEEN CHEAP TO TYPE AND WAS NOT EARNED HERE. ***
+====================================================================================================

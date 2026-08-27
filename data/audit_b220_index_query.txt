@@ -1,0 +1,53 @@
+====================================================================================================
+b220 -- THE INDEX QUERIES, RUN BEFORE ANY OBJECT WAS MARKED OPEN OR ANY VERDICT WRITTEN (b160).
+Tool: tools/banked_index.py --query. 12 queries.
+====================================================================================================
+
+*** ### THE FIRST RUN OF THIS LOOP RETURNED **NOTHING AT ALL** -- TWELVE EMPTY LINES.
+### THE CAUSE: it was issued as "python banked_index.py" with cwd = /d/relay, and the module
+### lives in tools/. ### PYTHON WROTE "can't open file 'D:\relay\banked_index.py'" TO STDERR AND
+### THE GREP SAW AN EMPTY STDOUT.
+### ### **THAT IS b216's WRONG-CWD SPECIES, EXACTLY, ONE ACT AFTER b219 REPORTED THE SAME LANE.**
+### ### IT WAS CAUGHT FOR ONE REASON ONLY: ### THE EXECUTOR REFUSED TO READ AN EMPTY OUTPUT AS A
+### ### RESULT, WHICH IS b217's RULE APPLIED BY HAND. ### Had the twelve lines been read as
+### ### twelve misses, this act would have reported a lane-wide absence that is not there.
+### ### RE-RUN AS "python tools/banked_index.py". ### THE RESULTS BELOW ARE THE SECOND RUN. ***
+
+HIT (5 queries, 3 distinct keys):
+  quotient-trace     act 9 / b197 / b215
+                     tau_q * p^(k/2) = (p^n - p^k)/(p^n - 1); the quotient channel CONVERGES TO
+                     WEIL COEFFICIENTS AT THE LEVEL LIMIT; per place, per level.
+                     grade: LONGHAND PROVED (act 9); volume normalization FORCED (act 7); a
+                     vanilla Core shadow HELD, zero axioms. ### THE FORMALIZATION IS ABSENT and
+                     ### THE AGGREGATION IS UNSTATED (b197, re-confirmed b215).
+                     [matched by the queries "quotient-trace", "term 2", "tau_q"]
+  class-richness     file E (at cite) / M16 / b215
+                     term 2 named premise, carried AT CITE. ### ITS CITATION'S EXACT STATEMENT IS
+                     UNREAD. Split by b215 into (a) read the citation, (b) discharge the lemma.
+  weil-criterion     b179
+                     RH <==> sum over ALL PLACES of W_v(g*g-bar-sharp) <= 0 -- eq. (2) of
+                     2006.13771v1. EXTERNAL, quoted at content. ### NOT the corpus's result and
+                     NOT about one place.  [matched by the query "explicit formula"]
+
+### NO KEY (7):
+  ### aggregation             ### THIS ACT'S OWN SUBJECT
+  ### quotient lemma          (the spelled-out name of a key that exists as "quotient-trace")
+  ### weil coefficients       ### THE OBJECT CLAUSE (d) MUST DISAMBIGUATE
+  ### level limit             ### THE LIMIT C-WEIL IS STATED AT
+  ### forced normalization    ### C-NORM's OWN NAME
+  ### volume normalization    (the same constraint's other name)
+  ### operator match          ### THE CHAIN'S FOUR-CLAUSE ROW
+
+*** ### THE SHAPE, AND IT IS b219's FINDING REPEATING IN A SECOND LANE:
+### ### ALL THREE HITS ARE **CONCLUSIONS OF ACTS**. ### ALL SEVEN MISSES ARE **OBJECTS AND
+### ### CONSTRAINTS** -- the aggregation, the normalization, the coefficients, the limit, the
+### ### operator match. ### b219 REPORTED "A LANE KEYED BY ITS VERDICTS AND NOT BY ITS SUBJECTS"
+### ### OF THE APPORTIONMENT LANE; ### THE TERM-2 LANE IS KEYED THE SAME WAY.
+### ### AND "quotient lemma" MISSING WHILE "quotient-trace" HITS IS A SEPARATE, SMALLER POINT:
+### ### THE KEY EXISTS AND ITS OWN COMMON NAME IS NOT AN ALIAS OF IT. ***
+
+### THE REACH, AS THE TOOL PRINTS IT AND AS IT APPLIES HERE:
+### ### ABSENCE FROM THE INDEX IS NOT ABSENCE FROM THE RECORD.
+### Every one of the seven missing objects IS in the record at content, and this act read them --
+### two of them (act 7, act 9) AT SOURCE for the first time in the record's history.
+====================================================================================================
