@@ -1,0 +1,149 @@
+====================================================================================================
+b210 -- THE WRONSKIAN GATE -- THE RUN-REGISTRATION. BANKED BEFORE ANY COMPUTATION, with
+BOTH SEATS' EXPECTATIONS DISCLOSED. Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### A COMPUTATION AT BENCH GRADE PLUS ONE READ. ### NO DERIVATION IS ATTEMPTED AND NO
+### THEOREM IS CLAIMED. ### THE TARGET IS A RELATION AT EACH EIGENVALUE, NOT A SIGN.
+### b205's UNEXPLAINED DISCREPANCY STANDS AND NO ABSOLUTE SIGN IS ASSERTED ANYWHERE.
+The stop-loss governs. Nothing deposits. Nothing about the h2 identity beyond the register
+sentence exact. No kernel change is anticipated; Core untouched unless Component 3's bar is met.
+====================================================================================================
+
+(a) LOAD-BEARING, READ AT CONTENT BEFORE THIS REGISTRATION:
+  - the instrument tools/e16/b205_prolate.py, read whole (164 lines), banked at b205 and
+    UNCHANGED. Its four objects, as its own docstring states them:
+      D_tau - mu :  (x^2 - 1) f'' + 2 x f' + (tau^2 x^2 - mu) f = 0
+      psi  : the solution asymptotic to -sin(tau x)/x at +infinity
+      y_I  : the analytic local solution at x = 1 with y_I(1) = 1
+      beta : (x^2 - 1) * W(psi, y_I) at x_0 = sqrt(2); its zeros are the eigenvalues
+      alpha: at an eigenvalue beta = 0, so psi = alpha * y_I and alpha = psi(x_0)/y_I(x_0)
+    ### W AS THE CODE FORMS IT: W = psi * y_I' - psi' * y_I. Quoted from the source line,
+    not from memory, because the relation's sign depends on this ordering.
+  - b207's bank and raw run: the six eigenvalues at tau = 2 pi and the pattern +1 -1 +1 -1 +1 -1
+    identical at three resolutions; the gate runs at 4 pi and 6 pi; the resolution-dependence of
+    the 6 pi residual (7.16e-5 -> 2.78e-7 -> 9.69e-13).
+  - b206's verdict: the variable passage is a PURE POSITIVE RESCALING and CANNOT FLIP A SIGN.
+  - b205's registration: the discrepancy at mu_-2 -- mine POSITIVE, RRT print -4.44288293889868.
+
+  ### THE SOURCE, READ AT ITS SOURCE DOCUMENT AND NOT FROM THE RECORD'S QUOTATIONS:
+  RAMIS, RICHARD-JUNG and THOMANN, "New eigenfunctions for the negative part of the
+  Connes-Moscovici prolate spectrum", C. R. Math. 363 (2025), 1065-1081,
+  DOI 10.5802/crmath.780, online since 29 September 2025, CC-BY-4.0. ### FETCHED AS THE
+  PUBLISHER'S PDF AND EXTRACTED TO TEXT IN THIS ACT (18 pages, 50,092 characters). M12 GUARD:
+  the numbers and definitions below are quoted from THAT extraction, and where the extraction
+  garbles a glyph it is said so rather than smoothed.
+    PSI, QUOTED (Proposition 7): "Let mu be an even CM-eigenvalue. Let psi be the unique
+      solution which is 'asymptotic' to - sin(2 pi Lambda x) / (pi x) at +infinity, then it is
+      analytic at x = Lambda and: * if mu is a non classical eigenvalue, then psi(Lambda) = +-1"
+    y_I, QUOTED (section 2.1.1): "y_I(x) = P_I(Lambda - x), P_I(0) = 1 ... where P_I(xi),
+      P_II(xi) are analytic functions for |xi| < 2 Lambda. Wronskian: W(y_I,y_II) = 1/(Lambda^2
+      - x^2)."
+  *** ### A NORMALIZATION DIFFERENCE, NAMED NOW SO IT CANNOT BE DISCOVERED LATER AS A DEFECT:
+  ### THE PAPER'S psi IS ASYMPTOTIC TO -sin(2 pi Lambda x)/(pi x); THE INSTRUMENT'S IS
+  ### ASYMPTOTIC TO -sin(tau x)/x. ### THESE DIFFER BY THE POSITIVE FACTOR 1/pi.
+  ### THE EXECUTOR REGISTERS, BEFORE RUNNING, THAT THIS CANNOT AFFECT THE RELATION UNDER TEST:
+  ### alpha is LINEAR in psi, beta is LINEAR in psi, hence beta' is LINEAR in psi, so the left
+  ### side alpha*beta' is QUADRATIC in psi; the right side integral of psi^2 is QUADRATIC in
+  ### psi. ### THE RELATION IS THEREFORE INVARIANT UNDER psi -> c*psi FOR ANY c =/= 0, AND THE
+  ### 1/pi IS INVISIBLE TO IT. ### IT IS *NOT* INVISIBLE TO |alpha| ITSELF, WHICH IS WHY b206's
+  ### |alpha| = pi*Lambda AND THE PAPER'S psi(Lambda) = +-1 ARE THE SAME STATEMENT IN TWO
+  ### NORMALIZATIONS. Registered as a prediction of the algebra, testable by the run. ***
+
+(b) THE NAVIGATOR-ASSERTED RELATION, CARRIED AS ASSERTED AND TESTED, NEVER ASSUMED:
+      at each eigenvalue mu_k,   alpha_k * beta'(mu_k) = s * INTEGRAL_1^infinity psi_k^2 dx
+    for a sign s INDEPENDENT OF k. ### THE EXECUTOR DID NOT MINT THIS AND DOES NOT OWN IT.
+
+(c) THE GATES, IN ORDER, EACH A HALT:
+  G-DERIV -- beta'(mu_k) by centred difference at TWO step sizes, BOTH QUOTED.
+             ### A DERIVATIVE THAT MOVES UNDER REFINEMENT IS A HALT.
+             The executor registers its own threshold NOW rather than after seeing the numbers,
+             the b207 lesson being explicit about unregistered thresholds: ### THE TWO STEP
+             SIZES MUST AGREE TO 1e-8 RELATIVE. A larger disagreement HALTS and is reported as
+             a halt, not renegotiated.
+  G-NORM  -- INTEGRAL psi_k^2 computed on the instrument's own axes, ### ITS TRUNCATION TAIL
+             BOUNDED AND QUOTED. The tail is NOT negligible by inspection: psi ~ -sin(tau x)/x
+             gives an integrand ~ sin^2/x^2 whose tail beyond X is ~ 1/(2X), i.e. ~1.25e-2 at
+             X = 40. ### SO THE TAIL IS COMPUTED, NOT DROPPED, and the total is required to
+             agree at TWO values of X.
+  G-STAB  -- the relation's residual stable under the floor-axis law's varied axes: the same
+             three resolution triples b207 used, and the residual quoted at each.
+
+(d) THE READ -- ### ALREADY PERFORMED, AND ITS RESULT IS REGISTERED HERE RATHER THAN PREDICTED,
+    BECAUSE THE FERRY'S EXECUTION ORDER PUTS THE SOURCE READ BEFORE THE REGISTRATION AND THE
+    EXECUTOR WILL NOT PRETEND TO PREDICT WHAT IT HAS ALREADY SEEN:
+    ### THE SUBSCRIPT IS A RANK. The paper's figure captions read, verbatim: "First even
+    negative eigenvalue mu_-2." and "Negative eigenvalue of rank 148."
+    ### THE RANK COUNTS ALL NEGATIVE EIGENVALUES, EVEN AND ODD TOGETHER. The ground, quoted:
+    Corollary 4(i) "The eigenfunctions of W_sa are even or odd"; Corollary 4(iv) "The leading
+    term of the 'asymptotic expansion' of phi at +infinity is proportional to sin(2 pi Lambda
+    x)/x if phi is EVEN and is proportional to cos(2 pi Lambda x)/x if phi is ODD."
+    ### SO mu_-2, THE FIRST **EVEN** NEGATIVE EIGENVALUE, CARRIES RANK 2 -- WHICH FORCES RANK 1
+    TO BE THE FIRST ODD ONE, AND THE EVEN SUB-FAMILY TO BE EXACTLY THE EVEN RANKS.
+    ### CONSEQUENCE, STATED AS A CONSEQUENCE OF THE READ AND NOT AS A VERDICT ON THE PAPER:
+    mu_-148 is the 74th even negative eigenvalue; STRICTLY BETWEEN mu_-2 and mu_-148 lie
+    ### 145 NEGATIVE EIGENVALUES (ranks 3..147), of which 72 are even (ranks 4,6,...,146) and
+    73 are odd. All are non-classical: the paper's abstract puts the negative eigenvalues
+    "besides a replica of the classical positive spectrum", and section 5.1 identifies the
+    non-classical part with them.
+    ### AND THE INSTRUMENT TRACKS THE EVEN SUB-FAMILY, BY Corollary 4(iv): its psi is the
+    sin-asymptotic solution, hence EVEN. So the eigenvalues b207 swept are even ranks.
+
+(e) THE INDEX, QUERIED BY KEY FOR EVERY OBJECT NAMED, BEFORE THIS REGISTRATION:
+    data/audit_b210_index_query.txt. ### 8 OF 12 HIT, AND THE FOUR MISSES ARE alpha, beta, psi
+    AND wronskian -- ### THE FOUR OBJECTS THIS ACT IS ABOUT. Recorded, not repaired here.
+
+(f) THE REGISTERED PREDICTIONS, BANKED BEFORE THE RUN:
+
+ (P1) THE RELATION. Per eigenvalue and per parameter the run will print alpha_k, beta'(mu_k),
+   INTEGRAL psi_k^2, the residual |alpha_k beta'(mu_k)| / INTEGRAL psi_k^2 - 1, and
+   s_k = sign(alpha_k beta'(mu_k)).
+   ### THE EXECUTOR'S HONEST EXPECTATION, REGISTERED IN ADVANCE WITH ITS GROUND AND ITS
+   ### TRANSFER NAMED: ### BRANCH (HOLDS), WITH s = +1 AND THE INTEGRAL RUNNING FROM 1 TO
+   ### infinity EXACTLY AS ASSERTED.
+   THE GROUND, and it is registered as a REASON FOR AN EXPECTATION AND NOT AS A DERIVATION
+   PERFORMED -- the ferry forbids the derivation here and Component 3 specifies it instead:
+   the ODE is formally self-adjoint, since (x^2-1)f'' + 2xf' = ((x^2-1)f')', so it is
+   ((x^2-1)f')' + (tau^2 x^2 - mu) f = 0, a Sturm-Liouville problem with p = x^2-1 and
+   weight w = 1. For such a problem the mu-derivative of a p-weighted Wronskian of two
+   solutions is the integral of their product, PROVIDED the two boundary terms vanish -- at
+   x = 1 because p(1) = 0 and y_I(1) = 1 is mu-independent, and at infinity because the
+   leading asymptotic of psi is mu-independent. At an eigenvalue psi = alpha y_I turns that
+   product integral into (1/alpha) INTEGRAL psi^2. ### THAT IS WHY THE EXECUTOR EXPECTS
+   s = +1 AND NOT MERELY |s| = 1. ### IF THE RUN RETURNS s = -1 THE EXPECTATION IS WRONG AND
+   WILL BE RECORDED WRONG; if it returns a non-constant s_k the route is retired.
+   ### THE TRANSFER, NAMED: the expectation is about the INSTRUMENT'S psi and W-ordering
+   (W = psi y_I' - psi' y_I). ### A DIFFERENT WRONSKIAN ORDERING FLIPS s, AND THE PAPER'S
+   OWN W(y_I,y_II) IS A DIFFERENT PAIR ENTIRELY. ### SO s IS A FACT ABOUT THIS INSTRUMENT'S
+   CONVENTION AND TRANSFERS TO THE PAPER ONLY THROUGH A CONVENTION COMPARISON THIS ACT DOES
+   NOT PERFORM.
+   Branches: (HOLDS) residual at the instrument's precision AND s_k constant at all three
+   parameters; (SIGN ONLY) s_k constant but the magnitude relation fails -- REPORTED AT FULL
+   PROMINENCE; (FAILS) s_k not constant, which RETIRES the route; (HALT) the gate that fired.
+
+ (P2) THE READ. Registered above at (d) as already performed. ### THE CONSEQUENCE FOR THE
+   TWO PRINTED SIGNS, STATED NOW SO IT IS ON RECORD BEFORE THE COMPUTATION:
+   the paper prints alpha(mu_-2) = -4.44288293889868 and alpha(mu_-148) = +4.44288293815837.
+   Under the convention read above, mu_-2 is the 1st even negative eigenvalue and mu_-148 is
+   the 74th. Strict alternation over the EVEN sub-family would make sign(alpha) at the j-th
+   even eigenvalue equal to (-1)^j times a constant; with j = 1 negative, j = 74 must be
+   POSITIVE. ### THE PAPER PRINTS POSITIVE. ### SO THE TWO PRINTED SIGNS ARE CONSISTENT WITH
+   STRICT ALTERNATION UNDER THE PAPER'S OWN INDEXING. ### THIS IS A CONSEQUENCE OF THE READ
+   AND NOT A VERDICT ON THE PAPER, AND IT DOES NOT TOUCH b205's DISCREPANCY, WHICH IS ABOUT AN
+   ABSOLUTE SIGN AT A SINGLE EIGENVALUE AND REMAINS UNEXPLAINED.
+
+ (P3) THE CONSEQUENCE. On (HOLDS): the derivation act is SPECIFIED WITH ITS TWO PREMISES
+   NAMED -- (i) the vanishing boundary term at infinity, equivalently a mu-independent leading
+   asymptotic for psi, to be QUOTED FROM THE PAPER; (ii) analyticity of beta in mu -- ### AND
+   IS NOT PERFORMED HERE. On anything else: the route's status is stated and the family proof
+   is restated as wanting a different route.
+
+(g) COMPONENT ORDER: 1 (the gates and the relation) -> 2 (the read, already performed, filed
+whole) -> 3 (the consequence and the filings). 2 consumes 1; 3 consumes 1-2. Whatever lands
+finite-decidable enters Core at the zero-axiom bar with a correspondence row by the committed
+tool, no blank cells, witnesses polarity-verified FIRST, and ### THE AXIOM PROFILE PRINTED AND
+READ -- ### A CLAIMED COMPILE IS REPORTED ONLY FROM ITS OWN PRINTED PROFILE.
+### THE EXECUTOR REGISTERS ITS EXPECTATION THAT NOTHING HERE IS FINITE-DECIDABLE: a relation
+### between a derivative, an improper integral and a transcendental eigenvalue is a BENCH
+### result, and the honest expectation is NO CORE ROW AND NO BUILD.
+
+DIVERGENCES AT REGISTRATION: none. DEVIATIONS: none yet; the rule stands.
+====================================================================================================
