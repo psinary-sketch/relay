@@ -1,0 +1,59 @@
+carrier md5 : 4f1aa498e8eeb83fb6a1e7477bd49d24   bytes: 6699
+"[bank" matches in carrier : 8
+  meta-references ([bank])  : 2   -- the header line and the editorial note
+  fillable tokens           : 6
+
+====================================================================================================
+COMPONENT 1 -- THE FILL TABLE (P1)
+====================================================================================================
+T2  FILLED
+    bank read : relay data/b211_alternation_derived.txt (Component 1, steps (P1.0)–(P1.7)); relay data/b212_odd_family.txt (Component 2, steps 0–6 on the cosine solution)
+    value     : relay `data/b211_alternation_derived.txt` §1 steps (P1.0)–(P1.7); relay `data/b212_odd_family.txt` §2 steps 0–6
+    axes      : derivation at content, both families
+
+T3  FILLED
+    bank read : relay data/b212_odd_family.txt, Component 1 G-PARITY
+    value     : 13 merged ranks at `τ = 2π` (6 even, 7 odd), 7 at `4π` (3 even, 4 odd), 6 at `6π` (3 even, 3 odd); strictly alternating at all three, rank 2 even
+    axes      : dps 50, N 30, x_max 40, nsteps 250, order 18, ncoef 260
+
+T4  FILLED
+    bank read : relay data/b207_alternation.txt and data/b207_raw_run.txt (even); relay data/b212_raw_run.txt (odd)
+    value     : `1.9×10⁻¹⁷` for the even family at `τ = 2π` across all six eigenvalues, and `9.7×10⁻¹³` at `τ = 6π`; for the odd family the ratio prints `1.0` to twelve significant figures at `τ = 2π` and `4π`, and `0.999999999999` at `τ = 6π`
+    axes      : dps 60, N 34, x_max 40, nsteps 400, order 20, ncoef 300 (the finest axes in each act)
+
+T5  FILLED — ### BANK CORRECTED (token named b212; b212 does not hold it; value read at b210)
+    bank read : relay data/b210_wronskian_gate.txt, APPENDIX A  ### NOT b212 — SEE THE BANK CORRECTION
+    value     : 26 significant figures: `dps80` gives `−39.383216574261539476150563`, inside the bracket
+    axes      : dps 80, N 44, x_max 50, nsteps 800
+
+T6  FILLED
+    bank read : relay data/b205_sign_at_our_parameter.txt
+    value     : all 16 digits — `4.442882938158366` against `π√2 = 4.442882938158366`
+    axes      : as banked at b205
+
+T7  FILLED
+    bank read : relay data/b205_sign_at_our_parameter.txt
+    value     : `2.05×10⁻¹⁰`
+    axes      : as banked at b205
+
+### FILLED: 6    ### NAMED ABSENCES: 0    ### TOTAL: 6
+### RECONCILED AGAINST THE CARRIER: 8 matches - 2 meta = 6 tokens = 6 rows.
+### FILLED FILE: 7574 bytes, md5 9a437d724d12a041165f4ba156451871
+### REMAINING UNFILLED TOKENS IN THE FILLED FILE: 6
+
+----------------------------------------------------------------------------------------------------
+### A CORRECTION TO THE SCRIPT'S OWN LAST LINE, MADE IMMEDIATELY AND RECORDED.
+----------------------------------------------------------------------------------------------------
+### THE SCRIPT PRINTED "REMAINING UNFILLED TOKENS IN THE FILLED FILE: 6". ### THAT NUMBER IS
+### WRONG AND THE DEFECT IS THE SCRIPT'S, NOT THE FILE'S: the check re-matched the ORIGINAL
+### TOKENS **PRESERVED INSIDE THE HTML COMMENTS**, which is exactly what clause (c) requires the
+### file to carry. ### THE CHECK WAS REPORTING THE CORPUS AND NOT THE STATE -- b142's species,
+### in a one-line self-check.
+
+### THE CORRECT CHECK STRIPS THE COMMENTS FIRST AND THEN LOOKS:
+  surviving FILLABLE tokens     : 0    (none)
+  meta [bank] references         : 2    (header line 1 and editorial line 74, untouched)
+  comments preserving originals  : 6    (one per fill, as clause (c) requires)
+
+### SO THE FILE IS COMPLETE AND THE SCRIPT'S LAST LINE WAS NOT. ### PRINTED HERE RATHER THAN
+### CORRECTED IN THE SCRIPT AND RE-RUN, so the wrong number and its repair are both visible.
