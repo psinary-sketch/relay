@@ -288,7 +288,9 @@ preserved quotations** — and this act is the sharpest case of that distinction
 | repo | pin (`ls-remote`, this act) |
 |:--|:--|
 | **PLACE-papers** | ### **`4733945b330c7ab242ad1c8f9698f03091a6e664`** — *moved twice this act:* `eae2d3d` → **`7d02df5`** (the backfill, 74 files) → **`4733945`** (the register entry, 1 file) |
-| relay | `a148fc8` at registration; the b209 pin-line commit at close |
+| relay | `a148fc8` at registration → ### **`5ec62ce`** (the record: registration, bank, table, report, HANDOFF), read back by `ls-remote`; this pin line and the trailing self-check sidecar follow in the next commit |
+| **relay push route** | ### **the pre-push hook REFUSED `main`→`main` (Rule 4.10)** and the push was re-issued from a `push-b209` branch, then the branch deleted — *the refusal is reported because it fired, not because it was expected* |
+| **HELD** | `held/carrier-acts` = `6eada6a` — ### **LOCAL-ONLY, UNTOUCHED; `ls-remote refs/heads/held/*` returns ZERO, confirmed at close** |
 | SIDE-global-section | `76d5182` — **UNMOVED, no build** |
 | SIDE-kernel | `0256e9e` — **UNMOVED** |
 | **mirror** | ### **`mirror-refresh-2026-08-27.zip`** — 40 files, **rebuilt TWICE** (once at `7d02df5`, again at `4733945` when the loom entry moved roster entry 6), **CLEAN ON ALL THREE CLAUSES** both times |
