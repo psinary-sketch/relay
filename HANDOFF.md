@@ -37,7 +37,7 @@ restart kit is one document plus the newest mirror.**
 > |:--|:--|:--|
 > | `PLACE-papers` `main` | **`eae2d3dc5ce47169a878f250c49518d6d82791c3`** | ### **the fold and the arc summary; 1 file, hook CLEAN, 0 foreign hits** |
 > | `SIDE-global-section` `main` | `76d518281c5952743cb5be690d1179ffcba11b82` | ### **UNMOVED — Core 327/327, rows 1–83; NO BUILD this act** |
-> | `relay` `main` | **`RELAY_PIN`** | the act; read back by `ls-remote` |
+> | `relay` `main` | **`b43a438e652275db7979e538c16942b33e66d8d0`** | the act; read back by `ls-remote` |
 > | mirror | `mirror-refresh-2026-08-26.zip` | **40 files**, built at `eae2d3d`, ### **CLEAN ON ALL THREE CLAUSES** |
 > | HELD | `held/carrier-acts` = `6eada6a` | ### **LOCAL-ONLY, unpushed; zero remote `held/*`, confirmed by `ls-remote`** |
 

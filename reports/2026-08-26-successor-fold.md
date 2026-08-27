@@ -303,7 +303,7 @@ MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
 |:--|:--|
 | `PLACE-papers` `main` | `eae2d3dc5ce47169a878f250c49518d6d82791c3` — **1 file, 0 foreign hits** |
 | `SIDE-global-section` `main` | `76d518281c5952743cb5be690d1179ffcba11b82` — ### **UNMOVED: Core 327/327, rows 1–83, no build this act** |
-| `relay` `main` | `RELAY_PIN` — **the act; read back by `ls-remote`** |
+| `relay` `main` | `b43a438e652275db7979e538c16942b33e66d8d0` — **the act; read back by `ls-remote`** |
 | mirror | `mirror-refresh-2026-08-26.zip` — **40 files**, rebuilt at `eae2d3d`, ### **CLEAN ON ALL THREE CLAUSES** |
 | HELD | `held/carrier-acts` = `6eada6a` — **LOCAL-ONLY, unpushed; zero remote `held/*`** |
 
