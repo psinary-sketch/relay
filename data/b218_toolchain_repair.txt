@@ -1,0 +1,141 @@
+====================================================================================================
+b218 BANK -- THE TOOLCHAIN REPAIR. Registration 50ef731, banked after the survey and before the
+repair. 2026-08-27. Ferry part 1 of 1, receipt confirmed IN FULL.
+Gates: data/b218_gates.txt. Interfaces print: data/b218_interfaces_print.txt.
+### A FEDERATION ACT. ### THE PIN WAS RESTORED, NOT MOVED. ### No research content moved.
+====================================================================================================
+
+*** ### THE VERDICT: **BRANCH (RESTORED).**
+### ### THE INTERFACES LAYER COMPILES AT THE REPO'S OWN PIN (v4.29.1) AND ALL **29 OF 29**
+### ### BANKED PROFILES ARE REPRODUCED **EXACTLY**. ### CORE PRINTS 366/366 BYTE-IDENTICALLY
+### ### BEFORE AND AFTER. ### THE PIN WAS NOT MOVED AND NOT ONE REPOSITORY FILE WAS CHANGED. ***
+
+### AND THE EXECUTOR'S REGISTERED EXPECTATION WAS **WRONG**. It registered branch (HALT), on the
+### ground that the repair clause asks for a cache fetch at a pinned rev and the repo has no pin.
+### ### THE GROUND WAS RIGHT AND THE CONCLUSION WAS NOT: ### the repo indeed has no pin, but a
+### ### MATHLIB AT ITS TOOLCHAIN ALREADY EXISTED ON THE DISK, VENDORED IN A SIBLING, and the
+### ### local cache held its build. ### THE EXECUTOR REGISTERED A HALT AND THEN FOUND A PATH,
+### ### WHICH IS THE RIGHT WAY FOR THAT PAIR TO COME OUT AND THE WRONG WAY ROUND TO PREDICT.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE SURVEY. ### DONE BEFORE ANYTHING WAS FETCHED.
+----------------------------------------------------------------------------------------------------
+### THE REPO'S OWN CONFIGURATION: lean-toolchain PRESENT (v4.29.1); ### lakefile.lean ABSENT;
+### lakefile.toml ABSENT; lake-manifest.json ABSENT; .lake/ ABSENT.
+### ### SIDE-global-section HAS NEVER BEEN A LAKE PACKAGE. ### It pins a LEAN TOOLCHAIN and
+### ### DECLARES NO MATHLIB DEPENDENCY AT ALL. ### Its siblings SIDE-archimedean and SIDE-kernel
+### ### carry lakefile AND manifest AND .lake/packages.
+### ### SO THE FERRY'S CLAUSE (a) NAMES TWO ARTIFACTS THAT DO NOT EXIST AND CLAUSE (c)'s
+### ### "the equivalent the manifest names" HAS NO MANIFEST. ### THAT, AND NOT A MISSING CACHE,
+### ### IS WHY b215 FOUND THE LAYER UNCOMPILABLE.
+
+### THE MATHLIB TREES, READ FOR WHAT THEY HOLD:
+   /d/mathlib4                          head cecd0c4d56  toolchain v4.30.0-rc1   not built
+   /d/mathlib4-e960b84-tmp              head e960b84129  toolchain v4.29.0-rc8   not built
+   SIDE-archimedean/.lake/packages/mathlib
+                                        head 5e932f97dd  toolchain **v4.29.1**   partially built
+   /d/mathlib-cache                     ### 104,092 .ltar FILES -- a real cache.
+### ### THE THIRD ONE IS THE REPO'S OWN TOOLCHAIN AND THE EXECUTOR DID NOT KNOW IT EXISTED WHEN
+### ### THE ACT BEGAN.
+
+### THE FEDERATION SNAPSHOT, SUPERSEDING 2026-08-04. 43 SIDE-* + 2 PLACE-*, ALL ON main, ALL
+### CLEAN. TOOLCHAINS:
+   v4.29.0-rc8 (~28): bijection, bsd-formation-transfer, bsd-multiplicity, class-coupling,
+     class-number-anomaly, compression, constants, coupling, cubit-axis, dark-interface,
+     dirichlet-mod-24, fano-darkness, formation-arithmetic, formation-procedure, interfaces,
+     kernel, li-map, local-cosmic-interface, meta, omega-b, orchestrator,
+     quaternionic-dark-sector, residual-bridge, silence-principle, spinor-calibration,
+     structural-error-correction, substrate-cluster, t7-topology-cmb, trivium,
+     yang-mills-formation
+   v4.29.1 (10): archimedean, carrier-spec, frobenius, ### global-section, grh-transfer,
+     lv-conservation, rcurve, simplicity, spinor, spinor-calibration-mathlib, window
+   v4.30.0-rc2 (2): cosmo, effects
+   PLACE-phase1.5 and PLACE-phase2: on master, no toolchain file.
+### ALL BUT THREE CARRY A TAG (constants, fano-darkness, li-map have none).
+### ### THE FERRY IS RIGHT THAT PINS MOVE: the split is THREE-WAY, not one pin.
+
+*** ### TWO CORRECTIONS THE EXECUTOR MADE TO ITSELF **INSIDE** THE SURVEY, BOTH RECORDED:
+### (i) ### IT CONCLUDED "MATHLIB HAS NEVER PINNED v4.29.1" from /d/mathlib4's own toolchain
+### history (... rc8 -> v4.29.0 -> v4.30.0-rc1, no v4.29.1). ### **WRONG.** A v4.29.1 checkout
+### exists, vendored in SIDE-archimedean. ### THE ERROR WAS GENERALISING FROM ONE CLONE TO THE
+### PROJECT. ### ONE CLONE IS NOT THE PROJECT, AND A SURVEY THAT READS ONE TREE HAS SURVEYED ONE.
+### (ii) ### A ONE-LINE PROBE OF THE FORM "[ -f a ] || [ -f b ] && echo yes || echo NO" GROUPS
+### WRONGLY AND REPORTED ### "lakefile=yes manifest=yes" FOR A REPO WITH NEITHER.
+### ### THAT IS b217's SPECIES, ON THE DAY AFTER THE RULE WAS FILED, ### IN THE ACT WHOSE OWN
+### ### CLAUSE (e) REQUIRES THE HARNESS. ### It was caught because the next check contradicted
+### it, and the facts were re-established ONE CHECK AT A TIME. ### THE RULE IS ONE DAY OLD AND
+### ### THE HABIT IS OLDER. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE REPAIR AND THE GATES.
+----------------------------------------------------------------------------------------------------
+### THE PATH TAKEN, AND IT NEEDED NO NEW PIN AND NO REPO FILE:
+ 1. ### VERIFIED FIRST that SIDE-archimedean's .lake/ is gitignored with ZERO tracked files and a
+    CLEAN worktree, ### SO POPULATING IT TOUCHES NOTHING TRACKED. Checked before anything ran.
+ 2. "lake exe cache get" in that vendored Mathlib with MATHLIB_CACHE_DIR pointed at
+    D:\mathlib-cache. ### "No files to download ... Completed successfully!" -- ### THE LOCAL
+    CACHE HELD EVERYTHING; the network was used only to clone the dependency packages.
+ 3. every module the Interfaces layer imports fetched by name (17 imports, enumerated at content
+    from the files themselves, never from recall).
+ 4. the layer compiled with LEAN_PATH over mathlib + its eight dependency packages.
+### ### NO CHECKOUT OF /d/mathlib4's NEWER HEAD WAS MADE, as clause (c) forbids.
+
+### G-CORE  : **PASS.** Core re-printed BEFORE the repair: 366 lines, 366 zero-axiom,
+   ### BYTE-IDENTICAL to the banked AXIOM_PRINTS.txt. Re-printed AFTER: ### BYTE-IDENTICAL to the
+   bank AND to the before-run. ### CORE IS VANILLA AND THIS ACT DID NOT TOUCH IT.
+### G-BUILD : **PASS.** All six Interfaces files compile at v4.29.1: FiniteInstanceIdentity,
+   GlobalSection, LocalLimit, PadicFourier, PadicStandardAddChar, RestrictedTensorLayer1.
+### G-PROFILE: **PASS.** ### 29 BANKED TERMINALS, 29 PRINTED, ### ZERO in the bank not printed,
+   ### ZERO printed not in the bank, ### ZERO PROFILE DIFFERENCES. ### NOT ONE ROUNDED.
+   ### INCLUDING THE FOUR [propext]-ONLY TERMINALS OF LocalLimit, which are exactly the rows a
+   ### rounding would have flattened into the three-axiom majority.
+
+*** ### AND ONE FAILURE THAT WAS THE EXECUTOR'S TOOL CHOICE AND NOT THE OBJECT: the first
+### G-BUILD attempt ran from Git Bash and every file returned "unknown module prefix 'Mathlib'".
+### ### LEAN_PATH WITH WINDOWS PATHS AND ';' SEPARATORS DOES NOT SURVIVE Git Bash's PATH
+### ### MANGLING. ### Re-run from PowerShell with a native LEAN_PATH, the same command compiled
+### and printed. ### RECORDED BECAUSE IT LOOKED EXACTLY LIKE b215's FINDING AND WAS NOT IT --
+### ### AND BECAUSE IT ERRORED LOUDLY RATHER THAN PASSING SILENTLY, WHICH IS WHY IT COST MINUTES
+### ### AND NOT AN ACT. ***
+
+### (e) EVERY GATE RUN UNDER THE b217 HARNESS WITH A MUST-FAIL FIXTURE **AND** A MUST-PASS
+### WITNESS: ### 5 CHECKS, 5 PASS, 0 FAIL, 0 ERROR, 0 REFUSED -- G-CORE, G-BUILD, G-PROFILE,
+### pin-unmoved, repo-untouched. ### THE HARNESS'S FIRST SERVICE ON AN ACT THAT IS NOT ITS OWN.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE PRINTS AND THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### THE FEDERATION SNAPSHOT filed as a DATED FIELD in the loom, superseding 2026-08-04.
+### THE IN-FLIGHT REGISTER: ### b215's DEBT 3 (THE TOOLCHAIN) IS **DISCHARGED AS A BLOCKER TO
+### PRINTING**. A claimed compile can now be reported from its own printed axiom profile for an
+### Interfaces-grade construction.
+*** ### AND THE DISCHARGE IS NARROW AND SAYS SO: ### THE BUILD IS REPRODUCIBLE **ONLY WITH THAT
+### EXTERNAL LEAN_PATH**. ### THE REPO STILL DECLARES NOTHING, AND A FRESH CLONE STILL CANNOT
+### BUILD ITS OWN INTERFACES LAYER. ### A SMALLER ITEM REPLACES THE OLD ONE: give
+### SIDE-global-section a lakefile and a manifest as its siblings have -- ### A STRUCTURAL CHANGE
+### WITH ITS OWN PROVENANCE, NOT MADE HERE, AND WANTING A RULING. ***
+### TERM 2's OTHER TWO DEBTS ARE UNTOUCHED AND REMAIN AS b215 LEFT THEM: the FILE (blocked on the
+### aggregation) and the LEMMA (ClassRichness, citation UNREAD, in two parts).
+### THE THIRTY-SEVENTH SEAM'S DEBT RESTATED: term 2's formalization stands, ### now blocked by
+### TWO things rather than three. ### LOCKS LAST.
+
+----------------------------------------------------------------------------------------------------
+HIT RECORD, DEVIATIONS, DIVERGENCES.
+----------------------------------------------------------------------------------------------------
+HIT RECORD: the survey run before anything was fetched, with 45 repos enumerated at content and
+three Mathlib trees read for what they hold; the repo's missing package structure found and named
+as the real obstruction; the cache unpacked at the repo's own toolchain with no pin moved and no
+tracked file touched; all three gates PASS; 29 of 29 profiles reproduced exactly; every gate run
+under the b217 harness with both guards.
+### (P1) DELIVERED. ### (P2) **(RESTORED)** -- ### AND THE EXECUTOR'S REGISTERED (HALT) WAS WRONG.
+### (P3) DELIVERED, with the discharge narrowed to what was actually shown.
+
+DEVIATIONS: none. ### The three alternatives named at registration -- add a lakefile, move the
+pin, vendor the modules -- ### WERE ALL LEFT UNTAKEN, as registered, and the repair needed none.
+
+DIVERGENCES: ### ONE, with the ferry's clause (a): it names a lakefile and a lake-manifest that
+SIDE-global-section does not have, and clause (c) presumes a pinned rev it does not declare.
+### NAMED AT REGISTRATION AND NOT WORKED AROUND -- and the path that succeeded is the one the
+### ferry's own clause (c) permitted, since it fetched a cache at the repo's OWN toolchain and
+### checked out nothing newer.
+====================================================================================================
