@@ -118,7 +118,8 @@ KEYS = {
     # ### KEYS CLOSE FALSE HITS; THEY DO NOT CLOSE FALSE MISSES.
     'sonin-space': ['sonin space', "sonin's space", 's(1,1)', 's(lambda,lambda)',
                     'the archimedean sonin space'],
-    'archimedean-sector': ['archimedean sector', 'e1 at infinity', 'e1(infinity)',
+    'archimedean-sector': ['archimedean sector', 'the sonin sector', 'the constraint sector',
+                           'the compression sector', 'e1 at infinity', 'e1(infinity)',
                            'the archimedean e1', 'plus-one sector', 'the +1 sector'],
     'sonin-eigenfunctions': ['sonin eigenfunctions', 'phi_mu', 'the named eigenfunctions',
                              'negative-eigenvalue eigenfunctions'],
@@ -146,9 +147,11 @@ INDEX = [
      ' ### ABOVE BENCH. ### The SPLIT into F-sectors is NOT at this grade',
      'data/b199_archimedean_nonvanishing.txt; data/b201_eigenfunction_exhibit.txt'),
     ('archimedean-sector', 'b200 (the naming census)',
-     "THREE distinct spaces carry the name at infinity: (A) the +1 eigenspace of F on the"
-     " Sonin space; (B) the +1 sector of the constraint span E+B (act 15's v_n^+, ORTHOGONAL"
-     " to (A)); (C) the +1-ish modes of G F G on L2_ev (b33's R-prolate)",
+     "THREE distinct spaces carry the name at infinity. ### NAMED BY THE AUTHOR'S FERRY AT"
+     " b206: ### THE SONIN SECTOR (the +1 eigenspace of F on the archimedean Sonin space --"
+     " THE GLUING SENTENCE'S OBJECT); ### THE CONSTRAINT SECTOR (act 15's constraint span"
+     " E+B, v_n^+ -- ORTHOGONAL to the Sonin sector); ### THE COMPRESSION SECTOR (b33's"
+     " R-prolate soft-compression modes, G F G on L2_ev)",
      'CENSUS at content, 1656 files. ### THE NAMING IS THE AUTHORS AND IS ROUTED --'
      ' both readings at THE_IDENTITY_CHAIN section 13, NEITHER RECOMMENDED.'
      ' ### The gluing sentence names (A)',

@@ -1,0 +1,155 @@
+====================================================================================================
+b206 BANK -- THE VARIABLE PASSAGE. Registration 37b96e7, banked before the derivation.
+2026-08-26. Ferry part 1 of 1, receipt confirmed IN FULL.
+====================================================================================================
+
+*** ### THE VERDICT: **(NOT PINNED).** ### THE PASSAGE DERIVES CLEANLY AND IS A **PURE POSITIVE
+### RESCALING**. ### IT CANNOT FLIP A SIGN. ### **SO THE DISCREPANCY IS NOT A CONVENTION.** ***
+
+### NO VALUE AT tau = 2 pi WAS COMPUTED. ### b205's HALT STANDS -- ### AND ITS REASON CHANGES.
+### CORE UNTOUCHED AT 320/320.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- THE NAMING PASS.
+----------------------------------------------------------------------------------------------------
+
+### THE FERRY'S NAMES, ADOPTED AND USED FROM HERE:
+###   THE SONIN SECTOR       -- the +1 eigenspace of F on the archimedean Sonin space.
+###                             ### THE GLUING SENTENCE'S OBJECT.
+###   THE CONSTRAINT SECTOR  -- act 15's constraint span E+B. ### ORTHOGONAL TO THE SONIN SECTOR.
+###   THE COMPRESSION SECTOR -- b33's (R-prolate) soft-compression modes, G F G on L^2_ev.
+###   THE OPERATOR MATCH       -- the crown act's four clauses (lambda = 1; c = 2 pi as
+###                               (2 pi lambda)^2; W's ordering; the mode index n <-> 2n).
+###   THE TRANSFORM CONVENTION -- the Fourier exponent and scaling (b203).
+###   THE EIGENFUNCTION SCALE  -- the scalar fixing an individual eigenfunction (b202).
+### ### THE EXECUTOR DOES NOT MINT THESE. THE FERRY DOES; THIS ACT ADOPTS AND APPLIES THEM.
+
+### THE CENSUS OVER THE LIVE DOCUMENTS: ### 34 sector occurrences, 49 normalization occurrences,
+### across five files. ### DISPOSITION PER DOCUMENT IS IN data/audit_b206_naming_pass.txt.
+### SIX ROWS DISAMBIGUATED IN PLACE (identity chain sections 13 and 18, originals visible).
+*** ### AND ONE OCCURRENCE **FLAGGED AND LEFT, NOT GUESSED**: the codomain specification's
+### "E_1(infinity)". ### b200 found its SUBJECT reads as THE SONIN SECTOR and its CITATION as THE
+### COMPRESSION SECTOR. ### WHICH THE AUTHOR MEANT IS THE ROUTED NAMING QUESTION, AND THIS ACT
+### DOES NOT ANSWER IT. ***
+### THE KEYSTONE'S GLUING SENTENCE IS DETERMINABLE (THE SONIN SECTOR) AND IS **NOT EDITED**: it is
+### already unambiguous at content, and a naming pass is not a licence to rewrite the author's
+### keystone prose.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P1) THE DERIVATION, AND (P2) THE TEST.
+----------------------------------------------------------------------------------------------------
+
+### THE PAPER'S OWN STATEMENT OF THE PASSAGE, QUOTED AS ITS TEXT LAYER RENDERS IT: "The variable
+### change x = Lambda e^x and e^x = x reduces W_Lambda to D_tau, where tau = 2 pi Lambda^2."
+### ### THAT SENTENCE IS GARBLED IN THE EXTRACTION -- two different variables both render as "x".
+### ### SO THE PAPER'S OWN STATEMENT IS, AT THE LEVEL OF MY READ, UNDERSPECIFIED. ### I DID NOT
+### GUESS ITS INTENT. ### I DERIVED THE PASSAGE FROM THE TWO OPERATOR DEFINITIONS, WHICH ARE NOT
+### GARBLED, ### AND THE DERIVATION **RECOVERS** THE PAPER'S OWN tau = 2 pi Lambda^2.
+### ### THE GARBLING IS A LIMIT OF MY READ, NOT A DEFECT IN THE PAPER, AND IS NAMED AS SUCH.
+
+### THE SUBSTITUTION: ### **x = Lambda * u** -- ### A PURE RESCALING OF THE INDEPENDENT VARIABLE.
+### THE INDUCED ACTION ON FUNCTIONS: f(x) := g(x/Lambda).
+
+### MACHINE-CHECKED WITH sympy, THE DIFFERENCE PRINTED:
+###   (W_Lambda f)(Lambda u) = 4 pi^2 Lambda^4 u^2 g + u^2 g'' + 2 u g' - g''
+###   (D_tau    g)(u)        = 4 pi^2 Lambda^4 u^2 g + u^2 g'' + 2 u g' - g''    [tau = 2 pi Lambda^2]
+###   ### DIFFERENCE : 0
+### ### SO (W_Lambda f)(Lambda u) = (D_tau g)(u) EXACTLY, ### AND tau = 2 pi Lambda^2 IS
+### ### RECOVERED RATHER THAN ASSUMED. ### THE EIGENVALUE mu IS UNCHANGED BY THE PASSAGE.
+
+### THE INDUCED ACTION ON psi:
+###   psi^W(x) ~ - sin(2 pi Lambda x)/(pi x)   [Prop 6(ii), Prop 7 -- the W_Lambda object]
+###   psi^D(u) ~ - sin(tau u)/u                [section 4.2.2 -- the D_tau object]
+###   h(u) := psi^W(Lambda u) ~ - sin(tau u)/(pi Lambda u)
+###   ### => psi^D(u) = **pi * Lambda** * psi^W(Lambda u).
+### ### THE FACTOR IS pi*Lambda, ### AND IT IS POSITIVE FOR EVERY Lambda > 0.
+
+### THE INDUCED ACTION ON y_I:
+###   y_I^W(x) = P_I(Lambda - x) with P_I(0) = 1, so y_I^W(Lambda) = 1;
+###   y_I^D is analytic at u = 1 with y_I^D(1) = 1;
+###   y_I^W(Lambda u) is analytic at u = 1 and equals 1 there.
+### ### => y_I^D(u) = y_I^W(Lambda u) EXACTLY. ### NO FACTOR AND NO SIGN.
+
+### THE INDUCED ACTION ON THE EIGENFUNCTION SCALE:
+### AT AN EIGENVALUE beta = 0, so psi = alpha y_I, and
+### ### **alpha^D = pi * Lambda * alpha^W**, with alpha^W = +-1 by Proposition 7,
+### ### SO **|alpha^D| = pi * Lambda**.
+
+### THE DERIVATION'S OWN CHECKS -- TWO INDEPENDENT PARAMETERS, NEITHER OF THEM OURS:
+ (1) ### Lambda = sqrt(2) (tau = 4 pi): predicted |alpha^D| = pi*sqrt(2) = 4.442882938158366.
+     ### b205 MEASURED 4.442882938158366 -- ### ALL 16 DIGITS.
+     ### AND section 4.2.3 PRINTS "+- sqrt(2) pi" -- ### THE SAME NUMBER, FROM THE PAPER.
+     ### ### THE DERIVATION IS CONFIRMED BY TWO NUMBERS IT DID NOT USE.
+ (2) ### Lambda = sqrt(3) (tau = 6 pi), RUN THIS ACT -- ### A THIRD PARAMETER, CHOSEN BECAUSE IT
+     ### IS NEITHER THE SOURCE'S NOR OURS: predicted |alpha^D| = pi*sqrt(3) = 5.441398092702654.
+     ###   eigenvalue -58.25303734819535   alpha = +5.441399603554858   ratio 1.00000027766  +
+     ###   eigenvalue -138.3911719938972   alpha = -5.441398601613754   ratio 1.00000009353  -
+     ###   eigenvalue -222.0846444564911   alpha = +5.441403275330014   ratio 1.00000095244  +
+     ### ### |alpha^D| = pi*Lambda CONFIRMED TO ~1e-6 AT THE COARSER AXES USED, ### AND THE
+     ### ### ALTERNATION REPRODUCED THERE TOO.
+
+----------------------------------------------------------------------------------------------------
+### (P2) THE TEST: DOES THE PASSAGE CONVERT MY POSITIVE VALUE INTO THE PAPER'S NEGATIVE ONE?
+----------------------------------------------------------------------------------------------------
+
+*** ### **NO.** ### THE FACTOR IS pi*Lambda > 0.
+### Applied to b205's output at mu_-2: alpha^D = +pi*sqrt(2) converts to alpha^W = +1.
+### Proposition 7 says alpha^W = +-1 -- ### THE MAGNITUDE MATCHES EXACTLY AND THE SIGN IS **+**.
+### ### THE PASSAGE CARRIES MY POSITIVE VALUE TO A POSITIVE VALUE. ### IT DOES NOT REACH THE
+### ### PAPER'S -4.44288293889868, AND NO CHOICE OF Lambda > 0 COULD MAKE IT. ***
+
+### ### VERDICT: **(NOT PINNED)**, and the ferry's own words for what that means:
+### ### "the passage derives but does not account for the sign -- ### REPORTED AT FULL PROMINENCE,
+### ### SINCE IT WOULD MEAN THE DISCREPANCY IS NOT A CONVENTION."
+### ### IT IS NOT A CONVENTION.
+
+### AND WHAT IS **NOT** CLAIMED, AT EQUAL PROMINENCE:
+### ### I DO NOT CLAIM RRT ARE WRONG AND I AM RIGHT. ### This act establishes only that
+### ### **the W_Lambda <-> D_tau passage cannot be the explanation.** ### Which side carries the
+### ### error at mu_-2 is not determined here and is not guessed.
+### ### A PUBLISHED AUTHOR'S NUMERIC DOES NOT DEMOTE MINE, AND MINE DOES NOT DEMOTE THEIRS.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE CONSEQUENCE.
+----------------------------------------------------------------------------------------------------
+
+### b205's HALT **STANDS**, ### AND ITS REASON CHANGES, WHICH IS A WORSE OBSTACLE AND IS REPORTED
+### AS ONE: ### from "an unpinned convention" to ### **"AN UNEXPLAINED SIGN DISAGREEMENT WITH THE
+### SOURCE AT THE SOURCE'S OWN PARAMETER"**.
+### ### THE tau = 2 pi RUN IS **NOT** RESTATED AS READY. ### The ferry gates that on PINNED, and
+### this act did not pin it.
+
+*** ### BUT ONE THING THIS ACT CAN SAY FOR THE RE-SCOPE, AND IT WAS REGISTERED BEFORE THE
+### DERIVATION SO IT IS NOT INVENTED NOW:
+### ### **"BOTH SIGNS OCCUR" IS INVARIANT UNDER A GLOBAL SIGN ERROR.**
+### If the alternation holds at tau = 2 pi -- and it has now been reproduced at BOTH tau = 4 pi
+### AND tau = 6 pi -- then ### SOME eigenfunction carries each of the two values, ### AND WHICH
+### LABEL IS WHICH DOES NOT MATTER TO THAT STATEMENT.
+### ### SO A FUTURE GATE THAT TESTS **ALTERNATION** RATHER THAN **ABSOLUTE SIGN** WOULD BE IMMUNE
+### ### TO EXACTLY THE DISCREPANCY THIS ACT LEAVES OPEN.
+### ### THAT IS A PROPOSAL FOR THE AUTHOR'S NEXT FERRY. ### IT IS NOT ACTED ON HERE, AND THE
+### ### EXECUTOR DOES NOT RE-SPECIFY HIS OWN GATES. ***
+
+### M22, RESTATED IN THE ADOPTED NAMES:
+### ### **IS THE SONIN SECTOR AT tau = 2 pi NONZERO?** -- equivalently, does some negative-part
+### eigenfunction there carry c = +1? ### THE ANSWER IS UNCOMPUTED, AND THE COMPUTATION IS
+### BLOCKED ON A SIGN DISAGREEMENT THAT IS **NOT** A CONVENTION.
+
+### WHAT THIS ACT ESTABLISHED, AND IT IS NOT NOTHING:
+ · ### THE PASSAGE IS DERIVED, MACHINE-CHECKED TO DIFFERENCE ZERO, and it RECOVERS the paper's
+   own tau = 2 pi Lambda^2 rather than assuming it.
+ · ### |alpha^D| = pi*Lambda, CONFIRMED AT TWO PARAMETERS NEITHER OF WHICH IS OURS.
+ · ### THE ALTERNATION REPRODUCED AT A SECOND PARAMETER.
+ · ### AND THE SPECIES COUNT: THE TRANSFORM CONVENTION AND THE PASSAGE ARE **DIFFERENT THINGS**,
+   ### AND THE PASSAGE IS NOT A FOURTH NORMALIZATION AT ALL -- ### IT IS AN EXACT CHANGE OF
+   ### VARIABLES WITH NO FREEDOM IN IT. ### b205's CANDIDATE LOCUS IS THEREFORE **ELIMINATED**,
+   ### which is the one clean thing a NOT-PINNED verdict buys.
+
+### TERM 3's ROUTE: ### NO ROUTE BECOMES AVAILABLE. ### Nothing is constructed.
+### NO BUILD: ### nothing finite-decidable landed. ### The passage is an exact symbolic identity,
+### not a decidable instance, ### and Core stays at 320/320, rows 1-82.
+
+====================================================================================================
+### h2 UNCHANGED. THE REGISTER SENTENCE UNTOUCHED. NOTHING PROMOTED. N-EXT-2 ABSOLUTE.
+### NOTHING DEPOSITS. NOTHING CIRCULATES. HELD LOCAL-ONLY. TECHNE-Core UNTOUCHED. NO SORRY.
+====================================================================================================
