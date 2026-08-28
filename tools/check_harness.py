@@ -53,6 +53,7 @@ Usage:
 """
 import io
 import os
+import re
 import subprocess
 import sys
 import traceback
@@ -64,6 +65,50 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 PASS, FAIL, ERROR = 'PASS', 'FAIL', 'ERROR'
+
+
+# ### THE WHITESPACE-NORMALIZED MATCHER, ADDED b234 AT THE AUTHOR'S RULING.
+# ###
+# ### WHY. ### THE SAME SPECIES CAUGHT A GATE IN THREE CONSECUTIVE ACTS, ALWAYS BY THE
+# ### WITNESS GUARD, AND ALWAYS IN THE SAME SHAPE -- A QUOTATION THAT IS PRESENT AND A
+# ### SUBSTRING THAT IS NOT:
+# ###   b227 -- the registration line-wrapped `REFUSED BY` / `NAME`;
+# ###   b232 -- the bank line-wrapped `the named` / `crime`;
+# ###   b233 -- the acts narrative line-wrapped `fails numerically` / `in BOTH conventions`.
+# ### Each time the check was RIGHT about the corpus and WRONG about the bytes. ### A
+# ### quotation broken across a line is still the quotation; a matcher that says otherwise
+# ### is testing the typography.
+# ###
+# ### AND THE CASE-FOLDING REPAIR OF b232 IS FOLDED IN HERE SO IT CANNOT BE LOST AGAIN:
+# ### the inherited per-act helper lowercased the HAYSTACK as bytes (ASCII-only) and the
+# ### NEEDLE as a string (Unicode-aware), so any needle carrying a non-ASCII capital could
+# ### never match. ### BOTH SIDES ARE NORMALIZED AS TEXT, ONCE, HERE.
+# ###
+# ### WHAT IT DOES NOT DO, AND THIS IS THE HALF THAT KEEPS IT A CHECK: ### IT NORMALIZES
+# ### LAYOUT, NOT CONTENT. A string that is genuinely absent is still absent. ### An
+# ### amendment that made everything match would end the species by ending the check, and
+# ### the b234 fixtures exercise BOTH POLARITIES for exactly that reason.
+_WS = re.compile(r'\s+')
+_LEAD = re.compile(r'#{2,}')
+
+
+def norm(s):
+    """### COLLAPSE THIS CORPUS'S `###` LINE-LEAD AND ALL WHITESPACE RUNS, THEN FOLD CASE.
+       ### Layout only. No character is deleted that carries meaning."""
+    return _WS.sub(' ', _LEAD.sub(' ', s)).strip().lower()
+
+
+def contains(path, needle):
+    """### WHITESPACE-NORMALIZED CONTAINMENT AGAINST A FILE. ### A MISSING FILE IS FALSE,
+       NEVER SILENTLY TRUE."""
+    if not os.path.isfile(path):
+        return False
+    with io.open(path, encoding='utf-8', errors='replace') as fh:
+        return norm(needle) in norm(fh.read())
+
+
+def both(path, a, b):
+    return contains(path, a) and contains(path, b)
 
 
 class CwdError(RuntimeError):

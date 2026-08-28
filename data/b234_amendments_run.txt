@@ -1,0 +1,38 @@
+====================================================================================
+b234 -- THE TWO TOOL AMENDMENTS: FIXTURES BOTH POLARITIES, AND THE RETROFITS.
+====================================================================================
+
+### AMENDMENT 1 -- check_harness.norm/contains: whitespace-normalized matching.
+### THE RETROFIT ON THE THREE LINE-WRAP CATCHES (b227, b232, b233):
+  act    needle (a real, wrapped quotation)         OLD      AMENDED 
+  b227   REFUSED BY NAME                            False    True    
+  b232   the named crime                            False    True    
+  b233   fails numerically in BOTH conventions      False    True    
+
+### POLARITY 2 -- a genuinely ABSENT string must still MISS under BOTH:
+  b232   the named felony                           False    False   
+  b233   succeeds numerically in BOTH conventions   False    False   
+  ### AN AMENDMENT THAT MADE EVERYTHING MATCH WOULD END THE SPECIES BY ENDING THE CHECK.
+
+### AMENDMENT 2 -- banned_terms QUOTED class.
+### THE MUST-FAIL FIXTURE: a banned stem in the act's OWN voice, and a quotation that
+### is DECORATED but NOT IN THE CORPUS. ### BOTH MUST STAY LIVE.
+  hits found       : 2   ### unchanged by the QUOTED class -- the scan stays total
+  live uses        : 2
+  quoted uses      : 0   ### verbatim corpus sentences, VERIFIED AT SOURCE (b234)
+   b234_fixture_live.md             :2      ### LIVE USE -- CORRECT BEFORE SHIPPING
+   b234_fixture_live.md             :4      ### LIVE USE -- CORRECT BEFORE SHIPPING
+  VERDICT          : NOT CLEAN
+
+### THE RETROFIT: b233's two hits, which that act reported NOT CLEAN and routed.
+  hits found       : 2   ### unchanged by the QUOTED class -- the scan stays total
+  live uses        : 0
+  quoted uses      : 2   ### verbatim corpus sentences, VERIFIED AT SOURCE (b234)
+   b233_registration_2026-08-28.txt :74     QUOTED -- VERBATIM CORPUS SENTENCE, VERIFIED AT SOURCE
+   b233_the_arrangement.txt         :90     QUOTED -- VERBATIM CORPUS SENTENCE, VERIFIED AT SOURCE
+  VERDICT          : CLEAN
+
+### OLD VERDICT (b233, reported): NOT CLEAN, 2 live uses.
+### NEW VERDICT (b234, amended) : CLEAN, 0 live / 2 quoted. ### HITS UNCHANGED AT 2.
+### BOTH FACES SHOWN, because a verdict that changed under a tool amendment must show
+### both or it is a rewrite.

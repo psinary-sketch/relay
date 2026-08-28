@@ -181,6 +181,11 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE FOLD KEY, ADDED b234 UNDER ITS CLAUSE (d). ### NOTE THE COLLISION IT AVOIDS:
+    # ### b231 declared `the fold` as an alias of `the-two`, so that string is NOT reused here.
+    'fold-forward': ['fold forward', 'the fold-forward', 'fold-forward', 'the arc fold',
+                     'findings fold', 'arc live items', 'species catalogue',
+                     'b209-b233', 'the identity arc'],
     # ### THE ARRANGEMENT AND BAR KEYS, ADDED b233 UNDER ITS CLAUSE (d).
     'the-arrangement': ['the arrangement', 'arrangement', 'file e minus',
                         'prime term entry sign', 'wprimes sign', 'the combination',
@@ -367,6 +372,19 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("fold-forward", "b234",
+     "the arc b209-b233 folded into FINDINGS.md as sec 0-bis: five anchored entries"
+     " (arc-live-items, residue-six-station-migration, arc-species-catalogue,"
+     " two-three-connective, import-ledger-surfaced). ### 25 acts, contiguous, reconciled at"
+     " content. ### EVERY OBSTACLE IS A QUOTATION FROM ITS OWNING ACT. ### The statements tally"
+     " VERIFIED AT CONTENT AT FIVE (b223, b226, b227, b228+b229 as one, b232), plus the"
+     " arrangement at one line (b233) and the aggregation open-with-coordinates (b220)",
+     "synthesis-suggested (the roll-up); each item carries its OWNING act's grade. ### NO GRADE"
+     " MOVED AND NO TAG WAS EDITED -- tested mechanically: the fold DELETED NO LINE, and under"
+     " the document's own rule a grade moves only by an in-place tag edit. ### THE ARC PROVED"
+     " NOTHING: all five are STATEMENTS, and the identity is exactly as unproved at b233 as at"
+     " b209   ### as its own act recorded it",
+     "FINDINGS.md sec 0-bis; data/b234_fold_forward.txt; THE_IDENTITY_CHAIN.md secs 27-36"),
     ("the-arrangement", "b233",
      "the prime term's ENTRY SIGN in File E: with both columns defined, File E's right side is"
      " -A - PR while CC's places-sum is -A + PR. ### File E names its fields and writes its"

@@ -122,6 +122,85 @@ WINDOW = 40
 SELF = os.path.basename(__file__)
 
 
+# ### THE `QUOTED` VERDICT CLASS, ADDED b234 AT THE AUTHOR'S RULING:
+# ### "Verbatim quotations of the corpus's own recorded sentences are scanned and counted,
+# ###  and reported as QUOTED, not LIVE; nothing is exempted silently; the scan stays total."
+# ###
+# ### THE THREE CLAUSES ARE THREE OBLIGATIONS AND EACH IS IMPLEMENTED SEPARATELY:
+# ###   (1) SCANNED AND COUNTED -- the hit is still found, still counted in `hits`, still
+# ###       printed with its line and its stem. ### QUOTED IS A VERDICT CLASS, NOT A FILTER.
+# ###   (2) NOTHING EXEMPTED SILENTLY -- the class prints, and the sidecar carries a QUOTED
+# ###       count beside the LIVE count so the two are never conflated.
+# ###   (3) THE SCAN STAYS TOTAL -- `hits` is unchanged by this amendment. Only the split
+# ###       between LIVE and QUOTED changes.
+# ###
+# ### AND THE HALF THAT KEEPS IT HONEST, WHICH IS THE WHOLE DESIGN: ### `QUOTED` MEANS
+# ### **PROVABLY QUOTED**, NOT MERELY DECORATED WITH QUOTE MARKS. The span is extracted and
+# ### then LOOKED UP IN THE CORPUS. If the sentence is not found at source, the hit stays
+# ### LIVE. ### A CLASS THAT TRUSTED THE QUOTE MARKS WOULD BE A LOOPHOLE ANY ACT COULD OPEN
+# ### BY TYPING A DOUBLE QUOTE, and b233 refused to self-grant exactly that exemption.
+QUOTED_ROOTS = ['D:/MY-DOwnloads/PLACE-papers', 'D:/relay/reports']
+_QUOTE_MARKS = '"\u201c\u201d'
+_CORPUS = None
+
+
+def _norm_q(s):
+    """### LAYOUT AND EMPHASIS ONLY: the corpus writes `**bold**`, backticks and a `###`
+       line-lead through its own quotations, and a wrap can fall anywhere."""
+    s = re.sub(r'#{2,}', ' ', s)
+    s = re.sub(r'[*`>]', '', s)
+    return re.sub(r'\s+', ' ', s).strip().lower()
+
+
+def _corpus():
+    """### LOADED LAZILY -- a run with no unclassified hit pays nothing for this."""
+    global _CORPUS
+    if _CORPUS is None:
+        buf = []
+        for root in QUOTED_ROOTS:
+            for dirpath, dirs, files in os.walk(root):
+                if '.git' in dirpath:
+                    dirs[:] = []
+                    continue
+                for fn in files:
+                    if fn.endswith('.md'):
+                        try:
+                            buf.append(_norm_q(io.open(os.path.join(dirpath, fn),
+                                                       encoding='utf-8',
+                                                       errors='replace').read()))
+                        except OSError:
+                            pass
+        _CORPUS = '\n'.join(buf)
+    return _CORPUS
+
+
+def quoted_span(line, at):
+    """### THE QUOTE-DELIMITED SPAN CONTAINING THE HIT, or None.
+
+    ### THE FIRST VERSION OF THIS FUNCTION REQUIRED A **CLOSING** MARK ON THE SAME LINE,
+    ### AND THE RETROFIT CAUGHT IT IMMEDIATELY: b233's quotation opens on one line and
+    ### closes four lines later, so the span was never found and both hits stayed LIVE.
+    ### ### THE AMENDMENT HAD REPRODUCED THE VERY SPECIES IT WAS WRITTEN TO END -- a
+    ### ### quotation that is present and a substring that is not -- ONE LEVEL UP.
+    ### Caught by RUNNING the retrofit rather than assuming it.
+
+    ### THE REPAIR: an unclosed quotation runs to the end of its line, and that PREFIX is
+    ### looked up in the corpus like any other span. ### AN OPENING MARK IS STILL REQUIRED:
+    ### without it, any line that happened to match corpus text would classify QUOTED, and
+    ### an act that had just filed the same sentence to a ledger could launder its own
+    ### voice through its own filing. ### THE MARK IS THE ACT'S DECLARATION THAT IT IS
+    ### QUOTING; THE CORPUS LOOKUP IS THE CHECK ON THAT DECLARATION."""
+    if at is None:
+        return None
+    left = max((line.rfind(c, 0, at) for c in _QUOTE_MARKS), default=-1)
+    if left < 0:
+        return None
+    right = min((p for p in (line.find(c, at) for c in _QUOTE_MARKS) if p >= 0),
+                default=-1)
+    span = line[left + 1:right] if right >= 0 else line[left + 1:]
+    return span if len(_norm_q(span)) >= 12 else None
+
+
 def classify(line, at=None, path=None):
     if path and os.path.basename(path) == SELF:
         return "THE SCANNER'S OWN SOURCE (declared exception, file-level)"
@@ -132,6 +211,9 @@ def classify(line, at=None, path=None):
     for rx, name in EXCEPT:
         if rx.search(seg):
             return name
+    span = quoted_span(line, at)
+    if span and _norm_q(span) in _corpus():
+        return 'QUOTED -- VERBATIM CORPUS SENTENCE, VERIFIED AT SOURCE'
     return None
 
 
@@ -190,7 +272,7 @@ def main(argv):
         srcs.append("EXCLUDED %d lines whose path contains: %s   ### stated, never silent"
                     % (before - len(scope), ", ".join(excl)))
 
-    hits = live = 0
+    hits = live = quoted = 0
     rows = []
     for path, ln, text in scope:
         # ### EVERY hit on a line is classified SEPARATELY, in its own window.
@@ -199,6 +281,8 @@ def main(argv):
             cls = classify(text, m.start(), path)
             if cls is None:
                 live += 1
+            elif cls.startswith('QUOTED --'):
+                quoted += 1
             rows.append((path, ln, cls,
                          (text.strip()[:60] + "   <<hit: " + m.group(0) + ">>")))
 
@@ -214,8 +298,11 @@ def main(argv):
     if ARCHIVED_HEADINGS:
         print("  archived headings: %d loaded, used as an EXACT exception set"
               % len(ARCHIVED_HEADINGS))
-    print("  hits found       : %d" % hits)
+    print("  hits found       : %d   ### unchanged by the QUOTED class -- the scan stays total"
+          % hits)
     print("  live uses        : %d" % live)
+    print("  quoted uses      : %d   ### verbatim corpus sentences, VERIFIED AT SOURCE (b234)"
+          % quoted)
     if rows:
         print("\n  THE HIT TABLE -- every hit shown with its class; none dropped:")
         for p, ln, cls, text in rows:
@@ -251,7 +338,7 @@ def main(argv):
         blk, sp = AE.emit('banned_terms', act, srcs,
                           [('stems', ', '.join(STEMS)), ('files', len(files)),
                            ('lines', len(scope)), ('hits', hits),
-                           ('live uses', live)], verdict)
+                           ('live uses', live), ('quoted uses', quoted)], verdict)
         print("\n" + blk)
         print("  sidecar written: %s" % sp)
     print("\n  VERDICT          : %s" % verdict)
