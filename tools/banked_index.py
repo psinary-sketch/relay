@@ -169,6 +169,21 @@ KEYS = {
                     'note to rrt', 'the rrt note'],
     'naming-ruling': ['the naming ruling', 'naming ruling', "term 3's archimedean factor",
                       'term 3 archimedean factor'],
+    # ### THE TERM-3 / CELL-ASSEMBLY LANE, ADDED b221 UNDER ITS CLAUSE (g).
+    # ### b219 AND b220 FOUND THE INDEX KEYED BY VERDICTS AND NOT BY SUBJECTS;
+    # ### b221 FOUND THE SHARPEST CASE -- 'restricted tensor' RETURNED NO KEY AT TEN ACTS,
+    # ### INCLUDING b193 AND b194 THEMSELVES, THE ACTS THAT PLANNED AND THEN RETIRED IT.
+    'restricted-tensor-retired': ['restricted tensor', 'restricted-tensor',
+                                  'restricted tensor product', 'term 3 plan'],
+    'e1-unit-purity': ['e1 unit purity', 'e1-unit purity', 'schmidt purity',
+                       'schmidt-pure', 'mixed-forced', 'e1 units'],
+    'unit-normalized-trace': ['unit-normalized trace', 'unit normalized trace',
+                              'restricted-tensor trace'],
+    'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
+                           'log p convention'],
+    'staircase': ['the staircase', 'staircase', 'effective cutoff', 'active places',
+                  'active-place set'],
+    'aggregation': ['the aggregation', 'aggregation', 'cell-level assembly', 'assembly'],
     # ### AND THE ALIASES DELIBERATELY **NOT** ADDED, EXTENDING b181's PRECEDENT:
     # ### the bare 'prolate' (ambiguous across three keys -- b181's own reason, unchanged);
     # ### the bare 'sign' (ambiguous across alpha, alternation, the-ladder and b205's
@@ -179,6 +194,57 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE TERM-3 / CELL-ASSEMBLY LANE (b221). Grades are the ones their own acts recorded.
+    ("restricted-tensor-retired", "b193 (planned) / b194 (RETIRED)",
+     "the restricted-tensor construction for term 3 is RETIRED AT ITS OWN FALSIFIER, on"
+     " three independent grounds; the maps CANNOT BE FORMED -- that is not a weaker"
+     " isometry, it is an ABSENT MAP",
+     "RETIRED, NOT PATCHED, at b194, on the owner read of the 2026-08-19 purity report."
+     " ### NO ALTERNATIVE CONSTRUCTION IS PROPOSED; a re-scope is the author's."
+     " ### b194 filed M21 (a build's ingredients unqueried) as its own lesson",
+     "data/b193_restricted_tensor_one.txt; data/b194_restricted_tensor_two.txt"),
+    ("e1-unit-purity", "the 2026-08-19 purity act / b194 / b221",
+     "at the banked cells: (2,1) NO-UNIT (d1=0); (3,1) and (2,2) MIXED-FORCED -- E1 contains"
+     " NO NONZERO PURE VECTOR AT ALL, and at (2,2) none over ANY field extension;"
+     " (5,1),(2,3),(3,2) MIXED-generic",
+     "DECIDED with exact witness minors in Z[zeta_9] and Q(zeta_16)[t]; the FORCED grade at"
+     " (3,1) and (2,2), the generic grade elsewhere. ### Existence at d1 > 2 is OPEN and its"
+     " own act says so",
+     "reports/2026-08-19-e1-unit-purity.md; data/b194_restricted_tensor_two.txt"),
+    ("unit-normalized-trace", "act 7 sec 4 (named) / b220 (misread) / b221 (read at source)",
+     "act 7 sec 4 NAMES it as what a future theorem would state and DOES NOT DEFINE IT --"
+     " it says neither what it traces, nor over which space, nor normalized how",
+     "### A NAME, NOT A DEFINITION, read at SOURCE at b221. ### b220 called it the most"
+     " promising named route and WAS WRONG -- the route was retired at b194, twenty-six acts"
+     " earlier (see restricted-tensor-retired)",
+     "reports/2026-08-18-w-construction-1-act-7.md sec 4;"
+     " data/b221_cell_level_assembly.txt"),
+    ("weil-ledger-target", "File E / b221",
+     "the ledger CELL-LEVEL target -- its value, coefficients, normalization and log p"
+     " convention -- is ABSENT from the record; the ledger exists only as a TYPE, two"
+     " unconstrained reals per cell",
+     "### ABSENCE RECORDED at b221 as term 2 FOURTH debt. File E own header: THIS FILE"
+     " STATES; IT DOES NOT PROVE. ### The only log p in the record is b10 QUESTION-grade"
+     " Lefschetz wonder, no promotion either way",
+     "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
+     " data/b221_cell_level_assembly.txt"),
+    ("staircase", "b16 / b17",
+     "one archimedean bound a sets every place effective cutoff n_p(a) ="
+     " #{k >= 1 : p^k <= a^2}; D(a) ranges over all places with n_p(a) >= 1, so THE ACTIVE"
+     " PLACE SET IS FINITE at every cell",
+     "DEFINITIONAL, on disk, and the diagonal section is compiled (D-yes, f967f10)."
+     " ### INDEXED BY A DIAGONAL CELL a^2 -- NOT by a (p,n) local cell, and b221 records"
+     " that confusing the two is the double-name species",
+     "data/b17_2026-08-18.txt; data/b16_2026-08-18.txt"),
+    ("aggregation", "b197 / b215 / b220",
+     "no statement assembles the quotient channel per-place values into the single real"
+     " Q.value at a diagonal cell; the admissible set is EVERY function from a cell to R",
+     "### UNSTATED at b197, re-confirmed b215. ### b220 measured the freedom: C-TYPE demands"
+     " NOTHING, C-NORM bearing is NOT STATED, C-FINITE WIDENS it, and C-WEIL is NOT"
+     " AVAILABLE (no exact statement, and circular -- it is h2). ### The RESULT route is"
+     " blocked in principle; a RULING or an identity-independent constraint is wanted",
+     "data/b197_values_and_c0.txt; data/b215_term2_statement_before_file.txt;"
+     " data/b220_aggregation_freedom.txt"),
     # ### THE ARCHIMEDEAN-SECTOR LANE'S ROWS (b202). ### EVERY GRADE IS THE ONE ITS OWN ACT
     # ### RECORDED, and two of these are IMPORTS under b146, marked as such with versions.
     ('sonin-space', 'b199 / b201 (imports, read at content)',
