@@ -181,6 +181,11 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE VOICES AND ATLAS KEYS, ADDED b235 UNDER ITS CLAUSE (e).
+    'voices': ['the voices', 'voices', 'deposit-voice', 'support-voice', 'program-voice',
+               'three voices', 'phase 1.1 voices'],
+    'sign-atlas': ['sign atlas', 'the sign atlas', 'sign-atlas', 'conventions atlas',
+                   'w-infinity conventions', 'translation rule'],
     # ### THE FOLD KEY, ADDED b234 UNDER ITS CLAUSE (d). ### NOTE THE COLLISION IT AVOIDS:
     # ### b231 declared `the fold` as an alias of `the-two`, so that string is NOT reused here.
     'fold-forward': ['fold forward', 'the fold-forward', 'fold-forward', 'the arc fold',
@@ -372,6 +377,33 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("voices", "b235",
+     "the three-voice law: DEPOSIT-VOICE (co-deposited texts at their published Zenodo versions,"
+     " frozen, errata-only), SUPPORT-VOICE (the Phase-1.1 support layer at working HEAD),"
+     " PROGRAM-VOICE (the wider corpus). Every Phase-1.1 sentence names its voice; 'Day 1'"
+     " unqualified is RETIRED from active vocabulary. ### The register pins deposit-voice at"
+     " Zenodo v1.1.2 / ms v5.10.2 (2026-07-24, 11 files) against support HEAD v5.13 + two era"
+     " annotations -- a drift of three manuscript versions",
+     "author ruling, standing from b235. ### AND A FINDING THE REGISTER TURNED UP:"
+     " outputs/DEPOSITED/A_Place_to_Stand.DEPOSITED.md IS NOT THE DEPOSIT -- its header reads"
+     " v5.4, six manuscript versions stale. ### FILED AS A FINDING AND **NOT** TO ERRATA, because"
+     " ERRATA is for defects in DEPOSITED TEXT and the deposited text is clean (read-only fetch"
+     " matched REGISTRY item for item)   ### as its own act recorded it",
+     "data/b235_phase11_conventions.txt; REGISTRY.md d1-1"),
+    ("sign-atlas", "b235",
+     "SIGN_ARRANGEMENT_RECONCILIATION.md sec 5: ten cells, each a QUOTATION carrying its voice and"
+     " version, covering every W_inf / prime-term / arrangement convention in the record."
+     " ### THE TRANSLATION RULE, ONE RULE: CC's eq (1) puts the zero-sum on the LEFT with the"
+     " places-sum alone on the right, so every local term flips sign -- W_inf^CC = -W_inf^corpus."
+     " ### EIGHT corpus-voice cells carry a determinate orientation and ALL EIGHT AGREE:"
+     " W_inf = +A, the prime term enters with a MINUS, the combination is A - PR",
+     "the atlas DECIDED the File E conditional at b235 and it EXECUTED. ### The deciding sentence"
+     " is the corpus's own statement of its open premise, support-voice: 'h2 - the sign of"
+     " W_inf - W_2'. ### NO NUMBER WAS CONSULTED: the instrument row is recorded and explicitly"
+     " EXCLUDED from the decision, because a sign warranted by a calibration is an instrument"
+     " fact, not a text   ### as its own act recorded it",
+     "SIGN_ARRANGEMENT_RECONCILIATION.md sec 5; THE_IDENTITY_CHAIN.md sec 34.6;"
+     " data/b235_phase11_conventions.txt"),
     ("fold-forward", "b234",
      "the arc b209-b233 folded into FINDINGS.md as sec 0-bis: five anchored entries"
      " (arc-live-items, residue-six-station-migration, arc-species-catalogue,"
