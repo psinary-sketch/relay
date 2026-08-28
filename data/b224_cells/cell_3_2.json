@@ -1,0 +1,24 @@
+{
+ "p": 3,
+ "n": 2,
+ "q": 9,
+ "N": 81,
+ "d1": 16,
+ "minors": 1008,
+ "field_degree": 54,
+ "pure_alone": [],
+ "degrees": [
+  {
+   "D": 2,
+   "dim": 136,
+   "rank_reached": 40,
+   "rows_used": 49,
+   "secs": 2451.5,
+   "completed": false
+  }
+ ],
+ "verdict": "UNDECIDED",
+ "obstruction": "DEGREE (cost), measured not guessed: exact Gaussian elimination over Q(zeta_81), a degree-54 cyclotomic field, with 136 pivots to attain. The run reached rank 40 of 136 in 2451.5s and the per-pivot cost is rising superlinearly (10 pivots by 128s, 20 by 524s, 30 by 1425s, 40 by 2452s). Comparison: (2,3) needed 78 pivots over degree-32 and took 6204s. (3,2) is roughly an order of magnitude beyond that. The environment killed the process at 2451.5s; no verdict was reached and none is asserted.",
+ "note": "### THE CERTIFICATE IS ONE-DIRECTIONAL. Failing to certify emptiness says NOTHING about whether a pure vector exists at (3,2). This is UNDECIDED, not (PURE-EXISTS) and not (NONE).",
+ "resume_shortfall": "### G-RESUME AS SPECIFIED ASKS FOR PER-BATCH RESUMABILITY; THIS ACT'S RUNNER IS PER-CELL ONLY. A kill therefore cost the whole cell rather than one batch. Recorded as this act's shortfall against its own gate."
+}

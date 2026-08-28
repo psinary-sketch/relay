@@ -1,0 +1,157 @@
+====================================================================================================
+b224 -- THE SEGRE QUESTION AT THE THREE OPEN CELLS. THE BANK. 2026-08-28.
+Registration: data/b224_registration_2026-08-28.txt, banked after the owners and instruments were
+read and BEFORE any computation. Instrument: tools/e16/b224_segre.py.
+Per-cell certificates: data/b224_cells/cell_{5_1,2_3,3_2}.json. Index: data/audit_b224_index_query.txt.
+### A DECISION INPUT FOR M21's DIRECTION B, NOT A RESUMPTION. ### b194's RETIREMENT STANDS.
+### PLACE-papers, HANDOFF AND THE MIRROR UNTOUCHED. ### FILINGS DEFER TO b225.
+### Nothing deposits. Nothing about h2 beyond the register sentence exact.
+====================================================================================================
+
+****************************************************************************************************
+### THE VERDICTS, PER CELL, INDEPENDENT:
+### ### **(5,1) = (NONE)** -- certified exactly.
+### ### **(2,3) = (NONE)** -- certified exactly.
+### ### **(3,2) = (UNDECIDED)** -- the obstruction named and MEASURED, no verdict asserted.
+### ### **TWO OF THE THREE OPEN CELLS ARE CLOSED. NO PURE VECTOR EXISTS AT EITHER, OVER ANY
+### ### FIELD EXTENSION.**
+****************************************************************************************************
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) G-REPRO, SHOWN BEFORE ANY OPEN CELL WAS TOUCHED.
+----------------------------------------------------------------------------------------------------
+### THE GATE: reproduce the (2,2) MIXED-FORCED certificate ### BY THIS ACT'S OWN GENERALIZED
+### INSTRUMENT, not by re-running the banked one.
+### ### RESULT: ### **PASS.** At (2,2), d_1 = 2, the 18 nonzero quadratic minors span S_2
+### ### (rank 3 of 3) at degree D = 2. ### The ideal therefore contains m^2, the projective
+### ### variety in P^1 is EMPTY, and no nonzero Schmidt-pure vector exists. ### **MIXED-FORCED.**
+### AND IT IS A GENUINELY DIFFERENT ROUTE, WHICH IS THE POINT OF THE GATE:
+### ### b44_pencil.py decides (2,2) by a ### PENCIL-GCD over Q(zeta_16)[t] and reports GCD = 1.
+### ### THIS ACT DECIDES IT BY A ### DEGREE-D SURJECTIVITY RANK over Q(zeta_16).
+### ### **TWO METHODS, ONE VERDICT.** ### The banked certificate is reproduced, not re-run.
+
+----------------------------------------------------------------------------------------------------
+### THE METHOD, AND WHY IT IS NOT A GROEBNER BASIS.
+----------------------------------------------------------------------------------------------------
+### The work-order's own words: "the pencil method generalizes to a ### QUADRIC SYSTEM ON
+### P^{d1-1}; ### exact Groebner or a structured collapse like (2,2)'s alpha^2-collapse."
+### With E_1 spanned by C_1..C_d, the general element is SUM alpha_k C_k; pure <=> rank 1 <=>
+### every 2x2 minor vanishes; each minor is a ### QUADRATIC FORM in (alpha_1..alpha_d).
+### ### THE PURE VECTORS ARE THE PROJECTIVE VARIETY V(q_1..q_M) IN P^{d-1}.
+*** ### AND THE OBSERVATION THAT MADE THE ACT TRACTABLE:
+### ### **V IS EMPTY <=> the ideal contains m^D for some D <=> the multiplication map
+### ### (S_{D-2})^M --> S_D, (f_r) |-> SUM f_r q_r, IS SURJECTIVE.**
+### ### SO EMPTINESS IS CERTIFIED BY A **RANK**, EXACT OVER Q(zeta_N), WITH NO GROEBNER ENGINE. ***
+### ### THE CERTIFICATE IS **ONE-DIRECTIONAL**, AND THE INSTRUMENT IS WRITTEN SO IT CAN ONLY EVER
+### ### PRODUCE THE HONEST OUTCOME:
+### ###   surjective at some D   ==> ### (NONE), certified.
+### ###   not surjective at the D reached ==> ### (UNDECIDED). ### IT DOES **NOT** MEAN NONEMPTY,
+### ###   and no run of this instrument can return (PURE-EXISTS) by failing.
+
+### G-EXACT, HELD: ### EVERY VERDICT IS EXACT ARITHMETIC IN Q(zeta_N). ### NO FLOATS ANYWHERE.
+### A reduction mod ell is used ### ONLY as a non-binding pre-screen to CHOOSE a basis of E_1,
+### never for a verdict -- and the instrument says why in its own header: ### a system with no
+### common zero mod ell may still have one in characteristic zero, and one with a zero mod ell
+### need not lift.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE THREE CELLS.
+----------------------------------------------------------------------------------------------------
+
+  cell   d_1   minors   field        D   rank / dim S_D   rows   secs      VERDICT
+  (5,1)    4       60   Q(zeta_25)   2      10 / 10         31      1.8    ### (NONE)
+  (2,3)   12      588   Q(zeta_64)   2      78 / 78        337   6203.9    ### (NONE)
+  (3,2)   16     1008   Q(zeta_81)   2      40 / 136  (killed)   2451.5    ### (UNDECIDED)
+
+### (5,1) -- ### **(NONE), CERTIFIED.** The 60 quadric minors span S_2 entirely at D = 2.
+### The ideal contains m^2; the variety in P^3 is EMPTY.
+### ### **NO NONZERO SCHMIDT-PURE VECTOR EXISTS IN E_1(5,1) OVER ANY FIELD EXTENSION.**
+### Pre-screen: no basis matrix C_k is itself rank 1.
+
+### (2,3) -- ### **(NONE), CERTIFIED.** The 588 quadric minors span S_2 entirely at D = 2
+### (rank 78 of 78, attained after 337 rows). The ideal contains m^2; the variety in P^11 is EMPTY.
+### ### **NO NONZERO SCHMIDT-PURE VECTOR EXISTS IN E_1(2,3) OVER ANY FIELD EXTENSION.**
+### Pre-screen: no basis matrix C_k is itself rank 1.
+
+### (3,2) -- ### **(UNDECIDED), AT FULL PROMINENCE, AND NO VERDICT IS ASSERTED.**
+### ### THE OBSTRUCTION, NAMED AND **MEASURED RATHER THAN GUESSED**: ### **DEGREE (COST).**
+### Exact Gaussian elimination over Q(zeta_81) -- a ### degree-54 field -- with ### 136 pivots
+### to attain. The run reached ### rank 40 of 136 in 2451.5s, with per-pivot cost rising
+### superlinearly: 10 pivots by 128s, 20 by 524s, 30 by 1425s, 40 by 2452s.
+### FOR SCALE: (2,3) needed 78 pivots over a degree-32 field and took 6203.9s.
+### ### (3,2) IS ROUGHLY AN ORDER OF MAGNITUDE BEYOND THAT.
+### The environment killed the process at 2451.5s. ### NO VERDICT WAS REACHED AND NONE IS CLAIMED.
+### ### AND THE ONE-DIRECTIONALITY MATTERS MOST HERE: ### FAILING TO CERTIFY EMPTINESS SAYS
+### ### **NOTHING** ABOUT WHETHER A PURE VECTOR EXISTS AT (3,2).
+### THE STOP-LOSS GOVERNED: ### ONE ATTEMPT ON THIS SPECIFICATION, ### NO TUNING, NO RETRY WITH
+### A KINDER PARAMETER. ### THE CELL IS REPORTED AS THE FERRY PROVIDES FOR.
+
+----------------------------------------------------------------------------------------------------
+### THE REGISTERED EXPECTATIONS, SCORED -- AND ONE WAS WRONG.
+----------------------------------------------------------------------------------------------------
+### THE REGISTRATION PREDICTED, PER CELL:
+###   (5,1) "a VERDICT is REACHABLE -- 4 variables is small."   ### LANDED.
+###   (2,3) ### "**THE EXECUTOR EXPECTS (UNDECIDED)** -- an exact Groebner basis for 588 quadrics
+###         in 12 variables over a degree-32 cyclotomic field is beyond this bench, and the
+###         executor says so BEFORE running rather than after failing."
+###         ### ### **WRONG. (2,3) DECIDED.**
+###   (3,2) "**THE EXECUTOR EXPECTS (UNDECIDED)**, and more strongly."   ### LANDED.
+*** ### WHY (2,3)'s PREDICTION FAILED, STATED EXACTLY, BECAUSE IT IS INSTRUCTIVE:
+### ### **THE EXECUTOR MISPRICED ITS OWN METHOD.** ### The prediction was about a GROEBNER BASIS.
+### ### The act did not compute one. ### The degree-D surjectivity certificate replaces the
+### ### Groebner basis with a RANK, and a rank of 78 over a degree-32 field is an afternoon rather
+### ### than an impossibility. ### THE REGISTRATION PRICED THE OBVIOUS METHOD AND THE ACT USED A
+### ### BETTER ONE -- ### AND THE HONEST NOTE IS THAT THE EXECUTOR DID NOT KNOW THAT WHEN IT
+### ### REGISTERED. ### A prediction that fails because the method improved is still a prediction
+### ### that failed, and it is scored as one. ***
+
+----------------------------------------------------------------------------------------------------
+### THIS ACT'S SHORTFALL AGAINST ITS OWN GATE, AND A RUN THAT WAS WRONGLY DECLARED DEAD.
+----------------------------------------------------------------------------------------------------
+*** ### G-RESUME AS THE FERRY SPECIFIES IT ASKS FOR "per-cell, **per-batch** resumable, a kill
+### costing at most ### **one batch**". ### THIS ACT'S RUNNER IS ### **PER-CELL ONLY**.
+### ### CONSEQUENCE, PAID IN FULL AT (3,2): the kill cost ### THE WHOLE CELL, 2451.5s of exact
+### ### elimination, not one batch. ### THE GATE WAS NOT MET AS WRITTEN AND THE ACT SAYS SO
+### ### RATHER THAN REPORTING G-RESUME AS HELD. ***
+
+*** ### AND A SECOND, RELATED ERROR, RECORDED BECAUSE IT WAS THE EXECUTOR'S OWN MISREADING:
+### ### THE FIRST (2,3) LAUNCH WAS DECLARED "DIED SILENTLY" ON THE EVIDENCE OF AN EMPTY OUTPUT
+### ### FILE. ### IT HAD NOT DIED. ### It was buffering, and it ran to completion and produced
+### ### the (2,3) certificate.
+### ### THE RE-LAUNCH WAS THEREFORE A ### **DUPLICATE CONCURRENT COMPUTATION OF THE SAME CELL**,
+### ### and the runner's existence guard did not prevent it because ### THE GUARD CHECKS ONLY AT
+### ### START. ### Both runs were deterministic and agreed; nothing is corrupted. ### THE COST WAS
+### ### ABOUT AN HOUR OF THE SEAT COMPETING WITH ITSELF, and the duplicate was stopped once the
+### ### first completed.
+### ### **AN EMPTY OUTPUT FILE IS NOT EVIDENCE OF A DEAD PROCESS**, and this executor has now
+### ### made the mirror-image of that mistake twice: ### at b220 it refused to read an empty
+### ### output as a RESULT, correctly; ### here it read an empty output as a DEATH, wrongly. ***
+
+----------------------------------------------------------------------------------------------------
+WHAT THIS ACT DOES **NOT** ESTABLISH.
+----------------------------------------------------------------------------------------------------
+ 1. ### IT DOES NOT RESUME THE RETIRED PLAN. ### b194's sentence stands and the author's ruling
+    stands: "RETIREMENT STANDS UNTIL THE RESULTS ARE READ."
+ 2. ### IT SAYS NOTHING ABOUT (3,2). ### UNDECIDED is not "probably none".
+ 3. ### IT DOES NOT SHOW PURITY IS NEEDED. ### b222 established that von Neumann requires ANY
+    C0-sequence and ### PURITY NOWHERE. ### These verdicts price the corpus's OWN additional
+    demand, if the author keeps it -- ### they do not make that demand load-bearing.
+ 4. ### IT DOES NOT TOUCH THE d_1 <= 2 CELLS. (2,1) has no unit; (3,1) and (2,2) were already
+    MIXED-FORCED at the purity report and are unchanged.
+ 5. ### NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE DEFERRED-FILINGS NOTE.
+----------------------------------------------------------------------------------------------------
+### THIS ACT WRITES ONLY ITS OWN relay data/ FILES AND ITS INSTRUMENT.
+### WHAT b225 IS OWED BY THIS ACT, AND NOTHING MORE:
+###   · THE MEMO'S **DIRECTION B** ROW UPDATED: its price was "a RESULT"; ### THE RESULT IS
+###     PURCHASED AT TWO OF THE THREE OPEN CELLS -- ### (5,1) AND (2,3) BOTH (NONE) -- ### AND
+###     (3,2) REMAINS OPEN WITH ITS OBSTRUCTION MEASURED.
+###   · THE PURITY REPORT'S WORK-ORDER MARKED ### **RUN**, with its outcomes: 2 closed, 1 undecided.
+###   · ### NOTHING ELSE. No ledger, no chain section, no register entry from this act.
+
+DEVIATIONS: none -- ### the stop-loss was observed: one attempt per cell, no tuning, no retry.
+DIVERGENCES: none with the ferry's clauses. ### ONE SHORTFALL AGAINST G-RESUME, recorded above at
+full prominence rather than reported as held.
+====================================================================================================
