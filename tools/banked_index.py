@@ -181,6 +181,12 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE ARRANGEMENT AND BAR KEYS, ADDED b233 UNDER ITS CLAUSE (d).
+    'the-arrangement': ['the arrangement', 'arrangement', 'file e minus',
+                        'prime term entry sign', 'wprimes sign', 'the combination',
+                        'winf minus wprimes'],
+    'import-bar': ['import bar', 'the import bar', 'verification column',
+                   'verified-at-bench', 'verified-internally', 'trusted-at-cite'],
     # ### THE SIGN AND IMPORT KEYS, ADDED b232 UNDER ITS CLAUSE (e).
     'sign-of-a': ['sign of a', 'the sign of a', 'sign of A', 'winf sign',
                   'archimedean sign', 'cc convention', 'the cc convention',
@@ -361,6 +367,32 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("the-arrangement", "b233",
+     "the prime term's ENTRY SIGN in File E: with both columns defined, File E's right side is"
+     " -A - PR while CC's places-sum is -A + PR. ### File E names its fields and writes its"
+     " operator but NOWHERE STATES THE OPERATOR'S INTENT. ### The diagnosis, stated and not"
+     " adopted: the minus is exactly right under DAY-1's convention (A - PR, the corpus's own"
+     " LEFT column) and names no object the corpus computes under CC's -- so FILE E MAY CARRY ONE"
+     " CONVENTION IN ITS DOCSTRING AND THE OTHER IN ITS OPERATOR",
+     "(iii) UNDERDETERMINED at b233 -- ROUTED TO THE AUTHOR, NO ARRANGEMENT CHOSEN, three outcomes"
+     " spelled out and none recommended. ### The identity's statement is ONE-RULING-FROM-COMPLETE."
+     " ### No number was consulted: the narrative's 'fails numerically in BOTH conventions' is a"
+     " comparison coming out and was named inadmissible   ### as its own act recorded it",
+     "data/b233_the_arrangement.txt; THE_IDENTITY_CHAIN.md sec 36;"
+     " SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean"),
+    ("import-bar", "b233",
+     "the author's ruling that imports are VERIFIED where tools reach, not only trusted: the"
+     " import ledger carries a verification column (VERIFIED-INTERNALLY / VERIFIED-AT-BENCH /"
+     " TRUSTED-AT-CITE) and every TRUSTED-AT-CITE entry carries a work-order if internal"
+     " verification is tool-reachable",
+     "STANDING from b233. ### ITS FIRST USE PRODUCED A NON-PROMOTION: IMP-1 was put to the bench"
+     " and the act's OWN REGISTERED PASS-CRITERION FAILED 15 of 15 cell-axis pairs, so IMP-1 is"
+     " held at TRUSTED-AT-CITE with W-ORD-IMP1-BUDGET. ### The sides agree to ~2e-8 relative but"
+     " the criterion was the wrong criterion -- and a criterion rewritten after the numbers is not"
+     " a criterion. IMP-2 also TRUSTED-AT-CITE (its load is a LABELLING, not bench-reachable) with"
+     " W-ORD-IMP2-TAU   ### as its own act recorded it",
+     "THE_IDENTITY_CHAIN.md sec 35.1; data/b233_the_arrangement.txt;"
+     " data/b233_imp1_bench_run.txt; data/b233_resid_diag_run.txt"),
     ("sign-of-a", "b232",
      "the archimedean column's sign: wInf = -A, DERIVED from Connes-Consani's own equation (1)"
      " (arXiv 2006.13771, 'Weil positivity and Trace formula: the archimedean place') set beside"

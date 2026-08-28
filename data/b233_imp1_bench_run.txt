@@ -1,0 +1,74 @@
+====================================================================================================================
+b233 -- IMP-1 AT BENCH: CC eq (1), BOTH SIDES, AT THE DIAGONAL a^2 CELLS 2, 3, 4
+====================================================================================================================
+### THE CORPUS'S LEFT SIDE (T, Q) APPEARS NOWHERE IN THIS COMPUTATION.
+### N REGISTERED AT 1000 BEFORE THE FIRST NUMBER. Lower N below = a VARIED AXIS.
+
+### G-ZEROS -- computing 1000 ordinates with mpmath.zetazero ...
+   zetazero 100/1000  gamma=236.5242
+   zetazero 200/1000  gamma=396.3819
+   zetazero 300/1000  gamma=541.8474
+   zetazero 400/1000  gamma=679.7422
+   zetazero 500/1000  gamma=811.1844
+   zetazero 600/1000  gamma=939.0243
+   zetazero 700/1000  gamma=1062.9154
+   zetazero 800/1000  gamma=1183.7128
+   zetazero 900/1000  gamma=1302.3467
+   zetazero 1000/1000  gamma=1419.4225
+   gamma_1 = 14.134725142   gamma_1000 = 1419.422481
+   ### CONTROL vs banked zeta_ordinates.npy (first 20): max deviation = 0.000e+00
+   ### CONTROL PASSES -- fresh and banked agree
+
+--- AXIS 0 (registered): N=1000, UMAX=600, NU=12001
+  a^2        Z (zeros)      P (pole)      A (arch)   PR (primes)        places     residual   tail bound
+  2        0.018987400   2.009515028  -1.990527627   0.000000000   0.018987400    1.216e-13    7.195e-21
+  3        0.008592123   2.023976118  -1.908900329   0.106483707   0.008592082    4.136e-08    3.159e-26
+  4        0.002474817   2.038292259  -1.786497854   0.249319596   0.002474808    8.550e-09    1.072e-27
+
+--- AXIS 1 (varied): N=500
+  a^2        Z (zeros)      P (pole)      A (arch)   PR (primes)        places     residual   tail bound
+  2        0.018987400   2.009515028  -1.990527627   0.000000000   0.018987400    1.211e-13    5.932e-16
+  3        0.008592123   2.023976118  -1.908900329   0.106483707   0.008592082    4.136e-08    3.995e-20
+  4        0.002474817   2.038292259  -1.786497854   0.249319596   0.002474808    8.550e-09    1.336e-22
+
+--- AXIS 2 (varied): N=750
+  a^2        Z (zeros)      P (pole)      A (arch)   PR (primes)        places     residual   tail bound
+  2        0.018987400   2.009515028  -1.990527627   0.000000000   0.018987400    1.216e-13    1.157e-18
+  3        0.008592123   2.023976118  -1.908900329   0.106483707   0.008592082    4.136e-08    1.719e-23
+  4        0.002474817   2.038292259  -1.786497854   0.249319596   0.002474808    8.550e-09    2.502e-26
+
+--- AXIS 3 (varied): UMAX=900
+  a^2        Z (zeros)      P (pole)      A (arch)   PR (primes)        places     residual   tail bound
+  2        0.018987400   2.009515028  -1.990527629   0.000000000   0.018987399    1.612e-09    7.195e-21
+  3        0.008592123   2.023976118  -1.908900331   0.106483707   0.008592080    4.298e-08    3.159e-26
+  4        0.002474817   2.038292259  -1.786497856   0.249319596   0.002474807    1.018e-08    1.072e-27
+
+--- AXIS 4 (varied): NU=18001
+  a^2        Z (zeros)      P (pole)      A (arch)   PR (primes)        places     residual   tail bound
+  2        0.018987400   2.009515028  -1.990527627   0.000000000   0.018987400    7.612e-14    7.195e-21
+  3        0.008592123   2.023976118  -1.908900329   0.106483707   0.008592082    4.136e-08    3.159e-26
+  4        0.002474817   2.038292259  -1.786497854   0.249319596   0.002474808    8.550e-09    1.072e-27
+
+====================================================================================================================
+  ### THE VERDICT LINE -- registered in advance: THE TRUNCATION TAIL, NOT THE
+  ### MATHEMATICS, BOUNDS THE RESIDUAL. Each cell passes iff |residual| <= tail bound.
+====================================================================================================================
+  AXIS 0 (registered): N=1000, UMAX=600, NU=12 a^2=2   |resid|=1.216e-13  tail=7.195e-21  ### ABOVE THE BOUND
+  AXIS 0 (registered): N=1000, UMAX=600, NU=12 a^2=3   |resid|=4.136e-08  tail=3.159e-26  ### ABOVE THE BOUND
+  AXIS 0 (registered): N=1000, UMAX=600, NU=12 a^2=4   |resid|=8.550e-09  tail=1.072e-27  ### ABOVE THE BOUND
+  AXIS 1 (varied): N=500                       a^2=2   |resid|=1.211e-13  tail=5.932e-16  ### ABOVE THE BOUND
+  AXIS 1 (varied): N=500                       a^2=3   |resid|=4.136e-08  tail=3.995e-20  ### ABOVE THE BOUND
+  AXIS 1 (varied): N=500                       a^2=4   |resid|=8.550e-09  tail=1.336e-22  ### ABOVE THE BOUND
+  AXIS 2 (varied): N=750                       a^2=2   |resid|=1.216e-13  tail=1.157e-18  ### ABOVE THE BOUND
+  AXIS 2 (varied): N=750                       a^2=3   |resid|=4.136e-08  tail=1.719e-23  ### ABOVE THE BOUND
+  AXIS 2 (varied): N=750                       a^2=4   |resid|=8.550e-09  tail=2.502e-26  ### ABOVE THE BOUND
+  AXIS 3 (varied): UMAX=900                    a^2=2   |resid|=1.612e-09  tail=7.195e-21  ### ABOVE THE BOUND
+  AXIS 3 (varied): UMAX=900                    a^2=3   |resid|=4.298e-08  tail=3.159e-26  ### ABOVE THE BOUND
+  AXIS 3 (varied): UMAX=900                    a^2=4   |resid|=1.018e-08  tail=1.072e-27  ### ABOVE THE BOUND
+  AXIS 4 (varied): NU=18001                    a^2=2   |resid|=7.612e-14  tail=7.195e-21  ### ABOVE THE BOUND
+  AXIS 4 (varied): NU=18001                    a^2=3   |resid|=4.136e-08  tail=3.159e-26  ### ABOVE THE BOUND
+  AXIS 4 (varied): NU=18001                    a^2=4   |resid|=8.550e-09  tail=1.072e-27  ### ABOVE THE BOUND
+
+  ### ALL CELLS, ALL AXES, WITHIN THE QUOTED TAIL BOUND: NO
+  ### 'within' MEANS THE FORMULA IS CONFIRMED TO THE PRECISION THE TRUNCATION ALLOWS.
+  ### IT DOES NOT MEAN THE FORMULA IS PROVED HERE. ### NO AXIS WAS TUNED.
