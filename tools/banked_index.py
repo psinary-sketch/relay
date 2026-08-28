@@ -184,6 +184,13 @@ KEYS = {
     'staircase': ['the staircase', 'staircase', 'effective cutoff', 'active places',
                   'active-place set'],
     'aggregation': ['the aggregation', 'aggregation', 'cell-level assembly', 'assembly'],
+    # ### THE CLASSICAL-SOURCE AND RANGE-LAW KEYS, ADDED b222 UNDER ITS CLAUSE (g).
+    'von-neumann-product': ['von neumann', 'von neumann 1939', 'c0-sequence', 'c0 sequence',
+                            'incomplete direct product', 'infinite direct products'],
+    'range-law-species': ['range law', 'range-law species', 'the range law',
+                          'carried past its range'],
+    'residue-four-faces': ['residue keystone', 'four faces', 'four faces of the residue',
+                           'the four-way wall'],
     # ### AND THE ALIASES DELIBERATELY **NOT** ADDED, EXTENDING b181's PRECEDENT:
     # ### the bare 'prolate' (ambiguous across three keys -- b181's own reason, unchanged);
     # ### the bare 'sign' (ambiguous across alpha, alternation, the-ladder and b205's
@@ -194,6 +201,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CLASSICAL-SOURCE AND RANGE-LAW ROWS (b222).
+    ("von-neumann-product", "b196 / b197 (source read) / b222 (re-verified at source)",
+     "von Neumann 1939 Definition 4.1.1 builds the incomplete direct product from ANY"
+     " C0-sequence from an equivalence class; PURITY, ELEMENTARITY AND A CANONICAL CHOICE ARE"
+     " NOWHERE REQUIRED, and norm-one is not demanded per factor",
+     "EXTERNAL, read at the SOURCE DOCUMENT (Compositio Mathematica t.6 (1939) pp.1-77, the"
+     " numdam PDF, extract on disk). ### Re-verified against the definition own words at b222."
+     " ### CORRECTNESS IS NOT APPLICABILITY: whether E1(S-bar_v) admits a C0-sequence is"
+     " UNDECIDED and the record does not say",
+     "data/ext_b196_vonneumann1939_extract.txt; data/b196_term3_requirement.txt;"
+     " data/b197_values_and_c0.txt"),
+    ("range-law-species", "b197 (named, three instances) / b222 (a fourth)",
+     "a finding carried past its own stated range; its mark is that the limiting sentence is"
+     " present in the source and was not carried with the quote",
+     "NAMED at b197 with three instances (b194, b195, b194-again-at-the-wrong-index)."
+     " ### b222 RECORDS A FOURTH: b221 quoted the purity report at source and did not carry"
+     " its range law, writing PROVED ABSENT where the record says REFUTED AT THE BANKED CELLS"
+     " AND UNDECIDED AT THE LEVEL-LIMIT. ### THE GUARD IS b197 OWN: THE RANGE CLAUSE TRAVELS"
+     " WITH THE QUOTE",
+     "data/b197_values_and_c0.txt; data/b222_rescope_inputs.txt"),
+    ("residue-four-faces", "the 2026-07-28 crank illumination map (C7)",
+     "the four faces of the residue -- algebraic, topological, analytic, deformation --"
+     " located in Book IV; ONE ROW IN ONE MAP",
+     "### RECORDED ABSENT AS AN OBJECT at b222: there is NO keystone document holding them,"
+     " and NOTHING in the record reads them against the purity report mechanism."
+     " ### FACES_OF_H2_AT_FINITE_INSTANCE.md is a DIFFERENT object (Tier N, question grade)"
+     " and names no such face. ### No pattern is asserted",
+     "reports/2026-07-28-crank-illumination-map.md line 15"),
     # ### THE TERM-3 / CELL-ASSEMBLY LANE (b221). Grades are the ones their own acts recorded.
     ("restricted-tensor-retired", "b193 (planned) / b194 (RETIRED)",
      "the restricted-tensor construction for term 3 is RETIRED AT ITS OWN FALSIFIER, on"
