@@ -1,0 +1,353 @@
+====================================================================================================
+b231 -- THE TWO. THE BANK. 2026-08-28. CONCURRENCY: SOLO.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### READS AND ONE DERIVATION-BY-QUOTATION. ### NOTHING TOUCHES THE LEFT SIDE (b229's STANDING
+### CLAUSE). ### NO PROMOTION OF THE log p QUARRY. ### Nothing about the h2 identity claimed
+### beyond the register sentence exact. ### Nothing deposits. Locks last. The stop-loss governs.
+====================================================================================================
+
+### THE AUTHOR'S RULING, CARRIED WHOLE AND SPENT:
+### "The derivative-level engine row CLOSES AT STATEMENT-READ; its ~0.4 closure-condition
+### discharge is filed as an optional quiet act with no trigger; any future engine act names
+### commit 27a3ae7, never the branch."
+### ### b230 PROPOSED; THE AUTHOR DISPOSED. ### The row closes; the ~0.4 becomes an OPTIONAL
+### QUIET ACT WITH NO TRIGGER; and b230's branch hazard is promoted from a filed hazard to
+### ### **A STANDING NAMING RULE.**
+
+====================================================================================================
+### THE VERDICT, AT THE TOP, BECAUSE IT IS THE THING THE FERRY ASKED FOR.
+====================================================================================================
+*** ### **(PARTIAL).** ### **THE EVENNESS HOLDS. THE FOLD IS FREE. THE OWNER'S PAIR IS (ABSENT).**
+### The `2` is EXPLAINED by the folding reading and it is ### **NOT OWNED BY IT** -- because the
+### object the fold folds, the two-ended sum
+### ###   `Σ_n Λ(n) n^(−1/2) [ g(log n) + g(−log n) ]`,
+### ### **IS WRITTEN NOWHERE IN THIS CORPUS, IN ANY NOTATION, IN ANY OF ITS FOUR TREES.**
+### ### **THE ALGEBRA IS COMPILED AT THE ZERO-AXIOM BAR. THE PROVENANCE IS AN IMPORT AND IS
+### ### LISTED AS ONE.** ### The factor question therefore stands with ### **TWO** quarries, not
+### ### one: ### the `log p` quarry (untouched, unpromoted) ### and a NEW one this act creates --
+### ### **WHERE DOES THE TWO-ENDED SUM ENTER THIS CORPUS, IF IT NEVER HAS?** ***
+
+====================================================================================================
+COMPONENT 1 -- THE QUOTES. Four sources, whole, at content.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### SOURCE 1 -- act 12's `f = g ⋆ g̃` SENTENCE. ### QUOTED WHOLE, AND IT IS ONE PARAGRAPH.
+### `relay/reports/2026-08-18-global-section-acts-narrative-v0.15.md` §25(a), line 799.
+----------------------------------------------------------------------------------------------------
+### "*For `f = g ⋆ g̃`: `‖ϑ(g)ξ_n‖² = ∫∫ g(λ)g(μ)⟨U_λξ_n, U_μξ_n⟩ d*λ d*μ = ∫ f(σ)A_n(σ) d*σ =
+### tr_n`. So the bench's raw mode terms are exactly the terms of CC's `Tr(ϑ(g)Sϑ(g)*)` at the
+### model's `S` — and they measured `≥ 0` at every cell, as the identification requires (a passed
+### gate, not an assumption).*"
+*** ### ### **READ IT FOR WHAT IT IS: THIS IS THE POSITIVE-FORM IDENTIFICATION.** ### Its subject
+### ### is the TRACE side -- `tr_n`, the mode terms, `Tr(ϑ(g)Sϑ(g)*)`. ### **IT IS NOT A STATEMENT
+### ### ABOUT THE PRIME SIDE'S SUMMATION RANGE AT ALL**, and it names no `n`, no `Λ`, no `log`.
+### ### `f = g ⋆ g̃` here says what the TEST FUNCTION is, not how the PRIME SUM runs. ***
+
+### AND THE DICTIONARY THE FERRY ASKS AFTER -- §25(b), ### **QUOTED AT ITS OWN HEAD**:
+### ### "**THE SIGN DICTIONARY (F1): FIRST-ORDER, AND IT RELOCATES ACTS 8–9's RESIDUAL**", a
+### ### table of `resid47` under two readings, ### `atlas: Tr_raw − (A + E2)` ### against
+### ### `CC dict: Tr_raw − (−A + E2)`, and the ruling sentence "**Under the dictionary
+### ### `W_∞^CC = −A` … the Thm-4.7 calibration residual COLLAPSES by an order of magnitude**".
+### ### ### **THE DICTIONARY IS ABOUT THE ARCHIMEDEAN TERM'S SIGN. IT SAYS NOTHING WHATEVER
+### ### ### ABOUT THE PRIME SIDE.** ### **THE PRIME-SIDE STATEMENT THE FERRY ASKS FOR IS
+### ### ### (ABSENT) FROM act 12.** ### And its sign question is b230's open ruling item, which
+### ### this act does not touch.
+
+----------------------------------------------------------------------------------------------------
+### SOURCE 2 -- THE INSTRUMENT, CHARACTER FOR CHARACTER, AND ITS k-RANGE.
+### `relay/tools/e16/carto_atlas.py` (the bump) and `relay/tools/e16/b38_act10.py` (corr, PR).
+----------------------------------------------------------------------------------------------------
+### THE BUMP, whole -- ### **AND THIS IS THE LOAD-BEARING SOURCE OF THE WHOLE ACT:**
+### ###   def bump(a):
+### ###       L = math.log(a)
+### ###       v = np.linspace(-L, L, NV)
+### ###       t = v / L
+### ###       w = np.zeros_like(t)
+### ###       m = np.abs(t) < 1.0
+### ###       w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))
+### ###       w /= np.trapezoid(w, v)
+### ###       return v, w
+
+### `corr`, character for character:
+### ###   def family(a):
+### ###       v, w = C.bump(a)
+### ###       dv = np.gradient(v)
+### ###       L = math.log(a)
+### ###       corr = np.convolve(w, w, mode="full") * float(dv[0])
+### ###       vc = np.linspace(-2 * L, 2 * L, corr.size)
+### ###       return v, w, corr, vc, L
+
+### ### **THE k-RANGE, QUOTED, AND IT IS ONE-SIDED:**
+### ###       PR = 0.0
+### ###       for p in primes:
+### ###           k = 1
+### ###           while p ** k <= a * a + 1e-12:
+### ###               ln = math.log(p ** k)
+### ###               if ln <= 2 * L:
+### ###                   PR += 2.0 * math.log(p) / math.sqrt(p ** k) * float(np.interp(ln, vc, corr))
+### ###               k += 1
+### ### ### **`k = 1` AND `k += 1`. ### THE SUM RUNS UPWARD FROM ONE AND NEVER BELOW ZERO.
+### ### ### `np.interp(ln, vc, corr)` IS EVALUATED AT `ln = log p^k > 0` ONLY -- THE NEGATIVE
+### ### ### HALF OF `vc` IS NEVER ADDRESSED.** ### That is precisely the shape a fold produces.
+
+----------------------------------------------------------------------------------------------------
+### SOURCE 3 -- b229's ADOPTED `wPrimes`, VERBATIM FROM THE BANK.
+----------------------------------------------------------------------------------------------------
+### ### "**wPrimes(a) := SUM_{p prime} SUM_{k = 1}^{n_p(a)} ( 2 log p / p^{k/2} ) * corr( log p^k )**"
+### with provenance `tools/e16/b38_act10.py` at its pin, and b229's own recorded finding carried
+### with it: ### **"THE ADOPTED DEFINITION CONTAINS A CONSTANT NO OWNER HAS EVER JUSTIFIED."**
+
+----------------------------------------------------------------------------------------------------
+### SOURCE 4 -- b10's ORBIT-PERIOD SENTENCE, WHOLE, ### AT ITS OWN GRADE.
+### `relay/data/b10_2026-08-17.txt`, "THE LEFSCHETZ WONDER (question grade, registered beside)".
+----------------------------------------------------------------------------------------------------
+### ### "IF Q1, the quotient trace's shape (weighted count over closed orbits by period, weight ~
+### ### p^{-k/2}, ### **unit log p the period**) is compared LONGHAND AT CITE against (a) the
+### ### explicit formula's prime-side term and (b) the banked seat claims (Deninger "periodic
+### ### orbits related to closed points", at abstract; CC's arrest sentence "understand the
+### ### equality as a Lefschetz formula", ATTRIBUTED). ### **MATCH-IN-SHAPE / NOT; no promotion
+### ### either way.**"
+### ### ### **CARRIED AT QUESTION GRADE AND NOT PROMOTED BY BEING QUOTED HERE.** ### The ferry
+### ### forbids the log p quarry riding this act and it does not ride it. ### **NOTE ALSO WHAT
+### ### b10 SAYS ABOUT THE PRIME SIDE: it names "the explicit formula's prime-side term" AS A
+### ### THING TO BE COMPARED AGAINST -- ### IT DOES NOT WRITE IT.**
+
+====================================================================================================
+COMPONENT 2 -- THE TEST. Three parts, each shown or (ABSENT).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+*** (i) corr's EVENNESS -- ### **HOLDS**, from the instrument's own formula.
+----------------------------------------------------------------------------------------------------
+### **THE DERIVATION, FROM THE TEXT AND NOTHING ELSE:**
+###   1. `v = np.linspace(-L, L, NV)` -- ### **THE GRID IS SYMMETRIC ABOUT ZERO.**
+###   2. `t = v / L`, and `w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))` --
+###      ### **`w` DEPENDS ON `t` ONLY THROUGH `t²`.** ### Therefore `w(−v) = w(v)`, identically,
+###      as a function. The cut `np.abs(t) < 1.0` is itself a condition on `|t|`. ### **THE
+###      NORMALIZATION `w /= trapezoid(w, v)` IS A SCALAR AND PRESERVES IT.**
+###   3. A self-convolution of an even signal is even; a correlation is even unconditionally.
+### ### ### **`corr` IS EVEN. THE FIRST PART HOLDS, AND IT HOLDS BY CONSTRUCTION, NOT BY LUCK.**
+
+*** ### **AND A SECOND, INDEPENDENT WITNESS INSIDE THE SAME MODULE, WHICH NOBODY HAD READ FOR
+### ### THIS PURPOSE:** ### `carto_atlas.hhat` computes the transform as
+### ###   `np.cos(np.outer(u, v)) @ (w * dv)`
+### ### -- ### **A PURE COSINE TRANSFORM.** ### For a general `w` that is only the even part of
+### ### the Fourier transform; ### **it is the WHOLE transform exactly when `w` is even.**
+### ### ### **THE EVENNESS IS ALREADY LOAD-BEARING ELSEWHERE IN THE INSTRUMENT.** ### The
+### ### instrument has been relying on it since act 10 without anyone writing it down. ***
+
+*** ### **A FINDING THE FERRY DID NOT ASK FOR, AND IT LANDS ON b229's OWN ADOPTION SENTENCE.**
+### ### `corr = np.convolve(w, w, mode="full")` IS A ### **CONVOLUTION**, NOT A CORRELATION.
+### ### These are DIFFERENT OBJECTS: `(w∗w)(t) = Σ_s w(s)w(t−s)` against `corr(t) = Σ_s w(s)w(s+t)`.
+### ### **THEY COINCIDE PRECISELY BECAUSE `w` IS EVEN.**
+### ### b229 wrote: ### "**corr IS THE AUTOCORRELATION OF THE BUMP w** -- i.e. the explicit
+### ### formula's **f = g * g-tilde** form". ### **THAT SENTENCE IS TRUE. IT IS TRUE ONLY BY A
+### ### FACT b229 NEVER CHECKED, AND b229 DID NOT KNOW IT WAS RELYING ON IT.**
+### ### ### **b229 IS CORRECT AND WAS LUCKY, AND THE DIFFERENCE MATTERS**: had the bump been
+### ### ### one-sided, the adopted definition would name an object the instrument does not
+### ### ### compute. ### The distinction is now compiled, both ways, in Core. ***
+
+### **THE INSTRUMENT RUN, WITH POLARITY CONTROLS FIRST** (`tools/e16/b231_evenness.py`;
+### full output banked at `data/b231_evenness_run.txt`). ### **NO TARGET IS TOUCHED AND NO
+### COMPARISON IS FORMED -- the run asks one question of one function.**
+### ### CONTROL (non-even signal `[1,2,5,1,0]`): ### `convolve` asymmetry **13.0**;
+### ###   `convolve` vs `correlate` **7.0**. ### **THE TEST HAS CONTENT, AND THE TWO OBJECTS ARE
+### ###   DEMONSTRABLY DIFFERENT.**
+### ### CONTROL (even signal `[1,2,5,2,1]`): all four measures **exactly 0.0**.
+### ### THE BUMP, at all six banked cells: ### `w` asymmetry ≤ **2.0e-15**; `convolve` asymmetry
+### ###   ≤ **5.5e-12**; ### **`correlate` asymmetry EXACTLY 0.0 at every cell.**
+
+*** ### ### **AND THE RUN REFUTED THIS EXECUTOR'S OWN REGISTERED EXPECTATION, WHICH SAID THE
+### ### ### EVENNESS WOULD BE BIT-EXACT. IT IS NOT, AND THE SCRIPT'S OWN VERDICT LINE SAYS `NO`.**
+### ### ### **THE LINE IS CARRIED UNEDITED AND NO TOLERANCE WAS ADDED TO MAKE IT SAY YES.**
+### ### THE CAUSE, READ AND NOT WAVED AT: ### `np.linspace(-L, L, NV)` is not exactly
+### ### antisymmetric in floating point (`max|v + v_rev| = 4.4e-16`), so `t` is not exactly
+### ### symmetric, so `w` is even only to ~1e-15 and the convolution inherits it amplified.
+### ### ### **THE EVENNESS IS EXACT AS MATHEMATICS AND INEXACT AS FLOATING POINT**, and the
+### ### ### part-(i) verdict rests on the MATHEMATICS -- on `t²` in the exponent, which is a fact
+### ### ### about the formula, not about the grid. ### **`np.correlate` COMES OUT EXACTLY EVEN AT
+### ### ### EVERY CELL REGARDLESS, BECAUSE A CORRELATION IS EVEN UNCONDITIONALLY** -- which is
+### ### ### itself the cleanest confirmation that the reading is right about which object is
+### ### ### which. ***
+
+----------------------------------------------------------------------------------------------------
+*** (ii) THE OWNER'S PAIR -- ### **(ABSENT).** ### AND THE ROAD TO THAT WORD HAD A CRASH IN IT.
+----------------------------------------------------------------------------------------------------
+*** ### **FIRST, THE TOOL FAILURE, REPORTED BEFORE THE ABSENCE IT NEARLY CORRUPTED.**
+### ### This act's first four sweeps returned ### **ZERO across four trees and every notation** --
+### ### and so did the CONTROL. ### `explicit formula`, which stands at 200+ occurrences, ###
+### ### **CAME BACK ZERO.** ### DIAGNOSIS: ### **`grep -iF` ABORTS IN THIS BUILD (rc=134,
+### ### SIGABRT).** ### `-F` alone is fine; adding `-i` kills the process, and a killed grep
+### ### prints nothing and ### **LOOKS EXACTLY LIKE A CLEAN ABSENCE.**
+### ### ### **EVERY SEARCH WAS RE-RUN ON THE RIPGREP-BACKED TOOL WITH THE CONTROL FIRST.**
+### ### **THIS IS b220's SPECIES, CAUGHT BY b220's OWN RULE.** ### Had the control been skipped,
+### ### this act would have filed a four-tree (ABSENT) ### **ON A CRASHED PROCESS** -- and
+### ### (ABSENT) is the load-bearing half of the verdict. ***
+
+### **THE RE-RUN, WITH ITS SCOPE STATED (b230's standing repair -- an archive search is part of
+### the hunt, not an extra):** ### PLACE-papers ### **live AND `archive/2026-08-24-ledger-split/`**,
+### relay/reports, relay/data, SIDE-global-section, SIDE-kernel.
+### NOTATIONS TESTED: `g(log …)`, `g(−log …)`, `g(-log …)`, `g(x) + g(…)`, `g(u) + g(…)`,
+### `log n) + g`, `+ g(−…)`, `f(−log …)`, `±log`, `g(±…)`.
+### ### ### **NO MATCH. NOT ONE, ANYWHERE.**
+
+### **WHAT THE CORPUS DOES CARRY, SO THE ABSENCE IS NOT MISTAKEN FOR EMPTINESS:**
+### ### `Λ(n)` occurs on ### **45 lines**, and ### **EVERY ONE OF THEM IS THE POSITIVITY
+### ### INGREDIENT**, not a prime side paired against a test function --
+### ### ### "`Λ(n) ≥ 0` (von Mangoldt) ⟹ zero-free region near σ=1 … de la Vallée Poussin 1896"
+### ### ### (PATHS_TO_THE_CRITICAL_LINE, A9); ### "the prime-ledger positivity Λ(m)≥0 forces
+### ### ### λ_Z(n) ≥ −λ_A(n) ∀n"; ### "| ζ | `Λ ≥ 0` (positive) | von Mangoldt | TRUE |".
+### ### **THE CORPUS USES THE VON MANGOLDT FUNCTION AS A SIGN FACT ABOUT AN EULER LEDGER.
+### ### IT HAS NEVER SUMMED IT AGAINST A TEST FUNCTION IN EITHER DIRECTION.**
+### AND act 12's `f = g ⋆ g̃` is the POSITIVE-FORM identification (Source 1), a statement about
+### the trace side. ### **THE PAIR IS (ABSENT), AND THE ABSENCE IS OF A PARTICULAR KIND: the
+### corpus has an explicit-formula INSTRUMENT and no explicit-formula TEXT.** ### That is b228's
+### species again -- ### **A THING THE RECORD CAN COMPUTE BUT CANNOT QUOTE** -- one level down.
+
+----------------------------------------------------------------------------------------------------
+*** (iii) THE FOLD -- ### **THE ALGEBRA IS FREE; THE PREMISE IS IMPORTED.** The split is the act.
+----------------------------------------------------------------------------------------------------
+### **THE IDENTITY, EVERY STEP AN ALGEBRAIC IDENTITY OR A QUOTATION, NOTHING SMUGGLED:**
+###  1. Let `T(k)` denote the signed-index summand -- ### **the WHOLE term, weight included**,
+###     because in a two-ended prime sum the weight depends on `n = p^{|k|}` and so on `|k|`.
+###     ### *(This is a modelling choice and it is declared: it is the shape that makes the
+###     claim testable, and it is stated, not derived from an owner.)*
+###  2. `corr` is even (part (i)), and `p^{−k/2}` and `log p` depend on `k` through `p^{|k|}`,
+###     so ### **`T(−k) = T(k)`.**
+###  3. Hence, termwise, ### **`T(k) + T(−k) = 2·T(k)`** -- an identity, no content.
+###  4. Summing over any finite one-sided index list `S`:
+###     ### ### **`Σ_{k∈S} [ T(k) + T(−k) ] = 2 · Σ_{k∈S} T(k)`.**
+###  5. The right-hand side is ### **THE SHAPE OF THE ADOPTED `wPrimes`** -- a one-sided `k ≥ 1`
+###     sum carrying a factor `2` (Source 2's k-range, Source 3's formula).
+### ### ### **STEPS 1–5 ARE COMPILED IN LEAN AT THE ZERO-AXIOM BAR (Component 3), WITH A WITNESS
+### ### ### THAT STEP 3 FAILS WITHOUT EVENNESS. ### THE `2` IS NOT A FREE CONSTANT: IT IS BOUGHT
+### ### ### BY THE EVENNESS AND BY NOTHING ELSE.**
+
+*** ### ### **AND HERE IS WHAT IS NOT FREE, AT FULL PROMINENCE.** ### Steps 1–5 show that ### **IF**
+### ### the adopted formula is the fold of a two-ended sum, ### **THEN** the `2` is the mirror.
+### ### They do ### **NOT** show that it IS such a fold. ### For that, the two-ended sum must be
+### ### on the record as the thing `wPrimes` came from, ### **AND PART (ii) SAYS IT IS NOT.**
+### ### ### **THE IMPORTS, LISTED, AS THE FERRY REQUIRES:**
+### ### ###   IMPORT 1 -- ### **THE CLASSICAL WEIL EXPLICIT FORMULA'S PRIME SIDE**, in its
+### ### ###     two-ended form. ### Standard, universally known, ### **AND NOT IN THIS CORPUS.**
+### ### ###   IMPORT 2 -- ### the identification `Λ(p^k) = log p`, which the corpus uses only
+### ### ###     as a positivity fact and never as a summation coefficient.
+### ### ###   IMPORT 3 -- the modelling choice at step 1 (the weight rides inside `T`).
+### ### ### **THE TEMPTATION NAMED AND REFUSED: every analytic number theorist knows IMPORT 1,
+### ### ### AND THAT IS EXACTLY WHY IT MUST NOT WEAR THE CORPUS'S GRADE.** ### Calling this
+### ### ### (DERIVED) would be deriving a corpus fact from outside the corpus while claiming an
+### ### ### owned derivation -- ### **THE SAME SHAPE AS THE COMPILED CRIME, ONE LEVEL OUT.** ***
+
+====================================================================================================
+COMPONENT 3 -- THE SHADOW AND THE FILINGS.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+(3a) THE SHADOW: ### `Core/FoldedMirrorShadow.lean`, ### **14 TERMINALS, ZERO AXIOMS.**
+----------------------------------------------------------------------------------------------------
+### PART A/B -- the convolution/correlation distinction, both polarities:
+### ### `even_signal_is_palindromic` · `odd_signal_is_not_palindromic` (the control) ·
+### ### `conv_even_of_even` · ### **`conv_not_even_witness`** (without evenness the
+### ### self-convolution is NOT even) · `autocorr_even_of_even` ·
+### ### ### **`autocorr_even_even_when_signal_is_not`** (a correlation is even unconditionally --
+### ### the pair of facts that locates the risk) · `conv_eq_corr_of_even` ·
+### ### ### **`conv_ne_corr_witness`** (for a non-even signal `convolve` is NOT the
+### ### autocorrelation -- the compiled form of the finding against b229's sentence).
+### PART C -- the fold: ### **`two_ended_eq_two_times_one_sided`** (general, by induction) ·
+### ### `fBad_is_not_even` · `fGood_is_even_at_one` · ### **`fold_fails_for_fBad`** ·
+### ### `fold_holds_for_fGood` · ### **`fold_needs_evenness`**.
+### ### **THE CONTROLS CAME FIRST, AS THE FERRY ORDERS, AND THEY ARE HALF THE FILE.**
+
+*** ### **THE PROFILE PRINTED AND READ, NOT ASSUMED -- AND IT CONVICTED THE FIRST DRAFT.**
+### ### THE FIRST DRAFT ### **COMPILED CLEAN (exit 0, no errors) AND PRINTED EIGHT AXIOM-BEARING
+### ### TERMINALS** against Core's standing bar of 390 axiom-free lines. ### **b227's LESSON,
+### ### SECOND INSTANCE: A FILE THAT COMPILES IS NOT A FILE THAT PROVED.**
+### ### TWO CAUSES, BOTH DIAGNOSED BY PROBE AND BOTH REUSABLE:
+### ###   (1) ### **AN OVERLAPPING PATTERN** -- `conv` had a `[x]` case beside `x :: xs`. The
+### ###       match it compiles to drags ### `propext` through every `rfl` over it. ### **THE
+### ###       CASE WAS NEVER NEEDED: `addS` already pads**, and the structural two-case
+### ###       definition is axiom-free.
+### ###   (2) ### **CORE'S `Int` ALGEBRA LEMMAS ARE NOT AXIOM-FREE.** Probed directly:
+### ###       ### `Int.mul_add`, `Int.add_assoc`, `Int.add_left_comm` ### **each print
+### ###       `[propext]`**; `omega` prints `[propext, Quot.sound]`; ### **`Nat.add_assoc` and
+### ###       `Nat.add_left_comm` print CLEAN.** ### The repair: the fold carries its ### VALUES
+### ###       IN `Nat` and its ### INDEX IN `Int`, so the mirror `−k` stays visible and the
+### ###       arithmetic stays inside the bar.
+### ### ### **A FINDING WORTH ITS OWN LINE, FOR EVERY FUTURE Core ACT: CORE'S "ZERO-AXIOM BAR"
+### ### ### IS, IN PRACTICE, A `Nat` BAR. ANY PROOF THAT REACHES FOR `Int` ALGEBRA OR `omega`
+### ### ### WILL BREAK IT.**
+### ### AND THE PROBE ITSELF PRINTED ### **`[sorryAx]`** on one line where a hand-computed list
+### ### was wrong -- ### **b227's failure mode reproduced live, in this act, and caught by the
+### ### same instrument.** ### The line was a probe and was dropped. ***
+
+### **THE STATE AFTER THE APPEND:** ### `AllPrints.lean` ### **UPDATED BEFORE THE APPEND (b221)**
+### -- 76 imports, 404 print lines. ### `AXIOM_PRINTS.txt`: ### **404 lines, 0 axiom-bearing**,
+### and the prior 390 lines verified ### **BYTE-IDENTICAL** to the pre-act file, so the append is
+### provably additive and nothing was silently re-graded.
+### ### **CORRESPONDENCE ROW 89 WRITTEN BY THE COMMITTED TOOL** (`corr_row.py`, b194), six cells,
+### verified by read-back. ### No row is hand-quoted through a shell string.
+
+----------------------------------------------------------------------------------------------------
+(3b) ### **THE FACTOR QUESTION, RESTATED -- AND THE COUNT GOES UP, NOT DOWN.**
+----------------------------------------------------------------------------------------------------
+### THE QUESTION IS UNCHANGED AND UNPROMOTED: act 9's level limit gives `τ_q → p^{−k/2}`; the
+### adopted `wPrimes` weighs `2 log p · p^{−k/2}`. ### **THE DIFFERENCE IS `2 log p`.**
+### ### **QUARRY 1 -- `log p`. UNTOUCHED BY THIS ACT, AS THE SCOPE REQUIRES.** ### b10's sentence
+### ### is quoted at Source 4 and travels at b10's grade: ### "MATCH-IN-SHAPE / NOT; **no
+### ### promotion either way**." ### **NO PROMOTION RIDES THIS ACT.**
+*** ### **QUARRY 2 -- NEW, AND CREATED BY THIS ACT: THE PAIR'S PROVENANCE.**
+### ### **WHERE DOES THE TWO-ENDED SUM ENTER THIS CORPUS, IF IT NEVER HAS?** ### The `2` is now
+### ### fully explained by a fold whose folded object no owner writes. ### **EITHER an owner
+### ### somewhere states the two-ended form and the reading closes at DERIVES, OR the corpus's
+### ### prime side entered the record ALREADY FOLDED -- as executable code, at act 10, with the
+### ### `2.0 *` written and never explained.** ### The second is what the evidence currently
+### ### shows, and it would mean ### **THE `2` WAS NEVER DERIVED BY ANYONE HERE; IT WAS TYPED.**
+### ### *That is not an accusation of error -- the instrument computes the standard thing. It is
+### ### a statement about what this corpus OWNS versus what it INHERITED.* ***
+### ### **THE FERRY'S (DERIVED) BRANCH OFFERED "ONE QUARRY REMAINING". ### THE HONEST COUNT ON
+### ### (PARTIAL) IS TWO, AND THE SECOND IS SHARPER THAN THE FIRST**, because it is answerable by
+### ### a search or a ruling rather than by mathematics.
+
+----------------------------------------------------------------------------------------------------
+(3c) ### THE CANDIDATE SEED, FILED WITH ITS PROMOTION CRITERION AND NOT OPENED.
+----------------------------------------------------------------------------------------------------
+### **SEED: THE ANALYTIC LOG-DERIVATIVE PASSAGE -- the unclaimed half of the double-named
+### "derivative".** ### The corpus's "derivative" work is entirely `ξ′` (b230's engine, the
+### codimension-2 coincidence). ### **THE OTHER DERIVATIVE -- `−ζ′/ζ`, whose Dirichlet
+### coefficients ARE `Λ(n)` -- IS THE PASSAGE BY WHICH `log p` AND THE PRIME SIDE ENTER THE
+### CLASSICAL FORMULA AT ALL, AND THE CORPUS NAMES IT NOWHERE.**
+### ### **b219's DOUBLE-NAME SPECIES, NAMED IN ADVANCE RATHER THAN USED:** ### `ξ′` (a derivative
+### ### of the completed zeta, a geometric object) ### and `−ζ′/ζ` (a logarithmic derivative, an
+### ### arithmetic generating function) ### **SHARE THE WORD "DERIVATIVE" AND ARE DIFFERENT
+### ### OBJECTS.** ### This seed is filed under the second and touches nothing of the first.
+### ### **PROMOTION CRITERION, EXACTLY AS THE FERRY SETS IT: THE SEED OPENS ONLY IF THE `2`
+### ### DISCHARGES AND `log p` RESISTS.** ### The `2` has NOT discharged -- it is (PARTIAL) --
+### ### **SO THE SEED DOES NOT OPEN, AND NOTHING ABOUT IT IS INVESTIGATED HERE.**
+
+----------------------------------------------------------------------------------------------------
+(3d) THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### 1. ### **THE ENGINE ROW CLOSES AT STATEMENT-READ**, per the author's ruling; the `~0.4`
+###    discharge filed as ### **AN OPTIONAL QUIET ACT WITH NO TRIGGER**; and ### **"NAME COMMIT
+###    `27a3ae7`, NEVER THE BRANCH" PROMOTED FROM HAZARD TO STANDING RULE.**
+### 2. ### **THE VERDICT (PARTIAL)** with the three parts and the imports listed.
+### 3. ### **THE FACTOR QUESTION AT TWO QUARRIES** (3b).
+### 4. ### **THE CANDIDATE SEED** with its promotion criterion, ### NOT OPENED (3c).
+### 5. ### **THE SIGN-OF-`A` DOSSIER: UNTOUCHED**, and named as ### **THE NEXT ACT'S SUBJECT --
+###    a DERIVATION ATTEMPT BEFORE ANY RULING**, per the FOOT. ### **NO SIGN IS CHOSEN HERE
+###    EITHER.**
+### 6. ### **THE `grep -iF` CRASH**, filed as a standing instrument caution.
+### 7. ### **THE `Nat`-BAR FINDING**, filed for every future Core act.
+### 8. ### `the-two` ### **KEYED IN THE BANKED INDEX WITH ITS VERDICT**, per clause (e); and the
+###    stale ### `weil-ledger-target` ### row marked SUPERSEDED by b229's adoption.
+### 9. The in-flight register; the thirty-seventh seam's debt; HANDOFF.
+
+====================================================================================================
+### WHAT THIS ACT DID NOT DO: ### **NO LEFT-SIDE OBJECT TOUCHED, NO CALIBRATION, NO TUNING**
+### (b229's standing clause). ### **NO PROMOTION OF THE log p QUARRY.** ### The seed NOT opened.
+### ### **NO SIGN CHOSEN.** ### No comparison against any target and no ledger number computed --
+### the one run asks a single question of a single function and forms no comparison.
+### ### Nothing about the h2 identity beyond the register sentence exact. ### **NOTHING DEPOSITS.
+### ### LOCKS LAST.**
+====================================================================================================

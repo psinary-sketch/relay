@@ -181,6 +181,10 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE FACTOR KEY, ADDED b231 UNDER ITS CLAUSE (e).
+    'the-two': ['the two', 'the factor 2', 'factor 2', 'the factor two',
+                'folded mirror', 'folded mirror term', 'the fold', 'evenness',
+                'two-ended sum', 'mirror term'],
     'staircase': ['the staircase', 'staircase', 'effective cutoff', 'active places',
                   'active-place set'],
     'aggregation': ['the aggregation', 'aggregation', 'cell-level assembly', 'assembly'],
@@ -345,9 +349,25 @@ INDEX = [
      " unconstrained reals per cell",
      "### ABSENCE RECORDED at b221 as term 2 FOURTH debt. File E own header: THIS FILE"
      " STATES; IT DOES NOT PROVE. ### The only log p in the record is b10 QUESTION-grade"
-     " Lefschetz wonder, no promotion either way",
+     " Lefschetz wonder, no promotion either way."
+     " ### SUPERSEDED IN PART BY b229 (2026-08-28): the PRIME side is now ADOPTED-BY-RULING"
+     " as wPrimes(a); the ABSENCE now covers wInf ONLY. ### The b221 grade above is left"
+     " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
-     " data/b221_cell_level_assembly.txt"),
+     " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("the-two", "b231",
+     "the adopted target's factor 2 read as the FOLDED MIRROR TERM -- the k<0 half of a"
+     " two-ended sum laid onto the k>0 half. ### VERDICT (PARTIAL): the evenness HOLDS"
+     " (bump w depends on t only through t^2, so corr is even -- and np.convolve(w,w) is a"
+     " CONVOLUTION that coincides with the autocorrelation ONLY because of it) and the fold"
+     " identity is FREE and compiled; but NO OWNER IN ANY OF THE FOUR TREES WRITES THE"
+     " TWO-ENDED SUM in any notation, so the provenance is an IMPORT and is listed as one",
+     "(PARTIAL) at b231. ### The algebra DERIVES at the zero-axiom bar"
+     " (FoldedMirrorShadow, 14 terminals); ### the identification of wPrimes with a folded"
+     " two-ended sum is IMPORT-DEPENDENT, below owned-derivation grade. ### The log p quarry"
+     " is untouched and b10's 'no promotion either way' stands",
+     "data/b231_the_two.txt; SIDE-global-section/Core/FoldedMirrorShadow.lean;"
+     " CORRESPONDENCE.md row 89"),
     ("staircase", "b16 / b17",
      "one archimedean bound a sets every place effective cutoff n_p(a) ="
      " #{k >= 1 : p^k <= a^2}; D(a) ranges over all places with n_p(a) >= 1, so THE ACTIVE"

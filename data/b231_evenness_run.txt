@@ -1,0 +1,83 @@
+====================================================================================
+b231 -- EVENNESS OF THE ADOPTED INSTRUMENT'S corr, WITH POLARITY CONTROLS
+====================================================================================
+
+### CONTROL FIRST (the ferry's order): A NON-EVEN SIGNAL.
+### IF THIS ONE ALSO CAME OUT EVEN, THE TEST WOULD BE MEASURING NOTHING.
+  non-even control           len=5     
+      w even?                       max|w - w_rev| = 1.000e+00
+      convolve(w,w) even?           max|c - c_rev| = 1.300e+01
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 7.000e+00
+
+### AND A SECOND CONTROL: AN EVEN SIGNAL THAT IS NOT THE BUMP.
+  even control               len=5     
+      w even?                       max|w - w_rev| = 0.000e+00
+      convolve(w,w) even?           max|c - c_rev| = 0.000e+00
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 0.000e+00
+
+### THE INSTRUMENT'S OWN BUMP, at the adopted cells (b38_act10.CELLS).
+
+   cell a^2 = 2     (a = 1.414214,  L = log a = 0.346574)
+      v symmetric?                  max|v + v_rev| = 1.110e-16
+  bump(a)                    len=4001  
+      w even?                       max|w - w_rev| = 1.998e-15
+      convolve(w,w) even?           max|c - c_rev| = 5.457e-12
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 3.638e-12
+
+   cell a^2 = 3     (a = 1.732051,  L = log a = 0.549306)
+      v symmetric?                  max|v + v_rev| = 2.220e-16
+  bump(a)                    len=4001  
+      w even?                       max|w - w_rev| = 9.992e-16
+      convolve(w,w) even?           max|c - c_rev| = 1.819e-12
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 1.819e-12
+
+   cell a^2 = 4     (a = 2.000000,  L = log a = 0.693147)
+      v symmetric?                  max|v + v_rev| = 2.220e-16
+  bump(a)                    len=4001  
+      w even?                       max|w - w_rev| = 1.055e-15
+      convolve(w,w) even?           max|c - c_rev| = 1.364e-12
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 9.095e-13
+
+   cell a^2 = 8     (a = 2.828427,  L = log a = 1.039721)
+      v symmetric?                  max|v + v_rev| = 4.441e-16
+  bump(a)                    len=4001  
+      w even?                       max|w - w_rev| = 6.939e-16
+      convolve(w,w) even?           max|c - c_rev| = 6.821e-13
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 4.547e-13
+
+   cell a^2 = 9     (a = 3.000000,  L = log a = 1.098612)
+      v symmetric?                  max|v + v_rev| = 4.441e-16
+  bump(a)                    len=4001  
+      w even?                       max|w - w_rev| = 6.106e-16
+      convolve(w,w) even?           max|c - c_rev| = 4.547e-13
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 4.547e-13
+
+   cell a^2 = 12    (a = 3.464102,  L = log a = 1.242453)
+      v symmetric?                  max|v + v_rev| = 4.441e-16
+  bump(a)                    len=4001  
+      w even?                       max|w - w_rev| = 7.216e-16
+      convolve(w,w) even?           max|c - c_rev| = 4.547e-13
+      correlate(w,w) even?          max|a - a_rev| = 0.000e+00
+      convolve == correlate?        max|c - a|     = 3.411e-13
+
+====================================================================================
+  VERDICTS
+====================================================================================
+  non-even control : w asym 1.000e+00   conv asym 1.300e+01   conv-vs-corr 7.000e+00
+      ### THE CONTROL MUST SHOW NONZERO conv ASYMMETRY, or the test is empty.
+      ### control conv NOT even : YES -- the test has content
+      ### control conv != corr  : YES -- they are different objects
+  even control     : w asym 0.000e+00   conv asym 0.000e+00   conv-vs-corr 0.000e+00
+  THE BUMP (worst) : w asym 1.998e-15   conv asym 5.457e-12   conv-vs-corr 3.638e-12
+
+  ### BUMP EVEN, corr EVEN, AND convolve == correlate, EXACTLY (bit-for-bit): NO
+  ### 'EXACTLY' MEANS ZERO, NOT SMALL. ### A tolerance here would hide the very
+  ### thing being tested: the evenness is STRUCTURAL (w depends on t only through t^2),
+  ### not numerical, so anything but 0.0 would be a finding against the reading.
