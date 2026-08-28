@@ -198,6 +198,14 @@ KEYS = {
                    'sector arithmetic', 'iota-stable'],
     'segre-open-cells': ['segre', 'segre question', 'segre work-order',
                          'quadric system', 'open cells'],
+    # ### THE CLOSE'S KEYS, ADDED b225 UNDER ITS CLAUSE (c).
+    'quarter-density': ['quarter density', 'quarter-density', 'one quarter',
+                        'sector density'],
+    'mersenne-curio': ['mersenne', 'mersenne curio', 'perfect number', 'the curio'],
+    'm21-decided': ['m21', 'the re-scope', 're-scope', 'decided-by-re-scope',
+                    'stated choice'],
+    'archimedean-sector-invariant': ['wanted poster', 'w-ord', 'sector invariant',
+                                     'd1 infinity'],
     # ### AND THE ALIASES DELIBERATELY **NOT** ADDED, EXTENDING b181's PRECEDENT:
     # ### the bare 'prolate' (ambiguous across three keys -- b181's own reason, unchanged);
     # ### the bare 'sign' (ambiguous across alpha, alternation, the-ladder and b205's
@@ -208,6 +216,47 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CLOSE'S ROWS (b225).
+    ("quarter-density", "b57/b198 (finite) / b211-b212 (archimedean) / b225 (filed)",
+     "each F-sector carries one quarter: at odd q EXACTLY one quarter at every level"
+     " (shape d,d,d,d); at q = 2^n one quarter up to a single dimension with the surplus"
+     " always in E_i (shape d,d,d+1,d), density -> 1/4; and at infinity the ladder form"
+     " gives each sector RANK DENSITY 1/4",
+     "### TWO GRADES, KEPT SEPARATE AND NOT FUSED. Finite places: DERIVES from the closed"
+     " forms, re-derived exactly at 13 cells by b223. Archimedean:"
+     " DERIVATION-ON-IMPORTS (b211/b212), from the ladder FORM only -- b214 two measured"
+     " bits are BENCH and are not used. ### ONE QUARTER APPEARS TWICE; IT IS NOT SHOWN TO BE"
+     " THE SAME QUARTER. Feeds keystone 1.5a-7 AT THE WAVE; 1.5a-7 is not edited",
+     "FINDINGS.md#quarter-density-law; data/b225_serializing_close.txt"),
+    ("mersenne-curio", "b225",
+     "d_1(2,n)/2 is a perfect number exactly when 2^(n-1) - 1 is a Mersenne prime; n = 3,"
+     " 4, 6, 8 give 6, 28, 496, 8128, the first four perfect numbers in order",
+     "### CURIO, NOT A FINDING, AND NOT PROMOTABLE. It is Euclid theorem applied to a"
+     " closed form the corpus already had: d_1(2,n) = 2^(n-1)(2^(n-1)-1) is the Euclid"
+     " shape doubled. ### IT SAYS NOTHING ABOUT THE PROLATE SPECTRUM, THE SONIN SPACE,"
+     " OR h2",
+     "FINDINGS.md#mersenne-curio"),
+    ("m21-decided", "b194 (minted) / b222 (priced) / b225 (decided)",
+     "M21 -- a build ingredients unqueried -- closes as DECIDED-BY-RE-SCOPE: direction A is"
+     " OPENED as a new plan, term 3 re-scoped to von Neumann incomplete direct product on a"
+     " STATED CHOICE of norm-one unit per finite place, archimedean unit from the Sonin"
+     " sector under the b212 ruling",
+     "### THE AUTHOR RULING, carried by ferry 2026-08-28. A RULING, NOT A DERIVATION, and"
+     " the provenance line travels with it. ### b194 retirement of the pure-inclusion plan"
+     " STANDS AS HISTORY AND IS NOT REPEALED -- purity is not required by the new plan and"
+     " no inclusion maps are used. ### THE NEXT ACT IS THE STATED CHOICE AND b225 DID NOT"
+     " RUN IT",
+     "THE_IDENTITY_CHAIN.md sec 29; data/b225_serializing_close.txt"),
+    ("archimedean-sector-invariant", "the 2026-08-21 deficit act / b225 (disposed)",
+     "the wanted poster asks for a regularization-invariant INTEGER sector invariant"
+     " d_1(infinity), independent of grid and scale, with roster (0, 11, 126, 2282, 12512,"
+     " 37800)",
+     "### LEFT STANDING at b225; TRIGGER STILL NONE. ### THE SONIN ARC DOES NOT ANSWER IT:"
+     " the arc supplies a RANK DENSITY in an infinite-dimensional space, and the poster"
+     " wants an INTEGER DIMENSION. ### A DENSITY IS NOT A DIMENSION, and the poster own"
+     " sentence says the integer is the kind of finite-level dimension"
+     " real_no_compact_open_addSubgroup FORBIDS R to have",
+     "reports/2026-08-21-deficit-comparison.md; FINDINGS.md#w-ord-archimedean-sector-invariant"),
     # ### THE LEVEL-TOWER ROWS (b223, b224).
     ("level-limit-standing", "b57 / b198 (I3) laws / b223 (measured)",
      "d_1(p,n) is positive at every level n >= 2 for p = 2 and every n >= 1 for odd p;"
