@@ -1,0 +1,226 @@
+====================================================================================================
+b229 -- THE STATEMENT ADOPTED AND THE FACTOR FILED. THE BANK. 2026-08-28. CONCURRENCY: SOLO.
+Registration: data/b229_registration_2026-08-28.txt, banked before the adoption was written.
+Index: data/audit_b229_index_query.txt.
+### A RULING CARRIED, READS, AND FILINGS. ### NO COMPUTATION, NO COMPARISON, NO NUMBER.
+### NO LEFT-SIDE DEFINITION. ### Nothing about h2 beyond the register sentence exact.
+### Nothing deposits. Locks last.
+====================================================================================================
+
+****************************************************************************************************
+### **THE LEDGER'S PRIME SIDE IS ADOPTED AS A STATED DEFINITION.**
+### ### **wInf IS HELD BACK: THE INSTRUMENT HAS AN ARCHIMEDEAN TERM, BUT NO OWNER SAYS IT **IS**
+### ### wInf, AND ITS SIGN IS CONVENTION-LADEN AND UNFIXED.**
+### ### **THE FACTOR 2 log p IS FILED AT QUESTION GRADE, NOT PROMOTED.**
+### ### **THE STANDING CLAUSE IS FILED WHERE EVERY FUTURE ACT READS IT.**
+****************************************************************************************************
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE ADOPTION.
+----------------------------------------------------------------------------------------------------
+
+### THE RULING, VERBATIM, WITH ITS PROVENANCE TRAVELLING:
+### "The ledger's prime-side statement at a diagonal a^2 cell is ADOPTED as the instrument's own
+### formula -- wPrimes(a) := PR(a) = SUM_p SUM_{k : p^k <= a^2} (2 log p / p^{k/2}) * corr(log p^k)
+### -- with provenance tools/e16/b38_act10.py at its pin, promoted from instrument to stated
+### definition; wInf(a) is adopted likewise from the instrument's archimedean term, quoted at
+### source, or its absence there named and the adoption held to the prime side only.
+### THE STANDING CLAUSE: the adopted target may NEVER define, calibrate, or tune the left side;
+### the two sides keep independent definitions in every future act; the compiled circularity
+### (cweil_is_the_assumption) is the named crime. The adoption states a target; it proves nothing
+### and closes nothing."
+### ### PROVENANCE: **THE AUTHOR, ferry 2026-08-28. A RULING, NOT A DERIVATION.**
+
+### ### **THE ADOPTED DEFINITION, WITH EVERY CONSTITUENT UNFOLDED:**
+### ###
+### ###   **wPrimes(a) := SUM_{p prime} SUM_{k = 1}^{n_p(a)} ( 2 log p / p^{k/2} ) * corr( log p^k )**
+### ###
+###   n_p(a)  := #{ k >= 1 : p^k <= a^2 }   ### b17's STAIRCASE, and the instrument's own
+###              `staircase(p, a)` is that function character for character:
+###              `n, k = 0, 1;  while p ** k <= a * a + 1e-12: n += 1; k += 1`
+###   corr    := ### **THE AUTOCORRELATION OF THE BUMP**, at its owner (b38_act10.py, `family`):
+###              `v, w = C.bump(a)` ; `corr = np.convolve(w, w, mode="full") * float(dv[0])`
+###              sampled on `vc = np.linspace(-2L, 2L, corr.size)`, `L = math.log(a)`
+###              ### **THAT IS THE EXPLICIT FORMULA'S `f = g * g-tilde` FORM**, and act 12
+###              sec 25(a) uses those very words: "For `f = g (star) g-tilde`".
+###   the cutoff `ln <= 2 L` in the code is the correlation's own support bound, L = log a.
+###   THE CELL SPECIES: ### **DIAGONAL a^2 THROUGHOUT.** ### Local (p,n) cells do not appear in
+###   this definition and are not used by it. ### (b221's distinction, said at the use.)
+###   CONVERGENCE AT A FIXED CELL: ### **A FINITE SUM.** n_p(a) = 0 for every p > a^2 and the
+###   k-loop terminates at p^k > a^2. ### **NOTHING AT ANY LIMIT IS CLAIMED OR NEEDED.**
+### PROVENANCE OF THE FORMULA: ### tools/e16/b38_act10.py at its pin, function `left_side`,
+### quoted character for character at b228 and re-read whole at its pin this act.
+
+*** ### **wInf: THE ADOPTION IS HELD TO THE PRIME SIDE, AND THE ABSENCE IS NAMED.**
+### THE INSTRUMENT'S ARCHIMEDEAN TERM EXISTS AND IS QUOTED AT SOURCE:
+### ###   `A = float(np.trapezoid(GU ** 2 * C.kernel(U), U) / (2.0 * math.pi))`, `GU = C.hhat(v,w,U)`
+### ### **BUT NO OWNER STATES THAT `A` IS wInf**, AND THE SIGN IS NOT FIXED:
+### ###   act 12's atlas reading:  "Tr_raw - ( ### **+A** + E2 )"
+### ###   act 12's CC dictionary:  "Tr_raw - ( ### **-A** + E2 )"
+### ### AND FILE E SAYS wInf IS "W_infinity (### **CC convention**, the act-12 dictionary)".
+### ### SO ADOPTING wInf FROM `A` REQUIRES ### **CHOOSING A SIGN THE RECORD HAS NOT FIXED.**
+### ### b104 FLAGGED PRECISELY THIS AND IS QUOTED: "the docstring attaches a ### **CONVENTION** to
+### ### W_inf ... the identity consumes the convention's ### **OUTPUT** (a real number), not the
+### ### convention itself."
+### ### ### **AN EXECUTOR DOES NOT FIX AN AUTHOR'S SIGN. THE RULING PROVIDED FOR THIS BRANCH AND
+### ### ### IT IS TAKEN.** ### wInf REMAINS A TYPED REAL WITH A NAMED CONVENTION AND NO ADOPTED
+### ### ### DEFINITION. ***
+
+### THE SHELL TEST, RUN ON WHAT IS ADOPTED: ### **NOT A SHELL.**
+### ### A shell is satisfied by anything. ### wPrimes(a) is a specific finite sum with a specific
+### ### weight, a specific cutoff and a specific test function: ### **change 2 log p / p^{k/2} to
+### ### any other weight and the value changes; change the bump and the value changes.**
+### ### AND IT IS NOT VACUOUS AT THE BANKED CELLS: at a^2 = 2 the staircase already admits p = 2
+### ### with k = 1, so the sum has terms. ### **BUT IT IS ALSO NOT A THEOREM** -- it is a
+### ### DEFINITION adopted by ruling, and the act grades it exactly so.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE FACTOR AND THE READS.
+----------------------------------------------------------------------------------------------------
+
+### THE SIDE BY SIDE, WITH EACH SIDE'S OWNER AND SPACE:
+###   act 9 sec 2, at the level limit:  ### tau_q(p,n,k) -> ### **p^{-k/2}**
+###     (from `tau_q * p^{k/2} = (p^n - p^k)/(p^n - 1)`, `1 <= k <= n-1`, 0 for k >= n)
+###     ### OWNER'S SPACE: ### **V_inv** -- "the fixed-orbit count ### on V_inv".
+###   the adopted wPrimes, per prime power:  ### **2 log p * p^{-k/2}**
+###     ### OWNER'S SPACE: ### **NONE -- an arithmetic sum** (b228).
+### ### ### **THE DIFFERENCE IS EXACTLY `2 log p`. THIS IS THE FACTOR QUESTION.**
+### ### ### **GRADE: QUESTION. NO PROMOTION.** ### b10's own words, carried and not moved:
+### ### ### "### MATCH-IN-SHAPE / NOT; ### **no promotion either way**."
+
+### THE NAVIGATOR'S READING, CARRIED **NAVIGATOR-ASSERTED** AND TESTED AGAINST OWNERS' WORDS ONLY.
+### ### **VERDICT: (PARTIAL) -- ONE COMPONENT OWNED, THREE ABSENT.**
+
+###  (i) ### **log p AS ORBIT LENGTH / PERIOD -- STATED BY AN OWNER.** b10, quoted whole:
+###      "THE LEFSCHETZ WONDER (question grade, registered beside): IF Q1, the quotient trace's
+###       shape (weighted count over closed orbits by period, ### **weight ~ p^{-k/2}, unit log p
+###       the period**) is compared LONGHAND AT CITE against (a) the explicit formula's prime-side
+###       term and (b) the banked seat claims (Deninger "periodic orbits related to closed points",
+###       at abstract; CC's arrest sentence "understand the equality as a Lefschetz formula",
+###       ATTRIBUTED). ### **MATCH-IN-SHAPE / NOT; no promotion either way.**"
+###      ### **CARRIED AT b10's OWN GRADE -- QUESTION -- AND NOT PROMOTED BY BEING QUOTED HERE.**
+###      ### The owner says log p IS the period. ### It does NOT say the quotient trace IS a
+###      ### Lefschetz count; it says the comparison is to be made and refuses the promotion.
+
+###  (ii) ### **log p AS MULTIPLICATIVE HAAR MASS -- (ABSENT).**
+###      The corpus's Haar is b21's, quoted: "Haar measure (Z_p mass 1) gives each chart point mass
+###      p^(-n)"; "conductor Z_p (psi(x) = e^(2 pi i {x}_p)), ### **self-dual Haar**".
+###      ### **THAT IS ADDITIVE, SELF-DUAL HAAR ON Z_p, USED FOR THE TRANSFORM.** ### The
+###      ### multiplicative Haar of the idele class group is ### **A DIFFERENT OBJECT**, and no
+###      ### owner in this corpus states the reading.
+###      *** ### CONFLATING THEM WOULD BE ### **b219's DOUBLE-NAME SPECIES** -- one word "Haar"
+###      ### over two measures on two groups -- ### AND IT IS NAMED HERE RATHER THAN USED. ***
+
+###  (iii) ### **"COUNTING MUST BECOME MEASURING" -- (ABSENT).** ### Searched at content.
+###      ### **NO OWNER SAYS IT.** ### It is a navigator's phrase and is carried as one.
+
+###  (iv) ### **THE 2 AS THE PAIRING'S TWO HALVES -- (ABSENT).**
+###      ### The instrument writes `2.0 * math.log(p)` and ### **SAYS NOTHING ABOUT WHY.**
+###      ### No owner explains the factor 2. ### It is in the code and nowhere in the prose.
+###      ### AND THAT IS WORTH ITS OWN LINE: ### **THE ADOPTED DEFINITION CONTAINS A CONSTANT NO
+###      ### OWNER HAS EVER JUSTIFIED**, adopted here because the ruling adopts the instrument's
+###      ### formula as it stands, ### NOT because the 2 is understood.
+
+### ### **NOTHING IS BUILT IN EITHER BRANCH.** ### The factor question is filed, not answered;
+### ### the reading is filed at its per-component grade; ### no bridge, no intertwiner, no promotion.
+
+### ### **(d) THE ENGINE READ -- THE ITEM IS NOT OPENED.**
+### THE STATEMENT, QUOTED WHOLE FROM ITS TRAIL (OPEN_TRAILS, under "CHECKPOINT PROGRAM FOUR --
+### the post-residue program (constituted 2026-07-26)"):
+### ###   "- (ii) The derivative-level engine -- statement-read + price (the largest unopened
+### ###    program)"
+### ### **THAT IS THE WHOLE ITEM. ONE LINE.**
+### THE PRICE: ### **NOT ON THE RECORD.** ### The item's own words make the price the OUTPUT of an
+### unopened statement-read. ### **THERE IS NO PRICE TO QUOTE, AND NONE IS INVENTED.**
+### ITS SUBJECT'S BEARING ON log p, THE LEVEL SUM, OR THE MULTIPLICATIVE MEASURE:
+### ### **(ABSENT) -- THE ONE-LINE ENTRY SAYS NOTHING ABOUT ANY OF THE THREE**, and this act does
+### ### not infer a subject from a title.
+*** ### AND A DISCREPANCY RECORDED RATHER THAN RESOLVED:
+### ### THE LOOM CARRIES **THREE** DATED ENTRIES FOR A "Derivative-level engine" (2026-07-26):
+### ###   "PHASE 1 (the statement set; design before compiling; HELD)"
+### ###   "PHASE 2 (the compile + the DH double-zero finding; HELD)"
+### ###   "PHASE 3 (integration; Decisions 2+3 RUN, 1+4 HELD; season closes on this report)"
+### ### ### **AND THEIR REPORTS ARE NOT IN relay/reports** -- searched by filename and by content,
+### ### ### ZERO HITS. ### **WHETHER THAT ENGINE AND THIS TRAIL ITEM ARE THE SAME OBJECT IS NOT
+### ### ### DECIDED HERE**, and an act that assumed they were would be guessing.
+### ### **THE ITEM IS NOT OPENED. OPENING IT IS THE AUTHOR'S.** ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### TERM 2's DEBTS, RESTATED:
+###   1. THE FILE -- the aggregation. ### **OPEN.** b227's trace is the CANDIDATE ENGINE, NOT ADOPTED.
+###   2. THE LEMMA -- ClassRichness. ### **OPEN.** Citation read (b222); the lemma undischarged.
+###   3. THE TOOLCHAIN -- ### **DISCHARGED** (b221).
+###   4. THE LEDGER'S STATEMENT -- ### **ADOPTED-BY-RULING, PRIME SIDE.** ### wInf still open, its
+###      absence named and its sign unfixed.
+### THE JUNCTION CRUX (b228) STANDS, ### **WITH THE FACTOR QUESTION ATTACHED TO IT AS ONE OBJECT:**
+### ### the left side is traces, the right an arithmetic sum, ### **and the two weights differ by
+### ### exactly 2 log p.** ### ONE CRUX, TWO FACES: a SPACE face and a WEIGHT face.
+
+*** ### **THE STANDING CLAUSE, FILED WHERE EVERY FUTURE ACT READS IT** -- the identity chain AND
+### the in-flight register, in the ruling's own words:
+### ### **"the adopted target may NEVER define, calibrate, or tune the left side; the two sides
+### ### keep independent definitions in every future act; the compiled circularity
+### ### (cweil_is_the_assumption) is the named crime."**
+### ### AND THE CRIME HAS A COMPILED WITNESS, which is why the clause can be checked and not merely
+### ### exhorted: ### `Core/AggregationCircularityShadow.lean`, `cweil_is_the_assumption`, whose
+### ### **proof term is `:= h`** -- the hypothesis returned unchanged. ***
+
+### THE CHOICE-DEPENDENCE TRIPWIRE, RESTATED AS ### **ARMED**:
+### ### b228's criterion stands -- ### "it becomes a live obstruction the moment any statement in
+### ### the chain depends on a VALUE computed from u." ### **THE ADOPTION DOES NOT TRIP IT**: the
+### ### adopted target is the RIGHT side and contains no u. ### **b227's engine on the left is what
+### ### would trip it, and no number has been taken from it.**
+
+----------------------------------------------------------------------------------------------------
+### THE HARNESS'S **FIRST** GUARD FIRED THIS TIME -- THE OTHER ONE FROM b227.
+----------------------------------------------------------------------------------------------------
+*** ### THE FIRST RUN RETURNED ### **9 PASS, 1 REFUSED, VERDICT NOT CLEAN**
+### (sidecar audit_b229_check_harness.txt, self-hash 88c2717b...).
+### THE REFUSED GATE: `both-act12-signs-carried`, and the reason is the mirror of b227's:
+### ### **THE FIXTURE PASSED**, so the check was NOT RUN.
+### ### THE FIXTURE ASKED WHETHER FILE E CONTAINS "act-12" -- ### **AND IT DOES**: its docstring
+### ### reads "W_infinity (CC convention, ### the act-12 dictionary)". ### A FIXTURE THAT PASSES
+### ### CANNOT SAY NO, SO IT LICENSES NOTHING, AND THE HARNESS REFUSED.
+### ### **THAT IS b217's FIRST GUARD** -- the must-fail fixture -- ### where b227's refusal was
+### ### the SECOND, the witness. ### **THE TWO GUARDS HAVE NOW EACH CAUGHT ONE OF THIS
+### ### EXECUTOR'S GATES IN CONSECUTIVE ACTS**, which is the clearest evidence yet that neither
+### ### is redundant.
+### REPAIRED: the gate now tests that ### **BOTH act-12 READINGS** are carried (the atlas reading
+### and the CC dictionary), which File E genuinely carries ### NEITHER of, with the acts narrative
+### -- which carries both -- as the witness. ### **10 of 10 PASS, CLEAN**
+### (audit_b229_check_harness_r2.txt, 42a07f49...). ### **BOTH SIDECARS ARE CARRIED.**
+### ### AND THE LESSON IS SMALL AND EXACT: ### **A FIXTURE BUILT FROM A SUBSTRING THE TARGET FILE
+### ### HAPPENS TO CONTAIN IS NOT A FIXTURE.** I meant "File E names act-12 but carries no sign";
+### ### I WROTE "File E contains 'act-12'", which is the half that is true of it. ***
+
+----------------------------------------------------------------------------------------------------
+WHAT THIS ACT DOES **NOT** ESTABLISH.
+----------------------------------------------------------------------------------------------------
+ 1. ### **NO NUMBER, NO COMPUTATION, NO COMPARISON.** With a target now stated, a number is one
+    instrument call away, ### **and the standing clause is exactly why it was not made.**
+ 2. ### **NO LEFT-SIDE DEFINITION**, and none is implied.
+ 3. ### **wInf IS NOT ADOPTED.** Its instrument term exists; its identification and its sign do not.
+ 4. ### **THE FACTOR IS NOT EXPLAINED.** 2 log p is filed at QUESTION grade; ### three of the four
+    components of the candidate reading are ### ABSENT, and the fourth is owned only at QUESTION.
+ 5. ### **THE 2 IS ADOPTED WITHOUT BEING UNDERSTOOD**, and the bank says so rather than hiding it.
+ 6. ### **THE ENGINE IS NOT OPENED**, and no subject is inferred for it from its title.
+ 7. ### **THE ADOPTION PROVES NOTHING AND CLOSES NOTHING** -- the ruling's own last sentence.
+ 8. ### **NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+SCORING THE REGISTERED PREDICTIONS.
+----------------------------------------------------------------------------------------------------
+ (P1) ### LANDED. The statement is written whole with provenance; ### wInf's branch is
+      **held-to-prime-side** with its absence named and its sign shown unfixed; the shell test run.
+ (P2) ### LANDED. The side-by-side with each side's space; the candidate reading ### **(PARTIAL)**,
+      component by component, with the one owned component carried at b10's QUESTION grade and the
+      Haar conflation named as the double-name species; the engine item quoted whole and its price
+      recorded ### ABSENT, with the loom discrepancy recorded and not resolved.
+ (P3) ### LANDED. Term 2's four debts restated; the crux standing with the factor attached as one
+      object; ### **the standing clause filed in both places**; the tripwire restated as ARMED.
+
+DEVIATIONS: none.
+DIVERGENCES: none. ### The ruling's own wInf branch was exercised, which is not a divergence from it.
+====================================================================================================
