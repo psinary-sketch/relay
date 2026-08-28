@@ -1,0 +1,204 @@
+====================================================================================================
+b228 -- THE LEDGER'S CELL-LEVEL STATEMENT. THE BANK. 2026-08-28. CONCURRENCY: SOLO.
+Registration: data/b228_registration_2026-08-28.txt, banked after the owner reads and BEFORE the
+statement. Index: data/audit_b228_index_query.txt.
+### A STATEMENT AND READS. ### NO COMPUTATION, NO COMPARISON, NO NUMBER.
+### NO BRIDGE BUILT, NO INTERTWINER ADOPTED. ### Nothing about h2 beyond the register sentence
+### exact. ### Nothing deposits. Locks last.
+====================================================================================================
+
+****************************************************************************************************
+### THE VERDICTS:
+### ### **(P1) THE STATEMENT EXISTS -- AND NOT WHERE ANYONE LOOKED.** It has been executable code
+### ### in a banked instrument since act 10, and ### **NO ACT EVER WROTE IT DOWN AS A SENTENCE.**
+### ### b221's (UNDEFINED) is ### **CORRECTED, NOT OVERTURNED**: nothing was STATED, and nothing
+### ### is stated now either -- what exists is arithmetic the record can RUN but cannot QUOTE.
+### ### **(P2) BOTH JUNCTION READS: (ABSENT).** The navigator's candidate: ### **(ABSENT)**, and
+### ### reading it in would be b219's double-name species.
+****************************************************************************************************
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE STATEMENT.
+----------------------------------------------------------------------------------------------------
+
+### WHAT FILE E CARRIES, READ WHOLE (Interfaces/FiniteInstanceIdentity.lean):
+###   /-- Weil's ledger at the cell: `W_infinity` (CC convention, the act-12 dictionary) and the
+###       prime sum, the atlas's certified columns. -/
+###   structure WeilLedger (cell : DiagonalCell) where
+###     wInf : R
+###     wPrimes : R
+### ### **TWO UNCONSTRAINED REALS AND A DOCSTRING NAMING THREE OWNERS.** That is all the kernel has.
+
+### THE LEAN-STATED, ZERO-SORRY TRACE-WITH-WEIL INTERFACE PROP, read whole in the kernel:
+###   def finiteInstanceIdentity {cell} (T : ArchimedeanE1Trace cell) (Q : QuotientTrace cell)
+###       (W : WeilLedger cell) : Prop := ### **T.value + Q.value = W.wInf - W.wPrimes**
+### WHAT IT EQUATES: four reals. ### ON WHICH SPACE: ### **NONE -- it is an equation between
+### values.** File E imports only Mathlib.Data.Real.Basic and Mathlib.Data.Rat.Defs (b196,
+### re-verified b197), and its own header says ### "THIS FILE STATES; IT DOES NOT PROVE".
+### ### AND Interfaces/GlobalSection.lean CARRIES **NO** WEIL INTERFACE -- read whole this act;
+### ### its two theorems are F_pow_four and inner_F_self_of_fixed. ### FILE E's IS THE ONLY ONE.
+
+*** ### AND NOW THE FINDING. ### THE EXPLICIT-FORMULA OWNER, **LOCATED BY CONTENT** AS CLAUSE (a)
+### DEMANDS AND NOT BY TITLE: ### **tools/e16/b38_act10.py, function `left_side`.** QUOTED:
+###
+###     A = float(np.trapezoid(GU ** 2 * C.kernel(U), U) / (2.0 * math.pi))
+###     ...
+###     PR = 0.0
+###     for p in primes:
+###         k = 1
+###         while p ** k <= a * a + 1e-12:
+###             ln = math.log(p ** k)
+###             if ln <= 2 * L:
+###                 PR += 2.0 * math.log(p) / math.sqrt(p ** k) * float(np.interp(ln, vc, corr))
+###             k += 1
+###     return A, P, PR
+###
+### ### **THAT IS THE WEIL EXPLICIT FORMULA'S PRIME-SIDE TERM, WRITTEN OUT:**
+### ###   PR(a) = SUM_p SUM_{k >= 1, p^k <= a^2}  ### **( 2 log p / p^{k/2} ) * corr( log p^k )**
+### ### WITH THE WEIGHT ### **2 log p * p^{-k/2}** AND THE TEST FUNCTION'S CORRELATION AT log p^k.
+### ### AND THE CUTOFF ### `p^k <= a^2` ### IS **b17's STAIRCASE, CHARACTER FOR CHARACTER** --
+### ### n_p(a) = #{k >= 1 : p^k <= a^2} -- ### AT A **DIAGONAL a^2 CELL**. ***
+
+### THE CELL SPECIES, SAID AT EVERY USE AS b221's DIVERGENCE REQUIRES:
+### ### **EVERYTHING IN THIS SECTION IS AT A DIAGONAL a^2 CELL.** PR's loop bound, b17's staircase,
+### ### the atlas's rows in b36's table (a^2 = 2,3,4,8,9,12,...) -- ### ALL DIAGONAL.
+### ### LOCAL (p,n) CELLS DO NOT APPEAR HERE. ### b226's units live at local cells and act 9's
+### ### closed form is indexed (p,n,k); ### THOSE ARE THE OTHER SPECIES AND ARE NOT USED ABOVE.
+
+### THE GRADES, NAMED AND NOT UPGRADED BY HAVING BEEN FOUND:
+###   `A`  -- b109: "the atlas's certified arch column", ### **BENCH at its pins**; and b155: it is
+###          "an ### INPUT to b38's definition ..., never an output of it".
+###   `PR` -- b155: "### the prime side of the atlas arrangement -- ### NO -- finite places"
+###          (its row in the apportionment-freedom table). ### ITS ONLY DEFINITION IS THE CODE.
+### ### **NEITHER IS A DERIVATION. BOTH ARE INSTRUMENT ARITHMETIC AT BENCH GRADE.**
+
+*** ### THE SPACES -- THE HARDER HALF, AND THE ACT'S CENTRAL STRUCTURAL POINT:
+### ### `A` lives on a ### TEST-FUNCTION INTEGRAL over U against a kernel. ### It is not a trace
+### ### of an operator on S(1,1), nor on the tensor object, nor on anything in the identity chain.
+### ### `PR` lives on ### **NOTHING. IT IS AN ARITHMETIC SUM** over prime powers.
+### ### ### **SO THE IDENTITY PUTS TRACES ON THE LEFT AND AN ARITHMETIC SUM ON THE RIGHT.**
+### ### ### ASKING WHETHER THE QUOTIENT CHANNEL "EQUALS wPrimes" IS ASKING WHETHER A TRACE EQUALS
+### ### ### A PRIME SUM -- ### **WHICH IS (L-identity) ITSELF, THE UNDECIDED THING.**
+### ### b227 FOUND THE OPERATOR AND THE STATE ON DIFFERENT SPACES. ### THIS ACT FINDS THE
+### ### RIGHT-HAND SIDE ON **NO SPACE AT ALL**. ### **THE TWO SIDES ARE NOT TWO TRACES; THEY ARE
+### ### A TRACE AND A SUM, AND THAT IS WHAT THE IDENTITY ASSERTS.** ***
+
+### AND A SHARPENING OF b220, WHICH LOOKED FOR EXACTLY THIS AND DID NOT FIND IT:
+### ### b220 reported act 9's convergence line "names NO coefficients, NO normalization and
+### ### **NO log p**". ### **THE log p IS HERE, IN PR, AND NOT IN act 9's tau_q.**
+### ### act 9's level limit gives tau_q -> p^{-k/2}; ### PR's weight is 2 log p * p^{-k/2}.
+### ### **THE p^{-k/2} MATCHES; THE 2 log p IS THE DIFFERENCE.** ### THAT IS PRECISELY b10's
+### ### "Lefschetz wonder" comparison -- "weight ~ p^{-k/2}, ### unit log p the period" -- and b10
+### ### graded it ### **QUESTION**: "MATCH-IN-SHAPE / NOT; ### no promotion either way."
+### ### **THIS ACT DOES NOT PROMOTE IT EITHER.** It records that the two weights differ by exactly
+### ### the factor b10 named, and stops.
+
+### THE MISSING SENTENCE, NAMED, AND WHAT IT WANTS:
+### ### **THE RECORD HAS NO *STATED* DEFINITION OF wInf OR wPrimes AT A CELL.** It has code that
+### ### computes them and a docstring that names their owners. ### THE STEP IS TO PROMOTE THE
+### ### INSTRUMENT'S ARITHMETIC TO A STATEMENT, WITH ITS TEST FUNCTION, ITS CUTOFF L, AND ITS
+### ### NORMALIZATION FIXED. ### **IT WANTS A RESULT OR A RULING. IT DOES NOT WANT A READ --
+### ### THE READ IS NOW DONE.**
+### THE SHELL TEST, RUN ON WHAT IS WRITTEN ABOVE: ### **NOT A SHELL.** PR is not satisfied by
+### anything -- it is a specific sum with a specific weight and a specific cutoff, and changing
+### the weight changes the value. ### But it is also ### **NOT A THEOREM**: it is arithmetic, and
+### the act grades it as such.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P2) THE JUNCTION READS. ### BOTH **(ABSENT)**.
+----------------------------------------------------------------------------------------------------
+
+### READ 1 -- DOES ANY OWNER STATE HOW (OR WHETHER) THE QUOTIENT CHANNEL ACTS ON S-bar OR ON E_1?
+### ### **ABSENT.** Searched at content. ### THE ONLY SENTENCES CONNECTING V_inv AND Son ARE
+### ### b10's OWN, quoted: "### THE SONIN-TYPE CONDITION TRANSPOSED: support off the ball (the
+### ### ball-avoidance half). ### **THE FOURIER HALF DOES NOT DESCEND -- the transform does not
+### ### commute with x ~ px** ... leaving the Fourier-side Sonin condition behind, exactly as B9's
+### ### tension predicted ### **a weight-carrying trace must change the space**."
+### ### ### **NO OWNER STATES AN ACTION. b10 STATES THE OBSTRUCTION AND CALLS IT INFORMATIVE.**
+
+### READ 2 -- DOES THE CONSERVATION-OF-SPECTRA / TATE MATERIAL STATE THE TRANSFORM'S INTERACTION
+### WITH x ~ px AS AN INTERTWINING WITH A NAMED FACTOR?
+### ### **ABSENT FOR THE QUESTION ASKED**, and measured rather than asserted:
+### ### CONSERVATION_OF_SPECTRA_REFINED.md contains ### **ZERO** occurrences of "x ~ px", "scaling
+### ### quotient", "orbit space", ### **AND ZERO OF "intertwin".**
+### ### ITS OWN SCOPE SENTENCE, QUOTED: "### We prove that the adelic product formula PROD_v |x|_v
+### ### = 1 ... ### **acts independently of the spectral parameter s** in Tate's integral
+### ### construction ... We call this property ### **s-darkness**."
+### ### ### **THAT IS A STATEMENT ABOUT s-DEPENDENCE, NOT ABOUT THE SCALING QUOTIENT.**
+### AND b17's REFERENCE, quoted: "the archimedean window [1/a^2, a^2] is symmetric -- the same
+### self-dual shape at cite (### Tate's self-dual ball; the Conservation-of-Spectra grade)".
+### ### **THAT IS ABOUT THE BALL'S SYMMETRY (F PRESERVES Son), NOT ABOUT x ~ px.**
+
+*** ### THE NAVIGATOR'S CANDIDATE -- the local functional equation as the bridge, act 7's "local
+### factor" language as its echo -- ### **(ABSENT). THE OWNERS DO NOT SAY IT.**
+### ### THE CORPUS CONTAINS NO LOCAL FUNCTIONAL EQUATION STATEMENT AT CONTENT; the only matches
+### ### are in STAGED registrations, which are not banked acts.
+### ### AND THE ECHO MUST BE REFUSED, FOR A REASON THIS CORPUS HAS NAMED BEFORE:
+### ### ### act 7's "local factor" IS ### **THE FACTOR OF A RESTRICTED-PRODUCT TRACE** -- "forces
+### ### ### the local factor to 1 at every inactive place". ### A FUNCTIONAL EQUATION'S "local
+### ### ### factor" IS A ### **GAMMA OR EULER FACTOR**. ### **TWO DIFFERENT OBJECTS SHARING A
+### ### ### PHRASE.** ### READING ONE AS AN ECHO OF THE OTHER IS **b219's DOUBLE-NAME SPECIES**,
+### ### ### and it is named here rather than built on. ***
+### ### **NO BRIDGE IS ADOPTED IN ANY BRANCH, AND NONE IS PROPOSED.**
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P3) THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### TERM 2's DEBTS, RESTATED WITH THE LEDGER STATEMENT'S STATUS:
+###   1. THE FILE -- the aggregation. ### OPEN; b227's trace is the CANDIDATE ENGINE, NOT ADOPTED.
+###   2. THE LEMMA -- ClassRichness. ### CITATION READ (b222); the lemma itself undischarged.
+###   3. THE TOOLCHAIN -- ### DISCHARGED (b221).
+###   4. THE LEDGER'S STATEMENT -- ### **RECLASSIFIED, NOT DISCHARGED.** From "ABSENT" (b221) to
+###      ### **"EXISTS AS INSTRUMENT ARITHMETIC AT BENCH GRADE, NEVER STATED"**. ### It now wants
+###      a RESULT OR A RULING promoting it, not a read.
+
+### THE JUNCTION, FILED AS ### **THE CHAIN'S LOCATED CRUX**, with its species named:
+### ### THE CRUX: ### **THE LEFT SIDE IS TRACES; THE RIGHT SIDE IS AN ARITHMETIC SUM.** The
+### ### identity asserts they are equal. ### **NOTHING IN THE RECORD CARRIES ONE INTO THE OTHER.**
+### ### ITS SPECIES: ### **ADDITIVE-MULTIPLICATIVE** -- a trace over a multiplicative structure
+### ### against a sum over prime powers. ### **A NEW INSTANCE**, and ### **NOT OWNED BY THE TYPE-D
+### ### KEYSTONE** -- this act asserts no inheritance from it and files the instance on its own.
+### ### ITS CANDIDATE (the local functional equation) IS CARRIED ### **AS CANDIDATE**, marked
+### ### (ABSENT) at content, ### **NOT ADOPTED**, and flagged with its double-name hazard.
+
+### THE CHOICE-DEPENDENCE SEED (b226's open question), FILED WITH ITS PROMOTION CRITERION:
+### ### THE SEED: does (x)'_v (S-bar_v, u_v) depend on the choice of u?
+### ### ### **THE PROMOTION CRITERION, STATED SO A LATER ACT CAN APPLY IT WITHOUT RE-DERIVING IT:**
+### ### ### **the question is PROMOTED to a live obstruction the moment any statement in the chain
+### ### ### depends on a VALUE computed from u.** ### Until then it is a well-posedness question
+### ### about an object nothing yet reads a number from.
+### ### AND b227's engine is exactly what would trip it: ### the first lawful number from omega_u
+### ### promotes the seed. ### **NO SUCH NUMBER EXISTS YET, SO THE SEED STAYS A SEED.**
+
+----------------------------------------------------------------------------------------------------
+WHAT THIS ACT DOES **NOT** ESTABLISH.
+----------------------------------------------------------------------------------------------------
+ 1. ### **NO NUMBER, NO COMPUTATION, NO COMPARISON.** b227's refusal stands; a target now has an
+    operational definition but ### **NOT A STATED ONE**, and the act does not treat code as a
+    statement.
+ 2. ### **IT DOES NOT PROMOTE THE INSTRUMENT'S ARITHMETIC.** Finding a definition in code does not
+    make it a definition of record. ### THAT IS THE STEP, AND IT IS THE AUTHOR'S OR A LATER ACT'S.
+ 3. ### **IT DOES NOT DECIDE b10's QUESTION.** The 2 log p difference is recorded; b10's
+    "no promotion either way" stands.
+ 4. ### **NO BRIDGE, NO INTERTWINER**, and the candidate is filed (ABSENT) with its hazard named.
+ 5. ### **IT DOES NOT TOUCH TERM 2's OTHER THREE DEBTS.**
+ 6. ### **NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+SCORING THE REGISTERED PREDICTIONS.
+----------------------------------------------------------------------------------------------------
+ (P1) ### LANDED, AND BETTER THAN THE HONEST EXPECTATION. The registration expected to name a
+      missing sentence; ### **IT NAMED A FOUND DEFINITION AND A MISSING STATEMENT**, which is a
+      sharper outcome and a correction to b221's "absent". ### AND THE EXPECTATION ABOUT THE SPACES
+      HELD EXACTLY: the left side is traces, the right an arithmetic sum, and no owner says they
+      are the same kind of object.
+ (P2) ### LANDED -- both reads (ABSENT), measured not asserted (zero occurrences, counted); the
+      candidate (ABSENT) with its double-name hazard named. ### NO BRIDGE ADOPTED.
+ (P3) ### LANDED -- term 2's four debts restated, the junction filed as the located crux with its
+      species, the choice-dependence seed filed with a promotion criterion.
+
+DEVIATIONS: none.
+DIVERGENCES: ### ONE, with clause (a) -- it directs the explicit-formula owner to be located by
+content in the corpus. ### **IT IS LOCATED -- IN EXECUTABLE CODE, NOT IN PROSE** -- and the act
+reports it at the instrument's grade rather than upgrading it by having found it.
+====================================================================================================
