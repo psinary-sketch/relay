@@ -1,0 +1,186 @@
+====================================================================================================
+b223 -- THE LEVEL-LIMIT AT THE FIRST TWO PLACES. THE BANK. 2026-08-28.
+Registration: data/b223_registration_2026-08-28.txt, banked after the owner reads and BEFORE any
+computation. Instrument: tools/e16/b223_level_limit.py. Raw: data/b223_table_raw.json.
+Index: data/audit_b223_index_query.txt.
+### A DECISION INPUT FOR M21, NOT A RESUMPTION. ### b194's RETIREMENT STANDS.
+### NO PURITY IS TESTED OR CLAIMED. ### MIXED UNITS ARE BANKED WITHOUT REMARK.
+### PLACE-papers, HANDOFF AND THE MIRROR UNTOUCHED. ### FILINGS DEFER TO b225.
+### Nothing deposits. Nothing about h2 beyond the register sentence exact.
+====================================================================================================
+
+****************************************************************************************************
+### THE VERDICT: **BRANCH (FURNISHED)** -- at both places.
+### ### **d_1 > 0 AT EVERY LEVEL n >= 2 AT p = 2 AND AT EVERY LEVEL n >= 1 AT p = 3, MEASURED
+### ### EXACTLY OUT TO n = 8 AND n = 5; A NORM-ONE UNIT IS EXHIBITED AT EVERY SUCH CELL REACHED;
+### ### AND THE OWNER'S DEFINITION GIVES E_1(S-bar_v) THEIR LIMIT STANDING IN ITS OWN WORDS.**
+### ### **THE (2,1) DEATH IS ISOLATED AND DOES NOT PROPAGATE.**
+### AND THE LIMIT ON THAT ANSWER, CARRIED WITH IT AND NOT BURIED:
+### ### **IT IS FINITE-PLACES-ONLY. infinity HAS NO TOWER, BY A PROVED THEOREM.**
+### ### **NO BRANCH RESUMES THE PLAN, AND THIS ONE DOES NOT.**
+****************************************************************************************************
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE TABLE. ### EVERY d_1 RE-DERIVED, NOT READ FROM BANKS.
+----------------------------------------------------------------------------------------------------
+
+### G-REPRO FIRST, AS THE REGISTRATION REQUIRED: ### ALL SIX BANKED ROWS REPRODUCED EXACTLY BY
+### THIS ACT'S OWN DIAGONAL-TRACE INSTRUMENT, BEFORE ANY NEW CELL WAS TOUCHED.
+  cell    D     tr Pi   T+conj(T)   trace(4qP_1)    d_1   d_-1   d_i+d_-i  | banked (d1,d-1,di,d-i)
+  (2,1)     1     -1           0              0      0      0        1     | (0, 0, 1, 0)   OK
+  (2,2)     9     -1           0             32      2      2        5     | (2, 2, 3, 2)   OK
+  (2,3)    49     -1           0            384     12     12       25     | (12,12,13,12)  OK
+  (3,1)     4      0           0             12      1      1        2     | (1, 1, 1, 1)   OK
+  (3,2)    64      0           0            576     16     16       32     | (16,16,16,16)  OK
+  (5,1)    16      0           0             80      4      4        8     | (4, 4, 4, 4)   OK
+### ### 6 OF 6, AND THE d_i + d_-i SUMS AGREE ROW BY ROW (1=1+0; 5=3+2; 25=13+12; 2=1+1;
+### ### 32=16+16; 8=4+4). ### THE DIAGONAL-ONLY TRACE IS THEREFORE THE SAME TRACE b44 COMPUTES,
+### ### SHOWN AND NOT ASSERTED.
+
+### THE TABLE, EXTENDED. ### p = 2, n = 1..8 AND p = 3, n = 1..5 -- FAR PAST THE FERRY'S N >= 4.
+### EVERY VALUE EXACT IN Z[zeta_N]; ### NO FLOATING POINT ENTERS ANY d_1.
+
+   p   n     q        N    dim Son      trace(4q P_1)        d_1     the law    agree
+   2   1     2        4          1                  0          0          0     YES
+   2   2     4       16          9                 32          2          2     YES
+   2   3     8       64         49                384         12         12     YES
+   2   4    16      256        225               3584         56         56     YES
+   2   5    32     1024        961              30720        240        240     YES
+   2   6    64     4096       3969             253952        992        992     YES
+   2   7   128    16384      16129            2064384       4032       4032     YES
+   2   8   256    65536      65025           16646144      16256      16256     YES
+   3   1     3        9          4                 12          1          1     YES
+   3   2     9       81         64                576         16         16     YES
+   3   3    27      729        676              18252        169        169     YES
+   3   4    81     6561       6400             518400       1600       1600     YES
+   3   5   243    59049      58564           14231052      14641      14641     YES
+
+*** ### AND THE HONEST STATEMENT OF WHAT THIS IS, REGISTERED BEFORE THE RUN AND KEPT NOW:
+### ### **THIS IS A CHECK OF A BANKED LAW, NOT A DISCOVERY.** ### b198's (I3) already carried the
+### ### closed forms at DERIVES grade, owner correspondence row 36 (b57):
+### ###   "### odd 4d = (q-1)^2, shape (d,d,d,d); ### place-2 4d = q(q-2), shape (d,d,d+1,d).
+### ###    ### POSITIVE for odd q >= 3 at every level; for q = 2^n at every n >= 2;
+### ###    ### ZERO at exactly one cell, (2,1) -- the arrival depth."
+### ### **13 OF 13 MEASURED CELLS AGREE WITH THE LAW EXACTLY.** ### THE REGISTRATION SAID A
+### ### DISAGREEMENT WOULD BE THE FINDING AND WOULD BE REPORTED AGAINST THE LAW. ### THERE IS
+### ### NONE. ### WHAT THE ACT ADDS IS AN INDEPENDENT EXACT CONFIRMATION AT SEVEN CELLS THE
+### ### RECORD HAD NEVER COMPUTED -- (2,4)-(2,8) AND (3,3)-(3,5) -- AND NOTHING MORE. ***
+
+### THE HONEST EXPECTATION, SCORED: ### REGISTERED "d_1 GROWING, THE n = 1 DEATH ISOLATED".
+### ### BOTH LANDED. d_1 is strictly increasing in n at both places from its first positive cell,
+### ### and (2,1) is the only zero anywhere in the table.
+
+----------------------------------------------------------------------------------------------------
+### THE UNITS, EXHIBITED. ### One norm-one unit at every reached cell with d_1 > 0.
+----------------------------------------------------------------------------------------------------
+### u = 4q P_1 f_{i,j} = q(1+Pi)f + S(1+Pi)f, the purity report's own construction.
+### COEFFICIENTS ARE EXACT INTEGER VECTORS IN Z[zeta_N]; the digest is a sha256/32 of the full
+### reduced coefficient data, so the exhibit is reproducible without banking N entries per cell.
+### THE NORM-ONE UNIT IS u / ||u||.
+
+  cell   (i,j)   support   ||u||^2 (numeric)      S u = q u ?     digest (sha256/32)
+  (2,2)  (1,1)       12          152.491740       ### VERIFIED    f4f654201bf0f392482661bc8c77ec60
+  (2,3)  (1,1)       56          488.216385       ### VERIFIED    a2e41a0ab3e56173843e935cefeecb83
+  (2,4)  (1,1)      240         2030.184941       ### VERIFIED    cf12087ff5d8abf661592c9e3383f816
+  (2,5)  (1,1)      992         8182.363055       ### VERIFIED    276c9695d53d6fa8c458f8d87ea4f0fb
+  (3,1)  (1,1)        6          139.657869       ### VERIFIED    aac8fc7f6f9145e40754c6fa046655b1
+  (3,2)  (1,1)       72          623.947993       ### VERIFIED    1f9df826bf33e25efae63b24181612b6
+  (3,3)  (1,1)      702         5820.692832       ### VERIFIED    3b2f1d0aca4be070aa72e3dbda6387cf
+  (3,4)  (1,1)     6480        52484.114862       ### NOT RUN     9d22127859d36eae8c256b8fd0b8231d
+  (2,1)   --         --              --           ### NO UNIT: d_1 = 0, the arrival depth
+### "VERIFIED" MEANS ### **S u = q u CHECKED EXACTLY IN Z[zeta_N], ENTRY BY ENTRY** -- so the
+### exhibited vector demonstrably lies in the +1 sector of M = S/q. ### AT (3,4) THE CHECK IS
+### O(N^2) WITH N = 6561 AND WAS NOT RUN; ### THAT CELL'S UNIT IS EXHIBITED BUT ITS SECTOR
+### MEMBERSHIP IS **NOT CERTIFIED HERE**, AND THE ROW SAYS SO RATHER THAN INHERITING THE PATTERN.
+
+*** ### A FACT ABOUT THE NORM, RECORDED BECAUSE THE EXECUTOR'S FIRST INSTRUMENT ASSUMED OTHERWISE
+### AND ITS OWN GUARD CAUGHT IT: ### **||u||^2 IS NOT A RATIONAL INTEGER.** It is a totally-real
+### algebraic integer: |u(m)|^2 lies in the real subfield of Q(zeta_N) and the sum over m need not
+### descend to Q. ### AT (3,1) IT IS EXACTLY ### **72 - 36*zeta^4 - 36*zeta^5 = 139.657868...**
+### THE INSTRUMENT RETURNED None RATHER THAN A NUMBER, WHICH IS THE GUARD BEHAVING CORRECTLY, AND
+### THE EXECUTOR CHECKED THE SMALLEST CELL BY HAND BEFORE CHANGING ANYTHING.
+### ### CONSEQUENCE, STATED PLAINLY: ### THE UNIT'S COEFFICIENTS ARE EXACT IN Z[zeta_N]; ### THE
+### ### NORMALIZING SCALAR IS A REAL IRRATIONAL. ### A norm-one vector therefore lives in
+### ### R . Z[zeta_N], not in Z[zeta_N]. ### THAT COSTS NOTHING FOR VON NEUMANN'S CONDITION,
+### ### WHICH ASKS ONLY THAT SUM_v | ||f_v|| - 1 | CONVERGE -- and norm-one units give 0. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE STANDING. ### BRANCH **(FURNISHED)**.
+----------------------------------------------------------------------------------------------------
+
+### THE FERRY'S QUESTION AT (c): what does the owner's definition of E_1(S-bar_v) make of a tower
+### whose d_1 is 0 at one level and positive above? ### **THE DEFINITION ANSWERS IT IN ITS OWN
+### WORDS, AND THE ANSWER IS NOT SILENCE.**
+
+### (i) THE TOWER AND ITS CONNECTING MAP EXIST AND ARE DEFINED -- so clause (a)'s "no maps are
+### invented" conditional never fired:
+###   "Son(p,n) on Z/p^{2n} of dimension (p^n - 1)^2, the vectors vanishing on a ball AND on its
+###    transform image"; ### "the embedding's recorded chart refinement **m'' = p*m + p^{2n+1}*j,
+###    values copied**"; "iota(Son(2,1)) subset Son(2,2) kernel-checked in Z[zeta_16]"
+###    (TowerInstance, DERIVES, COMPILED); the keystone sec 1, "with the exact tower iota(Son) ⊂ Son".
+### (ii) S-bar IS THE LIMIT: b198 (I4), quoted -- ### "S-bar = the L^2-CLOSURE OF THE TOWER'S UNION".
+### (iii) ### AND THE SECTORS SURVIVE THE MAP -- b198 (I2), quoted whole:
+###   "### iota F-EQUIVARIANT, so ### **each E_lam(S-bar) is the closure of its level tower** ...
+###    S+ iota = p * iota S, hence ### **M+ iota = iota M** ... (L2)'s own stated consequence:
+###    '### **the four sectors are iota-stable ON THE NOSE**.'"
+###   with VERDICT ### **AVAILABLE-AT-EVERY-FINITE-PLACE**, and "### p = 2 IS NOWHERE USED IN THE
+###   DERIVATION" -- p, q, n FREE throughout b65's (L1)/(L2).
+
+*** ### SO THE ANSWER, ASSEMBLED FROM THE DEFINITION'S OWN WORDS AND THIS ACT'S TABLE:
+### ### E_1(S-bar_v) IS **THE CLOSURE OF THE LEVEL TOWER OF E_1's**. ### iota CARRIES E_1 INTO
+### ### E_1. ### THEREFORE A LEVEL WITH d_1 = 0 CONTRIBUTES NOTHING AND ### **TAKES NOTHING
+### ### AWAY**: the limit is the closure of a union, and a union is not harmed by an empty member.
+### ### AT p = 2 THE FIRST POSITIVE LEVEL IS n = 2 (d_1 = 2) AND EVERY LEVEL ABOVE IT IS POSITIVE
+### ### AND GROWING; AT p = 3 EVERY LEVEL IS POSITIVE FROM n = 1.
+### ### ### **E_1(S-bar_2) AND E_1(S-bar_3) ARE NONZERO, AND A NORM-ONE UNIT IS EXHIBITED AT EVERY
+### ### ### LEVEL THAT HAS ONE.** ***
+
+### THE LIMIT ON THE ANSWER, CARRIED WITH IT AS THE REGISTRATION PROMISED:
+### ### **THIS IS FINITE-PLACES-ONLY.** b198's own verdict is **(INSTANCE)**, and its reason is a
+### ### PROVED THEOREM, not an absence: "real_no_compact_open_addSubgroup, PROVED -- R has no
+### ### compact open additive subgroup, so ### THE ARCHIMEDEAN PLACE HAS NO FINITE EXACT LEVEL FOR
+### ### A TOWER TO CLIMB." ### THE ARCHIMEDEAN E_1 IS HELD AT MACHINE/BENCH GRADE AND NO HIGHER,
+### ### AND BENCH PROMOTION IS REFUSED BY THE STANDING RULE.
+### ### **SO THIS ACT FURNISHES TWO PLACES OUT OF ALL OF THEM, AND SAYS SO.**
+
+### AND WHAT (FURNISHED) DOES **NOT** MEAN, since the scope forbids a resumption:
+### ### IT DOES NOT RESUME THE PLAN. ### b194's retirement stands and the author's ruling stands:
+### ### "RETIREMENT STANDS UNTIL THE RESULTS ARE READ."
+### ### IT DOES NOT ANSWER THE C0-SEQUENCE QUESTION. ### b196's step was "### DOES E_1(S-bar_v)
+### ### ADMIT A C0-SEQUENCE OF UNITS?" -- ### A C0-SEQUENCE IS A CHOICE **ACROSS ALL PLACES AT
+### ### ONCE**, with SUM_v | ||f_v|| - 1 | convergent. ### THIS ACT SUPPLIES UNITS AT **TWO**
+### ### PLACES. ### THE SEQUENCE IS NOT EXHIBITED AND IS NOT CLAIMED.
+### ### WHAT SEPARATES THE TWO IS EXACTLY THE ARCHIMEDEAN PLACE PLUS EVERY p > 3.
+
+----------------------------------------------------------------------------------------------------
+WHAT THIS ACT DOES **NOT** ESTABLISH.
+----------------------------------------------------------------------------------------------------
+ 1. ### IT DOES NOT RESUME THE RETIRED PLAN, AND NO BRANCH OF (P2) WOULD HAVE.
+ 2. ### IT TESTS NO PURITY AND CLAIMS NONE. ### The exhibited units are not examined for purity,
+    by the scope's own direction, and von Neumann does not ask for it.
+ 3. ### IT DOES NOT EXHIBIT A C0-SEQUENCE. Two places is not all places.
+ 4. ### IT SAYS NOTHING ABOUT infinity, WHERE b198's proved theorem says there is no tower.
+ 5. ### IT DISCOVERS NO LAW. ### The closed forms were banked at DERIVES grade; this is an
+    independent exact check at seven previously uncomputed cells.
+ 6. ### (3,4)'s UNIT IS NOT SECTOR-CERTIFIED HERE, and its row says so.
+ 7. ### NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE DEFERRED-FILINGS NOTE.
+----------------------------------------------------------------------------------------------------
+### THIS ACT WRITES ONLY ITS OWN relay data/ FILES AND ITS INSTRUMENT.
+### ### PLACE-papers, HANDOFF AND THE MIRROR ARE UNTOUCHED, as the concurrency header requires.
+### WHAT b225 IS OWED BY THIS ACT, AND NOTHING MORE:
+###   · THE MEMO'S **DIRECTION A** ROW UPDATED: its central unknown -- "does E_1(S-bar_v) admit a
+###     C0-sequence of units?" -- is ### **NARROWED, NOT CLOSED**. ### The per-place standing at
+###     p = 2 and p = 3 is FURNISHED with exhibited units; ### the remaining unknown is the
+###     ACROSS-PLACES sequence and the archimedean place.
+###   · M21's INPUTS RESTATED: ### direction A's price was "a RESULT"; ### THE RESULT IS
+###     PURCHASED AT TWO PLACES AND IS REPORTED HERE.
+###   · ### NOTHING ELSE. No ledger, no chain section, no register entry from this act.
+
+DEVIATIONS: ### ONE, DECLARED AT REGISTRATION -- the diagonal-only trace in place of b44's full
+O(N^2) unit construction, taken because b44 cannot reach n = 4 or 5. ### THE ACT PROVED IT IS THE
+SAME TRACE BY REPRODUCING ALL SIX BANKED ROWS FIRST, INCLUDING THEIR d_i + d_-i SUMS.
+DIVERGENCES: none. ### Clause (a)'s conditional did not fire: the record defines the connecting maps.
+====================================================================================================

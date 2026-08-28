@@ -191,6 +191,13 @@ KEYS = {
                           'carried past its range'],
     'residue-four-faces': ['residue keystone', 'four faces', 'four faces of the residue',
                            'the four-way wall'],
+    # ### THE LEVEL-TOWER KEYS, ADDED b223/b224 UNDER THEIR CLAUSE (d).
+    'level-limit-standing': ['level limit', 'level-limit', 'the level limit',
+                             'arrival depth', 'd1 law', 'level tower'],
+    'tower-iota': ['tower', 'the tower', 'iota', 'connecting map', 'exact tower',
+                   'sector arithmetic', 'iota-stable'],
+    'segre-open-cells': ['segre', 'segre question', 'segre work-order',
+                         'quadric system', 'open cells'],
     # ### AND THE ALIASES DELIBERATELY **NOT** ADDED, EXTENDING b181's PRECEDENT:
     # ### the bare 'prolate' (ambiguous across three keys -- b181's own reason, unchanged);
     # ### the bare 'sign' (ambiguous across alpha, alternation, the-ladder and b205's
@@ -201,6 +208,35 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LEVEL-TOWER ROWS (b223, b224).
+    ("level-limit-standing", "b57 / b198 (I3) laws / b223 (measured)",
+     "d_1(p,n) is positive at every level n >= 2 for p = 2 and every n >= 1 for odd p;"
+     " the ONLY zero anywhere is the cell (2,1), the arrival depth. Laws: place-2"
+     " 4d = q(q-2); odd 4d = (q-1)^2",
+     "DERIVES (b57, longhand general in n). ### b223 RE-DERIVED d_1 EXACTLY in Z[zeta_N] at"
+     " 13 cells -- p=2 n=1..8 and p=3 n=1..5 -- reproducing all six banked rows first and"
+     " agreeing with the law at 13 of 13; a norm-one unit is exhibited at every reached cell"
+     " with d_1 > 0, with S u = q u verified exactly where N <= 1024",
+     "data/b223_level_limit_two_places.txt; tools/e16/b223_level_limit.py"),
+    ("tower-iota", "b65 (L1)/(L2) / b101 / b198 (I2)",
+     "the tower map is iota: Son(p,n) -> Son(p,n+1) by the chart refinement"
+     " m'' = p m + p^{2n+1} j, values copied; S+ iota = p iota S so M+ iota = iota M, and"
+     " THE FOUR SECTORS ARE IOTA-STABLE ON THE NOSE; S-bar is the L2-closure of the union,"
+     " so each E_lam(S-bar) is the closure of its level tower",
+     "AVAILABLE-AT-EVERY-FINITE-PLACE (b198 I2), derived with p, q, n FREE; the instance"
+     " decided at p = 2 and kernel-checked in Z[zeta_16] (TowerInstance, COMPILED)."
+     " ### infinity HAS NO TOWER -- real_no_compact_open_addSubgroup, PROVED",
+     "data/b198_nonvanishing.txt; data/b101_registration_2026-08-22.txt"),
+    ("segre-open-cells", "the purity report work-order / b224",
+     "does ANY nonzero Schmidt-pure vector hide in E1 at the d_1 > 2 cells (5,1), (2,3),"
+     " (3,2)? The pencil generalizes to a quadric system on P^{d1-1}",
+     "### b224 ran the work-order by a degree-D surjectivity certificate, exact in"
+     " Q(zeta_N): the variety is EMPTY iff (S_{D-2})^M -> S_D is surjective."
+     " ### G-REPRO reproduced (2,2) MIXED-FORCED by this route before any open cell."
+     " ### (5,1): VERDICT (NONE) -- 60 quadrics span S_2 exactly, rank 10 of 10."
+     " ### The certificate is ONE-DIRECTIONAL: failure to certify is UNDECIDED, never"
+     " a claim that a pure vector exists",
+     "data/b224_segre_three_cells.txt; tools/e16/b224_segre.py"),
     # ### THE CLASSICAL-SOURCE AND RANGE-LAW ROWS (b222).
     ("von-neumann-product", "b196 / b197 (source read) / b222 (re-verified at source)",
      "von Neumann 1939 Definition 4.1.1 builds the incomplete direct product from ANY"

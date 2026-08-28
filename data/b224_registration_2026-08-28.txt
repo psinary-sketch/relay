@@ -1,0 +1,81 @@
+====================================================================================================
+b224 -- THE SEGRE QUESTION AT THE THREE OPEN CELLS -- THE RUN-REGISTRATION.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1). CONCURRENCY: PARALLEL-OK with b223.
+BANKED AFTER THE OWNERS AND INSTRUMENTS WERE READ AT CONTENT AND BEFORE ANY COMPUTATION.
+### A DECISION INPUT FOR M21's DIRECTION B, NOT A RESUMPTION. ### b194's RETIREMENT STANDS.
+### THE STOP-LOSS GOVERNS: ONE ATTEMPT PER CELL ON THIS SPECIFICATION, NO TUNING.
+### PLACE-papers, HANDOFF AND THE MIRROR UNTOUCHED. ### FILINGS DEFER TO b225.
+### Nothing deposits. Nothing about h2 beyond the register sentence exact.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+(a) LOAD-BEARING, READ AT CONTENT BEFORE THIS REGISTRATION.
+----------------------------------------------------------------------------------------------------
+### THE MINOR TEST, quoted: "Schmidt-pure <=> rank 1 <=> ### every 2x2 minor vanishes".
+### THE PER-CELL d_1 AND PROVENANCE (purity report sec 2): (5,1) d_1 = 4, N = 25, dim Son 16;
+### (2,3) d_1 = 12, N = 64, dim Son 49; (3,2) d_1 = 16, N = 81, dim Son 64.
+### THE WORK-ORDER SENTENCE, QUOTED WHOLE: "at the three d1 > 2 cells the full Segre-intersection
+### question (### does ANY pure vector hide in E1?) [is open] ... ### the pencil method generalizes
+### to a ### **QUADRIC SYSTEM ON P^{d1-1}**; ### exact Groebner or a structured collapse like
+### (2,2)'s alpha^2-collapse."
+### THE (2,2) COLLAPSE AS TEMPLATE, read at its instrument tools/e16/b44_pencil.py: the unit is
+### reshaped by ### C[a][b] = u[(a + q*b) mod N]; every element of E_1 is alpha*C1 + beta*C2;
+### with t = beta/alpha the nine minors are QUADRATICS over Q(zeta_16); ### "GCD over a field
+### detects closure roots: polynomials with no common factor generate (1) ... hence have no common
+### root anywhere" -- and the run returns GCD = 1, so ### MIXED-FORCED.
+### THE BANKED INSTRUMENTS READ BEFORE ANY EXTENSION: b44_e1_unit_purity.py (exact Z[zeta_N],
+### phi_reduce for prime-power N, find_ell_g/hom/rank_mod) and b44_pencil.py (Q(zeta_16) as
+### 8-tuples of Fractions mod x^8+1, ptrim/pmod/pgcd). ### NO NEW CODE PRECEDES THESE READS.
+
+----------------------------------------------------------------------------------------------------
+(b) THE GENERALIZATION, FIXED BEFORE THE RUN.
+----------------------------------------------------------------------------------------------------
+### At d_1 = d the general element of E_1 is SUM_{k=1..d} alpha_k C_k. ### Each 2x2 minor
+### (rows a1<a2, cols b1<b2) is a ### QUADRATIC FORM in (alpha_1..alpha_d) over Q(zeta_N).
+### PURE <=> ALL MINORS VANISH. ### So the question is exactly: ### **DOES THE QUADRIC SYSTEM HAVE
+### A NONTRIVIAL COMMON ZERO OVER THE ALGEBRAIC CLOSURE -- i.e. IS THE PROJECTIVE VARIETY IN
+### P^{d-1} NONEMPTY?**
+### AT d = 2 THIS IS EXACTLY THE PENCIL-GCD, and G-REPRO tests that the generalized instrument
+### REDUCES TO THE BANKED ONE.
+### THE SYSTEM SIZES, COMPUTED IN ADVANCE SO THE OBSTRUCTION CAN BE NAMED HONESTLY:
+###   (5,1): d = 4,  q = 5,  minors = C(4,2)*C(5,2)   =   6*10 =   60 quadrics in  4 vars,
+###          coefficients in Q(zeta_25),  deg phi(25) = 20
+###   (2,3): d = 12, q = 8,  minors = C(7,2)*C(8,2)   =  21*28 =  588 quadrics in 12 vars,
+###          coefficients in Q(zeta_64),  deg phi(64) = 32
+###   (3,2): d = 16, q = 9,  minors = C(8,2)*C(9,2)   =  28*36 = 1008 quadrics in 16 vars,
+###          coefficients in Q(zeta_81),  deg phi(81) = 54
+
+*** ### THE HONEST EXPECTATION, REGISTERED IN ADVANCE, PER CELL, AS (P2) REQUIRES:
+### ### (5,1): the executor expects a VERDICT is REACHABLE -- 4 variables is small.
+### ### (2,3): ### **THE EXECUTOR EXPECTS (UNDECIDED)** -- an exact Groebner basis for 588
+### ### quadrics in 12 variables over a degree-32 cyclotomic field is beyond this bench, and the
+### ### executor says so BEFORE running rather than after failing.
+### ### (3,2): ### **THE EXECUTOR EXPECTS (UNDECIDED)**, and more strongly -- 1008 quadrics in
+### ### 16 variables over a degree-54 field.
+### ### IF A STRUCTURED COLLAPSE APPEARS AT EITHER, IT IS TAKEN AND REPORTED; ### BUT THE
+### ### REGISTRATION DOES NOT PREDICT ONE, AND THE STOP-LOSS FORBIDS HUNTING FOR ONE BY TUNING. ***
+
+----------------------------------------------------------------------------------------------------
+(c) THE GATES, EACH A HALT.
+----------------------------------------------------------------------------------------------------
+### G-REPRO -- the (2,2) MIXED-FORCED certificate reproduced ### BY THIS ACT'S OWN GENERALIZED
+###   INSTRUMENT ### BEFORE ANY OPEN CELL IS TOUCHED. ### If it does not reproduce, the act halts
+###   and no open cell is attempted.
+### G-EXACT -- ### EVERY VERDICT FROM EXACT ARITHMETIC IN THE NAMED CYCLOTOMIC RING.
+###   ### NO FLOATS ANYWHERE. ### A verdict that would need a float is not a verdict.
+###   ### AND A REDUCTION-MOD-ell SHORTCUT IS **REFUSED** FOR A VERDICT: a system with no common
+###   ### zero mod ell may still have one in characteristic zero, and one with a zero mod ell may
+###   ### not lift. ### mod-ell IS USED ONLY AS A NON-BINDING PRE-SCREEN, LABELLED AS SUCH.
+### G-RESUME -- per cell, per batch, resumable; ### A KILL COSTS AT MOST ONE BATCH.
+
+(d) THE VERDICT VOCABULARY, PER CELL, INDEPENDENT:
+### (PURE-EXISTS) -- a witness vector banked with its minors shown vanishing EXACTLY.
+### (NONE) -- the ideal shown to contain 1, or a collapse forcing zero; the certificate banked.
+### (UNDECIDED) -- ### THE OBSTRUCTION NAMED (degree, memory, or structure), AT FULL PROMINENCE,
+###   ### AND NO VERDICT. ### An undecided cell is a first-class outcome of this ferry.
+
+(e) THE INDEX: data/audit_b224_index_query.txt; the three cells keyed on filing.
+
+DIVERGENCES AT REGISTRATION: none.
+DEVIATIONS: none yet; the stop-loss stands.
+====================================================================================================
