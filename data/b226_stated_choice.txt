@@ -1,0 +1,214 @@
+====================================================================================================
+b226 -- THE STATED CHOICE. THE BANK. 2026-08-28. CONCURRENCY: SOLO, after b225.
+Registration: data/b226_registration_2026-08-28.txt, banked after the owner reads and BEFORE the
+statement. Print: data/b226_core_remeasured.txt (382). Index: data/audit_b226_index_query.txt.
+### THE FIRST ACT OF THE PLAN THE b225 RULING OPENED.
+### NO INCLUSION MAPS BETWEEN LEVELS ARE USED. ### PURITY IS NEITHER REQUIRED NOR MENTIONED AS A
+### REQUIREMENT. ### THE TRACE IS **NOT** DEFINED HERE. ### TERM 2 IS NOT TOUCHED.
+### Nothing deposits. Nothing about h2 beyond the register sentence exact. Locks last.
+====================================================================================================
+
+****************************************************************************************************
+### THE VERDICT: **BRANCH (DEFINED).**
+### ### **TERM 3's OBJECT EXISTS AT CONTENT ON THE LEVEL-LIMIT PREMISE, WITH THE CHOICE STATED.**
+### ### THE CHOICE-DEPENDENCE QUESTION IS FILED **OPEN**, with von Neumann's own equivalence-class
+### ### machinery cited as where its answer lives.
+### ### **THE TRACE IS THE NEXT ACT** -- and act 7 sec 4's sentence, which b221 found to be a NAME
+### ### AND NOT A DEFINITION, becomes suppliable for the first time.
+****************************************************************************************************
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 1 -- (P1) THE STATEMENT. ### EVERY CONSTITUENT UNFOLDED.
+----------------------------------------------------------------------------------------------------
+
+### THE SOURCE, QUOTED AT THE SOURCE DOCUMENT (numdam extract, von Neumann 1939):
+### DEFINITION 4.1.1: "If (E) is an equivalence-class, then let PROD(x)_{a in I} H_a be the closed
+###   linear set determined by all PROD(x)_{a in I} f_a where f_a, a in I, is ### **ANY
+###   C0-SEQUENCE FROM (E)** ... the (E)-adic incomplete direct product."
+### ### **LEMMA 4.1.2 -- THE ONE THIS PLAN ACTUALLY STANDS ON**, quoted:
+###   "Consider an (E) in Gamma, and a C0-sequence (f_a; a in I) in (E) ### **with ||f_a|| = 1**.
+###    Then PROD(x)_{a in I} H_a is the ### **closed, linear set determined by all C0-sequences
+###    f_a, a in I, for which f_a differs [from the chosen one] for a FINITE NUMBER of a's only.**"
+### DEFINITION 3.3.2: "Two C0-sequences ... are ### EQUIVALENT ... if and only if
+###   SUM_{a in I} |(f_a, g_a) - 1| converges."
+### LEMMA 3.3.1: "Every C0-sequence is a C-sequence, too; every C-sequence with PROD(x) f_a != 0
+###   is a C0-sequence, too."
+
+*** ### AND THE ONE CLAUSE THIS ACT **CANNOT** QUOTE AT SOURCE, SAID AT THE STEP IT IS USED:
+### ### **THE OCR EXTRACT IS DEFECTIVE EXACTLY AT DEFINITION 3.3.1**, the definition of a
+### ### C0-sequence. It reads: "DEFINITION 3.3.1. A sequence f_a, a in I, is a C0-sequence, if and"
+### ### -- and then a page-number artifact "22", and then Lemma 3.3.1. ### THE CONDITION IS LOST.
+### ### SO THE C0 CONDITION IS CARRIED HERE AT **b197's GRADE (read at content)**, quoted:
+### ### "(i) a vector at every place -- ### YES, THIS IS THE REQUIREMENT (Def 3.3.1: 'f_alpha in
+### ### H_alpha for all alpha in I')"; and the norm clause, "### the demand is that
+### ### SUM_v | ||f_v|| - 1 | CONVERGE."
+### ### **THIS ACT DOES NOT PRESENT A SOURCE QUOTE IT DOES NOT HAVE.** ***
+
+----------------------------------------------------------------------------------------------------
+### THE CHOICE, STATED AS A DEFINITION.
+----------------------------------------------------------------------------------------------------
+### ### **FOR EACH FINITE PLACE v = p:**
+### ###   ell(p) := 2 if p = 2, else 1                       ### THE CHOSEN LEVEL
+### ###   u_p    := 4q * P_1 f_{1,1} at the cell (p, ell(p)), q = p^{ell(p)},
+### ###             normalized to norm one:  ### **u_p / ||u_p||**
+### where, unfolded to the record's own objects:
+###   Son(p,n) = the vectors on Z/p^{2n} vanishing on a ball AND on its transform image,
+###              of dimension (p^n - 1)^2                                        [b101]
+###   f_{i,j}  = e_{i+qj} - e_i,  i,j in [1,q)                                    [b44 / b223]
+###   S        = the DFT-like operator (S f)(m) = SUM_{m'} f(m') zeta_N^{m m'},  N = q^2
+###   Pi       = the involution (Pi f)(m) = f(-m);  S^2 = q^2 Pi, so M := S/q has M^4 = 1
+###   P_1      = (1 + M + M^2 + M^3)/4, the projector onto the +1 sector E_1
+###   4q P_1   = (q + S)(1 + Pi)                                          [the purity report]
+### ### **u_p LIES IN E_1(S-bar_p)** by the closure sentence, quoted AT THE STEP IT IS USED:
+### ###   b198 (I2): "iota F-EQUIVARIANT, so ### **each E_lam(S-bar) is the closure of its level
+### ###   tower**", with "the four sectors are iota-stable ON THE NOSE".
+### ### **AND THAT SENTENCE IS USED ONLY TO PLACE u_p INSIDE THE LIMIT. NO INCLUSION MAP IS USED
+### ### AS A MAP**, as the scope forbids -- the plan needs a VECTOR IN THE LIMIT, not a system.
+
+### ### **AT infinity:**
+### ###   u_inf := the rank-2 Sonin-sector eigenfunction, normalized in L^2.
+### b214: "EVEN (rank 2, mu = -20.48057322913694697, alpha = +3.141592653579)", ### c = +1 under
+### the pinned convention (F f)(y) = INT f(x) e^{+2 pi i x y} dx.   ### **GRADE: BENCH.**
+### THE SECTOR IT LIVES IN IS NAMED BY THE b212 RULING, quoted: "Term 3's archimedean factor is
+### the archimedean Sonin space S(1,1); ### its E_1 is THE SONIN SECTOR" -- ### PROVENANCE: THE
+### CONVERSATION LAYER, 2026-08-27; ### **NOT A DERIVATION, NOT CITABLE AS EVIDENCE ABOUT THE
+### SECTOR**, and that line travels with it here as everywhere.
+
+*** ### THE NORMALIZATION'S FIELD, NAMED HONESTLY RATHER THAN GLOSSED:
+### ### **||u||^2 IS A TOTALLY-REAL ALGEBRAIC INTEGER IN Z[zeta_N] AND IS NOT RATIONAL.**
+### At (3,1) it is exactly ### **72 - 36 zeta^4 - 36 zeta^5 = 139.657868...**
+### ### SO u_p's COEFFICIENTS ARE EXACT IN Z[zeta_N], ### **BUT THE NORM-ONE VECTOR u_p/||u_p||
+### ### LIVES IN THE REAL COMPLETION, NOT IN Z[zeta_N].**
+### ### THIS ACT SAYS SO RATHER THAN PRETENDING EXACTNESS WHERE THERE IS NONE. ### It costs the
+### ### plan nothing: 4.1.2 asks for ||f_a|| = 1, not for f_a to be integral. ***
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 2 -- (P2) THE CHECKS. ### EACH A HALT.
+----------------------------------------------------------------------------------------------------
+
+### G-NORM -- ### **PASS.**
+###   ||u_p|| = 1 by construction (the vector is divided by its own norm).
+###   ### THEREFORE SUM_v | ||u_v|| - 1 | = SUM_v 0 = ### **0**, which converges.
+###   READ AGAINST 4.1.1's REQUIREMENT FROM THE DEFINITION'S OWN WORDS: the product is built from
+###   ### "ANY C0-SEQUENCE", and 4.1.2 is stated for a C0-sequence ### **with ||f_a|| = 1** --
+###   ### **EXACTLY THE SHAPE OF THIS CHOICE.**
+###   ### AND THE C0 CONDITION IS MET IN THE STRONGEST WAY THE DEFINITION ALLOWS: not "the sum
+###   ### converges" but ### **THE SUM IS ZERO.**
+
+### G-SECTOR -- ### **PASS AT SIX STATED PLACES; THE GENERIC ODD PLACE IS *OWED*.**
+###   VERIFIED THIS ACT, ### S u = q u CHECKED EXACTLY IN Z[zeta_N], ENTRY BY ENTRY:
+###     place  cell    q    N    d_1   (i,j)  support   ||u||^2 (numeric)   S u = q u
+###       2    (2,2)   4    16    2    (1,1)     12         152.491740      ### VERIFIED
+###       3    (3,1)   3     9    1    (1,1)      6         139.657869      ### VERIFIED
+###       5    (5,1)   5    25    4    (1,1)     20         196.529025      ### VERIFIED
+###       7    (7,1)   7    49    9    (1,1)     42         370.139830      ### VERIFIED
+###      11   (11,1)  11   121   25    (1,1)    110         945.311597      ### VERIFIED
+###      13   (13,1)  13   169   36    (1,1)    156        1331.330009      ### VERIFIED
+###   ### AND AN OBSERVED REGULARITY, RECORDED AS OBSERVED AND **NOT** ASSERTED AS A THEOREM:
+###   ### the support is N - q at all six cells.
+*** ### THE GENERIC STEP, NAMED AS **OWED** RATHER THAN DISCHARGED, EXACTLY AS THE REGISTRATION
+### PREDICTED IT WOULD BE:
+### ### u = 4q P_1 f IS IN E_1 **BY CONSTRUCTION** -- it is a projector image, and P_1 is a
+### ### projector because M^4 = 1 follows from S^2 = q^2 Pi, which holds at every place and level.
+### ### ### **WHAT IS NOT GENERIC IS THAT THIS PARTICULAR (1,1) GENERATOR IS NONZERO.**
+### ### d_1 > 0 GIVES E_1 != 0. ### IT DOES NOT GIVE u_{1,1} != 0.
+### ### SIX PLACES ARE NOT ALL PLACES, AND FIVE ODD PLACES ARE NOT ALL ODD PLACES.
+### ### **THE STEP WANTS A RESULT: that 4q P_1 f_{1,1} != 0 at every odd p at level 1.**
+### ### THIS ACT DID NOT PERFORM IT AND DOES NOT CLAIM IT. ***
+
+### G-DEF -- ### **PASS, ON ONE NAMED PREMISE.**
+###   THE OBJECT, INSTANTIATED AT CONTENT PER 4.1.1 AND 4.1.2:
+###     ### (x)'_v (S-bar_v, u_v) := the closed linear set determined by all C0-sequences (f_v)
+###     ### with f_v = u_v for all but finitely many v.
+###   EVERY CONSTITUENT UNFOLDED: S-bar_v is "the L^2-closure of the tower's union" (b198 I4);
+###   u_v is the stated choice above; the equivalence class (E) is the one containing (u_v)_v,
+###   which is nonempty because (u_v)_v is itself a C0-sequence by G-NORM.
+###   ### **THE ONE NAMED PREMISE, ISOLATED:** ### **THE LEVEL-LIMIT PREMISE** -- that
+###   ### u_v in E_1(Son(v, ell(v))) lies in E_1(S-bar_v). ### ITS WARRANT IS b198 (I2)'s closure
+###   ### sentence, at ITS grade (AVAILABLE-AT-EVERY-FINITE-PLACE), ### AND IT IS A PREMISE HERE,
+###   ### NOT A THEOREM OF THIS ACT.
+###   ### THE SHELL TEST, RUN ON THE STATEMENT: ### **IT IS NOT A SHELL.**
+###   ### A trivial instance would be u_v = 0 at every place. ### THAT FAILS G-NORM IMMEDIATELY
+###   ### (||0|| = 0, so SUM | ||u_v|| - 1 | = SUM 1 diverges over infinitely many places), ### AND
+###   ### IT FAILS 4.1.2's OWN HYPOTHESIS ||f_a|| = 1. ### **THE DEFINITION EXCLUDES THE ZERO
+###   ### VECTOR AT EVERY PLACE, WHICH IS PRECISELY WHAT b215's SHELL TEST ASKS.**
+###   ### AND IT EXCLUDES MORE: at p = 2 it excludes LEVEL 1 ENTIRELY, because d_1(2,1) = 0 and
+###   ### there is no unit there to choose -- ### THE ARRIVAL DEPTH IS WHY ell(2) = 2 AND NOT 1.
+
+----------------------------------------------------------------------------------------------------
+COMPONENT 3 -- (P3) THE VERDICT AND (P4) THE SHADOW.
+----------------------------------------------------------------------------------------------------
+
+### THE VERDICT: ### **(DEFINED)**, on the level-limit premise, with the choice stated.
+
+### THE CHOICE-DEPENDENCE QUESTION, FILED **OPEN** AS CLAUSE (d) REQUIRES:
+### ### **DOES (x)'_v (S-bar_v, u_v) DEPEND ON THE CHOICE?**
+### ### WHERE ITS ANSWER LIVES, CITED: ### **DEFINITION 3.3.2** -- two C0-sequences are equivalent
+### ### iff SUM_a |(f_a, g_a) - 1| converges -- ### AND 4.1.1 BUILDS THE PRODUCT **RELATIVE TO AN
+### ### EQUIVALENCE CLASS**, not to a sequence. ### SO THE OBJECT DEPENDS ONLY ON THE CLASS, AND
+### ### THE QUESTION IS WHETHER TWO DIFFERENT CANONICAL CHOICES LAND IN THE SAME CLASS.
+### ### **THIS ACT DOES NOT ANSWER IT.** ### AND LEMMA 4.1.1 IS THE WARNING THAT IT MATTERS:
+### ### the incomplete products for DIFFERENT classes are "MUTUALLY ORTHOGONAL".
+### ### **A DIFFERENT CHOICE COULD GIVE AN ORTHOGONAL OBJECT, NOT AN ISOMORPHIC ONE.**
+### ### AND THE CANONICITY OF THIS CHOICE IS ### **A DEFINITION MADE BY RULING, NOT A THEOREM.**
+
+### THE NEXT ACT, NAMED: ### **THE TRACE.**
+### ### AND WHAT IT UNLOCKS, STATED PRECISELY: b221 read act 7 sec 4 at source and found that
+### ### "the unit-normalized restricted-tensor trace is its statement" is ### **A NAME, NOT A
+### ### DEFINITION** -- it says neither what it traces, nor over which space, nor normalized how.
+### ### **WITH THE OBJECT NOW DEFINED, "OVER WHICH SPACE" HAS AN ANSWER FOR THE FIRST TIME.**
+### ### THE OTHER TWO REMAIN THE NEXT ACT'S TO SUPPLY. ### THIS ACT SUPPLIES NEITHER.
+
+### THE SHADOW: Core/StatedChoiceShadow.lean -- ### **7 TERMINALS, 7 OF 7 AT ZERO AXIOMS**,
+### zero-axiom on the first compile. ### Core 375 -> 382. ### AXIOM_PRINTS.txt STILL CARRIES
+### **ZERO** AXIOM-BEARING LINES, and the regenerated 382 are ### **BYTE-IDENTICAL** to the bank.
+###   arrival_depth_is_dead        ### POLARITY CONTROL: d_1 really is zero somewhere
+###   level_one_fails_at_two       ### POLARITY CONTROL: level 1 is not a valid choice at p = 2
+###   chosen_level_positive        the chosen level has E_1 != 0 at every stated place
+###   chosen_level_is_lowest       and it is the LOWEST such level
+###   deviation_can_be_nonzero     ### POLARITY CONTROL: the C0 deviation is not constantly 0
+###   c0_deviation_is_zero         ### norm-one at every place makes the deviation sum exactly 0
+###   level_is_a_function          the choice is single-valued -- the content of "a STATED choice"
+### ### THE POLARITY CONTROLS RAN FIRST AND ARE NOT DECORATION: without arrival_depth_is_dead the
+### ### positivity theorem could be vacuous, and without deviation_can_be_nonzero the C0 theorem
+### ### could be measuring the encoding rather than norm-one.
+### ### CORRESPONDENCE ROW **87**, written by the committed tool (corr_row.py) from a FILE, so no
+### ### cell passed through a hand-quoted shell string -- b178's and b193's shared failure.
+*** ### AND THE GENERATOR WAS UPDATED **BEFORE** THE APPEND, NOT AFTER.
+### ### b221 found that b220 had appended nine lines to AXIOM_PRINTS.txt without adding its module
+### ### to AllPrints.lean, so the banked file and its generator had silently diverged.
+### ### **THAT DEFECT IS NOT REPEATED HERE**: the module went into the generator first, the whole
+### ### set was regenerated (382), and the result was diffed against the bank before anything was
+### ### called verified. ***
+
+----------------------------------------------------------------------------------------------------
+### (d) WHAT IS **NOT** CLAIMED. ### AT THE VERDICT, AS THE FERRY REQUIRES.
+----------------------------------------------------------------------------------------------------
+ 1. ### **NO TRACE.** None is defined, named as definable, or sketched.
+ 2. ### **NO VALUE.** Nothing numerical is produced about term 3.
+ 3. ### **NO TERM-2 STATEMENT.** Term 2 is untouched; its four debts stand where b225 left them.
+ 4. ### **NOTHING AT COMPLETE ROSTER.** The object is defined on a premise, at content.
+ 5. ### **THE CHOICE'S CANONICITY IS A DEFINITION MADE BY RULING, NOT A THEOREM**, and whether the
+    object depends on the choice is ### OPEN, with 3.3.2 cited as where the answer lives.
+ 6. ### **G-SECTOR'S GENERIC ODD PLACE IS OWED**, not discharged. Six places are not all places.
+ 7. ### **NO INCLUSION MAP IS USED**, and purity is not required, mentioned as a requirement, or
+    tested anywhere in this act.
+ 8. ### **NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+SCORING THE REGISTERED PREDICTIONS.
+----------------------------------------------------------------------------------------------------
+ (P1) ### LANDED. The definition is written with every constituent unfolded.
+ (P2) ### LANDED, AND THE HONEST EXPECTATION HELD: the registration predicted G-NORM would pass
+      trivially (it did, and the sum is 0 rather than merely convergent), and predicted that
+      ### **THE GENERIC ODD PLACE WOULD BE REPORTED OWED RATHER THAN DISCHARGED.** ### IT IS.
+      The act narrowed it from two places to six and stopped there.
+ (P3) ### LANDED -- **(DEFINED)**, choice-dependence filed open, the trace named as next.
+ (P4) ### LANDED. 7/7 zero axioms, polarity controls first, profile printed and read, row 87 by
+      the committed tool.
+
+DEVIATIONS: none.
+DIVERGENCES: ### ONE, with clause (a) -- it asks for "exactly what a C0-sequence is" at source, and
+### **THE EXTRACT IS DEFECTIVE AT DEFINITION 3.3.1.** Named at registration, carried at b197's
+grade at the step it is used, and not worked around.
+====================================================================================================
