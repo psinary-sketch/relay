@@ -181,6 +181,12 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE SIGN AND IMPORT KEYS, ADDED b232 UNDER ITS CLAUSE (e).
+    'sign-of-a': ['sign of a', 'the sign of a', 'sign of A', 'winf sign',
+                  'archimedean sign', 'cc convention', 'the cc convention',
+                  'w_infinity sign', 'sign dictionary'],
+    'import-ledger': ['import ledger', 'the import ledger', 'imports',
+                      'imported statement', 'named import', 'imp-1', 'imp-2'],
     # ### THE FACTOR KEY, ADDED b231 UNDER ITS CLAUSE (e).
     'the-two': ['the two', 'the factor 2', 'factor 2', 'the factor two',
                 'folded mirror', 'folded mirror term', 'the fold', 'evenness',
@@ -355,6 +361,28 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("sign-of-a", "b232",
+     "the archimedean column's sign: wInf = -A, DERIVED from Connes-Consani's own equation (1)"
+     " (arXiv 2006.13771, 'Weil positivity and Trace formula: the archimedean place') set beside"
+     " the instrument's docstring arrangement committed before any answer. ### The corpus carries"
+     " TWO W_inf conventions -- Day-1's (= +A) and CC's (= -A) -- and File E binds to CC's;"
+     " SIGN_ARRANGEMENT_RECONCILIATION and act 12 compare DIFFERENT PAIRS and do not conflict",
+     "(FORCED) at b232, DERIVES-BY-CITATION with IMP-2 as the import; the finite-place matching"
+     " named as a sub-assumption (CC's finite-place formula is not in the retrieved text)."
+     " ### THE STANDING-CLAUSE CHECK IS SHOWN: the sign came from a source display, NOT from act"
+     " 12's residual collapse, which is quoted as what the act refused to use. ### wInf(a) := -A(a)"
+     " ADOPTED; the ledger's statement is COMPLETE AT CELL LEVEL -- every column defined, nothing"
+     " proved",
+     "data/b232_sign_of_A.txt; THE_IDENTITY_CHAIN.md sec 34;"
+     " SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean"),
+    ("import-ledger", "b232",
+     "the enumerated list of statements the corpus USES but did not derive and does not own."
+     " IMP-1: the two-ended classical prime sum (Weil 1952, CC's own [33]), carrying b231's fold"
+     " -- the reason b231's verdict was (PARTIAL). IMP-2: CC's explicit-formula arrangement"
+     " (2006.13771 eq. 1), carrying b232's sign derivation",
+     "OPENED at b232 as THE_IDENTITY_CHAIN.md sec 35. ### HEAD SENTENCE: imports are enumerated"
+     " like axioms and NEVER wear the corpus's grade   ### as its own act recorded it",
+     "THE_IDENTITY_CHAIN.md sec 35; data/b232_sign_of_A.txt"),
     ("the-two", "b231",
      "the adopted target's factor 2 read as the FOLDED MIRROR TERM -- the k<0 half of a"
      " two-ended sum laid onto the k>0 half. ### VERDICT (PARTIAL): the evenness HOLDS"
