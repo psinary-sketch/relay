@@ -1,0 +1,132 @@
+========================================================================================================
+b242 COMPONENT 2 -- THE ENVELOPE. ### DERIVED FROM COMPONENT 1's MEASURED ORDERS.
+### BANKED AND HASHED BEFORE THE CONFIRMING RUN. ### NO VERDICT IS WRITTEN IN THIS FILE.
+========================================================================================================
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.' ### h2 UNCHANGED. ### NOTHING DEPOSITS. ### LEFT SIDE ONLY.
+
+--------------------------------------------------------------------------------------------------------
+(1) WHERE THE INSTRUMENT STOPS, AND WHY MORE QUADRATURE DOES NOT MOVE IT.
+--------------------------------------------------------------------------------------------------------
+  n    lam2_n          log10(lam2_n)   digits gained over n-1
+  0    9.999428e-01        -0.0000   --
+  1    9.593903e-01        -0.0180   0.02
+  2    2.746660e-01        -0.5612   0.54
+  3    3.478238e-03        -2.4586   1.90
+  4    7.465620e-06        -5.1269   2.67
+  5    5.820372e-09        -8.2350   3.11
+  6    2.072074e-12       -11.6836   3.45
+  7    4.745607e-16       -15.3237   3.64
+  8    3.281378e-16       -15.4839   0.16
+  9    2.725299e-16       -15.5646   0.08
+  10   2.298217e-16       -15.6386   0.07
+  ### THE FLOOR IS CROSSED AT n = 7 AND `n_last = 6` AT **EVERY** NQ IN 500..1300
+  ### (Component 1b's own table). ### MORE QUADRATURE POINTS BUY NO FURTHER MODES:
+  ### the limit is the EIGENVALUE's size against float64, not the quadrature's density.
+  ### EACH FURTHER MODE COSTS ~3.4-3.5 DECIMAL DIGITS AND THE COST IS STILL RISING.
+
+--------------------------------------------------------------------------------------------------------
+(2) THE MEASURED DECAY ON THE CERTIFIED RANGE (modes 0..6, all above the floor).
+### RATIOS ARE MEASURED, NOT FITTED. ### No constant is chosen to make a tail small.
+--------------------------------------------------------------------------------------------------------
+
+  a^2 = 2      tr[0..6] = 0.989151 0.887803 0.542697 0.376877 0.327495 0.288754 0.256926
+             ratios    = 0.8975 0.6113 0.6945 0.8690 0.8817 0.8898
+             ### last ratio 0.8898 | max of last four 0.8898
+             ### GEOMETRIC TAIL beyond mode 6, IF the ratio held: 2.0740 (at r_last)
+             ###                                                 2.0740 (at r_max)
+
+  a^2 = 3      tr[0..6] = 0.974241 0.784091 0.361694 0.242415 0.216129 0.190339 0.168288
+             ratios    = 0.8048 0.4613 0.6702 0.8916 0.8807 0.8841
+             ### last ratio 0.8841 | max of last four 0.8916
+             ### GEOMETRIC TAIL beyond mode 6, IF the ratio held: 1.2843 (at r_last)
+             ###                                                 1.3837 (at r_max)
+
+  a^2 = 4      tr[0..6] = 0.960873 0.709493 0.273442 0.190672 0.172945 0.152152 0.134950
+             ratios    = 0.7384 0.3854 0.6973 0.9070 0.8798 0.8869
+             ### last ratio 0.8869 | max of last four 0.9070
+             ### GEOMETRIC TAIL beyond mode 6, IF the ratio held: 1.0587 (at r_last)
+             ###                                                 1.3166 (at r_max)
+
+  a^2 = 8      tr[0..6] = 0.922546 0.549409 0.151927 0.126081 0.116595 0.103074 0.090404
+             ratios    = 0.5955 0.2765 0.8299 0.9248 0.8840 0.8771
+             ### last ratio 0.8771 | max of last four 0.9248
+             ### GEOMETRIC TAIL beyond mode 6, IF the ratio held: 0.6451 (at r_last)
+             ###                                                 1.1111 (at r_max)
+
+  a^2 = 9      tr[0..6] = 0.915481 0.525674 0.139657 0.119885 0.109730 0.097394 0.086276
+             ratios    = 0.5742 0.2657 0.8584 0.9153 0.8876 0.8858
+             ### last ratio 0.8858 | max of last four 0.9153
+             ### GEOMETRIC TAIL beyond mode 6, IF the ratio held: 0.6695 (at r_last)
+             ###                                                 0.9323 (at r_max)
+
+  a^2 = 12     tr[0..6] = 0.897853 0.472408 0.115030 0.106617 0.098062 0.085648 0.075739
+             ratios    = 0.5262 0.2435 0.9269 0.9198 0.8734 0.8843
+             ### last ratio 0.8843 | max of last four 0.9269
+             ### GEOMETRIC TAIL beyond mode 6, IF the ratio held: 0.5790 (at r_last)
+             ###                                                 0.9598 (at r_max)
+
+  ### AND THE FACT THAT DECIDES THIS ACT'S BRANCH, READ OFF THE RATIO ROWS ABOVE:
+  ### ### THE RATIO IS **RISING** ACROSS THE LAST FOUR CERTIFIED MODES AT EVERY CELL.
+  ### A rising ratio over four points does not distinguish 'converging to ~0.9' from
+  ### 'rising to 1'. ### SEVEN POINTS CANNOT TELL THOSE APART, AND THE MODES THAT
+  ### WOULD TELL THEM APART ARE BELOW THE FLOAT64 EIGENVALUE FLOOR.
+
+--------------------------------------------------------------------------------------------------------
+(3) THE ENVELOPE THAT WOULD FOLLOW -- AND WHY IT IS **NOT** BANKED AS ONE.
+--------------------------------------------------------------------------------------------------------
+  a^2      tail(r_last)     tail(r_max)   b240's bar_L   tail / bar_L
+  2            2.073985        2.073985       0.745264           2.78
+  3            1.284308        1.383702       0.504232           2.55
+  4            1.058734        1.316618       0.399193           2.65
+  8            0.645073        1.111129       0.267192           2.41
+  9            0.669490        0.932252       0.249280           2.69
+  12           0.578951        0.959799       0.203446           2.85
+
+  ### THREE REASONS THIS IS NOT AN ENVELOPE, AND ANY ONE OF THEM IS SUFFICIENT:
+  ###  (i)   ### THE RATIO IS RISING. A geometric envelope needs a ratio BOUNDED away
+  ###        from 1, and the measurement shows it climbing at the last certified mode.
+  ###  (ii)  ### THE EXTRAPOLATION IS UNVERIFIABLE AT THIS INSTRUMENT IN PRINCIPLE, not
+  ###        merely unverified: the modes that would test it have eigenvalues below the
+  ###        float64 floor, and Component 1b showed MORE QUADRATURE DOES NOT HELP.
+  ###  (iii) ### NO OWNER PROVES THE TRACE SERIES CONVERGES AT ALL. sec 20(b) calls it
+  ###        'an 11-mode band-limited truncation whose low-mode terms decay slowly' --
+  ###        ### A DESCRIPTION, NOT A CONVERGENCE THEOREM. ### An envelope on an
+  ###        unproven-convergent series is a guess with a formula on it.
+
+--------------------------------------------------------------------------------------------------------
+(4) THE OBSTRUCTION, PRICED IN THE UNITS IT WOULD ACTUALLY BE PAID IN.
+--------------------------------------------------------------------------------------------------------
+  ### THE BINDING RESOURCE IS **WORKING PRECISION**, NOT QUADRATURE DENSITY.
+  ### At ~3.45 decimal digits per additional mode (measured in (1), and rising):
+  ###   +4   modes  ->  ~ 14 further decimal digits  ->  working precision ~30 dps
+  ###   +9   modes  ->  ~ 32 further decimal digits  ->  working precision ~48 dps
+  ###   +20  modes  ->  ~ 69 further decimal digits  ->  working precision ~85 dps
+  ###   +47  modes  ->  ~163 further decimal digits  ->  working precision ~179 dps
+  ### AND HOW MANY MODES A USEFUL TAIL WOULD NEED, from the measured r_last per cell:
+  ###   a^2 = 2     tail < 0.01 needs ~46 further modes  ->  ~175 dps
+  ###   a^2 = 3     tail < 0.01 needs ~40 further modes  ->  ~154 dps
+  ###   a^2 = 4     tail < 0.01 needs ~39 further modes  ->  ~151 dps
+  ###   a^2 = 8     tail < 0.01 needs ~32 further modes  ->  ~127 dps
+  ###   a^2 = 9     tail < 0.01 needs ~35 further modes  ->  ~137 dps
+  ###   a^2 = 12    tail < 0.01 needs ~34 further modes  ->  ~134 dps
+  ### ### SO THE PRICE IS A PROLATE EIGENSOLVER IN EXTENDED PRECISION -- A DIFFERENT
+  ### ### INSTRUMENT, NOT A REFINEMENT OF THIS ONE. ### `prolate_layer.prolate` is a
+  ### ### float64 eigendecomposition and no NQ makes it a bignum one.
+
+--------------------------------------------------------------------------------------------------------
+(5) THE CONFIRMING RUN'S AXES, REGISTERED HERE BEFORE IT RUNS.
+--------------------------------------------------------------------------------------------------------
+  ### CELLS: the banked six (2,3,4,8,9,12). ### NQ: 500,700,900,1100,1300.
+  ### TRUNCATIONS COMPARED: NMODE = 7 (the last certified mode) against NMODE = 10
+  ### (b240's base) and NMODE = 11 (the layer's ceiling).
+  ### THE CONFIRMING RUN'S ONE JOB: show that the NQ-stability of the CERTIFIED
+  ### truncation, and the instability of the floor-crossing ones, hold at these axes.
+  ### ### IT MAY NOT CHANGE THE BRANCH. ### THE BRANCH RULE IS THE REGISTRATION'S (C),
+  ### ### FIXED BEFORE ANY MEASUREMENT, AND THIS FILE DOES NOT RESTATE IT TO SOFTEN IT.
+
+### ### THE BRANCH THIS ENVELOPE POINTS AT, NAMED HERE SO COMPONENT 3 CANNOT DRIFT:
+### ### **(SLOW)** -- convergence MEASURED on the certified range (every ratio < 1),
+### ### an envelope BEYOND REACH at these instruments, and the obstruction PRICED above.
+### ### `bar_L` IS THEREFORE **HELD, NOT CERTIFIED**, AND M-4 IS **NOT** PAID AT BENCH.
+========================================================================================================

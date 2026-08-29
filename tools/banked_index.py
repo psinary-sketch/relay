@@ -264,6 +264,9 @@ KEYS = {
                         'zero by construction', 'the substituted reading'],
     'q-orientation': ['q orientation', 'theta_q sign', 'theta_q orientation',
                       'quotient sign', 'q.value orientation'],
+    # ### THE LEFT-MODE-AXIS KEY, ADDED b242 ON FILING.
+    'left-mode-axis': ['left mode axis', 'mode axis', 'bar_l', 'prolate mode tail',
+                       'eigenvalue floor', 'mode truncation'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -972,6 +975,27 @@ INDEX = [
      'ORIENT AN OBJECT ARE NOT ONE SENTENCE THAT DEFINES IT. ### DISCLOSED: O1 shrinks the '
      'residual and that is NOT its warrant; no candidate on the list closes the separation',
      'data/b241_residual_ledger.txt Component 4; reports/2026-08-29-the-residual-ledger.md'),
+    # ### THE LEFT-MODE-AXIS ROW (b242). ### A BRANCH THAT DID NOT CERTIFY, AND THE ROW SAYS SO
+    # ### IN ITS OWN RESULT CELL RATHER THAN LEAVING IT TO THE GRADE.
+    ('left-mode-axis', 'b242',
+     "the left side's mode axis measured with NQ and NMODE moved SEPARATELY for the first "
+     "time. ### BRANCH (SLOW): convergence measured on the certified range (every ratio < 1), "
+     'an envelope BEYOND REACH. ### bar_L HELD, NOT CERTIFIED. ### W-ORD-LEFT-MODE-AXIS '
+     'DISCHARGED. ### THREE MEASURED FACTS: (i) b240 bar_L is ~94% QUADRATURE and ~6% '
+     'truncation -- the bar named for the mode axis was measuring the other one; (ii) float64 '
+     'carries SEVEN modes where Lemma F.1 certifies ELEVEN, and n_last = 6 at every NQ from '
+     '500 to 1300, so more quadrature buys no modes; (iii) the NQ-spread jumps 61x-249x '
+     'exactly when the first sub-floor mode enters the sum',
+     '### A MEASUREMENT, NOT A CERTIFICATE, AND NOT A BOUND. ### THE ENVELOPE WAS DERIVED, '
+     'PRINTED AND THEN **REFUSED** for three stated reasons: the ratio is RISING over the last '
+     'four certified modes; the extrapolation is unverifiable IN PRINCIPLE at this instrument; '
+     'and NO OWNER PROVES THE TRACE SERIES CONVERGES AT ALL. ### M-4 IS **NOT** PAID AT BENCH '
+     'and NOT re-priced as structural. ### DISCLOSED AND ROUTED TO b244, NOT DRAWN HERE: the '
+     'refused extrapolation runs 2.4x-2.9x bar_L at all six cells, i.e. it points at bar_L '
+     'being TOO SMALL, and the consequence for any face-off branch is out of this act scope. '
+     '### BOTH SEATS REGISTERED EXPECTATIONS WERE WRONG',
+     'data/b242_left_mode_axis.txt; data/b242_envelope.txt; '
+     'reports/2026-08-29-the-left-mode-axis.md'),
 ]
 
 

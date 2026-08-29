@@ -1,0 +1,244 @@
+====================================================================================================
+b242 -- THE LEFT MODE AXIS. ### THE REGISTRATION. ### BANKED BEFORE ANY MEASUREMENT.
+### WRITTEN 2026-08-29. ### CONCURRENCY: PARALLEL-OK with b243. ### FILINGS DEFER TO b244.
+====================================================================================================
+
+### THE CEILING, FIRST, AND GOVERNING EVERY LINE BELOW:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### NOTHING HERE CLAIMS MORE.
+### ### h2 STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### NOTHING DEPOSITS.
+
+### ### SCOPE, AND IT IS A HARD WALL THIS ACT MAY NOT CROSS: ### THE LEFT SIDE'S INSTRUMENTS
+### ### ONLY. ### `A`, `PR`, `R := A - PR` AND EVERY RIGHT-SIDE OBJECT APPEAR NOWHERE, AND NO
+### ### RESIDUAL AGAINST THE RIGHT SIDE IS COMPUTED AT ANY POINT OF THIS ACT.
+### ### ONE UNAVOIDABLE EXCEPTION, DECLARED HERE RATHER THAN TAKEN QUIETLY: ### `resid47` IS
+### ### DEFINED WITH AN `A` IN IT (`Tr_full - A - E2N`), so `A` enters AS A CONSTANT OF THAT
+### ### DEFINITION AND FOR NO OTHER PURPOSE. ### It is never compared to anything, never
+### ### differenced against `PR`, and no face-off quantity is formed. ### SAID IN ADVANCE SO A
+### ### LATER READER DOES NOT HAVE TO DECIDE WHETHER IT WAS SMUGGLED.
+
+====================================================================================================
+(0) ### WHAT PRECEDED THIS FILE, DISCLOSED AS b241 DISCLOSED ITS OWN READING ORDER.
+====================================================================================================
+### THE FERRY ORDERS: "owners read at content first; registration before any measurement."
+### ### THE OWNER READS WERE DONE FIRST AND THEY INCLUDED ONE THING THAT SITS ON THE LINE
+### ### BETWEEN A READ AND A MEASUREMENT, SO IT IS DECLARED: ### I PRINTED THE PROLATE LAYER'S
+### ### OWN EIGENVALUE ARRAY `lam2 = mu[0::2][:NTERM]` AT NQ = 700, AND ITS SHAPE.
+### ### That is a read of an instrument CONSTANT, not of a cell quantity -- no `a`, no `corr`,
+### ### no trace, no eps integral, no cell was touched. ### BUT IT IS THE FACT THAT SHAPED
+### ### SECTION (D)'s HYPOTHESES, AND A HYPOTHESIS SHAPED BY A NUMBER THE READER CANNOT SEE IS
+### ### NOT A REGISTERED HYPOTHESIS. ### SO THE NUMBER IS PRINTED HERE, IN THE REGISTRATION,
+### ### BEFORE IT IS USED:
+###   lam2[0..15] at NQ = 700, even-index, as the layer returns them:
+###     9.999428e-01  9.593903e-01  2.746660e-01  3.478238e-03  7.465620e-06
+###     5.820372e-09  2.072074e-12  4.745607e-16  3.281378e-16  2.725299e-16
+###     2.298217e-16  1.506073e-16  1.170106e-16  9.432752e-17  8.825020e-17  7.541815e-17
+###   even-index modes AVAILABLE at NQ = 700 : 350. ### CERTIFIED: 11.
+### ### NO CELL QUANTITY HAS BEEN COMPUTED AT THE MOMENT THIS FILE IS BANKED.
+
+====================================================================================================
+(A) THE LOAD-BEARING OWNERS, QUOTED. ### RULE-3 LINE (a).
+====================================================================================================
+
+### **[b240's bar_L AND ITS ONE-STEP PROVENANCE, from data/b240_faceoff_run.txt's G-STAB block]:**
+###   a^2       |dL| (NV)      |dL| (mode)        bar_L
+###   2      8.881784e-16     1.863159e-01   7.452637e-01
+###   3      1.776357e-15     1.260580e-01   5.042319e-01
+###   4      0.000000e+00     9.979835e-02   3.991934e-01
+###   8      1.059068e-08     6.679792e-02   2.671917e-01
+###   9      3.669456e-09     6.232008e-02   2.492803e-01
+###   12     1.019947e-08     5.086149e-02   2.034459e-01
+### and the banked definition: bar_L := 4 * max(|dL|(NV), |dL|(mode)).
+### ### TWO FACTS READ OFF THAT TABLE AND NOT ASSUMED:
+### ###   (i)  ### **bar_L IS 4 x |dL|(mode) AT EVERY CELL** -- 4 x 1.863159e-01 = 7.452636e-01,
+### ###        and so on down. ### THE NV LIMB NEVER BINDS.
+### ###   (ii) ### **THE NV AXIS IS DEAD ON THE LEFT**: |dL|(NV) runs 0.0 to 1.06e-08 against a
+### ###        mode limb of 5.1e-02 to 1.9e-01 -- ### SEVEN TO SIXTEEN ORDERS OF MAGNITUDE.
+### ### ### SO THE ENTIRE LEFT-SIDE INSTABILITY LIVES ON THE MODE AXIS, AND b240 SAID SO:
+### ###   "the refinement also moves NQ and NMODE TOGETHER (b38's own TRIPLE), so the one step it
+### ###    measures is quadrature AND truncation mixed, not truncation alone."
+
+### **[b241's CORRECTED SIBLING RELATION, and its mask certificate]:**
+###   A = Tr_full - E2N - resid47,  E2N := sum over n < NMODE of e2_of_grid(..., ee_modes[n]),
+###   NMODE = min(10, xi.shape[1]) = 10 of NTERM = 11.
+###   ### AND THE CERTIFICATE THAT LICENSES TREATING E2N AND E2full AS ONE OBJECT AT TWO
+###   ### TRUNCATIONS: b38's own gate, max|sum_n eps_n - eps_full| = 8.88e-16 PASS, RE-RUN at
+###   ### b241 and not assumed. ### b241 MEASURED max|E2full - E2N| = 8.993e-15.
+
+### **[sec 17's GRADE FOR Delta_-, quoted]:** "COMPUTED IN STRUCTURE (sec 17): the odd-index
+###   `t(n)` series; banked at the `eps'(1+)` pin (8.8191 of 22.9965); per-mode positivity
+###   structural -- ### **open only in its trace-class bookkeeping**".
+
+### **[File E's BINDINGS BY NAME, the b239 ruling written into the residence copy, lines 60-62]:**
+###   "`Tr_full` -- the prolate mode trace   (`b38_act10.trace_modes`)
+###    `E2`      -- the eps-regularization term (`b38_act10.e2_of_grid`)
+###    `Delta_-` -- the odd-index `t(n)` series (sec 17, banked at the `eps'(1+)` pin)"
+
+### **[M-4's ROW, as b237 filed it]:** "M-4 [RESULT]. ### The eps trace-class bookkeeping --
+###   Delta_-'s own open item, and the thing that turns `Tr + E2 + Delta_-` into File E's
+###   ### eps-REGULARIZED trace."
+### **[and b241's Component 3 verdict on it]:** the RAW reading governs, `resid47` is not zero,
+###   and ### "`resid47` IS M-4's UNPAID SIZE AT THE BENCH ... NOT a new engine item."
+
+### **[sec 25(a), act 12, quoted from b237 -- LOAD-BEARING FOR (D)'s H2]:** "the bench's raw mode
+###   terms are exactly the terms of CC's `Tr(theta(g)Stheta(g)*)` at the model's `S` -- and they
+###   ### **measured `>= 0` at every cell**".
+
+### **[qeps_layer.py:41 and its docstring line 20, THE INSTRUMENT'S OWN CEILING]:**
+###   "NTERM = 11          # Lemma F.1: first 11 terms uniform to 1e-11"
+###   "Truncation: first 11 terms uniform to 1e-11 (Lemma F.1)."
+
+====================================================================================================
+(B) THE MEASUREMENT, FIXED HERE. ### RULE-3 LINE (b). ### COMPONENT 1.
+====================================================================================================
+
+### ### THE ONE THING THIS ACT CAN DO THAT b240 COULD NOT, AND IT IS THE ACT'S REASON TO EXIST:
+### ### **b240 MOVED NQ AND NMODE TOGETHER. THIS ACT MOVES THEM SEPARATELY.**
+### ### AXIS 1 -- PURE TRUNCATION: NMODE = 1..11 at NQ HELD at 700.
+### ### AXIS 2 -- PURE QUADRATURE: NQ in {500, 700, 900, 1100, 1300} at NMODE HELD at 10.
+### ### Nothing else varies. ### The cells are the banked six diagonal a^2 cells (2,3,4,8,9,12).
+
+### PER CELL AND PER AXIS POINT, RECORDED: ### `Tr_full(NMODE)` and the individual mode terms
+### `tr[n]`; ### `E2N(NMODE)`; ### `Delta_-`; ### `resid47(NMODE) := Tr_full - A - E2N`.
+### ### AND THE CONVERGENCE ORDER OF EACH SERIES IS **MEASURED, NOT ASSUMED** -- successive
+### ### increments and their ratios, printed per step, with no fitted constant.
+
+### ### THE FIRST STRUCTURAL QUESTION, AS THE FERRY NAMES IT: ### IS `resid47` DOMINATED BY THE
+### ### WITHHELD ELEVENTH MASK? ### IT HAS TWO FACES AND THE ACT MEASURES BOTH, BECAUSE
+### ### ANSWERING ONLY THE EASY ONE WOULD BE A FALSE ALL-CLEAR:
+### ###   FACE 1 -- the eps side: the eleventh MASK's own contribution to `E2`. ### b241 already
+### ###     measured this at 8.993e-15 and this act re-runs it rather than citing it.
+### ###   FACE 2 -- ### **THE TRACE SIDE, WHICH b241 DID NOT MEASURE AND WHICH IS THE LIVE ONE:**
+### ###     at NMODE = 10 the ELEVENTH TRACE MODE `tr[10]` IS NOT COMPUTED AT ALL. ### `Tr_full`
+### ###     at the base axis is a TEN-mode sum of an ELEVEN-mode certified layer. ### THE
+### ###     WITHHELD OBJECT ON THE TRACE SIDE IS A WHOLE MODE, NOT A ROUNDING.
+
+### THE POSITIVE CONTROL, OF THE SAME SPECIES AND WITH A KNOWN LIMIT, FIXED HERE:
+### ### `sum_n lam2_n * xi_n(1)^2 = 2.0` ### EXACTLY -- b38's own C0 gate asserts it
+### ### (`("sum lam2 xi1^2", abs(float((lam2 * xi1 ** 2).sum()) - 2.0), 1e-6)`).
+### ### It is a MODE SERIES on the SAME layer with an EXACTLY KNOWN LIMIT, so its partial sums
+### ### give this act's order-measurement a case where the right answer is known in advance.
+### ### A SECOND CONTROL WITH A BANKED (not exact) LIMIT: `eps'(1+) = sum_n t(n) = 22.9964757`.
+### ### ### IF THE METHOD CANNOT SEE THE CONVERGENCE OF A SERIES THAT DEMONSTRABLY CONVERGES,
+### ### ### ITS VERDICT ON A SERIES THAT MAY NOT IS WORTH NOTHING.
+
+### THE NAMED HAZARDS, IN ADVANCE:
+### ###  (H-a) ### **THE LAYER CACHE.** `qeps_layer._cache` is keyed on `NQ` ALONE. ### If
+### ###        `NTERM` is changed at runtime the cache serves a STALE LAYER under the same key.
+### ###        ### ANY NTERM CHANGE MUST CLEAR THE CACHE, AND A GATE ASSERTS IT DID.
+### ###  (H-b) ### **THE CERTIFIED CEILING.** Lemma F.1 certifies ELEVEN terms. ### 350 even-index
+### ###        modes EXIST numerically at NQ = 700. ### ANY POINT BEYOND ELEVEN IS UNCERTIFIED
+### ###        AND IS LABELLED SO AT EVERY USE, AND ### **MAY NOT SET THE ENVELOPE.** ### This is
+### ###        the same species as the parked eps-cap at rho = 48.001, and it is named before it
+### ###        is met, not after.
+### ###  (H-c) ### **THE EIGENVECTOR FLOOR.** Section (0)'s array shows `lam2` reaching 4.7e-16 at
+### ###        n = 7. ### Eigenvectors for near-degenerate eigenvalues at the float64 floor are
+### ###        arbitrary within their near-null space. ### IF THE HIGH TRACE MODES RIDE THOSE
+### ###        EIGENVECTORS, THEIR VALUES ARE NOISE WEARING A MODE INDEX. ### The act must
+### ###        distinguish "a slowly converging series" from "a noise floor", and it says so here
+### ###        BEFORE it knows which it has.
+### ###  (H-d) ### **RESUMABILITY.** Long runs are banked per axis point so a stopped run resumes
+### ###        without recomputing, and the resume is by READ of banked points, never by re-use
+### ###        of a remembered number.
+
+====================================================================================================
+(C) THE ENVELOPE AND THE BRANCH RULE. ### RULE-3 LINE (c). ### COMPONENTS 2 AND 3.
+====================================================================================================
+### ### THE ORDER-OF-OPERATIONS LAW, AND IT IS THE ACT'S PRINCIPAL DEFENCE:
+### ### **THE ENVELOPE IS DERIVED FROM COMPONENT 1's MEASURED ORDERS, BANKED, AND HASHED, AND
+### ### ONLY THEN DOES THE CERTIFYING RUN EXECUTE.** ### The gate tests BOTH limbs, as b238/b240
+### ### established: the envelope file's sha256 appears inside the certifying run's own output,
+### ### AND the envelope file is OLDER on disk. ### EITHER LIMB ALONE IS FORGEABLE.
+### ### **NO AXIS IS CHOSEN FOR SMALLNESS.** The certifying axes are registered in the envelope
+### ### file before the certifying run, and a later "the other axis is better" is not available.
+
+### THE BRANCHES, FIXED HERE IN THESE WORDS:
+### ### **(BOUNDED)** -- the measured orders yield a tail envelope over the CERTIFIED range.
+### ###   MEANS: `bar_L` CERTIFIED with that envelope, and ### **M-4 ANNOTATED PAID-AT-BENCH:
+### ###   the bookkeeping's SIZE measured and bounded.** ### AND THE LIMIT SAID IN THE SAME
+### ###   BREATH: ### **M-4's DERIVATION GRADE IS UNTOUCHED.** A measured size is not a proof;
+### ###   PAID-AT-BENCH is an annotation about a number, never about a theorem.
+### ### **(SLOW)** -- convergence measured but an envelope beyond reach at these instruments.
+### ###   MEANS: the obstruction PRICED -- what would be needed, in what units, and why the
+### ###   present layer cannot give it.
+### ### **(DIVERGENT)** -- a series that does not converge on the measured range.
+### ###   MEANS: AT FULL PROMINENCE, and ### **M-4 RE-PRICED AS STRUCTURAL.**
+### ### AND ONE BRANCH THE FERRY DID NOT NAME, ADMITTED HERE IN ADVANCE SO THAT FINDING IT
+### ### CANNOT BE CONFUSED WITH INVENTING IT: ### **(BOUNDED-BY-FLOOR)** -- the series is bounded,
+### ### but by the ARITHMETIC NOISE FLOOR rather than by analytic decay, because its high modes
+### ### ride eigenvectors at the eigenvalue floor (hazard H-c). ### THAT IS STILL A BOUND AND
+### ### `bar_L` IS STILL CERTIFIABLE, ### BUT IT IS A BOUND ON AN INSTRUMENT ARTEFACT AND THE
+### ### DIFFERENCE MUST BE STATED, NEVER FOLDED INTO (BOUNDED).
+
+### ### `W-ORD-LEFT-MODE-AXIS` IS DISCHARGED ON EVERY BRANCH, AS THE FERRY DIRECTS.
+
+====================================================================================================
+(D) BOTH SEATS' EXPECTED BRANCHES, AND THE EXECUTOR'S HYPOTHESIS SPACE FOR resid47's TAIL.
+### RULE-3 LINE (d). ### REGISTERED BEFORE ANY CELL QUANTITY EXISTS.
+====================================================================================================
+
+### **THE FERRY SEAT'S EXPECTED BRANCH, AND IT IS INFERRED, NOT QUOTED** -- the ferry states no
+### expectation in words, but its FOOT reads "the left side's bar is certified or its obstruction
+### is priced", which admits (BOUNDED) or (SLOW) and does not mention (DIVERGENT).
+### ### SO: THE FERRY LEANS **(BOUNDED)**, AND THAT READING IS THE EXECUTOR'S INFERENCE FROM ONE
+### ### SENTENCE. ### If the navigator meant otherwise this line is the record of my misreading.
+
+### **THE EXECUTOR'S EXPECTED BRANCH: ### (BOUNDED-BY-FLOOR)** -- the branch the ferry did not
+### name. ### I expect the mode series to be BOUNDED, and I expect the bound to come from the
+### ARITHMETIC FLOOR rather than from analytic decay, and I expect that to mean
+### ### **b240's `bar_L` IS AN HONEST NUMBER MEASURING THE WRONG THING**: not the tail of a
+### ### slowly converging series, but the size of an increment computed from a near-null
+### ### eigenvector. ### REGISTERED SO THAT IF THE NUMBERS SAY OTHERWISE THE RECORD SHOWS I WAS
+### ### WRONG.
+
+### **THE HYPOTHESIS SPACE FOR WHAT `resid47`'s TAIL IS. ### FOUR, WITH TWO REFUTABLE IN
+### ADVANCE AND THE REFUTATIONS WRITTEN NOW SO THEY CANNOT BE CLAIMED AS DISCOVERIES:**
+### ### **H1 -- resid47 is dominated by the withheld ELEVENTH eps MASK.**
+### ###   ### ALREADY REFUTED, at b241, by measurement: max|E2full - E2N| = 8.993e-15 against a
+### ###   ### resid47 of 2.31 to 4.05. ### FOURTEEN ORDERS OF MAGNITUDE. ### This act re-runs it
+### ###   ### rather than citing it, but it is not expected to survive and it is not my hypothesis.
+### ### **H2 -- resid47 is the TRUNCATION REMAINDER of the trace series**: `Tr_full(NMODE)` is
+### ###   still climbing at 11 and would reach `A + E2` if extended.
+### ###   ### REFUTABLE BY SIGN ALONE, AND THE ARGUMENT IS REGISTERED HERE: ### sec 25(a) records
+### ###   ### the raw mode terms as ### **`>= 0` at every cell**. ### If every term is non-negative
+### ###   ### then adding modes can only INCREASE `Tr_full`. ### And `resid47 = Tr_full - (A+E2)`
+### ###   ### is POSITIVE (2.31..4.05), so `Tr_full` already EXCEEDS `A + E2`. ### **MORE MODES
+### ###   ### MOVE IT FURTHER AWAY, NOT CLOSER.** ### So H2 cannot hold unless act 12's
+### ###   ### non-negativity fails on the range this act measures -- ### WHICH THIS ACT TESTS,
+### ###   ### because a refutation that rests on a cited sign is worth checking at source.
+### ### **H3 -- resid47 IS NOT A TRUNCATION EFFECT AT ALL**, but the UNPERFORMED DIVERGENT-PART
+### ###   SUBTRACTION -- sec 20(b)'s own reading, and b241's Component 3 verdict: it is M-4's
+### ###   unpaid size. ### **THIS IS MY HYPOTHESIS.** ### Its prediction, stated so it can fail:
+### ###   ### **`resid47(NMODE)` FLATTENS OR GROWS ACROSS THE CERTIFIED RANGE AND SHOWS NO TREND
+### ###   ### TOWARD ZERO**, at every one of the six cells.
+### ### **H4 -- resid47 is a SCALE OR NORMALIZATION MISMATCH** between the model trace and CC's
+### ###   regularized trace -- sec 25(c)'s L1, "its MODEL TRANSPORT FAILS".
+### ###   ### DISTINGUISHABLE FROM H3 ONLY BY A RATIO THAT IS CONSTANT ACROSS CELLS, and this act
+### ###   ### records the ratio `Tr_full / (A + E2)` per cell so the question is at least ASKED.
+### ###   ### ### IT IS NOT EXPECTED TO BE SETTLED HERE AND THE ACT WILL NOT CLAIM IT WAS.
+
+====================================================================================================
+(E) THE INDEX QUERY, RUN BEFORE THE MEASUREMENT AND RECORDED WHATEVER IT RETURNED.
+====================================================================================================
+### THE ACT'S OWN KEY: ### `left-mode-axis` -> NO KEY. ### Keyed ON FILING by this act.
+### ### AND THE REACH, REPEATED BECAUSE IT IS THE DANGEROUS MISREADING: ### "ABSENCE FROM THE
+### ### INDEX IS NOT ABSENCE FROM THE RECORD." ### So the declared keys bearing on this act's
+### ### objects were queried too, and the results are recorded in the bank whether or not they
+### ### helped: ### `error-budget`, `right-side-error-spec`, `t-value-definition`,
+### ### `resid47-reading`, `e2-ownership`, `residual-ledger`, `prolate-operator`,
+### ### `sonin-eigenfunctions`, `e1-even-bridge`, `unit-normalized-trace`.
+
+====================================================================================================
+(F) WHAT NO BRANCH OF THIS ACT MAY DO.
+====================================================================================================
+### Touch the right side, or compute any residual against it. ### Move h2 or the register
+### sentence. ### Move any asset's grade -- b237's four channels stay PARTIAL. ### Discharge
+### M-2, M-3 or M-5. ### Close M-4: ### **A MEASURED SIZE IS NOT A DERIVATION, AND
+### PAID-AT-BENCH IS AN ANNOTATION ABOUT A NUMBER.** ### Amend RULE M-1 or File E. ### Choose an
+### axis for smallness. ### Let an UNCERTIFIED point beyond NTERM = 11 set the envelope.
+### ### Write PLACE-papers, HANDOFF, the loom or the mirror. ### File to the ledger -- ### ALL
+### ### FILINGS DEFER TO THE SERIALIZING CLOSE (b244). ### Deposit anything.
+====================================================================================================
