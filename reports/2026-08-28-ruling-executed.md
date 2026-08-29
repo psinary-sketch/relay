@@ -134,3 +134,35 @@ Core untouched; no deposited text edited. ### **NOTHING DEPOSITS. LOCKS LAST.**
 
 **Next: b240 — THE FIRST FACE-OFF AT BENCH**, under its own registration, preconditions **three green
 and one amber**, the amber named in the act's own words.
+
+---
+
+## Mechanics of the act
+
+**The register** (`VERIFICATION_LOOM.md`, +94 lines) and **the HANDOFF** brought current **by
+demotion, not by rewrite**: the demoted title was **derived from the file's own lead line** — asserted
+to end in `(b238)` before any write — and the prior lead's whole content survives verbatim behind
+`*(prior: b238)*`. *A title typed from memory is how a headline gets dropped quietly.*
+
+**Term scans, all three CLEAN, 0 live.** relay 13 files / 1020 lines, PLACE-papers 94 lines,
+SIDE-global-section 29 lines. ### **Six hits are shown, not filtered:** all six are **the scanner's
+own rule text** (`stems : gap, blind`) inside the three sidecars it emitted, each printed with its
+class. *The verdict reads the live count; the hit table is total.*
+
+**Commits and read-back.** relay `1b536cd`, SIDE-global-section `05ec24b`, PLACE-papers `7071d76`.
+### **The pre-push hook was exercised, not assumed:** `git push origin main` **from `main` was
+REFUSED** — *"pushes to main only from push-\*/repair-\* branches (Rule 4.10)"* — and the push then
+ran from `push-b239`. ### **All three read back by `ls-remote`: local and remote IDENTICAL.** In
+PLACE-papers only `VERIFICATION_LOOM.md` was staged; ### **the author's untracked patent-package
+figures were left exactly as found**, and the seat-boundary pre-commit printed **0 foreign hits.**
+
+**The mirror**, rebuilt because PLACE-papers moved: `mirror-refresh-2026-08-28.zip`, **40 files**,
+### **CLEAN ON ALL THREE CLAUSES** — content 40/40, declared source HEAD `7071d76` equal to
+`ls-remote origin/main`, roster and archive agreeing name for name.
+
+> ### **Disclosed rather than dropped: the first `mirror_verify` invocation printed NOT CLEAN, and
+> the fault was mine at the call, not the mirror's.** I passed `--emit b239` where the tool takes
+> `<zip> <remote> <branch>` positionally, so it looked up `refs/heads/b239` and found nothing.
+> **Both sidecars are carried** — `audit_b239_mirror_verify.txt` (NOT CLEAN, mis-called) and
+> `audit_b239_mirror_verify_r2.txt` (CLEAN, correctly called). ### **A failed run is not deleted
+> because it was my error; the record shows the miss and the repair.**
