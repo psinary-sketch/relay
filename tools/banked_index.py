@@ -270,6 +270,14 @@ KEYS = {
     # ### THE IMP-1-ENVELOPE KEY, ADDED b243 ON FILING.
     'imp1-envelope': ['imp1 envelope', 'imp-1 envelope', 'the analytic envelope',
                       'corr second derivative', 'interpolation bound'],
+    # ### THE RULING KEYS, ADDED b244 ON FILING. ### `q-orientation` IS **NOT** REDECLARED:
+    # ### it already exists and b244 adds a SECOND ROW under it, so a query returns THE ROUTE
+    # ### AND THEN THE RULING, in order. ### Overwriting b241's row would erase the fact that
+    # ### the texts underdetermined it, and the index's own law is that a row carries the grade
+    # ### ITS OWN ACT recorded.
+    'rule-delta-minus': ['rule delta minus', 'd1', 'delta_- sign', 'delta minus sign'],
+    'rule-modes': ['rule modes', 'k1', 'mode ceiling', 'seven computable modes'],
+    'second-face-off': ['b245', 'the second face-off', 'face-off preconditions'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1017,6 +1025,56 @@ INDEX = [
      'banked). ### RIGHT-SIDE ERROR SPEC FILED on (PROMOTED) only',
      'data/b243_imp1_envelope.txt; data/b243_envelope.txt; '
      'reports/2026-08-29-the-imp1-envelope.md'),
+    # ### THE RULING ROWS (b244). ### THE `q-orientation` ROW BELOW IS A **SECOND** ROW UNDER
+    # ### THAT KEY: b241's ROUTE IS NOT REWRITTEN, so a query returns the route and then the
+    # ### ruling. ### An index that erased the route would hide that the texts underdetermined it.
+    ('q-orientation', 'b244 (the author ruling; b241 routed it)',
+     'RULE Q: O1 -- Q.value := -Theta_q, executed as a documented binding in File E with the '
+     'five owner texts cited BY NUMBER: sec 19 comparison; b36_act8.py:175; sec 20(c) closed '
+     'form; the recurring (Theta_q - PR) pairing; File E own operator. ### CORRESPONDENCE row 92',
+     '### A RULING, NOT A DERIVATION -- the author word, and b241 had ROUTED this and chosen '
+     'nothing. ### **THE AGGREGATION IS STILL UNSTATED AND THE BINDING SAYS SO**: the five texts '
+     'ORIENT Theta_q inside their own comparisons and NONE assembles it into Q.value. '
+     '### **M-2 IS NOT CLOSED BY THIS BINDING.** ### DISCLOSED: O1 SHRINKS the residual -- it is '
+     "b240 banked variant V2 -- and it does NOT close it (V2 stays 19x-24x the combined bar, "
+     'resid47 untouched). ### The movement was NOT computed in b244',
+     'SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean (QuotientTrace docstring); '
+     'CORRESPONDENCE.md row 92; data/b244_serializing_close.txt'),
+    ('rule-delta-minus', 'b244 (the author ruling; b241 filed it)',
+     'RULE Delta_-: D1 -- RULE M-1 combination amended to T.value := Tr_full + E2 - Delta_-, '
+     "per sec 19 own row 'our object trace = this - Delta_-(g)' and act 8 assembly "
+     'RIGHT = (Tr_full + E2 - Dneg) - Thq. ### CORRESPONDENCE row 91',
+     '### A RULING, NOT A DERIVATION. ### **Delta_- DEFINITION AND BINDING ARE UNTOUCHED** -- '
+     'sec 17 odd-index t(n) series via b37_act9.eps_masked(rr, odd), which b241 verified b240 had '
+     'bound correctly. ### **ONLY THE SIGN IN THE COMBINATION MOVED.** ### M-4 remains the '
+     'definition open debt and is NOT paid at bench (b242, branch SLOW). ### NO CODE MOVED and it '
+     'was PROVED: comment-stripped File E identical to its pre-amendment blob, 19 lines both sides',
+     'SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean (ArchimedeanE1Trace docstring); '
+     'CORRESPONDENCE.md row 91; data/b244_serializing_close.txt'),
+    ('rule-modes', 'b244 (the author ruling; b242 measured it)',
+     'RULE MODES: K1 -- the DEFINITION stays Lemma F.1 eleven modes; the PER-CELL REALIZATION '
+     'reports the SEVEN computable plus A TAIL TERM IN ITS BAR. ### W-ORD-MODE-PRECISION filed '
+     '(K3) as the bounded instrument act that closes the ceiling. ### CORRESPONDENCE row 93',
+     '### A RULING ON A REALIZATION, NOT ON A DEFINITION. ### THE MEASUREMENT THAT FORCED IT '
+     '(b242): lam2 reaches 4.7e-16 at n=7 so float64 carries SEVEN where Lemma F.1 certifies '
+     'ELEVEN, and n_last = 6 at EVERY NQ from 500 to 1300 -- more quadrature buys no modes; the '
+     'NQ-spread jumps 61x-249x when the first sub-floor mode enters. ### **THE TAIL IS NOT '
+     'BOUNDED** -- b242 branch is (SLOW) and the envelope was derived, printed and REFUSED. '
+     '### So a bar written per K1 CARRIES AN UNBOUNDED TERM, and b245 must say so in its own words',
+     'SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean (ArchimedeanE1Trace docstring); '
+     'CORRESPONDENCE.md row 93; data/b242_left_mode_axis.txt'),
+    ('second-face-off', 'b244 (named); b245 (the act itself, NOT RUN)',
+     "b245 is THE SECOND FACE-OFF. ### PRECONDITIONS: (1) b244 rulings executed -- GREEN; "
+     '(2) right-side bars certified -- GREEN with a looseness rider; (3) bar_L in its honest form '
+     'per K1 -- **AMBER, and it is the real one**; (4) the banked-meanings discipline -- b245 own '
+     'first act; (5) M-2 STILL OPEN. ### TWO GREEN, TWO AMBER, ONE OPEN BY DESIGN',
+     '### NOT A RESULT. ### A LIST OF PRECONDITIONS AND NOTHING ELSE -- b245 HAS NOT RUN. '
+     '### THE AMBER THAT MATTERS: b245 inherits a bar with an UNBOUNDED TERM in it, and the '
+     'direction is already known and against the programme -- bar_L may be 2.4x-2.9x TOO SMALL '
+     '(b242 refused extrapolation). ### **A BAR THAT IS TOO SMALL MAKES A SEPARATION LOOK MORE '
+     'SIGNIFICANT THAN IT IS.** ### The patent session can slot at any STOP and needs nothing '
+     'from b245',
+     'data/b244_serializing_close.txt (2.3); reports/2026-08-29-the-serializing-close.md'),
 ]
 
 
