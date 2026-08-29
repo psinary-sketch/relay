@@ -181,6 +181,9 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE DEFINITION KEY, ADDED b239 UNDER ITS CLAUSE (f).
+    't-value-definition': ['t.value definition', 't value definition', 'rule m-1',
+                           'c2 definition', 'documented binding', 'defined-by-ruling'],
     # ### THE BUDGET KEYS, ADDED b238 UNDER ITS CLAUSE (e).
     'error-budget': ['error budget', 'the error budget', 'imp1 budget', 'budget table',
                      'the five sources', 'edge hypothesis'],
@@ -394,6 +397,22 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("t-value-definition", "b239",
+     "T.value DEFINED BY AUTHOR RULING (RULE M-1): C2, i.e."
+     " ArchimedeanE1Trace.value := Tr_full + E2 + Delta-minus -- the three archimedean channels of"
+     " the bench instrument at a DIAGONAL a^2 cell. ### Written as a DOCUMENTED BINDING, not a Lean"
+     " definition: the three summands have NO formal definitions in this repository, so writing"
+     " them as terms would mean inventing three realizations the record does not have. ### THE"
+     " FIELD STAYS A DATA PARAMETER; WHAT IS FIXED IS ITS MEANING",
+     "DEFINED-BY-RULING (C2), REALIZED PER-CELL AT BENCH, OPEN DEBT M-4 (Delta-minus trace-class"
+     " bookkeeping) -- the grade cell of CORRESPONDENCE row 90. ### THE RIDER IS PART OF THE RULING"
+     " AND NOT A GLOSS: realization is per-cell at bench, standing until M-4 closes, and is NOT"
+     " structural. ### sec 17's own grade for Delta-minus is 'open only in its trace-class"
+     " bookkeeping', so value IS DEFINED ONLY AS FAR AS THAT BOOKKEEPING IS. ### The amendment is"
+     " docstring-only, verified by stripping every comment and comparing to the HEAD blob:"
+     " IDENTICAL   ### as its own act recorded it",
+     "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean; CORRESPONDENCE.md row 90;"
+     " data/b239_ruling_executed.txt"),
     ("error-budget", "b238",
      "every error source in the IMP-1 bench priced BY MEASUREMENT. ### FOUR OF FIVE CAME OUT AT"
      " ZERO: A, P and Z carry no grid error (machine epsilon); the zero truncation is invariant"
@@ -450,8 +469,12 @@ INDEX = [
      " (C3) Tr(theta(g) S theta(g)*) at CC's S -- ties T to an IMPORT whose model transport FAILS;"
      " (C4) left as a DATA PARAMETER realized per-cell at a pin",
      "RULING ITEM, the author's. ### A DEFINITIONAL RULING, NOT A COMPUTATION -- it cannot settle"
-     " itself. ### THE EXECUTOR NAMES THE CANDIDATES AND CHOOSES NONE   ### as its own act"
-     " recorded it",
+     " itself. ### THE EXECUTOR NAMES THE CANDIDATES AND CHOOSES NONE."
+     " ### SUPERSEDED BY RULING 2026-08-28 (b239): the author ruled C2, with a per-cell"
+     " instrument-realization rider standing until M-4 closes and M-4 named as the"
+     " definition's open debt -- see t-value-definition. ### The dossier's own grade above"
+     " is left standing as its act recorded it: a row is a pointer, never a re-grading"
+     "   ### as its own act recorded it",
      "data/b237_left_side_assets.txt sec 4a;"
      " SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean"),
     ("comprehension", "b236",

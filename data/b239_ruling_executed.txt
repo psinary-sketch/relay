@@ -1,0 +1,174 @@
+====================================================================================================
+b239 -- THE RULING EXECUTED. THE BANK. 2026-08-28. CONCURRENCY: SOLO.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### FILINGS, ONE SUPPORT-VOICE AMENDMENT, ONE KERNEL RE-PRINT.
+### ### **NO FACE-OFF WAS RUN AND NO NUMBER CROSSED BETWEEN COLUMNS.**
+### Nothing about the h2 identity beyond the register sentence exact. Nothing deposits. Locks last.
+====================================================================================================
+
+### THE RULING, the author's, QUOTED VERBATIM AND EXECUTED WHOLE:
+### ### "RULE M-1: C2, per-cell instrument realization standing until M-4 closes; Δ₋'s bookkeeping
+### ### (M-4) named as the definition's open debt in the correspondence row."
+### **THREE CLAUSES, THREE OBLIGATIONS, ALL THREE DISCHARGED:** ### the definition written; ### the
+### rider recorded beside it; ### **the debt named IN THE CORRESPONDENCE ROW, not merely in a
+### bank** -- *a debt recorded only where the executor writes is a debt the next reader will not
+### meet.*
+
+====================================================================================================
+COMPONENT 1 -- THE EXECUTION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+*** (1a) THE IDIOM, CHOSEN AND SHOWN, AS CLAUSE (b) REQUIRES.
+----------------------------------------------------------------------------------------------------
+### The ferry offers ### "as a definition or documented binding per File E's own idiom, the
+### executor choosing the idiom and showing it."
+### ### **FILE E's OWN IDIOM IS STRUCTURES WITH A `value : ℝ` FIELD AND DOCSTRINGS NAMING OWNERS.**
+### It declares no computational definitions and imports only `Mathlib.Data.Real.Basic` and
+### `Mathlib.Data.Rat.Defs`.
+*** ### ### **THEREFORE `Tr_full`, `E2` AND `Δ₋` CANNOT BE WRITTEN AS LEAN TERMS HERE: THEY HAVE NO
+### ### ### FORMAL DEFINITIONS IN THIS REPOSITORY.** ### They are bench quantities living in
+### ### ### `relay/tools/e16/b38_act10.py` and in §17's series.
+### ### ### **WRITING `T.value := Tr_full + E2 + Δ₋` AS LEAN CODE WOULD REQUIRE INVENTING THREE
+### ### ### DEFINITIONS THE RECORD DOES NOT HAVE -- WHICH IS EXACTLY THE "REALIZATION INVENTED"
+### ### ### THAT b237's SCOPE REFUSED ONE ACT AGO.**
+### ### **SO THE IDIOM IS THE DOCUMENTED BINDING**, and the choice was registered ### **BEFORE it
+### ### was made**, together with the reason the other idiom is refused -- so that the
+### ### softer-looking option is on the record as the ### **DISCIPLINED** one and not the
+### ### convenient one. ***
+
+----------------------------------------------------------------------------------------------------
+(1b) THE AMENDMENT, AT SUPPORT-VOICE, WITH THE ORIGINAL VISIBLE.
+----------------------------------------------------------------------------------------------------
+### `Interfaces/FiniteInstanceIdentity.lean`, the `ArchimedeanE1Trace` docstring now carries:
+### ### the ruling verbatim; ### **the definition `value := Tr_full + E2 + Δ₋`** with each summand
+### ### named at its instrument (`b38_act10.trace_modes`, `b38_act10.e2_of_grid`, §17's odd-index
+### ### `t(n)` series) at a ### **DIAGONAL a² cell** *(species said)*; ### the idiom's justification;
+### ### ### **THE RIDER -- "the realization is PER-CELL AT BENCH, STANDING UNTIL M-4 CLOSES. It is
+### ### ### not structural."**; ### **THE DEBT -- "M-4 — Δ₋'s trace-class bookkeeping … `value` IS
+### ### ### DEFINED ONLY AS FAR AS THAT BOOKKEEPING IS"**; and ### **THE ORIGINAL DOCSTRING QUOTED
+### ### ### IN FULL.**
+*** ### **VERIFIED EXACTLY, NOT BY EYE:** with every comment and docstring stripped from the file
+### ### and the remainder compared to its `HEAD` blob -- ### **IDENTICAL.** ### The relation
+### ### `T.value + Q.value = W.wInf - W.wPrimes` stands unmoved at line 107. ### **NO DECLARATION,
+### ### TYPE, RELATION OR TOKEN OF CODE MOVED.** ***
+
+----------------------------------------------------------------------------------------------------
+(1c) THE CORRESPONDENCE ROW -- ### **ROW 90, BY THE COMMITTED TOOL, NO BLANK CELLS.**
+----------------------------------------------------------------------------------------------------
+### Written through `corr_row.py` (b194) -- ### **six cells, verified by read-back** -- so no cell
+### passed through a hand-quoted shell string (b178's and b193's shared species).
+### ### **THE GRADE CELL READS, IN FULL:** ### "**DEFINED-BY-RULING (C2), REALIZED PER-CELL AT
+### ### BENCH, OPEN DEBT M-4 (Δ₋ trace-class bookkeeping).**" ### plus the rider's own sentence and
+### ### §17's grade quoted, and ### **STATEMENT LAYER (Mathlib)** per b232's two-bar policy.
+### **AND THE TERMINAL CELL SAYS WHAT THE ROW DOES NOT INTRODUCE:** ### "**NO NEW TERMINAL IS
+### INTRODUCED BY THIS ROW** — the amendment is docstring-only, verified by stripping every comment
+### and docstring … **IDENTICAL**."
+
+====================================================================================================
+COMPONENT 2 -- THE RE-PRINT. ### **THE DISCLOSED DEBT, DISCHARGED BY RUNNING IT.**
+====================================================================================================
+*** ### **THE DEBT: b235 amended File E's docstrings and DISCLOSED that it had not re-elaborated.
+### ### b236 disclosed the same. b237 disclosed it a third time. ### A FOURTH SILENCE WOULD HAVE
+### ### BECOME A CLAIM.** ***
+### **THE PINS, AND THERE ARE TWO -- THE BANK ITSELF SAYS SO.**
+### ### five files → ### `D:/mathlib4`, at ### **`cecd0c4d56`, toolchain `leanprover/lean4:
+### ### v4.30.0-rc1`** -- exactly the pin the repo's README declares.
+### ### `RestrictedTensorLayer1` → ### `D:/MY-DOwnloads/mathlib4`, at ### **`v4.29.0`**, because
+### ### the banked profile's own header reads ### "(b193, 2026-08-26; ### **built with Lean v4.29.0
+### ### against Mathlib**)".
+### ### ### **USING ONE PIN FOR BOTH WOULD BE COMPARING A NEW PROFILE TO AN OLD BANK AND CALLING A
+### ### ### TOOLCHAIN DIFFERENCE A FINDING.**
+### **THE METHOD:** `lake env lean <file>` from each checkout, ### exactly as the README declares --
+### and every `#print axioms` line matched to its banked line ### **BY TERMINAL NAME**, not by
+### position.
+
+*** ### ### **THE RESULT: 29 TERMINALS PRINTED. 29 MATCHED TO BANK. ### 0 DIFFERING. 0 NOT IN
+### ### ### BANK. THE COUNTS AGREE.** ***
+### ### `FiniteInstanceIdentity.finiteInstanceIdentity` -- ### **MATCH**, and it is the one that
+### ### mattered: ### **File E has now been amended twice (b235's convention line, b239's
+### ### definition binding) and its profile is UNCHANGED at `[propext, Classical.choice,
+### ### Quot.sound]`.** ### **A docstring cannot move a profile -- and this act did not assert
+### ### that. IT RAN THE PRINT.**
+### ### `GlobalSection` 2/2 · `LocalLimit` 18/18 · `PadicFourier` 2/2 · `PadicStandardAddChar` 3/3
+### ### · `RestrictedTensorLayer1` 3/3 -- ### **ALL MATCH.**
+### **THE LAW HONOURED, AND IT IS THE ONE THIS PROGRAMME HAS BROKEN TWICE:** ### "a compile is not
+### a verification and the profile is read." ### **b227 SHIPPED A FILE THAT COMPILED CLEAN AND
+### PRINTED `sorryAx`; b231 SHIPPED ONE THAT COMPILED CLEAN AND PRINTED EIGHT AXIOM-BEARING
+### TERMINALS.** ### **NO CLAIM HERE RESTS ON AN EXIT CODE.**
+### **AND WHAT THE MATCH DOES NOT MEAN:** ### "'MATCH' means the profile was re-printed and
+### compared. ### **It does not mean the statements are true** -- only that their axiom
+### dependencies are what the record says."
+### **CORE WAS NOT TOUCHED BY THIS ACT AND ITS 404-LINE PROFILE WAS NOT RE-RUN HERE**, and the act
+### says so rather than letting a reader assume the whole layer was re-verified.
+
+====================================================================================================
+COMPONENT 3 -- THE CHECKLIST AND THE FILINGS.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+*** (3a) THE FACE-OFF CHECKLIST, FINAL FORM.
+----------------------------------------------------------------------------------------------------
+### **(1) `T.value` -- ### RULED AND EXECUTED THIS ACT.** ### **GREEN.** Definition C2, rider
+###     recorded, debt M-4 named in the correspondence row.
+*** ### **(2) THE ASSEMBLY JUNCTION (M-2) -- ### OPEN, AND THE FACE-OFF'S PER-CELL BENCH FORM DOES
+### ### NOT REQUIRE IT. ### THE REASON, STATED RATHER THAN ASSUMED:**
+### ### ### **THE RIDER'S WHOLE CONTENT IS PER-CELL REALIZATION.** M-2 is the statement carrying
+### ### ### the quotient operator onto `S̄_v` -- and b237 established that ### **the junction is at
+### ### ### the RESTRICTED-PRODUCT ASSEMBLY ACROSS PLACES, not at the per-place computation**:
+### ### ### `Θ_q` computes each per-place term `|tr(UᵏS)|/d` on `V_inv` without touching `S̄_v`.
+### ### ### **A PER-CELL BENCH FACE-OFF NEVER PERFORMS THE ASSEMBLY, SO IT NEVER MEETS M-2.**
+### ### **AND THE PRICE OF THAT, SAID IN THE SAME BREATH: a per-cell face-off is therefore a
+### ### PER-CELL statement and not a structural one, and b240 must carry that limit in its own
+### ### words.** ### **GREEN FOR b240's FORM; OPEN FOR ANYTHING WIDER.** ***
+### **(3) THE INTERFACES RE-PRINT -- ### DISCHARGED THIS ACT**, 29/29. ### **GREEN.**
+### **(4) THE RIGHT SIDE'S ERROR BARS -- ### MEASURED, NOT CERTIFIED** (b238's annotation, carried
+###     unchanged). ### **AMBER, AND IT IS THE ONLY ONE.** ### b238's branch was (HELD): the two
+###     sides agree to ~2e−8 relative at `a²=3` and 5e−9 at `a²=4`, ### **but the bound banked to
+###     license the grade was exceeded at one cell of six by 4%.** ### `W-ORD-IMP1-ENVELOPE` stands
+###     beside it as the named remainder.
+### ### ### **SO b240's PRECONDITIONS ARE THREE GREEN AND ONE AMBER, AND THE AMBER IS NAMED: THE
+### ### ### RIGHT SIDE'S RESIDUALS ARE INTERPRETABLE BUT ITS ERROR SPEC IS NOT CERTIFIED.**
+### ### **THAT IS NOT A BLOCK ON b240 -- IT IS A LIMIT b240 MUST STATE.**
+
+----------------------------------------------------------------------------------------------------
+(3b) THE M-LIST, RESTATED WITH M-1 STRUCK.
+----------------------------------------------------------------------------------------------------
+### ### ~~**M-1 [RULING] -- what `T.value` IS**~~ ### **RULED 2026-08-28 AND EXECUTED THIS ACT.**
+### **M-2 [RESULT or RULING]** -- a statement carrying the quotient operator onto `S̄_v`, or `u_v`
+###   into `V_inv`. ### b227: "**THE FIRST IS NOT IN THE RECORD.**" ### **OPEN.**
+### **M-3 [RESULT]** -- the cited class-richness lemma (Schwartz–Bruhat), "its formalization owed
+###   to files B–C". ### **OPEN.**
+### **M-4 [RESULT]** -- the ε trace-class bookkeeping. ### **OPEN, AND NOW ALSO THE DEFINITION'S
+###   NAMED DEBT** -- it is the one item on this list that the executed ruling made *load-bearing
+###   for a definition* rather than only for a proof.
+### **M-5 [CONSTRUCTION]** -- the effective-mode (Shannon) dictionary; §25(c)'s "THE MISSING
+###   TRANSPORT". ### **OPEN.**
+### ### **FOUR OPEN: ONE RULING-OR-RESULT, TWO RESULTS, ONE CONSTRUCTION.**
+
+----------------------------------------------------------------------------------------------------
+(3c) THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### 1. ### **THE AMENDMENT** at File E, original visible, code verified identical.
+### 2. ### **CORRESPONDENCE ROW 90** by the committed tool, no blank cells, the debt in its grade
+###    cell.
+### 3. ### **THE RE-PRINT, 29/29**, both pins named, Core explicitly not re-run.
+### 4. ### **THE FINAL CHECKLIST** (3a) -- three green, one amber, the amber named.
+### 5. ### **THE M-LIST** with M-1 struck (3b).
+### 6. ### **THE RECONCILIATION WAVE'S TRIGGER, RESTATED: the checklist resolved -- and it is now
+###    ONE ACT AWAY**, that act being b240.
+### 7. ### **THE PATENT SESSION'S SLOT, RESTATED: it can slot at any STOP.**
+### 8. ### `t-value-definition` keyed; the b237 `t-value` row ### **ANNOTATED, NOT REWRITTEN** --
+###    it records a dossier of four candidates with no recommendation, which a ruling has now
+###    superseded, and ### **a row is a pointer and never a re-grading.**
+### 9. The register; the seam's debt; HANDOFF naming ### **b240 THE FIRST FACE-OFF AT BENCH.**
+
+====================================================================================================
+### WHAT THIS ACT DID NOT DO: ### **NO FACE-OFF WAS RUN. NO NUMBER CROSSED BETWEEN COLUMNS.**
+### With `T.value` now defined and `A − PR` already adopted, ### **a single instrument call would
+### have produced both sides at a cell** -- and that is b240's, under its own registration, with
+### both sides' meanings fixed before any number is seen. ### **THE TEMPTATION WAS THE LARGEST THIS
+### ARC HAS CARRIED, IT WAS NAMED AT REGISTRATION, AND IT WAS REFUSED.**
+### ### No Lean term was invented; no Core file was touched; no profile was claimed from an exit
+### code. ### **NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. NOTHING DEPOSITS. LOCKS LAST.**
+====================================================================================================
