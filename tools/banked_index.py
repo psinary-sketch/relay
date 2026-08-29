@@ -286,6 +286,14 @@ KEYS = {
                      'm4 route'],
     'xi-alpha-question': ['xi alpha', 'xi_n(1) vs alpha', 'the endpoint question',
                           'alpha double name'],
+    # ### THE SECOND-OBJECT KEYS (b248) AND THE PRECISION KEYS (b249), ADDED ON FILING.
+    # ### b248 OWNS THIS WRITE; b249's FILINGS DEFER TO IT, PER THE PARALLEL HEADER.
+    'second-object': ['the second object', 'the two pieces', 'archimedean piece'],
+    'e2-arrangement': ['e2 arrangement', 'additive or subtractive', 'eps-regularized meaning'],
+    'junction-piece': ['junction piece', 'pr minus theta_q', 'the finite-place pairing'],
+    'mode-precision': ['the precision veil', 'extended precision spectrum', 'k3',
+                       'veil lifted'],
+    't-series': ['the t series', 't(n)', 'sum t(n)', 'partial sums of t'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1177,6 +1185,77 @@ INDEX = [
      'are not defined on the same object',
      'data/b247_m4_statement_and_route.txt (Component 2, A-2); data/b211_alternation_derived.txt; '
      'data/b212_odd_family.txt'),
+    # ### THE SECOND-OBJECT ROWS (b248) AND THE PRECISION ROWS (b249). ### b248 OWNS THIS WRITE.
+    ('e2-arrangement', 'b248',
+     "does 'eps-regularized archimedean E1-trace' mean the eps-corrections SUBTRACT from the raw "
+     'trace or ADD? ### **VERDICT: (ADDITIVE-FORCED).** ### THREE ARRANGEMENTS BY THREE OWNERS, '
+     'ALL ADDITIVE IN E2: sec 19 brackets [Tr_inf + int g eps]; b36_act8.py:175 parenthesizes '
+     '(Tr_full + E2 - Dneg); and the ruled C2+D1 form is Tr_full + E2 - Delta_-. ### b38:182 is '
+     'A expression, NOT an arrangement of T -- sec 20(b) reads that same line as the CC-4.7 '
+     'REPRODUCTION ERROR against [A + E2]',
+     '### QUOTATION-FORCED, NOT ARGUED FROM WHAT THE WORD USUALLY MEANS. ### **THE WORD '
+     '"REGULARIZED" NAMES A DIFFERENT SUBTRACTION, AND IT IS UNPERFORMED**: sec 20(b) calls it '
+     'the divergent-part subtraction, and b241/b245/b247 located its bench size as resid47 -- '
+     'that is M-4, NOT E2. ### **NO DECISION CARD WAS ASSEMBLED**: the card was conditional on '
+     '(SUBTRACTIVE-FORCED) and an executor does not manufacture one the texts did not ask for. '
+     '### DISCLOSED AT REGISTRATION BEFORE THE VERDICT WAS DRAFTED: the subtractive reading would '
+     'have cut L-R by 2*E2 = 1.95 to 3.36, i.e. 45%-50% of the shortfall. ### **THE TEXTS FORCED '
+     'THE READING THAT DOES NOT SHRINK IT**',
+     'data/b248_second_object.txt (Component 1); reports/2026-08-29-the-second-object.md'),
+    ('junction-piece', 'b248',
+     'the second object split per cell for the FIRST time: -D_dict = (E2full + E2even) + '
+     '(PR - Theta_q). ### THE ARCHIMEDEAN PIECE runs 2.681242 down to 1.595154 and carries '
+     '**88% to 100%**; ### THE JUNCTION PIECE runs 0.000000 to 0.244027 and carries **0% to 12%**',
+     '### THE REGISTERED PREDICTION IS **HALF RIGHT AND IS REPORTED AS HALF RIGHT**. ### LIMB 1 '
+     '(vanishes at a^2 = 2) CONFIRMED exactly -- PR and Theta_q are identically zero there. '
+     '### LIMB 2 (grows with the active primes) **REFUTED**: two drops, at a^2 = 4 (0.106484 -> '
+     '0.087342) and at a^2 = 9 (0.244027 -> 0.135020). ### **THE PREDICTION TREATED A DIFFERENCE '
+     'OF TWO WEIGHTED SUMS AS THOUGH IT WERE A COUNT.** ### NEITHER PIECE IS M-4 -- M-4 covers '
+     'resid47 and nothing else (b246, unrevised). ### Piece 2 owner names M-2 again: Theta_q '
+     'aggregation into Q.value is STILL UNSTATED',
+     'data/b248_split_run.txt; data/b248_second_object.txt (Component 2)'),
+    ('mode-precision', 'b249 (K3)',
+     'the concentration spectrum and endpoint values measured at EXTENDED PRECISION past the '
+     'float64 veil. ### INSTRUMENT: the corpus OWN prolate instrument extended into mpmath '
+     '(Gauss-Legendre nodes by Newton, symmetric eigendecomposition), dps 120 / NQ 80, modes '
+     'n = 0..12 on the EVEN sub-sequence per pin P1. ### **b205 stepper NOT reused: it is the '
+     'RRJT EXTERIOR ODE and b247 ruled it (DOUBLE-NAME).** ### G-REPRO, G-SELF, G-EQ all PASS',
+     '### **W-ORD-MODE-PRECISION (K3) DISCHARGED.** ### THE VEIL IS LIFTED: lambda(n)^2 continues '
+     'cleanly from 3.85e-16 at n=7 down to 6.50e-38 at n=12, where b242 float64 could see only '
+     'noise. ### **G-REPRO TOOK THREE FORMS BEFORE IT WAS RIGHT, AND THE FIRST TWO ARE '
+     'DISCLOSED**: a constant tolerance is NOT the ferry criterion of "within float64 own error", '
+     'which is mode-dependent; and the comparison is additionally floored by **the PRINTED '
+     'PRECISION of b242 bank** (ten significant digits for lambda^2, nine decimals for xi). '
+     '### **THAT IS THE THIRD CONSECUTIVE ACT TO MEET A BANK PRINT FLOOR** (b245 met b38 four '
+     'decimals, b246 floored at 5e-5), and W-ORD-TE-SPEC is filed for extension to require a '
+     'bank PRINTED PRECISION be named alongside its axes',
+     'data/b249_mode_precision.txt; data/b249_precision_run.txt; '
+     'reports/2026-08-29-the-precision-veil.md'),
+    ('t-series', 'b249 (K3)',
+     't(n) = lambda(n)^2 xi_n(1)^2/(1-lambda(n)^2) measured to n = 12 at dps 120. ### **BRANCH '
+     '(PLUNGES)**: t(n) falls 5.17e-11, 1.12e-14, 1.35e-18, 9.91e-23, 4.65e-27, 1.46e-31, '
+     '3.18e-36 -- strictly decreasing from n = 6 onward -- and the partial sums SETTLE at '
+     '**22.996475683870529679**. ### xi_n(1) GROWS but only slowly (5.38 -> 7.00 over the newly '
+     'reached modes, ratios all under 1.2), so the growth is utterly dominated',
+     '### **M-4 TRUE-AT-BENCH**, with the measured rate filed as the derivation target and the '
+     'derivation act confirmation RECOMMENDED to the author. ### **AND THE LIMIT IN THE SAME '
+     'BREATH: TRUE-AT-BENCH IS A BENCH GRADE AND NOT A THEOREM** -- finitely many modes at one '
+     'instrument setting. ### **M-4 IS NOT PAID AND ITS STATEMENT STILL HALTS AT CLAUSE (i) '
+     'RATE, EXACTLY WHERE b247 LEFT IT.** ### THE PARTIAL SUM AGREES WITH the corpus '
+     "INDEPENDENTLY BANKED eps'(1+) PIN 22.9964757 (b35, 2026-08-18) TO EIGHT SIGNIFICANT "
+     'DIGITS -- ### **AND THE PIN WAS NOT FITTED TO.** ### NO EXTRAPOLATION IS BANKED AS A '
+     'BOUND; b242 refusal is the precedent and a measured rate is not a tail bound',
+     'data/b249_mode_precision.txt; reports/2026-08-29-the-precision-veil.md'),
+    ('second-object', 'b248 (arrangement + split) / b246 (two objects established)',
+     'the second term of the bench shortfall, restated as TWO NAMED PIECES WITH SEPARATE OWNERS: '
+     'the ARCHIMEDEAN PIECE (E2full + E2even), sector arithmetic on a CONVERGED series, 88%-100%; '
+     'and the JUNCTION PIECE (PR - Theta_q), the finite-place pairing, 0%-12%',
+     '### NEITHER PIECE IS M-4. ### **M-4 COVERS resid47 AND NOTHING ELSE** (b246 verdict, '
+     'unrevised by b248). ### THE ARRANGEMENT IS (ADDITIVE-FORCED) so the composition is '
+     'unchanged from b245/b246. ### **THE TWO NATURES DO NOT SEPARATE AS CLEANLY AS HOPED**: the '
+     'archimedean piece is smooth and dominant, but the junction piece is NOT monotone in the '
+     'active-prime count, and the mixing is now on the record with its own per-cell table',
+     'data/b248_second_object.txt; data/b248_split_run.txt'),
 ]
 
 

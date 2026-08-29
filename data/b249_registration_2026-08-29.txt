@@ -1,0 +1,128 @@
+====================================================================================================
+b249 -- THE PRECISION VEIL LIFTED. ### THE REGISTRATION. ### BANKED BEFORE CONSTRUCTION.
+### WRITTEN 2026-08-29. ### CONCURRENCY: PARALLEL-OK with b248.
+### **THIS ACT WRITES ONLY ITS OWN relay `data/` FILES. ### ALL FILINGS DEFER TO b248's CLOSE OR
+### THE NEXT CLOSE. ### PLACE-papers, HANDOFF, THE LOOM AND THE MIRROR ARE b248's AND ARE NOT
+### TOUCHED HERE.**
+====================================================================================================
+
+### THE CEILING, FIRST:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### h2 STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT. ### NOTHING DEPOSITS.
+### ### SCOPE: ### **A BOUNDED INSTRUMENT CONSTRUCTION AND MEASUREMENT (K3).** ### **NO
+### ### DERIVATION AND NO THEOREM.** ### The statement measured is b247's, unchanged.
+
+====================================================================================================
+(A) THE INSTRUMENT ROUTE, AND WHY THE CORPUS ROUTE IS **NOT** REUSED. ### CHOICE REGISTERED WITH
+### ITS REASON, AS THE FERRY REQUIRES.
+====================================================================================================
+### THE FERRY DIRECTS: "method chosen from the corpus's own instruments first (the
+### Frobenius/Taylor stepper species; a Legendre-basis Galerkin route only if the corpus route
+### resists, the choice registered with its reason)."
+### ### **THE CORPUS ROUTE RESISTS, AND THE REASON IS b247's OWN VERDICT.**
+### `b205_prolate.py` is a Frobenius/Taylor stepper for ### **A DIFFERENT ODE ON A DIFFERENT
+### DOMAIN**: its own docstring, quoted -- "D_tau - mu : (x^2 - 1) f'' + 2 x f' + (tau^2 x^2 - mu)
+### f = 0 ... psi : the solution asymptotic to -sin(tau x)/x at +infinity ... y_I : the analytic
+### local solution at ### **x = 1** ... alpha = psi(x_0)/y_I(x_0)". ### That is the RRJT
+### ### **EXTERIOR** problem on `[1, infinity)`.
+### ### **b247 RULED, BY DEFINITION AGAINST DEFINITION, THAT ITS `alpha` AND THE PROLATE
+### ### `xi_n(1)` ARE (DOUBLE-NAME): "TWO DIFFERENT DOMAINS, TWO DIFFERENT ENDPOINTS OF THEM, AND
+### ### TWO DIFFERENT NORMALIZATIONS."** ### **SO REUSING b205's STEPPER FOR `mu_{2n}` WOULD BE
+### ### EXACTLY THE DOUBLE-NAME ERROR THIS PROGRAMME RULED AGAINST ONE ACT AGO.** ### The SPECIES
+### ### (mpmath, exact recurrence, high dps) is the precedent; ### **THE INSTRUMENT IS NOT.**
+
+### ### **THE ROUTE CHOSEN: A DIRECT EXTENSION OF THE CORPUS'S OWN PROLATE INSTRUMENT INTO
+### ### EXTENDED PRECISION.** ### `prolate_layer.prolate` builds the symmetrised Gauss-Legendre
+### matrix of the corpus's own kernel and takes its eigen-decomposition. ### **THIS ACT DOES THE
+### ### SAME THING IN mpmath AT A REGISTERED dps**, with Gauss-Legendre nodes and weights computed
+### in mpmath by Newton iteration on the Legendre polynomials.
+### ### **WHY THIS AND NOT A LEGENDRE-BASIS GALERKIN ROUTE:** the Galerkin route reaches `mu_n`
+### ### only through a CONVENTION-LADEN relation between the finite-Fourier eigenvalue and the
+### ### concentration eigenvalue, and ### **A CONVENTION SLIP THERE IS UNDETECTABLE BY THE
+### ### RESULT.** ### The direct extension changes ### **ONE THING ONLY -- THE ARITHMETIC** -- and
+### ### G-REPRO can therefore catch any error by comparison with b242's float64 table.
+### ### **THE DIAGNOSIS THIS ACT IS TESTING IS THAT THE FLOOR WAS ARITHMETIC AND NOT QUADRATURE**
+### ### (b242 measured `n_last = 6` at EVERY NQ from 500 to 1300 -- more quadrature bought no
+### ### modes), so the fix must be precision, and this route changes precisely that.
+
+====================================================================================================
+(B) THE AXES, REGISTERED BEFORE CONSTRUCTION. ### NOTHING BELOW MOVES AFTER A NUMBER IS SEEN.
+====================================================================================================
+###   kernel  : `sin(c(x-y))/(pi(x-y))` on `[-1,1]`, ### **c = 2*pi FIXED** -- the corpus's own.
+###   dps ladder (G-SELF)     : ### **{60, 120}** -- two settings, agreement quoted.
+###   node ladder (quadrature): ### **NQ in {40, 60, 80}** -- the largest that completes is used
+###                             and ### **WHICH ONE IS PRINTED.**
+###   modes reported          : `n = 0 .. N` with ### **N >= 20 AS THE INSTRUMENT AFFORDS**, and
+###                             the reached `N` printed.
+### ### **IF NO SETTING COMPLETES, THE ACT HALTS AND SAYS SO.** ### It does not fall back to a
+### ### setting it did not register.
+
+====================================================================================================
+(C) THE GATES, FIXED HERE.
+====================================================================================================
+### **G-REPRO** -- ### **MODES 0-6 MUST REPRODUCE b242's float64 VALUES WITHIN float64's OWN ERROR
+###   BEFORE ANY NEW MODE IS READ.** ### The comparison is to b242's banked per-mode table, axes
+###   named (`NQ = 700`, `NTERM = 11`, `EPS_NQ = 700`, `S4`). ### **A FAILURE HERE IS A HALT: an
+###   instrument that cannot reproduce the old range has not earned the new one.**
+### **G-SELF** -- dps varied at the two registered settings; agreement quoted per mode.
+### **G-EQ**   -- each `(lambda, psi)` pair verified ### **RESIDUALLY IN THE EIGENVALUE EQUATION**,
+###   `||Q psi - mu psi||` reported per mode. ### A spectral routine that returns a vector is not
+###   the same as a vector that satisfies the equation.
+
+====================================================================================================
+(D) THE BRANCHES, IN THESE WORDS.
+====================================================================================================
+### **(PLUNGES)** -- `t(n)` decays super-exponentially past the veil and the partial sums of
+###   `sum t(n)` SETTLE. ### MEANS: ### **M-4 TRUE-AT-BENCH**, with the measured rate filed as the
+###   DERIVATION'S TARGET, and the derivation act's confirmation then ### **RECOMMENDED to the
+###   author.** ### **TRUE-AT-BENCH IS A BENCH GRADE AND NOT A THEOREM**, and the act says so.
+### **(PLATEAUS)** -- `t(n)` does NOT decay on the measured range. ### MEANS: ### **AT FULL
+###   PROMINENCE**; M-4-AS-STATED IN DOUBT, and ### **the arrangement question (b248) named as
+###   LOAD-BEARING before any derivation.**
+### **(MIXED)** -- decay on part of the range only, the boundary named. ### **(HALT)** -- a gate
+###   fired, or no registered setting completed.
+
+### ### **BOTH SEATS' EXPECTATIONS:**
+### ###   **THE NAVIGATOR'S, QUOTED FROM THE FERRY: ### (PLUNGES).**
+### ###   **THE EXECUTOR'S: ### (PLUNGES), AND I EXPECT THE VEIL TO BE ENTIRELY ARITHMETIC.**
+### ### MY REASONING, REGISTERED SO IT CAN FAIL: b242 measured `n_last = 6` at EVERY NQ from 500
+### ### to 1300 -- ### **the floor did not move with quadrature**, which is the signature of an
+### ### arithmetic limit rather than a discretisation one. ### And on the CERTIFIED range the
+### ### `lambda^2` ratios fall by about three orders per mode and are still FALLING at `n = 6`.
+### ### ### **BUT I REGISTER THE RISK PLAINLY: `xi_n(1)^2` GROWS (b247 measured a factor of about
+### ### ### 36,000 across seven modes), AND IF IT KEEPS GROWING FAST ENOUGH PAST THE VEIL, `t(n)`
+### ### ### COULD PLATEAU. ### NOTHING I HAVE SEEN RULES THAT OUT, AND THAT IS PRECISELY WHY THE
+### ### ### MEASUREMENT IS WORTH MAKING.**
+
+====================================================================================================
+(E) THE RATE, AND WHAT MAY NOT BE DONE WITH IT.
+====================================================================================================
+### The empirical rate is reported ### **ONLY AS AN OBSERVATION, WITH ITS WINDOW NAMED.**
+### ### **NO EXTRAPOLATION IS BANKED AS A BOUND.** ### b242's refusal is the precedent and is
+### ### quoted: it derived an envelope, printed it, and ### **REFUSED** it -- because the ratio was
+### ### rising, the extrapolation was unverifiable in principle, and no owner proves the series
+### ### converges. ### **THIS ACT INHERITS THAT REFUSAL: A MEASURED RATE IS NOT A TAIL BOUND.**
+
+====================================================================================================
+(F) THE CANDIDATE SOURCES FOR IMP-3', LOCATED AND **NOT READ**.
+====================================================================================================
+### ### **EVERY ITEM BELOW IS A HYPOTHESIS ABOUT WHERE A STATEMENT MIGHT BE FOUND, NOT A
+### ### CITATION.** ### The ferry says so explicitly -- "titles from the navigator's memory are
+### ### hypotheses, not citations, and are marked so" -- and this act marks them so and
+### ### ### **READS NONE OF THEM.**
+### ### **NOTHING HERE IS GRADED, AND NO IMPORT IS CREATED.** ### They are filed for a future read
+### ### act under the import bar, which requires the exact statement located and quoted from a real
+### ### source with its hypotheses checked against `Q` at `c = 2*pi`.
+
+====================================================================================================
+(G) WHAT NO BRANCH OF THIS ACT MAY DO.
+====================================================================================================
+### Derive anything. ### State a theorem. ### Bank an extrapolation as a bound. ### Grade an
+### import. ### Reuse b205's stepper as if it were this operator's. ### Move h2 or the register
+### sentence. ### Move any grade. ### Close M-2..M-5. ### Write PLACE-papers, HANDOFF, the loom or
+### the mirror -- ### **THOSE ARE b248's THIS SESSION.** ### Deposit anything.
+====================================================================================================

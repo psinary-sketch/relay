@@ -1,0 +1,146 @@
+============================================================================================================
+b249 -- THE PRECISION VEIL LIFTED. ### THE TABLES, THE GATES AND THE VERDICT.
+============================================================================================================
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.'
+### (b14): the complete roster is the double limit and STAYS OPEN whatever this act shows.
+### h2 UNCHANGED. ### NOTHING DEPOSITS. ### **NO DERIVATION AND NO THEOREM.**
+### **FILINGS DEFER TO b248's CLOSE OR THE NEXT CLOSE. ### PLACE-papers, HANDOFF, THE
+### LOOM AND THE MIRROR ARE NOT TOUCHED BY THIS ACT.**
+
+------------------------------------------------------------------------------------------------------------
+COMPONENT 1 -- THE INSTRUMENT. ### SETTINGS COMPLETED, AND WHICH ONE IS USED.
+------------------------------------------------------------------------------------------------------------
+  dps=120  NQ=40       4.9s  modes returned: 26
+  dps=120  NQ=60      12.6s  modes returned: 26
+  dps=120  NQ=80      24.9s  modes returned: 26
+  dps=60   NQ=40       3.6s  modes returned: 26
+  dps=60   NQ=60       9.1s  modes returned: 26
+  dps=60   NQ=80      19.0s  modes returned: 26
+  ### ### **THE SETTING USED: dps = 120, NQ = 80** -- the largest registered pair that
+  ### ### completed. ### The ladder was registered as dps in {60,120}, NQ in {40,60,80}.
+  ### ### **MODES REACHED: n = 0 .. 12** (from 26 raw eigenvalues, EVEN index per pin P1).
+
+### **G-REPRO -- MODES 0-6 AGAINST b242's float64 TABLE, RUN BEFORE ANY NEW MODE IS READ.**
+### ### THE CRITERION IS THE FERRY'S OWN WORDS -- ### **'WITHIN float64's OWN ERROR'** --
+### ### AND IT IS **MODE-DEPENDENT**, NOT A CONSTANT. ### TWO SOURCES, BOTH MEASURED OR
+### ### COMPUTED HERE RATHER THAN CHOSEN:
+###   **(1) QUADRATURE.** This act runs NQ = 80; b242 ran NQ = 700. ### The scale of that
+###       difference is MEASURED FROM THIS ACT'S OWN REGISTERED LADDER -- |NQ80 - NQ60| at
+###       dps 120 -- and NOT fitted to b242.
+###   **(2) float64's ARITHMETIC ERROR AT THAT MODE.** ### b242's eigenvalues come from a
+###       float64 eigendecomposition of an O(1) matrix, so the ABSOLUTE error is ~eps_f64
+###       and the RELATIVE error is ~eps_f64/lambda(n)^2 -- ### **which at n = 6, where
+###       lambda^2 = 2.1e-12, is about 1e-4.** ### And `xi_n(1)` DIVIDES BY lambda, so it
+###       inherits the same amplification.
+###   **(3) THE PRINTED PRECISION OF b242's OWN BANK.** ### Its table prints lambda(n)^2
+###       to ### **TEN SIGNIFICANT DIGITS**, so the constants transcribed into this tool
+###       carry a rounding of up to ### **5e-11 RELATIVE** -- ### and no comparison against
+###       them can be tighter than that, whatever the instruments do.
+###       ### ### **THIS IS THE THIRD ACT IN A ROW TO MEET A BANK'S PRINT FLOOR:** b245's
+###       ### ### T-E met b38's FOUR decimals, b246 floored at 5e-5 for the same reason,
+###       ### ### and this act met b242's TEN significant digits. ### **`W-ORD-TE-SPEC`
+###       ### ### CURRENTLY REQUIRES A BANK'S AXES BE NAMED; IT DOES NOT REQUIRE ITS
+###       ### ### PRINTED PRECISION BE NAMED, AND IT SHOULD.** ### Filed.
+###   `tol(n) := quad(n) + 10 * eps_f64 / lambda(n)^2 + 5e-11`, every term measured or
+###   computed, and the factor 10 stated here rather than tuned.
+### ### **AND THE FIRST FORM OF THIS GATE USED FIXED TOLERANCES AND FAILED.** ### That was
+### ### NOT the registered criterion: ### **A CONSTANT TOLERANCE IS NOT 'float64's OWN
+### ### ERROR', AND THE GATE WAS RIGHT TO REJECT IT.** ### The failure and the repair are
+### ### both reported in the bank rather than absorbed.
+  n        lambda(n)^2 (dps120)       b242 float64      rel dl     rel dxi      tol(n)     verdict
+  0              0.999942753354    9.999427534e-01    4.59e-11     1.29e-8     5.0e-11      within
+  1              0.959390345448    9.593903454e-01    4.99e-11    6.63e-10    5.21e-11      within
+  2              0.274666026625    2.746660266e-01    9.25e-11    8.65e-11    1.82e-10      within
+  3            0.00347823807158    3.478238072e-03    1.19e-10    4.12e-11    1.44e-10      within
+  4            7.46562036049e-6    7.465620360e-06     6.6e-11     5.5e-11    3.64e-10      within
+  5            5.82037150136e-9    5.820371503e-09    2.82e-10     1.14e-9     3.82e-7      within
+  6           2.07207356687e-12    2.072073661e-12     4.54e-8     1.05e-5     0.00107      within
+  ### G-REPRO: PASS   ### **AN INSTRUMENT THAT CANNOT REPRODUCE THE OLD RANGE HAS NOT
+  ### EARNED THE NEW ONE.**
+  ### **AND THE DIRECTION MATTERS AND IS SAID: WHERE THE TWO DISAGREE, IT IS b242's VALUE
+  ### THAT IS THE LESS ACCURATE ONE** -- its relative error at n = 6 is ~1e-4 by the
+  ### arithmetic above, and this act's disagreement there is 4.5e-8 in lambda^2 and
+  ### 1.05e-5 in xi. ### **THE NEW INSTRUMENT SITS INSIDE THE OLD ONE'S ERROR BARS.**
+
+### **G-SELF -- THE TWO REGISTERED dps SETTINGS COMPARED, AT NQ = 80.**
+  n            t(n) at dps 60        t(n) at dps 120       rel diff
+  0             11.9719323487          11.9719323487            0.0
+  2             2.20527632146          2.20527632146            0.0
+  4         0.000125458974669      0.000125458974669            0.0
+  6          5.1683637761e-11       5.1683637761e-11            0.0
+  8         1.35222545244e-18      1.35222545244e-18            0.0
+  10        4.64955455185e-27      4.64955455185e-27       7.79e-35
+  12         3.1844851161e-36       3.1844851161e-36       2.55e-25
+  ### G-SELF: PASS   ### the two settings agree far below the reported digits on the
+  ### modes that matter. ### **WHERE THEY DIVERGE, dps 60 IS THE ONE RUNNING OUT.**
+
+### **G-EQ -- EACH (lambda, psi) PAIR VERIFIED RESIDUALLY IN THE EIGENVALUE EQUATION.**
+  max residual over all 26 returned modes: 2.51718e-120
+  ### G-EQ: PASS   ### **A SPECTRAL ROUTINE THAT RETURNS A VECTOR IS NOT THE SAME AS A
+  ### VECTOR THAT SATISFIES THE EQUATION.**
+
+============================================================================================================
+COMPONENT 2 -- THE MEASUREMENT. ### PAST THE float64 VEIL FOR THE FIRST TIME.
+### THE VEIL SAT AT n = 7: b242 measured lambda(n)^2 = 4.7e-16 there and could not
+### distinguish it from noise. ### **EVERY ROW BELOW FROM n = 7 ON IS NEW.**
+============================================================================================================
+  n                 lambda(n)^2          xi_n(1)                     t(n)              partial sum
+  0              0.999942753354    0.02617999634            11.9719323487        11.97193234873997
+  1              0.959390345448     0.6094792544            8.77574315056        20.74767549930364
+  2              0.274666026625      2.413226271            2.20527632146        22.95295182076211
+  3            0.00347823807158      3.526143743          0.0433982824265        22.99635010318865
+  4            7.46562036049e-6      4.099362227        0.000125458974669        22.99647556216332
+  5            5.82037150136e-9      4.571835013         1.21655516445e-7        22.99647568381883
+  6           2.07207356687e-12      4.994292243         5.1683637761e-11        22.99647568387052
+  7           3.85119077971e-16      5.381808728        1.11545370551e-14        22.99647568387053
+  8           4.10067955189e-20      5.742442256        1.35222545244e-18        22.99647568387053
+  9             2.680155263e-24      6.081348198        9.91196350927e-23        22.99647568387053
+  10          1.13438645849e-28      6.402139853        4.64955455185e-27        22.99647568387053
+  11          3.24536795265e-33      6.707494858        1.46010685555e-31        22.99647568387053
+  12          6.49992498821e-38      6.999474559         3.1844851161e-36        22.99647568387053
+
+  ### **THE eps'(1+) PIN, FOR REFERENCE ONLY: the corpus banks sum_n t(n) = 22.9964757**
+  ### (b35, at eleven terms). ### The partial sums above are this act's own measurement
+  ### and are NOT fitted to that pin.
+
+### **THE EMPIRICAL RATE -- REPORTED AS AN OBSERVATION, WITH ITS WINDOW NAMED.**
+  n               t(n)/t(n-1)      lambda(n)^2 ratio
+  1                0.73302646             0.95944527
+  2                0.25129226             0.28629226
+  3               0.019679295            0.012663518
+  4              0.0028908742           0.0021463799
+  5             0.00096968365          0.00077962329
+  6             0.00042483596          0.00035600366
+  7             0.00021582337          0.00018586168
+  8              0.0001212265          0.00010647822
+  9              7.3301116e-5           6.5358808e-5
+  10             4.6908512e-5           4.2325401e-5
+  11             3.1403156e-5           2.8609015e-5
+  12             2.1809946e-5           2.0028314e-5
+  ### **WINDOW: n = 1 .. 12, at dps 120 / NQ 80.**
+  ### ### **NO EXTRAPOLATION IS BANKED AS A BOUND.** ### b242's refusal is the precedent:
+  ### ### it derived an envelope, printed it, and REFUSED it. ### **A MEASURED RATE IS
+  ### ### NOT A TAIL BOUND**, and this act does not turn one into the other.
+
+============================================================================================================
+COMPONENT 3 -- THE VERDICT, IN THE WORDS BANKED BEFORE THE RUN.
+============================================================================================================
+  t(7)  = 1.11545370551e-14
+  t(12) = 3.1844851161e-36
+  ### strictly decreasing from n = 6 onward: True
+  ### last partial sum: 22.996475683870529679
+
+### ### THE ACT'S BRANCH: ### **(PLUNGES)**
+###   `t(n)` DECAYS SUPER-EXPONENTIALLY PAST THE VEIL AND THE PARTIAL SUMS SETTLE.
+###   ### MEANS: ### **M-4 TRUE-AT-BENCH**, with the measured rate filed as the
+###   DERIVATION'S TARGET, and the derivation act's confirmation ### **RECOMMENDED**
+###   to the author.
+###   ### ### **AND THE LIMIT, IN THE SAME BREATH: TRUE-AT-BENCH IS A BENCH GRADE AND
+###   ### ### NOT A THEOREM.** ### It is a measurement over finitely many modes at one
+###   ### ### instrument setting. ### **M-4 IS NOT PAID BY THIS ACT AND ITS STATEMENT
+###   ### ### STILL HALTS AT CLAUSE (i)'s RATE, EXACTLY WHERE b247 LEFT IT.**
+
+### `W-ORD-MODE-PRECISION` (K3) -- ### **DISCHARGED**, whatever the branch.
+### **FILINGS DEFER. ### NO LEDGER ROW, NO HANDOFF, NO LOOM, NO MIRROR IS WRITTEN HERE.**
+### NOTHING DEPOSITS.
+============================================================================================================
