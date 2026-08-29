@@ -1,0 +1,92 @@
+========================================================================================================
+b240 -- THE FIRST FACE-OFF AT BENCH. ### THE RUN.
+### RUN AT 2026-08-28T23:40:01 (local).
+========================================================================================================
+  meanings file    : D:\relay\data\b240_meanings.txt
+  meanings sha256  : ffef2e974d35d9b3d1819d040806f07aa6829fb42b2de3045a277d99ca50d4c1
+  meanings mtime   : 2026-08-28T23:37:17
+  ### THE MEANINGS WERE ON DISK BEFORE THIS PROCESS STARTED. ### The gate checks it.
+
+### THE CEILING, PRINTED IN THIS TABLE'S OWN HEADER AS THE FERRY REQUIRES:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is
+###         the double limit and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+
+--------------------------------------------------------------------------------------------------------
+GATE BLOCK. ### ANY FAILURE HERE IS BRANCH (HALT) AND NO TABLE IS READ AS DATA.
+--------------------------------------------------------------------------------------------------------
+  C0 carto far-end a=1.30 residual=+6.142e-12   PASS
+  C0 carto far-end a=3.50 residual=+6.569e-08   PASS
+  C0 pin sum lam2                   |delta|=5.82e-11 (tol 1e-06)   PASS
+  C0 pin sum lam2 xi1^2             |delta|=1.11e-15 (tol 1e-06)   PASS
+  C0 pin epsprime1                  |delta|=1.65e-08 (tol 1e-03)   PASS
+  C0 pin epsprime1_even (b35 pin)   |delta|=2.91e-05 (tol 1e-03)   PASS
+  C0 pin epsprime1_odd  (b35 pin)   |delta|=3.55e-06 (tol 1e-03)   PASS
+  eps mask algebra  max|eps_even + eps_odd - eps_full| = 4.44e-16   PASS
+  ### Delta_minus IS THE ODD-INDEX MASK, and its pin is 8.819142 of 22.996476 -- the eps'(1+)
+  ### split banked at b35. ### THE MASK IS VERIFIED BEFORE IT IS USED, NOT AFTER.
+
+  G-INDEP, READ FROM THE INSTRUMENTS' OWN SOURCE:
+    LEFT  trace_modes      params=a,corr,vc,L,NQ,NMODE                           calls-other=False takes-other=False
+    LEFT  e2_of_grid       params=a,corr,vc,L,rr,ee                              calls-other=False takes-other=False
+    LEFT  theta_quotient   params=a,primes,corr,vc,L                             calls-other=False takes-other=False
+    RIGHT left_side        params=a,primes,v,w,corr,vc,L                         calls-other=False takes-other=False
+  G-INDEP GATE: PASS -- neither side reads the other's output
+  ### WHAT IS SHARED IS `a`, `corr = w*w`, the place set and the atlas constants --
+  ### and each sharing IS THE IDENTITY'S OWN CONTENT: an identity at a cell for a test
+  ### function is not two claims at two test functions.
+
+--------------------------------------------------------------------------------------------------------
+THE CONFIGURATIONS, AS BANKED. ### base NV=4001, mode (700, 10); refinements NV=6001 and mode (900, 11).
+--------------------------------------------------------------------------------------------------------
+  a^2=2   done (16.3s elapsed)
+  a^2=3   done (18.3s elapsed)
+  a^2=4   done (20.3s elapsed)
+  a^2=8   done (22.2s elapsed)
+  a^2=9   done (24.1s elapsed)
+  a^2=12  done (26.0s elapsed)
+  KERNEL-CACHE GATE: NU 12001 -> 12001, UMAX 600.0 -> 600.0   PASS (the cache was never stale)
+
+--------------------------------------------------------------------------------------------------------
+THE COLUMNS AT THE BASE CONFIGURATION. ### EACH SIDE FROM ITS OWN OWNERS.
+--------------------------------------------------------------------------------------------------------
+  a^2       Tr_full           E2      Delta_-      Theta_q |            A           PR
+  2        3.737476     1.679428     0.677615     0.000000 |    -1.990528     0.000000
+  3        2.981721     1.516645     0.605701     0.000000 |    -1.908900     0.106484
+  4        2.635303     1.374051     0.540018     0.161978 |    -1.786498     0.249320
+  8        2.091552     1.096239     0.410725     0.317018 |    -1.525474     0.561045
+  9        2.023971     1.058309     0.393176     0.473862 |    -1.488337     0.608882
+  12       1.883111     0.975064     0.354973     0.518491 |    -1.405398     0.714334
+
+--------------------------------------------------------------------------------------------------------
+G-STAB. ### BOTH SIDES AT THE REGISTERED AXES AND ONE REGISTERED REFINEMENT EACH.
+--------------------------------------------------------------------------------------------------------
+  a^2       |dL| (NV)    |dL| (mode)          bar_L |      |dR| (NV)          bar_R
+  2      8.881784e-16   1.863159e-01   7.452637e-01 |   4.440892e-16   3.000000e-13
+  3      1.776357e-15   1.260580e-01   5.042319e-01 |   1.917287e-08   4.799915e-08
+  4      0.000000e+00   9.979835e-02   3.991934e-01 |   3.082658e-09   1.848573e-08
+  8      1.059068e-08   6.679792e-02   2.671917e-01 |   4.080246e-08   1.719634e-07
+  9      3.669456e-09   6.232008e-02   2.492803e-01 |   8.889603e-09   1.919957e-07
+  12     1.019947e-08   5.086149e-02   2.034459e-01 |   3.820938e-08   2.455628e-07
+  ### bar_R = max(banked projection, the right side's own measured disagreement).
+
+========================================================================================================
+THE FACE-OFF TABLE. ### L := T.value + Q.value := (Tr_full + E2 + Delta_-) + Theta_q
+###                  R := A - PR
+### CEILING (b15): "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+========================================================================================================
+  a^2               L              R        |L - R|          rel   combined bar  BRANCH
+  2          6.094519      -1.990528   8.085046e+00    1.327e+00   7.452637e-01  ### DISSONANT
+  3          5.104067      -2.015384   7.119451e+00    1.395e+00   5.042320e-01  ### DISSONANT
+  4          4.711349      -2.035817   6.747167e+00    1.432e+00   3.991934e-01  ### DISSONANT
+  8          3.915534      -2.086520   6.002054e+00    1.533e+00   2.671918e-01  ### DISSONANT
+  9          3.949318      -2.097219   6.046537e+00    1.531e+00   2.492805e-01  ### DISSONANT
+  12         3.731639      -2.119732   5.851371e+00    1.568e+00   2.034462e-01  ### DISSONANT
+
+### THE ACT'S BRANCH, BY THE RULE BANKED BEFORE THE RUN: (DISSONANT)
+### cells: a^2=2 DISSONANT, a^2=3 DISSONANT, a^2=4 DISSONANT, a^2=8 DISSONANT, a^2=9 DISSONANT, a^2=12 DISSONANT
+### AND THE CEILING AGAIN, BECAUSE A BRANCH IS WHERE A READER STOPS: this is a
+### finite-place-set object at a finite cutoff. ### IT DECIDES NOTHING GLOBAL, AND h2
+### STANDS EXACTLY WHERE THE DEPOSIT LEFT IT.
+
+  elapsed: 26.0s

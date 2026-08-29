@@ -181,6 +181,9 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE FACE-OFF KEY, ADDED b240 UNDER ITS CLAUSE (g).
+    'first-face-off': ['face-off', 'the face off', 'first face-off', 'l vs r',
+                       'the two columns', 'dissonant', 'the separation at bench'],
     # ### THE DEFINITION KEY, ADDED b239 UNDER ITS CLAUSE (f).
     't-value-definition': ['t.value definition', 't value definition', 'rule m-1',
                            'c2 definition', 'documented binding', 'defined-by-ruling'],
@@ -397,6 +400,22 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("first-face-off", "b240",
+     "the identity's two columns computed at the six banked diagonal a^2 cells under one named"
+     " convention, meanings banked and HASHED before the first instrument call:"
+     " L := T.value + Q.value := (Tr_full + E2 + Delta-minus) + Theta_q against R := A - PR."
+     " ### BRANCH (DISSONANT) AT ALL SIX CELLS, separation 5.85 to 8.09 against combined bars 0.203 to"
+     " 0.745 (10.85x to 28.8x). ### AND THE SEPARATION HAS AN EXACT ANATOMY, registered BEFORE the run and"
+     " reproduced to 8.9e-16: L - R = 2*E2 + Delta-minus + resid47 + Theta_q + PR, whose LARGEST"
+     " term everywhere is resid47 := Tr_full - A - E2 (2.31 to 4.05)",
+     "BENCH, PER-CELL, AT A FINITE PLACE SET AND A FINITE CUTOFF -- ### b15: 'a finite-place-set"
+     " object at a finite cutoff decides nothing global'. ### THE FORM IS NOT INDICTED: suspects 1"
+     " (axes) and 2 (normalizations) account for the whole separation term by term, and the largest term"
+     " rides a mode truncation whose tail NOTHING IN THE RECORD BOUNDS (W-ORD-LEFT-MODE-AXIS)."
+     " ### THE LEFT SIDE IS THE UNCONVERGED SIDE: its bar is SIX ORDERS above the right's."
+     " ### NO GRADE MOVED; no variant was promoted to primary; h2 UNCHANGED",
+     "data/b240_meanings.txt; data/b240_faceoff_run.txt; data/b240_diagnostics.txt;"
+     " data/b240_first_face_off.txt"),
     ("t-value-definition", "b239",
      "T.value DEFINED BY AUTHOR RULING (RULE M-1): C2, i.e."
      " ArchimedeanE1Trace.value := Tr_full + E2 + Delta-minus -- the three archimedean channels of"
