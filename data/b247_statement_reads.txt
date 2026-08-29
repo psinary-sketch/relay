@@ -1,0 +1,76 @@
+========================================================================================================
+b247 -- THE STATEMENT'S BENCH READS. ### NO DERIVATION IS PERFORMED.
+========================================================================================================
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.'
+### h2 UNCHANGED. ### NOTHING DEPOSITS.
+
+--------------------------------------------------------------------------------------------------------
+(1) THE CONSTITUENTS, FROM THEIR OWNERS' OWN CONSTRUCTION, AT NQ = 700.
+### `lambda(n)^2 = mu_{2n}` (pin P1: even index only). ### `xi_n(1) = sqrt(2)*psi_{2n}(1)`
+### (pin P2, half-line norm), and `psi_n(1)` comes from the EIGENFUNCTION EQUATION
+### `xi_n(1) = (1/lambda_n) INT K(1,y) xi_n(y) dy` -- NOT extrapolated from the grid.
+--------------------------------------------------------------------------------------------------------
+  n         lambda(n)^2          xi_n(1)             t(n)    t(n)/t(n-1)   range
+  0     9.999427534e-01      0.026179996  1.197193235e+01             --   certified
+  1     9.593903454e-01      0.609479254  8.775743151e+00     7.3303e-01   certified
+  2     2.746660266e-01      2.413226271  2.205276321e+00     2.5129e-01   certified
+  3     3.478238072e-03      3.526143743  4.339828243e-02     1.9679e-02   certified
+  4     7.465620360e-06      4.099362227  1.254589747e-04     2.8909e-03   certified
+  5     5.820371503e-09      4.571835018  1.216555168e-07     9.6968e-04   certified
+  6     2.072073661e-12      4.994344471  5.168472107e-11     4.2484e-04   certified
+  7     4.745607379e-16      1.938584414  1.783451232e-15     3.4506e-05   certified
+  8     3.281378133e-16      0.136443183  6.108857087e-18     3.4253e-03   certified
+  9     2.725299330e-16      0.972198171  2.575869216e-16     4.2166e+01   certified
+  10    2.298216586e-16      0.883328619  1.793228191e-16     6.9616e-01   certified
+  11    1.506073475e-16      1.335712365  2.687027136e-16     1.4984e+00   ### UNCERTIFIED
+  12    1.170105786e-16      2.998169379  1.051810387e-15     3.9144e+00   ### UNCERTIFIED
+  13    9.432752111e-17      3.283509060  1.016985731e-15     9.6689e-01   ### UNCERTIFIED
+  14    8.825019717e-17      1.469873464  1.906670221e-16     1.8748e-01   ### UNCERTIFIED
+  15    7.541814975e-17      1.480064959  1.652104169e-16     8.6649e-01   ### UNCERTIFIED
+  16    7.284996012e-17      0.345175371  8.679784041e-18     5.2538e-02   ### UNCERTIFIED
+  17    6.704027016e-17      2.488389789  4.151189670e-16     4.7826e+01   ### UNCERTIFIED
+  ### **LEMMA F.1 CERTIFIES ELEVEN TERMS. ### EVERYTHING AT n >= 11 IS A PROBE AND IS
+  ### LABELLED UNCERTIFIED AT EVERY USE.** ### It is printed because the ROUTE needs to
+  ### know what the instrument does past its certificate, NOT because it may be cited.
+
+========================================================================================================
+(2) ### THE A-2 DISCRIMINATOR, REGISTERED BEFORE THE NUMBER WAS SEEN.
+### b212 MEASURED `|alpha_odd| / (pi*Lambda) = 1.0` AT EVERY ODD EIGENVALUE AT EVERY
+### PARAMETER -- i.e. ### **`|alpha|` IS CONSTANT IN THE EIGENVALUE INDEX.**
+### ### SO IF `xi_n(1)` WERE THE ARC'S `alpha`, `xi_n(1)` WOULD BE CONSTANT IN `n`.
+========================================================================================================
+  xi_n(1) over the CERTIFIED range n = 0..10:
+    0.026180  0.609479  2.413226  3.526144  4.099362  4.571835  4.994344  1.938584  0.136443  0.972198  0.883329
+  min = 0.026179996   max = 4.994344471   ### max/min = 190.769487
+  ### ### IS `xi_n(1)` CONSTANT IN n (to 1%)?  ### **NO**
+  ### AND THE VALUE `alpha` WOULD HAVE TO TAKE IF IT WERE: the corpus's two banked pins
+  ### give `sum_n lambda(n)^2 = 2.237484835` and `sum_n lambda(n)^2 xi_n(1)^2 = 2.0`,
+  ### so a CONSTANT `xi(1)^2` would be forced to `2/2.237484835 = 0.893860807`,
+  ### i.e. `xi(1) = 0.945442122`. ### That is the number the constancy hypothesis predicts.
+  ### MEASURED SPREAD AGAINST IT: min 0.026180, max 4.994344.
+
+========================================================================================================
+(3) ### THE OBSERVED DECAY OF `lambda(n)^2` -- ### THE BENCH CONTROL ANY IMPORTED
+### DECAY MUST MATCH. ### MEASURED, NOT FITTED, AND NOT A THEOREM.
+========================================================================================================
+  n           lambda(n)^2    ratio to prev            log10
+  0       9.999427534e-01               --          -0.0000
+  1       9.593903454e-01       9.5945e-01          -0.0180
+  2       2.746660266e-01       2.8629e-01          -0.5612
+  3       3.478238072e-03       1.2664e-02          -2.4586
+  4       7.465620360e-06       2.1464e-03          -5.1269
+  5       5.820371503e-09       7.7962e-04          -8.2350
+  6       2.072073661e-12       3.5600e-04         -11.6836
+  7       4.745607379e-16       2.2903e-04         -15.3237
+  8       3.281378133e-16       6.9146e-01         -15.4839
+  9       2.725299330e-16       8.3053e-01         -15.5646
+  10      2.298216586e-16       8.4329e-01         -15.6386
+  ### THE RATIOS FALL BY ROUGHLY THREE ORDERS PER MODE ACROSS THE CERTIFIED RANGE, AND
+  ### ### **THE DECAY IS FASTER THAN GEOMETRIC** -- but that is a DESCRIPTION OF SIX OR
+  ### ### SEVEN MEASURED POINTS, ### NOT A RATE, AND NOT A THEOREM.
+  ### **b242's FLOOR APPLIES AND IS RESTATED: `lambda(n)^2` REACHES THE float64 FLOOR AT
+  ### n = 7, so every point past it is arithmetic noise and CANNOT constrain a rate.**
+
+### WHAT THIS RUN DID NOT DO: it derived nothing, graded no import, filled no route step,
+### and claimed no rate. ### NOTHING DEPOSITS.
+========================================================================================================

@@ -1,0 +1,360 @@
+====================================================================================================
+b247 -- THE M-4 STATEMENT AND ROUTE. ### THE BANK.
+### REGISTRATION BANKED FIRST: data/b247_registration_2026-08-29.txt -- the E0 gate, the three
+### permitted asset verdicts, the import bar, and the A-2 DISCRIMINATOR all fixed before any
+### number was seen. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING, FIRST AND NOT LAST:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### h2 STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE REGISTER SENTENCE IS UNCHANGED:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."
+### ### **NO DERIVATION WAS PERFORMED IN THIS ACT.** ### NOTHING DEPOSITS.
+
+====================================================================================================
+### THE ACT IN ONE PARAGRAPH.
+====================================================================================================
+### **THE STATEMENT IS WRITABLE FROM OWNERS EXCEPT AT ONE PLACE, AND THAT PLACE IS THE THEOREM.**
+### Clause (i) requires `lambda(n) -> 0` ### **AT A STATED RATE**, and ### **NO OWNER IN THIS
+### CORPUS STATES ONE.** ### The bench cannot supply it either: `lambda(n)^2` reaches the float64
+### floor at `n = 7`, so the measured points past it are arithmetic noise and cannot constrain a
+### rate. ### **THE STATEMENT THEREFORE HALTS AT CLAUSE (i)'s RATE, AND THE MISSING SENTENCE IS
+### NAMED.** *** ### **A-1 IS (SAME OBJECT); A-2 IS (DOUBLE-NAME), SETTLED BY A DISCRIMINATOR
+### REGISTERED BEFORE THE NUMBER WAS SEEN; IMP-3 IS REFUSED.** *** ### And one finding the act did
+### not go looking for: ### **CLAUSE (ii)'s FIRST DISJUNCT IS FALSE ON THE CERTIFIED RANGE.**
+### `xi_n(1)^2` is NOT bounded there -- it GROWS by a factor of about 36,000 across seven modes --
+### so only the "growth dominated" form of (ii) is live, and the theorem must be stated that way.
+
+====================================================================================================
+COMPONENT 1 -- THE STATEMENT, UNDER THE E0 GATE. ### (P1)
+====================================================================================================
+
+--- (1.1) THE OWNERS' SENTENCES, QUOTED ---
+### **[sec 17, the grade sentence for `Delta_-` and the trace bookkeeping]:** "COMPUTED IN
+###   STRUCTURE (sec 17): the odd-index `t(n)` series; banked at the `eps'(1+)` pin (8.8191 of
+###   22.9965); per-mode positivity structural -- ### **open only in its trace-class bookkeeping**".
+### **[sec 20(b), what the bookkeeping IS]:** "the divergent-part subtraction is exactly the
+###   trace-class bookkeeping already owed to the `eps`-lemma".
+### **[b237, naming it M-4]:** "M-4 [RESULT]. ### The eps trace-class bookkeeping -- `Delta_-`'s
+###   own open item, and the thing that turns `Tr + E2 + Delta_-` into File E's ### eps-REGULARIZED
+###   trace."
+### **[Lemma F.1's certificate, `qeps_layer.py:20` and `:41`]:** "Truncation: first 11 terms
+###   uniform to 1e-11 (Lemma F.1)" / `NTERM = 11  # Lemma F.1: first 11 terms uniform to 1e-11`.
+###   ### **WHAT IT CERTIFIES AND WHERE IT STOPS, SAID EXACTLY: it certifies that the ELEVEN-TERM
+###   ### TRUNCATION IS UNIFORM TO 1e-11. ### IT SAYS NOTHING ABOUT THE TAIL BEYOND ELEVEN, AND
+###   ### NOTHING ABOUT A RATE.** ### It is a truncation certificate, not a convergence theorem.
+
+--- (1.2) ### `t(n)` UNFOLDED, EVERY CONSTITUENT TO ITS OWNER'S DEFINITION ---
+### ### `t(n) = lambda(n)^2 * xi_n(1)^2 / (1 - lambda(n)^2)`
+### **(1) WHICH OPERATOR's SPECTRUM `lambda(n)` IS** -- `prolate_layer.py` lines 9-17, quoted:
+###   "THE PRIMARY DEFINITION USED (Slepian-Pollak 1961; classical, not CC-specific): the
+###    time-and-band limiting operator on [-1,1], with the corpus's fixed c = 2*pi,
+###        (Q f)(x) = INT_{-1}^{1} sin(c (x-y)) / (pi (x-y)) f(y) dy,   c = 2 pi
+###    whose eigenvalues are lambda(0) > lambda(1) > ... in (0,1) and whose eigenfunctions are the
+###    prolate spheroidal wave functions xi_n".
+### **(2) ON WHICH SPACE, AND WITH WHICH PARAMETER FIXED** -- `L^2[-1,1]`, and
+###   ### **`c = 2*pi` IS FIXED**, not asymptotic: "c = 2*pi is the corpus's own fixed value
+###   (sitting-4 correction: 'Landau-Widom inapplicable -- c = 2*pi is FIXED')".
+### **(3) WHICH NORMALIZATION FIXES `xi_n(1)`, AND HOW ITS VALUE IS OBTAINED** -- the pins P1-P3,
+###   quoted from `prolate_layer.py` lines 77-93:
+###     **P1** "CC's lambda(n) are the EVEN-INDEXED truncated-Fourier eigenvalues, SIGNED:
+###            lambda(n) = (-1)^n sqrt(mu_{2n}) ... The concentration eigenvalues mu_k computed
+###            above are lambda(n)^2 -- so CC's sum of squares runs over EVEN indices only."
+###     **P2** "Norm convention, their eq. (16): ||xi||^2 = int_0^infinity |xi|^2 -- half-line,
+###            even functions. For an even function supported in [-1,1] this is half the full-line
+###            norm, so ### **xi_n = sqrt(2) * psi_{2n}**."
+###     **P3** "xi_n = P_1 phi_n / ||P_1 phi_n|| under P2; xi_n^an via eta_n = F xi_n =
+###            lambda(n) xi_n^an."
+###   AND THE CONSTRUCTION OF THE ENDPOINT VALUE, quoted from lines 25-27:
+###     "Endpoint values xi_n(1) are ### **NOT extrapolated from the grid** -- they are obtained
+###      from the eigenfunction equation itself, ### **xi_n(1) = (1/lambda_n) INT K(1,y) xi_n(y) dy**,
+###      which is exact up to quadrature."
+### ### **SO: `lambda(n)^2 = mu_{2n}`, the EVEN-INDEXED concentration eigenvalue of `Q` on
+### ### `L^2[-1,1]` at FIXED `c = 2*pi`; and `xi_n(1) = sqrt(2)*psi_{2n}(1)` with `psi` the
+### ### `L^2[-1,1]`-normalized eigenfunction, the endpoint obtained by the eigenfunction equation
+### ### and NOT by extrapolation.** ### EVERY CONSTITUENT IS UNFOLDED. ### E0 SATISFIED FOR THE
+### ### CONSTITUENTS.
+
+--- (1.3) ### THE THEOREM TO BE PROVED, AND WHERE IT HALTS ---
+### **(i)**  `lambda(n) < 1` for all `n` beyond the certified range, with `lambda(n) -> 0`
+###          ### **AT A STATED RATE.**
+### **(ii)** `xi_n(1)^2` bounded, ### **OR its growth dominated by (i)'s rate.**
+### **(iii)** hence `sum_n t(n)` converges, with an ### **EXPLICIT TAIL ENVELOPE AT THE K1
+###          REALIZATION'S CUT (`n >= 7`).**
+
+### ### ### **THE HALT, AND THE MISSING SENTENCE NAMED:**
+### ### ### **CLAUSE (i)'s RATE IS NOT STATED BY ANY OWNER IN THIS CORPUS.**
+### ### The layer's primary definition gives `lambda(n) in (0,1)` and strict decrease -- that much
+### ### is quoted above -- ### **BUT NO RATE.** ### Lemma F.1 certifies a TRUNCATION, not a tail.
+### ### sec 17 grades `Delta_-` "open only in its trace-class bookkeeping" -- which NAMES the debt
+### ### rather than discharging it. ### And the bench cannot fill it: ### **`lambda(n)^2` REACHES
+### ### THE float64 FLOOR AT `n = 7`** (4.7e-16, against 2.1e-12 at `n = 6`), so every measured
+### ### point past the floor is arithmetic noise and ### **CANNOT CONSTRAIN A RATE.**
+### ### ### **THE MISSING SENTENCE, STATED AS THE THING THAT MUST BE SUPPLIED:**
+### ### ### *"For the time-and-band limiting operator on [-1,1] at FIXED c = 2*pi, the
+### ### ###  concentration eigenvalues mu_k satisfy mu_k <= F(k) for an explicit F with
+### ### ###  sum_k F(2k) * G(k) < infinity, where G dominates xi_k(1)^2."*
+### ### ### **NO OWNER SUPPLIES IT. ### THE STATEMENT HALTS HERE, AND THIS ACT DOES NOT COMPLETE
+### ### ### IT FROM WHAT WAS PROBABLY MEANT.**
+
+--- (1.4) ### AND A FINDING THE ACT DID NOT GO LOOKING FOR: CLAUSE (ii)'s FIRST DISJUNCT IS FALSE
+### `xi_n(1)` over the CERTIFIED range `n = 0..10`, measured at NQ = 700 from the layer's own
+### endpoint construction:
+###   0.026180  0.609479  2.413226  3.526144  4.099362  4.571835  4.994344  1.938584  0.136443
+###   0.972198  0.883329
+### ### **IT GROWS MONOTONICALLY THROUGH `n = 6`, FROM 0.026180 TO 4.994344** -- so
+### ### `xi_n(1)^2` runs from 6.854e-04 to 24.94, ### **A FACTOR OF ABOUT 36,000 ACROSS SEVEN
+### ### MODES.** ### (The collapse at `n >= 7` sits exactly where `lambda(n)^2` hits the float
+### ### floor and is arithmetic noise, not decay.)
+### ### ### **SO `xi_n(1)^2` IS NOT BOUNDED ON THE MEASURED RANGE, AND THE FIRST DISJUNCT OF (ii)
+### ### ### IS FALSE THERE. ### ONLY THE "GROWTH DOMINATED" FORM IS LIVE**, and the theorem must
+### ### ### be stated that way rather than in the easier form.
+### ### AND WHY IT STILL CONVERGES ON THE CERTIFIED RANGE, from the same table: `t(n)` runs
+### ### 1.197e+01, 8.776e+00, 2.205e+00, 4.340e-02, 1.255e-04, 1.217e-07, 5.168e-11 -- ### the
+### ### `lambda^2` decay (about three orders per mode) ### **OUTRUNS the `xi^2` growth (under one
+### ### order per mode) BY A WIDE MARGIN.** ### **THAT IS AN OBSERVATION OVER SEVEN POINTS AND IT
+### ### IS NOT A RATE, NOT A BOUND, AND NOT A THEOREM.**
+
+====================================================================================================
+COMPONENT 2 -- THE ASSETS. ### (P2) ### DEFINITION AGAINST DEFINITION, THREE VERDICTS ONLY.
+====================================================================================================
+
+--- **A-1 -- act 15's DERIVED PAIR GEOMETRY. ### VERDICT: (SAME OBJECT).** ---
+### **[narrative sec 28(a), R2, quoted]:** "per even-prolate mode the pair `(xi_n, eta_n = F xi_n)`
+###   has Gram exactly the SIGNED `lambda_n` ... so the `+1`-sector constraint vectors are
+###   `v_n+ = (xi_n + eta_n)/sqrt(2(1+lambda_n))` and ### **the E+B block inverses carry
+###   `1/(1-lambda_n^2)`: the `eps`-series' denominators ARE the lambda-scale Sonin geometry --
+###   derived**".
+### **THE UNFOLDING, BOTH SIDES:**
+###   `t(n)`'s denominator : `1 - lambda(n)^2`, with `lambda(n)^2 = mu_{2n}` -- EVEN-indexed
+###     concentration eigenvalues (pin P1), as `qeps_layer` computes them (`lam2 = mu[0::2]`).
+###   sec 28(a)'s block inverses : `1/(1 - lambda_n^2)`, with `lambda_n` the SIGNED Gram eigenvalue
+###     of the pair `(xi_n, F xi_n)` ### **per EVEN-PROLATE mode** -- the same index set, and
+###     `lambda_n^2 = mu_{2n}` by the same pin.
+### ### **SAME INDEX SET, SAME EIGENVALUE, SAME EXPRESSION. ### (SAME OBJECT), BY DEFINITION AND
+### ### NOT BY RESEMBLANCE.** ### And the consequence the corpus already drew: "THE eps-MACHINERY
+### ### IS THE lambda-SCALE SONIN GEOMETRY, derived" (correspondence row 132).
+### ### **WHAT THIS DOES *NOT* GIVE: a bound, a rate, or a tail.** ### It identifies the
+### ### denominator's origin. ### **AN IDENTIFICATION IS NOT AN ESTIMATE.**
+
+--- **A-2 -- IS `xi_n(1)` THE ARC'S `alpha`? ### VERDICT: (DOUBLE-NAME).** ---
+### **THE TWO DEFINITIONS, UNFOLDED SIDE BY SIDE:**
+###   `xi_n(1)` : the value at ### **x = 1, the RIGHT endpoint of `[-1,1]`**, of the prolate
+###     eigenfunction of `Q` on ### **`L^2[-1,1]`**, normalized by `INT_{-1}^{1} psi^2 = 1` and
+###     then scaled `xi_n = sqrt(2) psi_{2n}` (pin P2, half-line convention); obtained from the
+###     eigenfunction equation `xi_n(1) = (1/lambda_n) INT K(1,y) xi_n(y) dy`.
+###   `alpha`   : `psi(1)` -- the value at ### **x = 1, the LEFT endpoint of `[1, infinity)`** --
+###     for the RRJT singular Sturm-Liouville eigenfunction, quoted from b211: "alpha = psi(1)",
+###     "Write psi = alpha y_I with alpha = psi(x_0)/y_I(x_0)", and with
+###     `INT_1^infinity psi^2 dx` FINITE (b211: "psi = O(1/x) gives psi^2 = O(1/x^2), integrable
+###     at infinity") -- ### **that integral being the RIGHT-HAND SIDE of the Wronskian identity
+###     `alpha(mu_k) * beta'(mu_k) = INT_1^infinity psi^2 dx`, and NOT normalized to 1.**
+### ### **THE DIFFERENCE, QUOTED RATHER THAN SUMMARISED: TWO DIFFERENT DOMAINS (`[-1,1]` against
+### ### `[1, infinity)`), TWO DIFFERENT ENDPOINTS OF THEM (right against left), AND TWO DIFFERENT
+### ### NORMALIZATIONS (unit `L^2[-1,1]` against an unnormalized `L^2[1,infinity)` whose value is
+### ### itself an object of the identity).**
+### **AND THE DISCRIMINATOR, REGISTERED IN THE REGISTRATION BEFORE THE NUMBER WAS SEEN:**
+###   b212 measured ### **`|alpha_odd| / (pi*Lambda) = 1.0` AT EVERY ODD EIGENVALUE AT EVERY
+###   PARAMETER** -- i.e. `|alpha|` is ### **CONSTANT IN THE EIGENVALUE INDEX.**
+###   So if `xi_n(1)` were the same object it would be constant in `n`.
+###   ### **MEASURED: `xi_n(1)` RUNS 0.026180 TO 4.994344 OVER THE CERTIFIED RANGE --
+###   ### max/min = 190.77.** ### And the constancy hypothesis has a FORCED value: the corpus's two
+###   banked pins (`sum lambda^2 = 2.237484835`, `sum lambda^2 xi_1^2 = 2.0`) would put a constant
+###   `xi(1)` at ### **0.945442**. ### The measured values bracket it by two orders in each
+###   direction.
+### ### ### **(DOUBLE-NAME). ### THE TWO ARE NOT THE SAME OBJECT, AND THE ACT DOES NOT SAY THEY
+### ### ### ARE "RELATED" OR "COMPATIBLE" -- those are not verdicts.**
+### ### **WHAT IS *NOT* CLAIMED:** that no relation exists. ### A transform relating the RRJT
+### ### exterior problem to the prolate interior one may exist and would be a RESULT owed;
+### ### ### **THIS ACT SAYS ONLY THAT THE TWO ENDPOINT VALUES ARE NOT THE SAME NUMBER AND ARE NOT
+### ### ### DEFINED ON THE SAME OBJECT.**
+
+--- **A-3 -- b242's PER-MODE MEASUREMENTS AS THE BENCH CONTROL. ### AVAILABLE AND RESTATED.** ---
+### `lambda(n)^2` at NQ = 700: 9.999e-01, 9.594e-01, 2.747e-01, 3.478e-03, 7.466e-06, 5.820e-09,
+### 2.072e-12, then ### **4.746e-16 -- THE float64 FLOOR.**
+### ### **ANY IMPORTED DECAY MUST MATCH THESE SEVEN POINTS AND MAY NOT BE CHECKED AGAINST THE
+### ### ONES PAST THE FLOOR**, which are noise. ### b242 established the floor and b244's RULE
+### ### MODES K1 ruled the realization to seven modes because of it.
+
+--- **A-4 -- LEMMA F.1's RANGE AS THE FLOOR THE TAIL ESTIMATE MUST JOIN.** ---
+### F.1 certifies ELEVEN terms uniform to 1e-11. ### K1 realizes SEVEN. ### **THE CERTIFICATE'S
+### RANGE AND THE ARITHMETIC'S RANGE ARE DIFFERENT NUMBERS AND b244 ALREADY RULED ON THE DIFFERENCE.**
+### ### **CONSEQUENCE FOR THE ROUTE: the tail envelope must be stated at a cut, and WHICH CUT IS
+### ### A RULING, NOT A CALCULATION** -- seven (what the bench computes) or eleven (what F.1
+### ### certifies). ### **THAT RULING IS OWED AND IS NOT MADE HERE.**
+
+====================================================================================================
+COMPONENT 3 -- THE IMPORTS, UNDER THE BAR. ### (P3)
+====================================================================================================
+
+--- **IMP-3 CANDIDATE: Slepian-Widom-type eigenvalue decay. ### VERDICT: REFUSED.** ---
+### **THE HYPOTHESIS CHECK, AGAINST OUR OPERATOR'S DEFINITION AND NOT ITS NAME:**
+###   THE CANDIDATE FAMILY the corpus has actually seen is the ### **`c -> infinity`** ### one.
+###   b130 read it at content IN A SECONDARY SOURCE and quoted it:
+###     "#{n : eps < lambda_n(c) < 1 - eps} = (2/pi^2) log c * log(1/eps - 1) + o(log c),
+###      ### **c -> infinity**"
+###   ### **OUR OPERATOR'S `c` IS FIXED AT `2*pi`** -- `prolate_layer.py` lines 19-20, and the
+###   sitting-4 correction it carries: "Landau-Widom inapplicable -- c = 2*pi is FIXED".
+### ### ### **THE HYPOTHESES DO NOT MATCH: AN ASYMPTOTIC IN `c` CANNOT BE APPLIED AT A FIXED `c`.
+### ### ### THE IMPORT IS REFUSED.**
+### **AND THE SOURCING, STATED PLAINLY AS THE BAR REQUIRES:** ### **NO PRIMARY WAS READ AT CONTENT
+### IN THIS ACT, AND NONE EXISTS IN THIS REPOSITORY.** ### b130's own grade on the one quotation
+### the corpus holds: "SECONDARY-VERIFIED -- read at content IN A SECONDARY SOURCE which attributes
+### it to Landau-Widom; ### **THE PRIMARY IS NOT READ**", with the secondary's title itself not
+### established at content.
+### ### **THE PRECEDENT THAT GOVERNS THIS REFUSAL, b130's own and quoted: "A CITATION IS NOT A
+### ### LICENCE; APPLICABILITY IS A SEPARATE READ."** ### b130 came one step from filing a
+### ### correctly-quoted, correctly-attributed classical fact as bearing on this instrument, and
+### ### what stopped it was reading the layer rather than trusting the citation. ### **THIS ACT
+### ### DOES NOT UNDO THAT.**
+### ### ### **AND THE HONEST QUALIFIER, REGISTERED IN ADVANCE AND REPEATED HERE BECAUSE IT IS THE
+### ### ### THING A READER WOULD OTHERWISE GET WRONG:** ### **A FIXED-`c` DECAY THEOREM IS A
+### ### ### DIFFERENT THEOREM FROM THE `c -> infinity` ONE, AND REFUSING THE SECOND DOES NOT
+### ### ### REFUTE THE FIRST.** ### The fixed-`c` family was ### **NOT REACHED** ### by this act:
+### ### ### no statement of it has been located or quoted from a real source in this corpus, and
+### ### ### this act does not assert that none exists. ### **b130 filed exactly this as
+### ### ### NAVIGATOR-OPEN -- "no finite-c statement has been read" -- AND IT STAYS OPEN.**
+### **NO SECOND IMPORT WAS REACHED.** ### None is graded and none is refused-by-name.
+
+====================================================================================================
+COMPONENT 4 -- THE ROUTE, AND THE DERIVATION ACT SPECIFIED. ### (P4)
+====================================================================================================
+
+--- (4.1) ### THE ROUTE, STEP BY STEP, WITH SPECIES, PRICE AND GATE ---
+
+### **S1 -- `lambda(n) in (0,1)` AND STRICTLY DECREASING, FOR ALL `n`.**
+###   SPECIES: ### **IMP owed (classical).** ### The layer states it as part of its PRIMARY
+###   DEFINITION, citing Slepian-Pollak 1961 -- but ### **THAT PRIMARY IS NOT READ IN THIS
+###   CORPUS**, so the fact stands at cite and not at content.
+###   PRICE: one import act under the bar -- locate, quote, check hypotheses against `Q` at fixed
+###   `c = 2*pi`, grade TRUSTED-AT-CITE, bench-verify against A-3's seven points.
+###   GATE: the seven measured `lambda(n)^2` must lie inside whatever the import asserts.
+###   ### **THE EXECUTOR'S DOUBT, REGISTERED: LOW.** ### This is the least contested step.
+
+### **S2 -- A DECAY RATE FOR `lambda(n)^2` AS `n -> infinity` AT FIXED `c = 2*pi`.**
+###   SPECIES: ### **IMP owed, OR RESULT owed.** ### IMP-3 is REFUSED above; the fixed-`c` family
+###   was NOT REACHED.
+###   PRICE: ### **EITHER** an import act that locates and quotes a fixed-`c` decay statement from
+###   a real primary and checks its hypotheses against `Q`, ### **OR** a derivation from the
+###   operator's own definition.
+###   GATE: the rate must reproduce A-3's seven certified points and must NOT be checked against
+###   the points past the float floor.
+###   ### ### **THIS IS THE ROUTE'S BINDING STEP.** ### Everything downstream is arithmetic on it,
+###   ### and ### **NOTHING IN THE CORPUS SUPPLIES IT TODAY.**
+###   ### **THE EXECUTOR'S DOUBT, REGISTERED: HIGH -- not that such a theorem exists, but that
+###   ### THIS SEAT CAN ESTABLISH IT AT CONTENT WITHOUT A PRIMARY IT HAS NOT GOT.**
+
+### **S3 -- A BOUND ON `xi_n(1)^2`, OR ITS GROWTH DOMINATED BY S2's RATE.**
+###   SPECIES: ### **RESULT owed.**
+###   PRICE: sharper than Cauchy-Schwarz. ### **AND THIS ACT CAN SAY WHY, FROM THE LAYER'S OWN
+###   ENDPOINT FORMULA AND WITHOUT DERIVING ANYTHING:** the construction is
+###   `xi_n(1) = (1/lambda_n) INT K(1,y) xi_n(y) dy`, so the obvious estimate is ### **INVERSE IN
+###   `lambda_n`** -- it bounds `xi_n(1)^2` by something like `const / lambda_n^2`, and feeding
+###   that into `t(n) = lambda^2 xi^2/(1-lambda^2)` gives ### **a bound that does NOT decay at
+###   all.** ### **THE NAIVE ROUTE THEREFORE CLOSES NOTHING, AND S3 NEEDS A SHARPER INPUT.**
+###   ### **THIS IS AN OBSERVATION ABOUT THE STEP'S DIFFICULTY, READ OFF THE ENDPOINT FORMULA. ###
+###   ### IT IS NOT A DERIVATION AND IT IS NOT A STEP.**
+###   GATE: any proposed bound must reproduce the measured growth -- `xi_n(1)^2` from 6.854e-04 to
+###   24.94 across `n = 0..6` -- and must not be checked past the floor.
+###   ### **THE EXECUTOR'S DOUBT, REGISTERED: HIGH.**
+
+### **S4 -- ASSEMBLE (i) + (ii) INTO CONVERGENCE WITH AN EXPLICIT TAIL ENVELOPE.**
+###   SPECIES: ### **RESULT owed.** ### PRICE: arithmetic on S2 and S3 once both exist.
+###   GATE: the envelope evaluated at the cut must be a NUMBER, and it must exceed nothing the
+###   bench can contradict. ### **THE EXECUTOR'S DOUBT: LOW, CONDITIONAL ON S2 AND S3.**
+
+### **S5 -- THE CUT AT WHICH THE ENVELOPE IS STATED.**
+###   SPECIES: ### **RULING owed.** ### Seven (what K1 realizes) or eleven (what Lemma F.1
+###   certifies)? ### **AN EXECUTOR DOES NOT SETTLE THIS** -- b237's sentence governs and b244's
+###   RULE MODES already ruled once in this territory.
+###   PRICE: one ruling. ### GATE: none needed; it is a definition.
+
+--- (4.2) ### THE DERIVATION ACT, SPECIFIED AND NOT RUN. ### FILED FOR THE AUTHOR'S CONFIRMATION.
+### **NAME:** b249 (or later) -- ### **THE M-4 DERIVATION.** ### **NOT SCHEDULED BY THIS ACT.**
+### **COMPONENTS:** (1) the S2 import act OR its derivation, under the bar with sourcing explicit;
+###   (2) S3, the endpoint-growth result; (3) S4, the assembly and the envelope's evaluation at the
+###   ruled cut; (4) the filings.
+### **GATES:** the bench control of A-3 at every step, with the float-floor exclusion enforced;
+###   the tautology control on every algebraic claim; must-fail fixtures failing for structurally
+###   different reasons; and the E0 gate re-run on the finished statement.
+### **GRADE TARGET:** ### **DERIVES-ON-IMPORTS AT CONTENT**, with a ### **Core shadow where
+###   finite-decidable at the audit bar** -- and ### **NOT HIGHER.** ### A theorem resting on an
+###   import is graded on its imports and the provenance line travels with it.
+### **HALT CONDITIONS, FIXED IN ADVANCE:** ### **HALT if S2's import cannot be located and quoted
+###   from a real primary** -- the act does not proceed on a secondary or a name. ### **HALT if any
+###   proposed bound is checked against points past the float floor.** ### **HALT if the envelope
+###   is stated without a ruled cut.** ### **HALT if `xi_n(1)` is identified with the arc's `alpha`
+###   anywhere in it** -- A-2 is (DOUBLE-NAME) and that verdict is now on the record.
+
+--- (4.3) ### THE FILINGS ---
+### **1. `m4-statement` AND `xi-alpha-question` KEYED ON FILING.**
+### **2. THE IN-FLIGHT REGISTER:** M-2, M-3, M-4, M-5 -- ### **FOUR OPEN, AND THIS ACT CLOSED
+###    NONE.** ### **M-4 NOW HAS A STATEMENT WITH A NAMED HOLE RATHER THAN A NAME ALONE**, and
+###    that is the whole of this act's advance. ### WORK-ORDERS OPEN: `W-ORD-MODE-PRECISION` (K3),
+###    `W-ORD-ORDINATE-CACHE`, `W-ORD-STAGING-GUARD`, `W-ORD-FILE-E-WORKING-COPY-STALE`,
+###    `W-ORD-TE-SPEC`. ### DISCHARGED AND STAYING SO: `W-ORD-LEFT-MODE-AXIS`,
+###    `W-ORD-IMP1-ENVELOPE`.
+### **3. `W-ORD-FIXED-C-DECAY` -- NEW, AND IT IS THE ROUTE'S BINDING STEP MADE INTO A WORK-ORDER:**
+###    locate and quote, from a REAL PRIMARY, a decay statement for the concentration eigenvalues
+###    of the time-and-band limiting operator ### **AT FIXED `c`**, and check its hypotheses
+###    against `Q` at `c = 2*pi`. ### **FILED, NOT RUN.**
+### **4. b248 NAMED AS NEXT: ### THE SECOND OBJECT** -- the `E2` arrangement read and the
+###    junction piece's per-cell split, ### **QUOTATION-ONLY**, with the standing clause at
+###    registration. ### b246 established that the second term of the shortfall is a sector
+###    combination of a CONVERGED series and is NOT M-4's; ### **b248 reads who owns it.**
+### **5. THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED:** term 2 stands at four items -- the file
+###    **OPEN**, the lemma **OPEN**, the toolchain **DISCHARGED**, the ledger's statement
+###    **COMPLETE AT CELL LEVEL**. ### **UNPAID AND UNTOUCHED BY THIS ACT.**
+### **ALSO LIVE:** b209's rows 46/47; the fold rulings; posture; the aggregation; the (3,2) Segre
+###    cell; the factor question at two quarries; Definition 3.3.1's source read; the `Lemma 5.4`
+###    citation; the sigma_even lemma citation; the deposited-title question at `E-2026-08-24-2`.
+
+====================================================================================================
+### THE EXECUTOR'S REGISTERED EXPECTATIONS, JUDGED.
+====================================================================================================
+### **A-1: expected (SAME OBJECT). ### BORNE OUT.**
+### **A-2: expected (DOUBLE-NAME), "and I expect the difference to be the domain". ### BORNE OUT,
+###   AND THE DOMAIN IS INDEED THE DIFFERENCE** -- `[-1,1]` against `[1, infinity)`, right endpoint
+###   against left. ### The discriminator I registered settled it 190.77 to 1.
+### **IMP-3: expected REFUSAL. ### BORNE OUT**, on the mismatch b130 had already recorded.
+### **THE STATEMENT: expected writable whole EXCEPT for (iii)'s envelope.** ### ### **PARTLY
+###   WRONG, AND THE CORRECTION IS THIS ACT'S OWN:** ### the halt is not at (iii) but ### **AT
+###   (i)'s RATE.** ### (iii) is a CONSEQUENCE; without a rate in (i) there is nothing to compute
+###   an envelope FROM. ### **I named the wrong clause and the reading corrected me.**
+### **AND ONE THING I DID NOT EXPECT AT ALL:** ### **that clause (ii)'s first disjunct would be
+###   FALSE on the measured range.** ### I registered (ii) as "bounded, OR growth dominated"
+###   without expecting the measurement to kill the first half. ### **IT DID, BY A FACTOR OF
+###   36,000, AND THAT SHARPENS THE THEOREM RATHER THAN WEAKENING IT.**
+
+====================================================================================================
+### THE MISS OF THIS ACT'S OWN, AND A REPAIR DISCLOSED RATHER THAN ABSORBED.
+====================================================================================================
+### ### **A GATE FAILED ON A CONJUNCT THAT ASSERTED NOTHING.** ### Gate 7's first form carried a
+### ### leftover clause -- a malformed pattern tested for FALSITY -- which the whitespace-normalized
+### ### matcher resolved to True, so the gate failed. ### **THE GATE WAS RIGHT TO FAIL: A CONJUNCT
+### ### THAT ASSERTS NOTHING IS A CONJUNCT THAT CAN ASSERT ANYTHING.** ### It is replaced by the
+### ### assertion it was meant to make -- that the halt sits at clause (i)'s RATE -- and the
+### ### correction is written into the gate's own comment rather than quietly swapped.
+### ### **TWO BANNED STEMS WERE WRITTEN IN THIS ACT'S OWN VOICE AND THE SCAN CAUGHT BOTH** -- one
+### ### in the registration, one in this bank. ### Both repaired; the scan re-runs CLEAN.
+### ### **AND THE ORDERING EVIDENCE WAS RESTORED HONESTLY RATHER THAN BACK-DATED:** repairing the
+### ### registration made it younger than the reads file, which would have broken the
+### ### registration-precedes-reads gate. ### **THE FIX WAS TO RE-RUN THE READS TOOL, WHICH IS
+### ### DETERMINISTIC, AND TO PROVE THE RE-RUN CHANGED NOTHING: a line diff of the pre- and
+### ### post-repair reads files shows ### ZERO CHANGED LINES.** ### The bank was then written last,
+### ### which is where it belongs. ### **NO MTIME WAS TOUCHED; THREE FILES WERE HONESTLY REWRITTEN
+### ### IN THEIR PROPER ORDER AND THIS PARAGRAPH SAYS SO.**
+
+====================================================================================================
+### WHAT DID NOT MOVE.
+====================================================================================================
+### **NO DERIVATION WAS PERFORMED AND NO ROUTE STEP WAS FILLED BY PLAUSIBILITY.** ### NO IMPORT WAS
+### GRADED. ### NO ASSET VERDICT OTHER THAN (SAME OBJECT) / (DOUBLE-NAME) / (UNDECIDED) WAS
+### WRITTEN. ### M-2..M-5 STAND OPEN AND M-4 IS NOT PAID, NOT PAYABLE TODAY, AND NOT NEARLY SO.
+### NO GRADE MOVED. ### NO KERNEL FILE TOUCHED. ### PLACE-papers, THE LOOM AND THE MIRROR WERE NOT
+### TOUCHED, SO THE HOOK DID NOT RUN AND NO MIRROR REBUILD WAS REQUIRED -- said rather than left to
+### be inferred. ### NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.
+### ### LOCKS LAST.
+====================================================================================================

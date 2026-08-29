@@ -281,6 +281,11 @@ KEYS = {
     # ### THE TWO-TAILS KEYS, ADDED b246 ON FILING.
     'two-tails': ['the two tails', 'tail parity', 'even and odd tails', 'one object two names'],
     'd-dict': ['d_dict', 'd dictated', 'the dictated deviation', 'sector split diff'],
+    # ### THE M-4 STATEMENT KEYS, ADDED b247 ON FILING.
+    'm4-statement': ['m-4 statement', 'the m4 theorem', 'trace-class bookkeeping statement',
+                     'm4 route'],
+    'xi-alpha-question': ['xi alpha', 'xi_n(1) vs alpha', 'the endpoint question',
+                          'alpha double name'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1134,6 +1139,44 @@ INDEX = [
      '### sec 19 row fixes the DEFINITION in favour of the eps-mask series; b246 computed BOTH '
      'rather than choosing',
      'data/b246_tails_run.txt (2.3, 2.4); data/b241_residual_ledger.txt (4.5)'),
+    # ### THE M-4 STATEMENT ROWS (b247). ### A STATEMENT WITH A NAMED HOLE IS NOT A THEOREM, AND
+    # ### THE ROW SAYS SO IN ITS OWN GRADE CELL.
+    ('m4-statement', 'b247',
+     "M-4 written from its owners with every constituent of t(n) = lambda(n)^2 xi_n(1)^2 / "
+     '(1 - lambda(n)^2) unfolded: lambda(n)^2 = mu_{2n}, the EVEN-INDEXED concentration '
+     'eigenvalue of the time-and-band limiting operator on L^2[-1,1] at FIXED c = 2*pi '
+     '(Slepian-Pollak 1961, pin P1); xi_n(1) = sqrt(2)*psi_{2n}(1) under the half-line norm '
+     '(pin P2), the endpoint obtained from the eigenfunction equation and NOT extrapolated. '
+     '### THE THEOREM: (i) lambda(n) -> 0 at a STATED RATE, (ii) xi_n(1)^2 bounded or its growth '
+     'dominated, (iii) hence sum t(n) converges WITH AN EXPLICIT TAIL ENVELOPE at the K1 cut',
+     '### **THE STATEMENT HALTS AT CLAUSE (i)s RATE AND THE MISSING SENTENCE IS NAMED.** '
+     '### NO OWNER IN THIS CORPUS STATES A RATE: Lemma F.1 certifies a TRUNCATION (eleven terms '
+     'uniform to 1e-11), not a tail; sec 17 NAMES the debt rather than discharging it; and the '
+     'bench cannot fill it because lambda(n)^2 reaches the float64 floor at n = 7. '
+     '### **AND CLAUSE (ii)s FIRST DISJUNCT IS FALSE ON THE CERTIFIED RANGE** -- xi_n(1)^2 GROWS '
+     'from 6.854e-04 to 24.94 across n = 0..6, a factor of about 36,000, so only the '
+     '"growth dominated" form is live. ### **NO DERIVATION WAS PERFORMED. M-4 IS NOT PAID, NOT '
+     'PAYABLE TODAY, AND NOT NEARLY SO.** ### The route is priced in five steps; S2 (a decay rate '
+     'at FIXED c) is the BINDING STEP and nothing in the corpus supplies it',
+     'data/b247_m4_statement_and_route.txt; data/b247_statement_reads.txt; '
+     'reports/2026-08-29-the-m4-statement-and-route.md'),
+    ('xi-alpha-question', 'b247',
+     'is xi_n(1) the arcs alpha? ### **VERDICT: (DOUBLE-NAME).** ### xi_n(1) is the value at the '
+     'RIGHT endpoint of [-1,1] of a prolate eigenfunction normalized by INT_{-1}^{1} psi^2 = 1 '
+     'then scaled by sqrt(2); alpha = psi(1) is the value at the LEFT endpoint of [1, infinity) '
+     'for the RRJT eigenfunction whose INT_1^inf psi^2 is FINITE BUT NOT NORMALIZED -- that '
+     'integral being the right-hand side of the Wronskian identity itself',
+     '### SETTLED BY A DISCRIMINATOR **REGISTERED BEFORE THE NUMBER WAS SEEN**: b212 measured '
+     '|alpha_odd|/(pi*Lambda) = 1.0 at every odd eigenvalue, i.e. |alpha| is CONSTANT in the '
+     'index, so if xi_n(1) were the same object it would be constant too. ### **MEASURED: '
+     'xi_n(1) runs 0.026180 to 4.994344 over the certified range, max/min = 190.77**, against a '
+     'forced constant of 0.945442 if the hypothesis held. ### **TWO DIFFERENT DOMAINS, TWO '
+     'DIFFERENT ENDPOINTS OF THEM, TWO DIFFERENT NORMALIZATIONS.** ### WHAT IS **NOT** CLAIMED: '
+     'that no relation exists -- a transform relating the exterior and interior problems would be '
+     'a RESULT owed; this row says only that the two endpoint values are not the same number and '
+     'are not defined on the same object',
+     'data/b247_m4_statement_and_route.txt (Component 2, A-2); data/b211_alternation_derived.txt; '
+     'data/b212_odd_family.txt'),
 ]
 
 
