@@ -308,6 +308,10 @@ KEYS = {
                      'which construction denotes', 'the quoted-n law'],
     'quadrature-binding': ['the quadrature binding', 'T.value := A + E2 - Delta_-',
                            'the re-bound realization', 'the mode sum demoted'],
+    'fourth-face-off': ['the fourth face-off', 'the identity at cells', 'the bench shadow',
+                        'the imbalance profile', 'L - R under the re-binding'],
+    'the-balance': ['the balance', 'Delta_- - E2 vs PR - Theta_q', 'E2even vs Theta_q - PR',
+                    'the balance residual', 'the two Delta_- realizations'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1429,6 +1433,53 @@ INDEX = [
      'IS A FACE-OFF AND b253 RAN NONE. ### IT IS b254 WORK.**',
      'data/b253_m2inf_ruling.txt; data/b253_filings.txt; '
      'Interfaces/FiniteInstanceIdentity.lean'),
+    ('fourth-face-off', 'b254 (bench computation under the re-bound realization)',
+     'the identity measured at six cells as the TWO-TERM balance its algebra now is: '
+     'L := (A + E2 - Delta_-) + (-Theta_q), R := A - PR, so L - R = (E2 - Delta_-) + '
+     '(PR - Theta_q) -- the `A` cancelling identically. ### **THAT COMPOSITION IS '
+     'ALGEBRAIC-RESTATEMENT AND WAS LABELLED SO IN THE HASH-GATED MEANINGS FILE BEFORE THE '
+     'RUN; the evidence is the SIZES, SIGNS and CELL-PROFILES only.** ### Every term also '
+     'tabulated alone; G-INDEP structural; G-STAB at b38 TRIPLE plus one refinement NQ=1100',
+     '### **BRANCH (IMBALANCED), AT EVERY CELL, UNDER *BOTH* Delta_- REALIZATIONS.** '
+     '### Under (A), the odd eps-MASK (the ruling rider names it): residual -1.001814 to '
+     '-0.800154, beyond bars by FOURTEEN ORDERS. ### Under (B), the odd TRACE modes '
+     '(b36_act8.py:172, quotable only as Dneg(N = 11, float64 modes, suspect above n = 6)): '
+     'residual -0.061581 to -0.533354, beyond bars by 1.50x to 31x -- **and the 1.50x at '
+     'a^2 = 2 is reported as marginal rather than rounded away.** ### **SIGN UNIFORMLY '
+     'NEGATIVE: SIX CELLS, TWO REALIZATIONS, TWELVE ENTRIES, ONE SIGN.** ### **NEITHER '
+     'PROFILE IS MONOTONE IN a^2** and the non-monotonicity is reported, not smoothed. '
+     '### (MIXED) is EXCLUDED and the a^2 = 2 row is why: PR = Theta_q = 0 identically -- '
+     'the primes vanish -- **and the cell is imbalanced anyway.** ### **THIS IS NOT EVIDENCE '
+     'AGAINST THE IDENTITY (b15: a finite cell decides NOTHING global) AND NO DEFICIT '
+     'LANGUAGE IS USED (R-III governs). ### IT IS EVIDENCE ABOUT THE *REALIZATION*.** '
+     '### h2 stands exactly as open as before',
+     'data/b254_fourth_face_off.txt; data/b254_run.txt; data/b254_meanings.txt; '
+     'reports/2026-08-29-the-fourth-face-off.md'),
+    ('the-balance', 'b254 (both Delta_- realizations computed, neither chosen)',
+     '`(Delta_- - E2) ?= (PR - Theta_q)` per cell. ### **Delta_- HAS TWO REALIZATIONS AND '
+     'b246 EXPLICITLY DECLINED TO CHOOSE** -- *"Its two realizations remain two objects and '
+     'this act computed both rather than choosing"*. ### (A) the odd eps-MASK E2odd '
+     '(b37_act9.eps_masked, what sec 17 and File E name); (B) the odd TRACE modes Dneg '
+     '(b36_act8.py:172, the only executable assembly -- **and a MODE SUM, hence the object Q1 '
+     'demoted**). ### b254 computed BOTH and chose NEITHER, on b246 own precedent',
+     '### **THE ALGEBRAIC REDUCTION, DERIVED BEFORE THE RUN: under (A), Delta_- - E2 = '
+     'E2odd - (E2even + E2odd) = -E2even, so the balance IS `E2even ?= Theta_q - PR`.** '
+     '### At a^2 = 2 that is `E2even ?= 0`, and E2even = 1.001814 is a sum of eps sectors -- '
+     '**the cell cannot balance under (A) unless E2even vanishes, and it does not.** '
+     '### **A STRUCTURAL FINDING THE BAR COLUMN MADE VISIBLE: under (A) NOTHING IN THE '
+     'BALANCE IS A MODE SUM** -- E2even, E2odd, PR and Theta_q are all fixed at the eps and '
+     'carto axes and do not move with NQ at all, so (A) bar is the eps mask certificate '
+     '(8.882e-16) alone, **and Q1 demotion and b252 divergence are entirely irrelevant to '
+     'it -- a stronger reason than the rider own.** ### Under (B) the balance DOES carry a '
+     'mode sum, and with it b252 suspicion and b253 QUOTED-N law. ### **THE TWO '
+     'REALIZATIONS DISAGREE MATERIALLY (16.3x at a^2 = 2) AND AGREE ON THE VERDICT** -- so '
+     'the registered condition that would have made the disagreement the act REAL FINDING '
+     'DID NOT FIRE, and it is not claimed. ### **AND ONE OF THIS ACT OWN THREE CHARGES '
+     'AGAINST THE RIDER CITATION WAS WITHDRAWN: b246 contains BOTH "by mode 7" and '
+     '"CONVERGED BY MODE 6", in two sentences about two quantities. ### THE HARNESS CAUGHT '
+     'IT BY REFUSING A GATE WHOSE MUST-FAIL FIXTURE PASSED, AND THE HASH-GATED MEANINGS FILE '
+     'WAS *NOT* EDITED (b244/b246 precedent) -- THE GATE WAS FIXED AND THE ERROR DISCLOSED.**',
+     'data/b254_fourth_face_off.txt; data/b254_run.txt; data/b246_two_tails.txt'),
     ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
      '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
      'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '
