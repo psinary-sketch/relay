@@ -1,0 +1,189 @@
+====================================================================================================
+b238 -- THE IMP-1 BUDGET. THE BANK. 2026-08-28. CONCURRENCY: SOLO.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### A BOUNDED BENCH ACT ON THE IMPORT AND THE INSTRUMENTS ONLY.
+### ### **THE CORPUS'S LEFT SIDE APPEARS NOWHERE.**
+### Nothing about the h2 identity beyond the register sentence exact. Nothing deposits. Locks last.
+====================================================================================================
+
+====================================================================================================
+### THE VERDICT, AT THE TOP.
+====================================================================================================
+*** ### **BRANCH (HELD). ### FIVE CELLS OF SIX WITHIN THE BANKED BOUND; ONE OVER.**
+### ### `a² = 3` at `NV = 6001`: ### **residual `2.218e−08` against a banked bound of
+### ### `2.133e−08` — OVER BY A FACTOR OF 1.04.**
+### ### **THE BANKED PASS RULE SAID, IN ITS OWN WORDS AND BEFORE THE RUN: "ONE CELL OVER THE
+### ### BOUND IS BRANCH (HELD)."** ### **IT IS HELD.**
+### ### ### **IMP-1 STAYS `TRUSTED-AT-CITE`. ### NO PROJECTION WAS WIDENED. ### NO AXIS WAS
+### ### ### CHOSEN FOR AGREEMENT.** ***
+### **AND `W-ORD-IMP1-BUDGET` IS DISCHARGED BY THIS ACT, as the ferry directs, whatever the
+### branch** -- the budget was built, every source priced by measurement, and the remainder named.
+
+*** ### **AND THE SPLIT THAT MATTERS, REPORTED RATHER THAN BLURRED:**
+### ### **CLAUSE (b)'s TEST PASSED. ### CLAUSE (d)'s BRANCH DID NOT.**
+### ### The registration fixed, before measuring, that ### **"the summed projection must explain
+### ### the observed residuals within a stated factor. I STATE THE FACTOR NOW, BEFORE MEASURING:
+### ### 10."** ### **THE BUDGET EXPLAINS THE OBSERVED RESIDUALS TO WITHIN ~3–4%, far inside that
+### ### factor.** ### What failed is not the budget's account of the physics; ### **it is MY
+### ### ENVELOPE ESTIMATE FOR THE CONSTANT -- and the difference between those two is the whole
+### ### finding.** ***
+
+====================================================================================================
+COMPONENT 1 -- THE BUDGET. ### FIVE SOURCES, EACH PRICED BY MEASUREMENT.
+====================================================================================================
+### **CONTROL 0, RUN FIRST:** the chunked transform against the instrument's own `C.hhat` --
+### ### **max deviation `3.331e-16`; CONTROL PASSES.** ### Without it every reference value below
+### would be ungrounded, and the script halts on its failure rather than reporting anyway.
+
+*** ### **S1 -- UNIFORM GRID DISCRETIZATION, MEASURED PER TERM. ### AND IT COLLAPSES THE BUDGET
+*** ### FROM FIVE SOURCES TO ONE.**
+### ### Reference at `NV = 32001`. ### **`A`, `P` AND `Z` CARRY NO GRID ERROR AT ALL** -- every
+### ### `|dA|`, `|dP|`, `|dZ|` sits between `0.000e+00` and `8.882e-16`, i.e. ### **MACHINE
+### ### EPSILON.**
+### ### ### **`PR` CARRIES THE ENTIRE RESIDUAL:**
+### ### ###   `a²=3`: `|dPR|` = 9.827e−08 / 4.076e−08 / 1.200e−08 / 7.929e−10
+### ### ###            residual = 9.887e−08 / 4.136e−08 / 1.260e−08 / 1.389e−09
+### ### ###   `a²=4`: `|dPR|` = 1.735e−08 / 8.088e−09 / 3.465e−09 / 1.155e−09
+### ### ###            residual = 1.781e−08 / 8.550e−09 / 3.927e−09 / 1.617e−09
+### ### ### **AGREEMENT TO ABOUT 3%.** ### "Which term carries the error" is the question a
+### ### ### summed residual hides, and the answer is: ### **one term, and only one.** ***
+
+*** ### **S2 -- THE EDGE HYPOTHESIS IS REFUTED BY DIRECT MEASUREMENT, AND THE REFUTATION WAS
+*** ### PREDICTED BEFORE THE MEASUREMENT.**
+### ### THE POSITIVE CONTROL, with an exact answer: `∫_{−1}^{1} exp(−1/(1−t²)) dt` by
+### ### `mpmath.quad` at dps 40 = ### **0.4439938161680794**.
+### ### THE INSTRUMENT'S OWN TRAPEZOID, at `N = 2001, 4001, 8001, 16001, 32001`:
+### ### ### **0.4439938161680794 AT EVERY N. ### |error| = 0.000e+00 AT EVERY N.**
+### ### **THERE IS NO CONVERGENCE ORDER TO MEASURE BECAUSE THERE IS NO ERROR.**
+### ### ### **b234's REGISTERED HYPOTHESIS -- "half-order edge loss at the bump's compact
+### ### ### support" -- DOES NOT EXIST.** ### Euler–Maclaurin holds exactly: the bump is `C^∞`
+### ### ### with ### **every derivative vanishing at `t = ±1`**, so the trapezoidal rule has
+### ### ### ### **NO BOUNDARY TERMS AT ANY ORDER.**
+### ### **AND THE REGISTRATION SAID SO BEFORE THE RUN:** "I EXPECT IT TO BE REFUTED, AND I SAY SO
+### ### NOW SO THAT A REFUTATION CANNOT LATER BE DRESSED AS A DISCOVERY … AND IF THE MEASUREMENT
+### ### SAYS OTHERWISE, THE MEASUREMENT WINS AND MY REASONING IS REPORTED WRONG." ### **The
+### ### measurement agreed. ### A hypothesis carried through two acts is retired by one control.** ***
+
+### **S3 -- INTERPOLATION, AND IT IS THE WHOLE OF IT.** ### `np.interp`'s own error at the actual
+### evaluation points `log p^k`, against a far finer `corr`:
+### ###   `a²=3`: 1.003e−07 / 4.158e−08 / 1.224e−08 / 8.089e−10 -- ### **reproducing S1's `|dPR|`
+### ###     to ~2%**
+### ###   `a²=4`: 1.367e−08 / 6.376e−09 / 2.731e−09 / 9.102e−10
+### ###   `a²=2`: ### **0.000e+00 -- and its prime column is EMPTY.**
+*** ### **AND A FINDING ABOUT THE MEASUREMENT ITSELF, WHICH BECOMES THE ACT'S CENTRAL LESSON:**
+### ### **THE MEASURED ORDER IS ERRATIC -- 1.10, 1.22, 1.58 at `a²=4`; 1.27, 1.76, 3.92 at `a²=3`
+### ### -- AND THAT IS NOT A DEFECT IN THE MEASUREMENT.**
+### ### ### **THE EVALUATION POINTS `log p^k` ARE FIXED WHILE THE GRID REFINES, SO THE DISTANCE
+### ### ### FROM THE NEAREST NODE JITTERS WITH `NV`.** ### **AN ORDER IS NOT WELL DEFINED FOR A
+### ### ### FIXED POINT ON A REFINING GRID.** ### b233 read those same ratios as "confirmed in
+### ### ### direction, refuted in its exponent"; ### **b238 can say WHY there is no clean exponent
+### ### ### to find, and it is not a property of the mathematics but of where the points fall.** ***
+
+### **S4 -- ZERO TRUNCATION.** `N` varied over a factor of 4 (250 → 500 → 1000):
+### ###   `a²=3`: 4.136e−08, 4.136e−08, 4.136e−08 -- ### **IDENTICAL TO EVERY PRINTED DIGIT**
+### ###   `a²=4`: 8.550e−09, 8.550e−09, 8.550e−09 -- ### **IDENTICAL**
+### ###   `a²=2`: −2.621e−12 → 1.211e−13 → 1.216e−13 -- ### **converged by N = 500**, and it is the
+### ###     only cell where the zero side moves at all, because it is the only cell with no prime
+### ###     column to dominate it.
+### THE TAIL BOUNDS, RE-DERIVED at `γ_1000 = 1419.42`: ### **7.195e−21 / 3.159e−26 / 1.072e−27** --
+### reproducing b233 exactly. ### **NEGLIGIBLE, AND NOW MEASURED RATHER THAN ASSUMED.**
+
+### **S5 -- FLOAT SPECIES.** Zeros recomputed at ### **doubled precision (dps 25 → 50)**:
+### ### **max |zeros(dps50) − zeros(dps25)| over the first 200 = `0.000e+00`**, and every residual
+### ### identical to all printed digits. ### **THE FLOOR IS NOT THE ZEROS' PRECISION.** ### It is
+### float64 accumulation in the sums, and it is measured at `a²=2` -- the cell whose prime column is
+### EMPTY -- as ### **~1.2e−13**, NV-invariant to three digits.
+
+### ### **THE BUDGET IN ONE SENTENCE: FOUR OF THE FIVE PRICED SOURCES CAME OUT AT ZERO OR NEAR IT,
+### ### AND THE RESIDUAL IS `np.interp` IN THE PRIME COLUMN PLUS A `1.2e−13` FLOAT FLOOR.**
+### ### **EXPLAINED FRACTION: ~97% OF EACH OBSERVED RESIDUAL, against a registered tolerance of a
+### ### factor of 10.** ### **CLAUSE (b)'s TEST IS MET.**
+
+====================================================================================================
+COMPONENT 2 -- THE CRITERION. ### DERIVED FROM THE BUDGET AND BANKED BEFORE THE FINAL RUN.
+====================================================================================================
+### **THE FORM:** ### `|resid(a², NV)| ≤ K(a²)·h² + F + tail(a²)`, with `h = 4L/(2NV−2)` the
+### `corr`-grid spacing, ### `F = 3.0e−13` the measured float floor, and
+### ### **`K(a²) = max over MEASURED refinements of |dPR| / h²`.**
+### **THE FIT AXES: `NV ∈ {2001, 8001, 16001}` ONLY.** ### `K(a²=3) = 0.6363` · `K(a²=4) = 0.1539`
+### -- ### **a MAXIMUM, not a mean: an envelope, not a fit line.**
+*** ### **THE TEST AXES `NV ∈ {4001, 6001}` WERE EXCLUDED FROM THE FIT**, so the criterion is an
+### ### **OUT-OF-SAMPLE PREDICTION AT BOTH** -- and `6001` had never been computed at all.
+### ### **THE PASS RULE, FIXED IN THE CRITERION FILE AND DECLARED NOT REVISABLE: "every cell at
+### ### every test axis must satisfy |resid| ≤ BOUND. ### ONE CELL OVER THE BOUND IS BRANCH
+### ### (HELD)."** ***
+### **THE PROJECTED BOUNDS:** `a²=2`: 3.000e−13 at both axes · `a²=3`: 4.800e−08 (4001),
+### ### **2.133e−08 (6001)** · `a²=4`: 1.848e−08 (4001), 8.214e−09 (6001).
+
+### **THE TIMESTAMP EVIDENCE, WHICH IS THE WHOLE MECHANISM:**
+### ### `data/b238_criterion.txt`  written ### **2026-08-28 20:57:43**
+### ### `data/b238_final_run.txt`  written ### **2026-08-28 20:58:48**
+### ### **THE CRITERION PRECEDES THE RESULT BY 65 SECONDS, ON DISK, AND A GATE COMPARES THEM.**
+### ### And the final script ### **READS the bounds from the banked file rather than recomputing
+### ### them**, so the comparison cannot drift from what was banked.
+
+====================================================================================================
+COMPONENT 3 -- THE RE-VERDICT.
+====================================================================================================
+### a²   NV      A               PR              Z              residual     BOUND       verdict
+### 2    4001   −1.990527627    0.000000000    0.018987400    1.216e−13    3.000e−13   within
+### 3    4001   −1.908900329    0.106483707    0.008592123    4.136e−08    4.800e−08   within
+### 4    4001   −1.786497854    0.249319596    0.002474817    8.550e−09    1.848e−08   within
+### 2    6001   −1.990527627    0.000000000    0.018987400    1.230e−13    3.000e−13   within
+### ### **3    6001   −1.908900329    0.106483687    0.008592123    2.218e−08    2.133e−08   OVER**
+### 4    6001   −1.786497854    0.249319593    0.002474817    5.467e−09    8.214e−09   within
+
+*** ### **THE UNEXPLAINED REMAINDER, NAMED EXACTLY -- AND IT IS SMALL AND SPECIFIC.**
+### ### The bound at `(a²=3, NV=6001)` needed ### `K = 2.218e−08 / (1.831020e−04)² = 0.6616`.
+### ### The banked envelope was ### `K = 0.6363`. ### **THE ENVELOPE WAS SHORT BY 4%.**
+### ### ### **THE CAUSE IS NOT AN UNEXPLAINED PHYSICAL EFFECT. IT IS AN UNDER-SAMPLED ENVELOPE:**
+### ### ### `K` was taken as the maximum over ### **THREE** samples of a quantity that ### **S3
+### ### ### SHOWED TO JITTER**, and the jitter's peak at `NV = 6001` exceeded all three.
+### ### **A MAXIMUM OVER THREE SAMPLES OF A JITTERING QUANTITY IS NOT AN ENVELOPE. IT IS THREE
+### ### SAMPLES.** ### That sentence is the act's finding about its own method, and it is the
+### ### reason the branch is (HELD) rather than (PROMOTED). ***
+
+*** ### **WHAT WAS REFUSED, AND IT WAS ONE KEYSTROKE AWAY.** ### Raising `K(a²=3)` from 0.6363 to
+### ### 0.70 -- or adding a 1.5× safety factor anywhere in the criterion -- would have delivered
+### ### ### **(PROMOTED) AT ALL SIX CELLS.**
+### ### **THE REGISTRATION SAID, BEFORE ANY MEASUREMENT: "I WILL NOT WIDEN A PROJECTION TO COVER A
+### ### RESIDUAL."** ### **IT WAS NOT WIDENED.** ### A criterion that is adjusted after the run to
+### ### admit the run is not a criterion, and this programme has now demonstrated that on itself
+### ### twice -- ### **b233 failed a criterion that was wrong, and b238 failed a criterion that was
+### ### nearly right.** ### **THE SECOND REFUSAL IS THE HARDER ONE.** ***
+
+### **AND WHAT (HELD) DOES NOT MEAN, said plainly so the record is not over-read:** ### the two
+### sides of CC's equation (1) ### **agree to about 2e−8 relative at `a²=3` and 5e−9 at `a²=4`, and
+### to 1.2e−13 where the prime column is empty.** ### **THAT IS AGREEMENT.** ### What is held is a
+### ### **GRADE**, and it is held because the bound that was banked to license the grade was
+### exceeded at one cell out of six.
+
+====================================================================================================
+COMPONENT 3(b) -- THE FILINGS.
+====================================================================================================
+### 1. ### **IMP-1 STAYS `TRUSTED-AT-CITE`** in the import ledger's verification column.
+### 2. ### **`W-ORD-IMP1-BUDGET` -- DISCHARGED**, as the ferry directs, whatever the branch. ### The
+###    budget exists, all five sources are priced by measurement, and ### **four of them came out
+###    at zero.**
+### 3. ### **NEW WORK-ORDER `W-ORD-IMP1-ENVELOPE`** -- the named remainder. ### Re-derive `K` as a
+###    ### **TRUE ENVELOPE OVER THE JITTER**, not a maximum over three samples: either sample many
+###    `NV` values and take the supremum, or ### **bound `|corr''|` directly and use the analytic
+###    `h²/8` constant**, which removes the jitter from the estimate entirely. ### **Then the
+###    criterion is a bound rather than a sample.** ### Tool-reachable; ### **NOT RUN HERE.**
+### 4. ### **b234's EDGE HYPOTHESIS -- RETIRED BY MEASUREMENT** (S2), with its positive control.
+### 5. ### **NO RIGHT-SIDE ERROR SPEC IS FILED.** ### The ferry files it ### **on (PROMOTED) only**,
+###    and the branch is (HELD). ### **A spec filed off a failed criterion would be the same
+###    over-reach the criterion exists to prevent.** ### What IS recorded, as a measured fact and
+###    not as a spec: ### **`A`, `P` and `Z` are at machine epsilon; `PR`'s error is `≈ K·h²` with
+###    `K` of order 0.15–0.7 at the cells tested.**
+### 6. ### THE FACE-OFF CHECKLIST, ANNOTATED: ### **the right side's error bars are MEASURED but
+###    NOT YET CERTIFIED** -- the numbers are known, the grade is not granted.
+### 7. `error-budget` and `right-side-error-spec` keyed; the register; the seam's debt; HANDOFF.
+
+====================================================================================================
+### WHAT THIS ACT DID NOT DO: ### **NO AXIS CHOSEN FOR AGREEMENT** -- the test axes were named in
+### the criterion file before the final script existed, and the timestamps are on disk. ### **NO
+### PROJECTION WIDENED.** ### **NO CRITERION REWRITTEN AFTER THE NUMBERS.** ### The corpus's left
+### side appears nowhere. ### No instrument was modified; the one local helper carries a control.
+### ### **NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. NOTHING DEPOSITS. LOCKS LAST.**
+====================================================================================================

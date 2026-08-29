@@ -1,0 +1,19 @@
+============================================================================================================
+b238 -- THE FINAL VERIFICATION. ### RUN ONCE, AT THE NAMED TEST AXES.
+### THE BOUNDS BELOW WERE READ FROM data/b238_criterion.txt, NOT RECOMPUTED HERE.
+============================================================================================================
+  a^2    NV                   A             PR              Z      residual         BOUND  verdict
+  2      4001      -1.990527627    0.000000000    0.018987400     1.216e-13     3.000e-13   within
+  3      4001      -1.908900329    0.106483707    0.008592123     4.136e-08     4.800e-08   within
+  4      4001      -1.786497854    0.249319596    0.002474817     8.550e-09     1.848e-08   within
+  2      6001      -1.990527627    0.000000000    0.018987400     1.230e-13     3.000e-13   within
+  3      6001      -1.908900329    0.106483687    0.008592123     2.218e-08     2.133e-08 ### OVER
+  4      6001      -1.786497854    0.249319593    0.002474817     5.467e-09     8.214e-09   within
+
+============================================================================================================
+  ### EVERY CELL AT EVERY TEST AXIS WITHIN ITS BANKED BOUND: NO
+  ### THE BOUNDS WERE FIT ON NV in {2001, 8001, 16001} AND TESTED AT {4001, 6001}.
+  ### 'WITHIN' MEANS THE RESIDUAL IS EXPLAINED BY THE MEASURED BUDGET AT THE STATED
+  ### AXES. ### IT DOES NOT MEAN THE EXPLICIT FORMULA IS PROVED HERE, AND NO AXIS WAS
+  ### CHOSEN FOR AGREEMENT -- the test axes were named in the criterion file before
+  ### this file existed.

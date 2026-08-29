@@ -1,0 +1,103 @@
+========================================================================================================
+b238 -- THE IMP-1 ERROR BUDGET. ### MEASUREMENT ONLY. NO CRITERION IS DECIDED HERE.
+========================================================================================================
+
+### CONTROL 0 -- the chunked transform against the instrument's own `C.hhat`.
+### IF THESE DISAGREE, EVERY REFERENCE VALUE BELOW IS UNGROUNDED.
+   max |chunked - C.hhat| = 3.331e-16   -> CONTROL PASSES
+
+========================================================================================================
+### S1 -- UNIFORM GRID DISCRETIZATION, PER TERM. Reference at NV = 32001.
+### 'which term carries the error' is the question a summed residual hides.
+========================================================================================================
+
+  diagonal a^2 = 2   (reference NV=32001)
+    NV                |dA|          |dP|         |dPR|          |dZ|      residual
+    2001         2.220e-16     0.000e+00     0.000e+00     2.082e-17     1.223e-13
+    4001         0.000e+00     8.882e-16     0.000e+00     1.041e-17     1.216e-13
+    8001         4.441e-16     0.000e+00     0.000e+00     2.776e-17     1.221e-13
+    16001        0.000e+00     8.882e-16     0.000e+00     2.776e-17     1.216e-13
+    measured order A   : nan, nan, nan
+    measured order P   : nan, nan, nan
+    measured order PR  : nan, nan, nan
+    measured order Z   : 1.00, -1.42, 0.00
+
+  diagonal a^2 = 3   (reference NV=32001)
+    NV                |dA|          |dP|         |dPR|          |dZ|      residual
+    2001         6.661e-16     0.000e+00     9.827e-08     1.388e-17     9.887e-08
+    4001         6.661e-16     0.000e+00     4.076e-08     1.561e-17     4.136e-08
+    8001         0.000e+00     8.882e-16     1.200e-08     6.765e-17     1.260e-08
+    16001        6.661e-16     0.000e+00     7.929e-10     6.939e-18     1.389e-09
+    measured order A   : 0.00, nan, nan
+    measured order P   : nan, nan, nan
+    measured order PR  : 1.27, 1.76, 3.92
+    measured order Z   : -0.17, -2.12, 3.29
+
+  diagonal a^2 = 4   (reference NV=32001)
+    NV                |dA|          |dP|         |dPR|          |dZ|      residual
+    2001         6.661e-16     0.000e+00     1.735e-08     2.168e-18     1.781e-08
+    4001         0.000e+00     8.882e-16     8.088e-09     6.939e-18     8.550e-09
+    8001         0.000e+00     8.882e-16     3.465e-09     5.204e-18     3.927e-09
+    16001        0.000e+00     0.000e+00     1.155e-09     2.125e-17     1.617e-09
+    measured order A   : nan, nan, nan
+    measured order P   : nan, 0.00, nan
+    measured order PR  : 1.10, 1.22, 1.58
+    measured order Z   : -1.68, 0.42, -2.03
+
+========================================================================================================
+### S2 -- THE BUMP'S EDGE BEHAVIOUR, ON A KNOWN INTEGRAL WITH AN EXACT ANSWER.
+### THE REGISTERED EXPECTATION: super-algebraic, NOT half-order (Euler-Maclaurin).
+========================================================================================================
+  exact (mpmath.quad, dps 40) = 0.4439938161680794
+    N                   trapezoid       |error|
+    2001       0.4439938161680794     0.000e+00
+    4001       0.4439938161680794     0.000e+00
+    8001       0.4439938161680794     0.000e+00
+    16001      0.4439938161680794     0.000e+00
+    32001      0.4439938161680794     0.000e+00
+    measured order     : nan, nan, nan
+
+========================================================================================================
+### S3 -- INTERPOLATION AT THE ACTUAL EVALUATION POINTS log p^k.
+========================================================================================================
+  diagonal a^2 = 2   points: 0.6931
+      NV=2001     max |interp - ref| = 0.000e+00
+      NV=4001     max |interp - ref| = 0.000e+00
+      NV=8001     max |interp - ref| = 0.000e+00
+      NV=16001    max |interp - ref| = 0.000e+00
+      measured order : nan, nan, nan
+  diagonal a^2 = 3   points: 0.6931
+      NV=2001     max |interp - ref| = 1.003e-07
+      NV=4001     max |interp - ref| = 4.158e-08
+      NV=8001     max |interp - ref| = 1.224e-08
+      NV=16001    max |interp - ref| = 8.089e-10
+      measured order : 1.27, 1.76, 3.92
+  diagonal a^2 = 4   points: 0.6931, 1.3863, 1.0986
+      NV=2001     max |interp - ref| = 1.367e-08
+      NV=4001     max |interp - ref| = 6.376e-09
+      NV=8001     max |interp - ref| = 2.731e-09
+      NV=16001    max |interp - ref| = 9.102e-10
+      measured order : 1.10, 1.22, 1.59
+
+========================================================================================================
+### S4 -- ZERO TRUNCATION, N VARIED OVER A FACTOR >= 4.
+========================================================================================================
+  diagonal a^2 = 2    N=250 resid=-2.621e-12   N=500 resid=1.211e-13   N=1000 resid=1.216e-13
+  diagonal a^2 = 3    N=250 resid=4.136e-08   N=500 resid=4.136e-08   N=1000 resid=4.136e-08
+  diagonal a^2 = 4    N=250 resid=8.550e-09   N=500 resid=8.550e-09   N=1000 resid=8.550e-09
+  ### THE TAIL BOUND, RE-DERIVED at N=1000 (gamma_N = 1419.42):
+     a^2=2   tail <= 7.195e-21
+     a^2=3   tail <= 3.159e-26
+     a^2=4   tail <= 1.072e-27
+
+========================================================================================================
+### S5 -- FLOAT SPECIES: the zeros recomputed at DOUBLED precision (dps 25 -> 50).
+### THE a^2=2 FLOOR IS NV-INVARIANT AND ITS PRIME COLUMN IS EMPTY -- if anything is
+### left there, it is this.
+========================================================================================================
+  max |zeros(dps50) - zeros(dps25)| over first 200 = 0.000e+00
+  diagonal a^2 = 2    resid(dps25)=-2.373288e-11  resid(dps50)=-2.373288e-11  |diff|=0.000e+00
+  diagonal a^2 = 3    resid(dps25)=4.135778e-08  resid(dps50)=4.135778e-08  |diff|=0.000e+00
+  diagonal a^2 = 4    resid(dps25)=8.549952e-09  resid(dps50)=8.549952e-09  |diff|=0.000e+00
+
+### MEASUREMENT COMPLETE. ### NO CRITERION WAS DECIDED IN THIS FILE.

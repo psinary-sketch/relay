@@ -1,0 +1,53 @@
+====================================================================================================
+b238 -- THE CRITERION, DERIVED FROM THE MEASURED BUDGET.
+### WRITTEN AT 2026-08-28T20:57:43 (local). ### NO VERIFICATION HAS BEEN RUN AT THE TEST AXES.
+====================================================================================================
+
+### THE BUDGET REDUCED TO ONE SOURCE. ### A, P and Z carry NO grid error (machine
+### epsilon); the zero truncation is invariant over a factor of 4 in N; the zeros'
+### precision contributes 0.000e+00 at doubled dps. ### WHAT IS LEFT IS `np.interp`
+### IN THE PRIME COLUMN, plus a float64 accumulation floor.
+
+### AND ONE REGISTERED HYPOTHESIS IS REFUTED BY DIRECT MEASUREMENT:
+### ### b234's HALF-ORDER EDGE LOSS DOES NOT EXIST. The trapezoid on the bump's own
+### ### species matches mpmath.quad to 0.000e+00 at every grid from 2001 to 32001.
+### ### Euler-Maclaurin holds; the flat endpoints cost nothing. ### The registration
+### ### predicted this refutation BEFORE measuring, and the measurement is what decides it.
+
+### THE CRITERION:
+###     |resid(a^2, NV)|  <=  K(a^2) * h^2  +  F  +  tail(a^2)
+###   h   = 4L / (2*NV - 2)          the corr-grid spacing
+###   F   = 3.000e-13                     the float64 floor, measured at a^2=2
+###   K   = max over MEASURED NV of |dPR| / h^2,  ### FIT ON NV in {2001, 8001, 16001}
+
+### ### THE TEST AXES NV = 4001 AND NV = 6001 ARE **EXCLUDED FROM THE FIT**.
+### ### THE CRITERION IS THEREFORE AN OUT-OF-SAMPLE PREDICTION AT BOTH, AND IT CAN FAIL.
+
+--- THE FIT, SHOWN TERM BY TERM ---
+  diagonal a^2 = 3
+    NV=2001    h=5.493061e-04  |dPR|=9.827e-08  ->  K = 0.3257
+    NV=8001    h=1.373265e-04  |dPR|=1.200e-08  ->  K = 0.6363
+    NV=16001   h=6.866327e-05  |dPR|=7.929e-10  ->  K = 0.1682
+    ### K(a^2=3) = 0.6363   (the MAXIMUM, not a mean -- an envelope, not a fit line)
+  diagonal a^2 = 4
+    NV=2001    h=6.931472e-04  |dPR|=1.735e-08  ->  K = 0.0361
+    NV=8001    h=1.732868e-04  |dPR|=3.465e-09  ->  K = 0.1154
+    NV=16001   h=8.664340e-05  |dPR|=1.155e-09  ->  K = 0.1539
+    ### K(a^2=4) = 0.1539   (the MAXIMUM, not a mean -- an envelope, not a fit line)
+
+--- THE PROJECTED BOUNDS AT THE TEST AXES ---
+  a^2      NV                    h          K*h^2 BOUND (+F+tail)
+  2        4001       1.732868e-04      0.000e+00      3.000e-13
+  2        6001       1.155245e-04      0.000e+00      3.000e-13
+  3        4001       2.746531e-04      4.800e-08      4.800e-08
+  3        6001       1.831020e-04      2.133e-08      2.133e-08
+  4        4001       3.465736e-04      1.848e-08      1.848e-08
+  4        6001       2.310491e-04      8.213e-09      8.214e-09
+
+### a^2 = 2 CARRIES NO K TERM: its prime column is EMPTY (PR = 0 exactly), so its bound
+### is the float floor plus its tail. ### THAT IS NOT AN EXEMPTION -- it is what the
+### budget says about a cell with no interpolated terms.
+
+### ### PASS RULE, FIXED HERE AND NOT REVISABLE: every cell at every test axis must
+### ### satisfy |resid| <= BOUND. ### ONE CELL OVER THE BOUND IS BRANCH (HELD).
+====================================================================================================

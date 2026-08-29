@@ -181,6 +181,11 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE BUDGET KEYS, ADDED b238 UNDER ITS CLAUSE (e).
+    'error-budget': ['error budget', 'the error budget', 'imp1 budget', 'budget table',
+                     'the five sources', 'edge hypothesis'],
+    'right-side-error-spec': ['right side error spec', 'the error spec', 'error bars',
+                              'pr error bar', 'instrument error spec'],
     # ### THE ASSET KEYS, ADDED b237 UNDER ITS CLAUSE (f).
     'left-side-assets': ['left side assets', 'the assets', 'asset table',
                          'theta_quotient', 'trace_modes', 'the four channels'],
@@ -389,6 +394,30 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("error-budget", "b238",
+     "every error source in the IMP-1 bench priced BY MEASUREMENT. ### FOUR OF FIVE CAME OUT AT"
+     " ZERO: A, P and Z carry no grid error (machine epsilon); the zero truncation is invariant"
+     " over a factor of 4 in N; the zeros at doubled precision agree to 0.000e+00; and b234's"
+     " registered HALF-ORDER EDGE HYPOTHESIS IS REFUTED by direct measurement -- the trapezoid on"
+     " the bump's own species matches mpmath.quad to 0.000e+00 at every grid from 2001 to 32001"
+     " (Euler-Maclaurin: the flat endpoints cost nothing). ### WHAT REMAINS IS np.interp IN THE"
+     " PRIME COLUMN plus a 1.2e-13 float floor, explaining ~97% of every observed residual",
+     "measured, not assumed. ### AND A FINDING ABOUT MEASUREMENT ITSELF: the interpolation order"
+     " is ERRATIC (1.10/1.22/1.58, 1.27/1.76/3.92) because the evaluation points log p^k are FIXED"
+     " while the grid refines -- AN ORDER IS NOT WELL DEFINED FOR A FIXED POINT ON A REFINING"
+     " GRID. b233 saw the same ratios; b238 can say why there is no clean exponent to find"
+     "   ### as its own act recorded it",
+     "data/b238_imp1_budget.txt; data/b238_budget_run.txt"),
+    ("right-side-error-spec", "b238",
+     "the instrument-layer error spec for PR and A. ### NOT FILED. The ferry files it on"
+     " (PROMOTED) only and the branch came out (HELD) -- a spec filed off a failed criterion would"
+     " be the same over-reach the criterion exists to prevent. ### WHAT IS RECORDED AS A MEASURED"
+     " FACT AND NOT AS A SPEC: A, P and Z are at machine epsilon; PR's error is approx K*h^2 with"
+     " K of order 0.15-0.7 at the cells tested",
+     "NOT FILED at b238 -- branch (HELD). ### The right side's error bars are MEASURED but NOT YET"
+     " CERTIFIED: the numbers are known, the grade is not granted. ### W-ORD-IMP1-ENVELOPE is the"
+     " named remainder   ### as its own act recorded it",
+     "data/b238_imp1_budget.txt; THE_IDENTITY_CHAIN.md sec 35.1"),
     ("left-side-assets", "b237",
      "everything the corpus holds toward realizing File E's LEFT column (T.value + Q.value) at a"
      " cell. ### FOUR CHANNELS at tools/e16/b38_act10.py: trace_modes (Tr, archimedean, prolate"

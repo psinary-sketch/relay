@@ -1,0 +1,109 @@
+====================================================================================================
+b238 -- THE IMP-1 BUDGET -- THE RUN-REGISTRATION.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1). CONCURRENCY: SOLO. Date 2026-08-28.
+BANKED ### **BEFORE ANY MEASUREMENT**, as the EXECUTION line orders.
+### A BOUNDED BENCH ACT ON THE IMPORT AND THE INSTRUMENTS ONLY.
+### ### **THE CORPUS'S LEFT SIDE APPEARS NOWHERE.**
+### ### **`W-ORD-IMP1-BUDGET` IS DISCHARGED BY THIS ACT WHATEVER THE BRANCH.**
+### Nothing about the h2 identity beyond the register sentence exact. Nothing deposits. Locks last.
+====================================================================================================
+
+*** ### **THE ORDER-OF-OPERATIONS LAW, QUOTED FROM THE FERRY AND BINDING THIS ACT:**
+### ### "the criterion is written from the budget ### **BEFORE** the final residuals are looked at,
+### ### and ### **a criterion rewritten after the numbers remains not a criterion**; varying axes to
+### ### MEASURE convergence order is lawful, ### **choosing axes to hit a target is the named crime
+### ### and none is committed**."
+### ### ### **THE MECHANISM THAT MAKES THIS CHECKABLE RATHER THAN PROMISED: the criterion is
+### ### ### written into `data/b238_criterion.txt` as its OWN FILE, and the final verification run's
+### ### ### output file is written AFTER it. ### THE TWO FILES' TIMESTAMPS ARE THE EVIDENCE, AND A
+### ### ### GATE COMPARES THEM.** ### b233 failed its criterion honestly; ### **this act's risk is
+### ### ### the opposite one -- passing a criterion it quietly authored to be passed.** ***
+
+----------------------------------------------------------------------------------------------------
+*** (e) THE GATE: THE INDEX WAS QUERIED BEFORE ANY OBJECT IS MARKED, WITH CONTROLS.
+----------------------------------------------------------------------------------------------------
+### QUERIED from `tools/`: ### `error-budget` / `error budget` / `right-side-error-spec` /
+### `the error spec` -- ### **NO KEY, all four.** ### CONTROLS: ### `left-side-assets` -- **HIT**
+### (b237); ### `import-bar` -- **HIT** (b233). ### **THE TOOL CAN SAY YES; THE FOUR MISSES ARE
+### REAL.** ### `error-budget` and `right-side-error-spec` are keyed on filing, per clause (e).
+
+----------------------------------------------------------------------------------------------------
+(a') THE OWNER READS ALREADY DONE.
+----------------------------------------------------------------------------------------------------
+### **b233's BENCH, WHOLE.** ### The registered criterion: ### **"the truncation tail, not the
+### mathematics, bounds the residual"** -- and it ### **FAILED 15 of 15 cell-axis pairs**, because
+### the tail bounds came out at `1e−21`…`1e−27` while the residuals sat at ### **1.216e−13 (a²=2),
+### 4.136e−08 (a²=3), 8.550e−09 (a²=4)** at the registered axis. ### b233's own sentence: ### "**I
+### registered the one error source that turned out to be negligible.**"
+### **b233's DIAGNOSTIC, WHOLE** (NV = 2001 → 4001 → 8001 → 16001):
+### ###   a²=2: `1.223e−13, 1.216e−13, 1.221e−13, 1.216e−13` -- ratios ### **1.01, 1.00, 1.00**
+### ###   a²=3: `9.887e−08, 4.136e−08, 1.260e−08, 1.389e−09` -- ratios ### **2.39, 3.28, 9.07**
+### ###   a²=4: `1.781e−08, 8.550e−09, 3.927e−09, 1.617e−09` -- ratios ### **2.08, 2.18, 2.43**
+### ### b233's verdict on its own hypothesis: ### **CONFIRMED IN DIRECTION** (the places-side
+### ### quadrature dominates; the residual is invariant under the zero truncation) and
+### ### ### **REFUTED IN ITS EXPONENT** (the ratios are ~2–3, not the clean ~4 that linear
+### ### interpolation alone predicts).
+### **b234's SHARPENED HYPOTHESIS, carried:** ### **discretization dominated; half-order edge loss
+### suspected at the bump's compact support; edge-graded mesh the first test.**
+### **THE INSTRUMENTS, IMPORTED UNMODIFIED:** `b38_act10.left_side` (`A`, `P`, `PR`),
+### `carto_atlas.bump`, `carto_atlas.hhat`, `carto_atlas.kernel`; zeros from `mpmath.zetazero` with
+### the ### **banked-ordinate control** that b233 ran and passed at `0.000e+00`.
+
+----------------------------------------------------------------------------------------------------
+*** (b') THE HONEST EXPECTATIONS, REGISTERED BEFORE THE FIRST MEASUREMENT.
+----------------------------------------------------------------------------------------------------
+### **S1 -- UNIFORM GRID DISCRETIZATION.** ### Measured order `p = log₂(ratio)` per refinement.
+### From b233's numbers the implied orders are ### **a²=4: ~1.06, 1.12, 1.28** and ### **a²=3: ~1.26,
+### 1.71, 3.18.** ### **I EXPECT S1 TO COME OUT NEAR FIRST ORDER AT a²=4 AND TO BE NON-ASYMPTOTIC
+### AT a²=3** (an order that drifts upward across refinements is a sign that two sources are mixing
+### and one is dying faster than the other).
+
+*** ### **S2 -- THE EDGE HYPOTHESIS, AND I REGISTER A DOUBT ABOUT IT IN ADVANCE.**
+### ### b234's hypothesis is ### **half-order edge loss at the bump's compact support.**
+### ### **I EXPECT IT TO BE REFUTED, AND I SAY SO NOW SO THAT A REFUTATION CANNOT LATER BE DRESSED
+### ### AS A DISCOVERY.** ### THE GROUND: the bump `exp(−1/(1−t²))` is ### **C^∞ WITH EVERY
+### ### DERIVATIVE VANISHING AT `t = ±1`**, so by Euler–Maclaurin the trapezoidal rule on a grid
+### ### covering its support has ### **NO BOUNDARY TERMS AT ANY ORDER** -- the quadrature of the
+### ### bump itself should be ### **SUPER-ALGEBRAICALLY ACCURATE, NOT HALF-ORDER-LOSSY.**
+### ### **IF THAT IS RIGHT, THE OBSERVED ~O(Δv) IS NOT THE BUMP'S EDGE AND THE HYPOTHESIS MISNAMES
+### ### THE SOURCE.** ### **AND IF THE MEASUREMENT SAYS OTHERWISE, THE MEASUREMENT WINS AND MY
+### ### REASONING IS REPORTED WRONG.** ### The positive control is a KNOWN INTEGRAL OF THE SAME
+### ### SPECIES with an exact answer -- `∫_{−1}^{1} exp(−1/(1−t²)) dt` evaluated to high precision
+### ### by `mpmath.quad`, against the instrument's own trapezoid at a refinement sequence. ***
+
+### **S3 -- INTERPOLATION.** `np.interp` is LINEAR, formally `O(Δ²)` pointwise. ### Measured
+### directly: interpolate `corr` at the actual evaluation points `log p^k` and compare against a
+### far finer `corr`. ### **I EXPECT `O(Δ²)` HERE AND THEREFORE EXPECT S3 *NOT* TO BE THE DOMINANT
+### SOURCE** -- which, if true, leaves the ~first-order behaviour unexplained by both S2 and S3 and
+### ### **THE UNEXPLAINED REMAINDER BECOMES THE FINDING**, exactly as clause (b) directs.
+### **S4 -- ZERO TRUNCATION.** Vary `N` over a factor ≥ 4 (### **250 → 1000**). ### I expect
+### **INVARIANCE**, confirming b233, and the tail bound re-derived and checked.
+### **S5 -- FLOAT SPECIES.** One cell re-run with ### **mpmath dps doubled (25 → 50)** on the zeros,
+### to bound roundoff. ### I expect the a²=2 floor of ### **~1.2e−13 to be exactly this species** --
+### it is NV-invariant to three digits and its prime column is EMPTY, so nothing else is left.
+
+### **THE BUDGET'S OWN PASS/FAIL, REGISTERED:** ### the summed projection must explain the observed
+### residuals ### **within a stated factor.** ### **I STATE THE FACTOR NOW, BEFORE MEASURING: 10.**
+### ### **AN UNEXPLAINED REMAINDER BEYOND ONE ORDER OF MAGNITUDE IS A FINDING, NOT A ROUNDING.**
+
+### **AND THE BRANCH I EXPECT.** ### I expect ### **(PROMOTED)** -- because a criterion derived from
+### a measured budget should, by construction, be met by the residuals that budget explains.
+### ### **THAT EXPECTATION IS EXACTLY WHY THE TIMESTAMP GATE EXISTS.** ### A budget-derived
+### criterion is only worth something if it could still fail: ### **if the measured constants
+### project a bound the observed residual EXCEEDS, the branch is (HELD) and IMP-1 stays
+### TRUSTED-AT-CITE.** ### **I WILL NOT WIDEN A PROJECTION TO COVER A RESIDUAL.**
+
+(c') THE REGISTERED PREDICTIONS.
+ (P1) ### THE BUDGET TABLE: five sources, ### **measured** orders and constants, projections, and
+   the explained fraction of each observed residual.
+ (P2) ### THE CRITERION derived and banked ### **in its own file, before the final run**, with its
+   derivation shown.
+ (P3) ### THE VERDICT per (d); on (PROMOTED) the ### **RIGHT-SIDE ERROR SPEC** filed as an
+   instrument-layer object; the ledger's IMP-1 cell updated; the checklist annotated; the register;
+   the seam's debt; HANDOFF.
+
+DIVERGENCES AT REGISTRATION: ### **NONE with the ferry.** ### One expectation is registered
+AGAINST a hypothesis the ferry carries forward -- ### **b234's half-order edge loss, which I expect
+to be REFUTED on Euler–Maclaurin grounds** -- and it is named here rather than after the fact.
+DEVIATIONS: none.
+====================================================================================================
