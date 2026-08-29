@@ -95,6 +95,9 @@ names the RAW instrument channels, not the substituted object.**
   is arithmetic rather than loyalty: suspects 1 and 2 account for the whole separation **term by term to
   machine precision**, and its largest term rides an unbounded truncation. ### **THIS ACT PRODUCES NO
   EVIDENCE AGAINST THE IDENTITY, AND CITING ITS BRANCH AS ANY WOULD BE A MISREADING.**
+>
+> ### **AMENDED AT b250 (2026-08-29): THE TAIL TERM IS NO LONGER UNBOUNDED.** S4's envelope bounds it, and at K1's cut `N = 6` the bound is **`1.158e-14` on ZERO SPECIFIC IMPORTS** (`sum_{n>N} t(n) <= (2 - S_N)/(1 - beta_N)`, `beta_N` from the exponential's own Taylor series). ### **THE SENTENCE ABOVE STANDS AS WRITTEN AND WAS TRUE WHEN WRITTEN** -- b242 derived an envelope and refused it, and refusing an unproved envelope was correct. ### **AND `bar_L`'s AMBER DOES NOT CLEAR: the bar still reports seven computable modes against a definition of eleven, which is a bench-precision fact b250 did not remove.**
+
 
 ## 4. The finding this act did not go looking for
 

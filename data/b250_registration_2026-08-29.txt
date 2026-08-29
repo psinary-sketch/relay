@@ -1,0 +1,127 @@
+====================================================================================================
+b250 -- THE M-4 DERIVATION. ### THE REGISTRATION. ### BANKED BEFORE ANY STEP IS WRITTEN.
+### WRITTEN 2026-08-29. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING, FIRST:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### h2 STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT. ### NOTHING DEPOSITS.
+### ### **AND THE SENTENCE THIS ACT MOST NEEDS TO CARRY: ### M-4 IS ONE OF FIVE ENGINE ITEMS.
+### ### PAYING IT PAYS *ONE TERM* OF A SHORTFALL WHOSE SECOND OBJECT b246 SHOWED IS NOT M-4's,
+### ### AND IT MOVES NOTHING ABOUT h2.**
+
+====================================================================================================
+(A) THE DISCIPLINE. ### FIXED BEFORE ANY STEP.
+====================================================================================================
+### ### **b249's MEASUREMENTS ARE TARGETS AND CONTROLS, NEVER PREMISES.** ### **NO STEP CITES A
+### ### MEASURED VALUE AS A REASON.** ### A step that needs a number to be true is not a step.
+### ### **THE NAVIGATOR'S ROUTE IS CARRIED NAVIGATOR-ASSERTED AND VERIFIED STEP BY STEP.**
+### ### **ANY FAILING STEP IS NAMED RATHER THAN PATCHED**, and no step is filled by plausibility.
+### ### **EVERY CLASSICAL FACT IS EITHER REPRODUCED LONGHAND HERE OR NAMED AS AN IMPORT AND
+### ### GRADED TRUSTED-AT-CITE.** ### There is no third category.
+### ### **THE TAUTOLOGY CONTROL GOVERNS EVERY ALGEBRAIC CLAIM**, and an identity that holds on
+### ### arbitrary inputs is ALGEBRAIC-RESTATEMENT and carries no weight.
+
+====================================================================================================
+(B) THE STEPS AND THEIR SPECIES. ### RULE-3 LINE (b).
+====================================================================================================
+### **S0 -- THE SERIES IDENTITY.** ### That the `t(n)` series and the eps series are one object,
+###   confirmed FROM DEFINITIONS -- ### **if it holds, the theorem proved here IS the eps-series'
+###   convergence and M-4's two names collapse by text.**
+### **S1 -- `lambda_n < 1` STRICTLY.**
+### **S2 -- THE DECAY**, at FIXED `c = 2*pi`: minimax / Eckart-Young + a degenerate-kernel
+###   truncation + the Legendre (Jacobi-Anger) bilinear expansion + the Bessel factorial bound,
+###   ### **with the n-range in which the factorial bound holds STATED EXACTLY and JOINED to
+###   Lemma F.1's certified eleven below it.**
+### **S3 -- THE ENDPOINT.**
+### **S4 -- THE ENVELOPE**, in closed form, evaluated at K1's cut and at b249's `N`, and
+###   ### **CHECKED against the measured tails as a CONTROL, NOT a premise.**
+### **S5 -- THE GRADES**, per step and overall, with the import list (possibly empty).
+
+====================================================================================================
+(C) ### BOTH SEATS' EXPECTED VERDICTS, PER STEP, REGISTERED BEFORE ANY STEP IS WRITTEN.
+====================================================================================================
+### **THE NAVIGATOR'S, read from the ferry's own route: ### DERIVES at S0, S1, S2, S3 and S4**,
+### with the grade target "DERIVES (on zero imports if the Bessel bound derives longhand)".
+
+### **THE EXECUTOR'S, AND THEY DIFFER FROM THE NAVIGATOR'S AT EXACTLY ONE STEP:**
+### ### **S0 -- I EXPECT DERIVES.** ### `qeps_layer`'s own docstring derives `eps'(1+) = sum_n
+### ###   [lam^2/(1-lam^2)] xi_n(1)^2` from the supplied formula (85), and that IS the `t(n)` sum.
+### ### **S1 -- I EXPECT DERIVES, LONGHAND AND ON ZERO IMPORTS.** ### A function band-limited to
+### ###   `[-c,c]` is the restriction of an entire function (differentiate under the integral);
+### ###   an entire function's zero set is discrete unless it vanishes identically; `[-1,1]`'s
+### ###   complement is not discrete. ### Both facts are reproducible in a few lines.
+### ### **S2 -- I EXPECT DERIVES, WITH A RANGE CONDITION.** ### The factorial bound
+### ###   `|j_k(z)| <= (z/2)^k sqrt(pi)/(2 Gamma(k+3/2))` follows from the power series ONLY where
+### ###   the series alternates and decreases, i.e. where `z^2/4 < k + 3/2`. ### At `z = c = 2*pi`
+### ###   that is `k > pi^2 - 3/2 ~ 8.37`, so ### **k >= 9** -- ### and I register THAT NUMBER NOW,
+### ###   before computing anything, as the range I expect to have to state and join.
+### ### **S3 -- ### I EXPECT THE NAVIGATOR'S ROUTE TO RESIST, AND I SAY SO IN ADVANCE.**
+### ###   ### **THE PER-MODE POLYNOMIAL BOUND ON `xi_n(1)^2` IS THE STEP I DOUBT.** ### b247
+### ###   already showed the two obvious routes go the wrong way: the eigenfunction equation gives
+### ###   `xi_n(1)^2 <~ const/mu_n`, which is INVERSE in the eigenvalue and makes `t(n)` flat; and
+### ###   the band-limited extension gives the same shape. ### A genuine polynomial bound needs
+### ###   the Legendre-coefficient decay (the Bouwkamp analysis), which I do not expect to
+### ###   reproduce longhand in one act.
+### ###   ### ### **AND I REGISTER MY INTENDED SUBSTITUTION NOW, SO THAT REACHING FOR IT LATER
+### ###   ### ### CANNOT LOOK LIKE A DISCOVERY MADE TO ORDER:** ### **MERCER'S THEOREM ON THE
+### ###   ### ### CONTINUOUS POSITIVE KERNEL GIVES `sum_n mu_n psi_n(1)^2 = K(1,1) = c/pi`
+### ###   ### ### EXACTLY**, and with the parity symmetry `psi_n(-1) = (-1)^n psi_n(1)` together
+### ###   ### ### with `K(1,-1) = sin(2c)/(2 pi c)`... the even-index half separates.
+### ###   ### ### **IF THAT LANDS, THE SUMMED IDENTITY SUPERSEDES CLAUSE (ii) ENTIRELY: S4 NEEDS
+### ###   ### ### THE SUM, NOT THE PER-MODE BOUND, AND THE HARDER FORM OF (ii) BECOMES
+### ###   ### ### UNNECESSARY RATHER THAN UNPROVEN.**
+### ###   ### **I EXPECT: S3 (DERIVES) FOR THE SUMMED IDENTITY, AND THE PER-MODE BOUND HALTED
+### ###   ### WITH A WORK-ORDER.** ### If the navigator's per-mode route does derive after all, I
+### ###   ### report that my doubt was wrong.
+### ### **S4 -- I EXPECT DERIVES, CONDITIONAL ON S2 AND S3**, and I expect ### **TWO ENVELOPES**:
+### ###   a MEASUREMENT-FREE one that is rigorous and very loose, and a SHARP one whose formula is
+### ###   exact but whose evaluation uses finitely many computed terms. ### **THE DIFFERENCE
+### ###   BETWEEN THEM MUST BE STATED, NOT BLURRED.**
+
+### ### **AND A PREDICTION ABOUT THE CORPUS ITSELF, REGISTERED BECAUSE IT WOULD BE A REAL FIND:**
+### ### if S3's Mercer route lands, it ### **RE-DERIVES THE CORPUS'S OWN BANKED C0 GATE
+### ### `sum lam2 * xi1^2 = 2.0` FROM FIRST PRINCIPLES** -- a pin the record has carried as a
+### ### NUMBER since b35 would become a THEOREM. ### **I EXPECT THAT, AND IF THE ARITHMETIC COMES
+### ### OUT AT ANYTHING BUT EXACTLY 2 THE ROUTE IS WRONG AND I REPORT IT WRONG.**
+
+====================================================================================================
+(D) HALT CONDITIONS. ### RULE-3 LINE (d). ### FIXED HERE.
+====================================================================================================
+### **ANY STEP whose classical fact resists longhand reproduction AND whose source cannot be read
+### at content ### HALTS THAT STEP at ### (DERIVES-on-IMP, TRUSTED-AT-CITE) ### with the
+### work-order filed -- and ### **THE THEOREM'S GRADE THEN SAYS SO.**
+### **A FAILED DOMINATION-RANGE JOIN HALTS S4 WITH THE RANGE NAMED.**
+### ### **AND THE HALT THIS ACT IS MOST LIKELY TO NEED, NAMED IN ADVANCE: S3's PER-MODE BOUND.**
+### ### **NO STEP IS PATCHED. ### A STEP THAT DOES NOT DERIVE IS REPORTED AS NOT DERIVING, EVEN
+### ### IF THE THEOREM SURVIVES BY ANOTHER ROUTE.**
+
+====================================================================================================
+(E) THE SHADOW. ### RULE-3 LINE (c).
+====================================================================================================
+### THE FINITE-DECIDABLE CORE ONLY: ### factorial-dominates-geometric as a ZERO-AXIOM lemma; the
+### envelope's arithmetic at the cut as a rational inequality; the minimax inequality's finite
+### instance. ### **THE ANALYTIC STEPS LIVE IN THE LONGHAND RECORD AT CONTENT AND ARE NOT FORCED
+### INTO VANILLA `Nat`.** ### **POLARITY CONTROLS FIRST; THE PROFILE IS PRINTED AND READ, NEVER
+### INFERRED FROM AN EXIT CODE** -- b227 shipped a file that compiled clean and printed `sorryAx`.
+
+====================================================================================================
+(F) THE INDEX QUERY, RUN BEFORE ANY STEP.
+====================================================================================================
+### `m4-derivation` -> NO KEY. ### `s2-decay-route` -> NO KEY. ### Both keyed ON FILING.
+### AND THE DECLARED KEYS BEARING ON THIS ACT: `m4-statement`, `xi-alpha-question`,
+### `mode-precision`, `t-series`, `two-tails`, `prolate-operator`, `sonin-eigenfunctions`,
+### `e1-even-bridge`, `import-bar`, `wronskian-identity`.
+
+====================================================================================================
+(G) WHAT NO PART OF THIS ACT MAY DO.
+====================================================================================================
+### Cite a measured value as a reason. ### Patch a failing step. ### Fill a step by plausibility.
+### Grade an import without naming it and its source. ### Claim the theorem on a step that halted.
+### Claim M-4 pays more than one term of the shortfall. ### Move h2 or the register sentence.
+### Close M-2, M-3 or M-5. ### Deposit anything. ### THE CEILING IN THE HEADER GOVERNS ALL OF IT.
+====================================================================================================

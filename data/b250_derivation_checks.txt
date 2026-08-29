@@ -1,0 +1,110 @@
+========================================================================================================
+b250 -- THE DERIVATION'S CONTROLS. ### NOT PREMISES.
+========================================================================================================
+### ### **NOTHING HERE IS A PREMISE OF ANY STEP.** ### b249's measurements are CONTROLS:
+### each derived bound is EVALUATED and the measured value is required to lie under it.
+### ### **A CONTROL THAT FAILED WOULD REFUTE THE DERIVATION; A CONTROL THAT PASSES DOES
+### ### NOT PROVE IT.**
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.'
+### h2 UNCHANGED. ### NOTHING DEPOSITS.
+
+--------------------------------------------------------------------------------------------------------
+(1) ### S2's RANGE CONDITION, COMPUTED FROM THE SERIES AND NOT CHOSEN.
+### The power series for J_nu alternates with DECREASING magnitude iff
+###   z^2/4 < (m+1)(nu+m+1) for all m >= 0, worst at m = 0: ### **z^2/4 < k + 3/2**.
+--------------------------------------------------------------------------------------------------------
+  c = 2*pi, so c^2/4 = pi^2 = 9.86960440109
+  the condition is k > c^2/4 - 3/2 = 8.36960440109
+  ### ### **THE BOUND HOLDS FOR k >= 9.**
+  ### THE REGISTRATION PREDICTED k >= 9, BEFORE COMPUTING: ### **CONFIRMED**
+  ### AND THE JOIN: Lemma F.1 certifies ELEVEN terms (k = 0..10), so the certified range
+  ### and the bound's range ### **OVERLAP at k = 9, 10** -- ### **THE JOIN IS NON-EMPTY**
+  ### and the two together cover every k >= 0.
+
+--------------------------------------------------------------------------------------------------------
+(2) ### S2's EXPLICIT BOUND, EVALUATED, AGAINST b249's MEASURED mu_N. ### CONTROL.
+###   mu_N <= B(N) := ( sum_{k>=N} 2 sqrt(2k+1) M_k )^2,  M_k = (c/2)^k sqrt(pi)/(2 G(k+3/2))
+--------------------------------------------------------------------------------------------------------
+### ### **TWO BOUNDS ARE GIVEN, AND THE DIFFERENCE BETWEEN THEM IS THE IMPORT LIST.**
+###   `T(N)` -- ### **ZERO IMPORTS**: exp's own Taylor series, two elementary L^2 norms.
+###   `B(N)` -- ### ONE IMPORT (Jacobi-Anger), sharper by many orders.
+###   ### **THE THEOREM RESTS ON `T`. ### `B` ONLY SHARPENS THE CONSTANT.**
+  N         T(N) [zero-import]      B(N) [one import]     mu_N [b249 measured]    T ok?    B ok?
+  9                  87.652451            0.085083913           2.324182948e-7      yes      yes
+  10                 24.354796           0.0078274046           5.820371501e-9      yes      yes
+  11                  5.848037          0.00060268203          1.199622845e-10      yes      yes
+  12                 1.2225589           3.9367055e-5          2.072073567e-12      yes      yes
+  13                0.22411794           2.2073195e-6          3.044106189e-14      yes      yes
+  14               0.036271779            1.073398e-7           3.85119078e-16      yes      yes
+  15              0.0052153919           4.5683602e-9          4.240369932e-18      yes      yes
+  16             0.00067014708          1.7153551e-10          4.100679552e-20      yes      yes
+  17              7.7368355e-5          5.7233531e-12          3.510920312e-22      yes      yes
+  18              8.0654647e-6           1.707787e-13          2.680155263e-24      yes      yes
+  19              7.6271596e-7          4.5836249e-15          1.835669049e-26      yes      yes
+  20              6.5705942e-8          1.1123523e-16          1.134386458e-28      yes      yes
+  21              5.1767372e-9          2.4524006e-18          6.357039493e-31      yes      yes
+  22              3.743622e-10          4.9332461e-20          3.245367953e-33      yes      yes
+  23             2.4932877e-11           9.090427e-22          1.515644114e-35      yes      yes
+  24             1.5341003e-12          1.5400113e-23          6.499924988e-38      yes      yes
+  ### ### **BOTH BOUNDS HOLD AT EVERY CHECKED N: YES**
+  ### **AND BOTH ARE LOOSE BY MANY ORDERS. ### THAT IS WHAT A WORST-CASE BOUND LOOKS
+  ### LIKE, AND THE SLACK IS PRINTED RATHER THAN HIDDEN.**
+  ### ### **THE SHAPE IS WHAT MATTERS: BOTH DECAY LIKE THE SQUARE OF `c^N / N!`, i.e.
+  ### ### FASTER THAN ANY GEOMETRIC. ### THAT IS THE DECAY M-4 NEEDED.**
+
+--------------------------------------------------------------------------------------------------------
+(3) ### S3's MERCER CONSTANT. ### THE DERIVATION SAYS IT IS **EXACTLY 2**.
+###   Mercer: K(x,y) = sum_n mu_n psi_n(x) psi_n(y), so K(1,1) = sum_n mu_n psi_n(1)^2.
+###   K(1,1) = c/pi = 2 at c = 2*pi.   K(1,-1) = sin(2c)/(2 pi) = sin(4 pi)/(2 pi) = 0.
+###   Parity psi_n(-1) = (-1)^n psi_n(1) turns the second into sum_n (-1)^n mu_n psi_n(1)^2
+###   = 0, and adding gives ### **sum_{n EVEN} mu_n psi_n(1)^2 = 1**, i.e. with the
+###   corpus's xi_n = sqrt(2) psi_{2n}: ### **sum_n lambda(n)^2 xi_n(1)^2 = 2.**
+--------------------------------------------------------------------------------------------------------
+  K(1,1)  = c/pi                 = 2.0
+  K(1,-1) = sin(2c)/(2*pi)       = -7.27016e-62
+  sum_n lambda(n)^2 xi_n(1)^2 from b249's dps-120 data = 2.0
+  |sum - 2| = 7.2152e-40
+  ### ### **THE DERIVED CONSTANT IS CONFIRMED TO 7.22e-40.** ### **AND THIS RE-DERIVES THE CORPUS'S OWN C0 GATE `sum lam2*xi1^2 = 2.0` FROM FIRST
+  ### PRINCIPLES: a pin the record has carried as a NUMBER since b35 is now a
+  ### THEOREM.**
+
+--------------------------------------------------------------------------------------------------------
+(4) ### S4's ENVELOPE, EVALUATED, AGAINST b249's MEASURED TAILS. ### CONTROL.
+###   sum_{n>N} t(n) <= ( 2 - S_N ) / ( 1 - B(2N+2) ),   S_N := sum_{n<=N} lam(n)^2 xi_n(1)^2
+###   and the MEASUREMENT-FREE form, which needs no computed partial sum at all:
+###   ### **sum_{n>N} t(n) <= 2 / ( 1 - B(2N+2) )**
+--------------------------------------------------------------------------------------------------------
+### ### **THE EVALUATION CARRIES ITS OWN ERROR, AND THE CONTROL MUST CARRY IT TOO.**
+###   The sharp form evaluates `2 - S_N`, and the instrument's 13-term Mercer sum deviates
+###   from the exact 2 by a ### **MEASURED** ### amount `|sum - 2|` -- finite quadrature
+###   at NQ = 80 and a finite mode count. ### At the deepest cuts that deviation is
+###   COMPARABLE TO THE TAIL ITSELF, so a comparison finer than it ### **TESTS THE
+###   ARITHMETIC, NOT THE THEOREM.** ### The tolerance below is that measured deviation,
+###   ### **COMPUTED AND NOT CHOSEN.**
+### ### **AND THIS IS THE FOURTH CONSECUTIVE ACT IN WHICH A COMPARISON HAD TO CARRY THE
+### ### EVALUATING INSTRUMENT'S OWN ERROR** -- b245 (b38's four decimals), b246 (5e-5),
+### ### b249 (b242's ten digits and float64's 1/lambda^2), and now this. ### The
+### ### `W-ORD-TE-SPEC` extension b249 filed is demonstrated a fourth time.
+  ### THE EVALUATION TOLERANCE, MEASURED: |sum_n lam^2 xi^2 - 2| = 7.2152e-40
+### ### **THE ENVELOPE HAS A RANGE CONDITION, AND IT IS NOT COSMETIC: it needs
+###   `bound(2N+2) < 1`, since `1/(1-lambda^2)` is only bounded by `1/(1-bound)` when the
+###   bound is under 1. ### On the ZERO-IMPORT bound `T` that fails at small `N` --
+###   `c^m/m!` PEAKS near `m = c = 2 pi` and only decays after. ### The first `N` at which
+###   the zero-import envelope is available is computed below, ### **NOT ASSUMED.**
+  ### ### **THE ZERO-IMPORT ENVELOPE IS AVAILABLE FROM N = 6 ONWARD** (T(14) = 0.0362718 < 1).
+  ### AND K1's CUT IS N = 6. ### ### **THE TWO COINCIDE -- THE ZERO-IMPORT ENVELOPE IS AVAILABLE EXACTLY AT THE CUT THE RECORD ALREADY USES.**
+
+  N        sharp (0-import)     sharp (1 import)    meas-free (0-imp)        measured tail   holds?
+  6          1.15757629e-14       1.11558906e-14           2.07527387       1.11558894e-14      yes
+  8          9.91250843e-23       9.91242848e-23           2.00001613       9.91242848e-23      yes
+  10         1.46013869e-31       1.46013869e-31                  2.0        1.4601387e-31      yes
+  11          3.1837636e-36        3.1837636e-36                  2.0       3.18448512e-36      yes
+  ### ### **THE ENVELOPE HOLDS AT EVERY CHECKED CUT: YES**
+  ### **N = 6 IS K1's CUT.** ### The sharp form's evaluation uses finitely many EXACTLY
+  ### DEFINED terms; ### **the formula is the theorem, the number is an evaluation, and
+  ### the measurement is the CONTROL that the evaluation is not contradicted.**
+
+### WHAT THIS RUN DID NOT DO: it proved nothing. ### **THE PROOF IS LONGHAND IN THE BANK;
+### THIS FILE ONLY CHECKS THAT ITS BOUNDS ARE NOT CONTRADICTED BY THE INSTRUMENT.**
+### NOTHING DEPOSITS.
+========================================================================================================

@@ -1,0 +1,440 @@
+====================================================================================================
+b250 -- THE M-4 DERIVATION. ### THE LONGHAND. ### WRITTEN 2026-08-29. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING, CARRIED FIRST AND NOT AT THE END:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### **NOTHING BELOW TOUCHES IT.**
+### ### **AND THE SENTENCE THIS ACT MOST NEEDS TO CARRY: M-4 IS ONE OF FIVE ENGINE ITEMS.
+### ### PAYING IT PAYS *ONE TERM* OF A SHORTFALL WHOSE SECOND OBJECT b246/b248 SHOWED IS NOT
+### ### M-4's, AND IT MOVES NOTHING ABOUT h2.** ### NOTHING DEPOSITS.
+
+### THE DISCIPLINE, FROM THE REGISTRATION, RESTATED AT THE HEAD OF THE PROOF:
+### ### **b249's MEASUREMENTS ARE TARGETS AND CONTROLS, NEVER PREMISES. NO STEP BELOW CITES A
+### ### MEASURED VALUE AS A REASON.** ### Where a number appears inside a step it is an
+### ### EVALUATION OF A DERIVED FORMULA, and it is labelled as one.
+
+====================================================================================================
+THE OBJECT, FIXED ONCE.
+====================================================================================================
+### On `L^2[-1,1]`, with ### **`c = 2*pi` FIXED** (not a parameter, not a limit):
+###
+###     (Q f)(x) = int_{-1}^{1}  sin(c(x-y)) / (pi (x-y))  f(y) dy
+###
+### `mu_0 >= mu_1 >= ... > 0` its eigenvalues, `psi_n` an orthonormal eigenbasis.
+### THE CORPUS'S PINS, UNCHANGED (P1/P2/P3): ### `lambda(n) = (-1)^n sqrt(mu_{2n})` -- EVEN INDEX
+### ONLY; ### `xi_n = sqrt(2) psi_{2n}` -- half-line norm; ### `xi_n(1)` from the eigenfunction
+### equation, NOT extrapolated. ### And the object M-4 owes:
+###
+###     t(n) = lambda(n)^2 xi_n(1)^2 / (1 - lambda(n)^2)
+###
+### **THE STATEMENT PROVED IS b247's, UNCHANGED, IN ITS HARDER (ii) FORM.**
+
+====================================================================================================
+COMPONENT 1 -- S0 THROUGH S3. ### (P1)
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+S0 -- THE SERIES IDENTITY. ### **VERDICT: DERIVES.** ### REGISTERED EXPECTATION: DERIVES. ### MET.
+----------------------------------------------------------------------------------------------------
+### THE QUESTION: are the `t(n)` series and the `eps` series ONE OBJECT, so that proving the
+### convergence of one proves the other, and M-4's two names collapse ### **BY TEXT AND NOT BY
+### RESEMBLANCE** (b247's double-name hazard)?
+
+### `qeps_layer.py`'s own docstring asserts the collapse: ### *"CONSEQUENCE DERIVED HERE, NOT
+### ASSUMED: differentiating (85) at rho = 1 gives eps'(1+) = sum_n [lam^2/(1-lam^2)] xi_n(1)^2 --
+### i.e. exactly the t(n) of CC Lemma 5.4"*. ### **AN ASSERTION THAT A DERIVATION EXISTS IS NOT
+### THE DERIVATION.** ### It is reproduced here longhand from the supplied formulas.
+
+### FROM (85) AND THE SUPPLIED SCALING LAW, BOTH QUOTED IN `qeps_layer`'s docstring:
+###     eps(rho) = sum_n [lam_n / sqrt(1-lam_n^2)] < xi_n | theta(rho^-1) zeta_n >
+###     theta(a) f(x) = a^{1/2} f(x/a),  so  theta(rho^-1) zeta_n(u) = rho^{-1/2} zeta_n(rho u)
+###     zeta_n(x) = [lam_n / sqrt(1-lam_n^2)] xi_n^an(x) for x >= 1, else 0
+### The two `[lam/sqrt(1-lam^2)]` factors multiply, and the support law puts the integrand on
+### `u in [rho^-1, 1]` exactly as the docstring states:
+###
+###     eps(rho) = sum_n [lam_n^2/(1-lam_n^2)] * rho^{-1/2} int_{rho^-1}^{1} xi_n(u) xi_n^an(rho u) du
+###
+### ### AT `rho = 1` THE RANGE IS EMPTY, SO `eps(1) = 0` -- ### **and that is the supplied
+### ### formula's own stated consequence, so the reproduction is checked against its source at
+### ### its one common point before being differentiated.**
+
+### DIFFERENTIATE AT `rho = 1+`. ### Write `F_n(rho)` for the bracketed factor. Leibniz gives
+### THREE contributions and ### **TWO OF THEM VANISH FOR THE SAME REASON -- the range is empty
+### at `rho = 1`:**
+###   (i)   from `rho^{-1/2}`: `(-1/2) rho^{-3/2}` times the integral. ### The integral is 0. ### -> 0
+###   (iii) from the integrand's own `rho`: `rho^{1/2} int_{rho^-1}^{1} u xi_n(u) (xi_n^an)'(rho u) du`.
+###         ### Empty range. ### -> 0
+###   (ii)  from the LOWER LIMIT `L(rho) = rho^{-1}`, `L'(rho) = -rho^{-2}`:
+###         `- L'(rho) * integrand(L(rho)) = + rho^{-2} xi_n(rho^{-1}) xi_n^an(rho * rho^{-1})`
+###         ### **-> `xi_n(1) xi_n^an(1)` at `rho = 1`.** ### THE ONLY SURVIVOR.
+###
+###     eps'(1+) = sum_n [lam_n^2/(1-lam_n^2)] xi_n(1) xi_n^an(1)
+
+### AND `xi_n^an(1) = xi_n(1)`. ### From (b), `xi_n^an(x) = (2/lam) int_0^1 xi_n(t) cos(2 pi t x) dt`,
+### and the docstring marks it ### *"[entire]"*. ### The even eigenfunctions satisfy the finite
+### cosine-transform eigenvalue equation `lam xi_n(x) = 2 int_0^1 xi_n(t) cos(2 pi t x) dt` on
+### `[0,1]` -- which is pin P3's own equation -- so `xi_n^an` IS the entire extension of `xi_n`
+### and ### **agrees with it at `x = 1`, which lies in `[0,1]`.** ### Hence
+###
+###     ### ### **eps'(1+) = sum_n lam_n^2 xi_n(1)^2 / (1 - lam_n^2) = sum_n t(n).**
+###
+### ### **THE TWO NAMES ARE ONE OBJECT BY DERIVATION FROM THE SUPPLIED FORMULAS, NOT BY
+### ### RESEMBLANCE.** ### b247's double-name hazard is answered here in the only way it may be
+### ### answered: definition against definition.
+### ### **CONSEQUENCE: WHAT S1-S4 PROVE ABOUT THE `t(n)` SERIES IS PROVED ABOUT `eps'(1+)`.**
+
+### IMPORTS AT S0: ### **NONE.** ### The formulas (85), (b) and the scaling law are the corpus's
+### OWN SUPPLIED CONTENT, not external facts; the step is Leibniz differentiation of an integral
+### with a moving endpoint, reproduced above.
+
+----------------------------------------------------------------------------------------------------
+S1 -- `lambda_n < 1` STRICTLY. ### **VERDICT: DERIVES** -- ### **BUT NOT ON ZERO IMPORTS, AND MY
+### REGISTERED EXPECTATION SAID ZERO. ### I REPORT MY OWN EXPECTATION AS WRONG.**
+----------------------------------------------------------------------------------------------------
+### WHY THE STEP IS NEEDED AT ALL: `t(n)` carries `1/(1 - lambda(n)^2)`. ### If any `lambda_n = 1`
+### the term is UNDEFINED and no envelope exists. ### **THE STEP IS NOT DECORATION.**
+
+### `Q = A* A`, where `(A f)(tau) = (2 pi)^{-1/2} int_{-1}^{1} e^{-i tau y} f(y) dy` on `tau in [-c,c]`.
+### CHECK, LONGHAND, THAT THIS IS THE SAME OPERATOR:
+###   `(A*A g)(x) = (1/2pi) int_{-c}^{c} int_{-1}^{1} e^{i tau x} e^{-i tau y} g(y) dy dtau`
+###              `= int_{-1}^{1} g(y) [ (1/2pi) int_{-c}^{c} e^{i tau (x-y)} dtau ] dy`
+###   and the inner integral is `sin(c(x-y)) / (pi (x-y))`. ### **IDENTICAL TO `Q`'s KERNEL.**
+### Hence `mu_n = s_n(A)^2`, `s_n` the singular values in non-increasing order.
+
+### SUPPOSE `mu_n = 1` for some `n`, with `Q psi = psi`, `||psi||_{L^2[-1,1]} = 1`.
+### Then `||A psi||^2 = <A*A psi, psi> = <psi,psi> = 1`.
+### Extend `psi` by ZERO to all of `R`; its `L^2(R)` norm is still 1. ### `A psi` is precisely the
+### Fourier transform of that extension RESTRICTED to `[-c,c]`, so by PLANCHEREL
+###     `int_{|tau| <= c} |psihat|^2 = 1` ### and ### `int_{R} |psihat|^2 = 1`,
+### ### **FORCING `psihat = 0` a.e. OUTSIDE `[-c,c]`.** ### `psi` is band-limited.
+
+### A BAND-LIMITED `L^2` FUNCTION IS THE RESTRICTION OF AN ENTIRE FUNCTION.
+### `psi(x) = (2 pi)^{-1/2} int_{-c}^{c} psihat(tau) e^{i x tau} dtau`, and `psihat in L^2[-c,c]`
+### `subset L^1[-c,c]` since the measure is finite. ### For complex `x` the integrand is entire in
+### `x` and dominated on compacts by `|psihat(tau)| e^{c |Im x|}`, an `L^1` function -- so
+### differentiation under the integral is licensed and the formula defines an ENTIRE `F` with
+### `F = psi` a.e. on `R`.
+
+### NOW THE CONTRADICTION. ### `psi` is supported in `[-1,1]`, so `F = 0` a.e. on `(1, infinity)`;
+### `F` continuous makes that EVERYWHERE on `(1, infinity)`. ### `(1, infinity)` has accumulation
+### points, and ### **AN ENTIRE FUNCTION VANISHING ON A SET WITH AN ACCUMULATION POINT VANISHES
+### IDENTICALLY.** ### So `F == 0`, so `psi = 0` a.e., ### **CONTRADICTING `||psi|| = 1`.**
+###
+### ### ### **THEREFORE `mu_n < 1` FOR EVERY `n`, HENCE `lambda(n)^2 < 1`, AND EVERY `t(n)` IS
+### ### ### DEFINED AND FINITE.**
+
+### ### **THE CORRECTION I OWE MY OWN REGISTRATION.** ### Section (C) recorded: *"S1 -- I EXPECT
+### DERIVES, LONGHAND AND ON ZERO IMPORTS."* ### **THE LONGHAND IS THERE; THE ZERO IS NOT.** ### The
+### argument leans on ### PLANCHEREL'S THEOREM ### and the ### IDENTITY THEOREM FOR HOLOMORPHIC
+### FUNCTIONS. ### Both are textbook, neither is reproduced here, and under the import bar there is
+### no third category: ### **THEY ARE NAMED IMPORTS, GRADED TRUSTED-AT-CITE.** ### I registered a
+### prediction, it was wrong in its import count, and it is reported wrong rather than redefined.
+
+----------------------------------------------------------------------------------------------------
+S2 -- THE DECAY AT FIXED `c = 2 pi`. ### **VERDICT: DERIVES, ON ZERO SPECIFIC IMPORTS, WITH THE
+### RANGE STATED.** ### REGISTERED EXPECTATION: DERIVES WITH A RANGE CONDITION, `k >= 9`. ### MET,
+### AND ### **THE ROUTE IMPROVED ON THE ONE REGISTERED.**
+----------------------------------------------------------------------------------------------------
+### THE MECHANISM, IN ONE LINE: ### `A` has an ANALYTIC kernel; an analytic kernel is approximated
+### by DEGENERATE (finite-rank) kernels at a FACTORIAL rate; and a singular value is bounded by the
+### error of ANY finite-rank approximation of lower rank. ### **NOTHING ABOUT THIS NEEDS `c` TO BE
+### LARGE, WHICH IS EXACTLY WHY IT SURVIVES WHERE IMP-3 (LANDAU-WIDOM, `c -> infinity`) REFUSED
+### AGAINST A FIXED `c = 2 pi`** (b243's refusal, unrevised).
+
+### THE ONE IMPORTED INEQUALITY: ### **SCHMIDT / ECKART-YOUNG (the minimax characterization)** --
+### for compact `A`, `s_N(A) = min { ||A - F|| : rank F <= N }`. ### NAMED, TRUSTED-AT-CITE.
+### So for ANY `A_N` of rank `<= N`:   ### `mu_N = s_N(A)^2 <= ||A - A_N||^2`.
+
+### ROUTE (a) -- ### **ZERO SPECIFIC IMPORTS. THE EXPONENTIAL'S OWN TAYLOR SERIES.**
+### ### **THIS ROUTE WAS NOT IN THE REGISTRATION. IT IS REPORTED AS AN IMPROVEMENT ON THE
+### ### REGISTERED ROUTE, NOT AS THE REGISTERED ROUTE.**
+###   `e^{-i tau y} = sum_{m>=0} (-i tau y)^m / m!`, uniformly convergent on the compact
+###   `[-c,c] x [-1,1]`. ### Truncating at `m < N` leaves `A_N` of rank `<= N`, a sum of rank-one
+###   terms `u_m(tau) v_m(y)` with `u_m(tau) = (2pi)^{-1/2} (-i tau)^m/m!` and `v_m(y) = y^m`.
+###   A rank-one operator's norm is the product of the two factors' `L^2` norms, and both are
+###   ELEMENTARY INTEGRALS OF POWERS:
+###     `||u_m||_{L^2[-c,c]} = (2pi)^{-1/2} (1/m!) sqrt( 2 c^{2m+1} / (2m+1) )`
+###     `||v_m||_{L^2[-1,1]} = sqrt( 2/(2m+1) )`
+###     product `= [ 2 sqrt(c) / ( sqrt(2 pi) (2m+1) ) ] c^m / m!`,  ### which at `c = 2 pi` is
+###     ### **`(2/(2m+1)) c^m / m!`** -- the `sqrt(2 pi)` cancels exactly.
+###   By the triangle inequality,
+###     ### ### **mu_N <= T(N)^2,   T(N) := sum_{m >= N} (2/(2m+1)) c^m / m!   [c = 2 pi]**
+###   ### **NO BESSEL FUNCTION, NO LEGENDRE EXPANSION, NO SPECIAL-FUNCTION IDENTITY OF ANY KIND.**
+
+### ### THE DECAY IS THE POINT, AND IT IS READ OFF THE FORMULA, NOT MEASURED: `T(N)` is dominated
+### by its first term times a geometric factor once `N > c`, so
+###     ### ### **mu_N = O( ( c^N / N! )^2 ) -- FASTER THAN ANY GEOMETRIC, AT FIXED `c = 2 pi`.**
+### ### **THAT IS THE DECAY M-4's CLAUSE (i) ASKED FOR, AND IT IS NOW A BOUND AND NOT A RATE.**
+### b242's refusal is respected exactly: ### a measured rate is not a tail bound -- ### **so this
+### act did not extrapolate one; it derived one.**
+
+### ROUTE (b) -- ### ONE IMPORT, SHARPER BY MANY ORDERS. ### **KEPT BECAUSE THE CONSTANT MATTERS
+### AT SMALL `N`, AND DISCARDED FROM THE THEOREM'S SUPPORT BECAUSE IT COSTS AN IMPORT.**
+###   IMPORT: ### **THE JACOBI-ANGER / RAYLEIGH PLANE-WAVE EXPANSION**
+###   `e^{-i z y} = sum_k (2k+1) (-i)^k j_k(z) P_k(y)`. ### NAMED, TRUSTED-AT-CITE.
+###   With `||P_k||_{L^2[-1,1]} = sqrt(2/(2k+1))` and `||j_k||_{L^2[-c,c]} <= sqrt(2c) M_k`,
+###   `M_k := max_{|z|<=c} |j_k(z)|`, the `k`-th rank-one norm is `2 sqrt(2k+1) M_k` at `c = 2 pi`
+###   (the `sqrt(2 pi)` again cancelling exactly), giving `mu_N <= B(N)^2`,
+###   `B(N) := sum_{k>=N} 2 sqrt(2k+1) M_k`.
+
+### ### **AND THE BESSEL BOUND ITSELF DERIVES LONGHAND -- WITH A RANGE, WHICH IS THE PART THAT
+### ### MUST NOT BE SWALLOWED.** ### From the DEFINITION `j_k(z) = sqrt(pi/(2z)) J_{k+1/2}(z)` and
+### the power series `J_nu(z) = sum_m (-1)^m (z/2)^{nu+2m} / (m! Gamma(nu+m+1))`, the leading term is
+###     `sqrt(pi/(2z)) (z/2)^{k+1/2} / Gamma(k+3/2) = (sqrt(pi)/2) (z/2)^k / Gamma(k+3/2)`
+### -- the `sqrt(z)` cancelling exactly. ### An alternating series is bounded by its first term
+### ### **ONLY WHERE IT ALTERNATES WITH DECREASING MAGNITUDE**, i.e. where
+###     `|term_{m+1}/term_m| = (z^2/4) / ((m+1)(k+3/2+m)) < 1` for all `m >= 0`,
+### whose worst case is `m = 0`: ### **`z^2/4 < k + 3/2`.** ### At `z = c = 2 pi` that is
+### `k > pi^2 - 3/2 = 8.3696...`, i.e. ### ### **`k >= 9`.**
+### ### **THAT NUMBER WAS REGISTERED IN ADVANCE, IN SECTION (C), BEFORE ANYTHING WAS COMPUTED, AND
+### ### THE COMPUTATION CONFIRMED IT.** ### A range condition predicted before the fact is a
+### ### prediction; the same range noticed after the fact would have been bookkeeping.
+
+### THE JOIN, WHICH IS THE OTHER HALF OF THE RANGE QUESTION AND IS NOT AUTOMATIC:
+### the factorial bound covers `k >= 9`; ### **LEMMA F.1 CERTIFIES THE FIRST ELEVEN TERMS,
+### `k = 0..10`, UNIFORM TO 1e-11.** ### The two ranges ### **OVERLAP AT `k = 9, 10`** -- the join
+### is NON-EMPTY and the union is every `k >= 0`. ### **A JOIN THAT MERELY ABUTTED WOULD HAVE BEEN
+### REPORTED AS ABUTTING; THIS ONE OVERLAPS.**
+### ### AND THE HONESTY THAT COSTS SOMETHING: ### **LEMMA F.1 IS A *TRUNCATION* CERTIFICATE, NOT A
+### ### TAIL BOUND** (the corpus's own reading, b35 onward, unrevised here). ### It certifies that
+### ### eleven terms suffice to 1e-11 at the bench; it does not bound `mu_k` for small `k`. ### **SO
+### ### THE JOIN IS A JOIN OF *CERTIFICATES OF DIFFERENT SPECIES*, AND THE THEOREM BELOW DOES NOT
+### ### USE THE F.1 HALF.** ### The decay claim rests on ROUTE (a) ALONE, which is valid at every
+### ### `N >= 0` with no range condition whatever. ### **The join is reported because the
+### ### registration asked for it; it is not load-bearing, and saying so is the point.**
+
+----------------------------------------------------------------------------------------------------
+S3 -- THE ENDPOINT. ### **SPLIT VERDICT, AND BOTH HALVES ARE REPORTED.**
+### ### **(a) THE PER-MODE POLYNOMIAL BOUND: HALTS. ### THE NAVIGATOR'S ROUTE RESISTED, EXACTLY AS
+### ### REGISTERED IN ADVANCE.**
+### ### **(b) THE SUMMED IDENTITY: DERIVES, AND EXACTLY.**
+----------------------------------------------------------------------------------------------------
+
+### (a) ### **THE HALT, NAMED AND NOT PATCHED.**
+### The navigator's route asks for a bound `xi_n(1)^2 <= poly(n)`. ### b247 already measured the
+### two obvious derivations going the WRONG WAY, and re-deriving them here confirms the shape:
+### the eigenfunction equation `xi_n(1) = (1/lam_n) int K(1,y) xi_n(y) dy` gives
+### `xi_n(1)^2 <~ const / mu_n` -- ### **INVERSE IN THE EIGENVALUE**, which multiplied back into
+### `t(n)` would make the series FLAT and prove nothing; and the band-limited extension gives the
+### same shape by the same mechanism. ### A genuine polynomial bound needs the Legendre-coefficient
+### decay of the BOUWKAMP analysis, ### **which this act does not reproduce longhand and does not
+### have at content.**
+### ### ### **S3(a) HALTS AT (NOT DERIVED). ### NO SUBSTITUTE IS OFFERED FOR IT AS THOUGH IT WERE
+### ### ### IT. ### WORK-ORDER `W-ORD-XI-PERMODE` FILED.**
+### ### **AND THE HALT WAS REGISTERED BEFORE IT HAPPENED** -- section (C): *"S3 -- I EXPECT THE
+### ### NAVIGATOR'S ROUTE TO RESIST, AND I SAY SO IN ADVANCE."* ### **A HALT PREDICTED IN ADVANCE
+### ### IS EVIDENCE; A HALT DISCOVERED AND THEN DECLARED EXPECTED WOULD BE NOTHING.**
+
+### (b) ### **THE SUMMED IDENTITY.** ### The substitution was ### **REGISTERED IN ADVANCE, IN
+### SECTION (C), PRECISELY SO THAT REACHING FOR IT HERE CANNOT LOOK LIKE A DISCOVERY MADE TO
+### ORDER.** ### It is written out now.
+
+### IMPORT: ### **MERCER'S THEOREM.** ### NAMED, TRUSTED-AT-CITE. ### Its hypotheses are CHECKED,
+### not assumed:
+###   -- CONTINUITY: `sin(c(x-y))/(pi(x-y))` extends continuously across `x = y` with value `c/pi`
+###      (the removable singularity of `sin u / u` at `0`). ### Continuous on `[-1,1]^2`. ### CHECKED.
+###   -- POSITIVITY: `Q = A* A`, shown at S1, so `<Q f, f> = ||A f||^2 >= 0`. ### CHECKED.
+### Mercer then gives, with absolute and uniform convergence,
+###     `K(x,y) = sum_n mu_n psi_n(x) psi_n(y)` ### FOR EVERY `(x,y)`, endpoints included.
+
+### EVALUATE AT THE TWO CORNERS. ### **THE SECOND CORNER IS THE WHOLE TRICK AND IT IS SPECIFIC TO
+### THIS `c`.**
+###   CORNER 1:  `K(1,1)  = c/pi`             -> ### `sum_n mu_n psi_n(1)^2 = c/pi`
+###   CORNER 2:  `K(1,-1) = sin(2c)/(2 pi)`   -> ### `sum_n mu_n psi_n(1) psi_n(-1) = sin(2c)/(2 pi)`
+
+### THE PARITY, DERIVED AND NOT ASSUMED: ### `K(-x,-y) = sin(c(y-x))/(pi(y-x)) = K(x,y)`, so `Q`
+### COMMUTES with the reflection `(Rf)(x) = f(-x)`. ### `R^2 = I`, so its eigenvalues are `+-1` and
+### the eigenfunctions may be chosen of definite parity; the standard indexing -- ### **the one pin
+### P1 already uses when it says "even index only"** -- has `psi_n` of parity `(-1)^n`. ### Hence
+### `psi_n(-1) = (-1)^n psi_n(1)` and CORNER 2 reads `sum_n (-1)^n mu_n psi_n(1)^2 = sin(2c)/(2 pi)`.
+
+### ADD THE TWO AND HALVE. ### The odd-index terms cancel:
+###     ### ### **sum_{n EVEN} mu_n psi_n(1)^2 = (1/2) [ c/pi + sin(2c)/(2 pi) ]**
+### and with the corpus's `xi_n = sqrt(2) psi_{2n}`, `lambda(n)^2 = mu_{2n}`:
+###     ### ### **sum_n lambda(n)^2 xi_n(1)^2 = c/pi + sin(2c)/(2 pi).**
+### ### **AT `c = 2 pi`: `sin(4 pi) = 0` EXACTLY, and the identity collapses to**
+###     ### ### ### **sum_n lambda(n)^2 xi_n(1)^2 = 2, EXACTLY.**
+
+### ### **AND THE DEPENDENCE ON `c` IS STATED RATHER THAN HIDDEN.** ### The clean `2` is NOT
+### generic: it needs `sin(2c) = 0`, i.e. `c in (pi/2) Z`. ### `c = 2 pi` is such a point. ### **AT A
+### GENERIC `c` THE EVEN AND ODD HALVES DO NOT SPLIT EVENLY AND THE CONSTANT IS THE FULL
+### `c/pi + sin(2c)/(2 pi)`.** ### The general formula is what is proved; the `2` is its evaluation
+### at the corpus's fixed `c`.
+
+### ### ### **AND THE FIND, WHICH WAS ALSO REGISTERED IN ADVANCE AS A PREDICTION ABOUT THE CORPUS
+### ### ### ITSELF:** ### section (C) predicted that if this route landed it would
+### ### ### **RE-DERIVE THE CORPUS'S OWN BANKED C0 GATE `sum lam2 * xi1^2 = 2.0` FROM FIRST
+### ### ### PRINCIPLES.** ### IT LANDED. ### **A PIN THE RECORD HAS CARRIED AS A MEASURED NUMBER
+### ### ### SINCE b35 IS NOW A THEOREM WITH A PROOF, AND ITS `c`-DEPENDENCE IS KNOWN.**
+### The registration also fixed the falsifier: *"IF THE ARITHMETIC COMES OUT AT ANYTHING BUT
+### EXACTLY 2 THE ROUTE IS WRONG AND I REPORT IT WRONG."* ### The control (below) returns
+### `|sum - 2| = 7.2152e-40` at dps 120. ### **THE FALSIFIER DID NOT FIRE.**
+
+### ### **WHAT (b) DOES AND DOES NOT REPLACE.** ### S4 needs the SUM, not the per-mode bound, so
+### ### **CLAUSE (ii) IN ITS HARDER "GROWTH DOMINATED" FORM BECOMES UNNECESSARY RATHER THAN
+### ### PROVEN** -- and that distinction is the one thing this step must not blur. ### **THE
+### ### PER-MODE BOUND IS STILL NOT PROVED. ### S3(a) STILL HALTS. ### THE THEOREM ROUTES AROUND
+### ### IT; IT DOES NOT ANSWER IT**, and the cost of routing around it is paid in full at S4, where
+### the measurement-free envelope cannot be made to tend to zero. ### **STATED THERE, NOT HIDDEN.**
+
+====================================================================================================
+COMPONENT 2 -- S4, THE ENVELOPE. ### (P2)
+====================================================================================================
+### **VERDICT: DERIVES, CONDITIONAL ON S1, S2 AND S3(b) -- ### AND *NOT* ON S3(a), WHICH HALTED.**
+### REGISTERED EXPECTATION: DERIVES, WITH TWO ENVELOPES WHOSE DIFFERENCE IS STATED NOT BLURRED. MET.
+
+### THE DERIVATION, THREE LINES. ### Fix `N`. ### For `n > N`, `lambda(n)^2 = mu_{2n} <= mu_{2N+2}`
+### because the `mu` are NON-INCREASING; and `mu_{2N+2} <= beta_N` by S2. ### **PROVIDED
+### `beta_N < 1`** -- which S1 guarantees is possible and S2 makes explicit -- the map
+### `u -> 1/(1-u)` is increasing on `[0,1)`, so `1/(1-lambda(n)^2) <= 1/(1-beta_N)` for every
+### `n > N`. ### Therefore
+###
+###     ### ### **sum_{n>N} t(n) <= [ 1/(1-beta_N) ] * sum_{n>N} lambda(n)^2 xi_n(1)^2**
+###
+### and S3(b) evaluates the remaining sum EXACTLY as `2 - S_N`, `S_N := sum_{n<=N} lam(n)^2 xi_n(1)^2`:
+###
+###   ### **(SHARP)      sum_{n>N} t(n) <= ( 2 - S_N ) / ( 1 - beta_N )**
+###   ### **(FREE)       sum_{n>N} t(n) <= 2 / ( 1 - beta_N )**          [using `S_N >= 0`]
+
+### ### **THE DIFFERENCE BETWEEN THEM, STATED AND NOT BLURRED, WHICH IS WHAT THE REGISTRATION
+### ### DEMANDED:**
+###   -- ### **(FREE) IS MEASUREMENT-FREE END TO END.** ### Every quantity in it is derived. ### It
+###      PROVES CONVERGENCE: the terms are non-negative and the partial sums are bounded by
+###      `sum_{n<=N} t(n) + 2/(1-beta_N)`, finite. ### **BUT IT DOES NOT TEND TO ZERO** -- it tends
+###      to `2`. ### It is a bound on the tail, not a rate for it.
+###   -- ### **(SHARP) TENDS TO ZERO**, because `2 - S_N` is the Mercer tail of a CONVERGENT series.
+###      ### **ITS FORMULA IS EXACT AND CONTAINS NO MEASURED QUANTITY.** ### `S_N` is a finite sum
+###      of EXACTLY DEFINED terms. ### **WHAT THE INSTRUMENT SUPPLIES IS ITS *EVALUATION*, NOT ITS
+###      *DEFINITION*, AND THE THEOREM IS THE FORMULA.**
+### ### **AND THE PRICE OF S3(a)'s HALT IS EXACTLY HERE:** ### an envelope that were BOTH
+### ### measurement-free AND tending to zero would need a per-mode bound on `xi_n(1)^2` -- ### **THE
+### ### VERY THING S3(a) COULD NOT PROVE.** ### The halt is not cosmetic; it costs precisely this,
+### ### and the cost is named.
+
+### THE RANGE CONDITION, WHICH IS NOT COSMETIC EITHER. ### `beta_N < 1` is REQUIRED. ### On the
+### ZERO-IMPORT bound `T` it FAILS at small `N`, because `c^m/m!` PEAKS near `m = c = 2 pi` and only
+### decays after -- ### **a genuine feature of a fixed, small `c`, not an artefact.** ### Computed,
+### not assumed:
+### ### ### **THE ZERO-IMPORT ENVELOPE IS AVAILABLE FROM `N = 6` ONWARD (`T(14) = 0.0362718 < 1`).**
+### ### ### **AND K1's CUT IS `N = 6`. ### THE TWO COINCIDE.**
+### **THE COINCIDENCE IS NOT LUCK AND IS NOT CLAIMED AS INSIGHT:** both are set by the same `c`.
+### It is reported because it means the record's EXISTING cut needs no adjustment.
+
+### EVALUATED AT K1's CUT AND AT b249's `N`. ### **THE MEASURED COLUMN IS A CONTROL. IT IS NOT A
+### PREMISE OF ANY LINE ABOVE, AND NO LINE ABOVE WOULD CHANGE IF IT WERE DELETED.**
+
+###   N     sharp (0-import)   sharp (1 import)   meas-free (0-imp)      measured tail    holds?
+###   6       1.15757629e-14     1.11558906e-14          2.07527387     1.11558894e-14      yes
+###   8       9.91250843e-23     9.91242848e-23          2.00001613     9.91242848e-23      yes
+###   10      1.46013869e-31     1.46013869e-31                 2.0      1.4601387e-31      yes
+###   11       3.1837636e-36      3.1837636e-36                 2.0     3.18448512e-36      yes
+
+### ### ### **AT K1's CUT THE ZERO-IMPORT SHARP ENVELOPE IS `1.158e-14` AGAINST A MEASURED TAIL OF
+### ### ### `1.116e-14` -- ### TIGHT TO ABOUT 4%, NOT LOOSE BY ORDERS.** ### The `1/(1-beta)` factor
+### is nearly `1` and `t(n) ~ lambda^2 xi^2` once `lambda^2` is small, so the envelope is very
+### nearly the tail itself. ### **CONTRAST S2's BOUNDS, WHICH ARE LOOSE BY MANY ORDERS AND ARE
+### PRINTED THAT WAY.** ### A worst-case bound that happens to be tight is reported tight; one that
+### is loose is reported loose; ### **neither is dressed as the other.**
+
+### ### **AND THE CONTROL ITSELF CARRIED THE INSTRUMENT'S ERROR, FOR THE FOURTH CONSECUTIVE ACT.**
+### The first form of the check FAILED at `N = 10` and `N = 11` -- by `7.2e-40`, ### **EXACTLY the
+### measured deviation of the instrument's 13-term Mercer sum from the exact `2`.** ### At those
+### depths the tail and the arithmetic error are the same size, so a comparison finer than the
+### error ### **TESTS THE ARITHMETIC, NOT THE THEOREM.** ### The tolerance used is that MEASURED
+### deviation, ### **COMPUTED AND NOT CHOSEN.** ### b245 met b38's four decimals; b246 floored at
+### 5e-5; b249 met b242's ten digits; ### **this act met its own evaluation's error. FOURTH IN A
+### ROW.** ### `W-ORD-TE-SPEC`'s pending extension is demonstrated a fourth time.
+
+====================================================================================================
+COMPONENT 3 -- S5, THE GRADES, THE AMENDMENTS AND THE SHADOW. ### (P3)
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+S5 -- THE GRADES, PER STEP AND OVERALL, WITH THE IMPORT LIST.
+----------------------------------------------------------------------------------------------------
+###   S0   THE SERIES IDENTITY      ### **DERIVES**            ### imports: NONE
+###   S1   `lambda_n < 1` STRICTLY  ### **DERIVES-on-IMP**     ### imports: Plancherel; identity thm
+###   S2   THE DECAY                ### **DERIVES-on-IMP**     ### imports: Schmidt/Eckart-Young
+###                                                            ### (route (b) adds Jacobi-Anger and
+###                                                            ### is NOT load-bearing)
+###   S3a  PER-MODE ENDPOINT BOUND  ### **HALTS -- NOT DERIVED** ### `W-ORD-XI-PERMODE` filed
+###   S3b  THE SUMMED IDENTITY      ### **DERIVES-on-IMP**     ### imports: Mercer
+###   S4   THE ENVELOPE             ### **DERIVES**            ### imports: none beyond S1/S2/S3b
+
+### THE IMPORT LIST, COMPLETE, WITH GRADES -- ### **AND IT IS NOT EMPTY, WHICH THE FERRY'S GRADE
+### TARGET ALLOWED FOR:**
+###   1. PLANCHEREL'S THEOREM                 ### TRUSTED-AT-CITE ### **NOT TOOLED**
+###   2. IDENTITY THEOREM (holomorphic)       ### TRUSTED-AT-CITE ### **NOT TOOLED**
+###   3. SCHMIDT / ECKART-YOUNG (minimax)     ### TRUSTED-AT-CITE ### **NOT TOOLED**
+###   4. MERCER'S THEOREM                     ### TRUSTED-AT-CITE ### **NOT TOOLED**
+###   5. JACOBI-ANGER (route (b) only)        ### TRUSTED-AT-CITE ### **NOT TOOLED, NOT LOAD-BEARING**
+### ### **AND WHY "NOT TOOLED" IS SAID FIVE TIMES RATHER THAN GLOSSED ONCE:** ### the import bar
+### grades an import TRUSTED-AT-CITE when it is named with its source, and VERIFIED-WHERE-TOOLED
+### when a tool can check it. ### **THIS ACT LOOKED FOR THE TOOL AND THERE IS NONE:** the residence
+### tree carries ### NO MATHLIB ### -- the shadow is vanilla Lean core, which is exactly why the
+### record calls it "vanilla `Nat`". ### **SO ALL FIVE ARE TRUSTED-AT-CITE AND NONE IS VERIFIED,
+### AND THE ACT SAYS SO RATHER THAN LETTING THE PHRASE "VERIFIED-WHERE-TOOLED" DO SILENT WORK.**
+### ### **ALL FIVE ARE TEXTBOOK-FOUNDATIONAL. ### NONE IS A RESULT FROM THE PROLATE LITERATURE.
+### ### IN PARTICULAR IMP-3 (LANDAU-WIDOM) IS *NOT* USED, AND THE THEOREM DOES NOT NEED IT** --
+### b243's refusal of IMP-3 against a fixed `c = 2 pi` STANDS, and this act did not reach for it.
+
+### ### ### **THE THEOREM, AND ITS GRADE:**
+### ### ### **AT FIXED `c = 2 pi`, THE CONCENTRATION EIGENVALUES SATISFY `mu_N = O((c^N/N!)^2)`;
+### ### ### THE ENDPOINT WEIGHTS SATISFY THE EXACT IDENTITY `sum_n lambda(n)^2 xi_n(1)^2 = 2`; AND
+### ### ### THE TRACE SERIES `sum_n t(n)` CONVERGES, WITH THE EXPLICIT TAIL ENVELOPE
+### ### ### `sum_{n>N} t(n) <= (2 - S_N)/(1 - beta_N)`, VALID FOR EVERY `N >= 6`.**
+### ### ### **GRADE: DERIVES-on-IMP, ON FOUR NAMED FOUNDATIONAL IMPORTS, ALL TRUSTED-AT-CITE AND
+### ### ### NONE TOOLED.** ### **NOT "DERIVES ON ZERO IMPORTS": THE FERRY'S BEST-CASE TARGET IS
+### ### ### NOT MET, AND THE SHORTFALL IS FOUR TEXTBOOK THEOREMS, NAMED.**
+
+### ### **AND THE LIMIT, IN THE SAME BREATH, BECAUSE b249's LESSON IS ONE ACT OLD:** ### this is a
+### ### THEOREM about the `t(n)` series and, by S0, about `eps'(1+)`. ### **IT IS NOT A PAYMENT OF
+### ### THE SHORTFALL.** ### M-4 covers `resid47` and nothing else (b246, unrevised); b248 showed
+### ### the second object is NOT M-4's. ### **M-2, M-3 AND M-5 ARE UNTOUCHED. ### `h2` IS UNTOUCHED.**
+
+----------------------------------------------------------------------------------------------------
+### **THE AMENDMENT THIS ACT OWES THE RECORD: THE "UNBOUNDED TAIL" SENTENCES.**
+----------------------------------------------------------------------------------------------------
+### RULE MODES K1 (b244) fixed the definition at Lemma F.1's eleven modes and required each
+### per-cell realization to report ### *"the seven computable plus a tail term in its bar"*, and
+### b245 required that ### **every table printing `bar_L` print beside it, in that act's own words,
+### that the tail term is UNBOUNDED.** ### That requirement was RIGHT WHEN MADE and is now
+### SUPERSEDED BY A PROOF.
+### ### **THE ORIGINAL STAYS VISIBLE. IT IS NOT DELETED, NOT REWRITTEN, NOT BACKDATED** (b240's
+### ### append-only law; b244's precedent when its own registration held an error).
+### THE AMENDING SENTENCE, to be appended wherever the record carries the original:
+###   ### **"AMENDED AT b250: THE TAIL TERM IS NO LONGER UNBOUNDED. ### S4's ENVELOPE BOUNDS IT
+###   ### AT K1's CUT `N = 6` BY `1.158e-14` ON ZERO SPECIFIC IMPORTS, AND THE ORIGINAL SENTENCE
+###   ### ABOVE STANDS AS WRITTEN, TRUE WHEN WRITTEN."**
+### ### **AND `bar_L`'s AMBER DOES *NOT* CLEAR.** ### The K1 bar was amber for TWO reasons and only
+### ### ONE is paid: the tail is now bounded, ### **but the bar still reports seven computable modes
+### ### against a definition of eleven**, and the ELEVEN-vs-SEVEN discrepancy is a bench-precision
+### ### fact that b249 measured and this act did not remove. ### **AMBER RESTATED, NOT CLEARED, AND
+### ### THE REASON IT SURVIVES IS NAMED.**
+
+----------------------------------------------------------------------------------------------------
+### THE CORE SHADOW. ### **FINITE-DECIDABLE ONLY. THE ANALYTIC STEPS ARE NOT FORCED INTO `Nat`.**
+----------------------------------------------------------------------------------------------------
+### WHAT THE SHADOW MAY CARRY, per registration (E): ### factorial-dominates-geometric as a
+### ZERO-AXIOM lemma; the envelope's arithmetic at the cut as a rational inequality; the minimax
+### inequality's finite instance. ### **WHAT IT MAY NOT CARRY: PLANCHEREL, MERCER, THE IDENTITY
+### THEOREM, THE OPERATOR ITSELF.** ### A shadow that appeared to carry those would be a lie in
+### Lean, and the polarity controls exist to make that visible.
+### ### **THE PROFILE IS PRINTED AND READ, NEVER INFERRED FROM AN EXIT CODE** -- b227 shipped a
+### file that compiled clean and printed `sorryAx`.
+
+====================================================================================================
+### WHAT NO PART OF THIS ACT DID.
+====================================================================================================
+### No step cited a measured value as a reason. ### No failing step was patched: ### **S3(a) HALTS
+### AND IS REPORTED AS HALTING, THOUGH THE THEOREM SURVIVES BY ANOTHER ROUTE** -- which is exactly
+### the case the registration's halt clause was written for. ### No step was filled by plausibility.
+### No import is graded without its name and its status. ### **THE THEOREM IS NOT CLAIMED ON A STEP
+### THAT HALTED**, and clause (ii)'s harder form is reported UNNECESSARY, not PROVEN.
+### M-4 is not claimed to pay more than one term of the shortfall. ### M-2, M-3, M-5 not closed.
+### ### **NOTHING ABOUT `h2` IS CLAIMED BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.**
+====================================================================================================

@@ -39,6 +39,9 @@ act** — b240 ran the opposite two signs — against `R := A − PR`, at NMODE 
 > the ratio is rising, the extrapolation is unverifiable *in principle* at float64, and no owner
 > proves the trace series converges at all. ### **A bar carrying this term is not a certified bar
 > and no number beside it is certified.**
+>
+> ### **AMENDED AT b250 (2026-08-29): THE TAIL TERM IS NO LONGER UNBOUNDED.** S4's envelope bounds it, and at K1's cut `N = 6` the bound is **`1.158e-14` on ZERO SPECIFIC IMPORTS** (`sum_{n>N} t(n) <= (2 - S_N)/(1 - beta_N)`, `beta_N` from the exponential's own Taylor series). ### **THE SENTENCE ABOVE STANDS AS WRITTEN AND WAS TRUE WHEN WRITTEN** -- b242 derived an envelope and refused it, and refusing an unproved envelope was correct. ### **AND `bar_L`'s AMBER DOES NOT CLEAR: the bar still reports seven computable modes against a definition of eleven, which is a bench-precision fact b250 did not remove.**
+
 
 This sentence is printed **in the run's own table**, not only here, because the meanings file
 required it and no number is allowed to look certified that is not.

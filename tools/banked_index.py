@@ -294,6 +294,10 @@ KEYS = {
     'mode-precision': ['the precision veil', 'extended precision spectrum', 'k3',
                        'veil lifted'],
     't-series': ['the t series', 't(n)', 'sum t(n)', 'partial sums of t'],
+    'm4-derivation': ['the m4 derivation', 'm-4 derivation', 'the trace series theorem',
+                      'convergence of sum t(n)', 'the endpoint identity', 'mercer identity'],
+    's2-decay-route': ['the s2 decay route', 'eigenvalue decay at fixed c', 'factorial decay',
+                       'degenerate kernel truncation', 'the zero-import bound'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1246,6 +1250,69 @@ INDEX = [
      'DIGITS -- ### **AND THE PIN WAS NOT FITTED TO.** ### NO EXTRAPOLATION IS BANKED AS A '
      'BOUND; b242 refusal is the precedent and a measured rate is not a tail bound',
      'data/b249_mode_precision.txt; reports/2026-08-29-the-precision-veil.md'),
+    ('m4-derivation', 'b250 (derivation at content)',
+     'the ONE THEOREM proved at content about the t(n) series, on b247 statement unchanged. '
+     '### SIX STEPS: S0 the series identity (eps and t(n) are ONE object, by Leibniz from the '
+     'supplied (85), NOT by resemblance -- b247 double-name hazard answered); S1 lambda_n < 1 '
+     'strictly (band-limited + compactly supported => entire and vanishing on a set with an '
+     'accumulation point => zero); S2 the decay; S3a the per-mode endpoint bound; S3b the '
+     'summed Mercer identity; S4 the envelope',
+     '### **GRADE: DERIVES-on-IMP, on FOUR named foundational imports (Plancherel, identity '
+     'theorem, Schmidt/Eckart-Young, Mercer), ALL TRUSTED-AT-CITE and NONE TOOLED** -- the '
+     'residence tree carries NO MATHLIB, which this act verified twice (a filesystem search, '
+     'and `Nat.factorial` failing to resolve in the shadow). ### **THE FERRY BEST-CASE TARGET '
+     'OF ZERO IMPORTS IS NOT MET AND THE SHORTFALL IS FOUR TEXTBOOK THEOREMS, NAMED.** '
+     '### **S3a HALTS AND IS REPORTED AS HALTING** (W-ORD-XI-PERMODE) -- the per-mode '
+     'polynomial bound on xi_n(1)^2 needs the Bouwkamp Legendre-coefficient decay, not at '
+     'content; the two obvious routes go INVERSE in mu_n, as b247 already measured. ### **THE '
+     'THEOREM ROUTES AROUND S3a; IT DOES NOT ANSWER IT**, and the price is paid at S4, where '
+     'the MEASUREMENT-FREE envelope bounds the tail by a constant but CANNOT be made to tend '
+     'to zero. ### **S3b IS THE FIND, AND IT WAS REGISTERED IN ADVANCE AS A PREDICTION ABOUT '
+     'THE CORPUS ITSELF: sum_n lambda(n)^2 xi_n(1)^2 = c/pi + sin(2c)/(2 pi), which at '
+     'c = 2 pi is EXACTLY 2 -- RE-DERIVING the corpus OWN banked C0 gate FROM FIRST '
+     'PRINCIPLES. A pin carried as a MEASURED NUMBER since b35 is now a THEOREM, and its '
+     'c-dependence is known (the clean 2 needs sin(2c) = 0, NOT generic).** ### IMP-3 '
+     '(Landau-Widom) is NOT used and is NOT needed; b243 refusal of it at fixed c stands. '
+     '### **M-4 pays ONE term of the shortfall. M-2, M-3, M-5 untouched. h2 untouched**',
+     'data/b250_m4_derivation.txt; data/b250_derivation_checks.txt; '
+     'Core/M4EnvelopeShadow.lean; reports/2026-08-29-the-m4-derivation.md'),
+    ('s2-decay-route', 'b250 (derivation at content)',
+     'HOW the concentration eigenvalues are shown to decay at FIXED c = 2 pi. ### Q = A*A '
+     'with A the finite Fourier transform, so mu_N = s_N(A)^2; Schmidt/Eckart-Young bounds '
+     's_N by the error of ANY rank-N approximation; and an ANALYTIC kernel admits degenerate '
+     'approximations at a FACTORIAL rate. ### **TWO ROUTES, AND THE DIFFERENCE BETWEEN THEM '
+     'IS THE IMPORT LIST**',
+     '### **ROUTE (a), ZERO SPECIFIC IMPORTS AND THE ONE THE THEOREM RESTS ON**: the '
+     'EXPONENTIAL OWN TAYLOR SERIES, with the two rank-one factors elementary integrals of '
+     'powers, giving mu_N <= T(N)^2, T(N) = sum_{m>=N} (2/(2m+1)) c^m/m! at c = 2 pi. '
+     '### **NO BESSEL FUNCTION, NO LEGENDRE EXPANSION, NO SPECIAL-FUNCTION IDENTITY.** '
+     '### **THIS ROUTE WAS NOT IN THE REGISTRATION and is reported as an IMPROVEMENT on the '
+     'registered route, not as it.** ### ROUTE (b), ONE IMPORT (Jacobi-Anger), sharper by '
+     'many orders, NOT load-bearing. ### **ITS RANGE CONDITION WAS REGISTERED BEFORE '
+     'COMPUTING: the Bessel factorial bound needs z^2/4 < k + 3/2, i.e. k >= 9 at c = 2 pi. '
+     'THE COMPUTATION CONFIRMED k >= 9.** ### The join to Lemma F.1 (k = 0..10) OVERLAPS at '
+     'k = 9,10 rather than merely abutting -- ### **but F.1 is a TRUNCATION certificate, not '
+     'a tail bound, so the join is of certificates of DIFFERENT SPECIES and the theorem does '
+     'NOT use the F.1 half.** Route (a) is valid at every N with no range condition. '
+     '### Both bounds checked against b249 measured mu_N at N = 9..24 as CONTROLS: both hold '
+     'at every N, LOOSE BY MANY ORDERS, and the slack is printed rather than hidden',
+     'data/b250_m4_derivation.txt; data/b250_derivation_checks.txt'),
+    ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
+     '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
+     'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '
+     'its own words. ### **THOSE ROWS ARE NOT REWRITTEN AND WERE TRUE WHEN WRITTEN** '
+     '(b244 precedent: a second row, not an edit)',
+     'b250 S4 bounds the tail: sum_{n>N} t(n) <= (2 - S_N)/(1 - beta_N), and at K1 cut '
+     'N = 6 the bound is **1.158e-14 on ZERO SPECIFIC IMPORTS** against a measured tail of '
+     '1.116e-14 -- ### **TIGHT TO ABOUT 4%, NOT LOOSE BY ORDERS** (contrast S2 bounds, which '
+     'are loose by many orders and are printed that way). ### **AND bar_L AMBER DOES NOT '
+     'CLEAR: it was amber for TWO reasons and only ONE is paid.** The bar still reports SEVEN '
+     'computable modes against a definition of ELEVEN, a bench-precision fact b249 measured '
+     'and b250 did NOT remove. ### AMENDED WHEREVER THE RECORD CARRIES IT (three reports), '
+     'ORIGINALS INTACT -- and the W-UNION (nonArchimedean, unbounded) QUADRANT is a '
+     '**DIFFERENT OBJECT** and was deliberately NOT amended',
+     'data/b250_m4_derivation.txt; reports/2026-08-28-first-face-off.md; '
+     'reports/2026-08-29-the-serializing-close.md; reports/2026-08-29-the-second-face-off.md'),
     ('second-object', 'b248 (arrangement + split) / b246 (two objects established)',
      'the second term of the bench shortfall, restated as TWO NAMED PIECES WITH SEPARATE OWNERS: '
      'the ARCHIMEDEAN PIECE (E2full + E2even), sector arithmetic on a CONVERGED series, 88%-100%; '
