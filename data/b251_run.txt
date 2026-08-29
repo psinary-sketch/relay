@@ -1,0 +1,113 @@
+======================================================================================================================
+b251 -- THE THIRD FACE-OFF. ### THE RUN.
+======================================================================================================================
+### CEILING (b14/b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.' ### THE REGISTER SENTENCE IS UNTOUCHED. ### NOTHING DEPOSITS.
+### MEANINGS BANKED AND HASHED FIRST: sha256 d5284f9e...4b3c, 11048 bytes.
+
+### EVERY CONSULTED BANK'S AXES **AND PRINTED PRECISION**, NAMED BEFORE ANY NUMBER:
+###   b38_act10: TRIPLE=[(500,8),(700,10),(900,11)], NU_HALF=401, EPS_NQ=700,
+###              EPS_NG=400, EPS_NRHO=240, CELLS a^2 in {2,3,4,8,9,12}, S4=(2,3,5).
+###              ### **PRINTS resid47 TO FOUR DECIMALS -> PRINT FLOOR 5e-5.**
+###   b250 envelope 1.158e-14: ### **NAMED AND DELIBERATELY NOT USED IN ANY BAR** (reg C).
+###   b38's NMODE=10 ROW BANK: ### **NAMED AND NOT USED** -- the trap b245 fell into.
+###   b248 split: archimedean 88%-100%, junction 0%-12%. ### NAMED.
+
+--- C0 GATES ---
+  pin sum lam2          |delta|=5.82e-11 (tol 1e-6)  PASS
+  pin sum lam2 xi1^2    |delta|=1.11e-15 (tol 1e-6)  PASS
+     ### ### **THIS GATE IS NOW A THEOREM (b250 S3b): sum = c/pi + sin(2c)/(2 pi) = 2
+     ### ### EXACTLY at c = 2*pi. ### IT IS STILL RUN, BECAUSE A THEOREM ABOUT THE
+     ### ### OPERATOR IS NOT A CERTIFICATE ABOUT THIS INSTRUMENT'S ARITHMETIC.**
+  pin epsprime1         |delta|=1.65e-08 (tol 1e-3)  PASS
+  per-mode mask algebra max|sum_n eps_n - eps_full| = 8.88e-16  PASS   ### RE-DERIVED, NOT QUOTED
+
+----------------------------------------------------------------------------------------------------------------------
+### THE TABLE. ### A FINITE CELL DECIDES NOTHING GLOBAL (b15).
+### `Delta_2real` from its OWN TWO OWNERS: `left_side` for A, `trace_modes` for Tr.
+----------------------------------------------------------------------------------------------------------------------
+a^2             L           R       L - R |  Delta_2real    junction |   TrTail(7)   resid47
+2        3.811831   -1.990528    5.802359 |     4.061350    0.000000 |    0.080548    3.9808
+3        3.247699   -2.015384    5.263083 |     3.381183    0.106484 |    0.051730    3.3295
+4        2.765384   -2.035817    4.801201 |     3.055251    0.087341 |    0.048278    3.0070
+8        2.067972   -2.086520    4.154491 |     2.524898    0.244027 |    0.035627    2.4893
+9        1.842649   -2.097219    3.939868 |     2.457610    0.135021 |    0.033486    2.4241
+12       1.649097   -2.119732    3.768830 |     2.315863    0.195843 |    0.034172    2.2817
+
+----------------------------------------------------------------------------------------------------------------------
+### THE TAUTOLOGY CONTROL ON THE RE-ATTRIBUTION. ### THE MEANINGS FILE ALREADY DECLARED
+### THIS DECOMPOSITION **ALGEBRAIC-RESTATEMENT**, BEFORE THE RUN. ### THE RUN CONFIRMS IT
+### HOLDS TO MACHINE PRECISION AT EVERY CELL -- ### **WHICH IS EXACTLY WHY IT IS NO
+### EVIDENCE.** ### An identity that cannot fail cannot testify.
+----------------------------------------------------------------------------------------------------------------------
+  a^2=2    |resid47 - (Delta_2real - TrTail)| = 8.882e-16
+  a^2=3    |resid47 - (Delta_2real - TrTail)| = 4.441e-16
+  a^2=4    |resid47 - (Delta_2real - TrTail)| = 0.000e+00
+  a^2=8    |resid47 - (Delta_2real - TrTail)| = 0.000e+00
+  a^2=9    |resid47 - (Delta_2real - TrTail)| = 4.441e-16
+  a^2=12   |resid47 - (Delta_2real - TrTail)| = 0.000e+00
+  ### ### **MAX 8.882e-16 -- AN IDENTITY, AS DECLARED. ### IT CARRIES NO WEIGHT.**
+  ### ### **WHAT CARRIES WEIGHT IS THE SIZE QUESTION BELOW.**
+
+----------------------------------------------------------------------------------------------------------------------
+### ### **THE SIZE QUESTION -- THE ONLY LINE OF THIS RUN THAT IS EVIDENCE.**
+### Which of the two named pieces carries `resid47`? ### And is `TrTail` anywhere near
+### b250's `1.158e-14`, as the ferry's clause supposed?
+----------------------------------------------------------------------------------------------------------------------
+a^2     Delta_2real     TrTail(7)   |tail/D| tail vs 1.158e-14
+2          4.061350      0.080548     0.0198 7.0e+12 x larger
+3          3.381183      0.051730     0.0153 4.5e+12 x larger
+4          3.055251      0.048278     0.0158 4.2e+12 x larger
+8          2.524898      0.035627     0.0141 3.1e+12 x larger
+9          2.457610      0.033486     0.0136 2.9e+12 x larger
+12         2.315863      0.034172     0.0148 3.0e+12 x larger
+
+----------------------------------------------------------------------------------------------------------------------
+### ### **THE FULL ACCOUNTING -- WHICH IS HOW (DISSONANT-BEYOND) IS ACTUALLY TESTED.**
+### `L - R` is decomposed into NAMED pieces and the LEFTOVER is printed. ### The registered
+### factor: a residual exceeding the LARGER named piece by more than 2x at any cell, or
+### failing to be accounted within the printed bar at any cell.
+### ### **AND THE THIRD PIECE IS TABULATED EVEN THOUGH IT IS NOT A SUSPECT:**
+###   `2*E2full - Dneg` is the RULED BINDING's OWN TERMS (C2+D1), not an indictment --
+###   ### **BUT IT CARRIES ABOUT A THIRD OF THE SHORTFALL AND HIDING IT WOULD MISREPORT**
+###   ### **WHAT `Delta_2real` IS BEING CREDITED WITH.**
+----------------------------------------------------------------------------------------------------------------------
+a^2         L - R   Delta_2real  2*E2f - Dneg    junction      LEFTOVER
+2        5.802359      4.061350      1.741009    0.000000     1.776e-15
+3        5.263083      3.381183      1.775417    0.106484     0.000e+00
+4        4.801201      3.055251      1.658609    0.087341     8.882e-16
+8        4.154491      2.524898      1.385566    0.244027     0.000e+00
+9        3.939868      2.457610      1.347238    0.135021     0.000e+00
+12       3.768830      2.315863      1.257124    0.195843     0.000e+00
+  ### ### **MAX LEFTOVER 1.776e-15 -- ### NOTHING BEYOND THE THREE NAMED PIECES.**
+  ### **(DISSONANT-BEYOND) IS NOT TRIGGERED.** ### And this line, too, is an IDENTITY once
+  ### the three pieces are defined -- ### **its content is that NO FOURTH PIECE WAS NEEDED,**
+  ### ### **not that the three were derived.**
+
+### ### **THE SHARE EACH NAMED PIECE CARRIES OF `L - R`:**
+a^2     Delta_2real  2*E2f - Dneg    junction
+2             70.0%         30.0%        0.0%
+3             64.2%         33.7%        2.0%
+4             63.6%         34.5%        1.8%
+8             60.8%         33.4%        5.9%
+9             62.4%         34.2%        3.4%
+12            61.4%         33.4%        5.2%
+
+----------------------------------------------------------------------------------------------------------------------
+### G-STAB -- AT THE REGISTERED AXES PLUS EXACTLY ONE REFINEMENT (NQ = 1100).
+----------------------------------------------------------------------------------------------------------------------
+a^2         NQ=500       NQ=700       NQ=900      NQ=1100      spread
+2         4.086325     4.061350     4.234891     4.222441    1.74e-01
+3         3.394455     3.381183     3.500035     3.488262    1.19e-01
+4         3.053811     3.055251     3.147549     3.134986    9.23e-02
+8         2.522881     2.524898     2.587585     2.579659    6.27e-02
+9         2.452482     2.457610     2.516319     2.508846    5.87e-02
+12        2.308277     2.315863     2.364306     2.358066    4.84e-02
+  ### ### **MAX SPREAD 1.74e-01 ON `Delta_2real` ACROSS THE QUADRATURE AXIS.**
+  ### **AND THE FLOOR IS NAMED: b38 PRINTS resid47 TO FOUR DECIMALS, SO NO CLAIM BELOW
+  ### 5e-5 IS MADE ABOUT ANY QUANTITY COMPARED AGAINST THAT BANK.**
+
+### G-INDEP: `A` from `left_side`, `Tr` from `trace_modes`, `E2` from `e2_of_grid`,
+### `Theta_q` from `theta_quotient` -- ### **EACH FROM ITS OWN OWNER, NONE RE-IMPLEMENTED
+### HERE, NONE READ OFF ANOTHER.**
+======================================================================================================================

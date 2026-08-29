@@ -1,0 +1,147 @@
+====================================================================================================
+b251 -- THE THIRD FACE-OFF. ### THE MEANINGS AND THE RE-ATTRIBUTION.
+### BANKED AND HASHED BEFORE ANY INSTRUMENT RUNS. ### 2026-08-29. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING, FIRST AND NOT LAST:
+###   b14/b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### **NO BRANCH BELOW MOVES IT.**
+### ### **NOTHING DEPOSITS.**
+
+====================================================================================================
+(A) THE RE-ATTRIBUTION. ### DERIVED FROM THE OWNERS' SOURCE TEXT, BEFORE ANY RUN.
+====================================================================================================
+
+### THE THREE OWNERS, READ AT CONTENT, EACH WITH ITS AXES:
+###
+###   **A**        `b38_act10.py:44 left_side` -- ### **A QUADRATURE ON THE U-AXIS**:
+###                `A = trapezoid( Ghat(U)^2 * kernel(U), U ) / (2 pi)`.
+###                ### AXES: `C.NU`, `C.UMAX`. ### **NO MODE INDEX APPEARS IN IT AT ALL.**
+###
+###   **Tr_full**  `b38_act10.py:61 trace_modes` -- ### **A MODE SUM OF DILATION OVERLAPS**:
+###                `Tr_full = sum_{n<NMODE} tr[n]`,
+###                `tr[n] = 2 * trapezoid( corr(u) * A_n(u), u ) over u in [0, 2L]`,
+###                `A_n(u) = sqrt(e^u) * 0.5 * sum_i w_i xi_n(x_i) xi_n(e^u x_i)`.
+###                ### AXES: `NQ`, `NMODE`, `NU_HALF = 401`.
+###
+###   **E2**       `b38_act10.py:95 e2_of_grid` -- `2 * trapezoid( corr(u) * eps(e^u), u )`.
+###                ### AXES: `EPS_NQ=700`, `EPS_NG=400`, `EPS_NRHO=240`, `NU_HALF`.
+
+### AND THE RESIDUE LINE, IDENTICAL IN BOTH OWNERS THAT STATE IT:
+###   `b38_act10.py:182`  `resid = TrN - A - E2N`
+###   `b36_act8.py:184`   `resid47 = Tr_full - (A + E2)`
+### ### ### **SO `resid47` IS *ALREADY* A TWO-REALIZATIONS DIFFERENCE.** ### It is the archimedean
+### ### ### trace built as a MODE SUM, minus the same object built as a QUADRATURE, less `E2`.
+### ### ### **THE FACE-OFF'S LARGEST TERM WAS NEVER A "RESIDUE" IN THE SENSE OF LEFTOVER; IT IS
+### ### ### THE DISAGREEMENT OF TWO CONSTRUCTIONS, AND THE NAME `resid47` CONCEALED THAT.**
+
+### THE SPLIT, WRITTEN SYMBOLICALLY WITH EACH PIECE'S OWNER:
+###
+###   ### **resid47(NMODE)  =  Delta_2real  -  TrTail(NMODE)**
+###
+###   **Delta_2real** := `Tr_inf - A - E2`   ### the TWO-REALIZATIONS TERM.
+###                      ### OWNERS: `trace_modes` (completed) against `left_side`.
+###                      ### ### **A DEFINITIONAL IDENTITY QUESTION BETWEEN TWO ARCHIMEDEAN
+###                      ### ### CONSTRUCTIONS. ### A STATEMENT SPECIES, NOT A NUMBER.**
+###   **TrTail(NMODE)** := `sum_{n >= NMODE} tr[n]`   ### the TRUNCATION TAIL OF THE TRACE SERIES.
+###                      ### OWNER: `trace_modes`, the modes it does not reach.
+
+--------------------------------------------------------------------------------------------------
+### ### **(A.1) THE TAUTOLOGY CONTROL, APPLIED TO THIS DECOMPOSITION, AND IT FAILS IT.**
+--------------------------------------------------------------------------------------------------
+### The split above is `Tr_N - A - E2 = (Tr_inf - A - E2) - (Tr_inf - Tr_N)`, which is TRUE FOR
+### ARBITRARY VALUES of every symbol in it. ### ### **IT IS ALGEBRAIC-RESTATEMENT AND CARRIES NO
+### ### WEIGHT, AND THIS FILE SAYS SO BEFORE THE RUN RATHER THAN AFTER THE GATE CATCHES IT**
+### (b246's precedent, where the tautology gate caught a sign error in that act's own definitions).
+### ### **WHAT CARRIES WEIGHT IS THE *SIZE* QUESTION -- WHICH OF THE TWO PIECES DOMINATES
+### ### `resid47` -- AND THAT IS A MEASUREMENT, NOT AN IDENTITY.** ### The run tests THAT.
+
+--------------------------------------------------------------------------------------------------
+### ### **(A.2) THE FERRY'S OWN CLAUSE IS REFUSED HERE, BEFORE THE RUN, AND THE GROUND IS b247's
+### ### RULING RATHER THAN PREFERENCE.**
+--------------------------------------------------------------------------------------------------
+### The ferry directs that the re-attribution be *"the quadrature-A versus mode-sum-T difference
+### plus the true tail (<= 1.158e-14 by theorem)"*. ### **THE FIRST HALF IS EXACTLY RIGHT AND IS
+### ADOPTED ABOVE. ### THE SECOND HALF CANNOT BE EXECUTED, AND THE REASON IS A DOUBLE-NAME.**
+###
+### b250's theorem bounds ### **`sum_{n>N} t(n)`, where `t(n) = lambda(n)^2 xi_n(1)^2/(1-lambda(n)^2)`**
+### -- an ENDPOINT WEIGHT. ### The object needing a bound here is ### **`sum_{n>=NMODE} tr[n]`,
+### where `tr[n]` is a CORR-WEIGHTED DILATION OVERLAP** of the same eigenfunction with its own
+### dilate, integrated over `u in [0,2L]`.
+### ### ### **THESE ARE TWO DIFFERENT FUNCTIONALS OF THE SAME EIGENFUNCTIONS. ### `t(n)` EVALUATES
+### ### ### `xi_n` AT ONE POINT; `tr[n]` INTEGRATES `xi_n` AGAINST A DILATE OF ITSELF AGAINST
+### ### ### `corr`. ### THE RECORD CONTAINS NO DERIVATION FROM EITHER TO THE OTHER.**
+### ### **IDENTIFYING THEM BECAUSE BOTH ARE "THE MODE TAIL" WOULD BE PRECISELY b247's DOUBLE-NAME
+### ### ERROR, ONE ACT AFTER THE ACT THAT ANSWERED IT.**
+### ### **SO THE `1.158e-14` LINE MAY NOT ENTER THE TRACE BAR, AND NO BAR IN THIS ACT'S TABLE MAY
+### ### CARRY A PROVEN LINE FOR `TrTail`. ### `TrTail` IS MEASURED, AND IT IS LABELLED MEASURED.**
+###
+### ### **WHERE b250's THEOREM *DOES* BEAR ON THIS TABLE, STATED SO THE ACT CLAIMS NEITHER MORE
+### ### NOR LESS:** ### `b38_act10.py:139` builds `t_n = lam2/(1-lam2) * xi1**2` -- ### **THAT IS
+### ### THE THEOREM'S SERIES EXACTLY** -- and `:142` gates its sum against the banked `22.9964757`,
+### while `:183` uses `s = t_n[:N]/sum(t_n[:N])` as the APPORTIONMENT WEIGHTS that spread `resid`
+### across modes. ### ### **SO THE THEOREM CONVERTS LINE 142's NUMERICAL GATE INTO A THEOREM AND
+### ### GIVES THE APPORTIONMENT WEIGHTS A PROVED, CONVERGENT PARENT SERIES WITH A PROVED TAIL
+### ### (<= 1.158e-14 at K1's cut). ### THAT IS REAL AND IT IS MODEST, AND IT IS NOT A BOUND ON
+### ### `TrTail`.**
+### ### **B250 IS NOT RE-VERDICTED. ### ITS THEOREM IS UNTOUCHED. ### WHAT IS CORRECTED IS THIS
+### ### FERRY'S APPLICATION OF IT, AND THE CORRECTION IS BANKED BEFORE THE RUN, NOT AFTER.**
+
+====================================================================================================
+(B) THE INDICTMENT ORDER. ### BANKED BEFORE THE RUN; THE RUN MAY NOT REORDER IT.
+====================================================================================================
+### **FIRST -- THE TWO-REALIZATIONS TERM `Delta_2real`** (`A` against `Tr_inf - E2`), the
+###   ARCHIMEDEAN M-2 SPECIES. ### First because the re-attribution above shows `resid47` IS this
+###   object up to a truncation tail, and because b248 already ruled the arrangement
+###   (ADDITIVE-FORCED) so the two constructions are genuinely being compared like for like.
+### **SECOND -- THE JUNCTION PIECE `(PR - Theta_q)`**, whose per-cell table b248 banked
+###   (archimedean 88%-100%, junction 0%-12%) and whose aggregation is STILL UNSTATED under RULE Q.
+### **THIRD -- THE PER-CELL NORMALIZATIONS.**
+### **LAST -- THE FORM `T + Q = wInf - wPrimes`.** ### b245 did not indict it and this act inherits
+###   that: ### **NO EVIDENCE AGAINST THE IDENTITY HAS BEEN PRODUCED BY ANY ACT, AND CITING THIS
+###   ACT'S BRANCH AS ANY WOULD BE A MISREADING.**
+
+====================================================================================================
+(C) THE BRANCHES. ### FIXED HERE; THE RUN SELECTS, IT DOES NOT AUTHOR.
+====================================================================================================
+### **(IMPOSTER-NAMED)** -- the remainder matches the two-realizations term within bars at EVERY
+###   cell, and the true tail's line sits under its bound.
+###   ### MEANS: the shortfall's dominant term is ### **A DEFINITIONAL IDENTITY QUESTION BETWEEN
+###   TWO ARCHIMEDEAN CONSTRUCTIONS -- A STATEMENT SPECIES**, filed as **M-2-inf** with its own
+###   dossier BEGUN AND NOT DECIDED, and the junction piece tabulated naked beneath it.
+### **(JUNCTION-NAKED)** -- the two-realizations term small, the remainder concentrating in
+###   `(PR - Theta_q)`. ### MEANS: M-2's FINITE-PLACE address measured.
+### **(DISSONANT-BEYOND)** -- a residual beyond both, within the registered factor, reported at
+###   FULL PROMINENCE; the banked order above governs which suspect it lands on.
+### **(INDETERMINATE/HALT)** -- bars too wide, or a gate refuses. ### THE ACT HALTS AND SAYS SO.
+
+### **THE REGISTERED FACTOR FOR (DISSONANT-BEYOND): a residual exceeding the LARGER of the two
+### named pieces by more than 2x at any cell, or failing to be accounted to within the printed
+### bar at any cell.** ### FIXED NOW, BEFORE ANY NUMBER IS SEEN.
+
+====================================================================================================
+(D) BOTH SEATS' EXPECTED BRANCHES. ### REGISTERED BEFORE THE RUN.
+====================================================================================================
+### **THE NAVIGATOR'S, from the ferry: (IMPOSTER-NAMED).**
+### **THE EXECUTOR'S: (IMPOSTER-NAMED) ALSO, ON THE FIRST LIMB -- AND WITH ONE LIMB OF THE
+### NAVIGATOR'S FORMULATION EXPECTED TO FAIL.**
+###   ### I expect `Delta_2real` to account for the bulk of `resid47`, because the re-attribution
+###   ### makes that near-tautological once `TrTail` is small relative to it.
+###   ### ### **BUT I EXPECT THE CLAUSE "with the true tail's line <= envelope" TO FAIL, AND I SAY
+###   ### ### SO IN ADVANCE**, for the reason given at (A.2): the envelope bounds a DIFFERENT
+###   ### ### SERIES. ### **AND I EXPECT `TrTail` TO BE ORDERS LARGER THAN 1.158e-14** -- b245
+###   ### ### measured a 7-mode-versus-10-mode deviation equal to `tr[7]+tr[8]+tr[9]` at all six
+###   ### ### cells to a 5e-5 print floor, which is ALREADY nine orders above the b250 envelope.
+###   ### **IF `TrTail` COMES OUT AT OR BELOW 1.158e-14 I REPORT MY DOUBT AS WRONG.**
+
+====================================================================================================
+(E) WHAT NO PART OF THIS ACT MAY DO.
+====================================================================================================
+### Put a PROVEN line in a bar that measures a series the theorem does not cover. ### Reorder the
+### indictment after a number is seen. ### Change an axis, mode count, `eps` or constant after a
+### number is seen. ### Treat the (A) decomposition as evidence -- ### **IT IS RESTATEMENT AND IS
+### LABELLED SO.** ### Decide the M-2-inf identity question. ### Re-verdict b250 or b248 or b246.
+### Indict the form. ### Close M-2, M-3 or M-5. ### Move `h2` or the register sentence.
+### Deposit anything. ### **THE CEILING IN THE HEADER GOVERNS ALL OF IT.**
+====================================================================================================

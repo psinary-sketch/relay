@@ -298,6 +298,10 @@ KEYS = {
                       'convergence of sum t(n)', 'the endpoint identity', 'mercer identity'],
     's2-decay-route': ['the s2 decay route', 'eigenvalue decay at fixed c', 'factorial decay',
                        'degenerate kernel truncation', 'the zero-import bound'],
+    'third-face-off': ['the third face-off', 'third faceoff', 'the columns with m4 paid',
+                       'the shortfall decomposed', 'the accounting of L - R'],
+    'two-realizations': ['the two-realizations term', 'delta_2real', 'm-2-inf', 'm2inf',
+                         'the archimedean identity question', 'quadrature versus mode sum'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1297,6 +1301,52 @@ INDEX = [
      '### Both bounds checked against b249 measured mu_N at N = 9..24 as CONTROLS: both hold '
      'at every N, LOOSE BY MANY ORDERS, and the slack is printed rather than hidden',
      'data/b250_m4_derivation.txt; data/b250_derivation_checks.txt'),
+    ('third-face-off', 'b251 (bench computation + one re-attribution)',
+     'the bench shortfall L - R computed at six cells with M-4 paid, and decomposed into '
+     'THREE NAMED PIECES: Delta_2real (the two-realizations term), 2*E2full - Dneg (the '
+     'RULED BINDING C2+D1 own terms, tabulated though NOT a suspect), and the junction piece '
+     '(PR - Theta_q). ### Sides under C2+D1, Q := -Theta_q, K1. ### G-INDEP structural (each '
+     'quantity from its OWN owner in b38_act10, none re-implemented); G-STAB across NQ = 500, '
+     '700, 900 plus ONE refinement at 1100',
+     '### **BRANCH (IMPOSTER-NAMED) ON ITS ACCOUNTING LIMB.** ### Delta_2real carries '
+     '**60.775% to 69.995% of L - R at EVERY cell** -- the dominant term without exception; '
+     'the third piece 30.005%-34.546%; the junction piece 0.000%-5.874%, the smallest of the '
+     'three everywhere. ### **MAX LEFTOVER 1.78e-15: NOTHING BEYOND THE THREE NAMED PIECES, '
+     'SO (DISSONANT-BEYOND) IS NOT TRIGGERED.** ### **LIMB 2 -- the envelope line -- IS '
+     'STRUCK AS INAPPLICABLE, NOT FALSIFIED, AND THE STRIKE WAS BANKED BEFORE THE RUN**: see '
+     'two-realizations. ### **THE BARS ARE WIDE AND THE ACT SAYS SO** -- TrTail sits at 43%% '
+     'to 71%% of the G-STAB bar, so the identification is CONSISTENT rather than SHARP, and '
+     '**the spread does NOT shrink monotonically with NQ**, so convergence of the mode sum '
+     'was NOT established. ### **THE FORM IS NOT INDICTED: no act has produced evidence '
+     'against T + Q = wInf - wPrimes.** ### A number in this act OWN prose was WRONG and gate '
+     '8 caught it -- the share range was read off the run rounded table by taking the LAST '
+     'ROW as the minimum instead of scanning the column; corrected to three decimals and '
+     'disclosed in the bank section (D.1)',
+     'data/b251_third_face_off.txt; data/b251_run.txt; data/b251_meanings.txt; '
+     'reports/2026-08-29-the-third-face-off.md'),
+    ('two-realizations', 'b251 (re-attribution derived before the run)',
+     '### **WHAT THE FACE-OFF `resid47` TERM ACTUALLY IS.** ### Both owners that state the '
+     'residue line state the SAME thing -- b38_act10.py:182 `resid = TrN - A - E2N` and '
+     'b36_act8.py:184 `resid47 = Tr_full - (A + E2)` -- so ### **resid47 IS ALREADY A '
+     'TWO-REALIZATIONS DIFFERENCE**: the archimedean trace built as a MODE SUM (trace_modes, '
+     'a corr-weighted dilation overlap) minus the same object built as a QUADRATURE '
+     '(left_side, a single U-axis integral with NO mode index), less E2. ### The split: '
+     '**resid47(NMODE) = Delta_2real - TrTail(NMODE)**',
+     '### **THE NAME `resid47` CONCEALED THE SPECIES. ### IT IS NOT A REMAINDER OR AN ERROR '
+     'TERM BUT A DISAGREEMENT BETWEEN TWO DEFINITIONS**, filed as **M-2-inf** with a dossier '
+     'OPENED AND NOT DECIDED (b237), stating three readings (R-I quadrature is the object, '
+     'R-II mode sum is, R-III they compute different objects and the identity names one) '
+     'with **NO preference expressed and no evidence distinguishing them**. ### **THE '
+     'DECOMPOSITION ITSELF IS ALGEBRAIC-RESTATEMENT AND WAS DECLARED SO IN THE HASH-GATED '
+     'MEANINGS FILE BEFORE THE RUN** -- an identity that cannot fail cannot testify; the '
+     'evidence is the SIZE question only. ### **AND b250 ENVELOPE WAS REFUSED FOR THIS TAIL '
+     'BEFORE THE RUN, ON b247 DOUBLE-NAME RULING**: 1.158e-14 bounds sum t(n), an ENDPOINT '
+     'weight series, while TrTail is a corr-weighted dilation overlap -- two functionals of '
+     'the same eigenfunctions with NO derivation between them. ### **THE MEASUREMENT SETTLES '
+     'THE SCALE OF THE ERROR AVOIDED: TrTail IS 2.9e12 TO 7.0e12 TIMES LARGER THAN THE '
+     'ENVELOPE.** ### b250 is NOT re-verdicted; what was corrected is the ferry APPLICATION '
+     'of it',
+     'data/b251_m2inf_dossier.txt; data/b251_meanings.txt; data/b251_third_face_off.txt'),
     ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
      '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
      'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '

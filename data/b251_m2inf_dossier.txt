@@ -1,0 +1,118 @@
+====================================================================================================
+M-2-inf -- THE ARCHIMEDEAN TWO-REALIZATIONS QUESTION. ### THE DOSSIER, OPENED AT b251, 2026-08-29.
+### ### **OPENED AND *NOT* DECIDED. ### AN EXECUTOR DOES NOT SETTLE A DEFINITION (b237).**
+====================================================================================================
+
+### THE CEILING: a finite-place-set object at a finite cutoff decides NOTHING global (b14/b15).
+### ### THE REGISTER SENTENCE IS UNTOUCHED. ### NOTHING DEPOSITS.
+
+====================================================================================================
+(1) WHY THIS DOSSIER EXISTS.
+====================================================================================================
+### b251 measured the bench shortfall `L - R` decomposed into three named pieces at six cells.
+### ### ### **THE DOMINANT PIECE, 61%-70% AT EVERY CELL, IS `Delta_2real`.**
+### And b251's re-attribution, derived from the owners' source BEFORE the run, showed what that
+### piece IS: ### **THE DIFFERENCE BETWEEN TWO CONSTRUCTIONS OF THE SAME ARCHIMEDEAN OBJECT.**
+### ### **IT IS NOT A REMAINDER, A DEFECT, OR AN ERROR TERM. ### IT IS A DISAGREEMENT BETWEEN TWO
+### ### DEFINITIONS, AND UNTIL THE DEFINITIONS ARE RECONCILED THE NUMBER MEANS ONLY THAT THEY
+### ### DISAGREE.**
+### The record carried it under the name `resid47` for many acts. ### **THAT NAME CONCEALED ITS
+### SPECIES**, which is why this dossier is opened rather than a number being banked.
+
+====================================================================================================
+(2) THE TWO CONSTRUCTIONS, QUOTED AT THEIR OWNERS.
+====================================================================================================
+
+--- CONSTRUCTION I -- **THE QUADRATURE**. ### OWNER: `b38_act10.py:44 left_side`. -----------------
+###
+###     def left_side(a, primes, v, w, corr, vc, L):
+###         U = np.linspace(-C.UMAX, C.UMAX, C.NU)
+###         GU = C.hhat(v, w, U)
+###         A = float(np.trapezoid(GU ** 2 * C.kernel(U), U) / (2.0 * math.pi))
+###
+### ### **NO MODE INDEX APPEARS IN IT.** ### It is a single integral on the `U`-axis of the squared
+### test-function transform against the archimedean kernel. ### AXES: `C.NU`, `C.UMAX`.
+
+--- CONSTRUCTION II -- **THE MODE SUM**. ### OWNER: `b38_act10.py:61 trace_modes`. ---------------
+###
+###     def trace_modes(a, corr, vc, L, NQ, NMODE):
+###         x, w, lam, lam2, xi, xi1, an, dan = Q.layer(NQ)
+###         uu = np.linspace(0.0, 2 * L, NU_HALF)
+###         cu = np.interp(uu, vc, corr)
+###         for n in range(NMODE):
+###             f = xi[:, n]
+###             for i, u in enumerate(uu):
+###                 lamd = math.exp(u)
+###                 fy = np.interp(lamd * x, x, f, left=0.0, right=0.0)
+###                 An[i] = math.sqrt(lamd) * 0.5 * float((w * f * fy).sum())
+###             tr[n] = 2.0 * float(np.trapezoid(cu * An, uu))
+###
+### ### **A SUM OVER PROLATE MODES OF CORR-WEIGHTED DILATION OVERLAPS.** ### Each mode is paired
+### against its OWN DILATE by `e^u` and integrated against the bump's autocorrelation.
+### AXES: `NQ`, `NMODE`, `NU_HALF = 401`.
+
+--- THE THIRD TERM, WHICH BELONGS TO NEITHER -----------------------------------------------------
+### `E2` -- `b38_act10.py:95 e2_of_grid` -- `2 * trapezoid(corr(u) * eps(e^u), u)`.
+### b248 ruled its arrangement ### **(ADDITIVE-FORCED)**, and that ruling is carried here UNCHANGED.
+
+====================================================================================================
+(3) THE IDENTITY QUESTION, STATED. ### SPECIES TAGGED. ### **NOT DECIDED.**
+====================================================================================================
+### ### ### **THE QUESTION: does `Tr_inf = A + E2` hold as an identity of the objects the two
+### ### ### constructions are each intended to compute -- and if it does not, WHICH construction
+### ### ### is the archimedean `E1`-trace the identity `T + Q = W_inf - W_primes` refers to?**
+###
+### ### **SPECIES: (RULING).** ### Not (READ) -- no owner text settles it, and b251 looked.
+### Not (RESULT) -- ### **NO MEASUREMENT CAN SETTLE WHICH OF TWO DEFINITIONS IS THE INTENDED ONE.**
+### ### **A BENCH NUMBER CAN SAY THEY DISAGREE AND BY HOW MUCH. ### IT CANNOT SAY WHICH IS RIGHT.**
+### ### **THAT IS WHY THIS IS ROUTED TO THE AUTHOR AND NOT DECIDED HERE (b237).**
+
+### THE THREE READINGS THE AUTHOR MAY RULE BETWEEN, STATED WITHOUT PREFERENCE:
+###   **(R-I)  THE QUADRATURE IS THE OBJECT.** ### Then the mode sum is an approximation and
+###           `Delta_2real` is its convergence error -- ### **but b251's G-STAB shows the mode sum
+###           is not obviously converging to `A + E2`: the spread across the quadrature axis is
+###           4.8e-2 to 1.7e-1 while the discrepancy is 2.3 to 4.1, TWO ORDERS LARGER.**
+###   **(R-II) THE MODE SUM IS THE OBJECT.** ### Then the quadrature is the approximation, and the
+###           identity's `W_inf` needs re-reading against `left_side`'s own derivation.
+###   **(R-III) THEY COMPUTE DIFFERENT OBJECTS AND THE IDENTITY NAMES ONE OF THEM.** ### Then the
+###           face-off has been comparing a term against a construction that was never its match,
+###           and ### **THE SHORTFALL IS AN ARTEFACT OF THE PAIRING RATHER THAN A DEFICIT.**
+### ### **b251 EXPRESSES NO PREFERENCE AMONG THE THREE AND HAS NO EVIDENCE THAT DISTINGUISHES
+### ### THEM.** ### Its only contribution is to show the question is the DOMINANT one.
+
+====================================================================================================
+(4) WHAT IS MEASURED, AND ITS BARS. ### THE ONLY NUMBERS THIS DOSSIER CARRIES.
+====================================================================================================
+###   a^2     Delta_2real     share of L-R     G-STAB bar     TrTail(7)     tail/bar
+###   2          4.061350           70.0%         1.74e-01      0.080548        0.46
+###   3          3.381183           64.2%         1.19e-01      0.051730        0.43
+###   4          3.055251           63.6%         9.23e-02      0.048278        0.52
+###   8          2.524898           60.8%         6.27e-02      0.035627        0.57
+###   9          2.457610           62.4%         5.87e-02      0.033486        0.57
+###   12         2.315863           61.4%         4.84e-02      0.034172        0.71
+### ### **THE BARS ARE WIDE AND THE ACT SAYS SO: `TrTail` SITS AT 43%-71% OF THE BAR, SO THE
+### ### IDENTIFICATION OF `resid47` WITH `Delta_2real` IS CONSISTENT RATHER THAN SHARP.**
+### ### **A FIT INSIDE A WIDE BAR IS A WEAKER CLAIM THAN A FIT INSIDE A NARROW ONE, AND
+### ### REPORTING IT AS THOUGH THE BAR WERE NARROW WOULD BE THE CRIME b229 NAMED.**
+
+====================================================================================================
+(5) WHAT WOULD MOVE THIS DOSSIER. ### FILED SO THE NEXT ACT NEED NOT RE-DERIVE IT.
+====================================================================================================
+### **(i)** An owner text stating which construction `W_inf` means. ### **A READ, NOT A RUN.**
+### **(ii)** A derivation that `Tr_inf = A + E2` (or that it fails), at content. ### If the mode sum
+###      converges to something, ### **WHAT?** ### b251 did not establish that it converges at all:
+###      its G-STAB spread does not shrink monotonically across `NQ = 500, 700, 900, 1100`.
+### **(iii)** A narrower bar. ### The present bar is set by the QUADRATURE axis, not the mode axis,
+###      and b242 already showed those are different axes.
+### ### **NONE OF THE THREE IS ATTEMPTED HERE.**
+
+====================================================================================================
+(6) WHAT THIS DOSSIER DOES NOT CLAIM.
+====================================================================================================
+### It does not decide the identity question. ### It does not indict the form `T + Q = W_inf -
+### W_primes` -- ### **NO ACT HAS PRODUCED EVIDENCE AGAINST THE IDENTITY, AND CITING THIS DOSSIER
+### AS ANY WOULD BE A MISREADING.** ### It does not close M-2, M-3 or M-5, and ### **M-2-inf is a
+### NEW ADDRESS INSIDE M-2, NOT A REPLACEMENT FOR IT** -- the finite-place junction piece stands
+### separately and is tabulated naked in b251's own table. ### It does not re-verdict b246, b248 or
+### b250. ### **IT MOVES NOTHING ABOUT h2 OR THE REGISTER SENTENCE. ### NOTHING DEPOSITS.**
+====================================================================================================
