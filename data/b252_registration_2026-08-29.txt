@@ -1,0 +1,123 @@
+====================================================================================================
+b252 -- THE MODE SUM'S LIMIT. ### THE REGISTRATION. ### BANKED BEFORE ANY COMPUTATION.
+### WRITTEN 2026-08-29. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING: b14/b15 -- "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### **UNTOUCHED BY THIS ACT.**
+### ### **A BOUNDED BENCH ACT. ### NO RULING. ### NO READING CHOSEN. ### NOTHING DEPOSITS.**
+### ### **AND THE SENTENCE THIS ACT MOST NEEDS: IT DISCHARGES NOTHING OF M-2-inf BY PREFERENCE.
+### ### IT PRODUCES ONE FACT WITH A TABLE, AND THE CARD -- IF STILL NEEDED -- CITES IT.**
+
+====================================================================================================
+(A) THE MEANINGS FILE, BANKED AND HASHED BEFORE ANY COMPUTATION.
+====================================================================================================
+###   path   : data/b252_meanings.txt
+###   bytes  : 10898
+###   sha256 : 0c562286ea9a170cb74206614bc5bb1c2560af22cb95ba8909f24ab2e04d77be
+### ### **NO COMPUTATION HAD RUN WHEN IT WAS WRITTEN.** ### The hash is re-checked at the gates.
+### It carries: the object unfolded from source; ### **the exact fact `A_n(0) = 1` for every `n`**;
+### the b251 refusal as governing precedent; the four branches; the registered band; both seats'
+### expected branches with my falsifier; ### **two gate outcomes registered IN ADVANCE as expected
+### failures**; and the tautology control.
+
+====================================================================================================
+(B) LOAD-BEARING, READ AT CONTENT BEFORE ANYTHING RAN. ### RULE-3 LINE (a).
+====================================================================================================
+### **b251's M-2-inf DOSSIER** -- three readings (R-I, R-II, R-III), no preference expressed, and
+###   the finding that ### **b251 DID NOT ESTABLISH THAT THE MODE SUM CONVERGES TO ANYTHING**
+###   (its G-STAB spread did not shrink monotonically with `NQ`). ### **THAT IS THIS ACT'S DOCKET.**
+### **THE TWO DEFINING LINES, QUOTED:** ### `b38_act10.py:182` `resid = TrN - A - E2N`;
+###   `b36_act8.py:184` `resid47 = Tr_full - (A + E2)`.
+### **THE MODE-SUM CONSTRUCTION** -- `b38_act10.py:61 trace_modes`, its weight and index set
+###   unfolded in the meanings file section (A): ### mode `n` IS prolate index `2n` (pin P1's even
+###   sub-sequence); `sqrt(2)` is pin P2's half-line norm; `w` are Gauss-Legendre weights on
+###   `[-1,1]`; `corr` is the bump's autocorrelation on `[-2L, 2L]`, ### **float64 and not extended
+###   by this act**, with the bounded-factor argument stated there and labelled an argument.
+### **THE QUADRATURE CONSTRUCTION** -- `b38_act10.py:44 left_side`:
+###   `A = trapezoid(Ghat(U)^2 * kernel(U), U) / (2 pi)`, axes `C.NU`, `C.UMAX`,
+###   ### **NO MODE INDEX IN IT AT ALL.**
+### **b249's EXTENDED-PRECISION EIGENPAIRS** -- `b249_precision.py`: `leggauss_mp` (Newton on the
+###   Legendre polynomial, because numpy's is float64 and would re-impose the floor), `kern` (the
+###   corpus's own kernel with its removable singularity), `solve` via `mp.eigsy` with
+###   `psi = V/sqrt(w)`. ### **THE BASE THE OVERLAPS EXTEND FROM.**
+### **b242's NQ-SPREAD TABLE** -- the float64 control: ### **`n_last = 6` AT EVERY `NQ` FROM 500 TO
+###   1300**, and the NQ-spread jumping 61x-249x at `NM = 8`.
+
+====================================================================================================
+(C) EVERY CONSULTED BANK'S AXES **AND PRINTED PRECISION**, NAMED BEFORE ANY NUMBER.
+### THE b249 EXTENSION, HONOURED IN FORM.
+====================================================================================================
+### `b38_act10`: `TRIPLE=[(500,8),(700,10),(900,11)]`, `NU_HALF=401`, `EPS_NQ=700`, `EPS_NG=400`,
+###   `EPS_NRHO=240`, cells `a^2 in {2,3,4,8,9,12}`, `S4=(2,3,5)`.
+###   ### **PRINTS `resid47` TO FOUR DECIMALS -> PRINT FLOOR 5e-5. ### NO COMPARISON AGAINST THAT
+###   ### BANK IS MADE FINER THAN 5e-5.**
+### `b242` axis table: ### **PRINTS `lambda^2` TO TEN SIGNIFICANT DIGITS AND `xi` TO NINE
+###   DECIMALS** (the floor b249 was forced to meet). ### Used here only for `n_last = 6`.
+### `b249` points: dps 120 / NQ 80, modes `n = 0..12` on the even sub-sequence.
+### `b251` bars: per-cell G-STAB spread on `Delta_2real`, ### **4.84e-2 to 1.74e-01**, and
+###   `Delta_2real` itself 2.315863 to 4.061350. ### **PRINTED TO SIX DECIMALS.**
+### `b250` envelope `1.158e-14`: ### **NAMED AND NOT APPLIED TO THIS SERIES AT ANY POINT** (meanings
+###   section (C), on b251's precedent).
+
+====================================================================================================
+(D) THE INSTRUMENT'S SETTINGS. ### FIXED HERE. ### NOTHING BELOW MOVES AFTER A NUMBER IS SEEN.
+====================================================================================================
+### **THE EIGENSOLVE** -- `b249_precision.solve`'s scheme, at ### **dps 120, NQ_e = 120**, taking
+###   the EVEN sub-sequence, target ### **N = 20 (prolate index 40)**.
+### **G-SELF ON THE SOLVE** -- a second setting at ### **dps 60, NQ_e = 100.**
+### **THE OVERLAP** -- `A_n(u)` by Gauss-Legendre with ### **NQ_in = 200 nodes ON THE TRUE SUPPORT
+###   `[-1/lambda, 1/lambda]`**, `xi_n` evaluated by ### **BARYCENTRIC LAGRANGE INTERPOLATION** on
+###   the eigensolve's Legendre nodes -- spectrally accurate, where `trace_modes` uses LINEAR
+###   interpolation.
+### **G-SELF ON THE OVERLAP** -- the same overlaps recomputed at ### **mpmath dps 30** on a
+###   registered sample of `(n, u)` pairs. ### **THE EIGENVECTORS ARE `O(1)` AND WELL-CONDITIONED
+###   ONCE RESOLVED, SO THE OVERLAP ITSELF NEED NOT CARRY 120 DIGITS -- AND THAT CLAIM IS TESTED
+###   RATHER THAN ASSUMED.**
+### **THE u-AXIS** -- `b38`'s own `NU_HALF = 401` trapezoid on `[0, 2L]`, ### **PLUS ONE
+###   REFINEMENT AT 801**, so the two-axis behaviour (mode count x quadrature) is a table.
+### **THE NQ AXIS** -- `NQ_e in {100, 120}` and `NU in {401, 801}`, giving the two-axis table.
+### **CELLS** -- all six, `a^2 in {2,3,4,8,9,12}`, as `b38`.
+### **THE QUADRATURE COLUMN** -- `A + E2` computed from ### **`left_side` AND `e2_of_grid`, THEIR
+###   OWN OWNERS, IMPORTED AS A MODULE AND NOT RE-IMPLEMENTED** (G-INDEP, structural).
+### ### **THE AFFORDABILITY CLAUSE, FIXED BEFORE THE SOLVE RUNS: IF `N = 20` AT `NQ_e = 120` IS NOT
+### ### AFFORDABLE, THE ACT REPORTS THE `N` IT ACTUALLY REACHED AND WHY, AND DOES NOT SILENTLY
+### ### REDUCE.** ### The ferry says "N >= 20 as afforded"; ### **"as afforded" IS A LICENCE TO
+### ### REPORT A SHORTFALL, NOT A LICENCE TO HIDE ONE.**
+
+====================================================================================================
+(E) THE BRANCHES AND THE BAND. ### CARRIED FROM THE MEANINGS FILE, UNCHANGED.
+====================================================================================================
+### (CONVERGES-TO-QUADRATURE) / (CONVERGES-ELSEWHERE) / (DIVERGES/WANDERS) / (HALT).
+### **SETTLED** := the change in `S_N` over the last third of the computed range is below
+### ### **1% of `|S_N|`.** ### **ON `A + E2`** := `|S_N - (A + E2)|` below b251's per-cell G-STAB
+### bar (`4.84e-2` to `1.74e-01`). ### **BOTH FIXED IN THE HASHED MEANINGS FILE. ### NEITHER MOVES.**
+
+====================================================================================================
+(F) BOTH SEATS' EXPECTED BRANCHES. ### CARRIED FROM THE MEANINGS FILE.
+====================================================================================================
+### **NAVIGATOR: (CONVERGES-TO-QUADRATURE)** -- ### **INFERRED from the ferry's branch ORDERING,
+### NOT STATED IN ITS WORDS, AND MARKED INFERRED.**
+### **EXECUTOR: (DIVERGES/WANDERS)**, on `A_n(0) = 1` exact plus a `1/n` width heuristic that is
+### ### **LABELLED A HEURISTIC AND NOT A DERIVATION.** ### **FALSIFIER: if `tr[n]` decays faster
+### than `1/n` -- geometrically, or with `n*tr[n] -> 0` -- I report my expectation wrong and the
+### heuristic broken.**
+
+====================================================================================================
+(G) THE INDEX QUERY, RUN BEFORE ANY COMPUTATION.
+====================================================================================================
+### `mode-sum-limit` -> NO KEY. ### Keyed ON FILING.
+### DECLARED KEYS BEARING ON THIS ACT, ALL HIT: `two-realizations` (1), `third-face-off` (1),
+### `mode-precision` (1), `t-series` (1), `left-mode-axis` (1), `prolate-operator` (1),
+### `m4-derivation` (1).
+
+====================================================================================================
+(H) WHAT NO PART OF THIS ACT MAY DO. ### CARRIED FROM THE MEANINGS FILE, SECTION (H).
+====================================================================================================
+### Apply b250's envelope to this series. ### Rule on M-2-inf or choose among its readings.
+### Re-verdict b251's branch. ### Move the band or the settling threshold after a number is seen.
+### Present an expected gate failure as a discovery. ### Correct b38's record by fiat. ### Claim the
+### heuristic as a derivation. ### Close M-2, M-3 or M-5. ### Indict the form. ### Move h2 or the
+### register sentence. ### Deposit anything.
+====================================================================================================

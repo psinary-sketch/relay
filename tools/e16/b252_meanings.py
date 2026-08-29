@@ -1,0 +1,159 @@
+# -*- coding: utf-8 -*-
+"""b252 -- THE MEANINGS. ### EMITTED AND HASHED **BEFORE ANY COMPUTATION**.
+### Deterministic; carries NO measured value. ### Its sha256 is banked in the registration.
+"""
+import hashlib
+import io
+
+BANK = r"D:\relay\data\b252_meanings.txt"
+
+TEXT = u"""\
+====================================================================================================
+b252 -- THE MODE SUM'S LIMIT. ### THE MEANINGS.
+### BANKED AND HASHED BEFORE ANY COMPUTATION. ### 2026-08-29. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING: b14/b15 -- "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### **NO BRANCH BELOW MOVES IT.**
+### ### **THIS IS A BOUNDED BENCH ACT. ### NO RULING IS MADE AND NO READING IS CHOSEN.**
+### ### **IT PRODUCES THE FACT THE M-2-inf CARD WILL CITE, AND NOTHING ELSE.** ### NOTHING DEPOSITS.
+
+====================================================================================================
+(A) THE OBJECT, UNFOLDED FROM ITS OWNER'S SOURCE. ### `b38_act10.py:61 trace_modes`.
+====================================================================================================
+###     tr[n] = 2 * trapezoid( corr(u) * A_n(u), u ) over u in [0, 2L]
+###     A_n(u) = sqrt(lambda) * 0.5 * sum_j w_j xi_n(x_j) xi_n(lambda x_j),   lambda = e^u
+###     with `np.interp(..., left=0.0, right=0.0)` ZEROING xi_n outside [-1,1].
+###
+### **THE INDEX SET, UNFOLDED:** `xi` comes from `qeps_layer.layer`, where
+### `xi = sqrt(2) * psi[:, 0::2][:, :NTERM]`. ### ### **SO MODE `n` IS PROLATE INDEX `2n` -- THE
+### ### EVEN SUB-SEQUENCE, PER PIN P1 -- AND THE `sqrt(2)` IS PIN P2's HALF-LINE NORM.**
+### **THE WEIGHT, UNFOLDED:** `w` are Gauss-Legendre weights on `[-1,1]` at `NQ` nodes, and `corr`
+### is the bump's AUTOCORRELATION `convolve(w_bump, w_bump) * dv` on `vc = [-2L, 2L]`.
+### ### **THE `corr` WEIGHT IS A FLOAT64 OBJECT OUT OF `carto_atlas.bump` AND THIS ACT DOES NOT
+### ### EXTEND IT.** ### Stated now, before any number: `corr` is a FIXED, SMOOTH, `O(1)` factor
+### ### INDEPENDENT OF `n`, so it can scale the terms by a bounded factor but ### **CANNOT CHANGE
+### ### WHETHER `sum_n tr[n]` CONVERGES.** ### That is an ARGUMENT ABOUT A BOUNDED FACTOR, not a
+### ### proof of any limit, and it is labelled so.
+
+====================================================================================================
+(B) ### **THE ONE EXACT FACT, DERIVED FROM SOURCE BEFORE ANY COMPUTATION.**
+====================================================================================================
+### At `u = 0`, `lambda = 1`, so `A_n(0) = 1 * 0.5 * sum_j w_j xi_n(x_j)^2 = 0.5 * ||xi_n||^2`.
+### With `xi_n = sqrt(2) psi_{2n}` and `||psi_{2n}||_{L^2[-1,1]} = 1`:
+###
+###     ### ### ### **A_n(0) = 1, EXACTLY, FOR EVERY n.**
+###
+### ### **THIS IS THE FACT THAT MAKES THE ACT WORTH RUNNING.** ### The integrand of `tr[n]` does
+### ### **NOT** decay in `n` at `u = 0`. ### Whatever decay `tr[n]` has must come from the WIDTH in
+### ### `u` of the region where `A_n` is appreciable -- ### **NOT from any smallness of the mode.**
+### ### **IN PARTICULAR `tr[n]` IS *NOT* GOVERNED BY `mu_n`, WHICH DOES NOT APPEAR IN IT AT ALL**,
+### ### and any expectation that `tr[n]` inherits the eigenvalue's factorial decay (b250's S2) is
+### ### ### **A DOUBLE-NAME AND IS REFUSED HERE IN ADVANCE**, exactly as b251 refused the envelope.
+
+====================================================================================================
+(C) ### THE b251 REFUSAL, QUOTED AS THE GOVERNING PRECEDENT.
+====================================================================================================
+### b251, banked: *"b250's envelope bounds `sum_{n>N} t(n)`, an ENDPOINT-WEIGHT series; `TrTail` is
+### `sum_{n>=NMODE} tr[n]`, a CORR-WEIGHTED DILATION OVERLAP. ### TWO FUNCTIONALS OF THE SAME
+### EIGENFUNCTIONS WITH NO DERIVATION IN THE RECORD BETWEEN THEM."*
+### ### **b250's ENVELOPE IS NOT APPLIED TO THIS SERIES AT ANY POINT OF THIS ACT.** ### It is named
+### and not used, and no bar carries it.
+
+====================================================================================================
+(D) THE BRANCHES. ### FIXED HERE; THE MEASUREMENT SELECTS, IT DOES NOT AUTHOR.
+====================================================================================================
+### **(CONVERGES-TO-QUADRATURE)** -- `S_N` settles within the registered band of `A + E2` at every
+###   cell. ### MEANS: the two-realizations term is a TRUNCATION ARTIFACT, M-2-inf's readings agree
+###   in the limit, the card becomes a RECONCILIATION NOTE, and ### **the shortfall's dominant term
+###   has a measured death.**
+### **(CONVERGES-ELSEWHERE)** -- `S_N` settles away from `A + E2`. ### MEANS: two well-defined
+###   objects GENUINELY DIFFER; the card is LIVE with the measured difference as its central fact.
+### **(DIVERGES/WANDERS)** -- `S_N` does not settle on the measured range. ### MEANS: ### **ONLY
+###   THE QUADRATURE READING DENOTES**, and the card's ruling is CITATION-SHAPED.
+### **(HALT)** -- a gate refuses, or the instrument cannot reach a range that distinguishes these.
+
+### **THE REGISTERED BAND, FIXED NOW, BEFORE ANY NUMBER:** ### `S_N` counts as SETTLED when the
+### change over the last third of the computed range is below ### **1% of `|S_N|`**, and counts as
+### settling ON `A + E2` when `|S_N - (A + E2)|` is below the G-STAB bar b251 measured on the same
+### object (per cell, `4.84e-2` to `1.74e-01`). ### **BOTH NUMBERS ARE FIXED HERE AND MAY NOT MOVE.**
+
+====================================================================================================
+(E) BOTH SEATS' EXPECTED BRANCHES, AND WHAT WOULD FALSIFY MINE.
+====================================================================================================
+### **THE NAVIGATOR'S: (CONVERGES-TO-QUADRATURE)** -- ### **AND I RECORD HOW I OBTAINED IT, BECAUSE
+### THE FERRY DID NOT STATE IT IN WORDS:** it is INFERRED from the branch ORDERING in the ferry's
+### clause (c), where that branch is listed first, and from its MEANS clause reading as the hoped-for
+### outcome. ### **AN INFERRED EXPECTATION IS MARKED INFERRED RATHER THAN ATTRIBUTED AS STATED.**
+###
+### **THE EXECUTOR'S: (DIVERGES/WANDERS).** ### And the ground, registered in full so that being
+### right later cannot look like hindsight and being wrong cannot be quietly dropped:
+###   **(i)** `A_n(0) = 1` exactly for every `n` -- section (B), from source. ### **EXACT.**
+###   **(ii)** Mode `n` is prolate index `2n`, which carries about `2n` oscillations on `[-1,1]`.
+###        A dilation by `1 + delta` displaces the `k`-th zero by about `k*delta`, so the overlap
+###        decorrelates once `2n*delta ~ 1`, i.e. over a `u`-width of about `1/(2n)`.
+###   **(iii)** Hence `tr[n] ~ 2*corr(0)/(2n)`, i.e. ### **`tr[n] ~ C/n`, WHOSE SUM DIVERGES
+###        LOGARITHMICALLY.**
+### ### **(ii) AND (iii) ARE AN ORDER-OF-MAGNITUDE HEURISTIC, NOT A DERIVATION. ### THEY WOULD NOT
+### ### SURVIVE THE IMPORT BAR AND ARE NOT OFFERED AS IF THEY WOULD.** ### Only (i) is exact.
+### ### **FALSIFIER: IF `tr[n]` DECAYS FASTER THAN `1/n` -- geometrically, or with `n*tr[n] -> 0` --
+### ### MY EXPECTATION IS WRONG AND I REPORT IT WRONG, AND THE HEURISTIC IS REPORTED AS BROKEN.**
+
+====================================================================================================
+(F) ### TWO GATE OUTCOMES REGISTERED IN ADVANCE AS **EXPECTED FAILURES**, SO THAT NEITHER CAN LATER
+### BE PRESENTED AS A DISCOVERY OR EXCUSED AS AN ARTEFACT.
+====================================================================================================
+### **(F.1) I EXPECT G-REPRO AGAINST b38's FLOAT64 TO FAIL FOR `n >= 7`, AND NOT BECAUSE OF THIS
+### ACT'S ARITHMETIC.** ### b242 measured `n_last = 6` at every `NQ` from 500 to 1300: beyond mode
+### 6 float64 cannot resolve the eigenPAIR, so ### **b38's `xi[:, n]` FOR `n >= 7` IS NOISE, AND ANY
+### `tr[n]` BUILT FROM IT IS NOISE.** ### **CONSEQUENCE, STATED BEFORE MEASURING: b251's
+### `TrTail(7)` OF 0.033 TO 0.081 MAY BE NOISE RATHER THAN SIGNAL, AND IF SO b251's TABLE INHERITED
+### IT.** ### That would be a finding ABOUT b251, filed as such, and b251's BRANCH would not be
+### re-verdicted by this act (a banked branch is not re-verdicted because a later act explains it --
+### b246's rule).
+### ### **SO G-REPRO IS SPLIT INTO TWO, AND THE SPLIT IS THE POINT:**
+###   **G-REPRO-A** -- this act's instrument in ### **b38-EMULATION MODE** (the same restricted
+###     Gauss nodes and the same linear interpolation) against b38's float64, for `n <= 6` only.
+###     ### **THIS TESTS THIS ACT'S ARITHMETIC AND NOTHING ELSE.** ### It must pass.
+###   **G-REPRO-B** -- this act's instrument in its ### **OWN mode** against b38's float64.
+###     ### **ANY DIFFERENCE HERE IS A SCHEME DIFFERENCE AND IS REPORTED AS ONE, NOT AS AN ERROR
+###     ### IN EITHER PARTY.**
+### **(F.2) A SECOND SCHEME DIFFERENCE, NAMED FROM SOURCE BEFORE IT IS SEEN.** ### `trace_modes`
+### evaluates its Gauss-Legendre sum over the FULL `[-1,1]` while `xi_n(lambda x)` has been ZEROED
+### outside `|x| <= 1/lambda`. ### ### **THAT IS A GAUSS-LEGENDRE QUADRATURE ACROSS A KINK**, and
+### Gauss-Legendre has no accuracy guarantee across one. ### This act computes the same integral
+### with nodes ON the true support `[-1/lambda, 1/lambda]`. ### **THE DIFFERENCE IS A PROPERTY OF
+### THE TWO SCHEMES, KNOWN BEFORE MEASURING, AND IS REPORTED AS SUCH RATHER THAN AS A CORRECTION
+### THIS ACT IS ENTITLED TO IMPOSE ON THE RECORD.**
+
+====================================================================================================
+(G) THE TAUTOLOGY CONTROL, FIXED IN ADVANCE.
+====================================================================================================
+### ### **"`S_N` SETTLES" MUST NOT BE TRUE BY CONSTRUCTION.** ### The control runs the same
+### settling test on ### **ARBITRARY POSITIVE SEQUENCES**, including one with terms `~C/n`:
+### the test MUST report the `1/n` sequence as NOT settled and a geometric one as settled.
+### ### **A SETTLING TEST THAT PASSED EVERY SEQUENCE WOULD BE MEASURING ITS OWN TOLERANCE.**
+
+====================================================================================================
+(H) WHAT NO PART OF THIS ACT MAY DO.
+====================================================================================================
+### Apply b250's envelope to this series. ### Rule on M-2-inf or choose among its three readings.
+### Re-verdict b251's branch. ### Move the registered band or the settling threshold after a number
+### is seen. ### Present an expected gate failure as a discovery. ### Correct b38's record by fiat.
+### Claim the heuristic in (E) as a derivation. ### Close M-2, M-3 or M-5. ### Indict the form.
+### Move h2 or the register sentence. ### Deposit anything.
+====================================================================================================
+"""
+
+
+def main():
+    io.open(BANK, "w", encoding="utf-8", newline="\n").write(TEXT)
+    raw = io.open(BANK, "rb").read()
+    print("banked   : %s" % BANK)
+    print("bytes    : %d" % len(raw))
+    print("sha256   : %s" % hashlib.sha256(raw).hexdigest())
+
+
+if __name__ == "__main__":
+    main()

@@ -302,6 +302,8 @@ KEYS = {
                        'the shortfall decomposed', 'the accounting of L - R'],
     'two-realizations': ['the two-realizations term', 'delta_2real', 'm-2-inf', 'm2inf',
                          'the archimedean identity question', 'quadrature versus mode sum'],
+    'mode-sum-limit': ['the mode sum limit', 'does the mode sum converge', 'tr[n] decay',
+                       'the corr-weighted mode sum', 'w(n) ~ C/n', 'the archimedean trace series'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1347,6 +1349,36 @@ INDEX = [
      'ENVELOPE.** ### b250 is NOT re-verdicted; what was corrected is the ferry APPLICATION '
      'of it',
      'data/b251_m2inf_dossier.txt; data/b251_meanings.txt; data/b251_third_face_off.txt'),
+    ('mode-sum-limit', 'b252 (bounded bench act; the b249 instrument extended)',
+     'DOES the corr-weighted archimedean mode sum `Tr` converge, and to what? ### Measured at '
+     'EXTENDED PRECISION to **N = 20 (prolate index 40, mu_20 = 7.162e-80)**, past the '
+     'float64 veil, at all six cells, with the quadrature object `A + E2` computed beside it '
+     'from ITS OWN owners. ### Instrument: b249 solve scheme at dps 120 / NQ_e 120, overlaps '
+     'by Gauss-Legendre with nodes ON THE TRUE SUPPORT and BARYCENTRIC interpolation',
+     '### **BRANCH (DIVERGES/WANDERS) AT EVERY CELL.** ### `S_N` misses the registered '
+     '1%-of-|S_N| settling threshold by 7.5x to 11.3x. ### **AND THE THRESHOLD-FREE EVIDENCE IS '
+     'THE DECAY LAW: `n*w(n)` RISES AND FLATTENS TOWARD A NONZERO CONSTANT AT EVERY CELL** '
+     '(1.876, 1.194, 0.949, 0.635, 0.601, 0.533), i.e. **w(n) ~ C/n**, whose sum diverges '
+     'logarithmically; the log form checks against S_20 - S_10 to about 6%. ### **LIMIT IN THE '
+     'SAME BREATH: A MEASURED DECAY LAW OVER n = 0..20 IS NOT A THEOREM -- b242 rule, a '
+     'measured rate is not a tail bound. ### THE DIVERGENCE IS THE READING THE FORM IMPLIES '
+     'AND IS NOT BANKED AS PROVED.** ### **THE EXACT FACT `A_n(0) = 1` FOR EVERY n WAS DERIVED '
+     'FROM SOURCE BEFORE THE INSTRUMENT WAS BUILT AND THE INSTRUMENT REPRODUCES IT TO 3.0e-13**; '
+     'G-EQ 4.4e-120; G-REPRO-A 3.076e-15 (machine precision); G-SELF agrees to 8.5e-16 up to '
+     'n = 15 and **COVERS ONLY THAT RANGE, WHICH THE ACT SAYS RATHER THAN LETTING THE GATE NAME '
+     'IMPLY MORE**. ### **AND THE FINDING REGISTERED IN ADVANCE AS AN EXPECTED FAILURE: b38 '
+     'FLOAT64 EIGENVECTORS FOR n >= 7 ARE NOISE** -- its tr[n] collapse by up to 62x and wander '
+     'non-monotonically while the clean values decay smoothly (b242 n_last = 6, seen from the '
+     'other side). ### **CONSEQUENCE FOR b251, FILED AS A FACT NOT A RE-VERDICT: its TrTail(7) '
+     'of 0.0805 at a^2 = 2 was built from noise; the clean value over the same modes is 0.801, '
+     'TEN TIMES LARGER, and over n = 7..20 it is 2.024. ### b251 BRANCH STANDS AS BANKED (b246 '
+     'rule).** ### **AND `Delta_2real := Tr_inf - A - E2` HAS NO LIMIT TO BE: b251 number is a '
+     'PARTIAL SUM AT N = 10 AND THE NAME PRESUMED A LIMIT** -- any future act quoting it must '
+     'quote its N. ### **NO RULING ON M-2-inf AND NO READING CHOSEN**; the dossier is APPENDED '
+     'with the fact, prefix byte-for-byte intact, and the card is CITATION-SHAPED per the '
+     'pre-banked MEANS. ### b250 envelope NAMED AND NEVER APPLIED, on b251 precedent',
+     'data/b252_mode_sum_limit.txt; data/b252_run.txt; data/b252_meanings.txt; '
+     'data/b251_m2inf_dossier.txt; reports/2026-08-29-the-mode-sums-limit.md'),
     ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
      '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
      'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '
