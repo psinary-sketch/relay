@@ -304,6 +304,10 @@ KEYS = {
                          'the archimedean identity question', 'quadrature versus mode sum'],
     'mode-sum-limit': ['the mode sum limit', 'does the mode sum converge', 'tr[n] decay',
                        'the corr-weighted mode sum', 'w(n) ~ C/n', 'the archimedean trace series'],
+    'm2inf-ruling': ['the m2inf ruling', 'rule m-2-inf', 'q1', 'the r-label match',
+                     'which construction denotes', 'the quoted-n law'],
+    'quadrature-binding': ['the quadrature binding', 'T.value := A + E2 - Delta_-',
+                           'the re-bound realization', 'the mode sum demoted'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1379,6 +1383,52 @@ INDEX = [
      'pre-banked MEANS. ### b250 envelope NAMED AND NEVER APPLIED, on b251 precedent',
      'data/b252_mode_sum_limit.txt; data/b252_run.txt; data/b252_meanings.txt; '
      'data/b251_m2inf_dossier.txt; reports/2026-08-29-the-mode-sums-limit.md'),
+    ('m2inf-ruling', 'b253 (filings + one ruled re-binding at support-voice)',
+     "the author's RULE M-2-inf Q1 executed: the QUADRATURE construction (left_side's "
+     'one-axis integral) is the archimedean object the identity left column denotes; the '
+     'per-cell realization of C2+D1 RE-BOUND to it; the mode sum (trace_modes) DEMOTED to a '
+     'truncation diagnostic under the standing QUOTED-N law. ### **THE DEFINITION DOES NOT '
+     'MOVE -- C2, D1, RULE Q O1 and RULE MODES K1 all stand; ONLY THE PER-CELL '
+     "REALIZATION'S BINDING MOVED.** ### File E docstring only: comment-stripped HEAD vs "
+     'work = **19 code lines both sides, IDENTICAL**. ### CORRESPONDENCE row 94, six cells, '
+     'read back',
+     '### **THE R-LABEL MATCH IS HALTED AS AMBIGUOUS AND ROUTED TO THE AUTHOR.** ### Q1 '
+     'wording is R-I headline verbatim, but Q1 DECLINES R-I consequent (it demotes the mode '
+     'sum to a DIAGNOSTIC, not an APPROXIMATION, and b252 refuted the approximation reading), '
+     "while the ferry OWN disclosed consequence -- 'removes ... BY DEFINITION' -- is R-III's "
+     "('THE SHORTFALL IS AN ARTEFACT OF THE PAIRING RATHER THAN A DEFICIT'). ### **WHAT "
+     'TURNS ON IT: UNDER R-I b254 NUMBERS ARE A DEFICIT STILL OWED; UNDER R-III THEY ARE THE '
+     'RESIDUE OF A PAIRING ERROR. ### THE TWO READINGS ASSIGN OPPOSITE MEANINGS TO b254 '
+     'ENTIRE TABLE.** ### b237 governs -- an executor does not settle a definition. '
+     '### R-II is excluded cleanly (Q1 names the quadrature; R-II names the mode sum). '
+     '### **THE HALT HALTS THE MATCH ONLY: the re-binding is derived from Q1 OWN WORDS and '
+     'the owners lines and does NOT consume the R-label, so every other component executed '
+     'in full.** ### **AND THE EXECUTOR REGISTERED THE AMBIGUITY BEFORE WEIGHING THE '
+     'DOSSIER TEXT** (registration section (D)). ### Q1 is DEFINITIONAL ONLY; b252 '
+     'divergence remains a BENCH READING. ### NO FACE-OFF RAN. ### M-2..M-5 open',
+     'data/b253_m2inf_ruling.txt; data/b253_registration_2026-08-29.txt; '
+     'Interfaces/FiniteInstanceIdentity.lean; CORRESPONDENCE.md row 94; '
+     'reports/2026-08-29-the-m2inf-ruling.md'),
+    ('quadrature-binding', 'b253 (derived from the owners lines, shown not asserted)',
+     '### **THE RE-BOUND REALIZATION: `T.value := A + E2 - Delta_-`**, `A` being '
+     '`b38_act10.left_side` one-axis integral in which NO mode index appears. ### DERIVED: '
+     'from `b36_act8.py:184` `resid47 = Tr_full - (A + E2)`, i.e. (i) `Tr_full = A + E2 + '
+     'resid47`; with the ruled binding (ii) `T.value := Tr_full + E2 - Delta_-`, substituting '
+     'construction for construction gives (iii) `T.value := A + E2 - Delta_-`. ### The '
+     'combination is UNCHANGED; only which construction realizes the archimedean trace moved',
+     '### ### **AND THE COST DISCLOSED IN THE EXECUTOR OWN VOICE, WHICH THE FERRY DISCLOSURE '
+     'DID NOT NAME: `T.value^OLD - T.value^NEW = E2 + resid47` -- THE RE-BINDING REMOVES '
+     '`resid47` *AND ONE `E2` TERM*, because the old assembly carried `E2` TWICE (once in the '
+     'combination, once inside `Tr_full` comparison against `A + E2`).** ### The ferry '
+     'disclosed consequence named `resid47` alone (~61-70% of the measured shortfall per b251 '
+     'table, itself a PARTIAL SUM AT N = 11). ### **THE REGISTRATION BANKED THE DUTY TO CHECK '
+     'THIS *BEFORE* THE RE-BINDING WAS WRITTEN, SO FINDING IT COULD NOT LOOK LIKE A '
+     'CONCESSION MADE AFTER THE FACT.** ### In shortfall algebra: OLD `L - R = resid47 + '
+     '2*E2 - Delta_- + (PR - Theta_q)` (exactly b251 measured decomposition); NEW `L - R = '
+     'E2 - Delta_- + (PR - Theta_q)`. ### **THE SIZE OF THE REMAINDER IS NOT COMPUTED: THAT '
+     'IS A FACE-OFF AND b253 RAN NONE. ### IT IS b254 WORK.**',
+     'data/b253_m2inf_ruling.txt; data/b253_filings.txt; '
+     'Interfaces/FiniteInstanceIdentity.lean'),
     ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
      '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
      'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '

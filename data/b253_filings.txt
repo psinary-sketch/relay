@@ -1,0 +1,121 @@
+====================================================================================================
+b253 -- THE FILINGS. ### COMPONENT 2. ### 2026-08-29.
+====================================================================================================
+### ### **EVERY WORK-ORDER BELOW IS *FILED, NOT RUN*.** ### b148 built a guard and b178 breached
+### again with it present and unused; ### **THE LESSON THE RECORD DREW WAS THAT BUILDING A THING
+### IS NOT DISCHARGING IT**, and none of these is reported as discharged.
+
+====================================================================================================
+(1) ### **W-ORD-B38-HIGHMODE** -- THE SWEEP. ### **FILED, NOT RUN.**
+====================================================================================================
+### **WHAT IT IS.** ### b252 established that b38's float64 eigenvectors for `n >= 7` are NOISE:
+### its `tr[n]` collapse by up to 62x and wander non-monotonically while clean extended-precision
+### vectors decay smoothly. ### b242 had already measured `n_last = 6` at every `NQ` from 500 to
+### 1300. ### ### **SO EVERY BANK OR REPORT IN THE CORPUS THAT CITES A FLOAT64 `tr[n]` AT `n >= 7`,
+### ### OR ANY PARTIAL SUM CONTAINING ONE, IS CITING NOISE IN THAT COMPONENT.**
+### **THE ORDER:** ### sweep the corpus for such citations and ### **ANNOTATE EACH `SUSPECT-BY-b252`
+### WITH ITS `N`** -- annotate, ### **NOT DELETE AND NOT RECOMPUTE.** ### b240's append-only law
+### governs the annotation; b246's rule governs the verdicts: ### **NO BANKED BRANCH IS
+### RE-VERDICTED BY THE SWEEP.**
+### **THE KNOWN CANDIDATES, NAMED FROM WHAT THIS ACT ALREADY HOLDS AND *WITHOUT* SWEEPING** (the
+### sweep is the work-order's, not this act's):
+###   -- `b38`'s own bank at `NMODE = 8, 10, 11` (its `TRIPLE`), every cell.
+###   -- `b245`'s second face-off, whose T-E mis-specification already turned on a 7-vs-10 mode
+###      mismatch (`W-ORD-TE-SPEC`).
+###   -- `b251`'s third face-off: `Delta_2real` at `N = 11` and `TrTail(7)`, both now quotable only
+###      with their `N` -- ### **and b252 measured the second at TEN TIMES b251's value.**
+### ### **THAT LIST IS A STARTING POINT AND IS EXPLICITLY NOT CLAIMED COMPLETE.** ### A work-order
+### that named three files and implied it had found all of them would be the defect it exists to
+### repair.
+### **SCOPE CONTROL REQUIRED OF THE SWEEP:** b142 -- *"a scanner with no scope control does not
+### report the rule, it reports the corpus"* -- and the `ast`/comment stripper that b242 was forced
+### into, b243/b246/b250 carried, and ### **b248 forgot at its fourth matcher.**
+
+====================================================================================================
+(2) ### **THE QUOTED-N LAW** -- A STANDING TERM-SCAN EXTENSION. ### **FILED, NOT BUILT.**
+====================================================================================================
+### **THE LAW, AS Q1 STATES IT:** ### *"every quoted partial sum carries its N and its precision."*
+### **THE CHECKABLE FORM:** any quoted `Tr_full`, `TrN`, `S_N`, `tr[n]`, `Delta_2real` or `resid47`
+### must carry (a) the mode count `N` at which it was computed and (b) the arithmetic precision.
+### ### **A QUOTATION MISSING EITHER IS `UNGRADED` AND MAY NOT BE RELIED ON.**
+### **THE ORDER:** ### add a ### **`QUOTED-N` VERDICT CLASS** ### to `banned_terms.py`'s scanner,
+### beside its existing LIVE / QUOTED classes.
+### ### **AND THE FIXTURE REQUIREMENT, IN BOTH POLARITIES, BECAUSE ONE POLARITY IS NOT A FIXTURE:**
+###   -- a quotation ### **WITH** ### its `N` and precision must be graded CLEAN;
+###   -- a quotation ### **WITHOUT** ### them must be graded `UNGRADED`.
+### ### **A SCANNER THAT ONLY EVER PASSED WOULD BE MEASURING NOTHING**, which is the same defect
+### b167 named when a verdict was returned over an empty scope, and the same shape as b250's own
+### `deep_cuts_need_the_evaluation_error` polarity controls.
+### **AND THE LAW'S REACH IS STATED SO IT IS NOT OVERREAD:** ### **IT GOVERNS FUTURE QUOTATION,
+### NOT PAST VERDICTS.** ### b251's branch stands as banked (b246).
+
+====================================================================================================
+(3) ### **W-ORD-CN-LAW** -- DERIVE THE `C/n` FORM. ### **FILED, NOT RUN.**
+====================================================================================================
+### **WHAT IT IS.** ### b252 measured `w(n) ~ C/n` with `n*w(n)` rising and flattening toward a
+### nonzero constant at every cell (1.876, 1.194, 0.949, 0.635, 0.601, 0.533). ### ### **THAT IS A
+### ### BENCH READING. ### b242's RULE GOVERNS: A MEASURED RATE IS NOT A TAIL BOUND.**
+### **THE ORDER:** ### derive the law, longhand, from the two assets below. ### **A BOUNDED
+### DERIVATION ACT. ### NOT RUN HERE, AND NOT PARTLY RUN HERE.**
+### **THE ASSET LIST, AS THE FERRY REQUIRES:**
+###   **(a) THE EXACT FACT.** ### `A_n(0) = 1` for EVERY `n`, derived from source at b252 and
+###       reproduced by its instrument to `3.0e-13`: at `u = 0` the overlap is `0.5*||xi_n||^2`,
+###       and pin P2's half-line norm makes that exactly 1. ### **THE INTEGRAND DOES NOT DECAY IN
+###       `n` AT `u = 0`, SO ANY DECAY IS A WIDTH EFFECT IN `u` AND NOT A MODE-SIZE EFFECT.**
+###   **(b) THE WEIGHT'S SOURCE FORM.** ### `tr[n] = 2 * int_0^{2L} corr(u) A_n(u) du`, with
+###       `A_n(u) = (1/(2 sqrt(lambda))) sum_k v_k xi_n(t_k) xi_n(t_k/lambda)`, `lambda = e^u`;
+###       `corr` the bump's autocorrelation from `carto_atlas.bump`, ### **A FIXED, SMOOTH, `O(1)`
+###       FACTOR INDEPENDENT OF `n`.**
+### **THE SHAPE THE DERIVATION MUST TAKE, NAMED SO THE ACT IS NOT OPEN-ENDED:** ### a bound on the
+### `u`-WIDTH over which `A_n(u)` stays appreciable, as a function of `n`. ### b252's heuristic --
+### mode `n` is prolate index `2n`, carrying about `2n` oscillations, so a dilation by `1+delta`
+### decorrelates once `2n*delta ~ 1` -- ### **WAS REGISTERED AS A HEURISTIC AND EXPLICITLY NOT A
+### DERIVATION, AND BEING RIGHT DID NOT PROMOTE IT.** ### The work-order is to replace it.
+### **THE IMPORT BAR APPLIES:** every classical fact either reproduced longhand or named as an
+### import and graded TRUSTED-AT-CITE, with ### **"VERIFIED-WHERE-TOOLED" NOT USED AS A PHRASE
+### THAT DOES SILENT WORK** -- b250 looked for the tool and there is no Mathlib in the residence.
+
+====================================================================================================
+(4) THE FORK PREPARED. ### **b254 -- THE FOURTH FACE-OFF.** ### NAMED, NOT RUN.
+====================================================================================================
+### **ITS EXPECTED COMPOSITION, STATED AS AN EXPECTATION AND NOT AS A RESULT:** ### with the mode
+### sum demoted and `resid47` gone from the left column, ### **`L - R` SHOULD COMPOSE AS THE
+### ARRANGEMENT TERMS PLUS THE NAKED JUNCTION PIECE:**
+###     ### **`L - R = E2 - Delta_- + (PR - Theta_q)`**
+### -- derived symbolically in `data/b253_m2inf_ruling.txt` and ### **NOT EVALUATED AT ANY CELL BY
+### THIS ACT.** ### **b253 RAN NO FACE-OFF AND ITS SYMBOLIC LINE IS NOT A PREDICTION OF A SIZE.**
+### **ITS PRECONDITIONS, LISTED:**
+###   **(i)** ### **THE R-LABEL MATCH, WHICH b253 HALTED.** ### Under R-I b254's numbers are a
+###       DEFICIT still owed; under R-III they are the RESIDUE OF A PAIRING ERROR. ### **THE SAME
+###       TABLE MEANS OPPOSITE THINGS, SO b254 CANNOT REPORT ITS MEANING UNTIL THE LABEL IS
+###       RULED.** ### It could still MEASURE, and say only that.
+###   **(ii)** RULE Q's aggregation is ### **STILL UNSTATED** ### (O1, unchanged), so the junction
+###       piece `(PR - Theta_q)` is measurable but its assembly into `Q.value` is not stated.
+###       ### **b254 MUST NOT TREAT MEASURABILITY AS STATEDNESS.**
+###   **(iii)** the QUOTED-N law (2) applies to every number b254 quotes.
+###   **(iv)** `Delta_-`'s own realization is the odd-index `t(n)` series -- a MODE SUM -- and
+###       ### **Q1 DEMOTED THE MODE SUM.** ### **WHETHER `Delta_-`'s REALIZATION IS TOUCHED BY Q1
+###       ### IS NOT DECIDED HERE AND IS FLAGGED AS AN OPEN PRECONDITION**, because Q1 names the
+###       ### archimedean TRACE's construction and `Delta_-` is a different constituent.
+###       ### **AN EXECUTOR WHO SILENTLY EXTENDED Q1 TO `Delta_-` WOULD BE RULING.**
+
+### **M-3 RESTATED** -- class richness. ### OPEN. ### Untouched by b250, b251, b252 or b253.
+### **M-5 RESTATED** -- the missing transport. ### OPEN. ### Untouched by the same four acts.
+### **M-2 RESTATED** -- ### **M-2-inf IS A NEW ADDRESS INSIDE M-2, NOT A REPLACEMENT FOR IT.** ###
+### The finite-place junction piece stands separately and Q1 does not touch it.
+### **THE PATENT SESSION'S SLOT RESTATED:** ### it slots at this STOP on the author's word and
+### ### **NEEDS NOTHING FROM THIS ACT.**
+### **THE THIRTY-SEVENTH SEAM'S DEBT RESTATED:** ### term 2's formalization stands, ### **UNPAID
+### AND UNTOUCHED.** ### This act did not go near it.
+
+====================================================================================================
+### IN FLIGHT.
+====================================================================================================
+### M-2, M-3, M-4, M-5 -- ### **M-4 HAS A THEOREM (b250) AND IS NOT THEREBY CLOSED; M-2 GAINED AN
+### ADDRESS (M-2-inf) AND IS NOT THEREBY NARROWED. ### NONE OF THE FOUR IS CLOSED.**
+### OPEN WORK-ORDERS: ### **W-ORD-B38-HIGHMODE (new, this act)**, ### **W-ORD-CN-LAW (new, this
+### act)**, the QUOTED-N term-scan extension (new, this act), `W-ORD-XI-PERMODE`,
+### `W-ORD-ORDINATE-CACHE`, `W-ORD-STAGING-GUARD`, `W-ORD-FILE-E-WORKING-COPY-STALE`,
+### `W-ORD-TE-SPEC`. ### `W-ORD-MODE-PRECISION` discharged at b249.
+### ### **AND THE ONE HALT THIS ACT LEAVES ON THE TABLE: THE M-2-inf R-LABEL MATCH.**
+====================================================================================================
