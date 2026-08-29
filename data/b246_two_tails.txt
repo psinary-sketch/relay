@@ -1,0 +1,245 @@
+====================================================================================================
+b246 -- THE TWO TAILS. ### THE BANK.
+### THE DEFINITIONS WERE BANKED FIRST (data/b246_definitions.txt, sha256 5fe76ec6...4ffcc6e8) AND
+### THE RUN CARRIES THAT HASH IN ITS OWN OUTPUT. ### CONCURRENCY: SOLO.
+====================================================================================================
+
+### THE CEILING, FIRST AND NOT LAST:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### h2 STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE REGISTER SENTENCE IS UNCHANGED:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."
+### ### NOTHING DEPOSITS.
+### ### **b245's BRANCH IS NOT REVISED BY THIS ACT.** ### No face-off was run and no column
+### ### recomputed. ### This was a NEW question under its own registration.
+
+====================================================================================================
+### THE VERDICT: ### **BRANCH (TWO OBJECTS)** ### -- AND IT FAILS WIDE, NOT NARROWLY.
+====================================================================================================
+### **ALL FIVE TESTS FAIL UNDER THE PRIMARY READING, AND FOUR OF THEM BY THREE TO FIVE ORDERS OF
+### MAGNITUDE PAST THEIR BANDS.**
+###   T-1 IDENTITY      : ### FAIL -- |diff| 1.76 to 2.62 against a 5e-5 floor.
+###   T-2 RECOMPOSITION : ### FAIL -- |diff| 0.43 to 1.22 against a 5e-5 floor.
+###   T-3 THE RATIO     : ### FAIL -- 4.35 to 5.85 against the band [1.673, 1.785].
+###   T-4 CELL-PROFILE  : ### FAIL -- NOT MONOTONE (3.99, 3.83, 3.35, 3.89, 3.74, 4.85).
+###   T-5 (executor's)  : ### FAIL -- at five of six cells.
+### ### **MEANS, IN THE BANKED WORDS: AT FULL PROMINENCE, AND THE TWO TERMS STAY SEPARATELY
+### ### OWNED.** ### M-4 covers `resid47` and ### **NOT** ### the other term, and ### **THE
+### ### SENTENCE "PAYING M-4 PAYS THE WHOLE BENCH SHORTFALL" MAY NOT BE WRITTEN.**
+
+### ### **BOTH SEATS' REGISTERED EXPECTATIONS, JUDGED:**
+### ###   **THE NAVIGATOR'S WAS (ONE OBJECT). ### NOT BORNE OUT.**
+### ###   **THE EXECUTOR'S WAS (TWO OBJECTS), "AND I EXPECT IT TO FAIL WIDE, NOT NARROWLY."**
+### ###   ### **BORNE OUT, AND FOR THE REGISTERED REASON**, which was banked before the run:
+### ###   *"b242 measured the eps per-mode series CONVERGED BY MODE 6 while the trace series was
+### ###   still at 0.257 at mode 6. THE TWO SERIES DO NOT HAVE COMPARABLE TAILS."*
+
+====================================================================================================
+COMPONENT 1 -- THE DEFINITIONS AND TESTS. ### (P1)
+====================================================================================================
+### Banked at `data/b246_definitions.txt`, ### **sha256 `5fe76ec6...4ffcc6e8`**; the run prints
+### that hash and ### **refuses unless the definitions file is OLDER ON DISK than the run tool.**
+### ### The definitions script ### **IMPORTS NO INSTRUMENT AND READS NO BANK** -- it writes words,
+### ### definitions and pass-bands only, and a gate proves it by running the same test against the
+### ### run script, where it fails.
+### ### **THREE READINGS WERE REGISTERED IN ADVANCE, NOT ONE**, so that the ONE-OBJECT hypothesis
+### ### got its best shot and no reading could be promoted after its numbers were seen:
+### ###   **(R1) PRIMARY** -- the ferry's literal words: the TRACE series' remainder beyond K1's
+### ###        seven modes, by parity.
+### ###   **(R2)** -- the eps series' remainder beyond K1, by parity.
+### ###   **(R3)** -- the FULL eps sectors (sec 17's own split), where `E2odd` IS `Delta_-`.
+### ### **ALL THREE WERE COMPUTED AND ALL THREE ARE PRINTED.**
+
+--- ### W-ORD-TE-SPEC, HONOURED IN FORM AND NOT ONLY IN NAME ---
+### b245 filed this work-order because it compared a SEVEN-mode run to a TEN-mode bank and
+### reported the difference as a finding. ### **THIS ACT NAMES EVERY BANK'S AXES IN THE RUN'S OWN
+### OUTPUT, BEFORE ANY NUMBER:**
+###   b242 per-mode bank : NQ=700 · NMODE_CAP=11 · NTERM=11 · EPS_NQ=700 · NU_HALF=401 · S4
+###   b37 sector bank    : EPS_NQ=700 · NU_HALF=401 · S4 · ### **NO TRACE COMPUTED IN b37**
+###   b38 row bank       : NQ=700 · ### **NMODE = 10** ### · EPS_NQ=700 · S4
+###   THIS RUN           : all tails and `resid47` from the b242 arrays at ### **K = 7 (K1)**
+### ### **THE MISMATCH IS NAMED RATHER THAN MET LATER**, and every comparison to b38's printed
+### ### rows is labelled with both axes and floored at b38's own four-decimal precision.
+
+====================================================================================================
+COMPONENT 2 -- THE RUN. ### (P2)
+====================================================================================================
+
+--- (2.1) ### THE GATES, AND ONE OF THEM IS RE-DERIVED RATHER THAN CITED ---
+### array-length gate: PASS (all six cells carry 11 per-mode entries).
+### ### **THE MASK CERTIFICATE, RE-DERIVED FROM THE ARRAYS AND NOT QUOTED FROM b38's BANK:**
+### ### `max|sum_n E2n - E2full| = ` machine zero across the six cells, PASS.
+### ### **THAT CERTIFICATE IS WHAT LICENSES SPLITTING THE eps SERIES BY PARITY AT ALL**, and this
+### ### act re-earned it rather than leaning on b38's printed line.
+
+--- (2.2) ### THE TAILS, ALL THREE READINGS ---
+###   a^2      R1_even       R1_odd       R2_even       R2_odd      R3_even       R3_odd
+###   2      0.016133251  0.064414419    5.753e-18    3.981e-16  1.001813571  0.677614823
+###   3      0.010703151  0.041027013   -9.513e-17   -7.010e-15  0.910943230  0.605701335
+###   4      0.011101404  0.037176578    3.589e-16    3.039e-14  0.834032999  0.540017646
+###   8      0.007278287  0.028348558   -3.070e-15   -1.453e-13  0.685514361  0.410725016
+###   9      0.007057733  0.026427934    1.975e-15    1.272e-13  0.665133046  0.393175965
+###   12     0.005840384  0.028331898    9.308e-15    5.481e-13  0.620090414  0.354973468
+### ### **READ THE (R2) COLUMNS: THE eps SERIES' ACTUAL TAIL BEYOND MODE 6 IS 1e-18 TO 5e-13.**
+### ### **A CONVERGED SERIES HAS NO TAIL, AND THIS ONE IS CONVERGED.**
+
+--- (2.3) ### A GENUINE POSITIVE, AND IT IS THE ACT'S ONE CLEAN CROSS-CHECK ---
+### `D_dict` computed INDEPENDENTLY from b242's per-mode arrays by parity, against b38's banked
+### `D_dictated` column of 2026-08-18:
+###   a^2       D_dict_owner       b38 banked
+###   2         -2.681241965        -2.681242
+###   3         -2.534071794        -2.534072
+###   4         -2.295425644        -2.295425
+###   8         -2.025780737        -2.025781
+###   9         -1.858462056        -1.858463
+###   12        -1.790997295        -1.790997
+### ### **AGREEMENT AT EVERY CELL TO ~1e-6, WHICH IS b38's PRINTED PRECISION.** ### The parity
+### ### split of the eps series, done today from b242's arrays, ### **REPRODUCES AN ELEVEN-DAY-OLD
+### ### COLUMN COMPUTED BY A DIFFERENT CODE PATH.** ### That is the cross-check b245's T-E was
+### ### trying to be, done correctly this time because the axes were matched first.
+
+--- (2.4) ### THE DOUBLE NAME, COMPUTED AND KEPT APART ---
+### b241 (4.5) found `Delta_-` carries TWO realizations under one name. ### Both are computed here:
+###   `Dneg_raw` (the RAW ODD-TRACE SLICE, `b36_act8.py:172`) : 1.617848 down to 0.693004
+###   `Delta_-`  (the ODD eps MASK, sec 17/sec 19's definition) : 0.677615 down to 0.354973
+### ### The ferry's phrase "(raw odd slice - masked odd series)" is computed and reported under its
+### ### own name ### **`SECTOR_SPLIT_DIFF`** (0.940233 down to 0.338031) -- ### **AND IT IS NOT
+### ### `D_dict`, SO IT IS NOT CALLED `D_dict`.** ### Naming it so would be exactly the double-name
+### ### species b241 caught and this programme has already been bitten by.
+
+====================================================================================================
+COMPONENT 3 -- THE VERDICT AND THE FILINGS. ### (P3)
+====================================================================================================
+
+--- (3.1) ### WHY THE ANSWER IS TWO, STATED STRUCTURALLY AND NOT ONLY BY THE BANDS ---
+### The two terms of b245's shortfall are:
+###   `resid47`  = `Tr_full(7 modes) - A - E2full` -- a shortfall of the ### **TRACE** ### series,
+###                which b242 measured ### **STILL AT 0.257 AT MODE 6** and NOT converging.
+###   `-D_dict`  = `2*E2 - Delta_- + PR - Theta_q` = ### **`E2full + E2even + (PR - Theta_q)`** --
+###                sector arithmetic on the ### **eps** ### series, plus the finite-place pairing.
+### ### ### **AND THE eps SERIES IS CONVERGED BY MODE 6:** its per-mode terms fall 8.17e-01,
+### ### ### 6.74e-01, 1.85e-01, 4.04e-03, 1.35e-05, 1.56e-08, 7.90e-12, then ### **3.90e-16.**
+### ### ### **SO `-D_dict` IS NOT A TAIL OF ANYTHING. IT IS A SECTOR COMBINATION OF A CONVERGED
+### ### ### SERIES, AND A CONVERGED SERIES HAS NO TAIL.**
+### ### THAT is the structural reason the four tests fail, and it is checkable from the printed
+### ### (R2) columns: ### **the eps tail beyond K1 is 1e-18 to 5e-13, fifteen orders below
+### ### `D_dict`.**
+
+--- (3.2) ### THE NEAR-MISS, REPORTED AS A NEAR-MISS AND NOT AS SUPPORT ---
+### Under the alternate reading (R3) -- the FULL eps sectors -- the T-3 ratio reads:
+###   1.676388 | 1.664917 | 1.647478 | 1.599149 | 1.591124 | 1.572454
+### against the band [1.673, 1.785]. ### **IT LANDS INSIDE THE BAND AT `a^2 = 2` AND NOWHERE
+### ELSE**, drifting to 12% below by `a^2 = 12`.
+### ### **THIS IS REPORTED BECAUSE IT IS THE CLOSEST THE ONE-OBJECT HYPOTHESIS CAME, AND IT IS
+### ### REPORTED AS A MISS.** ### One cell inside a band and five outside is a coincidence at one
+### ### cell, not a mechanism -- and (R3) is an ALTERNATE, registered as such in advance, which
+### ### ### **MAY NOT BE PROMOTED TO PRIMARY AFTER ITS NUMBERS ARE SEEN.**
+### ### AND THE ARITHMETIC BEHIND THE COINCIDENCE, SO NOBODY HAS TO GUESS: at `a^2 = 2` both
+### ### `PR` and `Theta_q` VANISH, so `(L-R)/resid47` and `E2full/E2even` are two different
+### ### quantities that happen to fall within 0.2% of each other. ### **THEY DIVERGE AS SOON AS
+### ### THE FINITE PLACES TURN ON.**
+
+--- (3.3) ### THE EXECUTOR'S OWN TEST, AND BOTH HALVES OF IT ---
+### **T-5**, registered because it was noticed while reading and a finding that arrives before the
+### registration belongs IN the registration: `|resid47 + 2*A| <= 1e-3`.
+###   a^2 = 2 : |diff| = 2.531e-04  ### ok
+###   a^2 = 3, 4, 8, 9, 12 : 4.88e-01, 5.66e-01, 5.62e-01, 5.53e-01, 5.29e-01  ### ALL FAIL
+### ### **THE REGISTRATION SAID: "I expect it to fail at the larger cells, because nothing I know
+### ### makes it a law."** ### It failed at five of six. ### **THE a^2 = 2 AGREEMENT WAS A
+### ### COINCIDENCE AND IS REPORTED AS ONE.** ### It was worth registering precisely so that it
+### ### could be killed in public rather than remembered as a hunch.
+
+--- (3.4) ### THE FIVE-TERM LEDGER: ### **IT DOES NOT COLLAPSE** ---
+  term        status after b246
+  --------    ----------------------------------------------------------------------------------
+  E2          ### **STANDING**, and now shown to sit on a ### **CONVERGED** series (per-mode terms
+              to 3.9e-16 by mode 7). ### It has no tail to be anyone's tail.
+  Delta_-     ### **STANDING**, ruled (D1) at b244. ### Its two realizations remain two objects and
+              this act computed both rather than choosing.
+  resid47     ### **STANDING, AND SEPARATELY OWNED.** ### M-4's object, on the ### **TRACE**
+              series, which does NOT converge on the certified range.
+  Theta_q     ### **STANDING**, ruled (O1) at b244; the aggregation still UNSTATED, M-2 open.
+  PR          ### **STANDING.**
+### ### **THE LEDGER DOES NOT COLLAPSE TO FEWER TERMS. ### THE SHORTFALL IS TWO OBJECTS ON TWO
+### ### SERIES, AND M-4 COVERS ONE OF THEM.**
+
+--- (3.5) ### THE ROUTE NOTE FOR b247, FILED AND NOT RUN ---
+### **b247 -- THE M-4 STATEMENT AND ROUTE.** ### Its asset list, STARTED here and NOT verified:
+###   1. **act 15's derived pair geometry** -- File E's own owner line cites it: "its geometry now
+###      DERIVED, act 15: the pair structure whose block inverses are the eps-denominators."
+###   2. **the Wronskian norm-slope identity** -- INDEXED at `wronskian-identity`:
+###      "alpha(mu_k) * beta_prime(mu_k) = INT_1^inf psi^2 dx ... the right side is an integral of
+###      a square and is strictly positive", grade ### **DERIVED AT CONTENT in seven steps, ON
+###      NAMED IMPORTS (I1-I11), NOT A PROOF FROM NOTHING.**
+###   3. **b242's measured decay** -- the trace series' per-mode ratios rising toward ~0.89 over
+###      the certified range, and the eigenvalue floor at n = 7.
+###   4. **Lemma F.1** -- `qeps_layer.py:41`, "first 11 terms uniform to 1e-11".
+###   5. **Slepian-Widom decay as candidate IMP-3** -- ### **UNDER THE IMPORT BAR, AND
+###      VERIFIED-WHERE-TOOLED ONLY.** ### It is a CANDIDATE and is named as one; nothing in this
+###      corpus has read it at content and this act does not pretend otherwise.
+### ### **THIS IS A LIST OF NAMED ASSETS, NOT A ROUTE.** ### b247 writes the route; b246 only
+### ### says which materials are on the bench and at what grade each already stands.
+
+--- (3.6) ### THE IN-FLIGHT REGISTER; THE THIRTY-SEVENTH SEAM'S DEBT ---
+### **M-LIST: M-2, M-3, M-4, M-5 -- FOUR OPEN, AND THIS ACT CLOSED NONE.** ### M-4's scope is now
+### ### **NARROWED BY MEASUREMENT**: it covers `resid47` and NOT `-D_dict`.
+### **WORK-ORDERS OPEN:** `W-ORD-MODE-PRECISION` (K3), `W-ORD-ORDINATE-CACHE`,
+### `W-ORD-STAGING-GUARD`, `W-ORD-FILE-E-WORKING-COPY-STALE`, `W-ORD-TE-SPEC`.
+### ### **`W-ORD-TE-SPEC` WAS HONOURED IN FORM BY THIS ACT AND REMAINS OPEN AS A TOOL** -- being
+### ### obeyed once by hand is not the same as being in the command path, which is b179's whole
+### ### lesson about guards that must be chosen.
+### **DISCHARGED AND STAYING SO:** `W-ORD-LEFT-MODE-AXIS` (b242), `W-ORD-IMP1-ENVELOPE` (b243).
+### **THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED:** term 2 stands at four items -- the file **OPEN**,
+### the lemma **OPEN**, the toolchain **DISCHARGED**, the ledger's statement **COMPLETE AT CELL
+### LEVEL**. ### **UNPAID AND UNTOUCHED BY THIS ACT.**
+### **ALSO LIVE:** b209's rows 46/47; the fold rulings; posture; the aggregation; the (3,2) Segre
+### cell; the factor question at two quarries; Definition 3.3.1's source read; the `Lemma 5.4`
+### citation; the sigma_even lemma citation; the deposited-title question at `E-2026-08-24-2`.
+
+====================================================================================================
+### WHAT DID NOT MOVE.
+====================================================================================================
+### b245's BRANCH WAS NOT REVISED. ### NO FACE-OFF WAS RUN AND NO COLUMN RECOMPUTED. ### NO GRADE
+### MOVED. ### M-2..M-5 STAND OPEN. ### NO ALTERNATE READING WAS PROMOTED TO PRIMARY. ### THE
+### SENTENCE "paying M-4 pays the whole bench shortfall" WAS NOT WRITTEN, AND ON THIS BRANCH IT
+### MAY NOT BE. ### NO KERNEL FILE TOUCHED. ### PLACE-papers, THE LOOM AND THE MIRROR WERE NOT
+### TOUCHED, SO THE HOOK DID NOT RUN AND NO MIRROR REBUILD WAS REQUIRED -- said rather than left
+### to be inferred. ### NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.
+### ### LOCKS LAST.
+
+====================================================================================================
+### THE MISS OF THIS ACT'S OWN. ### THE TAUTOLOGY GATE CAUGHT IT, WHICH IS WHAT IT IS FOR.
+====================================================================================================
+### ### **THE DEFINITIONS FILE DECLARES THE SHORTFALL IDENTITY WITH THE WRONG SIGN.** ### Its
+### ### section (C) reads: *"`resid47 + D_dict_owner = L - R` is an ALGEBRAIC RESTATEMENT"*.
+### ### **THAT IS FALSE. THE TRUE IDENTITY IS `resid47 - D_dict_owner = L - R`:**
+###     `resid47 - D_dict = (Tr - A - E2) - [(Thq - PR) + (Dm - 2*E2)]`
+###                       = `(Tr + E2 - Dm - Thq) - (A - PR)` = `L - R`.
+### ### **HOW IT WAS CAUGHT: THE TAUTOLOGY CONTROL FAILED ON ITS FIRST RUN.** ### The gate tested
+### ### the `+` form on 400 random tuples, it did not hold, and the gate returned FAIL.
+### ### ### **THE GATE WAS RIGHT AND THE REGISTRATION WAS WRONG** -- which is the first time in
+### ### ### this arc that a harness caught a defect in a *claim* rather than in a *string*.
+### ### **THE BANKED DEFINITIONS FILE IS NOT EDITED.** ### b244's precedent governs and is quoted:
+### ### *"editing a banked registration to match what the act later did is the precise species
+### ### this corpus guards against."* ### The error is disclosed here instead, and the gate now
+### ### tests the true identity with the correction written into its own docstring.
+### ### **AND IT CHANGES NO VERDICT, WHICH IS SAID PLAINLY RATHER THAN LEFT TO BE ASSUMED:**
+### ### T-2 was implemented exactly as the ### **FERRY** ### worded it (`resid47 + D_dict`), and
+### ### under BOTH signs the test fails wide -- ### **1.30 against 0.08 with the ferry's `+`, and
+### ### 6.66 against 0.08 with the true `-`.** ### The branch is (TWO OBJECTS) either way.
+
+====================================================================================================
+### AND THE PART THAT IS NOT A MISS.
+====================================================================================================
+### ### **THE ONE CLEAN CROSS-CHECK OF THIS ARC PASSED (2.3):** the parity split of the eps series,
+### ### computed today from b242's arrays, reproduces b38's `D_dictated` column of 2026-08-18 to
+### ### ~1e-6 at every cell. ### **THAT IS THE CROSS-CHECK b245's T-E WAS TRYING TO BE**, and it
+### ### worked here for one reason: ### **THE AXES WERE MATCHED AND PRINTED BEFORE ANY NUMBER WAS
+### ### COMPARED**, which is `W-ORD-TE-SPEC` honoured in form.
+### ### **THE SPECIES NAMED AT b245 -- checking an artefact against what the executor INTENDED
+### ### rather than against what the prior act ACTUALLY DID -- DID NOT RECUR IN THE BANK
+### ### COMPARISON.** ### It recurred instead in a hand-written algebraic claim, which is a
+### ### different surface and had a different guard waiting for it.
+### ### **THAT IS ONE ACT, NOT A TREND, AND IT IS NOT CLAIMED AS ONE.**
+====================================================================================================

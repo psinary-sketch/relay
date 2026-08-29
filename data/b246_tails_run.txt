@@ -1,0 +1,126 @@
+========================================================================================================
+b246 COMPONENT 2 -- THE TWO TAILS. ### THE RUN.
+### RUN AT 2026-08-29T11:37:10 (local).
+========================================================================================================
+  definitions sha256 : 5fe76ec6db0802e1532ad9de47e1bf5d24604d105b3580ebdd454a0d4ffcc6e8
+  ### BOTH LIMBS: this hash is the definitions file's OWN, and that file is OLDER ON
+  ### DISK than this tool. ### EITHER LIMB ALONE IS FORGEABLE.
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.'
+### h2 UNCHANGED. ### NOTHING DEPOSITS. ### NO FACE-OFF IS RUN AND NO COLUMN RECOMPUTED.
+
+--------------------------------------------------------------------------------------------------------
+W-ORD-TE-SPEC -- EVERY CONSULTED BANK'S AXES, PRINTED, AND THE MISMATCHES NAMED.
+--------------------------------------------------------------------------------------------------------
+  b242 per-mode bank : NQ=700  NMODE_CAP=11  NTERM=11  EPS_NQ=700  EPS_NG=400
+                       EPS_NRHO=240  NU_HALF=401  S4={inf,2,3,5}  atlas NV=4001
+  b37 sector bank    : EPS_NQ=700  NU_HALF=401  S4   ### NO TRACE COMPUTED IN b37
+  b38 row bank       : NQ=700  ### NMODE=10 ###  EPS_NQ=700  NU_HALF=401  S4
+  THIS RUN           : all tails and resid47 computed from the b242 arrays at
+                       ### **K = 7 MODES (RULE MODES K1)** ###
+  ### ### THE MISMATCH, NAMED RATHER THAN MET LATER: ### **b38's ROWS ARE AT NMODE = 10
+  ### ### AND THIS RUN IS AT 7.** ### Any comparison to them is LABELLED and its
+  ### ### tolerance set to b38's own 4-decimal floor. ### **THAT IS THE EXACT TRAP b245
+  ### ### FELL INTO, AND IT IS WHY W-ORD-TE-SPEC EXISTS.**
+  array-length gate  : PASS (all six cells carry 11 per-mode entries)
+  mask certificate   : max|sum_n E2n - E2full| = 2.22e-16  PASS   ### RE-DERIVED, NOT CITED
+  ### **THAT CERTIFICATE IS WHAT LICENSES SPLITTING THE eps SERIES BY PARITY AT ALL.**
+
+========================================================================================================
+THE TAILS, ALL THREE READINGS, PRINTED WHATEVER THEY SAY. ### (R1) IS THE PRIMARY.
+========================================================================================================
+  a^2         R1_even        R1_odd       R2_even        R2_odd       R3_even        R3_odd
+  2       0.016133251   0.064414419     5.753e-18     3.981e-16   1.001813571   0.677614823
+  3       0.010703151   0.041027013    -9.513e-17    -7.010e-15   0.910943230   0.605701335
+  4       0.011101404   0.037176578     3.589e-16     3.039e-14   0.834032999   0.540017646
+  8       0.007278287   0.028348558    -3.070e-15    -1.453e-13   0.685514361   0.410725016
+  9       0.007057733   0.026427934     1.975e-15     1.272e-13   0.665133046   0.393175965
+  12      0.005840384   0.028331898     9.308e-15     5.481e-13   0.620090414   0.354973468
+  ### (R3) IS sec 17's OWN SECTOR SPLIT, AND `R3_odd` IS `Delta_-` BY sec 19's ROW.
+
+--------------------------------------------------------------------------------------------------------
+THE TWO `D_dict` OWNERS, BOTH COMPUTED, BOTH PRINTED. ### b241 (4.5): 'DIFFERENT
+OBJECTS, SAME NAME, ONE CORPUS.'
+--------------------------------------------------------------------------------------------------------
+  a^2       D_dict_owner       b38 banked         Dneg_raw SECTOR_SPLIT_DIFF
+  2         -2.681241965        -2.681242      1.617847741      0.940232917
+  3         -2.534071794        -2.534072      1.257872311      0.652170976
+  4         -2.295425644        -2.295425      1.089492731      0.549475085
+  8         -2.025780737        -2.025781      0.806912646      0.396187630
+  9         -1.858462056        -1.858463      0.769380513      0.376204549
+  12        -1.790997295        -1.790997      0.693004230      0.338030763
+  ### `D_dict_owner` vs b38's banked column: agreement is the parity-split cross-check.
+  ### `SECTOR_SPLIT_DIFF := Dneg_raw - Delta_-` is the ferry's '(raw odd slice - masked
+  ### odd series)'. ### IT IS **NOT** `D_dict` AND IS NOT CALLED SO.
+
+========================================================================================================
+THE FIVE TESTS, AT THE BANDS REGISTERED BEFORE ANY NUMBER. ### FLOOR = 5e-05
+========================================================================================================
+--- T-1 IDENTITY: |D_dict_owner - (-TAIL_odd)| <= FLOOR, primary reading (R1).
+      a^2 = 2     D_dict = -2.681241965   -TAIL_odd(R1) = -0.064414419   |diff| = 2.617e+00  ### FAIL
+      a^2 = 3     D_dict = -2.534071794   -TAIL_odd(R1) = -0.041027013   |diff| = 2.493e+00  ### FAIL
+      a^2 = 4     D_dict = -2.295425644   -TAIL_odd(R1) = -0.037176578   |diff| = 2.258e+00  ### FAIL
+      a^2 = 8     D_dict = -2.025780737   -TAIL_odd(R1) = -0.028348558   |diff| = 1.997e+00  ### FAIL
+      a^2 = 9     D_dict = -1.858462056   -TAIL_odd(R1) = -0.026427934   |diff| = 1.832e+00  ### FAIL
+      a^2 = 12    D_dict = -1.790997295   -TAIL_odd(R1) = -0.028331898   |diff| = 1.763e+00  ### FAIL
+      ### T-1: ### FAIL
+--- T-2 RECOMPOSITION: |(resid47 + D_dict) - (TAIL_even + TAIL_odd)| <= FLOOR, (R1).
+      a^2 = 2     lhs = +1.299560220   rhs = +0.080547670   |diff| = 1.219e+00  ### FAIL
+      a^2 = 3     lhs = +0.795380761   rhs = +0.051730164   |diff| = 7.437e-01  ### FAIL
+      a^2 = 4     lhs = +0.711547598   rhs = +0.048277982   |diff| = 6.633e-01  ### FAIL
+      a^2 = 8     lhs = +0.463490537   rhs = +0.035626844   |diff| = 4.279e-01  ### FAIL
+      a^2 = 9     lhs = +0.565662070   rhs = +0.033485668   |diff| = 5.322e-01  ### FAIL
+      a^2 = 12    lhs = +0.490693442   rhs = +0.034172283   |diff| = 4.565e-01  ### FAIL
+      ### T-2: ### FAIL
+--- T-3 THE RATIO (the one-mechanism signature): (TAIL_even+TAIL_odd)/TAIL_even
+---     must lie in [1.673, 1.785] at every cell. ### THE BAND IS NOT WIDENED.
+      a^2 = 2     ratio(R1) = 4.992650   ### OUT
+      a^2 = 3     ratio(R1) = 4.833172   ### OUT
+      a^2 = 4     ratio(R1) = 4.348818   ### OUT
+      a^2 = 8     ratio(R1) = 4.894949   ### OUT
+      a^2 = 9     ratio(R1) = 4.744536   ### OUT
+      a^2 = 12    ratio(R1) = 5.851033   ### OUT
+      ### T-3: ### FAIL
+      ### the same ratio under the alternates, printed so the ONE-OBJECT hypothesis
+      ### gets its best shot and not so a flattering reading can be chosen:
+          a^2 = 2     ratio(R2) =      70.189968   ratio(R3) = 1.676388
+          a^2 = 3     ratio(R2) =      74.687985   ratio(R3) = 1.664917
+          a^2 = 4     ratio(R2) =      85.682448   ratio(R3) = 1.647478
+          a^2 = 8     ratio(R2) =      48.345410   ratio(R3) = 1.599149
+          a^2 = 9     ratio(R2) =      65.426250   ratio(R3) = 1.591124
+          a^2 = 12    ratio(R2) =      59.882797   ratio(R3) = 1.572454
+--- T-4 CELL-PROFILE: TAIL_odd/TAIL_even MONOTONE in a^2 and max/min <= 1.5, (R1).
+      a^2 = 2     TAIL_odd/TAIL_even = 3.992650
+      a^2 = 3     TAIL_odd/TAIL_even = 3.833172
+      a^2 = 4     TAIL_odd/TAIL_even = 3.348818
+      a^2 = 8     TAIL_odd/TAIL_even = 3.894949
+      a^2 = 9     TAIL_odd/TAIL_even = 3.744536
+      a^2 = 12    TAIL_odd/TAIL_even = 4.851033
+      monotone = False   max/min = 1.4486   ### T-4: ### FAIL
+--- T-5 (the executor's own): |resid47 + 2*A| <= 1e-3 at EVERY cell.
+---     Noticed at a^2 = 2 ONLY while reading; five of the six are genuinely untested.
+      a^2 = 2     resid47(K=7) = +3.980802185   -2A = +3.981055255   |diff| = 2.531e-04  ok
+      a^2 = 3     resid47(K=7) = +3.329452555   -2A = +3.817800658   |diff| = 4.883e-01  ### FAIL
+      a^2 = 4     resid47(K=7) = +3.006973241   -2A = +3.572995709   |diff| = 5.660e-01  ### FAIL
+      a^2 = 8     resid47(K=7) = +2.489271274   -2A = +3.050948690   |diff| = 5.617e-01  ### FAIL
+      a^2 = 9     resid47(K=7) = +2.424124126   -2A = +2.976674003   |diff| = 5.525e-01  ### FAIL
+      a^2 = 12    resid47(K=7) = +2.281690737   -2A = +2.810796086   |diff| = 5.291e-01  ### FAIL
+      ### T-5: ### FAIL
+
+========================================================================================================
+THE BRANCH, BY THE RULES BANKED BEFORE ANY COMPUTATION.
+========================================================================================================
+  T-1   : ### FAIL
+  T-2   : ### FAIL
+  T-3   : ### FAIL
+  T-4   : ### FAIL
+  T-5   : ### FAIL
+
+### ### THE ACT'S BRANCH: ### **(TWO OBJECTS)**
+###   MEANS, IN THE BANKED WORDS: ### **AT FULL PROMINENCE**, and ### **THE TWO
+###   TERMS STAY SEPARATELY OWNED.** ### M-4 covers `resid47` and NOT the other
+###   term, and ### **NO SENTENCE ABOUT PAYING M-4 PAYING THE WHOLE SHORTFALL MAY
+###   BE WRITTEN.**
+
+### b245's BRANCH IS NOT REVISED BY THIS ACT. ### NO FACE-OFF WAS RUN AND NO COLUMN
+### RECOMPUTED. ### NO GRADE MOVED. ### M-2..M-5 STAND OPEN. ### NOTHING DEPOSITS.
+========================================================================================================

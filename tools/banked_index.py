@@ -278,6 +278,9 @@ KEYS = {
     'rule-delta-minus': ['rule delta minus', 'd1', 'delta_- sign', 'delta minus sign'],
     'rule-modes': ['rule modes', 'k1', 'mode ceiling', 'seven computable modes'],
     'second-face-off': ['b245', 'the second face-off', 'face-off preconditions'],
+    # ### THE TWO-TAILS KEYS, ADDED b246 ON FILING.
+    'two-tails': ['the two tails', 'tail parity', 'even and odd tails', 'one object two names'],
+    'd-dict': ['d_dict', 'd dictated', 'the dictated deviation', 'sector split diff'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1096,6 +1099,41 @@ INDEX = [
      'the rest. ### NO EVIDENCE AGAINST THE IDENTITY FORM; suspect 4 NOT indicted',
      'data/b245_second_face_off.txt; data/b245_te_diagnosis.txt; '
      'reports/2026-08-29-the-second-face-off.md'),
+    # ### THE TWO-TAILS ROWS (b246).
+    ('two-tails', 'b246',
+     'whether b245 shortfall two terms are the even- and odd-sector tails of ONE mode series, '
+     'decided by independent computation from b242 banked per-mode arrays. '
+     '### BRANCH **(TWO OBJECTS)** -- all five registered tests FAIL under the primary reading, '
+     'and four of them by three to five orders past their bands: T-1 by 1.76-2.62 against a 5e-5 '
+     'floor; T-2 by 0.43-1.22; T-3 ratio 4.35-5.85 against the band [1.673, 1.785]; T-4 not '
+     'monotone; T-5 fails at five of six cells',
+     '### A MEASUREMENT, AND THE STRUCTURAL REASON IS CHECKABLE FROM THE PRINTED COLUMNS: '
+     '`resid47` is a shortfall of the **TRACE** series, still at 0.257 at mode 6 and not '
+     'converging; `-D_dict` = `E2full + E2even + (PR - Theta_q)` is sector arithmetic on the '
+     '**eps** series, which is CONVERGED by mode 6 (per-mode terms reach 3.9e-16 by mode 7). '
+     '### **A CONVERGED SERIES HAS NO TAIL**, so -D_dict cannot be one. ### THE TWO TERMS STAY '
+     'SEPARATELY OWNED; ### **M-4 COVERS resid47 AND NOT THE OTHER TERM**, and the sentence '
+     '"paying M-4 pays the whole bench shortfall" MAY NOT BE WRITTEN on this branch. '
+     '### NEAR-MISS REPORTED AS A MISS: alternate reading (R3) lands in the T-3 band at a^2 = 2 '
+     'ONLY and drifts 12% low by a^2 = 12 -- a coincidence at the one cell where PR and Theta_q '
+     'both vanish. ### **THE NAVIGATOR EXPECTED (ONE OBJECT); THE EXECUTOR EXPECTED (TWO) AND '
+     'SAID WHY IN ADVANCE**',
+     'data/b246_two_tails.txt; data/b246_tails_run.txt; '
+     'reports/2026-08-29-the-two-tails.md'),
+    ('d-dict', 'b246 (computed) / act 8 and act 9 (owners) / b241 (the double name found)',
+     'D_dict := (Theta_q - PR) + (Delta_- - 2*E2full), sec 20(a) formula printed by both '
+     'b37_act9.py:169 and b38_act10.py:188. ### RE-COMPUTED at b246 from b242 per-mode arrays by '
+     'parity and matching b38 banked column to ~1e-6 at every cell. ### AND THE SECOND OBJECT '
+     'UNDER THE SAME NAME, kept apart: `Dneg_raw` = the RAW ODD-TRACE SLICE (b36_act8.py:172), '
+     'and `SECTOR_SPLIT_DIFF := Dneg_raw - Delta_-` -- ### **WHICH IS NOT D_dict AND IS NOT '
+     'CALLED SO**',
+     '### THE PARITY-SPLIT CROSS-CHECK **PASSED** and it is the one clean cross-check of this '
+     'arc -- ### **THE ONE b245 T-E WAS TRYING TO BE**, and it worked because the axes were '
+     'MATCHED AND PRINTED BEFORE ANY NUMBER WAS COMPARED (W-ORD-TE-SPEC honoured in form). '
+     '### b241 finding stands and is not repealed: "DIFFERENT OBJECTS, SAME NAME, ONE CORPUS." '
+     '### sec 19 row fixes the DEFINITION in favour of the eps-mask series; b246 computed BOTH '
+     'rather than choosing',
+     'data/b246_tails_run.txt (2.3, 2.4); data/b241_residual_ledger.txt (4.5)'),
 ]
 
 
