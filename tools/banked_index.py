@@ -1075,6 +1075,27 @@ INDEX = [
      'SIGNIFICANT THAN IT IS.** ### The patent session can slot at any STOP and needs nothing '
      'from b245',
      'data/b244_serializing_close.txt (2.3); reports/2026-08-29-the-serializing-close.md'),
+    # ### THE SECOND FACE-OFF'S OWN ROW (b245). ### A SECOND ROW UNDER `second-face-off`:
+    # ### b244's row LISTED the preconditions and said the act had not run; this one is the act.
+    ('second-face-off', 'b245 (the act, RUN)',
+     'the ruled combination L := (Tr_full + E2 - Delta_-) + (-Theta_q) computed for the FIRST '
+     'TIME against R := A - PR at the banked six cells, NMODE = 7 per RULE MODES K1. '
+     '### BRANCH **(DISSONANT-BEYOND)** by the rule banked before any number. ### |L-R| runs '
+     '6.662044 down to 4.072688 against BOUNDED bars 1.028 down to 0.303. ### FOUR of the five '
+     'contentful tests PASS (T-A cell profile, T-B NV-invariance, T-C archimedean-only '
+     'reduction, T-D mode signature); ### T-E, the bank cross-check, FAILED by 6.78e-02',
+     '### THE BRANCH FIRED ON A TEST **THIS EXECUTOR MIS-SPECIFIED**, and the diagnostic (run '
+     'AFTER the branch, which it did not touch) names the term to five figures: ### T-E compared '
+     'a SEVEN-mode run against b38 bank computed at TEN modes, and the deviation equals '
+     'tr[7]+tr[8]+tr[9] at all six cells to 5e-5 -- b38 own rounding floor. ### **T-E DETECTED '
+     'THE RULING DOING WHAT IT WAS RULED TO DO, NOT INSTRUMENT DRIFT.** ### THE BRANCH STANDS: a '
+     'banked rule is not revised because the executor later understands why it fired. '
+     '### **THE M-4 SHADOW WAS THEREFORE *NOT* FILED** -- the ferry conditioned that filing on '
+     '(ACCOUNTED) -- though the M-4 SHAPE HOLDS: (L-R)/resid47 = 1.67-1.81 across six cells, an '
+     '8.4% spread, with resid47 at 56%-60% of the shortfall and the corpus own -D_dict carrying '
+     'the rest. ### NO EVIDENCE AGAINST THE IDENTITY FORM; suspect 4 NOT indicted',
+     'data/b245_second_face_off.txt; data/b245_te_diagnosis.txt; '
+     'reports/2026-08-29-the-second-face-off.md'),
 ]
 
 

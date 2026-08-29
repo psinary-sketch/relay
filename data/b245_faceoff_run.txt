@@ -1,0 +1,123 @@
+============================================================================================================
+b245 -- THE SECOND FACE-OFF AT BENCH. ### THE RUN.
+### RUN AT 2026-08-29T11:21:20 (local).
+============================================================================================================
+  meanings sha256 : 3b13d5b14737939818b17df950a55a4546bd3444bf9d234a1aaee2c2eec8534c
+  ### THE GATE TESTS BOTH LIMBS: this hash is the meanings file's OWN, and the meanings
+  ### file is OLDER ON DISK than this tool. ### EITHER LIMB ALONE IS FORGEABLE.
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.' ### (b14): the complete roster is the double limit and STAYS OPEN whatever
+### this act shows. ### h2 UNCHANGED. ### NOTHING DEPOSITS.
+
+------------------------------------------------------------------------------------------------------------
+C0 -- THE VOID GATES, BEFORE ANY TABLE.
+------------------------------------------------------------------------------------------------------------
+  carto far-end a=1.30 residual=+6.142e-12 PASS
+  carto far-end a=3.50 residual=+6.569e-08 PASS
+  pin sum lam2         |delta|=5.82e-11 (tol 1e-06) PASS
+  pin sum lam2 xi1^2   |delta|=1.11e-15 (tol 1e-06) PASS
+  pin epsprime1        |delta|=1.65e-08 (tol 1e-03) PASS
+  eps mask algebra   max|sum_n eps_n - eps_full| = 8.88e-16  PASS
+  kernel-cache gate  NU=12001 UMAX=600.0 (must be 12001/600.0)  PASS
+  G-INDEP GATE: PASS  ### READ FROM THE INSTRUMENTS' OWN SOURCE
+
+------------------------------------------------------------------------------------------------------------
+G-STAB. ### BOTH SIDES AT THE REGISTERED AXES PLUS ONE REGISTERED REFINEMENT EACH.
+### THE MODE REFINEMENT MOVES **NMODE ALONE** (7 -> 6) AT NQ HELD -- b242 showed b240's
+### step moved NQ AND NMODE TOGETHER and was ~94% quadrature. ### NOT REPEATED HERE.
+------------------------------------------------------------------------------------------------------------
+  a^2        |dL| (NV)   |dL| (NMODE)    bar_L_bounded            bar_R
+  2       0.000000e+00   2.569260e-01     1.027704e+00     1.836488e-07
+  3       4.440892e-16   1.682879e-01     6.731518e-01     1.158696e-07
+  4       0.000000e+00   1.349504e-01     5.398018e-01     2.755854e-07
+  8       1.058932e-08   9.040407e-02     3.616163e-01     3.042286e-07
+  9       3.669456e-09   8.627552e-02     3.451021e-01     3.312067e-07
+  12      1.019947e-08   7.573935e-02     3.029574e-01     2.928623e-07
+
+============================================================================================================
+THE SECOND FACE-OFF TABLE. ### L := (Tr_full + E2 - Delta_-) + (-Theta_q)   [RULED]
+###                          R := A - PR
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.'
+### NMODE = 7 (RULE MODES K1's SEVEN COMPUTABLE MODES). ### THE TAIL IS FLAGGED BELOW.
+============================================================================================================
+  a^2               L             R         L - R M-4 (resid47)   bar_bounded   TAIL (flag)
+  2          4.671517     -1.990528      6.662044      3.980802     1.028e+00      2.073985
+  3          3.848140     -2.015384      5.863524      3.329453     6.732e-01      1.284308
+  4          3.266581     -2.035817      5.302398      3.006973     5.398e-01      1.058734
+  8          2.428532     -2.086520      4.515052      2.489271     3.616e-01      0.645073
+  9          2.185368     -2.097219      4.282587      2.424124     3.451e-01      0.669490
+  12         1.952956     -2.119732      4.072688      2.281691     3.030e-01      0.578951
+  ### THE TAIL TERM IS NOT A BOUND. ### b242 DERIVED THIS ENVELOPE, PRINTED IT AND REFUSED
+  ### IT -- the ratio is rising, the extrapolation is unverifiable IN PRINCIPLE at float64,
+  ### and NO OWNER PROVES THE TRACE SERIES CONVERGES AT ALL. ### A BAR CARRYING THIS TERM
+  ### IS NOT A CERTIFIED BAR AND NO NUMBER BESIDE IT IS CERTIFIED.
+
+------------------------------------------------------------------------------------------------------------
+### THE ALGEBRAIC RESTATEMENT, LABELLED AS SUCH AND CARRYING **NO EVIDENTIAL WEIGHT**.
+### `L - R = resid47 + (2*E2 - Delta_- + PR - Theta_q)` HOLDS FOR ARBITRARY TUPLES.
+### It is printed ONLY as a float-arithmetic check that the code sums what it says.
+------------------------------------------------------------------------------------------------------------
+  a^2              L - R  the restatement     difference
+  2          6.662044149      6.662044149      0.000e+00
+  3          5.863524056      5.863524056      0.000e+00
+  4          5.302398317      5.302398317      0.000e+00
+  8          4.515052204      4.515052204      0.000e+00
+  9          4.282586897      4.282586897      0.000e+00
+  12         4.072688036      4.072688036      0.000e+00
+  ### max difference = 0.000e+00. ### **THIS CONFIRMS NOTHING ABOUT THE IDENTITY.**
+
+============================================================================================================
+THE CONTENTFUL TESTS, AS REGISTERED IN SECTION (D.1). ### EACH CAN FAIL.
+============================================================================================================
+--- T-A: the cell profile against resid47's signature. band [1.40, 2.10] at EVERY cell.
+      a^2 = 2     (L-R)/resid47 = 1.673543   in band
+      a^2 = 3     (L-R)/resid47 = 1.761108   in band
+      a^2 = 4     (L-R)/resid47 = 1.763367   in band
+      a^2 = 8     (L-R)/resid47 = 1.813805   in band
+      a^2 = 9     (L-R)/resid47 = 1.766653   in band
+      a^2 = 12    (L-R)/resid47 = 1.784943   in band
+      ### T-A: PASS
+--- T-B: invariance under right-side axis variation. tol 1e-6 at every cell.
+      a^2 = 2     |d(L-R)| over NV 4001->6001 = 0.000e+00   within
+      a^2 = 3     |d(L-R)| over NV 4001->6001 = 1.917e-08   within
+      a^2 = 4     |d(L-R)| over NV 4001->6001 = 3.083e-09   within
+      a^2 = 8     |d(L-R)| over NV 4001->6001 = 3.021e-08   within
+      a^2 = 9     |d(L-R)| over NV 4001->6001 = 5.220e-09   within
+      a^2 = 12    |d(L-R)| over NV 4001->6001 = 2.801e-08   within
+      ### T-B: PASS
+--- T-C: the archimedean-only reduction at a^2 = 2 (PR and Theta_q must be exactly 0).
+      PR = 0   Theta_q = 0
+      (L-R) = 6.662044149239   archimedean-only = 6.662044149239   |diff| = 0.000e+00
+      ### T-C: PASS
+--- T-D: the mode-axis signature. (L-R) at NMODE=7 exceeds NMODE=6 by tr[6], tol 1e-9.
+      a^2 = 2     step = +0.256925975   tr[6] = +0.256925975   |diff| = 1.67e-16   ok
+      a^2 = 3     step = +0.168287944   tr[6] = +0.168287944   |diff| = 2.78e-17   ok
+      a^2 = 4     step = +0.134950443   tr[6] = +0.134950443   |diff| = 9.71e-16   ok
+      a^2 = 8     step = +0.090404068   tr[6] = +0.090404068   |diff| = 5.27e-16   ok
+      a^2 = 9     step = +0.086275520   tr[6] = +0.086275520   |diff| = 4.72e-16   ok
+      a^2 = 12    step = +0.075739351   tr[6] = +0.075739351   |diff| = 2.50e-16   ok
+      ### T-D: PASS
+--- T-E: the bank cross-check against b38/b37's runs of 2026-08-18. tol 1e-5.
+      a^2 = 2     run = 6.662044149   bank(resid47 - D_dict) = 6.729842000   |diff| = 6.780e-02   ### OVER
+      a^2 = 3     run = 5.863524056   bank(resid47 - D_dict) = 5.908072000   |diff| = 4.455e-02   ### OVER
+      a^2 = 4     run = 5.302398317   bank(resid47 - D_dict) = 5.343225000   |diff| = 4.083e-02   ### OVER
+      a^2 = 8     run = 4.515052204   bank(resid47 - D_dict) = 4.546581000   |diff| = 3.153e-02   ### OVER
+      a^2 = 9     run = 4.282586897   bank(resid47 - D_dict) = 4.312463000   |diff| = 2.988e-02   ### OVER
+      a^2 = 12    run = 4.072688036   bank(resid47 - D_dict) = 4.104397000   |diff| = 3.171e-02   ### OVER
+      ### T-E: ### FAIL   (worst |diff| = 6.780e-02)
+
+============================================================================================================
+THE BRANCH, BY THE RULES BANKED BEFORE ANY NUMBER.
+============================================================================================================
+  T-A   : PASS
+  T-B   : PASS
+  T-C   : PASS
+  T-D   : PASS
+  T-E   : ### FAIL
+
+### ### THE ACT'S BRANCH: ### **(DISSONANT-BEYOND)**
+
+### NO AXIS, MESH, MODE COUNT, eps OR CONSTANT WAS CHANGED AFTER A NUMBER WAS SEEN.
+### NO GRADE MOVED. ### M-2..M-5 STAND OPEN. ### NOTHING ABOUT h2 BEYOND THE REGISTER
+### SENTENCE EXACT. ### NOTHING DEPOSITS.
+============================================================================================================
