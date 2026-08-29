@@ -1,0 +1,65 @@
+============================================================================================================
+b243 -- THE FINAL VERIFICATION. ### RUN ONCE, AT THE NAMED TEST AXES.
+============================================================================================================
+  envelope sha256 : 5c554f648282dd1e28f237f0875b59c12acfa65cd199c58c2d5e840310be5164
+  ### THE BOUNDS BELOW ARE **READ FROM THE BANKED ENVELOPE**, NOT RECOMPUTED HERE, AND
+  ### THE ENVELOPE IS OLDER ON DISK THAN THIS TOOL. ### THREE LIMBS, NOT ONE.
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.' ### h2 UNCHANGED. ### NOTHING DEPOSITS.
+### SCOPE: THE IMPORT AND THE RIGHT-SIDE INSTRUMENTS ONLY. ### LEFT SIDE ABSENT.
+
+------------------------------------------------------------------------------------------------------------
+THE b238 ARITHMETIC GATE, CARRIED AS THE FERRY DIRECTS.
+### THE BANKED K AGAINST K RECOMPUTED FROM b238's OWN BANKED MEASUREMENTS.
+### ### SO THAT THIS ACT CANNOT QUIETLY RE-DESCRIBE b238's FAILURE AS ANYTHING ELSE.
+------------------------------------------------------------------------------------------------------------
+  b238's failed cell : a^2 = 3, NV = 6001, residual 2.218e-08, h 1.831020e-04
+  K required by it   : 0.6616
+  K b238 had banked  : 0.6363
+  ### THE FAILURE REPRODUCES: 0.6616 > 0.6363, and matches b238's own stated 0.6616.  PASS
+  ### b238's BRANCH WAS (HELD) AND THIS ACT DOES NOT SOFTEN IT: its envelope WAS short.
+
+------------------------------------------------------------------------------------------------------------
+ASSUMPTION A-1, RE-RUN RATHER THAN CITED: THE NODE VALUES ARE THE CONTINUOUS ONES.
+### The whole envelope rests on `corr` AT THE NODES being right, so the trapezoid on
+### this bump is re-tested against an exact value. ### b238's own positive control.
+------------------------------------------------------------------------------------------------------------
+  N = 2001    trapezoid = 0.4439938161680794   |error| = 0.000e+00
+  N = 8001    trapezoid = 0.4439938161680794   |error| = 0.000e+00
+  N = 32001   trapezoid = 0.4439938161680794   |error| = 0.000e+00
+  ### max |error| = 0.000e+00 over a sixteenfold range of N.  PASS
+  ### THE BUMP IS C^inf WITH EVERY DERIVATIVE VANISHING AT +-1, SO EULER-MACLAURIN HAS
+  ### NO BOUNDARY TERMS AT ANY ORDER. ### A-1 HOLDS AND WAS NOT ASSUMED.
+
+============================================================================================================
+THE RUN. ### CEILING: a finite-place-set object at a finite cutoff decides nothing
+### global (b15). ### THE SLACK COLUMN IS PRINTED SO A WIDE MARGIN CANNOT READ AS A
+### TIGHT AGREEMENT.
+============================================================================================================
+  a^2   NV                   A             PR              Z      residual         BOUND      slack verdict
+  2     4001      -1.990527627    0.000000000    0.018987400     1.216e-13     1.836e-07  1509831.0 within
+  2     6001      -1.990527627    0.000000000    0.018987400     1.230e-13     8.162e-08   663842.1 within
+  3     4001      -1.908900329    0.106483707    0.008592123     4.136e-08     1.159e-07        2.8 within
+  3     6001      -1.908900329    0.106483687    0.008592123     2.218e-08     5.150e-08        2.3 within
+  4     4001      -1.786497854    0.249319596    0.002474817     8.550e-09     2.756e-07       32.2 within
+  4     6001      -1.786497854    0.249319593    0.002474817     5.467e-09     1.225e-07       22.4 within
+
+============================================================================================================
+THE BRANCH, BY THE PASS RULE BANKED BEFORE ANY MEASUREMENT.
+### 'every cell at every test axis must satisfy |resid| <= BOUND. ### ONE CELL OVER THE
+### BOUND IS BRANCH (HELD).'
+============================================================================================================
+### ### THE ACT'S BRANCH: ### **(PROMOTED)** -- every cell at every test axis within
+###   the derived criterion, ### INCLUDING `a^2 = 3` AT `NV = 6001`, THE CELL THAT
+###   FAILED b238.
+### ### AND THE LIMIT, IN THE SAME BREATH AND NOT IN A FOOTNOTE:
+###   ### **THE BOUND IS A RIGOROUS WORST CASE AND IT IS LOOSE.** ### The slack
+###   ### column above is the honest measure of how loose. ### A wide margin means
+###   ### the bound is CONSERVATIVE, not that the agreement is tight.
+###   ### **VERIFIED-AT-BENCH IS A BENCH GRADE.** ### It is not a proof of CC's
+###   ### equation (1) and it moves NOTHING about h2.
+
+### WHAT THIS RUN DID NOT DO: it did not recompute a bound, did not widen K, did not
+### touch the left side, and did not file anything to the ledger -- ### ALL FILINGS
+### DEFER TO b244. ### NOTHING DEPOSITS.
+============================================================================================================

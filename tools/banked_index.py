@@ -267,6 +267,9 @@ KEYS = {
     # ### THE LEFT-MODE-AXIS KEY, ADDED b242 ON FILING.
     'left-mode-axis': ['left mode axis', 'mode axis', 'bar_l', 'prolate mode tail',
                        'eigenvalue floor', 'mode truncation'],
+    # ### THE IMP-1-ENVELOPE KEY, ADDED b243 ON FILING.
+    'imp1-envelope': ['imp1 envelope', 'imp-1 envelope', 'the analytic envelope',
+                      'corr second derivative', 'interpolation bound'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -996,6 +999,24 @@ INDEX = [
      '### BOTH SEATS REGISTERED EXPECTATIONS WERE WRONG',
      'data/b242_left_mode_axis.txt; data/b242_envelope.txt; '
      'reports/2026-08-29-the-left-mode-axis.md'),
+    # ### THE IMP-1-ENVELOPE ROW (b243).
+    ('imp1-envelope', 'b243',
+     "b238's under-sampled K replaced by an ANALYTIC envelope derived from the bump: "
+     'corr(y) = PHI(y/L)/(L*C^2) with PHI := phi*phi UNIVERSAL and cell-independent, so '
+     "corr''(y) = PHI''(y/L)/(L^3*C^2) and |dPR| <= (h^2/8)*SUM_j c_j*max|corr''|. "
+     '### ||PHI\'\'||_inf = 0.409587060753 (stable to 12 digits over a 20x density range); '
+     'C = 0.4439938161680794 (matching b238 mpmath value to 0.000e+00). ### BRANCH (PROMOTED): '
+     'all six (cell, axis) pairs within, INCLUDING a^2=3 at NV=6001, the cell that failed b238',
+     '### IMP-1 -> **VERIFIED-AT-BENCH with error bars** -- ### A BENCH GRADE, NOT A PROOF OF '
+     "CC equation (1), and it moves nothing about h2. ### THE LEDGER CELL UPDATE WAS DEFERRED "
+     'TO b244 and is NOT written by b243. ### THE BOUND IS A RIGOROUS WORST CASE AND IS LOOSE: '
+     'slack 2.3x at the tightest cell and 1.5e6 at the loosest, and the slack is PRINTED so a '
+     'wide margin cannot read as a tight agreement. ### K CANNOT HAVE BEEN WIDENED TOWARD A '
+     'RESIDUAL because no residual enters its formula -- a stronger guarantee than b238 refusal '
+     'to widen. ### b238 FAILURE WAS REPRODUCED, NOT RE-DESCRIBED (K needed 0.6616 > 0.6363 '
+     'banked). ### RIGHT-SIDE ERROR SPEC FILED on (PROMOTED) only',
+     'data/b243_imp1_envelope.txt; data/b243_envelope.txt; '
+     'reports/2026-08-29-the-imp1-envelope.md'),
 ]
 
 

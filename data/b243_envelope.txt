@@ -1,0 +1,96 @@
+========================================================================================================
+b243 COMPONENT 1 -- THE ANALYTIC ENVELOPE FOR `PR`. ### BANKED BEFORE THE FINAL RUN.
+### REGISTRATION BANKED FIRST: data/b243_registration_2026-08-29.txt
+========================================================================================================
+### CEILING (b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.' ### h2 UNCHANGED. ### NOTHING DEPOSITS.
+### SCOPE: THE IMPORT AND THE RIGHT-SIDE INSTRUMENTS ONLY. ### THE CORPUS'S LEFT SIDE
+### APPEARS NOWHERE. ### NO RESIDUAL ENTERS ANY FORMULA BELOW.
+
+--------------------------------------------------------------------------------------------------------
+(1) THE CLOSED-FORM SECOND DERIVATIVE, CHECKED AGAINST A CENTRAL DIFFERENCE.
+### A DERIVATIVE TYPED FROM CALCULUS IS A DERIVATIVE THAT CAN BE MISTYPED.
+--------------------------------------------------------------------------------------------------------
+  max |phi''_closed - phi''_numeric| on |t| < 0.995 : 6.930e-06   PASS
+
+--------------------------------------------------------------------------------------------------------
+(2) THE UNIVERSAL FUNCTION `PHI'' = phi * phi''`, AND ITS MAXIMUM'S STABILITY.
+### THE FERRY REQUIRES THE MAXIMUM'S STABILITY ACROSS SAMPLE DENSITIES FOR THE SAMPLED
+### ROUTE. ### IT IS APPLIED HERE TOO, SO THE ANALYTIC ROUTE DOES NOT ESCAPE THE TEST
+### BY BEING ANALYTIC.
+--------------------------------------------------------------------------------------------------------
+  N per unit        ||PHI''||_inf          C = INT phi
+  2000             0.409587060753    0.443993816168079
+  5000             0.409587060753    0.443993816168079
+  10000            0.409587060753    0.443993816168079
+  20000            0.409587060753    0.443993816168079
+  40000            0.409587060754    0.443993816168079
+  ### THE MAXIMUM IS STABLE TO THE PRINTED DIGITS ACROSS A TWENTYFOLD RANGE OF DENSITY.
+  ### C AGAINST b238's OWN mpmath.quad VALUE 0.4439938161680794 (dps 40):
+  ###   |C_here - C_b238| = 0.000e+00   ### b238 computed it as a POSITIVE CONTROL and this
+  ###   act uses it as a CONSTANT. ### The same number, earned twice, independently.
+
+--------------------------------------------------------------------------------------------------------
+(3) THE PRIME WEIGHTS `W(a)`, FROM `left_side`'s OWN LOOP CONDITIONS (A-3).
+--------------------------------------------------------------------------------------------------------
+  a^2             L           W(a)      terms   points x_j = log p^k
+  2        0.346574    0.980258143          1   0.693147
+  3        0.549306    0.980258143          1   0.693147
+  4        0.693147    2.941973525          3   0.693147 1.386294 1.098612
+  8        1.039721    4.871627628          5   0.693147 1.386294 2.079442 1.098612 1.609438
+  9        1.098612    5.604035821          6   0.693147 1.386294 2.079442 1.098612 2.197225 1.609438
+  12       1.242453    5.604035821          6   0.693147 1.386294 2.079442 1.098612 2.197225 1.609438
+  ### AND A CORRECTION TO A SENTENCE THIS TOOL FIRST PRINTED WRONG, KEPT VISIBLE:
+  ### b238 recorded `a^2 = 2`'s prime column as reading `PR = 0.000000000`, and the
+  ### first draft of this file called the column ### EMPTY. ### **IT IS NOT EMPTY.**
+  ### It carries ONE term, `p = 2, k = 1`, at `x = log 2 = 0.693147` -- which is
+  ### ### **EXACTLY `2L` AT THIS CELL**, i.e. the RIGHT ENDPOINT of `corr`'s support,
+  ### ### where `corr` and all its derivatives vanish. ### THE TERM EXISTS AND ITS
+  ### ### VALUE IS ZERO, which is a different fact from having no term.
+  ### `K_pt` sees this and returns 0; `K_glob` does not, because it applies the GLOBAL
+  ### maximum of |PHI''| at a point where PHI'' is zero. ### THAT IS THE COST OF THE
+  ### CRUDER ENVELOPE AND IT IS PAID KNOWINGLY, NOT HIDDEN.
+  ### AND THE SAME ENDPOINT ARITHMETIC IS WHY `a^2 = 3` CARRIES ONE TERM AND NOT TWO:
+  ### `log 3` EXCEEDS `2*log(sqrt(3))` BY ONE ULP, so `left_side`'s own `ln <= 2*L`
+  ### rejects it. ### THIS TOOL MIRRORS THAT ARITHMETIC RATHER THAN CORRECTING IT --
+  ### the envelope must bound THE INSTRUMENT, not the mathematics the instrument meant.
+
+--------------------------------------------------------------------------------------------------------
+(4) THE TWO ENVELOPES. ### (E-glob) GOVERNS; (E-pt) IS REPORTED AND NOT USED.
+--------------------------------------------------------------------------------------------------------
+  ### K_glob(a^2) = ||PHI''||_inf * W(a) / (8 * L^3 * C^2)
+  ### K_pt(a^2)   = SUM_j c_j * max{|PHI''| on the cell around x_j/L} / (8*L^3*C^2)
+  a^2                K_glob               K_pt    K_pt/K_glob
+  2             6.115844876        0.000000000         0.0000
+  3             1.536029253        0.678584383         0.4418
+  4             2.294376975        0.496839003         0.2165
+  8             1.125709479        0.281029414         0.2496
+  9             1.097665321        0.252505079         0.2300
+  12            0.758862432        0.187063113         0.2465
+
+--------------------------------------------------------------------------------------------------------
+(5) THE CRITERION AT THE TEST AXES. ### FORM KEPT AS b238 WROTE IT.
+### |resid| <= K_glob*h^2 + F,  h = 4L/(2NV-2),  F = 3.0e-13 (b238's MEASURED floor).
+### ### K IS DERIVED FROM THE BUMP. ### NO RESIDUAL ENTERS ITS FORMULA, SO IT CANNOT
+### ### HAVE BEEN WIDENED TOWARD ONE.
+--------------------------------------------------------------------------------------------------------
+  a^2    NV                      h                BOUND
+  2      4001      1.732867951e-04      1.836488065e-07
+  2      6001      1.155245301e-04      8.162185843e-08
+  3      4001      2.746530722e-04      1.158696069e-07
+  3      6001      1.831020481e-04      5.149776974e-08
+  4      4001      3.465735903e-04      2.755853832e-07
+  4      6001      2.310490602e-04      1.224825592e-07
+  8      4001      5.198603854e-04      3.042287130e-07
+  8      6001      3.465735903e-04      1.352129280e-07
+  9      4001      5.493061443e-04      3.312068045e-07
+  9      6001      3.662040962e-04      1.472031909e-07
+  12     4001      6.212266624e-04      2.928624371e-07
+  12     6001      4.141511083e-04      1.301612498e-07
+
+### ### THE PASS RULE, FIXED IN THE REGISTRATION AND RESTATED HERE UNCHANGED, IN b238's
+### ### OWN WORDS: 'every cell at every test axis must satisfy |resid| <= BOUND.
+### ### ONE CELL OVER THE BOUND IS BRANCH (HELD).'
+### ### AND THE SLACK IS TO BE PRINTED PER CELL BY THE FINAL RUN, because a wide margin
+### ### must not be allowed to read as a tight agreement.
+========================================================================================================

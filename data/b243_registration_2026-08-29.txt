@@ -1,0 +1,181 @@
+====================================================================================================
+b243 -- THE IMP-1 ENVELOPE. ### THE REGISTRATION. ### BANKED BEFORE ANY MEASUREMENT.
+### WRITTEN 2026-08-29. ### CONCURRENCY: PARALLEL-OK with b242. ### FILINGS DEFER TO b244.
+====================================================================================================
+
+### THE CEILING, FIRST, AND GOVERNING EVERY LINE BELOW:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause,
+### ### reduction machine-verified. h2 is the clause." ### h2 STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT. ### NOTHING DEPOSITS.
+
+### ### SCOPE: ### THE IMPORT AND THE RIGHT-SIDE INSTRUMENTS ONLY. ### **THE CORPUS'S LEFT SIDE
+### ### APPEARS NOWHERE** -- no `trace_modes`, no `e2_of_grid`, no `theta_quotient`, no `Tr_full`,
+### ### `E2`, `Delta_-`, `resid47` or `Theta_q` in any tool of this act, and no face-off quantity
+### ### is formed. ### b238 held the same wall and this act holds it in the same words.
+
+====================================================================================================
+(0) ### WHAT PRECEDED THIS FILE. ### DISCLOSED, AS b241 AND b242 DISCLOSED THEIR READING ORDER.
+====================================================================================================
+### THE FERRY ORDERS "owners read at content first; registration before any measurement", AND THE
+### OWNER READS WERE DONE FIRST: b238's bank whole, and `carto_atlas.bump/hhat/channels` at source.
+### ### NO CELL QUANTITY, NO ENVELOPE CONSTANT AND NO RESIDUAL HAS BEEN COMPUTED AT THE MOMENT
+### ### THIS FILE IS BANKED. ### The derivation in section (B) is written from the bump's
+### ### DEFINITION and contains no number this act has measured.
+
+====================================================================================================
+(A) THE LOAD-BEARING OWNERS. ### RULE-3 LINE (a). ### b238's BANK, QUOTED.
+====================================================================================================
+### **THE ONE-CULPRIT FINDING:** "`A`, `P` AND `Z` CARRY NO GRID ERROR AT ALL -- every `|dA|`,
+###   `|dP|`, `|dZ|` sits between `0.000e+00` and `8.882e-16`, i.e. MACHINE EPSILON. ### `PR`
+###   CARRIES THE ENTIRE RESIDUAL", matching it "to about 3%".
+### **S3, INTERPOLATION:** "`np.interp`'s own error at the actual evaluation points `log p^k`,
+###   against a far finer `corr` ... reproducing S1's `|dPR|` to ~2%". ### And at `a^2 = 2`:
+###   "0.000e+00 -- and its prime column is EMPTY."
+### **THE FAILED CELL:** "`a^2 = 3` at `NV = 6001`: residual `2.218e-08` against a banked bound of
+###   `2.133e-08` -- OVER BY A FACTOR OF 1.04." ### And the arithmetic of the shortfall: "The
+###   bound at `(a^2=3, NV=6001)` needed `K = 2.218e-08 / (1.831020e-04)^2 = 0.6616`. The banked
+###   envelope was `K = 0.6363`. ### THE ENVELOPE WAS SHORT BY 4%."
+### **THE JITTER DIAGNOSIS:** "THE EVALUATION POINTS `log p^k` ARE FIXED WHILE THE GRID REFINES,
+###   SO THE DISTANCE FROM THE NEAREST NODE JITTERS WITH `NV`. ### AN ORDER IS NOT WELL DEFINED
+###   FOR A FIXED POINT ON A REFINING GRID."
+### **b238's OWN DIAGNOSIS OF ITS METHOD:** "`K` was taken as the maximum over THREE samples of a
+###   quantity that S3 SHOWED TO JITTER, and the jitter's peak at `NV = 6001` exceeded all three.
+###   ### A MAXIMUM OVER THREE SAMPLES OF A JITTERING QUANTITY IS NOT AN ENVELOPE. IT IS THREE
+###   SAMPLES."
+### **THE TWO NAMED ROUTES, quoted from `W-ORD-IMP1-ENVELOPE`:** "either sample many `NV` values
+###   and take the supremum, or ### **bound `|corr''|` directly and use the analytic `h^2/8`
+###   constant**, which removes the jitter from the estimate entirely."
+### **WHAT b238 REFUSED, AND THIS ACT INHERITS THE REFUSAL:** "Raising `K(a^2=3)` from 0.6363 to
+###   0.70 -- or adding a 1.5x safety factor anywhere in the criterion -- would have delivered
+###   (PROMOTED) AT ALL SIX CELLS. ### IT WAS NOT WIDENED."
+### **AND WHAT (HELD) DID NOT MEAN:** "the two sides of CC's equation (1) agree to about 2e-8
+###   relative at `a^2=3` and 5e-9 at `a^2=4` ... THAT IS AGREEMENT. ### What is held is a GRADE."
+
+### **[THE BUMP, AT CONTENT, `carto_atlas.bump`]:**
+###   L = log(a); v = linspace(-L, L, NV); t = v/L;
+###   w = exp(-1/(1-t^2)) on |t| < 1, else 0;  w /= trapezoid(w, v)
+### **[THE PRIME COLUMN, AT CONTENT, `left_side`]:** for each p and k with `p^k <= a^2` and
+###   `log p^k <= 2L`:  `PR += 2 log p / sqrt(p^k) * interp(log p^k, vc, corr)`
+### **[`corr`, AT CONTENT, `b38_act10.family`]:** `corr = convolve(w, w, 'full') * dv[0]`,
+###   `vc = linspace(-2L, 2L, corr.size)`, `corr.size = 2*NV - 1`, so the node spacing is
+###   ### `h = 4L / (2*NV - 2)` -- b238's own form, and it is not re-derived differently here.
+
+====================================================================================================
+(B) THE ENVELOPE'S DERIVATION, WRITTEN OUT BEFORE IT IS COMPUTED. ### RULE-3 LINE (b).
+### ROUTE CHOSEN BY MEASUREMENT ORDER: ### **THE ANALYTIC ROUTE IS ATTEMPTED FIRST**, as the
+### ferry directs, and the sampled route runs ONLY if the analytic one resists at content.
+====================================================================================================
+
+### ### STEP 1 -- THE INTERPOLATION ERROR, WHICH IS THE ONLY ERROR b238 LEFT STANDING.
+### `np.interp` is piecewise LINEAR. ### The classical bound on a cell of width `h` is
+###   ### **|f(x) - interp(x)| <= (h^2/8) * max |f''| over that cell**, and it is SHARP.
+### ### THE CONSTANT `h^2/8` IS THE FERRY'S, AND IT IS NOT A CHOICE OF THIS ACT.
+
+### ### STEP 2 -- `corr''` FROM THE BUMP'S DEFINITION, WITH THE CELL SCALED OUT.
+### Write `phi(t) = exp(-1/(1-t^2))` on `|t| < 1` and `C = INT_{-1}^{1} phi`. ### Then
+###   `w(v) = phi(v/L) / (L*C)`   -- and `INT w dv = 1` exactly, by the normalization.
+### Substituting into the convolution and changing variables `s = L*sigma`:
+###   `corr(y) = INT w(s) w(y-s) ds = (1/(L*C^2)) * PHI(y/L)`,  where
+###   ### **`PHI(tau) := (phi * phi)(tau)`, a UNIVERSAL function on `|tau| <= 2`, independent of
+###   ### the cell, of `a`, of `L` and of `NV`.**
+### Differentiating twice:
+###   ### **`corr''(y) = PHI''(y/L) / (L^3 * C^2)`,  with `PHI'' = phi * phi''`.**
+### ### THAT IS THE WHOLE ANALYTIC ROUTE: ### ONE universal function computed ONCE, and every
+### ### cell's `corr''` obtained from it by a scale factor. ### **NO MAXIMUM OVER THE
+### ### INSTRUMENT'S OWN `corr` SAMPLES APPEARS ANYWHERE IN IT.**
+
+### ### STEP 3 -- THE ENVELOPE ON `PR`.
+### `PR = SUM_j c_j * corr(x_j)` with `c_j = 2 log p / p^(k/2) > 0` and `x_j = log p^k`. So
+###   ### **|dPR| <= (h^2/8) * SUM_j c_j * max{ |corr''| on the cell containing x_j }.**
+### TWO ENVELOPES ARE DERIVED AND BOTH ARE BANKED, THE CRUDER ONE GOVERNING:
+###   ### **(E-glob)** `K_glob(a^2) = ||PHI''||_inf * W(a) / (8 * L^3 * C^2)`,
+###        `W(a) := SUM_j c_j`. ### The global maximum at every point -- ### THE SAFEST AND THE
+###        LOOSEST, and ### **THIS IS THE ONE THE CRITERION USES.**
+###   ### **(E-pt)** the same sum with `||PHI''||_inf` replaced by the LOCAL maximum of `|PHI''|`
+###        over `[x_j/L - h/L, x_j/L + h/L]`. ### Sharper, still analytic, still free of any
+###        residual. ### **REPORTED, NOT USED FOR THE VERDICT** -- because a sharper bound that
+###        happens to be the one that passes is the shape of the thing this act exists to avoid.
+
+### ### STEP 4 -- WHAT THE ANALYTIC ROUTE ASSUMES, NAMED IN ADVANCE AND TESTED, NOT WAVED THROUGH.
+### ###  (A-1) that `corr` AT THE NODES is the continuous `w*w` at those nodes to well below the
+### ###        interpolation error. ### WARRANT: b238's S2 measured the trapezoid on this very
+### ###        bump against `mpmath.quad` and got ### `|error| = 0.000e+00 AT EVERY N` -- the bump
+### ###        is `C^inf` with every derivative vanishing at `t = +-1`, so Euler-Maclaurin has no
+### ###        boundary terms at any order. ### **THIS ACT RE-RUNS THAT CONTROL RATHER THAN
+### ###        CITING IT**, because the whole envelope rests on it.
+### ###  (A-2) that `||PHI''||_inf` is computed to sufficient accuracy. ### TESTED BY SHOWING THE
+### ###        MAXIMUM'S STABILITY ACROSS RESOLUTIONS -- the ferry's own requirement for the
+### ###        sampled route, applied here to the universal function so the analytic route does
+### ###        not escape the test by being analytic.
+### ###  (A-3) that `W(a)` counts exactly the terms the instrument sums. ### TESTED against
+### ###        `left_side`'s own loop conditions, and a mismatch is a HALT, not a footnote.
+
+====================================================================================================
+(C) THE CRITERION AND THE RE-VERDICT'S BRANCHES. ### FIXED HERE, BEFORE ANY NUMBER.
+====================================================================================================
+### **THE FORM, KEPT AS b238 WROTE IT SO THE TWO ARE COMPARABLE:**
+###   ### `|resid(a^2, NV)| <= K_glob(a^2) * h^2 + F`, with `h = 4L/(2NV-2)` and
+###   ### `F = 3.0e-13`, b238's MEASURED float floor, carried unchanged and NOT re-derived.
+### ### **`K` IS DERIVED FROM THE BUMP AND FROM NOTHING THIS ACT HAS MEASURED. ### IT IS NOT
+### ### WIDENED TOWARD ANY OBSERVED RESIDUAL, AND IT CANNOT BE: no residual enters its formula.**
+### **THE TEST AXES: `NV in {4001, 6001}`** -- b238's own test axes, INCLUDING the cell that
+### failed. ### **A new envelope tested only on axes the old one passed would be worthless.**
+### **THE PASS RULE, FIXED HERE AND DECLARED NOT REVISABLE, IN b238's OWN WORDS: "every cell at
+### every test axis must satisfy `|resid| <= BOUND`. ### ONE CELL OVER THE BOUND IS BRANCH
+### (HELD)."**
+
+### **THE b238 ARITHMETIC GATE, CARRIED AS THE FERRY DIRECTS:** the banked `K` must equal `K`
+### recomputed from the banked measurements -- ### i.e. `2.218e-08 / (1.831020e-04)^2 = 0.6616`
+### and `0.6616 > 0.6363` -- ### **so that this act cannot quietly re-describe b238's failure.**
+
+### THE BRANCHES:
+### ### **(PROMOTED)** -- all cells within the derived criterion at both test axes. ### MEANS:
+### ###   IMP-1 graded ### **VERIFIED-AT-BENCH with error bars**, and ### **THE RIGHT-SIDE ERROR
+### ###   SPEC FILED** as the instrument-layer object: `PR` and `A` each with a stated bar as a
+### ###   function of axes, for every future face-off to inherit.
+### ###   ### AND THE LIMIT SAID IN THE SAME BREATH: ### **VERIFIED-AT-BENCH IS A BENCH GRADE.**
+### ###   It is not a proof of CC's equation (1) and it moves nothing about `h2`.
+### ### **(HELD)** -- the unexplained remainder at full prominence with a named work-order.
+### ### **(UNDECIDED)** -- the obstruction named.
+
+### ### AND ONE OUTCOME ADMITTED IN ADVANCE, BECAUSE IT IS THE LIKELY ONE AND FINDING IT MUST NOT
+### ### LOOK LIKE INVENTING IT: ### **A RIGOROUS WORST-CASE ENVELOPE WILL VERY PROBABLY BE MUCH
+### ### LOOSER THAN THE OBSERVED RESIDUALS** -- it assumes every evaluation point sits at the
+### ### worst position in its cell AND that `|corr''|` attains its global maximum there, and
+### ### neither holds. ### **A LOOSE BOUND THAT IS TRUE IS STILL A BOUND, AND (PROMOTED) ON A
+### ### LOOSE BOUND IS AN HONEST (PROMOTED)** -- but the act must PRINT THE SLACK rather than let
+### ### a wide margin read as a tight agreement. ### **THE SLACK FACTOR IS REPORTED PER CELL.**
+
+====================================================================================================
+(D) THE EXECUTOR'S REGISTERED EXPECTATION. ### BEFORE ANY NUMBER.
+====================================================================================================
+### ### **I EXPECT (PROMOTED), AND I EXPECT IT ON A BOUND THAT IS ONE TO THREE ORDERS OF
+### ### MAGNITUDE LOOSER THAN THE MEASURED RESIDUALS.**
+### MY REASONING, REGISTERED SO IT CAN FAIL: `phi` is a bump whose second derivative has a sharp
+### interior structure, so `||PHI''||_inf` will be a number of order 1-100 rather than of order
+### the observed `|dPR|/h^2 ~ 0.66`; and the worst-case-position assumption costs a further factor
+### that the jitter's actual draw does not pay.
+### ### **IF THE ANALYTIC BOUND COMES OUT BELOW ANY OBSERVED RESIDUAL, THE BOUND IS WRONG AND THE
+### ### ACT MUST SAY SO AND HALT** -- a rigorous bound that is violated is not a tight bound, it
+### ### is a broken derivation, and the branch would be (UNDECIDED) with the error located.
+
+====================================================================================================
+(E) THE INDEX QUERY, RUN BEFORE THE MEASUREMENT.
+====================================================================================================
+### `imp1-envelope` -> NO KEY (keyed ON FILING by this act). ### And the declared keys bearing on
+### this act, queried and reported in the bank whether or not they helped: ### `error-budget`,
+### `right-side-error-spec`, `import-ledger`, `import-bar`, `weil-ledger`, `sign-atlas`,
+### `transform-convention`. ### ### "ABSENCE FROM THE INDEX IS NOT ABSENCE FROM THE RECORD."
+
+====================================================================================================
+(F) WHAT NO BRANCH OF THIS ACT MAY DO.
+====================================================================================================
+### Touch the left side. ### Widen `K` toward an observed residual, or add a safety factor.
+### Re-describe b238's failure as anything but a failure. ### Move `h2` or the register sentence.
+### File the right-side error spec on any branch but (PROMOTED). ### Claim VERIFIED-AT-BENCH is
+### more than a bench grade. ### Write PLACE-papers, HANDOFF, the loom or the mirror. ### File to
+### the ledger -- ### **ALL FILINGS DEFER TO b244.** ### Deposit anything.
+====================================================================================================

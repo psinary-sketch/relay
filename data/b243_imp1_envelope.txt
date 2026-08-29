@@ -1,0 +1,218 @@
+====================================================================================================
+b243 -- THE IMP-1 ENVELOPE. ### THE BANK.
+### REGISTRATION BANKED FIRST: data/b243_registration_2026-08-29.txt -- the derivation written out
+### in full, the pass rule fixed, and the executor's expectation registered, all before any number.
+### CONCURRENCY: PARALLEL-OK with b242. ### ALL LEDGER FILINGS DEFER TO THE CLOSE (b244).
+====================================================================================================
+
+### THE CEILING, FIRST AND NOT LAST:
+###   b14: "a FINITE-PLACE-SET OBJECT AT A FINITE MODEL CUTOFF -- the complete roster is the
+###         double limit (all places, cutoff to infinity) and STAYS OPEN whatever this act shows."
+###   b15: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."
+### ### h2 STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### NOTHING DEPOSITS.
+### ### SCOPE: ### THE IMPORT AND THE RIGHT-SIDE INSTRUMENTS ONLY. ### **THE CORPUS'S LEFT SIDE
+### ### APPEARS NOWHERE** in any tool of this act -- no `trace_modes`, no `e2_of_grid`, no
+### ### `theta_quotient`, and no face-off quantity is formed.
+
+====================================================================================================
+### THE BRANCH: ### **(PROMOTED)** ### -- ALL SIX (CELL, AXIS) PAIRS WITHIN THE DERIVED CRITERION,
+### ### INCLUDING `a^2 = 3` AT `NV = 6001`, THE CELL THAT FAILED b238.
+====================================================================================================
+### ### **AND THE LIMIT IN THE SAME BREATH, NOT IN A FOOTNOTE: THE BOUND IS A RIGOROUS WORST CASE
+### ### AND IT IS LOOSE.** ### The slack runs **2.3x at the tightest cell** and **1.5 MILLION x at
+### ### the loosest**. ### A wide margin means the BOUND IS CONSERVATIVE, not that the agreement is
+### ### tight. ### **`VERIFIED-AT-BENCH` IS A BENCH GRADE. IT IS NOT A PROOF OF CC's EQUATION (1)
+### ### AND IT MOVES NOTHING ABOUT h2.**
+### ### `W-ORD-IMP1-ENVELOPE` IS **DISCHARGED**, as the ferry directs on every branch.
+
+### ### THE EXECUTOR'S REGISTERED EXPECTATION, JUDGED: ### **BORNE OUT, AND FOR THE REGISTERED
+### ### REASON.** ### Section (D) said: "I EXPECT (PROMOTED), AND I EXPECT IT ON A BOUND THAT IS
+### ### ONE TO THREE ORDERS OF MAGNITUDE LOOSER THAN THE MEASURED RESIDUALS", because the
+### ### worst-case-position assumption costs a factor the jitter's actual draw does not pay.
+### ### ### THE SLACK IS 2.3x TO 32x AT THE CELLS WITH A LIVE PRIME COLUMN -- ### **TIGHTER THAN
+### ### ### I PREDICTED** -- and 1.5e6 at the one cell whose column evaluates to zero.
+### ### ### SO THE PREDICTION WAS RIGHT IN DIRECTION AND ### **TOO PESSIMISTIC IN SIZE**, and the
+### ### ### half that was wrong is reported beside the half that was right.
+
+====================================================================================================
+COMPONENT 1 -- THE ENVELOPE. ### (P1) ### THE ANALYTIC ROUTE, WHICH IS THE FERRY'S FIRST CHOICE
+### AND b238's OWN SECOND ROUTE. ### BANKED AND HASHED BEFORE THE FINAL RUN.
+====================================================================================================
+### `data/b243_envelope.txt`, sha256 ### `5c554f64...10be5164`.
+
+--- (1.1) THE DERIVATION, AS REGISTERED BEFORE IT WAS COMPUTED ---
+### With `phi(t) = exp(-1/(1-t^2))` on `|t|<1` and `C = INT phi`:
+###   `w(v) = phi(v/L)/(L*C)`         ### and `INT w dv = 1` exactly, by the normalization
+###   `corr(y) = PHI(y/L)/(L*C^2)`,   ### `PHI := phi * phi` -- ### **UNIVERSAL, CELL-INDEPENDENT**
+###   `corr''(y) = PHI''(y/L)/(L^3*C^2)`,  `PHI'' = phi * phi''`
+###   `|corr(x) - interp(x)| <= (h^2/8) * max|corr''|`   ### the SHARP linear-interpolation bound
+###   `|dPR| <= (h^2/8) * SUM_j c_j * max|corr''|`,  `c_j = 2 log p / p^(k/2)`
+### ### ### **ONE UNIVERSAL FUNCTION, COMPUTED ONCE, AND EVERY CELL'S `corr''` IS A SCALE FACTOR
+### ### ### TIMES IT. ### NO MAXIMUM OVER THE INSTRUMENT'S OWN `corr` SAMPLES APPEARS ANYWHERE.**
+### ### THAT IS EXACTLY WHAT b238's WORK-ORDER ASKED FOR: "bound `|corr''|` directly and use the
+### ### analytic `h^2/8` constant, which removes the jitter from the estimate entirely."
+
+--- (1.2) THE CONSTANTS, EACH CHECKED RATHER THAN TAKEN ---
+### **`phi''` IN CLOSED FORM, CHECKED AGAINST A CENTRAL DIFFERENCE:** max deviation `6.930e-06`
+###   on `|t| < 0.995`. ### **A DERIVATIVE TYPED FROM CALCULUS IS A DERIVATIVE THAT CAN BE
+###   MISTYPED**, and this one was not.
+### **`||PHI''||_inf = 0.409587060753`**, and ### **STABLE TO TWELVE DIGITS ACROSS A TWENTYFOLD
+###   RANGE OF SAMPLE DENSITY** (N = 2000 to 40000 per unit). ### The ferry required the maximum's
+###   stability for the SAMPLED route; it is applied here too, ### **so the analytic route does
+###   not escape the test by being analytic.**
+### **`C = 0.443993816168079`**, against b238's own `mpmath.quad` value at dps 40,
+###   `0.4439938161680794`: ### **|difference| = 0.000e+00.** ### b238 computed it as a POSITIVE
+###   CONTROL for a hypothesis it then refuted; this act uses it as a CONSTANT. ### **The same
+###   number, earned twice, by two acts, for two different purposes.**
+
+--- (1.3) THE PRIME WEIGHTS, MIRRORING THE INSTRUMENT AND NOT THE MATHEMATICS ---
+###   a^2      L            W(a)        terms
+###   2     0.346574   0.980258143        1
+###   3     0.549306   0.980258143        1
+###   4     0.693147   2.941973525        3
+###   8     1.039721   4.871627628        5
+###   9     1.098612   5.604035821        6
+###   12    1.242453   5.604035821        6
+### ### **TWO ENDPOINT FACTS THAT LOOK LIKE ERRORS AND ARE NOT, BOTH DISCLOSED:**
+### ###  (i) ### `a^2 = 2`'s COLUMN IS **NOT EMPTY.** ### b238 recorded `PR = 0.000000000` there
+### ###      and the first draft of this act's envelope tool called the column EMPTY. ### **IT
+### ###      CARRIES ONE TERM**, `p=2, k=1`, at `x = log 2 = 0.693147` -- which is ### **EXACTLY
+### ###      `2L` at that cell**, the right endpoint of `corr`'s support, where `corr` and all its
+### ###      derivatives vanish. ### **THE TERM EXISTS AND ITS VALUE IS ZERO, and that is a
+### ###      different fact from having no term.** ### The wrong sentence was caught and the
+### ###      correction is printed in the envelope file itself rather than silently removed.
+### ###  (ii) ### `a^2 = 3` CARRIES **ONE** TERM, NOT TWO: `log 3` EXCEEDS `2*log(sqrt(3))` BY
+### ###      ONE ULP, so `left_side`'s own `ln <= 2*L` rejects the `p=3` term. ### **THIS ACT
+### ###      MIRRORS THAT ARITHMETIC RATHER THAN CORRECTING IT** -- ### the envelope must bound
+### ###      THE INSTRUMENT, not the mathematics the instrument meant.
+
+--- (1.4) THE TWO ENVELOPES. ### THE CRUDER ONE GOVERNS, BY REGISTRATION ---
+###   a^2         K_glob            K_pt   K_pt/K_glob
+###   2       6.115844876     0.000000000        0.0000
+###   3       1.536029253     0.678584383        0.4418
+###   4       2.294376975     0.496839003        0.2165
+###   8       1.125709479     0.281029414        0.2496
+###   9       1.097665321     0.252505079        0.2300
+###   12      0.758862432     0.187063113        0.2465
+### ### **(E-glob) GOVERNS AND (E-pt) IS REPORTED AND NOT USED**, exactly as registered --
+### ### because ### **a sharper bound that happens to be the one that passes is the shape of the
+### ### thing this act exists to avoid.** ### The sharper one is banked so the next act has it.
+### ### AND THE ONE PLACE THE CRUDER ENVELOPE IS ABSURD, SAID PLAINLY: ### at `a^2 = 2` the single
+### ### evaluation point sits where `PHI''` is ZERO, so `K_pt = 0` is right and `K_glob = 6.116` is
+### ### a global maximum applied where the function vanishes. ### **THAT IS WHERE THE 1.5e6 SLACK
+### ### COMES FROM. ### IT IS THE PRICE OF THE CONSERVATIVE CHOICE AND IT IS PAID KNOWINGLY.**
+
+====================================================================================================
+COMPONENT 2 -- THE CRITERION. ### (P2) ### DERIVED FROM THE ENVELOPE AT NAMED AXES.
+====================================================================================================
+### **THE FORM, KEPT AS b238 WROTE IT SO THE TWO ARE COMPARABLE:**
+###   `|resid(a^2, NV)| <= K_glob(a^2) * h^2 + F`,  `h = 4L/(2NV-2)`,  `F = 3.0e-13`
+### ### `F` IS b238's **MEASURED** FLOAT FLOOR, CARRIED UNCHANGED AND NOT RE-DERIVED.
+### ### ### **`K` IS DERIVED FROM THE BUMP AND FROM NOTHING THIS ACT HAS MEASURED. ### NO
+### ### ### RESIDUAL ENTERS ITS FORMULA, SO IT CANNOT HAVE BEEN WIDENED TOWARD ONE.** ### That is
+### ### ### a stronger guarantee than b238's refusal to widen: b238 COULD have widened and did
+### ### ### not; ### **this criterion has no place a residual could be put.**
+### **THE TEST AXES: `NV in {4001, 6001}` -- b238's OWN, INCLUDING THE CELL THAT FAILED.**
+### ### A new envelope tested only on axes the old one passed would be worthless.
+
+--- THE b238 ARITHMETIC GATE, CARRIED AS THE FERRY DIRECTS, AND IT PASSED ---
+###   b238's failed cell : `a^2 = 3, NV = 6001`, residual `2.218e-08`, `h = 1.831020e-04`
+###   K required by it   : ### **0.6616**       K b238 had banked : ### **0.6363**
+### ### **THE FAILURE REPRODUCES: 0.6616 > 0.6363, matching b238's own stated arithmetic.**
+### ### **b238's BRANCH WAS (HELD) AND THIS ACT DOES NOT SOFTEN IT: ITS ENVELOPE WAS SHORT.**
+### The gate is a HALT, not a footnote -- the run refuses to print a verdict if it fails.
+
+--- ASSUMPTION A-1, RE-RUN RATHER THAN CITED ---
+### The whole envelope rests on `corr` AT THE NODES being the continuous convolution there.
+### `INT_{-1}^{1} phi` by the instrument's own trapezoid at N = 2001, 8001, 32001:
+### ### **|error| = 0.000e+00 AT EVERY N**, against `mpmath.quad`'s 0.4439938161680794.
+### ### The bump is `C^inf` with every derivative vanishing at `+-1`, so Euler-Maclaurin has no
+### ### boundary terms at any order. ### **A-1 HOLDS AND WAS NOT ASSUMED.**
+
+====================================================================================================
+COMPONENT 3 -- THE RE-VERDICT. ### (P3)
+====================================================================================================
+###   a^2   NV        A              PR             Z           residual     BOUND      slack  verdict
+###   2    4001  -1.990527627   0.000000000   0.018987400    1.216e-13  1.836e-07  1509831.0  within
+###   2    6001  -1.990527627   0.000000000   0.018987400    1.230e-13  8.162e-08   663842.1  within
+###   3    4001  -1.908900329   0.106483707   0.008592123    4.136e-08  1.159e-07        2.8  within
+###   3    6001  -1.908900329   0.106483687   0.008592123  ### 2.218e-08  5.150e-08      2.3  within
+###   4    4001  -1.786497854   0.249319596   0.002474817    8.550e-09  2.756e-07       32.2  within
+###   4    6001  -1.786497854   0.249319593   0.002474817    5.467e-09  1.225e-07       22.4  within
+
+### ### **EVERY `A`, `PR`, `Z` AND RESIDUAL REPRODUCES b238's BANKED TABLE TO EVERY PRINTED
+### ### DIGIT** -- and it does so with the zeta ordinates taken from the ATLAS's OWN committed
+### ### `zeta_ordinates.npy`, because ### **b238 read its ordinates from a SESSION TEMP CACHE THAT
+### ### NO LONGER EXISTS.** ### That was a hazard nobody had named: ### a run whose input lives in
+### ### a temp directory is a run that cannot be repeated. ### **IT IS REPEATABLE NOW.**
+
+### ### **THE FAILED CELL, RESOLVED AND NOT EXPLAINED AWAY:** `a^2 = 3, NV = 6001` carries the
+### ### SAME residual `2.218e-08` it always did. ### **NOTHING ABOUT THE MEASUREMENT CHANGED.**
+### ### What changed is that the bound it is compared against is now `5.150e-08`, DERIVED FROM THE
+### ### BUMP, where b238's was `2.133e-08`, a maximum over three samples of a jittering quantity.
+### ### ### **b238's DIAGNOSIS OF ITSELF WAS EXACTLY RIGHT: "A MAXIMUM OVER THREE SAMPLES OF A
+### ### ### JITTERING QUANTITY IS NOT AN ENVELOPE. IT IS THREE SAMPLES."**
+
+--- ### THE RIGHT-SIDE ERROR SPEC. ### FILED, AS THE FERRY DIRECTS ON (PROMOTED) ONLY ---
+### ### **THE INSTRUMENT-LAYER OBJECT, FOR EVERY FUTURE FACE-OFF TO INHERIT:**
+###
+### ### **`A` (the archimedean column):** ### |dA| <= 8.882e-16, i.e. MACHINE EPSILON, and
+### ###   ### **INDEPENDENT OF `NV` ON THE MEASURED RANGE.** ### Warrant: b238's S1 measured
+### ###   every `|dA|`, `|dP|`, `|dZ|` between 0.000e+00 and 8.882e-16 against an `NV = 32001`
+### ###   reference. ### GRADE: MEASURED (b238), re-confirmed by this act's reproduction.
+###
+### ### **`PR` (the prime column):** ### |dPR| <= K_glob(a^2) * h^2,  h = 4L/(2NV-2),
+### ###   ### **K_glob(a^2) = ||PHI''||_inf * W(a) / (8 * L^3 * C^2)**
+### ###   with ### **||PHI''||_inf = 0.409587060753** and ### **C = 0.4439938161680794**, both
+### ###   properties of the bump alone. ### GRADE: ### **DERIVED FROM THE BUMP'S DEFINITION** --
+### ###   not measured, not fitted, and not a function of any residual.
+###   ### K_glob by cell: 2: 6.115845 | 3: 1.536029 | 4: 2.294377 | 8: 1.125709 | 9: 1.097665
+###   ###                 12: 0.758862
+###   ### AND THE SHARPER FORM, BANKED FOR THE NEXT ACT AND NOT USED HERE: `K_pt` above.
+###
+### ### **THE FLOOR:** ### `F = 3.0e-13`, float64 accumulation, MEASURED by b238 at `a^2 = 2`
+### ###   (the cell whose prime column evaluates to zero) and NV-invariant to three digits.
+###
+### ### **WHAT THE SPEC DOES NOT COVER, SAID SO IT IS NOT ASSUMED TO:** ### the zero side's
+### ###   TRUNCATION at 1000 ordinates (b238 measured the tails at 7.195e-21 / 3.159e-26 /
+### ###   1.072e-27 -- negligible, and MEASURED, but a different axis from `NV`); and any cell
+### ###   outside the banked six. ### **THE SPEC IS A FUNCTION OF `NV` AT THE BANKED CELLS AND
+### ###   CLAIMS NOTHING ELSE.**
+
+--- ### THE FILINGS, AND WHAT DEFERS ---
+### 1. ### **IMP-1 -> `VERIFIED-AT-BENCH` with error bars.** ### THE LEDGER CELL UPDATE IS
+###    ### **DEFERRED TO b244**, as the ferry directs, and is NOT written by this act.
+### 2. ### **`W-ORD-IMP1-ENVELOPE` -- DISCHARGED.** ### The envelope exists, is derived from the
+###    bump, and was tested on the axis that failed b238.
+### 3. ### **THE RIGHT-SIDE ERROR SPEC -- FILED** (above), on (PROMOTED), as the ferry conditions.
+### 4. ### **NEW, AND SMALL, AND REAL: `W-ORD-ORDINATE-CACHE`** -- b238's ordinates lived in a
+###    session temp directory. ### This act reproduced its table from the committed
+###    `zeta_ordinates.npy` instead. ### **A RUN WHOSE INPUT LIVES IN A TEMP DIRECTORY IS A RUN
+###    THAT CANNOT BE REPEATED**, and the repair is one line in whatever runs next.
+
+====================================================================================================
+### WHAT DID NOT MOVE.
+====================================================================================================
+### THE LEFT SIDE APPEARS IN NO TOOL OF THIS ACT AND NO FACE-OFF QUANTITY WAS FORMED. ### `K` WAS
+### NOT WIDENED AND COULD NOT BE. ### b238's FAILURE WAS REPRODUCED, NOT RE-DESCRIBED. ### NO
+### LEDGER CELL WAS EDITED -- ### ALL FILINGS DEFER TO b244. ### PLACE-papers, HANDOFF, THE LOOM
+### AND THE MIRROR UNTOUCHED. ### NO KERNEL FILE TOUCHED. ### `VERIFIED-AT-BENCH` IS CLAIMED AS A
+### BENCH GRADE AND NOTHING MORE. ### NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT.
+### ### NOTHING DEPOSITS. ### LOCKS LAST.
+
+====================================================================================================
+### THE MISS OF THIS ACT'S OWN.
+====================================================================================================
+### ### **I WROTE A SENTENCE INTO THE ENVELOPE TOOL THAT ITS OWN OUTPUT CONTRADICTED.** ### The
+### ### tool printed `a^2 = 2` with ONE prime term, and the prose two lines below it said the
+### ### column was ### **EMPTY** -- a claim I had carried across from b238's `PR = 0.000000000`
+### ### without checking which of the two things it meant.
+### ### **IT WAS CAUGHT BY READING THE TOOL'S OWN TABLE AGAINST ITS OWN PROSE, BEFORE THE
+### ### ENVELOPE WAS HASHED** -- and had it not been, a false sentence would have been banked
+### ### under a sha256 and gated as authoritative.
+### ### ### THE SPECIES, AND IT IS THE SECOND TIME IN TWO ACTS THIS SEAT HAS MET IT: ### **A
+### ### ### WRONG CHARACTER IN AN ARTEFACT THAT IS ABOUT TO BE HASHED IS WORSE THAN A CRASH,
+### ### ### BECAUSE THE HASH MAKES IT LOOK DELIBERATE.** ### b242's miss was a literal `%d` in
+### ### the same position in the same kind of file. ### **TWICE IS A HABIT, AND THE HABIT IS
+### ### WRITING PROSE ABOUT A TABLE INSTEAD OF FROM IT.**
+====================================================================================================
