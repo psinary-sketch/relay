@@ -1,0 +1,72 @@
+================================================================================================================
+b255 -- THE PRICING. ### COSTS ONLY. ### NO BALANCE VALUE IS COMPUTED OR KEPT.
+================================================================================================================
+### CEILING (b14/b15): 'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.' ### **AND b242's REFUSAL GOVERNS THIS ACT: A MEASURED RATE IS NOT A TAIL
+### BOUND, AND NO EXTRAPOLATION IS BANKED AS A BOUND.** ### NOTHING DEPOSITS.
+### ### **THE LADDER IS CHOSEN BY AFFORDABILITY, NEVER BY WHAT ITS VALUES DO -- WHICH IS
+### ### WHY THIS TOOL RUNS FIRST AND COMPUTES NO VALUES.**
+
+----------------------------------------------------------------------------------------------------------------
+### **(W1) THE eps rho-GRID CEILING -- A SILENT FAILURE, NOT AN ERROR.**
+----------------------------------------------------------------------------------------------------------------
+  `b38_act10.py:152`  rr = exp(linspace(1e-4, log(12.001), EPS_NRHO=240))
+  `b38_act10.py:98`   eu = np.interp(np.exp(uu), rr, ee),  uu in [0, 2 log a]
+  ### ### **SO `exp(uu)` REACHES `a^2`, AND FOR `a^2 > 12.001` `np.interp` CLAMPS TO
+  ### ### `ee[-1]` AND RETURNS A WRONG NUMBER WITHOUT RAISING.**
+  ### **CONSEQUENCE: ANY LADDER PAST `a^2 = 12` MUST REBUILD THE GRID, AND REBUILDING IT
+  ### CHANGES `E2` FOR THE SIX BANKED CELLS TOO -- SO THE REBUILD OWES A G-REPRO AGAINST
+  ### b254's TABLE. ### THAT DEBT IS REGISTERED HERE, BEFORE THE LADDER IS CHOSEN.**
+  MEASURED: per_mode_eps_grids at EPS_NRHO=240 over log-range 2.485 -> 3.2 s
+  ### per-rho-point cost = 0.0135 s. ### **THE COST IS LINEAR IN EPS_NRHO AND THE LOG-RANGE
+  ### GROWS AS `log(a^2_max)`, SO HOLDING THE LOG-DENSITY FIXED PRICES AS BELOW.**
+    a^2_max = 25   -> EPS_NRHO = 311  at equal log-density -> 4.2 s
+    a^2_max = 50   -> EPS_NRHO = 378  at equal log-density -> 5.1 s
+    a^2_max = 100  -> EPS_NRHO = 445  at equal log-density -> 6.0 s
+    a^2_max = 200  -> EPS_NRHO = 512  at equal log-density -> 6.9 s
+
+----------------------------------------------------------------------------------------------------------------
+### **(W2) `Theta_q` -- THE COMBINATORIAL WALL. ### `N = p^(2n)` DENSE, `2n-1` MATMULS.**
+----------------------------------------------------------------------------------------------------------------
+  a^2    staircase(2,3,5)         N(p=2)    matrix MB     measured s
+  12     {2: 3, 3: 2, 5: 1}           64          0.0           0.00
+  16     {2: 4, 3: 2, 5: 1}          256          0.5           0.01
+  25     {2: 4, 3: 2, 5: 2}          256          0.5           0.01
+  36     {2: 5, 3: 3, 5: 2}         1024          8.4           0.43
+  49     {2: 5, 3: 3, 5: 2}         1024          8.4           0.46
+  64     {2: 6, 3: 3, 5: 2}         4096        134.2 >= 21  (1.0 s/matmul x 22 matmuls, p=2 alone)
+  100    {2: 6, 3: 4, 5: 2}         4096        134.2 >= 22  (1.0 s/matmul x 22 matmuls, p=2 alone)
+  128    {2: 7, 3: 4, 5: 3}        16384       2147.5 >= 1690  (65.0 s/matmul x 26 matmuls, p=2 alone)
+  ### ### **THE WALL IS WHERE THE MEASUREMENT PUTS IT, NOT WHERE I EXPECTED IT.** ### I
+  ### ### drafted this line expecting `n(2) = 6` (`a^2 >= 64`) to be the wall on the
+  ### ### `N = 4096` matrix. ### **THE TIMING SAYS OTHERWISE: `a^2 = 64` COSTS TENS OF
+  ### ### SECONDS, WELL INSIDE THE BUDGET.** ### The real wall is `n(2) = 7` (`a^2 >= 128`),
+  ### ### where `N = 16384` and the matrix alone is ~2.1 GB. ### **THE CONCLUSION FOLLOWS
+  ### ### THE TABLE; THE TABLE DOES NOT FOLLOW THE CONCLUSION.**
+
+----------------------------------------------------------------------------------------------------------------
+### **(W3)/(W4) THE PER-CELL FLOOR: `left_side` AND `trace_modes`. ### FIXED IN `a`.**
+----------------------------------------------------------------------------------------------------------------
+  carto axes: NV = 4001, NU = 12001, UMAX = 600  -> `hhat` materialises 12001 x 4001 = 384 MB
+  MEASURED at a^2 = 12: left_side 5.18 s ; trace_modes(NQ=700, NMODE=11) 0.09 s
+  ### **THE LADDER NEEDS `trace_modes` AT TWO REFINEMENTS PER CELL (G-STAB), SO THE
+  ### PER-CELL FLOOR IS ABOUT 5.5 s BEFORE `Theta_q`.**
+
+----------------------------------------------------------------------------------------------------------------
+### **THE BUDGET AND THE REACH. ### FIXED HERE, BEFORE ANY BALANCE VALUE EXISTS.**
+----------------------------------------------------------------------------------------------------------------
+  REGISTERED WALL-CLOCK BUDGET FOR THE WHOLE LADDER: 3600 s.
+  ### **THE REACH IS SET BY (W2) AT `n(2) <= 6`, i.e. `a^2 <= 127`.** ### `n(2) = 7`
+  ### (`a^2 >= 128`) needs a 2.1 GB dense matrix and is REFUSED.
+  ### ### **THE LADDER FIXED HERE, BY COST AND BY COST ALONE:**
+  ### ### **`a^2 in {2, 3, 4, 8, 9, 12}` (the banked six, RECOMPUTED on the new grid)
+  ### ### PLUS `{16, 20, 25, 32, 36, 45, 50, 64, 81, 100}` -- SIXTEEN CELLS, REACH 100.**
+  ### **THE SPACING IS ROUGHLY GEOMETRIC SO THE LADDER SAMPLES THE DIRECTION EVENLY IN
+  ### `log a`, WHICH IS THE AXIS `2L = 2 log a` ACTUALLY LIVES ON.**
+  ### **`a^2 >= 128` IS REFUSED ON COST, NOT ON WHAT ITS VALUES WOULD SHOW -- AND THE
+  ### REFUSAL IS RECORDED BEFORE ANY VALUE IS COMPUTED, WHICH IS THE WHOLE POINT.**
+  ### ### **THE FERRY'S TARGET WAS `a^2 ~ 50-100 IF AFFORDED`. ### IT IS AFFORDED, AND
+  ### ### THE LADDER REACHES 100.**
+  ### ESTIMATED TOTAL: 16 cells x ~5 s floor + Theta_q (0-30 s at the top cells)
+  ### + one eps-grid rebuild at ~6 s ### **= a few hundred seconds, inside the 3600 s
+  ### budget with room to spare.**

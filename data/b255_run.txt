@@ -1,0 +1,92 @@
+==============================================================================================================================
+b255 -- THE LIMIT PROFILE. ### THE RUN.
+==============================================================================================================================
+### CEILING (b14/b15): ### **'A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING
+### GLOBAL.'** ### ### **AND b242 GOVERNS THE ARITHMETIC: 'A MEASURED RATE IS NOT A TAIL
+### ### BOUND.' ### NO FIT, NO SLOPE, NO EXTRAPOLATED LIMIT IS BANKED BELOW.**
+### MEANINGS HASHED FIRST: sha256 2c7faef1...7864, 9790 bytes. ### NOTHING DEPOSITS.
+
+### AXES AND PRINTED PRECISION, NAMED:
+###   eps grid REBUILT (forced by W1): rho_max 100.001, EPS_NRHO 445, EPS_NQ 700, EPS_NG 400.
+###   carto NV=4001 NU=12001 UMAX=600 ; NU_HALF=401 ; S4=(2, 3, 5) ; NMODE=11 ; G-STAB NQ in (700, 900, 1100).
+###   b254 six-cell table: SIX DECIMALS. ### b38: resid47 to FOUR DECIMALS -> floor 5e-5.
+###   ### **REALIZATION (B) IS QUOTED THROUGHOUT AS `Dneg(N = 11, float64 modes, suspect
+###   ### above n = 6)`, PER b253's QUOTED-N LAW.**
+###   b250 envelope 1.158e-14: ### **NAMED AND NOT APPLIED TO ANY SERIES HERE.**
+  per-mode mask algebra  max|sum_n eps_n - eps_full| = 8.882e-16   PASS
+
+------------------------------------------------------------------------------------------------------------------------------
+### **THE G-REPRO DEBT THE GRID REBUILD INCURRED, REGISTERED BEFORE IT WAS PAID.**
+### The six banked cells are recomputed on the NEW grid and compared to b254's table.
+### ### **BAND: 1e-4 ABSOLUTE, FIXED IN THE HASHED MEANINGS FILE.**
+------------------------------------------------------------------------------------------------------------------------------
+  a^2      d(E2even)     d(E2odd)        d(PR)   d(Theta_q)  d(residual)    within?
+  2        -8.24e-07    -1.20e-06     0.00e+00     0.00e+00     8.24e-07        yes
+  3         2.04e-06     1.51e-06    -2.93e-07     0.00e+00    -1.75e-06        yes
+  4         1.35e-06    -1.71e-07    -4.04e-07     1.65e-07    -1.78e-06        yes
+  8         3.99e-06     2.31e-06     4.29e-07     2.37e-07    -3.18e-06        yes
+  9         1.33e-06     7.87e-07     3.21e-07    -3.93e-07    -1.04e-06        yes
+  12        5.63e-06     4.48e-06     2.14e-07     2.10e-07    -5.64e-06        yes
+  ### ### **WORST 5.64e-06 -- WITHIN THE REGISTERED BAND AT EVERY CELL, SO THE REBUILT GRID REPRODUCES b254**
+  ### **b254 IS NOT RE-VERDICTED EITHER WAY (b246's RULE).**
+
+------------------------------------------------------------------------------------------------------------------------------
+### THE FULL LADDER -- ONE OBJECT ACROSS ALL CELLS, OLD AND NEW.
+### **A FINITE CELL DECIDES NOTHING GLOBAL (b15). ### AND A FINITE LADDER DECIDES NO
+### LIMIT.**
+------------------------------------------------------------------------------------------------------------------------------
+a^2   staircase(2,3,5)     E2even         PR    Theta_q   junction   resid (A)   resid (B)    bar (B)
+2     *[1, 0, 0]         1.001813   0.000000   0.000000   0.000000   -1.001813   -0.061579   4.10e-02
+3     *[1, 1, 0]         0.910945   0.106484   0.000000   0.106484   -1.017429   -0.365259   2.58e-02
+4     *[2, 1, 0]         0.834034   0.249320   0.161978   0.087341   -0.921376   -0.371901   2.52e-02
+8     *[3, 1, 1]         0.685518   0.561045   0.317018   0.244027   -0.929545   -0.533360   1.71e-02
+9     *[3, 2, 1]         0.665134   0.608882   0.473862   0.135021   -0.800155   -0.423951   1.55e-02
+12    *[3, 2, 1]         0.620096   0.714334   0.518491   0.195843   -0.815939   -0.477912   1.95e-02
+16     [4, 2, 1]         0.580637   0.799150   0.588909   0.210241   -0.790878   -0.492613   1.37e-02
+20     [4, 2, 1]         0.553188   0.852777   0.601007   0.251769   -0.804957   -0.531484   9.17e-03
+25     [4, 2, 2]         0.528115   0.896289   0.734531   0.161759   -0.689874   -0.437418   1.24e-02
+32     [5, 3, 2]         0.502770   0.933310   0.847886   0.085424   -0.588194   -0.360293   1.02e-02
+36     [5, 3, 2]         0.491462   0.947279   0.857845   0.089435   -0.580897   -0.360701   1.34e-02
+45     [5, 3, 2]         0.471295   0.968113   0.871549   0.096564   -0.567859   -0.364306   1.15e-02
+50     [5, 3, 2]         0.462302   0.975802   0.875924   0.099877   -0.562179   -0.367545   9.24e-03
+64     [6, 3, 2]         0.442517   0.989784   0.898565   0.091219   -0.533736   -0.355119   1.09e-02
+81     [6, 4, 2]         0.424892   0.999125   0.927942   0.071182   -0.496074   -0.328757   1.18e-02
+100    [6, 4, 2]         0.410262   1.004851   0.928192   0.076658   -0.486920   -0.332595   1.23e-02
+### `*` marks the six cells banked at b254.
+### **`bar (A)` IS THE eps MASK CERTIFICATE, 8.882e-16, AT EVERY CELL -- BECAUSE UNDER (A)
+### NOTHING IN THE BALANCE IS A MODE SUM (b254's structural finding), SO NO `NQ`
+### REFINEMENT MOVES IT.** ### `bar (B)` IS REALIZATION (B)'s OWN G-STAB SPREAD.
+### ### **THE STAIRCASE COLUMN IS RE-DERIVED AT EVERY CELL FROM `b38_act10.staircase`,
+### ### NOT QUOTED -- AND IT IS THE CELL-SPECIES: `S4 = (2,3,5)` IS FIXED, SO `a^2 = 49`
+### ### ACTIVATES NO NEW PRIME AND `7` NEVER ENTERS. ### THE LADDER MEASURES POWERS OF A
+### ### FIXED PRIME SET, NOT A GROWING PLACE SET.**
+
+------------------------------------------------------------------------------------------------------------------------------
+### **THE RACE THE MEANINGS FILE NAMED: `E2even` FALLING AGAINST THE JUNCTION RISING.**
+###   `resid (A) = -( E2even + junction )`
+------------------------------------------------------------------------------------------------------------------------------
+a^2         E2even     junction   |resid(A)|  d|resid| step    beyond bar?
+2         1.001813     0.000000     1.001813            ---              -
+3         0.910945     0.106484     1.017429      +0.015616            yes
+4         0.834034     0.087341     0.921376      -0.096053            yes
+8         0.685518     0.244027     0.929545      +0.008169            yes
+9         0.665134     0.135021     0.800155      -0.129390            yes
+12        0.620096     0.195843     0.815939      +0.015784            yes
+16        0.580637     0.210241     0.790878      -0.025061            yes
+20        0.553188     0.251769     0.804957      +0.014079            yes
+25        0.528115     0.161759     0.689874      -0.115083            yes
+32        0.502770     0.085424     0.588194      -0.101680            yes
+36        0.491462     0.089435     0.580897      -0.007297            yes
+45        0.471295     0.096564     0.567859      -0.013038            yes
+50        0.462302     0.099877     0.562179      -0.005680            yes
+64        0.442517     0.091219     0.533736      -0.028443            yes
+81        0.424892     0.071182     0.496074      -0.037662            yes
+100       0.410262     0.076658     0.486920      -0.009154            yes
+  ### **bar (A) = sqrt(2) x mask certificate = 1.256e-15, so EVERY step above is beyond it by
+  ### many orders. ### THE BAND IS NOT WHAT DECIDES THIS PROFILE; THE STEPS' SIGNS ARE.**
+
+### G-INDEP: `A`/`PR` from `left_side`, `Theta_q` from `theta_quotient`, `E2` and sectors
+### from `e2_of_grid` on `per_mode_eps_grids`, `Dneg` from `trace_modes` -- ### **EACH
+### FROM ITS OWN OWNER, IMPORTED AS A MODULE, NONE RE-IMPLEMENTED HERE.**
+### G-STAB: realization (B) at NQ = 700/900/1100, spread in the `bar (B)` column.
+==============================================================================================================================

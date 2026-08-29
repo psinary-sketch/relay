@@ -312,6 +312,8 @@ KEYS = {
                         'the imbalance profile', 'L - R under the re-binding'],
     'the-balance': ['the balance', 'Delta_- - E2 vs PR - Theta_q', 'E2even vs Theta_q - PR',
                     'the balance residual', 'the two Delta_- realizations'],
+    'limit-profile': ['the limit profile', 'the cutoff ladder', 'the balance along a^2',
+                      'the junction sawtooth', 'the staircase sawtooth', 'sixteen cells'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1480,6 +1482,36 @@ INDEX = [
      'IT BY REFUSING A GATE WHOSE MUST-FAIL FIXTURE PASSED, AND THE HASH-GATED MEANINGS FILE '
      'WAS *NOT* EDITED (b244/b246 precedent) -- THE GATE WAS FIXED AND THE ERROR DISCLOSED.**',
      'data/b254_fourth_face_off.txt; data/b254_run.txt; data/b246_two_tails.txt'),
+    ('limit-profile', 'b255 (bounded bench act; the ladder priced before it was fixed)',
+     'the balance measured along the cutoff axis over SIXTEEN cells, a^2 = 2 to 100. '
+     '### **THE PRICING RAN FIRST AND KEPT NO BALANCE VALUE**, so the ladder was chosen by '
+     'AFFORDABILITY and the order on disk makes that checkable. ### Four cost walls measured: '
+     '**(W1) the eps rho-grid ended at a^2 = 12.001 AND FAILED SILENTLY** -- np.interp clamps '
+     'rather than raising, so every cell past 12 would have carried a wrong E2 with no error; '
+     'rebuilt to rho_max 100.001, EPS_NRHO 240 -> 445. **(W2) Theta_q scaling_matrix is dense '
+     'N = p^(2n): a^2 = 100 -> N = 4096, ~22 s; a^2 = 128 -> N = 16384, 2.1 GB, >= 1690 s for '
+     'p = 2 alone -- REFUSED ON COST, recorded before any value existed.**',
+     '### **BRANCH (MIXED), AND THE SPLIT IS THE FINDING: |resid(A)| ALTERNATES GROW/SHRINK UP '
+     'TO a^2 = 20, THEN EIGHT CONSECUTIVE SHRINKS TO a^2 = 100** (1.001813 down to 0.486920, '
+     'more than halving). ### **(RELAXES) IS NOT TAKEN: the banked rule forbids reading an '
+     'oscillating stretch as a relaxation with an excuse.** ### **THE STRUCTURAL FINDING: THE '
+     'JUNCTION (PR - Theta_q) IS A SAWTOOTH LOCKED TO b17 STAIRCASE.** ### Between staircase '
+     'steps it RISES -- six transitions, six rises, no exceptions; at steps it FALLS at six of '
+     'nine, and on the upper ladder (a^2 >= 20) at ALL FOUR steps while rising at ALL FIVE '
+     'non-steps. ### Mechanism read off the columns: PR rises smoothly toward 1 while Theta_q '
+     'rises in JUMPS, gaining a level at each step. ### E2even by contrast FALLS MONOTONICALLY '
+     'at all sixteen cells. ### **NO SIGN-EVENT, AND THE REASON IS STRUCTURAL: resid = '
+     '-(E2even + junction) with BOTH terms positive at every cell, and a sum of two positives '
+     'cannot cross zero.** ### **THE EXECUTOR REGISTERED (RELAXES) ON THE LOWER LADDER AND '
+     'DECLINED THE UPPER -- THAT IS THE REVERSE OF WHAT HAPPENED, and the falsifier was too '
+     'coarse to catch it; both reported.** ### G-REPRO debt of the grid rebuild REGISTERED '
+     'BEFORE IT WAS PAID and PAID: worst deviation 5.64e-06 against b254 six cells, inside the '
+     '1e-4 band by 18x; b254 NOT re-verdicted. ### **NO FIT, NO SLOPE, NO EXTRAPOLATED LIMIT '
+     'IS BANKED (b242 governs). ### THE WORD LIMIT IS IN THE TITLE AND IN NONE OF THE '
+     'CONCLUSIONS.** ### Cell-species said: S4 = (2,3,5) is FIXED, so 7 never enters -- the '
+     'ladder measures powers of a fixed prime set, not a growing place set',
+     'data/b255_limit_profile.txt; data/b255_run.txt; data/b255_pricing.txt; '
+     'data/b255_meanings.txt; reports/2026-08-29-the-limit-profile.md'),
     ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
      '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
      'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '
