@@ -255,6 +255,20 @@ KEYS = {
                     'stated choice'],
     'archimedean-sector-invariant': ['wanted poster', 'w-ord', 'sector invariant',
                                      'd1 infinity'],
+    # ### THE RESIDUAL-LEDGER KEYS, ADDED b241 ON FILING.
+    'residual-ledger': ['the residual ledger', 'five terms', 'the five-term ledger',
+                        'ledger terms'],
+    'e2-ownership': ['e2 ownership', 'the eps double-count', 'eps double count',
+                     'e2 double-count'],
+    'resid47-reading': ['resid47', 'resid 47', '0 by construction',
+                        'zero by construction', 'the substituted reading'],
+    'q-orientation': ['q orientation', 'theta_q sign', 'theta_q orientation',
+                      'quotient sign', 'q.value orientation'],
+    # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
+    # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
+    # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
+    # ### and re-pointing it here would hide the older owner behind the newer route);
+    # ### the bare 'e2' (ambiguous against e1-even-bridge and unit-normalized-trace).
     # ### AND THE ALIASES DELIBERATELY **NOT** ADDED, EXTENDING b181's PRECEDENT:
     # ### the bare 'prolate' (ambiguous across three keys -- b181's own reason, unchanged);
     # ### the bare 'sign' (ambiguous across alpha, alternation, the-ladder and b205's
@@ -913,6 +927,51 @@ INDEX = [
      'term 3 without supplying evidence for it',
      'data/b212_odd_family.txt; PLACE-papers phase2/method/THE_IDENTITY_CHAIN.md s13; '
      'PLACE-papers phase2/method/THE_CODOMAIN_SPECIFICATION.md s1'),
+    # ### THE RESIDUAL-LEDGER ROWS (b241). ### EVERY GRADE IS THE ONE b241 RECORDED, AND TWO
+    # ### OF THE FOUR ARE ROUTES RATHER THAN RESULTS -- THE ROWS SAY SO IN THEIR OWN GRADE CELL.
+    ('residual-ledger', 'b241',
+     "b240's five separation terms assigned owners by text: 2*E2 STANDING, Delta_- ROUTED, "
+     'resid47 RECONCILED-BY-TEXT (M-4 unpaid size), Theta_q ROUTED, PR STANDING '
+     "(b235's atlas). ### ONE RECONCILED, TWO ROUTED, TWO STANDING; NO CORRECTION EXECUTED",
+     '### A READ, NOT A RESULT, AND NOT A FACE-OFF: no side was assembled and no column '
+     'compared. ### THE LEDGER IS AN ASSIGNMENT OF OWNERS, NOT A MEASUREMENT -- every number '
+     "in it is b240's, cited as the QUESTION and never as evidence for a reading. "
+     '### IT MOVES NO GRADE AND DISCHARGES NO M-ITEM',
+     'data/b241_residual_ledger.txt; reports/2026-08-29-the-residual-ledger.md'),
+    ('e2-ownership', 'b241',
+     "C2's E2 and the E2 in b38_act10.py's residual line are ONE OBJECT UNDER TWO NAMES "
+     "(int g eps / E2 / E2N / E2full) at two mode truncations, 8.99e-15 apart; File E binds "
+     'the FUNCTION b38_act10.e2_of_grid and names no grid argument',
+     '### ONE OBJECT -- ### BUT **NO CORRECTION WAS FORCED AND NONE EXECUTED**, and the row '
+     'exists to stop that being read as a repair. ### THERE IS NO DOUBLE-COUNT ACROSS THE '
+     "EQUALS SIGN: C2 carries E2 once, A - PR carries it none. ### b240's 'Tr_full already "
+     "carries an E2' does not follow from the arithmetic it cites -- resid47 is DEFINED as "
+     'the residue, so the decomposition is vacuous. ### THE REAL DEFECT IS M-4 (the '
+     'unperformed divergent-part subtraction) AND IT WAS ALREADY OPEN',
+     'data/b241_residual_ledger.txt Component 2; SIDE-global-section/Interfaces/'
+     'FiniteInstanceIdentity.lean lines 57-62'),
+    ('resid47-reading', 'b241',
+     "b37's 'resid47: 0 by construction' is a property of the SUBSTITUTED reading ONLY -- "
+     'b37_act9.py contains no trace function and calls none, so there is no raw trace to '
+     "differ from CC Thm 4.7's value. ### FOR C2 THE RAW READING GOVERNS AND resid47 IS NOT "
+     'ZERO',
+     '### NAMED FROM THE TEXTS, NOT ROUTED. ### The warrant is File E line 60, which binds '
+     'Tr_full to b38_act10.trace_modes by name, plus sec 20(b): the bench object "is NOT the '
+     'REGULARIZED trace". ### THE TWO READINGS ARE MUTUALLY EXCLUSIVE, not merely different. '
+     "### CONFIRMS b240's own sentence on this point. ### resid47 is M-4's unpaid size at "
+     'bench and is NOT a new engine item',
+     'data/b241_residual_ledger.txt Component 3; tools/e16/b37_act9.py:175'),
+    ('q-orientation', 'b241',
+     "Q.value's entry orientation relative to the prime side is UNDERDETERMINED by the "
+     'owner texts; dossier O1 (Q := -Theta_q) / O2 (Q := +Theta_q) / O3 (data parameter) '
+     'filed and ROUTED for a decision card. ### Delta_-\'s sign in T rides the same card',
+     '### A ROUTE, NOT A RESULT, AND NOTHING WAS CHOSEN. ### sec 19, b36_act8.py:175, '
+     'sec 20(c) and the recurring (Theta_q - PR) pairing all ORIENT Theta_q with the prime '
+     "side's minus -- ### BUT NONE ASSEMBLES IT INTO Q.value, and quotient-trace records "
+     'that the aggregation is UNSTATED (b197, re-confirmed b215). ### FIVE SENTENCES THAT '
+     'ORIENT AN OBJECT ARE NOT ONE SENTENCE THAT DEFINES IT. ### DISCLOSED: O1 shrinks the '
+     'residual and that is NOT its warrant; no candidate on the list closes the separation',
+     'data/b241_residual_ledger.txt Component 4; reports/2026-08-29-the-residual-ledger.md'),
 ]
 
 
