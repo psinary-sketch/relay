@@ -181,6 +181,11 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE COMPREHENSION KEYS, ADDED b236 UNDER ITS CLAUSE (e).
+    'comprehension': ['the comprehension read', 'comprehension', 'h1 and h2',
+                      'h2 as deposited', 'the mapping', 'deposit-voice read'],
+    'demarcation': ['the demarcation', 'demarcation', 'isnt this just weil positivity',
+                    'weil positivity question', 'what the corpus adds'],
     # ### THE VOICES AND ATLAS KEYS, ADDED b235 UNDER ITS CLAUSE (e).
     'voices': ['the voices', 'voices', 'deposit-voice', 'support-voice', 'program-voice',
                'three voices', 'phase 1.1 voices'],
@@ -377,6 +382,34 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("comprehension", "b236",
+     "h1 and h2 read at DEPOSIT-VOICE from the verified canonical copy (Zenodo v1.1.2, ms v5.10.2,"
+     " 11 files md5-matched against Zenodo's published checksums) and mapped to the now-complete"
+     " statement. ### THE DEPOSIT'S OWN WORDS: h1 'complete at the witness'; h2 'the theorem"
+     " itself: positivity of the Weil functional, lambda_n >= 0 ... RH-equivalent'; sharpest as"
+     " 'lambda_Z(n) >= -lambda_A(n)'; the register sentence as 'The one open premise ... five"
+     " registers'. ### THE MAPPING: the FOURTH register -- the balance-to-positivity distance at"
+     " the multiplicative place -- IS, at a diagonal a^2 cell under one named convention, THE SIGN"
+     " OF A - PR",
+     "comprehension at support-voice; ### IT DISCHARGES NOTHING -- the deposit's own ceiling"
+     " governs ('None of this discharges h2'; 'criterion + verified surround, not end-to-end')."
+     " ### AND THE LIMIT IS NAMED: the deposit lists FIVE registers and this maps ONE."
+     " ### THE DEPOSIT IS SILENT ON W_inf (zero occurrences, with a positive control) -- a silence,"
+     " not a defect; ERRATA untouched   ### as its own act recorded it",
+     "data/b236_comprehension_read.txt; THE_IDENTITY_CHAIN.md sec 37;"
+     " FACES_OF_H2_AT_FINITE_INSTANCE.md sec 4; outputs/DEPOSITED-v1.1.2/"),
+    ("demarcation", "b236",
+     "the answer to 'isn't this just Weil positivity', put on the record before anyone asks."
+     " ### WHAT IS IMPORTED: CC's eq (2), RH <=> SUM_v W_v(g*g-bar-sharp) <= 0, which CC credit to"
+     " A. Weil [33] following Yoshida [34] -- an equivalence, classical, NOT OURS."
+     " ### WHAT THE CORPUS ADDS, each with its limit in the same breath: a machine-verified"
+     " reduction (limit: criterion + verified surround, NOT end-to-end); a located clause (limit:"
+     " locating is not discharging); an unconditional surround (limit: h1 complete AT A WITNESS,"
+     " not at totality); lawful instruments (limit: the bar's first use produced a NON-promotion)",
+     "program-voice, b236. ### THE CEILING, STATED SO THE SECTION CANNOT BE MISREAD: the corpus has"
+     " NOT proved Weil positivity, has NOT weakened it, and has NOT replaced it; the premise"
+     " remains RH-equivalent and open in the deposit's own words   ### as its own act recorded it",
+     "THE_IDENTITY_CHAIN.md sec 37.2; data/b236_comprehension_read.txt"),
     ("voices", "b235",
      "the three-voice law: DEPOSIT-VOICE (co-deposited texts at their published Zenodo versions,"
      " frozen, errata-only), SUPPORT-VOICE (the Phase-1.1 support layer at working HEAD),"
