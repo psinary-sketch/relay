@@ -181,6 +181,13 @@ KEYS = {
                               'restricted-tensor trace'],
     'weil-ledger-target': ['weil ledger target', 'cell-level target', 'ledger value',
                            'log p convention'],
+    # ### THE ASSET KEYS, ADDED b237 UNDER ITS CLAUSE (f).
+    'left-side-assets': ['left side assets', 'the assets', 'asset table',
+                         'theta_quotient', 'trace_modes', 'the four channels'],
+    't-value': ['t.value', 'tvalue', 't value', 'archimedean e1 trace',
+                'the definitional ruling'],
+    'engine-remaining': ['the engine remaining', 'missing steps', 'm-1 m-5',
+                         'the engine size', 'remaining construction'],
     # ### THE COMPREHENSION KEYS, ADDED b236 UNDER ITS CLAUSE (e).
     'comprehension': ['the comprehension read', 'comprehension', 'h1 and h2',
                       'h2 as deposited', 'the mapping', 'deposit-voice read'],
@@ -382,6 +389,42 @@ INDEX = [
      " standing as its own act recorded it -- a row is a pointer, never a re-grading",
      "SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean;"
      " data/b221_cell_level_assembly.txt; data/b229_statement_adopted.txt"),
+    ("left-side-assets", "b237",
+     "everything the corpus holds toward realizing File E's LEFT column (T.value + Q.value) at a"
+     " cell. ### FOUR CHANNELS at tools/e16/b38_act10.py: trace_modes (Tr, archimedean, prolate"
+     " space), e2_of_grid (E2, the eps bookkeeping), Delta-minus (sec 17's odd-index t(n) series),"
+     " and theta_quotient (Theta_q, FINITE, on V_inv). ### AND A NAMING INVERSION: the acts"
+     " narrative's LEFT = A - PR is the LEDGER, i.e. File E's RIGHT",
+     "REALIZES: 0 / PARTIALLY REALIZES: 4 / DIFFERENT OBJECT: 0 among the channels; sec 25(c)'s"
+     " L1+L2+L3 are DIFFERENT OBJECT (inequality links, not realizations -- assembling a BOUND ON"
+     " the object, not a VALUE OF it). ### NOTHING REALIZES T.value OR Q.value OUTRIGHT."
+     " ### No asset was graded by agreement with the right side   ### as its own act recorded it",
+     "data/b237_left_side_assets.txt; tools/e16/b38_act10.py"),
+    ("engine-remaining", "b237",
+     "the engine's remaining construction as a NAMED SPECIES-TAGGED LIST rather than a frontier:"
+     " M-1 [RULING] what T.value IS; M-2 [RESULT or RULING] a statement carrying the quotient"
+     " operator onto S-bar_v or u_v into V_inv; M-3 [RESULT] the cited class-richness lemma"
+     " (Schwartz-Bruhat, formalization owed to files B-C); M-4 [RESULT] the eps trace-class"
+     " bookkeeping; M-5 [CONSTRUCTION] the effective-mode (Shannon) dictionary -- sec 25(c)'s"
+     " named MISSING TRANSPORT",
+     "FIVE items: one ruling, three results, one construction. ### AND THE NARROWING, WITH BOTH"
+     " HALVES: CONFIRMED that Theta_q computes a definite normalized quotient trace at cells on"
+     " V_inv, so there is no missing PER-PLACE operator; REFUTED that this bypasses the junction --"
+     " sec 18 joint 1 says 'the restricted-product trace is DEFINED BY EXACTLY' the E1-unit's"
+     " normalization. ### THE JUNCTION IS AT THE ASSEMBLY, NOT THE PER-PLACE COMPUTATION"
+     "   ### as its own act recorded it",
+     "data/b237_left_side_assets.txt; narrative sec 18 / sec 25(c)"),
+    ("t-value", "b237",
+     "the definitional ruling on what File E's T.value IS. ### FOUR CANDIDATES, EACH WITH ITS COST:"
+     " (C1) Tr_full alone -- but File E's owner line says eps-REGULARIZED; (C2) Tr_full + E2 +"
+     " Delta-minus -- matches the words, inherits Delta-minus's open trace-class bookkeeping;"
+     " (C3) Tr(theta(g) S theta(g)*) at CC's S -- ties T to an IMPORT whose model transport FAILS;"
+     " (C4) left as a DATA PARAMETER realized per-cell at a pin",
+     "RULING ITEM, the author's. ### A DEFINITIONAL RULING, NOT A COMPUTATION -- it cannot settle"
+     " itself. ### THE EXECUTOR NAMES THE CANDIDATES AND CHOOSES NONE   ### as its own act"
+     " recorded it",
+     "data/b237_left_side_assets.txt sec 4a;"
+     " SIDE-global-section/Interfaces/FiniteInstanceIdentity.lean"),
     ("comprehension", "b236",
      "h1 and h2 read at DEPOSIT-VOICE from the verified canonical copy (Zenodo v1.1.2, ms v5.10.2,"
      " 11 files md5-matched against Zenodo's published checksums) and mapped to the now-complete"

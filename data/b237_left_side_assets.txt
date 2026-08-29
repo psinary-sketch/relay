@@ -1,0 +1,250 @@
+====================================================================================================
+b237 -- THE LEFT SIDE'S OWN ASSETS. THE BANK. 2026-08-28. CONCURRENCY: SOLO.
+Ferry part 1 of 1, receipt confirmed IN FULL (Rule 1).
+### READS AND A STATEMENT-READ. ### **NOTHING NEW WAS BUILT, NO OPERATOR CONSTRUCTED, NO
+### REALIZATION INVENTED.** ### **THE RIGHT SIDE WAS NOT CONSULTED FOR ANY LEFT-SIDE STATEMENT.**
+### Nothing about the h2 identity beyond the register sentence exact. Nothing deposits. Locks last.
+====================================================================================================
+
+====================================================================================================
+COMPONENT 1 -- THE READS.
+====================================================================================================
+
+*** ### **(1a) A NAMING INVERSION, REPORTED FIRST BECAUSE IT WOULD HAVE WRECKED THE TABLE.**
+### ### **THE NARRATIVE'S "LEFT" IS FILE E's "RIGHT".** ### §20(a) computes a column headed
+### ### **`LEFT = A − PR`** -- ### **THE LEDGER** -- against a `RIGHT` assembled from `Tr_full`,
+### ### `E2`, `Δ₋`, `Θ_q` -- ### **THE BUILT OBJECT.** ### File E writes `T.value + Q.value =
+### ### W.wInf − W.wPrimes`: ### **the built object on the LEFT, the ledger on the RIGHT.**
+### ### ### **SO THE FERRY'S "LEFT COLUMN" IS THE NARRATIVE'S `RIGHT`.** ### **b219's DOUBLE-NAME
+### ### ### SPECIES, IN THE ACT'S OWN VOCABULARY** -- and an act that read "§20(a)'s Left column" as
+### ### ### a left-side asset would have tabulated ### **THE LEDGER AS THOUGH IT WERE THE OBJECT**,
+### ### ### which is the standing clause's crime committed by a naming slip rather than by intent.
+### ### **THE COLUMN IS READ AS CLAUSE (a) DIRECTS AND THEN NAMED FOR WHAT IT IS.** ***
+
+### **(1b) §25(c)'s THREE LINKS, QUOTED WHOLE.**
+### ### **L2 -- PROVED** (Mathlib leg, `{propext, Classical.choice, Quot.sound}`): "`nested_
+### ### projection_norm_le` — for nested closed subspaces the compressed positive form is dominated:
+### ### the `E₁` positive form ≤ the full Sonin form. The chain's sound archimedean link."
+### ### **L3 -- PROOF GRADE AT THE MODEL:** "the act-9 theorem (`(p^n−p^k)/(p^n−1) < 1`)
+### ### term-by-term against `corr ≥ 0` (structural + checked): `Θ_q(g) ≤ Σ_p W_p(g)` at finite
+### ### level. Vanilla: `InequalityShadow.lean`, 2/2 no axioms."
+### ### **L1 -- THE BREAKING LINK:** "CC's Theorem 1 (banked verbatim: `W_∞(f) ≥ Tr(ϑ(f)S)`) holds
+### ### AT CITE on THEIR window with THEIR `S`; ### **its MODEL TRANSPORT FAILS** … The address: the
+### ### fixed-`c` prolate ladder is NOT CC's window-scaled `S_{∞,λ}` — the effective-mode (Shannon)
+### ### dictionary between the window `a` and the mode count is ### **THE MISSING TRANSPORT**."
+*** ### ### **AND THE READING THAT MATTERS FOR AN ASSET TABLE, REGISTERED IN ADVANCE AND CONFIRMED:
+### ### ### THESE ARE *INEQUALITY* LINKS, NOT REALIZATIONS.** ### "L1+L2+L3 assemble to `object ≤
+### ### ### W_∞ + Σ_p W_p`" assembles ### **A BOUND ON the object, not A VALUE OF it.**
+### ### ### **AN ACT THAT TABULATED L1/L2/L3 AS REALIZATIONS WOULD BE READING `≤` AS `=`.** ***
+
+### **(1c) §20(a)'s LEFT COLUMN:** `A − PR`, from the atlas instruments, at the ### **DIAGONAL a²
+### CELLS 2, 3, 4, 8, 9, 12** *(cell-species said)*, with the per-cell anatomy identity
+### `D = −resid47 − 2·E2 + Δ₋ + (Θ_q − PR)` checking exactly. ### **IT IS THE LEDGER, AND IT IS NOT
+### AN ASSET OF THE LEFT SIDE.**
+### **(1d) act 12's ATLAS CHANNELS:** `carto_atlas.channels(a)` computes for the test function
+### ### **`w` (the bump)**; `b38_act10` computes for ### **`corr = w ⋆ w`** -- b233 established the
+### two are ### **different test functions**, and the left-side channels below all ride `corr`.
+### **(1e) THE DEPOSIT'S FIVE REGISTERS** (b236, DEPOSIT-VOICE): the fourth is "the
+### balance-to-positivity distance at the multiplicative place", mapped at b236 to ### **the sign of
+### `A − PR` at a diagonal a² cell** -- ### **a statement about the LEDGER's shape, not about the
+### object's realization.**
+### **(1f) FILE E's TYPES, AS AMENDED (b235):** `ArchimedeanE1Trace` and `QuotientTrace`, each a
+### structure with a single ### **`value : ℝ` and NO REALIZATION**; the owner lines name ### "the
+### **ε-regularized** archimedean `E₁`-trace" and ### "the **volume-normalized** quotient trace —
+### owner: FILE D … with the volume normalization forced (act 7)".
+### **(1g) THE JUNCTION'S OWNERS, RE-READ ONLY TO MARK WHERE ASSETS STOP:** ### b227 -- "**A
+### STATEMENT CARRYING THE QUOTIENT CHANNEL'S OPERATOR ONTO `S̄_v`, OR CARRYING `u_v` INTO
+### `V_inv`.** … **THE FIRST IS NOT IN THE RECORD.**"; ### b10 -- "**THE FOURIER HALF DOES NOT
+### DESCEND — the transform does not commute with `x ~ px`.**"
+
+====================================================================================================
+COMPONENT 2 -- THE ASSET TABLE.
+====================================================================================================
+### **THE DISTANCE COLUMN IS DECIDED BY QUOTATION, NEVER BY RESEMBLANCE** (b219's hazard, named).
+### **CELL-SPECIES AND SPACE-SPECIES ARE SAID AT EVERY USE** (b221, b219).
+### **NO ASSET IS GRADED BY AGREEMENT WITH `A − PR`** (b229's standing clause).
+
+### ── ASSET 1 ── ### **`trace_modes` (Tr)** -- `tools/e16/b38_act10.py`
+### ###  COMPUTES: `tr[n] = 2∫ corr(u)·A_n(u) du`, `A_n(u) = √λ · ½ · ⟨w·f, f(λ·)⟩`, `f = ξ[:,n]`.
+### ###  CELLS: ### **DIAGONAL a² cells** (2,3,4,8,9,12). ### SPACE: ### **the prolate/Sonin space
+### ###    at the archimedean place**, test-function paired -- ### **NOT `V_inv`, NOT `S̄_v`.**
+### ###  OWNER / GRADE: the bench; ### **BENCH/INSTRUMENT.** *(§25(c)'s L1 shows CC's Theorem 1 does
+### ###    not transport to this ladder -- so its RELATION to CC's `S` is open, but its VALUE is
+### ###    computed.)*
+### ###  DISTANCE FROM `T`: ### **PARTIALLY REALIZES.** File E names the ### **ε-REGULARIZED**
+### ###    archimedean `E₁`-trace; `Tr` is the ### **RAW** mode trace. ### **THE ε IS A SEPARATE
+### ###    CHANNEL (assets 2 and 3), AND File E's `T` IS THE REGULARIZED COMBINATION, NOT `Tr`.**
+
+### ── ASSET 2 ── ### **`e2_of_grid` (E2)** -- same file
+### ###  COMPUTES: `2∫ corr(u)·ε(e^u) du`, ε from `λ²/(1−λ²)` per-mode grids.
+### ###  CELLS: ### **DIAGONAL a²**. ### SPACE: ### **archimedean, the ε-regularization
+### ###    bookkeeping** -- a correction term, not a trace on a space.
+### ###  OWNER / GRADE: §19 records `∫g ε` as ### **"CITED at content; sign on the class derived"**.
+### ###  DISTANCE FROM `T`: ### **PARTIALLY REALIZES** -- a NAMED CONSTITUENT of `T`, not `T`.
+
+### ── ASSET 3 ── ### **`Δ₋`** -- §17's odd-index `t(n)` series
+### ###  OWNER / GRADE, quoted: ### **"COMPUTED IN STRUCTURE (§17): the odd-index `t(n)` series;
+### ###    banked at the `ε′(1⁺)` pin (8.8191 of 22.9965); per-mode positivity structural — ### open
+### ###    only in its trace-class bookkeeping."**
+### ###  SPACE: archimedean. CELLS: ### **DIAGONAL a²**.
+### ###  DISTANCE FROM `T`: ### **PARTIALLY REALIZES**, and ### **ITS OWN OWNER NAMES THE SHORTFALL: the
+### ###    trace-class bookkeeping is the open item, and that bookkeeping IS the ε-regularization
+### ###    File E's type demands.**
+
+### ── ASSET 4 ── ### **`theta_quotient` (Θ_q)** -- same file
+### ###  COMPUTES: per prime `p` at level `n = staircase(p,a)`: `B10.quotient_basis(p,n)`,
+### ###    `B8.scaling_matrix(p,n)`, `S = K Kᵀ`, `tq = |tr(Uᵏ S)| / d`, weighted
+### ###    `log p · tq · 2 · corr(k·log p)`, summed over `k` with `k·log p ≤ 2L`.
+### ###  CELLS: the sum runs over ### **LOCAL (p,n) cells** *(species said)* indexed by the
+### ###    staircase at a ### **DIAGONAL a² cell** *(species said)* -- ### **BOTH SPECIES APPEAR IN
+### ###    ONE FORMULA AND THEY ARE NOT THE SAME NAME.**
+### ###  SPACE: ### **`V_inv`** -- b10's own object, the functions on the orbit space `x ~ px`.
+### ###  OWNER / GRADE, quoted from §19: ### **"DEFINITE (§18): normalization forced (modulo the
+### ###    cited class-richness lemma); the Weil template with fiber-exact weights — open only in
+### ###    its coefficients vs Weil's."**
+### ###  DISTANCE FROM `Q`: ### **PARTIALLY REALIZES -- AND THE PARTIALITY IS SHARPER AND SMALLER
+### ###    THAN THE FACE-OFF CHECKLIST STATES.** ### See Component 3.
+
+### **THE COUNTS.** ### **REALIZES: 0. ### PARTIALLY REALIZES: 4. ### DIFFERENT OBJECT: 0** among
+### the four channels. ### AND, listed separately because they are not channels at all:
+### ### **L1, L2, L3 -- DIFFERENT OBJECT (each is an INEQUALITY LINK, not a realization)**;
+### ### **§20(a)'s `LEFT = A − PR` -- DIFFERENT SIDE (the ledger).**
+### ### **NOTHING IN THE CORPUS REALIZES `T.value` OR `Q.value` OUTRIGHT, AND THIS TABLE DOES NOT
+### ### PRETEND OTHERWISE.**
+
+====================================================================================================
+COMPONENT 3 -- THE JUNCTION, MARKED EXACTLY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+*** (3a) THE FINDING, AND IT IS A NARROWING -- BUT A SMALLER ONE THAN I REGISTERED.
+----------------------------------------------------------------------------------------------------
+### **I REGISTERED THE EXPECTATION** that §19's "DEFINITE … open only in its coefficients vs Weil's"
+### might mean `Θ_q` already realizes `Q.value`, making precondition (2) narrower.
+### ### **THE READ AT CONTENT PARTLY CONFIRMS AND PARTLY REFUTES IT, AND BOTH HALVES ARE REPORTED.**
+### **CONFIRMED:** ### **`Θ_q` COMPUTES A DEFINITE, NORMALIZED QUOTIENT TRACE AT CELLS, IN CODE, ON
+### `V_inv`** -- there is no missing *per-place operator*. ### **The engine is not absent.**
+*** ### **REFUTED:** ### the normalization is `(N-forced)` ### **"at proof grade MODULO ONE CITED
+### ### LEMMA"** (§18), and its ### **FIRST JOINT RUNS THROUGH THE `E₁`-UNIT**, quoted whole:
+### ### ### **"the TAIL: the `E₁`-unit's normalization (`‖unit‖ = 1`) forces the local factor to 1
+### ### ### at every inactive place — ### **the restricted-product trace is DEFINED BY EXACTLY
+### ### ### THIS**."**
+### ### ### **SO THE NORMALIZATION IS NOT FREE OF THE UNIT, AND b227's JUNCTION IS NOT BYPASSED.**
+### ### **THE PRECISE NARROWING, WHICH IS THE ACT'S YIELD:** ### **THE JUNCTION IS AT THE
+### ### ASSEMBLY, NOT AT THE PER-PLACE COMPUTATION.** ### Each per-place term `|tr(UᵏS)|/d` is
+### ### computed on `V_inv` without touching `S̄_v`; ### **what needs the `E₁`-unit is the
+### ### RESTRICTED-PRODUCT assembly across places (§18 joint 1) -- and that is where b227's
+### ### missing statement bites.** ***
+
+----------------------------------------------------------------------------------------------------
+(3b) THE EXACT STEP AT WHICH EACH PARTIAL ASSET MEETS THE NON-DESCENT.
+----------------------------------------------------------------------------------------------------
+### **`Θ_q` (asset 4):** the per-place trace is fine; ### **the assembly step invokes §18 joint 1,
+### which is stated in terms of the `E₁`-unit's norm -- and the `E₁` sector is defined by the
+### transform.** ### b10: ### **"THE FOURIER HALF DOES NOT DESCEND — the transform does not commute
+### with `x ~ px`."** ### b227: ### **"`ω_u` CANNOT BE EVALUATED ON ACT 9's CELL OPERATOR … BECAUSE
+### THE OPERATOR ACTS ON A DIFFERENT SPACE AND THE SECTOR THAT DEFINES THE UNIT IS ABSENT FROM IT."**
+### **`Tr`, `E2`, `Δ₋` (assets 1–3):** these do not meet the non-descent at all -- ### **they are
+### archimedean and never leave `S(1,1)`.** ### They stop somewhere else: at ### **the ε-bookkeeping**
+### (Δ₋'s own owner: "open only in its trace-class bookkeeping") and at ### **L1's missing transport**
+### (the fixed-`c` ladder is not CC's window-scaled `S_{∞,λ}`).
+### ### **TWO DIFFERENT WALLS, AND THE ACT DOES NOT MERGE THEM.**
+
+----------------------------------------------------------------------------------------------------
+*** (3c) THE ENGINE'S REMAINING CONSTRUCTION -- A NAMED LIST WITH SPECIES, NOT A FRONTIER.
+----------------------------------------------------------------------------------------------------
+### **M-1 [RULING].** ### **What `T.value` IS** -- the definitional ruling (Component 4). ### Until
+### it is ruled, no archimedean asset can be said to realize `T`, ### **however well it computes.**
+### **M-2 [RESULT or RULING].** ### **A statement carrying the quotient channel's operator onto
+### `S̄_v`, or carrying `u_v` into `V_inv`** -- b227's words; the second is blocked by b10; ### **the
+### first is not in the record.** ### **THIS IS THE ASSEMBLY STEP, NOT THE PER-PLACE OPERATOR.**
+### **M-3 [RESULT].** ### **The cited class-richness lemma** -- §18 joint 2's own debt: "for each
+### place `v` the class contains elements inactive at `v` — Schwartz–Bruhat structure, at cite;
+### ### **its formalization owed to files B–C.**"
+### **M-4 [RESULT].** ### **The ε trace-class bookkeeping** -- Δ₋'s own open item, and the thing
+### that turns `Tr + E2 + Δ₋` into File E's ### **ε-REGULARIZED** trace.
+### **M-5 [CONSTRUCTION].** ### **The effective-mode (Shannon) dictionary** between the window `a`
+### and the mode count -- §25(c)'s L1: ### **"THE MISSING TRANSPORT."** ### *This is the only item
+### on the list whose species is CONSTRUCTION; the other four are a ruling and three results.*
+### ### ### **THAT IS THE ENGINE'S TRUE REMAINING SIZE: FIVE NAMED ITEMS, OF WHICH ONE IS A
+### ### ### RULING, THREE ARE RESULTS, AND ONE IS A CONSTRUCTION.** ### **NOT A FRONTIER.** ***
+### ### **AND THE HONEST QUALIFIER: this list is what the READS surfaced. ### A list assembled from
+### ### the record is bounded by the record, and b230's species -- an absence that was a relocation
+### ### -- is the reason that sentence is here rather than implied.**
+
+====================================================================================================
+COMPONENT 4 -- THE DOSSIER AND THE FILINGS.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+*** (4a) ### **RULING ITEM: `T.VALUE`.** ### A DEFINITIONAL RULING, NOT A COMPUTATION.
+*** ### **NO RECOMMENDATION IS MADE.**
+----------------------------------------------------------------------------------------------------
+### **EVERY CORPUS SENTENCE BEARING ON WHAT `T.value` IS, QUOTED WITH VOICE AND OWNER:**
+### ### **[SUPPORT-VOICE, File E, its own owner line]:** "the ### **ε-regularized archimedean
+### ### `E₁`-trace** — owner: the ε-lemma's bookkeeping (its geometry now DERIVED, act 15: the pair
+### ### structure whose block inverses are the ε-denominators) and files B–C's `L²(ℚ_p)` for the
+### ### finite factors".
+### ### **[SUPPORT-VOICE, File E, the type]:** `structure ArchimedeanE1Trace (cell) where value : ℝ`
+### ### -- ### **a DATA PARAMETER with no realization.**
+### ### **[PROGRAM-VOICE, §19]:** `Δ₋(g)` "COMPUTED IN STRUCTURE (§17) … ### **open only in its
+### ### trace-class bookkeeping**"; `∫g ε` "CITED at content; sign on the class derived".
+### ### **[PROGRAM-VOICE, §25(a), act 12]:** "the bench's raw mode terms are exactly the terms of
+### ### CC's `Tr(ϑ(g)Sϑ(g)*)` at the model's `S` — and they measured `≥ 0` at every cell".
+### ### **[PROGRAM-VOICE, §25(c) L1]:** CC's Theorem 1 "holds AT CITE on THEIR window with THEIR
+### ### `S`; ### **its MODEL TRANSPORT FAILS**".
+### ### **[PROGRAM-VOICE, §25(c) L2]:** "`nested_projection_norm_le` — … the `E₁` positive form ≤
+### ### the full Sonin form."
+
+### **THE CANDIDATE DEFINITIONS, LISTED WITH WHAT EACH ENTAILS. ### NO RECOMMENDATION.**
+### ### **(C1) `T.value := Tr_full`** (the raw mode trace alone).
+### ###   ENTAILS: the simplest realization; ### **but File E's own owner line says ε-REGULARIZED,
+### ###   so C1 would require amending File E's owner line, not just supplying a value.**
+### ### **(C2) `T.value := Tr_full + E2 + Δ₋`** (the regularized combination the bench assembles).
+### ###   ENTAILS: matches "ε-regularized" in words; ### **inherits Δ₋'s open trace-class
+### ###   bookkeeping (M-4), so the value is defined only as far as that bookkeeping is.**
+### ### **(C3) `T.value := Tr(ϑ(g)Sϑ(g)*)` at CC's `S`** (the positive form of act 12 §25(a)).
+### ###   ENTAILS: ties `T` to an IMPORT; ### **and §25(c)'s L1 says the model transport FAILS, so
+### ###   this defines `T` by an object the model does not carry (M-5).**
+### ### **(C4) `T.value` LEFT AS A DATA PARAMETER**, realized only per-cell by a stated instrument
+### ###   run at a pin.
+### ###   ENTAILS: File E unchanged; ### **the identity stays a statement about supplied numbers,
+### ###   which is what it already is -- and the face-off becomes a per-cell exercise rather than a
+### ###   structural one.**
+### ### ### **FOUR CANDIDATES, EACH WITH A COST. ### THE EXECUTOR NAMES THEM AND CHOOSES NONE.**
+### ### **AN EXECUTOR DOES NOT SETTLE A DEFINITION, AND THIS ONE IS NOT A COMPUTATION THAT COULD
+### ### SETTLE ITSELF.**
+
+----------------------------------------------------------------------------------------------------
+(4b) THE FACE-OFF CHECKLIST, RESTATED WITH (2) RESIZED.
+----------------------------------------------------------------------------------------------------
+### **(1) `T.value`'s definitional ruling -- UNCHANGED, and now with its dossier (4a).**
+### **(2) ### RESIZED:** it was "term 2's engine at the junction", read as a frontier.
+### ### **IT IS NOW FIVE NAMED ITEMS (M-1…M-5), OF WHICH ONE IS A RULING, THREE ARE RESULTS, AND
+### ### ONE IS A CONSTRUCTION** -- and ### **the per-place quotient operator is NOT among them,
+### ### because `Θ_q` already computes it on `V_inv`.** ### **THE JUNCTION IS AT THE ASSEMBLY.**
+### **(3) The Interfaces profile re-print -- ### STILL RIDING THE NEXT KERNEL-TOUCHING ACT.**
+### ### b235 disclosed it, b236 disclosed it, ### **b237 touches no kernel and discloses it a third
+### ### time rather than letting the silence accumulate into a claim.**
+
+----------------------------------------------------------------------------------------------------
+(4c) THE FILINGS.
+----------------------------------------------------------------------------------------------------
+### 1. ### **RULING ITEM: `T.VALUE`** (4a) -- four candidates, ### **no recommendation.**
+### 2. ### **THE ASSET TABLE**, four channels at PARTIAL, the links as DIFFERENT OBJECT, §20(a)'s
+###    column as ### **THE OTHER SIDE.**
+### 3. ### **M-1…M-5**, the engine's remaining work as a species-tagged list.
+### 4. ### **THE NAMING INVERSION** (narrative `LEFT` vs File E `left`) as a standing caution.
+### 5. ### **`W-ORD-IMP1-BUDGET` RESTATED AS THE RECOMMENDED NEXT BOUNDED ACT** -- it is bounded, it
+###    has a registered hypothesis (b234), and ### **it needs no ruling to start.**
+### 6. ### **THE RECONCILIATION WAVE** named as the post-checklist program, and ### **the patent
+###    session's slot noted -- it can slot at any STOP.**
+### 7. The register; the seam's debt; HANDOFF; every asset keyed.
+
+====================================================================================================
+### WHAT THIS ACT DID NOT DO: ### **NOTHING BUILT, NO OPERATOR CONSTRUCTED, NO REALIZATION
+### INVENTED.** ### **NO ASSET GRADED BY AGREEMENT WITH THE RIGHT SIDE.** ### No identification
+### across spaces by resemblance. ### No recommendation on `T.value`. ### No kernel touched and no
+### profile re-elaborated (disclosed). ### **NOTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT.
+### NOTHING DEPOSITS. LOCKS LAST.**
+====================================================================================================
