@@ -314,6 +314,9 @@ KEYS = {
                     'the balance residual', 'the two Delta_- realizations'],
     'limit-profile': ['the limit profile', 'the cutoff ladder', 'the balance along a^2',
                       'the junction sawtooth', 'the staircase sawtooth', 'sixteen cells'],
+    'contribution-map': ['the contribution map', 'the whole position at grade',
+                         'the patent session input', 'the fold-forward ledger',
+                         'h2-dependency column', 'the figure candidates'],
     # ### AND THE ALIASES b241 DELIBERATELY **DOES NOT** ADD, EXTENDING b181's PRECEDENT:
     # ### the bare 'orientation' (ambiguous against sign-atlas, alpha and alternation);
     # ### the bare 'aggregation' (it belongs to quotient-trace, whose row STATES the absence,
@@ -1512,6 +1515,37 @@ INDEX = [
      'ladder measures powers of a fixed prime set, not a growing place set',
      'data/b255_limit_profile.txt; data/b255_run.txt; data/b255_pricing.txt; '
      'data/b255_meanings.txt; reports/2026-08-29-the-limit-profile.md'),
+    ('contribution-map', 'b256 (reads + one document at support-voice)',
+     'the whole research position stated at grade in ONE document, placed at '
+     'PLACE-papers/phase1.5/method/CONTRIBUTION_MAP_2026-08.md. ### CLASS LINE: TIER N * '
+     'PRIVATE * PATENT-SESSION INPUT * **STATES GRADES, CONFERS NONE**. ### 18 rows, each '
+     'carrying grade-today + owner + AIM + h2-dependency + filing touched + figure '
+     'candidates; plus the fold-forward ledger b234-b255 with **every obstacle QUOTED from '
+     'its owning act** (22 acts, 22 reports, count reconciled); plus two annexes',
+     '### **NO GRADE MOVED.** ### h2-dependency: 13 NO, 5 YES (adjacent), and **EVERY '
+     'PATENT-FACING ROW IS NO** -- verified by reading the claim-backing table FIRST (its ten '
+     'rows are QEC / Fano-Steane / Epstein / spinor / cross-exclusion terminals, none '
+     'touching the RH identity). ### **THE YES ROWS ARE MARKED *ADJACENT*: they are the rows '
+     'h2 would BEAR ON if it moved, not rows that assume it -- a blanket sentence would have '
+     'hidden that and a column shows it.** ### Counts RE-COUNTED from the filesystem: **44 '
+     'built** (11+13+7+6+4+3) and **REVIEW_SET_2026-08 = 31**, both matching the session '
+     'header exactly; the bare find count of 82 files / 51 unique basenames is reconciled as '
+     'STAGING COPIES, not a divergence. ### **AND THE ONE ITEM THE ACT COULD NOT DELIVER, AT '
+     'FULL PROMINENCE: SIGNEDNESS (S.I.D.E+S) WAS TO BE *QUOTED* AND IS NOT IN THIS SEAT '
+     'REACH OR IN THE CORPUS -- zero occurrences across relay/ and all of PLACE-papers/. ### '
+     'RECORDED AS A NAMED SLOT WITH OWNER AND ROUTE, QUOTATION MARKED OWED, NOT PARAPHRASED '
+     'AND NOT INVENTED.** ### J1 recorded PARKED-BY-AUTHOR (save); J2 UNPROMOTED CANDIDATE; '
+     'no annex-A candidate marked Priority-A. ### **AND A LIVE b148 CONDITION FOUND AND '
+     'REPORTED: SEVEN PATENT-SEAT FIGURE DIRECTORIES SIT UNTRACKED IN THE SHARED WORKTREE, '
+     'DATED 2026-08-24, HOLDING THE 44 FIGURES AND THE SIX BATCH RECORDS** -- not this act '
+     'doing (verified by mtime), not staged by it (place_add.py used), and reported rather '
+     'than resolved. ### Hook exercised: CLEAN, 0 foreign hits. ### Mirror rebuilt and '
+     'verified CLEAN on all three clauses (40 files, HEAD 2bcdff5 vs ls-remote). ### '
+     '**STANDING PRACTICE INSTITUTED: every profile act bank ends with a chart-ready CSV '
+     'block of all columns** -- applied retrospectively to b255',
+     'PLACE-papers/phase1.5/method/CONTRIBUTION_MAP_2026-08.md; '
+     'data/b256_contribution_map.txt; data/b256_b255_profile.csv; '
+     'reports/2026-08-29-the-contribution-map.md'),
     ('rule-modes', 'b250 (AMENDING b244/b245; the earlier rows STAND)',
      '### **THE K1 BAR TAIL TERM IS NO LONGER UNBOUNDED.** ### The rows above record that a '
      'bar written per RULE MODES K1 carries an UNBOUNDED term and that b245 must say so in '
