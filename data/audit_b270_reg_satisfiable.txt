@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b270_registration_2026-08-31.txt  (M-2 CAMPAIGN, ACT 4)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (J1) single allocation <= 256 MB   256              0.994            MB     SATISFIABLE
+      demand from : dense S_quot at the largest cell (19,1): N = p^(2n) = 361; 8 * 361^2 B = 0.994 MB
+  (J2) <= 8 dense NxN live at once   256              7.96             MB     SATISFIABLE
+      demand from : 8 * 0.994 MB -- S_quot, U, U^k, products and the T_quot control, all at N = 361
+  (J3) exact-arithmetic degree cap   1024             722              deg    SATISFIABLE
+      demand from : unreduced products in Z[zeta_N] have degree < 2N = 722; modulus Phi_361 has degree phi(361) = 342
+  (J4) runtime <= 600 s              600              120              s      SATISFIABLE
+      demand from : b268 ran the same exact cyclotomic machinery over the same eight places; dense linear algebra at N <= 361 is negligible beside it. MEASURED PRECEDENT, NOT A GUESS.
+  (J5) k-range 1 <= k <= 2n-1        3                3                k      SATISFIABLE
+      demand from : b10's own range at n <= 2. NO LADDER IS REGISTERED, so no ladder can outrun a ceiling (b264's species).
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

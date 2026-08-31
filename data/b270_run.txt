@@ -1,0 +1,105 @@
+====================================================================================================
+b270 -- COMPONENT 1. ### THE AMBIENT PAIRING, DERIVED. ### EXACT ARITHMETIC IN Q(zeta_N).
+### REGISTRATION data/b270_registration_2026-08-31.txt SEALED 96ac5b1e BEFORE ANY VALUE.
+### **THE PAIRING IS DERIVED AGAINST SPEC-1/2/3. ### IT IS NOT ADOPTED. ### M-2 IS OWED.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE CELLS, AND THE CONTROLS ON THE INSTRUMENT.
+----------------------------------------------------------------------------------------------------
+  (p,n)  q    N      |ball|  classes  orb.pairs supp(u_v)   zero set = ball?
+  (2,2)  4    16     4       4        8         12          YES
+  (3,1)  3    9      3       6        0         6           YES
+  (5,1)  5    25     5       20       0         20          YES
+  (7,1)  7    49     7       42       0         42          YES
+  (11,1) 11   121    11      110      0         110         YES
+  (13,1) 13   169    13      156      0         156         YES
+  (17,1) 17   289    17      272      0         272         YES
+  (19,1) 19   361    19      342      0         342         YES
+
+  ### CONTROL A -- b268's DERIVED SUPPORT N - q, RE-ESTABLISHED EXACTLY HERE: ALL 8 CELLS
+  ### CONTROL B -- THE ZERO SET OF u_v IS EXACTLY THE BALL: ALL 8 CELLS
+  ### ### **THAT IS THE WHOLE OF b10's BALL-AVOIDANCE HALF, MET BY u_v OUTRIGHT --
+  ### ### NOT ARRANGED, BUT INHERITED FROM b268's ALREADY-BANKED RESULT.**
+
+----------------------------------------------------------------------------------------------------
+### (2) S1 -- THE PROJECTION. ### **WHAT IS S_quot u_v?**
+----------------------------------------------------------------------------------------------------
+  (p,n)  S_quot u_v   supp(S_quot u_v) = u_v exactly? ball vector -> 0? (F-S1 ctrl)
+  (2,2)  NONZERO      12               no             YES
+  (3,1)  NONZERO      6                YES            YES
+  (5,1)  NONZERO      20               YES            YES
+  (7,1)  NONZERO      42               YES            YES
+  (11,1) NONZERO      110              YES            YES
+  (13,1) NONZERO      156              YES            YES
+  (17,1) NONZERO      272              YES            YES
+  (19,1) NONZERO      342              YES            YES
+  ### S1 VERDICT: S_quot u_v NONZERO at 8 of 8 cells
+
+----------------------------------------------------------------------------------------------------
+### (3) THE PAIRING P(k) AND b10's TRACE T_quot(k), SIDE BY SIDE, NAMED SEPARATELY.
+### **THIS IS NOT A TABLE HEADED BY act 9's CLOSED FORM. ### NO TARGET APPEARS IN IT.**
+----------------------------------------------------------------------------------------------------
+  (p,n)  k   P(k)*p^{k/2}   P(k) zero?  Tr(U^k S_quot)*p^{k/2} k vs n
+  (2,2)  1   (not rational) nonzero     8/3                    k < n
+  (2,2)  2   0              ### ZERO ### 0                      k = n
+  (2,2)  3   0              ### ZERO ### 0                      k > n
+  (3,1)  1   0              ### ZERO ### 0                      k = n
+  (5,1)  1   0              ### ZERO ### 0                      k = n
+  (7,1)  1   0              ### ZERO ### 0                      k = n
+  (11,1) 1   0              ### ZERO ### 0                      k = n
+  (13,1) 1   0              ### ZERO ### 0                      k = n
+  (17,1) 1   0              ### ZERO ### 0                      k = n
+  (19,1) 1   0              ### ZERO ### 0                      k = n
+
+----------------------------------------------------------------------------------------------------
+### (4) S4 -- (SPEC-1) AT k = n. ### **THE BINDING TEST.**
+----------------------------------------------------------------------------------------------------
+  (2,2)  P(n) IS EXACTLY ZERO
+  (3,1)  P(n) IS EXACTLY ZERO
+  (5,1)  P(n) IS EXACTLY ZERO
+  (7,1)  P(n) IS EXACTLY ZERO
+  (11,1)  P(n) IS EXACTLY ZERO
+  (13,1)  P(n) IS EXACTLY ZERO
+  (17,1)  P(n) IS EXACTLY ZERO
+  (19,1)  P(n) IS EXACTLY ZERO
+
+  ### **(SPEC-1) "IT COUNTS FIRST LEVELS": REFUTED AT EVERY CELL -- THE PAIRING VANISHES AT k = n**
+
+----------------------------------------------------------------------------------------------------
+### (5) S3 -- (SPEC-2) AT k <= n-1.
+----------------------------------------------------------------------------------------------------
+  cells where 1 <= k <= n-1 IS AN EMPTY RANGE : 7 of 8
+  ### ### **AT EVERY ODD PLACE b226 PUTS THE UNIT AT LEVEL 1, SO n = 1 AND (SPEC-2) HAS
+  ### ### NO CELL TO SPEAK ABOUT. ### THE SPEC IS VACUOUS THERE, NOT SATISFIED.**
+  (2,2) k=1 : pairing*p^{k/2} = (not rational)   act 9 term*p^{k/2} = 2/3   AGREE: ### NO ###
+    ### THE PAIRING'S EXACT VALUE THERE, ON zeta^0..zeta^{phi(N)-1}:
+    ###   64/3 0 64/3 0 0 0 -64/3
+    ### ### **IT IS NOT A RATIONAL NUMBER. ### act 9's TERM IS 2/3, A
+    ### ### RATIONAL. ### THE TWO DO NOT DIFFER IN VALUE; THEY DIFFER IN
+    ### ### KIND, AND NO CHOICE OF NORMALISATION CLOSES THAT.**
+    ### CERTIFIED EXACTLY: (zeta^2 - zeta^6)^2 = 2 : YES
+    ### CERTIFIED EXACTLY: the pairing = (64/3)(1 + (zeta^2 - zeta^6)) : YES
+    ### ### **SO P(1) * 2^{1/2} = (64/3)(1 + 2^{1/2}), AN IRRATIONAL REAL,
+    ### ### WHERE act 9's TERM IS 2/3. ### THE MISMATCH IS ALGEBRAIC AND
+    ### ### EXACT, AND IT IS NOT A MATTER OF SCALE.**
+
+----------------------------------------------------------------------------------------------------
+### (6) F-NONTRIV -- THE POSITIVE CONTROL AGAINST A TRIVIALLY ZERO OBJECT.
+----------------------------------------------------------------------------------------------------
+  (cell, k) with P(k) NONZERO : 1
+  witnesses : (2,2) k=1
+  ### **THE PAIRING IS NOT THE ZERO OBJECT. ### ITS VANISHING AT k = n IS A FACT
+  ### ABOUT k = n, NOT AN ARTEFACT OF A DEAD INSTRUMENT.**
+
+----------------------------------------------------------------------------------------------------
+### (7) F-DISTINCT -- THE DOUBLE-NAME HAZARD, SETTLED BY MEASUREMENT.
+----------------------------------------------------------------------------------------------------
+  ### THE TEST IS ONE EXACT EQUALITY OF REDUCED VECTORS IN Q(zeta_N), NOT A BRANCHING
+  ### PREDICATE. ### **THE BRANCHING FIRST DRAFT HAD NO ARM FOR A NON-RATIONAL PAIRING
+  ### AND SO REPORTED AGREEMENT OVER A COMPARISON IT NEVER MADE. ### DECLARED.**
+  (cell,k) where P(k) AND Tr(U^k S_quot) DISAGREE : 1
+  (2,2) k=1
+  ### **THE PAIRING AND THE TRACE ARE DIFFERENT OBJECTS, PROVED BY MEASUREMENT AND
+  ### NOT BY ASSERTION. ### THAT IS b227's DOUBLE-NAME HAZARD MADE ARITHMETIC.**
+

@@ -1,0 +1,312 @@
+====================================================================================================
+b270 -- THE BANK. 2026-08-31. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 4 -- THE AMBIENT PAIRING'S PROPERTIES.
+### ### **VERDICT: (DEAD). ### C1 IS STRUCK FROM THE DOSSIER. ### THE FORK IS THREE.**
+### ### **NO CANDIDATE IS ADOPTED. ### M-2 REMAINS OWED. ### NOTHING DEPOSITS.**
+Registration data/b270_registration_2026-08-31.txt, SEALED 96ac5b1e BEFORE ANY VALUE EXISTED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) THE RULING EXECUTED, AND WHICH HALF OF IT FIRED.
+----------------------------------------------------------------------------------------------------
+### **"RULE M2-ACT4: D -- derive the ambient pairing's properties against SPEC-1/2/3 without
+### adopting it; C1's ruling is taken only if the derivation supports it, and C1 is struck from
+### the dossier if the derivation refutes it. No candidate is adopted by this act."**
+### ### **THE DERIVATION REFUTES IT. ### THE SECOND HALF FIRES. ### C1 IS STRUCK.**
+### The author's ruling was conditional and the condition is now decided, so nothing about C1 is
+### routed back: ### **THE RULING ALREADY SAID WHAT TO DO IN THIS BRANCH AND THIS ACT DID IT.**
+
+----------------------------------------------------------------------------------------------------
+### (1) THE THREE OBJECTS, NAMED APART. ### THE DOUBLE-NAME SPECIES IS THE HAZARD.
+----------------------------------------------------------------------------------------------------
+###   ### **THE PAIRING**  `P(k) = <U^k S_quot u_v, u_v>` -- ### A SINGLE MATRIX ELEMENT ###
+###     against b226's chosen unit. ### **THIS IS C1'S OBJECT AND IT IS WHAT THIS ACT DERIVED.**
+###   ### **THE TRACE**    `T_quot(k) = |Tr(U^k S_quot)|` -- b10's AMBIENT TRACE, choice-free.
+###   ### **act 9's TERM** `tau_q(p,n,k) p^{k/2} = (p^n - p^k)/(p^n - 1)`, `1 <= k <= n-1`.
+### ### **THREE OBJECTS, NOT THREE NAMES FOR ONE, AND EVERY SENTENCE BELOW SAYS WHICH.**
+### **NO NUMBER IN THIS BANK IS PLACED IN A TABLE HEADED BY act 9's CLOSED FORM, AND NO
+### COMPARISON TO ANY TARGET WAS RUN.** ### b262's first-level mass IS NOT MENTIONED AGAIN.
+
+----------------------------------------------------------------------------------------------------
+### (2) THE INSTRUMENT. ### IMPORTED FROM ITS OWNERS, NOT RECONSTRUCTED.
+----------------------------------------------------------------------------------------------------
+### `b8_sonin_dim.model` : `N = p^(2n)`, ball = multiples of `p^n`. ### `scaling_matrix` :
+### `U e_m = e_{pm mod N} / sqrt(p)`. ### `b10_cells.quotient_basis` : union-find on `m ~ pm`
+### restricted to BOTH off-ball, `S_quot = K K^T`. ### `b268_generator.u_coeffs` : IMPORTED AS A
+### MODULE, so `u_v` is b268's vector and not a re-derivation of it.
+### **b10's OWN WORDS FOR THE SPACE, QUOTED:** ### *"V_inv = { f supported off the ball : f(m') =
+### f(m) whenever m' = p m mod N and both m, m' off-ball }"* ### and ### *"S_quot =
+### orthoprojection onto"* ### `V_inv`.
+### **EVERY VERDICT BELOW WAS TAKEN IN `Q(zeta_N)` BY REDUCTION MODULO `Phi_N`. ### NO FLOAT
+### ENTERS THE DECIDING RUNNER AT ALL** -- gate 7 tokenizes it and counts zero.
+
+----------------------------------------------------------------------------------------------------
+### (3) S1 -- THE PROJECTION. ### **THE NAVIGATOR'S ASSERTION WAS TESTED AND IS REFUTED.**
+----------------------------------------------------------------------------------------------------
+### The registration recorded the navigator's line to be tested, never assumed: ### *"if E_1 is
+### absent from V_inv the projection may vanish, which would refute C1 in one line."*
+### ### **IT DOES NOT VANISH. ### `S_quot u_v` IS NONZERO AT ALL EIGHT CELLS.**
+### THE REASON, DERIVED FROM OWNERS AND THEN CONTROLLED EXACTLY:
+###   ### **(i) `u_v` ALREADY SATISFIES THE BALL-AVOIDANCE HALF.** ### b268 derived the zero set
+###     of `u_v` to be the multiples of `q`; b226 puts the unit at level `ell(p)`, and the model
+###     cell that holds it is `n = ell(p)`, where the ball IS the multiples of `p^n = q`.
+###     ### **SO THE ZERO SET OF `u_v` IS EXACTLY THE BALL -- RE-ESTABLISHED HERE AT ALL EIGHT
+###     CELLS, WITH `support = N - q` REPRODUCING b268's BANKED COUNT.** ### That is b10's
+###     *"SONIN-TYPE CONDITION TRANSPOSED: support off the ball (the ball-avoidance half)"*, met
+###     outright -- ### **INHERITED, NOT ARRANGED.**
+###   ### **(ii) AT LEVEL 1 THE ORBIT RELATION IS EMPTY.** ### If `p` does not divide `m` then
+###     `pm` is a multiple of `p`, which is the ball; so NO off-ball `m` has `pm` off-ball, every
+###     class is a singleton, `V_inv` is ALL off-ball functions and `S_quot` is multiplication by
+###     the off-ball indicator. ### **HENCE `S_quot u_v = u_v` EXACTLY, AT ALL SEVEN LEVEL-1
+###     CELLS.** ### At `(2,2)` the relation is NOT empty (8 off-ball pairs, 4 classes of size 3)
+###     and `S_quot u_v` is nonzero but NOT equal to `u_v`, exactly as registered.
+### **F-S1's POSITIVE CONTROL PASSED AT EVERY CELL:** a vector supported ON the ball projects to
+### exactly zero, so the projector is not the identity in disguise.
+### ### **THE ROUTE THEREFORE DID NOT HALT AT S1, AND C1 DIES FURTHER DOWN -- WHICH MATTERS,
+### ### BECAUSE IT DIES OF SOMETHING THE ONE-LINE ARGUMENT WOULD HAVE MISSED.**
+
+----------------------------------------------------------------------------------------------------
+### (4) S2 -- THE RELATION. ### **A MATRIX ELEMENT IS NOT A TRACE.**
+----------------------------------------------------------------------------------------------------
+### `Tr(U^k S_quot)` is the sum of `<U^k S_quot e_i, e_i>` over ANY orthonormal basis -- it is
+### independent of every choice. ### `P(k)` is ONE such number, at ONE vector, and that vector is
+### b226's choice of level together with b268's `(1,1)` generator.
+### ### **THE TWO AGREE ONLY IF THE WHOLE TRACE IS CONCENTRATED IN THE `u_v` DIRECTION, i.e.
+### ### ONLY IF `U^k S_quot` IS, UP TO SCALE, THE RANK-ONE PROJECTION ONTO `u_v`. ### NOTHING IN
+### ### THE CORPUS SAYS SO, AND THE MEASUREMENT SAYS OTHERWISE.**
+### **MEASURED, AT THE ONE CELL WHERE BOTH ARE NONZERO:** at `(2,2)`, `k = 1`,
+###   ### `P(1) * 2^{1/2} = (64/3)(1 + 2^{1/2})`   ### `Tr(U S_quot) * 2^{1/2} = 8/3`.
+### ### **THEY DIFFER. ### THE DOUBLE-NAME HAZARD IS SETTLED BY MEASUREMENT AND NOT BY
+### ### ASSERTION** -- which is the only way this seat is entitled to settle it.
+### **AND THE FIRST DRAFT OF THAT COMPARISON WAS WRONG. ### DECLARED AT (10)(D1).**
+
+----------------------------------------------------------------------------------------------------
+### (5) S3 -- (SPEC-2). ### **REFUTED, TWICE OVER, FOR TWO INDEPENDENT REASONS.**
+----------------------------------------------------------------------------------------------------
+### **WHAT (SPEC-2) DEMANDS, VERBATIM:** ### *"(SPEC-2) IT REDUCES TO `Theta_q`'s TERMS AT LEVELS
+### `k <= n-1`."*
+###   ### **(a) THE RANGE IS EMPTY WHERE THE UNIT LIVES. ### SEVEN OF EIGHT CELLS.** ### b226
+###     puts the unit at level 1 for every odd `p`, so `n = 1` and `1 <= k <= n-1` IS AN EMPTY
+###     RANGE. ### **(SPEC-2) IS VACUOUS AT EVERY ODD PLACE -- NOT SATISFIED THERE, VACUOUS
+###     THERE.** ### A spec that has no cell to speak about has not been met.
+###   ### **(b) WHERE THE RANGE IS NOT EMPTY, THE TWO OBJECTS DIFFER IN KIND.** ### At the one
+###     testable cell `(2,2)`, `k = 1`:
+###       ### the pairing        `P(1) * 2^{1/2} = (64/3)(1 + 2^{1/2})`
+###       ### act 9's term       `(p^n - p^k)/(p^n - 1) = 2/3`
+###     ### **THE PAIRING IS NOT A RATIONAL NUMBER. ### act 9's TERM IS. ### THEY DO NOT DIFFER
+###     IN VALUE; THEY DIFFER IN KIND, AND NO CHOICE OF NORMALISATION CLOSES THAT.**
+###     THE IDENTIFICATION IS CERTIFIED, NOT ASSERTED: the runner proves `(zeta^2 - zeta^6)^2 = 2`
+###     and proves the pairing equals `(64/3)(1 + (zeta^2 - zeta^6))`, both by the same reduction
+###     modulo `Phi_16` that took every other verdict.
+###   ### **(c) AND A THIRD REASON, STRUCTURAL, WHICH NEEDED NO ARITHMETIC AT ALL:** ### `P(k)`
+###     is computed in the FIXED space of the cell `(p, ell(p))`; it depends on `p`, `ell(p)` and
+###     `k` ### AND NOT ON `n`. ### `Theta_q`'s term VARIES WITH `n`. ### **A QUANTITY CARRYING
+###     NO `n` CANNOT EQUAL A FAMILY THAT VARIES WITH `n`.**
+
+----------------------------------------------------------------------------------------------------
+### (6) S4 -- (SPEC-1). ### **THE BINDING REFUTATION. ### THE PAIRING IS EXACTLY ZERO AT k = n.**
+----------------------------------------------------------------------------------------------------
+### **WHAT (SPEC-1) DEMANDS, VERBATIM:** ### *"(SPEC-1) IT COUNTS FIRST LEVELS."*
+### **THE DERIVATION, FROM THE AMBIENT OPERATOR'S OWN DEFINITION:**
+###     `P(k) = p^{-k/2} SUM_m (S_quot u_v)(m) * conj( u_v(p^k m mod N) )`.
+### ### **AT `k = n`, `p^n m` IS A MULTIPLE OF `p^n` FOR EVERY `m` -- THAT IS THE BALL -- AND
+### ### `u_v` VANISHES ON THE BALL. ### EVERY SUMMAND CARRIES THE FACTOR `u_v(ball) = 0`.**
+### ### ### **`P(n) = 0`. ### IDENTICALLY. ### EXACTLY. ### AT ALL EIGHT CELLS.**
+### **AND THE SAME ARGUMENT KILLS EVERY `k >= n`.**
+### **THE COINCIDENCE WITH act 9's DEAD RANGE IS NOT AN IDENTITY OF OBJECTS AND IS NOT REPORTED
+### AS ONE:** ### act 9's expression dies at `k >= n` BY ITS OWN ARITHMETIC; ### **THE PAIRING
+### DIES BECAUSE THE UNIT VANISHES EXACTLY WHERE THE OPERATOR SENDS EVERYTHING.** ### Two
+### mechanisms, one range. ### **THE AGREEMENT OF RANGES IS A FACT ABOUT RANGES.**
+### **THE FALSIFIER F-SPEC1 DID NOT FIRE:** no cell produced a nonzero `P(n)`.
+### **AND THE ZERO IS NOT AN ARTEFACT OF A DEAD INSTRUMENT (F-NONTRIV):** ### the pairing IS
+### nonzero at `(2,2)`, `k = 1`. ### **THE OBJECT IS ALIVE; IT IS DEAD AT `k = n` SPECIFICALLY.**
+
+----------------------------------------------------------------------------------------------------
+### (7) ### **THE CONSEQUENCE THAT REACHES PAST C1, AND ITS SCOPE STATED AS PRECISELY AS ITSELF.**
+----------------------------------------------------------------------------------------------------
+### The absorption is a property of the OPERATOR, not of the unit: `S_quot` is zero on ball
+### columns and `p^n m` is always in the ball, so `(S_quot)_{m, p^n m} = 0` for every `m`.
+### ### **THEREFORE `Tr(U^n S_quot) = 0` AS WELL -- AND IT IS 0 AT ALL EIGHT CELLS, MEASURED.**
+### ### **SO (SPEC-1) IS NOT MET BY THE AMBIENT TRACE EITHER. ### DROPPING `u_v` AND USING b10's
+### ### CHOICE-FREE TRACE DOES NOT RESCUE THE ROUTE.**
+### **SCOPE, EXACTLY (lore rule 21):** ### this is derived generally for `S_quot` and `U` AS THE
+### TRUNCATED MODEL DEFINES THEM, and controlled exactly at the eight cells b226's choice
+### reaches. ### **IT IS A STATEMENT ABOUT THE MODEL'S AMBIENT OPERATORS AT `k = n`. ### IT IS
+### NOT A STATEMENT ABOUT THE INFINITE OBJECT, AND b10's OWN REGISTERED MODEL LIMITATION -- THE
+### TRUNCATED `U` IS NOT INVERTIBLE -- STANDS BESIDE IT UNTOUCHED.**
+### **AND IT DOES NOT RE-VERDICT b10** (b246): ### b10 registered vanishing as its own `Q2` and
+### this is a rediscovery on a different vector at different cells. ### **BY LORE RULE 17 THAT IS
+### CORROBORATION, NOT A FINDING, AND IT IS FILED AS CORROBORATION.**
+
+----------------------------------------------------------------------------------------------------
+### (8) S5 -- (SPEC-3). ### **MET IN LETTER, AND MOOT.**
+----------------------------------------------------------------------------------------------------
+### **VERBATIM:** ### *"(SPEC-3) IT IS DEFINED OVER ALL PRIMES, NOT A FIXED SET."*
+### The pairing IS defined at every prime: b268 gives `u_v != 0` at every odd `p` at level 1, and
+### at `p = 2` only via b226's step-up to level 2, which b267 already established (SPEC-3)
+### requires of any candidate. ### **SO THE LETTER IS MET.**
+### ### **AND IT IS MOOT, AND MUST NOT BE REPORTED AS A PASS THAT MATTERS: ### AN OBJECT THAT IS
+### ### IDENTICALLY ZERO AT `k = n` IS DEFINED EVERYWHERE AND COUNTS NOTHING EVERYWHERE.**
+
+----------------------------------------------------------------------------------------------------
+### (9) ### **THE VERDICT, AND C1's STATUS.**
+----------------------------------------------------------------------------------------------------
+### ### ### **(DEAD). ### (SPEC-1) IS REFUTED BY DERIVATION AND (SPEC-2) IS REFUTED TWICE.**
+### ### ### **C1 -- THE AMBIENT PAIRING -- IS STRUCK FROM THE DOSSIER.**
+### **F-VIABLE FORBADE (VIABLE) UNLESS ALL THREE SPECS HELD. ### TWO FAILED. ### (VIABLE) WAS
+### NOT AVAILABLE AND WAS NOT TAKEN.**
+### **THE EXCLUSION, STATED:** ### C1 is excluded not because it is unruled but ### **BECAUSE IT
+### CANNOT MEET (SPEC-1) AT ALL: ### ITS VALUE AT `k = n` IS EXACTLY ZERO, AND (SPEC-1) IS
+### PRECISELY THE DEMAND FOR A NONZERO FIRST-LEVEL TERM.** ### The ruling C1 wanted -- that the
+### ambient object IS the intended per-place quantity -- ### **IS NOW UNAVAILABLE TO GRANT: THE
+### AUTHOR IS SPARED A RULING RATHER THAN OWED ONE.**
+### **AND b269's STATED RISK IS DISCHARGED IN THE ONLY HONEST DIRECTION.** ### b269 wrote that
+### *"b227 REFUSED NUMBERS OF EXACTLY THIS SHAPE AS THE DOUBLE-NAME"* species and that the ruling
+### *"would have to say why this one is not that."* ### **NO SUCH SAYING IS NEEDED NOW. ### THE
+### CANDIDATE IS NOT REFUSED FOR BEING THE DOUBLE-NAME SPECIES; ### IT IS REFUTED ON ITS OWN
+### ARITHMETIC, WHICH IS A STRICTLY STRONGER AND STRICTLY CHEAPER OUTCOME.**
+
+----------------------------------------------------------------------------------------------------
+### (10) ### **THE FORK IS THREE.**
+----------------------------------------------------------------------------------------------------
+### **C2 -- EXTEND THE PROJECTION TO AN ACTION.** ### Wants a ### RESULT ### (what `S_quot` does
+###   to `E_1`). ### Medium. ### **b268's A1 does not transfer without it.**
+### **C3 -- PUT AN ORBIT STRUCTURE ON `S-bar_v`.** ### Wants ### BOTH ### . ### Highest cost.
+###   ### **AND THIS ACT HAS RAISED ITS STANDING WITHOUT RECOMMENDING IT:** ### b269 already
+###   recorded that C3 *"is the only candidate that would give a number defined AT `k = n`"*, and
+###   ### **(7) NOW SHOWS THAT NEITHER AMBIENT OBJECT GIVES ONE. ### THAT IS AN OBSERVATION
+###   ABOUT THE OTHERS, NOT A RECOMMENDATION OF C3, AND THIS SEAT DOES NOT RANK THEM.**
+### **C4 -- CHANGE THE UNIT.** ### Wants a ### RULING ### . ### Re-opens A1.
+###   ### **NOTE, AND IT IS NOT A RANKING EITHER:** ### (6)'s refutation does NOT depend on WHICH
+###   vector is used -- it depends only on `u_v` vanishing on the ball, which is what MAKES it a
+###   Sonin vector. ### **SO C4 CANNOT ESCAPE (6) BY CHANGING THE UNIT WITHIN `Son(p,n)`.** ###
+###   A C4 that leaves `Son(p,n)` is a different candidate than the one b269 filed.
+### ### **THIS SEAT STILL DOES NOT RULE THE FORK. ### IT HAS REMOVED ONE PRONG BY DERIVATION AND
+### ### SHARPENED WHAT TWO OF THE REMAINING THREE WOULD HAVE TO OVERCOME.**
+
+----------------------------------------------------------------------------------------------------
+### (11) ### **M-2's ROW.**
+----------------------------------------------------------------------------------------------------
+### **STATUS: ### SPECIFIED-NOT-STATED ### . ### UNCHANGED. ### NO AGGREGATION ADOPTED.**
+### **WHAT THIS ACT NARROWED, WITHOUT INFLATION:** ### the dossier is four candidates smaller by
+### one, and the removal was paid for with a derivation rather than a ruling. ### **THE THREE
+### NAMED DEMANDS b269 LEFT ARE UNCHANGED IN KIND:** the action is absent (b228); the orbit
+### structure on `S-bar_v` is a choice not in the record; the state route is refuted.
+### ### **NONE OF THAT IS M-2. ### M-2 IS STILL NOT STATED.**
+
+----------------------------------------------------------------------------------------------------
+### (12) ### **THE SHADOW. ### BUILT, AND THE CONDITION CHECKED BEFORE BUILDING IT.**
+----------------------------------------------------------------------------------------------------
+### b269's precedent was applied again and ANSWERED DIFFERENTLY, with the reason stated. ### b269
+### quoted: ### *"A TOY MODEL WOULD HAVE COMPILED CLEANLY AND SETTLED NOTHING,"* ### and built
+### nothing. ### **THE DIFFERENCE HERE IS NOT A CHANGE OF STANDARD BUT A CHANGE OF CONTENT:**
+### the residue below is NOT a stand-in for the derivation's mechanism -- ### **IT IS THAT
+### MECHANISM, AND IT HAPPENS TO BE FINITE ARITHMETIC ON `Z/p^{2n}`.**
+### `SIDE-global-section/Core/BallAbsorptionShadow.lean` -- vanilla Lean 4, `decide` only.
+###   ### **11 POSITIVE TERMINALS + 4 POLARITY REFUSALS = 15, ALL PRINTING "does not depend on
+###   any axioms", REPORTED FROM THE PRINTED PROFILE AND NOT FROM A CLAIM** (b227's standard);
+###   the prints live IN the banked file, so the profile comes from the artefact banked.
+###   ### **THE FLIP TEST BITES:** ### `emptyOrbit 2 2 = true` makes `lean` exit 1 with
+###   *"Tactic `decide` proved that the proposition ... is false"*.
+###   ### **WHAT IT COMPILES:** ### the absorption law (`p^n m` is always in the ball), the
+###   empty-orbit law at level 1, ### **AND A WITNESS THAT THE OPERATOR IS NOT DEAD BELOW
+###   `k = n`** -- without which the absorption law would be compatible with a trivial operator
+###   ### **AND WOULD ITSELF HAVE BEEN THE DOUBLE-NAME SPECIES.**
+###   ### **WHAT IT DOES NOT COMPILE, SAID IN ITS OWN HEADER:** ### no pairing, no `U`, no
+###   `S_quot`, no `u_v`, no `Z[zeta_N]`, no aggregation. ### **IT HOLDS ONE HALF OF THE
+###   REFUTATION AND CLAIMS NOTHING ABOUT THE OTHER**, which is b268's and is shadowed there.
+
+----------------------------------------------------------------------------------------------------
+### (13) ### **THE DEVIATIONS.**
+----------------------------------------------------------------------------------------------------
+### **(D1) THE DISTINCTNESS TEST'S FIRST DRAFT REPORTED AGREEMENT OVER A COMPARISON IT NEVER
+### MADE.** ### It branched on whether the pairing was rational and had ### NO ARM FOR THE CASE
+### THAT ACTUALLY OCCURRED ### -- a pairing that is not a rational number -- so `(2,2)` `k=1`
+### fell through every branch and the run printed ### *"THEY AGREE WHEREVER BOTH WERE COMPUTED"*
+### ### **OVER THE ONE CELL WHERE THEY DEMONSTRABLY DISAGREE.** ### Replaced by ONE exact
+### equality of reduced vectors in `Q(zeta_N)` -- no branch, no `or`. ### **CAUGHT BEFORE THE
+### BANK. ### THIS IS THE FALSE-PASS SPECIES THE LORE ALREADY NAMES, ARRIVING THROUGH A MISSING ARM IN A
+### PREDICATE RATHER THAN THROUGH AN `or`, AND THE LORE'S EXISTING RULES DID NOT CATCH IT.**
+### **(D2) THE SEALED REGISTRATION MISQUOTES TWO OWNERS BY PUNCTUATION.** ### `(D)`'s `[Q13]`
+### carries a trailing period b227 does not have; `[Q14]` drops a `###` marker b226 does have.
+### **F-QUOTE FOUND BOTH AT 2 OF 16 UNFINDABLE, BEFORE ANY EMISSION.** ### The corrected forms
+### are carried in the gate file and verified 16 of 16. ### **THE REGISTRATION IS LEFT
+### BYTE-IDENTICAL UNDER ITS SEAL AND WAS NOT EDITED.** ### Stated without inflation: ### **THESE
+### ARE PUNCTUATION AND FORMATTING DEVIATIONS, NOT WORD ERRORS**, and they are declared because
+### the standard is verbatim and not because they changed a meaning. ### b269's `(D1)` -- `THEY
+### EXCLUDE` for `THESE EXCLUDE` -- ### **WAS A WORD ERROR AND WAS WORSE.**
+### **(D3) THE OWNER READS AND ONE STRUCTURAL PROBE PRECEDED THE SEAL** -- disclosed at the
+### registration's `(I1)`, the probe counting off-ball orbit pairs only. ### **NO VALUE OF THE
+### PAIRING EXISTED BEFORE THE SEAL.**
+### **(D4) EVERY REGISTERED EXPECTATION WAS CORRECT, AND THAT IS DEFLATED RATHER THAN CLAIMED.**
+### ### **THEY WERE DERIVED FROM OWNER DEFINITIONS BEFORE THE SEAL, NOT GUESSED** -- the
+### registration says so at `(I1)` -- ### **AND A PREDICTION READ OFF THE OWNERS IS A WEAK
+### PREDICTION.** ### The act's evidential weight is in the EXACT ARITHMETIC, not in the score.
+### **(D6) A GATE'S FIXTURE MATCHED THE WRONG TABLE AND SO TESTED NOTHING.** ### Gate 3's first
+### fixture regex searched the whole run for `ZERO` after the string `S_quot u_v` and matched the
+### ### PAIRING ### table's `### ZERO ###` -- a different table about a different object.
+### ### **THE FIXTURE PASSED, SO THE HARNESS ### REFUSED ### THE CHECK AND DID NOT RUN IT.
+### ### THE REFUSAL IS THE ONLY REASON THIS IS A DEVIATION AND NOT A FALSE PASS.** ### Fixed at
+### the source, not in the matcher: the runner now emits ONE unambiguous S1 verdict line and the
+### gate reads that. ### **NOTE THE SPECIES -- ### A MATCHER THAT READ PROSE NEAR A NAME INSTEAD
+### OF THE FACT ITSELF ### -- WHICH IS THE DOUBLE-NAME HAZARD REAPPEARING INSIDE THIS ACT'S OWN
+### GATES, IN AN ACT WHOSE WHOLE SUBJECT IS THAT HAZARD.**
+### **(D5) THE NOISE-FLOOR CHECK IS STILL UNBUILT -- THE SIXTH ACT RUNNING.** ### Named at the
+### registration's `(I2)`. ### **F-EXACT SUBSTITUTED FOR IT HERE ONLY BECAUSE THIS ACT'S CHANNEL
+### IS EXACT ARITHMETIC, WHICH HAS NO FLOOR. ### THAT IS AN EXCUSE FOR THIS ACT AND NOT FOR THE
+### TEMPLATE.**
+
+----------------------------------------------------------------------------------------------------
+### (14) ### **THE IN-FLIGHT REGISTER.**
+----------------------------------------------------------------------------------------------------
+###   ### **CLOSED BY THIS ACT: ### C1.** ### Struck by derivation, not by ruling.
+###   ### **OPEN, CARRIED FORWARD:**
+###     `M-2` -- ### **SPECIFIED-NOT-STATED**, obstruction as b269 resolved it, dossier now C2/C3/C4.
+###     `W-ORD-TQ-IDENTIFY` (b260) -- OPEN.
+###     `W-ORD-XI-PERMODE` (b250) -- OPEN, untouched.
+###     `W-ORD-CN-LAW` -- OPEN, untouched.
+###     `W-ORD-INDEX-APPEND` -- OPEN; ### **NINETEEN KEYS ACROSS TEN ACTS** (b261-b270).
+###     `W-ORD-NTERM-FLOOR` -- narrowed remainder, held under K.4, untouched.
+###     ### **THE `ERRATA` PARTITION QUESTION** (b266) -- routed to the reconciliation wave.
+###     ### **THE NOISE-FLOOR CHECK** -- unbuilt, six acts.
+###   ### **NEW, AND SMALL:** ### **`W-ORD-PREDICATE-ARM`** -- the lore has a rule against `or` in
+###     check logic and none against ### **A BRANCHING PREDICATE WITH A MISSING ARM**, which is
+###     the same false-pass reaching the same place by a different road. ### `(D1)` is its
+###     incident. ### **FILED AS A WORK-ORDER, NOT WRITTEN INTO THE LORE HERE**, because this act
+###     is a derivation and lore edits belong to a filings act.
+
+----------------------------------------------------------------------------------------------------
+### (15) ### **THE SEAM'S DEBT, ITEM 1 RESTATED.**
+----------------------------------------------------------------------------------------------------
+### ### **ITEM 1 IS STILL NOT PAID, AND THIS ACT DOES NOT PAY IT.** ### A1 paid b226's step at
+### b268; A2 was to state M-2 and did not; ### **THIS ACT REMOVED A WAY OF NOT STATING IT.**
+### **WHAT THE ARC HAS ACTUALLY MOVED:** ### b267 located the term; b268 paid a prerequisite;
+### b269 resolved the obstruction into three demands and closed one route; ### **b270 KILLED ONE
+### OF FOUR CANDIDATES BY DERIVATION AND SHOWED THAT NO AMBIENT OBJECT OF EITHER SHAPE MEETS
+### (SPEC-1).** ### **NONE OF THAT IS M-2.**
+### **AND THE OTHER DEBT LINES STAND:** the `EPS_NQ` sweep is not a sweep of the record (b265);
+### `qeps_layer`'s `NTERM` note is still not at the point of use; the lore is twenty-one rules of
+### which six cannot be mechanized -- ### **AND (D1) SHOWS IT IS NOW TWENTY-ONE RULES WITH A HOLE
+### THE INCIDENT WALKED THROUGH.** ### The index backlog is nineteen keys.
+
+----------------------------------------------------------------------------------------------------
+### (16) ### **WHAT THIS ACT DID NOT DO.**
+----------------------------------------------------------------------------------------------------
+### **NO CANDIDATE IS ADOPTED.** ### The pairing was DERIVED AND STRUCK; ### **IT IS NOT
+### INSTALLED AS `Q.value`, NOT ENTERED IN ANY AGGREGATION, NOT ANYTHING.**
+### **NO NUMBER FROM THIS ACT SITS IN A TABLE HEADED BY act 9's CLOSED FORM.**
+### **NO COMPARISON TO ANY TARGET WAS RUN.** ### Zero fits, zero residuals. ### b262's
+### first-level mass was named in the ferry as context and is not used here at all.
+### **NO PRIOR ACT WAS RE-VERDICTED** (b246). ### b10's `Q2` is corroborated, not re-graded, and
+### (7) says so in the language of lore rule 17.
+### **NO OWNER INSTRUMENT WAS EDITED** -- `b8_sonin_dim.py`, `b10_cells.py` and
+### `b268_generator.py` are byte-identical and `b268_generator` was ### IMPORTED ### , which is
+### the strongest available form of not-reconstructing it.
+### **NOTHING IS CLAIMED ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT:** ### **"RH reduced to a
+### single located clause, reduction machine-verified. h2 is the clause."**
+### **THE STANDING CLAUSE HOLDS AND IS NOT WORKED AROUND:** ### *"a finite-place-set object at a
+### finite cutoff decides nothing"* ### globally -- ### **AND THIS ACT'S CONCLUSION IS A
+### REFUTATION, WHICH IS THE ONE DIRECTION A FINITE COMPUTATION CAN SUPPLY: ### IT TAKES ONE
+### EXACT ZERO TO KILL A CANDIDATE, AND NO NUMBER OF NONZEROS WOULD HAVE ESTABLISHED ONE.**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES.**
+====================================================================================================

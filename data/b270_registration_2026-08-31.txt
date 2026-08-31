@@ -1,0 +1,192 @@
+====================================================================================================
+b270 -- REGISTRATION. 2026-08-31. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 4 -- THE AMBIENT PAIRING'S PROPERTIES.
+WRITTEN AND SEALED BEFORE ANY VALUE OF THE PAIRING EXISTS.
+====================================================================================================
+
+(A) THE RULING THIS ACT EXECUTES -- the author's, ratified by the ferry, strikeable.
+----------------------------------------------------------------------------------------------------
+"RULE M2-ACT4: D -- derive the ambient pairing's properties against SPEC-1/2/3 without adopting
+it; C1's ruling is taken only if the derivation supports it, and C1 is struck from the dossier if
+the derivation refutes it. No candidate is adopted by this act."
+
+(B) THE BOUNDARY. WHAT THIS ACT MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+ 1. IT MAY NOT ADOPT THE PAIRING. Not as Q.value, not as part of any aggregation, not as
+    anything else. M-2 REMAINS OWED IN EVERY BRANCH.
+ 2. IT MAY NOT PLACE ANY NUMBER PRODUCED HERE IN A TABLE HEADED BY act 9's CLOSED FORM.
+ 3. IT MAY NOT RUN A COMPARISON TO ANY TARGET. b262's first-level mass is NAMED AS CONTEXT
+    ONLY, NEVER AS A FIT. Zero fits, zero residuals, zero goodness measures.
+ 4. IT MAY NOT RE-VERDICT ANY PRIOR ACT (b246). b269's C1 entry is graded, not its act.
+ 5. IT MAY NOT CLAIM ANYTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT.
+ 6. NOTHING DEPOSITS. NOTHING CIRCULATES. NOTHING UNDER patent-package/.
+
+(C) THE NAMED HAZARD: THE DOUBLE-NAME SPECIES.
+----------------------------------------------------------------------------------------------------
+b227 refused numbers of exactly this shape. THE TWO OBJECTS OF THIS ACT ARE DISTINCT AND EVERY
+SENTENCE MUST SAY WHICH:
+    THE PAIRING  P(k) = <U^k S_quot u_v, u_v>   -- a SINGLE MATRIX ELEMENT, one chosen vector.
+    THE TRACE    T_quot(k) = |Tr(U^k S_quot)|   -- b10's AMBIENT TRACE, choice-free.
+    act 9's      tau_q(p,n,k) * p^{k/2} = (p^n - p^k)/(p^n - 1), 1 <= k <= n-1; 0 for k >= n.
+THESE ARE THREE OBJECTS, NOT THREE NAMES FOR ONE.
+
+(D) LOAD-BEARING QUOTATIONS (RULE-3 (a)). Verified verbatim against owners before emission.
+----------------------------------------------------------------------------------------------------
+ [Q1] b10, V_inv: "V_inv = { f supported off the ball : f(m') = f(m) whenever m' = p m mod N and
+      both m, m' off-ball }"
+ [Q2] b10, the projection: "S_quot = orthoprojection onto"
+ [Q3] b10, the quantities: "THE QUANTITIES: T_quot(k) = |Tr(U^k S_quot)| and the diagonal/norm
+      channels, k = 1..2n-1."
+ [Q4] b10, the non-descent: "THE FOURIER HALF DOES NOT DESCEND -- the transform does not commute
+      with x ~ px"
+ [Q5] b10, the transposed condition: "THE SONIN-TYPE CONDITION TRANSPOSED: support off the ball
+      (the ball-avoidance half)."
+ [Q6] SPEC-1 (b267): "(SPEC-1) IT COUNTS FIRST LEVELS."
+ [Q7] SPEC-2 (b267): "(SPEC-2) IT REDUCES TO `Theta_q`'s TERMS AT LEVELS `k <= n-1`."
+ [Q8] SPEC-3 (b267): "(SPEC-3) IT IS DEFINED OVER ALL PRIMES, NOT A FIXED SET."
+ [Q9] b269 C1, what: "read the quotient channel as the AMBIENT operator b10 already writes,"
+ [Q10] b269 C1, the distinction: "IT IS NOT act 9's `tau_q`, WHICH IS A FIXED-ORBIT COUNT ON"
+ [Q11] b269 C1, the entailment: "(SPEC-2) would have to be ### CHECKED, NOT ASSUMED"
+ [Q12] b269 C1, the risk: "b227 REFUSED NUMBERS OF EXACTLY THIS SHAPE AS THE DOUBLE-NAME
+      SPECIES."
+ [Q13] b227, the refusal: "IT WANTS A RESULT OR A RULING; IT DOES NOT WANT A READ."
+ [Q14] b226, the line b268 paid: "d_1 > 0 GIVES E_1 != 0. IT DOES NOT GIVE u_{1,1} != 0"
+ [Q15] b269, the shadow precedent: "A TOY MODEL WOULD HAVE COMPILED CLEANLY AND SETTLED NOTHING,"
+ [Q16] b15, the standing clause: "a finite-place-set object at a finite cutoff decides nothing"
+
+(E) THE INSTRUMENT, AT CONTENT, FROM ITS OWNERS -- NOT RECONSTRUCTED.
+----------------------------------------------------------------------------------------------------
+ tools/e16/b8_sonin_dim.py:
+     model(p,n)          : N = p^(2n);  ball = { m : m % p^n == 0 };  |ball| = p^n = q.
+     scaling_matrix(p,n) : U[(p*m) % N, m] = 1/sqrt(p).  So U e_m = e_{pm mod N} / sqrt(p).
+ tools/e16/b10_cells.py:
+     quotient_basis(p,n) : union-find over m ~ pm restricted to BOTH off-ball; K's columns are
+                           NORMALIZED CLASS INDICATORS; S_quot = K K^T, i.e. AVERAGING WITHIN
+                           EACH ORBIT CLASS, ZERO ON THE BALL.
+ tools/e16/b268_generator.py:
+     u_v = 4q P_1 f_{1,1} at level ell(p), N = q^2, q = p^ell; b268 DERIVED support = N - q with
+     the zero set exactly the multiples of q, controlled exactly at eight places.
+ b226's choice of level: ell(p) = 1 for odd p; ell(2) = 2. HENCE u_v LIVES IN THE MODEL CELL
+ (p, n = ell(p)) AND NOWHERE ELSE, because N = q^2 = p^{2 ell} matches p^{2n} only at n = ell.
+
+(F) THE ROUTE (RULE-3 (b)), AND BOTH SEATS' EXPECTATIONS, REGISTERED IN ADVANCE (RULE-3 (e)).
+----------------------------------------------------------------------------------------------------
+ S1 -- THE PROJECTION. What is S_quot u_v: zero, nonzero, or undetermined?
+    NAVIGATOR ASSERTS (to be tested, never assumed): E_1 is absent from V_inv, so the projection
+    MAY VANISH, which would refute C1 in one line.
+    THIS SEAT EXPECTS: NONZERO, AND THE NAVIGATOR'S ASSERTION REFUTED, on two owner facts:
+      (i) b268's zero set of u_v is the multiples of q; at n = ell the ball IS the multiples of
+          q = p^n; SO u_v IS ALREADY SUPPORTED OFF THE BALL and satisfies [Q5]'s half outright;
+      (ii) at n = 1 the relation m ~ pm has NO off-ball pair at all -- if p does not divide m
+           then pm is a multiple of p, which is the ball -- SO EVERY CLASS IS A SINGLETON,
+           V_inv is ALL off-ball functions, S_quot is multiplication by 1_offball, AND
+           S_quot u_v = u_v EXACTLY.
+      At (2,2) the relation is NOT vacuous; expect S_quot u_v NONZERO but NOT EQUAL to u_v.
+    DISCLOSURE (I1): the off-ball orbit-pair COUNT was probed before this seal -- 0 at (3,1),
+    0 at (5,1), 8 at (2,2). NO VALUE OF THE PAIRING WAS COMPUTED. Recorded, not smoothed over.
+    IF IT VANISHES: STOP THE ROUTE, report (DEAD) at full prominence.
+
+ S2 -- THE RELATION. How does a single-vector pairing relate to the ambient trace?
+    THIS SEAT EXPECTS: Tr(U^k S_quot) = SUM over any orthonormal basis of <U^k S_quot e_i, e_i>,
+    so THE TRACE IS A SUM OF VECTOR STATES AND THE PAIRING IS ONE SUMMAND (unnormalized) --
+    they agree only if the whole trace is concentrated in the u_v direction, i.e. only if
+    U^k S_quot is (up to scale) the rank-one projection onto u_v. NOTHING IN THE CORPUS SAYS SO.
+    A MATRIX ELEMENT IS NOT A TRACE, AND THAT IS THE WHOLE OF (C)'s HAZARD MADE ARITHMETIC.
+
+ S3 -- SPEC-2 [Q7]. Does P(k) reduce to Theta_q's terms p^{-k/2}(p^n - p^k)/(p^n - 1), k <= n-1?
+    THIS SEAT EXPECTS: REFUTED, TWICE OVER AND FOR TWO INDEPENDENT REASONS.
+      (a) THE RANGE IS EMPTY WHERE THE UNIT LIVES. u_v exists only at n = ell(p); for odd p,
+          ell = 1, so 1 <= k <= n-1 = 0 IS AN EMPTY RANGE. At every odd place SPEC-2 is
+          VACUOUS -- the pairing has nothing to reduce to. Testable only at p = 2, n = 2, k = 1.
+      (b) THE PAIRING CARRIES NO n. P(k) is computed in the FIXED space of cell (p, ell(p));
+          it is a number depending on p, ell(p), k -- AND NOT ON n. Theta_q's term DEPENDS ON n
+          THROUGH (p^n - p^k)/(p^n - 1). A QUANTITY WITH NO n-DEPENDENCE CANNOT EQUAL A FAMILY
+          THAT VARIES WITH n, EXCEPT WHERE THE FAMILY IS CONSTANT IN n, WHICH IT IS NOT.
+    THE ONE NON-VACUOUS CELL (2,2,k=1) IS COMPUTED EXACTLY AS A CONTROL, NOT AS A FIT.
+
+ S4 -- SPEC-1 [Q6]. At k = n, is the pairing nonzero?
+    THIS SEAT EXPECTS: IT IS EXACTLY ZERO, AT EVERY CELL, AND SPEC-1 IS REFUTED.
+    DERIVED FROM THE OPERATOR'S OWN DEFINITION: U^k e_m = e_{p^k m mod N} / p^{k/2}, so
+        P(k) = p^{-k/2} * SUM_m (S_quot u_v)(m) * conj( u_v(p^k m mod N) ).
+    At k = n, p^n m is a multiple of p^n FOR EVERY m -- THAT IS THE BALL -- and u_v VANISHES ON
+    THE BALL. EVERY SUMMAND CARRIES THE FACTOR u_v(ball) = 0. HENCE P(n) = 0 IDENTICALLY.
+    AND THE SAME ARGUMENT KILLS EVERY k >= n, WHICH IS act 9's OWN DEAD RANGE REACHED BY A
+    COMPLETELY DIFFERENT MECHANISM: act 9 dies by arithmetic, THE PAIRING DIES BECAUSE THE UNIT
+    VANISHES WHERE THE OPERATOR SENDS EVERYTHING. THE COINCIDENCE OF RANGES IS NOT AN IDENTITY
+    OF OBJECTS AND IS NOT REPORTED AS ONE.
+    NOTE THE ASYMMETRY THAT MAKES THIS DECISIVE: the ambient TRACE T_quot(n) NEED NOT VANISH.
+    IF IT DOES NOT, THE PAIRING AND THE TRACE ARE PROVED DIFFERENT OBJECTS BY MEASUREMENT.
+
+ S5 -- SPEC-3 [Q8]. Defined over all primes, with b268's odd-p / p=2-at-level-2 condition.
+    THIS SEAT EXPECTS: the pairing IS defined at every prime (b268 gives u_v != 0 at every odd
+    p at level 1, and at p = 2 only via b226's step-up to level 2), SO SPEC-3's LETTER IS MET
+    AND IS MOOT: an object that is identically zero at k = n is defined everywhere and counts
+    nothing. SPEC-3 IS NOT THE BINDING SPEC AND MUST NOT BE REPORTED AS A PASS THAT MATTERS.
+
+(G) FALSIFIERS, BARS FIXED HERE, BEFORE ANY VALUE.
+----------------------------------------------------------------------------------------------------
+ F-S1     S_quot u_v = 0 (exactly) at any cell => S1 halts the route, verdict (DEAD) at S1.
+          POSITIVE CONTROL: a vector supported ON the ball must project to exactly 0.
+ F-SPEC1  P(n) != 0 at ANY cell => (SPEC-1) IS NOT REFUTED, S4's expectation is WRONG, and the
+          verdict may not be (DEAD) by S4. THIS IS THE FALSIFIER FOR THE WHOLE ACT'S EXPECTATION.
+ F-VIABLE THE FALSIFIER FOR (VIABLE), REQUIRED BY RULE-3 (e): (VIABLE) may be returned ONLY IF
+          all three of P(n) != 0 at every cell, SPEC-2's equality HOLDS exactly at every
+          non-vacuous cell, and SPEC-3 is met. ANY ONE FAILING FORBIDS (VIABLE).
+ F-NONTRIV POSITIVE CONTROL AGAINST A TRIVIALLY ZERO OBJECT: P(k) must be NONZERO for at least
+          one (cell, k), or the act reports that it measured nothing and says so. Expected
+          witness: (2,2) at k = 1.
+ F-DISTINCT T_quot(n) is recomputed from b10's own instrument. If T_quot(n) != 0 while P(n) = 0,
+          THE DOUBLE-NAME HAZARD IS SETTLED BY MEASUREMENT, NOT BY ASSERTION.
+ F-EXACT  Every reported value is EXACT (rational / cyclotomic integer arithmetic), not floating
+          point. A float agreeing with an exact zero is not evidence; the exact zero is.
+          Any float-only channel is cross-checked against the exact channel or not reported.
+ F-NOADOPT Gate asserts: zero occurrences of the pairing being assigned to Q.value or entered in
+          any aggregation; zero tables headed by act 9's closed form containing P(k).
+ F-NOFIT  Gate asserts: zero comparisons of any P(k) to b262's first-level mass or any target.
+ F-QUOTE  Every quotation in (D) verified verbatim against its owner file before emission.
+ F-TOKEN  Gates tokenize their own source; no regex over check logic (b268's standing fix).
+ F-SHADOW The shadow is built ONLY IF finite-decidable AND non-misleading, CHECKED NOT ASSUMED,
+          against [Q15]'s precedent. If the condition fails, BUILD NOTHING AND SAY SO.
+
+(H) THE VERDICT MAP (RULE-3 (c)). NO ADOPTION IN ANY BRANCH.
+----------------------------------------------------------------------------------------------------
+ (VIABLE)   all three specs derivable and derivations shown => C1 routed to the author WITH THE
+            FACTS AND NO RECOMMENDATION.
+ (DEAD)     a spec refuted by derivation => C1 STRUCK FROM THE DOSSIER, the fork narrowed to
+            C2 / C3 / C4, THE EXCLUSION STATED.
+ (UNDECIDED) the resisting step named.
+
+(I) DISCLOSURES.
+----------------------------------------------------------------------------------------------------
+ (I1) THE OWNER READS AND ONE STRUCTURAL PROBE PRECEDED THIS SEAL. The ruling arrived mid-turn
+      and authorized the reads; the probe counted off-ball orbit pairs (0, 0, 8) and computed
+      NO VALUE OF THE PAIRING. Every expectation in (F) is DERIVED FROM OWNER DEFINITIONS, NOT
+      MEASURED -- and per b269's (D4) THAT MAKES THEM WEAK PREDICTIONS, STATED AS SUCH.
+ (I2) THE REGISTRATION TEMPLATE STILL OWES THE NOISE-FLOOR CHECK. UNBUILT FOR THE SIXTH ACT
+      RUNNING. NOT PAID HERE EITHER, AND NAMED SO IT IS NOT FORGOTTEN. F-EXACT SUBSTITUTES FOR
+      IT IN THIS ACT ONLY BECAUSE THIS ACT'S CHANNEL IS EXACT ARITHMETIC, WHICH HAS NO FLOOR.
+ (I3) THE RESOLUTION LAW APPLIES TO THIS ACT'S OWN CLAIMS.
+
+(J) THE CEILINGS THIS ACT DECLARES, AND THE DEMANDS ITS OWN PARAMETERS IMPLY.
+----------------------------------------------------------------------------------------------------
+THE ENUMERATION IS THE STEP reg_satisfiable.py CANNOT PERFORM, SO IT IS PERFORMED HERE, IN FULL.
+ CELLS: b268's PLACES, unchanged -- (2,2), (3,1), (5,1), (7,1), (11,1), (13,1), (17,1), (19,1).
+        THE LARGEST MODEL IS N = p^{2n} = 19^2 = 361.
+ (J1) NO SINGLE ALLOCATION ABOVE 256 MB.
+      DEMAND: the dense S_quot is N x N float64 = 8 * 361^2 = 1042568 B = 0.994 MB.
+ (J2) NO MORE THAN 8 DENSE N x N MATRICES LIVE AT ONCE (S_quot, U, U^k, products, controls).
+      DEMAND: 8 * 0.994 MB = 7.96 MB, inside (J1)'s per-allocation cap and inside 256 MB total.
+ (J3) EXACT ARITHMETIC DEGREE CAP 1024. DEMAND: products in Z[zeta_N] before reduction have
+      degree < 2N = 722; the modulus is cyclotomic_poly(361), degree phi(361) = 342.
+ (J4) RUNTIME CAP 600 s. DEMAND: b268 ran the SAME exact machinery over the SAME eight places
+      and completed; this act adds dense linear algebra at N <= 361, which is negligible beside
+      it. THE DEMAND IS TAKEN FROM b268's MEASURED RUN, NOT GUESSED, AND IS RECORDED AS 120 s.
+ (J5) k-RANGE 1 <= k <= 2n-1, b10's own range [Q3]. DEMAND: at n <= 2 that is k <= 3. NO LADDER
+      IS REGISTERED BY THIS ACT AND THEREFORE NO LADDER CAN OUTRUN A CEILING (b264's species).
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 96ac5b1e23a2253eee85b30b576113026aa6d4d478d35d70aa1b4e406cd6fd03
+### bytes sealed : 14180
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b270_registration_2026-08-31.txt`.**
+====================================================================================================

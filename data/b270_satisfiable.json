@@ -1,0 +1,40 @@
+{
+  "registration": "data/b270_registration_2026-08-31.txt  (M-2 CAMPAIGN, ACT 4)",
+  "clauses": [
+    {
+      "clause": "(J1) single allocation <= 256 MB",
+      "cap": 256,
+      "demand": 0.994,
+      "units": "MB",
+      "from": "dense S_quot at the largest cell (19,1): N = p^(2n) = 361; 8 * 361^2 B = 0.994 MB"
+    },
+    {
+      "clause": "(J2) <= 8 dense NxN live at once",
+      "cap": 256,
+      "demand": 7.96,
+      "units": "MB",
+      "from": "8 * 0.994 MB -- S_quot, U, U^k, products and the T_quot control, all at N = 361"
+    },
+    {
+      "clause": "(J3) exact-arithmetic degree cap",
+      "cap": 1024,
+      "demand": 722,
+      "units": "deg",
+      "from": "unreduced products in Z[zeta_N] have degree < 2N = 722; modulus Phi_361 has degree phi(361) = 342"
+    },
+    {
+      "clause": "(J4) runtime <= 600 s",
+      "cap": 600,
+      "demand": 120,
+      "units": "s",
+      "from": "b268 ran the same exact cyclotomic machinery over the same eight places; dense linear algebra at N <= 361 is negligible beside it. MEASURED PRECEDENT, NOT A GUESS."
+    },
+    {
+      "clause": "(J5) k-range 1 <= k <= 2n-1",
+      "cap": 3,
+      "demand": 3,
+      "units": "k",
+      "from": "b10's own range at n <= 2. NO LADDER IS REGISTERED, so no ladder can outrun a ceiling (b264's species)."
+    }
+  ]
+}
