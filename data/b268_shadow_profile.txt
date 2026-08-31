@@ -1,0 +1,44 @@
+import took 543ms
+'GeneratorSupportShadow.odd_law_values' does not depend on any axioms
+'GeneratorSupportShadow.place2_law_zero_at_arrival' does not depend on any axioms
+'GeneratorSupportShadow.support_count_is_q_squared_minus_q' does not depend on any axioms
+'GeneratorSupportShadow.support_is_positive_at_odd_places' does not depend on any axioms
+'GeneratorSupportShadow.the_count_vanishes_at_q_one' does not depend on any axioms
+'GeneratorSupportShadow.hinge_holds_at_odd_places' does not depend on any axioms
+'GeneratorSupportShadow.hinge_fails_at_q_four' does not depend on any axioms
+'GeneratorSupportShadow.the_hinge_discriminates' does not depend on any axioms
+'GeneratorSupportShadow.place_two_still_lands_on_the_count' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.0841ms
+	blocked (unaccounted) 0.999ms
+	elaboration 107ms
+	fix level params 0.156ms
+	import 543ms
+	initialization 46.7ms
+	instantiate metavars 0.522ms
+	interpretation 233ms
+	let-to-have transformation 0.172ms
+	linting 2.32ms
+	parsing 3.49ms
+	process pre-definitions 1.31ms
+	share common exprs 0.815ms
+	tactic execution 7.78ms
+	type checking 6.27ms
+	typeclass inference 433ms
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Four deliberately FALSE statements, one of the SAME SHAPE as each family of the
+### shadow's own terminals, submitted to the same `decide`:
+###   theorem false_oddlaw : 4 * 1 = (5 - 1) * (5 - 1)   := by decide
+###   theorem false_count  : 3 * 3 - 3 = 7               := by decide
+###   theorem false_pos    : 0 < 1 * 1 - 1               := by decide
+###   theorem false_hinge  : Nat.gcd (4 + 2) (4 * 4) = 1 := by decide
+### ALL FOUR REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 4 * 1 = (5 - 1) * (5 - 1) is false
+###   error: Tactic `decide` proved that the proposition 3 * 3 - 3 = 7 is false
+###   error: Tactic `decide` proved that the proposition 0 < 1 * 1 - 1 is false
+###   error: Tactic `decide` proved that the proposition (4 + 2).gcd (4 * 4) = 1 is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE NINE PASSES ARE THEREFORE READABLE.**
+### zero-axiom terminals in the COMPILE section : 9 ; errors in the COMPILE section : 0
+### (the four `error:` lines below the rule are the POLARITY CONTROL, quoted, and are
+###  the control WORKING -- they are not failures of the shadow.)

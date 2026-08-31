@@ -1,0 +1,200 @@
+====================================================================================================
+b268 BANK -- M-2 CAMPAIGN, ACT 2 (A1). ### THE GENERATOR'S NONVANISHING.
+### 2026-08-31. ### CONCURRENCY: SOLO (research seat).
+### ORDERED BY THE AUTHOR: ### **`RULE M2-ORDER: A1 then A2`** ### (2026-08-31). ### THIS IS A1.
+### REGISTRATION `data/b268_registration_2026-08-31.txt`, SEAL `119973a1...`, TERM-SCANNED AND
+### JOINT-SATISFIABILITY-CHECKED ### BEFORE ### SEALING; VERIFIED INTACT AT THE CLOSE.
+### CONTROLS: `data/b268_run.txt`. ### SHADOW PROFILE: `data/b268_shadow_profile.txt`.
+### ### **NO AGGREGATION IS ADOPTED, STATED OR REALIZED. ### M-2 REMAINS OWED.**
+====================================================================================================
+
+====================================================================================================
+(0) THE RESULT.
+====================================================================================================
+### ### ### **b226's OWED STEP IS ### PAID ### .**
+### ### **`4q P_1 f_{1,1} != 0` AT EVERY ODD PRIME `p` AT LEVEL 1.**
+### **GRADE: ### DERIVES-on-IMP ### , the imports being the owners' own definitions and the
+### BANKED purity identity, and ### NO NEW IMPORT.**
+### **THE ROUTE IS ONE LINE OF CONGRUENCE ARITHMETIC ONCE THE OWNERS' OBJECTS ARE UNFOLDED**, and
+### it delivers more than the nonvanishing: ### **`support(u_p) = N - q` EXACTLY**, which is the
+### regularity b226 recorded as ### OBSERVED ### and explicitly did ### NOT ### assert as a
+### theorem. ### **IT IS NOW DERIVED.**
+### **CONTROLLED EXACTLY IN `Z[zeta_N]` AT EIGHT PLACES -- b226's SIX, PLUS `p = 17` AND `p = 19`
+### WHICH NO PRIOR ACT MEASURED. ### 1039 VALUES REDUCED MODULO `Phi_N`. ### NO FLOATING POINT
+### DECIDES ANYTHING.**
+### ### ### **AND THE BOUNDARY, WHICH WAS REGISTERED BEFORE THE RESULT AND IS KEPT AFTER IT:
+### ### ### THIS PAYS b226's STEP AND DOES ### NOT ### TOUCH (SPEC-1). ### A SUPPORT IS NOT A
+### ### ### CONTRIBUTION. ### M-2 REMAINS SPECIFIED-NOT-STATED.**
+
+====================================================================================================
+(1) S1 -- THE DERIVATION. ### **EVERY CONSTITUENT THE OWNERS' OWN.**
+====================================================================================================
+### **THE OBJECTS, UNFOLDED FROM b226's LIST AND NOT PARAPHRASED:**
+###   `f_{i,j}` = ### **"e_{i+qj} - e_i,  i,j in [1,q)"** ### , so `f_{1,1} = e_{1+q} - e_1`.
+###   `S` : ### **"(S f)(m) = SUM_{m'} f(m') zeta_N^{m m'},  N = q^2"** ### , so
+###     `S e_a (m) = zeta_N^{m a}`.
+###   `Pi` : ### **"(Pi f)(m) = f(-m)"**.
+###   ### **AND THE IDENTITY THE ROUTE RUNS ON IS ### BANKED ### , NOT THIS ACT'S:**
+###   ### **`4q P_1   = (q + S)(1 + Pi)`  [the purity report]** ### -- b226's own object list.
+
+### ── **THE ONE COMPUTATION.**
+### `(1 + Pi) f_{1,1} = e_{1+q} - e_1 + e_{-(1+q)} - e_{-1}`, and applying `(q + S)`:
+### ### ### **`u_p(m) = q * [(1+Pi)f](m) + ( zeta^{m(1+q)} + zeta^{-m(1+q)} - zeta^{m} -
+### ### ### zeta^{-m} )`.**
+### **AWAY FROM THE FOUR POINTS `m in {+-1, +-(1+q)}` THE DELTA PART IS ZERO**, and what remains
+### vanishes ### **IFF `m(1+q) = +- m (mod N)`**, i.e. iff
+###   ### **`m q = 0 (mod q^2)`** ### -- which holds exactly when ### **`m = 0 (mod q)`: `q`
+###     VALUES OF `m`** ### ; or
+###   ### **`m (q+2) = 0 (mod q^2)`** ### -- and here is the hinge:
+### ### ### **FOR ODD `q`, `gcd(q+2, q^2) = 1`.** ### A common prime divisor would divide `q` and
+### ### ### `q+2`, hence `2`; `q` is odd, so none exists. ### **THE SECOND CONGRUENCE THEREFORE
+### ### ### FORCES `m = 0`, WHICH THE FIRST ALREADY COUNTED.**
+### ### **SO THE ZERO SET IS EXACTLY THE `q` MULTIPLES OF `q`, AND `support(u_p) = N - q`.**
+### **THE FOUR SPECIAL POINTS ARE NOT WAVED THROUGH:** they carry an extra `+-q` and must be
+### nonzero for the count to be exactly `N - q`. ### **THE EXACT TABLE AT (3) SETTLES THEM AT
+### EVERY COMPUTED PLACE, AND FOR `q >= 5` THE CRUDE BOUND ALSO SETTLES THEM -- `|+-q + z| >=
+### q - 4 > 0` SINCE THE TRANSFORM PART IS A SUM OF FOUR ROOTS OF UNITY.** ### At `q = 3` and
+### `q = 4` that bound does not close and ### **THE EXACT TEST IS WHAT DECIDES THEM.**
+
+### ── **WHAT b226 HAD, AND WHAT MOVED.**
+### b226 recorded, with its grade attached: ### **"AND AN OBSERVED REGULARITY, RECORDED AS
+### OBSERVED AND **NOT** ASSERTED AS A THEOREM: ### the support is N - q at all six cells."**
+### ### ### **THAT REGULARITY IS NOW DERIVED, GENERICALLY, AND ITS GRADE MOVES FROM OBSERVED TO
+### ### ### DERIVED.** ### **b226 IS NOT RE-VERDICTED BY THIS: IT RECORDED AN OBSERVATION AS AN
+### ### OBSERVATION AND WAS RIGHT TO. ### WHAT CHANGES IS THAT A LATER ACT SUPPLIED THE
+### ### DERIVATION IT DECLINED TO ASSERT.**
+
+====================================================================================================
+(2) S2 AND S3 -- WHAT THE SUPPORT GIVES, AND WHAT IT DOES NOT.
+====================================================================================================
+### **S2. ### `support > 0` IS EXACTLY `u_p != 0`.** ### A support is the count of `m` at which
+### the vector is nonzero; a positive count is a nonvanishing vector. ### And ### **`u_p` IS THE
+### IMAGE OF `f_{1,1}` UNDER `4q P_1`, SO ITS NONVANISHING ### IS ### THE `(1,1)` GENERATOR'S
+### NONVANISHING.**
+### ### ### **AND THIS SEAT REGISTERED A DISAGREEMENT WITH THE FERRY'S FRAMING BEFORE THE RUN,
+### ### ### AND IT STANDS.** ### The ferry asks S2 to derive that support ### *"forces the (1,1)
+### ### component nonzero"* ### , as though a second step lay between them. ### **THERE IS NO
+### ### SECOND STEP. ### THE TWO ARE THE SAME STATEMENT, AND MANUFACTURING A STEP BETWEEN THEM
+### ### WOULD BE A DOUBLE-NAME ERROR RUN IN THE OTHER DIRECTION -- INVENTING A DISTINCTION RATHER
+### ### THAN COLLAPSING ONE.** ### The act reports the identity rather than a derivation of it.
+
+### **S3. ### THE CONCLUSION.** ### For odd `p` at level 1, `q = p >= 3` and
+### ### **`support = N - q = q^2 - q = q(q-1) >= 6 > 0`.**
+### ### ### **THEREFORE `4q P_1 f_{1,1} != 0` AT EVERY ODD PRIME AT LEVEL 1.**
+### **GRADE: ### DERIVES-on-IMP ### . ### THE IMPORTS, NAMED, AND ALL OWNERS':**
+###   ### (i) the objects as b226 defines them -- `f_{i,j}`, `S`, `Pi`, `P_1`, `N = q^2`;
+###   ### (ii) ### **THE BANKED PURITY IDENTITY `4q P_1 = (q + S)(1 + Pi)`**, b226's own line,
+###     attributed there to the purity report. ### **NOT THIS ACT'S.**
+###   ### (iii) elementary congruence arithmetic, which imports nothing.
+### ### **NO NEW IMPORT IS INTRODUCED, AND NOTHING IS TAKEN FROM THE SIX-PLACE TABLE.**
+
+### ── ### **THE BOUNDARY, AND IT IS THE SENTENCE THAT KEEPS THIS ACT HONEST.**
+### ### ### **A SUPPORT IS NOT A CONTRIBUTION.** ### (SPEC-1) would read a NUMBER that an
+### ### aggregation uses at a first level. ### **THIS ACT SUPPLIES A VECTOR THAT IS NOT ZERO.**
+### ### **b226's STEP IS PAID; (SPEC-1) IS NOT TOUCHED; M-2 IS NOT MOVED.**
+### **AND b267's TEST 2 CONSEQUENCE, STATED PRECISELY:** ### b267 graded TEST 2 ### (PARTIAL) ###
+### on exactly this owed step. ### **THE STEP IS NOW PAID, SO THE LIMITING CLAUSE b267 NAMED IS
+### DISCHARGED** -- but ### **b267's VERDICT IS NOT RE-GRADED BY THIS ACT** ### (b246). ### The
+### author rules whether b267's row is amended or carries the discharge by citation.
+
+====================================================================================================
+(3) THE CONTROL. ### **A CHECK ON THE DERIVATION, NEVER ITS EVIDENCE.**
+====================================================================================================
+### **EXACT IN `Z[zeta_N]`: every value tested by reduction modulo `Phi_N` on integer
+### coefficients. ### NO FLOATING POINT ENTERS ANY CELL** -- b223's standard, quoted:
+### ### **"NO FLOATING POINT ENTERS ANY d_1."**
+### **AND THE TESTER WAS POSITIVE-CONTROLLED BEFORE IT WAS TRUSTED:** a known-zero element
+### (`1 + z^3 + z^6` in `Z[z_9]`) reports ZERO and a known-nonzero (`1`) reports NONZERO.
+### ### **A TESTER THAT CANNOT SAY BOTH IS NOT A TESTER.**
+
+###   p    level  q    N     support   N - q   agree   b226   u_p != 0
+###   ------------------------------------------------------------------
+###   2    2      4    16    12        12      True    12     YES
+###   3    1      3    9     6         6       True    6      YES
+###   5    1      5    25    20        20      True    20     YES
+###   7    1      7    49    42        42      True    42     YES
+###   11   1      11   121   110       110     True    110    YES
+###   13   1      13   169   156       156     True    156    YES
+###   17   1      17   289   272       272     True    --     YES
+###   19   1      19   361   342       342     True    --     YES
+
+### ### **ALL EIGHT AGREE WITH `N - q`. ### ALL SIX OF b226's MEASURED CELLS REPRODUCE EXACTLY.**
+### ### **AND `p = 17, 19` WERE RUN RATHER THAN REFUSED, SO THE CONTROL IS NOT CONFINED TO THE
+### ### CELLS THE FORMULA WAS FIRST SEEN ON.** ### No cell was refused, so no refusal needed a
+### price, and the rule that would have priced one stood the whole time.
+### **1039 VALUES OF `m` REDUCED MODULO `Phi_N` ACROSS THE EIGHT PLACES.**
+
+====================================================================================================
+(4) `p = 2`, STATED SEPARATELY AND NOT FOLDED IN.
+====================================================================================================
+### **`d_1(2,1) = 0` IS THE PLACE-2 LAW'S OWN VALUE**, and the kernel says so:
+### ### **"The death at `(2,1)` is the law's OWN value."** ### b223 exhibits it:
+### ### **"NO UNIT: d_1 = 0, the arrival depth"**. ### So level 1 at `p = 2` has ### NO DATUM AND
+### NO UNIT TO CHOOSE ### , and b226's step-up `ell(2) = 2` is the corpus's answer.
+### ### ### **AND THE ODD ARGUMENT DOES NOT COVER `p = 2`, BY ITS OWN HINGE:** ### S1's second
+### ### congruence collapses because `gcd(q+2, q^2) = 1` ### FOR ODD `q` ### . ### At `q = 4`,
+### ### **`gcd(6, 16) = 2`** ### and the collapse FAILS.
+### **AND WHAT THE FAILURE DOES NOT DO, SAID SO IT CANNOT BE MISREAD: ### `p = 2` AT LEVEL 2
+### STILL LANDS ON `N - q = 12`. ### THE HINGE FAILING CHANGES THE ROUTE TO THE COUNT, NOT THE
+### COUNT** -- the exact table shows the landing, and the shadow decides both halves.
+### ### **THEREFORE ANY GENERAL STATEMENT MUST READ: "AT EVERY ODD `p` AT LEVEL 1, AND AT `p = 2`
+### ### AT LEVEL 2." ### A STATEMENT SAYING "AT EVERY PRIME AT LEVEL 1" WOULD BE FALSE.**
+
+### ── **WHAT (SPEC-3) INHERITS. ### A CONDITION ON CANDIDATES, NOT A CANDIDATE.**
+### (SPEC-3) is ### **"IT IS DEFINED OVER ALL PRIMES, NOT A FIXED SET."**
+### ### **ANY AGGREGATION READING A FIRST-LEVEL DATUM HAS NOTHING TO READ AT `p = 2`. ### IT MUST
+### ### CARRY b226's STEP-UP OR AN EQUIVALENT AS PART OF ITS DEFINITION, OR BE UNDEFINED THERE --
+### ### AND THE SECOND FAILS (SPEC-3) OUTRIGHT.**
+### **b267 FILED THIS CONDITION FROM THE LAW; THIS ACT RESTATES IT WITH `p = 2`'s OWN CELL NOW
+### COMPUTED EXACTLY RATHER THAN ONLY CITED.** ### **NO CANDIDATE IS PROPOSED THAT MEETS IT.**
+
+====================================================================================================
+(5) THE SHADOW, AND THE DEVIATIONS.
+====================================================================================================
+### **`SIDE-global-section/Core/GeneratorSupportShadow.lean` -- VANILLA Lean 4, `decide` ONLY.**
+### ### **NINE TERMINALS, ALL "does not depend on any axioms", ZERO ERRORS IN THE COMPILE
+### ### SECTION. ### THE PROFILE IS PRINTED AND READ, NEVER INFERRED FROM AN EXIT CODE.**
+### **IT CARRIES:** the odd law's values; the place-2 law's zero at arrival; the support count
+### `N - q = q^2 - q` at all eight computed places; ### **its POSITIVITY at the odd places, with a
+### polarity control at `q = 1` where the count vanishes** ### ; and ### **THE HINGE --
+### `gcd(q+2, q^2) = 1` at the odd `q` AND ITS FAILURE `gcd(6,16) = 2` AT `q = 4`**, which is the
+### finite residue of the act's one real case split.
+### **IT CARRIES NO GENERATOR, NO PROJECTOR, NO `S`, NO `Pi`, NO `Son`, NO `E_1`, NO `Z[zeta_N]`
+### AND NO AGGREGATION.** ### Its header says so, and says that the identification of the count
+### with a support is the DERIVATION's and not the file's.
+### **POLARITY CONTROL: four FALSE statements of the same shapes, ALL REFUSED, lean exit 1.**
+
+### ── **THE DEVIATIONS, DECLARED.**
+### **(D1) THE PURITY IDENTITY IS BANKED AND THIS ACT REDISCOVERED IT.** ### Registered at (I1)
+### before the run: I derived `4q P_1 = (q + S)(1 + Pi)` while reading the owners and only then
+### saw it on b226's own object list, attributed to the purity report. ### **BY HARNESS-LORE RULE
+### 17 THAT IS CORROBORATION, NOT A FINDING**, and the derivation cites b226's line rather than
+### presenting the identity as this act's.
+### **(D2) THE SUPPORT RECONNAISSANCE PRECEDED THE SEAL, AND THE REGISTRATION SAYS SO AT (I2).**
+### ### **SO S1's EXPECTATION IS NOT AN UNSIGHTED PREDICTION.** ### What was genuinely open at the
+### seal, and is what the run settled: ### **whether the EXACT `Z[zeta_N]` test agrees with that
+### floating-point reconnaissance, and whether the four special points are nonzero at `q = 3` and
+### `q = 4` where the crude bound does not close.** ### Both agreed; the second is the only place
+### the exact tester was strictly necessary rather than merely better.
+### **(D3) AND THE INCENTIVE, NAMED AT (I3) AND REPEATED HERE:** ### this seat wrote b267, whose
+### TEST 2 stands (PARTIAL) on precisely the step this act pays. ### **PAYING IT UPGRADES THIS
+### SEAT'S OWN PRIOR VERDICT, WHICH IS WHY F-EXACT AND F-QUOTE ARE MECHANICAL AND WHY THIS ACT
+### DOES NOT RE-GRADE b267 ITSELF.**
+
+====================================================================================================
+(6) THE CEILING CARRIED LAST AS IT WAS CARRIED FIRST.
+====================================================================================================
+### **b15 GOVERNS: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."** ###
+### The derivation at (1) is general in `p`; ### **THE CONTROL AT (3) IS EIGHT PLACES AND IS A
+### CHECK, NOT THE RESULT.**
+### **b14's DOUBLE LIMIT STAYS OPEN.** ### **b242: nothing is fitted and no rate is banked.**
+### **b246: b44, b101, b198, b223, b226, b237, b263 AND b267 ARE CONSUMED AS OWNERS. ### NONE IS
+### RE-VERDICTED, AND b226's OBSERVATION IS NOT RE-GRADED -- A LATER ACT SUPPLIED THE DERIVATION
+### IT DECLINED TO ASSERT, WHICH IS NOT THE SAME THING.**
+### **NO OWNER INSTRUMENT AND NO OWNING ACT'S BANK WAS EDITED.**
+### **A2 IS NOT BEGUN.** ### `RULE M2-ORDER` fixes the order and A2 is next and separate.
+### **THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### NOTHING ABOVE TOUCHES IT.**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT.**
+====================================================================================================

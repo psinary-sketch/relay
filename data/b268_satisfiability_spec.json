@@ -1,0 +1,15 @@
+{"registration":"data/b268_registration_2026-08-31.txt -- b268, M-2 CAMPAIGN ACT 2 (A1)",
+ "clauses":[
+  {"clause":"no single allocation > 128 MB","cap":128,"demand":0.003,"units":"MB",
+   "from":"the largest object is an integer coefficient vector of length N = q^2; at the top registered place p = 19, N = 361, so 361 python ints ~ 3 KB. The cyclotomic polynomial has degree phi(N) < N."},
+  {"clause":"wall-clock 900 s","cap":900,"demand":30,"units":"s",
+   "from":"exact reduction is O(N) per element over N points, ~130k integer operations at p = 19; the cost is sympy's cyclotomic_poly construction, not the arithmetic"},
+  {"clause":"places registered vs places whose cells are defined","cap":8,"demand":8,"units":"places",
+   "from":"six b226-measured (p=2 at level 2; p=3,5,7,11,13 at level 1) plus p=17,19 unmeasured; every one has q and N = q^2 defined and f_{1,1} = e_{1+q} - e_1 well-formed since 1 < q for all of them"},
+  {"clause":"exactness: float comparisons permitted to decide a vanishing","cap":0,"demand":0,"units":"comparisons",
+   "from":"F-EXACT: every vanishing test is reduction modulo the cyclotomic polynomial on integer coefficients. A NONZERO demand here would contradict b223's standard, not exhaust a resource."},
+  {"clause":"aggregations this act may adopt, state or realize","cap":0,"demand":0,"units":"aggregations",
+   "from":"clause (J.1): M-2 remains owed and this act is A1 only"},
+  {"clause":"the odd-q argument needs gcd(q+2,q^2)=1, which requires q odd","cap":1,"demand":1,"units":"conditions",
+   "from":"S1's second congruence collapses to m=0 only when gcd(q+2,q^2)=1. For odd q a common prime divisor would divide q and q+2 hence 2, impossible. THIS IS THE ONE PLACE 'odd' IS LOAD-BEARING, and p=2 is handled separately at (D) rather than by this argument."}
+ ]}

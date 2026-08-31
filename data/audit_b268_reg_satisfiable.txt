@@ -1,0 +1,26 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b268_registration_2026-08-31.txt -- b268, M-2 CAMPAIGN ACT 2 (A1)
+  clauses      : 6
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  no single allocation > 128 MB      128              0.003            MB     SATISFIABLE
+      demand from : the largest object is an integer coefficient vector of length N = q^2; at the top registered place p = 19, N = 361, so 361 python ints ~ 3 KB. The cyclotomic polynomial has degree phi(N) < N.
+  wall-clock 900 s                   900              30               s      SATISFIABLE
+      demand from : exact reduction is O(N) per element over N points, ~130k integer operations at p = 19; the cost is sympy's cyclotomic_poly construction, not the arithmetic
+  places registered vs places whose  8                8                places SATISFIABLE
+      demand from : six b226-measured (p=2 at level 2; p=3,5,7,11,13 at level 1) plus p=17,19 unmeasured; every one has q and N = q^2 defined and f_{1,1} = e_{1+q} - e_1 well-formed since 1 < q for all of them
+  exactness: float comparisons permi 0                0                comparisons SATISFIABLE
+      demand from : F-EXACT: every vanishing test is reduction modulo the cyclotomic polynomial on integer coefficients. A NONZERO demand here would contradict b223's standard, not exhaust a resource.
+  aggregations this act may adopt, s 0                0                aggregations SATISFIABLE
+      demand from : clause (J.1): M-2 remains owed and this act is A1 only
+  the odd-q argument needs gcd(q+2,q 1                1                conditions SATISFIABLE
+      demand from : S1's second congruence collapses to m=0 only when gcd(q+2,q^2)=1. For odd q a common prime divisor would divide q and q+2 hence 2, impossible. THIS IS THE ONE PLACE 'odd' IS LOAD-BEARING, and p=2 is handled separately at (D) rather than by this argument.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
