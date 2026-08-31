@@ -1,0 +1,41 @@
+import took 549ms
+'TopLevelSilenceShadow.top_level_is_outside_the_range' does not depend on any axioms
+'TopLevelSilenceShadow.the_level_below_is_inside_the_range' does not depend on any axioms
+'TopLevelSilenceShadow.first_level_prime_has_a_level_the_range_does_not_reach' does not depend on any axioms
+'TopLevelSilenceShadow.the_range_is_nonempty_from_two_upward' does not depend on any axioms
+'TopLevelSilenceShadow.the_fraction_saturates_at_the_top' does not depend on any axioms
+'TopLevelSilenceShadow.the_fraction_is_strictly_below_one_beneath_the_top' does not depend on any axioms
+'TopLevelSilenceShadow.the_foil_holds_at_depth' does not depend on any axioms
+'TopLevelSilenceShadow.survey_counts_reconcile' does not depend on any axioms
+'TopLevelSilenceShadow.only_the_candidate_count_is_zero' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.1ms
+	blocked (unaccounted) 2.86ms
+	elaboration 78.2ms
+	fix level params 0.13ms
+	import 549ms
+	initialization 45.1ms
+	instantiate metavars 0.404ms
+	interpretation 245ms
+	let-to-have transformation 0.154ms
+	linting 2.13ms
+	parsing 3.52ms
+	process pre-definitions 1.46ms
+	share common exprs 0.665ms
+	tactic execution 7.39ms
+	type checking 5.03ms
+	typeclass inference 262ms
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Three deliberately FALSE statements of the SAME SHAPE as the shadow's own terminals,
+### submitted to the same `decide`:
+###   theorem false_range : (6 <= 6 - 1)              := by decide
+###   theorem false_empty : (1 <= 1 - 1)              := by decide
+###   theorem false_foil  : (2 ^ 24 - 1 < 2 ^ 23 - 1) := by decide
+### ALL THREE REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 6 <= 6 - 1 is false
+###   error: Tactic `decide` proved that the proposition 1 <= 1 - 1 is false
+###   error: Tactic `decide` proved that the proposition 2 ^ 24 - 1 < 2 ^ 23 - 1 is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE NINE PASSES ARE THEREFORE READABLE.**
+### zero-axiom terminals in this profile : 9 ; errors in this profile : 0
+### (b261's lesson observed: this summary NAMES the terminal line rather than quoting it.)
