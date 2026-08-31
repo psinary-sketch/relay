@@ -1,0 +1,44 @@
+import took 552ms
+'AggregationSourceShadow.numerator_vanishes_at_top' does not depend on any axioms
+'AggregationSourceShadow.numerator_does_not_vanish_above_top' does not depend on any axioms
+'AggregationSourceShadow.denominator_is_positive' does not depend on any axioms
+'AggregationSourceShadow.range_is_empty_at_first_level' does not depend on any axioms
+'AggregationSourceShadow.range_is_inhabited_above_one' does not depend on any axioms
+'AggregationSourceShadow.place2_law_gives_zero_at_arrival' does not depend on any axioms
+'AggregationSourceShadow.odd_law_is_nonzero_at_first_level' does not depend on any axioms
+'AggregationSourceShadow.the_two_laws_disagree_at_first_level' does not depend on any axioms
+'AggregationSourceShadow.the_value_one_is_the_p_three_cell_only' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.0863ms
+	blocked (unaccounted) 2.95ms
+	elaboration 149ms
+	fix level params 0.15ms
+	import 552ms
+	initialization 47.3ms
+	instantiate metavars 0.716ms
+	interpretation 247ms
+	let-to-have transformation 0.188ms
+	linting 2.43ms
+	parsing 3.69ms
+	process pre-definitions 1.29ms
+	share common exprs 0.885ms
+	tactic execution 8.34ms
+	type checking 5.83ms
+	typeclass inference 597ms
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Four deliberately FALSE statements, one of the SAME SHAPE as each family of the
+### shadow's own terminals, submitted to the same `decide`:
+###   theorem false_vanish  : 2 ^ 1 - 2 ^ 2 = 1           := by decide
+###   theorem false_range   : (1 <= 1 - 1)                 := by decide
+###   theorem false_arrival : 2 * (2 - 2) = 1              := by decide
+###   theorem false_oddlaw  : 4 * 1 = (5 - 1) * (5 - 1)    := by decide
+### ALL FOUR REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 2 ^ 1 - 2 ^ 2 = 1 is false
+###   error: Tactic `decide` proved that the proposition 1 <= 1 - 1 is false
+###   error: Tactic `decide` proved that the proposition 2 * (2 - 2) = 1 is false
+###   error: Tactic `decide` proved that the proposition 4 * 1 = (5 - 1) * (5 - 1) is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE NINE PASSES ARE THEREFORE READABLE.**
+### zero-axiom terminals in the COMPILE section : 9 ; errors in the COMPILE section : 0
+### (the four `error:` lines below the rule are the POLARITY CONTROL, quoted, and are
+###  the control WORKING -- they are not failures of the shadow.)

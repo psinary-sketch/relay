@@ -1,0 +1,26 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b267_registration_2026-08-31.txt -- b267, M-2 CAMPAIGN ACT 1
+  clauses      : 6
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  owner files that must exist to quo 8                8                files  SATISFIABLE
+      demand from : the act quotes act 9 sec 2 (via b220), b263, b260, b223, b198, b226, b227, b237 -- eight owning sources, counted by listing them on disk before the seal
+  the kernel file the odd law is rea 1                1                files  SATISFIABLE
+      demand from : SIDE-global-section/Core/SectorNonvanishingShadow.lean carries banked_odd_cells and odd_sector_pos, both quoted in (C) OWNER 5
+  wall-clock 600 s                   600              90               s      SATISFIABLE
+      demand from : a READS act: exact-fraction arithmetic on a handful of cells, one small Lean compile, the gate suite. No numerical instrument runs at all.
+  no single allocation > 64 MB       64               1.2              MB     SATISFIABLE
+      demand from : the largest file read whole is PLACE-papers/FINDINGS.md at ~1.2 MB; no array is allocated
+  aggregations this act may adopt, s 0                0                aggregations SATISFIABLE
+      demand from : clause (J.1): M-2 remains owed. A NONZERO demand here would contradict the act's own scope, not exhaust a resource.
+  places tabled by b223 vs places th 2                2                places SATISFIABLE
+      demand from : b223 tables p=2 and p=3 only. Any all-odd-p claim must come from b198's odd_sector_pos, which is general in the parameter -- NOT from the table. The resolution law at (A) forbids the wider claim from the narrower source.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

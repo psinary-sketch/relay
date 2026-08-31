@@ -1,0 +1,244 @@
+====================================================================================================
+b267 BANK -- M-2 CAMPAIGN, ACT 1. ### THE AGGREGATION'S SOURCE.
+### 2026-08-31. ### CONCURRENCY: SOLO (research seat).
+### REGISTRATION `data/b267_registration_2026-08-31.txt`, SEAL `fcc803df...`, TERM-SCANNED AND
+### JOINT-SATISFIABILITY-CHECKED ### BEFORE ### SEALING; VERIFIED INTACT AT THE CLOSE.
+### CONTROLS: `data/b267_run.txt`. ### SHADOW PROFILE: `data/b267_shadow_profile.txt`.
+### ### **A READS ACT. ### NO AGGREGATION IS ADOPTED, STATED OR REALIZED. ### M-2 REMAINS OWED.**
+====================================================================================================
+
+====================================================================================================
+(0) THE ANSWER, FIRST. ### **WHERE THE TERM CAN AND CANNOT COME FROM.**
+====================================================================================================
+### ### **IT CANNOT COME FROM THE TRACE SIDE.** ### act 9's closed-form EXPRESSION, evaluated at
+### `k = n` rather than merely declared out of range, returns ### **EXACTLY ZERO, BY ITS OWN
+### ARITHMETIC** ### -- the numerator `p^n - p^k` vanishes there. ### **SO THE AGGREGATION
+### (SPEC-1) DEMANDS IS NOT A RE-INDEXING OF THE QUOTIENT TRACE, AND EXTENDING THE RANGE DOES NOT
+### HELP.** ### (TEST 1.)
+### ### **THE ASSEMBLY SIDE HAS A NONZERO LOCAL DATUM EXACTLY WHERE THE CLOSED FORM IS SILENT --
+### ### AT ODD `p`.** ### The odd law `4 d_1 = (q-1)^2` gives `d_1(p,1) = ((p-1)/2)^2 > 0`, and
+### the kernel states it ### **"for every odd prime `p` and every level `n >= 1`"** ### at zero
+### axioms. ### **BUT THE VERDICT IS (PARTIAL), NOT (SUPPORTED)**, and (2) says exactly why.
+### ### **AND THE STEP THAT WOULD TURN THAT DATUM INTO A CONTRIBUTION TO THE AGGREGATE IS
+### ### ABSENT -- AND THAT ABSENCE ### IS ### M-2.** ### (TEST 3.)
+### ### ### **SO THE ACT'S CONTRIBUTION IS A ### LOCATION ### , NOT A DISCOVERY: THE TERM IS
+### ### ### RULED OFF THE TRACE SIDE, THE DATUM IS FOUND ON THE ASSEMBLY SIDE, AND THE BRIDGE
+### ### ### BETWEEN THEM IS THE THING STILL OWED.**
+### **`p = 2` IS THE EXCEPTIONAL PLACE BY THE LAWS' OWN VALUES, AND (3) STATES WHAT THAT DOES TO
+### (SPEC-3).**
+### **F-QUOTE, F-T1 AND F-T3's CONTROL ALL DID NOT FIRE** (at the close; F-QUOTE fired once first
+### and (5) is that story).
+
+====================================================================================================
+(1) TEST 1 -- THE EXTENSION. ### **LIMIT: NEITHER. ### A statement about a formula at one cell.**
+====================================================================================================
+### **THE OWNER'S TEXT, QUOTED WHOLE** (act 9 sec 2, extracted at `b220_aggregation_freedom.txt`
+### line 77, re-quoted by b263):
+### ### **"tau_q(p,n,k) * p^(k/2) = (p^n - p^k)/(p^n - 1) ### for 1 <= k <= n-1, 0 for k >= n. QED"**
+### **THE QUESTION THE FERRY ASKS IS NOT WHETHER THE RANGE IS EMPTY -- b263 SETTLED THAT.** ### It
+### is what the ### EXPRESSION ### returns at `k = n`, which decides whether the zero is a
+### CONVENTION or the formula's own arithmetic.
+### **EVALUATED ON EXACT FRACTIONS, 30 CELLS, `p in {2,3,5,7,11}`, `n in {1,2,3}`:**
+###   ### **AT `k = n`: THE EXPRESSION RETURNS `0` AT EVERY CELL.** ### `p^n - p^n = 0`, and the
+###     numerator is the whole of it; the denominator `p^n - 1` is positive, so no division by
+###     zero is involved and the vanishing is the numerator's.
+###   ### **AT `k = n+1`: THE EXPRESSION IS STRICTLY NEGATIVE** ### -- `-2`, `-4/3`, `-3`, `-9/4`,
+###     `-5`, `-25/6`, ... ### **AND DOES NOT AGREE WITH THE SUPPLIED `0`.**
+### ### ### **SO THE OWNER'S `0 for k >= n` IS TWO DIFFERENT THINGS IN ONE CLAUSE: ### AT `k = n`
+### ### ### IT IS THE EXPRESSION'S OWN VALUE, AND FOR `k > n` IT IS AN OVERRIDING CONVENTION.**
+### ### **THAT SPLIT IS THIS TEST'S FINDING AND THE FERRY DID NOT ASK FOR IT.**
+### ### ### **AND IT IS THE HALF THAT MATTERS FOR (SPEC-1): the first level of a prime with
+### ### ### `n_p(a) = 1` IS `k = n`, and that is precisely the point where the expression returns
+### ### ### zero ### BY ITS OWN ARITHMETIC ### . ### **A CONVENTION COULD BE RE-CONVENTIONED. ###
+### ### ### AN ARITHMETIC ZERO CANNOT.** ### **EXTENDING THE RANGE DOES NOT HELP; RE-INDEXING
+### ### ### DOES NOT HELP.**
+### **VERDICT: ### THE NAVIGATOR'S ASSERTION IS CONFIRMED, AND SHARPENED.** ### `tau_q` supplies
+### no nonzero first-level term, and ### **THE AGGREGATION IS NOT A RE-INDEXING OF THE QUOTIENT
+### TRACE.** ### This is b260's `phi = 1` and b263's silence, now with their cause in the
+### numerator: ### b260's ### **"(1) `k = n`: the fraction is `1`. ### THE WHOLE OF PR's TERM
+### SURVIVES. ### act 9's value VANISHES."**
+
+====================================================================================================
+(2) TEST 2 -- THE OBJECT'S OWN FACTOR. ### **VERDICT: (PARTIAL), AND THE MISSING PIECE IS NAMED.**
+### **LIMIT: NEITHER. ### A statement about an object at one cell.**
+====================================================================================================
+### ── **WHAT IS SUPPORTED, AND AT WHAT GRADE.**
+### **THE SECTOR IS NONZERO AT `(p, 1)` FOR EVERY ODD `p`.** ### From b198's odd law, quoted from
+### the kernel `SIDE-global-section/Core/SectorNonvanishingShadow.lean`:
+###   ### **"the odd law `4*d_1 = (q-1)^2` at `q = 3, 5, 9, 27` -- `d_1 = 1, 4, 16, 169`"**
+### and its general terminal, quoted whole:
+###   ### **"THE ODD-PLACE SECTOR IS NONZERO AT EVERY LEVEL. Given the banked law `4*d_1 =
+###   (q-1)^2` at any odd `q = 2m+3` -- hence at `q = p^n` for every odd prime `p` and every level
+###   `n >= 1` -- the sector dimension is positive."**
+### ### **AT `n = 1` THAT READS `d_1(p,1) = ((p-1)/2)^2`, EXHIBITED HERE AT `p = 3, 5, 7, 11, 13`
+### ### AS `1, 4, 9, 25, 36`.**
+### ### ### **AND A CORRECTION TO THE FERRY'S READING, MADE FROM THE LAW AND NOT FROM A TABLE:**
+### ### ### the ferry carries `d_1 = 1` at odd `p`. ### **`1` IS THE `p = 3` CELL. ### THE VALUE
+### ### ### IS `((p-1)/2)^2`, WHICH IS `4` AT `p = 5` AND `9` AT `p = 7`. ### THE ### NONZERO ###
+### ### ### CLAIM GENERALIZES; THE ### VALUE 1 ### DOES NOT.**
+### **AND b226 PUTS THE UNIT THERE, BY ITS OWN DEFINITION:** ### **"ell(p) := 2 if p = 2, else 1"**.
+### ### **SO ON THE QUESTION THE FERRY ASKED -- IS THE OBJECT SILENT WHERE THE CLOSED FORM IS? --
+### ### THE ANSWER IS ### NO ### , AND IT IS KERNEL-GENERAL IN THE PARAMETER.**
+
+### ── **WHY THE VERDICT IS (PARTIAL) AND NOT (SUPPORTED). ### THE OWNER'S OWN LIMIT.**
+### b226 draws the distinction this act must not blur, and it is quoted whole:
+### ### **"d_1 > 0 GIVES E_1 != 0. ### IT DOES NOT GIVE u_{1,1} != 0. ### SIX PLACES ARE NOT ALL
+### ### PLACES, AND FIVE ODD PLACES ARE NOT ALL ODD PLACES. ### THE STEP WANTS A RESULT: that
+### ### 4q P_1 f_{1,1} != 0 at every odd p at level 1. ### THIS ACT DID NOT PERFORM IT AND DOES
+### ### NOT CLAIM IT."**
+### ### ### **SO: THE ### SECTOR ### IS NONZERO AT EVERY ODD `(p,1)`, KERNEL-GENERAL. ### THE
+### ### ### PARTICULAR GENERATOR b226 CHOOSES THERE IS VERIFIED NONZERO AT ### SIX MEASURED
+### ### ### PLACES ### AND ITS GENERAL NONVANISHING IS ### AN OWED RESULT b226 NAMES ITSELF ### .**
+### ### **CALLING THIS (SUPPORTED) WOULD BE THIS ACT'S OWN DOUBLE-NAME ERROR -- reading a
+### ### statement about `E_1` as a statement about `u_{1,1}` -- AND THE REGISTRATION REGISTERED
+### ### THAT TRAP AT (E)/F-T2 BEFORE THE TEST RAN.**
+### **WHAT IS MISSING, NAMED: ### `4q P_1 f_{1,1} != 0` AT EVERY ODD `p` AT LEVEL 1.**
+
+### ── **AND WHAT b227's VECTOR STATE WOULD EVALUATE THERE. ### IT CANNOT.**
+### b227's object is ### **`omega_u(T) := <T u, u>`** ### with ### **"omega_u(T) = PROD over the
+### ACTIVE places of <T_v u_v, u_v>"**, act 7's tail joint forcing the inactive factors to 1.
+### ### **BUT ON act 9's OPERATOR IT DOES NOT EVALUATE AT ALL**, and b227 says why, quoted whole:
+### ### **"omega_u CANNOT BE EVALUATED ON ACT 9's CELL OPERATOR -- ### NOT FOR WANT OF ARITHMETIC,
+### ### AND NOT FOR WANT OF EFFORT, ### BUT BECAUSE THE OPERATOR ACTS ON A DIFFERENT SPACE AND THE
+### ### SECTOR THAT DEFINES THE UNIT IS ABSENT FROM IT."**
+### with its cause: ### **"ON V_inv THE TRANSFORM DOES NOT DESCEND, SO E_1 DOES NOT EXIST THERE."**
+### ### ### **THIS IS THE STRUCTURAL FACT THE WHOLE ACT TURNS ON: ### THE TRACE SIDE AND THE
+### ### ### ASSEMBLY SIDE LIVE ON DIFFERENT SPACES. ### `tau_q` ACTS ON `V_inv`; `u_v` LIVES IN
+### ### ### `E_1(S-bar_v)`. ### THE ZERO ON ONE SIDE AND THE NONZERO ON THE OTHER ARE NOT TWO
+### ### ### VALUES OF ONE QUANTITY -- THEY ARE VALUES OF TWO OBJECTS THAT DO NOT MEET.**
+
+### ── **`p = 2`, HANDLED SEPARATELY, AND WHAT IT DOES TO (SPEC-3).**
+### The place-2 law at `q = 2` gives ### **`4 d_1 = 2 * 0 = 0`**, and the kernel's own words:
+### ### **"THE ARRIVAL-DEPTH DEATH, from the law: if `4*d_1 = q(q-2)` at `q = 2`, then `d_1 = 0`.
+### ### The death at `(2,1)` is the law's OWN value."**
+### b223 exhibits it -- ### **"NO UNIT: d_1 = 0, the arrival depth"** ### -- and b226 draws the
+### consequence: ### **"THE ARRIVAL DEPTH IS WHY ell(2) = 2 AND NOT 1."**
+### ### ### **SO AT `p = 2` THE OBJECT HAS ### NO LEVEL-1 DATUM AT ALL ### . ### IT IS NOT THAT
+### ### ### THE DATUM IS SMALL OR UNVERIFIED: THE SECTOR IS ZERO-DIMENSIONAL THERE AND THERE IS
+### ### ### NO UNIT TO CHOOSE.**
+### ### **THE CONSEQUENCE FOR (SPEC-3) -- "IT IS DEFINED OVER ALL PRIMES, NOT A FIXED SET" -- AND
+### ### IT IS A REAL CONDITION AND NOT A DECORATIVE ONE:**
+###   ### **ANY CANDIDATE `AGG` THAT SOURCES ITS FIRST-LEVEL TERM FROM THE OBJECT'S ### LEVEL-1 ###
+###   DATUM HAS NOTHING TO READ AT `p = 2`.** ### It must either take `p = 2` at ### LEVEL 2 ###
+###   (b226's own step-up), or be undefined there -- and the second fails (SPEC-3) outright.
+###   ### **SO (SPEC-3) DOES NOT MERELY REQUIRE "ALL PRIMES": IT REQUIRES A CANDIDATE TO CARRY
+###   b226's STEP-UP, OR AN EQUIVALENT, AS PART OF ITS DEFINITION.**
+### ### **THIS ACT STATES THAT CONDITION. ### IT DOES NOT PROPOSE A CANDIDATE THAT MEETS IT.**
+### **AND b223's OWN SCOPE SENTENCE IS CARRIED SO THE (2,1) DEATH IS NOT OVERREAD:**
+### ### **"THE (2,1) DEATH IS ISOLATED AND DOES NOT PROPAGATE."**
+
+====================================================================================================
+(3) TEST 3 -- THE ASSEMBLY STEP. ### **VERDICT: (ABSENT), AND THE ABSENCE IS THE OWNER'S FINDING.**
+====================================================================================================
+### **THE QUESTION: does any owner state ### how a local datum becomes a contribution to the
+### aggregate ### ?**
+### **b237 ANSWERS IT, AND ITS ANSWER IS THAT THE STATEMENT IS NOT THERE. ### QUOTED WHOLE:**
+### ### **"M-2 [RESULT or RULING]. ### A statement carrying the quotient channel's operator onto
+### ### `S-bar_v`, or carrying `u_v` into `V_inv` -- b227's words; the second is blocked by b10;
+### ### ### the first is not in the record. ### THIS IS THE ASSEMBLY STEP, NOT THE PER-PLACE
+### ### OPERATOR."**
+### and b237's structural finding beside it: ### **"THE JUNCTION IS AT THE ASSEMBLY."**
+### ### ### **SO M-2's REMAINING CONTENT IS EXACTLY THIS BRIDGE, AND THIS ACT HAS NOT NARROWED
+### ### ### M-2 BY FINDING SOMETHING NEW -- IT HAS NARROWED IT BY RULING OUT THE TRACE SIDE (1)
+### ### ### AND LOCATING THE DATUM ON THE ASSEMBLY SIDE (2), SO THAT WHAT REMAINS OWED IS A
+### ### ### SINGLE NAMED STATEMENT RATHER THAN AN OPEN SEARCH.**
+
+### ── **THE POSITIVE CONTROL, RUN FIRST** (lore rule 4; b256's precedent).
+### An absence reported by an untested matcher is a silence, not a finding. ### The matcher was
+### required to find an assembly statement that ### IS ### present: b227's product formula,
+### ### **"PROD over the ACTIVE places"** ### -- ### **FOUND, IN b227's OWN FILE.**
+### ### **THE MATCHER READS. ### ITS SILENCE ELSEWHERE THEREFORE MEANS SOMETHING.**
+
+### ── **AND THE SEARCH DESIGN'S OWN LIMIT, SAID RATHER THAN FIXED AWAY.**
+### The needles for the MISSING statement were taken from ### b237's OWN SENTENCE NAMING THE
+### ABSENCE ### , so they hit b237 by construction and hit this act's files because this act
+### quotes b237. ### ### **A NEEDLE DRAWN FROM THE SENTENCE THAT NAMES AN ABSENCE WILL ALWAYS
+### ### FIND THAT SENTENCE AND NOTHING ELSE. ### THAT IS NOT A SEARCH FOR THE MISSING STATEMENT;
+### ### IT IS A CHECK THAT NO ONE ELSE HAS QUOTED THE NAMING.**
+### ### **THE HITS ARE ALL SELF-HITS. ### NO FILE ### STATES ### THE BRIDGE.**
+### **AND THE SCOPE IS STAMPED ON THE ABSENCE** (lore rule 7): ### **1261 `data/*.txt` files
+### searched, 2 needles.** ### ### **A GREP OVER ONE DIRECTORY IS NOT A PROOF OF CORPUS-WIDE
+### ### ABSENCE, AND THIS ACT DOES NOT CLAIM ONE. ### THE ABSENCE IS b237's FINDING; THIS IS ITS
+### ### CORROBORATION AT A STATED SCOPE.**
+
+====================================================================================================
+(4) THE SIZE, RESTATED AS A TARGET ONLY. ### **BENCH CONTROL. ### LIMIT (L-B).**
+====================================================================================================
+### b262's first-level family mass, restated as the size ### **ANY CANDIDATE WOULD HAVE TO
+### ACCOUNT FOR** ### -- and nothing else:
+###   `a^2 = 1e2` : `m1 = 0.277103` of `0.374669` -- ### **73.9594%**
+###   `a^2 = 1e3` : `0.487489` of `0.549193` -- **88.7646%**
+###   `a^2 = 1e4` : `1.114605` of `1.150252` -- **96.9010%**
+###   `a^2 = 1e6` : `4.628665` of `4.645790` -- **99.6314%**
+###   `a^2 = 1e8` : `19.699799` of `19.708927` -- ### **99.9537%**
+### ### **NO CANDIDATE IS COMPUTED. ### NO FIT IS ATTEMPTED. ### NO AGGREGATION IS PROPOSED.**
+### ### **THIS IS A SIZE THE OWED OBJECT MUST ACCOUNT FOR, NOT EVIDENCE THAT ANY OBJECT DOES.**
+### **AND b15 GOVERNS IT: A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.**
+
+====================================================================================================
+(5) THE SHADOW, AND THE DEVIATIONS.
+====================================================================================================
+### **`SIDE-global-section/Core/AggregationSourceShadow.lean` -- VANILLA Lean 4, `decide` ONLY.**
+### ### **NINE TERMINALS, ALL "does not depend on any axioms", ZERO ERRORS IN THE COMPILE SECTION.
+### ### THE PROFILE IS PRINTED AND READ, NEVER INFERRED FROM AN EXIT CODE** (b227's standard).
+### **IT CARRIES:** the numerator's vanishing at `k = n` ### **AND ITS FOIL ONE LEVEL ABOVE**
+### (`p^n < p^(n+1)` strictly, so the supplied zero is not the expression's value there); the
+### denominator's positivity, so the vanishing is the numerator's and not a division artefact;
+### the empty range at `n = 1` with its non-empty foil; the place-2 law's zero at arrival; the
+### odd law's nonzero at four odd cells; ### **AND THE TWO LAWS' DISAGREEMENT AT `n = 1`, WHICH IS
+### WHY `p = 2` IS EXCEPTIONAL BY THE LAWS' OWN VALUES.**
+### **IT CARRIES NO AGGREGATION, NO OPERATOR, NO `E_1`, NO `S-bar_v`, NO `V_inv`, NO VECTOR STATE
+### AND NO LIMIT.** ### And its header states what part (3) must not be misread as:
+### ### **`d_1 > 0` IS ABOUT THE SECTOR'S DIMENSION AND NOT ABOUT b226's CHOSEN GENERATOR.**
+### **POLARITY CONTROL: four FALSE statements of the same shapes, ALL REFUSED, lean exit 1,
+### quoted verbatim in the profile.**
+
+### ── **THE DEVIATIONS, DECLARED.**
+### **(D1) F-QUOTE FIRED ON THE FIRST PASS, ON A TYPOGRAPHIC APOSTROPHE.** ### The kernel's
+### comment reads `law's` with a STRAIGHT apostrophe and this act's needle carried the
+### typographic one. ### **THAT IS THE b229/b260/b261/b263 NEEDLE SPECIES EXACTLY, AND THE
+### MECHANICAL CHECK CAUGHT IT BEFORE IT REACHED THE BANK.** ### 21 quotations, 1 unfindable on
+### the first pass, 0 after the fix. ### **THIS IS THE EXPECTATION b266 REGISTERED AND DID NOT
+### GET; b267 GOT IT.**
+### **(D2) AND THE HONEST NOTE ON (I1): TEST 1's ARITHMETIC WAS RUN BEFORE THE SEAL**, and the
+### registration says so. ### **TEST 1's "expectation" WAS A RESULT ALREADY SEEN, AND IT IS
+### SCORED AS AN EXHIBITION AND A SHADOW-CHECK, NOT AS A PREDICTION.**
+
+====================================================================================================
+(6) M-2's ROW. ### **UPDATED IN ITS ADDRESS, NOT IN ITS STATUS.**
+====================================================================================================
+### **STATUS: ### SPECIFIED-NOT-STATED ### . ### UNCHANGED. ### NO ADOPTION.**
+### **WHAT THIS ACT ADDS TO THE ROW:**
+###   ### **(i) THE TERM CANNOT COME FROM THE QUOTIENT TRACE.** ### Not because the range is
+###     empty -- b263 had that -- but because ### **THE EXPRESSION ITSELF RETURNS ZERO AT `k = n`**,
+###     so no re-indexing or range extension reaches it. ### (SPEC-1) excludes `Theta_q` and
+###     ### **NOW ALSO EXCLUDES EVERY RE-INDEXING OF IT.**
+###   ### **(ii) THE OBJECT HAS A NONZERO LOCAL DATUM WHERE THE CLOSED FORM IS SILENT, AT ODD
+###     `p`** -- kernel-general -- ### **BUT THE CHOSEN GENERATOR'S GENERAL NONVANISHING IS AN
+###     OWED RESULT b226 NAMES ITSELF.** ### (PARTIAL.)
+###   ### **(iii) `p = 2` HAS NO LEVEL-1 DATUM AT ALL, BY THE LAW'S OWN VALUE, SO (SPEC-3)
+###     REQUIRES A CANDIDATE TO CARRY b226's STEP-UP OR AN EQUIVALENT.**
+###   ### **(iv) THE BRIDGE FROM A LOCAL DATUM TO A CONTRIBUTION IS ABSENT, AND b237 ALREADY
+###     NAMED THAT ABSENCE AS M-2 ITSELF.**
+### ### ### **SO M-2's REMAINING CONTENT IS NOW A ### SINGLE NAMED STATEMENT ### RATHER THAN AN
+### ### ### OPEN SEARCH: ### "A statement carrying the quotient channel's operator onto `S-bar_v`,
+### ### ### or carrying `u_v` into `V_inv`" ### -- b227's words, b10 blocking the second.**
+### **AND WHAT IS STILL NOT DONE, SAID PLAINLY:** ### **NO FUNCTION SATISFYING (SPEC-1)-(SPEC-3)
+### IS EXHIBITED. ### NONE IS SHOWN TO EXIST. ### THE SPECIFICATION STILL EXCLUDES AND DOES NOT
+### DETERMINE. ### M-2 IS OWED.**
+
+====================================================================================================
+(7) THE CEILING CARRIED LAST AS IT WAS CARRIED FIRST.
+====================================================================================================
+### **b15 GOVERNS: "A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."**
+### **b14's DOUBLE LIMIT STAYS OPEN.** ### **b242 GOVERNS: no fit, no candidate, no extrapolation.**
+### **b246 GOVERNS: b220, b223, b226, b227, b237, b260, b262, b263 AND b198 ARE CONSUMED AS
+### OWNERS. ### NONE IS RE-VERDICTED, AND b226's OWED RESULT IS NOT RE-GRADED INTO A THEOREM.**
+### **THE DOUBLE-LIMIT DISCIPLINE WAS OBEYED: TESTS 1 AND 2 ARE AT A FIXED CELL AND ARE IN
+### NEITHER LIMIT; THE SIZE AT (4) IS IN (L-B) AND IS LABELLED SO.**
+### **NO OWNER INSTRUMENT AND NO OWNING ACT'S BANK WAS EDITED.**
+### **THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### NOTHING ABOVE TOUCHES IT.**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT.**
+====================================================================================================
