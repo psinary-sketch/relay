@@ -1,0 +1,152 @@
+====================================================================================================
+b261 -- COMPONENT 3, PART 2. ### THE FILINGS. ### 2026-08-30. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) J2's LEDGER ROW, AT GRADE.
+----------------------------------------------------------------------------------------------------
+###   key        : ### **e2even-monotone**, alias ### **j2**. ### KEYED ON THIS FILING.
+###   statement  : ### **J2 AS STATED IS FALSE.** ### `E2even` does NOT decrease monotonically on
+###                `(1, inf)`: it RISES from `0` on `(1, a_0]` and falls only afterwards, with
+###                ### **`a_0` IN `(1.75, 2]`.**
+###   owner      : ### b261 (this act), on ### **the owner's support line `eps(1) = 0`**
+###                (`qeps_layer.py`) + ### **the bump's exact dilation** (`carto_atlas.bump`,
+###                `b38_act10.family`), both read at source.
+###   grade      : ### ### **REFUTED BY DERIVATION**, with ### ONE ### bench ingredient named:
+###                the STRICT positivity `eps_even > 0` on `(1, inf)`, measured at 1999 grid points
+###                and ### **NOT DERIVED** ### (only mode 0 is sign-definite; the sum's sign is a
+###                cancellation fact). ### **THE GRADE CARRIES THAT INGREDIENT AND MAY NOT BE
+###                QUOTED WITHOUT IT.**
+###   the second row, separately:
+###   ### **J2-RESTRICTED -- `E2even` decreases on `[a_0, inf)`: ### BENCH-ONLY**, 79 strict
+###                decreases on a dense geometric ladder `a^2 = 2..100`. ### **NO DERIVATION**,
+###                because the kernel it averages is not monotone and every positivity argument
+###                died at S3.
+###   scope      : ### **PER CELL, ON THE MEASURED RANGE.** ### Not a limit, not a rate, not a
+###                bound (b15, b242). ### Scope-bound to the owners' bump and to `NTERM = 11`.
+###   location   : `data/b261_e2even_monotone.txt`; run `data/b261_run.txt`; diagnostics
+###                `data/b261_diagnostics.txt`; shadow
+###                `SIDE-global-section/Core/E2EvenMonotoneShadow.lean`.
+###   ### **b256's "J2, AN UNPROMOTED CANDIDATE" STATUS: ### DISCHARGED. ### J2 IS EXECUTED AND
+###   ### RETURNED FALSE.**
+
+----------------------------------------------------------------------------------------------------
+### (2) A SECOND RESULT THIS ACT DID NOT SET OUT TO FIND. ### FILED ON ITS OWN ROW.
+----------------------------------------------------------------------------------------------------
+###   key        : ### **eps-even-oscillates**. ### KEYED ON THIS FILING.
+###   statement  : ### **`eps_even(rho)` DECAYS ### WITH OSCILLATION ### , NOT MONOTONICALLY.**
+###                448 of 1676 samples past the peak rise; largest relative rise `1.101e-02`.
+###   grade      : ### **BENCH, WITH THE ARTEFACT HYPOTHESIS TESTED AND KILLED AT TWO AXES** --
+###                stable across `NG` 200->1600 (`~2e-12`) and `NQ` 700->1100 (`~1e-9`), rise count
+###                invariant at 111; and the sweep shown able to see a failure (`5.674e+00` at a
+###                starved `NG = 12`). ### **THE OSCILLATION IS THE OBJECT, NOT THE INSTRUMENT.**
+###   ### **AND ITS SHARPEST HALF: THE OSCILLATION IS IN THE ### LEADING ### MODE.** ### Mode 0 is
+###                the ONE sign-definite mode and it still rises past its own peak 107 times.
+###                ### **THE COMFORTABLE EXPLANATION -- CANCELLATION BETWEEN MODES -- IS WRONG.**
+###   ### **A THIRD OBSERVATION, RECORDED AT READING GRADE AND NOT PROMOTED:** on this `rho`-range
+###                and at this truncation, ### **`E2even` IS EFFECTIVELY A TWO-MODE OBJECT** --
+###                `|max|` by mode `0 -> 1.199`, `2 -> 0.282`, `4 -> 5.0e-04`, `6 -> 1.3e-07`,
+###                `8 -> 2.2e-13`, `10 -> 7.7e-12`. ### **NOT EXTRAPOLATED BEYOND THIS RANGE.**
+
+----------------------------------------------------------------------------------------------------
+### (3) J3, FILED AS NEXT, WITH b260's FORMULA QUOTED AS ITS OBJECT.
+----------------------------------------------------------------------------------------------------
+### ### **J3 -- THE JUNCTION AT THE LEVEL LIMIT.** ### ### **CANDIDATE. UNPROMOTED.**
+### ITS OBJECT, QUOTED WHOLE FROM b260's BANK SO THE NEXT ACT INHERITS IT EXACTLY:
+### ###   **`w_{p,k} - tau_{p,k} = w_{p,k} * ( 1 - (p^n - p^k)/(p^n - 1) ) = w_{p,k} * (p^k - 1)/(p^n - 1)`**
+### ### with, from b260, `tau_{p,k} = 2 log p * tq(p,n,k) * corr(k log p)` and
+### ### `w_{p,k} = 2 log p * p^{-k/2} * corr(log p^k)`, over the common index set
+### ### `{(p,k) : 1 <= k <= n_p(a)}`.
+### **THE QUESTION J3 ASKS:** what `(PR - Theta_q)(a)` does as `n_p(a) -> inf` -- i.e. as the level
+### limit is taken at fixed `p` -- given that ### **the `k = n` term carries the whole of `PR`'s
+### weight and vanishes on the quotient side.**
+### ### **THE ROUTE NOTE, WRITTEN NOW SO THE NEXT ACT DOES NOT REDISCOVER IT:**
+###   ### **J1's METHOD ### DOES ### TRANSFER TO J3, UNLIKE J2's** -- there IS a per-term closed
+###   form and there IS a shared index set, which is exactly what J2 lacked. ### **b260's ROUTE
+###   NOTE APPLIED TO J2 AND DOES NOT APPLY TO J3.**
+###   ### **AND THE HAZARD, NAMED IN ADVANCE: b15 GOVERNS.** ### A level limit at fixed `p` is one
+###   coordinate of b14's double limit and ### **DECIDES NOTHING GLOBAL**; an act that read it as
+###   the limit would be committing the error b15 exists to prevent.
+###   ### **AND J1's PREMISE TRAVELS: `W-ORD-TQ-IDENTIFY` IS STILL OPEN, SO ANY J3 RESULT INHERITS
+###   ### IT.** ### J3 cannot be cleaner than J1 is.
+
+----------------------------------------------------------------------------------------------------
+### (4) THE IN-FLIGHT REGISTER, CURRENT.
+----------------------------------------------------------------------------------------------------
+### **M-2, M-3, M-4, M-5: OPEN. ### NONE CLOSED BY THIS ACT.**
+### ### **M-2 NAMED AGAIN: RULE Q's AGGREGATION OF THE PER-PLACE VALUES INTO THE SINGLE REAL
+### ### `Q.value` REMAINS ### UNSTATED.** ### Nothing in J2 bears on it.
+### **OPEN WORK-ORDERS:** `W-ORD-B38-HIGHMODE`, ### **`W-ORD-CN-LAW` (STANDING, NOT RUN**
+###   -- derive the `C/n` form), the QUOTED-N term-scan extension, `W-ORD-XI-PERMODE`,
+###   `W-ORD-ORDINATE-CACHE`, `W-ORD-STAGING-GUARD`, `W-ORD-FILE-E-WORKING-COPY-STALE`,
+###   `W-ORD-TE-SPEC`, ### **`W-ORD-TQ-IDENTIFY` (b260, STANDING, NOT RUN).**
+### ### **NEW THIS ACT: ### `W-ORD-EPS-DECAY` ### -- prove that `eps_even(rho) -> 0` as
+### ### `rho -> inf`.** ### FILED, NOT RUN. ### **IT IS S5's ONLY IMPORT AND THE LIMIT NOTE RESTS
+### ### ENTIRELY ON IT.** ### Its structural reason (a `rho^{-1/2}` prefactor against a bounded
+### ### overlap) is stated at reading grade in the bank and ### **NOT PROMOTED**; its price is not
+### ### on the record and none is invented.
+### **DISCHARGED SINCE b256:** the SIGNEDNESS quotation (b257); J1's PARKED-BY-AUTHOR status
+###   (b260); ### **J2's UNPROMOTED-CANDIDATE status (this act, by REFUTATION).**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE THIRTY-SEVENTH SEAM'S DEBT, RESTATED.
+----------------------------------------------------------------------------------------------------
+### ### **TERM 2's FORMALIZATION STANDS, ### UNPAID AND UNTOUCHED.** ### Its four items:
+###   1. THE FILE -- the aggregation. ### **OPEN.** b227's trace is the CANDIDATE ENGINE, NOT ADOPTED.
+###   2. THE LEMMA -- ClassRichness. ### **OPEN.** Citation read (b222); the lemma undischarged.
+###   3. THE TOOLCHAIN -- ### **DISCHARGED** (b221).
+###   4. THE LEDGER'S STATEMENT -- ### **ADOPTED-BY-RULING, PRIME SIDE** (b229). ### `wInf` still
+###      open, its absence named and its sign unfixed.
+### ### **J2 TOUCHES NONE OF THE FOUR.** ### It concerns the LEFT side's archimedean bookkeeping;
+### ### term 2 is the quotient channel. ### **DIFFERENT OBJECTS, AND THE ACT DOES NOT BLUR THEM.**
+
+----------------------------------------------------------------------------------------------------
+### (6) WHAT THE FOOT ASKED FOR, AND WHAT IT GOT. ### **SAID PLAINLY.**
+----------------------------------------------------------------------------------------------------
+### THE FERRY'S FOOT: *"after this act E2even is monotone by derivation or its resisting step is
+### famous; ### **both terms of resid(A) are then signed by theorem or the exception is named.**"*
+### ### **NEITHER BRANCH WAS TAKEN, AND THE THIRD OUTCOME IS THE ONE THAT HAPPENED:**
+### ### ### **`E2even` IS NOT MONOTONE AT ALL. ### THERE IS NO RESISTING STEP TO MAKE FAMOUS,
+### ### ### BECAUSE THE STATEMENT IS FALSE RATHER THAN HARD.**
+### **AND THE EXCEPTION IS NAMED, AS THE FOOT REQUIRES:**
+### ### **`resid(A) = -(E2even + junction)`. ### J1 SIGNED THE JUNCTION BY THEOREM. ### J2 HAS
+### ### ### NOT ### SIGNED `E2even` -- IT HAS REFUTED THE MONOTONICITY CLAIM AND LEFT THE
+### ### ### POSITIVITY AT BENCH.**
+### ### **SO THE (SIGN-EVENT) QUESTION b255 REGISTERED IS ### NOT ### CLOSED, AND IT IS FURTHER
+### ### FROM CLOSING THAN THE FOOT ANTICIPATED**: what was expected to become a second theorem
+### instead became a refutation plus an open positivity.
+### ### **THE HONEST SUMMARY OF THE ARC: ### ONE TERM SIGNED BY THEOREM (J1), ONE TERM'S CLAIM
+### ### REFUTED AND ITS SIGN STILL BENCH (J2). ### THAT IS NOT THE ARC THE FOOT PROJECTED AND THE
+### ### RECORD SAYS SO RATHER THAN ROUNDING IT UP.**
+
+----------------------------------------------------------------------------------------------------
+### (7) THE INDEX.
+----------------------------------------------------------------------------------------------------
+### ### **QUERIED BEFORE THE ROUTE WAS WRITTEN**, as b160's convention requires:
+###   `weil criterion`         -> ### **HIT** ### (key `weil-criterion`; b179; EXTERNAL, quoted at
+###     content, and its own grade line carried: *"NOT the corpus's result and NOT about one place"*).
+###   `archimedean positivity` -> ### **HIT** ### (key `archimedean-positivity`; b180;
+###     *"PROVED AT THE ARCHIMEDEAN TRUNCATION; OPEN BEYOND IT"* -- the record's own words).
+### ### **AND THE REACH LINE IS CARRIED, NOT ELIDED: *"ABSENCE FROM THE INDEX IS NOT ABSENCE FROM
+### ### THE RECORD."*** ### Neither hit was used as a premise; both were read to check that the
+### record did not already hold what this act was about to derive.
+### ### **`e2even-monotone` / `j2` AND `eps-even-oscillates` KEYED ON THIS FILING**, per clause (e).
+
+----------------------------------------------------------------------------------------------------
+### (8) WHAT MOVED, AND WHAT DID NOT.
+----------------------------------------------------------------------------------------------------
+### **MOVED:** `relay` -- the registration, bank, run, diagnostics, rows, shadow profile, filings,
+###   three instruments (`b261_e2even.py`, `b261_diagnostics.py`, and the checks harness), the
+###   report, HANDOFF. ### `SIDE-global-section` -- ### **ONE NEW FILE**,
+###   `Core/E2EvenMonotoneShadow.lean`.
+### **DID NOT MOVE:** ### **NO EXISTING INSTRUMENT WAS EDITED.** ### `b38_act10.py`,
+###   `qeps_layer.py`, `carto_atlas.py` and `b255_ladder.py` are ### **UNCHANGED AT BYTE LEVEL** --
+###   this act IMPORTED them. ### **FILE E IS UNTOUCHED. ### `CORRESPONDENCE.md` IS UNTOUCHED.**
+###   ### **NO GRADE MOVED EXCEPT J2's OWN, AND THAT ONE MOVED TO ### REFUTED ### .**
+### ### **`PLACE-papers` IS NOT TOUCHED, SO NO MIRROR REBUILD IS OWED AND NONE IS CLAIMED, AND THE
+### ### `place_add.py` HOOK IS ### NOT ### EXERCISED THIS ACT -- REPORTED EITHER WAY, AS THE FERRY
+### ### REQUIRES.**
+### ### **b259's BANK REMAINS UNTRACKED, AS b259 RULED** ("left uncommitted, for the author's word").
+### ### **NOTHING UNDER `patent-package/` WAS WRITTEN OR STAGED; STAGING WAS BY EXPLICIT PATH AND
+### ### NO `git add -A` WAS RUN** -- b256's live b148 condition stands re-reported, not resolved.
+====================================================================================================

@@ -1,0 +1,302 @@
+====================================================================================================
+b261 -- J2: E2even's MONOTONE DECREASE. ### THE REGISTRATION.
+### TERM-SCANNED BEFORE BANKING (the b260 lesson, made a step by this ferry).
+### BANKED BEFORE ANY STEP IS WRITTEN. ### 2026-08-30. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+### THE CEILING, IN THE HEADER:
+###   b15: ### **"A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."**
+###   b14: the complete roster is the double limit and ### **STAYS OPEN WHATEVER THIS ACT SHOWS.**
+###   b242: ### **"A MEASURED RATE IS NOT A TAIL BOUND."**
+### THE REGISTER SENTENCE, UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### **NOTHING ABOUT h2 BEYOND THAT SENTENCE EXACT.**
+### ### **NOTHING DEPOSITS.**
+
+### THE STANDING CLAUSE (b229) GOVERNS AND IS OBEYED: no value from either side of the identity
+### defines, calibrates or tunes anything here. ### **THIS ACT TOUCHES ONLY ONE TERM OF THE LEFT
+### SIDE'S ARCHIMEDEAN BOOKKEEPING AND DEFINES NOTHING AT ALL.**
+
+====================================================================================================
+(A) ### **THE REGISTRATION IS NOT SEALED, AND SAYS SO -- b260's PRACTICE, CARRIED.**
+====================================================================================================
+### The ferry orders ### *"owners read at content first"* ### and ### *"registration ... banked
+### before any step"*. ### **THE READS THEREFORE PRECEDE THIS FILE**, and S1's reduction is a
+### consequence of them. ### Every line below carries its side:
+###   ### **ESTABLISHED-BY-READ** -- fixed by the owners' text before this file existed.
+###   ### **OPEN-TO-THE-RUN** -- not decided by any read; the run may refute it.
+### **A PREDICTION MADE AFTER THE ANSWER IS KNOWN IS NOT A PREDICTION, AND NONE IS CLAIMED AS ONE.**
+
+*** ### ### **AND ONE READ IS DECLARED HERE IN FULL, BECAUSE IT DECIDES THE ACT AND IT WAS DONE
+### ### BEFORE THIS REGISTRATION EXISTED: I READ THE KERNEL `eps_even` ITSELF, AT CONTENT, FROM
+### ### b255's CACHED `ee_modes` GRID.** ### It is an OWNER READ -- `eps_n` is the owner's object,
+### ### `per_mode_eps_grids` its instrument -- and it is ### NOT ### a reading of b255's `E2even`
+### ### column, which stays a CONTROL and is not consulted by any step of the route.
+### ### **WHAT THE READ SHOWED, DECLARED NOW SO THE RUN CANNOT BE CREDITED WITH IT:**
+### ### **`eps_even` IS NOT MONOTONE. ### IT RISES FROM `~0` AT `rho = 1` TO A PEAK NEAR
+### ### `rho ~ 1.2`, THEN DECAYS TOWARD `0`. ### AND IT IS NON-NEGATIVE AT EVERY GRID POINT.** ***
+
+====================================================================================================
+(B) ### RULE-3 LINE (a). ### THE LOAD-BEARING OWNERS, QUOTED WHOLE, READ AT SOURCE THIS ACT.
+====================================================================================================
+
+### **(a1) E2even's DEFINITION, AT ITS OWNER, UNFOLDED TO ITS CONSTITUENTS.**
+### THE SECTOR SPLIT, quoted whole from b246 (its reading (R3), the one b255 computes):
+###   ### **"(R3) the FULL eps sectors (not 'beyond'): `E2even := sum E2n[n] over n EVEN`,
+###    `E2odd := sum E2n[n] over n ODD`. ### This is sec 17's own sector split, and `E2odd` IS
+###    `Delta_-` by sec 19's row."**
+### THE ASSEMBLY, quoted character for character from `tools/e16/b255_ladder.py`:
+###   `E2n = np.array([B38.e2_of_grid(a, corr, vc, L, rr, ee_modes[n]) for n in range(...)])`
+###   `E2even, E2odd = float(E2n[0::2].sum()), float(E2n[1::2].sum())`
+### THE PER-CELL FUNCTIONAL, quoted from `tools/e16/b38_act10.py`:
+###   `def e2_of_grid(a, corr, vc, L, rr, ee):`
+###   `    uu = np.linspace(0.0, 2 * L, NU_HALF)`
+###   `    cu = np.interp(uu, vc, corr)`
+###   `    eu = np.interp(np.exp(uu), rr, ee)`
+###   `    return 2.0 * float(np.trapezoid(cu * eu, uu))`
+### THE PER-MODE KERNEL, quoted from `tools/e16/b38_act10.py`, `per_mode_eps_grids`:
+###   `    for k, r in enumerate(rr):`
+###   `        lo, hi = 1.0 / r, 1.0`
+###   `        if hi - lo <= 0: continue`
+###   `        u = 0.5 * (hi - lo) * gx + 0.5 * (hi + lo)`
+###   `        jac = 0.5 * (hi - lo)`
+###   `        I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)`
+###   `        out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I`
+### ### **SO, PER MODE:**
+### ###   **eps_n(rho) = [ lam_n^2 / (1 - lam_n^2) ] * rho^{-1/2} * INT_{1/rho}^{1} xa_n(u) xa_n(rho u) du**
+###   where `xa_n` is `xi_n^an`, the owner's analytic continuation, quoted from `qeps_layer.py`:
+###   ### **"xi_n^an(x) = (2/lam) int_0^1 xi_n(t) cos(2 pi t x) dt [entire]"**.
+### ### AND THE OWNER'S OWN SUPPORT LINE, WHICH THIS ACT LEANS ON HARDEST:
+### ###   ### **"integrand supported ONLY on u in [rho^-1, 1] -> ### eps(1) = 0"**
+### ### **THAT SENTENCE IS THE ACT'S PIVOT AND IT IS THE OWNER'S, NOT MINE.**
+
+*** ### **THE DOUBLE-NAME GUARD, ARMED BEFORE THE WORD IS USED TWICE:** ### the corpus's mode
+### index `n` ALREADY refers to the EVEN prolate modes -- b250's derivation, quoted: ### **"the
+### standard indexing -- the one pin P1 already uses when it says 'even index only' -- has `psi_n`
+### of parity `(-1)^n`"**, and `qeps_layer.layer` takes `lam2 = mu[0::2][:NTERM]`,
+### `xi = sqrt(2) * psi[:, 0::2][:NTERM]`.
+### ### ### **SO `E2even`'s "EVEN" IS A ### MASK OVER THE MODE LIST ### , NOT THE PARITY OF A
+### ### ### FUNCTION. ### THE TWO SENSES OF "EVEN" ARE DIFFERENT OBJECTS SHARING A WORD, AND THIS
+### ### ### ACT USES ONLY THE MASK SENSE.** ### Reading a symmetry into `E2even` would be b219's
+### ### double-name species, and it is named here rather than committed. ***
+
+### **(a2) THE BUMP AND `corr`, WITH THE DILATION PARAMETER'S EXACT ROLE.**
+### `carto_atlas.bump`, quoted character for character:
+###   `def bump(a):`
+###   `    L = math.log(a)`
+###   `    v = np.linspace(-L, L, NV)`
+###   `    t = v / L`
+###   `    w = np.zeros_like(t)`
+###   `    m = np.abs(t) < 1.0`
+###   `    w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))`
+###   `    w /= np.trapezoid(w, v)`
+###   `    return v, w`
+### `b38_act10.family`, quoted:
+###   `v, w = C.bump(a)` ; `dv = np.gradient(v)` ; `L = math.log(a)`
+###   `corr = np.convolve(w, w, mode="full") * float(dv[0])`
+###   `vc = np.linspace(-2 * L, 2 * L, corr.size)`
+### ### **`a` ENTERS THROUGH `L = log a` AND THROUGH NOTHING ELSE. ### `NV`, the shape `exp(-1/(1-t^2))`
+### ### AND THE `t`-GRID ARE ALL `a`-INDEPENDENT.** ### That is the whole of the dilation's role and
+### ### it is read off the two functions, not assumed.
+
+### **(a3) b250's TOOLS, CARRIED AT THEIR OWN GRADES AND ### NOT ### RE-DERIVED HERE.**
+###   THE PARITY INDEXING (quoted above) -- used ONLY for the double-name guard (a1).
+###   MERCER AT THE CORNERS, quoted: ### **"sum_{n EVEN} mu_n psi_n(1)^2 = (1/2)[ c/pi + sin(2c)/(2 pi) ]"**
+###     and ### **"sum_n lambda(n)^2 xi_n(1)^2 = c/pi + sin(2c)/(2 pi)"**.
+###   THE eps-SERIES / `eps'(1+)` IDENTITY, quoted from `qeps_layer.py`'s header:
+###     ### **"eps'(1+) = sum_n [lam^2/(1-lam^2)] xi_n(1)^2 -- i.e. exactly the t(n) of CC Lemma 5.4"**.
+### ### **WHAT THESE DO AND DO NOT GIVE, SAID IN ADVANCE SO NEITHER IS OVER-READ:**
+### ### **THEY SIGN `eps'(1+)` (A SUM OF SQUARES TIMES POSITIVE COEFFICIENTS) AND THEY DO ### NOT
+### ### ### SIGN `eps_n(rho)` FOR `rho > 1`**, which is an overlap of `xa_n` against its own
+### ### dilate and is not a sum of squares. ### **b250's S3(a) HALT IS QUOTED AS THE PRECEDENT:**
+### ### *"an envelope that were BOTH measurement-free AND tending to zero would need a per-mode
+### ### bound on `xi_n(1)^2` -- THE VERY THING S3(a) COULD NOT PROVE."*
+### ### **THIS ACT EXPECTS TO MEET THE SAME WALL AT S2 AND SAYS SO BEFORE IT DOES.**
+
+### **(a4) b246's PARITY-SPLIT CROSS-CHECK**, quoted: ### **"THE ONE CLEAN CROSS-CHECK OF THIS ARC
+### PASSED (2.3): the parity split of the eps series"**, agreeing with b38's banked columns
+### ### **"AT EVERY CELL TO ~1e-6, WHICH IS b38's PRINTED PRECISION."**
+### ### **THAT IS WHAT LICENSES SPLITTING THE eps SERIES BY PARITY AT ALL**, in b246's own words,
+### and this act inherits the licence rather than re-establishing it.
+
+### **(a5) b255's `E2even` COLUMN -- ### CONTROL, NEVER A PREMISE.** ### Sixteen cells,
+### `1.001813` at `a^2 = 2` down to `0.410262` at `a^2 = 100`; sixteen cells, fifteen steps, one
+### sign. ### **NO STEP OF THE ROUTE BELOW CITES ANY OF THOSE SIXTEEN NUMBERS AS A REASON**, and a
+### gate checks it in source order.
+### ### ITS AXES, PER ### **W-ORD-TE-SPEC**, NAMED BEFORE ANY NUMBER IS READ FROM IT:
+###   `EPS_NQ = 700`, `EPS_NG = 400`, `EPS_NRHO = 445`, `rho_max = 100.001`, `NU_HALF = 401`,
+###   `NV = 4001`, `NTERM = 11`, cells `a^2 in {2,3,4,8,9,12,16,20,25,32,36,45,50,64,81,100}`.
+### ### **AND THE (W1) WARNING TRAVELS WITH THE GRID:** b255 found the `rho`-grid ### **FAILED
+### ### SILENTLY** ### past its end because `np.interp` CLAMPS rather than raising. ### **ANY CELL
+### ### THIS ACT COMPUTES OUTSIDE `[rr[0], rr[-1]]` INHERITS THAT HAZARD AND MUST DECLARE IT.**
+
+====================================================================================================
+(C) ### RULE-3 LINE (b). ### **THE ROUTE. NAVIGATOR-ASSERTED. TESTED STEP BY STEP.**
+====================================================================================================
+### **J1's DOMINATION METHOD IS NOT REUSED, AND b260's OWN ROUTE NOTE IS WHY**, quoted:
+### *"`E2even` has NEITHER a per-term closed form NOR an index set to share."* ### **NO TERMWISE
+### COMPARISON IS ATTEMPTED ANYWHERE BELOW.**
+
+### **S1 -- E2even AS A FUNCTIONAL OF `corr_a`. ### SPECIES: EXACT REWRITING. ### ESTABLISHED-BY-READ.**
+###   FROM (a2): `v = L * t` with `t = linspace(-1,1,NV)` FIXED; `w` normalized to unit integral, so
+###   `w(v) = phi(v/L)/L` with `phi` FIXED; `dv[0] = 2L/(NV-1)`; hence
+###   `corr = convolve(w,w) * dv[0]` is ### **`(1/L) * psi(u/L)` with `psi` FIXED AND `a`-INDEPENDENT**;
+###   and `vc = L * (fixed grid)`. ### **THE IDENTITY IS EXACT ON THE INSTRUMENT'S OWN GRID, NOT
+###   ONLY IN THE CONTINUUM**, because the grid itself scales with `L` and `NV` does not move.
+###   THEN, IN `e2_of_grid`, `uu = L * (fixed s-grid on [0,2])`, and substituting `u = L s`:
+### ###   ### **E2even(a) = 2 * INT_0^2 psi(s) * eps_even(a^s) ds**
+###   and since `psi >= 0` is even with `INT_{-2}^{2} psi = 1`, the density `p := 2 psi` on `[0,2]`
+###   is a PROBABILITY DENSITY, giving the form the whole act uses:
+### ### ### **E2even(a) = EXPECTATION over s ~ p of eps_even(a^s).**
+###   ### ### **THE ENTIRE `a`-DEPENDENCE SITS IN THE ARGUMENT `a^s`. ### THE WEIGHT IS
+###   ### ### `a`-INDEPENDENT.** ### That is the reduction, and it is the act's pivot.
+###   ### **REGISTERED AS A CONTROL, NOT AS A CLAIM TO BE TRUSTED: `L * corr_a` MUST BE THE SAME
+###   ### ARRAY AT EVERY CELL. ### THE RUN CHECKS IT AND PRINTS THE WORST DEVIATION.**
+
+### **S2 -- THE SIGN OF THE KERNEL. ### SPECIES: DERIVATION ATTEMPTED, EXPECTED TO HALT.**
+###   THE CLAIM: `eps_even(rho) >= 0` for `rho >= 1`.
+###   ### **REGISTERED EXPECTATION: ### THE DERIVATION FAILS AND THE STEP IS NAMED, NOT PATCHED.**
+###   THE REASON, IN ADVANCE: `eps_n(rho)` is `c_n * rho^{-1/2} * INT_{1/rho}^1 xa_n(u) xa_n(rho u) du`
+###   -- ### **AN OVERLAP OF AN OSCILLATING ENTIRE FUNCTION AGAINST ITS OWN DILATE.** ### It is
+###   ### **NOT** ### a sum of squares, and b250's Mercer corners sign only `eps'(1+)`, which is
+###   the `rho -> 1` derivative and not the function. ### **SO S2 IS EXPECTED TO LAND AT
+###   ### BENCH-ONLY**, measured at every grid point and named as underived.
+###   ### **AND ONE THING S2 GIVES EVEN IF IT HALTS, AND IT IS ENOUGH FOR S4:** by (a1)'s owner
+###   line, ### **`eps_even(1) = 0` EXACTLY** ### -- the integrand's support is empty at `rho = 1`
+###   and the code's `if hi - lo <= 0: continue` writes the zero. ### **THAT IS DERIVED, NOT
+###   MEASURED, AND IT IS THE HINGE.**
+
+### **S3 -- MONOTONICITY OF THE WEIGHT IN `a`. ### SPECIES: DERIVATION. ### REFUTED IN ADVANCE.**
+###   THE FERRY'S STEP: *"derive that corr_a(u) is pointwise non-increasing in a on the kernel's
+###   support, or exhibit the failure."*
+###   ### ### **IT IS EXHIBITED, AND FROM S1's IDENTITY ALONE:** with `r = u/L`,
+###   ###   `d/dL [ (1/L) psi(u/L) ] = -(1/L^2) * [ psi(r) + r psi'(r) ] = -(1/L^2) * d/dr[ r psi(r) ]`.
+###   So `corr_a(u)` is non-increasing in `a` ### **IF AND ONLY IF `r psi(r)` IS NON-DECREASING.**
+###   ### **BUT `r psi(r)` VANISHES AT `r = 0` AND AT `r = 2` AND IS POSITIVE BETWEEN**, so it MUST
+###   decrease somewhere on `(0,2)`. ### ### **S3 IS FALSE, NECESSARILY, AND THE FAILURE IS
+###   ### STRUCTURAL RATHER THAN NUMERICAL.**
+###   ### **THE RUN NAMES A SPECIFIC `r` WHERE IT FAILS** (the ferry's registered falsifier, which
+###   here fires by construction), and reports the maximizer of `r psi(r)` as the turning point.
+
+### **S4 -- THE VERDICT ON J2. ### SPECIES: DERIVATION FROM S1 + S2's HINGE.**
+###   The ferry's first branch (conclude by positivity) is ### **CLOSED BY S3's REFUTATION** -- the
+###   weight is not monotone, so no positivity argument on it can run.
+###   THE SECOND BRANCH, differentiating in `a`: from S1,
+###     `d/dL E2even = INT_0^2 p(s) * s * a^s * eps_even'(a^s) ds`,
+###   and ### **`eps_even'` CHANGES SIGN AT THE KERNEL'S PEAK, SO THE INTEGRAND IS NOT TERMWISE
+###   SIGNED AND NO TERMWISE INSPECTION CAN CONCLUDE.** ### Registered before it is attempted.
+### *** ### ### **THE REGISTERED VERDICT, AND IT IS A REFUTATION, DECLARED BEFORE THE RUN:**
+### ### ### **J2 AS STATED -- "E2even DECREASES MONOTONICALLY" -- IS ### FALSE ### ON `(1, inf)`.**
+### ### THE ARGUMENT IS TWO LINES AND USES NO MEASURED VALUE:
+### ###   (i) by S1 and S2's hinge, `E2even(a) -> 0` as `a -> 1+`, since every `eps_even(a^s)` tends
+### ###       to `eps_even(1) = 0` and `p` is a probability density;
+### ###   (ii) `E2even(a) > 0` for `a > 1`, since `eps_even > 0` on `(1, inf)` (S2, bench) and `p`
+### ###       has mass on `(0,2]`.
+### ### ### **A FUNCTION THAT STARTS AT ZERO AND IS POSITIVE AFTERWARDS INCREASES SOMEWHERE.**
+### ### **SO THERE IS AN `a_0 > 1` BELOW WHICH `E2even` RISES, AND b255's LADDER SIMPLY STARTS
+### ### ABOVE IT.** ### The sixteen-cell monotone stretch is a fact about ### WHERE THE LADDER
+### ### BEGINS ### , not about the function.
+### ### **WHAT REMAINS OPEN AND IS THE RUN'S JOB: WHERE `a_0` IS, AND WHETHER `E2even` IS MONOTONE
+### ### DECREASING ON `[a_0, inf)`.** ### ### **OPEN-TO-THE-RUN.** ***
+
+### **S5 -- THE LIMIT NOTE. ### SPECIES: DERIVATION ON ONE NAMED IMPORT.**
+###   From S1, `E2even(a) = E_{s~p}[ eps_even(a^s) ]`. ### For every `s > 0`, `a^s -> inf` as
+###   `a -> inf`; `p({0}) = 0`. ### **IF `eps_even(rho) -> 0` as `rho -> inf` AND `eps_even` IS
+###   BOUNDED, DOMINATED CONVERGENCE GIVES `E2even(a) -> 0`: ### NO POSITIVE FLOOR.**
+###   ### **THE IMPORT IS `eps_even -> 0` AT INFINITY, AND IT IS NAMED, NOT ASSUMED.** ### Its
+###   structural reason -- the `rho^{-1/2}` prefactor against a bounded overlap -- is stated at
+###   whatever grade the reads support and ### **NOT PROMOTED**; it is checked at bench on the grid.
+###   ### **FILED AS J2's CONSEQUENCE IF IT FALLS OUT, ELSE AS THE NEXT CANDIDATE.**
+
+====================================================================================================
+(D) ### RULE-3 LINE (c). ### THE SHADOW.
+====================================================================================================
+### **THE FINITE-DECIDABLE CORE ONLY, AT THE AUDIT BAR:**
+###   (i) ### **the kernel's non-negativity on a finite grid** -- scaled-integer instances of
+###       `eps_even(rho_i) >= 0`, including the peak and the far end;
+###   (ii) ### **the sixteen-cell monotone check as exact arithmetic** -- `E2even` scaled to
+###       integers, fifteen strict decreases;
+###   (iii) ### **the refutation's arithmetic** -- that a value at a cell BELOW the ladder is
+###       ### SMALLER ### than at `a^2 = 2`, which is the whole content of S4's counterexample.
+### ### **POLARITY CONTROLS FIRST** (a false statement of the same shape must NOT compile),
+### ### **PROFILE PRINTED AND READ, AND A COMPILE CLAIMED ONLY FROM ITS PRINTED PROFILE.**
+### ### **NOTHING REAL-VALUED, NO `Real.rpow`, NO CONTORTION. ### NOTHING TOUCHING `h2`.**
+
+====================================================================================================
+(E) ### RULE-3 LINE (d). ### BOTH SEATS' EXPECTED STEP VERDICTS, AND THE FALSIFIERS.
+====================================================================================================
+### **THE NAVIGATOR'S, AS THE FERRY'S ROUTE IMPLIES THEM:** S2 derives (`K_even >= 0`); S3 derives
+### (dilated `corr` non-increasing); S4 concludes monotone decrease by positivity.
+### **THIS SEAT'S, PER STEP:**
+###   S1: ### **DERIVES EXACTLY**, on the instrument's own grid. (ESTABLISHED-BY-READ.)
+###   S2: ### **HALTS AT BENCH-ONLY.** The sign is measured, not derived. ### But `eps_even(1) = 0`
+###       ### **DERIVES** ### from the owner's support line.
+###   S3: ### **REFUTED, STRUCTURALLY AND NECESSARILY** -- `r psi(r)` vanishes at both ends.
+###   S4: ### **J2 AS STATED IS REFUTED.** ### `E2even` rises on `(1, a_0)`. ### Where `a_0` sits,
+###       and monotonicity above it, are OPEN-TO-THE-RUN.
+###   S5: ### **`E2even -> 0`, NO POSITIVE FLOOR**, on the one named import.
+### ### **THE DIVERGENCE WITH THE FERRY IS DECLARED NOW AND NOT REPORTED LATER: THREE OF THE
+### ### FERRY'S FOUR STEP-EXPECTATIONS ARE EXPECTED TO FAIL, AND S4's HEADLINE IS A REFUTATION
+### ### RATHER THAN A DERIVATION.**
+
+### **THE FALSIFIERS, EACH ABLE TO FIRE:**
+###   ### **(F1) THE DILATION IDENTITY FAILS.** ### A cell where `L * corr_a` differs from another
+###     cell's beyond ### **`1e-12` absolute**, fixed here before any value exists. ### Would refute
+###     S1 and collapse the whole route.
+###   ### **(F2) A NEGATIVE `eps_even` SAMPLE.** ### A named `rho` on the grid with
+###     `eps_even(rho) < 0`. ### Would refute S2's bench sign and change S4's argument (ii).
+###   ### **(F3) THE RISE IS NOT THERE.** ### If `E2even` at every probed cell BELOW `a^2 = 2` is
+###     ### GREATER ### than `E2even(a^2 = 2)`, then S4's refutation is wrong and J2 survives the
+###     probe. ### **THIS IS THE ONE THAT WOULD OVERTURN THIS ACT'S HEADLINE.**
+###   ### **(F4) THE FAR TAIL DOES NOT FALL.** ### A stretch of the grid where `eps_even` increases
+###     beyond its peak. ### Would refute S5's import.
+### ### **THE FERRY'S OWN S3 FALSIFIER -- *"a u where the dilated corr increases with a"* -- IS
+### ### REGISTERED AS ### FIRING BY CONSTRUCTION ### , which is why it is supplemented by F1-F4.**
+### ### **b255's LESSON GOVERNS: *"a falsifier that does not fire is not a prediction confirmed"*
+### ### -- AND A FALSIFIER THAT MUST FIRE IS NOT ONE EITHER.**
+
+### **(E4) THE OUTCOME THIS SEAT MOST WANTS TO CATCH, REGISTERED SO CATCHING IT CANNOT LOOK LIKE A
+### DISCOVERY MADE TO ORDER: ### F3 FIRING.** ### It would mean the rise argued in S4 is an artefact
+### of my reading of `eps_even(1) = 0`, and ### **THAT WOULD BE WORTH MORE THAN THE REFUTATION.**
+
+====================================================================================================
+(F) ### THE TAUTOLOGY CONTROL, ARMED IN ADVANCE.
+====================================================================================================
+### ### **EVERY IDENTITY HERE IS SUSPECT OF BEING TRUE BY CONSTRUCTION.**
+### **THE CONTROL: EVERY SYMBOLIC STEP RE-RUN ON ARBITRARY VALUES FROM A SEEDED RNG. ### A STEP
+### THAT HOLDS FOR ARBITRARY TUPLES IS A TAUTOLOGY AND IS REPORTED AS ONE.**
+###   S1's change of variables MUST hold for arbitrary weights -- it is a substitution, and a
+###     substitution that failed on arbitrary data would be an error, not a discovery.
+###   ### **S4's REFUTATION MUST ### FAIL ### ON ARBITRARY KERNELS**: "a function that starts at
+###     zero and is later positive must rise" is true, but "E2even rises below a_0" is a claim about
+###     ### THIS ### kernel, and a control that accepted any kernel would be measuring nothing.
+### ### **THE DISCRIMINATOR: THE SAME PIPELINE FED A KERNEL THAT IS CONSTANT MUST PRODUCE NO RISE.**
+
+====================================================================================================
+(G) ### THE HARNESS, THE AXES, AND WHAT MAY NOT MOVE.
+====================================================================================================
+### **THE AMENDED HARNESS GOVERNS EVERY CHECK:** pure conjunctions (### **NO `or` IN ANY CHECK**);
+### structurally-different must-fail fixtures; positive controls; witnesses; ### **QUOTED-N**;
+### ### **EVERY NUMERIC PREDICATE `bool()`-WRAPPED**; the `ast` stripper on every source matcher
+### ### **AND NOT ON ANYTHING THAT IS NOT PYTHON SOURCE** (b260's second defect).
+### **AXES THAT MAY NOT MOVE:** `EPS_NQ = 700`, `EPS_NG = 400`, `NV = 4001`, `NU_HALF = 401`,
+### `NTERM = 11`. ### **THE `rho`-GRID IS EXTENDED DOWNWARD TO `rho = 1` EXACTLY FOR THE PROBE
+### BELOW `a^2 = 2`, AND THE EXTENSION IS DECLARED, PRICED AND REPORTED** -- (W1)'s clamp is the
+### named hazard and an unextended grid would silently flatten exactly the region S4 depends on.
+### **THE CELL-SPECIES, SAID AT THE USE: ### DIAGONAL `a^2` THROUGHOUT.**
+
+====================================================================================================
+(H) ### WHAT THIS ACT MAY NOT DO. ### FIXED HERE, BEFORE ANY STEP.
+====================================================================================================
+###  1. ### **IT MAY NOT CITE b255's `E2even` COLUMN AS A REASON IN ANY STEP.** Control only.
+###  2. ### **IT MAY NOT REUSE J1's DOMINATION METHOD.** b260's route note forbids it.
+###  3. ### **IT MAY NOT PROMOTE S2's BENCH SIGN TO A DERIVATION.**
+###  4. ### **IT MAY NOT READ A FINITE GRID AS A LIMIT.** b15 and b242 govern.
+###  5. ### **IT MAY NOT RE-VERDICT b255.** b246's rule stands.
+###  6. ### **IT MAY NOT CLAIM A COMPILE IT HAS NOT PRINTED A PROFILE FOR.**
+###  7. ### **IT MAY NOT CLOSE M-2 OR TOUCH J1's PREMISE (`W-ORD-TQ-IDENTIFY`).**
+###  8. ### **NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.**
+
+====================================================================================================
+### REGISTRATION CLOSED. ### COMPONENTS IN ORDER: 1 (S1-S3), 2 (S4 + control), 3 (S5, shadow,
+### filings). ### 2 CONSUMES 1; 3 CONSUMES 2.
+====================================================================================================

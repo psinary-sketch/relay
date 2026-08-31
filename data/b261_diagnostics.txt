@@ -1,0 +1,83 @@
+====================================================================================================
+b261 DIAGNOSTICS -- ### **F4 FIRED. IS IT THE OBJECT OR THE INSTRUMENT?**
+====================================================================================================
+### THE QUESTION: `eps_even` RISES AT 448 OF 1676 SAMPLES PAST ITS PEAK. ### An overlap
+### integral whose integrand oscillates faster as `rho` grows is exactly the shape a
+### QUADRATURE FAILURE takes, so the artefact hypothesis is tested FIRST and at both axes.
+
+--- ### THE REPLICA IS THE INSTRUMENT, CHECKED AT THE INSTRUMENT'S OWN AXES ---
+  points compared                      : ### **50** (every 40th of the run's grid)
+  worst |replica - instrument|         : ### **0.000e+00**
+  ### ### **THE REPLICA REPRODUCES THE INSTRUMENT. ### ONLY THE AXES DIFFER BELOW.**
+
+====================================================================================================
+### AXIS 1 -- THE QUADRATURE `NG`. ### THE ARTEFACT HYPOTHESIS, TESTED FIRST.
+====================================================================================================
+  NG       rises      max abs rise    max rel rise    vs previous NG
+  200      111        5.816e-03       2.502e-02       --
+  400      111        5.816e-03       2.502e-02       2.410e-12
+  800      111        5.816e-03       2.502e-02       2.104e-12
+  1600     111        5.816e-03       2.502e-02       1.402e-11
+  ### ### **THE RISE COUNT AND THE RISE MAGNITUDE DO NOT MOVE ACROSS AN ### EIGHTFOLD ###
+  ### ### CHANGE IN `NG`, AND THE KERNEL ITSELF AGREES TO ~1e-12.**
+  ### ### **SO THE OSCILLATION IS ### NOT ### QUADRATURE ERROR. ### NG-STABLE: True**
+
+====================================================================================================
+### AXIS 2 -- THE PROLATE LAYER `NQ`. ### THE SECOND ARTEFACT HYPOTHESIS.
+====================================================================================================
+  NQ       rises      max rel rise    vs previous NQ
+  700      111        2.502e-02       --
+  900      111        2.502e-02       1.424e-09
+  1100     111        2.502e-02       8.266e-10
+  ### ### **NQ-STABLE: True.** ### The two refinements b251/b254 already carry are used.
+
+*** ### ### **THE VERDICT ON F4: THE OSCILLATION IS THE ### OBJECT ### , NOT THE
+### ### INSTRUMENT. ### `eps_even` GENUINELY DECAYS ### WITH OSCILLATION ### RATHER THAN
+### ### MONOTONICALLY, AND THE REGISTRATION'S S5 IMPORT MUST BE RESTATED ACCORDINGLY.** ***
+
+====================================================================================================
+### WHO OSCILLATES. ### THE PER-MODE STRUCTURE, AND A FINDING NOBODY ASKED FOR.
+====================================================================================================
+  mode     negatives    rises past own peak    |max|        share
+  0        0            107                    1.199152     1.00e+00
+  2        91           162                    0.282421     2.36e-01
+  4        134          137                    0.000497     4.15e-04
+  6        158          120                    0.000000     1.34e-07
+  8        195          136                    0.000000     2.22e-13
+  10       185          125                    0.000000     7.68e-12
+
+  ### ### **TWO FINDINGS, AND THE SECOND WAS NOT ASKED FOR:**
+  ### **(1) THE OSCILLATION IS IN THE ### LEADING ### MODE.** ### Mode 0 has ZERO
+  ###     negatives -- it is the one positive mode -- and it STILL rises past its own
+  ###     peak. ### **THE WOBBLE IS NOT A CANCELLATION ARTEFACT BETWEEN MODES.**
+  ### **(2) `E2even` IS EFFECTIVELY A ### TWO-MODE ### OBJECT ON THIS RANGE.** ### Modes
+  ###     0 and 2 carry it; modes 4, 6, 8 and 10 have `|max| <= 5e-4`, four orders below
+  ###     the leading mode. ### **THAT IS A STATEMENT ABOUT THIS `rho`-RANGE AND THIS
+  ###     TRUNCATION (`NTERM = 11`), AND IT IS NOT EXTRAPOLATED.**
+
+====================================================================================================
+### THE DENSE MONOTONE CHECK ABOVE THE TURN. ### SIXTEEN CELLS WAS NOT ENOUGH TO ASK.
+====================================================================================================
+  ### The kernel oscillates; `E2even` is a `psi`-average of it over a geometric window of
+  ### width `a^2`. ### **SO THE QUESTION IS WHETHER THE AVERAGING SUPPRESSES THE
+  ### OSCILLATION, AND SIXTEEN CELLS CANNOT ANSWER IT.**
+  cells (geometric, a^2 = 2 .. 100)    : ### **80**
+  strictly decreasing at every step    : ### **True**
+  rises                                : ### **0**
+  largest step (most negative)         : -1.362e-02 ; smallest step: -3.354e-03
+  E2even range                         : 1.002346928 -> 0.410337162
+  ### ### **THE AVERAGING DOES SUPPRESS IT, ON THIS RANGE, AT ### 79 ### STEPS RATHER
+  ### ### THAN FIFTEEN. ### AND IT IS STILL BENCH: ### NO DERIVATION IS CLAIMED, BECAUSE
+  ### ### THE KERNEL IT AVERAGES IS NOT MONOTONE AND NO POSITIVITY ARGUMENT SURVIVES.**
+
+====================================================================================================
+### CONTROLS ON THIS DIAGNOSTIC.
+====================================================================================================
+  (D1) THE REPLICA MATCHES THE INSTRUMENT : ### **0.000e+00** ### (must be ~0)
+  (D2) THE AXIS TEST DISCRIMINATES -- at a DELIBERATELY STARVED `NG = 12`:
+       worst |eps_even(NG=12) - eps_even(NG=400)| = ### **5.674e+00**
+       ### ### **SO THE `NG` SWEEP ### CAN ### SEE A QUADRATURE FAILURE. ### THE FLATNESS
+       ### ### FROM 200 TO 1600 IS EVIDENCE, NOT AN INSENSITIVE TEST.**
+  (D3) THE MONOTONE TEST DISCRIMINATES -- on the kernel itself (known non-monotone):
+       all-decreasing on eps_even past peak : ### **False** ### (must be False)
+====================================================================================================

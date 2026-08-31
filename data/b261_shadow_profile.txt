@@ -1,0 +1,45 @@
+import took 21.8s
+'E2EvenMonotoneShadow.kernel_rises_from_zero' does not depend on any axioms
+'E2EvenMonotoneShadow.kernel_falls_after_the_peak' does not depend on any axioms
+'E2EvenMonotoneShadow.kernel_is_not_monotone' does not depend on any axioms
+'E2EvenMonotoneShadow.kernel_tail_is_positive_not_zero' does not depend on any axioms
+'E2EvenMonotoneShadow.probe_cells_are_all_smaller_than_at_two' does not depend on any axioms
+'E2EvenMonotoneShadow.probe_cells_rise_monotonically' does not depend on any axioms
+'E2EvenMonotoneShadow.ladder_decreases_lower' does not depend on any axioms
+'E2EvenMonotoneShadow.ladder_decreases_upper' does not depend on any axioms
+'E2EvenMonotoneShadow.the_ladder_predicate_fails_below_the_turn' does not depend on any axioms
+'E2EvenMonotoneShadow.cell_and_step_counts' does not depend on any axioms
+'E2EvenMonotoneShadow.rising_and_falling_counts_differ' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.096ms
+	blocked (unaccounted) 2.48ms
+	elaboration 53.5ms
+	fix level params 0.156ms
+	import 21.8s
+	initialization 45.7ms
+	instantiate metavars 0.242ms
+	interpretation 222ms
+	let-to-have transformation 0.139ms
+	linting 2.35ms
+	parsing 3.78ms
+	process pre-definitions 1.46ms
+	share common exprs 0.561ms
+	tactic execution 8.7ms
+	type checking 5.45ms
+	typeclass inference 129ms
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Three deliberately FALSE statements of the SAME SHAPE as the shadow's own terminals,
+### submitted to the same `decide`:
+###   theorem false_ladder : (911291238 > 1002346928) := by decide
+###   theorem false_kernel : (1470398 < 395736)       := by decide
+###   theorem false_probe  : (294741237 < 154974787)  := by decide
+### ALL THREE REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 911291238 > 1002346928 is false
+###   error: Tactic `decide` proved that the proposition 1470398 < 395736 is false
+###   error: Tactic `decide` proved that the proposition 294741237 < 154974787 is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE ELEVEN PASSES ARE THEREFORE READABLE.**
+### REPAIRED: this summary line ORIGINALLY RESTATED the exact string it was counting, and
+### so became a TWELFTH match of it -- ### **A SUMMARY THAT BECAME A DATUM IN THE THING IT
+### SUMMARIZED**, which is b213's species. ### The count now names the line instead of quoting it.
+### zero-axiom terminals in this profile : 11 ; errors in this profile : 0

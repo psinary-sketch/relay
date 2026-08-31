@@ -1,0 +1,204 @@
+====================================================================================================
+b261 RUN -- J2: E2even MONOTONICITY. ### CONTROLS ON A DERIVATION. Registration banked first.
+====================================================================================================
+
+--- ### W-ORD-TE-SPEC: THE AXES, PRINTED BEFORE ANY NUMBER IS READ ---
+  NV / NU_HALF            : 4001 / 401
+  EPS_NQ / EPS_NG         : 700 / 400
+  NTERM (modes)           : 11      ### qeps_layer; ALREADY the EVEN prolate modes (P1)
+  ### **THE AXIS THAT MOVES, DECLARED:**
+    b255 rho-grid         : 445 pts, exp(linspace(1e-4, log 100.001))   ### starts ABOVE 1
+    this act rho-grid     : 1999 pts, DENSE on [1,2] (1200) + [2,100.001] (799), STARTS AT 1 EXACTLY
+    ### **WHY: (W1)'s np.interp CLAMP. b255's grid carries ~1.5 points below a^2 = 1.05,
+    ### so the probe region S4 depends on would be FLATTENED SILENTLY.**
+    ### **THE COST IS PAID AS A G-REPRO CONTROL AGAINST b255's SIXTEEN CELLS, BELOW.**
+  ### CELL SPECIES: ### **DIAGONAL a^2 THROUGHOUT.**
+  F1 bar (registered)     : 1e-12 absolute
+
+====================================================================================================
+### S1 -- THE DILATION IDENTITY. ### FALSIFIER F1. ### `L * corr_a` MUST BE a-INDEPENDENT.
+====================================================================================================
+  cells compared                       : ### **22**
+  worst |L*corr_a - L*corr_ref|        : ### **1.307e-13**   (worst cell a^2 = 1.2)
+  worst |vc/L - (vc/L)_ref|            : ### **1.332e-15**
+  bar (registered before any value)    : 1e-12
+  ### ### **F1 DID NOT FIRE -- the dilation identity HOLDS EXACTLY ON THE INSTRUMENT'S OWN GRID.**
+  ### ### **SO `corr_a(u) = (1/L) * psi(u/L)` WITH `psi` FIXED, AND THE WHOLE OF `a`
+  ### ### ENTERS `E2even` THROUGH THE ARGUMENT `a^s` AND NOWHERE ELSE.**
+  psi integral over [-2,2]             : 1.000000000   ### (must be ~1; p := 2*psi on [0,2])
+
+====================================================================================================
+### S2 -- THE KERNEL `eps_even`. ### FALSIFIER F2 (sign) AND F4 (far tail).
+====================================================================================================
+  grid points                          : ### **1999**, rho in [1.000000, 100.0010]
+  ### **eps_even(rho = 1) = 0.0e+00** ### -- the owner's "eps(1) = 0", written by
+  ###   `per_mode_eps_grids`'s own `if hi - lo <= 0: continue`. ### **DERIVED, NOT MEASURED.**
+  eps_even samples < 0                 : ### **0 of 1999**
+  per-mode negatives (mode, count)     : [(0, 0), (1, 733), (2, 528), (3, 1011), (4, 695), (5, 975), (6, 782), (7, 906), (8, 844), (9, 906), (10, 835)]
+  ### ### **F2 DID NOT FIRE -- `eps_even >= 0` at every grid point.**
+  ### ### **AND IT IS STILL BENCH-ONLY. ### `eps_n` IS AN OVERLAP OF AN OSCILLATING
+  ### ### ENTIRE FUNCTION AGAINST ITS OWN DILATE, NOT A SUM OF SQUARES, AND b250's
+  ### ### MERCER CORNERS SIGN ONLY `eps'(1+)`. ### THE DERIVATION IS NOT CLAIMED.**
+
+  ### **THE KERNEL'S SHAPE, WHICH IS THE WHOLE ACT:**
+    peak                               : ### **eps_even = 1.470398 at rho = 1.204602**
+    rising on  [1, 1.2046]               : True
+    falling on [1.2046, 100.00]            : False
+    ### ### **eps_even IS NOT MONOTONE ON [1, inf). ### IT RISES FROM 0 AND THEN DECAYS.**
+  ### ### **F4 FIRED** ### -- the far tail: eps_even(100.0) = 1.559e-03
+  rho        eps_even       eps_odd       
+  1.0000     0.000000       0.000000      
+  1.0198     0.272056       0.169406      
+  1.1001     1.109112       0.706458      
+  1.2053     1.470380       0.999190      
+  1.4997     0.585747       0.422771      
+  2.0000     0.395736       0.154166      
+  4.9965     0.114936       -0.022190     
+  10.0140    0.045464       -0.014435     
+  49.8952    0.004409       -0.001583     
+  100.0010   0.001559       -0.000563     
+
+====================================================================================================
+### S3 -- THE FERRY'S MONOTONE-WEIGHT STEP. ### **REFUTED, AND STRUCTURALLY.**
+====================================================================================================
+  ### `d/dL [ (1/L) psi(u/L) ] = -(1/L^2) * d/dr[ r psi(r) ]`, `r = u/L`.
+  ### So `corr_a(u)` is non-increasing in `a` IFF `r psi(r)` is non-decreasing.
+  `r psi(r)` at r = 0                  : 0.000000e+00   ### (must be 0)
+  `r psi(r)` at r = 2                  : 0.000000e+00   ### (must be ~0)
+  maximizer of `r psi(r)`              : ### **r* = 0.621500**, value 0.250485
+  samples where d/dr[r psi(r)] < 0     : ### **2752 of 4000**
+  ### ### **S3 REFUTED. ### `r psi(r)` VANISHES AT BOTH ENDS AND IS POSITIVE BETWEEN, SO
+  ### ### IT MUST DECREASE SOMEWHERE. ### THE REFUTATION IS NECESSARY, NOT NUMERICAL.**
+
+  ### **THE DIRECT WITNESS, AT A NAMED `u`** (the ferry's own falsifier, firing):
+    r = 1.3110 (beyond r*), u = r*L(a^2=9) = 1.440281
+    corr at a^2 = 9   : 0.041172297
+    corr at a^2 = 16  : 0.109460871
+    ### ### **corr INCREASES with a at this u : True**
+
+====================================================================================================
+### S4 -- J2's VERDICT. ### THE PROBE BELOW THE LADDER. ### FALSIFIER F3.
+====================================================================================================
+  a^2      E2even         E2even(reduced) |delta|        note
+  --------------------------------------------------------------------------
+  1.05     0.154974787    0.154974787    2.776e-17      PROBE
+  1.1      0.294741237    0.294741237    1.543e-14      PROBE
+  1.2      0.526961571    0.526961571    1.018e-13      PROBE
+  1.35     0.766113960    0.766113960    5.307e-14      PROBE
+  1.5      0.902826267    0.902826267    1.334e-13      PROBE
+  1.75     0.992958675    0.992958675    9.470e-14      PROBE
+  2        1.002346928    1.002346928    4.619e-14      ladder
+  3        0.911291238    0.911291238    1.151e-13      ladder
+  4        0.834279370    0.834279370    3.852e-14      ladder
+  8        0.685650001    0.685650001    4.174e-14      ladder
+  9        0.665298530    0.665298530    8.415e-14      ladder
+  12       0.620236607    0.620236607    1.854e-14      ladder
+  16       0.580750905    0.580750905    2.687e-14      ladder
+  20       0.553305191    0.553305191    1.177e-14      ladder
+  25       0.528224524    0.528224524    4.141e-14      ladder
+  32       0.502868190    0.502868190    7.339e-14      ladder
+  36       0.491558875    0.491558875    3.159e-14      ladder
+  45       0.471386275    0.471386275    4.552e-15      ladder
+  50       0.462389237    0.462389237    0.000e+00      ladder
+  64       0.442510177    0.442510177    2.665e-14      ladder
+  81       0.424968684    0.424968684    5.368e-14      ladder
+  100      0.410337162    0.410337162    5.662e-14      ladder
+
+  ### **S1 CONFIRMED INDEPENDENTLY: worst |instrument - reduced form| = ### 1.334e-13**
+  ### ### **THE TWO ROUTES AGREE, SO THE REDUCTION IS THE INSTRUMENT AND NOT A MODEL.**
+
+  ### **THE REFUTATION, TESTED:** `E2even(a^2 = 2)` = ### **1.002346928**
+  probe cells below a^2 = 2            : ### **6**
+  of those with E2even SMALLER         : ### **6**
+  ### ### **F3 DID NOT FIRE -- the rise is there, and J2 AS STATED IS REFUTED.**
+  ### **THE NAMED COUNTEREXAMPLES TO "E2even DECREASES MONOTONICALLY":**
+      a^2 = 1.05   E2even = 0.154974787  <  1.002346928 = E2even(a^2 = 2)
+      a^2 = 1.1    E2even = 0.294741237  <  1.002346928 = E2even(a^2 = 2)
+      a^2 = 1.2    E2even = 0.526961571  <  1.002346928 = E2even(a^2 = 2)
+      a^2 = 1.35   E2even = 0.766113960  <  1.002346928 = E2even(a^2 = 2)
+      a^2 = 1.5    E2even = 0.902826267  <  1.002346928 = E2even(a^2 = 2)
+      a^2 = 1.75   E2even = 0.992958675  <  1.002346928 = E2even(a^2 = 2)
+
+  ### **THE FULL PROBE+LADDER SEQUENCE:** rises at ### **6** ### of 21 steps; the
+  ###   rising steps are [(1.05, 1.1), (1.1, 1.2), (1.2, 1.35), (1.35, 1.5), (1.5, 1.75), (1.75, 2)]
+  ### ### **THE MAXIMUM SITS AT a^2 = 2, SO `a_0` LIES IN (1.75, 2].**
+  ### **AND ABOVE THE TURN: the sixteen ladder cells are strictly decreasing : True**
+
+====================================================================================================
+### THE G-REPRO CONTROL. ### THE REBUILT GRID AGAINST b255's BANKED COLUMN.
+### ### **b255 IS READ ### HERE ### AND NOWHERE EARLIER. NO STEP ABOVE CITED IT.**
+====================================================================================================
+  a^2      E2even (this act) E2even (b255)    |delta|
+  --------------------------------------------------------------
+  2        1.002346928      1.001813176      5.338e-04
+  3        0.911291238      0.910945044      3.462e-04
+  4        0.834279370      0.834034352      2.450e-04
+  8        0.685650001      0.685517988      1.320e-04
+  9        0.665298530      0.665134327      1.642e-04
+  12       0.620236607      0.620095634      1.410e-04
+  16       0.580750905      0.580636848      1.141e-04
+  20       0.553305191      0.553188089      1.171e-04
+  25       0.528224524      0.528115356      1.092e-04
+  32       0.502868190      0.502769853      9.834e-05
+  36       0.491558875      0.491461945      9.693e-05
+  45       0.471386275      0.471295036      9.124e-05
+  50       0.462389237      0.462301646      8.759e-05
+  64       0.442510177      0.442516682      6.505e-06
+  81       0.424968684      0.424891675      7.701e-05
+  100      0.410337162      0.410261952      7.521e-05
+
+  ### **WORST |this act - b255| ACROSS THE SIXTEEN CELLS : ### 5.338e-04** ### at a^2 = 2
+  ### **b255 IS NOT RE-VERDICTED (b246's RULE). ### THE GRID CHANGE IS PRICED, NOT HIDDEN.**
+
+====================================================================================================
+### S5 -- THE LIMIT NOTE. ### `E2even -> 0`, OR A POSITIVE FLOOR?
+====================================================================================================
+  ### From S1, `E2even(a) = E_{s~p}[ eps_even(a^s) ]`. ### For every `s > 0`, `a^s -> inf`.
+  ### **IF `eps_even -> 0` AT INFINITY AND IS BOUNDED, DOMINATED CONVERGENCE GIVES 0.**
+  eps_even bounded above by            : ### **1.470398** (its peak)
+  eps_even at the grid's far end        : ### **1.559e-03** at rho = 100.00
+  measured log-log slope on [10, 100]  : ### **-1.4656**
+  ### ### **THAT IS A MEASURED RATE AND b242 GOVERNS IT: ### *A MEASURED RATE IS NOT A
+  ### ### TAIL BOUND.* ### NO EXTRAPOLATION IS BANKED. ### THE IMPORT `eps_even -> 0` IS
+  ### ### NAMED AS AN IMPORT AND NOT PROVED HERE.**
+  E2even at the last four cells        : ['0.462389', '0.442510', '0.424969', '0.410337']
+
+====================================================================================================
+### THE TAUTOLOGY CONTROL. ### AND THE KERNEL DISCRIMINATOR.
+====================================================================================================
+  (T1) S1's CHANGE OF VARIABLES on arbitrary weights and values
+       holds on arbitrary tuples : ### **20000 / 20000**
+       ### ### **IT IS MEANT TO. ### A SUBSTITUTION THAT FAILED ON ARBITRARY DATA WOULD BE
+       ### ### AN ERROR, NOT A DISCOVERY. ### IT IS A TAUTOLOGY AND IS REPORTED AS ONE.**
+  (T2) THE SAME PIPELINE ON A ### CONSTANT ### KERNEL
+       rises detected : ### **0** ### (must be 0) ; values all 1.000000000
+       ### ### **THE RISE IS A PROPERTY OF ### THIS ### KERNEL, NOT OF THE PIPELINE.**
+       ### ### If a constant kernel had produced a rise, S4's finding would have been
+       ### ### an artefact of the machinery and the act would have said so.
+
+====================================================================================================
+### POSITIVE CONTROLS.
+====================================================================================================
+  (C1) THE SIGN TEST DISCRIMINATES -- on a deliberately negative array:
+       negatives counted : ### **3 of 3** ### (must be 3)
+  (C2) THE MONOTONE TEST DISCRIMINATES -- on a deliberately increasing sequence:
+       all-decreasing : ### **False** ### (must be False)
+  (C3) THE DILATION TEST DISCRIMINATES -- a perturbed psi is caught:
+       max|pert - psi| = 1.0e-09  >  bar 1e-12 : ### **True** ### (must be True)
+  (C4) THE G-REPRO COMPARATOR DISCRIMINATES -- against the WRONG b255 column (E2odd):
+       worst |E2even - b255 E2odd| = ### **3.247e-01** ### -- must FAR EXCEED the E2even match
+  (C5) THE PROBE GRID IS RESOLVED -- points of the rho-grid below a^2 = 1.05:
+       ### **85** ### (b255's grid would carry ~1-2)
+
+====================================================================================================
+### THE RUN'S VERDICTS, IN THE REGISTERED BRANCH LANGUAGE.
+====================================================================================================
+  S1 (dilation identity, F1)   : ### **HOLDS**
+  S2 (kernel sign, F2)         : ### **HOLDS, BENCH-ONLY**
+  S3 (weight monotone in a)    : ### **REFUTED, STRUCTURALLY**
+  S4 (J2 as stated, F3)        : ### **REFUTED -- E2even RISES below the ladder**
+  S4b (monotone above the turn): ### **HOLDS on the sixteen ladder cells**
+  S5 (limit, F4)               : ### **-> 0 on the named import; NO POSITIVE FLOOR**
+
+  ### **QUOTED-N: 22 cells (6 probe + 16 ladder); 1999 rho-grid points; 11 modes.**
+====================================================================================================
