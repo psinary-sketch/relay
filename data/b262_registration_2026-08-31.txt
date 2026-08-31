@@ -1,0 +1,252 @@
+====================================================================================================
+b262 -- J3: THE JUNCTION AT THE LEVEL LIMIT. ### THE REGISTRATION.
+### TERM-SCANNED BEFORE BANKING. ### BANKED BEFORE ANY STEP AND BEFORE ANY EXTENDED LADDER EXISTS.
+### WRITTEN 2026-08-31. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+### THE CEILING, IN THE HEADER:
+###   b15: ### **"A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."**
+###   b14: the complete roster is the double limit and ### **STAYS OPEN WHATEVER THIS ACT SHOWS.**
+###   b242: ### **"A MEASURED RATE IS NOT A TAIL BOUND."**
+### THE REGISTER SENTENCE, UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### **NOTHING ABOUT h2 BEYOND THAT SENTENCE EXACT.**
+### ### **NOTHING DEPOSITS.**
+
+### **b260's PREMISE IS CARRIED, NOT DISCHARGED:** `W-ORD-TQ-IDENTIFY` -- that the instrument's
+### `|tr(U^k S)|/d` IS act 9's `tau_q` -- is ### **OPEN**, and every verdict below inherits it.
+### **THE STANDING CLAUSE (b229) GOVERNS: no value from either side defines, calibrates or tunes
+### anything here.**
+
+====================================================================================================
+(A) ### **THE REGISTRATION IS NOT SEALED, AND SAYS SO.** ### b260/b261's PRACTICE, CARRIED.
+====================================================================================================
+### The ferry orders the owner reads first, so they precede this file. ### Every line carries its
+### side: ### **ESTABLISHED-BY-READ**, ### **DERIVED-ON-PAPER-BEFORE-THE-RUN**, or
+### ### **OPEN-TO-THE-RUN**.
+### ### **AND A THIRD LABEL IS NEEDED THIS ACT AND IS DECLARED RATHER THAN BLURRED INTO THE
+### ### SECOND: THIS REGISTRATION CONTAINS A ### FULL ASYMPTOTIC DERIVATION ### WORKED BEFORE ANY
+### ### NUMBER WAS COMPUTED.** ### It is written out below so that the run can ### REFUTE ### it.
+### **A DERIVATION BANKED BEFORE ITS OWN BENCH IS A PREDICTION; ONE WRITTEN AFTERWARDS IS A GLOSS.**
+
+====================================================================================================
+(B) ### RULE-3 LINE (a). ### THE LOAD-BEARING OWNERS, EXTRACTED (NOT TYPED) AND QUOTED.
+====================================================================================================
+### **NEEDLES ARE EXTRACTED FROM FILES BY `tools/needle_extract.py`, NOT TYPED FROM MEMORY.**
+### ### **THAT TOOL IS THIS ACT'S FIRST ARTEFACT AND IT ANSWERS `W-ORD-NEEDLE-EXTRACT`.**
+
+### **(a1) b260's BANKED FORMULA, EXTRACTED WHOLE** (`data/b260_junction_sign.txt`, lines 265-266):
+###   ### **"THE SEPARATION HAS EXACTLY TWO SOURCES AND THEY ARE ONE FORMULA AT ITS OWN ENDPOINT:
+###    `w_{p,k} - tau_{p,k} = w_{p,k} * ( 1 - (p^n - p^k)/(p^n - 1) ) = w_{p,k} * (p^k - 1)/(p^n - 1)`"**
+### AND ITS TWO CLASSES, EXTRACTED:
+###   ### **"(1) `k = n`: the fraction is `1`. ### THE WHOLE OF PR's TERM SURVIVES. ### act 9's
+###    value VANISHES. ### A WHOLE-TERM SEPARATION." ### 43 of the 119 terms.**
+###   ### **"(2) `k <= n-1`: the fraction is `(p^k - 1)/(p^n - 1) < 1`. ### A DEFICIT SEPARATION."
+###    ### 76 of the 119 terms.**
+### ### **THE ORIENTATION AS BANKED: `PR - Theta_q`, and it is `>= 0` by b260's theorem.**
+### THE SAWTOOTH DERIVATION, EXTRACTED: ### **"when `n_p(a)` steps from `n` to `n+1`, the level
+### `k = n` moves out of the `k = n` branch (`tau_q = 0`, the whole term missing) into the
+### `k <= n-1` branch ... THE LEVEL SWITCHES ON."**
+
+### **(a2) b17's STAIRCASE:** ### **`n_p(a) = #{k >= 1 : p^k <= a^2}`.**
+
+### **(a3) THE ADOPTED `w_{p,k}` (b229) WITH b261's DILATION FORM:**
+###   `w_{p,k} = 2 log p * p^{-k/2} * corr_a(log p^k)` and ### **`corr_a(u) = (1/L) psi(u/L)`**
+###   with `psi` FIXED, `a`-INDEPENDENT, `psi >= 0`, supported on `[-2,2]`, `INT psi = 1`,
+###   `L = log a`. ### b261 measured the identity exact on the instrument's own grid to `1.307e-13`.
+
+### **(a4) b255's JUNCTION COLUMN -- ### CONTROL, NEVER A PREMISE.** ### Axes per
+### **W-ORD-TE-SPEC**: `EPS_NQ = 700`, `EPS_NG = 400`, `NV = 4001`, `NU_HALF = 401`,
+### ### **`S4 = (2,3,5)` FIXED**, sixteen cells `a^2 = 2..100`, junction `0.000000` to `0.076658`.
+
+====================================================================================================
+(C) ### RULE-3 LINE (b). ### **S1 -- THE PARTITION. ### AND A PRECISION THE FERRY'S WORDING NEEDS.**
+====================================================================================================
+### **THE ALGEBRAIC REWRITING FIRST, BECAUSE IT MAKES EVERY LATER STEP SHORTER.**
+### From (a1) and (a3), the junction's summand is
+###   `w_{p,k} * phi = 2 log p * p^{-k/2} * (1/L) psi(u/L) * (p^k - 1)/(p^n - 1)`,  `u = k log p`,
+### and since ### **`p^{-k/2}(p^k - 1) = p^{k/2} - p^{-k/2} = 2 sinh(u/2)`**:
+### ### ### **J(a) := PR - Theta_q = SUM_{(p,k): p^k <= a^2} (2 log p / L) * psi(u/L) *
+### ### ### 2 sinh(u/2) / (p^{n_p(a)} - 1).**
+### ### **THAT IS THE BANKED FORMULA WITH NOTHING ADDED AND NOTHING DROPPED**, and the appearance
+### ### of `2 sinh(u/2)` is recorded as an OBSERVATION, ### **NOT** ### as a claim that it is the
+### ### explicit formula's archimedean kernel -- ### **THAT WOULD BE THE DOUBLE-NAME SPECIES AND IT
+### ### IS NAMED HERE RATHER THAN COMMITTED.**
+
+### **THE PARTITION, AND THE PRECISION:**
+###   ### **`T_top` := `{(p,k) : k = n_p(a)}`** ; ### **`T_fixed` := `{(p,k) : k < n_p(a)}`**.
+###   ### **THOSE TWO ARE THE PARTITION. THEY ARE DISJOINT AND EXHAUSTIVE.**
+###   ### **THE `n_p(a) = 1` FAMILY IS ### NOT ### A THIRD CLASS. ### IT IS A ### SUBSET ### OF
+###   ### `T_top`** -- the primes `p` with `a < p <= a^2`, for which `n_p = 1`, so their only level
+###   IS the top level and `T_fixed` is empty for them.
+###   ### **THE FERRY'S CLAUSE (b) LISTS THREE, AND A THREE-WAY PARTITION WOULD DOUBLE-COUNT.
+###   ### THE DIVERGENCE IS DECLARED HERE RATHER THAN SILENTLY CORRECTED IN THE TABLE.**
+### **AND THE EXACT IDENTITY THAT MAKES `T_top` SIMPLE, WITH ITS SPECIES SAID:**
+###   at `k = n`, `(p^{n/2} - p^{-n/2})/(p^n - 1) = p^{-n/2}` ### **EXACTLY**, so
+###   ### ### **T_top's TERM = (2 log p / L) * p^{-n_p/2} * psi(n_p log p / L).**
+###   ### **SPECIES: THIS IS AN ### ALGEBRAIC IDENTITY ### -- cross-multiplied it reads
+###   ### `p^n - 1 = p^n - 1`. ### IT IS A TAUTOLOGY AND THE TAUTOLOGY CONTROL WILL REPORT IT AS
+###   ### ONE. ### IT SIMPLIFIES; IT ESTABLISHES NOTHING.**
+
+====================================================================================================
+(D) ### S2 -- T_fixed's FATE. ### **DERIVED-ON-PAPER-BEFORE-THE-RUN.**
+====================================================================================================
+### **FOR FIXED `(p,k)`, AS `a^2 -> inf`:** `n_p(a) = floor(2L / log p) -> inf`, so
+###   `phi(p,k,n_p) = (p^k - 1)/(p^{n_p} - 1) -> 0`.
+### **THE EXACT RATE, FROM b17's STAIRCASE ALONE:** `p^{n_p} <= a^2 < p^{n_p + 1}` gives
+###   `a^2 / p < p^{n_p} <= a^2`, hence
+### ### ### **(p^k - 1)/a^2 <= phi < p (p^k - 1)/a^2** -- ### **phi ASYMPTOTICALLY `(p^k-1)/a^2`,
+### ### ### UP TO ONE FACTOR OF `p`.**
+### And `w_{p,k} = 2 log p p^{-k/2}(1/L)psi(k log p/L) -> 2 log p p^{-k/2} psi(0)/L`, since
+### `k log p` is fixed and `L -> inf`.
+### ### ### **SO EVERY FIXED-LEVEL TERM DIES AT RATE `~ 2 log p (p^{k/2} - p^{-k/2}) psi(0) /
+### ### ### (L a^2)` -- i.e. LIKE `1/(a^2 log a)`.**
+### **AND THE SUM OVER `T_fixed` AT A FIXED PRIME, BOUNDED RATHER THAN ESTIMATED:**
+###   `SUM_{k<n} (p^{k/2} - p^{-k/2})/(p^n - 1) < SUM_{k<n} p^{k/2}/(p^n-1) < p^{n/2}/((p^{1/2}-1)(p^n-1))`
+###   ### **~ `p^{-n/2}/(p^{1/2}-1)`**, so ### **`T_fixed(p) <= psi(0)/(p^{1/2}-1) * (2 log p/L) p^{-n_p/2}`**
+###   ### **-- THE SAME SHAPE AS `T_top(p)`, TIMES `1/(sqrt p - 1)` <= 2.42.**
+### ### ### **CONSEQUENCE, REGISTERED: `T_fixed` CANNOT DOMINATE. ### THE LIMIT IS DECIDED BY
+### ### ### `T_top`, AND WITHIN `T_top` BY WHICHEVER `n_p` CLASS CARRIES THE MOST MASS.**
+
+====================================================================================================
+(E) ### S3 -- T_top's FATE. ### **THE ACT'S CENTRE. ### DERIVED-ON-PAPER, ON NAMED IMPORTS.**
+====================================================================================================
+### **GROUP `T_top` BY `m := n_p(a)`.** ### `n_p = m` iff `a^{2/(m+1)} < p <= a^{2/m}`.
+###   `m = 1`: ### **`a < p <= a^2`** ### -- the family the ferry names. ### `p^{-1/2}`.
+###   `m = 2`: `a^{2/3} < p <= a`. ### `p^{-1}`.
+###   `m >= 3`: `p <= a^{2/3}`. ### `p^{-m/2}`.
+
+### **THE `m = 1` FAMILY'S OBJECT, WRITTEN OUT EXACTLY:**
+### ### ### **F_1(a) := SUM_{a < p <= a^2} (2 log p / L) * p^{-1/2} * psi(log p / L).**
+### ### **AND IT IS EXACTLY COMPUTABLE WITH NO LINEAR ALGEBRA, WHICH IS THIS ACT'S ONE PIECE OF
+### ### LUCK AND IS SAID PLAINLY:** ### for `n_p = 1` the only level is `k = 1 = n_p`, so act 9's
+### ### `tau_q` is `0` there (`0 for k >= n`) and ### **`Theta_q` RECEIVES NOTHING FROM THESE
+### ### PRIMES.** ### The junction's contribution from them IS `w_{p,1}` entire.
+### ### ### **SO `F_1` CAN BE COMPUTED OVER ### ALL ### PRIMES BY A SIEVE, WITH NO
+### ### ### `quotient_basis`, NO `scaling_matrix`, AND NO COST WALL.**
+
+### **THE SIZE OF `F_1`, DERIVED ON TWO NAMED IMPORTS.**
+###   ### **IMPORT I-1: THE PRIME NUMBER THEOREM IN CHEBYSHEV FORM** -- `theta(x) := SUM_{p<=x} log p ~ x`.
+###     ### GRADE SOUGHT: ### **VERIFIED-AT-BENCH** ### on the computed range by direct sieve,
+###     ### **TRUSTED-AT-CITE** ### beyond it. ### The import bar's own words govern: *"Imports are
+###     verified ourselves where we have the tools, not only trusted."*
+###   ### **IMPORT I-2: LAPLACE / SADDLE-POINT ASYMPTOTICS** for an integral against a factor
+###     vanishing to infinite order. ### GRADE SOUGHT: ### **TRUSTED-AT-CITE**, textbook.
+### **THE DERIVATION:** by I-1, `SUM_{a<p<=a^2} f(p) log p ~ INT_a^{a^2} f(t) dt`. With
+### `f(t) = (2/L) t^{-1/2} psi(log t / L)` and the substitution `t = e^{L s}`, `dt = L e^{Ls} ds`:
+### ### ### **F_1(a) ~ 2 INT_1^2 e^{L s / 2} psi(s) ds = 2 INT_1^2 a^{s/2} psi(s) ds.**
+### **NOW THE COMPETITION, AND IT IS THE WHOLE QUESTION:** `a^{s/2}` grows to `a` at `s = 2`, while
+### `psi(2) = 0`. ### `psi = phi * phi` with `phi` the mollifier `exp(-1/(1-t^2))`, so `psi`
+### ### **VANISHES TO INFINITE ORDER AT `s = 2`** ### and, with `r := 2 - s`, the mollifier's own
+### edge behaviour gives ### **`psi(2 - r) ~ exp(-2/r)`** ### up to algebraic factors.
+### Then `F_1 ~ 2 e^L INT_0^1 exp(-L r/2 - 2/r) dr`, and the saddle is at `r* = 2/sqrt(L)` with
+### exponent value `2 sqrt(L)`, giving
+### ### ### ### **F_1(a) ~ 2 a * exp(-2 sqrt(log a)) * (ALGEBRAIC FACTORS).**
+### ### ### **`L - 2 sqrt(L) -> inf`, SO `F_1 -> inf`. ### THE `m = 1` FAMILY ### GROWS ### .**
+
+### **THE OTHER CLASSES, FOR COMPLETENESS:**
+###   `m = 2`: by Mertens (`SUM_{p<=x} log p / p ~ log x`), the class contributes `~ (2/L)(L/3) psi-bar`
+###     ### **= O(1). ### BOUNDED, NOT GROWING.**
+###   `m >= 3`: `SUM 2 log p / p^{m/2}` over `p <= a^{2/3}` is dominated by its lower end and is
+###     ### **o(1).**
+### ### ### **SO `T_top` IS DECIDED BY `m = 1`, AND `m = 1` GROWS.**
+
+====================================================================================================
+(F) ### S4 -- THE VERDICT. ### **THE BRANCH MEANINGS, BANKED BEFORE ANY EXTENDED LADDER EXISTS.**
+====================================================================================================
+### **THE FOUR BRANCHES, DEFINED NOW SO NONE CAN BE CHOSEN AFTER ITS NUMBERS ARE SEEN:**
+###   ### **(JUNCTION-DIES)** -- `J(a) -> 0`, derived. ### Would mean the quotient channel captures
+###     the prime side in the limit.
+###   ### **(FLOOR)** -- `J(a) -> c > 0`, derived or exhibited.
+###   ### **(GROWS)** -- `J(a) -> inf`. ### **THE MEANING, FIXED HERE: `Theta_q` FAILS TO TRACK
+###     `PR` ALONG THE LIMIT DIRECTION, AND THE SEPARATION IS UNBOUNDED.**
+###   ### **(BENCH-ONLY, step named)** -- the honest halt, with the resisting step quoted.
+### **THE RULE THAT DECIDES BETWEEN THEM, FIXED NOW:** ### **A DERIVATION DECIDES; A LADDER
+### CONTROLS. ### IF THE DERIVATION AND THE LADDER DISAGREE, THE ACT REPORTS THE DISAGREEMENT AND
+### TAKES (BENCH-ONLY), IT DOES NOT PICK THE FLATTERING ONE.**
+### **AND b242 GOVERNS THE LADDER ABSOLUTELY: ### NO FIT, NO SLOPE, NO EXTRAPOLATED LIMIT IS
+### BANKED. ### THE LADDER IS PRICED BEFORE IT IS RUN AND ITS REACH IS DECLARED.**
+
+### ### ### **THIS SEAT'S REGISTERED VERDICT: ### (GROWS). ### AND THE CONSEQUENCE, REGISTERED
+### ### ### WITH IT BECAUSE IT IS SHARPER THAN THE VERDICT: ### `Theta_q / PR -> 0` AND
+### ### ### `J / PR -> 1`.**
+###   THE ARGUMENT: `Theta_q` receives NOTHING from the `m = 1` family (`tau_q = 0` at `k = n`),
+###   so `Theta_q` is a sum over `p <= a` only; its `k = 1` part is `~ 2 INT_0^1 a^{s/2} psi(s) ds
+###   ~ 4 psi(1) sqrt(a)/L`, ### **GROWING LIKE `sqrt(a)/log a`** ### -- while `PR ~ F_1 ~ 2a
+###   exp(-2 sqrt(L))`. ### The ratio `-> 0` once `L > 16`, i.e. `a > e^16`.
+###   ### **SO BOTH GROW AND `PR` OUTGROWS `Theta_q`. ### THE JUNCTION IS ASYMPTOTICALLY THE WHOLE
+###   ### PRIME SIDE.**
+
+### **THE NAVIGATOR'S EXPECTATION, AS THE FERRY'S CLAUSE (e) ORDERS THEM:** the ferry lists
+### (JUNCTION-DIES) FIRST and asks whether "the persisting family is summable", ### **which reads
+### as an expectation that the persisting family CONVERGES.** ### **THIS SEAT EXPECTS THE OPPOSITE
+### AND SAYS SO BEFORE THE RUN: THE PERSISTING FAMILY IS ### NOT ### SUMMABLE.**
+
+====================================================================================================
+(G) ### THE FALSIFIERS. ### EACH ABLE TO FIRE.
+====================================================================================================
+###   ### **(F1) `F_1` DOES NOT GROW.** ### If the sieved `F_1(a)` is bounded or decreasing across
+###     the priced ladder, ### **(GROWS) IS REFUTED AND THE DERIVATION IN (E) IS WRONG.**
+###     ### **THIS IS THE ONE THAT DECIDES THE ACT.**
+###   ### **(F2) THE PNT SUBSTITUTION FAILS AT BENCH.** ### `theta(x)/x` measured on the sieved
+###     range departs from `1` by more than ### **10%** ### -- a bar fixed here before any value.
+###     Would drop I-1 from VERIFIED-AT-BENCH to TRUSTED-AT-CITE and weaken (E).
+###   ### **(F3) THE ASYMPTOTIC FORM MISFITS.** ### If `F_1(a) / (2 a exp(-2 sqrt(L)))` is not
+###     slowly varying across the ladder -- if it moves by more than an order of magnitude per
+###     decade of `a^2` -- the saddle analysis is wrong in its exponent. ### **REPORTED EITHER WAY;
+###     ### NO FIT IS BANKED WHATEVER IT SHOWS (b242).**
+###   ### **(F4) THE `m = 1` FAMILY IS NOT WHAT DOMINATES.** ### If the sieved `m = 2` class
+###     out-sums `m = 1` anywhere on the ladder, (E)'s ordering is wrong.
+### ### **AND THE OUTCOME THIS SEAT MOST WANTS TO CATCH, REGISTERED SO CATCHING IT CANNOT LOOK
+### ### LIKE A DISCOVERY MADE TO ORDER: ### F1 FIRING.** ### It would mean a full asymptotic
+### ### derivation banked before its bench was simply wrong, ### **AND THAT IS WORTH MORE THAN THE
+### ### VERDICT IT WOULD OVERTURN.**
+
+====================================================================================================
+(H) ### THE SCOPE WALL. ### **SAID BEFORE THE RUN BECAUSE IT LIMITS EVERY NUMBER THIS ACT PRODUCES.**
+====================================================================================================
+*** ### ### **b255's LADDER, b260's TABLE AND b261's CELLS ALL USE `S4 = (2,3,5)` FIXED.**
+### ### **AT `a^2 >= 25` NO PRIME OF `S4` HAS `n_p = 1`** -- `n_5(25) = 2` -- ### **SO THE `m = 1`
+### ### FAMILY, WHICH (E) DERIVES AS THE DOMINANT ONE, IS ### EMPTY ### IN EVERY BENCH CELL THIS
+### ### CORPUS HAS EVER COMPUTED ABOVE `a^2 = 25`.**
+### ### ### **THE INSTRUMENT STRUCTURALLY CANNOT SEE THE FAMILY THAT DECIDES J3.**
+### **THIS IS NOT A DEFECT IN b255, b260 OR b261** -- each said its place set was fixed and said so
+### at every use (b221's divergence, honoured throughout). ### **IT IS A LIMIT ON WHAT THEIR
+### NUMBERS CAN BE ASKED, AND THIS ACT MUST NOT ASK THEM.**
+### ### **CONSEQUENCE FOR THIS ACT'S CONTROLS: `F_1` IS SIEVED OVER ### ALL ### PRIMES ON ITS OWN
+### ### LADDER, AND b255's JUNCTION COLUMN IS USED ONLY TO CHECK THE `S4`-RESTRICTED ARITHMETIC
+### ### REPRODUCES. ### THE TWO LADDERS ARE DIFFERENT OBJECTS AND ARE NEVER PLOTTED AS ONE.** ***
+
+====================================================================================================
+(I) ### THE SHADOW, THE HARNESS, AND WHAT MAY NOT MOVE.
+====================================================================================================
+### **THE SHADOW'S FINITE-DECIDABLE CORE:**
+###   (i) the partition counts (b260's 43 + 76 = 119) and the `T_fixed`/`T_top` disjointness;
+###   (ii) the fixed-`(p,k)` fraction's decay as EXACT INTEGER arithmetic -- `p^n - 1` strictly
+###        increasing in `n` at fixed numerator `p^k - 1`;
+###   (iii) ### **THE SCOPE WALL AS ARITHMETIC: at `a^2 = 100`, every prime of `S4` has `n_p >= 2`
+###         (`p^2 <= 100` for `p = 2,3,5`), while `11` HAS `n_p = 1` (`11 <= 100 < 11^2`).**
+###         ### **THE FAMILY THE BENCH CANNOT SEE, EXHIBITED AS ARITHMETIC.**
+### ### **POLARITY CONTROLS FIRST; PROFILE PRINTED AND READ; A COMPILE CLAIMED ONLY FROM ITS
+### ### PRINTED PROFILE. ### NOTHING REAL-VALUED IS FORCED INTO `Nat`.**
+### **THE HARNESS:** pure conjunctions, ### **BUT EVERY MULTI-NEEDLE CHECK ROUTED THROUGH
+### `needle_extract.verify_all`, WHICH NAMES ### WHICH ### NEEDLE IS ABSENT** -- b229/b260/b261's
+### species cost three acts because a six-clause conjunction reports one bit.
+### **AXES THAT MAY NOT MOVE:** `NV = 4001`, `NU_HALF = 401`; `psi` is b261's fixed array, taken
+### from the instrument and not rebuilt. ### **THE SIEVE BOUND IS PRICED BEFORE IT IS CHOSEN.**
+
+====================================================================================================
+(J) ### WHAT THIS ACT MAY NOT DO. ### FIXED HERE, BEFORE ANY STEP.
+====================================================================================================
+###  1. ### **IT MAY NOT USE b255's JUNCTION COLUMN AS A PREMISE**, nor plot it against `F_1`.
+###  2. ### **IT MAY NOT BANK A FIT, A SLOPE OR AN EXTRAPOLATED LIMIT.** ### b242.
+###  3. ### **IT MAY NOT PROMOTE `2 sinh(u/2)` TO THE EXPLICIT FORMULA'S ARCHIMEDEAN KERNEL.**
+###  4. ### **IT MAY NOT DISCHARGE `W-ORD-TQ-IDENTIFY`**, which every verdict inherits.
+###  5. ### **IT MAY NOT READ A LEVEL LIMIT AT FIXED `p` AS b14's DOUBLE LIMIT.** ### b15 governs.
+###  6. ### **IT MAY NOT CLAIM A COMPILE IT HAS NOT PRINTED A PROFILE FOR.**
+###  7. ### **IT MAY NOT CLOSE M-2, AND MAY NOT TOUCH J4's OBJECT** (`W-ORD-EPS-DECAY`).
+###  8. ### **NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.**
+
+====================================================================================================
+### REGISTRATION CLOSED. ### COMPONENTS IN ORDER: 1 (S1-S2), 2 (S3), 3 (S4-S5 + shadow),
+### 4 (the filings). ### 2 CONSUMES 1; 3 CONSUMES 2; 4 CONSUMES 1-3.
+====================================================================================================

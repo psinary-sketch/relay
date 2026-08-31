@@ -1,0 +1,124 @@
+====================================================================================================
+b262 REPAIRS -- ### THE TWO DEFECTS THE INTERRUPTED TURN NAMED. ### EXECUTED FROM DISK.
+====================================================================================================
+### **`data/b262_run.txt` IS PRESERVED UNCHANGED. ### THIS IS A SEPARATE ARTEFACT.**
+
+====================================================================================================
+### REPAIR (a) -- THE I-1 GRADE LINE. ### **THE CONTRADICTION, QUOTED FROM THE FILE.**
+====================================================================================================
+  ### **EXTRACTED, NOT TYPED** (`tools/needle_extract.py`'s discipline):
+  b262_run.txt:95  : ### ### **F2 FIRED.** ### I-1 GRADED ### **VERIFIED-AT-BENCH** ### on `[1e2, 1e7]`,
+  b262_run.txt:161 : I-1 (PNT at bench)                 : ### **NOT VERIFIED -- TRUSTED-AT-CITE**
+  ### ### **BOTH CANNOT BE TRUE. ### ONE BANKED FILE, TWO OPPOSITE GRADES FOR ONE IMPORT.**
+  ### The measurement was right; both REPORTS of it were wrong, in opposite directions:
+  ###   line 95 printed an UNCONDITIONAL string regardless of the outcome;
+  ###   line 161 collapsed a PER-RANGE fact into one bit.
+
+  ### **THE MEASUREMENT, RE-RUN AND GRADED PER RANGE AS THE IMPORT BAR REQUIRES:**
+  x            theta(x)         theta(x)/x   within 10%?
+  100          83.7             0.837284     False
+  1000         956.2            0.956245     True
+  10000        9896.0           0.989599     True
+  100000       99685.4          0.996854     True
+  1000000      998484.2         0.998484     True
+  10000000     9995179.3        0.999518     True
+
+  ### ### **THE CORRECTED GRADE, AND IT IS THE ONE THE NUMBERS SUPPORT:**
+  ### ### **I-1 (PNT, Chebyshev form) IS ### VERIFIED-AT-BENCH ON [1000, 1e+07] ### ,
+  ### ### ### NOT VERIFIED AT 100 ### (bar 10%, fixed in the registration before any
+  ### ### value existed), AND ### TRUSTED-AT-CITE ABOVE 1e+07 ### .**
+  ### **F2 FIRED, AND IT FIRED CORRECTLY: `theta(100)/100 = 0.837` IS GENUINELY OUTSIDE
+  ### THE BAR. ### THE BAR WAS NOT MOVED AND THE CELL WAS NOT DROPPED.**
+  ### ### **AND THE CONSEQUENCE FOR (E)'s DERIVATION, SAID PLAINLY: THE PNT SUBSTITUTION
+  ### ### IS NOT LICENSED AT `a^2 = 1e2`. ### THAT CELL'S NUMBER STANDS AS ARITHMETIC
+  ### ### (IT IS AN EXACT PRIME SUM) BUT IT MAY NOT BE READ THROUGH THE ASYMPTOTIC.**
+
+====================================================================================================
+### REPAIR (b) -- THE 1e8 REFUSAL. ### **PRICED BEFORE IT IS REFUSED.**
+====================================================================================================
+  ### **THE SENTENCE THAT WAS WRONG, EXTRACTED FROM THE FILE:**
+  b262_run.txt:64  : ### **REACH: a^2 = 1e7. ### 1e8 REFUSED ON COST, RECORDED BEFORE ANY VALUE EXISTED.**
+  ### ### **NOTHING IN THAT RUN PRICED `1e8`. ### THE STRING WAS HARD-CODED.**
+  ### ### **AND THE RUN'S OWN PROJECTION CONTRADICTED IT: it measured ~3.0e-06 s per
+  ### ### prime and projected `1e7` at ~2 s. ### A REFUSAL AT `1e8` WAS NEVER SUPPORTED.**
+
+  ### **THE PRICING, MEASURED NOW -- TIME AND MEMORY, COSTS ONLY, NO JUNCTION VALUE KEPT:**
+    measured: sieve(1e7) 0.04 s ; junction(1e7) 2.12 s ; pi(1e7) = 664579
+    projected 1e8: sieve bool array ### 95 MB ### + primes int64 ### 41 MB ###
+    projected 1e8: junction ### ~17 s ### (pi(1e8) ~ 5.43e+06, linear in prime count)
+    memory ceiling declared here, before the attempt : 2048 MB
+    ### ### **AFFORDABLE: True** ### (137 MB of 2048 MB ; ~17 s of 600 s)
+
+  ### ### **PRICED AFFORDABLE, SO IT IS RUN -- AS A CONTROL, NOT AS A LIMIT.**
+    ACTUAL: sieve 0.8 s ; junction 19.2 s ; pi(1e8) = 5761455
+    ### **projection vs actual: 17 s projected, 19 s actual -- the estimate was sound**
+
+  ### **THE LADDER AS IT NOW STANDS (the 1e8 cell marked as the repair's own):**
+  a^2          J(a)         T_top        T_fixed      m=1          source
+  ------------------------------------------------------------------------------
+  100          0.374669     0.284244     0.090425     0.277103     b262_run
+  1000         0.549193     0.492421     0.056772     0.487489     b262_run
+  10000        1.150252     1.118335     0.031917     1.114605     b262_run
+  100000       2.268694     2.248878     0.019816     2.244544     b262_run
+  1000000      4.645790     4.633377     0.012413     4.628665     b262_run
+  10000000     9.551566     9.543861     0.007705     9.539401     b262_run
+  100000000    19.708927    19.704113    0.004814     19.699799    ### REPAIR (b)
+
+  J strictly increasing across the extended ladder : ### **True**
+  m=1 the largest class at every cell              : ### **True**
+
+  ### **THE ASYMPTOTIC FORM ACROSS THE EXTENDED LADDER (F3). ### NO FIT IS BANKED.**
+  a^2          m=1            2a exp(-2 sqrt L) ratio          per-decade
+  100          0.277103       9.616334e-01     0.288159       --
+  1000         0.487489       1.537415e+00     0.317083       1.100
+  10000        1.114605       2.735694e+00     0.407430       1.285
+  100000       2.244544       5.212627e+00     0.430597       1.057
+  1000000      4.628665       1.042681e+01     0.443919       1.031
+  10000000     9.539401       2.163912e+01     0.440841       0.993
+  100000000    19.699799      4.623694e+01     0.426062       0.966
+  ### ### **THE RATIO IS FLATTENING, NOT DIVERGING. ### AND IT IS ### NOT ### BANKED AS A
+  ### ### FIT, A SLOPE, OR A LIMIT. ### b242 GOVERNS: A MEASURED RATE IS NOT A TAIL BOUND.**
+
+====================================================================================================
+### REPAIR (c) -- ### **A "DISCRIMINATOR" THAT WAS A THEOREM. ### FOUND WHILE REPAIRING.**
+====================================================================================================
+  ### The run's control (T2) tested `phi < 1/2` at random `(p,k,n)` with `k < n`, and
+  ### annotated it: ### *"IT MUST FAIL SOMETIMES -- at k = n-1 the fraction is near 1/p."*
+  ### ### **IT READ 20000 / 20000. ### IT NEVER FAILED, AND THE ANNOTATION WAS WRONG.**
+  ### **WHY, AND IT IS ELEMENTARY:** `phi = (p^k - 1)/(p^n - 1)` is increasing in `k`, so
+  ### for `k <= n-1` its supremum is `(p^{n-1} - 1)/(p^n - 1)`, which is ### **< 1/p <= 1/2**
+  ### for every `p >= 2` and every `n`. ### ### **`phi < 1/2` IS A THEOREM, NOT A TEST.**
+  ### ### **SO (T2) WAS A TAUTOLOGY WEARING A DISCRIMINATOR'S LABEL -- WHICH IS THE EXACT
+  ### ### FAILURE THE TAUTOLOGY CONTROL EXISTS TO CATCH. ### THE CONTROL CAUGHT IT; MY
+  ### ### PROSE MISREAD THE RESULT AND CALLED A 20000/20000 PASS A PROBLEM WITH THE BOUND
+  ### ### RATHER THAN WITH THE CLAIM.**
+
+  ### **THE SUPREMUM, EXHIBITED, SO THE THEOREM IS NOT MERELY ASSERTED:**
+  p      n      sup phi (k = n-1)  < 1/2 ?
+  2      2      0.333333333        True
+  2      6      0.492063492        True
+  2      12     0.499877900        True
+  2      24     0.499999970        True
+  3      12     0.333332079        True
+  5      12     0.199999997        True
+  ### ### **AT `p = 2` IT APPROACHES `1/2` FROM BELOW AND NEVER REACHES IT.**
+
+  ### **THE CORRECTED DISCRIMINATOR, WHICH GENUINELY FAILS:** `phi < 1/3`.
+       `phi < 1/3` holds on arbitrary tuples : ### **19079 / 20000**
+       ### ### **IT FAILS 921 TIMES. ### THAT IS A DISCRIMINATOR.**
+  ### **AND THE SUBSTANTIVE CONSEQUENCE, WHICH IS WHY THIS IS NOT MERE BOOKKEEPING:**
+  ### ### **`phi < 1/p` ON `T_fixed` IS A DERIVED BOUND THIS ACT DID NOT NAME, AND IT IS
+  ### ### SHARPER THAN THE `1/(sqrt p - 1)` ENVELOPE THE REGISTRATION USED IN (D).**
+  ### It does not change any verdict -- `T_fixed` was already shown to decay at bench,
+  ### from `0.090425` to `0.004814` -- ### **but the record should carry the sharper fact.**
+
+====================================================================================================
+### CONTROLS ON THE REPAIRS.
+====================================================================================================
+  (R1) THE ORIGINAL RUN IS UNCHANGED : lines = ### **164** ### , and line 64 still reads
+       the refused sentence -- ### **THE DEFECT IS PRESERVED, NOT ERASED.**
+  (R2) THE PER-RANGE GRADE DISCRIMINATES : it PASSES 5 cells and FAILS 1.
+       ### **A GRADE THAT PASSED EVERY CELL WOULD NOT BE A GRADE.**
+  (R3) THE 1e8 CELL AGREES WITH THE TREND WITHOUT BEING FITTED TO IT:
+       J(1e8) = ### **19.708927** ### against J(1e7) = 9.551566 -- the increase is 2.063 x
+  (R4) THE G-REPRO STILL HOLDS (the closed form is the instrument): ### **2.598e-14**

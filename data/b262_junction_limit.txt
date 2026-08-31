@@ -1,0 +1,394 @@
+====================================================================================================
+b262 -- J3: THE JUNCTION AT THE LEVEL LIMIT. ### THE BANK. ### 2026-08-31. ### CONCURRENCY: SOLO.
+Registration: data/b262_registration_2026-08-31.txt -- TERM-SCANNED CLEAN, then banked, before any
+step. Run: data/b262_run.txt (PRESERVED AS IT STANDS, WITH ITS DEFECTS). Repairs:
+data/b262_repairs.txt. Rows: data/b262_rows.json, data/b262_rows_extended.json.
+Shadow profile: data/b262_shadow_profile.txt. Index queried: quotient-trace HIT, weil-criterion HIT.
+====================================================================================================
+
+### THE CEILING, IN THE HEADER:
+###   b15: ### **"A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."**
+###   b14: the complete roster is the double limit and ### **STAYS OPEN WHATEVER THIS ACT SHOWS.**
+###   b242: ### **"A MEASURED RATE IS NOT A TAIL BOUND."**
+### THE REGISTER SENTENCE, UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### **NOTHING ABOUT h2 BEYOND THAT SENTENCE EXACT.**
+### ### **NOTHING DEPOSITS.**
+### **b260's PREMISE TRAVELS AND IS NOT DISCHARGED: `W-ORD-TQ-IDENTIFY` IS OPEN, AND EVERY NUMBER
+### IN THIS ACT INHERITS IT.**
+
+****************************************************************************************************
+### ### **THE VERDICT: ### (GROWS). ### THE JUNCTION DIVERGES ALONG THE CUTOFF LIMIT.**
+### ### **`J(a) = PR - Theta_q` RUNS `0.374669` AT `a^2 = 1e2` TO `19.708927` AT `a^2 = 1e8`,**
+### ### **DOUBLING PER DECADE OF `a^2`, AND THE DERIVATION SAYS WHY: `J ~ 2a exp(-2 sqrt(log a))`.**
+###
+### ### **AND THE SHARPER CONSEQUENCE, REGISTERED BEFORE THE RUN AND CONFIRMED BY IT:**
+### ### **`Theta_q` RECEIVES ### NOTHING ### FROM THE PRIMES IN `(a, a^2]`, BECAUSE act 9's**
+### ### **`tau_q` VANISHES AT `k = n`. ### THOSE PRIMES CARRY THE WHOLE GROWTH. ### SO**
+### ### **`Theta_q / PR -> 0` AND `J / PR -> 1`: ### THE JUNCTION IS ASYMPTOTICALLY THE ENTIRE**
+### ### **PRIME SIDE.**
+###
+### ### **AND THE FINDING THAT LIMITS EVERY EARLIER NUMBER IN THIS CORPUS: ### THE FAMILY THAT**
+### ### **DECIDES J3 IS ### STRUCTURALLY INVISIBLE ### TO b255, b260 AND b261, WHOSE PLACE SET**
+### ### **`S4 = (2,3,5)` CONTAINS ### ZERO ### PRIMES WITH `n_p = 1` AT EVERY CELL `a^2 >= 25`.**
+****************************************************************************************************
+
+====================================================================================================
+### FIRST: ### **THIS ACT WAS INTERRUPTED, AND THE RESUME IS DECLARED RATHER THAN SMOOTHED OVER.**
+====================================================================================================
+### An API drop cut the session mid-repair. ### The state was recovered ### **FROM DISK, NOT FROM
+### MEMORY**, and the recovery is recorded because a reader cannot otherwise tell which artefacts
+### were authored in one pass:
+###   `data/b262_registration_2026-08-31.txt` -- ### **INTACT, TERM SCAN CLEAN (0 live uses),
+###     UNCHANGED**, `sha256 19fbb037...`, 19275 bytes, mtime PRECEDING the run's.
+###   `data/b262_run.txt` -- ### **INTACT, 164 lines, ending in its own closing banner.**
+###   `data/b262_rows.json` -- parses, six cells, all flags present.
+###   ### **NO FILE WAS LEFT HALF-WRITTEN.** ### Never written at all when the drop came: the
+###   bank, the filings, the checks, the handoff tool, the report and the shadow.
+*** ### ### **AND ONE THING THE FERRY ASKED FOR THAT I MUST REPORT AS ABSENT:**
+### ### **THE REGISTRATION CARRIES ### NO BANKED HASH LINE.** ### b255 hashed its meanings file
+### ### and re-checked the hash at its gates; ### **THIS ACT DID NOT, AND SO THE `sha256` ABOVE IS
+### ### RECORDED AT RESUME AND PROVES NOTHING ABOUT WHAT THE FILE HELD BEFORE THE DROP.**
+### ### **THE EVIDENCE THAT SURVIVES IS WEAKER AND IS NAMED AS SUCH: an mtime ordering and a
+### ### term scan. ### A HASH BANKED AT WRITING TIME WOULD HAVE BEEN PROOF; A HASH TAKEN
+### ### AFTERWARDS IS A DESCRIPTION.** ### `W-ORD-REG-HASH` is filed for it. ***
+
+====================================================================================================
+COMPONENT 1 -- (P1) ### S1: THE PARTITION. ### S2: THE FIXED LEVELS.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE REWRITING THAT MAKES EVERY LATER STEP SHORT. ### **DERIVED FROM b260's BANKED FORMULA.**
+----------------------------------------------------------------------------------------------------
+### b260's formula, ### **EXTRACTED FROM THE FILE, NOT TYPED** (`tools/needle_extract.py`):
+###   ### **"`w_{p,k} - tau_{p,k} = w_{p,k} * ( 1 - (p^n - p^k)/(p^n - 1) ) = w_{p,k} * (p^k - 1)/(p^n - 1)`"**
+### With `w_{p,k} = 2 log p * p^{-k/2} * corr_a(u)` and b261's `corr_a(u) = (1/L) psi(u/L)`, and
+### using ### **`p^{-k/2}(p^k - 1) = p^{k/2} - p^{-k/2} = 2 sinh(u/2)`**:
+### ### ### **J(a) = SUM_{(p,k): p^k <= a^2} (2 log p / L) * psi(u/L) * 2 sinh(u/2) / (p^{n_p(a)} - 1)**
+### ### **NOTHING IS ADDED AND NOTHING IS DROPPED.** ### The appearance of `2 sinh(u/2)` is recorded
+### ### **AS AN OBSERVATION AND NOT PROMOTED**: calling it the explicit formula's archimedean kernel
+### would be b219's double-name species, and it is named here rather than committed.
+
+----------------------------------------------------------------------------------------------------
+### S1 -- THE PARTITION. ### **AND A PRECISION THE FERRY'S OWN WORDING NEEDS.**
+----------------------------------------------------------------------------------------------------
+###   ### **`T_top` := {(p,k) : k = n_p(a)}** ; ### **`T_fixed` := {(p,k) : k < n_p(a)}**.
+###   ### **THOSE TWO ARE THE PARTITION: DISJOINT AND EXHAUSTIVE.**
+### *** ### **THE `n_p = 1` FAMILY IS NOT A THIRD CLASS. ### IT IS A ### SUBSET ### OF `T_top`** --
+### ### the primes with `a < p <= a^2`, whose only level IS the top level. ### **THE FERRY'S CLAUSE
+### ### (b) LISTS THREE, AND A THREE-WAY PARTITION WOULD DOUBLE-COUNT.** ### The divergence was
+### ### declared in the registration and is not silently corrected in the table. ***
+### **THE EXACT IDENTITY THAT MAKES `T_top` SIMPLE, WITH ITS SPECIES SAID:** at `k = n`,
+###   `(p^{n/2} - p^{-n/2})/(p^n - 1) = p^{-n/2}` ### **EXACTLY**, so
+### ### ### **T_top's TERM = (2 log p / L) * p^{-n_p/2} * psi(n_p log p / L).**
+### ### **SPECIES: A TAUTOLOGY. ### Cross-multiplied it reads `p^n - 1 = p^n - 1`.** ### The
+### ### tautology control ran it on 20000 arbitrary `(p,n)` and it held ### **20000/20000**, which
+### ### is what a tautology does. ### **IT SIMPLIFIES; IT ESTABLISHES NOTHING.**
+### **PARTITION CONTROLS, MEASURED:** `|top + fixed - total|` at every ladder cell
+### ### **<= 2.550e-15**; `|top - (m1+m2+m3)|` ### **<= 6.718e-15**.
+
+----------------------------------------------------------------------------------------------------
+### S2 -- T_fixed's FATE. ### **DERIVES, AND IT IS act 9's LEVEL LIMIT.**
+----------------------------------------------------------------------------------------------------
+### For FIXED `(p,k)`, `n_p(a) -> inf`, so `phi = (p^k-1)/(p^{n_p}-1) -> 0`. ### **THE EXACT RATE,
+### FROM b17's STAIRCASE ALONE:** `a^2/p < p^{n_p} <= a^2` gives
+### ### **`(p^k - 1)/a^2 <= phi < p(p^k - 1)/a^2`** -- `phi` is `(p^k-1)/a^2` up to one factor of `p`.
+### And `w_{p,k} -> 2 log p p^{-k/2} psi(0)/L`. ### **SO EVERY FIXED-LEVEL TERM DIES LIKE
+### `1/(a^2 log a)`.**
+### **EXHIBITED EXACTLY AT `(p,k) = (2,1)`:** `phi` runs `1` at `n=1` to `5.96e-08` at `n=24`, and
+### ### **`phi * a^2 -> p^k - 1 = 1`** ### at `a^2 = 2^n` -- the rate, confirmed to six figures.
+### **AND THE SUM OVER `T_fixed` DECAYS AT BENCH TOO:** ### **`0.090425` at `a^2 = 1e2` DOWN TO
+### `0.004814` at `a^2 = 1e8`**, monotonically across seven decades.
+
+*** ### ### **AND A SHARPER BOUND THIS ACT FOUND ONLY BY REPAIRING A BAD CONTROL (repair (c)):**
+### ### **`phi` IS INCREASING IN `k`, SO ON `k <= n-1` ITS SUPREMUM IS `(p^{n-1}-1)/(p^n-1)`,
+### ### WHICH IS ### `< 1/p` ### FOR EVERY `p >= 2` AND EVERY `n`.**
+### Cleared of division: `p(p^{n-1} - 1) < p^n - 1`, i.e. `p^n - p < p^n - 1`, i.e. `p > 1`.
+### ### **THAT IS SHARPER THAN THE `1/(sqrt p - 1)` ENVELOPE THE REGISTRATION USED IN (D), AND IT
+### ### IS EXACT. ### THE SHADOW COMPILES IT, AND ITS SHARPNESS TOO: THE BOUND DOES ### NOT ###
+### ### IMPROVE TO `1/(p+1)`.** ***
+
+====================================================================================================
+COMPONENT 2 -- (P2) ### S3: THE TOP LEVELS. ### **THE ACT'S CENTRE.**
+====================================================================================================
+### **GROUPED BY `m := n_p(a)`:** `m = 1` is `a < p <= a^2`; `m = 2` is `a^{2/3} < p <= a`;
+### `m >= 3` is `p <= a^{2/3}`.
+
+### ### **THE `m = 1` FAMILY'S OBJECT, EXACTLY:**
+### ### ### **F_1(a) = SUM_{a < p <= a^2} (2 log p / L) * p^{-1/2} * psi(log p / L).**
+*** ### **AND THE ONE PIECE OF LUCK THIS ACT HAD, SAID PLAINLY BECAUSE EVERYTHING RESTS ON IT:**
+### ### **b260 DERIVED THE LEVEL FRACTION IN CLOSED FORM, SO THE ENTIRE JUNCTION IS PURE
+### ### ARITHMETIC** -- no `quotient_basis`, no `scaling_matrix`, no dense `p^{2n}` matrices,
+### ### **NO COST WALL.** ### b255 refused `a^2 = 128` on cost; ### **THIS ACT REACHED `a^2 = 1e8`
+### ### IN 18 SECONDS**, and it is b260's result that bought that, not any new instrument. ***
+### **AND THE STRUCTURAL REASON `Theta_q` GETS NOTHING FROM THIS FAMILY:** for `n_p = 1` the only
+### level is `k = 1 = n_p`, and act 9's closed form gives ### **`0 for k >= n`**. ### So
+### ### **`tau_q = 0` THERE AND THE JUNCTION'S CONTRIBUTION IS `w_{p,1}` ENTIRE.**
+
+### **THE SIZE OF `F_1`, DERIVED ON TWO NAMED IMPORTS, BOTH GRADED UNDER THE IMPORT BAR:**
+###   ### **I-1 -- PNT IN CHEBYSHEV FORM** (`theta(x) = SUM_{p<=x} log p ~ x`).
+###   ### **I-2 -- LAPLACE / SADDLE-POINT ASYMPTOTICS**, for an integral against a factor
+###     vanishing to infinite order. ### **GRADE: TRUSTED-AT-CITE, textbook, not tool-reachable
+###     here.** ### A work-order is NOT filed: the bar requires one only when internal
+###     verification is tool-reachable, and a saddle-point theorem is not.
+### **THE DERIVATION:** by I-1, `SUM_{a<p<=a^2} f(p) log p ~ INT_a^{a^2} f(t) dt`; with
+### `t = e^{Ls}` this gives ### **`F_1(a) ~ 2 INT_1^2 a^{s/2} psi(s) ds`.**
+### **THE COMPETITION IS THE WHOLE QUESTION:** `a^{s/2}` grows to `a` at `s = 2`, while `psi(2) = 0`.
+### `psi = phi * phi` with `phi` the mollifier, so `psi` ### **VANISHES TO INFINITE ORDER AT `s = 2`**
+### and `psi(2-r) ~ exp(-2/r)` up to algebraic factors. ### The saddle of `Lr/2 + 2/r` sits at
+### `r* = 2/sqrt(L)` with value `2 sqrt(L)`, giving
+### ### ### ### **F_1(a) ~ 2 a * exp(-2 sqrt(log a)) * (ALGEBRAIC FACTORS).**
+### ### ### **`L - 2 sqrt(L) -> inf`. ### THE FAMILY GROWS.**
+### **THE OTHER CLASSES, AND THE BENCH CONFIRMS THE ORDERING:** `m = 2` is `O(1)` by Mertens and
+### ### **MEASURES `0.004`-`0.007` ACROSS SEVEN DECADES -- BOUNDED, AS DERIVED**; `m >= 3` is
+### `o(1)` and measures `<= 1.6e-04`.
+
+====================================================================================================
+### ### **THE LABEL. ### act 9's LEVEL LIMIT vs THIS ACT'S CUTOFF LIMIT. ### DECIDED BY DEFINITIONS.**
+====================================================================================================
+### The index query returned act 9's label, and it must be faced rather than filed past.
+### **act 9's LABEL, EXTRACTED FROM `data/b220_aggregation_freedom.txt` (line 81), NOT TYPED:**
+###   ### **"The quotient channel's convergence to Weil's coefficients at the level limit:
+###    PROOF GRADE longhand."**
+### **AND b220's READING OF IT, EXTRACTED (line 84):**
+###   ### **"is a LABEL ON the displayed theorem, not an exhibited statement. ### The theorem's
+###    own content is the closed form, whose level limit is tau_q -> p^(-k/2)."**
+
+### ### **THE TWO LIMITS, WRITTEN OUT FROM THEIR DEFINITIONS:**
+###   ### **(L-A) act 9's LEVEL LIMIT:** ### FIX `p`. ### FIX `k`. ### LET `n -> inf`.
+###     The index `(p,k)` does not move; only the model's level does. ### Statement:
+###     `tau_q(p,n,k) -> p^{-k/2}`, equivalently `phi -> 0`.
+###   ### **(L-B) THIS ACT'S CUTOFF LIMIT:** ### LET `a^2 -> inf`. ### This moves `n_p(a)` for
+###     ### EVERY ### `p` at once ### **AND GROWS THE INDEX SET** `{(p,k) : p^k <= a^2}`,
+###     admitting new primes and, at each prime, a new top level.
+
+### ### ### **THE VERDICT: ### DISTINCT OBJECTS WITH A STATED RELATION. ### NOT A DOUBLE-NAME.**
+### ### **(L-A) IS THE RESTRICTION OF (L-B) TO A FIXED INDEX `(p,k)`.** ### (L-B) strictly contains
+### it and adds terms (L-A) never reaches.
+### ### **WHICH LIMIT EACH STEP CONCERNS, NAMED AS THE FERRY REQUIRES:**
+###   ### **S2 CONCERNS (L-A).** ### It IS act 9's level limit, re-derived with its rate.
+###     ### **THE LABEL IS CONFIRMED HERE, NOT CONTRADICTED.**
+###   ### **S3 CONCERNS (L-B)'s NEWLY-ADMITTED TERMS** -- the moving top level `k = n_p(a)`,
+###     ### **WHICH NO LEVEL LIMIT EVER SEES**, because (L-A) holds `k` fixed while (L-B) lets it
+###     track the cutoff.
+### *** ### ### **SO THE AGGREGATE DIVERGES ### PRECISELY BECAUSE ### THE TERMS THAT DOMINATE ARE
+### ### ### THE ONES act 9's LEVEL LIMIT NEVER REACHES. ### BOTH STATEMENTS ARE TRUE AND THEY DO
+### ### ### NOT MEET.**
+### ### **AND THE HAZARD IS NAMED AS A NEW SPECIES, ADJACENT TO b219's: ### THIS WOULD BE A
+### ### ### DOUBLE-*LIMIT* ERROR ### -- one phrase ("the level limit") over two limits that differ
+### ### in WHICH INDICES MOVE. ### b219's species is two objects under one word; this is two
+### ### LIMITS under one word, and the corpus had no name for it.** ***
+
+====================================================================================================
+COMPONENT 3 -- (P3) ### S4's VERDICT. ### S5's MEANING. ### THE SHADOW.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### S4 -- ### **(GROWS). ### IN THE MEANINGS' OWN BANKED WORDS.**
+----------------------------------------------------------------------------------------------------
+### THE BANKED DEFINITION, from the registration (F): ### **"(GROWS) -- `J(a) -> inf`. ### THE
+### MEANING, FIXED HERE: `Theta_q` FAILS TO TRACK `PR` ALONG THE LIMIT DIRECTION, AND THE
+### SEPARATION IS UNBOUNDED."**
+### **THE RULE THAT DECIDES, ALSO BANKED IN ADVANCE:** ### *"A DERIVATION DECIDES; A LADDER
+### CONTROLS. ### IF THE DERIVATION AND THE LADDER DISAGREE, THE ACT REPORTS THE DISAGREEMENT AND
+### TAKES (BENCH-ONLY)."* ### ### **THEY DO NOT DISAGREE.**
+
+###   a^2        J(a)         T_top        T_fixed      m=1          m=2          m>=3
+###   --------------------------------------------------------------------------------------
+###   1e2        0.374669     0.284244     0.090425     0.277103     0.007141     0.000000
+###   1e3        0.549193     0.492421     0.056772     0.487489     0.004904     0.000028
+###   1e4        1.150252     1.118335     0.031917     1.114605     0.003567     0.000163
+###   1e5        2.268694     2.248878     0.019816     2.244544     0.004226     0.000108
+###   1e6        4.645790     4.633377     0.012413     4.628665     0.004668     0.000044
+###   1e7        9.551566     9.543861     0.007705     9.539401     0.004399     0.000061
+###   1e8       19.708927    19.704113     0.004814    19.699799     (repair (b))
+###
+### ### **J STRICTLY INCREASING AT EVERY STEP; `m = 1` THE LARGEST CLASS AT EVERY CELL.**
+### ### **F1 DID NOT FIRE (the falsifier that decides the act). ### F4 DID NOT FIRE.**
+### **AND THE THREE COLUMNS BEHAVE EXACTLY AS DERIVED, WHICH IS WHAT MAKES THIS A CONTROL RATHER
+### THAN A COINCIDENCE:** `T_fixed` DECAYS, `m = 2` STAYS BOUNDED, `m >= 3` IS NEGLIGIBLE, AND
+### `m = 1` CARRIES ALL THE GROWTH.
+
+### **THE ASYMPTOTIC FORM, TESTED (F3):** the ratio `F_1 / (2a exp(-2 sqrt L))` runs
+### `0.288, 0.317, 0.407, 0.431, 0.444, 0.441, 0.426` with per-decade factors
+### `1.100, 1.285, 1.057, 1.031, 0.993, 0.966` -- ### **FLATTENING, NOT DIVERGING.**
+### ### ### **AND IT IS NOT BANKED AS A FIT, A SLOPE, OR A LIMIT. ### b242 GOVERNS AND IS QUOTED
+### ### ### AGAINST MY OWN NUMBER: *A MEASURED RATE IS NOT A TAIL BOUND.* ### THE LADDER CONTROLS
+### ### ### THE DERIVATION; IT DOES NOT REPLACE IT.**
+
+*** ### **THE G-REPRO THAT LICENSES THE WHOLE ARITHMETIC ROUTE, RUN ### FIRST ### :** b260 computed
+### the junction from the INSTRUMENT (dense matrices); this act computes it from b260's CLOSED FORM.
+### ### **WORST DISAGREEMENT ACROSS ALL SIXTEEN `S4` CELLS: ### 2.598e-14.**
+### ### **THE CLOSED FORM ### IS ### THE INSTRUMENT. ### HAD IT NOT BEEN, EVERY NUMBER ABOVE WOULD
+### ### HAVE BEEN VOID, AND THE CHECK WAS RUN BEFORE ANY ALL-PRIMES VALUE EXISTED.** ***
+
+----------------------------------------------------------------------------------------------------
+### ### **THE SCOPE WALL. ### WHAT THIS FINDING COSTS EVERY EARLIER NUMBER IN THE CORPUS.**
+----------------------------------------------------------------------------------------------------
+###   a^2    S4: n_p=1 count   ALL: n_p=1 count   S4 J           ALL J
+###   ------------------------------------------------------------------------
+###   4      1                 1                  0.087341431    0.087341431
+###   9      1                 2                  0.135020714    0.135061306
+###   25     0                 6                  0.161758583    0.245497500
+###   49     0                 11                 0.099237610    0.217409798
+###   100    0                 21                 0.076658295    0.374669219
+### ### ### **AT `a^2 >= 25` THE BENCH SET HAS ### ZERO ### PRIMES WITH `n_p = 1`, WHILE THE FULL
+### ### ### PRIME SET HAS MANY. ### THE FAMILY THAT DECIDES J3 IS ABSENT FROM ### EVERY ### CELL
+### ### ### THIS CORPUS HAS EVER COMPUTED ABOVE `a^2 = 25`.**
+### *** ### **THIS IS NOT A DEFECT IN b255, b260 OR b261.** ### Each fixed its place set, said so at
+### every use, and b255 wrote the limit explicitly: *"IT MEASURES THE POWERS OF A FIXED PRIME SET
+### ALONG THE CUTOFF AXIS, NOT A GROWING PLACE SET."* ### **THEY DECLARED THE WALL; THIS ACT
+### MEASURES WHAT IS ON THE OTHER SIDE OF IT.**
+### ### **BUT IT IS A REAL LIMIT ON WHAT THOSE NUMBERS CAN BE ASKED, AND IT IS NOW ON THE RECORD:
+### ### AT `a^2 = 100` THE BENCH JUNCTION IS `0.0767` AND THE TRUE ONE IS `0.3747` -- ### NEARLY
+### ### FIVE TIMES LARGER ### -- AND THE RATIO WIDENS WITH `a`.** ***
+
+----------------------------------------------------------------------------------------------------
+### S5 -- THE MEANING FOR `h2`. ### **FILED AT GRADE, IN THE DEPOSIT'S WORDS BESIDE THE CORPUS'S.**
+----------------------------------------------------------------------------------------------------
+### **THE DEPOSIT'S OWN SENTENCE, UNCHANGED AND NOT REINTERPRETED:** ### *"RH reduced to a single
+### located clause, reduction machine-verified. h2 is the clause."*
+### **THE CORPUS'S SENTENCE FOR THE OBJECT:** File E's `finiteInstanceIdentity`,
+### `T.value + Q.value = W.wInf - W.wPrimes`, whose truth at complete roster ### **IS** ### `h2`.
+### ### **WHAT J3 ADDS, AND ITS EXACT REACH:**
+###   Under RULE Q (`Q.value := -Theta_q`), the finite-place half of the identity's left side is
+###   `-Theta_q`, and the adopted right-side prime term is `PR`. ### **J3 SHOWS THAT ALONG THE
+###   CUTOFF DIRECTION `PR - Theta_q` DIVERGES AND `Theta_q/PR -> 0`.**
+### ### ### **SO IF THE IDENTITY IS TO HOLD ALONG THIS DIRECTION, ### THE ARCHIMEDEAN SIDE MUST
+### ### ### ABSORB A DIVERGENT QUANTITY. ### THAT IS THE FINITE-PLACE SHADOW'S FIRST ASYMPTOTIC
+### ### ### STATEMENT, AND IT IS A STATEMENT ABOUT WHAT THE ARCHIMEDEAN SIDE IS REQUIRED TO DO --
+### ### ### NOT A CLAIM THAT IT FAILS TO DO IT.**
+### *** ### **AND THE FOUR THINGS THIS DOES ### NOT ### SAY, BECAUSE EACH IS A TEMPTING MISREADING:**
+### ### **(1) IT IS NOT EVIDENCE AGAINST THE IDENTITY.** ### A divergent junction matched by a
+###   divergent archimedean side is a consistent identity; nothing here measures the match.
+### ### **(2) IT IS NOT A STATEMENT ABOUT b14's DOUBLE LIMIT.** ### b15 governs: this is the cutoff
+###   coordinate with all places already admitted, and the roster question is untouched.
+### ### **(3) IT DOES NOT MOVE `h2`.** ### `h2` stands exactly where the deposit left it.
+### ### **(4) IT DOES NOT SAY `Theta_q` IS THE WRONG OBJECT.** ### It says `Theta_q` does not track
+###   `PR`; whether it is meant to is precisely (L-identity), the undecided thing (b228). ***
+### **J4 -- `eps_even`'s DECAY (`W-ORD-EPS-DECAY`) -- IS THE ARCHIMEDEAN TWIN**, and after J3 it is
+### the natural next question: ### **the finite side's shadow diverges; what does the archimedean
+### side's do along the same direction?**
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW. ### **11 TERMINALS, ZERO AXIOMS, 0 ERRORS, PROFILE PRINTED AND READ.**
+----------------------------------------------------------------------------------------------------
+### `SIDE-global-section/Core/JunctionLimitShadow.lean`. ### **VANILLA LEAN 4, `decide` ONLY.**
+### **WHAT IT COMPILES:** the partition counts; the fixed-level fraction's decay as exact integer
+### arithmetic; ### **the sharp bound `phi < 1/p` cleared of division (`p(p^{n-1}-1) < p^n - 1`)**;
+### and ### **THE SCOPE WALL AS ARITHMETIC** -- every `S4` prime has `p^2 <= 100` while `11 <= 100`
+### and `11^2 > 100`, with `13, 47, 97` shown too so it is not one exceptional prime.
+### **ITS FOUR POLARITY CONTROLS, EACH EXCLUDING SOMETHING REAL:**
+###   `top_level_fraction_is_one` -- at the top level the numerator does NOT stand still.
+###     ### **WITHOUT IT, S2 WOULD READ AS "EVERY TERM DIES", THE EXACT FALSE READING J3 CORRECTS.**
+###   `fixed_level_bound_is_sharp` -- the bound does NOT improve to `1/(p+1)`. ### `1/p` is the
+###     right constant, not a convenient one.
+###   `the_cutoff_still_excludes` -- `101` is outside the cutoff at `a^2 = 100`.
+###   `partition_classes_are_distinct` -- 43 and 76 are not transcriptions of each other.
+### **AND THE TOOL ITSELF WAS POLARITY-CONTROLLED:** three FALSE statements of the same shape were
+### submitted to the same `decide`. ### **ALL THREE REFUSED, lean exit 1**, quoted in the profile.
+### ### ### **IT DOES NOT COMPILE J3.** ### The verdict rests on PNT and a saddle-point asymptotic;
+### neither is in `Nat` and neither was forced into it.
+
+====================================================================================================
+### ### **FOUR DEFECTS. ### TWO THE FERRY NAMED, TWO FOUND WHILE REPAIRING THEM. ### ALL MINE.**
+====================================================================================================
+### **`data/b262_run.txt` IS PRESERVED UNCHANGED WITH ALL FOUR IN IT.** ### The repairs live in a
+### SEPARATE artefact, `data/b262_repairs.txt`. ### **A RUN SILENTLY CORRECTED LEAVES NO EVIDENCE
+### THAT IT WAS WRONG.**
+
+### **(a) THE I-1 GRADE LINE CONTRADICTED ITSELF INSIDE ONE BANKED FILE.**
+###   line 95: *"F2 FIRED. I-1 GRADED VERIFIED-AT-BENCH on `[1e2, 1e7]`,"*
+###   line 161: *"I-1 (PNT at bench) : NOT VERIFIED -- TRUSTED-AT-CITE"*
+### ### **BOTH CANNOT BE TRUE.** ### The first was an UNCONDITIONAL string printed regardless of
+### the outcome; the second collapsed a PER-RANGE fact into one bit. ### **THE MEASUREMENT WAS
+### RIGHT AND BOTH REPORTS OF IT WERE WRONG, IN OPPOSITE DIRECTIONS.**
+### ### **THE CORRECTED GRADE, WHICH THE NUMBERS SUPPORT: I-1 IS ### VERIFIED-AT-BENCH ON
+### ### `[1e3, 1e7]` ### , ### NOT VERIFIED AT `1e2` ### (`theta(100)/100 = 0.837`, outside the
+### ### 10% bar fixed in the registration), AND ### TRUSTED-AT-CITE ABOVE `1e7` ### .**
+### **THE BAR WAS NOT MOVED AND THE CELL WAS NOT DROPPED**, and the consequence is stated: the PNT
+### substitution is not licensed at `a^2 = 1e2`, so ### **that cell's number stands as arithmetic
+### -- it is an exact prime sum -- but may not be read through the asymptotic.**
+
+### **(b) A REFUSAL THAT WAS ASSERTED RATHER THAN PRICED.**
+###   line 64: *"REACH: a^2 = 1e7. ### 1e8 REFUSED ON COST, RECORDED BEFORE ANY VALUE EXISTED."*
+### ### **THAT SENTENCE WAS A HARD-CODED STRING. ### NOTHING PRICED `1e8`** -- and the run's own
+### measured `3.0e-06 s` per prime contradicted it. ### **THE REFUSAL WAS NOT MERELY UNPRICED, IT
+### ### WAS FALSE.** ### b255's rule is *"the ladder chosen by affordability"*, and ### **A REFUSAL
+### ### INVENTED TO LOOK DISCIPLINED IS THE SAME CRIME WEARING THE OPPOSITE COAT.**
+### **REPAIRED BY PRICING IT:** projected `95 MB + 41 MB` and `~16 s` against a `2048 MB` ceiling
+### declared before the attempt; ### **ACTUAL: 0.8 s sieve, 18.2 s junction, `pi(1e8) = 5761455`.
+### THE ESTIMATE WAS SOUND.** ### The cell was then run as a control.
+### ### **AND THE DISCLOSURE THAT KEEPS IT CHECKABLE: THE `1e2..1e7` VALUES WERE ALREADY SEEN WHEN
+### ### THE EXTENSION WAS AUTHORISED. ### The extension is on the ferry's order and on price, not
+### ### on what the values do -- ### and saying so is the only evidence left, since nothing else
+### ### now can be.**
+
+### **(c) THE PRINTED OUTPUT AND THE BANKED FILE DISAGREED.**
+### The repair script emitted a line containing a literal `%d` and mutated it afterwards. ### `rec`
+### PRINTS BEFORE IT APPENDS, so ### **THE CONSOLE SHOWED `%d` WHILE THE FILE SHOWED `164`.**
+### ### **THAT BREAKS THE CORPUS'S OWN AUTHORITY RULE** -- *a compile is reported only from its
+### PRINTED profile* -- ### **because a reader of the console and a reader of the record would not
+### have seen the same run.** ### **AND IT IS b261's SPECIES AGAIN: MUTATING ALREADY-EMITTED
+### OUTPUT AFTER THE FACT.** ### Repaired by computing the value before emitting it.
+
+### **(d) A "DISCRIMINATOR" THAT WAS A THEOREM.**
+### The run's control (T2) tested `phi < 1/2` and annotated it *"IT MUST FAIL SOMETIMES"*.
+### ### **IT READ 20000/20000. ### IT NEVER FAILED, AND THE ANNOTATION WAS WRONG:** `phi < 1/p <= 1/2`
+### is a theorem for `k <= n-1`. ### ### **SO (T2) WAS A TAUTOLOGY WEARING A DISCRIMINATOR'S LABEL
+### ### -- THE EXACT FAILURE THE TAUTOLOGY CONTROL EXISTS TO CATCH. ### THE CONTROL CAUGHT IT AND
+### ### MY PROSE MISREAD THE RESULT**, blaming the bound rather than the claim.
+### **REPAIRED WITH A REAL DISCRIMINATOR (`phi < 1/3`, which fails 921 of 20000)** -- ### **AND THE
+### DEFECT PAID FOR ITSELF: RUNNING IT DOWN PRODUCED THE SHARP BOUND `phi < 1/p` IN S2, WHICH THE
+### REGISTRATION HAD NOT FOUND AND WHICH THE SHADOW NOW COMPILES.**
+
+====================================================================================================
+### CONTROLS.
+====================================================================================================
+### **(C1) THE SIEVE DISCRIMINATES** -- `pi(100) = 25`, as it must.
+### **(C2) b260's THEOREM HOLDS AT EVERY LADDER CELL** -- `J >= 0` over ALL primes, which b260
+###   proved for any prime set and which had never been tested outside `S4`.
+### **(C3) THE PARTITION IS EXHAUSTIVE** -- `|top + fixed - total| <= 2.550e-15`.
+### **(C4) THE m-CLASSES PARTITION `T_top`** -- `<= 6.718e-15`.
+### **(C5) THE G-REPRO COMPARATOR DISCRIMINATES** -- against b260's WRONG column (`PR` alone) the
+###   worst deviation is ### **9.282e-01**, fourteen orders above the `J` match.
+### **(R1) THE ORIGINAL RUN IS UNCHANGED** -- 164 lines, line 64 still carries the false refusal.
+### **(R2) THE PER-RANGE GRADE DISCRIMINATES** -- it passes 5 cells and fails 1.
+### **(R3) THE `1e8` CELL WAS NOT FITTED TO THE TREND** -- it was computed and then compared.
+### **(R4) THE G-REPRO STILL HOLDS AFTER THE REPAIRS** -- `2.598e-14`.
+
+====================================================================================================
+### WHAT THIS ACT DOES **NOT** ESTABLISH.
+====================================================================================================
+###  1. ### **IT DOES NOT PROVE `J -> inf` WITHOUT IMPORTS.** ### I-1 is VERIFIED-AT-BENCH on
+###     `[1e3,1e7]` only; I-2 is TRUSTED-AT-CITE. ### The verdict is DERIVED-ON-IMPORTS.
+###  2. ### **IT DOES NOT BANK A RATE.** ### b242. ### No fit, no slope, nothing extrapolated.
+###  3. ### **IT DOES NOT DISCHARGE `W-ORD-TQ-IDENTIFY`**, which every number inherits.
+###  4. ### **IT SAYS NOTHING ABOUT b14's DOUBLE LIMIT.** ### b15 governs.
+###  5. ### **IT IS NOT EVIDENCE FOR OR AGAINST THE IDENTITY.** ### R-III governs the vocabulary.
+###  6. ### **IT DOES NOT MEASURE THE ARCHIMEDEAN SIDE.** ### That is J4's, and it is filed.
+###  7. ### **IT DOES NOT RE-VERDICT b255, b260 OR b261.** ### b246's rule. ### The scope wall is a
+###     limit on what their numbers can be ASKED, not a correction to what they SAY.
+###  8. ### **IT DOES NOT PROVE `psi(2-r) ~ exp(-2/r)`** -- the mollifier's edge behaviour is used
+###     at reading grade inside I-2 and is not separately established.
+###  9. ### **NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.**
+
+====================================================================================================
+### SCORING THE REGISTERED PREDICTIONS.
+====================================================================================================
+### **(P1) LANDED.** ### The partition is stated with its precision (the `n_p=1` family is a SUBSET
+###   of `T_top`, not a third class); S2 derives with its exact rate and is confirmed at bench.
+### **(P2) LANDED, AND BETTER THAN REGISTERED.** ### `F_1`'s object is written out and its size
+###   derived under two named, graded imports. ### **AND THE REGISTRATION DID NOT ANTICIPATE THAT
+###   THE WHOLE JUNCTION WOULD BE COMPUTABLE OVER ALL PRIMES WITH NO COST WALL** -- that fell out
+###   of b260's closed form and is what let the ladder reach `1e8`.
+### **(P3) LANDED.** ### The verdict is `(GROWS)` in the banked words; the meaning is filed with
+###   its four refused misreadings; the shadow compiled at 11 terminals, zero axioms, profile
+###   printed, polarity controlled both ways.
+
+### **DEVIATIONS: ### ONE, DECLARED IN THE REGISTRATION.** ### The ferry's clause (b) lists three
+### classes; ### **`T_fixed` AND `T_top` ARE THE PARTITION AND THE `n_p=1` FAMILY IS A SUBSET OF
+### `T_top`.** ### A three-way split would double-count.
+### **DIVERGENCES: ### ONE, WITH THE FERRY'S EXPECTATION.** ### Clause (e) lists `(JUNCTION-DIES)`
+### first and asks whether the persisting family is *"summable"*. ### **IT IS NOT. ### THE
+### REGISTRATION SAID SO BEFORE THE RUN AND THE RUN CONFIRMED IT ACROSS SEVEN DECADES.**
+====================================================================================================

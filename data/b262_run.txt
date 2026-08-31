@@ -1,0 +1,164 @@
+====================================================================================================
+b262 RUN -- J3: THE JUNCTION AT THE LEVEL LIMIT. Registration term-scanned, then banked.
+====================================================================================================
+
+--- ### W-ORD-TE-SPEC: THE AXES, PRINTED BEFORE ANY NUMBER ---
+  NV / NU_HALF            : 4001 / 401
+  psi                     : b261's FIXED array, taken from B38.family, NOT rebuilt
+  psi support / integral   : [-2.0, 2.0] / 1.000000000
+  ### **CELL SPECIES: DIAGONAL a^2 THROUGHOUT.**
+  ### **PLACE SET: ALL PRIMES <= a^2 -- NOT S4. ### THAT IS THE POINT OF THE ACT.**
+
+====================================================================================================
+### THE G-REPRO CONTROL, FIRST. ### THE ARITHMETIC FORM AGAINST b260's S4 TABLE.
+====================================================================================================
+  ### **b260 computed the junction from the INSTRUMENT (`theta_quotient`, dense matrices).**
+  ### **THIS ACT COMPUTES IT FROM b260's CLOSED FORM. ### IF THEY DISAGREE, THE CLOSED
+  ### FORM IS NOT THE INSTRUMENT AND EVERY NUMBER BELOW IS VOID.**
+  a^2    J (closed form)  J (b260 instr.)  |delta|
+  ------------------------------------------------------------
+  2      0.000000000      0.000000000      0.000e+00
+  3      0.106483707      0.106483707      1.826e-14
+  4      0.087341431      0.087341431      4.163e-17
+  8      0.244027193      0.244027193      2.598e-14
+  9      0.135020714      0.135020714      2.318e-14
+  12     0.195843004      0.195843004      1.493e-14
+  16     0.210241113      0.210241113      5.551e-17
+  20     0.251769218      0.251769218      1.671e-14
+  25     0.161758583      0.161758583      2.026e-14
+  32     0.085423661      0.085423661      1.661e-14
+  36     0.089434753      0.089434753      1.332e-15
+  45     0.096563930      0.096563930      3.622e-15
+  50     0.099877333      0.099877333      4.621e-15
+  64     0.091219105      0.091219105      9.631e-15
+  81     0.071182344      0.071182344      1.238e-14
+  100    0.076658295      0.076658295      1.424e-14
+
+  ### **WORST |closed form - instrument| = ### 2.598e-14** ### at a^2 = 8
+  ### ### **THE CLOSED FORM ### IS ### THE INSTRUMENT. ### THE ARITHMETIC ROUTE IS
+  ### ### LICENSED, AND WITH IT THE ALL-PRIMES COMPUTATION THAT FOLLOWS.**
+
+====================================================================================================
+### THE SCOPE WALL, MEASURED. ### **WHAT THE BENCH STRUCTURALLY CANNOT SEE.**
+====================================================================================================
+  a^2    S4: n_p=1 ct   ALL: n_p=1 ct  S4 J           ALL J
+  --------------------------------------------------------------------
+  4      1              1              0.087341431    0.087341431
+  9      1              2              0.135020714    0.135061306
+  25     0              6              0.161758583    0.245497500
+  49     0              11             0.099237610    0.217409798
+  100    0              21             0.076658295    0.374669219
+  ### ### **AT a^2 >= 25 THE S4 COLUMN HAS ### ZERO ### n_p = 1 PRIMES, WHILE THE FULL
+  ### ### PRIME SET HAS MANY. ### THE FAMILY THE DERIVATION SAYS DOMINATES IS ABSENT
+  ### ### FROM EVERY BENCH CELL THIS CORPUS HAS COMPUTED ABOVE a^2 = 25.**
+
+====================================================================================================
+### THE PRICING. ### COSTS ONLY, NO JUNCTION VALUE KEPT. ### THE LADDER FOLLOWS THE PRICE.
+====================================================================================================
+  a^2          pi(a^2)      sieve (s)      junction (s)
+  10000        1229         0.000          0.003
+  100000       9592         0.000          0.030
+  1000000      78498        0.002          0.236
+  ### per-prime junction cost : 3.00e-06 s ; projected at a^2 = 1e7 (~620k primes) : ~2 s
+  ### ### **THE LADDER, CHOSEN BY THE PRICE AND NOT BY WHAT ITS VALUES DO: [100, 1000, 10000, 100000, 1000000, 10000000]**
+  ### **REACH: a^2 = 1e7. ### 1e8 REFUSED ON COST, RECORDED BEFORE ANY VALUE EXISTED.**
+
+====================================================================================================
+### S3/S4 -- THE ALL-PRIMES LADDER. ### **CONTROL ON THE DERIVATION, NOT A LIMIT.**
+====================================================================================================
+  a^2        J(a)         T_top        T_fixed      m=1          m=2          m>=3
+  ----------------------------------------------------------------------------------------
+  100        0.374669     0.284244     0.090425     0.277103     0.007141     0.000000
+  1000       0.549193     0.492421     0.056772     0.487489     0.004904     0.000028
+  10000      1.150252     1.118335     0.031917     1.114605     0.003567     0.000163
+  100000     2.268694     2.248878     0.019816     2.244544     0.004226     0.000108
+  1000000    4.645790     4.633377     0.012413     4.628665     0.004668     0.000044
+  10000000   9.551566     9.543861     0.007705     9.539401     0.004399     0.000061
+
+  J strictly increasing across the ladder : ### **True**
+  m=1 the largest class at every cell     : ### **True**
+  ### ### **F1 DID NOT FIRE** ### -- the falsifier that decides the act
+  ### ### **F4 DID NOT FIRE** ### -- the m=1 ordering
+
+====================================================================================================
+### IMPORT I-1 (PNT, CHEBYSHEV FORM) AT BENCH. ### THE IMPORT BAR'S VERIFICATION COLUMN.
+====================================================================================================
+  ### The import bar: *"Imports are verified ourselves where we have the tools, not only
+  ### trusted."* ### `theta(x) = SUM_{p<=x} log p ~ x` is tool-reachable HERE.
+  x            theta(x)         theta(x)/x   within 10%?
+  100          83.7             0.837284     False
+  1000         956.2            0.956245     True
+  10000        9896.0           0.989599     True
+  100000       99685.4          0.996854     True
+  1000000      998484.2         0.998484     True
+  10000000     9995179.3        0.999518     True
+  ### ### **F2 FIRED.** ### I-1 GRADED ### **VERIFIED-AT-BENCH** ### on `[1e2, 1e7]`,
+  ### ### **TRUSTED-AT-CITE BEYOND IT.** ### The grade is per-range, as the bar requires.
+
+====================================================================================================
+### THE ASYMPTOTIC FORM, TESTED. ### **F3. ### NO FIT IS BANKED WHATEVER IT SHOWS (b242).**
+====================================================================================================
+  ### The derivation predicts `F_1 ~ 2 a exp(-2 sqrt(L)) * ALGEBRAIC`. ### The ratio
+  ### `F_1 / (2 a exp(-2 sqrt L))` should then be SLOWLY VARYING -- not constant.
+  a^2        m=1            2a exp(-2 sqrt L) ratio          per-decade
+  100        0.277103       9.616334e-01     0.288159       --
+  1000       0.487489       1.537415e+00     0.317083       1.100
+  10000      1.114605       2.735694e+00     0.407430       1.285
+  100000     2.244544       5.212627e+00     0.430597       1.057
+  1000000    4.628665       1.042681e+01     0.443919       1.031
+  10000000   9.539401       2.163912e+01     0.440841       0.993
+  ### ### **F3 DID NOT FIRE** ### -- the ratio moves by less than an order of magnitude per decade
+  ### ### **AND THIS IS NOT A FIT AND IS NOT BANKED AS ONE. ### b242: A MEASURED RATE IS
+  ### ### NOT A TAIL BOUND. ### THE LADDER CONTROLS THE DERIVATION; IT DOES NOT REPLACE IT.**
+
+====================================================================================================
+### S2 -- THE FIXED-LEVEL FRACTION, EXACT. ### act 9's LEVEL LIMIT, RE-DERIVED.
+====================================================================================================
+  ### `phi(p,k,n) = (p^k - 1)/(p^n - 1)` at FIXED (p,k) = (2,1), as n grows:
+  n      p^n - 1          phi              phi * a^2 (a^2 = 2^n)
+  1      1                1.000000e+00     2.000000
+  2      3                3.333333e-01     1.333333
+  4      15               6.666667e-02     1.066667
+  8      255              3.921569e-03     1.003922
+  16     65535            1.525902e-05     1.000015
+  24     16777215         5.960465e-08     1.000000
+  ### ### **phi -> 0 AND `phi * a^2 -> p^k - 1 = 1`, EXACTLY AS S2 DERIVED.**
+  ### ### **THIS ### IS ### act 9's LEVEL LIMIT: AT FIXED (p,k), `tau_q -> p^{-k/2}`,
+  ### ### SO THE PER-TERM JUNCTION VANISHES. ### THE INDEX QUERY RETURNED THAT VERY
+  ### ### SENTENCE AND IT IS ### CONFIRMED ### HERE, NOT CONTRADICTED.**
+
+====================================================================================================
+### THE TAUTOLOGY CONTROL.
+====================================================================================================
+  (T1) THE T_top IDENTITY `(p^{n/2}-p^{-n/2})/(p^n-1) = p^{-n/2}` on arbitrary (p,n)
+       holds : ### **20000 / 20000**
+       ### ### **IT IS MEANT TO. ### CROSS-MULTIPLIED IT READS `p^n - 1 = p^n - 1`.**
+       ### ### **IT IS A TAUTOLOGY, IT IS REPORTED AS ONE, AND IT ESTABLISHES NOTHING --
+       ### ### IT ONLY SIMPLIFIES. ### THE CONTENT IS IN WHICH TERMS SURVIVE, NOT HERE.**
+  (T2) `phi < 1/2` AT RANDOM (p,k,n) WITH k < n
+       holds : ### **20000 / 20000**
+       ### ### **IT MUST ### FAIL ### SOMETIMES -- at k = n-1 the fraction is near 1/p.**
+       ### ### A claim that held on every random tuple would be a tautology in disguise.
+
+====================================================================================================
+### POSITIVE CONTROLS.
+====================================================================================================
+  (C1) THE SIEVE DISCRIMINATES : pi(100) = ### **25** ### (must be 25)
+  (C2) THE JUNCTION IS NON-NEGATIVE (b260's theorem) at every ladder cell : ### **True**
+  (C3) THE PARTITION IS EXHAUSTIVE : |T_top| + |T_fixed| = total pairs at every cell:
+       and top + fixed reproduces the total to : ### **2.550e-15**
+  (C4) THE m-CLASSES PARTITION T_top : max |top - (m1+m2+m3)| = ### **6.718e-15**
+  (C5) THE G-REPRO COMPARATOR DISCRIMINATES -- against b260's WRONG column (PR alone):
+       worst |J - b260 PR| = ### **9.282e-01** ### -- must far exceed the J match
+
+====================================================================================================
+### THE RUN'S VERDICTS, IN THE REGISTERED BRANCH LANGUAGE.
+====================================================================================================
+  G-REPRO (closed form = instrument) : ### **2.598e-14**
+  S2 (fixed levels die)              : ### **HOLDS, EXACTLY**
+  S3 (m=1 dominates)                 : ### **HOLDS**
+  S4 (the branch)                    : ### **(GROWS)**
+  I-1 (PNT at bench)                 : ### **NOT VERIFIED -- TRUSTED-AT-CITE**
+
+  ### **QUOTED-N: 6 ladder cells; pi(1e7) = 664579 primes; 665134 (p,k) pairs at the top cell.**
+====================================================================================================
