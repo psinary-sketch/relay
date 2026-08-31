@@ -1,0 +1,43 @@
+import took 56.9s
+typeclass inference of OfNat took 122ms
+elaboration took 481ms
+'JunctionSignShadow.staircase_at_hundred_lower' does not depend on any axioms
+'JunctionSignShadow.staircase_at_hundred_upper' does not depend on any axioms
+'JunctionSignShadow.seven_would_have_entered_a_growing_place_set' does not depend on any axioms
+'JunctionSignShadow.cap_never_binds' does not depend on any axioms
+'JunctionSignShadow.cap_strictly_slack_from_two' does not depend on any axioms
+'JunctionSignShadow.cap_is_tight_at_one' does not depend on any axioms
+'JunctionSignShadow.ratio_below_one_at_two' does not depend on any axioms
+'JunctionSignShadow.ratio_below_one_at_three_and_five' does not depend on any axioms
+'JunctionSignShadow.ratio_vanishes_at_the_top_level' does not depend on any axioms
+'JunctionSignShadow.ratio_is_not_below_one_at_zero' does not depend on any axioms
+'JunctionSignShadow.term_count_is_one_hundred_nineteen' does not depend on any axioms
+'JunctionSignShadow.top_level_count_is_forty_three' does not depend on any axioms
+'JunctionSignShadow.the_two_counts_are_distinct' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.165ms
+	blocked (unaccounted) 0.0722ms
+	elaboration 1e+03ms
+	fix level params 1.34ms
+	import 56.9s
+	initialization 47.4ms
+	instantiate metavars 0.968ms
+	interpretation 631ms
+	let-to-have transformation 24.6ms
+	linting 147ms
+	parsing 87.9ms
+	process pre-definitions 71ms
+	share common exprs 2.7ms
+	tactic execution 137ms
+	type checking 15.1ms
+	typeclass inference 1.22s
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Two deliberately FALSE statements of the SAME SHAPE as the shadow's own terminals,
+### submitted to the same `decide`:
+###   theorem false_ratio     : (2 ^ 6 - 2 ^ 0 < 2 ^ 6 - 1) := by decide
+###   theorem false_staircase : (2 ^ 7 <= 100)              := by decide
+### BOTH REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 2 ^ 6 - 2 ^ 0 < 2 ^ 6 - 1 is false
+###   error: Tactic `decide` proved that the proposition 2 ^ 7 <= 100 is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE THIRTEEN PASSES ARE THEREFORE READABLE.**

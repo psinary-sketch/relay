@@ -1,0 +1,77 @@
+====================================================================================================
+b260 -- ### THE PER-TERM STRUCTURE OF THE INEQUALITY. ### Derived from b260_terms.json.
+====================================================================================================
+
+### THE DECOMPOSITION, WRITTEN OUT BEFORE IT IS COMPUTED:
+###   `w_{p,k} - tau_{p,k} = 2 log p * corr(k log p) * ( p^{-k/2} - tq(p,n,k) )`
+###                        = `w_{p,k} * ( 1 - (p^n - p^k)/(p^n - 1) )`   for k <= n-1
+###                        = `w_{p,k} * 1`                               for k = n
+### ### **SO THE SEPARATION HAS EXACTLY TWO SOURCES, AND THEY ARE STRUCTURALLY DIFFERENT:**
+###   ### **(1) THE TOP LEVEL `k = n`, WHERE act 9 SAYS `tau_q = 0` AND PR DOES NOT.**
+###       ### The whole of PR's term survives. ### **A WHOLE-TERM SEPARATION.**
+###   ### **(2) THE LEVELS `k <= n-1`, WHERE act 9's RATIO IS `(p^n-p^k)/(p^n-1) < 1`.**
+###       ### A FRACTION `(p^k - 1)/(p^n - 1)` of PR's term survives. ### **A DEFICIT SEPARATION.**
+### ### **AND THE ALGEBRAIC FORM OF THAT FRACTION IS WORTH ITS OWN LINE:**
+###   ### `1 - (p^n - p^k)/(p^n - 1) = (p^k - 1)/(p^n - 1)`, ### which is `< 1` for `k < n`
+###   ### and `= 1` at `k = n`. ### **THE TWO SOURCES ARE ONE FORMULA EVALUATED AT ITS
+###   ### OWN ENDPOINT, NOT TWO SEPARATE PHENOMENA.**
+
+a^2    junction      from k = n    from k < n    k=n share terms(k=n)    terms(k<n)
+----------------------------------------------------------------------------------------------------
+2      0.000000000   0.000000000   0.000000000   --        1             0
+3      0.106483707   0.106483707   0.000000000   100.0%    1             0
+4      0.087341431   0.006352349   0.080989082   7.3%      2             1
+8      0.244027193   0.182433118   0.061594074   74.8%     3             2
+9      0.135020714   0.018696814   0.116323900   13.8%     3             3
+12     0.195843004   0.057733974   0.138109031   29.5%     3             3
+16     0.210241113   0.101708125   0.108532988   48.4%     3             4
+20     0.251769218   0.135987824   0.115781393   54.0%     3             4
+25     0.161758583   0.014554481   0.147204102   9.0%      3             5
+32     0.085423661   0.000000029   0.085423633   0.0%      3             7
+36     0.089434753   0.000003229   0.089431524   0.0%      3             7
+45     0.096563930   0.000180865   0.096383064   0.2%      3             7
+50     0.099877333   0.000520451   0.099356882   0.5%      3             7
+64     0.091219105   0.002491314   0.088727791   2.7%      3             8
+81     0.071182344   0.004180735   0.067001609   5.9%      3             9
+100    0.076658295   0.007031480   0.069626815   9.2%      3             9
+----------------------------------------------------------------------------------------------------
+### **TOTALS ACROSS THE LADDER: from k = n : 0.638358 ; from k < n : 1.364486**
+
+====================================================================================================
+### THE EQUALITY TERMS, NAMED. ### THE DERIVATION CLAIMS ### STRICT ### WHEREVER `corr > 0`.
+====================================================================================================
+  equality terms : ### **9 of 119**
+  a^2    p   n   k   corr           tau            w
+  --------------------------------------------------------------------------
+  2      2   1   1   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  4      2   2   2   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  8      2   3   3   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  9      3   2   2   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  16     2   4   4   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  25     5   2   2   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  32     2   5   5   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  64     2   6   6   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  81     3   4   4   0.000000e+00   0.000000e+00   0.000000e+00     p^k = a^2 exactly
+  ### ### **EVERY EQUALITY TERM HAS `corr` EXACTLY ZERO : ### True**
+  ### ### **AND EVERY ONE SITS AT `p^k = a^2`** -- the cutoff's own endpoint, where the
+  ### ### correlation's support `[-2L, 2L]` ends and the bump has already vanished.
+  ### ### **SO THE INEQUALITY IS STRICT AT EVERY TERM THAT CARRIES ANY WEIGHT AT ALL,**
+  ### ### and the nine equalities are `0 <= 0`, not near-misses.
+
+====================================================================================================
+### THE SAWTOOTH, DERIVED RATHER THAN MEASURED. ### b255 (A) IS THE ### CONTROL ###.
+====================================================================================================
+### b255 REPORTED, AT BENCH: *"`PR` rises smoothly toward `1` while `Theta_q` rises in
+### JUMPS -- it gains a whole level each time the staircase steps."*
+### ### **THE DECOMPOSITION ABOVE SAYS WHY, FROM act 9's RANGE AND NOTHING ELSE:**
+###   when `n_p(a)` steps from `n` to `n+1`, the level `k = n` moves from the `k = n`
+###   branch (`tau_q = 0`, ### **the whole term missing**) into the `k <= n-1` branch
+###   (`tau_q = p^{-k/2}(p^{n+1}-p^k)/(p^{n+1}-1)`, ### **most of the term present**).
+### ### ### **THE LEVEL SWITCHES ON. ### THAT IS THE JUMP, AND IT IS act 9's `0 for k >= n`
+### ### ### READ AT THE STAIRCASE'S STEP.**
+### **THE DIRECTION OF THE INFERENCE IS SAID PLAINLY: THE DERIVATION PREDICTS THE BENCH
+### OBSERVATION. ### THE BENCH OBSERVATION IS NOT A PREMISE OF THE DERIVATION**, and
+### b255 is cited here as a CONTROL that the prediction matches, not as a reason.
+### ### **WHAT IS ### NOT ### DERIVED HERE, AND IS NOT CLAIMED: the RISES between steps,
+### ### which depend on `corr`'s shape and on `PR`'s growth, not on act 9's range.**
+====================================================================================================

@@ -1,0 +1,327 @@
+====================================================================================================
+b260 -- THE JUNCTION'S SIGN (J1). ### THE REGISTRATION. ### BANKED BEFORE ANY STEP IS WRITTEN.
+### WRITTEN 2026-08-30. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+### THE CEILING, IN THE HEADER:
+###   b15: ### **"A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."**
+###   b14: the complete roster is the double limit and ### **STAYS OPEN WHATEVER THIS ACT SHOWS.**
+###   b242: ### **"A MEASURED RATE IS NOT A TAIL BOUND."**
+### THE REGISTER SENTENCE, UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### **NOTHING ABOUT h2 BEYOND THAT SENTENCE EXACT.**
+### ### **NOTHING DEPOSITS.**
+
+### THE STANDING CLAUSE (b229), GOVERNING, IN ITS OWN WORDS:
+### ### **"the adopted target may NEVER define, calibrate, or tune the left side; the two sides
+### ### keep independent definitions in every future act; the compiled circularity
+### ### (cweil_is_the_assumption) is the named crime."**
+### ### **WHAT THIS ACT DOES UNDER IT, SAID PLAINLY BEFORE IT IS DONE:** it derives a RELATION
+### ### between two INDEPENDENTLY-DEFINED objects from their OWN definitions. ### Neither
+### ### definition is touched, moved, calibrated or fitted. ### **NO VALUE FROM EITHER SIDE
+### ### ENTERS ANY DEFINITION.** ### That is the lawful half of the clause and this act stays in it.
+
+====================================================================================================
+(A) ### **THE REGISTRATION IS NOT SEALED, AND THE FERRY'S OWN ORDER IS WHY. SAID FIRST.**
+====================================================================================================
+### The ferry's EXECUTION line reads ### *"owners read at content first; registration before any
+### step is written"*. ### **THOSE TWO CLAUSES PUT THE READS BEFORE THIS FILE**, and the reads
+### are what S1 and S2 consist of. ### **SO S1-S3 ARE ALREADY DECIDED BY THE READS AT THE MOMENT
+### THIS REGISTRATION IS WRITTEN, AND PRETENDING OTHERWISE WOULD BE A FALSE SEAL.**
+### ### **THE SPLIT IS THEREFORE DECLARED EXPLICITLY, AND EVERY LINE BELOW CARRIES ITS SIDE:**
+###   ### **ESTABLISHED-BY-READ** -- fixed by the owners' text before this file existed. ### It is
+###     registered so that the run cannot be credited with discovering it.
+###   ### **OPEN-TO-THE-RUN** -- not decided by any read; the run may refute it.
+### **A PREDICTION MADE AFTER THE ANSWER IS KNOWN IS NOT A PREDICTION, AND NONE IS CLAIMED AS ONE.**
+
+====================================================================================================
+(B) ### RULE-3 LINE (a). ### THE LOAD-BEARING OWNERS, QUOTED WHOLE, READ AT SOURCE THIS ACT.
+====================================================================================================
+
+### **(a1) act 9 sec 2's PER-PLACE CLOSED FORM, with its RECOVERED RANGE.** ### Owner:
+### W-CONSTRUCTION-1 act 9 sec 2, quoted through b220 which recovered the range from source:
+###   ### **"tau_q(p,n,k) * p^(k/2) = (p^n - p^k)/(p^n - 1) ### for 1 <= k <= n-1, 0 for k >= n.
+###    QED Every banked integer re-derived exactly ... and compiled at no axioms
+###    (QuotientLemmaShadow, 4/4)."**
+### ### ITS NORMALIZATION SENTENCE, quoted whole from act 9 via b228:
+###   ### **"the fixed-orbit count ### on V_inv"** -- the owner's space, named.
+### ### AND ITS LABEL SENTENCE, quoted whole, ### **CARRIED AS A LABEL AND NOT AS A STATEMENT**
+### ### (b220's finding, not overturned here):
+###   "The quotient channel's convergence to Weil's coefficients at the level limit: PROOF GRADE
+###    longhand."
+### ### **b220's WARNING TRAVELS WITH IT: that sentence "names NO coefficients, NO normalization
+### ### and NO log p". ### THIS ACT USES THE CLOSED FORM AND NOT THE LABEL.**
+### ### **AND THE PRECISION b215's LINE DROPPED AND b220 RECOVERED IS THE ONE THIS ACT LEANS ON:
+### ### `1 <= k <= n-1, 0 for k >= n`. ### THE PER-PLACE VALUE VANISHES AT `k >= n`.**
+
+### **(a2) Theta_q's INSTRUMENT DEFINITION, `theta_quotient` on V_inv, UNFOLDED.** ### Owner:
+### `tools/e16/b38_act10.py`, function `theta_quotient`, quoted character for character:
+###
+###     def theta_quotient(a, primes, corr, vc, L):
+###         total = 0.0
+###         for p in primes:
+###             n = staircase(p, a)
+###             if n < 1:
+###                 continue
+###             N, K, d = B10.quotient_basis(p, n)
+###             U = B8.scaling_matrix(p, n)
+###             S = K @ K.T
+###             Uk = np.eye(N)
+###             for k in range(1, 2 * n):
+###                 Uk = U @ Uk
+###                 tq = abs(complex(np.trace(Uk @ S))) / d
+###                 ln = k * math.log(p)
+###                 if ln <= 2 * L:
+###                     total += math.log(p) * tq * 2.0 * float(np.interp(ln, vc, corr))
+###         return total
+###
+### ### **WHAT IT SUMS PER (p,k), UNFOLDED TO ITS CONSTITUENTS:**
+###   `U`  := `B8.scaling_matrix(p, n)` = the 0/1 matrix of `m -> p*m mod p^(2n)` divided by
+###           `sqrt(p)` -- quoted: `U[(p * m) % N, m] = 1.0` ... `return U / np.sqrt(p)`, with the
+###           source comment ### `# |p|^{1/2} normalization, truncated model`.
+###           ### **IT IS NOT A PERMUTATION: `m -> p*m mod p^(2n)` IS p-TO-1.** ### Said here
+###           because an operator-norm argument that assumed otherwise would be wrong.
+###   `S`  := `K @ K.T` with `K` from `B10.quotient_basis(p, n)`, whose docstring is quoted whole:
+###           ### **"orthonormal basis of V_inv: off-ball functions invariant under m -> pm (both
+###           off-ball)"**. ### `K`'s columns are NORMALIZED INDICATORS OF DISJOINT ORBIT CLASSES,
+###           hence orthonormal, hence ### **`S` IS THE ORTHOGONAL PROJECTOR ONTO V_inv.**
+###   `d`  := `len(classes)` = ### **dim V_inv.** ### That division is the normalization.
+###   `tq` := `|tr(U^k S)| / d`.
+###   the summand := ### **`2 * log p * tq * corr(k log p)`**, `corr` sampled by `np.interp` on `vc`.
+###   `staircase(p, a)` := `n, k = 0, 1; while p ** k <= a * a + 1e-12: n += 1; k += 1` --
+###           ### **b17's STAIRCASE, CHARACTER FOR CHARACTER.**
+
+### **(a3) b17's STAIRCASE.** ### Owner: `data/b17_2026-08-18.txt`, quoted whole:
+###   ### **"ONE archimedean bound a sets every place's effective cutoff n_p(a) = #{k >= 1 :
+###    p^k <= a^2} (SIDE-window's staircase)."**
+
+### **(a4) THE ADOPTED `wPrimes` (b229), WITH `corr`'s OWNER.** ### Quoted whole:
+###   ### **wPrimes(a) := PR(a) = SUM_p SUM_{k=1}^{n_p(a)} ( 2 log p / p^{k/2} ) * corr( log p^k )**
+### ### ITS INSTRUMENT, `tools/e16/b38_act10.py`, function `left_side`, quoted:
+###     PR = 0.0
+###     for p in primes:
+###         k = 1
+###         while p ** k <= a * a + 1e-12:
+###             ln = math.log(p ** k)
+###             if ln <= 2 * L:
+###                 PR += 2.0 * math.log(p) / math.sqrt(p ** k) * float(np.interp(ln, vc, corr))
+###             k += 1
+### ### `corr`'s OWNER, quoted from b229 and re-read at source this act (`family`):
+###   `v, w = C.bump(a)` ; `corr = np.convolve(w, w, mode="full") * float(dv[0])`, sampled on
+###   `vc = np.linspace(-2L, 2L, corr.size)`, `L = math.log(a)`.
+### ### AND `C.bump`, READ AT SOURCE (`tools/e16/carto_atlas.py`) BECAUSE THIS ACT LEANS ON ITS
+### ### SIGN AND MAY NOT INHERIT IT:
+###     def bump(a):
+###         L = math.log(a); v = np.linspace(-L, L, NV); t = v / L
+###         w = np.zeros_like(t); m = np.abs(t) < 1.0
+###         w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))
+###         w /= np.trapezoid(w, v)
+###         return v, w
+
+### **(a5) b228's FACTOR FINDING, AT ITS OWN GRADE, QUOTED WHOLE:**
+###   ### "act 9's level limit gives tau_q -> p^{-k/2}; PR's weight is 2 log p * p^{-k/2}.
+###    ### **THE p^{-k/2} MATCHES; THE 2 log p IS THE DIFFERENCE.**"
+###   ### GRADE: ### **QUESTION. NO PROMOTION** (b10's "MATCH-IN-SHAPE / NOT; no promotion either
+###   way"), and this act does not promote it either.
+### ### **AND THE PAIRING b228 MADE IS RECORDED EXACTLY, BECAUSE THIS ACT MAKES A DIFFERENT ONE:**
+### ### b228 compares ### **act 9's BARE `tau_q`** ### against ### **PR's per-prime-power WEIGHT**.
+### ### THIS ACT COMPARES ### **`Theta_q`'s ASSEMBLED SUMMAND** ### against ### **PR's ASSEMBLED
+### ### SUMMAND.** ### **TWO DIFFERENT PAIRINGS. ### NEITHER SUPERSEDES THE OTHER**, and conflating
+### ### them would be the double-name species committed on this corpus's own diagnosis.
+
+### **(a6) b255's SIXTEEN-CELL PROFILE -- ### CONTROL, NEVER A PREMISE.** ### `data/b255_rows.json`,
+### sixteen cells `a^2 = 2..100`, `S4 = (2,3,5)` FIXED. ### **NO STEP OF THE ROUTE BELOW CITES A
+### MEASURED VALUE AS A REASON.** ### The profile is consulted only where the ferry orders a
+### CONTROL, and every such use is labelled CONTROL at its site.
+### ### ITS AXES, PER ### **W-ORD-TE-SPEC**, NAMED HERE BEFORE ANY NUMBER IS READ FROM IT:
+###   `EPS_NQ = 700`, `EPS_NG = 400`, `EPS_NRHO = 445`, `rho_max = 100.001`, `NU_HALF = 401`,
+###   `NV = 4001`, `NU = 12001`, `UMAX = 600.0`, `S4 = (2, 3, 5)`, cells `a^2 in {2,3,4,8,9,12,
+###   16,20,25,32,36,45,50,64,81,100}`. ### **ANY CELL THIS ACT COMPUTES IS COMPUTED ON THOSE AXES
+###   OR THE MISMATCH IS PRINTED.**
+
+### **(a7) RULE Q, STANDING.** ### `Q.value := -Theta_q` (b244, O1, five owner texts cited).
+### ### **AND ITS OPEN HALF TRAVELS WITH IT AND IS NOT QUIETLY CLOSED BY THIS ACT: THE AGGREGATION
+### ### OF THE PER-PLACE VALUES INTO THE SINGLE REAL `Q.value` IS ### STILL UNSTATED (M-2).**
+
+====================================================================================================
+(C) ### RULE-3 LINE (b). ### **THE ROUTE. NAVIGATOR-ASSERTED. VERIFIED STEP BY STEP.**
+====================================================================================================
+### **THE ROUTE IS THE NAVIGATOR'S AND IS MARKED SO.** ### Each step below carries its SPECIES and
+### its SIDE (ESTABLISHED-BY-READ / OPEN-TO-THE-RUN). ### **ANY FAILING STEP IS NAMED, NOT PATCHED.**
+
+### **S1 -- INDEX SETS. ### SPECIES: FINITE LEMMA, DERIVED FROM (a2), (a3), (a4).**
+###   ### SIDE: ### **ESTABLISHED-BY-READ.** ### The reads fix it and the registration says so.
+###   ### **THE REGISTERED SUSPECT, FROM THE FERRY: "the k-range 1 <= k <= n-1 vs k <= n_p(a)".**
+###   ### **THE READ'S ANSWER, REGISTERED BEFORE THE RUN: THE SUSPECT IS REAL BUT IT IS NOT AN
+###   ### INDEX-SET DIFFERENCE -- IT IS A VANISHING.** ### `Theta_q`'s loop runs `k in range(1, 2n)`
+###   and is GUARDED by `k log p <= 2L`; `2L = log(a^2)`; so the guard admits exactly `p^k <= a^2`,
+###   i.e. `k <= n_p(a)`; and `2n - 1 >= n` for every `n >= 1`, ### **SO THE `range` CAP NEVER
+###   BINDS AND THE GUARD IS WHAT DECIDES.** ### PR's loop admits exactly the same `k`.
+###   ### ### **REGISTERED CLAIM: THE TWO INDEX SETS ARE IDENTICAL -- `{(p,k) : p in primes,
+###   ### ### 1 <= k <= n_p(a)}` -- WITH ### NO ### BOUNDARY TERMS.** ### The `1 <= k <= n-1` range
+###   is a property of act 9's CLOSED FORM, not of the instrument's index set: at `k = n` the closed
+###   form gives `0`, and a term that is present-and-zero is not a term that is absent.
+###   ### **IF THE RUN SHOWS OTHERWISE, THE DIFFERENCE IS NAMED AND CARRIED, NOT ABSORBED.**
+
+### **S2 -- PER-TERM FORMS. ### SPECIES: TRANSCRIPTION FROM (a2) AND (a4). ### ESTABLISHED-BY-READ.**
+###   `tau_{p,k}` := ### **2 log p * tq(p, n_p(a), k) * corr(k log p)**,  `tq = |tr(U^k S)| / d`.
+###   `w_{p,k}`   := ### **2 log p * p^{-k/2} * corr(log p^k)**.
+###   ### ### **AND THE FINDING THIS TRANSCRIPTION FORCES, REGISTERED BEFORE THE RUN AND AGAINST
+###   ### ### THE FERRY'S OWN REGISTERED EXPECTATION -- SEE (E1):**
+###   ### ### **`2 log p` IS COMMON TO BOTH SUMMANDS. ### IT CANCELS. ### IT CANNOT CARRY THE
+###   ### ### INEQUALITY BECAUSE IT IS NOT A DIFFERENCE BETWEEN THE SIDES AT THIS PAIRING.**
+###   ### **THE COMPARABILITY WARRANT, AS THE FERRY REQUIRES: the two families are matched TERM TO
+###   ### TERM ### ONLY ### BY THE INDEX-SET IDENTITY OF S1, WHICH IS DERIVED FROM b17's STAIRCASE
+###   ### THROUGH BOTH INSTRUMENTS' OWN GUARDS. ### NOT BY RESEMBLANCE OF THEIR ALGEBRAIC SHAPES.**
+
+### **S3 -- THE PER-TERM INEQUALITY. ### SPECIES: DERIVATION ON (a1) + (a4). ### THE PIVOT STEP.**
+###   ### SIDE: ### **THE ALGEBRA IS ESTABLISHED-BY-READ; ONE PREMISE IS OPEN-TO-THE-RUN.**
+###   ### THE REDUCTION, REGISTERED: since `2 log p > 0` for every prime `p >= 2`, the per-term
+###   claim `tau_{p,k} <= w_{p,k}` is EQUIVALENT to
+###   ### ### **corr(k log p) * ( tq(p,n,k) - p^{-k/2} ) <= 0**,
+###   ### which splits into ### **TWO INDEPENDENT SUB-CLAIMS**, registered separately so that each
+###   ### can fail on its own:
+###     ### **(S3-i) THE TRACE BOUND: `tq(p,n,k) <= p^{-k/2}` at every `(p,k)` in the index set.**
+###       ### DERIVED FROM (a1): `tau_q = p^{-k/2} * (p^n - p^k)/(p^n - 1)` for `1 <= k <= n-1`;
+###       for `k >= 1` and `p >= 2` we have `p^k >= p > 1`, so `0 < p^n - p^k < p^n - 1` whenever
+###       `k <= n-1`, giving ratio in `(0,1)`; and at `k = n` the closed form gives ratio `0`.
+###       ### ### **SO `tau_q < p^{-k/2}` STRICTLY AT EVERY `(p,k)` WITH `1 <= k <= n`.**
+###     ### **(S3-ii) THE SIGN OF `corr`: `corr(t) >= 0` for every `t`.**
+###       ### DERIVED FROM (a4)'s `bump`: `w = exp(-1/(1-t^2)) >= 0` pointwise (and `0` outside),
+###       normalized by a POSITIVE integral; `np.convolve` of two entrywise-non-negative arrays is
+###       entrywise non-negative; `dv[0] = 2L/(NV-1) > 0` for `a > 1`; and `np.interp` of a
+###       non-negative array is non-negative. ### ### **SO `corr >= 0` ENTRYWISE.**
+###   ### ### **THE ONE PREMISE THAT IS ### NOT ### DERIVED, NAMED HERE RATHER THAN SMUGGLED:**
+###   ### ### **THE IDENTIFICATION `tq` (the instrument's `|tr(U^k S)|/d`) `==` `tau_q` (act 9's
+###   ### ### closed form). ### NO OWNER STATES IT AND THIS ACT DOES NOT DERIVE IT.**
+###   ### **AND THE CHEAP ROUTE THAT WOULD AVOID IT IS REGISTERED AS INSUFFICIENT BEFORE IT IS
+###   ### TRIED, SO THAT ITS FAILURE IS NOT A LATER EXCUSE:** `U = P/sqrt(p)` with `||P|| = sqrt(p)`
+###   gives `||U|| = 1` and `|tr(U^k S)| <= d`, i.e. ### **`tq <= 1` ONLY** -- ### **TOO WEAK BY THE
+###   FACTOR `p^{k/2}` THAT IS THE WHOLE CONTENT.** ### The closed form is load-bearing and cannot
+###   be replaced by a norm bound.
+###   ### ### **SO S3's STATUS IS REGISTERED IN ADVANCE AS: DERIVES ON act 9's CLOSED FORM, WITH
+###   ### ### THE INSTRUMENT-TO-CLOSED-FORM IDENTIFICATION CARRIED AS A ### BENCH-VERIFIED PREMISE,
+###   ### ### NOT AS A DERIVATION.** ### The run's job on S3 is to test that premise, not to
+###   ### confirm the algebra.
+
+### **S4 -- THE SUM. ### SPECIES: SUMMATION OVER A COMMON FINITE INDEX SET.**
+###   ### If S3 holds termwise on the common set of S1, then ### **Theta_q(a) <= PR(a)** ### follows
+###   by termwise domination over a FINITE sum. ### GRADE SOUGHT: ### **DERIVES on the owners'
+###   definitions**, with S3's named premise inherited and stated in the verdict.
+###   ### **THE SUM-ONLY BRANCH IS REGISTERED IN ADVANCE AND WILL BE TAKEN IF S3 REFUTES AT ANY
+###   ### TERM:** the sum inequality checked as an exact finite computation at each of b255's
+###   sixteen cells (CONTROL), and ### **HALT HONESTLY AT `(SUM-ONLY, unproved)`** ### if no
+###   derivation closes it.
+
+### **S5 -- THE MEANING. ### SPECIES: FILING AT GRADE.**
+###   Under RULE Q the junction piece `(PR - Theta_q)` is `>= 0` ### by theorem / by bench only /
+###   refuted. ### What the sign says about the counting-vs-measuring factor is to be stated
+###   ### **FROM THE DERIVED INEQUALITY AND NOT FROM THE NUMBERS**, and given (S2)'s finding the
+###   registered expectation is that ### **the `2 log p` reading will have to be REVISED rather than
+###   confirmed.** ### The approach-from-below finding is restated as a CONSEQUENCE only if S3/S4
+###   supply it.
+
+====================================================================================================
+(D) ### RULE-3 LINE (c). ### THE SHADOW.
+====================================================================================================
+### **THE FINITE-DECIDABLE CORE ONLY, AT THE AUDIT BAR:**
+###   (i) the ### **index-set identity** ### as a finite lemma over `Nat` -- that `k <= 2n-1` and
+###       `p^k <= a^2` select the same `k` as `1 <= k <= n_p`;
+###   (ii) the ### **per-term ratio inequality** ### as EXACT ARITHMETIC where it is rational:
+###       `(p^n - p^k) < (p^n - 1)` for `1 <= k <= n-1`, over `Nat`, ### **which is the whole
+###       content of S3-i with the irrational `p^{-k/2}` factored out.**
+### ### **POLARITY CONTROLS FIRST** (a false statement of the same shape must NOT compile),
+### ### **PROFILE PRINTED AND READ, AND A COMPILE CLAIMED ONLY FROM ITS PRINTED PROFILE.**
+### ### **THE REAL-VALUED INEQUALITY STAYS AT CONTENT.** ### `Real.rpow` gymnastics to force
+### ### `p^{-k/2}` into the shadow is ### **REFUSED IN ADVANCE AS CONTORTION.**
+### ### **NOTHING IN THE SHADOW TOUCHES `h2`, THE LEDGER, OR THE REGISTER SENTENCE.**
+
+====================================================================================================
+(E) ### RULE-3 LINE (d). ### BOTH SEATS' EXPECTED BRANCHES, AND THE FALSIFIER.
+====================================================================================================
+### **(E1) THE NAVIGATOR'S REGISTERED EXPECTATION ON S3, QUOTED FROM THE FERRY:**
+###   ### *"the registered expectation is that 2 log p >= 2 log 2 > 1 carries the finite places
+###    while corr's size decides tightness"*.
+### ### ### **THIS SEAT REGISTERS, BEFORE THE RUN, THAT THIS EXPECTATION IS ### REFUTED BY THE
+### ### ### READ ### AND NOT BY ANY MEASUREMENT: `2 log p` APPEARS ON ### BOTH ### SIDES OF THE
+### ### ### PAIRING AND CANCELS.** ### It carries nothing and decides nothing here.
+### ### **THE DIVERGENCE IS DECLARED NOW RATHER THAN REPORTED LATER**, and it is a divergence with
+### ### the ferry's EXPECTATION, ### **NOT** ### with b228's finding, which was made at a
+### ### DIFFERENT PAIRING and stands untouched at its own QUESTION grade.
+
+### **(E2) THIS SEAT'S BRANCH EXPECTATIONS, PER STEP:**
+###   S1: ### **IDENTICAL INDEX SETS, NO BOUNDARY TERMS.** (ESTABLISHED-BY-READ.)
+###   S2: ### **`2 log p` COMMON AND CANCELLING.** (ESTABLISHED-BY-READ.)
+###   S3: ### **DERIVES, STRICTLY, at every `(p,k)`**, on act 9's closed form + `corr >= 0`, with
+###       the identification premise ### **OPEN-TO-THE-RUN.**
+###   S4: ### **DERIVES by summation**, inheriting S3's premise.
+###   S5: ### **`(PR - Theta_q) >= 0` BY THEOREM ON THE OWNERS' DEFINITIONS**, and the `2 log p`
+###       reading REVISED rather than confirmed.
+
+### **(E3) THE FALSIFIER FOR S3, NAMED AS THE FERRY REQUIRES:**
+### ### The ferry's falsifier is ### *"a named (p,k) where corr's smallness beats 2 log p"*.
+### ### **THAT FALSIFIER CANNOT FIRE AS STATED, FOR THE REASON IN (E1): `corr` AND `2 log p` ARE
+### ### BOTH COMMON FACTORS AND NEITHER CAN BEAT THE OTHER.** ### A falsifier that cannot fire is
+### ### not a falsifier, and b255's own lesson -- ### *"a falsifier that does not fire is not a
+### ### prediction confirmed"* -- ### is why this act replaces it rather than letting it pass.
+### ### ### **THE REPLACEMENT FALSIFIERS, THREE, EACH ABLE TO FIRE:**
+###   ### **(F1) THE IDENTIFICATION FAILS.** ### A named `(p,n,k)` where the instrument's
+###     `|tr(U^k S)|/d` DIFFERS from act 9's `(p^n - p^k)/((p^n - 1) p^{k/2})` beyond a bar
+###     registered here as ### **`1e-9` absolute.** ### **THIS IS THE LIVE ONE.**
+###   ### **(F2) A NEGATIVE `corr` SAMPLE.** ### A named `(p,k)` in the index set where
+###     `np.interp(k log p, vc, corr) < 0`. ### Would refute S3-ii and flip that term.
+###   ### **(F3) AN INDEX-SET DIFFERENCE.** ### A named `(p,k)` admitted by one instrument's guard
+###     and not the other's. ### Would refute S1 and force the boundary-term branch.
+### ### **IF ANY FIRES, THE STEP IS NAMED AS FAILING AND THE SUM-ONLY BRANCH IS TAKEN. ### NO
+### ### PATCH.**
+
+### **(E4) THE OUTCOME THIS SEAT MOST WANTS TO CATCH, REGISTERED SO CATCHING IT CANNOT LOOK LIKE
+### A DISCOVERY MADE TO ORDER:** ### **(F1) FIRING AT A SINGLE CELL.** ### It would mean the
+### corpus has been reading the instrument and the closed form as one object across b220, b228,
+### b229 and b255 without ever checking that they agree, and ### **THAT WOULD BE WORTH MORE THAN
+### THE THEOREM.**
+
+====================================================================================================
+(F) ### THE TAUTOLOGY CONTROL, ARMED IN ADVANCE.
+====================================================================================================
+### ### **EVERY ALGEBRAIC IDENTITY IN THIS ACT IS SUSPECT OF BEING TRUE BY CONSTRUCTION.**
+### The governing hazard: a "derivation" that re-derives `Theta_q <= PR` by substituting the
+### instrument's own arithmetic into itself proves nothing about the objects.
+### ### **THE CONTROL: EVERY SYMBOLIC STEP IS RE-RUN ON ### ARBITRARY ### VALUES DRAWN FROM A
+### ### SEEDED RNG, AND A STEP THAT HOLDS FOR ARBITRARY TUPLES IS A TAUTOLOGY AND IS REPORTED AS
+### ### ONE.** ### In particular: the reduction in S3 (`2 log p > 0` divides out) MUST hold for
+### arbitrary values -- it is meant to -- while the trace bound (S3-i) MUST ### **FAIL** ### on
+### arbitrary values, because it is a real claim about act 9's closed form and not an identity.
+### ### **A TRACE BOUND THAT PASSED ON RANDOM TUPLES WOULD BE A TAUTOLOGY WEARING A THEOREM'S
+### ### CLOTHES, AND THE ACT WOULD SAY SO.**
+
+====================================================================================================
+(G) ### THE HARNESS, AND WHAT MAY NOT MOVE.
+====================================================================================================
+### **THE AMENDED HARNESS GOVERNS EVERY CHECK:** pure conjunctions (### **NO `or` IN ANY CHECK**);
+### structurally-different must-fail fixtures; positive controls; witnesses where a check must be
+### shown able to say YES; ### **QUOTED-N**; ### **EVERY NUMERIC PREDICATE `bool()`-WRAPPED**
+### (numpy truth); the `ast` comment/docstring stripper on every source matcher.
+### **AXES THAT MAY NOT MOVE:** `EPS_NQ = 700`, `EPS_NG = 400`, `NV = 4001`, `NU = 12001`,
+### `UMAX = 600.0`, `NU_HALF = 401`, `S4 = (2,3,5)`. ### **THIS ACT COMPUTES NO `E2` AND NEEDS NO
+### `rho`-GRID**, so `EPS_NRHO` and `rho_max` are NOT EXERCISED and are named as unused rather than
+### silently inherited.
+### **THE CELL-SPECIES, SAID AT THE USE:** ### **DIAGONAL `a^2` THROUGHOUT.** ### Local `(p,n)`
+### cells do not appear. ### `S4` is FIXED, so no new prime activates along the ladder and `7`
+### never enters.
+
+====================================================================================================
+(H) ### WHAT THIS ACT MAY NOT DO. ### FIXED HERE, BEFORE ANY STEP.
+====================================================================================================
+###  1. ### **IT MAY NOT TUNE EITHER SIDE TOWARD THE OTHER.** The standing clause's named crime.
+###  2. ### **IT MAY NOT CITE A MEASURED VALUE AS A REASON IN ANY STEP OF THE ROUTE.** b255 is a
+###     CONTROL and every consultation is labelled at its site.
+###  3. ### **IT MAY NOT PROMOTE b10's / b228's FACTOR QUESTION**, in either direction.
+###  4. ### **IT MAY NOT CLOSE M-2.** RULE Q's aggregation stays UNSTATED whatever S4 shows.
+###  5. ### **IT MAY NOT READ A FINITE LADDER AS A LIMIT.** b15 and b242 govern.
+###  6. ### **IT MAY NOT CLAIM A COMPILE IT HAS NOT PRINTED A PROFILE FOR.**
+###  7. ### **NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING DEPOSITS.**
+
+====================================================================================================
+### REGISTRATION CLOSED. ### THE COMPONENTS FOLLOW IN ORDER: 1 (S1-S2), 2 (S3-S4), 3 (S5 + shadow),
+### 4 (the filings). ### 2 CONSUMES 1; 3 CONSUMES 2; 4 CONSUMES 1-3.
+====================================================================================================

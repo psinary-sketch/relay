@@ -1,0 +1,144 @@
+====================================================================================================
+b260 RUN -- J1: THE JUNCTION SIGN. ### CONTROLS ON A DERIVATION. Registration banked first.
+====================================================================================================
+
+--- ### W-ORD-TE-SPEC: THE AXES, PRINTED BEFORE ANY NUMBER IS READ ---
+  NV / NU / UMAX          : 4001 / 12001 / 600.0      (carto_atlas, committed constants)
+  NU_HALF                 : 401                  (b38_act10)
+  EPS_NQ / EPS_NG         : 700 / 400             (b38_act10; NOT EXERCISED -- no E2 here)
+  EPS_NRHO / rho grid     : ### NOT EXERCISED -- this act computes no E2 and needs no rho-grid.
+  place set S4            : (2, 3, 5)   ### FIXED. No new prime activates along the ladder; 7 never enters.
+  cells (diagonal a^2)    : [2, 3, 4, 8, 9, 12, 16, 20, 25, 32, 36, 45, 50, 64, 81, 100]
+  F1 bar (registered)     : 1e-09 absolute
+  ### CELL SPECIES: ### **DIAGONAL a^2 THROUGHOUT.** Local (p,n) cells do not appear.
+
+====================================================================================================
+### S3-ii -- THE SIGN OF `corr`. ### FALSIFIER F2. ### The bump read at source, not inherited.
+====================================================================================================
+  bump samples < 0, summed over all sixteen cells : ### **0**
+  corr samples < 0, summed over all sixteen cells : ### **0**
+  ### ### **S3-ii HOLDS AT EVERY SAMPLE.** ### F2 DID NOT FIRE.
+
+====================================================================================================
+### S1 + S2 + S3 -- THE INDEX SETS, THE PER-TERM FORMS, AND THE PER-TERM INEQUALITY.
+====================================================================================================
+
+### S1 -- INDEX-SET IDENTITY, CELL BY CELL. ### FALSIFIER F3.
+  a^2    staircase (2,3,5)      |index|    sets identical?
+  ----------------------------------------------------------------------------
+  2      [1, 0, 0]              1          YES
+  3      [1, 1, 0]              1          YES
+  4      [2, 1, 0]              3          YES
+  8      [3, 1, 1]              5          YES
+  9      [3, 2, 1]              6          YES
+  12     [3, 2, 1]              6          YES
+  16     [4, 2, 1]              7          YES
+  20     [4, 2, 1]              7          YES
+  25     [4, 2, 2]              8          YES
+  32     [5, 3, 2]              10         YES
+  36     [5, 3, 2]              10         YES
+  45     [5, 3, 2]              10         YES
+  50     [5, 3, 2]              10         YES
+  64     [6, 3, 2]              11         YES
+  81     [6, 4, 2]              12         YES
+  100    [6, 4, 2]              12         YES
+  ### ### **CELLS WITH IDENTICAL INDEX SETS: ### 16 of 16.**
+  ### ### **F3 DID NOT FIRE.**
+
+### S3-i -- THE IDENTIFICATION `tq` == act 9's CLOSED FORM. ### FALSIFIER F1. ### THE LIVE ONE.
+  terms compared                       : ### **119**
+  of those at k >= n (closed form = 0)  : ### **43**
+  worst |tq - closed_form|              : ### **4.441e-16**   at (a^2,p,n,k) = (16, 2, 4, 1)
+  bar (registered before any value)     : 1e-09
+  ### ### **F1 DID NOT FIRE -- the identification HOLDS at every term.**
+
+### S3 -- THE PER-TERM INEQUALITY `tau_{p,k} <= w_{p,k}`.
+  terms tested          : ### **119**
+  terms STRICTLY less   : ### **110**
+  terms VIOLATING       : ### **0**
+  ### ### **S3 HOLDS AT EVERY TERM OF EVERY CELL.**
+
+====================================================================================================
+### THE PER-TERM STRUCTURE EXHIBITED. ### a^2 = 100, THE DEEPEST CELL, EVERY TERM.
+====================================================================================================
+  ### `tau/w` IS THE WHOLE INEQUALITY: the 2 log p and the corr CANCEL, leaving act 9's ratio.
+  p   n   k   tq            p^{-k/2}      tq/p^-k/2 tau           w             (p^n-p^k)/(p^n-1)
+  ----------------------------------------------------------------------------------------------------------------
+  2   6   1   6.958829e-01  7.071068e-01  0.984127  2.484723e-01  2.524799e-01  62/63
+  2   6   2   4.761905e-01  5.000000e-01  0.952381  1.191573e-01  1.251151e-01  60/63
+  2   6   3   3.142697e-01  3.535534e-01  0.888889  4.272509e-02  4.806573e-02  56/63
+  2   6   4   1.904762e-01  2.500000e-01  0.761905  9.112065e-03  1.195958e-02  48/63
+  2   6   5   8.979134e-02  1.767767e-01  0.507937  5.146930e-04  1.013302e-03  32/63
+  2   6   6   0.000000e+00  1.250000e-01  0.000000  0.000000e+00  3.736048e-07  0  (k >= n)
+  3   4   1   5.629165e-01  5.773503e-01  0.975000  2.657481e-01  2.725621e-01  78/80
+  3   4   2   3.000000e-01  3.333333e-01  0.900000  5.628903e-02  6.254337e-02  72/80
+  3   4   3   1.299038e-01  1.924501e-01  0.675000  2.385221e-03  3.533660e-03  54/80
+  3   4   4   0.000000e+00  1.111111e-01  0.000000  0.000000e+00  1.748148e-12  0  (k >= n)
+  5   2   1   3.726780e-01  4.472136e-01  0.833333  1.837887e-01  2.205464e-01  20/24
+  5   2   2   0.000000e+00  2.000000e-01  0.000000  0.000000e+00  7.031106e-03  0  (k >= n)
+
+====================================================================================================
+### S4 -- THE SUM, AND THE b255 CONTROL. ### THE SIXTEEN-CELL TABLE.
+====================================================================================================
+  a^2    Theta_q        PR             PR - Theta_q   sign      b255 junc     |delta| vs b255
+  --------------------------------------------------------------------------------------------------------
+  2      0.000000000    0.000000000    0.000000000    0         0.000000000   0.000e+00
+  3      0.000000000    0.106483707    0.106483707    +         0.106483707   0.000e+00
+  4      0.161978165    0.249319596    0.087341431    +         0.087341431   0.000e+00
+  8      0.317018237    0.561045429    0.244027193    +         0.244027193   0.000e+00
+  9      0.473861607    0.608882321    0.135020714    +         0.135020714   0.000e+00
+  12     0.518491210    0.714334214    0.195843004    +         0.195843004   0.000e+00
+  16     0.588908905    0.799150018    0.210241113    +         0.210241113   0.000e+00
+  20     0.601007335    0.852776552    0.251769218    +         0.251769218   0.000e+00
+  25     0.734530668    0.896289251    0.161758583    +         0.161758583   0.000e+00
+  32     0.847885967    0.933309628    0.085423661    +         0.085423661   0.000e+00
+  36     0.857844691    0.947279444    0.089434753    +         0.089434753   0.000e+00
+  45     0.871548588    0.968112518    0.096563930    +         0.096563930   0.000e+00
+  50     0.875924373    0.975801707    0.099877333    +         0.099877333   0.000e+00
+  64     0.898564770    0.989783876    0.091219105    +         0.091219105   0.000e+00
+  81     0.927942449    0.999124793    0.071182344    +         0.071182344   0.000e+00
+  100    0.928192390    1.004850685    0.076658295    +         0.076658295   0.000e+00
+
+  cells with `Theta_q <= PR`            : ### **16 of 16**
+  ### **CONTROL -- worst |junction - b255's banked junction| : ### 0.000e+00**
+  ### ### **b255 IS A CONTROL HERE AND NOT A PREMISE: NO STEP ABOVE CITED IT.**
+
+====================================================================================================
+### THE TAUTOLOGY CONTROL. ### EVERY SYMBOLIC STEP RE-RUN ON ARBITRARY VALUES.
+====================================================================================================
+  (T1) THE S3 REDUCTION `c>0, g>=0, x<=y  =>  c*g*x <= c*g*y`
+       holds on arbitrary tuples : ### **20000 / 20000**
+       ### ### **IT IS MEANT TO. ### IT IS A TAUTOLOGY AND IS REPORTED AS ONE --
+       ### ### IT CARRIES NO CONTENT ABOUT EITHER SIDE.**
+  (T2) THE TRACE BOUND `tq <= p^{-k/2}` ON ### ARBITRARY ### `tq`
+       holds on arbitrary tuples : ### **5898 / 20000**
+       ### ### **IT MUST ### FAIL ### OFTEN, AND IT DOES. ### THE BOUND IS A REAL CLAIM
+       ### ### ABOUT act 9's CLOSED FORM, NOT AN IDENTITY.** ### If this had read 20000/20000
+       ### ### THE "DERIVATION" WOULD HAVE BEEN A TAUTOLOGY WEARING A THEOREM'S CLOTHES.
+
+====================================================================================================
+### POSITIVE CONTROLS. ### EVERY DISCRIMINATOR SHOWN ABLE TO SAY NO.
+====================================================================================================
+  (C1) THE PER-TERM COMPARATOR DISCRIMINATES -- a tau perturbed by +1 at (p=2,k=1):
+       `perturbed <= w` : ### **False** ### (must be False)
+  (C2) THE corr-SIGN TEST DISCRIMINATES -- on a deliberately negative array:
+       negatives counted : ### **3 of 3** ### (must be 3)
+  (C3) THE INDEX MATCHER DISCRIMINATES -- an invented pair (p=7,k=1) at a^2=100:
+       present in the index set : ### **False** ### (must be False -- 7 is not in S4)
+  (C4) THE CLOSED FORM DISCRIMINATES -- it is NOT constant in k at (p=2,n=6):
+       k = 1,3,5,6 -> ['0.695883', '0.314270', '0.089791', '0.000000']
+       distinct values : ### **4 of 4** ### (must be 4)
+  (C5) THE F1 DEVIATION MEASURE DISCRIMINATES -- a control closed form off by one level:
+       |tq - closed_form(k+1)| = ### **2.197e-01** ### vs bar 1e-09 -- must EXCEED the bar
+
+====================================================================================================
+### THE RUN'S VERDICTS, IN THE REGISTERED BRANCH LANGUAGE.
+====================================================================================================
+  S1 (index sets identical)  : ### **HOLDS**
+  S3-ii (corr >= 0)          : ### **HOLDS**
+  F1 (identification)        : ### **HOLDS**
+  S3 (per-term inequality)   : ### **HOLDS**
+  S4 (the sum)               : ### **HOLDS**
+
+  ### **QUOTED-N: 119 terms across 16 cells; 119 index pairs; 12 distinct (p,n) trace blocks.**
+====================================================================================================
