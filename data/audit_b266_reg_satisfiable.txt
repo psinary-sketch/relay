@@ -1,0 +1,26 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b266_registration_2026-08-31.txt -- b266, THE STATE OF THE SHADOW
+  clauses      : 6
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  ten owning files must exist to quo 10               10               files  SATISFIABLE
+      demand from : the fold quotes obstacles from b256..b265; a fold registered against files that are not on disk would be unsatisfiable in exactly the sense b264's clause (I) was. Counted by listing data/b25[6-9]_*.txt and data/b26[0-5]_*.txt banks.
+  wall-clock 600 s                   600              60               s      SATISFIABLE
+      demand from : NO numerical computation is performed. The act reads ten text files, writes four, and runs the gate suite; measured comparable acts (b256's fold) cost under a minute.
+  no single allocation > 64 MB       64               1.2              MB     SATISFIABLE
+      demand from : the largest file this act reads whole is PLACE-papers/FINDINGS.md at ~1.1 MB; no array is allocated at all
+  TECHNE-Core pushes permitted       0                0                pushes SATISFIABLE
+      demand from : b257 scoped TECHNE-Core local-only and its modules/ is untracked; clause (J.7) forbids a push and this act plans none. A NONZERO demand here would be a contradiction with (J.7), not a resource problem.
+  lean files this act may move       0                0                files  SATISFIABLE
+      demand from : F-NOSHADOW: the ferry orders filings only and no new mathematics, so no .lean file is created or edited
+  existing FINDINGS.md lines this ac 0                0                lines  SATISFIABLE
+      demand from : F-NOGRADE: the change to FINDINGS.md must be PURELY ADDITIVE, checked by diff against HEAD
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
