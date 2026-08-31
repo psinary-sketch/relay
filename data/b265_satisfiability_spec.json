@@ -1,0 +1,15 @@
+{"registration":"data/b265_registration_2026-08-31.txt -- b265, THE NQ-CEILING SWEEP",
+ "clauses":[
+  {"clause":"no single allocation > 512 MB","cap":512,"demand":250.88,"units":"MB",
+   "from":"the registered NQ ladder's top, Q.layer(5600): numpy leggauss builds a dense NQ x NQ matrix, 8*5600^2 bytes = 250.88 MB. THE CLAUSE b264 GOT WRONG, CHECKED HERE BEFORE THE SEAL."},
+  {"clause":"no single allocation > 512 MB","cap":512,"demand":17.92,"units":"MB",
+   "from":"per_mode_eps_grids inner block an(u): EPS_NG=400 nodes x NQ=5600 prolate nodes x 8 bytes"},
+  {"clause":"total memory 4096 MB","cap":4096,"demand":900,"units":"MB",
+   "from":"sum of the four cached prolate layers (700,1400,2800,5600) plus four eps grids at EPS_NRHO=445 x 11 modes, generously rounded up"},
+  {"clause":"wall-clock 1800 s","cap":1800,"demand":260,"units":"s",
+   "from":"MEASURED layer builds 0.93/3.36/14.89 s at NQ=700/1400/2800 with 5600 projected at 67 s by the measured 4.5x-per-doubling scaling (86 s); plus eps grids from b255's own measured 3.2 s at NRHO=240/NQ=700 scaled to NRHO=445 and linearly in NQ (89 s); plus 16 cells of family()+e2_of_grid+trace_modes (85 s)"},
+  {"clause":"eps grid rho range must cover the sweep's top cell","cap":100.001,"demand":100,"units":"rho",
+   "from":"b255's OWN (W1) clause: e2_of_grid interpolates at exp(uu) with uu in [0,2L], L=log a, so the top argument is exactly a^2 = 100 at the ladder's top cell. b255 rebuilt rr to RHO_MAX=100.001 for exactly this reason and this act reuses that range."},
+  {"clause":"the sweep's top cell must sit below the measured EPS_NQ crossover for the INSIDE grade to be readable at all","cap":238.4,"demand":100,"units":"rho",
+   "from":"b264's measured crossover at EPS_NQ=700 is rho=238.4; b255's top cell puts rho at a^2=100. IF THIS CLAUSE WERE CONTRADICTORY THE ACT COULD NOT GRADE ITS OWN LADDER AND WOULD HAVE TO SAY SO INSTEAD OF SWEEPING."}
+ ]}

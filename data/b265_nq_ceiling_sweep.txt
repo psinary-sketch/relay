@@ -1,0 +1,300 @@
+====================================================================================================
+b265 BANK -- THE NQ-CEILING SWEEP. ### b247 AND b255 GRADED AGAINST THE MEASURED CEILING.
+### 2026-08-31. ### CONCURRENCY: SOLO (research seat).
+### REGISTRATION `data/b265_registration_2026-08-31.txt`, SEAL `263f37a9...`, JOINT-SATISFIABILITY
+### CHECKED AND TERM-SCANNED ### BEFORE ### SEALING, VERIFIED INTACT BEFORE THE RUN AND AT THE
+### CLOSE. ### CONTROLS: `data/b265_run.txt`.
+### ### **A READ-AND-MEASURE ACT. ### NO PRIOR ACT IS RE-VERDICTED. ### NOTHING DEPOSITS.**
+====================================================================================================
+
+====================================================================================================
+(0) THE ANSWER, FIRST.
+====================================================================================================
+### ### **ZERO CELLS FALL ABOVE THE CEILING, ACROSS BOTH ACTS.**
+### **b255's SIXTEEN CELLS ARE ALL `INSIDE`, AND THEY ARE INSIDE BY ### MEASUREMENT ### AND NOT
+### ONLY BY THE `100 < 238.4` ARITHMETIC:** worst movement on the `NQ` axis from `700` to `2800`
+### is ### **8.868e-10** ### -- three orders below b255's printed-digit bar and six below its own
+### claim bar. ### **b247 HAS NO `rho`-INDEXED VALUE AT ALL**, so it has no cell to grade against
+### this ceiling; its exposure is entirely to the `n`-FLOOR, which ### b247 ITSELF HANDLED ### .
+### **NOTHING MOVED. ### NOTHING IS ROUTED TO THE AUTHOR AS A CHANGED VALUE.**
+### **F-EXPOSURE, F-FLOOR, F-LAW, F-INSIDE, F-MONO: ### ALL FIVE DID NOT FIRE ### (at the close;
+### three of them fired first on defects in this act's own instrument, and (6) is that story).**
+### ### **AND THE THING THAT IS ACTUALLY NEW HERE IS NOT THE ANSWER BUT THE LAW:**
+### ### **`x_cliff = EPS_NQ / k` WITH `k ~ 3.24` NODES PER OSCILLATION PERIOD, MEASURED, AND
+### ### THE SAME FOR EVERY RESOLVED MODE.** ### `W-ORD-NQ-CEILING` is DISCHARGED on that.
+
+====================================================================================================
+(1) THE `a^2` -> `rho` CORRESPONDENCE. ### **DERIVED AND SHOWN, NOT ASSUMED.**
+====================================================================================================
+### From `b38_act10.e2_of_grid`, quoted verbatim:
+###   ### **`uu = np.linspace(0.0, 2 * L, NU_HALF)`** ### and ### **`eu = np.interp(np.exp(uu),
+###   rr, ee)`**, with `L = math.log(a)` from `b38_act10.family`.
+### ### **SO THE eps ARGUMENT RUNS OVER `exp(uu)` FOR `uu in [0, 2 log a]`, i.e. OVER
+### ### `rho in [1, a^2]`, AND THE TOP ARGUMENT AT A CELL IS ### EXACTLY THE CELL LABEL ### .**
+### ### **`exp(2 log a) = a^2` IS AN IDENTITY, NOT AN ESTIMATE. ### NO CONVERSION FACTOR AND NO
+### ### SLACK.**
+### **AND IT IS NOT THIS ACT'S INVENTION.** ### b255's own (W1) says the same in its own words:
+### ### *"SO `exp(uu)` REACHES `a^2`, AND FOR `a^2 > 12.001` `np.interp` CLAMPS TO `ee[-1]` AND
+### RETURNS A WRONG NUMBER WITHOUT RAISING."* ### **b255 FOUND THIS AS A SILENT-CLAMP FAILURE AND
+### REBUILT ITS GRID TO `rho_max = 100.001` BECAUSE OF IT.** ### Two independent readings -- one
+### from the owner's code, one from b255's own text -- and they agree.
+### ### **CONSEQUENCE: THE CEILING TEST FOR AN `E2`-COLUMN CELL IS `a^2` AGAINST THE CROSSOVER.**
+
+====================================================================================================
+(2) THE EXPOSURE MAP. ### **DECIDED BY CALL PATH, NOT BY VALUES, AND TESTED IN CODE.**
+====================================================================================================
+### **A COLUMN IS EXPOSED TO THE `rho`-CEILING ONLY IF IT EVALUATES `A_n` AT LARGE ARGUMENT.**
+###   ### **EXPOSED:** ### `E2even`, `E2odd`, `E2` -- through `e2_of_grid` on
+###     `per_mode_eps_grids`, which calls `Q.layer(EPS_NQ)`. ### And `resid (A)`, through
+###     `resid(A) = -(E2even + junction)`.
+###   ### **NOT EXPOSED:** ### `PR`, `A` (carto's `bump`/`hhat`/`channels`); `Theta_q`
+###     (`theta_quotient`); `junction` (a difference of two unexposed columns); `staircase`
+###     (integer-valued); `e2_of_grid` itself (it consumes a grid, it does not build one).
+###   ### **EXPOSED TO A ### DIFFERENT ### AXIS:** ### `Dneg` / `resid (B)`. ### `trace_modes`
+###     uses `np.interp(lamd * x, x, f, left=0, right=0)` with `lamd = exp(u)` up to `a^2`: it
+###     scales the EIGENFUNCTION and never calls `an`. ### **AS `lamd` GROWS THE SUPPORT
+###     `|x| < 1/lamd` SHRINKS AGAINST A FIXED NODE COUNT. ### SAME SPECIES, DIFFERENT
+###     CROSSOVER, GRADED SEPARATELY AT (5).**
+### **F-EXPOSURE IS A CODE TEST AND IT PASSES ON ALL FIVE PATHS, WITH `per_mode_eps_grids` AS ITS
+### POSITIVE CONTROL READING `YES`.** ### **A CODE TEST THAT NEVER FINDS ANYTHING IS NOT A TEST.**
+### **AND THE ONE THIS ACT NAMES BUT DOES NOT GRADE:** ### carto's own `UMAX = 600` / `NU = 12001`
+### axis is the same species on a DIFFERENT instrument. ### **IT IS NOT `EPS_NQ`, IT IS OUTSIDE
+### THIS ACT'S REGISTERED SCOPE, AND IT IS NAMED SO THAT ITS ABSENCE FROM THE TABLES IS A
+### DECLARED CHOICE AND NOT AN OVERSIGHT.**
+
+====================================================================================================
+(3) THE CROSSOVER LAW. ### **`W-ORD-NQ-CEILING` ASKED FOR A FUNCTION, NOT A NUMBER.**
+====================================================================================================
+### **THE MEASURE, AND WHY IT HAS THIS SHAPE:** a REFERENCE layer at `NQ = 5600`, and the cliff
+### taken where `A_n` at the tested `NQ` has ### **LOST HALF ITS OWN LOCAL ENVELOPE** ### against
+### that reference. ### Envelope-normalised, so the zeros of an oscillating `A_n` do not blow it
+### up; measured against a reference rather than against `2 NQ`, so round-off does not.
+### **THE REFERENCE IS VERIFIED BEFORE IT IS USED AND ONLY WHERE IT IS VERIFIED:** ### `5600`
+### against `2800` on `x <= 700` (safely below `2800`'s own cliff) gives a worst envelope-relative
+### deviation of ### **3.972e-02**. ### **SO THE REFERENCE IS TRUSTED ON `x <= 700` AND NOWHERE
+### ELSE BY THIS ACT**, and a cliff measured above `700` is reported with that caveat and
+### ### **IS NOT COUNTED IN THE LAW.**
+
+###   NQ       x_cliff     NQ / x_cliff    reference                   counted?
+###   ------------------------------------------------------------------------------
+###   700      215         3.2558          verified                    YES
+###   1400     433         3.2333          verified                    YES
+###   2800     874         3.2037          BEYOND the verified range   NO -- reported only
+
+### ### **`NQ / x_cliff` SPREAD OVER THE COUNTED POINTS : ### 1.0070 ### AGAINST A REGISTERED
+### ### BAR OF `1.5`. ### F-LAW DID NOT FIRE.**
+### ### ### **THE LAW: `x_cliff = EPS_NQ / k`, `k ~ 3.24 NODES PER OSCILLATION PERIOD.**
+### **THE DERIVATION OF ITS SHAPE, WHICH IS ONE LINE:** ### `A_n(x) = (2/|lam_n|) INT_0^1 xi_n(t)
+### cos(2 pi t x) dt` carries ### `x` PERIODS ### across `t in [0,1]`, so the node density is
+### `EPS_NQ / x` per period and the wall sits where that density falls to `k`.
+### **AND THE THIRD POINT CORROBORATES WITHOUT BEING COUNTED: `3.2037` against `3.2558` and
+### `3.2333`.** ### It is printed because withholding a corroborating number one has measured is
+### its own kind of dishonesty; it is uncounted because its reference is unverified there.
+### **IT IS AN OBSERVATION OVER TWO COUNTED POINTS (b242): NOT A FITTED SLOPE, NOT AN
+### EXTRAPOLATION, AND NOT CLAIMED BEYOND THE LADDER MEASURED.**
+
+### ── **THE FINDING INSIDE THE LAW, WHICH THIS ACT DID NOT EXPECT.**
+### ### **THE CLIFF IS THE ### SAME `x` FOR EVERY RESOLVED MODE ### : 215 at `NQ = 700` for
+### ### `n = 0..4` and 219 for `n = 5, 6`; 433-442 at `1400`; 874-892 at `2800`.**
+### ### **SO IT IS NOT A PER-MODE ACCURACY EFFECT. ### IT IS A SINGLE ALIASING WALL THAT TAKES
+### ### THE WHOLE LAYER AT ONCE WHEN THE NODE DENSITY PER PERIOD FALLS TOO LOW.**
+### That matters for the order's phrasing: the crossover is a function of ### `x` ### and
+### `EPS_NQ` alone, ### **NOT of the mode index**, so a single number per `NQ` is the right
+### form of the answer and a per-mode table would have been the wrong form.
+
+### ── **THE G-REPRO AGAINST b264, ON b264's OWN QUANTITY.**
+### `eps_even` crossover, `NQ` 700 vs 1400, on an independent grid : ### **212.1**
+### b264 banked                                                    : ### **238.4**
+### ### **AGREE TO 11.0%. ### b264's CEILING REPRODUCES.**
+### ### **AND THE TWO ARE DIFFERENT QUANTITIES AND ARE NOT AVERAGED:** ### `A_n`'s cliff is the
+### INTEGRAND's; `eps_even`'s is the INTEGRAL's, and an integral tolerates a little more before it
+### breaks. ### **BOTH ARE PRINTED; NEITHER IS QUOTED AS THE OTHER.**
+
+====================================================================================================
+(4) THE SWEEP TABLE -- b255. ### **SIXTEEN CELLS, FOUR `(NQ, NG)` SETTINGS EACH.**
+====================================================================================================
+### **THE PRICE, MEASURED AND PRINTED BESIDE THE ACTUAL** (b262's rule): grids at
+### `NQ = 700/1400/2800` cost ### **4.5 / 8.6 / 16.2 s**, the second axis (`NG = 800`)
+### ### **8.7 s**, total ### **38.1 s** ### against a registered ceiling of `1800 s`.
+### ### **NO CELL WAS REFUSED, SO NO REFUSAL NEEDED A PRICE -- AND THE RULE THAT WOULD HAVE
+### ### PRICED ONE STOOD THE WHOLE TIME.**
+
+###   a^2   rho_top  grade   E2even@700     E2even@2800    b255 banked  |d| NQ     |d| NG     moves?
+###   ------------------------------------------------------------------------------------------------
+###   2     2        INSIDE  1.001813176    1.001813177    1.001813     8.87e-10   1.17e-13   no
+###   3     3        INSIDE  0.910945044    0.910945045    0.910945     8.26e-10   2.92e-13   no
+###   4     4        INSIDE  0.834034352    0.834034353    0.834034     7.77e-10   4.29e-13   no
+###   8     8        INSIDE  0.685517988    0.685517988    0.685518     6.69e-10   7.29e-13   no
+###   9     9        INSIDE  0.665134327    0.665134327    0.665134     6.53e-10   7.73e-13   no
+###   12    12       INSIDE  0.620095634    0.620095635    0.620096     6.16e-10   8.73e-13   no
+###   16    16       INSIDE  0.580636848    0.580636848    0.580637     5.81e-10   9.60e-13   no
+###   20    20       INSIDE  0.553188089    0.553188090    0.553188     5.56e-10   1.02e-12   no
+###   25    25       INSIDE  0.528115356    0.528115356    0.528115     5.33e-10   1.08e-12   no
+###   32    32       INSIDE  0.502769853    0.502769853    0.502770     5.10e-10   1.13e-12   no
+###   36    36       INSIDE  0.491461945    0.491461945    0.491462     4.99e-10   1.15e-12   no
+###   45    45       INSIDE  0.471295036    0.471295037    0.471295     4.80e-10   1.20e-12   no
+###   50    50       INSIDE  0.462301646    0.462301646    0.462302     4.71e-10   1.21e-12   no
+###   64    64       INSIDE  0.442516682    0.442516683    0.442517     4.52e-10   1.25e-12   no
+###   81    81       INSIDE  0.424891675    0.424891675    0.424892     4.34e-10   1.29e-12   no
+###   100   100      INSIDE  0.410261952    0.410261953   0.410262      4.20e-10   1.32e-12   no
+
+### **CELLS `ABOVE` : ### 0 of 16 ###. ### CELLS MOVING PAST THE PRINTED-DIGIT BAR `1e-6` :
+### ### 0 of 16 ###. ### CELLS MOVING PAST b255's OWN CLAIM BAR `1e-4` : ### 0 of 16 ###.**
+### worst `|d|` on the `NQ` axis (`700 -> 2800`) : ### **8.868e-10**
+### worst `|d|` on the `NG` axis (`400 -> 800`)  : ### **1.315e-12**
+### ### **BOTH AXES, AS b264's D2 CORRECTION REQUIRES. ### THE `NG` AXIS IS THREE ORDERS QUIETER
+### ### THAN THE `NQ` AXIS, WHICH IS b264's ATTRIBUTION CONFIRMED ON A SECOND ACT'S CELLS.**
+### **AND THE REPRODUCTION, WHICH IS THE STRONGEST NUMBER IN THIS ACT:**
+### ### **worst `|this act at NQ=700 - b255's banked column| = 2.220e-16`.** ### That is machine
+### precision. ### **b255's `E2even` COLUMN IS REPRODUCED EXACTLY, CELL FOR CELL, FROM ITS OWN
+### OWNERS, BEFORE ANY GRADE WAS ASSIGNED TO IT.**
+### ### **F-INSIDE DID NOT FIRE. ### "b255's LADDER IS ENTIRELY INSIDE" IS TRUE, AND IT IS TRUE
+### ### AS A MEASUREMENT.**
+
+====================================================================================================
+(5) `Dneg` / `resid (B)` -- THE OTHER AXIS.
+====================================================================================================
+###   a^2    sum tr (n<7) at NQ = 700 / 1400 / 2800        rel spread   b255's own bar (B)
+###   ---------------------------------------------------------------------------------------
+###   16     +1.731945 / +1.732282 / +1.732077             7.65e-05     1.37e-02
+###   50     +1.392469 / +1.392872 / +1.392803             2.40e-04     9.24e-03
+###   100    +1.250974 / +1.250665 / +1.250641             2.66e-04     1.23e-02
+### ### **THIS ACT'S SPREAD IS ONE TO TWO ORDERS ### SMALLER ### THAN THE BAR b255 PUBLISHED FROM
+### ### ITS OWN `NQ in (700, 900, 1100)` SWEEP. ### b255's `bar (B)` IS CONSERVATIVE, AND
+### ### EXTENDING THE SWEEP TO `2800` CONFIRMS IT RATHER THAN UPSETTING IT.**
+### **b255 ALREADY CARRIED THIS INSTABILITY IN A NAMED COLUMN. ### THIS ACT EXTENDS THE SWEEP AND
+### DOES NOT DISCOVER IT.**
+### ### **AND THIS SEAT'S REGISTERED EXPECTATION FOR IT WAS WRONG AND IS REPORTED WRONG:** ### (F)
+### registered *"I EXPECT THE `NQ = 2800` SPREAD TO BE COMPARABLE OR LARGER"*. ### **IT IS
+### SMALLER, BY ONE TO TWO ORDERS.**
+
+====================================================================================================
+(6) b247. ### **THE ANSWER IS THAT IT HAS NO `rho`-EXPOSURE, AND SAYING SO IS THE RESULT.**
+====================================================================================================
+### **b247 MEASURES `lambda(n)`, `xi_n(1)` AND `t(n)`. ### THESE ARE SPECTRAL AND `n`-INDEXED.
+### THERE IS NO `rho` IN ANY OF THEM AND NO CELL TO GRADE AGAINST THE `rho`-CEILING.**
+### Its exposure is entirely to the `n`-FLOOR:
+###   ### **MODES 0..6 : `INSIDE`** ### (`lambda` drift under `NQ -> 2NQ` from `3.10e-14` to
+###     `9.71e-08`, all under the `1e-6` bar).
+###   ### **MODES 7..10 : `UNTESTABLE`** ### (drift `6.85e-02` to `1.74e-01`). ### **NOT
+###     "WRONG" AND NOT "ABOVE": ### THE INSTRUMENT DOES NOT RESOLVE THEM.**
+### **b247's WHOLE COLUMN REPRODUCES: worst `|dev|` over `n < 7` = ### 4.708e-07 ###**, which is
+### the limit of b247's own six-decimal printing. ### Its `lambda(n)^2` row reproduces exactly,
+### including the `4.746e-16` it named as the float64 floor.
+### ### ### **AND b247 HANDLED THIS ITSELF, WHICH IS WHY THE SWEEP FINDS NOTHING TO CORRECT:**
+### ### **"ANY IMPORTED DECAY MUST MATCH THESE SEVEN POINTS AND MAY NOT BE CHECKED AGAINST THE
+### ### ONES PAST THE FLOOR, which are noise."** ### It said so, and it refused to use them.
+### ### **THE SWEEP SAYS SO RATHER THAN MANUFACTURING AN EXPOSURE THAT IS NOT THERE.**
+
+====================================================================================================
+(7) THE CONSEQUENCE TABLE. ### **NO VERDICT ALTERED. ### NOTHING ROUTED AS A CHANGED VALUE.**
+====================================================================================================
+###   claim                                                    consequence
+###   ---------------------------------------------------------------------------------------
+###   b255: **"`E2even` FALLS MONOTONICALLY AT EVERY ONE OF     ### **UNCHANGED** ###
+###   THE SIXTEEN CELLS: `1.001813` at `a^2 = 2` DOWN TO        15 of 15 steps strictly
+###   `0.410262` at `a^2 = 100`. SIXTEEN CELLS, FIFTEEN         negative at `NQ = 700` AND at
+###   STEPS, ONE SIGN."**                                       `NQ = 2800`. F-MONO did not fire.
+###
+###   b255: the `E2even` column itself, six decimals            ### **UNCHANGED** ###
+###                                                             worst movement `8.87e-10`,
+###                                                             three orders below its own
+###                                                             printed digit.
+###
+###   b255: `resid (A) = -(E2even + junction)` and the          ### **UNCHANGED** ###
+###   sawtooth reading                                          `E2even` unmoved and `junction`
+###                                                             NOT EXPOSED by call path.
+###
+###   b255: realization (B) / `Dneg`, `bar (B)`                 ### **UNCHANGED, AND ITS BAR
+###                                                             CONFIRMED CONSERVATIVE** ###
+###
+###   b247: M-4 statement input -- clause (i)'s missing rate    ### **UNCHANGED** ###
+###   and the seven certified points                            The seven points reproduce; the
+###                                                             floor is where b247 put it.
+###
+###   b247: **"CLAUSE (ii)'s FIRST DISJUNCT IS FALSE ON THE     ### **UNCHANGED** ###
+###   CERTIFIED RANGE"** -- `xi_n(1)^2` grows by ~36,000        The growth is over `n = 0..6`,
+###   across seven modes                                        entirely inside the resolved
+###                                                             range. Reproduces to `4.7e-07`.
+###
+###   b247: the `n >= 7` collapse read as arithmetic noise      ### **UNCHANGED** ###
+###                                                             Independently graded UNTESTABLE
+###                                                             here, by a different test.
+### ### **NOTHING IS `MOVED`. ### NOTHING IS `UNTESTABLE-AT-THIS-BENCH` AMONG THE CLAIMS.**
+### ### **THEREFORE NOTHING IS ROUTED TO THE AUTHOR AS A DECISION CARD'S INPUT, AND THE ACT SAYS
+### ### THAT PLAINLY RATHER THAN MANUFACTURING A ROUTING TO LOOK BUSY.**
+### **AND THE CEILING ON THAT SENTENCE: this is a statement about `EPS_NQ` ONLY.** ### It is not a
+### clean bill of health for b247 or b255 on any other axis, and (2) names one axis
+### (carto's `UMAX`/`NU`) that was deliberately not swept.
+
+====================================================================================================
+(8) THE DEVIATIONS. ### **DECLARED IN THE BANK, NOT SMOOTHED OVER.**
+====================================================================================================
+### **FOUR DEFECTS IN THIS ACT'S OWN INSTRUMENT, ALL FOUND BY ITS OWN FALSIFIERS FIRING.**
+### **(D1) THE EXPOSURE TEST COULD NOT TELL ONE FUNCTION FROM THE NEXT.** ### It took
+### `def <fn>` -> `def <named successor>` and ### **NAMED THE WRONG SUCCESSOR FOR `left_side`** --
+### `staircase` is defined ABOVE it, so the split found nothing, returned the whole REMAINDER of
+### the file, swallowed `per_mode_eps_grids` and found its `Q.layer` call. ### **F-EXPOSURE FIRED
+### ON THAT AND NOT ON ANY REAL EXPOSURE.** ### b263's `--name-only` species exactly. ### The
+### successor is now FOUND, never named.
+### **(D2) THE `xi_n(1)` COLUMN WAS BUILT WITH PIN P2 APPLIED TWICE.** ### `sqrt(2) * |xi1|` came
+### out a factor of exactly `sqrt(2)` high at every mode. ### **`Q.layer`'s `xi1` IS `A_n(1)`
+### ALREADY AND THE HALF-LINE CONVENTION IS ALREADY INSIDE IT.** ### Corrected; the column now
+### reproduces b247 to `4.7e-07`.
+### **(D3) THE CROSSOVER PROBE GRID STARTED ABOVE THE CROSSOVER.** ### It probed `x in [50, 6000]`
+### and returned `x_c = 50` at every `NQ` -- ### **THE GRID'S OWN LEFT EDGE. ### A TEST THAT
+### SATURATES AT ITS FIRST POINT HAS MEASURED ITS GRID, NOT A CROSSOVER.**
+### **(D4) AND THE ONE THAT IS ABOUT THE SEALED REGISTRATION RATHER THAN THE RUNNER: ### THE
+### REGISTERED CROSSOVER STATISTIC COULD NOT HAVE PASSED. ###** ### (E)/S1 registered `A_n` at
+### `NQ` vs `2 NQ`, worst over resolved modes, at a ### `1e-8` RELATIVE ### bar. ### At `x = 200`
+### `A_0 ~ 5.6e-07` and the `NQ`-to-`2NQ` difference is ROUND-OFF at `~2.5e-14` absolute -- a
+### relative floor of ### **`~4.4e-08`**. ### ### **THE REGISTERED BAR SITS ### BELOW ### THE
+### ROUND-OFF FLOOR OF ITS OWN COMPARISON, SO IT MEASURES FLOATING-POINT NOISE AND NEVER THE
+### CEILING.** ### And a relative test on an oscillating function blows up at its zeros besides.
+### ### **F-LAW FIRED ON A STATISTIC THAT COULD NOT HAVE PASSED.** ### The statistic is REPLACED
+### by the reference-and-envelope cliff of (3), and the replacement is DECLARED here.
+### ### ### **THE HONEST SHAPE OF ALL FOUR: THREE OF THIS ACT'S FIVE FALSIFIERS FIRED ON THE
+### ### ### ACT'S OWN INSTRUMENT BEFORE ANY OF THEM SAID ANYTHING ABOUT b247 OR b255. ### THAT IS
+### ### ### THE FALSIFIERS WORKING, AND IT IS ALSO FOUR DEFECTS SHIPPED INTO A SEALED
+### ### ### REGISTRATION AND A FIRST RUNNER.**
+### **AND THE ASYMMETRY, SINCE b264 MADE A POINT OF ITS OWN: ### THESE FOUR DO NOT LEAN ONE WAY.**
+### (D1) and (D4) made the act look ### WORSE ### than it was (two false firings); (D2) and (D3)
+### made it look ### WRONG ### rather than better. ### **NONE OF THEM FLATTERED THE RESULT, WHICH
+### IS THE OPPOSITE OF b264's PATTERN AND IS RECORDED AS SUCH RATHER THAN CLAIMED AS VIRTUE.**
+
+====================================================================================================
+(9) THE REGISTERED EXPECTATIONS, SCORED.
+====================================================================================================
+### **S1 -- ### CONFIRMED IN ITS SHAPE, AND THE NUMBER IS SHARPER THAN REGISTERED.** ### Registered
+###   *"`NQ / x_c` IS APPROXIMATELY CONSTANT ... AT ABOUT `2.9`"*. ### **MEASURED: `3.2558` AND
+###   `3.2333`, SPREAD `1.0070`.** ### Constant as expected; the value is `3.24`, not `2.9`.
+###   ### **THE `2.9` CAME FROM DIVIDING b264's `eps_even` CROSSOVER BY `NQ`, AND THE CLIFF
+###   MEASURED HERE IS `A_n`'s, WHICH IS A DIFFERENT QUANTITY. ### THE EXPECTATION WAS RIGHT
+###   ABOUT THE LAW AND SLOPPY ABOUT WHICH OBJECT IT APPLIED TO.**
+### **S2 (b255) -- ### CONFIRMED. ### ZERO OF SIXTEEN ABOVE**, as registered.
+### **S2 (b247) -- ### CONFIRMED. ### ZERO `rho`-EXPOSED VALUES**, modes `0..6` INSIDE and
+###   `7..10` UNTESTABLE, exactly as registered.
+### **S4 -- ### CONFIRMED. ### NOTHING MOVED**, and it was registered in advance as the dull
+###   answer it is.
+### **`Dneg` -- ### WRONG. ### I EXPECTED THE SPREAD "COMPARABLE OR LARGER" AND IT IS ONE TO TWO
+###   ORDERS SMALLER.** ### Reported wrong.
+### ### **FOUR CONFIRMED, ONE WRONG, AND ONE OF THE FOUR CONFIRMED ONLY IN ITS SHAPE.**
+
+====================================================================================================
+(10) THE CEILING CARRIED LAST AS IT WAS CARRIED FIRST.
+====================================================================================================
+### **b14's DOUBLE LIMIT STAYS OPEN. ### b15 GOVERNS.**
+### **b242 GOVERNS: NO FITTED SLOPE, NO REGRESSION, NO EXTRAPOLATION IS BANKED. ### THE CROSSOVER
+### LAW IS AN OBSERVATION OVER TWO COUNTED POINTS AND IS NOT CLAIMED BEYOND THEM.**
+### **b246 GOVERNS: b242, b244, b247, b253, b255 AND b264 ARE CONSUMED AS OWNERS. ### NONE IS
+### RE-VERDICTED. ### THIS ACT GRADED CELLS AGAINST AN INSTRUMENT; IT DID NOT GRADE ACTS.**
+### **K.3 GOVERNS AND IS DISCHARGED IN THE BANK:** ### `b38_act10.py`, `qeps_layer.py`,
+### `carto_atlas.py`, `prolate_layer.py`, `b36_act8.py` and `b261_e2even.py` are
+### ### **READ AND IMPORTED, NEVER WRITTEN** ### -- verified by `git diff --quiet HEAD` on each,
+### not asserted. ### `B38.EPS_NQ`/`EPS_NG` were set as MODULE ATTRIBUTES and RESTORED, which the
+### registration declared in advance as b245's established pattern.
+### **THE REGISTER SENTENCE, QUOTED UNCHANGED: "RH reduced to a single located clause, reduction
+### machine-verified. h2 is the clause." ### NOTHING ABOVE TOUCHES IT.**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT.**
+====================================================================================================

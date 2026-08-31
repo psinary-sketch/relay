@@ -1,0 +1,45 @@
+import took 552ms
+'CeilingSweepShadow.the_cell_label_is_the_top_argument' does not depend on any axioms
+'CeilingSweepShadow.the_label_is_not_the_root' does not depend on any axioms
+'CeilingSweepShadow.every_b255_cell_is_below_the_crossover' does not depend on any axioms
+'CeilingSweepShadow.a_cell_above_the_crossover_is_not_below_it' does not depend on any axioms
+'CeilingSweepShadow.the_conservative_crossover_is_the_smaller_one' does not depend on any axioms
+'CeilingSweepShadow.the_modes_partition_seven_and_four' does not depend on any axioms
+'CeilingSweepShadow.the_floor_is_neither_empty_nor_everything' does not depend on any axioms
+'CeilingSweepShadow.the_bracket_at_seven_hundred' does not depend on any axioms
+'CeilingSweepShadow.the_bracket_at_fourteen_hundred' does not depend on any axioms
+'CeilingSweepShadow.the_bracket_excludes_on_both_sides' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.101ms
+	blocked (unaccounted) 3.47ms
+	elaboration 59.5ms
+	fix level params 0.161ms
+	import 552ms
+	initialization 47.8ms
+	instantiate metavars 0.316ms
+	interpretation 221ms
+	let-to-have transformation 0.156ms
+	linting 2.16ms
+	parsing 3.33ms
+	process pre-definitions 1.49ms
+	share common exprs 0.651ms
+	tactic execution 9.71ms
+	type checking 6.51ms
+	typeclass inference 220ms
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Four deliberately FALSE statements, one of the SAME SHAPE as each family of the
+### shadow's own terminals, submitted to the same `decide`:
+###   theorem false_square    : 10 * 10 = 10        := by decide
+###   theorem false_below     : (250 < 215)         := by decide
+###   theorem false_partition : (7 : Nat) + 4 = 12  := by decide
+###   theorem false_bracket   : (4 * 215 <= 700)    := by decide
+### ALL FOUR REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 10 * 10 = 10 is false
+###   error: Tactic `decide` proved that the proposition 250 < 215 is false
+###   error: Tactic `decide` proved that the proposition 7 + 4 = 12 is false
+###   error: Tactic `decide` proved that the proposition 4 * 215 <= 700 is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE TEN PASSES ARE THEREFORE READABLE.**
+### zero-axiom terminals in the COMPILE section : 10 ; errors in the COMPILE section : 0
+### (the four `error:` lines below the rule are the POLARITY CONTROL, quoted, and are
+###  the control WORKING -- they are not failures of the shadow.)

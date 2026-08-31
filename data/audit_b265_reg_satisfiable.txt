@@ -1,0 +1,26 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b265_registration_2026-08-31.txt -- b265, THE NQ-CEILING SWEEP
+  clauses      : 6
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  no single allocation > 512 MB      512              250.88           MB     SATISFIABLE
+      demand from : the registered NQ ladder's top, Q.layer(5600): numpy leggauss builds a dense NQ x NQ matrix, 8*5600^2 bytes = 250.88 MB. THE CLAUSE b264 GOT WRONG, CHECKED HERE BEFORE THE SEAL.
+  no single allocation > 512 MB      512              17.92            MB     SATISFIABLE
+      demand from : per_mode_eps_grids inner block an(u): EPS_NG=400 nodes x NQ=5600 prolate nodes x 8 bytes
+  total memory 4096 MB               4096             900              MB     SATISFIABLE
+      demand from : sum of the four cached prolate layers (700,1400,2800,5600) plus four eps grids at EPS_NRHO=445 x 11 modes, generously rounded up
+  wall-clock 1800 s                  1800             260              s      SATISFIABLE
+      demand from : MEASURED layer builds 0.93/3.36/14.89 s at NQ=700/1400/2800 with 5600 projected at 67 s by the measured 4.5x-per-doubling scaling (86 s); plus eps grids from b255's own measured 3.2 s at NRHO=240/NQ=700 scaled to NRHO=445 and linearly in NQ (89 s); plus 16 cells of family()+e2_of_grid+trace_modes (85 s)
+  eps grid rho range must cover the  100.001          100              rho    SATISFIABLE
+      demand from : b255's OWN (W1) clause: e2_of_grid interpolates at exp(uu) with uu in [0,2L], L=log a, so the top argument is exactly a^2 = 100 at the ladder's top cell. b255 rebuilt rr to RHO_MAX=100.001 for exactly this reason and this act reuses that range.
+  the sweep's top cell must sit belo 238.4            100              rho    SATISFIABLE
+      demand from : b264's measured crossover at EPS_NQ=700 is rho=238.4; b255's top cell puts rho at a^2=100. IF THIS CLAUSE WERE CONTRADICTORY THE ACT COULD NOT GRADE ITS OWN LADDER AND WOULD HAVE TO SAY SO INSTEAD OF SWEEPING.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

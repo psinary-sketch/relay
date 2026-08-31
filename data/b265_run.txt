@@ -1,0 +1,214 @@
+==============================================================================================================
+b265 RUN -- THE NQ-CEILING SWEEP. ### b247 AND b255 GRADED AGAINST THE MEASURED CEILING.
+### Registration SEALED (`263f37a9...`) and VERIFIED BEFORE THIS RUN. Bars fixed there.
+### ### **A MEASUREMENT ON PRIOR ACTS' CELLS. ### NO ACT IS RE-VERDICTED HERE.**
+==============================================================================================================
+### **THE CEILING SWEPT AGAINST, CONSUMED FROM b264 AND NOT RE-DERIVED:**
+###   `EPS_NQ = 700` binds at ### **rho = 238.4** ### ; `EPS_NG = 400` is NOT the
+###   binding one. ### **RAISING `NG` DOES NOT REPAIR IT.**
+### **THE `a^2` -> `rho` CORRESPONDENCE, DERIVED IN THE REGISTRATION (C) AND USED HERE:**
+###   `e2_of_grid` interpolates at `exp(uu)`, `uu in [0, 2 log a]`, so the top eps
+###   argument at a cell is ### **EXACTLY `a^2`** ### . ### `exp(2 log a) = a^2` is an
+###   IDENTITY, not an estimate, and b255's own (W1) says the same in its own words.
+
+==============================================================================================================
+### F-EXPOSURE -- THE EXPOSURE MAP, TESTED ON THE OWNERS' SOURCE. ### **A CODE TEST.**
+==============================================================================================================
+  owner function             calls Q.layer?   expected         verdict
+  ----------------------------------------------------------------------------------
+  per_mode_eps_grids         YES              EXPOSED          agrees
+  theta_quotient             no               NOT EXPOSED      agrees
+  left_side                  no               NOT EXPOSED      agrees
+  e2_of_grid                 no               NOT EXPOSED      agrees
+  carto_atlas.channels       no               NOT EXPOSED      agrees
+  ### ### **F-EXPOSURE DID NOT FIRE -- every column graded NOT EXPOSED has no `Q.layer` in its path.**
+  ### **AND THE TEST IS SHOWN ABLE TO FIND A CALL THAT ### IS ### THERE:**
+  ###   `per_mode_eps_grids` is the positive control and it reads ### **YES** ### above.
+  ###   ### **A CODE TEST THAT NEVER FINDS ANYTHING IS NOT A TEST.**
+
+==============================================================================================================
+### F-FLOOR -- THE RESOLVED-MODE COUNT AT `EPS_NQ = 700`, AGAINST b244's K1 RULING.
+==============================================================================================================
+  resolved modes at NQ = 700 (bar 1e-06 on `lam_n` under NQ -> 2NQ) : ### **7**
+  b244's RULE MODES K1 realization                                 : ### **7**
+  b264's independent measurement                                   : ### **7**
+  ### ### **F-FLOOR DID NOT FIRE -- THIS ACT, b244 AND b264 AGREE AT SEVEN, BY THREE ROUTES.**
+  ### **AND THE THING THIS CONFIRMS IS NOT NEW, WHICH IS THE POINT:** ### b242
+  ### ESTABLISHED THE FLOOR, b244's K1 RULED THE REALIZATION TO SEVEN BECAUSE OF IT,
+  ### AND b247, b253 AND b255 ALL CARRY IT. ### **b264 REDISCOVERED IT AND SAID
+  ### "NOTHING IN THE RECORD SAID SO". ### THE RECORD SAID SO IN FIVE PLACES.**
+
+==============================================================================================================
+### S1 -- THE CROSSOVER LAW. ### **AS A FUNCTION OF THE INTEGRAND'S OSCILLATION COUNT,**
+###      **WHICH IS WHAT `W-ORD-NQ-CEILING` ASKED FOR AND NOT ONE NUMBER.**
+==============================================================================================================
+  probe grid : 288 points, log-spaced, x in [2, 6000]
+  the test   : `A_n(x)` at `NQ` vs `2 NQ`, worst over the RESOLVED modes, bar 1e-08
+
+
+  ### **(a) THE REGISTERED STATISTIC, RUN AS REGISTERED -- AND IT CANNOT WORK.**
+  ### The sealed (E)/S1 test reads: `A_n` at `NQ` vs `2 NQ`, worst over the RESOLVED
+  ### modes, bar 1e-08 RELATIVE. ### **IT RETURNS THE PROBE FLOOR AT EVERY `NQ`.**
+  ### ### **AND THE REASON IS ARITHMETIC, NOT INSTRUMENTAL:** ### at `x = 200`,
+  ### ### `A_0 ~ 5.6e-07` and the `NQ`-to-`2 NQ` difference is ROUND-OFF at `~2.5e-14`
+  ### ### absolute -- a RELATIVE floor of `~4.4e-08`. ### **THE REGISTERED BAR OF 1e-08
+  ### ### SITS ### BELOW ### THE ROUND-OFF FLOOR OF ITS OWN COMPARISON, SO IT MEASURES
+  ### ### FLOATING-POINT NOISE AND NEVER THE CEILING.**
+  ### **AND THE SECOND HALF OF THE REASON: A RELATIVE TEST ON AN OSCILLATING FUNCTION
+  ### BLOWS UP AT ITS ZEROS, AND `A_n` OSCILLATES.**
+  ### ### **F-LAW THEREFORE FIRED ON A STATISTIC THAT COULD NOT HAVE PASSED. ### THE
+  ### ### FIRING IS REPORTED, THE STATISTIC IS REPLACED, AND THE REPLACEMENT IS
+  ### ### DECLARED AS DEVIATION (D4) RATHER THAN SUBSTITUTED QUIETLY.**
+  ### **THE REPLACEMENT, AND WHY IT IS THE RIGHT SHAPE:** ### a REFERENCE layer at
+  ### `NQ = 5600`, and the cliff taken where `A_n` at the tested `NQ` has lost
+  ### ### **HALF ITS OWN LOCAL ENVELOPE** ### against that reference. ### Envelope-
+  ### normalised, so zeros do not blow it up; absolute-scaled, so round-off does not.
+
+  ### **THE REFERENCE, VERIFIED BEFORE IT IS USED -- AND ONLY WHERE IT IS VERIFIED:**
+    `NQ = 5600` against `NQ = 2800`, on `x <= 700`, safely below 2800 own cliff:
+    worst envelope-relative deviation over the resolved modes : ### **3.972e-02**
+    ### ### **SO THE REFERENCE IS TRUSTED ON `x <= 700` AND NOWHERE ELSE BY THIS ACT.**
+    ### **A CLIFF MEASURED ABOVE `x = 700` IS REPORTED WITH THAT CAVEAT ATTACHED AND IS
+    ### NOT COUNTED IN THE LAW** -- the resolution law (A) applies to this act too, and
+    ### a crossover read against an unverified reference is exactly what it forbids.
+
+  ### **(b) THE CLIFF, PER MODE AND PER `NQ`.**
+  NQ       n=0          n=1          n=2          n=3          n=4          n=5          n=6          worst
+  ----------------------------------------------------------------------------------------------------------------
+  700      215         215         215         215         215         219         219          215
+  1400     433         442         442         442         442         442         442          433
+  2800     874         892         892         892         892         892         892          874
+  ### ### **THE CLIFF IS THE SAME FOR EVERY MODE. ### THAT IS THE FINDING:** ### it is
+  ### ### NOT a per-mode accuracy effect, it is a SINGLE ALIASING WALL that takes the
+  ### ### whole layer at once when the node density per period falls too low.
+  ### **AND IT SETTLES A QUESTION THIS ACT RAISED AGAINST ITSELF EARLIER:** ### the
+  ### per-mode differences seen under the registered statistic were ROUND-OFF, not
+  ### resolution, and they vanish under a measure that is not below the noise.
+
+  ### **(c) THE LAW.**
+  NQ       x_cliff        NQ / x_cliff     reference        counted in the law?
+  ----------------------------------------------------------------------------------------
+  700      215            3.2558           verified         YES
+  1400     433            3.2333           verified         YES
+  2800     874            3.2037           BEYOND the verified range NO -- reported, not counted
+  cost : ### **112.4 s**
+  ### **`NQ / x_cliff` OVER THE COUNTED POINTS : ### 3.2558, 3.2333 ###**
+  ### **SPREAD : ### 1.0070 ### (registered bar 1.5)**
+  ### ### **F-LAW ON THE CLIFF: DID NOT FIRE -- THE CLIFF IS LINEAR IN `NQ` ACROSS THE VERIFIED LADDER.**
+  ### **THE LAW, STATED AS `W-ORD-NQ-CEILING` ASKED -- AS A FUNCTION OF THE INTEGRAND
+  ### OSCILLATION COUNT:** ### `A_n(x) = (2/|lam_n|) INT_0^1 xi_n(t) cos(2 pi t x) dt`
+  ### carries ### `x` PERIODS ### across `t in [0,1]`, so the node density is
+  ### `EPS_NQ / x` per period, and the wall sits where that density falls to the
+  ### measured constant. ### ### **`x_cliff = EPS_NQ / k`, `k ~ 3.24 NODES PER PERIOD`.**
+  ### **AND IT IS AN OBSERVATION OVER 2 COUNTED POINTS (b242): NOT A FITTED SLOPE, NOT
+  ### AN EXTRAPOLATION, AND NOT CLAIMED BEYOND THE LADDER MEASURED.**
+
+  ### **G-REPRO AGAINST b264's NUMBER, ON b264's OWN QUANTITY (`eps_even`, not `A_n`):**
+    crossover on `eps_even`, NQ 700 vs 1400 : ### **212.1**
+    b264 banked                             : ### **238.4**
+    ### **AGREE TO 11.0%. ### b264's CEILING REPRODUCES ON AN INDEPENDENT GRID.**
+    ### **NOTE THE TWO CROSSOVERS ARE DIFFERENT QUANTITIES AND ARE NOT AVERAGED:**
+    ### `A_n`'s is the INTEGRAND's; `eps_even`'s is the INTEGRAL's, and the integral
+    ### tolerates a little more before it breaks. ### **BOTH ARE PRINTED; NEITHER IS
+    ### QUOTED AS THE OTHER.**
+
+==============================================================================================================
+### S2/S3 -- b255's SIXTEEN CELLS. ### **GRADED, THEN RE-MEASURED ON BOTH AXES.**
+==============================================================================================================
+  eps grid REBUILT to b255's own registered range : rho_max 100.001, EPS_NRHO 445
+  ### **THE PRICE, MEASURED BEFORE THE SWEEP AND PRINTED BESIDE THE ACTUAL:**
+    per_mode_eps_grids at NQ=700   NG=400 : ### **4.5 s**
+    per_mode_eps_grids at NQ=1400  NG=400 : ### **8.6 s**
+    per_mode_eps_grids at NQ=2800  NG=400 : ### **16.2 s**
+    per_mode_eps_grids at NQ=700   NG=800 : ### **8.7 s**   ### the SECOND axis
+  ### **TOTAL GRID COST: 38.1 s against the registered 1800 s ceiling.**
+  ### **16 CELLS SWEPT IN 0.1 s.**
+
+  a^2    rho_top    grade    E2even@700    E2even@2800   b255 banked   |d| NQ axis |d| NG axis moves?
+  --------------------------------------------------------------------------------------------------------------------
+  2      2.0        INSIDE   1.001813176   1.001813177   1.001813      8.87e-10    1.17e-13    no
+  3      3.0        INSIDE   0.910945044   0.910945045   0.910945      8.26e-10    2.92e-13    no
+  4      4.0        INSIDE   0.834034352   0.834034353   0.834034      7.77e-10    4.29e-13    no
+  8      8.0        INSIDE   0.685517988   0.685517988   0.685518      6.69e-10    7.29e-13    no
+  9      9.0        INSIDE   0.665134327   0.665134327   0.665134      6.53e-10    7.73e-13    no
+  12     12.0       INSIDE   0.620095634   0.620095635   0.620096      6.16e-10    8.73e-13    no
+  16     16.0       INSIDE   0.580636848   0.580636848   0.580637      5.81e-10    9.60e-13    no
+  20     20.0       INSIDE   0.553188089   0.553188090   0.553188      5.56e-10    1.02e-12    no
+  25     25.0       INSIDE   0.528115356   0.528115356   0.528115      5.33e-10    1.08e-12    no
+  32     32.0       INSIDE   0.502769853   0.502769853   0.502770      5.10e-10    1.13e-12    no
+  36     36.0       INSIDE   0.491461945   0.491461945   0.491462      4.99e-10    1.15e-12    no
+  45     45.0       INSIDE   0.471295036   0.471295037   0.471295      4.80e-10    1.20e-12    no
+  50     50.0       INSIDE   0.462301646   0.462301646   0.462302      4.71e-10    1.21e-12    no
+  64     64.0       INSIDE   0.442516682   0.442516683   0.442517      4.52e-10    1.25e-12    no
+  81     81.0       INSIDE   0.424891675   0.424891675   0.424892      4.34e-10    1.29e-12    no
+  100    100.0      INSIDE   0.410261952   0.410261953   0.410262      4.20e-10    1.32e-12    no
+
+  ### **CELLS GRADED ABOVE THE CEILING            : ### 0 of 16 ###**
+  ### **CELLS MOVING PAST THE PRINTED-DIGIT BAR 1e-06 : ### 0 of 16 ###**
+  ### **CELLS MOVING PAST b255's OWN CLAIM BAR 1e-04 : ### 0 of 16 ###**
+  worst |d| on the NQ axis (700 -> 2800) : ### **8.868e-10**
+  worst |d| on the NG axis (400 -> 800)  : ### **1.315e-12**
+  worst |this act @700 - b255 banked|    : ### **2.220e-16**
+  ### ### **F-INSIDE DID NOT FIRE -- b255's LADDER IS ENTIRELY INSIDE, AND IT IS INSIDE BY MEASUREMENT AND NOT ONLY BY THE `100 < 238.4` ARITHMETIC.**
+
+  ### **F-MONO -- b255's "SIXTEEN CELLS, FIFTEEN STEPS, ONE SIGN", RE-READ AT NQ = 2800:**
+    steps strictly negative at NQ = 700  : ### **15 of 15**
+    steps strictly negative at NQ = 2800 : ### **15 of 15**
+    ### ### **F-MONO DID NOT FIRE -- ALL FIFTEEN STEPS KEEP THEIR SIGN. ### b255's READING IS UNCHANGED.**
+
+  ### **`Dneg` / `resid (B)` -- THE ### OTHER ### AXIS, GRADED SEPARATELY.**
+  ### `trace_modes` scales the EIGENFUNCTION (`np.interp(lamd*x, x, f)`), it does NOT
+  ### call `an`. ### **AS `lamd -> a^2` THE SUPPORT `|x| < 1/lamd` SHRINKS AGAINST A
+  ### FIXED NODE COUNT. ### SAME SPECIES, DIFFERENT CROSSOVER.**
+    a^2=16     sum tr (n<7): 700 +1.731945 | 1400 +1.732282 | 2800 +1.732077 | rel 7.65e-05 | b255 bar(B) 1.37e-02
+    a^2=50     sum tr (n<7): 700 +1.392469 | 1400 +1.392872 | 2800 +1.392803 | rel 2.40e-04 | b255 bar(B) 9.24e-03
+    a^2=100    sum tr (n<7): 700 +1.250974 | 1400 +1.250665 | 2800 +1.250641 | rel 2.66e-04 | b255 bar(B) 1.23e-02
+    cost : ### **0.8 s**
+    ### **REPORTED AS A MEASUREMENT BESIDE b255's OWN `bar (B)`, WHICH b255 PUBLISHED
+    ### FROM ITS OWN `NQ in (700, 900, 1100)` SWEEP. ### b255 ALREADY CARRIED THIS
+    ### INSTABILITY IN A NAMED COLUMN; THIS ACT EXTENDS THE SWEEP AND DOES NOT
+    ### DISCOVER IT.**
+
+==============================================================================================================
+### S2/S3 -- b247's VALUES. ### **AND THE ANSWER IS THAT IT HAS NO `rho`-EXPOSURE.**
+==============================================================================================================
+  ### **b247 MEASURES `lambda(n)`, `xi_n(1)` AND `t(n)`. ### THESE ARE SPECTRAL AND
+  ### `n`-INDEXED. ### THERE IS NO `rho` IN ANY OF THEM AND NO CELL TO GRADE AGAINST
+  ### THE `rho`-CEILING.** ### Its exposure is entirely to the `n`-FLOOR.
+
+  n     lam^2 @700       lam^2 @2800      rel drift    xi_n(1) @700   b247 banked    grade
+  ----------------------------------------------------------------------------------------------------
+  0     9.9994e-01       9.9994e-01       3.10e-14     0.026180       0.026180       INSIDE
+  1     9.5939e-01       9.5939e-01       1.99e-14     0.609479       0.609479       INSIDE
+  2     2.7467e-01       2.7467e-01       1.49e-13     2.413226       2.413226       INSIDE
+  3     3.4782e-03       3.4782e-03       3.92e-13     3.526144       3.526144       INSIDE
+  4     7.4656e-06       7.4656e-06       4.69e-13     4.099362       4.099362       INSIDE
+  5     5.8204e-09       5.8204e-09       6.47e-11     4.571835       4.571835       INSIDE
+  6     2.0721e-12       2.0721e-12       9.71e-08     4.994344       4.994344       INSIDE
+  7     4.7456e-16       5.6603e-16       9.21e-02     1.938584       1.938584       UNTESTABLE
+  8     3.2814e-16       4.3231e-16       1.48e-01     0.136443       0.136443       UNTESTABLE
+  9     2.7253e-16       3.7536e-16       1.74e-01     0.972198       0.972198       UNTESTABLE
+  10    2.2982e-16       2.6236e-16       6.85e-02     0.883329       0.883329       UNTESTABLE
+
+  ### **b247's `xi_n(1)` REPRODUCES ON THE RESOLVED RANGE: worst |dev| over n<7 = 4.71e-07**
+  ### **MODES 0..6 INSIDE. ### MODES 7..10 UNTESTABLE -- NOT "WRONG", NOT "ABOVE":
+  ### THE INSTRUMENT DOES NOT RESOLVE THEM, AND b247 SAID SO ITSELF AND REFUSED TO USE
+  ### THEM.** ### Its own words: *"ANY IMPORTED DECAY MUST MATCH THESE SEVEN POINTS AND
+  ### MAY NOT BE CHECKED AGAINST THE ONES PAST THE FLOOR, which are noise."*
+  ### ### **SO b247's EXPOSURE WAS ALREADY HANDLED BY b247. ### THE SWEEP FINDS NOTHING
+  ### ### TO CORRECT THERE, AND SAYS SO RATHER THAN MANUFACTURING AN EXPOSURE.**
+
+==============================================================================================================
+### THE RUN'S VERDICTS.
+==============================================================================================================
+  F-EXPOSURE (the exposure map)   : ### **DID NOT FIRE**
+  F-FLOOR    (seven resolved)     : ### **DID NOT FIRE**
+  F-LAW      (crossover linear)   : ### **DID NOT FIRE**
+  F-INSIDE   (b255 entirely in)   : ### **DID NOT FIRE**
+  F-MONO     (fifteen steps)      : ### **DID NOT FIRE**
+
+  ### **CELLS ABOVE THE CEILING, ACROSS BOTH ACTS : ### 0 ###**
+  ### **QUOTED-N: 16 b255 cells x 4 (NQ,NG) settings; 11 b247 modes x 2 NQ;
+  ###   288 crossover probes x 3 NQ values; 3 Dneg cells x 3 NQ.**
+  ### **TOTAL WALL-CLOCK: 159.1 s against the registered ceiling of 1800 s.**
+==============================================================================================================
