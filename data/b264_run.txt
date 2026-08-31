@@ -1,0 +1,400 @@
+====================================================================================================
+b264 RUN -- J4: `eps_even`'s DECAY. ### CONTROLS ON A DERIVATION.
+### Registration SEALED (`c9abc57f...`) and VERIFIED BEFORE THIS RUN. Bars fixed there.
+====================================================================================================
+### **THE DOUBLE-LIMIT DISCIPLINE (registration (C)), NAMED AT EVERY USE:**
+###   ### **(X) THE KERNEL LIMIT: `x -> inf` IN `eps_even(x)`.** ### One real variable.
+###   ### **(A) THE CELL-LADDER LIMIT: `a^2 -> inf`.** ### The DIAGONAL `a^2` coordinate.
+### **(A) DRIVES (X) AT EVERY `s > 0` THROUGH b261's VERIFIED IDENTITY, AND AT `s = 0` IT
+### DRIVES NOTHING: `a^0 = 1` AND `eps_even(1) = 0` FOR EVERY `a`.**
+
+--- ### W-ORD-TE-SPEC: THE AXES, PRINTED BEFORE ANY NUMBER IS READ ---
+  EPS_NQ (prolate nodes)  : 700      ### the owner's, UNCHANGED
+  NTERM (modes)           : 11      ### qeps_layer; ALREADY the EVEN prolate modes (P1)
+  EVEN mask / ODD mask    : [0, 2, 4, 6, 8, 10] / [1, 3, 5, 7, 9]
+  ### **THE AXIS THAT MOVES, DECLARED:** the owner fixes `EPS_NG = 400`; this act uses
+    ### **`NG = max(400, ceil(8 * rho))` -- EIGHT NODES PER OSCILLATION PERIOD**, and
+    ### **THE CONVERGENCE TEST IS `NG` VS `2 NG`, NOT A LOOK AT THE CURVE.**
+  bars (all registered)   : F1 1e-09 abs | F2 0.05 rel | F3 [0.95,1.05] | F4 1e-10 | F5 1e-12
+  ### CELL SPECIES: ### **`rho` IS THE KERNEL VARIABLE (X). ### `a^2` IS THE DIAGONAL
+  ###   LADDER CELL (A). ### THEY ARE NOT THE SAME AXIS AND ARE NEVER PRINTED AS ONE.**
+
+--- ### **THE DEVIATION FROM THIS ACT'S FIRST RUNNER, DECLARED HERE AND NOT SMOOTHED
+---     ### OVER** (registration (L)'s standing deviation rule) ---
+  ### **THE FIRST RUN OF THIS FILE DIED, AND IT DIED AGAINST THE REGISTRATION'S OWN
+  ### CEILING RATHER THAN AGAINST ANY MATHEMATICS.** ### `np.polynomial.legendre.leggauss`
+  ### builds a DENSE `NG x NG` matrix and calls `eigvalsh`: ### **`gl(60000)` ASKS FOR
+  ### 28.8 GB IN ONE ALLOCATION, AND CLAUSE (I) DECLARES "NO SINGLE ALLOCATION ABOVE
+  ### 256 MB".** ### `MemoryError` at `(IDENT-D)`, before the ladder was reached.
+  ### ### **AND THE SHARPER HALF, WHICH IS ABOUT THE REGISTRATION AND NOT ABOUT NUMPY:**
+  ### ### the cap `8*NG^2 <= 256 MB` binds from ### **`NG > 5793`** ### upward, i.e. from
+  ### ### the ### REGISTERED ### ladder's `x = 500` CONVERGENCE cell onward -- so
+  ### ### **THE REGISTERED TARGET OF `x` TO AT LEAST 1000 WAS NEVER REACHABLE BY THE
+  ### ### MONOLITHIC RULE, AND CLAUSE (I) WAS INTERNALLY UNSATISFIABLE AS WRITTEN.**
+  ### **THE REPAIR, AND WHAT IT DOES NOT TOUCH:** the rule is now PANELLED above
+  ### `GL_DENSE_MAX = 4000` -- `P` equal panels of `GL_PANEL = 400` nodes, the panel order
+  ### being ### **THE OWNER'S OWN `EPS_NG`, SO NO NEW NODE COUNT IS COINED.**
+  ### ### **THE TOTAL NODE COUNT IS THE REGISTERED ONE. ### THE `NG` LAW IS UNCHANGED.
+  ### ### THE `NG` vs `2 NG` TEST IS UNCHANGED. ### F5 STILL RUNS MONOLITHIC AT THE
+  ### ### OWNER'S `NG = 400` ON THE OWNER'S OWN NODES.** ### Peak allocation for the
+  ### rule falls from `8*NG^2` to `8*400^2` = 1.28 MB.
+  ### **NO OWNER FILE WAS EDITED. ### THE FILE REPAIRED IS THIS ACT'S OWN RUNNER** (K.4).
+  ### **AND THE DIRECTION OF THE CHANGE IS NOT DRESSED UP:** a monolithic Gauss rule
+  ### clusters nodes at the endpoints and thins in the middle, which is the wrong density
+  ### for a fixed-frequency oscillation, ### **so the panelled rule is AT LEAST AS GOOD at
+  ### equal node count -- and this act claims NOTHING BEYOND "at least as good".**
+  ### ### **THIS IS AN INSTRUMENT CEILING OF A SECOND KIND AND IT IS FILED AS ONE:** not
+  ### ### the owner's `EPS_NG = 400` ceiling this act was sent to measure, but a ceiling
+  ### ### on ### THIS ACT'S OWN REMEDY ### for it. ### **`W-ORD-GL-PANEL` IS FILED.**
+
+====================================================================================================
+### F5 -- THE G-REPRO, RUN ### FIRST ### , BEFORE ANY NEW VALUE IS READ.
+====================================================================================================
+  cells compared (rho in [1, 100.001])  : ### **60**
+  node count used                       : ### **400 -- THE OWNER'S OWN `EPS_NG`**
+  worst |new evaluator - owner|         : ### **0.000e+00**
+  bar (registered before any value)     : 1e-12
+  ### ### **F5 DID NOT FIRE -- THE NEW EVALUATOR ### IS ### THE OWNER'S, AT THE OWNER'S NG.**
+  ### ### **HAD IT FIRED, EVERY NUMBER BELOW WOULD BE VOID, AND THE CHECK RAN BEFORE ANY
+  ### ### NEW VALUE EXISTED.**
+  (C5) COMPARATOR DISCRIMINATES -- vs the WRONG mask : ### **4.840e-01**
+
+====================================================================================================
+### F4 -- THE MASK ALGEBRA ON THE NEW EVALUATOR. ### b38's OWN GATE BAR.
+====================================================================================================
+  max|eps_even + eps_odd - eps_full|    : ### **2.220e-16**   (bar 1e-10)
+  ### ### **F4 DID NOT FIRE -- THE MASKS PARTITION `eps`; THEY DO NOT REDEFINE IT.**
+
+====================================================================================================
+### S1 -- THE FORM. ### **THE EXACT PER-MODE IDENTITIES, AND THE SIGN PIN (F6).**
+====================================================================================================
+
+  ### **THE MODE-RESOLUTION BOUNDARY, MEASURED (`lam_n` UNDER `NQ` -> `2 NQ`):**
+    n     lam_n(NQ=700)    lam_n(NQ=1400)   rel drift    verdict
+    ------------------------------------------------------------------------
+    0     9.999714e-01     9.999714e-01     4.40e-14     RESOLVED
+    1     9.794847e-01     9.794847e-01     2.80e-14     RESOLVED
+    2     5.240859e-01     5.240859e-01     2.14e-13     RESOLVED
+    3     5.897659e-02     5.897659e-02     5.65e-13     RESOLVED
+    4     2.732329e-03     2.732329e-03     6.03e-13     RESOLVED
+    5     7.629136e-05     7.629136e-05     3.65e-10     RESOLVED
+    6     1.439470e-06     1.439470e-06     2.44e-07     RESOLVED
+    7     2.178442e-08     2.118681e-08     2.74e-02     NOISE FLOOR -- not an eigenvalue
+    8     1.811457e-08     1.926934e-08     6.37e-02     NOISE FLOOR -- not an eigenvalue
+    9     1.650848e-08     1.801174e-08     9.11e-02     NOISE FLOOR -- not an eigenvalue
+    10    1.515987e-08     1.551411e-08     2.34e-02     NOISE FLOOR -- not an eigenvalue
+  ### ### **MODES [0, 1, 2, 3, 4, 5, 6] ARE RESOLVED. ### MODES [7, 8, 9, 10] ARE AT THE FLOOR:** ### they stop
+  ### ### decaying, they sit at `~1.5e-8 ~ sqrt(machine epsilon)`, and they ### MOVE ###
+  ### ### when `NQ` moves -- upward, which no true eigenvalue does. ### **THEIR
+  ### ### EIGENFUNCTIONS ARE ARBITRARY VECTORS IN A NEAR-DEGENERATE NOISE SUBSPACE,
+  ### ### SO THEIR SIGNS CARRY NO INFORMATION AT ALL.**
+  ### **AND THE CONSEQUENCE FOR EVERY BANKED NUMBER, STATED WITH ITS SIZE:** the floor
+  ### modes contribute `sum lam/sqrt(1-lam^2) = 7.16e-08` to the envelope constant (whose
+  ### leading term is `lam_0/sqrt(1-lam_0^2) = 132.164`), and enter `eps_n` as
+  ### `lam^2/(1-lam^2) ~ 4.75e-16`. ### **THEY ARE BELOW DOUBLE PRECISION IN EVERY
+  ### QUANTITY THIS ACT BANKS, SO NOTHING NUMERICAL MOVES. ### WHAT MOVES IS WHAT F6
+  ### IS ENTITLED TO SAY.**
+
+  ### **F6 -- THE SIGN PIN. ### `s_n := sign(A_n(1))` VS PIN P1's `(-1)^n`:**
+    n        A_n(1)           s_n(empirical)   (-1)^n     agree     testable?
+    ------------------------------------------------------------------------------
+    0        0.026179996      1                1          True      yes
+    1        -0.609479254     -1               -1         True      yes
+    2        2.413226271      1                1          True      yes
+    3        -3.526143743     -1               -1         True      yes
+    4        4.099362227      1                1          True      yes
+    5        -4.571835012     -1               -1         True      yes
+    6        4.994292320      1                1          True      yes
+    7        -2.182993599     -1               -1         True      NO -- noise-floor mode
+    8        -0.051349363     -1               1          False     NO -- noise-floor mode
+    9        -0.397328496     -1               -1         True      NO -- noise-floor mode
+    10       -0.347857529     -1               1          False     NO -- noise-floor mode
+  ### ### **F6 IS READ ON THE 7 RESOLVED MODES ONLY, AND ON THOSE IT DID NOT FIRE -- THE INSTRUMENT REALIZES PIN P1's SIGN LAW EXACTLY.**
+  ### **AND THE CORRECTION THIS ACT OWES ITS OWN FIRST READING, AT THE SAME PROMINENCE
+  ### AS THE CLAIM IT REPLACES:** ### an earlier pass of this runner read F6 across all
+  ### 11 modes, found [8, 10] disagreeing, and was prepared to report
+  ### ### **"PIN P1's SIGN LAW IS NOT WHAT THIS INSTRUMENT REALIZES"** ### as a finding
+  ### ### AGAINST THE CORPUS. ### THAT WOULD HAVE BEEN WRONG.** ### Those modes are
+  ### numerical noise; a sign read off noise is a coin, and two of the four floor modes
+  ### happening to AGREE with `(-1)^n` is the same coin landing the other way.
+  ### ### **PIN P1 IS NOT IMPEACHED BY THIS ACT. ### IT IS CONFIRMED WHERE IT CAN BE
+  ### ### TESTED AND UNTESTED WHERE IT CANNOT, AND THE SECOND IS NOT EVIDENCE.**
+  ### **A SEPARATE AND MILDER INSTRUMENT FINDING, FILED AS ITS OWN:** ### `qeps_layer`
+  ### carries `NTERM = 11` on Lemma F.1's *"first 11 terms uniform to 1e-11"*, and at
+  ### `EPS_NQ = 700` the instrument ### RESOLVES ONLY 7 OF THEM ### . ### The truncation
+  ### claim is unharmed -- the unresolved terms contribute below double precision -- but
+  ### ### **THE INSTRUMENT CARRIES FOUR MODES IT CANNOT COMPUTE, AND NOTHING IN THE
+  ### ### RECORD SAID SO. ### `W-ORD-NTERM-FLOOR` IS FILED.**
+
+  ### **(IDENT-A) `INT_0^1 xi_n^2 = 1` (pin P2) : worst |dev| = ### 2.220e-15**
+  ### **(IDENT-B) MERCER AT THE CORNERS -- `c = 2 pi`, so `c/pi = 2`:**
+      sum_n lam_n^2 xi_n(1)^2  = ### **2.000000000**   ### b250's, EXACT VALUE 2   -- CONTROL
+      sum_n lam_n^2 xi_n(0)^2  = ### **4.000000000**   ### THIS ACT'S, EXACT VALUE 4   -- NEW
+      ### ### **THE `(0,0)` CORNER IS DERIVED IN THE BANK AND IS NOT b250's.** ### At
+      ### ### `(0,0)` the ODD prolate modes vanish, so the EVEN half carries the WHOLE
+      ### ### `K(0,0) = c/pi = 2` instead of half of it -- hence `4`, not `2`.
+  ### **(IDENT-C) `INT_0^1 A_n du = lambda_n^{true} A_n(0) / 2` : worst |dev| = ### 1.108e-08**
+      ### ### **THIS IS THE STEP WHERE THE ### SIGNED ### `lambda` ENTERS.** ### It is
+      ### ### pin P3 evaluated at `x = 0`, and it FAILS if the sign is dropped:
+      ###   worst |dev| with `|lambda|` in place of `lambda^{true}` : ### **1.027e+00**
+  ### **(IDENT-D) `INT_1^inf |A_n|^2 dv = (1 - lam_n^2)/lam_n^2` -- THE ENVELOPE'S ENGINE:**
+      quadrature to R = 100 (### INSIDE ### the measured `EPS_NQ` ceiling) + the
+      derived `1/(2R)` far-field tail. ### **READ PER MODE:**
+      n     rel dev        status
+      ----------------------------------------------------
+      0     1.536e-07      RESOLVED
+      1     4.952e-08      RESOLVED
+      2     1.540e-07      RESOLVED
+      3     4.555e-07      RESOLVED
+      4     1.035e-06      RESOLVED
+      5     1.959e-06      RESOLVED
+      6     3.125e-06      RESOLVED
+      7     7.332e-01      noise floor -- excluded, not hidden
+      8     9.978e-01      noise floor -- excluded, not hidden
+      9     8.152e-01      noise floor -- excluded, not hidden
+      10    8.234e-01      noise floor -- excluded, not hidden
+      ### **WORST OVER THE 7 RESOLVED MODES : ### 3.125e-06 ###**
+      ### ### **THE ENVELOPE'S ENGINE IS VERIFIED ON EVERY MODE THAT CARRIES ANY OF
+      ### ### THE ENVELOPE. ### THE EXCLUDED MODES ARE LISTED WITH THEIR NUMBERS ABOVE
+      ### ### RATHER THAN DROPPED SILENTLY.**
+      ### the truncation is PRICED, not hidden: the omitted tail is `O(1/R)` and is
+      ### ADDED from the derived far field, never fitted.
+
+  ### **THE TWO DERIVED CONSTANTS, EVALUATED FROM THE DERIVED FORMULAS:**
+    n     lam_n           c_n = lam/sqrt(1-lam^2)   K_n = lam^{true} xi_n(0)^2 / 2
+    ------------------------------------------------------------------------------
+    0     9.999713763e-01 1.321638087e+02           1.364467792e+00
+    1     9.794847347e-01 4.860523243e+00           -5.388998749e-01
+    2     5.240858962e-01 6.153659513e-01           2.022486924e-01
+    3     5.897658918e-02 5.907942483e-02           -2.928681200e-02
+    4     2.732328743e-03 2.732338942e-03           1.513720568e-03
+    5     7.629135929e-05 7.629135952e-05           -4.436642909e-05
+    6     1.439469924e-06 1.439469924e-06           8.597700221e-07
+    7     2.178441502e-08 2.178441502e-08           -2.174706788e-09
+    8     1.811457461e-08 1.811457461e-08           9.915033759e-13
+    9     1.650848064e-08 1.650848064e-08           -5.401235190e-11
+    10    1.515987001e-08 1.515987001e-08           3.770232362e-11
+    ### **C_even = sum_{n even} c_n = ### 132.781908429** ### -- THE ENVELOPE CONSTANT
+    ### **K_even = sum_{n even} K_n = ### 1.568231065** ### -- THE LEADING CONSTANT
+    ### **K_odd  = sum_{n odd}  K_n = ### -0.568231056**
+    ### ### **EVERY `K_n` HAS THE SIGN OF `lambda_n^{true} = (-1)^n |lambda_n|`, SO THE
+    ### ### EVEN MASK'S TAIL IS ### POSITIVE ### AND THE ODD MASK'S IS ### NEGATIVE ### .**
+    ### **AND THAT IS A CONSISTENCY CHECK, NOT A PREDICTION (registration (J2)):**
+    ### b261 BANKED `eps_odd` NEGATIVE AT `rho = 5, 10, 50, 100` BEFORE THIS ACT EXISTED.
+
+====================================================================================================
+### S3 -- THE BENCH CONTROL. ### **THE LADDER, PRICED BEFORE ANY REFUSAL.**
+====================================================================================================
+  ### **THE PRICE, MEASURED ON THE G-REPRO BLOCK AND PROJECTED BEFORE THE LADDER RUNS:**
+    60 cells at NG = 400 took ### **1.23 s** ### -> ### **5.123e-05 s per node-evaluation**
+    projected for the ladder (NG + 2NG at each of 12 cells) : ### **23.4 s**
+    ceiling declared in the registration                    : ### **900 s**
+    ### ### **THE LADDER IS RUN. ### NO CELL IS REFUSED, AND THE PROJECTION IS PRINTED
+    ### ### BESIDE THE ACTUAL SO THE ESTIMATE CAN BE SCORED (b262's repair (b)).**
+    ### **ACTUAL: 30.2 s. ### THE ESTIMATE WAS SOUND.**
+
+
+  ### **TWO DEVIATIONS FROM THIS ACT'S FIRST RUNNER, BOTH AGAINST THE SEALED
+  ### REGISTRATION'S OWN WORDS, DECLARED BEFORE THE TABLE THEY CHANGE:**
+  ### **(D1) F1 WAS IMPLEMENTED ONE-SIDED AND THE REGISTRATION IS NOT.** ### The sealed
+  ###   text reads ### *"If any converged `|eps_even(x)|` exceeds its derived envelope"* ###
+  ###   -- ### **WITH THE ABSOLUTE VALUE** ### -- and the first runner tested
+  ###   `eps_even - env > bar`, which a LARGE NEGATIVE value passes untouched.
+  ###   ### **THAT IS THE ONLY REASON F1 DID NOT FIRE ON THE FIRST RUN.** ### Repaired to
+  ###   the registered form; the discriminator (C1) is repaired with it.
+  ### **(D2) THE REGISTERED CONVERGENCE TEST CANNOT SEE TO THE ERROR THAT
+  ###   ACTUALLY BITES.** ### `NG` vs `2 NG` moves the OUTER quadrature only. ### But
+  ###   `A_n(x)` is itself a quadrature, on the owner's FIXED `EPS_NQ = 700` grid, whose
+  ###   integrand `cos(2 pi t x)` carries `x` periods across `t in [0,1]`. ### **BOTH
+  ###   `NG` AND `2 NG` CARRY THE SAME INNER ERROR, SO THEY AGREE WITH EACH OTHER WHILE
+  ###   BOTH ARE WRONG -- A FALSE PASS, NOT A LOOSE ONE.** ### A second axis `NQ` vs
+  ###   `2 NQ` is added and ### **A CELL COUNTS AS CONVERGED ONLY IF BOTH AXES PASS.**
+  ###   ### **THIS IS A STRENGTHENING OF A REGISTERED TEST, NOT A LOOSENING, AND IT IS
+  ###   ### DECLARED RATHER THAN QUIETLY BANKED.** ### No owner file is edited: `Q.layer`
+  ###   ### is ALREADY parameterized by `NQ` and the owner's 700 stays the reference.**
+
+  rho       NG       eps_even         envelope C/rho   rel(NG,2NG)  rel(NQ,2NQ)  rho^1.5*eps    converged
+  ------------------------------------------------------------------------------------------------------------------
+  2         400      3.957360219e-01  6.639095421e+01  3.17e-12     2.08e-09     1.119310499    True
+  5         400      1.146247744e-01  2.655638169e+01  1.78e-11     1.53e-09     1.281543937    True
+  10        400      4.562928236e-02  1.327819084e+01  4.47e-11     1.26e-09     1.442924603    True
+  20        400      1.693715073e-02  6.639095421e+00  1.03e-10     1.45e-09     1.514904815    True
+  50        400      4.383234739e-03  2.655638169e+00  3.33e-10     1.17e-09     1.549707504    True
+  100       800      1.559480084e-03  1.327819084e+00  2.49e-09     1.21e-09     1.559480084    True
+  200       1600     5.529529290e-04  6.639095421e-01  1.44e-08     1.36e-09     1.563987063    False
+  500       4000     -2.156423599e+00 2.655638169e-01  2.60e-12     7.64e+00     -24109.548782402 False
+  1000      8000     -7.525607186e-01 1.327819084e-01  1.98e-13     1.28e-02     -23798.059482275 False
+  2000      16000    -2.587199857e-01 6.639095421e-02  6.24e-14     2.75e-02     -23140.619007765 False
+  5000      40000    -6.633674308e-02 2.655638169e-02  1.02e-12     2.37e-02     -23453.580435329 False
+  10000     80000    -2.337587433e-02 1.327819084e-02  2.54e-12     4.07e-03     -23375.874334020 False
+
+  ### **THE CELLS THE REGISTERED TEST ALONE WOULD HAVE PASSED AND THE SECOND AXIS
+  ### REJECTS: ### rho=500, rho=1000, rho=2000, rho=5000, rho=10000 ### .**
+  ### ### **EACH OF THOSE IS A CELL WHERE `NG` AND `2 NG` AGREED TO HIGH PRECISION ON A
+  ### ### VALUE THAT IS WRONG BY ORDERS OF MAGNITUDE. ### THEY ARE NOT EVIDENCE ABOUT
+  ### ### `eps` AND THEY ARE NOT COUNTED AS ANY.**
+
+  ### **F1 -- THE ENVELOPE, ON CONVERGED CELLS ONLY (6 of 12):**
+    violations (|eps_even| - C_even/rho > 1e-09) : ### **0**
+  ### ### **F1 DID NOT FIRE -- THE DERIVED ENVELOPE HOLDS AT EVERY CONVERGED CELL.**
+  ### **F2 -- THE LEADING CONSTANT, AT THE TOP CONVERGED CELL `rho = 100`:**
+      rho^{3/2} eps_even = ### **1.559480084** ### vs K_even = ### **1.568231065**
+      relative deviation = ### **5.5802e-03** ### (bar 0.05)
+  ### ### **F2 DID NOT FIRE.**
+
+  ### **THE CEILING, MEASURED -- AND ### NOT ### THE ONE THIS ACT WAS SENT TO MEASURE.**
+  ### **THE RECORD CARRIED THE SYMPTOM; THIS IS ITS CAUSE, AND THE CAUSE IS NOT `NG`.**
+  rho       eps_even (NG=400)  eps_even (NG law)  rel err    cell valid?
+  ----------------------------------------------------------------------------------
+  2         3.957360219e-01    3.957360219e-01    3.17e-12   VALID
+  5         1.146247744e-01    1.146247744e-01    1.78e-11   VALID
+  10        4.562928236e-02    4.562928236e-02    4.47e-11   VALID
+  20        1.693715073e-02    1.693715073e-02    1.03e-10   VALID
+  50        4.383234738e-03    4.383234739e-03    3.33e-10   VALID
+  100       1.559480087e-03    1.559480084e-03    1.89e-09   VALID
+  200       5.529529231e-04    5.529529290e-04    1.07e-08   VOID -- both columns unsound
+  500       -3.699892020e+00   -2.156423599e+00   7.16e-01   VOID -- both columns unsound
+  1000      5.763202694e-01    -7.525607186e-01   1.77e+00   VOID -- both columns unsound
+  2000      8.549176811e-01    -2.587199857e-01   4.30e+00   VOID -- both columns unsound
+  5000      9.966184101e-02    -6.633674308e-02   2.50e+00   VOID -- both columns unsound
+  10000     -1.212605202e+00   -2.337587433e-02   5.09e+01   VOID -- both columns unsound
+  ### ### **READ ONLY THE VALID ROWS. ### IN THE VOID ROWS ### BOTH ### COLUMNS ARE
+  ### ### COMPUTED ON THE OWNER'S FIXED `EPS_NQ = 700` GRID PAST ITS OWN CEILING, SO
+  ### ### THEIR `rel err` COMPARES ### TWO WRONG NUMBERS ### AND MEASURES NOTHING.**
+  ### ### **ON THE VALID ROWS THE OWNER'S FIXED `NG = 400` FIRST DEPARTS FROM THE `NG`-LAW
+  ### ### VALUE BY MORE THAN `1e-6` RELATIVE AT: ### NO VALID CELL ON THIS LADDER -- IT DOES NOT DEPART ANYWHERE THE INSTRUMENT CAN SEE ### .**
+  ### ### ### **AND THAT IS THIS SECTION'S REAL FINDING, AGAINST THIS ACT'S OWN
+  ### ### ### REGISTERED EXPECTATION (F): ### THE `EPS_NG = 400` CEILING IS NOT THE
+  ### ### ### BINDING ONE. ### `EPS_NQ = 700` BINDS FIRST, AT `rho ~ 238`, AND THE `NG`
+  ### ### ### CEILING SITS BEHIND IT WHERE NO MEASUREMENT CAN REACH IT.**
+  ### **THE ARITHMETIC OF THE ### ACTUAL ### CEILING, IN ONE LINE:** ### `A_n(x)` is
+  ### `(2/|lam_n|) INT_0^1 xi_n(t) cos(2 pi t x) dt`, whose integrand carries `x` periods
+  ### across `t in [0,1]`, and it is evaluated on the owner's FIXED `EPS_NQ` grid.
+  ### ### **`EPS_NQ` NODES OVER `x` PERIODS IS `EPS_NQ/x` NODES PER PERIOD, AND THE
+  ### ### MEASURED FAILURE AT `x ~ 238` IS ABOUT THREE NODES PER PERIOD.**
+  ### ### **THE `NG` ARITHMETIC THE FIRST RUN GAVE IS THE SAME ARITHMETIC ON THE OUTER
+  ### ### INTEGRAL, AND IT IS TRUE ABOUT `NG` -- IT IS SIMPLY NOT WHAT BREAKS FIRST.**
+  ### **THE HANDOFF'S STANDING SYMPTOM IS THIS ONE:** ### *"a probe gives -3.700 where
+  ### rho = 100 gives 1.358e-03"*. ### **THE `-3.699892020` IS IN THE TABLE ABOVE AT
+  ### `rho = 500`, IN A ### VOID ### ROW, AND ITS CAUSE IS `EPS_NQ` AND NOT `EPS_NG`.**
+
+====================================================================================================
+### S3b -- THE OSCILLATION, CHARACTERIZED. ### **OBSERVATION ONLY (b242). NOTHING BANKED**
+###        **AS A RATE, A FIT OR AN EXTRAPOLATION.**
+====================================================================================================
+  window                              : rho in [40.0, 50.0], step 0.025, 401 points, NG = 1200
+  cost                                : ### **11.8 s**
+  detrend                             : boxcar of width EXACTLY 1.0 in rho (40 samples)
+    ### ### **A BOXCAR WHOSE WIDTH IS THE PREDICTED PERIOD REMOVES THAT PERIOD FROM THE
+    ### ### BASELINE AND LEAVES IT IN THE RESIDUAL. ### IT DOES NOT CREATE ONE.**
+  peak frequency (cycles per unit rho): ### **0.996885**
+  ### **MEASURED PERIOD IN `rho`      : ### 1.003125** ### (registered band [0.95, 1.05])
+  residual RMS / |g| mean             : ### **8.291e-03**
+  ### ### **F3 DID NOT FIRE -- THE PERIOD IS 1 IN `rho`, WHICH IS `2 pi / c` AT THE CORPUS'S FIXED `c = 2 pi`.**
+  (C6) THE PERIOD TEST DISCRIMINATES -- a synthetic period-2 signal reads : ### **2.0063**
+
+====================================================================================================
+### S4a -- THE TRANSPORT CONSTANT `M_even = INT_1^inf eps_even(x) dx / x`.
+====================================================================================================
+  master curve READ FROM CACHE (1317 points).
+
+  ### **THE `NQ` CEILING ON THE MASTER CURVE, MEASURED (`NQ` vs `2 NQ`, 132 probes):**
+    first `rho` where the owner's `EPS_NQ = 700` fails the 1e-08 test : ### **238.4**
+    master curve TRUNCATED there : ### **107 of 1317 points CUT**
+  ### ### **THE CUT IS NOT A LOSS OF THE TAIL. ### THE TAIL IS CARRIED BY THE DERIVED
+  ### ### ENVELOPE BELOW, WHICH IS RIGOROUS WHERE THE INSTRUMENT IS NOT.**
+  INT_1^235 eps_even dx/x            : ### **0.812580716**
+  tail beyond 235, RIGOROUS (envelope): ### **<= 5.644e-01**   ### `INT C/x^2 = C/X0`
+  tail beyond 235, LEADING FORM       : ### **~ 2.898e-04**   ### the sharper estimate, and
+    ### ### **IT CARRIES THE SHARP RATE'S GRADE, NOT THE ENVELOPE'S. ### THE RIGOROUS
+    ### ### NUMBER IS THE FIRST ONE AND IT IS THE ONE THE BOUND BELOW USES.**
+  ### **M_even = 0.812581 (+0 / +5.644e-01)** ### -- a value with a DERIVED one-sided error bar.
+  ### **F1 ACROSS THE WHOLE MASTER CURVE (1210 points): violations = ### 0**
+  ### **THE ENVELOPE'S TIGHTNESS, REPORTED RATHER THAN DRESSED: worst `eps_even/(C/rho)`
+  ### = ### 0.7689 ### , i.e. the bound is loose by about 1x at its tightest point.**
+
+====================================================================================================
+### S4 -- THE BEARING. ### **`E2even` ALONG THE CELL LADDER (A), VIA b261's IDENTITY.**
+====================================================================================================
+  `p(0) = 2 psi(0)`                    : ### **1.350233626**
+  `sup psi`                            : ### **0.675116813**
+  ### **THE DERIVED ASYMPTOTE: `E2even(a) * log a -> p(0) * M_even = ### 1.097174 ###`**
+  ### ### **AND IT CARRIES `M_even`'S ONE-SIDED BAR, WHICH IS NOT DECORATION:** the
+  ### ### asymptote is ### **[1.097174, 1.859312]** ### , the upper end being the envelope's
+  ### ### rigorous tail beyond the measured `NQ` ceiling. ### **A SENTENCE THAT QUOTED
+  ### ### ONLY THE LOWER END WOULD BE READING A BOUND AS A VALUE.**
+
+  a^2          log a     E2even           tail bound     E2even * log a   b261 banked
+  ------------------------------------------------------------------------------------------------
+  2            0.3466    1.002346533      0.000e+00      0.347386837      
+  4            0.6931    0.834299460      0.000e+00      0.578292318      
+  16           1.3863    0.580801903      0.000e+00      0.805162403      
+  100          2.3026    0.410425955      0.000e+00      0.945040686      
+  1000         3.4539    0.296110852      1.688e-01      1.022730652      
+  10000        4.6052    0.229348184      1.616e-01      1.056187418      
+  1e+06        6.9078    0.156351983      1.103e-01      1.080041236      
+  1e+08        9.2103    0.118132267      8.275e-02      1.088038386      
+
+  ### ### **`E2even * log a` IS MONOTONE ALONG THE LADDER: True. ### IT OVERSHOOTS THE
+  ### ### DERIVED ASYMPTOTE'S ### LOWER ### END 1.097174: False.**
+  ### ### **THE OVERSHOOT IS TESTED AGAINST THE ### LOWER ### END ON PURPOSE -- IT IS
+  ### ### THE SHARPEST TEST AVAILABLE, AND THE TOP CELL REACHES 1.088038 AGAINST IT, WHICH
+  ### ### IS ### CLOSE ### AND IS SAID TO BE CLOSE RATHER THAN CALLED AGREEMENT.**
+  ### ### **AGAINST THE BAR'S UPPER END 1.859312 THERE IS NO TENSION AT ALL, AND THAT
+  ### ### SLACK IS THE ENVELOPE'S LOOSENESS, NOT EVIDENCE.**
+  ### **AND THE COMPARISON THE ACT WAS SENT FOR, ON b262's OWN LADDER:**
+    a^2        J(a) = PR - Theta_q (b262, CONSUMED)    E2even (this act)
+    --------------------------------------------------------------------------
+    100        0.374669                                 0.410425955
+    1000       0.549193                                 0.296110852
+    10000      1.150252                                 0.229348184
+    1e+06      4.645790                                 0.156351983
+    1e+08      19.708927                                0.118132267
+    ### ### **ONE COLUMN DIVERGES. ### THE OTHER GOES TO ZERO. ### THEY MOVE IN
+    ### ### OPPOSITE DIRECTIONS ALONG THE SAME LIMIT (A).**
+    ### **b260's `W-ORD-TQ-IDENTIFY` IS OPEN AND EVERY `J` NUMBER IN THIS TABLE INHERITS
+    ### IT.** ### The `E2even` column does not: it never touches `Theta_q`.
+
+====================================================================================================
+### THE TAUTOLOGY CONTROL, AND THE POSITIVE CONTROLS.
+====================================================================================================
+  (T1) THE ENVELOPE'S ALGEBRA on arbitrary `(lam, xi)` : ### **20000 / 20000**
+       ### ### **IT IS MEANT TO. ### `[lam^2/(1-lam^2)] * sqrt(1-lam^2)/lam = lam/
+       ### ### sqrt(1-lam^2)` IS AN IDENTITY AND IS REPORTED AS ONE. ### THE CONTENT IS
+       ### ### NOT HERE -- IT IS IN (IDENT-D), WHICH SUPPLIES THE `sqrt(1-lam^2)/lam`.**
+  (T2) THE SIGN LAW `(-1)^n` on 20000 indices          : ### **20000 / 20000**
+       ### ### **ALSO A TAUTOLOGY, AND ALSO REPORTED AS ONE. ### THE CONTENT IS F6 --
+       ### ### THAT THE ### INSTRUMENT ### REALIZES IT, WHICH IS NOT arithmetic.**
+  (T3) THE `M` PIPELINE ON A CONSTANT KERNEL : `INT_1^235 1 dx/x` = ### **5.460614**
+       ### **= `log 235` = 5.460614. ### THE PIPELINE INTEGRATES WHAT IT IS GIVEN; THE
+       ### DECAY IS A PROPERTY OF ### THIS ### KERNEL, NOT OF THE MACHINERY.**
+  (C1) THE ENVELOPE TEST DISCRIMINATES -- against a deliberately halved constant:
+       violations with `C_even/2` : ### **4** ### (must be > 0)
+  (C2) THE CONVERGENCE TEST DISCRIMINATES -- ### **RESTATED, BECAUSE ITS FIRST FORM
+       ### WAS ITSELF VOID.** ### It read `rel(NG=400, "converged")` at the ladder's TOP
+       ### cell -- ### and that cell is one the `NQ` axis rejects, so the control was
+       ### comparing `NG = 400` against a number that is not converged either.
+       ### **A CONTROL RUN ON A VOID CELL CONTROLS NOTHING.** ### It is re-run on the
+       ### axis that actually binds, at the first cell past the measured `NQ` ceiling:
+       rel(NQ=700, 2NQ) at rho = 500 : ### **7.645e+00** ### (must be LARGE)
+       ### **AND ON THE VALID RANGE THE OWNER'S `NG = 400` DOES ### NOT ### DEPART,
+       ### WHICH IS THE FINDING AND NOT A FAILURE OF THE CONTROL:**
+       rel(NG=400, NG law) at the top VALID cell rho = 100 : ### **1.895e-09**
+  (C3) b261's BANKED COLUMN IS CONSUMED, NOT RECOMPUTED : ### **16 cells read from JSON**
+  (C4) THE `K_n` FORMULA DISCRIMINATES BY SIGN -- `K_odd` = ### **-0.568231** ### (must be < 0)
+
+====================================================================================================
+### THE RUN'S VERDICTS, IN THE REGISTERED BRANCH LANGUAGE.
+====================================================================================================
+  F5 (G-REPRO vs the owner)      : ### **DID NOT FIRE**
+  F4 (mask algebra)              : ### **DID NOT FIRE**
+  F6 (the sign pin P1)           : ### **DID NOT FIRE**
+  F1 (the derived envelope)      : ### **DID NOT FIRE**
+  F2 (the leading constant)      : ### **DID NOT FIRE**
+  F3 (the oscillation's period)  : ### **DID NOT FIRE**
+
+  ### **S2 VERDICT : ### (DECAYS, rate/envelope derived)**
+  ### **QUOTED-N: 12 ladder cells; 1210 master-curve points; 401 oscillation samples;
+  ###   11 modes; 4 exact identities checked.**
+  ### **TOTAL WALL-CLOCK: 76.6 s against the registered ceiling of 900 s.**
+====================================================================================================

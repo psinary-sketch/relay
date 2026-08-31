@@ -1,0 +1,421 @@
+====================================================================================================
+b264 REGISTRATION -- J4: `eps_even`'s DECAY, AND THE BRANCH IT DECIDES. ### THE ARCHIMEDEAN TWIN.
+### 2026-08-31. ### CONCURRENCY: SOLO (research seat). ### BANKED BEFORE ANY VALUE EXISTS.
+====================================================================================================
+
+====================================================================================================
+(A) THE CEILING, CARRIED FIRST AND NOT AT THE END.
+====================================================================================================
+### b14: the complete roster is the double limit (all places, cutoff to infinity) and ### **STAYS
+###   OPEN WHATEVER THIS ACT SHOWS.**
+### b15: ### **"A FINITE-PLACE-SET OBJECT AT A FINITE CUTOFF DECIDES NOTHING GLOBAL."**
+### b242: ### **"A MEASURED RATE IS NOT A TAIL BOUND."** ### This act is written against that
+###   sentence: it may bank a DERIVED envelope and it may NOT bank a fitted slope, ever.
+### b246: ### **A PRIOR ACT IS NOT RE-VERDICTED.** ### b250, b255, b261, b262, b263 are consumed
+###   as owners and controls; none is re-graded here.
+### THE REGISTER SENTENCE, QUOTED UNCHANGED: ### **"RH reduced to a single located clause,
+### reduction machine-verified. h2 is the clause."** ### **NOTHING BELOW TOUCHES IT.**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT
+### ### LEFT IT.**
+### **b260's `W-ORD-TQ-IDENTIFY` IS OPEN.** ### It does NOT travel into this act's archimedean
+###   statements -- those do not touch `Theta_q` -- but it DOES travel into every sentence of (S4)
+###   that names `J`, `PR` or `Theta_q`, and (S4) will carry it.
+
+====================================================================================================
+(B) THE OBJECTS AND THEIR OWNERS. ### **QUOTED AT CONTENT, NOT PARAPHRASED.**
+====================================================================================================
+
+### ── OWNER 1 ── ### `eps`, the supplied formula (85). ### `tools/e16/qeps_layer.py` docstring
+### and `tools/e16/README_qeps.md`, verbatim:
+###   ### **"(c)  eps(rho), their (85), rho >= 1:
+###        eps(rho) = sum_n [lam/sqrt(1-lam^2)] <xi_n | theta(rho^-1) zeta_n>
+###        integrand supported ONLY on u in [rho^-1, 1]   -> eps(1) = 0"**
+###   ### **"(b)  xi_n^an(x) = (2/lam) int_0^1 xi_n(t) cos(2 pi t x) dt   [entire]"**
+###   ### **"zeta_n(x) = [lam/sqrt(1-lam^2)] xi_n^an(x) for x >= 1, else 0"**
+###   ### **"THE SCALING OPERATOR. theta(a) f(x) = a^{1/2} f(x/a) is the convention forced by the
+###    supplied support law"**
+### THE PINS, from `README_qeps.md`'s own table:
+###   ### **P1 -- `lambda(n)` EVEN-INDEXED AND SIGNED, `c = 2 pi`.** ### **P2 -- `||xi||^2 =
+###   int_0^inf |xi|^2` so `xi_n = sqrt(2) psi_{2n}`.** ### **P3 -- `xi_n^an` via `eta_n = F xi_n =
+###   lambda(n) xi_n^an`.**
+###   ### **AND THE SIGN NOTE, QUOTED WHOLE BECAUSE THIS ACT WILL PUT WEIGHT ON IT:** ### *"SIGN OF
+###   `lam`: `lam = sqrt(mu_{2n})` unsigned. ### **Legitimate here because `C_n` is EVEN in
+###   `xi^an`**, so the sign cancels; each `xi_n` is additionally oriented to `xi_n(1) > 0`."*
+###   ### ### **THAT CANCELLATION IS ASSERTED FOR `C_n`. ### THIS ACT WILL ASK WHETHER IT HOLDS FOR
+###   ### ### THE OBJECT IT ACTUALLY STUDIES, AND WILL NOT ASSUME IT DOES.**
+###   ### **TRUNCATION: `NTERM = 11` -- Lemma F.1, first 11 terms uniform to 1e-11.**
+
+### ── OWNER 2 ── ### the per-mode realization. ### `tools/e16/b38_act10.py`,
+### `per_mode_eps_grids`, quoted verbatim including its docstring:
+###   ### **"eps_n(rho) grids, one per mode (the single-mode masks; mode-diagonal, exact)."**
+###   ### `lo, hi = 1.0 / r, 1.0` ; `if hi - lo <= 0: continue` ; `I = ((an(u) * an(r * u)) *
+###   (gw[:, None] * jac)).sum(0)` ; `out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I`
+### ### **SO THE OWNER'S PER-MODE OBJECT IS, EXACTLY:**
+### ### ### **eps_n(rho) = [lam_n^2/(1-lam_n^2)] * rho^{-1/2} * INT_{1/rho}^{1} A_n(u) A_n(rho u) du**
+### ### where `A_n` is the instrument's `an`, i.e. `A_n(x) = (2/|lam_n|) int_0^1 xi_n(t)
+### ### cos(2 pi t x) dt`. ### **`A_n` IS WRITTEN WITH `|lam_n|` BY THE INSTRUMENT AND THAT IS
+### ### RECORDED HERE AS A FACT ABOUT THE CODE, NOT SMOOTHED INTO THE SIGNED PIN.**
+### ### **AND b38's MASK GATE, QUOTED:** ### *"per-mode mask algebra: max|sum_n eps_n - eps_full|"*,
+### ### PASS bar `1e-10`. ### **THE MASKS PARTITION `eps`; THEY DO NOT REDEFINE IT.**
+
+### ── OWNER 3 ── ### the EVEN mask. ### `tools/e16/b261_e2even.py`: ### `ev = em[0::2].sum(0)`,
+### `od = em[1::2].sum(0)`. ### ### **`eps_even` IS THE SUM OVER THE EVEN-INDEXED qeps MODES
+### `n in {0,2,4,6,8,10}`; `eps_odd` OVER `n in {1,3,5,7,9}`.** ### The qeps index is ALREADY the
+### even prolate index (P1), so ### **THIS IS A SECOND, DIFFERENT PARITY, AND THE TWO ARE NOT THE
+### SAME WORD.** ### §19's channel is `INT g eps` (`E2`); ### §17's is the ODD-index `t(n)` series
+### (`Delta_-`) -- `data/b237_left_side_assets.txt`, quoted: ### **"COMPUTED IN STRUCTURE (§17):
+### the odd-index `t(n)` series"**, and ### **"§19 records `INT g eps` as 'CITED at content; sign
+### on the class derived'"**.
+
+### ── OWNER 4 ── ### b261's DILATION IDENTITY, ### **VERIFIED EXACT AND QUOTED FROM ITS RUN:**
+###   ### **"F1 DID NOT FIRE -- the dilation identity HOLDS EXACTLY ON THE INSTRUMENT'S OWN GRID."**
+###   ### **"SO `corr_a(u) = (1/L) * psi(u/L)` WITH `psi` FIXED, AND THE WHOLE OF `a` ENTERS
+###   `E2even` THROUGH THE ARGUMENT `a^s` AND NOWHERE ELSE."**
+###   ### **"From S1, `E2even(a) = E_{s~p}[ eps_even(a^s) ]`"**, `p := 2*psi` on `[0,2]`,
+###   `psi` integral over `[-2,2]` measured `1.000000000`. ### worst `|L*corr_a - L*corr_ref|` =
+###   ### **1.307e-13** against a bar of `1e-12`.
+
+### ── OWNER 5 ── ### b261's F4 OSCILLATION FINDING, ### **THIS ACT'S FIRST FACT, QUOTED WHOLE:**
+###   ### **"`eps_even(rho)` DECAYS WITH OSCILLATION, NOT MONOTONICALLY."** ### 448 of 1676 samples
+###   past the peak rise; largest relative rise ### **1.101e-02**.
+###   ### **"AND ITS SHARPEST HALF: THE OSCILLATION IS IN THE LEADING MODE. ### Mode 0 is the ONE
+###   sign-definite mode and it still rises past its own peak 107 times. ### THE COMFORTABLE
+###   EXPLANATION -- CANCELLATION BETWEEN MODES -- IS WRONG."**
+###   ### artefact hypothesis KILLED AT BOTH AXES: stable across `NG` 200->1600 (`~2e-12`) and `NQ`
+###   700->1100 (`~1e-9`), rise count invariant at 111, and the sweep shown able to see a failure
+###   (`5.674e+00` at a starved `NG = 12`).
+### ### **CONSEQUENCE FOR THE ROUTE, ACCEPTED IN ADVANCE (b262's route note (ii)):** ### **NO
+### ### MONOTONE OR POSITIVITY ARGUMENT ON THE KERNEL WILL WORK, AND THIS ACT MUST NOT START BY
+### ### TRYING ONE.** ### It does not.
+
+### ── OWNER 6 ── ### b250's MACHINERY, WITH ITS WALL QUOTED. ### `data/b250_m4_derivation.txt`:
+###   ### **S1: "THEREFORE `mu_n < 1` FOR EVERY `n`, HENCE `lambda(n)^2 < 1`"** -- DERIVES-on-IMP
+###     (Plancherel; identity theorem).
+###   ### **S2: "mu_N = O( ( c^N / N! )^2 ) -- FASTER THAN ANY GEOMETRIC, AT FIXED `c = 2 pi`"** --
+###     DERIVES-on-IMP (Schmidt / Eckart-Young).
+###   ### **S3(a), THE WALL, QUOTED WHOLE:** ### *"THE HALT, NAMED AND NOT PATCHED. ### The
+###     navigator's route asks for a bound `xi_n(1)^2 <= poly(n)`. ... ### **S3(a) HALTS AT (NOT
+###     DERIVED). ### NO SUBSTITUTE IS OFFERED FOR IT AS THOUGH IT WERE IT. ### WORK-ORDER
+###     `W-ORD-XI-PERMODE` FILED.**"*
+###   ### **S3(b): "sum_n lambda(n)^2 xi_n(1)^2 = 2, EXACTLY"** -- Mercer at the two corners
+###     `(1,1)` and `(1,-1)`, DERIVES-on-IMP.
+###   ### **S4: "sum_{n>N} t(n) <= ( 2 - S_N ) / ( 1 - beta_N )"**, `t(n) = lam^2 xi_n(1)^2 /
+###     (1-lam^2)`, valid for every `N >= 6`.
+### ### ### **THE WALL THREE ACTS HAVE MET (b247, b250, and b261 by inheritance) IS NAMED HERE
+### ### ### BEFORE THIS ACT MEETS IT, AND THE ROUTE BELOW IS WRITTEN TO SAY EXACTLY WHERE IT DOES
+### ### ### AND DOES NOT MEET IT.**
+
+### ── OWNER 7 ── ### b263's BRANCH SENTENCE, ### **QUOTED WHOLE, AND THIS ACT MAY ONLY BEAR ON
+### IT:** ### `data/b263_filings.txt`:
+###   ### **"grade : SPECIFICATION, CONDITIONAL. ### It holds on the branch where the FINITE side
+###    supplies the first-level mass, and is VACUOUS on the branch where the ARCHIMEDEAN side
+###    absorbs it. ### NOTHING IN THE RECORD DECIDES WHICH BRANCH, AND THIS ACT DOES NOT CLAIM
+###    ONE."**
+###   and ### **"J4 IS THE ACT THAT BEARS ON WHICH BRANCH THE SPECIFICATION IS EVEN ABOUT."**
+### ### ### **THIS ACT MAY BEAR. ### IT MAY NOT DECIDE. ### AND IT MAY NOT DECIDE THE IDENTITY,
+### ### ### WHICH IS A THIRD THING AGAIN.**
+
+### ── OWNER 8 ── ### b262's FOUR REFUSED MISREADINGS, ### **RESTATED AS APPLYING HERE** (clause
+### (e)), quoted from `data/b262_junction_limit.txt`:
+###   ### **(1) "IT IS NOT EVIDENCE AGAINST THE IDENTITY."**
+###   ### **(2) "IT IS NOT A STATEMENT ABOUT b14's DOUBLE LIMIT." ### b15 governs.**
+###   ### **(3) "IT DOES NOT MOVE `h2`."**
+###   ### **(4) "IT DOES NOT SAY `Theta_q` IS THE WRONG OBJECT."**
+### ### **ALL FOUR ARE RE-REFUSED FOR THE ARCHIMEDEAN SIDE, WITH THE SAME FORCE.**
+
+### ── OWNER 9 ── ### b262's PRICING LESSON, quoted, because clause (d) turns on it:
+###   ### **"A REFUSAL INVENTED TO LOOK DISCIPLINED IS THE SAME CRIME WEARING THE OPPOSITE COAT."**
+### ### **SO: EVERY REFUSAL IN (S3) IS PRICED BEFORE IT IS MADE, AGAINST A CEILING FIXED IN (I)
+### ### BELOW, AND A REFUSAL WITH NO PRICE IS A DEFECT THIS ACT WILL REPORT AGAINST ITSELF.**
+
+====================================================================================================
+(C) THE DOUBLE-LIMIT DISCIPLINE. ### **b262's SPECIES, APPLIED TO THIS ACT'S TWO LIMITS.**
+====================================================================================================
+### b262 filed `double-limit-species`: ### **"ONE PHRASE OVER TWO LIMITS THAT DIFFER IN WHICH
+### INDICES MOVE."** ### This act has exactly two, and ### **EVERY STEP BELOW NAMES WHICH ONE IT
+### IS IN:**
+###   ### **(X) THE KERNEL LIMIT: `x -> inf` IN `eps_even(x)`.** ### One real variable. No place
+###     set, no cutoff, no prime. ### **PURELY ARCHIMEDEAN AND PURELY ANALYTIC.**
+###   ### **(A) THE CELL-LADDER LIMIT: `a^2 -> inf`.** ### The DIAGONAL `a^2` cell coordinate.
+### ### **THE RELATION, WHICH IS NOT A RESEMBLANCE BUT b261's VERIFIED IDENTITY:**
+### ### ### **`E2even(a) = E_{s~p}[eps_even(a^s)]`, `p` SUPPORTED ON `[0,2]`. ### SO (A) DRIVES (X)
+### ### ### AT EVERY `s > 0` AT ONCE, AND AT `s = 0` IT DRIVES NOTHING -- `a^0 = 1` AND
+### ### ### `eps_even(1) = 0` FOR EVERY `a`.**
+### ### **THE HAZARD, NAMED IN ADVANCE:** ### a rate in (X) is NOT a rate in (A). ### The map from
+### ### one to the other is an AVERAGE against `p`, and (S4) must perform that average rather than
+### ### transport the exponent. ### **AN ACT THAT WROTE "`eps_even` DECAYS LIKE `x^{-r}`, THEREFORE
+### ### `E2even` DECAYS LIKE `a^{-r}`" WOULD BE COMMITTING EXACTLY b262's SPECIES.** ### It is
+### ### written here BEFORE the derivation so that it cannot be claimed afterwards.
+
+====================================================================================================
+(D) THE ROUTE. ### **FOUR SECTIONS. ### WRITTEN OUT NOW SO NOTHING BELOW CAN BE A DISCOVERY MADE
+### TO ORDER.**
+====================================================================================================
+
+### **S1 -- THE FORM.** ### `eps_even` written per-mode from OWNER 2, each mode's `x`-dependence
+### exhibited, the leading mode isolated, and the oscillation's source NAMED -- eigenfunction,
+### mask, or pairing. ### **THE THREE CANDIDATES ARE LISTED IN ADVANCE SO THE ANSWER IS A CHOICE
+### AND NOT A DESCRIPTION:**
+###   (i) ### **THE MASK.** ### It is an index selection; it carries no `rho`. ### If the answer is
+###     the mask, the derivation below is wrong at its first line.
+###   (ii) ### **THE EIGENFUNCTION'S ANALYTIC CONTINUATION `A_n`.** ### `A_n` is an entire function
+###     of exponential type `2 pi` (P3, `c = 2 pi`), so its far field is the only place a fixed
+###     frequency can come from.
+###   (iii) ### **THE PAIRING** -- i.e. the moving endpoints `1/rho` and `1` of the overlap.
+### ### **I REGISTER MY EXPECTATION: (ii) SUPPLIES THE FREQUENCY AND (iii) SUPPLIES THE PLACE IT
+### ### ENTERS. ### I EXPECT THE PERIOD IN `rho` TO BE EXACTLY `1 = 2 pi / c`.** ### If the measured
+### period is not `1`, the source is misidentified and I report it misidentified.
+
+### **S2 -- THE DECAY.** ### Per-mode first, then the sum. ### The route, named in advance:
+###   ### **(R1) THE SUBSTITUTION `v = rho u`**, which turns the owner's formula into
+###     ### **eps_n(rho) = [lam^2/(1-lam^2)] rho^{-3/2} INT_1^{rho} A_n(v/rho) A_n(v) dv.**
+###     ### **THE EXPONENT BOOKKEEPING IS THE WHOLE OF IT: `-1/2` FROM THE OWNER'S PREFACTOR AND
+###     ### `-1` FROM `du = dv/rho`. ### THREE HALVES.** ### This step is pure change of variables
+###     and carries NO import.
+###   ### **(R2) THE ENVELOPE, BY CAUCHY-SCHWARZ AND PLANCHEREL.** ### I expect an exact per-mode
+###     `L^2` identity for the far part of `A_n`, hence a bound of the form `|eps_n(rho)| <=
+###     const_n / rho`, with `const_n` built from `lam_n` ALONE. ### **I REGISTER THE EXPECTATION
+###     THAT THE ENVELOPE CONSTANT CONTAINS NO ENDPOINT VALUE `xi_n(1)^2` AT ALL, AND THEREFORE
+###     ### ROUTES AROUND ### b250's S3(a) WALL RATHER THAN MEETING IT.**
+###   ### **(R3) THE LEADING RATE, BY THE FAR FIELD OF `A_n`.** ### One integration by parts on
+###     OWNER 1's formula (b) gives `A_n`'s `1/v` far field with the band frequency `2 pi`; the
+###     `v`-integral then converges and the leading coefficient is a number.
+###     ### **I REGISTER THE EXPECTATION THAT THIS CONSTANT ### DOES ### CONTAIN A PER-MODE
+###     ### ENDPOINT-TYPE VALUE, SO THE ### SUM ### OVER MODES MEETS b250's S3(a) WALL EVEN THOUGH
+###     ### THE ENVELOPE DID NOT.** ### If so the two halves get DIFFERENT grades and the act says
+###     so rather than averaging them.
+###   ### **(R4) THE DOUBLE-NAME TEST, DECIDED BY DEFINITIONS AND NOT BY RESEMBLANCE** (b247's
+###     hazard, b262's species): ### **IS THE MODE SUM THIS ACT NEEDS THE SAME FUNCTIONAL b250's S4
+###     BOUNDS?** ### b250 bounds ### **`sum_n t(n)`, `t(n) = lam_n^2 xi_n(1)^2 / (1 - lam_n^2)`**
+###     -- the ENDPOINT-WEIGHT series, which S0 identifies with `eps'(1+)`, ### **A STATEMENT AT
+###     `rho -> 1+`.** ### This act's object is `eps_even(x)` at ### `x -> inf` ### . ### **THE
+###     ANSWER IS TO BE WRITTEN OUT AS DEFINITION-AGAINST-DEFINITION, AND WHICHEVER WAY IT GOES,
+###     b250's S1 AND S2 ARE SEPARATELY AVAILABLE AS INGREDIENTS EVEN IF ITS S3(b)/S4 CONCLUSIONS
+###     ARE NOT.** ### I register the expectation that ### **S1 AND S2 TRANSFER AND S3(b)/S4 DO
+###     NOT.**
+###   ### **(R5) IF THE PER-MODE ROUTE HITS THE WALL, THE ALTERNATIVE IS ATTEMPTED**, as the ferry
+###     orders: a direct estimate on the defining integral. ### **(R2) ### IS ### that alternative,
+###     and it is attempted whether or not (R3) halts.**
+
+### **S3 -- THE BENCH CONTROL.** ### A registered `x`-ladder reaching as far as the instrument
+### affords, ### **PRICED BEFORE REFUSAL**, the oscillation characterized as OBSERVATION ONLY, and
+### the derived envelope checked against it.
+### ### **THE INSTRUMENT HAZARD, NAMED IN ADVANCE BECAUSE IT IS THE ONE THAT WILL BITE:** ### the
+### integrand `A_n(rho u)` oscillates with roughly `rho` periods across `u in [1/rho, 1]`, and the
+### owner evaluates it on ### **`EPS_NG = 400` GAUSS-LEGENDRE NODES**. ### **A FIXED NODE COUNT
+### AGAINST A GROWING OSCILLATION COUNT IS A CEILING, AND IT IS AN INSTRUMENT FACT, NOT A FACT
+### ABOUT `eps`.** ### The record already carries its symptom -- HANDOFF: ### *"the values the
+### function returns past the cap are unvalidated (a probe gives -3.700 where rho = 100 gives
+### 1.358e-03)"*. ### **THIS ACT WILL MEASURE WHERE THE CEILING SITS RATHER THAN INHERIT IT AS A
+### NUMBER**, by an `NG` convergence sweep at each ladder cell.
+### ### **AND THE INSTRUMENT RULE: NO OWNER FILE IS EDITED.** ### A NEW evaluator with a
+### configurable node count and chunked evaluation is written in this act's own file and is
+### ### **G-REPRO'd AGAINST `b38_act10.per_mode_eps_grids` ON THE OVERLAP BEFORE ANY NEW VALUE IS
+### ### READ.** ### If the G-REPRO fails, every number in S3 is VOID and the act says so.
+
+### **S4 -- THE BEARING, STATED EXACTLY AND NO FURTHER.** ### What (S2)'s verdict implies for
+### `E2even(a)` along the cell ladder ### VIA b261's DILATION IDENTITY ### -- performing the
+### average against `p`, per (C) -- and which of b263's two branches it favours or leaves open.
+### ### **BEARING, NEVER DECISION.** ### The four refused misreadings of OWNER 8 are restated in
+### the bank as applying here.
+
+====================================================================================================
+(E) THE BRANCHES AND THE FALSIFIERS. ### **BARS FIXED HERE, BEFORE ANY VALUE EXISTS.**
+====================================================================================================
+
+### **THE FOUR BRANCHES, IN THE FERRY'S OWN LANGUAGE, WITH THEIR MEANINGS FIXED HERE:**
+###   ### **(DECAYS, rate/envelope derived)** -- a bound `|eps_even(x)| <= E(x)` with `E(x) -> 0`,
+###     every constant in `E` DERIVED and none measured. ### **THE MEANING: `eps_even -> 0` IS NO
+###     LONGER AN IMPORT.**
+###   ### **(DECAYS-AT-BENCH, derivation halted at a named step)** -- the ladder falls, the
+###     derivation does not close, and ### **THE HALTING STEP IS NAMED, NOT PATCHED** (b250's S3(a)
+###     is the precedent and the standard).
+###   ### **(NO-DECAY or a positive floor)** -- ### **AT FULL PROMINENCE, IN THE HEADER, AND NOT
+###     BURIED.** ### This branch would make b261's S5 limit note FALSE and would be the act's
+###     headline.
+###   ### **(HALT)** -- the act cannot reach a verdict and says so.
+### ### **A DERIVATION DECIDES; A LADDER CONTROLS. ### IF THEY DISAGREE, THE ACT REPORTS THE
+### ### DISAGREEMENT AND TAKES (DECAYS-AT-BENCH).** ### b262's rule, adopted unchanged.
+
+### **F1 -- THE ENVELOPE'S FALSIFIER. ### THE ONE THAT DECIDES (DECAYS).**
+###   ### **THE DERIVED ENVELOPE MUST HOLD AT EVERY POINT OF THE REGISTERED LADDER.** ### If any
+###   converged `|eps_even(x)|` exceeds its derived envelope by more than ### **1e-9 ABSOLUTE**,
+###   ### **F1 FIRES AND THE DERIVATION IS WRONG.** ### The bar is absolute, not relative, because
+###   an envelope is a one-sided claim and a relative bar would soften it near zero.
+###   ### **F1 IS TESTED ONLY ON CONVERGED VALUES** -- points failing the `NG` convergence test in
+###   S3 are EXCLUDED FROM F1 AND LISTED, because an unconverged number falsifies nothing.
+
+### **F2 -- THE LEADING CONSTANT'S FALSIFIER.**
+###   If (R3) yields a closed-form constant `K_even`, then `x^{3/2} eps_even(x)` must approach it.
+###   ### **BAR: `|x^{3/2} eps_even(x) / K_even - 1| <= 0.05` AT THE TOP CONVERGED CELL OF THE
+###   LADDER.** ### The `5%` is not a taste: the derivation's own correction term is `O(1/x)` and
+###   the ladder's top is registered in (I) at `x >= 1000`, so `5%` is ### **TWENTY TIMES LOOSER
+###   THAN THE PREDICTED CORRECTION** -- a bar that a wrong constant of the usual kind (a factor of
+###   `2`, a `pi`, a sign) could not pass.
+###   ### **IF `K_even` COMES OUT WITH THE WRONG SIGN, F2 FIRES AND THE ACT SAYS THE FORM IS WRONG.**
+
+### **F3 -- THE OSCILLATION'S PERIOD.**
+###   (S1) predicts a period. ### **BAR: THE MEASURED PERIOD IN `x` MUST LIE IN `[0.95, 1.05]`.**
+###   ### **A PERIOD IS OBSERVATION AND IS BANKED AS OBSERVATION** (b242). ### It is registered as
+###   a falsifier of the SOURCE IDENTIFICATION in (S1), not as a rate.
+
+### **F4 -- THE MASK ALGEBRA.**
+###   ### **`eps_even + eps_odd - eps_full` MUST VANISH TO `1e-10`** -- b38's own gate bar, on the
+###   new evaluator. ### If it fires, the new evaluator is not computing the owner's object.
+
+### **F5 -- THE G-REPRO.**
+###   ### **THE NEW EVALUATOR VS `b38_act10.per_mode_eps_grids` ON THE OVERLAP `rho in [1, 100]`
+###   AT THE OWNER'S OWN `NG = 400`: WORST ABSOLUTE DEVIATION `<= 1e-12`.** ### **RUN FIRST, BEFORE
+###   ANY NEW VALUE IS READ.** ### If it fires, S3 is VOID.
+
+### **F6 -- THE SIGN PIN.**
+###   (R3)'s constant is expected to carry the SIGNED `lambda(n)` of pin P1. ### The instrument
+###   carries `|lam|`. ### **THE EMPIRICAL SIGN `s_n := sign(A_n(1))` MUST EQUAL `(-1)^n` FOR EVERY
+###   `n = 0..10`.** ### **IF IT DOES NOT, PIN P1's SIGN LAW IS NOT WHAT THIS INSTRUMENT REALIZES,
+###   AND THAT IS A FINDING ABOUT THE CORPUS THAT THIS ACT WOULD HAVE TO REPORT AT FULL
+###   PROMINENCE** -- not a nuisance to be worked around.
+
+====================================================================================================
+(F) BOTH SEATS' EXPECTED BRANCHES. ### **REGISTERED IN ADVANCE, PER CLAUSE (g).**
+====================================================================================================
+### **THE EXECUTOR'S (THIS SEAT'S) EXPECTATION:**
+###   ### **S1: THE OSCILLATION'S SOURCE IS THE EIGENFUNCTION'S ANALYTIC CONTINUATION `A_n`, AT THE
+###     PAIRING'S MOVING UPPER ENDPOINT; PERIOD `1` IN `rho`.**
+###   ### **S2: ### (DECAYS, rate/envelope derived) ### FOR THE ENVELOPE, AND A ### SEPARATE,
+###     LOWER-GRADED ### STATEMENT FOR THE SHARP RATE WHOSE MODE-SUM MEETS b250's S3(a) WALL.**
+###     ### I expect the envelope to be `O(1/x)` and the true rate to be FASTER, so that ### **THE
+###     ENVELOPE IS HONEST AND LOOSE, AND I WILL REPORT IT LOOSE RATHER THAN DRESS IT TIGHT**
+###     (b250's own standard: *"one that is loose is reported loose"*).
+###   ### **S3: THE INSTRUMENT CEILING IS AN `NG`-vs-`rho` CEILING AND WILL BE MEASURED, NOT
+###     INHERITED. ### I EXPECT `NG = 400` TO FAIL SOMEWHERE IN `rho ~ 1e2..1e3`.**
+###   ### **S4: `E2even(a) -> 0`, AND ### SLOWLY ### -- I expect `1/log a`, NOT a power of `a`,
+###     BECAUSE THE AVERAGE AGAINST `p` IS DOMINATED BY `s` NEAR `0`.** ### And therefore that the
+###     bearing is: ### **THE ARCHIMEDEAN SHADOW `E2even` GOES TO ZERO WHILE b262's FINITE-PLACE
+###     SHADOW `J` DIVERGES, SO `E2even` IS NOT THE OBJECT THAT ABSORBS `J`.**
+### **THE NAVIGATOR'S EXPECTATION, AS THE FERRY STATES IT:** the ferry's foot says ### *"after this
+###   act the archimedean half has a decay statement or a named wall"* ### -- ### **A DISJUNCTION,
+###   NOT A PREDICTION OF WHICH.** ### The ferry also carries b261's structural reason at reading
+###   grade: ### **"a `rho^{-1/2}` prefactor against a bounded overlap"**.
+### ### ### **AND I REGISTER MY DISAGREEMENT WITH THAT REASON IN ADVANCE:** ### a `rho^{-1/2}`
+### ### prefactor against a BOUNDED overlap gives `O(rho^{-1/2})`, and I expect the truth to be
+### ### FASTER than that, because ### **THE OVERLAP IS NOT MERELY BOUNDED -- IT IS ITSELF DECAYING,
+### ### AND THE `v`-SUBSTITUTION (R1) IS WHERE THAT SHOWS.** ### If the record's reading-grade
+### ### reason turns out to be the whole of it, my expectation is wrong and I report it wrong.
+
+====================================================================================================
+(G) THE SHADOW. ### **WHAT IT MAY AND MAY NOT CARRY.**
+====================================================================================================
+### **MAY CARRY (finite-decidable, vanilla Lean 4, `decide` only):**
+###   the exponent bookkeeping of (R1) as integer halves (`1 + 2 = 3`); the mask partition of the
+###   eleven modes into six even and five odd, disjoint and exhaustive; ### **THE SIGN LAW
+###   `(-1)^n > 0 IFF n EVEN` OVER THE ELEVEN INDICES**, which is the finite residue of F6 and is
+###   load-bearing for the tail's sign; the empty-range fact at `rho = 1` (`1 <= 1 - 1` is false);
+###   and the `NG`-vs-`rho` ceiling as an arithmetic inequality on node counts per period.
+### **MAY NOT CARRY:** ### **PLANCHEREL, CAUCHY-SCHWARZ, RIEMANN-LEBESGUE, FOURIER INVERSION,
+###   MERCER, THE OPERATOR, `eps` ITSELF, OR ANY LIMIT.** ### A shadow that appeared to carry those
+###   would be a lie in Lean, and the polarity controls exist to make that visible.
+### ### **THE PROFILE IS PRINTED AND READ, NEVER INFERRED FROM AN EXIT CODE** -- b227 shipped a
+### file that compiled clean and printed `sorryAx`. ### **A CLAIMED COMPILE IS REPORTED ONLY FROM
+### ITS PRINTED PROFILE.**
+### **POLARITY CONTROL REQUIRED IN BOTH DIRECTIONS:** three FALSE statements of the same shape
+### submitted to the same `decide`, and their refusal quoted verbatim.
+
+====================================================================================================
+(H) THE INDEX. ### **QUERIED BEFORE THE ROUTE WAS WRITTEN, AND THE RESULTS RECORDED.**
+====================================================================================================
+###   `eps decay`               -> ### **NO KEY.**
+###   `archimedean positivity`  -> ### **HIT** ### -- key `archimedean-positivity`, b180, grade in
+###     the record's own words: ### **"PROVED AT THE ARCHIMEDEAN TRUNCATION; OPEN BEYOND IT"**.
+###   `weil criterion`          -> ### **HIT** ### -- key `weil-criterion`, b179, ### **"EXTERNAL,
+###     quoted at content ... NOT the corpus's result and NOT about one place"**.
+###   `eps-even-oscillates`     -> ### **NO KEY.**
+###   `e2even-monotone`         -> ### **NO KEY.**
+###   `junction-limit`          -> ### **NO KEY.**
+### ### **AND THE REACH LINE IS CARRIED, NOT ELIDED: *"ABSENCE FROM THE INDEX IS NOT ABSENCE FROM
+### ### THE RECORD."*** ### No hit is used as a premise; both were read to check that the record
+### did not already hold what this act is about to derive. ### **IT DOES NOT: b180's positivity is
+### at the TRUNCATION and says nothing about `x -> inf`.**
+### *** ### ### **AND A DISCREPANCY THE QUERIES THEMSELVES EXPOSED, REPORTED BECAUSE IT IS AGAINST
+### ### THIS SEAT'S OWN RECENT ACTS: ### `e2even-monotone`, `eps-even-oscillates`, `junction-limit`,
+### ### `bench-scope-wall`, `double-limit-species`, `top-level-silence` AND `m2-spec` ARE ALL
+### ### DECLARED "KEYED ON THIS FILING" IN b261, b262 AND b263 -- AND ### NONE ### OF THEM IS IN
+### ### `tools/banked_index.py`, WHOSE LAST ENTRY IS b256's.** ### "Keyed on the filing" and
+### ### "appended to the index" are two different acts, and three consecutive acts did the first
+### ### while reading as though they had done the second. ### **THIS ACT DOES NOT REPAIR IT
+### ### UNILATERALLY** -- appending five acts' keys is a change to a shared tool and is not this
+### ### act's scope -- ### **IT FILES `W-ORD-INDEX-APPEND` AND KEYS ITS OWN ROWS THE SAME WAY THE
+### ### FERRY ORDERS, WITH THE DISCREPANCY ON THE RECORD RATHER THAN LATENT.** ***
+
+====================================================================================================
+(I) THE COST CEILING AND THE PRICING RULE. ### **b262's LESSON, APPLIED BEFORE THE FACT.**
+====================================================================================================
+### **DECLARED BEFORE THE ATTEMPT:** wall-clock ceiling ### **900 s** ### for the whole of S3;
+### memory ceiling ### **2048 MB**; ### **NO SINGLE ALLOCATION ABOVE 256 MB** (the evaluator is
+### chunked for exactly this reason).
+### **THE LADDER'S TARGET, REGISTERED:** ### **`x` FROM `1` TO AT LEAST `1000`**, and further if
+### the price allows. ### **THE `NG` LAW: `NG = max(400, ceil(K * x))` WITH `K` FIXED AT `8`**
+### -- eight nodes per oscillation period -- ### **AND THE CONVERGENCE TEST IS `NG` VS `2 NG`, NOT
+### A LOOK AT THE CURVE.**
+### ### **THE RULE, WRITTEN OUT: ### ANY CELL NOT RUN IS ### PRICED ### -- projected time and
+### ### memory printed -- ### AND THE REFUSAL IS RECORDED WITH ITS PRICE. ### A REFUSAL WITHOUT A
+### ### PRICE IS A DEFECT AND THIS ACT WILL REPORT IT AGAINST ITSELF.**
+### **AND THE DISCLOSURE THAT KEEPS IT CHECKABLE:** ### **b261's `eps_even` COLUMN TO `rho = 100`
+### IS ALREADY ON THE RECORD AND HAS BEEN READ BY THIS SEAT.** ### So an extension of the ladder is
+### authorised ### ON PRICE ### and NOT on what the values do, ### **AND SAYING SO IS THE ONLY
+### EVIDENCE LEFT, SINCE NOTHING ELSE NOW CAN BE.**
+
+====================================================================================================
+(J) THE DISCLOSURES THIS ACT OWES ITS OWN REGISTRATION.
+====================================================================================================
+### **(J1) ### THE `-1.4656` WAS ALREADY BANKED AND WAS READ BEFORE THIS ROUTE WAS WRITTEN.**
+### b261's S5 printed ### *"measured log-log slope on [10, 100] : ### -1.4656"* ### and this seat
+### read it. ### ### **SO THE EXPONENT `3/2` IS ### NOT ### AN UNSIGHTED PREDICTION AND IS NOT
+### REGISTERED AS ONE.** ### What IS registered as falsifiable, because no owner holds it: ###
+### **(a) THE CLOSED FORM OF THE LEADING CONSTANT `K_even` (F2)**, ### **(b) THE OSCILLATION'S
+### PERIOD AND ITS SOURCE (F3, S1)**, ### **(c) THE SIGN LAW (F6)**, and ### **(d) THE ENVELOPE
+### (F1), WHICH IS A ONE-SIDED DERIVED BOUND AND NOT A RATE AT ALL.**
+### ### **A RATE THAT MATCHES A NUMBER ALREADY ON THE RECORD IS AN EXPLANATION, NOT A PREDICTION,
+### ### AND THE TWO ARE GRADED DIFFERENTLY HERE.**
+### **(J2) THE ODD SECTOR'S SIGN IS ALSO ALREADY BANKED.** ### b261's table shows `eps_odd`
+### NEGATIVE at `rho = 5, 10, 50, 100`. ### **IF (R3)'s CONSTANT PREDICTS THAT SIGN, THAT IS A
+### CONSISTENCY CHECK AND NOT A PREDICTION, AND IT IS LABELLED SO.**
+### **(J3) NOTHING IN THIS ACT IS EVIDENCE FOR OR AGAINST THE IDENTITY.** ### R-III governs the
+### vocabulary.
+
+====================================================================================================
+(K) WHAT THIS ACT MAY NOT DO. ### **THE LIST IS PART OF THE REGISTRATION, NOT A CLOSING FLOURISH.**
+====================================================================================================
+###  1. ### **IT MAY NOT DECIDE b263's BRANCH QUESTION.** ### It may bear on it. ### The two are
+###     different and the bank must say which it is doing at every sentence.
+###  2. ### **IT MAY NOT DECIDE (L-identity)** (b228's undecided thing).
+###  3. ### **IT MAY NOT BANK A FITTED SLOPE, A REGRESSION, OR AN EXTRAPOLATION.** ### b242.
+###  4. ### **IT MAY NOT EDIT ANY OWNER INSTRUMENT.** ### `b38_act10.py`, `qeps_layer.py`,
+###     `carto_atlas.py`, `prolate_layer.py`, `b261_e2even.py` are READ AND IMPORTED, NEVER WRITTEN.
+###  5. ### **IT MAY NOT RE-VERDICT b250, b255, b261, b262 OR b263.** ### b246.
+###  6. ### **IT MAY NOT CLAIM A THEOREM ON A STEP THAT HALTED**, and where a step halts the halt
+###     is named and no substitute is offered as though it were it. ### b250's standard.
+###  7. ### **IT MAY NOT WRITE OR STAGE ANYTHING UNDER `patent-package/` OR `PLACE-papers/`**, and
+###     staging is BY EXPLICIT PATH with no `git add -A`. ### b148's live condition.
+###  8. ### **IT MAY NOT CLAIM ANYTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT.**
+###  9. ### **NOTHING DEPOSITS.**
+### 10. ### **IT MAY NOT DISCHARGE `W-ORD-TQ-IDENTIFY`, `W-ORD-XI-PERMODE`, OR `W-ORD-CN-LAW`.**
+###     ### It MAY discharge ### `W-ORD-EPS-DECAY` ### , which is the work-order it was sent for,
+###     ### **AND ONLY IF (S2) LANDS ON (DECAYS) WITH EVERY CONSTANT DERIVED.** ### On any other
+###     ### branch the work-order is RESTATED, not discharged.
+
+====================================================================================================
+(L) THE COMPONENTS, IN ORDER. ### **2 CONSUMES 1; 3 CONSUMES 2; 4 CONSUMES 1-3.**
+====================================================================================================
+### **COMPONENT 1 -- (P1) THE FORM.** ### S1.
+### **COMPONENT 2 -- (P2) THE DECAY AND THE CONTROL.** ### S2, S3.
+### **COMPONENT 3 -- (P3) THE BEARING AND THE SHADOW.** ### S4, the shadow, the profile.
+### **COMPONENT 4 -- THE FILINGS.**
+### **BANK: `data/b264_eps_even_decay.txt`. ### RUN: `data/b264_run.txt`. ### DEVIATION RULE
+### STANDING: any departure from this registration is DECLARED IN THE BANK, NOT SMOOTHED OVER.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : c9abc57f2ff8d651f2bfdd369c0c715fb8738ddb058bb6132f5d9f795ba5a0c9
+### bytes sealed : 32342
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b264_registration_2026-08-31.txt`.**
+====================================================================================================

@@ -1,0 +1,305 @@
+====================================================================================================
+b264 -- COMPONENT 4. ### THE FILINGS. ### 2026-08-31. ### CONCURRENCY: SOLO (research seat).
+### J4: `eps_even`'s DECAY, AND THE BRANCH IT BEARS ON. ### THE ARCHIMEDEAN TWIN.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) J4's ROW.
+----------------------------------------------------------------------------------------------------
+###   key        : ### **eps-even-decay**. ### KEYED ON THIS FILING.
+###   statement  : ### **`eps_even` DECAYS, WITH A DERIVED ENVELOPE AND A DERIVED LEADING RATE.**
+###                ### **THE ENVELOPE: `|eps_even(x)| <= C_even / x`, `C_even = 132.781908429`.**
+###                ### **THE SHARP RATE: `x^{3/2} eps_even(x) -> K_even = 1.568231065`.**
+###   owner      : ### b264 (this act). ### Objects owned by `qeps_layer`, `b38_act10`,
+###                `b261_e2even`, all READ AND IMPORTED, NEVER WRITTEN (K.4 honoured).
+###   grade      : ### ### **DERIVES-on-IMP FOR THE ENVELOPE.** ### Cauchy-Schwarz on the
+###                substituted integral (R1), with `INT_0^inf |A_n|^2 = 1/lam^2` by Plancherel
+###                through pin P3, and `INT_1^inf |A_n|^2 = (1-lam^2)/lam^2` CHECKED at
+###                ### **3.125e-06** ### on the resolved modes. ### **EVERY CONSTANT IS BUILT
+###                FROM `lam_n` ALONE; NONE IS MEASURED.**
+###                ### ### **SEPARATELY GRADED -- THE SHARP RATE: DERIVED IN FORM, CONFIRMED
+###                ### PER MODE.** ### `K_n = lam_n^{true} A_n(0)^2 / 2` with the SIGNED `lambda`
+###                of pin P1; every resolved mode's error HALVES as `x` doubles, the `O(1/x)`
+###                signature, mode by mode and not only in the sum.
+###   reach      : ### ### **AND THE REACH IS PART OF THE ROW, NOT A FOOTNOTE:** ### the bench
+###                reaches ### **`rho <= 100` CONVERGED ON THE LADDER, `rho < 238.4` ON THE
+###                MASTER CURVE** ### -- ### NOT ### the `x >= 1000` clause (I) targeted.
+###                ### **THE REASON IS MEASURED AND IS FILED AS ITS OWN WORK-ORDER BELOW.**
+###   falsifiers : ### **F1 (envelope), F2 (leading constant), F3 (period), F4 (mask algebra),
+###                F5 (G-REPRO) DID NOT FIRE. ### F6 DID NOT FIRE ON THE MODES WHERE IT IS
+###                READABLE.** ### All bars fixed in the SEALED registration before any value
+###                existed; seal `c9abc57f...` verified INTACT before the run and at the close.
+###
+###   key        : ### **eps-even-oscillation-source**. ### KEYED ON THIS FILING.
+###   statement  : ### **THE OSCILLATION'S SOURCE IS `A_n`'s ANALYTIC CONTINUATION, ENTERING AT
+###                THE PAIRING'S MOVING UPPER ENDPOINT. ### PERIOD `1` IN `rho`, WHICH IS
+###                `2 pi / c` AT THE CORPUS'S FIXED `c = 2 pi`.**
+###   grade      : ### ### **OBSERVATION FOR THE PERIOD (b242), CHOICE-AMONG-THREE FOR THE
+###                SOURCE.** ### Measured period ### **1.003125** ### in the registered band
+###                `[0.95, 1.05]`. ### The mask is refused as the source BY ITS DEFINITION --
+###                it is an index selection and carries no `rho` -- not by a measurement.
+###                ### **NO RATE, NO FIT, NO EXTRAPOLATION IS BANKED FROM IT.**
+
+----------------------------------------------------------------------------------------------------
+### (2) `W-ORD-EPS-DECAY` -- ### **DISCHARGED.**
+----------------------------------------------------------------------------------------------------
+### The registration's clause (K.10) fixes the condition exactly: ### *"It MAY discharge
+### `W-ORD-EPS-DECAY`, which is the work-order it was sent for, ### **AND ONLY IF (S2) LANDS ON
+### (DECAYS) WITH EVERY CONSTANT DERIVED.** ### On any other branch the work-order is RESTATED,
+### not discharged."*
+### ### **(S2) LANDS ON ### (DECAYS, rate/envelope derived) ### . ### EVERY CONSTANT IN THE
+### ### ENVELOPE IS DERIVED FROM `lam` ALONE AND NONE IS MEASURED. ### THE CONDITION IS MET AND
+### ### THE WORK-ORDER IS DISCHARGED.**
+### ### **AND THE DISCHARGE IS QUALIFIED IN THE SAME BREATH, BECAUSE A DISCHARGE THAT HIDES ITS
+### ### REACH IS WORTH LESS THAN A RESTATEMENT:** ### the envelope is a THEOREM about
+### `eps_even(x)` for all `x`; ### **THE BENCH THAT CONTROLS IT REACHES ONLY `rho < 238.4`.** ###
+### The derivation does not depend on the bench -- ### **F1 IS A CHECK ON THE DERIVATION, NOT ITS
+### WARRANT** -- but a reader entitled to the theorem is also entitled to know that it has been
+### CHECKED nowhere above `238.4`, and both sentences are filed together.
+### **WHAT IS ### NOT ### DISCHARGED, RESTATED UNCHANGED:** ### `W-ORD-TQ-IDENTIFY` (b260) is
+### OPEN and travels into every `J` number in (S4). ### `W-ORD-XI-PERMODE` (b250) is OPEN and is
+### ### NOT ### touched: this act routed AROUND that wall rather than through it, which is not the
+### same as removing it. ### `W-ORD-CN-LAW` is OPEN and untouched. ### **K.10's THREE FORBIDDEN
+### DISCHARGES REMAIN UNDISCHARGED.**
+
+----------------------------------------------------------------------------------------------------
+### (3) ### **THE INSTRUMENT CEILING -- ITS OWN WORK-ORDER. ### `W-ORD-NQ-CEILING`.**
+----------------------------------------------------------------------------------------------------
+###   finding    : ### ### **THE BINDING CEILING ON THE `eps` INSTRUMENT IS `EPS_NQ = 700`, NOT
+###                ### `EPS_NG = 400`. ### IT SITS AT `rho = 238.4`, MEASURED BY `NQ` vs `2 NQ`.**
+###   cause      : ### `A_n(x) = (2/|lam_n|) INT_0^1 xi_n(t) cos(2 pi t x) dt` carries ### `x`
+###                periods across `t in [0,1]` ### and is evaluated on the owner's FIXED `EPS_NQ`
+###                grid. ### **`EPS_NQ` NODES OVER `x` PERIODS IS `EPS_NQ/x` NODES PER PERIOD;
+###                THE MEASURED FAILURE AT `x ~ 238` IS ABOUT THREE NODES PER PERIOD.**
+###   ### **AND THE HALF THAT MATTERS FOR EVERY FUTURE ACT: ### RAISING `NG` DOES NOT REPAIR IT.**
+###   ### `NG` moves the OUTER quadrature only. ### At `NQ = 700` the inner `A_0(x)` is good to
+###   ### `3.4e-08` at `x = 200` and wrong by a factor `9.0e+04` at `x = 300`; at `NQ = 3000` the
+###   ### break moves to `x ~ 1000`, at `NQ = 6000` to `x ~ 2000`. ### **THE FIX IS `NQ`.**
+###   symptom    : ### **THE RECORD HAS CARRIED THIS SYMPTOM UNDIAGNOSED.** ### HANDOFF: *"the
+###                values the function returns past the cap are unvalidated (a probe gives -3.700
+###                where rho = 100 gives 1.358e-03)"*. ### **THE `-3.699892020` SITS IN THIS
+###                ACT'S OWN TABLE AT `rho = 500`. ### ITS CAUSE IS NAMED HERE FOR THE FIRST
+###                TIME, AND IT IS `EPS_NQ`.**
+###   ### ### **THE AFFECTED PRIOR ACTS, ### NAMED ### AND ### NOT RE-VERDICTED ### (b246).**
+###   ### **THIS FILING NAMES WHERE THE CEILING REACHES. ### IT DOES NOT RE-GRADE ONE LINE OF
+###   ### ANY ACT BELOW, AND NOTHING HERE IS A VERDICT ON THEIR CONCLUSIONS.**
+###     ### **b261** -- its `eps_even` column runs to `rho = 100`, ### **INSIDE THE CEILING.** ###
+###       Its F4 oscillation finding was tested across `NG` 200->1600 and `NQ` 700->1100 -- ###
+###       **an `NQ` axis WAS swept there** ### -- and its samples lie below `238.4`. ### **THIS
+###       ACT CONSUMED b261's COLUMN AS CONTROL AND FOUND NO TENSION WITH IT.**
+###     ### **b262** -- its `J` ladder is a FINITE-PLACE object and does not call `A_n` at large
+###       argument at all. ### **UNTOUCHED BY THIS CEILING.**
+###     ### **b263** -- likewise finite-place. ### **UNTOUCHED.**
+###     ### **b250** -- analytic, no quadrature at large argument. ### **UNTOUCHED.**
+###     ### **b247, b255** -- named as acts that used the `eps` instrument; ### **WHETHER ANY OF
+###       THEIR CELLS SITS ABOVE `238.4` IS NOT DETERMINED HERE AND IS NOT ASSUMED EITHER WAY.**
+###       ### **THAT IS THE WORK-ORDER'S FIRST TASK AND IT IS LEFT AS ONE.**
+###   ### **THE ORDER: (a) SWEEP THE RECORD FOR EVERY BANKED `eps`-INSTRUMENT CELL ABOVE
+###   ### `rho = 238.4`; (b) RE-RUN EACH AT AN `NQ` THAT RESOLVES IT; (c) REPORT PER ACT.**
+###   ### **UNTIL (a) IS DONE, NO ACT IS RE-GRADED AND NO ACT IS DECLARED SAFE.**
+
+----------------------------------------------------------------------------------------------------
+### (4) ### **`W-ORD-NTERM-FLOOR` -- THE INSTRUMENT CARRIES FOUR MODES IT CANNOT COMPUTE.**
+----------------------------------------------------------------------------------------------------
+### `qeps_layer` carries ### **`NTERM = 11`** ### on Lemma F.1's *"first 11 terms uniform to
+### 1e-11"*. ### At `EPS_NQ = 700` the eigensolver ### **RESOLVES SEVEN.** ### Modes 7..10 sit at
+### `~1.5e-8 ~ sqrt(machine epsilon)`, ### **STOP DECAYING** ### where a true prolate spectrum
+### decays super-geometrically (b250's S2), and ### **MOVE UPWARD WHEN `NQ` MOVES.**
+### **THE TRUNCATION CLAIM IS UNHARMED:** the unresolved terms enter `C_even` at `7.16e-08` and
+### `eps_n` at `4.75e-16` -- ### **BELOW DOUBLE PRECISION IN EVERY QUANTITY THIS ACT BANKS. ###
+### NOTHING NUMERICAL MOVES.**
+### **WHAT IS FILED IS THAT NOTHING IN THE RECORD SAID SO**, and that any act reading a per-mode
+### quantity at `n >= 7` is reading noise. ### **THE ORDER: state the resolved-mode count beside
+### `NTERM` wherever `NTERM` is quoted, and fix the `NQ` needed for eleven.**
+
+----------------------------------------------------------------------------------------------------
+### (5) ### **`W-ORD-GL-PANEL` -- A CEILING ON THIS ACT'S OWN REMEDY.**
+----------------------------------------------------------------------------------------------------
+### `np.polynomial.legendre.leggauss(NG)` builds a dense `NG x NG` matrix: ### **`gl(60000)` ASKS
+### FOR 28.8 GB IN ONE ALLOCATION** ### against clause (I)'s ### **"NO SINGLE ALLOCATION ABOVE
+### 256 MB"**. ### The cap binds from `NG > 5793`, i.e. from the ### REGISTERED ### ladder's
+### `x = 500` convergence cell onward.
+### ### ### **SO CLAUSE (I) WAS INTERNALLY UNSATISFIABLE AS WRITTEN: THE LADDER IT REGISTERED
+### ### ### COULD NOT BE RUN UNDER THE MEMORY CEILING IT DECLARED, BY THE RULE THE RUNNER USED.**
+### **REPAIRED IN THIS ACT'S OWN FILE** (K.4 forbids editing OWNER instruments; the runner is not
+### one) by PANELLING the rule above `NG = 4000` into panels of `400` -- ### **THE OWNER'S OWN
+### `EPS_NG`, SO NO NEW NODE COUNT IS COINED.** ### Total node count, the `NG` law and the
+### `NG` vs `2 NG` test all UNCHANGED; F5 still runs monolithic at the owner's `400` on the
+### owner's own nodes, and returns `0.000e+00`.
+### **THE ORDER: fix the registration template so a declared memory ceiling is checked against
+### the ladder it registers, BEFORE the seal.**
+
+----------------------------------------------------------------------------------------------------
+### (6) ### **THE THREE DEFECTS THIS ACT FOUND IN ITS OWN CONTROL FILE. ### REPORTED AGAINST
+### ITSELF, AS THE REGISTRATION REQUIRES OF A DEFECT.**
+----------------------------------------------------------------------------------------------------
+### **(D1) F1 WAS IMPLEMENTED ONE-SIDED AND THE SEALED REGISTRATION IS NOT.** ### The seal reads
+### *"if any converged `|eps_even(x)|` exceeds its derived envelope"* -- WITH the absolute value.
+### The runner tested `eps_even - env > bar`, which a large NEGATIVE value passes untouched.
+### ### **THE FIRST RUN THEREFORE PRINTED `F1 DID NOT FIRE` ON A LADDER CARRYING `-2.156` AT
+### ### `rho = 500` AGAINST AN ENVELOPE OF `0.266`. ### THAT PRINTED VERDICT WAS UNSOUND AND IS
+### ### SUPERSEDED, NOT DEFENDED.**
+### **(D2) THE REGISTERED CONVERGENCE TEST CANNOT SEE THE ERROR THAT BINDS.**
+### `NG` vs `2 NG` moves the OUTER quadrature only, and both carry the same inner `EPS_NQ` error.
+### ### **THEY AGREE WITH EACH OTHER WHILE BOTH ARE WRONG -- A FALSE PASS, NOT A LOOSE ONE.** ###
+### Five cells were marked converged at `~1e-12` on values wrong by four orders of magnitude.
+### A second axis is added; ### **A CELL COUNTS AS CONVERGED ONLY IF BOTH PASS.** ### This is a
+### STRENGTHENING of a registered test and is declared as a deviation rather than quietly banked.
+### **(D3) A CONTROL WAS RUN ON A VOID CELL.** ### (C2) read `rel(NG=400, "converged")` at the
+### ladder's TOP cell -- one the `NQ` axis rejects. ### **A CONTROL RUN ON A VOID CELL CONTROLS
+### NOTHING.** ### Re-run on the axis that binds.
+### ### **AND THE PATTERN ACROSS ALL THREE, SAID PLAINLY: ### EVERY ONE OF THEM MADE THE ACT LOOK
+### ### BETTER THAN IT WAS. ### A DEFECT SET THAT LEANS ENTIRELY ONE WAY IS ITSELF A FINDING
+### ### ABOUT THE SEAT THAT WROTE IT, AND IT IS RECORDED AS ONE.**
+
+----------------------------------------------------------------------------------------------------
+### (7) ### **F6, AND THE CORPUS-LEVEL FINDING THIS ACT ALMOST FILED AND MUST NOT.**
+----------------------------------------------------------------------------------------------------
+### **F6 IS READ ON THE SEVEN RESOLVED MODES AND ON THOSE IT ### DID NOT FIRE ### : THE
+### INSTRUMENT REALIZES PIN P1's SIGN LAW EXACTLY.**
+### *** ### **AN EARLIER PASS READ F6 ACROSS ALL ELEVEN MODES, FOUND `n = 8` AND `n = 10`
+### DISAGREEING, AND WAS PREPARED TO FILE ### "PIN P1's SIGN LAW IS NOT WHAT THIS INSTRUMENT
+### REALIZES" ### AS A FINDING AGAINST THE CORPUS, AT FULL PROMINENCE.** ### ### **THAT WOULD
+### HAVE BEEN WRONG.** ### Modes 7..10 are numerical noise; a sign read off noise is a coin, and
+### the two floor modes that DID agree with `(-1)^n` are the same coin landing the other way.
+### ### **PIN P1 IS NOT IMPEACHED BY THIS ACT. ### IT IS CONFIRMED WHERE IT CAN BE TESTED AND
+### ### UNTESTED WHERE IT CANNOT, AND THE SECOND IS NOT EVIDENCE.** ### ***
+### **AND THE METHOD NOTE, FILED BECAUSE IT IS ABOUT MORE THAN THIS ACT:** ### the registration
+### PRE-AUTHORISED a corpus-level finding at full prominence if F6 fired. ### **A PRE-AUTHORISED
+### HEADLINE IS EXACTLY THE THING AN ACT WILL REACH FOR, AND THIS ONE REACHED.** ### What stopped
+### it was a check the registration did not require: ### **ASKING WHETHER THE INSTRUMENT CAN
+### COMPUTE THE QUANTITY THE FALSIFIER READS.** ### That check belongs in the template.
+
+----------------------------------------------------------------------------------------------------
+### (8) ### **THE REGISTERED EXPECTATIONS, SCORED. ### TWO CONFIRMED, ONE WRONG, ONE WRONG IN
+### ITS REASON AS WELL AS ITS ANSWER.**
+----------------------------------------------------------------------------------------------------
+### **S1 -- CONFIRMED.** ### Source `A_n` at the moving endpoint; period `1`. ### Measured
+###   `1.003125`.
+### **S2 (envelope half) -- CONFIRMED.** ### `(DECAYS)`, `O(1/x)`, routing AROUND b250's S3(a)
+###   wall rather than meeting it, the envelope honest and loose (`0.7689` at its tightest) and
+###   ### **REPORTED LOOSE RATHER THAN DRESSED TIGHT.**
+### **S2 (sharp-rate half) -- ### WRONG, AND WRONG IN ITS REASON.** ### It expected the mode sum
+###   to ### MEET ### b250's S3(a) wall. ### **IT DOES NOT** ### -- not because the route is
+###   stronger than expected, but because the sum is over the instrument's ELEVEN modes and a
+###   FINITE sum needs no per-mode bound, and because the endpoint that appears is `A_n(0)` and
+###   not `xi_n(1)`. ### **THE WALL RETURNS THE MOMENT THE MODE SUM IS TAKEN TO INFINITY, WHICH
+###   THIS ACT DOES NOT DO AND DOES NOT CLAIM TO HAVE DONE.**
+### **S3 -- ### WRONG.** ### *"I EXPECT `NG = 400` TO FAIL SOMEWHERE IN `rho ~ 1e2..1e3`."* ###
+###   **IT DOES NOT FAIL ANYWHERE THE INSTRUMENT CAN SEE** (`1.895e-09` at the top valid cell).
+###   ### **THE ACT WAS SENT TO MEASURE A CEILING AND FOUND THAT CEILING IS NOT THE ONE THAT
+###   ### BINDS.** ### Filed at (3).
+### **S4 -- CONFIRMED.** ### `E2even -> 0` like `1/log a`, not a power of `a`; and the bearing
+###   that `E2even` is not the object that absorbs `J`.
+### **THE NAVIGATOR'S READING-GRADE REASON -- *"a `rho^{-1/2}` prefactor against a bounded
+### overlap"* -- AND THIS SEAT'S REGISTERED DISAGREEMENT WITH IT:** ### the seat expected FASTER
+### than `O(rho^{-1/2})` because the overlap is itself decaying. ### **THE DISAGREEMENT IS
+### CONFIRMED: the envelope is `O(1/x)` and the sharp rate `O(x^{-3/2})`, both faster.**
+
+----------------------------------------------------------------------------------------------------
+### (9) ### **THE BEARING ON b263's BRANCH QUESTION. ### BEARING, NEVER DECISION.**
+----------------------------------------------------------------------------------------------------
+### b263's sentence stands EXACTLY as b263 wrote it and is not re-graded (b246).
+### **THE BEARING: ### `E2even` IS NOT THE OBJECT THAT ABSORBS `J`.** ### `E2even` falls like
+### `1/log a`; b262's `J` diverges; the separation widens monotonically along the same limit (A).
+### **SO THIS ACT BEARS ### AGAINST ### THE BRANCH ON WHICH THE ARCHIMEDEAN SIDE ABSORBS THE
+### FIRST-LEVEL MASS ### THROUGH THIS OBJECT ### .**
+### ### ### **AND THE LIMIT OF THE BEARING, WHICH IS THE WHOLE REASON IT IS ONE: ### `E2even` IS
+### ### ### ONE ### ARCHIMEDEAN OBJECT -- THE ONE b261 IDENTIFIED AS THE SHADOW -- AND IT IS NOT
+### ### ### "THE ARCHIMEDEAN SIDE". ### THE BRANCH COULD BE REALIZED BY A DIFFERENT ARCHIMEDEAN
+### ### ### OBJECT, AND NOTHING HERE EXCLUDES ONE. ### THE BRANCH IS NOT DECIDED.**
+### **`W-ORD-TQ-IDENTIFY` (b260) IS OPEN AND EVERY `J` NUMBER INHERITS IT.** ### The `E2even`
+### column does not: it never touches `Theta_q`.
+### **b262's FOUR REFUSED MISREADINGS ARE RE-REFUSED FOR THE ARCHIMEDEAN SIDE WITH THE SAME
+### FORCE:** ### (1) NOT evidence against the identity; ### (2) NOT a statement about b14's
+### double limit -- b15 governs; ### (3) it does NOT move `h2`; ### (4) it does NOT say `Theta_q`
+### is the wrong object.
+### **(L-identity) IS NOT DECIDED (K.2). ### b228's undecided thing stays undecided.**
+
+----------------------------------------------------------------------------------------------------
+### (10) ### **THE IN-FLIGHT REGISTER.**
+----------------------------------------------------------------------------------------------------
+###   ### **OPEN, CARRIED FORWARD:**
+###     `W-ORD-TQ-IDENTIFY` (b260) -- OPEN. ### Travels into every `J` sentence here.
+###     `W-ORD-XI-PERMODE` (b250) -- OPEN. ### **ROUTED AROUND, NOT REMOVED.**
+###     `W-ORD-CN-LAW` -- OPEN, untouched.
+###     `W-ORD-INDEX-APPEND` (b264, registration (H)) -- ### **OPEN.** ### `e2even-monotone`,
+###       `eps-even-oscillates`, `junction-limit`, `bench-scope-wall`, `double-limit-species`,
+###       `top-level-silence` and `m2-spec` are all declared "KEYED ON THIS FILING" in b261,
+###       b262 and b263 and ### NONE ### is in `tools/banked_index.py`, whose last entry is
+###       b256's. ### **THIS ACT'S OWN TWO KEYS ARE KEYED THE SAME WAY AND JOIN THE BACKLOG
+###       RATHER THAN JUMPING IT.** ### Appending five acts' keys is a change to a shared tool
+###       and is not this act's scope.
+###   ### **FILED NEW BY THIS ACT:**
+###     `W-ORD-NQ-CEILING` -- the binding instrument ceiling. ### (3) above.
+###     `W-ORD-NTERM-FLOOR` -- four unresolved modes carried as if resolved. ### (4) above.
+###     `W-ORD-GL-PANEL` -- the registration template's unsatisfiable memory clause. ### (5).
+###   ### **DISCHARGED BY THIS ACT:**
+###     `W-ORD-EPS-DECAY` -- ### **DISCHARGED**, with its reach filed beside it. ### (2) above.
+
+----------------------------------------------------------------------------------------------------
+### (11) ### **THE SEAM'S DEBT.**
+----------------------------------------------------------------------------------------------------
+### **THE DEBT THIS ACT ADDS TO THE SEAM, STATED SO THE NEXT SEAM CLOSE INHERITS IT WHOLE:**
+###   ### **(a) A DERIVED THEOREM WITH A BENCH THAT REACHES A QUARTER OF ITS REGISTERED TARGET.**
+###     The envelope holds for all `x`; it is CHECKED nowhere above `238.4`. ### **THE SHORTFALL IS NOT
+###     A DEFECT IN THE DERIVATION AND IS NOT A WARRANT FOR IT EITHER.**
+###   ### **(b) THE `NQ` SWEEP OWED TO b247 AND b255**, whose cells are NOT determined here.
+###   ### **(c) THE INDEX BACKLOG NOW RUNS TO NINE KEYS ACROSS FOUR ACTS.**
+###   ### **(d) THE REGISTRATION TEMPLATE OWES TWO CHECKS IT DOES NOT HAVE:** a declared memory
+###     ceiling checked against the registered ladder BEFORE the seal, and ### **a falsifier
+###     checked against whether the instrument can compute what it reads.** ### The second is the
+###     one that nearly cost a false corpus-level finding.
+
+----------------------------------------------------------------------------------------------------
+### (12) ### **WHAT THIS ACT DID NOT DO. ### THE CEILING CARRIED LAST AS IT WAS CARRIED FIRST.**
+----------------------------------------------------------------------------------------------------
+### **b14's DOUBLE LIMIT STAYS OPEN WHATEVER THIS ACT SHOWS. ### b15 GOVERNS.**
+### **NO FITTED SLOPE, NO REGRESSION, NO EXTRAPOLATION IS BANKED (b242, K.3).**
+### **b250, b255, b261, b262, b263 ARE CONSUMED AS OWNERS AND CONTROLS. ### NONE IS RE-VERDICTED
+### (b246, K.5).**
+### **NO OWNER INSTRUMENT WAS EDITED (K.4). ### NOTHING WAS WRITTEN OR STAGED UNDER
+### `patent-package/` OR `PLACE-papers/` (K.7). ### STAGING IS BY EXPLICIT PATH.**
+### **NOTHING IS CLAIMED ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT (K.8):** ### **"RH reduced
+### to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **NOTHING DEPOSITS (K.9). ### NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE
+### ### DEPOSIT LEFT IT.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (13) ### **THE COMMIT SELF-DESCRIPTION CHECK, CARRIED. ### b149's CONVENTION.**
+----------------------------------------------------------------------------------------------------
+### **THE COMMIT MESSAGE ASSERTS `NEVER WRITTEN` OF THE FIVE OWNER INSTRUMENTS, AND b149's RULING IS
+### THAT SUCH AN ASSERTION MUST TRAVEL WITH THE CHECK'S OWN OUTPUT:** ### *"A compliance claim that
+### is not accompanied by the check's own output is an assertion, not a verification."* ### The tool
+### exists because b148 pushed a commit whose message read *"the patent package was READ, NEVER
+### WRITTEN"* in the very commit that wrote eight patent-package files.
+### **THE TABLE, PRINTED BY THE TOOL AND PASTED WHOLE:**
+###   ============================================================================
+###   COMMIT SELF-DESCRIPTION CHECK (commit_selfcheck.py, b149)
+###   ============================================================================
+###     repo            : D:/relay
+###     rev             : (staged)
+###     paths touched   : 16
+###     paths WRITTEN   : 16   ### only these are evidence of a write
+###     message chars   : 4352
+###   
+###     (1) FOREIGN-SEAT PATHS
+###         none  (prefixes checked: phase1.5/method/patent-package/)
+###   
+###     (2) READ-ONLY CLAIMS IN THE MESSAGE vs THE FILE LIST
+###         no read-only claim detected in the message
+###   
+###     (3) COMPLIANCE ASSERTION
+###         assertion found: 'NEVER WRITTEN'
+###         ### THE CONVENTION REQUIRES THIS HIT TABLE IN THE ACT RECORD.
+###         ### A compliance claim that is not accompanied by the check's
+###         ### own output is an assertion, not a verification.
+###   
+###     ### VERDICT: CLEAN
+###     ### REACH: explicit patterns only. This cannot read meaning and does
+###     ### not close the class -- see the header.
+### ### **AND THE TOOL'S OWN REACH IS CARRIED WITH ITS VERDICT, NOT DROPPED FROM IT: IT COMPARES A
+### ### MESSAGE TO A FILE LIST AGAINST EXPLICIT PATTERNS, ### IT CANNOT READ MEANING ### , AND IT
+### ### DOES NOT CLOSE THE CLASS.** ### The independent evidence for the `NEVER WRITTEN` claim is
+### `git diff --quiet HEAD` on each of the five instruments, run in gate 10, which PASSED.

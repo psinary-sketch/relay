@@ -1,0 +1,47 @@
+import took 648ms
+'ArchimedeanTwinShadow.exponent_bookkeeping_in_halves' does not depend on any axioms
+'ArchimedeanTwinShadow.the_halves_do_not_come_out_otherwise' does not depend on any axioms
+'ArchimedeanTwinShadow.the_masks_are_what_their_names_say' does not depend on any axioms
+'ArchimedeanTwinShadow.the_masks_partition_the_eleven' does not depend on any axioms
+'ArchimedeanTwinShadow.the_sign_law_over_the_eleven_indices' does not depend on any axioms
+'ArchimedeanTwinShadow.the_sign_law_is_not_all_one_way' does not depend on any axioms
+'ArchimedeanTwinShadow.the_overlap_is_empty_at_one' does not depend on any axioms
+'ArchimedeanTwinShadow.the_overlap_is_nonempty_above_one' does not depend on any axioms
+'ArchimedeanTwinShadow.three_nodes_per_period_crosses_between_233_and_234' does not depend on any axioms
+'ArchimedeanTwinShadow.the_measured_ceiling_lies_past_the_three_node_line' does not depend on any axioms
+'ArchimedeanTwinShadow.the_outer_node_line_sits_where_it_sits' does not depend on any axioms
+'ArchimedeanTwinShadow.the_inner_ceiling_binds_before_the_outer' does not depend on any axioms
+cumulative profiling times:
+	attribute application 0.117ms
+	blocked (unaccounted) 2.06ms
+	elaboration 79.3ms
+	fix level params 0.173ms
+	import 648ms
+	initialization 49.2ms
+	instantiate metavars 0.437ms
+	interpretation 236ms
+	let-to-have transformation 0.188ms
+	linting 2.81ms
+	parsing 5.14ms
+	process pre-definitions 1.65ms
+	share common exprs 0.855ms
+	tactic execution 14.6ms
+	type checking 8.18ms
+	typeclass inference 262ms
+
+=== POLARITY CONTROL, RUN SEPARATELY AND PRINTED HERE ===
+### Four deliberately FALSE statements, one of the SAME SHAPE as each family of the
+### shadow's own terminals, submitted to the same `decide`:
+###   theorem false_halves  : (1 : Nat) + 2 = 4        := by decide
+###   theorem false_range   : (1 <= 1 - 1)             := by decide
+###   theorem false_sign    : ((-1 : Int) ^ 8 < 0)     := by decide
+###   theorem false_ceiling : (3 * 234 <= 700)         := by decide
+### ALL FOUR REFUSED. lean exit code 1. Verbatim:
+###   error: Tactic `decide` proved that the proposition 1 + 2 = 4 is false
+###   error: Tactic `decide` proved that the proposition 1 <= 1 - 1 is false
+###   error: Tactic `decide` proved that the proposition (-1) ^ 8 < 0 is false
+###   error: Tactic `decide` proved that the proposition 3 * 234 <= 700 is false
+### ### **THE SHADOW'S `decide` CAN SAY NO. ### THE TWELVE PASSES ARE THEREFORE READABLE.**
+### zero-axiom terminals in the COMPILE section : 12 ; errors in the COMPILE section : 0
+### (the four `error:` lines below the rule are the POLARITY CONTROL, quoted, and are
+###  the control WORKING -- they are not failures of the shadow.)
