@@ -1,0 +1,40 @@
+{
+  "registration": "data/b271_registration_2026-08-31.txt  (M-2 CAMPAIGN, ACT 5)",
+  "clauses": [
+    {
+      "clause": "(J1) single allocation <= 256 MB",
+      "cap": 256,
+      "demand": 4,
+      "units": "MB",
+      "from": "the largest object is a length-N vector of sparse cyclotomic elements at N = 19^2 = 361; S is applied as a sum and never materialized. Bounded generously at 4 MB."
+    },
+    {
+      "clause": "(J2) no dense NxN operator built",
+      "cap": 0,
+      "demand": 0,
+      "units": "mat",
+      "from": "S, Pi, M and P_1 are applied as sums over indices; no operator is ever stored as a matrix, which is why (J1) stays at vector scale."
+    },
+    {
+      "clause": "(J3) exact-arithmetic degree cap",
+      "cap": 1024,
+      "demand": 722,
+      "units": "deg",
+      "from": "unreduced products in Q(zeta_N) have degree < 2N = 722; modulus Phi_361 has degree phi(361) = 342"
+    },
+    {
+      "clause": "(J4) runtime <= 600 s",
+      "cap": 600,
+      "demand": 240,
+      "units": "s",
+      "from": "the S g = q g membership check is N^2 = 130321 sparse products at the largest cell; b268 and b270 ran comparable exact work over the same eight places. MEASURED PRECEDENT, NOT A GUESS."
+    },
+    {
+      "clause": "(J5) ladders registered",
+      "cap": 0,
+      "demand": 0,
+      "units": "ladders",
+      "from": "this act registers no ladder, so no ladder can outrun a declared ceiling (b264's species)."
+    }
+  ]
+}

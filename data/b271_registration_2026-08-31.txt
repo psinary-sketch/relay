@@ -1,0 +1,198 @@
+====================================================================================================
+b271 -- REGISTRATION. 2026-08-31. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 5 -- THE TOP-LEVEL NO-GO.
+WRITTEN AND SEALED BEFORE ANY VALUE OF THIS ACT'S OBJECTS EXISTS.
+====================================================================================================
+
+(A) THE QUESTION, IN ONE SENTENCE, BEFORE ANY WORK (RULE-3 (b)).
+----------------------------------------------------------------------------------------------------
+### **DOES `E_1` MEMBERSHIP FORCE VANISHING ON THE BALL?**
+Equivalently: is (SPEC-1) satisfiable by ANY object built from the truncated model at level `n`,
+or is the top-level silence a property of the model itself?
+### **BOTH OUTCOMES ARE VALUABLE AND ARE REGISTERED AS SUCH: A BARRIER IS A FINDING, AN ESCAPE
+### CLASS IS AN ADDRESS.** This act is not trying to reach either one.
+
+(B) THE BOUNDARY. WHAT THIS ACT MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+ 1. IT MAY NOT ADOPT ANY CANDIDATE, AND MAY NOT STATE AN AGGREGATION. M-2 REMAINS OWED IN
+    EVERY BRANCH, INCLUDING THE ESCAPE BRANCH.
+ 2. IT MAY NOT PLACE ANY NUMBER IN A TABLE HEADED BY act 9's CLOSED FORM, AND MAY NOT RUN A
+    COMPARISON TO ANY TARGET. Zero fits, zero residuals.
+ 3. IT MAY NOT TEST (SPEC-2) OR (SPEC-3) FOR ANY OBJECT IT EXHIBITS. The question is (SPEC-1)
+    SATISFIABILITY ALONE, and an exhibited object is A WITNESS TO A CLASS, NOT A CANDIDATE.
+ 4. IT MAY NOT RE-VERDICT ANY PRIOR ACT (b246). b270's verdict stands; this act generalizes
+    its lemma and asks a DIFFERENT question.
+ 5. IT MAY NOT TAKE ANY RULING THAT BELONGS TO THE AUTHOR. If reaching a class requires
+    changing b226's choice, THAT IS STATED AS A RULING ITEM AND NOT TAKEN.
+ 6. IT MAY NOT CLAIM ANYTHING ABOUT h2 BEYOND THE REGISTER SENTENCE EXACT.
+ 7. NOTHING DEPOSITS. NOTHING CIRCULATES. NOTHING UNDER patent-package/.
+
+(C) THE NAMED HAZARD: THE DOUBLE-NAME SPECIES, IN THIS ACT'S OWN TERMS.
+----------------------------------------------------------------------------------------------------
+### **THE TRUNCATED MODEL AND THE COMPLETE ROSTER ARE DISTINCT OBJECTS AND EVERY SENTENCE SAYS
+### WHICH.** A no-go proved on `Z/p^{2n}` is a statement about `Z/p^{2n}`.
+### **AND A SECOND DOUBLE-NAME LIVES INSIDE THIS ACT AND IS THE REASON IT IS WORTH RUNNING:**
+###     `E_1`        -- the `+1` sector of `M = S/q` on the AMBIENT space `Z/N`, `N = q^2`.
+###     `E_1(Son)`   -- the `+1` sector RESTRICTED TO `Son(p,n)`.
+### **THESE ARE NOT THE SAME SPACE, AND `Son` CARRIES BALL-VANISHING IN ITS OWN DEFINITION.**
+### ### **SO "E_1 FORCES BALL-VANISHING" COULD BE TRUE BY DEFINITION IN ONE READING AND FALSE IN
+### ### THE OTHER, AND AN ACT THAT DID NOT SEPARATE THEM WOULD REPORT A THEOREM WHERE THERE IS A
+### ### TAUTOLOGY.** THE QUESTION AT (A) IS ABOUT THE AMBIENT `E_1`, THE PROJECTOR'S IMAGE.
+
+(D) LOAD-BEARING QUOTATIONS (RULE-3 (a)). Verified verbatim against owners before emission.
+----------------------------------------------------------------------------------------------------
+ [Q1] b226, the operator: "S        = the DFT-like operator (S f)(m) = SUM_{m'} f(m') zeta_N^{m
+      m'},  N = q^2"
+ [Q2] b226, the involution: "Pi       = the involution (Pi f)(m) = f(-m);  S^2 = q^2 Pi, so M :=
+      S/q has M^4 = 1"
+ [Q3] b226, the projector: "P_1      = (1 + M + M^2 + M^3)/4, the projector onto the +1 sector
+      E_1"
+ [Q4] b226, the purity report: "4q P_1   = (q + S)(1 + Pi)"
+ [Q5] b226, the Sonin space: "Son(p,n) = the vectors on Z/p^{2n} vanishing on a ball AND on its
+      transform image,"
+ [Q6] b226, the generators: "f_{i,j}  = e_{i+qj} - e_i,  i,j in [1,q)"
+ [Q7] b226, membership by construction: "u = 4q P_1 f IS IN E_1 **BY CONSTRUCTION** -- it is a
+      projector image"
+ [Q8] b226, the line b268 paid: "d_1 > 0 GIVES E_1 != 0. ### IT DOES NOT GIVE u_{1,1} != 0."
+ [Q9] b268, the zero set: "SO THE ZERO SET IS EXACTLY THE `q` MULTIPLES OF `q`, AND
+      `support(u_p) = N - q`."
+ [Q10] b270, the absorption: "`u_v` VANISHES ON THE BALL. ### EVERY SUMMAND CARRIES THE FACTOR"
+ [Q11] b270, the trace: "THEREFORE `Tr(U^n S_quot) = 0` AS WELL -- AND IT IS 0 AT ALL EIGHT
+      CELLS, MEASURED."
+ [Q12] act 9 sec 2, via b267's TEST 1: "tau_q(p,n,k) * p^(k/2) = (p^n - p^k)/(p^n - 1) ### for 1
+      <= k <= n-1, 0 for k >= n. QED"
+ [Q13] b267 TEST 1's result: "AT `k = n`: THE EXPRESSION RETURNS `0` AT EVERY CELL."
+ [Q14] SPEC-1 (b267): "(SPEC-1) IT COUNTS FIRST LEVELS."
+ [Q15] SPEC-2 (b267): "(SPEC-2) IT REDUCES TO `Theta_q`'s TERMS AT LEVELS `k <= n-1`."
+ [Q16] SPEC-3 (b267): "(SPEC-3) IT IS DEFINED OVER ALL PRIMES, NOT A FIXED SET."
+ [Q17] b15, the standing clause: "a finite-place-set object at a finite cutoff decides nothing"
+
+(E) THE MODEL, EVERY CONSTITUENT UNFOLDED AT ITS OWNER -- NOT RECONSTRUCTED.
+----------------------------------------------------------------------------------------------------
+ `b8_sonin_dim.model`  : `N = p^(2n)`; ball = `{ m : m % p^n == 0 }`; `|ball| = p^n = q`.
+ `b8_sonin_dim.scaling_matrix` : `U e_m = e_{pm mod N} / sqrt(p)`.
+ b226, unfolded above : `S`, `Pi`, `M = S/q` with `M^4 = 1`, `P_1 = (1+M+M^2+M^3)/4`,
+                        `4q P_1 = (q + S)(1 + Pi)`, `Son(p,n)`, `f_{i,j}`.
+ `b268_generator.u_coeffs` : `u_v = 4q P_1 f_{1,1}`, IMPORTED AS A MODULE.
+ THE CELLS: b268's PLACES unchanged -- (2,2), (3,1), (5,1), (7,1), (11,1), (13,1), (17,1), (19,1).
+
+(F) THE ROUTE, AND BOTH SEATS' EXPECTATIONS, REGISTERED IN ADVANCE (RULE-3 (f)).
+----------------------------------------------------------------------------------------------------
+ S1 -- THE BALL-ABSORPTION LEMMA, STATED GENERALLY, WITH ITS EXACT HYPOTHESES.
+    THIS SEAT EXPECTS IT TO HOLD IN THIS FORM:
+      HYPOTHESES: `N = p^{2n}`; ball `B = { m : p^n | m }`; `g : Z/N -> C` with `g|_B = 0`;
+                  `f : Z/N -> C` ARBITRARY, NO HYPOTHESIS ON `f` AT ALL.
+      CONCLUSION: `SUM_m f(m) * conj( g(p^n m mod N) ) = 0`.
+      PROOF: `p^n m` is a multiple of `p^n` for EVERY `m`, so `p^n m` lies in `B` for every `m`,
+      so every factor `conj(g(p^n m))` is `0`. ### **THE SUM IS ZERO TERMWISE, NOT BY
+      CANCELLATION** -- and that distinction is the lemma's whole strength.
+      ### **WHAT THE LEMMA DOES NOT NEED: nothing about `f`, nothing about `S_quot`, nothing
+      about `U`'s normalization.** b270's `P(n) = 0` is this lemma with `f = S_quot u_v`, and
+      b270's `Tr(U^n S_quot) = 0` is the same absorption on the trace's diagonal.
+
+ S2 -- THE FORCING QUESTION. DOES `E_1` MEMBERSHIP FORCE `g|_B = 0`?
+    ### **THIS SEAT EXPECTS: ### NO. ### AND EXPECTS TO EXHIBIT THE WITNESS IN CLOSED FORM.**
+    THE DERIVATION REGISTERED IN ADVANCE, FROM [Q4] AND [Q1]-[Q2]:
+      Let `g := 4q P_1 e_0`. `Pi e_0 = e_0` since `-0 = 0`, so `(1 + Pi) e_0 = 2 e_0`.
+      `(S e_0)(m) = SUM_{m'} e_0(m') zeta^{m m'} = zeta^0 = 1`, so `S e_0 = 1` (all ones).
+      THEREFORE ### **`g = 2q e_0 + 2 * 1`, i.e. `g(m) = 2q [m = 0] + 2`.**
+      MEMBERSHIP, CHECKED AND NOT ASSUMED: `(S g)(m) = 2q + 2 N [m = 0]` (the character sum is
+      `N` at `m = 0` and `0` otherwise), while `q g(m) = 2q^2 [m=0] + 2q = 2N [m=0] + 2q` using
+      `q^2 = N`. ### **THESE AGREE, SO `S g = q g`, i.e. `M g = g`, i.e. `g` IS IN `E_1`.**
+      BALL VALUES: `g(jq) = 2` for `jq != 0`, and `g(0) = 2q + 2`. ### **NONZERO ON THE BALL --
+      IN FACT `g` VANISHES NOWHERE.**
+    ### ### **SO THE EXPECTED VERDICT IS (ESCAPE), AND THE BARRIER IS EXPECTED TO BE FALSE FOR
+    ### ### THE AMBIENT `E_1`.**
+    ### **AND THE OTHER HALF, EXPECTED TO BE TRUE AND TO BE A TAUTOLOGY RATHER THAN A THEOREM:**
+    within `Son(p,n)`, ball-vanishing holds BY [Q5]'s DEFINITION. ### **SO A NO-GO DOES HOLD,
+    SCOPED TO `Son`, AND IT COVERS EVERY SONIN UNIT AND NOT ONLY b226's `f_{1,1}`.**
+
+ S2b -- IS THE ESCAPE MATERIAL OR MERELY FORMAL? ### **THE ACT MUST NOT STOP AT "NOT FORCED".**
+    THIS SEAT EXPECTS, AND REGISTERS THE CLOSED FORM BEFORE COMPUTING IT:
+    for `g` above, `S_quot g` is supported off the ball and its off-ball sum equals `g`'s
+    off-ball sum (class averaging preserves sums within classes); every off-ball `m` has
+    `p^n m != 0`, so `g(p^n m) = 2`; hence
+      ### **`<U^n S_quot g, g> = p^{-n/2} * 2 * SUM_{m off-ball} g(m) = 4 (N - q) / p^{n/2}`,**
+    which is ### **NONZERO AT EVERY CELL.** ### IF THIS IS RIGHT, (SPEC-1)'s DEMAND IS
+    SATISFIABLE INSIDE THE TRUNCATED MODEL AND THE ESCAPE IS MATERIAL.
+    ### **THIS COMPUTES A PROPERTY OF A CLASS. ### IT ADOPTS NOTHING** (B)(1), AND (SPEC-2) AND
+    (SPEC-3) ARE NOT TESTED FOR `g` AND MUST NOT BE REPORTED AS UNTESTED-BUT-LIKELY (B)(3).
+
+ S3 -- THE VERDICT, WITH ITS SCOPE STATED IN FULL AND ITS ENTAILMENT FOR C2 / C3 / C4 ONE BY ONE.
+
+(G) FALSIFIERS, BARS FIXED HERE, BEFORE ANY VALUE.
+----------------------------------------------------------------------------------------------------
+ F-BARRIER  THE FALSIFIER FOR (BARRIER), REQUIRED BY RULE-3 (f): a single vector `g` with
+            `M g = g` exactly, `g != 0`, and `g(m) != 0` for some `m` in the ball, REFUTES
+            (BARRIER) for the ambient `E_1`. ### ONE WITNESS SUFFICES AND NO NUMBER OF
+            BALL-VANISHING `E_1` VECTORS WOULD ESTABLISH THE BARRIER.
+ F-ESCAPE   (ESCAPE) MAY BE RETURNED ONLY IF ALL THREE HOLD EXACTLY, EACH CHECKED SEPARATELY:
+            (i) `M g = g` in `Q(zeta_N)`; (ii) `g` is not the zero vector; (iii) `g` is nonzero
+            at some ball point. ### ANY ONE FAILING FORBIDS (ESCAPE).
+ F-LEMMA    S1's lemma is CONTROLLED IN BOTH POLARITIES: it must give `0` for a ball-vanishing
+            `g`, and it must give NONZERO for the escape witness. ### A LEMMA THAT RETURNED `0`
+            FOR BOTH WOULD BE MEASURING THE INSTRUMENT, NOT THE HYPOTHESIS.
+ F-CTRL     POSITIVE CONTROLS RUN BEFORE THE DERIVATION IS BELIEVED, PER THE FERRY:
+            (a) A KNOWN BALL-VANISHING VECTOR: b268's `u_v` -- must vanish on the ball.
+            (b) A KNOWN NON-VANISHING VECTOR: `e_0` -- must NOT vanish on the ball.
+            (c) THE `E_1` TEST MUST BITE: `e_1` must FAIL `M g = g`, or the membership test is
+                passing everything and proves nothing.
+            ### **THE CONTROL CHECKS THE DERIVATION AND IS NEVER ITS EVIDENCE.**
+ F-EXACT    Every verdict is taken in `Q(zeta_N)` by reduction modulo `Phi_N`. NO FLOAT DECIDES
+            ANYTHING. Any float-only channel is not reported.
+ F-SCOPE    THE VERDICT'S SCOPE MUST BE STATED AS PRECISELY AS THE VERDICT (lore rule 21):
+            which model, which level, AND WHAT IT DOES NOT SAY -- nothing about the complete
+            roster, nothing about `h2`, and it does not refute the identity.
+ F-NOADOPT  Gate asserts: no exhibited object is installed as `Q.value` or entered in any
+            aggregation; `M-2` still reads SPECIFIED-NOT-STATED in the bank.
+ F-NOSPEC23 Gate asserts: (SPEC-2) and (SPEC-3) are NOT tested for any exhibited object, and the
+            bank does not speculate about them.
+ F-NOFIT    Gate asserts: zero comparisons to any target anywhere in run or bank.
+ F-QUOTE    Every quotation in (D) verified verbatim against its owner before emission.
+ F-ARMS     ### **W-ORD-PREDICATE-ARM, b270's OWN SPECIES, APPLIED TO THIS ACT:** every gate
+            predicate must be EXHAUSTIVE over the cases that can occur, and the gates tokenize
+            rather than regex. ### A COMPARISON WITH A MISSING ARM IS A FALSE PASS.
+ F-SHADOW   Built ONLY IF finite-decidable AND non-misleading, CHECKED NOT ASSUMED. If built it
+            carries a NOT-DEAD WITNESS and ### **COMPILES NO BARRIER IT DOES NOT HAVE.**
+
+(H) THE VERDICT MAP (RULE-3 (c)).
+----------------------------------------------------------------------------------------------------
+ (BARRIER)   ball-vanishing is forced => no `E_1`-based object inside the truncated model
+             satisfies (SPEC-1); scope stated in full; entailment for C2/C3/C4 one by one.
+ (ESCAPE)    an `E_1` vector not vanishing on the ball exhibited => the class is NAMED with its
+             properties, and what b226's ruling would have to change to reach it is STATED AS A
+             RULING ITEM AND NOT TAKEN.
+ (UNDECIDED) the resisting step named.
+
+(I) DISCLOSURES.
+----------------------------------------------------------------------------------------------------
+ (I1) THE OWNER READS PRECEDED THIS SEAL, and (F)'s expectations are DERIVED FROM THEM IN CLOSED
+      FORM RATHER THAN MEASURED. ### **NO VALUE WAS COMPUTED BEFORE THE SEAL.** ### Per b269's
+      and b270's standing deflation: ### **A PREDICTION READ OFF THE OWNERS IS A WEAK
+      PREDICTION**, and this act's weight is in the exact control, not in the score.
+ (I2) THE NOISE-FLOOR CHECK IS STILL UNBUILT -- ### **THE SEVENTH ACT RUNNING.** ### It is
+      RESTATED AS OWED, and it is NOT struck: striking it is the author's word and has not been
+      given. ### F-EXACT substitutes in this act only because this act's channel is exact.
+ (I3) THE RESOLUTION LAW APPLIES TO THIS ACT'S OWN CLAIMS.
+
+(J) THE CEILINGS THIS ACT DECLARES, AND THE DEMANDS ITS OWN PARAMETERS IMPLY.
+----------------------------------------------------------------------------------------------------
+THE ENUMERATION IS THE STEP reg_satisfiable.py CANNOT PERFORM, SO IT IS PERFORMED HERE.
+ (J1) NO SINGLE ALLOCATION ABOVE 256 MB. DEMAND: the largest object is a length-`N` vector of
+      sparse cyclotomic elements at `N = 361`; no dense `N x N` matrix is built, because `S` is
+      applied as a SUM and never materialized. Bound generously at 4 MB.
+ (J2) NO DENSE `N x N` OPERATOR IS MATERIALIZED AT ALL. DEMAND: 0.
+ (J3) EXACT ARITHMETIC DEGREE CAP 1024. DEMAND: unreduced products have degree `< 2N = 722`;
+      `Phi_361` has degree `phi(361) = 342`.
+ (J4) RUNTIME CAP 600 s. DEMAND: the `S g = q g` check is `N^2 = 130321` sparse products at the
+      largest cell; b268 and b270 ran comparable exact work over the same eight places.
+      RECORDED AS 240 s, FROM MEASURED PRECEDENT AND NOT GUESSED.
+ (J5) NO LADDER IS REGISTERED BY THIS ACT, so no ladder can outrun a ceiling (b264's species).
+      DEMAND: 0 ladders.
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 3e2469d0467a622fa970b30689d680dccbd2dd111e03c18d6a3b5de17d8dc464
+### bytes sealed : 14290
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b271_registration_2026-08-31.txt`.**
+====================================================================================================

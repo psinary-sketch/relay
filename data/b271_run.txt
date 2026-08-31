@@ -1,0 +1,124 @@
+====================================================================================================
+b271 -- COMPONENT 1. ### THE TOP-LEVEL NO-GO, DERIVED. ### EXACT ARITHMETIC IN Q(zeta_N).
+### REGISTRATION data/b271_registration_2026-08-31.txt SEALED 3e2469d0 BEFORE ANY VALUE.
+### **THE QUESTION: DOES `E_1` MEMBERSHIP FORCE VANISHING ON THE BALL?**
+### **NOTHING IS ADOPTED. ### AN EXHIBITED VECTOR IS A WITNESS TO A CLASS.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) F-CTRL -- THE CONTROLS, RUN BEFORE THE DERIVATION IS BELIEVED.
+### **THE CONTROL CHECKS THE DERIVATION AND IS NEVER ITS EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+  (p,n)   q    N      | E1: u_v   E1: g     E1: e_1    | ball: u_v   ball: g     ball: e_0
+                      | want YES  want YES  want NO    | want YES    want NO     want NO
+  (2,2)   4    16     | YES       YES       NO         | YES         NO          NO
+  (3,1)   3    9      | YES       YES       NO         | YES         NO          NO
+  (5,1)   5    25     | YES       YES       NO         | YES         NO          NO
+  (7,1)   7    49     | YES       YES       NO         | YES         NO          NO
+  (11,1)  11   121    | YES       YES       NO         | YES         NO          NO
+  (13,1)  13   169    | YES       YES       NO         | YES         NO          NO
+  (17,1)  17   289    | YES       YES       NO         | YES         NO          NO
+  (19,1)  19   361    | YES       YES       NO         | YES         NO          NO
+
+  ### **ALL SIX CONTROLS BEHAVE AS REQUIRED AT ALL 8 CELLS: YES**
+  ### The `E_1` test ACCEPTS a known member and REJECTS `e_1`; the ball detector
+  ### ACCEPTS `u_v` and REJECTS `e_0`. ### **A TEST THAT ONLY EVER SAYS YES IS NOT A
+  ### TEST, WHICH IS WHY BOTH POLARITIES ARE RUN AT EVERY CELL.**
+
+----------------------------------------------------------------------------------------------------
+### (2) S1 -- THE BALL-ABSORPTION LEMMA, IN BOTH POLARITIES.
+----------------------------------------------------------------------------------------------------
+  LEMMA. ### N = p^{2n}; B = { m : p^n | m }; g vanishing on B; ### **f ARBITRARY, WITH
+  NO HYPOTHESIS ON IT WHATEVER.** ### THEN SUM_m f(m) conj( g(p^n m) ) = 0.
+  PROOF. p^n m is a multiple of p^n for EVERY m, so it lies in B for every m, so every
+  factor conj(g(p^n m)) is 0. ### **THE SUM IS ZERO TERMWISE, NOT BY CANCELLATION.**
+
+  (p,n)   f=ones, g=u_v (0?)     f=u_v, g=u_v (0?)      f=ones, g=witness (0?)
+  (2,2)   ZERO                   ZERO                   NONZERO
+  (3,1)   ZERO                   ZERO                   NONZERO
+  (5,1)   ZERO                   ZERO                   NONZERO
+  (7,1)   ZERO                   ZERO                   NONZERO
+  (11,1)  ZERO                   ZERO                   NONZERO
+  (13,1)  ZERO                   ZERO                   NONZERO
+  (17,1)  ZERO                   ZERO                   NONZERO
+  (19,1)  ZERO                   ZERO                   NONZERO
+
+  ### S1 VERDICT: lemma holds in BOTH polarities at 8 of 8 cells
+  ### **TWO DIFFERENT `f` GIVE ZERO AGAINST A BALL-VANISHING `g`, AND THE SAME `f`
+  ### GIVES NONZERO AGAINST A `g` THAT DOES NOT VANISH THERE. ### THE LEMMA IS MEASURING
+  ### ITS HYPOTHESIS AND NOT ITS INSTRUMENT.**
+
+----------------------------------------------------------------------------------------------------
+### (3) S2 -- THE FORCING QUESTION. ### **DOES `E_1` MEMBERSHIP FORCE BALL-VANISHING?**
+----------------------------------------------------------------------------------------------------
+  THE WITNESS, IN CLOSED FORM FROM b226's OWN IDENTITY 4q P_1 = (q + S)(1 + Pi):
+    Pi e_0 = e_0, so (1 + Pi) e_0 = 2 e_0;  (S e_0)(m) = zeta^0 = 1, so S e_0 = 1.
+    ### **g := 4q P_1 e_0 = 2q e_0 + 2 * 1,  i.e.  g(m) = 2q [m = 0] + 2.**
+  MEMBERSHIP IS CHECKED, NOT INHERITED FROM PROVENANCE: (S g)(m) = 2q + 2N [m=0] and
+  q g(m) = 2N [m=0] + 2q, using q^2 = N. ### **THEY AGREE, SO M g = g.**
+
+  (p,n)   M g = g?     g nonzero?   ball points g != 0     forces ball-vanishing?
+  (2,2)   YES          YES          0,4,8                  ### NO ###
+  (3,1)   YES          YES          0,3,6                  ### NO ###
+  (5,1)   YES          YES          0,5,10                 ### NO ###
+  (7,1)   YES          YES          0,7,14                 ### NO ###
+  (11,1)  YES          YES          0,11,22                ### NO ###
+  (13,1)  YES          YES          0,13,26                ### NO ###
+  (17,1)  YES          YES          0,17,34                ### NO ###
+  (19,1)  YES          YES          0,19,38                ### NO ###
+
+  ### ### **F-BARRIER: THE BARRIER IS REFUTED FOR THE AMBIENT `E_1`. ### ONE WITNESS SUFFICES, AND THERE ARE EIGHT.**
+  ### **`g` VANISHES NOWHERE AT ALL, SO IT IS NOT A NEAR MISS.**
+
+----------------------------------------------------------------------------------------------------
+### (4) S2b -- IS THE ESCAPE MATERIAL, OR MERELY FORMAL?
+### **A PROPERTY OF THE CLASS. ### NOT A CANDIDATE. ### NOT A TABLE HEADED BY act 9.**
+----------------------------------------------------------------------------------------------------
+  (p,n)   <U^n S_quot g, g> p^{n/2}  predicted 4(N-q)     agrees?    same for u_v
+  (2,2)   48                         48                   YES        ZERO
+  (3,1)   24                         24                   YES        ZERO
+  (5,1)   80                         80                   YES        ZERO
+  (7,1)   168                        168                  YES        ZERO
+  (11,1)  440                        440                  YES        ZERO
+  (13,1)  624                        624                  YES        ZERO
+  (17,1)  1088                       1088                 YES        ZERO
+  (19,1)  1368                       1368                 YES        ZERO
+
+  ### ### **THE ESCAPE IS MATERIAL: THE WITNESS GIVES A NONZERO VALUE AT k = n AT EVERY CELL, AND IT MATCHES THE CLOSED FORM REGISTERED BEFORE IT WAS COMPUTED.**
+  ### The `u_v` column is b268/b270's vector, carried ONLY as the lemma's negative
+  ### polarity. ### **IT IS NOT A RE-VERDICT OF b270** (b246); b270's verdict stands.
+
+----------------------------------------------------------------------------------------------------
+### (5) THE TWO SPACES, KEPT APART. ### **THE HALF THAT IS A TAUTOLOGY.**
+----------------------------------------------------------------------------------------------------
+  b226 defines Son(p,n) as ### "the vectors on Z/p^{2n} vanishing on a ball AND on its
+  transform image". ### **SO EVERY VECTOR OF Son VANISHES ON THE BALL BY DEFINITION,
+  ### AND S1 THEN GIVES ZERO AT k = n FOR EVERY ONE OF THEM.**
+  ### ### **THAT IS A NO-GO, AND ITS SCOPE IS `Son(p,n)` -- NOT `E_1`, NOT THE MODEL.**
+  ### ### **IT IS A TAUTOLOGY AND NOT A THEOREM, AND IT IS REPORTED AS ONE.**
+  ### ### **IT COVERS EVERY SONIN UNIT AND NOT ONLY b226's f_{1,1}, WHICH IS THE ONE
+  ### ### THING IT ADDS BEYOND b270.**
+
+----------------------------------------------------------------------------------------------------
+### (6) THE ESCAPE CLASS, NAMED BY ITS PROPERTIES. ### **NOT SURVEYED, AND SAID SO.**
+----------------------------------------------------------------------------------------------------
+  (p,n)   g vanishes on ball   S g vanishes on ball     S g = q g exactly
+  (2,2)   NO                   NO                       YES
+  (3,1)   NO                   NO                       YES
+  (5,1)   NO                   NO                       YES
+  (7,1)   NO                   NO                       YES
+  (11,1)  NO                   NO                       YES
+  (13,1)  NO                   NO                       YES
+  (17,1)  NO                   NO                       YES
+  (19,1)  NO                   NO                       YES
+
+  ### **THE WITNESS FAILS BOTH HALVES OF b226's `Son` AT ONCE, AND FOR ONE REASON:
+  ### IT IS AN EIGENVECTOR, `S g = q g`, SO ITS TRANSFORM IS A NONZERO MULTIPLE OF
+  ### ITSELF AND CANNOT VANISH WHERE IT DOES NOT: CONFIRMED**
+  ### ### **SO THE CLASS THAT ESCAPES IS `E_1` MINUS `Son` -- THE `+1` SECTOR WITH
+  ### ### NONZERO BALL MASS. ### THAT IS AN ADDRESS, NOT A CANDIDATE.**
+  ### **WHAT THIS ACT DOES NOT DO: IT DOES NOT SURVEY THE CLASS.** ### One witness was
+  ### exhibited because one witness is what a refutation needs. ### **WHETHER THE CLASS
+  ### STILL HAS MEMBERS AFTER ANY FURTHER CONDITION IS IMPOSED IS NOT TESTED HERE, AND
+  ### (SPEC-2) AND (SPEC-3) ARE NOT TESTED FOR ANY MEMBER OF IT.**
+

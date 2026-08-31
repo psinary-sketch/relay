@@ -1,0 +1,294 @@
+====================================================================================================
+b271 -- THE BANK. 2026-08-31. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 5 -- THE TOP-LEVEL NO-GO.
+### ### **VERDICT: (ESCAPE). ### `E_1` MEMBERSHIP DOES NOT FORCE VANISHING ON THE BALL.**
+### ### **THE TOP-LEVEL SILENCE IS NOT A PROPERTY OF THE MODEL. ### IT IS A PROPERTY OF `Son`.**
+### ### **NO CANDIDATE IS ADOPTED. ### M-2 REMAINS OWED. ### NOTHING DEPOSITS.**
+Registration data/b271_registration_2026-08-31.txt, SEALED 3e2469d0 BEFORE ANY VALUE EXISTED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) THE QUESTION, AND THE ANSWER IN ONE LINE.
+----------------------------------------------------------------------------------------------------
+### **ASKED: DOES `E_1` MEMBERSHIP FORCE VANISHING ON THE BALL?**
+### ### **ANSWERED: ### NO. ### AND THE WITNESS VANISHES NOWHERE AT ALL, SO IT IS NOT A NEAR
+### ### MISS.**
+### ### **SO (SPEC-1) IS SATISFIABLE BY AN OBJECT BUILT FROM THE TRUNCATED MODEL AT LEVEL `n`.**
+### **AND THE OTHER HALF, WHICH IS WHY THE ACT WAS WORTH RUNNING RATHER THAN ASSUMING:** ### a
+### no-go DOES hold, and ### **ITS SCOPE IS `Son(p,n)` AND NOT THE MODEL** -- where it is a
+### ### TAUTOLOGY AND NOT A THEOREM ### , because `Son` carries ball-vanishing in its definition.
+
+----------------------------------------------------------------------------------------------------
+### (1) THE TWO SPACES, KEPT APART. ### **THIS IS THE WHOLE VALUE OF THE ACT.**
+----------------------------------------------------------------------------------------------------
+###   ### **`E_1`**      -- the `+1` sector of `M = S/q` on the AMBIENT space `Z/N`, `N = q^2`.
+###   ### **`E_1(Son)`** -- that sector RESTRICTED to `Son(p,n)`.
+### b226 defines the second's ambient space as ### *"Son(p,n) = the vectors on Z/p^{2n} vanishing
+### on a ball AND on its transform image,"* ### -- ### **SO BALL-VANISHING IS PART OF WHAT `Son`
+### MEANS AND IS NOT A FACT ABOUT `E_1`.**
+### ### **AN ACT THAT DID NOT SEPARATE THEM WOULD HAVE REPORTED A THEOREM WHERE THERE IS A
+### ### TAUTOLOGY, AND WOULD HAVE CALLED THE MODEL BARRED WHEN ONLY ONE SUBSPACE OF IT IS.**
+### **THE TRUNCATED MODEL AND THE COMPLETE ROSTER REMAIN DISTINCT THROUGHOUT, AND EVERY SENTENCE
+### BELOW SAYS WHICH.**
+
+----------------------------------------------------------------------------------------------------
+### (2) S1 -- THE BALL-ABSORPTION LEMMA, STATED GENERALLY WITH ITS EXACT HYPOTHESES.
+----------------------------------------------------------------------------------------------------
+### **HYPOTHESES:** ### `N = p^{2n}`; the ball `B = { m : p^n | m }`; a function `g` on `Z/N`
+### with `g|_B = 0`; and ### **`f` ARBITRARY -- NO HYPOTHESIS IS PLACED ON `f` AT ALL.**
+### **CONCLUSION:** ### `SUM_m f(m) * conj( g(p^n m mod N) ) = 0`.
+### **PROOF:** ### `p^n m` is a multiple of `p^n` for EVERY `m`, so it lies in `B` for every `m`,
+### so every factor `conj(g(p^n m))` is `0`. ### **THE SUM IS ZERO TERMWISE, NOT BY CANCELLATION**
+### -- and that is the lemma's whole strength: nothing can be arranged to defeat it.
+### **WHAT THE LEMMA DOES NOT NEED:** ### nothing about `f`, nothing about `S_quot`, nothing
+### about `U`'s normalization. ### **b270's `P(n) = 0` IS THIS LEMMA WITH `f = S_quot u_v`, AND
+### b270's `Tr(U^n S_quot) = 0` IS THE SAME ABSORPTION ON THE TRACE'S DIAGONAL.**
+### **CONTROLLED IN BOTH POLARITIES (F-LEMMA), AT ALL EIGHT CELLS:** ### two DIFFERENT `f` give
+### exactly zero against a ball-vanishing `g`; ### **THE SAME `f` GIVES NONZERO AGAINST A `g`
+### THAT DOES NOT VANISH THERE.** ### A lemma that returned zero for both would have been
+### measuring the instrument rather than the hypothesis.
+
+----------------------------------------------------------------------------------------------------
+### (3) S2 -- THE FORCING QUESTION, ANSWERED BY A WITNESS IN CLOSED FORM.
+----------------------------------------------------------------------------------------------------
+### From b226's own identity ### *"4q P_1   = (q + S)(1 + Pi)"* ### applied to `e_0`:
+###   `Pi e_0 = e_0` since `-0 = 0`, so `(1 + Pi) e_0 = 2 e_0`;
+###   `(S e_0)(m) = SUM_{m'} e_0(m') zeta^{m m'} = zeta^0 = 1`, so `S e_0` is the constant `1`;
+###   ### ### **`g := 4q P_1 e_0 = 2q e_0 + 2 * 1`, i.e. `g(m) = 2q [m = 0] + 2`.**
+### **MEMBERSHIP IS CHECKED AND NOT INHERITED FROM PROVENANCE.** ### b226 writes that ### *"u =
+### 4q P_1 f IS IN E_1 **BY CONSTRUCTION** -- it is a projector image"* ### , and this act still
+### verifies `M g = g` directly: `(S g)(m) = 2q + 2N [m=0]` against `q g(m) = 2N [m=0] + 2q`,
+### using `q^2 = N`. ### **THEY AGREE, SO `S g = q g`. ### VERIFIED EXACTLY AT ALL EIGHT CELLS.**
+### **BALL VALUES:** ### `g(0) = 2q + 2` and `g(jq) = 2` for `jq != 0`. ### **NONZERO ON THE
+### BALL AT EVERY CELL, AND IN FACT `g` VANISHES NOWHERE.**
+### ### ### **F-BARRIER FIRED: THE BARRIER IS REFUTED FOR THE AMBIENT `E_1`. ### ONE WITNESS
+### ### ### SUFFICES, AND THERE ARE EIGHT.**
+
+----------------------------------------------------------------------------------------------------
+### (4) THE CONTROL TABLE. ### **BOTH POLARITIES, AT EVERY CELL, BEFORE THE DERIVATION IS
+### BELIEVED.**
+----------------------------------------------------------------------------------------------------
+###   `E_1` test ACCEPTS `u_v` (a known member)          -- ### YES at 8 of 8.
+###   `E_1` test ACCEPTS `g`  (the witness, checked)     -- ### YES at 8 of 8.
+###   `E_1` test REJECTS `e_1`                           -- ### NO  at 8 of 8, AS REQUIRED.
+###   ball detector ACCEPTS `u_v` (b268's zero set)      -- ### YES at 8 of 8.
+###   ball detector REJECTS `g`                          -- ### NO  at 8 of 8, AS REQUIRED.
+###   ball detector REJECTS `e_0`                        -- ### NO  at 8 of 8, AS REQUIRED.
+### ### **A TEST THAT ONLY EVER SAYS YES IS NOT A TEST, WHICH IS WHY BOTH POLARITIES ARE RUN AT
+### ### EVERY CELL AND NOT ONCE AT A SAMPLE ONE.**
+### **AND THE CONTROL CHECKS THE DERIVATION; IT IS NEVER ITS EVIDENCE.** ### The derivation at
+### (3) is closed-form and stands on b226's identity; the eight cells confirm the arithmetic.
+
+----------------------------------------------------------------------------------------------------
+### (5) S2b -- ### **THE ESCAPE IS MATERIAL, NOT MERELY FORMAL.**
+----------------------------------------------------------------------------------------------------
+### An act that stopped at *"not forced"* would have left open whether anything in the escaping
+### class actually produces a number at `k = n`. ### **IT DOES.**
+### The closed form was REGISTERED BEFORE IT WAS COMPUTED: `S_quot g` is supported off the ball
+### and preserves off-ball sums within classes; every off-ball `m` has `p^n m != 0`, so
+### `g(p^n m) = 2`; hence ### **`<U^n S_quot g, g> * p^{n/2} = 4 (N - q)`.**
+###   `(2,2)` 48   `(3,1)` 24   `(5,1)` 80   `(7,1)` 168
+###   `(11,1)` 440 `(13,1)` 624 `(17,1)` 1088 `(19,1)` 1368
+### ### **NONZERO AT EVERY CELL, AND MATCHING THE REGISTERED CLOSED FORM EXACTLY AT ALL EIGHT.**
+### **THIS IS A PROPERTY OF A CLASS AND NOT A CANDIDATE** (the registration's (B)(1)): ### the
+### number is NOT placed in any table headed by act 9's closed form, NO comparison to any target
+### was run, and ### **(SPEC-2) AND (SPEC-3) WERE NOT TESTED FOR `g` AND ARE NOT SPECULATED
+### ABOUT** ### (the registration's (B)(3)).
+
+----------------------------------------------------------------------------------------------------
+### (6) THE ESCAPE CLASS, NAMED BY ITS PROPERTIES. ### **AN ADDRESS, NOT A CANDIDATE.**
+----------------------------------------------------------------------------------------------------
+### ### **THE CLASS IS `E_1` MINUS `Son` -- THE `+1` SECTOR WITH NONZERO BALL MASS.**
+### **AND THE WITNESS FAILS BOTH HALVES OF `Son` AT ONCE, FOR ONE REASON, VERIFIED EXACTLY:**
+### it is an EIGENVECTOR, `S g = q g`, so its transform is a NONZERO MULTIPLE OF ITSELF and
+### cannot vanish where it does not. ### **`g` FAILS THE BALL HALF AND THE TRANSFORM HALF
+### TOGETHER, AT ALL EIGHT CELLS.**
+### **WHAT THIS ACT DOES NOT DO, AND THE LIMITATION IS THE ACT'S OWN, NOT A CRITIC'S:**
+###   ### **(i) IT DOES NOT SURVEY THE CLASS.** ### One witness was exhibited because one
+###     witness is what a refutation needs. ### Whether the class still has members after any
+###     FURTHER condition is imposed IS NOT TESTED HERE.
+###   ### **(ii) THE WITNESS IS DEGENERATE, AND THAT IS SAID PLAINLY.** ### `2q e_0 + 2 * 1` is
+###     a delta plus a constant -- ### **THE MOST ELEMENTARY MEMBER OF `E_1` THERE IS**, chosen
+###     because a refutation wants the simplest witness and not the most interesting one.
+###     ### **IT IS EVIDENCE THAT THE CLASS IS NONEMPTY. ### IT IS NOT EVIDENCE THAT THE CLASS
+###     CONTAINS ANYTHING THE PROGRAMME WANTS.**
+###   ### **(iii) IT PROVES NOTHING ABOUT (SPEC-2) OR (SPEC-3)**, which are the specs that
+###     killed C1 at b270, and which no object in this class has been tested against.
+
+----------------------------------------------------------------------------------------------------
+### (7) ### **THE VERDICT'S SCOPE, STATED AS PRECISELY AS THE VERDICT (F-SCOPE).**
+----------------------------------------------------------------------------------------------------
+### **WHICH MODEL:** ### the TRUNCATED model on `Z/p^{2n}`, with b8's ball and `U`, b226's `S`,
+### `Pi`, `M = S/q` and `P_1`. ### **WHICH LEVEL:** ### `n = ell(p)` at the eight cells b226's
+### choice reaches, with the closed-form derivation holding at every `(p, n)`.
+### **WHAT IT DOES NOT SAY, ITEM BY ITEM:**
+###   ### **IT SAYS NOTHING ABOUT THE COMPLETE ROSTER.** ### b15's standing clause governs and
+###     is not worked around: ### *"a finite-place-set object at a finite cutoff decides
+###     nothing"* ### globally.
+###   ### **IT SAYS NOTHING ABOUT `h2`**, and claims nothing beyond the register sentence exact.
+###   ### **IT DOES NOT REFUTE THE IDENTITY**, and no identity was tested.
+###   ### **IT DOES NOT RE-VERDICT b270** (b246). ### b270 killed C1 for b226's `u_v`, which is
+###     a `Son` vector; ### **THIS ACT SHOWS THAT DEATH WAS NOT A MODEL-WIDE BARRIER, WHICH IS A
+###     STATEMENT ABOUT SCOPE AND NOT A CHANGE OF VERDICT.** ### b270's `Tr(U^n S_quot) = 0` is
+###     re-confirmed here as the lemma's negative polarity and stands exactly as banked.
+###   ### **IT DOES NOT ESTABLISH THAT ANY USABLE OBJECT EXISTS.** ### (6)(i)-(iii) hold.
+
+----------------------------------------------------------------------------------------------------
+### (8) ### **THE ENTAILMENT FOR EACH DOSSIER CANDIDATE, ONE BY ONE. ### NO RANKING.**
+----------------------------------------------------------------------------------------------------
+### **C2 -- EXTEND THE PROJECTION TO AN ACTION.** ### Still wants a ### RESULT ### (what
+###   `S_quot` does to `E_1`). ### **UNCHANGED IN KIND.** ### One thing sharpens: the target
+###   `E_1` is now known to be STRICTLY LARGER than `E_1(Son)`, so *"what `S_quot` does to
+###   `E_1`"* is a question about a bigger space than the campaign had been picturing.
+### **C3 -- PUT AN ORBIT STRUCTURE ON `S-bar_v`.** ### Still wants ### BOTH ### . ### **AND ONE
+###   OF ITS STATED ADVANTAGES IS NOW IN QUESTION.** ### b269 filed that C3 *"is the only
+###   candidate that would give a number defined AT `k = n`"* ### -- and (5) exhibits a number
+###   defined at `k = n` that does not come from C3. ### **WHETHER b269's LINE IS AMENDED IS THE
+###   AUTHOR'S AND IS ROUTED, NOT TAKEN:** ### it was RIGHT ABOUT THE CANDIDATES IN ITS OWN
+###   DOSSIER, every one of which stays inside `Son`; what this act adds lies outside that.
+###   ### **THAT IS THE b267-ADDENDUM DISTINCTION APPLIED AGAIN: SUPERSEDED BY WORK IS NOT
+###   WRONG WHEN WRITTEN.**
+### **C4 -- CHANGE THE UNIT.** ### ### **THIS ACT GIVES C4 AN ADDRESS.** ### b270 recorded that
+###   C4 *"CANNOT ESCAPE THIS ACT'S REFUTATION BY CHANGING THE UNIT WITHIN `Son(p,n)`"*; ###
+###   **THE COMPLEMENT IS NOW EXHIBITED -- A UNIT IN `E_1` WITH NONZERO BALL MASS DOES GIVE A
+###   NONZERO VALUE AT `k = n`.** ### C4 is no longer a direction without a destination.
+
+----------------------------------------------------------------------------------------------------
+### (9) ### **THE RULING ITEM. ### STATED IN FULL, AND NOT TAKEN.**
+----------------------------------------------------------------------------------------------------
+### **WHAT b226's RULING WOULD HAVE TO CHANGE TO REACH THE ESCAPE CLASS:**
+###   ### **(i) THE UNIT WOULD HAVE TO LEAVE `Son(p,n)`.** ### Not merely change index within
+###     it -- LEAVE IT. ### And `Son` is the space the sector is named for.
+###   ### **(ii) b226's WARRANT FOR PLACING THE UNIT IN THE LIMIT WOULD LAPSE.** ### That warrant
+###     is b198 (I2)'s closure sentence about ### **the level tower of `Son`** ### ; a non-`Son`
+###     vector is not in that tower, so ### **THE PLACEMENT WOULD HAVE TO BE RE-DERIVED, NOT
+###     RE-CITED.**
+###   ### **(iii) b268's A1 WOULD HAVE TO BE RE-RUN FOR THE NEW UNIT**, and (SPEC-3)'s `p = 2`
+###     step-up condition re-derived, exactly as b269 recorded for C4.
+### ### ### **THAT IS A RULING WITH A REAL PRICE, AND IT IS THE AUTHOR'S. ### THIS SEAT STATES
+### ### ### IT AND DOES NOT TAKE IT, AND OFFERS NO RECOMMENDATION BETWEEN C2, C3 AND C4.**
+
+----------------------------------------------------------------------------------------------------
+### (10) ### **M-2's ROW.**
+----------------------------------------------------------------------------------------------------
+### **STATUS: ### SPECIFIED-NOT-STATED ### . ### UNCHANGED. ### NO AGGREGATION ADOPTED.**
+### **WHAT THIS ACT SETTLED, WITHOUT INFLATION:** ### one question, completely --
+### ### **THE TOP-LEVEL SILENCE IS NOT A PROPERTY OF THE TRUNCATED MODEL. ### IT IS A PROPERTY
+### ### OF `Son`, WHERE IT IS TRUE BY DEFINITION.**
+### **AND THE FORK IS NO LONGER FOUR CANDIDATES: IT IS THREE CANDIDATES AND ONE ANSWERED
+### QUESTION.** ### C1 died at b270; C4 now has an address; C2's target is bigger than it looked;
+### C3's advantage is in question and routed. ### **NONE OF THAT IS M-2.**
+
+----------------------------------------------------------------------------------------------------
+### (11) ### **THE SHADOW. ### BUILT, WITH ONE STEP DELIBERATELY LEFT OUT.**
+----------------------------------------------------------------------------------------------------
+### `SIDE-global-section/Core/AbsorptionFunctionalShadow.lean` -- vanilla Lean 4, `decide` only.
+### ### **7 TERMINALS, ALL PRINTING "does not depend on any axioms", REPORTED FROM THE PRINTED
+### ### PROFILE** ### (b227's standard), with the prints IN the banked file. ### **THE FLIP TEST
+### ### BITES:** ### `vanishesOnBall gWit = true` makes `lean` exit 1.
+### **WHAT IT COMPILES:** ### the lemma's functional form for two UNRELATED `f` (one taking
+### negative values, because the lemma constrains `f` not at all), ### **AND THE CONVERSE
+### POLARITY -- DROP THE HYPOTHESIS AND THE FUNCTIONAL STOPS VANISHING.** ### Together those
+### compile exactly one claim: ### **BALL-VANISHING IS LOAD-BEARING IN THE LEMMA, NOT
+### DECORATIVE.**
+### **WHAT IT DELIBERATELY DOES NOT COMPILE, AND THIS IS THE CONDITION b269 AND b270 BOTH
+### APPLIED:** ### the act's one genuinely new step is `S g = q g`, which rests on the character
+### sum `SUM_{m'} zeta^{m m'} = N [m = 0]` -- ### **CYCLOTOMIC, NOT FINITE-DECIDABLE HERE. ### A
+### TOY MODEL OF IT WITH INTEGER STAND-INS WOULD HAVE COMPILED CLEANLY AND SETTLED NOTHING IN A
+### FILE WHOSE HEADER NAMED THE REAL OPERATOR.** ### It is left out and said so.
+### ### **AND THE FILE COMPILES NO BARRIER, BECAUSE THIS ACT HAS NONE TO COMPILE.**
+
+----------------------------------------------------------------------------------------------------
+### (12) ### **THE DEVIATIONS.**
+----------------------------------------------------------------------------------------------------
+### **(D1) THE SHADOW'S FIRST DRAFT COMPILED WITH EVERY TERMINAL RESTING ON `sorryAx`.** ### It
+### used `at` as a function name -- ### **A LEAN KEYWORD** ### -- and stated its refusals as
+### `(P) = False`, which does not reduce. ### `lean` exited 1, and ### **THE PRINTED PROFILE
+### SHOWED `[sorryAx]` ON ALL BUT ONE TERMINAL.** ### **HAD THE ACT REPORTED A CLAIMED COMPILE
+### RATHER THAN A PRINTED PROFILE, IT WOULD HAVE BANKED A FILE OF SORRIES AS A SHADOW. ### THAT
+### IS PRECISELY WHY b227's STANDARD EXISTS, AND IT PAID FOR ITSELF HERE.**
+### **(D2) THE SECOND DRAFT COMPILED CLEANLY AND STILL FAILED ITS OWN HEADER.** ### Six of seven
+### terminals printed ### **`depends on axioms: [propext]`** ### under a header promising zero,
+### because `List.getD` pulls `propext` in. ### ### **THE HEADER WAS NOT WEAKENED TO MATCH THE
+### PROFILE; THE ENCODING WAS CHANGED UNTIL THE PROFILE MATCHED THE HEADER** ### -- vectors are
+### now functions `Nat -> Int`. ### **THE EASY REPAIR WAS TO EDIT THE PROMISE, AND IT WAS NOT
+### TAKEN.**
+### **(D3) THE OWNER READS PRECEDED THE SEAL** -- disclosed at the registration's `(I1)`. ###
+### **ALL EXPECTATIONS WERE DERIVED IN CLOSED FORM FROM b226's IDENTITY BEFORE THE SEAL AND ALL
+### WERE CORRECT, INCLUDING THE VALUE `4(N - q)`.** ### Deflated, not claimed: ### **A
+### PREDICTION READ OFF AN OWNER'S OWN ALGEBRA IS A WEAK PREDICTION**, and the act's weight is
+### in the exact eight-cell control, not in the score.
+### **(D4) THE NOISE-FLOOR CHECK IS STILL UNBUILT -- ### THE SEVENTH ACT RUNNING.** ### It is
+### ### **RESTATED AS OWED AND IS NOT STRUCK**, because striking it is the author's word and has
+### not been given. ### F-EXACT substituted again, and again only because this act's channel is
+### exact arithmetic, which has no floor. ### **SEVEN ACTS IS NO LONGER AN OVERSIGHT; IT IS A
+### STANDING DEBT AND IS NAMED AS ONE.**
+### **(D5) A GATE FIXTURE COULD NEVER HAVE FIRED, AND THE GATE PASSED WITHOUT TESTING ITS
+### POLARITY. ### THIS IS THE SECOND OCCURRENCE OF b270's (D6) SPECIES, IN THE VERY ACT WRITTEN
+### AGAINST IT.** ### Gate 4's first fixture demanded a table header followed IMMEDIATELY by a
+### `(3,1)` row -- but the first row printed is `(2,2)`, ### **SO NO DATA WHATEVER COULD HAVE
+### MADE IT TRUE.** ### The replacement then failed for a SECOND, DIFFERENT reason worth
+### recording: it keyed on the marker `### ZERO ###`, and ### **`check_harness.norm` STRIPS THE
+### `###` LEAD BY DESIGN**, so a marker-based fixture cannot discriminate at all -- it fired on
+### an ordinary `ZERO` elsewhere in the run and REFUSED the check. ### Fixed at the source: the
+### runner now emits a distinct wording, `LEMMA POLARITY FAILED`, that appears ONLY on failure
+### and carries no marker. ### **BOTH DRAFTS WERE CAUGHT BEFORE THE BANK -- THE FIRST BY READING
+### THE FIXTURE AGAINST THE RUN'S ACTUAL LAYOUT, THE SECOND BY THE HARNESS REFUSING.** ###
+### **THE LESSON IS NARROWER THAN "BE CAREFUL": A FIXTURE MUST BE CHECKED FOR REACHABILITY, NOT
+### ONLY FOR CORRECTNESS, AND `W-ORD-PREDICATE-ARM` SHOULD SAY SO WHEN IT IS WRITTEN.**
+### **(D6) NO PREDICATE IN THIS ACT'S GATES BRANCHES.** ### `W-ORD-PREDICATE-ARM` was b270's own
+### incident and this act was written against it: every control is a direct Boolean over an
+### exact test, and the gates tokenize. ### **RECORDED AS COMPLIANCE, NOT AS AN ACHIEVEMENT.**
+
+----------------------------------------------------------------------------------------------------
+### (13) ### **THE IN-FLIGHT REGISTER.**
+----------------------------------------------------------------------------------------------------
+###   ### **CLOSED BY THIS ACT: ### THE TOP-LEVEL NO-GO QUESTION.** ### Answered (ESCAPE), with
+###     the barrier's true scope located at `Son` rather than at the model.
+###   ### **OPEN, CARRIED FORWARD:**
+###     `M-2` -- ### **SPECIFIED-NOT-STATED**; dossier C2 / C3 / C4.
+###     ### **b269's C3 LINE** -- routed to the author, amend-or-cite, not taken here.
+###     `W-ORD-PREDICATE-ARM` (b270) -- OPEN, lore edit belongs to a filings act.
+###     `W-ORD-TQ-IDENTIFY` (b260) -- OPEN.
+###     `W-ORD-XI-PERMODE` (b250) -- OPEN, untouched.
+###     `W-ORD-CN-LAW` -- OPEN, untouched.
+###     `W-ORD-INDEX-APPEND` -- OPEN; ### **TWENTY-ONE KEYS ACROSS ELEVEN ACTS** (b261-b271).
+###     `W-ORD-NTERM-FLOOR` -- narrowed remainder, held under K.4, untouched.
+###     ### **THE `ERRATA` PARTITION QUESTION** (b266) -- routed to the reconciliation wave.
+###     ### **THE NOISE-FLOOR CHECK** -- unbuilt, ### SEVEN ACTS ### , owed and not struck.
+###   ### **NEW: ### `W-ORD-ESCAPE-SURVEY`** -- the escape class is NAMED and NOT SURVEYED
+###     ((6)(i)). ### Whether it retains members under any further condition is unanswered, and
+###     ### **NAMING A CLASS IS NOT THE SAME AS KNOWING IT IS USEFUL.**
+
+----------------------------------------------------------------------------------------------------
+### (14) ### **THE SEAM'S DEBT, ITEM 1 RESTATED.**
+----------------------------------------------------------------------------------------------------
+### ### **ITEM 1 IS STILL NOT PAID, AND THIS ACT DOES NOT PAY IT.** ### M-2 is not stated.
+### **WHAT THE ARC HAS ACTUALLY MOVED, SAID WITHOUT INFLATION:** ### b267 located the term;
+### b268 paid a prerequisite; b269 resolved the obstruction into three demands; b270 killed one
+### candidate by derivation; ### **b271 SHOWED THE OBSTRUCTION IS NOT WHERE IT LOOKED -- IT IS
+### IN `Son`, NOT IN THE MODEL -- AND GAVE C4 AN ADDRESS.** ### **NONE OF THAT IS M-2.**
+### **AND THE OTHER DEBT LINES STAND:** the `EPS_NQ` sweep is not a sweep of the record (b265);
+### `qeps_layer`'s `NTERM` note is still not at the point of use; the lore is twenty-one rules of
+### which six cannot be mechanized, ### **AND STILL CARRIES THE MISSING-ARM HOLE b270 WALKED
+### THROUGH**; the index backlog is twenty-one keys.
+
+----------------------------------------------------------------------------------------------------
+### (15) ### **WHAT THIS ACT DID NOT DO.**
+----------------------------------------------------------------------------------------------------
+### **NO CANDIDATE IS ADOPTED AND NO AGGREGATION IS STATED.** ### The witness is ### **A WITNESS
+### TO A CLASS, NOT A CANDIDATE**, and it is not installed as `Q.value` or anywhere else.
+### **(SPEC-2) AND (SPEC-3) WERE NOT TESTED FOR ANY OBJECT THIS ACT EXHIBITS, AND ARE NOT
+### SPECULATED ABOUT.** ### They are the specs that killed C1, and silence about them here is
+### deliberate rather than an oversight.
+### **NO NUMBER FROM THIS ACT SITS IN A TABLE HEADED BY act 9's CLOSED FORM, AND NO COMPARISON
+### TO ANY TARGET WAS RUN.** ### Zero fits, zero residuals.
+### **NO PRIOR ACT WAS RE-VERDICTED** (b246). ### b270 stands; b269's C3 line is ROUTED and not
+### amended here.
+### **NO RULING WAS TAKEN.** ### (9) states the price of the escape route and leaves it.
+### **NO OWNER INSTRUMENT WAS EDITED** -- b268's generator and b270's exact arithmetic were
+### ### IMPORTED AS MODULES ### , which is the strongest available form of not-reconstructing.
+### **NOTHING IS CLAIMED ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT:** ### **"RH reduced to a
+### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES.**
+====================================================================================================
