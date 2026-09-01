@@ -1,0 +1,79 @@
+====================================================================================================
+b284 -- THE SCALING'S DOMAIN. ### BOTH DIRECTIONS, BOTH CONDITIONS, SEPARATELY.
+====================================================================================================
+### THE DERIVATION LIVES ON `Q_p`. ### **THIS RUNNER IS A CONTROL AND NEVER THE
+### EVIDENCE (falsifier J5).** ### b21 records the model wraparound as THE ARTIFACT.
+
+  ---- CELL (p,n) = (2,1):  N = 4     ball |2|  units |1|  dim Son = 1 ----
+                  ### VACUITY: images identically zero : 1 of 1   ### **EVERY READING ABOVE IS VACUOUS HERE** ###
+    g(x)=f(px)    S1 function side :  1/1  vanish on ball_n
+                  S2 transform side:  1/1  vanish on ball_n
+                  ### VACUITY: images identically zero : 0 of 1
+    h(x)=f(x/p)   S1 function side :  0/1  vanish on ball_n   ### FAILS ### first witness m=2, value -1
+                    ### every failing index lies in the UNITS : YES (1 of 1)
+                  S2 transform side:  0/1  vanish on ball_n   ### FAILS ### first witness m=0
+                    ### every failing index lies in the UNITS : ### NO ### (0 of 1)
+    noise-floor gate : EXACT
+
+  ---- CELL (p,n) = (2,2):  N = 16    ball |4|  units |2|  dim Son = 9 ----
+                  ### VACUITY: images identically zero : 6 of 9
+    g(x)=f(px)    S1 function side :  9/9  vanish on ball_n
+                  S2 transform side:  7/9  vanish on ball_n   ### FAILS ### first witness m=4
+                    ### every failing index lies in the UNITS : YES (2 of 2)
+                  ### VACUITY: images identically zero : 0 of 9
+    h(x)=f(x/p)   S1 function side :  6/9  vanish on ball_n   ### FAILS ### first witness m=4, value -1
+                    ### every failing index lies in the UNITS : YES (3 of 3)
+                  S2 transform side:  3/9  vanish on ball_n   ### FAILS ### first witness m=0
+                    ### every failing index lies in the UNITS : ### NO ### (0 of 6)
+    noise-floor gate : EXACT
+
+  ---- CELL (p,n) = (3,1):  N = 9     ball |3|  units |2|  dim Son = 4 ----
+                  ### VACUITY: images identically zero : 4 of 4   ### **EVERY READING ABOVE IS VACUOUS HERE** ###
+    g(x)=f(px)    S1 function side :  4/4  vanish on ball_n
+                  S2 transform side:  4/4  vanish on ball_n
+                  ### VACUITY: images identically zero : 0 of 4
+    h(x)=f(x/p)   S1 function side :  0/4  vanish on ball_n   ### FAILS ### first witness m=3, value -1
+                    ### every failing index lies in the UNITS : YES (4 of 4)
+                  S2 transform side:  0/4  vanish on ball_n   ### FAILS ### first witness m=0
+                    ### every failing index lies in the UNITS : ### NO ### (0 of 4)
+    noise-floor gate : EXACT
+
+  ---- CELL (p,n) = (3,2):  N = 81    ball |9|  units |6|  dim Son = 64 ----
+                  ### VACUITY: images identically zero : 48 of 64
+    g(x)=f(px)    S1 function side : 64/64 vanish on ball_n
+                  S2 transform side: 52/64 vanish on ball_n   ### FAILS ### first witness m=9
+                    ### every failing index lies in the UNITS : YES (12 of 12)
+                  ### VACUITY: images identically zero : 0 of 64
+    h(x)=f(x/p)   S1 function side : 48/64 vanish on ball_n   ### FAILS ### first witness m=36, value 1
+                    ### every failing index lies in the UNITS : YES (16 of 16)
+                  S2 transform side: 16/64 vanish on ball_n   ### FAILS ### first witness m=0
+                    ### every failing index lies in the UNITS : ### NO ### (0 of 48)
+    noise-floor gate : EXACT
+
+  ---- CELL (p,n) = (5,1):  N = 25    ball |5|  units |4|  dim Son = 16 ----
+                  ### VACUITY: images identically zero : 16 of 16   ### **EVERY READING ABOVE IS VACUOUS HERE** ###
+    g(x)=f(px)    S1 function side : 16/16 vanish on ball_n
+                  S2 transform side: 16/16 vanish on ball_n
+                  ### VACUITY: images identically zero : 0 of 16
+    h(x)=f(x/p)   S1 function side :  0/16 vanish on ball_n   ### FAILS ### first witness m=5, value -1
+                    ### every failing index lies in the UNITS : YES (16 of 16)
+                  S2 transform side:  0/16 vanish on ball_n   ### FAILS ### first witness m=0
+                    ### every failing index lies in the UNITS : ### NO ### (0 of 16)
+    noise-floor gate : EXACT
+
+  ---- CELL (p,n) = (7,1):  N = 49    ball |7|  units |6|  dim Son = 36 ----
+                  ### VACUITY: images identically zero : 36 of 36   ### **EVERY READING ABOVE IS VACUOUS HERE** ###
+    g(x)=f(px)    S1 function side : 36/36 vanish on ball_n
+                  S2 transform side: 36/36 vanish on ball_n
+                  ### VACUITY: images identically zero : 0 of 36
+    h(x)=f(x/p)   S1 function side :  0/36 vanish on ball_n   ### FAILS ### first witness m=7, value -1
+                    ### every failing index lies in the UNITS : YES (36 of 36)
+                  S2 transform side:  0/36 vanish on ball_n   ### FAILS ### first witness m=0
+                    ### every failing index lies in the UNITS : ### NO ### (0 of 36)
+    noise-floor gate : EXACT
+
+====================================================================================================
+### THE PATTERN ACROSS ALL SIX CELLS:
+  g(x)=f(px)    S1 function side holds everywhere : True    S2 transform side holds : False
+  h(x)=f(x/p)   S1 function side holds everywhere : False   S2 transform side holds : False
+====================================================================================================

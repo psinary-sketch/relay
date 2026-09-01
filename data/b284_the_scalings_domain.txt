@@ -1,0 +1,309 @@
+====================================================================================================
+b284 -- M-2 CAMPAIGN, ACT 17 -- THE SCALING'S DOMAIN. ### DOES THE GENUINE SCALING PRESERVE `S-bar_p`?
+2026-09-01. ### SOLO (research seat). ### Registration: `data/b284_registration_2026-09-01.txt`.
+====================================================================================================
+
+### ### **VERDICT: (FAILS) -- IN BOTH DIRECTIONS, AND DUALLY.**
+### ### **NEITHER `g(x) = f(px)` NOR `h(x) = f(x/p)` PRESERVES `S-bar_p`. ### EACH PRESERVES
+### ### EXACTLY ONE OF `Son`'s TWO CONDITIONS AND BREAKS THE OTHER, AND THE GAP SET IS THE SAME
+### ### BOTH TIMES: ### THE UNITS `Z_p^x = Z_p \ p Z_p`.**
+
+### ### **THE ENTAILMENT, AT EXACTLY ITS SCOPE AND NOT ONE WORD FURTHER:**
+### ### ### **C3-VIA-SCALING IS CLOSED.**
+### ### **THAT IS ### NOT ### "C3 IS CLOSED".** ### Deriving that no other structure is available
+### would require surveying structures this act has not surveyed, and the ferry forbade attempting
+### it here. ### **C3 REMAINS OPEN BY EVERY ROUTE THIS ACT DID NOT TEST.**
+
+### ### **THE BOUNDARY TRAVELS:** ### finite places only. ### b279's construction sentence,
+### quoted -- "at `infinity`, the Sonin condition at the Connes-Consani scale, whose resonance
+### geometry is the epsilon-regularization machinery." ### **NOTHING HERE REACHES IT.**
+
+----------------------------------------------------------------------------------------------------
+### (a) THE LOAD-BEARING, PULLED FROM ### EMITTING ### FILES.
+----------------------------------------------------------------------------------------------------
+### (a1) ### **`Son`'s TWO CONDITIONS, EACH WITH ITS BALL NAMED** (keystone sec 1): ### "the space
+###   `Son(p,n)` on `Z/p^{2n}` of dimension `(p^n-1)^2` (### **vectors vanishing on a ball and on
+###   its transform image**)". ### ### **THE BALL IS `ball_n = { m : p^n | m }`, WHICH IS `Z_p` IN
+###   THE CHART AT EVERY LEVEL** (b279, checked exhaustively).
+
+### (a2) ### **b21, THE CHART AND HAAR:** ### "`V_n` IS canonically the model space:
+###   `p^(-n)Z_p / p^n Z_p = Z/p^(2n)` via ### **`x = p^(-n) m`**; Haar measure (### **`Z_p` mass
+###   1**) gives each chart point mass `p^(-n)` -- uniform".
+
+### (a3) ### **b21, THE GENUINE SCALING AND ITS SUPPORT LAW:** ### "THE GENUINE SCALING:
+###   `(U f)(x) = p^(-1/2) f(p x)`, unitary on `L^2(Q_p)`" ### and ### "`U` maps `V_n` INTO
+###   `V_(n+1)` and ESCAPES `V_n` -- ### **`supp(U f) = p^(-n-1) Z_p`** -- so ### **THE MODEL'S
+###   mod-N WRAPAROUND IS THE ARTIFACT**". ### And its control C0b: "### **`U` ESCAPES `V_n`,
+###   exactly ... `supp(U f) = p^(-n-1)Z_p`, strictly bigger than `p^(-n)Z_p`. ### THE MODEL'S
+###   mod-N WRAPAROUND IS EXACTLY THIS ESCAPED MASS FOLDED BACK IN.**"
+###   ### **THAT LAST SENTENCE IS QUOTED BECAUSE IT PREDICTS, IN ADVANCE, THE ONE PLACE THIS
+###   ### ACT'S CONTROL DISAGREES WITH ITS DERIVATION. ### b21 NAMED THE ARTIFACT BEFORE THIS ACT
+###   ### MET IT.**
+
+### (a4) ### **THE FOURIER SCALING LAW: ### (ABSENT) FROM THE CORPUS. ### AN IMPORT UNDER THE
+###   BAR, NAMED AND GRADED.**
+###   SEARCHED, with positive controls that fire: ### `GENUINE SCALING` 6 hits in b21,
+###   `standard character` 1 hit. ### **TARGET: 0.** ### The `dilation` hits (b100, b107, b109) are
+###   ### ARCHIMEDEAN ### and are a different object; they are not this law.
+###   ### **THE IMPORT:** ### for `g(x) = f(a x)`, `ghat(y) = |a|^{-1} fhat(y/a)`.
+###   ### **WHAT THIS ACT USES OF IT -- AND IT IS DELIBERATELY THE SMALLEST PART: ### ONLY THE
+###   ### SUPPORT CONSEQUENCE, `supp(ghat) = a * supp(fhat)`. ### THE CONSTANT `|a|^{-1}` IS
+###   ### IRRELEVANT TO EVERY CONCLUSION BELOW AND IS NOT LEANED ON**, so no normalization
+###   convention can carry weight it was not checked for.
+###   ### **HYPOTHESES CHECKED AGAINST ### OUR ### TRANSFORM, FROM b21's OWN WORDS:**
+###     (i) ### "THE GENUINE TRANSFORM: `(F f)(y) = int f(x) psi(x y) dx`, ### **psi the standard
+###         character**" -- the standard additive-character transform, which is the law's setting;
+###     (ii) Haar with ### **`Z_p` mass 1** ### (a2) -- the normalization the law is stated for.
+###   ### **GRADE: IMPORT. ### NOT DERIVED HERE, NOT COMPILED, AND CARRIED AS AN IMPORT WHEREVER
+###   ### IT IS USED.** ### Filed as `W-ORD-SCALING-LAW-OWNER`.
+
+### (a5) ### **b279's CONSTRUCTION:** ### `S-bar_p` = the `L^2(Q_p)`-closure of
+###   `UNION_n iota(Son(p,n))`; and b280's `S2`: every element vanishes a.e. on `Z_p`, and so does
+###   its transform, both being kernels of bounded operators.
+
+### (a6) ### **b283, CARRIED NOT RE-DERIVED:** ### `iota f = f` -- ### "`iota` IS THE INCLUSION
+###   `V_n subset V_(n+1)`, AND ON FUNCTIONS IT IS THE IDENTITY" ### -- and its support test:
+###   `iota` moves no support and never carries an off-ball index into the ball.
+###   ### **SO `iota` IS NOT IN THIS ACT'S ARGUMENT AT ALL. ### THE SCALING IS A DIFFERENT MAP AND
+###   ### INHERITS NOTHING FROM IT.**
+
+### (a7) ### **b10's NON-DESCENT, QUOTED WHOLE FROM ITS EMITTING FILE, AND WHAT IT IS ABOUT:**
+###   "### **THE FOURIER HALF DOES NOT DESCEND -- the transform does not commute with `x ~ px`**".
+###   ### **DECIDED BY ITS OWN WORDS: ### IT IS ABOUT THE QUOTIENT.** ### b10's sentence sits
+###   immediately after its definition of `V_inv` as "the model realization of functions on the
+###   orbit space `x ~ px`", and says the transform ### **does not descend to that quotient**.
+###   ### **IT IS NOT A STATEMENT ABOUT `S-bar_p`, AND IT IS NOT THIS ACT'S RESULT.** ### This act
+###   derives something adjacent and independent: not that the transform fails to descend, but
+###   that ### **THE SCALING FAILS TO PRESERVE**. ### The two are related in spirit and are ### NOT
+###   ### the same claim, and neither is used as evidence for the other.
+
+----------------------------------------------------------------------------------------------------
+### (b) THE DERIVATION. ### **ON `Q_p`. ### BOTH DIRECTIONS, SEPARATELY, NEVER CONFLATED.**
+----------------------------------------------------------------------------------------------------
+### Throughout: `f` in `S-bar_p`, so ### **`f` vanishes on `Z_p` and `fhat` vanishes on `Z_p`**
+### (b280's `S2`). ### Supports are read in `Q_p`; `|p| = 1/p`; `Z_p^x = Z_p \ p Z_p` are the units.
+
+### ### ### **DIRECTION ONE: `g(x) := f(p x)`.**
+### ### **S1 -- THE FUNCTION SIDE. ### (HOLDS), AND WITH ROOM TO SPARE.**
+###   `supp(g) = p^{-1} supp(f)`. ### `f` vanishes on `Z_p`, so `supp(f)` avoids `Z_p`, so
+###   `supp(g)` avoids `p^{-1} Z_p`. ### ### **AND `p^{-1} Z_p` CONTAINS `Z_p` STRICTLY.**
+###   ### **THE INCLUSION DIRECTION, STATED EXACTLY: ### `g` VANISHES ON A SET STRICTLY LARGER
+###   ### THAN THE BALL. ### THAT IS MORE THAN THE CONDITION ASKS AND IT SATISFIES IT.**
+### ### **S2 -- THE TRANSFORM SIDE. ### (FAILS). ### AND THIS IS EXACTLY THE HAZARD THE FERRY
+### ### NAMED: THE IMAGE VANISHES ON A STRICTLY ### SMALLER ### SET, WHICH IS NOT THE CONDITION.**
+###   By the import's support consequence, `supp(ghat) = p * supp(fhat)`.
+###   `fhat` vanishes on `Z_p`, so `supp(fhat)` avoids `Z_p`, so `supp(ghat)` avoids `p Z_p`.
+###   ### ### **`ghat` VANISHES ON `p Z_p` AND ON NOTHING MORE THAT IS FORCED.**
+###   ### **THE EXACT GAP SET: ### `Z_p \ p Z_p = Z_p^x`, THE UNITS.** ### The condition demands
+###   vanishing on all of `Z_p`; the derivation delivers it only on `p Z_p`.
+
+### ### ### **DIRECTION TWO: `h(x) := f(x/p)`. ### THE EXACT MIRROR.**
+### ### **S1 -- THE FUNCTION SIDE. ### (FAILS).**
+###   `supp(h) = p * supp(f)`, which avoids `p Z_p` and ### NOT ### `Z_p`.
+###   ### **THE EXACT GAP SET: ### `Z_p^x`, THE UNITS. ### THE SAME SET AS DIRECTION ONE'S.**
+### ### **S2 -- THE TRANSFORM SIDE. ### (HOLDS).**
+###   `supp(hhat) = p^{-1} supp(fhat)`, which avoids `p^{-1} Z_p`, a set strictly containing `Z_p`.
+
+### ### ### **S3 -- THE VERDICT PER DIRECTION:**
+### ### ### **`g`: (FAILS) ON THE TRANSFORM CONDITION, GAP `Z_p^x`.**
+### ### ### **`h`: (FAILS) ON THE FUNCTION CONDITION, GAP `Z_p^x`.**
+### ### ### **NEITHER PRESERVES `S-bar_p`. ### THE FAILURE IS DUAL: EACH DIRECTION KEEPS ONE HALF
+### ### ### AND LOSES THE OTHER, AND THE UNITS ARE WHERE BOTH LOSSES LIVE.**
+### ### **AND THAT DUALITY IS THE STRUCTURAL READING: ### `Son` IS CUT OUT BY TWO CONDITIONS THAT
+### ### SCALE IN OPPOSITE DIRECTIONS. ### A DILATION THAT LOOSENS ONE TIGHTENS THE OTHER, AND
+### ### THERE IS NO DIRECTION IN WHICH BOTH RELAX.**
+
+----------------------------------------------------------------------------------------------------
+### (c) THE CONTROL. ### **IT CHECKS THE DERIVATION AND IS NEVER ITS EVIDENCE (J5).**
+----------------------------------------------------------------------------------------------------
+### Six cells, exact rational and cyclotomic arithmetic, ### **ZERO FLOAT TOKENS.**
+
+### ### **WHERE THE CONTROL CONFIRMS THE DERIVATION, AND IT CONFIRMS THE PRECISE PART THAT
+### ### MATTERS -- ### THE GAP SET:**
+###   · ### **`g`'s S1 HOLDS AT ALL SIX CELLS** ### -- every `Son` basis vector's image vanishes
+###     on `ball_n`. ### Matches.
+###   · ### **`g`'s S2 FAILS AT `(2,2)` AND `(3,2)`, AND ### EVERY ### FAILING INDEX LIES IN THE
+###     UNITS** ### -- 2 of 2 at `(2,2)`, 12 of 12 at `(3,2)`. ### **THE DERIVED GAP SET, HIT
+###     EXACTLY.**
+###   · ### **`h`'s S1 FAILS AT ALL SIX CELLS, AND ### EVERY ### FAILING INDEX LIES IN THE UNITS**
+###     -- 1/1, 9/9, 4/4, 16/16, 16/16, 36/36. ### **THE DERIVED GAP SET, HIT EXACTLY, AT EVERY
+###     CELL.** ### (Falsifier J4: ### **THE GAP IS ATTAINED, NOT MERELY NOT-EXCLUDED** -- witnesses
+###     printed, e.g. `(5,1)` `m = 5`, value `-1`.)
+
+### ### **AND WHERE IT DOES NOT -- REPORTED, NOT RESOLVED IN THE MODEL'S FAVOUR (J5):**
+###   ### **(i) THE LEVEL-1 CELLS CANNOT TEST `g` AT ALL. ### `g` IS IDENTICALLY ZERO FOR ### EVERY
+###   ### `Son` BASIS VECTOR** ### at `(2,1)`, `(3,1)`, `(5,1)`, `(7,1)` -- 1/1, 4/4, 16/16, 36/36.
+###   ### **SO THE "16/16 VANISH" READINGS AT THOSE CELLS ARE VACUOUS: ### THE TRANSFORM OF THE
+###   ### ZERO VECTOR VANISHES EVERYWHERE AND PROVES NOTHING.** ### The vacuity arm was added for
+###   exactly this and it fired. ### At `(2,2)` 6 of 9 and at `(3,2)` 48 of 64 images are also
+###   zero; ### **THE LIVE CONTENT IS THE REMAINDER, AND IT IS THE REMAINDER THAT CONFIRMS THE
+###   GAP.**
+###   ### **(ii) `h`'s S2: THE MODEL SAYS (FAILS); THE DERIVATION SAYS (HOLDS). ### THEY
+###   ### DISAGREE, AND THE DISAGREEMENT IS THE ARTIFACT, NOT THE ANSWER.**
+###   ### **b21 PREDICTED IT BEFORE THIS ACT EXISTED:** ### `h`'s genuine support is `p * supp(f)`,
+###   which ### ESCAPES ### the level -- "`supp(U f) = p^(-n-1)Z_p`, strictly bigger than
+###   `p^(-n)Z_p`" -- and "### **THE MODEL'S mod-N WRAPAROUND IS EXACTLY THIS ESCAPED MASS FOLDED
+###   BACK IN.**" ### **SO THE MODEL'S `h` IS NOT THE GENUINE `h`: IT IS THE GENUINE `h` WITH ITS
+###   ESCAPED MASS FOLDED BACK ONTO THE BALL, AND THE FOLDED MASS IS WHAT THE TRANSFORM SEES.**
+###   ### ### **THE DERIVATION STANDS BECAUSE IT IS ON `Q_p`, WHERE THERE IS NOTHING TO FOLD. ###
+###   ### ### THE CONTROL IS REPORTED AS DISAGREEING AND IS NOT PROMOTED OVER IT -- WHICH IS WHAT
+###   ### ### J5 WAS REGISTERED TO FORCE.**
+###   ### **AND IT DOES NOT CHANGE THE VERDICT**, because `h` already (FAILS) on the function side
+###   by both derivation and control, and one failed condition is enough.
+
+----------------------------------------------------------------------------------------------------
+### (d) THE ENTAILMENT, THE BEARING.
+----------------------------------------------------------------------------------------------------
+### ### **C3-VIA-SCALING IS CLOSED.** ### The genuine scaling does not preserve the object's own
+### space in either direction, so an orbit structure on `S-bar_p` cannot be built from it.
+### ### **AND THE ACT SAYS PRECISELY THAT AND NOT MORE: ### THIS IS NOT "C3 IS CLOSED".** ### C3
+### is "put an orbit structure on `S-bar_v`"; this act closes ### ONE ### way of doing so.
+### ### **NO SURVEY OF OTHER STRUCTURES WAS ATTEMPTED, AND THE FERRY FORBADE ATTEMPTING ONE.**
+
+### ### **THE BARRIER'S REACH IS NOT AT ISSUE HERE**, because there is no resulting operator to
+### test: the branch that would have raised it did not fire. ### Named and not answered.
+
+### ### **THE BEARING ON b263's BRANCH -- BEARING, NEVER A DECISION.**
+### b263, quoted from its emitting file: the specification's condition is ### "the branch question
+### -- ### **finite side supplies, or archimedean side absorbs**".
+### ### **THE BEARING:** ### the finite side's vector-state route is closed (b280), its operator
+### route is closed (b281), and now its ### **SCALING** ### route is closed (this act). ### That is
+### accumulating pressure on "the finite side supplies", ### **IN THESE SHAPES, AT THE FINITE
+### PLACES.**
+### ### **AND IT IS NOT A DECISION, FOR THE SAME THREE REASONS b281 PRINTED AND THIS ACT DOES NOT
+### ### WEAKEN:** ### (i) C3 by other structures is unevaluated; (ii) b15's clause -- *"a
+### finite-place-set object at a finite cutoff decides nothing"* globally; (iii) ### **THE
+### ARCHIMEDEAN SIDE IS UNTOUCHED.**
+### ### **b264's E2even, RESTATED AT ITS OWN SCOPE:** ### `E2even(a) * log a -> p(0) * M_even`, so
+### `E2even(a) -> 0` and it goes like `1/log a` -- ### **NOT a power of `a`.** ### ### **THAT IS
+### ONE ARCHIMEDEAN OBJECT AND ITS DECAY RATE. ### IT IS NOT "THE ARCHIMEDEAN SIDE", AND IT
+### ABSORBS NOTHING BY ITSELF.** ### b261's oscillation finding travels with it: no monotone or
+### positivity argument is available on that direction.
+
+----------------------------------------------------------------------------------------------------
+### (e) THE ARCHIMEDEAN NOTE. ### **FILED, NOT OPENED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE BRANCH'S OTHER SIDE HAS HAD NO ACT IN THIS ARC -- NOT ONE, ACROSS b266-b284.** ###
+### Every act has carried the finite-place boundary and none has crossed it. ### **THAT IS A
+### DELIBERATE ABSENCE AND IT IS NOW THE LARGEST UNEXAMINED DIRECTION ON THE DESK.**
+### ### **WHAT AN OPENING ACT WOULD HAVE TO READ, NAMED AND NOT READ HERE:**
+###   1. ### **b279's `infinity`-SEPARATE SENTENCE** ### -- the keystone specifies `v = infinity`
+###      separately from the tower, and that sentence is the boundary every act in this arc quoted.
+###   2. ### **THE CONNES-CONSANI-SCALE SONIN CONDITION** ### -- the keystone's own words: "at
+###      `infinity`, the Sonin condition at the Connes-Consani scale, whose resonance geometry is
+###      the epsilon-regularization machinery." ### **WHAT THAT CONDITION ### IS ### HAS NOT BEEN
+###      READ AT SOURCE BY THIS ARC.**
+###   3. ### **b198's PROVED THEOREM** ### `real_no_compact_open_addSubgroup` -- "`R` has no
+###      compact open additive subgroup, so ### **THE ARCHIMEDEAN PLACE HAS NO FINITE EXACT LEVEL
+###      FOR A TOWER TO CLIMB**" -- which is why none of this arc's machinery transfers.
+###   4. ### **b264's RESULT AND ITS REACH** ### -- `E2even -> 0` like `1/log a`, ### **ONE
+###      OBJECT**, with b261's oscillation as its first fact.
+### ### **NOTHING ABOUT THE ARCHIMEDEAN PLACE IS CLAIMED, ASSUMED OR IMPLIED BY THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (f) THE SHADOW. ### **NOTHING BUILT, CHECKED NOT ASSUMED.**
+----------------------------------------------------------------------------------------------------
+### The ferry offered the two conditions under scaling at one cell with a not-dead witness.
+### ### **AND THE CONTROL ABOVE IS PRECISELY WHY THAT MUST NOT BE COMPILED: ### THE MODEL'S
+### REALIZATION OF THE SCALING IS THE ARTIFACT-RIDDEN ONE.** ### At level 1 the image is
+### identically zero; at level 2 most of the basis collapses; and `h`'s transform side disagrees
+### with the truth because the wraparound folds escaped mass back in.
+### ### ### **COMPILING THAT WOULD CERTIFY THE ARTIFACT AND NOT THE DERIVATION -- A COMPILED
+### ### ### TERMINAL FOR A STATEMENT THAT IS FALSE ON `Q_p`. ### MISLEADING, AND REFUSED ON THAT
+### ### ### GROUND.**
+### The derivation itself is a support argument on `Q_p` over an infinite-dimensional space and is
+### ### NOT ### `decide`-able. ### **SO: NOTHING BUILT. ### 0 `.lean` FILES MOVED.** ### Thirteenth
+### act on this ground, and the first where the reason is ### **"THE FINITE-DECIDABLE VERSION IS
+### THE WRONG STATEMENT."**
+
+----------------------------------------------------------------------------------------------------
+### THE FALSIFIERS, ALL SIX.
+----------------------------------------------------------------------------------------------------
+###   J1 both conditions, always ......................... HOLDS (each direction tested on both)
+###   J2 "smaller set" is not the condition; gap named ... ### **FIRED, AND IT IS THE VERDICT**
+###   J3 only the import's support consequence used ...... HOLDS (constant never leaned on)
+###   J4 the gap shown ATTAINED, not merely not-excluded .. HOLDS (witnesses at every cell)
+###   J5 the model is a control, never evidence .......... ### **FIRED TWICE** (vacuity at level 1;
+###      `h`'s transform-side disagreement) ### **AND BOTH ARE REPORTED, NOT RESOLVED**
+###   J6 every needle from an EMITTING file .............. HOLDS
+### ### **THE SEATS AGREED ON BOTH DIRECTIONS (registered before the run), SO THE FALSIFIERS
+### ### CARRIED THE ADVERSARY'S WORK ALONE -- AND J5 IS WHAT CAUGHT THE TWO PLACES THE RUN WOULD
+### ### OTHERWISE HAVE OVERSTATED.**
+
+----------------------------------------------------------------------------------------------------
+### THE WORK-ORDERS.
+----------------------------------------------------------------------------------------------------
+### `W-ORD-U-PRESERVES-SBAR` -- ### **DISCHARGED BY THIS ACT.** ### Answered: ### NO ### , in both
+###   directions, with the gap set `Z_p^x` named exactly.
+### `W-ORD-SCALING-LAW-OWNER` -- new. ### The Fourier scaling law on `Q_p` has no owner in the
+###   corpus; it is used here as an IMPORT reduced to its support consequence, with hypotheses
+###   checked against b21. ### **AUTHOR'S RULING on whether it is banked as an owned statement.**
+### `W-ORD-ARCH-OPENING` -- new. ### The archimedean direction, with its four-item reading list
+###   (above). ### **FILED, NOT OPENED.**
+### `W-ORD-C3-RELATION` -- carried, and now sharper: C3's structure cannot come from the scaling.
+### CARRIED, UNCHANGED: `W-ORD-SCALAR-FIELD`, `W-ORD-C2-BEYOND-U`, `W-ORD-FIBER-GENERAL`,
+###   `W-ORD-SBAR-CLOSURE-COMPILE`, `W-ORD-RETIRED-STEM`, `W-ORD-B278-SEARCH-KEY`,
+###   `W-ORD-ARCH-LOCAL-SPACE`, `W-ORD-GRADE-COVERAGE`, `W-ORD-TOWER-LEMMA-GENERAL`,
+###   `W-ORD-EQUIV-CLASS`, `W-ORD-ORDER-CHANNEL`, `W-ORD-ESCAPE-SURVEY`, `W-ORD-PREDICATE-ARM`,
+###   `W-ORD-TQ-IDENTIFY`, `W-ORD-XI-PERMODE`, `W-ORD-CN-LAW`, `W-ORD-NTERM-FLOOR`,
+###   `W-ORD-INDEX-APPEND`, the ERRATA partition question (b266), b262's PNT-plus-saddle.
+
+----------------------------------------------------------------------------------------------------
+### M-2's ROW, C3's STATUS, THE SEAM, AND HANDOFF.
+----------------------------------------------------------------------------------------------------
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED).**
+### SETTLED BY THIS ACT: ### **the genuine scaling does not preserve `S-bar_p`, in either
+### direction, and the gap is the units in both.**
+### ### **C3's STATUS, IN PRECISE WORDS:** ### **C3 IS NOT CLOSED. ### C3-VIA-SCALING IS CLOSED.**
+### ### C3 still requires ### **A CONSTRUCTION AND A RULING**, and this act has removed one
+### candidate source for the construction -- the scaling -- without touching the ruling and
+### without surveying what else might serve. ### **ITS PRICE IS NOT REDUCED; ITS FIELD OF SUPPLY
+### IS NARROWER BY ONE.**
+### REMAINS: C3 by other structures; the archimedean place; the complete roster; b280's `S2`
+### compile; `W-ORD-FIBER-GENERAL`.
+### ### **NO CANDIDATE IS ADOPTED. NO AGGREGATION IS STATED. b226's RULED CHOICE STANDS.**
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+### ### **HANDOFF CURRENT. ### NINETEEN ACTS, b261-b284.**
+### ### **THE TWO LIVE DIRECTIONS, AND THE SECOND IS NOW THE LARGER:**
+###   ### **(1) THE C3 DECISION -- THE AUTHOR'S**, a construction AND a ruling, with the scaling
+###       now excluded as a source.
+###   ### **(2) THE ARCHIMEDEAN QUESTION** -- ### **NO ACT IN THIS ARC HAS TOUCHED IT**, and its
+###       reading list is filed above.
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+----------------------------------------------------------------------------------------------------
+### DEVIATIONS, DECLARED (the deviation rule standing).
+----------------------------------------------------------------------------------------------------
+### ### **(D1) THE FOURIER SCALING LAW IS AN IMPORT, NOT AN OWNER'S STATEMENT.** ### Searched with
+### controls; no owner states it. ### Used at its smallest surface -- the support consequence only
+### -- with hypotheses quoted from b21. ### Declared because an unflagged import is the failure the
+### bar exists for.
+### ### **(D2) THE CONTROL DISAGREES WITH THE DERIVATION IN ONE PLACE AND IS NOT PROMOTED.** ###
+### `h`'s transform side: model (FAILS), derivation (HOLDS). ### Attributed to b21's declared
+### wraparound artifact, quoted. ### **DECLARED RATHER THAN SMOOTHED, AND THE VERDICT DOES NOT
+### DEPEND ON IT.**
+### ### **(D3) THE LEVEL-1 CELLS CANNOT TEST DIRECTION ONE AT ALL.** ### `g` is identically zero
+### there for every basis vector. ### The vacuity arm was added mid-run when the first pass
+### reported `16/16 vanish` at `(5,1)` and `(7,1)` -- ### **READINGS THAT WOULD HAVE BEEN BANKED AS
+### CONFIRMATION AND WERE THE ZERO VECTOR.** ### Declared because the draft existed.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### GATES: ### **27 PASS / 0 FAIL / 0 ERROR / 0 REFUSED.**
+### OWNER NEEDLES: 11, ### **0 UNPULLABLE, EVERY ONE INTO AN EMITTING FILE** (b21, b10, b263,
+### b264, b279, b283) -- ### **NOT ONE INTO A QUOTER.**
+### SELF NEEDLES: 11, 0 unpullable. ### MUST-FAIL FIXTURES: 5, whole-line. ### SUBSTRING-BASED: 0.
+### HEDGE AUDIT ON OWN BANK: ### **0 GRADED HEDGES** (504 sentences).
+### FLOAT SCAN ON THE DECIDING RUNNER: ### **ZERO FLOAT TOKENS.**
+### NOISE-FLOOR GATE: in the path, EXACT arm at all 6 cells.
+### CELLS: (2,1) (2,2) (3,1) (3,2) (5,1) (7,1).
+###   `g` S1 vanishes on ball_n : ### **6/6 CELLS, EVERY BASIS VECTOR.**
+###   `g` S2 gap indices in the units : ### **2 of 2 at (2,2); 12 of 12 at (3,2).**
+###   `h` S1 gap indices in the units : ### **1/1, 9/9, 4/4, 16/16, 16/16, 36/36 -- ALL.**
+###   VACUITY: `g` identically zero at ### **every level-1 cell, for every basis vector.**
+### LEAN: ### **0 `.lean` FILES MOVED.** ### No compile claimed.
+### `PLACE-papers`: ### **UNTOUCHED** -- no hook, no mirror.
