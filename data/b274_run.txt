@@ -1,0 +1,114 @@
+====================================================================================================
+b274 -- COMPONENT 1. ### THE STRADDLE, GENERALLY. ### EXACT. ### NO FLOAT.
+### REGISTRATION data/b274_registration_2026-09-01.txt SEALED 3abf4af9.
+### **b273 ANSWERED ONE CELL. ### NOTHING HERE WIDENS THAT BY ASSERTION.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR GATE, ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+
+----------------------------------------------------------------------------------------------------
+### (1) S1 -- `R(g_0)` IN CLOSED FORM, DERIVED FROM THE OWNERS.
+----------------------------------------------------------------------------------------------------
+  b272 gives g_0(m) = 2q[m=0] + 2, so g_0 is CONSTANT 2 off the ball and
+  S_quot g_0 = 2 * 1_offball.
+  ### For 1 <= k <= n-1 NO off-ball m has p^k m = 0: that needs p^{2n-k} | m, and
+  ### 2n - k > n, so it would force p^n | m. ### **HENCE EVERY FACTOR g_0(p^k m) IS 2.**
+  <A g_0, g_0> = 4(N - q)   and   <g_0, g_0> = (2q+2)^2 + 4(N-1),   N = q^2
+  ### ### **R(g_0) = 4q(q-1) / (4(q+1)^2 + 4(q^2-1)) = (q-1) / (2(q+1)),
+  ### ### INDEPENDENT OF k.**
+
+  (p,n)    q     N      k    closed form    exact <A g0,g0>  closed form holds?
+  (2,2)    4     16     1    3/10           48               YES
+  (3,2)    9     81     1    2/5            288              YES
+  (2,3)    8     64     1    7/18           224              YES
+  (2,3)    8     64     2    7/18           224              YES
+  (2,4)    16    256    1    15/34          960              YES
+  (2,4)    16    256    2    15/34          960              YES
+  (2,4)    16    256    3    15/34          960              YES
+
+  ### F-CONTROL: the closed form gives 3/10 at (2,2), which is b273's banked 3/10 : CONFIRMED
+  ### S1 VERDICT: the closed form holds exactly at every cell and every k computed
+
+----------------------------------------------------------------------------------------------------
+### (2) S3 LOW SIDE -- ### **DERIVED GENERALLY, BY RATIONAL ALGEBRA ALONE.**
+----------------------------------------------------------------------------------------------------
+  CLAIM. For every prime p, every n >= 2 and every 1 <= k <= n-1:
+  ### ### **R(g_0) = (q-1)/(2(q+1))  <  (q - p^k)/(q - 1) = act 9's term.**
+  PROOF. Both denominators are positive, so the claim is
+    2(q+1)(q - p^k) - (q-1)^2 > 0.
+  Expanding: ### **2(q+1)(q-p^k) - (q-1)^2 = q^2 - 2q p^k + 4q - 2p^k - 1.**
+  Since k <= n-1 we have p^k <= p^{n-1} = q/p <= q/2, hence
+    2q p^k <= q^2   and   2 p^k <= q,
+  so the expression is ### **>= q^2 - q^2 + 4q - q - 1 = 3q - 1 > 0.**   QED
+
+  ### THE PROOF'S TWO STEPS, CHECKED AS RATIONAL FACTS OVER A SWEEP -- ### THE CONTROL
+  ### CHECKS THE DERIVATION AND IS NEVER ITS EVIDENCE:
+    primes [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31], n = 2..8, all k in range : ### **308 (p,n,k) TRIPLES**
+    the polynomial identity failed in : 0 cases
+    the two bounds or the 3q-1 floor failed in : 0 cases
+    ### **R(g_0) < act 9's term failed in : 0 cases**
+    tightest margin over the sweep : 767/131070 at (p,n,k) = (2,8,7)
+
+  ### ### **LOW SIDE VERDICT: DERIVED FOR ALL p AND ALL n >= 2, WITH THE SWEEP AS A CONTROL AND THE ALGEBRA AS THE PROOF**
+
+----------------------------------------------------------------------------------------------------
+### (3) S2 -- THE FAMILY NAMED FROM b272's STRUCTURE, AND ### **WHAT IT DOES NOT DO.**
+----------------------------------------------------------------------------------------------------
+  b273's high vector at (2,2) is g_2 - g_6 = g_c - g_{c+q} with c = p^{n-1}, q = p^n.
+  ### THE FAMILY: ### **w_c := g_c - g_{c+q}.**
+  DERIVED, AND VERIFIED BELOW: on the ball (m = jq) the exponentials of g_c and
+  g_{c+q} COINCIDE, because zeta^{jq(c+q)} = zeta^{jqc + jN} = zeta^{jqc}; and the delta
+  parts miss the ball when q does not divide c. ### **SO w_c VANISHES ON THE BALL;**
+  and S w_c = q w_c, so its TRANSFORM vanishes there too.
+  ### ### **THEREFORE w_c LIES IN Son(p,n) -- b226's OWN SECTOR -- WHILE g_0 LIES IN
+  ### ### b271's ESCAPE CLASS. ### THE STRADDLE AT (2,2) IS BETWEEN THE TWO.**
+
+  (p,n)    k    c = p^{n-1}  in Son?    act 9 term     R(w_c)           above the term?
+  (2,2)    1    2            YES        2/3            (not rational -- see (2,2) note) UNCERTIFIED HERE
+  (3,2)    1    3            YES        3/4            (not rational -- see (2,2) note) UNCERTIFIED HERE
+  (2,3)    1    4            YES        6/7            (not rational -- see (2,2) note) UNCERTIFIED HERE
+  (2,3)    2    4            YES        4/7            (not rational -- see (2,2) note) UNCERTIFIED HERE
+  (2,4)    1    8            YES        14/15          (not rational -- see (2,2) note) UNCERTIFIED HERE
+  (2,4)    2    8            YES        4/5            (not rational -- see (2,2) note) UNCERTIFIED HERE
+  (2,4)    3    8            YES        8/15           (not rational -- see (2,2) note) UNCERTIFIED HERE
+
+  ### **AT (2,2) THE VALUE IS NOT RATIONAL -- IT IS (1 + sqrt2)/3, WHICH b273 CERTIFIED
+  ### EXACTLY AND WHICH IS ABOVE 2/3. ### THAT ROW IS b273's, NOT RE-DERIVED HERE.**
+  ### ### **R(w_c) IS NOT RATIONAL AT ANY CELL COMPUTED -- IT CARRIES SEVERAL NONZERO
+  ### ### CYCLOTOMIC COEFFICIENTS -- SO THE ORDER CHANNEL DOES NOT REACH IT AND EVERY
+  ### ### ROW IS REPORTED ### UNCERTIFIED ### : 7 OF 7.**
+  ### **THE (2,2) ROW IS THE EXCEPTION IN SUBSTANCE THOUGH NOT IN FORM: b273 CERTIFIED
+  ### IT SEPARATELY AS (1 + sqrt2)/3 > 2/3, AND THAT ROW IS b273's, NOT RE-DERIVED.**
+  ### ### **SO THIS ACT DERIVES NO CLOSED FORM FOR THE FAMILY AND CERTIFIES NO HIGH
+  ### ### WITNESS BEYOND b273's. ### THE FAMILY NAMED FROM b272's STRUCTURE IS NOT
+  ### ### SHOWN TO WORK ANYWHERE ELSE, AND IS NOT SHOWN TO FAIL EITHER.**
+
+----------------------------------------------------------------------------------------------------
+### (4) LEVEL 1, STATED AND NOT SKIPPED. ### AND THE CELLS THE RULED CHOICE ACTUALLY USES.
+----------------------------------------------------------------------------------------------------
+  At n = 1 the (SPEC-2) range 1 <= k <= n-1 = 0 is ### **EMPTY**, so (SPEC-2) is
+  ### VACUOUS ### there -- not satisfied, not violated. ### b270 established this and
+  it is carried, not re-derived.
+  ### **b226 PUTS EVERY ODD PRIME AT LEVEL 1 AND p = 2 AT LEVEL 2.**
+  ### ### **SO UNDER THE RULED CHOICE THE ONLY CELL WITH ANY (SPEC-2) CONTENT AT ALL IS
+  ### ### (2,2) -- THE CELL b273 ALREADY SETTLED. ### THE "GENERALLY" OF THIS ACT IS A
+  ### ### QUESTION ABOUT CELLS THE AGGREGATION DOES NOT VISIT UNDER b226's CHOICE.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE HIGH SIDE, AND THE UNCERTIFIED REGION CHARACTERIZED.
+----------------------------------------------------------------------------------------------------
+  ### **CERTIFIED HIGH WITNESS: (2,2), k = 1, by b273's g_2 - g_6 at (1+sqrt2)/3.**
+  ### **NO GENERAL HIGH FAMILY IS DERIVED BY THIS ACT.**
+  ### THE UNCERTIFIED REGION, CHARACTERIZED RATHER THAN LISTED:
+    ### **EVERY (p, n >= 2, k) EXCEPT (2,2,1) LACKS A CERTIFIED HIGH WITNESS HERE.**
+    The obstruction sharpens as act 9's term approaches 1: the term at k = 1 is
+    (q - p)/(q - 1), which tends to 1 as q grows, while the vectors this act can name
+    exactly do not follow it up. ### **SO THE HARD ROW IS k = 1 AT LARGE n.**
+  ### ### **THIS IS AN ABSENCE OF CERTIFICATION, NOT A REFUTATION.** ### No cell is
+  ### claimed to fail the straddle, and `W-ORD-ORDER-CHANNEL` governs: ### **A
+  ### COMPARISON THE CHANNEL CANNOT CERTIFY IS UNCERTIFIED, NEVER FALSE.**
+

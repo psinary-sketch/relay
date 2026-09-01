@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b274_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 8)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (I1c) single allocation <= 256 MB  256              8                MB     SATISFIABLE
+      demand from : sparse cyclotomic vectors at N <= 256 (cells up to (2,4)); no dense operator is materialized in the deciding runner.
+  (I2c) exact-arithmetic degree cap  1024             512              deg    SATISFIABLE
+      demand from : unreduced products have degree < 2N = 512 at N = 256; Phi_256 has degree phi(256) = 128
+  (I3c) runtime <= 1800 s            1800             600              s      SATISFIABLE
+      demand from : four cells of exact closed-form verification plus a rational sweep of the low-side inequality, which is pure Fraction arithmetic. Scaled from b273's measured run at N <= 64.
+  (I4c) eigenvalue decompositions in 0                0                decomp SATISFIABLE
+      demand from : the low side is a rational inequality with an algebraic proof; the high side is exhibited by explicit vectors. NO spectrum is computed in the deciding runner.
+  (I5c) ladders registered           0                0                ladders SATISFIABLE
+      demand from : this act registers no ladder, so no ladder can outrun a declared ceiling (b264's species).
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

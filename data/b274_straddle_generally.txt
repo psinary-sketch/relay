@@ -1,0 +1,227 @@
+====================================================================================================
+b274 -- THE BANK. 2026-09-01. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 8 -- THE STRADDLE, GENERALLY.
+### ### **VERDICT: (STRADDLE PARTIAL).**
+### ### **THE LOW SIDE IS DERIVED FOR EVERY PRIME AND EVERY LEVEL `n >= 2`.**
+### ### **THE HIGH SIDE IS CERTIFIED AT EXACTLY ONE CELL -- `(2,2)`, `k = 1` -- AND THAT ONE IS
+### ### b273's, NOT THIS ACT'S. ### NO GENERAL HIGH FAMILY IS DERIVED.**
+### ### **NO UNIT IS ADOPTED. ### M-2 REMAINS OWED. ### NOTHING DEPOSITS.**
+Registration data/b274_registration_2026-09-01.txt, SEALED 3abf4af9.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) ### **THE ONE THING A READER SHOULD TAKE FIRST, AND IT IS NOT THE VERDICT.**
+----------------------------------------------------------------------------------------------------
+### (SPEC-2)'s range is `1 <= k <= n-1`, which at `n = 1` is ### EMPTY ### . ### **AND b226 PUTS
+### EVERY ODD PRIME AT LEVEL 1, WITH ONLY `p = 2` AT LEVEL 2.**
+### ### ### **SO UNDER THE RULED CHOICE THE ONLY CELL IN THE WHOLE AGGREGATION WITH ANY (SPEC-2)
+### ### ### CONTENT AT ALL IS `(2,2)` -- THE CELL b273 ALREADY SETTLED.**
+### **THE "GENERALLY" OF THIS ACT IS THEREFORE A QUESTION ABOUT CELLS THE AGGREGATION DOES NOT
+### VISIT UNDER b226's CHOICE.** ### It is worth answering -- a replacement level choice would
+### visit them -- ### **BUT AN ACT THAT PROVED A GENERAL STRADDLE AND LET IT READ AS A STATEMENT
+### ABOUT THE AGGREGATION WOULD BE THE DOUBLE-NAME SPECIES AT THE LEVEL OF CELLS.**
+
+----------------------------------------------------------------------------------------------------
+### (1) COMPONENT 0 -- ON THIS ACT'S PATH. ### Called; returns `EXACT`; a verdict, not a bypass.
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+### (2) S1 -- ### **`R(g_0)` IN CLOSED FORM, DERIVED FROM THE OWNERS.**
+----------------------------------------------------------------------------------------------------
+### b272 gives `g_0(m) = 2q[m=0] + 2`, so `g_0` is CONSTANT `2` off the ball and
+### `S_quot g_0 = 2 * 1_offball`. ### For `1 <= k <= n-1` NO off-ball `m` has `p^k m = 0`: that
+### would need `p^{2n-k} | m` with `2n - k > n`, forcing `p^n | m`. ### **SO EVERY FACTOR
+### `g_0(p^k m)` IS `2`**, giving `<A g_0,g_0> = 4(N-q)` and `<g_0,g_0> = (2q+2)^2 + 4(N-1)`:
+### ### ### **`R(g_0) = (q - 1) / (2(q + 1))`, INDEPENDENT OF `k`.**
+### **VERIFIED EXACTLY AT `(2,2)`, `(3,2)`, `(2,3)`, `(2,4)` AND EVERY `k` IN RANGE -- SEVEN
+### ROWS, ALL YES.** ### **F-CONTROL: it gives `3/10` at `(2,2)`, which is b273's banked number.
+### CONFIRMED.** ### Had it not, nothing else here could be believed.
+
+----------------------------------------------------------------------------------------------------
+### (3) S3 LOW SIDE -- ### **DERIVED GENERALLY, BY RATIONAL ALGEBRA ALONE.**
+----------------------------------------------------------------------------------------------------
+### **CLAIM. For every prime `p`, every `n >= 2`, every `1 <= k <= n-1`:**
+### ### **`(q-1)/(2(q+1)) < (q - p^k)/(q - 1)`.**
+### **PROOF.** ### Both denominators are positive, so the claim is
+### `2(q+1)(q - p^k) - (q-1)^2 > 0`. ### Expanding,
+### `2(q+1)(q-p^k) - (q-1)^2 = q^2 - 2q p^k + 4q - 2p^k - 1`.
+### Since `k <= n-1`, `p^k <= p^{n-1} = q/p <= q/2`, hence `2q p^k <= q^2` and `2p^k <= q`, so
+### the expression is `>= q^2 - q^2 + 4q - q - 1 = 3q - 1 > 0`. ### **QED.**
+### **THE CONTROL, WHICH CHECKS THE DERIVATION AND IS NEVER ITS EVIDENCE:** ### eleven primes,
+### `n = 2..8`, every `k` in range -- ### **308 TRIPLES; THE POLYNOMIAL IDENTITY FAILED IN 0, THE
+### TWO BOUNDS AND THE `3q-1` FLOOR FAILED IN 0, AND `R(g_0) < term` FAILED IN 0.** ### Tightest
+### margin over the sweep: `767/131070` at `(2,8,7)` -- ### **THIN, AND POSITIVE, AND THE PROOF
+### SAYS WHY IT STAYS POSITIVE FOREVER.**
+### ### **THIS IS THE ACT'S ONE GENERAL RESULT. ### IT IS A DERIVATION, NOT A SWEEP.**
+
+----------------------------------------------------------------------------------------------------
+### (4) S2 -- THE FAMILY, AND ### **WHAT IT DOES NOT DELIVER.**
+----------------------------------------------------------------------------------------------------
+### b273's high vector at `(2,2)` is `g_2 - g_6`, which is `g_c - g_{c+q}` at `c = p^{n-1}`.
+### ### **THE FAMILY, NAMED FROM b272's STRUCTURE AND NOT BY ANALOGY: `w_c := g_c - g_{c+q}`.**
+### **A DERIVED PROPERTY WORTH THE ACT ON ITS OWN:** ### on the ball (`m = jq`) the exponentials
+### of `g_c` and `g_{c+q}` COINCIDE, because `zeta^{jq(c+q)} = zeta^{jqc + jN} = zeta^{jqc}`, and
+### the delta parts miss the ball when `q` does not divide `c`. ### So `w_c` VANISHES ON THE
+### BALL; and `S w_c = q w_c`, so its transform vanishes there too. ### **VERIFIED EXACTLY AT ALL
+### FOUR CELLS: `w_c` LIES IN `Son(p,n)` -- b226's OWN SECTOR -- WHILE `g_0` LIES IN b271's
+### ESCAPE CLASS.** ### ### **THE STRADDLE AT `(2,2)` IS BETWEEN A SONIN VECTOR AND AN
+### ### ESCAPE-CLASS VECTOR. ### THAT IS A STRUCTURAL FACT THE CAMPAIGN DID NOT HAVE BEFORE.**
+### **AND NOW THE NEGATIVE PART, WHICH IS THE HONEST BULK OF S2:**
+### ### **`R(w_c)` IS NOT RATIONAL AT ANY CELL COMPUTED.** ### It carries several nonzero
+### cyclotomic coefficients at every one of the seven rows. ### **SO THE ORDER CHANNEL DOES NOT
+### REACH IT AND ALL SEVEN ROWS ARE REPORTED ### UNCERTIFIED ### , WHICH UNDER
+### `W-ORD-ORDER-CHANNEL` IS NOT THE SAME AS FALSE.**
+### ### **THIS ACT THEREFORE DERIVES NO CLOSED FORM FOR THE HIGH FAMILY AND CERTIFIES NO HIGH
+### ### WITNESS BEYOND b273's. ### THE FAMILY IS NOT SHOWN TO WORK ANYWHERE ELSE, AND IT IS NOT
+### ### SHOWN TO FAIL EITHER.**
+
+----------------------------------------------------------------------------------------------------
+### (5) ### **THE VERDICT, ITS REGION, AND WHAT IT DOES NOT SAY.**
+----------------------------------------------------------------------------------------------------
+### ### ### **(STRADDLE PARTIAL).**
+### **THE CERTIFIED REGION:** ### the LOW inequality at EVERY `(p, n >= 2, k)` -- derived; and
+### the HIGH inequality at EXACTLY `(2,2), k = 1` -- b273's, cited not re-derived.
+### **THE UNCERTIFIED REGION, CHARACTERIZED RATHER THAN LISTED:** ### every `(p, n >= 2, k)`
+### other than `(2,2,1)` lacks a certified high witness here. ### The obstruction sharpens as act
+### 9's term approaches `1`: at `k = 1` the term is `(q-p)/(q-1) -> 1`, while the vectors this
+### act can name exactly do not follow it up. ### **THE HARD ROW IS `k = 1` AT LARGE `n`.**
+### **WHAT IT DOES NOT SAY:**
+###   ### **NO CELL IS CLAIMED TO FAIL THE STRADDLE.** ### An absence of certification is not a
+###     refutation, and `F-UNCERT` forbade calling it one.
+###   ### **NOTHING ABOUT THE COMPLETE ROSTER** -- b15's clause governs and is not worked around.
+###   ### **NOTHING ABOUT `h2`.**
+###   ### **b273's VERDICT IS NOT WIDENED.** ### It was one cell before this act and it is one
+###     cell after it.
+
+----------------------------------------------------------------------------------------------------
+### (6) ### **(SPEC-3)'s STATUS, EXACTLY. ### AND ATTAINABILITY IS NOT AN AGGREGATION.**
+----------------------------------------------------------------------------------------------------
+### **(SPEC-3) DEMANDS, VERBATIM:** ### *"(SPEC-3) IT IS DEFINED OVER ALL PRIMES, NOT A FIXED
+### SET."*
+### **STATUS: ### NOT ADVANCED BY THIS ACT.** ### The low-side derivation is defined at every
+### `(p, n >= 2)`, which sounds like progress and is not: ### **(SPEC-3) IS A CONDITION ON THE
+### PER-PLACE QUANTITY THE AGGREGATION USES, AND UNDER b226's LEVEL CHOICE THAT QUANTITY SITS AT
+### LEVEL 1 FOR EVERY ODD PRIME, WHERE (SPEC-2) SAYS NOTHING AT ALL.** ### And `p = 2` inherits
+### b226/b268's step-up to level 2, which is exactly why `(2,2)` is the one cell with content.
+### ### ### **AND THE DISTINCTION THE FERRY ASKED BE CARRIED IN THE VERDICT'S OWN WORDS:**
+### ### ### **AN ATTAINABLE RANGE IS NOT A STATED AGGREGATION.** ### Attainability says a vector
+### ### ### EXISTS whose per-place value equals act 9's term at a cell. ### **M-2 ASKS FOR A
+### ### ### STATED FUNCTION -- ONE RULE, ALL PLACES, WRITTEN DOWN. ### KNOWING A SOLUTION EXISTS
+### ### ### AT EACH OF SEVERAL CELLS IS NOT A RULE, AND CHOOSING ONE PER CELL WITHOUT A RULE
+### ### ### WOULD NOT BE ONE EITHER.** ### That is the whole distance still to go.
+
+----------------------------------------------------------------------------------------------------
+### (7) ### **THE EQUIVALENCE NOTE. ### FILED, NOT OPENED.**
+----------------------------------------------------------------------------------------------------
+### b273 found `<u, w> != 0` for its exhibited `v`, so the orthogonality that killed `g_0` as a
+### replacement DOES NOT apply to `v`, and the equivalence-class question is OPEN for it.
+### **WHAT CLOSING IT WOULD REQUIRE, STATED AS A WORK-ORDER AND NOT ATTEMPTED HERE:** ### the
+### behaviour of the NORMALIZED inner products `<u_v, v_v>` ACROSS PLACES, tested against von
+### Neumann's DEFINITION 3.3.2 -- whether `SUM_v |<u_v, v_v> - 1|` converges. ### **THAT IS A
+### CONDITION OVER INFINITELY MANY PLACES AND NO FINITE COMPUTATION SETTLES IT.**
+### FILED: ### **`W-ORD-EQUIV-CLASS`.**
+
+----------------------------------------------------------------------------------------------------
+### (8) ### **THE SHADOW. ### NOTHING BUILT, CONDITION CHECKED, RESIDUES ENUMERATED.**
+----------------------------------------------------------------------------------------------------
+###   ### **(a) THE LOW-SIDE INEQUALITY.** ### It is a polynomial inequality in `q` and `p^k`
+###     over ALL primes and ALL levels -- ### **UNIVERSALLY QUANTIFIED OVER AN INFINITE SET, SO
+###     `decide` CANNOT TOUCH IT.** ### A finite instance table would compile the CONTROL and
+###     not the PROOF, and would be headed by a claim the file does not establish.
+###   ### **(b) `R(g_0)`'s CLOSED FORM.** ### Cyclotomic at every step. ### NOT DECIDABLE HERE.
+###   ### **(c) `w_c` LIES IN `Son`.** ### The ball-vanishing half reduces to
+###     `zeta^{jq(c+q)} = zeta^{jqc}`, which is a statement about roots of unity. ### CYCLOTOMIC.
+###   ### **(d) THE 308-TRIPLE SWEEP.** ### Finite and decidable -- and ### **IT IS THE CONTROL,
+###     NOT THE FINDING. ### COMPILING A CONTROL UNDER A HEADER NAMING THE THEOREM IS THE
+###     DOUBLE-NAME SPECIES, AND THIS IS THE FOURTH ACT TO REFUSE IT ON THAT GROUND.**
+### ### **SO THE CONDITION FAILS AND THE RULING SAYS: BUILD NOTHING AND SAY SO.**
+### ### **0 `.lean` FILES MOVED, CHECKED NOT ASSUMED.**
+
+----------------------------------------------------------------------------------------------------
+### (9) ### **THE DEVIATIONS. ### THE FIRST ONE IS SERIOUS AND IS STATED WITHOUT SOFTENING.**
+----------------------------------------------------------------------------------------------------
+### **(D1) THE PRE-SEAL EXPLORATION READ A TRUNCATED PRINT AS IF IT WERE THE WHOLE ELEMENT, AND
+### THE SEALED REGISTRATION RECORDED A CONCLUSION RESTING ON THE RESULT.**
+### The probe printed only `red[:4]` -- the first four cyclotomic coefficients of `<A w_c, w_c>`
+### -- saw zeros after the constant term, and ### **INFERRED THAT THE ELEMENT WAS RATIONAL. ### IT
+### IS NOT: at every cell it carries five to eleven nonzero coefficients.** ### From that misread
+### this seat computed `R(w_c)` values of `2/7`, `1/6`, `1/5`, `4/15` -- ### **NUMBERS THAT DO
+### NOT EXIST** -- and the registration's `(E) S2` records "measured BELOW act 9's term at
+### `(2,3)` and `(2,4)`" on their strength.
+### **THE CONCLUSION SURVIVED AND THE NUMBERS DID NOT.** ### A float check placed `R(w_c)` at
+### `0.459`, `0.433`, `0.378`, `0.159`, `0.210`, `0.193` against terms of `3/4`, `6/7`, `4/7`,
+### `14/15`, `4/5`, `8/15` -- below in every case, as the registration said. ### ### **THAT IS
+### LUCK, NOT ACCURACY, AND IT IS RECORDED AS LUCK.** ### **THE SEALED REGISTRATION IS NOT
+### EDITED; THE CORRECTION LIVES HERE.**
+### **AND THE LESSON IS NARROWER THAN "BE CAREFUL": ### A PRINT WIDTH IS NOT A DATUM. ### THE
+### PROBE SHOULD HAVE ASKED THE FIELD WHETHER THE ELEMENT WAS RATIONAL -- A ONE-LINE EXACT TEST
+### THE CORPUS ALREADY OWNS -- INSTEAD OF LOOKING AT FOUR NUMBERS AND DECIDING.**
+### **(D2) THE ACT'S OWN RUNNER REPORTS THOSE ROWS CORRECTLY.** ### It tests rationality exactly
+### and prints ### UNCERTIFIED ### , which is what the sealed `F-UNCERT` demanded. ### **THE
+### DEFECT WAS IN THE EXPLORATION, NOT IN THE DECIDING CHANNEL, AND THE DECIDING CHANNEL CAUGHT
+### IT.**
+### **(D3) TWO RUNNER FAULTS, BOTH LOUD:** ### a `%` format applied on the wrong `rec` line, and
+### a heredoc that consumed an escape level and left bare apostrophes inside single-quoted
+### strings. ### Both were syntax or type errors at run time. ### **NEITHER WAS SILENT, WHICH IS
+### THE ONLY REASON THEY ARE DEVIATIONS AND NOT DEFECTS.**
+### **(D4) THE FLOAT EXPLORATION SUGGESTED THE STRADDLE HOLDS AT EVERY CELL TRIED** -- seven
+### cells, fourteen `(cell, k)` rows. ### **IT IS DISCLOSED AND IT IS NOT BANKED, NOT COUNTED,
+### AND NOT USED AS EVIDENCE ANYWHERE.** ### `F-UNCERT` governs, and the verdict is
+### (STRADDLE PARTIAL) precisely because a float probe is not a certificate.
+### **(D6) TWO GATE NEEDLES WERE MIS-TYPED AND THE SUITE SAID SO.** ### One asked for
+### `R(g_0) = (q - 1) / (2(q + 1))` where the run prints the same formula WITHOUT the inner
+### spaces; the other asked for `ESCAPE-CLASS` where the bank writes `ESCAPE CLASS`. ### The
+### first produced a `FAIL`, the second a `REFUSED`. ### **BOTH TIMES THE FINDING WAS RIGHT AND
+### THE CHECK WAS WRONG, AND THE SUITE REPORTED IT IN THE ONLY ACCEPTABLE DIRECTION. ### THAT IS
+### THE SECOND ACT RUNNING WITH THIS EXACT SPECIES, AND IT IS BECOMING A PATTERN WORTH A
+### WORK-ORDER RATHER THAN A DEVIATION LINE.**
+### **(D5) A NEEDLE WAS MIS-TYPED AND CAUGHT BEFORE THE SEAL:** ### `[Q2]` dropped the backticks
+### b273 actually writes. ### Corrected in the registration BEFORE sealing, so no erratum arises.
+
+----------------------------------------------------------------------------------------------------
+### (10) ### **THE IN-FLIGHT REGISTER.**
+----------------------------------------------------------------------------------------------------
+###   ### **SETTLED BY THIS ACT: ### THE LOW SIDE, GENERALLY.** ### `R(g_0) < act 9's term` for
+###     every prime and every level `n >= 2`, derived.
+###   ### **NOT SETTLED: ### THE HIGH SIDE ANYWHERE BUT `(2,2)`.**
+###   ### **OPEN, CARRIED FORWARD:**
+###     `M-2` -- ### **SPECIFIED-NOT-STATED**; the fork is C1+C4 as one candidate, plus C2, C3.
+###     ### **`W-ORD-EQUIV-CLASS`** -- NEW; the equivalence question for b273's `v`.
+###     `W-ORD-ORDER-CHANNEL` (b273) -- OPEN, and this act is the second to be limited by it.
+###     `W-ORD-ESCAPE-SURVEY`, `W-ORD-PREDICATE-ARM`, `W-ORD-TQ-IDENTIFY`, `W-ORD-XI-PERMODE`,
+###       `W-ORD-CN-LAW` -- OPEN.
+###     `W-ORD-INDEX-APPEND` -- OPEN; ### **TWENTY-SEVEN KEYS ACROSS FOURTEEN ACTS** (b261-b274).
+###     `W-ORD-NTERM-FLOOR` -- narrowed remainder, untouched.
+###     ### **THE `ERRATA` PARTITION QUESTION** (b266) -- routed to the reconciliation wave.
+###   ### **STAYING DISCHARGED: THE NOISE-FLOOR CHECK** (b272), in the path again here.
+
+----------------------------------------------------------------------------------------------------
+### (11) ### **THE SEAM'S DEBT, ITEM 1 RESTATED.**
+----------------------------------------------------------------------------------------------------
+### ### **ITEM 1 IS STILL NOT PAID. ### M-2 IS NOT STATED.**
+### **WHAT THE ARC HAS MOVED:** ### b267 located the term; b268 paid a prerequisite; b269 named
+### three demands; b270 struck C1 against b226's unit; b271 put the obstruction in `Son`; b272
+### characterized the escape class; b273 showed act 9's term IS attained at one cell; ### **b274
+### DERIVES THE LOW SIDE GENERALLY AND FAILS TO DERIVE THE HIGH SIDE ANYWHERE NEW.**
+### **AND (0) IS THE SOBER READING OF THE WHOLE ARC:** ### under b226's ruled level choice there
+### is only ever ONE cell with (SPEC-2) content, so ### **THE "GENERALLY" QUESTION MATTERS ONLY
+### IF THE LEVEL CHOICE CHANGES -- WHICH IS THE AUTHOR'S RULING AND NOT THIS SEAT'S.**
+### **THE OTHER DEBT LINES STAND:** the `EPS_NQ` sweep is not a sweep of the record (b265);
+### `qeps_layer`'s `NTERM` note is not at the point of use; the lore is twenty-one rules of which
+### six cannot be mechanized; the index backlog is twenty-seven keys.
+
+----------------------------------------------------------------------------------------------------
+### (12) ### **WHAT THIS ACT DID NOT DO.**
+----------------------------------------------------------------------------------------------------
+### **NO UNIT IS ADOPTED, NO AGGREGATION IS STATED, NO CANDIDATE IS RANKED.**
+### **b273's VERDICT IS NOT WIDENED BY ASSERTION ANYWHERE**, and no prior act is re-verdicted.
+### **NO UNCERTIFIED COMPARISON IS REPORTED AS FALSE.** ### Seven rows are UNCERTIFIED and are
+### labelled so; the float probe that suggests otherwise is disclosed and not used.
+### **(SPEC-3) IS NOT ADVANCED**, and the bank says so in (6) rather than letting a general
+### low-side result imply it.
+### **THE EQUIVALENCE QUESTION IS FILED AND NOT ATTEMPTED.**
+### **NO OWNER INSTRUMENT WAS EDITED** -- b270's, b271's and b272's machinery was IMPORTED.
+### **NOTHING IS CLAIMED ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT:** ### **"RH reduced to a
+### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES.**
+====================================================================================================
