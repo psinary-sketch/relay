@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b276_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 10)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (I1c) single allocation <= 256 MB  256              4                MB     SATISFIABLE
+      demand from : sparse cyclotomic vectors of length N <= 361; no dense operator in the deciding runner.
+  (I2c) exact-arithmetic degree cap  1024             722              deg    SATISFIABLE
+      demand from : unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342
+  (I3c) fiber-lemma sweep, exact red 20000            20000            ops    SATISFIABLE
+      demand from : the full f_{i,j} family is (q-1)^2 vectors each needing q-1 exact fiber reductions; at (19,1) that is 324*18 = 5832 reductions at degree 342, and summed over all eight cells the full sweep is NOT affordable. THE REGISTRATION THEREFORE DECLARES A REDUCED SCOPE (full family at N <= 121, u plus a sample of four above) RATHER THAN SILENTLY SAMPLING. THE CAP EQUALS THE DEMAND ONLY BECAUSE THE SCOPE WAS CUT TO MEET IT, AND THE CUT IS PRINTED WITH THE RESULT.
+  (I4c) runtime <= 1800 s            1800             600              s      SATISFIABLE
+      demand from : scaled from b272's measured exact run over the same eight cells, plus the declared fiber sweep.
+  (I5c) eigen-decompositions and lad 0                0                each   SATISFIABLE
+      demand from : every step is a closed form or an exact equality; no spectrum and no ladder, so no float is needed and no ladder can outrun a ceiling.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

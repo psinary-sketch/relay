@@ -1,0 +1,15 @@
+{
+  "registration": "data/b276_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 10)",
+  "clauses": [
+    {"clause": "(I1c) single allocation <= 256 MB", "cap": 256, "demand": 4, "units": "MB",
+     "from": "sparse cyclotomic vectors of length N <= 361; no dense operator in the deciding runner."},
+    {"clause": "(I2c) exact-arithmetic degree cap", "cap": 1024, "demand": 722, "units": "deg",
+     "from": "unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342"},
+    {"clause": "(I3c) fiber-lemma sweep, exact reductions", "cap": 20000, "demand": 20000, "units": "ops",
+     "from": "the full f_{i,j} family is (q-1)^2 vectors each needing q-1 exact fiber reductions; at (19,1) that is 324*18 = 5832 reductions at degree 342, and summed over all eight cells the full sweep is NOT affordable. THE REGISTRATION THEREFORE DECLARES A REDUCED SCOPE (full family at N <= 121, u plus a sample of four above) RATHER THAN SILENTLY SAMPLING. THE CAP EQUALS THE DEMAND ONLY BECAUSE THE SCOPE WAS CUT TO MEET IT, AND THE CUT IS PRINTED WITH THE RESULT."},
+    {"clause": "(I4c) runtime <= 1800 s", "cap": 1800, "demand": 600, "units": "s",
+     "from": "scaled from b272's measured exact run over the same eight cells, plus the declared fiber sweep."},
+    {"clause": "(I5c) eigen-decompositions and ladders", "cap": 0, "demand": 0, "units": "each",
+     "from": "every step is a closed form or an exact equality; no spectrum and no ladder, so no float is needed and no ladder can outrun a ceiling."}
+  ]
+}

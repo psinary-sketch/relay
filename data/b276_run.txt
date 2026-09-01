@@ -1,0 +1,93 @@
+====================================================================================================
+b276 -- COMPONENT 1. ### SIZE AGAINST EQUIVALENCE. ### EXACT. ### NO FLOAT.
+### REGISTRATION data/b276_registration_2026-09-01.txt SEALED a600dd93.
+### **NOTHING IS ADOPTED. ### b262's MASS IS QUOTED, NEVER RE-DERIVED, NEVER FITTED.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR GATE, ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+
+----------------------------------------------------------------------------------------------------
+### (1) S1 -- THE PARAMETERIZATION, ### **DERIVED FROM THE OWNERS.**
+----------------------------------------------------------------------------------------------------
+  ### A vector in E_1 that VANISHES ON THE BALL lies in Son: its transform is q times
+  ### itself, so the transform vanishes on the ball too -- which is Son's second half.
+  ### ### **SO E_1(Son) IS PRECISELY THE BALL-VANISHING PART OF E_1**, and every u' in
+  ### ### E_1 splits ORTHOGONALLY as ### **u' = w + z**, w in E_1(Son), z perpendicular
+  ### ### to it. ### THE SIZE IS ### **sigma = ||z|| / ||u'||**.
+  ### b273's v = w + s g_0 is ONE POINT of this; b275's rule is the extreme sigma = 1.
+
+----------------------------------------------------------------------------------------------------
+### (2) S3 -- ### **THE FIBER LEMMA. ### THE ACT'S LOAD-BEARING STEP.**
+----------------------------------------------------------------------------------------------------
+  CLAIM. For every w in E_1(Son) and every ball point b,
+    ### **W(b) := SUM over off-ball m with p^ell m = b of (S_quot w)(m)   IS ZERO.**
+  CONSEQUENCE. The cross term SUM_m (S_quot w)(m) conj(z(p^ell m)) equals
+  SUM_b conj(z(b)) W(b), ### **SO IT VANISHES FOR EVERY z.** ### And the w-w term
+  vanishes by b271's absorption. ### **ONLY THE z-z TERM SURVIVES.**
+
+  (p,n)    N      d_1 law   family scope           ball-vanishing W(b) = 0 for all b
+  (2,2)    16     2         FULL family, 9         10             YES
+  (3,1)    9      1         FULL family, 4         5              YES
+  (5,1)    25     4         FULL family, 16        17             YES
+  (7,1)    49     9         FULL family, 36        37             YES
+  (11,1)   121    25        FULL family, 100       101            YES
+  (13,1)   169    36        SAMPLE of 4 + u        5              YES
+  (17,1)   289    64        SAMPLE of 4 + u        5              YES
+  (19,1)   361    81        SAMPLE of 4 + u        5              YES
+
+  ### **FIBER LEMMA VERDICT: W(b) = 0 EVERYWHERE ### 185 ball-vanishing vectors tested.**
+  ### **SCOPE, PRINTED NOT ELIDED:** the FULL f_{i,j} family at N <= 121, and b226's own
+  ### u plus a declared sample of four above it -- the registration's (I3c) cap.
+  ### **AND THE FAMILY SPANS E_1(Son), SO BY LINEARITY THE LEMMA HOLDS ON ALL OF IT AT
+  ### THE CELLS WHERE THE FULL FAMILY WAS TESTED.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE CONTROLS. ### **b273's v AS ONE POINT; b275's RULE AS THE EXTREME.**
+----------------------------------------------------------------------------------------------------
+  ### b273's v = w + s g_0 at (2,2), with s^2 = -8/11 + 8/11 sqrt2 [b273]:
+    ||w||^2 = 128 , ||g_0||^2 = 160 , <A_2 g_0,g_0> = 48   [b271 / b273]
+    ||v||^2   = 128/11 + 1280/11 sqrt2
+    sigma^2   = (-1280/11 + 1280/11 sqrt2) / ||v||^2
+    P^(SPEC-1) = (-384/11 + 384/11 sqrt2) / ||v||^2
+  ### **THE BOUND |P^| <= sigma^2 REDUCES TO 48 <= 160, i.e. TO A RATIONAL FACT ABOUT
+  ### THE TWO NUMERATORS, SINCE BOTH SHARE THE POSITIVE DENOMINATOR ||v||^2 AND THE
+  ### COMMON FACTOR s^2 > 0 : CONFIRMED**
+
+  ### b275's RULE IS THE EXTREME sigma = 1 (w = 0): P^ = <A_2 g_0,g_0> / ||g_0||^2 = 3/10
+  ### ### **AND THAT IS EXACTLY b274's CLOSED FORM (q-1)/(2(q+1)) AT q = 4 : CONFIRMED**
+  ### The bound |P^| <= sigma^2 = 1 holds there with room: 3/10 <= 1.
+  ### **THE CONTROLS CHECK THE DERIVATION AND ARE NEVER ITS EVIDENCE.**
+
+----------------------------------------------------------------------------------------------------
+### (4) S4 -- ### **THE TENSION.**
+----------------------------------------------------------------------------------------------------
+  ### (i) FROM THE OVERLAP. ### b226's u lies in E_1(Son) and z is perpendicular to it,
+  ### so <u, u'> = <u, w> EXACTLY, and normalized |<u^,u'^>| <= ||w|| = sqrt(1-sigma^2).
+  ### Hence ### **|<u^,u'^> - 1| >= 1 - sqrt(1-sigma^2) >= sigma^2 / 2**.
+  ### von Neumann DEFINITION 3.3.2 makes equivalence the CONVERGENCE of
+  ### SUM_v |<u_v, u'_v> - 1|, so ### **EQUIVALENCE REQUIRES SUM_v sigma_v^2 < infinity.**
+
+  ### (ii) FROM SPEC-1. ### By the fiber lemma only the z-z term survives, so
+  ### ### **|P^_v| <= sigma_v^2** ### at every place.
+
+  ### (iii) THEREFORE ### **SUM_v |P^_v| <= SUM_v sigma_v^2 < infinity.**
+  ### A convergent series has ### VANISHING TAILS ### , so the sum over the window
+  ### (a, a^2] tends to ### ZERO ### as a grows.
+
+  ### (iv) AND b262 DERIVES THE OPPOSITE DEMAND ON THE SAME WINDOW, QUOTED NOT
+  ### RE-DERIVED: the junction ### **DIVERGES ALONG THE CUTOFF LIMIT**, and it is the
+  ### primes in (a, a^2] with n_p = 1 that ### **CARRY THE WHOLE GROWTH.**
+  ### ### ### **A QUANTITY THAT TENDS TO ZERO CANNOT SUPPLY ONE THAT TENDS TO INFINITY.**
+
+  ### **THE ATTRIBUTION, WHICH IS THIS ACT'S CENTRAL CARE (registration (C)):**
+  ### ### **THE ARGUMENT NEVER ASKS HOW b262's GROWTH SPLITS BETWEEN PER-PLACE SIZE AND
+  ### ### THE NUMBER OF PLACES IN THE WINDOW. ### IT DOES NOT NEED TO: A CONVERGENT
+  ### ### SERIES HAS VANISHING TAILS HOWEVER MANY TERMS THE WINDOW HOLDS.**
+  ### The failure mode the registration named -- allowing each place a merely BOUNDED
+  ### contribution and letting place-count do the work -- ### **IS EXACTLY WHAT
+  ### EQUIVALENCE FORBIDS: IT MAKES THE CONTRIBUTIONS SUMMABLE, NOT MERELY BOUNDED.**
+
