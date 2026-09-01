@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b275_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 9)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (I1c) single allocation <= 256 MB  256              4                MB     SATISFIABLE
+      demand from : sparse cyclotomic vectors of length N <= 361 at the largest cell (19,1); no dense NxN operator is materialized in the deciding runner.
+  (I2c) exact-arithmetic degree cap  1024             722              deg    SATISFIABLE
+      demand from : unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342
+  (I3c) runtime <= 900 s             900              300              s      SATISFIABLE
+      demand from : b272 ran the same exact machinery over the same eight cells; this act computes fewer quantities per cell. MEASURED PRECEDENT, NOT A GUESS.
+  (I4c) eigenvalue decompositions in 0                0                decomp SATISFIABLE
+      demand from : every test is a closed form or an exact equality; no spectrum is computed, which is why no float is needed.
+  (I5c) ladders registered           0                0                ladders SATISFIABLE
+      demand from : this act registers no ladder, so no ladder can outrun a declared ceiling (b264's species).
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

@@ -1,0 +1,109 @@
+====================================================================================================
+b275 -- COMPONENT 1. ### THE RULE STATED. ### EXACT. ### NO FLOAT.
+### REGISTRATION data/b275_registration_2026-09-01.txt SEALED 6257f01a.
+### **NOTHING IS ADOPTED. ### WRITING A RULE IS NOT REPLACING b226's RULED CHOICE.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR GATE, ON THIS ACT'S PATH (the E0 gate).
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+
+----------------------------------------------------------------------------------------------------
+### (1) S1 -- THE CANONICAL INDEX. ### **DERIVED FROM THE STRUCTURE, NOT PICKED.**
+----------------------------------------------------------------------------------------------------
+  The quotient channel is built on the orbit map m -> p m (b10's V_inv, b8's U).
+  ### ITS FIXED POINTS SOLVE (p - 1) m = 0 mod N. ### Since gcd(p-1, p^{2n}) = 1 for
+  ### EVERY prime, the only solution is m = 0.
+  ### **SO e_0 IS THE UNIQUE BASIS VECTOR FIXED BY THE VERY MAP THE CHANNEL QUOTIENTS
+  ### BY, AT EVERY PLACE AND EVERY LEVEL. ### THAT FORCES c = 0.**
+
+  (p,n)    N      fixed pts of m -> pm         fixed pts of Pi (m -> -m)
+  (2,2)    16     [0]                          [0, 8]
+  (3,1)    9      [0]                          [0]
+  (5,1)    25     [0]                          [0]
+  (7,1)    49     [0]                          [0]
+  (11,1)   121    [0]                          [0]
+  (13,1)   169    [0]                          [0]
+  (17,1)   289    [0]                          [0]
+  (19,1)   361    [0]                          [0]
+
+  ### **THE SCALING MAP FIXES ONLY 0, AT EVERY CELL : CONFIRMED**
+  ### **AND THE WEAKER ARGUMENT IS NOT SUFFICIENT, WHICH THE ACT SAYS RATHER THAN
+  ### QUIETLY USING THE STRONGER ONE: ### the involution Pi alone fixes TWO indices at
+  ### p = 2 -- [0, 8] -- so Pi does not single out 0 there.**
+
+----------------------------------------------------------------------------------------------------
+### (2) S2 -- ### **THE RULE, WRITTEN WHOLE.**
+----------------------------------------------------------------------------------------------------
+  ### ### **u'_p := 4q P_1 e_0 / || 4q P_1 e_0 ||   at the cell (p, ell(p)),**
+  ### ### **with ell(p) = 2 if p = 2, else 1   [b226];   q = p^{ell(p)};  N = q^2.**
+  EVERY CONSTITUENT UNFOLDED TO ITS OWNER:
+    4q P_1 = (q + S)(1 + Pi)                       [b226, the purity report]
+    (S f)(m) = SUM_{m'} f(m') zeta_N^{m m'}         [b226]
+    (Pi f)(m) = f(-m)                              [b226]
+    ### **4q P_1 e_0 = 2q e_0 + 2 * 1**             [b272, and re-verified below]
+    ell(p)                                         [b226, arrival depth d_1(2,1) = 0]
+
+  (p,n)    q     N      S g = q g    SPEC-1 value 4(N-q)    ||u'||^2       <u, g_0> = 0
+  (2,2)    4     16     YES          48  MATCHES            160            YES
+  (3,1)    3     9      YES          24  MATCHES            96             YES
+  (5,1)    5     25     YES          80  MATCHES            240            YES
+  (7,1)    7     49     YES          168  MATCHES           448            YES
+  (11,1)   11    121    YES          440  MATCHES           1056           YES
+  (13,1)   13    169    YES          624  MATCHES           1456           YES
+  (17,1)   17    289    YES          1088  MATCHES          2448           YES
+  (19,1)   19    361    YES          1368  MATCHES          3040           YES
+
+----------------------------------------------------------------------------------------------------
+### (3) T1 -- (SPEC-1). ### **PASS, DERIVED GENERICALLY.**
+----------------------------------------------------------------------------------------------------
+  b271 derives <U^{ell} S_quot g_0, g_0> * p^{ell/2} = 4(N - q), and N = q^2 > q for
+  every q >= 2, so the value is ### **NONZERO AT EVERY PLACE, BY ARITHMETIC AND NOT BY
+  ### SURVEY.** ### Controlled exactly at all 8 cells above.
+  ### T1 VERDICT: SPEC-1 holds under the rule at every cell
+
+----------------------------------------------------------------------------------------------------
+### (4) T2 -- (SPEC-2). ### **VACUOUS AT LEVEL 1; AND THE RULE FAILS IT AT (2,2).**
+----------------------------------------------------------------------------------------------------
+  ### At ell = 1 the (SPEC-2) range 1 <= k <= 0 is ### **EMPTY**, so (SPEC-2) is
+  ### ### **VACUOUS THERE -- A VACUITY AND NOT A TRIUMPH.** ### 7 of 8 cells.
+  ### CELL (2,2), k = 1: the rule gives R(g_0) = 3/10; act 9's term is 2/3.
+  ### ### **THEY DIFFER. ### THE RULE FAILS (SPEC-2) AT THE ONE CELL WHERE
+  ### ### (SPEC-2) HAS CONTENT : FAILS, as registered**
+
+  ### **AND b273's SUCCESS DOES NOT TRANSFER, WHICH IS THIS ACT'S NAMED HAZARD:**
+  ### b273's attaining vector is ### w + s g_0 ### -- ### **A DIFFERENT VECTOR FROM
+  ### THE RULE'S g_0.** ### Its (SPEC-2) success is its own and is not borrowed here.
+  ### ### **SO A RULE THAT MEETS (SPEC-2) MUST BE ### PIECEWISE ### AT p = 2, TAKING
+  ### ### b273's v THERE AND g_0 AT EVERY ODD PLACE. ### THAT IS WRITABLE -- IT IS A
+  ### ### FINITE EXCEPTION, AND b226's OWN RULE IS ALREADY PIECEWISE IN THE LEVEL --
+  ### ### BUT IT IS A COST AND IT IS STATED AS ONE, NOT ABSORBED.**
+
+----------------------------------------------------------------------------------------------------
+### (5) T3 -- (SPEC-3) -- AND T4 -- G-NORM.
+----------------------------------------------------------------------------------------------------
+  ### **T3 (SPEC-3): the rule gives a NONZERO vector at every prime : CONFIRMED at all cells**
+  ### p = 2's level exception is ### THE CORPUS'S OWN ### , not a new one: b223 records
+  ### d_1(2,1) = 0, so there is no unit at level 1 there and b226 steps up to ell(2) = 2.
+  ### **T4 (G-NORM): each u'_p is divided by its own norm, which is a positive rational
+  ### at every cell above, so ### SUM_v | ||u'_v|| - 1 | = SUM_v 0 = 0 ### exactly --
+  ### the same standard b226 met, and met in the same way.**
+
+----------------------------------------------------------------------------------------------------
+### (6) S3 -- THE EQUIVALENCE. ### **CHECKED FOR THIS RULE, NOT INHERITED.**
+----------------------------------------------------------------------------------------------------
+  ### b272 derives <u, g_0> = 0 EXACTLY at every place, and it is re-confirmed here at
+  ### **8 of 8 cells.**
+  ### With both sequences normalized, |<u_v, u'_v> - 1| = |0 - 1| = 1 at EVERY place,
+  ### so SUM_v | <u_v, u'_v> - 1 | = SUM_v 1, which ### **DIVERGES OVER INFINITELY MANY
+  ### PLACES.**
+  ### By von Neumann DEFINITION 3.3.2 the two C0-sequences are ### **NOT EQUIVALENT**,
+  ### and by LEMMA 4.1.1 the two incomplete products are ### **MUTUALLY ORTHOGONAL.**
+  ### ### ### **SO FOR THIS RULE THE EQUIVALENCE QUESTION IS ### SETTLED ### , AND IT IS
+  ### ### ### SETTLED NEGATIVELY: THE RULE NAMES A DIFFERENT OBJECT, NOT A REFINEMENT
+  ### ### ### OF b226's.**
+  ### **AND W-ORD-EQUIV-CLASS IS NOT THEREBY CLOSED: it is about b273's v, where
+  ### <u, w> != 0. ### A DIFFERENT VECTOR AND A DIFFERENT QUESTION.**
+
