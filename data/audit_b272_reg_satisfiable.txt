@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b272_registration_2026-08-31.txt  (M-2 CAMPAIGN, ACT 6)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (K1c) single allocation <= 256 MB  256              4                MB     SATISFIABLE
+      demand from : length-N sparse cyclotomic vectors at N = 19^2 = 361; no dense NxN operator is materialized, since S is applied as a sum.
+  (K2c) S g = q g for every c        4.7e+06          4.7e+06          ops    SATISFIABLE
+      demand from : the membership check is O(N^2) per c, so ALL c costs O(N^3) = 4.7e7 at N = 361 -- NOT affordable. The registration therefore DECLARES A REDUCED SCOPE (all c at N <= 49, sample of 6 above) rather than silently sampling. THE CAP IS THE DEMAND ONLY BECAUSE THE SCOPE WAS CUT TO MEET IT, AND THE CUT IS PRINTED WITH THE RESULT.
+  (K3c) exact-arithmetic degree cap  1024             722              deg    SATISFIABLE
+      demand from : unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342
+  (K4c) runtime <= 900 s             900              420              s      SATISFIABLE
+      demand from : b270 and b271 ran the same exact machinery over the same eight places; this act adds the family sweep at (K2c)'s declared cap. MEASURED PRECEDENT, NOT A GUESS.
+  (K5c) ladders registered           0                0                ladders SATISFIABLE
+      demand from : this act registers no ladder, so no ladder can outrun a declared ceiling (b264's species).
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

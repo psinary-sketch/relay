@@ -1,0 +1,147 @@
+====================================================================================================
+b272 -- COMPONENT 1. ### THE ESCAPE CLASS, CHARACTERIZED. ### EXACT IN Q(zeta_N).
+### REGISTRATION data/b272_registration_2026-08-31.txt SEALED 63a35ca7 BEFORE ANY VALUE.
+### **NO UNIT IS ADOPTED. ### A CLASS IS NOT A MEMBER, AND EVERY LINE SAYS WHICH.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR GATE, CALLED ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+  ### **THIS ACT'S CHANNEL IS EXACT ARITHMETIC IN Q(zeta_N), SO NO FLOOR APPLIES AND
+  ### NONE IS INVENTED. ### THE GATE WAS CALLED AND RETURNED A VERDICT; IT WAS NOT
+  ### SKIPPED, AND THAT DISTINCTION IS THE WHOLE POINT OF PUTTING IT IN THE PATH.**
+  ### Its REFUSING arms fire in its own fixtures, against b264's eleven real modes.
+
+----------------------------------------------------------------------------------------------------
+### (1) THE CHARACTERIZATION. ### **`E_1` HAS A SPANNING SET INSIDE THE ESCAPE CLASS.**
+----------------------------------------------------------------------------------------------------
+  THE FAMILY, from b226's identity 4q P_1 = (q + S)(1 + Pi) applied to e_c:
+    ### **g_c(m) = q([m = c] + [m = -c]) + zeta^{mc} + zeta^{-mc}**, real-valued.
+  {g_c : c in Z/N} SPANS E_1, because {e_c} spans the space and P_1 is onto E_1.
+
+  (p,n)   N      g_c(0) != 0 for all c  S g_c = q g_c              membership scope
+  (2,2)   16     YES (16 of 16)         YES (16 of 16)             ALL 16 c
+  (3,1)   9      YES (9 of 9)           YES (9 of 9)               ALL 9 c
+  (5,1)   25     YES (25 of 25)         YES (25 of 25)             ALL 25 c
+  (7,1)   49     YES (49 of 49)         YES (49 of 49)             ALL 49 c
+  (11,1)  121    YES (121 of 121)       YES (4 of 4)               SAMPLE c in [0, 1, 2, 3] of 121
+  (13,1)  169    YES (169 of 169)       YES (4 of 4)               SAMPLE c in [0, 1, 2, 3] of 169
+  (17,1)  289    YES (289 of 289)       YES (4 of 4)               SAMPLE c in [0, 1, 2, 3] of 289
+  (19,1)  361    YES (361 of 361)       YES (4 of 4)               SAMPLE c in [0, 1, 2, 3] of 361
+
+  ### **0 IS IN THE BALL, AND g_c(0) = 2 FOR EVERY c != 0 (2q+2 AT c = 0). ### SO EVERY
+  ### MEMBER OF A SPANNING SET OF E_1 LIES IN THE ESCAPE CLASS.**
+  ### ### **THEREFORE THE BALL-VANISHING VECTORS -- WHICH INCLUDE ALL OF E_1(Son), HENCE
+  ### ### ALL OF b226's FAMILY -- ARE A PROPER SUBSPACE: THE KERNEL OF RESTRICTION TO
+  ### ### THE BALL. ### ESCAPING IS GENERIC; BALL-VANISHING IS THE SPECIAL CONDITION.**
+  ### CHARACTERIZATION VERDICT: spanning family entirely inside the escape class at 8 of 8 cells
+  ### **SCOPE, PRINTED NOT ELIDED:** the ball value is checked for ALL c at every cell;
+  ### the eigenvalue equation under (K2c)'s declared cap, shown in the last column.
+
+----------------------------------------------------------------------------------------------------
+### (2) K1 AND K4. ### THE TWO THAT PASS OUTRIGHT.
+----------------------------------------------------------------------------------------------------
+  ### **K1 (S g = q g): SATISFIED BY EVERY MEMBER CHECKED, AT EVERY CELL.** ### It holds
+  ### by construction -- the class lives inside E_1, which is P_1's image -- and is
+  ### verified anyway, per b271's standard that membership is checked, not inherited.
+  ### **K4 (NONVANISHING): SATISFIED, BY A ONE-LINE ARGUMENT: g_c(0) != 0.**
+  ### ### **b268's ARGUMENT DOES NOT TRANSFER, AND IS NOT CLAIMED TO.** ### b268 is
+  ### ### about the canonical generator 4q P_1 f_{1,1} -- a DIFFERENT vector -- and its
+  ### ### content is a support count N - q derived from THAT generator's structure.
+  ### ### **SAYING WHICH IS THE POINT OF K4, AND THE NEW ARGUMENT IS STRICTLY EASIER.**
+
+----------------------------------------------------------------------------------------------------
+### (3) K2 -- NORM-ONE / G-NORM. ### SATISFIED, WITH ONE ARITHMETIC DIFFERENCE.
+----------------------------------------------------------------------------------------------------
+  (p,n)   ||g_0||^2        predicted (2q+2)^2+4(N-1) matches    ||u||^2 rational?
+  (2,2)   160              160                  YES        NO
+  (3,1)   96               96                   YES        NO
+  (5,1)   240              240                  YES        NO
+  (7,1)   448              448                  YES        NO
+  (11,1)  1056             1056                 YES        NO
+  (13,1)  1456             1456                 YES        NO
+  (17,1)  2448             2448                 YES        NO
+  (19,1)  3040             3040                 YES        NO
+
+  ### K2 VERDICT: norms rational and matching the registered closed form at 8 of 8 cells
+
+  ### **ANY NONZERO VECTOR NORMALIZES, SO SUM_v | ||u_v|| - 1 | = 0 EXACTLY --
+  ### b226's "STRONGEST WAY THE DEFINITION ALLOWS". ### K2 IS SATISFIED.**
+  ### **AND THE DIFFERENCE, REPORTED WITHOUT PROMOTION: ||g_0||^2 IS A RATIONAL INTEGER
+  ### WHERE b226 RECORDS ||u||^2 AS A TOTALLY-REAL ALGEBRAIC INTEGER THAT IS NOT
+  ### RATIONAL. ### THAT IS A DIFFERENCE, NOT AN ADVANTAGE, AND IS NOT ARGUED AS ONE.**
+
+----------------------------------------------------------------------------------------------------
+### (4) K3 -- THE C0 CONDITION, AND THE EQUIVALENCE CLASS. ### **THE DOSSIER'S CENTRE.**
+----------------------------------------------------------------------------------------------------
+  DERIVED IN ADVANCE FROM u being Pi-even and S u = q u:
+    <u, g_c> = q(u(c) + u(-c)) + (S u)(c) + (S u)(-c) = 2q(u(c) + u(-c)) = ### **4q u(c)**
+
+  (p,n)   <u, g_0> = 0 ?         formula 4q u(c) holds    c != 0 with <u,g_c> != 0
+  (2,2)   YES -- ORTHOGONAL      YES                      1,2,3
+  (3,1)   YES -- ORTHOGONAL      YES                      1,2
+  (5,1)   YES -- ORTHOGONAL      YES                      1,2,3
+  (7,1)   YES -- ORTHOGONAL      YES                      1,2,3
+  (11,1)  YES -- ORTHOGONAL      YES                      1,2,3
+  (13,1)  YES -- ORTHOGONAL      YES                      1,2,3
+  (17,1)  YES -- ORTHOGONAL      YES                      1,2,3
+  (19,1)  YES -- ORTHOGONAL      YES                      1,2,3
+
+  ### K3 VERDICT: <u, g_0> = 0 exactly at 8 of 8 cells; the other polarity is live at 8 of 8
+
+  ### **u(0) = 0 BECAUSE 0 IS IN THE BALL AND b268 PUTS u's ZERO SET EXACTLY THERE.
+  ### SO <u, g_0> = 0 EXACTLY, AT EVERY PLACE.**
+  ### THEN SUM_v | <u_v, g_v> - 1 | = SUM_v 1, WHICH ### DIVERGES ### over infinitely
+  ### many places, so by von Neumann DEFINITION 3.3.2 the two C0-sequences are ### NOT
+  ### EQUIVALENT ### , and by LEMMA 4.1.1 the two incomplete products are
+  ### ### **MUTUALLY ORTHOGONAL.**
+  ### ### **REPLACING b226's UNIT BY g_0 WOULD NOT ADJUST THE OBJECT. ### IT WOULD
+  ### ### REPLACE IT WITH AN ORTHOGONAL ONE.** ### That is b226's own recorded warning,
+  ### ### now arithmetic rather than hypothetical.
+  ### **AND THIS IS A FACT ABOUT g_0, NOT ABOUT THE CLASS (the act's named hazard):**
+  ### for c != 0 the inner product is NONZERO, because u(c) != 0 off the ball. ### The
+  ### equivalence question for a general member is a convergence condition across
+  ### infinitely many places and ### **THIS ACT DOES NOT SETTLE IT.**
+
+----------------------------------------------------------------------------------------------------
+### (5) K5 -- (SPEC-2), AT THE ONLY CELL WITH A NONEMPTY RANGE. ### EXACT, NORMALIZED.
+----------------------------------------------------------------------------------------------------
+  cells where 1 <= k <= n-1 IS AN EMPTY RANGE : 7 of 8 ### (b270's finding, carried)
+  CELL (2,2), k=1. ### act 9's term * p^{k/2} = 2/3
+  ### THE WHOLE SPANNING FAMILY SWEPT, ALL 16 MEMBERS, NORMALIZED:
+    c     pairing*p^{k/2} (normalized) equals act 9 term?
+    0     3/10                     no
+    1     (norm not rational)      no
+    2     (not rational)           no
+    3     (norm not rational)      no
+    4     -1/18                    no
+    5     (norm not rational)      no
+    6     (not rational)           no
+    7     (norm not rational)      no
+    8     -1/10                    no
+    9     (norm not rational)      no
+    10    (not rational)           no
+    11    (norm not rational)      no
+    12    -1/18                    no
+    13    (norm not rational)      no
+    14    (not rational)           no
+    15    (norm not rational)      no
+  ### ### **MEMBERS OF THE SPANNING FAMILY SATISFYING (SPEC-2): 0 of 16.**
+  ### K5 VERDICT: no member of the spanning family satisfies SPEC-2 -- 0 of 16 members satisfy it
+
+----------------------------------------------------------------------------------------------------
+### (6) WHAT K5 DOES AND DOES NOT SETTLE. ### **THE RESISTANCE, NAMED PRECISELY.**
+----------------------------------------------------------------------------------------------------
+  ### **SETTLED: NO MEMBER OF THE SPANNING FAMILY SATISFIES (SPEC-2).** ### That is an
+  ### exact statement about N named vectors, taken by reduction modulo Phi_N.
+  ### **NOT SETTLED, AND NOT ATTEMPTED: whether some OTHER element of E_1 -- a linear
+  ### combination rather than a family member -- satisfies it.**
+  ### THE RESISTANCE, STATED AS PRECISELY AS THE FINDING: that question asks whether
+  ### a real quadratic form attains a given value on a subspace, i.e. it needs the
+  ### ### SIGNATURE ### of a Hermitian form over Q(zeta_N) -- equivalently ORDER
+  ### comparisons between real algebraic numbers. ### **THAT IS A DIFFERENT CHANNEL
+  ### FROM REDUCTION MODULO Phi_N, IT IS NOT WHAT THIS ACT'S SEAL AUTHORIZES, AND IT IS
+  ### NOT OPENED HERE.** ### Filed, not fudged.
+

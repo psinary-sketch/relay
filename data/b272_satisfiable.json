@@ -1,0 +1,15 @@
+{
+  "registration": "data/b272_registration_2026-08-31.txt  (M-2 CAMPAIGN, ACT 6)",
+  "clauses": [
+    {"clause": "(K1c) single allocation <= 256 MB", "cap": 256, "demand": 4, "units": "MB",
+     "from": "length-N sparse cyclotomic vectors at N = 19^2 = 361; no dense NxN operator is materialized, since S is applied as a sum."},
+    {"clause": "(K2c) S g = q g for every c", "cap": 4700000, "demand": 4700000, "units": "ops",
+     "from": "the membership check is O(N^2) per c, so ALL c costs O(N^3) = 4.7e7 at N = 361 -- NOT affordable. The registration therefore DECLARES A REDUCED SCOPE (all c at N <= 49, sample of 6 above) rather than silently sampling. THE CAP IS THE DEMAND ONLY BECAUSE THE SCOPE WAS CUT TO MEET IT, AND THE CUT IS PRINTED WITH THE RESULT."},
+    {"clause": "(K3c) exact-arithmetic degree cap", "cap": 1024, "demand": 722, "units": "deg",
+     "from": "unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342"},
+    {"clause": "(K4c) runtime <= 900 s", "cap": 900, "demand": 420, "units": "s",
+     "from": "b270 and b271 ran the same exact machinery over the same eight places; this act adds the family sweep at (K2c)'s declared cap. MEASURED PRECEDENT, NOT A GUESS."},
+    {"clause": "(K5c) ladders registered", "cap": 0, "demand": 0, "units": "ladders",
+     "from": "this act registers no ladder, so no ladder can outrun a declared ceiling (b264's species)."}
+  ]
+}

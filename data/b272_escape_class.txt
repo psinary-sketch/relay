@@ -1,0 +1,314 @@
+====================================================================================================
+b272 -- THE BANK. 2026-08-31. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 6 -- THE ESCAPE CLASS.
+### ### **VERDICT: (CLASS NONEMPTY BUT BLOCKED). ### BLOCKED AT K5 -- (SPEC-2).**
+### ### **K1, K2, K3 AND K4 ARE SATISFIED. ### NO MEMBER OF A SPANNING FAMILY MEETS (SPEC-2).**
+### ### **NO UNIT IS ADOPTED. ### M-2 REMAINS OWED. ### NOTHING DEPOSITS.**
+Registration data/b272_registration_2026-08-31.txt, SEALED 63a35ca7 BEFORE ANY VALUE EXISTED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR CHECK. ### **BUILT, WIRED, FIRED. ### DISCHARGED.**
+----------------------------------------------------------------------------------------------------
+### `tools/noise_floor.py`. ### **A COMMAND-PATH GATE, NOT LORE.** ### Four arms, exhaustive and
+### mutually exclusive: `EXACT`, `AT_FLOOR` (refuse), `DRIFTING` (refuse), `RESOLVED` (pass).
+### **SELF-TEST AGAINST b264's OWN ELEVEN PRINTED MODES: ### 11 OF 11 VERDICTS REPRODUCED.**
+### ### **AND BUILDING IT AGAINST REAL NUMBERS TAUGHT SOMETHING THIS SEAT DID NOT EXPECT AND
+### ### REGISTERED AHEAD OF ANY EVIDENCE: ### A MAGNITUDE TEST ALONE WOULD HAVE PASSED ALL FOUR
+### ### OF b264's FALSE MODES.** ### Mode 7 sits at `2.178e-8`, ABOVE `sqrt(eps) = 1.490e-8`; so
+### does every other floor mode. ### **THE OBVIOUS GATE -- "REFUSE ANYTHING BELOW sqrt(eps)" --
+### WOULD HAVE SHIPPED, PASSED ITS OWN REVIEW, AND CAUGHT NOTHING.** ### It is the DRIFT arm
+### that bites: the resolved modes' worst drift is `2.44e-07` and the floor modes' best is
+### `2.34e-02`, a separation of five orders, and the bar sits at `1e-3` inside it.
+### **THAT FIXTURE IS NOW A GATE:** the control suite's fixture for Component 0 asserts mode 7
+### is `RESOLVED` -- ### **THE NAIVE TOOL'S ANSWER -- AND IT MUST FAIL.**
+### **WIRED AND USED, NOT MERELY SHIPPED:** ### the runner CALLS it and prints its verdict.
+### This act's channel is exact arithmetic, so it returns `EXACT` -- ### **A VERDICT, NOT A
+### BYPASS**, which is the whole reason it sits in the path rather than in a checklist.
+### ### **DISCHARGED. ### IT IS IN THE PATH AND ITS REFUSING ARMS FIRED IN TEST.**
+### **AND ITS REACH IS STATED IN ITS OWN HEADER: ### IT CANNOT SEE A QUANTITY THE ACT NEVER
+### HANDS IT.** ### The act must enumerate what it rests verdicts on; that step is not the
+### tool's, exactly as `reg_satisfiable.py` says of itself.
+
+----------------------------------------------------------------------------------------------------
+### (1) b271, RE-READ FROM DISK. ### **NOT FROM MEMORY.**
+----------------------------------------------------------------------------------------------------
+### b271's STOP report was lost to an API drop; its work was NOT. ### The pins read back MATCH on
+### all three repositories, and this act re-read the bank from disk before quoting it.
+### **THE VERDICT, VERBATIM:** ### *"VERDICT: (ESCAPE). ### `E_1` MEMBERSHIP DOES NOT FORCE
+### VANISHING ON THE BALL."*
+### **THE WITNESS, VERBATIM:** ### *"`g := 4q P_1 e_0 = 2q e_0 + 2 * 1`, i.e. `g(m) = 2q [m = 0]
+### + 2`."* ### with ### *"THEY AGREE, SO `S g = q g`. ### VERIFIED EXACTLY AT ALL EIGHT CELLS."*
+### **AND WHAT b271 SAID IT DID NOT ESTABLISH, QUOTED BECAUSE THIS ACT IS THE ANSWER TO IT:**
+### ### *"IT DOES NOT SURVEY THE CLASS."*
+
+----------------------------------------------------------------------------------------------------
+### (2) THE CHARACTERIZATION. ### **`E_1` HAS A SPANNING SET LYING ENTIRELY IN THE ESCAPE CLASS.**
+----------------------------------------------------------------------------------------------------
+### From b226's own identity ### *"4q P_1   = (q + S)(1 + Pi)"* ### applied to `e_c`, using
+### *"S        = the DFT-like operator (S f)(m) = SUM_{m'} f(m') zeta_N^{m m'},  N = q^2"*:
+###   ### ### **`g_c := 4q P_1 e_c`,  `g_c(m) = q([m = c] + [m = -c]) + zeta^{mc} + zeta^{-mc}`.**
+### **REAL-VALUED**, since the two exponentials are conjugate and the delta part is integral.
+### ### **AT `m = 0` BOTH EXPONENTIALS ARE `1` AND THE DELTAS VANISH UNLESS `c = 0`, SO
+### ### `g_c(0) = 2` FOR EVERY `c != 0` AND `2q + 2` AT `c = 0`. ### AND `0` IS IN THE BALL.**
+### **VERIFIED EXACTLY, FOR EVERY `c`, AT EVERY ONE OF THE EIGHT CELLS: ### `g_c(0) != 0`.**
+### `S g_c = q g_c` verified exactly for ALL `c` at the four cells with `N <= 49` and for a
+### declared sample of four at the larger cells -- ### **THE SCOPE IS PRINTED IN THE RUN'S OWN
+### TABLE, NOT ELIDED, AND THE CAP WAS DECLARED AT THE REGISTRATION'S (K2c) BEFORE THE SEAL.**
+### ### ### **BECAUSE `{e_c}` SPANS THE SPACE AND `P_1` IS ONTO `E_1`, THE `g_c` SPAN `E_1`.
+### ### ### SO A SPANNING SET OF `E_1` LIES ENTIRELY INSIDE THE ESCAPE CLASS.**
+### **THEREFORE THE BALL-VANISHING VECTORS -- WHICH INCLUDE ALL OF `E_1(Son)`, HENCE ALL OF
+### b226's FAMILY -- ARE A PROPER SUBSPACE: THE KERNEL OF RESTRICTION TO THE BALL.**
+### ### **ESCAPING IS GENERIC. ### BALL-VANISHING IS THE SPECIAL CONDITION.** ### b271 exhibited
+### one witness; ### **IT IS `g_0`, ONE MEMBER OF AN `N`-MEMBER SPANNING FAMILY.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE FIVE CONDITIONS.
+----------------------------------------------------------------------------------------------------
+### **K1 -- THE TOWER EIGENVALUE EQUATION `S g = q g`. ### SATISFIED.** ### It holds by
+### construction, since the class lives inside `E_1` and `E_1` is `P_1`'s image; ### **IT IS
+### VERIFIED ANYWAY**, per b271's standard that membership is checked and not inherited from
+### provenance.
+### **K2 -- NORM-ONE / G-NORM. ### SATISFIED.** ### Any nonzero vector normalizes, so
+### `SUM_v | ||u_v|| - 1 | = 0` exactly -- b226's own ### *"THEREFORE SUM_v | ||u_v|| - 1 | =
+### SUM_v 0 = ### **0**, which converges."* ### **AND ONE ARITHMETIC DIFFERENCE, REPORTED
+### WITHOUT PROMOTION:** ### `||g_0||^2` is a RATIONAL INTEGER at every cell -- 160, 96, 240,
+### 448, 1056, 1456, 2448, 3040 -- matching the closed form `(2q+2)^2 + 4(N-1)` registered before
+### it was computed, where b226 records `||u||^2` as a totally-real algebraic integer that is NOT
+### rational. ### **THAT IS A DIFFERENCE, NOT AN ADVANTAGE, AND IT IS NOT ARGUED AS ONE.**
+### **K3 -- THE C0 CONDITION, AND THE EQUIVALENCE CLASS. ### THE CONDITION IS SATISFIED; THE
+### CLASS IS THE FINDING.** ### See (4), which is this act's centre.
+### **K4 -- NONVANISHING. ### SATISFIED, BY A NEW ARGUMENT AND NOT BY TRANSFER.** ### `g_c(0) !=
+### 0` gives it in one line. ### ### **b268's ARGUMENT DOES NOT TRANSFER AND IS NOT CLAIMED TO:**
+### b268 is about the canonical generator `4q P_1 f_{1,1}` -- A DIFFERENT VECTOR -- and its
+### content is the support count in ### *"SO THE ZERO SET IS EXACTLY THE `q` MULTIPLES OF `q`,
+### AND `support(u_p) = N - q`."* ### **SAYING WHICH IS THE POINT OF K4, AND THE NEW ARGUMENT IS
+### STRICTLY EASIER THAN THE ONE IT REPLACES.**
+### **K5 -- (SPEC-2). ### FAILS. ### THIS IS THE BLOCK.** ### See (5).
+
+----------------------------------------------------------------------------------------------------
+### (4) K3 IN FULL -- ### **THE DOSSIER'S CENTRE: THE OBJECTS WOULD BE ORTHOGONAL.**
+----------------------------------------------------------------------------------------------------
+### DERIVED, then verified exactly at all eight cells. ### `u` is `Pi`-even and satisfies
+### `S u = q u`, so
+###   `<u, g_c> = q(u(c) + u(-c)) + (S u)(c) + (S u)(-c) = 2q(u(c) + u(-c))` ### ### **`= 4q u(c)`.**
+### ### **AT `c = 0`: `u(0) = 0`, BECAUSE `0` IS IN THE BALL AND b268 PUTS `u`'s ZERO SET EXACTLY
+### ### THERE. ### SO `<u, g_0> = 0` EXACTLY, AT EVERY PLACE.**
+### Then `SUM_v | <u_v, g_v> - 1 | = SUM_v 1`, which ### DIVERGES ### over infinitely many
+### places. ### By von Neumann ### *"Two C0-sequences ... are ### EQUIVALENT ... if and only if"*
+### (DEFINITION 3.3.2) the two sequences are ### **NOT EQUIVALENT** ### ; and by LEMMA 4.1.1,
+### quoted at b226, ### *"the incomplete products for DIFFERENT classes are \"MUTUALLY
+### ORTHOGONAL\"."*
+### ### ### **SO REPLACING b226's UNIT BY b271's WITNESS WOULD NOT ADJUST THE OBJECT. ### IT
+### ### ### WOULD REPLACE IT WITH AN ORTHOGONAL ONE.**
+### That is b226's own recorded warning -- ### *"A DIFFERENT CHOICE COULD GIVE AN ORTHOGONAL
+### OBJECT, NOT AN ISOMORPHIC ONE."* ### -- ### **NO LONGER HYPOTHETICAL BUT ARITHMETIC, AT
+### EIGHT PLACES, EXACTLY.**
+### **AND IT IS ### A FACT ABOUT `g_0`, NOT ABOUT THE CLASS ### , WHICH IS THIS ACT'S NAMED
+### HAZARD AND IS OBEYED HERE:** ### for `c != 0` the inner product is `4q u(c)`, which is
+### NONZERO off the ball -- controlled in that polarity at every cell. ### **THE EQUIVALENCE
+### QUESTION FOR A GENERAL MEMBER IS A CONVERGENCE CONDITION ACROSS INFINITELY MANY PLACES AND
+### ### THIS ACT DOES NOT SETTLE IT.**
+
+----------------------------------------------------------------------------------------------------
+### (5) K5 IN FULL -- ### **WHAT IS SETTLED, AND THE RESISTANCE NAMED AS PRECISELY AS THE
+### FINDING.**
+----------------------------------------------------------------------------------------------------
+### **WHAT (SPEC-2) DEMANDS, VERBATIM:** ### *"(SPEC-2) IT REDUCES TO `Theta_q`'s TERMS AT LEVELS
+### `k <= n-1`."* ### b270 established the range is EMPTY at all seven odd cells, so ### **`(2,2)`
+### AT `k = 1` IS THE ONLY TEST THERE IS**, and act 9's term there is `2/3`.
+### **THE WHOLE SPANNING FAMILY WAS SWEPT, ALL SIXTEEN MEMBERS, NORMALIZED BECAUSE b226's UNIT IS
+### NORM-ONE, EXACT IN `Q(zeta_16)`:**
+###   `c = 0` gives `3/10`;  `c = 4` and `c = 12` give `-1/18`;  `c = 8` gives `-1/10`;
+###   the other twelve are ### NOT RATIONAL AT ALL ### , where act 9's term is.
+### ### ### **MEMBERS OF THE SPANNING FAMILY SATISFYING (SPEC-2): ### 0 OF 16.**
+### **AND A STRUCTURAL REMARK THAT FELL OUT, RECORDED BECAUSE IT WAS NOT LOOKED FOR:** ### the
+### four rational values occur at exactly `c = 0, 4, 8, 12` -- ### **THE BALL INDICES** -- and
+### nowhere else. ### NOT PURSUED, NOT EXPLAINED, AND NOT USED FOR ANYTHING.
+### **WHAT IS SETTLED:** ### an exact statement about `N` NAMED VECTORS, taken by reduction
+### modulo `Phi_N`. ### **WHAT IS NOT SETTLED, AND WAS NOT ATTEMPTED:** ### whether some OTHER
+### element of `E_1` -- a linear combination rather than a family member -- satisfies it.
+### ### **THE RESISTANCE, STATED AS PRECISELY AS THE FINDING:** ### that question asks whether a
+### real quadratic form attains a given value on a subspace, i.e. it needs the ### SIGNATURE ###
+### of a Hermitian form over `Q(zeta_N)`, equivalently ORDER COMPARISONS BETWEEN REAL ALGEBRAIC
+### NUMBERS. ### **THAT IS A DIFFERENT CHANNEL FROM REDUCTION MODULO `Phi_N`, IT IS NOT WHAT
+### THIS ACT'S SEAL AUTHORIZES, AND IT IS NOT OPENED HERE. ### FILED, NOT FUDGED.**
+
+----------------------------------------------------------------------------------------------------
+### (6) ### **THE VERDICT, AND WHAT IT ENTAILS FOR C2 AND C3.**
+----------------------------------------------------------------------------------------------------
+### ### ### **(CLASS NONEMPTY BUT BLOCKED). ### THE BLOCK IS K5.**
+### F-VIABLE forbade (CLASS NONEMPTY AND VIABLE) unless all five held; ### **K5 FAILS FOR EVERY
+### MEMBER TESTED, SO THAT VERDICT WAS NOT AVAILABLE AND WAS NOT TAKEN** ### -- even though the
+### class-level question is open, which is exactly what the falsifier anticipated.
+### **THE ONE GENUINELY NEW CONSEQUENCE, AND ITS SCOPE:** ### (SPEC-2) now fails for b226's `u_v`
+### (b270) ### AND ### for every member of a SPANNING FAMILY of `E_1` (this act), at the only
+### cell where the spec has anything to say. ### ### **SO THE (SPEC-2) OBSTRUCTION IS NOT A
+### PROPERTY OF b226's PARTICULAR CHOICE. ### IT SURVIVES ACROSS A SPANNING SET.** ### Scope,
+### stated as precisely as the claim: ### at `(2,2)`, `k = 1`, for the family and for `u_v`;
+### NOT proved for every element of `E_1`.
+### **C2 -- EXTEND THE PROJECTION TO AN ACTION.** ### Still wants a RESULT. ### **UNCHANGED IN
+### KIND, AND ONE THING SHARPENS: the escape class does not supply (SPEC-2) compliance, so C2
+### cannot inherit it from this act** ### -- whatever `S_quot` turns out to do to `E_1`, the
+### (SPEC-2) failure is upstream of it.
+### **C3 -- PUT AN ORBIT STRUCTURE ON `S-bar_v`.** ### Still wants BOTH. ### **AND (6)'s
+### consequence RAISES ITS RELATIVE STANDING WITHOUT THIS SEAT RECOMMENDING IT:** ### if
+### (SPEC-2) fails across a spanning set of `E_1`, then a route that CHANGES THE SPACE rather
+### than the vector is the only one of the three that the failure does not already touch.
+### ### **THAT IS AN OBSERVATION ABOUT THE OTHERS. ### IT IS NOT A RECOMMENDATION, AND THIS SEAT
+### ### DOES NOT RANK THE FORK.**
+### **C4 -- CHANGE THE UNIT.** ### b271 gave it an address. ### **THIS ACT SHOWS THE ADDRESS IS
+### OCCUPIED BUT THE TENANT FAILS (SPEC-2):** ### every member of the spanning family at that
+### address meets K1-K4 and fails K5.
+
+----------------------------------------------------------------------------------------------------
+### (7) ### **THE RULING DOSSIER. ### ROUTED. ### NO RECOMMENDATION.**
+----------------------------------------------------------------------------------------------------
+### **WHAT REPLACING b226's CHOICE WOULD COST:**
+###   ### **(i) THE OBJECT ITSELF, IF THE NEW UNIT IS `g_0`.** ### (4) derives `<u, g_0> = 0`
+###     exactly, so by DEFINITION 3.3.2 and LEMMA 4.1.1 the incomplete product is ###
+###     **MUTUALLY ORTHOGONAL** ### to the present one. ### **THAT IS NOT A REFINEMENT OF THE
+###     CURRENT OBJECT; IT IS A DIFFERENT ONE.**
+###   ### **(ii) b268's RESULT.** ### Its nonvanishing is about `4q P_1 f_{1,1}` and would not
+###     travel. ### The replacement's nonvanishing is easier (K4) -- ### **BUT "EASIER" IS NOT
+###     "ALREADY PAID", AND b268's ACT WOULD BE SPENT WORK.**
+###   ### **(iii) THE LEVEL-LIMIT PREMISE.** ### b226's warrant is ### *"u_v in E_1(Son(v,
+###     ell(v))) lies in E_1(S-bar_v)."* ### , held as ### *"IT IS A PREMISE HERE, NOT A THEOREM
+###     OF THIS ACT."* ### A non-`Son` unit is not in that tower, so ### **THE PLACEMENT WOULD
+###     HAVE TO BE RE-DERIVED, NOT RE-CITED.**
+###   ### **(iv) THE CHOICE-DEPENDENCE TRIPWIRE, WHICH IS THE CORPUS'S OWN LONG-OPEN QUESTION.**
+###     b226 files it OPEN and records that ### *"THE CANONICITY OF THIS CHOICE IS ### **A
+###     DEFINITION MADE BY RULING, NOT A THEOREM.**"* ### **A SECOND RULED CHOICE DOES NOT
+###     ANSWER THE FIRST; IT DOUBLES IT.**
+### **WHAT IT WOULD RE-OPEN:** ### b268's A1; (SPEC-3)'s `p = 2` step-up; G-SECTOR's owed generic
+### odd place; and the choice-dependence question at (iv).
+### **WHAT IT WOULD SETTLE:** ### ### **NOTHING THAT THIS ACT CAN NAME.** ### (SPEC-1) would be
+### met at `k = n` -- b271 exhibited that -- but (SPEC-2) would still fail, so ### **THE
+### REPLACEMENT BUYS ONE SPEC AND LOSES ANOTHER, AND M-2 WOULD STILL NOT BE STATED.**
+### ### **THIS SEAT ROUTES THE DOSSIER AND MAKES ### NO RECOMMENDATION ### BETWEEN C2, C3 AND
+### ### C4, AND NONE BETWEEN KEEPING b226's CHOICE AND REPLACING IT.**
+
+----------------------------------------------------------------------------------------------------
+### (8) ### **THE SELECTION NOTE. ### FILED AT PATTERN GRADE. ### NOT PROMOTED.**
+----------------------------------------------------------------------------------------------------
+### **THE PATTERN:** ### if (SPEC-1) can only be met by units with ball support, then the
+### identity would CONSTRAIN THE VON NEUMANN CLASS -- the corpus's long-open choice-dependence
+### question restated as ### **A CANDIDATE DETERMINATION PRINCIPLE**: ### the arithmetic would be
+### selecting the equivalence class rather than the class being chosen by ruling.
+### **ITS PROMOTION CRITERION, STATED AND ASSESSED HONESTLY:** ### a derivation that ### NO
+### BALL-VANISHING UNIT CAN MEET (SPEC-1).
+### ### **STATUS: ### UNMET ### , AND THE NEAR MISS IS RECORDED BECAUSE IT IS TEMPTING.**
+### b271's ball-absorption lemma DOES give exactly that ### **FOR ONE PER-PLACE QUANTITY** ### --
+### the ambient pairing `<U^k S_quot g, g>`, where every summand carries a zero factor. ### But
+### (SPEC-1) is a demand on ### A PER-PLACE QUANTITY NOT YET CHOSEN ### , and C2's action and
+### C3's orbit structure are different quantities that this lemma says nothing about.
+### ### **SO THE CRITERION IS MET FOR ONE CONSTRUCTION AND NOT IN GENERAL, WHICH IS EXACTLY NOT
+### ### MEETING IT. ### THE NOTE STAYS AT PATTERN GRADE AND IS NOT ARGUED AS SUPPORT FOR
+### ### ANYTHING.**
+
+----------------------------------------------------------------------------------------------------
+### (9) ### **THE SHADOW. ### NOTHING BUILT, AND THE CONDITION CHECKED RATHER THAN ASSUMED.**
+----------------------------------------------------------------------------------------------------
+### The condition is finite-decidable AND non-misleading, per b269/b270/b271's precedent.
+### ### **THE CANDIDATE RESIDUES, ENUMERATED, BECAUSE "CHECKED NOT ASSUMED" MEANS SAYING WHAT
+### ### WAS CONSIDERED AND WHY EACH FAILED:**
+###   ### **(a) `g_c(0) != 0`.** ### Decidable -- but only after defining `g_c(0)` as an integer
+###     this seat writes down itself. ### **IT WOULD COMPILE A DEFINITION, NOT A DERIVATION.**
+###   ### **(b) THE K5 SWEEP'S CONCLUSION.** ### The final comparisons are `3/10 != 2/3`,
+###     `-1/18 != 2/3`, `-1/10 != 2/3` -- decidable, and ### **UTTERLY TRIVIAL. ### A FILE
+###     HEADED "(SPEC-2) FAILS" WHOSE ENTIRE CONTENT IS THREE RATIONAL INEQUALITIES IS THE
+###     DOUBLE-NAME SPECIES IN LEAN**, with the act's headline in the filename and nothing
+###     underneath it.
+###   ### **(c) THE ORTHOGONALITY `<u, g_0> = 0`.** ### Rests on `Sum_m u(m) = 0` via
+###     `(S u)(0) = q u(0)`. ### **CYCLOTOMIC. ### NOT FINITE-DECIDABLE HERE.**
+###   ### **(d) THE ABSORPTION INDEX LAW.** ### Already compiled at b270, and re-compiled at
+###     b271. ### **A THIRD FILE WOULD BE A DUPLICATE WEARING A NEW NAME.**
+### ### **EVERY RESIDUE IS EITHER A DEFINITION, A TRIVIALITY, CYCLOTOMIC, OR ALREADY COMPILED.
+### ### SO THE CONDITION FAILS, AND THE RULING SAYS: ### BUILD NOTHING AND SAY SO.**
+### ### **0 `.lean` FILES MOVED, CHECKED NOT ASSUMED.**
+
+----------------------------------------------------------------------------------------------------
+### (10) ### **THE DEVIATIONS.**
+----------------------------------------------------------------------------------------------------
+### **(D1) COMPONENT 0's FIRST FIXTURE SET WAS BUILT FROM A ROUNDED PRINTOUT AND LOST THE
+### MEASUREMENT.** ### It carried b264's two printed VALUE columns; b264 printed those to seven
+### significant figures, at which width a drift of `4.40e-14` is INVISIBLE and both columns read
+### identically. ### **EVERY RESOLVED MODE'S DRIFT SILENTLY BECAME ZERO**, and the self-test
+### died dividing by it. ### Fixed by carrying b264's printed DRIFT column and reconstructing the
+### refined value. ### **A FIXTURE BUILT FROM A ROUNDED PRINTOUT IS NOT THE MEASUREMENT, AND THE
+### ONLY REASON THIS WAS CAUGHT IS THAT THE SELF-TEST DIVIDED BY THE ZERO IT CREATED.**
+### **(D2) THE REGISTRATION USED A BANNED STEM AND SO DID COMPONENT 0.** ### Four live uses,
+### found by the term scan before the seal and before emission, and corrected. ### **THE SCAN
+### RAN ON THE TOOL AS WELL AS ON THE PROSE, WHICH IS WHY IT FOUND THEM.**
+### **(D3) THE OWNER READS AND b271's RE-READ PRECEDED THE SEAL** -- disclosed at the
+### registration's `(J1)`. ### **ALL EXPECTATIONS WERE CORRECT, INCLUDING THE CLOSED FORM
+### `(2q+2)^2 + 4(N-1)` AND THE IDENTITY `<u, g_c> = 4q u(c)`.** ### Deflated, not claimed:
+### ### **THEY WERE READ OFF b226's OWN ALGEBRA, AND A PREDICTION READ OFF AN OWNER IS A WEAK
+### PREDICTION.** ### The one prediction made ahead of any evidence was Component 0's -- that
+### the magnitude arm alone would catch nothing -- ### **AND THAT ONE WAS BOTH STRONG AND
+### RIGHT.**
+### **(D4) THE `S g_c = q g_c` CHECK IS CAPPED, AND THE CAP IS DECLARED RATHER THAN CONCEALED.**
+### All `c` at `N <= 49`; a sample of four above. ### The registration's `(K2c)` declared it
+### BEFORE the seal, the satisfiability audit carries it, and ### **THE RUN PRINTS THE SCOPE IN
+### THE SAME TABLE AS THE RESULT.** ### The ball-value check is unrestricted at every cell.
+### **(D5) NO DEAD FIXTURE THIS ACT, AND THAT IS NOW MECHANIZED RATHER THAN REMEMBERED.** ###
+### b270 and b271 EACH shipped a fixture that could never fire. ### Gate 13 checks that every
+### run-based fixture needle appears as a literal in the file that emits the run. ### **IT IS A
+### NARROW CHECK -- IT CANNOT TELL WHETHER A REACHABLE FIXTURE TESTS THE RIGHT THING -- AND
+### THAT LIMIT IS IN THE GATE FILE'S OWN HEADER.**
+
+----------------------------------------------------------------------------------------------------
+### (11) ### **THE IN-FLIGHT REGISTER.**
+----------------------------------------------------------------------------------------------------
+###   ### **DISCHARGED BY THIS ACT: ### THE NOISE-FLOOR CHECK.** ### Built, wired, fired. ###
+###     Owed since b266 and unbuilt for six acts running. ### **IT IS NOW IN THE COMMAND PATH.**
+###   ### **CLOSED BY THIS ACT: ### b271's "IT DOES NOT SURVEY THE CLASS".** ### Surveyed: the
+###     class contains a spanning set of `E_1`, and is blocked at K5.
+###   ### **OPEN, CARRIED FORWARD:**
+###     `M-2` -- ### **SPECIFIED-NOT-STATED**; dossier C2 / C3 / C4, now priced.
+###     ### **THE CLASS-LEVEL K5 QUESTION** -- the signature question at (5), newly named.
+###     ### **b269's C3 LINE** -- routed at b271, still the author's, untouched here.
+###     `W-ORD-ESCAPE-SURVEY` (b271) -- ### **DISCHARGED IN PART**: the class is characterized;
+###       whether it retains members under (SPEC-2) is the new open question.
+###     `W-ORD-PREDICATE-ARM` (b270) -- ### **PARTLY MECHANIZED** by gate 13; the lore edit is
+###       still owed to a filings act.
+###     `W-ORD-TQ-IDENTIFY` (b260), `W-ORD-XI-PERMODE` (b250), `W-ORD-CN-LAW` -- OPEN, untouched.
+###     `W-ORD-INDEX-APPEND` -- OPEN; ### **TWENTY-THREE KEYS ACROSS TWELVE ACTS** (b261-b272).
+###     `W-ORD-NTERM-FLOOR` -- narrowed remainder, held under K.4, untouched.
+###     ### **THE `ERRATA` PARTITION QUESTION** (b266) -- routed to the reconciliation wave.
+
+----------------------------------------------------------------------------------------------------
+### (12) ### **THE SEAM'S DEBT, ITEM 1 RESTATED.**
+----------------------------------------------------------------------------------------------------
+### ### **ITEM 1 IS STILL NOT PAID, AND THIS ACT DOES NOT PAY IT. ### M-2 IS NOT STATED.**
+### **WHAT THE ARC HAS MOVED, WITHOUT INFLATION:** ### b267 located the term; b268 paid a
+### prerequisite; b269 resolved the obstruction into three demands; b270 killed C1; b271 showed
+### the obstruction is in `Son` and not in the model; ### **b272 CHARACTERIZED THE ESCAPE CLASS,
+### PRICED THE REPLACEMENT, AND FOUND THAT (SPEC-2) SURVIVES ACROSS A SPANNING SET.**
+### ### **NONE OF THAT IS M-2.**
+### **AND THE OTHER DEBT LINES STAND, ONE FEWER:** ### the `EPS_NQ` sweep is not a sweep of the
+### record (b265); `qeps_layer`'s `NTERM` note is still not at the point of use; the lore is
+### twenty-one rules of which six cannot be mechanized; the index backlog is twenty-three keys.
+### ### **THE NOISE-FLOOR LINE IS STRUCK FROM THIS LIST, AND IT IS THE FIRST ONE STRUCK IN THE
+### ### WHOLE ARC.**
+
+----------------------------------------------------------------------------------------------------
+### (13) ### **WHAT THIS ACT DID NOT DO.**
+----------------------------------------------------------------------------------------------------
+### **NO UNIT IS ADOPTED, NO AGGREGATION IS STATED, AND NO CANDIDATE IS RANKED.** ### b226's
+### choice stands exactly as ruled. ### **THIS ACT PRICED AN ALTERNATIVE; IT DID NOT TAKE ONE,
+### AND IT OFFERS ### NO RECOMMENDATION ### IN ANY DIRECTION.**
+### **A CLASS IS NOT A MEMBER, AND NO PROPERTY PROVED FOR `g_0` IS STATED OF THE CLASS.** ### The
+### orthogonality at (4) is ### A FACT ABOUT `g_0`, NOT ABOUT THE CLASS ### , and the run
+### controls the opposite polarity to prove the distinction is real rather than rhetorical.
+### **NO NUMBER SITS IN A TABLE HEADED BY act 9's CLOSED FORM.** ### K5 compares against
+### (SPEC-2)'s own stated formula, which is a SPEC TEST and not a fit; zero residuals.
+### **NO PRIOR ACT WAS RE-VERDICTED** (b246). ### b271's (ESCAPE) stands, re-read from disk.
+### **THE SELECTION NOTE IS NOT PROMOTED**, and its ### PROMOTION CRITERION ### is recorded
+### ### UNMET ### with the near miss spelled out rather than glossed.
+### **NO OWNER INSTRUMENT WAS EDITED** -- b268's, b270's and b271's runners were ### IMPORTED AS
+### MODULES ### , which is the strongest available form of not-reconstructing them.
+### **NOTHING IS CLAIMED ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT:** ### **"RH reduced to a
+### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES.**
+====================================================================================================
