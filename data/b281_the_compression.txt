@@ -1,0 +1,319 @@
+====================================================================================================
+b281 -- M-2 CAMPAIGN, ACT 15 -- THE COMPRESSION. ### DOES THE DIAGONAL VANISHING REACH THE OPERATOR?
+2026-09-01. ### SOLO (research seat). ### Registration: `data/b281_registration_2026-09-01.txt`.
+====================================================================================================
+
+### ### **VERDICT: (COMPRESSION ZERO).**
+### ### **`P_S A P_S = 0` ON `S-bar_p` AT EVERY FINITE PLACE AND EVERY LEVEL -- AND THE STRONGER
+### ### STATEMENT HOLDS: `P_S A = 0`. ### THE LEFT PROJECTION ALONE KILLS THE OPERATOR.**
+
+### ### **AND THE ROUTE IS NOT THE ONE THE FERRY ANTICIPATED, WHICH IS THE ACT'S MAIN FINDING:**
+### ### **NO POLARIZATION IS USED, AND THE SCALAR FIELD DOES NOT MATTER.** ### The ferry's `S2`
+### offered polarization for the complex case and `S3` offered the symmetric/antisymmetric split
+### for the real one. ### **NEITHER IS NEEDED.** ### The vanishing is not a fact about the
+### diagonal being enough to determine the form; ### **IT IS A FACT ABOUT WHERE `A`'s IMAGE
+### LIVES**, and it is visible on the off-diagonal directly. ### The hinge was settled anyway
+### (`S1` below) ### **AND THEN TURNED OUT NOT TO BE LOAD-BEARING, WHICH THE ACT SAYS RATHER THAN
+### QUIETLY DROPPING A QUESTION IT WAS ASKED.**
+
+### ### **THE BOUNDARY TRAVELS, IN THE VERDICT'S OWN WORDS:** ### this is the FINITE PLACES ONLY.
+### b279's construction sentence, quoted: ### "at `infinity`, the Sonin condition at the
+### Connes-Consani scale, whose resonance geometry is the epsilon-regularization machinery."
+### ### **THAT IS A DIFFERENT SPECIFICATION, NOT A TOWER CLOSURE. ### THERE IS NO `ball_n` THERE,
+### NO `iota`, NO `A`. ### NOTHING IN THIS ACT REACHES IT.**
+
+----------------------------------------------------------------------------------------------------
+### (a) / S1 -- THE SCALAR FIELD AND THE FORM'S TYPE. ### **THE HINGE, SETTLED BY QUOTATION.**
+----------------------------------------------------------------------------------------------------
+
+### ### **THE FORM'S TYPE, DECIDED FROM ITS OWNER'S OWN DEFINITION AND NEVER BY RESEMBLANCE.**
+### b273, quoted whole: ### "`T(g) = SUM_m (S_quot g)(m) conj( g(p^k m) ) = <A g, g>` with
+### ### **`A[l,j] = SUM_{m : p^k m = l mod N} S_quot[m,j]`.** ### `S_quot` is rational
+### class-averaging and the pullback is `0/1`, so ### **`A` IS A RATIONAL MATRIX**; and
+### `A != A^T`, so `A* = A^T != A`. ### **THE FORM IS NEITHER HERMITIAN NOR SYMMETRIC, AND THE ACT
+### SAYS SO RATHER THAN ASSUMING THE CONVENIENT CASE.**"
+### ### **RE-VERIFIED HERE RATHER THAN CITED:** ### `A != A^T` exhibited exactly at all six cells
+### -- e.g. `(2,2)`: `A[4,1] = 2/3` while its transpose entry is `0`.
+### ### **THE DEFINITION CARRIES A `conj`, SO THE FORM IS SESQUILINEAR IN THE SECOND SLOT** -- and
+### it is ### NOT ### Hermitian, which is a different property and is not inferred from the first.
+
+### ### **THE SCALAR FIELD: ### (ABSENT) AS AN EXPLICIT DECLARATION, WITH A POSITIVE CONTROL ON
+### ### THE ABSENCE (H4).**
+###   SEARCH: no act declares `S-bar_v`'s scalar field. ### **0 files.**
+###   ### **THE CONTROLS FIRE, SO THE ZERO IS A FINDING AND NOT A FAILED SEARCH:**
+###     `/C0-sequence/` in b226 ....... 11 hits
+###     `/S-bar_v/` in b226 ............ 4 hits
+###     `/Hilbert object/` in keystone . 1 hit
+### ### **WHAT THE OWNERS DO FIX, QUOTED:**
+###   ### **THE AMBIENT IS COMPLEX.** ### b21: "(F f)(y) = int f(x) psi(x y) dx, ### **psi the
+###     standard character of `Q_p`**" -- characters are complex-valued, and every exact
+###     computation in this campaign runs in `Q(zeta_N)`, a subfield of `C`.
+###   ### **THE WORKING SPAN IS REAL.** ### b272: "`g_c(m) = q([m = c] + [m = -c]) + zeta^{mc} +
+###     zeta^{-mc}`. ### **REAL-VALUED**, since the two exponentials are conjugate and the delta
+###     part is integral" -- and "### **BECAUSE `{e_c}` SPANS THE SPACE AND `P_1` IS ONTO `E_1`,
+###     THE `g_c` SPAN `E_1`.**"
+###   ### b273 joins them: "### **BUT b272's `g_c` ARE REAL** ... ### **AND ON REAL VECTORS THE
+###     VALUE DEPENDS ONLY ON THE SYMMETRIC PART, WHICH IS RATIONAL SYMMETRIC.**"
+###   ### b227 shows the corpus knows the distinction is live and leaves it open: ### "NORM ONE
+###     reduces the ray to a sign (over `R`) or a phase (over `C`)."
+### ### ### **SO THE ANSWER IS THE FERRY'S THIRD OPTION: ### A REAL WORKING SPAN INSIDE A COMPLEX
+### ### ### AMBIENT -- AND IT IS ASSEMBLED FROM THREE OWNERS, NOT DECLARED BY ONE.** ### Filed as
+### `W-ORD-SCALAR-FIELD`: the object's scalar field is nowhere stated outright.
+
+----------------------------------------------------------------------------------------------------
+### (b) THE DERIVATION.
+----------------------------------------------------------------------------------------------------
+
+### ### **THE STRUCTURAL FACT, AND IT IS THE WHOLE ACT.**
+### `A`'s row index is `l = p^k m`. ### At `k = n`, ### **`p^n m` IS IN `ball_n` FOR EVERY `m`** --
+### that is b270's index law. ### So every row of `A` with a nonzero entry is indexed by a BALL
+### point: ### ### **`A`'s IMAGE IS BALL-SUPPORTED.**
+### ### **VERIFIED AT ALL SIX CELLS: ### 0 rows supported outside `ball_n`.**
+### Therefore for ANY `u` whatsoever and ANY ball-vanishing `w`:
+###   ### **`B(u,w) = <A u, w> = SUM_{l in ball_n} (A u)(l) conj(w(l)) = 0`.**
+### Every `w` in `S-bar_p` is ball-vanishing (b280's `S2`, carried not re-derived).
+### ### ### **HENCE `P_S A = 0`, AND A FORTIORI `P_S A P_S = 0`.**
+
+### ### **AND IT IS MEASURED, NOT ONLY ARGUED (H1): ### THE FULL OFF-DIAGONAL, EVERY ORDERED
+### ### PAIR, NOT THE DIAGONAL WITH A POLARIZATION ATTACHED AFTERWARDS.**
+###   `(2,1)`   1 x 1   pairs -- all zero        `(3,2)`  64 x 64  pairs -- all zero
+###   `(2,2)`   9 x 9   pairs -- all zero        `(5,1)`  16 x 16  pairs -- all zero
+###   `(3,1)`   4 x 4   pairs -- all zero        `(7,1)`  36 x 36  pairs -- all zero
+### ### **5,746 ORDERED PAIRS, EXACT RATIONAL ARITHMETIC, ZERO FLOAT TOKENS, ALL ZERO.**
+
+### ### **S2 / S3, ANSWERED TOGETHER AND HONESTLY:** ### `S2` asked for polarization if the space
+### is complex; `S3` asked, if the span that matters is real, for an exhibited off-diagonal
+### `<A u, w> != 0` with `u, w` in `S-bar_p`, ### **OR A SHOWING THAT IT CANNOT EXIST.**
+### ### ### **IT CANNOT EXIST. ### THE SHOWING IS ABOVE AND IT IS FIELD-INDEPENDENT.** ### There
+### is no surviving antisymmetric part, because there is no surviving part at all: the operator
+### does not merely have a vanishing symmetric part on `S-bar_p`, ### **IT COMPRESSES TO ZERO.**
+### ### **SO THE (SYMMETRIC PART ZERO) BRANCH DOES NOT FIRE, AND NO NON-STATE-SHAPED CANDIDATE IS
+### ### RECORDED, BECAUSE THERE IS NO SURVIVING OBJECT TO RECORD.**
+
+### ### **S4 -- WHAT THE RESULT IS ABOUT: ### ALL FUNCTIONALS OF THE COMPRESSED OPERATOR, NOT THE
+### ### DIAGONAL ONES ONLY.** ### `P_S A P_S` is the zero operator on `S-bar_p`; every functional
+### of it -- diagonal, off-diagonal, trace, norm, spectrum -- is the corresponding functional of
+### zero. ### **b280 CLOSED THE VECTOR STATES; THIS ACT CLOSES THE OPERATOR.**
+
+### ### **THE NOT-DEAD CONTROL (H2), AND IT CROSS-CHECKS A NUMBER THIS ACT DID NOT COMPUTE:**
+### `A` is not the zero matrix at `k = n` (2, 24, 6, 144, 20, 42 nonzero entries at the six
+### cells), and ### **`B(g_0, g_0) = 8, 48, 24, 288, 80, 168`** ### -- which is exactly
+### ### **b271's BANKED `4(N - q)` AT EVERY CELL. ### MATCH, SIX FOR SIX.**
+### ### **SO THE OPERATOR IS ALIVE ON THE AMBIENT AND DEAD ON `S-bar_p`, AND THE ZERO IS
+### `S-bar_p`'s DOING.**
+
+### ### **THE `k < n` CONTROL (H5): ### THE RESULT IS SPECIFIC TO `k = n`.** ### At `(2,2)` the
+### same form on the same `Son x Son` is ### **NONZERO at `k = 1`: `B(basis[0], basis[3]) = 2/3`**;
+### at `(3,2)`, `B(basis[0], basis[16]) = 3/4`. ### At level 1 the control ### **CANNOT EXIST --
+### THERE IS NO `k < n`** ### -- and the arm says so and is counted as neither pass nor fail
+### (W-ORD-PREDICATE-ARM, the arm b280 had to write and this act inherited).
+
+### ### **A SECOND ANNIHILATION, FOUND BY A FAILED CONTROL, AND ITS SCOPE READ BEFORE IT WAS
+### ### NAMED (H3 -- THE FALSIFIER THAT EARNED ITSELF).**
+### The first draft's not-dead witness paired `A u` (for `u` in `Son`) against `g_0` and found
+### NOTHING at `(2,1)`. ### **THAT WAS NOT A DEAD INSTRUMENT. ### IT WAS A SECOND, INDEPENDENT
+### ANNIHILATION: `A u = 0` OUTRIGHT** -- because `(A u)(l) = SUM_{m : p^n m = l} (S_quot u)(m)`,
+### which is ### **EXACTLY b276's `W(b)`.**
+### ### **AND THEN THE RUNNER PRINTED "FIBER LEMMA FAILS HERE" AT `(2,2)`, WHICH WOULD HAVE PUT A
+### ### FALSE REFUTATION OF A BANKED LEMMA INTO THIS BANK.** ### H3 was registered for exactly
+### this and it fired. ### The lemma's domain was read at its owner first:
+### ### **b276's LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS. ### THIS RUNNER COMPUTES OVER ALL OF
+### `Son`, WHICH IS STRICTLY LARGER.**
+### ### **CHECKED, AND THE CHECK IS THE POINT:** ### at `(2,2)` 2 of 9 and at `(3,2)` 12 of 64
+### `Son` basis vectors have `A u != 0` -- and ### **EVERY SINGLE ONE OF THEM LIES OUTSIDE
+### AMBIENT `E_1`. ### 0 COUNTEREXAMPLES INSIDE `E_1`, AT EVERY CELL.**
+### An independent recomputation from b276's own formula confirms the witness at `(3,2)`:
+### `e_12 - e_3` is genuinely in `Son(3,2)` (both halves hold) with `W(9) = -3/4`, `W(36) = 3/4`.
+### ### ### **SO: b276 IS UNTOUCHED AND IS NOT RE-VERDICTED. ### WHAT THIS ACT ADDS IS A SCOPE
+### ### ### REFINEMENT -- THE FIBER LEMMA IS A FACT ABOUT `Son ∩ E_1`, NOT ABOUT `Son` -- AND THE
+### ### ### DIFFERENCE BETWEEN A REFINEMENT AND A REFUTATION IS THE DIFFERENCE H3 EXISTS TO KEEP.**
+### ### **CONSEQUENCE FOR b280, STATED BECAUSE IT VINDICATES ITS CARE:** ### b280 wrote "ROUTE 2
+### CORROBORATES; IT DOES NOT CARRY THE VERDICT." ### **THAT WAS RIGHT, AND NOW IT IS RIGHT FOR A
+### SHARPER REASON:** ### the right annihilation `A P_S = 0` is ### **FALSE ON `S-bar_p`** ### and
+### true only on its `E_1` part, while the left annihilation `P_S A = 0` is general. ### **HAD
+### b280 RESTED ON ROUTE 2, IT WOULD HAVE BEEN OVERSTATED. ### IT DID NOT.**
+
+----------------------------------------------------------------------------------------------------
+### (c) THE ENTAILMENTS. ### **STATED AND NOT RULED.**
+----------------------------------------------------------------------------------------------------
+
+### ### **C2 -- "EXTEND THE PROJECTION TO AN ACTION". ### ITS STATUS IS DERIVED, AND IT IS
+### ### CLOSED BY THIS ACT'S OWN ARGUMENT.**
+### C2 changes `S_quot`. ### ### **BUT THE ZERO NEVER CAME FROM `S_quot`.** ### `A`'s row index is
+### `l = p^n m`, which lies in `ball_n` ### **WHATEVER MATRIX SITS IN THE ROWS.** ### So the image
+### is ball-supported for ANY replacement, and every ball-vanishing `w` kills the pairing.
+### ### **MEASURED, NOT ARGUED:** ### `S_quot` was replaced by ### **the identity** ### and by
+### ### **an arbitrary rational matrix**, `A` rebuilt from each, at all six cells:
+###   rows outside `ball_n` : ### **0, every time** ### ; the matrices are nonzero every time;
+###   `B` on `Son x Son`    : ### **0, every time.**
+### ### ### **SO C2 CANNOT ESCAPE THE COMPRESSION BY CHANGING THE PROJECTION. ### ANY
+### ### ### CONSTRUCTION THAT KEEPS `U^n` AND KEEPS `S-bar_p` GETS ZERO.**
+### ### **THE SCOPE OF THAT, EXACTLY: ### it closes C2 AS DESCRIBED -- an extension of the
+### PROJECTION. ### A construction that also replaced `U^n` would not be C2, and this act says
+### nothing about it.**
+
+### ### **C3 -- "PUT AN ORBIT STRUCTURE ON `S-bar_v`". ### THE SURVIVING SHAPE, WITH THE REASON.**
+### C3 does not read `S-bar_p` through `U^n`'s image at all; it changes the STRUCTURE ON THE SPACE.
+### ### **THE BARRIER KILLS EVERYTHING OF THE FORM "PAIR `S-bar_p` AGAINST `U^n`'s OUTPUT",
+### BECAUSE `U^n`'s OUTPUT LIVES EXACTLY WHERE `S-bar_p` VANISHES.** ### C3 survives precisely by
+### not being of that form. ### b270 recorded it as *"the only candidate that would give a number
+### defined AT `k = n`"*, and ### **THIS ACT SUPPLIES THE REASON THAT RECORD WAS RIGHT.**
+### ### **C3 IS NOT ADOPTED, NOT RANKED, NOT COSTED, AND NOT EVALUATED HERE. ### SPEC-1/2/3 ARE
+### NOT TESTED AGAINST IT.** ### It is named as the shape that is left standing.
+
+### ### **b263's STANDING BRANCH -- CARRIED AS BEARING, NEVER AS A DECISION.**
+### b263, quoted: the specification's condition is ### "the branch question -- ### **finite side
+### supplies, or archimedean side absorbs**".
+### ### **THE BEARING, AND IT IS ONLY A BEARING:** ### the finite side's vector-state route is
+### closed (b280) and now its OPERATOR route is closed too, for every construction that keeps
+### `U^n` and the object's own local space. ### **THAT IS PRESSURE ON "THE FINITE SIDE SUPPLIES",
+### IN THIS SHAPE, AT THE FINITE PLACES.**
+### ### **AND IT IS NOT A DECISION, FOR THREE REASONS PRINTED RATHER THAN ASSUMED:**
+###   (i)   ### **C3 IS UNEVALUATED**, and it is a finite-side shape that this act does not close.
+###   (ii)  ### **b15's STANDING CLAUSE GOVERNS:** *"a finite-place-set object at a finite cutoff
+###         decides nothing"* globally.
+###   (iii) ### **THE ARCHIMEDEAN SIDE IS UNTOUCHED HERE.**
+### ### **b264's E2even RESTATED AT ITS OWN SCOPE, WHICH IS NARROWER THAN THE BRANCH:** ### b264
+### derived `E2even(a) * log a -> p(0) * M_even`, so ### **`E2even(a) -> 0`, and it goes like
+### `1/log a` -- NOT a power of `a`.** ### ### **THAT IS ONE ARCHIMEDEAN OBJECT AND ITS DECAY RATE.
+### ### IT IS NOT "THE ARCHIMEDEAN SIDE", AND IT DOES NOT ABSORB ANYTHING BY ITSELF.** ### b263's
+### own note travels with it: b261's oscillation finding is J4's first fact, so no monotone or
+### positivity argument is available on that direction.
+
+----------------------------------------------------------------------------------------------------
+### (d) THE VERDICT, AND WHAT IT DOES NOT SAY.
+----------------------------------------------------------------------------------------------------
+### ### **(COMPRESSION ZERO), AT GRADE `DERIVES`.**
+###   The finite-level facts are ### **EXACT AND VERIFIED** ### at six cells, 5,746 ordered pairs,
+###   zero float tokens.
+###   The index-law step is ### **DERIVED GENERALLY** ### (all `p`, all `n`).
+###   ### **THE PASSAGE TO `S-bar_p` INHERITS b280's `S2`, WHICH IS ANALYSIS AND IS STILL NOT
+###   ### MACHINE-VERIFIED.** ### That remains the chain's one uncompiled link and it is named
+###   again here rather than allowed to fade one act further from where it was declared.
+
+### ### **THE FALSIFIERS, ALL FIVE:**
+###   H1 off-diagonal computed, every ordered pair ......... HOLDS (5,746 pairs)
+###   H2 operator alive, cross-checked to b271's `4(N-q)` .. HOLDS (6 for 6)
+###   H3 banked lemma's domain read before any refutation .. ### **FIRED, AND CAUGHT THE AUTHOR**
+###   H4 scalar field by quotation, control on absence ..... HOLDS (ABSENT, controls fire)
+###   H5 result specific to `k = n`, level-1 arm honest .... HOLDS
+### ### **THE SEATS DIVERGED (registered before the run) AND THIS SEAT'S BRANCH IS THE ONE THAT
+### ### FIRED.** ### The ferry's more detailed branch was the one that did not.
+
+### ### **WHAT IT DOES NOT SAY:**
+### ### **NOTHING ABOUT THE ARCHIMEDEAN PLACE** -- b279's boundary, quoted above, travels intact.
+### ### **NOTHING ABOUT C3** beyond naming it and giving the reason it survives.
+### ### **NOTHING ABOUT A CONSTRUCTION THAT REPLACES `U^n`** -- that is not C2 and is not tested.
+### ### **NOTHING ABOUT THE COMPLETE ROSTER** -- b15's clause governs.
+### ### **NOTHING ABOUT `h2`**, and nothing beyond the register sentence exact.
+### ### **IT DOES NOT REFUTE THE IDENTITY**, and no identity was tested.
+### ### **IT DOES NOT DECIDE b263's BRANCH** -- bearing only.
+### ### **b262's PNT-PLUS-SADDLE AND b260's `W-ORD-TQ-IDENTIFY` TRAVEL** ### with any use that
+### leans on the divergence, unpaid and not discharged here.
+
+----------------------------------------------------------------------------------------------------
+### (e) THE SHADOW. ### **NOTHING BUILT, CHECKED NOT ASSUMED.**
+----------------------------------------------------------------------------------------------------
+### The ferry offered the polarization identity or the symmetric/antisymmetric split at one cell.
+### ### **NEITHER IS PART OF THIS ACT'S ARGUMENT.** ### Compiling a polarization identity would
+### certify a step the derivation ### **DOES NOT TAKE**, and a compiled terminal for an unused
+### step is the clearest possible case of a shadow that reads as evidence for something it does
+### not support. ### **MISLEADING, AND REFUSED ON THAT GROUND.**
+### The step that IS load-bearing -- `A`'s image is ball-supported at `k = n` -- is finite-
+### decidable, ### **AND IS ALREADY COMPILED**: b271's `AbsorptionFunctionalShadow` carries the
+### index law and its not-dead witness at `(3,1)`, zero axioms, ### **REPORTED FROM b271's
+### PRINTED PROFILE** ### ("7 TERMINALS, ALL PRINTING 'does not depend on any axioms'"). ### No
+### Lean was built here and ### **NO COMPILE IS CLAIMED FRESH.**
+### ### **SO: NOTHING BUILT. ### 0 `.lean` FILES MOVED.** ### Eleventh act on this ground.
+
+----------------------------------------------------------------------------------------------------
+### THE WORK-ORDERS.
+----------------------------------------------------------------------------------------------------
+### `W-ORD-SCALAR-FIELD` -- new. ### The object's scalar field is nowhere declared outright; it is
+###   assembled here from b21, b272, b273 and b227. ### **AUTHOR'S RULING.**
+### `W-ORD-FIBER-GENERAL` -- ### **ANSWERED, AND NOT THE WAY IT WAS ASKED.** ### It asked whether
+###   b276's fiber lemma extends above level 1. ### The finding is that ### **the lemma's domain is
+###   `Son ∩ E_1`, not `Son`** ### -- exhibited outside `E_1` at `(2,2)` and `(3,2)`, with 0
+###   counterexamples inside `E_1`. ### **b276 IS UNTOUCHED.** ### Whether it extends above level 1
+###   WITHIN `E_1` remains open and the order is restated for that question only.
+### `W-ORD-C2-BEYOND-U` -- new. ### C2 is closed as described; a construction replacing `U^n`
+###   itself is a different object and is untested.
+### `W-ORD-SBAR-CLOSURE-COMPILE` -- carried. ### Still the chain's one uncompiled link.
+### CARRIED, UNCHANGED: `W-ORD-RETIRED-STEM`, `W-ORD-B278-SEARCH-KEY`, `W-ORD-ARCH-LOCAL-SPACE`,
+###   `W-ORD-GRADE-COVERAGE`, `W-ORD-TOWER-LEMMA-GENERAL`, `W-ORD-EQUIV-CLASS`,
+###   `W-ORD-ORDER-CHANNEL`, `W-ORD-ESCAPE-SURVEY`, `W-ORD-PREDICATE-ARM`, `W-ORD-TQ-IDENTIFY`,
+###   `W-ORD-XI-PERMODE`, `W-ORD-CN-LAW`, `W-ORD-NTERM-FLOOR`, `W-ORD-INDEX-APPEND`, the ERRATA
+###   partition question (b266), b262's PNT-plus-saddle.
+### DISCHARGED AND STAYING DISCHARGED: the noise-floor check (b272); `W-ORD-NEEDLE-SOURCE` (b276);
+###   `W-ORD-SELF-NEEDLE` and the inverted-fixture species (b278); the hedge audit and
+###   `W-ORD-SBAR-TOWER` (b279); the stem sweep and `W-ORD-SBAR-CONSEQUENCE` (b280).
+
+----------------------------------------------------------------------------------------------------
+### M-2's ROW: ### EXACTLY WHAT THIS ACT SETTLED.
+----------------------------------------------------------------------------------------------------
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED).** ### This act did not advance it. ### **IT CLOSED
+### THE SECOND OF THE TWO ROUTES TO IT.**
+### SETTLED: ### **the operator route is closed at the finite places, not only the vector-state
+### route** -- `P_S A = 0`, generally, and C2 with it. ### And: the form's type re-verified; the
+### scalar field assembled and its declaration found ABSENT; b276's fiber lemma given its true
+### domain; b280's route-2 caution vindicated by a counterexample.
+### REMAINS: ### **C3, unevaluated** -- the one surviving shape. ### The archimedean place,
+### untouched. ### The complete roster. ### The `S2` compile. ### b263's branch, undecided.
+### ### **NO CANDIDATE IS ADOPTED. NO AGGREGATION IS STATED. b226's RULED CHOICE STANDS AND
+### REPLACING IT IS THE AUTHOR'S ALONE.**
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER, AND HANDOFF.
+----------------------------------------------------------------------------------------------------
+### IN FLIGHT: `W-ORD-SCALAR-FIELD`; `W-ORD-C2-BEYOND-U`; `W-ORD-FIBER-GENERAL` (restated to its
+### true question); `W-ORD-SBAR-CLOSURE-COMPILE`; `W-ORD-RETIRED-STEM`; `W-ORD-B278-SEARCH-KEY`;
+### `W-ORD-ARCH-LOCAL-SPACE`; M-2 (SPECIFIED-NOT-STATED); the seam's debt item 1; the ERRATA
+### partition question (b266); and the carried orders above.
+### ### **HANDOFF CURRENT. ### FIFTEEN ACTS, b261-b281.**
+### ### **THE NEXT ACT IS THE FOLD: ### b266-b281 INTO `FINDINGS`.** ### It touches `PLACE-papers`,
+### so the hook fires and the mirror moves -- neither of which happened in this act.
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+----------------------------------------------------------------------------------------------------
+### DEVIATIONS FROM THE FERRY, DECLARED (the deviation rule standing).
+----------------------------------------------------------------------------------------------------
+### ### **(D1) NEITHER `S2` NOR `S3` WAS EXECUTED AS WRITTEN.** ### `S2` asked for polarization
+### written out; `S3` asked for the real-span split. ### **THE DERIVATION NEEDED NEITHER**, and
+### writing out an identity the argument does not use would have dressed the act in machinery it
+### did not employ. ### `S3`'s actual question -- can such a `w` exist -- IS answered, in the
+### negative, by computation over every ordered pair.
+### ### **(D2) THE HINGE WAS SETTLED AND THEN NOT USED.** ### The ferry called the scalar field
+### "the act's hinge". ### It was settled by quotation as asked, and ### **the derivation turned
+### out to be field-independent.** ### Declared, because silently dropping a question the ferry
+### called load-bearing would misrepresent what the act rests on.
+### ### **(D4) THIS ACT'S REGISTRATION NAMES THE RETIRED STEM ONCE**, in its seal, to say what
+### the term scan scans FOR. ### Use-mention, the same species b280 declared at its `(D4)`.
+### **DECLARED SO THE COUNT IS EXPECTED RATHER THAN DISCOVERED.** ### This bank itself: 0.
+### ### **(D5) THE ORDERED-PAIR COUNT WAS FIRST WRITTEN AS 5,254 IN THREE PLACES AND IS 5,746** --
+### `1 + 81 + 16 + 4096 + 256 + 1296`. ### Caught by recomputation before the seal, and the
+### correction was applied to ALL THREE, not to the one that happened to be looked at.
+### ### **b274's RULE STANDS AND IS WHY THIS IS DECLARED: ### A PRINT WIDTH IS NOT A DATUM -- AND
+### ### NEITHER IS AN ARITHMETIC DONE IN THE HEAD.**
+### ### **(D3) A FALSE REFUTATION OF b276 WAS PRINTED BY THE RUNNER AND CAUGHT BEFORE THE BANK.**
+### The label "FIBER LEMMA FAILS HERE" was written before the lemma's domain was read. ### H3
+### existed for it, fired, and the finding became a scope refinement. ### Declared because the
+### draft existed, not because it shipped.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### GATES: ### **27 PASS / 0 FAIL / 0 ERROR / 0 REFUSED.**
+### OWNER NEEDLES: 13, ### **0 UNPULLABLE.** ### SELF NEEDLES: 10, 0 unpullable.
+### MUST-FAIL FIXTURES: 4, all whole-line equality. ### **SUBSTRING-BASED: 0.**
+### HEDGE AUDIT ON OWN BANK: ### **0 GRADED HEDGES** (476 sentences).
+### FLOAT SCAN ON THE DECIDING RUNNER: ### **ZERO FLOAT TOKENS** (integer and `Fraction` only).
+### RETIRED STEM: 0 in this bank, 1 in the registration's seal (use-mention, declared at D4).
+### NOISE-FLOOR GATE: in the path, EXACT arm at all 6 cells.
+### ORDERED PAIRS COMPUTED: ### **5,746**, all zero at `k = n`.
+### CROSS-CHECK: `B(g_0,g_0)` matches b271's banked `4(N-q)` at ### **6 of 6 cells.**
+### LEAN: ### **0 `.lean` FILES MOVED.** ### No compile claimed; b271's profile quoted from its bank.
+### `PLACE-papers`: ### **READ ONLY, NOT TOUCHED** -- no hook, no mirror. ### The FOLD is next.

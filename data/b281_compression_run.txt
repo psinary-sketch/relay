@@ -1,0 +1,115 @@
+====================================================================================================
+b281 -- THE COMPRESSION. ### THE FORM ON `Son x Son`, NOT ONLY ITS DIAGONAL.
+====================================================================================================
+### THE QUESTION: b280 killed the DIAGONAL `<A u, u>`. ### Does the OPERATOR die?
+### ### **THE ANSWER IS DECIDED BY A's OWN ROW STRUCTURE AND NOT BY POLARIZATION.**
+
+  ---- CELL (p,n) = (2,1):  N = 4,  ball_n = {m : 2 | m},  dim Son = 1 ----
+    (1) A rows supported OUTSIDE ball_n at k=n           : 0  NONE -- image is ball-supported
+    (2) A is NOT the zero matrix (nonzero entries)       : 2  ALIVE
+    (3) B(u,w) = 0 for ALL 1 x 1 Son pairs at k=n      : YES
+    (4) NOT-DEAD: B(g_0, g_0) = 8          b271 banked 4(N-q) = 8        : MATCH
+    (4b) A u = 0 for every Son u (b276 fiber lemma)      : YES  (0 of 1 nonzero)
+         of those, how many lie in ambient E_1            : 0  NONE -- ### **b276 IS UNTOUCHED** ###
+         ### **b276 LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS, NOT ALL OF `Son`.**
+         ### A `Son` vector outside `E_1` with `A u != 0` REFINES its scope; it does
+         ### not refute it. ### **AND THE BARRIER DOES NOT REST ON THIS AT ALL.**
+    (5) k < n control: ### **UNAVAILABLE AT LEVEL 1 -- NO k < n EXISTS.**
+        ### **NOT COUNTED AS A PASS OR A FAIL.**
+    (6) A != A^T (the form is not symmetric)             : YES -- A[2,1]=1 but its transpose entry is 0
+    (7) C2 CONTROL -- the zero does NOT come from S_quot:
+      S_quot replaced by identity                       rows off ball: 0  nonzero entries: 4      B|SonxSon = 0: YES
+      S_quot replaced by an arbitrary rational matrix   rows off ball: 0  nonzero entries: 8      B|SonxSon = 0: YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (2,2):  N = 16,  ball_n = {m : 4 | m},  dim Son = 9 ----
+    (1) A rows supported OUTSIDE ball_n at k=n           : 0  NONE -- image is ball-supported
+    (2) A is NOT the zero matrix (nonzero entries)       : 24  ALIVE
+    (3) B(u,w) = 0 for ALL 9 x 9 Son pairs at k=n      : YES
+    (4) NOT-DEAD: B(g_0, g_0) = 48         b271 banked 4(N-q) = 48       : MATCH
+    (4b) A u = 0 for every Son u (b276 fiber lemma)      : NO on all of Son  (2 of 9 nonzero)
+         of those, how many lie in ambient E_1            : 0  NONE -- ### **b276 IS UNTOUCHED** ###
+         ### **b276 LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS, NOT ALL OF `Son`.**
+         ### A `Son` vector outside `E_1` with `A u != 0` REFINES its scope; it does
+         ### not refute it. ### **AND THE BARRIER DOES NOT REST ON THIS AT ALL.**
+    (5) k=1 < n: B(u,w) != 0 on Son x Son              : YES -- (0,3) = 2/3
+    (6) A != A^T (the form is not symmetric)             : YES -- A[4,1]=2/3 but its transpose entry is 0
+    (7) C2 CONTROL -- the zero does NOT come from S_quot:
+      S_quot replaced by identity                       rows off ball: 0  nonzero entries: 16     B|SonxSon = 0: YES
+      S_quot replaced by an arbitrary rational matrix   rows off ball: 0  nonzero entries: 32     B|SonxSon = 0: YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (3,1):  N = 9,  ball_n = {m : 3 | m},  dim Son = 4 ----
+    (1) A rows supported OUTSIDE ball_n at k=n           : 0  NONE -- image is ball-supported
+    (2) A is NOT the zero matrix (nonzero entries)       : 6  ALIVE
+    (3) B(u,w) = 0 for ALL 4 x 4 Son pairs at k=n      : YES
+    (4) NOT-DEAD: B(g_0, g_0) = 24         b271 banked 4(N-q) = 24       : MATCH
+    (4b) A u = 0 for every Son u (b276 fiber lemma)      : YES  (0 of 4 nonzero)
+         of those, how many lie in ambient E_1            : 0  NONE -- ### **b276 IS UNTOUCHED** ###
+         ### **b276 LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS, NOT ALL OF `Son`.**
+         ### A `Son` vector outside `E_1` with `A u != 0` REFINES its scope; it does
+         ### not refute it. ### **AND THE BARRIER DOES NOT REST ON THIS AT ALL.**
+    (5) k < n control: ### **UNAVAILABLE AT LEVEL 1 -- NO k < n EXISTS.**
+        ### **NOT COUNTED AS A PASS OR A FAIL.**
+    (6) A != A^T (the form is not symmetric)             : YES -- A[3,1]=1 but its transpose entry is 0
+    (7) C2 CONTROL -- the zero does NOT come from S_quot:
+      S_quot replaced by identity                       rows off ball: 0  nonzero entries: 9      B|SonxSon = 0: YES
+      S_quot replaced by an arbitrary rational matrix   rows off ball: 0  nonzero entries: 11     B|SonxSon = 0: YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (3,2):  N = 81,  ball_n = {m : 9 | m},  dim Son = 64 ----
+    (1) A rows supported OUTSIDE ball_n at k=n           : 0  NONE -- image is ball-supported
+    (2) A is NOT the zero matrix (nonzero entries)       : 144  ALIVE
+    (3) B(u,w) = 0 for ALL 64 x 64 Son pairs at k=n      : YES
+    (4) NOT-DEAD: B(g_0, g_0) = 288        b271 banked 4(N-q) = 288      : MATCH
+    (4b) A u = 0 for every Son u (b276 fiber lemma)      : NO on all of Son  (12 of 64 nonzero)
+         of those, how many lie in ambient E_1            : 0  NONE -- ### **b276 IS UNTOUCHED** ###
+         ### **b276 LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS, NOT ALL OF `Son`.**
+         ### A `Son` vector outside `E_1` with `A u != 0` REFINES its scope; it does
+         ### not refute it. ### **AND THE BARRIER DOES NOT REST ON THIS AT ALL.**
+    (5) k=1 < n: B(u,w) != 0 on Son x Son              : YES -- (0,16) = 3/4
+    (6) A != A^T (the form is not symmetric)             : YES -- A[9,1]=3/4 but its transpose entry is 0
+    (7) C2 CONTROL -- the zero does NOT come from S_quot:
+      S_quot replaced by identity                       rows off ball: 0  nonzero entries: 81     B|SonxSon = 0: YES
+      S_quot replaced by an arbitrary rational matrix   rows off ball: 0  nonzero entries: 105    B|SonxSon = 0: YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (5,1):  N = 25,  ball_n = {m : 5 | m},  dim Son = 16 ----
+    (1) A rows supported OUTSIDE ball_n at k=n           : 0  NONE -- image is ball-supported
+    (2) A is NOT the zero matrix (nonzero entries)       : 20  ALIVE
+    (3) B(u,w) = 0 for ALL 16 x 16 Son pairs at k=n      : YES
+    (4) NOT-DEAD: B(g_0, g_0) = 80         b271 banked 4(N-q) = 80       : MATCH
+    (4b) A u = 0 for every Son u (b276 fiber lemma)      : YES  (0 of 16 nonzero)
+         of those, how many lie in ambient E_1            : 0  NONE -- ### **b276 IS UNTOUCHED** ###
+         ### **b276 LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS, NOT ALL OF `Son`.**
+         ### A `Son` vector outside `E_1` with `A u != 0` REFINES its scope; it does
+         ### not refute it. ### **AND THE BARRIER DOES NOT REST ON THIS AT ALL.**
+    (5) k < n control: ### **UNAVAILABLE AT LEVEL 1 -- NO k < n EXISTS.**
+        ### **NOT COUNTED AS A PASS OR A FAIL.**
+    (6) A != A^T (the form is not symmetric)             : YES -- A[5,1]=1 but its transpose entry is 0
+    (7) C2 CONTROL -- the zero does NOT come from S_quot:
+      S_quot replaced by identity                       rows off ball: 0  nonzero entries: 25     B|SonxSon = 0: YES
+      S_quot replaced by an arbitrary rational matrix   rows off ball: 0  nonzero entries: 29     B|SonxSon = 0: YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (7,1):  N = 49,  ball_n = {m : 7 | m},  dim Son = 36 ----
+    (1) A rows supported OUTSIDE ball_n at k=n           : 0  NONE -- image is ball-supported
+    (2) A is NOT the zero matrix (nonzero entries)       : 42  ALIVE
+    (3) B(u,w) = 0 for ALL 36 x 36 Son pairs at k=n      : YES
+    (4) NOT-DEAD: B(g_0, g_0) = 168        b271 banked 4(N-q) = 168      : MATCH
+    (4b) A u = 0 for every Son u (b276 fiber lemma)      : YES  (0 of 36 nonzero)
+         of those, how many lie in ambient E_1            : 0  NONE -- ### **b276 IS UNTOUCHED** ###
+         ### **b276 LEMMA IS ABOUT BALL-VANISHING `E_1` VECTORS, NOT ALL OF `Son`.**
+         ### A `Son` vector outside `E_1` with `A u != 0` REFINES its scope; it does
+         ### not refute it. ### **AND THE BARRIER DOES NOT REST ON THIS AT ALL.**
+    (5) k < n control: ### **UNAVAILABLE AT LEVEL 1 -- NO k < n EXISTS.**
+        ### **NOT COUNTED AS A PASS OR A FAIL.**
+    (6) A != A^T (the form is not symmetric)             : YES -- A[7,1]=1 but its transpose entry is 0
+    (7) C2 CONTROL -- the zero does NOT come from S_quot:
+      S_quot replaced by identity                       rows off ball: 0  nonzero entries: 49     B|SonxSon = 0: YES
+      S_quot replaced by an arbitrary rational matrix   rows off ball: 0  nonzero entries: 91     B|SonxSon = 0: YES
+    noise-floor gate                                     : EXACT
+
+====================================================================================================
+### ALL CELLS: PASS
+====================================================================================================
