@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b278_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 12)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (I1c) single allocation <= 256 MB  256              4                MB     SATISFIABLE
+      demand from : sparse cyclotomic vectors of length N <= 361; no dense operator in the deciding runner.
+  (I2c) exact-arithmetic degree cap  1024             722              deg    SATISFIABLE
+      demand from : unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342
+  (I3c) runtime <= 900 s             900              240              s      SATISFIABLE
+      demand from : the ball identity is a set comparison and the exhibited element reuses b271's banked value; cheaper than any prior act in this arc, scaled from b277's measured run.
+  (I4c) eigen-decompositions and lad 0                0                each   SATISFIABLE
+      demand from : every value is a set equality or an exact rational; no spectrum, no ladder, no float.
+  (I5c) exact operations spent on th 0                0                ops    SATISFIABLE
+      demand from : THE TOWER QUESTION IS A READ, NOT A COMPUTATION. Zero exact operations are spent on it, and the act must not disguise a read as a derivation. The cap is zero and the demand is zero BECAUSE the act refuses to compute an answer to a definitional question.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

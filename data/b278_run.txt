@@ -1,0 +1,120 @@
+====================================================================================================
+b278 -- COMPONENT 1. ### THE SPACE-LEVEL BARRIER. ### EXACT. ### NO FLOAT.
+### REGISTRATION data/b278_registration_2026-09-01.txt SEALED 763f29ea.
+### **THE TOWER QUESTION IS A READ. ### THIS FILE DOES NOT DISGUISE IT AS A DERIVATION.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR GATE, ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+
+----------------------------------------------------------------------------------------------------
+### (1) (a) THE TOWER. ### **VERDICT: (ABSENT), AND WORSE THAN b277 KNEW.**
+----------------------------------------------------------------------------------------------------
+  ### THE POSITIVE CONTROL ON THE ABSENCE -- the near-misses are FOUND, not merely
+  ### unsearched-for:
+    lines in data/ mentioning `S-bar`            : 191
+    of those, DEFINITION-SHAPED (S-bar := / = / is) : 13
+      b197_registration_2026-08-26.txt   ### "The named-step layer's question closes at its cells: whether (x)'S-bar_v is a tensor square
+      b198_nonvanishing.txt              It proves a DECOMPOSITION (S-bar = E_1 (+) E_-1 (+) E_i (+) E_-i) and a POSITIVITY
+      b198_nonvanishing.txt              (I4) S-bar = the L^2-CLOSURE OF THE TOWER'S UNION -- i.e. THAT FINITE EXACT LEVELS EXIST.
+      b198_registration_2026-08-26.txt   are orthogonal and sum to 1: ### S-bar = E_1 (+) E_-1 (+) E_i (+) E_-i, with
+      b198_registration_2026-08-26.txt   (I4)  S-bar = the L^2-closure of the TOWER'S UNION -- i.e. that FINITE EXACT LEVELS EXIST.
+      b223_level_limit_two_places.txt    ### (ii) S-bar IS THE LIMIT: b198 (I4), quoted -- ### "S-bar = the L^2-CLOSURE OF THE TOWER'S UN
+      b223_registration_2026-08-28.txt   ###  · S-bar: b198 (I4), quoted -- "### S-bar = the L^2-CLOSURE OF THE TOWER'S UNION".
+      b226_stated_choice.txt             ###   EVERY CONSTITUENT UNFOLDED: S-bar_v is "the L^2-closure of the tower's union" (b198 I4);
+
+  ### **NOT ONE OF THEM DEFINES THE TOWER.** ### b198 (I4) says `S-bar` IS the
+  ### L^2-closure of "THE TOWER'S UNION" without saying whose tower; b226 unfolds it by
+  ### citing b198; b198 (I2) places a level vector by "the closure of its level tower".
+  ### ### **EVERY ONE OF THEM NAMES THE TOWER. ### NONE OF THEM SAYS WHAT IT IS.**
+
+  ### **AND b21 -- WHICH OWNS THE TOWER -- SETTLES IT IN THE OTHER DIRECTION:**
+  ###   `V_n = { f : supp f in p^(-n) Z_p, f invariant under translation by p^n Z_p }`
+  ###   "an honest finite-dimensional subspace of L^2(Q_p)"   ### -- THE FULL LEVEL
+  ###   SPACE, with Son(p,n) sitting INSIDE it -- and the embedding `iota : V_n ->
+  ###   V_(n+1)`.
+  ### ### **AND ITS FOOT, WHICH IS THE ACT'S CENTRAL QUOTATION:**
+  ### ### **"the union of the V_n is dense in L^2(Q_p), but Son(p,n) does NOT stabilize
+  ### ### (its dimension (p^n-1)^2 grows), so nothing here constructs a limit object,
+  ### ### and none is claimed."**
+  ### ### ### **SO THE CORPUS DOES NOT MERELY LEAVE `S-bar_v` UNQUOTED. ### THE ACT
+  ### ### ### THAT BUILT THE TOWER EXPLICITLY DECLINES TO CONSTRUCT THE LIMIT OBJECT,
+  ### ### ### AND SAYS SO IN ITS OWN VOICE.**
+
+----------------------------------------------------------------------------------------------------
+### (2) (b) SON'S DEFINITION, AND THE BALL'S IDENTITY. ### **DECIDED BY DEFINITIONS.**
+----------------------------------------------------------------------------------------------------
+  b226: Son(p,n) = the vectors ### "vanishing on a ball AND on its transform image".
+  b8's `sonin_basis` imposes ### **rows of the IDENTITY on the ball AND rows of F on
+  ### the ball** ### -- so BOTH the function and its transform vanish, and on the SAME
+  ### set. ### **BALL-VANISHING IS DEFINITIONAL FOR Son, ON BOTH HALVES.**
+
+  ### **AND THE TWO BALLS ARE COMPARED AS SETS, NOT BY NAME:**
+  (p,n)    N      |Son's ball|   |absorption set| EQUAL as sets?   b270 ball_of ok
+  (2,2)    16     4              4                YES              YES
+  (3,1)    9      3              3                YES              YES
+  (5,1)    25     5              5                YES              YES
+  (7,1)    49     7              7                YES              YES
+  (11,1)   121    11             11               YES              YES
+  (13,1)   169    13             13               YES              YES
+  (17,1)   289    17             17               YES              YES
+  (19,1)   361    19             19               YES              YES
+
+  ### **BALL IDENTITY VERDICT: THE SAME SET AT EVERY CELL -- Son's ball IS b270's absorption set**
+  ### The absorption set is computed from ITS OWN PROPERTY -- the indices `p^n m` can
+  ### land on -- and NOT from the name `ball`, which is the whole point of the check.
+
+----------------------------------------------------------------------------------------------------
+### (3) (c) THE TWO READINGS, EACH DERIVED. ### **THEY DISAGREE.**
+----------------------------------------------------------------------------------------------------
+  ### **READING TWO FIRST, BECAUSE IT IS THE ONE THE CAMPAIGN ASSUMED.**
+  ### If `S-bar_v` is a Son limit, every element vanishes on the ball, and b270's
+  ### absorption gives (SPEC-1) = 0 identically. ### VERIFIED ON THE SPANNING FAMILY:
+  (p,n)    ball-vanishing tested  P(ell) = 0 for all scope
+  (2,2)    9                      YES                FULL 9
+  (3,1)    4                      YES                FULL 4
+  (5,1)    16                     YES                FULL 16
+  (7,1)    36                     YES                FULL 36
+  (11,1)   100                    YES                FULL 100
+  (13,1)   4                      YES                SAMPLE 4
+  (17,1)   4                      YES                SAMPLE 4
+  (19,1)   4                      YES                SAMPLE 4
+  ### ### **SO ON `Son` (SPEC-1) IS IDENTICALLY ZERO: CONFIRMED. ### THE BARRIER HOLDS UNDER
+  ### ### READING TWO.**
+
+  ### **READING ONE. ### If `S-bar_v` is the closure of the `V_n` tower -- which b21's
+  ### foot says is DENSE IN L^2(Q_p) -- then `V_ell` lies honestly inside it, and so
+  ### does every vector in `V_ell`, INCLUDING ONES THAT DO NOT VANISH ON THE BALL.**
+  ### THE ELEMENT, EXHIBITED EXACTLY:
+  (p,n)    g_0 = 2q e_0 + 2*1       ball value g_0(0)  P(ell) * p^{ell/2}
+  (2,2)    in V_2                   10                 48  = 4(N-q)
+  (3,1)    in V_1                   8                  24  = 4(N-q)
+  (5,1)    in V_1                   12                 80  = 4(N-q)
+  (7,1)    in V_1                   16                 168  = 4(N-q)
+  (11,1)   in V_1                   24                 440  = 4(N-q)
+  (13,1)   in V_1                   28                 624  = 4(N-q)
+  (17,1)   in V_1                   36                 1088  = 4(N-q)
+  (19,1)   in V_1                   40                 1368  = 4(N-q)
+  ### ### **NONZERO AT EVERY CELL: CONFIRMED. ### SO UNDER READING ONE (SPEC-1) IS NOT
+  ### ### IDENTICALLY ZERO, b277's BLOCK DISSOLVES, AND THE BARRIER IS REFUTED.**
+
+  ### ### ### **TWO READINGS. ### OPPOSITE ANSWERS. ### AND THE CORPUS SETTLES
+  ### ### ### NEITHER, BECAUSE b21 DECLINES TO CONSTRUCT THE OBJECT THAT WOULD.**
+
+----------------------------------------------------------------------------------------------------
+### (4) (e) THE CONSOLIDATION THAT SURVIVES THE BIVALENCE.
+----------------------------------------------------------------------------------------------------
+  ### Whatever `S-bar_v` turns out to be, ### **ON `Son` AT ANY FINITE LEVEL (SPEC-1)
+  ### IS IDENTICALLY ZERO** ### -- and by TWO independent routes:
+  ###   b270's ABSORPTION: `p^ell m` lands in the ball for every `m`, and a Son vector
+  ###     vanishes there, so every summand carries a zero factor.
+  ###   b276's BOUND: (SPEC-1)'s value is EXACTLY QUADRATIC in the ball-size `sigma`,
+  ###     and a Son vector has `sigma = 0`.
+  ### ### **SO b269's R3, b270, b273, b275 AND b277 ARE FIVE INSTANCES OF ONE THEOREM
+  ### ### RATHER THAN FIVE SEPARATE OUTCOMES -- AND NOT ONE OF THEM IS RE-VERDICTED.**
+  ### Each was scoped to the AMBIENT `E_1` at a FINITE LEVEL and is exactly true there;
+  ### the consolidation adds a sentence ABOVE them, not a correction INSIDE any.
+

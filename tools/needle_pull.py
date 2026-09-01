@@ -52,3 +52,40 @@ if __name__ == '__main__':
         sys.stderr.write('usage: needle_pull.py <file> <anchor>\n')
         sys.exit(2)
     print(pull(sys.argv[1], sys.argv[2]))
+
+
+# ### ------------------------------------------------------------------------------------------
+# ### THE b278 EXTENSION. ### `W-ORD-SELF-NEEDLE` AND THE INVERTED-FIXTURE SPECIES.
+# ### b277 discharged HALF of `W-ORD-NEEDLE-SOURCE`: owner needles were pulled, but the gates'
+# ### needles into the act's OWN run and bank were still typed, and three of them were wrong.
+# ### ### **AND A FOURTH FAILURE WAS WORSE: A FIXTURE WHOSE STRING WAS A SUBSTRING OF THE
+# ### ### CORRECT SENTENCE, SO IT FIRED ON CORRECTNESS AND REFUSED A CHECK THAT SHOULD HAVE
+# ### ### PASSED. ### AN INVERTED FIXTURE IS NOT A DEAD ONE, AND A REACHABILITY TEST CANNOT SEE
+# ### ### IT, BECAUSE IT IS REACHABLE.**
+# ### THE FIX HAS TWO PARTS AND BOTH ARE HERE:
+# ###   `pull_self` -- the act pulls needles from ITS OWN emitted files the same way.
+# ###   `absent_exact` -- a must-fail fixture asserts that NO LINE EQUALS the given text, an
+# ###      EXACT equality over whole lines. ### **A SUBSTRING CANNOT SATISFY IT, SO IT CANNOT
+# ###      FIRE ON A LONGER CORRECT SENTENCE.**
+# ### ------------------------------------------------------------------------------------------
+def _lines(path):
+    return [ln.strip() for ln in
+            io.open(path, encoding='utf-8', errors='replace').read().split('\n')]
+
+
+def pull_self(path, anchor, occurrence=0):
+    """### IDENTICAL TO `pull`, NAMED SEPARATELY SO THE ACT'S OWN FILES ARE VISIBLY PULLED
+    ### RATHER THAN TYPED. ### The name is the discipline; the code is the same."""
+    return pull(path, anchor, occurrence)
+
+
+def present_exact(path, line):
+    """### TRUE IFF SOME WHOLE LINE EQUALS `line` EXACTLY, AFTER STRIPPING."""
+    return line.strip() in _lines(path)
+
+
+def absent_exact(path, line):
+    """### THE MUST-FAIL FIXTURE'S PRIMITIVE. ### TRUE IFF NO WHOLE LINE EQUALS `line`.
+    ### ### **BECAUSE IT COMPARES WHOLE LINES, A STRING THAT IS MERELY A SUBSTRING OF A
+    ### ### CORRECT SENTENCE CANNOT SATISFY IT. ### THAT IS THE b277 SPECIES, CLOSED.**"""
+    return line.strip() not in _lines(path)
