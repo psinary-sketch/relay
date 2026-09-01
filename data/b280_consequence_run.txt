@@ -1,0 +1,76 @@
+====================================================================================================
+b280 -- THE CONSEQUENCE. ### SPEC-1 ON `S-bar_p`, AT THE FINITE PLACES.
+====================================================================================================
+### S2 -- THE CLOSURE STEP -- IS ANALYSIS AND IS **NOT** COMPUTED HERE.
+### This runner establishes the FINITE-LEVEL facts exactly. ### The passage to the
+### closure is derived in the bank and is NOT a computation.
+
+  ---- CELL (p,n) = (2,1):  N = 4,  ball_n = {m : 2 | m} ----
+    S1  every Son(2,1) vector vanishes on ball_n        : YES
+    S3  P(k=n) * p^{n/2} = 0 for EVERY Son vector         : YES  (1 vectors)
+    ### NOT-DEAD WITNESS (k < n): ### **UNAVAILABLE AT LEVEL 1 -- NO `k < n` EXISTS.**
+        availability control instead: S_quot u nonzero for 1/1 Son vectors
+        ### **THIS IS NOT A k < n WITNESS AND IS NOT COUNTED AS ONE.**
+    S1  iota(Son(2,1)) vanishes on ball_{n+1}           : YES
+        ... and lands in Son(2,2) (b279 re-run)         : YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (2,2):  N = 16,  ball_n = {m : 4 | m} ----
+    S1  every Son(2,2) vector vanishes on ball_n        : YES
+    S3  P(k=n) * p^{n/2} = 0 for EVERY Son vector         : YES  (9 vectors)
+    ### NOT-DEAD WITNESS (k < n): nonzero at k = 1, value head [Fraction(4, 3)]
+    S1  iota(Son(2,2)) vanishes on ball_{n+1}           : YES
+        ... and lands in Son(2,3) (b279 re-run)         : YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (3,1):  N = 9,  ball_n = {m : 3 | m} ----
+    S1  every Son(3,1) vector vanishes on ball_n        : YES
+    S3  P(k=n) * p^{n/2} = 0 for EVERY Son vector         : YES  (4 vectors)
+    ### NOT-DEAD WITNESS (k < n): ### **UNAVAILABLE AT LEVEL 1 -- NO `k < n` EXISTS.**
+        availability control instead: S_quot u nonzero for 4/4 Son vectors
+        ### **THIS IS NOT A k < n WITNESS AND IS NOT COUNTED AS ONE.**
+    S1  iota(Son(3,1)) vanishes on ball_{n+1}           : YES
+        ... and lands in Son(3,2) (b279 re-run)         : YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (3,2):  N = 81,  ball_n = {m : 9 | m} ----
+    S1  every Son(3,2) vector vanishes on ball_n        : YES
+    S3  P(k=n) * p^{n/2} = 0 for EVERY Son vector         : YES  (64 vectors)
+    ### NOT-DEAD WITNESS (k < n): nonzero at k = 1, value head [Fraction(3, 2)]
+    S1  iota(Son(3,2)) vanishes on ball_{n+1}           : YES
+        ... and lands in Son(3,3) (b279 re-run)         : YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (5,1):  N = 25,  ball_n = {m : 5 | m} ----
+    S1  every Son(5,1) vector vanishes on ball_n        : YES
+    S3  P(k=n) * p^{n/2} = 0 for EVERY Son vector         : YES  (16 vectors)
+    ### NOT-DEAD WITNESS (k < n): ### **UNAVAILABLE AT LEVEL 1 -- NO `k < n` EXISTS.**
+        availability control instead: S_quot u nonzero for 16/16 Son vectors
+        ### **THIS IS NOT A k < n WITNESS AND IS NOT COUNTED AS ONE.**
+    S1  iota(Son(5,1)) vanishes on ball_{n+1}           : YES
+        ... and lands in Son(5,2) (b279 re-run)         : YES
+    noise-floor gate                                     : EXACT
+
+  ---- CELL (p,n) = (7,1):  N = 49,  ball_n = {m : 7 | m} ----
+    S1  every Son(7,1) vector vanishes on ball_n        : YES
+    S3  P(k=n) * p^{n/2} = 0 for EVERY Son vector         : YES  (36 vectors)
+    ### NOT-DEAD WITNESS (k < n): ### **UNAVAILABLE AT LEVEL 1 -- NO `k < n` EXISTS.**
+        availability control instead: S_quot u nonzero for 36/36 Son vectors
+        ### **THIS IS NOT A k < n WITNESS AND IS NOT COUNTED AS ONE.**
+    S1  iota(Son(7,1)) vanishes on ball_{n+1}           : YES
+        ... and lands in Son(7,2) (b279 re-run)         : YES
+    noise-floor gate                                     : EXACT
+
+----------------------------------------------------------------------------------------------------
+### b271's ESCAPE VECTOR vs `Son` -- ### **IT MUST NOT BE A `Son` VECTOR:**
+    (2,1)  g_0 ball value = 6        in Son(2,1)? NO    (ball half fails at m=0)
+    (2,2)  g_0 ball value = 10       in Son(2,2)? NO    (ball half fails at m=0)
+    (3,1)  g_0 ball value = 8        in Son(3,1)? NO    (ball half fails at m=0)
+    (3,2)  g_0 ball value = 20       in Son(3,2)? NO    (ball half fails at m=0)
+    (5,1)  g_0 ball value = 12       in Son(5,1)? NO    (ball half fails at m=0)
+    (7,1)  g_0 ball value = 16       in Son(7,1)? NO    (ball half fails at m=0)
+### ### **g_0 IS OUTSIDE `Son` AT EVERY CELL: YES** -- so b271 (ambient E_1) and this
+### act (`S-bar_p`) speak about DIFFERENT VECTORS and do not collide.
+====================================================================================================
+### ALL CELLS: PASS
+====================================================================================================
