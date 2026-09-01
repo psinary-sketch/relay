@@ -1,0 +1,111 @@
+====================================================================================================
+b273 -- COMPONENT 1. ### THE SPEC-2 RANGE. ### EXACT IN Q(zeta_N). ### NO FLOAT.
+### REGISTRATION data/b273_registration_2026-09-01.txt SEALED 70ec942f.
+### **NOTHING IS ADOPTED. ### AN EXHIBITED VECTOR IS AN EXHIBITION.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE NOISE-FLOOR GATE, CALLED ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+  ### **AND THIS ACT HAS A SECOND REASON TO CARE: (J4) FORBIDS AN EIGENVALUE
+  ### DECOMPOSITION IN THE DECIDING RUNNER, SO THERE IS NO SPECTRUM TO SIT AT A FLOOR.**
+
+----------------------------------------------------------------------------------------------------
+### (1) THE SPACE, AND THE TWO DIMENSIONS THAT MUST NOT BE CONFLATED.
+----------------------------------------------------------------------------------------------------
+  ### AMBIENT dim E_1 at (2,2), computed exactly by Gaussian elimination over Q(zeta_16):
+  ### ### **dim E_1 = 5**
+  ### b223 RECORDS, AT ITS OWNER AND NOT FROM THE FERRY: ### **d_1(2,2) = 2, with
+  ### dim Son(2,2) = 9.** ### THAT IS THE SECTOR INSIDE `Son`, A DIFFERENT AND SMALLER
+  ### SPACE. ### **TWO NUMBERS, TWO SPACES, AND NEITHER IS THE OTHER.**
+
+----------------------------------------------------------------------------------------------------
+### (2) THE FORM. ### **NEITHER HERMITIAN NOR SYMMETRIC -- DECIDED, NOT ASSUMED.**
+----------------------------------------------------------------------------------------------------
+  `T(g) = SUM_m (S_quot g)(m) conj( g(p^k m) ) = <A g, g>` with
+  ### **A[l,j] = SUM_{m : p^k m = l mod N} S_quot[m,j]**, a RATIONAL matrix.
+  `S_quot` is rational class-averaging and `V` is a 0/1 pullback, so `A` is real;
+  `A != A^T`, hence `A* = A^T != A`. ### **SO THE FORM IS NEITHER HERMITIAN NOR
+  SYMMETRIC.** ### But b272's `g_c` are REAL, and on real vectors the value depends
+  only on the SYMMETRIC PART. ### **THAT IS WHY AN EIGENVALUE-FREE CERTIFICATION
+  EXISTS AT ALL, AND IT IS THE STRUCTURAL FACT THE WHOLE ACT TURNS ON.**
+
+----------------------------------------------------------------------------------------------------
+### (3) F-CONTROL AND THE STRADDLE AT (2,2), k = 1. ### act 9's TERM IS 2/3.
+----------------------------------------------------------------------------------------------------
+  ### **F-CONTROL -- b272's OWN NUMBER, RECOVERED BY THIS ACT'S MACHINERY:**
+    <A g_0, g_0> = 48   and   <g_0, g_0> = 160   =>   R(g_0) = 3/10 : CONFIRMED
+  ### **THE VECTOR ABOVE THE TARGET, AND IT IS NOT A FAMILY MEMBER:**
+    w := g_2 - g_6.   <A w, w> = (128/3)(1 + sqrt2)   and   <w, w> = 128 : CONFIRMED
+    ### ### **R(w) = (1 + sqrt2)/3.**
+  ### **THE TWO ORDER COMPARISONS, EACH REDUCED TO RATIONAL ARITHMETIC:**
+    3/10 < 2/3        because 9 < 20.                 ### PURE RATIONAL.
+    (1+sqrt2)/3 > 2/3 because sqrt2 > 1 because 2 > 1. ### PURE RATIONAL.
+  ### `(zeta^2 + zeta^{-2})^2 = 2` verified exactly : YES
+  ### ### **SO 3/10 < 2/3 < (1+sqrt2)/3, WITH BOTH VECTORS REAL AND IN E_1.**
+
+----------------------------------------------------------------------------------------------------
+### (4) THE EXHIBITION. ### **AN ATTAINING VECTOR, EXACTLY.**
+----------------------------------------------------------------------------------------------------
+  v(s) := w + s * g_0, with s REAL.
+  ### ALL THREE CROSS TERMS VANISH, VERIFIED EXACTLY: <A w, g_0> = <A g_0, w> =
+  ### <w, g_0> = 0 : YES
+  ### **SO THE EQUATION <A v, v> = (2/3)<v, v> IS A PURE QUADRATIC WITH NO LINEAR TERM:**
+    a0 + a2 s^2 = 0,   a0 = -128/3 + 128/3 sqrt2,   a2 = -176/3 + 0 sqrt2
+    ### ### **s^2 = -8/11 + 8/11 sqrt2**
+    ### SIGN OF s^2, BY RATIONAL ARITHMETIC ALONE: POSITIVE -- so s is REAL and the vector EXISTS
+    ### VERIFY a0 + a2 s^2 = 0 EXACTLY : YES
+  ### **WHERE THE COORDINATES LIVE, CHECKED AND NOT ASSUMED.**
+    N_{Q(sqrt2)/Q}(s^2) = -64/121. ### A square in Q(sqrt2) has NON-NEGATIVE norm, so
+    s^2 is NOT a square in Q(sqrt2).
+    s^2/(2+sqrt2) = -16/11 + 12/11 sqrt2, with norm -32/121.
+    ### **Q(zeta_16) ^ + = Q(sqrt2)(sqrt(2+sqrt2)), so a square root of s^2 lies there
+    ### only if s^2 OR s^2/(2+sqrt2) is a square in Q(sqrt2). ### BOTH NORMS ARE
+    ### NEGATIVE, SO NEITHER IS. ### THE ATTAINING VECTOR THIS ACT EXHIBITS GENUINELY
+    ### REQUIRES A QUADRATIC EXTENSION OF Q(zeta_16), AND THAT IS REPORTED, NOT HIDDEN.**
+
+----------------------------------------------------------------------------------------------------
+### (5) K1 - K4 FROM b272, FOR THE EXHIBITED VECTOR. ### EACH ANSWERED YES OR NO.
+----------------------------------------------------------------------------------------------------
+  K1  S v = q v          : YES   ### both summands are in E_1 and E_1 is a subspace;
+  ###                      verified for each summand, not inherited.
+  K2  normalizable       : YES  ### ||v||^2 = 128 + 160 s^2 = 128/11 + 1280/11 sqrt2, and its
+  ###                      sign is POSITIVE by rational arithmetic.
+  K3  C0 / equivalence   : ### THE C0 CONDITION IS MET (norm-one at every place).
+  ###                      <u, g_0> = 0 : YES   ### b272's finding, re-confirmed.
+  ###                      <u, w>   = 0 : ### NO -- NONZERO ###
+  K4  nonvanishing       : ### w(0) = 0 : YES , and g_0(0) = 10 , so v(0) = s * g_0(0),
+  ###                      which is NONZERO because s != 0. ### **SO v IS ALSO IN THE
+  ###                      ESCAPE CLASS -- IT HAS A NONZERO BALL VALUE.**
+
+  ### **ONE ADDITION BEYOND THE FERRY'S K-LIST, LABELLED AS SUCH -- (SPEC-1) AT k = n:**
+    <A_2 w, w>     zero? YES
+    <A_2 g_0, g_0> zero? NO
+    cross terms    zero? YES
+    ### **SO THE (SPEC-1) VALUE OF v AT k = n IS s^2 TIMES <A_2 g_0, g_0>, WHICH IS
+    ### NONZERO. ### THE SAME VECTOR MEETS (SPEC-1) AT k = n AND (SPEC-2) AT k = 1,
+    ### AT THIS CELL. ### THAT IS AN OBSERVATION ABOUT ONE CELL AND ONE VECTOR.**
+
+----------------------------------------------------------------------------------------------------
+### (6) THE SECOND CELL (2,3). ### RUN, NOT PRICED-AND-REFUSED.
+----------------------------------------------------------------------------------------------------
+  N = 64. ### **THE DIMENSION IS NOT COMPUTED AT THIS CELL, AND THAT IS DECLARED
+  ### RATHER THAN ELIDED: the straddle argument needs TWO VECTORS, NOT A DIMENSION,
+  ### so the second cell does not pay for a rank it does not use.** ### act 9's terms:
+    k = 1 : 6/7
+    k = 2 : 4/7
+  k = 1, target 6/7 : 94 candidates searched; those with a Q(sqrt2) quotient --
+    33 BELOW the target, 0 ABOVE it.
+    ### **NO STRADDLE AMONG THE CANDIDATES WHOSE QUOTIENT LIES IN Q(sqrt2).**
+    ### THE OTHERS HAVE QUOTIENTS OUTSIDE Q(sqrt2), WHERE THIS ACT'S ORDER
+    ### ARGUMENT DOES NOT REACH. ### **NOT A NEGATIVE RESULT: A LIMIT OF THE
+    ### CERTIFICATION, NAMED.**
+  k = 2, target 4/7 : 94 candidates searched; those with a Q(sqrt2) quotient --
+    33 BELOW the target, 0 ABOVE it.
+    ### **NO STRADDLE AMONG THE CANDIDATES WHOSE QUOTIENT LIES IN Q(sqrt2).**
+    ### THE OTHERS HAVE QUOTIENTS OUTSIDE Q(sqrt2), WHERE THIS ACT'S ORDER
+    ### ARGUMENT DOES NOT REACH. ### **NOT A NEGATIVE RESULT: A LIMIT OF THE
+    ### CERTIFICATION, NAMED.**
+

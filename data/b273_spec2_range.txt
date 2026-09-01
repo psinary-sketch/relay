@@ -1,0 +1,280 @@
+====================================================================================================
+b273 -- THE BANK. 2026-09-01. CONCURRENCY: SOLO (research seat).
+M-2 CAMPAIGN, ACT 7 -- THE SPEC-2 RANGE.
+### ### **VERDICT: (ATTAINABLE). ### act 9's TERM IS ATTAINED BY A UNIT IN `E_1` AT `(2,2)`,
+### ### `k = 1`, AND AN ATTAINING VECTOR IS EXHIBITED EXACTLY.**
+### ### **SCOPE: ONE CELL. ### THE SECOND CELL WAS RUN AND THE CERTIFICATION DID NOT CLOSE
+### ### THERE. ### THAT IS SAID FIRST, NOT LAST.**
+### ### **NO UNIT IS ADOPTED. ### M-2 REMAINS OWED. ### NOTHING DEPOSITS.**
+Registration data/b273_registration_2026-09-01.txt, SEALED 70ec942f.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) ### **WHY THIS DOES NOT CONTRADICT b272, SAID BEFORE ANYTHING ELSE.**
+----------------------------------------------------------------------------------------------------
+### b272 banked ### *"MEMBERS OF THE SPANNING FAMILY SATISFYING (SPEC-2): ### 0 OF 16."* ### and
+### scoped it as ### *"an exact statement about `N` NAMED VECTORS, taken by reduction"* ### .
+### ### **THAT STATEMENT IS TRUE AND THIS ACT RE-CONFIRMS IT.**
+### ### ### **A SWEEP OF A SPANNING FAMILY IS NOT A SWEEP OF THE SPACE.** ### A Rayleigh
+### quotient over a span is NOT bounded by its values at spanning vectors -- the maximum over a
+### two-dimensional span can strictly exceed the maximum at both spanning vectors, and here it
+### does. ### **EVERY ONE OF b272's SIXTEEN VALUES LIES BELOW `2/3`; THE VECTOR THAT REACHES
+### ABOVE IT IS `g_2 - g_6`, WHICH IS NOT A FAMILY MEMBER.**
+### **b272 ALSO NAMED THE EXACT CHANNEL THIS ACT OPENS:** ### *"THAT IS A DIFFERENT CHANNEL FROM
+### REDUCTION MODULO `Phi_N`, IT IS NOT WHAT THIS ACT'S SEAL AUTHORIZES, AND IT IS NOT OPENED
+### HERE. ### FILED, NOT FUDGED."* ### ### **IT WAS FILED CORRECTLY AND IT IS NOW PAID.**
+### **NO PRIOR ACT IS RE-VERDICTED** (b246).
+
+----------------------------------------------------------------------------------------------------
+### (1) COMPONENT 0 -- THE NOISE-FLOOR GATE, ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+### Called; returns `EXACT`; ### **A VERDICT, NOT A BYPASS.** ### And this act has a second
+### reason to care: its registration's `(J4)` caps eigenvalue decompositions in the deciding
+### runner at ### ZERO ### , ### **SO THERE IS NO SPECTRUM TO SIT AT A FLOOR.** ### The whole
+### certification is two quotients and an intermediate-value argument.
+
+----------------------------------------------------------------------------------------------------
+### (2) THE SPACE. ### **TWO DIMENSIONS, TWO SPACES, NEITHER IS THE OTHER.**
+----------------------------------------------------------------------------------------------------
+### **AMBIENT `dim E_1 = 5` AT `(2,2)`**, computed exactly by Gaussian elimination over
+### `Q(zeta_16)` with exact field inversion -- ### NO NUMERICAL RANK.
+### **b223 RECORDS, READ AT ITS OWNER AND NOT TAKEN FROM THE FERRY:** ### *"2   2     4       16
+###          9                 32          2          2     YES"* ### -- so `d_1(2,2) = 2` with
+### `dim Son(2,2) = 9`. ### ### **THAT IS THE SECTOR INSIDE `Son`. ### THE AMBIENT `E_1` IS
+### LARGER, AND AN ACT THAT PUT `2` WHERE `5` BELONGS WOULD HAVE BEEN SEARCHING THE WRONG
+### SPACE.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE FORM. ### **NEITHER HERMITIAN NOR SYMMETRIC -- DECIDED FROM ITS OWN DEFINITION.**
+----------------------------------------------------------------------------------------------------
+### `T(g) = SUM_m (S_quot g)(m) conj( g(p^k m) ) = <A g, g>` with
+###   ### **`A[l,j] = SUM_{m : p^k m = l mod N} S_quot[m,j]`.**
+### `S_quot` is rational class-averaging and the pullback is `0/1`, so ### **`A` IS A RATIONAL
+### MATRIX** ### ; and `A != A^T`, so `A* = A^T != A`. ### **THE FORM IS NEITHER HERMITIAN NOR
+### SYMMETRIC, AND THE ACT SAYS SO RATHER THAN ASSUMING THE CONVENIENT CASE.**
+### ### **BUT b272's `g_c` ARE REAL** ### -- they are `q(delta) + 2cos` -- ### **AND ON REAL
+### VECTORS THE VALUE DEPENDS ONLY ON THE SYMMETRIC PART, WHICH IS RATIONAL SYMMETRIC.**
+### ### ### **THAT IS THE STRUCTURAL FACT THE WHOLE ACT TURNS ON, AND IT IS WHY AN
+### ### ### EIGENVALUE-FREE, FLOAT-FREE CERTIFICATION EXISTS AT ALL.**
+
+----------------------------------------------------------------------------------------------------
+### (4) THE STRADDLE. ### **TWO EXACT VALUES, AND BOTH ORDER COMPARISONS ARE RATIONAL.**
+----------------------------------------------------------------------------------------------------
+### **F-CONTROL, THE POSITIVE CONTROL THE FERRY REQUIRED -- b272's OWN NUMBER, RECOVERED BY THIS
+### ACT'S MACHINERY:** ### `<A g_0, g_0> = 48` and `<g_0, g_0> = 160`, so ### **`R(g_0) = 3/10`.
+### ### CONFIRMED.** ### Had it not reproduced, no other number here could be believed.
+### **THE VECTOR ABOVE THE TARGET, AND IT IS NOT A FAMILY MEMBER:** ### `w := g_2 - g_6`, with
+### `<A w, w> = (128/3)(1 + 2^{1/2})` and `<w, w> = 128`, so ### **`R(w) = (1 + 2^{1/2})/3`.**
+### ### **THE TWO ORDER COMPARISONS, EACH REDUCED TO RATIONAL ARITHMETIC AND NOTHING ELSE:**
+###   `3/10 < 2/3` ### because `9 < 20`.
+###   `(1 + 2^{1/2})/3 > 2/3` ### because `2^{1/2} > 1` ### because `2 > 1`.
+### `(zeta^2 + zeta^{-2})^2 = 2` is verified exactly, so `2^{1/2}` is named inside `Q(zeta_16)`
+### rather than imported. ### ### **NO DECIMAL EVALUATION ENTERS EITHER COMPARISON. ### THAT IS
+### THE WHOLE COST OF THE ORDERED-FIELD CHANNEL b272 REFUSED, AND IT IS TWO LINES.**
+### **THEN: the Rayleigh quotient is continuous wherever `<v,v> != 0`, which is everywhere on
+### nonzero real vectors; `g_0` and `w` are both real and both in `E_1`; so by the intermediate
+### value theorem ### `2/3` IS ATTAINED ### on the real segment joining them.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE EXHIBITION. ### **AN ATTAINING VECTOR, EXACTLY, AND ITS COORDINATE FIELD.**
+----------------------------------------------------------------------------------------------------
+### `v(s) := w + s * g_0`, `s` real. ### **ALL THREE CROSS TERMS VANISH, VERIFIED EXACTLY:**
+### `<A w, g_0> = <A g_0, w> = <w, g_0> = 0`. ### So the equation `<A v, v> = (2/3)<v, v>` is a
+### PURE QUADRATIC WITH NO LINEAR TERM:
+###   `a_0 + a_2 s^2 = 0`, with `a_0 = (-128 + 128*2^{1/2})/3` and `a_2 = -176/3`,
+###   ### ### **`s^2 = -8/11 + (8/11) 2^{1/2}`.**
+### **ITS SIGN IS POSITIVE BY RATIONAL ARITHMETIC ALONE** (`2 * 8^2 > 8^2`), so `s` is REAL and
+### the vector EXISTS; and ### **`a_0 + a_2 s^2 = 0` IS VERIFIED EXACTLY**, not asserted.
+### **WHERE THE COORDINATES LIVE, CHECKED AND NOT ASSUMED:**
+###   `N_{Q(2^{1/2})/Q}(s^2) = -64/121`, and a square has NON-NEGATIVE norm, so `s^2` is
+###   ### NOT ### a square in `Q(2^{1/2})`;
+###   `Q(zeta_16)^+ = Q(2^{1/2})(sqrt(2 + 2^{1/2}))`, so a square root of `s^2` could still lie
+###   there only if `s^2/(2 + 2^{1/2})` were a square in `Q(2^{1/2})` -- and its norm is
+###   `-32/121`, also negative.
+### ### ### **SO THE ATTAINING VECTOR THIS ACT EXHIBITS GENUINELY REQUIRES A QUADRATIC EXTENSION
+### ### ### OF `Q(zeta_16)`. ### REPORTED, NOT HIDDEN.** ### It is not a defect -- a unit is a
+### vector in a Hilbert space and is under no obligation to have cyclotomic coordinates -- ###
+### **BUT IT IS A FACT ABOUT THE EXHIBITED VECTOR AND THE BANK STATES IT.**
+### **THE ATTAINING SET ITSELF, CHARACTERIZED:** it is the zero set of the real quadratic form
+### `H - (2/3)G` on the real points of `E_1` -- ### **A CONE, NOT A POINT** ### -- and this act
+### exhibits ONE point of it. ### **WHETHER THAT CONE HAS A POINT WITH COORDINATES IN
+### `Q(zeta_16)` IS NOT DETERMINED HERE.**
+
+----------------------------------------------------------------------------------------------------
+### (6) K1 - K4 FROM b272, FOR THE EXHIBITED VECTOR. ### **EACH ANSWERED YES OR NO.**
+----------------------------------------------------------------------------------------------------
+### **K1 -- `S v = q v`. ### YES.** ### Both summands lie in `E_1` and `E_1` is a subspace;
+### verified for each summand rather than inherited from provenance.
+### **K2 -- NORM-ONE / G-NORM. ### YES.** ### `||v||^2 = 128/11 + (1280/11) 2^{1/2}`, positive
+### by rational arithmetic, so `v` normalizes and `SUM_v | ||u_v|| - 1 | = 0` exactly.
+### **K3 -- THE C0 CONDITION. ### MET.** ### And the equivalence-class question is ### **OPEN
+### FOR THIS VECTOR, WHICH IS A CHANGE FROM b272:** ### b272 found `<u, g_0> = 0` exactly, which
+### forced ORTHOGONAL objects. ### **HERE `<u, w> != 0`, VERIFIED EXACTLY** ### -- so `v` is NOT
+### orthogonal to b226's unit, and ### **THE ORTHOGONALITY THAT KILLED `g_0` AS A REPLACEMENT
+### DOES NOT APPLY TO `v`.** ### Whether `SUM_v |<u_v, v_v> - 1|` CONVERGES is a condition
+### across infinitely many places and ### **THIS ACT DOES NOT SETTLE IT.**
+### **K4 -- NONVANISHING. ### YES.** ### `w(0) = 0` and `g_0(0) = 10`, so `v(0) = 10 s != 0`.
+### ### **SO `v` IS ALSO IN b271's ESCAPE CLASS: IT HAS A NONZERO BALL VALUE.**
+### **ONE ADDITION BEYOND THE FERRY'S K-LIST, LABELLED AS SUCH -- (SPEC-1) AT `k = n = 2`:**
+### `<A_2 w, w> = 0`, the cross terms vanish, and `<A_2 g_0, g_0> != 0`, so the `(SPEC-1)` value
+### of `v` is `s^2` times a nonzero quantity. ### ### **THE SAME VECTOR MEETS (SPEC-1) AT `k = n`
+### ### AND (SPEC-2) AT `k = 1`, AT THIS CELL.** ### That is an observation about ONE CELL and
+### ONE VECTOR, and it is not a claim that any spec holds anywhere else.
+
+----------------------------------------------------------------------------------------------------
+### (7) ### **THE SECOND CELL. ### RUN, AND THE CERTIFICATION DID NOT CLOSE.**
+----------------------------------------------------------------------------------------------------
+### `(2,3)`: `q = 8`, `N = 64`, act 9's terms `6/7` at `k = 1` and `4/7` at `k = 2`.
+### **94 CANDIDATES SEARCHED AT EACH `k`** -- the whole family, all differences at the ball
+### indices (which is where the rational quotients sat at `(2,2)`), and the two vectors that
+### worked there. ### **OF THOSE, 33 HAVE A QUOTIENT IN `Q(2^{1/2})`; ALL 33 LIE BELOW THE
+### TARGET AND NONE ABOVE IT, AT BOTH `k`.**
+### ### **SO NO STRADDLE WAS FOUND AND THE ARGUMENT DOES NOT CLOSE AT THIS CELL.**
+### **AND THAT IS NOT A NEGATIVE RESULT. ### IT IS A LIMIT OF THE CERTIFICATION, NAMED:** ### the
+### order channel this act opened reaches `Q(2^{1/2})`, where a sign is three rational
+### comparisons. ### The remaining candidates have quotients in the larger real subfield
+### `Q(zeta_64)^+`, ### **WHERE THIS ACT HAS NO EXACT SIGN RULE AND THEREFORE MAKES NO CLAIM.**
+### ### ### **THE VERDICT'S SCOPE IS THEREFORE ONE CELL, AND THE FERRY'S OWN FALLBACK APPLIES:
+### ### ### IT IS STATED PLAINLY RATHER THAN AVERAGED AWAY.**
+### FILED: ### **`W-ORD-ORDER-CHANNEL`** ### -- extend the exact sign rule from `Q(2^{1/2})` to
+### `Q(zeta_N)^+`, which is what a second cell would need.
+
+----------------------------------------------------------------------------------------------------
+### (8) ### **THE VERDICT, ITS SCOPE, AND WHAT IT DOES NOT SAY.**
+----------------------------------------------------------------------------------------------------
+### ### ### **(ATTAINABLE), AT `(2,2)`, `k = 1`, IN THE AMBIENT `E_1`.**
+### **THE SCOPE, STATED AS PRECISELY AS THE VERDICT:** ### one cell; one level `k`; the AMBIENT
+### `E_1` and not `E_1(Son)`; the VECTOR-STATE construction `<U^k S_quot g, g>` and no other.
+### **WHAT IT DOES NOT SAY, ITEM BY ITEM:**
+###   ### **NOTHING ABOUT THE COMPLETE ROSTER.** ### b15 governs and is not worked around:
+###     *"a finite-place-set object at a finite cutoff decides nothing"* ### globally.
+###   ### **NOTHING ABOUT `h2`**, and no identity is refuted or supported.
+###   ### **IT IS NOT AN AGGREGATION AND NOT A UNIT.** ### `v` is an EXHIBITION.
+###   ### **IT DOES NOT SHOW (SPEC-2) HOLDS AT THE SECOND CELL** -- (7) says the opposite of a
+###     claim there: nothing is claimed.
+###   ### **IT DOES NOT ESTABLISH (SPEC-3)**, which is a condition across all primes and was
+###     not tested for `v` anywhere.
+
+----------------------------------------------------------------------------------------------------
+### (9) ### **THE ENTAILMENT FOR THE DOSSIER, ONE CANDIDATE AT A TIME. ### NO RANKING.**
+----------------------------------------------------------------------------------------------------
+### **C1 AND C4 AS A FAMILY, WHICH IS THE FERRY'S OWN GROUPING AND IS THE RIGHT ONE.** ### b270
+### struck C1 -- the ambient pairing -- and it struck it ### **AGAINST b226's UNIT** ### : the
+### pairing vanished at `k = n` because `u_v` vanishes on the ball, and (SPEC-2) failed. ###
+### **THIS ACT SHOWS THAT BOTH FAILURES WERE PROPERTIES OF THE UNIT AND NOT OF THE
+### CONSTRUCTION:** ### the SAME ambient pairing, against `v`, is nonzero at `k = n` and equals
+### act 9's term at `k = 1`, at this cell. ### ### **SO THE LIVE OBJECT IS C1 COMPOSED WITH C4
+### -- THE AMBIENT PAIRING WITH A REPLACED UNIT -- AND IT IS ONE CANDIDATE, NOT TWO.**
+### **b270's VERDICT IS NOT DISTURBED:** ### it was about C1 as filed, against `u_v`, and it
+### remains exactly true of that object.
+### **C2 -- EXTEND THE PROJECTION TO AN ACTION.** ### ### **UNTOUCHED BY THIS ACT, AND FOR A
+### REASON WORTH STATING: IT IS NOT A VECTOR STATE.** ### C2 asks what `S_quot` does to `E_1` as
+### a MAP; nothing here bears on that, and no result of this act transfers to it.
+### **C3 -- PUT AN ORBIT STRUCTURE ON `S-bar_v`.** ### ### **ALSO UNTOUCHED, AND ALSO BECAUSE IT
+### IS NOT A VECTOR STATE.** ### It changes the SPACE; this act stayed inside the given one.
+### ### **SO THE FORK IS NOW: ### C1+C4 AS ONE VECTOR-STATE CANDIDATE WITH A CONCRETE TARGET AND
+### ### AN OPEN EQUIVALENCE-CLASS QUESTION; ### AND C2, C3 UNCHANGED AND UNTOUCHED.**
+### ### **THIS SEAT RANKS NOTHING AND ADOPTS NOTHING.**
+
+----------------------------------------------------------------------------------------------------
+### (10) ### **THE SHADOW. ### NOTHING BUILT, CONDITION CHECKED, RESIDUES ENUMERATED.**
+----------------------------------------------------------------------------------------------------
+###   ### **(a) THE ORDER COMPARISONS.** ### `9 < 20` and `2 > 1`. ### **DECIDABLE AND UTTERLY
+###     TRIVIAL. ### A FILE HEADED "(SPEC-2) IS ATTAINABLE" WHOSE CONTENT IS `2 > 1` IS THE
+###     DOUBLE-NAME SPECIES IN LEAN.**
+###   ### **(b) THE EXACT VALUES.** ### `(128/3)(1 + 2^{1/2})`, `s^2 = -8/11 + (8/11)2^{1/2}`.
+###     ### **CYCLOTOMIC AND QUADRATIC-IRRATIONAL. ### NOT FINITE-DECIDABLE HERE.**
+###   ### **(c) THE INTERMEDIATE VALUE THEOREM.** ### The core of the argument, and ### **IT IS
+###     ANALYSIS, NOT A FINITE DECISION. ### OUT OF REACH BY CONSTRUCTION.**
+###   ### **(d) THE SIGN RULE'S ARMS.** ### That the five arms of `sign_in_Qsqrt2` cover all
+###     sign patterns IS finite-decidable -- ### **BUT IT IS A PROPERTY OF THIS ACT'S OWN
+###     HELPER, NOT OF THE MATHEMATICS, AND IT IS ALREADY GATE-CHECKED WHERE THE HELPER
+###     ACTUALLY RUNS.**
+### ### **THE ONE THING THAT WOULD BE WORTH COMPILING -- THAT THE TARGET LIES BETWEEN TWO
+### ### COMPUTED VALUES -- NEEDS THOSE VALUES, AND THEY ARE CYCLOTOMIC. ### SO THE CONDITION
+### ### FAILS AND THE RULING SAYS: BUILD NOTHING AND SAY SO.**
+### ### **0 `.lean` FILES MOVED, CHECKED NOT ASSUMED.**
+
+----------------------------------------------------------------------------------------------------
+### (11) ### **THE DEVIATIONS.**
+----------------------------------------------------------------------------------------------------
+### **(D1) THIS ACT'S EXPLORATION PRECEDED THE SEAL AND WENT FURTHER THAN ANY PRIOR ACT'S** --
+### disclosed at the registration's `(I1)` BEFORE sealing. ### The dimension, the pair `(2,6)`,
+### the parameter `t = -1`, and the exact value `(1 + 2^{1/2})/3` were ALL FOUND BEFORE THE SEAL.
+### ### **SO (F)'s "EXPECTATIONS" ARE MEASURED NUMBERS AND THE REGISTRATION SAYS SO IN ITS OWN
+### ### BODY. ### THEY ARE NOT A SCORE AND ARE NOT PRESENTED AS ONE; THEIR ONLY WORK IS TO STOP
+### ### THE BANK DRIFTING FROM WHAT WAS FOUND.**
+### **(D2) PART OF THAT EXPLORATION USED FLOATING POINT** -- a `numpy` probe of the dimension and
+### of the spectrum. ### **NO FLOATING-POINT VALUE ENTERS ANY VERDICT; THE DECIDING RUNNER
+### CARRIES ZERO FLOAT TOKENS, TOKENIZED AND COUNTED; AND THE EXACT CHANNEL RE-ESTABLISHED
+### EVERYTHING THE PROBE SUGGESTED.** ### The probe also suggested the targets lie inside the
+### range at `(2,3)` too -- ### **AND THAT SUGGESTION IS NOT BANKED, NOT COUNTED, AND NOT USED,
+### BECAUSE IT RESTS ON FLOATS.** ### (7) reports what the EXACT channel could establish there,
+### which is nothing.
+### **(D3) TWO PATCHES TO THE RUNNER FAILED SILENTLY AND ONE BROKE THE SOURCE.** ### A heredoc
+### turned `\n` into a literal newline inside a string, producing a syntax error; and a second
+### patch did not match its target, leaving a `%d` format applied to `None`. ### Both surfaced as
+### hard failures, ### **WHICH IS THE ONLY REASON THEY ARE DEVIATIONS AND NOT DEFECTS** ### --
+### a silent partial patch is the dangerous case, and one of these was exactly that until the
+### run died on it.
+### **(D4) THE SECOND CELL'S RANK IS NOT COMPUTED, AND THAT IS DECLARED IN THE RUN ITSELF.** ###
+### The straddle argument needs two vectors, not a dimension; the run prints `n/a` and says why
+### rather than printing a number nobody computed.
+### **(D6) A GATE FAILED ON A NEEDLE THIS SEAT MIS-TYPED, AND THAT IS THE GATE WORKING.** ### The
+### form gate looked for `A IS A RATIONAL matrix` where the run prints ### `a RATIONAL matrix` ###
+### . ### **THE FINDING WAS CORRECT AND THE CHECK WAS WRONG; THE SUITE REPORTED `FAIL`, NOT
+### `PASS`, WHICH IS THE ONLY ACCEPTABLE DIRECTION FOR THAT ERROR.** ### Recorded because the
+### defect log is not only for interesting defects, and because a mis-typed needle that had
+### happened to MATCH would have been invisible.
+### **(D5) NO DEAD FIXTURE, CHECKED BY GATE 13** -- standing since b272, after b270 and b271
+### each shipped one that could never fire.
+
+----------------------------------------------------------------------------------------------------
+### (12) ### **THE IN-FLIGHT REGISTER.**
+----------------------------------------------------------------------------------------------------
+###   ### **CLOSED BY THIS ACT: ### b272's CLASS-LEVEL K5 QUESTION**, at one cell. ### The
+###     signature channel it named is opened, and the answer at `(2,2)` is ### ATTAINABLE ### .
+###   ### **OPEN, CARRIED FORWARD:**
+###     `M-2` -- ### **SPECIFIED-NOT-STATED**; the fork is C1+C4 as one candidate, plus C2, C3.
+###     ### **THE EQUIVALENCE-CLASS QUESTION FOR `v`** -- newly open, and unlike `g_0`'s it is
+###       NOT settled negatively.
+###     ### **THE SECOND CELL** -- `(2,3)` unresolved; see `W-ORD-ORDER-CHANNEL`.
+###     ### **`W-ORD-ORDER-CHANNEL`** -- NEW: extend the exact sign rule to `Q(zeta_N)^+`.
+###     `W-ORD-ESCAPE-SURVEY` (b271/b272), `W-ORD-PREDICATE-ARM` (b270, partly mechanized),
+###     `W-ORD-TQ-IDENTIFY` (b260), `W-ORD-XI-PERMODE` (b250), `W-ORD-CN-LAW` -- OPEN.
+###     `W-ORD-INDEX-APPEND` -- OPEN; ### **TWENTY-FIVE KEYS ACROSS THIRTEEN ACTS** (b261-b273).
+###     `W-ORD-NTERM-FLOOR` -- narrowed remainder, held under K.4, untouched.
+###     ### **THE `ERRATA` PARTITION QUESTION** (b266) -- routed to the reconciliation wave.
+###   ### **STAYING DISCHARGED: ### THE NOISE-FLOOR CHECK** (b272), in the path again here.
+
+----------------------------------------------------------------------------------------------------
+### (13) ### **THE SEAM'S DEBT, ITEM 1 RESTATED.**
+----------------------------------------------------------------------------------------------------
+### ### **ITEM 1 IS STILL NOT PAID. ### M-2 IS NOT STATED.**
+### **WHAT THE ARC HAS MOVED:** ### b267 located the term; b268 paid a prerequisite; b269
+### resolved the obstruction into three demands; b270 struck C1 against b226's unit; b271 put the
+### obstruction in `Son` rather than the model; b272 characterized the escape class and blocked
+### at (SPEC-2); ### **b273 SHOWS THAT BLOCK WAS A PROPERTY OF THE VECTORS TESTED AND NOT OF THE
+### SPACE, AND EXHIBITS A VECTOR MEETING (SPEC-1) AND (SPEC-2) AT ONE CELL.**
+### ### **NONE OF THAT IS M-2, AND ONE CELL IS ONE CELL.**
+### **AND THE OTHER DEBT LINES STAND:** ### the `EPS_NQ` sweep is not a sweep of the record
+### (b265); `qeps_layer`'s `NTERM` note is not at the point of use; the lore is twenty-one rules
+### of which six cannot be mechanized; the index backlog is twenty-five keys.
+
+----------------------------------------------------------------------------------------------------
+### (14) ### **WHAT THIS ACT DID NOT DO.**
+----------------------------------------------------------------------------------------------------
+### **NO UNIT IS ADOPTED, NO AGGREGATION IS STATED, NO CANDIDATE IS RANKED, AND NO REPLACEMENT
+### IS RECOMMENDED.** ### b226's ruled choice stands untouched. ### **`v` IS AN EXHIBITION.**
+### **NO PRIOR ACT IS RE-VERDICTED** (b246) -- and (0) says at the top why b272 and b270 both
+### stand exactly as banked.
+### **NO SPEC IS CLAIMED BEYOND WHAT WAS COMPUTED:** ### (SPEC-2) at `(2,2)` `k = 1`; (SPEC-1) at
+### `(2,2)` `k = n`; ### **(SPEC-3) NOT TESTED AT ALL, AND THE SECOND CELL NOT CLOSED.**
+### **NO ORDER COMPARISON RESTS ON A DECIMAL**, and the deciding runner carries zero float
+### tokens.
+### **NO OWNER INSTRUMENT WAS EDITED** -- b268's, b270's, b271's and b272's machinery was
+### ### IMPORTED AS MODULES ### .
+### **NOTHING IS CLAIMED ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT:** ### **"RH reduced to a
+### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **NOTHING DEPOSITS. ### NOTHING CIRCULATES.**
+====================================================================================================

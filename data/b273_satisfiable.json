@@ -1,0 +1,15 @@
+{
+  "registration": "data/b273_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 7)",
+  "clauses": [
+    {"clause": "(J1) single allocation <= 256 MB", "cap": 256, "demand": 4, "units": "MB",
+     "from": "sparse cyclotomic vectors of length N <= 64 at the second cell (2,3); no dense NxN operator is materialized in the deciding runner, because the form is applied as a sum."},
+    {"clause": "(J2) exact-arithmetic degree cap", "cap": 1024, "demand": 128, "units": "deg",
+     "from": "unreduced products have degree < 2N = 128 at N = 64; Phi_64 has degree phi(64) = 32"},
+    {"clause": "(J3) runtime <= 900 s", "cap": 900, "demand": 300, "units": "s",
+     "from": "the straddle method needs TWO vectors per target rather than a spectrum; the (2,3) sweep is 64 quotients at N = 64. Scaled from b272's measured run at N <= 361."},
+    {"clause": "(J4) eigenvalue decompositions in the deciding runner", "cap": 0, "demand": 0, "units": "decomp",
+     "from": "the verdict rests on two exact quotients and one intermediate-value argument. NO spectrum is computed in the deciding runner, which is why (J3) is small and why no float is needed."},
+    {"clause": "(J5) ladders registered", "cap": 0, "demand": 0, "units": "ladders",
+     "from": "this act registers no ladder, so no ladder can outrun a declared ceiling (b264's species)."}
+  ]
+}
