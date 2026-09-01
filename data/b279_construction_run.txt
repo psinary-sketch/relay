@@ -1,0 +1,84 @@
+====================================================================================================
+b279 -- THE LOCAL SPACE. ### THE CONSTRUCTION, RUN.
+====================================================================================================
+### SCOPE: ### **NO CONSEQUENCE IS COMPUTED HERE.** ### Not one spec, not the barrier,
+### not b277's candidate. ### The outcome-blind law governs and this file obeys it.
+
+### THE CONSTITUENTS, EACH FROM AN OWNER:
+###   TOWER      Son(p,n) on Z/p^{2n}, dim (p^n-1)^2      -- keystone sec 1
+###   INCLUSION  iota, m'' = p*m + p^{2n+1}*j, values copied -- b21 (B1a/B1b PASS)
+###   DIRECTED   "the exact tower iota(Son) subset Son"    -- keystone sec 1
+###   NORM       model inner product = L^2(Q_p) up to p^{-n} -- b21, THE LIFT
+###   LIMIT      "the L^2-CLOSURE OF THE TOWER'S UNION"    -- b198 (I4)
+
+  ---- CELL (p,n) = (2,1):  Z/4  --iota-->  Z/16 ----
+    iota onto the p-multiples, bijectively : YES  (8 images / 8 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 1       keystone says (p^n-1)^2 = 1       : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(2,1)) SUBSET Son(2,2)      : YES  (1 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+  ---- CELL (p,n) = (2,2):  Z/16  --iota-->  Z/64 ----
+    iota onto the p-multiples, bijectively : YES  (32 images / 32 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 9       keystone says (p^n-1)^2 = 9       : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(2,2)) SUBSET Son(2,3)      : YES  (9 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+  ---- CELL (p,n) = (2,3):  Z/64  --iota-->  Z/256 ----
+    iota onto the p-multiples, bijectively : YES  (128 images / 128 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 49      keystone says (p^n-1)^2 = 49      : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(2,3)) SUBSET Son(2,4)      : YES  (49 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+  ---- CELL (p,n) = (3,1):  Z/9  --iota-->  Z/81 ----
+    iota onto the p-multiples, bijectively : YES  (27 images / 27 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 4       keystone says (p^n-1)^2 = 4       : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(3,1)) SUBSET Son(3,2)      : YES  (4 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+  ---- CELL (p,n) = (3,2):  Z/81  --iota-->  Z/729 ----
+    iota onto the p-multiples, bijectively : YES  (243 images / 243 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 64      keystone says (p^n-1)^2 = 64      : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(3,2)) SUBSET Son(3,3)      : YES  (64 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+  ---- CELL (p,n) = (5,1):  Z/25  --iota-->  Z/625 ----
+    iota onto the p-multiples, bijectively : YES  (125 images / 125 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 16      keystone says (p^n-1)^2 = 16      : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(5,1)) SUBSET Son(5,2)      : YES  (16 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+  ---- CELL (p,n) = (7,1):  Z/49  --iota-->  Z/2401 ----
+    iota onto the p-multiples, bijectively : YES  (343 images / 343 targets)
+    ball <-> ball, exhaustively            : YES
+    dim Son(p,n) built = 36      keystone says (p^n-1)^2 = 36      : AGREE
+    every basis vector really lies in Son(p,n)  : YES
+    ### iota(Son(7,1)) SUBSET Son(7,2)      : YES  (36 vectors carried)
+    iota isometric on every basis vector    : YES
+    noise-floor gate                       : EXACT (all arithmetic integer/Fraction)
+
+====================================================================================================
+### ALL CELLS: PASS
+### **THE TOWER LEMMA HOLDS AT EVERY CELL RUN, AND IT ALSO DERIVES IN GENERAL** --
+### the ball half because p^{n+1} | p*(m + p^{2n} j) exactly when p^n | m, and the
+### transform half because each level-n fiber sum is reproduced p times downstairs:
+### SUM_{t = s mod p^n} f(t mod p^{2n}) = p * SUM_{m = s mod p^n} f(m) = p * 0 = 0.
+### **THE OWNERS KERNEL-CHECKED (2,1)->(2,2) ONLY; THIS IS ALL p AND ALL n.**
+====================================================================================================
