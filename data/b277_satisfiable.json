@@ -1,0 +1,15 @@
+{
+  "registration": "data/b277_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 11)",
+  "clauses": [
+    {"clause": "(I1c) single allocation <= 256 MB", "cap": 256, "demand": 4, "units": "MB",
+     "from": "sparse cyclotomic vectors of length N <= 361; no dense operator in the deciding runner."},
+    {"clause": "(I2c) exact-arithmetic degree cap", "cap": 1024, "demand": 722, "units": "deg",
+     "from": "unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342"},
+    {"clause": "(I3c) runtime <= 900 s", "cap": 900, "demand": 300, "units": "s",
+     "from": "scaled from b275's measured exact run over the same eight cells; this act computes comparable quantities."},
+    {"clause": "(I4c) size-control ladder", "cap": 10000, "demand": 10000, "units": "primes",
+     "from": "the size control is pure Fraction arithmetic over primes to 10^4 and costs nothing beside the cyclotomic channel. THE CAP EQUALS THE DEMAND BECAUSE THE LADDER WAS CHOSEN TO MEET IT, AND THE LADDER IS PRINTED WITH THE RESULT."},
+    {"clause": "(I5c) eigen-decompositions and resolution ladders", "cap": 0, "demand": 0, "units": "each",
+     "from": "every value is a closed form or an exact equality; no spectrum and no resolution ladder, so no float is needed and no ladder can outrun a ceiling."}
+  ]
+}

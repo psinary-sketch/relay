@@ -1,0 +1,24 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b277_registration_2026-09-01.txt  (M-2 CAMPAIGN, ACT 11)
+  clauses      : 5
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (I1c) single allocation <= 256 MB  256              4                MB     SATISFIABLE
+      demand from : sparse cyclotomic vectors of length N <= 361; no dense operator in the deciding runner.
+  (I2c) exact-arithmetic degree cap  1024             722              deg    SATISFIABLE
+      demand from : unreduced products have degree < 2N = 722; Phi_361 has degree phi(361) = 342
+  (I3c) runtime <= 900 s             900              300              s      SATISFIABLE
+      demand from : scaled from b275's measured exact run over the same eight cells; this act computes comparable quantities.
+  (I4c) size-control ladder          10000            10000            primes SATISFIABLE
+      demand from : the size control is pure Fraction arithmetic over primes to 10^4 and costs nothing beside the cyclotomic channel. THE CAP EQUALS THE DEMAND BECAUSE THE LADDER WAS CHOSEN TO MEET IT, AND THE LADDER IS PRINTED WITH THE RESULT.
+  (I5c) eigen-decompositions and res 0                0                each   SATISFIABLE
+      demand from : every value is a closed form or an exact equality; no spectrum and no resolution ladder, so no float is needed and no ladder can outrun a ceiling.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

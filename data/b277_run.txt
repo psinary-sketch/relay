@@ -1,0 +1,129 @@
+====================================================================================================
+b277 -- COMPONENT 1. ### THE AGGREGATION STATED (ATTEMPT). ### EXACT. ### NO FLOAT.
+### REGISTRATION data/b277_registration_2026-09-01.txt SEALED 6fd57ecd.
+### **NOTHING IS ADOPTED. ### A STATED CANDIDATE IS NOT A REPLACEMENT.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) COMPONENT 0 -- THE E0 GATE, ON THIS ACT'S PATH.
+----------------------------------------------------------------------------------------------------
+  gate verdict : EXACT
+  detail       : ### EXACT CHANNEL -- the gate was CALLED and applies no floor; this is a verdict, not a bypass
+
+----------------------------------------------------------------------------------------------------
+### (1) THE PIECEWISE RULE, AND THE AGGREGATION, WRITTEN WHOLE AT THE MODEL LEVEL.
+----------------------------------------------------------------------------------------------------
+  ### ### **u''_p := 4q P_1 e_0 / ||.||   at odd p, level ell(p) = 1;**
+  ### ### **u''_2 := (w + s g_0) / ||.||  at (2,2), b273's v with s^2 = -8/11 + (8/11)sqrt2.**
+  EVERY CONSTITUENT UNFOLDED TO ITS OWNER:
+    4q P_1 = (q + S)(1 + Pi); S; Pi                [b226]
+    4q P_1 e_0 = 2q e_0 + 2 * 1                    [b272]
+    w = g_2 - g_6, in Son                          [b273 / b274]
+    s^2                                            [b273, exact]
+    ell(p) = 2 if p = 2 else 1                     [b226; d_1(2,1) = 0]
+  ### **THE AGGREGATION: ### Q_p(k) := <U^k S_quot u''_p, u''_p> at the cell (p, ell(p)).**
+
+  (p,n)    branch               in E_1?    Q_p(l) p^{l/2}   closed form      in Son?
+  (2,2)    b273 v = w + s g_0   YES        63/199 + -33/199 sqrt2 (n/a -- other branch) ### NO ###
+  (3,1)    b275 g_0             YES        1/4              1/4              ### NO ###
+  (5,1)    b275 g_0             YES        1/3              1/3              ### NO ###
+  (7,1)    b275 g_0             YES        3/8              3/8              ### NO ###
+  (11,1)   b275 g_0             YES        5/12             5/12             ### NO ###
+  (13,1)   b275 g_0             YES        3/7              3/7              ### NO ###
+  (17,1)   b275 g_0             YES        4/9              4/9              ### NO ###
+  (19,1)   b275 g_0             YES        9/20             9/20             ### NO ###
+
+  ### **THE CLOSED FORM Q_p(1) p^{1/2} = (p-1)/(2(p+1)) HOLDS AT EVERY ODD PLACE : CONFIRMED**
+  ### ### **SO AT THE MODEL LEVEL THIS IS A FUNCTION OVER PLACES WITH A STATED VALUE --
+  ### ### A CLOSED FORM AT EVERY ODD PRIME AND EXACT VALUES AT p = 2. ### IT MEETS
+  ### ### b275's OWN BAR: IT IS A NUMBER AT EVERY PLACE, NOT ONLY A UNIT.**
+
+----------------------------------------------------------------------------------------------------
+### (2) T1 -- (SPEC-1) AT EVERY PLACE. ### RECOMPUTED, NOT INHERITED.
+----------------------------------------------------------------------------------------------------
+  (3,1)  Q_p(1) p^{1/2} = 1/4  nonzero: YES
+  (5,1)  Q_p(1) p^{1/2} = 1/3  nonzero: YES
+  (7,1)  Q_p(1) p^{1/2} = 3/8  nonzero: YES
+  (11,1)  Q_p(1) p^{1/2} = 5/12  nonzero: YES
+  (13,1)  Q_p(1) p^{1/2} = 3/7  nonzero: YES
+  (17,1)  Q_p(1) p^{1/2} = 4/9  nonzero: YES
+  (19,1)  Q_p(1) p^{1/2} = 9/20  nonzero: YES
+  ### **AND (p-1)/(2(p+1)) >= 1/4 FOR EVERY ODD p, SO IT IS NONZERO BY ARITHMETIC AND
+  ### NOT BY SURVEY.** ### T1 VERDICT: SPEC-1 holds at every odd place
+
+----------------------------------------------------------------------------------------------------
+### (3) T2 -- (SPEC-2). ### VACUOUS AT LEVEL 1; RECOMPUTED AT (2,2).
+----------------------------------------------------------------------------------------------------
+  ### At ell = 1 the range 1 <= k <= 0 is ### **EMPTY**, so (SPEC-2) is ### **VACUOUS
+  ### THERE -- A VACUITY AND NOT A TRIUMPH.** ### Seven of the eight cells.
+  ### AT (2,2), k = 1, UNDER THE AGGREGATION'S OWN NORMALIZATION:
+    numerator   = 256/33 + 2560/33 sqrt2
+    denominator = 128/11 + 1280/11 sqrt2
+    act 9's term = 2/3
+    numerator - term * denominator = 0 + 0 sqrt2
+  ### ### **T2 AT (2,2): THE AGGREGATION EQUALS act 9's TERM EXACTLY**
+
+----------------------------------------------------------------------------------------------------
+### (4) T3, T4, T5.
+----------------------------------------------------------------------------------------------------
+  ### **T3 (SPEC-3): a nonzero unit at every prime, E_1 membership checked at each
+  ### branch : CONFIRMED.** ### p = 2's level exception is the corpus's own (d_1(2,1) = 0).
+  ### **T4a (G-NORM): each u''_p is divided by its own norm, so SUM_v | ||u''_v|| - 1 |
+  ### = 0 EXACTLY -- the standard b226 met, met the same way.**
+
+  ### ### **T4b -- THE C0 CONDITION'S FIRST CLAUSE. ### THIS IS WHERE THE ACT TURNS.**
+  ### b226 carries the requirement as ### "(i) a vector at every place ... f_alpha in
+  ### H_alpha for all alpha in I" ### , so the unit must lie in H_v = S-bar_v.
+  ### b198 (I4) makes S-bar ### THE L^2-CLOSURE OF THE TOWER'S UNION ### , and (I2)
+  ### places a level vector in the limit only through ### THE CLOSURE OF ITS LEVEL TOWER.
+  ### **AND b198's WHOLE OBJECT IS TO PROVE E_1(S-bar_v) NONZERO -- WHICH WOULD BE
+  ### VACUOUS IF S-bar WERE THE FULL SPACE. ### SO THE TOWER IS THE ### Son ### TOWER.**
+
+  ### THE CONSTITUENT, COMPUTED: does the candidate unit lie in Son at its cell?
+  (p,n)    g_0 vanishes on the ball?  in Son(p, ell(p))?
+  (2,2)    NO                         ### NO ###
+  (3,1)    NO                         ### NO ###
+  (5,1)    NO                         ### NO ###
+  (7,1)    NO                         ### NO ###
+  (11,1)   NO                         ### NO ###
+  (13,1)   NO                         ### NO ###
+  (17,1)   NO                         ### NO ###
+  (19,1)   NO                         ### NO ###
+
+  ### ### **THE CANDIDATE UNIT IS NOT IN Son AT ANY OF THE %d CELLS.** ### At odd p it
+  ### ### is g_0, whose nonzero ball value is exactly what put it in b271's escape
+  ### ### class; at (2,2) it is w + s g_0, and the g_0 part carries the same ball
+  ### ### value. ### Cells not in Son: 8 of 8.
+  ### ### ### **SO THE ONLY WARRANT THE CORPUS OWNS FOR PLACING A LEVEL VECTOR IN
+  ### ### ### S-bar_v -- b198 (I2)'s CLOSURE OF THE ### Son ### TOWER -- DOES NOT APPLY,
+  ### ### ### AND THE CORPUS SUPPLIES NO OTHER. ### CLAUSE (i) IS UNWARRANTED.**
+  ### **STATED AT ITS EXACT STRENGTH AND NOT ABOVE IT: ### IT IS NOT PROVED THAT THE
+  ### CANDIDATE LIES OUTSIDE S-bar_v. ### IT IS THAT NO WARRANT PLACES IT INSIDE, AND A
+  ### CONSTITUENT OF THE AGGREGATION IS THEREFORE MISSING RATHER THAN FALSE.**
+
+  ### **T5 (THE CLASS): <u, g_0> = 0 exactly at 8 of 8 cells, carried from b272 and
+  ### re-confirmed here. ### With both normalized the summands are 1 at every odd place,
+  ### so the sum diverges and the objects are ### MUTUALLY ORTHOGONAL ### -- b276's
+  ### finding, carried and not re-derived, and FORCED rather than incidental.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE SIZE CONTROL. ### **RUN AFTER THE STATEMENT WAS FIXED. ### NO FIT.**
+----------------------------------------------------------------------------------------------------
+  The aggregate over odd places is SUM_p Q_p(1), with Q_p(1) = (p-1)/(2(p+1) p^{1/2}).
+  ### **AN EXACT DIVERGENCE ARGUMENT, NO FLOATS: ### (p-1)/(2(p+1)) >= 1/4 for p >= 3,
+  ### so Q_p(1) >= 1/(4 p^{1/2}), and SUM_p 1/(4 p^{1/2}) DIVERGES.**
+  ### THE RATIONAL PART'S PARTIAL SUMS, EXACT:
+  ### **THE PARTIAL SUMS ARE EXACT RATIONALS WITH HUNDREDS OF DIGITS, WHICH WOULD BE
+  ### UNREADABLE AND WOULD ADD NOTHING; THE LOWER BOUND CARRIES THE WHOLE POINT AND IS
+  ### ALSO EXACT. ### THAT SUBSTITUTION IS DECLARED, NOT MADE QUIETLY.**
+    X          odd p <= X   SUM >= count/4         every term >= 1/4?
+    10         3            3/4                    YES
+    100        24           6                      YES
+    1000       167          167/4                  YES
+    10000      1228         307                    YES
+  ### **THE AGGREGATE DIVERGES. ### AND b262's TARGET ALSO DIVERGES ALONG ITS CUTOFF.**
+  ### ### **NO FIT IS MADE AND NONE IS BANKED. ### THE TWO ARE NOT COMPARED IN
+  ### ### MAGNITUDE, ONLY REPORTED AS BOTH DIVERGENT** -- and b276's sentence is
+  ### carried: a divergent mass is CONSISTENT with orthogonality, which is precisely
+  ### why this candidate can diverge at all.
+
