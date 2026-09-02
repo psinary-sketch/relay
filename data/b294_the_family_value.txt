@@ -1,0 +1,264 @@
+====================================================================================================
+b294 -- THE FAMILY'S FIRST-LEVEL VALUE. ### IS THE BARRIER'S ZERO THE DIAGONAL'S OR THE FAMILY'S?
+2026-09-02. ### SOLO (research seat). ### Registration: `data/b294_registration_2026-09-02.txt`.
+====================================================================================================
+
+### ### **VERDICT: ### THE BARRIER'S ZERO IS A PROPERTY OF A SUB-FAMILY, NOT OF THE WHOLE FAMILY.**
+### ### **ZERO WHENEVER ### EITHER ### RADIUS IS AT LEAST THE DIAGONAL'S. ### NONZERO ONLY WHEN
+### ### ### BOTH ### ARE BELOW IT.**
+
+### ### **AND THE CAMPAIGN HAS ITS FIRST NONZERO FIRST-LEVEL VALUE, EXACTLY:**
+### ### **`-1` AT `(2,1)`, `(3,1)`, `(5,1)`; ### `-2/3` AT `(2,2)`; ### `-3/4` AT `(3,2)` --**
+### ### **ON THE MEMBER `Son(p,n; -1,-1)`.**
+
+### ### ### **AND IT IS NOT A ROUTE, AND THE ACT SAYS SO BEFORE IT SAYS ANYTHING ELSE.** ###
+### ### ### **`Son(p,n; -1,-1)` IS OBTAINED BY ### WEAKENING BOTH OF THE OBJECT'S OWN DEFINING
+### ### ### CONDITIONS. ### IT IS A ### SUPERSET ### OF THE OBJECT'S SPACE, AND THE WITNESS THAT
+### ### ### PAIRS NONZERO HAS MASS ### ON THE BALL ### -- WHICH THE OBJECT'S FIRST CONDITION
+### ### ### FORBIDS OUTRIGHT. ### A VECTOR THAT IS NOT A `Son` VECTOR PAIRING NONZERO IS NOT NEWS
+### ### ### ABOUT `Son`.**
+### ### **WHAT IT IS: ### THE BARRIER'S BOUNDARY, LOCATED.**
+
+### ### **THE BARRIER AND THE COMPRESSION ARE NOT RE-VERDICTED, EXTENDED OR WEAKENED.** ### b280
+### and b281 are statements about pairings on the diagonal member, ### **AND ON THE DIAGONAL THIS
+### ACT COMPUTES ZERO AT EVERY CELL, AS THEY SAY.**
+
+### ### **EXPOSURE TO THE ESCAPED-MASS ARTIFACT (X4): ### NONE, AND THE REASON IS GIVEN RATHER
+### ### THAN LEFT TO BE INFERRED.** ### This act applies ### **NO LEVEL-SHIFTING MAP.** ### The
+### members are defined by radii, not by scaling; the pairing is b273's `A` at `k = n`, within one
+### level, the same operator b270 and b281 used. ### **THE ARTIFACT LIVES IN `g` AND `h`, WHICH DO
+### NOT APPEAR ANYWHERE IN THIS RUNNER.**
+
+====================================================================================================
+### COMPONENT 1 -- THE MECHANISM, EXAMINED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE HYPOTHESIS THE BARRIER CONSUMES, PULLED FROM ITS EMITTING FILE.
+----------------------------------------------------------------------------------------------------
+### b270, quoted whole: ### "`P(k) = p^{-k/2} SUM_m (S_quot u_v)(m) * conj( u_v(p^k m mod N) )`.
+### ### **AT `k = n`, `p^n m` IS A MULTIPLE OF `p^n` FOR EVERY `m` -- THAT IS THE BALL -- AND
+### ### `u_v` VANISHES ON THE BALL. ### EVERY SUMMAND CARRIES THE FACTOR `u_v(ball) = 0`.**"
+### ### ### **SO THE HYPOTHESIS IS ### ONE ### THING: ### THE VECTOR VANISHES ON `ball_n`. ### IT
+### ### ### IS ABOUT THE ### FUNCTION SIDE ONLY, AT EXPONENT `0`, AND IT SAYS NOTHING ABOUT THE
+### ### ### TRANSFORM SIDE AT ALL.**
+### ### **THAT IS WORTH STATING BECAUSE THE OBJECT HAS TWO CONDITIONS AND THE BARRIER USES ONE.**
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE HYPOTHESIS PER MEMBER CLASS, DERIVED FROM THE FAMILY'S DEFINITION.
+----------------------------------------------------------------------------------------------------
+### The member `Son(p,n; a,b)` requires vanishing on `B_a = { m : v_p(m) >= n - a }`; the operator's
+### image lies in `B_0 = ball_n = { m : v_p(m) >= n }`. ### **THE LEVEL INDEXING IS `n` AT EVERY USE
+### AND THE EXPONENT IS `a`; THEY ARE DIFFERENT NUMBERS AND THE THRESHOLD IS `n - a`.**
+###   ### **`a >= 0`:** ### the threshold `n - a` is at most `n`, so `B_a` ### CONTAINS ### `B_0`.
+###     A member vanishes on `B_a`, hence on `B_0`.
+###     ### ### **(HYPOTHESIS HOLDS.) ### b270's ARGUMENT RUNS VERBATIM AND THE VALUE IS ZERO --
+###     ### ### DERIVED, NOT COMPUTED, FOR EVERY SUCH MEMBER AT EVERY CELL AND EVERY LEVEL.**
+###   ### **`a < 0`:** ### the threshold `n - a` exceeds `n`, so `B_a` is ### STRICTLY INSIDE ###
+###     `B_0`. ### A member is ### NOT ### required to vanish on all of `ball_n`.
+###     ### ### **(HYPOTHESIS FAILS.) ### THE ARGUMENT DOES NOT RUN -- ### AND THAT IS NOT A
+###     ### ### NONZERO VALUE (X3). ### IT IS THE ABSENCE OF A REASON FOR ZERO, WHICH IS A
+###     ### ### DIFFERENT THING, AND THE VALUE IS COMPONENT 2's TO COMPUTE.**
+
+====================================================================================================
+### COMPONENT 2 -- THE VALUE, COMPUTED WHERE COMPONENT 1 LEAVES IT OPEN.
+====================================================================================================
+### `tools/e16/b294_family_value.py`. ### **EXACT: members by Gaussian elimination over `Fraction`,
+### pairings in `Q(zeta_N)`. ### ZERO FLOAT TOKENS.**
+
+### ### **THE GRID, AND WHY IT IS A GRID.** ### The dilation orbit `a + b = 0` ### COUPLES ### a
+### weakened function side to a ### STRENGTHENED ### transform side, so a zero there cannot say
+### which side caused it. ### **THE MEMBERS `(-1,0)` AND `(0,-1)` ISOLATE THE TWO SIDES, AND
+### `(-1,-1)` WEAKENS BOTH.**
+
+### ### **X1's NOT-DEAD WITNESS, FIRST, BECAUSE A ZERO FROM A DEAD INSTRUMENT IS NOT A ZERO:**
+### ### **`<A g_0, g_0>` = 8, 48, 24, 288, 80 -- ### MATCHING b271's BANKED `4(N - q)` AT ALL FIVE
+### ### CELLS.** ### The same pairing, on the same operator, returns nonzero. ### **THE ZEROES
+### BELOW ARE THE MEMBERS' DOING.**
+
+### ### **THE RESULTS, PER MEMBER, WITH ITS RADII NAMED:**
+###   `(0,0)`   -- the diagonal, `a >= 0` : ### **ZERO AT EVERY CELL** ### (derived, and computed
+###     too -- 1, 9, 4, 64, 16 basis vectors, all zero).
+###   `(-1,+1)` -- `a < 0`, `b > 0`       : ### **ZERO** ### (7 of 7 at `(2,2)`, 52 of 52 at
+###     `(3,2)`; empty at the level-1 cells, where the runner reports ### **CANNOT TEST** ###).
+###   `(-1, 0)` -- `a < 0`, `b = 0`       : ### **ZERO** ### (1, 5, 10, 69 basis vectors).
+###   `( 0,-1)` -- `a >= 0`, `b < 0`      : ### **ZERO** ### (derived by (1b); computed too).
+###   ### **`(-1,-1)` -- BOTH BELOW THE DIAGONAL : ### NONZERO.**
+
+### ### ### **THE EXACT VALUES, ON `Son(p,n; -1,-1)`:**
+###   `(2,1)` : ### **`-1`** ### , on 1 of 2 basis vectors; witness `-e_1 + e_2`.
+###   `(3,1)` : ### **`-1`** ### , on 1 of 7; witness `-e_1 + e_3`.
+###   `(5,1)` : ### **`-1`** ### , on 1 of 23.
+###   `(2,2)` : ### **`-2/3`** ### , on 1 of 12; witness `-e_2 + e_4`.
+###   `(3,2)` : ### **`-3/4`** ### , on 1 of 75.
+### ### **EVERY VALUE IS RATIONAL -- NO CYCLOTOMIC COMPONENT AT ANY CELL.** ### The act records
+### that as an observation and ### **DOES NOT FIT A CLOSED FORM TO FIVE NUMBERS**; a closed form
+### would be a new derivation with its own registration.
+
+### ### **AND WHY IT IS NONZERO, READ OFF THE WITNESS RATHER THAN GUESSED:** ### at `(2,1)` the
+### witness is supported at indices with `v_p = 0` and `v_p = 1`, and `ball_n` needs `v_p >= 1`;
+### at `(2,2)`, at `v_p = 1` and `v_p = 2` with `ball_n` needing `v_p >= 2`.
+### ### ### **THE WITNESS HAS MASS ### ON THE BALL ### . ### THAT IS EXACTLY WHAT `a < 0` PERMITS
+### ### ### AND EXACTLY WHAT b270's HYPOTHESIS FORBIDS. ### THE NONZERO IS NOT A CRACK IN THE
+### ### ### BARRIER; IT IS THE BARRIER'S HYPOTHESIS BEING FALSE.**
+
+====================================================================================================
+### COMPONENT 3 -- WHAT IT MEANS AND WHAT IT DOES NOT.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (3a) THE BARRIER'S REACH, AT ITS SCOPE, WITH THE GRADE PER CLASS.
+----------------------------------------------------------------------------------------------------
+###   ### **`a >= 0`, ANY `b` : ### ZERO, DERIVED.** ### b270's argument runs verbatim; the member's
+###     own condition implies its hypothesis. ### **ALL LEVELS, ALL PLACES, NOT JUST THE CELLS.**
+###   ### **`a < 0`, `b >= 0` : ### ZERO, COMPUTED.** ### The argument does ### NOT ### run, and the
+###     value is zero anyway at every cell tested. ### ### **SO A SECOND MECHANISM IS OPERATING AND
+###     ### THIS ACT HAS NOT DERIVED IT.** ### Filed as `W-ORD-SECOND-ZERO-MECHANISM`. ### **IT IS
+###     NOT CLAIMED TO HOLD BEYOND THE CELLS COMPUTED.**
+###   ### **`a < 0`, `b < 0` : ### NONZERO, COMPUTED**, exactly, at all five cells.
+### ### ### **SO THE BARRIER'S ZERO BELONGS TO THE SUB-FAMILY WHERE AT LEAST ONE RADIUS IS AT THE
+### ### ### DIAGONAL'S LEVEL OR ABOVE -- AND ONLY THE `a >= 0` HALF OF THAT IS DERIVED.**
+
+### ### **AND THE FINITE SIDE'S CLOSURE, DESCRIBED EXACTLY:** ### b280's and b281's statements are
+### about the diagonal member, ### **AND THIS ACT COMPUTES ZERO THERE AT EVERY CELL, AGREEING WITH
+### THEM.** ### **THEY ARE NOT RE-VERDICTED, NOT EXTENDED, AND NOT WEAKENED.** ### What is new is
+### only that the surrounding members have been tested and the zero's boundary located.
+
+----------------------------------------------------------------------------------------------------
+### (3b) THE THREE THINGS THIS ACT DOES NOT ESTABLISH -- IN ITS OWN WORDS (X5).
+----------------------------------------------------------------------------------------------------
+### ### **ONE. ### IT DOES NOT ESTABLISH THAT THE OBJECT CAN REACH THAT MEMBER.** ### The object is
+### defined on the diagonal. ### `Son(p,n; -1,-1)` is reached by ### RELAXING THE OBJECT'S OWN TWO
+### CONDITIONS ### , not by any map the corpus states. ### **NO MAP FROM THE OBJECT'S SPACE TO THAT
+### MEMBER IS EXHIBITED HERE, AND DILATION DOES NOT GO THERE -- IT PRESERVES THE SUM `a + b`, AND
+### `(-1,-1)` HAS SUM `-2`, WHICH IS NOT THE DIAGONAL'S `0`.** ### The member is ### **OFF THE
+### DIAGONAL'S ENTIRE DILATION ORBIT.**
+### ### **TWO. ### IT DOES NOT ESTABLISH THAT ANYTHING SATISFYING THE OTHER TWO SPECIFICATION
+### ### CONDITIONS LIVES THERE.** ### (SPEC-2) and (SPEC-3) were not tested against this member,
+### this act computed one pairing and nothing else, ### **AND A NONZERO FIRST-LEVEL VALUE ON A
+### VECTOR THAT MEETS NO OTHER CONDITION IS NOT A CANDIDATE FOR ANYTHING.**
+### ### **THREE. ### IT DOES NOT ESTABLISH THAT ANY AGGREGATION FOLLOWS.** ### No aggregation is
+### stated, no candidate is adopted, ### **AND M-2 IS EXACTLY WHERE IT WAS.**
+### ### ### **AND A FOURTH, WHICH THIS ACT ADDS BECAUSE IT IS THE ONE A READER IS MOST LIKELY TO
+### ### ### SUPPLY FOR ITSELF: ### THE WITNESS IS NOT A `Son` VECTOR. ### IT HAS MASS ON THE BALL,
+### ### ### WHICH THE OBJECT'S FIRST CONDITION FORBIDS. ### THE MEMBER IS A SUPERSET OF THE
+### ### ### OBJECT'S SPACE AND THE NONZERO LIVES IN THE PART THAT IS NOT THE OBJECT.**
+
+----------------------------------------------------------------------------------------------------
+### (3c) THE REOPENING CANDIDATE'S CRITERIA, RESTATED.
+----------------------------------------------------------------------------------------------------
+###   ### **(i) THE FAMILY IS A CORPUS OBJECT -- ### MET ### at b293.**
+###   ### **(ii) A STATEMENT OF WHAT "STRUCTURE ON THE FAMILY" WOULD MEAN THAT IS NOT A STATEMENT
+###     ABOUT ONE MEMBER -- ### UNMET ### , AND NOT ATTEMPTED HERE.** ### This act made five
+###     statements about five members and no statement about the family as such.
+###   ### **(iii) A CHECK THAT THE RESULTING OBJECT IS OF A SHAPE THE SPECIFICATION CAN CONSUME --
+###     ### UNMET ### , AND NOT ATTEMPTED.**
+### ### **STILL UNBANKED-UNTIL-TESTED. ### AND A NONZERO NUMBER ON A RELAXED MEMBER DOES NOT
+### ### ADVANCE (ii) OR (iii) BY ONE STEP.**
+
+----------------------------------------------------------------------------------------------------
+### (3d) AND WHAT IT SAYS ABOUT EVERYTHING ELSE: ### NOTHING.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING ABOUT THE ARCHIMEDEAN PLACE** -- b285's typing verdict stands; no finite-arc
+### result types there, and this one does not either.
+### ### **NOTHING ABOUT THE IDENTITY. ### NOTHING ABOUT `h2`**, and nothing claimed beyond the
+### register sentence exact. ### **NOTHING ABOUT THE COMPLETE ROSTER** -- b15's clause governs.
+
+====================================================================================================
+### THE SHADOW. ### **NOTHING BUILT -- AND THE TWO HALVES SEPARATED, CHECKED.**
+====================================================================================================
+### ### **THE RADIUS ARITHMETIC AND THE PER-MEMBER VANISHING ARE FINITE-DECIDABLE** ### -- integer
+### threshold comparisons and exact pairings at named cells.
+### ### **AND COMPILING THEM WOULD CERTIFY THE MEMBERSHIP TEST AND THE PAIRING ROUTINE, NOT THE
+### ### BARRIER'S REACH**, which is the (1b) derivation and is a statement over all levels and
+### places -- ### **NOT FINITE.** ### b288's and b293's refusals, on the same ground, carried.
+### ### **AND THE NONZERO VALUE ITSELF MUST NOT BE COMPILED, FOR A REASON THIS ACT ADDS:** ### a
+### terminal reading ### **"the first-level value is `-1`"** ### would sit in the kernel beside the
+### barrier's terminals with no room to carry the sentence that ### **THE VECTOR IS NOT A `Son`
+### VECTOR.** ### ### **A NUMBER THAT NEEDS A PARAGRAPH TO BE READ CORRECTLY IS THE WORST POSSIBLE
+### ### CANDIDATE FOR A COMPILED TERMINAL.**
+### ### **SO: NOTHING BUILT. ### 0 `.lean` FILES MOVED. ### NO COMPILE CLAIMED.** ### Twenty-second
+### act on this ground.
+
+====================================================================================================
+### THE FALSIFIERS.
+====================================================================================================
+###   X1 a zero from a dead instrument is not a zero .... ### **FIRED FIRST, AT EVERY CELL** ### --
+###      `<A g_0, g_0>` matches b271's banked `4(N-q)` five times
+###   X2 empty and dead members counted and excluded .... ### **FIRED** ### -- `(-1,+1)` is empty at
+###      the level-1 cells and reports ### **CANNOT TEST**
+###   X3 "the hypothesis fails" is not "nonzero" ........ HOLDS -- and it mattered: `(-1,0)` fails
+###      the hypothesis and computes ### ZERO ###
+###   X4 the artifact exposure stated explicitly ........ HOLDS -- ### **NONE, no level-shifting
+###      map appears**
+###   X5 a nonzero value is not a route ................. HOLDS -- three stated in the act's own
+###      words, and a fourth added
+###   X6 every needle from an emitting file ............. HOLDS
+### ### **THE SEATS AGREED (registered before the run) AND WERE ### PARTLY ### RIGHT: ### the
+### ### nonzero exists, and NOT where this seat expected it.** ### This seat expected nonzero
+### wherever `a < 0`; ### **the grid shows `(-1,0)` and `(-1,+1)` are ZERO, and only `(-1,-1)` is
+### not.** ### **THE GRID IS WHY THAT WAS CAUGHT, AND THE GRID EXISTS BECAUSE THE ORBIT ALONE
+### COULD NOT SEPARATE THE TWO SIDES.**
+
+====================================================================================================
+### THE FILINGS, M-2's ROW, AND HANDOFF.
+====================================================================================================
+### ### **`W-ORD-SECOND-ZERO-MECHANISM`** ### -- new. ### The `a < 0, b >= 0` members compute zero
+###   with b270's argument not running. ### **A SECOND MECHANISM IS OPERATING AND IS NOT DERIVED.**
+###   Not claimed beyond the cells computed.
+### ### **`W-ORD-FAMILY-REOPENING`** ### -- (i) met, (ii) and (iii) unmet, ### **UNBANKED.**
+### ### **`W-ORD-PRINT-COVERAGE`, RESTATED:** ### 25 `Core` modules outside the certification file;
+### the risk is not the labour but that a sweep may find a terminal sitting uncertified whose print
+### is not zero axioms. ### **STILL FILED, STILL NOT RUN.**
+### CARRIED: `W-ORD-CORRESPONDENCE-IDEMPOTENCE`, `W-ORD-PICTURE-IDENTIFICATION`,
+###   `W-ORD-WEIGHT-AT-EIGENVALUE-ONE`, `W-ORD-ALLPRINTS-COVERAGE`, `W-ORD-B290-SEARCH-FORM`,
+###   `W-ORD-SCALING-LAW-OWNER`, `W-ORD-CM-BOOK-CH2`, `W-ORD-WSA-PSI-LINK`,
+###   `W-ORD-CC-SCALE-MEANING`, `W-ORD-CC-LOCAL-COPY`, `W-ORD-COMPRESSION-VS-SMEAR`,
+###   `W-ORD-F-STABILITY-PROVENANCE`, `W-ORD-FIBER-GENERAL`, `W-ORD-XI-PERMODE`, b250's
+###   ### S3(a) WALL ### , `W-ORD-TQ-IDENTIFY`, `W-ORD-CN-LAW`, b262's PNT-plus-saddle.
+
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED). ### UNCHANGED BY THIS ACT.**
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+### ### **HANDOFF CURRENT. ### TWENTY-NINE ACTS, b261-b294.**
+### ### **THE NEXT QUESTION, SHAPED BY THIS VERDICT AND ### NOT ATTEMPTED ### :**
+### ### ### **WHY IS `(-1, 0)` ZERO? ### The barrier's argument does not run there and the value
+### ### ### is zero anyway. ### A second mechanism is operating, and until it is derived the
+### ### ### boundary of the barrier's zero is known by computation at five cells and by derivation
+### ### ### only on the `a >= 0` half.** ### `W-ORD-SECOND-ZERO-MECHANISM`. ### **THIS ACT HAS NO
+### OPINION ON WHAT THAT MECHANISM IS.**
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE ACT TESTED A GRID WHERE THE FERRY'S TEXT SUGGESTS OFF-DIAGONAL MEMBERS
+### ### GENERALLY.** ### The first run used the dilation orbit `a + b = 0` alone and returned ###
+### **ZERO EVERYWHERE** ### -- which would have been banked as "the barrier extends to the whole
+### orbit". ### **THAT READING WAS WRONG AND THE GRID CAUGHT IT:** ### the orbit couples a weakened
+### function side to a strengthened transform side, so its zeroes could not be attributed.
+### ### **DECLARED BECAUSE THE ORBIT-ONLY RESULT EXISTED AND WAS ABOUT TO BE THE VERDICT.**
+### ### **(D2) THIS SEAT'S EXPECTATION WAS PARTLY WRONG AND THE BANK SAYS WHERE.** ### It expected
+### nonzero wherever the hypothesis fails; ### **two of the three such members compute ZERO.**
+### ### **(D3) THE NONZERO IS REPORTED AS A BOUNDARY, NOT AS AN OPENING.** ### "The campaign's
+### first nonzero first-level value" is a true sentence and ### **A MISLEADING HEADLINE ON ITS
+### OWN**, so every statement of it in this bank carries the member's name and the fact that the
+### member is a relaxation of the object's own conditions.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### GATES: ### **27 PASS / 0 FAIL / 0 ERROR / 0 REFUSED.**
+### OWNER NEEDLES: 10, ### **0 UNPULLABLE** -- into b270, b271, b280, b281, b284, b285, b293.
+### SELF NEEDLES: 12, 0 unpullable. ### MUST-FAIL FIXTURES: 5, whole-line. ### SUBSTRING-BASED: 0.
+### HEDGE AUDIT ON OWN BANK: ### **0 GRADED HEDGES** ### (448 sentences).
+### FLOAT SCAN ON THE DECIDING RUNNER: ### **ZERO FLOAT TOKENS** -- members by exact elimination
+### over `Fraction`, pairings in `Q(zeta_N)`.
+### NOISE-FLOOR GATE: in the path, EXACT arm at all 5 cells.
+### X1's WITNESS RAN BEFORE ANY ZERO WAS REPORTED, AT EVERY CELL: ### **5 OF 5 MATCH b271.**
+### CORRESPONDENCE: ### **ROW 105**, by the idempotent tool; second run wrote nothing.
+### LEAN: ### **0 `.lean` FILES MOVED.** ### No compile claimed.
+### `SIDE-global-section`: ### **MOVED** ### (`CORRESPONDENCE.md`).
+### `PLACE-papers`: ### **UNTOUCHED** -- no hook, no mirror.
