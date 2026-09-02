@@ -117,6 +117,42 @@ JUDGEMENT = [
                             'with controls -- and b292 ran both and recorded that the symbolic '
                             'arm sufficed, which is an observation only because the other arm '
                             'was also run.'),
+    dict(rule='An orbit is a confounded variable. Vary the factors independently or attribute '
+              'nothing.',
+         incident='b294 -- the first run tested the dilation orbit `a + b = 0` alone and returned '
+                  'ZERO EVERYWHERE, which was ABOUT TO BE BANKED as "the barrier extends to the '
+                  'whole orbit". The orbit couples a WEAKENED function side to a STRENGTHENED '
+                  'transform side, so its zeroes could not say which side caused them. The grid '
+                  '(-1,0), (0,-1), (-1,-1) separated them and the reading was wrong.',
+         why_not_mechanized='A tool cannot know which of an act\'s parameters move together, '
+                            'because that is a fact about what the parameters MEAN. The '
+                            'countermeasure is to name, at registration, which factor each swept '
+                            'coordinate is supposed to isolate -- and to refuse a one-parameter '
+                            'sweep whose coordinate moves two of them.'),
+    dict(rule='A true statement is not compiled when the medium cannot carry its scope.',
+         incident='b294 -- the nonzero first-level value IS finite-decidable and WAS refused. A '
+                  'terminal reading "the first-level value is -1" would sit in the kernel beside '
+                  'the barrier\'s terminals with no room to carry the sentence that the vector is '
+                  'NOT a `Son` vector. b293 refused on the neighbouring ground: a compiled '
+                  'terminal would have certified the truncation and carried the family\'s name.',
+         why_not_mechanized='Whether a name and a statement carry the scope that a surrounding '
+                            'paragraph carries is a judgement about reading, not a property a '
+                            'checker can measure. The countermeasure is the question asked '
+                            'aloud before the build: what would a reader who saw ONLY this '
+                            'terminal believe, and is that true?'),
+    dict(rule='A quadratic verdict read off a basis is not a verdict about the space -- unless '
+              'the form is symmetric, and that is checked rather than assumed.',
+         incident='b295 -- b294 answered "does this member give zero?" by computing `<A v, v>` on '
+                  'each vector of ONE basis and reporting ZERO on 10 of 10. b281 had ALREADY '
+                  'decided, in its own voice, that the form is NEITHER HERMITIAN NOR SYMMETRIC. '
+                  'The cross terms are not recovered from the diagonal: at (2,2) the member '
+                  '`Son(2,2; -1,0)` contains `v_1 + v_6` with value 4/3, and TEN of its basis '
+                  'vectors have value zero. Ten such members across six cells.',
+         why_not_mechanized='Nothing distinguishes a per-vector loop that MEANS "for each basis '
+                            'vector" from one that MEANS "for the span"; the intent lives in the '
+                            'sentence the act writes afterwards. The countermeasure is to carry '
+                            'the form\'s TYPE next to every verdict read from it, and to compute '
+                            'the whole matrix whenever the type is not symmetric.'),
     dict(rule='A print width is not a datum -- and neither is an arithmetic done in the head.',
          incident='b274 -- a pre-seal probe printed only red[:4] and INFERRED rationality, '
                   'computing fictitious values 2/7, 1/6, 1/5, 4/15. The conclusion survived; the '

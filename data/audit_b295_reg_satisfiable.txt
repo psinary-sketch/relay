@@ -1,0 +1,26 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b295_registration_2026-09-02.txt  (M-2 CAMPAIGN, THE SECOND MECHANISM)
+  clauses      : 6
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (J1) single allocation <= 64 MB    64               1                MB     SATISFIABLE
+      demand from : A is a SPARSE dict of ~N*|C| rational entries -- at (3,2) that is ~324 entries; at the new cell (2,3), N=64, |C|=7, ~448. No dense N x N operator is materialized. The largest dense object is a member basis, at most 80 x 81 rationals.
+  (J2) exact-arithmetic degree cap   1024             162              deg    SATISFIABLE
+      demand from : the cyclotomic arm runs only on the exhibited witnesses and on Z1's not-dead witness; unreduced products have degree < 2N = 162 at the largest cell (3,2). The FORM MATRIX itself is RATIONAL, since b281 (emitting) decided A is a rational matrix and the member bases are rational, so no cyclotomic arithmetic enters the deciding sweep.
+  (J3) runtime <= 900 s              900              300              s      SATISFIABLE
+      demand from : six cells; per cell a full (a,b) grid of members, each needing one exact elimination and a dim x dim form matrix whose every entry is a sum over the BALL ONLY (q <= 9 terms), because A f is ball-supported. Scaled from b293's and b294's measured runs at the same five cells, plus (2,3) at N=64.
+  (J4) eigen-decompositions, ladders 0                0                each   SATISFIABLE
+      demand from : every value is an exact rational or an exact element of Q(zeta_N). No spectrum, no ladder, no float token in the deciding runner.
+  (J5) level-shifting maps applied   0                0                maps   SATISFIABLE
+      demand from : THE ESCAPED-MASS ARTIFACT (b284, b293) LIVES IN g AND h. This act applies NO level-shifting map: members are defined by radii and the pairing is b273's A at k = n, within one level. The cap is zero and the demand is zero BY CONSTRUCTION, and Z5 requires the act to say so rather than leave it inferred.
+  (J6) prior acts re-verdicted       0                0                acts   SATISFIABLE
+      demand from : b294's MEASUREMENTS are reproduced, not overturned; what this act may correct is an INFERENCE FROM them. b280 and b281 are re-measured by Z8 on this act's own stronger instrument and must return identically zero. Zero grades move.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**

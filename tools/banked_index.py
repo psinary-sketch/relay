@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'second-zero-mechanism': ['second mechanism', 'second zero mechanism',
+                              'the first-level pairing', 'the barrier', 'the pairing',
+                              'two-radius vanishing criterion'],
     'identity': ['the identity', 'file e', 'l-identity', 'finite-instance identity', 'h2'],
     'e1-even-bridge': ['e1/even', 'e1 even', 'sector correspondence', 'the bridge'],
     'sector-occupancy': ['sector occupancy', 'arity', 'four sectors'],
@@ -332,6 +335,23 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PAIRING/BARRIER LANE'S FIRST KEY (b295). ### **UNTIL THIS ROW THE LANE HAD NONE,
+    # ### SO EVERY QUERY ABOUT IT COULD ONLY MISS -- b181's lane limit, live in a new place.**
+    ("second-zero-mechanism", "b270 (the barrier's hypothesis) / b280-b281 (the diagonal) / "
+     "b294 (the grid, and the reading corrected at b295) / b295 (the criterion)",
+     "the first-level pairing <A .,.> at k = n vanishes IDENTICALLY -- as a FORM, both slots -- on"
+     " Son(p,n; a,b) whenever a >= 0 OR b >= n-1; the function-side threshold is the object's own"
+     " radius and does not move, the transform-side threshold is n-1 and moves with the level, and"
+     " they coincide at level 1 and nowhere else. b294's zero on Son(p,n; -1,0) is DERIVED at"
+     " level 1 and is NOT a zero above it: Son(2,2; -1,0) contains e_2-e_6+e_4-e_12 with value 4/3",
+     "### DERIVED for sufficiency (b295, from b270's pairing, b281's A, b293's collapse);"
+     " ### NECESSITY MEASURED at 80 members over six cells and NOT DERIVED"
+     " (W-ORD-CRITERION-NECESSITY). ### b280 and b281 are NOT re-verdicted -- b295 re-measured"
+     " every a >= 0 member on the FULL form and got identically zero, 40 of 40."
+     " ### NOT A ROUTE: every nonzero member weakens the object's FIRST condition and every"
+     " witness has mass ON the ball, which that condition forbids. ### M-2 unchanged",
+     "data/b295_the_second_mechanism.txt; data/b295_mechanism_run.txt;"
+     " CORRESPONDENCE.md row 106"),
     # ### THE CLOSE'S ROWS (b225).
     ("quarter-density", "b57/b198 (finite) / b211-b212 (archimedean) / b225 (filed)",
      "each F-sector carries one quarter: at odd q EXACTLY one quarter at every level"
