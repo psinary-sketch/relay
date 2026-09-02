@@ -103,6 +103,20 @@ JUDGEMENT = [
          why_not_mechanized='Deciding whether a computation falls inside a lemma\'s domain '
                             'requires reading the lemma. The countermeasure is a registered '
                             'falsifier forbidding the word "refuted" until the domain is read.'),
+    dict(rule='Search in words as well as symbols. A symbolic-only search is half a search.',
+         incident='b278->b279 -- the tower definition was recorded ABSENT after a search of the '
+                  'act stream for the defined term; it sat in a source document under the phrase '
+                  '"the local Sonin closures", a sentence that never names what it defines. '
+                  'b286->b287 -- the bridging statements were recorded missing after an '
+                  "Introduction-only read; they sit in section 4 (ADJACENT species: the DEPTH "
+                  'of the search, not its FORM, labelled adjacent not counted the same). '
+                  'b290->b291 -- the involutivity was recorded used-not-stated after a search for '
+                  'symbolic forms and the stem "involut"; the source says it in plain English.',
+         why_not_mechanized='A tool cannot guess which words an author chose for a fact it states '
+                            'without symbols. The countermeasure is a habit -- run both forms, '
+                            'with controls -- and b292 ran both and recorded that the symbolic '
+                            'arm sufficed, which is an observation only because the other arm '
+                            'was also run.'),
     dict(rule='A print width is not a datum -- and neither is an arithmetic done in the head.',
          incident='b274 -- a pre-seal probe printed only red[:4] and INFERRED rationality, '
                   'computing fictitious values 2/7, 1/6, 1/5, 4/15. The conclusion survived; the '

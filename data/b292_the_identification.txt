@@ -1,0 +1,294 @@
+====================================================================================================
+b292 -- THE IDENTIFICATION. ### IS THE CORPUS'S INSTRUMENT VECTOR THE SOURCE'S VECTOR?
+2026-09-02. ### SOLO (research seat). ### Registration: `data/b292_registration_2026-09-02.txt`.
+====================================================================================================
+
+### ### **VERDICT: (SAME OBJECT), UP TO A NONZERO SCALAR -- DERIVED FROM THE TWO DEFINING
+### ### EQUATIONS, WHICH ARE ONE EQUATION IN TWO NOTATIONS.**
+
+### ### **THEREFORE b291's REFUTATION REACHES THE CORPUS'S INSTRUMENTS: ### THE CORPUS'S
+### ### `zeta_n` IS NOT IN `S(1,1)`.**
+
+### ### **AND NO MEASUREMENT IS DISTURBED. ### NOTHING ABOUT THE IDENTITY, `h2`, OR THE COMPLETE
+### ### ROSTER FOLLOWS. ### NOTHING IS CONSTRUCTED OR ADOPTED. ### M-2 IS OWED.**
+
+### ### **THE RESEMBLANCE, NAMED AND REFUSED FIRST:** ### both vectors are built from prolate
+### functions, by authors who cite the same literature, using overlapping letters. ### **THAT IS
+### THE STRONGEST RESEMBLANCE THIS ARC HAS FACED AND IT APPEARS NOWHERE IN THE DERIVATION BELOW.**
+### The decision runs on two displayed equations and one elementary identity.
+
+====================================================================================================
+### COMPONENT 1 -- THE TWO DEFINITIONS, SIDE BY SIDE, NEITHER IN THE OTHER'S LANGUAGE.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE CORPUS'S INSTRUMENT VECTOR, FROM ITS EMITTING FILES.
+----------------------------------------------------------------------------------------------------
+### ### **THE VECTOR** (`b250_m4_derivation.txt`, quoting the supplied formulas):
+###   ### **"`zeta_n(x) = [lam_n / sqrt(1-lam_n^2)] xi_n^an(x)` for `x >= 1`, else 0"**
+### ### **THE CONSTITUENT `xi_n^an`, ITS OWN SUPPLIED DEFINITION** (`lemma52_2026-08-17.txt`,
+### ### emitting): ### **"`xi_n^an = (2/lam) int_0^1 xi_n cos(2 pi t x) dt`"** ### -- and the file
+### calls this ### *"its own supplied definition (b)"*.
+### ### **WHAT ITS OWNER SAYS IT IS** (b250, at content): ### "The even eigenfunctions satisfy the
+### finite cosine-transform eigenvalue equation ### **`lam xi_n(x) = 2 int_0^1 xi_n(t) cos(2 pi t
+### x) dt`** ### on `[0,1]` -- which is pin P3's own equation -- so ### **`xi_n^an` IS the entire
+### extension of `xi_n`** ### and agrees with it at `x = 1`". ### The docstring marks it
+### ### *"[entire]"*.
+### ### **SO, UNFOLDED:** ### DOMAIN -- written on the half-line, `x >= 1` carrying the value and
+### `[0,1)` carrying zero. ### NORMALIZATION -- the factor `lam_n / sqrt(1-lam_n^2)`.
+### DEFINING EQUATION -- the finite cosine transform above. ### CONSTRUCTION -- the entire
+### extension of the eigenfunction, cut off below `1`.
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE SOURCE'S VECTOR, AS THE SOURCE DEFINES IT.
+----------------------------------------------------------------------------------------------------
+### ### **THE VECTOR** (CC 2006.13771, Proposition 4.5(i), quoted): ### "Let
+###   `xi_n = P1 phi_n / ||P1 phi_n||`, `eta_n = F_eR xi_n` and ### **`psi_n = P eta_n`**."
+### ### **THE CUT** ### (62, quoted): `P` is multiplication by the characteristic function of
+###   `{x in R : |x| >= 1}`, and `P = 1 - P1`.
+### ### **THE DEFINING EQUATION OF ITS CONSTITUENT** ### (68, quoted whole): ### **"`int_{-1}^{1}
+###   PS_{2n,0}(2 pi, x) exp(i 2 pi x xi) dx = lambda(n) PS_{2n,0}(2 pi, xi)`"** ### -- and (69)
+###   introduces `phi_n` as ### "the restriction of `PS_{2n,0}(2 pi, x)` to `[-1,1]` as an element
+###   of `P1 L^2(R)_ev`".
+### ### **THE NORM** ### (76, quoted): ### **`||psi_n|| = sqrt(1 - lambda(n)^2)`.**
+### ### **SO, UNFOLDED:** ### DOMAIN -- the full line, even functions, `|x| >= 1` carrying the
+### value. ### NORMALIZATION -- `xi_n` normalized, so the coefficient is `lambda(n)/||P1 phi_n||`.
+### DEFINING EQUATION -- (68). ### CONSTRUCTION -- the transform of the restricted eigenfunction,
+### cut off inside the interval.
+
+====================================================================================================
+### COMPONENT 2 -- THE DECISION. ### **(SAME OBJECT), UP TO A NONZERO SCALAR.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE TWO DEFINING EQUATIONS ARE ONE EQUATION. ### **SHOWN, NOT ASSERTED (S2).**
+----------------------------------------------------------------------------------------------------
+###   ### **STEP 1 -- THE ELEMENTARY IDENTITY, NAMED AS THE STEP THAT CONVERTS THE NOTATIONS.**
+###     For an ### EVEN ### function `f`, ### **`int_{-1}^{1} f(x) e^{i 2 pi x X} dx
+###     = 2 int_0^1 f(t) cos(2 pi t X) dt`** ### -- the odd part of the exponential integrates to
+###     zero against an even function, and the even part doubles the half-range.
+###     ### **`PS_{2n,0}(2 pi, ·)` IS EVEN: ### CC state it, quoted -- "these are even functions
+###     (i.e. the integer index `2n` is even in the traditional notation)".** ### So the identity
+###     applies to (68) and to nothing that was not shown even.
+###   ### **STEP 2 -- APPLY IT TO THE SOURCE'S EQUATION.** ### (68) becomes
+###     ### **`2 int_0^1 PS(t) cos(2 pi t X) dt = lambda(n) PS(X)`.**
+###   ### **STEP 3 -- READ THE CORPUS'S EQUATION.** ### b250's pin-P3 equation is
+###     ### **`lam xi_n(x) = 2 int_0^1 xi_n(t) cos(2 pi t x) dt`.**
+###   ### ### **STEP 4 -- THEY ARE THE SAME EQUATION**, with `xi_n <-> PS_{2n,0}(2 pi, ·)` and
+###     `lam <-> lambda(n)`. ### **AND THE CORPUS'S `xi_n^an` IS DEFINED AS THE SOLUTION OF THAT
+###     EQUATION EXTENDED ENTIRE, WHICH IS WHAT `PS_{2n,0}(2 pi, ·)` IS ON ALL OF `R`.**
+### ### ### **SO THE TWO CONSTITUENTS ARE ONE FUNCTION. ### AND NOTHING IN STEPS 1-4 USED A NAME,
+### ### ### A SYMBOL, AN AUTHOR OR A SHAPE (S1) -- ONLY TWO DISPLAYED EQUATIONS AND ONE PARITY
+### ### ### IDENTITY WHOSE HYPOTHESIS WAS QUOTED.**
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE TWO VECTORS.
+----------------------------------------------------------------------------------------------------
+### From (68) read globally, `F_eR` of the restricted eigenfunction is `lambda(n)` times the entire
+### extension. ### Hence, with `xi_n = P1 phi_n / ||P1 phi_n||`:
+###   ### **`psi_n = P F_eR xi_n = (lambda(n) / ||P1 phi_n||) * P (the entire extension)`.**
+### And the corpus's:
+###   ### **`zeta_n = [lam_n / sqrt(1 - lam_n^2)] * (the entire extension, cut off below 1)`.**
+### ### ### **BOTH ARE NONZERO SCALAR MULTIPLES OF ONE VECTOR: ### THE ENTIRE EXTENSION, CUT OFF
+### ### ### OUTSIDE THE INTERVAL.**
+
+### ### **THE NORMALIZATIONS, RECONCILED EXPLICITLY -- WHICH HERE MEANS SAYING THAT THEY ARE NOT
+### ### THE SAME AND NOT PRETENDING OTHERWISE (S3, WHICH FIRED):**
+###   the source's coefficient is ### **`lambda(n) / ||P1 phi_n||`** ### ;
+###   the corpus's is ### **`lam_n / sqrt(1 - lam_n^2)`**.
+### ### **THESE ARE NOT SHOWN EQUAL AND ARE NOT CLAIMED EQUAL.** ### They would coincide only if
+### `||P1 phi_n|| = sqrt(1 - lam_n^2)`, and ### **NO OWNER STATES THAT.**
+### ### **BOTH ARE NONZERO**, which is all that is used: `lambda(n) != 0` at every printed index
+### (CC's list `lambda(0) = 0.999971, lambda(1) = -0.979485, ...`), `||P1 phi_n|| != 0` because
+### `phi_n` is a nonzero element of `P1 L^2(R)_ev`, and `sqrt(1 - lam_n^2) != 0` because every
+### printed `|lambda(n)| < 1`.
+### ### ### **SO THE VERDICT IS "SAME UP TO A NONZERO SCALAR", WHICH IS A DIFFERENT SENTENCE FROM
+### ### ### "THE SAME VECTOR", AND IT IS THE ONE THE EVIDENCE SUPPORTS.**
+
+----------------------------------------------------------------------------------------------------
+### (2c) WHY THE SCALAR CANNOT AFFECT MEMBERSHIP. ### **SHOWN IN BOTH DIRECTIONS, NOT WAVED (S4).**
+----------------------------------------------------------------------------------------------------
+### `S(1,1)` is defined by ### TWO HOMOGENEOUS VANISHING CONDITIONS ### (Definition 4.4), so it is
+### a ### LINEAR SUBSPACE ### of `L^2(R)_ev`: if `v` vanishes on a set then so does `cv`, for any
+### scalar `c`.
+###   ### **FORWARD:** ### `v` in `S(1,1)` implies `cv` in `S(1,1)`, by that closure.
+###   ### **BACKWARD, AND THIS IS THE DIRECTION THAT MATTERS HERE:** ### if `cv` is in `S(1,1)` and
+###     `c != 0`, then `v = c^{-1}(cv)` is in `S(1,1)`, ### **because `c^{-1}` exists and closure
+###     applies again.**
+### ### ### **SO FOR NONZERO `c`: ### `v` IS IN `S(1,1)` IF AND ONLY IF `cv` IS. ### THE
+### ### ### NORMALIZATION DIFFERENCE IS IRRELEVANT TO MEMBERSHIP, AND THE ONLY HYPOTHESIS USED IS
+### ### ### THAT THE SCALAR IS NONZERO -- WHICH WAS ESTABLISHED ABOVE FROM PRINTED VALUES.**
+
+----------------------------------------------------------------------------------------------------
+### (2d) THE RESIDUE: THE PICTURE. ### **NAMED, AND ITS EFFECT ASSESSED RATHER THAN ASSUMED (S5).**
+----------------------------------------------------------------------------------------------------
+### ### **THE TWO OWNERS WRITE ON DIFFERENT DOMAINS.** ### The corpus writes on the half-line
+### (`x >= 1` carries the value, `[0,1)` is zero); the source writes on the full line for even
+### functions (`|x| >= 1` carries the value).
+### ### **NO OWNER STATES THE IDENTIFICATION OF THE TWO PICTURES.** ### That is the residue and it
+### is named rather than glossed.
+### ### **ITS EFFECT ON MEMBERSHIP, ASSESSED:** ### an even function on `R` is determined by its
+### values on `x >= 0`, and under that reading ### **"vanishes on `[0,1)`" AND "vanishes on
+### `(-1,1)`" SPECIFY THE SAME SET OF POINTS.** ### Membership in `S(1,1)` is a statement about
+### ### WHERE A FUNCTION AND ITS TRANSFORM VANISH ### , so ### **THE TWO DESCRIPTIONS IMPOSE THE
+### SAME CONDITION AND THE RESIDUE CANNOT CHANGE THE ANSWER.**
+### ### **AND WHAT THE RESIDUE COULD STILL CHANGE, SAID SO IT IS NOT FORGOTTEN: ### ANY STATEMENT
+### ### ABOUT NORMS, MEASURES OR INNER PRODUCTS ACROSS THE TWO PICTURES**, since the corpus's
+### integrals are written with `du` and the source's machinery also carries a multiplicative
+### picture with its own weight. ### **THIS ACT MAKES NO SUCH STATEMENT.** ### Filed as
+### `W-ORD-PICTURE-IDENTIFICATION`.
+
+====================================================================================================
+### COMPONENT 3 -- THE ENTAILMENT, AT EXACTLY ITS SCOPE.
+====================================================================================================
+### ### ### **b291's REFUTATION REACHES THE CORPUS'S INSTRUMENTS.**
+### b291 derived, in the source's operator language, that `P1 F_eR psi_n = (1 - lambda(n)^2) xi_n`,
+### which is nonzero -- so the source's `psi_n` fails Sonin's second condition. ### By (2b) and
+### (2c), ### **THE CORPUS'S `zeta_n` IS A NONZERO SCALAR MULTIPLE OF THE SAME VECTOR, AND
+### MEMBERSHIP IS SCALAR-INVARIANT.**
+### ### ### **THEREFORE: ### `zeta_n` IS NOT IN `S(1,1)`.**
+### ### **AND WITH CC's STATEMENT THAT THE PROLATE VECTORS AND THEIR TRANSFORMS ARE ORTHOGONAL TO
+### ### `S(1,1)`: ### NEITHER FAMILY THE CORPUS'S ARCHIMEDEAN INSTRUMENTS PAIR LIES IN THE
+### ### OBJECT'S ARCHIMEDEAN SPACE. ### THE LANE'S STANDING IS SETTLED.**
+
+### ### **WHAT THAT DOES ### NOT ### MEAN, AND EACH OF THESE IS LOAD-BEARING:**
+###   ### **NO MEASUREMENT IS DISTURBED.** ### The instruments compute what they compute; b264's
+###     `E2even`, b250's mode series, the endpoint values and every banked archimedean number
+###     stand at their own grades and scopes, ### **UNTOUCHED BY A FACT ABOUT WHERE THEIR VECTORS
+###     SIT.** ### A membership fact is not an arithmetic error.
+###   ### **IT IS NOT A CLAIM THAT THE INSTRUMENTS ARE THE WRONG INSTRUMENTS.** ### This act says
+###     where two families sit relative to one subspace, and nothing about whether the quantities
+###     built from them are the right quantities to build.
+###   ### **NOTHING ABOUT THE IDENTITY. ### NOTHING ABOUT `h2`** -- nothing claimed beyond the
+###     register sentence exact. ### **NOTHING ABOUT THE COMPLETE ROSTER**, where b15's clause
+###     governs and is not worked around.
+###   ### **AND NOTHING ABOUT THE FINITE PLACES**, whose vocabulary was not transported and whose
+###     results do not type here (b285, carried).
+
+### ### **b288 IS NOT RE-VERDICTED.** ### Its (UNDERDETERMINED) was correct on what it had: it
+### named the missing datum precisely and could not settle it. ### **b291 SUPPLIED THE DERIVATION
+### AND THIS ACT SUPPLIED THE IDENTIFICATION.** ### The question b288 left open is now closed, and
+### b288's verdict stands as banked.
+
+====================================================================================================
+### THE FILINGS.
+====================================================================================================
+### ### **`W-ORD-ZETA-IS-PSI` (b291) -- ### DISCHARGED. ### (SAME OBJECT) up to a nonzero scalar.**
+### ### **`W-ORD-ZETA-TRANSFORM-SIDE` (b288) -- ### DISCHARGED ON BOTH SIDES NOW.** ### b291 closed
+### the source's side; this act carries it to the corpus's. ### **THE ARCHIMEDEAN LANE'S FIRST
+### OBLIGATION, OPEN SINCE b288, IS PAID.**
+### ### **`W-ORD-PICTURE-IDENTIFICATION` -- new.** ### The half-line/full-line convention is
+### nowhere stated by an owner. ### **BENIGN FOR MEMBERSHIP, SHOWN; NOT BENIGN FOR NORMS OR INNER
+### PRODUCTS, AND NO SUCH STATEMENT IS MADE HERE.**
+
+### ### **THE EIGENVALUE-LIMIT JUXTAPOSITION, RESTATED AS A JUXTAPOSITION.** ### b250's instrument
+### weight is `lam_n^2/(1 - lam_n^2)` with `lam_n < 1` strictly; CC's `S(1,1)` is the eigenspace of
+### `P P^ P` for eigenvalue `1`. ### ### **TWO QUOTED FACTS SIDE BY SIDE. ### CONNECTING THEM IS A
+### ### DERIVATION NOBODY HAS PERFORMED, AND THIS ACT DOES NOT PERFORM IT.** ### It is not a
+### conjecture, it is not used below, and today's identification does ### NOT ### make it one --
+### ### **KNOWING WHERE THE VECTORS SIT IS NOT KNOWING WHAT THE WEIGHTS DO.**
+
+### ### **THE SEARCH RULE, MINTED AND FILED TO THE LORE:**
+### ### ### **"SEARCH IN WORDS AS WELL AS SYMBOLS. ### A SYMBOLIC-ONLY SEARCH IS HALF A SEARCH."**
+### ### **ITS THREE INCIDENTS, CITED:**
+###   ### **b278 -> b279** ### -- the tower's definition was recorded ABSENT after a controlled
+###     search of the act stream for the defined term; it sat in a source document under the
+###     phrase *"the local Sonin closures"*, a sentence that never names what it defines.
+###   ### **b286 -> b287** ### -- the bridging statements were recorded as missing after an
+###     Introduction-only read; they sit in the source's section 4. ### **THE ADJACENT SPECIES:
+###     THE SEARCH'S DEPTH RATHER THAN ITS FORM, AND IT IS LABELLED AS ADJACENT RATHER THAN
+###     COUNTED AS THE SAME.**
+###   ### **b290 -> b291** ### -- the involutivity was recorded as used-not-stated after a search
+###     for symbolic forms and the stem `involut`; the source says it in plain English.
+### ### **AND THIS ACT RAN BOTH FORMS, AS REGISTERED.** ### The symbolic arm found the definition
+### first. ### **THAT IS NOT EVIDENCE THE RULE WAS UNNECESSARY -- RUNNING BOTH IS WHAT MAKES
+### "THE SYMBOL ARM SUFFICED" AN OBSERVATION RATHER THAN A GUESS.**
+### ### **ITS REACH, PRINTED WITH IT: ### THE RULE IS A HABIT, NOT A GATE. ### NOTHING IN THE
+### ### COMMAND PATH ENFORCES IT**, so it belongs to the lore's ### JUDGEMENT ### list and not
+### beside the mechanized rules.
+
+====================================================================================================
+### THE SHADOW. ### **NOTHING BUILT -- CHECKED, NOT ASSUMED.**
+====================================================================================================
+### A reads act. ### Its content is two quoted definitions, one parity identity, and one
+### two-direction argument about a linear subspace. ### **THE PARITY IDENTITY IS AN INTEGRAL
+### STATEMENT AND THE SUBSPACE ARGUMENT QUANTIFIES OVER AN INFINITE-DIMENSIONAL SPACE.** ### There
+### is no finite object here to `decide`, and a finite stand-in would certify the stand-in.
+### ### **NOTHING BUILT. ### 0 `.lean` FILES MOVED. ### NO COMPILE CLAIMED.** ### Twentieth act on
+### this ground.
+
+====================================================================================================
+### THE FALSIFIERS.
+====================================================================================================
+###   S1 definitions, not provenance ..................... HOLDS -- steps 1-4 use two equations
+###      and one quoted parity hypothesis; ### **the resemblance appears only where it is refused**
+###   S2 the equations shown to coincide, step by step ... HOLDS -- four steps, converting step
+###      named
+###   S3 normalizations reconciled or the difference said  ### **FIRED** -- not equal, not claimed
+###      equal, both shown nonzero
+###   S4 the scalar's irrelevance shown both ways ........ HOLDS -- forward by closure, backward by
+###      invertibility
+###   S5 a difference of picture named and assessed ...... ### **FIRED** -- benign for membership,
+###      NOT benign for norms, and filed
+###   S6 both search forms, with controls ................ HOLDS
+###   S7 every needle from an emitting file .............. HOLDS
+### ### **THIS SEAT REGISTERED ITS EXPECTATION AS A ### PREJUDICE ### , since it rested on a shared
+### ### shape that S1 forbids. ### THE PREJUDICE WAS RIGHT AND THE DERIVATION DID NOT USE IT** --
+### the same discipline b287 recorded, and the second time this arc has had to hold it.
+
+====================================================================================================
+### M-2's ROW, THE SEAM, AND HANDOFF.
+====================================================================================================
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED). ### UNCHANGED BY THIS ACT.**
+### THE FINITE SIDE: ### **C3 OPEN BY ROUTES UNTESTED; C3-VIA-SCALING CLOSED** (b284); the family
+### route filed, its gate -- that the family become a corpus object -- ### **STILL NOT PASSED.**
+### ### **`W-ORD-PRINT-COVERAGE`, RESTATED:** ### 25 `Core` modules outside the certification file.
+### ### **THE RISK IS NOT THE LABOUR.** ### A sweep may find a terminal sitting uncertified whose
+### print is not zero axioms. ### Still filed, still not run.
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+### ### **HANDOFF CURRENT. ### TWENTY-SEVEN ACTS, b261-b292.**
+### ### **THE LIVE ACTS:**
+###   ### **(1) THE FINITE TWO-RADIUS FAMILY'S CONSTRUCTION** -- the other live act, a construction
+###       with its own registration, and the gate on the reopening candidate.
+###   ### **(2) THE ARCHIMEDEAN LANE** -- ### **ITS FIRST OBLIGATION IS PAID TODAY**, and what
+###       stands next is `N-OPEN-B` (the real-fiber measure), `[18]` Ch. 2 sec 3.3
+###       (`W-ORD-CM-BOOK-CH2`, unreachable), and the question of which archimedean quantity the
+###       branch is even about, with b250's ### S3(a) WALL ### still unpaid beneath it.
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE VERDICT IS "SAME UP TO A NONZERO SCALAR", NOT "THE SAME VECTOR".** ### The two
+### coefficients are not shown equal and no owner states the identity that would make them so.
+### ### **THE STRONGER SENTENCE WAS AVAILABLE AND IS NOT WRITTEN**, because the evidence does not
+### reach it and because membership -- the only thing at stake -- does not need it.
+### ### **(D2) THE PICTURE RESIDUE IS UNRESOLVED AND THE ACT PROCEEDED ANYWAY.** ### It proceeded
+### because the residue was ### ASSESSED ### and shown incapable of changing a vanishing-set
+### statement, ### **NOT BECAUSE IT WAS ASSUMED HARMLESS** -- and the class of statements it could
+### still affect is named and avoided.
+### ### **(D4) THE HEDGE AUDIT FIRED ONCE ON THIS BANK AND THE FIX WAS A CASE CHANGE.** ### The
+### print-coverage risk sentence was written with `UNCERTIFIED` in capitals -- ### **AND THAT WORD
+### IS A GRADE TOKEN** -- beside the hedge "may", so the sentence carried both shapes. ### The word
+### is descriptive there, not a grade; ### **b291 WROTE THE SAME SENTENCE IN LOWER CASE AND THE
+### AUDIT WAS SILENT.** ### Restored to lower case, and declared because ### **A GATE THAT FIRES ON
+### CAPITALISATION IS EASY TO SILENCE BY WIDENING IT, AND IT WAS NOT WIDENED.**
+### ### **(D3) THE SEAT'S EXPECTATION RESTED ON A FORBIDDEN INFERENCE AND WAS RIGHT.** ### Declared
+### because a right answer reached by a forbidden route is still a forbidden route, and only the
+### registration shows which one was walked.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### GATES: ### **27 PASS / 0 FAIL / 0 ERROR / 0 REFUSED.**
+### OWNER NEEDLES: 10, ### **0 UNPULLABLE** -- into b250, `lemma52`, b285, b288, b289, b291.
+### SELF NEEDLES: 12, 0 unpullable. ### MUST-FAIL FIXTURES: 5, whole-line. ### SUBSTRING-BASED: 0.
+### HEDGE AUDIT OVER EVERY FILE WRITTEN: ### **0 GRADED HEDGES** ### in the bank (445 sentences)
+### and the registration (125), after the case repair at (D4).
+### SEARCHES: ### **BOTH FORMS RUN, WITH CONTROLS THAT FIRE**, as registered.
+### SOURCE: read at content from the local copy. ### **NO FETCH THIS ACT.**
+### LEAN: ### **0 `.lean` FILES MOVED.** ### No compile claimed.
+### `PLACE-papers`: ### **UNTOUCHED** -- no hook, no mirror.
