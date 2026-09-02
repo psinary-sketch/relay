@@ -1,0 +1,32 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b299_registration_2026-09-02.txt  (M-2 CAMPAIGN, THE ARC KEYSTONE)
+  clauses      : 9
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (N1) single allocation <= 64 MB    64               1                MB     SATISFIABLE
+      demand from : THE_GLOBAL_SECTION.md is ~300 KB and THE_IDENTITY_CHAIN.md ~217 KB, each read once and appended once; fourteen bank files opened for substring checks; the emitted document is a few tens of KB. No dense object is formed.
+  (N2) lines DELETED from any existi 0                0                lines  SATISFIABLE
+      demand from : Q-NOGRADE. The document is NEW and the keystone changes are APPENDS, so the deletion count is zero by construction. The check is `git diff --numstat` inside the committed tool, a measurement and not a reading. A keystone edit that deletes a line has moved a grade whatever it says about itself.
+  (N3) files touched under a deposit 0                0                files  SATISFIABLE
+      demand from : Q-NODEPOSIT. Deposited texts move ONLY by errata and a new version. THE_GLOBAL_SECTION.md and THE_IDENTITY_CHAIN.md were read at their heads before this seal and are working-HEAD support-layer build documents: neither is frozen and neither is errata-only. The deposited records are elsewhere and this act does not reach them.
+  (N4) unfindable quotations tolerat 0                0                quotations SATISFIABLE
+      demand from : Q-QUOTE. The tool GENERATES the document and checks every claim's quotation verbatim against the act that ORIGINATED it BEFORE emission, so one unfindable quotation emits nothing at all. The discrimination arm feeds an ALTERED quotation to the same matcher and requires it to come back unfindable.
+  (N5) numbers in the act's report s 0                0                numbers SATISFIABLE
+      demand from : Q-NOADHOC, and this is the act's own binding constraint. W-ORD-ADHOC-CHECK-FIXTURES was filed at b298 after shell-typed checks misreported in three consecutive acts: b296's tally, b297's blank-cell scan, b298's float and artifact regexes and its profile BOM. THE TOOL IS WRITTEN TO PRINT EVERY COUNT THE BANK WILL QUOTE. The demand is zero because the tool covers the reported set, and this is the clause most easily broken by habit rather than by intent.
+  (N6) new mathematical content intr 0                0                statements SATISFIABLE
+      demand from : A support-voice document states what its acts built. Every sentence of substance is either a quotation from an owning act or a placement sentence about where that act's result sits. The act derives nothing, and if it finds itself deriving it has left its scope.
+  (N7) grades moved or acts re-verdi 0                0                acts   SATISFIABLE
+      demand from : Every grade in the document is TRANSCRIBED from its owning act's own bank. The fold's rule, carried: the document STATES grades and CONFERS none.
+  (N8) PLACE-papers paths staged out 0                0                paths  SATISFIABLE
+      demand from : Q-HOOK. Staging goes through tools/place_add.py and nothing else; the tool refuses -A, . and -u outright and refuses any foreign-seat prefix. This act stages three PLACE-papers paths -- the new document and the two keystones -- and the hook's result is reported whether it passes or refuses.
+  (N9) network fetches and third-par 0                0                each   SATISFIABLE
+      demand from : NOTHING CIRCULATES. No source is fetched and no third-party text is copied in; W-ORD-CC-LOCAL-COPY remains the author's to rule.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
