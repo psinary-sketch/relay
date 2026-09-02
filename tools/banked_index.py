@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'm2-arc-fold': ['the fold', 'the arc fold', 'b283-b296', 'the m-2 arc',
+                    'the second arc'],
+    'kernel-plan': ['the kernel plan', 'kernel build', 'what to compile',
+                    'the build candidates'],
     'threshold-asymmetry': ['the asymmetry', 'asymmetry', 'the two thresholds',
                             'reading scale', "the operator's reading scale"],
     'criterion-sharpness': ['sharpness', 'the sharpness', 'necessity of the criterion',
@@ -339,6 +343,43 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ARC'S OWN FILING ROWS (b297).
+    ("m2-arc-fold", "b297 (filed) -- the arc is b283-b296, fourteen acts",
+     "the M-2 campaign's second arc, folded into FINDINGS.md as one dated section: the tower map"
+     " is a filtration and not an action (b283); no dilation preserves the object's space, failing"
+     " dually with the units as the leftover (b284); the archimedean space is"
+     " (NAMED-NOT-CONSTRUCTED) in the corpus and (SUPPLIED BY SOURCE) as L^2(R)_ev with two"
+     " conditions at cutoff [-1,1] (b285-b287); the corpus's two descriptions name one space"
+     " (b287); the archimedean product is invariant under dilation and the transform reflects the"
+     " family, with S(1,1) self-dual (b288, b291); the instrument vectors are the source's and lie"
+     " outside the object's space, with no measurement disturbed (b291, b292); the finite"
+     " two-radius family is constructed with the object as its verified diagonal (b293); and the"
+     " annihilation criterion is an equivalence whose threshold falls out of the operator's"
+     " reading scale (b294-b296)",
+     "### FILED (b297). ### The results are THEIR OWNING ACTS', transcribed at the grades those"
+     " acts left them; NO GRADE MOVED and NO ACT WAS RE-VERDICTED. ### 36 quotations verified"
+     " verbatim against the acts that ORIGINATED them, 0 unfindable, with a discrimination arm."
+     " ### FINDINGS.md +194 / -0, purely additive. ### The arc's four corrections to its own"
+     " readings are filed as corrections to FACTS, not re-verdicts. ### M-2 unchanged",
+     "PLACE-papers/FINDINGS.md section 'THE M-2 CAMPAIGN, b283-b296'; data/b297_the_fold.txt;"
+     " CORRESPONDENCE.md rows 108-111"),
+    ("kernel-plan", "b297 (filed, not built)",
+     "five candidates assessed against two tests -- is it finite-decidable, AND can a terminal's"
+     " own statement carry its own scope. The family's definition and dimension law, the diagonal"
+     " identification, and the transform-side fiber-sum collapse are all finite-decidable and all"
+     " REFUSED on the second test; the function-side index-landing argument is ALREADY BUILT"
+     " (BallAbsorptionShadow, printing since b289). ### EXACTLY ONE PASSES BOTH: the existence"
+     " statement on a relaxed member -- that Son(2,2; -1,0) contains a vector of value 4/3 --"
+     " because a terminal that NAMES THE MEMBER in its own statement carries its scope inherently,"
+     " whereas a bare value does not",
+     "### FILED, NOT BUILT; the build is THE AUTHOR'S CALL. ### 0 .lean files moved. ### Refusals"
+     " are listed with their reasons: everything analysis-bound (b280's S2 closure step, the"
+     " chain's one uncompiled link), everything exposed to the escaped-mass artifact (b284, b293),"
+     " and every statement quantifying over all levels and places -- including the equivalence"
+     " itself. ### WHERE THEY WOULD SIT: inside the existing kernel's Core with correspondence rows"
+     " to the barrier terminals, NOT a new repository -- a lane earns a repository when it becomes"
+     " independent, and this lane is the identity chain's own",
+     "data/b297_the_fold.txt Component 2; PLACE-papers/FINDINGS.md 'The kernel plan'"),
     # ### THE PAIRING/BARRIER LANE (b295, b296).
     ("threshold-asymmetry", "b281 (the form's type) / b296 (the reading scale, measured)",
      "the operator reads its SECOND slot by pointwise evaluation on the ball (scale p^n) and its"
