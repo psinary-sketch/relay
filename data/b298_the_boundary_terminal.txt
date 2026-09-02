@@ -1,0 +1,288 @@
+====================================================================================================
+b298 -- THE BOUNDARY TERMINAL. ### THE ONE CANDIDATE THE KERNEL PLAN PASSED, BUILT.
+2026-09-02. ### SOLO (research seat). ### Registration: `data/b298_registration_2026-09-02.txt`
+(sealed `a53c1a4b...` before any `.lean` existed, verified intact and unchanged after the run).
+====================================================================================================
+
+### ### **THE KERNEL NOW CARRIES BOTH SIDES OF THE BOUNDARY AT ONE CELL.**
+### ### ### **`B270.absorb_2_2`** ### -- the function side, already printing since b289, ### CITED
+### ### ### AND NOT REBUILT ### -- and ### **`B298.boundary_value_at_cell_2_2_on_member_radii_neg1_0`**
+### ### ### -- the other side, built here. ### **BOTH AT `(2,2)`. ### BOTH AT ZERO AXIOMS.**
+
+### ### **THE PROFILE, WHICH IS THE ONLY THING THIS ACT REPORTS FROM:**
+### ### ### **426 -> 438 PRINTS. ### ALL 438 "does not depend on any axioms". ### 0 OTHERWISE.**
+### ### **AND THE 426 PRE-EXISTING PRINTS CAME BACK BYTE-IDENTICAL, COMPARED AGAINST `git HEAD`
+### ### RATHER THAN AGAINST A COPY THIS ACT MADE.** ### The regeneration added rows and changed
+### none.
+
+### ### **NO NEW MATHEMATICS. ### THE STATEMENT COMPILED IS THE BANKED EXISTENCE FACT AND NOTHING
+### ### MORE** ### -- every number in it was computed and banked at b295 and b296 and is
+### ### **RE-DECIDED HERE, NOT DISCOVERED HERE.** ### No route is claimed, no aggregation is
+### stated, ### **M-2 IS OWED.**
+
+### ### **AND THE FOUR REFUSED CANDIDATES STAY REFUSED.** ### One going through does not open the
+### others, and their reasons are restated below rather than dropped.
+
+====================================================================================================
+### COMPONENT 1 -- THE STATEMENT.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE EXISTENCE FACT AS ITS OWNING ACT BANKED IT, PULLED FROM THE EMITTING FILE.
+----------------------------------------------------------------------------------------------------
+### b295, quoted: ### **"`Son(2,2; -1, 0)` CONTAINS `f = e_2 - e_6 + e_4 - e_12`, AND
+### `<A f, f> = 4/3`."** ### b296 re-derived the same witness as the specialization of its general
+### construction at `(2,2)` and re-valued it through two independent instruments.
+### ### **THE MEMBER: radii `(a,b) = (-1, 0)`. ### THE CELL: `(p,n) = (2,2)`, `N = 16`.
+### ### THE WITNESS: `w = e_2 - e_6 + e_4 - e_12`. ### THE VALUE: `4/3`, exactly.**
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE LEAN STATEMENT, QUOTED WHOLE FROM THE BUILT FILE.
+----------------------------------------------------------------------------------------------------
+###   `theorem boundary_value_at_cell_2_2_on_member_radii_neg1_0 :`
+###   `    inMember 2 2 (-1) 0 w = true`
+###   `    ∧ inMember 2 2 0 0 w = false`
+###   `    ∧ classSize 2 2 = 3`
+###   `    ∧ pairTimesClass 2 2 w = 4 := by decide`
+
+### ### ### **DOES IT CARRY ITS OWN SCOPE? ### YES, AND HERE IS WHY, PLAINLY:**
+###   ### **THE CELL IS IN EVERY CONJUNCT** ### -- `2 2` is `(p,n)`.
+###   ### **THE RADII ARE IN THE FIRST CONJUNCT** ### -- `(-1) 0`, the function-side radius one
+###     step BELOW the object's own.
+###   ### ### **AND THE SECOND CONJUNCT DECIDES THAT THE OBJECT'S OWN SPACE REJECTS THE WITNESS:
+###   ### ### `inMember 2 2 0 0 w = false`.** ### `Son(2,2)` is the member with radii `(0,0)`.
+### ### ### **SO A READER WHO SEES ONLY THIS TERMINAL CANNOT TAKE IT FOR A STATEMENT ABOUT THE
+### ### ### OBJECT'S OWN SPACE -- THE TERMINAL ITSELF SAYS THE OBJECT DOES NOT CONTAIN THE
+### ### ### WITNESS.** ### That sentence is IN THE STATEMENT, not in a comment above it, which is
+### the whole reason this candidate passed b297's second test and the other four did not.
+### ### **THE VALUE IS CARRIED WITHOUT DIVISION.** ### Vanilla Lean has no rationals, so the only
+### denominator -- the class size -- is ### CLEARED ### : `classSize 2 2 = 3` and
+### `pairTimesClass 2 2 w = 4` are two decided integers from which `4/3` is reconstructed exactly.
+### ### **NO DIVISION AND NO FLOATING POINT APPEARS IN THE COMPILED STATEMENT.**
+
+----------------------------------------------------------------------------------------------------
+### (1c) THE TWELVE DECLARATIONS, BY NAME, EACH READ FROM THE PRINTED PROFILE.
+----------------------------------------------------------------------------------------------------
+### ### **ALL TWELVE: "does not depend on any axioms".** ### Vanilla Lean 4, `decide` only,
+### no imports at all.
+###   ### **THE TERMINAL** ### -- `boundary_value_at_cell_2_2_on_member_radii_neg1_0`
+###   ### **THE TERMINAL'S DENOMINATOR** ### -- `class_size_2_2`
+###   ### **POLARITY CONTROLS, SIX, EACH DECIDED `false` OR AGAINST ITS OWN COMPLEMENT:**
+###     `witness_not_in_object_2_2` ### -- THE SCOPE CONTROL: the object rejects the witness
+###     `witness_has_mass_on_ball_2_2` ### -- and why: mass ON the ball, which the object forbids
+###     `witness_leaves_member_at_b_eq_1_2_2` ### -- the witness leaves the member at `b = n-1`,
+###       which is b296's own negative control decided in the kernel
+###     `refuse_value_five_2_2` ### -- the value is not some other integer
+###     `ctor_distinct_2_2` ### -- the construction's four points ARE distinct here
+###     `ball_agrees_with_b270_2_2` ### -- this file's integer-radius ball EQUALS b270's
+###       `m % p^n == 0`, so the pair at Component 2 is two statements about ONE ball
+###   ### **NOT-DEAD WITNESSES, TWO:** ### `not_dead_2_2` (`144`) and
+###     `not_dead_matches_banked_2_2`, which decides that `144` IS b271's banked `4(N-q) = 48`
+###     times the class size `3` -- ### **NOT A COINCIDENCE OF MAGNITUDE BUT THE BANKED QUANTITY
+###     ITSELF, IN THE SAME MODULE AND THE SAME DEFINITIONS.**
+###   ### **UNIFORMITY CONTROL:** ### `classes_uniform_2_2` -- every off-ball class has that size.
+###   ### **THE UNAVAILABLE ARM:** ### `ctor_degenerate_2_1` -- b296's general construction
+###     ### COLLIDES ### at `(2,1)`, so ### **NO ANALOGOUS TERMINAL IS OFFERED THERE, AND THAT IS
+###     DECIDED RATHER THAN COMMENTED** ### (the b280 convention: an arm that cannot exist reports
+###     UNAVAILABLE, never a pass).
+
+----------------------------------------------------------------------------------------------------
+### (1d) THE ESCAPED-MASS ARTIFACT: ### **NOT EXPOSED, AND SHOWN BY ENUMERATION.**
+----------------------------------------------------------------------------------------------------
+### ### **THE SHOWING IS NOT A SENTENCE.** ### The module's index maps were ### ENUMERATED FROM ITS
+### OWN CODE ### rather than searched for by absence:
+###   `(p ^ n * m) % N p n` ### -- the pairing's own pullback, ### WITHIN ONE LEVEL
+###   `(p ^ (n - 1 - vp p n m) * m) % N p n` ### -- the class terminal, ### WITHIN ONE LEVEL
+###   and the two index expressions inside b296's construction points, also within one level.
+### ### **b284's `scale_g` AND `scale_h` -- THE MAPS THE ARTIFACT LIVES IN -- OCCUR 0 TIMES.**
+### ### **THE ONLY OTHER DIVISION IN THE FILE IS `m / p` INSIDE THE VALUATION'S DESCENT, WHICH
+### ### COMPUTES `v_p` OF AN INDEX AND TRANSPORTS NO VECTOR BETWEEN LEVELS.** ### That
+### distinction is stated because a regex for `/ p` cannot make it, and this act's first pass
+### tripped on exactly that -- see (D2).
+
+====================================================================================================
+### COMPONENT 2 -- THE PAIR.
+====================================================================================================
+### ### **THE FUNCTION SIDE, NAMED AND CITED AND NOT REBUILT:** ### **`B270.absorb_2_2`**, in
+### `Core/BallAbsorptionShadow.lean`, printing since b289. ### It decides that at `(2,2)` ### EVERY
+### index lands in the ball ### under the operator at `k = n` -- which is the arithmetic reason a
+### vector vanishing on the ball kills the pairing.
+### ### **b289's OWN FINDING WAS THAT REBUILDING WHAT ALREADY EXISTS IS THE ERROR, AND THIS ACT
+### ### DOES NOT REPEAT IT.**
+### ### **THE OTHER SIDE, BUILT HERE:** ### relax the ball-vanishing by one step -- radii `(-1,0)`
+### instead of `(0,0)` -- and the pairing is ### NOT ### zero.
+
+### ### ### **WHAT THE PAIR CERTIFIES, AND THE LIMIT IS IN THE ROWS THEMSELVES:**
+### ### ### **SHARPNESS AT THAT CELL. ### NOT THE EQUIVALENCE IN GENERAL.**
+### b295's criterion and b296's equivalence quantify over ### ALL ### levels and ### ALL ### places;
+### they are ### NOT ### finite and ### **NOTHING IN THE KERNEL CERTIFIES THEM.** ### The two rows
+### written at the correspondence table say so in their own text, ### **SO A READER MEETING EITHER
+### ROW ALONE CANNOT READ THE PAIR AS MORE THAN IT IS.**
+### ### **AND ONE THING THE PAIR NEEDED BEFORE IT COULD BE A PAIR AT ALL:** ### b270 reaches the
+### ball through `m % p^n == 0` and this file reaches it through an INTEGER RADIUS.
+### ### **HAD THOSE DISAGREED THE TWO TERMINALS WOULD BE STATEMENTS ABOUT TWO DIFFERENT BALLS.**
+### ### `ball_agrees_with_b270_2_2` DECIDES THEY AGREE.**
+
+====================================================================================================
+### COMPONENT 3 -- THE PROFILE. ### **A COMPILE IS NOT A VERIFICATION.**
+====================================================================================================
+### ### **THE MODULE BUILT: ### exit 0, 40.3 s, `Core/BoundaryValueShadow.lean`.** ### But the
+### build's exit code is ### NOT ### what this act reports from.
+### ### **IMPORTED BY `AllPrints.lean` IN THE SAME COMMIT THAT CREATES IT** ### -- b289's scar,
+### where two shadows sat outside the certification file for eleven acts. ### 78 -> 79 imports,
+### 426 -> 438 print lines.
+### ### **`AXIOM_PRINTS.txt` REGENERATED FROM SOURCE**, exit 0, empty stderr.
+### ### ### **THE PROFILE, READ:** ### **438 PRINTS. ### 438 "does not depend on any axioms".
+### ### ### 0 "depends on axioms". ### 12 `B298.*` ROWS.**
+### ### **THE PRE-EXISTING 426, COMPARED AGAINST `git HEAD` -- THE BANKED FILE, NOT A COPY THIS
+### ### ACT MADE: ### 0 DIFFERING LINES.**
+### ### **AND THE CERTIFICATION FILE WAS WRITTEN FROM A TEMPORARY BUILD, SO IT WAS NOT TRUSTED:**
+### ### on resume the profile was ### REGENERATED AGAIN FROM SOURCE ### and byte-compared against
+### the file on disk -- ### **30432 BYTES vs 30432 BYTES, BYTE-IDENTICAL.**
+### ### **THE DISCRIMINATION ARM FIRED:** ### the counter was fed two synthetic lines, one clean
+### and one depending on axioms, and counted ### **1 as zero-axiom, not 2.** ### **A COUNTER THAT
+### CALLS EVERYTHING ZERO-AXIOM IS NOT COUNTING.**
+
+====================================================================================================
+### THE REFUSAL LIST, RESTATED. ### **ONE CANDIDATE PASSING DOES NOT OPEN THE OTHERS.**
+====================================================================================================
+###   ### **(1) THE FAMILY'S DEFINITION AND DIMENSION LAW (b293) -- STILL REFUSED.** ###
+###     Finite-decidable at a cell; ### **a terminal certifying `dim = (p^n-p^a)(p^n-p^b)` at one
+###     cell reads as THE LAW**, which is a statement over all levels.
+###   ### **(2) THE DIAGONAL IDENTIFICATION AS SET EQUALITY (b293) -- STILL REFUSED.** ###
+###     Finite-decidable; ### **it would certify that a rational test agrees with itself at one
+###     cell, not that the object is the family's diagonal.**
+###   ### **(3) THE FUNCTION-SIDE INDEX-LANDING ARGUMENT (b270, b280) -- NOT A CANDIDATE: ###
+###     ALREADY BUILT** ### and printing since b289. ### **NOTHING TO ADD, AND THIS ACT CITED IT
+###     RATHER THAN REBUILDING IT.**
+###   ### **(4) THE TRANSFORM-SIDE FIBER-SUM COLLAPSE AT THE READING SCALE (b296) -- STILL
+###     REFUSED.** ### **A terminal reading "the smallest modulus is `p^{2n-1}`" would sit in the
+###     kernel looking like a statement about the operator at every level.**
+###   ### **AND THE STANDING REFUSALS, UNCHANGED:** ### everything analysis-bound -- b280's `S2`
+###     closure step is standard analysis and is ### **NOT machine-verified; it remains the chain's
+###     one uncompiled link** ### -- and everything exposed to the escaped-mass artifact, which
+###     this act showed its own statement is not.
+
+====================================================================================================
+### THE FALSIFIERS.
+====================================================================================================
+###   P-PROFILE ..... ### **DID NOT FIRE** ### -- 438/438 zero-axiom; 426 pre-existing lines
+###      byte-identical against `git HEAD`; the on-disk file byte-identical to a fresh
+###      regeneration; ### **AND THE DISCRIMINATION ARM FIRED (1 of 2, not 2 of 2).**
+###   P-SCOPE ....... ### **DID NOT FIRE** ### -- the radii and the cell are in the statement, and
+###      the companion conjunct decides the object's own space rejects the witness
+###   P-NOTDEAD ..... ### **DID NOT FIRE** ### -- `144`, and decided equal to b271's banked
+###      `4(N-q)` times the class size, in the same module
+###   P-UNAVAILABLE . ### **FIRED, AT `(2,1)`, THE CELL PREDICTED BEFORE THE SEAL** ### -- and the
+###      degeneracy is a decided terminal, not a comment
+###   P-POLARITY .... HOLDS -- six controls, each decided against its own complement
+###   P-NOARTIFACT .. HOLDS -- the module's index maps ENUMERATED; `scale_g`/`scale_h` occur 0 times
+###   P-VANILLA ..... HOLDS -- 0 imports, 0 `native_decide`, `decide` the only tactic
+###   P-NOFLOAT ..... HOLDS -- 0 float literals, 0 `Float` tokens ### (after (D2)'s correction)
+###   P-NEEDLE ...... HOLDS
+### ### **THE SEATS AGREED ON ALL THREE COMPONENTS AND THE REGISTRATION SAID SO BEFORE THE RUN.**
+### ### **THE ADVERSARY WAS `P-PROFILE`, WHICH COMPARES BYTES AND CANNOT BE TALKED AROUND.**
+
+====================================================================================================
+### THE FILINGS, M-2's ROW, AND HANDOFF.
+====================================================================================================
+### ### **`W-ORD-KERNEL-BUILD-CANDIDATE` (b297) -- ### DISCHARGED.** ### The one candidate that
+### passed both tests is built, imported, printed and read.
+### ### **`W-ORD-PRINT-COVERAGE`, RESTATED WITH ITS CURRENT COUNT:** ### **104 `Core/*.lean`
+### MODULES, 79 IMPORTED BY `AllPrints.lean`, ### 25 STILL OUTSIDE THE CERTIFICATION FILE.** ### The
+### count is unchanged by this act because the module it created is imported in the same commit.
+### ### **THE RISK IS NOT THE LABOUR: ### AN UNCERTIFIED TERMINAL'S PRINT IS UNKNOWN UNTIL THE
+### ### SWEEP RUNS, AND b289 FOUND TWO WHOSE PRINT HAD NEVER BEEN TAKEN.** ### **STILL FILED,
+### STILL NOT RUN.**
+### ### **`W-ORD-ADHOC-CHECK-FIXTURES`** ### -- new, and it is a pattern rather than an incident.
+###   ### **THE COMMITTED TOOLS CARRY FIXTURES AND POLARITY CONTROLS. ### THE AD-HOC CHECKS THIS
+###   ### SEAT TYPES AT THE SHELL CARRY NEITHER, AND THEY HAVE NOW MISREPORTED THREE TIMES IN THREE
+###   ### CONSECUTIVE ACTS:** ### b296's tally (an untallied control, a fallback folded into a pass
+###   count, a total that would not close); b297's blank-cell scan (a newline-spanning match
+###   reporting 111 blank cells in a table of 111 rows); and this act's two regexes at (D2).
+###   ### **EVERY ONE WAS CAUGHT, AND EVERY ONE WAS CAUGHT BY READING THE NUMBER RATHER THAN BY A
+###   ### CHECK ON THE CHECK.** ### The order: an ad-hoc check whose result enters a bank gets a
+###   polarity control before its number is written down.
+### CARRIED: `W-ORD-READING-SCALE-GENERAL`, `W-ORD-DIAGONAL-VS-FORM-SWEEP`,
+###   `W-ORD-CORRESPONDENCE-COVERAGE`, `W-ORD-FAMILY-REOPENING` (i met, ii and iii unmet,
+###   ### **UNBANKED**), `W-ORD-CC-LOCAL-COPY`, `W-ORD-CORRESPONDENCE-IDEMPOTENCE`,
+###   `W-ORD-ALLPRINTS-COVERAGE`, `W-ORD-SBAR-CLOSURE-COMPILE`, `W-ORD-FIBER-GENERAL`,
+###   `W-ORD-ARCH-LOCAL-SPACE`, `W-ORD-TQ-IDENTIFY`, `W-ORD-CN-LAW`, b250's ### S3(a) WALL ### ,
+###   b262's PNT-plus-saddle, and the rest of the desk.
+
+### ### **THE INDEX WAS QUERIED BEFORE ANYTHING WAS CALLED OPEN:** ### "the boundary terminal"
+### ### NO KEY ### before this act; positive control "the kernel plan" ### HITS ### (b297's row).
+### ### **THE BOUNDARY TERMINAL IS NOW KEYED.**
+
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED). ### UNCHANGED BY THIS ACT.** ### A terminal on a
+### relaxed member is not a route and is not an aggregation.
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+### IN FLIGHT: `W-ORD-ADHOC-CHECK-FIXTURES`; `W-ORD-PRINT-COVERAGE`;
+### `W-ORD-READING-SCALE-GENERAL`; `W-ORD-DIAGONAL-VS-FORM-SWEEP`;
+### `W-ORD-CORRESPONDENCE-COVERAGE`; `W-ORD-FAMILY-REOPENING`; `W-ORD-CC-LOCAL-COPY`;
+### `W-ORD-SBAR-CLOSURE-COMPILE`; `W-ORD-FIBER-GENERAL`; `W-ORD-ARCH-LOCAL-SPACE`;
+### M-2 (SPECIFIED-NOT-STATED); the seam's debt item 1; the ERRATA partition question (b266).
+### ### **HANDOFF CURRENT. ### THIRTY-THREE ACTS, b261-b298.** ### `HANDOFF.md`'s head still reads
+### b278 and is left as every act since b293 left it; ### **THE HANDOFF FOR THIS ARC LIVES IN THE
+### BANKS AND IN `FINDINGS.md`, AND THIS ACT SAYS SO RATHER THAN LETTING "CURRENT" DO SILENT WORK.**
+### ### ### **AND THE NEW-KEYSTONE QUESTION IS ### THE AUTHOR'S ### . ### THE MATERIAL WAS
+### ### ### ASSEMBLED AT b297 AND ### NOTHING IS PROPOSED ### . ### THIS ACT ADDS ONE FACT TO IT
+### ### ### AND NO OPINION: ### THE BOUNDARY IS NOW MACHINE-CHECKED AT ONE CELL.**
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE REGISTRATION PREDICTED 10 TERMINALS AND THE BUILD HAS 12.** ### The two extra
+### are ### CONTROLS THE FALSIFIERS DEMANDED ### and that the count simply failed to anticipate:
+### `ball_agrees_with_b270_2_2`, without which the pair would be two statements about two possibly
+### different balls, and `witness_leaves_member_at_b_eq_1_2_2`, b296's own negative control.
+### ### **TRIMMING CONTROLS TO HIT A REGISTERED NUMBER WOULD BE THE WRONG INSTINCT, AND THE MISS IS
+### ### DECLARED INSTEAD.** ### Every other registered number landed exactly.
+### ### **(D2) TWO OF THIS ACT'S AD-HOC SHELL CHECKS MISFIRED ON THEIR FIRST PASS, AND BOTH WERE
+### ### FALSE POSITIVES AGAINST THE ACT'S OWN FILE.**
+###   ### The float scan reported ### 1 hit ### . ### The hit was the word ### **FLOATING** ### ,
+###     inside this module's own sentence saying there is no floating point -- a case-insensitive
+###     match on `Float`. ### **RE-RUN CASE-SENSITIVELY OVER CODE LINES ONLY: 0 float literals,
+###     0 `Float` tokens, 0 `native_decide`, 0 imports.**
+###   ### The artifact scan reported ### 1 hit ### on `/ p`. ### The hit was `m / p` inside the
+###     valuation's descent, which computes `v_p` of an INDEX and transports no vector between
+###     levels. ### **REDONE BY ENUMERATING THE MODULE'S INDEX MAPS FROM ITS OWN CODE INSTEAD OF
+###     REGEXING FOR ABSENCE**, which is the only form of that check that can be read.
+### ### **DECLARED BECAUSE BOTH NUMBERS EXISTED BEFORE THEY WERE CORRECTED, AND BECAUSE A CHECK
+### ### THAT CANNOT DISTINGUISH ITS TARGET FROM THE PROSE DENYING IT IS THE b163 SPECIES AGAIN.**
+### ### Filed as the pattern `W-ORD-ADHOC-CHECK-FIXTURES`.
+### ### **(D3) THE CERTIFICATION FILE WAS WRITTEN BY COPYING A TEMPORARY BUILD OUTPUT OVER IT.**
+### ### That is a real hazard -- a copy is not a regeneration -- so on resume it was ### NOT
+### ### TRUSTED ### : the profile was regenerated again from source and byte-compared against the
+### file on disk (### **30432 vs 30432, IDENTICAL**), and the pre-existing prints were compared
+### against ### `git HEAD` ### rather than against the temporary baseline this act had made.
+### ### **DECLARED BECAUSE THE FIRST COMPARISON WAS AGAINST A FILE THIS ACT PRODUCED, AND A CHECK
+### ### AGAINST ONE'S OWN COPY IS THE b183 SPECIES.**
+### ### **(D4) THE PRIOR SESSION WAS CUT AFTER THE PROFILE WAS REGENERATED, AND THIS ACT RESUMED
+### ### FROM DISK.** ### On resume: ### **NOTHING HAD BEEN COMMITTED OR PUSHED** ### (all three
+### repos at their b297 heads, each matching remote), the seal verified ### INTACT AND UNCHANGED ###,
+### and ### **NO FILE WAS HALF-WRITTEN** ### -- the bank, the gate suite, the correspondence tool
+### and the index key simply did not exist yet. ### Declared because "resumed" is a claim about
+### state, and the state was checked rather than assumed.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### KERNEL: ### **438 PRINTS, 438 ZERO-AXIOM, 0 OTHERWISE** ### (was 426/426/0), regenerated from
+### source; ### **426 PRE-EXISTING PRINTS BYTE-IDENTICAL AGAINST `git HEAD`.**
+### MODULE: ### **`Core/BoundaryValueShadow.lean`, 12 TERMINALS, ALL ZERO-AXIOM**, built exit 0 in
+### 40.3 s; ### **IMPORTED BY `AllPrints.lean` IN THE SAME COMMIT THAT CREATES IT.**
+### VANILLA: ### **0 IMPORTS, 0 `native_decide`, `decide` THE ONLY TACTIC, 0 FLOAT TOKENS.**
+### ARTIFACT: ### **NOT EXPOSED** ### -- index maps enumerated; `scale_g`/`scale_h` occur 0 times.
+### REGISTRATION: satisfiability-checked (8 clauses, jointly satisfiable), term-scanned,
+### ### **SEALED `a53c1a4b...` BEFORE ANY `.lean` EXISTED AND VERIFIED INTACT AND UNCHANGED.**
+### REGISTERED NUMBERS: ### **ALL LANDED EXACTLY** ### -- `inMember 2 2 (-1) 0 w = true`,
+### `inMember 2 2 0 0 w = false`, `classSize 2 2 = 3`, `pairTimesClass 2 2 w = 4`,
+### `pairTimesClass 2 2 g_0 = 144` -- ### **EXCEPT THE TERMINAL COUNT, 10 PREDICTED vs 12 BUILT,
+### DECLARED AT (D1).**
+### PRINT COVERAGE: ### **104 MODULES, 79 IMPORTED, 25 STILL OUTSIDE.**
+### `PLACE-papers`: ### **UNTOUCHED** -- no hook, no mirror.

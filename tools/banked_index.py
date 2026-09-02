@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'boundary-terminal': ['the boundary terminal', 'boundary terminal',
+                          'the compiled boundary', 'both sides of the boundary'],
     'm2-arc-fold': ['the fold', 'the arc fold', 'b283-b296', 'the m-2 arc',
                     'the second arc'],
     'kernel-plan': ['the kernel plan', 'kernel build', 'what to compile',
@@ -343,6 +345,25 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE KERNEL'S BOUNDARY PAIR (b298).
+    ("boundary-terminal", "b270/b280 (function side, printing since b289) / b298 (relaxed side)",
+     "the kernel carries BOTH SIDES OF THE BOUNDARY at the cell (2,2). Function side:"
+     " B270.absorb_2_2 -- every index lands in the ball at k = n, so a vector vanishing on the ball"
+     " kills the pairing. Relaxed side: B298.boundary_value_at_cell_2_2_on_member_radii_neg1_0 --"
+     " on Son(2,2; -1,0) the witness w = e_2 - e_6 + e_4 - e_12 has value 4/3, carried without"
+     " division as classSize 2 2 = 3 and pairTimesClass 2 2 w = 4. THE TERMINAL NAMES THE CELL AND"
+     " THE RADII IN ITS OWN STATEMENT, and its second conjunct decides inMember 2 2 0 0 w = false"
+     " -- the object's own space rejects the witness",
+     "### DERIVES (b280) and DERIVED (b295, b296), as those acts left them; RE-DECIDED in the"
+     " kernel, not discovered there. ### PROFILE: 426 -> 438 prints, all zero-axiom, the 426"
+     " pre-existing byte-identical against git HEAD; 12 B298 declarations -- the terminal, its"
+     " denominator, six polarity controls, two not-dead witnesses matching b271's banked 4(N-q), a"
+     " uniformity control, and the UNAVAILABLE arm at (2,1) where b296's construction collides."
+     " ### SCOPE, IN THE ROWS THEMSELVES: THE PAIR CERTIFIES SHARPNESS AT THAT CELL, NOT THE"
+     " EQUIVALENCE IN GENERAL -- which quantifies over all levels and places, is not finite, and is"
+     " NOT certified by anything in the kernel. ### NOT A ROUTE; M-2 unchanged",
+     "SIDE-global-section/Core/BoundaryValueShadow.lean; AXIOM_PRINTS.txt;"
+     " data/b298_the_boundary_terminal.txt; CORRESPONDENCE.md rows 112-113"),
     # ### THE ARC'S OWN FILING ROWS (b297).
     ("m2-arc-fold", "b297 (filed) -- the arc is b283-b296, fourteen acts",
      "the M-2 campaign's second arc, folded into FINDINGS.md as one dated section: the tower map"

@@ -1,0 +1,30 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b298_registration_2026-09-02.txt  (M-2 CAMPAIGN, THE BOUNDARY TERMINAL)
+  clauses      : 8
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  (M1) single allocation <= 64 MB    64               1                MB     SATISFIABLE
+      demand from : the largest decided object is a fold over List.range 16 whose every step filters List.range 16 -- 256 integer operations per terminal, on integers bounded by 144. Kernel reduction only.
+  (M2) native_decide uses            0                0                each   SATISFIABLE
+      demand from : VANILLA DISCIPLINE, Rule 5's vanilla leg. native_decide would add the compiler to the trusted base and its print would not read 'does not depend on any axioms'. The cap is zero and the demand is zero because every terminal is `by decide`, kernel reduction only.
+  (M3) Mathlib imports               0                0                imports SATISFIABLE
+      demand from : vanilla Lean 4 only. This is why the rational value is carried by clearing the denominator rather than by a rational type: the class size multiplies through and the arithmetic stays in Int.
+  (M4) float tokens in the module an 0                0                tokens SATISFIABLE
+      demand from : no division and no floating point appears in the compiled statement at all. The class size is itself a decided terminal, so a reader reconstructs 4/3 exactly from two integers.
+  (M5) level-shifting maps appearing 0                0                maps   SATISFIABLE
+      demand from : THE ESCAPED-MASS ARTIFACT (b284, b293) LIVES IN g AND h. The module's only index maps are m -> p^n*m mod N (the pairing's own pullback, within one level) and m -> p^(n-1-vp m)*m mod N (the class terminal, within one level). NEITHER SHIFTS LEVEL. The cap is zero and the demand is zero BY CONSTRUCTION, and P-NOARTIFACT requires the act to name the maps that do appear rather than assert the absence of the ones that do not.
+  (M6) pre-existing profile lines ch 0                0                lines  SATISFIABLE
+      demand from : P-PROFILE. AXIOM_PRINTS.txt is REGENERATED FROM SOURCE, never appended to, and the 426 pre-existing prints must come back byte-identical. The act adds imports and print lines; it edits no existing terminal, so no existing print can change.
+  (M7) new mathematical content intr 0                0                statements SATISFIABLE
+      demand from : The compiled statement is the banked existence fact. Every number was computed and banked by b295 and b296 and is RE-DECIDED here, not discovered here. Verified against the corpus's own instruments (b293's in_family and transform_vanishes, b294's pair_at_n in Q(zeta_16)) BEFORE this registration was sealed.
+  (M8) new Core modules left outside 0                0                modules SATISFIABLE
+      demand from : b289's scar: two shadows sat outside the certification file for eleven acts. The module created here is imported by AllPrints.lean IN THE SAME COMMIT THAT CREATES IT. This clause does not touch the 25 pre-existing modules outside the file, which remain W-ORD-PRINT-COVERAGE and are restated, not swept.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
