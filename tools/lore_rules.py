@@ -62,6 +62,18 @@ MECHANIZED = [
          tool='the constructive quotation gate (F-QUOTE) with a DISCRIMINATION control -- an '
               'altered quotation must be reported unfindable.',
          discharged='b266, re-used b282'),
+    dict(rule='Compiled is not certified. A terminal outside the certification file is a file '
+              'on disk.',
+         incident='b289 -- `BallAbsorptionShadow` (b270) and `AbsorptionFunctionalShadow` (b271) '
+                  'were built and printed by their own acts and were NEVER imported by '
+                  '`AllPrints.lean`, so `AXIOM_PRINTS.txt` never carried them and their `.olean` '
+                  'files were not even in the build cache. THE INDEX CORE OF EVERY BARRIER '
+                  'STATEMENT IN THE ARC SAT OUTSIDE THE FILE THAT CERTIFIES THE KERNEL.',
+         tool='the coverage check: a set difference of `Core/*.lean` against the `import` lines '
+              'of `AllPrints.lean`. ### **ITS REACH, PRINTED WITH IT: it compares FILENAMES, so '
+              'it CANNOT see a terminal in a module that IS imported but has no `#print axioms` '
+              'line. That is a second species and is NOT covered.**',
+         discharged='b289 (two modules); 25 remain -- `W-ORD-PRINT-COVERAGE`, filed b290'),
 ]
 
 # ### ==========================================================================================
