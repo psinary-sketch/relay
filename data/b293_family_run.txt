@@ -1,0 +1,104 @@
+====================================================================================================
+b293 -- THE FINITE TWO-RADIUS FAMILY. ### CONSTRUCTED IN THE CORPUS'S OWN TERMS.
+====================================================================================================
+### **NO ARCHIMEDEAN STEP APPEARS BELOW (V4).** ### Every condition is `p`-adic and every
+### control is exact rational or exact cyclotomic arithmetic.
+
+  ---- CELL (p,n) = (2,1):  N = 4 ----
+    (1) dim Son(p,n;a,b) against the derived law `(p^n - p^a)(p^n - p^b)`:
+        mismatches over the tested range : 0  NONE
+        diagonal dim Son(p,n;0,0) = 1        owner's (p^n-1)^2 = 1       AGREE
+    (2) DIAGONAL, vector by vector:
+        every corpus Son vector is in the (0,0) member   : YES
+        every (0,0) member vector satisfies the corpus    : YES
+        NEGATIVE CONTROL -- an off-ball spike is rejected : YES
+    (3) V2 -- collapsed condition vs the ACTUAL transform, both ways:
+        members: transform really vanishes on ball_n      : YES  (1 sampled)
+        non-member spike: transform does NOT vanish       : YES
+    noise-floor gate : EXACT   (exact rational elimination)
+    (4) DILATION -- does the image land in the neighbouring member?
+        g = D_p  f  ### **NO LIVE IMAGE -- CELL CANNOT TEST** (1 dead)
+        h = D_1/p f lands in (-1,+1) : 0/1 live  (0 dead, excluded)  sum a+b = 0
+    (5) REFLECTION -- does `S` carry (a,b) to (b,a)?
+        (a,b)=(0,0) -> (0,0) : 1/1 sampled members land
+        (a,b)=(1,0): ### **EMPTY MEMBER -- CANNOT TEST**
+
+  ---- CELL (p,n) = (2,2):  N = 16 ----
+    (1) dim Son(p,n;a,b) against the derived law `(p^n - p^a)(p^n - p^b)`:
+        mismatches over the tested range : 0  NONE
+        diagonal dim Son(p,n;0,0) = 9        owner's (p^n-1)^2 = 9       AGREE
+    (2) DIAGONAL, vector by vector:
+        every corpus Son vector is in the (0,0) member   : YES
+        every (0,0) member vector satisfies the corpus    : YES
+        NEGATIVE CONTROL -- an off-ball spike is rejected : YES
+    (3) V2 -- collapsed condition vs the ACTUAL transform, both ways:
+        members: transform really vanishes on ball_n      : YES  (4 sampled)
+        non-member spike: transform does NOT vanish       : YES
+    noise-floor gate : EXACT   (exact rational elimination)
+    (4) DILATION -- does the image land in the neighbouring member?
+        g = D_p  f  lands in (+1,-1) : 3/3 live  (6 dead, excluded)  sum a+b = 0
+        h = D_1/p f lands in (-1,+1) : 3/9 live  (0 dead, excluded)  sum a+b = 0
+    (5) REFLECTION -- does `S` carry (a,b) to (b,a)?
+        (a,b)=(0,0) -> (0,0) : 6/6 sampled members land
+        (a,b)=(1,0) -> (0,1) : 6/6 sampled members land
+
+  ---- CELL (p,n) = (3,1):  N = 9 ----
+    (1) dim Son(p,n;a,b) against the derived law `(p^n - p^a)(p^n - p^b)`:
+        mismatches over the tested range : 0  NONE
+        diagonal dim Son(p,n;0,0) = 4        owner's (p^n-1)^2 = 4       AGREE
+    (2) DIAGONAL, vector by vector:
+        every corpus Son vector is in the (0,0) member   : YES
+        every (0,0) member vector satisfies the corpus    : YES
+        NEGATIVE CONTROL -- an off-ball spike is rejected : YES
+    (3) V2 -- collapsed condition vs the ACTUAL transform, both ways:
+        members: transform really vanishes on ball_n      : YES  (4 sampled)
+        non-member spike: transform does NOT vanish       : YES
+    noise-floor gate : EXACT   (exact rational elimination)
+    (4) DILATION -- does the image land in the neighbouring member?
+        g = D_p  f  ### **NO LIVE IMAGE -- CELL CANNOT TEST** (4 dead)
+        h = D_1/p f lands in (-1,+1) : 0/4 live  (0 dead, excluded)  sum a+b = 0
+    (5) REFLECTION -- does `S` carry (a,b) to (b,a)?
+        (a,b)=(0,0) -> (0,0) : 4/4 sampled members land
+        (a,b)=(1,0): ### **EMPTY MEMBER -- CANNOT TEST**
+
+  ---- CELL (p,n) = (3,2):  N = 81 ----
+    (1) dim Son(p,n;a,b) against the derived law `(p^n - p^a)(p^n - p^b)`:
+        mismatches over the tested range : 0  NONE
+        diagonal dim Son(p,n;0,0) = 64       owner's (p^n-1)^2 = 64      AGREE
+    (2) DIAGONAL, vector by vector:
+        every corpus Son vector is in the (0,0) member   : YES
+        every (0,0) member vector satisfies the corpus    : YES
+        NEGATIVE CONTROL -- an off-ball spike is rejected : YES
+    (3) V2 -- collapsed condition vs the ACTUAL transform, both ways:
+        members: transform really vanishes on ball_n      : YES  (4 sampled)
+        non-member spike: transform does NOT vanish       : YES
+    noise-floor gate : EXACT   (exact rational elimination)
+    (4) DILATION -- does the image land in the neighbouring member?
+        g = D_p  f  lands in (+1,-1) : 16/16 live  (48 dead, excluded)  sum a+b = 0
+        h = D_1/p f lands in (-1,+1) : 16/64 live  (0 dead, excluded)  sum a+b = 0
+    (5) REFLECTION -- does `S` carry (a,b) to (b,a)?
+        (a,b)=(0,0) -> (0,0) : 6/6 sampled members land
+        (a,b)=(1,0) -> (0,1) : 6/6 sampled members land
+
+  ---- CELL (p,n) = (5,1):  N = 25 ----
+    (1) dim Son(p,n;a,b) against the derived law `(p^n - p^a)(p^n - p^b)`:
+        mismatches over the tested range : 0  NONE
+        diagonal dim Son(p,n;0,0) = 16       owner's (p^n-1)^2 = 16      AGREE
+    (2) DIAGONAL, vector by vector:
+        every corpus Son vector is in the (0,0) member   : YES
+        every (0,0) member vector satisfies the corpus    : YES
+        NEGATIVE CONTROL -- an off-ball spike is rejected : YES
+    (3) V2 -- collapsed condition vs the ACTUAL transform, both ways:
+        members: transform really vanishes on ball_n      : YES  (4 sampled)
+        non-member spike: transform does NOT vanish       : YES
+    noise-floor gate : EXACT   (exact rational elimination)
+    (4) DILATION -- does the image land in the neighbouring member?
+        g = D_p  f  ### **NO LIVE IMAGE -- CELL CANNOT TEST** (16 dead)
+        h = D_1/p f lands in (-1,+1) : 0/16 live  (0 dead, excluded)  sum a+b = 0
+    (5) REFLECTION -- does `S` carry (a,b) to (b,a)?
+        (a,b)=(0,0) -> (0,0) : 6/6 sampled members land
+        (a,b)=(1,0): ### **EMPTY MEMBER -- CANNOT TEST**
+
+====================================================================================================
+### ALL CELLS: PASS
+====================================================================================================

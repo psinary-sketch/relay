@@ -120,6 +120,21 @@ ROWS = [
      "**THE PRODUCT IS INVARIANT** (b288's own verdict); the reopening is filed "
      "**UNBANKED-UNTIL-TESTED** and is not a result",
      "current"),
+    ("THE FINITE TWO-RADIUS FAMILY (b293): `Son(p,n; a,b)` defined in the corpus's own p-adic "
+     "terms, with dimension `(p^n - p^a)(p^n - p^b)` derived; the corpus's existing space is the "
+     "diagonal member `(0,0)`; dilation moves `(a,b) -> (a+1, b-1)` so the SUM is invariant; and "
+     "`S` carries `(a,b)` to `(b,a)` by the corpus's own `S^2 = q^2 Pi`.",
+     "**NO TERMINAL, AND WHY:** the diagonal identification and the radius arithmetic ARE "
+     "finite-decidable -- and a terminal would certify the membership TEST and integer addition, "
+     "not the family. **AND THE PART THAT WOULD MATTER -- the transform's behaviour -- IS THE "
+     "PART THE TRUNCATION CORRUPTS**, so compiling it would certify the artifact. Refused on its "
+     "own merits, not for want of decidability.",
+     "n/a -- refusal. The E0 gate ran in exact rational arithmetic instead: 0 dimension "
+     "mismatches at five cells, diagonal verified vector by vector in both directions with a "
+     "negative control, and the collapsed condition compared to the actual transform both ways",
+     "**CONSTRUCTED** (b293's own verdict). **NOTHING ABOUT THE BARRIER, THE COMPRESSION OR M-2 "
+     "FOLLOWS -- a family existing is not a route existing**",
+     "current"),
 ]
 
 

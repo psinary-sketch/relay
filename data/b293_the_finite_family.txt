@@ -1,0 +1,329 @@
+====================================================================================================
+b293 -- THE FINITE TWO-RADIUS FAMILY. ### CONSTRUCTED, WITH ITS DILATION AND ITS REFLECTION.
+2026-09-02. ### SOLO (research seat). ### Registration: `data/b293_registration_2026-09-02.txt`.
+====================================================================================================
+
+### ### **THE FAMILY IS CONSTRUCTED. ### `Son(p,n; a,b)`, TWO INDEPENDENT RADII, IN THE CORPUS'S
+### ### OWN `p`-ADIC TERMS AND AT ITS OWN LEVEL INDEXING.**
+### ### **DIMENSION `(p^n - p^a)(p^n - p^b)`, DERIVED AND VERIFIED WITH ZERO MISMATCHES.**
+### ### **THE CORPUS'S EXISTING SPACE IS THE DIAGONAL MEMBER `(0,0)` -- CHECKED VECTOR BY VECTOR,
+### ### BOTH DIRECTIONS, WITH A NEGATIVE CONTROL.**
+### ### **DILATION MOVES `(a,b) -> (a+1, b-1)`: ### THE SUM `a+b` IS INVARIANT.**
+### ### **THE TRANSFORM CARRIES `(a,b)` TO `(b,a)`, DERIVED FROM THE CORPUS'S OWN `S^2 = q^2 Pi`.**
+
+### ### ### **AND NOTHING FOLLOWS FROM THIS ACT ABOUT THE BARRIER, THE COMPRESSION, M-2, THE
+### ### ### IDENTITY, `h2` OR THE ROSTER. ### THE FAMILY EXISTS. ### A FAMILY EXISTING IS NOT A
+### ### ### ROUTE EXISTING.**
+
+### ### **THE ARCHIMEDEAN FAMILY WAS THE TEMPLATE AND IS NOWHERE THE EVIDENCE (V4).** ### Every
+### derivation below cites a `p`-adic owner; ### **THE ARCHIMEDEAN PRODUCT-INVARIANCE AND THE
+### ARCHIMEDEAN REFLECTION APPEAR IN THIS BANK ONLY AS THE ANALOGUES THEY ARE NAMED TO BE, AND
+### NEVER AS A REASON FOR A FINITE STEP.**
+
+====================================================================================================
+### COMPONENT 1 -- THE DEFINITION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE CORPUS'S SPACE, PULLED FROM ITS EMITTING FILE.
+----------------------------------------------------------------------------------------------------
+### The keystone: ### **"the space `Son(p,n)` on `Z/p^{2n}` of dimension `(p^n-1)^2` (vectors
+### vanishing on a ball ### AND ### on its transform image)"**. ### And b280's reading of the same,
+### quoted from its emitting bank: ### **"BOTH HALVES USE `ball_n`, THE BALL OF `f`'s OWN LEVEL"**,
+### with `ball_n = { m : p^n | m }`.
+### ### ### **ONE BALL, USED TWICE. ### THAT IS THE DIAGONAL, AND THE FAMILY IS WHAT IT IS THE
+### ### ### DIAGONAL OF.**
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE FAMILY, DEFINED. ### **EVERY CONSTITUENT UNFOLDED TO AN OWNER.**
+----------------------------------------------------------------------------------------------------
+### ### **THE BALL OF EXPONENT `e`:** ### `B_e := { m : v_p(m) >= n - e }`. ### In b21's chart
+### `x = p^{-n} m` this is `{ x : |x| <= p^e }`, and ### **AT `e = 0` IT IS EXACTLY `ball_n`** --
+### `v_p(m) >= n` is `p^n | m`.
+### ### ### **`Son(p,n; a,b) := { f : Z/p^{2n} -> Q(zeta_N) | f(m) = 0 for all m in B_a,`**
+### ### ### **                    `and (S f)(m) = 0 for all m in B_b }`.**
+###   `S` is b226's operator, `(S f)(m) = SUM_{m'} f(m') zeta_N^{m m'}` -- its owner, unchanged.
+###   `v_p` is the `p`-adic valuation on the index, the corpus's own indexing.
+### ### **THE INDEX RANGE THE LEVEL CARRIES: ### `-n <= a <= n` and `-n <= b <= n`**, since the
+### first condition needs `0 <= n - a <= 2n` and the second needs `0 <= n + b <= 2n`.
+### ### **AND THE DIAGONAL `a = b = 0` IS THE CORPUS'S `Son(p,n)` BY CONSTRUCTION** -- which is
+### ### **CHECKED BELOW RATHER THAN LEFT AS A CONSTRUCTION'S PROMISE.**
+
+### ### **THE SECOND CONDITION, COLLAPSED TO A RATIONAL ONE -- DERIVED, AND THEN CONTROLLED.**
+### At `m` in `B_b`, write `m = p^{n-b} j`; then `zeta_N^{m m'} = zeta_{p^{n+b}}^{j m'}`, which
+### depends on `m'` ### ONLY ### mod `p^{n+b}`. ### So the condition says the order-`p^{n+b}` DFT
+### of the folded function vanishes identically, and a DFT vanishes identically exactly when its
+### input does:
+### ### ### **`SUM_{m' = r mod p^{n+b}} f(m') = 0` FOR EVERY `r`.**
+### ### **THIS GENERALIZES b279's COLLAPSE AT `b = 0` AND IS DERIVED THE SAME WAY, FROM THE SAME
+### ### CHARACTER IDENTITY.**
+
+----------------------------------------------------------------------------------------------------
+### (1c) THE DIMENSION LAW, DERIVED -- AND THE E0 GATE.
+----------------------------------------------------------------------------------------------------
+### The first condition kills `p^{n+a}` coordinates (the size of `B_a`). ### The second imposes
+### `p^{n+b}` fiber-sum conditions, of which those whose whole fiber already lies in `B_a` are
+### automatic; there are `p^{a+b}` such fibers when `a + b >= 0`. ### Hence
+### ### ### **`dim Son(p,n; a,b) = p^{2n} - p^{n+a} - (p^{n+b} - p^{a+b}) = (p^n - p^a)(p^n - p^b)`.**
+### ### **AT `a = b = 0` THIS IS `(p^n - 1)^2` -- ### THE KEYSTONE'S OWN NUMBER, ARRIVED AT FROM
+### ### THE FAMILY'S SIDE.**
+### ### **THE E0 GATE, RUN** (`tools/e16/b293_finite_family.py`, exact Gaussian elimination over
+### `Fraction`, ### **NO FLOAT ANYWHERE**), at `(2,1) (2,2) (3,1) (3,2) (5,1)`:
+###   ### **DIMENSION AGAINST THE LAW, OVER THE WHOLE TESTED `(a,b)` RANGE: ### 0 MISMATCHES AT
+###   ### EVERY CELL.**
+###   ### **DIAGONAL DIMENSION vs THE OWNER'S `(p^n - 1)^2`: ### AGREE AT EVERY CELL** -- 1, 9, 4,
+###   64, 16.
+### ### **SCOPE PRINTED: ### the law was tested where `a + b >= 0` and both exponents are
+### non-negative; outside that the count of automatic fibers is a different expression and ### **THE
+### ACT DOES NOT CLAIM THE LAW THERE.**
+
+----------------------------------------------------------------------------------------------------
+### (1d) THE DIAGONAL IDENTIFICATION. ### **VECTOR BY VECTOR, BOTH POLARITIES (V1).**
+----------------------------------------------------------------------------------------------------
+### ### **V1 WAS REGISTERED BECAUSE A DIMENSION FORMULA IS THE EASIEST THING TO MATCH AND THE
+### ### WEAKEST THING TO MATCH** -- the b278/b279 lesson. ### So the identification is not the
+### dimension agreement above; it is this:
+###   ### **EVERY CORPUS `Son` BASIS VECTOR LIES IN THE `(0,0)` MEMBER : ### YES, AT EVERY CELL.**
+###   ### **EVERY `(0,0)` MEMBER BASIS VECTOR SATISFIES THE CORPUS'S OWN CONDITIONS : ### YES, AT
+###     EVERY CELL.** ### (The two together are set equality, not containment.)
+###   ### **NEGATIVE CONTROL -- an off-ball spike is REJECTED : ### YES, AT EVERY CELL.** ### A
+###     membership test that admits everything proves nothing.
+
+### ### **AND V2's CONTROL: ### THE COLLAPSED RATIONAL CONDITION IS THE ACTUAL TRANSFORM
+### ### CONDITION, COMPARED BY COMPUTATION IN `Q(zeta_N)`, BOTH WAYS, AT EVERY CELL:**
+###   members' transforms really vanish on `ball_n` : ### **YES** ### (4 sampled per cell);
+###   the non-member spike's transform does ### NOT ### vanish : ### **YES.**
+### ### **SO THE RUNNER'S `Son` IS THE KEYSTONE'S `Son`, COMPARED BY COMPUTATION AND NOT BY
+### ### NAME.**
+
+====================================================================================================
+### COMPONENT 2 -- THE DILATION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (2a) DERIVED FROM THE CORPUS'S OWN CONDITIONS. ### **NO ARCHIMEDEAN STEP (V4).**
+----------------------------------------------------------------------------------------------------
+### ### **DIRECTION ONE, `g(m) = f(p m mod N)`:**
+###   ### **FUNCTION SIDE.** ### `g(m) = 0` when `f(pm) = 0`. ### `v_p(pm) = v_p(m) + 1`, and `f`
+###     vanishes on `v_p >= n - a`, so `g` vanishes when `v_p(m) >= n - a - 1 = n - (a+1)`.
+###     ### ### **THE FUNCTION-SIDE RADIUS GOES `a -> a + 1`.**
+###   ### **TRANSFORM SIDE.** ### The fiber sums at modulus `p^{n+b-1}`: as `m` runs over a class
+###     mod `p^{n+b-1}`, `pm` runs over a class mod `p^{n+b}`, each value hit `p` times, so
+###     `SUM_{m = r} g(m) = p * SUM_{m' = pr mod p^{n+b}} f(m') = p * 0 = 0`.
+###     ### ### **THE TRANSFORM-SIDE RADIUS GOES `b -> b - 1`.**
+### ### **DIRECTION TWO, `h(m) = f(m/p)` where `p | m`, else `0`:** ### the exact mirror, by the
+###   same two arguments run backwards: ### **`a -> a - 1`, `b -> b + 1`.**
+
+### ### ### **THEREFORE THE SUM `a + b` IS INVARIANT UNDER DILATION IN BOTH DIRECTIONS.**
+### ### **AND IT IS NAMED FOR WHAT IT IS: ### THE ADDITIVE ANALOGUE OF THE ARCHIMEDEAN PRODUCT.
+### ### ### THE ANALOGY IS A NAME AND NOT A REASON. ### THE TWO ARGUMENTS ABOVE CITE THE CORPUS'S
+### ### ### CONDITIONS AND THE CORPUS'S VALUATION AND NOTHING ELSE, AND THEY WOULD STAND IF THE
+### ### ### ARCHIMEDEAN RESULT DID NOT EXIST.**
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE CONTROL AT THE CELLS -- AND WHICH DIRECTION THE MODEL CAN CARRY.
+----------------------------------------------------------------------------------------------------
+### ### **DIRECTION ONE LANDS, EXACTLY, WHEREVER THE CELL HAS A LIVE IMAGE:**
+###   `(2,2)` : ### **3/3 live land in `(+1,-1)`** ### (6 dead, excluded);
+###   `(3,2)` : ### **16/16 live land in `(+1,-1)`** ### (48 dead, excluded).
+### ### **AND THE VACUITY ARM IS INHERITED, NOT RE-LEARNED (V5, b284/b288):** ### at the level-1
+### cells the image is ### IDENTICALLY ZERO ### for every member, so ### **THOSE CELLS CANNOT TEST
+### THIS DIRECTION AND THE RUNNER SAYS SO** ### rather than counting the zero vector as a landing.
+
+### ### **DIRECTION TWO IS NOT TESTABLE IN THE MODEL, AND THE REASON IS ALREADY BANKED.**
+### The counts are `3/9` at `(2,2)` and `16/64` at `(3,2)`. ### ### **THAT IS NOT A REFUTATION OF
+### ### (2a) AND IS NOT REPORTED AS ONE.** ### b284 established that this direction's genuine
+### image ### ESCAPES THE LEVEL ### -- b21's `supp(U f) = p^{-n-1}Z_p`, strictly bigger -- and that
+### ### **"THE MODEL'S mod-N WRAPAROUND IS EXACTLY THIS ESCAPED MASS FOLDED BACK IN".**
+### ### **HERE THE LOSS IS VISIBLE IN THE REALIZATION ITSELF: ### `h(m) = f(m//p)` READS `f` ONLY
+### ### ON THE LOWER `N/p` INDICES AND DROPS THE REST.** ### So the model's `h` is not the `h` the
+### derivation is about. ### **THE DERIVATION AT (2a) STANDS ON THE CONDITIONS; THE MODEL CONFIRMS
+### THE DIRECTION IT CAN CARRY AND IS SILENT ON THE OTHER, AND THE SILENCE IS PRINTED.**
+
+----------------------------------------------------------------------------------------------------
+### (2c) THE BANKED LEFTOVER SETS. ### **THEY ARE THE NEIGHBOURING MEMBERS' BOUNDARIES.**
+----------------------------------------------------------------------------------------------------
+### b284's gap set, in both directions, was ### **THE UNITS `Z_p^x`.** ### Read in the family's
+### coordinates: the ball of exponent `0` is `{ v_p(m) >= n }` and the ball of exponent `-1` is
+### `{ v_p(m) >= n+1 }`, and their difference is ### **`{ m : v_p(m) = n }` -- WHICH IS EXACTLY THE
+### UNITS.**
+### ### ### **SO b284's LEFTOVER IS NOT AN ODDITY OF THAT ACT'S ARITHMETIC. ### IT IS THE SHELL
+### ### ### BETWEEN TWO ADJACENT MEMBERS OF THIS FAMILY, AND IT IS WHERE IT IS BECAUSE THE
+### ### ### DILATION MOVES ONE STEP ALONG THE FAMILY.**
+### ### **b284 IS NOT RE-VERDICTED.** ### Its gap set is unchanged; what changes is that the family
+### now gives it a name.
+
+====================================================================================================
+### COMPONENT 3 -- THE REFLECTION.
+====================================================================================================
+### ### **THE CORPUS'S OWN TRANSFORM AND ITS OWN SQUARE, FROM b226 (EMITTING), QUOTED:**
+### ### **"`Pi` = the involution `(Pi f)(m) = f(-m)`; ### `S^2 = q^2 Pi`, so `M := S/q` has
+### ### `M^4 = 1`"** -- and b226 adds that this ### **"holds at every place and level"**. ### b44
+### records it ### **"verified in-run"**.
+### ### **AND THE TWO NEAR-MISSES ARE REFUSED BY NAME, AS THE FERRY REQUIRES:** ### the keystone's
+### `F^2 = parity` and b61's odd-part `F^2 = -1` are about ### **THE CORPUS'S GLOBAL `F`**, which
+### b291 already flagged as a distinct operator from the archimedean one -- and they are distinct
+### from `S` here too. ### **NEITHER IS USED. ### `S^2 = q^2 Pi` IS `S`'s OWN SQUARE AND IS THE
+### ONLY SQUARE THIS COMPONENT TOUCHES.**
+
+### ### **THE DERIVATION, TWO STEPS:**
+###   Let `f` be in `Son(p,n; a,b)` and put `g := S f`.
+###   ### **STEP ONE.** ### `g`'s FIRST condition asks `g(m) = 0` on `B_b`. ### That is ### VERBATIM
+###     ### `f`'s SECOND condition. ### **IMMEDIATE.**
+###   ### **STEP TWO.** ### `g`'s SECOND condition asks `(S g)(m) = 0` on `B_a`. ### Now
+###     `S g = S^2 f = q^2 Pi f`, and `(Pi f)(m) = f(-m)`. ### **`B_a` IS SYMMETRIC UNDER
+###     NEGATION**, because `v_p(-m) = v_p(m)`. ### So `Pi f` vanishes on `B_a` exactly when `f`
+###     does, which is `f`'s FIRST condition; and `q^2` is a nonzero scalar, which cannot create or
+###     destroy a zero.
+### ### ### **THEREFORE `S : Son(p,n; a,b) -> Son(p,n; b,a)`.**
+
+### ### **CONTROLLED AT THE CELLS, EXACTLY IN `Q(zeta_N)` -- AND THE OFF-DIAGONAL CASE IS THE ONE
+### ### THAT MATTERS:**
+###   `(0,0) -> (0,0)` : ### **1/1, 6/6, 4/4, 6/6** ### at `(2,1) (2,2) (3,1) (3,2)`. ### But the
+###     diagonal case is ### SYMMETRIC ### and is weak evidence for a swap.
+###   ### **`(1,0) -> (0,1)` : ### 6/6 AT `(2,2)` AND 6/6 AT `(3,2)`** -- ### **THE MEMBERS ARE
+###     GENUINELY DIFFERENT AND THE MAP GENUINELY MOVES BETWEEN THEM.**
+###   At the level-1 cells the `(1,0)` member is ### EMPTY ### and the runner says ### **"CANNOT
+###     TEST"** ### rather than passing on an empty check.
+
+====================================================================================================
+### COMPONENT 4 -- WHAT THIS DOES AND DOES NOT DO.
+====================================================================================================
+### ### **WHAT IT DOES:**
+### ### **THE FAMILY IS NOW A CORPUS OBJECT.** ### It has a definition in the corpus's own terms,
+### a derived dimension law verified with zero mismatches, and a diagonal identification checked
+### vector by vector against the corpus's existing space.
+### ### ### **SO THE REOPENING CANDIDATE'S FIRST PROMOTION CRITERION IS MET** -- b288 filed it
+### ### ### needing "the family must become a corpus object", and b292 recorded that gate as still
+### ### ### not passed. ### **IT IS PASSED TODAY.**
+### ### **THE OTHER CRITERIA, RESTATED AND ### UNMET ### :**
+###   (ii) ### a statement of what "structure on the family" would mean that is ### NOT ### a
+###     statement about one member, ### **DECIDED BY DEFINITIONS. ### NOT ATTEMPTED HERE.**
+###   (iii) ### a check that the resulting object is of a shape the specification can consume.
+###     ### **NOT ATTEMPTED HERE.**
+### ### ### **AND THE STANDING SENTENCE: ### A FAMILY EXISTING IS NOT A ROUTE EXISTING.**
+
+### ### **AND THE DILATION'S READING:** ### the banked non-preservation is confirmed as a
+### ### **STABILIZER** ### statement -- which b288 already established and which this act does not
+### improve on. ### The diagonal member's stabilizer under dilation is trivial because a single
+### step moves `(0,0)` to `(+1,-1)`, a different member. ### **NOTHING FURTHER FOLLOWS WITHOUT A
+### FURTHER ACT.**
+
+### ### ### **WHAT DOES NOT FOLLOW, IN THE VERDICT'S OWN WORDS:**
+### ### ### **NOTHING ABOUT THE BARRIER. ### NOTHING ABOUT THE COMPRESSION.** ### b280 and b281 are
+### ### ### statements about pairings on ### ONE ### member -- the diagonal -- and ### **THEY
+### ### ### REMAIN EXACTLY TRUE THERE.** ### This act pairs nothing, computes no first-level value,
+### ### ### and touches no step of either.
+### ### **NOTHING ABOUT M-2**, which remains `(SPECIFIED-NOT-STATED)`.
+### ### **NOTHING ABOUT THE IDENTITY, `h2`, OR THE COMPLETE ROSTER** -- b15's clause governs there
+### and is not worked around.
+### ### **AND NO CLOSED ROUTE IS REOPENED BY THIS ACT.** ### C3-via-scaling stays closed (b284);
+### what is open is what was always open -- ### **THE ROUTES b284 EXPLICITLY DID NOT TEST.**
+
+====================================================================================================
+### THE SHADOW. ### **PARTLY BUILDABLE, AND NOT BUILT -- WITH THE PARTS SEPARATED.**
+====================================================================================================
+### ### **THE DIAGONAL IDENTIFICATION AND THE RADIUS ARITHMETIC ARE FINITE-DECIDABLE.** ### They
+### are membership tests and integer exponent sums at named cells.
+### ### **AND THEY ARE MISLEADING TO COMPILE, FOR THE REASON b288 GAVE AND THIS ACT INHERITS:** ###
+### a terminal certifying that a rational membership test agrees with itself at one cell certifies
+### the ### TEST ### , not the family; and the exponent arithmetic is integer addition.
+### ### ### **THE TRANSFORM'S BEHAVIOUR IS THE PART THAT WOULD MATTER -- AND IT IS EXACTLY THE PART
+### ### ### THAT MUST NOT BE COMPILED.** ### The model's realization of the dilation is the
+### artifact-ridden one (2b), and `S` on `Z/p^{2n}` is the truncated model's transform, whose
+### wraparound b21 names as ### THE ARTIFACT ### . ### **A COMPILED TERMINAL WOULD CERTIFY THE
+### ### TRUNCATION AND CARRY THE FAMILY'S NAME.**
+### ### **SO: NOTHING BUILT. ### 0 `.lean` FILES MOVED. ### NO COMPILE CLAIMED.** ### Twenty-first
+### act on this ground, and the second where a finite-decidable half was identified and ### **REFUSED
+### ON ITS OWN MERITS** ### rather than found absent.
+
+====================================================================================================
+### THE FALSIFIERS.
+====================================================================================================
+###   V1 diagonal checked vector by vector, both ways .... HOLDS -- plus a negative control
+###   V2 collapsed condition vs the actual transform ..... HOLDS -- both polarities, every cell
+###   V3 a family that cannot be written is not a family . HOLDS -- the index range is stated, and
+###      the empty/degenerate members are reported as ### **"CANNOT TEST"** ### , not as passes
+###   V4 no archimedean step .............................. HOLDS -- every step cites a `p`-adic
+###      owner; the analogy is named and never used as a reason
+###   V5 the vacuity arm ................................. ### **FIRED** ### at the level-1 cells
+###   V6 sum-invariance derived, not inherited ........... HOLDS -- two arguments from the corpus's
+###      own conditions
+###   V7 every needle from an emitting file .............. HOLDS
+### ### **THE SEATS AGREED ON ALL THREE COMPONENTS (registered before the run) AND WERE RIGHT.** ###
+### At b279 and b290 they agreed and were wrong; at b291 and b292 they agreed and were right.
+### ### **AGREEMENT HAS BEEN A COIN-FLIP IN THIS ARC AND THE FALSIFIERS DID THE WORK AGAIN --
+### ### V5 IS WHAT KEPT THE LEVEL-1 CELLS FROM COUNTING AS CONFIRMATION.**
+
+====================================================================================================
+### THE FILINGS, M-2's ROW, AND HANDOFF.
+====================================================================================================
+### ### **THE FAMILY IS FILED**, with its definition at (1b), its dimension law at (1c), and its
+### verified diagonal identification at (1d). ### `W-ORD-TWO-PARAM-FINITE-FAMILY` (b288) --
+### ### **DISCHARGED.**
+### ### **`W-ORD-FAMILY-REOPENING`** ### -- criterion (i) MET, (ii) and (iii) ### UNMET ### and
+### restated. ### **STILL UNBANKED-UNTIL-TESTED.**
+### ### **`W-ORD-PRINT-COVERAGE`, RESTATED:** ### 25 `Core` modules outside the certification file;
+### the risk is not the labour but that a sweep may find a terminal sitting uncertified whose print
+### is not zero axioms. ### **STILL FILED, STILL NOT RUN.**
+### CARRIED: `W-ORD-PICTURE-IDENTIFICATION`, `W-ORD-WEIGHT-AT-EIGENVALUE-ONE`,
+###   `W-ORD-ALLPRINTS-COVERAGE`, `W-ORD-B290-SEARCH-FORM`, `W-ORD-SCALING-LAW-OWNER`,
+###   `W-ORD-CM-BOOK-CH2`, `W-ORD-WSA-PSI-LINK`, `W-ORD-CC-SCALE-MEANING`, `W-ORD-CC-LOCAL-COPY`,
+###   `W-ORD-COMPRESSION-VS-SMEAR`, `W-ORD-F-STABILITY-PROVENANCE`, `W-ORD-FIBER-GENERAL`,
+###   `W-ORD-XI-PERMODE`, b250's ### S3(a) WALL ### , `W-ORD-TQ-IDENTIFY`, `W-ORD-CN-LAW`,
+###   b262's PNT-plus-saddle, and the rest of the desk.
+
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED). ### UNCHANGED BY THIS ACT.**
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+### ### **HANDOFF CURRENT. ### TWENTY-EIGHT ACTS, b261-b293.**
+### ### **THE NEXT QUESTION, NAMED AND ### NOT ATTEMPTED ### :**
+### ### ### **WHAT WOULD A ROUTE ON THE FAMILY REQUIRE? ### A functional of the family that is not
+### ### ### a functional of one member -- stated by definitions, not by analogy -- and a check that
+### ### ### its shape is one the specification can consume.** ### `W-ORD-FAMILY-REOPENING`'s
+### criteria (ii) and (iii). ### **THIS ACT DOES NOT ATTEMPT EITHER AND HAS NO OPINION ON WHETHER
+### THEY CAN BE MET.**
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) ONE DILATION DIRECTION IS NOT TESTABLE IN THE MODEL AND THE COUNTS LOOK LIKE A
+### ### FAILURE.** ### `3/9` and `16/64` are printed rather than suppressed, ### **AND THEY ARE NOT
+### ### A REFUTATION** -- the model's realization drops the upper index range, which is b284's
+### banked escaped-mass artifact showing in a second place. ### Declared because a reader meeting
+### those counts without the reason would read them as a broken derivation.
+### ### **(D2) THE DIMENSION LAW IS CLAIMED ONLY WHERE IT WAS TESTED.** ### Outside `a + b >= 0`
+### with both exponents non-negative, the count of automatic fibers takes a different form and
+### ### **THE ACT DOES NOT CLAIM THE LAW THERE**, though the family is still defined there.
+### ### **(D4) b289's CORRESPONDENCE TOOL IS NOT IDEMPOTENT, AND THIS ACT TRIPPED ON IT.** ### It
+### holds the whole arc's rows, so re-running it ### **APPENDED ALL NINE AGAIN** ### and the table
+### went to 113 rows with 95-103 duplicated. ### Caught on the read-back, ### **`CORRESPONDENCE.md`
+### RESTORED FROM `git`**, and this act's tool (`tools/b293_correspondence.py`) carries ### ONE ###
+### row and ### **CHECKS BEFORE WRITING THAT THE ROW IS NOT ALREADY PRESENT** -- confirmed by
+### running it twice, the second run writing nothing. ### **DECLARED BECAUSE THE DUPLICATE BRIEFLY
+### EXISTED ON DISK, AND BECAUSE A FILINGS TOOL THAT CANNOT BE RE-RUN SAFELY IS A TRAP FOR THE NEXT
+### ACT.** ### Filed as `W-ORD-CORRESPONDENCE-IDEMPOTENCE`.
+### ### **(D3) THE SHADOW'S FINITE-DECIDABLE HALF WAS IDENTIFIED AND REFUSED.** ### The membership
+### tests and exponent sums could be compiled; ### **THEY WOULD CERTIFY THE TEST AND THE ARITHMETIC
+### AND NOT THE FAMILY**, and the part that would matter is the part the truncation corrupts.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### GATES: ### **27 PASS / 0 FAIL / 0 ERROR / 0 REFUSED.**
+### OWNER NEEDLES: 10, ### **0 UNPULLABLE** -- into the keystone, b44, b226, b279, b280, b284, b288.
+### SELF NEEDLES: 12, 0 unpullable (one line-wrap caught and re-pulled).
+### MUST-FAIL FIXTURES: 5, whole-line. ### **SUBSTRING-BASED: 0.**
+### HEDGE AUDIT ON OWN BANK: ### **0 GRADED HEDGES** ### (521 sentences).
+### FLOAT SCAN ON THE DECIDING RUNNER: ### **ZERO FLOAT TOKENS** -- ranks by exact elimination
+### over `Fraction`, membership by exact integer and rational tests, transforms in `Q(zeta_N)`.
+### NOISE-FLOOR GATE: in the path, EXACT arm at all 5 cells.
+### CELLS: `(2,1) (2,2) (3,1) (3,2) (5,1)`. ### **DIMENSION MISMATCHES: 0 AT EVERY CELL.**
+### CORRESPONDENCE: ### **ROW 104 APPENDED** ### by a single-row tool with an idempotence guard,
+### confirmed by a second run that wrote nothing.
+### LEAN: ### **0 `.lean` FILES MOVED.** ### No compile claimed.
+### `SIDE-global-section`: ### **MOVED** ### (`CORRESPONDENCE.md`).
+### `PLACE-papers`: ### **UNTOUCHED** -- no hook, no mirror.
