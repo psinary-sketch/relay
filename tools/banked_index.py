@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'threshold-asymmetry': ['the asymmetry', 'asymmetry', 'the two thresholds',
+                            'reading scale', "the operator's reading scale"],
+    'criterion-sharpness': ['sharpness', 'the sharpness', 'necessity of the criterion',
+                            'vanishing criterion'],
     'second-zero-mechanism': ['second mechanism', 'second zero mechanism',
                               'the first-level pairing', 'the barrier', 'the pairing',
                               'two-radius vanishing criterion'],
@@ -335,6 +339,37 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PAIRING/BARRIER LANE (b295, b296).
+    ("threshold-asymmetry", "b281 (the form's type) / b296 (the reading scale, measured)",
+     "the operator reads its SECOND slot by pointwise evaluation on the ball (scale p^n) and its"
+     " FIRST slot only through the fiber sums of the reduction Z/p^{2n} -> Z/p^{2n-1}, one step"
+     " coarser than pointwise. EACH THRESHOLD IS THE DISTANCE FROM THAT SLOT'S CONDITION'S OWN"
+     " BASE SCALE TO THE SCALE AT WHICH THE OPERATOR READS IT: distance 0 on the function side"
+     " (level-free), distance (2n-1)-n = n-1 on the transform side (level-carrying). So the"
+     " asymmetry is not between the two conditions but between the two ways the operator reads"
+     " its two slots -- b281's `A != A^T` turned into a number",
+     "### DERIVED (b296), and the reading scale MEASURED INDEPENDENTLY OF THE CRITERION at 6 of 6"
+     " cells with both polarities firing: p^{2n-2} does not determine G_f, p^{2n} does but is not"
+     " minimal. ### CONSEQUENCE, MEASURED SEPARATELY: on the object's own space the annihilation"
+     " is ONE-SIDED -- the function-side condition alone gives an identically zero form at all six"
+     " cells, the transform-side condition alone only at the three n = 1 cells."
+     " ### `W-ORD-READING-SCALE-GENERAL`: derivation and measurement not shown to agree outside"
+     " the six cells. ### NOT A ROUTE; M-2 unchanged",
+     "data/b296_the_asymmetry.txt; data/b296_asymmetry_run.txt; CORRESPONDENCE.md row 107"),
+    ("criterion-sharpness", "b295 (sufficiency) / b296 (necessity)",
+     "the first-level pairing vanishes identically on Son(p,n; a,b) -- as a FORM, both slots --"
+     " IF AND ONLY IF a >= 0 or b >= n-1. Necessity is witnessed by ONE vector per cell covering"
+     " the whole region below both thresholds:"
+     " h = e_{p^{n-1}} - e_{p^{n-1}+p^{2n-2}} + e_{p^n} - e_{p^n+p^{2n-1}}, with"
+     " <A h, h> = 2 p^{n-1} (p-1) / (p^n - 1)",
+     "### DERIVED both ways (b295 sufficiency, b296 necessity). Each hypothesis is used exactly"
+     " once in the construction: b <= n-2 puts f's two points in one p^{n+b} fiber, a <= -1 puts"
+     " g's two points off B_a. ### CONTROLS: 6 of 6 registered values landed exactly (5 by the"
+     " general construction, 1 by a registered fallback where the construction collides at (2,1)"
+     " and the general arm reports UNAVAILABLE); coverage 30 of 30 live members; both negative"
+     " polarities 6/6. ### NOT A ROUTE: every nonzero member weakens the object's FIRST condition"
+     " and every witness has mass ON the ball, which that condition forbids. ### M-2 unchanged",
+     "data/b296_the_asymmetry.txt; data/b296_asymmetry_run.txt; CORRESPONDENCE.md row 107"),
     # ### THE PAIRING/BARRIER LANE'S FIRST KEY (b295). ### **UNTIL THIS ROW THE LANE HAD NONE,
     # ### SO EVERY QUERY ABOUT IT COULD ONLY MISS -- b181's lane limit, live in a new place.**
     ("second-zero-mechanism", "b270 (the barrier's hypothesis) / b280-b281 (the diagonal) / "

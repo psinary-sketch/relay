@@ -1,0 +1,379 @@
+====================================================================================================
+b296 -- THE ASYMMETRY AND ITS SHARPNESS. ### WHY THE TRANSFORM-SIDE THRESHOLD SITS WHERE IT DOES,
+AND WHETHER THE CRITERION IS NECESSARY AS WELL AS SUFFICIENT.
+2026-09-02. ### SOLO (research seat). ### Registration: `data/b296_registration_2026-09-02.txt`
+(sealed `54dc2cb9...` before any runner existed, verified intact after the run).
+====================================================================================================
+
+### ### **VERDICT, THREE PARTS, ALL THREE THE STRONGER BRANCH:**
+### ### ### **(1) THE THRESHOLD FALLS OUT. ### IT IS NOT FITTED.**
+### ### ### **(2) THE ASYMMETRY IS ### ONE ### STATEMENT, AND IT EXPLAINS THE ASYMMETRY RATHER
+### ### ### THAN DISSOLVING IT.**
+### ### ### **(3) THE CRITERION IS ### EXACT ### -- NECESSARY AS WELL AS SUFFICIENT, DERIVED,
+### ### ### BY ONE EXPLICIT WITNESS PER CELL COVERING THE WHOLE REGION.**
+
+### ### **SO b295's CRITERION IS NOW AN EQUIVALENCE:**
+### ### ### **THE FIRST-LEVEL PAIRING VANISHES IDENTICALLY ON `Son(p,n; a,b)` -- AS A FORM, IN
+### ### ### BOTH SLOTS -- ### IF AND ONLY IF ### `a >= 0` OR `b >= n - 1`.**
+
+### ### **AND THE MECHANISM, IN ONE LINE:** ### the operator reads its FIRST slot only through the
+### fiber sums of the reduction `Z/p^{2n} -> Z/p^{2n-1}` -- ### **ONE STEP COARSER THAN POINTWISE,
+### AND MEASURED AT 6 OF 6 CELLS WITH NO REFERENCE TO `b`** -- while the transform-side condition
+### at exponent `b` kills fiber sums at modulus `p^{n+b}` and every coarser one. ### **COVERING
+### WHAT THE OPERATOR READS IS `n + b >= 2n - 1`. ### THAT IS `b >= n - 1`, AND IT ARRIVES FROM
+### THE OPERATOR'S READING SCALE AND NOT FROM THE CRITERION IT EXPLAINS.**
+
+### ### ### **NOT A ROUTE, AND THE ACT SAYS SO BEFORE IT SAYS ANYTHING ELSE.** ### Every member
+### exhibited nonzero here has `a < 0`: ### **EACH WEAKENS THE OBJECT'S ### FIRST ### CONDITION**,
+### and every witness this act exhibits ### **HAS MASS ON THE BALL** ### -- measured, indices
+### printed at every cell -- ### **WHICH THAT CONDITION FORBIDS OUTRIGHT. ### THE MEMBERS ARE
+### SUPERSETS OF THE OBJECT'S SPACE AND THE NONZERO LIVES IN THE PART THAT IS NOT THE OBJECT.**
+
+### ### **THE NAVIGATOR'S SYMMETRIC FRAMING IS RETIRED BY NAME, AND THIS ACT USED NO SYMMETRIC
+### ### DEFAULT ANYWHERE.** ### b295's ferry asked for "the transform-side ### ANALOGUE ### of the
+### barrier's function-side argument" and proposed that the pairing vanishes on a member satisfying
+### ### EITHER ### condition. ### **BOTH PRESUPPOSED A SYMMETRY THAT DOES NOT EXIST**, and the
+### registration carried a satisfiability clause with a cap of ### ZERO ### on symmetric premises
+### so that a violation would be countable rather than a matter of tone.
+
+### ### **THE BARRIER AND THE COMPRESSION ARE NOT RE-VERDICTED -- AND WERE RE-MEASURED, NOT
+### ### CITED.** ### Every `a >= 0` member at every cell has the ### WHOLE FORM ### identically
+### zero: ### **40 OF 40.**
+
+### ### **EXPOSURE TO THE ESCAPED-MASS ARTIFACT (Y6): ### NONE, WITH ITS REASON.** ### No
+### level-shifting map appears; members are defined by radii and the pairing is b273's `A` at
+### `k = n`, within one level. ### **THE ARTIFACT LIVES IN b284's `g` AND `h`, WHICH ARE NOT THE
+### `g` AND `h` OF THIS ACT AND DO NOT APPEAR IN THE RUNNER.**
+
+====================================================================================================
+### COMPONENT 1 -- THE MECHANISM, AND THE THRESHOLD FALLING OUT OF IT. ### **(DERIVED.)**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE TWO OWNERS, PULLED FROM THEIR EMITTING FILES.
+----------------------------------------------------------------------------------------------------
+### ### **THE COLLAPSE, AND THE MAP WHOSE FIBERS THEY ARE, NAMED EXACTLY.** ### b293, quoted:
+### the condition `(S f)` vanishing on `B_b` says "the order-`p^{n+b}` DFT of the folded function
+### vanishes identically, and a DFT vanishes identically exactly when its input does:
+### ### **`SUM_{m' = r mod p^{n+b}} f(m') = 0` FOR EVERY `r`**".
+### ### ### **SO THE TRANSFORM-SIDE CONDITION IS EXACTLY: ### EVERY FIBER SUM OF THE REDUCTION
+### ### ### MAP `Z/p^{2n} -> Z/p^{n+b}` VANISHES.** ### b279 owns the same collapse at `b = 0`
+### and states the level bookkeeping in its own voice: ### **"each level-`n` fiber sum is
+### reproduced exactly `p` times"**.
+### ### **THE OPERATOR, from b281 (emitting):** ### **`A[l,j] = SUM_{m : p^k m = l mod N}
+### S_quot[m,j]`**, with `S_quot` class-averaging off the ball and zero on it.
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE DERIVATION. ### **CARRIED NAVIGATOR-ASSERTED AND TESTED STEP BY STEP.**
+----------------------------------------------------------------------------------------------------
+### ### **STEP ONE -- THE FIRST SLOT IS READ ONLY THROUGH `G_f`.** ### `A`'s row index is
+### `l = p^n m`, which lies in `ball_n` for every `m`, so `A f` is ball-supported; and `g(q m)`
+### depends on `m` only mod `q = p^n`. ### Hence
+### ### ### **`<A f, g> = SUM over r in Z/q of conj(g(q r)) * G_f(r)`,
+### ### ### `G_f(r) = SUM over m = r mod q of (S_quot f)(m)`.**
+### ### **STEP TWO -- `G_f` IS A FIBER-SUM FUNCTIONAL, AND THE QUESTION IS AT WHICH MODULUS.**
+### `S_quot` is constant on the classes of `m ~ pm`; a class's valuation-`e` stratum is a FULL
+### residue class mod `p^{n+e+1}`, finest at `e = n-1`, i.e. mod `p^{2n}` -- pointwise.
+### ### **STEP THREE -- AND THE SUM OVER THE `mod q` FIBER COARSENS IT BY EXACTLY ONE STEP.** ###
+### The fiber of `r` meets `p^{e0+1}` classes, each `p^{n-e0-1}` times, so the stratum sums
+### combine into a full residue class mod `p^{n+e-e0}`. ### At the generic `e0 = 0` and the finest
+### `e = n-1` that is ### **`p^{2n-1}`.**
+### ### **STEP FOUR -- THE CONDITION'S REACH.** ### A class at a COARSER modulus is a union of
+### classes at `p^{n+b}`, so the condition kills `Fib_M` for every `M <= n+b` and controls nothing
+### finer.
+### ### ### **STEP FIVE -- THE THRESHOLD.** ### Covering everything the operator reads is
+### ### ### **`n + b >= 2n - 1`, i.e. `b >= n - 1`.**
+
+----------------------------------------------------------------------------------------------------
+### (1c) Y3 -- THE READING SCALE MEASURED ### INDEPENDENTLY OF THE CRITERION ### , BOTH POLARITIES.
+----------------------------------------------------------------------------------------------------
+### ### **A MECHANISM THAT "EXPLAINS" A THRESHOLD MUST PREDICT IT FROM SOMETHING ELSE, OR IT IS
+### ### THE THRESHOLD WEARING A STORY.** ### So the runner measures the reading scale with
+### ### **NO REFERENCE TO `a`, `b`, OR ANY MEMBER**: the map `f -> G_f` is linear with matrix
+### `Gamma`; the `p^M` fiber sums are the rows of `Pi_M`; and `G_f` is determined by them exactly
+### when `rank(Pi_M) = rank(Pi_M` stacked on `Gamma)`. ### The smallest such `M` is found by
+### ### **EXACT RATIONAL ELIMINATION, BY SEARCH OVER `M = 0 .. 2n`.**
+### ### ### **MEASURED SMALLEST `M`, AGAINST THE PREDICTED `2n - 1`:**
+###   `(2,1)` : ### **1** ### vs 1 . `(2,2)` : ### **3** ### vs 3 . `(3,1)` : ### **1** ### vs 1 .
+###   `(3,2)` : ### **3** ### vs 3 . `(5,1)` : ### **1** ### vs 1 . `(2,3)` : ### **5** ### vs 5.
+### ### ### **6 OF 6. ### AND BOTH POLARITIES FIRE AT EVERY CELL: ### `p^{2n-2}` DOES ### NOT ###
+### ### ### DETERMINE `G_f`, AND `p^{2n}` DOES BUT IS NOT MINIMAL.** ### Without the first arm the
+### modulus would have been asserted; without the second it would have been the trivial answer.
+### ### ### **THEREFORE (DERIVED), AND THE THRESHOLD'S VALUE FALLS OUT OF THE DERIVATION. ### IT
+### ### ### IS NOT FITTED TO THE MEASUREMENT, AND THIS ACT DOES NOT HAVE TO SAY THAT IT IS.**
+
+====================================================================================================
+### COMPONENT 2 -- THE ASYMMETRY, STATED. ### **ONE STATEMENT.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE COMMON STATEMENT, DERIVED FROM THE TWO MECHANISMS' OWN HYPOTHESES.
+----------------------------------------------------------------------------------------------------
+### ### ### **EACH THRESHOLD IS THE DISTANCE FROM THAT SLOT'S CONDITION'S OWN BASE SCALE TO THE
+### ### ### SCALE AT WHICH THE OPERATOR READS THAT SLOT.**
+###   ### **THE SECOND SLOT** ### is read by ### POINTWISE EVALUATION ON THE BALL ### , scale
+###     `p^n`. ### Its condition is a ### SUPPORT ### condition whose set `B_a` meets the ball
+###     exactly at `a = 0`. ### **DISTANCE `0`. ### LEVEL-FREE, BECAUSE THE CONDITION AND THE
+###     READING ARE ABOUT THE SAME SET.**
+###   ### **THE FIRST SLOT** ### is read by ### FIBER SUMS ### up to scale `p^{2n-1}`. ### Its
+###     condition is a ### FIBER-SUM ### condition at base scale `p^n`. ### **DISTANCE
+###     `(2n-1) - n = n - 1`. ### LEVEL-CARRYING.**
+### ### ### **SO THE ASYMMETRY IS NOT BETWEEN THE TWO CONDITIONS. ### IT IS BETWEEN THE TWO WAYS
+### ### ### THE OPERATOR READS ITS TWO SLOTS -- WHICH IS `A != A^T`, b281's TYPE VERDICT, TURNED
+### ### ### INTO A NUMBER.** ### b281 recorded that the form is neither Hermitian nor symmetric
+### and left it as a type; ### **THE DISTANCE `n - 1` IS THAT FACT MADE QUANTITATIVE FOR THIS
+### PAIRING.**
+### ### **AND THE STATEMENT IS NOT A SYMMETRY.** ### It is one rule that returns ### TWO DIFFERENT
+### NUMBERS ### because the two reading scales are different objects -- `p^n` and `p^{2n-1}`.
+### ### **THE NAVIGATOR PREFERRED "TWO MECHANISMS WITH NO COMMON STATEMENT" TO A MANUFACTURED
+### ### SYMMETRY, AND WAS RIGHT TO; THIS SEAT CLAIMS THE COMMON STATEMENT AND CARRIES THE BURDEN,
+### ### WHICH IS WHY (2b) IS A MEASUREMENT AND NOT A PARAGRAPH.**
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE CONSEQUENCE: ### **THE ANNIHILATION IS ONE-SIDED, AND IT IS MEASURED.**
+----------------------------------------------------------------------------------------------------
+### Two spaces, each carrying ### ONE ### of the object's conditions and ### NO OTHER CONDITION AT
+### ALL ### . ### **BOTH LIE OUTSIDE THE FAMILY'S OWN INDEX RANGE AND ARE BUILT DIRECTLY, WHICH IS
+### SAID RATHER THAN SMUGGLED.**
+###   ### **`{ f vanishing on the ball }` -- THE FUNCTION SIDE ALONE : ### FORM IDENTICALLY ZERO
+###     ### AT ALL SIX CELLS** ### (dims 2, 12, 6, 72, 20, 56).
+###   ### **`{ f with every p^n fiber sum zero }` -- THE TRANSFORM SIDE ALONE : ### ZERO AT THE
+###     ### THREE `n = 1` CELLS AND ### NONZERO ### AT ALL THREE `n >= 2` CELLS**, with first
+###     entries `-2/3` at `(2,2)`, `-3/4` at `(3,2)`, `-4/7` at `(2,3)`.
+### ### ### **THE SPLIT IS EXACTLY ALONG `n = 1` vs `n >= 2`, WHICH IS WHAT THE CRITERION SAYS,
+### ### ### ARRIVED AT FROM A DIFFERENT DIRECTION.**
+### ### ### **THEREFORE, ON THE OBJECT'S OWN SPACE THE ANNIHILATION IS ONE-SIDED: ### THE
+### ### ### FUNCTION-SIDE CONDITION DOES THE WORK AT EVERY LEVEL, AND ABOVE LEVEL 1 THE OBJECT'S
+### ### ### TRANSFORM-SIDE CONDITION CONTRIBUTES NOTHING TO THIS PAIRING.** ### Dropping it
+### entirely leaves the form identically zero; keeping it alone does not.
+### ### **AND THE READING IS NOT EXTENDED PAST WHAT WAS MEASURED: ### this is a statement about
+### ### THIS PAIRING** -- b273's `A` at `k = n` -- ### **AND SAYS NOTHING ABOUT WHAT THE OBJECT'S
+### ### SECOND CONDITION DOES FOR ANY OTHER PURPOSE, OF WHICH THIS ACT TESTED NONE.**
+### ### **THE VALUES ARE `-p^{n-1}/|C|` WITH `|C| = (p^n-1)/(p-1)`, WHICH IS `G_f`'s OWN LEADING
+### ### COEFFICIENT AT `e0 = 0` -- DERIVED AT (1b), NOT FITTED TO THREE NUMBERS.**
+
+====================================================================================================
+### COMPONENT 3 -- SHARPNESS. ### **(NECESSARY, DERIVED.) ### ONE WITNESS PER CELL.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (3a) THE CONSTRUCTION, AND EACH HYPOTHESIS USED EXACTLY ONCE.
+----------------------------------------------------------------------------------------------------
+### For `a <= -1` and `b <= n - 2` -- the region below ### BOTH ### thresholds -- put
+###   ### **`f := e_{p^{n-1}} - e_{p^{n-1} + p^{2n-2}}`** ### : two points of valuation `n-1` in
+###     the ### SAME ### `p^{n+b}` fiber and ### DIFFERENT ### `p^{2n-1}` fibers. ### The first
+###     needs `n + b <= 2n - 2`, i.e. ### **`b <= n - 2` -- THE HYPOTHESIS, USED HERE AND NOWHERE
+###     ELSE.**
+###   ### **`g := e_{p^n} - e_{p^n + p^{2n-1}}`** ### : two ball points, which must lie off `B_a`,
+###     i.e. ### **`a <= -1` -- THE OTHER HYPOTHESIS, USED HERE AND NOWHERE ELSE.**
+###   ### **`h := f + g`.** ### `f` has no ball mass and `g` is ball-supported, so `<A f, f> = 0`,
+###     `A g = 0`, and ### **`<A h, h> = <A f, g>`.**
+### `G_f` is supported on exactly two residues, `r = 1` and `r = 1 + p^{n-1}`, with values
+### `+- p^{n-1}/|C|`, so
+### ### ### **`<A h, h> = 2 p^{n-1} (p-1) / (p^n - 1)`.**
+### ### **THE SAME `h` LIES IN EVERY MEMBER WITH `-n <= a <= -1` AND `-n <= b <= n-2`, SO ONE
+### ### WITNESS PER CELL SETTLES THE WHOLE REGION.**
+
+----------------------------------------------------------------------------------------------------
+### (3b) THE CONTROLS, AND THE SCOPE OF WHAT WAS MEASURED.
+----------------------------------------------------------------------------------------------------
+### ### **REGISTERED BEFORE ANY CODE, LANDED EXACTLY: ### 6 OF 6.**
+###   `(2,2)` ### **4/3** ### . `(3,2)` ### **3/2** ### . `(2,3)` ### **8/7** ### .
+###   `(3,1)` ### **2** ### . `(5,1)` ### **2** ### . `(2,1)` ### **-1** ### (fallback, below).
+### ### **5 BY THE GENERAL CONSTRUCTION, 1 BY THE REGISTERED FALLBACK, AND THE TALLY SEPARATES
+### ### THEM RATHER THAN FOLDING THE FALLBACK INTO A PASS COUNT.**
+### ### **Y9 FIRED, AT THE CELL PREDICTED AND FOR THE REASON PREDICTED:** ### at `(2,1)`,
+### `p^{n-1} + p^{2n-2} = 1 + 1 = 2 = p^n`, so `f`'s second point IS `g`'s first and `h` is not of
+### the stated shape. ### **THE GENERAL ARM REPORTS ### UNAVAILABLE ### THERE, NEVER A PASS**, and
+### the separately registered `h = e_2 - e_1` gives `-1`, which is b295's own measured value at
+### that cell.
+### ### **EVERY VALUE AGREES ACROSS TWO INSTRUMENTS: ### 6 OF 6** ### -- an exact rational form
+### matrix and an independent re-valuation in `Q(zeta_N)`.
+### ### **BOTH NEGATIVE POLARITIES, AT EVERY CELL:**
+###   ### **the same `h` LEAVES the member at `b = n - 1` : ### 6 OF 6** ### -- and for the stated
+###     reason, `f`'s two points ceasing to share a `p^{n+b}` fiber. ### **THE CONSTRUCTION STOPS
+###     EXACTLY AT THE THRESHOLD, WHICH IS THE HYPOTHESIS SHOWING IT IS LOAD-BEARING.**
+###   ### **a lone on-ball spike is REJECTED : ### 6 OF 6.**
+### ### **THE COVERAGE, EXACT:** ### `(2,1)` 1/1, `(2,2)` 6/6, `(3,1)` 1/1, `(3,2)` 6/6, `(5,1)`
+### 1/1, `(2,3)` 15/15 -- ### **30 MEMBERS, AND 30 IS ALSO THE FULL SWEEP'S LIVE-NONZERO COUNT.
+### ### THE ONE WITNESS PER CELL COVERS EVERY MEMBER BELOW BOTH THRESHOLDS, WITH NONE LEFT OVER.**
+### ### ### **AND THE SCOPE, PRINTED BECAUSE THE DERIVATION AND THE MEASUREMENT ARE DIFFERENT
+### ### ### THINGS: ### THE CONSTRUCTION AT (3a) IS A ### DERIVATION ### AND IS NOT LIMITED TO
+### ### ### THESE CELLS. ### THE SIX CELLS, 126 MEMBERS, 46 EMPTY, 80 LIVE, ARE ITS ### CONTROL ###
+### ### ### -- AND `0` MEMBERS BELOW BOTH THRESHOLDS CAME BACK ZERO, WHICH WOULD HAVE REFUTED IT.**
+
+====================================================================================================
+### COMPONENT 4 -- WHAT IT DOES NOT SAY, IN THE ACT'S OWN WORDS.
+====================================================================================================
+### ### **ONE. ### NOTHING ABOUT THE ARCHIMEDEAN PLACE.** ### b285's typing verdict stands; no
+### finite-arc result types there and this one does not either.
+### ### **TWO. ### NOTHING ABOUT THE IDENTITY, NOTHING ABOUT `h2`** ### beyond the register
+### sentence exact, ### **AND NOTHING ABOUT THE COMPLETE ROSTER** ### -- b15's clause governs.
+### ### **THREE. ### NO ROUTE, AND NO AGGREGATION.** ### The members carrying nonzero values are
+### reached by relaxing the object's first condition, not by any map the corpus states; dilation
+### preserves `a + b` and the diagonal's orbit has sum `0`, so `(-1,0)` at sum `-1` is off it.
+### ### **NO MAP FROM THE OBJECT'S SPACE TO ANY OF THEM IS EXHIBITED HERE.**
+### ### **FOUR. ### (SPEC-2) AND (SPEC-3) WERE NOT TESTED AGAINST ANY MEMBER.** ### This act
+### computed one pairing and nothing else. ### **M-2 IS EXACTLY WHERE IT WAS.**
+### ### **FIVE. ### THE OBJECT'S OWN SPACE IS UNAFFECTED, AND IT WAS RE-MEASURED RATHER THAN
+### ### CITED.** ### `Son(p,n)` is the diagonal member; it carries the function-side condition;
+### ### **ITS FORM IS IDENTICALLY ZERO, AND SO IS EVERY `a >= 0` MEMBER'S, 40 OF 40.** ### What
+### this act adds is that the vanishing there needs only ONE of its two conditions -- ### **WHICH
+### MAKES THE OBJECT'S SPACE NO SMALLER AND NO LARGER AND CHANGES NOTHING ABOUT IT.**
+
+----------------------------------------------------------------------------------------------------
+### (4a) THE REOPENING CANDIDATE'S CRITERIA, RESTATED WITH WHICH ARE MET.
+----------------------------------------------------------------------------------------------------
+###   ### **(i) the family is a corpus object -- ### MET ### at b293.**
+###   ### **(ii) a statement of what "structure on the family" would mean that is not a statement
+###     about one member -- ### UNMET.** ### This act's equivalence quantifies over all `(a,b)`,
+###     ### **BUT (ii) ASKS FOR A ### FUNCTIONAL ### OF THE FAMILY, AND A CRITERION SORTING ITS
+###     MEMBERS INTO TWO CLASSES IS NOT ONE.** ### The act does not claim otherwise.
+###   ### **(iii) a check that the resulting object is of a shape the specification can consume --
+###     ### UNMET ### , and not attempted.**
+### ### **STILL UNBANKED-UNTIL-TESTED.**
+
+====================================================================================================
+### THE SHADOW. ### **NOTHING BUILT -- BOTH TESTS APPLIED, CHECKED NOT ASSUMED.**
+====================================================================================================
+### ### **TEST ONE, FINITE-DECIDABILITY: ### THE HALVES PART, AS THEY DID AT b295.**
+###   ### **THE EQUIVALENCE IS NOT FINITE** ### -- it quantifies over all levels and all places,
+###     in both directions now. ### b288's, b293's, b294's and b295's refusals carry.
+###   ### **THE READING-SCALE MEASUREMENT ### IS ### FINITE-DECIDABLE** ### -- "the smallest `M`
+###     with `rank(Pi_M) = rank(Pi_M | Gamma)` is `2n-1`" is exact rational linear algebra at a
+###     named cell. ### **SO TEST ONE DOES NOT REFUSE IT.**
+### ### **TEST TWO, CAN THE MEDIUM CARRY THE SCOPE: ### IT CANNOT.** ### The precedent stands:
+### a true statement is not compiled when the medium cannot hold the sentence that bounds it.
+### ### **A TERMINAL READING "THE SMALLEST MODULUS IS `p^{2n-1}` AT `(2,2)`" WOULD CERTIFY A RANK
+### ### COMPARISON AT ONE CELL AND WOULD SIT IN THE KERNEL LOOKING LIKE A STATEMENT ABOUT THE
+### ### OPERATOR AT ALL LEVELS**, which is exactly what it is not -- and the sentence that bounds
+### it is the whole of (1b). ### **AND THE WITNESS VALUES ARE WORSE, FOR b295's REASON UNCHANGED:
+### ### A NUMBER THAT NEEDS A PARAGRAPH TO BE READ CORRECTLY IS THE WORST CANDIDATE FOR A COMPILED
+### ### TERMINAL, AND THESE MEMBERS SIT CLOSER TO THE OBJECT THAN b294's DID.**
+### ### ### **SO: NOTHING BUILT. ### 0 `.lean` FILES MOVED. ### NO COMPILE CLAIMED.** ###
+### Twenty-fourth act on this ground, and the fourth where a finite-decidable half was identified
+### and ### **REFUSED ON ITS MERITS RATHER THAN FOUND ABSENT.**
+
+====================================================================================================
+### THE FALSIFIERS.
+====================================================================================================
+###   Y1 a zero from a dead instrument is not a zero .. ### **FIRED FIRST, AT EVERY CELL** ### --
+###      `<A g_0, g_0>` matches b271's banked `4(N-q)`, ### 6 of 6 ### (8, 48, 24, 288, 80, 224)
+###   Y2 empty members report CANNOT TEST ............. ### **FIRED** ### -- 46 members
+###   Y3 the threshold must be predicted, not fitted .. ### **FIRED IN BOTH POLARITIES AT EVERY
+###      CELL** ### -- smallest `M` = `2n-1`, 6 of 6; `p^{2n-2}` fails; `p^{2n}` works but is not
+###      minimal. ### **THIS IS THE FALSIFIER THAT DECIDED C1's GRADE.**
+###   Y4 a witness is a vector in the member ........... HOLDS -- both conditions, the transform
+###      condition in `Q(zeta_N)`, negative control 6 of 6
+###   Y5 every verdict off the FULL form matrix ........ HOLDS -- b295's instrument, kept
+###   Y6 the artifact exposure stated explicitly ....... HOLDS -- ### **NONE, no level-shifting map**
+###   Y7 every needle from an emitting file ............ HOLDS
+###   Y8 the barrier survives this act's instrument .... ### **FIRED AND PASSED, 40 OF 40**
+###   Y9 an arm that cannot exist reports UNAVAILABLE .. ### **FIRED AT `(2,1)`, THE CELL AND THE
+###      REASON BOTH PREDICTED BEFORE THE RUN**
+### ### **THE SEATS DISAGREED ON C1, C2 AND C3, AND THIS SEAT HELD THE STRONGER POSITION IN ALL
+### ### THREE.** ### The registration said so before the run and named the numbers that would make
+### the loss visible. ### **ALL THREE LANDED.** ### On C4 the seats agreed and the falsifiers
+### carried the adversary's work, as the registration said they would.
+
+====================================================================================================
+### THE FILINGS, M-2's ROW, AND HANDOFF.
+====================================================================================================
+### ### **`W-ORD-CRITERION-NECESSITY` (b295) -- ### DISCHARGED.** ### Necessity is derived, not
+###   measured; the criterion is an equivalence.
+### ### **`W-ORD-DIAGONAL-VS-FORM-SWEEP` (b295) -- ### STILL FILED, STILL NOT RUN**, and its three
+###   named items are unchanged: ### **b284's and b288's per-basis-vector image checks, and b293's
+###   `(1,0) -> (0,1)` reflection sample.** ### This act re-read the full grid on the form and
+###   ### **DID NOT TOUCH THOSE THREE.**
+### ### **`W-ORD-READING-SCALE-GENERAL`** ### -- new. ### The reading scale `2n-1` is DERIVED at
+###   (1b) and MEASURED at six cells; ### **NO ACT HAS SHOWN THE DERIVATION AND THE MEASUREMENT
+###   AGREE OUTSIDE THOSE CELLS**, and the measurement cannot be run at every cell.
+### ### **`W-ORD-FAMILY-REOPENING`** ### -- (i) MET, (ii) and (iii) UNMET. ### **UNBANKED.**
+### ### **`W-ORD-PRINT-COVERAGE`, RESTATED:** ### 25 `Core` modules outside the certification file;
+### the risk is not the labour but that a sweep may find a terminal sitting uncertified whose print
+### is not zero axioms. ### **STILL FILED, STILL NOT RUN.**
+### CARRIED: `W-ORD-CORRESPONDENCE-IDEMPOTENCE`, `W-ORD-PICTURE-IDENTIFICATION`,
+###   `W-ORD-WEIGHT-AT-EIGENVALUE-ONE`, `W-ORD-ALLPRINTS-COVERAGE`, `W-ORD-B290-SEARCH-FORM`,
+###   `W-ORD-SCALING-LAW-OWNER`, `W-ORD-CM-BOOK-CH2`, `W-ORD-WSA-PSI-LINK`,
+###   `W-ORD-CC-SCALE-MEANING`, `W-ORD-CC-LOCAL-COPY`, `W-ORD-COMPRESSION-VS-SMEAR`,
+###   `W-ORD-F-STABILITY-PROVENANCE`, `W-ORD-FIBER-GENERAL`, `W-ORD-XI-PERMODE`, b250's
+###   ### S3(a) WALL ### , `W-ORD-TQ-IDENTIFY`, `W-ORD-CN-LAW`, b262's PNT-plus-saddle.
+
+### ### **THE INDEX WAS QUERIED BEFORE ANYTHING WAS CALLED OPEN:** ### "the asymmetry"
+### ### NO KEY ### ; "sharpness" ### NO KEY ### ; positive control "second mechanism" ### HITS ###
+### (b295's row). ### **BOTH ARE NOW KEYED.**
+
+### ### **M-2 REMAINS (SPECIFIED-NOT-STATED). ### UNCHANGED BY THIS ACT.**
+### THE SEAM'S DEBT ITEM 1: ### **STILL UNPAID.** ### Restated, not discharged, not renegotiated.
+### IN FLIGHT: `W-ORD-READING-SCALE-GENERAL`; `W-ORD-DIAGONAL-VS-FORM-SWEEP`;
+### `W-ORD-FAMILY-REOPENING`; `W-ORD-PRINT-COVERAGE`; `W-ORD-RETIRED-STEM`;
+### `W-ORD-SBAR-CLOSURE-COMPILE`; `W-ORD-FIBER-GENERAL`; `W-ORD-ARCH-LOCAL-SPACE`;
+### M-2 (SPECIFIED-NOT-STATED); the seam's debt item 1; the ERRATA partition question (b266); and
+### the carried work-orders above.
+### ### **HANDOFF CURRENT. ### THIRTY-ONE ACTS, b261-b296.** ### `HANDOFF.md`'s head still reads
+### b278 and is left as b293, b294 and b295 left it; ### **THE HANDOFF FOR THIS ARC LIVES IN THE
+### BANKS, AND THIS ACT SAYS SO RATHER THAN LETTING "CURRENT" DO SILENT WORK.**
+### ### ### **THE NEXT ACT, NAMED AND NOT ATTEMPTED: ### THE FOLD, `b283-b296`, INTO
+### ### ### `FINDINGS.md` AS ONE DATED ARC SECTION** ### -- b266's precedent, which folded
+### b256-b265 under fold rules that ### **STATE GRADES AND CONFER NONE** ### and require every
+### obstacle to be quoted verbatim from its owning act (`F-QUOTE`). ### **THIS ACT DOES NOT BEGIN
+### IT.**
+### ### ### **AND THE NEW-KEYSTONE QUESTION IS ### THE AUTHOR'S ### , NOT THIS SEAT'S.** ### It is
+### recorded here as owed and ### **NOTHING IS PROPOSED ABOUT IT, BECAUSE PROPOSING IS THE PART
+### THAT IS NOT THIS SEAT'S TO DO.**
+### ### **NOTHING DEPOSITS. NOTHING CIRCULATES. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT:
+### ### "RH reduced to a single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE RUNNER'S ### REPORTING ### WAS PATCHED AFTER THE FIRST RUN, AND NO MEASUREMENT
+### ### WAS TOUCHED.** ### A read of the first run's output found three defects in its TALLY, not
+### in its arithmetic: ### **(i) the on-ball-spike negative control RAN AT EVERY CELL AND WAS NOT
+### ### COUNTED** ### -- a control that runs untallied can begin failing with nobody counting;
+### ### **(ii) the `(2,1)` FALLBACK WITNESS WAS FOLDED INTO "6/6" BESIDE FIVE GENERAL-CONSTRUCTION
+### ### WITNESSES**, which is exactly what Y9 forbids; and ### **(iii) Y8's `40` COULD NOT BE
+### ### CLOSED FROM THE PRINTED PER-CELL NUMBERS**, whose forced-zero figures sum to `50`.
+### The tally now prints ### **40 (function side) + 10 (transform side) = 50** ### and separates
+### `5 general + 1 fallback`. ### **EVERY MEASURED NUMBER IS IDENTICAL ACROSS THE TWO RUNS.**
+### ### **DECLARED BECAUSE THE PATCH CAME AFTER SEEING RESULTS, WHICH IS THE CIRCUMSTANCE UNDER
+### ### WHICH A REPORTING CHANGE IS HARDEST TO DISTINGUISH FROM A RESULT CHANGE.**
+### ### **(D2) THE PRIOR SESSION WAS CUT BY A TOOLING INTERRUPTION AFTER THE RUNNER COMPLETED,
+### ### AND THIS ACT RESUMED FROM DISK RATHER THAN FROM MEMORY.** ### On resume: nothing had been
+### pushed (both repos at their b295 heads), the seal verified INTACT and unchanged, the run output
+### was complete at 192 lines, ### **AND NO FILE WAS HALF-WRITTEN** ### -- the bank, the gate
+### suite, the correspondence tool and the index keys simply did not exist yet. ### Declared
+### because "resumed" is a claim about state and the state was checked rather than assumed.
+### ### **(D3) THE LORE'S BASIS-SPECIES RULE FROM b295 WAS ### REPLACED ### , NOT APPENDED TO.**
+### b295 filed "a quadratic verdict read off a basis is not a verdict about the space". ### The
+### ferry asked for the species with ### TWO ### incidents. ### **THE b295 RULE'S INCIDENT IS
+### CARRIED VERBATIM INSIDE THE NEW TWO-INCIDENT RULE AND THE OLD ENTRY WAS REMOVED**, because a
+### superseded duplicate sitting beside its own generalization is noise in a file whose whole
+### purpose is to be read before acting. ### **NOTHING WAS LOST; THE LIST IS SHORTER BY ONE ENTRY
+### AND RICHER BY ONE INCIDENT.**
+### ### **(D4) THE ONE-SIDEDNESS SPACES LIE OUTSIDE THE FAMILY'S OWN INDEX RANGE.** ### "No
+### transform condition at all" is not `b = -n`, which still imposes one global sum; it is a space
+### the family cannot name. ### **BUILT DIRECTLY AND SAID SO**, because a measurement whose object
+### is outside the stated index range and does not say so is a measurement of something else.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE.
+----------------------------------------------------------------------------------------------------
+### CELLS: `(2,1) (2,2) (3,1) (3,2) (5,1) (2,3)` -- b295's six, unchanged, so every number here is
+### comparable to the one it refines. ### MEMBERS SWEPT: ### **126** ### (46 empty, 80 live).
+### RUNTIME: ### **1.7 s** ### against a declared 900 s cap.
+### REGISTRATION: satisfiability-checked (7 clauses, jointly satisfiable), term-scanned,
+### ### **SEALED `54dc2cb9...` BEFORE ANY RUNNER EXISTED AND VERIFIED INTACT AFTER THE RUN.**
+### ### **THE TERM SCAN CAUGHT A RULE 3 VIOLATION IN THE REGISTRATION ### BEFORE ### THE SEAL** --
+### three live uses of a banned stem, corrected, re-scanned CLEAN, and only then sealed.
+### REGISTERED EXACT PREDICTIONS LANDING: ### **6 OF 6** ### (5 general, 1 registered fallback).
+### Y3, THE ACT'S DECIDING FALSIFIER: ### **6 OF 6, BOTH POLARITIES AT EVERY CELL.**
+### Y8, THE BARRIER RE-MEASURED ON THE FULL FORM: ### **40 OF 40.**
+### NEGATIVE CONTROLS: ### **6/6 AND 6/6.**
+### CRITERION REFUTED: ### **NOWHERE.** ### NECESSITY REFUTED: ### **NOWHERE (0 members).**
+### FLOAT SCAN ON THE DECIDING RUNNER: ### **ZERO FLOAT TOKENS.**
+### NOISE-FLOOR GATE: in the path, EXACT arm at all 6 cells.
+### LEAN: ### **0 `.lean` FILES MOVED.** ### No compile claimed.
+### `PLACE-papers`: ### **UNTOUCHED** -- no hook, no mirror.

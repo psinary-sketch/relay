@@ -140,19 +140,42 @@ JUDGEMENT = [
                             'checker can measure. The countermeasure is the question asked '
                             'aloud before the build: what would a reader who saw ONLY this '
                             'terminal believe, and is that true?'),
-    dict(rule='A quadratic verdict read off a basis is not a verdict about the space -- unless '
-              'the form is symmetric, and that is checked rather than assumed.',
-         incident='b295 -- b294 answered "does this member give zero?" by computing `<A v, v>` on '
-                  'each vector of ONE basis and reporting ZERO on 10 of 10. b281 had ALREADY '
-                  'decided, in its own voice, that the form is NEITHER HERMITIAN NOR SYMMETRIC. '
-                  'The cross terms are not recovered from the diagonal: at (2,2) the member '
-                  '`Son(2,2; -1,0)` contains `v_1 + v_6` with value 4/3, and TEN of its basis '
-                  'vectors have value zero. Ten such members across six cells.',
-         why_not_mechanized='Nothing distinguishes a per-vector loop that MEANS "for each basis '
-                            'vector" from one that MEANS "for the span"; the intent lives in the '
-                            'sentence the act writes afterwards. The countermeasure is to carry '
-                            'the form\'s TYPE next to every verdict read from it, and to compute '
-                            'the whole matrix whenever the type is not symmetric.'),
+    dict(rule='A property checked on the members of a spanning set is not a property of the span. '
+              'THE SPECIES HAS BEEN MET TWICE -- once as a spanning family, once as a diagonal.',
+         incident='b271/b272 (spanning families) -- b271 read a property off `g_0`, ONE member of '
+                  'an `N`-member spanning family; b272 had to sweep all sixteen and reported '
+                  '"MEMBERS OF THE SPANNING FAMILY SATISFYING (SPEC-2): 0 of 16", which is a '
+                  'statement about members and not about the span. '
+                  'b294/b295 (diagonals) -- b294 answered "does this member give zero?" by '
+                  'computing `<A v, v>` on each vector of ONE basis and reporting ZERO on 10 of '
+                  '10; `Son(2,2; -1,0)` contains `v_1 + v_6` with value 4/3. Ten such members '
+                  'across six cells. b296 then found the same shape a third time in the '
+                  'opposite direction: the whole FORM, not the diagonal, is what the criterion '
+                  'is about, and the two are different questions with the same answer here only '
+                  'because a single vector `h` realizes both.',
+         why_not_mechanized='Nothing distinguishes a per-member loop that MEANS "for each member" '
+                            'from one that MEANS "for the span"; the intent lives in the sentence '
+                            'the act writes afterwards. The countermeasure is to carry the form\'s '
+                            'TYPE next to every verdict read from it, and to compute the whole '
+                            'matrix whenever the type is not symmetric.'),
+    dict(rule='A symmetric expectation about two conditions is a HYPOTHESIS, not a default. '
+              'Two conditions on one object are not owed the same treatment by the operator '
+              'that reads them.',
+         incident='THE NAVIGATOR\'S, TWICE, BOTH IN b295\'s FERRY. (i) It ordered "the '
+                  'transform-side analogue of the barrier\'s function-side argument, written out '
+                  'with its own hypotheses" -- the word ANALOGUE presupposing one exists. (ii) It '
+                  'proposed as the joint statement that the pairing "vanishes on any member '
+                  'satisfying EITHER of the object\'s two conditions, so a nonzero value requires '
+                  'both to be broken". BOTH ARE FALSE: the function-side threshold is the '
+                  'object\'s own radius at every level, the transform-side threshold is `n-1` and '
+                  'moves with the level, and above level 1 the object\'s second condition '
+                  'contributes nothing to this pairing at all.',
+         why_not_mechanized='A presupposed symmetry lives in a noun ("the analogue") or a '
+                            'connective ("either"), not in a checkable claim, and no scanner can '
+                            'tell a symmetry that was derived from one that was assumed. The '
+                            'countermeasure is a registration clause with a cap of zero: name the '
+                            'symmetric default, retire it by name, and require every comparison '
+                            'between the two sides to cite the operator\'s two reading scales.'),
     dict(rule='A print width is not a datum -- and neither is an arithmetic done in the head.',
          incident='b274 -- a pre-seal probe printed only red[:4] and INFERRED rationality, '
                   'computing fictitious values 2/7, 1/6, 1/5, 4/15. The conclusion survived; the '
