@@ -1,0 +1,63 @@
+====================================================================================================
+b288 -- THE FAMILY. ### THE FINITE-PLACE PARAMETER ARITHMETIC.
+====================================================================================================
+### RE-READS b284's BANKED GAP SETS AS RADII. ### **DOES NOT RE-DERIVE OR RE-VERDICT IT.**
+### THE ARCHIMEDEAN DERIVATION IS NOT HERE (falsifier N3).
+
+  ---- CELL (p,n) = (2,1):  N = 4     dim Son = 1 ----
+      the corpus member is Son(p,n): BOTH halves use ball_n, so (e_fn, e_tr) = (0, 0).
+      every Son vector vanishes on ball_n (e_fn = 0)      : YES
+      g = D_p  f  ### **NO LIVE IMAGE AT THIS CELL** (1 dead) -- b284 vacuity;
+                  ### **THE CELL CANNOT TEST THIS DIRECTION AND IS NOT COUNTED.**
+      h = D_1/p f e_fn over LIVE images: min -1  (max -1, 1 live, 0 dead)  predicted -1  MATCH
+      noise-floor gate : EXACT   (integer exponents only)
+
+  ---- CELL (p,n) = (2,2):  N = 16    dim Son = 9 ----
+      the corpus member is Son(p,n): BOTH halves use ball_n, so (e_fn, e_tr) = (0, 0).
+      every Son vector vanishes on ball_n (e_fn = 0)      : YES
+      g = D_p  f  e_fn over LIVE images: min +1  (max +1, 3 live, 6 dead)  predicted +1  MATCH
+      h = D_1/p f e_fn over LIVE images: min -1  (max +0, 9 live, 0 dead)  predicted -1  MATCH
+      noise-floor gate : EXACT   (integer exponents only)
+
+  ---- CELL (p,n) = (3,1):  N = 9     dim Son = 4 ----
+      the corpus member is Son(p,n): BOTH halves use ball_n, so (e_fn, e_tr) = (0, 0).
+      every Son vector vanishes on ball_n (e_fn = 0)      : YES
+      g = D_p  f  ### **NO LIVE IMAGE AT THIS CELL** (4 dead) -- b284 vacuity;
+                  ### **THE CELL CANNOT TEST THIS DIRECTION AND IS NOT COUNTED.**
+      h = D_1/p f e_fn over LIVE images: min -1  (max -1, 4 live, 0 dead)  predicted -1  MATCH
+      noise-floor gate : EXACT   (integer exponents only)
+
+  ---- CELL (p,n) = (3,2):  N = 81    dim Son = 64 ----
+      the corpus member is Son(p,n): BOTH halves use ball_n, so (e_fn, e_tr) = (0, 0).
+      every Son vector vanishes on ball_n (e_fn = 0)      : YES
+      g = D_p  f  e_fn over LIVE images: min +1  (max +1, 16 live, 48 dead)  predicted +1  MATCH
+      h = D_1/p f e_fn over LIVE images: min -1  (max +0, 64 live, 0 dead)  predicted -1  MATCH
+      noise-floor gate : EXACT   (integer exponents only)
+
+  ---- CELL (p,n) = (5,1):  N = 25    dim Son = 16 ----
+      the corpus member is Son(p,n): BOTH halves use ball_n, so (e_fn, e_tr) = (0, 0).
+      every Son vector vanishes on ball_n (e_fn = 0)      : YES
+      g = D_p  f  ### **NO LIVE IMAGE AT THIS CELL** (16 dead) -- b284 vacuity;
+                  ### **THE CELL CANNOT TEST THIS DIRECTION AND IS NOT COUNTED.**
+      h = D_1/p f e_fn over LIVE images: min -1  (max -1, 16 live, 0 dead)  predicted -1  MATCH
+      noise-floor gate : EXACT   (integer exponents only)
+
+  ---- CELL (p,n) = (7,1):  N = 49    dim Son = 36 ----
+      the corpus member is Son(p,n): BOTH halves use ball_n, so (e_fn, e_tr) = (0, 0).
+      every Son vector vanishes on ball_n (e_fn = 0)      : YES
+      g = D_p  f  ### **NO LIVE IMAGE AT THIS CELL** (36 dead) -- b284 vacuity;
+                  ### **THE CELL CANNOT TEST THIS DIRECTION AND IS NOT COUNTED.**
+      h = D_1/p f e_fn over LIVE images: min -1  (max -1, 36 live, 0 dead)  predicted -1  MATCH
+      noise-floor gate : EXACT   (integer exponents only)
+
+====================================================================================================
+### THE PRODUCT, AS AN INTEGER SUM OF EXPONENTS:
+###   corpus member Son(p,n) : e_fn + e_tr = 0 + 0 = ### **0**
+###   g = D_p f              : e_fn + e_tr = (+1) + (-1) = ### **0**
+###   h = D_1/p f            : e_fn + e_tr = (-1) + (+1) = ### **0**
+### ### **THE SUM OF EXPONENTS IS INVARIANT, WHICH IS THE PRODUCT OF RADII BEING
+### ### INVARIANT. ### EXACT INTEGER ARITHMETIC, NO FLOAT AND NO FRACTION.**
+### ### **AND THE `e_tr` COLUMN IS b284's OWN MEASUREMENT, NOT A NEW ONE:** ### b284
+### found g's transform vanishing only on p Z_p (e_tr = -1) and h's function side
+### failing off p Z_p (e_fn = -1), with the units as the gap in both.
+====================================================================================================
