@@ -1,0 +1,77 @@
+====================================================================================================
+b304 -- THE SHADOW BUILD AND ITS PROFILE. ### EVERY NUMBER FROM THIS FILE.
+====================================================================================================
+
+  SELF-TEST (the byte checks, imported from b302_kernel and re-run here):
+  fixture                                                    got/exp      agree
+  the print counter separates zero-axiom from other          True/True    YES
+  the print counter ignores blank lines                      True/True    YES
+  the BOM test fires on a real BOM                           True/True    YES
+  the BOM test stays quiet on clean bytes                    False/False  YES
+  a true prefix is recognised                                True/True    YES
+  a BOM-differing pair is NOT a byte prefix                  False/False  YES
+  CRLF normalises to LF                                      True/True    YES
+
+----------------------------------------------------------------------------------------------------
+  THE STATE BEFORE ANYTHING IS CHANGED.
+----------------------------------------------------------------------------------------------------
+  banked profile on disk   : 461 prints, 461 zero-axiom, 0 otherwise, 32123 bytes
+  banked profile at HEAD   : IDENTICAL
+  BOM on the banked file   : False
+  AllPrints imports IndexRangeShadow   : False
+  AllPrints prints B304.*   : 0
+
+----------------------------------------------------------------------------------------------------
+  (A) THE BASELINE. ### REGENERATE FROM THE UNCHANGED FILE AND REPRODUCE THE BANKED
+      BYTES. ### **IF THIS FAILS, NOTHING AFTER IT IS EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  regenerated              : 461 prints, 461 zero-axiom, 0 otherwise, 32123 bytes
+  BYTE-IDENTICAL to banked : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (B) THE MODULE. ### COMPILED ALONE, AND ITS PROFILE READ FROM ITS OWN OUTPUT.
+----------------------------------------------------------------------------------------------------
+  module                   : IndexRangeShadow.lean
+  exit code / stderr bytes : 0 / 0
+  terminals printed        : 9, 9 zero-axiom, 0 otherwise
+  compiled object written  : IndexRangeShadow.olean   True
+  imports in the module    : 0   ### VANILLA
+  `native_decide` uses     : 0
+  `sorry` occurrences      : 0
+      'B304.below_top_range_is_nonempty_from_two_up' does not depend on any axioms
+      'B304.index_range_grows_with_its_bound' does not depend on any axioms
+      'B304.the_two_ranges_have_the_lengths_their_bounds_name' does not depend on any axioms
+      'B304.top_of_reports_the_largest_entry' does not depend on any axioms
+      'B304.both_ranges_are_empty_at_zero' does not depend on any axioms
+      'B304.index_range_at_bound_one_is_a_single_point' does not depend on any axioms
+      'B304.below_top_range_at_bound_one_is_empty' does not depend on any axioms
+      'B304.the_single_point_at_bound_one_is_the_top_and_the_top_is_the_bound' does not depend on any axioms
+      'B304.the_top_of_the_index_range_is_its_bound_at_the_stated_bounds' does not depend on any axioms
+
+----------------------------------------------------------------------------------------------------
+  (C) THE CERTIFICATION FILE. ### THE IMPORT AND THE PRINTS, WRITTEN HERE SO THEY
+      CANNOT LAND IN A DIFFERENT COMMIT FROM THE MODULE (b289's scar).
+----------------------------------------------------------------------------------------------------
+  import line added        : True
+  print lines added        : 9
+  READ BACK from disk      : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (D) THE PROFILE, REGENERATED FROM SOURCE AND WRITTEN AS BYTES.
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  prints before -> after   : 461 -> 470      zero-axiom: 461 -> 470      other: 0 -> 0
+  bytes  before -> after   : 32123 -> 32850
+
+----------------------------------------------------------------------------------------------------
+  (E) THE THREE BYTE CHECKS. ### **NONE OF THEM IS A LINE COMPARISON.**
+----------------------------------------------------------------------------------------------------
+  BOM on the written file  : False  PASS
+  what was written is what was regenerated : True  PASS
+  the HEAD profile is a TRUE BYTE PREFIX of the new one : True  PASS
+  bytes appended           : 727
+
+====================================================================================================
+  ### KERNEL: 470 PRINTS, 470 ZERO-AXIOM, 0 OTHERWISE (was 461/461/0). ### PASS
+====================================================================================================

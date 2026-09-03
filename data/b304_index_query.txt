@@ -1,0 +1,26 @@
+﻿====================================================================================================
+b304 -- THE INDEX KEYS. ### THREE RESULTS, KEYED BY THE ACT THAT PRODUCED THEM.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    positivity               NO KEY before : True
+    the trace                NO KEY before : True
+  demands-shape            key/row already present : False / False
+  phi-mu-l2                key/row already present : False / False
+  smearing-compression     key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    demands-shape            returns a row : True  PASS
+    phi-mu-l2                returns a row : True  PASS
+    smearing-compression     returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the demand's shape             now reaches a row : True  PASS
+    per-index demand               now reaches a row : True  PASS
+    the fourth condition           now reaches a row : True  PASS
+    smearing over the group        now reaches a row : True  PASS
+    the sonin trace                now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    positivity               still NO KEY : True   (and was before : True)  PASS
+    the trace                still NO KEY : True   (and was before : True)  PASS
+  ### **`positivity` AND `the trace` STAY UNKEYED BECAUSE THEY ARE PROPERTIES AND NOT
+  ### OBJECTS** -- b202's own reason. ### **AND b164's LIMIT IS NOT RETIRED.**
+====================================================================================================

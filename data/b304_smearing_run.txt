@@ -1,0 +1,237 @@
+﻿====================================================================================================
+b304_smearing.py -- THE FINITE ANALOGUE, COMPRESSED. ### EXACT RATIONALS, NO FLOAT.
+====================================================================================================
+  fixture                                                          got/expected         agree
+  projector onto e0: rank 1                                        1/1                  YES
+  projector onto e0: Pi[0][0] = 1                                  1/1                  YES
+  projector onto e0: Pi[1][1] = 0                                  0/0                  YES
+  projector onto e0: trace = 1                                     1/1                  YES
+  projector onto span(e0+e1, e0): rank 2                           2/2                  YES
+  projector onto that span: trace = 2                              2/2                  YES
+  ### and it is IDEMPOTENT                                         True/True            YES
+  ### and SYMMETRIC                                                True/True            YES
+  fixed points of t=1 mod 9 is all of Z/9                          9/9                  YES
+  and the gcd formula agrees at t=1                                9/9                  YES
+  fixed points of t=4 mod 9                                        3/3                  YES
+  fixed points of t=2 mod 9 is 1                                   1/1                  YES
+  a unit permutes Z/9                                              True/True            YES
+  ### a non-unit does NOT permute Z/9                              False/False          YES
+  ### and 0 certainly does not                                     False/False          YES
+  self-test : PASS
+
+  ### b303_family's SELF-TEST, RE-RUN HERE BEFORE ITS CONDITIONS ARE USED:
+    b303_family self-test : PASS
+
+----------------------------------------------------------------------------------------------------
+  CELL (p,n) = (2,1)   N = 4   |(Z/N)^x| = 2
+    dim Son (built)        : 1      the law (p^n - 1)^2 : 1      AGREE
+    Tr(Pi)                 : 1      ### the positive control: Pi is not dead
+    Pi idempotent / symmetric / fixes its basis : True / True / True
+    ### NEGATIVE CONTROL: an off-ball spike is MOVED by Pi : True
+    every unit permutes Z/N (nothing escapes)   : True
+    fixed-point count == gcd(t-1, N) at every t : True
+    ### ESCAPED-MASS EXPOSURE AT THIS CELL:
+        the `Z_p^x` part (2 elements) : ### **NOT EXPOSED** -- each acts as a
+          permutation of Z/N, so no mass leaves the level and none is folded back.
+        the `p^Z` part                : ### **EXPOSED, AND THEREFORE NOT COMPUTED**
+          -- b21's artifact, met at b284. ### THE MODEL FOLDS THE ESCAPED MASS.
+    ### **Tr(theta(t) Pi) OVER THE UNITS:**
+        t = 1     Tr(theta(t) Pi) = 1               fixed points = 4
+        t = 3     Tr(theta(t) Pi) = -1              fixed points = 2
+    ### **THE SMEARED VALUE against the constant test function on the units:**
+        T = SUM_{t in (Z/N)^x} Tr(theta(t) Pi) = ### **0**
+        units with a NONZERO trace : 2 of 2
+        ### ONE-LEVEL PLACE (n = 1)? : YES
+    ### **WHY IT IS ZERO -- DERIVED, THEN CHECKED AT THIS CELL:**
+        shells checked                              : 3
+        every Son vector orthogonal to every shell  : True
+        each shell below the level is a union of classes mod p^n : True
+        ### **SO `SUM_t theta(t) = |U| * Q` MEETS `Son` ORTHOGONALLY AND THE
+        ### SMEARED VALUE IS ZERO BY `Son`'s OWN TWO CONDITIONS, NOT BY THE CELLS.**
+    PASS
+----------------------------------------------------------------------------------------------------
+  CELL (p,n) = (2,2)   N = 16   |(Z/N)^x| = 8
+    dim Son (built)        : 9      the law (p^n - 1)^2 : 9      AGREE
+    Tr(Pi)                 : 9      ### the positive control: Pi is not dead
+    Pi idempotent / symmetric / fixes its basis : True / True / True
+    ### NEGATIVE CONTROL: an off-ball spike is MOVED by Pi : True
+    every unit permutes Z/N (nothing escapes)   : True
+    fixed-point count == gcd(t-1, N) at every t : True
+    ### ESCAPED-MASS EXPOSURE AT THIS CELL:
+        the `Z_p^x` part (8 elements) : ### **NOT EXPOSED** -- each acts as a
+          permutation of Z/N, so no mass leaves the level and none is folded back.
+        the `p^Z` part                : ### **EXPOSED, AND THEREFORE NOT COMPUTED**
+          -- b21's artifact, met at b284. ### THE MODEL FOLDS THE ESCAPED MASS.
+    ### **Tr(theta(t) Pi) OVER THE UNITS:**
+        t = 1     Tr(theta(t) Pi) = 9               fixed points = 16
+        t = 3     Tr(theta(t) Pi) = -1              fixed points = 2
+        t = 5     Tr(theta(t) Pi) = -3              fixed points = 4
+        t = 7     Tr(theta(t) Pi) = -1              fixed points = 2
+        t = 9     Tr(theta(t) Pi) = 1               fixed points = 8
+        t = 11    Tr(theta(t) Pi) = -1              fixed points = 2
+        t = 13    Tr(theta(t) Pi) = -3              fixed points = 4
+        t = 15    Tr(theta(t) Pi) = -1              fixed points = 2
+    ### **THE SMEARED VALUE against the constant test function on the units:**
+        T = SUM_{t in (Z/N)^x} Tr(theta(t) Pi) = ### **0**
+        units with a NONZERO trace : 8 of 8
+        ### ONE-LEVEL PLACE (n = 1)? : no
+    ### **WHY IT IS ZERO -- DERIVED, THEN CHECKED AT THIS CELL:**
+        shells checked                              : 5
+        every Son vector orthogonal to every shell  : True
+        each shell below the level is a union of classes mod p^n : True
+        ### **SO `SUM_t theta(t) = |U| * Q` MEETS `Son` ORTHOGONALLY AND THE
+        ### SMEARED VALUE IS ZERO BY `Son`'s OWN TWO CONDITIONS, NOT BY THE CELLS.**
+    PASS
+----------------------------------------------------------------------------------------------------
+  CELL (p,n) = (3,1)   N = 9   |(Z/N)^x| = 6
+    dim Son (built)        : 4      the law (p^n - 1)^2 : 4      AGREE
+    Tr(Pi)                 : 4      ### the positive control: Pi is not dead
+    Pi idempotent / symmetric / fixes its basis : True / True / True
+    ### NEGATIVE CONTROL: an off-ball spike is MOVED by Pi : True
+    every unit permutes Z/N (nothing escapes)   : True
+    fixed-point count == gcd(t-1, N) at every t : True
+    ### ESCAPED-MASS EXPOSURE AT THIS CELL:
+        the `Z_p^x` part (6 elements) : ### **NOT EXPOSED** -- each acts as a
+          permutation of Z/N, so no mass leaves the level and none is folded back.
+        the `p^Z` part                : ### **EXPOSED, AND THEREFORE NOT COMPUTED**
+          -- b21's artifact, met at b284. ### THE MODEL FOLDS THE ESCAPED MASS.
+    ### **Tr(theta(t) Pi) OVER THE UNITS:**
+        t = 1     Tr(theta(t) Pi) = 4               fixed points = 9
+        t = 2     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 4     Tr(theta(t) Pi) = -2              fixed points = 3
+        t = 5     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 7     Tr(theta(t) Pi) = -2              fixed points = 3
+        t = 8     Tr(theta(t) Pi) = 0               fixed points = 1
+    ### **THE SMEARED VALUE against the constant test function on the units:**
+        T = SUM_{t in (Z/N)^x} Tr(theta(t) Pi) = ### **0**
+        units with a NONZERO trace : 3 of 6
+        ### ONE-LEVEL PLACE (n = 1)? : YES
+    ### **WHY IT IS ZERO -- DERIVED, THEN CHECKED AT THIS CELL:**
+        shells checked                              : 3
+        every Son vector orthogonal to every shell  : True
+        each shell below the level is a union of classes mod p^n : True
+        ### **SO `SUM_t theta(t) = |U| * Q` MEETS `Son` ORTHOGONALLY AND THE
+        ### SMEARED VALUE IS ZERO BY `Son`'s OWN TWO CONDITIONS, NOT BY THE CELLS.**
+    PASS
+----------------------------------------------------------------------------------------------------
+  CELL (p,n) = (3,2)   N = 81   |(Z/N)^x| = 54
+    dim Son (built)        : 64      the law (p^n - 1)^2 : 64      AGREE
+    Tr(Pi)                 : 64      ### the positive control: Pi is not dead
+    Pi idempotent / symmetric / fixes its basis : True / True / True
+    ### NEGATIVE CONTROL: an off-ball spike is MOVED by Pi : True
+    every unit permutes Z/N (nothing escapes)   : True
+    fixed-point count == gcd(t-1, N) at every t : True
+    ### ESCAPED-MASS EXPOSURE AT THIS CELL:
+        the `Z_p^x` part (54 elements) : ### **NOT EXPOSED** -- each acts as a
+          permutation of Z/N, so no mass leaves the level and none is folded back.
+        the `p^Z` part                : ### **EXPOSED, AND THEREFORE NOT COMPUTED**
+          -- b21's artifact, met at b284. ### THE MODEL FOLDS THE ESCAPED MASS.
+    ### **Tr(theta(t) Pi) OVER THE UNITS:**
+        t = 1     Tr(theta(t) Pi) = 64              fixed points = 81
+        t = 2     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 4     Tr(theta(t) Pi) = -2              fixed points = 3
+        t = 5     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 7     Tr(theta(t) Pi) = -2              fixed points = 3
+        t = 8     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 10    Tr(theta(t) Pi) = -8              fixed points = 9
+        t = 11    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 13    Tr(theta(t) Pi) = -2              fixed points = 3
+        t = 14    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 16    Tr(theta(t) Pi) = -2              fixed points = 3
+        t = 17    Tr(theta(t) Pi) = 0               fixed points = 1
+        ... 42 further units not printed; the sum below is over ALL of them.
+    ### **THE SMEARED VALUE against the constant test function on the units:**
+        T = SUM_{t in (Z/N)^x} Tr(theta(t) Pi) = ### **0**
+        units with a NONZERO trace : 27 of 54
+        ### ONE-LEVEL PLACE (n = 1)? : no
+    ### **WHY IT IS ZERO -- DERIVED, THEN CHECKED AT THIS CELL:**
+        shells checked                              : 5
+        every Son vector orthogonal to every shell  : True
+        each shell below the level is a union of classes mod p^n : True
+        ### **SO `SUM_t theta(t) = |U| * Q` MEETS `Son` ORTHOGONALLY AND THE
+        ### SMEARED VALUE IS ZERO BY `Son`'s OWN TWO CONDITIONS, NOT BY THE CELLS.**
+    PASS
+----------------------------------------------------------------------------------------------------
+  CELL (p,n) = (5,1)   N = 25   |(Z/N)^x| = 20
+    dim Son (built)        : 16      the law (p^n - 1)^2 : 16      AGREE
+    Tr(Pi)                 : 16      ### the positive control: Pi is not dead
+    Pi idempotent / symmetric / fixes its basis : True / True / True
+    ### NEGATIVE CONTROL: an off-ball spike is MOVED by Pi : True
+    every unit permutes Z/N (nothing escapes)   : True
+    fixed-point count == gcd(t-1, N) at every t : True
+    ### ESCAPED-MASS EXPOSURE AT THIS CELL:
+        the `Z_p^x` part (20 elements) : ### **NOT EXPOSED** -- each acts as a
+          permutation of Z/N, so no mass leaves the level and none is folded back.
+        the `p^Z` part                : ### **EXPOSED, AND THEREFORE NOT COMPUTED**
+          -- b21's artifact, met at b284. ### THE MODEL FOLDS THE ESCAPED MASS.
+    ### **Tr(theta(t) Pi) OVER THE UNITS:**
+        t = 1     Tr(theta(t) Pi) = 16              fixed points = 25
+        t = 2     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 3     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 4     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 6     Tr(theta(t) Pi) = -4              fixed points = 5
+        t = 7     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 8     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 9     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 11    Tr(theta(t) Pi) = -4              fixed points = 5
+        t = 12    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 13    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 14    Tr(theta(t) Pi) = 0               fixed points = 1
+        ... 8 further units not printed; the sum below is over ALL of them.
+    ### **THE SMEARED VALUE against the constant test function on the units:**
+        T = SUM_{t in (Z/N)^x} Tr(theta(t) Pi) = ### **0**
+        units with a NONZERO trace : 5 of 20
+        ### ONE-LEVEL PLACE (n = 1)? : YES
+    ### **WHY IT IS ZERO -- DERIVED, THEN CHECKED AT THIS CELL:**
+        shells checked                              : 3
+        every Son vector orthogonal to every shell  : True
+        each shell below the level is a union of classes mod p^n : True
+        ### **SO `SUM_t theta(t) = |U| * Q` MEETS `Son` ORTHOGONALLY AND THE
+        ### SMEARED VALUE IS ZERO BY `Son`'s OWN TWO CONDITIONS, NOT BY THE CELLS.**
+    PASS
+----------------------------------------------------------------------------------------------------
+  CELL (p,n) = (7,1)   N = 49   |(Z/N)^x| = 42
+    dim Son (built)        : 36      the law (p^n - 1)^2 : 36      AGREE
+    Tr(Pi)                 : 36      ### the positive control: Pi is not dead
+    Pi idempotent / symmetric / fixes its basis : True / True / True
+    ### NEGATIVE CONTROL: an off-ball spike is MOVED by Pi : True
+    every unit permutes Z/N (nothing escapes)   : True
+    fixed-point count == gcd(t-1, N) at every t : True
+    ### ESCAPED-MASS EXPOSURE AT THIS CELL:
+        the `Z_p^x` part (42 elements) : ### **NOT EXPOSED** -- each acts as a
+          permutation of Z/N, so no mass leaves the level and none is folded back.
+        the `p^Z` part                : ### **EXPOSED, AND THEREFORE NOT COMPUTED**
+          -- b21's artifact, met at b284. ### THE MODEL FOLDS THE ESCAPED MASS.
+    ### **Tr(theta(t) Pi) OVER THE UNITS:**
+        t = 1     Tr(theta(t) Pi) = 36              fixed points = 49
+        t = 2     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 3     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 4     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 5     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 6     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 8     Tr(theta(t) Pi) = -6              fixed points = 7
+        t = 9     Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 10    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 11    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 12    Tr(theta(t) Pi) = 0               fixed points = 1
+        t = 13    Tr(theta(t) Pi) = 0               fixed points = 1
+        ... 30 further units not printed; the sum below is over ALL of them.
+    ### **THE SMEARED VALUE against the constant test function on the units:**
+        T = SUM_{t in (Z/N)^x} Tr(theta(t) Pi) = ### **0**
+        units with a NONZERO trace : 7 of 42
+        ### ONE-LEVEL PLACE (n = 1)? : YES
+    ### **WHY IT IS ZERO -- DERIVED, THEN CHECKED AT THIS CELL:**
+        shells checked                              : 3
+        every Son vector orthogonal to every shell  : True
+        each shell below the level is a union of classes mod p^n : True
+        ### **SO `SUM_t theta(t) = |U| * Q` MEETS `Son` ORTHOGONALLY AND THE
+        ### SMEARED VALUE IS ZERO BY `Son`'s OWN TWO CONDITIONS, NOT BY THE CELLS.**
+    PASS
+----------------------------------------------------------------------------------------------------
+  ### CELLS FAILING : 0
+
+  ### **WHAT THIS FILE DOES NOT SAY.** ### A value is a value. ### **NO NONZERO NUMBER
+  ### HERE IS A ROUTE**, none of it is an aggregation, and none of it bears on `M-2`.
+  ### **AND THE SECTOR REFINEMENT `E_1` IS NOT COMPUTED** -- its projector carries
+  ### `zeta_N` in every entry and this file is exact over `Q`. ### Declared, not skipped.
+====================================================================================================

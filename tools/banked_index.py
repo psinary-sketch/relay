@@ -83,6 +83,15 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'demands-shape': ['the demand shape', "the demand's shape",
+                     'the per-index demand', 'per-index demand',
+                     'termwise agreement', 'the first-level demand'],
+    'phi-mu-l2': ['phi mu in l2', 'the archimedean unit membership',
+                 'square-integrability of the archimedean unit',
+                 'the fourth condition'],
+    'smearing-compression': ['the smearing compression', 'smearing over the group',
+                            'the finite scaling trace', 'the sonin trace',
+                            'the finite analogue of the source move'],
     'uniform-family': ['the uniform family', 'the two-radius family',
                       'the family across places', 'the uniform form',
                       'the archimedean family', 'a pair of radii at every place'],
@@ -364,6 +373,70 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE DEMAND'S SHAPE (b304).
+    ("demands-shape", "b304 (a derivation from the specification's own text)",
+     "is the per-index first-level demand (SPEC-1) downstream of requiring TERMWISE"
+     " agreement with the quotient channel below the top (SPEC-2)? ### **NO.** ### Two"
+     " reasons, both in b263's text: (i) SPEC-1's stated ground is S1 + S2 and NAMES SPEC-2"
+     " NOWHERE; (ii) at the primes SPEC-1 is about, SPEC-2's range 1 <= k <= n-1 reads"
+     " 1 <= k <= 0 and is EMPTY, so there is nothing there for a loosening to loosen."
+     " ### Loosening termwise to aggregate DISSOLVES the demand at primes with n_p >= 2 and"
+     " DISSOLVES NOTHING at n_p = 1 -- which by S2 carry 73.96% rising to 99.95% of the"
+     " separation. ### **THE DEMAND IS DOWNSTREAM OF THE INDEX SET BEING A SINGLE POINT,"
+     " NOT OF A CHOICE ABOUT AGREEMENT**, and b262 states that shape outright: the n_p = 1"
+     " family are the primes 'whose only level IS the top level'",
+     "### DERIVED FROM THE OWNERS' TEXT, NOT ARGUED. ### **NO SPECIFICATION IS LOOSENED BY"
+     " THIS ACT -- ONLY THE AUTHOR MAY DO THAT** -- and the two options are assembled as a"
+     " DECISION CARD with NO recommendation. ### The barrier still reaches the n_p = 1"
+     " places under either option, because the demand there is still a value at the top."
+     " ### NO AGGREGATION IS STATED. ### M-2 UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b304_the_demands_shape.txt; data/b263_top_level_silence.txt (SPEC-1..3, S1, S2);"
+     " data/b262_junction_limit.txt (the T_top partition)"),
+    # ### THE ARCHIMEDEAN UNIT'S SQUARE-INTEGRABILITY (b304).
+    ("phi-mu-l2", "b304 (a read at content, in both sources)",
+     "the corpus's u_inf is phi_mu at the first even negative eigenvalue, normalized, and"
+     " **IT LIES IN L^2(R)**, by two independent routes. ### ROUTE A: phi_mu is an"
+     " eigenvector of Wsa; CM defines Wsa as the restriction of Wmax to a subspace with an"
+     " explicit Dom Wsa, the ambient space being L^2(R) in CM's own words; and an"
+     " eigenvector lies in its operator's domain BY THE DEFINITION OF EIGENVECTOR --"
+     " **SO MEMBERSHIP IS DEFINITIONAL AND NOT A DECAY STATEMENT**. ### ROUTE B: CM"
+     " Corollary 3.2 puts phi_mu in the Sonin space, and CC defines that space as a subspace"
+     " of the Hilbert space L^2(R)_ev. ### The hypothesis was CHECKED and not carried on the"
+     " corollary's name: Corollary 3.2 needs mu negative, and b214's printed mu is"
+     " -20.48057322913694697",
+     "### AT CONTENT, b304's OWN READ OF BOTH SOURCES (arXiv:2112.05500v1 sha256 426114ae...;"
+     " arXiv:2006.13771 sha256 b8e0b54a...). ### **W-ORD-PHI-MU-L2 IS DISCHARGED** -- filed"
+     " at b300 as 'stated by no owner', and an owner does state it, twice; what was missing"
+     " was the READ and not the mathematics. ### **SCOPE: THE OBJECT STILL STANDS ON THREE"
+     " CONDITIONS** -- the level-limit premise, W-ORD-ARCH-NORM-READING, and C9/N-OPEN-B --"
+     " and A CONDITION DISCHARGED IS NOT THE OBJECT CONSTRUCTED. ### It does NOT put u_inf"
+     " in the sector (b201's BRANCH (NO EXHIBIT) stands) and does NOT decide which inner"
+     " product the normalization is. ### M-2 UNCHANGED",
+     "data/b304_the_demands_shape.txt; CORRESPONDENCE.md row 120;"
+     " data/b300_the_archimedean_leg.txt (where it was filed)"),
+    # ### THE FINITE ANALOGUE OF THE SOURCE'S MOVE, COMPRESSED (b304).
+    ("smearing-compression", "b304 (a decision by definitions, then a computation)",
+     "the finite analogue of CC's Tr(theta(f) S) is T(f) = Tr(theta(f) Pi) on Z/N,"
+     " N = p^{2n}, with Pi the projection onto Son(p,n). ### **THE BARRIER DOES NOT REACH"
+     " IT**: the barrier's operator is a functional of the unit's restriction TO the ball,"
+     " where every element of S-bar_p vanishes, while the smeared operator's matrix elements"
+     " are supported OFF the ball, where S-bar_p lives. ### The compression was therefore"
+     " computed, exact rationals, no float: at (2,1) (2,2) (3,1) (3,2) (5,1) (7,1) the"
+     " smeared value against the constant test function on the units is **EXACTLY ZERO AT"
+     " ALL SIX, including every one-level place** -- and the zero is DERIVED, not only"
+     " measured: SUM_t theta(t) is |U| times the projection onto the unit-invariants, which"
+     " are spanned by valuation shells, and every Son vector is orthogonal to every shell",
+     "### A COMPUTATION ON THE PART OF THE GROUP THE MODEL CAN CARRY. ### **Q_p^x = p^Z x"
+     " Z_p^x, AND ONLY THE Z_p^x PART WAS COMPUTED** -- it acts by permutations, verified at"
+     " every t used. ### **THE p^Z PART WAS REFUSED**: it is b21's escaped-mass artifact, met"
+     " at b284, and the model would return the genuine object with its escaped mass folded"
+     " back onto the ball. ### **AND THE REFUSED PART IS THE PART WITH AN ARCHIMEDEAN"
+     " COUNTERPART**, so this zero is NOT 'the finite analogue's value'. ### **IT IS NOT A"
+     " BARRIER AND NOT A ROUTE** -- for a general test function the value is SUM_t f(t)"
+     " Tr(theta(t) Pi) and those traces are not all zero. ### The barrier is not weakened:"
+     " an operator it does not reach is not a counterexample to it. ### M-2 UNCHANGED",
+     "data/b304_the_demands_shape.txt; data/b304_smearing_run.txt;"
+     " CORRESPONDENCE.md row 121"),
     # ### THE TWO-RADIUS FAMILY ACROSS PLACES (b303).
     ("uniform-family", "b303 (a definition, written across places)",
      "a member is a choice, AT EVERY PLACE v, of a pair of radii (lambda_v, mu_v) -- one"
