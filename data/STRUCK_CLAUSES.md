@@ -71,28 +71,76 @@ author's, not the executor's):
 
 ---
 
+### U-1
+STATUS: STRUCK
+RULED-BY: the author, by paste, the b300 ferry (2026-09-02) — quoted verbatim: "U-1 CONFIRMED STRUCK — a registration does not predict counts of artifacts; it registers expected outcomes and mechanisms, and a predicted count creates pressure to hit it"
+SOURCE-LAW: none — this was a practice, not a filed law. It became a candidate at b299 by having been corrected twice, and the author ruled on the candidate.
+CLAUSE: an act predicts the count of the objects it will build, and declares a miss when the count differs
+SURVIVES: the registration's duty to state expected OUTCOMES and MECHANISMS, which is what it was ever for. **Reporting what an act DID produce, in its closing, is untouched by this strike.**
+PATTERN: (?:registers?|predicts?|will\s+build|will\s+produce|will\s+write|expects?\s+to\s+build)\s+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+(?:gates?|tools?|needles?|fixtures?|terminals?|artifacts?|documents?|modules?|banks?|components?|checks?)
+PATTERN: (?:predicted|registered|expected|projected)\s+(?:\w+[\s\-]+){0,3}counts?\b[^0-9A-Za-z]{0,12}(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)
+PATTERN: declar\w+\s+(?:a|the)\s+miss\b
+
+**THE REASON THE AUTHOR GAVE, AND IT IS THE WHOLE OF THE STRIKE:** *"a predicted count creates
+pressure to hit it."* The record's own evidence is that the pressure is real and that paying it
+honestly is not a defence — b298 registered a count, built a different one, and declared the miss
+at its own (D1) rather than trimming controls to reach the number. **THAT ACT DID THE RIGHT THING
+WITH A CLAUSE THAT SHOULD NOT HAVE BEEN THERE.**
+
+**THE TWO CORRECTIONS POINTED OPPOSITE WAYS AND THE AUTHOR RESOLVED THEM, WHICH IS WHY THIS IS A
+RULING AND NOT A SEAT DECISION.** b298 kept the practice and paid for it; b299's registration
+wrote that *"A COUNT THE ACT HAS NO REASON TO FIX IN ADVANCE IS A NUMBER INVENTED TO BE
+PREDICTED"* and declined to predict one. No act had reconciled them.
+
+**THE SITE, FOUND BY THE CHECK AND NOT ASSERTED BY THE ENTRY — AND THE SECOND PATTERN EXISTS
+BECAUSE THE FIRST ONE MISSED IT.** The first pattern written here matched the numeral BEFORE the
+noun (*"registers ten terminals"*). **`b298`'s REGISTRATION WRITES IT THE OTHER WAY ROUND —
+`"PREDICTED TERMINAL COUNT: ### 10."` — AND THE SCAN CAME BACK WITH ZERO HITS ACROSS THE WHOLE
+CORPUS, WHICH READ EXACTLY LIKE A CLAUSE NOBODY HAD EVER APPLIED.** That is the under-report
+direction `ferry_scan.py`'s own header names as the dangerous one, met on this record's second
+entry. The second pattern was added and `data/b298_registration_2026-09-02.txt` now returns its
+site. **FILED AND NOT EDITED** (append-only); striking a clause changes what the *next* act may
+apply.
+
+### U-2
+STATUS: STRUCK
+RULED-BY: the author, by paste, the b300 ferry (2026-09-02) — quoted verbatim: "U-2 CONFIRMED STRUCK — the phrase asserting a ledger is current may be used only when a check has counted what is missing; otherwise the act states what it wrote and what it did not check"
+SOURCE-LAW: none — a closing-sequence habit, corrected repeatedly by the seat before the author ruled.
+CLAUSE: a closing sequence asserts that a ledger is current
+SURVIVES: **the same phrase after a check that has COUNTED WHAT IS MISSING.** The strike is conditional in the author's own words and the condition is a real check, not a reading.
+PATTERN: HANDOFF\s+(?:IS\s+)?CURRENT
+PATTERN: (?:FINDINGS|REGISTRY|OPEN_TRAILS|VERIFICATION_LOOM|the\s+ledgers?)\s*(?:\.md)?\s+(?:IS|ARE)\s+CURRENT
+
+**WHAT REPLACES IT, IN THE AUTHOR'S OWN WORDS:** *"the act states what it wrote and what it did
+not check."* Two lists, not one adjective.
+
+**THE HABIT THE STRIKE ENDS.** The phrase had been kept and qualified in every act since b293 —
+`HANDOFF.md`'s head has read b278 that whole time, and b298 wrote that the arc's handoff *"LIVES
+IN THE BANKS AND IN FINDINGS.md, AND THIS ACT SAYS SO RATHER THAN LETTING 'CURRENT' DO SILENT
+WORK"*. **A CLAUSE THAT MUST BE ANNOTATED EVERY TIME IT IS USED WAS A CANDIDATE AT b299; IT IS
+STRUCK AT b300.**
+
+**THE SITES THAT STILL CARRY IT ARE FILED AND NOT EDITED**: `b285`, `b286`, `b287`, `b291` and
+`b292` each close with it, and `HANDOFF.md`'s own head. Reconciling them is the author's.
+
+---
+
 ## UNCONFIRMED CANDIDATES — for the author. **NOT LOADED BY THE CHECK. NONE PROMOTED.**
 
 ### **THE STANDARD THESE ARE HELD TO, SAID BEFORE THE LIST.** A candidate here is a clause this
 record has **corrected more than once**. It is **not** a proposal to strike it, and **the
-executor does not rule on any of them.** Two are seat-corrections and one is the author's; the
-difference is marked on each, because a clause the seat keeps correcting in itself is a different
-object from a clause the author keeps correcting in the seat.
+executor does not rule on any of them.**
 
-### U-1
-STATUS: UNCONFIRMED
-CLAUSE: an act predicts the count of the objects it will build, and declares a miss when the count differs
-CORRECTED: twice, both by the seat — b298 registered 10 terminals and built 12, declaring the miss at its own (D1) rather than trimming controls to hit the number; b299's registration then wrote that "A COUNT THE ACT HAS NO REASON TO FIX IN ADVANCE IS A NUMBER INVENTED TO BE PREDICTED" and declined to predict one
-NOTE: the two corrections point opposite ways — b298 kept the practice and paid for it, b299 dropped it for one class of count. Neither is a ruling and no act has reconciled them.
+### **THE LIST IS EMPTY AT b300, AND AN EMPTY LIST IS REPORTED RATHER THAN THE HEADING DROPPED**
+— b167's law in this file's own terms: a section that quietly disappears reads like a section that
+was never there. The three candidates b299 filed have all been ruled on:
 
-### U-2
-STATUS: UNCONFIRMED
-CLAUSE: a closing sequence reports "HANDOFF current"
-CORRECTED: repeatedly, by the seat — `HANDOFF.md`'s head has read b278 since b293, and b298 wrote that the arc's handoff "LIVES IN THE BANKS AND IN FINDINGS.md, AND THIS ACT SAYS SO RATHER THAN LETTING 'CURRENT' DO SILENT WORK"
-NOTE: the phrase has been kept and qualified rather than dropped, in every act since. A clause that must be annotated every time it is used is a candidate; it is not thereby struck.
-
-### U-3
-STATUS: UNCONFIRMED
-CLAUSE: a number an act reports may come from a check the act typed at the shell
-CORRECTED: three consecutive acts — b296's tally (an untallied control, a fallback folded into a pass count), b297's blank-cell scan (a newline-spanning match reporting 111 blank cells in a table of 111 rows), b298's float and artifact regexes (one matching the word inside the prose denying it) and its profile BOM
-NOTE: **this one is already answered without a strike** — it is filed as the standing work-order `W-ORD-ADHOC-CHECK-FIXTURES` (b298), and b299 is the first act bound by it at a cap of zero. It is listed because it is the record's most repeatedly-corrected clause, and a reader comparing this list against the desk should find it in both.
+- **U-1 and U-2 — STRUCK**, by the author at b300, and they are now entries in the struck list
+  above with patterns. They are **not duplicated here**.
+- **U-3 — NOT A STRUCK CLAUSE.** The author's ruling, quoted verbatim: *"U-3 is NOT a struck
+  clause; it stands as its existing work-order and is not duplicated."* That work-order is
+  `W-ORD-ADHOC-CHECK-FIXTURES` (b298), b299 was the first act bound by it at a cap of zero, and
+  **b300 IS THE SECOND.** It was listed at b299 because it is the record's most repeatedly
+  corrected clause; **THE RULING IS THAT BEING REPEATEDLY CORRECTED IS NOT BY ITSELF GROUNDS FOR A
+  STRIKE WHEN AN ANSWER IS ALREADY FILED SOMEWHERE ELSE.** Removed from this list per the ruling,
+  and recorded here so its removal is not a silent drop.

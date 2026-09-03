@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'archimedean-leg': ['the archimedean leg', 'the archimedean unit',
+                       'u_inf', 'the chosen archimedean unit',
+                       'the archimedean local space', 'the sonin sector'],
     'boundary-terminal': ['the boundary terminal', 'boundary terminal',
                           'the compiled boundary', 'both sides of the boundary'],
     'm2-arc-fold': ['the fold', 'the arc fold', 'b283-b296', 'the m-2 arc',
@@ -345,6 +348,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ARCHIMEDEAN LEG (b300).
+    ("archimedean-leg", "b300 (construction from a graded import, and a derivation)",
+     "the object's archimedean local space is BUILT from the source's own Definition 4.4 as"
+     " S(1,1) = {xi in L^2(R)_ev : xi = 0 on |q|<=1, F_eR xi = 0 on |p|<=1}, with the inner"
+     " product and its normalization read at content at CC 2006.13771 eq (16) --"
+     " <eta|xi> := (1/2) INT_R eta conj(xi) dx = INT_0^inf eta conj(xi) dx -- and it is a"
+     " Hilbert space because CC's R is the ORTHOGONAL PROJECTION onto it, which is the only"
+     " thing von Neumann 4.1.1 asks of a local space. ### **AND THE CORPUS'S CHOSEN"
+     " ARCHIMEDEAN UNIT u_inf -- phi_mu at the first even NEGATIVE eigenvalue, normalized in"
+     " L^2 (b226, from b214's rank-2 measurement) -- IS IN THAT SPACE**, tested against BOTH"
+     " conditions: condition one is CM Lemma 3.1's 'zero on [-1,1]' quoted, and condition two"
+     " follows from b211's derived eigenrelation F phi_mu = c phi_mu with c = +-1, so"
+     " (F_eR phi_mu)(p) = c*0 = 0 there. ### **THE SIGN OF c IS NEVER USED, SO NO BENCH NUMBER"
+     " IS LOAD-BEARING.** ### Separately: the 'Sonin sector' (b206's +1 eigenspace of F on the"
+     " space) is a PROPER subspace of S(1,1), so sector and space are DIFFERENT objects; and"
+     " u_inf is NOT the instrument vector b291/b292 placed OUTSIDE the space -- two"
+     " derivations, one from scalar-invariance and one from CC's own orthogonality sentence",
+     "### DERIVES-on-IMPORTS, AND THE GRADE NAMES ITS INPUTS -- CM Lemma 3.1; b211's (C3)"
+     " chain on I8+I6+I10 at b211's own banked grade. ### **THE CONSTRUCTION IS CONDITIONAL**:"
+     " the real fiber's placement in the corpus's adelic object (N-OPEN-B as b287 read it) is"
+     " STILL OPEN, and phi_mu in L^2(R) is stated by NO OWNER (W-ORD-PHI-MU-L2) -- b226's own"
+     " choice presupposes it. ### **NOT A ROUTE. ### IT UNBLOCKS NOTHING: b221 records the"
+     " halt is at the FINITE places, and b226's G-SECTOR at the generic odd place is STILL"
+     " OWED.** ### Whether u_inf is in the SECTOR is NOT derived (that needs c = +1 at rank 2,"
+     " which stands at BENCH), and which space the factor is remains the b212 ruling's,"
+     " provenance the conversation layer. ### M-2 UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b300_the_archimedean_leg.txt; data/b300_source_read.txt; data/b300_e0_gate.txt;"
+     " CORRESPONDENCE.md row 115"),
     # ### THE KERNEL'S BOUNDARY PAIR (b298).
     ("boundary-terminal", "b270/b280 (function side, printing since b289) / b298 (relaxed side)",
      "the kernel carries BOTH SIDES OF THE BOUNDARY at the cell (2,2). Function side:"

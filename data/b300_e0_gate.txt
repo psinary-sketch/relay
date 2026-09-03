@@ -1,0 +1,117 @@
+====================================================================================================
+b300 -- THE E0 GATE ON THE ARCHIMEDEAN LOCAL SPACE.
+====================================================================================================
+
+  SELF-TEST (the discrimination arm: every anchor mutated must go unpullable):
+  fixture                                        result
+  C1  THE UNDERLYING SPACE                       YES (mutated anchor is unpullable)
+  C2  THE INNER PRODUCT AND ITS NORMALIZATION    YES (mutated anchor is unpullable)
+  C3  CONDITION ONE                              YES (mutated anchor is unpullable)
+  C4  CONDITION TWO                              YES (mutated anchor is unpullable)
+  C5  THE FIXED SCALE                            YES (mutated anchor is unpullable)
+  C6  THE TRANSFORM                              YES (mutated anchor is unpullable)
+  C7  THE PROJECTION ONTO THE SPACE              YES (mutated anchor is unpullable)
+  C8  THE SIZE                                   YES (mutated anchor is unpullable)
+  C9  THE REAL FIBER'S PLACEMENT IN THE CORPUS'S YES (mutated anchor is unpullable)
+  R1  A HILBERT SPACE AT EVERY INDEX             YES (mutated anchor is unpullable)
+  R2  A NORM, AND A NORM-ONE VECTOR              YES (mutated anchor is unpullable)
+  R3  THE C0 CONDITION ACROSS THE PLACES         YES (mutated anchor is unpullable)
+  census keeps SUPPLIED and OPEN disjoint        YES
+
+----------------------------------------------------------------------------------------------------
+  THE CONSTITUENTS, EACH UNFOLDED TO ITS OWNER AND PULLED FROM THE OWNER'S FILE.
+----------------------------------------------------------------------------------------------------
+
+  C1  THE UNDERLYING SPACE   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : L^2(R)_ev -- square integrable EVEN functions on R
+      OWNER          : b286_the_cc_condition.txt
+      PULLED LINE    : ###    projection ### **`S`** ### of the Hilbert space ### **`L^2(R)_ev` of square integrable even
+      PROVENANCE     : CC 2006.13771, Introduction. ### Banked verbatim by b286, which read it at content; ### RE-PULLED AT SOURCE THIS ACT and found word-for-word identical (see C2's owner file)
+
+  C2  THE INNER PRODUCT AND ITS NORMALIZATION   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : <eta|xi> := (1/2) INT_R eta(x) conj(xi)(x) dx = INT_0^inf eta(x) conj(xi)(x) dx
+      OWNER          : b300_source_read.txt
+      PULLED LINE    : ###   ### ### **"We normalize the inner product in `L^2(R)_ev` as follows**
+      PROVENANCE     : CC 2006.13771, SECTION 1, EQUATION (16). ### **READ AT CONTENT THIS ACT.** ### No prior act in this lane reached it: b285 recorded the inner product OPEN and b287 recorded it ABSENT
+
+  C3  CONDITION ONE   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : xi(q) = 0 for all q with |q| <= lambda
+      OWNER          : b287_the_two_papers.txt
+      PULLED LINE    : ###    `S(lambda,mu) := { xi in L^2(R)_ev | xi(q) = 0, for all q, |q| <= lambda,
+      PROVENANCE     : CC 2006.13771, DEFINITION 4.4, equation (72). ### Banked verbatim by b287 from the 57-page PDF at content. ### NOT re-read this act -- the public render truncates inside section 3
+
+  C4  CONDITION TWO   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : (F_eR xi)(p) = 0 for all p with |p| <= mu
+      OWNER          : b287_the_two_papers.txt
+      PULLED LINE    : ###    (F_eR xi)(p) = 0, for all p, |p| <= mu }`."**
+      PROVENANCE     : CC 2006.13771, DEFINITION 4.4, equation (72), same display as C3
+
+  C5  THE FIXED SCALE   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : (lambda, mu) = (1, 1); the cutoff set [-1,1]; the cutoff parameter Lambda set to 1
+      OWNER          : b286_the_cc_condition.txt
+      PULLED LINE    : ###   From the abstract: "the cutoff in phase space, ### **for cutoff parameter equal to 1**."
+      PROVENANCE     : CC 2006.13771, Abstract and text. ### **WHICH PAIR THE KEYSTONE'S 'Connes-Consani scale' MEANS IS `W-ORD-CC-SCALE-MEANING`, THE AUTHOR'S RULING** -- b287 sharpened it to WHICH PAIR, and this row carries the source's value, not the keystone's intention
+
+  C6  THE TRANSFORM   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : F_eR on L^2(R)_ev: preserves the space globally, and is its own inverse there
+      OWNER          : b291_the_involution.txt
+      PULLED LINE    : ### ### ### **"In `L^2(R)_ev` the Fourier transform `F_eR` is its own inverse."**
+      PROVENANCE     : CC 2006.13771, immediately after equation (69). ### Banked verbatim by b291, hypotheses (space, even restriction, kernel convention) checked and shown there. ### The preservation clause was RE-PULLED AT SOURCE THIS ACT (see C2's owner file)
+
+  C7  THE PROJECTION ONTO THE SPACE   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : S, the orthogonal projection; and R = S, with S(1,1) the eigenspace of P P^ P at 1
+      OWNER          : b287_the_two_papers.txt
+      PULLED LINE    : ###     |psi_n><psi_n| + R` ... ### **The operator `R` is the orthogonal projection on Sonin's
+      PROVENANCE     : CC 2006.13771, section 4's spectral decomposition. ### Banked verbatim by b287. ### **THIS IS THE ROW THAT MAKES THE SPACE CLOSED, AND CLOSEDNESS IS WHAT R1 BELOW NEEDS**
+
+  C8  THE SIZE   [SUPPLIED]  PULLED
+      AS CONSTRUCTED : infinite dimensional
+      OWNER          : b286_the_cc_condition.txt
+      PULLED LINE    : ###   "This subspace is the well-known ### **infinite dimensional Sonin's space** ### whose
+      PROVENANCE     : CC 2006.13771, Introduction. ### Banked verbatim by b286
+
+  C9  THE REAL FIBER'S PLACEMENT IN THE CORPUS'S ADELIC OBJECT   [OPEN]  PULLED
+      AS CONSTRUCTED : how the real fiber sits inside the corpus's own adelic object -- N-OPEN-B as b287 read it
+      OWNER          : b287_the_two_papers.txt
+      PULLED LINE    : ### ### **`N-OPEN-B` REMAINS OPEN, AND IS NOW OPEN ### AGAINST A READ SOURCE ### RATHER THAN
+      PROVENANCE     : ### **(ABSENT) FROM BOTH SOURCES AND FROM THE DEFERRED REFERENCE**, b287, against a positive control. ### C2 supplies the LOCAL space's own normalization; ### **IT DOES NOT SUPPLY THIS, AND A SOURCE CANNOT ANSWER A QUESTION ABOUT A CONSTRUCTION IT NEVER SAW**
+
+----------------------------------------------------------------------------------------------------
+  THE CENSUS. ### SUPPLIED and OPEN counted separately so neither absorbs the other.
+----------------------------------------------------------------------------------------------------
+    constituents listed : 9
+    SUPPLIED            : 8   C1, C2, C3, C4, C5, C6, C7, C8
+    OPEN                : 1   C9
+    unpullable          : 0   PASS
+
+----------------------------------------------------------------------------------------------------
+  WHAT THE PRODUCT CONSTRUCTION REQUIRES OF A LOCAL SPACE -- QUOTED FROM ITS OWN
+  REQUIREMENTS (von Neumann 1939, via b226's at-source read of the numdam extract).
+----------------------------------------------------------------------------------------------------
+
+  R1  A HILBERT SPACE AT EVERY INDEX   [MET]  PULLED
+      THE REQUIREMENT : Definition 4.1.1 builds the product from the spaces H_a, one per index
+      PULLED LINE     : ### DEFINITION 4.1.1: "If (E) is an equivalence-class, then let PROD(x)_{a in I} H_a be the closed
+      READ AGAINST THE CONSTRUCTION : ### **MET.** ### C7 gives an ORTHOGONAL PROJECTION onto S(1,1) inside L^2(R)_ev, so S(1,1) is a CLOSED subspace of a Hilbert space, hence a Hilbert space in the inherited inner product -- and C2 says which inner product that is, in the source's own normalization. ### **CLOSEDNESS IS NOT ASSUMED FROM THE WORD 'SPACE'; IT IS READ OFF C7.**
+
+  R2  A NORM, AND A NORM-ONE VECTOR   [MET]  PULLED
+      THE REQUIREMENT : Lemma 4.1.2 is stated for a C0-sequence with ||f_a|| = 1
+      PULLED LINE     : ###   "Consider an (E) in Gamma, and a C0-sequence (f_a; a in I) in (E) ### **with ||f_a|| = 1**.
+      READ AGAINST THE CONSTRUCTION : ### **THE NORM: MET** -- it is C2's inner product's norm, and R1 makes it complete. ### **THE VECTOR: NOT DECIDED HERE.** ### Whether the corpus's chosen archimedean unit is a vector OF THIS SPACE is Component 2's question and this gate does not pre-empt it
+
+  R3  THE C0 CONDITION ACROSS THE PLACES   [NOT THIS ACT'S]  PULLED
+      THE REQUIREMENT : the demand that SUM_v | ||f_v|| - 1 | converge
+      PULLED LINE     : ### ### SUM_v | ||f_v|| - 1 | CONVERGE."
+      READ AGAINST THE CONSTRUCTION : ### **NOT THIS ACT'S TO DECIDE.** ### It is a condition on the SEQUENCE across all places, not on one local space. ### b226 ran it as G-NORM and passed it BY CONSTRUCTION at its own grade; ### **that grade is carried, not re-earned, and this row is marked neither met nor unmet because it is not a property of the archimedean fiber**
+
+----------------------------------------------------------------------------------------------------
+  THE CONSTRUCTION IS CONDITIONAL ON:
+----------------------------------------------------------------------------------------------------
+    ### **C9. ### THE CONSTRUCTION IS STATED CONDITIONALLY ON IT AND IS NOT SILENTLY COMPLETED.** ### C2 answers what the LOCAL space's inner product IS; ### **whether that normalization is the one the corpus's adelic object wants of its real fiber is C9, and no owner states it.**
+
+====================================================================================================
+  ### E0: 12 constituent(s) unfolded, 0 unpullable. ### PASS
+  ### **AND THE GATE'S REACH, PRINTED WITH ITS RESULT: IT PROVES THE WORDING IS ON
+  ### DISK IN THE FILE NAMED AS ITS OWNER. ### IT DOES NOT PROVE THE WORDING IS THE
+  ### SOURCE'S -- THAT IS THE PROVENANCE COLUMN, AND THE PROVENANCE COLUMN IS PROSE.**
+====================================================================================================
