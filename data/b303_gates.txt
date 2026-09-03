@@ -120,7 +120,7 @@ b303 -- GATE SUITE
     ### as `B302` prefixes b302's -- the corpus's provenance convention, not a leak.
 
   G-KERNEL (the profile, re-checked here and not taken from the build's own report):
-    numstat scope read       : the WORKING TREE vs HEAD
+    numstat scope read       : THE COMMIT ITSELF (HEAD~1..HEAD)
     prints on disk           : 461, zero-axiom 461, other 0
     of them, this act's      : 12
     BOM (read as bytes)      : False  PASS
@@ -144,17 +144,17 @@ b303 -- GATE SUITE
     files swept 20   stem hits 0   control fires True   PASS
 
   G-TOOLNUM (ruling 3 / V14):
-    the source artefact's hash, page index and truncatio tools/b303_source.py               exists=True tracked=False
-    the finite family's cell arms, dimensions and chart  tools/b303_family.py               exists=True tracked=False
-    the kernel counts, the byte checks and the numstat   tools/b303_kernel.py               exists=True tracked=False
-    the ahead/behind pairs and the pins                  tools/b303_pins.py                 exists=True tracked=False
-    the artifact-count prediction demand (ruling 1)      tools/b303_regspec.py              exists=True tracked=False
+    the source artefact's hash, page index and truncatio tools/b303_source.py               exists=True tracked=True
+    the finite family's cell arms, dimensions and chart  tools/b303_family.py               exists=True tracked=True
+    the kernel counts, the byte checks and the numstat   tools/b303_kernel.py               exists=True tracked=True
+    the ahead/behind pairs and the pins                  tools/b303_pins.py                 exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)      tools/b303_regspec.py              exists=True tracked=True
     the satisfiability verdict over the declared caps    tools/reg_satisfiable.py           exists=True tracked=True
     the ferry scan's entry/pattern/hit counts            tools/ferry_scan.py                exists=True tracked=True
     the banned/retired stem counts                       tools/banned_terms.py              exists=True tracked=True
-    the gate, needle and hedge counts                    tools/b303_checks.py               exists=True tracked=False
-    the correspondence rows' numbers and their read-back tools/b303_correspondence.py       exists=True tracked=False
-    the index keys' read-back and must-not-hit arms      tools/b303_index_append.py         exists=True tracked=False
+    the gate, needle and hedge counts                    tools/b303_checks.py               exists=True tracked=True
+    the correspondence rows' numbers and their read-back tools/b303_correspondence.py       exists=True tracked=True
+    the index keys' read-back and must-not-hit arms      tools/b303_index_append.py         exists=True tracked=True
     the registration's seal hash                         tools/reg_seal.py                  exists=True tracked=True
     numbers with no committed producer : 0  PASS
 
@@ -166,7 +166,7 @@ b303 -- GATE SUITE
     seal intact : True  PASS
 
   HEDGE AUDIT:
-    the bank                     sentences=1480  graded-hedges=0   ungraded-shapes=291
+    the bank                     sentences=1494  graded-hedges=0   ungraded-shapes=292
     the registration             sentences=308   graded-hedges=0   ungraded-shapes=70
 
 ====================================================================================================
