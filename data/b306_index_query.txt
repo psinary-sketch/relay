@@ -1,0 +1,24 @@
+﻿====================================================================================================
+b306 -- THE INDEX KEYS. ### TWO RESULTS, KEYED BY THE ACT THAT PRODUCED THEM.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    different                NO KEY before : True
+    the sign                 NO KEY before : True
+  the-difference       key/row already present : False / False
+  sweep-scope          key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    the-difference       returns a row : True  PASS
+    sweep-scope          returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the difference               now reaches a row : True  PASS
+    the imbalance                now reaches a row : True  PASS
+    the shared-target sweep      now reaches a row : True  PASS
+    the correspondence sweep     now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    different                still NO KEY : True   (and was before : True)  PASS
+    the sign                 still NO KEY : True   (and was before : True)  PASS
+  ### **`different` AND `the sign` STAY UNKEYED BECAUSE THEY ARE PROPERTIES AND NOT
+  ### OBJECTS** -- b202's own reason. ### **AND b164's LIMIT IS NOT RETIRED.**
+  ### THE INDEX SWEPT AFTER THE WRITE (b305's defect, not repeated) : 0 stem hit(s)
+====================================================================================================

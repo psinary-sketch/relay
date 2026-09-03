@@ -1,0 +1,76 @@
+﻿====================================================================================================
+b306_difference.py -- THE CORPUS'S DIFFERENCE, CHECKED AGAINST ITS EMITTING TABLES.
+====================================================================================================
+  fixture                                                      got/expected           agree
+  exact decimal: 0.5 is one half, not a float                  1/2/1/2                YES
+  exact decimal: a negative reads negative                     -500907/500000/-500907/500000 YES
+  exact decimal: trailing zeros do not change the value        43671/500000/43671/500000 YES
+  ### and 0.087342 is NOT 0.087341                             False/False            YES
+  tolerance accepts a one-ulp printing difference              True/True              YES
+  ### tolerance REFUSES a difference ten times larger          False/False            YES
+  b254 row parses                                              True/True              YES
+  ### b254 parser quiet on prose                               False/False            YES
+  b248 row parses                                              True/True              YES
+  ### b248 parser quiet on its header                          False/False            YES
+  self-test : PASS
+
+  rows parsed from b254 : realization A = 6, realization B = 6
+  rows parsed from b248 : 6
+  tolerance             : 3/2000000   ### three 6-decimal roundings, and stated not chosen
+
+  ### (0) b248's OWN INTERNAL IDENTITY, AS A CONTROL ON THE PARSE:
+      `ARCHIMEDEAN = E2full + E2even`  and  `-D_dict = ARCHIMEDEAN + JUNCTION`
+      a^2 = 2    arch == E2full+E2even : True    -D_dict == arch+junction : True 
+      a^2 = 3    arch == E2full+E2even : True    -D_dict == arch+junction : True 
+      a^2 = 4    arch == E2full+E2even : True    -D_dict == arch+junction : True 
+      a^2 = 8    arch == E2full+E2even : True    -D_dict == arch+junction : True 
+      a^2 = 9    arch == E2full+E2even : True    -D_dict == arch+junction : True 
+      a^2 = 12   arch == E2full+E2even : True    -D_dict == arch+junction : True 
+
+  ### (1) IS b254's `D - E2` THE NEGATIVE OF b248's `E2even`?
+      ### **TWO ACTS, TWO TOOLS, ONE COLUMN -- AND THIS IS WHAT SETTLES THAT THE
+      ### ORDER'S `E2even` IS b254's ARCHIMEDEAN HALF AND NOT A SHARED LETTER.**
+      a^2 = 2    b254 D-E2 = -1.001814     -b248 E2even = -1.001813571    diff = 4.29e-07      AGREE
+      a^2 = 3    b254 D-E2 = -0.910943     -b248 E2even = -0.91094323     diff = 2.3e-07       AGREE
+      a^2 = 4    b254 D-E2 = -0.834033     -b248 E2even = -0.834032999    diff = 1e-09         AGREE
+      a^2 = 8    b254 D-E2 = -0.685514     -b248 E2even = -0.685514361    diff = 3.61e-07      AGREE
+      a^2 = 9    b254 D-E2 = -0.665133     -b248 E2even = -0.665133046    diff = 4.6e-08       AGREE
+      a^2 = 12   b254 D-E2 = -0.62009      -b248 E2even = -0.620090414    diff = 4.14e-07      AGREE
+
+  ### (2) DOES b254's RESIDUAL EQUAL `(D - E2) - (PR - Theta_q)` AT EVERY ROW?
+      ### **THE SIGN CONVENTION IS FIXED BY THE TABLE, NOT BY THE FORMULA.**
+      (A) a^2 = 2    (D-E2) - junction = -1.001814     residual = -1.001814     AGREE
+      (A) a^2 = 3    (D-E2) - junction = -1.017427     residual = -1.017427     AGREE
+      (A) a^2 = 4    (D-E2) - junction = -0.921374     residual = -0.921374     AGREE
+      (A) a^2 = 8    (D-E2) - junction = -0.929541     residual = -0.929542     AGREE
+      (A) a^2 = 9    (D-E2) - junction = -0.800154     residual = -0.800154     AGREE
+      (A) a^2 = 12   (D-E2) - junction = -0.815933     residual = -0.815933     AGREE
+      (B) a^2 = 2    (D-E2) - junction = -0.061581     residual = -0.061581     AGREE
+      (B) a^2 = 3    (D-E2) - junction = -0.365256     residual = -0.365256     AGREE
+      (B) a^2 = 4    (D-E2) - junction = -0.371899     residual = -0.371899     AGREE
+      (B) a^2 = 8    (D-E2) - junction = -0.533354     residual = -0.533354     AGREE
+      (B) a^2 = 9    (D-E2) - junction = -0.423949     residual = -0.423949     AGREE
+      (B) a^2 = 12   (D-E2) - junction = -0.477903     residual = -0.477903     AGREE
+
+  ### (3) DO b254 AND b248 AGREE ON THE JUNCTION, CELL BY CELL?
+      ### **A DISAGREEMENT HERE IS A FINDING AND IS PRINTED, NOT ABSORBED.**
+      a^2 = 2    b254 = 0.0           b248 = 0.0           diff = 0.0           IDENTICAL
+      a^2 = 3    b254 = 0.106484      b248 = 0.106484      diff = 0.0           IDENTICAL
+      a^2 = 4    b254 = 0.087341      b248 = 0.087342      diff = 1e-06         ### DIFFERS AT THE LAST PRINTED PLACE ###
+      a^2 = 8    b254 = 0.244027      b248 = 0.244027      diff = 0.0           IDENTICAL
+      a^2 = 9    b254 = 0.135021      b248 = 0.13502       diff = 1e-06         ### DIFFERS AT THE LAST PRINTED PLACE ###
+      a^2 = 12   b254 = 0.195843      b248 = 0.195843      diff = 0.0           IDENTICAL
+      cells where the two acts print different junctions : 2 [4, 9]
+
+  ### (4) THE SIGN OF THE RESIDUAL, BOTH REALIZATIONS, EVERY CELL:
+      entries negative : 12 of 12  UNIFORMLY NEGATIVE
+
+  ### CHECKS FAILING : 0
+  ### ### **THEREFORE, AT THE TABLE'S OWN PRECISION:**
+  ### ### `L - R  =  (D - E2) - (PR - Theta_q)  =  -(E2even + junction)`,
+  ### ### **AND THE ORDER'S ALGEBRA IS CONFIRMED FROM TWO EMITTING TABLES RATHER
+  ### ### THAN ACCEPTED FROM THE ORDER.**
+  ### **AND WHAT THIS DOES NOT SHOW: ### NOTHING ABOUT WHAT THE DIFFERENCE ### IS ### .**
+  ### It is an arithmetic identity among banked columns. ### The species question is
+  ### the bank's, and no number here bears on it.
+====================================================================================================

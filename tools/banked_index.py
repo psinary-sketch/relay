@@ -83,6 +83,11 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-difference': ['the difference', 'the corpus difference',
+                      'the imbalance', 'the cell-level imbalance',
+                      'the fourth face-off difference'],
+    'sweep-scope': ['the sweep scope', 'the shared-target sweep',
+                   'the correspondence sweep', 'the stem sweep scope'],
     'arithmetics-entry': ['where the arithmetic enters', 'the arithmetic entry',
                          'the weil distribution', 'the local weil distribution',
                          'the explicit formula'],
@@ -380,6 +385,58 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CORPUS'S DIFFERENCE IS NOT THE SOURCE'S (b306).
+    ("the-difference", "b306 (a decision by definitions)",
+     "is the corpus's cell-level imbalance the same object as CC's"
+     " arithmetic-minus-trace difference? ### **NO. ### DIFFERENT.** ### CC's is Theorem 1's"
+     " inequality W_inf(g*g*) >= Tr(theta(g) S theta(g)*), a SINGLE-PLACE statement whose"
+     " finite places enter through eq. (149) and are ZEROED -- not excluded -- by the support"
+     " condition ('so that rational primes are not involved'). ### The corpus's is"
+     " L - R = -(E2even + junction) at cells a^2 in {2,3,4,8,9,12}, verified against b254's"
+     " and b248's own tables. ### **THE FIRST DIFFERING CONSTITUENT IS THE ARCHIMEDEAN SIDE**,"
+     " and b291 is the quotation: 'SO NEITHER PAIRED FAMILY LIES IN THE OBJECT'S ARCHIMEDEAN"
+     " SPACE.' ### A trace compressed ONTO Sonin's space sums over vectors IN it; the corpus's"
+     " sums over vectors provably OUTSIDE it. ### **THE PRIME SIDE DOES MATCH (b305, carried),"
+     " cutoff included -- and a difference of two things is the same object only if both"
+     " are.** ### Four constituents have NO COUNTERPART at all: the smeared operator, the"
+     " compression, W_inf, and the places summed over",
+     "### DECIDED BY DEFINITIONS, CONSTITUENT BY CONSTITUENT. ### All three registered"
+     " falsifiers HOLD. ### **SCOPE: NO MEASUREMENT IS DISTURBED AND NO GRADE MOVES.** ###"
+     " E2even being a different functional says nothing about whether it was measured"
+     " correctly; the junction stays DERIVES, E2even stays at bench, b254's (IMBALANCED)"
+     " stands, b291's finding stands as its own. ### The source is not criticised: its theorem"
+     " is about its own objects at its own window, and **the corpus's window is the"
+     " COMPLEMENTARY choice of the same knob -- the source picks its window so no prime"
+     " enters, the corpus so every prime up to a^2 does.** ### The corpus's test function is"
+     " also outside Theorem 1's class (its bump is normalized to integral 1, so ghat(0) is not"
+     " 0), and the source prices exactly that at -c|ghat(0)|^2 with 13 < c < 17 (Thm 6.11)."
+     " ### W-ORD-SOURCE-METHOD-APPLICABILITY filed. ### NO AGGREGATION IS STATED. ### M-2"
+     " UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b306_the_difference.txt; data/b306_difference_run.txt;"
+     " CORRESPONDENCE.md row 124"),
+    # ### THE SHARED-TARGET STEM SWEEP (b306).
+    ("sweep-scope", "b306 (a scope repair, closing a hole b305 named)",
+     "the stem sweep now covers the files EVERY act appends to and NO act swept --"
+     " CORRESPONDENCE.md and banked_index.py. ### b305's own words are the specification:"
+     " 'the sweep runs over this act's files and not over CORRESPONDENCE.md, so the row was"
+     " caught by the bank's hit and not by its own.' ### **THE TOOL REPORTS PER ROW AND DOES"
+     " NOT REFUSE**, because a hit in a shared file may be OLDER than the act running, and the"
+     " row number is the attribution. ### Three hits on the first run, all one stem:"
+     " banked_index.py line 400 (**b305's -- this seat's own, where the fix touched the"
+     " generator and not the generated artefact; REPAIRED**); CORRESPONDENCE.md row 101"
+     " (b284's, a defect when written since the stem entered the list at b142, which the old"
+     " sweep could not see; NOT REWRITTEN); row 2 (predates b142, so not a defect -- a ban is"
+     " not retroactive)",
+     "### A SCOPE REPAIR, NOT A RESULT. ### **THE BOUNDARY THIS ACT DREW: REPAIR WHAT THIS"
+     " SEAT WROTE AND MIS-FIXED; FILE WHAT ANOTHER ACT OWNS** -- the append-only law governs"
+     " the difference between CANNOT and WILL NOT. ### The stems are READ from"
+     " ferry_scan.stems() and never copied, so a stem added or retired moves the sweep with"
+     " it. ### Fixtures on both polarities AND on the row-attribution arm, because a sweep"
+     " that found a hit but could not name its row would leave an act unable to tell its own"
+     " row from an ancestor's. ### W-ORD-ANCESTOR-ROW-b284 filed as a POINTER, not a repair."
+     " ### NO GRADE MOVES. ### M-2 UNCHANGED",
+     "data/b306_the_difference.txt; data/b306_stem_scope.txt;"
+     " CORRESPONDENCE.md row 125"),
     # ### WHERE THE SOURCE'S ARITHMETIC ENTERS (b305).
     ("arithmetics-entry", "b305 (a read at content, in the source)",
      "in CC (arXiv:2006.13771v1) the primes are carried by the LOCAL WEIL DISTRIBUTION"
@@ -397,7 +454,7 @@ INDEX = [
      " through the test function -- and confirms its second. ### It settles"
      " W-ORD-FORCED-POSITIVITY: the source never asks its positivity to carry arithmetic;"
      " Theorem 1 is an INEQUALITY between an arithmetic distribution and a forced-positive"
-     " trace, and the content is in the gap. ### M-2 UNCHANGED",
+     " trace, and the content is in the difference. ### M-2 UNCHANGED",
      "data/b305_the_arithmetics_entry.txt; data/b305_source_read.txt;"
      " CORRESPONDENCE.md row 122"),
     # ### THE CORPUS'S PRIME SUM IS THE LOCAL WEIL DISTRIBUTION (b305).
