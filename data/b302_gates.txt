@@ -75,12 +75,13 @@ b302 -- GATE SUITE
     ### as `B298` prefixes b298's -- the corpus's provenance convention, not a leak.
 
   G-KERNEL (the profile, re-checked here and not taken from the build's own report):
+    numstat scope read       : THE COMMIT ITSELF (HEAD~1..HEAD)
     prints on disk           : 449, zero-axiom 449, other 0
     of them, this act's      : 11
     BOM (read as bytes)      : False  PASS
     HEAD is a TRUE BYTE PREFIX : True  PASS
-    git numstat on the profile : (clean)
-    deletions on the profile : n/a  ### FAIL ###
+    git numstat on the profile : 11 0
+    insertions / deletions   : 11 / 0  PASS
 
   G-STRUCK (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
     files scanned 12   struck-clause hits 0  PASS
@@ -110,9 +111,9 @@ b302 -- GATE SUITE
     untracked rows (pre-existing) : 1 ; written after the seal : 0  PASS
 
   HEDGE AUDIT:
-    the bank                     sentences=875   graded-hedges=0   ungraded-shapes=133
+    the bank                     sentences=898   graded-hedges=0   ungraded-shapes=139
     the registration             sentences=266   graded-hedges=0   ungraded-shapes=41
 
 ====================================================================================================
-### GATES: 61 PASS / 1 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
+### GATES: 62 PASS / 0 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
 ====================================================================================================

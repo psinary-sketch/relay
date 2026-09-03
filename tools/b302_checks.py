@@ -261,8 +261,19 @@ def main():
     b302 = sum(1 for ln in lines if ln.startswith("'B302."))
     bom = prof.startswith(b'\xef\xbb\xbf')
     prefix = prof.startswith(head)
-    ns = subprocess.run(['git', '-C', SIDE, 'diff', '--numstat', '--', 'AXIOM_PRINTS.txt'],
-                        capture_output=True, text=True).stdout.split()
+    # ### DEFECT FIXED AFTER THIS ACT'S OWN KERNEL COMMIT LANDED. ### The first version measured
+    # ### `git diff --numstat` against the WORKING TREE only. ### **ONCE THE COMMIT LANDS THAT DIFF
+    # ### IS EMPTY**, and the arm reported `n/a` and hard-failed -- the check was real, its SCOPE
+    # ### had moved. ### **THIS IS b299's G-ADDITIVE SPECIES AND ITS FIX IS b299's:** ### read the
+    # ### working tree while the change is uncommitted and ### THE COMMIT ITSELF ### once it is,
+    # ### say which was read, and ### **HARD-FAIL ON AN EMPTY SCOPE RATHER THAN PASS IT** (b167).
+    dirty = subprocess.run(['git', '-C', SIDE, 'diff', '--numstat', 'HEAD'],
+                           capture_output=True, text=True).stdout.strip()
+    rng = ['HEAD'] if dirty else ['HEAD~1', 'HEAD']
+    src = 'the WORKING TREE vs HEAD' if dirty else 'THE COMMIT ITSELF (HEAD~1..HEAD)'
+    ns = subprocess.run(['git', '-C', SIDE, 'diff', '--numstat'] + rng + ['--',
+                        'AXIOM_PRINTS.txt'], capture_output=True, text=True).stdout.split()
+    print('    numstat scope read       : %s' % src)
     print('    prints on disk           : %d, zero-axiom %d, other %d' % (len(lines), zero,
                                                                           len(lines) - zero))
     print('    of them, this act\'s      : %d' % b302)
@@ -270,9 +281,12 @@ def main():
     print('    HEAD is a TRUE BYTE PREFIX : %s  %s'
           % (prefix, 'PASS' if prefix else '### FAIL ###'))
     print('    git numstat on the profile : %s' % (' '.join(ns[:2]) if ns else '(clean)'))
-    numstat_ok = (len(ns) >= 2 and ns[1] == '0')
-    print('    deletions on the profile : %s  %s'
-          % (ns[1] if len(ns) >= 2 else 'n/a', 'PASS' if numstat_ok else '### FAIL ###'))
+    # ### AN EMPTY SCOPE IS NOT A PASS: if neither the working tree nor the commit touched the
+    # ### profile, this gate has measured nothing and says so.
+    numstat_ok = (len(ns) >= 2 and ns[1] == '0' and int(ns[0]) > 0)
+    print('    insertions / deletions   : %s / %s  %s'
+          % (ns[0] if len(ns) >= 2 else 'n/a', ns[1] if len(ns) >= 2 else 'n/a',
+             'PASS' if numstat_ok else '### FAIL -- EMPTY SCOPE OR A DELETION ###'))
     if bom or not prefix or (len(lines) - zero) or not numstat_ok or b302 == 0:
         fails.append('G-KERNEL')
 

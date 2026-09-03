@@ -471,6 +471,15 @@ b302 -- THE UNIT REQUIREMENT, A STALE OPEN, AND A KERNEL TERMINAL.
 ### Its read-back arms sat behind the idempotence guard, so a re-run printed only "nothing
 ### written". ### **A TOOL THAT LEAVES NO EVIDENCE OF ITS FIRST RUN IS NOT AUDITABLE**, and the
 ### arms now run on both paths.
+### ### **(D9) `G-KERNEL`'s NUMSTAT ARM PASSED BEFORE THE COMMIT AND FAILED AFTER IT.** ### It
+### measured `git diff --numstat` against the ### WORKING TREE ### only, and ### **ONCE THE KERNEL
+### COMMIT LANDED THAT DIFF WAS EMPTY** -- the arm reported `n/a` and hard-failed. ### The check
+### was real; its ### SCOPE ### had moved. ### **THIS IS b299's `G-ADDITIVE` SPECIES EXACTLY, AND
+### ITS FIX IS b299's:** ### read the working tree while the change is uncommitted and ### THE
+### COMMIT ITSELF ### once it is, ### **SAY WHICH WAS READ, AND HARD-FAIL ON AN EMPTY SCOPE RATHER
+### THAN PASS IT.** ### It now reports `THE COMMIT ITSELF (HEAD~1..HEAD)` and `11 / 0`.
+### ### **DECLARED BECAUSE THE ARM HARD-FAILED RATHER THAN PASSING, WHICH IS THE ONLY REASON THIS
+### ### WAS CAUGHT AT ALL -- A GATE THAT WENT QUIET ON AN EMPTY SCOPE WOULD HAVE READ AS CLEAN.**
 ### ### **(D6) TWO ACTS OF THIS SEAT'S CARRIED A PAID DEBT AS AN OPEN ONE.** ### b300 and b301 both
 ### restated b226's owed step from b226 without asking whether it had been paid, and b268 had paid
 ### it two days earlier. ### **DECLARED AS THIS SEAT'S DEFECT AND NOT AS AN ARTEFACT OF THE
