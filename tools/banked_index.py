@@ -83,6 +83,14 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'uniform-family': ['the uniform family', 'the two-radius family',
+                      'the family across places', 'the uniform form',
+                      'the archimedean family', 'a pair of radii at every place'],
+    'vn-definition-331': ['definition 3.3.1', 'the c0-sequence definition',
+                         'the convergent unit sequence', 'von neumann definition 3.3.1'],
+    'object-conditions': ['the object conditions', 'object conditions',
+                         "the object's standing conditions",
+                         'the construction status'],
     'unit-requirement': ['the unit requirement', 'rule arch-unit', 'arch-unit',
                         'space membership suffices', 'what the product asks of a vector'],
     'generator-nonvanishing': ['the generator nonvanishing', 'the canonical generator',
@@ -356,6 +364,69 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE TWO-RADIUS FAMILY ACROSS PLACES (b303).
+    ("uniform-family", "b303 (a definition, written across places)",
+     "a member is a choice, AT EVERY PLACE v, of a pair of radii (lambda_v, mu_v) -- one"
+     " bounding where the function vanishes, one where its transform does -- with"
+     " Son_v(lambda_v, mu_v) the functions in that place's own local space vanishing on"
+     " abs_v(x) <= lambda_v whose transform vanishes on abs_v(y) <= mu_v, the local space,"
+     " the absolute value and the transform each being THAT PLACE'S OWN. ### It restricts to"
+     " b293's Son(p,n;a,b) at finite p and to CC Definition 4.4's S(lambda,mu) at infinity."
+     " ### **THE CORPUS'S OBJECT IS THE EVERYWHERE-(1,1) MEMBER**, which at every place is"
+     " the transform-fixed point of its own dilation orbit -- verified at content vector by"
+     " vector at five finite cells, and READ off CC's own identifying sentence at infinity."
+     " ### The bridge is b21's chart x = p^(-n) m, THE CORPUS'S OWN, quoted by b293 inside"
+     " its own definition of B_e; under it the finite SUM invariant a+b is the archimedean"
+     " PRODUCT invariant lambda*mu, and the finite dilation is D_a at a = 1/p",
+     "### A DEFINITION, AND ITS GRADE IS A DIVISION: ### **UNIFORM AS A FORM, NOT AS AN"
+     " OBJECT.** ### One sentence covers all places because every term delegates to the"
+     " place; the instances are structurally different BY A THEOREM -- the sub-level set is a"
+     " compact open subgroup at p and provably not one at infinity (b198). ### **A LATER ACT"
+     " MAY QUOTE THE FORM AND MAY NOT QUANTIFY OVER THE OBJECTS AS THOUGH THEY WERE ONE KIND"
+     " OF THING.** ### W-ORD-UNIFORM-FORM's promotion criterion is met AS TO CONTENT and the"
+     " proposal stays UNBANKED-UNTIL-TESTED; PROMOTION IS THE AUTHOR'S. ### The annihilation"
+     " criterion remains a statement about members at the FINITE places. ### NO AGGREGATION"
+     " IS STATED. ### M-2 UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b303_the_uniform_family.txt; data/b303_family_run.txt;"
+     " CORRESPONDENCE.md row 118"),
+    # ### von NEUMANN'S DEFINITION 3.3.1, READ AT SOURCE (b303).
+    ("vn-definition-331", "b303 (a read at content, in the source itself)",
+     "quoted whole from the page image: 'A sequence f_alpha, alpha in I, is a C0-sequence, if"
+     " and only if f_alpha in H_alpha for all alpha in I, and SUM_(alpha in I) of"
+     " abs(norm(f_alpha) - 1) converges.' ### **IT ASKS FOR MEMBERSHIP IN THE LOCAL HILBERT"
+     " SPACE AND A CONVERGENT NORM SUM AND FOR NOTHING MORE**, and it makes NO PARTITION OF"
+     " I -- no clause distinguishes an archimedean index from a finite one. ### The corpus's"
+     " own OCR extract stops dead at 'if and' and the next line is the page number, which is"
+     " why the clause had been held THROUGH A READER (b197) since b196",
+     "### AT CONTENT, b303's OWN READ, BY A ROUTE INDEPENDENT OF b197's -- and the two agree"
+     " WORD FOR WORD. ### **VERDICT: CONFIRMS.** ### b302's execution of RULE ARCH-UNIT"
+     " stands on the source's own words, and the conditional b302 wrote against itself is"
+     " DISCHARGED. ### **A CONFIRMATION REMOVES AN EXPOSURE; IT DOES NOT ADD A RESULT** --"
+     " Q4 stays WITHDRAWN, the sector clause stays DESCRIPTION, b214's c = +1 stays at BENCH."
+     " ### SCOPE: ONE DEFINITION. Lemma 4.1.2, Def 4.1.1 and Def 3.3.2 were NOT re-read and"
+     " stand at b226's at-source grade. ### M-2 UNCHANGED",
+     "data/b303_the_uniform_family.txt; data/b303_source_read.txt;"
+     " CORRESPONDENCE.md row 119; artefact sha256"
+     " 571060b596af58af35f09f077984a2b747e7acbc52ab6d107ba8b45c761ad0a3, page index 21"),
+    # ### THE OBJECT'S STANDING CONDITIONS, WITH THE COUNT CORRECTED (b303).
+    ("object-conditions", "b301 and b302, count corrected at b303",
+     "the object (x)'_v (S-bar_v, u_v) is CONSTRUCTED CONDITIONALLY on FOUR standing"
+     " conditions, each typed: a PREMISE (the level limit, b198 I2); a RESULT"
+     " (W-ORD-PHI-MU-L2, phi_mu in L^2(R), stated by no owner); a RULING"
+     " (W-ORD-ARCH-NORM-READING, which inner product b226's archimedean normalization is);"
+     " and a CONSTRUCTION (C9 / N-OPEN-B, the real fiber's placement). ### **b302's SENTENCE"
+     " SAYS THREE AND b302's OWN LIST CARRIES FOUR; THE LIST IS RIGHT.** ### The root is"
+     " b301's headline, which counted ONE of its own THREE typed results",
+     "### AT b301's AND b302's OWN BANKED GRADES. ### **NO VERDICT MOVES AND NO CONDITION WAS"
+     " ADDED OR REMOVED -- ONLY THE COUNT IS CORRECTED**, and it is filed rather than edited"
+     " into either act (the append-only law). ### **WHAT SETTLES IT IS b303's SOURCE READ:**"
+     " Definition 3.3.1's FIRST conjunct is f_alpha in H_alpha, so W-ORD-PHI-MU-L2 is the"
+     " MEMBERSHIP HALF OF DEFINITION 3.3.1 AT INFINITY -- one of the two things the source"
+     " asks for, undischarged at one place -- and therefore a condition of the object and not"
+     " a debt of a lane. ### Q4 is NOT among the four: it was WITHDRAWN as a requirement."
+     " ### M-2 UNCHANGED",
+     "data/b303_the_uniform_family.txt; data/b302_the_unit_requirement.txt;"
+     " data/b301_the_object_completed.txt"),
     # ### THE UNIT REQUIREMENT (b302).
     ("unit-requirement", "b302 (a ruling executed against quoted text)",
      "what von Neumann's incomplete direct product asks of a CHOSEN VECTOR at each place,"

@@ -1,0 +1,37 @@
+﻿====================================================================================================
+b303_source.py -- THE SOURCE READ. ### THE ARTEFACT PINNED, THE PAGE CUT.
+====================================================================================================
+  truncation fixture                                         got/expected     agree
+  fires: a line stopping dead at the marker                  0/0              YES
+  fires: the marker at the end of a later line               1/1              YES
+  ### NEAR-MISS, stays quiet: the marker mid-line, sentence continues None/None        YES
+  ### NEAR-MISS, stays quiet: the words present but not terminal None/None        YES
+  ### quiet: a page with no marker at all                    None/None        YES
+  ### quiet: empty text -- not a silent hit                  None/None        YES
+  truncation-detector self-test : PASS
+
+  citation      : von Neumann, "On infinite direct products", Compositio Mathematica, tome 6 (1939), pp. 1-77
+  origin        : http://www.numdam.org/item/CM_1939__6__1_0.pdf
+  local bytes   : 6367437
+  sha256        : 571060b596af58af35f09f077984a2b747e7acbc52ab6d107ba8b45c761ad0a3
+  pages in file : 78
+
+  ### THE PAGE, AT INDEX 21 (the article's page 21).
+  text-layer characters      : 1300
+  ### TEXT LAYER STOPS DEAD  : YES, at line 28
+      the truncated line     : 'DEFINITION 3.3.1. A sequence foc’ ex E I, is a C0-sequence, if and'
+      what follows it        : '<end of page>'
+  ### **THE CONDITION IS NOT IN THE TEXT LAYER. ### THAT IS THE CORPUS'S OLD
+  ### DEFECT, MEASURED IN THE ARTEFACT RATHER THAN RECALLED FROM b197.**
+  CONTROL, the next page     : truncated=False   PASS -- the finding is this page's
+
+  embedded images on the page : 1
+  page image                  : Im21.tiff  3664x5433
+  crop box (px)               : (366, 4590, 3480, 4916)
+  full page written           : b303_vN_p21_full.png  sha256 d350700032d983e80a36f1e9c0b13b9b
+  ### DEFINITION 3.3.1 CUT    : b303_vN_p21_def331.png  sha256 57636446d8a74f283f43900a453b6948
+
+  ### **THIS TOOL DID NOT READ THE IMAGE AND RUNS NO OCR.** ### The quotation banked
+  ### by this act is a HUMAN READ of the file named above. ### An instrument that both
+  ### cut the page and reported its words would be the only witness to its own claim.
+====================================================================================================

@@ -1,0 +1,81 @@
+====================================================================================================
+b303 -- THE SHADOW BUILD AND ITS PROFILE. ### EVERY NUMBER FROM THIS FILE.
+====================================================================================================
+
+  SELF-TEST (the byte checks, imported from b302_kernel and re-run here):
+  fixture                                                    got/exp      agree
+  the print counter separates zero-axiom from other          True/True    YES
+  the print counter ignores blank lines                      True/True    YES
+  the BOM test fires on a real BOM                           True/True    YES
+  the BOM test stays quiet on clean bytes                    False/False  YES
+  a true prefix is recognised                                True/True    YES
+  a BOM-differing pair is NOT a byte prefix                  False/False  YES
+  CRLF normalises to LF                                      True/True    YES
+
+----------------------------------------------------------------------------------------------------
+  THE STATE BEFORE ANYTHING IS CHANGED.
+----------------------------------------------------------------------------------------------------
+  banked profile on disk   : 449 prints, 449 zero-axiom, 0 otherwise, 30992 bytes
+  banked profile at HEAD   : IDENTICAL
+  BOM on the banked file   : False
+  AllPrints imports ValuationDivisibilityShadow : False
+  AllPrints prints B303.*   : 0
+
+----------------------------------------------------------------------------------------------------
+  (A) THE BASELINE. ### REGENERATE FROM THE UNCHANGED FILE AND REPRODUCE THE BANKED
+      BYTES. ### **IF THIS FAILS, NOTHING AFTER IT IS EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  regenerated              : 449 prints, 449 zero-axiom, 0 otherwise, 30992 bytes
+  BYTE-IDENTICAL to banked : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (B) THE MODULE. ### COMPILED ALONE, AND ITS PROFILE READ FROM ITS OWN OUTPUT.
+----------------------------------------------------------------------------------------------------
+  module                   : ValuationDivisibilityShadow.lean
+  exit code / stderr bytes : 0 / 0
+  terminals printed        : 12, 12 zero-axiom, 0 otherwise
+  compiled object written  : ValuationDivisibilityShadow.olean   True
+  imports in the module    : 0   ### VANILLA
+  `native_decide` uses     : 0
+  `sorry` occurrences      : 0
+  division signs in source : 1   ### Nat division only, inside `vpAux`
+      'B303.valuation_by_repeated_division_at_named_points' does not depend on any axioms
+      'B303.valuation_of_zero_is_admitted_at_every_index' does not depend on any axioms
+      'B303.divisibility_predicate_refuses_indices_it_should' does not depend on any axioms
+      'B303.divisibility_predicate_accepts_indices_it_should' does not depend on any axioms
+      'B303.the_two_predicates_disagree_when_one_side_is_shifted_at_every_tested_pair' does not depend on any axioms
+      'B303.fuel_is_not_binding_on_the_tested_ranges' does not depend on any axioms
+      'B303.admitted_set_is_a_proper_nonempty_subset_at_every_tested_pair' does not depend on any axioms
+      'B303.valuation_and_divisibility_agree_over_the_range_at_p_two_n_one' does not depend on any axioms
+      'B303.valuation_and_divisibility_agree_over_the_range_at_p_two_n_two' does not depend on any axioms
+      'B303.valuation_and_divisibility_agree_over_the_range_at_p_three_n_one' does not depend on any axioms
+      'B303.valuation_and_divisibility_agree_over_the_range_at_p_three_n_two' does not depend on any axioms
+      'B303.valuation_and_divisibility_agree_over_the_range_at_p_five_n_one' does not depend on any axioms
+
+----------------------------------------------------------------------------------------------------
+  (C) THE CERTIFICATION FILE. ### THE IMPORT AND THE PRINTS, WRITTEN HERE SO THEY
+      CANNOT LAND IN A DIFFERENT COMMIT FROM THE MODULE (b289's scar).
+----------------------------------------------------------------------------------------------------
+  import line added        : True
+  print lines added        : 12
+  READ BACK from disk      : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (D) THE PROFILE, REGENERATED FROM SOURCE AND WRITTEN AS BYTES.
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  prints before -> after   : 449 -> 461      zero-axiom: 449 -> 461      other: 0 -> 0
+  bytes  before -> after   : 30992 -> 32123
+
+----------------------------------------------------------------------------------------------------
+  (E) THE THREE BYTE CHECKS. ### **NONE OF THEM IS A LINE COMPARISON.**
+----------------------------------------------------------------------------------------------------
+  BOM on the written file  : False  PASS
+  what was written is what was regenerated : True  PASS
+  the HEAD profile is a TRUE BYTE PREFIX of the new one : True  PASS
+  bytes appended           : 1131
+
+====================================================================================================
+  ### KERNEL: 461 PRINTS, 461 ZERO-AXIOM, 0 OTHERWISE (was 449/449/0). ### PASS
+====================================================================================================

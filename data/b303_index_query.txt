@@ -1,0 +1,24 @@
+﻿====================================================================================================
+b303 -- THE INDEX KEYS. ### THREE RESULTS, KEYED BY THE ACT THAT PRODUCED THEM.
+====================================================================================================
+  uniform-family       key/row already present : False / False
+  vn-definition-331    key/row already present : False / False
+  object-conditions    key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    uniform-family         returns a row : True  PASS
+    vn-definition-331      returns a row : True  PASS
+    object-conditions      returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the two-radius family      now reaches a row : True  PASS
+    the uniform form           now reaches a row : True  PASS
+    the family across places   now reaches a row : True  PASS
+    definition 3.3.1           now reaches a row : True  PASS
+    the construction status    now reaches a row : True  PASS
+  ### MUST-NOT-HIT (b202), so the aliases are keys and not a net:
+    uniform                    still returns NO KEY : True  PASS
+    convergence                still returns NO KEY : True  PASS
+  ### **`uniform` AND `convergence` STAY UNKEYED BECAUSE THEY ARE PROPERTIES AND NOT
+  ### OBJECTS** -- b202's own reason, and it has not changed.
+  ### **AND b164's LIMIT IS NOT RETIRED: KEYS CLOSE FALSE HITS, NOT FALSE MISSES.**
+====================================================================================================

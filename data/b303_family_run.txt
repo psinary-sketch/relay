@@ -1,0 +1,46 @@
+﻿====================================================================================================
+b303_family.py -- THE FAMILY'S FINITE HALF, VERIFIED AT CONTENT.
+====================================================================================================
+  fixture                                                        got/expected       agree
+  vp(2, 8) -- repeated division                                  3/3                YES
+  vp(3, 9)                                                       2/2                YES
+  vp(2, 6) -- one factor only                                    1/1                YES
+  vp(2, 5) -- none                                               0/0                YES
+  ### vp(p, 0) is the cap, NOT 0                                 64/64              YES
+  divides_pow(2, 3, 8)                                           True/True          YES
+  ### divides_pow(2, 3, 4) -- the near miss                      False/False        YES
+  nullspace of x0=0 in 2 vars has dimension 1                    1/1                YES
+  nullspace of a full-rank 2x2 system is trivial                 0/0                YES
+  ### nullspace with NO rows is the whole space, not empty       3/3                YES
+  Phi_3 reduces to zero mod Phi_3                                []/[]              YES
+  ### 1 + x does NOT reduce to zero mod Phi_3                    True/True          YES
+  Phi_4 = 1 + x^2                                                [1, 0, 1]/[1, 0, 1] YES
+  x^2 + 1 reduces to zero mod Phi_4                              []/[]              YES
+  satisfies: the zero vector meets every condition               True/True          YES
+  ### satisfies: a violating vector is rejected                  False/False        YES
+  self-test : PASS
+
+  cell     ARM A  B_0 == ball_n       ARM B  diagonal both ways  ARM C  Q(zeta) dim vs (p^n-1)^2
+  (2,1)    YES, ctl differs           YES, spike rejected        1 ok, ctl fires 1 == 1  YES
+  (2,2)    YES, ctl differs           YES, spike rejected        4 ok, ctl fires 9 == 9  YES
+  (3,1)    YES, ctl differs           YES, spike rejected        4 ok, ctl fires 4 == 4  YES
+  (3,2)    YES, ctl differs           YES, spike rejected        4 ok, ctl fires 64 == 64  YES
+  (5,1)    YES, ctl differs           YES, spike rejected        4 ok, ctl fires 16 == 16  YES
+
+  ### CELLS FAILING : 0
+
+  ### THE CHART `a -> p^a` (b21's, quoted by b293), AND THE TWO INVARIANTS.
+    `p^{a+1} = p * p^a` and `p^{b-1} = p^b / p` .............. mismatches : 0
+    ### **SO THE FINITE DILATION IS `(lam, mu) -> (p*lam, mu/p)`,**
+    ### **WHICH IS THE ARCHIMEDEAN `D_a : (lam, mu) -> (lam/a, a*mu)` AT `a = 1/p`.**
+    ### **AND `lam * mu = p^{a+b}`: ### THE SUM INVARIANT IS THE PRODUCT INVARIANT
+    ### READ THROUGH THE CHART.** ### The chart is the CORPUS'S OWN (b21), quoted by
+    ### b293 at its own definition of `B_e`. ### **IT IS NOT SUPPLIED BY THIS ACT.**
+
+  ### THE DIAGONAL MEMBER IN THE CHART : `a = b = 0` is `lam = mu = p^0 = 1`.
+  ### **`1` IS THE UNIT OF EVERY PLACE'S VALUE GROUP, AND THE ARCHIMEDEAN MEMBER IS
+  ### `S(1,1)`. ### THE "EVERYWHERE-DIAGONAL" MEMBER IS THE EVERYWHERE-`(1,1)` ONE.**
+
+  ### **NOTHING ABOVE IS EVIDENCE ABOUT `infinity`.** ### There is no archimedean
+  ### computation in this file and b285's boundary is not crossed by it.
+====================================================================================================
