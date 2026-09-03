@@ -79,8 +79,8 @@ b302 -- GATE SUITE
     of them, this act's      : 11
     BOM (read as bytes)      : False  PASS
     HEAD is a TRUE BYTE PREFIX : True  PASS
-    git numstat on the profile : 11 0
-    deletions on the profile : 0  PASS
+    git numstat on the profile : (clean)
+    deletions on the profile : n/a  ### FAIL ###
 
   G-STRUCK (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
     files scanned 12   struck-clause hits 0  PASS
@@ -94,14 +94,14 @@ b302 -- GATE SUITE
     files swept 14   stem hits 0   control fires True   PASS
 
   G-TOOLNUM (ruling 3):
-    the kernel counts, the byte checks and the numstat   tools/b302_kernel.py             exists=True tracked=False
-    the artifact-count prediction demand (ruling 1)      tools/b302_regspec.py            exists=True tracked=False
+    the kernel counts, the byte checks and the numstat   tools/b302_kernel.py             exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)      tools/b302_regspec.py            exists=True tracked=True
     the satisfiability verdict over the declared caps    tools/reg_satisfiable.py         exists=True tracked=True
     the ferry scan's entry/pattern/hit counts            tools/ferry_scan.py              exists=True tracked=True
     the banned/retired stem counts                       tools/banned_terms.py            exists=True tracked=True
-    the gate, needle and hedge counts                    tools/b302_checks.py             exists=True tracked=False
-    the correspondence row's number and its read-back    tools/b302_correspondence.py     exists=True tracked=False
-    the index keys' read-back and must-not-hit arms      tools/b302_index_append.py       exists=True tracked=False
+    the gate, needle and hedge counts                    tools/b302_checks.py             exists=True tracked=True
+    the correspondence row's number and its read-back    tools/b302_correspondence.py     exists=True tracked=True
+    the index keys' read-back and must-not-hit arms      tools/b302_index_append.py       exists=True tracked=True
     the registration's seal hash                         tools/reg_seal.py                exists=True tracked=True
     numbers with no committed producer : 0  PASS
 
@@ -110,9 +110,9 @@ b302 -- GATE SUITE
     untracked rows (pre-existing) : 1 ; written after the seal : 0  PASS
 
   HEDGE AUDIT:
-    the bank                     sentences=857   graded-hedges=0   ungraded-shapes=131
+    the bank                     sentences=875   graded-hedges=0   ungraded-shapes=133
     the registration             sentences=266   graded-hedges=0   ungraded-shapes=41
 
 ====================================================================================================
-### GATES: 62 PASS / 0 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
+### GATES: 61 PASS / 1 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
 ====================================================================================================
