@@ -1,0 +1,180 @@
+====================================================================================================
+b301 -- THE OBJECT COMPLETED. ### CONSTITUENTS, REQUIREMENTS, CONVERGENCE.
+====================================================================================================
+
+  SELF-TEST (both polarities; the wrong enclosure must be rejected):
+  fixture                                                    got/exp        agree
+  the enclosure is certified by squaring, both arms          True/True      YES
+  a deliberately WRONG enclosure is rejected                 False/False    YES
+  the enclosure is tight to 1e-20                            True/True      YES
+  the halving arithmetic: (1/2)*full == half-line            True/True      YES
+  reading (A)/(C): deviation is EXACTLY zero                 True/True      YES
+  reading (B): the deviation is strictly between 0 and 1     True/True      YES
+  reading (B): the C0 sum is FINITE (one nonzero term)       True/True      YES
+
+----------------------------------------------------------------------------------------------------
+  (1) THE CONSTITUENTS. ### PLACE CLASS BY PLACE CLASS; EVERY CELL CARRIES ITS OWNER
+      AND ITS GRADE, BOTH PULLED FROM THE FILE THAT EMITTED THEM (V1).
+----------------------------------------------------------------------------------------------------
+
+  ### FINITE p (all)
+    THE LOCAL SPACE            S-bar_p := the L^2(Q_p)-closure of UNION_{n>=1} iota_n( Son(p,n) )
+        OWNER  [PULLED] b279_the_local_space.txt         ###   ### **`S-bar_p := the L^2(Q_p)-CLOSURE OF  UNION_{n >= 1} iota_n( Son(p,n) )`**
+        GRADE  [PULLED] (CONSTRUCTED)                    ### ### **VERDICT: (CONSTRUCTED).**
+    ITS LEVEL                  Son(p,n) = { f in V_n : f|ball = 0 AND (F f)|ball = 0 }, dimension (p^n - 1)^2
+        OWNER  [PULLED] b279_the_local_space.txt         ###     · ### THE TOWER'S LEVEL (keystone): `Son(p,n) = { f in V_n : f|_ball = 0 AND (F 
+        GRADE  [PULLED] the keystone's own sentence      ###       `Son` TOWER; `Son` SITS INSIDE IT.**
+    ITS TOWER                  iota: V_n -> V_(n+1), m'' = p*m + p^{2n+1}*j; directed by the keystone's exact tower
+        OWNER  [PULLED] b279_the_local_space.txt         ###     · ### THE CONNECTING MAP (b21): `iota: V_n -> V_(n+1)`, `m'' = p*m + p^{2n+1}*j`
+        GRADE  [PULLED] DERIVES, for all p and all n     ### ### **AND THE TOWER LEMMA DOES NOT ONLY HOLD AT SEVEN CELLS -- IT 
+    THE UNIT'S EXISTENCE       d_1(p,n) > 0 at the chosen level, so E_1 carries a nonzero vector, which normalizes
+        OWNER  [PULLED] b198_nonvanishing.txt            (I3) A LEVEL DIMENSION d_1(p,n) > 0 at some level n.
+        GRADE  [PULLED] AVAILABLE-AT-EVERY-FINITE-PLACE  ### VERDICT: AVAILABLE-AT-EVERY-FINITE-PLACE. ### SHOWN, WITH ITS OWNE
+    THE STATED UNIT            u_p := 4q * P_1 f_{1,1} at the cell (p, ell(p)), normalized to norm one
+        OWNER  [PULLED] b226_stated_choice.txt           ### ###   u_p    := 4q * P_1 f_{1,1} at the cell (p, ell(p)), q = p^{ell(p)},
+        GRADE  [PULLED] PASS AT SIX STATED PLACES; THE GENERIC ODD PLACE IS *OWED* ### G-SECTOR -- ### **PASS AT SIX STATED PLACES; THE GENERIC ODD PLACE
+    THE LEVEL RULE             ell(p) := 2 if p = 2, else 1 -- the lowest level with d_1 > 0
+        OWNER  [PULLED] b226_stated_choice.txt           ### ###   ell(p) := 2 if p = 2, else 1                       ### THE CHOSEN LEVEL
+        GRADE  [PULLED] a DEFINITION made by the stated choice ### THE CHOICE, STATED AS A DEFINITION.
+
+  ### FINITE p = 2 (exceptional)
+    WHY THE LEVEL STEPS UP     d_1(2,1) = 0 -- the arrival depth -- so level 1 carries no unit at p = 2
+        OWNER  [PULLED] b226_stated_choice.txt           ###   ### there is no unit there to choose -- ### THE ARRIVAL DEPTH IS WHY ell(2) = 2 AN
+        GRADE  [PULLED] ZERO at exactly one cell, (2,1)  ### ZERO at exactly one cell, (2,1) -- the arrival depth.
+
+  ### ARCHIMEDEAN infinity
+    THE LOCAL SPACE            S(1,1) = { xi in L^2(R)_ev : xi = 0 on |q|<=1, (F_eR xi) = 0 on |p|<=1 }
+        OWNER  [PULLED] b287_the_two_papers.txt          ###   ### **"For `lambda, mu >= 0`, let Sonin's space `S(lambda,mu) subset L^2(R)_ev` be
+        GRADE  [PULLED] (CONSTRUCTED, CONDITIONALLY)     ### ### **THE SPACE: ### (CONSTRUCTED, CONDITIONALLY).** ### Eight con
+    ITS INNER PRODUCT          <eta|xi> := (1/2) INT_R eta conj(xi) dx = INT_0^inf eta conj(xi) dx  -- CC eq (16)
+        OWNER  [PULLED] b300_source_read.txt             ###   ### ### **"We normalize the inner product in `L^2(R)_ev` as follows**
+        GRADE  [PULLED] IMPORT, READ AT CONTENT IN ITS OWN SOURCE ###   ### **READ AT CONTENT THIS ACT** ### -- section 1's sentences, b
+    ITS ONE OPEN DATUM         C9 -- how the real fiber sits inside the corpus's own adelic object (N-OPEN-B as b287 read it)
+        OWNER  [PULLED] b287_the_two_papers.txt          ### ### **`N-OPEN-B` REMAINS OPEN, AND IS NOW OPEN ### AGAINST A READ SOURCE ### RATHER 
+        GRADE  [PULLED] (ABSENT) from both sources and from the deferred reference ### (d) `N-OPEN-B`. ### **(ABSENT) FROM BOTH SOURCES AND FROM THE DEFE
+    THE STATED UNIT            u_inf := the rank-2 Sonin-sector eigenfunction, normalized in L^2 -- phi_mu at mu_-2
+        OWNER  [PULLED] b226_stated_choice.txt           ### ###   u_inf := the rank-2 Sonin-sector eigenfunction, normalized in L^2.
+        GRADE  [PULLED] GRADE: BENCH (its own file's word for the measured bits) ### the pinned convention (F f)(y) = INT f(x) e^{+2 pi i x y} dx.   ##
+    ITS MEMBERSHIP             u_inf is IN S(1,1): condition one quoted from CM Lemma 3.1, condition two from the derived eigenrelation F phi_mu = c phi_mu with c = +-1
+        OWNER  [PULLED] b300_the_archimedean_leg.txt     ### ### ### **(b) THE CHOSEN UNIT: ### (IN, DERIVED).** ### `u_inf` satisfies ### BOTH #
+        GRADE  [PULLED] DERIVES-on-IMPORTS               ### ### **GRADE: ### DERIVES-on-IMPORTS** ### -- and the grade names i
+    ITS SECTOR MEMBERSHIP      whether u_inf is in E_1(S(1,1)) -- NOT derived; needs c = +1 AT RANK 2
+        OWNER  [PULLED] b214_orientation_bits.txt        ### ###   rank 2 (the FIRST EVEN) : c = **+1**
+        GRADE  [PULLED] GRADE BENCH                      ### GRADE **BENCH**. ### WHAT A GRADE ABOVE BENCH WANTS, NAMED: an ANA
+
+----------------------------------------------------------------------------------------------------
+  (2) THE PRODUCT'S REQUIREMENTS, EACH NAMING WHICH CONSTRUCTION ASKS IT (V2).
+----------------------------------------------------------------------------------------------------
+
+    Q1   [P-IDP  von Neumann incomplete direct product]  ### MET
+        ASKS      : a Hilbert space at every index (Definition 4.1.1's H_a)
+        OWNER  [PULLED] b226_stated_choice.txt         ### DEFINITION 4.1.1: "If (E) is an equivalence-class, then let PROD(x)_{a i
+        READING   : FINITE: S-bar_p is an L^2(Q_p)-CLOSURE, hence a closed subspace of a Hilbert space (b279). ARCHIMEDEAN: S(1,1) is the range of CC's ORTHOGONAL PROJECTION R, hence closed (b300 R1). ### **CLOSEDNESS IS READ OFF AN OWNER AT BOTH PLACE CLASSES, NOT ASSUMED FROM THE WORD 'SPACE'.**
+
+    Q2   [P-IDP  von Neumann incomplete direct product]  ### MET
+        ASKS      : a norm-one vector EXISTS at every index (Lemma 4.1.2's ||f_a|| = 1)
+        OWNER  [PULLED] b226_stated_choice.txt         ###   "Consider an (E) in Gamma, and a C0-sequence (f_a; a in I) in (E) ### 
+        READING   : FINITE: d_1 > 0 at the chosen level at every finite place (b198 I3, AVAILABLE-AT-EVERY-FINITE-PLACE), so E_1 carries a nonzero vector; the model inner product is positive definite (b21), so it normalizes. ARCHIMEDEAN: b300 places a nonzero vector in S(1,1). ### **THIS IS EXISTENCE, AND EXISTENCE ONLY.**
+
+    Q3   [P-IDP  von Neumann incomplete direct product]  ### OPEN
+        ASKS      : the STATED CHOICE is that norm-one vector at every index
+        OWNER  [PULLED] b226_stated_choice.txt         ### G-SECTOR -- ### **PASS AT SIX STATED PLACES; THE GENERIC ODD PLACE IS *O
+        READING   : ### **MISSING, EXACTLY: a result that 4q*P_1 f_{1,1} != 0 at every odd p at level 1.** b226 verified it at six stated places and wrote that the generic step 'WANTS A RESULT'. ### **SIX PLACES ARE NOT ALL PLACES, AND Q2 DOES NOT COVER Q3: A UNIT EXISTING IS NOT THE STATED UNIT BEING IT.**
+
+    Q4   [P-IDP  von Neumann incomplete direct product]  ### OPEN
+        ASKS      : the archimedean unit is from the SONIN SECTOR, as the ruling's own words ask
+        OWNER  [PULLED] b225_serializing_close.txt     ### with the archimedean unit from the Sonin sector under the b212 ruling; t
+        READING   : ### **MISSING, EXACTLY: c = +1 AT RANK 2 above BENCH.** b300 derived u_inf in S(1,1) and explicitly did NOT derive u_inf in E_1(S(1,1)); the derived eigenrelation gives only c = +-1, and b214's c = +1 stands at BENCH on a transform convention b214 ADOPTED rather than derived. ### **THE RULING ASKS FOR A SECTOR UNIT; WHAT IS DERIVED IS A SPACE UNIT.**
+
+    Q5   [P-IDP  von Neumann incomplete direct product]  ### MET
+        ASKS      : the C0 condition across places -- SUM_v | ||f_v|| - 1 | converges
+        OWNER  [PULLED] b226_stated_choice.txt         ### ### SUM_v | ||f_v|| - 1 | CONVERGE."
+        READING   : RE-CHECKED BELOW RATHER THAN CITED, and it holds under BOTH readings of the archimedean normalization. ### **WHAT DOES NOT SURVIVE UNDER ONE READING IS b226's EXACT ZERO, NOT THE CONVERGENCE.** ### And the extract's own defect at Definition 3.3.1 stands: what 'C0' demands BEYOND the norm sum is carried at b197's grade, not read at source (b226's declared divergence, restated and not renegotiated).
+
+    Q6   [P-IDP  von Neumann incomplete direct product]  ### OPEN
+        ASKS      : the object depends only on the equivalence class, not on the sequence
+        OWNER  [PULLED] b226_stated_choice.txt         ### ### **DOES (x)'_v (S-bar_v, u_v) DEPEND ON THE CHOICE?**
+        READING   : ### **MISSING, EXACTLY: whether two canonical choices land in the same class of 3.3.2.** b226 filed it OPEN and cited Definition 3.3.2 as where the answer lives, with Lemma 4.1.1's warning that products for different classes are MUTUALLY ORTHOGONAL. ### **A DIFFERENT CHOICE COULD GIVE AN ORTHOGONAL OBJECT, NOT AN ISOMORPHIC ONE.**
+
+    Q7   [P-RTP  the restricted tensor product      ]  ### NOT ASKED OF P-IDP
+        ASKS      : PURITY of the distinguished vectors
+        OWNER  [PULLED] b221_cell_level_assembly.txt   ### ### **A RESTRICTED TENSOR PRODUCT NEEDS PURITY, NOT MERELY EXISTENCE.** 
+        READING   : ### **THIS IS `P-RTP`'s REQUIREMENT AND IT IS RECORDED AGAINST `P-RTP`.** ### The author's b225 ruling re-scoped term 3 to `P-IDP` and says in its own words that 'purity is not required by the new plan and no inclusion maps are used'. ### **SO b221's HALT IS NOT AN OBSTACLE TO `P-IDP`, AND IT IS ALSO NOT REPEALED: IT STANDS EXACTLY WHERE b221 PUT IT, ON THE PRODUCT IT IS ABOUT.**
+
+    Q8   [P-IDP  von Neumann incomplete direct product]  ### MET AS A PREMISE
+        ASKS      : the level-limit premise -- u_v in E_1(Son(v,ell(v))) lies in E_1(S-bar_v)
+        OWNER  [PULLED] b226_stated_choice.txt         ### ### **TERM 3's OBJECT EXISTS AT CONTENT ON THE LEVEL-LIMIT PREMISE, WITH
+        READING   : Its warrant is b198 (I2)'s closure sentence at ITS grade (AVAILABLE-AT-EVERY-FINITE-PLACE). ### **b226 MARKED IT A PREMISE OF THAT ACT AND NOT A THEOREM OF IT, AND IT IS CARRIED HERE AS A PREMISE AND NOT PROMOTED.**
+
+----------------------------------------------------------------------------------------------------
+  (3) THE CONVERGENCE CONDITION, RE-CHECKED RATHER THAN CITED (V3).
+      ### EXACT RATIONAL ARITHMETIC. ### NO FLOAT LITERAL AND NO FLOAT DIVISION.
+----------------------------------------------------------------------------------------------------
+    THE SOURCE'S NORM, FROM ITS OWN EQUATION (16):
+      ||xi||^2_CC = (1/2) INT_R |xi|^2 dx = INT_0^inf |xi|^2 dx
+    ### **SO FOR AN EVEN xi: ### ||xi||_CC = ||xi||_R / sqrt(2)  =  ||xi||_halfline.**
+    ### The parity step is the source's own equation, not this file's arithmetic.
+
+    ### **READING (A) -- b226's "normalized in L^2" MEANS CC's (16).**
+      ||u_inf||_CC = 1   ->   deviation |1 - 1| = 0   (EXACT)
+      ### **b226's RESULT STANDS UNCHANGED: the C0 sum is EXACTLY 0.**
+
+    ### **READING (C) -- b226's L^2 MEANS THE CORPUS'S OWN HALF-LINE PICTURE.**
+      (16) says the half-line integral IS the CC norm, so (C) COINCIDES WITH (A).
+      ### **THE CORPUS'S OWN PICTURE IS THE ONE THAT AGREES WITH THE SOURCE EXACTLY.**
+
+    ### **READING (B) -- b226's L^2 MEANS THE PLAIN INT_R WITHOUT THE FACTOR 1/2.**
+      ||u_inf||_R = 1  ->  ||u_inf||_CC = 1/sqrt(2), enclosed EXACTLY:
+        1/sqrt(2) in ( 896364335596578238699711011639/1267650600228229401496703205376 ,
+                       112045541949572279837463876455/158456325028528675187087900672 )
+        certified by squaring (lo^2 < 1/2 < hi^2) : True
+      deviation |1/sqrt(2) - 1| = 1 - 1/sqrt(2) in
+        ( 46410783078956395349624024217/158456325028528675187087900672 ,
+          371286264631651162796992193737/1267650600228229401496703205376 )
+      as a decimal, to the enclosure's own precision, both ends:
+        29289321881345247559
+        (the integer above is the deviation scaled by 10^20 and truncated --
+         ### **PRINTED AS AN INTEGER BECAUSE A DECIMAL POINT HERE WOULD BE A FLOAT.**)
+
+    ### **THE VERDICT ON THE CONDITION ITSELF, UNDER BOTH READINGS:**
+      the deviation is 0 at every FINITE place (norm-one by construction, b226 G-NORM),
+      so the sum has AT MOST ONE nonzero term.
+      ### **UNDER (A)/(C): the sum is EXACTLY 0.**
+      ### **UNDER (B): the sum is 1 - 1/sqrt(2), a single finite term.**
+      ### ### **THE C0 CONDITION CONVERGES UNDER BOTH. ### IT IS `MET`.**
+
+    ### **AND WHAT DOES NOT SURVIVE UNDER (B), SAID PLAINLY:**
+      ### **LEMMA 4.1.2's OWN HYPOTHESIS IS `||f_a|| = 1`**, and under (B) the
+      archimedean vector has CC-norm 1/sqrt(2), not 1. ### The repair is a
+      renormalization by sqrt(2) -- ### **AND THIS ACT DOES NOT PERFORM IT.**
+      ### **IT COSTS THE MEMBERSHIP NOTHING: a renormalization is a NONZERO SCALAR, and
+      ### S(1,1) is cut out by HOMOGENEOUS vanishing conditions, so membership is
+      ### scalar-invariant (b292 (2c), carried at b300).**
+
+    ### **AND WHAT IS NOT DISTURBED, WHICH MATTERS MORE THAN WHAT IS:**
+      b226's Lean terminal `c0_deviation_is_zero` states that ### NORM-ONE AT EVERY
+      PLACE ### makes the deviation sum exactly 0. ### **THAT IS A CONDITIONAL AND IT
+      ### REMAINS TRUE.** ### What reading (B) would move is whether its HYPOTHESIS is
+      satisfied by the stated choice -- ### **NOT THE THEOREM, AND NO COMPILED
+      ### TERMINAL IS DISTURBED BY ANYTHING IN THIS ACT.**
+
+    ### **WHICH READING IS b226's IS NOT STATED BY ANY OWNER.**
+      b226 writes "normalized in `L^2`" and names no inner product; (16) makes the
+      question decidable-in-principle without deciding it. ### **FILED AS A RULING.**
+
+----------------------------------------------------------------------------------------------------
+  THE REQUIREMENT CENSUS. ### MET, OPEN AND NOT-ASKED COUNTED SEPARATELY.
+----------------------------------------------------------------------------------------------------
+    requirements listed : 8
+    MET                 : 4   Q1, Q2, Q5, Q8
+    OPEN                : 3   Q3, Q4, Q6
+    NOT ASKED OF P-IDP  : 1   Q7
+    constituent cells   : 13
+    unpullable / defects: 0  PASS
+
+====================================================================================================
+  ### **THE REACH, PRINTED WITH THE RESULT: THE TABLE PROVES AN OWNER AND A GRADE ARE
+  ### ON DISK. ### IT DOES NOT AUDIT THE GRADE. ### THE REQUIREMENTS' VERDICTS ARE THE
+  ### ACT'S JUDGEMENT; THE TOOL REFUSES A BARE `MET` AND A NAMELESS `OPEN`, AND THAT IS
+  ### ALL IT DECIDES.**
+====================================================================================================

@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'object-completed': ['the object completed', 'the incomplete direct product',
+                        'the stated choice across places', 'the constituents table',
+                        'the c0 condition', 'term 3 object'],
     'archimedean-leg': ['the archimedean leg', 'the archimedean unit',
                        'u_inf', 'the chosen archimedean unit',
                        'the archimedean local space', 'the sonin sector'],
@@ -348,6 +351,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE OBJECT COMPLETED (b301).
+    ("object-completed", "b301 (construction restatement and its checks)",
+     "the object (x)'_v (S-bar_v, u_v) restated with every constituent in one table:"
+     " AT FINITE p, S-bar_p is the L^2(Q_p)-closure of the Son tower (b279, CONSTRUCTED),"
+     " with u_p = 4q P_1 f_(1,1) at level ell(p) = 2 if p = 2 else 1 -- the exceptional"
+     " place being the law's own zero d_1(2,1) = 0; AT INFINITY, S(1,1) from CC Definition"
+     " 4.4 with the inner product of CC eq (16), and u_inf = phi_mu at the first even"
+     " NEGATIVE eigenvalue, IN that space (b300). ### **OF THE PRODUCT'S EIGHT REQUIREMENTS:"
+     " 4 MET (a Hilbert space at every index; a norm-one vector EXISTS at every index; the"
+     " C0 condition; the level-limit premise), 3 OPEN (the STATED finite unit's nonvanishing"
+     " at the generic odd place; the archimedean unit's SECTOR membership; choice-dependence)"
+     " and 1 NOT ASKED -- purity, which belongs to the RESTRICTED TENSOR PRODUCT and not to"
+     " von Neumann's incomplete direct product the author's b225 ruling re-scoped term 3 to.**"
+     " ### The C0 condition was RE-CHECKED in exact rationals under CC eq (16): it holds"
+     " under every reading of the archimedean normalization, and **the corpus's own"
+     " half-line picture is the reading that agrees with the source exactly**, keeping"
+     " b226's sum at EXACTLY 0; under the plain-INT_R reading the deviation is 1 - 1/sqrt(2)"
+     " and Lemma 4.1.2's hypothesis wants a renormalization this act NAMES and does not make",
+     "### CONSTRUCTED CONDITIONALLY -- on the level-limit premise (b226, at b198 I2's grade),"
+     " on ONE RESULT (b226's OWED generic odd place), on ONE RULING (which inner product the"
+     " archimedean normalization is -- W-ORD-ARCH-NORM-READING) and on ONE CONSTRUCTION (the"
+     " real fiber's placement, N-OPEN-B). ### **NO GRADE MOVES: every cell carries its owning"
+     " act's grade, pulled from that act's file.** ### **NOT A ROUTE. ### NO AGGREGATION IS"
+     " STATED. ### THE IDENTITY CHAIN'S TERM-3 ROW DOES NOT MOVE BY THIS ACT** -- it names"
+     " the restricted tensor product, three requirements are open, and a row is not moved by"
+     " an executor (W-ORD-TERM3-ROW). ### M-2 UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b301_the_object_completed.txt; data/b301_object_gate.txt;"
+     " CORRESPONDENCE.md row 116"),
     # ### THE ARCHIMEDEAN LEG (b300).
     ("archimedean-leg", "b300 (construction from a graded import, and a derivation)",
      "the object's archimedean local space is BUILT from the source's own Definition 4.4 as"
