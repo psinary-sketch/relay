@@ -1,0 +1,514 @@
+====================================================================================================
+b308 -- THE LOCAL-FIELD INSTRUMENT. ### THE COMPONENTS, IN ORDER.
+====================================================================================================
+
+====================================================================================================
+### COMPONENT 1 -- THE OBJECTS, FROM THEIR OWNERS. ### **PULLED, NOT TYPED.**
+====================================================================================================
+  ### Every sentence below is the EXACT LINE the owning file emits, extracted by
+  ### `needle_pull.pull`. ### **A SENTENCE THIS SEAT REMEMBERED WOULD NOT APPEAR HERE.**
+
+  b21  -- THE CHART AND THE HAAR NORMALIZATION, AND THE TIE BETWEEN THE TWO RADII
+      via x = p^(-n) m; Haar measure (Z_p mass 1) gives each chart point mass p^(-n) --
+  b21  -- THE MODEL SPACE, WHERE THE TWO RADII ARE TIED TO ONE `n`
+      stated at the foot. V_n IS canonically the model space: p^(-n)Z_p / p^n Z_p = Z/p^(2n)
+  b21  -- THE GENUINE TRANSFORM, FROM WHICH THE INSTRUMENT WRITES ITS OWN
+      THE GENUINE TRANSFORM: (F f)(y) = int f(x) psi(x y) dx, psi the standard character of
+  b21  -- THE MODEL TRANSFORM IS THE GENUINE ONE AT A FIXED LEVEL, WITH ITS ENTRY FORMULA
+      F_N[j,k] = zeta_N^(jk) / p^n (N = p^(2n)) in the chart -- the model transform IS the
+  b21  -- ... and the second half of that sentence, on its own line
+      genuine local transform at level n, with NO artifact. If exact, the dimension law
+  b21  -- WHERE THE ARTIFACT LIVES
+      MODEL'S mod-N WRAPAROUND IS THE ARTIFACT, located exactly at the outer shell (b8's
+  b280 -- THE BALL IN b21's CHART IS `Z_p`
+      ### b21's chart `x = p^{-n} m`, `ball_n = { x = p^{-n} p^n k } = { k } = ### **Z_p**`, and
+  b280 -- THE HAAR BRIDGE: A CHART POINT IS A COSET OF POSITIVE MEASURE
+      ### ### **IT IS NOT.** ### The bridge is b21's Haar normalization: a chart point `m` at level `n`
+  b280 -- b270's ABSORPTION AT `k = n`, THE ZERO THE CRITERION GENERALISES
+      ###    THE BALL. ### EVERY SUMMAND CARRIES THE FACTOR `u_v(ball) = 0`.** ### `P(n) = 0`.
+  b284 -- THE ESCAPE, AND THE SENTENCE THIS ACT TURNS INTO A COMPUTATION
+      ###   exactly ... `supp(U f) = p^(-n-1)Z_p`, strictly bigger than `p^(-n)Z_p`. ### THE MODEL'S
+  b284 -- WHY THE DERIVATION STOOD WHERE THE MODEL DID NOT
+      ###   ### ### **THE DERIVATION STANDS BECAUSE IT IS ON `Q_p`, WHERE THERE IS NOTHING TO FOLD. ###
+  b293 -- THE BALL OF EXPONENT `e`, WHICH IS THE INSTRUMENT'S BALL AT `r = n`
+      ### ### **THE BALL OF EXPONENT `e`:** ### `B_e := { m : v_p(m) >= n - e }`. ### In b21's chart
+  b293 -- THE DIMENSION LAW
+      ### ### ### **`dim Son(p,n; a,b) = p^{2n} - p^{n+a} - (p^{n+b} - p^{a+b}) = (p^n - p^a)(p^n - p^b)`.**
+  b293 -- THE DILATION AND ITS INVARIANT, ON THE CONDITION RADII
+      ### ### **DILATION MOVES `(a,b) -> (a+1, b-1)`: ### THE SUM `a+b` IS INVARIANT.**
+  b295 -- THE ANNIHILATION CRITERION
+      ### ### ### **`a >= 0`  ###  OR  ###  `b >= n - 1`.**
+  b295 -- THE CRITERION'S OWN SCOPE, CARRIED WITH IT
+      ### ### AND PAIRINGS OF THIS SHAPE** ### -- b273's `A` at `k = n`, at a finite place, at one level.
+
+  ### OWNER SENTENCES PULLED : 16   ### UNPULLABLE : 0
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE TWO RADII, NAMED SEPARATELY, AND THE MODEL'S TIE.
+----------------------------------------------------------------------------------------------------
+  ### **THE SUPPORT RADIUS** ..... `p^r`  -- the support lies in `p^{-r} Z_p`.
+  ### **THE CONSTANCY RADIUS** ... `p^{-s}` -- constant on cosets of `p^s Z_p`.
+  ### ### **THE MODEL TIES THEM: `r = s = n`, AND THE FILE THAT TIES THEM IS b21**, in the
+  ### sentence pulled above -- `p^(-n)Z_p / p^n Z_p` is one `n` governing both.
+  ### **THE INSTRUMENT UNTIES THEM AND CHANGES NOTHING ELSE**: the chart is b21's
+  ### `x = p^{-r} m`, the Haar is b21's (`Z_p` mass 1, cell mass `p^{-s}`), and at
+  ### `r = s = n` every object below is the model's, entry for entry.
+    p=2 n=2 : model frame (r,s) = (+2,+2)  M = 16   cell mass 1/4   ### the corpus's V_n
+              theta(p^+1) -> (r,s) = (+1,+3)  M = 16   cell mass 1/8   ### OFF THE MODEL'S DIAGONAL
+              theta(p^-1) -> (r,s) = (+3,+1)  M = 16   cell mass 1/2   ### OFF THE MODEL'S DIAGONAL
+    p=3 n=1 : model frame (r,s) = (+1,+1)  M = 9   cell mass 1/3   ### the corpus's V_n
+              theta(p^+1) -> (r,s) = (+0,+2)  M = 9   cell mass 1/9   ### OFF THE MODEL'S DIAGONAL
+              theta(p^-1) -> (r,s) = (+2,+0)  M = 9   cell mass 1   ### OFF THE MODEL'S DIAGONAL
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE ACTION OF `Q_p^x`, SPLIT, WITH EACH PART NAMED AS SUCH.
+----------------------------------------------------------------------------------------------------
+  ### `Q_p^x = p^Z x Z_p^x`, and the action is b304's `(theta(t) f)(m) = f(t^{-1} m)`.
+  ### ### **THE COMPACT PART `Z_p^x`** -- `|t| = 1`, so NEITHER radius moves and the grid
+  ###   is permuted. ### **THIS IS THE PART THE MODEL CARRIES**, and b304 computed with it.
+  ### ### **THE SCALING PART `p^Z`** -- `theta(p^k) : V(r,s) -> V(r-k, s+k)`, so BOTH
+  ###   radii move and their SUM does not. ### **THIS IS THE PART THE MODEL DROPS.**
+
+====================================================================================================
+### COMPONENT 2 -- THE BUILD. ### **EVERY OPERATION CONTROLLED IN BOTH POLARITIES FIRST.**
+====================================================================================================
+  ### THE THREE SELF-TESTS, RUN BEFORE ANY OF THE THREE FILES IS USED IN A VERDICT:
+    b308_local_field  (this instrument)          : PASS
+    b303_family       (the family's conditions)  : PASS
+    b304_smearing     (the projection and trace) : PASS
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE TRANSFORM. ### **b21's A5a REPRODUCED EXHAUSTIVELY, THEN THE INVERSION.**
+----------------------------------------------------------------------------------------------------
+  ### The instrument's transform is `(F f)(m') = p^{-s} SUM_m f(m) zeta_M^{m m'}` on the
+  ### frame `(r,s)`, landing in `(s,r)`. ### **THE INVERSION CONTROL RUNS THROUGH b21's
+  ### OWN GEOMETRIC-SUM IDENTITY, WHICH IS VERIFIED HERE FOR EVERY RESIDUE FIRST** -- an
+  ### identity used without being checked is an assumption wearing a proof's clothes.
+  frame                  M              A5a over ALL residues      F F f = f(-x)
+  (r,s) = (+1,+1)  M = 4 4              YES                        YES, scalar = 1
+  (r,s) = (+2,+2)  M = 16 16             YES                        YES, scalar = 1
+  (r,s) = (+3,+1)  M = 16 16             YES                        YES, scalar = 1
+  (r,s) = (+1,+1)  M = 9 9              YES                        YES, scalar = 1
+  (r,s) = (+2,+2)  M = 81 81             YES                        YES, scalar = 1
+  (r,s) = (+1,+1)  M = 25 25             YES                        YES, scalar = 1
+  (r,s) = (+0,+2)  M = 4 4              YES                        YES, scalar = 1
+  ### **AND THE NEGATIVE ARM, WHICH IS WHAT MAKES THE POSITIVE ONE MEAN ANYTHING:**
+    a spike at the origin transforms to the constant 1, vanishing NOWHERE : True
+    `1_{Z_p}` is self-dual, so it does NOT vanish on the unit ball          : True
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE TWO SONIN CONDITIONS AS TESTS, AND THE COLLAPSE CHECKED RATHER THAN USED.
+----------------------------------------------------------------------------------------------------
+  ### The first condition is `f = 0` on `{|x| <= p^a}`; the second is `F f = 0` on
+  ### `{|y| <= p^b}`, computed LITERALLY in `Q(zeta_M)`. ### b293 collapsed the second to
+  ### the vanishing of every fiber sum at modulus `p^{n+b}`, and the instrument writes that
+  ### as `p^{r+b}`. ### **THE TWO ARE COMPARED AT EVERY CELL, BOTH DIRECTIONS, WITH A
+  ### NON-MEMBER CONTROL. ### A COLLAPSE MERELY IMPLIED BY MEMBERSHIP WOULD PASS THE
+  ### POSITIVE ARM AND FAIL THE NEGATIVE ONE.**
+  cell       radii    collapsed => literal           literal => collapsed     control fires
+  (2,1)      (+0,+0)  YES on 1 sampled               YES on 1 sampled         YES, spike rejected by BOTH
+  (2,1)      (-1,+0)  YES on 1 sampled               YES on 1 sampled         YES, spike rejected by BOTH
+  (2,1)      (+0,-1)  YES on 1 sampled               YES on 1 sampled         YES, spike rejected by BOTH
+  (2,2)      (+0,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (2,2)      (-1,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (2,2)      (+0,-1)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (3,1)      (+0,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (3,1)      (-1,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (3,1)      (+0,-1)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (3,2)      (+0,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (3,2)      (-1,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (3,2)      (+0,-1)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (5,1)      (+0,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (5,1)      (-1,+0)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+  (5,1)      (+0,-1)  YES on 3 sampled               YES on 3 sampled         YES, spike rejected by BOTH
+
+----------------------------------------------------------------------------------------------------
+### (2c) THE DILATION, BOTH DIRECTIONS, AND b21's UNITARITY AS AN IDENTITY OF RATIONALS.
+----------------------------------------------------------------------------------------------------
+  ### b21: ### **"(U f)(x) = p^(-1/2) f(p x), unitary on L^2(Q_p)"** ### and
+  ### **"supp(U f) = p^(-n-1)Z_p, strictly bigger than p^(-n)Z_p"**. ### On the untied
+  ### frame `U = p^{-1/2} theta(p^{-1})`, landing in `V(n+1, n-1)`, and BOTH sentences
+  ### become computations.
+  cell       U lands in             smallest ball  supp    ||Uf|| = ||f||     both directions
+  (2,1)      V(2,0)                 p^{-2}Z_p  STRICTLY BIGGER YES (scalar 1)     YES, list unchanged
+  (2,2)      V(3,1)                 p^{-3}Z_p  STRICTLY BIGGER YES (scalar 1)     YES, list unchanged
+  (3,1)      V(2,0)                 p^{-2}Z_p  STRICTLY BIGGER YES (scalar 1)     YES, list unchanged
+  (3,2)      V(3,1)                 p^{-3}Z_p  STRICTLY BIGGER YES (scalar 1)     YES, list unchanged
+  (5,1)      V(2,0)                 p^{-2}Z_p  STRICTLY BIGGER YES (scalar 1)     YES, list unchanged
+  ### **AND THE NEGATIVE ARM: THE MODEL FRAME IS NOT PRESERVED BY EITHER DIRECTION.** ### A
+  ### dilation that left the frame alone would be an instrument that had untied nothing.
+    theta(p) on V(2,2) lands in V(1,3), which is NOT V(2,2)      : True
+
+----------------------------------------------------------------------------------------------------
+### (2d) THE COMPRESSION BY THE CONSTRAINED SPACE'S PROJECTION.
+----------------------------------------------------------------------------------------------------
+  ### `Pi` is b304's projector, IMPORTED. ### The source's move, in b304's quotation of
+  ### it, compresses by the projection onto ### SONIN'S SPACE ### and not onto a sector.
+  ### ### **AND ONE CONTROL IS NEW HERE AND IS THE ONE THE UNTYING MAKES POSSIBLE:** ### the
+  ### projector built with the HAAR inner product and the projector built with the MODEL's
+  ### must be the SAME MATRIX, because the two differ by the positive scalar `p^{-s}` and a
+  ### positive scalar cannot change orthogonality. ### **SAID, THEN CHECKED ENTRY-WISE.**
+  cell       dim      Tr(Pi)       idempotent     fixes basis      Haar Pi == model Pi
+  (2,1)      1        1            True           True             YES
+  (2,2)      9        9            True           True             YES
+  (3,1)      4        4            True           True             YES
+  (3,2)      64       64           True           True             YES
+  (5,1)      16       16           True           True             YES
+  ### **NEGATIVE CONTROL AT EVERY CELL: an off-ball spike is MOVED by `Pi`.** ### A
+  ### projector that fixed everything would report every trace below and mean nothing.
+
+====================================================================================================
+### COMPONENT 3 -- THE REPRODUCTION. ### **MANDATORY BEFORE ANYTHING ELSE IS TRUSTED.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (3a) `F3` -- THE UNTIED RADII RECOVER THE TWO-RADIUS FAMILY, AS SETS, BOTH DIRECTIONS.
+----------------------------------------------------------------------------------------------------
+  ### The instrument builds `Son(frame; a, b)` from its OWN two conditions on the untied
+  ### frame; b293 builds `Son(p,n; a,b)` from ITS own. ### **CONTAINMENT BOTH WAYS PLUS
+  ### EQUAL DIMENSION IS SET EQUALITY; ONE WAY IS NOT** (b303's ARM B, carried).
+  cell       radii     dim I   dim b293 I vectors in b293      b293 vectors in I      spike rejected
+  (2,1)      (-1,-1)   2       2       YES, all 2             YES, all 2             YES, by BOTH tests
+  (2,1)      (-1,+0)   1       1       YES, all 1             YES, all 1             YES, by BOTH tests
+  (2,1)      (+0,-1)   1       1       YES, all 1             YES, all 1             YES, by BOTH tests
+  (2,1)      (+0,+0)   1       1       YES, all 1             YES, all 1             YES, by BOTH tests
+  (2,2)      (-1,-1)   12      12      YES, all 12            YES, all 12            YES, by BOTH tests
+  (2,2)      (-1,+0)   10      10      YES, all 10            YES, all 10            YES, by BOTH tests
+  (2,2)      (+0,-1)   10      10      YES, all 10            YES, all 10            YES, by BOTH tests
+  (2,2)      (+0,+0)   9       9       YES, all 9             YES, all 9             YES, by BOTH tests
+  (3,1)      (-1,-1)   7       7       YES, all 7             YES, all 7             YES, by BOTH tests
+  (3,1)      (-1,+0)   5       5       YES, all 5             YES, all 5             YES, by BOTH tests
+  (3,1)      (+0,-1)   5       5       YES, all 5             YES, all 5             YES, by BOTH tests
+  (3,1)      (+0,+0)   4       4       YES, all 4             YES, all 4             YES, by BOTH tests
+  (3,2)      (-1,-1)   75      75      YES, all 75            YES, all 75            YES, by BOTH tests
+  (3,2)      (-1,+0)   69      69      YES, all 69            YES, all 69            YES, by BOTH tests
+  (3,2)      (+0,-1)   69      69      YES, all 69            YES, all 69            YES, by BOTH tests
+  (3,2)      (+0,+0)   64      64      YES, all 64            YES, all 64            YES, by BOTH tests
+  (5,1)      (-1,-1)   23      23      YES, all 23            YES, all 23            YES, by BOTH tests
+  (5,1)      (-1,+0)   19      19      YES, all 19            YES, all 19            YES, by BOTH tests
+  (5,1)      (+0,-1)   19      19      YES, all 19            YES, all 19            YES, by BOTH tests
+  (5,1)      (+0,+0)   16      16      YES, all 16            YES, all 16            YES, by BOTH tests
+  ### **MEMBERS COMPARED ACROSS ALL FIVE CELLS AND ALL RADII IN RANGE. ### DISAGREEING : 0**
+
+----------------------------------------------------------------------------------------------------
+### (3b) THE DIMENSION LAW, AND THE KEYSTONE'S OWN NUMBER AT THE DIAGONAL.
+----------------------------------------------------------------------------------------------------
+  ### b293: ### **`dim Son(p,n; a,b) = (p^n - p^a)(p^n - p^b)`**, claimed only where it was
+  ### tested -- `a + b >= 0` with both exponents non-negative -- and ### **AT `a = b = 0`
+  ### IT IS THE KEYSTONE'S `(p^n - 1)^2`.** ### The scope travels with the law.
+  cell       radii     dim built  the law        agree
+  (2,1)      (+0,+0)   1          (p^n-1)^2 = 1  YES  ### the keystone's own number
+  (2,1)      (+0,+1)   0          0              YES
+  (2,1)      (+1,+0)   0          0              YES
+  (2,1)      (+1,+1)   0          0              YES
+  (2,2)      (+0,+0)   9          (p^n-1)^2 = 9  YES  ### the keystone's own number
+  (2,2)      (+0,+1)   6          6              YES
+  (2,2)      (+1,+0)   6          6              YES
+  (2,2)      (+1,+1)   4          4              YES
+  (3,1)      (+0,+0)   4          (p^n-1)^2 = 4  YES  ### the keystone's own number
+  (3,1)      (+0,+1)   0          0              YES
+  (3,1)      (+1,+0)   0          0              YES
+  (3,1)      (+1,+1)   0          0              YES
+  (3,2)      (+0,+0)   64         (p^n-1)^2 = 64 YES  ### the keystone's own number
+  (3,2)      (+0,+1)   48         48             YES
+  (3,2)      (+1,+0)   48         48             YES
+  (3,2)      (+1,+1)   36         36             YES
+  (5,1)      (+0,+0)   16         (p^n-1)^2 = 16 YES  ### the keystone's own number
+  (5,1)      (+0,+1)   0          0              YES
+  (5,1)      (+1,+0)   0          0              YES
+  (5,1)      (+1,+1)   0          0              YES
+  ### **CELLS DISAGREEING WITH THE LAW IN ITS OWN TESTED RANGE : 0**
+
+----------------------------------------------------------------------------------------------------
+### (3c) THE NOT-DEAD WITNESS, AND (3d) THE COMPACT-PART SMEAR'S ZERO WITH ITS MECHANISM.
+----------------------------------------------------------------------------------------------------
+  ### b304's two, reproduced on the instrument's own space at b304's own six cells.
+  ### **`Tr(Pi)` MUST EQUAL THE CONSTRAINED DIMENSION -- THAT IS THE WITNESS THAT THE
+  ### PROJECTION IS NOT DEAD, AND WITHOUT IT EVERY ZERO BELOW WOULD BE FREE.**
+  ### And the smear's zero is reported WITH ITS MECHANISM: `SUM_{t in U} theta(t)` is
+  ### `|U|` times the projection onto the `U`-invariants, the invariants are spanned by the
+  ### shells of constant `|x|`, and every `Son` vector is orthogonal to every shell for the
+  ### ### SPACE'S OWN TWO REASONS, ONE PER SHELL RANGE.
+  cell       dim      Tr(Pi)       smear T      shells orth    shells=unions  instrument shells
+  (2,1)      1        1 ==dim      0            True           True           b304's + {0}, and Son vanishes on {0}
+  (2,2)      9        9 ==dim      0            True           True           b304's + {0}, and Son vanishes on {0}
+  (3,1)      4        4 ==dim      0            True           True           b304's + {0}, and Son vanishes on {0}
+  (3,2)      64       64 ==dim     0            True           True           b304's + {0}, and Son vanishes on {0}
+  (5,1)      16       16 ==dim     0            True           True           b304's + {0}, and Son vanishes on {0}
+  (7,1)      36       36 ==dim     0            True           True           b304's + {0}, and Son vanishes on {0}
+  ### **EVERY UNIT PERMUTES THE GRID AT EVERY CELL, SO THE COMPACT PART IS COMPUTED WITH
+  ### NOTHING ESCAPING AND NOTHING FOLDED** -- b304's own test, re-run here.
+
+  ### ### **ONE DIFFERENCE THE REPRODUCTION FOUND, REPORTED AS IT CAME BACK AND NOT
+  ### ### SMOOTHED.** ### The instrument's shells are the level sets of `|x|` and they
+  ### PARTITION THE WHOLE GRID. ### b304's enumeration reaches ONE SHELL FEWER: the cell
+  ### `m = 0`. ### Its own docstring says ### **"`j = 2n` is `{0}`"**, but the valuation it
+  ### imports returns its FUEL CAP at `0`, so that shell comes back empty and is skipped.
+  ### ### **AND NOTHING IN b304's VERDICT DEPENDS ON IT, WHICH IS WHY THIS IS A NOTE AND
+  ### ### NOT A CORRECTION:** ### `0` lies in the ball, every `Son` vector vanishes on the
+  ### ball, so orthogonality to the missing shell is automatic -- ### **AND THIS ACT
+  ### CHECKED IT AT EVERY CELL RATHER THAN ARGUING IT.** ### b304's smeared zero, its
+  ### mechanism and its trace all stand exactly as b304 left them. ### **NO GRADE MOVES,
+  ### NO ACT IS RE-VERDICTED, AND b304's FILE IS NOT REWRITTEN** -- the append-only law.
+
+----------------------------------------------------------------------------------------------------
+### (3e) THE ANNIHILATION CRITERION AT EVERY CELL THE INSTRUMENT REACHES.
+----------------------------------------------------------------------------------------------------
+  ### b295, DERIVED: ### **the first-level pairing vanishes identically -- as a FORM, both
+  ### slots -- on `Son(p,n; a,b)` whenever `a >= 0` OR `b >= n - 1`.**
+  ### The operator is b273's `A` at `k = n`, IMPORTED from b281 and never re-defined here.
+  ### **THE VERDICTS BELOW ARE BASIS-INDEPENDENT AND THAT IS WHY THEY ARE THE THING
+  ### COMPARED**: the instrument's basis and b293's are different bases of the same space,
+  ### so a per-vector number would not be comparable and a per-space verdict is.
+  cell       radii     dim I   dim O   FORM on I        FORM on b293     criterion        agreement
+  (2,1)      (-1,-1)   2       2       NONZERO          NONZERO          not forced       agree, and NOT forced
+  (2,1)      (-1,+0)   1       1       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,1)      (+0,-1)   1       1       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,1)      (+0,+0)   1       1       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (-2,+1)   7       7       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (-1,-1)   12      12      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (2,2)      (-1,+0)   10      10      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (2,2)      (-1,+1)   7       7       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+0,-2)   11      11      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+0,-1)   10      10      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+0,+0)   9       9       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+0,+1)   6       6       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+1,-2)   7       7       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+1,-1)   7       7       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+1,+0)   6       6       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,2)      (+1,+1)   4       4       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,1)      (-1,-1)   7       7       NONZERO          NONZERO          not forced       agree, and NOT forced
+  (3,1)      (-1,+0)   5       5       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,1)      (+0,-1)   5       5       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,1)      (+0,+0)   4       4       ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (-2,+1)   53      53      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (-1,-1)   75      75      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (3,2)      (-1,+0)   69      69      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (3,2)      (-1,+1)   52      52      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+0,-2)   71      71      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+0,-1)   69      69      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+0,+0)   64      64      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+0,+1)   48      48      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+1,-2)   53      53      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+1,-1)   52      52      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+1,+0)   48      48      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (3,2)      (+1,+1)   36      36      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (5,1)      (-1,-1)   23      23      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (5,1)      (-1,+0)   19      19      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (5,1)      (+0,-1)   19      19      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (5,1)      (+0,+0)   16      16      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (-3,+2)   31      31      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (-2,+2)   31      31      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (-1,-1)   56      56      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (2,3)      (-1,+0)   52      52      NONZERO          NONZERO          not forced       agree, and NOT forced
+  (2,3)      (-1,+2)   30      30      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+0,-3)   55      55      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+0,-2)   54      54      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+0,-1)   52      52      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+0,+0)   49      49      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+0,+1)   42      42      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+0,+2)   28      28      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+1,-3)   47      47      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+1,-2)   46      46      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+1,-1)   45      45      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+1,+0)   42      42      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+1,+1)   36      36      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+1,+2)   24      24      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+2,-3)   31      31      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+2,-2)   31      31      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+2,-1)   30      30      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+2,+0)   28      28      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+2,+1)   24      24      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  (2,3)      (+2,+2)   16      16      ZERO             ZERO             ZERO forced      derived zero, confirmed
+  ### **MEMBERS REACHED : 80   ### DISAGREEING : 0   ### FORCED ZEROS CONFIRMED : 50**
+  ### **AND THE ARM THAT MAKES THE ZEROS MEAN SOMETHING: THE FORM IS NONZERO SOMEWHERE.**
+  ### A criterion confirmed only where everything vanishes is a criterion confirmed by a
+  ### dead instrument, which is b280's own not-dead discipline applied to this table.
+
+----------------------------------------------------------------------------------------------------
+### (3f) THE TWO BANKED VALUES, REPRODUCED. ### **THE ONLY NUMBERS OF THIS KIND PRINTED.**
+----------------------------------------------------------------------------------------------------
+  ### These two vectors were written into b295's OWN SEALED REGISTRATION before its code
+  ### existed, and their values are banked. ### **REPRODUCING A BANKED VALUE IS THE
+  ### REPRODUCTION THE ORDER ASKS FOR; COMPUTING A NEW ONE IS THE LATER ACT'S.**
+  cell (2,2)  member (-1,+0)
+    in the member by the INSTRUMENT'S OWN two literal conditions : YES
+    <A f, f>  banked 4/3       recomputed 4/3       (producer: b294_family_value.pair_at_n) : AGREE
+  cell (2,3)  member (-1,+1)
+    in the member by the INSTRUMENT'S OWN two literal conditions : YES
+    <A f, f>  banked 4/7       recomputed 4/7       (producer: b294_family_value.pair_at_n) : AGREE
+
+====================================================================================================
+### COMPONENT 4 -- THE ARTIFACT. ### **THE QUANTITY THE MODEL FOLDS, COMPUTED ON BOTH.**
+====================================================================================================
+  ### b21 named it and b284 met it: ### **"THE MODEL'S mod-N WRAPAROUND IS EXACTLY THIS
+  ### ESCAPED MASS FOLDED BACK IN."** ### b284 then wrote ### **"THE DERIVATION STANDS
+  ### BECAUSE IT IS ON `Q_p`, WHERE THERE IS NOTHING TO FOLD."**
+  ### ### **THIS COMPONENT MAKES THAT SENTENCE A COUNT.**
+
+----------------------------------------------------------------------------------------------------
+### (4a) THE FOLD, COUNTED ON BOTH SIDES, TWO ROUTES EACH.
+----------------------------------------------------------------------------------------------------
+  ### The model must read `theta(p^k) f` back in the frame it left, which on chart indices
+  ### is `m -> p^k m mod N`. ### The instrument moves the frame instead, and on chart
+  ### indices that is the IDENTITY. ### **BOTH COUNTS ARE DIRECT; THE CLOSED FORMS ARE THE
+  ### SECOND ROUTE, AND TWO ROUTES TO ONE INTEGER IS THE DISCIPLINE b304 USED FOR ITS OWN.**
+  cell       k    model image      model collisions     closed form        INSTRUMENT collisions
+  (2,1)      1    2 of 4           4                    N(p^k-1) = 4 AGREE ### **0**
+  (2,1)      2    1 of 4           12                   N(p^k-1) = 12 AGREE ### **0**
+  (2,2)      1    8 of 16          16                   N(p^k-1) = 16 AGREE ### **0**
+  (2,2)      2    4 of 16          48                   N(p^k-1) = 48 AGREE ### **0**
+  (3,1)      1    3 of 9           18                   N(p^k-1) = 18 AGREE ### **0**
+  (3,1)      2    1 of 9           72                   N(p^k-1) = 72 AGREE ### **0**
+  (3,2)      1    27 of 81         162                  N(p^k-1) = 162 AGREE ### **0**
+  (3,2)      2    9 of 81          648                  N(p^k-1) = 648 AGREE ### **0**
+  (5,1)      1    5 of 25          100                  N(p^k-1) = 100 AGREE ### **0**
+  (5,1)      2    1 of 25          600                  N(p^k-1) = 600 AGREE ### **0**
+  ### **CELLS WHERE THE TWO ROUTES DISAGREE OR THE INSTRUMENT FOLDS ANYTHING : 0**
+  ### **AND THE POSITIVE ARM IS THE MODEL'S OWN COLUMN: IT IS NONZERO EVERYWHERE.** ### A
+  ### comparison in which both sides were zero would show only that nothing was tested.
+
+----------------------------------------------------------------------------------------------------
+### (4b) THE ESCAPED MASS ITSELF, ON A VECTOR OF THE OBJECT'S OWN SPACE.
+----------------------------------------------------------------------------------------------------
+  ### b21's `U f(x) = p^{-1/2} f(p x)` sends `V_n` to `V(n+1, n-1)`. ### **THE PART OF THE
+  ### IMAGE AT `|x| = p^{n+1}` IS OUTSIDE THE MODEL'S LEVEL ENTIRELY**, and the model has
+  ### to put it somewhere. ### The instrument has a frame for it and puts it there.
+  cell       dim      escaped Haar mass      total Haar mass        escaped is NONZERO
+  (2,1)      1        2                      2                      YES
+  (2,2)      9        1                      1                      YES
+  (3,1)      4        2                      2                      YES
+  (3,2)      64       2/3                    2/3                    YES
+  (5,1)      16       2                      2                      YES
+  ### **THE MASS IS EXACT AND IT IS NOT ZERO AT ANY CELL.** ### That is the mass b21 says
+  ### the model folds back onto the level, and the instrument carries it in `V(n+1, n-1)`
+  ### where it belongs. ### **CELLS WHERE NOTHING ESCAPED : 0**
+
+----------------------------------------------------------------------------------------------------
+### (4c) EXPOSURE BY CALL PATH. ### **THE ARM FINDS A SHAPE; THE SEAT RULES.**
+----------------------------------------------------------------------------------------------------
+  ### A ### NON-UNIT PUSHFORWARD SITE ### is a line that reduces the product of a grid index
+  ### with a power of the residue characteristic modulo the grid size. ### **THAT IS THE
+  ### SHAPE THE FOLD TAKES IN CODE, AND IT IS NOT THE SAME THING AS EXPOSURE.**
+  file                                       sites    the lines, with the enclosing def
+  tools/b308_local_field.py                  4        THIS INSTRUMENT
+        line 363   model_pushforward_fibers     img.setdefault((pk * m) % N, 0)
+            ### DECLARED CARRIER -- THE DECLARED EXHIBIT -- it computes the model's collapse so that (4a) can COUNT it
+        line 364   model_pushforward_fibers     img[(pk * m) % N] += 1
+            ### DECLARED CARRIER -- THE DECLARED EXHIBIT -- it computes the model's collapse so that (4a) can COUNT it
+        line 527   self_test                    bool(PUSHFORWARD.search('        l = (pk * m) % N')), True)
+            ### DECLARED CARRIER -- THE ARM'S OWN CONTROL STRINGS -- it spells the shape IN ORDER TO TEST FOR IT
+        line 529   self_test                    bool(PUSHFORWARD.search('        m2 = (p * m) % N')), True)
+            ### DECLARED CARRIER -- THE ARM'S OWN CONTROL STRINGS -- it spells the shape IN ORDER TO TEST FOR IT
+  tools/b308_reproduction.py                 2        THIS RUNNER
+        line 711   _component_four_c            rec('  ###   site is `l = (pk * m) % N` in `matrix_A`, which is b273\'
+            ### DECLARED CARRIER -- PROSE QUOTING b281's LINE IN ORDER TO RULE ON IT
+        line 719   _component_four_c            rec('  ###   `spconj(u[(pk * m) % N], N)` inside `pairing_rescaled`: i
+            ### DECLARED CARRIER -- PROSE QUOTING b281's LINE IN ORDER TO RULE ON IT
+  tools/b303_family.py                       0        b293/b303 -- the family, the dimension law, the diagonal
+  tools/b304_smearing.py                     0        b304 -- the compression, the smear, Tr(Pi)
+  tools/e16/b293_finite_family.py            0        b293 -- the family at its own emitter
+  tools/e16/b295_second_mechanism.py         0        b295 -- the criterion and its values
+  tools/e16/b281_compression.py              2        b281 -- the operator A, at k = n
+        line 59    matrix_A                     l = (pk * m) % N
+        line 106   c2_control                   l = (pk * m) % N
+  tools/e16/b270_ambient_pairing.py          4        b270 -- the ball and the orbit classes
+        line 147   orbit_classes                m2 = (p * m) % N
+        line 175   run_cell                     if m not in ballset and (p * m) % N not in ballset)}
+        line 222   run_cell                     acc = spadd(acc, spmul(Su[m], spconj(u[(pk * m) % N], N), N))
+        line 239   run_cell                     m2 = (pk * m) % N
+  tools/e16/b294_family_value.py             0        b294 -- the cyclotomic re-valuation
+  tools/e16/b280_consequence.py              1        b280 -- the consequence, P(k=n) = 0
+        line 56    pairing_rescaled             acc = spadd(acc, spmul(su[m], spconj(u[(pk * m) % N], N), N))
+
+  ### ### **THIS ACT'S OWN TWO FILES: 6 SITE(S), ALL OF THEM DECLARED CARRIERS, AND
+  ### ### UNDECLARED SITES IN THE INSTRUMENT'S OPERATIONAL PATH : 0**
+  ### The frame, the transform, the two conditions, the dilation and the compression carry
+  ### no such site. ### **THAT IS A MECHANICAL STATEMENT OF `F2` AT THE SOURCE LEVEL,
+  ### BESIDE THE ARITHMETIC ONE IN (4a).**
+
+  ### ### **THE READING, PER FILE, AND IT IS THE SEAT'S:**
+  ### **`b303_family.py` -- NO SITE. ### NOT EXPOSED.** ### b293's dilation moves the
+  ###   family's CONDITION INDICES by an argument about radii; no vector is ever pushed
+  ###   forward by a non-unit, and the chart block checks identities of `Fraction`s.
+  ### **`b304_smearing.py` -- NO SITE, AND ITS OWN REFUSAL IS THE REASON.** ### b304
+  ###   computes the `Z_p^x` part only and states that it ### **"REFUSES THE `p^Z` PART"**,
+  ###   checking `is_permutation` at every `t` it uses. ### **THE PART IT REFUSED IS
+  ###   EXACTLY THE PART THIS INSTRUMENT ADDS.**
+  ### **`b270_ambient_pairing.py` -- SITE(S) PRESENT, AND THIS SEAT RULES NOT EXPOSED.**
+  ###   The site is in `orbit_classes`, which unions `m ~ pm` OFF THE BALL to build b10's
+  ###   quotient basis. ### **THAT IS A STRUCTURE ON THE INDEX SET, NOT A PUSHFORWARD OF A
+  ###   FUNCTION'S MASS**: no function is evaluated, nothing is summed onto a collided
+  ###   index, and the classes are the columns the averaging is DEFINED over.
+  ### **`b281_compression.py` -- SITE(S) PRESENT, AND THIS SEAT RULES NOT EXPOSED.** ### The
+  ###   site is `l = (pk * m) % N` in `matrix_A`, which is b273's DEFINITION of `A`:
+  ###   ### **"`A[l,j] = SUM_{m : p^k m = l mod N} S_quot[m,j]`"**. ### The sum over the
+  ###   fiber is a REGROUPING OF AN EXACT FINITE SUM -- `T(g) = SUM_m (S_quot g)(m)
+  ###   conj(g(p^k m))` collected by `l = p^k m` -- and a regrouping loses nothing.
+  ###   ### **A FOLD IS MASS THAT LEFT ITS LEVEL AND WAS PUT BACK; THIS IS AN ORDER OF
+  ###   SUMMATION.** ### And the second slot reads `g` at `p^k m`, which is EVALUATION,
+  ###   not transport: at `k = n` it reads `g` on `Z_p`, inside the frame.
+  ### **`b280_consequence.py` -- ONE SITE, AND IT IS AN EVALUATION.** ### The line is
+  ###   `spconj(u[(pk * m) % N], N)` inside `pairing_rescaled`: it READS `u` at the index
+  ###   `p^k m`. ### **A READ MOVES NO MASS.** ### And the distinction is visible in the
+  ###   printed lines themselves rather than only in this sentence: b281's site ASSIGNS
+  ###   into an accumulator, b280's and b270's line 222 INDEX INTO a vector. ### **ONE
+  ###   WRITES, THE OTHERS READ**, and only a write can put escaped mass anywhere.
+  ### **`b295_second_mechanism.py` -- ITS OWN DECLARATION, QUOTED, AND THE ARM AGREES WITH
+  ###   IT:** ### **"EXPOSURE TO THE ESCAPED-MASS ARTIFACT (Z5): NONE ... This runner
+  ###   applies NO LEVEL-SHIFTING MAP."**
+
+  ### ### **THE ONE BANKED RESULT THAT WAS EXPOSED, AND IT DECLARED ITSELF:** ### b284,
+  ### whose `g` and `h` DO shift the level. ### Its own (D2): the model says `h`'s `S2`
+  ### fails, the derivation says it holds, ### **"THEY DISAGREE, AND THE DISAGREEMENT IS
+  ### THE ARTIFACT, NOT THE ANSWER"** ### -- reported and not promoted. ### **THIS ACT
+  ### ADDS NOTHING TO THAT AND DOES NOT RE-VERDICT IT.**
+
+----------------------------------------------------------------------------------------------------
+### (4d) WHICH BANKED RESULTS WERE EXPOSED, AND WHICH WERE NOT -- ### **BY CALL PATH.**
+----------------------------------------------------------------------------------------------------
+  ### The column `sites` counts the arm's hits over the WHOLE call path of the result --
+  ### every file its producing tool imports and uses. ### **THE VERDICT COLUMN IS NOT THE
+  ### COUNT.** ### The count is a shape; the verdict is the seat's, and where the two
+  ### differ the reason is the sentence beside it.
+  banked result                                                    sites   verdict
+  b293/b303 -- the family, its dimension law, the diagonal identif 0       NOT EXPOSED
+      ### no vector is pushed forward by a non-unit anywhere in the path; the dilation moves the family's CONDITION INDICES by an argument about radii
+  b304 -- Tr(Pi) = dim Son, and the compact-part smear's zero with 0       NOT EXPOSED, AND b304 SAID SO FIRST
+      ### b304 computes the `Z_p^x` part only, checks `is_permutation` at every `t`, and REFUSES the `p^Z` part -- which is exactly the part this instrument adds
+  b280 -- `P(k = n) = 0` on every `Son` basis vector at six cells  7       NOT EXPOSED
+      ### the sites are `A`'s own definition and the quotient basis's index structure; both are rulings given in full above
+  b295/b296 -- the annihilation criterion, and the two banked valu 6       NOT EXPOSED, AND b295 SAID SO FIRST
+      ### its own Z5: it applies NO LEVEL-SHIFTING MAP; the sites in the path are `A`'s definition and the class structure
+  b21 -- the model transform IS the genuine transform at a fixed l n/a     NOT EXPOSED, IN b21's OWN WORDS
+      ### b21 checked it ENTRY-EXACT and wrote `with NO artifact`; the artifact it named is in the U-law, not here
+  b284 -- the scaling's domain, computed through `g` and `h`       n/a     ### **EXPOSED, AND IT DECLARED ITSELF** ###
+      ### its own (D2): `h`'s transform side, model (FAILS) against derivation (HOLDS) -- the disagreement reported and the control NOT promoted over the derivation
+
+  ### ### **SO THE RETIREMENT IS EXACTLY THIS, AND NO WIDER:**
+  ### **THE ESCAPED-MASS ARTIFACT IS RETIRED FOR THIS INSTRUMENT**, because the scaling
+  ###   part acts by moving the frame and the fold count is zero at every cell and every
+  ###   direction tested, computed two ways.
+  ### **IT IS NOT RETIRED FOR THE MODEL.** ### The model's own column in (4a) is nonzero
+  ###   everywhere, and any later act computing a scaling on `Z/p^{2n}` meets it again.
+  ### **IT IS NOT RETIRED FOR b284**, whose exposure is declared, stands, and is not
+  ###   re-verdicted here.
+  ### **AND IT RETIRES NOTHING ELSE** -- not `W-ORD-FIBER-GENERAL`, not the barrier's
+  ###   scope limit, not the range law, and not the truncation, which untying the radii
+  ###   does not touch.
+
+  ### ### **THE ARM'S OWN LIMIT, PRINTED WHERE IT IS USED:** ### it matched 13 site(s)
+  ### across the files scanned, and ### **IT CANNOT TELL A REGROUPING OF AN EXACT FINITE
+  ### SUM FROM A REPRESENTATION OF A FUNCTION THAT LEFT ITS LEVEL.** ### The ruling on
+  ### each is above, it is this seat's, and ### **PRETENDING A TOOL MADE IT WOULD BE THE
+  ### FALSE ASSURANCE THIS DISCIPLINE EXISTS AGAINST.**
+
+====================================================================================================
+### THE VERDICT ON THE THREE REGISTERED FALSIFIERS.
+====================================================================================================
+  (F1) the reproduction matches at every reachable cell ......... ### **DID NOT FIRE**
+  (F2) the scaling part acts without wraparound on the local field ### **DID NOT FIRE**
+  (F3) the untied radii recover the two-radius family exactly ... ### **DID NOT FIRE**
+
+  ### CHECKS FAILING : 0
+====================================================================================================

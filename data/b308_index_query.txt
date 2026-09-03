@@ -1,0 +1,29 @@
+﻿====================================================================================================
+b308 -- THE INDEX KEYS. ### THE INSTRUMENT, AND THE ARTIFACT RETIRED FOR IT.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    exact                  NO KEY before : True
+    reproduced             NO KEY before : True
+  local-field-instrument   key/row already present : False / False
+  escaped-mass-artifact    key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    local-field-instrument   returns a row : True  PASS
+    escaped-mass-artifact    returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the local field            now reaches a row : True  PASS
+    untied radii               now reaches a row : True  PASS
+    the two radii              now reaches a row : True  PASS
+    the scaling part           now reaches a row : True  PASS
+    the instrument build       now reaches a row : True  PASS
+    escaped mass               now reaches a row : True  PASS
+    the artifact               now reaches a row : True  PASS
+    nothing to fold            now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    exact                  still NO KEY : True   (and was before : True)  PASS
+    reproduced             still NO KEY : True   (and was before : True)  PASS
+  ### **`exact` AND `reproduced` STAY UNKEYED BECAUSE THEY ARE PROPERTIES AND NOT
+  ### OBJECTS** -- b202's own reason. ### **AND b164's LIMIT IS NOT RETIRED: KEYS CLOSE
+  ### FALSE HITS, NOT FALSE MISSES.**
+  ### THE INDEX SWEPT AFTER THE WRITE (b305's defect, not repeated) : 0 stem hit(s)
+====================================================================================================

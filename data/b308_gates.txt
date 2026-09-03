@@ -1,0 +1,206 @@
+﻿====================================================================================================
+b308 -- GATE SUITE (AN INSTRUMENT BUILD)
+====================================================================================================
+
+  OWNER NEEDLES (pulled from emitting files):
+    PASS  b21's chart and Haar normalization, which tie the two radii
+    PASS  b21's model space, one `n` for both radii
+    PASS  b21's genuine transform
+    PASS  b21's entry-exact model transform
+    PASS  b21's location of the artifact
+    PASS  b280's ball in the chart
+    PASS  b280's Haar bridge
+    PASS  b280's absorption at k = n
+    PASS  b284's escape
+    PASS  ### b284's sentence this act turns into a computation
+    PASS  ### b284's own declaration of its exposure
+    PASS  b293's ball of exponent e
+    PASS  b293's dimension law
+    PASS  b293's dilation invariant
+    PASS  b295's annihilation criterion
+    PASS  b295's own scope sentence
+    PASS  ### b295's own exposure declaration (Z5)
+    PASS  b305's price, whose reproduction list this act adopted as a bar
+
+  SELF NEEDLES:
+    PASS  bank names the tie and the file that ties it
+    PASS  bank states the model is a point and the instrument a plane
+    PASS  bank gives the frame law for the scaling part
+    PASS  bank says what the fold is
+    PASS  bank refuses new mathematics
+    PASS  bank refuses a new first-level value
+    PASS  bank reports the two re-pointed needles
+    PASS  bank reports the transform inversion scalar
+    PASS  bank reports the collapse checked in both directions
+    PASS  bank reports the unitary normalization as an identity
+    PASS  bank reports the Haar projector equals the model projector
+    PASS  bank puts the not-dead witness before the zeros
+    PASS  bank reports the family recovered with zero disagreements
+    PASS  bank carries the dimension law's own scope
+    PASS  bank reports the criterion counts
+    PASS  bank reports the two banked values
+    PASS  bank reports the model fold counts
+    PASS  bank reports the instrument folds nothing
+    PASS  bank reports the escaped mass exactly
+    PASS  bank reports zero undeclared sites in the operational path
+    PASS  bank owns the narrative defect the arm caught
+    PASS  bank names b284 as the exposed result
+    PASS  bank bounds the retirement
+    PASS  bank says the truncation is untouched
+    PASS  bank gives capabilities and limits as a list
+    PASS  bank names the next computation without doing it
+    PASS  bank refuses to treat naming as evidence
+    PASS  bank restates the object's three conditions
+    PASS  bank keeps M-2 unchanged
+    PASS  bank restates the seam debt item 1
+    PASS  bank restates the patent clock
+    PASS  bank gives the in-flight register
+    PASS  bank reports the census count and its scope limit
+    PASS  bank reports the shadow as nothing
+    PASS  bank reads three holding falsifiers honestly
+    PASS  bank keeps h2 where the deposit left it
+    PASS  registration is sealed before the instrument existed
+    PASS  registration adopts b305's reproduction list as the bar
+    PASS  registration forbids repairing the instrument to agree
+    PASS  registration says a reproduction does not raise a grade
+    PASS  the run reports F1 did not fire
+    PASS  the run reports F2 did not fire
+    PASS  the run reports F3 did not fire
+    PASS  the run reports zero checks failing
+    PASS  the run reports zero unpullable owner sentences
+    PASS  the run reports the exposure table by call path
+    PASS  the census reports its count
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  no grade is moved
+    PASS  no act is re-verdicted
+    PASS  the instrument is not called a result
+    PASS  no aggregation is stated
+    PASS  the artifact is not retired generally
+    PASS  the truncation is not claimed removed
+    PASS  the reproduction is not called a confirmation
+    PASS  no new first-level value is claimed
+    PASS  nothing is claimed compiled
+    PASS  the next computation is not claimed done
+    PASS  nothing about h2
+    PASS  the archimedean place is not reached
+
+  G-FALSIFIER (the three registered falsifiers, read off the runner):
+    falsifiers that FIRED : 0 ; runner reports zero checks failing : True
+    ### **AND THE HONEST READING: THREE FALSIFIERS THAT ALL HELD HAVE CAUGHT NOTHING.**
+    ### The suite does not treat that as evidence, and the bank says so in its own text.
+
+  G-REPRO (the reproduction, read off the RUN and not off the prose):
+    family set-equality disagreements                    PASS
+    dimension law disagreements                          PASS
+    criterion members reached and disagreements          PASS
+    criterion disagreements                              PASS
+    owner sentences unpullable at the run                PASS
+    the fold: two routes and a zero instrument column    PASS
+    nothing escaped nowhere -- the positive arm          PASS
+    undeclared sites in the operational path             PASS
+
+  G-EXACT (zero float tokens in any deciding path):
+    b308_local_field.py            float literals : 0   float-producing calls : 0   arithmetic `/` sites : 0
+    b308_reproduction.py           float literals : 0   float-producing calls : 0   arithmetic `/` sites : 1
+        `/` line 269   unit_scalar = Fraction(1, p) * up.cell_mass() / fr.cell_mass()
+    ### **THE `/` SITES ARE REPORTED AND NOT JUDGED**: `Fraction / Fraction` is exact and
+    ### `int / int` is not, and no scanner reading text can tell them apart, so each is
+    ### PRINTED IN FULL for a reader. ### **STRING LITERALS ARE BLANKED FIRST**, because
+    ### the first draft counted `%d/%d` format specifiers and printed prose as divisions
+    ### and this seat wrote a sentence that was false of most of them. ### **THE READING
+    ### OF WHAT REMAINS IS THIS SEAT'S, NOT THE SCANNER'S.**
+    fixture: catches `1.5e-6` True, catches `0.5` True, quiet on `Fraction(1, p ** 2)` True
+    fixture: catches `float(z)` True, quiet on `Fraction(z)` True
+    float literals 0   float-producing calls 0   PASS
+
+  G-NONEW (no first-level value at a cell or member the record does not carry):
+    ### The runner prints a first-level NUMBER in exactly one place -- (3f) -- and every
+    ### such line must name the owning tool that also produces it.
+    lines printing a first-level value : 2 ; naming their producer : 2 ; all banked : True
+        <A f, f>  banked 4/3       recomputed 4/3       (producer: b294_family_value.pair_at_n) : AGREE
+        <A f, f>  banked 4/7       recomputed 4/7       (producer: b294_family_value.pair_at_n) : AGREE
+    PASS
+    ### **AND THE ARM THAT MAKES IT MEAN SOMETHING: THE COUNT IS NOT ZERO.** ### A run
+    ### that printed no value at all would pass a cap on new values while also having
+    ### failed to reproduce the two the record carries.
+
+  G-PAPERS (INVERTED BACK: the papers repo is NOT touched this act):
+    tracked files changed in PLACE-papers : 0 []  PASS
+    ### **A GATE COPIED FORWARD FROM b307 UNINVERTED WOULD HAVE FAILED THIS ACT FOR NOT
+    ### TOUCHING A REPOSITORY IT WAS NEVER ASKED TO TOUCH**, and the inversion is
+    ### recorded because copying a green gate forward is how a suite stops checking.
+
+  G-NOBUILD (nothing built; the profile does not move):
+    profile BYTE-IDENTICAL to git HEAD : True ; `.lean` changed : 0 ; prints : 470
+
+  G-ANCESTOR (no ancestor correspondence row rewritten):
+    committed table is a TRUE PREFIX of the current one : True  PASS
+
+  G-NOMOVE (an instrument build moves no grade and re-verdicts nothing):
+    grade-moving lines : 0 ; both refusals present : True ; discrimination : True
+
+  G-STRUCK (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 11   struck-clause hits 0  PASS
+    b308_checks.py                 hits : 3  ### DECLARED CARRIER -- its own fixtures
+    b308_index_append.py           hits : 0  ### DECLARED CARRIER -- its own fixtures
+    b308_local_field.py            hits : 0  ### DECLARED CARRIER -- it spells the fold's code shape IN ORDER TO SCAN FOR IT, and it exhibits the model's collapse in order to count it
+    b308_reproduction.py           hits : 0  ### DECLARED CARRIER -- it quotes the owners' lines in order to rule on them
+    b308_ferry_2026-09-03.txt      hits : 0  ### DECLARED CARRIER -- IT IS THE ORDER -- not this act's writing
+    b308_ferry_scan.txt            hits : 0  ### DECLARED CARRIER -- it is the scan's own log
+    DISCRIMINATION S-1  comes back hit : True  PASS
+    DISCRIMINATION U-1  comes back hit : True  PASS
+    DISCRIMINATION U-2  comes back hit : True  PASS
+
+  G-STEM (this act's files, EXCEPT the declared carriers):
+    b308_checks.py                 stem hits : 0  ### CARRIER -- its own fixtures
+    b308_index_append.py           stem hits : 0  ### CARRIER -- its own fixtures
+    b308_local_field.py            stem hits : 0  ### CARRIER -- it spells the fold's code shape IN ORDER TO SCAN FOR IT, and it exhibits the model's collapse in order to count it
+    b308_reproduction.py           stem hits : 0  ### CARRIER -- it quotes the owners' lines in order to rule on them
+    b308_ferry_2026-09-03.txt      stem hits : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b308_ferry_scan.txt            stem hits : 0  ### CARRIER -- it is the scan's own log
+    files swept 11   stem hits 0   control fires True   PASS
+
+  G-SHARED (the extended sweep over the shared append-targets):
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')]
+    ### **THE EXCEPTION LIST, WITH ITS REASONS, PRINTED BECAUSE IT IS PRINTED:**
+    ### `row 2` predates the ban (b142), so it is not a defect at all -- a ban is not
+    ### retroactive. ### `row 101` is b284's, a defect when written that the old sweep
+    ### could not see, FILED AND NOT REWRITTEN under the append-only law.
+    UNEXPECTED : 0 []  PASS
+
+  G-TOOLNUM:
+    the instrument's frames, transform, conditions, dilation tools/b308_local_field.py              exists=True tracked=False
+    the components' every reported number and every verdict  tools/b308_reproduction.py             exists=True tracked=False
+    the family's conditions, dimension and chart             tools/b303_family.py                   exists=True tracked=True
+    the projection, the trace and the smear                  tools/b304_smearing.py                 exists=True tracked=True
+    the operator A at k = n                                  tools/e16/b281_compression.py          exists=True tracked=True
+    the criterion and its registered witnesses               tools/e16/b295_second_mechanism.py     exists=True tracked=True
+    the cyclotomic re-valuation of a witness                 tools/e16/b294_family_value.py         exists=True tracked=True
+    what is missing from the ledger, counted                 tools/b307_handoff_census.py           exists=True tracked=True
+    the shared-target sweep's hits and their attribution     tools/b306_stem_scope.py               exists=True tracked=True
+    the ahead/behind pairs and the pins                      tools/b303_pins.py                     exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)          tools/b308_regspec.py                  exists=True tracked=False
+    the satisfiability verdict over the declared caps        tools/reg_satisfiable.py               exists=True tracked=True
+    the ferry scan's entry/pattern/hit counts                tools/ferry_scan.py                    exists=True tracked=True
+    the banned/retired stem counts                           tools/banned_terms.py                  exists=True tracked=True
+    the gate, needle and hedge counts                        tools/b308_checks.py                   exists=True tracked=False
+    the correspondence rows' numbers and their read-back     tools/b308_correspondence.py           exists=True tracked=False
+    the index keys' read-back and must-not-hit arms          tools/b308_index_append.py             exists=True tracked=False
+    the registration's seal hash                             tools/reg_seal.py                      exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-SEAL:
+    seal intact : True  PASS
+
+  HEDGE AUDIT (over every file this act wrote):
+    the bank                 sentences=931   graded-hedges=0   ungraded-shapes=190
+    the registration         sentences=315   graded-hedges=0   ungraded-shapes=51
+    the run                  sentences=626   graded-hedges=0   ungraded-shapes=109
+
+====================================================================================================
+### COUNTS, PRINTED BY THIS TOOL SO THE BANK NEVER TYPES ONE AT A SHELL:
+    owner needles 18   self needles 47   must-fail fixtures 12   G-REPRO anchors 8
+    declared carriers 6   toolnum rows 18   correspondence-table rows scanned by G-ANCESTOR: the whole file
+### GATES: 97 PASS / 0 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
+====================================================================================================

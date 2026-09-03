@@ -1,0 +1,585 @@
+====================================================================================================
+b308 -- THE LOCAL-FIELD INSTRUMENT, ACT ONE.
+2026-09-03. ### SOLO (research seat). ### Registration: `data/b308_registration_2026-09-03.txt`
+(sealed `e360d4d8...` before this bank, before the instrument was written, and before any component
+ran).
+====================================================================================================
+
+### ### ### **THE MODEL TIES TWO RADII TO ONE NUMBER, AND THIS ACT UNTIES THEM.**
+### b21's sentence is where they are tied, pulled from b21's own file rather than remembered:
+### ### **"V_n IS canonically the model space: p^(-n)Z_p / p^n Z_p = Z/p^(2n)"** ### -- one `n`
+### governing both the ### SUPPORT RADIUS ### and the ### CONSTANCY RADIUS ### . ### A frame here is
+### a PAIR `(r, s)`: support in `p^{-r}Z_p`, constant on cosets of `p^s Z_p`, with b21's chart
+### `x = p^{-r} m` and b21's Haar giving each chart cell mass `p^{-s}`.
+### ### ### **THE MODEL IS THE POINT `r = s = n`. ### THE INSTRUMENT IS THE PLANE.**
+
+### ### **AND THE CONSEQUENCE IS THE WHOLE OF WHY THE ACT EXISTS:**
+### ### ### **`theta(p^k) : V(r,s) -> V(r-k, s+k)` ### -- BOTH RADII MOVE, THEIR SUM DOES NOT, AND
+### ### ### ON CHART INDICES THE MAP IS THE IDENTITY.**
+### The model has only the point `r = s = n`, so it must read the image back in the frame it left,
+### and ### **THAT RE-READING IS THE FOLD.** ### b21 named it before any of this existed --
+### ### **"THE MODEL'S mod-N WRAPAROUND IS EXACTLY THIS ESCAPED MASS FOLDED BACK IN"** ### -- and
+### b284 met it and wrote ### **"THE DERIVATION STANDS BECAUSE IT IS ON `Q_p`, WHERE THERE IS
+### NOTHING TO FOLD."** ### **THIS ACT MAKES THAT SENTENCE A COUNT.**
+
+### ### **AN INSTRUMENT BUILD. ### NO NEW MATHEMATICS. ### NO GRADE MOVED. ### NO ACT
+### ### RE-VERDICTED. ### NOTHING COMPILED. ### NOTHING DEPOSITS.**
+### ### **`M-2` IS OWED. ### NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT.**
+### ### **AND THE ORDER'S OWN LIMIT, HONOURED: NO FIRST-LEVEL VALUE IS COMPUTED AT ANY CELL OR
+### ### MEMBER THE RECORD DOES NOT ALREADY CARRY.** ### What the instrument could compute for the
+### first time is NAMED in the closing and LEFT UNCOMPUTED.
+
+====================================================================================================
+### STEP ZERO.
+====================================================================================================
+### ### **THE FERRY SCAN** ### -- `data/b308_ferry_scan.txt`; 4477 bytes, 93 lines; 3 struck
+### entries, 10 patterns, 0 UNCONFIRMED skipped, self-test PASS,
+### ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.** ### The order carries neither.
+### ### **THE LEDGER CENSUS** ### -- `tools/b307_handoff_census.py`, self-test PASS,
+### ### **TOTAL MISSING : 0**, before the act and again in the closing.
+### ### **THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the sixth act running, and the
+### order asked to be told either way. ### `data/b308_pins_stepzero.txt`: relay `4ee70ee`,
+### SIDE-global-section `b3977a4`, PLACE-papers `d9a7a39`, ### **EACH 0/0 AND `equal = True`**, read
+### back by `ls-remote`.
+### ### **THE REGISTRATION** ### -- 15525 bytes; term-scanned (0 struck-clause hits, 0 stem hits);
+### index-gated; satisfiability-checked at ### **13 CLAUSES, ALL SATISFIABLE, EVERY CAP ZERO**, the
+### artifact-count counter IMPORTED from `b300_regspec` and returning 0; ### **SEALED
+### `e360d4d8...` BEFORE THE INSTRUMENT EXISTED.**
+
+====================================================================================================
+### COMPONENT 1 -- THE OBJECTS, FROM THEIR OWNERS.
+====================================================================================================
+### ### **SIXTEEN SENTENCES PULLED BY `needle_pull.pull` FROM THE FILES THAT EMIT THEM. ### 0
+### ### UNPULLABLE, AFTER TWO WERE RE-POINTED ON THE FIRST RUN.**
+### ### **AND THE TWO THAT FAILED ARE WORTH THE LINE:** ### one anchor spanned b21's own hard wrap
+### (the sentence breaks after *"the model transform IS the"*), and one contained a newline, which
+### the puller can never match because it reads line by line. ### **BOTH WERE RE-POINTED AT WHAT THE
+### FILES EMIT AND NEITHER WAS RE-TYPED** -- the registration expected exactly this and called it
+### the gate doing its work rather than a defect.
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE TWO RADII, NAMED SEPARATELY, AND THE FILE THAT TIES THEM.
+----------------------------------------------------------------------------------------------------
+### ### **THE SUPPORT RADIUS** ### `p^r` -- the support lies in `p^{-r} Z_p`.
+### ### **THE CONSTANCY RADIUS** ### `p^{-s}` -- the function is constant on cosets of `p^s Z_p`.
+### ### **THE TIE IS b21's, IN b21's OWN SENTENCE, AND IT IS ONE `n` FOR BOTH.** ### The Haar half
+### of the same sentence is what makes the first condition a genuine `L^2` condition rather than a
+### pointwise one, and b280 is the file that says so: ### **"a chart point `m` at level `n` is a
+### COSET OF MEASURE `p^{-n} > 0`, and `f in V_n` is constant on it."** ### The instrument's cells
+### have mass `p^{-s} > 0` and the same bridge holds cell by cell.
+### ### **WHAT THE UNTYING SHOWS IMMEDIATELY, AT THE FIRST TABLE:** ### at `(p,n) = (2,2)` the model
+### frame is `V(2,2)` with cell mass `1/4`; `theta(p)` lands in `V(1,3)` with cell mass `1/8` and
+### `theta(p^{-1})` in `V(3,1)` with cell mass `1/2`. ### **NEITHER IS A MODEL FRAME, AND THE MODEL
+### HAS NO NAME FOR EITHER.**
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE ACTION, SPLIT, WITH EACH PART NAMED AS SUCH.
+----------------------------------------------------------------------------------------------------
+### `Q_p^x = p^Z x Z_p^x`, and the action is b304's: ### **`(theta(t) f)(m) = f(t^{-1} m)`.**
+### ### **THE COMPACT PART `Z_p^x`** -- `|t| = 1`, so neither radius moves and the grid is permuted.
+###   ### **THIS IS THE PART THE MODEL CARRIES**, and b304 computed with it and with nothing else.
+### ### **THE SCALING PART `p^Z`** -- both radii move and their sum does not.
+###   ### **THIS IS THE PART THE MODEL DROPS, AND IT IS THE PART THIS INSTRUMENT ADDS.**
+
+====================================================================================================
+### COMPONENT 2 -- THE BUILD.
+====================================================================================================
+### ### **THE THREE SELF-TESTS RUN BEFORE ANY OF THE THREE FILES IS USED IN A VERDICT** -- this
+### instrument's, `b303_family`'s and `b304_smearing`'s -- ### **ALL PASS**, and a failure in any of
+### them refuses the run rather than reporting from it.
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE TRANSFORM.
+----------------------------------------------------------------------------------------------------
+### Written from b21's own definition on the untied frame: with `x = p^{-r} m`, `y = p^{-s} m'` and
+### `M = p^{r+s}`, the character argument is `p^{-(r+s)} m m'` and the measure is the cell mass, so
+### ### ### **`(F f)(m') = p^{-s} SUM_m f(m) zeta_M^{m m'}`, ### carrying `V(r,s)` to `V(s,r)`.**
+### ### **AT `r = s = n` THAT IS b21's `F_N[j,k] = zeta_N^(jk) / p^n`, ENTRY FOR ENTRY.**
+### ### ### **AND THE SWAP IS THE FIRST THING THE UNTYING SHOWS: THE MODEL'S TRANSFORM SWAPS TWO
+### ### ### RADII THAT ARE EQUAL, SO THE SWAP IS INVISIBLE THERE.**
+### ### **THE CONTROL, AND IT RUNS ON A VERIFIED IDENTITY RATHER THAN AN ASSUMED ONE:** ### b21's
+### A5a (`SUM_{m'} zeta_M^{c m'} = M [c = 0]`) is checked over ### EVERY ### residue at seven
+### frames, and only then is the inversion computed through it: ### **`F F f = f(-x)` WITH THE
+### SCALAR COMING OUT EXACTLY `1` AT ALL SEVEN.** ### An identity used without being checked is an
+### assumption wearing a proof's clothes.
+### ### **AND THE NEGATIVE ARM, WHICH IS WHAT MAKES THE POSITIVE ONE MEAN ANYTHING:** ### the spike
+### at the origin transforms to the constant `1` and vanishes NOWHERE; `1_{Z_p}` is self-dual and
+### therefore does NOT vanish on the unit ball.
+### ### **ONE FIXTURE OF THIS ACT'S OWN WAS WRONG AND IS DECLARED AT (D1):** ### the transform
+### control was first pointed at an index where the answer really is zero, ### **WHICH WOULD HAVE
+### BEEN A CONTROL THAT CANNOT FIRE, READING AS A PASS.**
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE TWO SONIN CONDITIONS AS TESTS, AND THE COLLAPSE CHECKED RATHER THAN USED.
+----------------------------------------------------------------------------------------------------
+### The first condition is `f = 0` on the ball of radius `p^a`; the second is that `F f` vanishes on
+### the ball of radius `p^b`, ### **COMPUTED LITERALLY IN `Q(zeta_M)`.**
+### b293 collapsed the second to the vanishing of every fiber sum at modulus `p^{n+b}`; the
+### instrument writes the same collapse as `p^{r+b}` and ### **DERIVES IT RATHER THAN INHERITING
+### IT**: an index in the target ball is `m' = p^{s-b} u`, so the character sees `m` only mod
+### `p^{r+b}`, and the transform of that size is invertible.
+### ### **CHECKED AT EVERY CELL, BOTH DIRECTIONS, WITH A NON-MEMBER CONTROL: ### 15 ROWS, EVERY ONE
+### ### AGREEING, AND THE SPIKE REJECTED BY BOTH TESTS AT EVERY ROW.** ### A collapse merely
+### implied by membership would pass the positive arm and fail the negative one.
+### ### **AND THE INSTRUMENT'S BALL IS b293's `B_e` WITH `r` WHERE b293 HAS `n`** -- checked as an
+### identity of sets in the fixtures, with `B_0 != B_1` beside it so the comparison is not vacuous.
+
+----------------------------------------------------------------------------------------------------
+### (2c) THE DILATION, BOTH DIRECTIONS.
+----------------------------------------------------------------------------------------------------
+### b21: ### **"(U f)(x) = p^(-1/2) f(p x), unitary on L^2(Q_p)"** ### and ### **"supp(U f) =
+### p^(-n-1)Z_p, strictly bigger than p^(-n)Z_p"**. ### On the untied frame `U = p^{-1/2}
+### theta(p^{-1})`, and ### **BOTH SENTENCES BECOME COMPUTATIONS AT FIVE CELLS:**
+###   ### `U` lands in `V(n+1, n-1)` -- not merely INSIDE `V_{n+1}`, but at a NAMED point of the
+###     plane, which the model cannot say because it has no name for `(n+1, n-1)`;
+###   ### the smallest ball containing the support is `p^{-(n+1)}Z_p` at every cell,
+###     ### **STRICTLY BIGGER**, which is b21's support law recomputed;
+###   ### ### **THE UNITARY NORMALIZATION COMES OUT AS AN IDENTITY OF RATIONALS: THE SCALAR IS
+###     ### EXACTLY `1`** -- `p^{-1}` against the Haar cell masses of the two frames;
+###   ### the coefficient list is UNCHANGED in both directions, which is the frame-not-data fact.
+### ### **AND THE NEGATIVE ARM: THE MODEL FRAME IS NOT PRESERVED BY EITHER DIRECTION.** ### A
+### dilation that left the frame alone would be an instrument that had untied nothing.
+
+----------------------------------------------------------------------------------------------------
+### (2d) THE COMPRESSION BY THE CONSTRAINED SPACE'S PROJECTION.
+----------------------------------------------------------------------------------------------------
+### `Pi` is b304's projector, ### IMPORTED ### and not rebuilt. ### At five cells it is idempotent,
+### symmetric, fixes its own basis, and ### **MOVES AN OFF-BALL SPIKE** -- a projector that fixed
+### everything would report every trace and mean nothing.
+### ### **AND ONE CONTROL IS NEW HERE AND IS THE ONE THE UNTYING MAKES POSSIBLE:** ### the projector
+### built with the HAAR inner product and the one built with the model's differ by the positive
+### scalar `p^{-s}`, and a positive scalar cannot change orthogonality. ### **SAID, THEN CHECKED
+### ENTRY-WISE: THE TWO MATRICES ARE EQUAL AT EVERY CELL.** ### So b21's *"the model inner product
+### is the L^2(Q_p) inner product up to the global scalar p^(-n)"* is not merely carried forward --
+### its one operational consequence is measured.
+
+====================================================================================================
+### COMPONENT 3 -- THE REPRODUCTION. ### **THE GATE ON THE BUILD, NOT AN APPENDIX TO IT.**
+====================================================================================================
+### ### **b305's PRICE NAMED THE LIST BEFORE ANY CODE EXISTED AND THIS ACT ADOPTED IT AS A BAR:**
+### ### **"It must reproduce: (1) b293's two conditions, dimension law and diagonal identification;
+### ### (2) b304's compact-part zero WITH its mechanism, not only its value; (3) b297's annihilation
+### ### criterion and b280's P(k=n)=0 at reachable cells; and (4) b304's Tr(Pi) = dim Son, so it is
+### ### shown alive."** ### All four are below, and the fourth is placed BEFORE the zeros because
+### ### **A ZERO FROM A DEAD INSTRUMENT IS NOT A ZERO.**
+
+----------------------------------------------------------------------------------------------------
+### (3a) THE FAMILY RECOVERED, AS SETS, BOTH DIRECTIONS. ### **`F3`.**
+----------------------------------------------------------------------------------------------------
+### The instrument builds its space from ITS OWN two conditions on the untied frame; b293 builds
+### `Son(p,n; a,b)` from ITS own. ### Every instrument vector is tested by b293's membership test,
+### every b293 vector by the instrument's, ### **AND THE DIMENSIONS ARE COMPARED** -- because
+### ### **CONTAINMENT BOTH WAYS PLUS EQUAL DIMENSION IS SET EQUALITY AND ONE WAY IS NOT** (b303's
+### ARM B, carried).
+### ### ### **ACROSS FIVE CELLS AND EVERY RADIUS PAIR IN RANGE: ### DISAGREEING, 0.**
+### ### **AND THE NEGATIVE CONTROL RUNS AT EVERY PAIR: AN OFF-BALL SPIKE IS REJECTED BY BOTH TESTS.**
+### A membership test that admits everything proves nothing.
+
+----------------------------------------------------------------------------------------------------
+### (3b) THE DIMENSION LAW, AND THE KEYSTONE'S OWN NUMBER.
+----------------------------------------------------------------------------------------------------
+### b293's ### **`dim Son(p,n; a,b) = (p^n - p^a)(p^n - p^b)`** ### reproduced, ### **AND ITS SCOPE
+### TRAVELS WITH IT**: the law is checked only where b293 claimed it -- `a + b >= 0` with both
+### exponents non-negative -- because outside that range b293 says the count of automatic fibers
+### takes a different form and ### **THE ACT DOES NOT CLAIM THE LAW THERE.**
+### ### **DISAGREEING IN THE TESTED RANGE : 0.**
+### ### **AND AT THE DIAGONAL IT IS THE KEYSTONE'S OWN `(p^n - 1)^2`: ### 1, 9, 4, 64, 16.**
+
+----------------------------------------------------------------------------------------------------
+### (3c) THE NOT-DEAD WITNESS. ### (3d) THE COMPACT-PART SMEAR'S ZERO, WITH ITS MECHANISM.
+----------------------------------------------------------------------------------------------------
+### ### **`Tr(Pi)` EQUALS THE CONSTRAINED DIMENSION AT ALL SIX OF b304's CELLS: ### 1, 9, 4, 64,
+### ### 16, 36.** ### That is the witness that the projection is not dead, and without it every zero
+### in this component would be free.
+### ### **THE SMEARED VALUE OVER THE UNITS IS `0` AT ALL SIX, AND THE MECHANISM IS REPRODUCED AND
+### ### NOT ONLY THE VALUE:** ### the averaged sum over the units is the projection onto the
+### invariants; the invariants are spanned by the shells of constant absolute value; and every `Son`
+### vector meets every shell orthogonally for the ### SPACE'S OWN TWO REASONS, ONE PER SHELL RANGE
+### -- inside the ball the vector vanishes, and below the level the shell is a union of residue
+### classes on which the transform condition kills every fiber sum.
+### ### **EVERY UNIT PERMUTES THE GRID AT EVERY CELL**, so the compact part is computed with nothing
+### escaping and nothing folded -- b304's own test, re-run rather than cited.
+
+### ### ### **AND ONE DIFFERENCE THE REPRODUCTION FOUND, REPORTED AS IT CAME BACK.**
+### The instrument's shells are the level sets of the absolute value and they ### **PARTITION THE
+### WHOLE GRID.** ### b304's enumeration reaches ### **ONE SHELL FEWER: THE CELL `m = 0`.** ### Its
+### own docstring says that shell is there; the valuation it imports returns its FUEL CAP at `0`
+### rather than the level, so the shell comes back empty and is skipped.
+### ### **NOTHING IN b304's VERDICT DEPENDS ON IT, AND THAT IS WHY THIS IS A NOTE AND NOT A
+### ### CORRECTION:** ### `0` lies in the ball, every `Son` vector vanishes on the ball, so
+### orthogonality to the missing shell is automatic -- ### **AND THIS ACT CHECKED IT AT EVERY CELL
+### RATHER THAN ARGUING IT.** ### b304's smeared zero, its mechanism and its trace all stand exactly
+### as b304 left them.
+### ### **b304's FILE IS NOT REWRITTEN. ### THE APPEND-ONLY LAW GOVERNS**, and the difference is
+### filed here with its file and its reason. ### **NO GRADE MOVES AND NO ACT IS RE-VERDICTED.**
+
+----------------------------------------------------------------------------------------------------
+### (3e) THE ANNIHILATION CRITERION AT EVERY CELL THE INSTRUMENT REACHES.
+----------------------------------------------------------------------------------------------------
+### b295, DERIVED: ### **the first-level pairing vanishes identically -- as a FORM, both slots -- on
+### `Son(p,n; a,b)` whenever `a >= 0` OR `b >= n - 1`.** ### The operator is b273's `A` at `k = n`,
+### ### IMPORTED FROM b281 AND NEVER RE-DEFINED HERE ### ; the criterion is imported from b295's own
+### runner and never restated in this act's code.
+### ### **THE FORM'S VANISHING IS A PROPERTY OF THE SPACE AND NOT OF A BASIS, AND THAT IS WHY IT IS
+### ### THE THING COMPARED.** ### The instrument's basis and b293's are different bases of the same
+### space, so a per-vector number would not be comparable across them and a per-space verdict is.
+### ### ### **MEMBERS REACHED : 80. ### DISAGREEING : 0. ### FORCED ZEROS CONFIRMED : 50.**
+### ### **AND THE ARM THAT MAKES THE ZEROS MEAN SOMETHING: THE FORM IS NONZERO ELSEWHERE** -- at
+### `(-1,-1)` at every cell, and at `(-1,0)` above level 1 -- so the criterion is not being confirmed
+### by an instrument on which everything vanishes. ### That is b280's own not-dead discipline applied
+### to this table.
+### ### **b280's `P(k = n) = 0` IS THE DIAGONAL CASE OF THE SAME TABLE**, reached at `(0,0)` at every
+### cell, and it comes back ZERO at every one.
+
+----------------------------------------------------------------------------------------------------
+### (3f) THE TWO BANKED VALUES.
+----------------------------------------------------------------------------------------------------
+### ### **THE ONLY NUMBERS OF THIS KIND THIS ACT PRINTS, AND THEY ARE BANKED ONES.** ### The two
+### vectors were written into b295's OWN SEALED REGISTRATION before its code existed.
+###   ### `Son(2,2; -1, 0)` : ### **banked `4/3`, recomputed `4/3`.**
+###   ### `Son(2,3; -1,+1)` : ### **banked `4/7`, recomputed `4/7`.**
+### Each is first checked to lie in its member ### BY THE INSTRUMENT'S OWN TWO LITERAL CONDITIONS ###
+### , and the value is produced by b294's `pair_at_n` in the cyclotomic field -- the owning tool,
+### named on the line that prints the number.
+### ### **REPRODUCING A BANKED VALUE IS THE REPRODUCTION THE ORDER ASKS FOR. ### COMPUTING A NEW ONE
+### ### IS THE LATER ACT'S, AND THIS ACT DOES NOT DO IT.**
+
+====================================================================================================
+### COMPONENT 4 -- THE ARTIFACT.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (4a) THE FOLD, COUNTED ON BOTH SIDES, TWO ROUTES EACH.
+----------------------------------------------------------------------------------------------------
+### The model must read `theta(p^k) f` back in the frame it left, which on chart indices is
+### `m -> p^k m mod N` -- b304's `theta(t) e_j = e_{t j}` at the non-unit `t = p^k`. ### The
+### instrument moves the frame instead, and on chart indices that is the identity.
+### ### ### **THE MODEL'S COLLIDED ORDERED PAIRS ARE `N(p^k - 1)`, NONZERO AT EVERY CELL AND BOTH
+### ### ### DIRECTIONS TESTED -- 4, 12, 16, 48, 18, 72, 162, 648, 100, 600 -- COUNTED DIRECTLY AND
+### ### ### AGREEING WITH THE CLOSED FORM AT ALL TEN.**
+### ### ### **THE INSTRUMENT'S ARE `0` AT ALL TEN, BY THE SAME TWO ROUTES.**
+### ### **AND THE POSITIVE ARM IS THE MODEL'S OWN COLUMN: IT IS NONZERO EVERYWHERE.** ### A
+### comparison in which both sides were zero would show only that nothing had been tested.
+
+----------------------------------------------------------------------------------------------------
+### (4b) THE ESCAPED MASS ITSELF.
+----------------------------------------------------------------------------------------------------
+### Exhibited on a vector of the object's own space, not on a convenient one. ### b21's `U` sends it
+### to `V(n+1, n-1)`; the part of the image at absolute value `p^{n+1}` is outside the model's level
+### entirely, and the model has to put it somewhere.
+### ### **THE ESCAPED HAAR MASS IS AN EXACT NONZERO RATIONAL AT EVERY CELL: ### 2, 1, 2, 2/3, 2.**
+### ### **THAT IS THE MASS b21 SAYS THE MODEL FOLDS BACK ONTO THE LEVEL. ### THE INSTRUMENT CARRIES
+### ### IT IN THE FRAME IT BELONGS TO AND FOLDS NOTHING.**
+
+----------------------------------------------------------------------------------------------------
+### (4c) EXPOSURE BY CALL PATH.
+----------------------------------------------------------------------------------------------------
+### A ### NON-UNIT PUSHFORWARD SITE ### is a line that reduces the product of a grid index with a
+### power of the residue characteristic modulo the grid size. ### **THAT IS THE SHAPE THE FOLD TAKES
+### IN CODE, AND IT IS NOT THE SAME THING AS EXPOSURE.**
+### ### **THIS ACT'S OWN TWO FILES: 5 SITES, ### ALL OF THEM DECLARED CARRIERS ### , AND ### 0
+### ### UNDECLARED SITES IN THE INSTRUMENT'S OPERATIONAL PATH.** ### Two exhibit the model's
+### collapse so that (4a) can count it; two are the arm's own control strings, which spell the shape
+### in order to test for it; one is prose quoting b281's line in order to rule on it.
+### ### **THE FRAME, THE TRANSFORM, THE TWO CONDITIONS, THE DILATION AND THE COMPRESSION CARRY
+### ### NONE**, and that is a mechanical statement of `F2` at the source level beside the arithmetic
+### one in (4a).
+### ### ### **AND THIS ACT'S FIRST DRAFT OF THIS PARAGRAPH SAID "ONE SITE" WHERE THE ARM HAD PRINTED
+### ### ### FOUR.** ### The narrative and the tool disagreed, ### **AND THE DEFECT WAS THE
+### ### NARRATIVE.** ### The fix was to make the classification mechanical -- the arm now reports
+### the enclosing function of every site and the carriers are declared by name -- rather than to
+### re-word the sentence until it matched. ### Declared at (D2).
+
+### ### **THE OWNERS, EACH RULED:**
+###   ### `b303_family`, `b304_smearing`, `b293_finite_family`, `b295_second_mechanism`,
+###     `b294_family_value` ### **-- 0 SITES.**
+###   ### `b281_compression` ### **-- 2 SITES, AND THIS SEAT RULES NOT EXPOSED.** ### The site is
+###     `A`'s own definition: ### **"`A[l,j] = SUM_{m : p^k m = l mod N} S_quot[m,j]`"**. ### The
+###     sum over the fiber is a ### REGROUPING OF AN EXACT FINITE SUM ### -- `T(g)` collected by
+###     `l = p^k m` -- and a regrouping loses nothing. ### **A FOLD IS MASS THAT LEFT ITS LEVEL AND
+###     WAS PUT BACK; THIS IS AN ORDER OF SUMMATION.**
+###   ### `b270_ambient_pairing` ### **-- 4 SITES, AND THIS SEAT RULES NOT EXPOSED.** ### The site in
+###     `orbit_classes` builds b10's quotient basis by unioning `m ~ pm` OFF THE BALL: ### **A
+###     STRUCTURE ON THE INDEX SET, NOT A PUSHFORWARD OF A FUNCTION'S MASS.**
+###   ### `b280_consequence` ### **-- 1 SITE, AND IT IS AN EVALUATION.** ### It READS `u` at the
+###     index `p^k m`. ### **A READ MOVES NO MASS**, and the distinction is visible in the printed
+###     lines themselves: b281's site ASSIGNS into an accumulator, b280's and b270's INDEX INTO a
+###     vector. ### **ONE WRITES, THE OTHERS READ, AND ONLY A WRITE CAN PUT ESCAPED MASS ANYWHERE.**
+
+----------------------------------------------------------------------------------------------------
+### (4d) WHICH BANKED RESULTS WERE EXPOSED, AND WHICH WERE NOT.
+----------------------------------------------------------------------------------------------------
+###   ### **b293/b303 -- the family, its dimension law, the diagonal identification: NOT EXPOSED.**
+###   ### **b304 -- `Tr(Pi)` and the compact-part smear: NOT EXPOSED, AND b304 SAID SO FIRST.** ### It
+###     computes the compact part only, checks the permutation at every element it uses, and
+###     ### **REFUSES THE `p^Z` PART -- WHICH IS EXACTLY THE PART THIS INSTRUMENT ADDS.**
+###   ### **b280 -- `P(k = n) = 0`: NOT EXPOSED**, the sites being `A`'s definition and the quotient
+###     basis's index structure.
+###   ### **b295/b296 -- the criterion and the two banked values: NOT EXPOSED, AND b295 SAID SO
+###     FIRST**, in its own Z5: ### **"This runner applies NO LEVEL-SHIFTING MAP."**
+###   ### **b21 -- the model transform IS the genuine transform at a fixed level: NOT EXPOSED, IN
+###     b21's OWN WORDS** -- checked entry-exact, ### **"with NO artifact"**. ### The artifact b21
+###     named lives in the `U`-law, not here.
+###   ### ### **b284 -- the scaling's domain, computed through `g` and `h`: ### EXPOSED, AND IT
+###     ### DECLARED ITSELF.** ### Its own (D2): `h`'s transform side, the model saying FAILS and the
+###     derivation saying HOLDS, ### **"THE DISAGREEMENT IS THE ARTIFACT, NOT THE ANSWER"**, reported
+###     and the control not promoted over the derivation. ### **THIS ACT ADDS NOTHING TO THAT AND
+###     DOES NOT RE-VERDICT IT.**
+
+----------------------------------------------------------------------------------------------------
+### (4e) THE RETIREMENT, AND ITS BOUNDARY IN THE SAME BREATH.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE ESCAPED-MASS ARTIFACT IS RETIRED FOR THIS INSTRUMENT.** ### The demonstration is
+### exact: the scaling part acts by moving the frame, the fold count is zero at every cell and both
+### directions tested by two routes, and the escaped mass has a frame to live in.
+### ### **IT IS NOT RETIRED FOR THE MODEL.** ### The model's own column is nonzero everywhere, and
+### any later act computing a scaling on `Z/p^{2n}` meets it again.
+### ### **IT IS NOT RETIRED FOR b284**, whose exposure is declared, stands, and is not re-verdicted.
+### ### **AND IT RETIRES NOTHING ELSE** -- not `W-ORD-FIBER-GENERAL`, not the barrier's scope limit,
+### not the range law, and ### **NOT THE TRUNCATION**, which untying the radii does not touch.
+### ### ### **WHAT REMAINS, STATED RATHER THAN LEFT TO BE INFERRED: ### THE INSTRUMENT IS STILL
+### ### ### FINITE.** ### `V(r,s)` is a finite-dimensional model of a subspace of `L^2(Q_p)` exactly
+### as `V_n` was. ### **UNTYING THE RADII REMOVES THE WRAPAROUND. ### IT DOES NOT REMOVE THE
+### ### TRUNCATION**, and a statement quantified over all of `Q_p` is no more compiled than before.
+
+====================================================================================================
+### THE CLOSING SEQUENCE.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE INSTRUMENT'S CAPABILITIES AND LIMITS, AS A LIST.
+----------------------------------------------------------------------------------------------------
+### ### **WHAT IT CAN DO:**
+###   ### (C1) represent a level space with the two radii ### UNTIED ### , at any frame `(r,s)` with
+###     `r + s >= 0`, in b21's chart and under b21's Haar.
+###   ### (C2) carry the ### SCALING PART ### `p^Z` of the multiplicative group exactly, in both
+###     directions, ### **WITH NOTHING ESCAPING AND NOTHING FOLDED.**
+###   ### (C3) carry the compact part `Z_p^x` as the model did, as a permutation of the grid.
+###   ### (C4) compute the transform from b21's own definition, ### **AND SEE THE RADIUS SWAP THE
+###     MODEL CANNOT SEE** because in the model the two radii are equal.
+###   ### (C5) test both Sonin conditions LITERALLY in the cyclotomic field, and check b293's
+###     rational collapse against the literal condition instead of substituting it.
+###   ### (C6) build the constrained space, its projection, and the compression, exactly over `Q`.
+###   ### (C7) reproduce, at the cells it reaches: the family as set equality, the dimension law,
+###     the keystone's number, `Tr(Pi)`, the compact-part smear and its mechanism, the annihilation
+###     criterion, and two banked first-level values.
+### ### **WHAT IT CANNOT DO, AND EACH LIMIT IS A REAL ONE:**
+###   ### (L1) ### **IT IS STILL FINITE.** ### The truncation is untouched. ### A statement over all
+###     of `Q_p` is not compiled by anything here.
+###   ### (L2) ### **IT REPRODUCES; IT DOES NOT CONFIRM.** ### Two instruments agreeing is a check on
+###     the instruments. ### **NO GRADE MOVES BECAUSE OF IT.**
+###   ### (L3) ### **IT SAYS NOTHING ABOUT THE ARCHIMEDEAN PLACE.** ### b285's boundary stands:
+###     ### **NO FINITE-SIDE STRUCTURAL FACT TYPES AT `infinity`**, and nothing here does either.
+###   ### (L4) ### **THE SECTOR REFINEMENT IS STILL NOT COMPUTED**, for b304's own reason: its
+###     projector carries a root of unity in every entry and is not a rational matrix.
+###   ### (L5) ### **THE EXPOSURE ARM FINDS A SHAPE AND NOT A FAULT**, and the rulings on its hits
+###     are this seat's.
+###   ### (L6) ### **THE CELLS ARE THE OWNERS' CELLS.** ### Nothing here was tested at a cell this
+###     act chose, which is what keeps the reproduction from being a sample picked after the answers
+###     were known -- and it also means ### **THE INSTRUMENT'S REACH BEYOND THOSE CELLS IS UNTESTED.**
+
+----------------------------------------------------------------------------------------------------
+### WHAT THE NEXT ACT MAY COMPUTE ON IT. ### **NAMED, AND NOT COMPUTED.**
+----------------------------------------------------------------------------------------------------
+### ### ### **`Tr(theta(p^k) Pi)` FOR `k != 0` -- THE SCALING PART OF THE SOURCE'S OWN FUNCTIONAL.**
+### b304 computed `Tr(theta(t) Pi)` over the units and ### **REFUSED THE REST BECAUSE THE MODEL
+### FOLDS IT.** ### On the instrument the refusal is lifted: `theta(p^k)` carries `V(r,s)` to
+### `V(r-k, s+k)`, and both embed in a single frame `V(R,S)` with `R = max(r, r-k)` and
+### `S = max(s, s+k)`, ### **SO THE COMPRESSED TRACE IS AN HONEST FINITE-RANK QUANTITY THERE.**
+### ### **AND WHAT WOULD MAKE IT WORTH AN ACT IS THE SOURCE'S OWN SENTENCE, WHICH b304 QUOTES:**
+### the functional `Tr(theta(f) S)` is asserted positive definite by construction. ### **THE MODEL
+### COULD NOT TEST THAT OVER THE SCALING DIRECTION. ### THIS INSTRUMENT CAN.**
+### ### ### **IT IS NOT COMPUTED HERE, NOT ESTIMATED HERE, AND NOT PREDICTED HERE.** ### The order
+### puts it in a later act under its own registration, and ### **NAMING A COMPUTATION IS NOT
+### PERFORMING IT; A NAMED COMPUTATION IS NOT EVIDENCE.**
+### ### **A SECOND THING THE INSTRUMENT REACHES AND THE MODEL DOES NOT:** ### the members at frames
+### OFF the model's diagonal, `r != s`, which the model has no name for at all. ### **ALSO NAMED AND
+### NOT COMPUTED.**
+### ### **AND A THIRD, SMALLER ONE:** ### b21's refinement embedding `V(r,s) -> V(r', s')` for
+### `r' >= r` and `s' >= s`, which the untied frame makes a one-line map. ### **NOT BUILT THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING ITEMS, RESTATED.
+----------------------------------------------------------------------------------------------------
+### ### **THE OBJECT'S THREE CONDITIONS, EACH TYPED, UNCHANGED BY THIS ACT:**
+###   ### a PREMISE -- the level limit, b198 (I2), at its grade;
+###   ### a RULING -- `W-ORD-ARCH-NORM-READING`, which inner product the archimedean normalization
+###     is; ### **THE ONLY ARCHIMEDEAN CONDITION LEFT;**
+###   ### a CONSTRUCTION -- C9 / `N-OPEN-B`, the real fiber's placement.
+###   ### **A CONDITION DISCHARGED IS NOT THE OBJECT CONSTRUCTED, AND THIS ACT DISCHARGED NONE.**
+### ### **`M-2`'s ROW: ### UNCHANGED. ### `(SPECIFIED-NOT-STATED)`. ### NO AGGREGATION IS STATED.**
+### ### **THE SEAM'S DEBT, ITEM 1: ### STILL UNPAID.** ### Item 1 is `A2`: ### **STATE `M-2`.** ###
+### `A1` paid b226's step; ### **`A2` HAS NOT BEEN PAID AND THIS ACT DOES NOT PAY IT.**
+### ### **THE PATENT CLOCK, RESTATED AND STILL UNCONFIRMED ON THIS SEAT'S RECORD.** ### Four filings
+### are receipt-backed at content (b147); `P-ZONE` / `P-FANO-WPT` are REGISTRY-backed with no receipt
+### located, ERRATA `E-2026-08-24-3`. ### **THE TWO RESPONSE UPLOADS: RECEIPTS PENDING, CARRIED ON
+### THE FERRY'S WORD. ### THEIR DATES WERE 2026-08-31 AND 2026-09-01; TODAY IS 2026-09-03 -- THREE
+### DAYS PAST BOTH, AND NOTHING ON THIS SEAT'S RECORD CONFIRMS EITHER.** ### The lane is the patent
+### seat's, the write boundary is ratified, and ### **THIS SEAT HAS VERIFIED NOTHING THERE.**
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER.
+----------------------------------------------------------------------------------------------------
+###   ### **(1) THE OBJECT** -- conditionally constructed on THREE conditions. ### **UNCHANGED.**
+###   ### **(2) `W-ORD-ARCH-NORM-READING`** -- the live ruling. ### **UNCHANGED.**
+###   ### **(3) `W-ORD-TERM3-ROW`** -- the author's.
+###   ### **(4) THE DECISION CARD (b304)** -- on the author's desk.
+###   ### **(5) `W-ORD-INSTRUMENT-Q-P`** -- ### **ITS CORE IS BUILT THIS ACT AND ITS FIRST NEW
+###     COMPUTATION IS NOT.** ### The comparison half of b305's price is untouched.
+###   ### **(6) THE WINDOW QUESTION** -- the other live direction, ### **UNTOUCHED BY THIS ACT.**
+###   ### **(7) `W-ORD-SOURCE-METHOD-APPLICABILITY`** -- named at b306.
+###   ### **(8) THE PATENT CLOCK** -- ### **THREE DAYS PAST, UNCONFIRMED HERE.**
+###   ### **(9) NEW, AND SMALL:** ### b304's shell enumeration reaches one shell fewer than the
+###     invariant decomposition does, for the reason in (3d). ### **NO VERDICT TURNS ON IT**, it is
+###     filed with its file and its reason, and it is not a correction.
+
+----------------------------------------------------------------------------------------------------
+### THE LEDGER, AND THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **THE CENSUS WAS RUN AND ITS COUNT IS REPORTED: ### TOTAL MISSING : 0** ###
+### (`data/b308_census.txt`, self-test PASS).
+### ### **AND ITS LIMIT IS REPORTED WITH IT, WHICH IS THE ONLY WAY THAT NUMBER IS WORTH ANYTHING:**
+### the census counts ### NAMES, NOT UNDERSTANDING ### ; it counts ONE ledger and no other; and
+### ### **ITS SCOPE IS THE `b297`-`b306` ARC, WHICH DOES NOT INCLUDE THIS ACT.** ### So the zero is
+### NOT a statement that `HANDOFF.md` names `b308`. ### **IT DOES NOT, AND THIS ACT DID NOT WRITE
+### IT, BECAUSE THE ORDER DID NOT ASK FOR A LEDGER WRITE.** ### Stated so the next seat is not
+### misled by a zero.
+### ### **THE SHADOW: ### EXPECTED NOTHING, AND NOTHING IS WHAT IT IS.** ### This is an instrument
+### build; there is no statement here whose medium could be a terminal. ### Every candidate the build
+### could offer -- the frame law, the fold count, the dimension at a cell -- is ### FINITE-DECIDABLE
+### AT ONE CELL AND SCOPED OVER ALL LEVELS AND ALL PLACES ### , which is b299's own refusal reason
+### for this whole lane: ### **A TERMINAL AT ONE CELL WOULD SIT IN THE KERNEL LOOKING LIKE THE
+### GENERAL STATEMENT.** ### **0 `.lean` FILES CREATED OR MODIFIED. ### THE PROFILE DOES NOT MOVE.**
+
+----------------------------------------------------------------------------------------------------
+### THE THREE REGISTERED FALSIFIERS.
+----------------------------------------------------------------------------------------------------
+### ### **(F1) THE REPRODUCTION MATCHES AT EVERY REACHABLE CELL** ### -- ### **DID NOT FIRE.**
+### ### **(F2) THE SCALING PART ACTS WITHOUT WRAPAROUND ON THE LOCAL FIELD** ### -- ### **DID NOT
+### ### FIRE.**
+### ### **(F3) THE UNTIED RADII RECOVER THE TWO-RADIUS FAMILY EXACTLY** ### -- ### **DID NOT FIRE.**
+### ### **EACH WAS EXPECTED TRUE AND EACH WAS REFUTABLE BY A PRINTED DISAGREEMENT**, and the runner
+### prints a disagreement at full prominence and counts it rather than summarising it away.
+### ### ### **AND THE HONEST READING OF THREE FALSIFIERS THAT ALL HELD: ### THEY WERE EXPECTED TO
+### ### ### HOLD.** ### A registration whose falsifiers all hold has not thereby proved anything; it
+### has failed to catch anything. ### **THE THINGS THAT DID FIRE THIS ACT WERE THIS SEAT'S OWN
+### FIXTURES AND THIS SEAT'S OWN NARRATIVE**, and both are declared below.
+
+### ### **NOTHING DEPOSITS. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT: ### "RH reduced to a
+### ### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THREE OF THIS ACT'S OWN FIXTURES WERE WRONG ON THE FIRST RUN, AND ONE OF THEM WAS THE
+### ### DANGEROUS KIND.** ### Two compared a reduced cyclotomic element against a one-element list
+### when the reducer returns trailing zeros -- ### **A FIXTURE WRONG ABOUT THE INSTRUMENT RATHER THAN
+### AN INSTRUMENT WRONG ABOUT THE MATHEMATICS** -- and were re-written to compare VALUES rather than
+### representations. ### **THE THIRD IS THE ONE WORTH THE PARAGRAPH:** ### the transform's negative
+### control was pointed at an index where the answer really is zero, ### **SO IT WAS A CONTROL THAT
+### COULD NOT FIRE, AND A CONTROL THAT CANNOT FIRE READS EXACTLY LIKE A CONTROL THAT PASSED.** ### It
+### was re-pointed at an index where the transform is nonzero, and a second arm was added beside it.
+### ### **(D2) THE FIRST DRAFT OF (4c) SAID "ONE SITE" WHERE THE ARM HAD PRINTED FOUR.** ### The
+### narrative and the tool disagreed and ### **THE DEFECT WAS THE NARRATIVE.** ### The fix was to
+### make the classification mechanical -- the arm reports the enclosing function of every site, and
+### the declared carriers are named by `(file, function)` with their reasons printed -- ### **RATHER
+### THAN TO RE-WORD THE SENTENCE UNTIL IT MATCHED THE COUNT.** ### Declared at length because
+### re-wording would have left a true-looking sentence with no check behind it, which is the species
+### this whole discipline exists against.
+### ### **(D3) THE REPRODUCTION FOUND ONE DIFFERENCE AND IT IS FILED AS A NOTE, NOT A CORRECTION.**
+### b304's shell enumeration reaches one shell fewer than the invariant decomposition does. ### **NO
+### VERDICT OF b304's DEPENDS ON IT AND THIS ACT CHECKED THAT AT EVERY CELL RATHER THAN ARGUING IT.**
+### ### **b304's FILE IS NOT REWRITTEN** -- the append-only law -- and no grade moves.
+### ### **(D4) TWO OWNER NEEDLES CAME BACK UNPULLABLE ON THE FIRST RUN AND WERE RE-POINTED, NOT
+### ### RE-TYPED.** ### One anchor spanned a hard wrap in b21's own file; one contained a newline,
+### which the puller can never match. ### The registration expected this and called it the gate doing
+### its work.
+### ### **(D5) THE ORDER SAYS "THE ANNIHILATION CRITERION AT EVERY CELL THE INSTRUMENT REACHES", AND
+### ### THE ACT READ THAT AGAINST ITS OWN SCOPE CLAUSE.** ### The criterion's TRUTH VALUE is printed
+### at all 80 members reached; ### **A FIRST-LEVEL NUMBER IS PRINTED ONLY AT THE TWO MEMBERS b295's
+### OWN SEALED REGISTRATION CARRIES.** ### Declared because the two clauses of the order pull in
+### different directions at exactly one point, and the act reconciled them by printing the verdict
+### everywhere and the number only where the record already had it.
+### ### **(D6) THE `G-EXACT` GATE HAD TWO DEFECTS AND ITS OWN FIXTURES FOUND BOTH, WHICH IS THE
+### ### ONLY REASON THIS PARAGRAPH EXISTS.**
+###   ### **THE FIRST IS THE DANGEROUS DIRECTION.** ### The float-literal pattern was written as two
+###     alternatives, and ### **`1.5e-6` -- THE EXACT LITERAL b307's OWN ARITHMETIC USED -- MATCHED
+###     NEITHER**: one arm's trailing test met the `e` and the other's leading test met the `.`.
+###     ### **A FLOAT-CATCHER THAT MISSES A FLOAT IN SCIENTIFIC NOTATION REPORTS CLEAN**, which is
+###     the under-report direction `ferry_scan.py`'s own header names as the dangerous one, met here
+###     on a gate written to enforce a cap of zero.
+###   ### **THE SECOND WAS A WRONG COUNT AND A SENTENCE THAT WOULD HAVE COVERED IT.** ### The `/`
+###     arm first counted every `/` on a line, including `%d/%d` format specifiers and printed
+###     prose, and this seat drafted a sentence saying every one of them divided rationals. ### **THE
+###     SENTENCE WAS FALSE OF MOST OF THEM.** ### String literals are now blanked before the search
+###     -- and the first version of THAT did not know a backslash-escaped quote is part of a literal,
+###     so one prose line still leaked. ### **BOTH REPAIRS ARE IN THE PATTERN, NOT IN A SENTENCE
+###     EXCUSING THE COUNT**, which is the same repair (D2) needed and for the same reason.
+###   ### **AFTER BOTH: ### 0 FLOAT LITERALS, 0 FLOAT-PRODUCING CALLS, AND EXACTLY ONE ARITHMETIC
+###     `/` SITE IN THE TWO FILES** -- `Fraction(1, p) * up.cell_mass() / fr.cell_mass()`, which is
+###     the unitary normalization of (2c) and is a rational divided by a rational. ### **THE READING
+###     OF THAT ONE LINE IS THIS SEAT'S; THE SCANNER CANNOT SEE A TYPE.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSING PROFILE. ### **WHAT WAS PRODUCED, REPORTED AFTER THE FACT -- NOT PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### GATES: ### **97 PASS / 0 FAIL / 0 ERROR / 0 REFUSED**, `tools/b308_checks.py`.
+### OWNER NEEDLES: ### **18, 0 UNPULLABLE** -- b21, b280, b284, b293, b295 and b305, ### **including
+### b284's OWN DECLARATION OF ITS OWN EXPOSURE AND b295's OWN Z5**, because an act that rules on
+### another act's exposure owes the reader that act's own words on it.
+### SELF NEEDLES: ### **47, 0 UNPULLABLE.** ### Two failed on the first run against this bank's own
+### wrap and were ### RE-POINTED AT WHAT THE FILE EMITS, NOT RE-WORDED.
+### MUST-FAIL FIXTURES: ### **12, WHOLE-LINE EQUALITY. ### SUBSTRING-BASED: 0.**
+### `G-FALSIFIER`: ### **0 OF THE THREE FIRED**, read off the runner's own verdict block rather than
+### off this bank's prose.
+### `G-REPRO`: ### **8 ANCHORS, ALL PRESENT IN THE RUN** -- the family's zero disagreements, the
+### dimension law's, the criterion's 80 members and 50 forced zeros, the fold's zero instrument
+### column, the escaped mass's zero empty cells, and the operational path's zero undeclared sites.
+### `G-EXACT`: ### **0 FLOAT LITERALS, 0 FLOAT-PRODUCING CALLS**, both fixture arms firing and both
+### quiet arms quiet; ### **1 ARITHMETIC `/` SITE, PRINTED IN FULL** (D6).
+### `G-NONEW`: ### **2 LINES PRINT A FIRST-LEVEL VALUE, BOTH NAME THEIR PRODUCING TOOL, AND BOTH ARE
+### ### BANKED.** ### And the arm that makes it mean something: ### **THE COUNT IS NOT ZERO** -- a
+### run printing no value at all would have passed a cap on new values while also having failed to
+### reproduce the two the record carries.
+### `G-PAPERS`, ### **INVERTED BACK THIS ACT: 0 TRACKED FILES CHANGED IN `PLACE-papers`.** ### b307
+### touched that repository and checked WHICH file moved; ### **A GATE COPIED FORWARD UNINVERTED
+### WOULD HAVE FAILED THIS ACT FOR NOT TOUCHING A REPOSITORY IT WAS NEVER ASKED TO TOUCH.**
+### `G-NOBUILD`: ### **PROFILE BYTE-IDENTICAL TO `git HEAD`, 0 `.lean` CHANGED, 470 PRINTS.**
+### `G-ANCESTOR`: ### **THE COMMITTED CORRESPONDENCE TABLE IS A TRUE PREFIX OF THE CURRENT ONE.**
+### `G-NOMOVE`: ### **0 GRADE-MOVING LINES**, both refusals present, discrimination firing.
+### `G-STRUCK`: ### **0 HITS** over this act's files, discrimination firing on all three struck
+### entries. ### **AND SIX DECLARED CARRIERS, EACH WITH ITS REASON PRINTED** -- this act's own
+### fixture files; ### **THE INSTRUMENT ITSELF, WHICH SPELLS THE FOLD'S CODE SHAPE IN ORDER TO SCAN
+### FOR IT AND EXHIBITS THE MODEL'S COLLAPSE IN ORDER TO COUNT IT**; the runner, which quotes the
+### owners' lines in order to rule on them; the ferry, which is the order; and the scan's own log.
+### `G-STEM`: ### **0 STEM HITS**, control fires.
+### `G-SHARED`: ### **0 UNEXPECTED HITS** over the shared append-targets; the two ancestors' rows are
+### the only ones, as at b306, ### **AND THE EXCEPTION LIST IS PRINTED WITH ITS REASONS** -- row 2
+### predates the ban, row 101 is b284's and is filed rather than rewritten.
+### `G-TOOLNUM`: ### **0 NUMBERS WITH NO COMMITTED PRODUCER**, over 18 rows.
+### `G-SEAL`: ### **SEAL INTACT.**
+### HEDGE AUDIT, over the bank, the registration and the run: ### **0 GRADED HEDGES** -- the bank at
+### 931 sentences, the registration at 315, the run at 626. ### **THE SUITE DESCRIBES A FLAGGED
+### SENTENCE RATHER THAN QUOTING IT, SO THE LOG CANNOT ACQUIRE THE SHAPE IT IS REPORTING**, and none
+### was flagged this act.
+### THE INSTRUMENT: ### **`tools/b308_local_field.py` SELF-TEST PASS**, both polarities on every
+### operation it owns; ### `tools/b308_reproduction.py` ### **0 CHECKS FAILING** over Components 1-4.
+### REGISTRATION: satisfiability-checked (### **13 CLAUSES, ALL SATISFIABLE, EVERY CAP ZERO**),
+### index-gated, term-scanned, ### **SEALED `e360d4d8...` BEFORE THE INSTRUMENT EXISTED.**
+### FERRY SCAN: ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### CORRESPONDENCE: ### **ROWS 128 AND 129**, six cells each, none blank, read back; table now 129
+### rows; ### **THE NOTATION GUARD RAN BEFORE THE WRITE AND THIS WAS THE ACT MOST LIKELY TO TRIP IT**,
+### its subject being a radius written as an absolute value.
+### INDEX: ### **TWO KEYS -- `local-field-instrument` AND `escaped-mass-artifact`** -- both read
+### back, eight aliases now reaching rows, must-not-hit holding before and after (`exact` and
+### `reproduced` stay unkeyed, being properties and not objects), ### **AND THE INDEX SWEPT FOR STEMS
+### AFTER THE WRITE: 0.**
+### `HANDOFF.md`: ### **NOT WRITTEN THIS ACT** -- the order did not ask for a ledger write, and the
+### census's scope does not reach this act. ### Stated rather than left for the next seat to find.
+### LEAN: ### **0 CREATED, 0 MODIFIED, 0 PROFILE REWRITTEN.**
+### `PLACE-papers`: ### **NOT TOUCHED.** ### The hook does not fire and no mirror is rebuilt.
+### PINS, BY `tools/b303_pins.py`, ALL THREE REPOS, at step zero and at the close
+### (`data/b308_pins_stepzero.txt`, `data/b308_pins_closing.txt`).
+====================================================================================================

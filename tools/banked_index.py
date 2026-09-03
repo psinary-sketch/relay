@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'local-field-instrument': ['the local field', 'untied radii', 'the two radii',
+                              'the scaling part', 'the instrument build', 'the frame'],
+    'escaped-mass-artifact': ['escaped mass', 'the artifact', 'the fold count',
+                             'nothing to fold'],
     'the-fold': ['the adelic arc', 'the adelic fold', 'the arc statement',
                 'the b297-b306 fold', 'the lore', 'the instrument suite', 'the desk'],
     'handoff-census': ['the ledger census', 'the handoff census',
@@ -389,6 +393,59 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LOCAL-FIELD INSTRUMENT, ACT ONE (b308).
+    ("local-field-instrument", "b308 (an instrument build, act one of the priced item)",
+     "the finite model ties two radii to ONE level index -- b21's V_n is p^(-n)Z_p / p^n Z_p"
+     " = Z/p^(2n), one n governing both the SUPPORT radius and the CONSTANCY radius. ### This"
+     " act UNTIES them and changes nothing else: a frame is a pair (r,s) -- support in"
+     " p^{-r}Z_p, constant on cosets of p^s Z_p -- with b21's chart x = p^{-r} m and b21's"
+     " Haar giving each cell mass p^{-s}. ### **THE MODEL IS THE POINT r = s = n AND THE"
+     " INSTRUMENT IS THE PLANE.** ### The transform carries (r,s) to (s,r); the scaling part"
+     " of the multiplicative group acts as theta(p^k) : V(r,s) -> V(r-k, s+k), so BOTH radii"
+     " move, their SUM does not, and on chart indices the map is the IDENTITY. ### That is the"
+     " direction the model drops. ### Built with a positive control in both polarities on every"
+     " operation before it is used, exact Fraction/int/cyclotomic throughout",
+     "### AN INSTRUMENT BUILT AND CHECKED -- **NOT A RESULT**. ### The reproduction is the"
+     " GATE on the build: the family recovered as SET EQUALITY BOTH DIRECTIONS at every radius"
+     " pair in range at five cells (0 disagreeing); the dimension law and the keystone's own"
+     " (p^n-1)^2 at the diagonal (0 disagreeing); Tr(Pi) equal to the constrained dimension at"
+     " six cells; the compact-part smear zero at all six WITH its mechanism re-derived on the"
+     " instrument's own shells; the annihilation criterion at 80 members reached, 0"
+     " disagreeing, 50 forced zeros confirmed; b295's two registered witnesses re-valued at"
+     " their banked 4/3 and 4/7. ### **EVERY NUMBER IS A BANKED NUMBER RECOMPUTED OR A"
+     " CONTROL, AND TWO INSTRUMENTS AGREEING IS A CHECK ON THE INSTRUMENTS RATHER THAN A"
+     " PROMOTION OF ANY RESULT.** ### NO GRADE MOVES. ### NO NEW MATHEMATICS. ### **NO"
+     " FIRST-LEVEL VALUE AT ANY CELL OR MEMBER THE RECORD DOES NOT ALREADY CARRY** -- that is"
+     " a later act under its own registration, named in the bank and left uncomputed. ###"
+     " **UNTYING THE RADII REMOVES THE WRAPAROUND; IT DOES NOT REMOVE THE TRUNCATION.** ###"
+     " M-2 UNCHANGED",
+     "data/b308_the_local_field_instrument.txt; data/b308_instrument_run.txt;"
+     " tools/b308_local_field.py; tools/b308_reproduction.py; CORRESPONDENCE.md row 128"),
+    # ### THE ESCAPED-MASS ARTIFACT, RETIRED FOR ONE INSTRUMENT (b308).
+    ("escaped-mass-artifact", "b308 (a demonstration, and a retirement of one scope)",
+     "b21 named it -- U maps V_n INTO V_(n+1) and ESCAPES V_n, so THE MODEL'S mod-N WRAPAROUND"
+     " IS EXACTLY THIS ESCAPED MASS FOLDED BACK IN -- and b284 met it and wrote that the"
+     " derivation stands because it is on Q_p, where there is nothing to fold. ### **THIS ACT"
+     " MAKES THAT SENTENCE A COUNT.** ### The model must read theta(p^k) f back in the frame it"
+     " left, which on chart indices is m -> p^k m mod N; the instrument moves the frame"
+     " instead. ### **THE MODEL'S COLLIDED ORDERED PAIRS ARE N(p^k - 1), NONZERO AT EVERY CELL"
+     " AND EVERY DIRECTION TESTED, BY TWO ROUTES; THE INSTRUMENT'S ARE ZERO BY THE SAME TWO"
+     " ROUTES.** ### The escaped mass is exhibited on a vector of the object's own space: b21's"
+     " U sends it to V(n+1, n-1), its smallest containing ball is p^{-(n+1)}Z_p at every cell"
+     " (b21's own support law, recomputed), the escaped Haar mass is an exact nonzero rational,"
+     " and b21's `unitary on L^2(Q_p)` comes out as a normalizing scalar of exactly 1",
+     "### **RETIRED FOR THIS INSTRUMENT, AND FOR NOTHING ELSE.** ### **IT IS NOT RETIRED FOR"
+     " THE MODEL** -- the model's column is nonzero everywhere and any later act scaling on"
+     " Z/p^{2n} meets it again -- **NOR FOR b284**, whose exposure is declared, stands, and is"
+     " not re-verdicted. ### It retires neither W-ORD-FIBER-GENERAL, nor the barrier's scope"
+     " limit, nor the range law, nor the truncation. ### Exposure was decided BY CALL PATH: an"
+     " arm scans for a non-unit pushforward site, this act's own two files carry 5 and ALL are"
+     " declared carriers with 0 undeclared in the operational path, and the owners' sites are"
+     " ruled one by one. ### **AND THE ARM'S LIMIT IS PART OF THE RESULT: IT FINDS A SHAPE AND"
+     " CANNOT TELL A REGROUPING OF AN EXACT FINITE SUM FROM A REPRESENTATION OF A FUNCTION THAT"
+     " LEFT ITS LEVEL** -- that judgement is the seat's and no tool made it. ### M-2 UNCHANGED",
+     "data/b308_the_local_field_instrument.txt; data/b308_instrument_run.txt;"
+     " data/b21_2026-08-18.txt; data/b284_the_scalings_domain.txt; CORRESPONDENCE.md row 129"),
     # ### THE ADELIC ARC FOLDED (b307).
     ("the-fold", "b307 (a filings act)",
      "ten acts, b297-b306, filed into FINDINGS.md as 'THE ADELIC ARC, b297-b306 -- THE"
