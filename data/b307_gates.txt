@@ -1,0 +1,141 @@
+﻿====================================================================================================
+b307 -- GATE SUITE (A FILINGS ACT)
+====================================================================================================
+
+  OWNER NEEDLES (pulled from emitting files):
+    PASS  b297's design point: the generator is not a review
+    PASS  b299's incident, which built the ferry scan
+    PASS  b298's own headline
+    PASS  b300's conditional construction
+    PASS  b301's four typed conditions
+    PASS  b302's narrowing sentence
+    PASS  b303's division
+    PASS  b304's one-level sentence
+    PASS  b305's identification
+    PASS  b306's rule
+    PASS  ### the U-2 entry and its SURVIVES clause (EMITTER)
+    PASS  ### the author's ruling that U-2 records
+    PASS  b260's junction, signed by theorem
+    PASS  b261's bench grade
+
+  SELF NEEDLES:
+    PASS  bank reports the scan fired on the order
+    PASS  bank quotes the SURVIVES clause
+    PASS  bank reports the census both ways
+    PASS  bank bounds the licence to one ledger
+    PASS  bank names the instrument working in its built direction
+    PASS  bank reports the gate fired before emission
+    PASS  bank owns the mis-attribution the gate caught
+    PASS  bank declares the tool cannot tell voice from quotation
+    PASS  bank gives the arc sentence
+    PASS  bank prints the scope beside it
+    PASS  bank refuses to average the grades
+    PASS  bank separates mechanized from judgement lore
+    PASS  bank gives each lore rule an incident
+    PASS  bank inventories the instruments with incidents
+    PASS  bank states the suite limit
+    PASS  bank gives the desk as one list
+    PASS  bank puts the patent clock on the desk
+    PASS  bank says the patent lane is unverified here
+    PASS  bank restates the object three conditions
+    PASS  bank restates the seam debt
+    PASS  bank states what it did not check
+    PASS  bank keeps M-2 owed
+    PASS  bank keeps h2 where the deposit left it
+    PASS  registration declares the struck hit up front
+    PASS  registration makes the census decide
+    PASS  registration is sealed before the bank
+    PASS  the fold run reports zero unfindable
+    PASS  the fold run reports the discrimination control
+    PASS  the fold run reports additive findings
+    PASS  the census before reports a non-zero total
+    PASS  the census after reports zero
+    PASS  the census after states the licence
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  no grade is moved
+    PASS  no act is re-verdicted
+    PASS  the fold is not called a result
+    PASS  no aggregation is stated
+    PASS  the arc sentence is not called evidence
+    PASS  the bench half is not promoted
+    PASS  no keystone is claimed written
+    PASS  the licence is not extended to other ledgers
+    PASS  the patent lane is not confirmed
+    PASS  nothing about h2
+
+  G-CENSUS (the U-2 licence is earned, not asserted):
+    before-count non-zero : True ; after-count zero : True ; licence printed : True
+    ### **A CENSUS THAT WAS ZERO BEFORE THE WRITE WOULD HAVE LICENSED NOTHING** --
+    ### it would have meant the check could not tell a current ledger from a stale one.
+
+  G-QUOTE-FOLD (the generator gated the document before writing it):
+    0 unfindable at emission : True ; discrimination control fired : True
+
+  G-PAPERS (INVERTED: the papers repo IS touched, so WHICH file and HOW):
+    tracked files changed : ['FINDINGS.md']
+    ONLY FINDINGS.md changed : True  PASS
+    FINDINGS.md +80 / -0  -> purely additive : True  PASS
+    files under a keystone path : 0  PASS
+
+  G-NOBUILD (nothing built; the profile does not move):
+    profile BYTE-IDENTICAL to git HEAD : True ; `.lean` changed : 0 ; prints : 470
+
+  G-ANCESTOR (no ancestor correspondence row rewritten):
+    committed table is a TRUE PREFIX of the current one : True  PASS
+
+  G-NOMOVE (a filings act moves no grade and re-verdicts nothing):
+    grade-moving lines : 0 ; both refusals present : True ; discrimination : True
+
+  G-STRUCK (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 13   struck-clause hits 0  PASS
+    b307_checks.py                     hits : 4  ### DECLARED CARRIER -- its own fixtures
+    b307_index_append.py               hits : 0  ### DECLARED CARRIER -- its own fixtures
+    b307_the_fold.txt                  hits : 2  ### DECLARED CARRIER -- it quotes the struck U-2 phrase IN ORDER TO DECLARE IT
+    b307_registration_2026-09-03.txt   hits : 1  ### DECLARED CARRIER -- it quotes the struck U-2 phrase IN ORDER TO DECLARE IT
+    b307_ferry_2026-09-03.txt          hits : 1  ### DECLARED CARRIER -- IT IS THE ORDER -- the struck phrase is the INPUT, not this act's writing
+    b307_ferry_scan.txt                hits : 1  ### DECLARED CARRIER -- it is the scan's own log and MUST quote the line it hit
+    DISCRIMINATION S-1  comes back hit : True  PASS
+    DISCRIMINATION U-1  comes back hit : True  PASS
+    DISCRIMINATION U-2  comes back hit : True  PASS
+
+  G-STEM (this act's files, EXCEPT the declared carriers):
+    b307_checks.py                     stem hits : 0  ### CARRIER -- its own fixtures
+    b307_index_append.py               stem hits : 0  ### CARRIER -- its own fixtures
+    b307_the_fold.txt                  stem hits : 0  ### CARRIER -- it quotes the struck U-2 phrase IN ORDER TO DECLARE IT
+    b307_registration_2026-09-03.txt   stem hits : 0  ### CARRIER -- it quotes the struck U-2 phrase IN ORDER TO DECLARE IT
+    b307_ferry_2026-09-03.txt          stem hits : 0  ### CARRIER -- IT IS THE ORDER -- the struck phrase is the INPUT, not this act's writing
+    b307_ferry_scan.txt                stem hits : 0  ### CARRIER -- it is the scan's own log and MUST quote the line it hit
+    files swept 13   stem hits 0   control fires True   PASS
+
+  G-SHARED (the extended sweep over the shared append-targets):
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')]
+    UNEXPECTED : 0 []  PASS
+
+  G-TOOLNUM:
+    the fold's quotation counts and the additive measure tools/b307_fold.py                   exists=True tracked=False
+    what is missing from the ledger, counted             tools/b307_handoff_census.py         exists=True tracked=False
+    the shared-target sweep's hits and their attribution tools/b306_stem_scope.py             exists=True tracked=True
+    the ahead/behind pairs and the pins                  tools/b303_pins.py                   exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)      tools/b307_regspec.py                exists=True tracked=False
+    the satisfiability verdict over the declared caps    tools/reg_satisfiable.py             exists=True tracked=True
+    the ferry scan's entry/pattern/hit counts            tools/ferry_scan.py                  exists=True tracked=True
+    the banned/retired stem counts                       tools/banned_terms.py                exists=True tracked=True
+    the gate, needle and hedge counts                    tools/b307_checks.py                 exists=True tracked=False
+    the correspondence rows' numbers and their read-back tools/b307_correspondence.py         exists=True tracked=False
+    the index keys' read-back and must-not-hit arms      tools/b307_index_append.py           exists=True tracked=False
+    the registration's seal hash                         tools/reg_seal.py                    exists=True tracked=True
+    the mirror's three clauses                           tools/mirror_verify.py               exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-SEAL:
+    seal intact : True  PASS
+
+  HEDGE AUDIT (over every file this act wrote):
+    the bank                 sentences=584   graded-hedges=0   ungraded-shapes=85
+    the registration         sentences=262   graded-hedges=0   ungraded-shapes=43
+    the emitted fold         sentences=87    graded-hedges=0   ungraded-shapes=33
+
+====================================================================================================
+### GATES: 67 PASS / 0 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
+====================================================================================================

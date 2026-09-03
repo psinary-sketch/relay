@@ -1,0 +1,26 @@
+﻿====================================================================================================
+b307 -- THE INDEX KEYS. ### THE FOLD, AND THE CENSUS THAT LICENSED A STRUCK PHRASE.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    current                NO KEY before : True
+    the section            NO KEY before : True
+  the-fold           key/row already present : False / False
+  handoff-census     key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    the-fold           returns a row : True  PASS
+    handoff-census     returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the adelic arc             now reaches a row : True  PASS
+    the arc statement          now reaches a row : True  PASS
+    the lore                   now reaches a row : True  PASS
+    the desk                   now reaches a row : True  PASS
+    the ledger census          now reaches a row : True  PASS
+    the conditional strike     now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    current                still NO KEY : True   (and was before : True)  PASS
+    the section            still NO KEY : True   (and was before : True)  PASS
+  ### **`current` AND `the section` STAY UNKEYED BECAUSE THEY ARE PROPERTIES AND NOT
+  ### OBJECTS** -- b202's own reason. ### **AND b164's LIMIT IS NOT RETIRED.**
+  ### THE INDEX SWEPT AFTER THE WRITE (b305's defect, not repeated) : 0 stem hit(s)
+====================================================================================================

@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-fold': ['the adelic arc', 'the adelic fold', 'the arc statement',
+                'the b297-b306 fold', 'the lore', 'the instrument suite', 'the desk'],
+    'handoff-census': ['the ledger census', 'the handoff census',
+                      'what is missing from the ledger', 'the conditional strike'],
     'the-difference': ['the difference', 'the corpus difference',
                       'the imbalance', 'the cell-level imbalance',
                       'the fourth face-off difference'],
@@ -385,6 +389,53 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ADELIC ARC FOLDED (b307).
+    ("the-fold", "b307 (a filings act)",
+     "ten acts, b297-b306, filed into FINDINGS.md as 'THE ADELIC ARC, b297-b306 -- THE"
+     " FOLD', each entry with its grade as its OWN act left it, its scope sentence, and its"
+     " OBSTACLE quoted. ### **THE ARC AS ONE STATEMENT:** the object's two halves now share a"
+     " form and a dilation (one sentence defines a two-radius family at every place, and the"
+     " finite dilation is the archimedean dilation at 1/p under the corpus's own chart); the"
+     " finite side's first-level mass is annihilated exactly when either radius clears its"
+     " threshold; the archimedean instruments compute with vectors OUTSIDE the object's own"
+     " space; and the corpus works at the OPEN end of a single window parameter whose CLOSED"
+     " end is the source's forced positivity. ### Also folded: the arc's four corrections to"
+     " its own readings, each with a WHAT DID NOT MOVE column",
+     "### A FILING, AT THE GRADE OF THE ACTS IT FOLDS AND NO HIGHER. ### **NO GRADE MOVES,"
+     " NO ACT IS RE-VERDICTED, NO NEW MATHEMATICS, NO KEYSTONE WRITTEN OR EDITED** -- b299's"
+     " arc keystone is cross-referenced, not duplicated. ### Emitted by tools/b307_fold.py,"
+     " the section's GENERATOR and not its reviewer: 20 quotations, 0 unfindable, each"
+     " checked against the act that ORIGINATED it BEFORE emission -- and two failed on the"
+     " first run, one of them a sentence b303 was quoting from b301, so the gate caught a"
+     " mis-attribution before the document existed. ### FINDINGS.md +80/-0, measured by"
+     " numstat: PURELY ADDITIVE is the measurement, not the assertion. ### **SCOPE: NOTHING"
+     " ABOUT THE IDENTITY, h2, OR THE COMPLETE ROSTER FOLLOWS FROM THE ARC SENTENCE** -- one"
+     " half of the one-signed residual is derived and the other is at bench, and a summary"
+     " may not upgrade a bench result by standing it next to a derived one. ### NO"
+     " AGGREGATION IS STATED. ### M-2 UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b307_the_fold.txt; data/b307_fold_run.txt; PLACE-papers/FINDINGS.md;"
+     " CORRESPONDENCE.md row 126"),
+    # ### THE LEDGER CENSUS AND THE CONDITIONAL STRIKE (b307).
+    ("handoff-census", "b307 (a check built to satisfy a conditional strike)",
+     "the ferry scan fired on the ORDER'S OWN CLOSING: U-2, 'a closing sequence asserts that"
+     " a ledger is current', struck at b300. ### **THE STRIKE IS CONDITIONAL AND THE RECORD"
+     " NAMES THE CONDITION:** 'SURVIVES: the same phrase after a check that has COUNTED WHAT"
+     " IS MISSING.' ### No such check existed, which is why the phrase had been unusable"
+     " since b300 and every act since wrote two lists instead. ### tools/b307_handoff_"
+     "census.py counts the arc's acts, the live work-orders and the arc's findings section"
+     " against HANDOFF.md, run BEFORE and AFTER. ### **BEFORE: 26 MISSING -- ten acts,"
+     " fourteen work-orders, one section. ### AFTER: 0**",
+     "### A LICENCE EARNED AND BOUNDED. ### U-2's SURVIVES clause is satisfied FOR THIS"
+     " LEDGER AND NO OTHER. ### **THE CENSUS COUNTS NAMES, NOT UNDERSTANDING** -- a ledger"
+     " naming every act in one line each would pass it and could still be a bad handoff --"
+     " and it says NOTHING about FINDINGS.md, REGISTRY.md, OPEN_TRAILS.md,"
+     " VERIFICATION_LOOM.md or the desk, which were not counted and are not claimed."
+     " ### **THE ACT NEITHER REFUSED THE ORDER NOR OBEYED IT AS WRITTEN**: it read the"
+     " strike entry, found the strike conditional, and did the work the condition names --"
+     " which is the b299 shape with the sign reversed, the command path reading the ferry and"
+     " finding the ORDER asking for a struck phrase. ### NO GRADE MOVES. ### M-2 UNCHANGED",
+     "data/b307_the_fold.txt; data/b307_census_before.txt; data/b307_census_after.txt;"
+     " data/STRUCK_CLAUSES.md (U-2); CORRESPONDENCE.md row 127"),
     # ### THE CORPUS'S DIFFERENCE IS NOT THE SOURCE'S (b306).
     ("the-difference", "b306 (a decision by definitions)",
      "is the corpus's cell-level imbalance the same object as CC's"

@@ -1,0 +1,56 @@
+﻿====================================================================================================
+b307_handoff_census.py -- CENSUS BEFORE. ### WHAT IS MISSING FROM `HANDOFF.md`, COUNTED.
+====================================================================================================
+  fixture                                                    got/exp        agree
+  finds an act id that is there                              True/True      YES
+  ### does NOT find one that is absent                       False/False    YES
+  ### and b30 is NOT found inside b300                       False/False    YES
+  ### nor b3 inside b307                                     False/False    YES
+  finds a work-order name                                    True/True      YES
+  ### does not find an absent work-order                     False/False    YES
+  census over empty text reports everything missing          True/True      YES
+  ### census over text naming one act drops it from missing  False/False    YES
+  self-test : PASS
+
+  ledger        : HANDOFF.md
+  bytes / lines : 482504 / 743
+
+  ### (1) THE ARC'S ACTS  -- 11 checked, 11 MISSING
+        ### MISSING  b297
+        ### MISSING  b298
+        ### MISSING  b299
+        ### MISSING  b300
+        ### MISSING  b301
+        ### MISSING  b302
+        ### MISSING  b303
+        ### MISSING  b304
+        ### MISSING  b305
+        ### MISSING  b306
+        ### MISSING  b307
+  ### (2) THE LIVE WORK-ORDERS -- 14 checked, 14 MISSING
+        ### MISSING  W-ORD-ARCH-NORM-READING
+        ### MISSING  W-ORD-TERM3-ROW
+        ### MISSING  W-ORD-UNIFORM-FORM
+        ### MISSING  W-ORD-FAMILY-OBJECT-DIVISION
+        ### MISSING  W-ORD-SMEAR-GROUP-SPLIT
+        ### MISSING  W-ORD-DIFFERENCE-CONTENT
+        ### MISSING  W-ORD-INSTRUMENT-Q-P
+        ### MISSING  W-ORD-SOURCE-METHOD-APPLICABILITY
+        ### MISSING  W-ORD-JUNCTION-LAST-PLACE
+        ### MISSING  W-ORD-ANCESTOR-ROW-b284
+        ### MISSING  W-ORD-OBJECT-CONDITION-COUNT
+        ### MISSING  W-ORD-DEBT-FRESHNESS
+        ### MISSING  W-ORD-HOOK-COVERAGE
+        ### MISSING  W-ORD-PRINT-COVERAGE
+  ### (3) THE ARC'S FINDINGS SECTION -- 1 checked, 1 MISSING
+        ### MISSING  THE ADELIC ARC, b297
+
+  ### ### **TOTAL MISSING : 26**
+  ### ### **THE PHRASE IS NOT LICENSED. ### THE ACT STATES WHAT IT WROTE AND WHAT
+  ### ### IT DID NOT CHECK, WHICH IS THE AUTHOR'S OWN REPLACEMENT.**
+
+  ### **AND WHAT THIS LICENSES IS ONE PHRASE ABOUT ONE LEDGER.** ### It says nothing
+  ### about `FINDINGS.md`, `REGISTRY.md`, `OPEN_TRAILS.md` or the desk, and it counts
+  ### NAMES rather than understanding. ### **A LEDGER NAMING EVERY ACT IN ONE LINE EACH
+  ### PASSES THIS CENSUS AND MAY STILL BE A BAD HANDOFF.**
+====================================================================================================
