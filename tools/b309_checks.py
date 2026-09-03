@@ -298,18 +298,45 @@ def main():
 
     # ### G-KERNEL -- ### **INVERTED FROM `G-NOBUILD`.**
     print('\n  G-KERNEL (INVERTED: the profile DOES move this act, so by how much and how):')
-    prof = io.open(PROFILE, 'rb').read()
-    phead = subprocess.run(['git', '-C', SIDE, 'show', 'HEAD:AXIOM_PRINTS.txt'],
-                           capture_output=True).stdout
+    # ### ### **TWO REPAIRS, BOTH FOUND BY RUNNING THE GATE AFTER THE COMMIT RATHER THAN ONLY
+    # ### ### BEFORE IT, AND BOTH DECLARED IN THE BANK.**
+    # ### (1) ### **THE BASELINE IS FOUND, NOT ASSUMED TO BE `HEAD`.** ### Before the commit `HEAD`
+    # ###     carries the pre-act profile; after it, `HEAD` carries this act's own. ### A gate
+    # ###     hard-wired to `HEAD` measures a different thing on either side of the commit and
+    # ###     reports `added 0` for a build that added three. ### The baseline is now the most
+    # ###     recent commit whose profile does NOT carry this act's namespace.
+    # ### (2) ### **LINE ENDINGS ARE NORMALISED BEFORE THE BYTE COMPARISON, THROUGH THE OWNER'S OWN
+    # ###     `normalise`, IMPORTED AND NOT COPIED.** ### `core.autocrlf` rewrites the working file
+    # ###     on checkout, so a raw comparison pits a CRLF working tree against an LF blob and fails
+    # ###     on a file git itself calls clean. ### **THIS NARROWS THE CHECK BY EXACTLY ONE THING --
+    # ###     THE LINE-ENDING FORM, WHICH IS GIT'S DOING AND NOT THE ACT'S -- AND IT STILL SEES A
+    # ###     BOM, A MOVED LINE AND ANY CONTENT CHANGE**, which is the b298 family it must keep
+    # ###     seeing.
+    sys.path.insert(0, os.path.join(ROOT, 'tools'))
+    import b302_kernel as KRN
+    prof = KRN.normalise(io.open(PROFILE, 'rb').read())
+    revs = subprocess.run(['git', '-C', SIDE, 'rev-list', 'HEAD', '--', 'AXIOM_PRINTS.txt'],
+                          capture_output=True, text=True).stdout.split()
+    phead, base_rev = None, None
+    for r in revs:
+        blob = subprocess.run(['git', '-C', SIDE, 'show', r + ':AXIOM_PRINTS.txt'],
+                              capture_output=True).stdout
+        if b'B309.' not in blob:
+            phead, base_rev = KRN.normalise(blob), r
+            break
+    if phead is None:
+        phead, base_rev = prof, 'NONE FOUND'
+    print('    baseline commit (most recent profile WITHOUT this act\'s namespace) : %s'
+          % base_rev[:7])
     prefix = prof.startswith(phead)
     lines_now = [ln for ln in prof.decode('utf-8').splitlines() if ln.strip()]
     lines_head = [ln for ln in phead.decode('utf-8').splitlines() if ln.strip()]
     added = len(lines_now) - len(lines_head)
     nonzero_axioms = [ln for ln in lines_now if 'does not depend on any axioms' not in ln]
     mine = [ln for ln in lines_now if 'B309.' in ln]
-    print('    prints at HEAD -> now : %d -> %d   (added %d)'
+    print('    prints at the baseline -> now : %d -> %d   (added %d)'
           % (len(lines_head), len(lines_now), added))
-    print('    HEAD profile is a TRUE BYTE PREFIX of the new one : %s  %s'
+    print('    the baseline profile is a TRUE BYTE PREFIX of the current one : %s  %s'
           % (prefix, 'PASS' if prefix else '### FAIL ###'))
     print('    terminals NOT printing zero axioms : %d  %s'
           % (len(nonzero_axioms), 'PASS' if not nonzero_axioms else '### FAIL ###'))

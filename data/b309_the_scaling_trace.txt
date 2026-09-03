@@ -404,6 +404,26 @@ ran).
 ### written at ONE only after the baseline had been shown to regenerate byte-identically at step
 ### zero. ### **A CAP PERMITTING A BUILD NOBODY HAS SHOWN CAN RUN IS A PROMISE, NOT A PERMISSION**,
 ### and b301's lesson -- a sealed cap must not forbid an ordered build -- is the other half of it.
+### ### ### **(D6) `G-KERNEL` PASSED BEFORE THE COMMIT AND FAILED AFTER IT, AND BOTH REASONS WERE
+### ### ### THIS SEAT'S.** ### The gate was run again after the push, which is the only reason
+### either was found.
+###   ### **(i) IT WAS HARD-WIRED TO `HEAD`.** ### Before the commit `HEAD` carries the pre-act
+###     profile; after it, `HEAD` carries this act's own. ### **SO THE GATE MEASURED A DIFFERENT
+###     THING ON EITHER SIDE OF THE COMMIT AND REPORTED `added 0` FOR A BUILD THAT ADDED THREE.**
+###     ### The baseline is now FOUND -- the most recent commit whose profile does not carry this
+###     act's namespace -- rather than assumed.
+###   ### **(ii) IT COMPARED A CRLF WORKING FILE AGAINST AN LF BLOB.** ### `core.autocrlf` rewrites
+###     the working file on checkout, so the raw byte comparison failed on a file `git status` calls
+###     CLEAN. ### **THAT IS THE b298 FAMILY EXACTLY: A BYTE CHECK DEFEATED BY A BYTE NOBODY MEANT
+###     TO WRITE.** ### Both sides are now normalised through `b302_kernel.normalise`, IMPORTED and
+###     not copied.
+### ### **AND THE NARROWING IS STATED RATHER THAN LEFT IMPLICIT: ### THE CHECK NOW IGNORES EXACTLY
+### ### ONE THING, THE LINE-ENDING FORM, WHICH IS GIT'S DOING AND NOT THIS ACT'S. ### IT STILL SEES
+### ### A BOM, A MOVED LINE, AND ANY CONTENT CHANGE**, which is what it exists to see.
+### ### **THE COMMITTED PROFILE WAS CORRECT THROUGHOUT** -- 33046 bytes, LF, byte-identical to what
+### the kernel tool wrote and verified. ### **THE DEFECT WAS IN THE GATE AND NOT IN THE BUILD**, and
+### it is declared here because a gate that only ever runs before its commit is a gate with an
+### untested half.
 ====================================================================================================
 
 ----------------------------------------------------------------------------------------------------
@@ -424,7 +444,7 @@ ran).
 ### ### AND THE CLAUSE IS STILL IN THE SEALED REGISTRATION.** ### An act that seals a prediction and
 ### then quietly edits it has sealed nothing.
 ### `G-KERNEL`, ### **INVERTED FROM `G-NOBUILD`: 470 -> 473 PRINTS, 3 ADDED, 0 NOT PRINTING ZERO
-### ### AXIOMS, AND THE HEAD PROFILE A TRUE BYTE PREFIX OF THE NEW ONE.** ### **A GATE COPIED
+### ### AXIOMS, AND THE BASELINE PROFILE A TRUE BYTE PREFIX OF THE NEW ONE** (D6). ### **A GATE COPIED
 ### FORWARD FROM b308 UNINVERTED WOULD HAVE FAILED THIS ACT FOR BUILDING WHAT IT WAS PERMITTED TO
 ### BUILD** -- b307's lesson met from the other side.
 ### `G-EXACT`: ### **0 FLOAT LITERALS, 0 FLOAT-PRODUCING CALLS** in either deciding file, the
@@ -443,7 +463,7 @@ ran).
 ### `G-SEAL`: ### **SEAL INTACT** -- and it matters more this act than usually, because the seal
 ### covers a prediction the run refuted in one clause.
 ### HEDGE AUDIT, over the bank, the registration, the components run and the kernel run:
-### ### **0 GRADED HEDGES** -- 743, 402, 449 and 77 sentences.
+### ### **0 GRADED HEDGES** -- 778, 402, 449 and 77 sentences.
 ### THE COMPUTATION: ### **44 CELL/POWER PAIRS, 34 BY BOTH ROUTES AND 10 BY ROUTE B ONLY, 0
 ### ### DISAGREEING, 0 NONZERO; 22 FUNCTIONAL-EQUATION PAIRS, 0 FAILING; 0 CELL/POWER PAIRS WHERE
 ### ### THE MECHANISM FAILS; 0 WHERE THE CLOSED FORM DISAGREES WITH THE BUILT PROJECTOR.**

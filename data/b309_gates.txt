@@ -101,8 +101,9 @@ b309 -- GATE SUITE (A COMPUTATION THAT BUILT A SHADOW)
     ### **AN ACT THAT SEALS A PREDICTION AND THEN QUIETLY EDITS IT HAS SEALED NOTHING.**
 
   G-KERNEL (INVERTED: the profile DOES move this act, so by how much and how):
-    prints at HEAD -> now : 470 -> 473   (added 3)
-    HEAD profile is a TRUE BYTE PREFIX of the new one : True  PASS
+    baseline commit (most recent profile WITHOUT this act's namespace) : 40285ee
+    prints at the baseline -> now : 470 -> 473   (added 3)
+    the baseline profile is a TRUE BYTE PREFIX of the current one : True  PASS
     terminals NOT printing zero axioms : 0  PASS
     this act's own terminals in the profile : 3
         'B309.frame_arithmetic' does not depend on any axioms
@@ -158,9 +159,9 @@ b309 -- GATE SUITE (A COMPUTATION THAT BUILT A SHADOW)
     UNEXPECTED : 0 []  PASS
 
   G-TOOLNUM:
-    the frames, the closed form, the two routes and the fold tools/b309_scaling_trace.py          exists=True tracked=False
-    every table and every verdict in the components          tools/b309_components.py             exists=True tracked=False
-    the shadow build, the profile and the byte comparisons   tools/b309_kernel.py                 exists=True tracked=False
+    the frames, the closed form, the two routes and the fold tools/b309_scaling_trace.py          exists=True tracked=True
+    every table and every verdict in the components          tools/b309_components.py             exists=True tracked=True
+    the shadow build, the profile and the byte comparisons   tools/b309_kernel.py                 exists=True tracked=True
     the byte checks the kernel tool imports                  tools/b302_kernel.py                 exists=True tracked=True
     the frame, the ball and the embedding law                tools/b308_local_field.py            exists=True tracked=True
     the projector, the unit trace and the permutation test   tools/b304_smearing.py               exists=True tracked=True
@@ -168,13 +169,13 @@ b309 -- GATE SUITE (A COMPUTATION THAT BUILT A SHADOW)
     what is missing from the ledger, counted                 tools/b307_handoff_census.py         exists=True tracked=True
     the shared-target sweep's hits and their attribution     tools/b306_stem_scope.py             exists=True tracked=True
     the ahead/behind pairs and the pins                      tools/b303_pins.py                   exists=True tracked=True
-    the artifact-count prediction demand (ruling 1)          tools/b309_regspec.py                exists=True tracked=False
+    the artifact-count prediction demand (ruling 1)          tools/b309_regspec.py                exists=True tracked=True
     the satisfiability verdict over the declared caps        tools/reg_satisfiable.py             exists=True tracked=True
     the ferry scan's entry/pattern/hit counts                tools/ferry_scan.py                  exists=True tracked=True
     the banned/retired stem counts                           tools/banned_terms.py                exists=True tracked=True
-    the gate, needle and hedge counts                        tools/b309_checks.py                 exists=True tracked=False
-    the correspondence rows' numbers and their read-back     tools/b309_correspondence.py         exists=True tracked=False
-    the index keys' read-back and must-not-hit arms          tools/b309_index_append.py           exists=True tracked=False
+    the gate, needle and hedge counts                        tools/b309_checks.py                 exists=True tracked=True
+    the correspondence rows' numbers and their read-back     tools/b309_correspondence.py         exists=True tracked=True
+    the index keys' read-back and must-not-hit arms          tools/b309_index_append.py           exists=True tracked=True
     the registration's seal hash                             tools/reg_seal.py                    exists=True tracked=True
     numbers with no committed producer : 0  PASS
 
@@ -184,7 +185,7 @@ b309 -- GATE SUITE (A COMPUTATION THAT BUILT A SHADOW)
     ### RUN REFUTED IN ONE CLAUSE.**
 
   HEDGE AUDIT (over every file this act wrote):
-    the bank                 sentences=743   graded-hedges=0   ungraded-shapes=140
+    the bank                 sentences=778   graded-hedges=0   ungraded-shapes=153
     the registration         sentences=402   graded-hedges=0   ungraded-shapes=75
     the run                  sentences=449   graded-hedges=0   ungraded-shapes=76
     the kernel run           sentences=77    graded-hedges=0   ungraded-shapes=9
