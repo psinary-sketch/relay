@@ -1,0 +1,27 @@
+﻿====================================================================================================
+b309 -- THE INDEX KEYS. ### THE TRACE, AND THE MECHANISM.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    zero                   NO KEY before : True
+    the trace              NO KEY before : True
+  scaling-trace              key/row already present : False / False
+  no-offball-fixed-point     key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    scaling-trace              returns a row : True  PASS
+    no-offball-fixed-point     returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the scaling trace            now reaches a row : True  PASS
+    the compressed trace         now reaches a row : True  PASS
+    the smeared trace            now reaches a row : True  PASS
+    the fixed point              now reaches a row : True  PASS
+    the mechanism                now reaches a row : True  PASS
+    the unit argument            now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    zero                   still NO KEY : True   (and was before : True)  PASS
+    the trace              still NO KEY : True   (and was before : True)  PASS
+  ### **`zero` AND `the trace` STAY UNKEYED: one is a VALUE and the other is a GENERIC
+  ### OBJECT this record takes many of** -- b202's reason, and b164's limit is not
+  ### retired: KEYS CLOSE FALSE HITS, NOT FALSE MISSES.
+  ### THE INDEX SWEPT AFTER THE WRITE (b305's defect, not repeated) : 0 stem hit(s)
+====================================================================================================

@@ -1,0 +1,363 @@
+====================================================================================================
+b309 -- THE SCALING TRACE. ### THE COMPONENTS, IN ORDER.
+====================================================================================================
+  ### THE FIXTURES OF EVERY FILE USED IN A VERDICT, RUN BEFORE ANY OF THEM IS TRUSTED:
+    b309_scaling_trace : PASS    b308_local_field : PASS    b304_smearing : PASS
+
+  ### THE OWNERS, PULLED FROM THE FILES THAT EMIT THEM:
+  b304 -- THE REFUSAL THIS ACT LIFTS, IN b304's OWN WORDS (its tool is the emitter)
+      ### ### ### **THEREFORE THIS FILE COMPUTES THE `Z_p^x` PART EXACTLY AND REFUSES THE `p^Z` PART**,
+  b304 -- WHY THE MODEL COULD NOT CARRY THE SCALING PART (its tool is the emitter)
+      ### ### **SO THE MODEL CANNOT CARRY THE NON-UNIT PART OF `Q_p^x` WITHOUT THE ARTIFACT.**
+  b21  -- THE CHART AND THE HAAR NORMALIZATION
+      via x = p^(-n) m; Haar measure (Z_p mass 1) gives each chart point mass p^(-n) --
+  b21  -- THE GENUINE SCALING, AND ITS ESCAPE
+      ###   exactly ... `supp(U f) = p^(-n-1)Z_p`, strictly bigger than `p^(-n)Z_p`. ### THE MODEL'S
+  b280 -- THE HAAR BRIDGE THAT MAKES THE FIRST CONDITION AN `L^2` CONDITION
+      ### ### **IT IS NOT.** ### The bridge is b21's Haar normalization: a chart point `m` at level `n`
+  b280 -- THE NOT-DEAD DISCIPLINE, AND ITS `UNAVAILABLE` ARM AT LEVEL 1
+      ### at `n = 1` there is ### **NO `k < n` AT ALL.** ### The first draft searched `k = 1..n` and so
+  b293 -- THE BALL OF EXPONENT `e`
+      ### ### **THE BALL OF EXPONENT `e`:** ### `B_e := { m : v_p(m) >= n - e }`. ### In b21's chart
+  b295 -- THE BARRIER STATEMENT THIS ACT NEITHER EXTENDS NOR WEAKENS
+      ### ### AND PAIRINGS OF THIS SHAPE** ### -- b273's `A` at `k = n`, at a finite place, at one level.
+  b308 -- THE FRAME LAW FOR THE SCALING PART
+      ### ### ### **`theta(p^k) : V(r,s) -> V(r-k, s+k)` ### -- BOTH RADII MOVE, THEIR SUM DOES NOT, AND
+  b308 -- THE COMPUTATION THIS ACT PERFORMS, NAMED THERE AND LEFT UNDONE
+      ### WHAT THE NEXT ACT MAY COMPUTE ON IT. ### **NAMED, AND NOT COMPUTED.**
+  ### OWNER SENTENCES PULLED : 10   ### UNPULLABLE : 0
+
+====================================================================================================
+### COMPONENT 1 -- THE OBJECT COMPUTED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE FRAME ALGEBRA, STATED BEFORE ANY VALUE IS READ.
+----------------------------------------------------------------------------------------------------
+  ### `theta(p^k)` carries `V(n,n)` to `V(n-k, n+k)`, so the composed map is ### NOT AN
+  ### ENDOMORPHISM OF ANY SINGLE FRAME ### and its trace is undefined until an ambient is
+  ### named. ### **THE SMALLEST FRAME CONTAINING BOTH IS `W = V(max(n,n-k), max(n,n+k))`**,
+  ### since `V(r,s)` sits inside `V(r',s')` exactly when BOTH radii grow.
+  ### ### **AND THE SECOND QUESTION THE ORDER PUTS FIRST: CAN THE PROJECTION MEET ITS
+  ### ### IMAGE AT ALL?** ### `Son` vanishes on the ball, so its support sits at
+  ### `|x| = p^s` for `s` in `[1, n]`; the image's sits at `s` in `[1+k, n+k]`.
+  ### **THE TWO RANGES MEET EXACTLY WHEN `|k| <= n-1`**, and that is asked here BOTH by
+  ### the exponent ranges AND by intersecting the actual index sets in `W`.
+
+  cell     k     source       target       ambient W    exponent ranges  index sets     regime
+  (2,1)    -1    V(1,1)       V(2,0)       V(2,1)       DISJOINT         DISJOINT       A -- disjoint
+  (2,1)    +1    V(1,1)       V(0,2)       V(1,2)       DISJOINT         DISJOINT       A -- disjoint
+  (2,2)    -2    V(2,2)       V(4,0)       V(4,2)       DISJOINT         DISJOINT       A -- disjoint
+  (2,2)    -1    V(2,2)       V(3,1)       V(3,2)       MEET             MEET           B -- they meet
+  (2,2)    +1    V(2,2)       V(1,3)       V(2,3)       MEET             MEET           B -- they meet
+  (2,2)    +2    V(2,2)       V(0,4)       V(2,4)       DISJOINT         DISJOINT       A -- disjoint
+  (3,1)    -1    V(1,1)       V(2,0)       V(2,1)       DISJOINT         DISJOINT       A -- disjoint
+  (3,1)    +1    V(1,1)       V(0,2)       V(1,2)       DISJOINT         DISJOINT       A -- disjoint
+  (3,2)    -2    V(2,2)       V(4,0)       V(4,2)       DISJOINT         DISJOINT       A -- disjoint
+  (3,2)    -1    V(2,2)       V(3,1)       V(3,2)       MEET             MEET           B -- they meet
+  (3,2)    +1    V(2,2)       V(1,3)       V(2,3)       MEET             MEET           B -- they meet
+  (3,2)    +2    V(2,2)       V(0,4)       V(2,4)       DISJOINT         DISJOINT       A -- disjoint
+  (5,1)    -1    V(1,1)       V(2,0)       V(2,1)       DISJOINT         DISJOINT       A -- disjoint
+  (5,1)    +1    V(1,1)       V(0,2)       V(1,2)       DISJOINT         DISJOINT       A -- disjoint
+  (7,1)    -1    V(1,1)       V(2,0)       V(2,1)       DISJOINT         DISJOINT       A -- disjoint
+  (7,1)    +1    V(1,1)       V(0,2)       V(1,2)       DISJOINT         DISJOINT       A -- disjoint
+  (2,3)    -3    V(3,3)       V(6,0)       V(6,3)       DISJOINT         DISJOINT       A -- disjoint
+  (2,3)    -2    V(3,3)       V(5,1)       V(5,3)       MEET             MEET           B -- they meet
+  (2,3)    -1    V(3,3)       V(4,2)       V(4,3)       MEET             MEET           B -- they meet
+  (2,3)    +1    V(3,3)       V(2,4)       V(3,4)       MEET             MEET           B -- they meet
+  (2,3)    +2    V(3,3)       V(1,5)       V(3,5)       MEET             MEET           B -- they meet
+  (2,3)    +3    V(3,3)       V(0,6)       V(3,6)       DISJOINT         DISJOINT       A -- disjoint
+  ### **THE TWO ROUTES TO THE SAME PREDICATE DISAGREE AT : 0 CELL/POWER PAIRS.**
+  ### ### **SO REGIME A (`|k| >= n`) IS A SUPPORT SEPARATION AND ANY ZERO THERE IS
+  ### ### UNDERSTOOD BEFORE IT IS SEEN. ### REGIME B (`1 <= |k| <= n-1`) IS WHERE THE
+  ### ### PROJECTION AND ITS IMAGE GENUINELY OVERLAP, AND A ZERO THERE WOULD NEED A
+  ### ### REASON THAT IS NOT THE FRAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE CONTROLS, IN BOTH POLARITIES, BEFORE ANY SCALING VALUE IS READ.
+----------------------------------------------------------------------------------------------------
+  ### **A SUITE OF ZEROS WITH NO NONZERO IN IT IS A DEAD INSTRUMENT REPORTING.** ### The
+  ### known-NONZERO case is `k = 0`, where the trace is b304's not-dead witness; the
+  ### known-ZERO case is a unit whose trace b304's own function returns as zero.
+  cell     Tr(Pi) built     the law        a unit with trace zero     closed form agrees
+  (2,1)    1 NONZERO        (p^n-1)^2 = 1 AGREE ### UNAVAILABLE -- none    n/a
+  (2,2)    9 NONZERO        (p^n-1)^2 = 9 AGREE ### UNAVAILABLE -- none    n/a
+  (3,1)    4 NONZERO        (p^n-1)^2 = 4 AGREE t = 2, Tr = 0              YES, also 0
+  (3,2)    64 NONZERO       (p^n-1)^2 = 64 AGREE t = 2, Tr = 0              YES, also 0
+  (5,1)    16 NONZERO       (p^n-1)^2 = 16 AGREE t = 2, Tr = 0              YES, also 0
+  (7,1)    36 NONZERO       (p^n-1)^2 = 36 AGREE t = 2, Tr = 0              YES, also 0
+  (2,3)    49 NONZERO       (p^n-1)^2 = 49 AGREE ### UNAVAILABLE -- none    n/a
+  ### **AND THE `UNAVAILABLE` ARM, WHICH IS NOT A PASS:** ### at level 1 regime B is
+  ### EMPTY -- there is no `k` with `1 <= |k| <= n-1` -- so the not-dead witness for the
+  ### overlapping regime ### **CANNOT EXIST THERE AND IS REPORTED AS UNAVAILABLE.** ### That
+  ### is b280's own shape: its first draft would have tested `k = n` as its own witness at
+  ### level 1 and reported the dead value as the live one.
+    (2,1) : regime B is EMPTY -- ### **UNAVAILABLE, NOT A PASS**
+    (3,1) : regime B is EMPTY -- ### **UNAVAILABLE, NOT A PASS**
+    (5,1) : regime B is EMPTY -- ### **UNAVAILABLE, NOT A PASS**
+    (7,1) : regime B is EMPTY -- ### **UNAVAILABLE, NOT A PASS**
+
+----------------------------------------------------------------------------------------------------
+### (1c) `F1` -- THE CLOSED FORM AGAINST THE BUILT PROJECTOR, ENTRY BY ENTRY.
+----------------------------------------------------------------------------------------------------
+  ### The registration's `(P1)`, under seal: `Pi` is zero on any row or column lying on
+  ### the ball, and `[i=j] - (1/q)[i = j mod q]` off it. ### **ROUTE B USES THIS AND ROUTE A
+  ### DOES NOT**, so it is checked against b304's Gram-Schmidt projector before it is used.
+  cell     N          entries compared disagreeing        trace from the form
+  (2,1)    4          16               0 PASS             1 (dimension law 1)
+  (2,2)    16         256              0 PASS             9 (dimension law 9)
+  (3,1)    9          81               0 PASS             4 (dimension law 4)
+  (3,2)    81         6561             0 PASS             64 (dimension law 64)
+  (5,1)    25         625              0 PASS             16 (dimension law 16)
+  (7,1)    49         2401             0 PASS             36 (dimension law 36)
+  (2,3)    64         4096             0 PASS             49 (dimension law 49)
+  ### **THE TRACE OF THE CLOSED FORM IS `(p^{2n} - p^n)(1 - p^{-n}) = (p^n - 1)^2`** --
+  ### the dimension law, arrived at from the PROJECTOR rather than from the count, which is
+  ### the first check this seat ran on paper and the reason the form was trusted enough to
+  ### be sealed.
+
+----------------------------------------------------------------------------------------------------
+### (1d) `F2` -- THE AMBIENT: THE EMBEDDING AND THE SCALING, AS EXACT IDENTITIES.
+----------------------------------------------------------------------------------------------------
+  ### **THE EMBEDDING MUST PRESERVE THE HAAR INNER PRODUCT EXACTLY** -- it is a change of
+  ### chart, not a change of function -- and ### **`theta(p^k)` MUST SCALE IT BY EXACTLY
+  ### `p^{-k}`**, which is `|p^k|` and is the statement that the action is unitary after
+  ### b21's normalization. ### Both are checked on the object's own vectors.
+  cell     k     embedding preserves <,>        theta scales by p^{-k}
+  (2,1)    -1    YES, exactly                   YES, exactly
+  (2,1)    +1    YES, exactly                   YES, exactly
+  (2,2)    -1    YES, exactly                   YES, exactly
+  (2,2)    +1    YES, exactly                   YES, exactly
+  (3,1)    -1    YES, exactly                   YES, exactly
+  (3,1)    +1    YES, exactly                   YES, exactly
+  (3,2)    -1    YES, exactly                   YES, exactly
+  (3,2)    +1    YES, exactly                   YES, exactly
+  (5,1)    -1    YES, exactly                   YES, exactly
+  (5,1)    +1    YES, exactly                   YES, exactly
+  (7,1)    -1    YES, exactly                   YES, exactly
+  (7,1)    +1    YES, exactly                   YES, exactly
+  (2,3)    -1    YES, exactly                   YES, exactly
+  (2,3)    +1    YES, exactly                   YES, exactly
+  ### **CELL/POWER PAIRS WHERE EITHER IDENTITY FAILS : 0**
+
+----------------------------------------------------------------------------------------------------
+### (1e) THE TRACE ITSELF, BOTH ROUTES, AT EVERY NONZERO POWER.
+----------------------------------------------------------------------------------------------------
+  ### **ROUTE A** builds the projector in the ambient by Gram-Schmidt and sums the
+  ### diagonal of the composed matrix; it assumes NOTHING about `Pi`'s shape. ### **ROUTE
+  ### B** is the registration's reduction against the closed form. ### Where the ambient
+  ### exceeds 1024 chart points ### **ROUTE A IS OUT OF REACH AND THE ACT SAYS SO**
+  ### rather than dropping the second route quietly.
+
+  cell     k     regime    ROUTE A          ROUTE B          agree        composed operator  ambient grid
+  (2,1)    -2    A         0                0                YES          ZERO operator      16
+  (2,1)    -1    A         0                0                YES          ZERO operator      8
+  (2,1)    +1    A         0                0                YES          ZERO operator      8
+  (2,1)    +2    A         0                0                YES          ZERO operator      16
+  (2,2)    -2    A         0                0                YES          ZERO operator      64
+  (2,2)    -1    B         0                0                YES          ALIVE (10 of 9^2)  32
+  (2,2)    +1    B         0                0                YES          ALIVE (10 of 9^2)  32
+  (2,2)    +2    A         0                0                YES          ZERO operator      64
+  (3,1)    -2    A         0                0                YES          ZERO operator      81
+  (3,1)    -1    A         0                0                YES          ZERO operator      27
+  (3,1)    +1    A         0                0                YES          ZERO operator      27
+  (3,1)    +2    A         0                0                YES          ZERO operator      81
+  (3,2)    -2    A         0                0                YES          ZERO operator      729
+  (3,2)    -1    B         0                0                YES          ALIVE (144 of 64^2) 243
+  (3,2)    +1    B         0                0                YES          ALIVE (144 of 64^2) 243
+  (3,2)    +2    A         0                0                YES          ZERO operator      729
+  (5,1)    -2    A         0                0                YES          ZERO operator      625
+  (5,1)    -1    A         0                0                YES          ZERO operator      125
+  (5,1)    +1    A         0                0                YES          ZERO operator      125
+  (5,1)    +2    A         0                0                YES          ZERO operator      625
+  (7,1)    -2    A         out of reach     0                route A only not formed         2401
+  (7,1)    -1    A         0                0                YES          ZERO operator      343
+  (7,1)    +1    A         0                0                YES          ZERO operator      343
+  (7,1)    +2    A         out of reach     0                route A only not formed         2401
+  (2,3)    -3    A         0                0                YES          ZERO operator      512
+  (2,3)    -2    B         0                0                YES          ALIVE (52 of 49^2) 256
+  (2,3)    -1    B         0                0                YES          ALIVE (162 of 49^2) 128
+  (2,3)    +1    B         0                0                YES          ALIVE (162 of 49^2) 128
+  (2,3)    +2    B         0                0                YES          ALIVE (52 of 49^2) 256
+  (2,3)    +3    A         0                0                YES          ZERO operator      512
+
+  ### ### **AND THE COLUMN THAT REFUTES A CLAUSE OF THIS ACT'S OWN SEALED PREDICTION.**
+  ### `(P4)` says that in regime A ### **"THE COMPOSED OPERATOR IS IDENTICALLY ZERO, NOT
+  ### MERELY TRACELESS"**. ### **THAT NAMES THE WRONG OPERATOR.** ### `theta(p^k) Pi` maps
+  ### `Son` onto its image and that image is NOT zero -- it is ### ORTHOGONAL ### to `Son`,
+  ### which is a different thing. ### **WHAT DISJOINT SUPPORTS KILL IS THE COMPRESSION
+  ### `Pi theta(p^k) Pi`**, and the column above is that operator, measured.
+  ### ### **THE PREDICTION'S MATHEMATICAL CONTENT SURVIVES AND ITS WORDING DOES NOT, AND
+  ### ### THE RUN IS WHAT SAID SO. ### THE SEAL IS NOT EDITED.**
+  ### ### **AND IN REGIME B THE COMPRESSION IS ALIVE AND ITS TRACE IS ZERO** -- which is
+  ### the not-dead witness the order asked for, in its strongest available form: ### **NOT
+  ### A ZERO OPERATOR REPORTING A ZERO TRACE, BUT A LIVE ONE.**
+
+  ### **CELL/POWER PAIRS COMPUTED BY BOTH ROUTES : 34   ### BY ROUTE B ONLY : 10**
+  ### **ROUTES DISAGREEING : 0**
+  ### ### **NONZERO TRACES FOUND : 0**
+
+----------------------------------------------------------------------------------------------------
+### (1f) `F4` -- THE FUNCTIONAL EQUATION BETWEEN THE TWO DIRECTIONS.
+----------------------------------------------------------------------------------------------------
+  ### The registration's `(P3)` derives `Tr(theta(p^k) Pi) = p^{-k} Tr(theta(p^{-k}) Pi)`
+  ### from the frame algebra alone. ### **IT IS CHECKED HERE AND NOT ASSUMED**, and at
+  ### these values it is the relation `0 = p^{-k} * 0`, which is TRUE AND SAYS LITTLE --
+  ### ### **A RELATION BETWEEN TWO ZEROS IS SATISFIED BY ANY SCALAR, AND THE ACT SAYS SO
+  ### ### RATHER THAN COUNTING IT AS EVIDENCE.**
+  ### **PAIRS CHECKED : 22   ### FAILING : 0**
+
+====================================================================================================
+### COMPONENT 2 -- THE MECHANISM.
+====================================================================================================
+  ### ### **COMPONENT 1 RETURNED EXACTLY ZERO AT EVERY CELL AND EVERY NONZERO POWER.**
+  ### So the derivation owed is the zero branch, and it is a ### BARRIER STATEMENT ### with
+  ### its scope printed beside it.
+
+----------------------------------------------------------------------------------------------------
+### (2a) TWO REGIMES, TWO MECHANISMS -- AND THE SECOND IS THE ONE THAT MATTERS.
+----------------------------------------------------------------------------------------------------
+  ### ### **REGIME A (`|k| >= n`) -- A SUPPORT SEPARATION.** ### `Son` vanishes on the
+  ###   ball, so its support sits at `|x| = p^s` with `s` in `[1, n]`; `theta(p^k)`
+  ###   multiplies every absolute value by `p^k`, putting the image at `[1+k, n+k]`.
+  ###   ### **FOR `|k| >= n` THESE ARE DISJOINT AND THE COMPOSED OPERATOR IS IDENTICALLY
+  ###   ### ZERO -- NOT MERELY TRACELESS.** ### That is the object's FIRST condition and
+  ###   the level, and nothing else.
+  ### ### **REGIME B (`1 <= |k| <= n-1`) -- THE SUPPORTS MEET AND THE TRACE IS STILL
+  ###   ### ZERO.** ### By the closed form and the reduction, the trace is
+  ###   ### **`SUM over t off the ball of ( [ (p^j - 1) t = 0 mod N ]
+  ###   ###   - (1/q) [ (p^j - 1) t = 0 mod q ] )`,** ### `j = |k|`, `q = p^n`,
+  ###   `N = p^{2n}`.
+  ###   ### ### **AND `p^j - 1` IS A UNIT.** ### It is coprime to `p`, so each congruence
+  ###   forces `t = 0` modulo `N` and modulo `q` respectively -- ### **AND BOTH OF THOSE
+  ###   ### SETS ARE EXACTLY THE BALL, WHICH THE SUM EXCLUDES.** ### Both counts are zero.
+
+  ### **THE MECHANISM, IN ONE SENTENCE: ### THE SCALING MAP HAS NO FIXED POINT OFF THE
+  ### BALL, IN EITHER CONGRUENCE, BECAUSE `p^j - 1` IS INVERTIBLE -- AND THE ONLY FIXED
+  ### POINT IT HAS IS THE ONE PLACE THE OBJECT IS REQUIRED TO VANISH.**
+
+  ### **THE ARITHMETIC CORE, MEASURED AT EVERY CELL AND POWER RATHER THAN ASSERTED:**
+  cell     j     gcd(p^j-1,N)   gcd(p^j-1,q)   off-ball fixed points  both counts
+  (2,1)    1     1              1              0 and 0                both zero
+  (2,1)    2     1              1              0 and 0                both zero
+  (2,2)    1     1              1              0 and 0                both zero
+  (2,2)    2     1              1              0 and 0                both zero
+  (3,1)    1     1              1              0 and 0                both zero
+  (3,1)    2     1              1              0 and 0                both zero
+  (3,2)    1     1              1              0 and 0                both zero
+  (3,2)    2     1              1              0 and 0                both zero
+  (5,1)    1     1              1              0 and 0                both zero
+  (5,1)    2     1              1              0 and 0                both zero
+  (7,1)    1     1              1              0 and 0                both zero
+  (7,1)    2     1              1              0 and 0                both zero
+  (2,3)    1     1              1              0 and 0                both zero
+  (2,3)    2     1              1              0 and 0                both zero
+  ### **CELL/POWER PAIRS WHERE THE MECHANISM FAILS : 0**
+
+----------------------------------------------------------------------------------------------------
+### (2b) IS IT A PROPERTY OF THE CONDITIONS OR OF THE CELLS? ### **BY DERIVATION.**
+----------------------------------------------------------------------------------------------------
+  ### ### **OF THE CONDITIONS.** ### Every step of (2a) is general in `p`, `n` and `j`:
+  ###   the closed form of `Pi` is built from the object's TWO CONDITIONS and nothing
+  ###     else -- the ball coordinates and the residue-class indicators mod `q`, whose
+  ###     class of `0` IS the ball;
+  ###   the reduction to a sum over `Z/N` is the frame algebra, which is general;
+  ###   and `p^j - 1` is coprime to `p` for every prime `p` and every `j >= 1`.
+  ### ### **NO STEP MENTIONS A CELL.** ### The sweep above is a CHECK on a derivation, not
+  ### the derivation itself, and the act says which is which because ### **A SWEEP OVER
+  ### SEVEN CELLS IS NOT A PROOF OVER ALL OF THEM.**
+
+----------------------------------------------------------------------------------------------------
+### (2c) THE SCOPE OF THE BARRIER STATEMENT, PRINTED WITH IT.
+----------------------------------------------------------------------------------------------------
+  ### **WHICH MAP:** ### `theta(p^k)`, the scaling part of `Q_p^x`, composed with the
+  ###   orthogonal projection onto `Son(p,n)` -- the object's OWN space, the diagonal
+  ###   member `(0,0)` of b293's family, and no other member.
+  ### **WHICH FRAMES:** ### from `V(n,n)` to `V(n-k, n+k)`, traced in the smallest ambient
+  ###   containing both. ### **A DIFFERENT AMBIENT IS A DIFFERENT NUMBER AND THE ACT DOES
+  ###   NOT CLAIM OTHERWISE.**
+  ### **WHAT IT DOES NOT SAY:**
+  ###   ### **NOTHING ABOUT THE ARCHIMEDEAN PLACE** -- b285's boundary stands, no
+  ###     finite-side structural fact types at infinity, and this one does not either.
+  ###   ### **NOTHING ABOUT THE IDENTITY, ABOUT `h2`, OR ABOUT THE COMPLETE ROSTER.**
+  ###   ### **NOTHING ABOUT b273's `A` AT `k = n`.** ### That operator pairs the object's
+  ###     space against itself through a compression; this one traces a group action
+  ###     against a projection. ### **THE BARRIER AND THE COMPRESSION ARE NEITHER EXTENDED
+  ###     NOR WEAKENED HERE**, and the two must not be read as one statement.
+  ###   ### **NOTHING ABOUT ANY OTHER FUNCTIONAL ON THIS INSTRUMENT.** ### The vanishing
+  ###     of one trace is a statement about one trace.
+  ###   ### **AND NOTHING ABOUT THE SOURCE'S FUNCTIONAL.** ### The source smears against a
+  ###     test function over the whole group; ### **A VANISHING OF EVERY INDIVIDUAL TERM
+  ###     IS A STATEMENT ABOUT TERMS, AND WHAT FOLLOWS FOR A SUM IS NOT CLAIMED HERE.**
+  ### ### **AND THE READING THE ACT REFUSES IN BOTH DIRECTIONS: ### A ZERO IS NOT A ROUTE
+  ### ### AND IT IS NOT AN ANTI-ROUTE.** ### The order forbids reading a nonzero as a
+  ### route; this act adds that the converse reading is forbidden too.
+
+====================================================================================================
+### COMPONENT 3 -- THE SMEARED FORM.
+====================================================================================================
+  ### ### **THE ORDER MAKES THIS COMPONENT CONDITIONAL AND THE CONDITION IS NOT MET.**
+  ### *"only if Component 1 is nonzero somewhere ... If Component 1 is zero everywhere, say
+  ### plainly that there is nothing to smear and stop."*
+  ### ### **COMPONENT 1 IS ZERO EVERYWHERE. ### THERE IS NOTHING TO SMEAR. ### THIS
+  ### ### COMPONENT STOPS HERE.**
+  ### **AND WHAT IS THEREFORE NOT DONE, SAID RATHER THAN LEFT TO BE INFERRED:** ### no test
+  ### function is chosen, no class is stated, no price is quoted, no compressed value is
+  ### computed, and b262's mass is not named even as context -- ### **BECAUSE NAMING IT
+  ### BESIDE A COMPONENT THAT DID NOT RUN WOULD BE CONTEXT FOR NOTHING.**
+
+====================================================================================================
+### COMPONENT 4 -- WHAT IT DOES AND DOES NOT DO.
+====================================================================================================
+  ### ### **WHAT IT DOES.**
+  ###   ### It computes, for the first time in this record, ### **THE COMPRESSION OF THE
+  ###     SCALING PART OF `Q_p^x` AGAINST THE OBJECT'S PROJECTION** -- the quantity b304
+  ###     refused because the model folds it, at every nonzero power in `[-2n, 2n]` at
+  ###     seven banked cells, exactly, by two independent routes wherever both are in
+  ###     reach.
+  ###   ### It returns ### **EXACTLY ZERO EVERYWHERE**, and it derives WHY in two regimes:
+  ###     a support separation above the level, and ### **THE INVERTIBILITY OF `p^j - 1`
+  ###     BELOW IT.**
+  ###   ### It gives a definite meaning to a sum b304 could only write formally, because
+  ###     at a non-unit the model's inverse does not exist.
+  ### ### **WHAT IT DOES NOT DO.**
+  ###   ### **IT DOES NOT DECIDE ANYTHING THE MODEL LEFT OPEN.** ### The instrument
+  ###     reproduces the model where the model was right and sees one direction further.
+  ###     ### **SEEING FURTHER IS NOT DECIDING.**
+  ###   ### **IT DOES NOT TOUCH THE BARRIER OR THE COMPRESSION**, which are statements
+  ###     about the pairing of the object's space against the top-level power.
+  ###   ### **IT DOES NOT CLAIM A ROUTE IN EITHER DIRECTION**, and it does not state an
+  ###     aggregation. ### `M-2` is owed.
+  ###   ### **IT DOES NOT REMOVE THE TRUNCATION.** ### b308's limit stands: untying the
+  ###     radii removed the wraparound and left the truncation exactly where it was.
+
+----------------------------------------------------------------------------------------------------
+### (4a) THE EXPOSURE OF THIS ACT'S OWN NUMBERS, BY CALL PATH.
+----------------------------------------------------------------------------------------------------
+  ### The arm is b308's, imported: a ### NON-UNIT PUSHFORWARD SITE ### is a line reducing
+  ### the product of a grid index with a power of the residue characteristic modulo the
+  ### grid size. ### **IT FINDS A SHAPE; THE SEAT RULES.**
+  tools/b309_scaling_trace.py          1      THE COMPUTATION
+        line 249   trace_route_b              s += son_projector_closed(p, n, t, (p ** j * t) % N)
+  tools/b309_components.py             0      THIS RUNNER
+  tools/b308_local_field.py            4      b308 -- the frame, the ball, the embedding law
+        line 363   model_pushforward_fibers   img.setdefault((pk * m) % N, 0)
+        line 364   model_pushforward_fibers   img[(pk * m) % N] += 1
+        line 527   self_test                  bool(PUSHFORWARD.search('        l = (pk * m) % N')), True)
+        line 529   self_test                  bool(PUSHFORWARD.search('        m2 = (p * m) % N')), True)
+  tools/b304_smearing.py               0      b304 -- the projector and the unit trace
+  tools/b303_family.py                 0      b293/b303 -- the conditions and the nullspace
+
+  ### ### **THE READING, AND IT IS THIS SEAT'S:**
+  ### **`b309_scaling_trace.py` -- THE SITES ARE IN THE REDUCED SUM AND IN THE MECHANISM'S
+  ###   OWN COUNTS, AND NEITHER IS A FOLD.** ### `(p^j t) mod N` there is not a function
+  ###   being transported: it is ### **AN INDEX OF THE PROJECTOR BEING LOOKED UP**, and the
+  ###   reduction that produced it was derived in the ambient where nothing folds.
+  ###   ### **THE TRANSPORT ITSELF -- `scaling_column` -- CARRIES NO SUCH SITE: IT DIVIDES
+  ###   ### THE INDEX OR LEAVES IT ALONE, AND NEVER MULTIPLIES IT.** ### That is the
+  ###   mechanical form of b308's finding and it is visible in the printed lines.
+  ### **`b304_smearing.py` AND `b303_family.py` -- 0 SITES**, as at b308.
+  ### ### **AND THE DISTINCTION THIS ACT ADDS TO b308's:** ### a row of the scaling map
+  ### has ### AT MOST ONE ENTRY ### . ### **A FOLD REQUIRES TWO VALUES ARRIVING AT ONE
+  ### INDEX AND BEING ADDED; A MAP WITH ONE ENTRY PER ROW CANNOT DO THAT**, and that is
+  ### checked in this file's own fixtures rather than argued here.

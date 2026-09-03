@@ -1,0 +1,269 @@
+====================================================================================================
+b309 -- REGISTRATION. ### THE SCALING TRACE.
+2026-09-03. ### CONCURRENCY: SOLO (research seat).
+### ### **SEALED BEFORE THE BANK, BEFORE THE RUNNER IS WRITTEN, AND BEFORE ANY COMPONENT RUNS.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) WHAT THIS FILE IS -- AND THE ONE THING THAT MAKES IT UNUSUAL.
+----------------------------------------------------------------------------------------------------
+### ### **THIS ACT COMPUTES `Tr(theta(p^k) Pi)` FOR `k != 0`** -- the compression of the scaling
+### action against the object's projection. ### b304 computed the compact part and ### **REFUSED THE
+### SCALING PART BECAUSE THE MODEL FOLDS IT**; b308 built the frame where it does not fold and
+### ### **NAMED THIS COMPUTATION WITHOUT PERFORMING IT.** ### This is the act that performs it.
+### ### ### **AND THE UNUSUAL THING, DECLARED BEFORE THE SEAL RATHER THAN DISCOVERED AFTER IT:**
+### ### ### **THIS SEAT DERIVED THE ANSWER ON PAPER BEFORE ANY CODE FOR IT EXISTED.** ### The
+### derivation is written into section (5) below, ### **SO THE RUN IS A CHECK ON A PREDICTION AND
+### NOT A DISCOVERY**, and the prediction cannot be retrofitted to whatever the run returns.
+### ### **A DERIVATION HELD BACK AND PRODUCED AFTER THE RUN WOULD BE INDISTINGUISHABLE FROM A FIT**,
+### and that is the whole reason it is sealed here.
+
+----------------------------------------------------------------------------------------------------
+### (1) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN** ### -- `data/b309_ferry_scan.txt`; 4866 bytes, 100 lines; 3 struck
+### entries, 10 patterns, 0 UNCONFIRMED skipped, self-test PASS,
+### ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **(ii) THE LEDGER CENSUS, WITH ITS SCOPE STATED** ### -- `tools/b307_handoff_census.py`,
+### self-test PASS, ### **TOTAL MISSING : 0.** ### **AND THE SCOPE THE ORDER ASKS FOR: THE CENSUS
+### ### COUNTS NAMES AND NOT UNDERSTANDING; IT COUNTS ONE LEDGER AND NO OTHER; AND ITS ACT LIST IS
+### ### THE `b297`-`b306` ARC, WHICH REACHES NEITHER `b308` NOR THIS ACT.** ### So the zero is not a
+### statement that `HANDOFF.md` names either of them. ### It does not.
+### ### **(iii) THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the seventh act running,
+### and the order asked to be told either way. ### `data/b309_pins_stepzero.txt`: relay `6986a94`,
+### SIDE-global-section `c5c9ad5`, PLACE-papers `d9a7a39`, ### **EACH 0/0 AND `equal = True`.**
+### ### **(iv) THE KERNEL BASELINE, RUN BEFORE THE SHADOW CAP WAS CHOSEN** -- `AllPrints.lean`
+### re-elaborated from the checkout as it stands and compared byte-wise with the banked profile:
+### ### **IDENTICAL, 32850 BYTES, 470 PRINTS, ALL ZERO-AXIOM.** ### **A CAP PERMITTING A BUILD WAS
+### ### NOT WRITTEN UNTIL THE BUILD PATH WAS SHOWN TO REPRODUCE WHAT IS ALREADY BANKED**, because a
+### cap permitting a build nobody has shown can run is a promise, not a permission.
+
+----------------------------------------------------------------------------------------------------
+### (2) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **A COMPUTATION ON A REPRODUCED INSTRUMENT, AND A DERIVATION OF WHAT IT MEANS.**
+### ### **NO GRADE MOVES. ### NO ACT IS RE-VERDICTED. ### NOTHING DEPOSITS.**
+### ### **`PLACE-papers` IS NOT TOUCHED**, so the hook does not fire and no mirror is rebuilt.
+### ### **`M-2` IS OWED AND STAYS OWED. ### NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE EXACT.**
+### ### **AND THE ORDER'S SHARPEST RESTRICTION, CARRIED WORD FOR WORD: ### NO CLAIM THAT A NONZERO
+### ### VALUE IS A ROUTE.** ### A value is a value; whether anything reads it is a separate question
+### ### **THIS ACT DOES NOT OPEN.**
+### ### **AND THE BARRIER AND THE COMPRESSION ARE STATEMENTS ABOUT THE PAIRING OF THE OBJECT'S SPACE
+### ### AGAINST THE TOP-LEVEL POWER, AND ARE NEITHER EXTENDED NOR WEAKENED HERE.** ### The quantity
+### computed in this act is a DIFFERENT quantity from `b273`'s `A` at `k = n`: that one pairs the
+### space against itself through a compression, this one traces a group action against a projection.
+### **CONFLATING THEM WOULD BE THE ACT'S WORST AVAILABLE ERROR AND IS NAMED HERE SO IT CANNOT PASS
+### QUIETLY.**
+
+----------------------------------------------------------------------------------------------------
+### (3) SCOPE, AND WHAT IS FORBIDDEN.
+----------------------------------------------------------------------------------------------------
+ · ### ### **EXACT ARITHMETIC IN EVERY VERDICT. ### ZERO FLOAT LITERALS IN THE DECIDING RUNNER**,
+   re-measured by `G-EXACT`, whose own pattern this act inherits from `b308_checks.py` ### AFTER
+   ### that pattern's two defects were found by its own fixtures.
+ · ### ### **EVERY VALUE COMPUTED BY TWO INDEPENDENT ROUTES WHERE BOTH ARE FEASIBLE**, and where
+   only one is, the bound is STATED rather than the second route quietly dropped.
+ · ### ### **POSITIVE CONTROLS IN BOTH POLARITIES BEFORE ANY VALUE IS READ:** ### a case known
+   NONZERO (`k = 0`, where the trace is `b304`'s not-dead witness `(p^n - 1)^2`) and a case known
+   ZERO (a unit whose trace `b304` banked as zero, re-computed through `b304`'s own function).
+   ### **A SUITE OF ZEROS WITH NO NONZERO IN IT IS A DEAD INSTRUMENT REPORTING.**
+ · ### ### **AND AN `UNAVAILABLE` ARM WHERE NO CONTROL CAN EXIST**, b280's own shape: at level 1
+   the regime where the frames overlap is EMPTY, so the not-dead witness for that regime
+   ### **CANNOT EXIST THERE AND IS REPORTED AS UNAVAILABLE RATHER THAN AS A PASS.**
+ · ### **THE FRAME ALGEBRA IS STATED BEFORE ANY VALUE IS READ** -- which frames the composed map
+   connects, and whether the projection's range can meet its image at all. ### **A ZERO THAT ARRIVES
+   BEFORE THAT SENTENCE IS AN OBSERVATION; ONE THAT ARRIVES AFTER IT IS UNDERSTOOD.**
+ · ### **EVERY REPORTED NUMBER FROM A COMMITTED TOOL WITH FIXTURES** (`W-ORD-ADHOC-CHECK-FIXTURES`).
+ · ### **NEEDLES PULLED FROM EMITTING FILES.** ### **A QUOTATION OF A QUOTATION IS NOT A SOURCE.**
+ · ### **THE STEM SWEEP AT ITS EXTENDED SCOPE** over every file written, ### **ITS EXCEPTION LIST
+   PRINTED WITH ITS REASONS EVERY TIME IT IS PRINTED.**
+ · ### **THE HEDGE AUDIT OVER EVERY FILE WRITTEN**; a sentence about a flagged sentence is
+   ### DESCRIBED, NOT QUOTED.
+ · ### **MUST-FAIL FIXTURES ASSERT WHOLE-LINE EQUALITY. ### SUBSTRING-BASED: ZERO.**
+ · ### **NO AGGREGATION IS STATED. ### NOTHING ABOUT THE ARCHIMEDEAN PLACE** -- b285's boundary
+   stands and no finite-side fact types there. ### **NOTHING ABOUT THE IDENTITY, ABOUT `h2` BEYOND
+   THE REGISTER SENTENCE EXACT, OR ABOUT THE COMPLETE ROSTER.**
+ · ### **THE WINDOW QUESTION IS THE AUTHOR'S AND IS NOT OPENED HERE.**
+
+----------------------------------------------------------------------------------------------------
+### (4) THE INDEX QUERY, RUN BEFORE ANY COMPONENT (b160, b185).
+----------------------------------------------------------------------------------------------------
+### `--query scaling-trace` ......... ### **NO KEY.** ### **KEYED IN THE CLOSING.**
+### `--query "the scaling trace"` ... ### **NO KEY.**
+### `--query "the compressed trace"` ### **NO KEY.**
+### `--query "the smeared trace"` ... ### **NO KEY.**
+### `--query "the fixed point"` ..... ### **NO KEY.**
+### `--query local-field-instrument` ### **HIT** -- b308's, the instrument this act computes on, and
+###   whose closing named this computation and left it undone.
+### `--query "the scaling part"` .... ### **HIT** -- b308's, the same row.
+### `--query "the compact part"` .... ### **NO KEY.**
+### `--query the-barrier` ........... ### **NO KEY** -- and b181's lane limit applies: the
+###   barrier/pairing lane has NO DECLARED KEYS AT ALL, so its misses carry no information.
+### ### **RECORDED BEFORE THE COMPONENTS.** ### b164: ### **KEYS CLOSE FALSE HITS, NOT FALSE
+### MISSES.**
+
+----------------------------------------------------------------------------------------------------
+### (5) BOTH SEATS' EXPECTATIONS. ### **NO COUNTS PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, AS THE ORDER STATES IT:** ### *the composed map carries the object's
+### frame off the diagonal so the projection may not meet its image, and the honest prediction is
+### zero with a derivable mechanism rather than a route; refutable by a printed nonzero.*
+
+### ### ### **THIS SEAT'S, AND IT IS SHARPER THAN THE NAVIGATOR'S BECAUSE IT WAS DERIVED BEFORE THE
+### ### ### TOOL EXISTED. ### EACH CLAUSE BELOW IS REFUTABLE BY A PRINTED DISAGREEMENT.**
+
+### ### **(P1) THE PROJECTION HAS AN EXPLICIT CLOSED FORM, AND EVERYTHING ELSE FOLLOWS FROM IT.**
+###   `Son(p,n)`'s orthogonal complement is spanned by the ball coordinates together with the
+###   residue-class indicators mod `p^n`, and the class of `0` IS the ball, so the two families are
+###   orthogonal and the projector is
+###     ### **`Pi[i][j] = 0` whenever `i` is on the ball or `j` is on the ball;**
+###     ### **`Pi[i][j] = [i = j] - p^{-n} [i = j mod p^n]` for `i`, `j` both off the ball.**
+###   ### **REFUTABLE BY ONE ENTRY DISAGREEING WITH THE PROJECTOR `b304` BUILDS BY GRAM-SCHMIDT.**
+###   ### **AND ITS OWN FIRST CHECK, WHICH THIS SEAT RAN ON PAPER: ### `Tr(Pi)` FROM THIS FORM IS
+###   ### `(p^{2n} - p^n)(1 - p^{-n}) = (p^n - 1)^2` -- THE DIMENSION LAW, ARRIVED AT FROM THE
+###   ### PROJECTOR RATHER THAN FROM THE COUNT.**
+
+### ### **(P2) THE COMPOSED MAP'S FRAMES, AND THE AMBIENT IT NEEDS.**
+###   `theta(p^k)` carries `V(n,n)` to `V(n-k, n+k)`, so `theta(p^k) Pi` is ### **NOT AN
+###   ENDOMORPHISM OF ANY SINGLE FRAME AND ITS TRACE IS NOT DEFINED UNTIL AN AMBIENT IS NAMED.**
+###   The smallest frame containing both is `W = V(max(n, n-k), max(n, n+k))`, and the embedding
+###   `V(r,s) -> V(r',s')` exists exactly when `r' >= r` AND `s' >= s`.
+###   ### **REFUTABLE BY AN EMBEDDING THAT DOES NOT PRESERVE THE HAAR INNER PRODUCT EXACTLY, OR BY
+###   ### `theta(p^k)` FAILING TO SCALE IT BY EXACTLY `p^{-k}`.**
+
+### ### **(P3) THE TRACE REDUCES TO A SUM OVER THE MODEL'S OWN GRID.** ### In the ambient, with
+###   `N = p^{2n}` and `P` the model's projector:
+###     ### **`Tr(theta(p^k) Pi) = p^{-k} SUM_{t in Z/N} P[t][p^k t mod N]`  for `k > 0`,**
+###     ### **`Tr(theta(p^{-k}) Pi) = SUM_{t in Z/N} P[t][p^k t mod N]`  for `k > 0`.**
+###   ### **SO `Tr(theta(p^k) Pi) = p^{-k} Tr(theta(p^{-k}) Pi)`** -- a functional equation between
+###   the two directions. ### **REFUTABLE BY THE AMBIENT-MATRIX ROUTE DISAGREEING WITH THE REDUCED
+###   ### ROUTE AT ANY CELL OR POWER, OR BY THE TWO DIRECTIONS FAILING THE RELATION.**
+###   ### **AND NOTE WHAT THE REDUCED SUM IS: ### IT IS THE SUM `b304` COULD ONLY WRITE FORMALLY**,
+###   because at a non-unit `t` the model's `t^{-1}` does not exist. ### **THE UNTIED FRAME GIVES
+###   THAT SUM A DEFINITE MEANING; IT DOES NOT MAKE THE MODEL'S VERSION OF IT CORRECT.**
+
+### ### **(P4) THE ANSWER: ### ZERO AT EVERY NONZERO POWER, AT EVERY CELL, AND IN TWO REGIMES WITH
+### ### TWO DIFFERENT MECHANISMS.**
+###   ### **REGIME A -- `|k| >= n`: A SUPPORT ZERO.** ### `Son` vectors vanish on the ball, so their
+###     support lies in `p <= |x| <= p^n`; the image's lies in `p^{1+k} <= |x| <= p^{n+k}`. ### For
+###     `k >= n` these are ### DISJOINT ### and the composed operator is ### **IDENTICALLY ZERO, NOT
+###     MERELY TRACELESS.**
+###   ### **REGIME B -- `1 <= |k| <= n-1`: THE SUPPORTS DO MEET, AND THE TRACE IS STILL ZERO.** ###
+###     By (P1) and (P3) the sum is
+###       ### **`SUM_{t off ball} ( [(p^k - 1) t = 0 mod N] - p^{-n} [(p^k - 1) t = 0 mod p^n] )`,**
+###     and ### **`p^k - 1` IS A UNIT** ### -- it is coprime to `p` -- so each congruence forces
+###     `t = 0 mod N` and `t = 0 mod p^n` respectively, ### **AND BOTH OF THOSE ARE EXACTLY THE
+###     BALL, WHICH THE SUM EXCLUDES.** ### Both counts are zero and the trace is zero.
+###   ### ### **REFUTABLE BY ONE PRINTED NONZERO AT ANY CELL AND ANY POWER.**
+
+### ### **(P5) WHICH KIND OF STATEMENT THIS IS.** ### The derivation in (P4) is general in `p`, `n`
+###   and `k`; it uses ### **THE OBJECT'S OWN TWO CONDITIONS** ### (through the closed form of the
+###   projector, which is built from exactly those two conditions) ### **AND NOTHING ABOUT ANY
+###   PARTICULAR CELL.** ### So the expectation is that the result is a property of the conditions
+###   and not of the cells computed. ### **REFUTABLE BY A CELL THAT DISAGREES.**
+
+### ### **AND THE RISK THIS SEAT NAMES AGAINST ITSELF:** ### a derivation written before the run is
+### a hypothesis with a good disguise. ### **THE RUN IS THE ARBITER, THE INSTRUMENT IS NOT ADJUSTED
+### TOWARD THE PREDICTION, AND A DISAGREEMENT IS PRINTED AT FULL PROMINENCE AND KEPT.**
+
+----------------------------------------------------------------------------------------------------
+### (6) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-CLOSEDFORM`: the closed form of `Pi` in (P1) agrees ENTRY-WISE with the projector
+###       `b304` builds by Gram-Schmidt, at every banked cell. ### One entry disagreeing refutes it.
+### (F2)  `G-AMBIENT`: the embedding preserves the Haar inner product EXACTLY, and `theta(p^k)`
+###       scales it by EXACTLY `p^{-k}`, at every frame and power tested.
+### (F3)  `G-TWOROUTES`: the ambient-matrix route and the reduced-sum route agree EXACTLY wherever
+###       both are feasible; where only one is, ### **THE BOUND IS STATED AND THE SECOND ROUTE IS
+###       NOT QUIETLY DROPPED.**
+### (F4)  `G-FUNCEQ`: `Tr(theta(p^k) Pi) = p^{-k} Tr(theta(p^{-k}) Pi)` at every cell and power.
+### (F5)  `G-CONTROL`: the known-nonzero control returns `(p^n - 1)^2` and the known-zero control
+###       returns zero, both through `b304`'s own functions; and the regime-B not-dead witness
+###       reports ### **`UNAVAILABLE` AT LEVEL 1 RATHER THAN PASSING.**
+### (F6)  `G-ALIVE`: in regime B the composed operator is ### **NOT the zero matrix** ### while its
+###       trace is zero. ### **A TRACELESS LIVE OPERATOR AND A DEAD ONE ARE DIFFERENT FINDINGS AND
+###       THE ACT MUST NOT REPORT THE SECOND AS THE FIRST.**
+### (F7)  `G-EXACT`: zero float literals and zero float-producing calls in the deciding runner.
+### (F8)  `G-NONEW`: no claim that any value is a route; no aggregation stated; `M-2`'s row
+###       unchanged.
+### (F9)  `G-NOPAPERS`: zero files written in `PLACE-papers`.
+### (F10) `G-NOMOVE`: zero grade-moving lines; zero acts re-verdicted.
+### (F11) `G-STRUCK` and `G-STEM` over every file written, with the declared carriers and reasons.
+### (F12) `G-SHARED`: the extended sweep over the shared append-targets, exceptions with reasons.
+### (F13) `G-TOOLNUM`: every reported number has a committed producer.
+### (F14) `G-SEAL`: this registration's seal intact at the close.
+### (F15) the correspondence rows by the idempotent tool WITH the notation guard, read back.
+### (F16) no artifact count predicted in this registration (`U-1` STRUCK).
+### (F17) ### **`G-KERNEL`, IF AND ONLY IF THE SHADOW IS BUILT:** ### the baseline regenerates
+###       BYTE-IDENTICALLY BEFORE anything is added; every new terminal prints ### **zero axioms**;
+###       the profile grows and ### **NO EXISTING PRINT LINE CHANGES** (a true-prefix check against
+###       `git HEAD`, byte-wise, not line-wise -- b298's incident).
+
+----------------------------------------------------------------------------------------------------
+### (7) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   `PLACE-papers` files written ......... ### CAP 0
+###   keystone files written ............... ### CAP 0
+###   grades moved ......................... ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   routes claimed ....................... ### CAP 0
+###   ad-hoc shell-typed numbers ........... ### CAP 0
+###   float literals in the deciding runner  ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0
+###   ### **`.lean` modules CREATED ......... ### CAP 1**
+###   ### **profile files rewritten ......... ### CAP 1**
+### ### **THE LAST TWO ARE NOT ZERO AND THE REASON IS THE ORDER'S OWN SHADOW CLAUSE**, which permits
+### a build ### **ONLY IF THE STATEMENT IS FINITE-DECIDABLE AND CARRIES ITS OWN SCOPE IN ITS OWN
+### STATEMENT** ### -- and says to check that rather than assume it. ### **b301's LESSON GOVERNS: A
+### SEALED CAP MUST NOT FORBID AN ORDERED BUILD.** ### The baseline was shown to reproduce before
+### this cap was written (1.iv).
+### ### **AND IF THE TWO TESTS FAIL, THE CAP IS SIMPLY NOT USED**, and b307's standing formula
+### applies: ### **THE ACT REPORTS THE FIND WITHOUT BUILDING IT.** ### A cap of one does not oblige
+### an act to write one.
+
+----------------------------------------------------------------------------------------------------
+### (8) THE SHADOW, AND THE TWO TESTS IT MUST PASS.
+----------------------------------------------------------------------------------------------------
+### ### **THE CANDIDATES ARE ENUMERATED HERE, BEFORE THE CHECK, SO THE CHECK CANNOT BE POINTED AT
+### ### WHATEVER TURNED OUT TO BE EASY:**
+###   ### (S1) the frame arithmetic of the composed map at the computed cells and powers;
+###   ### (S2) the disjointness of the two support ranges in regime A, and their ### OVERLAP ### in
+###     regime B -- the second being the arm that keeps the first from reading as vacuous;
+###   ### (S3) the absence of an off-ball fixed point: the two residue counts of (P4) at the banked
+###     cells and powers.
+### ### **TEST ONE -- FINITE-DECIDABLE:** ### decidable by finite evaluation at a named cell, with
+### `decide` and no imports, which is the form every shadow in this repository already takes.
+### ### **TEST TWO -- CARRIES ITS OWN SCOPE IN ITS OWN STATEMENT:** ### the statement names the
+### cells and the powers it ranges over, so it cannot be read as the general law. ### **b298's
+### terminal is the precedent and its own name is the argument: it names the cell and the radii.**
+### ### ### **AND THE THIRD THING, WHICH IS NOT A TEST BUT A REFUSAL:** ### whatever is built
+### certifies ### ARITHMETIC ### and ### **NOT THE BARRIER.** ### The step from the arithmetic to
+### the vanishing of the trace is the bank's derivation and is ### **UNCOMPILED.** ### The module's
+### own header must say so, and a name suggesting otherwise is the misleading shape b299 refused.
+
+----------------------------------------------------------------------------------------------------
+### (9) WHAT THIS ACT MAY NOT CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **A ZERO IS NOT AN OBSTRUCTION THEOREM.** ### It is the vanishing of one trace of one map
+### against one projection at one family of cells, with a derivation whose scope is printed beside
+### it. ### **IT SAYS NOTHING ABOUT WHETHER ANY OTHER FUNCTIONAL ON THIS INSTRUMENT VANISHES.**
+### ### **AND IT SAYS NOTHING ABOUT THE SOURCE'S FUNCTIONAL.** ### The source's `Tr(theta(f) S)`
+### smears against a test function over the whole multiplicative group; ### **A VANISHING OF EVERY
+### INDIVIDUAL `Tr(theta(p^k) Pi)` IS A STATEMENT ABOUT THE TERMS, AND THIS ACT DOES NOT CLAIM WHAT
+### FOLLOWS FOR ANY SUM OF THEM BEYOND WHAT IT COMPUTES.**
+### ### **NOTHING ABOUT THE ARCHIMEDEAN PLACE. ### NOTHING ABOUT THE IDENTITY. ### NOTHING ABOUT
+### ### `h2` BEYOND THE REGISTER SENTENCE EXACT. ### NOTHING ABOUT THE COMPLETE ROSTER.**
+### ### **NO ROUTE IS CLAIMED IN EITHER DIRECTION.** ### The order is explicit that a nonzero would
+### not be a route; ### **AND A ZERO IS NOT AN ANTI-ROUTE EITHER.**
+### ### **THE INSTRUMENT REPRODUCES THE MODEL WHERE THE MODEL WAS RIGHT AND SEES ONE DIRECTION
+### ### FURTHER. ### IT DOES NOT DECIDE ANYTHING THE MODEL LEFT OPEN.**
+### ### **`M-2` IS OWED. ### NO AGGREGATION IS STATED. ### NOTHING DEPOSITS.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : eacdbf1c4544d2e0f012f428af1136528f264abed8f8d685342b2018f72ee7e0
+### bytes sealed : 20663
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b309_registration_2026-09-03.txt`.**
+====================================================================================================

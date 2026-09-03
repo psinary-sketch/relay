@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'scaling-trace': ['the scaling trace', 'the compressed trace', 'the smeared trace',
+                     'the trace of the scaling action'],
+    'no-offball-fixed-point': ['the fixed point', 'the mechanism', 'the unit argument',
+                              'p^j minus one'],
     'local-field-instrument': ['the local field', 'untied radii', 'the two radii',
                               'the scaling part', 'the instrument build', 'the frame'],
     'escaped-mass-artifact': ['escaped mass', 'the artifact', 'the fold count',
@@ -393,6 +397,56 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SCALING TRACE, COMPUTED (b309).
+    ("scaling-trace", "b309 (a computation on the b308 instrument)",
+     "Tr(theta(p^k) Pi) for k != 0 -- the compression of the SCALING part of Q_p^x against the"
+     " projection onto the object's own space. ### b304 computed the compact part and REFUSED"
+     " this one because the model folds it; b308 built the frame where it does not fold and"
+     " NAMED this computation without performing it. ### **THE FIRST THING ESTABLISHED IS THAT"
+     " THE TRACE IS NOT DEFINED UNTIL AN AMBIENT IS NAMED**: theta(p^k) carries V(n,n) to"
+     " V(n-k, n+k), so the composed map is no frame's endomorphism, and the smallest frame"
+     " containing both is V(max(n,n-k), max(n,n+k)). ### **THE VALUE: EXACTLY ZERO AT EVERY"
+     " NONZERO POWER IN [-2n, 2n] AT ALL SEVEN BANKED CELLS**, by two independent routes -- 34"
+     " cell/power pairs by both, 10 by the reduced route only where the ambient exceeds 1024"
+     " chart points and the bound is PRINTED. ### 0 disagreeing",
+     "### A COMPUTATION, AND ITS VALUE IS ZERO. ### **NOT AN OBSTRUCTION THEOREM, AND NEITHER"
+     " A ROUTE NOR AN ANTI-ROUTE** -- the order forbids reading a nonzero as a route and this"
+     " act adds that the converse reading is forbidden too. ### **SCOPE: one trace of one map"
+     " against one projection, at the cells and powers listed, in the smallest ambient"
+     " containing source and target -- a different ambient is a different number.** ### It says"
+     " nothing about any other functional on the instrument and nothing about the source's own"
+     " functional, which smears against a test function over the whole group: a vanishing of"
+     " every individual term is a statement about terms. ### **b273's A at k = n IS A DIFFERENT"
+     " OPERATOR; the barrier and the compression are neither extended nor weakened.** ###"
+     " NOTHING ABOUT THE ARCHIMEDEAN PLACE (b285's boundary stands). ### NO AGGREGATION IS"
+     " STATED. ### M-2 UNCHANGED",
+     "data/b309_the_scaling_trace.txt; data/b309_components_run.txt;"
+     " tools/b309_scaling_trace.py; tools/b309_components.py; CORRESPONDENCE.md row 130"),
+    # ### THE MECHANISM (b309).
+    ("no-offball-fixed-point", "b309 (a derivation, with three arithmetic terminals)",
+     "WHY the scaling trace vanishes, in TWO REGIMES WITH TWO MECHANISMS. ### ABOVE THE LEVEL"
+     " (abs(k) >= n) the object's support and its image's are DISJOINT -- the object vanishes"
+     " on the ball, so its support sits at absolute values p^1..p^n and the image's at"
+     " p^(1+k)..p^(n+k) -- and **the COMPRESSION is the ZERO OPERATOR**, measured. ### BELOW IT"
+     " (1 <= abs(k) <= n-1) **THE SUPPORTS GENUINELY MEET AND THE TRACE IS STILL ZERO**: against"
+     " the projector's closed form the trace is a sum over t off the ball of two congruence"
+     " indicators in (p^j - 1) t, and **p^j - 1 IS A UNIT**, so each congruence forces t = 0"
+     " modulo the grid and modulo the ball's modulus -- and both of those sets are EXACTLY THE"
+     " BALL, which the sum excludes. ### **THE SCALING MAP FIXES NOTHING OFF THE BALL, AND THE"
+     " ONLY THING IT FIXES IS THE ONE PLACE THE OBJECT MUST VANISH**",
+     "### A DERIVATION, GENERAL IN p, n AND k, WITH A FINITE SWEEP AS ITS CHECK -- **AND THE"
+     " ACT SAYS WHICH IS WHICH: A SWEEP OVER SEVEN CELLS IS NOT A PROOF OVER ALL OF THEM.**"
+     " ### THREE TERMINALS, ALL ZERO AXIOMS, Core/ScalingTraceShadow.lean (vanilla Lean, no"
+     " imports, no native_decide, no sorry): B309.frame_arithmetic,"
+     " B309.support_ranges_split_at_the_level (BOTH arms -- the meeting arm keeps the disjoint"
+     " arm from reading as vacuous), B309.no_offball_fixed_point_of_scaling. ### **EACH RANGES"
+     " OVER AN EXPLICIT LIST NAMED IN ITS OWN STATEMENT, SO NONE CAN BE READ AS A LAW ABOUT ALL"
+     " p, n, k. ### AND WHAT THEY CERTIFY IS ARITHMETIC AND NOT THE BARRIER: the step from the"
+     " counts to the vanishing of the trace is the bank's derivation and IS UNCOMPILED.** ###"
+     " Profile 470 -> 473, all zero-axiom, the banked profile a TRUE BYTE PREFIX of the new"
+     " one. ### M-2 UNCHANGED",
+     "data/b309_the_scaling_trace.txt; data/b309_kernel_run.txt;"
+     " SIDE-global-section/Core/ScalingTraceShadow.lean; CORRESPONDENCE.md row 131"),
     # ### THE LOCAL-FIELD INSTRUMENT, ACT ONE (b308).
     ("local-field-instrument", "b308 (an instrument build, act one of the priced item)",
      "the finite model ties two radii to ONE level index -- b21's V_n is p^(-n)Z_p / p^n Z_p"

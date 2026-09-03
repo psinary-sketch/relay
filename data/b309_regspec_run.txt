@@ -1,0 +1,24 @@
+﻿====================================================================================================
+b309_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  ITS SELF-TEST, RUN HERE BEFORE IT IS TRUSTED:
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b309_registration_2026-09-03.txt
+  bytes/lines  : 20663 / 263
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  spec written and READ BACK : b309_satisfiable.json  clauses=12  no empty provenance cell : True
+  ### CLAUSES WHOSE DEMAND EXCEEDS THEIR CAP : 0 
+  ### CAPS THAT ARE NOT ZERO : `.lean` modules created, profile files rewritten
+  ### **AND THAT IS THE FIRST NON-ZERO CAP SINCE b304.** ### It exists because the
+  ### order conditions a build on two tests and says to CHECK them rather than assume
+  ### them. ### **A CAP OF ONE DOES NOT OBLIGE THE ACT TO WRITE ONE.**
+====================================================================================================
