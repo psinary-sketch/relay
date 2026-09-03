@@ -1,0 +1,21 @@
+====================================================================================================
+b302 -- THE INDEX KEYS. ### ONE FOR THIS ACT, ONE AS THE REMEDY FOR A MISS.
+====================================================================================================
+  unit-requirement   key/row already present : True / True
+  generator-nonvanishing key/row already present : True / True
+  ### NOTHING WRITTEN. (idempotent) ### **THE READ-BACK ARMS STILL RUN** -- a tool
+  ### that reports nothing on its second run leaves no evidence of its first.
+  VERDICT FIXTURE : fires on the index own NO KEY line : True ; quiet on phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    unit-requirement           returns a row : True  PASS
+    generator-nonvanishing     returns a row : True  PASS
+  ### THE MISS, RE-QUERIED THROUGH THE ALIASES THAT FAILED BEFORE THIS ACT:
+    the generic odd place      now reaches b268 : True  PASS
+    b226 owed step             now reaches b268 : True  PASS
+    the canonical generator    now reaches b268 : True  PASS
+  ### MUST-NOT-HIT, so the aliases are a key and not a net:
+    nonvanishing               still returns NO KEY : True  PASS
+    the sector                 still returns NO KEY : True  PASS
+  ### **`nonvanishing` STAYS UNKEYED BECAUSE IT IS A PROPERTY AND NOT AN OBJECT** --
+  ### b202's own reason for refusing it, and it has not changed.
+====================================================================================================

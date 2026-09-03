@@ -83,6 +83,11 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'unit-requirement': ['the unit requirement', 'rule arch-unit', 'arch-unit',
+                        'space membership suffices', 'what the product asks of a vector'],
+    'generator-nonvanishing': ['the generator nonvanishing', 'the canonical generator',
+                              'the generic odd place', 'support of u_p',
+                              'b226 owed step'],
     'object-completed': ['the object completed', 'the incomplete direct product',
                         'the stated choice across places', 'the constituents table',
                         'the c0 condition', 'term 3 object'],
@@ -351,6 +356,47 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE UNIT REQUIREMENT (b302).
+    ("unit-requirement", "b302 (a ruling executed against quoted text)",
+     "what von Neumann's incomplete direct product asks of a CHOSEN VECTOR at each place,"
+     " quoted: Definition 3.3.1's `f_alpha in H_alpha for all alpha in I` (at b197's"
+     " at-content grade, the corpus's OCR extract being defective exactly there), its norm"
+     " clause `SUM_v | ||f_v|| - 1 | CONVERGE`, and Lemma 4.1.2's `||f_a|| = 1`."
+     " ### **THAT IS ALL IT ASKS: MEMBERSHIP IN THE LOCAL HILBERT SPACE AND UNIT NORM.**"
+     " ### No clause mentions an eigenspace, an operator, a sector or a transform, and"
+     " **THE INDEX SET IS NOT PARTITIONED ANYWHERE -- there is no clause distinguishing an"
+     " archimedean index from a finite one.** ### So the author's RULE ARCH-UNIT ('A --"
+     " space membership suffices'), which executes only if the quoted text supports it,"
+     " EXECUTES; the HALT branch was tested and not taken",
+     "### THE AUTHOR'S RULING, EXECUTED AGAINST QUOTED TEXT AND STRIKEABLE. ### **WHAT IT"
+     " DOES IS NARROW THE ORIGINAL WORDING RATHER THAN FULFIL IT**: the b225 ruling asked"
+     " for 'the archimedean unit from the Sonin sector', and that requirement is WITHDRAWN,"
+     " the sector clause retained as DESCRIPTION whose establishment is not required by the"
+     " construction and is NOT CLAIMED. ### b214's c = +1 at rank 2 stands at BENCH and is"
+     " NOT promoted. ### The ruling is named ARCH-UNIT and is NOT applied to the finite"
+     " units, where it would have no bite: b226's u_p is a projector image, in E_1 BY"
+     " CONSTRUCTION. ### M-2 UNCHANGED (SPECIFIED-NOT-STATED)",
+     "data/b302_the_unit_requirement.txt; CORRESPONDENCE.md row 117"),
+    # ### THE GENERATOR'S NONVANISHING (b268), KEYED AT b302 BECAUSE IT NEVER WAS.
+    ("generator-nonvanishing", "b268 (2026-08-31), keyed at b302",
+     "4q P_1 f_(1,1) != 0 AT EVERY ODD PRIME p AT LEVEL 1 -- b226's owed step, PAID."
+     " ### The route is one line of congruence arithmetic once the owners' objects are"
+     " unfolded, and it delivers more than the nonvanishing: **support(u_p) = N - q"
+     " EXACTLY**, which b226 had recorded as OBSERVED at six cells and explicitly did NOT"
+     " assert as a theorem. ### The hinge is that for ODD q, gcd(q+2, q^2) = 1, so the zero"
+     " set is exactly the q multiples of q. ### Controlled exactly in Z[zeta_N] at eight"
+     " places -- b226's six plus p = 17 and p = 19 -- with 1039 values reduced modulo Phi_N"
+     " and NO floating point deciding anything",
+     "### DERIVES-on-IMP, the imports being the owners' own definitions and the BANKED"
+     " purity identity, and NO NEW IMPORT -- as b268 graded it. ### **THIS ROW EXISTS"
+     " BECAUSE ITS ABSENCE COST TWO ACTS A FALSE OPEN**: b300 and b301 both restated b226's"
+     " step as OWED, pulling it from the act that INCURRED it and never asking whether a"
+     " later act had PAID it, and every query that would have found b268 returned NO KEY."
+     " ### b164's limit stands: keys close false hits, not false misses."
+     " ### It pays b226's step and does NOT touch (SPEC-1) -- a support is not a"
+     " contribution. ### M-2 UNCHANGED",
+     "data/b268_generator_nonvanishing.txt; data/b268_run.txt;"
+     " data/b302_the_unit_requirement.txt (the staleness diagnosis)"),
     # ### THE OBJECT COMPLETED (b301).
     ("object-completed", "b301 (construction restatement and its checks)",
      "the object (x)'_v (S-bar_v, u_v) restated with every constituent in one table:"

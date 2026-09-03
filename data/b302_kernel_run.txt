@@ -1,0 +1,81 @@
+====================================================================================================
+b302 -- THE KERNEL BUILD AND ITS PROFILE. ### EVERY NUMBER FROM THIS FILE.
+====================================================================================================
+
+  SELF-TEST:
+  fixture                                                    got/exp      agree
+  the print counter separates zero-axiom from other          True/True    YES
+  the print counter ignores blank lines                      True/True    YES
+  the BOM test fires on a real BOM                           True/True    YES
+  the BOM test stays quiet on clean bytes                    False/False  YES
+  a true prefix is recognised                                True/True    YES
+  a BOM-differing pair is NOT a byte prefix                  False/False  YES
+  CRLF normalises to LF                                      True/True    YES
+
+----------------------------------------------------------------------------------------------------
+  THE STATE BEFORE ANYTHING IS CHANGED.
+----------------------------------------------------------------------------------------------------
+  banked profile on disk   : 438 prints, 438 zero-axiom, 0 otherwise, 29991 bytes
+  banked profile at HEAD   : IDENTICAL
+  BOM on the banked file   : False
+  AllPrints imports RationalEnclosureShadow : False
+  AllPrints prints B302.*   : 0
+
+----------------------------------------------------------------------------------------------------
+  (A) THE BASELINE. ### REGENERATE FROM THE UNCHANGED FILE AND REPRODUCE THE BANKED
+      BYTES. ### **IF THIS FAILS, NOTHING AFTER IT IS EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  regenerated              : 438 prints, 438 zero-axiom, 0 otherwise, 29991 bytes
+  BYTE-IDENTICAL to banked : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (B) THE MODULE. ### COMPILED ALONE, AND ITS PROFILE READ FROM ITS OWN OUTPUT.
+----------------------------------------------------------------------------------------------------
+  module                   : RationalEnclosureShadow.lean
+  exit code / stderr bytes : 0 / 0
+  terminals printed        : 11, 11 zero-axiom, 0 otherwise
+  compiled object written  : RationalEnclosureShadow.olean   True
+  imports in the module    : 0   ### VANILLA
+  `native_decide` uses     : 0
+  tactics other than decide: none named beyond `decide`
+      'B302.criterion_refuses_a_lower_bound_that_is_too_large' does not depend on any axioms
+      'B302.criterion_refuses_an_upper_bound_that_is_too_small' does not depend on any axioms
+      'B302.criterion_accepts_a_correct_lower_bound' does not depend on any axioms
+      'B302.criterion_accepts_a_correct_upper_bound' does not depend on any axioms
+      'B302.at_denominator_one_the_enclosure_is_the_whole_unit_interval' does not depend on any axioms
+      'B302.enclosure_is_one_unit_of_the_denominator_wide' does not depend on any axioms
+      'B302.enclosure_ends_are_strictly_ordered' does not depend on any axioms
+      'B302.complement_numerators_are_strictly_positive_and_below_the_denominator' does not depend on any axioms
+      'B302.explicit_numerators_over_ten_to_the_twenty_satisfy_the_squaring_criterion' does not depend on any axioms
+      'B302.complement_numerators_over_ten_to_the_twenty_are_these_two_integers' does not depend on any axioms
+      'B302.complement_enclosure_is_one_unit_wide_and_strictly_ordered' does not depend on any axioms
+
+----------------------------------------------------------------------------------------------------
+  (C) THE CERTIFICATION FILE. ### THE IMPORT AND THE PRINTS, WRITTEN HERE SO THEY
+      CANNOT LAND IN A DIFFERENT COMMIT FROM THE MODULE (b289's scar).
+----------------------------------------------------------------------------------------------------
+  import line added        : True
+  print lines added        : 11
+  READ BACK from disk      : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (D) THE PROFILE, REGENERATED FROM SOURCE AND WRITTEN AS BYTES.
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  prints before -> after   : 438 -> 449      zero-axiom: 438 -> 449      other: 0 -> 0
+  bytes  before -> after   : 29991 -> 30992
+
+----------------------------------------------------------------------------------------------------
+  (E) THE THREE BYTE CHECKS. ### **NONE OF THEM IS A LINE COMPARISON.**
+----------------------------------------------------------------------------------------------------
+  BOM on the written file  : False  PASS
+  what was written is what was regenerated : True  PASS
+  the HEAD profile is a TRUE BYTE PREFIX of the new one : True  PASS
+  bytes appended           : 1001
+  ### **A PREFIX CHECK OVER BYTES IS THE ONLY ONE OF THE THREE THAT COULD HAVE CAUGHT
+  ### b298's BOM, AND IT IS THE ONE THAT ACT DID NOT HAVE.**
+
+====================================================================================================
+  ### KERNEL: 449 PRINTS, 449 ZERO-AXIOM, 0 OTHERWISE (was 438/438/0). ### PASS
+====================================================================================================
