@@ -1,0 +1,28 @@
+﻿====================================================================================================
+b310 -- THE INDEX KEYS. ### THE COLLAPSE, AND THE FIXED-POINT SENTENCE.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    the branch             NO KEY before : True
+    the mass               NO KEY before : True
+  smear-collapse           key/row already present : False / False
+  fixed-point-silence      key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    smear-collapse           returns a row : True  PASS
+    fixed-point-silence      returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the smear                      now reaches a row : True  PASS
+    the identity term              now reaches a row : True  PASS
+    the assembled smear            now reaches a row : True  PASS
+    the fixed-point sentence       now reaches a row : True  PASS
+    the signed count               now reaches a row : True  PASS
+    off-ball fixed points          now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    the branch             still NO KEY : True   (and was before : True)  PASS
+    the mass               still NO KEY : True   (and was before : True)  PASS
+  ### **`the branch` AND `the mass` STAY UNKEYED BECAUSE NEITHER IS THIS RECORD'S
+  ### OBJECT: one is a disjunction nobody has settled, the other a quantity whose
+  ### ownership is exactly what is undecided.** ### An index answering either would be
+  ### answering a question the record has not settled.
+  ### THE INDEX SWEPT AFTER THE WRITE (b305's defect, not repeated) : 0 stem hit(s)
+====================================================================================================

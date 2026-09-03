@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'smear-collapse': ['the smear', 'the identity term', 'the assembled smear',
+                      'the source construction at a finite place'],
+    'fixed-point-silence': ['the fixed-point sentence', 'the signed count',
+                           'the finite side closure', 'off-ball fixed points'],
     'scaling-trace': ['the scaling trace', 'the compressed trace', 'the smeared trace',
                      'the trace of the scaling action'],
     'no-offball-fixed-point': ['the fixed point', 'the mechanism', 'the unit argument',
@@ -397,6 +401,61 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SMEAR COLLAPSES (b310).
+    ("smear-collapse", "b310 (a computation and a derivation)",
+     "the source's own construction -- 'one can associate to a test function f the trace"
+     " Tr(theta(f) S)' -- assembled on the b308 instrument. ### **AT A FINITE PLACE THE"
+     " SCALING PART OF Q_p^x IS p^Z, WHICH IS DISCRETE**, so the source's integral over it is"
+     " a SUM over the powers of the prime with the test function evaluated at those powers:"
+     " T(w) = SUM over k of w_k Tr(theta(p^k) Pi). ### The weight is SYMBOLIC -- no bump is"
+     " chosen, so no class question arises and no price is paid -- and the sum is finite"
+     " because the source's test functions are compactly supported. ### **WITH b309's ZEROS AT"
+     " EVERY NONZERO POWER, EXACTLY ONE TERM SURVIVES: T(w) = w_0 (p^n - 1)^2.** ### Seven"
+     " cells, every carried power, 0 terms surviving away from the identity; the zeros are NOT"
+     " substituted in -- every term is formed and added",
+     "### A COMPUTATION AND A DERIVATION, general in p, n and the weight, with the seven-cell"
+     " table as the CHECK and not the proof. ### **THE SURVIVING TERM CONTAINS THE WEIGHT AT"
+     " THE IDENTITY AND THE CONSTRAINED DIMENSION, AND NOTHING ELSE: NO log p, NO SAMPLING AT"
+     " THE PRIME'S POWERS, NO DEPENDENCE ON THE WEIGHT AWAY FROM THE IDENTITY** -- measured"
+     " with a tail nonzero at every carried power, and with the discriminating arm beside it."
+     " ### **SCOPE: this is what the construction returns AT A FINITE PLACE, ON THIS OBJECT,"
+     " IN THIS COMPRESSION. ### THE SOURCE WORKS AT THE ARCHIMEDEAN PLACE, WHERE THE GROUP IS"
+     " CONTINUOUS AND NONE OF THIS DERIVATION APPLIES** -- named, not derived; b285's boundary"
+     " stands. ### b309's zero is CARRIED, not re-derived. ### Two terminals, zero axioms,"
+     " certifying ARITHMETIC and NOT the collapse. ### NO AGGREGATION IS STATED. ### M-2"
+     " UNCHANGED",
+     "data/b310_the_smear_collapses.txt; data/b310_components_run.txt;"
+     " SIDE-global-section/Core/SmearCollapseShadow.lean; CORRESPONDENCE.md row 132"),
+    # ### THE FIXED-POINT SENTENCE AND ITS BEARING (b310).
+    ("fixed-point-silence", "b310 (a derivation, and a bearing that is never a decision)",
+     "b304 computed the COMPACT part of the local multiplicative group and found its smear"
+     " over the units zero; b309 computed the SCALING part and found it zero at every nonzero"
+     " power. ### **THOSE ARE ONE STATEMENT: Tr(theta(t) Pi) IS A SIGNED COUNT OF THE OFF-BALL"
+     " POINTS t FIXES, IN THE TWO CONGRUENCES THE OBJECT'S TWO CONDITIONS IMPOSE, WEIGHTED BY"
+     " THE EMBEDDING'S HAAR FACTOR.** ### At t = 1 every off-ball point is fixed and the count"
+     " is (p^n - 1)^2; at a nonzero power NOTHING off the ball is fixed, because p^k - 1 is a"
+     " unit, and the only point fixed is the one place the object must vanish. ### **AT A UNIT"
+     " OTHER THAN 1 THE COUNT IS GENERALLY NONZERO -- b304's zero is the SUM over the units,"
+     " not a per-unit vanishing, and the two halves are NOT the same kind of zero.** ###"
+     " Checked against b304's own trace_scaled at every unit and b309's reduced sum at every"
+     " carried power, 0 disagreeing",
+     "### A DERIVATION, AND A BEARING THAT IS NEVER A DECISION. ### At a finite place the"
+     " source's construction carries NO ARITHMETIC; the prime's contribution lives in the"
+     " local distribution the source integrates AGAINST -- eq. (149), read at content by b305"
+     " -- which carries the log p and samples at exactly the powers this trace does not read."
+     " ### **THE BEARING: THE FINITE SIDE CANNOT SUPPLY THE FIRST-LEVEL MASS THROUGH THE"
+     " OBJECT**, the coefficient at p^1 being exactly zero. ### On b263's three properties,"
+     " for candidates of THIS CLASS: **(SPEC-1) CANNOT be met** -- the one place it demands"
+     " weight is exactly where the zero sits; **(SPEC-3) CAN be met**; **(SPEC-2) IS NOT"
+     " DECIDED BY THIS ACT.** ### **SCOPE: NOT A DECISION ON b262's BRANCH** (b262's own"
+     " sentence is a REQUIREMENT on the archimedean side and expressly not a claim that it"
+     " fails; the disjunction is b263's FORMULATION, not b262's wording); **NOT A VERDICT ON"
+     " M-2**, which stays (SPECIFIED-NOT-STATED) under b263's own 'these exclude; they do not"
+     " determine'; **NOT A CLAIM THAT THE FINITE SIDE CONTRIBUTES NOTHING** -- a distribution"
+     " is not a trace on a space; **AND NOT AN ARGUMENT FOR THE ARCHIMEDEAN BRANCH**, where"
+     " this act derives nothing. ### M-2 UNCHANGED",
+     "data/b310_the_smear_collapses.txt; data/b263_top_level_silence.txt (SPEC-1..3);"
+     " data/b262_junction_limit.txt (its own sentence); CORRESPONDENCE.md row 133"),
     # ### THE SCALING TRACE, COMPUTED (b309).
     ("scaling-trace", "b309 (a computation on the b308 instrument)",
      "Tr(theta(p^k) Pi) for k != 0 -- the compression of the SCALING part of Q_p^x against the"

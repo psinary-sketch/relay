@@ -1,0 +1,74 @@
+====================================================================================================
+b310 -- THE SHADOW BUILD AND ITS PROFILE. ### EVERY NUMBER FROM THIS FILE.
+====================================================================================================
+
+  SELF-TEST (the byte checks, imported from b302_kernel and re-run here):
+  fixture                                                    got/exp      agree
+  the print counter separates zero-axiom from other          True/True    YES
+  the print counter ignores blank lines                      True/True    YES
+  the BOM test fires on a real BOM                           True/True    YES
+  the BOM test stays quiet on clean bytes                    False/False  YES
+  a true prefix is recognised                                True/True    YES
+  a BOM-differing pair is NOT a byte prefix                  False/False  YES
+  CRLF normalises to LF                                      True/True    YES
+
+----------------------------------------------------------------------------------------------------
+  THE STATE BEFORE ANYTHING IS CHANGED.
+----------------------------------------------------------------------------------------------------
+  banked profile on disk   : 473 prints, 473 zero-axiom, 0 otherwise, 33046 bytes
+  banked profile at HEAD   : IDENTICAL   ### compared NORMALISED (b309 D6, met again)
+  raw bytes on disk / at HEAD : 33519 / 33046   ### they differ by line endings alone
+  BOM on the banked file   : False   ### read from RAW bytes, not the normalised ones
+  AllPrints imports SmearCollapseShadow : False
+  AllPrints prints B310.*   : 0
+
+----------------------------------------------------------------------------------------------------
+  (A) THE BASELINE. ### REGENERATE FROM THE UNCHANGED FILE AND REPRODUCE THE BANKED
+      BYTES. ### **IF THIS FAILS, NOTHING AFTER IT IS EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  regenerated              : 473 prints, 473 zero-axiom, 0 otherwise, 33046 bytes
+  BYTE-IDENTICAL to banked : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (B) THE MODULE. ### COMPILED ALONE, AND ITS PROFILE READ FROM ITS OWN OUTPUT.
+----------------------------------------------------------------------------------------------------
+  module                   : SmearCollapseShadow.lean
+  exit code / stderr bytes : 0 / 0
+  terminals printed        : 2, 2 zero-axiom, 0 otherwise
+  compiled object written  : SmearCollapseShadow.olean   True
+  imports in the module    : 0   ### VANILLA
+  `native_decide` uses     : 0   ### **IT WOULD ADD AN AXIOM AND IS REFUSED**
+  `sorry` occurrences      : 0
+      'B310.signed_count_at_the_identity_is_the_dimension' does not depend on any axioms
+      'B310.identity_term_survives_alone' does not depend on any axioms
+
+----------------------------------------------------------------------------------------------------
+  (C) THE CERTIFICATION FILE. ### THE IMPORT AND THE PRINTS, WRITTEN HERE SO THEY
+      CANNOT LAND IN A DIFFERENT COMMIT FROM THE MODULE (b289's scar).
+----------------------------------------------------------------------------------------------------
+  import line added        : True
+  print lines added        : 2
+  READ BACK from disk      : True  PASS
+
+----------------------------------------------------------------------------------------------------
+  (D) THE PROFILE, REGENERATED FROM SOURCE AND WRITTEN AS BYTES.
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  prints before -> after   : 473 -> 475      zero-axiom: 473 -> 475      other: 0 -> 0
+  bytes  before -> after   : 33046 -> 33195
+  ### **THE BANKED PROFILE IS A TRUE BYTE PREFIX OF THE NEW ONE : True  PASS**
+  ### A build that ADDS terminals must leave every existing print line exactly where it
+  ### was. ### **THE PRINT COUNT ALONE WOULD NOT SHOW A LINE THAT MOVED OR CHANGED**, and
+  ### this is checked BYTE-WISE rather than line-wise -- b298's incident.
+  profile written and READ BACK BYTE-WISE : True  PASS
+  the act's own terminals in the new profile :
+      'B310.signed_count_at_the_identity_is_the_dimension' does not depend on any axioms
+      'B310.identity_term_survives_alone' does not depend on any axioms
+
+====================================================================================================
+  ### **COMPILED IS NOT CERTIFIED** (b289): the module is imported AND printed in the
+  ### same run that wrote the profile, so neither can land without the other.
+  ### **AND WHAT THE TERMINALS CERTIFY IS ARITHMETIC, NOT THE BARRIER.** ### The step from
+  ### them to the vanishing of the trace is the bank's derivation and is UNCOMPILED.
+====================================================================================================
