@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'identity-neighbourhood': ['the trace remainder', 'the local weight',
+                              'where the content sits', 'the source proof read'],
+    'arch-mechanism-untyped': ['trace class', 'the count and the jacobian',
+                              'does not type', 'the archimedean instrument price'],
     'smear-collapse': ['the smear', 'the identity term', 'the assembled smear',
                       'the source construction at a finite place'],
     'fixed-point-silence': ['the fixed-point sentence', 'the signed count',
@@ -401,6 +405,53 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SOURCE'S PROOF READ (b311).
+    ("identity-neighbourhood", "b311 (a read at content, under the import bar)",
+     "CC 2006.13771v1 read at content, artefact pinned by sha256 b8e0b54a... BEFORE a word of"
+     " it was read. ### **THE SOURCE DOES NOT EVALUATE THE COMPRESSED TRACE AT INDIVIDUAL"
+     " SCALINGS**: it gives the single-scaling trace FORMALLY (Prop 1.5(ii)) and recovers"
+     " trace class ONLY after smearing (Prop 1.5(iv)); it isolates a trace-remainder delta"
+     " (Def 2.1) and notes that, unlike tau which 'is not a function because of the divergency"
+     " at rho = 1', delta IS a function with a JUMP IN ITS FIRST DERIVATIVE at rho = 1; and it"
+     " turns that jump into Theorem 3.6's -2 Id + K_I with K_I compact. ### **AND THEOREM 4.7"
+     " PINS THE TRACE SIDE TO THE DISTRIBUTION: Tr(theta(f)S) = W_inf(f) + INT f(rho^-1)"
+     " eps(rho) d*rho with eps a FUNCTION** -- so the only part of the trace side that is not"
+     " an integral against a function is the part at the identity",
+     "### AN IMPORT, READ AT CONTENT, AT THE IMPORT BAR. ### **THIS ACT READ STATEMENTS AND"
+     " THEIR STATED ROLES; IT VERIFIED NO PROOF OF THE SOURCE'S, AND NOTHING HERE IS EVIDENCE"
+     " THAT ANY OF THEM IS CORRECT.** ### 20 fragments located by tools/b311_source.py, 0"
+     " unlocated, across pages 1, 2, 8, 10, 11, 12, 13, 18, 26, 27, 47; the tool LOCATES and"
+     " does not read. ### **WHAT DOES NOT FOLLOW: that the source's result is ABOUT THE"
+     " IDENTITY ALONE** -- eps is not nothing and Theorem 3.6 is about a quadratic form on an"
+     " INTERVAL. ### **NO ARCHIMEDEAN NUMBER IS COMPUTED.** ### M-2 UNCHANGED",
+     "data/b311_the_identitys_neighbourhood.txt; data/b311_components_run.txt;"
+     " data/b311_source_pin.txt; CORRESPONDENCE.md row 134"),
+    # ### THE MECHANISM DOES NOT TYPE AT INFINITY (b311).
+    ("arch-mechanism-untyped", "b311 (a decision at definitions, and a price)",
+     "b310 closed the finite side with one sentence -- Tr(theta(t)Pi) is a SIGNED COUNT of the"
+     " off-ball points t fixes. ### **THIS ACT DECIDES, BY DEFINITIONS, THAT IT DOES NOT TYPE"
+     " AT THE ARCHIMEDEAN PLACE, AND THE STEP AT WHICH IT PARTS IS THE DIMENSION OF THE"
+     " OBJECT'S SPACE**: finite-dimensional at a finite place (a truncation, so theta(t)Pi is"
+     " finite rank and the trace is an integer count the first condition kills), and INFINITE"
+     " at infinity in CC's own words -- so the single-scaling compression is not trace class"
+     " and THERE IS NO COUNT TO TAKE. ### In both cases the map fixes only the origin and the"
+     " origin lies in the excluded region, but **the finite local term is an EVALUATION and"
+     " the continuous one is a JACOBIAN, and a vanishing condition acts on the first and not"
+     " on the second**",
+     "### A REFUSAL, NOT A NEGATIVE RESULT. ### **A STATEMENT ABOUT TYPES -- that a question"
+     " answered on one side does not parse on the other -- AND THE CORPUS HAS DONE NO"
+     " MATHEMATICS AT INFINITY HERE.** ### The navigator's second expectation is REFUTED in"
+     " its first half (the compression has NO trace, and where its formal value is a function"
+     " it is nonzero) and CONFIRMED in its diagnosis (the difference lives at the identity)."
+     " ### **THE RESEMBLANCE BETWEEN A DISCRETE COUNT AND A CONTINUOUS WEIGHT IS NAMED AND"
+     " REFUSED AS EVIDENCE; no bridging definition is exhibited or claimed** -- b285's hazard"
+     " register named the species: THE WORD SURVIVES; THE OBJECT DOES NOT. ### The price of an"
+     " archimedean instrument is typed and estimated at three acts for the truncation and two"
+     " for the compression, ONLY IF W-ORD-ARCH-NORM-READING is settled first -- an estimate,"
+     " not a commitment. ### The author's W2 window ruling is RECORDED AND NOT APPLIED. ### NO"
+     " BRANCH DECIDED. ### M-2 UNCHANGED under its cap",
+     "data/b311_the_identitys_neighbourhood.txt; data/b285_archimedean_opening.txt (the hazard"
+     " register); data/b310_the_smear_collapses.txt; CORRESPONDENCE.md row 135"),
     # ### THE SMEAR COLLAPSES (b310).
     ("smear-collapse", "b310 (a computation and a derivation)",
      "the source's own construction -- 'one can associate to a test function f the trace"

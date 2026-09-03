@@ -1,0 +1,28 @@
+﻿====================================================================================================
+b311 -- THE INDEX KEYS. ### THE READ, AND THE REFUSAL.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    the proof              NO KEY before : True
+    infinity               NO KEY before : True
+  identity-neighbourhood     key/row already present : False / False
+  arch-mechanism-untyped     key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    identity-neighbourhood     returns a row : True  PASS
+    arch-mechanism-untyped     returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the trace remainder              now reaches a row : True  PASS
+    the local weight                 now reaches a row : True  PASS
+    the source proof read            now reaches a row : True  PASS
+    trace class                      now reaches a row : True  PASS
+    does not type                    now reaches a row : True  PASS
+    the archimedean instrument price now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    the proof              still NO KEY : True   (and was before : True)  PASS
+    infinity               still NO KEY : True   (and was before : True)  PASS
+  ### **`the proof` AND `infinity` STAY UNKEYED: the first is a generic object this
+  ### record holds many of, and the second is a PLACE and not a result.** ### An index
+  ### answering `infinity` would be offering this act's REFUSAL as though it were the
+  ### corpus's archimedean mathematics.
+  ### THE INDEX SWEPT AFTER THE WRITE : 0 stem hit(s)
+====================================================================================================

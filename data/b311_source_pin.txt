@@ -1,0 +1,49 @@
+﻿====================================================================================================
+b305_source.py -- THE SOURCE READ. ### THE ARTEFACT PINNED, THE QUOTATIONS LOCATED.
+====================================================================================================
+  flattener fixture                                          got/expected     agree
+  finds a fragment split across a line break                 True/True        YES
+  finds a fragment with a ligature                           True/True        YES
+  finds a fragment with odd mathematical spacing             True/True        YES
+  ### NEAR-MISS: a fragment that is genuinely absent stays absent False/False      YES
+  ### NEAR-MISS: a prefix is not the whole fragment          False/False      YES
+  ### quiet on empty text                                    False/False      YES
+  ### a needle with capitals and punctuation still matches   True/True        YES
+  ### and a genuinely absent needle with capitals still misses False/False      YES
+  flattener self-test : PASS
+  ### AND THE IMPORTED TRUNCATION DETECTOR'S OWN FIXTURES, RE-RUN BEFORE IT IS USED
+  ### IN THE OPPOSITE DIRECTION (to report an INTACT layer rather than a defective one):
+    b303_source self-test : PASS
+
+  citation      : Connes & Consani, "Weil positivity and Trace formula the archimedean place", arXiv:2006.13771v1
+  origin        : https://arxiv.org/abs/2006.13771
+  local bytes   : 1213504
+  sha256        : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### MATCHES THE ARTEFACT b304 PINNED : True  PASS
+  pages in file : 57
+
+  ### THE TEXT LAYER, MEASURED RATHER THAN ASSUMED:
+    pages whose text stops dead at "if and" : 0 []
+    pages with NO text layer at all         : 0 []
+    ### **SO THE LAYER IS INTACT AND NO PAGE IMAGE WAS NEEDED.**
+    ### (b303 built this detector for a 1939 scan where it fired; here it is quiet,
+    ### and its fixtures were re-run above so the quiet means something.)
+
+  ### THE QUOTED FRAGMENTS, LOCATED BY PAGE INDEX:
+    page 0      the test-function class                     'gpxyqgpyqdy'
+    page 0      "only finitely many primes"                 'involvesonlyfinitelymanyprimes'
+    page 1      the support that excludes the primes        'sothatrationalprimesarenotinvolved'
+    page 1      the semi-local support condition            'Supportpfq'
+    page 2,16   Theorem 1 hypothesis                        'haveSupportintheinterval'
+    page 1,2    the Sonin projection                        'squareintegrableevenfunctions'
+    page 1      the positivity sentence                     'positivedefinitebyconstruction'
+    page 0,1,49 the delta-normalization                     'Wvpfq:'
+    page 49     the explicit formula (148)                  'wherevrunsoverallplaces'
+    page 49     the local factor (149)                      'plogpq'
+    page 49     the archimedean factor (150)                'log4'
+
+  ### FRAGMENTS NOT LOCATED : 0  PASS
+  ### **THIS TOOL LOCATES; IT DOES NOT READ.** ### It cannot tell a correct quotation
+  ### from an invented one. ### What it can do is fail loudly when a fragment the bank
+  ### claims to quote is not in the artefact at all.
+====================================================================================================
