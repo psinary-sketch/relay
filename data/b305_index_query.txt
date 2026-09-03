@@ -1,0 +1,26 @@
+﻿====================================================================================================
+b305 -- THE INDEX KEYS. ### THREE RESULTS, KEYED BY THE ACT THAT PRODUCED THEM.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    arithmetic               NO KEY before : True
+    positivity               NO KEY before : True
+  arithmetics-entry      key/row already present : False / False
+  prime-sum-is-weil      key/row already present : False / False
+  instrument-q-p         key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    arithmetics-entry      returns a row : True  PASS
+    prime-sum-is-weil      returns a row : True  PASS
+    instrument-q-p         returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    where the arithmetic enters    now reaches a row : True  PASS
+    the weil distribution          now reaches a row : True  PASS
+    the prime sum                  now reaches a row : True  PASS
+    the explicit formula           now reaches a row : True  PASS
+    the instrument                 now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    arithmetic               still NO KEY : True   (and was before : True)  PASS
+    positivity               still NO KEY : True   (and was before : True)  PASS
+  ### **`arithmetic` AND `positivity` STAY UNKEYED BECAUSE THEY ARE PROPERTIES AND NOT
+  ### OBJECTS** -- b202's own reason. ### **AND b164's LIMIT IS NOT RETIRED.**
+====================================================================================================

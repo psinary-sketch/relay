@@ -83,6 +83,13 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'arithmetics-entry': ['where the arithmetic enters', 'the arithmetic entry',
+                         'the weil distribution', 'the local weil distribution',
+                         'the explicit formula'],
+    'prime-sum-is-weil': ['the prime sum', 'the adopted prime sum',
+                         'the corpus prime side', 'PR summand'],
+    'instrument-q-p': ['the instrument', 'the priced instrument',
+                      'the q_p instrument', 'the scaling instrument'],
     'demands-shape': ['the demand shape', "the demand's shape",
                      'the per-index demand', 'per-index demand',
                      'termwise agreement', 'the first-level demand'],
@@ -373,6 +380,68 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### WHERE THE SOURCE'S ARITHMETIC ENTERS (b305).
+    ("arithmetics-entry", "b305 (a read at content, in the source)",
+     "in CC (arXiv:2006.13771v1) the primes are carried by the LOCAL WEIL DISTRIBUTION"
+     " W_p(f) = (log p) SUM_{m>=1} ( f(p^m) + f#(p^m) ), eq. (149) of Appendix B."
+     " ### **SO THE ARITHMETIC ENTERS THROUGH NEITHER THE TEST FUNCTION NOR THE OPERATOR BUT"
+     " THROUGH THE DISTRIBUTION THEY ARE PAIRED AGAINST.** ### The operator theta(g) S"
+     " theta(g)* contains no prime -- theta is the scaling action, S the Sonin projection, g"
+     " a bump -- and its positivity is the A*A shape with A = S theta(g)*. ### The test"
+     " function contributes a SUPPORT, which gates WHICH primes appear: the source takes"
+     " supp in (1/2,2)'so that rational primes are not involved (see (149))'",
+     "### AT CONTENT, b305's OWN READ; artefact sha256 b8e0b54a..., text layer measured"
+     " INTACT (0 truncated pages), 11 of 11 quoted fragments located by page index."
+     " ### **THIS IS A READ OF A SOURCE AND IS NOT A RESULT OF THE CORPUS.** ### It REFUTES"
+     " the registered falsifier (F1) in its first half -- the arithmetic does NOT enter"
+     " through the test function -- and confirms its second. ### It settles"
+     " W-ORD-FORCED-POSITIVITY: the source never asks its positivity to carry arithmetic;"
+     " Theorem 1 is an INEQUALITY between an arithmetic distribution and a forced-positive"
+     " trace, and the content is in the gap. ### M-2 UNCHANGED",
+     "data/b305_the_arithmetics_entry.txt; data/b305_source_read.txt;"
+     " CORRESPONDENCE.md row 122"),
+    # ### THE CORPUS'S PRIME SUM IS THE LOCAL WEIL DISTRIBUTION (b305).
+    ("prime-sum-is-weil", "b305 (a comparison by definitions)",
+     "the corpus's adopted summand w_{p,k} = 2 log p * p^{-k/2} * corr(log p^k) (b260,"
+     " adopted b229) IS the k-th term of CC's local Weil distribution W_p under CC's OWN"
+     " normalization W_v(f) := W_v(Delta^{-1/2} f): that term is (log p) p^{-k/2} ( f(p^k) +"
+     " f(p^{-k}) ), and **the corpus's factor 2 is CC's f + f# collapsed under evenness**."
+     " ### Same log p, same p^{-k/2} from the same normalization, same finite index set."
+     " ### **AND NOT THE SAME SPECIES AS THE QUOTIENT CHANNEL**: the orbit ratio"
+     " (p^n - p^k)/(p^n - 1) is dimensionless, carries neither factor, is silent at the top"
+     " level by its own range, and is a WEIGHT applied to a prime term",
+     "### DECIDED BY DEFINITIONS, FACTOR BY FACTOR. ### **(F2) HOLDS, MORE STRONGLY THAN IT"
+     " WAS REGISTERED -- the same OBJECT, not merely the same species.** ### **SCOPE: HAVING"
+     " THE OBJECT IS NOT DOING WITH IT WHAT THE SOURCE DOES.** ### The source pairs W_v"
+     " against a compressed trace and proves an inequality; the corpus pairs PR against an"
+     " orbit-count channel and measures a separation. ### The quotient channel is NOT demoted"
+     " by being a different species -- a weight is not a lesser object than a distribution."
+     " ### The match rests on an evenness the corpus records by its factor 2 rather than by a"
+     " sentence, and that reading is NAMED. ### NO AGGREGATION IS STATED. ### M-2 UNCHANGED",
+     "data/b305_the_arithmetics_entry.txt; data/b260_junction_sign.txt (the PR summand);"
+     " data/b220_aggregation_freedom.txt (act 9's range); CORRESPONDENCE.md row 123"),
+    # ### THE INSTRUMENT ON Q_p, PRICED AND NOT BUILT (b305).
+    ("instrument-q-p", "b305 (a pricing, not a build)",
+     "an instrument carrying the SCALING part p^Z of Q_p^x, which the truncated model drops."
+     " ### It would compute on locally constant functions of compact support on Q_p -- and"
+     " **the corpus's own chart and Haar normalization ALREADY DEFINE THEM**: b280's V_n is"
+     " supported in p^{-n}Z_p and constant on cosets of p^n Z_p, a chart point being 'a COSET"
+     " OF MEASURE p^{-n} > 0' on which f is constant. ### **THE ONE STRUCTURAL CHANGE IS TO"
+     " UNTIE TWO RADII THE MODEL TIES TOGETHER** -- support radius and constancy radius, both"
+     " n in V_n -- and the corpus already has b303's two-radius family for the untied pair"
+     " and b293's dilation for how scaling moves it. ### Exact arithmetic: mostly Q, since"
+     " b293's collapse makes the conditions rational; cyclotomic only for transform values",
+     "### A PRICE, AND THIS SEAT'S ESTIMATE: **THREE ACTS FOR THE CORE, FIVE FOR THE"
+     " COMPARISON**. ### **IT IS NOT A COMMITMENT, NOT A MEASUREMENT, AND NOT A"
+     " RECOMMENDATION TO BUILD.** ### It must reproduce: (1) b293's two conditions, dimension"
+     " law and diagonal identification; (2) b304's compact-part zero WITH its mechanism, not"
+     " only its value; (3) b297's annihilation criterion and b280's P(k=n)=0 at reachable"
+     " cells; and (4) b304's Tr(Pi) = dim Son, so it is shown alive. ### **IT RETIRES THE"
+     " ESCAPED-MASS ARTIFACT** (b21, met b284): on Q_p there is no modulus and nothing to"
+     " fold. ### It does NOT retire W-ORD-FIBER-GENERAL, the barrier's scope limit, or the"
+     " range law. ### M-2 UNCHANGED",
+     "data/b305_the_arithmetics_entry.txt; data/b280_the_consequence.txt (the chart and"
+     " Haar sentences); data/b284_the_scalings_domain.txt (nothing to fold on Q_p)"),
     # ### THE DEMAND'S SHAPE (b304).
     ("demands-shape", "b304 (a derivation from the specification's own text)",
      "is the per-index first-level demand (SPEC-1) downstream of requiring TERMWISE"
