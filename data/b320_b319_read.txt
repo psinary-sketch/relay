@@ -1,0 +1,57 @@
+====================================================================================================
+b320 STEP ZERO -- THE READ OF b319's BANK AGAINST ITS OWN TABLE.
+====================================================================================================
+  ### THE READER'S OWN FIXTURES : [True, True, True, True, True]  PASS
+  ### **ARM (ii) IS THE ONE THAT MATTERS: THE READER MUST BE ABLE TO SAY THE OPPOSITE.**
+
+----------------------------------------------------------------------------------------------------
+### (A) THE CONTAINMENT DIRECTION, STATED FROM THE NUMBERS.
+----------------------------------------------------------------------------------------------------
+    frame                          rank grid  rank stab  dim grid   dim stab   direction       
+    N=1024 X=8                     29         20         867        876        STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=2048 X=16                    46         37         1874       1883       STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=2048 X=32                    80         69         1904       1915       STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=4096 X=32                    80         69         3888       3899       STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=8192 X=32                    79         69         7857       7867       STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=8192 X=64                    145        133        7919       7931       STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=16384 X=32                   79         69         15793      15803      STAGRIDLE CONTSTAGRIDLEINS GRID
+    N=16384 X=128                  274        262        15982      15994      STAGRIDLE CONTSTAGRIDLEINS GRID
+
+  ### ### **THE DIRECTION IS THE SAME AT EVERY FRAME: ### THE STABLE CUT'S SPACE
+  ### ### CONTAINS THE GRID CUT'S.**
+  ### The stable cut puts FEWER directions outside (rank 69 against 80) and therefore
+  ### keeps MORE of them in (dim 3899 against 3888 at the reference frame).
+  ### **b319 SAID THIS AND ITS TABLE AGREES WITH IT:** ### `only grid` 9 to 12 at every
+  ### frame, `only stable` 0 at every frame -- a one-directional difference.
+
+----------------------------------------------------------------------------------------------------
+### (B) b319's OWN SENTENCES, TESTED AGAINST THAT TABLE.
+----------------------------------------------------------------------------------------------------
+  reference frame N=4096 X=32 : rank_stab=69  dim_stab=3899  rank_grid=80  dim_grid=3888
+
+  ### (1) *"the stable subspace STRICTLY CONTAINS b316's"*
+      present in the bank : True ; the table says : STABLE CONTAINS GRID
+      ### **AGREES WITH THE TABLE.**
+
+  ### (2) *"the dimension selected by the source's own criterion is ### **69, 69, 69, 69.** ###"*
+      numerals in that sentence : [69, 69, 69, 69]
+      the table's `dim stab` at those frames : [1915, 3899, 7867, 15803]
+      the table's `rank stab` at those frames : [69, 69, 69, 69]
+
+  ### (3) does any sentence say the stable cut EXCLUDES more than the grid cut?
+      sentences pointing the other way : 0 
+
+----------------------------------------------------------------------------------------------------
+### (C) THE FILING.
+----------------------------------------------------------------------------------------------------
+  ### ### **PROSE-VS-TABLE DEFECTS FILED AGAINST b319's BANK : 1**
+
+  ### **DEFECT -- b319 bank, THE ANSWERS (1)**
+    quoted : *"the dimension selected by the source's own criterion is ### **69, 69, 69, 69.** ###"*
+    why    : It calls `69` THE DIMENSION. ### `69` is the RANK -- the count of directions the cut puts OUTSIDE the space. ### The bank's OWN table (1c) prints `dim stab` at that frame as `3899`. ### **THE SENTENCE AND THE TABLE DISAGREE ABOUT WHICH COLUMN `69` IS.**
+
+  ### ### **b319 IS NOT EDITED AND IS NOT RE-VERDICTED.** ### Its table is right, its
+  ### numbers are right, and its measurement stands. ### **WHAT IS FILED IS A SENTENCE**,
+  ### and a sentence that names the wrong column is a defect in the writing and not in the
+  ### instrument. ### The bank is append-only and the record carries the correction here.
+====================================================================================================

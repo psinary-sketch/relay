@@ -1,0 +1,194 @@
+====================================================================================================
+b320 -- GATE SUITE (A CONSTRUCTION, A COMPUTATION, AND A CONTROL)
+====================================================================================================
+
+  OWNER NEEDLES (the source ones pulled from the EXTRACT FILE, not the PDF):
+    PASS  Theorem 1's three conditions, from the extract
+    PASS  Definition 3.1, from the extract
+    PASS  (53), the archimedean functional, from the extract
+    PASS  (38), the principal value, from the extract
+    PASS  ### and (39), the kernel the assembly is checked against
+    PASS  b318 -- the square this act takes as its right-hand side
+    PASS  ### and the product this act tests for class membership
+    PASS  ### and the transform the class test reads
+    PASS  b319 -- the space both sides are computed on
+    PASS  b317 -- the seed this act squares
+    PASS  ### and the cells it is squared at
+    PASS  the corpus's own digamma kernel, at its emitting file
+    PASS  the floor/drift gate
+    PASS  b318 -- the reading this act settles by measurement
+    PASS  b319 -- the bar this act corrects
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  bank gives the class verdict
+    PASS  ### bank carries the arm that can fail
+    PASS  bank names the covered cells from the check
+    PASS  bank gives the control verdict
+    PASS  ### bank reports the control at every frame
+    PASS  ### bank states the FIRST verdict was FAILS
+    PASS  ### bank states that no bar was moved
+    PASS  ### bank names the failing constituent as its own
+    PASS  ### bank states the registration was not re-sealed
+    PASS  bank gives the failure-and-repair its own section
+    PASS  ### bank refuses the two-instances-of-one-mistake fixture
+    PASS  ### bank reports the expectation half refuted
+    PASS  ### and says which way the margin actually goes
+    PASS  bank reports the reach non-empty
+    PASS  ### and that the corrected bar was fixed first
+    PASS  ### bank reports the noise gate refusing
+    PASS  ### bank refuses the size of its own margins
+    PASS  bank refuses the theorem reading
+    PASS  bank refuses the window
+    PASS  bank refuses the unit
+    PASS  bank keeps the deposit shut
+    PASS  bank keeps M-2 under its cap
+    PASS  bank reports the corroboration
+    PASS  bank files the defect against b319 without editing it
+    PASS  bank states the shadow
+    PASS  ### and says what it does NOT keep
+    PASS  bank gives the in-flight register
+    PASS  bank says what is due next
+    PASS  ### and names the window act
+    PASS  ### and names the fold as still due
+    PASS  registration names the act
+    PASS  the run reports zero checks failing
+    PASS  the run gives the control verdict
+    PASS  the run names the covered cells
+    PASS  the run reports the reach
+    PASS  the run reports the noise gate refusing
+    PASS  ### the run refuses the uncovered cells
+    PASS  the corroboration reports its worst difference
+    PASS  ### and states the two routes share no code
+    PASS  the read files the defect
+    PASS  the extract reports nothing missing
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bar is not widened
+    PASS  the covered set is not enlarged
+    PASS  the floor is not lowered
+    PASS  no cell is dropped to make it pass
+    PASS  the registration is not re-sealed
+    PASS  the window is not opened
+    PASS  the uncovered cells are not read as evidence
+    PASS  the theorem is not extended
+    PASS  no theorem is proved
+    PASS  positivity is not claimed
+    PASS  the operator is not called positive
+    PASS  the margin size is not certified
+    PASS  the unit is not used
+    PASS  membership is not decided
+    PASS  b318 is not re-verdicted
+    PASS  b319 is not re-verdicted
+    PASS  b319 is not edited
+    PASS  no grade is moved
+    PASS  no aggregation is stated
+    PASS  nothing about h2
+    PASS  nothing about the identity
+    PASS  no p-adic reach is claimed
+
+  G-NOWIDEN (the control failed first, and NOTHING was moved to make it pass):
+    the seal verifies : True ; the hash is the one written BEFORE the re-run : True
+    the class floor is still the sealed one : True ; still three covered cells : True
+    and the bank states the FAILS, the unmoved bar and the unbroken seal : True
+    ### **THE HASH IN THIS GATE IS A LITERAL.** ### It was written from the seal the
+    ### registration carried before the failing run. ### An act that re-sealed to make
+    ### its control pass would fire this arm and could not silence it by editing the
+    ### registration, because the comparison is against a constant in the gate.
+
+  G-NOWINDOW (the uncovered cells are data, and carry no claim):
+    the run and the bank both refuse them : True
+
+  G-NOUNIT (no unit is used, and none is defined -- scanned over STRIPPED code):
+    STRIPPER FIXTURE (imported from b317): quiet=True loud=True
+    any unit definition or call in this act's stripped code : False
+    ### **b317 AND b318 CAPPED THIS THE SAME WAY AND b317's VERSION FIRED ON ITS OWN
+    ### ### DOCSTRING**, because it scanned raw source. ### This one strips first.
+
+  G-CORROB (a second route to the left-hand side, able to agree AND to disagree):
+    worst difference across the cells : 3.434e-05 ; agrees : True
+    the halved-kernel arm breaks the agreement : True
+    the too-coarse-grid arm is visibly wrong : True
+    and the routes are stated to share no code : True
+    ### **A SECOND ROUTE THAT AGREED WITH ANYTHING WOULD CORROBORATE NOTHING**, which is
+    ### why the halved-kernel arm is required to FAIL and is checked here.
+
+  G-FAILFIRST (the record carries the failing run, not only the holding one):
+    the bank carries it at full prominence : True
+    ### and so does the correspondence row, where a reader arrives first : True
+
+  G-EXPECT (the registered expectation is scored, including the half that is wrong):
+    the refuted half is reported as loudly as the confirmed one : True
+
+  G-SIZE (the margin's SIGN is claimed and its SIZE is refused):
+    the noise gate refuses, and the bank carries that refusal : True
+
+  G-ARMS (every arm shown ABLE to fire, or reported unable):
+    the class test, able to reject (b318 fixture ii)         PASS
+    the assembly against the source's own (39)               PASS
+    ### and against a deliberately halved (39)               PASS
+    the constant, measured across straddling widths          PASS
+    the assembly, invariant under a grid change              PASS
+    the second route, able to disagree                       PASS
+    the noise-floor gate -- REPORTED REFUSING                PASS
+
+  G-NOFLOAT (no undeclared float literal in the deciding runner):
+    float literals in b320_run.py : 6 ; UNDECLARED : 0 
+
+  G-NOEDIT (the owner instruments byte-identical to git HEAD, checked AFTER the run):
+    git status over those paths : ''
+
+  G-NOPAPERS / G-ANCESTOR:
+    PLACE-papers tracked changes : 0 ; table is a TRUE PREFIX : True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 20   struck-clause hits 0   stem hits 0  PASS
+    b320_checks.py                 struck : 3  stem : 0  ### CARRIER -- its own fixtures
+    b320_index_append.py           struck : 0  stem : 0  ### CARRIER -- its own fixtures
+    b320_the_lawful_function.txt   struck : 0  stem : 1  ### CARRIER -- it is the act's own voice and is scanned as such
+    b320_registration_2026-09-04.txt struck : 0  stem : 0  ### CARRIER -- it is the sealed registration
+    b320_ferry_2026-09-04.txt      struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b320_ferry_scan.txt            struck : 0  stem : 0  ### CARRIER -- it is the scan's own log
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the archimedean Weil distribution, from (53) and (38 tools/b320_weil.py                 exists=True tracked=False
+    ### the same quantity by a second and independent ro tools/b320_corroborate.py          exists=True tracked=False
+    the components, the covered cells, the reach and the tools/b320_run.py                  exists=True tracked=False
+    the read of b319's bank against its own table        tools/b320_b319_read.py            exists=True tracked=False
+    the source fragments, located                        tools/b320_extract.py              exists=True tracked=False
+    ### the finder those fragments were located with     tools/b317_extract.py              exists=True tracked=True
+    the square and the autocorrelation                   tools/b318_square.py               exists=True tracked=True
+    the subspace both sides are computed on              tools/b319_stable.py               exists=True tracked=True
+    the seed, the kernel and the cells                   tools/b317_smear.py                exists=True tracked=True
+    the grid scheme and the projector                    tools/b316_instrument.py           exists=True tracked=True
+    the corpus's digamma kernel                          tools/e16/carto_atlas.py           exists=True tracked=True
+    the floor/drift verdicts                             tools/noise_floor.py               exists=True tracked=True
+    what is missing from the ledger, counted             tools/b307_handoff_census.py       exists=True tracked=True
+    the shared-target sweep's hits                       tools/b306_stem_scope.py           exists=True tracked=True
+    the ahead/behind pairs and the pins                  tools/b303_pins.py                 exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)      tools/b320_regspec.py              exists=True tracked=False
+    the satisfiability verdict over the declared caps    tools/reg_satisfiable.py           exists=True tracked=True
+    the ferry scan's counts                              tools/ferry_scan.py                exists=True tracked=True
+    the banned/retired stem counts                       tools/banned_terms.py              exists=True tracked=True
+    the gate, needle and hedge counts                    tools/b320_checks.py               exists=True tracked=False
+    ### the stripper those gates read code with          tools/b317_checks.py               exists=True tracked=True
+    the correspondence rows' numbers                     tools/b320_correspondence.py       exists=True tracked=False
+    the index keys' read-back arms                       tools/b320_index_append.py         exists=True tracked=False
+    the registration's seal hash                         tools/reg_seal.py                  exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote):
+    the bank                 sentences=604   graded-hedges=0   ungraded-shapes=116
+    the registration         sentences=314   graded-hedges=0   ungraded-shapes=55
+    the run                  sentences=264   graded-hedges=0   ungraded-shapes=24
+    the corroboration        sentences=34    graded-hedges=0   ungraded-shapes=7
+    the read                 sentences=58    graded-hedges=0   ungraded-shapes=10
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0
+====================================================================================================

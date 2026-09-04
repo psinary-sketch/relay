@@ -1,0 +1,264 @@
+====================================================================================================
+b320 -- THE LAWFUL FUNCTION AND THE CONTROL.
+====================================================================================================
+  ### b316 INSTRUMENT    FIXTURES : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b317 ASSEMBLY      FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b318 SQUARE        FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b319 STABLE        FIXTURES : [True, True, True, True, True, True]  PASS
+  ### THIS ACT WEIL      FIXTURES : [True, True, True, True, True, True, np.True_, True, True]  PASS
+    (i)    C_R from widths 1.0 and 0.5 : ['2.4150933312', '2.4150933317'] ; spread 4.668e-10 ; C_R = 2.415093331442
+    (i-b)  C_R from widths 1.0 and 0.05 : ['2.4150933312', '2.4150933835'] ; spread 5.229e-08
+    (ii)   at R = 2 the constant is 3.108240513022 -- different, as it must be; spread 1.568e-09
+    (iii)  away from zero: assembly 0.075349879216 vs (39) 0.075349879216 ; relative 1.842e-16
+    (iv)   the same against a deliberately halved (39) : difference 3.767e-02
+    (v)    linearity: <W,2phi> - 2<W,phi> = 0.000e+00
+    (vi)   W_inf at the fixture cell : 2.466039906  (regular 0.000000003, singular -2.466039909, phi(0) 2.180205938)
+    (vi-b) grid invariance: -2.466039909 at NX and -2.466039906 at NX+1 ; difference 3.254e-09
+    (vii)  f = g conv g# by Definition 3.1 : min f-hat = -4.250e-17 ; max 3.427e-09 ; strict >=0 : False
+  ### **THE PRINCIPAL VALUE'S CONSTANT IS MEASURED FROM (38), NOT REMEMBERED:**
+  ### **C_R = 2.415093331442** at split radius R = 1, from two Gaussian widths agreeing to 4.7e-10.
+  ### ### **AND IT LANDS ON `gamma + log(2 pi)` = 2.415092731311, WHICH THIS ACT DID NOT PUT IN.**
+  ### That agreement is CORROBORATION and not the definition: the definition is (38).
+
+====================================================================================================
+### COMPONENT 1 -- THE SQUARE OF THE SEED.
+====================================================================================================
+  ### THE SOURCE STATEMENTS, PULLED FROM THE EXTRACT FILE:
+    found  Theorem 1 -- the three conditions on g
+    found  ### and the inequality it asserts
+    found  Definition 3.1 -- positive definite
+    found  the involution of the convolution algebra
+    found  (53) -- W_infinity
+    found  (38) -- the principal value
+    found  ### (39) -- the kernel tau
+    found  the square form, in the source own voice
+
+  ### (1a) THE ADJOINT, WRITTEN ONCE FROM THE SOURCE'S DEFINITION.
+    ### The source replaces `f -> f-bar^#` by ### **THE INVOLUTION OF THE CONVOLUTION
+    ### ### C*-ALGEBRA**, which on `R*_+` with the multiplicative measure `d*rho` is
+    ###   ### **`g^#(rho) = conj( g(rho^{-1}) )`**,
+    ### so that ### **`(g conv g^#)(lambda) = INT g(mu) g^#(mu^{-1} lambda) d*mu`**. ### In
+    ### the source's own variable `v = log rho` the measure is `dv` and, for a REAL seed
+    ### EVEN in `v`, `g^# = g` and the product is the AUTOCORRELATION
+    ###   ### **`f(v) = INT g(u) g(u - v) du`**, whose transform is `|g-hat|^2`.
+    ### **THE MEASURE FACTOR IS THE WHOLE OF WHAT MAKES THIS THE SOURCE'S PRODUCT**: it is
+    ### `d*mu` and not `dmu`, which is why the convolution is additive in `v` and not in
+    ### `rho`, and b318 formed it that way.
+
+  ### (1b) DEFINITION 3.1 ON `f = g conv g^#`, AT EVERY CELL, WITH A FAILING ARM BESIDE IT.
+    a      min f-hat       max f-hat       floor       pos.def. 
+    1.3    -4.6187e-17     8.0883e-12      -1.0e-09    YES      
+    1.35   -8.6736e-19     2.3680e-11      -1.0e-09    YES      
+    1.41   -4.3151e-17     6.9819e-11      -1.0e-09    YES      
+    1.5    -5.9848e-17     2.6204e-10      -1.0e-09    YES      
+    1.7    -2.3852e-17     2.2426e-09      -1.0e-09    YES      
+    1.9    5.8547e-18      1.0218e-08      -1.0e-09    YES      
+    1.99   -4.0332e-17     1.7785e-08      -1.0e-09    YES      
+    2      -2.1684e-17     1.8842e-08      -1.0e-09    YES      
+    2.01   -1.9299e-17     1.9948e-08      -1.0e-09    YES      
+    2.1    -7.5894e-18     3.2366e-08      -1.0e-09    YES      
+    2.4    -3.1008e-17     1.2046e-07      -1.0e-09    YES      
+    2.8    1.9299e-17      4.3506e-07      -1.0e-09    YES      
+    3      4.3368e-18      7.2612e-07      -1.0e-09    YES      
+    ### ### **POSITIVE DEFINITE IN DEFINITION 3.1's SENSE : 13 OF 13.**
+    ### **AND THE TEST CAN FAIL**: b318's fixture (ii) runs a wide bump minus a narrow one
+    ### -- a function known NOT to be a square by an argument about widths -- and the same
+    ### scan returns `min f-hat = -5.85e-01`. ### **A CLASS TEST EVERYTHING PASSES IS NOT
+    ### ### ONE**, and this one is the same code path that rejects that function.
+
+  ### (1c) THEOREM 1's THREE CONDITIONS ON THE SEED `g`, PER CELL.
+    a      supp <= 2^1/2 g-hat(0)      g-hat(i/2)    COVERED    
+    1.3    YES           -6.939e-17    1.110e-16     YES        
+    1.35   YES           -1.388e-16    4.441e-16     YES        
+    1.41   YES           -5.551e-17    2.220e-16     YES        
+    1.5    no            2.220e-16     -2.776e-17    no         
+    1.7    no            1.943e-16     2.220e-16     no         
+    1.9    no            1.110e-16     -3.192e-16    no         
+    1.99   no            1.665e-16     -1.665e-16    no         
+    2      no            -2.082e-16    5.690e-16     no         
+    2.01   no            8.327e-17     -2.776e-17    no         
+    2.1    no            2.498e-16     2.359e-16     no         
+    2.4    no            -3.608e-16    1.388e-16     no         
+    2.8    no            1.388e-17     1.249e-16     no         
+    3      no            1.804e-16     2.776e-17     no         
+    ### ### **THE COVERED CELLS, NAMED FROM THE CHECK : 1.3, 1.35, 1.41**
+    ### The support interval is the source's own `[2^-1/2, 2^1/2]`, i.e. `a <= 1.414213562`.
+    ### **THE TWO VANISHING CONDITIONS ARE TESTED AT `1e-09` ABSOLUTE**, the sealed (B2)
+    ### floor, because they are quadratures and a strict equality would bar rounding.
+
+====================================================================================================
+### COMPONENT 2 -- THE TWO SIDES.
+====================================================================================================
+
+  ### (2a) THE FRAMES, ON b319's STABLE CUT, WITH THE RANK PRINTED.
+    N       X       free     rank    dim      
+    1024    8.0     896      20      876      
+    2048    16.0    1920     37      1883     
+    2048    32.0    1984     69      1915     
+    4096    32.0    3968     69      3899     
+    8192    32.0    7936     69      7867     
+    8192    64.0    8064     133     7931     
+    16384   32.0    15872    69      15803    
+    16384   128.0   16256    262     15994    
+
+  ### (2b) THE TWO SIDES AT EVERY CELL. ### **REFERENCE FRAME `N=4096, X=32`, RANK 69.**
+    ### LEFT  : `W_infinity(g conv g^#)` from (53) and (38).
+    ### RIGHT : `Tr(theta(g) S theta(g)^)`, the square on the stable cut.
+    a      covered   W_inf (LEFT)     SQUARE (RIGHT)   margin L-R       L >= R   
+    1.3    YES       8.781214000      8.509769366      0.271444634      YES      
+    1.35   YES       7.130772347      6.845262034      0.285510313      YES      
+    1.41   YES       5.748007707      5.438230060      0.309777648      YES      
+    1.5    no        4.372801098      4.016120530      0.356680568      YES      
+    1.7    no        2.723018452      2.239620675      0.483397777      YES      
+    1.9    no        1.889498505      1.296882974      0.592615532      YES      
+    1.99   no        1.638981336      1.015778352      0.623202985      YES      
+    2      no        1.614353480      0.988594283      0.625759197      YES      
+    2.01   no        1.590290016      0.962143926      0.628146090      YES      
+    2.1    no        1.396323322      0.754150956      0.642172365      YES      
+    2.4    no        0.952619641      0.342389825      0.610229816      YES      
+    2.8    no        0.617613198      0.138934660      0.478678538      YES      
+    3      no        0.506677452      0.098273158      0.408404294      YES      
+
+  ### (2c) THE CORPUS'S DIGAMMA INTEGRAL, AS CORROBORATION ONLY.
+    ### ### **IT IS NOT THE SOURCE'S `W_infinity` AND IS NOT READ AS IT.** ### The corpus
+    ### forms `A = INT h-hat(u) [Re psi(1/4 + iu/2) - log pi] du / (2 pi)` in its own
+    ### emitting file, against its own bump -- a DIFFERENT test function from the seed's
+    ### autocorrelation -- and through the sign chain b316 quoted:
+    ###   ### **(L1)** the source's own `W_R = -W_inf`;
+    ###   ### **(L2)** b233: the corpus's arrangement is annotated as fixed by a
+    ###     calibration, which is a different claim from *committed before any answer*;
+    ###   ### **(L3)** b235: a sign warranted by a calibration is an instrument fact;
+    ###   ### **(L4)** b315: the calibration fixes an ORIENTATION and `A` is an
+    ###     independent integral;
+    ###   ### **(L5)** b318 MEASURED the fifth link FALSE -- the corpus's window is not in
+    ###     the source's class at all. ### **SO THE CHAIN IS BROKEN AND THE COMPARISON
+    ###     ### BELOW CARRIES NO INFERENCE IN EITHER DIRECTION.**
+    a      W_inf (this act) corpus A (banked) ratio           
+    1.3    8.781214000      -1.796212639     -4.888739       
+    1.35   7.130772347      -1.972185331     -3.615671       
+    1.41   5.748007707      -2.079782014     -2.763755       
+    1.5    4.372801098      -2.137817390     -2.045451       
+    1.7    2.723018452      -2.110312145     -1.290339       
+    1.9    1.889498505      -2.031322965     -0.930181       
+    1.99   1.638981336      -1.994302991     -0.821832       
+    2      1.614353480      -1.990245918     -0.811133       
+    2.01   1.590290016      -1.986204115     -0.800668       
+    2.1    1.396323322      -1.950631586     -0.715831       
+    2.4    0.952619641      -1.844741558     -0.516397       
+    2.8    0.617613198      -1.732622399     -0.356462       
+    3      0.506677452      -1.686524877     -0.300427       
+    ### **REPORTED, NOT CONCLUDED.** ### They are two different functionals at two
+    ### different test functions, and (L5) says the corpus's is outside the class where
+    ### the source's theorem speaks.
+
+  ### (2d) THE TWO AXES AT THE COVERED CELLS, WITH RANK BESIDE EVERY ROW.
+
+    ### `a = 1.3`
+      axis     N       X        rank   SQUARE           drift       
+      grid     2048    32.0     69     8.511208952      -           
+               4096    32.0     69     8.509769366      1.692e-04   
+               8192    32.0     69     8.510228903      5.400e-05   
+               16384   32.0     69     8.510345724      1.373e-05   
+      domain   1024    8.0      20     7.725767619      -           
+               2048    16.0     37     8.315996585      7.098e-02   
+               4096    32.0     69     8.509769366      2.277e-02   
+               8192    64.0     133    8.575142606      7.624e-03   
+               16384   128.0    262    8.599100561      2.786e-03   
+
+    ### `a = 1.35`
+      axis     N       X        rank   SQUARE           drift       
+      grid     2048    32.0     69     6.842029556      -           
+               4096    32.0     69     6.845262034      4.722e-04   
+               8192    32.0     69     6.845678638      6.086e-05   
+               16384   32.0     69     6.845784030      1.540e-05   
+      domain   1024    8.0      20     6.272624104      -           
+               2048    16.0     37     6.688153698      6.213e-02   
+               4096    32.0     69     6.845262034      2.295e-02   
+               8192    64.0     133    6.902180565      8.246e-03   
+               16384   128.0    262    6.923497716      3.079e-03   
+
+    ### `a = 1.41`
+      axis     N       X        rank   SQUARE           drift       
+      grid     2048    32.0     69     5.437186066      -           
+               4096    32.0     69     5.438230060      1.920e-04   
+               8192    32.0     69     5.438616125      7.099e-05   
+               16384   32.0     69     5.438711254      1.749e-05   
+      domain   1024    8.0      20     5.001816619      -           
+               2048    16.0     37     5.306517803      5.742e-02   
+               4096    32.0     69     5.438230060      2.422e-02   
+               8192    64.0     133    5.488727352      9.200e-03   
+               16384   128.0    262    5.507915818      3.484e-03   
+
+  ### (2e) THE REACH, AGAINST THE CORRECTED BAR (B3).
+    ### **GRID: rank CONSTANT and drift below 5 per cent.**
+    ### **DOMAIN: drift below 5 per cent; the rank MAY GROW and need only be MONOTONE.**
+    ### b319 sealed a bar requiring the rank constant on BOTH axes and its own Component 4
+    ### showed that unsatisfiable. ### **THE CORRECTION WAS MADE IN THIS ACT'S
+    ### ### REGISTRATION, BEFORE ANY VALUE**, and not after seeing one.
+    a      grid drift    domain drift  grid rank     domain rank   inside?  
+    1.3    5.400e-05     7.624e-03     69->69        69->133       YES      
+    1.35   6.086e-05     8.246e-03     69->69        69->133       YES      
+    1.41   7.099e-05     9.200e-03     69->69        69->133       YES      
+    ### ### **COVERED CELLS INSIDE THE REACH : 3 OF 3.**
+
+  ### (2f) THE NOISE-FLOOR GATE, IN THE PATH.
+    grid   a=1.3     8.510228903      -> 8.510345724       RESOLVED  
+    domain a=1.3     8.575142606      -> 8.599100561       DRIFTING  
+    grid   a=1.35    6.845678638      -> 6.845784030       RESOLVED  
+    domain a=1.35    6.902180565      -> 6.923497716       DRIFTING  
+    grid   a=1.41    5.438616125      -> 5.438711254       RESOLVED  
+    domain a=1.41    5.488727352      -> 5.507915818       DRIFTING  
+    ### ### REFUSED -- 3 of 6 value(s) rest on the instrument floor: domain a=1.3, domain a=1.35, domain a=1.41
+
+====================================================================================================
+### COMPONENT 3 -- THE CONTROL.
+====================================================================================================
+  ### **THE INEQUALITY: ### `W_infinity(g conv g^#) >= Tr(theta(g) S theta(g)^)`.**
+    a      LEFT W_inf       RIGHT square     margin           holds?    
+    1.3    8.781214000      8.509769366      0.271444634      YES       
+    1.35   7.130772347      6.845262034      0.285510313      YES       
+    1.41   5.748007707      5.438230060      0.309777648      YES       
+  ### ### **THE CONTROL HOLDS AT EVERY COVERED CELL INSIDE THE REACH.**
+  ### **AND WHAT THAT CERTIFIES IS THE INSTRUMENT, AT EXACTLY THAT SCOPE:** ### the
+  ### source proved this theorem; this act checked that the instrument, on the
+  ### object's own space and with both sides computed from the paper's own
+  ### displays, does not contradict it. ### **NO THEOREM IS PROVED HERE.**
+  ### ### **VERDICT : HOLDS**
+
+====================================================================================================
+### COMPONENT 4 -- THE UNCOVERED CELLS, AS DATA.
+====================================================================================================
+  ### ### **REPORTED AND NOT INTERPRETED. ### THE WINDOW ACT OWNS THEIR MEANING.**
+  ### The corpus's prime sum is quoted beside them from `tools/e16/carto_atlas.py`, whose
+  ### `channels()` forms it as `2 log p / sqrt(n)` over the prime powers inside the cell.
+
+  ### CHART-READY BLOCK -- columns: a, W_inf, SQUARE, margin, prime, arch
+  ###DATA 1.5 4.372801098 4.016120530 0.356680568 0.000000000 -2.137817390
+  ###DATA 1.7 2.723018452 2.239620675 0.483397777 0.000000000 -2.110312145
+  ###DATA 1.9 1.889498505 1.296882974 0.592615532 0.000000000 -2.031322965
+  ###DATA 1.99 1.638981336 1.015778352 0.623202985 0.000000000 -1.994302991
+  ###DATA 2 1.614353480 0.988594283 0.625759197 0.000000000 -1.990245918
+  ###DATA 2.01 1.590290016 0.962143926 0.628146090 0.000000000 -1.986204115
+  ###DATA 2.1 1.396323322 0.754150956 0.642172365 0.001146494 -1.950631586
+  ###DATA 2.4 0.952619641 0.342389825 0.610229816 0.172916235 -1.844741558
+  ###DATA 2.8 0.617613198 0.138934660 0.478678538 0.344371986 -1.732622399
+  ###DATA 3 0.506677452 0.098273158 0.408404294 0.381603993 -1.686524877
+
+    a      W_inf            SQUARE           margin           corpus prime  
+    1.5    4.372801098      4.016120530      0.356680568      0.000000000   
+    1.7    2.723018452      2.239620675      0.483397777      0.000000000   
+    1.9    1.889498505      1.296882974      0.592615532      0.000000000   
+    1.99   1.638981336      1.015778352      0.623202985      0.000000000   
+    2      1.614353480      0.988594283      0.625759197      0.000000000   
+    2.01   1.590290016      0.962143926      0.628146090      0.000000000   
+    2.1    1.396323322      0.754150956      0.642172365      0.001146494   
+    2.4    0.952619641      0.342389825      0.610229816      0.172916235   
+    2.8    0.617613198      0.138934660      0.478678538      0.344371986   
+    3      0.506677452      0.098273158      0.408404294      0.381603993   
+  ### **THE THEOREM DOES NOT COVER THESE CELLS AND NEITHER DOES THIS ACT.** ### No claim is
+  ### attached to any number above, in either direction.
+
+  ### CHECKS FAILING : 0
+  ### ### **UNCONFIRMED : 0**
+  ### elapsed : 407 s
+====================================================================================================

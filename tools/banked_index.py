@@ -83,6 +83,12 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'lawful-function': ['the lawful function', 'the square of the seed',
+                        'is the corpus window a g or an f', 'the sonin class membership test',
+                        'which cells does theorem one cover'],
+    'source-control': ['the source control', 'both sides of the inequality',
+                       'the archimedean weil distribution', 'the nonempty reach',
+                       'the control that failed first', 'did the control hold'],
     'stable-rank': ['the stable rank', 'why did the rank step',
                    'the eigenvalue one subspace', 'the rank stable subspace',
                    'does the dimension hold still', 'the kernel coverage repair'],
@@ -435,6 +441,56 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SQUARE OF THE SEED, AND THE CELLS THE THEOREM COVERS (b320).
+    ("lawful-function", "b320 (a construction, and the class test the source defines)",
+     "the corpus's seed squared in the source's own convention and tested against the"
+     " source's own class definition. ### The adjoint is written once from the involution of"
+     " the convolution C*-algebra, g#(rho) = conj(g(rho^-1)) against the MULTIPLICATIVE"
+     " measure d*mu, which in v = log rho makes the product the autocorrelation with"
+     " transform |g-hat|^2. ### By Definition 3.1 -- positive definite iff f-hat >= 0"
+     " pointwise -- **f = g conv g# IS POSITIVE DEFINITE AT 13 OF 13 CELLS**, minima -4.6e-17"
+     " to +5.9e-18 against a sealed -1e-09 floor. ### **AND THIS SETTLES b318's READING BY"
+     " MEASUREMENT**: b318 found NEITHER test function positive definite, 0 of 13, and read"
+     " the corpus's window as a candidate g and not a candidate f. ### The window passes at NO"
+     " cell; its square passes at every one. ### **THEOREM 1's COVERED CELLS, NAMED FROM THE"
+     " CHECK: 1.3, 1.35, 1.41** -- the support condition is the only one that bites, and the"
+     " two vanishing conditions hold at EVERY cell to 1.4e-17..5.7e-16",
+     "### A SQUARE LANDING IN THE CLASS OF SQUARES IS NOT A DISCOVERY. ### **SCOPE: this"
+     " fixes WHICH CELLS the source's theorem speaks at, and nothing else.** ### **AND THE"
+     " CLASS TEST CAN FAIL, WHICH IS THE ONLY REASON ITS PASSING IS WORTH PRINTING**: the same"
+     " code path returns min f-hat = -5.85e-01 on b318's wide-minus-narrow fixture. ### **NO"
+     " WINDOW IS OPENED** -- the ten uncovered cells are computed and printed as data with no"
+     " claim, and the inequality holding there is evidence for nothing, because outside the"
+     " hypotheses there is no conclusion to be evidence for. ### **NO UNIT IS USED.** ### NO"
+     " ACT RE-VERDICTED. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b320_the_lawful_function.txt; data/b320_components_run.txt;"
+     " tools/b320_weil.py and tools/b318_square.py (the emitting files);"
+     " CORRESPONDENCE.md row 152"),
+    # ### BOTH SIDES, AND THE CONTROL THAT FAILED BEFORE IT HELD (b320).
+    ("source-control", "b320 (a computation, and the source's own theorem as its control)",
+     "both sides of the source's inequality computed on the stable-rank instrument and checked"
+     " where Theorem 1 covers. ### The left side is built from (53) and (38) with its"
+     " principal-value constant MEASURED and not remembered -- C_R = 2.415093331442 from two"
+     " Gaussian widths agreeing to 4.7e-10, landing on gamma + log(2 pi) = 2.415092731311,"
+     " which this act did not put in. ### **THIS ACT'S FIRST REPORTED VERDICT WAS FAILS.** ###"
+     " The registration's (B6) fixed a link order before any value existed and the failure"
+     " named a constituent: links (1)-(3) clean, **LINK (4), THIS ACT'S OWN IMPLEMENTATION OF"
+     " (38), NAMED**. ### After the repair: **W_inf >= SQUARE at all three covered cells,"
+     " margins +0.2714, +0.2855, +0.3098, and at 27 of 27 instrument frames.** ### A second"
+     " defect in the same function survived the first repair and printed 1.9e9; two new"
+     " fixtures fail without each repair, and a SECOND AND INDEPENDENT ROUTE was built",
+     "### A CONTROL THAT HOLDS CERTIFIES THE INSTRUMENT, NOT THE OBJECT. ### **NO THEOREM IS"
+     " PROVED HERE** -- the source proved Theorem 1 and this act checked that the instrument"
+     " does not contradict it where it speaks. ### **NO BAR WAS MOVED, NO CELL DROPPED, NO"
+     " TOLERANCE LOOSENED, AND THE REGISTRATION WAS NOT RE-SEALED** -- hash 6f1c1e13..."
+     " verifies intact. ### **THE REACH IS NON-EMPTY FOR THE FIRST TIME IN THIS ARC, 3 OF 3,"
+     " UNDER A BAR THIS ACT ITSELF CORRECTED** in its registration before any value, per"
+     " b319's own proposal. ### **SCOPE: the SIGN of every margin is certified at every frame;"
+     " the SIZE at none** -- the noise gate REFUSES 3 of 6 and all three are domain frames."
+     " ### **AND THE REGISTERED EXPECTATION IS HALF REFUTED**: the margin was expected to"
+     " SHRINK toward the boundary cell and it GROWS. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b320_the_lawful_function.txt; data/b320_corroboration.txt;"
+     " data/b320_registration_2026-09-04.txt (sealed); CORRESPONDENCE.md row 153"),
     # ### THE SUBSPACE (b319).
     ("stable-rank", "b319 (an instrument build, act two of the archimedean instrument)",
      "the archimedean instrument's subspace by the source's own eigenvalue-one"

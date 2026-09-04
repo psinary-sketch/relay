@@ -1,0 +1,399 @@
+====================================================================================================
+b320 -- THE LAWFUL FUNCTION AND THE CONTROL.
+The corpus's seed squared in the source's convention, the product tested against the source's own
+class definition, both sides of the source's inequality computed on the stable-rank instrument, and
+the inequality checked where the source's Theorem 1 covers it.
+2026-09-04. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE ANSWERS, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### **(1) THE SQUARE OF THE SEED IS IN THE SOURCE'S CLASS, AT EVERY CELL.** ### `f = g conv g^#`
+### formed with the source's own involution, tested by the source's own Definition 3.1 -- *positive
+### definite if and only if `f-hat >= 0` pointwise* -- gives ### **13 OF 13.** ### The floor is the
+### sealed `-1e-09` and the measured minima run `-4.6e-17` to `+5.9e-18`, four to eight orders
+### inside it. ### **AND THE TEST CAN FAIL:** ### the same code path, on b318's wide-minus-narrow
+### fixture, returns `min f-hat = -5.85e-01`. ### **A CLASS TEST EVERYTHING PASSES IS NOT ONE.**
+### ### **(2) THE COVERED CELLS ARE NAMED FROM THE CHECK AND NOT FROM THE WISH: ### 1.3, 1.35,
+### ### 1.41.** ### Theorem 1 asks three things of the seed. ### **THE SUPPORT CONDITION IS THE ONLY
+### ### ONE THAT BITES**: `supp g` inside `[2^-1/2, 2^1/2]`, i.e. `a <= 1.414213562`. ### The two
+### vanishing conditions, `g-hat(0) = 0` and `g-hat(i/2) = 0`, hold at ### **EVERY** ### cell to
+### between `1.4e-17` and `5.7e-16` -- they are built into the corpus's mean-zero seed by
+### construction, and this act measured that rather than assuming it.
+### ### ### **(3) AND THE CONTROL HOLDS.** ### At each of the three covered cells, with both sides
+### computed from the paper's own displays and nothing tuned:
+###   ### `a = 1.30` : ### **`W_inf = 8.781214000` >= `SQUARE = 8.509769366`, margin `+0.271444634`**
+###   ### `a = 1.35` : ### **`W_inf = 7.130772347` >= `SQUARE = 6.845262034`, margin `+0.285510313`**
+###   ### `a = 1.41` : ### **`W_inf = 5.748007707` >= `SQUARE = 5.438230060`, margin `+0.309777648`**
+### ### **AND IT HOLDS AT EVERY FRAME AND NOT ONLY AT THE REFERENCE ONE.** ### `W_inf` does not
+### depend on the instrument at all -- it is an integral of the test function -- so the control at a
+### cell is one number against nine instrument frames. ### The largest `SQUARE` any frame produced
+### is `8.599100561`, `6.923497716`, `5.507915818`, still under the cell's `W_inf` in every case:
+### ### **27 OF 27 FRAMES.**
+### ### ### **(4) BUT THIS ACT'S FIRST REPORTED VERDICT WAS `FAILS`, AND THE DEFECT WAS MINE.** ###
+### That is the fact of the act and it is not being tidied into a footnote. ### The registration's
+### (B6) fixed a link order -- ### *normalizations, adjoint factor, transform convention, principal
+### value, sign chain, rank* -- ### **BEFORE ANY VALUE**, precisely so that a failure would name a
+### constituent instead of licensing a search for one. ### It did. ### Links (1) to (3) came back
+### clean (the assembly reproduces the source's (39) to `4.7e-10` away from the singularity), and
+### link (4), ### **MY OWN IMPLEMENTATION OF THE SOURCE'S PRINCIPAL VALUE (38)**, was named. ###
+### **NO BAR WAS MOVED, NO CELL WAS DROPPED, AND NOTHING WAS RE-BARRED TO MAKE THE SECOND RUN
+### ### PASS.** ### A defect was found in my code, fixed, and given a fixture that fails without it.
+### ### **(5) A SECOND DEFECT LIVED IN THE SAME FUNCTION AND SURVIVED THE FIRST REPAIR'S FIXTURES.**
+### It put ### **`1.9e9` at `a = 2.1`, and `1.98e293` at `a = 2.15`** ### into a data table. ### Two
+### defects, one function, two rounds of fixtures. ### **THAT IS WHY THIS ACT ADDED A SECOND AND
+### ### INDEPENDENT ROUTE TO THE SAME QUANTITY** -- `tools/b320_corroborate.py`, the transform-side
+### digamma integral, sharing no code with (38) -- rather than adding a third fixture to the first.
+### ### **(6) THE NAVIGATOR'S EXPECTATION IS HALF RIGHT AND HALF REFUTED, AND THE REFUTED HALF IS
+### ### REPORTED AS LOUDLY AS THE CONFIRMED ONE.** ### The inequality holds: expected. ### The
+### margin was expected to ### SHRINK ### toward the boundary cell `a = 2^1/2`. ### **IT GROWS:
+### ### `+0.2714`, `+0.2855`, `+0.3098`** ### as `a` rises to the boundary, and keeps growing outside
+### the covered region to a maximum near `a = 2.1` before falling again. ### **THE EXPECTATION WAS
+### ### REGISTERED AND IT IS WRONG**, and no reading of "margin" in the registration rescues it.
+### ### **(7) THE REACH IS NON-EMPTY FOR THE FIRST TIME IN THIS ARC: ### 3 OF 3.** ### b317 and b319
+### both reported `0 of 6`. ### b319's Component 4 showed why -- its own sealed bar demanded the rank
+### constant on the domain axis, which no honest scheme can deliver, since a longer domain is a
+### bigger space. ### **THE BAR WAS CORRECTED IN THIS ACT'S REGISTRATION, BEFORE ANY VALUE WAS
+### ### SEEN**, per b319's own proposal: grid axis rank constant and quantity converged; domain axis
+### quantity converged with the rank merely monotone. ### Grid drift `5.4e-05` to `7.1e-05`; domain
+### drift `7.6e-03` to `9.2e-03`; both inside five per cent.
+### ### **(8) AND THE NOISE-FLOOR GATE STILL REFUSES HALF THE VALUES: ### 3 OF 6, ALL DOMAIN.** ###
+### The domain axis is `DRIFTING` at the largest frame computed at every covered cell. ### So: ###
+### **THE MARGIN'S SIGN IS CERTIFIED AT EVERY FRAME; ITS SIZE IS NOT CERTIFIED AT ANY.** ### The
+### three margin figures in (3) are the reference frame's and they are reported as measurements at a
+### named frame, not as converged values of a limit.
+
+----------------------------------------------------------------------------------------------------
+### WHAT THIS ACT DOES NOT SAY.
+----------------------------------------------------------------------------------------------------
+### ### **NO THEOREM IS PROVED HERE.** ### The source proved Theorem 1. ### This act built an
+### instrument, computed both sides of that theorem's inequality on it from the paper's own displays,
+### and checked that the instrument does not contradict the theorem where the theorem speaks. ###
+### **A CONTROL THAT HOLDS CERTIFIES THE INSTRUMENT AT EXACTLY THAT SCOPE AND NOTHING ELSE.**
+### ### **NO WINDOW IS OPENED.** ### The ten cells Theorem 1 does not cover are computed and printed
+### as data in Component 4 with no claim attached. ### **THE INEQUALITY HOLDING THERE TOO IS NOT
+### ### EVIDENCE FOR ANYTHING**, because the source's hypotheses are the reason the source's
+### conclusion is available, and outside them there is no conclusion to be evidence for.
+### ### **NO UNIT IS USED, ANYWHERE.** ### This is a computation on the space, as certified.
+### ### **NO AGGREGATION IS STATED.** ### M-2 remains owed under its cap.
+### ### **NOTHING DEPOSITS.** ### Nothing here is said about the h2 identity beyond the register
+### sentence, exact.
+
+----------------------------------------------------------------------------------------------------
+### STEP ZERO.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN:** ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS**, self-test PASS. ### Run
+### before anything else, as the standing rule requires.
+### ### **(ii) THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the eighteenth act running.
+### relay `34187ae`, SIDE-global-section `e4166f7`, PLACE-papers `83ea0a1`, all confirmed by
+### `ls-remote` and not by a local ref.
+### ### **(iii) THE READ OF b319's BANK AGAINST ITS OWN TABLE.** ### `tools/b320_b319_read.py`, whose
+### own fixture (ii) requires it to be able to report the OPPOSITE direction -- a reader that always
+### says the same thing is not reading.
+###   ### The direction is the same at every frame: ### **THE STABLE CUT'S SPACE CONTAINS THE GRID
+###   ### CUT'S.** ### Fewer directions outside (rank `69` against `80`), more kept in (`dim 3899`
+###   ### against `3888`). ### b319's containment sentence AGREES with its table.
+###   ### ### **ONE PROSE-VS-TABLE DEFECT IS FILED AGAINST b319's BANK, AND b319 IS NOT EDITED.** ###
+###   ### Its THE ANSWERS (1) says *"the dimension selected by the source's own criterion is 69, 69,
+###   ### 69, 69"*. ### **`69` IS THE RANK, NOT THE DIMENSION.** ### b319's own table (1c) prints
+###   ### `dim stab` at that frame as `3899`. ### The sentence names the wrong column.
+###   ### **THE MEASUREMENT STANDS AND THE SENTENCE DOES NOT.** ### b319's table is right, its
+###   ### numbers are right, and nothing about its verdict changes. ### The bank is append-only, so
+###   ### the correction lives here and not there.
+### ### **(iv) THE READING PROTOCOL.** ### `data/b320_extract_notes.txt`: ### **12 SOURCE FRAGMENTS
+### ### AND 6 CODE FRAGMENTS, 0 MISSING.** ### Every read went through the extract-to-disk step; the
+### raw source was never paged into the session.
+### ### **(v) TWO UNTRACKED FILES PRE-DATE THIS ACT AND ARE LEFT ALONE:** ###
+### `relay/data/b259_blob_sensitivity.txt` and `PLACE-papers/internal/BLOB_SENSITIVITY_2026-08-29.md`.
+### ### They are b259's and this act neither commits nor deletes them.
+
+----------------------------------------------------------------------------------------------------
+### THE REGISTRATION.
+----------------------------------------------------------------------------------------------------
+### `data/b320_registration_2026-09-04.txt`, ### **SEALED `6f1c1e1389c302c380d9ebc7f3e3a2b7b68d35953e07ba36ef3a6cd238093af8`**, 15051 bytes,
+### term-scanned clean, satisfiability-checked, and verified intact after every component.
+### ### **NO ARTIFACT COUNTS ARE PREDICTED IN IT.** ### (U-1 is struck and this act did not test it.)
+### The bars it fixes, all of them before any value:
+###   ### **(B1)** ### the class floor, `1e-09` on `min f-hat`.
+###   ### **(B2)** ### covered means all three of Theorem 1's conditions at `1e-09` absolute.
+###   ### **(B3)** ### the corrected reach: ### grid axis `rank constant AND drift < 5 per cent`;
+###   ### domain axis `drift < 5 per cent, rank monotone non-decreasing`.
+###   ### **(B4)** ### the noise floor, in the path and not beside it.
+###   ### **(B5)** ### the control itself: ### **`W_inf(g conv g^#) >= Tr(theta(g) S theta(g)^*)`**.
+###   ### **(B6)** ### the link order for a failure: ### *normalizations, adjoint factor, transform
+###   ### convention, principal value, sign chain, rank.*
+### ### **(B6) IS THE ONE THIS ACT ACTUALLY SPENT.** ### It was written to stop a failing control
+### from turning into a hunt for a reason to disbelieve the failure. ### It did exactly that.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE SQUARE OF THE SEED.
+----------------------------------------------------------------------------------------------------
+### ### **(1a) THE ADJOINT, WRITTEN ONCE FROM THE SOURCE'S DEFINITION AND NOT GUESSED.** ### The
+### source replaces `f -> f-bar^#` by the involution of the convolution C*-algebra, which on `R*_+`
+### with the multiplicative measure `d*rho` is ### **`g^#(rho) = conj(g(rho^{-1}))`**, so that
+### `(g conv g^#)(lambda) = INT g(mu) g^#(mu^{-1} lambda) d*mu`. ### In the source's own variable
+### `v = log rho` the measure is `dv`, and for a REAL seed EVEN in `v` we get `g^# = g` and the
+### product is the autocorrelation `f(v) = INT g(u) g(u-v) du`, whose transform is `|g-hat|^2`.
+### ### **THE MEASURE FACTOR IS THE WHOLE OF WHAT MAKES THIS THE SOURCE'S PRODUCT:** ### `d*mu` and
+### not `dmu`, which is why the convolution is additive in `v` and not in `rho`.
+### ### **(1b) DEFINITION 3.1, AT EVERY CELL.**
+    a      min f-hat       max f-hat       floor       pos.def.
+    1.3    -4.6187e-17     8.0883e-12      -1.0e-09    YES
+    1.35   -8.6736e-19     2.3680e-11      -1.0e-09    YES
+    1.41   -4.3151e-17     6.9819e-11      -1.0e-09    YES
+    1.5    -5.9848e-17     2.6204e-10      -1.0e-09    YES
+    1.7    -2.3852e-17     2.2426e-09      -1.0e-09    YES
+    1.9     5.8547e-18     1.0218e-08      -1.0e-09    YES
+    1.99   -4.0332e-17     1.7785e-08      -1.0e-09    YES
+    2      -2.1684e-17     1.8842e-08      -1.0e-09    YES
+    2.01   -1.9299e-17     1.9948e-08      -1.0e-09    YES
+    2.1    -7.5894e-18     3.2366e-08      -1.0e-09    YES
+    2.4    -3.1008e-17     1.2046e-07      -1.0e-09    YES
+    2.8     1.9299e-17     4.3506e-07      -1.0e-09    YES
+    3       4.3368e-18     7.2612e-07      -1.0e-09    YES
+### ### **POSITIVE DEFINITE IN DEFINITION 3.1's SENSE : 13 OF 13.**
+### ### **AND THIS SETTLES b318's OPEN QUESTION IN THE DIRECTION b318 GUESSED.** ### b318 found
+### NEITHER of its two test functions positive definite, `0 of 13`, and said the corpus's window is a
+### candidate ### `g` ### and not a candidate ### `f`. ### **THAT READING IS NOW CONFIRMED BY
+### ### MEASUREMENT:** ### the window fails Definition 3.1, and its square passes at every cell.
+### ### **(1c) THEOREM 1's THREE CONDITIONS, PER CELL.**
+    a      supp <= 2^1/2   g-hat(0)      g-hat(i/2)    COVERED
+    1.3    YES             -6.939e-17     1.110e-16    YES
+    1.35   YES             -1.388e-16     4.441e-16    YES
+    1.41   YES             -5.551e-17     2.220e-16    YES
+    1.5    no               2.220e-16    -2.776e-17    no
+    1.7    no               1.943e-16     2.220e-16    no
+    1.9    no               1.110e-16    -3.192e-16    no
+    1.99   no               1.665e-16    -1.665e-16    no
+    2      no              -2.082e-16     5.690e-16    no
+    2.01   no               8.327e-17    -2.776e-17    no
+    2.1    no               2.498e-16     2.359e-16    no
+    2.4    no              -3.608e-16     1.388e-16    no
+    2.8    no               1.388e-17     1.249e-16    no
+    3      no               1.804e-16     2.776e-17    no
+### ### **THE COVERED CELLS : 1.3, 1.35, 1.41.** ### The vanishing conditions are quadratures, so
+### they are tested at the sealed `1e-09` absolute rather than at strict equality, which would bar
+### rounding. ### They pass by fourteen orders.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE TWO SIDES.
+----------------------------------------------------------------------------------------------------
+### ### **THE RIGHT-HAND SIDE IS b318's SQUARE ON b319's SPACE.** ### `Tr(theta(g) S theta(g)^*) =
+### ||theta(g) S||^2_HS`, accumulated as a sum of squares with no subtraction anywhere, on the
+### subspace selected by the source's eigenvalue-one characterization of the Sonin space.
+### ### **THE LEFT-HAND SIDE IS BUILT FROM (53) AND (38), AND ITS CONSTANT IS MEASURED.** ###
+### `C_R = 2.415093331442` at split radius `R = 1`, from the Gaussian pairing of (38) at two widths
+### agreeing to `4.7e-10`. ### **AND IT LANDS ON `gamma + log(2 pi) = 2.415092731311`, WHICH THIS ACT
+### DID NOT PUT IN.** ### That agreement is corroboration; the definition is (38).
+    a      covered   W_inf (LEFT)     SQUARE (RIGHT)   margin L-R       L >= R
+    1.3    YES       8.781214000      8.509769366      0.271444634      YES
+    1.35   YES       7.130772347      6.845262034      0.285510313      YES
+    1.41   YES       5.748007707      5.438230060      0.309777648      YES
+    1.5    no        4.372801098      4.016120530      0.356680568      YES
+    1.7    no        2.723018452      2.239620675      0.483397777      YES
+    1.9    no        1.889498505      1.296882974      0.592615532      YES
+    1.99   no        1.638981336      1.015778352      0.623202985      YES
+    2      no        1.614353480      0.988594283      0.625759197      YES
+    2.01   no        1.590290016      0.962143926      0.628146090      YES
+    2.1    no        1.396323322      0.754150956      0.642172365      YES
+    2.4    no        0.952619641      0.342389825      0.610229816      YES
+    2.8    no        0.617613198      0.138934660      0.478678538      YES
+    3      no        0.506677452      0.098273158      0.408404294      YES
+### ### **(2e) THE REACH, AGAINST THE CORRECTED BAR (B3) : ### 3 OF 3.**
+    a      grid drift    domain drift  grid rank     domain rank   inside?
+    1.3    5.400e-05     7.624e-03     69->69        69->133       YES
+    1.35   6.086e-05     8.246e-03     69->69        69->133       YES
+    1.41   7.099e-05     9.200e-03     69->69        69->133       YES
+### ### **(2f) THE NOISE-FLOOR GATE : ### REFUSED, 3 OF 6.**
+    grid   a=1.3     8.510228903  -> 8.510345724       RESOLVED
+    domain a=1.3     8.575142606  -> 8.599100561       DRIFTING
+    grid   a=1.35    6.845678638  -> 6.845784030       RESOLVED
+    domain a=1.35    6.902180565  -> 6.923497716       DRIFTING
+    grid   a=1.41    5.438616125  -> 5.438711254       RESOLVED
+    domain a=1.41    5.488727352  -> 5.507915818       DRIFTING
+### ### **THE GRID AXIS IS RESOLVED AND THE DOMAIN AXIS IS NOT.** ### The domain sequence still
+### climbs at the largest frame this act computed, and it climbs TOWARD the left-hand side rather
+### than away from it. ### **SO THE ACT REPORTS THE SIGN AND REFUSES THE SIZE**, and does not
+### extrapolate the domain sequence to a limit it did not compute.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE CONTROL.
+----------------------------------------------------------------------------------------------------
+### The source's Theorem 1 asserts, for a seed satisfying its three conditions, that the archimedean
+### Weil functional dominates the trace of the compressed square. ### The registration's (B5) fixed
+### that as this act's control, ### **BEFORE EITHER SIDE WAS COMPUTED.**
+    a      LEFT W_inf       RIGHT square     margin           holds?
+    1.3    8.781214000      8.509769366      0.271444634      YES
+    1.35   7.130772347      6.845262034      0.285510313      YES
+    1.41   5.748007707      5.438230060      0.309777648      YES
+### ### **THE CONTROL HOLDS AT EVERY COVERED CELL INSIDE THE REACH.**
+### ### ### **VERDICT : HOLDS.**
+### ### **AND WHAT THAT CERTIFIES IS THE INSTRUMENT, AT EXACTLY THAT SCOPE.** ### The source proved
+### this theorem. ### This act checked that the instrument, on the object's own space and with both
+### sides computed from the paper's own displays, does not contradict it. ### **NO THEOREM IS PROVED
+### ### HERE**, and a holding control is not evidence about the object beyond the instrument.
+
+----------------------------------------------------------------------------------------------------
+### ### THE FAILURE AND THE REPAIR. ### AT FULL PROMINENCE, BECAUSE IT IS THE ACT'S REAL CONTENT.
+----------------------------------------------------------------------------------------------------
+### ### **THIS ACT'S FIRST COMPLETED RUN REPORTED `VERDICT : FAILS`.** ### The left-hand side came
+### out below the right at every covered cell. ### That is what the run said and it is what would
+### have been banked had the link order not been sealed in advance.
+### ### **WHAT (B6) BOUGHT.** ### The order was ### *normalizations, adjoint factor, transform
+### convention, principal value, sign chain, rank* ### -- fixed before any value existed. ### With a
+### failing control and no such order, every one of those six is a place to go looking for a reason
+### to disbelieve the failure, and the search terminates when the answer becomes agreeable. ###
+### **WITH THE ORDER FIXED, THE SEARCH TERMINATES WHERE THE DEFECT IS.**
+###   ### **LINKS (1) TO (3) CAME BACK CLEAN.** ### The assembly reproduces the source's own kernel
+###   ### (39) to `4.7e-10` at arguments away from the singularity, and to `1.8e-16` in the fixture.
+###   ### ### **LINK (4) WAS NAMED: MY IMPLEMENTATION OF THE SOURCE'S PRINCIPAL VALUE (38).**
+### ### **DEFECT 1 -- THE HADAMARD INNER REGION WAS THE TEST FUNCTION'S SUPPORT AND NOT THE SPLIT
+### ### RADIUS.** ### (38) subtracts `phi(0)` on a neighbourhood of the origin of a FIXED radius `R`.
+### My code subtracted it only where `phi` was supported, so the term
+### `-phi(0) INT_{supp}^{R} dx / (2|x|)` was silently dropped whenever the support was smaller than
+### `R`. ### At `a = 1.3` that term is exactly `-2.9465`, against a measured discrepancy of `+2.9448`.
+### ### **THAT ONE OMISSION IS THE WHOLE OF THE FAILING VERDICT.**
+### ### **THE FIXTURE THAT NOW CATCHES IT: (i-b).** ### The old fixture (i) measured `C_R` at
+### Gaussian widths `1.0` and `0.5` -- both wide enough to cover `R`, so both were wrong in the same
+### way and agreed with each other. ### **AN AGREEMENT BETWEEN TWO INSTANCES OF THE SAME MISTAKE IS
+### ### NOT A FIXTURE.** ### (i-b) measures at widths `1.0` and `0.05`, which straddle `R`. ### It
+### fails without the repair.
+### ### **DEFECT 2 -- `phi` WAS SAMPLED ON ONE GRID AND INTEGRATED ON ANOTHER.** ### Surviving the
+### first repair and its fixtures, this one put a node within `1e-16` of the origin while the
+### neighbouring nodes were `1e-05` away, so `(phi(x) - phi(0)) / 2|x|` became a `0/0` limit resolved
+### by interpolation across the gap. ### **IT PRINTED `W_inf = 1.9e9` AT `a = 2.1` AND `1.98e293` AT
+### ### `a = 2.15`.** ### Repaired by making `phi` a callable evaluated at the integration nodes
+### themselves. ### **THE FIXTURE THAT NOW CATCHES IT: (vi-b)**, which runs the whole assembly at
+### `NX` and at `NX + 1` nodes and requires agreement; it gives `3.3e-09`.
+### ### ### **WHAT WAS NOT DONE, AND THIS IS THE POINT.** ### **NO BAR WAS MOVED. ### NO CELL WAS
+### ### DROPPED. ### NO TOLERANCE WAS LOOSENED. ### THE REGISTRATION WAS NOT RE-SEALED.** ### Its
+### hash is the same `6f1c1e13...` it carried before the first run and it verifies intact. ### The
+### act's order forbade widening, tuning, or re-barring to make the control pass, and the repair
+### that made it pass was a defect fix in this act's own code with a fixture that fails without it.
+### ### **AND THE HONEST COUNTERFACTUAL IS WORTH SAYING:** ### had the defect been in the SOURCE's
+### direction -- had the instrument been right and the control still failed -- the bank would carry
+### `FAILS` and the named link, and nothing in the method would have been different up to that point.
+### ### **TWO DEFECTS IN ONE FUNCTION, EACH PAST A ROUND OF FIXTURES, IS THE LESSON THIS ACT
+### ### BANKS.** ### The response was not a third fixture on the same route.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- WHERE THE THEOREM DOES NOT COVER. ### DATA, WITH NO CLAIM.
+----------------------------------------------------------------------------------------------------
+### ### **NO WINDOW IS OPENED HERE.** ### These ten cells fail Theorem 1's support condition. ### The
+### source's conclusion is not available at them, so there is nothing for the numbers below to be
+### evidence for. ### They are printed because the order says compute and report them, and refusing
+### to print a number one has computed is its own kind of dishonesty.
+    a      W_inf            SQUARE           margin           corpus prime
+    1.5    4.372801098      4.016120530      0.356680568      0.000000000
+    1.7    2.723018452      2.239620675      0.483397777      0.000000000
+    1.9    1.889498505      1.296882974      0.592615532      0.000000000
+    1.99   1.638981336      1.015778352      0.623202985      0.000000000
+    2      1.614353480      0.988594283      0.625759197      0.000000000
+    2.01   1.590290016      0.962143926      0.628146090      0.000000000
+    2.1    1.396323322      0.754150956      0.642172365      0.001146494
+    2.4    0.952619641      0.342389825      0.610229816      0.172916235
+    2.8    0.617613198      0.138934660      0.478678538      0.344371986
+    3      0.506677452      0.098273158      0.408404294      0.381603993
+### ### **THE THEOREM DOES NOT COVER THESE CELLS AND NEITHER DOES THIS ACT.**
+### ### **ONE STRUCTURAL REMARK THAT IS ABOUT THE ARITHMETIC AND NOT ABOUT THE OBJECT:** ### the
+### corpus's prime column is exactly `0` until `a = 2.1` and only then becomes nonzero, because
+### `supp f` inside `[1/2, 2]` is what keeps the prime places silent. ### **THAT IS THE SUPPORT
+### ### CONDITION SHOWING UP AS A ZERO COLUMN**, and it is a property of the test function's support,
+### not a finding.
+
+----------------------------------------------------------------------------------------------------
+### THE CORROBORATION. ### A SECOND ROUTE TO THE LEFT-HAND SIDE, SHARING NO CODE WITH THE FIRST.
+----------------------------------------------------------------------------------------------------
+### ### **THIS EXISTS BECAUSE TWO DEFECTS GOT PAST TWO ROUNDS OF FIXTURES ON ONE ROUTE.** ###
+### `tools/b320_corroborate.py` computes the same archimedean term as a TRANSFORM-side integral
+### against the digamma kernel `Re psi(1/4 + i u/2) - log pi`, read from the corpus's own
+### `tools/e16/carto_atlas.py`. ### **NOTHING IN THAT PATH TOUCHES THE HADAMARD INTEGRAL, THE SPLIT
+### ### RADIUS, OR `C_R`.**
+### ### **AND ITS OWN HAZARDS ARE DECLARED RATHER THAN HIDDEN.** ### A first diagnostic in this act
+### truncated `u` at `600` on a grid of spacing `10` -- far too coarse for an `f-hat` that varies on
+### scale `2` -- and it ### **LOOKED STABLE ACROSS EVERY RANGE BECAUSE IT WAS EQUALLY WRONG AT EACH
+### ### OF THEM.** ### Fixture (iv) now runs that coarse grid deliberately and requires it to be
+### visibly wrong. ### Fixture (ii) halves the kernel and requires the agreement to break: ### **A
+### ### SECOND ROUTE THAT AGREED WITH ANYTHING WOULD CORROBORATE NOTHING.**
+
+    a      covered   W_inf by (38)      A by digamma       difference
+    1.3    YES       8.781214000        8.781179663        3.434e-05
+    1.35   YES       7.130772347        7.130742821        2.953e-05
+    1.41   YES       5.748007707        5.747982325        2.538e-05
+    1.5    no        4.372801098        4.372780034        2.106e-05
+    1.7    no        2.723018452        2.723002886        1.557e-05
+    1.9    no        1.889498505        1.889485938        1.257e-05
+    1.99   no        1.638981336        1.638969721        1.162e-05
+    2      no        1.614353480        1.614341963        1.152e-05
+    2.01   no        1.590290016        1.590278592        1.142e-05
+    2.1    no        1.396323322        1.396312655        1.067e-05
+    2.4    no        0.952619641        0.952610795        8.846e-06
+    2.8    no        0.617613198        0.617605841        7.357e-06
+    3      no        0.506677452        0.506670618        6.834e-06
+### ### **WORST DIFFERENCE ACROSS ALL THIRTEEN CELLS : 3.434e-05.**
+### ### **AND THAT IS FOUR ORDERS BELOW THE SMALLEST MARGIN IN THE CONTROL** (`3.4e-05` against
+### `0.271`), so the route disagreement cannot touch the verdict in either direction. ### The
+### disagreement is a real limit and it is stated as one: neither route is exact, and this is how far
+### apart two honest implementations of the same quantity land.
+### ### **WHAT IT WOULD HAVE CAUGHT.** ### The defect that made the control FAIL shifted the left
+### side by `2.9` at `a = 1.3`. ### **AGAINST A ROUTE DISAGREEMENT OF `3.4e-05`, THAT IS FIVE ORDERS
+### ### OF MAGNITUDE OF SIGNAL**, and this check would have named it on the first run instead of the
+### second. ### It exists now because it did not exist then.
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER ASKS FOR ONLY ONE THING TO BE KEPT, AND ONLY IF IT IS KEPT APART FROM THE
+### ### OPERATOR CLAIM AS b318 DID.** ### It is kept, and it is kept apart, and here is which:
+### ### **KEPT: ### the right-hand side is a sum of squares of floating-point numbers and is
+### therefore nonnegative at every cell and every frame, as arithmetic.** ### `Tr(theta(g) S
+### theta(g)^*)` is accumulated as `sum(R * R)` with no subtraction anywhere in the accumulation.
+### ### **NOT KEPT, AND EXPLICITLY DISCLAIMED: ### that this says anything about the positivity of
+### ### the operator.** ### The float sum being nonnegative is a fact about the sum. ### The operator
+### `theta(g) S theta(g)^*` being positive is a statement about an operator on a space, and this act
+### computed a finite-dimensional compression of it on a truncated grid. ### **THE FIRST DOES NOT
+### ### GIVE THE SECOND**, and b318 drew that line first; this act does not move it.
+
+----------------------------------------------------------------------------------------------------
+### WHAT IS NOW KEYED, AND WHAT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **THE ARCHIMEDEAN WEIL DISTRIBUTION IS KEYED FOR THE FIRST TIME IN THIS ARC.** ### b317
+### smeared a trace, b318 squared it, b319 chose the space; ### **NONE OF THEM COMPUTED THE
+### ### FUNCTIONAL ON THE LEFT OF THE SOURCE'S INEQUALITY.** ### This act computes it from (53) and
+### (38) directly, and the index query confirms the claim string was unkeyed before now.
+### ### **THE OBJECT'S CONDITIONS ARE UNCHANGED BY THIS ACT.** ### Nothing about the h2 identity is
+### said beyond the register sentence, exact. ### **NOTHING DEPOSITS.**
+### ### **M-2 REMAINS OWED UNDER ITS CAP.** ### No aggregation is stated here.
+### ### **THE SEAM'S DEBT ITEM 1 IS UNTOUCHED** and is carried forward as it stands.
+### ### **THE PATENT CLOCK IS NOT THIS ACT'S** and nothing here bears on it.
+### ### **THE POSTURE LOCK IS SEPARATE AND STAYS SEPARATE.**
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER.
+----------------------------------------------------------------------------------------------------
+### ### **DISCHARGED BY THIS ACT:**
+###   ### the b319 reach bar's defect -- ### **CORRECTED IN A SEALED REGISTRATION BEFORE ANY VALUE**,
+###   ### and the reach is non-empty for the first time in this arc, `3 of 3`.
+###   ### b318's open question about whether the corpus's window is a candidate `g` or a candidate
+###   ### `f` -- ### **ANSWERED: A CANDIDATE `g`.** ### Its square passes Definition 3.1 at every
+###   ### cell; the window itself passes at none.
+### ### **STILL OPEN, AND CARRIED:**
+###   ### **THE DOMAIN AXIS DOES NOT RESOLVE.** ### `3 of 6` values still rest on the instrument
+###   ### floor and every one of them is a domain frame. ### **THE SIZE OF EVERY MARGIN IN THIS BANK
+###   ### IS THEREFORE UNCERTIFIED**, and only its sign is carried forward.
+###   ### **THE DEPOSITED-TITLE QUESTION** remains routed to the methodology day.
+###   ### **M-2 UNDER ITS CAP.**
+###   ### **THE SEAM'S DEBT ITEM 1.**
+### ### **FILED AGAINST ANOTHER ACT'S BANK, NOT EDITED INTO IT:** ### b319's THE ANSWERS (1) names
+### `69` as a dimension where its own table calls it a rank.
+
+----------------------------------------------------------------------------------------------------
+### WHAT IS DUE NEXT.
+----------------------------------------------------------------------------------------------------
+### ### **THE WINDOW ACT** -- the first act permitted to open a window -- and ### **THE MEMBERSHIP
+### ### ACT** are named as next, in that order.
+### ### ### **AND THE FOLD, FROM b314 ONWARD, IS DUE.** ### It has been named due in each of the last
+### several banks and is not discharged here either. ### **SAYING SO AGAIN IS NOT THE SAME AS DOING
+### ### IT**, and this act adds another entry to what the fold will have to take up.
+====================================================================================================

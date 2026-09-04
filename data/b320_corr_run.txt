@@ -1,0 +1,34 @@
+====================================================================================================
+b320_corroborate.py -- THE WEIL SIDE, BY A SECOND AND INDEPENDENT ROUTE.
+====================================================================================================
+  ### FIXTURES : [True, True, True, True, True]  PASS
+    (i)    at a = 1.75 : (38) route 2.466039906 ; digamma route 2.466025237 ; difference 1.467e-05
+    (ii)   the same with the kernel deliberately halved : 1.233012619 ; difference 1.233e+00
+    (iii)  range convergence: u to 600 gives 2.466025211 against u to 1500 giving 2.466025237
+    (iv)   at du = 10 the same integral gives 2.490158491 -- wrong by 2.413e-02, as it must be
+    (v)    re-grid convergence: 32768 nodes gives 2.466025237 against 65536 giving 2.466025459 ; diff 2.222e-07
+
+  ### **THE TWO ROUTES SHARE NO CODE.** ### (38) is a real-side Hadamard integral with a
+  ### measured principal-value constant; the digamma route is a transform-side integral
+  ### against the corpus's own kernel. ### **NEITHER CHECKS THE OTHER'S ARITHMETIC; EACH
+  ### ### WOULD EXPOSE A SILENT DEFECT IN THE OTHER**, which is what this act needed.
+
+    a      supp ok   W_inf by (38)      A by digamma       difference    
+    1.3    YES       8.781214000        8.781179663        3.434e-05     
+    1.35   YES       7.130772347        7.130742821        2.953e-05     
+    1.41   YES       5.748007707        5.747982325        2.538e-05     
+    1.5    no        4.372801098        4.372780034        2.106e-05     
+    1.7    no        2.723018452        2.723002886        1.557e-05     
+    1.9    no        1.889498505        1.889485938        1.257e-05     
+    1.99   no        1.638981336        1.638969721        1.162e-05     
+    2      no        1.614353480        1.614341963        1.152e-05     
+    2.01   no        1.590290016        1.590278592        1.142e-05     
+    2.1    no        1.396323322        1.396312655        1.067e-05     
+    2.4    no        0.952619641        0.952610795        8.846e-06     
+    2.8    no        0.617613198        0.617605841        7.357e-06     
+    3      no        0.506677452        0.506670618        6.834e-06     
+    ### ### **WORST DIFFERENCE ACROSS ALL THIRTEEN CELLS : 3.434e-05**
+    ### **THAT IS THE CORROBORATION, AND IT IS ALL IT IS.** ### It does not make either
+    ### route right; it makes a silent defect in either one visible.
+====================================================================================================
+EXIT=0
