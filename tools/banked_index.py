@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'keystones-reread': ['the keystones reread', 'the wall', 'the margin',
+                        'did the arc move the wall', 'the two margins',
+                        'is the arc space the wall space', 'the bridging statement',
+                        'what did the deposit already say'],
     'archimedean-arc-fold': ['the archimedean arc fold', 'b314-b322',
                              'the instrument arc', 'the nine acts',
                              'the defective bars', 'sealed bars found defective',
@@ -457,6 +461,58 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE WALL (b324).
+    ("keystones-reread", "b324 (reads and definitional decisions; the wall)",
+     "the residue keystone's object and the arc's constructed space, decided constituent by"
+     " constituent. ### The keystone's is **the positive space on the zeros** -- *positivity"
+     " has no zeros, the operator has no space, and the space is exactly what neither"
+     " supplies. The space is the wall* -- defined by the requirement that a self-adjoint"
+     " operator's spectrum REALIZE the zeta-zeros. ### The arc's is Connes-Consani's S(1,1):"
+     " two homogeneous vanishing conditions on a function and its transform, **with no"
+     " operator and no zeros in the definition at all**. ### **VERDICT: DIFFERENT, SEVEN OF"
+     " SEVEN**, differing at the FIRST constituent walked. ### **SO NO: THE ARC DID NOT MOVE"
+     " THE WALL**, and the second half of the registered expectation does not arise -- an act"
+     " that did not build the keystone's object cannot have moved the wall that object IS",
+     "### A DIFFERENT VERDICT ON TWO OBJECTS IS NOT A CONFLICT BETWEEN TWO RECORDS. ###"
+     " **THE VERDICT RESTS ON NO SHARED WORD**: the order refused resemblance BY NAME and the"
+     " registration gave the test -- if the argument would survive replacing one side's term"
+     " with a synonym the other does not use, it was resemblance. ### **THE KEYSTONE HAD"
+     " ALREADY PLACED THE ARC'S SOURCE**: its realization-candidate map grades"
+     " *Connes-Consani (reduces RH to a Weil positivity left open)* among routes that STALL"
+     " AT THE REALIZATION CLAUSE. ### **AND A MEASURED PROVENANCE FINDING RIDES WITH IT:**"
+     " *the space is the wall*, *the positive space* and **Sonin** -- the name of the arc's"
+     " entire space -- EACH APPEAR ZERO TIMES IN THE DEPOSITED MONOGRAPH. ### The deposit is"
+     " ms v5.10.2; the wall's naming is v5.13 and INTERNAL. ### NO GRADE MOVED. ### NO ACT"
+     " RE-VERDICTED. ### M-2 UNCHANGED",
+     "data/b324_the_keystones_reread.txt; data/b324_reread_run.txt;"
+     " PLACE-papers/phase1.5/proofs/THE_RESIDUE_OF_RH.md (the emitting keystone);"
+     " CORRESPONDENCE.md row 160"),
+    # ### THE MARGIN (b324).
+    ("keystones-reread", "b324 (reads and definitional decisions; the margin)",
+     "the balance keystone's margin against the arc's. ### The keystone's is M(n) :="
+     " lambda_Z(n) + lambda_A(n) = lambda_n, positive throughout 1 <= n <= 300, minimum at"
+     " n = 1 (lambda_1 = 0.0230957089661), growing like (n/2) ln n. ### The arc's is"
+     " W_8(f) - Tr(theta(g) S theta(g)*), equal by Theorem 4.7 to minus a remainder integral:"
+     " +0.271444634, +0.285510313, +0.309777648, growing toward the boundary. ### **THEY"
+     " DIFFER AT SIX OF SEVEN CONSTITUENTS** -- different index, different decomposition, and"
+     " **only the keystone's margin contains the zeros**. ### The seventh keeps it alive: the"
+     " monograph names positivity of the Weil functional and lambda_n >= 0 as classical faces"
+     " of ONE obligation h2. ### **VERDICT: UNDECIDED**",
+     "### EQUIVALENCE OF THE OBLIGATIONS IS NOT EQUIVALENCE OF THE MARGINS. ### **AND THE"
+     " BRIDGE IS ABSENT BY DESIGN, NOT BY OVERSIGHT**: the deposit records that the register"
+     " pentagon compiles the five faces' structure *while **deliberately not** compiling the"
+     " cross-register equivalences, since to compile 'discharge one and you discharge all"
+     " five' would be to compile RH-equivalence itself*. ### **THE BRIDGING STATEMENT IS"
+     " TYPED AND FILED AS THE ARC'S MOST VALUABLE OPEN ITEM**: a formula carrying the"
+     " archimedean margin at a lawful test function to the Li margin at an index n, or a"
+     " proof that no such formula exists. ### **ITS HONEST PRICE RIDES WITH IT**: the"
+     " keystone's margin is positive AT THE BENCH to n = 300, lambda_Z measured NEGATIVE"
+     " across n = 156..186 and 247..287, and Voros's threshold puts discrimination beyond"
+     " n ~ 10^18. ### The seven contacts came out 3 CORROBORATED, 4 UNTOUCHED, 0 IN TENSION."
+     " ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b324_the_keystones_reread.txt; data/b324_filings_run.txt;"
+     " PLACE-papers/phase1.5/spectral/BALANCE_AND_POSITIVITY.md (the emitting keystone);"
+     " CORRESPONDENCE.md row 161"),
     # ### THE FOLD ITSELF (b323).
     ("archimedean-arc-fold", "b323 (a filings act; nine acts into one section)",
      "b314 through b322 folded into `FINDINGS.md` as THE ARCHIMEDEAN INSTRUMENT ARC --"
