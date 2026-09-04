@@ -1,0 +1,20 @@
+====================================================================================================
+b319 -- THE STABLE RANK'S ROW, AND THE REPAIR'S.
+====================================================================================================
+  BLANK-CHECK FIXTURE (imported from b302): real blank=True  quiet on full=True  PASS
+  SPLITTER FIXTURE (imported from b303): plain=True escaped=True content=True raw=True  PASS
+  blank cells in the whole table (line-scoped) : 0
+  cells carrying an UNESCAPED pipe (checked BEFORE writing) : 0  PASS
+  marker is a literal prefix of its statement : 2/2  PASS
+  last existing row : 149
+  rows to append    : 2  (numbers 150..151)
+  blank cells in the new rows : 0  PASS
+  row 1 refuses the convergence reading and owns the changed subspace : True  PASS
+  row 2 refuses the result reading and owns the defective bar : True  PASS
+  rows carrying their own scope refusal and M-2's row : 2/2  PASS
+  READ BACK         : last 2 row number(s) are [150, 151]
+  cells on disk in the appended rows : [6, 6]  (6 required each, none blank)
+  blank cells after (line-scoped)   : 0
+  table rows now    : 151  PASS
+  ### and that means THE CELLS SURVIVED. It does not mean they are true.
+====================================================================================================

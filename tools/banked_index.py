@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'stable-rank': ['the stable rank', 'why did the rank step',
+                   'the eigenvalue one subspace', 'the rank stable subspace',
+                   'does the dimension hold still', 'the kernel coverage repair'],
     'forced-sign': ['the forced sign', 'the square form',
                    'is the smear the source trace side', 'is the variant positive definite',
                    'which letter is the corpus window',
@@ -432,6 +435,52 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SUBSPACE (b319).
+    ("stable-rank", "b319 (an instrument build, act two of the archimedean instrument)",
+     "the archimedean instrument's subspace by the source's own eigenvalue-one"
+     " characterization. ### The paper's (81) reads P P-hat P = SUM lambda(n)^2"
+     " |zeta_n><zeta_n| + R with R the orthogonal projection on Sonin's space, and its page 28"
+     " says S(1,1) IS the eigenvalue-one eigenspace -- so the spectrum is {lambda(n)^2}"
+     " together with 1 and an eigenvalue is DIMENSIONLESS. ### On the free coordinates the"
+     " sandwich is M = I - (hy/h) C^T C. ### **ON THE GRID AXIS THE SELECTED DIMENSION IS 69,"
+     " 69, 69, 69 ACROSS N = 2048 TO 16384, WHERE b316's SCHEME GAVE 80, 80, 79, 79** --"
+     " rank changes: b316 one, this act zero. ### **AND THE DRIFT FELL WITH IT**: 8.6e-05 to"
+     " 4.5e-04 where b318 measured 6.1e-03 to 2.3e-02. ### The threshold TAU = 1e-6 was fixed"
+     " from the source and the corpus's banked lambda(0)^2 BEFORE any spectrum was seen, and"
+     " then landed in a measured void: largest admitted ~2.0e-07, smallest excluded 5.62e-06",
+     "### A RANK THAT HOLDS STILL IS NOT CONVERGENCE. ### **THE GRID HALF OF THE REACH IS"
+     " ATTAINED AND THE DOMAIN HALF IS NOT** -- the noise-floor gate REFUSES all six domain"
+     " pairs, and the domain rank must grow because the space does (20, 37, 69, 133, 262)."
+     " ### **THE SUBSPACE CHANGED**: the stable cut STRICTLY CONTAINS b316's (only-grid 9 to"
+     " 12 at every frame, only-stable 0), so the smear is negative at 3 cells where b318 found"
+     " 5. ### Structural findings survive: square never negative, the identity re-proved at"
+     " 3.3e-06 to 2.6e-05, zeta_n residual 1.0000 on both cuts at all eight frames. ### **THE"
+     " UNIT'S RESIDUAL IS A MEASUREMENT WITH NO VERDICT**: 0.4395 constant on the grid axis"
+     " where the grid cut drifts -- it holds still, and it is still nowhere near zero. ### NO"
+     " ACT RE-VERDICTED. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b319_the_stable_rank.txt; data/b319_components_run.txt;"
+     " tools/b319_stable.py (the emitting file); CORRESPONDENCE.md row 150"),
+    # ### THE REPAIR, AND THE BAR THAT COULD NOT BE MET (b319).
+    ("stable-rank", "b319 (the kernel-coverage repair, and the reach bar's own defect)",
+     "the kernel-coverage defect discharged sixteen acts after b315 filed it. ### The profile"
+     " was regenerated from source and compared **TO THE GIT BLOB, NOT THE WORKING FILE** --"
+     " 33195 bytes each, byte-for-byte identical; the working file is 475 bytes longer, one"
+     " per line, which is core.autocrlf and not the kernel. ### Ten Core modules had no"
+     " compiled artefact; all ten compiled, 0 build errors. ### 24 imports and 91 print lines"
+     " appended. ### **PRINTS 475 TO 566, AND THE OLD PROFILE IS A LITERAL BYTE PREFIX OF THE"
+     " NEW ONE.** ### **AXIOM-BEARING TERMINALS AMONG THE 91 NEWLY CERTIFIED: 0**, read off"
+     " the printed file. ### The gate now PASSES and its fixtures still show it can fail",
+     "### A DEFECT DISCHARGED IS NOT A RESULT: every one of the 91 was already compiling and"
+     " nothing was proved by printing it. ### **AND THE REACH IS STILL EMPTY, 0 OF 6, BECAUSE"
+     " THE BAR THIS ACT SEALED IS DEFECTIVE** -- (B3) requires the rank constant across BOTH"
+     " axes, which on the domain axis is unsatisfiable by the nature of the object. ### The"
+     " second scheme was tried as ordered: **on the grid axis pinning selects the IDENTICAL"
+     " index set**, and **on the domain axis it admits a direction at eigenvalue-distance"
+     " 1.000e+00 from one** -- refuted, not deferred. ### W-ORD-REACH-BAR filed. ### The"
+     " registration was sealed with a banned stem in it and then RE-SEALED, superseded hash in"
+     " the block. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b319_the_stable_rank.txt; data/b319_coverage_repair.txt; data/b319_pin.txt;"
+     " CORRESPONDENCE.md row 151"),
     # ### THE SQUARE (b318).
     ("forced-sign", "b318 (a computation on the instrument as certified)",
      "the source's trace side in its square form, computed on the truncation. ### The paper"

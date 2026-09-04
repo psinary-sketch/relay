@@ -1,0 +1,246 @@
+====================================================================================================
+b319 -- THE STABLE RANK.
+====================================================================================================
+  ### b316 INSTRUMENT FIXTURES : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b317 ASSEMBLY FIXTURES   : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b318 SQUARE FIXTURES     : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### THIS ACT STABLE FIXTURES : [True, True, True, True, True, True]  PASS
+    (i)    sandwich eigenvalues in [7.964e-34, 1.000000] -- inside [0,1] : True
+    (ii)   free coordinates agree : 224 / 224
+    (iii)  TAU = 1.0e-06  <  1 - lambda(0)^2 = 5.724665e-05 : True
+    (iv)   rank at tau=1e-14 : 24 ; at tau=1e-1 : 15 ; monotone : True
+    (v)    idempotence, worst |P g - P P g| : 8.882e-16
+    (vi)   orthonormality, worst |Q^T Q - I| : 1.776e-15
+  ### **ARM (i) IS THE ONE THAT CARRIES THE DERIVATION.** ### A projection sandwich has its
+  ### spectrum in `[0,1]`; if the discretization constant `(hy/h)` were wrong the maximum
+  ### would leave that interval, and no threshold on it would mean anything.
+
+====================================================================================================
+### COMPONENT 1 -- THE CHARACTERIZATION, AND THE SCHEME BUILT FROM IT.
+====================================================================================================
+  ### THE SOURCE STATEMENTS, PULLED FROM THE EXTRACT FILE:
+    found  the two projections, in the source normalization
+    found  ### and the transform conjugation that makes the second
+    found  the spectral decomposition (81) of the sandwich
+    found  ### and that its remainder IS the projection on the space
+    found  the eigenvalue-one characterization
+    found  the bandwidth parameter that fixes the prolate eigenvalues
+    found  (16), which halves the full-line integral
+    found  the grid scheme this act replaces, and its moving tolerance
+
+  ### (1a) THE OBJECT, IN THE SOURCE OWN WORDS AND ITS OWN NORMALIZATION.
+    ### **THE TWO PROJECTIONS:** ### *"The projection P ... becomes the multiplication by
+    ### the characteristic function of the interval complement {x : |x| >= 1} and P-hat
+    ### becomes F^-1 P F."*
+    ### **THE SPECTRAL DECOMPOSITION (81):** ### *"P P-hat P = SUM lambda(n)^2
+    ### |zeta_n><zeta_n| + R ... The operator R is the orthogonal projection on Sonin's
+    ### space S(1,1)."*
+    ### **THE CHARACTERIZATION:** ### *"Sonin's space S(1,1) is the eigenspace of
+    ### P P-hat P for the eigenvalue 1."*
+    ### ### **SO THE SPECTRUM IS `{lambda(n)^2}` TOGETHER WITH `1` ON THE SPACE**, and an
+    ### eigenvalue is DIMENSIONLESS. ### A cut on it does not move with the grid.
+
+  ### (1b) THE SANDWICH ON THE GRID, DERIVED ONCE AND CHECKED BY ITS OWN SPECTRUM.
+    ### On the free coordinates the first projection is the identity, so the sandwich is
+    ### `P-hat` there, and `<xi, P-hat_1 xi> = INT_0^1 |F xi(p)|^2 dp` under (16), which
+    ### halves the full-line integral. ### In orthonormal coordinates that is
+    ###   ### ### **`M = I - (hy/h) C^T C`**,
+    ### whose eigenvalue-one eigenspace is `null(C)` -- ### **THE SAME SPACE b316 BUILT** --
+    ### but whose spectrum is the one the source names.
+    ### **AND THE TWO SCHEMES CUT THE SAME SINGULAR VALUES IN DIFFERENT PLACES:** ### b316
+    ### at `max(C.shape) * s[0] * eps`, whose BOTH factors move with the grid; this act at
+    ### `sigma^2 > TAU = 1e-06`, which is a pure number.
+    ### **THE THRESHOLD ARGUMENT, FROM THE CORPUS OWN BANKED VALUE:** ### the largest
+    ### non-space eigenvalue is `lambda(0)^2 = 0.999942753354103`, so the nearest one sits
+    ### **5.724665e-05** ### below one and `TAU` is 57 times inside it.
+
+  ### (1c) THE RANK AT EVERY FRAME, BY BOTH SCHEMES.
+    N       X       free     h          rank grid rank stab dim grid    dim stab   
+    1024    8.0     896      0.007812   29        20        867         876        
+    2048    16.0    1920     0.007812   46        37        1874        1883       
+    2048    32.0    1984     0.015625   80        69        1904        1915       
+    4096    32.0    3968     0.007812   80        69        3888        3899       
+    8192    32.0    7936     0.003906   79        69        7857        7867       
+    8192    64.0    8064     0.007812   145       133       7919        7931       
+    16384   32.0    15872    0.001953   79        69        15793       15803      
+    16384   128.0   16256    0.007812   274       262       15982       15994      
+
+  ### (1d) STABILITY ACROSS THE REFINEMENT LADDER WHERE THE GRID SCHEME STEPPED.
+    ### **THE GRID AXIS, `X` HELD AT 32:**
+      N          : 2048     4096     8192     16384  
+      rank grid  : 80       80       79       79     
+      rank stable: 69       69       69       69     
+      ### ### **RANK CHANGES ALONG THE GRID AXIS -- b316 SCHEME : 1 ; THIS ACT : 0**
+    ### **THE DOMAIN AXIS, `h` HELD AT 1/128:**
+      X          : 8        16       32       64       128    
+      rank grid  : 29       46       80       145      274    
+      rank stable: 20       37       69       133      262    
+      ### **THE DOMAIN AXIS IS NOT EXPECTED TO HOLD ITS RANK AND DOES NOT:** ### a longer
+      ### domain is a BIGGER SPACE, so its dimension must grow. ### **WHAT THE STABLE
+      ### ### SCHEME IS FOR IS THE GRID AXIS**, where the space is the same and only the
+      ### discretization changes.
+
+====================================================================================================
+### COMPONENT 2 -- THE REPRODUCTION AT STABLE RANK.
+====================================================================================================
+
+  ### (2a) THE FRAMES, WITH THE IDENTITY CONTROL RE-RUN ON THE STABLE SUBSPACE.
+    N       X       rank    identity trace   dim       exact?      
+    1024    8.0     20      876.000000       876       YES         
+    2048    16.0    37      1883.000000      1883      YES         
+    2048    32.0    69      1915.000000      1915      YES         
+    4096    32.0    69      3899.000000      3899      YES         
+    8192    32.0    69      7867.000000      7867      YES         
+    8192    64.0    133     7931.000000      7931      YES         
+    16384   32.0    69      15803.000000     15803     YES         
+    16384   128.0   262     15994.000000     15994     YES         
+
+  ### (2b) THE SQUARE AND THE SMEAR AT THE THIRTEEN BANKED CELLS, ON THE STABLE SUBSPACE.
+    a      SQUARE           SMEAR            difference       rank   
+    1.3    8.509769366      11.048049711     -2.538280345     69     
+    1.35   6.845262034      8.743295389      -1.898033355     69     
+    1.41   5.438230060      6.801042514      -1.362812454     69     
+    1.5    4.016120530      4.846979871      -0.830859341     69     
+    1.7    2.239620675      2.461804415      -0.222183740     69     
+    1.9    1.296882974      1.262534576      0.034348397      69     
+    1.99   1.015778352      0.916879553      0.098898798      69     
+    2      0.988594283      0.883684889      0.104909394      69     
+    2.01   0.962143926      0.851418304      0.110725621      69     
+    2.1    0.754150956      0.598524026      0.155626930      69     
+    2.4    0.342389825      0.097245499      0.245144326      69     
+    2.8    0.138934660      -0.148958515     0.287893175      69     
+    3      0.098273158      -0.189292665     0.287565824      69     
+    ### ### **CELLS AT WHICH THE SQUARE IS NEGATIVE ANYWHERE : 0**
+    ### ### **CELLS AT WHICH THE SMEAR IS NEGATIVE ANYWHERE  : 3**
+    ### **b318 FOUND 0 AND 5 ON THE GRID CUT.** ### If these agree, the stable cut has
+    ### changed the rank and not the object, which is the whole point of the build.
+
+  ### (2c) THE IDENTITY, RE-PROVED ON THE STABLE SUBSPACE.
+    a      SQUARE(f)        SMEAR(f conv f)  relative     within 1% 
+    1.5    4.016120530      4.016133590      3.252e-06    YES       
+    2      0.988594283      0.988597989      3.749e-06    YES       
+    3      0.098273158      0.098275726      2.613e-05    YES       
+
+  ### (2d) THE SOURCE WORKED INNER PRODUCT, STILL RECOVERED -- b316 (3c), UNCHANGED.
+    ### worst difference over three dilations : 2.22e-16
+    ### **IT IS A CHECK ON (N1) AND (N3) AND NOT ON THE SUBSPACE**, so it must be
+    ### unchanged by this act, and it is.
+
+  ### (2e) THE CORPUS EXPANSION VECTORS, STILL MEASURED OUTSIDE, ON BOTH CUTS.
+    N       X       zeta_n residual (stable)     zeta_n (grid)               
+    1024    8.0     1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    2048    16.0    1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    2048    32.0    1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    4096    32.0    1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    8192    32.0    1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    8192    64.0    1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    16384   32.0    1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    16384   128.0   1.0000, 1.0000, 1.0000, 1.0000 1.0000, 1.0000, 1.0000, 1.0000
+    ### **b292 DERIVED THIS AND b316 MEASURED IT ON THE GRID CUT.** ### If the stable cut
+    ### agrees, the new criterion has not quietly admitted vectors the record says are out.
+
+  ### (2f) THE TWO AXES, WITH THE RANK AS A COLUMN OF EVERY ROW.
+
+    ### `a = 1.5`
+      axis     N       X        rank   SQUARE           sq drift    SMEAR            sm drift   
+      grid     2048    32.0     69     4.014877373      -           4.844897292      -          
+               4096    32.0     69     4.016120530      3.095e-04   4.846979871      4.297e-04  
+               8192    32.0     69     4.016467469      8.638e-05   4.847508578      1.091e-04  
+               16384   32.0     69     4.016553331      2.138e-05   4.847640311      2.717e-05  
+      domain   1024    8.0      20     3.682175330      -           4.503651462      -          
+               2048    16.0     37     3.904771387      5.701e-02   4.691043531      3.995e-02  
+               4096    32.0     69     4.016120530      2.773e-02   4.846979871      3.217e-02  
+               8192    64.0     133    4.061053408      1.106e-02   4.914428220      1.372e-02  
+               16384   128.0    262    4.078305882      4.230e-03   4.940718791      5.321e-03  
+
+    ### `a = 2`
+      axis     N       X        rank   SQUARE           sq drift    SMEAR            sm drift   
+      grid     2048    32.0     69     0.987587882      -           0.882334784      -          
+               4096    32.0     69     0.988594283      1.018e-03   0.883684889      1.528e-03  
+               8192    32.0     69     0.988845477      2.540e-04   0.884021928      3.813e-04  
+               16384   32.0     69     0.988908238      6.346e-05   0.884106169      9.528e-05  
+      domain   1024    8.0      20     0.812651746      -           0.662683496      -          
+               2048    16.0     37     0.916987804      1.138e-01   0.789632391      1.608e-01  
+               4096    32.0     69     0.988594283      7.243e-02   0.883684889      1.064e-01  
+               8192    64.0     133    1.020314156      3.109e-02   0.926040172      4.574e-02  
+               16384   128.0    262    1.032697347      1.199e-02   0.942626459      1.760e-02  
+
+    ### `a = 3`
+      axis     N       X        rank   SQUARE           sq drift    SMEAR            sm drift   
+      grid     2048    32.0     69     0.098097453      -           -0.189551441     -          
+               4096    32.0     69     0.098273158      1.788e-03   -0.189292665     1.367e-03  
+               8192    32.0     69     0.098317088      4.468e-04   -0.189227848     3.425e-04  
+               16384   32.0     69     0.098328070      1.117e-04   -0.189211633     8.569e-05  
+      domain   1024    8.0      20     0.074894310      -           -0.214939643     -          
+               2048    16.0     37     0.087732691      1.463e-01   -0.203079370     5.840e-02  
+               4096    32.0     69     0.098273158      1.073e-01   -0.189292665     7.283e-02  
+               8192    64.0     133    0.103458147      5.012e-02   -0.181927886     4.048e-02  
+               16384   128.0    262    0.105566673      1.997e-02   -0.178884396     1.701e-02  
+
+  ### (2g) THE NOISE-FLOOR GATE, IN THE PATH.
+    grid   sq a=1.5    4.016467469      -> 4.016553331       RESOLVED  
+    grid   sm a=1.5    4.847508578      -> 4.847640311       RESOLVED  
+    domain sq a=1.5    4.061053408      -> 4.078305882       DRIFTING  
+    domain sm a=1.5    4.914428220      -> 4.940718791       DRIFTING  
+    grid   sq a=2      0.988845477      -> 0.988908238       RESOLVED  
+    grid   sm a=2      0.884021928      -> 0.884106169       RESOLVED  
+    domain sq a=2      1.020314156      -> 1.032697347       DRIFTING  
+    domain sm a=2      0.926040172      -> 0.942626459       DRIFTING  
+    grid   sq a=3      0.098317088      -> 0.098328070       RESOLVED  
+    grid   sm a=3      -0.189227848     -> -0.189211633      RESOLVED  
+    domain sq a=3      0.103458147      -> 0.105566673       DRIFTING  
+    domain sm a=3      -0.181927886     -> -0.178884396      DRIFTING  
+    ### ### REFUSED -- 6 of 12 value(s) rest on the instrument floor: domain sq a=1.5, domain sm a=1.5, domain sq a=2, domain sm a=2, domain sq a=3, domain sm a=3
+
+  ### (2h) THE REACH, AGAINST (B3): 5 PER CENT ON BOTH AXES ### **WITH THE RANK
+  ### ### CONSTANT ACROSS EACH STEP.**
+    a      object    grid drift    domain drift  grid rank     domain rank   inside?  
+    1.5    SQUARE    8.638e-05     1.106e-02     69->69        69->133       ### NO   
+    1.5    SMEAR     1.091e-04     1.372e-02     69->69        69->133       ### NO   
+    2      SQUARE    2.540e-04     3.109e-02     69->69        69->133       ### NO   
+    2      SMEAR     3.813e-04     4.574e-02     69->69        69->133       ### NO   
+    3      SQUARE    4.468e-04     5.012e-02     69->69        69->133       ### NO   
+    3      SMEAR     3.425e-04     4.048e-02     69->69        69->133       ### NO   
+    ### ### **CELLS INSIDE THE REACH : 0 OF 6.**
+    ### **THE GRID HALF OF THE BAR IS THE HALF THIS ACT COULD MOVE.** ### The domain axis
+    ### changes the SPACE, so its rank must change and its drift is a real convergence
+    ### question this act did not set out to answer.
+
+====================================================================================================
+### COMPONENT 3 -- WHAT THE INSTRUMENT NOW IS.
+====================================================================================================
+  ### (3a) THE TWO SUBSPACES, COMPARED WHERE THEY DIFFER.
+    N       X       rank grid  rank stab  only grid     only stable   their eigenvalues       
+    1024    8.0     29         20         9             0             9.95e-08, 1.02e-09      
+    2048    16.0    46         37         9             0             2.30e-08, 4.10e-10      
+    2048    32.0    80         69         11            0             2.00e-07, 6.22e-09      
+    4096    32.0    80         69         11            0             2.01e-07, 6.25e-09      
+    8192    32.0    79         69         10            0             2.01e-07, 6.26e-09      
+    8192    64.0    145        133        12            0             9.15e-07, 4.18e-08      
+    16384   32.0    79         69         10            0             2.01e-07, 6.26e-09      
+    16384   128.0   274        262        12            0             1.03e-07, 5.19e-09      
+    ### **`only grid` ARE VECTORS b316 PUT OUTSIDE THE SPACE THAT THE THRESHOLD ADMITS;
+    ### ### `only stable` ARE VECTORS THE THRESHOLD PUTS OUT THAT b316 ADMITTED.** ### Both
+    ### cuts run on the SAME singular values, so the difference is an index set and its
+    ### eigenvalues can be printed rather than described.
+
+  ### (3b) THE UNIT MEMBERSHIP RESIDUAL, ON BOTH CUTS, AT THE SAME FRAMES.
+    ### ### **A MEASUREMENT, NOT A VERDICT. ### THE DECISION STAYS THE MEMBERSHIP ACT'S.**
+    N       X       residual stable  residual grid   
+    1024    8.0     0.7973           0.9963          
+    2048    16.0    0.6450           0.9460          
+    2048    32.0    0.4395           0.8084          
+    4096    32.0    0.4395           0.8081          
+    8192    32.0    0.4395           0.7880          
+    8192    64.0    0.2861           0.6031          
+    16384   32.0    0.4395           0.7880          
+    16384   128.0   0.1975           0.3998          
+    ### **b316 REPORTED `0.9455, 0.8023, 0.5527, 0.6033, 0.4902` ACROSS ITS OWN FIVE
+    ### ### TRUNCATIONS**, which are NOT these frames. ### The two columns above are
+    ### like-for-like at the SAME frames; b316's row is quoted as context and not
+    ### compared cell to cell. ### **NO VERDICT IS TAKEN ON MEMBERSHIP BY THIS ACT.**
+
+  ### CHECKS FAILING : 0
+  ### ### **UNCONFIRMED : 0**
+  ### elapsed : 881 s
+====================================================================================================

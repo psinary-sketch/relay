@@ -1,0 +1,60 @@
+====================================================================================================
+b319_pin.py -- THE SECOND SCHEME, TRIED. ### **PIN THE RANK.**
+====================================================================================================
+  ### The order: ### *if still empty, the reason named and the second scheme (pin the
+  ### rank) tried before the act closes.* ### The reach IS still empty. ### **SO IT IS
+  ### ### TRIED HERE, ON BOTH AXES, AND MEASURED.**
+
+----------------------------------------------------------------------------------------------------
+### (A) THE GRID AXIS. ### **PINNING CHANGES NOTHING, BECAUSE THERE IS NOTHING LEFT TO FIX.**
+----------------------------------------------------------------------------------------------------
+    N        rank eig  rank pin  identical?  largest eig outside     
+    2048     69        69        YES         5.624e-06               
+    4096     69        69        YES         5.638e-06               
+    8192     69        69        YES         5.642e-06               
+    16384    69        69        YES         5.643e-06               
+    ### ### **THE TWO CUTS SELECT THE SAME INDEX SET AT EVERY GRID FRAME : True**
+    ### The eigenvalue criterion ALREADY returns a constant rank on this axis, so pinning
+    ### is not a second scheme here -- ### **IT IS THE SAME SUBSPACE REACHED BY A WEAKER
+    ### ### ARGUMENT.** ### The eigenvalue cut says WHY the rank is 69; the pin says only
+    ### that it was 69 at the coarsest frame and was made to stay there.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE DOMAIN AXIS. ### **PINNING IS NOT A REFINEMENT SCHEME HERE, IT IS AN ERROR.**
+----------------------------------------------------------------------------------------------------
+    ### A longer domain is a BIGGER SPACE. ### Its dimension must grow, and the measured
+    ### rank does: `20, 37, 69, 133, 262`. ### **PINNING AT THE COARSEST FRAME FIXES IT AT
+    ### ### 20 AND THEREFORE CALLS EVERY OTHER DIRECTION IN-SPACE.**
+    ### The question that decides it: ### **HOW FAR FROM ONE IS THE WORST EIGENVALUE THE
+    ### ### PIN ADMITS?** ### For a subspace that is meant to approximate the eigenvalue-one
+    ### eigenspace, an admitted direction at eigenvalue far below one is a refutation.
+
+    X        rank eig  rank pin  worst admitted (eig)   worst admitted (pin)  
+    8        20        20        9.954e-08              9.954e-08             
+    16       37        20        2.298e-08              1.000e+00             
+    32       69        20        2.012e-07              1.000e+00             
+    64       133       20        9.149e-07              1.000e+00             
+    128      262       20        1.031e-07              1.000e+00             
+
+    ### ### **THE EIGENVALUE CUT NEVER ADMITS A DIRECTION FURTHER THAN `TAU = 1e-06` FROM
+    ### ### ONE, BY CONSTRUCTION.** ### The pinned cut admits one at ### **1.000e+00** ### from
+    ### one at the deepest domain, which is 1000000 times the threshold.
+    ### ### **SO PINNING DOES NOT RESCUE THE DOMAIN AXIS. ### IT MANUFACTURES A CONSTANT
+    ### ### RANK BY CALLING DIRECTIONS IN-SPACE THAT THE SOURCE'S OWN CRITERION PUTS OUT**,
+    ### and a reach bought that way would be a reach about the pin and not about the space.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE READING, AND IT IS ABOUT THE BAR RATHER THAN ABOUT THE SCHEME.
+----------------------------------------------------------------------------------------------------
+  ### ### **(B3) AS THIS ACT SEALED IT CANNOT BE SATISFIED, AND THAT IS A DEFECT IN (B3).**
+  ### It requires the rank CONSTANT across each step of BOTH axes. ### On the grid axis
+  ### that is now met and is a real achievement. ### **ON THE DOMAIN AXIS IT IS
+  ### ### UNSATISFIABLE BY THE NATURE OF THE OBJECT**: the space grows, so its dimension
+  ### must, and no scheme that reports the space honestly can hold it fixed.
+  ### **THE REACH IS THEREFORE REPORTED EMPTY UNDER THE SEALED BAR**, and the bar's own
+  ### defect is named rather than the bar being quietly reinterpreted after the fact.
+  ### ### **WHAT THE NEXT ACT SHOULD SEAL INSTEAD:** ### rank constancy as a condition on
+  ### the GRID axis only, with the domain axis carrying a convergence bar and no rank
+  ### condition at all. ### **THAT IS A PROPOSAL AND NOT A CHANGE**: this registration is
+  ### sealed and this act does not edit it.
+====================================================================================================

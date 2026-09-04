@@ -1,0 +1,32 @@
+====================================================================================================
+b319 -- THE INDEX KEY. ### THE SUBSPACE, AND THE REPAIR.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    the archimedean weil distribution    NO KEY before : True
+    the nonempty reach                   NO KEY before : True
+  ### AND THE ALIAS b318 LEFT UNKEYED, MEASURED BEFORE THIS ACT CLAIMS IT:
+    the rank stable subspace             NO KEY before : True
+    ### **b318 LEFT IT UNKEYED BECAUSE ITS SCHEME WAS SPECIFIED AND NOT BUILT.**
+    ### **THIS ACT BUILT IT AND THEREFORE CLAIMS IT.**
+  stable-rank              key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    stable-rank              returns a row : True ; returns BOTH halves : True  PASS
+  ### **BOTH HALVES ARE REQUIRED.** ### An index that handed back the rank that stopped
+  ### moving without the reach that is still empty would be answering *what was built*
+  ### and hiding *what it did not buy*, which is the exact shape this record refuses.
+  ### THE ALIASES:
+    the stable rank                            now reaches a row : True  PASS
+    why did the rank step                      now reaches a row : True  PASS
+    the eigenvalue one subspace                now reaches a row : True  PASS
+    the rank stable subspace                   now reaches a row : True  PASS
+    does the dimension hold still              now reaches a row : True  PASS
+    the kernel coverage repair                 now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    the archimedean weil distribution    still NO KEY : True   (and was before : True)  PASS
+    the nonempty reach                   still NO KEY : True   (and was before : True)  PASS
+  ### **`the nonempty reach` STAYS UNKEYED BECAUSE THE ORDER ASKED FOR ONE AND THIS ACT
+  ### ### DID NOT DELIVER IT.** ### An index that answered it would hand back a rank
+  ### where a reach was asked for.
+  ### THE INDEX SWEPT AFTER THE WRITE : 0 stem hit(s)
+====================================================================================================
