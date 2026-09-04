@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'archimedean-arc-fold': ['the archimedean arc fold', 'b314-b322',
+                             'the instrument arc', 'the nine acts',
+                             'the defective bars', 'sealed bars found defective',
+                             'what did the arc establish'],
     'membership': ['the membership', 'the residual ladder', 'the two realizations',
                    'why is the residual not zero', 'is the unit in the space',
                    'the truncation tail'],
@@ -453,6 +457,52 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FOLD ITSELF (b323).
+    ("archimedean-arc-fold", "b323 (a filings act; nine acts into one section)",
+     "b314 through b322 folded into `FINDINGS.md` as THE ARCHIMEDEAN INSTRUMENT ARC --"
+     " **+154 lines, its sixteenth section, 2709 to 2863 lines**. ### Each entry carries its"
+     " grade AS ITS OWN ACT LEFT IT, its own scope sentence, and an obstacle quoted verbatim"
+     " and verified against the act that ORIGINATED it. ### **THE GATE IS A GENERATOR AND NOT"
+     " A REVIEWER**: a quotation that fails F-QUOTE never reaches the file at all, and"
+     " F-QUOTE carries a DISCRIMINATION arm -- an altered quotation comes back UNFINDABLE."
+     " ### F-QUOTE 18 of 18; F-COUNT 9 results, 9 obstacles, the arc exactly. ### **THE WRITE"
+     " IS PURELY ADDITIVE AND THAT IS MEASURED**: the pre-append working file AND the blob at"
+     " HEAD are both TRUE BYTE PREFIXES of the result",
+     "### A FOLD IS A FILING AND NOT A CONCLUSION. ### **NO GRADE MOVES. ### NO ACT IS"
+     " RE-VERDICTED. ### NO NEW MATHEMATICS** -- every number in the section was already"
+     " banked by the act that owns it. ### The arc's one statement is filed WITH ITS SCOPE"
+     " PRINTED BESIDE IT: **no theorem is proved by any act in it**, the window decides"
+     " nothing, and **the SIZE of no margin on the domain axis is certified anywhere in the"
+     " arc**. ### W-ORD-ARCH-MEMBERSHIP, W-ORD-PHI-MU-L2 and W-ORD-WINDOW-CLASS all stay"
+     " OPEN. ### Three defects in this act's OWN generator are declared: a missing idempotence"
+     " guard that filed the arc twice before any commit, a sentence asserting a difference its"
+     " own measurement showed was zero, and a log list the runner could not write. ### NO"
+     " AGGREGATION IS STATED. ### M-2 UNCHANGED",
+     "data/b323_the_fold.txt; data/b323_fold_run.txt; data/b323_fold_emitted.md;"
+     " PLACE-papers/FINDINGS.md (the filed section); CORRESPONDENCE.md row 158"),
+    # ### THE DEFECTIVE-BARS TABLE (b323).
+    ("archimedean-arc-fold", "b323 (the table this record had never filed before)",
+     "**THREE TIMES IN NINE ACTS A BAR WAS SEALED BEFORE ANY VALUE AND THE BAR ITSELF TURNED"
+     " OUT WRONG.** ### b319's (B3) reach bar required the rank constant on BOTH axes when the"
+     " domain axis cannot deliver it; b322's (B2) imported two labels that do not partition"
+     " the possibilities; b322's (B5) has branches that are not mutually exclusive and fired"
+     " twice at once. ### **IN NO CASE WAS THE SEALED FILE EDITED.** ### And in all three the"
+     " defect was found **by running the sealed bar and reading what came back**, not by"
+     " revising it: b319 reported an EMPTY reach under a bar it had shown unsatisfiable and"
+     " left the fix as a PROPOSAL; b322 reported the verdict its broken rule computed and then"
+     " TOOK THE WEAKER of the two branches that rule licensed",
+     "### A TABLE OF ONE'S OWN DEFECTS IS NOT A RESULT EITHER. ### **A DEFECT NAMED IN A"
+     " SEALED BAR IS EVIDENCE; A SEALED BAR QUIETLY REWRITTEN IS NOT**, and a record whose"
+     " registrations are only ever reported as having worked is a record that has stopped"
+     " reading them. ### The lore is consolidated with its incidents and SPLIT BY WHAT"
+     " ENFORCES IT: nine rules MECHANIZED, five JUDGEMENT. ### The suite is inventoried at ten"
+     " pieces. ### The archimedean instrument's three certifications are tabled with their"
+     " cells and margins, and **its limits are stated as measurements**: the domain axis's"
+     " rate on both ladders, and a resolving power priced twice, both prices beyond what it"
+     " reaches. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b323_the_fold.txt; data/b323_fold_rows.json;"
+     " data/b319_the_stable_rank.txt and data/b322_the_membership.txt (the originating acts);"
+     " CORRESPONDENCE.md row 159"),
     # ### THE LADDER, AND THE TRUNCATION TAIL THAT PREDICTS IT (b322).
     ("membership", "b322 (reads at owners, a definitional decision, and one measurement)",
      "the unit's membership residual run along the DOMAIN ladder at stable rank, and fitted."
