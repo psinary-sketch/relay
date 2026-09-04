@@ -1,0 +1,55 @@
+====================================================================================================
+b312_definitions.py -- THE TWO DEFINITIONS, UNFOLDED AND COMPARED AS STRINGS.
+====================================================================================================
+  ### THE EXTRACTORS' OWN FIXTURES, RUN BEFORE THEY ARE TRUSTED : [True, True, True, True, True, True]  PASS
+  ### **THE FIRST TWO ARMS ARE THE ONES THAT MATTER: THE EXTRACTOR CAN REPORT EITHER
+  ### SIGN.** ### An arm that could only ever report the answer this act expects would
+  ### be a control that cannot fire, which b308 named and refused.
+
+  ### THE SOURCE, READ OFF THE RAW PAGE TEXT -- NOT FLATTENED, SINCE THE
+  ### FLATTENER CANNOT SEE A SIGN:
+    SRC-THETA  page 22   MINUS       the scaling action AT lambda, DEFINED -- eq. (61)   
+               pϑpλqξqpvq :“ λ´1{2
+    SRC-IP     page 26   NO MINUS    the source unfolding <psi|theta(rho^-1)|xi> AT rho^-1
+               xψn|ϑpρ´1qξny“ ρ1{2
+    SRC-EPS    page 31   NO MINUS    the REMAINDER unfolded, in the Lemma 5.4 proof      
+               ϵpρq“ ÿ λpnq2 1´λpnq2 ˆ ρ1{2
+    SRC-QEPS   page 31   NO MINUS    the operator image's leading factor -- eq. (99)     
+               Cn“ρ1{2
+
+  ### THE CORPUS, READ OFF ITS OWN COMMITTED EMITTING FILES:
+    COR-EPS      qeps_layer.py    eps                  line 113   value -0.5     the corpus's remainder, its own code
+                 out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+    COR-QEPS     qeps_layer.py    Qeps                 line 91    value 0.5      the corpus's operator image, its own code
+                 C = (r ** 0.5) * integ \
+    COR-EPSGRID  b38_act10.py     per_mode_eps_grids   line 91    value -0.5     the remainder AS THE IDENTITY CONSUMES IT
+                 out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I
+    COR-TRACE    b38_act10.py     trace_modes          line 73    value lamd     the TRACE side of the same identity
+                 An[i] = math.sqrt(lamd) * 0.5 * float((w * f * fy).sum())
+
+  ### THE CORPUS'S DECLARED REASON, QUOTED FROM ITS OWN HEADER:
+    theta(rho^-1) zeta_n(u) = rho^{-1/2} zeta_n(rho u)
+    sign in the declaration : MINUS
+
+  ------------------------------------------------------------------------------------------------
+  ### ### **THE COMPARISON.**
+  ------------------------------------------------------------------------------------------------
+    ### THE DEFINITION, AT ITS OWN ARGUMENT `lambda`, REPORTED APART SO IT CANNOT BE
+    ### MISREAD AS THE REMAINDER'S EXPONENT : the action carries a minus = True,
+    ### WHICH AT ARGUMENT `rho^-1` IS WHAT PUTS A PLUS ON THE REMAINDER.
+    the source, unfolding an inner product AT rho^-1 : sign = NO MINUS
+    the source's remainder      exponent sign : NO MINUS
+    the corpus's remainder      exponent      : -0.5
+    the corpus's remainder AS THE IDENTITY EATS IT : -0.5
+    the source's operator image exponent sign : NO MINUS
+    the corpus's operator image exponent      : 0.5
+    the corpus's TRACE side applies           : the square root of lamd
+
+    ### REMAINDER  : source has a minus = False ; corpus has a minus = True  -> ### DISAGREE ###
+    ### THE SAME, IN THE FILE THE IDENTITY IS ASSEMBLED IN : corpus minus = True -> ### DISAGREE ###
+    ### OPERATOR IMAGE : source minus = False ; corpus minus = False  -> AGREE
+    ### THE CORPUS AGAINST ITSELF : its remainder and its operator image carry
+    ### opposite exponents = True
+    ### THE CORPUS AGAINST ITSELF, INSIDE ONE FILE : the identity's remainder side and
+    ### its trace side carry opposite exponents = True
+====================================================================================================

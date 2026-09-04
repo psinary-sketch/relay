@@ -1,0 +1,200 @@
+====================================================================================================
+b313 -- GATE SUITE (A COMPUTATION THAT CHANGED AN INSTRUMENT IN A COPY)
+====================================================================================================
+
+  OWNER NEEDLES (pulled from emitting files):
+    PASS  b176 -- the act that imported the remainder, naming the citation
+    PASS  ### b176 -- and quoting the source's own rho^{1/2}
+    PASS  ### b176 -- what it DID check
+    PASS  ### b176 -- and what it said it had NOT
+    PASS  the corpus's header convention
+    PASS  ### the corpus's remainder line
+    PASS  ### the corpus's operator-image line, the OTHER convention
+    PASS  ### the identity's remainder side
+    PASS  ### the identity's TRACE side, the source's convention
+    PASS  ### the identity itself
+    PASS  ### b264's own evaluator, the third site
+    PASS  the atlas's calibrated sign
+    PASS  ### and the atlas's disclaimer
+    PASS  the owner's banked table, the reference column
+    PASS  b264 -- the noise-floor work-order
+    PASS  b312 -- the identification this act runs
+    PASS  ### b312 -- the work-order it filed
+    PASS  ### b312 -- the exact check it named
+    PASS  ### b312 -- the insensitivity it derived
+    PASS  the E1 precedent -- the record does not overwrite itself
+    PASS  ### and where that clause was discharged
+
+  SELF NEEDLES:
+    PASS  bank states the verdict up front
+    PASS  bank names the branch
+    PASS  bank gives the ratios
+    PASS  ### bank refuses the retraction reading
+    PASS  ### bank states the standing clause
+    PASS  ### bank refuses the verdict-on-a-measurement reading FIRST
+    PASS  bank says the owner was not edited
+    PASS  bank gives the source three sites
+    PASS  bank gives the corpus line numbers
+    PASS  bank quotes the importing act
+    PASS  bank refuses to criticise the importing act
+    PASS  bank states why the flip is licensed
+    PASS  bank records the direction as unpredicted
+    PASS  bank reports the diff counts
+    PASS  ### bank owns that a control fired on the first run
+    PASS  ### bank owns the worse of the two defects
+    PASS  bank names the axes
+    PASS  bank says the instrument is not exact
+    PASS  bank gives the transcription control
+    PASS  bank calls that departure display rounding
+    PASS  bank gives the positive control
+    PASS  bank gives the two columns
+    PASS  bank gives the structural measurement
+    PASS  bank gives the call-path table
+    PASS  bank says the unmoved six were computed twice
+    PASS  bank gives the difference quotient
+    PASS  bank gives the ladder with the floor columns
+    PASS  bank names the floor modes
+    PASS  bank says a gate nobody prints cannot be checked
+    PASS  bank gives the decay shift
+    PASS  bank prints the derived columns
+    PASS  ### bank refuses to interpret the derived column
+    PASS  ### bank gives the calibration caution
+    PASS  ### bank states the direction of that column
+    PASS  bank bounds what the convention accounts for
+    PASS  bank refuses to re-read the face-offs
+    PASS  bank gives the import ledger
+    PASS  bank states the ledger own limit
+    PASS  bank routes the errata candidate
+    PASS  bank cites the E1 precedent
+    PASS  bank says an erratum is the author's instrument
+    PASS  bank restates the object three conditions
+    PASS  bank keeps M-2 unchanged under its cap
+    PASS  bank restates the seam debt item 1
+    PASS  bank restates the patent clock
+    PASS  bank records the W2 ruling verbatim
+    PASS  bank marks the ruling recorded and not applied
+    PASS  bank gives the in-flight register
+    PASS  bank files the new work-orders
+    PASS  bank names the fold and the act before it
+    PASS  bank gives a fourth reason for that act
+    PASS  bank reports the census with its scope
+    PASS  bank reports the shadow as nothing
+    PASS  bank states what it did not check
+    PASS  bank keeps h2 where the deposit left it
+    PASS  bank declares its deviations
+    PASS  registration splits its two halves
+    PASS  registration states the standing clause
+    PASS  registration caps owner edits
+    PASS  registration caps fits
+    PASS  registration registers no direction
+    PASS  the run reports zero checks failing
+    PASS  the run gives branch two
+    PASS  the run gives the positive control
+    PASS  the flip log shows the round trip
+    PASS  the flip log prints a unified diff
+    PASS  the census reports its count
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the flip is not justified by the residue
+    PASS  no target is named
+    PASS  no fit is claimed
+    PASS  the residue is not said to be explained
+    PASS  the cancellation is not read
+    PASS  no banked number is called wrong
+    PASS  no act is re-verdicted
+    PASS  the face-offs are not re-read
+    PASS  no grade is moved
+    PASS  the errata is not filed by this seat
+    PASS  the owner is not edited
+    PASS  the branch is not decided
+    PASS  M-2 is not verdicted
+    PASS  no aggregation is stated
+    PASS  the ruling is not applied
+    PASS  nothing about h2
+    PASS  the fold is not folded
+    ### **THE FIRST FIVE ARE `G-NOFIT`: the sentences an act that kept a flip BECAUSE
+    ### the residue improved would have written. ### THEY ARE THE ONLY WAY A LICENSED
+    ### FLIP CAN STILL BE DISHONESTLY REPORTED.**
+
+  G-OWNER-UNTOUCHED (the owner instrument byte-identical to git HEAD, NORMALISED):
+    tools/e16/qeps_layer.py            identical to HEAD : True
+    tools/e16/b38_act10.py             identical to HEAD : True
+    tools/e16/b264_eps_decay.py        identical to HEAD : True
+    tools/e16/carto_atlas.py           identical to HEAD : True
+    data/b38_2026-08-18.txt            identical to HEAD : True
+    data/b264_rows.json                identical to HEAD : True
+    git status over those paths : ''
+    ### **CHECKED AFTER THE RUN AND NOT BEFORE IT: A FILE IS EDITED BY RUNNING THINGS,
+    ### NOT BY PLANNING TO.**
+
+  G-DIFF / G-ROUNDTRIP (every difference declared; the copy inverts to the original):
+    round trips passing : 3 of 3 ; diff rows : [('3', '3', '3', 'True'), ('4', '4', '4', 'True'), ('6', '6', '6', 'True')]
+    every difference corresponds to a declared substitution : True
+
+  G-CONTROL (the copy with the exponent restored reproduces the owner):
+    quantities compared : 78 ; ### **BITWISE IDENTICAL : 78** ; identical : True
+
+  G-STRUCTURE (the flip is a pointwise rho factor):
+    measured deviation : 5.55e-16 ; within 1e-12 : True
+
+  G-TRANSCRIPTION (the loop reproduces the owner's banked table):
+    worst departure : 4.98e-05 ; within the table's own display rounding : True
+
+  G-NOISEFLOOR (the gate is in the ladder's path and what it removes is printed):
+    NRES read from b264, floor modes named, removal printed : True
+
+  G-NOFIT (positive arm: the act states its own licence and its own bound):
+    licence stated, bound stated, no-fit stated : True
+
+  G-NOBUILD / G-NOPAPERS / G-ANCESTOR:
+    profile identical to HEAD : True ; `.lean` changed : 0 ; prints : 475
+    PLACE-papers tracked changes : 0 ; table is a TRUE PREFIX : True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 14   struck-clause hits 0   stem hits 0  PASS
+    b313_checks.py                 struck : 3  stem : 0  ### CARRIER -- its own fixtures
+    b313_index_append.py           struck : 0  stem : 0  ### CARRIER -- its own fixtures
+    b313_the_exponent.txt          struck : 0  stem : 0  ### CARRIER -- it is the act's own voice and is scanned as such
+    b313_registration_2026-09-03.txt struck : 0  stem : 0  ### CARRIER -- it is the sealed registration
+    b313_ferry_2026-09-03.txt      struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b313_ferry_scan.txt            struck : 0  stem : 0  ### CARRIER -- it is the scan's own log
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the copies, their diffs and the round trip           tools/b313_flip.py                 exists=True tracked=False
+    both columns, the controls and every table           tools/b313_run.py                  exists=True tracked=False
+    the source's exponent, re-extracted                  tools/b312_definitions.py          exists=True tracked=True
+    the owner instrument the columns run through         tools/e16/b38_act10.py             exists=True tracked=True
+    the remainder layer                                  tools/e16/qeps_layer.py            exists=True tracked=True
+    the ladder's evaluator and its NG law                tools/e16/b264_eps_decay.py        exists=True tracked=True
+    what is missing from the ledger, counted             tools/b307_handoff_census.py       exists=True tracked=True
+    the shared-target sweep's hits                       tools/b306_stem_scope.py           exists=True tracked=True
+    the ahead/behind pairs and the pins                  tools/b303_pins.py                 exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)      tools/b313_regspec.py              exists=True tracked=False
+    the satisfiability verdict over the declared caps    tools/reg_satisfiable.py           exists=True tracked=True
+    the ferry scan's entry/pattern/hit counts            tools/ferry_scan.py                exists=True tracked=True
+    the banned/retired stem counts                       tools/banned_terms.py              exists=True tracked=True
+    the gate, needle and hedge counts                    tools/b313_checks.py               exists=True tracked=False
+    the correspondence rows' numbers and their read-back tools/b313_correspondence.py       exists=True tracked=False
+    the index keys' read-back and must-not-hit arms      tools/b313_index_append.py         exists=True tracked=False
+    the registration's seal hash                         tools/reg_seal.py                  exists=True tracked=True
+    the byte checks the profile comparison imports       tools/b302_kernel.py               exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-SEAL:
+    seal intact : True  PASS
+
+  HEDGE AUDIT (over every file this act wrote):
+    the bank                 sentences=806   graded-hedges=0   ungraded-shapes=151
+    the registration         sentences=335   graded-hedges=0   ungraded-shapes=57
+    the run                  sentences=493   graded-hedges=0   ungraded-shapes=72
+
+====================================================================================================
+### COUNTS, PRINTED BY THIS TOOL SO THE BANK NEVER TYPES ONE AT A SHELL:
+    owner needles 21   self needles 67   must-fail fixtures 17
+    declared carriers 6   toolnum rows 18
+### GATES: 118 PASS / 0 FAIL / 0 ERROR / 0 REFUSED   (unpullable: 0)
+====================================================================================================

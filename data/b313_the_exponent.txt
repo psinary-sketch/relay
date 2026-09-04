@@ -1,0 +1,555 @@
+====================================================================================================
+b313 -- THE EXPONENT.
+### **THE REMAINDER RECOMPUTED UNDER THE SOURCE'S NORMALIZATION, AND THE RESIDUE COMPARED.**
+2026-09-03. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE RESIDUE DOES NOT COLLAPSE. ### BRANCH TWO: ### THE RESIDUE IS NOT THE EXPONENT.**
+### ### **IT SHRINKS BY BETWEEN 8% AND 19% AND KEEPS ITS ORDER OF MAGNITUDE AT EVERY ONE OF THE SIX
+### ### BANKED CELLS.** ### Ratios of source-convention residue to banked residue, per cell:
+### **0.9176, 0.8830, 0.8645, 0.8298, 0.8249, 0.8141.**
+### ### **SO THE CONVENTION MISMATCH IS REAL AND IT IS PART OF THE RESIDUE, NOT THE RESIDUE.**
+### ### **AND THE STANDING CLAUSE BINDS IN THIS DIRECTION EXACTLY AS HARD AS IT WOULD HAVE BOUND IN
+### ### THE OTHER: ### THE EXPONENT IS FIXED BY THE SOURCE'S OWN DEFINITION OF THE OBJECT THE CORPUS
+### ### IMPORTED, AND BY NOTHING THE RESIDUE DOES.** ### A residue that had collapsed would not have
+### confirmed the flip; a residue that did not collapse does not refute it. ### **b312 DECIDED WHICH
+### ### FUNCTION THE CORPUS'S REMAINDER IS, BY UNFOLDING DEFINITIONS, AND A RESIDUE IS NOT A VOTE ON
+### ### THAT.**
+
+### ### **AND WHAT THIS ACT DOES NOT SAY, SAID FIRST:**
+### ### **NO BANKED NUMBER IS CALLED WRONG, NO ACT IS RE-VERDICTED, AND NO GRADE MOVES.** ### Every
+### value in the banked column is what the banked instrument computes. ### **WHAT THIS ACT ADDS IS A
+### ### SECOND COLUMN BESIDE THE FIRST AND A STATEMENT OF WHAT DIFFERS BETWEEN THEM.**
+### ### **THE OWNER INSTRUMENT WAS NOT EDITED.** ### `qeps_layer.py`, `b38_act10.py` and
+### `b264_eps_decay.py` stand byte-identical to `git HEAD`; three COPIES carry the flip.
+
+----------------------------------------------------------------------------------------------------
+### STEP ZERO.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN:** ### 4844 bytes, 100 lines; 3 struck entries, 10 patterns, self-test
+### PASS, ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **(ii) THE LEDGER CENSUS, WITH ITS SCOPE:** ### **TOTAL MISSING : 0.** ### NAMES and not
+### understanding, ONE ledger and no other, and its act list is the `b297`-`b306` arc, which reaches
+### none of `b308`-`b313`.
+### ### **(iii) THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the eleventh act running.
+### relay `8f072ea`, SIDE-global-section `f73e368`, PLACE-papers `d9a7a39`, each 0/0 and equal.
+### ### **(iv) THE SOURCE RE-EXTRACTED AGAINST THE CORPUS'S PIN BEFORE THE WARRANT WAS WRITTEN**;
+### all four sites land as they did at b312.
+
+====================================================================================================
+### COMPONENT 1 -- THE WARRANT, BEFORE ANY COMPUTATION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE SOURCE'S EXPONENT, AT ITS THREE SELF-CONSISTENT SITES.
+----------------------------------------------------------------------------------------------------
+### ### **PAGE 22, ITS EQUATION (61) -- THE DEFINITION:**
+###   ### **`(theta(lam) xi)(v) := lam^{-1/2} xi(lam^{-1} v)`, for all `xi` in `L^2(R)_ev`,**
+###   introduced on that page as *"the unitary representation ... conjugated by the isomorphism"*.
+###   ### **SO AT THE REMAINDER'S ARGUMENT: ### `theta(rho^-1) f(x) = rho^{+1/2} f(rho x)`.**
+### ### **PAGE 26 -- THE SOURCE UNFOLDING AN INNER PRODUCT OF EXACTLY THIS SHAPE:**
+###   ### **`<psi_n | theta(rho^-1) xi_n> = rho^{+1/2} INT xi_n(rho x) psi_n(x) dx`.**
+### ### **PAGE 31, THE LEMMA 5.4 PROOF -- THE REMAINDER ITSELF, UNFOLDED:**
+###   ### **`eps(rho) = sum_n [lam^2/(1-lam^2)] ( rho^{+1/2} INT_{rho^-1}^{1} xi^an(x) xi^an(rho x)
+###   ### dx )`.**
+### ### **THREE SITES, THREE REGISTERS -- A DEFINITION, A WORKED BRACKET, AND A PROOF -- AND THE
+### ### SAME EXPONENT AT ALL THREE.**
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE CORPUS'S HEADER AND BOTH OF ITS CODE CONVENTIONS, WITH LINE NUMBERS.
+----------------------------------------------------------------------------------------------------
+###   ### `tools/e16/qeps_layer.py` **line 28** -- the header:
+###     ### *"theta(a) f(x) = a^{1/2} f(x/a) is the convention forced by the supplied support law"*.
+###   ### `tools/e16/qeps_layer.py` **line 113**, `eps` -- ### **`(r ** -0.5)`.**
+###   ### `tools/e16/qeps_layer.py` **line 91**, `Qeps` -- ### **`(r ** 0.5)`**, ### which AGREES
+###     with the source's eq. (99).
+###   ### `tools/e16/b38_act10.py` **line 91**, `per_mode_eps_grids` -- ### **`(r ** -0.5)`**, the
+###     remainder as the identity consumes it.
+###   ### `tools/e16/b38_act10.py` **line 73**, `trace_modes` -- ### **`math.sqrt(lamd)`**, the
+###     SOURCE'S convention, on the TRACE side of the same identity.
+###   ### `tools/e16/b264_eps_decay.py` **line 141**, `eps_modes` -- ### **`(r ** -0.5)`.**
+### ### **FOUR SITES IN THREE FILES: ### THREE CARRY ONE CONVENTION AND TWO CARRY THE OTHER, AND
+### ### TWO OF THEM SIT IN THE SAME FILE ON OPPOSITE SIDES OF ONE IDENTITY.**
+
+----------------------------------------------------------------------------------------------------
+### (1c) THAT THE REMAINDER IS AN IMPORT OF THE SOURCE'S OBJECT -- FROM THE ACT THAT IMPORTED IT.
+----------------------------------------------------------------------------------------------------
+### ### **b176 IS THE ACT THAT READ THE SOURCE AT CONTENT AND SETTLED THE IMPORT**, and its own bank
+### says, of the corpus's remainder:
+###   ### ### **`The corpus cites eps as "their (85)"`.**
+### ### **AND IN THAT SAME ACT, QUOTING THE SOURCE'S LEMMA 5.2 VERBATIM:**
+###   ### ### **`k(rho) = rho^{1/2} INT_0^inf xi(x) zeta(rho x) dx`**
+### ### ### **-- WHICH IS THE REMAINDER'S OWN SHAPE, CARRYING THE SOURCE'S EXPONENT, WRITTEN OUT IN
+### ### ### THE CORPUS'S OWN IMPORTING ACT.**
+### ### **AND b176 CHECKED `Qeps` AND NOT `eps`.** ### Of the `C_n` formula it concluded
+### ### *"ALL THREE TERMS AGREE EXACTLY. NO MATHEMATICAL DIVERGENCE"*, ### and of its own reach it
+### said, in its own words: ### *"IT DOES NOT CHECK THAT THE CORPUS'S E2 IS COMPUTED CORRECTLY, AND
+### CLAIMS NOTHING ABOUT IT."*
+### ### ### **SO THE CORPUS'S RECORD ALREADY CONTAINED THE SOURCE'S EXPONENT, AND ALREADY SAID
+### ### ### WHICH FORMULA IT HAD NOT CHECKED. ### NEITHER IS A NEW FACT. ### PUTTING THEM BESIDE
+### ### ### EACH OTHER IS.**
+### ### **AND b176 IS NOT CRITICISED BY THIS.** ### It said exactly what it had done and exactly
+### what it had not, which is why the shortfall in its coverage is legible eighteen acts
+### later. ### **A RECORD THAT STATES ITS OWN REACH IS WHAT MAKES A LATER ACT POSSIBLE.**
+
+----------------------------------------------------------------------------------------------------
+### (1d) WHY THE FLIP IS LICENSED BY DEFINITION AND NOT BY OUTCOME.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE CORPUS DECLARED ITS REMAINDER TO BE THE SOURCE'S EQUATION, THE SOURCE DEFINES THAT
+### ### ### EQUATION'S SCALING ACTION AT ITS OWN eq. (61) AND UNFOLDS IT THE SAME WAY TWICE MORE, SO
+### ### ### THE EXPONENT THE IMPORTED OBJECT CARRIES IS SETTLED BY THAT DEFINITION ALONE -- BEFORE
+### ### ### ANY RESIDUE IS LOOKED AT, AND WHATEVER THE RESIDUE TURNS OUT TO DO.**
+### ### **AND THE RESIDUE'S DIRECTION WAS REGISTERED AS UNPREDICTED.** ### The sealed registration
+### records the navigator's expectation -- *the residue CHANGES under the flip; direction
+### unregistered* -- and records that ### **THIS SEAT REGISTERED NO EXPECTATION ABOUT THE RESIDUE'S
+### ### SIZE OR SIGN.** ### It registered one STRUCTURAL expectation, about the code and not about
+### the answer, and that one is measured in (3a).
+
+====================================================================================================
+### COMPONENT 2 -- THE COMPUTATION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE COPIES, AND WHAT IS IN THE DIFF.
+----------------------------------------------------------------------------------------------------
+### ### **THREE COPIES, BUILT BY `tools/b313_flip.py` FROM A DECLARED SUBSTITUTION LIST.** ### The
+### owner files are opened read-only and never written.
+###   ### `qeps_layer.py` -> `b313f_qeps_layer.py` : ### **3 substitutions, 3 diff lines.**
+###   ### `b38_act10.py` -> `b313f_b38_act10.py` : ### **4 substitutions, 4 diff lines.**
+###   ### `b264_eps_decay.py` -> `b313f_b264_eps_decay.py` : ### **6 substitutions, 6 diff lines.**
+### ### **EXACTLY ONE OF EACH FILE'S SUBSTITUTIONS IS THE FLIP.** ### The rest are what a copy needs
+### in order to BE a copy, and each is declared with its reason:
+###   ### the copy names itself in its first line, so it cannot be read as the owner;
+###   ### the `b38` copy imports the FLIPPED layer, or its `eps_full` and its per-mode grids would
+###     carry two different conventions and the owner's own mask-algebra gate would fire;
+###   ### and ### **EVERY OUTPUT PATH IS REDIRECTED, SO THAT RUNNING A COPY CANNOT OVERWRITE AN
+###     ### OWNER'S BANKED ARTIFACT** -- including `data/b264_rows.json`, which this act READS as a
+###     reference column.
+### ### **THE UNIFIED DIFF IS PRINTED IN FULL IN `data/b313_flip_run.txt`, AND EVERY HUNK IN IT
+### ### CORRESPONDS TO A DECLARED SUBSTITUTION: 13 LINES REMOVED, 13 ADDED, 13 DECLARED.**
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE THREE CONTROLS ON THE COPY MACHINERY, EACH MEASURED.
+----------------------------------------------------------------------------------------------------
+### ### **(i) EXACTLY-ONCE.** ### Every substitution's target occurs EXACTLY ONCE in its source. ###
+### A substitution matching twice would change something nobody declared; one matching zero times
+### would leave a copy unflipped while the bank said otherwise. ### **13 of 13 matched once.**
+### ### **(ii) ROUND TRIP.** ### The inverse substitutions applied to each copy reproduce the
+### original ### **BYTE FOR BYTE**, all three.
+### ### **(iii) NOTHING ELSE CHANGED.** ### Diff lines equal declared substitutions, all three.
+### ### ### **AND CONTROL (ii) FIRED ON THE FIRST RUN, FOR A REAL REASON.** ### The flip was first
+### written as the fragment `(r ** -0.5)`, whose inverse `(r ** 0.5)` ### **ALREADY OCCURS IN
+### ### `Qeps`** ### -- so the inverse was not uniquely locatable and the round trip failed. ### The
+### repair is whole-line substitutions, and the write is now GATED on the controls rather than
+### merely reported beside them. ### **A COPY THAT CANNOT BE INVERTED BACK TO ITS ORIGINAL IS NOT A
+### ### COPY OF ANYTHING, AND THE FIRST VERSION OF THIS TOOL WROTE ONE ANYWAY.**
+
+----------------------------------------------------------------------------------------------------
+### (2c) THE AXES, NAMED. ### **EVERY ONE THE OWNER'S OWN; NONE COINED HERE.**
+----------------------------------------------------------------------------------------------------
+###   `EPS_NQ = 700` -- prolate quadrature nodes in the eigensolver;
+###   `EPS_NG = 400` -- Gauss-Legendre nodes in the remainder integral;
+###   `EPS_NRHO = 240` -- points on the `rho` grid the remainder is tabulated on;
+###   `NU_HALF = 401` -- points on the log grid the window integral uses;
+###   `NTERM = 11` -- modes carried (`qeps_layer`'s);
+###   `TRIPLE = [(500, 8), (700, 10), (900, 11)]` -- the settings the spread is taken over.
+### ### **AND THE INSTRUMENT IS NOT EXACT ANYWHERE IN THIS PATH.** ### It is double precision
+### throughout: a prolate eigensolver, Gauss-Legendre quadrature, trapezoidal integration on fixed
+### grids. ### **SO EVERY VALUE HERE IS REPORTED AT THE OWNER'S OWN PRINTED PRECISION AND NOT ONE
+### ### DIGIT FURTHER.** ### The one thing that IS effectively exact -- the ratio the flip induces --
+### is measured separately in (3a) and reported there with its own tolerance.
+
+----------------------------------------------------------------------------------------------------
+### (2d) THE TRANSCRIPTION, CHECKED AGAINST THE OWNER'S OWN BANKED TABLE.
+----------------------------------------------------------------------------------------------------
+### ### **THE LOOP IS `b38_act10.main()`'s, TRANSCRIBED, AND THE TRANSCRIPTION IS NOT TRUSTED.**
+### ### **`main()` IS NEVER CALLED**, because calling it would rewrite `data/b38_2026-08-18.txt` --
+### the artifact this act reads as its reference.
+### ### **SO THE TRANSCRIPTION IS CHECKED AGAINST THAT ARTIFACT INSTEAD:** ### 6 cells x 8
+### quantities, at the table's own printed precision, which is the only precision the artifact
+### carries.
+### ### ### **WORST ABSOLUTE DEPARTURE FROM THE BANKED TABLE : 4.98e-05**, ### against a bar of
+### `5e-5` on the `resid` column, which the artifact prints to four decimals.
+### ### **THAT IS DISPLAY ROUNDING AND NOT DISAGREEMENT**, and it is reported at its true
+### size rather than described.
+### ### **THIS IS THE CONTROL THAT MATTERS MOST IN THE ACT:** ### a reproduction of a month-old
+### artifact by a loop written today, and it is what licenses reading a second column at all.
+
+----------------------------------------------------------------------------------------------------
+### (2e) THE POSITIVE CONTROL: THE COPY WITH THE EXPONENT RESTORED REPRODUCES THE ORIGINAL.
+----------------------------------------------------------------------------------------------------
+### ### The inverse substitutions were applied to each copy and the results written as
+### `b313r_*.py`; ### **ALL THREE ARE BYTE-IDENTICAL TO THE OWNER FILES**, so the restored copy is
+### the owner file under another name.
+### ### **RUN THROUGH THE SAME TRANSCRIBED LOOP: ### 78 QUANTITIES COMPARED, ### 78 BITWISE
+### ### IDENTICAL, ### WORST DIFFERENCE 0.00e+00.**
+### ### **A COPY THAT COULD NOT REPRODUCE THE ORIGINAL COULD NOT BE USED TO DIFFER FROM IT**, and
+### this arm is what makes the second column a statement about the exponent rather than a statement
+### about the copying.
+
+----------------------------------------------------------------------------------------------------
+### (2f) THE TWO COLUMNS, SIDE BY SIDE.
+----------------------------------------------------------------------------------------------------
+###   `resid = Tr - A - E2` -- the residue between the two constructions of the archimedean trace.
+###
+###   a^2 |  A (both)    Tr (both)  |  E2 banked   E2 source  |  resid banked  resid source
+###   2   |  -1.990528    3.737476  |   1.679428    2.013037  |     4.0486        3.7150
+###   3   |  -1.908900    2.981721  |   1.516645    1.911453  |     3.3740        2.9792
+###   4   |  -1.786498    2.635303  |   1.374051    1.787081  |     3.0478        2.6347
+###   8   |  -1.525474    2.091552  |   1.096239    1.525303  |     2.5208        2.0917
+###   9   |  -1.488337    2.023971  |   1.058309    1.488080  |     2.4540        2.0242
+###   12  |  -1.405398    1.883111  |   0.975064    1.405116  |     2.3134        1.8834
+###
+### ### **`A` AND `Tr` ARE THE SAME NUMBER IN BOTH COLUMNS**, and that is MEASURED in (3c) rather
+### than asserted here: neither call path touches the exponent.
+### ### **THE OWNER'S OWN MASK-ALGEBRA GATE WAS RUN UNDER ALL THREE MODULES AND PASSED UNDER ALL
+### ### THREE**, at its own bar of `1e-10`.
+
+====================================================================================================
+### COMPONENT 3 -- WHAT MOVES AND WHAT DOES NOT.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (3a) THE STRUCTURAL FACT, MEASURED: THE FLIP IS EXACTLY MULTIPLICATION BY `rho`.
+----------------------------------------------------------------------------------------------------
+### ### **`max | (eps_source / eps_banked) / rho - 1 | = 5.55e-16`** ### over all 240 grid points,
+### every one of which carries a nonzero banked value.
+### ### This is the registration's one structural expectation, and it is a fact about the CODE and
+### not about the answer: the exponent enters each per-mode value as a single multiplicative factor,
+### so the two columns are related pointwise by `rho` and by nothing else.
+### ### **IF THIS ARM HAD FAILED, THE COPY WOULD BE DOING SOMETHING NOBODY DECLARED AND THE ACT
+### ### WOULD HAVE STOPPED THERE.**
+
+----------------------------------------------------------------------------------------------------
+### (3b) EVERY QUANTITY THAT CHANGES AND EVERY QUANTITY THAT DOES NOT, BY CALL PATH.
+----------------------------------------------------------------------------------------------------
+###   quantity     call path                                        changes?
+###   `A`          `left_side` -> `carto_atlas.hhat` / `kernel`      ### **NO**
+###   `P`          `left_side` -> `bump`, `cosh`                     ### **NO**
+###   `PR`         `left_side` -> the prime loop                     ### **NO**
+###   `Thq`        `theta_quotient` -> `b8` / `b10`                  ### **NO**
+###   `Tr`         `trace_modes` -> `layer`, `math.sqrt(lamd)`       ### **NO**
+###   `eps'(1+)`   `epsprime1` -- no `rho` in its body at all        ### **NO**
+###   `E2`         `per_mode_eps_grids` -> THE FLIPPED LINE          ### yes
+###   `E2even`     `e2_of_grid` over the even modes                  ### yes
+###   `E2odd`      `e2_of_grid` over the odd modes                   ### yes
+###   `resid`      `Tr - A - E2`                                     ### yes
+###   `W_plus`     `tr - E2n - s*resid`, even                        ### yes
+###   `W_minus`    `tr - E2n - s*resid`, odd                         ### yes
+###   `D_dictated` `(Thq-PR) + (E2odd - 2 E2full)`                   ### yes
+###   `D_closed`   `(A-PR) - ((Wp+E2even) - Thq)`                    ### yes
+###   `spread`     `D_closed` over the triple                        ### yes
+### ### **`eps'(1+)` IS BITWISE IDENTICAL UNDER BOTH CONVENTIONS: ### 22.99647... EITHER WAY.**
+### ### **THE SIX THAT DO NOT MOVE ARE NOT ASSERTED NOT TO MOVE; THEY WERE COMPUTED TWICE AND
+### ### COMPARED.**
+
+----------------------------------------------------------------------------------------------------
+### (3c) WHY THE BANKED CROSS-CHECK NEVER SAW IT -- b312's DERIVATION, NOW MEASURED.
+----------------------------------------------------------------------------------------------------
+### ### `epsprime1` contains no `rho` at all, so the flip is not on its call path. ### **THAT IS THE
+### ### TRIVIAL HALF.** ### The half that matters is that the derivative of the FUNCTION is also
+### unmoved, because the integral vanishes at the identity. ### Measured as a one-sided difference
+### quotient of `eps` itself:
+###
+###   h        banked `eps(1+h)/h`   source `eps(1+h)/h`   difference
+###   1e-03      22.96178845           22.98475024          2.30e-02
+###   1e-04      22.99302428           22.99532358          2.30e-03
+###   1e-05      22.99613072           22.99636068          2.30e-04
+###   1e-06      22.99644119           22.99646418          2.30e-05
+###
+### ### **BOTH APPROACH THE SAME LIMIT, AND THEIR DIFFERENCE FALLS LINEARLY WITH `h`.** ### The two
+### functions differ by a factor of `rho`; at `rho = 1` that factor is `1` while the function is
+### `0`, so the slope at the identity cannot see it.
+### ### ### **THAT IS THE WHOLE REASON THE CORPUS'S ONE CROSS-CHECK AGAINST THE SOURCE PASSED**, and
+### b312 derived it before this act measured it.
+
+----------------------------------------------------------------------------------------------------
+### (3d) b264's LADDER, RE-RUN UNDER THE FLIP, AT ITS OWN REACH,
+### **WITH THE NOISE-FLOOR GATE IN THE PATH.**
+----------------------------------------------------------------------------------------------------
+### ### **b264's RESOLVED-MODE COUNT, READ FROM ITS BANKED ROWS: ### `NRES = 7`, bar `1e-6`.** ###
+### Modes at or above that index sit at the eigensolver's floor; b264 measured that and filed
+### `W-ORD-NTERM-FLOOR`. ### **THE EVEN-INDEXED FLOOR MODES ARE 8 AND 10, AND EVERY ROW BELOW PRINTS
+### ### WHAT EXCLUDING THEM ACTUALLY REMOVES**, rather than calling it negligible.
+###
+###   rho      NG      rule                  even banked    even source    floor bkd   floor src
+###   2        400     monolithic            0.395736       0.791472       -2.165e-15  -4.330e-15
+###   5        400     monolithic            0.114625       0.573124        4.826e-12   2.413e-11
+###   10       400     monolithic            0.0456293      0.456293        3.116e-12   3.116e-11
+###   20       400     monolithic            0.0169372      0.338743       -1.876e-12  -3.752e-11
+###   50       400     monolithic            0.00438323     0.219162        2.537e-13   1.269e-11
+###   100      800     monolithic            0.00155948     0.155948        1.203e-13   1.203e-11
+###   200      1600    monolithic            0.000552953    0.110591       -1.892e-14  -3.784e-12
+###   500      4000    monolithic            -2.15642       -1078.21        1.954e-14   9.777e-12
+###   1000     8000    composite 20 x 400    -0.752561      -752.561       -3.597e-14  -3.604e-11
+###   2000     16000   composite 40 x 400    -0.25872       -517.44         2.776e-15   5.571e-12
+###   5000     40000   composite 100 x 400   -0.0663367     -331.684        8.327e-16   4.150e-12
+###   10000    80000   composite 200 x 400   -0.0233759     -233.759       -2.082e-17  -1.990e-13
+###
+### ### **THE CONTROL THAT MAKES THE FLIPPED COLUMN READABLE: ### THE RE-RUN REPRODUCES b264's OWN
+### ### BANKED `eps_even` COLUMN TO 7.97e-12.**
+### ### **A GATE WHOSE EFFECT NOBODY PRINTS IS A GATE NOBODY CAN CHECK**, which is why the floor
+### columns are here at their true size rather than described.
+### ### **AND THE ROWS FROM `rho = 500` UPWARD ARE THE ONES b264 ITSELF REPORTED AS SITTING BEYOND
+### ### ITS MEASURED `EPS_NQ` CEILING (~238).** ### They are not read as decay by either column, and
+### they are printed because deleting them would be a choice nobody could check.
+
+----------------------------------------------------------------------------------------------------
+### (3e) THE DECAY ALONG THE CUTOFF, UNDER EACH CONVENTION.
+----------------------------------------------------------------------------------------------------
+### ### b264 measured the banked column's decay by the product ### **`eps_even * rho^{3/2}`**, ###
+### which it found approaching a constant. ### **UNDER THE SOURCE'S EXPONENT THE SAME PRODUCT IS
+### ### `eps_even * rho^{1/2}`, AND IT IS THE SAME NUMBER TO 1.09e-11 AT EVERY LADDER CELL** --
+### because the two columns differ pointwise by `rho`.
+###   `rho = 2` : 1.1193105 ; `5` : 1.2815439 ; `10` : 1.4429246 ; `20` : 1.5149048 ;
+###   `50` : 1.5497075 ; `100` : 1.5594801 ; `200` : 1.5639870.
+### ### ### **SO THE DECAY RATE MOVES BY EXACTLY ONE POWER OF `rho` AND THE LEADING CONSTANT DOES
+### ### ### NOT MOVE AT ALL.** ### Under the banked convention the even sector decays like
+### `rho^{-3/2}`; under the source's it decays like `rho^{-1/2}`; and b264's measured constant is
+### unchanged.
+### ### **NOTHING HERE IS COMPARED TO A TARGET.** ### b264's own asymptote is not named as something
+### either column is near.
+
+----------------------------------------------------------------------------------------------------
+### (3f) TWO DERIVED COLUMNS, PRINTED BECAUSE THE ORDER SAYS TO REPORT WHAT MOVES.
+----------------------------------------------------------------------------------------------------
+###   a^2 | resid banked  resid source   ratio   |  A+E2 banked   A+E2 source
+###   2   |   4.0486        3.7150      0.9176   |   -0.311099     0.022509
+###   3   |   3.3740        2.9792      0.8830   |   -0.392256     0.002553
+###   4   |   3.0478        2.6347      0.8645   |   -0.412447     0.000583
+###   8   |   2.5208        2.0917      0.8298   |   -0.429235    -0.000172
+###   9   |   2.4540        2.0242      0.8249   |   -0.430028    -0.000257
+###   12  |   2.3134        1.8834      0.8141   |   -0.430334    -0.000282
+###
+### ### **THESE ARE COLUMNS OF THIS ACT'S OWN TABLE, NOT COMPARISONS TO ANY TARGET.** ### `A + E2`
+### is `Tr - resid` and is a third way of writing the same three numbers. ### No banked target,
+### prime sum, mass or asymptote is named here and none is meant.
+### ### ### **AND THE SECOND COLUMN IS NOT INTERPRETED BY THIS ACT. ### IT IS PRINTED BECAUSE IT
+### ### ### MOVED AND THE ORDER SAYS TO REPORT WHAT MOVED.**
+### ### **THE CAUTION THAT MAKES THAT REFUSAL A MEASUREMENT AND NOT A HEDGE:** ### `A` comes from
+### `carto_atlas.py`, whose own header says its sign is ### *[sign fixed BY the E2 calibration]* ###
+### and which declares ### *"DISCLAIMED REGISTER: a computation maps and cannot prove. No sign claim
+### is made."* ### **SO `A + E2` COMPARES A TERM AGAINST THE VERY QUANTITY ITS SIGN WAS CALIBRATED
+### ### AGAINST, AND THIS ACT HAS NO INSTRUMENT THAT CAN TELL A CALIBRATION FROM A MATHEMATICAL
+### ### FACT.** ### b312 found that disclaimer; it lands exactly here.
+### ### **AND ITS DIRECTION, SO NOBODY READS IT AS AN IMPROVEMENT:** ### under the source's exponent
+### the identity's two right-hand terms very nearly CANCEL, so the residue becomes essentially the
+### whole trace. ### **THAT IS NOT AN IDENTITY CLOSING; IT IS THE OPPOSITE SHAPE, AND SAYING SO IS
+### ### PART OF REPORTING IT.**
+### ### **FILED AS A QUESTION, NOT READ AS A RESULT: ### `W-ORD-A-PLUS-E2`.**
+
+====================================================================================================
+### COMPONENT 4 -- THE READING, AT EXACTLY ITS SCOPE.
+====================================================================================================
+### ### **THE CRITERION WAS STATED BEFORE THE VERDICT:** ### the order's word is COLLAPSE, and a
+### residue that keeps its order of magnitude has not collapsed.
+### ### **RESIDUE RATIOS, SOURCE OVER BANKED: ### 0.9176, 0.8830, 0.8645, 0.8298, 0.8249, 0.8141.
+### ### RANGE 0.8141 TO 0.9176. ### COLLAPSED: FALSE.**
+
+### ### ### **BRANCH TWO. ### THE RESIDUE IS NOT THE EXPONENT.**
+### The order states this branch in its own words: ### *if it does not collapse, the residue is not
+### the exponent and the act says so.* ### **IT DOES NOT COLLAPSE, AND THIS ACT SAYS SO.**
+
+### ### **WHAT THAT DOES AND DOES NOT MEAN, BOTH STATED:**
+###   ### **IT DOES NOT MEAN THE FLIP WAS WRONG.** ### The exponent is fixed by the source's
+###     definition and by nothing the residue does. ### **THE STANDING CLAUSE BINDS IN THIS
+###     ### DIRECTION EXACTLY AS HARD AS IT WOULD HAVE BOUND IN THE OTHER**, and an act that kept a
+###     flip only when the residue improved would be tuning an instrument to an answer.
+###   ### **IT DOES MEAN THE SEARCH CONTINUES.** ### The convention mismatch is real, it is an
+###     instrument finding, and it accounts for ### **BETWEEN 8% AND 19%** ### of the residue at
+###     these six cells. ### **IT DOES NOT ACCOUNT FOR THE REST, AND NOTHING HERE SAYS WHAT DOES.**
+###   ### **AND THE THIRD AND FOURTH FACE-OFFS ARE NOT RE-READ.** ### The order attaches a sentence
+###     to their interpretation only on branch one. ### **ON THIS BRANCH THEIR NUMBERS STAND AS
+###     ### BANKED AND THEIR READINGS STAND UNAMENDED**, and this act does not amend them by
+###     implication either.
+### ### ### **IN EITHER BRANCH, AND SAID BECAUSE THE ORDER REQUIRES IT SAID: ### NOTHING ABOUT THE
+### ### ### IDENTITY, ABOUT `h2`, OR ABOUT THE ROSTER FOLLOWS FROM ANY OF THIS.**
+
+====================================================================================================
+### THE IMPORT LEDGER -- EVERY ROW USED BY THIS ACT, GRADED.
+====================================================================================================
+### | SOURCE / STATEMENT | USED FOR | GRADE | OWED |
+### |---|---|---|---|
+### | ### **CC 2006.13771v1, pages 22, 26, 31** | Component 1's warrant | ### **IMPORT, READ AT
+###   CONTENT**, artefact pinned by sha256 `b8e0b54a...` and re-extracted this act | ### **NO PROOF
+###   OF THE SOURCE'S IS VERIFIED BY THIS SEAT** |
+### | b312's identification at definitions | the licence for the flip | ### **AT ITS OWN BANKED
+###   GRADE** | -- |
+### | b176's import read and its own statement of reach | (1c) | ### **AT ITS OWN BANKED GRADE** |
+###   -- |
+### | b264's `NRES = 7`, its ladder and its `eps_even` column | (3d), (3e) | ### **AT ITS OWN BANKED
+###   GRADE** | `W-ORD-NTERM-FLOOR` |
+### | b38's banked table `data/b38_2026-08-18.txt` | the transcription control and the banked
+###   column | ### **AT ITS OWN BANKED GRADE** | -- |
+### | `carto_atlas.py`'s calibrated sign and its disclaimer | (3f)'s caution | ### **AT ITS OWN
+###   DISCLAIMED REGISTER** | -- |
+### ### **AND THE LEDGER'S OWN LIMIT: ### THIS ACT RAN AN INSTRUMENT AND COMPARED TWO OF ITS
+### ### COLUMNS. ### IT PROVED NOTHING, VERIFIED NO PROOF, AND CERTIFIED NOTHING.**
+
+====================================================================================================
+### THE CONTROLS, AND WHAT EACH ONE COULD HAVE CAUGHT.
+====================================================================================================
+### ### **THE COUNTS ARE THE SUITE'S OWN, PRINTED BY `tools/b313_checks.py`.**
+### ### **THE FIVE THAT CARRY THIS ACT:**
+###   ### **`G-OWNER-UNTOUCHED`** -- the three owner files byte-identical to `git HEAD`, normalised,
+###     ### **CHECKED AFTER THE RUN AND NOT BEFORE IT**: a file is edited by running things, not by
+###     planning to.
+###   ### **`G-ROUNDTRIP`** -- ### **IT FIRED, ON A REAL DEFECT, ON THE FIRST RUN.** ### See (2b).
+###   ### **`G-CONTROL`** -- 78 of 78 quantities bitwise identical with the exponent restored.
+###   ### **`G-STRUCTURE`** -- the flip is a pointwise `rho` factor to `5.55e-16`.
+###   ### **`G-NOFIT`** -- must-fail fixtures asserting the whole-line absence of the sentences a
+###     fit would have produced. ### **THIS IS THE ONE THAT GUARDS THE DIFFERENCE BETWEEN THIS ACT
+###     ### AND A TUNING EXERCISE.**
+### ### **AND THE TRANSCRIPTION CONTROL, WHICH IS NOT A GATE BUT IS THE LOAD-BEARING ARM:** ### the
+### loop written today reproduces a month-old banked artifact to `4.98e-05`, which is that
+### artifact's own display rounding.
+
+====================================================================================================
+### THE CLOSING.
+====================================================================================================
+### ### **THE CORRESPONDENCE ROWS, BY THE IDEMPOTENT TOOL, READ BACK:** ### rows ### **138** ### and
+### ### **139** ### -- *THE RESIDUE IS NOT THE EXPONENT* and *WHAT THE CONVENTION DOES ACCOUNT FOR*.
+### 6 cells each, none blank, the banked table a TRUE PREFIX.
+### ### **EVERY RESULT KEYED:** ### `the-exponent` (the order's own key) and
+### `convention-share-of-the-residue`, each read back by querying the index, with aliases that
+### returned `NO KEY` before this act.
+
+### ### ### **THE INSTRUMENT-CONVENTION FINDING, ROUTED TO THE AUTHOR AS AN ERRATA-CLASS CANDIDATE
+### ### ### (INTERNAL RECORD).**
+###   ### **WHAT IS FOUND:** ### `qeps_layer.eps`, `b38_act10.per_mode_eps_grids` and
+###     `b264_eps_decay.eps_modes` carry `rho^{-1/2}` where the source they cite carries
+###     `rho^{+1/2}`; ### **`qeps_layer.Qeps` AND `b38_act10.trace_modes` ALREADY CARRY THE
+###     ### SOURCE'S CONVENTION**, so the divergence is internal to the corpus as well as external.
+###   ### **WHAT IS NOT DONE, AND THE PRECEDENT FOR NOT DOING IT:** ### **THE OWNER FILES ARE
+###     ### UNTOUCHED AND THE CORRECTION OF RECORD IS IN THIS BANK.** ### The precedent is the `E1`
+###     clause, discharged at ERRATA `E-2026-08-31-1`, where the four sites carrying a superseded
+###     clause were left ### **BYTE-IDENTICAL AND NOT REWRITTEN**, on the stated ground that
+###     ### **THE RECORD DOES NOT SILENTLY OVERWRITE ITSELF.**
+###   ### **WHY IT IS A CANDIDATE AND NOT A FILING:** ### an erratum is the author's instrument, and
+###     ### **A SEAT THAT FILES ITS OWN ERRATA IS MARKING ITS OWN WORK.** ### `PLACE-papers` is
+###     untouched by this act, at cap zero.
+###   ### **AND WHAT IT WOULD AFFECT IF FILED, STATED HONESTLY:** ### every banked number computed
+###     through those three call paths is a computation of the corpus's own function rather than of
+###     the source's. ### **THAT IS A STATEMENT ABOUT WHAT THE NUMBERS ARE COMPUTATIONS OF. ### IT
+###     ### IS NOT A CLAIM THAT ANY OF THEM IS WRONG, AND THIS ACT MAKES NO SUCH CLAIM.**
+
+### ### **THE OBJECT'S THREE CONDITIONS, EACH TYPED, UNCHANGED BY THIS ACT:**
+###   ### a PREMISE -- the level limit, b198 (I2), at its grade;
+###   ### a RULING -- `W-ORD-ARCH-NORM-READING`; ### **THE ONLY ARCHIMEDEAN CONDITION LEFT**;
+###   ### a CONSTRUCTION -- C9 / `N-OPEN-B`, the real fiber's placement.
+###   ### **A CONDITION DISCHARGED IS NOT THE OBJECT CONSTRUCTED, AND THIS ACT DISCHARGED NONE.**
+### ### **`M-2`'s ROW: ### `(SPECIFIED-NOT-STATED)`, UNCHANGED, UNDER b310's CAP ON VERDICTS.**
+### ### **THE SEAM'S DEBT, ITEM 1: ### STILL UNPAID.** ### Item 1 is `A2`: ### **STATE `M-2`.**
+### `A1` paid b226's step; ### **`A2` HAS NOT BEEN PAID AND THIS ACT DOES NOT PAY IT.**
+### ### **THE PATENT CLOCK: ### UNCONFIRMED ON THIS SEAT'S RECORD.** ### Four filings receipt-backed
+### at content (b147); `P-ZONE` / `P-FANO-WPT` REGISTRY-backed with no receipt located, ERRATA
+### `E-2026-08-24-3`. ### **THE TWO RESPONSE UPLOADS: RECEIPTS PENDING, CARRIED ON THE FERRY'S WORD;
+### THEIR DATES WERE 2026-08-31 AND 2026-09-01; TODAY IS 2026-09-03 -- THREE DAYS PAST BOTH, AND
+### NOTHING ON THIS SEAT'S RECORD CONFIRMS EITHER.** ### **THIS SEAT HAS VERIFIED NOTHING THERE.**
+### ### **THE WINDOW RULING, RECORDED AND UNAPPLIED:** ### the author's `W2` --
+### ### *"a mean-zero variant of the corpus's bump is added beside the existing one,
+### replacing nothing; the variant's construction is a later act and this act only records
+### the ruling and what it obligates."*
+### ### **RECORDED, NOT APPLIED.** ### No variant is built, tested or priced here.
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER.
+----------------------------------------------------------------------------------------------------
+###   ### **(1) THE OBJECT** -- conditionally constructed on THREE conditions. ### **UNCHANGED.**
+###   ### **(2) `W-ORD-ARCH-NORM-READING`** -- the live ruling. ### **STILL OPEN.**
+###   ### **(3) `W-ORD-TERM3-ROW`** -- the author's.
+###   ### **(4) THE DECISION CARD (b304)** -- on the author's desk.
+###   ### **(5) `W-ORD-INSTRUMENT-Q-P`** -- built b308, computed b309, assembled b310.
+###   ### **(6) THE WINDOW QUESTION** -- ### **`W2` RECORDED, NOT APPLIED.**
+###   ### **(7) `W-ORD-SOURCE-METHOD-APPLICABILITY`** -- named at b306; untouched here.
+###   ### **(8) THE PATENT CLOCK** -- ### **THREE DAYS PAST, UNCONFIRMED HERE.**
+###   ### **(9) b304's SHELL ENUMERATION** -- b308's note; no verdict turns on it.
+###   ### **(10) `(SPEC-2)` UNDECIDED FOR b310's CLASS OF CANDIDATE** -- filed, not answered.
+###   ### **(11) `W-ORD-ARTEFACT-PATHS`** -- filed at b311; ### **STILL OPEN.**
+###   ### **(12) `W-ORD-HOOK-COVERAGE`** -- ### **STILL OPEN**, and it is why the next act is the
+###     fresh-clone certification test.
+###   ### **(13) `W-ORD-REMAINDER-EXPONENT`** -- filed at b312. ### ### **DISCHARGED AS A
+###     ### COMPUTATION BY THIS ACT AND RE-FILED AS A ROUTING:** ### the check b312 named was run,
+###     the answer is branch two, and what remains is the author's decision on the ERRATA-class
+###     candidate above. ### **THE COMPUTATION IS DONE; THE DECISION IS NOT THIS SEAT'S.**
+###   ### ### **(14) NEW: ### `W-ORD-A-PLUS-E2`.** ### Under the source's exponent the identity's
+###     two right-hand terms nearly cancel across all six cells. ### **THIS ACT PRINTS IT AND
+###     ### REFUSES TO READ IT**, because `A`'s sign is calibrated against `E2` by the atlas's own
+###     declaration. ### **WHAT IS OWED IS AN ARCHIMEDEAN TERM WHOSE SIGN IS DERIVED RATHER THAN
+###     ### FITTED**, and until there is one this column cannot be told from its own calibration.
+###   ### ### **(15) NEW: ### `W-ORD-CONVENTION-SWEEP`.** ### Two of five sites already carried the
+###     source's convention. ### **NOBODY HAS SWEPT THE INSTRUMENT FOR OTHERS**, and this act swept
+###     only the three files its order named.
+
+----------------------------------------------------------------------------------------------------
+### THE LEDGER, THE SHADOW, THE FOLD, AND WHAT THIS ACT DID NOT CHECK.
+----------------------------------------------------------------------------------------------------
+### ### **THE CENSUS WAS RUN AND ITS COUNT REPORTED: ### TOTAL MISSING : 0**, with its scope in the
+### same breath: ### **NAMES AND NOT UNDERSTANDING; ONE LEDGER AND NO OTHER; AND ITS ACT LIST DOES
+### NOT REACH `b308` THROUGH `b313`.**
+### ### **THE SHADOW: ### EXPECTED NOTHING, AND NOTHING IS WHAT IT IS.** ### The content is a
+### floating-point instrument comparison: a prolate eigensolver, Gauss-Legendre quadrature and
+### trapezoidal integration, in double precision. ### **NOTHING IN THAT IS FINITE-DECIDABLE, AND A
+### ### TERMINAL OVER A ROUNDED NUMBER WOULD CERTIFY THE ROUNDING AND NOT THE MATHEMATICS.** ###
+### **0 `.lean` FILES CREATED. ### THE PROFILE DOES NOT MOVE.**
+### ### ### **THE FOLD IS NAMED AS DUE: ### `b307`-`b313` -- SEVEN ACTS: A FILING, AN INSTRUMENT, A
+### ### ### COMPUTATION, AN ASSEMBLY, A READ, A DEFINITIONAL DECISION, AND A MEASUREMENT.** ###
+### **THIS ACT DOES NOT FOLD THEM**, and the act that comes first is unchanged from b312's naming:
+### ### ### **THE NEXT ACT IS A FRESH-CLONE CERTIFICATION TEST.**
+###   ### **AND THIS ACT ADDS A FOURTH REASON TO RUN IT BEFORE THE FOLD.** ### The three earlier
+###     ones were `W-ORD-HOOK-COVERAGE`, `W-ORD-ARTEFACT-PATHS`, and that b312's finding was only
+###     reachable because the emitting files are committed. ### **THE FOURTH IS THAT THIS ACT'S
+###     ### WHOLE METHOD -- COPY, FLIP, INVERT, REPRODUCE -- ASSUMES A CLEAN TREE WHOSE OWNER FILES
+###     ### MATCH `git HEAD`, AND NOBODY HAS EVER CHECKED THAT A FRESH CLONE PRODUCES THE SAME
+###     ### NUMBERS.**
+### ### **WHAT THIS ACT DID NOT CHECK:** ### nothing counted what is missing from `FINDINGS.md`,
+### `REGISTRY.md`, `OPEN_TRAILS.md`, `VERIFICATION_LOOM.md` or the desk. ### **NO PROOF OF THE
+### ### SOURCE'S WAS VERIFIED. ### NO OTHER CONVENTION IN THE INSTRUMENT WAS SWEPT.
+### ### NO TARGET WAS NAMED AND NO FIT WAS PERFORMED.
+### ### AND THE `A + E2` COLUMN WAS NOT INTERPRETED.**
+
+### ### **NOTHING DEPOSITS. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT: ### "RH reduced to a
+### ### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### THE SUITE'S OWN COUNTS.
+====================================================================================================
+### ### **PRINTED BY `tools/b313_checks.py` SO THIS BANK NEVER TYPES ONE AT A SHELL:** ### 21 owner
+### needles, 67 self needles, 17 must-fail fixtures, 6 declared carriers, 18 tool-provenance rows.
+### ### ### **GATES: 118 PASS / 0 FAIL / 0 ERROR / 0 REFUSED, 0 UNPULLABLE, 0 GRADED HEDGES.**
+### ### **AND `G-NOARCHNUM` IS DELIBERATELY ABSENT FROM THIS SUITE.** ### b311 and b312 each
+### forbade computing an archimedean number; ### **THIS ACT IS ORDERED TO COMPUTE ONE**, and a gate
+### copied forward uninverted would have failed the act for doing what it was told.
+### ### **THREE GATES FAILED ON THE FIRST RUN AND ALL THREE WERE THIS BANK'S OWN WRAPPING.** ### Two
+### needles carried a literal newline inside the anchor -- ### **WHICH CAN NEVER MATCH** -- and
+### `G-NOFIT`'s positive arm could not find *NO TARGET WAS NAMED AND NO FIT WAS PERFORMED* because
+### the sentence was split across a line break. ### **THAT IS THE FIFTH ACT RUNNING IN WHICH THE
+### ### WRAP HAS CAUGHT THIS SEAT, AND THE REPAIR IS ALWAYS THE BANK'S AND NEVER THE GATE'S.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE REGISTRATION RECORDS COMPONENT 1 AS FINDINGS IN HAND, AND SAYS WHICH HALF OF
+### ### ITSELF IS A GENUINE SEAL.** ### The order's EXECUTION line puts the owners and the source
+### first, so the warrant could not be a prediction; ### **COMPONENTS 2, 3 AND 4 WERE NOT RUN WHEN
+### ### THE SEAL WAS WRITTEN, AND THE CAPS AND CONTROLS ARE THEREFORE A REAL SEAL.** ### The split
+### is stated in the registration's own section (0) rather than blurred.
+### ### **(D2) THE ROUND-TRIP CONTROL FIRED ON THE FIRST RUN AND A DEFECT WAS REPAIRED.** ### The
+### flip was first written as a fragment whose inverse already occurs elsewhere in the same file.
+### ### **THE FIRST VERSION OF THE TOOL ALSO WROTE THE COPY ANYWAY, REPORTING THE FAILURE BESIDE IT
+### ### RATHER THAN REFUSING** -- and that is the worse of the two defects, because a reported
+### failure that changes nothing is a failure nobody has to act on. ### Both are repaired: whole-
+### line substitutions, and the write is GATED on the controls.
+### ### **(D3) THE RUNNER TRANSCRIBES `b38_act10.main()` RATHER THAN CALLING IT.** ### Calling it
+### would rewrite `data/b38_2026-08-18.txt`, which is the artifact this act reads as its reference.
+### ### **A TRANSCRIPTION IS A RISK, AND IT IS PRICED BY BEING CHECKED AGAINST THAT ARTIFACT AT ITS
+### ### OWN PRINTED PRECISION BEFORE EITHER COLUMN IS READ.**
+### ### **(D4) THIS ACT PRINTS A COLUMN NOBODY ASKED FOR.** ### `A + E2` is not in the order. ### It
+### is printed because it moved by two to three orders of magnitude and the order says to report
+### what moves; ### **AND IT IS EXPLICITLY NOT INTERPRETED, FOR A MEASURED REASON RATHER THAN A
+### ### CAUTIOUS ONE.** ### Suppressing it would have been the larger deviation.
+====================================================================================================

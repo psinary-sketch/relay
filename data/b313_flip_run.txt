@@ -1,0 +1,156 @@
+====================================================================================================
+b313_flip.py -- THE COPY-MAKER. ### THE OWNER INSTRUMENT IS NOT EDITED.
+====================================================================================================
+  ### THE COPY-MAKER'S OWN FIXTURES, RUN BEFORE IT TOUCHES A FILE : [True, True, True, True, True, True]  PASS
+  ### **ARMS 2 AND 3 ARE THE ONES THAT MATTER: A SUBSTITUTION MATCHING TWICE, OR NOT AT
+  ### ALL, IS REPORTED AND REFUSED RATHER THAN APPLIED.**
+
+  ------------------------------------------------------------------------------------------------
+  ### qeps_layer.py  ->  b313f_qeps_layer.py
+  ------------------------------------------------------------------------------------------------
+    [FLIP    ] occurrences=1  OK
+       - out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+       + out[k] = float((lam2 / (1 - lam2) * (r ** 0.5) * I).sum())
+       ### THE FLIP. ### `eps`'s scaling exponent -- the ONE constituent b312 found differing between the corpus's remainder and the source's. ### **WRITTEN AS A WHOLE LINE, BECAUSE THE FRAGMENT `(r ** 0.5)` ALREADY OCCURS IN `Qeps` AND THE INVERSE WOULD NOT BE UNIQUELY LOCATABLE -- WHICH THE ROUND-TRIP CONTROL CAUGHT.**
+    [IDENTITY] occurrences=1  OK
+       - via (85) with theta(a)f(x) = a^{1/2} f(x/a).
+       + via (85) with theta(a)f(x) = a^{-1/2} f(x/a).
+       ### the docstring must not describe a convention the code no longer carries. ### **A COPY THAT LIES ABOUT ITSELF IS WORSE THAN NO COPY.**
+    [IDENTITY] occurrences=1  OK
+       - """Q_eps AND THE OPERATOR LAYER
+       + """b313 FLIPPED COPY (NOT AN OWNER FILE) -- Q_eps AND THE OPERATOR LAYER
+       ### the copy names itself in its first line so it cannot be read as the owner.
+    ### ROUND TRIP -- the inverse substitutions reproduce the original BYTE FOR
+    ### BYTE : True  PASS
+    ### THE DIFF: 3 line(s) removed, 3 added; declared substitutions 3 ; MATCH : True  PASS
+    ### THE UNIFIED DIFF, PRINTED IN FULL:
+      | --- a/qeps_layer.py
+      | +++ b/b313f_qeps_layer.py
+      | @@ -1,2 +1,2 @@
+      | -"""Q_eps AND THE OPERATOR LAYER — from the formulas supplied at content (Selecta).
+      | +"""b313 FLIPPED COPY (NOT AN OWNER FILE) -- Q_eps AND THE OPERATOR LAYER — from the formulas supplied at content (Selecta).
+      |  
+      | @@ -98,3 +98,3 @@
+      |  def eps(rho, NQ=700, NG=400):
+      | -    """eps at scalar or array rho, via (85) with theta(a)f(x) = a^{1/2} f(x/a)."""
+      | +    """eps at scalar or array rho, via (85) with theta(a)f(x) = a^{-1/2} f(x/a)."""
+      |      x, w, lam, lam2, xi, xi1, an, dan = layer(NQ)
+      | @@ -112,3 +112,3 @@
+      |          I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)
+      | -        out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+      | +        out[k] = float((lam2 / (1 - lam2) * (r ** 0.5) * I).sum())
+      |      return out if out.size > 1 else float(out[0])
+    ### WRITTEN AND READ BACK : True  PASS
+
+  ------------------------------------------------------------------------------------------------
+  ### b38_act10.py  ->  b313f_b38_act10.py
+  ------------------------------------------------------------------------------------------------
+    [FLIP    ] occurrences=1  OK
+       - out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I
+       + out[:, k] = lam2 / (1 - lam2) * (r ** 0.5) * I
+       ### THE FLIP. ### `per_mode_eps_grids` -- the remainder AS THE IDENTITY CONSUMES IT. ### Written as a whole line for the same reason.
+    [IDENTITY] occurrences=1  OK
+       - import qeps_layer as Q
+       + import b313f_qeps_layer as Q
+       ### the copy must consume the FLIPPED layer, or its `eps_full` and its per-mode grids would carry two different conventions and the mask-algebra gate would fire.
+    [IDENTITY] occurrences=1  OK
+       - BANK = r"D:\relay\data\b38_2026-08-18.txt"
+       + BANK = r"D:\relay\data\b313f_b38_scratch.txt"
+       ### ### **SO THAT RUNNING THE COPY CANNOT OVERWRITE THE OWNER'S BANKED TABLE.** ### The copy's `main` is not called by this act, and the redirection is what makes that a safety property rather than a promise.
+    [IDENTITY] occurrences=1  OK
+       - """W-CONSTRUCTION-1 act 10
+       + """b313 FLIPPED COPY (NOT AN OWNER FILE) -- W-CONSTRUCTION-1 act 10
+       ### the copy names itself in its first line.
+    ### ROUND TRIP -- the inverse substitutions reproduce the original BYTE FOR
+    ### BYTE : True  PASS
+    ### THE DIFF: 4 line(s) removed, 4 added; declared substitutions 4 ; MATCH : True  PASS
+    ### THE UNIFIED DIFF, PRINTED IN FULL:
+      | --- a/b38_act10.py
+      | +++ b/b313f_b38_act10.py
+      | @@ -1,3 +1,3 @@
+      |  # -*- coding: utf-8 -*-
+      | -"""W-CONSTRUCTION-1 act 10 -- b38: THE APPORTIONMENT JOINT.
+      | +"""b313 FLIPPED COPY (NOT AN OWNER FILE) -- W-CONSTRUCTION-1 act 10 -- b38: THE APPORTIONMENT JOINT.
+      |  
+      | @@ -13,3 +13,3 @@
+      |  import carto_auto as CA
+      | -import qeps_layer as Q
+      | +import b313f_qeps_layer as Q
+      |  import b8_sonin_dim as B8
+      | @@ -17,3 +17,3 @@
+      |  
+      | -BANK = r"D:\relay\data\b38_2026-08-18.txt"
+      | +BANK = r"D:\relay\data\b313f_b38_scratch.txt"
+      |  CELLS = [(math.sqrt(2), "2"), (math.sqrt(3), "3"), (2.0, "4"),
+      | @@ -90,3 +90,3 @@
+      |          I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)
+      | -        out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I
+      | +        out[:, k] = lam2 / (1 - lam2) * (r ** 0.5) * I
+      |      return out
+    ### WRITTEN AND READ BACK : True  PASS
+
+  ------------------------------------------------------------------------------------------------
+  ### b264_eps_decay.py  ->  b313f_b264_eps_decay.py
+  ------------------------------------------------------------------------------------------------
+    [FLIP    ] occurrences=1  OK
+       - return lam2 / (1 - lam2) * (r ** -0.5) * I
+       + return lam2 / (1 - lam2) * (r ** 0.5) * I
+       ### THE FLIP. ### `eps_modes` -- b264's own configurable-node evaluator, which is the one the ladder runs through. ### Written as a whole line for the same reason.
+    [IDENTITY] occurrences=1  OK
+       - [lam^2/(1-lam^2)] rho^{-1/2} INT
+       + [lam^2/(1-lam^2)] rho^{+1/2} INT
+       ### the docstring must not describe a convention the code no longer carries.
+    [IDENTITY] occurrences=1  OK
+       - BANK = r'D:\relay\data\b264_run.txt'
+       + BANK = r'D:\relay\data\b313f_b264_scratch.txt'
+       ### so that running the copy cannot overwrite b264's banked run.
+    [IDENTITY] occurrences=1  OK
+       - ROWS = r'D:\relay\data\b264_rows.json'
+       + ROWS = r'D:\relay\data\b313f_b264_rows.json'
+       ### so that running the copy cannot overwrite b264's banked rows -- which this act READS as the reference column.
+    [IDENTITY] occurrences=1  OK
+       - CACHE = r'D:\relay\data\b264_cache.npz'
+       + CACHE = r'D:\relay\data\b313f_b264_cache.npz'
+       ### so that running the copy cannot overwrite b264's cache.
+    [IDENTITY] occurrences=1  OK
+       - """b264_eps_decay.py
+       + """b313 FLIPPED COPY (NOT AN OWNER FILE) -- b264_eps_decay.py
+       ### the copy names itself in its first line.
+    ### ROUND TRIP -- the inverse substitutions reproduce the original BYTE FOR
+    ### BYTE : True  PASS
+    ### THE DIFF: 6 line(s) removed, 6 added; declared substitutions 6 ; MATCH : True  PASS
+    ### THE UNIFIED DIFF, PRINTED IN FULL:
+      | --- a/b264_eps_decay.py
+      | +++ b/b313f_b264_eps_decay.py
+      | @@ -1,3 +1,3 @@
+      |  # -*- coding: utf-8 -*-
+      | -"""b264_eps_decay.py -- J4: `eps_even`'s DECAY. ### THE RUN.
+      | +"""b313 FLIPPED COPY (NOT AN OWNER FILE) -- b264_eps_decay.py -- J4: `eps_even`'s DECAY. ### THE RUN.
+      |  
+      | @@ -38,5 +38,5 @@
+      |  
+      | -BANK = r'D:\relay\data\b264_run.txt'
+      | -ROWS = r'D:\relay\data\b264_rows.json'
+      | -CACHE = r'D:\relay\data\b264_cache.npz'
+      | +BANK = r'D:\relay\data\b313f_b264_scratch.txt'
+      | +ROWS = r'D:\relay\data\b313f_b264_rows.json'
+      | +CACHE = r'D:\relay\data\b313f_b264_cache.npz'
+      |  B261J = r'D:\relay\data\b261_rows.json'
+      | @@ -129,3 +129,3 @@
+      |      """### THE OWNER'S PER-MODE FORMULA, NODE COUNT CONFIGURABLE.
+      | -    ### `eps_n(rho) = [lam^2/(1-lam^2)] rho^{-1/2} INT_{1/rho}^{1} A_n(u) A_n(rho u) du`."""
+      | +    ### `eps_n(rho) = [lam^2/(1-lam^2)] rho^{+1/2} INT_{1/rho}^{1} A_n(u) A_n(rho u) du`."""
+      |      x, w, lam, lam2, xi, xi1, an, dan = LAY
+      | @@ -140,3 +140,3 @@
+      |      I = ((A1 * A2) * (gw[:, None] * jac)).sum(0)
+      | -    return lam2 / (1 - lam2) * (r ** -0.5) * I
+      | +    return lam2 / (1 - lam2) * (r ** 0.5) * I
+      |  
+    ### WRITTEN AND READ BACK : True  PASS
+
+  ### ### **ALL COPIES BUILT AND VERIFIED : True**
+  ### **AND WHAT THIS TOOL DOES NOT CLAIM: ### IT DOES NOT CLAIM THE FLIP IS RIGHT.**
+  ### The flip is licensed by the source's own definition, quoted in the bank; this
+  ### tool only guarantees that the copy differs from the owner in exactly the declared
+  ### places and in no others.
+====================================================================================================

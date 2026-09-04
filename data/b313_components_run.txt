@@ -1,0 +1,453 @@
+====================================================================================================
+b313 -- THE COMPONENTS. ### **THE EXPONENT: THE REMAINDER UNDER THE SOURCE'S NORMALIZATION.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE WARRANT. ### **RECORDED IN THE SEALED REGISTRATION, SECTION (5).**
+----------------------------------------------------------------------------------------------------
+  ### The warrant is quotations, not computation, and it is banked in full. ### What this
+  ### runner records is that the reads preceded everything below: the registration was
+  ### SEALED before this file was run, and the seal covers section (5).
+  ### ### **THE ONE SENTENCE, RESTATED HERE BECAUSE EVERY NUMBER BELOW DEPENDS ON IT:**
+  ### **THE CORPUS DECLARED ITS REMAINDER TO BE THE SOURCE'S EQUATION, THE SOURCE DEFINES
+  ### THAT EQUATION'S SCALING ACTION AT ITS OWN eq. (61) AND UNFOLDS IT THE SAME WAY TWICE
+  ### MORE, SO THE EXPONENT IS SETTLED BY THAT DEFINITION ALONE -- BEFORE ANY RESIDUE IS
+  ### LOOKED AT, AND WHATEVER THE RESIDUE TURNS OUT TO DO.**
+  ### **THE RESIDUE'S DIRECTION IS UNPREDICTED. ### THIS SEAT REGISTERED NO EXPECTATION.**
+
+====================================================================================================
+### COMPONENT 2 -- THE COMPUTATION.
+====================================================================================================
+
+  ### (2a) THE COPIES, AND THE DIFF.
+  ### the copy-maker ran, all controls: True
+    ### THE COPY-MAKER'S OWN FIXTURES, RUN BEFORE IT TOUCHES A FILE : [True, True, True, True, True, True]  PASS
+    ### **ARMS 2 AND 3 ARE THE ONES THAT MATTER: A SUBSTITUTION MATCHING TWICE, OR NOT AT
+    ### ALL, IS REPORTED AND REFUSED RATHER THAN APPLIED.**
+  
+    ------------------------------------------------------------------------------------------------
+    ### qeps_layer.py  ->  b313f_qeps_layer.py
+    ------------------------------------------------------------------------------------------------
+      [FLIP    ] occurrences=1  OK
+         - out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+         + out[k] = float((lam2 / (1 - lam2) * (r ** 0.5) * I).sum())
+         ### THE FLIP. ### `eps`'s scaling exponent -- the ONE constituent b312 found differing between the corpus's remainder and the source's. ### **WRITTEN AS A WHOLE LINE, BECAUSE THE FRAGMENT `(r ** 0.5)` ALREADY OCCURS IN `Qeps` AND THE INVERSE WOULD NOT BE UNIQUELY LOCATABLE -- WHICH THE ROUND-TRIP CONTROL CAUGHT.**
+      [IDENTITY] occurrences=1  OK
+         - via (85) with theta(a)f(x) = a^{1/2} f(x/a).
+         + via (85) with theta(a)f(x) = a^{-1/2} f(x/a).
+         ### the docstring must not describe a convention the code no longer carries. ### **A COPY THAT LIES ABOUT ITSELF IS WORSE THAN NO COPY.**
+      [IDENTITY] occurrences=1  OK
+         - """Q_eps AND THE OPERATOR LAYER
+         + """b313 FLIPPED COPY (NOT AN OWNER FILE) -- Q_eps AND THE OPERATOR LAYER
+         ### the copy names itself in its first line so it cannot be read as the owner.
+      ### ROUND TRIP -- the inverse substitutions reproduce the original BYTE FOR
+      ### BYTE : True  PASS
+      ### THE DIFF: 3 line(s) removed, 3 added; declared substitutions 3 ; MATCH : True  PASS
+      ### THE UNIFIED DIFF, PRINTED IN FULL:
+        | --- a/qeps_layer.py
+        | +++ b/b313f_qeps_layer.py
+        | @@ -1,2 +1,2 @@
+        | -"""Q_eps AND THE OPERATOR LAYER — from the formulas supplied at content (Selecta).
+        | +"""b313 FLIPPED COPY (NOT AN OWNER FILE) -- Q_eps AND THE OPERATOR LAYER — from the formulas supplied at content (Selecta).
+        |  
+        | @@ -98,3 +98,3 @@
+        |  def eps(rho, NQ=700, NG=400):
+        | -    """eps at scalar or array rho, via (85) with theta(a)f(x) = a^{1/2} f(x/a)."""
+        | +    """eps at scalar or array rho, via (85) with theta(a)f(x) = a^{-1/2} f(x/a)."""
+        |      x, w, lam, lam2, xi, xi1, an, dan = layer(NQ)
+        | @@ -112,3 +112,3 @@
+        |          I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)
+        | -        out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+        | +        out[k] = float((lam2 / (1 - lam2) * (r ** 0.5) * I).sum())
+        |      return out if out.size > 1 else float(out[0])
+      ### WRITTEN AND READ BACK : True  PASS
+  
+    ------------------------------------------------------------------------------------------------
+    ### b38_act10.py  ->  b313f_b38_act10.py
+    ------------------------------------------------------------------------------------------------
+      [FLIP    ] occurrences=1  OK
+         - out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I
+         + out[:, k] = lam2 / (1 - lam2) * (r ** 0.5) * I
+         ### THE FLIP. ### `per_mode_eps_grids` -- the remainder AS THE IDENTITY CONSUMES IT. ### Written as a whole line for the same reason.
+      [IDENTITY] occurrences=1  OK
+         - import qeps_layer as Q
+         + import b313f_qeps_layer as Q
+         ### the copy must consume the FLIPPED layer, or its `eps_full` and its per-mode grids would carry two different conventions and the mask-algebra gate would fire.
+      [IDENTITY] occurrences=1  OK
+         - BANK = r"D:\relay\data\b38_2026-08-18.txt"
+         + BANK = r"D:\relay\data\b313f_b38_scratch.txt"
+         ### ### **SO THAT RUNNING THE COPY CANNOT OVERWRITE THE OWNER'S BANKED TABLE.** ### The copy's `main` is not called by this act, and the redirection is what makes that a safety property rather than a promise.
+      [IDENTITY] occurrences=1  OK
+         - """W-CONSTRUCTION-1 act 10
+         + """b313 FLIPPED COPY (NOT AN OWNER FILE) -- W-CONSTRUCTION-1 act 10
+         ### the copy names itself in its first line.
+      ### ROUND TRIP -- the inverse substitutions reproduce the original BYTE FOR
+      ### BYTE : True  PASS
+      ### THE DIFF: 4 line(s) removed, 4 added; declared substitutions 4 ; MATCH : True  PASS
+      ### THE UNIFIED DIFF, PRINTED IN FULL:
+        | --- a/b38_act10.py
+        | +++ b/b313f_b38_act10.py
+        | @@ -1,3 +1,3 @@
+        |  # -*- coding: utf-8 -*-
+        | -"""W-CONSTRUCTION-1 act 10 -- b38: THE APPORTIONMENT JOINT.
+        | +"""b313 FLIPPED COPY (NOT AN OWNER FILE) -- W-CONSTRUCTION-1 act 10 -- b38: THE APPORTIONMENT JOINT.
+        |  
+        | @@ -13,3 +13,3 @@
+        |  import carto_auto as CA
+        | -import qeps_layer as Q
+        | +import b313f_qeps_layer as Q
+        |  import b8_sonin_dim as B8
+        | @@ -17,3 +17,3 @@
+        |  
+        | -BANK = r"D:\relay\data\b38_2026-08-18.txt"
+        | +BANK = r"D:\relay\data\b313f_b38_scratch.txt"
+        |  CELLS = [(math.sqrt(2), "2"), (math.sqrt(3), "3"), (2.0, "4"),
+        | @@ -90,3 +90,3 @@
+        |          I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)
+        | -        out[:, k] = lam2 / (1 - lam2) * (r ** -0.5) * I
+        | +        out[:, k] = lam2 / (1 - lam2) * (r ** 0.5) * I
+        |      return out
+      ### WRITTEN AND READ BACK : True  PASS
+  
+    ------------------------------------------------------------------------------------------------
+    ### b264_eps_decay.py  ->  b313f_b264_eps_decay.py
+    ------------------------------------------------------------------------------------------------
+      [FLIP    ] occurrences=1  OK
+         - return lam2 / (1 - lam2) * (r ** -0.5) * I
+         + return lam2 / (1 - lam2) * (r ** 0.5) * I
+         ### THE FLIP. ### `eps_modes` -- b264's own configurable-node evaluator, which is the one the ladder runs through. ### Written as a whole line for the same reason.
+      [IDENTITY] occurrences=1  OK
+         - [lam^2/(1-lam^2)] rho^{-1/2} INT
+         + [lam^2/(1-lam^2)] rho^{+1/2} INT
+         ### the docstring must not describe a convention the code no longer carries.
+      [IDENTITY] occurrences=1  OK
+         - BANK = r'D:\relay\data\b264_run.txt'
+         + BANK = r'D:\relay\data\b313f_b264_scratch.txt'
+         ### so that running the copy cannot overwrite b264's banked run.
+      [IDENTITY] occurrences=1  OK
+         - ROWS = r'D:\relay\data\b264_rows.json'
+         + ROWS = r'D:\relay\data\b313f_b264_rows.json'
+         ### so that running the copy cannot overwrite b264's banked rows -- which this act READS as the reference column.
+      [IDENTITY] occurrences=1  OK
+         - CACHE = r'D:\relay\data\b264_cache.npz'
+         + CACHE = r'D:\relay\data\b313f_b264_cache.npz'
+         ### so that running the copy cannot overwrite b264's cache.
+      [IDENTITY] occurrences=1  OK
+         - """b264_eps_decay.py
+         + """b313 FLIPPED COPY (NOT AN OWNER FILE) -- b264_eps_decay.py
+         ### the copy names itself in its first line.
+      ### ROUND TRIP -- the inverse substitutions reproduce the original BYTE FOR
+      ### BYTE : True  PASS
+      ### THE DIFF: 6 line(s) removed, 6 added; declared substitutions 6 ; MATCH : True  PASS
+      ### THE UNIFIED DIFF, PRINTED IN FULL:
+        | --- a/b264_eps_decay.py
+        | +++ b/b313f_b264_eps_decay.py
+        | @@ -1,3 +1,3 @@
+        |  # -*- coding: utf-8 -*-
+        | -"""b264_eps_decay.py -- J4: `eps_even`'s DECAY. ### THE RUN.
+        | +"""b313 FLIPPED COPY (NOT AN OWNER FILE) -- b264_eps_decay.py -- J4: `eps_even`'s DECAY. ### THE RUN.
+        |  
+        | @@ -38,5 +38,5 @@
+        |  
+        | -BANK = r'D:\relay\data\b264_run.txt'
+        | -ROWS = r'D:\relay\data\b264_rows.json'
+        | -CACHE = r'D:\relay\data\b264_cache.npz'
+        | +BANK = r'D:\relay\data\b313f_b264_scratch.txt'
+        | +ROWS = r'D:\relay\data\b313f_b264_rows.json'
+        | +CACHE = r'D:\relay\data\b313f_b264_cache.npz'
+        |  B261J = r'D:\relay\data\b261_rows.json'
+        | @@ -129,3 +129,3 @@
+        |      """### THE OWNER'S PER-MODE FORMULA, NODE COUNT CONFIGURABLE.
+        | -    ### `eps_n(rho) = [lam^2/(1-lam^2)] rho^{-1/2} INT_{1/rho}^{1} A_n(u) A_n(rho u) du`."""
+        | +    ### `eps_n(rho) = [lam^2/(1-lam^2)] rho^{+1/2} INT_{1/rho}^{1} A_n(u) A_n(rho u) du`."""
+        |      x, w, lam, lam2, xi, xi1, an, dan = LAY
+        | @@ -140,3 +140,3 @@
+        |      I = ((A1 * A2) * (gw[:, None] * jac)).sum(0)
+        | -    return lam2 / (1 - lam2) * (r ** -0.5) * I
+        | +    return lam2 / (1 - lam2) * (r ** 0.5) * I
+        |  
+      ### WRITTEN AND READ BACK : True  PASS
+
+  ### (2b) THE POSITIVE CONTROL'S MATERIAL: ### **THE COPY WITH THE EXPONENT RESTORED.**
+    b313r_qeps_layer.py          byte-identical to the owner : True  PASS
+    b313r_b38_act10.py           byte-identical to the owner : True  PASS
+    b313r_b264_eps_decay.py      byte-identical to the owner : True  PASS
+    ### **SO THE RESTORED COPY IS THE OWNER FILE UNDER ANOTHER NAME**, and any number it
+    ### produces that differs from the owner's would be a fact about the copy machinery.
+
+  ### (2c) THE AXES, NAMED. ### **EVERY ONE THE OWNER'S OWN; NONE COINED HERE.**
+    EPS_NQ     = 700                      prolate quadrature nodes in the eigensolver   [b38_act10]
+    EPS_NG     = 400                      Gauss-Legendre nodes in the remainder integral   [b38_act10]
+    EPS_NRHO   = 240                      points on the rho grid the remainder is tabulated on   [b38_act10]
+    NU_HALF    = 401                      points on the log grid the window integral uses   [b38_act10]
+    NTERM      = 11                       modes carried   [qeps_layer]
+    TRIPLE     = [(500, 8), (700, 10), (900, 11)] the (NQ, NMODE) settings the spread is taken over   [b38_act10]
+    ### **AND THE INSTRUMENT IS NOT EXACT ANYWHERE IN THIS PATH.** ### It is double
+    ### precision throughout: a prolate eigensolver, Gauss-Legendre quadrature, and
+    ### trapezoidal integration on fixed grids. ### **SO EVERY VALUE BELOW IS REPORTED AT
+    ### THE OWNER'S OWN PRINTED PRECISION AND NOT ONE DIGIT FURTHER**, and the one thing
+    ### that IS exact -- the ratio the flip induces -- is measured separately in (3a).
+
+  ### (2d) THE TRANSCRIPTION, CHECKED AGAINST THE OWNER'S OWN BANKED TABLE.
+    parser fixture (matches a real row / rejects a mangled one / rejects prose) : [True, True, True]  PASS
+    rows parsed from b38_2026-08-18.txt : 6
+
+  ### (2e) THE THREE COLUMNS.
+    [OWNER   ] per-mode mask algebra: max|sum_n eps_n - eps_full| = 8.88e-16  PASS
+    [RESTORED] per-mode mask algebra: max|sum_n eps_n - eps_full| = 8.88e-16  PASS
+    [FLIPPED ] per-mode mask algebra: max|sum_n eps_n - eps_full| = 8.88e-16  PASS
+
+  ### ### **THE TRANSCRIPTION vs THE BANKED TABLE** -- at the table's own printed
+  ### precision, which is the only precision the artifact carries:
+    a^2   quantity   banked       transcribed  agree     
+    2     A          -1.990528    -1.990528    yes
+    2     PR         0.000000     0.000000     yes
+    2     Wp         -1.37813     -1.37813     yes
+    2     Wm         -0.61239     -0.61239     yes
+    2     resid      4.0486       4.0486       yes
+    2     Dd         -2.681242    -2.681242    yes
+    2     Dc         -1.614208    -1.614208    yes
+    2     spread     0.09704      0.09704      yes
+    3     A          -1.908900    -1.908900    yes
+    3     PR         0.106484     0.106484     yes
+    3     Wp         -1.26715     -1.26715     yes
+    3     Wm         -0.64175     -0.64175     yes
+    3     resid      3.3740       3.3740       yes
+    3     Dd         -2.534072    -2.534072    yes
+    3     Dc         -1.659175    -1.659175    yes
+    3     spread     0.06123      0.06123      yes
+    4     A          -1.786498    -1.786498    yes
+    4     PR         0.249320     0.249320     yes
+    4     Wp         -1.16716     -1.16716     yes
+    4     Wm         -0.61934     -0.61934     yes
+    4     resid      3.0478       3.0478       yes
+    4     Dd         -2.295425    -2.295425    yes
+    4     Dc         -1.540711    -1.540711    yes
+    4     spread     0.05124      0.05124      yes
+    8     A          -1.525474    -1.525474    yes
+    8     PR         0.561045     0.561045     yes
+    8     Wp         -0.95494     -0.95494     yes
+    8     Wm         -0.57053     -0.57053     yes
+    8     resid      2.5208       2.5208       yes
+    8     Dd         -2.025781    -2.025781    yes
+    8     Dc         -1.500075    -1.500075    yes
+    8     spread     0.03468      0.03468      yes
+    9     A          -1.488337    -1.488337    yes
+    9     PR         0.608882     0.608882     yes
+    9     Wp         -0.92343     -0.92343     yes
+    9     Wm         -0.56490     -0.56490     yes
+    9     resid      2.4540       2.4540       yes
+    9     Dd         -1.858463    -1.858463    yes
+    9     Dc         -1.365057    -1.365057    yes
+    9     spread     0.03220      0.03220      yes
+    12    A          -1.405398    -1.405398    yes
+    12    PR         0.714334     0.714334     yes
+    12    Wp         -0.85622     -0.85622     yes
+    12    Wm         -0.54917     -0.54917     yes
+    12    resid      2.3134       2.3134       yes
+    12    Dd         -1.790997    -1.790997    yes
+    12    Dc         -1.365108    -1.365108    yes
+    12    spread     0.03225      0.03225      yes
+    ### ### **WORST ABSOLUTE DEPARTURE FROM THE BANKED TABLE : 4.98e-05**
+    ### **THIS IS THE CONTROL THAT MATTERS MOST IN THE ACT**: it is a reproduction of a
+    ### month-old artifact by a loop written today, and it is what licenses reading the
+    ### second column at all.
+
+  ### ### **THE POSITIVE CONTROL: ### THE COPY WITH THE EXPONENT RESTORED REPRODUCES THE
+  ### ### OWNER.**
+    quantities compared : 78 ; ### **BITWISE IDENTICAL : 78** ; worst difference : 0.00e+00
+    ### **A COPY THAT COULD NOT REPRODUCE THE ORIGINAL COULD NOT BE USED TO DIFFER FROM
+    ### IT**, and this arm is what makes the second column a statement about the exponent
+    ### rather than a statement about the copying.
+
+  ### ### **THE TWO COLUMNS, SIDE BY SIDE.** ### `resid = Tr - A - E2`, the residue
+  ### between the two constructions of the archimedean trace.
+    a^2   | A (both)   Tr (both)  | E2 banked  E2 source  | resid banked resid source
+    2     | -1.990528  3.737476   | 1.679428   2.013037   | 4.0486      3.7150     
+    3     | -1.908900  2.981721   | 1.516645   1.911453   | 3.3740      2.9792     
+    4     | -1.786498  2.635303   | 1.374051   1.787081   | 3.0478      2.6347     
+    8     | -1.525474  2.091552   | 1.096239   1.525303   | 2.5208      2.0917     
+    9     | -1.488337  2.023971   | 1.058309   1.488080   | 2.4540      2.0242     
+    12    | -1.405398  1.883111   | 0.975064   1.405116   | 2.3134      1.8834     
+    ### **`A` AND `Tr` ARE THE SAME NUMBER IN BOTH COLUMNS** -- neither call path touches
+    ### the exponent -- and that is measured in (3c) rather than asserted here.
+
+====================================================================================================
+### COMPONENT 3 -- WHAT MOVES AND WHAT DOES NOT.
+====================================================================================================
+
+  ### (3a) THE STRUCTURAL FACT, MEASURED: ### **THE FLIP IS EXACTLY MULTIPLICATION BY `rho`.**
+    grid points with a nonzero banked value : 240 of 240
+    ### **max | (eps_source / eps_banked) / rho  -  1 |  =  5.55e-16**
+    ### This is the registration's one structural expectation and it is MEASURED, not
+    ### assumed: the exponent enters each per-mode value as a single multiplicative
+    ### factor, so the two columns are related pointwise by `rho` and by nothing else.
+    ### **IF THIS ARM HAD FAILED, THE COPY WOULD BE DOING SOMETHING NOBODY DECLARED AND
+    ### THE ACT WOULD STOP HERE.**
+
+  ### (3b) THE RESIDUE'S SIZE UNDER EACH CONVENTION, PER CELL.
+    a^2   | resid banked resid source | abs banked   abs source  
+    2     | 4.0486       3.7150       | 4.0486       3.7150      
+    3     | 3.3740       2.9792       | 3.3740       2.9792      
+    4     | 3.0478       2.6347       | 3.0478       2.6347      
+    8     | 2.5208       2.0917       | 2.5208       2.0917      
+    9     | 2.4540       2.0242       | 2.4540       2.0242      
+    12    | 2.3134       1.8834       | 2.3134       1.8834      
+    ### **NO TARGET IS NAMED AND NO FIT IS PERFORMED.** ### These are two columns.
+
+  ### (3c) EVERY QUANTITY THAT CHANGES AND EVERY QUANTITY THAT DOES NOT, BY CALL PATH.
+    quantity   call path                                changes?  
+    A          left_side -> carto_atlas.hhat/kernel     NO        
+    P          left_side -> bump, cosh                  NO        
+    PR         left_side -> the prime loop              NO        
+    Thq        theta_quotient -> b8/b10                 NO        
+    TrN        trace_modes -> qeps.layer, math.sqrt(lamd) NO        
+    E2N        per_mode_eps_grids -> THE FLIPPED LINE   yes       
+    E2even     e2_of_grid over the even modes           yes       
+    E2odd      e2_of_grid over the odd modes            yes       
+    resid      TrN - A - E2N                            yes       
+    Wp         tr - E2n - s*resid, even                 yes       
+    Wm         tr - E2n - s*resid, odd                  yes       
+    Dd         (Thq-PR) + (E2odd - 2 E2full)            yes       
+    Dc         (A-PR) - ((Wp+E2even) - Thq)             yes       
+    spread     D_closed over TRIPLE                     yes       
+    eps'(1+)   epsprime1 -- no rho in its body at all   NO        
+    ### banked eps'(1+) = 22.99647568 ; source-convention eps'(1+) = 22.99647568 ; bitwise equal : True
+
+  ### (3d) WHY THE BANKED CROSS-CHECK NEVER SAW IT -- b312's DERIVATION, NOW MEASURED.
+    ### `epsprime1` does not contain `rho` at all, so the flip is not on its call path;
+    ### that is the trivial half. ### **THE HALF THAT MATTERS IS THAT THE DERIVATIVE OF
+    ### THE FUNCTION ITSELF IS ALSO UNMOVED**, because the integral vanishes at the
+    ### identity. ### Measured as a one-sided difference quotient:
+    h            banked (eps/h)   source (eps/h)   difference  
+    1e-03        22.96178845      22.98475024      2.30e-02    
+    1e-04        22.99302428      22.99532358      2.30e-03    
+    1e-05        22.99613072      22.99636068      2.30e-04    
+    1e-06        22.99644119      22.99646418      2.30e-05    
+    ### ### **BOTH APPROACH THE SAME LIMIT, AND THE DIFFERENCE BETWEEN THEM GOES TO ZERO
+    ### ### WITH `h`.** ### The two functions differ by a factor of `rho`, and at `rho = 1`
+    ### that factor is `1` while the function is `0` -- so the slope at the identity is
+    ### blank to it. ### **THAT IS THE WHOLE REASON THE CORPUS'S ONE CROSS-CHECK PASSED.**
+
+  ### (3e) b264's LADDER, RE-RUN UNDER THE FLIP, AT ITS OWN REACH,
+  ### **WITH THE NOISE-FLOOR GATE IN THE PATH.**
+    b264's resolved-mode count, READ from its banked rows : NRES = 7 (bar 1e-06)
+    ### **MODES AT OR ABOVE THAT INDEX ARE AT THE EIGENSOLVER'S FLOOR** -- b264 measured
+    ### it and filed `W-ORD-NTERM-FLOOR`. ### Every row below prints BOTH the all-mode
+    ### even sum (b264's own definition, so the columns are comparable) AND the
+    ### resolved-only sum, and names the floor modes it excluded.
+    rho      NG       rule                       even banked   even source   floor bkd   floor src  
+    2        400      monolithic 400             0.395736      0.791472      -2.165e-15  -4.330e-15 
+    5        400      monolithic 400             0.114625      0.573124      4.826e-12   2.413e-11  
+    10       400      monolithic 400             0.0456293     0.456293      3.116e-12   3.116e-11  
+    20       400      monolithic 400             0.0169372     0.338743      -1.876e-12  -3.752e-11 
+    50       400      monolithic 400             0.00438323    0.219162      2.537e-13   1.269e-11  
+    100      800      monolithic 800             0.00155948    0.155948      1.203e-13   1.203e-11  
+    200      1600     monolithic 1600            0.000552953   0.110591      -1.892e-14  -3.784e-12 
+    500      4000     monolithic 4000            -2.15642      -1078.21      1.954e-14   9.777e-12  
+    1000     8000     composite 20 x 400 = 8000  -0.752561     -752.561      -3.597e-14  -3.604e-11 
+    2000     16000    composite 40 x 400 = 16000 -0.25872      -517.44       2.776e-15   5.571e-12  
+    5000     40000    composite 100 x 400 = 40000 -0.0663367    -331.684      8.327e-16   4.150e-12  
+    10000    80000    composite 200 x 400 = 80000 -0.0233759    -233.759      -2.082e-17  -1.990e-13 
+    ### floor modes excluded from the resolved sum, every row : [8, 10]
+    ### **THE LAST TWO COLUMNS ARE WHAT THE GATE ACTUALLY REMOVES**, printed rather than
+    ### described: the difference between the all-mode even sum and the resolved-only
+    ### one. ### It is far below the printed precision of the columns beside it, which is
+    ### what b264's own floor measurement predicted -- and the gate is reported by its
+    ### SIZE rather than by the word `negligible`, because a gate whose effect nobody
+    ### prints is a gate nobody can check.
+    ### **AND THE LADDER REPRODUCES b264's BANKED `eps_even` COLUMN**, which is the
+    ### control that makes the flipped column readable:
+    ### worst absolute departure from b264's banked `eps_even` : 7.97e-12
+
+  ### (3f) THE DECAY ALONG THE CUTOFF, UNDER EACH CONVENTION.
+    ### b264 measured the banked column's decay by the product `eps_even * rho^{3/2}`,
+    ### which it found approaching a constant. ### **UNDER THE SOURCE'S EXPONENT THE SAME
+    ### PRODUCT IS `eps_even * rho^{1/2}`, AND IT IS THE SAME NUMBER** -- because the two
+    ### columns differ pointwise by `rho`. ### So the decay RATE moves by one power and
+    ### the leading constant does not move at all.
+    rho      banked * rho^3/2 source * rho^1/2 difference  
+    2        1.1193105        1.1193105        0.00e+00    
+    5        1.2815439        1.2815439        0.00e+00    
+    10       1.4429246        1.4429246        4.44e-16    
+    20       1.5149048        1.5149048        0.00e+00    
+    50       1.5497075        1.5497075        0.00e+00    
+    100      1.5594801        1.5594801        2.22e-16    
+    200      1.563987         1.563987         2.22e-16    
+    500      -24109.549       -24109.549       7.28e-12    
+    1000     -23798.059       -23798.059       7.28e-12    
+    2000     -23140.619       -23140.619       7.28e-12    
+    5000     -23453.58        -23453.58        1.09e-11    
+    10000    -23375.874       -23375.874       3.64e-12    
+    ### worst difference between the two scaled columns : 1.09e-11
+    ### **THE ROWS FROM `rho = 500` UPWARD ARE THE ONES b264 ITSELF REPORTED AS SITTING
+    ### BEYOND ITS MEASURED `EPS_NQ` CEILING (~238), AND THEY ARE NOT READ AS DECAY BY
+    ### EITHER COLUMN.** ### They are printed because deleting them would be a choice
+    ### nobody could check.
+
+  ### (3g) TWO DERIVED COLUMNS, PRINTED BECAUSE THE ORDER SAYS TO REPORT WHAT MOVES.
+    ### The first is the residue's relative change; the second is `A + E2`, which is
+    ### `Tr - resid` and is therefore just a third way of writing the same three numbers.
+    a^2   | resid banked resid source ratio      | A+E2 banked   A+E2 source  
+    2     | 4.0486       3.7150       0.9176     | -0.311099     0.022509     
+    3     | 3.3740       2.9792       0.8830     | -0.392256     0.002553     
+    4     | 3.0478       2.6347       0.8645     | -0.412447     0.000583     
+    8     | 2.5208       2.0917       0.8298     | -0.429235     -0.000172    
+    9     | 2.4540       2.0242       0.8249     | -0.430028     -0.000257    
+    12    | 2.3134       1.8834       0.8141     | -0.430334     -0.000282    
+    ### ### **THESE ARE COLUMNS OF THIS ACT'S OWN TABLE, NOT COMPARISONS TO ANY TARGET.**
+    ### No banked target, prime sum, mass or asymptote is named here, and none is meant.
+    ### ### **AND THE SECOND COLUMN IS NOT INTERPRETED BY THIS ACT.** ### It is printed
+    ### because it is a quantity that moved and the order says to report what moved;
+    ### what it might mean is a question this act does not have the instrument to answer,
+    ### and it is filed as a question in the bank rather than read as a result.
+    ### ### **AND ONE CAUTION THAT IS NOT OPTIONAL, BECAUSE b312 FOUND IT AND IT LANDS
+    ### ### EXACTLY HERE:** ### `A` comes from `carto_atlas.py`, whose own header says
+    ### ### its sign is *[sign fixed BY the E2 calibration]* and which disclaims any sign
+    ### ### claim. ### So `A + E2` compares a term against the very quantity its sign was
+    ### ### calibrated against. ### **A COLUMN LIKE THAT CAN REPORT THE CALIBRATION
+    ### ### RATHER THAN THE MATHEMATICS, AND THIS ACT HAS NO INSTRUMENT THAT CAN TELL
+    ### ### THE TWO APART.** ### That is why it is filed as a question and not read, and
+    ### the reason is a measured property of the corpus rather than a hedge.
+    ### ### **AND ITS DIRECTION, SO NOBODY READS IT AS AN IMPROVEMENT:** ### under the
+    ### source's exponent the identity's two right-hand terms very nearly CANCEL, so the
+    ### residue becomes essentially the whole trace. ### **THAT IS NOT AN IDENTITY
+    ### ### CLOSING; IT IS THE OPPOSITE SHAPE, AND SAYING SO IS PART OF REPORTING IT.**
+
+====================================================================================================
+### COMPONENT 4 -- THE READING, AT EXACTLY ITS SCOPE.
+====================================================================================================
+  ### **THE BRANCH IS DECIDED BY THE NUMBERS AND NOT BY THIS SEAT'S PREFERENCE**, and the
+  ### criterion is stated before the verdict: the order's word is COLLAPSE, and a residue
+  ### that keeps its order of magnitude has not collapsed.
+    residue ratios, source over banked, per cell : 0.9176, 0.8830, 0.8645, 0.8298, 0.8249, 0.8141
+    ### **RANGE : 0.8141 to 0.9176. ### THE RESIDUE SHRINKS BY BETWEEN 8% AND 19% AND
+    ### KEEPS ITS ORDER OF MAGNITUDE AT EVERY CELL.**
+    collapsed (every cell below one per cent of its banked value) : False
+
+  ### ### ### **BRANCH TWO. ### THE RESIDUE IS NOT THE EXPONENT.**
+  ### The order states this branch in its own words: ### *if it does not collapse, the
+  ### residue is not the exponent and the act says so.* ### **IT DOES NOT COLLAPSE,
+  ### AND THIS ACT SAYS SO.**
+  ### ### **WHAT THAT DOES AND DOES NOT MEAN, BOTH STATED:**
+  ###   ### **IT DOES NOT MEAN THE FLIP WAS WRONG.** ### b312 decided which function
+  ###     the corpus's remainder is, by unfolding definitions, and a residue is not a
+  ###     vote on that. ### **THE EXPONENT IS FIXED BY THE SOURCE'S DEFINITION AND BY
+  ###     ### NOTHING THE RESIDUE DOES** -- which is the standing clause, and it binds
+  ###     in this direction exactly as hard as it would have bound in the other.
+  ###   ### **IT DOES MEAN THE SEARCH CONTINUES.** ### The convention mismatch is
+  ###     real, it is an instrument finding, and it accounts for between 8% and
+  ###     19% of the residue at these six cells. ### **IT DOES NOT ACCOUNT FOR THE
+  ###     ### REST, AND NOTHING HERE SAYS WHAT DOES.**
+  ###   ### **AND THE THIRD AND FOURTH FACE-OFFS ARE NOT RE-READ.** ### The order
+  ###     attaches a sentence to their interpretation only on branch one. ### On this
+  ###     branch their numbers stand as banked and their readings stand unamended.
+  ### ### **IN EITHER BRANCH, AND SAID BECAUSE THE ORDER REQUIRES IT SAID: ### NOTHING
+  ### ### ABOUT THE IDENTITY, ABOUT `h2`, OR ABOUT THE ROSTER FOLLOWS FROM ANY OF THIS.**
+  ### ### **AND NO BANKED NUMBER IS CALLED WRONG.** ### Every value in the banked column
+  ### is what the banked instrument computes. ### **WHAT THIS ACT ADDS IS A SECOND COLUMN
+  ### AND A STATEMENT OF WHAT DIFFERS BETWEEN THEM.**
+
+  ### CHECKS FAILING : 0
+  ### elapsed : 54.5 s
+====================================================================================================

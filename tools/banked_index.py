@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-exponent': ['the flip', 'the remainder under the source normalization',
+                    'did the residue collapse', 'the exponent check'],
+    'convention-share-of-the-residue': ['what the convention accounts for',
+                    'the decay under the flip', 'the one-power shift'],
     'the-remainder': ['the corpus eps against the source', 'the scaling convention',
                      'the remainder identified', 'is the remainder theirs'],
     'remainder-check-at-a-zero': ['why the cross-check passed',
@@ -409,6 +413,48 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE RESIDUE IS NOT THE EXPONENT (b313).
+    ("the-exponent", "b313 (a computation, and a negative one)",
+     "b312 identified the corpus's archimedean remainder as differing from the source's by a"
+     " factor of rho; **THIS ACT RAN THE CHECK b312 FILED AND THE RESIDUE DID NOT COLLAPSE.**"
+     " ### In a COPY of the instrument -- the owner files untouched -- the remainder side was"
+     " recomputed under the source's exponent, everything else byte-identical."
+     " ### **resid = Tr - A - E2 FELL FROM (4.0486, 3.3740, 3.0478, 2.5208, 2.4540, 2.3134)"
+     " TO (3.7150, 2.9792, 2.6347, 2.0917, 2.0242, 1.8834)** at a^2 = 2, 3, 4, 8, 9, 12 --"
+     " ratios 0.9176 to 0.8141, a shrinkage of 8% to 19% with the order of magnitude kept at"
+     " every cell. ### **A AND Tr DO NOT MOVE AT ALL**, measured and not asserted",
+     "### A MEASUREMENT, AND A NEGATIVE ONE. ### **IT DOES NOT MEAN THE FLIP WAS WRONG: the"
+     " exponent is fixed by the source's own definition and by NOTHING the residue does, and"
+     " b312 decided which function the remainder IS by unfolding definitions.** ### **NO"
+     " BANKED NUMBER IS CALLED WRONG, NO ACT IS RE-VERDICTED, NO GRADE MOVED, NO TARGET WAS"
+     " NAMED AND NO FIT WAS PERFORMED.** ### Controls: the transcribed loop reproduces b38's"
+     " month-old banked table to 4.98e-05 (its own display rounding); the copy with the"
+     " exponent RESTORED reproduces the owner 78/78 BITWISE; the flip is a pointwise rho"
+     " factor to 5.55e-16. ### The third and fourth face-offs are NOT re-read. ### M-2"
+     " UNCHANGED",
+     "data/b313_the_exponent.txt; data/b313_components_run.txt; data/b313_flip_run.txt;"
+     " CORRESPONDENCE.md row 138"),
+    # ### WHAT THE CONVENTION DOES ACCOUNT FOR (b313).
+    ("convention-share-of-the-residue", "b313 (a measurement at six cells)",
+     "the flip is **EXACTLY MULTIPLICATION BY rho**, measured to 5.55e-16 across all 240 grid"
+     " points, so every consequence is a one-power shift. ### b264's ladder, re-run under the"
+     " flip at its own reach with the noise-floor gate in the path (NRES = 7; even floor modes"
+     " 8 and 10, and what excluding them removes PRINTED at 1e-11 to 1e-15): **the even"
+     " sector's decay moves from rho^(-3/2) to rho^(-1/2) and b264's measured leading constant"
+     " does not move at all** -- the two scaled columns agree to 1.09e-11 at every cell. ###"
+     " **AND THE BANKED CROSS-CHECK IS SHOWN INSENSITIVE, AS b312 DERIVED**: eps'(1+) is"
+     " BITWISE identical under both conventions",
+     "### AN INSTRUMENT FINDING, ROUTED AND NOT FILED. ### **SCOPE: the convention mismatch"
+     " accounts for BETWEEN 8% AND 19% OF THE RESIDUE AT SIX CELLS. ### IT DOES NOT ACCOUNT"
+     " FOR THE REST, AND NOTHING HERE SAYS WHAT DOES.** ### Routed to the author as an"
+     " ERRATA-class candidate on the E1 precedent (E-2026-08-31-1): the owner files untouched,"
+     " the correction of record in the bank, because THE RECORD DOES NOT SILENTLY OVERWRITE"
+     " ITSELF. ### **WHAT IT WOULD AFFECT IF FILED: every banked number through those three"
+     " call paths is a computation of the corpus's own function rather than the source's -- A"
+     " STATEMENT ABOUT WHAT THE NUMBERS ARE COMPUTATIONS OF, NOT A CLAIM THAT ANY IS WRONG.**"
+     " ### W-ORD-A-PLUS-E2 and W-ORD-CONVENTION-SWEEP filed. ### M-2 UNCHANGED",
+     "data/b313_the_exponent.txt; data/b313_rows.json; data/b264_rows.json (the reference"
+     " ladder); CORRESPONDENCE.md row 139"),
     # ### THE REMAINDER IS NOT THE SOURCE'S (b312).
     ("the-remainder", "b312 (a decision at definitions)",
      "the corpus's eps and CC's epsilon unfolded to their base objects and compared"
