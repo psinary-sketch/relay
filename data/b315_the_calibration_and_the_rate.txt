@@ -1,0 +1,463 @@
+====================================================================================================
+b315 -- THE CALIBRATION AND THE RATE.
+### **WHAT THE ATLAS'S CALIBRATION FIXES, AND THE EVEN SECTOR'S DECAY UNDER THE SOURCE'S EXPONENT.**
+2026-09-03. ### CONCURRENCY: SOLO (research seat).
+### Registration: `data/b315_registration_2026-09-03.txt` (sealed `d7fbe4a7...`).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE ANSWERS, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### **(1) THE CALIBRATION FIXES A SIGN ONLY, AND THE ARCHIMEDEAN TERM IS DEFINED
+### ### INDEPENDENTLY OF THE REMAINDER.** ### `A` is an explicit integral of the digamma kernel
+### against the test function. ### **NO FREE CONSTANT, NO FITTED FACTOR, AND NOTHING FROM ANY
+### ### REMAINDER ENTERS IT.**
+### ### **(2) AND THE `E2` IN THE CALIBRATION BRACKET IS NOT THE ARCHIMEDEAN REMAINDER.** ### It is
+### the name of a registered claim whose test is the explicit-formula residual -- and that residual
+### contains the zero side, the pole, the primes and the archimedean term, ### **AND NO REMAINDER
+### ### AT ALL.** ### **SO b312's SENTENCE AND b313's CAUTION RESTED ON ONE NAME FOR TWO OBJECTS**,
+### which is the species b200 named and b219 realised. ### **CORRECTED HERE AT THE READING.**
+### ### **(3) THE NEAR-CANCELLATION SURVIVES**, and is promoted to nothing: `E2 ~ -A` at six cells
+### is a fact with ### **NO STATED DEFINITION BEHIND IT.**
+### ### **(4) UNDER THE SOURCE'S EXPONENT THE ENVELOPE BECOMES A CONSTANT.** ### b264's
+### Cauchy-Schwarz-and-Plancherel route survives every step but the prefactor, and the prefactor is
+### the whole difference. ### **A CONSTANT ENVELOPE CERTIFIES NO DECAY AND CANNOT CARRY A TAIL.**
+### ### **(5) THE SHARP RATE KEEPS ITS CONSTANT AND LOSES ONE POWER:** ### `rho^{1/2}
+### eps_even^src -> K_even = 1.568231065`, i.e. ### **`eps_even^src ~ K_even rho^{-1/2}`.**
+### ### **(6) ALONG THE CUTOFF THE ORDER DOES NOT MOVE.** ### The even sector still vanishes,
+### ### **AT THE SAME LEADING ORDER `1 / log a` IN BOTH CONVENTIONS**, with a larger constant --
+### and ### **THE CONSTANT IS NOT CERTIFIED**, because the route that carried its tail no longer
+### does.
+
+### ### **AND WHAT THIS ACT DOES NOT DO, SAID FIRST:** ### **NO INSTRUMENT IS EDITED. ### NO ACT IS
+### ### RE-VERDICTED AND NO GRADE MOVES. ### NO BANKED NUMBER IS CALLED WRONG. ### `A + E2` IS NOT
+### ### INTERPRETED. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### STEP ZERO, INCLUDING THE GATE THE ORDER ASKED FOR.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN:** ### 3 struck entries, 10 patterns, self-test PASS, ### **0
+### ### STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **(ii) THE LEDGER CENSUS, WITH ITS SCOPE:** ### **TOTAL MISSING : 0**; NAMES and not
+### understanding, ONE ledger and no other, and its act list reaches none of `b307`-`b315`.
+### ### **(iii) THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the thirteenth act
+### running. ### relay `85d5ac0`, SIDE-global-section `1f30b12`, PLACE-papers `83ea0a1`.
+### ### ### **(iv) THE KERNEL-COVERAGE GATE, WRITTEN AND RUN -- AND IT FAILS.**
+###   ### Core modules on disk: 109. ### Carrying a `#print axioms` target: 51. ### Imported by the
+###     certification file: 84. ### **OUTSIDE IT: 25.**
+###   ### ### **MODULES WITH A PRINT TARGET AND NOT IMPORTED : 24. ### PRINT TARGETS NOT IN THE
+###   ### ### PROFILE : 91.**
+###   ### **THE TWO COUNTS DIFFER AND BOTH ARE PRINTED.** ### b314 reported twenty-five modules
+###     outside; one of them, `M4EnvelopeShadow`, carries no print target of its own -- its
+###     terminals are printed by `AxiomCheckM4E`, which is itself one of the twenty-five. ### **THE
+###     ### GATE'S OWN CRITERION SEES TWENTY-FOUR, AND THE DIFFERENCE IS NAMED RATHER THAN
+###     ### SMOOTHED.**
+###   ### ### **AND THE GATE'S FAILING IS THE POINT.** ### A gate added in the state where it passes
+###     tells nobody anything; ### **A GATE ADDED IN THE STATE WHERE IT FIRES IS A GATE WHOSE FIRING
+###     ### HAS BEEN SEEN.** ### Its own fixtures show it CAN pass -- otherwise it would be
+###     reporting itself rather than the kernel.
+###   ### **NOTHING IS REPAIRED.** ### No module is added to `AllPrints.lean`, no `.lean` file is
+###     touched, and the profile does not move.
+
+====================================================================================================
+### COMPONENT 1 -- THE CALIBRATION READ.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE CALIBRATION, PULLED FROM ITS EMITTING FILE WITH LINE NUMBERS.
+----------------------------------------------------------------------------------------------------
+###   ### `carto_atlas.py:7` ### -- *"DISCLAIMED REGISTER: a computation maps and cannot prove. No
+###     sign claim is made."*
+###   ### `carto_atlas.py:15` ### -- *"TOL = 1e-3 ### E2 pass tolerance on the explicit-formula
+###     residual"*
+###   ### `carto_atlas.py:20` ### -- *"sum_gamma hhat(gamma) = hhat(i/2) + hhat(-i/2) - PRIME +
+###     ARCH ### [sign fixed BY the E2 calibration]"*
+###   ### `carto_atlas.py:66` ### -- `A = float(np.trapezoid(hhat(v, w, U) * kernel(U), U) / (2.0 *
+###     math.pi))`
+###   ### `carto_atlas.py:81` ### -- `residual=Z - (P - PR + A)`
+###   ### `carto_atlas.py:117` ### -- `print("\\n  E2 VERDICT: %s (tol %.0e)" ...)`
+###   ### `b38_act10.py:47` ### -- `A = float(np.trapezoid(GU ** 2 * C.kernel(U), U) / (2.0 *
+###     math.pi))`
+
+----------------------------------------------------------------------------------------------------
+### (1b) WHAT IT FIXES -- DECIDED BY READING THE OPERATION, NOT THE COMMENT.
+----------------------------------------------------------------------------------------------------
+### ### **THE OPERATION IS TWO LINES AND THEY DO DIFFERENT THINGS.**
+###   ### **`A` IS COMPUTED** at line 66: an explicit integral of `Re psi(1/4 + iu/2) - log pi`
+###     against the test function, divided by `2 pi`. ### **THE `2 pi` IS THE EXPLICIT FORMULA'S OWN
+###     ### NORMALIZATION, NOT A FITTED CONSTANT**, and no other constant appears.
+###   ### **`residual` IS FORMED** at line 81 as `Z - (P - PR + A)`, and the verdict at line 117 is
+###     `abs(residual) <= TOL`.
+### ### ### **SO WHAT THE CALIBRATION SETTLED IS THE ORIENTATION WITH WHICH THE ARCHIMEDEAN TERM
+### ### ### ENTERS THE EXPLICIT FORMULA -- A SIGN, IN THE BOOKKEEPING.**
+### ### **IT DOES NOT SCALE `A`. ### IT DOES NOT SET `A`. ### IT CHOOSES WHERE `A` GOES.**
+### ### **AND THE CORPUS'S OWN EARLIER READS AGREE.**
+### ### **IT IS WORTH SAYING BECAUSE THIS ACT DID NOT FIND IT FIRST:**
+### b233 wrote that *"the file was committed before any answer; the sign
+### inside it is annotated as fixed by a calibration -- those are different claims"*, and b235
+### recorded the restriction it takes: ### **"a sign warranted by a calibration is an instrument
+### fact, not a text."**
+
+----------------------------------------------------------------------------------------------------
+### (1c) AND WHICH `E2` THE BRACKET NAMES. ### **THE DOUBLE NAME, CAUGHT.**
+----------------------------------------------------------------------------------------------------
+### ### The file's own constant block calls `TOL` the ### **"E2 pass tolerance on the
+### explicit-formula residual"**; the verdict line prints ### **"E2 VERDICT"** ### against
+### `abs(residual) <= TOL`; and the file's first line says ### **"E1-E4 stand registered VERBATIM at
+### PLACE-papers"**.
+### ### ### **SO `E2` IN THAT BRACKET IS THE NAME OF A REGISTERED CLAIM WHOSE TEST IS THE
+### ### ### EXPLICIT-FORMULA RESIDUAL. ### IT IS NOT THE ARCHIMEDEAN REMAINDER `E2` OF b38's
+### ### ### IDENTITY.**
+### ### **AND THE RESIDUAL IT TESTS CONTAINS NO REMAINDER AT ALL:** ### `Z - (P - PR + A)` is the
+### zero side, the pole, the primes and the archimedean term. ### The corpus's remainder is not in
+### it and never was.
+### ### ### **b312's SENTENCE AND b313's CAUTION THEREFORE RESTED ON ONE NAME FOR TWO OBJECTS.** ###
+### b313 wrote that `A + E2` *"compares a term against the very quantity its sign was calibrated
+### against"*. ### **IT DOES NOT.**
+### ### **AND WHAT THAT DOES AND DOES NOT MOVE, BOTH STATED:**
+###   ### **NOTHING NUMERICAL MOVES.** ### b313's columns, ratios and verdict stand exactly as
+###     banked, and no act is re-verdicted.
+###   ### **b313's REFUSAL TO INTERPRET THE COLUMN ALSO STANDS** -- but on a different ground.
+###     ### **THE OLD GROUND WAS `IT MIGHT BE THE CALIBRATION`; THE NEW GROUND IS `NO DEFINITION HAS
+###     ### BEEN STATED THAT WOULD MAKE IT MEAN ANYTHING`.**
+###   ### ### **AND THE SECOND GROUND IS THE STRONGER ONE**, which is the honest way to report a
+###     correction that removes a caution: the refusal is not weakened by it.
+### ### **THIS IS THE FOURTH TIME THE DOUBLE-NAME SPECIES HAS BEEN CAUGHT IN THIS RECORD** -- b200
+### named it, b219 realised it, b312 refused a shared letter as evidence, and it appears here in an
+### act's own reading of its own instrument. ### **A NAME IS NOT AN OBJECT, AND A COMMENT IS NOT AN
+### ### OPERATION.**
+
+----------------------------------------------------------------------------------------------------
+### (1d) DOES `A` HAVE A DEFINITION INDEPENDENT OF THE REMAINDER? ### **YES, AND IT IS QUOTED.**
+----------------------------------------------------------------------------------------------------
+### ### Both assignments of `A` in the corpus's archimedean instruments were located and their
+### ### **ENCLOSING FUNCTIONS** ### searched for any mention of the remainder -- `E2`, `E2n`, `E2N`,
+### `eps`, `ee_full`, `qeps`:
+###   ### `carto_atlas.py:66`, in `channels` ### -- dependence on the remainder: ### **NONE.**
+###   ### `b38_act10.py:47`, in `left_side` ### -- dependence on the remainder: ### **NONE.**
+### ### **THE SEARCH IS OVER THE FUNCTION AND NOT THE LINE**, so a dependence introduced two lines
+### above would be caught; and ### **IT IS SHOWN ABLE TO FIND ONE.** ### A fixture feeds it a
+### function whose `A` is built from a variable named `E2`, and it reports the dependence.
+### ### **WITHOUT THAT ARM, `NO DEPENDENCE FOUND` WOULD BE A SENTENCE ABOUT THE SEARCH.**
+
+----------------------------------------------------------------------------------------------------
+### (1e) `A + E2` UNDER THE SOURCE'S CONVENTION, RECOMPUTED ON THE COPIES.
+----------------------------------------------------------------------------------------------------
+### ### **THE CALIBRATION FIXES A SIGN ONLY, SO THERE IS NOTHING TO SWITCH OFF**, and the order's
+### own branch is taken: *left as is if it does not*.
+###
+###   a^2 |  A            E2 banked    E2 source   |  A+E2 banked   A+E2 source
+###   2   |  -1.990528     1.679428     2.013037   |   -0.311099      0.022509
+###   3   |  -1.908900     1.516645     1.911453   |   -0.392256      0.002553
+###   4   |  -1.786498     1.374051     1.787081   |   -0.412447      0.000583
+###   8   |  -1.525474     1.096239     1.525303   |   -0.429235     -0.000172
+###   9   |  -1.488337     1.058309     1.488080   |   -0.430028     -0.000257
+###   12  |  -1.405398     0.975064     1.405116   |   -0.430334     -0.000282
+###
+### ### **WORST `|A + E2|` UNDER THE SOURCE'S CONVENTION : 0.022509**, which is ### **1.13%** ### of
+### the largest `|A|` in the table.
+### ### ### ### **VERDICT: ### SURVIVES.**
+### ### **THE NEAR-CANCELLATION IS NOT PRODUCED BY THE CALIBRATION.** ### The calibration fixes a
+### sign; `A` is an independent integral; and the cancellation stands with the calibration read for
+### exactly what it does.
+### ### ### **AND IT IS PROMOTED TO NOTHING.** ### `E2 ~ -A` at six cells is a fact ### **WITH NO
+### ### STATED DEFINITION BEHIND IT.** ### No act has written down a relation these two terms are
+### supposed to satisfy, and ### **A NUMERICAL NEAR-EQUALITY WITHOUT ONE IS A QUESTION, NOT A
+### ### RESULT.** ### `W-ORD-A-PLUS-E2` stands open, ### **UNCHANGED IN STATUS AND CHANGED IN ITS
+### ### REASON.**
+### ### **AND A CORRECTION THAT REMOVES A CAUTION IS NOT A LICENCE TO INTERPRET.**
+
+====================================================================================================
+### COMPONENT 2 -- THE RATE, RE-DERIVED UNDER THE SOURCE'S CONVENTION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE ROUTE, RE-RUN. ### **ONLY THE PREFACTOR MOVES.**
+----------------------------------------------------------------------------------------------------
+### ### b264 wrote the per-mode remainder in the `v = rho u` variable and bounded the integral by
+### Cauchy-Schwarz with Plancherel (its pin P3) and the tail identity (IDENT-D):
+###   ### `|INT_1^rho A_n(v/rho) A_n(v) dv| <= rho^{1/2} sqrt(1-lam^2) / lam`
+### ### **THE FLIP CHANGES THE PREFACTOR AND NOTHING ELSE.** ### Cauchy-Schwarz and Plancherel bound
+### the INTEGRAL; the exponent multiplies it. ### So the same three lines read:
+###   ### `eps_n^src(rho) = [lam^2/(1-lam^2)] rho^{-1/2} INT_1^rho A_n(v/rho) A_n(v) dv`
+###   ### `|eps_n^src(rho)| <= [lam^2/(1-lam^2)] rho^{-1/2} rho^{1/2} sqrt(1-lam^2)/lam
+###     = lam_n / sqrt(1 - lam_n^2) =: c_n`
+### ### ### **THE NEW ENVELOPE IS A CONSTANT: ### `|eps_even^src(rho)| <= C_even = 132.781908429`,
+### ### ### THE SAME CONSTANT b264 SUMMED, WITH NO POWER OF `rho` AT ALL.**
+### ### ### **AND THAT IS A LOSS, NOT A NEUTRAL RESTATEMENT.** ### Under the banked convention the
+### envelope was `C_even / rho`, and b264 used it to ### CARRY THE TAIL ### beyond its measured node
+### ceiling. ### **A CONSTANT ENVELOPE CARRIES NOTHING.** ### The Cauchy-Schwarz route no longer
+### certifies decay under the source's convention; ### **ONLY THE SHARP RATE DOES**, and b264 graded
+### that separately for its own reasons.
+### ### **THE SHARP RATE.** ### b264 derived `rho^{3/2} eps_n -> K_n = lambda_n^true A_n(0)^2 / 2`
+### from the far field of `A_n`, with the SIGNED pin P1. ### That derivation is about the INTEGRAL's
+### far field and is untouched by the prefactor, so:
+###   ### ### **`rho^{1/2} eps_even^src(rho) -> K_even = 1.568231065`, THE SAME CONSTANT** --
+###   i.e. ### **`eps_even^src(rho) ~ K_even rho^{-1/2}`.**
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE LADDER, WITH THE NOISE-FLOOR GATE AND b264's OWN TWO-AXIS CONVERGENCE TEST.
+----------------------------------------------------------------------------------------------------
+### ### **CONVERGENCE IS DECIDED BY b264's OWN TWO-AXIS TEST, NOT BY A CEILING NUMBER:** ### `NG`
+### against `2NG` AND `EPS_NQ` against `2 EPS_NQ`, both at `CONV_BAR = 1e-8`.
+### ### **b264 ADDED THE SECOND AXIS BECAUSE THE FIRST GAVE A FALSE PASS ON EXACTLY THESE CELLS** --
+### its own `(D2)`: five cells were marked converged at `~1e-12` ### **ON VALUES WRONG BY FOUR
+### ORDERS OF MAGNITUDE.**
+###
+###   rho    NG     even banked   even source   env |e|/C  rate r^.5 e   converged?
+###   2      400    0.395736      0.791472      0.0060     1.11931       yes
+###   5      400    0.114625      0.573124      0.0043     1.28154       yes
+###   10     400    0.0456293     0.456293      0.0034     1.44292       yes
+###   20     400    0.0169372     0.338743      0.0026     1.51490       yes
+###   50     400    0.00438323    0.219162      0.0017     1.54971       yes
+###   100    800    0.00155948    0.155948      0.0012     1.55948       yes
+###   200    1600   0.000552953   0.110591      0.0008     1.56399       ### NO
+###   500 .. 10000  (values from -2.16 to -0.02 banked; -1078 to -234 source)   ### NO
+###
+### ### **VIOLATIONS OF THE NEW CONSTANT ENVELOPE, ON CONVERGED CELLS : 0.**
+### ### **AND THE RATE COLUMN CONVERGES ON `K_even = 1.568231065` FROM BELOW**, reaching `1.55948`
+### at `rho = 100` -- ### **THE SAME CONSTANT b264 BANKED, WHICH IS THE POINT: THE FLIP MOVED THE
+### ### POWER AND NOT THE CONSTANT.**
+### ### ### **AND THE NEW ENVELOPE IS NOT MERELY LOOSE -- IT IS VACUOUS IN THE LIMIT.** ### At its
+### tightest converged cell the constant bound sits about ### **168 TIMES** ### above the value, and
+### ### **BECAUSE IT DOES NOT DECAY IT GETS LOOSER WITHOUT BOUND AS THE ARGUMENT GROWS.** ### b250's
+### standard is *one that is loose is reported loose*; this one is reported for what it is, which is
+### worse than loose.
+### ### **THE NOISE-FLOOR GATE IS IN THE PATH**: even-indexed modes at or above b264's `NRES = 7`
+### are excluded from the resolved sum, and what excluding them removes is PRINTED, at `1e-11` to
+### `1e-15`, rather than called negligible.
+
+----------------------------------------------------------------------------------------------------
+### (2c) THE DILATION IDENTITY AND THE CUTOFF. ### **THE ROUTE IS b264's AND IS CITED AS SUCH.**
+----------------------------------------------------------------------------------------------------
+### ### **THE CORPUS'S `cutoff` IS THE WINDOW PARAMETER `a`** -- b15's sentence, carried by b261 and
+### b264: *"a finite-place-set object at a finite cutoff decides nothing global."*
+### ### **THE DILATION IDENTITY, FROM THE OWNER'S OWN CODE:**
+###   ### `E2even(a) = 2 INT_0^{2L} corr(u) eps_even(e^u) du`, `L = log a`, with `corr` the
+###   autocorrelation of the bump and `2 INT_0^{2L} corr = 1`.
+### The bump is a PURE DILATION, so `corr(u) = phi(u/L)/L` and, substituting `s = L t`,
+###   ### `E2even(a) -> (2 phi(0) / L) INT_0^inf eps_even(e^s) ds`   as `L -> infinity`.
+### ### **b264 ALREADY DERIVED THIS AND BANKED IT**, and this act cites rather than re-claims it:
+###   ### **"E2even(a) * log a -> p(0) * M_even"**, with
+###   ### **"M_even = INT_1^inf eps_even(x) dx/x = 0.812581 (+0 / +5.644e-01)"** -- the parenthesis
+###     being the tail interval its DERIVED ENVELOPE carried.
+### ### **WHAT THIS ACT ADDS IS THE SAME ROUTE WITH THE CORRECTED EXPONENT**, and the integral
+### converges under both conventions because the measure is `dx/x`:
+###   ### banked : `eps_even ~ K x^{-3/2}` ### ; source : `eps_even^src ~ K x^{-1/2}`.
+### ### ### ### **SO THE EVEN SECTOR STILL VANISHES ALONG THE CUTOFF UNDER THE SOURCE'S CONVENTION,
+### ### ### ### AND AT THE SAME LEADING ORDER: ### `E2even(a) ~ CONST / log a` IN BOTH. ### WHAT
+### ### ### ### CHANGES IS THE CONSTANT, NOT THE ORDER.**
+### ### **THE MEASURE ABSORBS EXACTLY THE ONE POWER THE FLIP INTRODUCES**, and that is why the two
+### axes behave differently: ### **ALONG THE ARGUMENT THE RATE MOVES A FULL POWER; ALONG THE CUTOFF
+### ### IT DOES NOT MOVE AT ALL.**
+
+### ### **THE TWO CONSTANTS, MEASURED -- AND THE RANGE THEY ARE MEASURED OVER, WHICH IS THE PART
+### ### THAT MATTERS.**
+###   ### The integration range is ### NOT ### the ceiling number; it is where b264's two-axis test
+###     stops passing. ### **FIRST CELL THAT FAILS IT: `rho = 168.62`. ### INTEGRATED OVER
+###     ### `[1, 157.34]`, 74 converged points on the `NG` law.**
+###   ### `M_even` (banked convention) : ### **0.823669** ### -- against b264's banked `0.812581`,
+###     integrated over a shorter range.
+###   ### `M_even^src` (source convention) : ### **2.442961.**
+### ### ### **AND THE FIRST DRAFT OF THIS BLOCK GOT `-2.89`, WHICH IS DECLARED AT (D2) BELOW.** ###
+### It integrated to the ceiling NUMBER, and three grid points sat between the last sound cell and
+### the ceiling carrying values near `-100`. ### **THE CEILING IS WHERE THE EVALUATOR FAILS, NOT THE
+### ### LAST PLACE IT WORKS.**
+### ### ### **AND THE THING THAT MATTERS MORE THAN EITHER NUMBER: ### UNDER THE SOURCE'S CONVENTION
+### ### ### THE TAIL BEYOND THE REACH IS UNCONTROLLED.** ### b264 carried its tail with the derived
+### envelope `C_even / x`, which is integrable against `dx/x`. ### **THE NEW ENVELOPE IS A CONSTANT,
+### ### AND A CONSTANT IS NOT INTEGRABLE AGAINST `dx/x` OVER AN INFINITE RANGE.**
+### ### **SO: ### THE ORDER OF THE CUTOFF DECAY IS DERIVED AND UNCHANGED; ### ITS CONSTANT HAS A
+### ### MEASURED BODY AND NO RIGOROUS TAIL BOUND FROM THIS ROUTE.** ### A different route would be
+### needed and this act does not supply one.
+
+----------------------------------------------------------------------------------------------------
+### (2d) THE BENCH, AND WHAT IT CAN AND CANNOT CHECK.
+----------------------------------------------------------------------------------------------------
+###   a^2 |  L        E2even bkd   E2even src  |  L*E2 bkd    L*E2 src
+###   2   |  0.3466    1.001814     1.198457   |  0.347202    0.415354
+###   3   |  0.5493    0.910943     1.151941   |  0.500387    0.632768
+###   4   |  0.6931    0.834033     1.094966   |  0.578108    0.758973
+###   8   |  1.0397    0.685514     0.985603   |  0.712744    1.024752
+###   9   |  1.0986    0.665133     0.971140   |  0.730723    1.066907
+###   12  |  1.2425    0.620090     0.939609   |  0.770433    1.167421
+###
+### ### **`E2even` FALLS MONOTONICALLY ALONG THE CUTOFF IN BOTH COLUMNS.**
+### ### **AND `L * E2even` IS STILL RISING IN BOTH COLUMNS, SO THESE SIX CELLS ARE
+### ### NOT IN THE ASYMPTOTIC REGIME**: `L` runs only from `0.347` to `1.242`.
+### ### ### **SO THE BENCH CONFIRMS THE DIRECTION AND NOT THE CONSTANT, AND SAYING SO IS THE
+### ### ### POINT.** ### A constant read off six pre-asymptotic cells would be a fit wearing a
+### derivation's clothes, and the registration caps that at zero.
+
+----------------------------------------------------------------------------------------------------
+### (2e) THE BEARING ON THE BRANCH SENTENCE, AT ITS SCOPE.
+----------------------------------------------------------------------------------------------------
+### ### **BEARING ONLY.** ### b262's branch sentence is about the archimedean ### SIDE. ### This act
+### has one archimedean ### OBJECT ### -- the even sector of one remainder, computed through one
+### instrument at six cells and twelve ladder points.
+### ### **WHAT THE BEARING IS:** ### the even sector still vanishes along the cutoff, so nothing
+### here supplies the divergent behaviour b262's disjunction would need from this object.
+### ### **WHAT IT IS NOT: ### A DECISION ON THE BRANCH, WHICH REMAINS UNDECIDED, AND NOT A
+### ### STATEMENT ABOUT THE ARCHIMEDEAN SIDE.**
+### ### **AND b242's LAW GOVERNS THE WHOLE COMPONENT:** ### *"A MEASURED RATE IS NOT A TAIL
+### ### BOUND."*
+
+====================================================================================================
+### COMPONENT 3 -- WHAT MOVES IN THE RECORD.
+====================================================================================================
+### ### **NOTHING IS RE-VERDICTED AND NO GRADE MOVES.** ### What follows is the errata entry's own
+### quoting rule applied: ### **a banked value of the remainder, or a rate derived from it, is
+### quotable only with its convention named.** ### These are the statements that carried one.
+###
+### | act | what it carried | what it now needs beside it |
+### |---|---|---|
+### | **b264** | the envelope `\|eps_even(x)\| <= C_even / x`; the sharp rate `x^{3/2} eps_even(x)
+###   -> K_even`; `M_even = INT_1^inf eps_even(x) dx/x = 0.812581`; and the asymptote `E2even(a) *
+###   log a -> p(0) * M_even` | **all four are under the corpus's own convention.** Under the
+###   source's, the envelope is a CONSTANT, the sharp rate is `x^{1/2} eps -> K_even`, `M_even` is a
+###   different integral, and the asymptote's ORDER is unchanged while its constant is not certified |
+### | **b266** | quotes b264's derived asymptote interval `[1.097174, 1.859...]` in its state of the
+###   shadow | **the interval is the banked convention's**, and its upper end was the envelope's
+###   rigorous tail -- which the source's convention does not supply |
+### | **b261** | `E2even`'s monotonicity along the cutoff | **a shape statement about the same
+###   object through the same convention.** This act's bench finds the monotone fall in BOTH
+###   columns, so the shape survives; the convention still needs naming |
+### | **b250** | its `M4` derivation differentiates a term `from rho^{-1/2}` | **that `rho^{-1/2}`
+###   IS the corpus's prefactor**, so the step is convention-bearing and needs it named |
+###
+### ### **WHAT THIS TABLE IS NOT:** ### it is not a list of errors, not a re-grading, and not a
+### claim that any of these acts computed anything wrongly. ### **EVERY ONE OF THEM COMPUTED WHAT
+### ### ITS INSTRUMENT COMPUTES.** ### The entry's rule is about QUOTATION, and this is the list of
+### places a quotation now has to say which object it is quoting.
+### ### **AND THE LIST IS THIS ACT'S READING, NOT AN EXHAUSTIVE SWEEP.** ### `W-ORD-CONVENTION-SWEEP`
+### is open for exactly that and is not discharged here.
+
+====================================================================================================
+### THE CLOSING.
+====================================================================================================
+### ### **THE VERDICT ON THE NAVIGATOR'S EXPECTATIONS, NORMALIZATIONS FIRST AS THE ORDER PUT THEM:**
+###   ### **(F1)** ### *"the calibration fixes sign only and the cancellation SURVIVES -- refutable
+###     by an operation in the calibration code that scales."* ### ### **CONFIRMED, BOTH HALVES.**
+###     ### The refutation condition was checked ### AT THE OPERATION ### and no scaling operation is
+###     there. ### **THE EXPECTATION NAMED ITS OWN REFUTATION CONDITION IN A FORM THAT COULD BE
+###     ### CHECKED MECHANICALLY, WHICH IS WHY IT COULD BE CONFIRMED RATHER THAN MERELY BELIEVED.**
+###   ### **(F2)** ### *"the even sector still vanishes along the cutoff under the source's
+###     convention, more slowly -- refutable by a derived non-vanishing or a ladder that does not
+###     fall."* ### ### **CONFIRMED IN ITS FIRST HALF AND REFINED IN ITS SECOND.** ### It still
+###     vanishes; the ladder falls; ### **BUT `MORE SLOWLY` IS TRUE ALONG THE ARGUMENT AND FALSE
+###     ### ALONG THE CUTOFF**, where the derived order is unchanged and only the constant grows.
+###     ### **THE EXPECTATION DID NOT DISTINGUISH THE TWO AXES AND THE DERIVATION DOES.**
+### ### **THE CORRESPONDENCE ROWS, BY THE IDEMPOTENT TOOL, READ BACK:** ### rows ### **142** ### and
+### ### **143**.
+### ### **EVERY RESULT KEYED:** ### `calibration` and `rate-corrected`.
+### ### **THE OBJECT'S THREE CONDITIONS, EACH TYPED, UNCHANGED BY THIS ACT:** ### a PREMISE (the
+### level limit, b198); a RULING (`W-ORD-ARCH-NORM-READING`); a CONSTRUCTION (C9 / `N-OPEN-B`).
+### ### **A CONDITION DISCHARGED IS NOT THE OBJECT CONSTRUCTED, AND THIS ACT DISCHARGED NONE.**
+### ### **`M-2`'s ROW: ### `(SPECIFIED-NOT-STATED)`, UNCHANGED, UNDER b310's CAP.**
+### ### **THE SEAM'S DEBT, ITEM 1: ### STILL UNPAID.** ### Item 1 is `A2`: ### **STATE `M-2`.**
+### `A1` paid b226's step; ### **`A2` HAS NOT BEEN PAID AND THIS ACT DOES NOT PAY IT.**
+### ### **THE PATENT CLOCK: ### UNCONFIRMED ON THIS SEAT'S RECORD.** ### Four filings receipt-backed
+### at content (b147); `P-ZONE` / `P-FANO-WPT` REGISTRY-backed with no receipt located, ERRATA
+### `E-2026-08-24-3`. ### **THE TWO RESPONSE UPLOADS: RECEIPTS PENDING, CARRIED ON THE FERRY'S WORD;
+### THEIR DATES WERE 2026-08-31 AND 2026-09-01; TODAY IS 2026-09-03 -- THREE DAYS PAST BOTH.** ###
+### **THIS SEAT HAS VERIFIED NOTHING THERE.**
+### ### **THE WINDOW RULING `W2`: ### RECORDED AND UNAPPLIED.**
+### ### **THE KERNEL-COVERAGE ORDER, RESTATED:** ### `W-ORD-KERNEL-COVERAGE` -- 91 print targets in
+### modules the certification file never imports. ### **NOW CARRIED BY A GATE THAT FAILS**, and the
+### repair is a BUILD under its own registration, deciding module by module.
+### ### **THE ABSOLUTE-PATH ORDER, RESTATED:** ### `W-ORD-ABSOLUTE-PATHS` -- 119 instrument files
+### carry a hard-coded path into the corpus, so a control run from a clone reaches back into the
+### original. ### **UNTOUCHED HERE.**
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER.
+----------------------------------------------------------------------------------------------------
+###   ### **(1) THE OBJECT** -- conditionally constructed on THREE conditions. ### **UNCHANGED.**
+###   ### **(2) `W-ORD-ARCH-NORM-READING`** -- the live ruling. ### **STILL OPEN.**
+###   ### **(3) `W-ORD-TERM3-ROW`** -- the author's.
+###   ### **(4) THE DECISION CARD (b304)** -- on the author's desk.
+###   ### **(5) `W-ORD-INSTRUMENT-Q-P`** -- built b308, computed b309, assembled b310.
+###   ### **(6) THE WINDOW QUESTION** -- ### **`W2` RECORDED, NOT APPLIED.**
+###   ### **(7) `W-ORD-SOURCE-METHOD-APPLICABILITY`** -- named at b306; untouched here.
+###   ### **(8) THE PATENT CLOCK** -- ### **THREE DAYS PAST, UNCONFIRMED HERE.**
+###   ### **(9) b304's SHELL ENUMERATION** -- no verdict turns on it.
+###   ### **(10) `(SPEC-2)` UNDECIDED FOR b310's CLASS OF CANDIDATE.**
+###   ### **(11) `W-ORD-ARTEFACT-PATHS`** -- filed b311. ### **STILL OPEN.**
+###   ### **(12) `W-ORD-HOOK-COVERAGE`** -- ### **STILL OPEN.**
+###   ### **(13) `W-ORD-REMAINDER-EXPONENT`** -- the computation is done (b313); the ERRATA entry is
+###     filed (b314, `E-2026-09-03-1`); ### **WHAT REMAINS IS THE AUTHOR'S DECISION.**
+###   ### **(14) `W-ORD-A-PLUS-E2`** -- ### **STILL OPEN, AND ITS REASON IS REPLACED BY A BETTER
+###     ONE**: not *it might be the calibration*, but *no definition has been stated*.
+###   ### **(15) `W-ORD-CONVENTION-SWEEP`** -- ### **STILL OPEN**, and Component 3 is a reading and
+###     not the sweep.
+###   ### **(16) `W-ORD-KERNEL-COVERAGE`** -- ### **STILL OPEN, NOW WITH A GATE THAT FAILS.**
+###   ### **(17) `W-ORD-ABSOLUTE-PATHS`** -- ### **STILL OPEN.**
+###   ### ### **(18) NEW: ### `W-ORD-SOURCE-TAIL`.** ### Under the source's convention the
+###     Cauchy-Schwarz envelope is a constant and carries no tail, so `M_even^src` and the cutoff
+###     constant have a measured body and no rigorous bound. ### **WHAT IS OWED IS A DIFFERENT
+###     ### ROUTE TO A TAIL BOUND, AND THIS ACT DOES NOT SUPPLY ONE.**
+
+----------------------------------------------------------------------------------------------------
+### THE NEXT ACT, THE LEDGER, THE SHADOW, AND WHAT THIS ACT DID NOT CHECK.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE ARCHIMEDEAN INSTRUMENT IS NAMED AS NEXT, WITH ITS CENTRAL COST.** ### Both reads
+### the exponent act left owed are now in hand. ### **THE COST IS THE TRUNCATION NOBODY OWNS:** ### an
+### instrument on the object's own space needs one; the only eigenvectors the corpus has there were
+### derived (b292) NOT to be in the space; and the source's own sentence is the obstacle --
+### *the scaling action does not restrict to this subspace.* ### **PRICED AT b311 AND NOT PAID.**
+### ### **THE CENSUS WAS RUN AND ITS COUNT REPORTED: ### TOTAL MISSING : 0**, with its scope in the
+### same breath: NAMES and not understanding, ONE ledger and no other.
+### ### **THE SHADOW: ### EXPECTED NOTHING, AND NOTHING IS WHAT IT IS.** ### The content is reads at
+### owners and a floating-point re-derivation. ### **A QUOTATION IS NOT DECIDABLE AND A QUADRATURE
+### IS NOT FINITE-DECIDABLE.** ### **0 `.lean` FILES CREATED OR EDITED. ### THE PROFILE DOES NOT
+### MOVE.**
+### ### **WHAT THIS ACT DID NOT CHECK:** ### it did not sweep the instrument for other convention
+### sites; it did not audit any other cross-check; it did not certify the cutoff constant; it did
+### not read the uncertified terminals for worth; and ### **IT DID NOT INTERPRET `A + E2`.**
+
+### ### **NOTHING DEPOSITS. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT: ### "RH reduced to a
+### ### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### THE SUITE'S OWN COUNTS.
+====================================================================================================
+### ### **PRINTED BY `tools/b315_checks.py`:** ### 22 owner needles, 56 self needles, 17 must-fail
+### fixtures, 6 declared carriers, 17 tool-provenance rows.
+### ### ### **GATES: 105 PASS / 0 FAIL / 0 ERROR / 0 REFUSED, 0 UNPULLABLE, 0 GRADED HEDGES.**
+### ### **TWO ARMS ARE NEW AND THEY GUARD THE TWO WAYS THIS ACT COULD HAVE OVERSTATED ITSELF:**
+###   ### **`G-NOREVERDICT`** -- five sentences a re-verdict of b312, b313 or b264 would have
+###     produced. ### **A CORRECTION THAT REMOVES A CAUTION IS THE EASIEST THING IN THIS RECORD TO
+###     ### OVERSTATE.**
+###   ### **`G-NOLICENCE`** -- three sentences a licence to read the column would have produced.
+###     ### **REMOVING A WRONG REASON FOR REFUSING TO READ SOMETHING IS NOT A REASON TO READ IT.**
+### ### **FIVE NEEDLES FAILED ON THE FIRST RUN AND ALL FIVE WERE WRAPPING** -- four in this bank,
+### one in an owner's. ### **THAT IS THE SIXTH ACT RUNNING THE WRAP HAS CAUGHT THIS SEAT, AND THE
+### ### REPAIR IS ALWAYS THE BANK'S AND NEVER THE GATE'S.**
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE COMPONENTS RAN BEFORE THE SEAL, AND THE REGISTRATION SAYS SO IN ITS OWN SECTION
+### ### (0).** ### The order puts the owners' reads first, Component 1's verdict follows from those
+### reads, and Component 2's derivation is deterministic once they are done. ### **WHAT THE SEAL
+### ### STILL BUYS IS THE CAPS, THE FALSIFIERS, AND THE NAVIGATOR'S TWO EXPECTATIONS**, which
+### arrived in the ferry before any of it.
+### ### **(D2) THE FIRST DRAFT OF THE CUTOFF INTEGRAL INTEGRATED TO THE CEILING NUMBER AND RETURNED
+### ### `M_even^src = -2.89` -- A NEGATIVE VALUE FOR AN INTEGRAL OF A CURVE THAT IS POSITIVE
+### ### EVERYWHERE IT IS TRUSTED.** ### Three grid points sat between the last sound cell and
+### b264's banked ceiling, carrying values near `-100`. ### **THE CEILING IS WHERE THE EVALUATOR
+### ### FAILS, NOT THE LAST PLACE IT WORKS**, and a number that is obviously the wrong SIGN is the
+### only reason this was caught by reading rather than by a gate. ### Repaired by adopting
+### ### **b264's OWN TWO-AXIS CONVERGENCE TEST** ### -- which b264 added for exactly this failure --
+### and integrating only over the cells that pass it. ### **THE REPAIR IS b264's DISCIPLINE, NOT A
+### ### NEW ONE INVENTED HERE.**
+### ### **(D3) THE LADDER'S CONVERGENCE COLUMN NOW DISAGREES WITH b314's.** ### b314 marked
+### `rho = 200` converged by the ceiling number; the two-axis test marks it NOT converged. ### **THE
+### ### TWO-AXIS TEST IS b264's REGISTERED CRITERION AND IS THE STRICTER OF THE TWO**, and this act
+### uses it. ### **b314 IS NOT RE-VERDICTED**: its coverage and byte results do not depend on that
+### column, and its ladder was reported for reproduction rather than for rate.
+### ### **(D4) COMPONENT 3 IS A READING AND NOT A SWEEP**, and says so. ### `W-ORD-CONVENTION-SWEEP`
+### remains open, and a list assembled by this seat's grep is not the exhaustive sweep that order
+### asks for.
+====================================================================================================

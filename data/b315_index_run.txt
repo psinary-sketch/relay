@@ -1,0 +1,31 @@
+====================================================================================================
+b315 -- THE INDEX KEYS. ### THE CALIBRATION, AND THE RATE.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    the sign           NO KEY before : True
+    the envelope       NO KEY before : True
+  calibration        key/row already present : False / False
+  rate-corrected     key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    calibration        returns a row : True  PASS
+    rate-corrected     returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    what the calibration fixes                 now reaches a row : True  PASS
+    is A independently defined                 now reaches a row : True  PASS
+    the E2 in the bracket                      now reaches a row : True  PASS
+    the sign only                              now reaches a row : True  PASS
+    the even sector under the source convention now reaches a row : True  PASS
+    the envelope becomes a constant            now reaches a row : True  PASS
+    the cutoff order                           now reaches a row : True  PASS
+    the rate re-derived                        now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    the sign           still NO KEY : True   (and was before : True)  PASS
+    the envelope       still NO KEY : True   (and was before : True)  PASS
+  ### **`the sign` AND `the envelope` STAY UNKEYED.** ### The first is what the
+  ### calibration fixes and is the query most likely to be typed by someone wanting a
+  ### verdict about the archimedean sign itself, which this act did not give; the second
+  ### is b264's object, and an index answering it would offer a CONSTANT bound under one
+  ### convention as though it were the envelope.
+  ### THE INDEX SWEPT AFTER THE WRITE : 0 stem hit(s)
+====================================================================================================

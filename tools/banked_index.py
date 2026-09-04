@@ -83,6 +83,11 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'calibration': ['what the calibration fixes', 'is A independently defined',
+                   'the E2 in the bracket', 'the sign only'],
+    'rate-corrected': ['the even sector under the source convention',
+                   'the envelope becomes a constant', 'the cutoff order',
+                   'the rate re-derived'],
     'the-instrument-arc': ['the seven acts', 'b307 to b313',
                     'the arc as one statement', 'the convention erratum'],
     'the-cold-clone': ['the kernel rebuilt from a clone', 'the certification test',
@@ -417,6 +422,52 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CALIBRATION READ (b315).
+    ("calibration", "b315 (a read at content, at the operation)",
+     "the atlas's calibration read AT THE OPERATION, not at the comment. ### **A IS COMPUTED"
+     " AT carto_atlas.py:66 AS AN EXPLICIT INTEGRAL OF THE DIGAMMA KERNEL AGAINST THE TEST"
+     " FUNCTION, DIVIDED BY 2 pi -- no free constant, no fitted factor, and nothing from any"
+     " remainder in it**; the calibration settles the ORIENTATION with which that term enters"
+     " the explicit formula, tested at line 117 by abs(residual) <= TOL on Z - (P - PR + A)."
+     " ### **AND THAT RESIDUAL CONTAINS NO REMAINDER AT ALL: the E2 in the bracket is the"
+     " name of a REGISTERED CLAIM (E1-E4), NOT the archimedean remainder E2 of b38's"
+     " identity.** ### **SO THE NEAR-CANCELLATION A + E2 ~ 0 UNDER THE SOURCE'S CONVENTION IS"
+     " NOT PRODUCED BY THE CALIBRATION: IT SURVIVES**, worst modulus 0.022509, 1.13% of the"
+     " largest modulus of A in the table",
+     "### A READ, AND A CORRECTION TO A REASON. ### **b312's SENTENCE AND b313's CAUTION"
+     " RESTED ON ONE NAME FOR TWO OBJECTS -- the double-name species b200 named and b219"
+     " realised -- AND NEITHER ACT IS RE-VERDICTED.** ### Their numbers stand; b313's REFUSAL"
+     " to interpret the column ALSO STANDS, on a stronger ground: not *it might be the"
+     " calibration* but **no definition has been stated that would make it mean anything**."
+     " ### **A CORRECTION THAT REMOVES A CAUTION IS NOT A LICENCE TO INTERPRET**, and A + E2"
+     " is promoted to nothing. ### The independence check runs over the ENCLOSING FUNCTION and"
+     " is shown able to find a dependence when one is there. ### NO GRADE MOVED. ### M-2"
+     " UNCHANGED",
+     "data/b315_the_calibration_and_the_rate.txt; data/b315_components_run.txt;"
+     " tools/e16/carto_atlas.py (the emitting file); CORRESPONDENCE.md row 142"),
+    # ### THE RATE UNDER THE SOURCE'S EXPONENT (b315).
+    ("rate-corrected", "b315 (a derivation, with the bench as its check)",
+     "b264's Cauchy-Schwarz-and-Plancherel route re-run with the corrected exponent. ###"
+     " **EVERY STEP SURVIVES BUT THE PREFACTOR**: Cauchy-Schwarz bounds the INTEGRAL and the"
+     " exponent multiplies it. ### **SO THE MODULUS OF eps_even^src(rho) IS AT MOST C_even ="
+     " 132.781908429 -- THE SAME CONSTANT, WITH NO POWER OF rho AT ALL.** ### The sharp rate"
+     " keeps its constant and loses one power: **rho^(1/2) eps_even^src -> K_even ="
+     " 1.568231065**. ### And along the CUTOFF, by b264's own dilation route (cited, not"
+     " re-claimed): **THE EVEN SECTOR STILL VANISHES AT THE SAME LEADING ORDER 1/log a, AND"
+     " ONLY THE CONSTANT CHANGES**, because the measure drho/rho absorbs exactly the one power"
+     " the flip introduces",
+     "### A DERIVATION, AND WHAT IT REPORTS IS A LOSS. ### **THE NEW ENVELOPE IS NOT MERELY"
+     " LOOSE, IT IS VACUOUS IN THE LIMIT** -- about 168x above the value at its tightest"
+     " converged cell, and getting looser without bound. ### b264 used the old envelope to"
+     " CARRY THE TAIL; **a constant is not integrable against drho/rho, so the cutoff constant"
+     " has a measured body and NO RIGOROUS TAIL BOUND from this route.** ### The ORDER is"
+     " derived and unchanged; the CONSTANT is not certified. W-ORD-SOURCE-TAIL filed. ###"
+     " Convergence decided by b264's OWN TWO-AXIS TEST, not a ceiling number. ### **THE"
+     " BEARING ON b262's BRANCH IS A BEARING ONLY** -- one archimedean OBJECT is not the"
+     " archimedean SIDE, and b242's law governs: a measured rate is not a tail bound. ### M-2"
+     " UNCHANGED",
+     "data/b315_the_calibration_and_the_rate.txt; data/b315_rows.json;"
+     " data/b264_eps_even_decay.txt (the route's owner); CORRESPONDENCE.md row 143"),
     # ### THE INSTRUMENT ARC FOLDED (b314).
     ("the-instrument-arc", "b314 (a filings act)",
      "seven acts -- b307 through b313 -- filed into PLACE-papers/FINDINGS.md as **THE"
