@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'archimedean-instrument': ['the truncated space', 'is u_inf in the space',
+                   'does the scaling restrict', 'sonin space instrument',
+                   'the archimedean instrument', 'which condition breaks'],
     'calibration': ['what the calibration fixes', 'is A independently defined',
                    'the E2 in the bracket', 'the sign only'],
     'rate-corrected': ['the even sector under the source convention',
@@ -422,6 +425,54 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE INSTRUMENT (b316, act one of two).
+    ("archimedean-instrument", "b316 (an instrument build, with its own fixtures)",
+     "a computable truncation of the source's own archimedean space. ### **S(1,1) BUILT FROM"
+     " DEFINITION 4.4 AND NOTHING ELSE** -- even functions on [0, X] at N midpoints, with the"
+     " source's inner product (eq. 16), transform normalization (eq. 24), scaling exponent"
+     " (eq. 61) and two vanishing conditions (eq. 72) as linear constraints. ### **THE FIRST"
+     " ARCHIMEDEAN INSTRUMENT THE CORPUS HAS WHOSE VECTORS ARE INSIDE THE OBJECT'S OWN"
+     " SPACE.** ### Dimension 914, 1904, 3888, 3887, 5870 at five truncations and GROWING"
+     " WITHOUT BOUND, which is the source's *infinite dimensional Sonin's space* appearing as"
+     " a measurement. ### **AND THE SOURCE'S SECOND SENTENCE SHARPENED**: the paper says the"
+     " scaling action does not restrict; the instrument says WHICH condition breaks --"
+     " condition one survives EXACTLY at every dilation, and the whole failure is in the"
+     " transform condition, leaking 0.1352 at lambda 1.25 up to 0.4253 at lambda 4",
+     "### AN INSTRUMENT BUILD, AND ITS LIMITS BELONG IN ITS OWN ENTRY. ### **IT CAN decide"
+     " exactly that a vector supported in the unit interval is orthogonal to the space, and"
+     " that condition one survives any dilation at or above one; measure how far a vector"
+     " lies outside, with a discrimination arm that FIRES; measure the scaling leakage; apply"
+     " the compression; accept either test function.** ### **IT CANNOT DECIDE MEMBERSHIP**"
+     " (the next entry), converge to a fixed finite answer under refinement, separate a"
+     " truncation effect from a construction effect, or say anything about the p-adic places"
+     " -- b285's boundary stands and b309's zero does not travel. ### **NO TRACE COMPUTED AND"
+     " NO SMEAR ASSEMBLED**: that is act two, under its own registration. ### NO GRADE MOVED."
+     " ### M-2 UNCHANGED",
+     "data/b316_the_archimedean_instrument.txt; data/b316_components_run.txt;"
+     " tools/b316_instrument.py (the emitting file); CORRESPONDENCE.md row 144"),
+    # ### THE REPRODUCTION ARM, AND THE ONE THAT DID NOT CONFIRM (b316).
+    ("archimedean-instrument", "b316 (the mandatory reproduction arm)",
+     "what the instrument reproduces of what the record already owns. ### **b292 CONFIRMED BY"
+     " A SECOND AND INDEPENDENT ROUTE**: the corpus's expansion vectors zeta_n pass condition"
+     " one and fail condition two with residual 1.0000 at n = 0,1,2,3 and at every"
+     " truncation, where b292 derived the same failure from the source's statement about"
+     " psi_n. ### The source's own worked inner product RECOVERED to 0.00e+00. ### **AND"
+     " b300's MEMBERSHIP IS *NOT* CONFIRMED**: the derived archimedean unit, built on this"
+     " grid by the corpus's own solver, has residual 0.9455, 0.8023, 0.5527, 0.6033, 0.4902"
+     " across five truncations -- falling with the domain and nowhere near zero. ### The hard-"
+     " cutoff explanation was TESTED AND REFUSED (a smooth taper moves 0.8023 to 0.8020)",
+     "### A REPRODUCTION ARM, AND ONE OF ITS FOUR DID NOT CONFIRM. ### **b300 IS NOT"
+     " RE-VERDICTED AND IS NOT CALLED WRONG** -- b300's derivation is on the WHOLE LINE and"
+     " this is a truncation, and b15's law governs: a finite-place-set object at a finite"
+     " cutoff decides nothing global. ### **AND THE CONTROL THAT WOULD HAVE SETTLED THE"
+     " CONSTRUCTION COULD NOT FIRE**: the asymptotic check confirms the decay and frequency"
+     " but returns 1.1435 and 1.1558 at two NON-eigenvalues against the eigenvalue's 1.1323,"
+     " so by b308's law it is reported as NOT-A-CHECK. ### **THREE CAUSES REMAIN AND THIS ACT"
+     " CHOOSES NONE.** ### **THE INSTRUMENT IS DECLARED NOT YET CERTIFIED FOR MEMBERSHIP AND"
+     " ACT TWO MAY NOT USE IT FOR ONE**; W-ORD-ARCH-MEMBERSHIP filed. ### NO GRADE MOVED. ###"
+     " M-2 UNCHANGED",
+     "data/b316_the_archimedean_instrument.txt; data/b316_rows.json;"
+     " data/b300_the_archimedean_leg.txt (b300's own bank); CORRESPONDENCE.md row 145"),
     # ### THE CALIBRATION READ (b315).
     ("calibration", "b315 (a read at content, at the operation)",
      "the atlas's calibration read AT THE OPERATION, not at the comment. ### **A IS COMPUTED"

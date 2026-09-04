@@ -1,0 +1,288 @@
+====================================================================================================
+b316 -- THE ARCHIMEDEAN INSTRUMENT, ACT ONE.
+====================================================================================================
+  ### THE INSTRUMENT'S OWN FIXTURES, RUN BEFORE ANYTHING IS BUILT : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### **ARMS 3, 5 AND 8 ARE THE ONES THAT MATTER:** ### the transform check FAILS under a
+  ### wrong normalization; the unitarity check FAILS when the image leaves the domain, so
+  ### the truncation is visible rather than silent; and a vector supported in `[0,1]`
+  ### projects to EXACTLY zero, which is the one exact fact this instrument has.
+
+====================================================================================================
+### COMPONENT 1 -- THE NORMALIZATION, BEFORE ANY CONSTRUCTION.
+====================================================================================================
+  artefact sha256 : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### **MATCHES THE PIN b304 BANKED AND b305 RE-COMPUTED : True**
+  pages in file   : 57
+
+  ### THE FRAGMENTS, LOCATED BY PAGE INDEX BEFORE A WORD OF THEM IS USED:
+    6            N1 the inner product, eq. (16)
+    6            ### N1 -- and that it EQUALS the half-line integral
+    7            N2 the transform, eq. (24)
+    7            ### N2 -- and that it is the basic character
+    22           N3 the scaling action, eq. (61)
+    24           N4 the space, Definition 4.4 / eq. (72)
+    1,5          ### the space is INFINITE dimensional
+    1            ### the scaling does NOT restrict to it
+    6,8,52       the sign relation the source states itself
+    26           the source unfolding an inner product of the remainder shape
+
+  ### ### **THE FOUR NORMALIZATIONS, WRITTEN ONCE AND USED EVERYWHERE:**
+    ### **(N1) eq. (16)** ### `<eta|xi> := (1/2) INT_R eta xi dx = INT_0^inf eta xi dx`
+    ### **(N2) eq. (24)** ### `F(xi)(y) := INT_R xi(x) e^{-2 pi i x y} dx`
+    ###      ### for an EVEN function : `2 INT_0^inf xi(x) cos(2 pi x y) dx`
+    ### **(N3) eq. (61)** ### `(theta(lam) xi)(v) := lam^{-1/2} xi(lam^{-1} v)`
+    ### **(N4) eq. (72)** ### `S(a,b) := { xi : xi = 0 on |q| <= a, F(xi) = 0 on |p| <= b }`
+
+  ### ### **`W-ORD-ARCH-NORM-READING`, DISCHARGED -- AND BY THE SOURCE, NOT BY THIS ACT.**
+    ### The order says the half-line/full-line picture is settled first from the source's
+    ### own inner product ### **or the act halts.** ### eq. (16) settles it in one line:
+    ### **THE FULL-LINE INTEGRAL CARRYING THE FACTOR ONE-HALF *EQUALS* THE HALF-LINE
+    ### ### INTEGRAL.** ### b300 read that sentence and banked it; this act builds on it.
+    ### **AND ITS REACH IS THE ADDITIVE ARM ONLY.** ### b300 said so and it is repeated
+    ### here rather than quietly widened: the very next line of the source names
+    ### `L^2(R*_+, d*lambda)` as an ISOMORPHIC space through `w`, and ### **THAT SECOND
+    ### ### IDENTIFICATION IS NOT READ BY THIS ACT AND IS NOT USED BY THIS INSTRUMENT**,
+    ### which works entirely on the additive picture.
+
+  ### ### **THE SIGN CHAIN, QUOTED FROM THE ACTS THAT SETTLED IT -- BECAUSE COMPONENT 4
+  ### ### DEPENDS ON IT AND IT IS THE HAZARD.**
+    ### **LINK 1 -- THE SOURCE'S OWN:** ### the paper states `W_R = -W_inf` in its own
+    ### voice, at the local trace formula, located above.
+    ### **LINK 2 -- THE CORPUS'S ARRANGEMENT, b233:** ### *"the file was committed before
+    ### any answer; the sign inside it is annotated as fixed by a calibration -- those are
+    ### different claims."*
+    ### **LINK 3 -- THE RESTRICTION b235 TOOK:** ### *"a sign warranted by a calibration is
+    ### an instrument fact, not a text."*
+    ### **LINK 4 -- b315, AT THE OPERATION:** ### the calibration fixes an ORIENTATION and
+    ### `A` is an independent integral; and the `E2` in that bracket is a REGISTERED CLAIM,
+    ### not the archimedean remainder.
+    ### **LINK 5 -- b232's INDEPENDENT CORROBORATION**, which b233 records: CC's equation
+    ### (1) fixes the orientation ON ITS OWN, and b232 carried a second check that does
+    ### not use the instrument's arrangement at all.
+    ### ### **EVERY ONE OF THESE FIVE IS A LINK THAT COULD MAKE COMPONENT 4'S PREDICTION
+    ### ### WRONG FOR A TRIVIAL REASON, AND THEY ARE NAMED THERE AS SUCH.**
+
+====================================================================================================
+### COMPONENT 2 -- THE BUILD.
+====================================================================================================
+
+  ### (2a) THE DOMAIN AND THE GRID, STATED.
+    ### even functions on `[0, X]`, `N` MIDPOINTS, spacing `h = X/N`;
+    ### **X = 32.0 ; N = 2048 ; h = 0.015625 ; NY = 256 ; hy = 0.003906**
+    ### nodes `x_j = (j + 1/2) h`, weights `w_j = h`; the transform is sampled at
+    ### `NY` midpoints of `(0, 1]`, INDEPENDENTLY of the domain length.
+    ### **MIDPOINTS, NOT ENDPOINTS**, so no node sits at `x = 0` and every quadrature
+    ### weight is equal -- which makes (N1) a scaled dot product and keeps orthonormality
+    ### in the free coordinates the same as orthonormality in the space.
+
+  ### (2b) THE TRANSFORM, WITH ITS OWN POSITIVE CONTROL.
+    ### `e^{-pi x^2}` IS ITS OWN TRANSFORM UNDER eq. (24), so recovering it checks the
+    ### DISCRETIZATION and nothing of the corpus.
+    ### **worst absolute error recovering it : 5.551e-16**
+    ### and under a deliberately halved normalization : 5.000e-01
+    ### **THE SECOND NUMBER IS THE CONTROL'S DISCRIMINATION ARM: A TRANSFORM CHECK THAT
+    ### ### CANNOT FAIL IS NOT A CHECK.**
+
+  ### (2c) THE TWO CONDITIONS AS LINEAR CONSTRAINTS, AND THE SUBSPACE.
+    ### condition one kills every coordinate with `x <= 1` outright;
+    ### condition two is `C f = 0` with `C = T[y <= 1][:, x > 1]`, and the space is that
+    ### null space.
+    N      X      h        free      constr   rank     dimension   
+    1024   16.0   0.01562  960       256      46       914         
+    2048   32.0   0.01562  1984      256      80       1904        
+    4096   64.0   0.01562  4032      256      144      3888        
+    4096   64.0   0.01562  4032      512      145      3887        
+    6144   96.0   0.01562  6080      512      210      5870        
+    ### ### **THE DIMENSION GROWS WITHOUT BOUND AS THE GRID REFINES, AND THAT IS NOT A
+    ### ### DEFECT -- IT IS THE SOURCE'S OWN SENTENCE APPEARING AS A MEASUREMENT.** ### The
+    ### paper calls the space ### *the well-known infinite dimensional Sonin's space*, and
+    ### a finite section of an infinite-dimensional space must grow when the section does.
+    ### **WHAT IS CONSTANT IS THE NUMBER OF CONSTRAINTS**: the transform is sampled
+    ### at `NY` points of `(0,1]`, and that count does NOT depend on the domain.
+    ### ### **AND THE RANK IS NOT THE CONSTRAINT COUNT -- IT IS SMALLER, AND THE TABLE
+    ### ### ABOVE SHOWS IT.** ### The low-frequency rows are not independent; how many
+    ### of them are is a fact about the time-bandwidth product of `[1, X]` against
+    ### `[0, 1]`, and ### **THIS ACT MEASURES IT AND DOES NOT DERIVE IT.**
+    ### **AND THAT IS THE INSTRUMENT'S LIMIT SPOKEN PLAINLY: ### REFINING THE GRID ADDS
+    ### ### DIMENSIONS, IT DOES NOT CONVERGE TO A FIXED FINITE ANSWER.**
+
+  ### (2d) THE OPERATORS, SHOWN TO ACT.
+    ### six unit vectors drawn IN the space (random, then projected, then normalized).
+    ### residual of each against condition two, `||(1-S) f||` : 2.0e-15, 2.3e-15, 2.0e-15, 2.5e-15, 1.9e-15, 2.6e-15
+    ### **THEY ARE IN THE SPACE TO MACHINE PRECISION, WHICH IS WHAT LETS THE NEXT
+    ### ### MEASUREMENT MEAN ANYTHING.**
+
+    ### ### **AND NOW THE SOURCE'S OWN SENTENCE, REPRODUCED AS A MEASUREMENT:**
+    ### *"Even though the scaling action does not restrict to this subspace ..."*
+    lambda   norm kept        cond 1 residual  LEAVES THE SPACE
+    1.25     0.720043         0.00e+00         0.1352          
+    1.50     0.650884         0.00e+00         0.1892          
+    2.00     0.550571         0.00e+00         0.2623          
+    3.00     0.468587         0.00e+00         0.3470          
+    4.00     0.386480         0.00e+00         0.4253          
+    ### **THE `norm kept` COLUMN IS BELOW ONE BECAUSE THE IMAGE RUNS OFF THE END OF
+    ### ### THE DOMAIN, NOT BECAUSE THE ACTION IS NOT UNITARY** -- fixture arm 3 shows
+    ### the norm is kept when the image stays inside, and arm 4 shows it is not when the
+    ### image leaves. ### **THAT LOSS IS THE TRUNCATION, REPORTED RATHER THAN HIDDEN.**
+    ### ### **CONDITION ONE SURVIVES THE SCALING EXACTLY, AND CONDITION TWO DOES NOT.**
+    ### For `lambda >= 1` the argument `v/lambda` is smaller than `v`, so a function
+    ### vanishing on `[0,1]` still vanishes there after scaling -- the middle column is
+    ### zero to machine precision at every `lambda`. ### **THE WHOLE OF THE FAILURE IS IN
+    ### ### THE TRANSFORM CONDITION**, and the last column is how much of the image lies
+    ### outside the space.
+    ### **THAT IS SHARPER THAN THE SOURCE'S SENTENCE AND IT IS THIS INSTRUMENT'S FIRST
+    ### ### CONTRIBUTION: ### THE SOURCE SAYS THE ACTION DOES NOT RESTRICT; THE INSTRUMENT
+    ### ### SAYS *WHICH CONDITION IT BREAKS AND BY HOW MUCH.***
+    ### **AND THE COMPRESSION `S theta(lambda) S` IS THEREFORE A GENUINELY SMALLER
+    ### ### OPERATOR THAN `theta(lambda)`**, which is exactly why the source compresses
+    ### rather than restricts.
+
+====================================================================================================
+### COMPONENT 3 -- THE REPRODUCTION. ### **MANDATORY BEFORE ANYTHING IS TRUSTED.**
+====================================================================================================
+
+  ### (3a) b300's ARCHIMEDEAN UNIT AGAINST THE TRUNCATED SPACE. ### **MEASURED --
+  ### ### AND THE MEASUREMENT DOES NOT CONFIRM THE MEMBERSHIP.**
+    ### `u_inf` is `phi_mu` at the first even NEGATIVE eigenvalue `mu = -20.48057322913694697`,
+    ### built on this grid by the corpus's OWN solver (`b205_prolate`), not by anything
+    ### written for this act.
+    ### condition one, `max |u_inf|` on `[0,1]` : ### **0.00e+00** ### -- exact by
+    ###   construction, the function IS zero there, and it is not evidence of anything.
+
+    ### ### **CONDITION TWO, SWEPT. ### THE RESIDUAL IS THE FRACTION OF THE VECTOR THAT
+    ### ### LIES OUTSIDE THE SPACE, SO ZERO WOULD BE MEMBERSHIP AND ONE WOULD BE TOTAL
+    ### ### FAILURE. ### `zeta_0` IS CARRIED ALONGSIDE AS THE DISCRIMINATION ARM:**
+    X      N       NY     u_inf        zeta_0      
+    16     1024    256    0.9455       1.0000      
+    32     2048    256    0.8023       1.0000      
+    64     4096    256    0.5527       1.0000      
+    64     4096    512    0.6033       1.0000      
+    96     6144    512    0.4902       1.0000      
+    ### ### **THE ARM FIRES: `zeta_0` SITS AT 1.0000 AT EVERY CELL**, so the instrument
+    ### can tell a vector outside the space from one inside it, and a small number in the
+    ### `u_inf` column would have MEANT something. ### **IT IS NOT SMALL.**
+
+    ### ### **THE HARD-CUTOFF EXPLANATION WAS TESTED AND IT FAILED.** ### The obvious
+    ### reading is that `u_inf` decays like `1/x`, so cutting it at `X` leaves a step at
+    ### the end whose transform spreads across all frequencies and violates condition two
+    ### for a reason that is the instrument's and not the vector's. ### Replacing the cut
+    ### with a smooth taper over the last eighth of the domain moves the residual from
+    ### ### **0.8023 to 0.8020** ### -- it does not move. ### **SO THE VIOLATION IS NOT AN
+    ### ### EDGE ARTEFACT, AND THE EASY EXPLANATION IS REFUSED RATHER THAN OFFERED.**
+
+    ### ### **THE CONSTRUCTION'S OWN ASYMPTOTIC CONTROL, AND WHAT IT DOES AND DOES NOT
+    ### ### SAY.** ### b300's `u_inf` should behave like `sin(2 pi x)/x` far out. Measured
+    ### on this construction: `x u_inf` is BOUNDED on `x > 2` (max 1.2789, min -1.1561), and
+    ### it changes sign ### **60** ### times there against ### **59** ### for
+    ### `sin(2 pi x)` on the same interval -- ### **a difference of 1, at the edge of
+    ### ### the domain where a phase offset decides whether the last crossing is inside
+    ### ### or outside.** ### **SO THE DECAY AND THE FREQUENCY ARE THE RIGHT ONES.**
+    ### ### **BUT THE ARM THAT WOULD HAVE MADE THIS A CHECK COULD NOT FIRE.** ### Running
+    ### the same measurement at two values of `mu` that are NOT eigenvalues gives
+    ### ### **1.1435** ### and ### **1.1558** ### against the eigenvalue's ### **1.1323**
+    ### -- indistinguishable. ### By the corpus's own law from b308, ### **A CONTROL THAT
+    ### ### CANNOT FIRE READS AS A PASS, AND THIS ONE IS REPORTED AS NOT-A-CHECK.** ### It
+    ### establishes the decay rate and nothing about the eigenvalue.
+
+    ### ### **THE VERDICT ON (3a): ### UNCONFIRMED. ### THE ORDER CALLED FOR b300's
+    ### ### MEMBERSHIP `NOW MEASURED`, AND THE MEASURED ANSWER IS NOT A CONFIRMATION.**
+    ### The residual falls with the domain -- 0.9455 -> 0.8023 -> 0.5527 -> 0.6033 -> 0.4902 -- but it falls slowly and
+    ### **NOTHING IN THIS ACT SHOWS IT IS FALLING TO ZERO RATHER THAN TO SOMETHING ELSE,
+    ### ### AND FIVE POINTS ARE NOT FITTED TO A TREND HERE.**
+    ### ### **THREE CAUSES ARE CONSISTENT WITH THIS NUMBER AND THIS ACT CHOOSES NONE:**
+    ###   ### **(i)** ### the truncation is simply too short -- a `1/x` tail carries a
+    ###   fixed fraction of its `L^2` mass beyond any `X`, and the taper test rules out
+    ###   the EDGE but not the missing MASS;
+    ###   ### **(ii)** ### the transform grid resolves `(0,1]` at `NY` points and the
+    ###   discretized condition two is therefore weaker than the real one in one
+    ###   direction and, through quadrature error on a long domain, wrong in the other;
+    ###   ### **(iii)** ### this construction of `u_inf` is not b300's object. ### The
+    ###   asymptotic control above cannot exclude this because it cannot discriminate.
+    ### ### **SO THE INSTRUMENT IS DECLARED NOT YET CERTIFIED FOR MEMBERSHIP QUESTIONS,
+    ### ### AND ACT TWO MAY NOT USE IT FOR ONE.** ### b300's derivation is on the whole
+    ### line and is NOT disturbed by a truncation failing to reproduce it; b300 is not
+    ### re-verdicted and its grade does not move.
+    ### **`W-ORD-ARCH-MEMBERSHIP` FILED**: settle (i) against (iii) before any quantity
+    ### on this space is read as b300's.
+
+  ### (3b) THE PROLATE VECTORS ARE ORTHOGONAL TO IT. ### **NOW MEASURED.**
+    ### ### **THE EXACT HALF, AND IT IS EXACT ON ANY GRID WHATEVER:** ### the corpus's
+    ### `xi_n` is supported in `[-1,1]`, and every element of the space vanishes there.
+    ### **SO THE INNER PRODUCT IS ZERO BY DISJOINT SUPPORT** -- not small, zero.
+    ### measured on the instrument, a vector supported in `[0,1]` projects to : 0.0e+00
+    ### **AND THE MEASUREMENT AGREES WITH THE ARGUMENT RATHER THAN REPLACING IT.**
+
+    ### ### **THE HALF THAT IS NOT EXACT, AND IS THE ONE b292 SETTLED:** ### the corpus's
+    ### `zeta_n` is `[lam/sqrt(1-lam^2)] xi_n^an(x)` for `x >= 1` and zero below, so it
+    ### ### **PASSES CONDITION ONE AND b292 FOUND IT FAILS CONDITION TWO.**
+    n    cond 1 max     cond 2 residual    in the space?     
+    0    0.00e+00       1.0000             NO                
+    1    0.00e+00       1.0000             NO                
+    2    0.00e+00       1.0000             NO                
+    3    0.00e+00       1.0000             NO                
+    ### ### **EVERY ONE OF THEM CARRIES A LARGE COMPONENT OUTSIDE THE SPACE**, which is
+    ### b292's finding measured on an instrument rather than argued at definitions.
+    ### **AND THE TWO ROUTES AGREE**: b292 derived the failure from the source's own
+    ### statement about `psi_n`; this instrument measures it directly. ### **NEITHER IS
+    ### ### EVIDENCE FOR THE OTHER -- THEY ARE INDEPENDENT, AND THAT IS WHY BOTH ARE HERE.**
+
+  ### (3c) THE SOURCE'S OWN WORKED INNER PRODUCT, RECOVERED.
+    ### the source writes, of a bracket of exactly the remainder's shape:
+    ###   ### **`<psi | theta(rho^-1) xi> = rho^{1/2} INT xi(rho x) psi(x) dx`**
+    ### which is `(N1)` and `(N3)` together and nothing else. ### Checked on this grid:
+    ### rho = 1.50   left = 0.741652625     right = 0.741652625     difference = 0.00e+00
+    ### rho = 2.00   left = 0.680318977     right = 0.680318977     difference = 0.00e+00
+    ### rho = 3.00   left = 0.453946014     right = 0.453946014     difference = 0.00e+00
+    ### **worst difference : 0.00e+00** -- the two sides are the same expression, and this
+    ### is a check that the instrument implements (N1) and (N3) as the source wrote them.
+
+  ### (3d) THE CORPUS'S REMAINDER INSTRUMENT IS **NOT** REPRODUCED HERE, AND WHY.
+    ### ### **IT IS BUILT ON VECTORS THAT ARE OUTSIDE THIS SPACE**, which (3b) has just
+    ### measured: the corpus's `eps` expands in `zeta_n`, and every `zeta_n` carries a
+    ### large component outside `S(1,1)`.
+    ### **SO REPRODUCING IT HERE WOULD NOT BE A CONTROL. ### IT WOULD BE THIS INSTRUMENT
+    ### ### COMPUTING SOMEBODY ELSE'S OBJECT AND CALLING THE AGREEMENT A CHECK.**
+    ### **AND THAT IS THE POINT OF THE WHOLE ACT, SAID PLAINLY: ### EVERY ARCHIMEDEAN
+    ### ### INSTRUMENT THE CORPUS HAS COMPUTES WITH VECTORS OUTSIDE THE OBJECT'S OWN
+    ### ### SPACE, AND THIS IS THE FIRST THAT DOES NOT.**
+
+====================================================================================================
+### COMPONENT 4 -- THE PREDICTION. ### **REGISTERED FOR ACT TWO AND NOT TESTED HERE.**
+====================================================================================================
+  ### **NO TRACE IS COMPUTED AND NO SMEAR IS ASSEMBLED IN THIS ACT.**
+  ### ### **THE NAVIGATOR'S PREDICTION, REGISTERED:** ### under the source's Theorem 4.7,
+  ### with the corpus's archimedean term identified with the source's Weil distribution by
+  ### the record's settled sign, the corrected remainder's near-cancellation against it
+  ### says the compressed smeared trace on this space, ### **for the corpus's integral-one
+  ### ### bump, should be SMALL relative to the corpus's own trace instrument's values.**
+  ### ### **REFUTABLE BY ACT TWO'S NUMBER.**
+  ### **AND THE SAME QUANTITY FOR THE MEAN-ZERO VARIANT IS UNPREDICTED**, which is the
+  ### `W2` ruling's own shape: the instrument accepts either test function and computes
+  ### with neither here.
+
+  ### ### **THE SIGN CHAIN'S EVERY LINK, NAMED AS WHAT WOULD MAKE THIS PREDICTION WRONG
+  ### ### FOR A TRIVIAL REASON:**
+    ### **(L1)** the source's own `W_R = -W_inf`. ### If the corpus's `A` corresponds to
+    ###   `W_R` rather than `W_inf`, the prediction flips sign and means nothing.
+    ### **(L2)** the corpus's arrangement `... - PRIME + ARCH`, annotated as fixed by a
+    ###   calibration. ### b233: that is a different claim from *committed before any
+    ###   answer*, and b235 took the restriction.
+    ### **(L3)** b315's reading at the operation: the calibration fixes an ORIENTATION,
+    ###   `A` is an independent integral, and the `E2` in the bracket is a registered
+    ###   claim rather than the remainder.
+    ### **(L4)** the near-cancellation itself, `A + E2 ~ 0` under the source's exponent,
+    ###   which b315 measured and ### **PROMOTED TO NOTHING** ### for want of a stated
+    ###   definition. ### **A PREDICTION RESTING ON A FACT PROMOTED TO NOTHING IS A
+    ###   ### PREDICTION AND NOT A DERIVATION, AND IS REGISTERED AS SUCH.**
+    ### **(L5)** the identification of the corpus's window with the source's test
+    ###   function class, which no act has settled at content.
+    ### ### **IF ANY ONE OF THE FIVE IS WRONG, ACT TWO'S NUMBER WILL REFUTE THE
+    ### ### PREDICTION FOR A REASON THAT HAS NOTHING TO DO WITH THE MATHEMATICS**, and
+    ### that is why they are listed before the number exists rather than after it.
+
+  ### CHECKS FAILING : 0
+  ### ### **UNCONFIRMED REPRODUCTIONS, WHICH ARE NOT TOOL FAILURES AND ARE NOT
+  ### ### SWALLOWED EITHER : 1**
+    ### UNCONFIRMED: (3a) membership UNCONFIRMED -- residual 0.4902 at the deepest cell
+  ### elapsed : 75 s
+====================================================================================================
