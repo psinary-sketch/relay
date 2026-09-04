@@ -1,0 +1,290 @@
+====================================================================================================
+b321 -- THE WINDOW OPENED.
+====================================================================================================
+  ### b316 INSTRUMENT    FIXTURES : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b317 ASSEMBLY      FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b318 SQUARE        FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b319 STABLE        FIXTURES : [True, True, True, True, True, True]  PASS
+  ### b320 WEIL          FIXTURES : [True, True, True, True, True, True, np.True_, True, True]  PASS
+  ### THIS ACT WINDOW    FIXTURES : [True, True, True, True, True, True, True, True]  PASS
+    (i)    on the atlas OWN bump at a = 2.4, worst channel difference : 1.006e-16 ; prime terms [2] vs [2]
+    (ii)   the same prime sum on a halved test function : 0.086458117 vs 0.172916235 -- differs, as it must
+    (iii)  (149) by the atlas line 0.172916234789 and written out 0.172916234789 ; difference 2.776e-17
+    (iv)   remainder integral, source exponent -0.446432601 ; corpus exponent -0.398352152 ; they DIFFER
+    (v)    quadrature limit: uniform -0.446432601 ; chebyshev -0.446432808 ; relative 4.641e-07
+    (vi)   with eps halved : -0.223216301, against half of -0.446432601 = -0.223216301
+    (vii)  eps(1) = 0.000e+00, as (84) requires
+    (viii) the zero-side truncation bound at a = 1.75 : 2.011e-12
+  ### **FIXTURE (i) OF THIS ACT IS THE ONE THAT LICENSES EVERYTHING BELOW:** ### the
+  ### re-formed channels reproduce `carto_atlas.channels(a)` on the atlas's OWN bump.
+  ### **A RE-IMPLEMENTATION THAT CANNOT REPRODUCE ITS ORIGINAL IS AN OVERWRITE.**
+
+  ### THE SOURCE STATEMENTS, PULLED FROM THE EXTRACT FILE:
+    found Theorem 4.7 -- the EQUALITY
+    found ### and the remainder it names, (84)
+    found (1) -- the explicit formula as the paper opens with it
+    found (148) -- the same formula with its signs
+    found (149) -- the finite place
+    found ### the archimedean sign, in the source own sentence
+    found Proposition C.1 -- the criterion itself
+    found ### and the inequality it asks for
+    found (61) -- the exponent at its defining site
+
+  ### THE BARS, AND WHERE EACH COMES FROM:
+    (B1d) two-quadrature limit      : 1e-06 relative      -- sealed
+    (B2)  explicit-formula residual : 1e-03 or the bound  -- the ATLAS's own TOL = 1e-03
+    the truncation                  : NGAM = 10000, last ordinate 9877.782657434 -- registered
+
+====================================================================================================
+### COMPONENT 1 -- THE IDENTITY CONTROL. ### **THEOREM 4.7 IS AN EQUALITY.**
+====================================================================================================
+  ### **(83): ### `Tr(theta(f) S) = W_infinity(f) + INT f(rho^-1) eps(rho) d*rho`.**
+  ### By cyclicity `Tr(theta(g) S theta(g)^*) = Tr(theta(f) S)` for `f = g conv g^#`, so
+  ### ### **b320's MARGIN MUST BE MINUS THAT INTEGRAL, EXACTLY.**
+  ### ### **AND THE REMAINDER IS THE b313 FLIPPED COPY** -- the source's exponent, chosen
+  ### on b313's reading of three sites and on no number. ### The other copy is printed
+  ### beside it at every cell, because an act that showed only one would be asking to be
+  ### believed.
+
+  ### (1a) THE REMAINDER INTEGRAL, BOTH QUADRATURES AND BOTH EXPONENTS.
+    a      uniform (source)   chebyshev (source) rel. diff    corpus exponent   
+    1.3    -0.158889558       -0.158889572       9.050e-08    -0.157908477      
+    1.35   -0.186481766       -0.186481788       1.196e-07    -0.184544767      
+    1.41   -0.221284108       -0.221284143       1.591e-07    -0.217290580      
+    ### ### **(B1d) THE TWO QUADRATURES AGREE TO 1e-06 AT EVERY CELL : True**
+    ### **AND THEY ARE NOT TWO ROUTES.** ### There is exactly one implementation of (84)
+    ### in this corpus; both quadratures call it. ### (B1d) said so before the value.
+
+  ### (1b) AGAINST b320's MARGIN LADDER. ### **THE DOMAIN AXIS HAS NOT CONVERGED AND THAT
+  ### ### IS WHY THE BAR IS A LADDER AND NOT A TOLERANCE.**
+
+    ### `a = 1.3`   ### **- INT f eps = 0.158889558**   (b320 reference margin 0.271444634)
+      rank     frame    Tr (square)        margin W - Tr      residual to -INT  
+      20       1        7.725767619        1.055446382        0.896556824       
+      37       2        8.315996585        0.465217415        0.306327858       
+      69       3        8.509769366        0.271444634        0.112555076       
+      133      4        8.575142606        0.206071395        0.047181837       
+      262      5        8.599100561        0.182113440        0.023223882       
+      (B1a) sign strictly positive        : True
+      (B1b) below the largest-frame margin: True   (0.158889558 < 0.182113440)
+      (B1c) residual strictly decreasing  : True
+
+    ### `a = 1.35`   ### **- INT f eps = 0.186481766**   (b320 reference margin 0.285510313)
+      rank     frame    Tr (square)        margin W - Tr      residual to -INT  
+      20       1        6.272624104        0.858148242        0.671666476       
+      37       2        6.688153698        0.442618649        0.256136882       
+      69       3        6.845262034        0.285510313        0.099028547       
+      133      4        6.902180565        0.228591781        0.042110015       
+      262      5        6.923497716        0.207274631        0.020792865       
+      (B1a) sign strictly positive        : True
+      (B1b) below the largest-frame margin: True   (0.186481766 < 0.207274631)
+      (B1c) residual strictly decreasing  : True
+
+    ### `a = 1.41`   ### **- INT f eps = 0.221284108**   (b320 reference margin 0.309777648)
+      rank     frame    Tr (square)        margin W - Tr      residual to -INT  
+      20       1        5.001816619        0.746191088        0.524906981       
+      37       2        5.306517803        0.441489904        0.220205797       
+      69       3        5.438230060        0.309777648        0.088493540       
+      133      4        5.488727352        0.259280356        0.037996248       
+      262      5        5.507915818        0.240091889        0.018807781       
+      (B1a) sign strictly positive        : True
+      (B1b) below the largest-frame margin: True   (0.221284108 < 0.240091889)
+      (B1c) residual strictly decreasing  : True
+
+  ### (B1a) SIGN : True      (B1b) BRACKET : True      (B1c) APPROACH : True      (B1d) : True
+  ### ### **VERDICT -- THE IDENTITY CONTROL : HOLDS**
+
+  ### (1c) ### **AND WHETHER IT CLOSES THE EXPONENT QUESTION -- MEASURED, NOT ASSUMED.**
+  ### The order says this act closes that question by measurement IF the identity holds.
+  ### ### **IT HOLDS. ### SO THE OTHER COPY IS SCORED AGAINST THE SAME ARMS.**
+    a      source copy      corpus copy      apart by       from equality    corpus?  
+    1.3    0.158889558      0.157908477      0.000981080    0.023223882      PASSES   
+    1.35   0.186481766      0.184544767      0.001936999    0.020792865      PASSES   
+    1.41   0.221284108      0.217290580      0.003993528    0.018807781      PASSES   
+    ### ### **THE CORPUS COPY PASSES THE SAME ARMS AT 3 OF 3 CELLS.**
+    ### ### **SO THE ANSWER IS NO: ### THIS MEASUREMENT DOES NOT CLOSE THE EXPONENT
+    ### ### QUESTION, AND THE ORDER'S CONDITIONAL IS REFUTED BY THE ACT'S OWN
+    ### ### NUMBERS.** ### The two copies sit closer to each other than either sits to
+    ### the equality: they are apart by a FRACTION of the distance in the column
+    ### beside it. ### **AN INSTRUMENT CANNOT DISCRIMINATE BETWEEN TWO CANDIDATES THAT
+    ### ### LIE CLOSER TOGETHER THAN ITS OWN DISTANCE FROM THE ANSWER.**
+    ### **b313 SETTLED THE EXPONENT BY READING AND THAT READING STILL STANDS ALONE.**
+    ### b313 said a residue is not a vote on it. ### This is not a residue, and it is
+    ### still not a vote, because it cannot tell the two apart.
+
+====================================================================================================
+### COMPONENT 2 -- THE EXPLICIT-FORMULA CONTROL.
+====================================================================================================
+  ### **(148): ### `SUM_rho f-tilde(rho) = INT f dx + INT f^# dx - SUM_v W_v(f)`.**
+  ### In the corpus's settled chain that is ### **`Z = P - PR + A`**, and the archimedean
+  ### sign comes from the source's own page-49 sentence: ### *"a positivity result for the
+  ### distribution `W_infinity = - W_R` is proven"* ### -- so ### **`A = W_infinity`**.
+  ### ### **THE ZEROS ARE THE CORPUS'S INDEPENDENT LIBRARY**, 10000 ordinates to 9877.782657, and
+  ### the truncation was registered before the first value.
+
+    a      Z (zeros)        P (poles)        A (arch)         PR (primes)      residual      bound      
+    1.3    8.781188392      -2.689e-17       8.781152816      0.000000000      3.558e-05     1.290e-12  
+    1.35   7.130749976      6.505e-18        7.130736563      0.000000000      1.341e-05     1.184e-12  
+    1.41   5.747988162      4.337e-19        5.747984142      0.000000000      4.019e-06     1.492e-12  
+    1.5    4.372721800      -6.418e-17       4.372783773      0.000062755      7.814e-07     2.445e-12  
+    1.7    2.715106498      5.161e-17        2.723005765      0.007899310      4.414e-08     3.189e-12  
+    1.9    1.912333385      -1.908e-17       1.889488043      -0.022845349     -5.731e-09    1.955e-12  
+    1.99   1.687055946      2.602e-17        1.638971581      -0.048084359     6.778e-09     4.856e-12  
+    2      1.664641789      -6.245e-17       1.614343798      -0.050297989     2.226e-09     3.444e-12  
+    2.01   1.642639951      -9.541e-17       1.590280404      -0.052359535     1.097e-08     2.450e-12  
+    2.1    1.460364529      5.855e-17        1.396314275      -0.064050234     1.916e-08     2.580e-12  
+    2.4    0.982995008      -9.541e-18       0.952611972      -0.030383030     6.351e-09     2.812e-12  
+    2.8    0.499406974      -2.602e-18       0.617606677      0.118199794      9.124e-08     9.233e-12  
+    3      0.315810473      -9.801e-17       0.506671341      0.190860829      -3.910e-08    1.073e-11  
+    ### ### **(B2) THE RESIDUAL IS INSIDE `max(bound, 1e-03)` AT EVERY COVERED CELL : True**
+    ### and at all 13 cells : True
+    ### ### **VERDICT -- THE EXPLICIT-FORMULA CONTROL : HOLDS**
+
+  ### (2b) AND `A` AGAINST b320's `W_infinity`, WHICH IS A SECOND ROUTE AND A SIGN TEST
+  ### ### AT THE SAME TIME.
+    a      A (this chain)     W_inf by (38)      difference   
+    1.3    8.781152816        8.781214000        6.118e-05    
+    1.35   7.130736563        7.130772347        3.578e-05    
+    1.41   5.747984142        5.748007707        2.357e-05    
+    1.5    4.372783773        4.372801098        1.732e-05    
+    1.7    2.723005765        2.723018452        1.269e-05    
+    1.9    1.889488043        1.889498505        1.046e-05    
+    1.99   1.638971581        1.638981336        9.756e-06    
+    2      1.614343798        1.614353480        9.682e-06    
+    2.01   1.590280404        1.590290016        9.611e-06    
+    2.1    1.396314275        1.396323322        9.046e-06    
+    2.4    0.952611972        0.952619641        7.669e-06    
+    2.8    0.617606677        0.617613198        6.521e-06    
+    3      0.506671341        0.506677452        6.111e-06    
+    ### ### **WORST DIFFERENCE : 6.118e-05**
+    ### **THE TWO SIDES OF THIS COMPARISON SHARE NO CODE**: one is a Hadamard integral of
+    ### the source's (38), the other a transform-side integral against the corpus's digamma
+    ### kernel through the settled chain. ### **AND IT IS ALSO THE SIGN TEST**: had the
+    ### page-49 sentence been read the other way, this column would differ by a factor of
+    ### `-1` and not by `6e-05`.
+
+====================================================================================================
+### COMPONENT 3 -- THE WINDOW.
+====================================================================================================
+  ### **THE CELLS ABOVE THE BOUNDARY: ### `a > 2^{1/2}`, WHERE THE SEED'S SUPPORT EXCEEDS
+  ### ### THE NARROW WINDOW AND THE PRIMES ENTER THROUGH THE LOCAL DISTRIBUTION.**
+  ### The lawful `f = g conv g^#` is supported in `[a^-2, a^2]`, so a prime power `p^m`
+  ### enters exactly when `p^m <= a^2`. ### **THAT IS WHY THE PRIME COLUMN IS SILENT AT THE
+  ### ### COVERED CELLS AND NOT SILENT HERE**, and it is a fact about a support.
+
+    a      W_inf           square          margin          PR (primes)     Z (zeros)       primes   
+    1.5    4.372801098     4.016120530     0.356680568     0.000062755     4.372721800     [2]      
+    1.7    2.723018452     2.239620675     0.483397777     0.007899310     2.715106498     [2]      
+    1.9    1.889498505     1.296882974     0.592615532     -0.022845349    1.912333385     [2, 3]   
+    1.99   1.638981336     1.015778352     0.623202985     -0.048084359    1.687055946     [2, 3]   
+    2      1.614353480     0.988594283     0.625759197     -0.050297989    1.664641789     [2, 3]   
+    2.01   1.590290016     0.962143926     0.628146090     -0.052359535    1.642639951     [2, 4, 3]
+    2.1    1.396323322     0.754150956     0.642172365     -0.064050234    1.460364529     [2, 4, 3]
+    2.4    0.952619641     0.342389825     0.610229816     -0.030383030    0.982995008     [2, 4, 3, 5]
+    2.8    0.617613198     0.138934660     0.478678538     0.118199794     0.499406974     [2, 4, 3, 5, 7]
+    3      0.506677452     0.098273158     0.408404294     0.190860829     0.315810473     [2, 4, 8, 3, 5, 7]
+
+  ### (3b) ### **AND BEFORE ANY TOTAL IS TAKEN: ### WHAT THE POLE COLUMN DID.**
+    a      f-tilde(0)+f-tilde(1) Z (zeros)          min f-hat         
+    1.3    -2.689e-17         8.781188392        -4.619e-17        
+    1.35   6.505e-18          7.130749976        -8.674e-19        
+    1.41   4.337e-19          5.747988162        -4.315e-17        
+    1.5    -6.418e-17         4.372721800        -5.985e-17        
+    1.7    5.161e-17          2.715106498        -2.385e-17        
+    1.9    -1.908e-17         1.912333385        5.855e-18         
+    1.99   2.602e-17          1.687055946        -4.033e-17        
+    2      -6.245e-17         1.664641789        -2.168e-17        
+    2.01   -9.541e-17         1.642639951        -1.930e-17        
+    2.1    5.855e-17          1.460364529        -7.589e-18        
+    2.4    -9.541e-18         0.982995008        -3.101e-17        
+    2.8    -2.602e-18         0.499406974        1.930e-17         
+    3      -9.801e-17         0.315810473        4.337e-18         
+    ### ### **THE POLE TERM VANISHES AT EVERY CELL -- WORST `9.801e-17`.**
+    ### **AND IT IS NOT AN ACCIDENT.** ### `P = f-tilde(0) + f-tilde(1)`, and Theorem 1's
+    ### own two vanishing conditions on the seed are exactly `g-hat(0) = 0` and
+    ### `g-hat(i/2) = 0`, which force both Mellin values of `f = g conv g^#` to zero.
+    ### ### **SO FOR A LAWFUL `f`, (148) COLLAPSES TO ### `SUM_v W_v(f) = - Z`.**
+
+  ### ### **AND THAT SETTLES THE SIGN OF THE TOTAL BEFORE THE TOTAL IS COMPUTED.** ### `Z`
+  ### is `2 SUM_gamma f-hat(gamma)` over the corpus's library, and ### **`f-hat = |g-hat|^2`
+  ### ### BECAUSE `f` IS A SQUARE** -- which b320 measured directly, `13 of 13` by
+  ### Definition 3.1 with minima at `-4.6e-17`. ### **EVERY TERM OF `Z` IS THEREFORE
+  ### ### NON-NEGATIVE, SO `Z >= 0`, SO `SUM_v W_v <= 0`, AUTOMATICALLY.**
+  ### ### **THE WINDOW'S BALANCE IS NON-POSITIVE FOR REASONS THAT HAVE NOTHING TO DO WITH
+  ### ### THE PRIMES.** ### It is forced by two facts about the computation: the test
+  ### function is a square, and the ordinate library contains only zeros ON the critical
+  ### line, whose contributions cannot be negative. ### **A ZERO OFF THE LINE IS EXACTLY
+  ### ### WHAT WOULD BREAK IT, AND THIS LIBRARY CONTAINS NONE BY CONSTRUCTION.**
+  ### ### **SO THE COUNT BELOW IS NOT EVIDENCE. ### IT IS THE SHAPE OF THE ARITHMETIC.**
+
+  ### (3c) THE PLACES SUM, THE TOTAL THE CRITERION SPEAKS ABOUT.
+  ### ### **`SUM_v W_v(f) = W_R(f) + SUM_p W_p(f) = PR - A`**, every sign from an owner.
+    a      PR (primes)        A = W_infinity     SUM_v W_v = PR - A sign      
+    1.5    0.000062755        4.372783773        -4.372721018       NEGATIVE  
+    1.7    0.007899310        2.723005765        -2.715106454       NEGATIVE  
+    1.9    -0.022845349       1.889488043        -1.912333391       NEGATIVE  
+    1.99   -0.048084359       1.638971581        -1.687055939       NEGATIVE  
+    2      -0.050297989       1.614343798        -1.664641787       NEGATIVE  
+    2.01   -0.052359535       1.590280404        -1.642639940       NEGATIVE  
+    2.1    -0.064050234       1.396314275        -1.460364510       NEGATIVE  
+    2.4    -0.030383030       0.952611972        -0.982995002       NEGATIVE  
+    2.8    0.118199794        0.617606677        -0.499406883       NEGATIVE  
+    3      0.190860829        0.506671341        -0.315810512       NEGATIVE  
+
+  ### (3c) AND WHAT THE CRITERION ASKS FOR, QUOTED VERBATIM FROM PROPOSITION C.1 / (155):
+  ###   ### *"RH <=> SUM_v W_v(g * g-bar^#) <= 0, for all g in C_c^inf(R*_+) with
+  ###   ### g-tilde(z) = 0 for all z in F"*, ### F a finite set containing `{0, 1}`.
+  ### ### **THE CRITERION ASKS FOR A NON-POSITIVE TOTAL.**
+  ### ### **CELLS ABOVE THE BOUNDARY WHOSE FINITE-INSTANCE TOTAL IS NON-POSITIVE : 10 OF 10**
+
+  ### ### **THAT IS A MEASUREMENT AND IT IS INTERPRETED BY NOBODY IN THIS ACT.**
+  ### ### **A FINITE WINDOW AT A FINITE CUTOFF DECIDES NOTHING GLOBAL.** ### The sum runs
+  ### over 10000 ordinates and not over all of them; over 11 primes and not over all of them;
+  ### at thirteen cells of one family of test functions and not over the class the
+  ### criterion quantifies. ### **THE CRITERION IS A STATEMENT ABOUT EVERY LAWFUL `g`.**
+  ### **THIS IS THIRTEEN OF THEM.**
+
+====================================================================================================
+### COMPONENT 4 -- WHAT THE SLACK DOES.
+====================================================================================================
+  ### **THE CHART-READY BLOCK. ### margin AND prime sum, ACROSS ALL THIRTEEN CELLS.**
+    a      covered   margin           PR (primes)      PR - margin      SUM_v W_v       
+    1.3    YES       0.271444634      0.000000000      -0.271444634     -8.781152816    
+    1.35   YES       0.285510313      0.000000000      -0.285510313     -7.130736563    
+    1.41   YES       0.309777648      0.000000000      -0.309777648     -5.747984142    
+    1.5    no        0.356680568      0.000062755      -0.356617813     -4.372721018    
+    1.7    no        0.483397777      0.007899310      -0.475498466     -2.715106454    
+    1.9    no        0.592615532      -0.022845349     -0.615460880     -1.912333391    
+    1.99   no        0.623202985      -0.048084359     -0.671287344     -1.687055939    
+    2      no        0.625759197      -0.050297989     -0.676057186     -1.664641787    
+    2.01   no        0.628146090      -0.052359535     -0.680505625     -1.642639940    
+    2.1    no        0.642172365      -0.064050234     -0.706222600     -1.460364510    
+    2.4    no        0.610229816      -0.030383030     -0.640612846     -0.982995002    
+    2.8    no        0.478678538      0.118199794      -0.360478744     -0.499406883    
+    3      no        0.408404294      0.190860829      -0.217543465     -0.315810512    
+
+  ### ### **THE PRIME SUM EXCEEDS THE MARGIN AT NO CELL OF THIS LADDER.**
+  ### **REPORTED AS A FACT ABOUT THIS LADDER AND NOT AS A TREND.** ### Thirteen cells of
+  ### one family are not a curve.
+
+  ### **AND b320's OBSERVATION, RESTATED AS MEASURED AND NOT EXTRAPOLATED:** ### across the
+  ### three covered cells the margin runs `+0.271445, +0.285510, +0.309778`, which GROWS toward the boundary where the
+  ### registered expectation had it shrink. ### **THAT IS THREE NUMBERS.** ### It is not a
+  ### limit, not a rate, and nothing here is extrapolated past `a = 3`.
+
+  ### THE NOISE-FLOOR GATE, IN THE PATH.
+    domain a=1.3       8.575142606        -> 8.599100561        DRIFTING  
+    identity a=1.3     -0.158889558       -> -0.158889572       RESOLVED  
+    domain a=1.35      6.902180565        -> 6.923497716        DRIFTING  
+    identity a=1.35    -0.186481766       -> -0.186481788       RESOLVED  
+    domain a=1.41      5.488727352        -> 5.507915818        DRIFTING  
+    identity a=1.41    -0.221284108       -> -0.221284143       RESOLVED  
+    ### ### REFUSED -- 3 of 6 value(s) rest on the instrument floor: domain a=1.3, domain a=1.35, domain a=1.41
+    ### **THE IDENTITY VALUES ARE RESOLVED AND THE DOMAIN VALUES ARE NOT.** ### So the
+    ### identity's SIZE is certified and every margin's SIZE is not, and the two are in
+    ### different columns above so the distinction cannot be lost.
+
+====================================================================================================
+  ### CHECKS FAILING : 0 
+  ### elapsed : 393 s
+====================================================================================================

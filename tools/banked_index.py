@@ -83,6 +83,12 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'identity-control': ['the identity control', 'theorem four seven',
+                        'the remainder integral', 'did the equality hold',
+                        'is the exponent settled'],
+    'window-opened': ['window opened', 'the places sum', 'the criterion',
+                      'did the balance come out negative', 'the prime sum sign',
+                      'the explicit formula control'],
     'lawful-function': ['the lawful function', 'the square of the seed',
                         'is the corpus window a g or an f', 'the sonin class membership test',
                         'which cells does theorem one cover'],
@@ -441,6 +447,56 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SECOND AND THIRD THEOREMS AS CONTROLS (b321).
+    ("identity-control", "b321 (two further theorems as controls on the instrument)",
+     "the instrument tested against an EQUALITY and against the explicit formula. ###"
+     " **THEOREM 4.7 / (83) IS AN EQUALITY**, Tr(theta(f) S) = W_8(f) + INT f(rho^-1)"
+     " eps(rho) d*rho, so by cyclicity b320's margin must be exactly minus the remainder"
+     " integral. ### Computed with the b313 FLIPPED COPY -- the source's exponent, on b313's"
+     " reading of three sites and on no number -- it gives 0.158890, 0.186482, 0.221284 at the"
+     " three covered cells. ### **AND THE INSTRUMENT WALKS TOWARD EACH**: the residual along"
+     " the domain ladder at a = 1.3 falls 0.896557, 0.306328, 0.112555, 0.047182, 0.023224 --"
+     " by a factor of two to three at every step, at all three cells. ### **AND THE EXPLICIT"
+     " FORMULA (148) CLOSES AT ALL THIRTEEN CELLS**, residuals 2.2e-09 to 3.6e-05 against the"
+     " atlas's own sealed TOL = 1e-03, truncation bound never above 1.1e-11",
+     "### A CONTROL THAT HOLDS CERTIFIES THE INSTRUMENT, NOT THE OBJECT. ### **NO THEOREM IS"
+     " PROVED HERE** -- the source proved all three. ### **AND THE ORDER'S CONDITIONAL IS"
+     " REFUTED: it said this act closes the exponent question by measurement IF the identity"
+     " holds. ### IT HELD, AND IT DID NOT.** ### The corpus's own exponent copy passes every"
+     " one of the same arms at 3 of 3 cells; the two copies differ by 0.000981, 0.001937,"
+     " 0.003994 where the instrument's own distance from the equality is 0.023224, 0.020793,"
+     " 0.018808. ### **AN INSTRUMENT CANNOT DISCRIMINATE BETWEEN TWO CANDIDATES THAT LIE"
+     " CLOSER TOGETHER THAN ITS OWN DISTANCE FROM THE ANSWER.** ### b313's READING stands"
+     " alone, where b313 left it. ### **NO BAR WAS MOVED**: one quadrature pair missed the"
+     " sealed 1e-06 and the quadrature did more work rather than the bar less. ### NO ACT"
+     " RE-VERDICTED. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b321_the_window_opened.txt; data/b321_components_run.txt;"
+     " tools/b321_window.py (the emitting file); tools/e16/b313f_qeps_layer.py;"
+     " CORRESPONDENCE.md row 154"),
+    # ### THE WINDOW, AND WHY ITS SIGN IS NOT EVIDENCE (b321).
+    ("window-opened", "b321 (the finite-instance balance on lawful objects)",
+     "the places sum of Proposition C.1 computed at the ten cells above a = 2^{1/2}, where the"
+     " lawful f = g conv g^# is supported past 2 and the primes enter. ### SUM_v W_v(f) ="
+     " PR - A, every sign quoted from an owner, comes out **NON-POSITIVE AT 10 OF 10 CELLS**."
+     " ### ### **AND THAT COUNT IS FORCED BY THE SHAPE OF THE COMPUTATION AND IS NOT EVIDENCE"
+     " OF ANYTHING.** ### Two facts collapse it: **(i) THE POLE TERM VANISHES IDENTICALLY**"
+     " for a lawful f -- P = f-tilde(0) + f-tilde(1), and Theorem 1's own vanishing conditions"
+     " force both to zero, worst measured magnitude of order 1e-16 -- so (148) collapses to"
+     " SUM_v W_v = - Z; and **(ii) Z CANNOT BE NEGATIVE**, because f-hat is the squared"
+     " modulus of g-hat (b320 measured it, 13 of 13) and the ordinate library holds only zeros"
+     " ON the line. ### **SO THE TOTAL IS NON-POSITIVE BEFORE A SINGLE PRIME IS SUMMED**",
+     "### A COUNT THAT COULD NOT HAVE COME OUT THE OTHER WAY IS NOT A RESULT. ### **A FINITE"
+     " WINDOW AT A FINITE CUTOFF DECIDES NOTHING GLOBAL** -- 10000 ordinates, eleven primes,"
+     " thirteen cells of one family, against a criterion that quantifies over every lawful g."
+     " ### A zero OFF the line is exactly what would break the sign and this library contains"
+     " none by construction. ### **ONE THING HERE IS A REAL MEASUREMENT: THE PRIME SUM CHANGES"
+     " SIGN TWICE ALONG THE LADDER** -- positive at 1.5 and 1.7, negative from 1.9 to 2.4,"
+     " positive again at 2.8 and 3.0 -- which is where log 2 falls in an oscillating test"
+     " function and nothing more. ### **THE PRIME SUM EXCEEDS THE MARGIN AT NO CELL.** ### THE"
+     " BALANCE IS INTERPRETED BY NOBODY IN THIS ACT. ### W-ORD-WINDOW-CLASS STAYS OPEN. ### NO"
+     " GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b321_the_window_opened.txt; data/b321_components_run.txt;"
+     " data/b321_registration_2026-09-04.txt (sealed); CORRESPONDENCE.md row 155"),
     # ### THE SQUARE OF THE SEED, AND THE CELLS THE THEOREM COVERS (b320).
     ("lawful-function", "b320 (a construction, and the class test the source defines)",
      "the corpus's seed squared in the source's own convention and tested against the"

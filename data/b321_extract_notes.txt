@@ -1,0 +1,469 @@
+====================================================================================================
+b321_extract.py -- THE EXTRACT STEP. ### **THE FINDER IS b317's, IMPORTED NOT COPIED.**
+====================================================================================================
+  finder source    : b317_extract.py
+  ### ITS FIXTURES, RUN HERE BEFORE IT IS TRUSTED : [True, True, True, True, True, True, True, True]  PASS
+
+----------------------------------------------------------------------------------------------------
+### THE PIN. ### **BEFORE A WORD OF THE ARTEFACT IS READ.**
+----------------------------------------------------------------------------------------------------
+  artefact  : cc_2006.13771v1.pdf
+  cite      : Connes & Consani, "Weil positivity and Trace formula the archimedean place", arXiv:2006.13771v1
+  sha256    : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### MATCHES THE PIN b304 SET AND b305/b317/b318/b320 RE-CHECKED : True  YES
+  pages     : 57
+
+----------------------------------------------------------------------------------------------------
+### THE SOURCE FRAGMENTS.
+----------------------------------------------------------------------------------------------------
+
+### ==== ### THEOREM 4.7 / (83) -- THE EQUALITY, AND THE REMAINDER eps
+###      page index 26 (printed page 27) | anchor 'Theorem4.7' | char offset 1526
+    | (75) is valid for all ρP R˚
+    | `.
+    | Next theorem reﬁnes the local trace formula (43)
+    | Theorem 4.7 Let S be the orthogonal projection of L2pRqev on the closed subspace Sp1, 1q. The
+    | following functional is positive
+    | TrpϑpfqSq“ W8pfq`
+    | ż
+    | fpρ´1qϵpρqd˚ρ, @fPC8
+    | c pR˚
+    | `q, (83)
+    | where W8 is as in (53), ϵpρq is the function of ρP R˚
+    | `, with ϵpρ´1q“ ϵpρq, which is given, for
+    | ρě 1, by
+    | ϵpρq“
+    | ÿ λpnqa
+    | 1´λpnq2xξn|ϑpρ´1qζny. (84)
+    | Proof. By (43) one has, rewriting the formula in L2pRqev,
+    | W8pfq`
+    | ż
+    | fpρ´1qδpρqd˚ρ“ Tr
+    | ´
+    | ϑpfqP pPP
+    | ¯
+    | . (85)
+    | By (75) one has, for ρě 1,
+    | δpρq“
+    | ÿ´
+    | λpnq2xξn|ϑpρ´1qξny` λpnq
+    | a
+    | 1´λpnq2xξn|ϑpρ´1qζny
+    | ¯
+    | . (86)
+    | 7We are only using the even prolate functions, the sum of squares of eigenvalues including the odd ones is 4.
+    | 27
+
+### ==== ### (61) THE SCALING ACTION -- THE EXPONENT AT ITS DEFINING SITE
+###      page index 22 (printed page 23) | anchor 'itsactionisgivenby' | char offset 1567
+    | also [18] Chapter 2, §3.3), for Λ “ 1.
+    | We switch to the Hilbert space L2pRqev and use the isomorphism w of (17) to rewrite (60)
+    | inL2pRqev. Let ϑ :“w´1ϑmw be the unitary representation ϑm conjugated by the isomorphism
+    | w, its action is given by
+    | pϑpλqξqpvq :“ λ´1{2ξpλ´1vq, @ξPL2pRqev. (61)
+    | The projection P (still denoted by the same letter), becomes the multiplication by the charac-
+    | teristic function of the interval complement txP R||x|ě 1u
+
+### ==== ### (1) THE RIEMANN-WEIL EXPLICIT FORMULA, AS THE PAPER OPENS WITH IT
+###      page index 0 (printed page 1) | anchor 'equivalenttothenegativity' | char offset 1011
+    | he general semi-local case,
+    | where Weil positivity implies RH.
+    | Introduction
+    | It was shown by A. Weil [33] that the Riemann Hypothesis (RH) is equivalent to the negativity
+    | of the right-hand side of the Riemann-Weil explicit formula [7] (Appendix B: (148))
+    | ˜fp0q´
+    | ÿ
+    | ρPZ
+    | ˜fpρq` ˜fp1q“
+    | ÿ
+    | v
+    | Wvpfq, ˜fpsq :“
+    | ż8
+    | 0
+    | fpxqxs´1dx (1)
+    | whereZ is the multi-set of non-trivial zeros of the Riemann zeta function and for a precise class
+    | of complex-valued test functions on the positive half-line, of the form
+    | fpxq“
+    | ż8
+    | 0
+    | gpxyqgpyqdy, ˜gp0q“ 0, ˜gp1q“ 0.
+    | In fact, following [34], it is enough to prove the negativity of the right-hand side of (1) for
+    | functions g with compact support in the (locally compact) multiplicative group R˚
+    | ` “ p0,8q.
+    | Furthermore, given any ﬁnite set of complex numbersF Ąt 0, 1u,FXZ“H , using the notation
+    | g7pxq :“x´1gpx´1q, ¯gpxq“ gpxq, one has (Appendix C, Pr
+
+### ==== ### (148) AND (149) -- THE SAME FORMULA WITH ITS SIGNS AND ITS FINITE PLACE
+###      page index 49 (printed page 50) | anchor 'wherevrunsoverallplaces' | char offset 992
+    | tiplicative Fourier transform (22).
+    | Appendix B. Explicit formula
+    | In this appendix, we gather diﬀerent sources on the normalization of the archimedean contri-
+    | bution to the explicit formula. Following [7], one deﬁnes the Mellin transform of a function
+    | fPC8
+    | c pR˚
+    | `q as
+    | ˜fpsq :“
+    | ż8
+    | 0
+    | fpxqxs´1dx. (147)
+    | Then, with f7pxq :“x´1fpx´1q the explicit formula takes the form
+    | ÿ
+    | ρ
+    | ˜fpρq“
+    | ż8
+    | 0
+    | fpxqdx`
+    | ż8
+    | 0
+    | f7pxqdx´
+    | ÿ
+    | v
+    | Wvpfq, (148)
+    | wherev runs over all placestR, 2, 3, 5,... u of Q, the sum on the left hand side is over all complex
+    | zeros ρ of the Riemann zeta function, and for v“p
+    | Wppfq“p logpq
+    | 8ÿ
+    | m“1
+    | `
+    | fppmq` f7ppmq
+    | ˘
+    | . (149)
+    | The archimedean distribution is deﬁned as
+    | WRpfq :“p log 4π`γqfp1q`
+    | ż8
+    | 1
+    | ˆ
+    | fpxq` f7pxq´ 2
+    | xfp1q
+    | ˙ dx
+    | x´x´1. (150)
+    | One then has
+    | WRpfq“p logπqfp1q´ 1
+    | 2πi
+    | ż
+    | 1{2`iw
+    | ℜ
+    | ˆΓ1
+    | Γ
+    | ´w
+    | 2
+    | ¯˙
+    | ˜fpwqdw. (151)
+    | In [6] and [8] a positivity result for the distribution W8 “´ WR is proven, (for test functions
+    | with support in a small enough interval around 1), by writing the distribution W8 in terms of
+    | the Mel
+
+### ==== ### (9) L(f) = D(f) - W_infinity(f) -- THE SIGN CHAIN THE PAPER USES
+###      page index 3 (printed page 4) | anchor 'thepositivityofthefollowingfunctional' | char offset 2481
+    | nel of pu˚
+    | 8
+    | ´du8qg and its com-
+    | pression. We prove, following an idea of [17], the positivity of the following functional without
+    | any restriction on the support of the test functions fPC8
+    | c pR˚
+    | `q
+    | Lpfq“ Dpfq` W8pfq, D pfq :“
+    | ż
+    | fpρ´1qδpρqd˚ρ. (9)
+    | The proof (Proposition 2.2 and Corollary 2.3) is abstract and conceptual and rests on Hilbert
+    | space operators. This result is also checked numerically using the equivalence between positivity
+    | in the convolution algebraC8
+    | c pR˚
+    | `q and pointwise positivity after Fourier transform. The Fourier
+    | tr
+
+### ==== ### PROPOSITION C.1 -- THE POSITIVITY CRITERION ITSELF
+###      page index 50 (printed page 51) | anchor 'PositivitycriterionWefollow' | char offset 144
+    |  Γpsq, for ℜpsqą 0, the branch of the log which is real for s real.
+    | Appendix C. Positivity criterion
+    | We follow [34] and state the following equivalence, using the Mellin transform
+    | Proposition C.1 Let Z Ă C be the set of non-trivial zeros of the Riemann zeta function and
+    | F Ă C a ﬁnite set disjoint from Z and containing t0, 1u, then
+    | RH ðñ
+    | ÿ
+    | v
+    | Wvpg˚ ¯g7qď 0, @gPC8
+    | c pR˚
+    | `q| ˜gpzq“ 0, @zPF. (155)
+    | Proof. The implication “ñ” follows from the explicit formula (148) and the hypothesis t0, 1uĂ
+    | F . Conversely, the proof of Proposition 1 of [34] applies verbatim, provided one ﬁrst reﬁnes the
+    | proof of Lemma 1 of op.cit. by showing that, given ϵą 0 and ρ0PZ, there exists g0PC8
+    | c pR˚
+    | `q
+    | such that
+    | ˜g0pzq“ 0, @zPF ; ˜ g0pρ0q“ 1; |˜g0pρq|ď ϵ{|ρ´ρ0|2, @ρPZ, ρ‰ρ0.
+    | In order to fulﬁll the additional vanishing condition: ˜ g0pzq “0,@z P F 
+
+### ==== THEOREM 1 -- THE THREE CONDITIONS ON g AND THE INEQUALITY
+###      page index 2 (printed page 3) | anchor 'Theorem 1 Let g' | char offset 319
+    |  of square integrable even functions) on the Sonin’s space.
+    | Theorem 1 Let g P C8
+    | c pR˚
+    | `q have support in the interval r2´1{2, 21{2s and Fourier transform
+    | vanishing at i
+    | 2 and 0. Then one has
+    | W8pg˚g˚qě Trpϑpgq Sϑpgq˚q. (4)
+    | Equivalence (2) shows that, since ζp 1
+    | 2`isq‰ 0 for s“ 0, i
+    | 2, the imposed vanishing conditions
+    | do not compromise our strategy towards RH. In Theorem 6.11 we show, more pr
+
+### ==== (53) W_infinity AND (54) THE VANISHING CONDITIONS
+###      page index 16 (printed page 17) | anchor 'weinvestigatethefunctional' | char offset 1350
+    | r´A,As.
+    | This result applied to the multiplicative group R˚
+    | ` (isomorphic to R) gives, for any positive
+    | deﬁnite function f P C8
+    | c pR˚
+    | `q with support in a symmetric interval I “ rA´1,As Ă R˚
+    | `, a
+    | convolution square root with support in
+    | ?
+    | I“rA´1{2,A 1{2s.
+    | Next, we investigate the functional on the convolution algebra C8
+    | c pR˚
+    | `q
+    | W8pfq“´
+    | ż
+    | fpρ´1qτpρqd˚ρ (53)
+    | for test functions f whose support is in the interval r 1
+    | 2, 2s. Moreover, we assume the vanishing
+    | conditions ż
+    | fpρqρ˘ 1
+    | 2d˚ρ“ 0 (54)
+    | to isolate on the left hand side of the explicit formula the contribution of the zeros of the Riemann
+    | zeta function. To understand why the support condition is needed, we give an example of a test
+    | function f on R˚
+    | ` of the form f “ g˚g˚ that fulﬁlls (54), but for which W8pfqă 0. We ﬁrst
+    | determin
+
+### ==== (38) THE PRINCIPAL VALUE, AND (39) THE KERNEL tau
+###      page index 10 (printed page 11) | anchor 'can be rewritten as' | char offset 152
+    | ´ IpΣqq“ 4ρ
+    | 1
+    | 2
+    | ż8
+    | 0
+    | cosp2πρtq cosp2πtqp´ logtqdt (37)
+    | that can be rewritten as
+    | τpρq“ ρ
+    | 1
+    | 2
+    | ż
+    | R
+    | pexpp2πip1`ρqtq` expp2πip1´ρqtqqp´ log|t|qdt. (38)
+    | The Fourier transform of the distribution ´ log|t| is the distribution W “ FeRp´ log|t|q“ 1
+    | 2
+    | 1
+    | |x|
+    | (with Weil’s normalization). To understand the presence of the factor 1
+    | 2, note that one has the
+    | equalities
+    | pFeRpBxfqqpyq“ 2πiypFeRpfqqpyq, pFeRp2πixfqqpyq“´B ypFeRpfqqpyq
+    | and hence one obtains
+    | pFeRpxBxfqqpyq“´B ypyFeRpfqqpyq.
+    | Since ´tBtp´ log|t|q “ 1, the distribution W fulﬁlls the equation BypyWq “δ0, so that one
+    | obtains:yW “ 1
+    | 2signpyq (sinceyW is odd) and Wpyq“ 1
+    | 2
+    | 1
+    | |y|. With this deﬁnition of the principal
+    | value, (38) gives the Weil distribution ( [18] Section 4.2)
+    | τpρq“ ρ
+    | 1
+    | 2
+    | 2
+    | ˆ 1
+    | 1`ρ` 1
+    | |1´ρ|
+    | ˙
+    | . (39)
+    | pivq Let us show thatϑmpfq 1
+    | 2pu˚
+    | 8
+    | ´du8qg is of trace class. It is enough, by using the commutativity
+    | of ϑmpfq with the bounded operator pu˚
+    | 8qg, to show that ϑmpfqp´du8qg is of trace class. Using
+    | the Fourier trans
+
+### ==== DEFINITION 3.1 -- POSITIVE DEFINITE
+###      page index 16 (printed page 17) | anchor 'positive definite when its Fourier' | char offset 238
+    | use the following terminology
+    | Deﬁnition 3.1 Let G be a locally compact abelian group and f P L1pG,dgq. We say that f is
+    | positive deﬁnite when its Fourier transform is pointwise positive, i.e. pfptqě 0,@tP pG.
+    | We recall the following result of Boas and Kac ( [5] Lemma 5.1 and [20])
+    | Proposition 3.2 Let f P C8
+    | c pRq have support in the interval r´A,As (
+
+  ### ### **SOURCE FRAGMENTS NOT FOUND : 0**
+
+----------------------------------------------------------------------------------------------------
+### THE CODE FRAGMENTS. ### **THE INSTRUMENTS THIS ACT USES, READ THE SAME WAY.**
+----------------------------------------------------------------------------------------------------
+
+### ==== ### THE REMAINDER UNDER THE SOURCE EXPONENT -- b313 FLIPPED COPY, NOT THE OWNER
+###      tools/e16/b313f_qeps_layer.py | lines 98-116
+    | def eps(rho, NQ=700, NG=400):
+    |     """eps at scalar or array rho, via (85) with theta(a)f(x) = a^{-1/2} f(x/a)."""
+    |     x, w, lam, lam2, xi, xi1, an, dan = layer(NQ)
+    |     rho = np.atleast_1d(np.asarray(rho, dtype=float))
+    |     out = np.empty(len(rho))
+    |     gx, gw = np.polynomial.legendre.leggauss(NG)
+    |     # xi_n on [0,1] equals xi_n^an there; use the continuation for a common evaluator
+    |     for k, r in enumerate(rho):
+    |         lo, hi = 1.0 / r, 1.0
+    |         if hi - lo <= 0:
+    |             out[k] = 0.0
+    |             continue
+    |         u = 0.5 * (hi - lo) * gx + 0.5 * (hi + lo)
+    |         jac = 0.5 * (hi - lo)
+    |         I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)
+    |         out[k] = float((lam2 / (1 - lam2) * (r ** 0.5) * I).sum())
+    |     return out if out.size > 1 else float(out[0])
+    | 
+    | 
+
+### ==== ### AND THE CORPUS BANKED EXPONENT, THE SAME FUNCTION, FOR THE CONTRAST
+###      tools/e16/b313r_qeps_layer.py | lines 98-116
+    | def eps(rho, NQ=700, NG=400):
+    |     """eps at scalar or array rho, via (85) with theta(a)f(x) = a^{1/2} f(x/a)."""
+    |     x, w, lam, lam2, xi, xi1, an, dan = layer(NQ)
+    |     rho = np.atleast_1d(np.asarray(rho, dtype=float))
+    |     out = np.empty(len(rho))
+    |     gx, gw = np.polynomial.legendre.leggauss(NG)
+    |     # xi_n on [0,1] equals xi_n^an there; use the continuation for a common evaluator
+    |     for k, r in enumerate(rho):
+    |         lo, hi = 1.0 / r, 1.0
+    |         if hi - lo <= 0:
+    |             out[k] = 0.0
+    |             continue
+    |         u = 0.5 * (hi - lo) * gx + 0.5 * (hi + lo)
+    |         jac = 0.5 * (hi - lo)
+    |         I = ((an(u) * an(r * u)) * (gw[:, None] * jac)).sum(0)
+    |         out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+    |     return out if out.size > 1 else float(out[0])
+    | 
+    | 
+
+### ==== THE SETTLED CHAIN -- the corpus own zero/pole/arch/prime channels
+###      tools/e16/carto_atlas.py | lines 61-82
+    | def channels(a):
+    |     v, w = bump(a)
+    |     Z = 2.0 * float(np.sum(hhat(v, w, GAM)))                 # zero side
+    |     P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v))   # pole
+    |     U = np.linspace(-UMAX, UMAX, NU)
+    |     A = float(np.trapezoid(hhat(v, w, U) * kernel(U), U) / (2.0 * math.pi))
+    |     PR, terms = 0.0, []
+    |     L = math.log(a)
+    |     for p in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31):
+    |         k = 1
+    |         while p ** k <= a + 1e-12:
+    |             n = p ** k
+    |             ln = math.log(n)
+    |             if ln <= L:
+    |                 val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+    |                 if val:
+    |                     PR += val
+    |                     terms.append(n)
+    |             k += 1
+    |     return dict(a=a, zero=Z, pole=P, arch=A, prime=PR,
+    |                 residual=Z - (P - PR + A), prime_terms=terms)
+    | 
+
+### ==== ### THE SIGN CONVENTION, IN THE ATLAS OWN HEADER
+###      tools/e16/carto_atlas.py | lines 14-25
+    |                         the psi-kernel grows like log u, so the tail is negligible
+    |     TOL     = 1e-3      E2 pass tolerance on the explicit-formula residual
+    |     NGAM    = 10000     banked verified ordinates
+    | Truncation bound for the zero side is computed and printed, not assumed.
+    | 
+    | Explicit formula, even test function, standard normalisation:
+    |     sum_gamma hhat(gamma)  =  hhat(i/2) + hhat(-i/2)  -  PRIME  +  ARCH   [sign fixed BY the E2 calibration]
+    | """
+    | import math, os, sys, json, time
+    | import numpy as np
+    | 
+    | NV, NU, UMAX, TOL, NGAM = 4001, 12001, 600.0, 1e-3, 10000
+
+### ==== THE TRUNCATION BOUND FOR THE ZERO SIDE
+###      tools/e16/carto_atlas.py | lines 84-91
+    | def trunc_bound(a):
+    |     """|2 sum_{gamma > T} hhat(gamma)| bound: hhat decays like the bump's transform."""
+    |     v, w = bump(a)
+    |     T = float(GAM[-1])
+    |     tail = hhat(v, w, np.linspace(T, T + 200.0, 401))
+    |     return float(2.0 * np.max(np.abs(tail)) * 200.0)
+    | 
+    | 
+
+### ==== THE ZERO LIBRARY -- independent of everything else in this act
+###      tools/e16/zeta_ordinates.py | lines 103-116
+    | def get(M):
+    |     if os.path.exists(CACHE):
+    |         a = np.load(CACHE)
+    |         if len(a) >= M:
+    |             return a[:M]
+    |     a = build(max(M, 10000))
+    |     np.save(CACHE, a)
+    |     return a[:M]
+    | 
+    | if __name__ == "__main__":
+    |     M = int(sys.argv[1]) if len(sys.argv) > 1 else 10000
+    |     a = build(M)
+    |     np.save(CACHE, a)
+    |     print("\nbuilt %d ordinates, last = %.6f" % (len(a), a[-1]))
+
+### ==== THE ARCHIMEDEAN DISTRIBUTION -- b320, repaired and fixtured
+###      tools/b320_weil.py | lines 178-196
+    | def weil(f):
+    |     """### ### **`W_infinity(f)` FROM (53), (38) AND (39). ### RETURNS `(value, reg, sing, phi0)`.**"""
+    |     v = np.linspace(f.v[0], f.v[-1], NV)
+    |     w = np.interp(v, f.v, f.w, left=0.0, right=0.0)
+    |     reg = float(np.trapezoid(w * np.exp(v / 2.0) / (2.0 * (1.0 + np.exp(v))), v))
+    |     pf, xl, xh, ph0 = phi_of(f)
+    |     sing = pair_W(pf, xl, xh, ph0)
+    |     return -(reg + sing), reg, sing, ph0
+    | 
+    | 
+    | def self_test(verbose=False):
+    |     ok, lines = [], []
+    | 
+    |     def note(s):
+    |         lines.append(s)
+    | 
+    |     # ### (i) ### **THE CONSTANT IS UNIVERSAL, WHICH IS WHAT MAKES IT A CONSTANT.**
+    |     ok.append(C_SPREAD < 1e-6 * max(abs(C_R), 1.0))
+    |     note('(i)    C_R from widths 1.0 and 0.5 : %s ; spread %.3e ; C_R = %.12f'
+
+### ==== THE PRODUCT AND THE SQUARE -- b318
+###      tools/b318_square.py | lines 113-134
+    | 
+    | def autocorrelation(f, nv=AUTOCORR_NV):
+    |     """### ### **`f^ conv f`, THE SOURCE'S `g conv g^`, IN THE SOURCE'S OWN VARIABLE.**
+    | 
+    |     ### `(f^ conv f)(v) = INT f(u) f(u + v) du`, whose support is twice the width of `f`'s and whose
+    |     ### transform is `|f-hat|^2` -- which is why it is positive definite and `f` need not be.
+    |     """
+    |     L = abs(float(f.v[-1]))
+    |     u = np.linspace(-L, L, int(nv))
+    |     du = u[1] - u[0]
+    |     w = np.interp(u, f.v, f.w, left=0.0, right=0.0)
+    |     ac = np.correlate(w, w, mode='full') * du
+    |     v = np.linspace(-2.0 * L, 2.0 * L, ac.size)
+    |     return SM.TestFunction('autocorrelation of ' + f.name, v, ac,
+    |                            'formed from the same test function by np.correlate on a uniform grid')
+    | 
+    | 
+    | # ### ==============================================================================================
+    | # ### THE SQUARE FORM.
+    | # ### ==============================================================================================
+    | def square_trace(fr, sub, f, block=None):
+    |     """### ### **`|| theta(f) S ||_HS^2`, FORMED AS A SUM OF SQUARES AND NOTHING ELSE.**
+
+  ### ### **CODE FRAGMENTS NOT PRESENT : 0**
+
+  ### **AND THE ONE DISTINCTION THIS FILE EXISTS TO MAKE VISIBLE:** ### the two remainder
+  ### copies above differ in ONE character -- `r ** 0.5` against `r ** -0.5`. ### b313
+  ### settled which the SOURCE uses by reading three sites, and this act uses the flipped
+  ### copy on that ground and not because of any number it produces.
+====================================================================================================
