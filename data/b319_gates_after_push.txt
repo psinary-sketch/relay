@@ -1,0 +1,202 @@
+====================================================================================================
+b319 -- GATE SUITE (AN INSTRUMENT BUILD AND A KERNEL REPAIR)
+====================================================================================================
+
+  OWNER NEEDLES (the source ones pulled from the EXTRACT FILE, not the PDF):
+    PASS  the two projections, from the extract
+    PASS  the spectral decomposition (81), from the extract
+    PASS  ### and that its remainder IS the projection on the space
+    PASS  the eigenvalue-one characterization, from the extract
+    PASS  the bandwidth parameter, from the extract
+    PASS  b318 -- the act that filed the order
+    PASS  b316 -- the limit this act may not cross
+    PASS  the grid scheme this act replaces
+    PASS  ### and the unit this act imports rather than defines
+    PASS  the smear column, imported
+    PASS  the square, imported
+    PASS  the coverage gate's own parsers, imported
+    PASS  the floor/drift gate
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  bank gives the rank verdict
+    PASS  ### bank counts the rank changes both ways
+    PASS  bank reports the grid half attained
+    PASS  ### bank names its own bar defective
+    PASS  ### and says why it cannot be met
+    PASS  bank reports the spectral separation
+    PASS  ### bank says the stable cut contains the grid cut
+    PASS  ### bank refuses to call changed values a reproduction
+    PASS  ### bank refutes the second scheme rather than deferring it
+    PASS  ### bank reports the unit residual with no verdict
+    PASS  bank reports the profile prefix
+    PASS  bank reports the axiom-bearing count
+    PASS  ### bank refuses to call the repair a result
+    PASS  ### bank names the byte trap it avoided
+    PASS  bank files the reach-bar order
+    PASS  bank discharges the rank order
+    PASS  bank carries the membership order forward
+    PASS  bank discharges the coverage order
+    PASS  bank declares its deviations
+    PASS  bank lists what it did not check
+    PASS  bank gives the in-flight register
+    PASS  bank marks the archimedean leg
+    PASS  bank keeps M-2 unchanged under its cap
+    PASS  bank restates the seam debt item 1
+    PASS  bank restates the patent clock
+    PASS  bank reports the census with its scope
+    PASS  bank keeps h2 where the deposit left it
+    PASS  ### bank declares the re-seal
+    PASS  bank names the next act
+    PASS  bank says which statement is finite-decidable
+    PASS  registration names the act
+    PASS  registration seals before any spectrum
+    PASS  registration carries the threshold and the bars
+    PASS  ### registration forbids a membership verdict
+    PASS  ### registration declares the reading it was forced into
+    PASS  the run reports zero checks failing
+    PASS  the run counts the rank changes
+    PASS  the run reports the square never negative
+    PASS  ### the run reports the reach empty
+    PASS  ### the run reports the noise gate refusing
+    PASS  the run marks the unit residual as no verdict
+    PASS  the run checks the sandwich spectrum
+    PASS  the repair reproduces the baseline
+    PASS  ### the repair proves the prefix
+    PASS  ### the repair reports the axiom count
+    PASS  the repair shows the gate passing
+    PASS  the repair reports zero build errors
+    PASS  the pin agrees on the grid axis
+    PASS  ### the pin is refuted on the domain axis
+    PASS  ### the pin names the bar defect
+    PASS  the extract reports nothing missing
+    PASS  the census reports its count
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the reach is not called non-empty
+    PASS  the bar is not reinterpreted
+    PASS  the number is not called converged
+    PASS  membership is not decided
+    PASS  the unit is not placed in the space
+    PASS  the residual is not called small
+    PASS  the repair is not called a proof
+    PASS  no axiom is hidden
+    PASS  b316 is not re-verdicted
+    PASS  b318 is not re-verdicted
+    PASS  b318 numbers are not called wrong
+    PASS  no grade is moved
+    PASS  the source's eigenspace is not claimed
+    PASS  the inequality is not evaluated
+    PASS  no Core module is edited
+    PASS  no instrument is edited
+    PASS  no aggregation is stated
+    PASS  nothing about h2
+    PASS  nothing about the identity
+    PASS  no p-adic reach is claimed
+
+  G-ONELEAN (exactly one `.lean` changed, and no `Core/` module):
+    `.lean` paths changed in the kernel repo : []
+    ### of those under `Core/` : 0  
+    `.lean` changed in relay : ''
+
+  G-PREFIX (the old profile is a LITERAL BYTE PREFIX of the new one):
+    baseline reproduced before the edit : True ; prefix after it : True
+
+  G-ASPRINTED (the axiom count is read off the printed file):
+    the repair reports it : True ; the bank says where it came from : True
+
+  G-GATEPASSES (the gate that filed the order now passes):
+    the coverage gate passes : True
+
+  G-BARDEFECT (the reach is reported under the bar AS WRITTEN, and the bar is named):
+    the reach is empty and said so : True ; the bar is named defective : True
+    and the fix is a PROPOSAL, not a change to a sealed file : True
+
+  G-PINTRIED (the second scheme tried on both axes, and refuted on one):
+    tried on the grid axis, refuted on the domain axis, and said so : True
+
+  G-NOVERDICT (the unit residual is a measurement):
+    the run, the bank and the seal all say so : True
+
+  G-NOUNITDEF (no unit is DEFINED here -- b316's is imported):
+    `def sonin_unit` in this act's tools : False ; b316's is called : True
+    ### **b317 AND b318 CAPPED ANY CALL. ### THIS ACT'S ORDER REQUIRES ONE**, so the cap
+    ### becomes DEFINITION rather than use, and the verdict cap at G-NOVERDICT carries
+    ### what the old one was really protecting.
+
+  G-NOWEIL (neither side of the source's inequality is computed):
+    no distribution is computed in either tool : True
+
+  G-ARMS (every arm shown ABLE to fire, or reported unable):
+    the sandwich spectrum, inside [0,1]                      PASS
+    the threshold selection, able to change its mind         PASS
+    the identity control at every frame                      PASS
+    the coverage gate, still able to fail                    PASS
+    the pin, refuted on the domain axis                      PASS
+    the noise-floor gate -- REPORTED REFUSING                PASS
+
+  G-NOFLOAT (no undeclared float literal in the deciding runner):
+    STRIPPER FIXTURE (imported from b317): quiet=True loud=True
+    float literals in b319_run.py : 13 ; UNDECLARED : 0 
+
+  G-NOEDIT (the owner instruments byte-identical to git HEAD, checked AFTER the run):
+    git status over those paths : ''
+
+  G-NOPAPERS / G-ANCESTOR:
+    PLACE-papers tracked changes : 0 ; table is a TRUE PREFIX : True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 21   struck-clause hits 0   stem hits 0  PASS
+    b319_checks.py                 struck : 3  stem : 0  ### CARRIER -- its own fixtures
+    b319_index_append.py           struck : 0  stem : 0  ### CARRIER -- its own fixtures
+    b319_the_stable_rank.txt       struck : 0  stem : 0  ### CARRIER -- it is the act's own voice and is scanned as such
+    b319_registration_2026-09-04.txt struck : 0  stem : 0  ### CARRIER -- it is the sealed registration
+    b319_ferry_2026-09-04.txt      struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b319_ferry_scan.txt            struck : 0  stem : 0  ### CARRIER -- it is the scan's own log
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the subspace by the eigenvalue-one criterion         tools/b319_stable.py               exists=True tracked=True
+    the components, the axes, the reach and the unit res tools/b319_run.py                  exists=True tracked=True
+    the kernel-coverage repair and its byte comparison   tools/b319_coverage_repair.py      exists=True tracked=True
+    the second scheme, tried on both axes                tools/b319_pin.py                  exists=True tracked=True
+    the source fragments, located                        tools/b319_extract.py              exists=True tracked=True
+    ### the finder those fragments were located with     tools/b317_extract.py              exists=True tracked=True
+    the grid scheme, the projector and the unit          tools/b316_instrument.py           exists=True tracked=True
+    the variant, the kernel and the smear                tools/b317_smear.py                exists=True tracked=True
+    the square and the autocorrelation                   tools/b318_square.py               exists=True tracked=True
+    the coverage gate's two counts                       tools/b315_coverage_gate.py        exists=True tracked=True
+    the prolate eigenvalues the threshold is argued from tools/e16/qeps_layer.py            exists=True tracked=True
+    the floor/drift verdicts                             tools/noise_floor.py               exists=True tracked=True
+    what is missing from the ledger, counted             tools/b307_handoff_census.py       exists=True tracked=True
+    the shared-target sweep's hits                       tools/b306_stem_scope.py           exists=True tracked=True
+    the ahead/behind pairs and the pins                  tools/b303_pins.py                 exists=True tracked=True
+    the artifact-count prediction demand (ruling 1)      tools/b319_regspec.py              exists=True tracked=True
+    the satisfiability verdict over the declared caps    tools/reg_satisfiable.py           exists=True tracked=True
+    the ferry scan's counts                              tools/ferry_scan.py                exists=True tracked=True
+    the banned/retired stem counts                       tools/banned_terms.py              exists=True tracked=True
+    the gate, needle and hedge counts                    tools/b319_checks.py               exists=True tracked=True
+    ### the stripper those gates read code with          tools/b317_checks.py               exists=True tracked=True
+    the correspondence rows' numbers                     tools/b319_correspondence.py       exists=True tracked=True
+    the index key's read-back arms                       tools/b319_index_append.py         exists=True tracked=True
+    the registration's seal hash                         tools/reg_seal.py                  exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-SEAL:
+    seal intact : True  PASS
+    ### **AND THE SEAL BLOCK CARRIES A SUPERSEDED HASH**, because this registration was
+    ### sealed with a banned stem in it and RE-SEALED after the repair. ### Declared.
+
+  HEDGE AUDIT (over every file this act wrote):
+    the bank                 sentences=681   graded-hedges=0   ungraded-shapes=125
+    the registration         sentences=362   graded-hedges=0   ungraded-shapes=83
+    the run                  sentences=258   graded-hedges=0   ungraded-shapes=25
+    the repair               sentences=193   graded-hedges=0   ungraded-shapes=14
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0
+====================================================================================================
