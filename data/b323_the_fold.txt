@@ -52,6 +52,14 @@ b314 through b322 into the findings document under its own rules. ### **NINE ACT
 ### ### **AND A THIRD, SMALLER, WHICH COST THE RECORD TWO RUNS:** ### the runner's log list was local
 ### to `main` while the `__main__` block wrote it, so ### **`b323_fold_run.txt` WAS EMPTY AFTER BOTH
 ### ### EARLY RUNS.** ### A tool whose record of itself is empty ran without leaving evidence.
+### ### **AND A FOURTH, FOUND BY THE POST-PUSH RE-RUN ITSELF AND FILED RATHER THAN TIDIED:**
+### the generator rewrites `b323_fold_run.txt` on EVERY invocation, including the idempotent
+### one -- so ### **RE-RUNNING THE SUITE AFTER THE PUSH REPLACED THE RECORD OF THE APPEND
+### ### WITH THE RECORD OF A RUN THAT WROTE NOTHING.** ### The committed blob still holds the
+### append and the working copy was restored from it, so nothing was lost -- but a reader of
+### the working tree would have seen the wrong file. ### **THE CLOSING RULE AND THE
+### ### IDEMPOTENCE GUARD INTERACT, AND THIS ACT FOUND THE INTERACTION BY OBEYING BOTH.**
+### The post-push run is banked separately at `data/b323_fold_postpush.txt`.
 
 ----------------------------------------------------------------------------------------------------
 ### STEP ZERO.
