@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-instrument-arc': ['the seven acts', 'b307 to b313',
+                    'the arc as one statement', 'the convention erratum'],
+    'the-cold-clone': ['the kernel rebuilt from a clone', 'the certification test',
+                    'uncertified terminals', 'the coverage answer'],
     'the-exponent': ['the flip', 'the remainder under the source normalization',
                     'did the residue collapse', 'the exponent check'],
     'convention-share-of-the-residue': ['what the convention accounts for',
@@ -413,6 +417,56 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE INSTRUMENT ARC FOLDED (b314).
+    ("the-instrument-arc", "b314 (a filings act)",
+     "seven acts -- b307 through b313 -- filed into PLACE-papers/FINDINGS.md as **THE"
+     " INSTRUMENT ARC, b307-b313 -- THE FOLD**. ### **14 QUOTATIONS, 0 UNFINDABLE, EVERY ONE"
+     " CHECKED AGAINST THE ACT THAT ORIGINATED IT BEFORE EMISSION**, with a discrimination"
+     " arm requiring an ALTERED quotation back unfindable. ### FINDINGS.md +100 / -0. ###"
+     " The arc as one statement: at a finite place the source's construction returns the test"
+     " function at one point times a dimension and carries no arithmetic; the mechanism"
+     " producing that silence DOES NOT TYPE at the archimedean place; and the corpus's"
+     " remainder is NOT the source's function, differing by a factor of rho whose correction"
+     " accounts for 8% to 19% of the residue and no more. ### The author's CONVENTION"
+     " ERRATUM ruling executed: ERRATA.md entry **E-2026-09-03-1**, internal record, +28 / -0",
+     "### A FILINGS ACT. ### **NO GRADE MOVES, NO ACT IS RE-VERDICTED, AND NOTHING IN THE"
+     " SECTION IS NEW MATHEMATICS.** ### Additivity MEASURED by `git diff --numstat`, not"
+     " asserted. ### Five falsifiers, all DID NOT FIRE. ### **THE OWNER INSTRUMENT FILES STAY"
+     " BYTE-IDENTICAL**, checked before and after the errata entry, on the E1 precedent:"
+     " THE RECORD DOES NOT SILENTLY OVERWRITE ITSELF. ### The entry carries a standing"
+     " clause -- **a banked remainder value is quotable only with its convention named**. ###"
+     " **NOTHING ABOUT THE IDENTITY, h2, OR THE ROSTER FOLLOWS**; the vectors-outside-the-"
+     " object hypothesis is NAMED AS A HYPOTHESIS and tested by no act in the arc. ### M-2"
+     " UNCHANGED",
+     "data/b314_the_fold_and_the_cold_clone.txt; data/b314_fold_emitted.md;"
+     " PLACE-papers/FINDINGS.md; PLACE-papers/ERRATA.md E-2026-09-03-1;"
+     " CORRESPONDENCE.md row 140"),
+    # ### THE KERNEL FROM A COLD CLONE, AND THE COVERAGE ANSWER (b314).
+    ("the-cold-clone", "b314 (a certification test)",
+     "the kernel repository cloned FRESH from origin at its current pin onto a path outside"
+     " the corpus, by the tool itself, and rebuilt from source. ### **build/ IS .gitignored,"
+     " SO THE CLONE ARRIVED WITH ZERO COMPILED ARTEFACTS -- THERE WAS NO CACHE TO BE STALE.**"
+     " ### elan resolved **v4.29.1 INSIDE the clone against v4.33.1 OUTSIDE it**. ### **84"
+     " MODULES ELABORATED FROM SOURCE IN DEPENDENCY ORDER, 0 FAILURES**, AllPrints.lean"
+     " re-run, and the regenerated profile compared against the banked blob at HEAD: **RAW"
+     " BYTE EQUALITY -- 33195 bytes each, 475 prints, 475 zero-axiom, 0 differing lines, no"
+     " byte-order mark and no CRLF on either side.** ### **AND THE COVERAGE QUESTION HAS AN"
+     " ANSWER AND IT IS *FOUND*: 25 Core modules sit outside AllPrints.lean, all 25"
+     " elaborate, and 91 #print axioms targets in them are NOT IN THE PROFILE AT ALL**",
+     "### A CERTIFICATION TEST, AND NOTHING IS REPAIRED BY IT. ### **A COLD CACHE AND A COLD"
+     " CHECKOUT ARE NOT A COLD MACHINE** -- one repository, one machine, that machine's own"
+     " elan store, OS and CPU; NOT evidence that the corpus reproduces from a clone in"
+     " general. ### **IT DOES NOT CONCLUDE THAT THE UNCERTIFIED TERMINALS ARE WRONG, OR"
+     " RIGHT** -- a terminal that elaborates with zero axioms is not thereby a terminal worth"
+     " certifying. ### The reason is structural: **AllPrints.lean IS A HAND-MAINTAINED IMPORT"
+     " LIST AND NOTHING IN THE BUILD FAILS WHEN A MODULE IS LEFT OUT OF IT.** ### The first"
+     " sweep carried two defects, both this act's own and both declared -- alphabetical order"
+     " reported a module as FAILING when its dependency was simply not built yet. ### NO"
+     " .lean FILE CREATED OR EDITED; NO MODULE ADDED TO THE CERTIFICATION FILE. ### M-2"
+     " UNCHANGED",
+     "data/b314_the_fold_and_the_cold_clone.txt; data/b314_coldclone_run.txt;"
+     " data/b314_coldclone_rows.json; data/b314_coldrelay_run.txt;"
+     " CORRESPONDENCE.md row 141"),
     # ### THE RESIDUE IS NOT THE EXPONENT (b313).
     ("the-exponent", "b313 (a computation, and a negative one)",
      "b312 identified the corpus's archimedean remainder as differing from the source's by a"

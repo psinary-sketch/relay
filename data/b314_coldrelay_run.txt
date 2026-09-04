@@ -1,0 +1,78 @@
+====================================================================================================
+b314_coldrelay.py -- THE REPRODUCTION CONTROLS, COLD, IN A FRESH CLONE OF THE RELAY.
+====================================================================================================
+  ### THE TOOL'S OWN FIXTURES : [True, True, True]  PASS
+  ### **THE SECOND AND THIRD ARMS ARE THE ONES THAT MATTER: THE HARD-CODED-PATH DETECTOR
+  ### FINDS ONE WHEN THERE IS ONE AND REPORTS NONE WHEN THERE IS NONE.**
+  ### the corpus's own tracked state BEFORE the cold run : 'M tools/banked_index.py'
+  ### cloning the relay FRESH from origin ...
+  clone HEAD  : db8917c5a89b1446d4f8d41bd3d8faaeb0e52418
+  origin/main : db8917c5a89b1446d4f8d41bd3d8faaeb0e52418
+  ### **THE CLONE IS AT THE CURRENT PIN : True**
+  ### **AND IT HAS ONLY WHAT GIT TRACKS** -- no untracked data file, no cache, no `.olean`,
+  ### and none of the month of working-tree state every other act has run against.
+
+----------------------------------------------------------------------------------------------------
+### THE HARD-CODED ABSOLUTE PATHS, COUNTED BEFORE ANYTHING IS RUN.
+----------------------------------------------------------------------------------------------------
+    tools/b308_reproduction.py       lines carrying an absolute corpus path : 0
+    tools/b309_components.py         lines carrying an absolute corpus path : 0
+    tools/b310_components.py         lines carrying an absolute corpus path : 0
+    tools/b313_run.py                lines carrying an absolute corpus path : 0
+    instrument files under `tools/e16` carrying one : 119
+        b110_reduction_check.py      1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b113_extension.py            1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b115_mechanism.py            1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b115_mechanism2.py           1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b116_density_bank.py         1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b116_density_stability.py    1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b117_enclosure.py            1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b117_superlative_sweep.py    2 line(s), first: REPORTS = sorted(glob.glob(r'D:\relay\reports\*.md'))
+        b119_dominance.py            1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+        b121_instrument.py           1 line(s), first: sys.path.insert(0, r"D:\relay\tools\e16")
+  ### **THESE ARE REPORTED, NOT REPAIRED.** ### A path written into a source file is a
+  ### dependency on a machine, and an instrument carrying one cannot be run from a clone
+  ### by anybody else without it reaching back into the original.
+
+  ### ### **THE HAZARD THIS FINDS IN THE COLD TEST ITSELF, AND IT WEAKENS THE PASS:**
+  ### `tools/e16/b38_act10.py` in the clone carries 1 line(s) of the form:
+        sys.path.insert(0, r"D:\relay\tools\e16")
+  ### ### **`sys.path.insert(0, ...)` PUTS THE ORIGINAL TREE AT THE FRONT OF THE
+  ### ### IMPORT PATH.** ### So once a control imports that module, every sibling
+  ### ### instrument it then imports resolves against ### THE ORIGINAL ### and not
+  ### ### against the clone.
+  ### **WHAT THAT DOES TO THE b313 CONTROL BELOW: ### IT PASSED, AND PART OF ITS
+  ### ### IMPORT GRAPH WAS NOT COLD.** ### The clone supplied the runner, the banked
+  ### tables it compares against, and its own `e16` directory -- but the sibling
+  ### modules `b38_act10` reaches for came from the original tree.
+  ### **THE PASS IS REAL AND ITS REACH IS SMALLER THAN IT LOOKS, AND SAYING SO IS THE
+  ### ### WHOLE VALUE OF HAVING RUN IT.**
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROLS, RUN IN THE CLONE.
+----------------------------------------------------------------------------------------------------
+  ### the corpus's tracked state IMMEDIATELY BEFORE the controls : 'M tools/banked_index.py'
+    b308 -- the instrument reproduces the banked finite-side resul rc=0   7 s
+        ### **MEMBERS COMPARED ACROSS ALL FIVE CELLS AND ALL RADII IN RANGE. ### DISAGREEING : 0**  (the disagreement count)
+        ### **CELLS DISAGREEING WITH THE LAW IN ITS OWN TESTED RANGE : 0**  (the disagreement count)
+        ### **MEMBERS REACHED : 80   ### DISAGREEING : 0   ### FORCED ZEROS CONFIRMED : 50**  (the disagreement count)
+    b309 -- the scaling trace, exact, two routes                   rc=0   51 s
+        ### CHECKS FAILING : 0  (the runner's own failure count)
+    b310 -- the smear collapses, exact                             rc=0   1 s
+        ### CHECKS FAILING : 0  (the runner's own failure count)
+    b313 -- the transcription against b38’s banked table, and the  rc=0   51 s
+        ### CHECKS FAILING : 0  (the runner's own failure count)
+
+----------------------------------------------------------------------------------------------------
+### THE CORPUS AFTER THE COLD RUN.
+----------------------------------------------------------------------------------------------------
+  tracked state AFTER : 'M tools/banked_index.py'
+  paths that APPEARED during the controls : NONE
+  paths that VANISHED during the controls : NONE
+  ### **THE CORPUS'S TRACKED STATE IS UNCHANGED BY THE COLD RUN : True**
+  ### **THIS IS NOT A FORMALITY.** ### Instrument files carry absolute paths into the
+  ### corpus, and a control run from a clone through one of them would have written here.
+
+  ### CHECKS FAILING : 0
+  ### elapsed : 183 s
+====================================================================================================

@@ -1,0 +1,33 @@
+====================================================================================================
+b314 -- THE INDEX KEYS. ### THE FOLD, AND THE COLD CLONE.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    the kernel             NO KEY before : True
+    coverage               NO KEY before : True
+  the-instrument-arc       key/row already present : False / False
+  the-cold-clone           key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    the-instrument-arc       returns a row : True  PASS
+    the-cold-clone           returns a row : True  PASS
+  ### THE ALIASES, EACH OF WHICH RETURNED `NO KEY` BEFORE THIS ACT:
+    the seven acts                     now reaches a row : True  PASS
+    b307 to b313                       now reaches a row : True  PASS
+    the arc as one statement           now reaches a row : True  PASS
+    the convention erratum             now reaches a row : True  PASS
+    the kernel rebuilt from a clone    now reaches a row : True  PASS
+    the certification test             now reaches a row : True  PASS
+    uncertified terminals              now reaches a row : True  PASS
+    the coverage answer                now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    the kernel             still NO KEY : True   (and was before : True)  PASS
+    coverage               still NO KEY : True   (and was before : True)  PASS
+  ### **`the kernel` AND `coverage` STAY UNKEYED.** ### This act certified a REBUILD of
+  ### the kernel and did not produce a result about it; and an index answering
+  ### `coverage` would be offering a count of uncertified terminals as though it were a
+  ### verdict on what the kernel covers, which is the reading the act refuses.
+  ### **AND `the fold` IS DELIBERATELY NOT IN THIS ARM: IT ALREADY HITS SOMETHING THIS
+  ### ACT DID NOT PUT THERE**, and a must-not-hit arm over an already-hit query fails
+  ### for somebody else's reason.
+  ### THE INDEX SWEPT AFTER THE WRITE : 0 stem hit(s)
+====================================================================================================
