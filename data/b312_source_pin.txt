@@ -1,0 +1,155 @@
+##### tools/b305_source.py  (exit 0)
+====================================================================================================
+b305_source.py -- THE SOURCE READ. ### THE ARTEFACT PINNED, THE QUOTATIONS LOCATED.
+====================================================================================================
+  flattener fixture                                          got/expected     agree
+  finds a fragment split across a line break                 True/True        YES
+  finds a fragment with a ligature                           True/True        YES
+  finds a fragment with odd mathematical spacing             True/True        YES
+  ### NEAR-MISS: a fragment that is genuinely absent stays absent False/False      YES
+  ### NEAR-MISS: a prefix is not the whole fragment          False/False      YES
+  ### quiet on empty text                                    False/False      YES
+  ### a needle with capitals and punctuation still matches   True/True        YES
+  ### and a genuinely absent needle with capitals still misses False/False      YES
+  flattener self-test : PASS
+  ### AND THE IMPORTED TRUNCATION DETECTOR'S OWN FIXTURES, RE-RUN BEFORE IT IS USED
+  ### IN THE OPPOSITE DIRECTION (to report an INTACT layer rather than a defective one):
+    b303_source self-test : PASS
+
+  citation      : Connes & Consani, "Weil positivity and Trace formula the archimedean place", arXiv:2006.13771v1
+  origin        : https://arxiv.org/abs/2006.13771
+  local bytes   : 1213504
+  sha256        : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### MATCHES THE ARTEFACT b304 PINNED : True  PASS
+  pages in file : 57
+
+  ### THE TEXT LAYER, MEASURED RATHER THAN ASSUMED:
+    pages whose text stops dead at "if and" : 0 []
+    pages with NO text layer at all         : 0 []
+    ### **SO THE LAYER IS INTACT AND NO PAGE IMAGE WAS NEEDED.**
+    ### (b303 built this detector for a 1939 scan where it fired; here it is quiet,
+    ### and its fixtures were re-run above so the quiet means something.)
+
+  ### THE QUOTED FRAGMENTS, LOCATED BY PAGE INDEX:
+    page 0      the test-function class                     'gpxyqgpyqdy'
+    page 0      "only finitely many primes"                 'involvesonlyfinitelymanyprimes'
+    page 1      the support that excludes the primes        'sothatrationalprimesarenotinvolved'
+    page 1      the semi-local support condition            'Supportpfq'
+    page 2,16   Theorem 1 hypothesis                        'haveSupportintheinterval'
+    page 1,2    the Sonin projection                        'squareintegrableevenfunctions'
+    page 1      the positivity sentence                     'positivedefinitebyconstruction'
+    page 0,1,49 the delta-normalization                     'Wvpfq:'
+    page 49     the explicit formula (148)                  'wherevrunsoverallplaces'
+    page 49     the local factor (149)                      'plogpq'
+    page 49     the archimedean factor (150)                'log4'
+
+  ### FRAGMENTS NOT LOCATED : 0  PASS
+  ### **THIS TOOL LOCATES; IT DOES NOT READ.** ### It cannot tell a correct quotation
+  ### from an invented one. ### What it can do is fail loudly when a fragment the bank
+  ### claims to quote is not in the artefact at all.
+====================================================================================================
+
+##### tools/b311_source.py  (exit 0)
+====================================================================================================
+b311_source.py -- THE SOURCE'S PROOF. ### PINNED, THEN LOCATED.
+====================================================================================================
+  ### THE FLATTENER'S OWN FIXTURES, IMPORTED FROM b305 AND RE-RUN BEFORE IT IS USED:
+  flattener fixture                                          got/expected     agree
+  finds a fragment split across a line break                 True/True        YES
+  finds a fragment with a ligature                           True/True        YES
+  finds a fragment with odd mathematical spacing             True/True        YES
+  ### NEAR-MISS: a fragment that is genuinely absent stays absent False/False      YES
+  ### NEAR-MISS: a prefix is not the whole fragment          False/False      YES
+  ### quiet on empty text                                    False/False      YES
+  ### a needle with capitals and punctuation still matches   True/True        YES
+  ### and a genuinely absent needle with capitals still misses False/False      YES
+
+  artefact      : cc_2006.13771v1.pdf
+  local bytes   : 1213504   (the corpus's pin expects 1213504)
+  sha256        : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### MATCHES THE ARTEFACT b304 PINNED AND b305 RE-COMPUTED : True  PASS
+  ### ### **THIS COPY WAS RE-ACQUIRED: the local one was not found on this machine.**
+  ### **THE PIN IS WHAT MAKES THAT SAFE**, and it is checked above rather than assumed.
+
+  pages in file : 57
+
+  ### THE QUOTED FRAGMENTS, LOCATED BY PAGE INDEX:
+    1            C1a the construction, and that theta does NOT restrict         Eventhoughthescalingactionϑdoesnotrestrictto
+    1,5          C1b Sonin space is INFINITE DIMENSIONAL -- CC's own words      infinitedimensionalSoninsspace
+    1            C1c the positivity is by construction, via a positive operator positivedefinitebyconstruction
+    1            C1d the trace side differs from the distribution by a COMPACT operator byaninfinitesimalinthesenseofquantizedcalcul
+    2,47         C1e Theorem 1 -- the inequality itself                         W8pg˚g˚qěTrpϑpgqSϑpgq˚q
+    2,16         C1f the support condition on the test function                 haveSupportintheinterval
+    1            C1g the support chosen so no prime is involved                 sothatrationalprimesarenotinvolved
+    2            C1h the Schwartz kernel of a SINGLE scaling is a delta         kpx,yq“δpλx´yq
+    8            C2a the single-scaling trace is given FORMALLY                 isformallygivenby
+    8            C2b trace class holds only after smearing against a test function isoftraceclassanditstraceisgivenby
+    12           C2c tau is NOT a function, because of the divergency at rho = 1 isnotafunctionbecauseofthedivergency
+    11           C2d the trace-remainder delta IS a function                    Thetraceremainderisthefunctionof
+    13           C2e delta has a jump in its FIRST DERIVATIVE at rho = 1        hasajumpinitsfirstderivative
+    10,11,29,30,31,52 C2f the Weil local term -- the fixed-point weight at rho != 1  1`ρ`1
+    1            C2g the distribution is defined as a principal value           isthendefinedasaprincipalvalue
+    1            C2h and it tends to infinity as the variable tends to 1        tendsto`8asthevariabletendsto1
+    5,26,47      C1i Theorem 4.7 -- the trace side EQUALS the distribution plus a function TrpϑpfqSq“W8pfq`
+    18           C1j Theorem 3.6 -- the form is minus two times the identity plus a compact 2Id`KIqξy
+    27           C3a Sonin space is the EIGENVALUE-ONE eigenspace of the projection sandwich istheeigenspaceofPpPPfortheeigenvalue1
+    47           C3b the main result names the constant                         c“4γ
+
+  ### FRAGMENTS NOT LOCATED : 0  PASS
+  ### **THIS TOOL LOCATES; IT DOES NOT READ.** ### It cannot tell a correct quotation
+  ### from an invented one. ### What it can do is fail loudly when a fragment the bank
+  ### claims to quote is not in the artefact at all.
+====================================================================================================
+
+##### tools/b312_source.py  (exit 0)
+====================================================================================================
+b312_source.py -- THE SOURCE'S REMAINDER. ### PINNED, THEN LOCATED.
+====================================================================================================
+  ### THE FLATTENER'S OWN FIXTURES, IMPORTED FROM b305 AND RE-RUN BEFORE IT IS USED:
+  flattener fixture                                          got/expected     agree
+  finds a fragment split across a line break                 True/True        YES
+  finds a fragment with a ligature                           True/True        YES
+  finds a fragment with odd mathematical spacing             True/True        YES
+  ### NEAR-MISS: a fragment that is genuinely absent stays absent False/False      YES
+  ### NEAR-MISS: a prefix is not the whole fragment          False/False      YES
+  ### quiet on empty text                                    False/False      YES
+  ### a needle with capitals and punctuation still matches   True/True        YES
+  ### and a genuinely absent needle with capitals still misses False/False      YES
+
+  artefact      : cc_2006.13771v1.pdf
+  local bytes   : 1213504   (the corpus's pin expects 1213504)
+  sha256        : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### MATCHES THE ARTEFACT b304 PINNED AND b305 RE-COMPUTED : True  PASS
+
+  ### ### **THE FLATTENER'S INSENSITIVITY, MEASURED BEFORE IT IS TRUSTED:**
+      the source's exponent flattens to    : 'ρ12'
+      a sign-flipped one flattens to        : 'ρ12'
+      ### **THE TWO ARE INDISTINGUISHABLE : True**
+  ### **SO THIS TOOL LOCATES AND DOES NOT DECIDE.** ### The sign is read off the RAW page
+  ### text by `b312_definitions.py`, and that is why this act has two tools and not one.
+
+  pages in file : 57
+
+  ### THE QUOTED FRAGMENTS, LOCATED BY PAGE INDEX:
+    5,26,47      S1 Theorem 4.7 -- the trace side equals the distribution plus the function trpθpfqsqw8pfq
+    5,26,27      S2 the defining equation of the source's remainder                     1λpnq2xξnθpρ1qζny
+    5,26,31      S3 the symmetry the source imposes on it                               εpρ1qεpρq
+    26           S4 the OTHER equation, the one about delta -- NOT the remainder's      fpρ1qδpρqdρtr
+    22           S5 the scaling action, DEFINED                                         pθpλqξqpvqλ12ξpλ1vq
+    22           S6 and declared UNITARY, by conjugation of a unitary representation    betheunitaryrepresentationθmconjug
+    26           S7 the source UNFOLDING an inner product of exactly the remainder's shape xψnθpρ1qξnyρ12
+    31           S8 the auxiliary vector in terms of the analytic continuation          ζnpxq1a1λpnq2ηnpxqλpnqa1λpnq2ξannp
+    31           S9 the remainder UNFOLDED by the source itself                         ρ12z1ρ1ξannpxqξannpρxqdx
+    31           S10 the analytic continuation agrees at the endpoint                   ξannp1qξnp1q
+    31           S11 the normalization of the inner product, named by the source        recallingthenormalization16
+    31           S12 the derivative jump at the identity                                lemma54thederivativeofεpρqatρ1
+    31           S13 the jump, stated of the function                                   hasajumpinitsderivativeatρ1
+    31           S14 the operator image, its leading factor                             cnρ12
+    31,52        S15 the operator image before the derivative substitution              pduξnqpxqpduζnqpρxqdx
+    32           S16 the source's own tabulated terms                                   tp0q119719
+    32           S17 the linear form the remainder is integrated against                fpxqεpexppxqqdx
+
+  ### FRAGMENTS NOT LOCATED : 0  PASS
+  ### **THIS TOOL LOCATES; IT DOES NOT READ.** ### It cannot tell a correct quotation
+  ### from an invented one, and it cannot see a sign at all.
+====================================================================================================

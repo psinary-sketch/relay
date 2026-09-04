@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-remainder': ['the corpus eps against the source', 'the scaling convention',
+                     'the remainder identified', 'is the remainder theirs'],
+    'remainder-check-at-a-zero': ['why the cross-check passed',
+                     'a check at a zero', 'the invisible factor'],
     'identity-neighbourhood': ['the trace remainder', 'the local weight',
                               'where the content sits', 'the source proof read'],
     'arch-mechanism-untyped': ['trace class', 'the count and the jacobian',
@@ -405,6 +409,53 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE REMAINDER IS NOT THE SOURCE'S (b312).
+    ("the-remainder", "b312 (a decision at definitions)",
+     "the corpus's eps and CC's epsilon unfolded to their base objects and compared"
+     " constituent by constituent, artefact pinned by sha256 b8e0b54a... BEFORE a word of it"
+     " was read. ### **NINE CONSTITUENTS; EIGHT AGREE EXACTLY** -- mode family, auxiliary"
+     " vector, analytic continuation, the coefficient lam^2/(1-lam^2), the interval from"
+     " 1/rho to 1, the integrand, the value zero at the identity, and the one-sided"
+     " derivative. ### **THE NINTH IS THE SCALING ACTION'S NORMALIZATION EXPONENT AND IT"
+     " DISAGREES**: CC's eq (61) defines theta(lam)xi(v) := lam^(-1/2) xi(lam^-1 v), unitary,"
+     " so at the remainder's argument it is rho^(+1/2), and CC's Lemma 5.4 proof writes that;"
+     " the corpus declares theta(a)f(x) = a^(1/2) f(x/a) and its code applies r ** -0.5. ###"
+     " **THE TWO FUNCTIONS DIFFER BY A FACTOR OF rho, WHICH IS NOT A SCALAR. ### VERDICT:"
+     " DIFFERENT**",
+     "### A DECISION AT DEFINITIONS. ### **THIS ACT COMPARED TWO WRITTEN DEFINITIONS AND"
+     " COMPUTED NO ARCHIMEDEAN NUMBER. ### IT DOES NOT CALL ANY BANKED MEASUREMENT WRONG, AND"
+     " EVERY BANKED RESULT STANDS WHERE ITS OWN ACT LEFT IT.** ### The decision is made by"
+     " EXTRACTION (tools/b312_definitions.py, fixtures proving it can report either answer),"
+     " because the corpus's own flattener strips non-alphanumerics and cannot see a sign. ###"
+     " **THE SOURCE IS SELF-CONSISTENT AT THREE INDEPENDENT PLACES; THE CORPUS DISAGREES WITH"
+     " ITSELF** -- its Qeps carries r ** 0.5, matching CC's eq (99), and inside b38_act10.py"
+     " the identity's trace side and its remainder side carry opposite exponents. ### The"
+     " corpus's stated reason does not reach its conclusion: a support condition fixes a"
+     " DOMAIN, not an AMPLITUDE. ### **THE ENTAILMENT DOES NOT RUN** (ordered on SAME only)."
+     " ### M-2 UNCHANGED",
+     "data/b312_the_remainder.txt; data/b312_components_run.txt; data/b312_source_pin.txt;"
+     " CORRESPONDENCE.md row 136"),
+    # ### A CHECK TAKEN AT A ZERO CANNOT SEE A FACTOR (b312).
+    ("remainder-check-at-a-zero", "b312 (a derivation at definitions)",
+     "the corpus's ONE cross-check of its remainder against the source is the one-sided"
+     " derivative at the identity, which its header derives and CC's Lemma 5.4 states; the two"
+     " agree, and **THE AGREEMENT IS EMPTY**. ### Writing the common integral as F(rho), the"
+     " corpus's function is rho^(-1/2) F(rho) and the source's rho^(+1/2) F(rho); the interval"
+     " is empty at the identity so F(1) = 0, and the derivative of rho^s F(rho) there is"
+     " s F(1) + F'(1) = F'(1) **FOR EVERY s WHATEVER**. ### **A CROSS-CHECK TAKEN AT A ZERO OF"
+     " THE FUNCTION CANNOT SEE A MULTIPLICATIVE FACTOR THAT IS FINITE AND NONZERO THERE**",
+     "### A DERIVATION ABOUT WHERE A CHECK WAS TAKEN -- NEITHER AN EXCUSE NOR AN ACCUSATION."
+     " ### **IT EXPLAINS WHY ONE CHECK WAS INSENSITIVE TO ONE FACTOR; IT IS NOT A CLAIM ABOUT"
+     " ANY OTHER CHECK THE CORPUS RAN, AND IT AUDITS NONE OF THEM.** ### The other channel was"
+     " checked as ordered: carto_atlas.py fixes its archimedean sign BY THE E2 CALIBRATION and"
+     " disclaims any sign claim, **SO THE THING TO BE CHECKED AGAINST IS ITSELF A"
+     " CALIBRATION** -- not a complaint about the atlas, which has always disclaimed it. ###"
+     " **W-ORD-REMAINDER-EXPONENT IS FILED, NOT RUN**, with its exact check named: re-run the"
+     " corpus's identity with the remainder's exponent flipped and nothing else touched, and"
+     " compare the residue -- **A COMPUTATION THIS ACT MAY NOT RUN**. ### It inherits"
+     " W-ORD-ARCH-NORM-READING (b301), still live. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b312_the_remainder.txt; tools/e16/carto_atlas.py (the calibrated sign);"
+     " data/b301_the_object_completed.txt; CORRESPONDENCE.md row 137"),
     # ### THE SOURCE'S PROOF READ (b311).
     ("identity-neighbourhood", "b311 (a read at content, under the import bar)",
      "CC 2006.13771v1 read at content, artefact pinned by sha256 b8e0b54a... BEFORE a word of"

@@ -1,0 +1,273 @@
+====================================================================================================
+b312 -- THE COMPONENTS. ### **THE REMAINDER: IS THE CORPUS'S THE SOURCE'S?**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) THE OWNERS, PULLED FROM THE FILES THAT EMIT THEM.
+----------------------------------------------------------------------------------------------------
+  PASS  the corpus's identity, in the file that assembles it             b38_act10.py
+  PASS  ### the corpus's remainder side, as that identity consumes it    b38_act10.py
+  PASS  ### and the corpus's TRACE side, in the SAME file                b38_act10.py
+  PASS  ### and how the corpus turns the remainder into the identity's s b38_act10.py
+  PASS  the corpus CLAIMING the import, in its own header                qeps_layer.py
+  PASS  ### the corpus DECLARING the scaling convention, and its reason  qeps_layer.py
+  PASS  ### the corpus's operator image, transcribed with the OTHER expo qeps_layer.py
+  PASS  ### the corpus's ONE cross-check against the source              qeps_layer.py
+  PASS  the banked atlas, where the archimedean sign comes from          carto_atlas.py
+  PASS  ### and the atlas's own disclaimer about that sign               carto_atlas.py
+  PASS  b286 -- the source's space, an IMPORT at its own grade           b286_the_cc_condition.txt
+  PASS  b292 -- the corpus's instrument vectors are NOT in that space    b292_the_identification.txt
+  PASS  b285 -- the hazard register's own sentence                       b285_archimedean_opening.txt
+  PASS  b200 -- the double-name species, named                           b200_sector_naming.txt
+  PASS  b219 -- and the act where it was REALISED                        b219_what_sigma_even_weights.txt
+  PASS  b301 -- the normalization work-order, still live                 b301_the_object_completed.txt
+  PASS  b304 -- the artefact's pin                                       b304_the_demands_shape.txt
+  PASS  b305 -- the arithmetic's local factor                            b305_the_arithmetics_entry.txt
+  PASS  b310 -- the finite-side result, quarantined at its own scope     b310_the_smear_collapses.txt
+  PASS  b311 -- the decision this act stands after                       b311_the_identitys_neighbourhood.txt
+
+====================================================================================================
+### COMPONENT 1 -- THE TWO DEFINITIONS, EACH UNFOLDED TO ITS BASE OBJECTS,
+### NEITHER DESCRIBED IN THE OTHER'S LANGUAGE.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE CORPUS'S REMAINDER, AS ITS OWNER BUILDS IT.
+----------------------------------------------------------------------------------------------------
+  ### **THE EQUATION IT SAYS IT IMPORTED**, from its own header, quoted:
+  ###   `eps(rho) = sum_n [lam/sqrt(1-lam^2)] <xi_n | theta(rho^-1) zeta_n>`
+  ### **THE NORMALIZATION IT DECLARES**, from the same header, quoted:
+  ###   `theta(a) f(x) = a^{1/2} f(x/a)`, with the note that this is
+  ###   `the convention forced by the supplied support law`.
+  ### **THE DOMAIN:** ### `rho >= 1`, with the integrand supported only on the interval
+  ### from the reciprocal of `rho` up to one, so that the value at one is zero.
+  ### **THE MODE EXPANSION IT IS COMPUTED THROUGH:** ### the even prolate functions and
+  ### their eigenvalues, with the auxiliary vector `zeta_n` written as the analytic
+  ### continuation scaled by `lam/sqrt(1-lam^2)`, and the analytic continuation itself
+  ### built as a cosine transform of the prolate function over the unit interval.
+  ### **UNFOLDED, WHAT THE CODE ACTUALLY EVALUATES** -- read off `qeps_layer.py` and
+  ### `b38_act10.py` by `b312_definitions.py`, not paraphrased:
+  ###   `eps(rho) = sum_n [lam^2/(1-lam^2)] * rho^(EXPONENT) *
+  ###                INT_{1/rho}^{1} an(u) an(rho u) du`
+  ###   with `EXPONENT` extracted below rather than asserted here.
+  ### **THE IDENTITY ITS LEFT SIDE DECOMPOSES UNDER**, from `b38_act10.py`:
+  ###   `resid = TrN - A - E2N` -- ### the trace, less the archimedean term, less the
+  ###   remainder's integral against the corpus's window, leaves a residue.
+  ### ### **AND THE SECOND TERM IS BUILT FROM `eps` BY** `2 * INT_0^{2L} corr(u)
+  ### ### eps(exp u) du` -- a fold in the logarithmic variable, which is the corpus's
+  ### ### own way of writing an integral in the multiplicative measure over a window.
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE SOURCE'S REMAINDER, AS ITS THEOREM 4.7 DEFINES IT.
+----------------------------------------------------------------------------------------------------
+  ### **THE IDENTITY** (its equation (83), located on pages 5, 26 and 47):
+  ###   `Tr(theta(f) S) = W_inf(f) + INT f(rho^-1) eps(rho) d*rho`, for every smooth
+  ###   compactly supported test function on the positive multiplicative group,
+  ###   where `S` is the orthogonal projection onto the source's subspace.
+  ### **THE FUNCTION** (its equation (84), located on pages 5, 26 and 27):
+  ###   `eps(rho) = sum_n [lam(n)/sqrt(1-lam(n)^2)] <xi_n | theta(rho^-1) zeta_n>`,
+  ###   defined for `rho >= 1` and extended by the symmetry `eps(rho^-1) = eps(rho)`.
+  ### **THE NORMALIZATION** (its equation (61), located on page 22):
+  ###   `(theta(lam) xi)(v) := lam^(SIGN 1/2) xi(lam^-1 v)`, with the SIGN extracted
+  ###   below; and the source declares this action UNITARY, obtaining it by conjugating
+  ###   a unitary representation by an isomorphism of Hilbert spaces.
+  ### **THE DOMAIN:** ### the whole positive multiplicative group, by the symmetry; the
+  ###   defining formula is given on `rho >= 1`.
+  ### **THE JUMP AT THE IDENTITY** (its Lemma 5.4, page 31): ### the function has a jump
+  ###   in its derivative at the identity, and the one-sided derivative there is
+  ###   `sum_n [lam(n)^2/(1-lam(n)^2)] xi_n(1)^2`.
+  ### ### **AND THE SOURCE UNFOLDS ITS OWN FUNCTION, IN THAT LEMMA'S PROOF:**
+  ###   `eps(rho) = sum_n [lam(n)^2/(1-lam(n)^2)] ( rho^(SIGN 1/2)
+  ###                INT_{rho^-1}^{1} xian(x) xian(rho x) dx )`
+  ### ### **SO BOTH SIDES ARRIVE AT THE SAME SHAPE, WHICH IS EXACTLY WHY THE SHAPE
+  ### ### DECIDES NOTHING** -- b200's species, and the order names it too.
+
+----------------------------------------------------------------------------------------------------
+### (1c) THE CONSTITUENTS, MATCHED ONE BY ONE.
+----------------------------------------------------------------------------------------------------
+  CONSTITUENT                        CORPUS                         SOURCE
+  the mode family                    even prolate functions         even prolate functions
+  the auxiliary vector               lam/sqrt(1-lam^2) times xian   lam/sqrt(1-lam^2) times xian
+  the analytic continuation          cosine transform over [0,1]    analytic continuation of xi
+  the outer coefficient              lam^2/(1-lam^2)                lam^2/(1-lam^2)
+  the integration interval           from 1/rho to 1                from 1/rho to 1
+  the integrand                      an(u) an(rho u)                xian(x) xian(rho x)
+  the value at the identity          zero, by empty interval        zero, by empty interval
+  the one-sided derivative           sum lam^2/(1-lam^2) xi(1)^2    sum lam^2/(1-lam^2) xi(1)^2
+  ### THE SCALING EXPONENT           ### EXTRACTED BELOW            ### EXTRACTED BELOW
+  ### **EIGHT CONSTITUENTS AGREE. ### THE NINTH IS THE WHOLE OF THIS ACT.**
+
+====================================================================================================
+### COMPONENT 2 -- THE DECISION.
+====================================================================================================
+  ### **THE FLATTENER THE CORPUS LOCATES WITH CANNOT SEE THIS QUESTION** -- the
+  ### source's exponent and a sign-flipped one flatten to the same string. ### The
+  ### extraction below is therefore off the RAW page text, and off the corpus's own
+  ### committed files, by `b312_definitions.py` and its fixtures.
+
+  ### THE EXTRACTION, SIDE BY SIDE:
+  WHERE                                          WHAT IS THERE
+  the source, its scaling action AT lam, eq (61) lam^(minus 1/2)
+    ### so AT the argument rho^-1 it is          rho^(PLUS 1/2)
+  the source unfolding such an inner product     rho^(PLUS 1/2)
+  the source unfolding ITS REMAINDER, Lemma 5.4  rho^(PLUS 1/2)
+  the source's operator image, eq (99)           rho^(PLUS 1/2)
+  the corpus's remainder, qeps_layer.py          rho ** -0.5
+  the corpus's remainder in the identity file    rho ** -0.5
+  the corpus's operator image, qeps_layer.py     rho ** 0.5
+  the corpus's TRACE side, b38_act10.py          the square root of lamd
+
+----------------------------------------------------------------------------------------------------
+### (2a) THE VERDICT.
+----------------------------------------------------------------------------------------------------
+  ### ### ### **DIFFERENT.**
+  ### ### **THE FIRST DIFFERING CONSTITUENT, AT FULL PROMINENCE:**
+  ###
+  ###   ### **THE SCALING ACTION'S NORMALIZATION EXPONENT.**
+  ###
+  ###   ### THE SOURCE, ITS OWN EQUATION (61), PAGE 22:
+  ###     ### **`(theta(lam) xi)(v) := lam^(-1/2) xi(lam^-1 v)`**
+  ###     ### -- so at the argument the remainder uses, `rho^(+1/2)`.
+  ###   ### THE CORPUS, ITS OWN HEADER:
+  ###     ### **`theta(a) f(x) = a^(1/2) f(x/a)`**
+  ###     ### -- so at the same argument, `rho^(-1/2)`.
+  ###
+  ###   ### AND NEITHER IS INFERRED FROM THE OTHER'S PROSE. ### **BOTH SIDES ALSO
+  ###   ### WRITE THE UNFOLDED FORMULA OUT, AND THE UNFOLDED FORMULAE DISAGREE IN
+  ###   ### THE SAME PLACE:**
+  ###     source, Lemma 5.4 proof, page 31 : `rho^(+1/2)`
+  ###       ϵpρq“ ÿ λpnq2 1´λpnq2 ˆ ρ1{2
+  ###     corpus, `qeps_layer.py` line 113 : `rho ** -0.5`
+  ###       out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())
+  ###
+  ###   ### **THE TWO FUNCTIONS THEREFORE DIFFER BY A FACTOR OF `rho`, WHICH IS
+  ###   ### NOT A SCALAR.** ### The corpus's is the source's divided by `rho`.
+
+----------------------------------------------------------------------------------------------------
+### (2b) THREE THINGS THAT MAKE THE VERDICT HARDER TO DOUBT.
+----------------------------------------------------------------------------------------------------
+  ### **(i) THE SOURCE IS SELF-CONSISTENT AT THREE INDEPENDENT PLACES.** ### Its
+  ### definition (61) on page 22; its own worked unfolding of an inner product of
+  ### exactly this shape on page 26; and its Lemma 5.4 proof on page 31.
+  ### **A TRANSCRIPTION SLIP IN THE SOURCE WOULD HAVE TO HAVE HAPPENED THREE TIMES,
+  ### ### THE SAME WAY.**
+  ### **(ii) THE CORPUS DISAGREES WITH ITSELF, IN THE SAME TWO FILES.**
+  ###   its operator image carries `rho ** 0.5`, which AGREES with the source : True
+  ###   its remainder carries `rho ** -0.5`, which does not : True
+  ###   and inside `b38_act10.py`, the identity's TRACE side applies the square root
+  ###   of the scaling -- the source's convention -- while its REMAINDER side applies
+  ###   `rho ** -0.5`. ### **ONE IDENTITY, TWO CONVENTIONS, ONE FILE : True**
+  ### **(iii) THE CORPUS'S STATED REASON DOES NOT REACH THE CONCLUSION IT DRAWS.**
+  ###   Its header says the convention is `forced by the supplied support law`, and
+  ###   the support law it cites is that the scaled auxiliary vector is nonzero
+  ###   exactly when `u >= 1/rho`. ### **BUT THAT CONDITION IS IDENTICAL UNDER BOTH
+  ###   ### CONVENTIONS: A SUPPORT CONDITION FIXES A DOMAIN, NOT AN AMPLITUDE.** ###
+  ###   The support law is SILENT on the exponent, so it cannot have forced it.
+
+----------------------------------------------------------------------------------------------------
+### (2c) WHY THIS SURVIVED -- DERIVED, NOT GUESSED.
+----------------------------------------------------------------------------------------------------
+  ### The corpus's ONE cross-check against the source at this point is the one-sided
+  ### derivative at the identity, which its header derives and the source's Lemma 5.4
+  ### states; the two agree. ### **BUT THAT CHECK CANNOT SEE THE FACTOR, AND
+  ### ### PROVABLY SO.**
+  ###   Write the common integral as `F(rho)`, so that the corpus's function is
+  ###   `rho^(-1/2) F(rho)` and the source's is `rho^(+1/2) F(rho)`.
+  ###   The interval of integration is empty at the identity, so `F(1) = 0`.
+  ###   The derivative of `rho^s F(rho)` at the identity is `s F(1) + F'(1)`,
+  ###   and with `F(1) = 0` that is `F'(1)` ### **FOR EVERY `s` WHATEVER.**
+  ### ### **SO A CROSS-CHECK TAKEN AT A ZERO OF THE FUNCTION CANNOT SEE A
+  ### ### MULTIPLICATIVE FACTOR THAT IS FINITE AND NONZERO THERE.** ### That is the
+  ### whole of why a corpus that checked itself against the source found agreement.
+
+----------------------------------------------------------------------------------------------------
+### (2d) THE ARCHIMEDEAN SIGN CONVENTION, CHECKED AGAINST THE BANKED ATLAS
+### RATHER THAN ASSUMED -- AS THE ORDER REQUIRES.
+----------------------------------------------------------------------------------------------------
+  ### The corpus's archimedean term comes from `carto_atlas.py`, whose own header
+  ### records the explicit formula it uses and then says, of the sign:
+  ###   ### **`[sign fixed BY the E2 calibration]`**
+  ### and, two lines above:
+  ###   ### **`DISCLAIMED REGISTER: a computation maps and cannot prove. No sign
+  ###   ### claim is made.`**
+  ### ### **SO THE CORPUS HAS NO INDEPENDENTLY DERIVED ARCHIMEDEAN SIGN TO CHECK
+  ### ### AGAINST: ### ITS SIGN WAS FITTED, BY ITS OWN DECLARATION.** ### The order
+  ### said to check rather than assume, and what the check FINDS is that the thing to
+  ### be checked against is itself a calibration.
+  ### ### **AND THAT IS NOT A COMPLAINT ABOUT THE ATLAS** -- the atlas disclaims
+  ### exactly this and always has. ### **IT IS THE REASON A FACTOR IN A NEIGHBOURING
+  ### ### TERM WOULD NOT HAVE ANNOUNCED ITSELF THROUGH THAT CHANNEL EITHER.**
+
+----------------------------------------------------------------------------------------------------
+### (2e) WHAT THIS ACT DOES **NOT** CONCLUDE.
+----------------------------------------------------------------------------------------------------
+  ### **IT DOES NOT CONCLUDE THAT ANY BANKED NUMBER IS WRONG.** ### It compared two
+  ### written definitions and computed nothing. ### Every banked measurement stands
+  ### exactly where its own act left it, at its own grade.
+  ### **IT DOES NOT CONCLUDE THAT THE CORPUS MEANT THE SOURCE'S FUNCTION AND MISSED.**
+  ### A corpus may define its own object. ### **WHAT IT MAY NOT DO IS CALL THAT OBJECT
+  ### ### THE SOURCE'S, AND THE HEADER DOES.** ### Which of those two happened is not
+  ### decided here, because deciding it needs a computation this act may not run.
+  ### **AND IT DOES NOT SETTLE THE EQUATION NUMBERS.** ### The corpus cites `their
+  ### (85)` and `eq (100)` where the pinned artefact has (84) and (99); its header
+  ### says `arXiv-v1 / Selecta numbering`, and a uniform offset of one between two
+  ### editions is the obvious reading. ### **THE SELECTA EDITION IS NOT PINNED BY THIS
+  ### ### CORPUS, SO THIS ACT CANNOT CHECK IT AND DOES NOT.** ### The offset is
+  ### UNIFORM across both citations, which is consistent with an edition shift and
+  ### not with a mis-citation, and that is as far as the evidence goes.
+
+----------------------------------------------------------------------------------------------------
+### (2f) THE WORK-ORDER THIS RAISES, TYPED AND NOT RUN.
+----------------------------------------------------------------------------------------------------
+  ### ### **`W-ORD-REMAINDER-EXPONENT`** -- FILED HERE, OPEN.
+  ###   ### **WHAT IT ASKS:** ### whether the corpus's remainder should carry the
+  ###     source's exponent, and what changes in the corpus's identity if it does.
+  ###   ### **THE EXACT CHECK, NAMED SO THE NEXT ACT DOES NOT HAVE TO INVENT IT:**
+  ###     re-run the corpus's own identity with the remainder's exponent flipped and
+  ###     nothing else touched, and compare the residue against the banked one. ###
+  ###     **THAT IS A COMPUTATION, AND THIS ACT MAY NOT RUN IT.**
+  ###   ### **WHAT IT MUST NOT DO:** ### edit any banked file, move any grade, or
+  ###     re-verdict any act before that comparison exists.
+  ###   ### **AND IT INHERITS `W-ORD-ARCH-NORM-READING`**, which b301 filed and which
+  ###     is still live: the normalization reading at the archimedean place is the
+  ###     open question this act has now given a second, sharper instance of.
+
+====================================================================================================
+### COMPONENT 3 -- THE ENTAILMENT. ### **IT DOES NOT RUN.**
+====================================================================================================
+  ### The order runs Component 3 ONLY on SAME, and states the alternative in its own
+  ### words: ### **on DIFFERENT or UNDECIDED, the corpus's remainder is its own object
+  ### and the entailment does not run.**
+  ### ### **THE VERDICT IS DIFFERENT, SO:**
+  ###   ### the corpus's finite-instance identity is NOT restated as the source's
+  ###     Theorem 4.7 here;
+  ###   ### b310's finite-side result is NOT attached to it, and stays quarantined at its
+  ###     own scope, where b310 and b311 left it;
+  ###   ### the open clause's finite-instance form is NOT written;
+  ###   ### and the weight-and-eigenvalue juxtaposition is NOT re-examined -- it was to be
+  ###     promoted to nothing even on SAME, and on DIFFERENT it is not even asked.
+  ### ### **AND NO CLAIM IS MADE ABOUT THE IMBALANCE'S CAUSE.** ### The order permits one
+  ### only if the identification lands. ### **IT DID NOT LAND.** ### The temptation is
+  ### obvious and is refused by name: a factor found in a term of the identity is NOT
+  ### thereby the explanation of anything the identity does, and saying otherwise would
+  ### be this act computing a consequence it has no instrument for.
+
+====================================================================================================
+### THE VERDICT ON THE NAVIGATOR'S REGISTERED EXPECTATION.
+====================================================================================================
+  ### The expectation, quoted from the order: ### **SAME FUNCTION up to the normalization
+  ### the corpus records by a factor; refutable by a differing constituent.**
+  ### ### ### **REFUTED.**
+  ###   ### **AND REFUTED IN THE REGION ITS OWN HEDGE POINTED AT**, which is the honest
+  ###     thing to say for it: it named the normalization as the risk and named the
+  ###     refutation condition correctly.
+  ###   ### **BUT THE HEDGE DOES NOT COVER THE FINDING.** ### *Up to a factor* is a
+  ###     scalar's licence. ### **THE FACTOR HERE IS `rho`, AND A FUNCTION OF THE
+  ###     ### VARIABLE IS NOT A SCALAR.** ### Two functions differing by `rho` agree at
+  ###     exactly one point, and that point is the identity, where both are zero.
+  ### ### **THIS IS THE THIRD ACT RUNNING WHOSE SEALED PREDICTION FAILED AT A
+  ### ### NORMALIZATION**, after b309's and b310's. ### The order put the normalization
+  ### first for that reason, and the reason held.
+
+  ### CHECKS FAILING : 0
+====================================================================================================

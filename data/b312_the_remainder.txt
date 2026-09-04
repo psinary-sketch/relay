@@ -1,0 +1,474 @@
+====================================================================================================
+b312 -- THE REMAINDER.
+### **IS THE CORPUS'S ARCHIMEDEAN REMAINDER FUNCTION THE SOURCE'S? ### DECIDED BY DEFINITIONS.**
+2026-09-03. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **NO. ### DIFFERENT.**
+### ### **NINE CONSTITUENTS WERE UNFOLDED AND COMPARED. ### EIGHT AGREE EXACTLY. ### THE NINTH IS
+### ### THE SCALING ACTION'S NORMALIZATION EXPONENT, AND IT DISAGREES BY A SIGN.**
+### ### **THE CORPUS'S FUNCTION IS THE SOURCE'S DIVIDED BY `rho`.**
+### ### **AND A FACTOR OF `rho` IS NOT A SCALAR**, so no *up to normalization* reading rescues the
+### identification. ### The two functions agree at exactly one point -- the identity -- where both
+### are zero, and ### **THAT IS ALSO THE ONLY POINT AT WHICH THE CORPUS EVER CHECKED THEM AGAINST
+### ### EACH OTHER.**
+
+### ### ### **AND WHAT THIS DOES NOT SAY, SAID HERE BEFORE ANYTHING ELSE, BECAUSE IT IS THE ONE
+### ### ### READING THAT WOULD MAKE THIS ACT DISHONEST:**
+### ### **IT DOES NOT SAY THAT ANY BANKED NUMBER IS WRONG.** ### This act compared two WRITTEN
+### DEFINITIONS and ### **COMPUTED NOTHING.** ### Every banked measurement stands exactly where its
+### own act left it, at its own grade. ### **THE QUESTION OF WHAT THIS DISCREPANCY DOES TO ANY OF
+### ### THEM BELONGS TO AN ACT THAT MAY COMPUTE, AND IT IS FILED HERE AS A WORK-ORDER RATHER THAN
+### ### ANSWERED.**
+
+----------------------------------------------------------------------------------------------------
+### STEP ZERO, AND WHAT IT ESTABLISHED BEFORE A WORD WAS READ.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN:** ### 4524 bytes, 92 lines; 3 struck entries, 10 patterns, self-test
+### PASS, ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **(ii) THE LEDGER CENSUS, WITH ITS SCOPE:** ### **TOTAL MISSING : 0.** ### It counts NAMES
+### and not understanding, ONE ledger and no other, and its act list is the `b297`-`b306` arc, which
+### reaches none of `b308`-`b312`.
+### ### **(iii) THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the tenth act running.
+### relay `8b83327`, SIDE-global-section `22a83c5`, PLACE-papers `d9a7a39`, each 0/0 and equal.
+### ### **(iv) THE ARTEFACT, CHECKED AGAINST THE CORPUS'S PIN BEFORE A WORD OF IT WAS READ:**
+### 1213504 bytes, sha256 `b8e0b54a...`, ### **MATCHING THE PIN b304 BANKED AND b305 RE-COMPUTED**;
+### 57 pages; text layer intact; ### **b311's 20 FRAGMENTS STILL ALL LOCATED, AND THIS ACT'S OWN 17
+### ### LOCATED TOO, 0 UNLOCATED.**
+### ### **THE COPY IS THE ONE `W-ORD-ARTEFACT-PATHS` RECORDS AS LIVING ONLY IN EPHEMERAL PLACES**,
+### which b311 filed after asserting its absence from an unfinished search. ### **THE PIN IS WHAT
+### ### MAKES READING IT SAFE, AND THE PIN WAS CHECKED, NOT ASSUMED.**
+
+====================================================================================================
+### COMPONENT 1 -- THE TWO DEFINITIONS, EACH UNFOLDED TO ITS BASE OBJECTS.
+### **NEITHER DESCRIBED IN THE OTHER'S LANGUAGE.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1a) THE CORPUS'S REMAINDER, AS ITS OWNER BUILDS IT.
+----------------------------------------------------------------------------------------------------
+### ### **THE EQUATION IT SAYS IT IMPORTED**, quoted from `tools/e16/qeps_layer.py`'s own header,
+### which announces its formulas as ### *"AS SUPPLIED (arXiv-v1 / Selecta numbering)"*:
+###   ### **`eps(rho) = sum_n [lam/sqrt(1-lam^2)] <xi_n | theta(rho^-1) zeta_n>`** ### -- cited by
+###   the header as ### *"their (85)"*.
+### ### **THE NORMALIZATION IT DECLARES**, from the same header:
+###   ### **`theta(a) f(x) = a^{1/2} f(x/a)`**, ### described there as ### *"the convention forced
+###   by the supplied support law"*.
+### ### **THE DOMAIN:** ### `rho >= 1`, the integrand supported only on `[1/rho, 1]`, so the value
+### at `rho = 1` is zero -- the header states this itself.
+### ### **THE MODE EXPANSION IT IS COMPUTED THROUGH:** ### the even prolate functions `xi_n` and
+### their eigenvalues `lam(n)`; the auxiliary vector as
+###   ### `zeta_n(x) = [lam/sqrt(1-lam^2)] xi_n^an(x)` for `x >= 1`, else `0`;
+###   ### `xi_n^an(x) = (2/lam) INT_0^1 xi_n(t) cos(2 pi t x) dt`, entire.
+### ### **UNFOLDED -- WHAT THE CODE ACTUALLY EVALUATES**, read off `qeps_layer.py` line 113 and
+### `b38_act10.py` line 91 by `tools/b312_definitions.py`, not paraphrased:
+###   ### **`eps(rho) = sum_n [lam^2/(1-lam^2)] * rho^(-1/2) * INT_{1/rho}^{1} an(u) an(rho u) du`**
+### ### **THE IDENTITY ITS LEFT SIDE DECOMPOSES UNDER**, from `b38_act10.py` line 182:
+###   ### **`resid = TrN - A - E2N`** ### -- the trace, less the archimedean term, less the
+###   remainder's integral, leaves a residue.
+### ### **AND HOW THE SECOND TERM IS BUILT FROM `eps`**, from the same file:
+###   ### **`E2 = 2 * INT_0^{2L} corr(u) eps(exp u) du`** ### -- a fold in the logarithmic variable,
+###   which is this corpus's way of writing an integral in the multiplicative measure over a window.
+### ### **ONE NOTE ON A NEIGHBOURING OBJECT, SO IT CANNOT BE CONFUSED WITH THIS ONE:** ### the
+### corpus's `eps_even` is an EVEN-INDEX SUB-SUM of this same `eps`, built by masking the modes; the
+### identity above uses the FULL sum. ### **THEY ARE NOT THE SAME OBJECT AND THIS ACT COMPARES THE
+### ### FULL ONE**, which is the one the identity consumes.
+
+----------------------------------------------------------------------------------------------------
+### (1b) THE SOURCE'S REMAINDER, AS ITS THEOREM 4.7 DEFINES IT.
+----------------------------------------------------------------------------------------------------
+### ### **THE IDENTITY** -- its equation (83), located on pages 5, 26 and 47 of the pinned artefact:
+###   ### **`Tr(theta(f) S) = W_inf(f) + INT f(rho^-1) eps(rho) d*rho`**, for every
+###   `f in C_c^infinity(R*_+)`, where `S` is the orthogonal projection of `L^2(R)_ev` onto
+###   `S(1,1)` and `W_inf` is the archimedean Weil distribution.
+### ### **THE FUNCTION** -- its equation (84), located on pages 5, 26 and 27:
+###   ### **`eps(rho) = sum_n [lam(n)/sqrt(1-lam(n)^2)] <xi_n | theta(rho^-1) zeta_n>`**,
+###   given for `rho >= 1` and extended by the symmetry ### **`eps(rho^-1) = eps(rho)`.**
+### ### **THE NORMALIZATION** -- its equation (61), located on page 22:
+###   ### **`(theta(lam) xi)(v) := lam^{-1/2} xi(lam^{-1} v)`, for all `xi in L^2(R)_ev`,**
+###   introduced on that same page as ### *"the unitary representation ... conjugated by the
+###   isomorphism"*, ### **SO THE ACTION IS UNITARY BY CONSTRUCTION AND THE SOURCE SAYS SO.**
+### ### **THE DOMAIN:** ### the whole of `R*_+`, by the symmetry; the defining formula is stated on
+### `rho >= 1`.
+### ### **THE AUXILIARY VECTOR** -- page 31:
+###   ### **`zeta_n(x) = [1/sqrt(1-lam(n)^2)] eta_n(x) = [lam(n)/sqrt(1-lam(n)^2)] xi_n^an(x)`**,
+###   for `x in [1, infinity)`, with `xi_n^an` the analytic continuation of `xi_n` and
+###   ### `xi_n^an(1) = xi_n(1)`.
+### ### **THE JUMP AT THE IDENTITY** -- its Lemma 5.4, page 31: ### the function
+###   ### *"has a jump in its derivative at `rho = 1`"*, ### and
+###   ### **`eps'(1+) = sum_n [lam(n)^2/(1-lam(n)^2)] xi_n(1)^2`.**
+### ### **AND THE SOURCE UNFOLDS ITS OWN FUNCTION, IN THAT LEMMA'S PROOF, ON PAGE 31:**
+###   ### **`eps(rho) = sum_n [lam(n)^2/(1-lam(n)^2)] ( rho^{+1/2} INT_{rho^-1}^{1} xi^an(x)
+###   ### xi^an(rho x) dx )`**
+### ### **SO BOTH SIDES ARRIVE AT THE SAME SHAPE. ### WHICH IS EXACTLY WHY THE SHAPE DECIDES
+### ### NOTHING.**
+
+----------------------------------------------------------------------------------------------------
+### (1c) THE CONSTITUENTS, MATCHED ONE BY ONE.
+----------------------------------------------------------------------------------------------------
+###   CONSTITUENT                      CORPUS                          SOURCE
+###   the mode family                  even prolate functions          even prolate functions
+###   the auxiliary vector             `lam/sqrt(1-lam^2)` times `an`  `lam/sqrt(1-lam^2)` times `an`
+###   the analytic continuation        cosine transform over `[0,1]`   analytic continuation of `xi`
+###   the outer coefficient            `lam^2/(1-lam^2)`               `lam^2/(1-lam^2)`
+###   the integration interval         from `1/rho` to `1`             from `1/rho` to `1`
+###   the integrand                    `an(u) an(rho u)`               `xi^an(x) xi^an(rho x)`
+###   the value at the identity        zero, by empty interval         zero, by empty interval
+###   the one-sided derivative         `sum lam^2/(1-lam^2) xi(1)^2`   `sum lam^2/(1-lam^2) xi(1)^2`
+###   ### **THE SCALING EXPONENT**     ### **`rho^(-1/2)`**             ### **`rho^(+1/2)`**
+### ### **EIGHT AGREE. ### THE NINTH IS THE WHOLE OF THIS ACT.**
+### ### **AND THE OUTER COEFFICIENT IS WORTH ONE SENTENCE, BECAUSE IT IS THE PLACE AN IDENTIFICATION
+### ### COULD HAVE FAILED AND DID NOT:** ### the defining equation carries `lam/sqrt(1-lam^2)` once
+### and `zeta_n` carries it again, so the unfolded coefficient is its square, `lam^2/(1-lam^2)`.
+### ### **BOTH SIDES DO THIS THE SAME WAY**, and the agreement is derived here rather than assumed
+### from the two expressions looking alike.
+
+====================================================================================================
+### COMPONENT 2 -- THE DECISION.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (2a) HOW THE DECISION IS MADE, AND WHY IT NEEDED A SECOND TOOL.
+----------------------------------------------------------------------------------------------------
+### ### **THE CORPUS'S OWN LOCATOR CANNOT DECIDE THIS QUESTION, AND THAT IS MEASURED BEFORE IT IS
+### ### USED.** ### `b305_source.py`'s flattener strips every non-alphanumeric character, so
+### `rho^{+1/2}` and `rho^{-1/2}` ### **FLATTEN TO THE SAME STRING** -- printed by
+### `tools/b312_source.py` as a fixture, not asserted.
+### ### **A LOCATOR THAT CANNOT SEE A MINUS SIGN CANNOT DECIDE A QUESTION ABOUT A MINUS SIGN**, so
+### the sign is read by `tools/b312_definitions.py` off the RAW, UNFLATTENED page text on one side
+### and off the corpus's own committed files on the other. ### **THAT SEPARATION IS THE WHOLE REASON
+### ### THIS ACT HAS TWO TOOLS INSTEAD OF ONE.**
+### ### **AND THE EXTRACTOR'S FIXTURES PROVE IT CAN REPORT EITHER ANSWER BEFORE IT IS TRUSTED** --
+### six arms, including one that reports a minus where a minus is and one that reports its absence
+### where it is absent. ### **A CONTROL THAT CANNOT FIRE READS AS A PASS**, which is b308's own
+### finding about its own defect, and it is met here in advance.
+
+----------------------------------------------------------------------------------------------------
+### (2b) THE VERDICT: ### **DIFFERENT.**
+----------------------------------------------------------------------------------------------------
+### ### ### **THE FIRST DIFFERING CONSTITUENT, AT FULL PROMINENCE:**
+###
+### ### ### ### **THE SCALING ACTION'S NORMALIZATION EXPONENT.**
+###
+### ### **THE SOURCE, ITS OWN EQUATION (61), PAGE 22:**
+###   ### ### **`(theta(lam) xi)(v) := lam^{-1/2} xi(lam^{-1} v)`**
+###   ### -- unitary; so at the argument the remainder uses, ### **`theta(rho^-1) f(x) =
+###   ### rho^{+1/2} f(rho x)`.**
+### ### **THE CORPUS, ITS OWN HEADER:**
+###   ### ### **`theta(a) f(x) = a^{1/2} f(x/a)`**
+###   ### -- so at the same argument, ### **`theta(rho^-1) f(x) = rho^{-1/2} f(rho x)`.**
+###
+### ### **AND NEITHER IS INFERRED FROM THE OTHER'S PROSE: ### BOTH SIDES ALSO WRITE THE UNFOLDED
+### ### FORMULA OUT, AND THE UNFOLDED FORMULAE DISAGREE IN THE SAME PLACE.**
+###   ### the source, Lemma 5.4's proof, page 31 : ### **`rho^{+1/2}`**
+###     extracted verbatim, IN THE ARTEFACT'S OWN BROKEN TYPESETTING, because a cleaned-up
+###     quotation of a sign is one this act could have got wrong:
+###       ### `ϵpρq“ ÿ λpnq2 1´λpnq2 ˆ ρ1{2`
+###   ### the corpus, `qeps_layer.py` line 113 : ### **`r ** -0.5`**
+###     extracted verbatim: ### `out[k] = float((lam2 / (1 - lam2) * (r ** -0.5) * I).sum())`
+###
+### ### ### **THE TWO FUNCTIONS THEREFORE DIFFER BY A FACTOR OF `rho`, WHICH IS NOT A SCALAR.**
+### ### **THE CORPUS'S IS THE SOURCE'S DIVIDED BY `rho`.**
+
+----------------------------------------------------------------------------------------------------
+### (2c) THREE THINGS THAT MAKE THE VERDICT HARDER TO DOUBT.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE SOURCE IS SELF-CONSISTENT AT THREE INDEPENDENT PLACES.**
+###   ### its definition (61), page 22;
+###   ### its OWN worked unfolding of an inner product of exactly this shape, page 26 --
+###     ### **`<psi_n | theta(rho^-1) xi_n> = rho^{1/2} INT xi_n(rho x) psi_n(x) dx`**, which is the
+###     source showing what its own bracket means;
+###   ### its Lemma 5.4 proof, page 31.
+###   ### **A TRANSCRIPTION SLIP IN THE SOURCE WOULD HAVE TO HAVE HAPPENED THREE TIMES, THE SAME
+###   ### WAY, IN THREE DIFFERENT REGISTERS.**
+### ### **(ii) THE CORPUS DISAGREES WITH ITSELF, IN THE SAME TWO FILES.**
+###   ### `qeps_layer.py`'s `Qeps` (line 91) carries ### **`r ** 0.5`**, which AGREES with the
+###     source's eq. (99) -- and its header transcribes that leading factor as `rho^(1/2)`, correct.
+###   ### `qeps_layer.py`'s `eps` (line 113) carries ### **`r ** -0.5`**, which does not.
+###   ### and inside `b38_act10.py`, ### **ONE IDENTITY, TWO CONVENTIONS, ONE FILE**: the trace side
+###     (line 73) applies ### `math.sqrt(lamd)` -- the source's convention -- while the remainder
+###     side (line 91) applies ### `r ** -0.5`.
+###   ### **THE SAME SOURCE, TRANSCRIBED TWICE, ONCE WITH EACH SIGN.**
+### ### **(iii) THE CORPUS'S STATED REASON DOES NOT REACH THE CONCLUSION IT DRAWS.**
+###   ### The header says the convention is ### *"forced by the supplied support law"*, ### and the
+###   support law it cites is that `theta(rho^-1) zeta_n(u)` is nonzero exactly for `u >= rho^-1`.
+###   ### **BUT THAT CONDITION IS IDENTICAL UNDER BOTH CONVENTIONS.** ### Whether the amplitude is
+###   `rho^{+1/2}` or `rho^{-1/2}`, the vector is `zeta_n(rho u)` and vanishes in exactly the same
+###   place. ### ### **A SUPPORT CONDITION FIXES A DOMAIN, NOT AN AMPLITUDE.** ### The support law
+###   is SILENT on the exponent, so it cannot have forced it.
+
+----------------------------------------------------------------------------------------------------
+### (2d) WHY THIS SURVIVED -- DERIVED, NOT GUESSED.
+----------------------------------------------------------------------------------------------------
+### ### The corpus's ONE cross-check against the source at this point is the one-sided derivative at
+### the identity. ### Its header derives it and marks it ### *"CONSEQUENCE DERIVED HERE, NOT
+### ASSUMED"*; the source states the same value in Lemma 5.4. ### **THE TWO AGREE.**
+### ### ### **AND THE AGREEMENT IS EMPTY, PROVABLY.**
+###   ### Write the common integral as `F(rho) = INT_{1/rho}^{1} an(u) an(rho u) du`, so that the
+###     corpus's function is `rho^{-1/2} F(rho)` and the source's is `rho^{+1/2} F(rho)`.
+###   ### The interval of integration is EMPTY at `rho = 1`, so ### **`F(1) = 0`** -- which is the
+###     corpus's own documented property of its integrand, not an assumption imported for the
+###     occasion.
+###   ### The derivative of `rho^s F(rho)` at `rho = 1` is `s F(1) + F'(1)`, and with `F(1) = 0`
+###     that is ### **`F'(1)`, FOR EVERY `s` WHATEVER.**
+### ### ### **SO A CROSS-CHECK TAKEN AT A ZERO OF THE FUNCTION CANNOT SEE A MULTIPLICATIVE FACTOR
+### ### ### THAT IS FINITE AND NONZERO THERE.** ### That is the whole of why a corpus that checked
+### itself against its source found agreement, and it is a fact about WHERE the check was taken, not
+### about anybody's care.
+
+----------------------------------------------------------------------------------------------------
+### (2e) THE ARCHIMEDEAN SIGN CONVENTION, CHECKED AGAINST THE BANKED ATLAS RATHER THAN ASSUMED.
+----------------------------------------------------------------------------------------------------
+### ### The order required this check by name, and it was run. ### The corpus's archimedean term
+### comes from `tools/e16/carto_atlas.py`, whose own header records the explicit formula it uses and
+### then says, of the sign:
+###   ### ### **`[sign fixed BY the E2 calibration]`**
+### and, two lines above it:
+###   ### ### **`DISCLAIMED REGISTER: a computation maps and cannot prove. No sign claim is made.`**
+### ### ### **SO THE CORPUS HAS NO INDEPENDENTLY DERIVED ARCHIMEDEAN SIGN TO CHECK AGAINST: ### ITS
+### ### ### SIGN WAS FITTED, BY ITS OWN DECLARATION.** ### The order said to check rather than
+### assume, and what the check FINDS is that the thing to be checked against is itself a
+### calibration.
+### ### **AND THAT IS NOT A COMPLAINT ABOUT THE ATLAS.** ### The atlas disclaims exactly this and
+### always has, and a disclaimed instrument used inside its disclaimer is being used correctly.
+### ### **IT IS THE REASON A FACTOR IN A NEIGHBOURING TERM WOULD NOT HAVE ANNOUNCED ITSELF THROUGH
+### ### THAT CHANNEL EITHER.**
+
+----------------------------------------------------------------------------------------------------
+### (2f) WHAT THIS ACT DOES **NOT** CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **IT DOES NOT CONCLUDE THAT ANY BANKED NUMBER IS WRONG.** ### It compared two written
+### definitions and computed nothing. ### **NO ACT IS RE-VERDICTED, NO GRADE MOVES, AND NO BANKED
+### ### MEASUREMENT IS CALLED WRONG** -- three caps at zero in the sealed registration, each
+### re-measured by a gate.
+### ### **IT DOES NOT CONCLUDE THAT THE CORPUS MEANT THE SOURCE'S FUNCTION AND MISSED.** ### A
+### corpus may define its own object. ### **WHAT IT MAY NOT DO IS CALL THAT OBJECT THE SOURCE'S, AND
+### ### THE HEADER DOES** -- *their (85)*, *AS SUPPLIED*. ### Which of those two happened is not
+### decided here, because deciding it needs a computation this act may not run.
+### ### **IT DOES NOT SETTLE THE EQUATION NUMBERS.** ### The corpus cites *their (85)* and
+### *eq (100)* where the pinned `arXiv-v1` has ### **(84)** ### and ### **(99)**; in that artefact
+### (85) is a DIFFERENT equation, the one about `delta`. ### The corpus's header says
+### *arXiv-v1 / Selecta numbering*, and ### **THE OFFSET IS UNIFORM ACROSS BOTH CITATIONS**, which
+### is consistent with an edition shift and not with a mis-citation. ### **THE SELECTA EDITION IS
+### ### NOT PINNED BY THIS CORPUS, SO THIS ACT CANNOT CHECK IT AND DOES NOT**, and the offset is
+### reported as evidence of a shift and nothing more.
+### ### **AND IT DOES NOT TREAT THE SOURCE'S THEOREMS AS THE CORPUS'S.** ### Every archimedean
+### statement quoted here is an IMPORT at the import bar. ### **NO PROOF OF THE SOURCE'S IS
+### ### VERIFIED BY THIS SEAT.**
+
+----------------------------------------------------------------------------------------------------
+### (2g) THE WORK-ORDER THIS RAISES -- TYPED, FILED, AND NOT RUN.
+----------------------------------------------------------------------------------------------------
+### ### ### **`W-ORD-REMAINDER-EXPONENT`** -- FILED HERE, OPEN.
+###   ### **WHAT IT ASKS:** ### whether the corpus's remainder should carry the source's exponent,
+###     and what changes in the corpus's identity if it does.
+###   ### **THE EXACT CHECK, NAMED SO THE NEXT ACT DOES NOT HAVE TO INVENT IT:** ### re-run the
+###     corpus's own identity with the remainder's exponent flipped and
+###     ### **NOTHING ELSE TOUCHED**, and compare the residue against the banked one.
+###     ### **THAT IS A COMPUTATION, AND THIS ACT MAY NOT RUN IT.**
+###   ### **WHAT IT MUST NOT DO:** ### edit any banked file, move any grade, or re-verdict any act
+###     before that comparison exists.
+###   ### **AND IT INHERITS `W-ORD-ARCH-NORM-READING`**, which b301 filed and which is still live.
+###     ### **THE NORMALIZATION READING AT THE ARCHIMEDEAN PLACE IS THE OPEN QUESTION THIS ACT HAS
+###     ### NOW GIVEN A SECOND AND SHARPER INSTANCE OF.**
+
+====================================================================================================
+### COMPONENT 3 -- THE ENTAILMENT. ### **IT DOES NOT RUN.**
+====================================================================================================
+### ### The order runs Component 3 ONLY on SAME, and states the alternative in its own words:
+### ### **on DIFFERENT or UNDECIDED, the corpus's remainder is its own object and the entailment
+### ### does not run.**
+### ### **THE VERDICT IS DIFFERENT, SO:**
+###   ### the corpus's finite-instance identity is NOT restated as the source's Theorem 4.7 here;
+###   ### b310's finite-side result is NOT attached to it, and stays quarantined at its own scope,
+###     where b310 and b311 left it;
+###   ### the open clause's finite-instance form is NOT written;
+###   ### and the weight-and-eigenvalue juxtaposition is NOT re-examined -- it was to be promoted to
+###     nothing even on SAME, and on DIFFERENT it is not even asked.
+### ### ### **AND NO CLAIM IS MADE ABOUT THE IMBALANCE'S CAUSE.** ### The order permits one only if
+### the identification lands. ### **IT DID NOT LAND.**
+### ### **THE TEMPTATION IS OBVIOUS AND IS REFUSED BY NAME:** ### a factor found in a term of an
+### identity is NOT thereby the explanation of anything that identity does. ### Saying otherwise
+### would be this act computing a consequence it has no instrument for, and it would be the same
+### drift the caps exist to stop, wearing softer words.
+
+====================================================================================================
+### THE VERDICT ON THE NAVIGATOR'S REGISTERED EXPECTATION.
+====================================================================================================
+### ### The expectation, quoted from the order: ### **SAME FUNCTION up to the normalization the
+### corpus records by a factor; refutable by a differing constituent.**
+### ### ### ### **REFUTED.**
+###   ### **AND REFUTED IN THE REGION ITS OWN HEDGE POINTED AT**, which is the honest thing to say
+###     for it: it named the normalization as the risk and named the refutation condition correctly.
+###   ### **BUT THE HEDGE DOES NOT COVER THE FINDING.** ### *Up to a factor* is a scalar's licence.
+###     ### **THE FACTOR HERE IS `rho`, AND A FUNCTION OF THE VARIABLE IS NOT A SCALAR.** ### Two
+###     functions differing by `rho` agree at exactly one point.
+### ### ### **THIS IS THE THIRD ACT RUNNING WHOSE SEALED PREDICTION FAILED AT A NORMALIZATION**,
+### after b309's (which named the wrong operator) and b310's (which named the wrong factor). ### The
+### order put the normalization first for exactly that reason, ### **AND THE REASON HELD.**
+
+====================================================================================================
+### THE IMPORT LEDGER -- EVERY ROW USED BY THIS ACT, GRADED.
+====================================================================================================
+### | SOURCE / STATEMENT | USED FOR | GRADE | OWED |
+### |---|---|---|---|
+### | ### **CC 2006.13771v1, pages 5, 22, 26, 27, 31, 32, 47, 52** | Components 1 and 2 |
+###   ### **IMPORT, READ AT CONTENT THIS ACT**, artefact pinned by sha256 `b8e0b54a...` BEFORE a
+###   word was read | ### **THE PROOFS ARE NOT VERIFIED BY THIS SEAT** |
+### | CC eq. (61), (83), (84), (85), (99), Lemma 5.4, Prop 5.3, the `zeta_n` line, eq. (101) |
+###   the whole of Components 1 and 2 | ### **IMPORT, AT CONTENT** | -- |
+### | the corpus's `qeps_layer.py` header and code | (1a), (2b), (2c) | ### **THE CORPUS'S OWN
+###   EMITTING FILE, QUOTED** | -- |
+### | the corpus's `b38_act10.py` identity, trace side and remainder side | (1a), (2c) | ### **THE
+###   CORPUS'S OWN EMITTING FILE, QUOTED** | -- |
+### | the corpus's `carto_atlas.py` calibrated sign and its disclaimer | (2e) | ### **THE CORPUS'S
+###   OWN EMITTING FILE, QUOTED, AT ITS DISCLAIMED REGISTER** | -- |
+### | b286's archimedean space and its two conditions | (1b) | ### **AT b286's AT-CONTENT GRADE**
+###   | -- |
+### | b292's `zeta_n IS NOT IN S(1,1)` | named, not used to decide | ### **AT ITS OWN BANKED GRADE**
+###   | -- |
+### | b285's HAZARD REGISTER; b200's DOUBLE-NAME SPECIES; b219's realisation of it | the refusal of
+###   the shared letter as evidence | ### **AT THEIR OWN BANKED GRADES** | -- |
+### | b310's finite-side sentence and b311's decision | context only, CARRIED AND NOT USED |
+###   ### **AT THEIR OWN BANKED GRADES, WITH THEIR SCOPES** | -- |
+### | b301's `W-ORD-ARCH-NORM-READING` | inherited by the new work-order | ### **A LIVE RULING** |
+###   the ruling itself |
+### ### **AND THE LEDGER'S OWN LIMIT: ### THIS ACT READ STATEMENTS AND UNFOLDED DEFINITIONS. ### IT
+### ### DID NOT VERIFY A SINGLE PROOF OF THE SOURCE'S, AND NOTHING HERE IS EVIDENCE THAT ANY OF THEM
+### ### IS CORRECT.**
+
+====================================================================================================
+### THE CLOSING.
+====================================================================================================
+### ### **THE CORRESPONDENCE ROWS, BY THE IDEMPOTENT TOOL, READ BACK:** ### rows ### **136** ### and
+### ### **137** ### -- *THE REMAINDER IS NOT THE SOURCE'S* and *A CHECK TAKEN AT A ZERO CANNOT SEE A
+### FACTOR*. ### 6 cells each, none blank, table at 137 rows, the banked table a TRUE PREFIX.
+### ### **EVERY RESULT KEYED:** ### `the-remainder` (the order's own key) and
+### `remainder-check-at-a-zero`, each read back by querying the index, with six aliases that
+### returned `NO KEY` before this act and reach a row after it. ### **`the exponent` AND `the
+### ### archimedean term` STAY UNKEYED**, and were re-measured `NO KEY` after the write.
+### ### **THE OBJECT'S THREE CONDITIONS, EACH TYPED, UNCHANGED BY THIS ACT:**
+###   ### a PREMISE -- the level limit, b198 (I2), at its grade;
+###   ### a RULING -- `W-ORD-ARCH-NORM-READING`; ### **THE ONLY ARCHIMEDEAN CONDITION LEFT**, and
+###     this act's new work-order inherits it;
+###   ### a CONSTRUCTION -- C9 / `N-OPEN-B`, the real fiber's placement.
+###   ### **A CONDITION DISCHARGED IS NOT THE OBJECT CONSTRUCTED, AND THIS ACT DISCHARGED NONE.**
+### ### **`M-2`'s ROW: ### `(SPECIFIED-NOT-STATED)`, UNCHANGED, UNDER b310's CAP ON VERDICTS.**
+### ### **THE SEAM'S DEBT, ITEM 1: ### STILL UNPAID.** ### Item 1 is `A2`: ### **STATE `M-2`.**
+### `A1` paid b226's step; ### **`A2` HAS NOT BEEN PAID AND THIS ACT DOES NOT PAY IT.**
+### ### **THE PATENT CLOCK: ### UNCONFIRMED ON THIS SEAT'S RECORD.** ### Four filings receipt-backed
+### at content (b147); `P-ZONE` / `P-FANO-WPT` REGISTRY-backed with no receipt located, ERRATA
+### `E-2026-08-24-3`. ### **THE TWO RESPONSE UPLOADS: RECEIPTS PENDING, CARRIED ON THE FERRY'S WORD;
+### THEIR DATES WERE 2026-08-31 AND 2026-09-01; TODAY IS 2026-09-03 -- THREE DAYS PAST BOTH, AND
+### NOTHING ON THIS SEAT'S RECORD CONFIRMS EITHER.** ### **THIS SEAT HAS VERIFIED NOTHING THERE.**
+### ### **THE WINDOW RULING, RECORDED AND UNAPPLIED:** ### the author's `W2` --
+### ### *"a mean-zero variant of the corpus's bump is added beside the existing one,
+### replacing nothing; the variant's construction is a later act and this act only records
+### the ruling and what it obligates."*
+### ### **RECORDED, NOT APPLIED.** ### **NO VARIANT IS BUILT, TESTED OR PRICED HERE**, and what it
+### obligates was listed at b311 and is not re-listed as though it were new.
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER.
+----------------------------------------------------------------------------------------------------
+###   ### **(1) THE OBJECT** -- conditionally constructed on THREE conditions. ### **UNCHANGED.**
+###   ### **(2) `W-ORD-ARCH-NORM-READING`** -- the live ruling. ### **THIS ACT GIVES IT A SECOND AND
+###     SHARPER INSTANCE AND DOES NOT DISCHARGE IT.**
+###   ### **(3) `W-ORD-TERM3-ROW`** -- the author's.
+###   ### **(4) THE DECISION CARD (b304)** -- on the author's desk.
+###   ### **(5) `W-ORD-INSTRUMENT-Q-P`** -- built b308, computed b309, assembled b310; its
+###     archimedean counterpart priced at b311 and NOT built.
+###   ### **(6) THE WINDOW QUESTION** -- ### **`W2` RECORDED, NOT APPLIED.**
+###   ### **(7) `W-ORD-SOURCE-METHOD-APPLICABILITY`** -- named at b306. ### **THIS ACT DOES NOT
+###     BEAR ON IT**: the question here is what the corpus's own function IS, not what the source's
+###     method returns.
+###   ### **(8) THE PATENT CLOCK** -- ### **THREE DAYS PAST, UNCONFIRMED HERE.**
+###   ### **(9) b304's SHELL ENUMERATION** -- b308's note; no verdict turns on it.
+###   ### **(10) `(SPEC-2)` UNDECIDED FOR b310's CLASS OF CANDIDATE** -- filed, not answered.
+###   ### **(11) `W-ORD-ARTEFACT-PATHS`** -- filed at b311; ### **STILL OPEN**, and this act read the
+###     artefact from one of those same ephemeral locations.
+###   ### **(12) `W-ORD-HOOK-COVERAGE`** -- `.git/hooks/` is untracked, so a fresh clone of any of
+###     the three repositories has NO pre-push hook. ### **STILL OPEN.**
+###   ### ### **(13) NEW: ### `W-ORD-REMAINDER-EXPONENT`.** ### The corpus's remainder and the
+###     source's differ by a factor of `rho`, and the corpus's own trace side and remainder side
+###     carry opposite conventions inside one file. ### **THE EXACT CHECK IS NAMED AND IS A
+###     ### COMPUTATION; THIS ACT MAY NOT RUN IT.**
+
+----------------------------------------------------------------------------------------------------
+### THE LEDGER, THE SHADOW, THE FOLD, AND WHAT THIS ACT DID NOT CHECK.
+----------------------------------------------------------------------------------------------------
+### ### **THE CENSUS WAS RUN AND ITS COUNT REPORTED: ### TOTAL MISSING : 0**, with its scope in the
+### same breath: ### **NAMES AND NOT UNDERSTANDING; ONE LEDGER AND NO OTHER; AND ITS ACT LIST DOES
+### NOT REACH `b308` THROUGH `b312`.**
+### ### **THE SHADOW: ### EXPECTED NOTHING, AND NOTHING IS WHAT IT IS.** ### The act's content is
+### quotations and a comparison of two written definitions. ### **A QUOTATION IS NOT DECIDABLE, AND
+### A COMPARISON OF TWO ANALYTIC DEFINITIONS IS NOT FINITE-DECIDABLE.** ### There is nothing here
+### whose medium could be a terminal, and the act says so rather than hunting for a numeral to
+### compile. ### **0 `.lean` FILES CREATED. ### THE PROFILE DOES NOT MOVE.**
+### ### ### **THE FOLD IS NAMED AS DUE: ### `b307`-`b312` -- SIX ACTS: A FILING, AN INSTRUMENT, A
+### ### ### COMPUTATION, AN ASSEMBLY, A READ, AND A DEFINITIONAL DECISION.** ### **THIS ACT DOES NOT
+### ### FOLD THEM**, and the order names what comes first instead:
+### ### ### **THE NEXT ACT IS A FRESH-CLONE CERTIFICATION TEST.**
+###   ### **WHY IT COMES BEFORE THE FOLD:** ### two of the register's open items are about whether
+###     this corpus can be RE-RUN by anyone but this seat -- ### **`W-ORD-HOOK-COVERAGE`** (a fresh
+###     clone has no pre-push hook, because `.git/hooks/` is untracked) ### and
+###     ### **`W-ORD-ARTEFACT-PATHS`** (the pinned sources live only where a cleanup would remove
+###     them). ### **A FOLD OF SIX ACTS THAT CANNOT BE REPRODUCED FROM A CLONE IS A SUMMARY, NOT A
+###     ### CERTIFICATION**, and this act adds a third reason to run it: ### **THIS ACT'S OWN
+###     ### FINDING WAS ONLY REACHABLE BECAUSE THE EMITTING FILES ARE COMMITTED AND READABLE.**
+### ### **WHAT THIS ACT DID NOT CHECK:** ### nothing counted what is missing from `FINDINGS.md`,
+### `REGISTRY.md`, `OPEN_TRAILS.md`, `VERIFICATION_LOOM.md` or the desk. ### **NO PROOF OF THE
+### ### SOURCE'S WAS VERIFIED. ### NO ARCHIMEDEAN NUMBER WAS COMPUTED. ### NO OTHER CROSS-CHECK THE
+### ### CORPUS RAN WAS AUDITED, AND NO CLAIM IS MADE ABOUT ANY OF THEM.**
+
+### ### **NOTHING DEPOSITS. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT: ### "RH reduced to a
+### ### single located clause, reduction machine-verified. h2 is the clause."**
+### ### **LOCKS LAST.**
+
+====================================================================================================
+### THE CONTROLS, AND WHAT EACH ONE COULD HAVE CAUGHT.
+====================================================================================================
+### ### **THE COUNTS ARE THE SUITE'S OWN, PRINTED BY `tools/b312_checks.py` SO THAT THIS BANK NEVER
+### ### TYPES ONE AT A SHELL:** ### 20 owner needles, 59 self needles, 17 must-fail fixtures, 6
+### declared carriers, 17 tool-provenance rows.
+### ### ### **GATES: 108 PASS / 0 FAIL / 0 ERROR / 0 REFUSED, 0 UNPULLABLE, 0 GRADED HEDGES.**
+### ### **AND FOUR OF THEM FAILED ON THE FIRST RUN AND WERE FIXED BY REPAIRING THIS ACT'S OWN
+### ### FILES, NOT BY WEAKENING THE GATE:** ### two needles pointed at text this bank had hard-
+### wrapped mid-phrase (one of them carrying a literal newline inside the anchor, which can never
+### match); one arm of `G-UNFOLD` looked for a line in the wrong log; and `G-RULING` could not find
+### the author's ruling verbatim ### **BECAUSE THIS BANK HAD WRAPPED THE RULING ITSELF ACROSS A
+### ### LINE BREAK** -- which is the fourth act running that the wrap has caught this seat.
+### ### **WHAT EACH OF THE NEW ARMS COULD HAVE CAUGHT:**
+###   ### **`G-NOREVERDICT`** -- five sentences this act would have written if it had let a
+###     definitional finding become a verdict on a measurement. ### **THAT IS THE ONLY DRIFT THIS
+###     ### ACT WAS EVER REALLY AT RISK OF**, and the fixtures are its exact wording.
+###   ### **`G-NOENTAIL`** -- three sentences a weakened Component 3 would have produced.
+###   ### **`G-UNFOLD`** -- that the decision is made by unfolded definitions and that the act's own
+###     locator is measured UNFIT for the question before anything is decided with it.
+###   ### **`G-NOARCHNUM`** -- structural: ### **0 ARITHMETIC SITES IN ALL FOUR NEW TOOLS.**
+### ### **AND THE SUITE WAS RE-RUN AFTER THE PUSH**, as the order requires, with its result
+### reported either way in `data/b312_gates_after_push.txt`.
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE REGISTRATION RECORDS FINDINGS IN HAND, NOT PREDICTIONS, AND SAYS SO.**
+### The order's own EXECUTION line requires the owners and the source read at content BEFORE the
+### registration is sealed. ### So section (5) could not honestly be a prediction, and
+### ### **CALLING A FINDING A PREDICTION AFTER THE FACT IS THE FIT-DRESSED-AS-PREDICTION SPECIES
+### ### THIS SEAT NAMED AGAINST ITSELF AT b309, b310 AND b311.** ### The registration says which is
+### which in its own section (0). ### **WHAT THE SEAL STILL BUYS IS THE NAVIGATOR'S EXPECTATION,
+### ### WHICH ARRIVED BEFORE ANY READ AND IS RECORDED AS REFUTED.**
+### ### **(D2) THE ACT ADDED A SECOND TOOL THE ORDER DID NOT NAME.** ### The order says the
+### source's artefact is checked against the pin before a word is read, which `b312_source.py` does.
+### ### **BUT THE CORPUS'S LOCATOR CANNOT SEE THE CHARACTER THIS ACT TURNS ON**, and a decision made
+### with it would have been a decision made with an instrument measured unfit. ### The second tool
+### reads the raw text and is fixture-tested in both directions. ### **THE DEVIATION IS AN ADDITION,
+### ### NOT A SUBSTITUTION: THE ORDERED CHECK STILL RAN AND STILL PASSED.**
+### ### **(D3) ONE FRAGMENT'S EXTRACTION IS QUOTED IN THIS BANK IN THE ARTEFACT'S OWN BROKEN
+### ### TYPESETTING** rather than cleaned up, in (2b). ### **A CLEANED-UP QUOTATION OF A SIGN IS A
+### ### QUOTATION THIS ACT COULD HAVE GOT WRONG**, and the raw form is what the extractor matched.
+====================================================================================================
