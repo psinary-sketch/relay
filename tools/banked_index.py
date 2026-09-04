@@ -83,6 +83,12 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'membership': ['the membership', 'the residual ladder', 'the two realizations',
+                   'why is the residual not zero', 'is the unit in the space',
+                   'the truncation tail'],
+    'resolving-power': ['the resolving power', 'under-resolved',
+                        'what would settle it', 'the price of a question',
+                        'is it open or under-resolved'],
     'identity-control': ['the identity control', 'theorem four seven',
                         'the remainder integral', 'did the equality hold',
                         'is the exponent settled'],
@@ -447,6 +453,53 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LADDER, AND THE TRUNCATION TAIL THAT PREDICTS IT (b322).
+    ("membership", "b322 (reads at owners, a definitional decision, and one measurement)",
+     "the unit's membership residual run along the DOMAIN ladder at stable rank, and fitted."
+     " ### b319 measured it constant at 0.4395 across four GRID refinements and reported a"
+     " domain course without fitting it. ### **THE RESIDUAL FALLS AT EVERY STEP** -- 0.797250,"
+     " 0.644963, 0.439502, 0.286136, 0.197491 at X = 8 to 128, ranks 20, 37, 69, 133, 262 --"
+     " so by a bar sealed BEFORE any definition was unfolded, **THE RESIDUAL IS THE"
+     " TRUNCATION'S AND b300's DERIVATION IS NOT CONTRADICTED BY IT**. ### Fitted exponent"
+     " **p = -0.519901**, and a SECOND ROUTE SHARING NO CODE predicts it: max x u(x) beyond"
+     " X/2 is 1.118582, so u decays like 1/x, so the L2 mass beyond X goes like X^-1/2 --"
+     " predicted -0.500000, **AGREE**. ### Eight constituents unfolded side by side, neither in"
+     " the other's language; two differ, CONDITION TWO and THE DOMAIN, and **THEY ARE NOT"
+     " INDEPENDENT**: the first is what the second produces",
+     "### A FALLING COURSE AT FIVE FRAMES IS A FALLING COURSE AT FIVE FRAMES. ### **THE ACT"
+     " DID NOT SETTLE THE MEMBERSHIP AND DOES NOT CLAIM TO** -- the arms DISAGREE, the"
+     " noise-floor gate REFUSES 4 of 4 steps, and the SIZE of no value on the ladder is"
+     " certified. ### **THE RATE HALF OF THE REGISTERED EXPECTATION IS REFUTED**: against"
+     " b321's instrument exponent q = -1.324018 by the same fitter on the same domains,"
+     " p/q = 0.392669, outside the sealed band [0.5, 2.0]. ### **NO UNIT IS ADOPTED AND NONE"
+     " IS REPLACED.** ### b300 stands at DERIVES-on-IMPORTS; b316 and b319 stand at theirs."
+     " ### W-ORD-PHI-MU-L2 stays OPEN and the instrument cannot see it. ### NO ACT"
+     " RE-VERDICTED. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b322_the_membership.txt; data/b322_components_run.txt;"
+     " tools/b322_ladder.py (the emitting file); CORRESPONDENCE.md row 156"),
+    # ### THE RULE, AND THE VERDICT THAT TOOK THE WEAKER BRANCH (b322).
+    ("resolving-power", "b322 (the verdict, and two of its own sealed bars found defective)",
+     "a question is UNDER-RESOLVED, not open, when the candidates sit closer together than the"
+     " instrument's distance from the answer -- **AND THE PRICE IS THE RATIO**. ### b321 bought"
+     " the rule one act earlier: its identity control HELD and still could not tell two"
+     " exponent copies apart, which were 0.000981 to 0.003994 apart where the instrument sat"
+     " 0.018808 to 0.023224 from the answer. ### **THIS ACT IS ITS FIRST DELIBERATE"
+     " APPLICATION**: the membership question is priced rather than decided -- from"
+     " p = -0.519901 and the residual 0.197491 at X = 128, the domain at which it would reach"
+     " 0.01 is **X = 3.973e+04, a factor of 3.104e+02** beyond what was reached, labelled as an"
+     " extrapolation of a fitted slope",
+     "### A QUESTION THAT CARRIES ITS PRICE IS NOT A QUESTION ANSWERED. ### **TWO OF THIS"
+     " ACT'S OWN SEALED BARS WERE FOUND DEFECTIVE AND NEITHER WAS EDITED.** ### (B2)'s"
+     " dichotomy IS NOT A PARTITION: b316's taper smooths the DISCONTINUITY at the domain's"
+     " end and does not restore the mass BEYOND it, so a reading of THE VECTOR means NOT THE"
+     " EDGE DISCONTINUITY and not NOT THE TRUNCATION. ### (B5)'s branches ARE NOT MUTUALLY"
+     " EXCLUSIVE: two fired at once and the seal did not order them, so the runner's if/elif"
+     " chain picked DIFFERENT VECTORS on an ordering that was the tool's and not the seal's."
+     " ### **THE ACT TOOK THE WEAKER BRANCH, UNDER-RESOLVED**, because between two branches a"
+     " defective rule licenses equally an act may not help itself to the stronger one. ###"
+     " W-ORD-ARCH-MEMBERSHIP IS NOT CLOSED. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b322_the_membership.txt; data/b322_registration_2026-09-04.txt (sealed);"
+     " data/b321_the_window_opened.txt (the incident); CORRESPONDENCE.md row 157"),
     # ### THE SECOND AND THIRD THEOREMS AS CONTROLS (b321).
     ("identity-control", "b321 (two further theorems as controls on the instrument)",
      "the instrument tested against an EQUALITY and against the explicit formula. ###"

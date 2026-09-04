@@ -1,0 +1,201 @@
+====================================================================================================
+b322 -- THE MEMBERSHIP.
+====================================================================================================
+  ### b316 INSTRUMENT    FIXTURES : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b317 ASSEMBLY      FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b319 STABLE        FIXTURES : [True, True, True, True, True, True]  PASS
+  ### THIS ACT LADDER    FIXTURES : [True, True, True, True, True, True, True, True]  PASS
+    (i)    at (1024, 8): stable 0.7973 vs b319 0.7973 ; grid 0.9963 vs b319 0.9963 -- reproduced
+    (ii)   the same unit against the GRID cut gives 0.9963, not 0.7973 -- the arm can miss
+    (iii)  planted exponent -0.5 recovered as -0.500000000000, fit rms 3.103e-16
+    (iv)   planted exponent -1.25 recovered as -1.250000000000 -- the fitter is reading the data
+    (v)    a perfectly flat course fits exponent -5.212e-17 -- FLAT is reachable
+    (vi)   the taper moves the vector by 7.923e-01 in norm
+    (vii)  max |x u(x)| beyond x = 4 : 1.169090 -- bounded, so u ~ 1/x
+    (viii) the tail exponent at (1024, 8), from the vector alone : -0.7985 (fit rms 2.622e-02)
+  ### **FIXTURE (i) IS THE ONE THAT LICENSES EVERYTHING BELOW:** ### this act reproduces
+  ### b319's BANKED residual to four decimals on BOTH cuts. ### **A LADDER THAT COULD NOT
+  ### ### REPRODUCE THE ROW IT EXTENDS WOULD BE A DIFFERENT MEASUREMENT WEARING ITS NAME.**
+
+  ### THE STATEMENTS, PULLED FROM THE EXTRACT FILE:
+    found Definition 4.4 -- the space and its two conditions
+    found (16) -- the inner product and its normalization
+    found (24) -- the transform on even functions
+    found CM Lemma 3.1 -- condition one, quoted at its emitter
+    found ### and the closing line of its proof
+    found b211's (C3) -- the eigenrelation
+    found b203's fence -- and it is the one that matters
+    found b300's verdict (b)
+    found b319's residual table
+    found b321's instrument ladder
+    found the instrument realization -- sonin_unit
+    found ### and the edge diagnostic it ships with
+
+====================================================================================================
+### COMPONENT 1 -- THE LADDER ON THE RESIDUAL.
+====================================================================================================
+  ### **THE READING IS TAKEN FROM THE DIRECTION, AND IT IS TAKEN HERE.**
+  ### ### **BEFORE ANY DEFINITION IS UNFOLDED** -- (B1c) fixed that ordering before any
+  ### value existed, and Component 2 is written after this one has reported.
+
+    N       X       rank     residual stable  residual grid    tapered          max |x u(x)|  
+    1024    8       20       0.797250168      0.996263892      0.794970861      1.169090      
+    2048    16      37       0.644962860      0.946017820      0.641851703      1.140188      
+    4096    32      69       0.439502441      0.808142023      0.437550057      1.127356      
+    8192    64      133      0.286136410      0.603118226      0.285410021      1.121433      
+    16384   128     262      0.197490505      0.399841117      0.196572144      1.118582      
+
+    steps : -0.152287307, -0.205460420, -0.153366031, -0.088645905
+    ### ### **(B1a) DIRECTION : FALLS**
+    ### **SO THE RESIDUAL IS THE TRUNCATION'S AND THE DERIVATION IS NOT CONTRADICTED
+    ### ### BY IT** -- which is (B1c), read off (B1a) and off nothing else.
+
+  ### (1b) THE RATE, FITTED. ### **`log(residual) = A + p log(X)`, FIVE POINTS.**
+    the unit's residual        : p = -0.519901   (fit rms 0.0543)
+    b321's instrument residual : q = -1.324018   (fit rms 0.1038)
+    ### ### **RATIO p/q = 0.392669 ; (B1b) BAND [0.5, 2.0] : NOT**
+    ### **BOTH LADDERS ARE FITTED BY THE SAME FITTER ON THE SAME FIVE DOMAINS**, so the
+    ### ratio is a comparison and not a coincidence of two conventions.
+
+  ### (1c) THE EDGE DIAGNOSTIC -- b316's OWN `taper`, IMPORTED.
+    ### b316: *"IF THE VIOLATION OF CONDITION TWO IS THE STEP AT THE END OF THE DOMAIN,
+    ### THIS MOVES IT; IF IT IS THE VECTOR, THIS DOES NOT."*
+    N       X       untapered        tapered          ratio       
+    1024    8       0.797250168      0.794970861      0.997141    
+    2048    16      0.644962860      0.641851703      0.995176    
+    4096    32      0.439502441      0.437550057      0.995558    
+    8192    64      0.286136410      0.285410021      0.997461    
+    16384   128     0.197490505      0.196572144      0.995350    
+    ### ### **(B2) : THE VECTOR**
+
+  ### (1d) THE SECOND ROUTE TO THE EXPONENT. ### **THE VECTOR'S SHAPE, AT ONE FRAME.**
+    at the largest frame (N = 16384, X = 128), reading only that frame:
+      max |x u(x)| beyond X/2                  : 1.118582  -- BOUNDED, so u ~ 1/x
+      the tail norm exponent, measured directly : -0.682974  (fit rms 0.0247)
+      the exponent (B3) PREDICTED from u ~ 1/x  : -0.500000
+    ### ### **(B3) THE LADDER'S `p = -0.519901` AGAINST THE PREDICTED `-0.500000` : AGREE**
+    ### **AND THE DIRECTLY MEASURED TAIL EXPONENT IS REPORTED BESIDE BOTH, NOT INSTEAD OF
+    ### ### EITHER.** ### (B3) as sealed scores the ladder against the prediction that
+    ### boundedness licenses; the direct measurement is the same route made sharper, and
+    ### where the three numbers differ the act prints all three rather than choosing.
+
+  ### THE NOISE-FLOOR GATE, IN THE PATH.
+    residual X=8         0.797250168      -> 0.644962860      DRIFTING  
+    residual X=16        0.644962860      -> 0.439502441      DRIFTING  
+    residual X=32        0.439502441      -> 0.286136410      DRIFTING  
+    residual X=64        0.286136410      -> 0.197490505      DRIFTING  
+    ### ### REFUSED -- 4 of 4 value(s) rest on the instrument floor: residual X=8, residual X=16, residual X=32, residual X=64
+    ### **A REFUSED VALUE HAS ITS DIRECTION REPORTED AND NOT ITS SIZE.** ### The DIRECTION
+    ### of this course is what (B1a) reads, and a course that is still moving is a course
+    ### whose direction is exactly what can be read from it.
+
+====================================================================================================
+### COMPONENT 2 -- THE TWO REALIZATIONS, UNFOLDED TO BASE OBJECTS.
+====================================================================================================
+  ### **NEITHER IS DESCRIBED IN THE OTHER'S LANGUAGE**, which is the order's condition.
+  ### Each side carries the anchor that licenses it, and a row whose anchor does not pull
+  ### is not printed.
+
+  ### ---- **THE AMBIENT**
+    DERIVED (b300, on CM and b211)  : even, and in L^2(R) -- CM Lemma 3.1 says "the unique EVEN solution"; L^2 is NOT stated by any owner and travels as W-ORD-PHI-MU-L2
+      anchor 'the unique even solution'         pulls : True
+    INSTRUMENT (b316, b319)          : a real array on the grid x in [0, X], treated as an even function of x by the frame; square-summability is automatic for a finite array
+      anchor 'def sonin_unit'                   pulls : True
+    ### SAME in intent; the instrument cannot see the open L^2 question because a finite array is always square-summable
+
+  ### ---- **CONDITION ONE**
+    DERIVED (b300, on CM and b211)  : phi_mu is "zero on [-1,1] and agrees with f_mu(x) for x > 1" -- a QUOTED property of the solution
+      anchor 'zero on [-1,1]'                   pulls : True
+    INSTRUMENT (b316, b319)          : out = np.zeros(fr.N) and only the coordinates with x > 1 are filled -- an IMPOSED property of the array
+      anchor 'out = np.zeros(fr.N)'             pulls : True
+    ### SAME value, DIFFERENT status: quoted at the source, imposed by construction here. The instrument could not detect a violation of it
+
+  ### ---- **THE EIGENRELATION**
+    DERIVED (b300, on CM and b211)  : F phi_mu = c phi_mu with c = +-1, DERIVED by b211 (C3) from commutation plus simplicity, with b203's fence standing: F phi = xi is NOT F phi = phi
+      anchor 'F phi_mu = c phi_mu'              pulls : True
+    INSTRUMENT (b316, b319)          : never formed; the instrument applies the transform matrix and measures, it does not use an eigenrelation anywhere
+      anchor 'def transform_matrix'             pulls : True
+    ### NOT COMPARABLE: the derivation USES it and the instrument does not NEED it. Neither contains the other's step
+
+  ### ---- **CONDITION TWO**
+    DERIVED (b300, on CM and b211)  : (F_eR phi_mu)(p) = c * phi_mu(p) = c * 0 = 0 for |p| <= 1 -- one line, from the eigenrelation and condition one
+      anchor 'F_eR phi_mu = xi_mu'              pulls : True
+    INSTRUMENT (b316, b319)          : the null space of C = T[lo_y][:, hi_x]: the transform of the array, restricted to y <= 1, set against zero and MEASURED as a norm
+      anchor 'def masks'                        pulls : True
+    ### THE DERIVATION ASSERTS IT EXACTLY; THE INSTRUMENT MEASURES IT AND GETS A NONZERO NUMBER. This is where the residual lives
+
+  ### ---- **THE TRANSFORM**
+    DERIVED (b300, on CM and b211)  : the source's (24), the unitary on even functions
+      anchor 'it defines the unitary'           pulls : True
+    INSTRUMENT (b316, b319)          : 2 cos(2 pi outer(y, x)) * w -- (24) discretised on the frame, quadrature weights included
+      anchor 'def transform_matrix'             pulls : True
+    ### SAME convention, one exact and one quadrature
+
+  ### ---- **THE INNER PRODUCT**
+    DERIVED (b300, on CM and b211)  : the source's (16), <eta|xi> = INT_0^inf eta conj(xi) dx
+      anchor 'as follows'                       pulls : True
+    INSTRUMENT (b316, b319)          : the frame's weighted sum with the same normalization
+      anchor 'def norm'                         pulls : True
+    ### SAME convention, one exact and one quadrature
+
+  ### ---- **THE DOMAIN**
+    DERIVED (b300, on CM and b211)  : the whole half-line: phi_mu is defined for all x > 1 and CM states its behaviour at infinity
+      anchor 'zero on [-1,1]'                   pulls : True
+    INSTRUMENT (b316, b319)          : [0, X] for a FINITE X, with a HARD CUT at X and nothing beyond it
+      anchor 'def sonin_unit'                   pulls : True
+    ### DIFFERENT, AND VISIBLY SO WITHOUT ANY MEASUREMENT. Whether this difference IS the residual is Component 1's question and Component 1 answers it first
+
+  ### ---- **THE SPACE**
+    DERIVED (b300, on CM and b211)  : the source's Definition 4.4: S(1,1), two homogeneous vanishing conditions
+      anchor 'Definition 4.4'                   pulls : True
+    INSTRUMENT (b316, b319)          : b319's eigenvalue-one cut of the sandwich on the free coordinates, a finite section
+      anchor 'def stable_subspace'              pulls : True
+    ### SAME definition, one exact and one a finite section of it
+
+  ### ### **CONSTITUENTS THAT DIFFER : 2 -- CONDITION TWO, THE DOMAIN**
+  ### ### **AND THE FIRST OF THEM IN (B6)'s ORDER IS THE ONE THAT COUNTS.**
+  ### ### **FIRST DIFFERING CONSTITUENT : CONDITION TWO**
+
+====================================================================================================
+### COMPONENT 3 -- THE VERDICT ON THE LEG, AT EXACTLY ITS SCOPE.
+====================================================================================================
+  ### (B1a) FALLS   (B2) THE VECTOR   (B3) AGREE
+  ### ### **BRANCH REACHED BY THIS RUNNER'S CHAIN : DIFFERENT VECTORS**
+  ### ### ### **AND TWO BRANCH CONDITIONS FIRED AT ONCE. ### THE SEAL DID NOT ORDER
+  ### ### ### THEM.**
+  ### (B5) reads *(DIFFERENT VECTORS) -- if (B1a) is FLAT, or if (B2) is THE VECTOR*
+  ### and *(UNDER-RESOLVED) -- if the arms disagree*. ### With `FALLS`, `THE VECTOR`
+  ### and `AGREE`, ### **BOTH HOLD**, and the registration says nothing about which
+  ### wins. ### **THE `if/elif` ABOVE IS THIS TOOL'S ORDERING AND NOT THE SEAL'S.**
+  ### ### ### **THE ACT TAKES THE WEAKER OF THE TWO: ### UNDER-RESOLVED.** ###
+  ### `DIFFERENT VECTORS` is a positive claim about the object; `UNDER-RESOLVED` is a
+  ### claim about this resolution. ### **BETWEEN TWO BRANCHES A DEFECTIVE RULE LICENSES
+  ### ### EQUALLY, AN ACT MAY NOT HELP ITSELF TO THE STRONGER ONE**, and the bank
+  ### carries the defect at full prominence.
+
+  ### **THE PRICE, COMPUTED AS b321 PRICED THE EXPONENT.** ### From the fitted `p` and
+  ### the last measured residual, the domain at which the residual would reach
+  ### `0.01` is ### **`X = 3.973e+04`**, against the `X = 128` this act reached --
+  ### a factor of ### **3.104e+02**.
+  ### ### **THAT IS AN EXTRAPOLATION OF A FITTED SLOPE AND IT IS LABELLED AS ONE.** ###
+  ### It is a price, not a prediction: it says what the instrument would have to reach,
+  ### on the assumption that the fitted exponent continues, and the act does not claim
+  ### that it does.
+
+  ### **THE OBJECT'S CONDITIONS, RESTATED FROM THE LIST.**
+    ### **CONDITION ONE** -- `xi(q) = 0` for `|q| <= 1`. ### Quoted at CM for the derived
+    ### object; IMPOSED by array construction for the instrument's.
+    ### **CONDITION TWO** -- `(F_eR xi)(p) = 0` for `|p| <= 1`. ### Derived in one line for
+    ### the derived object; MEASURED, and nonzero, for the instrument's.
+    ### **THE AMBIENT** -- even, and in `L^2(R)`. ### Evenness quoted; ### **`L^2` STATED BY
+    ### ### NO OWNER AND STILL OPEN AS `W-ORD-PHI-MU-L2`**, which b300 filed and this act
+    ### does not close.
+
+  ### ### **AND WHAT IS NOT DONE HERE: ### NO UNIT IS ADOPTED AND NONE IS REPLACED.** ###
+  ### b300's derivation stands at DERIVES-on-IMPORTS. ### b316's and b319's measurements
+  ### stand at theirs. ### **NEITHER IS RE-VERDICTED BY THIS ACT.**
+
+====================================================================================================
+  ### CHECKS FAILING : 0 
+  ### elapsed : 104 s
+====================================================================================================
