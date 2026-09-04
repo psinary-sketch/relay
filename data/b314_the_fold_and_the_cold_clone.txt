@@ -424,3 +424,41 @@ b314 -- THE FOLD AND THE COLD CLONE.
 ### ### single located clause, reduction machine-verified. h2 is the clause."**
 ### ### **LOCKS LAST.**
 ====================================================================================================
+
+====================================================================================================
+### DEVIATIONS, DECLARED (the deviation rule standing).
+====================================================================================================
+### ### **(D1) THE REGISTRATION DOES NOT PRECEDE THE WHOLE ACT, AND SAYS SO IN ITS OWN SECTION
+### ### (0).** ### The filing half it precedes entirely; the certification half had already run
+### once, because a cold build of this kernel takes about twenty-five minutes and the act started
+### it rather than idle. ### **THE RUN OF RECORD IS A SECOND RUN, FROM A FRESH CLONE MADE BY THE
+### ### TOOL ITSELF, AND IT WAS IN FLIGHT WHEN THE SEAL WAS WRITTEN.**
+### ### **(D2) THE COVERAGE SWEEP CARRIED TWO DEFECTS ON ITS FIRST RUN, BOTH THIS ACT'S OWN.** ###
+### It swept alphabetically, so it reported `AxiomCheckM4E` as FAILING when its dependency had
+### simply not been built yet; and it counted an empty output stream as one emitted line. ###
+### **THE FIRST IS THE WORSE: A SWEEP THAT TESTS A MODULE BEFORE ITS DEPENDENCY EXISTS REPORTS A
+### ### DEFECT IN THE SWEEP AS A DEFECT IN THE CORPUS**, which is the worst direction for a report
+### to be wrong in. ### Both repaired; the sweep now runs in dependency order.
+### ### **(D3) THE FIRST CLONE WAS MADE BY HAND AND THE SECOND RUN WAS THEREFORE NOT COLD.** ###
+### Repairing the sweep meant re-running against a directory the first run had already filled.
+### ### **A CERTIFICATION WHOSE `INHERITED NOTHING` CLAIM AND WHOSE NUMBERS COME FROM DIFFERENT
+### ### RUNS IS NOT ONE CERTIFICATION**, so the clone was moved inside the tool and every run now
+### starts from nothing.
+### ### **(D4) THE COLD-RELAY GUARD REPORTED THE WRONG CAUSE.** ### It sampled the corpus's tracked
+### state at the top of the run, and this seat's own index edit landed between the two samples --
+### so the guard fired and blamed the cold controls for a change the seat had made. ### **A GUARD
+### ### THAT REPORTS THE WRONG CAUSE IS WORSE THAN NO GUARD.** ### The samples now bracket the
+### control loop, and the appearing and vanishing paths are printed rather than a bare verdict.
+### ### **(D5) `G-ADDITIVE` MEANT SOMETHING ELSE ON THE FAR SIDE OF THE COMMIT, AND THE ORDER'S
+### ### RE-RUN IS WHAT FOUND IT.** ### Written as `git diff HEAD`, it measured a PENDING change;
+### after the commit it measured nothing and reported zero, and ### **THAT IS NOT THE GATE PASSING,
+### ### IT IS THE GATE MEANING SOMETHING ELSE.** ### It now FINDS its baseline -- working tree
+### against `HEAD` if there is a pending change, `HEAD~1` against `HEAD` otherwise -- and reports
+### which it used, so the number is the same on both sides. ### **THIS IS b309's `(D6)` MET A THIRD
+### ### TIME, AND THE THIRD TIME IS THE ONE THAT SAYS IT IS A PATTERN AND NOT AN ACCIDENT.**
+### ### **(D6) THE HEDGE AUDIT FIRES ONCE ON THE SEALED REGISTRATION, AND THE SEAL IS NOT EDITED.**
+### ### The exemption is declared in the suite with its reason and its count is required to be
+### exactly one; the bank carries the same flag because it QUOTES the sentence in order to declare
+### the exemption. ### **SUPPRESSING THE QUOTATION TO QUIET THE AUDIT WOULD HIDE THE EXEMPTION THE
+### ### AUDIT EXISTS TO MAKE VISIBLE.**
+====================================================================================================

@@ -241,12 +241,26 @@ def git_tracked(repo, rel):
 
 
 def numstat(repo, path):
+    """### **THE BASELINE IS FOUND, NOT ASSUMED** -- b309 (D6), met a third time.
+
+    ### A gate written as `git diff HEAD` measures a PENDING change, and on the far side of the
+    ### commit it measures nothing and reports zero. ### **THAT IS NOT THE GATE PASSING; IT IS
+    ### THE GATE MEANING SOMETHING ELSE**, and the order's *re-run the suite after the push* is
+    ### exactly what surfaces it. ### So: if the path has an uncommitted change, measure that;
+    ### otherwise measure what the LAST COMMIT did to it. ### **THE ANSWER IS THE SAME NUMBER ON
+    ### BOTH SIDES OF THE COMMIT, WHICH IS THE ONLY WAY THE RE-RUN IS A CHECK.**
+    """
     r = subprocess.run(['git', '-C', repo, 'diff', '--numstat', 'HEAD', '--', path],
                        capture_output=True, text=True)
+    where = 'working tree vs HEAD'
     if not r.stdout.strip():
-        return 0, 0
-    p = r.stdout.split()
-    return int(p[0]), int(p[1])
+        r = subprocess.run(['git', '-C', repo, 'diff', '--numstat', 'HEAD~1', 'HEAD',
+                            '--', path], capture_output=True, text=True)
+        where = 'HEAD~1 vs HEAD'
+    if not r.stdout.strip():
+        return 0, 0, where
+    q = r.stdout.split()
+    return int(q[0]), int(q[1]), where
 
 
 def main():
@@ -303,9 +317,13 @@ def main():
 
     # ### G-ADDITIVE.
     print('\n  G-ADDITIVE (both touched ledgers changed with ZERO lines deleted):')
-    fa, fd = numstat(PP, 'FINDINGS.md')
-    ea, ed = numstat(PP, 'ERRATA.md')
-    print('    FINDINGS.md +%d / -%d ; ERRATA.md +%d / -%d' % (fa, fd, ea, ed))
+    fa, fd, fw = numstat(PP, 'FINDINGS.md')
+    ea, ed, ew = numstat(PP, 'ERRATA.md')
+    print('    FINDINGS.md +%d / -%d  [%s] ; ERRATA.md +%d / -%d  [%s]'
+          % (fa, fd, fw, ea, ed, ew))
+    print('    ### **THE BASELINE IS FOUND, NOT ASSUMED** -- so the measurement is the same')
+    print('    ### number before and after the commit, which is the only way the re-run is a')
+    print('    ### check. ### b309 (D6), met a third time.')
     oka = (fd == 0 and ed == 0 and fa > 0 and ea > 0)
     print('    purely additive : %s' % oka)
     print('    ### **A FOLD THAT DELETES A LINE IS A FOLD THAT MOVED A GRADE**, and this is the')
