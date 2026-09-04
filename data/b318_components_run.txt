@@ -1,0 +1,232 @@
+====================================================================================================
+b318 -- THE FORCED SIGN.
+====================================================================================================
+  ### b316 INSTRUMENT FIXTURES : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### b317 ASSEMBLY FIXTURES   : [True, True, True, True, True, True, True, True, True, True]  PASS
+  ### THIS ACT SQUARE FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+    (i)    autocorrelation of the bump: min f-hat = 4.459020e-14 at t = 54.066 -> positive definite : True
+    (ii)   wide minus narrow: min f-hat = -5.852092e-01 at t = 8.939 -> positive definite : False
+    (iii)  imaginary part of the bump transform, worst : 5.551e-17
+    (iv)   INT(f conv f) = 1.000000000 against (INT f)^2 = 1.000000000
+    (v)    square = 0.000816653 ; nonnegative : True
+    (vi)   square 0.000816653 vs smear at the autocorrelation 0.000817084 : relative 5.289e-04
+    (vii)  the same against the smear at the WINDOW 0.001356419 : relative 6.609e-01
+    (viii) same square at block 7 : 0.000816653
+    (ix)   square of the zero test function : 0.0e+00
+    (x)    first contributing row x = 0.57143 ; its u-window holds 21.55 point(s)
+  ### **ARMS (i) AND (ii) ARE THE CLASS TEST BOTH WAYS**: it says YES on a genuine square
+  ### and NO on a function known not to be one by an argument about widths, not by a
+  ### measurement. ### **ARMS (vi) AND (vii) ARE THE IDENTITY BOTH WAYS**: the square
+  ### equals the smear at the AUTOCORRELATION and differs from the smear at the WINDOW.
+  ### **THE FIXTURES RUN AT `a = 1.75`, WHICH IS NOT ONE OF THE ATLAS CELLS.**
+
+====================================================================================================
+### COMPONENT 1 -- THE CLASS OF THE VARIANT, READ OFF DIRECTLY.
+====================================================================================================
+  ### ### **THE SOURCE STATEMENTS, PULLED FROM THE EXTRACT FILE.** ### The read happened
+  ### under its own pin at the extract step; ### **RE-OPENING THE ARTEFACT HERE WOULD BE A
+  ### ### SECOND READ NOBODY RE-RUNS.**
+    found  the square form, in the source own voice
+    found  ### and that it is the trace of a positive operator
+    found  Definition 3.1 -- the class test
+    found  ### and that it is pointwise on the transform
+    found  Theorem 1 -- the interval the source own g must live in
+    found  ### and the two vanishing conditions it puts on g
+    found  the quadratic form Q_W and its vector space V
+    found  the autocorrelation form, in the introduction
+    found  ### f-hat = |g-hat|^2, the link Boas-Kac supplies
+    found  ### the source own counterexample: (54) holds and W_infinity is negative
+    found  the eigenvalue-one characterization of S(1,1)
+    found  (53) and its support condition
+    found  (61) the scaling action
+
+  ### ### **WHAT THE SOURCE REQUIRES, AND OF WHICH LETTER.** ### This is the whole of
+  ### Component 1 and it turns on a distinction the corpus has not been making:
+    ### **eq. (53)** puts `supp f` inside `[1/2, 2]` and defines `W_infinity` there;
+    ### **eq. (54)** puts `INT f(rho) rho^{+-1/2} d*rho = 0`;
+    ### **DEFINITION 3.1** says `f` is POSITIVE DEFINITE when `f-hat(t) >= 0` pointwise;
+    ### ### **THEOREM 1 PUTS ITS CONDITIONS ON `g`, NOT ON `f`**: ### *"Let g have support
+    ### ### in the interval [2^-1/2, 2^1/2] and Fourier transform vanishing at i/2 and 0"*,
+    ### and the object it then bounds is `W_infinity(g conv g^) >= Tr(theta(g) S theta(g)^)`.
+
+  ### (1a) THE VARIANT AT EVERY CELL, AGAINST ALL FOUR CONDITIONS.
+    a      f-hat(0)      eq.(54)       supp<=2   supp<=r2  min f-hat     t at min    pos.def. 
+    1.3    -6.939e-17    1.110e-16     YES       YES       -1.3119e-01   88.793      ### NO   
+    1.35   -1.388e-16    4.441e-16     YES       YES       -1.3119e-01   77.626      ### NO   
+    1.41   -5.551e-17    2.220e-16     YES       YES       -1.3119e-01   67.802      ### NO   
+    1.5    2.220e-16     -2.776e-17    YES       no        -1.3119e-01   57.455      ### NO   
+    1.7    1.943e-16     2.220e-16     YES       no        -1.3119e-01   43.903      ### NO   
+    1.9    1.110e-16     -3.192e-16    YES       no        -1.3119e-01   36.295      ### NO   
+    1.99   1.665e-16     -1.665e-16    YES       no        -1.3119e-01   33.854      ### NO   
+    2      -2.082e-16    5.690e-16     YES       no        -1.3119e-01   33.609      ### NO   
+    2.01   8.327e-17     -2.776e-17    no        no        -1.3119e-01   33.369      ### NO   
+    2.1    2.498e-16     2.359e-16     no        no        -1.3119e-01   31.399      ### NO   
+    2.4    -3.608e-16    1.388e-16     no        no        -1.3120e-01   26.610      ### NO   
+    2.8    1.388e-17     1.249e-16     no        no        -1.3120e-01   22.626      ### NO   
+    3      1.804e-16     2.776e-17     no        no        -1.3120e-01   21.205      ### NO   
+
+  ### (1b) THE CORPUS INTEGRAL-ONE BUMP AT EVERY CELL, THE SAME FOUR CONDITIONS.
+    a      f-hat(0)      eq.(54)       supp<=2   supp<=r2  min f-hat     t at min    pos.def. 
+    1.3    1.000e+00     1.001e+00     YES       YES       -9.8392e-02   24.800      ### NO   
+    1.35   1.000e+00     1.002e+00     YES       YES       -9.8392e-02   21.681      ### NO   
+    1.41   1.000e+00     1.002e+00     YES       YES       -9.8392e-02   18.937      ### NO   
+    1.5    1.000e+00     1.003e+00     YES       no        -9.8392e-02   16.047      ### NO   
+    1.7    1.000e+00     1.006e+00     YES       no        -9.8392e-02   12.262      ### NO   
+    1.9    1.000e+00     1.008e+00     YES       no        -9.8392e-02   10.137      ### NO   
+    1.99   1.000e+00     1.009e+00     YES       no        -9.8392e-02   9.456       ### NO   
+    2      1.000e+00     1.010e+00     YES       no        -9.8392e-02   9.387       ### NO   
+    2.01   1.000e+00     1.010e+00     no        no        -9.8392e-02   9.320       ### NO   
+    2.1    1.000e+00     1.011e+00     no        no        -9.8392e-02   8.770       ### NO   
+    2.4    1.000e+00     1.015e+00     no        no        -9.8392e-02   7.432       ### NO   
+    2.8    1.000e+00     1.021e+00     no        no        -9.8392e-02   6.319       ### NO   
+    3      1.000e+00     1.024e+00     no        no        -9.8392e-02   5.923       ### NO   
+
+  ### (1c) VERDICTS PER CONDITION, FOR THE VARIANT, OVER 13 CELLS:
+    ### transform vanishing at 0 (Theorem 1 first condition)   : 13 / 13
+    ### eq. (54), transform vanishing at +-i/2 (Theorem 1 second) : 13 / 13
+    ### support inside eq. (53) window [1/2, 2]                : 8 / 13
+    ### support inside Theorem 1 g-window [2^-1/2, 2^1/2]      : 3 / 13
+    ### ### **POSITIVE DEFINITE IN DEFINITION 3.1 SENSE        : 0 / 13**
+    ### the scan runs `t` in `[0, 64/L]` at 6001 points, `L` the cell own half-width.
+    ### **A NEGATIVE VALUE PROVES THE FUNCTION IS NOT POSITIVE DEFINITE; A NONNEGATIVE SCAN
+    ### ### DOES NOT PROVE THAT IT IS**, beyond the interval scanned. ### (B1) says so.
+
+====================================================================================================
+### COMPONENT 2 -- THE SQUARE, COMPUTED.
+====================================================================================================
+
+  ### (2a) THE FRAMES, BUILT ONCE EACH, WITH THE RANK PRINTED AS ITS OWN COLUMN.
+    N       X       NY     h          free     rank    dim      NY/X     
+    1024    8.0     512    0.007812   896      29      867      64.00    
+    2048    16.0    512    0.007812   1920     46      1874     32.00    
+    2048    32.0    512    0.015625   1984     80      1904     16.00    
+    4096    32.0    512    0.007812   3968     80      3888     16.00    
+    8192    32.0    512    0.003906   7936     79      7857     16.00    
+    8192    64.0    512    0.007812   8064     145     7919     8.00     
+    16384   32.0    512    0.001953   15872    79      15793    16.00    
+    16384   128.0   512    0.007812   16256    274     15982    4.00     
+    ### **THE IDENTITY CONTROL WAS RE-RUN AT EVERY FRAME** and returned the dimension.
+
+  ### (2b) THE ARITHMETIC NONNEGATIVITY, AT A FRAME SMALL ENOUGH TO DECIDE EXACTLY.
+    ### `theta(f) S` has matrix `A[:,H] P`. ### `|| . ||_F^2` is the sum of the squares of
+    ### that matrix entries, and ### **`square_trace` PERFORMS NO SUBTRACTION ANYWHERE**.
+    ### N=256, X=8, NY=64, rank=29 : ### **square = 2.748830149073 ; nonnegative : True**
+    ### ### **THIS IS THE ONE FINITE-DECIDABLE STATEMENT IN THE ACT, AND ITS SCOPE IS
+    ### ### EXACTLY THIS:** ### every summand is a square of a machine float, hence
+    ### nonnegative, and a running sum of nonnegatives cannot go below zero. ### **WHAT IS
+    ### ### NOT DECIDABLE IS THAT THIS SUM IS THE OPERATOR-THEORETIC NORM** -- that rests
+    ### on the quadrature, the numerical rank and the truncation.
+    ### and the rows the square reaches: the smallest contributing `x` is 0.66667, whose
+    ### `u`-window holds ### **17.78 point(s)** ### -- so b317 first-node defect, which sat
+    ### at `x = h/2` with less than one point, ### **IS NOT REACHED BY THIS OBJECT EITHER.**
+
+  ### (2c) THE IDENTITY THAT NAMES THE DIFFERENCE, CHECKED BY TWO CODE PATHS.
+    ### `theta(f)^ theta(f) = theta(f^ conv f)`, so ### **`SQUARE(f) = SMEAR(f^ conv f)`**.
+    a      SQUARE(f)        SMEAR(f conv f)  relative     within 1% 
+    1.5    3.781374629      3.781381997      1.949e-06    YES       
+    2      0.827322075      0.827325534      4.180e-06    YES       
+    3      0.076384314      0.076386883      3.362e-05    YES       
+    ### ### **THE TWO ARE THE SAME OBJECT.** ### The source square form is the corpus
+    ### smear evaluated at the AUTOCORRELATION of the window, not at the window.
+    ### **AND THAT IS THE FIRST DIFFERING CONSTITUENT, LOCATED RATHER THAN ASSERTED.**
+
+  ### (2d) PER CELL AT THE REFERENCE FRAME `N=4096, X=32`, WITH THE RANK BESIDE IT.
+    a      SQUARE           SMEAR            difference       rank    smear<0  
+    1.3    8.186853734      10.565766683     -2.378912949     80      no       
+    1.35   6.557721793      8.309796862      -1.752075070     80      no       
+    1.41   5.178692562      6.405972279      -1.227279717     80      no       
+    1.5    3.781374629      4.491649787      -0.710275158     80      no       
+    1.7    2.030988426      2.165928010      -0.134939584     80      no       
+    1.9    1.116474640      1.020019426      0.096455215      80      no       
+    1.99   0.852485503      0.698481518      0.154003985      80      no       
+    2      0.827322075      0.667950865      0.159371211      80      no       
+    2.01   0.802909773      0.638342806      0.164566967      80      no       
+    2.1    0.613750730      0.409025240      0.204725490      80      no       
+    2.4    0.260487405      -0.021920900     0.282408305      80      YES      
+    2.8    0.105040586      -0.199951829     0.304992416      80      YES      
+    3      0.076384314      -0.216326644     0.292710958      80      YES      
+    ### ### **OVER THE WHOLE DOMAIN SWEEP AND ALL 13 CELLS:**
+    ### ### **CELLS AT WHICH THE SQUARE IS NEGATIVE ANYWHERE : 0**
+    ### ### **CELLS AT WHICH THE SMEAR IS NEGATIVE ANYWHERE  : 5**
+
+  ### (2e) THE TWO AXES, WITH THE RANK AS A COLUMN OF EVERY ROW.
+
+    ### `a = 1.5`, the mean-zero variant
+      axis     N       X        rank   SQUARE           sq drift    SMEAR            sm drift   
+      grid     2048    32.0     80     3.779837199      -           4.489122174      -          
+               4096    32.0     80     3.781374629      4.066e-04   4.491649787      5.627e-04  
+               8192    32.0     79     3.804696767      6.130e-03   4.526885424      7.784e-03  
+               16384   32.0     79     3.804798935      2.685e-05   4.527041142      3.440e-05  
+      domain   1024    8.0      29     2.742033301      -           3.084926763      -          
+               2048    16.0     46     3.470574053      2.099e-01   4.046942823      2.377e-01  
+               4096    32.0     80     3.781374629      8.219e-02   4.491649787      9.901e-02  
+               8192    64.0     145    3.950188076      4.274e-02   4.745053096      5.340e-02  
+               16384   128.0    274    4.034217218      2.083e-02   4.873164085      2.629e-02  
+
+    ### `a = 2`, the mean-zero variant
+      axis     N       X        rank   SQUARE           sq drift    SMEAR            sm drift   
+      grid     2048    32.0     80     0.826179525      -           0.666419171      -          
+               4096    32.0     80     0.827322075      1.381e-03   0.667950865      2.293e-03  
+               8192    32.0     79     0.842829655      1.840e-02   0.688723391      3.016e-02  
+               16384   32.0     79     0.842899948      8.339e-05   0.688817522      1.367e-04  
+      domain   1024    8.0      29     0.330640039      -           0.004209977      -          
+               2048    16.0     46     0.643567979      4.862e-01   0.423815661      9.901e-01  
+               4096    32.0     80     0.827322075      2.221e-01   0.667950865      3.655e-01  
+               8192    64.0     145    0.941168963      1.210e-01   0.819968648      1.854e-01  
+               16384   128.0    274    1.000782878      5.957e-02   0.899807272      8.873e-02  
+
+    ### `a = 3`, the mean-zero variant
+      axis     N       X        rank   SQUARE           sq drift    SMEAR            sm drift   
+      grid     2048    32.0     80     0.076241874      -           -0.216488403     -          
+               4096    32.0     80     0.076384314      1.865e-03   -0.216326644     7.478e-04  
+               8192    32.0     79     0.078200814      2.323e-02   -0.214493529     8.546e-03  
+               16384   32.0     79     0.078209915      1.164e-04   -0.214482618     5.087e-05  
+      domain   1024    8.0      29     0.036239554      -           -0.171608842     -          
+               2048    16.0     46     0.058549293      3.810e-01   -0.224094601     2.342e-01  
+               4096    32.0     80     0.076384314      2.335e-01   -0.216326644     3.591e-02  
+               8192    64.0     145    0.091089616      1.614e-01   -0.199152578     8.624e-02  
+               16384   128.0    274    0.100223601      9.114e-02   -0.186591261     6.732e-02  
+
+  ### (2f) THE NOISE-FLOOR GATE, IN THE PATH.
+    grid   sq a=1.5    3.804696767      -> 3.804798935       RESOLVED  
+    domain sq a=1.5    3.950188076      -> 4.034217218       DRIFTING  
+    grid   sm a=1.5    4.526885424      -> 4.527041142       RESOLVED  
+    domain sm a=1.5    4.745053096      -> 4.873164085       DRIFTING  
+    grid   sq a=2      0.842829655      -> 0.842899948       RESOLVED  
+    domain sq a=2      0.941168963      -> 1.000782878       DRIFTING  
+    grid   sm a=2      0.688723391      -> 0.688817522       RESOLVED  
+    domain sm a=2      0.819968648      -> 0.899807272       DRIFTING  
+    grid   sq a=3      0.078200814      -> 0.078209915       RESOLVED  
+    domain sq a=3      0.091089616      -> 0.100223601       DRIFTING  
+    grid   sm a=3      -0.214493529     -> -0.214482618      RESOLVED  
+    domain sm a=3      -0.199152578     -> -0.186591261      DRIFTING  
+    ### ### REFUSED -- 6 of 12 value(s) rest on the instrument floor: domain sq a=1.5, domain sm a=1.5, domain sq a=2, domain sm a=2, domain sq a=3, domain sm a=3
+
+====================================================================================================
+### COMPONENT 3 -- THE DECISION.
+====================================================================================================
+  ### THE THREE BRANCHES THE ORDER PROVIDES, AND WHICH ONE THE NUMBERS SELECT:
+    ### **(i) the square is nonnegative everywhere and the smear is not** : True
+    ### **(ii) the square itself goes negative**                          : False
+    ### **(iii) the variant fails the form condition**                    : True
+
+====================================================================================================
+### COMPONENT 4 -- THE REACH, HONESTLY.
+====================================================================================================
+  ### (B3): a cell is inside the reach when the value moves by less than 5 per cent
+  ### under BOTH refinements ### **AND THE MEASURED RANK IS IDENTICAL AT BOTH FRAMES OF
+  ### ### EACH STEP.** ### b317 found its grid drift dominated by a rank step and could
+  ### not separate the two effects; here rank stability is a CONDITION of the reach.
+    a      object    grid drift    domain drift  grid rank     domain rank   inside?  
+    1.5    SQUARE    6.130e-03     4.274e-02     80->79        80->145       ### NO   
+    1.5    SMEAR     7.784e-03     5.340e-02     80->79        80->145       ### NO   
+    2      SQUARE    1.840e-02     1.210e-01     80->79        80->145       ### NO   
+    2      SMEAR     3.016e-02     1.854e-01     80->79        80->145       ### NO   
+    3      SQUARE    2.323e-02     1.614e-01     80->79        80->145       ### NO   
+    3      SMEAR     8.546e-03     8.624e-02     80->79        80->145       ### NO   
+    ### ### **CELLS INSIDE THE REACH : 0 OF 6.**
+
+  ### CHECKS FAILING : 0
+  ### ### **UNCONFIRMED, WHICH ARE NOT TOOL FAILURES AND ARE NOT SWALLOWED : 0**
+  ### elapsed : 667 s
+====================================================================================================

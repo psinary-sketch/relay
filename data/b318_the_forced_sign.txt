@@ -1,0 +1,404 @@
+====================================================================================================
+b318 -- THE FORCED SIGN.
+The source's trace side in its square form, computed on the truncated archimedean space; the class
+of the mean-zero variant decided by the source's own Definition 3.1; and what b317's sign change is.
+2026-09-04. ### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### THE ANSWERS, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### **(1) THE SQUARE IS NONNEGATIVE AT EVERY CELL AND EVERY FRAME, AND THE SMEAR IS NOT.** ###
+### `Tr(theta(f) S theta(f)^)` -- the source's own square form -- is positive at all thirteen banked
+### cells across the whole registered domain sweep: ### **CELLS AT WHICH IT IS NEGATIVE ANYWHERE :
+### ### 0.** ### b317's `Tr(theta(f) S)` is negative at ### **FIVE** ### of them. ### **SO THE TWO
+### ### ARE DIFFERENT OBJECTS**, and the registered expectation is upheld.
+### ### **(2) AND THE FIRST DIFFERING CONSTITUENT IS NAMED AND PROVED, NOT ASSERTED.** ### Since
+### `theta(f)^ theta(f) = theta(f^ conv f)`, the source's square form is ### **THE SMEAR EVALUATED AT
+### ### THE AUTOCORRELATION OF THE WINDOW, WHERE THE CORPUS EVALUATES IT AT THE WINDOW ITSELF.** ###
+### Checked by two independent code paths at three cells: agreement to `1.9e-06`, `4.2e-06` and
+### `3.4e-05` against a sealed bar of one per cent. ### **THE DIFFERING CONSTITUENT IS THE SECOND
+### ### APPLICATION OF THE SCALING OPERATOR:** ### the source applies `theta` and its adjoint; the
+### corpus applies `theta` once.
+### ### ### **(3) THE VARIANT IS NOT POSITIVE DEFINITE AT ANY CELL, AND NEITHER IS THE CORPUS'S
+### ### BUMP.** ### By the source's own Definition 3.1 -- *"f is positive definite when its Fourier
+### transform is pointwise positive"* -- the scan finds `min f-hat = -1.3119e-01` for the variant and
+### `-9.8392e-02` for the bump, at ### **EVERY ONE OF THE THIRTEEN CELLS.** ### **POSITIVE DEFINITE
+### ### : 0 OF 13, BOTH COLUMNS.** ### Neither is of the form `g conv g^`.
+### ### ### **(4) SO THE SIGN CHANGE IS NOT A VIOLATION OF ANYTHING, AND THAT IS THIS ACT'S ANSWER
+### ### TO THE QUESTION IT WAS SENT.** ### The source's positivity is a statement about
+### `Tr(theta(g) S theta(g)^)`. ### That object stayed positive everywhere this act looked. ###
+### `Tr(theta(f) S)` at an `f` outside the source's class carries no promise from the source, and its
+### going negative at `a = 2.4, 2.8, 3.0` contradicts nothing the paper claims.
+### ### ### **(5) AND THE CORPUS'S WINDOW IS A CANDIDATE `g`, NOT A CANDIDATE `f`.** ### This is the
+### finding that reframes the arc. ### Theorem 1 puts its conditions on `g`: support in
+### `[2^-1/2, 2^1/2]`, Fourier transform vanishing at `i/2` ### **AND AT 0**. ### The mean-zero
+### variant satisfies both vanishing conditions at ### **13 OF 13** ### cells -- it was built to --
+### and lies inside Theorem 1's own support interval at ### **3 OF 13** ### (`a = 1.3, 1.35, 1.41`).
+### **AT THOSE THREE CELLS THE CORPUS HOLDS AN ADMISSIBLE `g` IN THE SOURCE'S OWN SENSE**, and the
+### object Theorem 1 bounds is the square this act computed. ### **THE INEQUALITY IS NOT EVALUATED
+### ### HERE AND ITS LEFT SIDE IS NOT COMPUTED IN ANY DIRECTION.**
+### ### **(6) THE REACH IS EMPTY AND THE RANK IS WHY.** ### `0 OF 6` under (B3), which adds rank
+### stability to b317's five per cent. ### **AND THE MEASUREMENT BEHIND THAT IS THE ACT'S SECOND
+### ### CONTRIBUTION:** ### grid steps that KEEP the rank drift by `2.7e-05` to `1.2e-04`; the one
+### grid step that CHANGES it (80 to 79) drifts by `6.1e-03` to `2.3e-02` -- ### **TWO ORDERS OF
+### ### MAGNITUDE LARGER.** ### The grid-axis error is the rank discretization, not the quadrature.
+### A rank-stable refinement scheme is SPECIFIED below and ### **NOT BUILT.**
+
+----------------------------------------------------------------------------------------------------
+### STEP ZERO, DONE BEFORE THE REGISTRATION EXISTED.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN:** ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS**, self-test PASS.
+### ### **(ii) THE LEDGER CENSUS, WITH ITS SCOPE:** ### **TOTAL MISSING : 0** over `HANDOFF.md`,
+### 486737 bytes / 805 lines. ### **IT COUNTS NAMES AND NOT UNDERSTANDING, ONE LEDGER AND NO OTHER.**
+### ### **(iii) THE KERNEL-COVERAGE GATE, RE-RUN AND STILL FAILING:** ### **24 `Core/` MODULES CARRY
+### `#print axioms` TARGETS THE CERTIFICATION FILE NEVER IMPORTS, AND 91 TARGETS INSIDE THEM ARE
+### THEREFORE NEVER CERTIFIED.** ### Nothing repaired, no `.lean` touched.
+### ### **(iv) THE PUSH: ### NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- the sixteenth act running.
+### relay `b9c85ec`, SIDE-global-section `40d5dc7`, PLACE-papers `83ea0a1`.
+
+----------------------------------------------------------------------------------------------------
+### THE READING PROTOCOL, AND THE ONE PLACE b317's LESSON WAS APPLIED.
+----------------------------------------------------------------------------------------------------
+### b317 lost four fragments to a normaliser it had written itself without the `NFKD` step
+### `b305_source.flatten` already carried, and its bank named the duplication as the cause.
+### ### ### **SO `b318_extract.py` IMPORTS b317's FINDER RATHER THAN COPYING IT** -- `window`,
+### `fold_anchor` and the three fixture arms b317 added -- and contributes only its own fragment
+### list. ### **THIRTEEN SOURCE FRAGMENTS AND FIVE CODE FRAGMENTS, 19411 BYTES, ZERO MISSING ON THE
+### ### FIRST RUN.** ### An act that had copied the finder again would have been repeating the defect
+### it was told about.
+### ### **AND THE NEEDLES IN THIS ACT'S OWN GATE ARE PULLED FROM THE EXTRACT FILE, NOT FROM THE
+### ### PDF.** ### The read happened once, under its own pin; re-opening the artefact inside the
+### runner would be a second read nobody re-runs.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE CLASS OF THE VARIANT, READ OFF DIRECTLY.
+----------------------------------------------------------------------------------------------------
+### ### ### **WHAT THE SOURCE REQUIRES, AND OF WHICH LETTER. ### THIS IS THE WHOLE OF COMPONENT 1,
+### ### AND IT TURNS ON A DISTINCTION THE CORPUS HAD NOT BEEN MAKING.**
+###   ### **eq. (53)** puts `supp f` inside `[1/2, 2]` and defines `W_infinity` there.
+###   ### **eq. (54)** puts `INT f(rho) rho^{+-1/2} d*rho = 0`.
+###   ### **DEFINITION 3.1** -- ### *"We say that f is positive definite when its Fourier transform
+###     is pointwise positive, i.e. f-hat(t) >= 0, for all t."*
+###   ### ### **THEOREM 1 PUTS ITS CONDITIONS ON `g`, NOT ON `f`:** ### *"Let g have support in the
+###     interval [2^-1/2, 2^1/2] and Fourier transform vanishing at i/2 and 0. Then one has
+###     W_infinity(g conv g^) >= Tr(theta(g) S theta(g)^)."*
+###   ### and the source's own square-form sentence: ### *"this functional is positive definite by
+###     construction, since when evaluated on f = g conv g^ it is the trace Tr(theta(g) S theta(g)^)
+###     of a positive operator."*
+
+### ### **(1a) THE MEAN-ZERO VARIANT AT EVERY CELL.** ### `f-hat(0)` and the eq. (54) moment are zero
+### to machine precision at all thirteen -- `1e-16` and below -- because the variant was built to
+### make them so. ### The support and class columns are the findings:
+###
+###   a      supp<=2   supp<=2^1/2   min f-hat      t at min    positive definite
+###   1.30   YES       YES           -1.3119e-01    88.793      ### NO
+###   1.35   YES       YES           -1.3119e-01    77.626      ### NO
+###   1.41   YES       YES           -1.3119e-01    67.802      ### NO
+###   1.50   YES       no            -1.3119e-01    57.455      ### NO
+###   1.70   YES       no            -1.3119e-01    43.903      ### NO
+###   1.90   YES       no            -1.3119e-01    36.295      ### NO
+###   1.99   YES       no            -1.3119e-01    33.854      ### NO
+###   2.00   YES       no            -1.3119e-01    33.609      ### NO
+###   2.01   no        no            -1.3119e-01    33.369      ### NO
+###   2.10   no        no            -1.3119e-01    31.399      ### NO
+###   2.40   no        no            -1.3120e-01    26.610      ### NO
+###   2.80   no        no            -1.3120e-01    22.626      ### NO
+###   3.00   no        no            -1.3120e-01    21.205      ### NO
+###
+### ### **THE MINIMUM IS THE SAME NUMBER AT EVERY CELL AND THAT IS NOT A COINCIDENCE.** ### The
+### variant's shape is fixed and only its width `L = log a` changes, so `f-hat` is a function of
+### `t L` alone: the minimum VALUE is scale-invariant and the `t` at which it occurs scales like
+### `1/L`. ### **THE TABLE'S LAST TWO COLUMNS ARE A CONSISTENCY CHECK ON THE SCAN AS WELL AS A
+### ### FINDING**, and `t_min * L` is constant to the grid's resolution across all thirteen.
+
+### ### **(1b) AND THE CORPUS'S INTEGRAL-ONE BUMP, THE SAME FOUR CONDITIONS.** ### `f-hat(0) = 1` and
+### the eq. (54) moment runs `1.001` to `1.024` -- b317 measured that and this act confirms it at all
+### thirteen rather than at three. ### **AND ITS `min f-hat` IS `-9.8392e-02` AT EVERY CELL:
+### ### THE CORPUS'S BUMP IS NOT POSITIVE DEFINITE EITHER.**
+
+### ### **(1c) VERDICTS PER CONDITION, FOR THE VARIANT, OVER THIRTEEN CELLS:**
+###   ### transform vanishing at 0 -- Theorem 1's FIRST condition on `g`      : ### **13 / 13**
+###   ### eq. (54), vanishing at `+-i/2` -- Theorem 1's SECOND condition      : ### **13 / 13**
+###   ### support inside eq. (53)'s `f`-window `[1/2, 2]`                     : ### **8 / 13**
+###   ### support inside Theorem 1's `g`-window `[2^-1/2, 2^1/2]`             : ### **3 / 13**
+###   ### ### **POSITIVE DEFINITE IN DEFINITION 3.1's SENSE                   : ### 0 / 13**
+### ### **THE SCAN'S REACH, STATED WITH ITS RESULT:** ### `t` in `[0, 64/L]` at 6001 points. ### **A
+### ### NEGATIVE VALUE PROVES A FUNCTION IS NOT POSITIVE DEFINITE; A NONNEGATIVE SCAN DOES NOT PROVE
+### ### THAT IT IS**, beyond the interval scanned. ### This act only ever uses the first direction.
+
+### ### ### **THE READING, AND IT IS A DEFINITIONAL ONE: ### THE CORPUS'S WINDOW IS A CANDIDATE `g`
+### ### AND NOT A CANDIDATE `f`.** ### The two conditions it satisfies at every cell are exactly the
+### two Theorem 1 imposes on `g`. ### The condition it fails at every cell -- positive-definiteness
+### -- is exactly the one that would make it an `f`. ### **AND AT `a = 1.3, 1.35, 1.41` IT ALSO SITS
+### ### INSIDE THEOREM 1's OWN SUPPORT INTERVAL**, so at those three cells the corpus holds a `g` the
+### source's theorem admits. ### **WHAT THEOREM 1 THEN BOUNDS IS THE SQUARE THIS ACT COMPUTED**, and
+### its left side, `W_infinity(g conv g^)`, ### **IS NOT COMPUTED HERE IN ANY DIRECTION.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE SQUARE, COMPUTED.
+----------------------------------------------------------------------------------------------------
+### ### **EIGHT FRAMES, b317's OWN, IMPORTED RATHER THAN CHOSEN** -- the order says *same cells,
+### same frames, same quadrature as b317*. ### Rank runs `29, 46, 79, 80, 145, 274`; `NY/X` falls
+### from `64` at `X = 8` to `4` at `X = 128`. ### **THE IDENTITY CONTROL WAS RE-RUN AT EVERY FRAME**
+### and returned the truncation's dimension.
+
+### ### **(2a) THE ARITHMETIC NONNEGATIVITY, AT A FRAME SMALL ENOUGH TO DECIDE EXACTLY.** ###
+### `theta(f) S` has matrix `A[:,H] P`; its Frobenius norm squared is the sum of the squares of that
+### matrix's entries. ### **`square_trace` PERFORMS NO SUBTRACTION ANYWHERE**, which is the whole
+### reason the nonnegativity is worth stating. ### At `N = 256, X = 8, NY = 64, rank = 29`:
+### ### **square = 2.748830149073 ; nonnegative : TRUE.**
+### ### **AND THE ROWS THE SQUARE REACHES ARE RESOLVED.** ### b317 found its kernel under-resolved at
+### the first grid node, where the `u`-window holds less than one point, and confined that defect to
+### `x <= 1` where the compressed trace never looks. ### **THE SQUARE DOES LOOK BELOW ONE, SO THE
+### ### QUESTION WAS ASKED AGAIN RATHER THAN INHERITED:** ### its smallest contributing row is
+### `x = 0.66667`, whose window holds ### **17.78 points.** ### The defect is not reached here either.
+
+### ### **(2b) THE IDENTITY THAT NAMES THE DIFFERENCE, BY TWO CODE PATHS.**
+###
+###   a      SQUARE(f)        SMEAR(f conv f)   relative      within 1%
+###   1.50   3.781374629      3.781381997       1.949e-06     YES
+###   2.00   0.827322075      0.827325534       4.180e-06     YES
+###   3.00   0.076384314      0.076386883       3.362e-05     YES
+###
+### ### **THE TWO ARE THE SAME OBJECT.** ### `square_trace` forms a Frobenius norm and never builds a
+### trace; `compressed_trace` forms a trace and never builds a norm. ### **THEY AGREE TO FIVE OR SIX
+### ### DIGITS, WHICH IS THE IDENTIFICATION MEASURED RATHER THAN ARGUED.**
+
+### ### **(2c) PER CELL AT THE REFERENCE FRAME `N = 4096, X = 32`, RANK 80 THROUGHOUT.**
+###
+###   a      SQUARE           SMEAR            difference       smear < 0
+###   1.30    8.186853734     10.565766683     -2.378912949     no
+###   1.35    6.557721793      8.309796862     -1.752075070     no
+###   1.41    5.178692562      6.405972279     -1.227279717     no
+###   1.50    3.781374629      4.491649787     -0.710275158     no
+###   1.70    2.030988426      2.165928010     -0.134939584     no
+###   1.90    1.116474640      1.020019426      0.096455215     no
+###   1.99    0.852485503      0.698481518      0.154003985     no
+###   2.00    0.827322075      0.667950865      0.159371211     no
+###   2.01    0.802909773      0.638342806      0.164566967     no
+###   2.10    0.613750730      0.409025240      0.204725490     no
+###   2.40    0.260487405     -0.021920900      0.282408305     ### YES
+###   2.80    0.105040586     -0.199951829      0.304992416     ### YES
+###   3.00    0.076384314     -0.216326644      0.292710958     ### YES
+###
+### ### **OVER THE WHOLE DOMAIN SWEEP AND ALL THIRTEEN CELLS:**
+### ### **CELLS AT WHICH THE SQUARE IS NEGATIVE ANYWHERE : 0.**
+### ### **CELLS AT WHICH THE SMEAR IS NEGATIVE ANYWHERE  : 5.**
+### ### **AND THE DIFFERENCE CHANGES SIGN BETWEEN `a = 1.7` AND `a = 1.9`**, which is reported as an
+### observation: the two objects are not ordered one way at every cell, and this act does not claim
+### an inequality between them in either direction.
+
+### ### **(2d) THE TWO AXES, WITH THE RANK AS A COLUMN OF EVERY ROW -- AND THE RANK IS THE STORY.**
+### At `a = 1.5`, on the grid axis at `X = 32`:
+###   `N = 2048 -> 4096`, rank `80 -> 80` : ### **drift 4.07e-04 (square), 5.63e-04 (smear)**
+###   `N = 4096 -> 8192`, rank `80 -> 79` : ### **drift 6.13e-03, 7.78e-03**
+###   `N = 8192 -> 16384`, rank `79 -> 79`: ### **drift 2.69e-05, 3.44e-05**
+### ### **THE ONE STEP THAT CHANGES THE RANK DRIFTS TWO ORDERS OF MAGNITUDE MORE THAN THE STEPS THAT
+### ### DO NOT**, and the pattern repeats at `a = 2` and `a = 3`. ### b317 saw this and named it; this
+### act measures it on both objects and at every step. ### **THE GRID-AXIS ERROR IS THE RANK
+### ### DISCRETIZATION AND NOT THE QUADRATURE.**
+### ### **THE DOMAIN AXIS IS UNCONVERGED AND ITS RANK MOVES AT EVERY STEP** (`29, 46, 80, 145, 274`),
+### so the two effects cannot be separated along it at all.
+
+### ### **(2e) THE NOISE-FLOOR GATE, IN THE PATH: ### REFUSED, 6 OF 12.** ### Every grid pair is
+### RESOLVED; ### **EVERY DOMAIN PAIR DRIFTS.** ### So no point verdict is taken from the domain axis
+### for either object, and every statement above about the domain sweep is a BAND statement.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE DECISION.
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER PROVIDED THREE BRANCHES AND THE NUMBERS SELECT TWO OF THEM, WHICH AGREE.**
+###   ### **(i) the square is nonnegative everywhere and the smear is not : ### TRUE.**
+###   ### **(ii) the square itself goes negative : ### FALSE.** ### The rank-instability branch does
+###     not fire, and the rank-stable scheme is filed for the REACH rather than for a lost positivity.
+###   ### **(iii) the variant fails the form condition : ### TRUE.**
+
+### ### ### **THE FIRST DIFFERING CONSTITUENT, NAMED.** ### `theta(f)^ theta(f) = theta(f^ conv f)`,
+### so the source's trace side is ### **`Tr(theta(g) S theta(g)^) = SMEAR(g^ conv g)`** ### while the
+### corpus computes ### **`SMEAR(f)`** ### at the window itself. ### **THE CONSTITUENT IS THE SECOND
+### ### APPLICATION OF THE SCALING OPERATOR** -- equivalently, the ARGUMENT the smear is evaluated
+### at: the source's is the autocorrelation of the window, the corpus's is the window. ### **AND
+### ### (2b) PROVES IT AT THREE CELLS BY TWO INDEPENDENT CODE PATHS** rather than deducing it.
+
+### ### ### **b317's NUMBERS, RE-LABELLED. ### AND b317 IS NOT RE-VERDICTED.** ### b317's column is
+### `Tr(theta(f) S)` on the truncation, correctly computed, at the cells and frames it stated. ###
+### **WHAT IT IS NOT IS THE SOURCE'S TRACE SIDE**, because that is the same expression only when `f`
+### is already an autocorrelation, and Component 1 shows it is not one at any cell. ### **SO b317's
+### ### NUMBERS CARRY NO POSITIVITY PROMISE FROM THE SOURCE AND NEVER DID.** ### That is a
+### RE-LABELLING: ### **b317's GRADE DOES NOT MOVE, ITS PREDICTION SCORE STANDS AS b317 STATED IT,
+### ### AND NOTHING b317 MEASURED IS CALLED WRONG.**
+
+### ### ### **AND THE SIGN CHANGE IS NOT A VIOLATION OF ANYTHING.** ### The source's positivity is a
+### statement about `Tr(theta(g) S theta(g)^)`. ### **THAT OBJECT STAYED POSITIVE AT EVERY CELL AND
+### EVERY FRAME THIS ACT LOOKED AT.** ### `Tr(theta(f) S)` at an `f` outside the source's class
+### carries no promise from the paper, and its going negative at `a = 2.4, 2.8, 3.0` contradicts
+### nothing. ### **THE ACT SAYS SO PLAINLY RATHER THAN REPORTING A RESOLVED ANOMALY**, because there
+### was no anomaly to resolve -- there was a quantity being read as something it is not.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE REACH, HONESTLY.
+----------------------------------------------------------------------------------------------------
+### ### **(B3) ADDS RANK STABILITY TO b317's SEALED FIVE PER CENT**, because b317 could not separate
+### a rank step from a quadrature error and this act can see that the first dominates the second.
+### ### ### **CELLS INSIDE THE REACH : ### 0 OF 6.** ### Every grid step at the reference frame
+### crosses the rank change `80 -> 79`; every domain step crosses `80 -> 145`. ### **NO CELL IS
+### ### INSIDE, AND THE BAND STATEMENT STANDS.**
+
+### ### ### **THE RANK-STABLE REFINEMENT SCHEME, SPECIFIED AND NOT BUILT.** ### Two routes, and the
+### act does not choose between them because choosing is the next build's work:
+###   ### **(S1) PIN THE RANK.** ### Fix `r` at the coarsest frame of an axis and, at every finer
+###     frame, take `Q` as the top-`r` right singular vectors of `C` rather than thresholding by a
+###     tolerance that moves with the grid. ### Then `P` is a rank-`r` projector at every frame and
+###     the refinement moves only the quadrature. ### **THE EVIDENCE FOR IT IS (2d):** ### the steps
+###     that already keep the rank drift by `3e-05`, which is what a converged grid axis looks like.
+###     ### **IT MUST BE A NEW TOOL AND NOT AN EDIT TO `b316_instrument.py`**, which is an owner.
+###   ### **(S2) THE SOURCE'S OWN CHARACTERIZATION.** ### The paper says Sonin's space `S(1,1)` ###
+###     *"is the eigenspace of P P-hat P for the eigenvalue 1"*. ### Selecting the subspace by
+###     eigenvalues of `P P-hat P` near one, rather than by the null space of `C` under a singular
+###     value tolerance, gives a criterion that is scale-free and does not move with the grid.
+### ### **NEITHER IS BUILT HERE, AND THE REGISTRATION CAPS THAT AT ZERO.**
+
+----------------------------------------------------------------------------------------------------
+### WHAT THIS ACT MAY NOT CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **IT MAY NOT RE-VERDICT b317.** ### A re-labelling is not a re-verdict.
+### ### **IT MAY NOT CONCLUDE THAT THE SOURCE'S POSITIVITY FAILS OR IS CONFIRMED.** ### A function
+### outside the source's class carries no promise, and a square that stayed positive on a truncation
+### is not a proof of a theorem the source already proved.
+### ### **IT MAY NOT EVALUATE THE INEQUALITY OR EITHER SIDE OF IT.** ### `W_infinity` is not computed
+### here, at any cell, on any frame.
+### ### **IT MAY NOT CLAIM EITHER TEST FUNCTION IS POSITIVE DEFINITE ANYWHERE.** ### The scan proves
+### the negative only, and it is only ever used that way.
+### ### **IT MAY NOT DECIDE MEMBERSHIP OR READ ANY NUMBER AS b300's.** ### `W-ORD-ARCH-MEMBERSHIP` is
+### open and ### **NO UNIT IS USED ANYWHERE IN THIS ACT.**
+### ### **IT MAY NOT BUILD THE RANK-STABLE SCHEME**, only specify it.
+### ### **IT MAY NOT CARRY b309's ZERO ACROSS THE PLACES.** ### b285's boundary stands.
+### ### **AND IT MAY NOT STATE AN AGGREGATION.** ### `M-2` is owed and stays owed.
+
+----------------------------------------------------------------------------------------------------
+### WHAT THIS ACT DID NOT CHECK.
+----------------------------------------------------------------------------------------------------
+### ### **WHETHER A `g` EXISTS THAT THE CORPUS'S CHANNEL COULD BE RE-FORMED AGAINST.** ### Component
+### 1 shows the variant IS an admissible `g` at three cells. ### **WHAT THAT WOULD BUY IS NOT
+### ### COMPUTED HERE**, because it needs `W_infinity` and this act computes neither side.
+### ### **WHETHER THE TRUNCATION'S SQUARE IS THE SPACE'S SQUARE.** ### The domain axis is
+### unconverged and the gate refuses it.
+### ### **WHETHER THE CORPUS'S `A` CORRESPONDS TO `W_R` OR TO `W_infinity`.** ### That is b316's
+### `(L1)` and it is untouched.
+### ### **THE ODD PART OF THE SPACE AND THE MULTIPLICATIVE PICTURE.** ### b316's discharge of the
+### norm ruling reaches the ADDITIVE ARM ONLY and this act stays inside it.
+
+----------------------------------------------------------------------------------------------------
+### DEVIATIONS, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **(D1) ONE PHRASE IN THE REGISTRATION WAS REWRITTEN BEFORE THE SEAL**, because the
+### artifact-count counter fired on the words *"its ten fixtures have run"* -- a report of a count
+### that had already happened, not a forecast. ### **THE COUNTER IS LEXICAL AND THIS IS ITS SECOND
+### ### FALSE POSITIVE IN TWO ACTS** (b317 rewrote a restatement of the coverage gate's own count for
+### the same reason). ### The phrase was changed; nothing else was.
+### ### **(D2) NO FEASIBILITY PROBE PRECEDED THIS SEAL**, and that is a deviation from b317's shape
+### rather than from this act's order. ### b317 declared at its (9) that it had seen the order of
+### magnitude of its answer before fixing its bar. ### **THIS ACT DID NOT NEED TO: THE FRAMES WERE
+### ### ALREADY FIXED BY AN ACT THAT HAD RUN THEM**, and the bars here are structural -- a class test
+### with no threshold, an identity bar at one per cent, and b317's own sealed five per cent.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING ROWS, RESTATED.
+----------------------------------------------------------------------------------------------------
+### ### **THE OBJECT'S THREE CONDITIONS, EACH TYPED, UNCHANGED BY THIS ACT:** ### a PREMISE (the
+### level limit, b198); a RULING (`W-ORD-ARCH-NORM-READING`, DISCHARGED at b316 by eq. (16)); a
+### CONSTRUCTION (C9 / `N-OPEN-B`). ### **AND THE ARCHIMEDEAN LEG IS MARKED DERIVED-NOT-CONFIRMED**,
+### pending the membership act.
+### ### **`M-2`'s ROW: ### `(SPECIFIED-NOT-STATED)`, UNCHANGED, UNDER b310's CAP.**
+### ### **THE SEAM'S DEBT, ITEM 1: ### STILL UNPAID.** ### Item 1 is `A2`: ### **STATE `M-2`.** ###
+### `A1` paid b226's step; ### **`A2` HAS NOT BEEN PAID AND THIS ACT DOES NOT PAY IT.**
+### ### **THE PATENT CLOCK: ### UNCONFIRMED ON THIS SEAT'S RECORD.** ### Four filings receipt-backed
+### at content (b147); `P-ZONE` / `P-FANO-WPT` REGISTRY-backed with no receipt located, ERRATA
+### `E-2026-08-24-3`. ### **THE TWO RESPONSE UPLOADS: RECEIPTS PENDING, CARRIED ON THE FERRY'S WORD;
+### THEIR DATES WERE 2026-08-31 AND 2026-09-01; TODAY IS 2026-09-04 -- FOUR AND THREE DAYS PAST.**
+### ### **THIS SEAT HAS VERIFIED NOTHING THERE.**
+### ### **THE KERNEL-COVERAGE ORDER:** ### `W-ORD-KERNEL-COVERAGE` -- 91 print targets inside the
+### 24 `Core/` modules the certification file never imports, carried by a gate that FAILS. ###
+### **UNTOUCHED HERE, AND THE COUNT IS THE GATE'S OWN MEASUREMENT RESTATED, NOT A FORECAST.**
+### ### **THE ABSOLUTE-PATH ORDER:** ### `W-ORD-ABSOLUTE-PATHS` -- 119 instrument files carry a
+### hard-coded path into the corpus. ### **UNTOUCHED HERE.**
+
+----------------------------------------------------------------------------------------------------
+### `W-ORD-WINDOW-CLASS`, UPDATED WITH COMPONENT 1's FINDINGS.
+----------------------------------------------------------------------------------------------------
+### b317 filed it on one measurement: the corpus's bump fails eq. (54). ### **THIS ACT SHARPENS IT
+### ### IN THREE WAYS AND DOES NOT CLOSE IT:**
+###   ### **(a) NEITHER TEST FUNCTION IS POSITIVE DEFINITE AT ANY CELL**, so neither is of the form
+###     `g conv g^` and neither is an `f` the source's positivity speaks about.
+###   ### **(b) THE MEAN-ZERO VARIANT SATISFIES BOTH OF THEOREM 1's CONDITIONS ON `g` AT EVERY
+###     ### CELL**, and Theorem 1's support interval at three of them.
+###   ### **(c) SO THE QUESTION THE ORDER ASKS HAS CHANGED SHAPE:** ### it is no longer *is the
+###     corpus's window in the source's class* but ### **WHICH LETTER IS THE CORPUS'S WINDOW**, and
+###     the evidence says `g`. ### **WHAT IS OWED IS THE AUTHOR'S DECISION** on whether the corpus's
+###     archimedean channel is to be re-formed with the window as a `g` -- which would put the
+###     source's Theorem 1 in reach at three banked cells -- or whether the channel's `A` was never a
+###     quantity of the source's class at all.
+
+----------------------------------------------------------------------------------------------------
+### THE IN-FLIGHT REGISTER.
+----------------------------------------------------------------------------------------------------
+###   ### **(1) THE OBJECT** -- conditionally constructed on THREE conditions. ### **UNCHANGED.**
+###   ### **(2) `W-ORD-ARCH-NORM-READING`** -- DISCHARGED at b316, by eq. (16).
+###   ### **(3) `W-ORD-TERM3-ROW`** -- the author's.
+###   ### **(4) THE DECISION CARD (b304)** -- on the author's desk.
+###   ### **(5) `W-ORD-INSTRUMENT-Q-P`** -- built b308, computed b309, assembled b310.
+###   ### **(6) THE WINDOW QUESTION** -- ### **`W2` RECORDED; APPLIED AT THE INSTRUMENT ONLY.**
+###   ### **(7) `W-ORD-SOURCE-METHOD-APPLICABILITY`** -- named at b306; untouched here.
+###   ### **(8) THE PATENT CLOCK** -- ### **PAST, AND UNCONFIRMED HERE.**
+###   ### **(9) b304's SHELL ENUMERATION** -- no verdict turns on it.
+###   ### **(10) `(SPEC-2)` UNDECIDED FOR b310's CLASS OF CANDIDATE.**
+###   ### **(11) `W-ORD-ARTEFACT-PATHS`** -- filed b311. ### **STILL OPEN.**
+###   ### **(12) `W-ORD-HOOK-COVERAGE`** -- ### **STILL OPEN.**
+###   ### **(13) `W-ORD-REMAINDER-EXPONENT`** -- computation done (b313), ERRATA filed (b314); the
+###     author's decision remains.
+###   ### **(14) `W-ORD-A-PLUS-E2`** -- ### **STILL OPEN.**
+###   ### **(15) `W-ORD-CONVENTION-SWEEP`** -- ### **STILL OPEN.**
+###   ### **(16) `W-ORD-KERNEL-COVERAGE`** -- ### **STILL OPEN, WITH A GATE THAT FAILS.**
+###   ### **(17) `W-ORD-ABSOLUTE-PATHS`** -- ### **STILL OPEN.**
+###   ### **(18) `W-ORD-SOURCE-TAIL`** -- filed b315. ### **STILL OPEN.**
+###   ### **(19) `W-ORD-ARCH-MEMBERSHIP`** -- filed b316. ### **STILL OPEN, AND STILL BLOCKING.**
+###   ### **(20) `W-ORD-WINDOW-CLASS`** -- filed b317, ### **UPDATED THIS ACT**, not closed.
+###   ### ### **(21) NEW: ### `W-ORD-RANK-STABLE-SUBSPACE`.** ### The grid-axis error is the rank
+###     discretization, measured at two orders of magnitude above the quadrature error. ### **WHAT IS
+###     ### OWED IS ONE OF THE TWO SCHEMES IN COMPONENT 4, BUILT AS A NEW TOOL**, after which the
+###     reach can be asked again. ### Until then no number on this instrument converges on the grid
+###     axis for a reason that has anything to do with the mathematics.
+
+----------------------------------------------------------------------------------------------------
+### THE MEMBERSHIP ACT, NAMED AS NEXT.
+----------------------------------------------------------------------------------------------------
+### ### **IT IS A DEFINITIONAL DECISION, NOT A FURTHER MEASUREMENT ON THE SAME INSTRUMENT.** ### b316
+### measured b300's derived archimedean unit against the truncated space and did not confirm it, with
+### three causes open and an asymptotic control that could not fire. ### **RUNNING THE SAME
+### ### MEASUREMENT ON A LONGER DOMAIN WOULD PRODUCE A FOURTH NUMBER AND SETTLE NOTHING.** ### What
+### is owed is the decision between ### **THE DERIVED UNIT AND THE INSTRUMENT'S REALIZATION OF IT.**
+### ### **AND THIS ACT ADDS ONE THING TO ITS DOCKET:** ### the same question of letter now applies to
+### the unit as it did to the window, and the membership act should say which side of the source's
+### `f`/`g` distinction b300's object is meant to sit on before it is measured again.
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **ONE THING IN THIS ACT IS FINITE-DECIDABLE AND IT IS SAID WHICH.** ### `SQUARE >= 0` at the
+### stated small frame is a sum of squares of machine floats: every summand is nonnegative and a
+### running sum of nonnegatives cannot go below zero. ### **THE NONNEGATIVITY OF THE COMPUTED NUMBER
+### ### IS DECIDABLE AND IS DECIDED.**
+### ### **AND ITS SCOPE IS EXACTLY THAT.** ### What is NOT decidable is that the computed sum is the
+### operator-theoretic `|| theta(f) S ||_HS^2`: that rests on the quadrature, on the projector's
+### numerical rank, and on the truncation. ### **A DECIDABLE STATEMENT ABOUT A FLOATING-POINT SUM IS
+### ### NOT A DECIDABLE STATEMENT ABOUT AN OPERATOR.**
+### ### **EVERYTHING ELSE EXPECTED NOTHING.** ### Quadrature on a truncated space is not
+### finite-decidable. ### **NO PRINT. ### NO TERMINAL.**
+
+----------------------------------------------------------------------------------------------------
+### THE REGISTER SENTENCE, EXACT.
+----------------------------------------------------------------------------------------------------
+### ### **RH reduced to a single located clause, reduction machine-verified. h2 is the clause.**
+### ### **NOTHING IN THIS ACT TOUCHES IT, AND NOTHING DEPOSITS.**
+====================================================================================================

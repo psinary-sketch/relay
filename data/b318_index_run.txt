@@ -1,0 +1,27 @@
+====================================================================================================
+b318 -- THE INDEX KEY. ### THE SQUARE, AND THE LETTER.
+====================================================================================================
+  ### MUST-NOT-HIT, MEASURED BEFORE THE WRITE:
+    the archimedean weil distribution    NO KEY before : True
+    the rank stable subspace             NO KEY before : True
+  forced-sign              key/row already present : False / False
+  VERDICT FIXTURE : fires on the index's own NO KEY line : True ; quiet on the phrase quoted inside a row : True
+  ### READ BACK BY QUERYING THE INDEX ITSELF:
+    forced-sign              returns a row : True ; returns BOTH halves : True  PASS
+  ### **BOTH HALVES ARE REQUIRED.** ### An index that handed back the square without the
+  ### letter would be answering *what was computed* and hiding *what it means for the
+  ### act that asked*, which is the exact shape this record refuses.
+  ### THE ALIASES:
+    the forced sign                            now reaches a row : True  PASS
+    the square form                            now reaches a row : True  PASS
+    is the smear the source trace side         now reaches a row : True  PASS
+    is the variant positive definite           now reaches a row : True  PASS
+    which letter is the corpus window          now reaches a row : True  PASS
+    why did the mean-zero column change sign   now reaches a row : True  PASS
+  ### MUST-NOT-HIT, RE-MEASURED AFTER THE WRITE:
+    the archimedean weil distribution    still NO KEY : True   (and was before : True)  PASS
+    the rank stable subspace             still NO KEY : True   (and was before : True)  PASS
+  ### **BOTH ARE THINGS THIS ACT DELIBERATELY DID NOT DO**: neither side of the source's
+  ### inequality was computed, and the rank-stable scheme is SPECIFIED and NOT BUILT.
+  ### THE INDEX SWEPT AFTER THE WRITE : 0 stem hit(s)
+====================================================================================================

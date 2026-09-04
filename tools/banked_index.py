@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'forced-sign': ['the forced sign', 'the square form',
+                   'is the smear the source trace side', 'is the variant positive definite',
+                   'which letter is the corpus window',
+                   'why did the mean-zero column change sign'],
     'trace-on-the-object': ['the trace on the space', 'the compressed smeared trace',
                    'is the corpus window in the source class', 'the mean-zero column',
                    'was the prediction small', 'the trace on the object'],
@@ -428,6 +432,51 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SQUARE (b318).
+    ("forced-sign", "b318 (a computation on the instrument as certified)",
+     "the source's trace side in its square form, computed on the truncation. ### The paper"
+     " says where its positivity lives: the functional is positive definite BY CONSTRUCTION"
+     " only when evaluated at f = g conv g^, where it is Tr(theta(g) S theta(g)^) -- a"
+     " Hilbert-Schmidt norm squared. ### **CELLS AT WHICH THAT SQUARE IS NEGATIVE ANYWHERE:"
+     " 0. ### CELLS AT WHICH b317's SMEAR IS NEGATIVE ANYWHERE: 5.** ### **AND THE FIRST"
+     " DIFFERING CONSTITUENT IS PROVED, NOT ASSERTED**: theta(f)^theta(f) = theta(f^ conv f),"
+     " so the source's square form is the corpus's smear at the AUTOCORRELATION of the window"
+     " where the corpus evaluates it at the window -- two independent code paths agreeing to"
+     " 1.9e-06, 4.2e-06 and 3.4e-05 against a sealed bar of one per cent",
+     "### ONE STATEMENT HERE IS FINITE-DECIDABLE AND THE ACT SAYS WHICH. ### The square is a"
+     " Frobenius norm squared and **square_trace PERFORMS NO SUBTRACTION ANYWHERE**, so its"
+     " nonnegativity is arithmetic; **WHAT IS NOT DECIDABLE IS THAT THE SUM IS THE"
+     " OPERATOR-THEORETIC NORM**. ### **A POSITIVITY THAT HELD IS NOT A THEOREM CONFIRMED** --"
+     " the source proved it; this act checked the truncation does not destroy it. ### **THE"
+     " REACH IS EMPTY, 0 OF 6**, and the noise-floor gate REFUSES 6 pairs of 12, all on the"
+     " domain axis. ### **THE RANK IS THE GRID-AXIS ERROR, MEASURED**: steps that keep the"
+     " rank drift 2.7e-05 to 1.2e-04, the one that changes it (80 to 79) drifts 6.1e-03 to"
+     " 2.3e-02. ### W-ORD-RANK-STABLE-SUBSPACE filed; the scheme is SPECIFIED and NOT BUILT."
+     " ### **NO UNIT USED. ### W_infinity NOT COMPUTED IN ANY DIRECTION.** ### NO GRADE MOVED."
+     " ### M-2 UNCHANGED",
+     "data/b318_the_forced_sign.txt; data/b318_components_run.txt;"
+     " tools/b318_square.py (the emitting file); CORRESPONDENCE.md row 148"),
+    # ### THE LETTER (b318), AND WHAT IT DOES TO b317's SIGN CHANGE.
+    ("forced-sign", "b318 (the class of the window, decided)",
+     "the corpus's window is a candidate g and NOT a candidate f. ### Decided by the source's"
+     " own Definition 3.1 -- f is positive definite when its Fourier transform is pointwise"
+     " positive -- applied as a scan at every banked cell. ### **THE MEAN-ZERO VARIANT IS NOT"
+     " POSITIVE DEFINITE AT ANY CELL (min f-hat = -1.3119e-01), AND NEITHER IS THE CORPUS'S"
+     " INTEGRAL-ONE BUMP (-9.8392e-02): 0 OF 13 FOR BOTH.** ### But Theorem 1 puts its"
+     " conditions on g, not on f -- support in [2^-1/2, 2^1/2] and Fourier transform vanishing"
+     " at i/2 AND at 0 -- and **THE VARIANT SATISFIES BOTH VANISHING CONDITIONS AT 13 OF 13"
+     " AND THEOREM 1's SUPPORT INTERVAL AT 3 OF 13 (a = 1.3, 1.35, 1.41)**",
+     "### A DEFINITIONAL FINDING THAT DISSOLVES b317's ANOMALY RATHER THAN RESOLVING IT."
+     " ### **THE SIGN CHANGE IS NOT A VIOLATION OF ANYTHING**: the source's positivity is"
+     " about Tr(theta(g) S theta(g)^), which stayed positive everywhere, and Tr(theta(f) S) at"
+     " an f outside the class carries no promise. ### **b317's NUMBERS ARE RE-LABELLED AND"
+     " b317 IS NOT RE-VERDICTED** -- correctly computed values of what it computed; its grade"
+     " does not move and its prediction score stands as it stated it. ### The class scan proves"
+     " the NEGATIVE only, and the act uses it in that direction alone. ###"
+     " W-ORD-WINDOW-CLASS UPDATED, not closed: the question is now WHICH LETTER, and what is"
+     " owed is the author's decision. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b318_the_forced_sign.txt; data/b318_rows.json;"
+     " data/b318_extract_notes.txt (the source, located); CORRESPONDENCE.md row 149"),
     # ### THE NUMBER (b317, act two of two).
     ("trace-on-the-object", "b317 (a computation on the instrument as certified)",
      "the source's compressed smeared trace, computed on the object's own space. ###"

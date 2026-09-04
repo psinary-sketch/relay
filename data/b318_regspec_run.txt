@@ -1,0 +1,25 @@
+====================================================================================================
+b318_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  ITS SELF-TEST, RUN HERE BEFORE IT IS TRUSTED:
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b318_registration_2026-09-04.txt
+  bytes/lines  : 17348 / 211
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  spec written and READ BACK : b318_satisfiable.json  clauses=22  no empty provenance cell : True
+  ### CLAUSES WHOSE DEMAND EXCEEDS THEIR CAP : 0 
+  ### CAPS THAT ARE NOT ZERO : NONE -- every cap is zero
+  ### **b317 CAPPED THE INEQUALITY AT ONE SIDE. ### THIS ACT CAPS IT AT ZERO**, because
+  ### both of its objects are trace-side and `W_infinity` is not computed at all.
+  ### **AND `subtractions inside the square form` IS THE CAP THAT CARRIES THE ACT**: the
+  ### nonnegativity is only worth stating because nothing is subtracted to reach it.
+====================================================================================================
