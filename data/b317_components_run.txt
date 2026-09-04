@@ -1,0 +1,374 @@
+====================================================================================================
+b317 -- THE TRACE ON THE OBJECT.
+====================================================================================================
+  ### b316 INSTRUMENT FIXTURES, RUN BEFORE ANYTHING IS POINTED : [True, True, True, True, True, True, True, True, True, True, True, True]  PASS
+  ### THIS ACT ASSEMBLY FIXTURES : [True, True, True, True, True, True, True, True, True, True]  PASS
+    (i)    corpus bump, INT f d*rho = 1.000000000000
+    (ii)   mean-zero variant, INT f d*rho = 5.412e-16
+    (iii)  eq. (54): bump 1.006203 / 1.006203 ; variant 2.776e-16 / 2.637e-16
+    (iv)   outside the support : 0.0e+00 / 0.0e+00
+    (v)    identity trace 195.000000000 against dim 195 (free 224, rank-term 29.000000)
+    (vi)   kernel vs scaling route : 7.414e-05 over x > 1 ; 4.523e-04 over the whole grid ; u-window at the first node holds 0.589 point(s)
+    (vii)  the same, with the kernel deliberately halved : 5.000e-01
+    (viii) kernel symmetry, worst |K - K^T| : 1.110e-16
+    (ix)   trace 0.001356419 ; halved kernel 0.000678209
+    (x)    same trace at block 7 : 0.001356419
+  ### **THE FIXTURES RUN AT `a = 1.75`, WHICH IS NOT ONE OF THE ATLAS CELLS.** ### That is
+  ### why the registration could be sealed before any value at a banked cell existed.
+
+====================================================================================================
+### COMPONENT 1 -- THE ASSEMBLY, FROM THE SOURCE OWN DEFINITIONS.
+====================================================================================================
+  artefact sha256 : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### **MATCHES THE PIN b304 BANKED AND b305 RE-COMPUTED : True**
+  pages in file   : 57
+
+  ### THE FRAGMENTS, LOCATED BY PAGE INDEX BEFORE A WORD OF THEM IS USED:
+    6              N1 the inner product, eq. (16)
+    7              N2 the transform, eq. (24)
+    22             N3 the scaling action, eq. (61)
+    24             N4 the space, Definition 4.4 / eq. (72)
+    16             (53) the functional W_infinity, in the source own display
+    16             ### (53) -- and the SUPPORT CONDITION it carries
+    16             (54) the vanishing conditions
+    26             THEOREM 4.7 -- the definition the cancellation lacked
+    5,26,47        ### THEOREM 4.7 -- (83), the identity this act computes the left side of
+    26,28          ### THEOREM 4.7 -- and that it holds for ALL compactly supported test functions
+    12             (43) the local trace formula Theorem 4.7 refines
+    6,8,52         the sign relation the source states itself
+
+  ### (1a) THE FOUR NORMALIZATIONS, IMPORTED FROM b316 AND NOT RE-TYPED:
+    ### **(N1) eq. (16)** ### `<eta|xi> := (1/2) INT_R eta xi dx = INT_0^inf eta xi dx`
+    ### **(N2) eq. (24)** ### `F(xi)(y) := INT_R xi(x) e^{-2 pi i x y} dx`
+    ### **(N3) eq. (61)** ### `(theta(lam) xi)(v) := lam^{-1/2} xi(lam^{-1} v)`
+    ### **(N4) eq. (72)** ### `S(a,b) := { xi : xi = 0 on |q| <= a, F(xi) = 0 on |p| <= b }`
+    ### at the source own `S(1, 1)`.
+
+  ### (1b) THE ASSEMBLY ITSELF. ### **THE SCALING ACTION, INTEGRATED, COMPRESSED, TRACED.**
+    ### The source eq. (61) is an action of `lambda`; the source Theorem 4.7 needs it
+    ### integrated against a test function in the multiplicative group own measure:
+    ###   ### `(theta(f) xi)(x) = INT f(lam) lam^{-1/2} xi(x/lam) d*lam`
+    ###   ### substituting `u = x/lam`, so that `d*lam` becomes `du/u`:
+    ###   ### ### **`= INT K(x,u) xi(u) du`   with   `K(x,u) = f(x/u) / sqrt(x u)`.**
+    ### **THAT SUBSTITUTION IS THE WHOLE OF THE ASSEMBLY AND IT IS THE ONE PLACE A FACTOR
+    ### ### CAN GO WRONG SILENTLY**, so it is checked by two independent code paths in
+    ### (1d) rather than by re-reading the derivation.
+    ### Then b316 projector compresses and the trace is taken:
+    ###   ### ### **`Tr(theta(f) S) = Tr(A_HH) - Tr(Q^T A_HH Q)`**, which needs the
+    ###   diagonal and `rank` matrix-vector products. ### **THE OPERATOR IS NEVER FORMED
+    ###   ### WHOLE**, and both halves are reported because their SIZES are the finding.
+
+  ### (1c) THE TWO TEST FUNCTIONS, IN THE SOURCE OWN VARIABLE `v = log rho`.
+    ### **AND THE SOURCE OWN CLASS BOUNDARY, MEASURED RATHER THAN ASSERTED.**
+    ### eq. (53) defines `W_infinity` for test functions supported in `[1/2, 2]`, and
+    ### eq. (54) assumes `INT f(rho) rho^{+-1/2} d*rho = 0` ### *to isolate on the left
+    ### hand side of the explicit formula the contribution of the zeros*. ### **THEOREM
+    ### ### 4.7 ITSELF CARRIES NEITHER CONDITION** -- its (83) is stated for all
+    ### `f in C_c^infinity(R*_+)`, and that is located above rather than smoothed over.
+    a      test function                      INT f d*rho   eq.(54) +     eq.(54) -     supp in  
+    1.5    (T1) the corpus integral-one bump  1.000000      1.003e+00     1.003e+00     YES      
+    1.5    (T2) the mean-zero variant         0.000000      -2.776e-17    -5.551e-17    YES      
+    2      (T1) the corpus integral-one bump  1.000000      1.010e+00     1.010e+00     YES      
+    2      (T2) the mean-zero variant         -0.000000     5.690e-16     5.135e-16     YES      
+    3      (T1) the corpus integral-one bump  1.000000      1.024e+00     1.024e+00     ### NO   
+    3      (T2) the mean-zero variant         0.000000      2.776e-17     0.000e+00     ### NO   
+    ### ### **THE CORPUS BUMP IS NOT IN THE SOURCE eq. (54) CLASS AND THE VARIANT IS.**
+    ### The bump transform at zero is one by construction and its eq. (54) moments are
+    ### NOT zero; the variant vanishes on both, to machine precision, BY CONSTRUCTION and
+    ### not by luck -- it is three of the corpus own bumps with the coefficients solved.
+    ### the variant coefficients at `a = 1.5` : 1.0000, -5.0043, 4.0043 ; conditioning of the 2x2 : 6.57e+03
+    ### **AND THE SUPPORT COLUMN IS THE OTHER HALF OF THE BOUNDARY**: the cells with
+    ### `a > 2` leave the eq. (53) support condition, so `W_infinity` is not defined for
+    ### them by the source own display, even though the Theorem 4.7 left side still is.
+
+  ### (1d) THE SMEARING QUADRATURE OWN POSITIVE CONTROLS.
+    ### ### **THE CONTROL THE ORDER NAMES: A SCALING BY THE IDENTITY ALONE.**
+    ### `theta(1)` is the identity, so `Tr(S theta(1) S)` must be `Tr(S)` -- the
+    ### truncation own DIMENSION. ### Through the same two terms:
+    ### **free = 896 ; rank-term = 29.000000000 ; identity trace = 867.000000000 ; dim = 867**
+    ### ### **EXACT, AND IT IS THE ONE EXACT FACT IN THIS ACT** -- it is `free - rank` by
+    ### orthonormality of `Q`, not a quadrature that happened to land.
+    ### ### **AND THE SUBSTITUTION IS CHECKED BY A SECOND ROUTE.** ### `smear_by_scaling`
+    ### never builds a kernel: it evaluates eq. (61) at each `lambda` and integrates over
+    ### `v = log lambda`.
+    ### worst relative difference over `x > 1`, ### **WHICH IS THE ONLY REGION THE
+    ### ### COMPRESSED TRACE EVER EVALUATES** : ### **5.931e-06**
+    ### the same over the WHOLE grid, first node included : 4.264e-02
+    ### and with the kernel deliberately halved : **5.000e-01**
+    ### ### **THE TWO FIGURES DIFFER AND THE REASON IS ARITHMETIC, NOT LUCK.** ### The
+    ### kernel route integrates in `u`, and for output `x` the integrand lives on
+    ### `[x/a, a x]` -- a window carrying `x (a - 1/a) / h` grid points. ### **AT THE
+    ### ### FIRST NODE `x = h/2` THAT COUNT IS 0.750, WHICH IS BELOW ONE**, so the kernel
+    ### quadrature is simply not resolved there while the scaling route is. ### **AND IT
+    ### ### REACHES NO NUMBER IN THIS ACT**: condition one kills every coordinate with
+    ### `x <= 1` before the compression, so `compressed_trace` never evaluates the
+    ### kernel at the first node. ### **THE EXCLUDED REGION IS NAMED AND ITS SIZE IS
+    ### ### PRINTED RATHER THAN THE FIGURE BEING QUIETLY RESTRICTED.**
+    ### **A ROUTE AGREEMENT THAT CANNOT FAIL IS NOT A CHECK**, which is the third number.
+
+====================================================================================================
+### COMPONENT 2 -- THE NUMBER, AT THE BANKED CELLS AND ALONG THE CUTOFF.
+====================================================================================================
+
+  ### (2a) THE FRAMES, BUILT ONCE EACH, WITH THE RANK GUARD (B3) ON EVERY ONE.
+    N       X       NY     h          free     rank    dim      NY/X      guard    
+    1024    8.0     512    0.007812   896      29      867      64.00     ok       
+    2048    16.0    512    0.007812   1920     46      1874     32.00     ok       
+    2048    32.0    512    0.015625   1984     80      1904     16.00     ok       
+    4096    32.0    512    0.007812   3968     80      3888     16.00     ok       
+    8192    32.0    512    0.003906   7936     79      7857     16.00     ok       
+    8192    64.0    512    0.007812   8064     145     7919     8.00      ok       
+    16384   32.0    512    0.001953   15872    79      15793    16.00     ok       
+    16384   128.0   512    0.007812   16256    274     15982    4.00      ok       
+    ### ### **THE RANK GUARD (B3): ### 0 CELL(S) REFUSED.**
+    ### `NY/X` is the number of transform samples per oscillation of the transform of a
+    ### function supported out to `X`. ### **IT IS THE REASON THE DOMAIN AXIS STOPS WHERE
+    ### ### IT DOES**, and it is printed rather than left implicit.
+    ### ### **AND THE IDENTITY CONTROL WAS RE-RUN AT EVERY FRAME**, not once at the start.
+
+  ### (2b) THE THIRTEEN BANKED CELLS AT THE REFERENCE FRAME `N=4096, X=32`,
+  ### AND THE BAND OVER THE DOMAIN SWEEP `X = 8, 16, 32, 64, 128`.
+    ### **BESIDE THEM, FOR THE INTEGRAL-ONE BUMP ONLY AND AS THE PREDICTION STATED
+    ### ### REFERENT: THE CORPUS OWN BANKED TRACE VALUES**, quoted from
+    ### `data/carto_atlas.jsonl`, emitted by `tools/e16/carto_atlas.py`. ### CONVENTION:
+    ### the atlas forms `A` as `INT hhat(u) kernel(u) du / (2 pi)` and closes its own arrangement as `residual = Z - (P - PR + A)`; ### **THAT ARRANGEMENT IS THE CONVENTION, AND IT IS THE ONE b233 ANNOTATED AND b235 RESTRICTED.**
+
+    a      supp<=2   T (T1) ref    T (T2) ref    band |T1|     A banked    ratio   
+    1.3    YES       -0.1494430    10.5657667    0.11904-0.16737 -1.7962126  0.09318 
+    1.35   YES       -0.1481303    8.3097969     0.09151-0.14813 -1.9721853  0.07511 
+    1.41   YES       -0.1071055    6.4059723     0.02935-0.12092 -2.0797820  0.05814 
+    1.5    YES       -0.0417829    4.4916498     0.01477-0.06179 -2.1378174  0.02890 
+    1.7    YES       0.0149257     2.1659280     0.00628-0.01619 -2.1103121  0.00767 
+    1.9    YES       0.0064836     1.0200194     0.00139-0.01040 -2.0313230  0.00512 
+    1.99   YES       0.0011256     0.6984815     0.00113-0.00520 -1.9943030  0.00261 
+    2      YES       0.0006586     0.6679509     0.00066-0.00465 -1.9902459  0.00234 
+    2.01   no        0.0002209     0.6383428     0.00022-0.00411 -1.9862041  0.00207 
+    2.1    no        -0.0023998    0.4090252     0.00006-0.00329 -1.9506316  0.00168 
+    2.4    no        -0.0008067    -0.0219209    0.00036-0.00200 -1.8447416  0.00108 
+    2.8    no        0.0004935     -0.1999518    0.00005-0.00067 -1.7326224  0.00039 
+    3      no        -0.0000839    -0.2163266    0.00008-0.00033 -1.6865249  0.00019 
+    ### ### **THE UNCOMPRESSED HALF, WHICH IS WHERE THE SIZE OF THIS RESULT LIVES --
+    ### ### AND IT IS CARRIED FOR *BOTH* TEST FUNCTIONS, BECAUSE THE DIFFERENCE BETWEEN
+    ### ### THE TWO COLUMNS IS THE FINDING.**
+    a      T1 Tr(A_HH)   T1 Q^T A Q    T1 diff       T2 Tr(A_HH)   T2 Q^T A Q    T2 diff      
+    1.3    10.945083     11.094526     -0.149443     23.740195     13.174428     10.565767    
+    1.35   9.568660      9.716790      -0.148130     20.755265     12.445468     8.309797     
+    1.41   8.357639      8.464744      -0.107105     18.129113     11.723140     6.405972     
+    1.5    7.082234      7.124017      -0.041783     15.363469     10.871820     4.491650     
+    1.7    5.411696      5.396770      0.014926      11.741358     9.575430      2.165928     
+    1.9    4.473913      4.467430      0.006484      9.708359      8.688340      1.020019     
+    1.99   4.173019      4.171893      0.001126      9.056141      8.357659      0.698482     
+    2      4.142841      4.142183      0.000659      8.990731      8.322780      0.667951     
+    2.01   4.113244      4.113023      0.000221      8.926580      8.288238      0.638343     
+    2.1    3.870406      3.872806      -0.002400     8.400256      7.991231      0.409025     
+    2.4    3.280070      3.280877      -0.000807     7.120987      7.142908      -0.021921    
+    2.8    2.788990      2.788497      0.000494      6.057150      6.257102      -0.199952    
+    3      2.613842      2.613926      -0.000084     5.677832      5.894158      -0.216327    
+    ### ### **THE CANCELLATION IS THE INTEGRAL-ONE BUMP OWN, NOT THE COMPRESSION OWN.**
+    ### For `(T1)` condition two removes almost all of the uncompressed trace at every
+    ### cell. ### **FOR `(T2)` IT DOES NOT**, and the mean-zero column survives the
+    ### compression at a size the bump column never reaches. ### A reader given only the
+    ### differences could not tell a small operator from a large one that nearly cancels,
+    ### and these two columns are the difference between those two readings.
+    ### ### **THE TRACE OVER THE HALF LINE WITH CONDITION ONE ALONE IS OF ORDER ONE, AND
+    ### ### CONDITION TWO REMOVES ALMOST ALL OF IT.** ### The compressed number is orders
+    ### of magnitude below the uncompressed one at every cell. ### **THAT CANCELLATION IS
+    ### ### THE MEASUREMENT**, and it is why both halves are printed: a reader given only
+    ### the difference could not tell it from a small operator, and it is not one.
+
+  ### (2c) THE TWO AXES, MEASURED INDEPENDENTLY, AT THE THREE DETAIL CELLS.
+
+    ### `a = 1.5`, (T1) the corpus integral-one bump
+      axis     N        X         rank    T               rel drift   
+      grid     2048     32.0      80      -0.04164728     -           
+               4096     32.0      80      -0.04178289     3.245e-03   
+               8192     32.0      79      -0.04364314     4.262e-02   
+               16384    32.0      79      -0.04365141     1.895e-04   
+      domain   1024     8.0       29      0.01476984      -           
+               2048     16.0      46      -0.01947321     1.758e+00   
+               4096     32.0      80      -0.04178289     5.339e-01   
+               8192     64.0      145     -0.05512283     2.420e-01   
+               16384    128.0     274     -0.06179073     1.079e-01   
+
+    ### `a = 1.5`, (T2) the mean-zero variant
+      axis     N        X         rank    T               rel drift   
+      grid     2048     32.0      80      4.48912217      -           
+               4096     32.0      80      4.49164979      5.627e-04   
+               8192     32.0      79      4.52688542      7.784e-03   
+               16384    32.0      79      4.52704114      3.440e-05   
+      domain   1024     8.0       29      3.08492676      -           
+               2048     16.0      46      4.04694282      2.377e-01   
+               4096     32.0      80      4.49164979      9.901e-02   
+               8192     64.0      145     4.74505310      5.340e-02   
+               16384    128.0     274     4.87316408      2.629e-02   
+
+    ### `a = 2`, (T1) the corpus integral-one bump
+      axis     N        X         rank    T               rel drift   
+      grid     2048     32.0      80      0.00063231      -           
+               4096     32.0      80      0.00065857      3.988e-02   
+               8192     32.0      79      0.00100103      3.421e-01   
+               16384    32.0      79      0.00100267      1.634e-03   
+      domain   1024     8.0       29      -0.00231168     -           
+               2048     16.0      46      -0.00264333     1.255e-01   
+               4096     32.0      80      0.00065857      5.014e+00   
+               8192     64.0      145     0.00325781      7.978e-01   
+               16384    128.0     274     0.00464791      2.991e-01   
+
+    ### `a = 2`, (T2) the mean-zero variant
+      axis     N        X         rank    T               rel drift   
+      grid     2048     32.0      80      0.66641917      -           
+               4096     32.0      80      0.66795086      2.293e-03   
+               8192     32.0      79      0.68872339      3.016e-02   
+               16384    32.0      79      0.68881752      1.367e-04   
+      domain   1024     8.0       29      0.00420998      -           
+               2048     16.0      46      0.42381566      9.901e-01   
+               4096     32.0      80      0.66795086      3.655e-01   
+               8192     64.0      145     0.81996865      1.854e-01   
+               16384    128.0     274     0.89980727      8.873e-02   
+
+    ### `a = 3`, (T1) the corpus integral-one bump
+      axis     N        X         rank    T               rel drift   
+      grid     2048     32.0      80      -0.00008662     -           
+               4096     32.0      80      -0.00008388     3.258e-02   
+               8192     32.0      79      -0.00005109     6.418e-01   
+               16384    32.0      79      -0.00005092     3.432e-03   
+      domain   1024     8.0       29      0.00012669      -           
+               2048     16.0      46      -0.00026144     1.485e+00   
+               4096     32.0      80      -0.00008388     2.117e+00   
+               8192     64.0      145     0.00018288      1.459e+00   
+               16384    128.0     274     0.00032539      4.380e-01   
+
+    ### `a = 3`, (T2) the mean-zero variant
+      axis     N        X         rank    T               rel drift   
+      grid     2048     32.0      80      -0.21648840     -           
+               4096     32.0      80      -0.21632664     7.478e-04   
+               8192     32.0      79      -0.21449353     8.546e-03   
+               16384    32.0      79      -0.21448262     5.087e-05   
+      domain   1024     8.0       29      -0.17160884     -           
+               2048     16.0      46      -0.22409460     2.342e-01   
+               4096     32.0      80      -0.21632664     3.591e-02   
+               8192     64.0      145     -0.19915258     8.624e-02   
+               16384    128.0     274     -0.18659126     6.732e-02   
+
+    ### ### **READ THE `rank` COLUMN BEFORE READING ANY DRIFT ON THE GRID AXIS.** ### The
+    ### measured rank of the transform condition is not a constant of the grid: it steps
+    ### from 80 to 79 between `N = 4096` and `N = 8192` at `X = 32`, because one singular value
+    ### crosses the numerical-rank tolerance. ### **A STEP IN THE RANK IS A STEP IN THE
+    ### ### PROJECTOR, SO THE DRIFT ACROSS THAT ONE REFINEMENT IS A DISCRETE CHANGE AND
+    ### ### NOT A QUADRATURE ERROR** -- and the refinements that do NOT change the rank
+    ### drift by orders of magnitude less. ### **THIS IS NAMED RATHER THAN AVERAGED IN**,
+    ### and it is why the grid axis is reported with its rank beside it.
+
+  ### (2d) THE REACH, AGAINST THE BAR (B2) FIXED BEFORE THE RUN : 5 per cent
+    ### ### **AND A DEFECT OF THIS ACT OWN REGISTRATION, FOUND BY TRYING TO APPLY ITS OWN
+    ### ### BAR.** ### (B2) asks for the last cell where BOTH refinements agree. ### The
+    ### frame set sealed at (5) has the two axes crossing at exactly ONE frame,
+    ### `N=4096, X=32`, so ### **THE JOINT TEST CAN BE APPLIED AT ONE POINT AND NOT ALONG A
+    ### ### SEQUENCE.** ### A frame set that crossed twice would have cost one more frame
+    ### and was not registered. ### **THAT IS A DESIGN DEFECT OF THE REGISTRATION, NOT OF
+    ### ### THE INSTRUMENT, AND IT IS DECLARED RATHER THAN WORKED AROUND.**
+    a      test function                      grid drift    domain drift  inside?   
+    1.5    (T1) the corpus integral-one bump  4.262e-02     2.420e-01     ### NO    
+    1.5    (T2) the mean-zero variant         7.784e-03     5.340e-02     ### NO    
+    2      (T1) the corpus integral-one bump  3.421e-01     7.978e-01     ### NO    
+    2      (T2) the mean-zero variant         3.016e-02     1.854e-01     ### NO    
+    3      (T1) the corpus integral-one bump  6.418e-01     1.459e+00     ### NO    
+    3      (T2) the mean-zero variant         8.546e-03     8.624e-02     ### NO    
+
+  ### (2e) THE NOISE-FLOOR GATE (B4), IN THE PATH.
+    grid   a=1.5 T1    -0.04364314    -> -0.04365141     RESOLVED   abs(value) = 4.364314e-02 above floor; drift 1.8
+    domain a=1.5 T1    -0.05512283    -> -0.06179073     DRIFTING   abs(value) = 5.512283e-02 above floor, but relat
+    grid   a=1.5 T2    4.52688542     -> 4.52704114      RESOLVED   abs(value) = 4.526885e+00 above floor; drift 3.4
+    domain a=1.5 T2    4.74505310     -> 4.87316408      DRIFTING   abs(value) = 4.745053e+00 above floor, but relat
+    grid   a=2 T1      0.00100103     -> 0.00100267      DRIFTING   abs(value) = 1.001031e-03 above floor, but relat
+    domain a=2 T1      0.00325781     -> 0.00464791      DRIFTING   abs(value) = 3.257814e-03 above floor, but relat
+    grid   a=2 T2      0.68872339     -> 0.68881752      RESOLVED   abs(value) = 6.887234e-01 above floor; drift 1.3
+    domain a=2 T2      0.81996865     -> 0.89980727      DRIFTING   abs(value) = 8.199686e-01 above floor, but relat
+    grid   a=3 T1      -0.00005109    -> -0.00005092     DRIFTING   abs(value) = 5.109302e-05 above floor, but relat
+    domain a=3 T1      0.00018288     -> 0.00032539      DRIFTING   abs(value) = 1.828809e-04 above floor, but relat
+    grid   a=3 T2      -0.21449353    -> -0.21448262     RESOLVED   abs(value) = 2.144935e-01 above floor; drift 5.0
+    domain a=3 T2      -0.19915258    -> -0.18659126     DRIFTING   abs(value) = 1.991526e-01 above floor, but relat
+    ### ### REFUSED -- 8 of 12 value(s) rest on the instrument floor: domain a=1.5 T1, domain a=1.5 T2, grid   a=2 T1, domain a=2 T1, domain a=2 T2, grid   a=3 T1, domain a=3 T1, domain a=3 T2
+    ### **A VALUE THE GATE REFUSES MAY NOT CARRY A VERDICT**, and that is exactly why the
+    ### scoring below is a BAND statement and not a point statement.
+
+====================================================================================================
+### COMPONENT 3 -- THE PREDICTION SCORED.
+====================================================================================================
+  ### ### **THE SIGN CHAIN FIRST, LINK BY LINK, BEFORE ANY NUMBER IS READ.** ### b316
+  ### registered this prediction on a chain of five and named every one of them as a way
+  ### for the prediction to be wrong for a reason that has nothing to do with the
+  ### mathematics. ### **THE CHAIN IS QUOTED HERE AND IS NOT RE-DECIDED.**
+    ### **(L1)** the source own `W_R = -W_inf`, located above on this run. ### If the
+    ###   corpus `A` corresponds to `W_R` rather than `W_inf`, the prediction flips sign.
+    ###   ### **STATUS: THE SOURCE SENTENCE IS LOCATED. ### THE IDENTIFICATION OF THE
+    ###   ### CORPUS `A` WITH EITHER SIDE IS NOT SETTLED BY THIS ACT.**
+    ### **(L2)** the corpus arrangement, annotated as fixed by a calibration. ### b233:
+    ###   that is a different claim from *committed before any answer*; b235 restricted it
+    ###   to an instrument fact. ### **STATUS: UNCHANGED, AND NOT RE-DECIDED HERE.**
+    ### **(L3)** b315 reading at the operation -- the calibration fixes an ORIENTATION,
+    ###   `A` is an independent integral, the `E2` in that bracket is a registered claim.
+    ###   ### **STATUS: UNCHANGED.**
+    ### **(L4)** the near-cancellation itself, which b315 measured and ### **PROMOTED TO
+    ###   ### NOTHING** ### for want of a stated definition. ### **STATUS: STILL PROMOTED
+    ###   ### TO NOTHING. ### A PREDICTION RESTING ON IT IS A PREDICTION, NOT A
+    ###   ### DERIVATION**, and b316 registered it as such.
+    ### **(L5)** the identification of the corpus window with the source test function
+    ###   class. ### **STATUS: THIS ACT MEASURED IT, AND IT IS THE ONE LINK THAT MOVED --
+    ###   ### AND IT MOVED AGAINST THE PREDICTION.** ### (1c) shows the corpus bump is
+    ###   NOT in the source eq. (54) class, and at `a > 2` it is not in the eq. (53)
+    ###   support class either. ### **SO THE CORPUS WINDOW IS NOT THE SOURCE TEST
+    ###   ### FUNCTION CLASS, AND THAT IS NOW MEASURED RATHER THAN OPEN.**
+
+  ### ### **THE SCORE, AGAINST THE BAR SEALED AT (B1): `|T| <= |A| / 10`.**
+  ### **AND IT IS SCORED AGAINST THE LARGEST `|T|` THE DOMAIN SWEEP PRODUCES**, so a
+  ### value small only at the friendliest truncation does not pass.
+    a      max |T1|      |A|/10        ratio       supp<=2     small?  
+    1.3    0.1673748     0.1796213     0.09318     YES         YES     
+    1.35   0.1481303     0.1972185     0.07511     YES         YES     
+    1.41   0.1209192     0.2079782     0.05814     YES         YES     
+    1.5    0.0617907     0.2137817     0.02890     YES         YES     
+    1.7    0.0161894     0.2110312     0.00767     YES         YES     
+    1.9    0.0103954     0.2031323     0.00512     YES         YES     
+    1.99   0.0051993     0.1994303     0.00261     YES         YES     
+    2      0.0046479     0.1990246     0.00234     YES         YES     
+    2.01   0.0041107     0.1986204     0.00207     no          YES     
+    2.1    0.0032853     0.1950632     0.00168     no          YES     
+    2.4    0.0019990     0.1844742     0.00108     no          YES     
+    2.8    0.0006738     0.1732622     0.00039     no          YES     
+    3      0.0003254     0.1686525     0.00019     no          YES     
+    ### ### **CELLS SCORING SMALL : 13 OF 13.**
+
+====================================================================================================
+### COMPONENT 4 -- THE MEAN-ZERO COLUMN, AS ITS OWN MEASUREMENT.
+====================================================================================================
+  ### ### **NO PREDICTION IS ATTACHED TO THIS COLUMN AND NONE WAS REGISTERED.** ### b316
+  ### recorded that the same quantity for the mean-zero variant is UNPREDICTED, which is
+  ### the `W2` ruling own shape.
+    a      T (T2) ref      band lo       band hi      
+    1.3    10.56576668     8.4947630     11.0841585   
+    1.35   8.30979686      6.5090383     8.7770521    
+    1.41   6.40597228      4.8050858     6.8306084    
+    1.5    4.49164979      3.0849268     4.8731641    
+    1.7    2.16592801      1.0753217     2.4834714    
+    1.9    1.02001943      0.2210347     1.2804891    
+    1.99   0.69848152      0.0216878     0.9331843    
+    2      0.66795086      0.0042100     0.8998073    
+    2.01   0.63834281      0.0124600     0.8673586    
+    2.1    0.40902524      0.1308086     0.6128440    
+    2.4    -0.02192090     0.0219209     0.2676904    
+    2.8    -0.19995183     0.1444682     0.2338118    
+    3      -0.21632664     0.1716088     0.2240946    
+  ### ### **THIS IS THE FIRST ARCHIMEDEAN NUMBER IN THE PROGRAMME COMPUTED ON THE OBJECT
+  ### ### OWN SPACE FOR A TEST FUNCTION THE SOURCE INEQUALITY COVERS.** ### The variant
+  ### satisfies eq. (54) to machine precision by construction, and at `a <= 2` it also
+  ### satisfies the eq. (53) support condition.
+  ### ### **AND THE INEQUALITY IS NOT EVALUATED HERE.** ### Its other side -- the
+  ### archimedean Weil distribution `W_infinity` for this variant -- is a separate
+  ### computation under its own registration. ### **ONE SIDE OF AN INEQUALITY IS NOT THE
+  ### ### INEQUALITY**, and the registration caps this act at one side.
+
+  ### CHECKS FAILING : 0
+  ### ### **UNCONFIRMED, WHICH ARE NOT TOOL FAILURES AND ARE NOT SWALLOWED : 0**
+  ### elapsed : 486 s
+====================================================================================================

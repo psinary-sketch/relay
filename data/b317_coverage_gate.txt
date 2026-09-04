@@ -1,0 +1,57 @@
+====================================================================================================
+b315_coverage_gate.py -- THE KERNEL-COVERAGE GATE. ### **IT IS SUPPOSED TO FAIL.**
+====================================================================================================
+  ### THE GATE'S OWN FIXTURES, RUN BEFORE IT READS THE KERNEL : [True, True, True, True, True]  PASS
+  ### **ARM (ii) IS THE ONE THAT MATTERS: THE GATE MUST BE ABLE TO PASS.** ### A gate
+  ### that cannot come back clean is not reporting a defect, it is reporting itself.
+
+  Core modules on disk                         : 109
+  Core modules carrying a `#print axioms` target: 51
+  modules the certification file imports        : 84
+  ### modules OUTSIDE the certification file    : 25
+  ### **MODULES WITH A PRINT TARGET AND NOT IMPORTED : 24**
+  ### **PRINT TARGETS NOT IN THE PROFILE            : 91**
+
+  ### THE TWO COUNTS ARE DIFFERENT AND BOTH ARE PRINTED:
+    outside but carrying NO target of its own : ['M4EnvelopeShadow']
+    ### -- its terminals are printed by a separate checker, which is itself outside.
+
+  ### THE MODULES THE GATE SEES:
+    AggregationSourceShadow        targets=9   not-in-profile=9  
+    ArchimedeanTwinShadow          targets=12  not-in-profile=12 
+    AxiomCheckBP                   targets=2   not-in-profile=0  
+    AxiomCheckDC                   targets=4   not-in-profile=0  
+    AxiomCheckDiagonalSection      targets=16  not-in-profile=0  
+    AxiomCheckGlue                 targets=11  not-in-profile=0  
+    AxiomCheckH1                   targets=2   not-in-profile=0  
+    AxiomCheckIS                   targets=2   not-in-profile=0  
+    AxiomCheckIdentities           targets=30  not-in-profile=0  
+    AxiomCheckM4E                  targets=7   not-in-profile=7  
+    AxiomCheckNF                   targets=5   not-in-profile=0  
+    AxiomCheckNPZ                  targets=5   not-in-profile=0  
+    AxiomCheckOD                   targets=7   not-in-profile=0  
+    AxiomCheckOP                   targets=3   not-in-profile=0  
+    AxiomCheckQL                   targets=4   not-in-profile=0  
+    AxiomCheckQW                   targets=4   not-in-profile=0  
+    AxiomCheckTQ                   targets=2   not-in-profile=0  
+    AxiomCheckTS                   targets=6   not-in-profile=0  
+    CeilingSweepShadow             targets=10  not-in-profile=10 
+    E2EvenMonotoneShadow           targets=11  not-in-profile=11 
+    GeneratorSupportShadow         targets=9   not-in-profile=9  
+    JunctionLimitShadow            targets=11  not-in-profile=11 
+    JunctionSignShadow             targets=13  not-in-profile=13 
+    TopLevelSilenceShadow          targets=9   not-in-profile=9  
+
+  ### ### **GATE FAILS. ### 24 MODULE(S) CARRY A TERMINAL THE CERTIFICATION FILE NEVER PRINTS.**
+  ### **AND IT IS SUPPOSED TO FAIL TODAY.** ### The order asks for the check to be
+  ### WRITTEN AND RUN, reporting what it now sees, ### **WITH NOTHING REPAIRED.**
+  ### No module is added to `AllPrints.lean`; no `.lean` file is touched; the
+  ### profile does not move. ### **THE REPAIR IS A BUILD, UNDER ITS OWN
+  ### REGISTRATION, AND IT MUST DECIDE MODULE BY MODULE WHETHER A TERMINAL BELONGS
+  ### IN THE PROFILE RATHER THAN ADDING IMPORTS AND RE-RUNNING.**
+  ### ### **WHAT THE GATE CANNOT DO, IN ITS OWN OUTPUT SO IT IS NOT TRUSTED BEYOND IT:**
+  ### it cannot tell whether a terminal is WORTH certifying. ### It compares two sets of
+  ### names. ### **A TERMINAL THAT ELABORATES WITH ZERO AXIOMS IS NOT THEREBY A
+  ### TERMINAL WORTH CERTIFYING**, and that judgement is the author's, not a set
+  ### difference's.
+====================================================================================================

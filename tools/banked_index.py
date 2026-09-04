@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'trace-on-the-object': ['the trace on the space', 'the compressed smeared trace',
+                   'is the corpus window in the source class', 'the mean-zero column',
+                   'was the prediction small', 'the trace on the object'],
     'archimedean-instrument': ['the truncated space', 'is u_inf in the space',
                    'does the scaling restrict', 'sonin space instrument',
                    'the archimedean instrument', 'which condition breaks'],
@@ -425,6 +428,49 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE NUMBER (b317, act two of two).
+    ("trace-on-the-object", "b317 (a computation on the instrument as certified)",
+     "the source's compressed smeared trace, computed on the object's own space. ###"
+     " **Tr(theta(f) S) OF THEOREM 4.7, ASSEMBLED FROM eq. (61) AND DEFINITION 4.4 ALONE** --"
+     " the scaling action integrated in d*lambda, which by u = x/lambda is the kernel"
+     " K(x,u) = f(x/u)/sqrt(xu), compressed by b316's projector and traced. ### Thirteen"
+     " banked cells, both test functions, the whole registered cutoff. ### **AGAINST A BAR"
+     " SEALED BEFORE ANY VALUE AT ANY BANKED CELL EXISTED (|T| <= |A|/10, scored on the"
+     " largest |T| the whole domain sweep produces), THE REGISTERED PREDICTION SCORES AS SMALL"
+     " AT 13 CELLS OF 13** -- ratios 0.09318 down to 0.00019, with the narrowest cell at 93"
+     " per cent of the bar. ### **AND THE CANCELLATION IS THE BUMP'S OWN, NOT THE"
+     " COMPRESSION'S**: the same compression removes 98.6 per cent of the bump's uncompressed"
+     " trace and only 55 per cent of the mean-zero variant's",
+     "### A NUMBER ON A TRUNCATION, AND ITS LIMITS BELONG IN ITS OWN ENTRY. ### **THE REACH IS"
+     " EMPTY** -- no cell meets the joint 5 per cent bar fixed before the run -- ### **AND THE"
+     " NOISE-FLOOR GATE REFUSES 8 PAIRS OF 12**, so no point verdict is taken from either"
+     " axis and the scoring is a BAND statement. ### The grid-axis drift spike is a RANK STEP"
+     " (80 to 79), not a quadrature error. ### **NO UNIT IS USED ANYWHERE IN THE ACT** and the"
+     " number MAY NOT BE READ AS b300's -- W-ORD-ARCH-MEMBERSHIP is open. ### NO ACT"
+     " RE-VERDICTED. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b317_the_trace_on_the_object.txt; data/b317_components_run.txt;"
+     " tools/b317_smear.py (the emitting file); CORRESPONDENCE.md row 146"),
+    # ### THE LINK THE NUMBER BROKE (b317).
+    ("trace-on-the-object", "b317 (the sign chain's fifth link, measured)",
+     "the corpus's window is NOT the source's test-function class. ### b316 registered its"
+     " prediction on a chain of five and named each as a way for it to be wrong for a reason"
+     " that has nothing to do with the mathematics. ### Four this act cannot touch. ###"
+     " **THE FIFTH IT MEASURED, AND THE FIFTH IS FALSE**: the source's eq. (54) requires the"
+     " moment INT f(rho) rho^{+-1/2} d*rho to vanish, and the corpus's integral-one bump has"
+     " it at 1.003, 1.010 and 1.024 at a = 1.5, 2, 3. ### **AND FIVE OF THE THIRTEEN CELLS"
+     " ALSO LEAVE eq. (53)'s SUPPORT CONDITION [1/2, 2].** ### A mean-zero variant built from"
+     " three of the corpus's own bumps DOES satisfy both moments, to 2.8e-17",
+     "### A MEASUREMENT ABOUT A WINDOW, NOT A VERDICT ON AN ACT. ### **A PREDICTION WHOSE"
+     " NUMBER LANDS WHILE A LINK IT RESTS ON IS MEASURED WRONG HAS NOT BEEN CONFIRMED BY THE"
+     " LANDING** -- so the prediction SCORED and is NOT CONFIRMED, and the entailment is"
+     " bounded: the correspondence may not be read as identifying the corpus's window with the"
+     " source's class, because that is the thing this act refused. ### **NO ACT IS"
+     " RE-VERDICTED AND NO BANKED MEASUREMENT IS CALLED WRONG** -- naming two quantities"
+     " different is a statement about what they are. ### W-ORD-WINDOW-CLASS filed. ### NO"
+     " GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b317_the_trace_on_the_object.txt; data/b317_rows.json;"
+     " data/b316_the_archimedean_instrument.txt (the chain's own bank);"
+     " CORRESPONDENCE.md row 147"),
     # ### THE INSTRUMENT (b316, act one of two).
     ("archimedean-instrument", "b316 (an instrument build, with its own fixtures)",
      "a computable truncation of the source's own archimedean space. ### **S(1,1) BUILT FROM"

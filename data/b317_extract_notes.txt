@@ -1,0 +1,367 @@
+====================================================================================================
+b317_extract.py -- THE EXTRACT STEP. ### **NOTHING RAW IS PAGED INTO THE ACT.**
+====================================================================================================
+  finder self-test : [True, True, True, True, True, True, True, True]  PASS
+
+----------------------------------------------------------------------------------------------------
+### THE PIN. ### **BEFORE A WORD OF THE ARTEFACT IS READ.**
+----------------------------------------------------------------------------------------------------
+  artefact  : cc_2006.13771v1.pdf
+  cite      : Connes & Consani, "Weil positivity and Trace formula the archimedean place", arXiv:2006.13771v1
+  url       : https://arxiv.org/abs/2006.13771
+  bytes     : 1213504
+  sha256    : b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+  ### MATCHES THE VALUE b304 PINNED AND b305 RE-COMPUTED : True  YES
+  pages     : 57
+
+----------------------------------------------------------------------------------------------------
+### THE SOURCE FRAGMENTS, LOCATED BY PAGE INDEX.
+### **THE TEXT LAYER RENDERS PARENTHESES AS `p`/`q` AND BREAKS WORDS ACROSS LINES.**
+### ### **EVERY WINDOW BELOW IS RAW. ### THE READING OF IT IS THE AUTHOR'S, NOT THIS
+### ### TOOL'S, AND THE BANK MARKS IT SO.**
+----------------------------------------------------------------------------------------------------
+
+### ==== (16) THE INNER PRODUCT
+###      page index 6 (printed page 7) | anchor 'inL2pRqevasfollows' | char offset 714
+    | igure 1. We normalize
+    | the inner product in L2pRqev as follows
+    | xη|ξy :“ 1
+    | 2
+    | ż
+    | R
+    | ηpxqξpxqdx“
+    | ż8
+    | 0
+    | ηpxqξpxqdx. (16)
+    | We ﬁrst relate the trace computations performed in L2pRqev with those done in the isomorphic
+    | Hilbert space L2pR˚
+    | `,d˚λq using the unitary isomorphism
+    | w :L2pRqevÑL2pR˚
+    | `,d˚λq, pwξqpλq :“λ
+    | 1
+    | 2ξpλq. (17)
+    | Given an operator T in L2pRqev, we shall denot
+
+### ==== (24) THE TRANSFORM
+###      page index 7 (printed page 8) | anchor 'itdefinestheunitary' | char offset 947
+    | ransform with respect
+    | to the basic character eRpxq“ e´2πix: it deﬁnes the unitary in L2pRqev
+    | FeRpξqpyq :“
+    | ż8
+    | ´8
+    | ξpxqe´2πixydy. (24)
+    | On implementing the isomorphism w we obtain
+    | Lemma 1.3 One has: Fw
+    | eR“I˝ug
+    | 8. Equivalently, the following equality holds in L2pRqev
+    | FeR“w´1˝I˝ F´1
+    | µ ˝u8˝ Fµ˝w, (25)
+    | whereu8 is the multiplic
+
+### ==== (53) W_infinity AND (54) THE VANISHING CONDITIONS
+###      page index 16 (printed page 17) | anchor 'weinvestigatethefunctional' | char offset 1350
+    | r´A,As.
+    | This result applied to the multiplicative group R˚
+    | ` (isomorphic to R) gives, for any positive
+    | deﬁnite function f P C8
+    | c pR˚
+    | `q with support in a symmetric interval I “ rA´1,As Ă R˚
+    | `, a
+    | convolution square root with support in
+    | ?
+    | I“rA´1{2,A 1{2s.
+    | Next, we investigate the functional on the convolution algebra C8
+    | c pR˚
+    | `q
+    | W8pfq“´
+    | ż
+    | fpρ´1qτpρqd˚ρ (53)
+    | for test functions f whose support is in the interval r 1
+    | 2, 2s. Moreover, we assume the vanishing
+    | conditions ż
+    | fpρqρ˘ 1
+    | 2d˚ρ“ 0 (54)
+    | to isolate on the left hand side of the explicit formula the contribution of the zeros of the Riemann
+    | zeta function. To understand why the support condition is needed, we give an example of a test
+    | function f on R˚
+    | ` of the form f “ g˚g˚ that fulﬁlls (54), but for which W8pfqă 0. We ﬁrst
+    | determine the Fourier transform ˆfptq :“
+    | ş
+    | fpρqρ´itd˚ρ. With ˆfptq“| ˆgptq|2 we let
+    | ˆgptq“p 1` 4t2qe´t2{4, ˆfptq“p 1` 4t2q2e´t2{2
+    | -6 -4 -2 2 4 6
+    | -50
+    | -40
+    | -30
+    | -20
+    | -10
+    | Figure 7 . Graph of 2θ1ptq ˆfptq inr´7, 7s
+    | 17
+
+### ==== (61) THE SCALING ACTION
+###      page index 22 (printed page 23) | anchor 'itsactionisgivenby' | char offset 1567
+    | also [18] Chapter 2, §3.3), for Λ “ 1.
+    | We switch to the Hilbert space L2pRqev and use the isomorphism w of (17) to rewrite (60)
+    | inL2pRqev. Let ϑ :“w´1ϑmw be the unitary representation ϑm conjugated by the isomorphism
+    | w, its action is given by
+    | pϑpλqξqpvq :“ λ´1{2ξpλ´1vq, @ξPL2pRqev. (61)
+    | The projection P (still denoted by the same letter), becomes the multiplication by the charac-
+    | teristic function of the interval complement txP R||x|ě 1u and pP becomes F´1
+    | eRPFeR. These
+    | projections are related to the projections PΛ 
+
+### ==== DEFINITION 4.4 / (72) THE SPACE S(a,b)
+###      page index 24 (printed page 25) | anchor 'Definition4.4For' | char offset 306
+    | P1, pP1q|Sp1,1q“ 0.
+    | Deﬁnition 4.4 Forα,β ą 0, let Sonin’s space Spα,βqĂ L2pRqev be deﬁned by
+    | Spα,βq :“tξPL2pRqev|ξpqq“ 0, @q,|q|ď α, pFeRξqppq“ 0, @p,|p|ď βu. (72)
+    | Given two vectorsξ,η P H in a Hilbert space H we shall use the Dirac notation |ξyxη| for the
+    | rank one projection
+    | |ξyxη|pη1q :“ξxη|η1y, @η1P H, (73)
+    | where by convention the inner product xη|η1y is anti-linear in the ﬁrst vector and linear in η1.
+    | Proposition 4.5 piq Letξn“ P1φn{}P1φn}, ηn“ FeRξn and ψn“Pηn. One has
+    | P1ηn“ P1FeRξn“λpnqξn. (74)
+    | piiq Forρě 1
+    | δpρq“ Tr
+    | ´
+    | ϑpρ´1qpP1 P1
+    | ¯
+    | “
+    | ÿ
+    | n
+    | `
+    | λpnq2xξn|ϑpρ´1qξny` λpnqxξn|ϑpρ´1qψny
+    | ˘
+    | (75)
+    | piiiq The functions ψn“PFeRξn are real valued, pairwise orthogonal and: }ψn}“
+    | a
+    | 1´λpnq2,
+    | ÿ
+    | λpnq2|ζnyxζn|ď P pPP, ζ n“ 1a
+    | 1´λpnq2ψn (76)
+    | pi
+
+### ==== THEOREM 4.7 -- (83) AND (84)
+###      page index 26 (printed page 27) | anchor 'Theorem4.7' | char offset 1526
+    | ρÞÑρ´1 so that, after this replacement, (75) is valid for all ρP R˚
+    | `.
+    | Next theorem reﬁnes the local trace formula (43)
+    | Theorem 4.7 Let S be the orthogonal projection of L2pRqev on the closed subspace Sp1, 1q. The
+    | following functional is positive
+    | TrpϑpfqSq“ W8pfq`
+    | ż
+    | fpρ´1qϵpρqd˚ρ, @fPC8
+    | c pR˚
+    | `q, (83)
+    | where W8 is as in (53), ϵpρq is the function of ρP R˚
+    | `, with ϵpρ´1q“ ϵpρq, which is given, for
+    | ρě 1, by
+    | ϵpρq“
+    | ÿ λpnqa
+    | 1´λpnq2xξn|ϑpρ´1qζny. (84)
+    | Proof. By (43) one has, rewriting the formula in L2pRqev,
+    | W8pfq`
+    | ż
+    | fpρ´1qδpρqd˚ρ“ Tr
+    | ´
+    | ϑpfqP pPP
+    | ¯
+    | . (85)
+    | By (75) one has, for ρě 1,
+    | δpρq“
+    | ÿ´
+    | λpnq2xξn|ϑpρ´1qξny` λpnq
+    | a
+    | 1´λpnq2xξn|ϑpρ´1qζny
+    | ¯
+    | . (86)
+    | 7We are only using the even prolate functions, the sum of squares of eigenvalues including the odd ones is 4.
+    | 27
+
+### ==== (43) THE LOCAL TRACE FORMULA
+###      page index 12 (printed page 13) | anchor 'piiiqForf' | char offset 615
+    | πxyqdydx. (42)
+    | piiq For all ρP R˚
+    | `, one has: δpρq“ δpρ´1q.
+    | piiiq ForfPCcpR˚
+    | `q, and with ˆP “p Fw
+    | eRq´1PFw
+    | eR, one has
+    | Tr
+    | ´
+    | ϑmpfqP pPP
+    | ¯
+    | “
+    | ż8
+    | 0
+    | fpρ´1qpδpρq´ τpρqqd˚ρ. (43)
+    | Proof. piq ForρP R˚
+    | ` and ξPL2pR˚
+    | `q, one has
+    | pϑmpρ´1qPϑ mpρqξqpλq“p Pϑ mpρqξqpρλq“ Ppρλqpϑmpρqξqpρλq“ Ppρλqξpλq, @λP R˚
+    | `.
+    | Whenρě 1 one obtains: PpλqPpρλq“ Ppλq for all λP R˚
+    | `, since both sides are 0 for λă 1 and
+    | 1 for λě 1. Thus, for ρě 1 one has
+    | Pϑ mpρ´1qPϑ mpρq“ P
+    | and so
+    | ϑmpρ´1q´ Pϑ mpρ´1qP “
+    | `
+    | 1´Pϑ mpρ´1qPϑ m
+
+### SOURCE FRAGMENTS NOT FOUND : 0
+
+----------------------------------------------------------------------------------------------------
+### THE CODE FRAGMENTS, BY FILE AND LINE RANGE. ### **1-INDEXED, INCLUSIVE.**
+----------------------------------------------------------------------------------------------------
+
+### ==== THE ATLAS BUMP -- the corpus's integral-one bump, its EMITTING FILE
+###      tools/e16/carto_atlas.py : lines 43-52
+     43 | def bump(a):
+     44 |     L = math.log(a)
+     45 |     v = np.linspace(-L, L, NV)
+     46 |     t = v / L
+     47 |     w = np.zeros_like(t)
+     48 |     m = np.abs(t) < 1.0
+     49 |     w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))
+     50 |     w /= np.trapezoid(w, v)
+     51 |     return v, w
+     52 | 
+
+### ==== THE ATLAS CHANNELS -- where the corpus's archimedean number A is formed
+###      tools/e16/carto_atlas.py : lines 55-82
+     55 |     """ONE matrix operation: cos(u (x) v) @ (w dv).  Vectorised repair."""
+     56 |     u = np.atleast_1d(np.asarray(u, dtype=np.float64))
+     57 |     dv = np.gradient(v)
+     58 |     return np.cos(np.outer(u, v)) @ (w * dv)
+     59 | 
+     60 | 
+     61 | def channels(a):
+     62 |     v, w = bump(a)
+     63 |     Z = 2.0 * float(np.sum(hhat(v, w, GAM)))                 # zero side
+     64 |     P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v))   # pole
+     65 |     U = np.linspace(-UMAX, UMAX, NU)
+     66 |     A = float(np.trapezoid(hhat(v, w, U) * kernel(U), U) / (2.0 * math.pi))
+     67 |     PR, terms = 0.0, []
+     68 |     L = math.log(a)
+     69 |     for p in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31):
+     70 |         k = 1
+     71 |         while p ** k <= a + 1e-12:
+     72 |             n = p ** k
+     73 |             ln = math.log(n)
+     74 |             if ln <= L:
+     75 |                 val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+     76 |                 if val:
+     77 |                     PR += val
+     78 |                     terms.append(n)
+     79 |             k += 1
+     80 |     return dict(a=a, zero=Z, pole=P, arch=A, prime=PR,
+     81 |                 residual=Z - (P - PR + A), prime_terms=terms)
+     82 | 
+
+### ==== THE ATLAS INSTRUMENT CONSTANTS -- committed before any answer
+###      tools/e16/carto_atlas.py : lines 24-25
+     24 | 
+     25 | NV, NU, UMAX, TOL, NGAM = 4001, 12001, 600.0, 1e-3, 10000
+
+### ==== THE INSTRUMENT (N1)-(N4) -- the four normalizations, written once
+###      tools/b316_instrument.py : lines 45-48
+     45 | ALPHA = 1.0   # ### Definition 4.4's `a`, at the source's own `S(1,1)`
+     46 | BETA = 1.0    # ### Definition 4.4's `b`
+     47 | MU_SONIN = '-20.48057322913694697'   # ### b214's printed first even NEGATIVE eigenvalue
+     48 | 
+
+### ==== THE INSTRUMENT FRAME -- the truncation, midpoints, and the transform's own grid
+###      tools/b316_instrument.py : lines 53-76
+     53 |     ### **MIDPOINTS RATHER THAN ENDPOINTS**, so that no node sits at `x = 0` (where an even
+     54 |     ### function's derivative information is degenerate) and so that the quadrature weight is the
+     55 |     ### same at every node -- which makes the inner product `(N1)` a plain scaled dot product and
+     56 |     ### keeps orthonormality in the free coordinates equivalent to orthonormality in the space.
+     57 |     """
+     58 | 
+     59 |     def __init__(self, N, X, NY=None):
+     60 |         self.N, self.X = int(N), float(X)
+     61 |         self.h = self.X / self.N
+     62 |         self.x = (np.arange(self.N) + 0.5) * self.h
+     63 |         self.w = np.full(self.N, self.h)
+     64 |         # ### ### **THE TRANSFORM GETS ITS OWN GRID, AND THAT IS NOT A CONVENIENCE.**
+     65 |         # ### The first version of this frame set `y = x`. ### That ties the number of
+     66 |         # ### CONSTRAINTS -- the rows with `y <= 1` -- to `1/h`, while the number of FREE
+     67 |         # ### coordinates grows like `X/h`. ### **SO THE SECOND CONDITION GETS WEAKER AND WEAKER
+     68 |         # ### AS THE DOMAIN LENGTHENS, AND AT `X = 64` IT WAS WEAK ENOUGH TO ADMIT A VECTOR b292
+     69 |         # ### DERIVED IS NOT IN THE SPACE.** ### `NY` samples `(0, 1]` independently of `X`.
+     70 |         self.NY = int(NY) if NY else max(64, self.N // 8)
+     71 |         self.hy = BETA / self.NY
+     72 |         self.y = (np.arange(self.NY) + 0.5) * self.hy
+     73 | 
+     74 |     # ---------------------------------------------------------------- (N1)
+     75 |     def inner(self, u, v):
+     76 |         """### `<u|v>` OF eq. (16), ON THE HALF LINE."""
+
+### ==== THE INSTRUMENT SUBSPACE -- the projector S
+###      tools/b316_instrument.py : lines 93-113
+     93 |     def subspace(self, T=None):
+     94 |         """### **THE CONSTRAINED SUBSPACE, AS A PROJECTOR ON THE FREE COORDINATES.**
+     95 | 
+     96 |         ### Condition one kills the coordinates with `x <= 1` outright. ### Condition two is
+     97 |         ### `C f = 0` with `C = T[lo_y][:, hi_x]`, and the space is that null space.
+     98 |         ### **THE PROJECTOR IS BUILT FROM AN ORTHONORMAL BASIS OF THE ROW SPACE, NOT OF THE NULL
+     99 |         ### SPACE**, because the row space has the small dimension and the arithmetic is cheaper
+    100 |         ### and better conditioned that way.
+    101 |         """
+    102 |         if T is None:
+    103 |             T = self.transform_matrix()
+    104 |         lo_x, lo_y = self.masks()
+    105 |         hi_x = ~lo_x
+    106 |         C = T[lo_y][:, hi_x]
+    107 |         # ### `Q` spans the ROW space of `C`; the space is what `Q` misses.
+    108 |         U, s, Vt = np.linalg.svd(C, full_matrices=False)
+    109 |         tol = max(C.shape) * (s[0] if s.size else 0.0) * np.finfo(float).eps
+    110 |         rank = int((s > tol).sum())
+    111 |         Q = Vt[:rank].T                       # ### (free coords) x rank, orthonormal columns
+    112 |         return dict(hi=hi_x, lo_x=lo_x, lo_y=lo_y, C=C, Q=Q, rank=rank,
+    113 |                     free=int(hi_x.sum()), dim=int(hi_x.sum()) - rank, sing=s)
+
+### ==== THE INSTRUMENT SCALING -- eq. (61) as an operator
+###      tools/b316_instrument.py : lines 130-141
+    130 | 
+    131 |     # ---------------------------------------------------------------- (N3)
+    132 |     def scaling(self, lam, f):
+    133 |         """### eq. (61): ### `(theta(lam) f)(v) = lam^{-1/2} f(lam^{-1} v)`, by interpolation.
+    134 | 
+    135 |         ### **OUTSIDE THE DOMAIN THE VALUE IS TAKEN AS ZERO, AND THAT IS THE TRUNCATION SHOWING.**
+    136 |         ### For `lam >= 1` the argument `v/lam` stays inside `[0, X]`, so no extrapolation happens
+    137 |         ### and the only error is interpolation.
+    138 |         """
+    139 |         arg = self.x / lam
+    140 |         return (lam ** -0.5) * np.interp(arg, self.x, f, left=0.0, right=0.0)
+    141 | 
+
+### ==== THE SMEAR TOOL -- b310's assembly at a FINITE place, and its stated scope
+###      tools/b310_smear.py : lines 3-24
+      3 | 
+      4 | ### ### **THE SOURCE'S MOVE, IN ITS OWN WORDS, QUOTED BY b304 FROM CC (arXiv:2006.13771):** ###
+      5 | ### **"one can associate to a test function `f in C_c^infinity(R*_+)` the trace `Tr(theta(f) S)`"**.
+      6 | ### ### **AT A FINITE PLACE THE SCALING PART OF `Q_p^x` IS `p^Z`, WHICH IS DISCRETE**, so the
+      7 | ### source's INTEGRAL over the scaling part is a ### SUM ### over the powers of the prime, with the
+      8 | ### test function evaluated at those powers.
+      9 | ### ### ### **THAT IS THE WHOLE OF THE ASSEMBLY:**
+     10 | ### ### ### **`theta(w) = SUM over k of w_k theta(p^k)`,   `T(w) = Tr(theta(w) Pi) =
+     11 | ### ### ### SUM over k of w_k Tr(theta(p^k) Pi)`.**
+     12 | 
+     13 | ### ### **THE WEIGHT IS SYMBOLIC AND NO PARTICULAR BUMP IS CHOSEN.** ### `w_k` is the test
+     14 | ### function's value at `p^k` and nothing more. ### **SO NO CLASS QUESTION ARISES AND NO PRICE IS
+     15 | ### PAID** -- the source's own price for the corpus's bump is not quoted here, because nothing here
+     16 | ### exits any class.
+     17 | ### ### **AND THE SUM IS FINITE BECAUSE THE SOURCE'S TEST FUNCTIONS ARE COMPACTLY SUPPORTED.** ### A
+     18 | ### compactly supported function on `Q_p^x` meets only finitely many powers of `p`.
+     19 | 
+     20 | ### ### ### **THE SCOPE THIS FILE CARRIES AND MAY NOT WIDEN.** ### b309 computed
+     21 | ### `Tr(theta(p^k) Pi) = 0` for `k != 0` ### AT SEVEN CELLS AND FOR `|k| <= 2n` ### . ### **THIS
+     22 | ### ### FILE EVALUATES THE ASSEMBLY ONLY ON WEIGHTS SUPPORTED THERE.** ### The general statement is
+     23 | ### the bank's DERIVATION, which is general in `k`; ### **USING A RESULT IS NOT WIDENING IT, AND
+     24 | ### EVALUATING BEYOND THE RANGE ITS OWNER COMPUTED WOULD BE.**
+
+### CODE FRAGMENTS NOT FOUND : 0
+
+====================================================================================================
