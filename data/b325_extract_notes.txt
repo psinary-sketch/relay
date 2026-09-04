@@ -1,0 +1,106 @@
+====================================================================================================
+b325_extract.py -- THE NEGATIVE CONTROL. ### THE READ, AND THE CENSUS OF WHAT IS OWNED.
+====================================================================================================
+  ### **THE PRICING IS A CENSUS OF CONSTITUENTS, NOT A JUDGEMENT ABOUT DIFFICULTY.**
+
+----------------------------------------------------------------------------------------------------
+### (A) THE QUOTATIONS, EACH AT ITS EMITTING FILE, WITH ITS LINE.
+----------------------------------------------------------------------------------------------------
+
+### ==== the experiment, subject B
+###      <papers>/outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md | fragment 'When the class number of Q exceeds 1' | 1 hit(s)
+    | line 32    The completed function ξ_Q(s) is built from Q(m) → θ_Q → ξ_Q by the same Mellin pipeline. This specification produces a functional equation ξ_Q(s) = ξ_Q(n/2 − s) from Poisson summation on the lattice. When the class number of Q exceeds 1, the lattice lacks unique factorization, and no Euler product exists. (The ring of integers O_K of the associated quadratic field has unique factorization if and only if its class number is 1. When h > 1, the Dirichlet ser
+
+### ==== ### the theorem it rests on
+###      <papers>/outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md | fragment 'Davenport' | 10 hit(s)
+    | line 7     We identify the Euler product as the structural component responsible for confining zeros of L-functions to the critical line. Epstein zeta functions, built from the same analytic pipeline as the Riemann zeta function (quadratic form → theta function → Mellin transform), satisfy functional equations but generically lack Euler products. They have infinitely many off-line zeros (Davenport–Heilbronn 1936). The Davenport–Heilbronn function provides corroborati
+    | line 38    **Theorem (Davenport–Heilbronn 1936; Voronin 1976 for the Epstein case).**
+
+### ==== ### and what it concludes
+###      <papers>/outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md | fragment 'One ingredient removed' | 1 hit(s)
+    | line 52    Same pipeline. Same analytic machinery. One ingredient removed. Outcome changed.
+
+### ==== ### and what the functional equation does NOT do
+###      <papers>/outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md | fragment 'it does not confine zeros to it' | 1 hit(s)
+    | line 85    This obstruction is genuine: off-line zeros are non-generic. But codimension-2 events are not impossible. The Epstein functions demonstrate that the obstruction can be overcome when the Euler product is absent. The functional equation illuminates the critical line; it does not confine zeros to it.
+
+### ==== the ledger called positive, and the form
+###      <papers>/phase1.5/proofs/THE_RESIDUE_OF_RH.md | fragment 'positive ledger but RH false' | 1 hit(s)
+    | line 51    The drift can be measured. The coherence functional `C[L](N) = (1/N) Σ_{n≤N} λ_Z^L(n)` isolates `ζ` (`C ≈ 1`) from every sign-changing or sign-neutral family (`C ≈ 0`) — but it is a *ledger-coherence* functional, not an RH discriminator: three RH-true Dirichlet L-functions cluster with RH-false Davenport–Heilbronn near 0, because RH-truth lives past feasible `N`. The sharpest test is a family with a **positive ledger but RH false**: the Epstein zeta of a c
+
+### ==== ### and what the coherence functional therefore measures
+###      <papers>/phase1.5/proofs/THE_RESIDUE_OF_RH.md | fragment 'measures **ledger-positivity, not RH-truth**' | 1 hit(s)
+    | line 51    The drift can be measured. The coherence functional `C[L](N) = (1/N) Σ_{n≤N} λ_Z^L(n)` isolates `ζ` (`C ≈ 1`) from every sign-changing or sign-neutral family (`C ≈ 0`) — but it is a *ledger-coherence* functional, not an RH discriminator: three RH-true Dirichlet L-functions cluster with RH-false Davenport–Heilbronn near 0, because RH-truth lives past feasible `N`. The sharpest test is a family with a **positive ledger but RH false**: the Epstein zeta of a c
+
+### ==== ### ### THE COMPLETED EPSTEIN FUNCTION AND ITS ARCHIMEDEAN FACTOR
+###      <relay>/tools/e16/epstein_census.py | fragment 'Lambda(s) = (sqrt(23)/2pi)^s Gamma(s) Z_Q(s)' | 1 hit(s)
+    | line 14    # METHOD.  Lambda(s) = (sqrt(23)/2pi)^s Gamma(s) Z_Q(s) satisfies Lambda(s) = Lambda(1-s) and
+
+### ==== ### the incomplete-gamma representation it is evaluated by
+###      <relay>/tools/e16/epstein_census.py | fragment 'a_k^-s Gamma(s,a_k)' | 1 hit(s)
+    | line 15    #   Lambda(s) = sum_k r_Q(k) [ a_k^-s Gamma(s,a_k) + a_k^(s-1) Gamma(1-s,a_k) ] - 1/s - 1/(1-s),
+
+### ==== ### the form, its discriminant and its class number
+###      <relay>/tools/e16/epstein_census.py | fragment 'disc -23, principal form' | 1 hit(s)
+    | line 1     # THE EPSTEIN ZERO CENSUS — disc -23, principal form x^2 + xy + 6y^2, h(-23) = 3.
+
+### ==== ### and the census method, 2-D by construction
+###      <relay>/tools/e16/epstein_census.py | fragment 'winding number of' | 1 hit(s)
+    | line 16    # with a_k = 2*pi*k/sqrt(23).  Gamma's poles cancel the trivial zeros, so the winding number of
+
+### ==== ### the same completed function, implemented
+###      <relay>/tools/e16/epstein_li_v3.py | fragment 'a.gamma_upper(s)' | 1 hit(s)
+    | line 214   tot += RQ[k] * (a ** (-s) * a.gamma_upper(s) + a ** (s - 1) * a.gamma_upper(1 - s))
+
+### ==== ### and ZETA'S, in the same file, for the contrast
+###      <relay>/tools/e16/epstein_li_v3.py | fragment 'def E_zeta_fl' | 1 hit(s)
+    | line 222   def E_zeta_fl(s):
+
+### ==== ### the representation numbers, formed
+###      <relay>/tools/e16/epstein_li_v3.py | fragment 'x * x + x * y + 6 * y * y' | 1 hit(s)
+    | line 141   k = x * x + x * y + 6 * y * y
+
+### ==== ### THE ARC'S KERNEL -- ZETA'S, AT ITS EMITTING FILE
+###      <relay>/tools/e16/carto_atlas.py | fragment 'def kernel' | 1 hit(s)
+    | line 33    def kernel(U):
+
+### ==== ### and the arc's prime channel, for the shape the finite side must take
+###      <relay>/tools/e16/carto_atlas.py | fragment 'math.log(p)' | 1 hit(s)
+    | line 75    val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+
+  ### ### **QUOTATIONS NOT FOUND : 0**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE ZERO LIBRARY THE CORPUS ALREADY OWNS. ### **COUNTED, NOT DESCRIBED.**
+----------------------------------------------------------------------------------------------------
+  cells banked            : 450
+  self-test records       : 1  {'kind': 'selftest', 'test': 'Lambda(s) == Lambda(1-s)', 's': [0.83, 7.1], 'rel_err': 0.0, 'dps': 20, 'kterms': 40}
+  sigma range covered     : [0.520, 1.500]
+  t range covered         : [0.50, 33.00]
+  ### ### **ZEROS FOUND (winding 1) : 2**
+      sigma in [0.940, 1.080], t in [16.00, 16.50], winding 1.000
+      sigma in [0.660, 0.800], t in [29.50, 30.00], winding 1.000
+
+  ### ### **AND THE MEASUREMENT THAT PRICES THE RUN:** ### the census starts at
+  ### `sigma = 0.520`. ### **IT NEVER SCANNED THE CRITICAL LINE ITSELF, AND IT NEVER
+  ### ### SCANNED `sigma < 1/2`.** ### The zeros it banks are all in the RIGHT half-
+  ### strip, which is what it was built for: it was looking for off-line zeros and it
+  ### found them. ### **SO THE CORPUS OWNS OFF-LINE ZEROS AND DOES NOT OWN THE ON-LINE
+  ### ### ONES**, and an explicit formula needs BOTH.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE TWO ARCHIMEDEAN FACTORS, SIDE BY SIDE, FROM THE CORPUS'S OWN FILES.
+----------------------------------------------------------------------------------------------------
+  ### **ZETA** ### -- `xi(s) = pi^{-s/2} Gamma(s/2) zeta(s)`, deposited at the confinement
+  ### keystone and implemented at `epstein_li_v3.py: def E_zeta_fl`.
+  ###   its explicit-formula kernel, at `carto_atlas.py: def kernel` :
+  ###   ### **`Re psi(1/4 + i u/2) - log pi`**
+  ### **EPSTEIN (disc -23)** ### -- `Lambda(s) = (sqrt(23)/2pi)^s Gamma(s) Z_Q(s)`, stated
+  ### in `epstein_census.py`'s own METHOD header.
+  ###   its explicit-formula kernel, DERIVED from that factor at `s = 1/2 + i u` :
+  ###   ### **`Re psi(1/2 + i u) - log(2 pi / sqrt 23)`**
+  ### ### **THEY ARE DIFFERENT FUNCTIONS.** ### `Gamma(s/2)` against `Gamma(s)`, and
+  ### `log pi` against `log(2 pi / sqrt 23)`. ### **THE ARC'S ARCHIMEDEAN DISTRIBUTION IS
+  ### ### ZETA'S AND DOES NOT TRANSFER.** ### That is one BUILD, and it is small and
+  ### exactly specified -- but it is a build and not a re-run, and the pricing says so.
+====================================================================================================

@@ -83,6 +83,14 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'negative-control': ['the negative control', 'a failing hypothesis',
+                         'does the instrument see a failing hypothesis',
+                         'the priced reach', 'the positive control',
+                         'the inherited constant', 'what the zeta window was',
+                         'can the instrument say no'],
+    'epstein': ['epstein', 'the epstein case', 'the epstein zeta',
+                'the confinement keystone', 'the class-number-3 form', 'disc -23',
+                'the off-line zeros', 'the on-line zero library'],
     'keystones-reread': ['the keystones reread', 'the wall', 'the margin',
                         'did the arc move the wall', 'the two margins',
                         'is the arc space the wall space', 'the bridging statement',
@@ -461,6 +469,81 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE NEGATIVE CONTROL -- THE VERDICT (b325).
+    ("negative-control", "b325 (a read, a pricing, and the run; the verdict)",
+     "the archimedean instrument aimed at a hypothesis KNOWN TO FAIL: the Epstein zeta of"
+     " x^2 + xy + 6y^2 (disc -23, h = 3), whose corpus census banks two zeros off the line."
+     " ### The places sum SUM_v W_v = PR_Q - A_Q is **NEGATIVE AT ALL THIRTEEN OF THE ARC'S"
+     " CELLS**, -16.069614947 down to -2.243190916; the order's falsifier asked for the"
+     " forbidden POSITIVE sign and no cell gives one. ### **VERDICT: DOES NOT SEE IT AT THE"
+     " ARC'S CELLS. THE REGISTERED EXPECTATION IS REFUTED AT THE CURRENT REACH.** ### **AND"
+     " THE REASON IS STRUCTURAL**: r_Q(2) = r_Q(3) = 0, so the finite channel is identically"
+     " zero until a = 2 and still 0.006348865 against an archimedean 2.249539781 at a = 3."
+     " ### **THE REACH IS PRICED**: beyond the arc's cells the sign CROSSES TO POSITIVE AT"
+     " a ~ 22 and stays positive at 24, 28, 32, 50, while zeta stays permitted everywhere",
+     "### A SCOPE STATEMENT IS NOT A CAPABILITY STATEMENT. ### The instrument does not see"
+     " THIS failure AT THE ARC'S CELLS; it is not shown unable to see a failure. ### **THE"
+     " CROSSING IS A PRICE, NOT A SEES-IT VERDICT**: the order's verdict needs the zero side"
+     " as corroboration and the corpus owns only the OFF-line Epstein zeros (its census began"
+     " at sigma = 0.52). ### **WHAT THE ZETA WINDOW WAS, AT EXACTLY ITS SCOPE**: a window"
+     " whose sign carried no arithmetic information at the widths it was taken at -- b321"
+     " said so before counting, and this act confirms that scope from the outside with an"
+     " object whose answer is known. ### NOTHING ABOUT ZETA, h2, OR THE ROSTER. ### NO GRADE"
+     " MOVED. ### NO ACT RE-VERDICTED. ### M-2 UNCHANGED",
+     "data/b325_the_negative_control.txt; data/b325_run.txt; tools/b325_epstein.py;"
+     " data/b325_registration_2026-09-04.txt (section (0) declares the deviation);"
+     " CORRESPONDENCE.md row 162"),
+    # ### THE NEGATIVE CONTROL -- THE CONTROL THAT FIRED (b325).
+    ("negative-control", "b325 (the positive control, and what it caught)",
+     "zeta run through the same channels is a control whose correct answer b321 proved: for"
+     " a lawful f the zeta places sum is -Z with Z a sum of squared moduli, NEVER POSITIVE."
+     " ### At a = 32 it came out +0.003489041. ### **THE CAUSE IS b321_window.PRIMES ="
+     " (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31)**, copied from the atlas's own prime loop and"
+     " sufficient where b321 used it (its widest cell has f supported below 9); at a = 32"
+     " the support reaches 1024. ### **WITH EVERY PRIME THE VALUE IS -0.000389214 AND THE"
+     " CONTROL PASSES AT EVERY WIDTH TESTED.** ### A second latent defect found and NOT"
+     " repaired in the owner: carto_atlas.kernel memoises without keying on its grid --"
+     " guarded in the caller, reported",
+     "### **b321 IS NOT RE-VERDICTED.** ### At the arc's own cells the eleven-prime and"
+     " every-prime channels agree to every printed digit (-0.315810512 at a = 3 from both)."
+     " The constant is scope-bound and the scope was never written down; this is the act"
+     " where it bit. ### **AND THIS ACT DECLARES THREE FAILINGS OF ITS OWN**: (A) the seat"
+     " RAN AHEAD of its own EXECUTION block -- the registration was sealed after the run,"
+     " declared as its section (0) with every bar marked [ORDER] or [SEAT, POST-HOC]; (B)"
+     " the satisfiability checker REFUSED to seal a mis-typed clause and was right; (C) the"
+     " noise-floor gate was first fed adjacent cells rather than a refinement pair, repaired"
+     " to the same cell at two resolutions, all three RESOLVED. ### NO GRADE MOVED. ### NO"
+     " OWNER INSTRUMENT EDITED. ### M-2 UNCHANGED",
+     "data/b325_the_negative_control.txt; data/b325_run.txt (fixtures (viii)-(ix));"
+     " data/b325_regspec_run.txt (the refusal); tools/b321_window.py line 51 (the constant);"
+     " CORRESPONDENCE.md row 163"),
+    # ### THE EPSTEIN CASE, READ AT CONTENT AND PRICED (b325).
+    ("epstein", "b325 (the read and the pricing)",
+     "the confinement keystone's Epstein case: the principal form x^2 + xy + 6y^2, disc -23,"
+     " h(-23) = 3, named in the corpus's own census header. ### The ledger the keystone calls"
+     " positive is the LI one (lambda_n) -- positivity of the coefficient sequence, not of"
+     " the zeros. ### The zeros come from the corpus's argument-principle census,"
+     " epstein_census.py, 2-D by construction: 450 cells over sigma in [0.52, 1.50],"
+     " t in [0.5, 33.0], **TWO ZEROS, BOTH OFF THE LINE** (sigma in [0.94, 1.08] at"
+     " t in [16.0, 16.5]; sigma in [0.66, 0.80] at t in [29.5, 30.0]). ### **THE PRICING,"
+     " TYPED**: the archimedean factor (sqrt23/2pi)^s Gamma(s) is NOT zeta's"
+     " pi^-s/2 Gamma(s/2) -- the corpus says so in its own METHOD header -- so the kernel"
+     " was BUILT from the quoted factor; the finite side is the coefficient sequence of"
+     " -Z_Q'/Z_Q, BUILT from r_Q by Dirichlet inversion (they differ by up to 15.74 below"
+     " n = 60); the lawful class TRANSFERS (poles at s = 0, 1; pole term -5.03e-17)",
+     "### THE FALSIFIER FITS INSIDE THE ACT; THE TWO NAMED CONTROLS DO NOT. ### The"
+     " explicit-formula control is BLOCKED on the on-line zero library, which the corpus"
+     " does not own (the census was hunting off-line zeros and started at sigma = 0.52);"
+     " Theorem 1's archimedean control does not cover Z_Q at all -- a hypothesis, not a"
+     " cost. ### **THE ON-LINE LIBRARY IS PRICED AT ONE ACT WITH THE TOOL ALREADY WRITTEN**:"
+     " re-run the census over sigma in [0.45, 0.52] and refine each winding cell. ### The"
+     " keystone's own finding -- *the functional equation illuminates the critical line; it"
+     " does not confine zeros to it* -- is the PREMISE of this test, not its subject, and"
+     " stands unchanged. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b325_the_negative_control.txt; data/b325_extract_notes.txt;"
+     " tools/e16/epstein_census.py (METHOD header); tools/e16/epstein_census_bank.jsonl;"
+     " PLACE-papers/day1/Which_Structure_Confines.md (the emitting keystone, internal copy);"
+     " CORRESPONDENCE.md row 162"),
     # ### THE WALL (b324).
     ("keystones-reread", "b324 (reads and definitional decisions; the wall)",
      "the residue keystone's object and the arc's constructed space, decided constituent by"

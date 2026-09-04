@@ -1,0 +1,25 @@
+====================================================================================================
+b325 -- THE FILING. ### ONE APPEND-ONLY CROSS-REFERENCE BLOCK, AT THE INTERNAL COPY.
+====================================================================================================
+  ### THE DEPOSIT REFUSAL, CHECKED FIRST:
+    day1/Which_Structure_Confines.md         under outputs/DEPOSITED-v1.1.2/ : False
+  ### ### **THE TARGET IS NOT A DEPOSITED FILE.** ### It is the INTERNAL copy under `day1/`;
+  ### the deposited twin is opened READ-ONLY, for its md5, and for nothing else.
+    deposited twin md5 BEFORE : 6b18d69bcf9e619d3b2fb22376ccc432  (verified value 6b18d69bcf9e619d3b2fb22376ccc432)  MATCH
+
+  ### ---- **day1/Which_Structure_Confines.md**
+    working file : 20126 bytes, 231 lines
+    blob at HEAD : 20126 bytes, 231 lines
+    lines appended : +14
+    the pre-append working file is a TRUE PREFIX : True
+    the blob at HEAD is a TRUE PREFIX (normalised): True
+    ### ### **APPEND-ONLY : True**
+
+  ### THE DEPOSIT, CHECKED AFTER THE WRITE:
+    git status over outputs/DEPOSITED-v1.1.2 : ''
+    deposited twin md5 AFTER  : 6b18d69bcf9e619d3b2fb22376ccc432  MATCH
+    ### ### **THE DEPOSIT IS BYTE-UNCHANGED : True**
+
+====================================================================================================
+  ### FILING CHECKS FAILING : 0 
+====================================================================================================

@@ -1,0 +1,153 @@
+====================================================================================================
+b325 -- THE NEGATIVE CONTROL.
+====================================================================================================
+  ### THE EPSTEIN INSTRUMENT FIXTURES : [True, True, True, True, True, True, True, np.True_, True, True]  PASS
+    (i)    r_Q reproduces the corpus tool to k = 40 : True ; r_Q(1..8) = [2, 0, 0, 2, 0, 4, 0, 4]
+    (ii)   the sum-of-two-squares form gives a DIFFERENT sequence : [4, 4, 0, 4, 8, 0, 0, 4]
+    (iii)  the exact identity b_n log n = SUM_d Lambda_Q(d) b_(n/d), worst over n <= 2000 : 4.263e-14 at n = 1296
+    (iii-b) the truncated series at s = 3 : direct 0.055085401865 ; via Lambda_Q 0.055085659594 ; rel 4.679e-06 -- a TAIL, not an error
+    (iv)   max |Lambda_Q - r_Q| over n < 60 : 15.742402 -- they are different sequences
+    (v)    max |kernel_Q - kernel_zeta| on |u| <= 4 : 3.138543 -- different functions
+    (vi)   the pole term on a lawful f : -5.031e-17 -- the arc's lawful class transfers
+    (vii)  at a = 1.75 : finite 0.000000000 ; arch 5.884039434 ; places -5.884039434 ; terms []
+    (viii) zeta control at a = 3 : every prime -0.315810512 ; b321 eleven-prime -0.315810512 ; agree True
+    (ix)   at a = 32 : every prime -0.000389214 (permitted) ; eleven primes 0.003489041 (FORBIDDEN, and b321 proved it cannot happen -- the list, not the object)
+
+  ### THE STATEMENTS, PULLED FROM THE EXTRACT FILE:
+    found the confinement keystone, subject B
+    found ### and the theorem it rests on
+    found ### and what the functional equation does not do
+    found the ledger called positive, at the residue keystone
+    found ### THE EPSTEIN ARCHIMEDEAN FACTOR, at the corpus emitting file
+    found ### the form, its discriminant, its class number
+    found ### and the census method
+    found ### the arc's kernel, zeta's, at its emitting file
+
+====================================================================================================
+### COMPONENT 1 -- THE READ.
+====================================================================================================
+  ### **THE OBJECT:** ### the Epstein zeta of the principal form `x^2 + xy + 6y^2`,
+  ### discriminant `-23`, class number `h(-23) = 3`. ### The corpus names it in its own
+  ### census header and this act uses that form and no other.
+  ### **THE LEDGER THE KEYSTONE CALLS POSITIVE:** ### the residue keystone's
+  ### *"positive ledger but RH false"* -- and the ledger is the LI one, `lambda_n`, the
+  ### register the balance keystone works in. ### **THE POSITIVITY IS OF THE COEFFICIENT
+  ### ### SEQUENCE, NOT OF THE ZEROS.**
+  ### **WHERE ITS ZEROS COME FROM AND WHICH LIE OFF THE LINE:** ### the corpus's own
+  ### argument-principle census, `epstein_census.py`, 2-D by construction --
+  ### *"A critical-line scan would IMPOSE the real part"*. ### It banks 450 cells over
+  ### `sigma in [0.52, 1.50]`, `t in [0.5, 33.0]`, and finds ### **TWO ZEROS, BOTH OFF THE
+  ### ### LINE**: `sigma in [0.94, 1.08]` at `t in [16.0, 16.5]`, and `sigma in [0.66,
+  ### 0.80]` at `t in [29.5, 30.0]`.
+  ### **WHAT THE KEYSTONE CONCLUDES:** ### *"Same pipeline. Same analytic machinery. One
+  ### ingredient removed. Outcome changed."* ### and *"The functional equation illuminates
+  ### the critical line; it does not confine zeros to it."*
+
+  ### ### **AND WHAT THE CORPUS HOLDS TOWARD RUNNING IT ON THE ARC'S INSTRUMENT.**
+  ###   ### **THE ARCHIMEDEAN TERM -- NOT THE SAME DISTRIBUTION, AND THE CORPUS SAYS SO
+  ###   ### IN ITS OWN VOICE.** ### `epstein_census.py`'s METHOD header:
+  ###   ### *"Lambda(s) = (sqrt(23)/2pi)^s Gamma(s) Z_Q(s)"*. ### Zeta's is
+  ###   `pi^{-s/2} Gamma(s/2) zeta(s)`. ### **`Gamma(s)` AGAINST `Gamma(s/2)`** -- so the
+  ###   arc's kernel `Re psi(1/4 + iu/2) - log pi` does NOT transfer, and the Epstein one
+  ###   `Re psi(1/2 + iu) - log(2 pi / sqrt 23)` follows from the quoted factor by the
+  ###   atlas's own construction. ### **A BUILD, AND A SMALL ONE.**
+  ###   ### **THE FINITE SIDE -- REPRESENTATION NUMBERS WHERE ZETA HAD PRIME POWERS, BUT
+  ###   ### NOT DIRECTLY.** ### `r_Q` is the Dirichlet coefficient sequence; the explicit
+  ###   formula's finite side is the coefficient sequence of `-Z_Q'/Z_Q`, which this act
+  ###   obtains from `r_Q` by Dirichlet inversion. ### **`Lambda_Q` IS NOT `r_Q`** -- they
+  ###   differ by up to `15.74` below `n = 60`. ### **A BUILD, AND A SMALL ONE.**
+  ###   ### **THE ZERO LIBRARY -- OWNED FOR THE OFF-LINE ZEROS AND NOT FOR THE ON-LINE
+  ###   ### ONES.** ### The census started at `sigma = 0.52`: it was hunting off-line zeros
+  ###   and found them. ### **AN EXPLICIT FORMULA NEEDS BOTH**, so the closure control
+  ###   cannot run. ### To own them: re-run the same census over `sigma in [0.45, 0.52]`
+  ###   and refine each winding cell to a zero. ### **A BUILD, AND THE TOOL EXISTS.**
+
+====================================================================================================
+### COMPONENT 2 -- THE PRICING.
+====================================================================================================
+    constituent                        type       acts     status
+    the form and r_Q                   read       0        OWNED -- reproduced from the corpus tool, value for value
+    the archimedean factor             read       0        OWNED -- quoted from the census header
+    the archimedean kernel             build      0        BUILT THIS ACT from the quoted factor
+    the finite side Lambda_Q           build      0        BUILT THIS ACT by Dirichlet inversion
+    the lawful class                   read       0        TRANSFERS -- the poles sit at s = 0, 1 as zeta's do
+    the off-line zero library          read       0        OWNED -- 2 zeros, as rectangles
+    the ON-LINE zero library           build      1        NOT OWNED -- census never scanned sigma < 0.52
+    the explicit-formula control       build      1        BLOCKED on the line above
+    Theorem 1's archimedean control    n/a        -        DOES NOT COVER Z_Q -- a hypothesis, not a cost
+
+  ### ### **THE PRICING VERDICT: ### THE FALSIFIER FITS INSIDE THIS ACT; THE TWO NAMED
+  ### ### CONTROLS DO NOT.**
+  ### The order's falsifier reads the sign of the places sum ### **WITHOUT ANY ZERO**, and
+  ### every constituent it needs is owned or built above. ### So the run happens.
+  ### **THE CONTROLS THE ZETA WINDOW CARRIED DO NOT TRANSFER**, one for cost and one by
+  ### nature, and the verdict is reported at exactly the reduced scope that leaves.
+
+  ### **THE RUN'S SHAPE, WRITTEN DOWN:** ### the places side `SUM_v W_v = PR_Q - A_Q` on
+  ### the arc's lawful seeds at the arc's thirteen cells; the sign read without any zero;
+  ### and ### **ZETA THROUGH THE SAME CHANNELS AS THE POSITIVE CONTROL**, whose correct
+  ### answer b321 already proved: never positive.
+  ### **THE FALSIFIER, FIXED BY THE ORDER:** ### the instrument SEES the failure if a
+  ### lawful `f` at some cell gives the places sum ### **A POSITIVE VALUE**, which is the
+  ### sign Proposition C.1 forbids.
+
+====================================================================================================
+### COMPONENT 3 -- THE RUN.
+====================================================================================================
+  ### (3a) AT THE ARC'S THIRTEEN CELLS. ### **THIS IS WHERE THE VERDICT IS TAKEN.**
+    a      a^2       EPSTEIN finite    EPSTEIN arch      EPSTEIN places    ZETA places       terms
+    1.3    1.6900    0.000000000       16.069614947      -16.069614947     -8.781152816      0
+    1.35   1.8225    0.000000000       13.502783472      -13.502783472     -7.130736563      0
+    1.41   1.9881    0.000000000       11.313759458      -11.313759458     -5.747984142      0
+    1.5    2.2500    0.000000000       9.089454852       -9.089454852      -4.372721018      0
+    1.7    2.8900    0.000000000       6.327607756       -6.327607756      -2.715106454      0
+    1.9    3.6100    0.000000000       4.869902629       -4.869902629      -1.912333391      0
+    1.99   3.9601    0.000000000       4.419134068       -4.419134068      -1.687055939      0
+    2      4.0000    0.000000000       4.374423322       -4.374423322      -1.664641787      0
+    2.01   4.0401    0.000000000       4.330663519       -4.330663519      -1.642639940      1
+    2.1    4.4100    0.000000004       3.975097186       -3.975097182      -1.460364510      1
+    2.4    5.7600    0.000534153       3.138606801       -3.138072648      -0.982995002      1
+    2.8    7.8400    0.004623769       2.476948776       -2.472325007      -0.499406883      2
+    3      9.0000    0.006348865       2.249539781       -2.243190916      -0.315810512      3
+    ### ### **THE POSITIVE CONTROL: ### ZETA IS NON-POSITIVE AT EVERY CELL : True**
+    ### ### **CELLS WHERE EPSTEIN TAKES THE FORBIDDEN SIGN : NONE**
+
+  ### ### ### **VERDICT AT THE ARC'S CELLS : DOES NOT SEE IT**
+  ### **AND THE REASON IS STRUCTURAL, NOT MARGINAL.** ### The form `x^2 + xy + 6y^2`
+  ### represents NOTHING between `1` and `4`: `r_Q(2) = r_Q(3) = 0`. ### So the finite
+  ### channel is ### **IDENTICALLY ZERO UNTIL `a = 2`** ### and still only `0.006348865` at
+  ### `a = 3`, against an archimedean channel of `2.249539781`. ### **THE ARITHMETIC HAS BARELY
+  ### ### ENTERED AT THE WIDTHS THE ARC SPANS.**
+
+  ### (3b) BEYOND THE ARC'S CELLS. ### **PRICED, NEVER VERDICTED -- (B2).**
+    a      a^2       EPSTEIN places    ZETA places       terms   
+    8      64        -0.837877724      -0.016429781      20      
+    12     144       -0.444496358      -0.001499663      42      
+    16     256       -0.196497527      -0.003447230      67      
+    20     400       -0.036790990      -0.005726865      100     
+    22     484       0.017211484       -0.004722619      117     
+    24     576       0.059303602       -0.003369334      137     
+    28     784       0.115928541       -0.001274956      181     
+    32     1024      0.144638146       -0.000389214      234     
+    50     2500      0.110217960       -0.000691648      513     
+    ### the positive control holds at every priced width too : True
+    ### ### **THE EPSTEIN SIGN CROSSES AT `a = 22.0`.**
+    ### ### **AND THIS IS NOT A VERDICT.** ### (B2) scopes the run to the arc's cells and
+    ### these are not among them. ### **IT IS A PRICE: ### IT SAYS WHAT REACH WOULD BE
+    ### ### NEEDED, AND THAT THE INSTRUMENT SEEING NOTHING AT THE ARC'S CELLS IS A MATTER
+    ### ### REACH RATHER THAN OF KIND.**
+    ### **NOR IS IT A `SEES IT`.** ### The order's `SEES IT` requires the zero side as
+    ### corroboration, and the on-line zero library is not owned. ### **A POSITIVE SIGN
+    ### ### WITHOUT ITS CORROBORATION IS A MEASUREMENT, NOT THE VERDICT.**
+
+  ### (3c) THE NOISE-FLOOR GATE, IN THE PATH.
+    epstein a=1.3      -16.069614947     -> -16.069614947     RESOLVED  
+    epstein a=2.1      -3.975097182      -> -3.975097182      RESOLVED  
+    epstein a=3        -2.243190916      -> -2.243190916      RESOLVED  
+    ### ### PASS -- all 3 value(s) are above the floor and stable
+
+====================================================================================================
+  ### CHECKS FAILING : 0 
+  ### ### **VERDICT : DOES NOT SEE IT (at the arc's cells)** ; sign crosses at a = 22.0 (priced)
+====================================================================================================
+EXIT=0
