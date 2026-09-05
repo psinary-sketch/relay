@@ -83,6 +83,13 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'faces-ledger': ['faces ledger', 'the faces ledger', 'the faces', 'the ledger of faces',
+                     'the register pentagon', 'the pentagon', 'the five faces', 'the cascades',
+                     'the owed bridges', 'the fixed-point silence', 'the sonin margin', 'the li margin'],
+    'li-weil-bridge': ['li-weil bridge', 'the li-weil bridge', 'the li-to-weil bridge', 'the bridge read',
+                       'the li coefficients as the weil functional', 'the archimedean channel',
+                       'the pole constant', 'one distribution on two families', 'the li test function',
+                       'the li family'],
     'the-reach': ['the reach', 'the crossing region', 'both windows extended',
                   'the closure for both', 'the halved kernel', 'the missing half',
                   'the withdrawn crossing', 'a test this family cannot fail',
@@ -476,6 +483,53 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FACES LEDGER (b327).
+    ("faces-ledger", "b327 (a ledger build, author-authorized 2026-09-04)",
+     "PLACE-papers/FACES_LEDGER.md: thirteen rows -- the pentagon's five faces as the deposit states"
+     " them, the finite-instance identity, the Sonin margin, the Li margin, the spectral-realization"
+     " wall, the fixed-point silence, the two-radius family, the Epstein negative control at b326's"
+     " result, and the live row (the Li-to-Weil bridge) -- each with its claim quoted from its"
+     " emitting file, graded PROVED / MEASURED / IMPORTED / NAMED-ONLY, its correspondence rows, and"
+     " its owed bridges; a cascade section with one of STATED / OWED / NONE for all 78 pairs",
+     "### A MAP OF THE PREMISE, NOT A CARRIER OF IT. ### THE LEDGER CERTIFIES NOTHING AND COMPILES"
+     " NO EQUIVALENCE -- the deposit's refusal is quoted in its head and governs it; every row's"
+     " grade is its owning act's and no row is promoted by its neighbours. ### Rows enter only through"
+     " tools/b327_faces_row.py (duplicates refused, notation guarded, every quotation verified against"
+     " its emitter before writing, read back after every write). ### The owed bridges by ID:"
+     " W-ORD-LI-WEIL-BRIDGE, W-ORD-DISCRIMINATING-FAMILY, W-ORD-LI-FAMILY-CONTROL. ### NO GRADE MOVED",
+     "PLACE-papers/FACES_LEDGER.md; FINDINGS.md anchor faces-ledger; data/b327_the_faces_ledger.txt;"
+     " data/b327_registration_2026-09-05.txt (sealed before any instrument ran); CORRESPONDENCE.md row 166"),
+    # ### THE LI-TO-WEIL BRIDGE READ (b327).
+    ("li-weil-bridge", "b327 (a read under the import bar; a derived map with its corroboration)",
+     "the source: Lagarias, Li coefficients for automorphic L-functions, arXiv:math/0404394v4, pinned by"
+     " hash (restating Bombieri-Lagarias 1999): lambda_n = S_inf(n) - S_f(n) + 1 -- the archimedean place,"
+     " the finite places, the pole at s = 0 -- on the Li test family G_n(s) = 1 - (1 - 1/s)^n. ### THE MAP,"
+     " derived as a sealed bar and corroborated at n <= 30 to 1.3e-251 by two routes: the deposit's"
+     " archimedean channel is lambda_A(n) = S_inf(n) + 1. ### QUESTION ONE (the channel against the"
+     " archimedean place): DIFFERENT, constituent quoted -- the constant 1, the log s term of the deposit's own split, the"
+     " source's pole at s = 0. ### QUESTION TWO (the Li margin and the Sonin margin as one functional):"
+     " DIFFERENT, constituent quoted -- the Li margin's second term is the finite places; the Sonin margin's is the"
+     " compressed square, not a zero channel",
+     "### ONE DISTRIBUTION ON TWO FAMILIES, NOT ONE FUNCTIONAL: 2 Re(Gamma_R'/Gamma_R), the atlas's"
+     " kernel, is what both channels evaluate. ### THE BRIDGE STAYS OWED (W-ORD-LI-WEIL-BRIDGE), typed"
+     " more sharply: a relation between the compressed square on the Sonin family and the finite-place"
+     " channel on the Li family, or its impossibility. ### The order's if-SAME branch did not fire; the"
+     " finite-range certificate says nothing about the Sonin margin on the Li family (no compact support,"
+     " outside Theorem 1's class). ### The fourth control priced, not run (W-ORD-LI-FAMILY-CONTROL)."
+     " ### NO THEOREM PROVED. ### NO GRADE MOVED. ### THE EQUIVALENCE THE DEPOSIT WITHHOLDS IS NOT STATED",
+     "data/b327_bridge_run.txt; data/b327_bridge.json; data/b327_source.txt (the pin); tools/b327_bridge.py;"
+     " FACES_LEDGER.md row L1; CORRESPONDENCE.md row 167"),
+    # ### THE TWO NOTES, FILED AS CONTACTS (b327).
+    ("faces-ledger", "b327 (two contacts in the emerging-programmes ledger; not seeds)",
+     "EMERGING_RESEARCH_PROGRAMMES.md, Contacts filed 2026-09-05: the Curie reading of the"
+     " eigenvalue-one boundary (the remainder's weight diverging at the boundary as a susceptibility;"
+     " one consequence: sensitivity of the remainder to test-function perturbation near the boundary,"
+     " checkable on the instrument, not checked); the cubit reading of the 256 rules (each a function on"
+     " (Z/2)^3; rule 110's one-set a five-point Fano subset containing two lines, counted by"
+     " tools/b327_notes.py; the question which Fano subsets define universal rules, not answered)",
+     "### CONTACTS, NOT SEEDS: no promotion criterion, no claim, no grade. ### Provenance: the navigator's"
+     " conversation layer, 2026-09-04, ratified by the b327 ferry. ### Filed nowhere research-facing",
+     "PLACE-papers/EMERGING_RESEARCH_PROGRAMMES.md (the b327 contacts block); data/b327_notes_run.txt"),
     # ### THE REACH -- THE VERDICT (b326).
     ("the-reach", "b326 (a computation on the explicit-formula instrument; the verdict)",
      "both windows extended with every prime and every representation number to a = 400,"

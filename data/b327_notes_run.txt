@@ -1,0 +1,14 @@
+====================================================================================================
+b327_notes.py -- RULE 110 ON THE FANO PLANE. ### A COUNT, NOT A CLAIM.
+====================================================================================================
+  Fano points (nonzero vectors of (Z/2)^3) : 7 ; Fano lines ({a, b, a+b}) : 7
+  fixture rule   0 : Fano points 0 (expect 0), lines inside 0 (expect 0)  PASS
+  fixture rule 255 : Fano points 7 (expect 7), lines inside 7 (expect 7)  PASS
+  fixture rule 150 : Fano points 4 (expect 4), lines inside 0 (expect 0)  PASS
+  rule 110 table    : 111->0 110->1 101->1 100->0 011->1 010->1 001->1 000->0
+  rule 110 one-set  : [(1, 1, 0), (1, 0, 1), (0, 1, 1), (0, 1, 0), (0, 0, 1)]  (5 neighbourhoods; 000 is not in it)
+  ### FANO POINTS IN THE ONE-SET : 5
+  ### FANO LINES INSIDE IT       : 2  [[(0, 0, 1), (0, 1, 0), (0, 1, 1)], [(0, 1, 1), (1, 0, 1), (1, 1, 0)]]
+  ### THE ORDER'S NUMBERS (five points, two lines) : AS STATED
+  ### (rule 110 is a function on (Z/2)^3 with 000 -> 0, so its one-set lies inside the Fano plane's point set.)
+====================================================================================================

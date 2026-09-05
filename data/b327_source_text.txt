@@ -1,0 +1,3033 @@
+=== PAGE 1 ===
+arXiv:math/0404394v4  [math.NT]  4 May 2005
+Li Coeﬃcients for Automorphic L-Functions
+Jeﬀrey C. Lagarias
+University of Michigan
+Ann Arbor, MI 48109-1043
+email: lagarias@umich.edu
+(April 11, 2005)
+Abstract
+Xian-Jin Li gave a criterion for the Riemann hypothesis in te rms of the positivity of the set
+of coeﬃcients λn =∑
+ρ 1 −
+(
+1 − 1
+ρ
+) n
+, (n = 1, 2,... ), in which ρ runs over the nontrivial zeros
+of the Riemann zeta function. We deﬁne similar coeﬃcients λn(π) associated to principal
+automorphic L-functions L(s,π ) over GL(N ). We relate these coﬃcients to values of Weil’s
+quadratic functional associated to the representation π on a suitable set of test functions. The
+positivity of the real parts of these coeﬃcients is a necessa ry and suﬃcient condition for the
+Riemann hypothesis for L(s,π ) to hold.
+We derive an unconditional asymptotic formula for the coeﬃc ients λn(π), in terms of the
+zeros of L(s,π ). Assuming the Riemann hypothesis for L(s,π ), we deduce that
+λn(π) = N
+2n logn +C1(π)n +O(√n logn), where C1(π) is a real-valued constant and the
+implied constant in the remainder term depends on π. We also show that there exists a
+entire function Fπ(z) of exponential type that interpolates the generalized Li c oeﬃcients at
+integer values. Assuming the Riemann hypothesis there is an (essentially) unique interpolation
+function having exponential type at most π, and this function restricted to the real axis has a
+(tempered) distributional Fourier transform whose suppor t is a countable set in [ −π,π ] having
+0 as its only limit point.
+1. Introduction
+In 1997 Xian-Jin Li [35] derived a necessary and suﬃcient con dition for the Riemann
+hypothesis in terms of the positivity of the set of coeﬃcient s
+λn :=
+∑
+ρ
+′
+[1 −
+(
+1 − 1
+ρ
+) n
+], (1.1)
+in which the sum runs over the nontrivial zeros of the Riemann zeta function, counted with
+multiplicity, and
+′
+indicates that the (conditionally convergent) sum is to be i nterpreted as
+limT →∞
+∑
+{ρ: |ρ|≤T }; we term this ∗-convergence, The expression (1.1) ∗-converges for positive
+and negative integer n, and so deﬁnes these coeﬃcients for all integers. One has λ0 = 0 and
+λ−n =λn, for all n ≥ 1. (1.2)
+Li’s original deﬁnition
+˜λn := 1
+(n − 1)!
+dn
+dsn [sn−1 logξ(s)]|s=1 n ≥ 1, (1.3)
+=== PAGE 2 ===
+functorially corresponds to ˜λn = λ−n for n > 0, and the identity ˜λn = λn then holds using
+(1.2). Li’s paper gave more generally a criterion for the Rie mann hypothesis to hold for the
+(completed) Dedekind zeta functions of any algebraic numbe r ﬁeld K.
+These coeﬃcients are expressible in terms of power-series c oeﬃcients of functions con-
+structed from the Riemann ξ-function, ξ(s) = 1
+2s(s − 1)π−s/2Γ( s
+2 )ζ(s). The coeﬃcients for
+n ≥ 1 occur in
+d
+dz logξ( −z
+1 −z ) = −1
+(1 −z)2
+ξ′
+ξ ( −z
+1 −z ) =
+∞∑
+n=0
+λn+1zn, (1.4)
+and those for n ≤ −1 in occur in an analogous formula
+d
+dz logξ( 1
+1 −z ) = 1
+(1 −z)2
+ξ′
+ξ ( 1
+1 −z ) =
+∞∑
+n=0
+λ−n−1zn. (1.5)
+Here ξ′(·) denotes the derivative with respect to s. Our deﬁnition (1.1) of the Li coeﬃcients
+corresponds to an expansion around the point s = 0, visible in (1.4), rather than around s = 1
+as in (1.3) and (1.5).
+Closely related coeﬃcients appear in earlier work of J. B. Ke iper [34, Sect. 4] in 1992, in an
+investigation of methods to compute Stieltjes constants to high precision; we describe Keiper’s
+computations futher below. Keiper’s coeﬃcients equal 1
+nλ−n, in terms of (1.1). Keiper noted
+that the Riemann hypothesis implies the nonnegativity of th e λ−n, but not the converse. We
+adopt the term Li coeﬃcients because Li’s work shows the nonnegativity of λn is equivalent
+to the Riemann hypothesis and because he generalized them to various other zeta functions.
+In [4] E. Bombieri and the author made three observations abo ut these coeﬃcients. The
+ﬁrst observation was that a Li criterion can be formulated fo r very general sets of complex
+numbersρ, as follows. Consider any multiset Z of complex numbers ρ satisfying
+∑
+ρ∈Z
+ℜ(ρ)
+(1 + |ρ|)2 < ∞. (1.6)
+If the multiset Z omits the value ρ = 1 then the sums
+ℜ(λn(Z)) :=
+∑
+ρ∈Z
+ℜ
+(
+1 − (1 − 1
+ρ )n
+)
+(1.7)
+converge absolutely for all nonpositive integers n ≤ 0. The positivity condition ℜ(λn(Z)) ≥ 0
+for n ≤ 0 then implies that all ρ lie in the half-plane ℜ(s) ≤ 1
+2. If the multiset Z omits
+the value ρ = 0, then the sum (1.7) then converges absolutely for n ≥ 0, and the positivity
+condition ℜ(λn(Z)) ≥ 0 for n ≥ 0 implies that all ρ lie in the half-plane ℜ(s) ≥ 1
+2. Combining
+these criteria, for multisets Z that omit both 0 and 1 the positivity condition ℜ(λn(Z)) ≥ 0
+for all integers n implies that all ℜ(ρ) = 1
+2 . If the multiset Z is also invariant under the
+symmetry ρ ↦→1 − ¯ρ, so that ℜ(λn(Z)) = ℜ(λ−n(Z)), it suﬃces to check this positivity
+condition ℜ(λn(Z)) ≥ 0 for n> 0 to conclude that all ℜ(ρ) = 1
+2 . Finally, if Z omits the values
+0 and 1 and the sum ∑
+ρ∈Z
+1
+ρ is ∗-convergent, then the coeﬃcients λn(Z) are well-deﬁned for
+all integers n by the following ∗-convergent sum:
+λn(Z) :=
+∑
+ρ∈Z
+′
+(
+1 − (1 − 1
+ρ )n
+)
+. (1.8)
+2
+=== PAGE 3 ===
+The second observation in [4, Theorem 2] was that the the “exp licit formula” of prime number
+theory may be used to obtain an arithmetic expression for Li’ s coeﬃcients λn in (1.1) having
+the form
+λn =S∞(n) −Sf (n) + 1,
+in which S∞(n) and Sf (n) correspond to the contributions of the archimedean place a nd the
+ﬁnite places, respectively, and the last term is a contribut ion from the pole at s = 0 of ξ(s)
+s(s−1) .
+The third observation was that each positivity condition λn ≥ 0 encodes “Weil positivity” of
+Weil’s quadratic functional for a particular test function gn(x).
+In more recent work K. Maslanka [40] computed λn for 1 ≤n ≤ 3300 and empirically stud-
+ied the growth behavior of the Li coeﬃcients. He observed tha t in this range they exhibited
+a smoothly growing dominant asymptotic term with superpose d small oscillations exhibiting
+some internal structure. The dominant term comes from the ar chimedean prime contribu-
+tion S∞(n) in the arithmetic formula above, and the small oscillation s come from the term
+Sf (n) represented the ﬁnite places, and |Sf (n)| < 20 over this range. Coﬀey [8],[9] studied
+the “arithmetic formula” for the Li coeﬃcients and lower bou nded the archimedean prime
+contribution.
+The object of this paper is to generalize the Li coeﬃcients to automorphic L-functions,
+and to determine their asymptotic behavior as n → ∞ , with or without the assumption of
+the Riemann hypothesis. The automorphic L-functions we treat are principal L-functions
+over GL(N ) for Q, as given in [10], [29], [31], and [42]. These are (completed ) Langlands
+L-functions attached to irreducible cuspidal unitary autom orphic representations appearing
+in the right action of GL(n, AQ) on L2(GL(n, Q)\GL (n, AQ)). The associated generalized Li
+coeﬃcients will be denoted λn(π).
+In §2 we associate to each irreducible cuspidal unitary automor phic representation π an
+analogue ξ(s,π ) of the Riemann ξ-function. Our deﬁnition of generalized Li coeﬃcients λn(π)
+sets them equal to λn(Z) for the multiset Z =Z(π) of zeros of ξ(s,π ), and we show that these
+coeﬃcients λn(π) are well-deﬁned as ∗-convergent series. The multiset Z(π) is invariant under
+the transformation ρ ↦→1 − ¯ρ, which implies the symmetry
+λ−n(π) = λn(π). (1.9)
+It therefore suﬃces to study λn(π) for n ≥ 0. Furthermore the zero sets of the L-functions of a
+representationπ and its contragredient representation π∨ are related by complex conjugation
+Z(π∨) = Z(π), which implies a second symmetry
+λn(π∨) = λn(π). (1.10)
+The results of [4] apply to give a Riemann hypothesis criteri on for L(s,π ) in the form: The
+Riemann hypothesis holds for L(s,π ) if and only if the real parts ℜ(λn(π)) are nonnegative
+for all n ≥ 0.
+In §3 we give a “Weil positivity” interpretation of the generali zed Li coeﬃcients. We express
+the Weil scalar product associated to the representation π for Li’s test functions in terms of
+λn(π). Here the imaginary parts of the λn(π) appear in the scalar products. The test functions
+are the same for all representations π.
+In §4 we give an arithmetical interpretation of the coeﬃcients i n terms of the logarithmic
+derivative of ξ(s,π ) expanded about at the point s = 1. We express it as
+λn(π) = S∞(n,π ∨) −Sf (n,π ∨) +δ(π∨), (1.11)
+3
+=== PAGE 4 ===
+in which the two terms S∞(n,π ∨) and Sf (n,π ∨) reﬂect contributions coming from the Eu-
+ler product factorization of ξ(s,π ∨) into archimedean places and ﬁnite places, respectively.
+The ﬁnal term δ(π) = δ(π∨) = 1 for the trivial representation π = πtriv over GL(1) and
+δ(π) = 0 otherwise. The contragredient representation appears in (1.11) via the functional
+equation relating ξ(s,π ) and ξ(1 −s,π ∨), because our deﬁnition (1.1) of the Li coeﬃcients
+really corresponds to values at s = 0.
+In §5 we obtain an unconditional asymptotic formula for the arch imedean contribution
+S∞(n,π ). This quantity is real-valued, and we show there is a real-v alued constant C1(π) such
+that for all n ≥ 1,
+S∞(n,π ) = N
+2n logn +C1(π) n +O (1), (1.12)
+and the implied constant in the O(1) term depends on π. Here
+C1(π) = N
+2 (γ − 1 − log(2π)) + 1
+2 logQ(π), (1.13)
+in which γ is Euler’s constant and Q(π) is the conductor of π. In particular C1(π) does not
+depend on the archimedean parameters {κj(π) : 1 ≤ j ≤ N } of the representation π, and
+C1(π) = C1(π∨).
+In §6 we obtain an unconditional estimate for the ﬁnite place con tribution Sf (n,π ) in
+terms of the zeros to a suitable height, by a contour integral estimate. Deﬁne the incomplete
+Li coeﬃcient at height T by
+λn(T,π ) =
+∑
+ρ ∈Z(π )
+|ℑ(ρ )|<T
+1 −
+(
+1 − 1
+ρ
+) n
+, (1.14)
+We show that
+Sf (n,π ) = λn(√n,π ∨) +O
+( √n logn
+)
+, (1.15)
+where π∨ is the contragredient representation, and the implied cons tant in the O-notation
+depends on π. If the Riemann hypothesis holds for L(s,π ), then it holds for L(s,π ∨) by the
+functional equation, and we obtain
+λn(√n,π ∨) = O
+( √n logn
+)
+,
+so that
+Sf (n,π ) = O
+( √n logn
+)
+. (1.16)
+Furthermore if the Riemann hypothesis holds up to height T , then a bound of shape (1.16)
+holds for all n ≤ T 2
+4(log T )2 , with the implied O-constant depending on π.
+These results are summarized in the following theorem.
+Theorem 1.1. Letπ be an irreducible cuspidal unitary automorphic representation for GL(N )
+over Q. For n ≥ 1 there holds
+λn(π) = N
+2n logn +C1(π)n −λn(√n,π ) +O(√n logn), (1.17)
+in which C1(π) is real-valued and the implied constant in the O-notation depends on π. If
+the Riemann hypothesis holds for L(s,π ) then the incomplete Li coeﬃcient λn(√n,π ) =
+O(√n logn), so that for n ≥ 1,
+λn(π) = N
+2n logn +C1(π)n +O(√n logn), (1.18)
+where the implied constant in the O-notation depends on π.
+4
+=== PAGE 5 ===
+Theorem 1.1 follows on combining Lemma 4.2, Theorem 5.1 and T heorem 6.1, together
+with the relation C1(π) = C1(π∨). If the Riemann hypothesis does not hold for L(s,π ) then
+the incomplete Li coeﬃcient term λn(√n,π ) will sometimes be very large, of size exponential
+in n. This fact was already observed for the Riemann zeta functio n in [4, Theorem 1(c)].
+In §7 we construct for each π an entire functionFπ(z) of order one and exponential type that
+interpolates the Li coeﬃcients at integer values, i.e. Fπ(n) = λn(π) for all n ∈ Z. Assuming the
+Riemann hypothesis for L(s,π ), this function Fπ(z) can be chosen to have exponential type at
+mostπ. It is then (almost) uniquely characterized by the interpol ation property; the remaining
+ambiguity concerns zeros at the central critical value s = 1
+2 , which require special treatment,
+see Theorem 7.1. The polynomial growth of the Li coeﬃcients u nder the RH allows one to
+deduce that the function Fπ(z) has a Fourier transform which is well-deﬁned as a tempered
+distribution, whose support is a countable closed set in [ −π,π ] having 0 as its only limit point.
+This interpolation function Fπ(z) appears to be a new object associated to the zeta zeros. We
+do not know any relation of it to various other functions cons tructed from the zeta zeros such
+as Cramer’sV -function ([11], [24], [19], [33], [28]) or functions studi ed by Voros [43], [44].
+The results of this paper explain some of the empirical obser vations of K. Maslanka [40].
+The asymptotic formula (1.16) applied to πtriv, explains the observed behavior of the small
+Li coeﬃcients. Since the non-trivial zeros of ζ(s) are known to lie on the critical line up to
+heightT ≈ 109 we may expect the ﬁrst 10 16 Li coeﬃcients will also exhibit similar asymptotic
+behavior, i.e. the term |Sf (n)| will remain small over this range. Maslanka’s computations of
+Sf (n) allow the possibility the term |Sf (n)| is of smaller order of growth than O(√n logn); if
+so, this remains to be explained. The approximate formula (1 .17) gives no information on the
+precise spectral nature of the “small oscillations” in Sf (n). Perhaps further information can
+be extracted from the Fourier transform of the interpolatin g function deﬁned in §7.
+Earlier computations of J. B. Keiper [34] also apply to the Li coeﬃcients, as noted by K.
+Maslanka. In our notation Figure 1 of his paper plots the func tion
+¯λn :=λ−n −
+( 1
+2n logn + 1
+2 (γ − 1 − log(2π))n
+)
+.
+over the range 1 ≤ n ≤ 7000. In view of Lemma 4.2 and Theorem 5.1 below (for πtriv), the
+functions ¯λn and Sf (n) diﬀer by a bounded quantity; in fact the actual diﬀerence appe ars to
+be very small. One may therefore interpret Keiper’s Figure 1 as essentially picturing Sf (n)
+over this range; it indicates that |Sf (n)|< 20 holds for 1 ≤n ≤ 7000.
+Other related work on Li coeﬃcients includes that of F. Brown [5], who determined zero-
+free regions for Dirichlet and Artin L-functions expressed in terms of the sizes of generalized Li
+coeﬃcients. P. Freitas [20] relates zero-free regions to th e positivity of a diﬀerent generalization
+of Li coeﬃcients. While this paper was being completed, an as ymptotic formula for the Li
+coeﬃcients λn was announced by A. Voros [45], under the Riemann hypothesis . Comparison
+of his formula with that obtained here in (5.30) led to a simpl iﬁcation of the expression for
+C1(π) in Theorem 5.1.
+Acknowlegments. The author thanks the referee for many helpful comments and s impli-
+ﬁcations of some details in §5. He thanks K. Maslanka for communicating various numerica l
+constants and graphs of Li coeﬃcients, and for pointing out t he work of J. Keiper. He thanks
+E. Bombieri, Xian-Jin Li and A. M. Odlyzko for helpful commen ts, and M. Coﬀey for commu-
+nicating preliminary versions of his work. Much of this work was done while the author was
+at AT&T Labs-Research, whom he thanks for support.
+5
+=== PAGE 6 ===
+2. Li Coeﬃcients for Automorphic L-functions
+We recall basic facts about principal L-functions L(s,π ) attached to irreducible cuspidal
+unitary automorphic representations of GL(N ), as in Jacquet [31] and Rudnick and Sarnak[42,
+Sect. 2], see also Cogdell [10] and Gelbart and Miller [22, Se ct. 7.2]. These L-functions are
+associated to GL(n, Q)\GL(n, AQ), and they are more precisely denoted L(s,π,ρ ) in which the
+Langlands L-group LG =GL(N, C) and ρ : LG →GL(N, C) is the standard representation.
+For the trivial representation πtriv ofGL(1) we have the completed automorphic L-function
+Λ(s,π triv ) = π− s
+2 Γ( s
+2 )ζ(s). This function has simple poles at s = 0 and s = 1. Aside from this
+representation, all other Λ( s,π ) are entire functions.
+Each completed automorphic L-function Λ(s,π ) has an Euler product factorization
+Λ(s,π ) := Q(π)
+s
+2L∞(s,π )L(s,π ). (2.1)
+HereQ(π) is a positive integer called the conductor of the representationπ, and the archimedean
+factor is
+L∞(s,π ) =
+N∏
+j=1
+Γ R(s +κj(π)), (2.2)
+in which κj(π) are certain constants and
+Γ R(s) := π− s
+2 Γ(s
+2 ). (2.3)
+The (ﬁnite) L-function L(s,π ) is given by an Euler product over the ﬁnite places
+L(s,π ) =
+∏
+p
+N∏
+j=1
+(
+1 −αp,j(π)p−s) −1.
+=
+∞∑
+n=1
+an(π)n−s.
+This Euler product and its associated Dirichlet series conv erges absolutely in a half-plane
+speciﬁed below. The functions Λ( s,π ) satisfy a functional equation
+Λ(s,π ) = ǫ(π)Λ(1 −s,π ∨), (2.4)
+in which ǫ(π) is a constant of absolute value one, and π∨ denotes the contragredient represen-
+tation. The contragredient representation has L-function
+L(s,π ∨) =
+∞∑
+n=1
+an(π)n−s (2.5)
+and archimedean factor
+L∞(s,π ∨) = L∞(s,π ), (2.6)
+and has conductor Q(π∨) = Q(π). The functional equation implies that ǫ(π∨) = ǫ(π). The
+functions Λ( s,π ) are bounded in vertical strips, with exponential decay as |ℑ(s)| → ∞ , with
+−B <ℜ(s)<B for any ﬁxed B.
+6
+=== PAGE 7 ===
+We deﬁne the ξ-function ξ(s,π ) associated to π by
+ξ(s,π ) := s−e(0,π)(s − 1)−e(1,π)
+
+ 1
+√
+(−1)e( 1
+2 ,π)ǫ(π)
+Λ(s,π )
+
+ , (2.7)
+wheree(s0,π ) denotes the order of a zero or pole of Λ( s,π ) at s =s0, with poles being assigned
+negative orders. We have e(0,π ) = e(1,π ) by the functional equation, and this deﬁnition
+ensures that ξ(s,π ) is holomorphic and nonzero at s = 0 and 1. In this deﬁnition the square
+roots must be chosen consistently so that
+√
+(−1)e( 1
+2 ,π)ǫ(π) ·
+√
+(−1)e( 1
+2 ,π)ǫ(π∨) = 1.
+There remains a choice of sign, which can be removed by the req uirement that ξ( 1
+2 +it,π )> 0
+hold for small positive t, as justiﬁed in the result below. For the trivial representa tionπtriv on
+GL(1) we have e(0,π triv ) = e(1,π triv ) = −1, and ξ(s,π triv ) = 2ξ(s). This convention is forced
+if we wish to have entire functions in all cases, for we must re move the poles at s = 0 and
+s = 1 for the case πtriv.
+The following theorem collects together analytic facts abo ut automorphic L- functions.
+Theorem 2.1. Letπ be a irreducible cuspidal unitary automorphic representat ion of GL(n)
+over Q.
+(1) The ordinary Dirichlet series L(s,π ) = ∑ ∞
+n=1an(π)n−s converges absolutely in the
+half-plane ℜ(s)> 1. We have for all n ≥ 1 that
+|an(π)| ≤ C(π)d(n)n
+N
+2, (2.8)
+for some C(π)> 0 depending on π, and d(n) is the number of divisors of n.
+(2) The archimedean factors Γ R(s +κj(π)) in the Euler product Λ(s,π ) satisfy
+ℜ(κj(π))> − 1
+2. (2.9)
+The quantities {κj(π) : 1 ≤j ≤N } are permuted under complex conjugation, so that
+L∞(s,π ) = L∞(¯s,π ). (2.10)
+(3) The zeros of Λ(s,π ) all lie in the open critical strip 0< ℜ(s)< 1. In particular Λ(s,π )
+is non-vanishing on the lines ℜ(s) = 0 and ℜ(s) = 1 .
+(4) The counting function N +
+π (T ) (resp. N −
+π (T )) for zeros of Λ(s,π ) with 0 ≤ ℑ (ρπ)<T
+(resp. −T ≤ ℑ(ρπ) ≤ 0) each satisfy
+N ±
+π (T ) = N
+2πT logT + 1
+2C0(π)T +O(logT ) (2.11)
+as T → ∞. Here
+C0(π) = 1
+π logQ(π) −N
+π (1 + log(2π)), (2.12)
+in which Q(π) is the conductor of π, and the O-constant depends on π.
+(5) ξ(s,π ) satisﬁes the functional equation
+ξ(s,π ) = ( −1)kξ(1 −s,π ∨), (2.13)
+where k = e( 1
+2,π ) = e( 1
+2,π ∨) is the order of the zero of ξ(s,π ) at s = 1
+2 . It is real-valued on
+the critical line ℜ(s) = 1
+2, so the multiset Z(π) is invariant under the map ρ ↦→1 − ¯ρ.
+(6) The function ξ(s,π ) is an entire function of order one and maximal type. It is bound ed
+in vertical strips −B <ℜ(s)<B for any ﬁnite B, and has rapid decrease there as |ℑ(s)| → ∞ .
+7
+=== PAGE 8 ===
+Proof. (1) Those irreducible cuspidal automorphic representatio ns π that arise as subrepre-
+sentations of the right regular representation on L2(GL(n, Q)\GL(n, AQ),dµ Haar ) are necessar-
+ily unitary. We use the bound of Jacquet and Shalika [32, Theo rem 5.3], that Rankin-Selberg
+convolutions L(s,π 1 ×π2) of unitary irreducible cuspidal automorphic representat ions π1,π 2
+have Dirichlet series that converge in ℜ(s) > 1. We take π1 = π and π2 to be the trivial
+representation. (See also [29, Sect. 5.11, 5.12].)
+Jacquet and Shalika [32, Corollary 2.5] also derive the boun d that all unramiﬁed primes in
+the Euler product have |αj,p|< √p. All but ﬁnitely many primes are unramiﬁed, and therefore
+multiplying out the Euler product yields the bound (2.8). Be tter bounds are known for |αj,p|
+which give larger regions of absolute convergence. Rudnick and Sarnak [42, Prop. 5.1] show
+for irreducible cuspidal automorphic repesentations π of GL(N ) unramiﬁed at p satisfy
+|αj,p(π)| ≤ p
+1
+2 − 1
+N2+1.
+The generalized Ramanujan conjecture formulated in [30] asserts that each |αj,p| = 1 at un-
+ramiﬁed places p. It is known to be true for principal L-functions over GL(1) (Dirichlet
+L-functions).
+(2) The inequality ℜ(s)> − 1
+2 is established in Rudnick and Sarnak [42, eqn. (2.5) and Sect .
+5.3]. There exist ramiﬁed archimedean representations ove r GL(2) for which some ℜ(κj(π) is
+arbitrarily large. However Luo, Rudnick and Sarnak [39] sho w that unramiﬁed archimedean
+representations 1 satisfy the stronger bound
+|ℜ(κj(π))| ≤ 1
+2 − 1
+N 2 + 1.
+The Ramanujan conjecture at the archimedean places asserts for an unramiﬁed representation
+that all ℜ(κj(π)) = 0. Its truth would imply that the bound (2.9) could be impr oved to
+ℜ(κj(π)) ≥ 0 in the general case.
+The symmetry under complex conjugation of the κj(π) holds because the local factors in
+the Euler product are equivalent to those of the contragredi ent (see [21, Theorem 2] and [42,
+Sect. 2.2]), which gives (2.10).
+(3) Iwaniec and Kowalski [29, Theorem 5.42] show non-vanish ing of cuspidal automorphic
+L-functions for GL(N ) on the line ℜ(s) = 1, and also obtain a zero-free region inside the
+critical strip. The nonvanishing on ℜ(s) = 0 comes from the functional equation (2.4) for
+Λ(s,π ).
+(4) The asymptotic formula for Nπ(T ) is essentially determined by the archimedean factors
+in the Euler product for Λ( s,π ). The counting result the zero density from −T to T appears
+as [29, Theorem 5.8], in which Q =Q(π) is the conductor of π (see [29, Sec. 5.1]). The error
+term given is O (log q(π,iT )), with an absolute constant, which involves the analytic conductor
+q(π,s ) := Q(π)
+N∏
+j=1
+(|s +κj(π)| + 3). (2.14)
+Since we regard π as ﬁxed, this yields O(logT ), with the O-constant depending on π. To get
+the bound (4) on the upper and lower critical strip separatel y, the contour integral proof in
+1A representation is unramiﬁed if it is identically one on the maximal compact subgroup of al l the archimedean
+components of GL(N ). Note that a Dirichlet character χ for GL(1) with χ (−1) = −1 corresponds to an
+automorphic representation for GL(1) that is ramiﬁed at the archimedean place, and has κ 1(χ ) = 1.
+8
+=== PAGE 9 ===
+[29] must be modiﬁed to split into two contours with a cut alon g the real axis, which goes oﬀ
+it in small circles to avoid poles at the trivial zeros. (We om it the details.)
+(5) The deﬁnition of ξ(s) ensures that the functional equation (2.8) holds up to a sig n,
+which depends on the multiplicity (mod 2) of a zero of Λ( s,π ) at s = 1
+2 . Now the functions
+Λ(s,π ) have the symmetry
+Λ(s,π ) = Λ(¯s,π ∨). (2.15)
+which follows from (2.10) and (2.5). In consequence (2.7) gi ves
+ξ(s,π ) = ( −1)e( 1
+2 ,π)ξ(¯s,π ∨).
+We deduce that
+ξ( 1
+2 +it,π ) = ( −1)e( 1
+2 ,π)ξ( 1
+2 −it,π ∨) = ξ( 1
+2 +it,π ).
+Thus ξ(s,π ) is real on the critical line. The invariance of the multiset Z(π) under ρ ↦→1 − ¯ρ
+now follows from the reﬂection principle.
+(6) Godement and Jacquet [23, Theorem 13.8] showed for cuspi dal automorphic represen-
+tationsπ that Λ(s,π ) is meromorphic and bounded in vertical strips, with ﬁnitel y many poles,
+and that the ordinary Dirichlet series L(s,π ) has a nonempty half-plane of absolute conver-
+gence, (See also Jacquet [31, Theorem 6.2]). The assumption thatπ is irreducible and cuspical
+gives that they are entire functions, aside from the trivial representation πtriv|| · ||s of GL(1),
+whose singularities are simple poles at s = 0, 1. It follows that ξ(s,π ) is an entire function in
+all cases.
+We assert that in the vertical strip −B ≤ ℑ(s) ≤B the function ξ(s,π ) satisﬁes
+|ξ(s,π )| ≤ C(π,B )e−N π
+2 |ℑ(s)|
+as |ℑ(s)| → ∞ . To see this, observe that the exponential decay on vertical lines holds for ℜ(s) ≥
+1+ǫ, coming from exponential decay of the archimedean factor an d the bound |L(s,π )| =O(1).
+It then holds for ℜ(s) ≤ −ǫ by the functional equation, and then in between by the Phragm ´ en-
+Lindel¨ of principle.
+In the half-plane ℜ(s) ≥ 1 +ǫ we have |Λ(s,π )| =O(1) because its Dirichlet series repre-
+sentation converges absolutely. It follows that on this hal f-plane |Λ(s,π )| =O(eN |s|(log |s|+1)),
+with the growth rate coming from the archimedean factors, wh ich can be bounded by Stir-
+ling’s formula. The functional equation now shows that the s ame bound holds on the half plane
+ℜ(s) ≤ −ǫ. Since |Λ(s,π )| is known to be bounded on the vertical strip −ǫ ≤ ℜ(s) ≤ 1 +ǫ, it
+follows that |Λ(s)| =O(eN |s|(log(|s|+2)) for all s. Thus Λ( s) is an entire function of order one.
+It is of maximal type because its growth-rate is faster than eR|s| for any ﬁnite R along the
+positive real axis, coming from the archimedean factors. Th e function |ξ(s,π )| inherits these
+properties, since it diﬀers by at most a polynomial factor fro m Λ(s,π ).
+We let Z(π) denote the multi-set of zeros of ξ(s,π ) (counted with multiplicity) which is
+the same as that of Λ( s,π ) except possibly at s = 0 and s = 1.
+Lemma 2.1. For any principal L-function L(s,π ) for GL(N ) the power sums
+σn(π) :=
+∑
+ρ∈Z(π)
+′ 1
+ρn, n ≥ 1, (2.16)
+are absolutely convergent for n ≥ 2, and are ∗-convergent for n = 1 . The real parts of these
+sums are absolutely convergent for all n ≥ 1.
+9
+=== PAGE 10 ===
+Proof. The absolute convergence for n ≥ 2 follows easily from the zero-counting bound
+(2.11).
+The ∗-convergence for σ1(π) follows from the asymptotics (2.11) for the zeros. Here the
+zeros below and above the real axis are paired in increasing o rder of their imaginary parts (in
+absolute values) and using the asymptotic formulas in Theor em 2.1(4) we get ∗-convergence
+by partial summation. It is important that the remainder ter m in (2.11) be O(T 1−δ) for some
+δ >0. (In general the zeros are not symmetric about the real axis. T he symmetry ρ ↦→1 − ¯ρ
+is of no help in proving ∗-convergence.) Finally, for any zero ρ =β +iγ we have
+ℜ
+( 1
+ρ
+)
+= β
+β2 +γ2 =O
+( 1
+γ2
+)
+,
+which gives absolute convergence for n = 1 of the real parts of the terms in the sum (2.16).
+Lemma 2.2. For all irreducible cuspidal unitary automorphic represen tations on GL(N ) the
+sums
+λn(π) :=
+∑
+ρ∈Z(π)
+1 −
+(
+1 − 1
+ρ
+) n
+(2.17)
+are ∗-convergent for all n ∈ Z. They are given by
+λn(π) =
+n∑
+j=1
+(−1)j−1
+( n
+j
+)
+σj(π), (2.18)
+with λ0(π) = 0 . They satisfy
+λ−n(π) = λn(π) = λn(π∨). (2.19)
+Proof. We have
+∑
+|ρ|<T
+1 −
+(
+1 − 1
+ρ
+) n
+=
+∑
+|ρ|<T
+n
+ρ +
+n∑
+j=2
+(−1)j−1
+( n
+j
+) 
+∑
+|ρ|<T
+1
+ρj
+
+.
+On letting T → ∞ , Lemma 2.1 shows that the ﬁrst sum on the right ∗-converges and the
+second sum on the right converges absolutely. This gives (2. 18).
+The symmetry λ−n(π) =
+λn(π) is inherited from the symmetry that if ρ =β +iγ is a zero
+of ξ(s), then so is 1 − ¯ρ = 1 −β +iγ, with the same multiplicity. This holds by the reﬂection
+principle since ξ(s) is real on the critical line. That is, the multiset of zeros i s invariant under
+the map ρ ↦→1 − ¯ρ. Now we have
+1 − (1 − 1
+ρ )−n = 1 − (ρ − 1
+ρ )−n = 1 − ( −ρ
+1 −ρ )n = 1 −
+(
+1 − 1
+1 − ¯ρ
+) n
+.
+and this gives λ−n(π) = λn(π).
+For the contragredient representation, we have the symmetr y Λ(s,π ) = Λ(s,π ∨). in (2.15).
+This shows that the zero sets of the two completed L-functions are complex conjugate, i.e.
+Z(π∨) = Z(π). This then yields the other relation λn(π∨) = λn(π).
+We can now state a general version of Li’s criterion.
+10
+=== PAGE 11 ===
+Theorem 2.2. Letπ be an irreducible cuspidal unitary automorphic representa tion of GL(n).
+The following conditions are each equivalent to the Riemann h ypothesis for ξ(s,π ).
+(1) For all n ≥ 1,
+ℜ (λn(π)) ≥ 0. (2.20)
+(2) For each ǫ> 0, there is a positive constant C(ǫ) such that
+ℜ (λn(π)) ≥ −C(ǫ)eǫn for all n ≥ 1. (2.21)
+(3) The generalized Li coeﬃcients λn(π) satisfy
+lim
+n→∞
+|λn(π)|
+1
+n ≤ 1. (2.22)
+Proof. Theorem 2.1 gives that the multiset Z(π) omits the values 0 and 1 and is invariant
+under the symmetry ρ ↦→1 − ¯ρ. The equivalence of conditions (1) and (2) to the Riemann
+hypothesis for Z(π) follows from the Corollary in Theorem 1 of [4].
+It remains to show the equivalence of (3) to the Riemann hypot hesis. The λn(π) are
+identiﬁable as the power series coeﬃcients around z = 0 of
+d
+dz logξ( −z
+1 −z,π ) = −1
+(1 −z)2
+ξ′
+ξ ( −z
+1 −z,π ) =
+∞∑
+n=0
+λn+1(π)zn. (2.23)
+The map z ↦→s = − z
+1−z conformally maps the unit disk to the half-plane ℜ(s) ≥ 1
+2 , and the
+point z = 0 corresponds to s = 1, a point where ξ′
+ξ (s) is holomorphic. Assuming the Riemann
+hypothesis holds for ξ(s,π ), the function in (2.23) is holomorphic in the unit disk, hen ce its
+power series coeﬃcients satisfy (2.22). Conversely, if (2. 22) holds, then the function (2.23) is
+holomorphic in the unit disk, hence ξ′
+ξ (s,π ) has no singularity in ℜ(s) > 1
+2 . The functional
+equation then shows it has no singularity in ℜ(s) < 1
+2 so the Riemann hypothesis holds for
+ξ(s,π ).
+3. Li Coeﬃcients and Weil’s Quadratic Functional
+A. Weil [46] formulated the “explicit formula” of prime numb er theory in terms of distri-
+butions, and using the Fourier transform on the real line. He gave a necessary and suﬃcient
+condition for the Riemann hypothesis in terms of the positiv ity of a quadratic functional on
+a suitable space of test functions on the real line, containe d in the Hilbert space L2(R,du ).
+There is a natural generalization of Weil’s quadratic funct ional associated to the completed
+L-function Λ( s,π ) of any irreducible cuspidal automorphic representation π of GL(N ), which
+we shall conisder here.
+We ﬁrst note that, using an exponential change of variable ( x =eu), the “explicit formula”
+is expressible in terms of test functions contained in the Hi lbert space L2(R>0, dx
+x ) on the
+positive real line R>0 in the x-variable, with the Fourier transform replaced by the Melli n
+transform. This is the framework for the “explicit formula” taken in [3], [4]. Now we make a
+second change of variable, using the Mellin transform
+ˆf (s) =
+∫ ∞
+0
+f (x)xsdx
+x ,
+to transfer Weil’s functional to a quadratic functional on a space of test functions contained
+inside the Hilbert space L2( 1
+2 +iR, dt
+2π ); these test functions are the Mellin transforms on the
+11
+=== PAGE 12 ===
+critical line of the test functions on R>0 above. (The Mellin transform extends to an isometry
+betweenL2(R>0, dx
+x ) and L2( 1
+2 +iR, dt
+2π ).) We treat the “explicit formula” in these coordinates
+(a viewpoint taken in Burnol [6]). The resulting test functi ons in the s-variable have the
+property of being analytic in some open domain that includes the critical line ℜ(s) = 1
+2 in its
+interior. If the Riemann hypothesis is not assumed, the set o f test functions must be further
+restricted to functions analytic in a region containing the closed critical strip.
+We consider as test functions the vector space A of all functions F (s) holomorphic in the
+strip 0 < ℜ(s)< 1 which satisfy a uniform growth bound F (s) = O( 1
+|s| ) in the strip outside 2
+the region |ℑ(s)| ≤ 1, with O-constant depending on the function. The class A is closed under
+the action of the involution ˜G(s) := G(1 −s). The functions in A are completely determined
+by their values on the critical line ℜ(s) = 1
+2 by analytic continuation, and the growth bound
+ensures that they belong to L2( 1
+2 +iR, dt
+2π ). Under the inverse Mellin transform they convert to
+a class of test functions contained in L2(R>0, dx
+x ) of the type considered in [4]; these functions
+are smooth away from the point x = 1.
+Given F (s),G (s) ∈ A we deﬁne the Weil scalar product associated to the automorphic
+representationπ by
+⟨F,G ⟩W(π) :=
+∑
+ρ∈Z(π)
+F (ρ)G(1 − ¯ρ). (3.1)
+The sum on the right counts zeros with multiplicity, and it co nverges absolutely due to the
+growth bound on F and G for large |s|. This scalar product is linear in the ﬁrst factor and
+conjugate-linear in the second factor. The multiset of auto morphic L-function zeros Z(π)
+(counting multiplicities) is invariant under the involuti onρ → 1 − ¯ρ. This yields the Hermitian
+symmetry
+⟨F,G ⟩W(π) = ⟨G,F ⟩W(π).
+In the appendix we clarify the relation between this deﬁniti on and Weil’s deﬁnition of the
+quadratic functional.
+The Riemann hypothesis for Λ( s,π ) implies that the Weil scalar product is positive semidef-
+inite on the test function vector space A. To see this we note that ρ = 1 − ¯ρ holds if and only
+if ρ lies on the critical line ℜ(s) = 1
+2. The Riemann hypothesis implies that for all F (s) ∈ A,
+⟨F,F ⟩W(π) =
+∑
+ρ∈Z(π)
+F (ρ)F (1 − ¯ρ) =
+∑
+ρ∈Z(π)
+F (ρ)F (ρ) =
+∑
+ρ∈Z(π)
+|F (ρ)|2 ≥ 0.
+The Weil scalar product is not positive deﬁnite on the full cl ass A since F (s) := ξ(s,π ) ∈ A
+with ⟨F,F ⟩W(π) = 0. In the converse direction, Weil showed for various L-functions that the
+positive semideﬁniteness of the Weil scalar product on suit able subsets of the test functions in
+A. implies the Riemann Hypothesis for Λ( s,π ). A number of criteria of this sort are known,
+using diﬀerent collections of test functions; essentially o ne needs the test function set to be
+suﬃciently large to separate all the zeros ρ =ρπ (counting multiplicities).
+We deﬁne the Li class L of test functions to be the set of rational functions in the fu nction
+ﬁeld C(s) that vanish at inﬁnity (on the Riemann sphere) and whose pol ar divisor is contained
+in the set {0, 1}. The class L is closed under addition, multiplication and scalar multip lication,
+but does not contain the constant functions. A vector space b asis for L consists of { 1
+sn : n ≥ 1}
+and { 1
+(1−s)n : n ≥ 1}.
+2The region |ℑ(s)| ≤ 1 is omitted here to avoid the points s = 0 and s = 1, because every nonzero element
+in the Li class L of test functions deﬁned later necessarily has a pole at one o r both of these points.
+12
+=== PAGE 13 ===
+The special test functions Gn(s) ∈ L corresponding to the Li coeﬃcients are
+Gn(s) := 1 − (1 − 1
+s )n for n ∈ Z. (3.2)
+The set of all Gn(s), excluding G0(s) ≡ 0, forms a vector space basis of L. Indeed the
+change-of-basis matrix Gn(s) (n ≥ 1) relating these functions to { 1
+sn : n ≥ 1} is an upper
+triangular unipotent matrix, and similarly for G−n(s) (n ≥ 1) and { 1
+(1−s)n : n ≥ 1}. The
+class L is contained in A, because the vanishing condition at ∞ implies a bound F (s) = O( 1
+|s| )
+uniformly in the region |ℑ(s)| ≥ 1. The class L has the property that every nonzero member
+of it has a pole at either s = 0 or s = 1, or both.
+The following result computes the Weil scalar product with r espect to this basis.
+Theorem 3.1. Letπ be an irreducible cuspidal unitary automorphic representation of GL(N ),
+with associated ξ-function ξ(s,π ) and with Weil scalar product ⟨·, ·⟩W(π). For the Li test func-
+tions Gn(s) = 1 − (1 − 1
+s )n there holds
+⟨Gn,G m⟩W(π) =λn(π) +λ−m(π) −λn−m(π). (3.3)
+In particular
+||Gn||2
+W(π) =λn(π) +λ−n(π) = 2 ℜ(λn(π)). (3.4)
+Proof. By deﬁnition
+λn(π) =
+∑
+ρ∈Z(π)
+′
+Gn(ρ).
+Since each function Gn(s) is real on the real axis, the reﬂection principle gives
+Gn(1 − ¯ρ) = Gn(1 −ρ).
+We also have the identity
+G−m(s) = 1 − (1 − 1
+s )−m = 1 − (1 − 1
+s − 1 )m =Gm(1 −s) (3.5)
+and
+Gn(s)G−m(s) = Gn(s) +G−m(s) −Gn−m(s). (3.6)
+Combining all these gives
+⟨Gn,G m⟩W(π) =
+∑
+ρ∈Zπ
+Gn(ρ)Gm(1 −ρ) =
+∑
+ρ
+Gn(ρ)Gm(ρ)
+=
+∑
+ρ∈Z(π)
+′
+(Gn(ρ) +G−m(ρ) −Gn−m(ρ))
+=
+∑
+ρ∈Z(π)
+′
+Gn(ρ) +
+∑
+ρ∈Z(π)
+′
+Gm(ρ) +
+∑
+ρ∈Z(π)
+′
+Gm(ρ)
+= λn(π) +λ−m(π) −λn−m(π).
+the required result. .
+The Li class L is large enough to characterize the Riemann hypothesis in te rms of the
+semideﬁniteness of the Weil scalar product. Theorem 3.1 sho ws that semideﬁniteness implies
+that all ℜ(λn) ≥ 0. The Riemann hypothesis then follows from Theorem 2.2(2).
+13
+=== PAGE 14 ===
+If the Riemann hypothesis holds, then the Weil scalar produc t is positive deﬁnite on L.
+For it F (x) ∈ L is nonzero, then since it is a rational function it has ﬁnitel y many zeros, so
+cannot vanish at all points of Z(π). Thus
+||F ||2
+W(π) =
+∑
+ρ∈Z(π)
+|F (ρ)|2 > 0.
+The vector space L is then a pre-Hilbert space with this Hermitian scalar produ ct, so it can
+be completed to a Hilbert space HL(π).
+4. Arithmetic Formula for Li Coeﬃcients
+We relate the Li coeﬃcients to sums of the form ∑ ′
+ρ∈Z(π)f (ρ) for various functions f (s).
+In particular we split λn(π) into two parts S∞(n,π ) and Sf (n,π ) given in Lemma 4.2 below.
+The Li coeﬃcients are expressible in terms of Laurent series coeﬃcients around the point
+s = 1 of of the logarithmic derivative of the ξ-function ξ(s,π ). These coeﬃcients are given in
+terms of power sums of zeros.
+Lemma 4.1. The power series expansion around s = 1 of ξ′
+ξ (s,π ) is
+ξ′
+ξ (s + 1,π ) =
+∞∑
+n=0
+(−1)nσn+1(π∨)sn. (4.1)
+in which the power sum σn(π∨) =∑ ′
+ρ∈Z(π∨)
+1
+ρn.
+Proof. Since ξ(s,π ) is entire of order one we have the Hadamard product expansio n
+ξ(s,π ) = eA(π)s+B(π) ∏
+ρ∈Z(π)
+(1 − s
+ρ )e
+s
+ρ.
+Taking logarithms yields,
+logξ(s,π ) = A(π)s +B(π) +
+∑
+ρ∈Z(π)
+(
+log(1 − s
+ρ ) + s
+ρ
+)
+= A(π)s +B(π) −
+∑
+ρ∈Z(π)
+( ∞∑
+n=2
+1
+n
+sn
+ρn
+)
+= A(π)s +B(π) −
+∞∑
+n=2
+σn(π)sn
+n.
+One can also deduce by a ∗-convergent rearrangement that
+A(π) = −
+∑
+ρ∈Z(π)
+′ 1
+ρ = −σ1(π).
+Diﬀerentiating yields
+−ξ′
+ξ (s,π ) =
+∞∑
+n=0
+σn+1(π)sn.
+14
+=== PAGE 15 ===
+The functional equation (2.13)gives ξ′(s,π ) = ( −1)k+1ξ′(1 −s,π ∨), from which we obtain
+ξ′
+ξ (s + 1,π ) = −ξ′
+ξ (−s,π ∨) =
+∞∑
+n=0
+(−1)nσn+1(π∨)sn,
+as required. .
+We now write
+ξ′
+ξ (s + 1,π ) =
+
+ 1
+2 logQ(π) +
+N∑
+j=1
+Γ
+′
+R
+Γ R
+(s + 1 +κj(π))
+
+ +L′
+L (s + 1,π ) −e(0,π )
+s + 1 −e(1,π )
+s (4.2)
+We deﬁne Laurent series coeﬃcients around s = 1 of the ﬁrst two terms on the right, as follows.
+Deﬁnition 4.1. The coeﬃcents {τn(π) : n ≥ 1} are deﬁned by
+∞∑
+n=0
+τn(π)sj := 1
+2 logQ(π) +
+N∑
+j=1
+Γ
+′
+R
+Γ R
+(s + 1 +κj(π)) (4.3)
+in which we have using (2.3) that
+Γ
+′
+R
+Γ R
+(s) = − 1
+2 logπ + 1
+2
+Γ ′
+Γ (s
+2 ). (4.4)
+Deﬁnition 4.2. The coeﬃcients {ηn(π) : n ≥ 1} are deﬁned by
+∞∑
+n=0
+ηn(π)sn := −L′
+L (s + 1,π ) − δ(π)
+s (4.5)
+where δ(π) = 1 if π =πtriv and δ(π) = 0 otherwise. (The minus sign is present to agree with
+the convention in [4, eqn. (4.3)].)
+We note that the coeﬃcients τn(π) are real-valued, as a consequence of Theorem 2.1(2).
+Also, the coeﬃcients ηn(π) for π =πtriv are exactly the coeﬃcients ηn given in [4].
+Lemma 4.2. Letπ be an irreducible cuspidal automorphic representation on GL(N ) over Q.
+Then for all n ≥ 1,
+λn(π) = S∞(n,π ) −Sf (n,π ∨) +δ(π), (4.6)
+in which
+S∞(n,π ∨) =
+n∑
+j=1
+( n
+j
+)
+τj−1(π∨) (4.7)
+and
+Sf (n,π ∨) =
+n∑
+j=1
+( n
+j
+)
+ηj−1(π∨), (4.8)
+and δ(π) = 1 if π =πtriv and δ(π) = 0 otherwise.
+Remark. Note that S∞(n,π ) = S∞(n,π ∨) and δ(π) = δ(π∨). Also, since λ−n(π) = λn(π) =
+λn(π∨), we obtain from (4.6) applied to π∨ that
+λ−n(π) = S∞(n,π ) −Sf (n,π ) +δ(π). (4.9)
+15
+=== PAGE 16 ===
+Proof. Comparison of Lemma 4.1 for π∨ and the formula (4.2) yields
+(−1)jσj+1(π) = τj(π∨) −ηj(π∨) + (−1)jδ(π∨). (4.10)
+Substituting this formula into (2.18), and using −e(0,π ) = δ(π) = δ(π∨), we obtain the desired
+result.
+In the expression (4.6) the term S∞(n,π ∨) corresponds to the contribution of the archimedean
+primes and Sf (n,π ∨) corresponds to the ﬁnite primes. There are also extra contr ibutions from
+singularities at s = 0 and s = 1. The s = 1 contribution cancels against the singularity at
+s = 1 of L′
+L (s,π ), but the s = 0 singularity remains and contributes the constant −e(0,π )δ(π∨).
+Forπtriv = π∨
+triv on GL(1) the terms S∞(n,π ) and Sf (n,π ) form parts of the arithmetic
+expression for the Li coeﬃcients λn given in Theorem 2 of [4]. We have µ1(πtriv ) = 0 and
+S∞(n,π triv ) = −
+n∑
+j=1
+(−1)j+1
+( n
+j
+)
+(1 − 1
+2j )ζ ∗(j), (4.11)
+in which ζ ∗(j) = ζ(j) for j ≥ 2, and ζ ∗(1) = log(4π) +γ, where γ is Euler’s constant. For the
+other term, writing
+−ζ ′
+ζ (s + 1) = 1
+s +
+∞∑
+j=0
+ηjsj, (4.12)
+we have
+Sf (n,π triv) =
+n∑
+j=1
+(−1)j−1
+( n
+j
+)
+ηj−1. (4.13)
+In [4] it is shown that the coeﬃcients ηj are given by
+ηj := (−1)j
+j! lim
+N →∞
+( N∑
+m=1
+Λ(m)(log m)j
+m − 1
+j + 1 (logN )j+1
+)
+,
+in which Λ( m) is the von Mangoldt function.
+There exist formal arithmetic expressions for Sf (n,π ) in the general case that are similar
+in spririt to (4.13). Logarithmically diﬀerentiating the Eu ler product for L(s,π ) in the region
+ℜ(s)> 1 yields
+−L′
+L (s,π ) =
+∞∑
+n=1
+Λ π(n)n−s
+in which for n =pm a prime power,
+Λ π(pm) = 1
+m
+N∑
+k=1
+(αk,p(π))m, (4.14)
+and Λ π(n) = 0 otherwise. Now for all π ⁄= πtriv using (4.5) (which is now analytic at s = 1)
+we have
+ηj(π) = − 1
+j!
+dj
+dsj
+[ L′
+L (s,π )
+]
+|s=1
+Using (4.14) we obtain, formally,
+ηj(π) ≃ (−1)j
+j!
+∞∑
+m=1
+Λ π(m)(logm)j
+m (4.15)
+16
+=== PAGE 17 ===
+The sum on the right at best converges conditionally , when vi ewed as lim T →∞
+∑
+n≤T . The
+conditional convergence is known to hold for L-functions on GL(1). One can show
+ηj(π) = lim
+sց1
+(−1)j
+j!
+∞∑
+m=1
+Λ π(m)(logm)j
+ms
+with s ց 1 along the real axis. Explicit expressions for ηj(π) for various L-functions and
+modular forms are derived in X. Li [36], [37], [38].
+There exist simpliﬁed formulas for the coeﬃcients τn(π) analogous to (4.11), which involve
+values of the Hurwitz zeta function ζ(s,z ) =∑ ∞
+j=0
+1
+(n+z)s with ℜ(z)> 0.
+Lemma 4.3. For an irreducible cuspidal automorphic representation π onGL(N ) andn ≥ 1,
+there holds
+τn(π) = ( − 1
+2 )n+1
+n∑
+j=1
+ζ(n + 1,κj(π) + 1
+2 ). (4.16)
+In addition for n = 0 there holds
+τ0(π) = 1
+2 logQ(π) − N
+2 logπ + 1
+2
+N∑
+j=1
+Γ ′
+Γ
+( κj(π) − 1
+2
+)
+. (4.17)
+whereγ is Euler’s constant.
+Proof. We recall that Γ R(s) = π− s
+2 Γ( s
+2 ), so that
+Γ
+′
+R
+Γ R
+(s) = − 1
+2 logπ + 1
+2
+Γ ′
+Γ
+( s
+2
+)
+. (4.18)
+The digamma function ψ(s) = Γ ′
+Γ (s) has the partial fraction expansion
+ψ(s + 1) = Γ ′
+Γ (s + 1) = −γ +
+∞∑
+m=1
+( 1
+m − 1
+s +m
+)
+, (4.19)
+in which γ ≈ 0.5771 is Euler’s constant. For ℜ(z)> −1 we deﬁne the power series coeﬃcients
+{˜τn(z) : n ≥ 0} by
+∞∑
+n=0
+˜τn(z)sn := Γ ′
+Γ (s + 1 +z). (4.20)
+Here
+˜τn(z) = 1
+n!
+dn
+dsn
+( Γ ′
+Γ (s + 1 +z)
+)
+|s=0.
+We have
+˜τ0(z) = −γ +
+∞∑
+m=1
+z
+m(m +z). (4.21)
+and, for n ≥ 1,
+˜τn(z) = ( −1)n+1
+∞∑
+m=1
+( 1
+m +z
+) n+1
+, (4.22)
+17
+=== PAGE 18 ===
+which follows by diﬀerentiating the partial fraction expans ion (4.19) at s = z + 1. This is
+essentially a special value of the Hurwitz zeta function, fo r n ≥ 1,
+˜τn(z) = ( −1)n+1ζ(n + 1,z + 1). (4.23)
+Comparing power series coeﬃcients of the deﬁnition (4.3) wi th those of (4.18) yields, for n ≥ 1,
+τn(π) = 1
+2
+N∑
+j=1
+˜τn(κj(π) − 1
+2 )
+( 1
+2
+) n
+, (4.24)
+and using (4.23) then yields (4.16).
+Finally, the case n = 0 follows from (4.3) for n = 0 using (4.21).
+Remark. For the case πtriv on GL(1) Lemma 4.3 yields
+τn(πtriv ) = ( − 1
+2 )n+1ζ(n + 1, 1
+2 )
+= ( − 1
+2 )n+1
+∞∑
+m=0
+1
+(m + 1
+2 )n+1
+= ( −1)n+1
+∞∑
+m=0
+( 1
+2m + 1
+) n+1
+= (−1)n+1(1 − 1
+2n+1 )ζ(n + 1).
+With further work one can deduce
+τ0(πtriv) = −
+( 1
+2
+)
+(log(4π) +γ),
+from which one can deduce (4.11).
+5. Bounds for S∞(n, π )
+In this and the next section we consider the order of growth of the terms S∞(n,π ) and
+Sf (n,π ), respectively. In this section we obtain an unconditional result for S∞(n,π ).
+Theorem 5.1. For any irreducible cuspidal (unitary) automorphic representationπ onGL(N )
+the quantities S∞(n,π ) are real-valued. There is a constant K(π) such that for n ≥K(π) there
+holds
+S∞(n,π ) =
+( N
+2
+)
+n logn +C1(π) n +O (N (K(π) + 1)). (5.1)
+Here
+C1(π) = N
+2 (γ − 1 − log(2π)) + 1
+2 logQ(π), (5.2)
+whereγ is Euler’s constant. One can take
+K(π) = max
+1≤j≤N
+|κj(π)|2, (5.3)
+and the implied constant in the O-notation is absolute.
+18
+=== PAGE 19 ===
+Note that C(π) = C1(π∨), since Q(π) = Q(π∨), and that C1(π) does not depend on the
+archimedean parameters {κj (π) : 1 ≤ j ≤ N }, though these values appear in the analysis.
+For the Li coeﬃcients we have
+C1(πtriv ) = 1
+2 (γ − 1 − log(2π)) ≃ −1.1303307. (5.4)
+using Q(πtriv) = 1.
+To begin the proof we introduce the quantities
+T (n,z ) :=
+n∑
+j=1
+( n
+j
+)( 1
+2
+) j
+˜τj−1(z). (5.5)
+The formula for S∞(n,π ) in Lemma 4.2 can be expressed in terms of these for various va lues
+of z. Indeed we obtain, for n ≥ 1,
+S∞(n,π ) =
+N∑
+j=1
+T (n,κj(π∨) − 1
+2 ) +
+( n
+1
+)( 1
+2 logQ(π) − N
+2 logπ
+)
+, (5.6)
+using (4.24). We proceed to estimate an individual sum T (n,z ). The formulas for ˜τj(z) give
+T (n,z ) = T1(n,z ) +T2(n,z )
+in which
+T1(n,z ) = n
+2
+Γ ′
+Γ (1 +z) =
+( n
+1
+) 1
+2 (−γ +
+∞∑
+m=1
+z
+m(m +z) ). (5.7)
+and
+T2(n,z ) :=
+n∑
+j=2
+( n
+j
+) 1
+2j
+(
+(−1)j
+∞∑
+m=1
+1
+(m +z)j
+)
+. (5.8)
+The second sum converges absolutely and can be rearranged as
+T2(n,z ) =
+∞∑
+m=1
+n∑
+j=2
+( n
+j
+)
+(− 1
+2 )j 1
+(m +z)j
+=
+∞∑
+m=1
+(
+(1 − 1
+2m + 2z )n − 1 + n
+2m + 2z
+)
+. (5.9)
+We divide this sum into two parts
+T2(n,z ) = T20(n,z ) +T21(n,z ),
+by splitting the summation range from m = [1,n ] and m = [n + 1, ∞) respectively, and treat
+these in the following two lemmas.
+Lemma 5.1. For any complex number z with ℜ(z) ≥ − 3
+4 , the quantity
+T20(n,z ) =
+n∑
+m=1
+(
+(1 − 1
+2m + 2z )n − 1 + n
+2m + 2z
+)
+(5.10)
+satisﬁes, for all n ≥ |z|2,
+T20(n,z ) = 1
+2 (n logn) +
+(
+− 1
+2
+Γ ′
+Γ (1 +z) +β∞ + 1√e − 1
+)
+n +O(|z| + 1). (5.11)
+in which
+β∞ =
+∫ ∞
+1
+e− t
+2
+dt
+t ≃ 0.559774.
+19
+=== PAGE 20 ===
+Proof. The sum (5.10) consists of three subsums, from each of its ter ms. The middle subsum
+in (5.10) gives −n. For the third subsum,
+K(n,z ) =
+n∑
+m=1
+n
+2m + 2z = n
+2
+n∑
+m=1
+( 1
+m − z
+m(m +z)
+)
+= n
+2
+(
+logn +γ +O( 1
+n )
+)
+− n
+2
+( Γ ′
+Γ (1 +z) +γ +O( |z| + 1
+n )
+)
+= 1
+2n logn −n
+2
+Γ ′
+Γ (1 +z) +O(|z| + 1), (5.12)
+in which we used the partial fraction formula for the digamma function and a bound for the
+error in truncating it at the n-th term.
+We now consider the ﬁrst subsum in (5.10), call it
+J(n,z ) :=
+n∑
+m=1
+(1 − 1
+2m + 2z )n. (5.13)
+Setting z =x +iy, for real t ≥ 1 we have
+|1 − 1
+2t + 2z |2 = 1 + 1 − 4(t +x)
+4((t +x)2 +y2), (5.14)
+The condition ℜ(z) ≥ − 3
+4 now implies that |1 − 1
+2t+2z |2 ≤ 1, so that each term above is O(1).
+We approximate the sum by an integral, and assert that for n ≥ |z|2 there holds
+J(n,z ) =
+∫ n
+1
+(1 − 1
+2t + 2z )ndt +O(|z| + 1). (5.15)
+with a constant independent of z. To establish this is we show that both sum and integral
+separately contribute O(1) over the range 1 ≤t ≤n
+2
+3 , and then show on the remaining range
+n
+2
+3 ≤t ≤n that their diﬀerence is O(1). On the initial range we use 1 −x ≤e−x for 0 ≤x ≤ 1
+to get from (5.14) that, for t ≥ 3,
+|1 − 1
+2t + 2z |n ≤
+(
+1 + 1 − 4(t +x)
+4((t +x)2 +y2)
+) n
+2
+≤ exp( 1 − 4(t +x)
+4((t +x)2 +y2)
+n
+2 )
+≤ exp(− (t +x)
+(t +x)2 +y2
+n
+4 ).
+Now the function f (w) = w
+w2+y2 is nonnegative on the positive real axis, increasing to a
+maximum at w = y and decreasing monotonically thereafter. Applied to the ex ponential
+above, we ﬁnd the the terms for integer t = m with y ≤ m ≤ n
+2
+3 have negative exponent
+decreasing in absolute value, so the largest term occurs at t he top endpoint, and is bounded
+by exp( −cn− 1
+3 ), so the sum over all these terms is O(1). The ﬁrst y terms each contribute
+O(1), giving O(|z| + 1) in all. This bounds the sum, and bounding the integral ove r this range
+is similar.
+20
+=== PAGE 21 ===
+On the remaining range n
+2
+3 ≤m ≤ 1 with m ≤t ≤m + 1 we have
+(1 − 1
+2t + 2z )n = (1 − 1
+2m + 2z )n
+(
+1 − 1
+2m+2z
+1 − 1
+2t+2z
+) n
+= (1 − 1
+2m + 2z )n
+(
+1 +O( 1
+|2t + 2z|2 )
+) n
+= (1 − 1
+2m + 2z )n
+(
+1 +O( n
+|2t + 2z|2 )
+)
+,
+where we used |2t + 2z|2 ≥ 2n. Thus, for n ≥ |z|2, the error between the sum and the integral
+is bounded by an absolute constant times
+∫ n
+n2/ 3
+(1 − 1
+2t + 2z )n n
+|2t + 2z|2dt ≤ O(1). (5.16)
+This last estimate is obtained by observing that the integra nd is maximized (in absolute value)
+at its top endpoint, where it is O( 1
+n ). We conclude that (5.15) holds.
+We now integrate by parts on the right side of (5.15) to obtain
+J(n,z ) = J1(n,z ) −J2(n,z ) +O(|z| + 1),
+in which
+J1(n,z ) := t(1 − 1
+2t + 2z )n|n
+t=1 =n(1 − 1
+2n + 2z )n − (1 − 1
+2 + 2z )n, (5.17)
+and
+J2(n,z ) = n
+∫ n
+1
+2t
+(2t + 2z)2 (1 − 1
+2t + 2z )n−1dt. (5.18)
+The ﬁrst term on the right side is estimated for n> |z|2 by
+J1(n,z ) = n exp(− n
+2n + 2z )
+(
+1 +O( |z| + 1
+n
+)
++O(1) = 1√en +O(|z| + 1), (5.19)
+For the remaining integral J2(n,z ), we show that ˜J2(n,z ) = 1
+nJ2(n,z ) approaches a limit as
+n → ∞, using the fact that (1 − 1
+u )u approachese as ℜ(u) → ∞. We rescale it with the variable
+changeu =nt to obtain
+˜J2(n,z ) =
+∫ 1
+1
+n
+2nu
+(2nu +z)2
+(
+1 − 1
+2(nu +z)
+) n−1
+ndu
+= 1
+2
+∫ 1
+1
+2n
+u
+(u + 2z
+n )2
+[ (
+1 − 1
+2(nu +z)
+) 2(nu+z)] n−1
+2(nu+z)
+du
+= 1
+2
+∫ 1
+1
+n
+1
+ue− 1
+2udu +O
+( |z| + 1
+n
+)
+= 1
+2
+∫ 1
+0
+1
+ue− 1
+2udu +O
+( |z| + 1
+n
+)
+Now we set
+β∞ :=
+∫ 1
+0
+e− 1
+2u
+du
+u =
+∫ ∞
+1
+e− t
+2
+dt
+t ,
+21
+=== PAGE 22 ===
+and we have obtained
+J2(n,z ) = 1
+2β∞n +O(|z| + 1).
+Combining all these estimates gives, for n ≥ |z|2,
+T20(n,z ) = J1(n,z ) −J2(n,z ) −n +K(n,z ) +O(|z| + 1)
+= ( √e − 1)n + 1
+2n logn − n
+2
+Γ ′
+Γ (1 +z) − 1
+2β∞n +O(|z| + 1)
+= 1
+2n logn +
+(
+− 1
+2
+Γ ′
+Γ (1 +z) − 1
+2β∞ + 1√e − 1
+)
+n +O(|z| + 1),
+the desired estimate.
+Lemma 5.2. For ℜ(z) ≥ −1 and n ≥ |z| + 2, the quantity
+T21(n,z ) =
+∞∑
+m=n+1
+(
+(1 − 1
+2m + 2z )n − 1 + n
+2m + 2z
+)
+satisﬁes
+T21(n,z ) = ( 1
+2 − 1√e + 1
+2α∞)n +O(|z| + 1), (5.20)
+in which
+α∞ =
+∫ 1
+0
+(1 −e− 1
+2 t)dt
+t ≃ 0.443842. (5.21)
+The implied O-constant is absolute.
+Proof. In what follows we assume n ≥ |z| + 2. We approximate the sum by an integral
+T21(n,z ) =
+∫ ∞
+n
+(
+(1 − 1
+2t + 2z )n − 1 + n
+2t + 2z
+)
+dt +O(1). (5.22)
+To justify the error term, we observe that for n ≤m ≤t ≤m + 1 there holds
+(1− 1
+2t + 2z )n =
+(
+1 − 1
+2m + 2z +O( 1
+|(2m + 2z)(2t + 2z)| )
+) n
+= (1− 1
+2m + 2z )n
+(
+1 +O( n
+(t + |z|)2
+)
+where we used ℜ(z) ≥ −1 and n ≥ 2. We also use
+| n
+t +z − n
+m +z | ≤ | n(m −t)
+|(t +z)(m +z) | ≤ n
+(m + |z| − 1)2,
+Viewing the sum as an integral of a step function, we have boun ded the diﬀerence between the
+integrands at t by an absolute constant times n
+(t+|z|−1)2 , and for n ≥ 3 we have
+∫ ∞
+n
+n
+(t + |z| − 1)2dt ≤n
+∫ ∞
+n−1
+1
+t2dt =O(1).
+and (5.22) follows.
+22
+=== PAGE 23 ===
+Making the change of variable u = 1
+2t+2z we obtain
+T21(n,z ) = 1
+2
+∫ 1
+2n+2z
+0
+[(1 −u)n − 1 +nu]du
+u2 +O(1). (5.23)
+This integral is a contour integral (since z is complex) but the answer is independent of the
+contour, since the integrand is analytic. An integration by parts yields T21(n,z ) = K1(n,z ) −
+K2(n,z ) +O(1) in which
+K1(n,z ) = − 1
+2u [(1 −u)n − 1 +nu]|
+1
+2n+2z
+u=0
+= −(n +z)
+(
+(1 − 1
+2n + 2z )n − 1 + n
+2n + 2z
+)
+, (5.24)
+and
+K2(n,z ) := 1
+2
+∫ 1
+2n+2z
+0
+[−n(1 −u)n−1 +n]du
+−u = n
+2
+∫ 1
+2n+2z
+0
+[(1 −u)n−1 − 1]du
+u . (5.25)
+To estimate K1(n,z ) we write z =x +iy, with x ≥ −1, to obtain
+1 − 1
+2n + 2z = (1 − 2n + 2x
+4(n +x)2 + 4y2 ) +i 2y
+4(n +x)2 + 4y2 =reiθ,
+in which r = 1 − 1
+2n +O( 1
+n2 ) and θ =O( |z|+1
+n2 ). It follows that rneinθ =e− 1
+2 +O( |z|+1
+n ), and we
+obtain
+K1(n,z ) = −n[(1 − 1
+2n + 2z )n − 1
+2 ] +O(|z| + 1)
+= −n[rneinθ − 1
+2 ] +O(|z| + 1)
+= n
+( 1
+2 − 1√e +O( |z| + 1
+n )
+)
++O(|z| + 1). (5.26)
+Expanding the integral K2(n,z ) in powers of u yields
+K2(n,z ) = n
+2
+
+
+n∑
+j=1
+∫ 1
+2n+2z
+0
+(−1)j
+( n
+j
+)
+uj−1du
+
+
+= n
+2
+
+
+n∑
+j=1
+(−1)j
+j
+( n
+j
+)
+( 1
+2n + 2z )j
+
+. (5.27)
+We set
+αn(z) =
+n∑
+j=1
+(−1)j
+j
+( n
+j
+)
+( 1
+2n + 2z )j,
+and
+α∞ :=
+∞∑
+j=1
+(−1)j+1
+j
+1
+j!2j =
+∫ 1
+2
+0
+(1 −e−v)dv
+v =
+∫ 1
+0
+(1 −e− 1
+2 t)dt
+t . (5.28)
+23
+=== PAGE 24 ===
+We assert that for ℜ(z) ≥ −1, n ≥ 2,
+|αn(z) +α∞| =O( |z| + 1
+n ). (5.29)
+where the constant in the O-notation is independent of z. Indeed we note that
+( n
+j
+)
+( 1
+2n + 2z )j = 1
+j!2j ( n
+n +z )(n − 1
+n +z ) · · · (n −j + 1
+n +z ),
+which since ℜ(z) ≥ −1 yields
+|
+( n
+j
+)
+( 1
+2n + 2z )j| ≤ 2
+j!2j.
+and also for 0 ≤j ≤ 2 logn that
+|
+( n
+j
+)
+( 1
+2n + 2z )j − 1
+j!2j | =O
+( |z| + 1
+n
+)
+.
+Combining these estimates with
+|α∞ +
+2 log n∑
+j=1
+(−1)j
+j
+1
+j!2j | ≤ O( 1
+n ),
+yields (5.29), so that K2(n,z ) = − 1
+2α∞n +O(|z| + 1).
+Combining all the estimates above gives
+T21(n,z ) = K1(n,z ) −K2(n,z ) +O(1))
+= ( 1
+2 − 1√e + 1
+2α∞)n +O(|z| + 1),
+the desired estimate.
+Proof of Theorem 5.1. Lemma 4.2 gives
+S∞(n,π ) =
+n∑
+j=1
+( n
+j
+)
+τj−1(π)
+=
+
+
+N∑
+k=1
+n∑
+j=1
+( n
+j
+)
+(−1)j ˜τj−1(κj (π) − 1
+2 )( 1
+2 )j
+
+ +
+( n
+1
+)( 1
+2 logQ(π) − N
+2 logπ
+)
+=
+( N∑
+k=1
+T
+(
+n,κk(π) − 1
+2
+) )
++
+( 1
+2 logQ(π) − N
+2 logπ
+)
+n
+=
+
+ 1
+2 logQ(π) − N
+2 logπ + 1
+2
+N∑
+j=1
+Γ ′
+Γ
+( κk(π) + 1
+2
+) 
+n +
+N∑
+k=1
+T2
+(
+n,κk(π) − 1
+2
+)
+.
+where we made use of the decomposition T (n,z ) = T1(n,z ) +T2(n,z ) and the formula (5.7)
+for T1(n,z ).
+24
+=== PAGE 25 ===
+Now we suppose that n ≥K(π) := max {|κk(π)|2 : 1 ≤k ≤N } and note by Theorem 2.1(2)
+that each ℜ( κk(π)+1
+2 )> − 3
+4 , so that we can apply Lemma 5.1 and 5.2. We obtain
+T2(n, κk(π) − 1
+2 ) = 1
+2n logn +
+(
+− 1
+2
+Γ ′
+Γ (κk(π) + 1
+2 ) + 1√e − 1
+)
+n
++ ( 1
+2 − 1√e + 1
+2α∞ − 1
+2β∞)n +O(K(π) + 1))
+= 1
+2n logn +
+(
+− 1
+2
+Γ ′
+Γ (κk(π) + 1
+2 ) + 1
+2 (α∞ −β∞ − 1)
+)
+n +O(K(π) + 1).
+Substituting this in the previous formula yields
+S∞(n,π ) =
+( N
+2
+)
+n logn +
+( N
+2 (α∞ −β∞ − 1 − logπ) + 1
+2 logQ(π)
+)
+n
++ O (N (K(π) + 1)). (5.30)
+To complete the proof we must establish the identity 3
+α∞ −β∞ =γ − log 2, (5.31)
+where γ is Euler’s constant. We start from
+α∞ −β∞ =
+∫ 1
+2
+0
+(1 −e−t)dt
+t −
+∫ ∞
+1
+2
+e−tdt
+t ,
+The assertion (5.31) is a special case of an identity valid fo r each w> 0, that
+∫ w
+0
+(1 −e−t)dt
+t −
+∫ ∞
+w
+e−tdt
+t =γ + logw, (5.32)
+on taking w = 1
+2. The reviewer observes the following proof of (5.32). Denoti ng the left side of
+this equation by S(w), an integration by parts (taking dv = dt
+t ) yields
+S(w) = log w −
+∫ ∞
+0
+e−t logtdt = logw − Γ
+′
+(1), (5.33)
+and the result follows using Γ
+′
+(1) = −γ. This method was followed by Barnes [1] in establishing
+the identity
+γ =
+∫ 1
+0
+(1 −e−t −e− 1
+t )dt
+t . (5.34)
+.
+Remark. Computational evidence of Maslanka (private communication) indicates thatS∞(n,π )
+has a full asymptotic expansion in inverse powers n−k with k ≥ 0. The further coeﬃcients of
+such expansions will likely depend on the archimedean param eters {κj (π) : 1 ≤j ≤N }, unlike
+the ﬁrst two coeﬃcients appearing in Theorem 5.1.
+3This identity was found by comparison of the author’s origin al formula (5.30) with an asymptotic formula
+for the Li coeﬃcients (under RH) given by Voros [45, eqn. (11) ].
+25
+=== PAGE 26 ===
+6. Bounds for Sf (n, π )
+We obtain a bound for Sf (n,π ) in terms of the incomplete Li coeﬃcient to height T , deﬁned
+by
+λn(T,π ) :=
+∑
+ρ ∈Z(π )
+|ℑ(ρ )|≤T
+1 −
+(
+1 − 1
+ρ
+) n
+, (6.1)
+where T is a cutoﬀ parameter.
+Theorem 6.1. For any irreducible cuspidal (unitary) automorphic repres entation on GL(N )
+there holds
+Sf (n,π ) = λn(√n,π ∨) +O
+( √n logn
+)
+, (6.2)
+in which the implied constant in the O-notation depends on π. If the Riemann hypothesis holds
+for L(s,π ) then
+λn(√n,π ∨) = O
+( √n logn
+)
+. (6.3)
+Proof. We use a contour integral argument. We introduce the kernel f unction
+kn(s) := (1 + 1
+s )n − 1 =
+n∑
+j=1
+( n
+j
+)( 1
+s
+) j
+, (6.4)
+IfC1 is a contour enclosing the point s = 0 counterclockwise on a circle of small enough positive
+radius R, the residue theorem gives
+1
+2πi
+∫
+C1
+kn(s)
+(
+−L′
+L (s + 1,π )
+)
+ds =
+n∑
+j=1
+( n
+j
+)
+ηj−1 =Sf (n,π ). (6.5)
+The residue comes entirely from the singularity at s = 0, as no other singularities lie inside
+the contour.
+We deform the contour to the counterclockwise oriented rect angular contour C2(n) consist-
+ing of vertical lines with real part ℜ(s) = σ0 and ℜ(s) = σ1 where we will choose −3<σ 0 < −2,
+and σ1 = 2 √n, and horizontal lines at ℑ(s) = ±T , where we will choose T = √n +ǫn, for
+some 0 < ǫn < 1. The integrand has simple poles at the zeros of L(s,π ), and some of them
+will now lie inside the contour. The residue theorem gives
+I2(n) :=
+∫
+C2(n)
+kn(s)
+(
+−L′
+L (s + 1,π )
+)
+ds =Sf (n,π ) +
+∑
+ρ ∈Z(π )
+|ℑ(ρ )|<T
+(
+1 + 1
+ρ − 1
+) n
+− 1 +I triv
+2 (n),
+in which I triv
+2 (n) evaluates the residues coming from the trivial zeros of L(s,π ) which will
+satisfy −3 ≤ ℜ (s) < 1
+2 . The trivial zeros are associated to the archimedean factor s and their
+location is dictated by the values κj(π), which by Theorem 2.1 satisfy ℜ(κj(π))> − 1
+2, so that
+all trivial zeros satisfy ℜ(ρ)< 1
+2. We have
+|1 + 1
+z − 1 | = | z
+z − 1 |< 1 when ℜ(z)< 1
+2, (6.6)
+and using this we conclude that the residue at each trivial ze ro is O(1). Since the trivial zeros
+fall in N arithmetic progressions with spacing 2, there are O(N ) such zeros in the interval
+26
+=== PAGE 27 ===
+−3 ≤ ℜ (s) < 1
+2 we conclude that the trivial zero contribution is I2(n,triv ) = O(1), with
+O-constant depending on π.
+Using the symmetry ρ ↦→1 − ¯ρ of Z(π), which does not change |ℑ(ρ)|, we can rewrite the
+sum over Z(π) in terms of
+( 1 − ¯ρ
+−¯ρ
+) n
+− 1 =
+( ¯ρ − 1
+¯ρ
+) n
+− 1.
+We observe that ¯ρ ∈Z(π∨) so that (6.5) can be rewritten
+I2(n) = Sf (n,π ) −λn(T,π ∨) +O(1). (6.7)
+The main part of the theorem will be to establish
+I2(n) = O
+( √n
+)
+.
+The theorem will follow from the two assertions that I2(n) = O (√n) and
+|λn(√n,π ∨) −λn(T,π ∨)| =O(logn).
+The second assertion follows from the observation that |T − √n|< 1, that there are O(logn)
+zeros in an interval of length one at this height (by (2.11)), and that for each zero ρ =β +iγ
+with √n ≤ |ℑ(ρ)|< √n + 1 there holds
+|
+( ρ − 1
+ρ
+) n
+| = |1 − β −iγ
+β2 +γ2 |n
+≤ |
+(
+1 − β
+β2 +γ2
+) 2
++
+( γ
+β2 +γ2
+) 2
+|n/2
+≤ | 1 + 1
+n |n/2 ≤ 2.
+It remains to bound I2(n). We will use the following estimate for L′
+L (s,π ) in a region
+including the critical strip.
+Lemma 6.1. For −4 ≤ ℜ(s)< 4 and s =σ +it there holds
+L′
+L (s,π ) =
+∑
+{ρ:|ℑ(ρ−s)|<1}
+1
+s −ρ +O
+(
+log q(π,s )L′
+L (2,π )
+)
+, (6.8)
+in which q(s,π ) = Q(π)∏ N
+i=1(|s +κj(π)| + 3) is the analytic conductor of π, and the constant
+in the O-notation is absolute.
+Proof. The classical proof for Dirichlet L-functions [12, Chap. 15, p. 102] generalizes to
+give (6.8), following Chapter 5 of [29]. If we know the Ramanu jan conjecture holds for L(s,π ),
+then we can control the size of L′
+L (2,π ) in the remainder term. .
+We now choose the parameters σ0 and T appropriately to avoid poles of the integrand.
+Since the trivial zeros of L(s,π ) fall in N arithmetic progressions with spacing 2, we may
+choose σ0 so that the contour avoids coming within 1
+2N of any trivial zero. Similarly we can
+choose T = √n +ǫn with 0 ≤ǫn ≤ 1 so that the horizontal lines do not approach closer than
+27
+=== PAGE 28 ===
+O(logn) to any zero of L(s,π ). It then follows from Lemma 6.1 that on the horizontal line i n
+the interval −3 ≤ ℜ(s) ≤ 4 we have
+|L′
+L (s + 1,π )| =O((logT )2). (6.9)
+The Euler product for L(s,π ) converges absolutely for ℜ(s) > 1 (by Theorem 2.1(1))
+hence the Dirichlet series for L′
+L (s,π ) converges absolutely for ℜ(s) > 1. More precisely if
+L′
+L (s,π ) =∑ ∞
+m=2b(m,π )m−s then for σ >1,
+|L′
+L |(σ) =
+∞∑
+m=2
+|b(m,π )|m−σ < ∞.
+Since the Dirichlet series for L′
+L (s,π ) has no constant term, we obtain for ℜ(s) = σ > 2 the
+bound
+|L′
+L (s,π )| ≤ |L′
+L |(σ,π )| ≤ 2−(σ−2)|L′
+L (2,π )|. (6.10)
+We now consider the integral I2(n) on the vertical segment (I) having ℜ(s) = σ1 = 2 √n,
+call it I (I)
+2 (n). We have
+|(1 − 1
+s )n − 1| ≤ (1 + 1
+σ1
+)n + 1 ≤ (1 + 1
+2√n )n ≤ exp( 1
+2
+√n)< 2
+√n.
+Now the estimate (6.10) gives on (I) that
+|L′
+L (s,π )| ≤ C02−2(√n+2).
+so that the integrand is bounded above by C12−√n. The length of the contour is O( n
+log n ) so
+we obtain the estimate |I (I)
+2 (n)| =o(1).
+We next consider the integral I2(n) on the two horizontal segments, call them (II) and
+(IV). It suﬃces to bound I (II )
+2 (n), the treatment for (IV) being identical. Let s =σ +it be a
+point on (II). We have T ≥ √n so that
+|1 + 1
+s | = |(1 + σ
+σ2 +T 2 ) + iT
+σ2 +T 2 )|
+≤
+(
+(1 + σ
+σ2 +T 2 )2 + 1
+σ2 +T 2
+) 1
+2
+≤ 1 + σ + 1
+σ2 +T 2. (6.11)
+By hypothesis T 2 ≥n so for −3 ≤σ ≤ 3 we have
+|kn(s)| ≤ (1 + 4
+16 +n )n + 1 ≤e4 + 1 = O (1)
+On this interval Lemma 6.1 gives
+|L′
+L (s,π )| =O((logT )2) = O((logn)2)
+28
+=== PAGE 29 ===
+since we have chosen the ordinate T to stay away from zeros of L(s,π ). Now we step across the
+interval (II) towards the right, in segments of length 1, sta rting from σ = 3. At the initial point
+we have | L′
+L (s,π )| = O(1) since we are in the absolute convergence region, and the e stimate
+(6.10) gains a factor of 2 going one unit to the right. In compa rison
+⏐
+⏐
+⏐
+⏐
+kn(s + 1) + 1
+kn(s) + 1
+⏐
+⏐
+⏐
+⏐ = |
+1 + 1
+σ+1+iT
+1 + 1
+σ+iT
+|n
+≤ | 1 + ( 1
+σ + 1 +iT − 1
+σ +iT )|n
+≤
+(
+1 + 1
+|σ + 1 +iT | |σ +iT |
+) n
+≤
+(
+1 + 1
+T 2
+) n
+≤e. (6.12)
+We obtain an upper bound for |kn(s) L′
+L (s,π )| that decreases geometrically at each step, and
+after O(logn) steps it becomes O(1) so we obtain the upper bound
+|I (II )
+2 (n)| =O(√n + (logn)3) = O(√n).
+A similar bound holds for |I (IV )
+2 (n)|.
+For the remaining vertical segment (III) with ℜ(s) = σ0, we have that the kernel function
+|kn(s)| = O(1) on the line segment (III) by (6.6), and | L′
+L (s,π )| = O(log(|s| + 2)) using
+Lemma 6.1. Since the segment (III) has length O(√n) we obtain the bound
+|I (III )
+2 (n)| =O(√n logn). (6.13)
+Using this bound suﬃces to establish (6.2), with the remaind er term O(√n logn).
+Totalling all these bounds above gives
+Sf (n,π ) = λn(T,π ∨) +O
+( √n logn
+)
+,
+with T = √n +ǫn.
+Now suppose that the Riemann hypothesis holds for ξ(s,π ). Then we have
+|1 − 1
+ρ − 1 | = | ρ
+ρ − 1 | = | − 1
+2 +iγ
+1
+2 +iγ | = 1
+It follows that each zero contributes a term of absolute valu e at most 2 to the incomplete Li
+coeﬃcient λn(T,π ), and we obtain
+λn(T,π ) = O(T logT + 1), (6.14)
+on using the zero density estimate in Theorem 2.1(4). Here th e constant in the O-notation
+depends on π. In particular
+λn(√n,π ∨) = λn(√n,π ) = O(√n logn),
+as required.
+29
+=== PAGE 30 ===
+7. Interpolation Function for Li Coeﬃcients
+We construct an entire function that interpolates the Li coe ﬃcients at integer values.
+Theorem 7.1. (1) For any irreducible cuspidal unitary automorphic repre sentation π over
+GL(N ) over Q, there exists an entire function Fπ(z) of order one and exponential type having
+the two properties:
+(i). It interpolates the generalized Li coeﬃcients λn(π) at integer values, i.e.
+Fπ(n) = λn(π), n ∈ Z. (7.1)
+(ii) It is real-valued on the imaginary axis, with
+Fπ(−¯z) = Fπ(z). (7.2)
+(2) If the Riemann hypothesis holds for L(s,π ), then there exists a unique function Fπ(z) of
+exponential type at most π that satisﬁes (i), and is such that
+F ∗
+π (z) := Fπ(z) −e( 1
+2,π )(1 − cosπz)
+is of exponential type strictly less than π. Here e( 1
+2,π ) is the order of the zero of ξ(s,π ) at
+s = 1
+2 . On the real axis, Fπ(z) satisﬁes the bound
+|Fπ(x)| ≤ C(|x| + 2) log(|x| + 2), (7.3)
+for some constant C depending on π.
+Proof. In this proof we regard π as ﬁxed, with zeros ρ drawn from the multiset Z(π).
+(1). We deﬁne
+(1 − 1
+ρ )z := exp
+(
+z log(1 − 1
+ρ )
+)
+, (7.4)
+in which we take the principal branch of the logarithm, with a rgument − π
+2 < ℑ(logz) ≤ π
+2.
+We also have the binomial expansion
+(1 − 1
+ρ)z =
+∞∑
+j=0
+(−1)j
+( z
+j
+) 1
+ρj. (7.5)
+When |ρ| > 1 this expansion converges absolutely for all z ∈ C, since the terms in the series
+eventually decay geometrically in absolute value.
+We now let R> 0 and deﬁne
+FR(z) =
+∑
+|ρ|≤R
+(
+1 − (1 − 1
+ρ )z
+)
++ (−z)
+
+ ∑
+{|ρ|>R
+′ 1
+ρ
+
+ +
+∞∑
+j=2
+(−1)j
+( z
+j
+) 
+∑
+|ρ|>R
+1
+ρj
+
+, (7.6)
+Here ∑
+|ρ|>R
+′ 1
+ρ := lim
+T →∞
+∑
+R<|ρ|≤T
+1
+ρ, (7.7)
+30
+=== PAGE 31 ===
+and this sum is ∗-convergent by Lemma 2.1. For notational convenience we deﬁ ne the partial
+power sums
+σj(R,π ) :=
+∑
+|ρ|>R
+1
+ρj. (7.8)
+These sums converge absolutely for j ≥ 2 and are ∗-convergent for j = 1, by Lemma 2.1. We
+can rewrite
+FR(z) =
+∑
+|ρ|≤R
+(1 − 1
+ρ )z −σ1(R,π )z +
+∞∑
+j=2
+(−1)j
+( z
+j
+)
+σj(R,π ) (7.9)
+The zero-counting estimate in Theorem 2.1(4) implies there are at most O(logT ) zeros in
+an interval of length 1 at height T , where the O-constant depends on the representation π.
+Therefore we obtain, for j ≥ 2
+|σj(R,π )| ≤
+∞∑
+m=R
+♯{m ≤ |ρ|<m + 1} 1
+mj
+≤
+∞∑
+m=R
+C logm
+mj =O
+(
+(logR)2 1
+Rj−1
+)
+. (7.10)
+where the O-constant depends on π. For the term j = 1 we similarly obtain a ∗-convergence
+estimate
+|σ1(R,π )| =O( (logR)2
+R ) (7.11)
+by partial summation, cancelling the zeros at height T against those at height −T . We therefore
+have, on the disk |z| ≤
+√
+R, that
+|
+( z
+j
+)
+σj(R,π )| ≤ |
+( z
+j
+)
+||σj(R,π )|
+≤ C1
+( j∏
+k=1
+√
+R +k
+k
+)
+(logR)2R−j+1
+≤ C1
+( j∏
+k=1
+1 + k√
+R
+k
+)
+(logR)2R− j
+2 +1
+≤ C2(logR)2R− j
+2 +1. (7.12)
+On summing over j ≥ 1 it follows that the terms on the right side of (7.9) converge s uniformly
+on the entire disk |z|<
+√
+R to an analytic function FR(z).
+We also obtain from this a bound on the maximum modulus of FR(z) on |z| ≤ R. Set
+β(π) := sup
+ρ∈Z(π)
+| log(1 − 1
+ρ )|, (7.13)
+and observe β(π) is ﬁnite because 1 /∈Z(π), and |1 − 1
+ρ )| → 0 as |ρ| → ∞. then we obtain, for
+|z| ≤
+√
+R ≥ 2, that
+|FR(z)| ≤
+∑
+|ρ|≤R
+e
+√
+R log(1− 1
+ρ ) +O
+(
+(logR)2 1
+1 −R− 1
+2
+)
+= C3 (R logR)eβ(π)
+√
+R (7.14)
+31
+=== PAGE 32 ===
+in which the O-constant depends on π.
+We assert that all FR(z) represent the same analytic function. If R1 <R 2 and we consider
+the functions on the domain |z| < √R1 we can expand the individual terms (1 − 1
+ρ )z with
+R1 < |ρ| ≤ R2 inFR2 (z) and combine them term-by-term with the binomial expressio n, using
+σj(R1,π ) = σj(R2,π ) +
+∑
+R1<|ρ|≤R2
+1
+ρj
+,
+Since all sums converge absolutely and uniformly on |z|< √R1, we conclude that FR2(z) agrees
+with FR1(z) there. Letting R → ∞, we obtain an entire function Fπ(z) such that
+Fπ(z) = FR(z) when |z| ≤
+√
+R.
+The maximum modulus bound (7.13) now establishes that Fπ(z) is an entire function of order
+one and exponential type at most β(π).
+Evaluating at integer points n ∈ Z and choosing R = 2n2 gives
+Fπ(n) =
+∑
+|ρ|≤R
+(
+1 − (1 − 1
+ρ )n
+)
+−nσ1(R,π ) +
+∞∑
+j=2
+(−1)j
+( n
+j
+)
+σj(R,π )
+=
+∑
+|ρ|≤R
+(
+1 − (1 − 1
+ρ )n
+)
+−nσ1(R,π ) +
+n∑
+j=2
+(−1)j
+( n
+j
+)
+σj(R,π ). (7.15)
+The last term is a ﬁnite sum, so we can expand all the terms in th e ﬁrst sum |ρ| < R and
+rearrange to obtain
+Fπ(n) = −nσ1(π) +
+n∑
+j=2
+(−1)j
+( n
+j
+)
+σj(π) = λn(π) (7.16)
+using Lemma 2.2 for the last equality. This proves property ( i).
+The symmetry property of zeros under ρ ↦→1− ¯ρ implies thatFR(z) is real on the imaginary
+axis, for |z| < R. It follows that Fπ(z) is real on the imaginary axis, and reﬂection principle
+then gives the symmetry
+Fπ(−x +iy) = Fπ(x +iy) when |z|<R. (7.17)
+which is property (ii).
+We have constructed a speciﬁc function Fπ(z) which has properties (i), (ii). If β(π) ≥ π,
+then properties (i), (ii) do not determine the function uniq uely because we can add a real
+multiple of of z sinπz to the function while preserving properties (i) and (ii).
+(2) Now suppose that the Riemann hypothesis holds for ξ(s,π ). Then we can write
+ρ = 1
+2 +iγ = |ρ|eiϕρ (7.18)
+with −π <φρ ≤π, and
+ϕρ := tan −1(2γ), (7.19)
+so that φρ ≥ 0 when γ ≥ 0, and ϕρ < 0 otherwise. We have
+1 − 1
+ρ = −
+1
+2 −iγ
+1
+2 +iγ =ei(−2ϕρ ±π) (7.20)
+32
+=== PAGE 33 ===
+with the sign ± chosen so that the angle falls in ( −π,π ]. Let us now set
+ϕ∗(ρ) := { −2ϕρ +π if ϕρ > 0 ↔γ >0
+−2ϕρ −π if ϕρ < 0 ↔ γ <0. (7.21)
+The case ϕρ = 0, corresponding to s = 1
+2 , is problematic, since the sign ±π must have
+a discontinuity there. For the moment we use the convention t hat the + sign is chosen.
+Consequently
+| log
+(
+1 − 1
+ρ
+)
+| = |iϕ∗(ρ)| ≤ π (7.22)
+and equality can occur only if ϕ∗(ρ) = π, which requires that ϕρ = 0 and ρ = 1
+2. It follows
+that if the Riemann hypothesis holds for Z(π) then β(π) ≤π, and if there is no zero at s = 1
+2
+then β(π)<π.
+For uniqueness, suppose ﬁrst that Z(π) includes no zero at s = 1
+2 . It is well known (from
+the sampling theorem) that an entire function of order one an d exponential type less than π is
+completely speciﬁed by its values at integer points. Indeed , the diﬀerence of two such functions
+would be an entire function of order one and exponential type τ less than π vanishing at all
+integer points. Since a function of exponential type τ has at most ( 2τ
+π +o(1))R zeros in a disk
+of radius R, as R → ∞, it must be identically zero. In this case property (i), toge ther with a
+growth bound on the function, characterizes the interpolat ion function uniquely. In the cases
+where Z(π) has zeros at s = 1
+2 , we use a convention to handle their contribution and deﬁne
+Fπ(z) uniquely. If it has exactly k zeros there, we deﬁne their contribution to be
+f 1
+2
+(z) := k
+2
+(
+e−iπz +eiπz)
+.
+This function is real on the imaginary axis, and has f 1
+2
+(z) = f 1
+2
+(−z), and it corresponds
+to assigning half of the zeros at s = 1
+2 the argument −πi and the other half argument πi.
+Subtracting this contribution leaves an interpolation fun ction having exponential type strictly
+less than π, which is then uniquely speciﬁed by condition (i).
+It remains to bound the size of the interpolation function Fπ(z) on the real axis. Under
+the Riemann hypothesis, the bounds on the Li coeﬃcients in §5 and §6 lead one to expect an
+upper bound of shape O ((|x| + 2) log(|x| + 2)), and we now show this holds. We have
+Fπ(x) =
+∑
+ρ
+(
+1 − (1 − 1
+ρ )x
+)
+(7.23)
+and we bound each term separately in absolute value. For a zer o ρ with γ >0 we have
+ϕρ = π
+2 − 1
+2γ +O( 1
+γ2 ).
+It follows that for γ >5|x| we have
+1 − (1 − 1
+ρ )x = 1 −eix(−2ϕρ +π)
+= 1 − exp
+(
+2ix( 1
+2γ +O( 1
+γ2 )
+)
+= iix
+γ +O( x
+γ2 ). (7.24)
+33
+=== PAGE 34 ===
+We ﬁnd a similar expression when γ <0.
+We now divide the sum (7.23) into parts |ρ|< |x|+ 2 and |ρ| ≥ |x|+ 2. The former sum con-
+tributes O ((|x| + 2) log(|x| + 2)) using the bounds on the number of zeros in Theorem 2.1(4) .
+On the remaining range we pair the zeros with increasing posi tiveγ against those with increas-
+ing negative γ, and ﬁnd that their imaginary parts cancel out by Theorem 2.1 (4) to an error
+O( x log(|γ|+2)
+γ2 ) on each zero. Now summing over the O(logT ) zeros in an interval of length one
+at height T , for |x| + 2 ≤T ≤ ∞ gives a total contribution of
+O
+(
+x(log |x| + 2)2 1
+|x| + 2
+)
+=O
+(
+(log |x| + 2)2)
+.
+The bound on the sum (7.23) is then
+|Fπ(x)| ≤ C(|x| + 2) log(|x| + 2), − ∞<x< ∞,
+as asserted.
+We next consider the Fourier transform of Fπ(x) on the real line, regarded as a distribution.
+We suppose the Riemann hypothesis holds for π, and consider the unique function Fπ(z)
+given in Theorem 7.1(2). The growth bound in (7.3) implies th at it is well-deﬁned as a
+tempered distribution. Viewing (7.23) term-by-term we obt ain, a representation for this Fourier
+transform formally as a sum of delta functions
+ˆFπ(η) =
+∑
+ρ∈Z(π)
+(
+δ0(η) −δϕ∗(ρ)(η)
+)
+,
+in which δα(η) denotes a delta function centered at η =α. Note that the individual terms in
+the sum must be grouped as indicated to deﬁne a continuous lin ear functional on test function
+in the Schwartz space S(R). One deduces that the support of this tempered distributio n is
+real and lies in [ −π,π ], and is a discrete set, determined by the delta functions, e xcept at the
+non-isolated limit point η = 0.
+Remarks. (1) One can carry out a similar procedure to interpolate the a rchimedean contri-
+butions S∞(n,π ), for n ≥ 1 with an interpolation function Fπ,∞(z) that is an entire function
+of exponential type. One must modify the proof to subtract oﬀ the contribution of the term
+linear in z from the other terms in the formula of Lemma 4.2, to get a conve rgent formula.
+The resulting interpolation function is, formally,
+Fπ,∞(z) = C3(π) +C4(π)z +
+N∑
+j=1
+∞∑
+n=1
+(
+1 − 2
+2n +κj(π) − 1z − (1 − 2
+2n +κj(π) − 1 )z
+)
+(7.25)
+for a certain constants C3(π),C 4(π). Here we have
+|1 − 2
+2n +κj(π) − 1 |< 1 for all n ≥ 1.
+The interpolation function Fπ,∞(z) will be an entire function of exponential type. It has
+polynomial growth on the positive real axis (bounded by O((|x|+2) log(|x|+2) for positive real
+x), but increases exponentially on the negative real axis. Co nsequently its Fourier transform
+can be interpreted as a distribution, but not as a tempered di stribution.
+34
+=== PAGE 35 ===
+(2) One can also obtain an entire function Fπ,f (z) of exponential type interpolating Sf (n,π ),
+given as
+Fπ,f (z) := Fπ(z) −Fπ,∞(z) −δ(π).
+Again, even assuming the Riemann hypothesis, its Fourier tr ansform must be interpreted as a
+distribution and not a tempered distribution.
+(3) Assume the Riemann hypothesis holds for L(s,π ), and suppose that π =π∨ is self-dual.
+Then (7.20) yields
+(1 − (1 − 1
+ρ )n) + (1 − (1 − 1
+1 −ρ )n) = 2 − 2 cosnϕ∗(ρ). (7.26)
+Note that ϕρ → ± π
+2 as γ → ±∞ , and the ±π term is chosen of opposite sign, whence
+−2ϕρ ±π → 0 as |ρ| → ∞ .
+8. Concluding Remarks
+(1) Instead of the ξ-function treated in §2, one may alternatively consider generalized Li
+coeﬃcients associated to the function ξ+(s,π ) obtained by removing any zeros at s = 1
+2 from
+ξ(s,π ). Here
+ξ+(s,π ) := (s − 1
+2 )−e( 1
+2 ,π)ξ(s,π ),
+and we let λ+
+n (π) denote the associated Li coeﬃcients. Use of this function h as three positive
+features. First, it allows us to unambiguously obtain the fu nctional equation in the form
+ξ+(s,π ) = ξ+(1 −s,π )
+with the sign convention that ξ+( 1
+2 ) > 0. Second, assuming RH, the interpolating function
+F +
+π (z) for the generalized Li coeﬃcients associated to ξ+(s,π ) in §7 will be an entire function
+of order 1 and type strictly less than π. In consequence it is uniquely determined by the
+values {F +
+π (n,π ) := λ+
+n (π), n ∈ Z}. Third, in terms of the Weil scalar product associated
+to a hypothetical Hilbert-Polya operator, with eigenvalue s λ =s2 − 1
+4 , removal of the zeros at
+s = 1
+2 would correspond to taking the orthogonal complement of the eigenspace with eigenvalue
+λ = 0. It is hoped that zeros at s = 1
+2 will have some arithmetic-geometric meaning, as in
+the Birch-Swinnerton Dyer conjecture, and there may well be an arithmetico-geometric way
+to directly characterize this eigenspace.
+(2) There are analogues of the Li coeﬃcients for automorphic L-functions in the function
+ﬁeld case. We ﬁrst note that the ξ-function for the trivial representation over a function ﬁe ld
+K in one variable over a ﬁnite ﬁeld Fq can be taken to be
+ξ(s,π triv,K ) = q−s(1 −q−s)(1 −q1−s)ZK(s),
+in which ZK(s) is the (completed) function ﬁeld zeta function, and is a pol ynomial in w =q−s.
+For a rational function ﬁeld K = Fq(T ) we have ξ(s,π triv,K ) = 1. All other automorphic L-
+functions are polynomials in the variable w. The transformation s = − z
+1−z is still used to deﬁne
+the Li coeﬃcients in the function ﬁeld case. The deﬁnition (3 .1) for the “Weil scalar product”
+applies, and the positivity of the Li coeﬃcients is interpre table in terms of this scalar product
+applied to the Li test functions Gn(s). The asymptotics of the Li coeﬃcients in the function
+ﬁeld case are diﬀerent from those in the number ﬁeld case, sinc e there are no archimedean
+35
+=== PAGE 36 ===
+places. The main term in their asymptotics is Cn rather than the term Cn logn occurring in
+the number ﬁeld case.
+To interpret the Li coeﬃcients in terms of a function ﬁeld “ex plicit formula,” one must use
+a version in terms of the s-variable, noting that L-functions are singly periodic with period
+2πi
+log q . The standard function ﬁeld “explicit formula” is generall y stated in terms of the variable
+w, and it has an algebraic geometry interpretation, related t o intersection theory. The allowed
+test functions in this formula (related to divisors) are Lau rent polynomials in w = q−s with
+integer coeﬃcients, cf. Haran [26]. The Li test functions Gn(s) are not functions of q−s, and
+must be q-periodized using
+Pq(Gn)(s) :=
+∑
+n∈Z
+Gn(s + 2πin
+logq ). (8.1)
+to be viewed as function ﬁeld test functions. This sum (8.1) i s conditionally convergent and is
+regularized as a limit as T → ∞ of∑
+−T <n<T . It would be interesting to see if this framework
+is compatible with a framework of Deninger [13], [15, Sect. 4 ]. Another feature of the function
+ﬁeld case is that some function ﬁeld L-functions have multiple zeros on the critical line at
+positions other than s ≡ 1
+2 (mod 2πi
+log q ).
+(3) Under the Riemann hypothesis, the “explicit formula” de composition of the Li coeﬃ-
+cients into S∞(n,π ) and Sf (n,π ) reveals that the dominant contribution to the asymptotics
+of the Li coeﬃcients comes from the archimedean terms, which correspond in (7.25) to the
+“trivial zeros” of L(s,π ). This contrasts with the deﬁnition (1.3) of the Li coeﬃcien ts (1.3),
+which is a sum over the non-trivial zeros of L(s,π ), and does not include the “trivial zeros”. In
+eﬀect certain asymptotics of the nontrivial zeros are descri bed in terms of the “trivial zeros.”
+36
+=== PAGE 37 ===
+9. Appendix: “Explicit Formula” and Weil’s Quadratic Funct ional
+For simplicity we treat here only the case of the trivial repr esentation πtriv on GL(1). In
+that case, there are two versions of the “explicit formula” o f prime number theory, the trace
+form and the covariance form, described below. For all other automorphic representations π
+there is essentially only one form of the “explicit formula. ”
+Consider ﬁrst a vector space Aδ of test functions f : R>0 → C, deﬁned as follows. Associ-
+ated to a test function is its Mellin transform
+ˆf (s) :=
+∫ ∞
+0
+f (x)xsdx
+x .
+The vector space Aδ consists of those functions f (x) whose Mellin transform is analytic in the
+strip 1
+2 −δ <ℜ(s)< 1
+2 +δ, and extends continuously to the boundary of the strip, We pu t a
+metric on test functions given by the uniform norm on the clos ed strip,
+d(f1,f 2) := sups∈Sδ |f (s) −g(s)|.
+With this topology Aδ is a complete metric space. We deﬁne the involution
+˜f (x) := 1
+xf ( 1
+x ), (9.1)
+whose eﬀect on Mellin transforms is:
+ˆ
+˜f (s) = ˆf (1 −s). (9.2)
+We deﬁne the space ˆAδ to be the set of Mellin transforms of the elements of Aδ, regarded as
+analytic functions in the speciﬁed strip. Note that the spac e A in §3 is given by
+A = ∪δ<1/2 ˆAδ.
+We deﬁne the Weil distribution functional
+W [f ] :=
+∑
+{ρ:ξ(ρ)=0}
+′ ˆf (ρ), (9.3)
+in which
+′
+means that the (possibly conditionally convergent) sum is i nterpreted as limT →∞
+∑
+|ρ|≤T .
+Under suitable conditions W [f ] is a continuous linear functional on the allowed set of test func-
+tions Aδ, for example when δ > 1
+2. ( If the Riemann hypothesis is assumed one can take any
+δ >0.) We then deﬁne the trace functional
+T [f ] := ˆf (0) −W [f ] + ˆf (1) (9.4)
+The quantity T [f ] is sometimes called the “spectral side” of the “explicit fo rmula” of prime
+number theory.
+The “explicit formula” in trace form is an formula for T [f ] for a suitable set of test functions
+f , taking the shape
+T [f ] =
+∑
+ν
+Wν (f ), (9.5)
+in which Wν(f ) is a contribution associated to each (non-archimedean or a rchimedean) place
+ν of the given ﬁeld K. The right hand side of (9.5) is sometimes called the “arithm etic-
+37
+=== PAGE 38 ===
+geometric” side of the explicit formula. We shall not be conc erned with the exact form of the
+arithmetic-geometric side here, the individual terms Wν(f ) of which can be expressed in various
+interesting ways, see Burnol [6], Haran [25]. For general au tomorphic representations π the
+terms Wν(f ) represent contributions from individual terms in the Eule r product factorization
+of ξ(s,π ). A version of the ”explicit formula” in the trace formulati on is given in Patterson
+[41, Sect. 3.6]. In order to get an unconditional result one m ust use a test function space Aδ
+with δ > 1
+2. A version of the ”explicit formula” for principal automorph ic L-functions over
+GL(n) appears in Rudick and Sarnak [42, Prop. 2.1].
+One hope is that the “explicit formula” (9.5) might be interp retable as a Lefschetz trace
+formula coming from a dynamical system acting on an (unknown ) “geometric” object, in which
+T [f ] is to be viewed as a distributional trace with test function sf living on cohomology groups
+of the geometric object, and the arithmetic side giving data arising from ﬁxed points or periodic
+orbits on the geometric object. This viewpoint is taken in De ninger [14], [16] [17], [18].
+Weil originally formulated the explicit formula in the covariance form given by
+W [f ] = −
+∑
+ν
+Wν(f ) +W0(f ) +W1(f ). (9.6)
+This is a rearrangement of the terms in the “trace form” equal ity, in which we deﬁne
+W0(f ) := ˆf (0) =
+∫ ∞
+0
+1
+xf (x)dx
+x ,
+and
+W1(f ) := ˆf (1) =
+∫ ∞
+0
+f (x)dx
+x .
+Attached to this quantity Weil introduced the scalar product
+⟨f,g ⟩W :=W [f ∗ ˜
+¯g] =
+∑
+ρ
+ˆf (ρ)
+ˆg(1 − ¯ρ) =
+∑
+ρ
+ˆf (ρ)ˆ
+ˆ
+¯g(1 −ρ). (9.7)
+Weil’s criterion for the Riemann hypothesis is that this sca lar product be positive semideﬁnite
+on a suitable space of test functions, which could be taken to be Aδ for any δ >1
+2 , for example.
+This scalar product will be indeﬁnite if the Riemann hypothe sis does not hold. We may
+transport this scalar product forward to the Mellin-transf ormed space ˆA as
+⟨ ˆf, ˆg⟩W := ⟨f,g ⟩W.
+The Weil functionalW [f ] has a natural interpretation in the function ﬁeld case, see Haran [26].
+One feature of the covariance form (9.6) of the “explicit for mula” compared to the trace
+form is that one can make sense of the functional W [f ] on a larger set of test functions than
+those allowed in the trace form, permitting test functions t hat have singularities at s = 0 and
+s = 1. However the right hand side of (9.6) must then be redeﬁned as a limit as T → ∞, with
+each local term computed using cutoﬀs at x = 1
+T near zero and at x = T near ∞. This was
+done in the computations in [4]. This is a ”regularization” o f the right side of (9.6) because
+the two terms W0(f ) and W1(f ) diverge as the cutoﬀ parameter T → ∞ . Note that these
+two terms are present only for the trivial representation πtriv on GL(1), and are absent from
+the analogous formula for all other cuspidal automorphic re presentations π. In these other
+cases the analoguous formulas have T [f ] = −W [f ], so the “trace form” and “covariance form”
+essentially coincide.
+38
+=== PAGE 39 ===
+The vector space L of Li test functions makes sense for this extended covarianc e form of
+the ”explicit formula” with a cutoﬀ parameter, and not for th e trace form. As noted in §3, it
+consists exclusively of rational functions which have pole s either at s = 0 or s = 1, or both.
+In consequence the trace function T [f ] is undeﬁned for every Li test function. For example, if
+gn(x) denotes the test function on R>0 whose Mellin transform
+Gn(s)ˆgn(s) =
+∫ ∞
+0
+gn(x)xs−1dx,
+gave the Li test functions Gn(s) in (3.2) then ˆgn(0) is inﬁnite, for each n ≥ 1. In [4, Lemma
+2] the functions gn(x) were explicitly determined, as
+gn(x) = {
+Pn(logx) if 0 <x< 1
+n
+2 if x = 1
+0 if x> 1.
+in which
+Pn(x) :=
+n∑
+j=1
+( n
+j
+) xj−1
+(j − 1)!.
+We note that Pn(x) = Lα
+n(x) is a Laguerre polynomial with α = 1. The Weil scalar product of
+gn with other functions remains well-deﬁned in the covariance form of the “explicit formula”
+when a cutoﬀ version is used. In terms of the cutoﬀ version of t he deﬁnition, the unbounded
+contribution from ˆgn(0) above as T → ∞ is oﬀset by a corresponding divergence coming from
+the ﬁnite primes in the “explicit formula.” The Weil distrib ution functional W [f ] is well-
+deﬁned for all f ∈ L , as is the Weil scalar product, whether or not the Riemann hyp othesis
+holds.
+39
+=== PAGE 40 ===
+References
+[1] E. W. Barnes, On the expression of Euler’s constant as a de ﬁnite integral, Messenger of
+Math. 33 (1903), 59–61.
+[2] P. Biane, J. Pitman and M. Yor, Probability laws related t o the Jacobi theta and Riemann
+zeta functions, and Brownian excursions, Bull. Amer. Math. Soc. 38 (2001), 435–465.
+[3] E. Bombieri, Remarks on Weil’s quadratic functional in t he theory of prime numbers I,
+Rend. Mat. Acc. Lincei, Ser. IX, 11 (2000), 183–233.
+[4] E. Bombieri and J. C. Lagarias, Complements to Li’s crite rion for the Riemann hypothesis,
+J. Number Theory 77 (1999), 274–287.
+[5] F. C. S. Brown, Li’s criterion and zero-free regions of L-functions, J. Number Theory, 111
+(2005), 1–32.
+[6] J.-F. Burnol, The explicit formula in simple terms, epri nt: arxiv math.NT/9810169 v2
+22 Nov 1998 .
+[7] J.-F. Burnol, Sur les Formules Explicites I: analyse inv ariante, C. R. Acad. Sci. Paris,
+Serie I, 331 (2000), 423–428.
+[8] M. Coﬀey, Relations and positivity results for the deriva tives of the Riemann ξ-function,
+J. Comput. Appl. Math. 166 (2004), 525–534.
+[9] M. Coﬀey, Toward veriﬁcation of the Riemann hypothesis, p reprint: Sept. 18, 2003.
+[10] J. Cogdell, Analytic theory of L-functions for GLn, in: J. Bernstein and S. Gelbart, Eds.,
+An Introduction to the Langlands Program, Birkh¨ auser: Boston 2003, pp. 197–228.
+[11] H. Cram´ er, Studien ¨ uber die Nullstellen der Riemannschen Zetafunktion, Math. Zeitschr.
+4 (1919), 104–130.
+[12] H. Davenport, Multiplicative Number Theory. Third Edition . Revised and with a preface
+by H. L. Montgomery, Springer-Verlag: New York 2000.
+[13] C. Deninger, Local L-factors of motives and regularized determinants, Invent. Math. 107
+(1992), 135–150.
+[14] C. Deninger, Lefschetz trace formulas and explicit for mulas in analytic number theory, J.
+Reine Angew. 441 (1993), 1–15.
+[15] C. Deninger, Motivic L-functions and regularized determinants, in: Motives, Proc. Symp.
+Pure Math., vol. 55, part I, Amer. Math. Soc.: Providence, 19 94, 707–743.
+[16] C. Deninger, Evidence for a cohomological approach to a nalytic number theory, in: First
+European Congress of Mathematics, Vol I (Paris 1992) , Birkh¨ auser: Basel 1994, pp. 491–
+510.
+[17] C. Deninger, Some analogies between number theory and d ynamical systems on foliated
+spaces, Proc. Int. Cong. Math. Vol. I (Berlin 1998), Doc. Mat h. 1998, Extra Vol. 1, pp.
+163–186.
+40
+=== PAGE 41 ===
+[18] C. Deninger, On the nature of the “explicit formulas” in analytic number theory- A
+simple example, in: Number Theoretic Methods (Iizuka, 2001) , Dev. Math. Vol. 8, Kluwer:
+Dordrecht 2002, pp. 97–118.
+[19] C. Deninger and M. Schr¨ oter, A distribution-theoretic proof of Guinand’s functional equa-
+tion for Cram´ er’s V-function, J. Lond. Math. Soc. 52 (1995), 48–60.
+[20] P. Freitas, A Li-type criterion for zero-free half-pla nes of Riemann’s zeta function, preprint
+2005.
+[21] I. M. Gelfand and D. Kazhdan, Representation of the grou pGL(n,K ) where K is a local
+ﬁeld, pp. 95–118 in: Lie Groups and Their Representations, John Wiley & Sons: New
+York 1974.
+[22] S. Gelbart and S. D. Miller, Riemann’s zeta function and beyond, Bull. Amer. Math. Soc.
+41 (2004), 59–112. [eprint: arXiv math.NT/0309478 ]
+[23] R. Godement and H. Jacquet, Zeta fuctions of simple algebras, Lecture Notes in Math.,
+Vol. 260, Springer-Verlag: Berlin 1972.
+[24] A. P. Guinand, Fourier reciprocities and the Riemann ze ta-function, Proc. London Math.
+Soc. 51 (1949) 401–414.
+[25] S. Haran, Riesz potentials and explicit sums in arithme tic, Invent. Math. 101 (1990),
+697–703.
+[26] S. Haran, Index theory, potential theory and the Rieman n hypothesis, in: L-Functions
+and Arithmetic (Durham 1989) , Cambridge Univ. Press 1991, pp. 257–270.
+[27] S. Haran, The Mysteries of the Real Prime , Oxford Univ. Press: Oxford 2001.
+[28] G. Ilies, Cram´ er functions and Guinand equations, Act a Arith. 105 (2002), 103–118.
+[29] H. Iwaniec and E. Kowalski, Analytic Number Theory , Amer. Math. Soc.: Providence, RI
+2004.
+[30] H. Iwaniec and P. Sarnak, Perspectives on the analytic t heory of L-functions, GAF A 2000
+(Tel Aviv 1999), Geom. Funct. Anal. 2000, Special Volume, Part II, 705–741.
+[31] H. Jacquet, Principal L-functions of the linear group, pp. 63–86 in: Automorphic Forems,
+Representations and L-Functions, Proc. Symp. Pure Math. 33, Part 2, Amer. Math. Soc.:
+Providence, RI 1979.
+[32] H. Jacquet and J. A. Shalika, On Euler products and the cl assiﬁcation of automorphic
+representations I, Amer. J. Math. 103 (1981), 499–558.
+[33] J. Jorgenson and S. Lang, Guinand’s theorem and functio nal equations for the Cram´ er
+functions, J. Number Theory 86 (2001), 351–367.
+[34] J. Keiper, Power series expansions of Riemann’s ξ-function, Math. Comp. 58 (1992),
+765–773.
+[35] X.-J. Li, The positivity of a sequence of numbers and the Riemann hypothesis, J. Number
+Theory 65 (1997), 325–333.
+41
+=== PAGE 42 ===
+[36] X.-J. Li, Explicit formulas for Dirichlet and Hecke L-f unctions, Illinois J. Math, to appear.
+[37] X.-J. Li, An explicit formula for the Euler product of He cke polynomials, J. Number
+Theory, to appear (2005). eprint: arXiv math.NT/0403148 9 Mar 2004 .
+[38] X.-J. Li, An explicit formula for Hecke L-functions, eprint: arXiv math.NT/0403119 6
+Mar 2004 .
+[39] W.-Z. Luo, Z. Rudnick and P. Sarnak, On the generalized R amanujan conjecture for
+GL(n). pp. 301–310 in: Automorphic forms, automorphic repesentations and arithm etic
+(Fort Worth, TX 1996) , Proc. Symp. Pure Math. Vol 66, Part 2, Amer. Math. Soc.:
+Providence, RI 1999.
+[40] K. Maslanka, Eﬀective method of computing Li’s coeﬃcien ts and their properties, Exper-
+imental Math., to appear. eprint: arXiv: math.NT/0402168 v2 .
+[41] S. J. Patterson, An introduction to the theory of the Riemann zeta function , Cambridge
+U. Press: Cambridge 1988.
+[42] Z. Rudnick and P. Sarnak, Zeros of principal L-functions and random matrix theory, Duke
+Math. J. 81 (1996), 269–322.
+[43] A. Voros, Spectral zeta functions, in: Zeta Functions in Geometry , Adv. Studies in Pruer
+Math., Vol 24, 1992, pp. 327–358.
+[44] A. Voros, Zeta functions for the Riemann zeros, Ann. Ins t. Fourier 53 (2003), 665–699.
+[45] A. Voros, A sharpening of Li’s criterion for the Riemann hypothesis, C. R. Acad. Sci.
+Paris, submitted. eprint: arXiv math.NT/0404213.
+[46] A. Weil, Sur les “formules explicites” de la th´ eories d es nombres premiers, Meddelanden
+Fr ˚ an Lunds Univ. Mat. Sem. (dedi´ e a M. Riesz) (1952), 252-2 65. (Also: Œuvres Sci-
+entiﬁques - Collected Papers , Springer-Verlag, Corrected Second Printing 1980, Vol.II ,
+48-61.)
+42

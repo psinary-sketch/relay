@@ -1,0 +1,64 @@
+====================================================================================================
+b327_bridge.py -- THE CORROBORATION OF THE DERIVED MAP lambda_A(n) = S_inf(n) + 1. ### TWO ROUTES.
+====================================================================================================
+  route A : the bench's definitions executed from <papers>\internal\bench\li_bench.py (its first 69 lines; the run section not executed)
+  route B : the source's closed form (4.11) with mpmath.zeta ; dps = 260 ; M = 512 ; n <= 30
+  bar     : |lambda_A(n) - S_inf(n) - 1| <= 1.0e-20 at every n, and the two radii within the same bar
+
+     n       lambda_A (route A)      S_inf + 1 (route B)         |diff|    radii agree   L_n(log s)-1 |A-S_inf| SAME arm
+     1    -0.554119955935411827    -0.554119955935411827            0.0      1.02e-261       1.42e-39            1.0
+     2    -0.874539361734653826    -0.874539361734653826            0.0      3.05e-261       5.53e-42            1.0
+     3       -1.013058007662371       -1.013058007662371      2.03e-261      1.02e-260       3.22e-44            1.0
+     4     -1.00679765237901629     -1.00679765237901629      1.22e-260      2.24e-260        2.5e-46            1.0
+     5    -0.882725785735990201    -0.882725785735990201      4.06e-261      3.86e-260       2.41e-48            1.0
+     6    -0.660732314929838302    -0.660732314929838302      4.06e-261      5.79e-260        2.8e-50            1.0
+     7    -0.355730722667883135    -0.355730722667883135      4.67e-260      1.08e-259       3.77e-52            1.0
+     8    0.0208999330276289764    0.0208999330276289764      1.24e-259      1.91e-259        5.8e-54            1.0
+     9     0.460319641591238177     0.460319641591238177       1.3e-259      3.88e-259        1.0e-55            1.0
+    10     0.955535679496863683     0.955535679496863683      5.04e-259      7.12e-259       1.92e-57            1.0
+    11      1.50091806239811322      1.50091806239811322      1.88e-258      9.51e-259       4.04e-59            1.0
+    12      2.09185707368555642      2.09185707368555642      3.87e-258      1.91e-259       9.25e-61            1.0
+    13      2.72451874073332758      2.72451874073332758      1.11e-257      7.28e-258       2.29e-62            1.0
+    14      3.39566826609026199      3.39566826609026199       2.6e-257      3.33e-257       6.09e-64            1.0
+    15      4.10254095094042987      4.10254095094042987      4.07e-257      1.09e-256       1.73e-65            1.0
+    16      4.84274658748795489      4.84274658748795489      9.24e-257      2.99e-256       5.26e-67            1.0
+    17       5.6141976595119546       5.6141976595119546      2.28e-256      7.28e-256       1.69e-68            1.0
+    18      6.41505465531644765      6.41505465531644765      3.45e-256      1.64e-255       5.74e-70            1.0
+    19      7.24368381993625092      7.24368381993625092      5.25e-256      3.53e-255       2.05e-71            1.0
+    20      8.09862405929422427      8.09862405929422427      1.05e-255      7.56e-255       7.72e-73            1.0
+    21      8.97856066336647575      8.97856066336647575      3.39e-255      1.66e-254       3.04e-74            1.0
+    22      9.88230417650451642      9.88230417650451642      8.85e-255      3.73e-254       1.25e-75            1.0
+    23      10.8087732040867864      10.8087732040867864      2.73e-254      8.15e-254       5.38e-77            1.0
+    24      11.7569802686186907      11.7569802686186907      6.85e-254      1.54e-253       2.41e-78            1.0
+    25       12.726020057959086       12.726020057959086      1.67e-253      1.75e-253       1.12e-79            1.0
+    26      13.7150595725423581      13.7150595725423581      3.24e-253      3.67e-253       5.42e-81            1.0
+    27       14.723329797089719       14.723329797089719      4.85e-253      3.59e-252       2.72e-82            1.0
+    28      15.7501186089293895      15.7501186089293895      8.13e-254      1.68e-251       1.41e-83            1.0
+    29      16.7947646990164231      16.7947646990164231      2.57e-252      6.24e-251       7.55e-85            1.0
+    30      17.8566523295298064      17.8566523295298064      1.33e-251      2.03e-250       4.18e-86            1.0
+
+  worst |lambda_A - S_inf - 1| over n <= 30 : 1.33e-251   (bar 1.0e-20)  HOLDS
+  worst disagreement between the two radii     : 2.03e-250   HOLDS
+  worst |L_n(log s) - 1| (the pole term alone) : 1.42e-39   HOLDS
+  ### THE DISCRIMINATION ARM -- the SAME hypothesis (difference 0) -- smallest |lambda_A - S_inf| : 1.0  FIRES (the SAME arm fails at every n)
+
+  ### THE SUM AGAINST THE BENCH'S OWN LITERATURE VALUES (a consistency line, not a bar):
+    n = 1  lambda_A + lambda_Z = 0.023095708966121   literature 0.0230957089662   |diff| 7.9e-14
+    n = 2  lambda_A + lambda_Z = 0.092345735228047   literature 0.0923457352914   |diff| 6.34e-11
+    n = 3  lambda_A + lambda_Z = 0.20763892055432   literature 0.2077580993   |diff| 0.000119
+    n = 4  lambda_A + lambda_Z = 0.36879047949224   literature 0.3687904   |diff| 7.95e-8
+    n = 5  lambda_A + lambda_Z = 0.57554271446118   literature 0.5747345   |diff| 0.000808
+
+  ### QUESTION ONE : DIFFERENT, constituent quoted -- the difference is the constant 1 at every n -- the `log s` term of f_A, the source's "contribution from the pole at s = 0"; the gamma-factor part of the channel IS the archimedean-place term, map derived, normalizations reconciled with nothing left over
+  ### QUESTION TWO : DIFFERENT, constituent quoted -- the Li margin is (1/2) of the Weil norm of G_n (the source's (3.4)), whose second term is the finite places, lambda_Z(n) = -S_f(n); the Sonin margin's second term is the compressed square Tr(theta(g) S theta(g)*) -- b324, constituent (4): "The square is not a zero channel" -- and the arc measures the Weil functional on its family SEPARATELY, as the zero side (b321: "SUM_v W_v(f) = - Z"). No statement in the record identifies the compressed square with a finite-place sum, and this act claims none.
+  ### ONE DISTRIBUTION ON TWO FAMILIES, NOT ONE FUNCTIONAL: the archimedean distribution 2 Re(Gamma_R'/Gamma_R) on
+  ### the line -- the atlas's kernel Re psi(1/4 + iu/2) - log pi -- is what both channels evaluate, on the Li
+  ### family through its Taylor coefficients at s = 1 and on the Sonin family through the atlas's integral.
+  ### THE "IF SAME" BRANCH OF THE ORDER : DOES NOT FIRE
+  ### AT SCOPE, WHAT THE FINITE-RANGE CERTIFICATE SAYS ABOUT THE SONIN MARGIN ON THE LI FAMILY : nothing -- G_n(s)
+  ### is a rational function whose inverse Mellin transform has no compact support, so the Li family lies outside
+  ### Theorem 1's class (supp g in [2^-1/2, 2^1/2]) and the Sonin margin is not defined on it.
+  ### THE FOURTH CONTROL, PRICED, NOT RUN: the explicit formula closed on the Li family through the corpus's channels
+  ### (zero side over the atlas's 10000 ordinates; S_inf by a third route, the atlas kernel against G_n on the
+  ### line, its conditionally convergent u-tail bounded; the zero tail O(n log T / T) bounded). One act.
+====================================================================================================
