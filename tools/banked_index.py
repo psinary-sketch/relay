@@ -83,6 +83,13 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-reach': ['the reach', 'the crossing region', 'both windows extended',
+                  'the closure for both', 'the halved kernel', 'the missing half',
+                  'the withdrawn crossing', 'a test this family cannot fail',
+                  'the aimed family'],
+    'epstein-zeros': ['epstein zeros', 'the epstein zeros', 'the on-line epstein zeros',
+                      'the completeness census', 'the off-line zeros located',
+                      'the epstein library', 'zeros on the line'],
     'negative-control': ['the negative control', 'a failing hypothesis',
                          'does the instrument see a failing hypothesis',
                          'the priced reach', 'the positive control',
@@ -469,6 +476,72 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE REACH -- THE VERDICT (b326).
+    ("the-reach", "b326 (a computation on the explicit-formula instrument; the verdict)",
+     "both windows extended with every prime and every representation number to a = 400,"
+     " twenty-six cells: **ZETA KEEPS THE PERMITTED SIGN AT EVERY CELL; SO DOES THE EPSTEIN"
+     " FUNCTION** -- no crossing at this reach. ### The explicit formula closes for zeta at 26"
+     " of 26 and for the Epstein function, with every located off-line zero, at 21 of 21 below"
+     " the library's ceiling. ### **VERDICT: DOES NOT SEE IT AT THE ARC'S FAMILY TO a = 400,"
+     " AND AT A DECLARED AIMED FAMILY** (cos(omega v) on every bump, omega = 16.290216, the"
+     " banked off-line height). ### The navigator's expectation REFUTED in its first half (the"
+     " priced crossing was an artefact) and MET in its second (zeta negative throughout)",
+     "### A FAMILY VERDICT IS NOT A METHOD VERDICT. ### The reason from the numbers: on"
+     " f = g conv g^# the off-line four-term sums come out POSITIVE for a seed whose transform"
+     " keeps its sign across the off-line real part (+1.29 of 25.4 at a = 1.3; aimed, 92 to 98"
+     " per cent of the zero side and still positive), so the failing function's places sum is"
+     " minus a sum of squares plus a positive correction -- the permitted sign for the same"
+     " reason zeta's is. ### **THE FAMILY THAT COULD SEE IT NEEDS A SIGN CHANGE ACROSS beta AND"
+     " 1 - beta**, priced at one act, not built. ### **THE ENTAILMENT AT EXACTLY ITS SCOPE: the"
+     " zeta window at this reach is not a passed test but a test this family cannot fail**; the"
+     " arc's *could not have come out otherwise* is true of the library at the arc's cells and,"
+     " on this family, of the method to a = 400. ### NOTHING ABOUT h2 OR THE ROSTER. ### NO"
+     " GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b326_the_reach.txt; data/b326_windows_run.txt; data/b326_closure_run.txt;"
+     " data/b326_registration_2026-09-04.txt (sealed before any run); CORRESPONDENCE.md row 164"),
+    # ### THE REACH -- THE KERNEL THE CLOSURE DECIDED (b326).
+    ("the-reach", "b326 (the closure, and the prior act's kernel)",
+     "a derivation written into the registration BEFORE any run: the Epstein archimedean"
+     " kernel is 2 Re(gamma_Q'/gamma_Q) = 2 Re psi(1/2 + iu) - 2 log(2pi/sqrt23), exactly as"
+     " zeta's atlas kernel is 2 Re(gamma_R'/gamma_R); b325's kernel_q was named as one half of"
+     " it. ### **THE CLOSURE DECIDED IT**: derived kernel closes at 21 of 21 cells below the"
+     " ceiling; b325's fails at 21 of 21, and at every one the residual equals the missing half"
+     " to within the bar (+2.2495 against 2.249540 at a = 3). ### **b325's PRICED CROSSING AT"
+     " a ~ 22 WAS THE HALVED CHANNEL'S ARTEFACT AND IS WITHDRAWN**: the true places sum there is"
+     " -0.374; the +0.017 reappears under b325's kernel and nowhere else",
+     "### **b325 IS NOT RE-VERDICTED.** ### Its DOES NOT SEE IT at the arc's cells stands and"
+     " is stronger (the true places sums are twice as negative); what is withdrawn is a PRICE,"
+     " by the measurement b325 reported as blocked. ### Its sealed registration is not edited;"
+     " the defect is filed as a sealed-bar-found-defective row for the next fold; the internal"
+     " confinement keystone gains an appended correcting line with b325's block visible above"
+     " it. ### **THE LIBRARY THE ORDER NAMED (two banked off-line zeros) FAILED AT 15 CELLS**"
+     " and the fourth link -- completeness -- was walked to fifteen unbanked zeros. ### The"
+     " corpus's census is not called wrong: it banked what lay below t = 33. ### NO GRADE MOVED."
+     " ### NO ACT RE-VERDICTED. ### M-2 UNCHANGED",
+     "data/b326_the_reach.txt; data/b326_closure_run.txt (the link walked); tools/b326_windows.py"
+     " (kernel_q_derived, fixture (iv)); data/b326_closure_run_first_defective.txt (kept);"
+     " CORRESPONDENCE.md row 165"),
+    # ### THE EPSTEIN ZEROS (b326).
+    ("epstein-zeros", "b326 (the zero library, two routes, every box)",
+     "the Epstein function's zeros on the line to T = 150 by the corpus's own argument-principle"
+     " census run at Re s = 1/2, its constants rebound for the height (K = 240, dps = 119 -- the"
+     " registered dps 60 FAILED ITS OWN GATE, the cancellation being against the pole term,"
+     " e^{pi t/2}/t^2): **146 ZEROS, EVERY ONE AGREED BY AN INDEPENDENT SECOND ROUTE** (Z_Q by"
+     " regularized incomplete gammas, mpmath.findroot), 299 of 299 boxes holding exactly their"
+     " sign-change count (one close pair 0.015 apart resolved by a finer scan). ### The"
+     " completeness census over sigma in [0.52, 1.50] to t = 150: **SEVENTEEN OFF-LINE ZEROS,"
+     " FIFTEEN UNBANKED**, each by both routes; 146 + 2 x 17 = 180 against a main term of 178.6",
+     "### THE CENSUS'S CAVEAT ANSWERED, NOT WAVED: a line scan counts what lies ON the line, the"
+     " box windings say what lies within 0.02 of it, and the completeness census says what lies"
+     " off it -- the abscissa 1.50 is where SUM r_Q(k) k^{-3/2} = 1.38 < 2 makes a zero impossible."
+     " ### The two banked off-line zeros refine to 0.953260 + 16.290216i and 0.797997 +"
+     " 29.551761i inside their rectangles and reappear in the completeness census. ### **THE"
+     " CORPUS'S CENSUS IS NOT CALLED WRONG**: it banked what lay below t = 33 and was right; the"
+     " confinement keystone's finding is strengthened from two instances to seventeen. ### The"
+     " library is COMPLETE TO T = 150 AND NO HIGHER, a cap set by price. ### NO GRADE MOVED",
+     "data/b326_epstein_zeros.json; data/b326_zeros_run.txt; data/b326_offline.json;"
+     " data/b326_offline_run_150.txt; tools/b326_zeros.py; tools/b326_offline.py;"
+     " tools/e16/epstein_census.py (the evaluator, rebound not edited)"),
     # ### THE NEGATIVE CONTROL -- THE VERDICT (b325).
     ("negative-control", "b325 (a read, a pricing, and the run; the verdict)",
      "the archimedean instrument aimed at a hypothesis KNOWN TO FAIL: the Epstein zeta of"

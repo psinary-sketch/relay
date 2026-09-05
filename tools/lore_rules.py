@@ -74,6 +74,17 @@ MECHANIZED = [
               'it CANNOT see a terminal in a module that IS imported but has no `#print axioms` '
               'line. That is a second species and is NOT covered.**',
          discharged='b289 (two modules); 25 remain -- `W-ORD-PRINT-COVERAGE`, filed b290'),
+    dict(rule='A constant is scope-bound and its scope is written down. A tuple that was '
+              'ample where it was born is a tuple, not a law.',
+         incident='b325 -- `b321_window.PRIMES = (2, ..., 31)`, copied from the atlas\'s own '
+                  'prime loop and ample at the arc\'s cells (support below 9), was carried to '
+                  'a = 32 (support 1024) where it misses almost every prime in range: zeta\'s '
+                  'places sum came out +0.003489041, a value b321\'s own theorem forbids. The '
+                  'positive control fired; with every prime the value is -0.000389214.',
+         tool='b321_window.primes_to(reach) -- the set is GENERATED to the reach of the test '
+              'function\'s support and the scope is in the header (edited b326 by order); the '
+              'lore self-test carries both polarities below.',
+         discharged='b326'),
 ]
 
 # ### ==========================================================================================
@@ -214,6 +225,17 @@ def _fixture_hedge():
     return fires, quiet
 
 
+def _fixture_scope_bound():
+    """### BOTH POLARITIES: the frozen tuple is insufficient at reach 100 (the gate FIRES on it);
+    ### the generated set reaches the prime the tuple does not (the gate stays QUIET on it)."""
+    sys.path.insert(0, os.path.join(ROOT, 'tools', 'e16'))
+    import b321_window
+    gen = b321_window.primes_to(100)
+    fires = (37 not in b321_window.PRIMES_ATLAS) and (max(b321_window.PRIMES_ATLAS) < 100)
+    quiet = (37 in gen) and (gen[-1] == 97) and (len(gen) == 25)
+    return fires, quiet
+
+
 def self_test(verbose=True):
     out = []
 
@@ -240,7 +262,8 @@ def self_test(verbose=True):
     rec('### THE FIXTURES, BOTH POLARITIES ON EACH MECHANIZED RULE THAT HAS A CALLABLE GATE:')
     for name, fn in [('whole-line must-fail (b277/b278)', _fixture_needle_wholeline),
                      ('noise floor, drift arm (b272)', _fixture_noise_floor),
-                     ('hedge audit, both shapes (b279)', _fixture_hedge)]:
+                     ('hedge audit, both shapes (b279)', _fixture_hedge),
+                     ('scope-bound constant (b325/b326)', _fixture_scope_bound)]:
         a, b = fn()
         ok = a and b
         if not ok:

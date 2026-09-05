@@ -1,0 +1,170 @@
+====================================================================================================
+b326 -- THE CORROBORATION. ### THE EXPLICIT FORMULA CLOSED FOR BOTH; THEN THE VERDICT.
+====================================================================================================
+  the census reaches the library top: N(150) by the argument principle = 146 on the line + 2 x 17 off = 180, against the main term 178.6 (the difference is S(T) and the constant term, as it should be)
+  completeness census : sigma in [0.52, 1.50] to t = 150 ; off-line zeros located 17 (banked 2 reappear: 2 of 2) ; main term 178.6 against on-line 146 + 2 x 17 off-line -> unlocated deficit taken as 0
+  Epstein library : T = 150, on-line zeros 146, off-line 2, dps 119, K 240, box mismatches 0
+  zeta library    : 10000 ordinates, last 9877.7827
+  (i) the off-line four-term sum at a = 3 is real : imag 0.000e+00 (route 2 0.000e+00)
+  (ii) zero side, the two EXACT arrangements at a = 3 : zeta 0.315809856997 vs 0.315809856998 ; Epstein on-line 4.446586342615 vs 4.446586342616
+  (iii) the registered quadrature pair against the exact form, zeta ordinates <= 1000 : trapezoid 0.315809859386, Simpson 0.315809811363, exact 0.315809856997
+  (iv) the aliasing the first run suffered, reproduced: zeta zero side at a = 16 on the native grid 7.400774, exact 0.003448718 (places sum -0.003447230)
+  ### FIXTURES : PASS
+  closure rows banked 30, to compute 0 (a kill loses nothing: the bank resumes)
+
+  a      zeta zero      zeta resid     zeta bar    zeta status      Q zero         Q resid     Q bar            Q status       Q resid(b325 k)
+  1.3    8.781187907    +3.558e-05     1.81e-04    CLOSES           25.445555391   -6.694e+00  1.08e+00         BEYOND CEILING +9.376e+00  BEYOND CEILING
+         bars: zeta zero-tail 2.4e-15 + arch u-tail 3.6e-05 + 10 x (u-drift 3.4e-11 + v-drift 1.5e-05) ; Epstein zero-tail 1.1e+00 + arch u-tail 9.5e-05 + 10 x (u-drift 9.2e-11 + v-drift 4.7e-05) + deficit 0.0e+00 | fine minus windows: arch_z -4.8e-07 arch_q -1.7e-06 prime_z +0.0e+00 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 31.909711569  resid -2.295e-01 BEYOND CEILING | b325 kernel resid +1.584e+01 BEYOND CEILING | deficit bound 0.00e+00
+  1.35   7.130749578    +1.341e-05     1.33e-04    CLOSES           21.986507787   -5.019e+00  6.29e-01         BEYOND CEILING +8.484e+00  BEYOND CEILING
+         bars: zeta zero-tail 2.8e-15 + arch u-tail 1.3e-05 + 10 x (u-drift 9.3e-12 + v-drift 1.2e-05) ; Epstein zero-tail 6.3e-01 + arch u-tail 3.6e-05 + 10 x (u-drift 2.5e-11 + v-drift 4.1e-05) + deficit 0.0e+00 | fine minus windows: arch_z -4.0e-07 arch_q -1.4e-06 prime_z +0.0e+00 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 26.937038816  resid -6.853e-02 BEYOND CEILING | b325 kernel resid +1.343e+01 BEYOND CEILING | deficit bound 0.00e+00
+  1.41   5.747987837    +4.019e-06     1.01e-04    CLOSES           19.300710740   -3.327e+00  1.24e-01         BEYOND CEILING +7.987e+00  BEYOND CEILING
+         bars: zeta zero-tail 3.1e-15 + arch u-tail 4.0e-06 + 10 x (u-drift 4.4e-12 + v-drift 9.7e-06) ; Epstein zero-tail 1.2e-01 + arch u-tail 1.1e-05 + 10 x (u-drift 1.2e-11 + v-drift 3.4e-05) + deficit 0.0e+00 | fine minus windows: arch_z -3.2e-07 arch_q -1.2e-06 prime_z +0.0e+00 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 22.589023226  resid -3.849e-02 BEYOND CEILING | b325 kernel resid +1.128e+01 BEYOND CEILING | deficit bound 0.00e+00
+  1.5    4.372721548    +7.812e-07     7.61e-05    CLOSES           16.721192570   -1.458e+00  7.88e-02         BEYOND CEILING +7.632e+00  BEYOND CEILING
+         bars: zeta zero-tail 3.3e-15 + arch u-tail 7.8e-07 + 10 x (u-drift 8.0e-14 + v-drift 7.5e-06) ; Epstein zero-tail 7.8e-02 + arch u-tail 2.1e-06 + 10 x (u-drift 2.2e-13 + v-drift 2.8e-05) + deficit 0.0e+00 | fine minus windows: arch_z -2.5e-07 arch_q -9.5e-07 prime_z -1.4e-10 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 18.164934125  resid -1.397e-02 BEYOND CEILING | b325 kernel resid +9.075e+00 BEYOND CEILING | deficit bound 0.00e+00
+  1.7    2.715106336    +4.703e-08     4.88e-05    CLOSES           12.442009415   -2.132e-01  1.42e-02         BEYOND CEILING +6.114e+00  BEYOND CEILING
+         bars: zeta zero-tail 9.9e-15 + arch u-tail 4.7e-08 + 10 x (u-drift 8.9e-14 + v-drift 4.9e-06) ; Epstein zero-tail 1.4e-02 + arch u-tail 1.3e-07 + 10 x (u-drift 2.3e-13 + v-drift 2.0e-05) + deficit 0.0e+00 | fine minus windows: arch_z -1.6e-07 arch_q -6.7e-07 prime_z +2.8e-09 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 12.652381189  resid -2.834e-03 BEYOND CEILING | b325 kernel resid +6.325e+00 BEYOND CEILING | deficit bound 0.00e+00
+  1.9    1.912333269    +5.216e-09     3.52e-05    CLOSES           9.617755686    -1.220e-01  7.72e-03         FAILS          +4.748e+00  FAILS
+         bars: zeta zero-tail 6.7e-15 + arch u-tail 5.4e-09 + 10 x (u-drift 1.8e-14 + v-drift 3.5e-06) ; Epstein zero-tail 7.6e-03 + arch u-tail 1.4e-08 + 10 x (u-drift 5.0e-14 + v-drift 1.5e-05) + deficit 0.0e+00 | fine minus windows: arch_z -1.2e-07 arch_q -5.2e-07 prime_z +1.0e-08 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 9.738863303  resid -9.414e-04 CLOSES | b325 kernel resid +4.869e+00 FAILS | deficit bound 0.00e+00
+  1.99   1.687055842    +2.411e-09     3.11e-05    CLOSES           8.718954997    -1.193e-01  2.77e-03         FAILS          +4.300e+00  FAILS
+         bars: zeta zero-tail 1.9e-15 + arch u-tail 2.3e-09 + 10 x (u-drift 9.8e-15 + v-drift 3.1e-06) ; Epstein zero-tail 2.6e-03 + arch u-tail 6.2e-09 + 10 x (u-drift 2.8e-14 + v-drift 1.4e-05) + deficit 0.0e+00 | fine minus windows: arch_z -1.0e-07 arch_q -4.7e-07 prime_z -4.0e-09 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 8.837844948  resid -4.227e-04 CLOSES | b325 kernel resid +4.419e+00 FAILS | deficit bound 0.00e+00
+  2      1.664641687    +1.816e-09     3.07e-05    CLOSES           8.632369395    -1.165e-01  2.64e-03         FAILS          +4.258e+00  FAILS
+         bars: zeta zero-tail 2.7e-15 + arch u-tail 2.2e-09 + 10 x (u-drift 1.3e-15 + v-drift 3.1e-06) ; Epstein zero-tail 2.5e-03 + arch u-tail 5.9e-09 + 10 x (u-drift 5.3e-15 + v-drift 1.4e-05) + deficit 0.0e+00 | fine minus windows: arch_z -1.0e-07 arch_q -4.7e-07 prime_z -1.2e-11 finite_q +0.0e+00
+         with EVERY located off-line zero : Q zero 8.748442516  resid -4.037e-04 CLOSES | b325 kernel resid +4.374e+00 FAILS | deficit bound 0.00e+00
+  2.01   1.642639849    +1.858e-09     3.04e-05    CLOSES           8.548019319    -1.133e-01  2.64e-03         FAILS          +4.217e+00  FAILS
+         bars: zeta zero-tail 2.9e-15 + arch u-tail 2.1e-09 + 10 x (u-drift 6.9e-15 + v-drift 3.0e-06) ; Epstein zero-tail 2.5e-03 + arch u-tail 5.8e-09 + 10 x (u-drift 2.0e-14 + v-drift 1.4e-05) + deficit 0.0e+00 | fine minus windows: arch_z -1.0e-07 arch_q -4.6e-07 prime_z -8.6e-09 finite_q -2.1e-63
+         with EVERY located off-line zero : Q zero 8.660934957  resid -3.916e-04 CLOSES | b325 kernel resid +4.330e+00 FAILS | deficit bound 0.00e+00
+  2.1    1.460364438    +1.403e-09     2.73e-05    CLOSES           7.870883786    -7.931e-02  2.63e-03         FAILS          +3.896e+00  FAILS
+         bars: zeta zero-tail 3.3e-15 + arch u-tail 1.0e-09 + 10 x (u-drift 3.1e-15 + v-drift 2.7e-06) ; Epstein zero-tail 2.5e-03 + arch u-tail 2.7e-09 + 10 x (u-drift 1.1e-14 + v-drift 1.3e-05) + deficit 0.0e+00 | fine minus windows: arch_z -9.0e-08 arch_q -4.3e-07 prime_z -1.7e-08 finite_q -3.2e-13
+         with EVERY located off-line zero : Q zero 7.949866221  resid -3.277e-04 CLOSES | b325 kernel resid +3.975e+00 FAILS | deficit bound 0.00e+00
+  2.4    0.982994939    -2.275e-09     2.03e-05    CLOSES           6.239436411    -3.724e-02  6.63e-04         FAILS          +3.101e+00  FAILS
+         bars: zeta zero-tail 4.5e-15 + arch u-tail 1.2e-10 + 10 x (u-drift 3.3e-16 + v-drift 2.0e-06) ; Epstein zero-tail 5.6e-04 + arch u-tail 3.2e-10 + 10 x (u-drift 1.8e-15 + v-drift 1.0e-05) + deficit 0.0e+00 | fine minus windows: arch_z -6.6e-08 arch_q -3.4e-07 prime_z -4.8e-09 finite_q -5.9e-11
+         with EVERY located off-line zero : Q zero 6.276604727  resid -7.438e-05 CLOSES | b325 kernel resid +3.139e+00 FAILS | deficit bound 0.00e+00
+  2.8    0.499406924    -4.593e-10     1.54e-05    CLOSES           4.939824108    -9.449e-03  3.70e-04         FAILS          +2.467e+00  FAILS
+         bars: zeta zero-tail 2.3e-15 + arch u-tail 1.2e-11 + 10 x (u-drift 1.1e-16 + v-drift 1.5e-06) ; Epstein zero-tail 2.9e-04 + arch u-tail 3.3e-11 + 10 x (u-drift 8.9e-16 + v-drift 8.1e-06) + deficit 0.0e+00 | fine minus windows: arch_z -4.7e-08 arch_q -2.7e-07 prime_z -8.8e-08 finite_q -8.3e-11
+         with EVERY located off-line zero : Q zero 4.949249775  resid -2.374e-05 CLOSES | b325 kernel resid +2.477e+00 FAILS | deficit bound 0.00e+00
+  3      0.315810434    +7.961e-11     1.22e-05    CLOSES           4.490403985    -2.326e-03  2.21e-04         FAILS          +2.247e+00  FAILS
+         bars: zeta zero-tail 2.0e-15 + arch u-tail 4.7e-12 + 10 x (u-drift 2.2e-16 + v-drift 1.2e-06) ; Epstein zero-tail 1.5e-04 + arch u-tail 1.2e-11 + 10 x (u-drift 0.0e+00 + v-drift 7.4e-06) + deficit 0.0e+00 | fine minus windows: arch_z -4.0e-08 arch_q -2.5e-07 prime_z +3.8e-08 finite_q +4.7e-09
+         with EVERY located off-line zero : Q zero 4.492715412  resid -1.503e-05 CLOSES | b325 kernel resid +2.250e+00 FAILS | deficit bound 0.00e+00
+  8      0.016430068    +1.450e-08     4.31e-06    CLOSES           1.652151403    -7.115e-04  3.02e-05         FAILS          +8.143e-01  FAILS
+         bars: zeta zero-tail 3.3e-15 + arch u-tail 3.1e-14 + 10 x (u-drift 4.2e-17 + v-drift 4.3e-07) ; Epstein zero-tail 4.4e-07 + arch u-tail 7.7e-14 + 10 x (u-drift 4.4e-16 + v-drift 3.0e-06) + deficit 0.0e+00 | fine minus windows: arch_z -3.4e-09 arch_q -9.5e-08 prime_z -2.8e-07 finite_q -8.3e-08
+         with EVERY located off-line zero : Q zero 1.652862882  resid -3.180e-08 CLOSES | b325 kernel resid +8.150e-01 FAILS | deficit bound 0.00e+00
+  12     0.001499904    -6.011e-09     2.83e-06    CLOSES           1.038913857    -1.370e-04  2.23e-05         FAILS          +5.944e-01  FAILS
+         bars: zeta zero-tail 5.3e-14 + arch u-tail 7.3e-14 + 10 x (u-drift 2.8e-17 + v-drift 2.8e-07) ; Epstein zero-tail 6.0e-08 + arch u-tail 1.8e-13 + 10 x (u-drift 0.0e+00 + v-drift 2.2e-06) + deficit 0.0e+00 | fine minus windows: arch_z +1.3e-09 arch_q -7.1e-08 prime_z -2.5e-07 finite_q -1.1e-07
+         with EVERY located off-line zero : Q zero 1.039050838  resid -7.526e-09 CLOSES | b325 kernel resid +5.946e-01 FAILS | deficit bound 0.00e+00
+  16     0.003447149    -1.437e-08     1.69e-05    CLOSES           0.681037447    -7.133e-06  1.74e-05         CLOSES         +4.845e-01  FAILS
+         bars: zeta zero-tail 7.2e-15 + arch u-tail 6.4e-14 + 10 x (u-drift 0.0e+00 + v-drift 1.7e-06) ; Epstein zero-tail 1.8e-08 + arch u-tail 1.6e-13 + 10 x (u-drift 0.0e+00 + v-drift 1.7e-06) + deficit 0.0e+00 | fine minus windows: arch_z +3.5e-09 arch_q -5.9e-08 prime_z +7.0e-08 finite_q +1.2e-08
+         with EVERY located off-line zero : Q zero 0.681044581  resid +9.433e-10 CLOSES | b325 kernel resid +4.845e-01 FAILS | deficit bound 0.00e+00
+  20     0.005726888    -1.225e-09     1.55e-05    CLOSES           0.453494915    -7.427e-05  1.58e-05         FAILS          +4.167e-01  FAILS
+         bars: zeta zero-tail 2.1e-15 + arch u-tail 6.1e-14 + 10 x (u-drift 5.6e-17 + v-drift 1.5e-06) ; Epstein zero-tail 9.0e-09 + arch u-tail 1.5e-13 + 10 x (u-drift 0.0e+00 + v-drift 1.6e-06) + deficit 0.0e+00 | fine minus windows: arch_z +4.8e-09 arch_q -5.1e-08 prime_z -2.0e-08 finite_q +1.7e-07
+         with EVERY located off-line zero : Q zero 0.453569185  resid -2.506e-09 CLOSES | b325 kernel resid +4.168e-01 FAILS | deficit bound 0.00e+00
+  22     0.004722869    -8.954e-09     1.49e-05    CLOSES           0.374253008    -1.868e-05  1.36e-05         FAILS          +3.915e-01  FAILS
+         bars: zeta zero-tail 9.5e-16 + arch u-tail 7.9e-14 + 10 x (u-drift 0.0e+00 + v-drift 1.5e-06) ; Epstein zero-tail 5.7e-09 + arch u-tail 1.9e-13 + 10 x (u-drift 2.2e-16 + v-drift 1.4e-06) + deficit 0.0e+00 | fine minus windows: arch_z +5.2e-09 arch_q -4.9e-08 prime_z -2.5e-07 finite_q +5.2e-08
+         with EVERY located off-line zero : Q zero 0.374271691  resid +4.941e-09 CLOSES | b325 kernel resid +3.915e-01 FAILS | deficit bound 0.00e+00
+  24     0.003369426    +5.528e-09     1.42e-05    CLOSES           0.310716130    -4.466e-06  1.48e-05         CLOSES         +3.700e-01  FAILS
+         bars: zeta zero-tail 1.1e-15 + arch u-tail 6.8e-14 + 10 x (u-drift 2.8e-17 + v-drift 1.4e-06) ; Epstein zero-tail 4.1e-09 + arch u-tail 1.7e-13 + 10 x (u-drift 2.2e-16 + v-drift 1.5e-06) + deficit 0.0e+00 | fine minus windows: arch_z +5.6e-09 arch_q -4.6e-08 prime_z -8.2e-08 finite_q +2.7e-07
+         with EVERY located off-line zero : Q zero 0.310720603  resid +7.534e-09 CLOSES | b325 kernel resid +3.700e-01 FAILS | deficit bound 0.00e+00
+  28     0.001275063    -4.880e-09     1.37e-05    CLOSES           0.219447679    -2.448e-05  1.32e-05         FAILS          +3.354e-01  FAILS
+         bars: zeta zero-tail 2.2e-15 + arch u-tail 5.6e-14 + 10 x (u-drift 2.8e-17 + v-drift 1.4e-06) ; Epstein zero-tail 2.3e-09 + arch u-tail 1.4e-13 + 10 x (u-drift 0.0e+00 + v-drift 1.3e-06) + deficit 0.0e+00 | fine minus windows: arch_z +6.2e-09 arch_q -4.3e-08 prime_z -1.1e-07 finite_q +2.7e-07
+         with EVERY located off-line zero : Q zero 0.219472160  resid -5.568e-11 CLOSES | b325 kernel resid +3.354e-01 FAILS | deficit bound 0.00e+00
+  32     0.000389420    +1.392e-09     1.33e-05    CLOSES           0.163826319    -2.103e-05  1.36e-05         FAILS          +3.085e-01  FAILS
+         bars: zeta zero-tail 5.4e-15 + arch u-tail 5.4e-14 + 10 x (u-drift 1.1e-16 + v-drift 1.3e-06) ; Epstein zero-tail 1.2e-09 + arch u-tail 1.3e-13 + 10 x (u-drift 1.1e-16 + v-drift 1.4e-06) + deficit 0.0e+00 | fine minus windows: arch_z +6.6e-09 arch_q -4.0e-08 prime_z -2.0e-07 finite_q +4.3e-07
+         with EVERY located off-line zero : Q zero 0.163847332  resid -1.246e-08 CLOSES | b325 kernel resid +3.085e-01 FAILS | deficit bound 0.00e+00
+  50     0.000691762    -1.362e-08     1.27e-05    CLOSES           0.124666652    -5.071e-06  7.75e-06         CLOSES         +2.349e-01  FAILS
+         bars: zeta zero-tail 4.6e-15 + arch u-tail 6.1e-14 + 10 x (u-drift 1.7e-16 + v-drift 1.3e-06) ; Epstein zero-tail 2.4e-10 + arch u-tail 1.5e-13 + 10 x (u-drift 0.0e+00 + v-drift 7.7e-07) + deficit 0.0e+00 | fine minus windows: arch_z +7.7e-09 arch_q -3.2e-08 prime_z -1.2e-07 finite_q +1.3e-07
+         with EVERY located off-line zero : Q zero 0.124671734  resid +1.072e-08 CLOSES | b325 kernel resid +2.349e-01 FAILS | deficit bound 0.00e+00
+  64     0.000650957    +3.957e-09     1.18e-05    CLOSES           0.166257377    -6.154e-06  6.03e-06         FAILS          +2.026e-01  FAILS
+         bars: zeta zero-tail 1.9e-15 + arch u-tail 5.3e-14 + 10 x (u-drift 0.0e+00 + v-drift 1.2e-06) ; Epstein zero-tail 1.0e-10 + arch u-tail 1.3e-13 + 10 x (u-drift 1.7e-16 + v-drift 6.0e-07) + deficit 0.0e+00 | fine minus windows: arch_z +8.1e-09 arch_q -2.8e-08 prime_z +5.9e-09 finite_q +2.5e-08
+         with EVERY located off-line zero : Q zero 0.166263549  resid +1.765e-08 CLOSES | b325 kernel resid +2.026e-01 FAILS | deficit bound 0.00e+00
+  100    0.000043738    -1.523e-09     1.06e-05    CLOSES           0.276882221    -2.920e-06  8.34e-06         CLOSES         +1.551e-01  FAILS
+         bars: zeta zero-tail 1.3e-15 + arch u-tail 8.7e-14 + 10 x (u-drift 0.0e+00 + v-drift 1.1e-06) ; Epstein zero-tail 2.4e-11 + arch u-tail 2.1e-13 + 10 x (u-drift 0.0e+00 + v-drift 8.3e-07) + deficit 0.0e+00 | fine minus windows: arch_z +8.7e-09 arch_q -2.3e-08 prime_z -5.9e-08 finite_q +2.9e-07
+         with EVERY located off-line zero : Q zero 0.276885139  resid -2.483e-09 CLOSES | b325 kernel resid +1.551e-01 FAILS | deficit bound 0.00e+00
+  200    0.000126028    +4.316e-09     1.18e-05    CLOSES           0.472663894    -4.032e-07  5.50e-06         CLOSES         +1.009e-01  FAILS
+         bars: zeta zero-tail 2.5e-13 + arch u-tail 7.4e-14 + 10 x (u-drift 5.6e-17 + v-drift 1.2e-06) ; Epstein zero-tail 3.0e-12 + arch u-tail 1.8e-13 + 10 x (u-drift 2.8e-17 + v-drift 5.5e-07) + deficit 0.0e+00 | fine minus windows: arch_z +9.2e-09 arch_q -1.7e-08 prime_z -2.4e-07 finite_q -7.3e-08
+         with EVERY located off-line zero : Q zero 0.472664310  resid +1.332e-08 CLOSES | b325 kernel resid +1.009e-01 FAILS | deficit bound 0.00e+00
+  400    0.000073526    -1.864e-09     1.07e-05    CLOSES           0.713825628    -4.131e-08  5.28e-06         CLOSES         +6.237e-02  FAILS
+         bars: zeta zero-tail 1.7e-15 + arch u-tail 7.1e-14 + 10 x (u-drift 0.0e+00 + v-drift 1.1e-06) ; Epstein zero-tail 4.0e-13 + arch u-tail 1.8e-13 + 10 x (u-drift 4.2e-17 + v-drift 5.3e-07) + deficit 0.0e+00 | fine minus windows: arch_z +9.5e-09 arch_q -1.2e-08 prime_z -1.7e-07 finite_q -3.4e-08
+         with EVERY located off-line zero : Q zero 0.713825674  resid +4.817e-09 CLOSES | b325 kernel resid +6.237e-02 FAILS | deficit bound 0.00e+00
+
+  ### THE OFF-LINE TERMS, THE FOUR COMPLEX TERMS THEY ARE, AT THREE CELLS:
+    a = 1.3 : on-line sum 24.156820748 ; off-line sum 1.288734643 +0.00e+00i (route 2 1.288734643) ; off-line share of Z_Q 5.065e-02
+      rho = 0.953260 +16.290216i : f~(rho) = +1.269296528e-02 -2.359077511e-03i
+      rho = 0.953260 -16.290216i : f~(rho) = +1.269296528e-02 +2.359077511e-03i
+      rho = 0.046740 +16.290216i : f~(rho) = +1.269296528e-02 +2.359077511e-03i
+      rho = 0.046740 -16.290216i : f~(rho) = +1.269296528e-02 -2.359077511e-03i
+      rho = 0.797997 +29.551761i : f~(rho) = +3.094906954e-01 -1.089576326e-02i
+      rho = 0.797997 -29.551761i : f~(rho) = +3.094906954e-01 +1.089576326e-02i
+      rho = 0.202003 +29.551761i : f~(rho) = +3.094906954e-01 +1.089576326e-02i
+      rho = 0.202003 -29.551761i : f~(rho) = +3.094906954e-01 -1.089576326e-02i
+    a = 3 : on-line sum 4.446589873 ; off-line sum 0.043814112 +0.00e+00i (route 2 0.043814112) ; off-line share of Z_Q 9.757e-03
+      rho = 0.953260 +16.290216i : f~(rho) = +8.577538003e-03 +9.590425374e-03i
+      rho = 0.953260 -16.290216i : f~(rho) = +8.577538003e-03 -9.590425374e-03i
+      rho = 0.046740 +16.290216i : f~(rho) = +8.577538003e-03 -9.590425374e-03i
+      rho = 0.046740 -16.290216i : f~(rho) = +8.577538003e-03 +9.590425374e-03i
+      rho = 0.797997 +29.551761i : f~(rho) = +2.375990025e-03 +2.756556062e-04i
+      rho = 0.797997 -29.551761i : f~(rho) = +2.375990025e-03 -2.756556062e-04i
+      rho = 0.202003 +29.551761i : f~(rho) = +2.375990025e-03 -2.756556062e-04i
+      rho = 0.202003 -29.551761i : f~(rho) = +2.375990025e-03 +2.756556062e-04i
+    a = 22 : on-line sum 0.374324094 ; off-line sum -0.000071087 +0.00e+00i (route 2 -0.000071087) ; off-line share of Z_Q -1.899e-04
+      rho = 0.953260 +16.290216i : f~(rho) = -2.417491408e-05 -9.624512445e-05i
+      rho = 0.953260 -16.290216i : f~(rho) = -2.417491408e-05 +9.624512445e-05i
+      rho = 0.046740 +16.290216i : f~(rho) = -2.417491408e-05 +9.624512445e-05i
+      rho = 0.046740 -16.290216i : f~(rho) = -2.417491408e-05 -9.624512445e-05i
+      rho = 0.797997 +29.551761i : f~(rho) = +6.403285170e-06 +6.227278050e-06i
+      rho = 0.797997 -29.551761i : f~(rho) = +6.403285170e-06 -6.227278050e-06i
+      rho = 0.202003 +29.551761i : f~(rho) = +6.403285170e-06 -6.227278050e-06i
+      rho = 0.202003 -29.551761i : f~(rho) = +6.403285170e-06 +6.227278050e-06i
+
+  ### CLOSURE TALLY  zeta : 26 CLOSES / 0 FAILS / 0 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, DERIVED kernel : 6 CLOSES / 15 FAILS / 5 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, b325 kernel    : 0 CLOSES / 21 FAILS / 5 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, DERIVED kernel, EVERY located off-line zero : 21 CLOSES / 0 FAILS / 5 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, b325 kernel,    EVERY located off-line zero : 0 CLOSES / 21 FAILS / 5 BEYOND CEILING
+  ### THE LINK WALKED: with b325's kernel the residual at each cell below the ceiling equals A_q - A_q(b325) to within the bar : True
+
+  ### ### ### **VERDICT, THE ARC'S FAMILY : DOES NOT SEE IT**
+    reason, from the numbers -- at every cell the places sum is PR_Q - A_Q with:
+      a = 1.3    finite 0.000000000  arch 32.139229894  -> places -32.139229894 ; zero side: on-line 24.156820748, off-line +1.289e+00
+      a = 1.35   finite 0.000000000  arch 27.005566944  -> places -27.005566944 ; zero side: on-line 20.048498836, off-line +1.938e+00
+      a = 1.41   finite 0.000000000  arch 22.627518917  -> places -22.627518917 ; zero side: on-line 16.845882202, off-line +2.455e+00
+      a = 1.5    finite 0.000000000  arch 18.178909704  -> places -18.178909704 ; zero side: on-line 14.153258684, off-line +2.568e+00
+      a = 1.7    finite 0.000000000  arch 12.655215512  -> places -12.655215512 ; zero side: on-line 10.273785800, off-line +2.168e+00
+      a = 1.9    finite 0.000000000  arch 9.739805258  -> places -9.739805258 ; zero side: on-line 7.401770496, off-line +2.216e+00
+      a = 1.99   finite 0.000000000  arch 8.838268136  -> places -8.838268136 ; zero side: on-line 6.550562082, off-line +2.168e+00
+      a = 2      finite 0.000000000  arch 8.748846644  -> places -8.748846644 ; zero side: on-line 6.476149995, off-line +2.156e+00
+      a = 2.01   finite 0.000000000  arch 8.661327039  -> places -8.661327039 ; zero side: on-line 6.405407383, off-line +2.143e+00
+      a = 2.1    finite 0.000000004  arch 7.950194371  -> places -7.950194367 ; zero side: on-line 5.910789755, off-line +1.960e+00
+      a = 2.4    finite 0.000534153  arch 6.277213603  -> places -6.276679449 ; zero side: on-line 5.225056430, off-line +1.014e+00
+      a = 2.8    finite 0.004623769  arch 4.953897553  -> places -4.949273784 ; zero side: on-line 4.745115610, off-line +1.947e-01
+      a = 3      finite 0.006348865  arch 4.499079562  -> places -4.492730697 ; zero side: on-line 4.446589873, off-line +4.381e-02
+      a = 8      finite -0.022892523  arch 1.629970403  -> places -1.652862925 ; zero side: on-line 1.646734921, off-line +5.416e-03
+      a = 12     finite 0.150058086  arch 1.189108889  -> places -1.039050803 ; zero side: on-line 1.029192221, off-line +9.722e-03
+      a = 16     finite 0.288049598  arch 0.969094249  -> places -0.681044651 ; zero side: on-line 0.675086539, off-line +5.951e-03
+      a = 20     finite 0.379987428  arch 0.833556836  -> places -0.453569408 ; zero side: on-line 0.453766966, off-line -2.721e-04
+      a = 22     finite 0.408694754  arch 0.782966541  -> places -0.374271787 ; zero side: on-line 0.374324094, off-line -7.109e-05
+      a = 24     finite 0.429328120  arch 0.740049036  -> places -0.310720916 ; zero side: on-line 0.310203499, off-line +5.126e-04
+      a = 28     finite 0.451329555  arch 0.670802029  -> places -0.219472474 ; zero side: on-line 0.218166590, off-line +1.281e-03
+      a = 32     finite 0.453124108  arch 0.616971924  -> places -0.163847815 ; zero side: on-line 0.162468472, off-line +1.358e-03
+      a = 50     finite 0.345107802  arch 0.469779684  -> places -0.124671882 ; zero side: on-line 0.124634323, off-line +3.233e-05
+      a = 64     finite 0.238877977  arch 0.405141561  -> places -0.166263584 ; zero side: on-line 0.166027495, off-line +2.299e-04
+      a = 100    finite 0.033250567  arch 0.310136024  -> places -0.276885458 ; zero side: on-line 0.276743716, off-line +1.385e-04
+      a = 200    finite -0.270818618  arch 0.201845623  -> places -0.472664241 ; zero side: on-line 0.472484009, off-line +1.799e-04
+      a = 400    finite -0.589092478  arch 0.124733169  -> places -0.713825647 ; zero side: on-line 0.713721850, off-line +1.038e-04
+
+  ### ### **THE AIMED FAMILY (registration section (6)) -- SEPARATE, LABELLED, NEVER MERGED.**
+    omega = 16.290215720 (the refined banked off-line height); cells [8.0, 16.0, 32.0, 64.0]
+    a = 8    pole 2.78e-16 | zeta places -0.059027205 RESOLVED - | Epstein places -3.014799299 RESOLVED - (closure CLOSES, resid -6.15e-06, bar 3.16e-04) | off-line share +0.920
+    a = 16   pole 3.98e-16 | zeta places -0.092401760 RESOLVED - | Epstein places -3.113975933 RESOLVED - (closure CLOSES, resid -1.05e-05, bar 5.15e-04) | off-line share +0.902
+    a = 32   pole 3.38e-14 | zeta places -0.030705482 RESOLVED - | Epstein places -3.985621385 RESOLVED - (closure CLOSES, resid +1.04e-07, bar 1.17e-03) | off-line share +0.979
+    a = 64   pole 6.29e-14 | zeta places -0.002170163 RESOLVED - | Epstein places -5.087111960 RESOLVED - (closure CLOSES, resid -3.96e-07, bar 2.06e-03) | off-line share +0.978
+    ### ### **AIMED : DOES NOT SEE IT**
+
+  ### THE CEILING : Epstein library height T = 150 ; widest cell a = 400 ; finite side n_max = 160002 ; cells beyond the ceiling -- zeta NONE, Epstein [1.3, 1.35, 1.41, 1.5, 1.7]
+  written : b326_closure.json
+====================================================================================================

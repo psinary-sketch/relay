@@ -45,10 +45,32 @@ import b318_square as SQ            # noqa: E402
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-# ### **THE PRIMES THE ATLAS SWEEPS, TAKEN FROM THE ATLAS AND NOT CHOSEN HERE.** ### The largest
-# ### cell in this arc has `f` supported below `9`, so the list is far longer than it needs to be;
-# ### it is copied in full so that the fixture against `carto_atlas.channels` is exact.
-PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31)
+# ### ### **THE PRIME SET IS GENERATED TO THE REACH, NEVER FIXED. ### ITS SCOPE, WRITTEN DOWN:**
+# ### the prime sum needs every prime power `p^k <= e^L` where `L` is the half-width of the test
+# ### function's support in `v`, so the set of primes it needs is every prime `p <= e^L` -- and
+# ### that reach GROWS WITH THE CELL. ### Until b326 this file carried the atlas's own eleven-prime
+# ### tuple `(2, ..., 31)`, sufficient at the arc's cells (support below `9`) and INSUFFICIENT at
+# ### `a = 32` (support `1024`), where b325's positive control caught it: zeta's places sum came
+# ### out `+0.003489041` with the tuple and `-0.000389214` with every prime. ### **A CONSTANT IS
+# ### SCOPE-BOUND AND ITS SCOPE IS WRITTEN DOWN** (the lore rule this incident bought). ### The
+# ### tuple is kept below under its own name for fixture (i) against `carto_atlas.channels`, whose
+# ### loop it is; `prime_sum` no longer reads it. ### Edited b326 by the navigator's order.
+PRIMES_ATLAS = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31)   # ### the atlas's loop, for fixture (i)
+PRIMES = PRIMES_ATLAS   # ### the old name, kept so older runners still import; NOT read by prime_sum
+
+
+def primes_to(reach):
+    """### every prime `p <= reach`, by a sieve -- the set the prime sum needs at this reach."""
+    n = int(math.floor(reach))
+    if n < 2:
+        return ()
+    mark = bytearray([1]) * (n + 1)
+    mark[0] = mark[1] = 0
+    for i in range(2, int(n ** 0.5) + 1):
+        if mark[i]:
+            mark[i * i::i] = bytearray(len(range(i * i, n + 1, i)))
+    return tuple(i for i in range(2, n + 1) if mark[i])
+
 UBLOCK = 512          # ### the transform is blocked over `u`; the matrix is never formed whole
 NEPS_UNIFORM = 4001   # ### route A: eps at this many EQUALLY SPACED nodes on [0, V]
 NEPS_CHEB = 129       # ### route B: eps at this many CHEBYSHEV-LOBATTO nodes on [0, V]
@@ -86,7 +108,7 @@ def prime_sum(v, w, route='corpus'):
     """
     L = float(v[-1])
     total, terms = 0.0, []
-    for p in PRIMES:
+    for p in primes_to(math.exp(L) + PRIME_TOL):   # ### the set generated to THIS reach
         k = 1
         while p ** k <= math.exp(L) + PRIME_TOL:
             n = p ** k

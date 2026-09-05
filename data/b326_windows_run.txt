@@ -1,0 +1,78 @@
+====================================================================================================
+b326 -- THE TWO WINDOWS. ### EVERY PRIME, EVERY REPRESENTATION NUMBER, BOTH KERNELS.
+====================================================================================================
+  (i)    Lambda_Q by the divisor sieve against b325's inversion, n <= 4096 : worst 5.684e-14  PASS
+  (ii)   SUM_{d|n} Lambda_Q(d) b_{n/d} = b_n log n, sampled to n = 20000 : worst 0.000e+00  PASS
+  (iii)  r_Q by this file against b325's, k <= 4096 : True
+  (iv)   derived kernel against 2 x b325's kernel at seven points : worst 0.000e+00  PASS
+  (v)    zeta kernel here against carto_atlas.kernel on its own grid : worst 0.000e+00  PASS
+  (vi)   hhat by b321's blocked route and by Simpson, atlas bump a = 2 : worst 1.029e-13  PASS
+  (vii)  zeta finite side at a = 50 by b321's prime_sum and by the sieve : -0.263943616524 vs -0.263943616524  PASS
+  (viii) the eleven-prime sum at a = 50 : -0.202454079 -- differs from the full set, as it must  PASS
+  (ix)   the gate refuses a drifting pair (DRIFTING) and certifies a stable one (RESOLVED, sign +)  PASS
+  ### FIXTURES : [True, True, True, True, True, True, np.True_, True, True]  PASS
+  finite sides prepared to n = 160002 (a_max^2): zeta by the sieve, Epstein by the divisor sieve
+
+  a      L         pole           zeta finite    zeta arch      ZETA places    Q finite       Q arch         Q places  Q places(b325 kernel)
+  1.3    0.5247    -2.689e-17     0.000000000    8.781152816    -8.781152816   0.000000000    32.139229894   -32.139229894 - -16.069614947 -
+  1.35   0.6002    6.505e-18      0.000000000    7.130736563    -7.130736563   0.000000000    27.005566944   -27.005566944 - -13.502783472 -
+  1.41   0.6872    4.337e-19      0.000000000    5.747984142    -5.747984142   0.000000000    22.627518917   -22.627518917 - -11.313759458 -
+  1.5    0.8109    -6.418e-17     0.000062755    4.372783773    -4.372721018   0.000000000    18.178909704   -18.178909704 - -9.089454852 -
+  1.7    1.0613    5.161e-17      0.007899310    2.723005765    -2.715106454   0.000000000    12.655215512   -12.655215512 - -6.327607756 -
+  1.9    1.2837    -1.908e-17     -0.022845349   1.889488043    -1.912333391   0.000000000    9.739805258    -9.739805258 - -4.869902629 -
+  1.99   1.3763    2.602e-17      -0.048084359   1.638971581    -1.687055939   0.000000000    8.838268136    -8.838268136 - -4.419134068 -
+  2      1.3863    -6.245e-17     -0.050297989   1.614343798    -1.664641787   0.000000000    8.748846644    -8.748846644 - -4.374423322 -
+  2.01   1.3963    -9.541e-17     -0.052359535   1.590280404    -1.642639940   0.000000000    8.661327039    -8.661327039 - -4.330663519 -
+  2.1    1.4839    5.855e-17      -0.064050234   1.396314275    -1.460364510   0.000000004    7.950194371    -7.950194367 - -3.975097182 -
+  2.4    1.7509    -9.541e-18     -0.030383030   0.952611972    -0.982995002   0.000534153    6.277213603    -6.276679449 - -3.138072648 -
+  2.8    2.0592    -2.602e-18     0.118199794    0.617606677    -0.499406883   0.004623769    4.953897553    -4.949273784 - -2.472325007 -
+  3      2.1972    -9.801e-17     0.190860829    0.506671341    -0.315810512   0.006348865    4.499079562    -4.492730697 - -2.243190916 -
+  8      4.1589    6.939e-18      -0.125529403   -0.109099622   -0.016429781   -0.022892523   1.629970403    -1.652862925 - -0.837877724 -
+  12     4.9698    -1.388e-17     -0.181918353   -0.180418690   -0.001499663   0.150058086    1.189108889    -1.039050803 - -0.444496358 -
+  16     5.5452    -6.939e-18     -0.214722976   -0.211275746   -0.003447230   0.288049598    0.969094249    -0.681044651 - -0.196497527 -
+  20     5.9915    8.674e-19      -0.233963554   -0.228236690   -0.005726865   0.379987428    0.833556836    -0.453569408 - -0.036790990 -
+  22     6.1821    -1.561e-17     -0.238821588   -0.234098969   -0.004722619   0.408694754    0.782966541    -0.374271787 - +0.017211484 +
+  24     6.3561    3.383e-17      -0.242221443   -0.238852109   -0.003369334   0.429328120    0.740049036    -0.310720916 - +0.059303602 +
+  28     6.6644    -5.204e-17     -0.247338234   -0.246063278   -0.001274956   0.451329555    0.670802029    -0.219472474 - +0.115928541 +
+  32     6.9315    -1.735e-18     -0.251635047   -0.251245834   -0.000389214   0.453124108    0.616971924    -0.163847815 - +0.144638146 +
+  50     7.8240    -5.725e-17     -0.263943617   -0.263251969   -0.000691648   0.345107802    0.469779684    -0.124671882 - +0.110217960 +
+  64     8.3178    6.245e-17      -0.268020330   -0.267369379   -0.000650950   0.238877977    0.405141561    -0.166263584 - +0.036307196 +
+  100    9.2103    1.405e-16      -0.271944840   -0.271901168   -0.000043672   0.033250567    0.310136024    -0.276885458 - -0.121817446 -
+  200    10.5966   2.793e-16      -0.274608745   -0.274482970   -0.000125775   -0.270818618   0.201845623    -0.472664241 - -0.371741429 -
+  400    11.9829   8.049e-16      -0.274429244   -0.274355896   -0.000073349   -0.589092478   0.124733169    -0.713825647 - -0.651459063 -
+
+  ### THE GATE, SAME CELL AT du AND du/4 (RESOLVED and |value| > 10 x drift certifies a sign):
+    a = 1.3    zeta RESOLVED  drift 4.29e-11  sign - | Epstein RESOLVED  drift 1.16e-10  sign - | (b325 kernel) RESOLVED  sign -
+    a = 1.35   zeta RESOLVED  drift 1.17e-11  sign - | Epstein RESOLVED  drift 3.13e-11  sign - | (b325 kernel) RESOLVED  sign -
+    a = 1.41   zeta RESOLVED  drift 5.48e-12  sign - | Epstein RESOLVED  drift 1.47e-11  sign - | (b325 kernel) RESOLVED  sign -
+    a = 1.5    zeta RESOLVED  drift 9.95e-14  sign - | Epstein RESOLVED  drift 2.74e-13  sign - | (b325 kernel) RESOLVED  sign -
+    a = 1.7    zeta RESOLVED  drift 1.13e-13  sign - | Epstein RESOLVED  drift 2.98e-13  sign - | (b325 kernel) RESOLVED  sign -
+    a = 1.9    zeta RESOLVED  drift 2.18e-14  sign - | Epstein RESOLVED  drift 5.86e-14  sign - | (b325 kernel) RESOLVED  sign -
+    a = 1.99   zeta RESOLVED  drift 1.27e-14  sign - | Epstein RESOLVED  drift 3.38e-14  sign - | (b325 kernel) RESOLVED  sign -
+    a = 2      zeta RESOLVED  drift 1.78e-15  sign - | Epstein RESOLVED  drift 5.33e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 2.01   zeta RESOLVED  drift 8.66e-15  sign - | Epstein RESOLVED  drift 1.95e-14  sign - | (b325 kernel) RESOLVED  sign -
+    a = 2.1    zeta RESOLVED  drift 4.00e-15  sign - | Epstein RESOLVED  drift 8.88e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 2.4    zeta RESOLVED  drift 8.88e-16  sign - | Epstein RESOLVED  drift 1.78e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 2.8    zeta RESOLVED  drift 7.77e-16  sign - | Epstein RESOLVED  drift 1.78e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 3      zeta RESOLVED  drift 2.22e-16  sign - | Epstein RESOLVED  drift 8.88e-16  sign - | (b325 kernel) RESOLVED  sign -
+    a = 8      zeta RESOLVED  drift 4.30e-16  sign - | Epstein RESOLVED  drift 1.11e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 12     zeta RESOLVED  drift 3.61e-16  sign - | Epstein RESOLVED  drift 1.11e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 16     zeta RESOLVED  drift 3.89e-16  sign - | Epstein RESOLVED  drift 1.33e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 20     zeta RESOLVED  drift 1.33e-15  sign - | Epstein RESOLVED  drift 3.89e-15  sign - | (b325 kernel) RESOLVED  sign -
+    a = 22     zeta RESOLVED  drift 1.17e-15  sign - | Epstein RESOLVED  drift 2.78e-15  sign - | (b325 kernel) RESOLVED  sign +
+    a = 24     zeta RESOLVED  drift 1.53e-15  sign - | Epstein RESOLVED  drift 4.33e-15  sign - | (b325 kernel) RESOLVED  sign +
+    a = 28     zeta RESOLVED  drift 1.42e-15  sign - | Epstein RESOLVED  drift 3.33e-15  sign - | (b325 kernel) RESOLVED  sign +
+    a = 32     zeta RESOLVED  drift 5.55e-17  sign - | Epstein RESOLVED  drift 2.22e-16  sign - | (b325 kernel) RESOLVED  sign +
+    a = 50     zeta RESOLVED  drift 5.00e-16  sign - | Epstein RESOLVED  drift 1.55e-15  sign - | (b325 kernel) RESOLVED  sign +
+    a = 64     zeta RESOLVED  drift 7.22e-16  sign - | Epstein RESOLVED  drift 2.05e-15  sign - | (b325 kernel) RESOLVED  sign +
+    a = 100    zeta RESOLVED  drift 1.67e-16  sign - | Epstein RESOLVED  drift 5.55e-16  sign - | (b325 kernel) RESOLVED  sign -
+    a = 200    zeta RESOLVED  drift 2.22e-16  sign - | Epstein RESOLVED  drift 5.55e-16  sign - | (b325 kernel) RESOLVED  sign -
+    a = 400    zeta RESOLVED  drift 2.22e-16  sign - | Epstein RESOLVED  drift 6.66e-16  sign - | (b325 kernel) RESOLVED  sign -
+
+  ### TWO ROUTES, WORST DISAGREEMENT OVER ALL CELLS: hhat 3.468e-13 ; zeta arch 2.913e-12 ; Epstein arch 1.067e-11 ; zeta finite 3.331e-16
+  ### THE ZETA CONTROL : cells with a CERTIFIED positive zeta places sum : NONE ; cells not certified : NONE
+  ### THE EPSTEIN SIGN, DERIVED KERNEL : certified POSITIVE at NONE ; not certified at NONE
+  ### THE EPSTEIN SIGN, b325 KERNEL   : certified POSITIVE at [22.0, 24.0, 28.0, 32.0, 50.0, 64.0]
+  ### ### **THE CROSSING CELL, FROM THE NUMBERS (derived kernel) : NO CROSSING AT THIS REACH**
+  written : b326_windows.json
+====================================================================================================

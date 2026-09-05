@@ -1,0 +1,35 @@
+====================================================================================================
+b326 -- THE COMPLETENESS CENSUS. ### sigma in [0.52, 1.50], t to 60, the census's own winding.
+====================================================================================================
+  SUM_{k>=2} r_Q(k) k^-1.5 (k <= 240) = 1.3800 < 2 : no zero with Re s >= 1.5
+  box    jobs 24  (already banked 0)
+    box 5/24  1517s
+    box 10/24  1731s
+    box 15/24  2781s
+    box 20/24  2840s
+    box 24/24  3405s
+  boxes 24 ; boxes with a nonzero winding 5 ; windings not near an integer 0
+    t in [ 15.5,  18.0]  winding +1.000  minmod 1.19e-11
+    t in [ 28.0,  30.5]  winding +1.000  minmod 1.89e-20
+    t in [ 33.0,  35.5]  winding +1.000  minmod 1.25e-24
+    t in [ 43.0,  45.5]  winding +1.000  minmod 2.93e-31
+    t in [ 45.5,  48.0]  winding +1.000  minmod 9.79e-34
+  sub    jobs 25  (already banked 0)
+    sub 5/25  263s
+    sub 10/25  282s
+    sub 15/25  521s
+    sub 20/25  527s
+    sub 25/25  675s
+  sub-boxes 25 ; with a nonzero winding 5 (total winding 5)
+  zero   jobs 5  (already banked 0)
+    zero 5/5  95s
+  off-line zeros located : 5 ; sub-boxes where fewer were located than wound : 0 
+    rho = 0.953260475 +16.290215720i  route B [0.9532604747946607, 16.290215720390393]  agree True
+    rho = 0.797997157 +29.551761099i  route B [0.7979971571786801, 29.551761098629115]  agree True
+    rho = 0.663651679 +33.650100583i  route B [0.6636516788595986, 33.65010058252734]  agree True
+    rho = 0.809991531 +43.858664365i  route B [0.8099915314971334, 43.85866436500448]  agree True
+    rho = 0.782378577 +46.960993670i  route B [0.7823785766777296, 46.96099366990747]  agree True
+  the two banked off-line zeros reappear : 2 of 2
+  written : b326_offline.json
+====================================================================================================
+offline exit 0

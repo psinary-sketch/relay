@@ -1,0 +1,140 @@
+====================================================================================================
+b326 -- THE CORROBORATION. ### THE EXPLICIT FORMULA CLOSED FOR BOTH; THEN THE VERDICT.
+====================================================================================================
+  completeness census : sigma in [0.52, 1.50] to t = 60 ; off-line zeros located 5 (banked 2 reappear: 2 of 2) ; main term 178.6 against on-line 146 + 2 x 5 off-line -> unlocated deficit taken as 23
+  Epstein library : T = 150, on-line zeros 146, off-line 2, dps 119, K 240, box mismatches 0
+  zeta library    : 10000 ordinates, last 9877.7827
+  (i) the off-line four-term sum at a = 3 is real : imag 0.000e+00 (route 2 0.000e+00)
+  (ii) zero side two routes at a = 3 : zeta 0.315810472979 vs 0.315810472982 ; Epstein on-line 4.446590108944 vs 4.446590108943
+  ### FIXTURES : PASS
+
+  a      zeta zero      zeta resid     zeta bar    zeta status      Q zero         Q resid     Q bar            Q status       Q resid(b325 k)
+  1.3    8.781188392    +3.558e-05     1.43e-09    FAILS            25.445556564   -6.694e+00  1.25e+01         BEYOND CEILING +9.376e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 31.124450847  resid -1.015e+00 BEYOND CEILING | b325 kernel resid +1.505e+01 BEYOND CEILING | deficit bound 1.14e+01
+  1.35   7.130749976    +1.341e-05     1.12e-09    FAILS            21.986508838   -5.019e+00  2.51e+00         BEYOND CEILING +8.484e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 26.657982187  resid -3.476e-01 BEYOND CEILING | b325 kernel resid +1.316e+01 BEYOND CEILING | deficit bound 1.88e+00
+  1.41   5.747988162    +4.019e-06     1.06e-09    FAILS            19.300711648   -3.327e+00  2.10e+00         BEYOND CEILING +7.987e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 22.338002871  resid -2.895e-01 BEYOND CEILING | b325 kernel resid +1.102e+01 BEYOND CEILING | deficit bound 1.97e+00
+  1.5    4.372721800    +7.814e-07     1.00e-09    FAILS            16.721193376   -1.458e+00  2.08e+00         BEYOND CEILING +7.632e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 18.011841766  resid -1.671e-01 BEYOND CEILING | b325 kernel resid +8.922e+00 BEYOND CEILING | deficit bound 2.00e+00
+  1.7    2.715106498    +4.414e-08     1.00e-09    FAILS            12.442010028   -2.132e-01  4.48e-01         BEYOND CEILING +6.114e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 12.617685216  resid -3.753e-02 BEYOND CEILING | b325 kernel resid +6.290e+00 BEYOND CEILING | deficit bound 4.34e-01
+  1.9    1.912333385    -5.731e-09     1.00e-09    FAILS            9.617756165    -1.220e-01  4.89e-01         BEYOND CEILING +4.748e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 9.717101885  resid -2.270e-02 BEYOND CEILING | b325 kernel resid +4.847e+00 BEYOND CEILING | deficit bound 4.81e-01
+  1.99   1.687055946    +6.778e-09     1.00e-09    FAILS            8.718955431    -1.193e-01  5.24e-01         BEYOND CEILING +4.300e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 8.815853878  resid -2.241e-02 BEYOND CEILING | b325 kernel resid +4.397e+00 BEYOND CEILING | deficit bound 5.22e-01
+  2      1.664641789    +2.226e-09     1.00e-09    FAILS            8.632369826    -1.165e-01  5.29e-01         BEYOND CEILING +4.258e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 8.727612451  resid -2.123e-02 BEYOND CEILING | b325 kernel resid +4.353e+00 BEYOND CEILING | deficit bound 5.26e-01
+  2.01   1.642639951    +1.097e-08     1.00e-09    FAILS            8.548019746    -1.133e-01  5.33e-01         BEYOND CEILING +4.217e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 8.641383305  resid -1.994e-02 BEYOND CEILING | b325 kernel resid +4.311e+00 BEYOND CEILING | deficit bound 5.31e-01
+  2.1    1.460364529    +1.916e-08     1.00e-09    FAILS            7.870884187    -7.931e-02  4.03e-01         BEYOND CEILING +3.896e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 7.941304823  resid -8.890e-03 BEYOND CEILING | b325 kernel resid +3.966e+00 BEYOND CEILING | deficit bound 4.01e-01
+  2.4    0.982995008    +6.351e-09     1.00e-09    FAILS            6.239436733    -3.724e-02  8.52e-02         BEYOND CEILING +3.101e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 6.273577899  resid -3.102e-03 BEYOND CEILING | b325 kernel resid +3.136e+00 BEYOND CEILING | deficit bound 8.47e-02
+  2.8    0.499406974    +9.124e-08     1.01e-09    FAILS            4.939824371    -9.449e-03  5.87e-02         BEYOND CEILING +2.467e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 4.948823958  resid -4.498e-04 BEYOND CEILING | b325 kernel resid +2.476e+00 BEYOND CEILING | deficit bound 5.84e-02
+  3      0.315810473    -3.910e-08     1.01e-09    FAILS            4.490404228    -2.326e-03  6.69e-02         BEYOND CEILING +2.247e+00  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 4.491410544  resid -1.320e-03 BEYOND CEILING | b325 kernel resid +2.248e+00 BEYOND CEILING | deficit bound 6.68e-02
+  8      0.016430075    +2.937e-07     1.01e-09    FAILS            1.652151500    -7.114e-04  9.64e-03         BEYOND CEILING +8.143e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 1.652847027  resid -1.590e-05 BEYOND CEILING | b325 kernel resid +8.150e-01 BEYOND CEILING | deficit bound 9.64e-03
+  12     0.001499905    +2.418e-07     7.32e+00    BEYOND CEILING   1.038913927    -1.369e-04  4.80e-03         BEYOND CEILING +5.944e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 1.039047017  resid -3.786e-06 BEYOND CEILING | b325 kernel resid +5.946e-01 BEYOND CEILING | deficit bound 4.80e-03
+  16     7.400774412    +7.397e+00     1.02e-09    FAILS            0.681037503    -7.147e-06  4.38e-03         BEYOND CEILING +4.845e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.681042652  resid -1.998e-06 BEYOND CEILING | b325 kernel resid +4.845e-01 BEYOND CEILING | deficit bound 4.38e-03
+  20     6.866459960    +6.861e+00     1.02e-09    FAILS            0.453494957    -7.445e-05  3.53e-03         BEYOND CEILING +4.167e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.453568274  resid -1.134e-06 BEYOND CEILING | b325 kernel resid +4.168e-01 BEYOND CEILING | deficit bound 3.53e-03
+  22     5.788709090    +5.784e+00     1.03e-09    FAILS            0.374253046    -1.874e-05  2.46e-03         BEYOND CEILING +3.915e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.374271398  resid -3.889e-07 BEYOND CEILING | b325 kernel resid +3.915e-01 BEYOND CEILING | deficit bound 2.46e-03
+  24     5.561207684    +5.558e+00     1.04e-09    FAILS            0.310716164    -4.752e-06  2.93e-03         BEYOND CEILING +3.700e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.310720025  resid -8.913e-07 BEYOND CEILING | b325 kernel resid +3.700e-01 BEYOND CEILING | deficit bound 2.93e-03
+  28     4.908160716    +4.907e+00     1.03e-09    FAILS            0.219447706    -2.477e-05  2.09e-03         BEYOND CEILING +3.354e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.219471984  resid -4.903e-07 BEYOND CEILING | b325 kernel resid +3.354e-01 BEYOND CEILING | deficit bound 2.09e-03
+  32     4.330839265    +4.330e+00     1.02e-09    FAILS            0.163826341    -2.147e-05  2.73e-03         BEYOND CEILING +3.085e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.163847101  resid -7.141e-07 BEYOND CEILING | b325 kernel resid +3.085e-01 BEYOND CEILING | deficit bound 2.73e-03
+  50     4.780590181    +4.780e+00     1.04e-09    FAILS            0.124666663    -5.219e-06  2.23e-03         BEYOND CEILING +2.349e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.124671691  resid -1.912e-07 BEYOND CEILING | b325 kernel resid +2.349e-01 BEYOND CEILING | deficit bound 2.23e-03
+  64     4.706853726    +4.706e+00     1.03e-09    FAILS            0.166257388    -6.196e-06  2.39e-03         BEYOND CEILING +2.026e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.166263553  resid -3.102e-08 BEYOND CEILING | b325 kernel resid +2.026e-01 BEYOND CEILING | deficit bound 2.39e-03
+  100    3.465980321    +3.466e+00     1.03e-09    FAILS            0.276882235    -3.223e-06  2.19e-03         BEYOND CEILING +1.551e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.276885152  resid -3.054e-07 BEYOND CEILING | b325 kernel resid +1.551e-01 BEYOND CEILING | deficit bound 2.19e-03
+  200    5.505012510    +5.505e+00     1.06e-09    FAILS            0.472663909    -3.316e-07  1.87e-03         BEYOND CEILING +1.009e-01  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.472664321  resid +8.058e-08 BEYOND CEILING | b325 kernel resid +1.009e-01 BEYOND CEILING | deficit bound 1.87e-03
+  400    4.677368466    +4.677e+00     1.19e-09    FAILS            0.713825649    +1.633e-09  1.58e-03         BEYOND CEILING +6.237e-02  BEYOND CEILING
+         with EVERY located off-line zero : Q zero 0.713825694  resid +4.625e-08 BEYOND CEILING | b325 kernel resid +6.237e-02 BEYOND CEILING | deficit bound 1.58e-03
+
+  ### THE OFF-LINE TERMS, THE FOUR COMPLEX TERMS THEY ARE, AT THREE CELLS:
+    a = 1.3 : on-line sum 24.156821898 ; off-line sum 1.288734666 +0.00e+00i (route 2 1.288734666) ; off-line share of Z_Q 5.065e-02
+      rho = 0.953260 +16.290216i : f~(rho) = +1.269296536e-02 -2.359077528e-03i
+      rho = 0.953260 -16.290216i : f~(rho) = +1.269296536e-02 +2.359077528e-03i
+      rho = 0.046740 +16.290216i : f~(rho) = +1.269296536e-02 +2.359077528e-03i
+      rho = 0.046740 -16.290216i : f~(rho) = +1.269296536e-02 -2.359077528e-03i
+      rho = 0.797997 +29.551761i : f~(rho) = +3.094907011e-01 -1.089576358e-02i
+      rho = 0.797997 -29.551761i : f~(rho) = +3.094907011e-01 +1.089576358e-02i
+      rho = 0.202003 +29.551761i : f~(rho) = +3.094907011e-01 +1.089576358e-02i
+      rho = 0.202003 -29.551761i : f~(rho) = +3.094907011e-01 -1.089576358e-02i
+    a = 3 : on-line sum 4.446590109 ; off-line sum 0.043814119 +0.00e+00i (route 2 0.043814119) ; off-line share of Z_Q 9.757e-03
+      rho = 0.953260 +16.290216i : f~(rho) = +8.577538910e-03 +9.590426281e-03i
+      rho = 0.953260 -16.290216i : f~(rho) = +8.577538910e-03 -9.590426281e-03i
+      rho = 0.046740 +16.290216i : f~(rho) = +8.577538910e-03 -9.590426281e-03i
+      rho = 0.046740 -16.290216i : f~(rho) = +8.577538910e-03 +9.590426281e-03i
+      rho = 0.797997 +29.551761i : f~(rho) = +2.375990806e-03 +2.756556808e-04i
+      rho = 0.797997 -29.551761i : f~(rho) = +2.375990806e-03 -2.756556808e-04i
+      rho = 0.202003 +29.551761i : f~(rho) = +2.375990806e-03 -2.756556808e-04i
+      rho = 0.202003 -29.551761i : f~(rho) = +2.375990806e-03 +2.756556808e-04i
+    a = 22 : on-line sum 0.374324133 ; off-line sum -0.000071087 +0.00e+00i (route 2 -0.000071087) ; off-line share of Z_Q -1.899e-04
+      rho = 0.953260 +16.290216i : f~(rho) = -2.417493740e-05 -9.624519927e-05i
+      rho = 0.953260 -16.290216i : f~(rho) = -2.417493740e-05 +9.624519927e-05i
+      rho = 0.046740 +16.290216i : f~(rho) = -2.417493740e-05 +9.624519927e-05i
+      rho = 0.046740 -16.290216i : f~(rho) = -2.417493740e-05 -9.624519927e-05i
+      rho = 0.797997 +29.551761i : f~(rho) = +6.403302155e-06 +6.227293858e-06i
+      rho = 0.797997 -29.551761i : f~(rho) = +6.403302155e-06 -6.227293858e-06i
+      rho = 0.202003 +29.551761i : f~(rho) = +6.403302155e-06 -6.227293858e-06i
+      rho = 0.202003 -29.551761i : f~(rho) = +6.403302155e-06 +6.227293858e-06i
+
+  ### CLOSURE TALLY  zeta : 0 CLOSES / 25 FAILS / 1 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, DERIVED kernel : 0 CLOSES / 0 FAILS / 26 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, b325 kernel    : 0 CLOSES / 0 FAILS / 26 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, DERIVED kernel, EVERY located off-line zero : 0 CLOSES / 0 FAILS / 26 BEYOND CEILING
+  ### CLOSURE TALLY  Epstein, b325 kernel,    EVERY located off-line zero : 0 CLOSES / 0 FAILS / 26 BEYOND CEILING
+
+  ### ### ### **VERDICT, THE ARC'S FAMILY : DOES NOT SEE IT**
+    reason, from the numbers -- at every cell the places sum is PR_Q - A_Q with:
+      a = 1.3    finite 0.000000000  arch 32.139229894  -> places -32.139229894 ; zero side: on-line 24.156821898, off-line +1.289e+00
+      a = 1.35   finite 0.000000000  arch 27.005566944  -> places -27.005566944 ; zero side: on-line 20.048499841, off-line +1.938e+00
+      a = 1.41   finite 0.000000000  arch 22.627518917  -> places -22.627518917 ; zero side: on-line 16.845883037, off-line +2.455e+00
+      a = 1.5    finite 0.000000000  arch 18.178909704  -> places -18.178909704 ; zero side: on-line 14.153259395, off-line +2.568e+00
+      a = 1.7    finite 0.000000000  arch 12.655215512  -> places -12.655215512 ; zero side: on-line 10.273786339, off-line +2.168e+00
+      a = 1.9    finite 0.000000000  arch 9.739805258  -> places -9.739805258 ; zero side: on-line 7.401770901, off-line +2.216e+00
+      a = 1.99   finite 0.000000000  arch 8.838268136  -> places -8.838268136 ; zero side: on-line 6.550562430, off-line +2.168e+00
+      a = 2      finite 0.000000000  arch 8.748846644  -> places -8.748846644 ; zero side: on-line 6.476150339, off-line +2.156e+00
+      a = 2.01   finite 0.000000000  arch 8.661327039  -> places -8.661327039 ; zero side: on-line 6.405407722, off-line +2.143e+00
+      a = 2.1    finite 0.000000004  arch 7.950194371  -> places -7.950194367 ; zero side: on-line 5.910790061, off-line +1.960e+00
+      a = 2.4    finite 0.000534153  arch 6.277213603  -> places -6.276679449 ; zero side: on-line 5.225056680, off-line +1.014e+00
+      a = 2.8    finite 0.004623769  arch 4.953897553  -> places -4.949273784 ; zero side: on-line 4.745115853, off-line +1.947e-01
+      a = 3      finite 0.006348865  arch 4.499079562  -> places -4.492730697 ; zero side: on-line 4.446590109, off-line +4.381e-02
+      a = 8      finite -0.022892523  arch 1.629970403  -> places -1.652862925 ; zero side: on-line 1.646735016, off-line +5.416e-03
+      a = 12     finite 0.150058086  arch 1.189108889  -> places -1.039050803 ; zero side: on-line 1.029192286, off-line +9.722e-03
+      a = 16     finite 0.288049598  arch 0.969094249  -> places -0.681044651 ; zero side: on-line 0.675086591, off-line +5.951e-03
+      a = 20     finite 0.379987428  arch 0.833556836  -> places -0.453569408 ; zero side: on-line 0.453767009, off-line -2.721e-04
+      a = 22     finite 0.408694754  arch 0.782966541  -> places -0.374271787 ; zero side: on-line 0.374324133, off-line -7.109e-05
+      a = 24     finite 0.429328120  arch 0.740049036  -> places -0.310720916 ; zero side: on-line 0.310203533, off-line +5.126e-04
+      a = 28     finite 0.451329555  arch 0.670802029  -> places -0.219472474 ; zero side: on-line 0.218166617, off-line +1.281e-03
+      a = 32     finite 0.453124108  arch 0.616971924  -> places -0.163847815 ; zero side: on-line 0.162468493, off-line +1.358e-03
+      a = 50     finite 0.345107802  arch 0.469779684  -> places -0.124671882 ; zero side: on-line 0.124634335, off-line +3.233e-05
+      a = 64     finite 0.238877977  arch 0.405141561  -> places -0.166263584 ; zero side: on-line 0.166027505, off-line +2.299e-04
+      a = 100    finite 0.033250567  arch 0.310136024  -> places -0.276885458 ; zero side: on-line 0.276743729, off-line +1.385e-04
+      a = 200    finite -0.270818618  arch 0.201845623  -> places -0.472664241 ; zero side: on-line 0.472484024, off-line +1.799e-04
+      a = 400    finite -0.589092478  arch 0.124733169  -> places -0.713825647 ; zero side: on-line 0.713721870, off-line +1.038e-04
+
+  ### ### **THE AIMED FAMILY (registration section (6)) -- SEPARATE, LABELLED, NEVER MERGED.**
+    omega = 16.290215720 (the refined banked off-line height); cells [8.0, 16.0, 32.0, 64.0]
+    a = 8    pole 2.78e-16 | zeta places -0.059027205 RESOLVED - | Epstein places -3.014799299 RESOLVED - (closure CLOSES, resid -2.26e-06, bar 1.99e-05) | off-line share +0.920
+    a = 16   pole 3.98e-16 | zeta places -0.092401760 RESOLVED - | Epstein places -3.113975933 RESOLVED - (closure CLOSES, resid -9.64e-06, bar 5.07e-05) | off-line share +0.902
+    a = 32   pole 3.38e-14 | zeta places -0.030705482 RESOLVED - | Epstein places -3.985621385 RESOLVED - (closure FAILS, resid +4.40e-05, bar 3.03e-05) | off-line share +0.979
+    a = 64   pole 6.29e-14 | zeta places -0.002170163 RESOLVED - | Epstein places -5.087111960 RESOLVED - (closure FAILS, resid +8.18e-05, bar 7.94e-06) | off-line share +0.978
+    ### ### **AIMED : DOES NOT SEE IT**
+
+  ### THE CEILING : Epstein library height T = 150 ; widest cell a = 400 ; finite side n_max = 160002 ; cells beyond the ceiling -- zeta [12.0], Epstein [1.3, 1.35, 1.41, 1.5, 1.7, 1.9, 1.99, 2.0, 2.01, 2.1, 2.4, 2.8, 3.0, 8.0, 12.0, 16.0, 20.0, 22.0, 24.0, 28.0, 32.0, 50.0, 64.0, 100.0, 200.0, 400.0]
+  written : b326_closure.json
+====================================================================================================
+closure exit 0
