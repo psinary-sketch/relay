@@ -1,0 +1,16 @@
+====================================================================================================
+b328_routes.py -- THE SEALED ROUTE BAR (B4), RUN, FOUND DEFECTIVE, MEASURED. ### THE SEALED FILE IS NOT EDITED.
+====================================================================================================
+  fixture: the unit triangle at c = 0 by the Gauss route : 1.0000000000000000  PASS
+  seed E a = 81 : Simpson vs closed form at 1x 1.601e-06, 2x 6.939e-13, 4x 3.386e-13 nodes ; ratios 2307722.78, 2.05 (4 = second order)
+             Gauss-Legendre per segment vs closed form : 1.573e-13   sealed bar 1e-10   MEETS THE SEALED BAR
+  seed O a = 81 : Simpson vs closed form at 1x 1.592e-06, 2x 6.941e-13, 4x 3.384e-13 nodes ; ratios 2293853.92, 2.05 (4 = second order)
+             Gauss-Legendre per segment vs closed form : 1.575e-13   sealed bar 1e-10   MEETS THE SEALED BAR
+  seed E a = 160 : Simpson vs closed form at 1x 2.131e-06, 2x 1.524e-12, 4x 2.153e-12 nodes ; ratios 1398189.68, 0.71 (4 = second order)
+             Gauss-Legendre per segment vs closed form : 3.361e-13   sealed bar 1e-10   MEETS THE SEALED BAR
+
+  ### THE FINDING: the Simpson route fits parabolas through node triples and integrates a DIFFERENT function from the
+  ### piecewise-linear seed; its disagreement is a second-order grid term (the ratios), so the bar as sealed could not
+  ### be met by that route. ### A route that integrates the SAME function -- Gauss-Legendre per segment, sharing no
+  ### code with the closed form -- meets the sealed bar. ### FILED AS A SEALED BAR FOUND DEFECTIVE BY RUNNING IT.
+====================================================================================================

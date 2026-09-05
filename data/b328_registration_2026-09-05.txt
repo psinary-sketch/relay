@@ -1,0 +1,273 @@
+====================================================================================================
+b328 -- THE DISCRIMINATING FAMILY. ### THE REGISTRATION.
+Derive the condition under which a lawful test function's four-term sum at an off-line zero
+quadruple is negative, construct a seed meeting it aimed at the Epstein function's first off-line
+zero, and run the negative control with it.
+2026-09-05. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) THE ORDER OF THIS ACT.
+----------------------------------------------------------------------------------------------------
+### ### ### **THIS REGISTRATION IS SEALED BEFORE ANY INSTRUMENT OF THIS ACT RUNS.** ### At the moment
+### of sealing no seed of this act exists, no transform has been evaluated, no phase has been
+### measured, no channel has been formed. ### **WHAT WAS DONE BEFORE THIS FILE, ALL OF IT READING:**
+### the ferry scan (`data/b328_ferry_scan.txt`, 0 struck-clause hits, 0 stem hits); the two ledger
+### censuses (`data/b328_census.txt` over `HANDOFF.md`, TOTAL MISSING 0 -- names, one ledger, the
+### `b297`-`b307` act list; `data/b328_faces_census.txt` over `FACES_LEDGER.md`, TOTAL MISSING 0);
+### the pins (`data/b328_pins_stepzero.txt`, all three repos 0/0 and equal -- nothing was ahead of
+### origin); the source pin (`data/b328_source.txt`); the extract step (`data/b328_extract_notes.txt`,
+### 0 paths missing, 0 quotations missing); the index queries (`data/audit_b328_index_query.txt`:
+### `discriminating-family`, `the four-term sum`, `the off-line quadruple`, `the phase condition`,
+### `the sine-aimed seed`, `the odd seed` -- NO KEY; `the aimed family`, `negative-control`,
+### `the-reach`, `epstein-zeros`, `faces-ledger` -- rows, b325 to b327). ### **NO SEED, NO PHASE,
+### NO SIGN.**
+### ### **THE DERIVATION OF SECTION (2) WAS DONE ON PAPER FROM THE QUOTED SOURCE AND THE CORPUS'S
+### ### QUOTED CONVENTIONS, AND IS WRITTEN HERE AS A BAR**, with the constructions of section (3)
+### fixed by it before any of their numbers exist.
+
+----------------------------------------------------------------------------------------------------
+### (1) WHAT THIS ACT IS, AND WHAT IT IS NOT. ### [ORDER]
+----------------------------------------------------------------------------------------------------
+### ### **A DERIVATION, A CONSTRUCTION, AND A COMPUTATION ON THE EXPLICIT-FORMULA INSTRUMENT.** ###
+### The criterion is evaluated as the source states it: the pinned artefact (Connes-Consani,
+### arXiv:2006.13771v1, sha256 `b8e0b54a...`, b304/b305's pin, matched again this session) gives
+### in its Appendix B the Mellin transform (147) ### `f~(s) := INT_0^inf f(x) x^{s-1} dx`, the
+### involution ### `f^7(x) := x^{-1} f(x^{-1})`, and the explicit formula (148) ###
+### **`SUM_rho f~(rho) = INT_0^inf f(x) dx + INT_0^inf f^7(x) dx - SUM_v W_v(f)`**, *"where v runs
+### over all places {R, 2, 3, 5, ...} of Q, the sum on the left hand side is over all complex zeros
+### rho of the Riemann zeta function"*; and in its Appendix C, Proposition C.1: ### **`RH <=> SUM_v
+### W_v(g * g^7) <= 0` for all `g` in `C_c^inf(R*_+)` with `g~(z) = 0` for all `z` in `F`**, `F` *"a
+### finite set disjoint from Z and containing {0, 1}"*. ### **THE POLE TERMS ARE HANDLED BY THE
+### CRITERION'S HYPOTHESIS: THE SEED'S TRANSFORM VANISHES AT 0 AND 1**, so that `INT f dx = f~(1)
+### = g~(1) g~(0) = 0` and `INT f^7 dx = f~(0) = 0`; this act REQUIRES `g~(0) = g~(1) = 0` of every
+### seed and MEASURES the pole term `P` rather than assuming it. ### The source's (54), *"we assume
+### the vanishing conditions INT f(rho) rho^{+-1/2} d*rho = 0 to isolate on the left hand side of
+### the explicit formula the contribution of the zeros"*, is the same requirement on `f`.
+### ### **THE SAME FORMULA HOLDS FOR THE EPSTEIN FUNCTION `Lambda_Q`** with its own zeros, its own
+### finite side and its own archimedean kernel, as b325 and b326 established and closed; nothing of
+### the source's Theorem 1 (the inequality) is used or claimed for `Z_Q`.
+### ### **NO CLAIM ABOUT ZETA, h2, OR THE ROSTER BEYOND THE CONTROL'S OWN SCOPE.** ### The zeta
+### control under the same seed MUST keep the permitted sign (b321: on a lawful `f` the zeta places
+### sum is `-Z` with `Z` a sum of squared moduli over on-line zeros); ### **A ZETA FLIP IS THE
+### ### ACT'S MOST PROMINENT FINDING**, reported first and walked link by link in the order fixed
+### in section (4) before anything else is said. ### **NORMALIZATIONS BEFORE COUNTS.** ### **THE
+### PLACES SIDE IS COMPUTED WITH NO ZERO**; the libraries corroborate only. ### **NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (2) COMPONENT 1 -- THE CONDITION, DERIVED. ### [SEAT, PRE-RUN, FROM QUOTED TEXT]
+----------------------------------------------------------------------------------------------------
+### ### **(a) THE TRANSFORM OF THE SQUARE.** ### From (147) and the involution, by the substitution
+### `u = 1/x`: `(f^7)~(s) = INT x^{-1} f(x^{-1}) x^{s-1} dx = INT f(u) u^{-s} du = f~(1 - s)`. ### The
+### convolution on `R*_+` multiplies Mellin transforms, so for `f = g * g^7`:
+### ### **`f~(s) = g~(s) g~(1 - s)`**, symmetric under `s -> 1 - s`; and for real `g`,
+### `f~(conj s) = conj f~(s)`. ### In the corpus's variable (b321: `f(x) = x^{-1/2} w(log x)`, so
+### `f~(rho) = INT w(v) e^{(rho - 1/2) v} dv` -- b326_closure's `ftilde`), write `c := rho - 1/2` and
+### ### **`G(c) := INT w_g(v) e^{c v} dv`** for the seed; then `f~(rho) = G(c) G(-c)`.
+### ### **(b) THE FOUR-TERM SUM.** ### An off-line zero `rho = beta + i gamma` comes with its three
+### partners `conj rho`, `1 - rho`, `1 - conj rho` (the functional equation and real coefficients).
+### With the symmetries of (a), `f~(1 - rho) = f~(rho)` and `f~(conj rho) = conj f~(rho)`, so
+### ### **`S_4 := f~(rho) + f~(conj rho) + f~(1 - rho) + f~(1 - conj rho) = 4 Re[ G(c) G(-c) ]`**,
+### `c = (beta - 1/2) + i gamma`. ### **THE FACTOR FOUR IS THE QUADRUPLE'S COUNT AND IS THE FIRST
+### NORMALIZATION CHECKED:** ### b326's closure tool sums exactly these four terms (its loop over
+### `(beta, gam), (beta, -gam), (1 - beta, gam), (1 - beta, -gam)`), and its banked four terms at
+### every arc cell must equal `4 Re[G(c) G(-c)]` formed from the seed alone -- ### **BAR (B1):**
+### agreement to `1e-9` relative at the thirteen arc cells, else the derivation is wrong and the act
+### says so first.
+### ### **(c) THE EVEN SEED.** ### `w_g` even in `v` is exactly `g = g^7` (b321's line: `f^#(x) =
+### x^{-1/2} w(-log x)`), which gives `G(-c) = G(c)`. ### Then ### **`S_4 = 4 Re[ G(c)^2 ] = 4 |G(c)|^2
+### cos(2 phi)`**, `phi := arg G(c)`. ### **NEGATIVE EXACTLY WHEN `cos 2 phi < 0`, I.E. WHEN
+### `45 deg < |phi| < 135 deg` (mod 180 deg)** -- the navigator's assertion (F1), DERIVED, with the
+### quadruple's factor four in front. ### **BAR (B2):** `|G(-c) - G(c)| <= 1e-12 |G(c)|` on every even
+### seed of this act, measured.
+### ### **(d) THE GENERAL REAL SEED.** ### `w = w_e + w_o` (even and odd parts in `v`); `G(-c) = G_e(c)
+### - G_o(c)`; so ### **`S_4 = 4 Re[ G_e(c)^2 - G_o(c)^2 ]`**. ### **WHAT A SEED NEEDS, THEREFORE:**
+### an even seed needs PHASE -- `|phi_e| > 45 deg`; an odd component contributes `-4 Re G_o^2`,
+### negative exactly when its OWN phase is BELOW forty-five degrees, `|phi_o| < 45 deg`; the two add.
+### ### **(e) WHERE AN EVEN SEED'S PHASE COMES FROM.** ### With `delta := beta - 1/2` and `w` even:
+### ### `Re G = INT w(v) cosh(delta v) cos(gamma v) dv`, ### `Im G = INT w(v) sinh(delta v) sin(gamma v) dv`.
+### ### On the line (`delta = 0`) the phase is zero. ### Off it, the imaginary part is generated
+### entirely by `sinh(delta v)`, odd in `v` and of size `delta v` where `delta |v| << 1`: ### **A
+### NARROW EVEN SEED HAS A SMALL PHASE**, `|Im G| <= sinh(delta L) INT|w|`, and a large phase needs
+### EITHER width (`delta L` of order one) OR a shape whose `cosh`-weighted cosine transform at `gamma`
+### is suppressed relative to its `sinh`-weighted sine transform, or both. ### **BAR (B3), THE CHECK
+### AGAINST b326's OWN SEEDS:** the phase of `mean_zero_variant(a)` at `rho_1 = 0.9532604747946607 +
+### 16.290215720390393 i` (the library's first off-line zero, quoted) must satisfy `|phi| < 45 deg` at
+### all thirteen arc cells and the sign of `4 |G|^2 cos 2 phi` must be the sign of the banked
+### four-term sum at each -- exactly as their positive sums require; a cell with `|phi| >= 45 deg`
+### and a banked positive sum refutes the derivation.
+### ### **(f) THE TWO CONSTRUCTIONS, DERIVED BEFORE THEY ARE BUILT.**
+###   ### **THE EVEN SEED, SINE-AIMED:** ### `w_e(v) = env(v) sin(gamma_1 |v|)` with `env` an even
+###     envelope on `[-L, L]` (the corpus's own bump, `carto_atlas.bump(a)`, `L = log a`), plus even
+###     bump corrections solving the two moments as b317 solves them. ### Then `Re G = INT_0^L env
+###     sin(2 gamma_1 v) cosh(delta v) dv` -- an oscillatory integral at twice the frequency, small
+###     for a smooth envelope -- and `Im G = INT_0^L env (1 - cos 2 gamma_1 v) sinh(delta v) dv`,
+###     of the size of `INT_0^L env sinh(delta v) dv`, positive. ### **SO THE PHASE IS SET NEAR
+###     NINETY DEGREES BY THE SINE, AND THE WIDTH ENTERS THROUGH `sinh(delta L)` -- IT SETS THE
+###     MAGNITUDE `4 |G|^2` OF THE QUADRUPLE'S TERM AGAINST THE ON-LINE ZERO SIDE**, whose terms
+###     `G(i u)^2` at on-line ordinates `u` are `[INT_0^L env (sin((gamma_1 + u) v) + sin((gamma_1 -
+###     u) v)) dv]^2`: a double lobe of width about `1/L` around `gamma_1` vanishing AT `gamma_1`. ###
+###     Width therefore sharpens the discrimination on both counts, and the widths registered in
+###     section (3) are chosen so that `delta L` runs from below one to above two.
+###   ### **THE ODD SEED, COSINE-AIMED:** ### `w_o(v) = sgn(v) env_o(|v|) cos(gamma_1 v)`, `env_o(0) =
+###     0`, plus one odd bump correction for the single pole condition an odd seed has. ### Then
+###     `Re G_o = INT w_o sinh(delta v) cos(gamma_1 v) dv`, of the size of `INT_0^L env_o sinh(delta v)
+###     dv`, and `Im G_o = INT w_o cosh(delta v) sin(gamma_1 v) dv`, oscillatory at twice the
+###     frequency and small: ### **THE PHASE IS SET NEAR ZERO BY THE COSINE, WHICH IS WHAT AN ODD
+###     COMPONENT NEEDS.**
+### ### **THE PHASE THRESHOLD IS THE DERIVATION'S, NOT A FIT.** ### A seed that does not reach it is
+### reported as such.
+
+----------------------------------------------------------------------------------------------------
+### (3) COMPONENT 2 -- THE CONSTRUCTION. ### THE BARS. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE ZERO AIMED AT, QUOTED FROM THE LIBRARY** (`data/b326_epstein_zeros.json`, `offline[0]`,
+### both routes agreeing): `beta_1 = 0.9532604747946607`, `gamma_1 = 16.290215720390393`; so `delta =
+### 0.4532604747946607`. ### Its on-line neighbours in the same library: `14.630459532385498` and
+### `18.82849120037208`.
+### ### **THE GRID:** ### every seed of this act on a uniform grid of `NV = 32769` nodes over `[-L, L]`
+### (the closure's fine grid), piecewise linear, zero at both ends; the square by b318's
+### `autocorrelation` at that same node count.
+### ### **THE WIDTHS, FIXED HERE:** ### `a in {20, 40, 81, 160}`, `L = log a`, so `delta L = 1.358,
+### 1.672, 1.992, 2.301`; both seeds at all four. ### **NO WIDTH IS ADDED OR MOVED AFTER A NUMBER IS
+### SEEN.**
+### ### **THE MOMENTS, SOLVED AS b317 SOLVES THEM:** ### even seed: `c_0 = 1` on the aimed bump,
+### `c_1, c_2` on `bump(a^{1/2})`, `bump(a^{1/4})` (unmodulated, even) so that `INT w dv = 0` and `INT
+### w cosh(v/2) dv = 0`; odd seed: `c_0 = 1` on the aimed odd bump `(v/L) bump(a)(v) cos(gamma_1 v)`,
+### one coefficient on the odd correction `(v/L) bump(a^{1/2})(v)` so that `INT w sinh(v/2) dv = 0`
+### (`INT w dv = 0` is automatic for an odd `w`); scale `INT |w| dv = 1` in both.
+### ### **LAWFULNESS, MEASURED AND NOT ASSUMED:** ### **(L1)** the source's Definition 3.1 on `f`, by
+### b318's `positive_definite` scan: `min f-hat >= -1e-9` (b320's floor), the scan's reach printed;
+### **(L2)** the pole conditions the criterion requires: `|G(+1/2)|, |G(-1/2)|, |G(0)| <= 1e-9 x
+### INT|w|`, and the pole term `P = f~(0) + f~(1)` printed with `|P| <= 1e-12`.
+### ### **THE TRANSFORM BY TWO ROUTES SHARING NO CODE:** ### the corpus's closed form
+### (`b326_closure.mellin_exact`, imported) and this act's own Simpson quadrature of `INT w e^{c v}
+### dv` on the same nodes; ### **BAR (B4):** agreement to `1e-10` relative at `c = delta + i gamma_1`
+### and at the on-line ordinates used, else the transform is not trusted at that point.
+### ### **THE PHASE, MEASURED:** ### `phi = arg G(delta + i gamma_1)` for the even seed at each width;
+### `phi_o` for the odd seed. ### **BAR (B5):** the even seed REACHES the threshold at a width iff
+### `|phi| > 45 deg` there; the odd seed iff `|phi_o| < 45 deg`. ### A seed or a width that does not
+### reach it is reported as NOT REACHED and is not tuned. ### **(F2) IS REFUTED IF THE EVEN SEED
+### REACHES THE THRESHOLD AT NO REGISTERED WIDTH.**
+### ### **THE QUADRUPLE'S TERM, PRINTED AT EACH WIDTH:** `S_4 = 4 Re[G(c) G(-c)]` by both transform
+### routes, beside the on-line sum `2 SUM_k G(i gamma_k)^2` over the library's on-line zeros and the
+### sixteen other quadruples -- ### **THE ZERO SIDE'S SIGN, FORMED FROM THE LIBRARY, IS THE
+### CORROBORATION AND NOT THE VERDICT.**
+
+----------------------------------------------------------------------------------------------------
+### (4) COMPONENT 3 -- THE CONTROL RUN. ### THE BARS. ### [ORDER, WITH THE ROUTES SEAT-FIXED]
+----------------------------------------------------------------------------------------------------
+### ### **THE CELLS:** ### the four widths of section (3), each seed; the finite sides to `n = a^2`
+### (`25600` at the widest), every prime and every representation number.
+### ### **THE PLACES SIDES, WITH NO ZERO:** ### by `b326_windows.channels` (imported): the pole term;
+### the archimedean channels of zeta (the atlas's kernel) and of the Epstein function (the derived
+### kernel `2 Re psi(1/2 + i u) - 2 log(2 pi / sqrt23)`), each by two transform routes; zeta's prime
+### sum by two routes; the Epstein finite side with `Lambda_Q` by TWO routes -- the divisor sieve
+### (b326) and b325's per-`n` inversion (imported), extended to `a^2` -- ### **BAR (B6):** the two
+### `Lambda_Q` sequences agree to `1e-9` on the full range, the two archimedean routes to `1e-9`
+### relative, the two prime routes to `1e-12` absolute.
+### ### **THE NOISE-FLOOR GATE, IN THE PATH:** ### every places value at every cell as the SAME cell at
+### `du` and `du/4`; ### **A SIGN IS CERTIFIED** when the gate returns RESOLVED and `|value| > 10 x`
+### the drift (b326's margin, unchanged). ### An uncertified value has no sign.
+### ### **THE CORROBORATION, FROM THE LIBRARIES:** ### `b326_closure.closure_row` (imported) on each
+### seed at each width: the zero sides by the exact transform in two arrangements -- zeta over the
+### atlas's ten thousand ordinates; the Epstein function over its 146 on-line zeros and ALL
+### SEVENTEEN off-line quadruples, each quadruple's four complex terms printed -- with b326's bars
+### (the zero tails by two routes, the archimedean `u`-tail, ten times the `u`- and `v`-grid drifts,
+### the ceiling at `1e-3` of the largest channel). ### **THE OFF-LINE TERMS ARE REPORTED SEPARATELY:**
+### the first quadruple's `S_4`, the other sixteen's sum, the on-line sum, and each one's share.
+### ### **THE VERDICTS, AS THE ORDER FIXES THEM:**
+###   ### **(SEES IT)** ### -- a cell and a seed at which the Epstein places side ALONE takes the
+###     forbidden sign (certified POSITIVE), the cell CLOSES for the Epstein function with every
+###     located zero, ### **THE OFF-LINE QUADRUPLE ACCOUNTS FOR THE SIGN** (the on-line sum is
+###     non-negative by construction; the zero side is negative only through the quadruples, and
+###     the first quadruple's `S_4` is negative and exceeds the on-line sum plus the other sixteen in
+###     magnitude), and zeta at the same cell under the same seed is certified NEGATIVE and CLOSES.
+###   ### **(DOES NOT SEE IT)** ### -- no certified positive Epstein places side at any cell for either
+###     seed; the reason named from the numbers (which term of the zero side dominates, and the
+###     phase measured).
+###   ### **(ZETA FLIPS)** ### -- a certified POSITIVE zeta places side at any cell: ### **REPORTED
+###     FIRST, AT FULL PROMINENCE, AS A DEFECT IN THE CHAIN UNTIL PROVEN OTHERWISE**, and walked in
+###     this order: (1) the two transform routes at that cell; (2) the two prime-sum routes and the
+###     prime set's reach; (3) the pole term and the seed's moments; (4) the kernel and its
+###     normalization; (5) the closure with zeta's own library, its residual and its bar; (6) the
+###     seed's lawfulness re-scanned. ### The link at which the chain breaks is named; if none
+###     breaks, the flip stands as a measurement and is reported as one.
+### ### **PARTIAL OUTCOMES ARE REPORTED AS WHAT THEY ARE:** a certified positive Epstein sign whose
+### cell does not close, or whose sign the quadruple does not account for, is not SEES IT.
+
+----------------------------------------------------------------------------------------------------
+### (5) COMPONENT 4 -- THE ENTAILMENT, AT EXACTLY ITS SCOPE. ### [ORDER]
+----------------------------------------------------------------------------------------------------
+### ### On (SEES IT): ### *on this instrument, at this reach, for this family, the finite-instance
+### places sum computed without any zero distinguishes a function whose hypothesis holds from one
+### whose hypothesis fails; the zeta window becomes a passed test for this family* -- and NOT for
+### the arc's family, whose verdict b326 left and which is not re-verdicted here. ### The family's
+### construction is filed as the first enumerated way the clause could fail: on the faces ledger as
+### an owed-bridge row now partly paid, through the writer. ### **NOTHING ABOUT TOTALITY.** ###
+### **NOTHING ABOUT h2 OR THE ROSTER.** ### On (DOES NOT SEE IT) or (ZETA FLIPS) the entailment is
+### not stated and the row records what was measured instead.
+
+----------------------------------------------------------------------------------------------------
+### (6) THE READS, EACH THROUGH THE EXTRACT STEP.
+----------------------------------------------------------------------------------------------------
+###   ### the pinned source, `arXiv:2006.13771v1`, at its hash: (147), the involution, (148), (149),
+###     (150), Proposition C.1, (54), Theorem 1's conditions, `W_inf := -W_R` (`data/b328_source.txt`);
+###   ### `data/b326_the_reach.txt` -- the four-term statement, the family finding, the seed priced,
+###     the first pair refined, the four terms at `a = 3`, the verdict and the entailment;
+###   ### `data/b321_the_window_opened.txt` -- the pole term, `SUM_v W_v(f) = - Z`, the square;
+###   ### `data/b320_the_lawful_function.txt` -- Definition 3.1 applied, the class test's reach;
+###   ### `tools/b317_smear.py`, `tools/b318_square.py`, `tools/b321_window.py`, `tools/b326_closure.py`,
+###     `tools/b326_windows.py` -- the conventions, quoted at their lines;
+###   ### `data/b326_epstein_zeros.json`, `data/b326_offline.json` -- the first off-line zero and its
+###     neighbours, the seventeen;
+###   ### `PLACE-papers/FACES_LEDGER.md` (row F7, the owed bridge), `OPEN_TRAILS.md` (the trail),
+###     `data/b327_the_faces_ledger.txt` (this act named next).
+### ### **THE CANONICAL DRIVE ONLY. ### THE PROJECT MIRROR IS NOT OPENED.**
+
+----------------------------------------------------------------------------------------------------
+### (7) THE CAPS. ### FORWARD COMMITMENTS, EVERY ONE.
+----------------------------------------------------------------------------------------------------
+    instrument values seen before this seal            : 0
+    families beyond the two registered                 : 0
+    widths beyond the four registered                  : 0
+    seeds tuned after a phase was seen                 : 0
+    controls run                                       : 8 at most -- the zeta control at each seed and width
+    grades moved                                       : 0
+    acts re-verdicted                                  : 0   -- b326's DOES NOT SEE IT on the arc's family stands
+    claims about zeta, h2, or the roster               : 0
+    deposited texts touched                            : 0
+    `.lean` files created or edited                    : 0
+    owner instrument files edited                      : 0   -- b326's tools are imported, never edited
+    ancestors' correspondence rows rewritten           : 0
+    ledger rows written other than through the writer  : 0
+    trails opened                                      : 0   -- one trail UPDATED by the writer's append
+    aggregations stated / verdicts on M-2              : 0 / 0
+    tools writing one run file from two paths          : 0
+    result values typed into a deciding runner         : 0   -- the bars live in the tools
+    ad-hoc shell-typed numbers in the bank             : 0   -- RE-MEASURED BY G-TOOLNUM
+    sealed files edited                                : 0
+    mirror roster rows changed / HANDOFF.md edits      : 0 / 0
+    artifact counts predicted in this registration     : measured by the counter, not typed
+
+----------------------------------------------------------------------------------------------------
+### (8) THE EXPECTATIONS, THE SHADOW, THE LORE.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S EXPECTATIONS, VERBATIM FROM THE ORDER:** ### *(F1) the even-seed reduction
+### derives as asserted; (F2) an even seed of sufficient width reaches the threshold without an odd
+### component; (F3) SEES IT with zeta holding -- each refutable by the derivation or a printed
+### sign.* ### (F1) is decided by section (2)(c) and bars (B1)-(B3); (F2) by bar (B5) at the four
+### widths; (F3) by section (4)'s branches.
+### ### **THE SHADOW:** ### the order says *expected nothing; say so.* ### Nothing is expected and
+### nothing will be kept.
+### ### **THE LORE ENTRY THIS ACT OWES, IF THE CONDITION DERIVES:** ### *a lawful test function's
+### four-term sum at an off-line quadruple is `4 Re(G_e^2 - G_o^2)`; an even seed sees the zero only
+### past forty-five degrees of phase, an odd component only below it* -- mechanized by this act's
+### `quadruple_sum` with fixtures in both polarities, appended to the lore by an idempotent tool.
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : ba4b7b9671563441c04ae21ba43350f405fa6a383c756c0f3b85e8cc351b64a3
+### bytes sealed : 23096
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b328_registration_2026-09-05.txt`.**
+====================================================================================================

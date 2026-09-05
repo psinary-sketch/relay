@@ -85,6 +85,17 @@ MECHANIZED = [
               'function\'s support and the scope is in the header (edited b326 by order); the '
               'lore self-test carries both polarities below.',
          discharged='b326'),
+    dict(rule='A lawful test function\'s four-term sum at an off-line quadruple is 4 Re(G_e^2 - G_o^2): '
+              'an even seed sees the zero only past forty-five degrees of phase, an odd component '
+              'only below it.',
+         incident='b326 -- the arc\'s family and a cosine-aimed family both came out POSITIVE at the '
+                  'first off-line quadruple (phases -5 to 24 degrees, measured at b328), and the reason '
+                  'was named as a sign structure the construction lacked; b328 derived it from the '
+                  'source\'s (147)-(148): f~(rho) = G(c) G(-c), the quadruple sums to 4 Re[G(c) G(-c)].',
+         tool='b328_family.quadruple_sum / even_reduction -- fixtures in both polarities (60 deg '
+              'negative, 30 deg positive; the odd part the other way round); the sine-aimed even seed '
+              'measured at 89 degrees and the cosine-aimed odd seed at 0.',
+         discharged='b328'),
 ]
 
 # ### ==========================================================================================
@@ -236,6 +247,15 @@ def _fixture_scope_bound():
     return fires, quiet
 
 
+def _fixture_phase_condition():
+    """### BOTH POLARITIES: an even seed at 60 degrees gives a NEGATIVE quadruple sum (the gate FIRES);
+    ### at 30 degrees a POSITIVE one (the gate stays QUIET); the odd part the other way round."""
+    sys.path.insert(0, os.path.join(ROOT, 'tools', 'e16'))
+    import b328_family
+    a, b, c, d = b328_family.fixtures()
+    return (a and c), (b and d)
+
+
 def self_test(verbose=True):
     out = []
 
@@ -263,7 +283,8 @@ def self_test(verbose=True):
     for name, fn in [('whole-line must-fail (b277/b278)', _fixture_needle_wholeline),
                      ('noise floor, drift arm (b272)', _fixture_noise_floor),
                      ('hedge audit, both shapes (b279)', _fixture_hedge),
-                     ('scope-bound constant (b325/b326)', _fixture_scope_bound)]:
+                     ('scope-bound constant (b325/b326)', _fixture_scope_bound),
+                     ('phase condition (b326/b328)', _fixture_phase_condition)]:
         a, b = fn()
         ok = a and b
         if not ok:

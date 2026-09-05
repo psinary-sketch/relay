@@ -172,6 +172,35 @@ def write_row(row):
             % (rid, n, ncells, ok, pw, pb, len(row.get('quotes', []))))
 
 
+def append_block(mark, body_lines):
+    """### A GENERIC APPEND-ONLY BLOCK UNDER A MARKER (added b328): idempotent, guarded cell by cell on every
+    ### table line, true-prefix checked against the working file and the blob, read back. ### The rows
+    ### above are never rewritten; an UPDATE to a row is a block that names the row."""
+    txt = read() or ''
+    if mark in txt:
+        return 'DUPLICATE', 'block %s already present -- REFUSED, nothing written' % mark
+    # ### split on UNESCAPED pipes only, keeping the escapes, so the guard sees the cell as written
+    # ### (the first run of this mode unescaped first and then refused its own escaped norm bars).
+    bs = chr(92)
+    cells = []
+    for ln in body_lines:
+        if ln.startswith('| '):
+            body = ln.strip()[1:-1] if ln.strip().endswith('|') else ln.strip()[1:]
+            cells += re.split('(?<!' + bs + bs + ')' + bs + '|', body)
+    bad = guard_cells(cells) if cells else []
+    bad += guard_cells([ln for ln in body_lines if ln and not ln.startswith('|')])
+    if bad:
+        return 'REFUSED', 'block %s: %s' % (mark, bad)
+    hb = blob()
+    before = txt
+    new = before.rstrip('\n') + '\n' + '\n'.join(body_lines) + '\n'
+    write_bytes(new)
+    after = read()
+    pw, pb = append_only_check(before, after, hb)
+    return ('WRITTEN' if (after.count(mark) == 1 and pw and pb) else 'READ-BACK FAILED',
+            'block %s: mark %d time(s); append-only working=%s blob=%s' % (mark, after.count(mark), pw, pb))
+
+
 def all_pairs(order):
     return [(order[i], order[j]) for i in range(len(order)) for j in range(i + 1, len(order))]
 

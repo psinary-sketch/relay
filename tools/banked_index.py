@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'discriminating-family': ['discriminating family', 'the discriminating family', 'the phase condition',
+                              'the four-term sum', 'the off-line quadruple', 'the sine-aimed seed',
+                              'the odd seed', 'the quadruple sum', 'forty-five degrees', 'the phase threshold',
+                              'the negative control under the family', 'sees it'],
     'faces-ledger': ['faces ledger', 'the faces ledger', 'the faces', 'the ledger of faces',
                      'the register pentagon', 'the pentagon', 'the five faces', 'the cascades',
                      'the owed bridges', 'the fixed-point silence', 'the sonin margin', 'the li margin'],
@@ -483,6 +487,38 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE DISCRIMINATING FAMILY -- THE CONDITION AND THE SEEDS (b328).
+    ("discriminating-family", "b328 (a derivation from the pinned source; a construction)",
+     "for f = g * g^7 the four-term sum at an off-line quadruple {rho, conj rho, 1 - rho, 1 - conj rho} is"
+     " 4 Re[G(c) G(-c)], c = rho - 1/2, G the seed's transform; for an EVEN seed 4 |G|^2 cos(2 phi),"
+     " NEGATIVE EXACTLY PAST FORTY-FIVE DEGREES OF PHASE; an odd component contributes -4 Re G_o^2, negative"
+     " only below it. ### Checked against b326's banked four terms at the thirteen arc cells (phases -5.3"
+     " to 24.1 degrees, all below the threshold; the arc's sums positive for exactly that reason). ### Two"
+     " seeds built on the corpus's bump and aimed at the first off-line Epstein zero: the sine-aimed even"
+     " seed at 89 degrees, the cosine-aimed odd seed at 0, widths a = 20, 40, 81, 160, each lawful"
+     " (Definition 3.1; the pole conditions g~(0) = g~(1) = 0 measured)",
+     "### THE PHASE COMES FROM sinh(delta v): zero on the line, small at narrow widths, set by a sine aimed"
+     " at the ordinate. ### (F1) DERIVES; (F2) MET. ### Two sealed bars found defective by running them,"
+     " neither edited: (B1) at 1e-9 fails on the square's discretization (1.1e-7, second order in the"
+     " correlation grid); (B4) at 1e-10 fails because Simpson straddles a kink in every triple on the native"
+     " nodes (exact at 2x; a Gauss-Legendre route meets the bar). ### The lore gains the rule with its gate."
+     " ### NO GRADE MOVED",
+     "data/b328_the_discriminating_family.txt; data/b328_derive_run.txt; data/b328_build_run.txt;"
+     " data/b328_routes_run.txt; tools/b328_family.py; data/b328_registration_2026-09-05.txt (sealed before"
+     " any run); CORRESPONDENCE.md row 168"),
+    # ### THE DISCRIMINATING FAMILY -- THE CONTROL'S VERDICT (b328).
+    ("discriminating-family", "b328 (a computation on the explicit-formula instrument; the verdict)",
+     "the negative control under the two seeds at four widths, the places sides computed with NO ZERO and"
+     " every sign through the noise-floor gate, the closure with every located zero as corroboration:"
+     " **VERDICT: SEES IT** at [['E', 40.0], ['E', 81.0], ['E', 160.0], ['O', 20.0], ['O', 40.0], ['O', 81.0], ['O', 160.0]]. ### THE ZETA CONTROL under the same seeds: see the"
+     " bank's cell table -- a flip, had one occurred, is the act's first finding",
+     "### A VERDICT ON THIS FAMILY, ON THIS INSTRUMENT, AT THIS REACH -- NOT ON THE METHOD AND NOT ON ZETA."
+     " ### b326's DOES NOT SEE IT on the arc's family STANDS; what changed is the family. ### The entailment,"
+     " if SEES IT: the finite-instance places sum computed without any zero distinguishes a holding"
+     " hypothesis from a failing one on this family, and the zeta window is a passed test FOR THIS FAMILY."
+     " ### NOTHING ABOUT TOTALITY, h2 OR THE ROSTER. ### NO GRADE MOVED. ### M-2 UNCHANGED",
+     "data/b328_family_run.txt; data/b328_family.json; data/b328_cell_*_run.txt; FACES_LEDGER.md (the b328"
+     " update); OPEN_TRAILS.md (W-ORD-DISCRIMINATING-FAMILY, updated); CORRESPONDENCE.md row 169"),
     # ### THE FACES LEDGER (b327).
     ("faces-ledger", "b327 (a ledger build, author-authorized 2026-09-04)",
      "PLACE-papers/FACES_LEDGER.md: thirteen rows -- the pentagon's five faces as the deposit states"

@@ -1,0 +1,30 @@
+====================================================================================================
+b328 -- THE CONDITION, CHECKED. ### (B1) the quadruple sum, (B2) the even reduction, (B3) b326's seeds.
+====================================================================================================
+  FIXTURES, both polarities : even 60 deg negative True ; even 30 deg positive True ; odd 30 deg negative True ; odd 60 deg positive True
+  the zero aimed at (library, both routes agree) : beta_1 = 0.9532604747946607  gamma_1 = 16.290215720390393  delta = 0.4532604747946607
+
+       a   S4 from seed      S4 banked   |rel diff|  coarse-grid  phase deg G(-c)=G(c)  sign ok    route
+    1.30   5.077186e-02   5.077186e-02    5.605e-09    8.965e-08     -5.264   0.00e+00     True  3.1e-12
+    1.35   1.203585e-01   1.203585e-01    7.341e-09    1.174e-07     -4.924   5.55e-15     True  2.0e-12
+    1.41   2.686891e-01   2.686891e-01    9.631e-09    1.541e-07     -4.477   6.73e-16     True  6.9e-13
+    1.50   6.366699e-01   6.366699e-01    1.343e-08    2.149e-07     -3.744   4.81e-16     True  8.4e-13
+    1.70   1.717682e+00   1.717682e+00    2.309e-08    3.694e-07     -1.945   2.92e-16     True  1.8e-12
+    1.90   2.215950e+00   2.215950e+00    3.390e-08    5.425e-07     -0.064   2.55e-16     True  1.2e-12
+    1.99   2.149429e+00   2.149429e+00    3.903e-08    6.246e-07      0.779   1.51e-16     True  8.4e-13
+    2.00   2.133227e+00   2.133227e+00    3.961e-08    6.338e-07      0.873   3.46e-16     True  1.2e-12
+    2.01   2.115538e+00   2.115538e+00    4.019e-08    6.431e-07      0.967   3.09e-16     True  2.0e-12
+    2.10   1.902080e+00   1.902080e+00    4.547e-08    7.275e-07      1.811   3.87e-16     True  2.1e-12
+    2.40   9.645803e-01   9.645802e-01    6.370e-08    1.019e-06      4.921   4.57e-16     True  6.0e-13
+    2.80   1.777093e-01   1.777093e-01    8.959e-08    1.433e-06     12.833   3.66e-16     True  3.3e-12
+    3.00   3.431016e-02   3.431015e-02    1.055e-07    1.688e-06     24.096   2.57e-15     True  2.1e-12
+
+  (B1) worst |S4_seed - S4_banked| / |S4_banked| : 1.055e-07   bar 1e-09   ### FAILS AS SEALED ###
+       ### the banked terms are the transform of the DISCRETIZED autocorrelation (np.correlate on 32769 nodes) and the
+       ### seed-formed S4 is exact for the seed; their difference is the square's discretization, and against the 8193-grid
+       ### square it is 1.688e-06 -- the ratio of the two grid terms is 16.00 (16 for a second-order term).
+  (B2) worst |G(-c) - G(c)| / |G(c)| over the even arc seeds : 5.552e-15   bar 1e-12   HOLDS
+  (B4) worst route disagreement on the arc seeds : 3.346e-12   bar 1e-10   HOLDS
+  (B3) every arc phase below 45 deg and every even-reduction sign the banked sign : HOLDS   (phases -5.26 .. 24.10 deg)
+  ### (F1) the even-seed reduction : DERIVES AS ASSERTED
+====================================================================================================
