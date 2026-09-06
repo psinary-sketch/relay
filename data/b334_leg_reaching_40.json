@@ -1,0 +1,1179 @@
+{
+ "a": 40.0,
+ "N": 1602,
+ "lamq_diff": 2.842170943040401e-14,
+ "eps_reach": {
+  "radii": [
+   2.0,
+   10.0,
+   100.0,
+   1600.0,
+   6561.0
+  ],
+  "values": [
+   1.0998043327883646,
+   0.3115360751993047,
+   0.09968007686042306,
+   -7369.35105359256,
+   -9726.458682583961
+  ],
+  "outside_at": [
+   1600.0,
+   6561.0
+  ]
+ },
+ "square_reach": {
+  "X": 32.0,
+  "support": 1600.0
+ },
+ "rows": [
+  {
+   "name": "f = E conv E^# (gamma=4.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 1.1263212584822213e-13,
+   "arch_z": -0.0903986124668591,
+   "arch_z_route2": -0.0903986126055913,
+   "arch_z_refined": -0.09039861246685968,
+   "arch_z_150": -0.09039875938804286,
+   "arch_q": 0.5438159070974615,
+   "arch_q_route2": 0.543815906699104,
+   "arch_q_refined": 0.54381590709746,
+   "arch_q_b325": 0.27190795354873076,
+   "prime_z": -0.0909763638121024,
+   "prime_z_route2": -0.0909763638121024,
+   "prime_z_terms": 278,
+   "finite_q": -0.5958981066627976,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.0005777513452433075,
+   "places_z_refined": -0.0005777513452427246,
+   "places_q": -1.1397140137602593,
+   "places_q_refined": -1.1397140137602575,
+   "hhat_route_diff": 2.2390947331928784e-13,
+   "d_transform_z": 1.5346718549394712e-09,
+   "d_transform_q": 7.325228334707855e-10,
+   "d_witness_z": 1.625259279444781e-06,
+   "d_prime": 0.0,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.777513e-04 above floor; drift 1.009e-12 < bar 1.000e-03",
+     "drift": 5.828670879282072e-16,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.139714e+00 above floor; drift 1.559e-15 < bar 1.000e-03",
+     "drift": 1.7763568394002505e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 9.039861e-02 above floor; drift 6.448e-15 < bar 1.000e-03",
+     "drift": 5.828670879282072e-16,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.438159e-01 above floor; drift 2.858e-15 < bar 1.000e-03",
+     "drift": 1.5543122344752192e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 9.097636e-02 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.958981e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    }
+   },
+   "s5": 1.625259279444781e-06,
+   "room_z": 0.0005777513452433075,
+   "room_q": 1.1397140137602593,
+   "gamma": 4.0,
+   "a": 40.0,
+   "seed": "E(gamma=4.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=8.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 2.6997154511931853e-13,
+   "arch_z": 0.04886841044894921,
+   "arch_z_route2": 0.04886841011680676,
+   "arch_z_refined": 0.048868410448949254,
+   "arch_z_150": 0.04886797898253088,
+   "arch_q": 0.8255668743902764,
+   "arch_q_route2": 0.8255668734360204,
+   "arch_q_refined": 0.8255668743902767,
+   "arch_q_b325": 0.4127834371951382,
+   "prime_z": 0.044948325273705354,
+   "prime_z_route2": 0.044948325273705333,
+   "prime_z_terms": 278,
+   "finite_q": -0.36604394842500815,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.003920085175243858,
+   "places_z_refined": -0.0039200851752438995,
+   "places_q": -1.1916108228152846,
+   "places_q_refined": -1.1916108228152849,
+   "hhat_route_diff": 5.34243008595748e-13,
+   "d_transform_z": 6.796669860532758e-09,
+   "d_transform_q": 1.155879719920591e-09,
+   "d_witness_z": 8.829147794369751e-06,
+   "d_prime": 2.0816681711721685e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.920085e-03 above floor; drift 1.062e-14 < bar 1.000e-03",
+     "drift": 4.163336342344337e-17,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.191611e+00 above floor; drift 1.863e-16 < bar 1.000e-03",
+     "drift": 2.220446049250313e-16,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.886841e-02 above floor; drift 8.519e-16 < bar 1.000e-03",
+     "drift": 4.163336342344337e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 8.255669e-01 above floor; drift 2.690e-16 < bar 1.000e-03",
+     "drift": 2.220446049250313e-16,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.494833e-02 above floor; drift 4.631e-16 < bar 1.000e-03",
+     "drift": 2.0816681711721685e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.660439e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    }
+   },
+   "s5": 8.829147794369751e-06,
+   "room_z": 0.003920085175243858,
+   "room_q": 1.1916108228152846,
+   "gamma": 8.0,
+   "a": 40.0,
+   "seed": "E(gamma=8.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=12.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 5.93273694060592e-13,
+   "arch_z": 0.1400732467753864,
+   "arch_z_route2": 0.14007324604544888,
+   "arch_z_refined": 0.14007324677538635,
+   "arch_z_150": 0.1400723220388635,
+   "arch_q": 0.9943336647607278,
+   "arch_q_route2": 0.9943336626631964,
+   "arch_q_refined": 0.9943336647607278,
+   "arch_q_b325": 0.4971668323803639,
+   "prime_z": 0.10776919628060977,
+   "prime_z_route2": 0.1077691962806098,
+   "prime_z_terms": 278,
+   "finite_q": -0.026714388719578975,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.03230405049477664,
+   "places_z_refined": -0.03230405049477658,
+   "places_q": -1.0210480534803068,
+   "places_q_refined": -1.0210480534803068,
+   "hhat_route_diff": 1.1737873339791381e-12,
+   "d_transform_z": 5.211113070428757e-09,
+   "d_transform_q": 2.109484416701974e-09,
+   "d_witness_z": 6.601806870332127e-06,
+   "d_prime": 2.7755575615628914e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.230405e-02 above floor; drift 1.718e-15 < bar 1.000e-03",
+     "drift": 5.551115123125783e-17,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.021048e+00 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.400732e-01 above floor; drift 3.963e-16 < bar 1.000e-03",
+     "drift": 5.551115123125783e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 9.943337e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.077692e-01 above floor; drift 2.575e-16 < bar 1.000e-03",
+     "drift": 2.7755575615628914e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.671439e-02 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    }
+   },
+   "s5": 6.601806870332127e-06,
+   "room_z": 0.03230405049477664,
+   "room_q": 1.0210480534803068,
+   "gamma": 12.0,
+   "a": 40.0,
+   "seed": "E(gamma=12.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=14.134725, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 8.163782150294452e-13,
+   "arch_z": 0.17683271580127932,
+   "arch_z_route2": 0.1768327147968463,
+   "arch_z_refined": 0.1768327158012798,
+   "arch_z_150": 0.17683144547810511,
+   "arch_q": 1.0648891705966257,
+   "arch_q_route2": 1.0648891677101988,
+   "arch_q_refined": 1.0648891705966272,
+   "arch_q_b325": 0.5324445852983128,
+   "prime_z": 0.1704328660988604,
+   "prime_z_route2": 0.17043286609886046,
+   "prime_z_terms": 278,
+   "finite_q": 0.10013474730954805,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.006399849702418914,
+   "places_z_refined": -0.006399849702419386,
+   "places_q": -0.9647544232870776,
+   "places_q_refined": -0.9647544232870792,
+   "hhat_route_diff": 1.615505295422153e-12,
+   "d_transform_z": 5.680131102648616e-09,
+   "d_transform_q": 2.7105420498129723e-09,
+   "d_witness_z": 7.183756515026542e-06,
+   "d_prime": 5.551115123125783e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.399850e-03 above floor; drift 7.373e-14 < bar 1.000e-03",
+     "drift": 4.718447854656915e-16,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 9.647544e-01 above floor; drift 1.611e-15 < bar 1.000e-03",
+     "drift": 1.5543122344752192e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.768327e-01 above floor; drift 2.668e-15 < bar 1.000e-03",
+     "drift": 4.718447854656915e-16,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.064889e+00 above floor; drift 1.460e-15 < bar 1.000e-03",
+     "drift": 1.5543122344752192e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.704329e-01 above floor; drift 3.257e-16 < bar 1.000e-03",
+     "drift": 5.551115123125783e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.001347e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 7.183756515026542e-06,
+   "room_z": 0.006399849702418914,
+   "room_q": 0.9647544232870776,
+   "gamma": 14.134725,
+   "a": 40.0,
+   "seed": "E(gamma=14.134725, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=16.290216, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 1.074286493096821e-12,
+   "arch_z": 0.20923144009225766,
+   "arch_z_route2": 0.20923143877056113,
+   "arch_z_refined": 0.20923144009225833,
+   "arch_z_150": 0.20922975824025242,
+   "arch_q": 1.129134062865636,
+   "arch_q_route2": 1.1291340590674035,
+   "arch_q_refined": 1.1291340628656379,
+   "arch_q_b325": 0.564567031432818,
+   "prime_z": 0.15682598286854196,
+   "prime_z_route2": 0.15682598286854194,
+   "prime_z_terms": 278,
+   "finite_q": 1.7841872718215162,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.0524054572237157,
+   "places_z_refined": -0.05240545722371637,
+   "places_q": 0.6550532089558803,
+   "places_q_refined": 0.6550532089558783,
+   "hhat_route_diff": 2.1255813335140257e-12,
+   "d_transform_z": 6.316911690786688e-09,
+   "d_transform_q": 3.3638453751270602e-09,
+   "d_witness_z": 8.038237487186053e-06,
+   "d_prime": 2.7755575615628914e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.240546e-02 above floor; drift 1.271e-14 < bar 1.000e-03",
+     "drift": 6.661338147750939e-16,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.550532e-01 above floor; drift 3.051e-15 < bar 1.000e-03",
+     "drift": 1.9984014443252818e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.092314e-01 above floor; drift 3.184e-15 < bar 1.000e-03",
+     "drift": 6.661338147750939e-16,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.129134e+00 above floor; drift 1.770e-15 < bar 1.000e-03",
+     "drift": 1.9984014443252818e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.568260e-01 above floor; drift 1.770e-16 < bar 1.000e-03",
+     "drift": 2.7755575615628914e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.784187e+00 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 8.038237487186053e-06,
+   "room_z": 0.0524054572237157,
+   "room_q": -0.6550532089558803,
+   "gamma": 16.290215720390393,
+   "a": 40.0,
+   "seed": "E(gamma=16.290216, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=20.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 1.6146528558635964e-12,
+   "arch_z": 0.2561472895516379,
+   "arch_z_route2": 0.25614728756513455,
+   "arch_z_refined": 0.2561472895516395,
+   "arch_z_150": 0.2561447666387239,
+   "arch_q": 1.2220970745336126,
+   "arch_q_route2": 1.2220970688247546,
+   "arch_q_refined": 1.222097074533617,
+   "arch_q_b325": 0.6110485372668063,
+   "prime_z": -0.3010525524903489,
+   "prime_z_route2": -0.30105255249034907,
+   "prime_z_terms": 278,
+   "finite_q": -0.22424514073289542,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.5571998420419868,
+   "places_z_refined": -0.5571998420419884,
+   "places_q": -1.446342215266508,
+   "places_q_refined": -1.4463422152665124,
+   "hhat_route_diff": 3.194315567993242e-12,
+   "d_transform_z": 7.755316693692203e-09,
+   "d_transform_q": 4.671362178928252e-09,
+   "d_witness_z": 9.849461684498317e-06,
+   "d_prime": 1.6653345369377348e-16,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.571998e-01 above floor; drift 2.790e-15 < bar 1.000e-03",
+     "drift": 1.5543122344752192e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.446342e+00 above floor; drift 3.070e-15 < bar 1.000e-03",
+     "drift": 4.440892098500626e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.561473e-01 above floor; drift 6.285e-15 < bar 1.000e-03",
+     "drift": 1.609823385706477e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.222097e+00 above floor; drift 3.634e-15 < bar 1.000e-03",
+     "drift": 4.440892098500626e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.010526e-01 above floor; drift 5.532e-16 < bar 1.000e-03",
+     "drift": 1.6653345369377348e-16,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.242451e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    }
+   },
+   "s5": 9.849461684498317e-06,
+   "room_z": 0.5571998420419868,
+   "room_q": 1.446342215266508,
+   "gamma": 20.0,
+   "a": 40.0,
+   "seed": "E(gamma=20.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=25.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 2.512760832740213e-12,
+   "arch_z": 0.30723827908742457,
+   "arch_z_route2": 0.30723827599537346,
+   "arch_z_refined": 0.3072382790874256,
+   "arch_z_150": 0.30723434843045333,
+   "arch_q": 1.3237656623221874,
+   "arch_q_route2": 1.3237656534360458,
+   "arch_q_refined": 1.3237656623221907,
+   "arch_q_b325": 0.6618828311610937,
+   "prime_z": 0.2714663366355614,
+   "prime_z_route2": 0.2714663366355613,
+   "prime_z_terms": 278,
+   "finite_q": -0.07568855894296131,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.03577194245186316,
+   "places_z_refined": -0.035771942451864214,
+   "places_q": -1.3994542212651486,
+   "places_q_refined": -1.399454221265152,
+   "hhat_route_diff": 4.972076906181136e-12,
+   "d_transform_z": 1.0064016516217182e-08,
+   "d_transform_q": 6.712775420341376e-09,
+   "d_witness_z": 1.2793513174580833e-05,
+   "d_prime": 1.1102230246251565e-16,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.577194e-02 above floor; drift 2.948e-14 < bar 1.000e-03",
+     "drift": 1.0547118733938987e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.399454e+00 above floor; drift 2.380e-15 < bar 1.000e-03",
+     "drift": 3.3306690738754696e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.072383e-01 above floor; drift 3.433e-15 < bar 1.000e-03",
+     "drift": 1.0547118733938987e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.323766e+00 above floor; drift 2.516e-15 < bar 1.000e-03",
+     "drift": 3.3306690738754696e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.714663e-01 above floor; drift 4.090e-16 < bar 1.000e-03",
+     "drift": 1.1102230246251565e-16,
+     "certified": true,
+     "sign": "+"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 7.568856e-02 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    }
+   },
+   "s5": 1.2793513174580833e-05,
+   "room_z": 0.03577194245186316,
+   "room_q": 1.3994542212651486,
+   "gamma": 25.0,
+   "a": 40.0,
+   "seed": "E(gamma=25.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=29.551761, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 3.5078745463934524e-12,
+   "arch_z": 0.34542012781979675,
+   "arch_z_route2": 0.3454201235038285,
+   "arch_z_refined": 0.3454201278197984,
+   "arch_z_150": 0.3454146467880554,
+   "arch_q": 1.399706021140616,
+   "arch_q_route2": 1.3997060087370097,
+   "arch_q_refined": 1.3997060211406207,
+   "arch_q_b325": 0.699853010570308,
+   "prime_z": -0.2663617190272178,
+   "prime_z_route2": -0.2663617190272178,
+   "prime_z_terms": 278,
+   "finite_q": 0.8820295015996695,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.6117818468470145,
+   "places_z_refined": -0.6117818468470162,
+   "places_q": -0.5176765195409465,
+   "places_q_refined": -0.5176765195409512,
+   "hhat_route_diff": 6.941877253897346e-12,
+   "d_transform_z": 1.2494837161629386e-08,
+   "d_transform_q": 8.86157962950185e-09,
+   "d_witness_z": 1.5867725415875534e-05,
+   "d_prime": 0.0,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.117818e-01 above floor; drift 2.722e-15 < bar 1.000e-03",
+     "drift": 1.6653345369377348e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.176765e-01 above floor; drift 9.007e-15 < bar 1.000e-03",
+     "drift": 4.6629367034256575e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.454201e-01 above floor; drift 4.821e-15 < bar 1.000e-03",
+     "drift": 1.6653345369377348e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.399706e+00 above floor; drift 3.331e-15 < bar 1.000e-03",
+     "drift": 4.6629367034256575e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.663617e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 8.820295e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 1.5867725415875534e-05,
+   "room_z": 0.6117818468470145,
+   "room_q": 0.5176765195409465,
+   "gamma": 29.551761098629115,
+   "a": 40.0,
+   "seed": "E(gamma=29.551761, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=33.650101, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 4.542612813684954e-12,
+   "arch_z": 0.37510115805708916,
+   "arch_z_route2": 0.375101152467576,
+   "arch_z_refined": 0.3751011580570912,
+   "arch_z_150": 0.3750940584748046,
+   "arch_q": 1.4588949148904269,
+   "arch_q_route2": 1.458894898826735,
+   "arch_q_refined": 1.4588949148904327,
+   "arch_q_b325": 0.7294474574452134,
+   "prime_z": -0.22435602766005308,
+   "prime_z_route2": -0.22435602766005316,
+   "prime_z_terms": 278,
+   "finite_q": 0.6890315019855597,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.5994571857171422,
+   "places_z_refined": -0.5994571857171442,
+   "places_q": -0.7698634129048672,
+   "places_q_refined": -0.7698634129048729,
+   "hhat_route_diff": 8.988431957573608e-12,
+   "d_transform_z": 1.4901348636389198e-08,
+   "d_transform_q": 1.1010862926611346e-08,
+   "d_witness_z": 1.8927113745364063e-05,
+   "d_prime": 8.326672684688674e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.994572e-01 above floor; drift 3.334e-15 < bar 1.000e-03",
+     "drift": 1.9984014443252818e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 7.698634e-01 above floor; drift 7.499e-15 < bar 1.000e-03",
+     "drift": 5.773159728050814e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.751012e-01 above floor; drift 5.476e-15 < bar 1.000e-03",
+     "drift": 2.0539125955565396e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.458895e+00 above floor; drift 3.957e-15 < bar 1.000e-03",
+     "drift": 5.773159728050814e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.243560e-01 above floor; drift 3.711e-16 < bar 1.000e-03",
+     "drift": 8.326672684688674e-17,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.890315e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 1.8927113745364063e-05,
+   "room_z": 0.5994571857171422,
+   "room_q": 0.7698634129048672,
+   "gamma": 33.650101,
+   "a": 40.0,
+   "seed": "E(gamma=33.650101, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=40.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 6.412706737152218e-12,
+   "arch_z": 0.41455447029543424,
+   "arch_z_route2": 0.4145544624040263,
+   "arch_z_refined": 0.4145544702954376,
+   "arch_z_150": 0.4145444511431204,
+   "arch_q": 1.5375841771042222,
+   "arch_q_route2": 1.5375841544250413,
+   "arch_q_refined": 1.5375841771042325,
+   "arch_q_b325": 0.7687920885521111,
+   "prime_z": -0.2235858149454431,
+   "prime_z_route2": -0.22358581494544305,
+   "prime_z_terms": 278,
+   "finite_q": -0.1365194501499857,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.6381402852408773,
+   "places_z_refined": -0.6381402852408807,
+   "places_q": -1.674103627254208,
+   "places_q_refined": -1.6741036272542182,
+   "hhat_route_diff": 1.2690740271090116e-11,
+   "d_transform_z": 1.903587702333192e-08,
+   "d_transform_q": 1.474987926863268e-08,
+   "d_witness_z": 2.416848214594279e-05,
+   "d_prime": 5.551115123125783e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.381403e-01 above floor; drift 5.393e-15 < bar 1.000e-03",
+     "drift": 3.4416913763379853e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.674104e+00 above floor; drift 6.101e-15 < bar 1.000e-03",
+     "drift": 1.021405182655144e-14,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.145545e-01 above floor; drift 8.168e-15 < bar 1.000e-03",
+     "drift": 3.3861802251067274e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.537584e+00 above floor; drift 6.643e-15 < bar 1.000e-03",
+     "drift": 1.021405182655144e-14,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.235858e-01 above floor; drift 2.483e-16 < bar 1.000e-03",
+     "drift": 5.551115123125783e-17,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.365195e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    }
+   },
+   "s5": 2.416848214594279e-05,
+   "room_z": 0.6381402852408773,
+   "room_q": 1.674103627254208,
+   "gamma": 40.0,
+   "a": 40.0,
+   "seed": "E(gamma=40.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=43.858664, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 7.707284463420727e-12,
+   "arch_z": 0.4355595345861405,
+   "arch_z_route2": 0.43555952510121215,
+   "arch_z_refined": 0.4355595345861446,
+   "arch_z_150": 0.43554749668942866,
+   "arch_q": 1.579500012565995,
+   "arch_q_route2": 1.579499985307149,
+   "arch_q_refined": 1.5795000125660068,
+   "arch_q_b325": 0.7897500062829975,
+   "prime_z": -0.022296847186832825,
+   "prime_z_route2": -0.022296847186832856,
+   "prime_z_terms": 278,
+   "finite_q": 0.732057672126269,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.45785638177297333,
+   "places_z_refined": -0.45785638177297744,
+   "places_q": -0.847442340439726,
+   "places_q_refined": -0.8474423404397378,
+   "hhat_route_diff": 1.525268776391751e-11,
+   "d_transform_z": 2.1776422255920634e-08,
+   "d_transform_q": 1.725789544310354e-08,
+   "d_witness_z": 2.763777567921765e-05,
+   "d_prime": 3.122502256758253e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.578564e-01 above floor; drift 8.972e-15 < bar 1.000e-03",
+     "drift": 4.107825191113079e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 8.474423e-01 above floor; drift 1.389e-14 < bar 1.000e-03",
+     "drift": 1.176836406102666e-14,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.355595e-01 above floor; drift 9.431e-15 < bar 1.000e-03",
+     "drift": 4.107825191113079e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.579500e+00 above floor; drift 7.451e-15 < bar 1.000e-03",
+     "drift": 1.176836406102666e-14,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.229685e-02 above floor; drift 1.400e-15 < bar 1.000e-03",
+     "drift": 3.122502256758253e-17,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 7.320577e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 2.763777567921765e-05,
+   "room_z": 0.45785638177297333,
+   "room_q": 0.847442340439726,
+   "gamma": 43.858664,
+   "a": 40.0,
+   "seed": "E(gamma=43.858664, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=46.960994, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 8.833802613017472e-12,
+   "arch_z": 0.45114937176262937,
+   "arch_z_route2": 0.4511493608911517,
+   "arch_z_refined": 0.45114937176263414,
+   "arch_z_150": 0.45113557623352146,
+   "arch_q": 1.6106302114099662,
+   "arch_q_route2": 1.6106301801662775,
+   "arch_q_refined": 1.610630211409979,
+   "arch_q_b325": 0.8053151057049831,
+   "prime_z": -0.1631400390202605,
+   "prime_z_route2": -0.16314003902026053,
+   "prime_z_terms": 278,
+   "finite_q": 1.4996851865935088,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.6142894107828899,
+   "places_z_refined": -0.6142894107828947,
+   "places_q": -0.1109450248164574,
+   "places_q_refined": -0.11094502481647028,
+   "hhat_route_diff": 1.7483142999488168e-11,
+   "d_transform_z": 2.4097290926216843e-08,
+   "d_transform_q": 1.939842462035058e-08,
+   "d_witness_z": 3.057862865686475e-05,
+   "d_prime": 2.7755575615628914e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.142894e-01 above floor; drift 7.772e-15 < bar 1.000e-03",
+     "drift": 4.773959005888173e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.109450e-01 above floor; drift 1.161e-13 < bar 1.000e-03",
+     "drift": 1.2878587085651816e-14,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.511494e-01 above floor; drift 1.058e-14 < bar 1.000e-03",
+     "drift": 4.773959005888173e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.610630e+00 above floor; drift 7.996e-15 < bar 1.000e-03",
+     "drift": 1.2878587085651816e-14,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.631400e-01 above floor; drift 1.701e-16 < bar 1.000e-03",
+     "drift": 2.7755575615628914e-17,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.499685e+00 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 3.057862865686475e-05,
+   "room_z": 0.6142894107828899,
+   "room_q": 0.1109450248164574,
+   "gamma": 46.960994,
+   "a": 40.0,
+   "seed": "E(gamma=46.960994, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=55.000000, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 1.2111985026042049e-11,
+   "arch_z": 0.4871642605574657,
+   "arch_z_route2": 0.4871642456501589,
+   "arch_z_refined": 0.48716426055747336,
+   "arch_z_150": 0.4871453562948147,
+   "arch_q": 1.6825549198663379,
+   "arch_q_route2": 1.682554877023981,
+   "arch_q_refined": 1.6825549198663585,
+   "arch_q_b325": 0.8412774599331689,
+   "prime_z": 0.10625232046570084,
+   "prime_z_route2": 0.10625232046570082,
+   "prime_z_terms": 278,
+   "finite_q": 0.2726878896085937,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.3809119400917649,
+   "places_z_refined": -0.38091194009177254,
+   "places_q": -1.409867030257744,
+   "places_q_refined": -1.409867030257765,
+   "hhat_route_diff": 2.397336086614035e-11,
+   "d_transform_z": 3.060016504665341e-08,
+   "d_transform_q": 2.5462679563959722e-08,
+   "d_witness_z": 3.880469932126389e-05,
+   "d_prime": 1.3877787807814457e-17,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 3.809119e-01 above floor; drift 2.011e-14 < bar 1.000e-03",
+     "drift": 7.66053886991358e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.409867e+00 above floor; drift 1.480e-14 < bar 1.000e-03",
+     "drift": 2.0872192862952943e-14,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 4.871643e-01 above floor; drift 1.572e-14 < bar 1.000e-03",
+     "drift": 7.66053886991358e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.682555e+00 above floor; drift 1.227e-14 < bar 1.000e-03",
+     "drift": 2.0650148258027912e-14,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.062523e-01 above floor; drift 1.306e-16 < bar 1.000e-03",
+     "drift": 1.3877787807814457e-17,
+     "certified": true,
+     "sign": "+"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 2.726879e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 3.880469932126389e-05,
+   "room_z": 0.3809119400917649,
+   "room_q": 1.409867030257744,
+   "gamma": 55.0,
+   "a": 40.0,
+   "seed": "E(gamma=55.000000, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  },
+  {
+   "name": "f = E conv E^# (gamma=61.687904, a=40)",
+   "L_f": 7.3777589082278725,
+   "du": 0.027108229606710665,
+   "nu": 44268,
+   "pole": 1.5233122922786446e-11,
+   "arch_z": 0.5133024436474769,
+   "arch_z_route2": 0.5133024248967265,
+   "arch_z_refined": 0.5133024436474853,
+   "arch_z_150": 0.5132786804838044,
+   "arch_q": 1.7347741296099062,
+   "arch_q_route2": 1.7347740757217913,
+   "arch_q_refined": 1.7347741296099293,
+   "arch_q_b325": 0.8673870648049531,
+   "prime_z": -0.15779168048857364,
+   "prime_z_route2": -0.15779168048857364,
+   "prime_z_terms": 278,
+   "finite_q": 0.7559474263488715,
+   "finite_q_terms": 316,
+   "lamq_diff": 2.842170943040401e-14,
+   "places_z": -0.6710941241360505,
+   "places_z_refined": -0.671094124136059,
+   "places_q": -0.9788267032610347,
+   "places_q_refined": -0.9788267032610578,
+   "hhat_route_diff": 3.015391672640133e-11,
+   "d_transform_z": 3.652963399817673e-08,
+   "d_transform_q": 3.10634761837314e-08,
+   "d_witness_z": 4.629466305209016e-05,
+   "d_prime": 0.0,
+   "gate": {
+    "places_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 6.710941e-01 above floor; drift 1.257e-14 < bar 1.000e-03",
+     "drift": 8.43769498715119e-15,
+     "certified": true,
+     "sign": "-"
+    },
+    "places_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 9.788267e-01 above floor; drift 2.359e-14 < bar 1.000e-03",
+     "drift": 2.3092638912203256e-14,
+     "certified": true,
+     "sign": "-"
+    },
+    "arch_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 5.133024e-01 above floor; drift 1.644e-14 < bar 1.000e-03",
+     "drift": 8.43769498715119e-15,
+     "certified": true,
+     "sign": "+"
+    },
+    "arch_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.734774e+00 above floor; drift 1.331e-14 < bar 1.000e-03",
+     "drift": 2.3092638912203256e-14,
+     "certified": true,
+     "sign": "+"
+    },
+    "prime_z": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 1.577917e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "-"
+    },
+    "finite_q": {
+     "verdict": "RESOLVED",
+     "why": "abs(value) = 7.559474e-01 above floor; drift 0.000e+00 < bar 1.000e-03",
+     "drift": 0.0,
+     "certified": true,
+     "sign": "+"
+    }
+   },
+   "s5": 4.629466305209016e-05,
+   "room_z": 0.6710941241360505,
+   "room_q": 0.9788267032610347,
+   "gamma": 61.687904,
+   "a": 40.0,
+   "seed": "E(gamma=61.687904, a=40)",
+   "square": "NOT REACHED",
+   "remainder": "NOT REACHED"
+  }
+ ]
+}

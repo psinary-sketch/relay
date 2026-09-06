@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'aim-map': ['the aim-map', 'aim map', 'the aim map', 'the room the arithmetic leaves', 'the chart', 'the chart over aims',
+                'the narrowest points', 'the crossing region over aims', 'the softest pair over aims', 'K5 and K6 over aims',
+                'soften together', 'what does the aim-map say', 'the reaching leg', 'the covered leg'],
     'archimedean-term-derived': ['the archimedean term derived', 'archimedean term derived', 'the archimedean term',
                                  'the digamma kernel', 'the classical term', 'the principal value', 'the third route',
                                  'the re-rank', 'the factor of two', 'the Gamma factor', 'is the archimedean term derived',
@@ -505,6 +508,22 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE AIM-MAP (b334).
+    ("aim-map", "b334 (a computation on the certified instruments; a finite-reach chart over aims; interpreted by nobody)",
+     "THE ROOM THE ARITHMETIC LEAVES, CHARTED OVER AIMS: b328's sine-aimed even seed at every height of the sealed grid, for zeta and for the"
+     " Epstein function side by side, at the reaching widths a = 40, 81 (the phase past 45 degrees at every off-line aim) and the covered widths"
+     " a = 1.3, 1.41 (where the square on the stable cut and the remainder are instruments the record certifies). Per aim, like for like by name:"
+     " the archimedean distribution by the derived kernel on two transforms and by the principal-value witness (150); the square at two frames;"
+     " the margin as A_z - Tr and as minus the remainder by two quadratures, the identity residual printed; the prime sum by two routes; the"
+     " places side gated. THE NARROWEST POINTS: covered_1.3 at gamma 20.000000; covered_1.41 at gamma 33.650101; reaching_40 at gamma 4.000000; reaching_81 at gamma 4.000000. THE CROSSING REGION for Z_Q: a = 40 at gamma 16.290216; a = 81 at gamma 16.290216; a = 81 at gamma 46.960994. (F1) the prime sum inside the margin"
+     " at every aim at this reach: MET -- A PASSED TEST OVER A GRID AT THIS REACH AND NOTHING MORE. (F2) the crossing region contains the banked"
+     " off-line zeros' aims: NOT MET -- THE NEGATIVE CONTROL CHARTED. (F3) K5 and K6 soften together over aims: NOT MET (Spearman -0.6158).",
+     "### A CHART IS NOT A PROOF. ### THE QUANTIFIER K8 STAYS UNOWNED. ### NO GRADE: THE SOFTEST PAIR GAINS A BEHAVIOUR OVER AIMS, FILED AS THE"
+     " CLAUSE'S FIRST CHART. ### Signs certified by the gate; sizes at named resolutions. ### The cost census named as next. ### NO TERMINAL."
+     " ### M-2 UNCHANGED",
+     "data/b334_the_aim_map.txt; data/b334_chart_run.txt; data/b334_grid_run.txt; data/b334_leg_reaching_40_run.txt; data/b334_leg_reaching_81_run.txt;"
+     " data/b334_leg_covered_run.txt; data/b334_registration_2026-09-06.txt (sealed before any seed); FACES_LEDGER.md (the b334 update: S1 / K5, K6;"
+     " F7; b328's block); CORRESPONDENCE.md rows 180 and 181"),
     # ### THE ARCHIMEDEAN TERM DERIVED (b333).
     ("archimedean-term-derived", "b333 (a derivation under the import bar; a third route; the re-rank; a sealed bar not met, diagnosed)",
      "THE DERIVATION TOOL'S VERDICT, AS PRINTED, FIRST: MISMATCH at (L3): the corpus's A against the source's (152) as evaluated here. ### Diagnosed: the act's sealed bar paired the third"
