@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'discriminating-arc-fold': ['the discriminating arc fold', 'the discriminating-family arc', 'b323-b330',
+                                'the eight acts', 'fold b323', 'the negative-control arc', 'what did the arc establish',
+                                'the arc as one statement', 'the desk', 'the instrument can say no',
+                                'the reconciliation wave', 'the patent receipts'],
     'techne-extraction': ['techne extraction', 'the techne extraction', 'the september extraction', 'techne modules',
                           'the method modules', 'claim-shaped modules', 'the module families', 'modules/2026-09',
                           'the patent note', 'line-ending hygiene', 'the vacuity taxonomy', 'the negative-control protocol'],
@@ -493,6 +497,35 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE DISCRIMINATING-FAMILY ARC, b323-b330 -- THE FOLD (b331).
+    ("discriminating-arc-fold", "b331 (a filings act)",
+     "FINDINGS.md gains the section 'THE DISCRIMINATING-FAMILY ARC, b323-b330 -- THE FOLD', +144 lines"
+     " (2880 -> 3024): the eight acts each with its grade as its own act left it, its own quotation, its scope and its"
+     " obstacle quoted; the corrections table; the sealed-bars-found-defective table continued; the seats' declared"
+     " defects as their own table; the lore with a TECHNE module beside each mechanized rule; the suite; the desk."
+     " ### F-QUOTE 16 quotations, 0 unfindable, the discrimination arm firing; F-COUNT the arc exactly;"
+     " PURELY ADDITIVE measured on the working file and on the blob",
+     "### A FILING, AT THE GRADE OF THE ACTS IT FOLDS AND NO HIGHER. ### NO GRADE MOVED; NO ACT RE-VERDICTED; NO NEW"
+     " MATHEMATICS. ### The judgement that each quoted sentence is its act's own voice is the seat's, declared."
+     " ### M-2 UNCHANGED",
+     "D:/MY-DOwnloads/PLACE-papers/FINDINGS.md (the section); data/b331_fold_emitted.md; data/b331_fold_run.txt;"
+     " data/b331_fold_rows.json; data/b331_the_fold.txt; data/b331_registration_2026-09-06.txt (sealed before any"
+     " write); CORRESPONDENCE.md row 176"),
+    # ### THE ARC AS ONE STATEMENT, WITH ITS SCOPE (b331).
+    ("discriminating-arc-fold", "b331 (the arc's six clauses, each an act's own verdict at its own grade)",
+     "the instrument can say no (b325, b326, b328); the zeta window is a passed test for the discriminating family"
+     " at this reach, and for the arc's family b326's verdict stands (b328); the finite side is compiled, general"
+     " where the header says general and per cell where it says per cell (b329); the two margins are two"
+     " evaluations of one distribution separated by the pole constant (b324, b327); the object's archimedean unit"
+     " is in its space by derivation and priced at bench (b300, b322, unchanged); THE CLAUSE HAS NOT MOVED and no"
+     " act in the arc claims otherwise",
+     "### A SUMMARY AND NOT A VERDICT. ### The no is a verdict on one family, one instrument, one reach -- nothing"
+     " about the method or about zeta; the compiled finite side certifies the model's arithmetic and the counting"
+     " form, not the identification with the source's trace and not the compact part beyond the cells; the"
+     " margins' relation is a reading under an import bar with the bridge owed. ### NOTHING ABOUT THE IDENTITY,"
+     " h2, OR THE ROSTER. ### M-2 UNCHANGED",
+     "D:/MY-DOwnloads/PLACE-papers/FINDINGS.md (the section's 'The arc as one statement' and its scope paragraph);"
+     " data/b331_the_fold.txt; CORRESPONDENCE.md row 177"),
     # ### THE TECHNE EXTRACTION -- METHOD ONLY, NOT PUSHED (b330).
     ("techne-extraction", "b330 (filings of method into a private core; a hygiene fix at step zero)",
      "20 claim-shaped method modules under modules/2026-09/ in the canonical local TECHNE clone (WHAT IT DOES,"
