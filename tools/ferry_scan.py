@@ -45,6 +45,32 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 RECORD = os.path.join(ROOT, 'data', 'STRUCK_CLAUSES.md')
+# ### b335, BY THE ORDER'S WORDS -- "with the ferry scan checking that a ferry citing it cites the current
+# ### version": the standing-clauses file and the citation form a ferry uses.
+STANDING = os.path.join(ROOT, 'tools', 'FERRY_STANDING.md')
+CITATION = re.compile(r'FERRY_STANDING\s+v(\d+)', re.I)
+
+
+def standing_version(path=None):
+    """### `VERSION: <N>` from the standing file; None when the file is absent (older acts)."""
+    p = path or STANDING
+    if not os.path.exists(p):
+        return None
+    m = re.search(r'^VERSION:\s*(\d+)\s*$', io.open(p, encoding='utf-8', errors='replace').read(), re.M)
+    return int(m.group(1)) if m else None
+
+
+def citation_check(text, current=None):
+    """### RETURNS `(status, cited, current)`: NONE (no citation), CURRENT, STALE, or NO FILE.
+    ### A STALE citation is reported as a hit by `main`; the reader rules, as for every hit."""
+    if current is None:
+        current = standing_version()
+    cited = sorted(set(int(m.group(1)) for m in CITATION.finditer(re.sub(r'\s+', ' ', text))))
+    if not cited:
+        return 'NONE', cited, current
+    if current is None:
+        return 'NO FILE', cited, current
+    return ('CURRENT' if cited == [current] else 'STALE'), cited, current
 
 ENTRY = re.compile(r'^###\s+([SU]-\d+)\s*$')
 KEYVAL = re.compile(r'^([A-Z][A-Z-]*):\s*(.*)$')
@@ -270,9 +296,33 @@ def self_test(verbose=True):
         bad += 0 if ok else 1
         rec('  %-56s %-9s %s' % (lbl, '%s/%s' % (got, expect), 'YES' if ok else '### NO ###'))
 
+    # ### THE CITATION FIXTURES (b335), BUILT FROM THE LOADED VERSION, NEVER TYPED; skipped when the
+    # ### standing file is absent, and said so.
+    cur = standing_version()
+    cite_cases = []
+    if cur is not None:
+        cite_cases = [
+            ('(c) quiet: a citation of the current standing version',
+             'Standing clauses: FERRY_STANDING v%d, carried by reference.' % cur, 'CURRENT'),
+            ('(c) fires: a citation of a stale standing version',
+             'Standing clauses: FERRY_STANDING v%d, carried by reference.' % (cur + 1), 'STALE'),
+            ('(c) quiet: a ferry that cites nothing',
+             'The act restates its clauses in full.', 'NONE'),
+        ]
+        rec()
+        rec('  %-56s %-9s %s' % ('citation fixture', 'got/exp', 'agree'))
+        for lbl, text, expect in cite_cases:
+            got, _c, _v = citation_check(text, cur)
+            ok = (got == expect)
+            bad += 0 if ok else 1
+            rec('  %-56s %-9s %s' % (lbl, '%s/%s' % (got, expect), 'YES' if ok else '### NO ###'))
+    else:
+        rec()
+        rec('  citation fixtures : SKIPPED -- no standing file at %s' % os.path.basename(STANDING))
+
     rec()
-    rec('  ### FIXTURES AGREEING : %d of %d' % (len(cases) + len(stem_cases) - bad,
-                                                len(cases) + len(stem_cases)))
+    rec('  ### FIXTURES AGREEING : %d of %d' % (len(cases) + len(stem_cases) + len(cite_cases) - bad,
+                                                len(cases) + len(stem_cases) + len(cite_cases)))
     rec('  ### **BOTH ARMS FIRE, BOTH STAY QUIET, AND THE NEAR-MISS DOES NOT FIRE.**')
     return bad == 0, out
 
@@ -318,12 +368,20 @@ def main(argv):
         print('    line %-4d col %-4d  %s' % (i, c, lbl))
         print('        %s' % line[:104])
     print()
+    # ### b335: the standing-clauses citation, checked against the file's current version.
+    status, cited, current = citation_check(text)
+    stale = 1 if status == 'STALE' else 0
+    print('  ### STANDING-CLAUSES CITATION : %s   (cited %s ; current %s)'
+          % (status, cited if cited else 'none', current if current is not None else 'no file'))
+    if stale:
+        print('    ### the ferry cites a version other than the current one -- a HIT; the reader rules.')
+    print()
     print('  ### VERDICT: ### **%d HIT(S) REPORTED. ### NOTHING REFUSED, NOTHING EDITED.**'
-          % (len(ch) + len(sh)))
+          % (len(ch) + len(sh) + stale))
     print('  ### **A HIT IS A STRING, NOT A FAULT.** ### A ferry that strikes a clause quotes')
     print('  ### the clause to strike it, and that quotation hits. ### THE READER RULES.')
     print('=' * 100)
-    return 1 if (ch or sh) else 0
+    return 1 if (ch or sh or stale) else 0
 
 
 if __name__ == '__main__':

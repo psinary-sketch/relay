@@ -1,0 +1,177 @@
+====================================================================================================
+b335 -- GATE SUITE (THE STANDING CLAUSES, FILED: FILINGS ONLY)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  b334 -- concurrency and the read rule
+    PASS  ### the registration sealed, no counts predicted
+    PASS  ### step zero
+    PASS  ### the shadow
+    PASS  ### execution
+    PASS  ### the mirror, STOP
+    PASS  ### the foot
+    PASS  b320 -- step zero
+    PASS  b327 -- execution
+    PASS  the sortie -- leg 0
+    PASS  ### the scan checks the citation
+    PASS  ### DRAFT -- NAVIGATOR EDITS
+    PASS  the executor's rules -- Rule 5
+    PASS  ferry_scan -- the record it reads
+
+  SELF NEEDLES:
+    PASS  bank states the filings first
+    PASS  ### (1) the file exists and is measured
+    PASS  ### binds nothing
+    PASS  ### (2) the scan checks the citation
+    PASS  ### (3) rule 6
+    PASS  ### the draft binds nothing
+    PASS  ### no grade no claim
+    PASS  bank keeps the order
+    PASS  bank gives filing 1
+    PASS  bank gives filing 2
+    PASS  ### not additions only
+    PASS  bank gives filing 3
+    PASS  bank gives the row and the key
+    PASS  ### the seat's defects
+    PASS  ### E1
+    PASS  bank gives the standing rows
+    PASS  ### the shadow none
+    PASS  ### next
+    PASS  registration -- filings only
+    PASS  registration -- a majority
+    PASS  registration -- expected nothing
+    PASS  the standing file -- version
+    PASS  ### binds nothing
+    PASS  the rules -- rule 6
+    PASS  ### the draft binds nothing
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never states a grade
+    PASS  the bank never states a measurement of the mathematics
+    PASS  the bank never says the draft binds
+    PASS  the bank never says the file is a new rule
+    PASS  the bank never says K8 is owned
+
+  G-STANDING (F1: the file, VERSION 1, every STANDING count a majority, the counts re-measured live):
+    VERSION 1 ; counts disagreeing 0 ; standing 33 of 37 measured : True
+
+  G-PROVENANCE (F2: every clause's source ferry line is located in the extract file or is the clause's own key found in its carriers):
+    True
+
+  G-SCAN (F3: the self-test with the citation arms; NONE on the sortie ferry; CURRENT quiet, STALE a hit):
+    self-test True ; version 1 ; sortie NONE ; records current/stale/after present : True
+
+  G-DIFF (F4: the scanner against its blob -- the changed lines named; the struck and stem arms byte-identical):
+    diff  1 file changed, 62 insertions(+), 4 deletions(-) ; removed lines all in the tally / verdict / exit places True ; arms present True : True
+
+  G-RULE6 (F5: the rules file a true prefix of its blob plus Rule 6; Rules 1-5 byte-identical; the DRAFT header in the rule):
+    mark once True ; prefix of blob True (Rule 6 committed: False) ; DRAFT header True : True
+
+  G-ROW / G-ANCESTOR (row 182: NO TERMINAL with the reason, a filing act, M-2; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-BINDS-NOTHING (one row; the must-not-hit queries NO KEY; the answer says the file and the draft bind nothing):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (owner files beyond the ordered scanner edit, sealed files, the deposit, TECHNE, HANDOFF, the struck record: no tracked change beyond the act's files):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond the rules) [] ; TECHNE '' ; deposit '' : True
+
+  G-ORDER (the seal verifies; the generator, the file, the scanner, the rule, the row and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the generator, the file, the scanner, the rule, the row and the bank after the seal True [file times (pre-commit)] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    the rule not yet committed ; the hook and the mirror are owed after the commit (records present: False / False)
+
+  G-NUMBERS (every number the bank quotes, read back from its producing file):
+    37 measured, 33 standing, 4 frequent         PASS
+    84 lines, 8772 bytes                         PASS
+    C4 count 2                                   PASS
+    C5 count 6                                   PASS
+    C6 count 1                                   PASS
+    C14 count 5                                  PASS
+    9 of 9 then 12 of 12                         PASS
+    +18 lines, 129 -> 147                        PASS
+    62 insertions, 4 deletions                   PASS
+    row 182                                      PASS
+    11407 bytes sealed                           PASS
+    24 clauses                                   PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 28   struck-clause hits 0   stem hits 0  PASS
+    b335_checks.py                       struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b335_ferry_2026-09-06.txt            struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b335_ferry_scan.txt                  struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b335_reg_termscan.txt                struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b335_extract_notes.txt               struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    ferry_scan.py                        struck : 5  stem : 0  ### CARRIER -- the scanner carries the struck clauses as patterns and fixtures
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (the rule, row 182, the index row, swept):
+    rule 6             struck : 0   stem : 0   (1226 chars)
+    row 182            struck : 0   stem : 0   (2051 chars)
+    index row          struck : 0   stem : 0   (1622 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    37 / 33 / 4 clauses, the counts, 85 lines, 8772 bytes      tools/b335_standing.py             exists=True tracked=False
+    9 of 9, 12 of 12, NONE, CURRENT, STALE, exit 1             tools/ferry_scan.py                exists=True tracked=True
+    +18 lines, 129 -> 147                                      tools/b335_rule6.py                exists=True tracked=False
+    62 insertions, 4 deletions                                 tools/b335_checks.py               exists=True tracked=False
+    row 182                                                    tools/b335_correspondence.py       exists=True tracked=False
+    the key                                                    tools/b335_index_append.py         exists=True tracked=False
+    24 clauses                                                 tools/b335_regspec.py              exists=True tracked=False
+    the satisfiability verdict                                 tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                           tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                  tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                    tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                   tools/b303_pins.py                 exists=True tracked=True
+    11407 bytes sealed                                         tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                          tools/b335_extract.py              exists=True tracked=False
+    the hook                                                   tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                                 tools/mirror_verify.py             exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the rule, the row and the index row included):
+    b335_the_standing_clauses.txt        sentences=137   graded-hedges=0   ungraded-shapes=12
+    b335_registration_2026-09-06.txt     sentences=198   graded-hedges=0   ungraded-shapes=27
+    b335_standing_run.txt                sentences=44    graded-hedges=0   ungraded-shapes=0
+    b335_scan_selftest.txt               sentences=27    graded-hedges=0   ungraded-shapes=0
+    b335_ferry_scan_after.txt            sentences=21    graded-hedges=0   ungraded-shapes=1
+    b335_scan_cite_current.txt           sentences=21    graded-hedges=0   ungraded-shapes=1
+    b335_scan_cite_stale.txt             sentences=22    graded-hedges=0   ungraded-shapes=1
+    b335_rule6_run.txt                   sentences=5     graded-hedges=0   ungraded-shapes=0
+    b335_rule6_rerun.txt                 sentences=5     graded-hedges=0   ungraded-shapes=0
+    b335_corr_run.txt                    sentences=16    graded-hedges=0   ungraded-shapes=3
+    b335_corr_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=2
+    b335_index_run.txt                   sentences=26    graded-hedges=0   ungraded-shapes=5
+    b335_index_rerun.txt                 sentences=29    graded-hedges=0   ungraded-shapes=5
+    b335_census.txt                      sentences=30    graded-hedges=0   ungraded-shapes=6
+    b335_faces_census.txt                sentences=17    graded-hedges=0   ungraded-shapes=2
+    b335_regspec_run.txt                 sentences=24    graded-hedges=0   ungraded-shapes=2
+    audit_b335_reg_satisfiable.txt       sentences=70    graded-hedges=0   ungraded-shapes=3
+    b335_pins_stepzero.txt               sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b335_index_query.txt           sentences=91    graded-hedges=0   ungraded-shapes=14
+    b335_reg_gate.txt                    sentences=7     graded-hedges=0   ungraded-shapes=2
+    FERRY_STANDING.md                    sentences=73    graded-hedges=0   ungraded-shapes=11
+    b335_extract.py                      sentences=136   graded-hedges=0   ungraded-shapes=7
+    b335_regspec.py                      sentences=89    graded-hedges=0   ungraded-shapes=6
+    b335_standing.py                     sentences=210   graded-hedges=0   ungraded-shapes=18
+    b335_rule6.py                        sentences=81    graded-hedges=0   ungraded-shapes=7
+    b335_correspondence.py               sentences=117   graded-hedges=0   ungraded-shapes=8
+    b335_index_append.py                 sentences=133   graded-hedges=0   ungraded-shapes=13
+    rule 6                               sentences=20    graded-hedges=0   ungraded-shapes=4
+    row 182                              sentences=13    graded-hedges=0   ungraded-shapes=3
+    the index row                        sentences=19    graded-hedges=0   ungraded-shapes=2
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

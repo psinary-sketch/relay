@@ -1,0 +1,147 @@
+====================================================================================================
+b335 -- REGISTRATION. ### THE STANDING CLAUSES, FILED. ### LEG 0 OF THE SORTIE b335-b338.
+2026-09-06. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE ANY FILE OF THIS ACT IS WRITTEN OR EDITED.** ### The seal block at the foot
+### carries the hash of everything above it.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS, AND WHAT IT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **FILINGS ONLY.** ### Three filings, no instrument, no computation, no claim:
+###   (1) `relay/tools/FERRY_STANDING.md` -- the scope, execution and closing clauses common to every
+###       ferry since b320, extracted by a committed generator from the fifteen banked ferries b320-b334
+###       with each clause's provenance measured (how many of the fifteen carry it, at which lines),
+###       the wording b334's ferry's (the reference the sortie names), VERSIONED by a `VERSION:` line;
+###   (2) the ferry scan (`tools/ferry_scan.py`, an owner instrument) EDITED BY THE ORDER'S OWN WORDS --
+###       *"with the ferry scan checking that a ferry citing it cites the current version"* -- gaining
+###       a check: a ferry that cites `FERRY_STANDING v<N>` with `N` other than the file's current
+###       version is reported as a hit (a stale citation), with a fixture of each polarity; every
+###       existing arm and fixture untouched; the diff carried in the bank;
+###   (3) the executor's rules (`PLACE-papers/protocols/EXECUTOR_RULES.md`) gaining Rule 6, appended:
+###       the STOP format -- the executor's final message ends with a DRAFT of the next ferry, marked
+###       `DRAFT -- NAVIGATOR EDITS`, which the navigator edits or discards and which binds nothing.
+### ### **NOTHING ABOUT THE MATHEMATICS.** ### No grade, no row of the faces ledger, no findings
+### section; the correspondence table gains one row (NO TERMINAL: a filing act); the index one key.
+### ### **THE MISREADINGS, NAMED BEFORE ANY WRITE:** ### (i) the standing file read as a new rule --
+### it restates clauses the ferries already carry, with their provenance, and adds none; (ii) the
+### DRAFT read as the executor steering the programme -- it is marked DRAFT, the navigator edits, and
+### the next act runs only on the navigator's paste; (iii) the scanner's edit read as a change to what
+### it scans -- the struck-clause and stem arms are byte-identical and their fixtures still pass.
+
+----------------------------------------------------------------------------------------------------
+### (B) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN** ### -- `data/b335_ferry_scan.txt` on the sortie ferry: ### **0 STRUCK-CLAUSE
+### HITS, 0 STEM HITS.**
+### ### **(ii) BOTH CENSUSES** ### -- `b335_census.txt`, `b335_faces_census.txt`: ### **TOTAL MISSING : 0
+### at each.**
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** ### -- `b335_pins_stepzero.txt`:
+### relay `7aa4b43`, SIDE-global-section `4b88465`, PLACE-papers `cd646aa`, each 0/0 and equal.
+### ### **(iv) THE EXTRACT STEP** ### -- `tools/b335_extract.py` -> `data/b335_extract_notes.txt`: the
+### standing clauses at their lines in b334's ferry, in b320's and in b327's; the rules file; the
+### scanner's entry points; the sortie ferry's leg-0 sentence.
+### ### **(v) THE INDEX QUERY** ### -- `data/audit_b335_index_query.txt`: `the standing clauses`,
+### `ferry standing`, `FERRY_STANDING`, `the STOP format`, `the draft ferry` : NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE STANDING FILE. ### [SEAT, PRE-WRITE]
+----------------------------------------------------------------------------------------------------
+### ### **THE GENERATOR** `tools/b335_standing.py` reads the fifteen banked ferries b320-b334 (the
+### resume pastes excluded, they are re-pastes), carries each clause as b334's ferry words it with a
+### normalized key, counts the ferries whose flattened text carries the key, and writes
+### `tools/FERRY_STANDING.md` ONCE with: the `VERSION: 1` line and the act that filed it; the citation
+### form a ferry uses (`FERRY_STANDING v1`); the clauses in their sections -- CONCURRENCY AND THE READ
+### RULE; THE PASTE PROTOCOL; THE STANDING SCOPE; STEP ZERO; THE REGISTRATION; EXECUTION; CLOSING; THE
+### STANDING ROWS; THE FOOT; THE DEVIATION RULE -- each with its provenance count and the ferries
+### carrying it; and the struck-clause record referenced, not restated.
+### ### **A CLAUSE IS STANDING WHEN A MAJORITY OF THE FIFTEEN CARRY IT** (eight or more); a clause below
+### that is listed under FREQUENT, NOT STANDING with its count, and the seat adds none by hand.
+### ### **THE FILE BINDS NOTHING BY ITSELF:** a ferry that cites it carries its clauses by reference;
+### a ferry that restates them is not in conflict.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE SCANNER'S EDIT, BY ORDER. ### [SEAT, PRE-WRITE]
+----------------------------------------------------------------------------------------------------
+### ### `standing_version()` reads `VERSION: <N>` from `tools/FERRY_STANDING.md` (None when the file is
+### absent); `citation_check(text)` finds every `FERRY_STANDING v<N>` in the flattened ferry text and
+### returns `(status, cited, current)` with status in {`NONE`, `CURRENT`, `STALE`, `NO FILE`}; `main`
+### prints the status after the two arms and counts a `STALE` citation as a hit (exit 1); `self_test`
+### gains two arms -- a current citation stays quiet, a stale one fires -- built from the loaded
+### version, never typed. ### **NOTHING ELSE IN THE FILE CHANGES**; the suite compares the file
+### against its blob line by line and names every changed line.
+
+----------------------------------------------------------------------------------------------------
+### (E) THE STOP FORMAT, RULE 6. ### [SEAT, PRE-WRITE]
+----------------------------------------------------------------------------------------------------
+### ### Appended after Rule 5 in `protocols/EXECUTOR_RULES.md`, in the file's own heading form:
+### *Rule 6 -- The STOP format (filed 2026-09-06, author-ruled at the b335 sortie)*: the executor's
+### final message for an act (its STOP) carries, after the closing summary and the pins, a block
+### headed `DRAFT -- NAVIGATOR EDITS` containing a draft of the next ferry in the ferry's own shape;
+### the draft binds nothing, is not a ferry, is not scanned as one, and the next act runs only on the
+### navigator's paste; a sortie's STOP carries one summary paragraph per leg before the draft.
+### ### The existing rules are byte-identical; the file gains lines at its end only.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-STANDING`: the file exists, carries `VERSION: 1`, every STANDING clause's count is eight or
+###       more of fifteen, every count re-measured live by the generator's `--check` equals the file's.
+### (F2)  `G-PROVENANCE`: every clause's wording is a line of b334's ferry located in the extract file.
+### (F3)  `G-SCAN`: the scanner's self-test passes with the two new arms; the current-citation fixture
+###       quiet, the stale one firing; the sortie ferry scans as before (no citation, 0 hits); a ferry
+###       text citing `v1` reports CURRENT and a text citing `v0` reports STALE with exit 1.
+### (F4)  `G-DIFF`: the scanner's changed lines against its blob are additions inside the three named
+###       places only; the struck and stem arms and their fixtures byte-identical.
+### (F5)  `G-RULE6`: the rules file is a true prefix of its blob plus the appended Rule 6; Rules 1-5
+###       byte-identical; the block header `DRAFT -- NAVIGATOR EDITS` present in the rule.
+### (F6)  `G-ROW` (NO TERMINAL, the reason), `G-KEY` (`ferry-standing`), `G-NOMATH` (must-fail: the bank
+###       never states a grade, a measurement or a claim), `G-ORDER`, `G-HOOK` / `G-MIRROR` (the papers
+###       repo moves), `G-NUMBERS`, `G-TOOLNUM`, `G-ONCE`, the hedge audit, the stem sweep, the
+###       must-fail fixtures -- standing.
+### (F7)  `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   relay files written (new) ............. ### CAP 1 (tools/FERRY_STANDING.md)
+###   owner instrument files edited ........ ### CAP 1 (tools/ferry_scan.py, BY THE ORDER'S WORDS, additions only)
+###   PLACE-papers files written ........... ### CAP 1 (protocols/EXECUTOR_RULES.md, Rule 6 appended)
+###   correspondence rows appended ......... ### CAP 1
+###   ledger rows written .................. ### CAP 0
+###   findings sections edited ............. ### CAP 0
+###   grades conferred by this act ......... ### CAP 0
+###   proofs attempted ..................... ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   claims about the quantifier .......... ### CAP 0
+###   claims about h2, totality, the roster  ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   `.lean` files edited ................. ### CAP 0
+###   TECHNE files written ................. ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   struck-clause record edits ........... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE NON-ZERO CAPS ARE THE ORDER'S OWN PLACEMENT CLAUSES.**
+
+----------------------------------------------------------------------------------------------------
+### (H) THE SHADOW, AND WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A filing compiles nothing.
+### ### **NOT THAT ANY CLAUSE IS NEW, NOT THAT THE DRAFT BINDS, NOT THAT THE SCANNER SCANS ANYTHING IT
+### DID NOT.** ### `M-2` IS OWED UNDER b310's CAP. ### THE SEAM'S DEBT ITEM 1 STANDS. ### THE PATENT
+### CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD. ### `h2` STANDS
+### EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE. ### NOTHING DEPOSITS.
+### ### **NEXT, BY THE SORTIE: LEG 1, b336, THE COST CENSUS.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 5d29122ae27380f1ee5df5f7092b22d17ddcb5ac658a4fc5c886be26cf8a4ff1
+### bytes sealed : 11407
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b335_registration_2026-09-06.txt`.**
+====================================================================================================

@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'ferry-standing': ['the standing clauses', 'ferry standing', 'FERRY_STANDING', 'the standing file', 'where are the standing clauses',
+                       'the STOP format', 'the stop format', 'the draft ferry', 'DRAFT -- NAVIGATOR EDITS', 'the citation check',
+                       'a stale citation', 'what is the STOP format', 'Rule 6'],
     'aim-map': ['the aim-map', 'aim map', 'the aim map', 'the room the arithmetic leaves', 'the chart', 'the chart over aims',
                 'the narrowest points', 'the crossing region over aims', 'the softest pair over aims', 'K5 and K6 over aims',
                 'soften together', 'what does the aim-map say', 'the reaching leg', 'the covered leg'],
@@ -508,6 +511,19 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE STANDING CLAUSES, FILED (b335, leg 0 of the sortie b335-b338).
+    ("ferry-standing", "b335 (filings only: a standing-clauses file, a scanner check by order, a rule of the executor's format)",
+     "THE STANDING CLAUSES OF THE RESEARCH SEAT'S FERRIES, in relay/tools/FERRY_STANDING.md VERSION 1: generated from the 15 banked ferries"
+     " b320-b334, 37 clauses measured, 33 STANDING (carried by 8 or more of 15), 4 FREQUENT, NOT STANDING, each with its count and"
+     " carriers, the wording b334's ferry's; cited by a ferry as FERRY_STANDING v1. THE FERRY SCAN (tools/ferry_scan.py) checks the citation"
+     " against the file's VERSION line and reports NONE / CURRENT / STALE / NO FILE, a STALE citation a hit (exit 1), fixtures of both"
+     " polarities built from the loaded version. RULE 6, THE STOP FORMAT (PLACE-papers/protocols/EXECUTOR_RULES.md, appended): the executor's"
+     " final message carries the closing summary, the pins, then a block headed DRAFT -- NAVIGATOR EDITS with a draft of the next ferry.",
+     "### THE FILE BINDS NOTHING BY ITSELF; A FERRY THAT CITES IT CARRIES ITS CLAUSES BY REFERENCE. ### THE DRAFT BINDS NOTHING: the next act runs"
+     " only on the navigator's paste. ### NO GRADE, NO CLAIM, NO TERMINAL. ### M-2 UNCHANGED",
+     "tools/FERRY_STANDING.md; data/b335_the_standing_clauses.txt; data/b335_standing_run.txt; data/b335_scan_selftest.txt; data/b335_scan_cite_stale.txt;"
+     " data/b335_rule6_run.txt; data/b335_registration_2026-09-06.txt (sealed before any write); PLACE-papers protocols/EXECUTOR_RULES.md Rule 6;"
+     " CORRESPONDENCE.md row 182"),
     # ### THE AIM-MAP (b334).
     ("aim-map", "b334 (a computation on the certified instruments; a finite-reach chart over aims; interpreted by nobody)",
      "THE ROOM THE ARITHMETIC LEAVES, CHARTED OVER AIMS: b328's sine-aimed even seed at every height of the sealed grid, for zeta and for the"

@@ -1,0 +1,29 @@
+====================================================================================================
+ferry_scan.py -- SELF-TEST. ### BOTH POLARITIES ON BOTH ARMS.
+====================================================================================================
+  struck entries loaded            : 3
+  patterns across them             : 10
+  struck entries with NO pattern   : 0 
+  UNCONFIRMED entries NOT loaded   : 0   ### promotion is the author's word
+  stem patterns read from tools    : 3
+
+  clause fixture                                           hits/exp  agree
+  (a) fires: the clause in the corpus's own wording        True/True YES
+  (a) fires: the clause in a document's wording            True/True YES
+  (a) fires: the clause BROKEN BY A LINE WRAP (the ferry's own shape) True/True YES
+  (a) NEAR-MISS across a wrap, stays quiet                 False/False YES
+  (a) NEAR-MISS, stays quiet: half the clause only         False/False YES
+  (a) quiet: a clean sentence with no struck clause        False/False YES
+
+  stem fixture                                             hits/exp  agree
+  (b) fires: the first banned stem, from the loaded list   True/True YES
+  (b) fires: the retired stem, rebuilt from the loaded list True/True YES
+  (b) quiet: a sentence carrying neither                   False/False YES
+
+  citation fixture                                         got/exp   agree
+  (c) quiet: a citation of the current standing version    CURRENT/CURRENT YES
+  (c) fires: a citation of a stale standing version        STALE/STALE YES
+  (c) quiet: a ferry that cites nothing                    NONE/NONE YES
+
+  ### FIXTURES AGREEING : 12 of 12
+  ### **BOTH ARMS FIRE, BOTH STAY QUIET, AND THE NEAR-MISS DOES NOT FIRE.**
