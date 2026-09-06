@@ -1,0 +1,212 @@
+====================================================================================================
+b340 -- REGISTRATION. ### THE LI FAMILY CONTROL. ### LEG 2 OF THE SORTIE b339-b343.
+2026-09-06. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE THE LI TEST FUNCTIONS ARE BUILT, BEFORE THE KERNEL IS INTEGRATED AGAINST ANY OF
+### ### THEM, AND BEFORE ANY VALUE OF THE ARCHIMEDEAN DISTRIBUTION ON THE LI FAMILY IS SEEN.** ### The
+### seal block at the foot carries the hash of everything above it.
+### Standing clauses: `FERRY_STANDING v1`, carried by reference.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS, AND WHAT IT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **THE ARCHIMEDEAN DISTRIBUTION EVALUATED ON THE LI FAMILY BY THE DERIVED KERNEL, SET AGAINST THE
+### ### DEPOSIT'S ARCHIMEDEAN CHANNEL OF THE LI COEFFICIENT, WITH b327's IDENTITY AS THE BAR.** ### The Li
+### test functions are the source's (3.2), `G_n(s) = 1 - (1 - 1/s)^n`, built here as functions on the
+### half line in the corpus's own normalization with the pole constant carried explicitly; the
+### distribution is the kernel b333 derived and identified with the atlas's, `h_+(u) = 2 Re (log
+### Gamma_R)'(1/2 + iu) = Re psi(1/4 + iu/2) - log pi`; the deposit's channel is `lambda_A(n)`, the Li map
+### of its own `f_A(s) = log s + log Gamma(s/2) - (s/2) log pi`; the bar is b327's derived and
+### corroborated map `lambda_A(n) = S_inf(n) + 1`; the indices are the twenty-two the balance keystone
+### tabulates. ### The deposit's proven finite-range positivity is restated at its scope beside the
+### instrument's values. ### **A FOURTH CONTROL IF IT HOLDS; THE DIFFERING CONSTITUENT IF IT DOES NOT.**
+### ### **WHAT IT IS NOT:** not the explicit formula CLOSED on the Li family -- the zero side over the
+### atlas's ordinates and the finite side `S_f` are not evaluated here, so `W-ORD-LI-FAMILY-CONTROL` as
+### b327 typed it (all three channels) is paid at its archimedean constituent only and stays OWED for
+### the rest; not a proof of anything about `lambda_n`; not a grade conferred by a seat; no claim
+### about h2, totality or the roster; the wave PARKED by the author's ruling and not named as next.
+### ### **THE MISREADINGS, NAMED BEFORE ANY VALUE:** (i) a passing control read as the Sonin margin defined
+### on the Li family -- it is not; b327 said the family lies outside Theorem 1's class and this act
+### restates it in section (C); (ii) the kernel identity read as a certification of the Li family --
+### the identity is a property of the kernel (b333), and what the Li family adds is only that the
+### integral converges; (iii) `lambda_A(n)` read as the archimedean term -- it is the archimedean term
+### PLUS the pole constant `1` (b327), and the pole constant is carried explicitly at every index;
+### (iv) the finite-range certificate read as this act's result -- it is the deposit's, restated at
+### its scope and premises.
+
+----------------------------------------------------------------------------------------------------
+### (B) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY** ### -- `data/b340_ferry_2026-09-06.txt`, byte-identical to leg 1's copy; scanned
+### (`data/b340_ferry_scan.txt`): ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS, THE CITATION CURRENT.**
+### ### **(ii) BOTH CENSUSES** ### -- `b340_census.txt`, `b340_faces_census.txt`: ### **TOTAL MISSING : 0
+### at each.**
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** ### -- `b340_pins_stepzero.txt`:
+### relay `12328fc`, SIDE-global-section `4104f86`, PLACE-papers `f6e95f9`, each 0/0 and equal.
+### ### **(iv) THE EXTRACT STEP** ### -- `tools/b340_extract.py` -> `data/b340_extract_notes.txt`: the
+### source's Li class, (3.2), Theorem 3.1, Lemma 4.2, (4.6)-(4.7), (4.11); the keystone's split, its
+### Li map, its table head and three of its rows, the margin sentence, the sharpest form; the bench's
+### `f_A` and its Li map; b327's derivation, corroboration, the family outside the class, the fourth
+### control as priced; b326's kernel, b333's identity, b321's arrangement; b320's three conditions;
+### the ledger's Definition 3.1 quotation, row R4's certificate, the pair F1-L1; the monograph's
+### certificate sentence; the noise-floor gate; the leg-2 sentences and (L2). ### Every anchor located.
+### ### **(v) THE INDEX QUERY** ### -- `data/audit_b340_index_query.txt`: `the li family` and `the pole
+### constant` reach b327's key `li-weil-bridge`; `the li family control`, `the fourth control`, `the
+### balance keystone`, `the li bench`, `the lagarias identification`, `finite-range positivity`, `the
+### archimedean channel of the li coefficient` : NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE LI TEST FUNCTIONS, BUILT, AND THEIR LAWFULNESS STATED. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE FUNCTION ON THE HALF LINE:** ### `G_n(s) = SUM_{j=1}^{n} C(n,j) (-1)^{j+1} s^{-j}`, and `s^{-j} =
+### INT_0^1 x^{s-1} (-log x)^{j-1}/(j-1)! dx`, so the Li test function with Mellin transform `G_n` is
+###     `g_n(x) = SUM_{j=1}^{n} C(n,j) (-1)^{j+1} (-log x)^{j-1} / (j-1)!`  on `0 < x <= 1`,  `g_n(x) = 0` on `x > 1`;
+### in the corpus's half-line normalization `f(x) = x^{-1/2} w(log x)` with `f~(1/2 + iu) = INT w(v) e^{iuv}
+### dv` (b333's (L2)), `w_n(v) = e^{v/2} g_n(e^v)` on `v <= 0`. ### **THE FIXTURE (F1):** the Mellin transform of
+### the built `g_n` by `mpmath.quad` on `(0, 1)` equals `G_n(s)` at `s = 1/2 + iu` for `u` in `{0.3, 2, 7}` and
+### `n` in `{1, 3, 8}` within `1e-12`; a deliberately altered coefficient makes it fail.
+### ### **ON THE LINE, IN CLOSED FORM:** `1 - 1/s` has modulus one on `Re s = 1/2`, so `G_n(1/2 + iu) = 1 -
+### e^{i n theta(u)}` with `theta(u) = pi - 2 arctan(2u)` for `u > 0`, and ### **`Re G_n(1/2 + iu) = 1 - (-1)^n
+### cos(2n arctan 2u)`**, even in `u`, between `0` and `2`, equal to `n^2/(2u^2) + O(u^{-4})` as `u -> inf`;
+### `Im G_n(1/2 + iu)` is odd in `u`. ### **THE FIXTURE (F2):** the closed form against the binomial sum at
+### `u` in `{0, 0.3, 2, 7, 50}` and `n` in `{1, 2, 3, 8, 130}` within `1e-12`.
+### ### **THEIR LAWFULNESS BY THE SOURCE'S DEFINITION, STATED: THEY ARE NOT IN THE LAWFUL CLASS.** ### Theorem
+### 1 asks three things (b320): the support inside `[2^-1/2, 2^1/2]` -- `g_n` is supported on the whole of
+### `(0, 1]`, unbounded toward `0` (in `v`, on `(-inf, 0]`); the two vanishing conditions `g-hat(0) = 0` and
+### `g-hat(i/2) = 0` -- `G_n(1) = 1` and `G_n` has a pole of order `n` at `s = 0`; and the class is formed
+### with the involution, `g conv g^#`, even in `v` -- `w_n` vanishes on `v > 0` and equals `n` at `v = 0^-`.
+### ### Three of three conditions fail; the family is a basis of the source's own class `L` of rational
+### functions with poles in `{0, 1}`, which is a different class. ### **WHICH CERTIFICATIONS THEREFORE
+### APPLY:** the kernel identity (b333: `h_+` is the atlas's kernel, a property of the kernel and not of
+### the function); the explicit formula's arrangement `Z = P - PR + A` (b321), which on the Li family IS
+### the source's (4.6) `lambda_n = S_inf - S_f + delta` channel for channel; the noise-floor gate (b326)
+### as a method on any two-evaluation pair. ### **WHICH DO NOT:** Theorem 1's inequality and the Sonin
+### margin (b320, b321: defined on the class only -- b327's sentence, restated); the square on the
+### stable cut (b318, b319: a compactly supported test function in a frame); b321's explicit-formula
+### control bar and b326's per-cell closures (certified on the lawful family and the aimed seeds, not
+### transferable); the atlas's zero-side truncation bound (b321's `trunc_bound` assumes the transform's
+### decay of a compactly supported `w`; `G_n` decays like `n/u`, and the zero side is NOT evaluated here).
+
+----------------------------------------------------------------------------------------------------
+### (D) THE MEASUREMENT, AND THE VERDICT RULE. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE INSTRUMENT'S VALUE:** ### `I(n) = (1/2 pi) INT_{-inf}^{inf} Re G_n(1/2 + iu) h_+(u) du`, the
+### atlas's `A` (b321's `channels`: `A = INT hhat(u) kernel(u) du / 2pi`) with `hhat` replaced by the
+### transform of the Li test function on the line -- its real part, the imaginary part being odd
+### against an even kernel; the kernel `h_+(u) = Re psi(1/4 + iu/2) - log pi` evaluated by `mpmath`
+### (`digamma`) as b326's `kernel_zeta` evaluates it, at working precision `dps = 30`. ### **THE
+### QUADRATURE:** the substitution `u = (1/2) tan(theta/2)`, `theta` on `[0, pi)`, gives `I(n) = (1/4 pi)
+### INT_0^pi [1 - (-1)^n cos(n theta)] h_+(u(theta)) sec^2(theta/2) dtheta`, an integrand with an
+### integrable logarithmic endpoint at `theta = pi` and `n` oscillations; `mpmath.quad` (tanh-sinh) on
+### `4n + 4` equal panels; ### **THE REFINEMENT:** the same integral in the `u` variable, on panels at the
+### phase multiples `u_m = (1/2) tan(m pi / 2n)` for `m = 0 .. n-1` and the tail `[u_{n-1}, inf]`, by
+### Gauss-Legendre at `dps = 40` -- a second substitution and rule, not a second route (b321: two
+### quadratures are a limit); the noise-floor gate (`noise_floor.classify(value, refined)`) on the pair,
+### and its drift printed.
+### ### **THE DEPOSIT'S CHANNEL, BY TWO ROUTES:** (A) the bench's own definitions executed from its file
+### through b327's `load_bench_definitions` (imported), `lambda_A(n)` by the Li map of `f_A` at the
+### bench's two radii, `M = 512`, the bench's `dps = 260`; (B) the source's (4.11) through b327's
+### `s_inf_closed` (imported), `S_inf(n) + 1`. ### **THE KEYSTONE'S COLUMN** read from the owner file's
+### table at the twenty-two indices, printed beside.
+### ### **THE POLE CONSTANT, CARRIED EXPLICITLY:** ### the comparison is `I(n) + 1` against `lambda_A(n)`, the
+### `1` being the Li map of `log s` (b327 (c)), printed as its own column at every index.
+### ### **THE BAR, b327's IDENTITY:** ### the control HOLDS at index `n` when `|I(n) + 1 - lambda_A(n)| <= 1e-9
+### max(1, |lambda_A(n)|)` with `lambda_A` by route (A), AND the quadrature pair passes the noise-floor
+### gate with drift below the same bar; ### **THE VERDICT:** ### **A FOURTH CONTROL, AT ITS ARCHIMEDEAN
+### CONSTITUENT** when the bar holds at all twenty-two indices; ### **THE DIFFERING CONSTITUENT** when it
+### fails at any, named by what differs -- a constant offset (the pole constant miscarried), a factor
+### (the factor-of-two hazard b333 named), a growth with `n` (the tail), or a quadrature failure (the
+### gate refusing) -- with the failing indices listed. ### A bar not met is not rewritten.
+### ### **THE FINITE-RANGE POSITIVITY, RESTATED AT ITS SCOPE BESIDE THE VALUES:** at every index, the
+### keystone's `lambda_Z(n)` and the margin `lambda_n = lambda_A(n) + lambda_Z(n)` printed, its sign read;
+### the certificate's sentence quoted from the monograph (the R4 row's quotation): `partialPositivity_
+### finiteRange` (v0.8.0) certifies `lambda_n >= 0` for `n` up to Voros's detection threshold `N_0(T) ~ 2T^2`,
+### with its premises named and open -- ### **THE CERTIFICATE IS THE DEPOSIT'S; THIS ACT'S VALUES ARE
+### AN INSTRUMENT'S AT TWENTY-TWO INDICES, AND POSITIVITY IN A FINITE RANGE IS NOT EVIDENCE OF THE KIND
+### THE CRITERION RESPECTS** (the bench's own sentence).
+### ### **THE LEDGER, WHERE THE ROW'S STATUS MOVES:** one update block through the writer naming row `L1`
+### and the pair `F1-L1` (`W-ORD-LI-FAMILY-CONTROL`): the archimedean constituent measured, the trail's
+### remaining constituents (the zero side, the finite side) named and still owed.
+
+----------------------------------------------------------------------------------------------------
+### (E) BOTH SEATS' EXPECTATIONS. ### **NO COUNTS PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L2), AS THE ORDER STATES IT:** *the fourth control holds with the pole constant
+### carried.*
+### ### **THIS SEAT'S, WRITTEN BEFORE ANY VALUE:** ### the bar holds at all twenty-two indices, because
+### the identity `I(n) = SUM_j C(n,j) tau_{j-1} = S_inf(n)` follows term by term from the Cauchy
+### integral of `s^{-j} Phi(1-s)` around the pole at `s = 0` (with `Phi = (log Gamma_R)'`), which this
+### seat derived on paper before this seal and which the measurement is to confirm or refute; the
+### quadrature drift grows with `n` and stays below `1e-12` at `n <= 60` -- refuted by a drift above the
+### bar at any index; the keystone's twelve-digit column agrees with `I(n) + 1` to its printed digits at
+### every index -- refuted by a disagreement beyond the column's own rounding.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-BUILT`: the Mellin fixture and the closed-form fixture pass, and each fails on its altered
+###       input.
+### (F2)  `G-LAWFUL`: the bank states the three failed conditions and lists which certifications apply
+###       and which do not, in the words of (C); a must-fail fixture on the line saying the family is
+###       lawful.
+### (F3)  `G-BAR`: the bar as sealed, `1e-9 max(1, |lambda_A|)`, applied at every tabulated index with the
+###       pole constant its own column; the noise-floor gate on every quadrature pair; the verdict by
+###       (D)'s rule and no other.
+### (F4)  `G-INDICES`: the twenty-two indices are the keystone's table rows, read from the owner file.
+### (F5)  `G-SCOPE`: the certificate's sentence quoted from the monograph at its line; the bench's own
+###       sentence on finite-range positivity quoted; the Sonin margin not evaluated on the family.
+### (F6)  `G-LEDGER`: one block through the writer naming L1 and F1-L1; the ledger a true prefix of its
+###       blob; `W-ORD-LI-FAMILY-CONTROL` still OWED in the block's own words.
+### (F7)  `G-ROW` (NO TERMINAL, the reason), `G-KEY` (`li-family-control`), `G-ORDER`, `G-HOOK` / `G-MIRROR`
+###       (the papers repo moves), `G-NUMBERS`, `G-TOOLNUM`, `G-ONCE`, `G-NOEDIT` (the keystone, the bench,
+###       b327's tool, the owner instruments), the hedge audit, the stem sweep at extended scope --
+###       standing.
+### (F8)  `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   PLACE-papers files written ........... ### CAP 1 (FACES_LEDGER.md, one block through the writer)
+###   ERRATA entries written ............... ### CAP 0
+###   keystone or bench edits .............. ### CAP 0
+###   correspondence rows appended ......... ### CAP 1
+###   findings sections edited ............. ### CAP 0
+###   bars moved ........................... ### CAP 0
+###   grades conferred by a seat ........... ### CAP 0
+###   indices added or removed after a value ### CAP 0
+###   zero-side or finite-side evaluations . ### CAP 0
+###   proofs attempted ..................... ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   claims about the quantifier .......... ### CAP 0
+###   claims about h2, totality, the roster  ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   `.lean` files edited ................. ### CAP 0
+###   TECHNE files written ................. ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   owner instrument files edited ........ ### CAP 0 (b326, b327's tools, b321_window, noise_floor: imported, never edited)
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE NON-ZERO CAPS ARE THE ORDER'S OWN PLACEMENT CLAUSES.**
+
+----------------------------------------------------------------------------------------------------
+### (H) THE SHADOW, AND WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A control certifies the instrument, not the object.
+### ### **NOT THAT `lambda_n >= 0` FOR ALL `n`, NOT THAT THE SONIN MARGIN IS DEFINED ON THE LI FAMILY, NOT
+### THAT THE BRIDGE `W-ORD-LI-WEIL-BRIDGE` IS PAID.** ### `M-2` IS OWED UNDER b310's CAP. ### THE SEAM'S DEBT
+### ITEM 1 STANDS. ### THE PATENT CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S
+### RECORD. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE. ### NOTHING
+### DEPOSITS.
+### ### **NEXT, BY THE SORTIE: LEG 3, b341, THE TWO COEFFICIENTS.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 945b145cc84b76f5b8df135d2fbcd2461b48ebe29a45675d0e303482a1f9e116
+### bytes sealed : 17784
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b340_registration_2026-09-06.txt`.**
+====================================================================================================

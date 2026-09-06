@@ -1,0 +1,91 @@
+====================================================================================================
+b340 -- THE LI FAMILY CONTROL. ### the archimedean distribution on the Li family by the derived kernel, against the deposit's channel.
+====================================================================================================
+
+  (F1) THE LI TEST FUNCTION BUILT: Mellin transform of g_n on (0,1] against G_n(s) at s = 1/2 + iu (mpmath.quad, dps 30):
+      n = 1   u = 0.3  |Mellin(g_n) - G_n| = 0.000e+00   altered coefficient : 1.715e-03
+      n = 1   u = 2    |Mellin(g_n) - G_n| = 0.000e+00   altered coefficient : 4.851e-04
+      n = 1   u = 7    |Mellin(g_n) - G_n| = 0.000e+00   altered coefficient : 1.425e-04
+      n = 3   u = 0.3  |Mellin(g_n) - G_n| = 2.548e-41   altered coefficient : 5.145e-03
+      n = 3   u = 2    |Mellin(g_n) - G_n| = 1.623e-41   altered coefficient : 1.455e-03
+      n = 3   u = 7    |Mellin(g_n) - G_n| = 1.992e-40   altered coefficient : 4.275e-04
+      n = 8   u = 0.3  |Mellin(g_n) - G_n| = 8.958e-39   altered coefficient : 1.372e-02
+      n = 8   u = 2    |Mellin(g_n) - G_n| = 4.592e-41   altered coefficient : 3.881e-03
+      n = 8   u = 7    |Mellin(g_n) - G_n| = 2.287e-32   altered coefficient : 1.140e-03
+    worst 2.287e-32 (bar 1e-12) ; the altered input's smallest miss 1.425e-04 : PASS
+
+  (F2) ON THE LINE: Re G_n(1/2 + iu) = 1 - (-1)^n cos(2n arctan 2u) against the binomial sum:
+    worst 1.564e-76 over n in {1,2,3,8,130}, u in {0,0.3,2,7,50} (bar 1e-12) ; the wrong n misses by 1.374e+00 : PASS
+
+  THE KEYSTONE'S TABLE (owner file, line 299): 22 rows, indices [1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 24, 30, 40, 52, 60, 70, 80, 88, 100, 110, 120, 130]
+
+  ROUTE A -- lambda_A(n) BY THE BENCH'S OWN DEFINITIONS (b327_bridge.load_bench_definitions), two radii, M = 512:
+    bench head executed : 69 lines ; dps now 260 (the bench's own) ; its KEIPER dict carried, unused here
+    lambda_A at radii ('0.85', '0.75') in 42 s ; the pole constant L_n[log s] at both radii
+    lambda_Z at radii ('0.85', '0.75') in 55 s
+    the two radii agree on lambda_A to 1.856e-212 over the indices ; the pole constant L_n[log s] - 1 worst 1.420e-39
+    ROUTE B -- S_inf(n) + 1 by the source's (4.11) (b327_bridge.s_inf_closed): worst |lambda_A - S_inf - 1| = 1.975e-216 (b327's identity, re-measured)
+
+  THE INSTRUMENT -- I(n) = (1/2pi) INT Re G_n(1/2+iu) h_+(u) du, the derived kernel by mpmath (dps 30 / 40):
+    n    I(n) theta (tanh-sinh)   I(n) u (Gauss-Legendre)  drift       gate      pole lambda_A (route A)       |I+1-lamA|  bar?  
+    1    -1.5541199559354118268   -1.5541206356366271162   6.797e-07   RESOLVED  1.0  -0.55411995593541182679  2.035e-30   ### FAILS   (6 s; keystone column -0.554119955935, off by 4.12e-13)
+    2    -1.8745393617346538262   -1.8745420805468296289   2.719e-06   RESOLVED  1.0  -0.87453936173465382623  7.870e-30   ### FAILS   (3 s; keystone column -0.874539361735, off by 3.46e-13)
+    3    -2.013058007662370998    -2.0130641250018147161   6.117e-06   RESOLVED  1.0  -1.013058007662370998    1.722e-29   ### FAILS   (3 s; keystone column -1.01305800766, off by 2.37e-12)
+    4    -2.0067976523790162874   -2.0068085276690978791   1.088e-05   RESOLVED  1.0  -1.0067976523790162874   3.015e-29   ### FAILS   (4 s; keystone column -1.00679765238, off by 9.84e-13)
+    5    -1.8827257857359902011   -1.8827427784070749077   1.699e-05   RESOLVED  1.0  -0.88272578573599020107  4.738e-29   ### FAILS   (5 s; keystone column -0.882725785736, off by 9.80e-15)
+    6    -1.6607323149298383016   -1.6607567844192796902   2.447e-05   RESOLVED  1.0  -0.66073231492983830163  6.822e-29   ### FAILS   (5 s; keystone column -0.66073231493, off by 1.62e-13)
+    7    -1.3557307226678831346   -1.3557640284200214118   3.331e-05   RESOLVED  1.0  -0.35573072266788313457  9.265e-29   ### FAILS   (6 s; keystone column -0.355730722668, off by 1.17e-13)
+    8    -0.9791000669723710236   -0.97914356843853249465  4.350e-05   RESOLVED  1.0  0.020899933027628976401  1.209e-28   ### FAILS   (6 s; keystone column 0.0208999330276, off by 2.90e-14)
+    10   -0.04446432050313631694  -0.044532291779266702133 6.797e-05   DRIFTING  1.0  0.95553567949686368306   1.889e-28   ### FAILS   (8 s; keystone column 0.955535679497, off by 1.36e-13)
+    20   7.0986240592942242676    7.0983521695134392276    2.719e-04   RESOLVED  1.0  8.0986240592942242676    7.556e-28   ### FAILS   (13 s; keystone column 8.09862405929, off by 4.22e-12)
+    24   10.756980268618690694    10.756588744647177753    3.915e-04   RESOLVED  1.0  11.756980268618690694    1.088e-27   ### FAILS   (15 s; keystone column 11.7569802686, off by 1.87e-11)
+    30   16.85665232952980644     16.856040567029636024    6.118e-04   RESOLVED  1.0  17.85665232952980644     1.703e-27   ### FAILS   (19 s; keystone column 17.8566523295, off by 2.98e-11)
+    40   28.313319192390339371    28.312231595968950092    1.088e-03   RESOLVED  1.0  29.313319192390339371    3.027e-27   ### FAILS   (25 s; keystone column 29.3133191924, off by 9.66e-12)
+    52   43.704339004959327845    43.702500929206943004    1.838e-03   RESOLVED  1.0  44.704339004959327845    5.110e-27   ### FAILS   (31 s; keystone column 44.704339005, off by 4.07e-11)
+    60   54.759800404196538381    54.757353228374495703    2.447e-03   RESOLVED  1.0  55.759800404196538381    6.807e-27   ### FAILS   (35 s; keystone column 55.7598004042, off by 3.46e-12)
+    70   69.323589192635125613    69.320258257355132797    3.331e-03   RESOLVED  1.0  70.323589192635125613    9.267e-27   ### FAILS   (41 s; keystone column 70.3235891926, off by 3.51e-11)
+    80   84.604088501017671485    84.599737817120863212    4.351e-03   RESOLVED  1.0  85.604088501017671485    1.209e-26   ### FAILS   (47 s; keystone column 85.604088501, off by 1.77e-11)
+    88   97.283244691905946521    97.277980292223099692    5.264e-03   RESOLVED  1.0  98.283244691905946521    1.854e-26   ### FAILS   (51 s; keystone column 98.2832446919, off by 5.95e-12)
+    100  116.97502256154312378    116.96822438496955702    6.798e-03   RESOLVED  1.0  117.97502256154312378    2.391e-26   ### FAILS   (58 s; keystone column 117.975022562, off by 4.57e-10)
+    110  133.93966425091146901    133.9314383162925337     8.226e-03   RESOLVED  1.0  134.93966425091146901    7.467e-26   ### FAILS   (63 s; keystone column 134.939664251, off by 8.85e-11)
+    120  151.35947325664177026    151.34968354684774986    9.790e-03   RESOLVED  1.0  152.35947325664177026    3.445e-26   ### FAILS   (69 s; keystone column 152.359473257, off by 3.58e-10)
+    130  169.1964276706799802     169.18493816158628533    1.149e-02   RESOLVED  1.0  170.1964276706799802     3.192e-26   ### FAILS   (74 s; keystone column 170.196427671, off by 3.20e-10)
+    ### the bar holds at 0 of 22 indices ; worst |I + 1 - lambda_A| = 7.470e-26 ; worst drift = 1.150e-02 ; worst against the keystone's printed column = 4.570e-10
+
+  ### ### **VERDICT: THE DIFFERING CONSTITUENT -- the bar fails at [1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 24, 30, 40, 52, 60, 70, 80, 88, 100, 110, 120, 130] ; what differs: a quadrature failure (the gate refusing).**
+      offsets I + 1 - lambda_A at the failing indices : ['-2.0e-25', '3.0e-25', '2.03247e-261', '0.0', '4.0e-25', '-4.0e-25', '1.0e-25', '-3.0e-26', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0']
+      ### and, read beside the verdict: the identity |I(n) + 1 - lambda_A(n)| <= bar by the theta route alone at 22 of 22 indices (worst 7.470e-26); the drift between the two quadratures is what the gate refuses.
+
+  THE DEPOSIT'S FINITE-RANGE POSITIVITY, RESTATED AT ITS SCOPE, BESIDE THE INSTRUMENT'S VALUES:
+    the monograph, line 1804: *"`partialPositivity_finiteRange` (v0.8.0) certifies λ_n ≥ 0 for n up to Voros's detection threshold N₀(T) ≈ 2T², with the on-line term's nonnegativity proved — a certificate reaching exactly to where discrimination would begin, and no further"*
+    the bench, line 115: *"positivity of lambda_n in a finite range is NOT evidence of the kind the criterion"* -- and the next line: *"respects (Keiper 1992; BALANCE_AND_POSITIVITY sec V). This is an instrument, not an argument."*
+    n    lambda_A (bench)     lambda_Z (bench)     margin lambda_n      keystone's margin    sign    
+    1    -0.5541199559354     0.5772156649015      0.02309570896612     0.0230957089661      POSITIVE
+    2    -0.8745393617347     0.9668850969627      0.09234573522805     0.092345735228       POSITIVE
+    3    -1.013058007662      1.220696928217       0.2076389205543      0.207638920554       POSITIVE
+    4    -1.006797652379      1.375588131871       0.3687904794922      0.368790479492       POSITIVE
+    5    -0.882725785736      1.458268500197       0.5755427144612      0.575542714461       POSITIVE
+    6    -0.6607323149298     1.488298327212       0.8275660122824      0.827566012282       POSITIVE
+    7    -0.3557307226679     1.480190840239       1.124460117571       1.12446011757        POSITIVE
+    8    0.02089993302763     1.444855744119       1.465755677147       1.46575567715        POSITIVE
+    10   0.9555356794969      1.323803683696       2.279339363193       2.27933936319        POSITIVE
+    20   8.098624059294       0.670652812799       8.769276872093       8.76927687209        POSITIVE
+    24   11.75698026862       0.5943676239326      12.35134789255       12.3513478926        POSITIVE
+    30   17.85665232953       0.6971399612836      18.55379229081       18.5537922908        POSITIVE
+    40   29.31331919239       1.16405623139        30.47737542378       30.4773754238        POSITIVE
+    52   44.70433900496       1.512837833116       46.21717683808       46.2171768381        POSITIVE
+    60   55.7598004042        1.373299170678       57.13309957487       57.1330995749        POSITIVE
+    70   70.32358919264       0.8706523464448      71.19424153908       71.1942415391        POSITIVE
+    80   85.60408850102       0.3576328969622      85.96172139798       85.961721398         POSITIVE
+    88   98.28324469191       0.2080011728234      98.49124586473       98.4912458647        POSITIVE
+    100  117.9750225615       0.6287528152482      118.6037753768       118.603775377        POSITIVE
+    110  134.9396642509       1.392663542104       136.332327793        136.332327793        POSITIVE
+    120  152.3594732566       2.088154859882       154.4476281165       154.447628117        POSITIVE
+    130  170.1964276707       2.273519011525       172.4699466822       172.469946682        POSITIVE
+    the margin positive at all 22 tabulated indices : True ; ### THE CERTIFICATE IS THE DEPOSIT'S AND ITS PREMISES ARE NAMED AND OPEN ; POSITIVITY IN A FINITE RANGE IS NOT EVIDENCE OF THE KIND THE CRITERION RESPECTS (the bench's sentence).
+    the bench's lambda_Z against the keystone's printed column : worst 4.729e-12 (its rounding)
+
+  ### NO ZERO SIDE AND NO FINITE SIDE EVALUATED ; NO SONIN MARGIN DEFINED ON THE FAMILY ; NO GRADE MOVED ; A CONTROL CERTIFIES THE INSTRUMENT, NOT THE OBJECT.
+  ### CHECKS FAILING : 1 ['BAR']
+  ### elapsed : 761 s
+====================================================================================================

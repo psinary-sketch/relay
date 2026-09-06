@@ -1,0 +1,128 @@
+====================================================================================================
+b340 -- THE LI FAMILY CONTROL. ### LEG 2 OF THE SORTIE b339-b343.
+The archimedean distribution on the Li family by the derived kernel, against the deposit's archimedean
+channel of the Li coefficient, with b327's identity as the bar.
+2026-09-06. ### SOLO (research seat). ### Registration: `data/b340_registration_2026-09-06.txt`
+(sealed `945b145c...`, 17784 bytes, before the Li test functions were built and before any value; 26
+CLAUSES SATISFIABLE).
+====================================================================================================
+
+### ### ### **THE ANSWERS, FIRST.**
+### ### **(1) THE VERDICT AS SEALED: THE DIFFERING CONSTITUENT -- A QUADRATURE FAILURE, THE GATE REFUSING THE SEALED
+### REFINEMENT ROUTE AT ALL 22 TABULATED INDICES.** ### The sealed bar asked two things of every index: the
+### identity `|I(n) + 1 - lambda_A(n)| <= 1e-9 max(1, |lambda_A|)`, and the drift between the two sealed
+### quadratures below the same bar with the noise-floor gate RESOLVED. ### The second failed everywhere:
+### the `u` route by Gauss-Legendre drifts from the theta route by `6.797e-07` at `n = 1`, growing as `n^2`
+### to `0.0115` (the record's worst drift `0.0115`). ### By (D)'s rule, sealed before any value: THE
+### DIFFERING CONSTITUENT, and what differs is `a quadrature failure (the gate refusing)`. ### **THE BAR AS
+### SEALED IS NOT MET AND IS NOT REWRITTEN.**
+### ### **(2) THE IDENTITY ITSELF, BY THE THETA ROUTE AGAINST TWO INDEPENDENT ROUTES:** ### `I(n) + 1` equals
+### the deposit's `lambda_A(n)` -- the bench's own definitions executed from its file, two radii agreeing to
+### `1.86e-212` -- within the bar at all 22 indices, worst `7.47e-26`; the pole constant `L_n[log s]`, carried
+### as its own column, is `1` at every index to `1.42e-39`; b327's identity `lambda_A = S_inf + 1` against
+### the source's (4.11) re-measured at `1.98e-216`; the keystone's printed twelve-digit column reproduced
+### to its rounding, worst `4.57e-10` (at `n = 100`, where the column carries eleven digits after the
+### point). ### The identity `I(n) = SUM_j C(n,j) tau_{j-1} = S_inf(n)`, which this seat derived on paper before
+### the seal from the Cauchy integral of `s^{-j} Phi(1-s)` around the pole at `s = 0`, is what the theta route
+### measured -- but a measurement by one route is not the sealed control, and this bank does not call it one.
+### ### **(3) THE DIAGNOSIS, A READING BESIDE THE VERDICT AND NOT IN ITS PLACE** (`tools/b340_diagnose.py`,
+### `data/b340_diagnose_run.txt`, at `n = 1`, `n = 6`, `n = 20`, `n = 60`, `n = 130`): the finite panels of the `u`
+### route agree between the Gauss-Legendre and tanh-sinh rules to zero at every diagnosed index; the whole
+### drift lives in the tail panel `[u_{n-1}, inf)`, where the integrand falls as `n^2 log(u) / (2 u^2)` and the
+### Gauss-Legendre rule on an infinite panel with a logarithmic tail converges algebraically (at `n = 130`
+### the tail differs by `0.0115` between the rules); the same `u` route by tanh-sinh meets the sealed bar
+### against the theta route at every diagnosed index (at `n = 130` within `1.31e-23`). ### THE SEALED
+### REFINEMENT ROUTE, NOT THE IDENTITY, IS WHAT FAILED. ### THE BAR AS SEALED IS NOT MET AND IS NOT REWRITTEN.
+### ### **(4) THE LI TEST FUNCTIONS ARE BUILT, AND THEY ARE NOT IN THE LAWFUL CLASS:** ### `g_n(x) = SUM_j C(n,j)
+### (-1)^{j+1} (-log x)^{j-1}/(j-1)!` on `(0, 1]`, in the corpus's half-line normalization; its Mellin transform
+### re-measured against the source's (3.2) `G_n(s)` (fixture F1, worst `2.29e-32`, the altered coefficient
+### missing by `1.42e-04` at least); on the line `Re G_n(1/2 + iu) = 1 - (-1)^n cos(2n arctan 2u)` against the
+### binomial sum (fixture F2, worst `1.56e-76`, the wrong `n` missing by `1.37`). ### Theorem 1's three
+### conditions (b320): the support inside `[2^-1/2, 2^1/2]` -- `g_n` lives on all of `(0, 1]`, unbounded
+### toward `0`; the two vanishing conditions -- `G_n(1) = 1` and a pole of order `n` at `s = 0`; the class
+### formed with the involution, even in `v` -- `w_n` vanishes on `v > 0` and equals `n` at `v = 0^-`.
+### ### Three of three fail; the family is a basis of the source's own class `L`, a different class.
+### ### **WHICH CERTIFICATIONS APPLY:** the kernel identity (b333), a property of the kernel; the arrangement
+### `Z = P - PR + A` (b321), which on the Li family is the source's (4.6) channel for channel; the noise-floor gate as a
+### method. ### **WHICH DO NOT:** Theorem 1's inequality and the Sonin margin (defined on the class only --
+### b327's sentence, restated); the square on the stable cut; b321's control bar and b326's per-cell
+### closures; the atlas's zero-side truncation bound (`G_n` decays like `n/u`; the zero side is NOT
+### evaluated here).
+### ### **(5) THE DEPOSIT'S FINITE-RANGE POSITIVITY, RESTATED AT ITS SCOPE BESIDE THE VALUES:** the monograph,
+### line 1804: *"`partialPositivity_finiteRange` (v0.8.0) certifies lambda_n >= 0 for n up to Voros's detection
+### threshold N_0(T) ~ 2T^2, with the on-line term's nonnegativity proved -- a certificate reaching exactly
+### to where discrimination would begin, and no further"*; the bench, line 115, in its own words:
+### positivity in a finite range is NOT evidence of the kind the criterion respects, an instrument and not
+### an argument. ### Beside it, the instrument's values: the margin `lambda_n = lambda_A + lambda_Z` by the
+### bench's definitions positive at all 22 tabulated indices, the keystone's `lambda_Z` column reproduced
+### to `4.73e-12`. ### THE CERTIFICATE IS THE DEPOSIT'S; ITS PREMISES ARE NAMED AND OPEN.
+### ### **(6) BOTH SEATS' EXPECTATIONS, SCORED:** ### THE NAVIGATOR'S (L2) -- *the fourth control holds with the
+### pole constant carried* -- ### **NOT MET AT THE SEALED BAR:** the sealed refinement route failed the gate;
+### the identity the clause names holds by one route at every index with the pole constant carried.
+### ### THIS SEAT'S -- *the bar holds at all twenty-two indices; the drift below `1e-12` at `n <= 60`* -- ### **NOT
+### MET:** the drift clause failed at every index; the identity clause and the keystone-column clause
+### held. ### **WHAT STAYS OWED ON `W-ORD-LI-FAMILY-CONTROL`:** the zero side over the atlas's ordinates with
+### its `O(n log T / T)` tail, and the finite side `S_f(n)` -- neither evaluated; the trail stays OWED at
+### those constituents; `W-ORD-LI-WEIL-BRIDGE` untouched.
+### ### **NO GRADE MOVED. NO BAR REWRITTEN. NO SONIN MARGIN ON THE LI FAMILY. NO ACT RE-VERDICTED. TECHNE NOT
+### ### TOUCHED. NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE ORDER OF THIS ACT, KEPT.
+----------------------------------------------------------------------------------------------------
+### Step zero for the leg: the sortie ferry banked under this leg's name (`data/b340_ferry_2026-09-06.txt`,
+### byte-identical to leg 1's) and scanned (`0/0`, the citation CURRENT); both censuses (`0` missing); the
+### pins (`data/b340_pins_stepzero.txt`: relay `12328fc`, SIDE `4104f86`, PLACE-papers `f6e95f9`, each 0/0 and
+### equal -- NOTHING WAS AHEAD OF ORIGIN). ### The extract step (`data/b340_extract_notes.txt`, every anchor
+### located on its first run). ### The index queried (`the li family`, `the pole constant` reach b327's key;
+### seven phrasings NO KEY). ### THE REGISTRATION SEALED BEFORE THE BUILD: the term scan `0/0`, the hedge
+### audit clean, no counts predicted, 26 CLAUSES SATISFIABLE, the gate PASS. ### Then the instrument (three
+### runs, below), the diagnostic, the block, the row, the key.
+
+----------------------------------------------------------------------------------------------------
+### THE INSTRUMENTS AND THEIR JUDGEMENT.
+----------------------------------------------------------------------------------------------------
+### `tools/b340_li_control.py`: the fixtures first; the keystone's table read from the owner file (22 rows
+### at its line 299); route A through b327's loader (the bench's head executed from its file, its `dps`
+### 260, `M = 512`, the bench's two radii); route B through b327's `s_inf_closed`; the kernel `h_+` by
+### `mpmath`'s digamma as b326's `kernel_zeta` writes it; the theta route (tanh-sinh, `4n + 4` panels, `dps
+### 30`) and the `u` route (Gauss-Legendre on the phase-multiple panels and the tail, `dps 40`); the bar,
+### the gate, the verdict by the sealed rule; the certificate and the bench's sentence quoted from their
+### files at their lines. ### `tools/b340_diagnose.py`: the `u` route split into its finite panels and its
+### tail, each by both rules. ### **THE JUDGEMENTS THE MECHANISMS DO NOT MAKE, DECLARED:** the choice of the
+### sealed refinement route (Gauss-Legendre on an infinite panel) was this seat's, and it was the wrong
+### rule for a logarithmic tail; the reading that the tail carries the drift is this seat's and is labelled
+### so; the paper derivation of `I(n) = S_inf(n)` is this seat's and is not a proof filed anywhere.
+### ### **THE SEAT'S OWN DEFECTS, DECLARED:** ### (E1) the sealed refinement route fails its own gate at every
+### index -- the verdict as sealed stands against the seat, and the bar is not rewritten. ### (E2) the
+### first run's fixture F1 reached only `3.8e-09` at `n = 8` on the direct Mellin form and its fixture F2 lost
+### the binomial sum's cancellation at `dps 30` (`2.9e+30`); the second run repaired F2 and not F1 (the `t`
+### form on four panels, `3.8e-09` again); the third run, the record (`data/b340_control_run3.txt`), resolves
+### the oscillation on half-unit panels to `t = 160`; all three runs are kept. ### (E3) this seat's sealed
+### expectation on the drift was wrong by the rule chosen, declared in (6). ### (E4) the row writer refused
+### twice before writing -- an unescaped norm bar in the statement cell each time (`data/b340_corr_run_refused.txt`,
+### `data/b340_corr_run_refused2.txt`, kept); the third run wrote row 188.
+
+----------------------------------------------------------------------------------------------------
+### THE ROW, THE BLOCK AND THE KEY.
+----------------------------------------------------------------------------------------------------
+### `tools/b340_correspondence.py`: row 188, NO TERMINAL with its reason -- A CONTROL AT ONE CONSTITUENT;
+### six cells, none blank; the second run wrote nothing. ### `tools/b340_ledger.py`: the block `<!-- b340
+### update -->` on FACES_LEDGER.md through `append_block`, naming row L1 and the pair F1-L1, the trail still
+### OWED in its own words, every number read from the records; the second run refused as DUPLICATE. ###
+### `tools/b340_index_append.py`: the key `li-family-control`, one row, every alias reaching it; `the li
+### family lawful`, `the sonin margin on the li family`, `lambda_n positive for all n` still NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING ROWS.
+----------------------------------------------------------------------------------------------------
+### M-2's row unchanged, `SPECIFIED-NOT-STATED`, under b310's cap; no aggregation stated. ### The seam's
+### debt item 1 restated, still unpaid. ### The patent clock restated: carried on the patent seat's
+### report, UNCONFIRMED on this seat's record. ### h2 exactly where the deposit left it; the posture
+### lock separate. ### TECHNE-Core private, nothing pushed. ### The wave PARKED by the author's ruling.
+### ### NOTHING DEPOSITS.
+### ### THE SHADOW: NONE. ### A control compiles nothing.
+
+----------------------------------------------------------------------------------------------------
+### NEXT, BY THE SORTIE: LEG 3, b341, THE TWO COEFFICIENTS.
+----------------------------------------------------------------------------------------------------

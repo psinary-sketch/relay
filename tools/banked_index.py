@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'li-family-control': ['the li family control', 'the fourth control', 'did the li family control hold', 'the li test functions',
+                          'the archimedean distribution on the li family', 'the archimedean channel of the li coefficient', 'the balance keystone',
+                          'the lagarias identification', 'finite-range positivity', 'the li family lawfulness', 'w-ord-li-family-control'],
     'exponent-resolved': ['the exponent resolved', 'the exponent question', 'the exponent\'s ratio', 'the exponent priced', 'the price of the exponent',
                           'the resolving-power rule', 'the remainder\'s convention', 'was the exponent resolved', 'unaffordable', 'the exponent unaffordable',
                           'the two exponent candidates', 'the sealed ceiling', 'the price banked'],
@@ -523,6 +526,18 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LI FAMILY CONTROL (b340, leg 2 of the sortie b339-b343).
+    ("li-family-control", "b340 (a control at one constituent, on a family outside the lawful class)",
+     "THE LI FAMILY CONTROL: the Li test functions built from the pinned source's (3.2) in the corpus's half-line normalization, NOT in the lawful"
+     " class (three of three of Theorem 1's conditions failing, the applicable and inapplicable certifications stated); the archimedean distribution on"
+     " them by the derived kernel, I(n) = (1/2pi) INT Re G_n(1/2+iu) h_+(u) du, two quadratures gated by the noise floor, at the balance keystone's"
+     " indices, against the deposit's channel lambda_A(n) by the bench's own definitions with the pole constant carried as its own column and b327's"
+     " identity lambda_A = S_inf + 1 as the bar; worst |I + 1 - lambda_A| = 7.47e-26, worst drift 0.0115. THE DIFFERING CONSTITUENT: the bar fails at 22 of 22 tabulated indices."
+     " The finite-range positivity restated at its scope beside the values (the certificate the deposit's, its premises open).",
+     "### A CONTROL CERTIFIES THE INSTRUMENT, NOT THE OBJECT. ### THE LI FAMILY IS NOT IN THE LAWFUL CLASS; THE SONIN MARGIN IS NOT DEFINED ON IT."
+     " ### THE ZERO SIDE AND THE FINITE SIDE STAY OWED (W-ORD-LI-FAMILY-CONTROL). ### NO GRADE MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b340_the_li_family_control.txt; data/b340_control_run*.txt; data/b340_control.json; data/b340_registration_2026-09-06.txt (sealed before the"
+     " instrument); FACES_LEDGER.md (the b340 update, row L1 and the pair F1-L1); CORRESPONDENCE.md row 188"),
     # ### THE EXPONENT PRICED (b339, leg 1 of the sortie b339-b343).
     ("exponent-resolved", "b339 (a pricing act under b322's sealed rule; no frame built)",
      "THE EXPONENT PRICED: the domain the remainder instrument needs to split the two exponent candidates (rho ** +0.5, the source's; rho ** -0.5,"
