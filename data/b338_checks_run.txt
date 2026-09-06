@@ -1,0 +1,172 @@
+====================================================================================================
+b338 -- GATE SUITE (THE FOLD, b331-b334: A FILING, PURELY ADDITIVE, NO GRADE MOVED)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  b331 -- the result
+    PASS  ### the obstacle
+    PASS  b332 -- the result
+    PASS  ### the obstacle
+    PASS  b333 -- the result
+    PASS  ### the obstacle
+    PASS  ### families not conferred
+    PASS  b334 -- the result
+    PASS  ### the obstacle
+    PASS  b323 -- the fold's law
+    PASS  b324 -- the candidate list, typed
+    PASS  ### the wave is the author's
+    PASS  b337 -- (1) the fetch
+    PASS  ### (4) the receipts
+    PASS  b336 -- the census
+    PASS  the sortie -- leg 3
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  ### (1) appended, purely additive
+    PASS  ### (2) F-QUOTE
+    PASS  ### (3) F-COUNT
+    PASS  ### (5) the desk first item
+    PASS  ### the wave the author's
+    PASS  ### (6) the arc as one statement
+    PASS  ### the clause has not moved
+    PASS  ### a filing not a result
+    PASS  bank keeps the order
+    PASS  bank gives the generator
+    PASS  ### the judgement declared
+    PASS  bank gives the rows and the key
+    PASS  ### the seat's defects
+    PASS  ### none found
+    PASS  bank gives the standing rows
+    PASS  ### the shadow none
+    PASS  ### next
+    PASS  registration -- the rules held
+    PASS  registration -- the title
+    PASS  registration -- expected nothing
+    PASS  the emitted section -- the heading
+    PASS  ### the desk heading
+    PASS  ### the arc as one statement
+    PASS  ### h2 unchanged
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the clause is discharged
+    PASS  the bank never says a grade moved
+    PASS  the bank never says the chart is a proof
+    PASS  the bank never recommends a candidate
+    PASS  the section never says the wave is started
+    PASS  the bank never says K8 is owned
+
+  F-QUOTE / F-COUNT / F-MODULES (the generator's gates, re-run live through its module):
+     F-QUOTE  : 8 quotations, 0 unfindable
+     ### DISCRIMINATION CONTROL: an altered quotation is reported unfindable : True
+     F-COUNT  : results cover 4, obstacles cover 4, arc 4, exact match : True
+     F-MODULES: 3 rules by module, all on disk : True  ; 2 rules by tool, all on disk : True 
+
+  G-ADDITIVE (F3: the section in the file verbatim, once; the file a true prefix of its blob; the generator's record):
+    heading once True ; section verbatim in the file True ; prefix of blob True (committed False) ; after the b333 addendum True : True
+
+  G-NOGRADE (F4: every grade word in the section is pulled from the owning act's bank via the extract file):
+    True
+
+  G-ONE (F5: the one-statement paragraph carries the four acts and the two standing sentences):
+    True
+
+  G-DESK (F7: the desk's FIRST item is the wave's candidate list with b324's six, b331's addition and the housekeeping's four items; the rest present; the wave the author's):
+    True
+
+  G-ROWS / G-ANCESTOR (rows 185 and 186: NO TERMINAL each, a filing and a summary; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-NOTAVERDICT (one row; the must-not-hit queries NO KEY; the answer says a filing, a summary, the wave the author's):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (owner files, sealed files, the deposit, TECHNE, HANDOFF, the four banks: no tracked change beyond the act's files):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond FINDINGS) [] ; TECHNE '' ; deposit '' : True
+
+  G-ORDER (the seal verifies; the generator, the section, the rows and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the generator, the section, the rows and the bank after the seal True [file times (pre-commit)] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    FINDINGS not yet committed ; the hook and the mirror are owed after the commit (records present: False / False)
+
+  G-NUMBERS (every number the bank quotes, read back from its producing file):
+    +114 lines, 3116 -> 3230                     PASS
+    F-QUOTE 8/0                                  PASS
+    F-MODULES 3/2                                PASS
+    3 judgement rules                            PASS
+    rows 185 and 186                             PASS
+    14615 bytes sealed                           PASS
+    24 clauses                                   PASS
+    20 sections                                  PASS
+    emitted 113 lines                            PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 23   struck-clause hits 0   stem hits 0  PASS
+    b338_checks.py                       struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b338_ferry_2026-09-06.txt            struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b338_ferry_scan.txt                  struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b338_reg_termscan.txt                struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b338_extract_notes.txt               struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (the section, rows 185 and 186, the index row, swept):
+    the section        struck : 0   stem : 0   (19136 chars)
+    row 185            struck : 0   stem : 0   (2326 chars)
+    row 186            struck : 0   stem : 0   (2054 chars)
+    index row          struck : 0   stem : 0   (1745 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    +114 lines, 3116 -> 3230, 19 -> 20 sections, F-QUOTE 8/0, F-MODU tools/b338_fold.py                 exists=True tracked=False
+    rows 185 and 186                                                 tools/b338_correspondence.py       exists=True tracked=False
+    the key                                                          tools/b338_index_append.py         exists=True tracked=False
+    24 clauses                                                       tools/b338_regspec.py              exists=True tracked=False
+    the satisfiability verdict                                       tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                                 tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                        tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                          tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                         tools/b303_pins.py                 exists=True tracked=True
+    14615 bytes sealed                                               tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                                tools/b338_extract.py              exists=True tracked=False
+    the hook                                                         tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                                       tools/mirror_verify.py             exists=True tracked=True
+    the like-for-like comparator, the sign column (the lore by tool) tools/b334_aimmap.py               exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the emitted section, the rows and the index row included):
+    b338_the_fold.txt                    sentences=122   graded-hedges=0   ungraded-shapes=13
+    b338_registration_2026-09-06.txt     sentences=251   graded-hedges=0   ungraded-shapes=33
+    b338_fold_run.txt                    sentences=26    graded-hedges=0   ungraded-shapes=5
+    b338_fold_run2.txt                   sentences=20    graded-hedges=0   ungraded-shapes=3
+    b338_fold_emitted.md                 sentences=121   graded-hedges=0   ungraded-shapes=45
+    b338_corr_run.txt                    sentences=16    graded-hedges=0   ungraded-shapes=2
+    b338_corr_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=1
+    b338_index_run.txt                   sentences=26    graded-hedges=0   ungraded-shapes=5
+    b338_index_rerun.txt                 sentences=29    graded-hedges=0   ungraded-shapes=5
+    b338_census.txt                      sentences=30    graded-hedges=0   ungraded-shapes=6
+    b338_faces_census.txt                sentences=17    graded-hedges=0   ungraded-shapes=2
+    b338_regspec_run.txt                 sentences=23    graded-hedges=0   ungraded-shapes=2
+    audit_b338_reg_satisfiable.txt       sentences=68    graded-hedges=0   ungraded-shapes=4
+    b338_pins_stepzero.txt               sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b338_index_query.txt           sentences=83    graded-hedges=0   ungraded-shapes=14
+    b338_reg_gate.txt                    sentences=7     graded-hedges=0   ungraded-shapes=2
+    b338_extract.py                      sentences=138   graded-hedges=0   ungraded-shapes=22
+    b338_regspec.py                      sentences=89    graded-hedges=0   ungraded-shapes=7
+    b338_fold.py                         sentences=483   graded-hedges=0   ungraded-shapes=79
+    b338_correspondence.py               sentences=131   graded-hedges=0   ungraded-shapes=16
+    b338_index_append.py                 sentences=137   graded-hedges=0   ungraded-shapes=10
+    row 185                              sentences=13    graded-hedges=0   ungraded-shapes=5
+    row 186                              sentences=12    graded-hedges=0   ungraded-shapes=5
+    the index row                        sentences=21    graded-hedges=0   ungraded-shapes=1
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

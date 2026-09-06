@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'stated-clause-arc-fold': ['the fold b331 to b334', 'the fold of b331', 'the sortie fold', 'the stated-clause arc', 'the stated clause arc',
+                               'what did the stated-clause arc find', 'the wave\'s candidate list', 'the candidate list', 'the candidate list restated',
+                               'the housekeeping\'s state', 'the desk after b337', 'the fold of the sortie'],
     'housekeeping': ['the housekeeping', 'the wave\'s housekeeping', 'housekeeping', 'the errata partition', 'the partition of errata',
                      'the deposit fetch', 'the read-only fetch', 'the three ledgers reconciled', 'the ledgers reconciled', 'the August TECHNE files',
                      'the TECHNE commit', 'the patent receipts checked', 'what did the housekeeping do', 'the currency note'],
@@ -517,6 +520,20 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE STATED-CLAUSE ARC, b331-b334 -- THE FOLD (b338, leg 3 of the sortie b335-b338).
+    ("stated-clause-arc-fold", "b338 (a filings act: the fold of four acts, purely additive)",
+     "THE FOLD, b331 THROUGH b334: one section appended to FINDINGS.md (+114 lines, 3116 -> 3230) by a committed generator --"
+     " F-QUOTE at every quotation against the originating act, F-COUNT the arc exactly, F-MODULES every rule by module or by tool on disk, the"
+     " working file and the blob true prefixes of the result; four results at their own grades (b331 FILED; b332 STATED; b333 DERIVES-ON-IMPORTS"
+     " for K5, MEASURED-ON-FAMILIES not conferred; b334 MEASURED on a grid at this reach), four obstacles, four corrections, three sealed bars"
+     " found defective and tabled, the lore typed MODULE / TOOL / JUDGEMENT, the suite this arc added; THE DESK'S FIRST ITEM the wave's"
+     " candidate list restated (b324's six, b331's addition, this arc's typed candidates) with the housekeeping's state as b337 stated it"
+     " beside it. THE ARC AS ONE STATEMENT: the clause stated whole and not discharged; its softest constituent derived under the import bar;"
+     " the room charted over aims; the clause not moved.",
+     "### A FILING, NOT A RESULT; THE ONE STATEMENT A SUMMARY AND NOT A VERDICT. ### THE WAVE IS THE AUTHOR'S; THE LIST IS TYPED, NOT RANKED."
+     " ### NO GRADE MOVED. ### A CHART IS NOT A PROOF. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b338_the_fold.txt; data/b338_fold_run.txt; data/b338_fold_emitted.md; data/b338_fold_rows.json; data/b338_registration_2026-09-06.txt"
+     " (sealed before the generator); FINDINGS.md (THE STATED-CLAUSE ARC, b331-b334 -- THE FOLD); CORRESPONDENCE.md rows 185 and 186"),
     # ### THE WAVE'S HOUSEKEEPING (b337, leg 2 of the sortie b335-b338).
     ("housekeeping", "b337 (housekeeping: filings and checks; no claim, no grade, no deposit action)",
      "THE THREE LEDGERS (ERRATA.md, VERIFICATION_LOOM.md, OPEN_TRAILS.md) RECONCILED TO REGISTRY AGAINST ONE READ-ONLY FETCH of the public record"
