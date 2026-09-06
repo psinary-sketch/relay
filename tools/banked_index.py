@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'two-rules-modules': ['the two rules as modules', 'the like-for-like rule', 'the like-for-like module', 'the sign rule', 'the sign rule module',
+                          'the threshold rule', 'the phase rule', 'the phase refinement', 'where do the two rules live', 'the techne modules',
+                          'like_for_like.md', 'sign_rule.md', 'the lore re-typed'],
     'two-coefficients': ['the two coefficients', 'the li bench', 'the keiper dict', 'the keiper dictionary', 'the bench\'s literature dictionary',
                          'the third coefficient', 'the fifth coefficient', 'the transcription defect', 'keiper', 'the literature values',
                          'which emitter carries the defect', 'e-2026-09-06-1', 'the bench versus the keystone'],
@@ -529,6 +532,19 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE TWO RULES AS MODULES (b342, leg 4 of the sortie b339-b343).
+    ("two-rules-modules", "b342 (a filings act: two method modules, private, local, NOT PUSHED; a re-typing block)",
+     "THE TWO RULES AS TECHNE MODULES, as the executor's draft states them: LIKE_FOR_LIKE.md (a comparator is named with the function it was"
+     " computed for; a bar sealed against a banked table names the table's function; a mismatch is refused -- b333's incident, b334's comparator)"
+     " and SIGN_RULE.md (a threshold rule is stated with its sign condition; a phase past the threshold is not a negative term -- b334's hundred"
+     " positive-term aims), the sign-rule module carrying the b328 refinement (S_4 negative exactly between 45 and 135 degrees; b336's addendum);"
+     " the index appended by one block; every existing module byte-identical; committed locally at 43ef56a, the remote at 22739c9 before and"
+     " after, NOT PUSHED. FINDINGS gains one appended block re-typing the two lore lines from TOOL to MODULE, the fold's lines untouched.",
+     "### THE MODULES BIND NOTHING; THEY STATE THE GRADE THEIR OWNING ACTS CARRY AND CONFER NONE. ### PRIVATE, LOCAL, NOT PUSHED. ### THE FOLD'S"
+     " LINES UNTOUCHED. ### NO GRADE MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b342_the_two_rules_as_modules.txt; data/b342_modules_run.txt; data/b342_lore_run.txt; data/b342_executor_draft_2026-09-06.txt;"
+     " data/b342_registration_2026-09-06.txt (sealed before any write, with its post-seal marking); TECHNE-Core modules/2026-09/LIKE_FOR_LIKE.md,"
+     " SIGN_RULE.md, modules/INDEX.md (local); FINDINGS.md (the b342 addendum); CORRESPONDENCE.md row 190"),
     # ### THE TWO COEFFICIENTS (b341, leg 3 of the sortie b339-b343).
     ("two-coefficients", "b341 (a transcription filed: two routes, the literature under the import bar, an internal-record erratum)",
      "THE TWO COEFFICIENTS: THE BENCH CARRIES THE DEFECT at n = [3, 5] -- the bench's KEIPER dictionary reads 0.2077580993 and 0.5747345 at n = 3, 5 where two routes"
