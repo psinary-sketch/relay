@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'clause-stated': ['the clause stated', 'clause stated', 'the open clause', 'the statement of the clause',
+                      'the positivity face', 'the fourth register realized', 'the E0 gate', 'the softest constituent',
+                      'the lawful class', 'the archimedean distribution', 'the compressed square', 'the aim-map',
+                      'what is the open clause', 'the constituents ranked'],
     'discriminating-arc-fold': ['the discriminating arc fold', 'the discriminating-family arc', 'b323-b330',
                                 'the eight acts', 'fold b323', 'the negative-control arc', 'what did the arc establish',
                                 'the arc as one statement', 'the desk', 'the instrument can say no',
@@ -497,6 +501,22 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CLAUSE STATED (b332).
+    ("clause-stated", "b332 (a statement act; no proof attempted)",
+     "(S) for every g in the source's class (Definition 3.1 with Proposition C.1's vanishing set; b328's seeds inside"
+     " it) the places sum of the explicit formula keeps the criterion's sign, SUM_v W_v(g conv g-bar^#) <= 0 -- the"
+     " positivity face's realized form, the deposit's refusal to compile the cross-register equivalences quoted"
+     " beside it. The places sum unfolded: the finite places' contribution (b310/b329), the prime sum (b306), the"
+     " archimedean distribution with its digamma witness (b315/b320), the compressed square plus the remainder that"
+     " is the margin (b318/b320/b321). THE E0 GATE HALTS AT K8, the quantifiers, UNOWNED. THE RANKING under the"
+     " sealed rule, softest first: K5 (DEFINED-ONLY), K6 (MEASURED-AT-COVERED-CELLS), K1 (MEASURED-ON-FAMILIES), K2 (MEASURED-ON-FAMILIES), K7 (UNDER-RESOLVED-AT-BENCH), K3 (DERIVED-ON-CONTENT), K4 (DERIVED-ON-CONTENT)",
+     "### NOT DISCHARGED, NOT WEAKENED, NOT REPLACED; ONE FACE AND NOT THE COMPILED EQUIVALENCE. ### Every grade its"
+     " owner's, none conferred. ### The navigator's registered expectation (the remainder softest): NOT MET --"
+     " the softest rank is K5, the archimedean distribution. ### The aim-map named as next, for the softest constituent;"
+     " neither it nor this act is the discharge. ### NO TERMINAL: analysis over an infinite class. ### M-2 UNCHANGED",
+     "D:/MY-DOwnloads/PLACE-papers/FINDINGS.md (anchor clause-stated); FACES_LEDGER.md row S1; the arc keystone's appended"
+     " line; data/b332_the_clause_stated.txt; data/b332_statement_rows.json; data/b332_registration_2026-09-06.txt"
+     " (sealed before any write); CORRESPONDENCE.md row 178"),
     # ### THE DISCRIMINATING-FAMILY ARC, b323-b330 -- THE FOLD (b331).
     ("discriminating-arc-fold", "b331 (a filings act)",
      "FINDINGS.md gains the section 'THE DISCRIMINATING-FAMILY ARC, b323-b330 -- THE FOLD', +144 lines"
