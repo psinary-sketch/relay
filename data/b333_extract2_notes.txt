@@ -1,0 +1,90 @@
+====================================================================================================
+b333_extract2.py -- THE SECOND EXTRACT STEP. ### THE QUOTATIONS THE DIAGNOSIS RESTS ON, AT THEIR EMITTING FILES.
+====================================================================================================
+### ==== b320_corroborate -- the function the table was made for, built before either route runs
+###      <relay>/tools/b320_corroborate.py | fragment 'g = SM.mean_zero_variant(a)' | 1 hit(s)
+    | line 172   g = SM.mean_zero_variant(a)
+
+### ==== ### its autocorrelation
+###      <relay>/tools/b320_corroborate.py | fragment 'f = SQ.autocorrelation(g)' | 2 hit(s)
+    | line 105   f = SQ.autocorrelation(g)
+    | line 173   f = SQ.autocorrelation(g)
+
+### ==== ### the (38) route applied to it
+###      <relay>/tools/b320_corroborate.py | fragment 'w = WE.weil(f)[0]' | 2 hit(s)
+    | line 106   w = WE.weil(f)[0]
+    | line 174   w = WE.weil(f)[0]
+
+### ==== ### the digamma route applied to it
+###      <relay>/tools/b320_corroborate.py | fragment 'A = digamma_side(f, U=U, ker=K)' | 2 hit(s)
+    | line 111   A = digamma_side(f, U=U, ker=K)
+    | line 175   A = digamma_side(f, U=U, ker=K)
+
+### ==== ### the digamma route re-forms the kernel at its own grid, not the atlas's
+###      <relay>/tools/b320_corroborate.py | fragment "atlas's grid was built for the atlas's test function." | 1 hit(s)
+    | line 62    ### atlas's grid was built for the atlas's test function.
+
+### ==== b320 bank -- the function is the autocorrelation
+###      <relay>/data/b320_the_lawful_function.txt | fragment 'product is the autocorrelation `f(v) = INT g(u) g(u-v) du`' | 1 hit(s)
+    | line 137   ### product is the autocorrelation `f(v) = INT g(u) g(u-v) du`, whose transform is `|g-hat|^2`.
+
+### ==== b320 bank -- the sign certified, the size not
+###      <relay>/data/b320_the_lawful_function.txt | fragment "THE MARGIN'S SIGN IS CERTIFIED AT EVERY FRAME; ITS SIZE IS NOT CERTIFIED AT ANY." | 1 hit(s)
+    | line 63    ### **THE MARGIN'S SIGN IS CERTIFIED AT EVERY FRAME; ITS SIZE IS NOT CERTIFIED AT ANY.** ### The
+
+### ==== b317 -- the corpus bump as a test function
+###      <relay>/tools/b317_smear.py | fragment "return TestFunction('corpus bump a=%g' % a, v, w," | 1 hit(s)
+    | line 161   return TestFunction('corpus bump a=%g' % a, v, w,
+
+### ==== atlas bank -- the bump's archimedean channel at a = 1.3
+###      <relay>/data/carto_atlas.jsonl | fragment '"a": 1.3, "zero": 0.2065114708720861, "pole": 2.002722246159938, "arch": -1.7962126389496489' | 1 hit(s)
+    | line 1     {"a": 1.3, "zero": 0.2065114708720861, "pole": 2.002722246159938, "arch": -1.7962126389496489, "prime": 0.0, "residual": 1.863661796885907e-06, "prime_terms": []}
+
+### ==== ### at a = 3
+###      <relay>/data/carto_atlas.jsonl | fragment '"a": 3.0, "zero": -0.020016' | 1 hit(s)
+    | line 13    {"a": 3.0, "zero": -0.020016399952033682, "pole": 2.0481125160244797, "arch": -1.6865248772422665, "prime": 0.38160399269056255, "residual": -4.6043684354818426e-08, "prime_terms": [2]}
+
+### ==== atlas -- the channel is formed for the bump
+###      <relay>/tools/e16/carto_atlas.py | fragment 'v, w = bump(a)' | 2 hit(s)
+    | line 62    v, w = bump(a)
+    | line 86    v, w = bump(a)
+
+### ==== registration (E) -- the route on the bump
+###      <relay>/data/b333_registration_2026-09-06.txt | fragment "precision, on the bump re-implemented from the atlas's definition" | 1 hit(s)
+    | line 108   ### precision, on the bump re-implemented from the atlas's definition (`exp(-1/(1 - t^2))` on `|t| < 1`,
+
+### ==== ### the bar's comparators
+###      <relay>/data/b333_registration_2026-09-06.txt | fragment "banked values read from b320's table." | 1 hit(s)
+    | line 115   ### banked values read from b320's table. ### **WHY 2e-4:** the two banked routes disagree with each
+
+### ==== ### the values the bar expected
+###      <relay>/data/b333_registration_2026-09-06.txt | fragment 'magnitude at every cell (the values run from `0.5` to `8.8`).' | 1 hit(s)
+    | line 118   ### magnitude at every cell (the values run from `0.5` to `8.8`). ### The atlas's bump is a
+
+### ==== ### the registration orders a disagreement reported first
+###      <relay>/data/b333_registration_2026-09-06.txt | fragment 'A DISAGREEMENT IS REPORTED AT FULL PROMINENCE, FIRST.' | 1 hit(s)
+    | line 121   ### ### **A DISAGREEMENT IS REPORTED AT FULL PROMINENCE, FIRST.**
+
+### ==== ### F3 as sealed
+###      <relay>/data/b333_registration_2026-09-06.txt | fragment "the bank's verdict equals the tool's, and if not `DERIVES-ON-IMPORT` it is the" | 1 hit(s)
+    | line 149   ### (F3)  `G-VERDICT`: the bank's verdict equals the tool's, and if not `DERIVES-ON-IMPORT` it is the
+
+### ==== derive run -- the verdict as printed
+###      <relay>/data/b333_derive_run.txt | fragment 'VERDICT : MISMATCH at (L3)' | 1 hit(s)
+    | line 57    ### VERDICT : MISMATCH at (L3): the corpus's A against the source's (152) as evaluated here
+
+### ==== ### the chain's own verdict as printed
+###      <relay>/data/b333_derive_run.txt | fragment 'DERIVES-ON-IMPORT' | 2 hit(s)
+    | line 20    ### VERDICT (chain) : DERIVES-ON-IMPORT -- the imports: (150), (151), (152)-(153), W_inf = -W_R; the identities: N4 and L5.
+    | line 60    THE RE-RANK under b332's sealed rule, K5 updated (DEFINED-ONLY superseded by DERIVES-ON-IMPORTS; MEASURED-ON-FAMILIES added):
+
+### ==== b332 -- the sealed rule
+###      <relay>/data/b332_registration_2026-09-06.txt | fragment "constituent's rank is its softest grade among its owners, ordered" | 1 hit(s)
+    | line 106   ### constituent's rank is its softest grade among its owners, ordered
+
+### ==== ### K5 in the statement
+###      <relay>/tools/b332_statement.py | fragment "('K5', 'the archimedean distribution'," | 1 hit(s)
+    | line 88    ('K5', 'the archimedean distribution',
+
+  ### ### **PATHS MISSING : 0 ; QUOTATIONS NOT FOUND : 0**
+====================================================================================================

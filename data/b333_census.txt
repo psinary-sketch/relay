@@ -1,0 +1,31 @@
+====================================================================================================
+b307_handoff_census.py -- b333 STEP ZERO. ### WHAT IS MISSING FROM `HANDOFF.md`, COUNTED.
+====================================================================================================
+  fixture                                                    got/exp        agree
+  finds an act id that is there                              True/True      YES
+  ### does NOT find one that is absent                       False/False    YES
+  ### and b30 is NOT found inside b300                       False/False    YES
+  ### nor b3 inside b307                                     False/False    YES
+  finds a work-order name                                    True/True      YES
+  ### does not find an absent work-order                     False/False    YES
+  census over empty text reports everything missing          True/True      YES
+  ### census over text naming one act drops it from missing  False/False    YES
+  self-test : PASS
+
+  ledger        : HANDOFF.md
+  bytes / lines : 486737 / 805
+
+  ### (1) THE ARC'S ACTS  -- 11 checked, 0 MISSING
+  ### (2) THE LIVE WORK-ORDERS -- 14 checked, 0 MISSING
+  ### (3) THE ARC'S FINDINGS SECTION -- 1 checked, 0 MISSING
+
+  ### ### **TOTAL MISSING : 0**
+  ### ### **THE CENSUS HAS COUNTED WHAT IS MISSING AND FOUND NOTHING.**
+  ### ### **`U-2`'s `SURVIVES` CLAUSE IS THEREFORE SATISFIED FOR THIS LEDGER, AND
+  ### ### THE PHRASE MAY BE USED OF `HANDOFF.md` -- OF THAT LEDGER AND NO OTHER.**
+
+  ### **AND WHAT THIS LICENSES IS ONE PHRASE ABOUT ONE LEDGER.** ### It says nothing
+  ### about `FINDINGS.md`, `REGISTRY.md`, `OPEN_TRAILS.md` or the desk, and it counts
+  ### NAMES rather than understanding. ### **A LEDGER NAMING EVERY ACT IN ONE LINE EACH
+  ### PASSES THIS CENSUS AND MAY STILL BE A BAD HANDOFF.**
+====================================================================================================

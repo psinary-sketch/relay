@@ -1,0 +1,216 @@
+====================================================================================================
+b333 -- REGISTRATION. ### THE ARCHIMEDEAN TERM DERIVED.
+2026-09-06. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE THE BANK, BEFORE THE DERIVATION TOOL IS WRITTEN, AND BEFORE ANY VALUE OF THE THIRD
+### ### ROUTE IS SEEN.** ### The seal block at the foot carries the hash of everything above it.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS, AND WHAT IT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **A DERIVATION UNDER THE IMPORT BAR.** ### The stated clause's softest constituent -- K5, the
+### archimedean distribution, `DEFINED-ONLY` at b315 -- lifted to a derivation from the classical term
+### as a real source states it, every step a quotation or an elementary identity, and checked by a
+### third route sharing no code with the two the record has.
+### ### **NO GRADE IS CONFERRED BY THIS ACT.** ### The constituent's new grade is the derivation's own --
+### `DERIVES-ON-IMPORTS`, the imports named -- and is stated as such; the third route adds a
+### measurement at the arc's cells, `MEASURED-ON-FAMILIES`, which is the tool's and not a seat's.
+### ### **NO CHANGE TO THE STATED CLAUSE'S TEXT.** ### The anchor `clause-stated` is not edited; the
+### grade update goes through the ledger's writer as an append-only block naming row `S1` and the
+### constituent's row only; the findings addendum is appended after the anchor's section.
+### ### **NO CLAIM ABOUT THE QUANTIFIER.** ### K8 stays unowned; it is the clause.
+### ### **NORMALIZATIONS BEFORE COUNTS.** ### The transform and measure conventions are checked and
+### quoted once each, in the run file, before any number is formed.
+### ### **NO PROOF, NO NEW MATHEMATICS.** ### The derivation is the source's own Appendix B read link
+### by link; what this seat adds is two elementary identities, each named.
+### ### **THE THREE MISREADINGS, NAMED BEFORE ANY VALUE:** ### (i) a derivation read as a result about
+### the clause -- it settles one constituent's provenance and nothing about the quantifier; (ii) an
+### agreement of three routes read as certifying the size of the term -- it certifies the routes
+### agree, at these cells; (iii) the re-rank read as a seat's choice -- it is the sealed rule of b332
+### re-run with nothing adjusted.
+
+----------------------------------------------------------------------------------------------------
+### (B) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN** ### -- `data/b333_ferry_scan.txt`: ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **(ii) BOTH CENSUSES** ### -- `b333_census.txt`, `b333_faces_census.txt`: ### **TOTAL MISSING : 0
+### at each.**
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** ### -- `b333_pins_stepzero.txt`:
+### relay `50bd513`, SIDE-global-section `830bb3e`, PLACE-papers `a041657`, each 0/0 and equal.
+### ### **(iv) THE SOURCE, PINNED BY HASH BEFORE A WORD WAS READ** ### -- `tools/b333_source.py` ->
+### `data/b333_source.txt`: Connes-Consani, *Weil positivity and trace formula, the archimedean
+### place*, arXiv:2006.13771v1, the pin `sha256 b8e0b54a...`, 1213504 bytes (b304/b305, imported),
+### ### **RE-HASHED ON LOCAL COPIES AND MATCHED**; the text layer this act reads pinned at
+### `sha256 588eb5ac...`, 134674 bytes; the eight fragments of Appendix B and (53) located. ### The text
+### layer garbles formulas (b305); every equation is read on the page image as well and quoted in the
+### transcription the record carries.
+### ### **(v) THE EXTRACT STEP** ### -- `tools/b333_extract.py` -> `data/b333_extract_notes.txt`: PATHS
+### MISSING 0, QUOTATIONS NOT FOUND 0, after one anchor that carried a count typed from memory was
+### narrowed to its emitted line.
+### ### **(vi) THE INDEX QUERY** ### -- `data/audit_b333_index_query.txt`: `the Weil distribution`
+### reaches `arithmetics-entry`; `archimedean-term-derived`, `the archimedean term`, `the digamma
+### kernel`, `the classical term`, `the principal value`, `the third route`, `the re-rank` : NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE CLASSICAL TERM, AND THE CONVENTIONS CHECKED FIRST.
+----------------------------------------------------------------------------------------------------
+### ### **COMPONENT 1, AS THE SOURCE STATES IT** (Appendix B, which *"gather[s] different sources on the
+### normalization of the archimedean contribution to the explicit formula"*, following its [7]):
+###   (147) the Mellin transform `f~(s) = INT_0^inf f(x) x^{s-1} dx`;
+###   (148) the explicit formula `SUM_rho f~(rho) = INT f + INT f^# - SUM_v W_v(f)`, `f^#(x) = x^{-1} f(x^{-1})`;
+###   (149) the prime term;
+###   (150) THE PRINCIPAL VALUE: `W_R(f) := (log 4pi + gamma) f(1) + INT_1^inf (f(x) + f^#(x) - 2 f(1)/x)
+###         dx/(x - x^{-1})` -- the singularity at the identity handled by the subtracted `2 f(1)/x`;
+###   (151) THE GAMMA FORM: `W_R(f) = (log pi) f(1) - (1/2 pi i) INT_{1/2 + iw} Re(Gamma'/Gamma(w/2)) f~(w) dw`
+###         -- the Gamma factor with its power of pi, its logarithmic derivative, against the transform;
+###   (152)-(153) THE DIGAMMA FORM: `W_inf(f) = INT_{w = 1/2 + i tau} h_+(tau) f~(w) dtau / 2pi`, with
+###         `h_+(tau) = -log pi + Re(lambda(1/4 + i tau/2))`, `lambda = Gamma'/Gamma`, and `W_inf = -W_R`.
+### ### **THE CONVENTIONS, EACH CHECKED ONCE BEFORE ANY NUMBER:**
+###   (N1) the corpus's test function `f(x) = x^{-1/2} w(log x)` (b317/b321) under (147) gives
+###        `f~(1/2 + i tau) = INT w(v) e^{i tau v} dv`; for even `w` this is b318's `f-hat(tau) = INT w(v)
+###        cos(tau v) dv` and the atlas's `hhat`;
+###   (N2) `f(1) = w(0)`, and `f^# = f` for even `w`;
+###   (N3) the measure: the source's `dx` on `(0, inf)` against the corpus's `dv` with `x = e^v`, `dx = x dv`
+###        -- absorbed by the `x^{s-1}` of (147) into `e^{(s - 1/2) v}` exactly (b326_closure's closed form);
+###   (N4) Fourier inversion at zero: `w(0) = (1/2 pi) INT f-hat(tau) dtau`, the identity that carries
+###        `(log pi) f(1)` inside the integral.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE DERIVATION'S CHAIN, FIXED HERE AS BARS.
+----------------------------------------------------------------------------------------------------
+###   (L1) (150) -> (151): THE SOURCE'S OWN STEP, quoted; an IMPORT under the bar.
+###   (L2) (151) -> (152)-(153): `W_inf = -W_R` (the source's equality for the local term, quoted), and
+###        the elementary identity (N4) moving `(log pi) f(1)` into the integral; `Re(Gamma'/Gamma)(w/2)` at
+###        `w = 1/2 + i tau` IS `Re lambda(1/4 + i tau/2)`.
+###   (L3) (152)-(153) -> THE ATLAS: the atlas's kernel `Re psi(1/4 + i u/2) - log pi` IS `h_+`, the atlas's
+###        `hhat(u)` IS `f~(1/2 + iu)` by (N1), and the atlas's `A = (1/2pi) INT hhat kernel du` IS the
+###        source's (152). ### **SO THE CORPUS'S `A(f)` IS THE SOURCE'S `W_inf(f) = -W_R(f)`.**
+###   (L4) THE SIGN CHAIN: (148) reads `SUM_rho f~(rho) = pole - W_R - SUM_p W_p = pole + W_inf - PRIME`,
+###        which is the atlas's `hhat(i/2) + hhat(-i/2) - PRIME + ARCH` with `ARCH = A = W_inf` -- the
+###        orientation the calibration fixed (b315: *"IT CHOOSES WHERE `A` GOES"*); and for a lawful `f`
+###        the pole term vanishes, `SUM_v W_v(f) = -Z` (b321).
+###   (L5) THE FACTOR-OF-TWO HAZARD, NAMED AND CHECKED: for zeta the Gamma factor is `pi^{-s/2}
+###        Gamma(s/2)`, whose logarithmic derivative is `-(1/2) log pi + (1/2) psi(s/2)`; `h_+` is TWICE
+###        its real part at `s = 1/2 + i tau`. ### For the Epstein function the factor is
+###        `(sqrt23 / 2pi)^s Gamma(s)`, and the same rule -- twice the real part of the logarithmic
+###        derivative -- gives `2 Re psi(1/2 + i tau) - 2 log(2pi / sqrt23)`, b326's derived kernel;
+###        b325's kernel was half of it. ### The hazard is the `1/2` of `Gamma(s/2)` against the `2` of
+###        `h_+`, and it is checked here from one identity, not two.
+### ### **VERDICTS:** ### `DERIVES-ON-IMPORT` (the imports: (150), (151), (152)-(153), `W_inf = -W_R`) /
+### `RESISTS` (the step named) / `MISMATCH` (at full prominence, the differing constituent quoted --
+### a mismatch here would touch every archimedean number in the record, and the bank says so before
+### anything else).
+
+----------------------------------------------------------------------------------------------------
+### (E) THE THIRD ROUTE, AND ITS BAR, SEALED BEFORE ANY VALUE.
+----------------------------------------------------------------------------------------------------
+### ### **THE ROUTE:** ### (150) itself, evaluated on the real side with `mpmath.quad` at high working
+### precision, on the bump re-implemented from the atlas's definition (`exp(-1/(1 - t^2))` on `|t| < 1`,
+### `t = v / log a`, normalized to unit mass by exact quadrature), `f(x) = x^{-1/2} w(log x)`, `f^# = f`;
+### `A_3 := -W_R(f)`. ### **SHARING NO CODE** with the atlas, with b320's (38) route (a Hadamard integral
+### with a measured constant) or with the digamma route (a transform-side trapezoid); importing no
+### corpus tool. ### Its own convergence arm: the same integral at two working precisions.
+### ### **THE BAR:** ### at each of the thirteen arc cells `a = 1.3, 1.35, 1.41, 1.5, 1.7, 1.9, 1.99, 2,
+### 2.01, 2.1, 2.4, 2.8, 3`, `|A_3 - A_digamma(b320)| <= 2e-4` and `|A_3 - W_inf,(38)(b320)| <= 2e-4`, the
+### banked values read from b320's table. ### **WHY 2e-4:** the two banked routes disagree with each
+### other by up to `3.434e-05`, so a bar tighter than that is unsatisfiable by the record's own
+### numbers (b328's lesson); a sign error or the factor-of-two hazard fails this bar by orders of
+### magnitude at every cell (the values run from `0.5` to `8.8`). ### The atlas's bump is a
+### discretization on 4001 points normalized by a trapezoid; the continuous bump differs at the
+### order of the grid squared, far below the bar.
+### ### **A DISAGREEMENT IS REPORTED AT FULL PROMINENCE, FIRST.**
+
+----------------------------------------------------------------------------------------------------
+### (F) BOTH SEATS' EXPECTATIONS. ### **NO COUNTS PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, FOR THE DERIVATION, AS THE ORDER'S FOOT STATES IT:** ### *the archimedean
+### distribution is derived from the classical term or the mismatch is on the record at full
+### prominence.* ### **FOR THE NEW SOFTEST CONSTITUENT: NOT STATED IN THE ORDER**, and recorded as such.
+### ### **THIS SEAT'S, WRITTEN BEFORE THE TOOL EXISTS:**
+###   ### the verdict `DERIVES-ON-IMPORT`: the chain is four quotations of the source and two
+###     elementary identities, (N1) and (N4);
+###   ### the third route agrees inside the bar at every cell, and its two precisions agree to far
+###     inside it;
+###   ### **THE RE-RANK:** K5's grades become `DERIVES-ON-IMPORTS` (this act, superseding b315's
+###     `DEFINED-ONLY`), `MEASURED-AT-COVERED-CELLS` (b320's sign certification, untouched) and
+###     `MEASURED-ON-FAMILIES` (this act's third route at the thirteen cells); under b332's sealed rule
+###     -- a constituent's rank is its softest grade among its owners -- K5's softest is b320's
+###     `MEASURED-AT-COVERED-CELLS`, ### **SO K5 AND K6 TIE AT THE SOFTEST RANK**, and no tie-break is
+###     applied because the rule has none. ### **THE NEW SOFTEST IS THE PAIR: THE REMAINDER AND THE
+###     DISTRIBUTION IT IS PART OF**, and the aim-map's target is that pair. ### REFUTABLE by the
+###     re-run rule producing anything else.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-NORMALIZATIONS`: the run file states (N1)-(N4) before any number.
+### (F2)  `G-CHAIN`: every link (L1)-(L5) in the run file is a quotation present in the extract file or
+###       an identity named as elementary; the verdict word printed.
+### (F3)  `G-VERDICT`: the bank's verdict equals the tool's, and if not `DERIVES-ON-IMPORT` it is the
+###       first sentence of the bank.
+### (F4)  `G-ROUTE3`: the bar at every cell, from the banked table; a failure reported first.
+### (F5)  `G-CONVERGE`: the third route's two precisions agree inside a tenth of the bar.
+### (F6)  `G-RERANK`: the ranking recomputed by b332's sealed ORDER and rule with K5's updated grades;
+###       both seats' expectations scored in words.
+### (F7)  `G-LEDGER`: one append-only block through the writer naming `S1` and K5 only; row `S1` itself
+###       byte-identical; the blob a true prefix.
+### (F8)  `G-ADDENDUM`: the findings addendum appended after the `clause-stated` section, the section
+###       byte-identical, the file a true prefix of itself.
+### (F9)  `G-NOQUANTIFIER`: the bank says K8 stays unowned; no sentence claims otherwise (must-fail).
+### (F10) `G-ROW` (NO TERMINAL), `G-KEY`, `G-ORDER`, `G-HOOK` / `G-MIRROR`, `G-NUMBERS`, `G-TOOLNUM`, the
+###       hedge audit, the stem sweep, the must-fail fixtures -- standing.
+### (F11) `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (H) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   PLACE-papers files written ............ ### CAP 2 (FINDINGS.md, an appended addendum; FACES_LEDGER.md, one appended block through the writer)
+###   ledger rows written .................. ### CAP 0 (an update block, not a row)
+###   findings sections edited ............. ### CAP 0
+###   grades conferred by this act ......... ### CAP 0
+###   proofs attempted ..................... ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   numbers reported by one route ........ ### CAP 0
+###   claims about the quantifier .......... ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   `.lean` files edited ................. ### CAP 0
+###   TECHNE files written ................. ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   owner instrument files edited ........ ### CAP 0
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE ONE NON-ZERO CAP IS THE ORDER'S OWN PLACEMENT CLAUSE.**
+
+----------------------------------------------------------------------------------------------------
+### (I) THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A derivation under the import bar with analysis in it -- a
+### principal-value integral, a Gamma function -- compiles nothing.
+
+----------------------------------------------------------------------------------------------------
+### (J) WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **NOT THAT THE CLAUSE HAS MOVED, AND NOT THAT THE QUANTIFIER IS OWNED.**
+### ### **NOT THAT THE ARCHIMEDEAN TERM'S SIZE IS CERTIFIED.** ### Three routes agreeing at thirteen cells
+### certify that the routes agree at thirteen cells.
+### ### **NOT THAT ANY GRADE WAS CONFERRED HERE.** ### The derivation's grade is the derivation's; the
+### measurement's is the tool's.
+### ### **NOT THAT THE AIM-MAP OR THIS ACT IS THE DISCHARGE.**
+### ### **`M-2` IS OWED UNDER b310's CAP (SPECIFIED-NOT-STATED). ### THE SEAM'S DEBT ITEM 1 STANDS. ###
+### ### THE PATENT CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD.
+### ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE. ### NOTHING
+### ### DEPOSITS.**
+### ### **NEXT, BY THE ORDER: THE AIM-MAP, ITS TARGET THE NEW SOFTEST CONSTITUENT -- WHATEVER THE RE-RUN
+### ### RULE NAMES.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : a9bfe95aa345fbb8eb92fcf6346527851ef13487922a8f01b858f83d65bf05fa
+### bytes sealed : 16927
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b333_registration_2026-09-06.txt`.**
+====================================================================================================

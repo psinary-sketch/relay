@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'archimedean-term-derived': ['the archimedean term derived', 'archimedean term derived', 'the archimedean term',
+                                 'the digamma kernel', 'the classical term', 'the principal value', 'the third route',
+                                 'the re-rank', 'the factor of two', 'the Gamma factor', 'is the archimedean term derived',
+                                 'the new softest constituent', 'the mismatch diagnosed'],
     'clause-stated': ['the clause stated', 'clause stated', 'the open clause', 'the statement of the clause',
                       'the positivity face', 'the fourth register realized', 'the E0 gate', 'the softest constituent',
                       'the lawful class', 'the archimedean distribution', 'the compressed square', 'the aim-map',
@@ -501,6 +505,25 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ARCHIMEDEAN TERM DERIVED (b333).
+    ("archimedean-term-derived", "b333 (a derivation under the import bar; a third route; the re-rank; a sealed bar not met, diagnosed)",
+     "THE DERIVATION TOOL'S VERDICT, AS PRINTED, FIRST: MISMATCH at (L3): the corpus's A against the source's (152) as evaluated here. ### Diagnosed: the act's sealed bar paired the third"
+     " route, run on the atlas's bump, with b320's table, which b320 computed for its own function autocorrelation(mean_zero_variant(a));"
+     " THE RECORD'S ARCHIMEDEAN NUMBERS ARE NOT TOUCHED -- the third route ((150) on the real side, mpmath, no corpus code) agrees with the"
+     " atlas's own banked channel for the bump at all thirteen cells (worst 1.864e-06) and with b320's two routes applied to the"
+     " bump (worst 6.521e-08 / 6.061e-07); (150) on b320's own function agrees with b320's table (worst 6.957e-06 / 2.738e-05)."
+     " The sealed bar, as sealed, NOT MET and not rewritten. ### THE CHAIN, its own verdict DERIVES-ON-IMPORT: the stated clause's constituent K5,"
+     " the archimedean distribution, derived from the classical term as the pinned source states it (Appendix B: (150) the principal value,"
+     " (151) the Gamma factor with its power of pi and its logarithmic derivative against the transform, (152)-(153) the digamma kernel,"
+     " W_inf = -W_R) under the corpus's conventions to the atlas's A = (1/2pi) INT hhat [Re psi(1/4 + iu/2) - log pi] du: THE CORPUS'S A IS"
+     " THE SOURCE'S W_inf = -W_R, entering (148) as pole + W_inf - PRIME; the factor-of-two hazard of b325 checked from one identity."
+     " ### The re-rank under b332's sealed rule: K5 (MEASURED-AT-COVERED-CELLS), K6 (MEASURED-AT-COVERED-CELLS), K1 (MEASURED-ON-FAMILIES), K2 (MEASURED-ON-FAMILIES), K7 (UNDER-RESOLVED-AT-BENCH), K3 (DERIVED-ON-CONTENT), K4 (DERIVED-ON-CONTENT) -- the new softest: K5 and K6",
+     "### NO GRADE CONFERRED BEYOND THE DERIVATION'S OWN: DERIVES-ON-IMPORTS, the imports named; MEASURED-ON-FAMILIES NOT CONFERRED (the sealed"
+     " bar not met). ### ROUTES AGREEING CERTIFY THAT THE ROUTES AGREE, NOT THE SIZE OF THE TERM. ### THE CLAUSE HAS NOT MOVED; K8 STAYS"
+     " UNOWNED. ### The aim-map named as next, its target the new softest; neither it nor this act is the discharge. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b333_the_archimedean_term_derived.txt; data/b333_derive_run.txt; data/b333_diagnose_run.txt; data/b333_rerank_run.txt; data/b333_source.txt;"
+     " data/b333_registration_2026-09-06.txt (sealed before any value); FINDINGS.md (the b333 addendum after"
+     " clause-stated); FACES_LEDGER.md (the b333 update, row S1 / K5); CORRESPONDENCE.md row 179"),
     # ### THE CLAUSE STATED (b332).
     ("clause-stated", "b332 (a statement act; no proof attempted)",
      "(S) for every g in the source's class (Definition 3.1 with Proposition C.1's vanishing set; b328's seeds inside"

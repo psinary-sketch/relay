@@ -1,0 +1,71 @@
+====================================================================================================
+b333 -- THE ARCHIMEDEAN TERM DERIVED. ### THE CHAIN, THE THIRD ROUTE, THE RE-RANK.
+====================================================================================================
+  PHASE 1 -- NORMALIZATIONS BEFORE COUNTS, THEN THE CHAIN. Every quotation checked to be in the extract file.
+  (N1) convention       quotations 2/2 in the extract file ; f(x) = x^{-1/2} w(log x) under (147): f~(1/2 + i tau) = INT w(v) e^{i tau v} dv = f-hat(tau) for even w; the a
+  (N2) convention       quotations 1/1 in the extract file ; f(1) = w(0); f^# = f for even w.
+  (N3) convention       quotations 1/1 in the extract file ; dx = x dv is absorbed by x^{s-1} into e^{(s-1/2)v}.
+  (N4) identity         quotations 0/0 in the extract file ; Fourier inversion at zero: w(0) = (1/2 pi) INT f-hat(tau) dtau.
+  (L1) import           quotations 3/3 in the extract file ; (150) -> (151): the source's own step.
+  (L2) import+identity  quotations 2/2 in the extract file ; (151) -> (152)-(153): W_inf = -W_R; (log pi) f(1) moved inside by N4; Re(Gamma'/Gamma)(w/2) at w = 1/2 + i tau
+  (L3) identification   quotations 3/3 in the extract file ; the atlas's kernel IS h_+, hhat IS f~(1/2 + iu), the atlas's A IS (152): A(f) = W_inf(f) = -W_R(f).
+  (L4) sign chain       quotations 4/4 in the extract file ; (148): SUM_rho f~ = pole - W_R - SUM_p W_p = pole + W_inf - PRIME, the atlas's orientation.
+  (L5) identity         quotations 2/2 in the extract file ; h_+ = 2 Re (d/ds) log(pi^{-s/2} Gamma(s/2)) at s = 1/2 + i tau; the same rule on (sqrt23/2pi)^s Gamma(s) gives
+  (L5) THE FACTOR-OF-TWO HAZARD, CHECKED FROM ONE IDENTITY (mpmath, dps 30):
+      tau = 0.5    |2 Re (log Gamma_R)'(1/2 + i tau) - h_+(tau)| = 0.000e+00 ;  Epstein: |2 Re (log Lambda_Q-factor)' - kernel_b326| = 0.000e+00
+      tau = 3.0    |2 Re (log Gamma_R)'(1/2 + i tau) - h_+(tau)| = 9.861e-32 ;  Epstein: |2 Re (log Lambda_Q-factor)' - kernel_b326| = 1.972e-31
+      tau = 17.0   |2 Re (log Gamma_R)'(1/2 + i tau) - h_+(tau)| = 0.000e+00 ;  Epstein: |2 Re (log Lambda_Q-factor)' - kernel_b326| = 0.000e+00
+      the zeta identity and the Epstein identity hold to the working precision : True
+      ### the hazard: the 1/2 of Gamma(s/2) against the 2 of h_+; b325 carried the 1/2 without the 2.
+  ### VERDICT (chain) : DERIVES-ON-IMPORT -- the imports: (150), (151), (152)-(153), W_inf = -W_R; the identities: N4 and L5.
+
+  PHASE 2 -- THE THIRD ROUTE: (150) on the real side, mpmath.quad, the bump from its definition, no corpus code.
+  banked b320 table rows read : 13
+      a = 1.3    W_R(150) = +1.796210775   A_3 = -W_R = -1.796210775   A_152 = -1.795884251   f(1) = 3.158085731
+      a = 1.35   W_R(150) = +1.972186041   A_3 = -W_R = -1.972186041   A_152 = -1.971911188   f(1) = 2.760933557
+      a = 1.41   W_R(150) = +2.079782230   A_3 = -W_R = -2.079782230   A_152 = -2.079551491   f(1) = 2.411506600
+      a = 1.5    W_R(150) = +2.137817404   A_3 = -W_R = -2.137817404   A_152 = -2.137631551   f(1) = 2.043502199
+      a = 1.7    W_R(150) = +2.110312142   A_3 = -W_R = -2.110312142   A_152 = -2.110182138   f(1) = 1.561486480
+      a = 1.9    W_R(150) = +2.031322965   A_3 = -W_R = -2.031322965   A_152 = -2.031222512   f(1) = 1.290899467
+      a = 1.99   W_R(150) = +1.994302991   A_3 = -W_R = -1.994302991   A_152 = -1.994211691   f(1) = 1.204079541
+      a = 2      W_R(150) = +1.990245918   A_3 = -W_R = -1.990245918   A_152 = -1.990155526   f(1) = 1.195372156
+      a = 2.01   W_R(150) = +1.986204116   A_3 = -W_R = -1.986204116   A_152 = -1.986114613   f(1) = 1.186832303
+      a = 2.1    W_R(150) = +1.950631586   A_3 = -W_R = -1.950631586   A_152 = -1.950549310   f(1) = 1.116763896
+      a = 2.4    W_R(150) = +1.844741558   A_3 = -W_R = -1.844741558   A_152 = -1.844676309   f(1) = 0.946428815
+      a = 2.8    W_R(150) = +1.732622399   A_3 = -W_R = -1.732622399   A_152 = -1.732570650   f(1) = 0.804733114
+      a = 3      W_R(150) = +1.686524877   A_3 = -W_R = -1.686524877   A_152 = -1.686477777   f(1) = 0.754195860
+
+  THE BAR (sealed): |A_3 - A_digamma(b320)| <= 2e-04 and |A_3 - W_38(b320)| <= 2e-04 at every cell ; convergence |A_3(30) - A_3(50)| <= 2e-05
+  a          A_3 (150)   A_dig(b320)    W_38(b320)       d_dig        d_38      d_conv |A_152-A_dig|
+  1.3     -1.796210775   8.781179663   8.781214000   1.058e+01   1.058e+01   0.000e+00   1.058e+01  ### FAIL ###
+  1.35    -1.972186041   7.130742821   7.130772347   9.103e+00   9.103e+00   0.000e+00   9.103e+00  ### FAIL ###
+  1.41    -2.079782230   5.747982325   5.748007707   7.828e+00   7.828e+00   0.000e+00   7.828e+00  ### FAIL ###
+  1.5     -2.137817404   4.372780034   4.372801098   6.511e+00   6.511e+00   0.000e+00   6.510e+00  ### FAIL ###
+  1.7     -2.110312142   2.723002886   2.723018452   4.833e+00   4.833e+00   0.000e+00   4.833e+00  ### FAIL ###
+  1.9     -2.031322965   1.889485938   1.889498505   3.921e+00   3.921e+00   0.000e+00   3.921e+00  ### FAIL ###
+  1.99    -1.994302991   1.638969721   1.638981336   3.633e+00   3.633e+00   0.000e+00   3.633e+00  ### FAIL ###
+  2       -1.990245918   1.614341963   1.614353480   3.605e+00   3.605e+00   0.000e+00   3.604e+00  ### FAIL ###
+  2.01    -1.986204116   1.590278592   1.590290016   3.576e+00   3.576e+00   0.000e+00   3.576e+00  ### FAIL ###
+  2.1     -1.950631586   1.396312655   1.396323322   3.347e+00   3.347e+00   0.000e+00   3.347e+00  ### FAIL ###
+  2.4     -1.844741558   0.952610795   0.952619641   2.797e+00   2.797e+00   0.000e+00   2.797e+00  ### FAIL ###
+  2.8     -1.732622399   0.617605841   0.617613198   2.350e+00   2.350e+00   0.000e+00   2.350e+00  ### FAIL ###
+  3       -1.686524877   0.506670618   0.506677452   2.193e+00   2.193e+00   0.000e+00   2.193e+00  ### FAIL ###
+  worst over the thirteen cells : d_dig 1.058e+01 ; d_38 1.058e+01 ; d_conv 0.000e+00 ; |A_152 - A_dig| 1.058e+01
+  ### ### **THE THIRD ROUTE DISAGREES WITH THE RECORD AT [1.3, 1.35, 1.41, 1.5, 1.7, 1.9, 1.99, 2.0, 2.01, 2.1, 2.4, 2.8, 3.0] -- REPORTED FIRST, AT FULL PROMINENCE.**
+  ### ### **BOTH FORMS EVALUATED HERE DISAGREE WITH THE RECORD: THE DIFFERING CONSTITUENT IS THE CORPUS'S A ITSELF.**
+
+  ### VERDICT : MISMATCH at (L3): the corpus's A against the source's (152) as evaluated here
+
+  PHASE 3 -- THE RE-RANK.
+  THE RE-RANK under b332's sealed rule, K5 updated (DEFINED-ONLY superseded by DERIVES-ON-IMPORTS; MEASURED-ON-FAMILIES added):
+      1. K5 the archimedean distribution                 MEASURED-AT-COVERED-CELLS
+      2. K6 the decomposition: the compressed square plu MEASURED-AT-COVERED-CELLS
+      3. K1 the class                                    MEASURED-ON-FAMILIES
+      4. K2 the criterion’s sign                         MEASURED-ON-FAMILIES
+      5. K7 the object and its archimedean unit          UNDER-RESOLVED-AT-BENCH
+      6. K3 the finite places’ contribution              DERIVED-ON-CONTENT
+      7. K4 the prime sum                                DERIVED-ON-CONTENT
+  THE NEW SOFTEST : ['K5', 'K6']
+  THE NAVIGATOR'S EXPECTATION FOR THE NEW SOFTEST : NOT STATED IN THE ORDER -- recorded as such, not scored.
+  THIS SEAT'S EXPECTATION (K5 and K6 tied at MEASURED-AT-COVERED-CELLS) : MET
+====================================================================================================

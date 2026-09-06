@@ -1,0 +1,281 @@
+{
+ "verdict": "MISMATCH at (L3): the corpus's A against the source's (152) as evaluated here",
+ "chain": [
+  [
+   "N1",
+   "convention",
+   "f(x) = x^{-1/2} w(log x) under (147): f~(1/2 + i tau) = INT w(v) e^{i tau v} dv = f-hat(tau) for even w; the atlas's hhat."
+  ],
+  [
+   "N2",
+   "convention",
+   "f(1) = w(0); f^# = f for even w."
+  ],
+  [
+   "N3",
+   "convention",
+   "dx = x dv is absorbed by x^{s-1} into e^{(s-1/2)v}."
+  ],
+  [
+   "N4",
+   "identity",
+   "Fourier inversion at zero: w(0) = (1/2 pi) INT f-hat(tau) dtau."
+  ],
+  [
+   "L1",
+   "import",
+   "(150) -> (151): the source's own step."
+  ],
+  [
+   "L2",
+   "import+identity",
+   "(151) -> (152)-(153): W_inf = -W_R; (log pi) f(1) moved inside by N4; Re(Gamma'/Gamma)(w/2) at w = 1/2 + i tau is Re lambda(1/4 + i tau/2)."
+  ],
+  [
+   "L3",
+   "identification",
+   "the atlas's kernel IS h_+, hhat IS f~(1/2 + iu), the atlas's A IS (152): A(f) = W_inf(f) = -W_R(f)."
+  ],
+  [
+   "L4",
+   "sign chain",
+   "(148): SUM_rho f~ = pole - W_R - SUM_p W_p = pole + W_inf - PRIME, the atlas's orientation."
+  ],
+  [
+   "L5",
+   "identity",
+   "h_+ = 2 Re (d/ds) log(pi^{-s/2} Gamma(s/2)) at s = 1/2 + i tau; the same rule on (sqrt23/2pi)^s Gamma(s) gives b326's kernel."
+  ]
+ ],
+ "identities": true,
+ "bar": 0.0002,
+ "converge": 2e-05,
+ "cells": {
+  "1.3": {
+   "A3": -1.7962107752923453,
+   "A3_dps50": -1.7962107752923453,
+   "A152": -1.79588425130593,
+   "WR": 1.7962107752923453,
+   "f1": 3.158085730733238,
+   "A_dig_b320": 8.781179663,
+   "W38_b320": 8.781214,
+   "covered": true
+  },
+  "1.35": {
+   "A3": -1.9721860409910257,
+   "A3_dps50": -1.9721860409910257,
+   "A152": -1.9719111880919606,
+   "WR": 1.9721860409910257,
+   "f1": 2.760933556877235,
+   "A_dig_b320": 7.130742821,
+   "W38_b320": 7.130772347,
+   "covered": true
+  },
+  "1.41": {
+   "A3": -2.0797822295069297,
+   "A3_dps50": -2.0797822295069297,
+   "A152": -2.079551491467309,
+   "WR": 2.0797822295069297,
+   "f1": 2.4115066001175407,
+   "A_dig_b320": 5.747982325,
+   "W38_b320": 5.748007707,
+   "covered": true
+  },
+  "1.5": {
+   "A3": -2.13781740404607,
+   "A3_dps50": -2.13781740404607,
+   "A152": -2.1376315513464297,
+   "WR": 2.13781740404607,
+   "f1": 2.0435021985863973,
+   "A_dig_b320": 4.372780034,
+   "W38_b320": 4.372801098,
+   "covered": false
+  },
+  "1.7": {
+   "A3": -2.11031214208113,
+   "A3_dps50": -2.11031214208113,
+   "A152": -2.1101821376157877,
+   "WR": 2.11031214208113,
+   "f1": 1.5614864798671018,
+   "A_dig_b320": 2.723002886,
+   "W38_b320": 2.723018452,
+   "covered": false
+  },
+  "1.9": {
+   "A3": -2.0313229653171785,
+   "A3_dps50": -2.0313229653171785,
+   "A152": -2.031222512233112,
+   "WR": 2.0313229653171785,
+   "f1": 1.2908994674943215,
+   "A_dig_b320": 1.889485938,
+   "W38_b320": 1.889498505,
+   "covered": false
+  },
+  "1.99": {
+   "A3": -1.9943029914634038,
+   "A3_dps50": -1.9943029914634038,
+   "A152": -1.9942116911095675,
+   "WR": 1.9943029914634038,
+   "f1": 1.2040795408738307,
+   "A_dig_b320": 1.638969721,
+   "W38_b320": 1.638981336,
+   "covered": false
+  },
+  "2.0": {
+   "A3": -1.9902459179152259,
+   "A3_dps50": -1.9902459179152259,
+   "A152": -1.9901555258426058,
+   "WR": 1.9902459179152259,
+   "f1": 1.1953721563142796,
+   "A_dig_b320": 1.614341963,
+   "W38_b320": 1.61435348,
+   "covered": false
+  },
+  "2.01": {
+   "A3": -1.9862041155597119,
+   "A3_dps50": -1.9862041155597119,
+   "A152": -1.986114612531647,
+   "WR": 1.9862041155597119,
+   "f1": 1.1868323028128356,
+   "A_dig_b320": 1.590278592,
+   "W38_b320": 1.590290016,
+   "covered": false
+  },
+  "2.1": {
+   "A3": -1.9506315856997236,
+   "A3_dps50": -1.9506315856997236,
+   "A152": -1.9505493096479436,
+   "WR": 1.9506315856997236,
+   "f1": 1.1167638962442668,
+   "A_dig_b320": 1.396312655,
+   "W38_b320": 1.396323322,
+   "covered": false
+  },
+  "2.4": {
+   "A3": -1.8447415582097326,
+   "A3_dps50": -1.8447415582097326,
+   "A152": -1.8446763093015155,
+   "WR": 1.8447415582097326,
+   "f1": 0.9464288152349684,
+   "A_dig_b320": 0.952610795,
+   "W38_b320": 0.952619641,
+   "covered": false
+  },
+  "2.8": {
+   "A3": -1.7326223985371279,
+   "A3_dps50": -1.7326223985371279,
+   "A152": -1.7325706498432518,
+   "WR": 1.7326223985371279,
+   "f1": 0.804733114044722,
+   "A_dig_b320": 0.617605841,
+   "W38_b320": 0.617613198,
+   "covered": false
+  },
+  "3.0": {
+   "A3": -1.686524877241937,
+   "A3_dps50": -1.686524877241937,
+   "A152": -1.6864777768673576,
+   "WR": 1.686524877241937,
+   "f1": 0.7541958600095502,
+   "A_dig_b320": 0.506670618,
+   "W38_b320": 0.506677452,
+   "covered": false
+  }
+ },
+ "worst": {
+  "dig": 10.577390438292344,
+  "w38": 10.577424775292346,
+  "conv": 0.0,
+  "a152": 10.57706391430593
+ },
+ "fails": [
+  1.3,
+  1.35,
+  1.41,
+  1.5,
+  1.7,
+  1.9,
+  1.99,
+  2.0,
+  2.01,
+  2.1,
+  2.4,
+  2.8,
+  3.0
+ ],
+ "route_ok": false,
+ "ranking": [
+  [
+   1,
+   "K5",
+   "the archimedean distribution",
+   "MEASURED-AT-COVERED-CELLS",
+   "defined from the source and measured where Theorem 1’s support condition covers; its size is certified nowhere"
+  ],
+  [
+   1,
+   "K6",
+   "the decomposition: the compressed square plus the remainder",
+   "MEASURED-AT-COVERED-CELLS",
+   "the square’s sign is arithmetic and holds everywhere it was computed; the remainder is the margin, measured only where the identity is covered, its size uncertified -- the navigator’s registered softest"
+  ],
+  [
+   2,
+   "K1",
+   "the class",
+   "MEASURED-ON-FAMILIES",
+   "the definition is the source’s; which functions are inside it is measured, seed by seed, on the families the arc built"
+  ],
+  [
+   2,
+   "K2",
+   "the criterion’s sign",
+   "MEASURED-ON-FAMILIES",
+   "the sign is the source’s; that the corpus’s places sum is the criterion’s quantity with the pole term gone is derived for lawful `f` and measured at every cell"
+  ],
+  [
+   3,
+   "K7",
+   "the object and its archimedean unit",
+   "UNDER-RESOLVED-AT-BENCH",
+   "in by derivation, under-resolved at bench; the instrument’s distance from the answer is priced"
+  ],
+  [
+   4,
+   "K3",
+   "the finite places’ contribution",
+   "DERIVED-ON-CONTENT",
+   "the counting form is compiled; the identification of that count with the source’s trace is b310’s derivation and is not compiled, and the compact part is decided at cells"
+  ],
+  [
+   4,
+   "K4",
+   "the prime sum",
+   "DERIVED-ON-CONTENT",
+   "the identification is derived term by term; the window the corpus cuts at is a choice and is named as one"
+  ]
+ ],
+ "softest": [
+  "K5",
+  "K6"
+ ],
+ "seat_expectation": "MET",
+ "navigator_expectation": "NOT STATED IN THE ORDER",
+ "k5_grades": [
+  [
+   "MEASURED-AT-COVERED-CELLS",
+   "b320",
+   "THE MARGIN'S SIGN IS CERTIFIED AT EVERY FRAME; ITS SIZE IS NOT CERTIFIED AT ANY."
+  ],
+  [
+   "DERIVES-ON-IMPORTS",
+   "b333",
+   "the source's (150)-(153) read link by link; superseding b315's DEFINED-ONLY"
+  ],
+  [
+   "MEASURED-ON-FAMILIES",
+   "b333",
+   "the third route at the thirteen arc cells"
+  ]
+ ]
+}
