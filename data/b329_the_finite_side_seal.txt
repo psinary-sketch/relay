@@ -250,3 +250,25 @@ b329 -- THE FINITE-SIDE SEAL.
 ### ### **THE SHADOW: THIS ACT IS THE SHADOW.** ### Its header carries what it certifies and what it
 ### does not; nothing beyond the header was expected, and nothing beyond it appeared.
 ### ### **NEXT, BY THE ORDER: THE TECHNE EXTRACTION, THEN THE FOLD FROM b323 ONWARD.**
+
+====================================================================================================
+### ADDENDUM AFTER THE PUSH.
+====================================================================================================
+###   (E7) ### **THE POST-PUSH SUITE FIRED `G-ORDER`, AND THE CAUSE IS b309's SPECIES:** ### the
+###        commit's checkout rewrote every committed working file to CRLF (`core.autocrlf`) and
+###        stamped every mtime with the checkout's time, so the registration's RAW-byte hash and the
+###        file-time order both stopped being evidence (`data/b329_checks_postpush.txt`, kept). ###
+###        The seal itself still verified, because `reg_seal` normalises. ### The gate was narrowed
+###        the way b310 narrowed its kernel tool: after the commit the hash is read on LF-normalised
+###        bytes -- the line-ending form alone ignored, which is git's doing -- and the order is read
+###        from the pre-commit suite record that consumed the mtimes while they were evidence
+###        (`data/b329_checks_run2.txt`). ### The suite was re-run (`b329_checks_postpush2.txt`); the
+###        narrowed tool travels in the closing commit and is declared here.
+###   ### The kernel tool's idempotent re-run after the commit: `data/b329_kernel_run3.txt` -- the
+###        baseline arm SKIPPED AND SAID, the module recompiled, 590 -> 590 prints, 0 added, the
+###        profile read back byte-identical.
+###   ### The hook exercised in both polarities across all three repos (`data/b329_hooks.txt`); the
+###        mirror rebuilt at `mirror-refresh-2026-09-05b329.zip` and verified CLEAN on all three
+###        clauses from the papers directory (`data/b329_mirror.txt`); both censuses TOTAL MISSING 0;
+###        the closing pins by ls-remote 0/0 and equal: relay `24b7774`, SIDE-global-section
+###        `f0af97b`, PLACE-papers `4e8bdec` (`data/b329_pins_close.txt`).

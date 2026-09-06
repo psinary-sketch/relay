@@ -468,14 +468,28 @@ def main():
     rs = subprocess.run([sys.executable, t('reg_seal.py'), '--verify', REG], capture_output=True, text=True, encoding='utf-8', errors='replace')
     intact = 'SEAL INTACT' in (rs.stdout or '')
     raw = open(REG, 'rb').read()
-    i = raw.find(b'=' * 100 + b'\n### THE REGISTRATION SEAL')
-    rawhash = hashlib.sha256(raw[:i]).hexdigest() if i > 0 else ''
-    seal_m = os.path.getmtime(REG)
-    after_seal = all(seal_m < os.path.getmtime(p) for p in [MODULE, KRUN, KRUN2, PROBE, CORR2, FIL, IDX, LRUN, BANK])
-    before_seal = os.path.getmtime(KBASE) < seal_m
+    # ### b309's D6, met again: after the commit `core.autocrlf` rewrites every committed working file to CRLF and
+    # ### stamps every mtime with the checkout's time, so the RAW hash and the mtime order are git's artifacts from
+    # ### then on. ### Before the commit both are read raw; after it (HEAD carrying the registration) the hash is
+    # ### read on LF-normalised bytes -- the line-ending form alone ignored, which is git's doing -- and the order
+    # ### is read from the pre-commit suite record that consumed the mtimes while they were still evidence.
+    committed_reg = blob_of(ROOT, 'data/b329_registration_2026-09-05.txt') is not None
+    body = raw if not committed_reg else raw.replace(b'\r\n', b'\n')
+    i = body.find(b'=' * 100 + b'\n### THE REGISTRATION SEAL')
+    rawhash = hashlib.sha256(body[:i]).hexdigest() if i > 0 else ''
+    if not committed_reg:
+        seal_m = os.path.getmtime(REG)
+        after_seal = all(seal_m < os.path.getmtime(p) for p in [MODULE, KRUN, KRUN2, PROBE, CORR2, FIL, IDX, LRUN, BANK])
+        before_seal = os.path.getmtime(KBASE) < seal_m
+        how = 'read from file times (pre-commit)'
+    else:
+        pre = io.open(d('b329_checks_run2.txt'), encoding='utf-8', errors='replace').read() if os.path.exists(d('b329_checks_run2.txt')) else ''
+        after_seal = 'the module and every build/record after the seal True' in pre
+        before_seal = 'the baseline before it True' in pre
+        how = 'read from the pre-commit suite record b329_checks_run2.txt (the checkout rewrote every mtime)'
     go = intact and rawhash == SEAL and after_seal and before_seal
-    print('    seal verifies %s ; raw hash equals the literal %s ; the module and every build/record after the seal %s ; the baseline before it %s : %s'
-          % (intact, rawhash == SEAL, after_seal, before_seal, go))
+    print('    seal verifies %s ; hash equals the literal %s (%s bytes) ; the module and every build/record after the seal %s ; the baseline before it %s [%s] : %s'
+          % (intact, rawhash == SEAL, 'LF-normalised' if committed_reg else 'raw', after_seal, before_seal, how, go))
     if not go:
         fails.append('G-ORDER')
 
