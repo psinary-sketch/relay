@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'floor-priced': ['the floor priced', 'the floor\'s origin', 'what is the floor\'s origin', 'the NY axis', 'the ny ladder',
+                     'the seal\'s clock', 'the seal\'s own time', 'the seal carries its clock', 'the room\'s edge', 'the bracketed minimum',
+                     'the cut\'s tau', 'the taper', 'the axes held'],
     'map-next-reach': ['the map\'s next reach', 'the finer grid', 'the finer chart', 'the narrowest room', 'the crossing', 'does the room cross',
                        'the residual against the frame', 'the square\'s rank', 'the identity residual', 'the grid axis', 'the floor\'s origin'],
     'two-rules-modules': ['the two rules as modules', 'the like-for-like rule', 'the like-for-like module', 'the sign rule', 'the sign rule module',
@@ -534,6 +537,24 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FLOOR PRICED, THE SEAL'S OWN CLOCK, AND THE ROOM'S EDGE (b344).
+    ("floor-priced", "b344 (one axis of three moved; a tool repair; a chart extended)",
+     "THE FLOOR PRICED ON ONE AXIS: of the three origins b339 named for the identity residual's floor -- the fixed NY, the cut's tau, the taper -- NY was"
+     " moved over the ladder [128, 256, 512, 1024, 2048] at the reference frame, the other two HELD AND PRINTED at every rung. The stable-cut rank is CONSTANT at"
+     " 69 across the whole ladder, so NY does not move the rank. The residual MOVES with NY: the span across the ladder is 1.239e-02 against"
+     " b339's floor of +0.006389645 at that cell, so by the sealed rule the movement is OF THE SIZE THE FLOOR REQUIRES. Beside the verdict and labelled: the increments fall"
+     " by a factor near four, so the residual converges in NY, and from the corpus's own NY = 512 the remaining travel is about a ninth of the floor."
+     " THE SEAL'S OWN CLOCK: reg_seal.py repaired by the order's words to record the seal's UTC instant inside the block, additions-only, with all"
+     " 66 existing seals verifying identically before and after and none rewritten; filed as modules/2026-09/SEAL_CARRIES_ITS_CLOCK.md,"
+     " committed locally at 023a7bb, the remote unmoved, NOT PUSHED. THE ROOM'S EDGE: the grid extended below b343's edge at a = 81 only --"
+     " BRACKETED, the minimum interior at gamma = 1.25, room +0.000026234, no crossing on the seventeen-height grid.",
+     "### ONE AXIS MOVED IS ONE AXIS MOVED: NOTHING IS CONCLUDED ABOUT THE TWO AXES HELD, AND THE FLOOR IS NOT EXPLAINED. ### A REPAIRED SEAL TOOL"
+     " CERTIFIES NOTHING ABOUT THE ACTS SEALED BEFORE IT, AND IT DOES NOT RECOVER b342's LOST TIMESTAMP. ### THE CLOCK IS OUTSIDE THE HASH AND SAYS SO."
+     " ### A NARROWER ROOM AT A FINER GRID IS A FINER CHART AND NOT A TREND. ### NO GRADE MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b344_the_floor_priced.txt; data/b344_ny_run.txt; data/b344_edge_run.txt; data/b344_seal_after_run.txt; data/b344_module_run.txt;"
+     " data/b344_registration_2026-09-06.txt (sealed before any rung, before the tool was touched, and before any seed below the edge);"
+     " data/b344_ruling_2026-09-06.txt (this act's number); TECHNE-Core modules/2026-09/SEAL_CARRIES_ITS_CLOCK.md (local);"
+     " CORRESPONDENCE.md row 192"),
     # ### THE MAP'S NEXT REACH (b343, leg 5 of the sortie b339-b343).
     ("map-next-reach", "b343 (a chart at a finer grid, and a measurement of the instrument at three frames)",
      "THE MAP'S NEXT REACH: the aim-map's quantities at thirteen heights from gamma = 2.0 to 8.0 in half-unit steps, at both reaching widths a = 40 and"

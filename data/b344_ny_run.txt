@@ -1,0 +1,36 @@
+====================================================================================================
+b344 -- COMPONENT 1, THE FLOOR PRICED ON ONE AXIS. ### NY moved ; tau and the taper held and printed at every rung.
+====================================================================================================
+  the object, sealed : mean-zero variant a=1.41 -> autocorrelation of mean-zero variant a=1.41 ; support 1.9881 against the frame X = 32 : reached
+  W_infinity(f) by b320's own route, frame-independent : +5.748007707376
+  INT f eps under the SOURCE convention rho^{+1/2} (b313f, EF)   : uniform -0.221284107589 ; chebyshev -0.221284142797 ; apart 3.521e-08
+  INT f eps under the CORPUS convention rho^{-1/2} (b313r, ER)   : uniform -0.217290579646 ; chebyshev -0.217290611981 ; apart 3.233e-08
+  ### the floor this act measures against, from b339 at this cell : 1.6 separations x 0.003993528 = +0.006389645 in the residual's units
+
+  NY     free     rank     dim      identity ctl  Tr (square)      R under EF       R under ER      
+  128    3968     69       3899     0.000e+00         +5.449961079     +0.519330736     +0.515337208   (1 s)
+        ### HELD, NOT MOVED -- the cut : tau = 1.0e-06 ; eigenvalues within a decade either side : 1 ; smallest kept 2.277535e-06 ; largest dropped 5.862987e-08 ; distance 2.218905e-06
+        ### HELD, NOT MOVED -- the taper : ALPHA = 1 ; BETA = 1
+  256    3968     69       3899     0.000e+00         +5.440400789     +0.528891026     +0.524897498   (2 s)
+        ### HELD, NOT MOVED -- the cut : tau = 1.0e-06 ; eigenvalues within a decade either side : 2 ; smallest kept 4.821247e-06 ; largest dropped 1.625900e-07 ; distance 4.658657e-06
+        ### HELD, NOT MOVED -- the taper : ALPHA = 1 ; BETA = 1
+  512    3968     69       3899     0.000e+00         +5.438230060     +0.531061755     +0.527068227   (10 s)
+        ### HELD, NOT MOVED -- the cut : tau = 1.0e-06 ; eigenvalues within a decade either side : 2 ; smallest kept 5.638377e-06 ; largest dropped 2.011555e-07 ; distance 5.437221e-06
+        ### HELD, NOT MOVED -- the taper : ALPHA = 1 ; BETA = 1
+  1024   3968     69       3899     0.000e+00         +5.437699655     +0.531592160     +0.527598632   (25 s)
+        ### HELD, NOT MOVED -- the cut : tau = 1.0e-06 ; eigenvalues within a decade either side : 2 ; smallest kept 5.854358e-06 ; largest dropped 2.117078e-07 ; distance 5.642650e-06
+        ### HELD, NOT MOVED -- the taper : ALPHA = 1 ; BETA = 1
+  2048   3968     69       3899     0.000e+00         +5.437567801     +0.531724014     +0.527730486   (51 s)
+        ### HELD, NOT MOVED -- the cut : tau = 1.0e-06 ; eigenvalues within a decade either side : 2 ; smallest kept 5.909088e-06 ; largest dropped 2.144048e-07 ; distance 5.694683e-06
+        ### HELD, NOT MOVED -- the taper : ALPHA = 1 ; BETA = 1
+
+  ### THE RANK ALONG THE LADDER : [69, 69, 69, 69, 69] ; CONSTANT
+  ### THE RESIDUAL UNDER THE SOURCE'S CONVENTION : +0.519330736 +0.528891026 +0.531061755 +0.531592160 +0.531724014
+  ### THE RESIDUAL UNDER THE CORPUS'S CONVENTION : +0.515337208 +0.524897498 +0.527068227 +0.527598632 +0.527730486
+  ### span across the ladder : 1.239328e-02 (source) and 1.239328e-02 (corpus) absolute ; 2.334e-02 and 2.351e-02 relative to the NY = 512 rung
+  ### ### **THE RESIDUAL MOVES WITH NY** (largest relative change 2.351e-02 against the sealed threshold 1e-03).
+  ### ### **AND THE MOVEMENT IS OF THE SIZE THE FLOOR REQUIRES**: the largest absolute change is 1.239328e-02 against b339's floor at this cell, +0.006389645
+  ###      (half the floor is 3.194822e-03 ; a tenth of it is 6.389645e-04 -- the two thresholds sealed in section (C)).
+  ### NOTHING IS CONCLUDED ABOUT THE TWO AXES HELD. ### ONE AXIS MOVED IS ONE AXIS MOVED.
+  ### elapsed : 175 s
+====================================================================================================

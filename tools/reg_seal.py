@@ -24,6 +24,7 @@ Usage:
     python reg_seal.py --seal <file>      write the seal block (refuses if already sealed)
     python reg_seal.py --verify <file>    recompute and compare; exit 1 on mismatch
 """
+import datetime
 import hashlib
 import io
 import os
@@ -35,6 +36,20 @@ if hasattr(sys.stdout, 'reconfigure'):
 BAR = '=' * 100
 MARK = '### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).'
 PREFIX = '### sha256 of every byte ABOVE this block : '
+# ### ### **THE SEAL'S OWN CLOCK, ADDED AT b344 BY THE ORDER'S WORDS** -- *"have reg_seal.py record the seal's UTC
+# ### instant inside the seal block it writes"*. ### **WHY:** b342's order arm was declared a defective bar because a
+# ### lawful post-seal marking rewrites the registration file, and the seal block carried a hash and a byte count but
+# ### no time, so a component written between the seal and the marking could not be told from one written before the
+# ### seal. ### **THE LIMIT, STATED WHERE THE LINE IS WRITTEN: THE CLOCK IS OUTSIDE THE HASH.** ### `digest` and
+# ### `cmd_verify` are untouched; they cover the bytes ABOVE the block, so every seal written before this line existed
+# ### still verifies unchanged, and a clock line altered after the fact does not make a file fail. ### It records when
+# ### the seal was written by a tool that meant to record it. ### **IT RECOVERS NOTHING SEALED BEFORE IT, b342's OWN
+# ### TIMESTAMP INCLUDED.**
+CLOCK = '### sealed at (UTC) : '
+
+
+def stamp():
+    return datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
 def split_body(text):
@@ -64,6 +79,7 @@ def cmd_seal(path):
     h = digest(body)
     block = (BAR + '\n' + MARK + '\n' + PREFIX + h + '\n'
              + '### bytes sealed : %d\n' % len(body.encode('utf-8'))
+             + CLOCK + stamp() + '   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.\n'
              + '### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify ' + os.path.basename(path)
              + '`.**\n' + BAR + '\n')
     io.open(path, 'a', encoding='utf-8', newline='\n').write(block)
@@ -105,6 +121,7 @@ def cmd_reseal(path):
     h = digest(body)
     block = (BAR + '\n' + MARK + '\n' + PREFIX + h + '\n'
              + '### bytes sealed : %d\n' % len(body.encode('utf-8'))
+             + CLOCK + stamp() + '   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.\n'
              + '### ### **RE-SEALED. ### SUPERSEDED HASH : %s**\n' % old
              + '### The prior seal was broken by a lawful edit; the act that made it says which.\n'
              + '### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify %s`.**\n'

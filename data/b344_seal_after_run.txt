@@ -1,0 +1,16 @@
+====================================================================================================
+b344 -- COMPONENT 2, THE SEAL'S OWN CLOCK. ### the census of every existing seal, and the fixtures.
+====================================================================================================
+  AFTER THE REPAIR : 66 sealed files in data/ ; INTACT at 66 of them ; every file hashed as it stands
+  ### every existing seal gives the SAME verdict before and after : 66 of 66 ; rewritten : none ; missing : none
+  ### the repaired tool writes the clock (`### sealed at (UTC) :` present in its source : True) ; cmd_verify unchanged in its logic : the hash is still taken over the bytes ABOVE the block
+  FIXTURE 1 -- a fresh seal carries the clock and verifies : clock present True (2026-09-06T22:06:34Z) ; INTACT True : PASS
+  FIXTURE 2 -- the clock ALTERED and the file STILL verifies : True
+  ###      **AND THAT IS THE HONEST LIMIT OF THE REPAIR: THE CLOCK IS OUTSIDE THE HASH.** ### It records when the
+  ###      seal was written by a tool that meant to record it; it is not evidence against a seat that would alter it.
+  FIXTURE 3 -- the BODY altered and the seal REFUSES (the arm that must still fire) : True
+
+  ### ### **WHAT THE REPAIR DOES NOT DO: IT DOES NOT RECOVER b342's LOST TIMESTAMP**, and it makes no act
+  ### sealed before it checkable by time. ### b342's `G-ORDER` stays a defective bar with its consequence carried.
+  ### ### PASS
+====================================================================================================
