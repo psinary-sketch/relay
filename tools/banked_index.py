@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'exponent-by-rate': ['the exponent by rate', 'the decay rate', 'the even sector', 'the convention',
+                         'the rate separates the conventions', 'which convention the banked values carry',
+                         'the resolving power in the rate', 'the floor is present'],
     'li-control-rerun': ['the li control re-run', 'the li control rerun', 'the tail panel', 'the two routes',
                          'the fourth control', 'the kernel fixture', 'the hand-rolled kernel', 'the work-order for the axes',
                          'the floor\'s two axes', 'one distribution on two families'],
@@ -540,6 +543,32 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE EXPONENT BY RATE (b346).
+    ("exponent-by-rate", "b346 (a premise tested, then a different axis measured)",
+     "THE EXPONENT BY RATE: b339 priced the split between the exponent\'s two candidates BY VALUE and banked it UNAFFORDABLE, with a side reading"
+     " that the residual descends to a FLOOR. b346 TESTED that premise rather than assuming it: b339\'s own sealed limit arithmetic puts the fitted"
+     " limit ABOVE BOTH candidates at every covered cell, and b344\'s ladder converges in NY with the whole remaining travel from the corpus\'s own"
+     " NY = 512 equal to 0.1105 of b339\'s floor there. A FLOOR IS PRESENT, SO NO DOMAIN RESOLVES THE EXPONENT BY VALUE. Then a different axis:"
+     " the even sector\'s decay along the ARGUMENT, where b315 measured the rate moving a full power while along the cutoff it does not move at all."
+     " The two conventions came from b313\'s copy-maker unedited, on the 6 cells b264\'s own second axis marked converged; their ratio is the"
+     " argument itself at every cell, so THE SEPARATION IN THE EXPONENT IS EXACTLY 1.0 AND IS EXACT BY CONSTRUCTION, NOT MEASURED. What was measured is"
+     " the instrument\'s uncertainty in the rate, 1.571945e-02, a resolving power of 63.6, the noise-floor gate RESOLVED at both conventions."
+     " VERDICT: RESOLVED ON THIS AXIS. The local slope at the top of the converged window is -1.490930810, sitting 9.069e-03 from the corpus\'s"
+     " asymptote and 9.909e-01 from the source\'s: THE BANKED VALUES CARRY THE CORPUS\'S OWN r ** -0.5, read from the values and from nothing else."
+     " The standing clause of E-2026-09-03-1 therefore acquires a MECHANICAL TEST, appended to ERRATA.md under a b346 mark with the entry byte-identical.",
+     "### A RESOLVING POWER IS A PROPERTY OF THE INSTRUMENT: it says the axis can tell two objects apart, and nothing about which of them the mathematics"
+     " requires. ### NO CONVENTION IS DECLARED CORRECT. b312 decided which function the corpus\'s remainder is BY UNFOLDING DEFINITIONS, and b313\'s clause"
+     " governs: the exponent is fixed by the source\'s own definition of the object the corpus imported, and a rate is not a vote on that any more than"
+     " a residue was. ### THE FLOOR IS NOT EXPLAINED: one of its three named origins has been priced and the cut\'s tau and the taper are named, not moved."
+     " ### THE TWO EVALUATORS SHARE AN ENGINE -- the prolate layer and the node counts, which b313\'s copy-maker declares deliberately -- so independence"
+     " of the prolate solver is NOT certified. ### AND ONE OF THIS ACT\'S OWN SEALED UNCERTAINTY ARMS COLLAPSED: a two-point drift-zero is algebraically"
+     " the local slope of those two points, so the second estimator became the first and (u2) was structurally zero; TABLED AND NOT REPAIRED, the sealed"
+     " file unedited, the understatement bounded by a labelled whole-window diagnostic giving a resolving power of 6.2. ### NO GRADE MOVED."
+     " ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b346_the_exponent_by_rate.txt; data/b346_rate_run.txt; data/b346_filings_run.txt;"
+     " data/b346_registration_2026-09-06.txt (sealed before one slope was fitted and before the flipped copy was run once);"
+     " data/b346_ruling_2026-09-06.txt (this act\'s number and the author\'s framing note); PLACE-papers ERRATA.md (the b346 block against E-2026-09-03-1);"
+     " CORRESPONDENCE.md row 194"),
     # ### THE LI CONTROL, RE-RUN (b345).
     ("li-control-rerun", "b345 (a control re-run under a new bar with the tail rule fixed first)",
      "THE LI CONTROL RE-RUN: b340 asked two things of every index -- the identity, and the drift between two sealed quadratures. The identity held;"

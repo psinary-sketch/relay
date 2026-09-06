@@ -1,0 +1,37 @@
+====================================================================================================
+b303_pins.py -- PINS. ### BY `ls-remote`, ALL THREE REPOS.
+====================================================================================================
+  parser fixture                                 got/expected           agree
+  a real pair, tab-separated                     (0, 1)/(0, 1)          YES
+  a real pair, space-separated                   (2, 3)/(2, 3)          YES
+  both zero -- the synchronised state            (0, 0)/(0, 0)          YES
+  ### an error message, NOT a pair               None/None              YES
+  ### empty output -- the silent-zero trap       None/None              YES
+  ### one number only                            None/None              YES
+  ### three numbers                              None/None              YES
+  ### a non-integer                              None/None              YES
+  parser self-test : PASS
+
+--- relay   (D:\relay)
+    local HEAD   : 56317a88db13ac7cd05fd533245113c7726b59b6
+    ls-remote    : 56317a88db13ac7cd05fd533245113c7726b59b6
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 7 untracked
+--- SIDE-global-section   (D:\SIDE-global-section)
+    local HEAD   : e5743d1d3624bad2048e01173f0126d9387b15bd
+    ls-remote    : e5743d1d3624bad2048e01173f0126d9387b15bd
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 0 untracked
+--- PLACE-papers   (D:\MY-DOwnloads\PLACE-papers)
+    local HEAD   : 04c8e0cc4e9d703db2cee94b9bae8288179066fb
+    ls-remote    : 04c8e0cc4e9d703db2cee94b9bae8288179066fb
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 1 untracked
+
+  ### REPOS HARD-FAILING : 0
+  ### **A PIN IS A SHA READ BACK FROM THE REMOTE. ### IT SAYS WHAT IS THERE,
+  ### NOT THAT WHAT IS THERE IS RIGHT.**
+====================================================================================================
