@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'techne-extraction': ['techne extraction', 'the techne extraction', 'the september extraction', 'techne modules',
+                          'the method modules', 'claim-shaped modules', 'the module families', 'modules/2026-09',
+                          'the patent note', 'line-ending hygiene', 'the vacuity taxonomy', 'the negative-control protocol'],
     'finite-side-seal': ['finite-side seal', 'the finite-side seal', 'finite side seal', 'the finite-side sealing module',
                          'FiniteSideSeal', 'the exhaustiveness theorem', 'the unit decomposition', 'the scaling shift inverse',
                          'general and per-cell', 'the axiom finding', 'the compact part per cell', 'the scaling part general'],
@@ -490,6 +493,22 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE TECHNE EXTRACTION -- METHOD ONLY, NOT PUSHED (b330).
+    ("techne-extraction", "b330 (filings of method into a private core; a hygiene fix at step zero)",
+     "20 claim-shaped method modules under modules/2026-09/ in the canonical local TECHNE clone (WHAT IT DOES,"
+     " WHEN IT APPLIES, WHAT IT REFUSES, PROVENANCE pulled from the emitting files), a top-level modules/INDEX.md"
+     " mapping each to a family (the August three, or VACUITY / REGISTRATION / READING / CERTIFICATION /"
+     " NEGATIVE_CONTROL named once) and cross-referencing the August module it extends or supersedes; the August"
+     " files untouched and still untracked; the local commit 75ab3ff NOT PUSHED, the remote tip 22739c9"
+     " unchanged, the second clone 6e8638a untouched. ### At step zero: .gitattributes in the kernel repository"
+     " (SIDE 3cbe47c), the profile equal to its blob on raw bytes after the re-checkout",
+     "### METHOD, NOT A RESULT -- NOTHING ABOUT THE PROGRAMME'S OBJECTS ENTERS TECHNE (research-vocabulary sweep 0"
+     " hits). ### NOT PUSHED; TECHNE-Core PRIVATE UNTIL ITS PROVISIONALS ARE FILED. ### The patent note lives in the"
+     " bank and makes no legal claim. ### The two-clone divergence read, not resolved. ### NO GRADE MOVED; NO GRADE"
+     " CONFERRED. ### M-2 UNCHANGED",
+     "D:/MY-DOwnloads/TECHNE-Core/modules/2026-09/ (local); data/b330_the_techne_extraction.txt; data/b330_modules_check_run3.txt;"
+     " data/b330_techne_verify.txt; data/b330_eol_after.txt; data/b330_registration_2026-09-06.txt (sealed before any"
+     " write); CORRESPONDENCE.md row 175"),
     # ### THE FINITE-SIDE SEAL -- THE MODULE AND ITS TWO SCOPES (b329).
     ("finite-side-seal", "b329 (a kernel build of banked derivations)",
      "Core/FiniteSideSeal.lean (B329), vanilla Lean, no imports, no native_decide, no sorry: GENERAL over every"

@@ -1,0 +1,12 @@
+====================================================================================================
+b330 -- THE KERNEL REPOSITORY'S LINE-ENDING HYGIENE. ### PHASE: BEFORE.
+====================================================================================================
+  the papers repository's rule, read from its file : ['* text=auto eol=lf']
+  core.autocrlf in the kernel repository            : true
+  tracked files by (index, working) line endings   : {'i/lf w/crlf': 21, 'i/lf w/lf': 102}
+  working copies CRLF : 21 ; LF : 102
+  AXIOM_PRINTS.txt raw bytes == blob at HEAD : True  (working 42320 bytes, blob 42320 bytes, CRLF pairs in working 0)
+  .gitattributes WRITTEN : 750 bytes ; rule line present : True ; no BOM : True ; LF endings : True
+  ### the commit, the push from a push-* branch and the re-checkout are git's, by explicit command;
+  ### then `--after` after the kernel tool has regenerated the profile.
+====================================================================================================

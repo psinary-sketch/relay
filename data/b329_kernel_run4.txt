@@ -1,0 +1,120 @@
+====================================================================================================
+b329 -- THE FINITE-SIDE SEAL. ### THE BUILD AND ITS PROFILE. ### EVERY NUMBER FROM THIS FILE.
+====================================================================================================
+
+  SELF-TEST (the byte checks, imported from b302_kernel and re-run here):
+  fixture                                                    got/exp      agree
+  the print counter separates zero-axiom from other          True/True    YES
+  the print counter ignores blank lines                      True/True    YES
+  the BOM test fires on a real BOM                           True/True    YES
+  the BOM test stays quiet on clean bytes                    False/False  YES
+  a true prefix is recognised                                True/True    YES
+  a BOM-differing pair is NOT a byte prefix                  False/False  YES
+  CRLF normalises to LF                                      True/True    YES
+
+----------------------------------------------------------------------------------------------------
+  THE STATE BEFORE ANYTHING IS CHANGED.
+----------------------------------------------------------------------------------------------------
+  banked profile on disk   : 590 prints, 590 zero-axiom, 0 otherwise, 42320 bytes
+  banked profile at HEAD   : IDENTICAL   ### compared NORMALISED (b309 D6)
+  raw bytes on disk / at HEAD : 42320 / 42320   ### they differ by line endings alone
+  BOM on the banked file   : False   ### read from RAW bytes
+  AllPrints lines / imports / prints : 705 / 109 / 590
+  AllPrints imports FiniteSideSeal   : True
+  AllPrints prints B329.*     : 24
+  module file present      : True
+
+----------------------------------------------------------------------------------------------------
+  (A) THE BASELINE. ### REGENERATE FROM THE UNCHANGED FILE AND REPRODUCE THE BANKED BYTES.
+      ### **IF THIS FAILS, NOTHING AFTER IT IS EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+  ### AllPrints ALREADY imports the module -- the baseline arm cannot run against an
+  ### unchanged file. ### **SKIPPED, AND SAID RATHER THAN PASSED SILENTLY.**
+
+----------------------------------------------------------------------------------------------------
+  (B) THE MODULE. ### COMPILED ALONE, AND ITS PROFILE READ FROM ITS OWN OUTPUT.
+----------------------------------------------------------------------------------------------------
+  module                   : FiniteSideSeal.lean
+  exit code / stderr bytes : 0 / 0
+  terminals printed        : 24, 24 zero-axiom, 0 otherwise
+  theorems declared        : 24 ; every one printed : True
+  compiled object written  : FiniteSideSeal.olean   True
+  BOM on the module source : False
+  refused form `import       ` in code (comments stripped) : 0
+  refused form `lemma        ` in code (comments stripped) : 0
+  refused form `native_decide` in code (comments stripped) : 0
+  refused form `sorry        ` in code (comments stripped) : 0
+  refused form `axiom        ` in code (comments stripped) : 0
+      'B329.mul_assoc'' does not depend on any axioms
+      'B329.pow_add'' does not depend on any axioms
+      'B329.add_right_cancel'' does not depend on any axioms
+      'B329.add_left_cancel'' does not depend on any axioms
+      'B329.multiple_of_add_multiple' does not depend on any axioms
+      'B329.search' does not depend on any axioms
+      'B329.valuation_exists' does not depend on any axioms
+      'B329.valuation_unique' does not depend on any axioms
+      'B329.exponent_below_level' does not depend on any axioms
+      'B329.index_decomposes' does not depend on any axioms
+      'B329.action_factors' does not depend on any axioms
+      'B329.geom_identity' does not depend on any axioms
+      'B329.scaling_shift_inverse' does not depend on any axioms
+      'B329.scaling_congruence_forces_ball' does not depend on any axioms
+      'B329.scaling_fixed_point_in_ball' does not depend on any axioms
+      'B329.scaling_fixes_nothing_off_ball' does not depend on any axioms
+      'B329.identity_fixes_every_index' does not depend on any axioms
+      'B329.unit_fixes_offball_at_cells' does not depend on any axioms
+      'B329.some_unit_fixes_offball_above_level_one' does not depend on any axioms
+      'B329.no_unit_fixes_offball_at_level_one' does not depend on any axioms
+      'B329.compact_smear_vanishes_at_cells' does not depend on any axioms
+      'B329.identity_trace_is_the_dimension' does not depend on any axioms
+      'B329.traces_not_all_zero_off_identity' does not depend on any axioms
+      'B329.finite_side_silence' does not depend on any axioms
+
+----------------------------------------------------------------------------------------------------
+  (C) THE CERTIFICATION FILE. ### THE IMPORT AFTER THE LAST IMPORT, THE PRINTS AT THE END,
+      WRITTEN HERE SO THEY CANNOT LAND IN A DIFFERENT COMMIT FROM THE MODULE (b289).
+----------------------------------------------------------------------------------------------------
+  ### ALREADY PRESENT -- NOTHING WRITTEN. (idempotent)
+
+----------------------------------------------------------------------------------------------------
+  (D) THE PROFILE, REGENERATED FROM SOURCE AND WRITTEN AS BYTES.
+----------------------------------------------------------------------------------------------------
+  exit code / stderr bytes : 0 / 0
+  prints before -> after   : 590 -> 590      zero-axiom: 590 -> 590      other: 0 -> 0
+  bytes  before -> after   : 42320 -> 42320
+  ### **THE BANKED PROFILE IS A TRUE BYTE PREFIX OF THE NEW ONE : True  PASS**
+  ### every pre-existing print line exactly where it was, checked BYTE-WISE (b298, b310).
+  prints added             : 0 ; zero on the idempotent path (already imported and printed) : True
+  profile written and READ BACK BYTE-WISE : True  PASS
+  the act's own terminals in the new profile :
+      'B329.mul_assoc'' does not depend on any axioms
+      'B329.pow_add'' does not depend on any axioms
+      'B329.add_right_cancel'' does not depend on any axioms
+      'B329.add_left_cancel'' does not depend on any axioms
+      'B329.multiple_of_add_multiple' does not depend on any axioms
+      'B329.search' does not depend on any axioms
+      'B329.valuation_exists' does not depend on any axioms
+      'B329.valuation_unique' does not depend on any axioms
+      'B329.exponent_below_level' does not depend on any axioms
+      'B329.index_decomposes' does not depend on any axioms
+      'B329.action_factors' does not depend on any axioms
+      'B329.geom_identity' does not depend on any axioms
+      'B329.scaling_shift_inverse' does not depend on any axioms
+      'B329.scaling_congruence_forces_ball' does not depend on any axioms
+      'B329.scaling_fixed_point_in_ball' does not depend on any axioms
+      'B329.scaling_fixes_nothing_off_ball' does not depend on any axioms
+      'B329.identity_fixes_every_index' does not depend on any axioms
+      'B329.unit_fixes_offball_at_cells' does not depend on any axioms
+      'B329.some_unit_fixes_offball_above_level_one' does not depend on any axioms
+      'B329.no_unit_fixes_offball_at_level_one' does not depend on any axioms
+      'B329.compact_smear_vanishes_at_cells' does not depend on any axioms
+      'B329.identity_trace_is_the_dimension' does not depend on any axioms
+      'B329.traces_not_all_zero_off_identity' does not depend on any axioms
+      'B329.finite_side_silence' does not depend on any axioms
+
+====================================================================================================
+  ### **COMPILED IS NOT CERTIFIED** (b289): the module is imported AND printed in the same run
+  ### that wrote the profile. ### **AND WHAT THE TERMINALS CERTIFY IS WHAT THE MODULE'S OWN
+  ### HEADER SAYS, GENERAL AND PER-CELL KEPT APART** -- the module header is the statement of
+  ### scope, and this file does not average it.
+====================================================================================================
