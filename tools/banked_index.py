@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'two-coefficients': ['the two coefficients', 'the li bench', 'the keiper dict', 'the keiper dictionary', 'the bench\'s literature dictionary',
+                         'the third coefficient', 'the fifth coefficient', 'the transcription defect', 'keiper', 'the literature values',
+                         'which emitter carries the defect', 'e-2026-09-06-1', 'the bench versus the keystone'],
     'li-family-control': ['the li family control', 'the fourth control', 'did the li family control hold', 'the li test functions',
                           'the archimedean distribution on the li family', 'the archimedean channel of the li coefficient', 'the balance keystone',
                           'the lagarias identification', 'finite-range positivity', 'the li family lawfulness', 'w-ord-li-family-control'],
@@ -526,6 +529,18 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE TWO COEFFICIENTS (b341, leg 3 of the sortie b339-b343).
+    ("two-coefficients", "b341 (a transcription filed: two routes, the literature under the import bar, an internal-record erratum)",
+     "THE TWO COEFFICIENTS: THE BENCH CARRIES THE DEFECT at n = [3, 5] -- the bench's KEIPER dictionary reads 0.2077580993 and 0.5747345 at n = 3, 5 where two routes"
+     " sharing no quadrature (the bench's own definitions; the Li map of log xi by Taylor differentiation) give 0.20763892055432 and 0.57554271446117"
+     " (off by 0.000119 and 0.000808); the balance keystone's literature column agrees with the routes to its printed digits; Keiper 1992"
+     " LOCATED under the import bar at n = 3 and agreeing with the keystone (his lambda_n / n), readings beside the rule at n = 5 (Keiper's split mantissa;"
+     " Coffey's six decimals) agreeing too; no located source agrees with the dictionary. Filed as E-2026-09-06-1, INTERNAL RECORD, appended after the"
+     " partition block; the owner files untouched; the navigator's (L3) MET.",
+     "### NO BENCH MEASUREMENT CHANGES (the dictionary enters no computation). ### NO DEPOSITED ARTIFACT IS AFFECTED. ### NO OWNER FILE IS EDITED."
+     " ### THE DICTIONARY'S NAME IS NOT ITS PROVENANCE. ### NO GRADE MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b341_the_two_coefficients.txt; data/b341_coefficients_run2.txt; data/b341_locate_run3.txt; data/b341_source_text_*.txt; data/b341_registration_2026-09-06.txt"
+     " (sealed before any fetch); ERRATA.md (E-2026-09-06-1); CORRESPONDENCE.md row 189"),
     # ### THE LI FAMILY CONTROL (b340, leg 2 of the sortie b339-b343).
     ("li-family-control", "b340 (a control at one constituent, on a family outside the lawful class)",
      "THE LI FAMILY CONTROL: the Li test functions built from the pinned source's (3.2) in the corpus's half-line normalization, NOT in the lawful"

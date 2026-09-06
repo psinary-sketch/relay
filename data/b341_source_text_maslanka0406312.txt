@@ -1,0 +1,354 @@
+=== PAGE 1 ===
+arXiv:math/0406312v2  [math.NT]  19 Jun 2004
+AN EXPLICIT FORMULA RELA TING STIEL TJES
+CONST ANTS AND LI’S NUMBERS
+KRZYSZTOF MA ´SLANKA
+Abstract. In this paper we present a new formula relating Stieltjes
+numbers γ n and Laurent coeﬃcinets ηn of logarithmic derivative of the
+Riemann’s zeta function. Using it we derive an explicit form ula for
+the oscillating part of Li’s numbers
+∼
+λ n which are connected with the
+Riemann hypothesis.
+1. Introduction
+First recall some basic deﬁnitions and conventions. The Sti eltjes constants
+γn are essentially the coeﬃcients in the Laurent expansion of t he Riemann
+zeta function about s = 1:
+(1.1) ζ (s + 1) = 1
+s +
+∞∑
+n=0
+γnsn
+(Sometimes another convention is adopted. It diﬀers from the above by the
+factor (−1)n /n !) It is well known that zeta has a single simple pole at s = 1
+with residue 1 which is evident from (1.1).
+Other useful coeﬃcients ηn are these which appear in the Laurent expan-
+sion of the logarithmic derivative of zeta about s = 1:
+(1.2) − ζ′
+ζ (s + 1) = 1
+s +
+∞∑
+n=0
+ηnsn
+It can be shown that [1]
+(1.3) γn := (−1)n
+n! lim
+x→∞
+
+∑
+k≤x
+(log k)n
+k − (log x)n+1
+n + 1
+
+
+(1.4) ηn := (−1)n
+n! lim
+x→∞
+
+∑
+k≤x
+Λ ( k) (log k)n
+k − (log x)n+1
+n + 1
+
+
+Date: 13 June 2004.
+Key words and phrases. Li’s criterion for the Riemann hypothesis, numerical metho ds
+in analytic number theory.
+e-mail: maslanka@oa.uj.edu.pl.
+1
+=== PAGE 2 ===
+2 KRZYSZTOF MA ´SLANKA
+where Λ ( k) denotes the von Mangoldt function (see e.g. [3], p. 50). It i s
+related to the Riemann zeta function by
+− ζ′ (s)
+ζ (s) =
+∞∑
+n=2
+Λ ( n)
+ns
+where ℜs > 1. It may be shown that Λ ( n) is zero unless n is a prime power:
+n = pk, in which case Λ ( n) is log( p)
+However, the expansions (1.3) and (1.4) are slowly converge nt and are
+therefore useless in numerical computations. Eﬀective nume rical algorithms
+for calculating γn were given by Keiper [4] and Kreminski [5]. An interesting
+recurrence relation involving both γn and ηn has been recently discovered
+by Coﬀey [2] (written here in our convention (1.1) and (1.3) co ncerning γn):
+(1.5) ηn = − (n + 1) γn −
+n−1∑
+k=0
+ηkγn−k−1
+2. Derivation
+Here are several initial relations obtained directly using (1.2):
+η0 = −γ0(2.1)
+η1 = + γ2
+0 − 2γ 1
+η2 = −γ3
+0 + 3γ 0γ1 − 3γ 2
+η3 = + γ4
+0 − 4γ 2
+0γ1 + 2γ 2
+1 + 4γ 0γ2 − 4γ3
+η4 = −γ5
+0 + 5γ 3
+0γ1 − 5γ 0γ2
+1 − 5γ2
+0γ2 + 5γ 1γ2 + 5γ 0γ3 − 5γ4
+...
+With growing n the number of terms in ηn increases as the so-called partition
+number.
+At the ﬁrst glance there seem to be some regularities in (2.1) . Indeed,
+careful (and very tedious) inspection of the indices in γs, their exponents,
+as well as the numerical coeﬃcients reveals several simple r ules:
+(1) Each ηn is a linear combination of products of powers of Stieltjes
+numbers with some numerical coeﬃcient: ±Aγki
+i γkj
+j ...γ km
+m .
+(2) Every such term appears only once. More precisely, ±Aγki
+i γ kj
+j ...γ km
+m
+appears in ηn with n = (i + 1)ki + (j + 1)kj + ... (m + 1)km.
+(3) The sign of each term is determined by the sum of all exponents ki:
+it is equal to ( −1)p, where p =
+n∑
+i=0
+ki.
+(4) The numerical coeﬃcients A which appear in ηn may be obtained as
+follows. Let us discard for a while in each term power of γ0, i.e. γk0
+0 ,
+if there is one. It turns out that A contains two factors. The ﬁrst is
+n
+ki!kj!...k m!
+=== PAGE 3 ===
+EXPLICIT FORMULA 3
+and the other is
+q−2∏
+i=s+1
+(n − i)
+where s is the sum of all indices of γ in a given product and q is the
+number of all γs in the same product (in both cases γs are counted
+according to their multiplicity and in both cases we neglect γ0), i.e.
+s = iki + jkj + ... + mkm
+q = ki + kj + ... + km
+The above product may be further simpliﬁed:
+q−2∏
+i=s+1
+(n − i) = − (−1)q Γ (s + q − n)
+Γ (s − n + 1) = Γ (n − s)
+Γ (n − s − q + 1)
+where the last equality stems from the properties of the Poch ham-
+mer’s symbol. According to (2) we have n − s − q + 1 = k0 + 1,
+and therefore Γ ( n − s − q + 1) = k0! The last step is equivalent to
+restoring the powers of γ0 in the general term ±Aγki
+i γkj
+j ...γ km
+m .
+Collecting all the above rules (1-4) together leads to the ge neral expression
+for η as a function of appropriate γs:
+(2.2) ηn−1 = n
+n∑
+ki=0
+[
+Γ (p) δn,r
+n∏
+i=0
+(−γ i)ki
+ki!
+]
+where
+p ≡ p (k0, k 1, ..., k n) =
+n∑
+i=0
+ki(2.3)
+r ≡ r (k0, k 1, ..., k n) =
+n∑
+i=0
+(1 + i) ki
+and the sum (2.2) is performed over all combinations of integers ki = 0, 1, 2...
+satisfying the constraints (2.3). This sum contains formal ly many terms,
+roughly O(nn), but, due to the Kronecker delta which picks out only appro-
+priate terms (i.e. when r = n) and cuts oﬀ all the others, the number of
+non-zero terms is much smaller. This neat and concise relati on (2.2) is in
+fact pretty sophisticated.
+=== PAGE 4 ===
+4 KRZYSZTOF MA ´SLANKA
+Formula (2.2) may be inverted. Writing down several initial expressions
+(by solving the quasi-linear system (2.1) with respect to γn) we get:
+γ0 = −η0(2.4)
+γ1 = 1
+2
+(
++η2
+0 − η1
+)
+γ2 = 1
+3!
+(
+−η3
+0 + 3η0η1 − 2η2
+)
+γ3 = 1
+4!
+(
++η4
+0 − 6η2
+0η1 + 3η2
+1 + 8η0η2 − 6η3
+)
+γ4 = 1
+5!
+(
+−η5
+0 + 10η3
+0η1 − 15η0η2
+1 − 20η2
+0η2 + 20η1η2 + 30η0η3 − 24η4
+)
+...
+Again, several regularities are evident. When collected to gether in the same
+way as before they give:
+(2.5)
+γn−1 =
+n∑
+ki=0
+[
+δn,r
+n∏
+i=0
+1
+ki!
+(
+−ηi
+1+i
+) ki
+]
+where r is given by the second relation (2.3). It should be emphasize d
+that formulas (2.5) and (2.2), as well as (3.2) below, may be e ﬀectively
+implemented e.g. using Mathematica symbolic package (it is not trivial
+since the number of summations and products is variable):
+Table[{Subscript[\[Eta],n-1],
+Factor[n*Sum[Γ[Sum[Subscript[k,i],{i,0,n}]]*
+KroneckerDelta[n,Sum[(1+i)*Subscript[k,i],{i,0,n}]]*
+Product[(-Subscript[\[Gamma],i])ˆSubscript[k,i]/Subscript[k,i]!,{i,0,n}],
+Evaluate[Apply[Sequence,Table[{Subscript[k,j],0,n},{j,0,n}]]]
+]]},{n,1,5}]
+where the Euler gamma function Γ above is slightly modiﬁed:
+Γ[n
+] := Gamma[If[n == 0, 1, n]]
+3. Applications
+It was shown elsewhere by the author [7] that the behavior of c ertain
+numbers
+∼
+λ n with growing n is crucial for the Riemann hypothesis to be
+true. Now using
+(3.1)
+∼
+λ n = −
+n∑
+j=1
+( n
+j
+)
+ηj−1
+=== PAGE 5 ===
+EXPLICIT FORMULA 5
+together with (2.2) we get
+(3.2)
+∼
+λ n = −
+n∑
+ki=0
+[
+Γ (p)
+( n
+r
+)
+r
+n∏
+i=0
+(−γ i)ki
+ki!
+]
+which explicitly expresses the oscillating part of Li’s num bers using Stieltjes
+constants. Similarly as in (2.2), due to the binomial coeﬃci ent there are in
+fact many redundant terms in (3.2) which are identically zer o, i.e. always
+when r is greater than n. Those which are non-zero ( r ≤ n) give:
+∼
+λ 1 = γ0(3.3)
+∼
+λ 2 = 2 γ 0 − γ 2
+0 + 2γ 1
+∼
+λ 3 = 3 γ 0 − 3γ 2
+0 + γ3
+0 + 6γ 1 − 3γ 0γ1 + 3γ 2
+∼
+λ 4 = 4 γ 0 − 6γ 2
+0 + 4γ3
+0 − γ4
+0 + 12γ 1 − 12γ 0γ 1 + 4γ 2
+0γ1 − 2γ2
+1
++12γ 2 − 4γ0γ2 + 4γ 3
+......
+With growing n the number of terms in
+∼
+λ n increases as the summatory
+function for partition number, i.e. faster than in the case o f (2.2).
+4. Discussion
+The distribution of values for various terms which contribu te to (3.3) is
+very nonuniform. When n → ∞ the majority of values is concentrated near
+zero. In Figure 1 there are eight histograms for n = 3, 4, ..., 10. The shape of
+these histograms is roughly symmetrical about zero but it is just the slight
+departure from symmetry which contributes to
+∼
+λ n.
+(Figure 1 about here)
+The fundamental problem, equivalent to the Riemann hypothe sis itself is
+whether the oscillating part of Li’s numbers
+∼
+λ n is bounded by the trend
+−
+λ n
+which grows asymptotically as:
+−
+λ n ∼ 1
+2 (1 + n ln n) + cn
+where (cf. [8], [6]):
+c = 1
+2 (γ − 1 − ln 2π )
+Acknowledgment: I would like to thank dr. Michael Trott, Wolfram
+Research, for pointing my attention to a typographical erro r in a formula as
+well as for checking the calculations using Mathematica.
+=== PAGE 6 ===
+6 KRZYSZTOF MA ´SLANKA
+References
+[1] Bombieri, E. and Lagarias, J. C., Complements to Li’s Criterion for the Riemann
+Hypothesis, J. Number Theory 77, 274-287 (1999)
+[2] Coﬀey, M., Relations and positivity results for the derivatives of the Riemann ξ func-
+tion, J. Comp. Applied Math. 166, 525-534 (2004)
+[3] Edwards, H. M., Riemann ’s Zeta Function, Academic Press, New York (1974)
+[4] Keiper, J. B. Power Series Expansion of Riemann ’s ξ Function, Math. Comp. 58,
+765-773 (1992)
+[5] Kreminski, R., Newton-Cotes Integration for Approximating Stieltjes (Ge neralized Eu-
+ler) Constants , Math. Comp. 72, 1379-1397 (2003)
+[6] Lagarias, J. C., Li Coeﬃcients for Automorphic L-Functions , posted at
+arXiv:math.NT/0404394 v3, 8 May 2004
+[7] Ma´ slanka, K., Eﬀective Method of Computing Li’s Coeﬃcients and their Prope rties,
+submitted to Experimental Mathematics; posted at arXiv:ma th.NT/0402168 v5, 2
+June 2004
+[8] Voros, A., A Sharpening of Li’s Criterion for the Riemann Hypothesis , submitted to
+C. R. Acad. Sci. Paris, Ser. I; posted at arXiv:math.NT/0404 213 v2, 15 April 2004
+Astronomical Observatory of the Jagiellonian University, Orla 171, 30-244
+Cracow, Poland
+=== PAGE 7 ===
+ 
+Figure 1. 
+Distribution of terms in formula (3.2) for n=3,4,...,10. These terms sum up to 
+the oscillating part of λn. As usual, the base of each rectangle is equal to the 
+width of the class interval and its height is propo rtional to the number of data 
+values in the class. The base is always equal to 1/ 5. Note changes in the hori- 
+zontal scale when n increases.  

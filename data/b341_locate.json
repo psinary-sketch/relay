@@ -1,0 +1,132 @@
+{
+ "sources": {
+  "S1": {
+   "id": "S1",
+   "tag": "keiper1992",
+   "url": "https://www.ams.org/journals/mcom/1992-58-198/S0025-5718-1992-1122072-5/S0025-5718-1992-1122072-5.pdf",
+   "normalization": "keiper",
+   "status": 200,
+   "content_type": "application/pdf",
+   "bytes": 755216,
+   "sha256": "c822ec710fe0967e158793579ad352e5ad0f027cd4b335907cf03d67b1284b6a",
+   "text_file": "b341_source_text_keiper1992.txt",
+   "text_chars": 19286,
+   "wanted_sig8": {
+    "3/bench": "69252700",
+    "3/keystone": "69212974",
+    "5/bench": "11494690",
+    "5/keystone": "11510854"
+   },
+   "hits": {
+    "3": [
+     {
+      "line": 367,
+      "string": "6.92129735181082679304",
+      "agrees_with": "keystone",
+      "normalization": "keiper",
+      "context": "3 +6.92129735181082679304 9 7348872601068994212026393200243617482708163383C2839264945530537 (-2)"
+     }
+    ],
+    "5": []
+   },
+   "beside": {
+    "3": [],
+    "5": [
+     {
+      "line": 369,
+      "kind": "split-mantissa (digits joined across spaces)",
+      "agrees_with": "keystone",
+      "context": "5 +1 151085428922351901862212810985727667131913230359599079058195163871909012767247281564 (-1)"
+     }
+    ]
+   },
+   "read": true
+  },
+  "S2": {
+   "id": "S2",
+   "tag": "maslanka0406312",
+   "url": "https://arxiv.org/pdf/math/0406312",
+   "normalization": "li",
+   "status": 200,
+   "content_type": "application/pdf",
+   "bytes": 152022,
+   "sha256": "2af86e3e276d0549fa4b3bb8315b2de80edfc5dc2901d184c0cbc2d0f4108532",
+   "text_file": "b341_source_text_maslanka0406312.txt",
+   "text_chars": 9313,
+   "wanted_sig8": {
+    "3/bench": "20775810",
+    "3/keystone": "20763892",
+    "5/bench": "57473450",
+    "5/keystone": "57554271"
+   },
+   "hits": {
+    "3": [],
+    "5": []
+   },
+   "beside": {
+    "3": [],
+    "5": []
+   },
+   "read": true
+  },
+  "S3": {
+   "id": "S3",
+   "tag": "coffey0505052",
+   "url": "https://arxiv.org/pdf/math-ph/0505052",
+   "normalization": "li",
+   "status": 200,
+   "content_type": "application/pdf",
+   "bytes": 337660,
+   "sha256": "5302307fa82cdcdb21b28257137650776b24a7515fe9299d300a65f870b73cb2",
+   "text_file": "b341_source_text_coffey0505052.txt",
+   "text_chars": 73921,
+   "wanted_sig8": {
+    "3/bench": "20775810",
+    "3/keystone": "20763892",
+    "5/bench": "57473450",
+    "5/keystone": "57554271"
+   },
+   "hits": {
+    "3": [],
+    "5": []
+   },
+   "beside": {
+    "3": [
+     {
+      "line": 84,
+      "kind": "6-decimal print",
+      "string": "0.207639",
+      "agrees_with": "keystone",
+      "context": "for the \ufb01rst few \u03bbj\u2019s are: \u03bb1 \u2243 0.0230957, \u03bb2 \u2243 0.0923457, and \u03bb3 \u2243 0.207639 (see"
+     },
+     {
+      "line": 1393,
+      "kind": "6-decimal print",
+      "string": "0.207639",
+      "agrees_with": "keystone",
+      "context": "3 0.207639 0.0147517"
+     }
+    ],
+    "5": [
+     {
+      "line": 1395,
+      "kind": "6-decimal print",
+      "string": "0.575543",
+      "agrees_with": "keystone",
+      "context": "5 0.575543 0.0014468"
+     }
+    ]
+   },
+   "read": true
+  }
+ },
+ "located": {
+  "3": [
+   [
+    "S1",
+    "keystone"
+   ]
+  ],
+  "5": []
+ }
+}

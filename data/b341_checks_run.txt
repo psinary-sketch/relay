@@ -1,0 +1,182 @@
+====================================================================================================
+b341 -- GATE SUITE (THE TWO COEFFICIENTS: THE BENCH CARRIES THE DEFECT, FILED AS AN INTERNAL-RECORD ERRATUM, THE OWNER FILES UNTOUCHED)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  the bench -- the KEIPER dictionary
+    PASS  ### the bench is an instrument
+    PASS  the keystone -- n = 3
+    PASS  ### n = 5
+    PASS  ### the residuals track the literature's digits
+    PASS  b327 -- the finding
+    PASS  ### a typed fixture, the owner not edited
+    PASS  the source -- Keiper's coefficients
+    PASS  ### reference [34]
+    PASS  ERRATA -- the partition ruling
+    PASS  ### the convention entry's heading
+    PASS  ### prior wordings retained in place
+    PASS  the sortie -- leg 3
+    PASS  ### owner files untouched
+    PASS  ### the bench carries the defect
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  ### (1) the verdict
+    PASS  ### (2) the literature
+    PASS  ### located and agrees
+    PASS  ### no located source agrees with the dictionary
+    PASS  ### (3) the erratum
+    PASS  ### no owner file edited
+    PASS  ### (4) the name is not the provenance
+    PASS  ### (5) L3 met
+    PASS  ### no measurement changes
+    PASS  bank keeps the order
+    PASS  bank gives the instruments
+    PASS  ### the seat's defects
+    PASS  bank gives the row and the key
+    PASS  bank gives the standing rows
+    PASS  ### the shadow none
+    PASS  ### next
+    PASS  registration -- sealed before any fetch
+    PASS  registration -- the rule
+    PASS  registration -- LOCATED defined
+    PASS  registration -- expected nothing
+    PASS  the record run -- the verdict
+    PASS  the record run -- no owner file edited
+    PASS  the locate record -- Keiper located
+    PASS  the errata run -- written
+    PASS  the errata rerun -- duplicate
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says a bench measurement changed
+    PASS  the bank never says a deposited artifact is affected
+    PASS  the bank never says an owner file was edited
+    PASS  the bank never says the keystone carries the defect
+    PASS  the bank never says the dictionary is Keiper
+
+  G-EMITTERS (F1: both prior wordings in the extract file at their lines; the bench and the keystone byte-identical to their blobs):
+    True (the dictionary at line 77; the keystone rows at lines 291, 293)
+
+  G-ROUTES (F2: route (B) re-run live against the record; the record's routes agree within 1e-12 at n = 1..5):
+    route (B) live against the record : 1.15e-23 ; the record's |A - B| within 1e-12 at every n : True : True
+
+  G-LOCATE (F3: each source with status, bytes, sha256; the located string at its line in the banked text; no PDF in any repo):
+    sources read 3 ; located n = 3 [['S1', 'keystone']] ; n = 5 [] ; b341 PDFs tracked 0 : True
+
+  G-DECIDE (F4: the verdict by the sealed rule, recomputed from the record):
+    bench defect {'3': True, '5': True} ; keystone defect {'3': False, '5': False} ; verdict 'THE BENCH CARRIES THE DEFECT at n = [3, 5]' ; literature {'3': 'LOCATED, AGREES', '5': 'NOT READ'} : True
+
+  G-ERRATUM (F5: one block under the mark with the id; both prior wordings inside; the file a true prefix of its blob; the partition block byte-identical):
+    mark once True ; id once True ; prior wordings inside True ; class in the heading True ; prefix of blob True (committed False) ; partition block unchanged True : True
+
+  G-NOEDIT (F6: the bench, the keystone, FINDINGS, the ledger, the owner tools: no tracked change beyond the act's files):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond ERRATA) [] ; TECHNE '' ; deposit '' : True
+
+  G-ROW / G-ANCESTOR (row 189: NO TERMINAL with the reason; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-NOTAMEASUREMENT (one row; the must-not-hit queries NO KEY; the answer says no measurement changes, no deposit affected, no owner file edited):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-ORDER (the seal verifies; the locate, the coefficients, the entry, the row, the key and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the locate, the coefficients, the entry, the row, the key and the bank after the seal True [file times (pre-commit)] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    ERRATA not yet committed ; the hook and the mirror are owed after the commit (records present: False / False)
+
+  G-NUMBERS (every number the bank quotes, read back from its producing record):
+    route values at n = 3                                PASS
+    route values at n = 5                                PASS
+    the radii 1.24e-259                                  PASS
+    S1 sha256                                            PASS
+    S2 sha256                                            PASS
+    S3 sha256                                            PASS
+    S1 bytes 755216                                      PASS
+    the located string and line                          PASS
+    the bench line 77 and the keystone table line 287    PASS
+    ERRATA 291 -> 321 lines                              PASS
+    row 189                                              PASS
+    14186 bytes sealed                                   PASS
+    26 clauses                                           PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded and numbered; the record runs the last):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 30   struck-clause hits 0   stem hits 0  PASS
+    b341_checks.py                           struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b341_ferry_2026-09-06.txt                struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b341_ferry_scan.txt                      struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b341_reg_termscan.txt                    struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b341_extract_notes.txt                   struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    b341_source_text_keiper1992.txt          struck : 0  stem : 0  ### CARRIER -- a source's extracted text, not this act's writing
+    b341_source_text_maslanka0406312.txt     struck : 0  stem : 0  ### CARRIER -- a source's extracted text, not this act's writing
+    b341_source_text_coffey0505052.txt       struck : 0  stem : 0  ### CARRIER -- a source's extracted text, not this act's writing
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 189, the ERRATA entry, the index row, swept):
+    row 189            struck : 0   stem : 0   (2629 chars)
+    the ERRATA entry   struck : 0   stem : 0   (5132 chars)
+    index row          struck : 0   stem : 0   (1571 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the fetches, the hashes, the located strings and their lines     tools/b341_locate.py               exists=True tracked=False
+    the two routes, the offsets, the verdict                         tools/b341_coefficients.py         exists=True tracked=False
+    the entry, its line counts                                       tools/b341_errata.py               exists=True tracked=False
+    row 189                                                          tools/b341_correspondence.py       exists=True tracked=False
+    the key                                                          tools/b341_index_append.py         exists=True tracked=False
+    26 clauses                                                       tools/b341_regspec.py              exists=True tracked=False
+    the satisfiability verdict                                       tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                                 tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                        tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                          tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                         tools/b303_pins.py                 exists=True tracked=True
+    14186 bytes sealed                                               tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                                tools/b341_extract.py              exists=True tracked=False
+    the hook                                                         tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                                       tools/mirror_verify.py             exists=True tracked=True
+    the bench loader                                                 tools/b327_bridge.py               exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the row, the entry and the index row included):
+    b341_the_two_coefficients.txt        sentences=148   graded-hedges=0   ungraded-shapes=18
+    b341_registration_2026-09-06.txt     sentences=245   graded-hedges=0   ungraded-shapes=36
+    b341_locate_run.txt                  sentences=33    graded-hedges=0   ungraded-shapes=1
+    b341_locate_run2.txt                 sentences=34    graded-hedges=0   ungraded-shapes=1
+    b341_locate_run3.txt                 sentences=37    graded-hedges=0   ungraded-shapes=2
+    b341_coefficients_run.txt            sentences=32    graded-hedges=0   ungraded-shapes=1
+    b341_coefficients_run2.txt           sentences=37    graded-hedges=0   ungraded-shapes=2
+    b341_errata_run.txt                  sentences=7     graded-hedges=0   ungraded-shapes=0
+    b341_errata_rerun.txt                sentences=8     graded-hedges=0   ungraded-shapes=1
+    b341_corr_run.txt                    sentences=16    graded-hedges=0   ungraded-shapes=3
+    b341_corr_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=2
+    b341_index_run.txt                   sentences=27    graded-hedges=0   ungraded-shapes=6
+    b341_index_rerun.txt                 sentences=30    graded-hedges=0   ungraded-shapes=6
+    b341_census.txt                      sentences=30    graded-hedges=0   ungraded-shapes=6
+    b341_faces_census.txt                sentences=17    graded-hedges=0   ungraded-shapes=2
+    b341_regspec_run.txt                 sentences=22    graded-hedges=0   ungraded-shapes=2
+    audit_b341_reg_satisfiable.txt       sentences=76    graded-hedges=0   ungraded-shapes=3
+    b341_pins_stepzero.txt               sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b341_index_query.txt           sentences=128   graded-hedges=0   ungraded-shapes=55
+    b341_reg_gate.txt                    sentences=7     graded-hedges=0   ungraded-shapes=2
+    b341_extract.py                      sentences=135   graded-hedges=0   ungraded-shapes=8
+    b341_regspec.py                      sentences=91    graded-hedges=0   ungraded-shapes=6
+    b341_locate.py                       sentences=190   graded-hedges=0   ungraded-shapes=8
+    b341_coefficients.py                 sentences=199   graded-hedges=0   ungraded-shapes=10
+    b341_errata.py                       sentences=123   graded-hedges=0   ungraded-shapes=16
+    b341_correspondence.py               sentences=123   graded-hedges=0   ungraded-shapes=15
+    b341_index_append.py                 sentences=135   graded-hedges=0   ungraded-shapes=13
+    row 189                              sentences=15    graded-hedges=0   ungraded-shapes=7
+    the ERRATA entry                     sentences=30    graded-hedges=0   ungraded-shapes=12
+    the index row                        sentences=20    graded-hedges=0   ungraded-shapes=1
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

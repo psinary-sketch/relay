@@ -1,0 +1,430 @@
+=== PAGE 1 ===
+mathematics of computation
+volume 58, number 198
+april 1992, pages 765-773
+POWER SERIES EXPANSIONS
+OF RIEMANN'S £ FUNCTION
+J. B. KEIPER
+Abstract. We show how high-precision values of the coefficients of power se-
+ries expansions of functions related to Riemann's í function may be calculated.
+We also show how the Stieltjes constants can be evaluated using this scheme and
+how the Riemann hypothesis can be expressed in terms of the behavior of two
+of the sequences of coefficients. High-precision values for the coefficients of
+these power series are found using Mathematica ™ .
+1. Introduction
+The functional equation for the Ç function is normally expressed [3, p. 16]
+as
+(1) His) = til-s),
+where
+(2) ^) = J(5-i)^/2r(0c(5).
+It is this function E, and related functions which we will examine via power
+series expansions.
+Riemann showed [5] that
+(3) 2Zis) =1+ T (fZ e-"2A ^-V'-i)/2 + ts'2) dt
+and suggested that t, can be expanded as a power series in is - 1/2)2 "which
+converges very rapidly." We will instead look at the power series expansion
+about the point s = 1 .
+In addition to £(s) we also look at the expansions of <f(s)/¿;(s),
+<i;'(l/s)/<!;(l/s) , and log¿;(l/s). Note that the zeros of ¿;, i.e., the nontrivial
+zeros of Ç, are singularities of the functions log^(i) and Ç'(s)/Ç(s) and that
+the mapping s i-> l/s maps the critical line to the circle of radius 1 centered
+at 5 = 1. Thus, the Riemann hypothesis can be expressed in terms of the
+growth of the coefficients of the power series expansion of Ç'(l/s)/Ç(l/s) or of
+Received February 1, 1991; revised March 26, 1991.
+1991 Mathematics Subject Classification. Primary 11M26.
+Key words and phrases. Riemann hypothesis, zeta function.
+© 1992 American Mathematical Society
+0025-5718/92 $1.00+ $.25 per page
+765
+
+=== PAGE 2 ===
+766 J. B. KEIPER
+logeai/s) : the Riemann hypothesis is equivalent to the radius of convergence
+being 1.
+2. Power series expansion of Ç(s) about 5 = 1
+To find the power series coefficients of Ç(s), we examine the derivatives of
+Ç(s) at s = 1. In particular, if we let
+oo
+(4) 2<^) = 5>;(s-iy,
+7=0
+then by induction on (3), we get
+(5) a0 = 1       and       a, = /3,_2 + /3,_i    for j > 1,
+where
+(6) /?-i=0,        y90=l + i-log(2v^),
+and
+2
+(logv^y(7) ß} = jj^e-^y^^i^t + i-iy)dt   for;>l.
+3. Power series expansion of Ç'(s)/Ç(s)
+We also wish to get the values of ak+l , where
+(8) f^ = E^+-(1-^-
+(The reason for the factor of (-l)k and the subscript of k + 1 will become
+apparent below.) To find the values of ok+i, we can multiply the power se-
+ries expansion of 2Ç'(s) by that of l/(2£(s)). We note that the power series
+expansion of l/(2<^(s)) is given by
+DC
+(9) l/(2í(í)) = 5]fl„(í-l)",
+«=o
+where
+n
+(10) a0 = 1   and   an = -'YZaian-j,
+7=1
+as can be seen by examining the product of the expansions of 2£,(s) and
+l/(2£(s)).
+For small values of k this method of computing the coefficients ak+i works
+well. However, the cost of computing each coefficient increases linearly with
+the index. Because, as we shall see below, there is another method whose cost
+per term does not increase at all, we only use this method for small k . There is
+also an issue of numerical ill-conditioning in the calculation of the ok+i from
+the ßj. However, this ill-conditioning is not nearly so bad as that of Lehmer's
+method, which loses nearly 0.85 digits per coefficient [4, equation (12)].
+
+=== PAGE 3 ===
+POWER SERIES EXPANSIONS OF RIEMANN'S { FUNCTION 767
+We use a different approach for large k . From the well-known product over
+all nontrivial zeros of the Ç function [3, p. 20],
+(11)
+we get
+(12)       logfts)
+(13)
+«.>-èn(«-i)
+log2 + ^log p-l +E1°g(1- p-l
+-*♦^H)-t^im
+Note that at s = 1 we get the identity £ loB(l -!//>) = 0 since £(1) = 1/2.
+Differentiating (13), we get
+(14) TO = E
+fc=i
+£
+1
+(1-/7)* (1-5) k-1
+and we see that
+(15) °k     Ç(l-/»)*     Ç/'
+Note that the functional equation for £ applied to ( 13) at s = 1 yields
+(16)
+OO      j
+/t=l
+zZffk-
+k=\
+and applied to ( 14) at s = 1 yields
+(17) ax -
+In general, the functional equation applied to the yth derivative of ( 14) yields
+(is) oj+x = (-irxjz(k'l)ok.
+k=l ^   J    '
+We can use these identities as consistency checks on the values of ak .
+For k large, the sum of the —k powers of the nontrivial zeros of the zeta
+function is rapidly convergent. For k small we must get the values of ok from
+the values of a.¡.
+4. Power series expansions of related functions
+To get the power series expansions for
+(19)
+and
+(20)
+Í(1/í) = £>(!-*)*
+k=0
+log(2¿(l/S)) = £A,(l-5)fc,
+fc=0
+
+=== PAGE 4 ===
+768 J. B. KEIPER
+we need the following: if
+oo
+(2i) /(z) = 5>„(z-iy,
+then
+n=0
+(22) ffà-o+t zZ(m   i11
+m=l Ln=
+which can be seen from the fact that
+n- 1
+(23) (L-iY=   (1~z)"   =(i-zrU  V   [i-(i-z)]»  (1 zj
+(l-z)*,
+Jt=0
+and collecting like powers of ( 1 -z). Using this, we get the following expressions
+for the coefficients:
+(24)
+(25)
+(26)
+(27)
+to = ox,
+k-lT* = E(/_;)(-1)^+'    forfc>l
+7 = 1
+¿0 = 0,
+k
+7 = 1 J 7-1
+As with ok , further identities can be derived, which can be used for checking
+consistency. In particular, substituting ( 18) into the expressions for xk and Xk ,
+we get
+(28)
+(29)
+7=2
+OC
+j + k - 2\
+k rtfc = - E i
+-l^(j + k-\\
+7 = 1   V 7
+5. Further observations
+From (28) we see that
+oo
+(30) tm_i = -£
+j=m
+Jm-l)aj-
+(31)
+(32)
+(33)
+= -E E
+j=m L~-\ I
+-m-2
+= -zZ(P-irmP
+p
+/ \ rn
+-Ç^î   '
+m-2
+
+=== PAGE 5 ===
+POWER SERIES EXPANSIONS OF RIEMANN'S { FUNCTION 769
+Likewise, from (29), Xk can be expressed in terms of a sum over p, namely
+(34) ¿-n
+m ^—' 1 p-\
+In fact, xm is just the second central difference of mXm :
+(35) xm = (m + l)Xm+x - 2mXm + (m - l)Aw_i.
+From (33) it is clear that the Riemann hypothesis implies that the values of
+\xk\ are bounded by
+(36) 5>l 0.04619141793224206762862.
+Conversely, if the \xk\ are bounded, then by (19) the Riemann hypothesis must
+be true. It is also clear that the failure of the Riemann hypothesis (if such is the
+case) would be rather difficult to observe in the growth of the numerical values
+of the coefficients xk , since k would have to be extremely large before a (large)
+p which is off the critical line would yield \p/(p - l)\k large.
+Likewise, from (34) it is clear that the Riemann hypothesis implies that Xm >
+0 for all positive m . In fact, if we assume the Riemann hypothesis, and further
+that the zeros are very evenly distributed, we can show that
+log m      log(27î) + 1 - y
+(37) Xn 2 2
+This comes from the fact [3, p. 132] that the number of zeros p in the critical
+strip with 0 < Im p < T is
+T        T       T(38)
+15
+10   h
+!. ;     !
+'Â\àA
+im' m\
+|! '1000 ï   ï  :     20d0 3000    J        L
+î
+-5
+-10
+I   I
+Figure 1
+Plot Of m (Xm - (=|2Î _ log(2*)+l-y^
+7000
+
+=== PAGE 6 ===
+770 J. B. REIFER
+and (34). Note that this asymptotic conjecture is much stronger than the Rie-
+mann hypothesis. Even the coefficient of the log m (not to mention the constant
+term) could be altered by a slight preference of the zeros to cluster at, or avoid,
+the points 1/2 + 2itan((2k + l)n/(2m)). This approximation to Xm agrees
+rather well with the observed behavior of these numbers (cf. Figure 1).
+6. Stieltjes constants
+The Stieltjes constants are the numbers y„ in the Laurent expansion
+(39) «V^) = 73T + E(-1)'IS(J"1)',
+n=0
+In this section we show how the coefficients o¡ can be used efficiently to evaluate
+the Stieltjes constants.
+Taking the logarithm of both sides of (2), we see that
+(40) log(5-l)C(s) = log2{(s)-i-ilog7r2—        2   ■l°8K-log[ir(!)].
+Employing equation 6.1.33 (p. 256) of [1] with I + z = s/2, we find that
+1
+(41)
+iog[,r(i) = [log2 + ^iU5'
+0-1
+-(1
++E^n+(i-*)r.
+H=2
+Substituting this into (40), we get that
+log(j-l)C(j)=log2{(j) + 1 1 -y2 log ti- log 2 + —— E C(«) - 1
+(42)
+1, y-\-log7T+^- + E
+n=l
+C{n)-l
+2"
+B=2
+(I-S)
+n2"
+Now we know that
+and that
+OO. OO/ .N.OO .
+~Ey 2wL-_iJE(2fcjïï7=2 J      n=j   XJ / k=2 V      '
+lOg(s - l)Ç(S) = 7(5-1) +
+oo    <
+log2£(5) = -£7a;(l-5y
+(i-sy.
+7=1
+Hence, to get the coefficients of the constant and linear terms to be correct, we
+must have that
+3 C(n)-l      1-7
+(43)
+and
+(44)
+n=2 «2"
+C(H)-1
+n=2
+2n log 2- 1
+
+=== PAGE 7 ===
+POWER SERIES EXPANSIONS OF RIEMANN'S £ FUNCTION 771
+Furthermore, since for large x
+OO       i . \
+(45) El/Ii)*""^*-1)-'.
+n=j ^ '
+we get that (42) simplifies to
+OO      .
+(46)      log(j-l)C(s) = y(s-l)-E7
+7=2 J
+<7, + £(2fc-l)
+k=l
+(1-5)
+By taking the exponential of this series we get that 7o = 7 and
+(47)
+yk 1     ( Ç(k + 1,3/2) yk_x
+k\~ k + l\ak+x + ~      2*+> 7(^-l)!
+fc-i
+^O'-l)!7=1  u '
+,   C(fc+l-;,3/2)CT^+i-7 +-2^+TZ>-
+It should be noted that we could also map s to l/s in (46) and get the
+series expansion of log(l/s - l)Ç(l/s) about 5=1. If we do this, we find
+that the behavior of these coefficients is very similar to the behavior of the Xm .
+In particular, we empirically find that these coefficients are approximated by
+Xm - (0.75 - 0.134/m)/ra . Since the evaluation of these coefficients is much
+more ill-conditioned than that of the Xm , and the results are so similar, we do
+not pursue this further.
+We note here that the values we found for the Stieltjes constants are not
+consistent with those presented in Table 2 of [2]. In particular, the number
+of correct digits presented there decreases linearly from about ten for 736 to
+about three for 750. The value for 755 is correct to ten digits, however. (It
+is clear that the error is not in our values, since we can use (39) to evaluate
+£(30) with an absolute error of less than 10-26 while the term involving 750
+has magnitude greater than 1010 .)
+7. Practical considerations
+The computations associated with this paper were performed over a period of
+several months using Mathematica ™ on a Sun SPARC-station 1. (A few of the
+results are presented in the appendix. More complete results are available by e-
+mail from the author.) With careful coding these computations can probably be
+extended by at least an order of magnitude, more on a more powerful computer.
+Here we discuss some of the practical considerations in such computations.
+A major difficulty is the evaluation of ßj using (7). In fact there are two
+things that can be done here to make the computation efficient. First the theta
+function Y^x e" nt can De evaluated for any t with a single evaluation of
+the exponential function and relatively few multiplications. The sum converges
+rapidly and we include only the significant initial terms. The terms cn in the
+sum are evaluated as follows:
+1. Let ci — e~nt, a = c\, and bi — aci.
+2. Let cn+i =cnb„ and b„+i =b„a.
+This algorithm is based on the fact that the differences of successive square
+integers are the successive odd integers.
+
+=== PAGE 8 ===
+772 J. B. KEIPER
+The other thing that can be done to make (7) efficient is to use a double-
+exponential quadrature routine. In particular, by reparametrizing the integral
+with t = 1 +eT and using the trapezoid rule with sufficiently small stepsize (i.e.,
+progressively halving the stepsize until the estimated error is sufficiently small),
+the error converges to 0 faster than any power of the stepsize. Since we have
+(17) and ( 18), we can check for consistency in the values of ak and do not need
+to go to great lengths to estimate the error incurred in the quadrature routine.
+Another point to be aware of is that, as mentioned in §3, only the first several
+hundred values of ak can be efficiently calculated by dividing the series expan-
+sion of £'(5) by the series expansion of £(5) ; for larger values of k , ok is best
+evaluated by directly summing inverse powers of the zeros of the £ function.
+Finally, for very extensive calculations, Xk calculated using (27) suffers from
+ill-conditioning. Since Xk can also be calculated using (34), we can combine
+these two formulae and express Xk using (34), where only the first several hun-
+dred zeros are included, and (27), where the first several hundred zeros are not
+included in the a¡. In particular,
+(48) mAm = £l-(^i_)      -£(-l);(7K„,
+¡=1 7=1 J I
+where
+¡V
+°j,N = oJ~YJplJ = E pi3-
+i=l i=N+l
+This splitting was not used in the calculations presented in the appendix.
+Appendix
+0 +1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000 (0)
+1 +2 30957083er. 12103381 4 31024 790649529102 19321 27 1520507595253920 7221 297 13564 767245 7997060 (-2)
+2 +2.334386453422618313488235688581048104526888044078135299348696644526116274679Ü96133916 (-2)
+3 + 4 979R384992294867235117177438948835315334 051190311104 49 7297362224907169515900015794 28 (.4)
+4 +2.5318173031652 70050561210841163734781216247612468051093200452509966062325514970559737 (-4)
+5 +5 050254 79221917416958523522501318480215504985511594 6521 G106529482787922163094854 32300 (-6)
+G + 1.72098704 1861535577 78015497390409413208675 7701702736404 92732653541994 761232 7570250219 (-6)
+7 +3.2378414618810 76960348065919673406208942012226904286279830767694 63572375809859074 94 85 (.g)
+8 +8.315968250027721630708768786514767520775647323890266412483461676055203222011449340850 (-9)
+9 +1.4 8524 1921491894004 522583848964 37075315909 7364 504236458 74 51720514 704 54227592811777777 (-10)
+10 +3.06556023276333135102794999684 7607133510104395172773667917752758424 7165585867914 34 523 (-11)
+20 + 1.21347796228754351135596625351326168271961297368943G922822958351364232532287469188071 (.24)
+50 +1 070429069154838313385730657548585059360262503178231537091411311695927258846590593 155 (-71 )
+100 + 1.24088282362506620893037291526482665236798782180111971835151016271037166227273 i 271696 (-161)
+150 + 9.301133713519577941106852678425151215251212111733219503319190171539887089162064C16490 (-260)
+0 -6.931 4718055994 53094172321214 58176568075500134360255254120660009493393G21969G94715C059 (.1)
+1 +2.309570896612103361431024 79064952916219321271520507595253920722129713564 76724 5799 7060 (-2)
+2 +1.6172867611023335192864 24 30960339433870601083141232516998162989669920916015580577058G (.2)
+3 +6.92129735181082679304 9 7348872601068994212026393200243617482708163383C2839264945530537 (-2)
+4 +9.219761987306040964762787240943901806554167349021320120577971421273G5C330664447565730 (-2)
+5 +1 151085428922351901862212810985727667131913230359599079058195163871909012767247281564 (-1)
+6 + 1.3792766671372988290416713700341G6635613896607865118343234 142993649G63991732212866017 (.1)
+7 +1.60G371596529912129404028725738536629228244204616261630354868022262189016191508610357 (.1)
+8 +1.8321915964338257908193931774 72185984899809827343160582307322192294 7437856544 54 74 3098 (-1)
+9 +2.05657336709170461702893874 2134 330171123655311001356019608197727988730111162823206002 (-1)
+10 +2.279339363193157713693031057368115338071838591273812761961181306973082998101113724070 (-1)
+20 + 4.36463843G046607504799730676723601114195612735190971614216281556533840G97163660121700 (.1)
+50 +8.70621929767480365979039399697231372288809100489981120578374477336128 70S 2489659362130 (.1)
+100 + 1.166037753767913299273616983979379269329870235932278763121893659002312G2503G57581723 7 (0)
+200 +1.53327862125672383206361275 7853109720910012178584 4 99538589934990609065918305397665939 (0)
+500 +1.9638001859844898940936675926629833651284 4152193691632641423273119401230374 7101292110 (0)
+1000 +2.3260531616864C6457406504694083223815804 498204109294 22268906325081761229530101l763630 (0)
+2000 +2 675879769130751756905349140785670258231G9O6027478G7O421829608707310228043OG8C8201l18 (0)
+4 000 + 3.017616905899266567675908190706132690834964073030616134616701738744 134221G81561687322 (0)
+
+=== PAGE 9 ===
+POWER SERIES EXPANSIONS OF RIEMANN'S f FUNCTION 773
+1 +2 30957089CG12103381431024790C19529162193212715205075952539207221297135C17672157997080 (-2)
+2 -1.61543172958O46O275710799O379O7730353026796232414499O3188181535O8O1267621966695517O13 (-2)
+3 -1   111582311521059227626682389115781739611892189865187702731526728912130006262102206830 (.4)
+1 + 7.362722126168951832G77130703060151131283159027110029011631235763037817581718916822111 (-5)
+5 + 7.15093355762G07735801093913132151322106619331527568 768924307 734997388079534 3345379681 (-7)
+6 -2.814364169387S62616067156101761237675859726123079019572032672000607516813119833830262 (.7)
+7 -1.57119111970177211116269258988882906750035353990880912081053306128244 1704 505957969250 (.9)
+8 +1.268868110950 76071901254 7573198133930329211114577861293367633398192232650203209798305 (-9)
+9 + 2.827437155055S87089334396878061404036954927289641233391634424272672199400527476371615 (-11)
+10 -5.997714847151874594892026289791394537726526162047541113570098071851241127703763514117 (-12)
+20 +1.482399329662907928147936992117261052747149970744927574926928515355GG51 73366555369365 (-23)
+50 +1   101679157979498095115971305675098351333604072745152565985494150992931702385953078565 (-58)
+100 -1 62353377913204 GO 137199270264 2202705650063963968 789967681589052949981761719081733920 7 (-115)
+200 +1 089 7295967 77509865119694 218110721704 667264958 70504 37821739970196065104 721692114 78264 (-230)
+400 -7 751997439598467511592699186293675133724454 69444 74 772622803612990996333646308224 24 4 85 (-463)
+k Stieltjes     constants     i^.
+0 +5.77215664 90153286060651209008240243104 2159335939923598805767234884867 7267 77664 6709369 (-1)
+1 -7.281584548367672486058637587490131913773633833133795259900655971110113357151118187809 (-2)
+2 -9 690363192872318181530386035212529359065806101310719880701365151850755382280111171060 (-3)
+3 +2 053831120303315866160016512 753381285 715801115110616215181183336913831192112970053571 (-3)
+1        +2.325370065167300057168170177526068000904169113781850990 758010907121811005315521900302 (-3)
+5 +7.933238173010627017533318771114448307315394O4584887O7573125626982314821180I7152023797 (-4)
+6 -2 387693454301996098724 21841908004 27778371515635807863147612530739106755999296387143G9 (-4)
+7 -5.272895670577510460740975054788582819962534729698953310134042268856827321651111821110 (.1)
+8 -3.521233538030395096020521650012087117291805337923503566573315073612617 765060653010601 (-1)
+9 -3.139177111808801817791162379822739062078953859111102975929190181315010331116152837090 (-5)
+10 +2.05332811909061791683722289237065302959853 771166761303810208 7113530090210 710691751985 (-1)
+20 +4.663435615115594494005918211335505251131131739256889976707266280985115821300329007011 (-1)
+50        +1.266236026513227165967252536486575555384835759448901701980956993469732544041271419075 (2)
+100         -4.25340157170802696231443851972783582470289310534 7346897162131985636211871067986720565 (17)
+150        +8 02885373150681299325661612598989201184246 738789731123900011950061424 09263025740 (35)
+Bibliography
+1. M. Abramowitz and I. Stegun, Handbook of mathematical functions with formulas, graphs,
+and mathematical tables, National Bureau of Standards Appl. Math. Ser. no. 55, Washing-
+ton, D.C. (Reprinted by Dover Books.)
+2. J. Bohman and C.-E. Fröberg, The Stieltjes function—definition and properties, Math. Comp.
+51 (1988), 281-289.
+3. H. M. Edwards, Riemann's zeta function, Academic Press, New York, 1974.
+4. D. H. Lehmer, The sum of like powers of the zeros of the Riemann zeta function, Math.
+Comp. 50(1988), 265-273.
+5. B. Riemann, lieber die Anzahl der Primzahlen unter einer gegebenen Grosse, Gesammelte
+Werke, Teubner, Leipzig, 1892, pp. 145-153. (Reprinted by Dover Books, New York, 1953.)
+Also in Edwards [3, p. 299].
+Wolfram Research, Inc., P. O. Box 6059, Champaign, Illinois 61826-6059
+E-mail address : keiper@wri.com

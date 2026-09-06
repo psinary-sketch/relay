@@ -1,0 +1,30 @@
+====================================================================================================
+b341 -- THE LITERATURE UNDER THE IMPORT BAR. ### three sources, fetched read-only, hashed, extracted, searched.
+====================================================================================================
+
+  (S1) J. B. Keiper, Power series expansions of Riemann's xi-function, Math. Comp. 58 (1992) -- the source's [34]
+      URL : https://www.ams.org/journals/mcom/1992-58-198/S0025-5718-1992-1122072-5/S0025-5718-1992-1122072-5.pdf ; normalization read for the search : Keiper's lambda_n / n
+      fetched : HTTP 200 ; application/pdf ; 755216 bytes ; sha256 c822ec710fe0967e158793579ad352e5ad0f027cd4b335907cf03d67b1284b6a
+      text banked : b341_source_text_keiper1992.txt (19286 chars) ; strings sought (eight significant digits) : {'3/bench': '69252700', '3/keystone': '69212974', '5/bench': '11494690', '5/keystone': '11510854'}
+      n = 3 : LOCATED at line 367 -- '6.92129735181082679304' agrees with the keystone's value under keiper ; context: 3 +6.92129735181082679304 9 7348872601068994212026393200243617482708163383C2839264945530537 (-2)
+      n = 5 : NOT READ -- no decimal string in the text matches either candidate to eight significant digits
+      n = 5 : READING BESIDE THE RULE, NOT LOCATED -- line 369, split-mantissa (digits joined across spaces), agrees with the keystone's value ; context: 5 +1 151085428922351901862212810985727667131913230359599079058195163871909012767247281564 (-1)
+
+  (S2) K. Maslanka, Effective method of computing Li's coefficients and their properties, arXiv math/0406312 -- the source's [40]
+      URL : https://arxiv.org/pdf/math/0406312 ; normalization read for the search : Li's lambda_n
+      fetched : HTTP 200 ; application/pdf ; 152022 bytes ; sha256 2af86e3e276d0549fa4b3bb8315b2de80edfc5dc2901d184c0cbc2d0f4108532
+      text banked : b341_source_text_maslanka0406312.txt (9313 chars) ; strings sought (eight significant digits) : {'3/bench': '20775810', '3/keystone': '20763892', '5/bench': '57473450', '5/keystone': '57554271'}
+      n = 3 : NOT READ -- no decimal string in the text matches either candidate to eight significant digits
+      n = 5 : NOT READ -- no decimal string in the text matches either candidate to eight significant digits
+
+  (S3) M. W. Coffey, Toward verification of the Riemann hypothesis: application of the Li criterion, arXiv math-ph/0505052
+      URL : https://arxiv.org/pdf/math-ph/0505052 ; normalization read for the search : Li's lambda_n
+      fetched : HTTP 200 ; application/pdf ; 337660 bytes ; sha256 5302307fa82cdcdb21b28257137650776b24a7515fe9299d300a65f870b73cb2
+      text banked : b341_source_text_coffey0505052.txt (73921 chars) ; strings sought (eight significant digits) : {'3/bench': '20775810', '3/keystone': '20763892', '5/bench': '57473450', '5/keystone': '57554271'}
+      n = 3 : NOT READ -- no decimal string in the text matches either candidate to eight significant digits
+      n = 5 : NOT READ -- no decimal string in the text matches either candidate to eight significant digits
+
+  ### LOCATED, by index : n = 3 -> [('S1', 'keystone')] ; n = 5 -> []
+  ### NO PDF COMMITTED ; the bytes are in the scratchpad ; the extracted texts are banked.
+  ### elapsed : 4 s
+====================================================================================================

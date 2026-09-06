@@ -1,0 +1,173 @@
+====================================================================================================
+b341 -- REGISTRATION. ### THE TWO COEFFICIENTS. ### LEG 3 OF THE SORTIE b339-b343.
+2026-09-06. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE ANY SOURCE IS FETCHED, BEFORE ANY COEFFICIENT IS RECOMPUTED, AND BEFORE ANY LINE
+### ### OF ERRATA IS WRITTEN.** ### The seal block at the foot carries the hash of everything above it.
+### Standing clauses: `FERRY_STANDING v1`, carried by reference.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS, AND WHAT IT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **TWO EMITTERS DISAGREE ON TWO NUMBERS; THIS ACT READS BOTH, LOCATES THE LITERATURE UNDER THE IMPORT
+### ### BAR, RECOMPUTES BY TWO ROUTES, DECIDES WHICH EMITTER CARRIES A TRANSCRIPTION DEFECT, AND FILES IT.**
+### The bench `internal/bench/li_bench.py` carries a dictionary named `KEIPER` whose entries at `n = 3` and
+### `n = 5` read `0.2077580993` and `0.5747345`; the balance keystone's literature column at the same
+### indices reads `0.20763892059268` and `0.57554271443`, beside its computed column `0.20763892055432` and
+### `0.57554271446118`. ### b327 found the disagreement, typed it a fixture in an owner instrument, and left
+### the owner unedited; FINDINGS tables it as *the author's to reconcile*. ### This leg reconciles it on
+### the record: an ERRATA entry, per the partition, with the owner files untouched.
+### ### **WHAT IT IS NOT:** not an edit of the bench, the keystone, FINDINGS or any owner file; not a claim
+### about `lambda_n` beyond its first five values; not a grade moved; no claim about h2, totality or the
+### roster; the wave PARKED by the author's ruling and not named as next.
+### ### **THE MISREADINGS, NAMED BEFORE ANY VALUE:** (i) the dictionary's NAME read as its provenance -- a
+### dictionary named `KEIPER` is not a citation of Keiper, and Keiper's own coefficients are `lambda_n / n`
+### in the source's account (its page 3: *"Keiper's coefficients equal (1/n) lambda_{-n}"*), so a literature
+### value is compared only after its normalization is read from its own table; (ii) agreement between the
+### keystone's two columns read as the keystone's independence -- the keystone's literature column is
+### itself a transcription, and only a located source under the import bar is the literature; (iii) a
+### source that cannot be fetched or whose text cannot be extracted read as absent -- it is declared NOT
+### READ, and the decision then rests on the two computational routes and says so.
+
+----------------------------------------------------------------------------------------------------
+### (B) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY** ### -- `data/b341_ferry_2026-09-06.txt`, byte-identical to leg 1's copy; scanned
+### (`data/b341_ferry_scan.txt`): ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS, THE CITATION CURRENT.**
+### ### **(ii) BOTH CENSUSES** ### -- `b341_census.txt`, `b341_faces_census.txt`: ### **TOTAL MISSING : 0
+### at each.**
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** ### -- `b341_pins_stepzero.txt`:
+### relay `2832a32`, SIDE-global-section `e225b16`, PLACE-papers `4ebf626`, each 0/0 and equal.
+### ### **(iv) THE EXTRACT STEP** ### -- `tools/b341_extract.py` -> `data/b341_extract_notes.txt`: the
+### bench's dictionary at its line and its validation print; the keystone's validation table (five rows),
+### its channels table at `n = 3, 5`, its Keiper sentence; b327's finding and its typed fixture; FINDINGS'
+### tabling; the source's Keiper and Maslanka sentences and its references [34] and [40]; ERRATA's
+### partition ruling, its internal-record list, the convention entry's heading, a CORRECTED entry's form,
+### its retained-wordings law; the leg-3 sentences and (L3). ### Every anchor located.
+### ### **(v) THE INDEX QUERY** ### -- `data/audit_b341_index_query.txt`: `the errata partition` reaches
+### b337's key `housekeeping`; `the two coefficients`, `the li bench`, `the keiper dict`, `the bench's
+### literature dictionary`, `the third coefficient`, `the transcription defect`, `keiper`, `the literature
+### values` : NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE LITERATURE UNDER THE IMPORT BAR, AND THE TWO ROUTES. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE SOURCES, IN ORDER, EACH FETCHED READ-ONLY BY ONE GET, HASHED (sha256 and byte count), KEPT IN
+### THE SESSION'S SCRATCHPAD AND NOT IN ANY REPO, ITS TEXT EXTRACTED BY `pypdf` AND BANKED:**
+###   (S1) J. B. Keiper, *Power series expansions of Riemann's xi-function*, Math. Comp. 58 (1992) -- the
+###        source's [34]; the AMS open-access PDF at its canonical journal URL.
+###   (S2) K. Maslanka, *Effective method of computing Li's coefficients and their properties*, arXiv
+###        math/0406312 -- the source's [40]; the arXiv PDF.
+###   (S3) M. W. Coffey, *Toward verification of the Riemann hypothesis: application of the Li criterion*,
+###        arXiv math-ph/0505052 -- a tabulation of `lambda_n` at small `n`.
+### ### **LOCATED means:** the extracted text carries, at a line printed with its number, a decimal string
+### whose first eight significant digits agree with either candidate at `n = 3` or `n = 5` after the
+### source's own normalization is applied (Keiper's `lambda_n / n`; Li's `lambda_n`); the located string is
+### quoted verbatim. ### A source that returns no PDF, or a PDF whose text carries no such string, is
+### declared NOT READ for that index, with the HTTP status or the reason. ### **NO SOURCE IS EDITED, NO
+### PDF IS COMMITTED.**
+### ### **THE TWO ROUTES OF THE COMPUTATION:** ### (A) the bench's own definitions executed from its file
+### through b327's loader (imported), `lambda_n = lambda_A(n) + lambda_Z(n)` at the bench's two radii,
+### `M = 512`, `dps 260` -- the numbers b340 already printed, recomputed here; ### (B) the Li map applied to
+### `log xi(s)` directly by `mpmath`'s Taylor differentiation at `s = 1` (`mp.taylor` on `log((s-1) zeta(s))
+### + log s + log Gamma(s/2) - (s/2) log pi`, working precision `dps 60`), which shares no quadrature with
+### (A). ### The routes agree when `|A - B| <= 1e-12` at `n = 1..5`; disagreement is reported before any
+### decision and the decision is then withheld.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE DECISION RULE, AND THE ENTRY. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE RULE, FIXED HERE:** at each of `n = 3` and `n = 5`, the emitter whose value differs from the
+### two agreeing routes by more than `1e-9` CARRIES A TRANSCRIPTION DEFECT at that index; the emitter whose
+### value agrees with the routes within its own printed digits does not. ### The located literature is
+### the third witness: it is reported beside the routes, and the verdict names whether it agrees with the
+### routes (LOCATED, AGREES), disagrees (LOCATED, DISAGREES -- reported at full prominence, the decision
+### then withheld), or was NOT READ. ### **THE VERDICT** takes one of three forms: ### THE BENCH CARRIES THE
+### DEFECT (at the indices listed); ### THE KEYSTONE CARRIES THE DEFECT (at the indices listed); ### BOTH,
+### OR WITHHELD (the routes disagree, or a located source disagrees with them).
+### ### **THE ERRATA ENTRY, ONLY ON A VERDICT THAT NAMES A CARRIER:** appended after the partition block,
+### id `E-2026-09-06-1`, its heading carrying its class in the convention entry's form -- `(INTERNAL
+### RECORD; NO DEPOSITED ARTIFACT IS AFFECTED)` -- because the bench is `internal/bench/` and the keystone
+### is `phase1.5/spectral/`, neither a deposited artifact, and no deposited number rests on the
+### dictionary; the entry quotes both prior wordings at their files and lines, names the carrier, gives
+### the two routes' values and the located literature's strings with their sources' hashes, and states
+### that ### **NO OWNER FILE IS EDITED**: the correction of record is this act's bank, the E1 precedent.
+### The partition block is not edited; the class travels in the heading, as `E-2026-09-03-1` does.
+### ### **ON WITHHELD:** no entry is written; the bank carries the disagreement and the reason.
+
+----------------------------------------------------------------------------------------------------
+### (E) BOTH SEATS' EXPECTATIONS. ### **NO COUNTS PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L3), AS THE ORDER STATES IT:** *the bench carries the defect.*
+### ### **THIS SEAT'S, WRITTEN BEFORE ANY VALUE:** ### the two routes agree at `n = 1..5` to better than
+### `1e-12`; the bench's dictionary carries the defect at both indices (its values differ from the routes in
+### the fourth and third significant figures respectively), and the keystone's literature column agrees
+### with the routes to its printed digits at both -- refuted by the keystone's column differing from the
+### routes beyond its own rounding at either index; ### at least one of the three sources is LOCATED and
+### AGREES with the routes -- refuted by all three NOT READ, or by any located source disagreeing.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-EMITTERS`: both prior wordings quoted at their files and lines through the extract file, and
+###       the owner files byte-identical to their blobs after the act.
+### (F2)  `G-ROUTES`: (A) and (B) agree at `n = 1..5` within `1e-12`, each printed to twenty digits.
+### (F3)  `G-LOCATE`: each source's fetch reported with status, bytes and sha256; the located strings quoted
+###       with their line numbers from the banked text; a NOT READ source says why; no PDF in any repo.
+### (F4)  `G-DECIDE`: the verdict by (D)'s rule and no other; the carrier named with its indices.
+### (F5)  `G-ERRATUM`: on a naming verdict, exactly one block appended to ERRATA.md under a `<!-- b341 -->`
+###       mark with the id `E-2026-09-06-1`, the file a true prefix of its blob, the partition block
+###       byte-identical, both prior wordings quoted inside the entry; on WITHHELD, ERRATA byte-identical.
+### (F6)  `G-NOEDIT`: the bench, the keystone, FINDINGS, the ledger, the owner tools unchanged.
+### (F7)  `G-ROW` (NO TERMINAL, the reason), `G-KEY` (`two-coefficients`), `G-ORDER`, `G-HOOK` / `G-MIRROR` (the
+###       papers repo moves on a naming verdict), `G-NUMBERS`, `G-TOOLNUM`, `G-ONCE`, the hedge audit, the
+###       stem sweep at extended scope -- standing.
+### (F8)  `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   PLACE-papers files written ........... ### CAP 1 (ERRATA.md, one appended entry, only on a naming verdict)
+###   ERRATA entries edited ................ ### CAP 0
+###   owner files edited (bench, keystone, FINDINGS) ### CAP 0
+###   faces ledger rows or blocks written .. ### CAP 0 (no row's status moves)
+###   correspondence rows appended ......... ### CAP 1
+###   findings sections edited ............. ### CAP 0
+###   PDFs committed to any repo ........... ### CAP 0
+###   bars moved ........................... ### CAP 0
+###   grades conferred by a seat ........... ### CAP 0
+###   proofs attempted ..................... ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   claims about the quantifier .......... ### CAP 0
+###   claims about h2, totality, the roster  ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   `.lean` files edited ................. ### CAP 0
+###   TECHNE files written ................. ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   owner instrument files edited ........ ### CAP 0
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE NON-ZERO CAPS ARE THE ORDER'S OWN PLACEMENT CLAUSES.**
+
+----------------------------------------------------------------------------------------------------
+### (H) THE SHADOW, AND WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A transcription filed compiles nothing.
+### ### **NOT THAT `lambda_n >= 0` FOR ALL `n`, NOT THAT THE BENCH'S MEASUREMENTS CHANGE (the dictionary is
+### printed beside them and enters no computation), NOT THAT ANY DEPOSITED ARTIFACT IS AFFECTED.** ### `M-2`
+### IS OWED UNDER b310's CAP. ### THE SEAM'S DEBT ITEM 1 STANDS. ### THE PATENT CLOCK IS CARRIED ON THE PATENT
+### SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ###
+### THE POSTURE LOCK IS SEPARATE. ### NOTHING DEPOSITS.
+### ### **NEXT, BY THE SORTIE: LEG 4, b342, THE TWO RULES AS MODULES.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 54e2391094a123830a4ce1e1893c575de012ba28c71cb1e94f79335fc22dd840
+### bytes sealed : 14186
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b341_registration_2026-09-06.txt`.**
+====================================================================================================

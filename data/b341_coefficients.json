@@ -1,0 +1,157 @@
+{
+ "table": {
+  "1": {
+   "A": "0.02309570896612103381431",
+   "B": "0.02309570896612103381431",
+   "dAB": "6.0e-64",
+   "bench": "0.0230957089662",
+   "keystone": "0.02309570896612103",
+   "bench_off": "7.9e-14",
+   "keystone_off": "3.81e-18",
+   "bench_defect": false,
+   "keystone_defect": false
+  },
+  "2": {
+   "A": "0.09234573522804667038573",
+   "B": "0.09234573522804667038573",
+   "dAB": "1.17e-63",
+   "bench": "0.0923457352914",
+   "keystone": "0.09234573529135263",
+   "bench_off": "6.34e-11",
+   "keystone_off": "6.33e-11",
+   "bench_defect": false,
+   "keystone_defect": false
+  },
+  "3": {
+   "A": "0.2076389205543248037915",
+   "B": "0.2076389205543248037915",
+   "dAB": "1.56e-62",
+   "bench": "0.2077580993",
+   "keystone": "0.20763892059268",
+   "bench_off": "0.000119",
+   "keystone_off": "3.84e-11",
+   "bench_defect": true,
+   "keystone_defect": false
+  },
+  "4": {
+   "A": "0.3687904794922416385905",
+   "B": "0.3687904794922416385905",
+   "dAB": "5.88e-63",
+   "bench": "0.3687904",
+   "keystone": "0.36879047952",
+   "bench_off": "7.95e-8",
+   "keystone_off": "2.78e-11",
+   "bench_defect": true,
+   "keystone_defect": false
+  },
+  "5": {
+   "A": "0.5755427144611774524311",
+   "B": "0.5755427144611774524311",
+   "dAB": "7.67e-62",
+   "bench": "0.5747345",
+   "keystone": "0.57554271443",
+   "bench_off": "0.000808",
+   "keystone_off": "3.12e-11",
+   "bench_defect": true,
+   "keystone_defect": false
+  }
+ },
+ "routes_ok": true,
+ "verdict": "THE BENCH CARRIES THE DEFECT at n = [3, 5]",
+ "carrier": {
+  "bench": [
+   3,
+   5
+  ]
+ },
+ "beside": {
+  "3": [
+   {
+    "source": "S3",
+    "line": 84,
+    "kind": "6-decimal print",
+    "string": "0.207639",
+    "agrees_with": "keystone",
+    "context": "for the \ufb01rst few \u03bbj\u2019s are: \u03bb1 \u2243 0.0230957, \u03bb2 \u2243 0.0923457, and \u03bb3 \u2243 0.207639 (see"
+   },
+   {
+    "source": "S3",
+    "line": 1393,
+    "kind": "6-decimal print",
+    "string": "0.207639",
+    "agrees_with": "keystone",
+    "context": "3 0.207639 0.0147517"
+   }
+  ],
+  "5": [
+   {
+    "source": "S1",
+    "line": 369,
+    "kind": "split-mantissa (digits joined across spaces)",
+    "agrees_with": "keystone",
+    "context": "5 +1 151085428922351901862212810985727667131913230359599079058195163871909012767247281564 (-1)"
+   },
+   {
+    "source": "S3",
+    "line": 1395,
+    "kind": "6-decimal print",
+    "string": "0.575543",
+    "agrees_with": "keystone",
+    "context": "5 0.575543 0.0014468"
+   }
+  ]
+ },
+ "run_file": "b341_coefficients_run2.txt",
+ "lit_status": {
+  "3": "LOCATED, AGREES",
+  "5": "NOT READ"
+ },
+ "lit": {
+  "3": [
+   [
+    "S1",
+    "keystone",
+    "6.92129735181082679304",
+    367,
+    "c822ec710fe0967e158793579ad352e5ad0f027cd4b335907cf03d67b1284b6a"
+   ]
+  ],
+  "5": []
+ },
+ "bench_line": 77,
+ "keystone_head_line": 287,
+ "keystone_rows": {
+  "1": {
+   "computed": "0.023095708966121",
+   "literature": "0.02309570896612103",
+   "absdiff": "3.8e-18",
+   "line": 289
+  },
+  "2": {
+   "computed": "0.092345735228047",
+   "literature": "0.09234573529135263",
+   "absdiff": "6.3e-11",
+   "line": 290
+  },
+  "3": {
+   "computed": "0.20763892055432",
+   "literature": "0.20763892059268",
+   "absdiff": "3.8e-11",
+   "line": 291
+  },
+  "4": {
+   "computed": "0.36879047949224",
+   "literature": "0.36879047952",
+   "absdiff": "2.8e-11",
+   "line": 292
+  },
+  "5": {
+   "computed": "0.57554271446118",
+   "literature": "0.57554271443",
+   "absdiff": "3.1e-11",
+   "line": 293
+  }
+ },
+ "radii_worst": "1.24e-259",
+ "names_carrier": true
+}
