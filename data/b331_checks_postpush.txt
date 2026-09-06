@@ -1,0 +1,150 @@
+====================================================================================================
+b331 -- GATE SUITE (THE FOLD, b323-b330: A FILING AT THE ACTS' OWN GRADES, PURELY ADDITIVE)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  b323 -- purely additive
+    PASS  b324 -- the wall different
+    PASS  b324 -- withheld by design
+    PASS  b325 -- negative at all thirteen
+    PASS  b326 -- does not see it to a = 400
+    PASS  b326 -- the halved kernel
+    PASS  b327 -- one distribution on two families
+    PASS  b327 -- the bench at two indices
+    PASS  b328 -- sees it at seven of eight
+    PASS  b329 -- one compiled module
+    PASS  b330 -- not pushed
+    PASS  HANDOFF -- the receipts
+    PASS  b324 -- the candidate list typed
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  ### the section is filed
+    PASS  ### purely additive measured
+    PASS  ### F-QUOTE 16 of 16
+    PASS  ### F-COUNT
+    PASS  ### F-MODULES
+    PASS  ### the defects table
+    PASS  ### the clause has not moved
+    PASS  ### neither is the discharge
+    PASS  ### the judgement declared
+    PASS  ### the grades are the acts' own words
+    PASS  bank keeps the order
+    PASS  ### sealed before any write
+    PASS  bank gives component 1
+    PASS  bank gives component 2
+    PASS  bank gives component 3
+    PASS  bank gives component 4
+    PASS  ### the one item with a date
+    PASS  bank gives the closing
+    PASS  bank gives the in-flight register
+    PASS  bank says what it does not say
+    PASS  ### not moved
+    PASS  ### not re-verdicted
+    PASS  bank gives the standing rows
+    PASS  ### nothing deposits
+    PASS  ### next
+    PASS  registration -- the title fixed
+    PASS  registration -- expected nothing
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the clause moved
+    PASS  the bank never claims a proof
+    PASS  the section never says the discharge is done
+
+  F-QUOTE / F-COUNT / F-MODULES (the generator's gates, re-run live):
+     F-QUOTE  : 16 quotations, 0 unfindable
+     ### DISCRIMINATION CONTROL: an altered quotation is reported unfindable : True
+     F-COUNT  : results cover 8, obstacles cover 8, arc 8, exact match : True
+     F-MODULES: every mechanized rule names a TECHNE module on disk : True 
+
+  G-ADDITIVE (the section once; the blob at HEAD a true prefix of, or equal to, the working file; the run's count):
+    once True ; blob prefix True ; lines added 144 counted consistently True ; emitted section in the file verbatim True ; run recorded both prefixes True : True
+
+  G-NOGRADE (every grade word the section carries for an act is in that act's own bank):
+    violations [] : True
+
+  G-SIX (the arc-as-one-statement paragraph: the six clauses, then the scope paragraph):
+    missing clauses [] ; scope paragraph after the statement True : True
+
+  G-DESK (every ordered item present; "neither is the discharge"):
+    missing [] ; neither-is-the-discharge present True : True
+
+  G-ROWS / G-ANCESTOR (rows 176-177; the table a true prefix of its blob; ancestor rows unchanged):
+    True
+
+  G-KEY (two rows; the must-not-hit queries NO KEY):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (owner files, sealed files, keystones, the deposit, TECHNE, every .lean: no tracked change):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond FINDINGS) [] ; TECHNE '' at 75ab3ff : True
+
+  G-ORDER (the seal verifies; the generator, the section and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the generator, the section and the bank after the seal True [the pre-commit suite record] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    FINDINGS committed ; hook record True ; mirror CLEAN on three clauses True : True
+
+  G-NUMBERS (every number the bank quotes, read back from its producing file):
+    +144 lines, 2880 -> 3024                     PASS
+    F-QUOTE 16/0                                 PASS
+    8 results, 8 obstacles                       PASS
+    5 defective bars, 6 corrections, 7 defects   PASS
+    6 mechanized, 5 judgement                    PASS
+    9 suite rows, 11 desk rows                   PASS
+    rows 176 and 177                             PASS
+    15207 bytes sealed                           PASS
+    18 clauses                                   PASS
+    18 sections                                  PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 23   struck-clause hits 0   stem hits 0  PASS
+    b331_checks.py                       struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b331_ferry_2026-09-06.txt            struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b331_ferry_scan.txt                  struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b331_reg_termscan.txt                struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b331_extract_notes.txt               struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (the section in FINDINGS, the rows, the index rows, swept):
+    the section    struck : 0   stem : 0   (23228 chars)
+    rows 176-177   struck : 0   stem : 0   (3960 chars)
+    index rows     struck : 0   stem : 0   (2739 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    +144 lines, 2880 -> 3024, 18 sections, F-QUOTE 16/0  tools/b331_fold.py                 exists=True tracked=True
+    rows 176-177                                         tools/b331_correspondence.py       exists=True tracked=True
+    the key                                              tools/b331_index_append.py         exists=True tracked=True
+    18 clauses                                           tools/b331_regspec.py              exists=True tracked=True
+    the satisfiability verdict                           tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                     tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                            tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                              tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                             tools/b303_pins.py                 exists=True tracked=True
+    15207 bytes sealed                                   tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                    tools/b331_extract.py              exists=True tracked=True
+    the hook                                             tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                           tools/mirror_verify.py             exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the emitted section, the rows and the index rows included):
+    the bank               sentences=271   graded-hedges=0   ungraded-shapes=43
+    the registration       sentences=270   graded-hedges=0   ungraded-shapes=43
+    the emitted section    sentences=165   graded-hedges=0   ungraded-shapes=68
+    the generator          sentences=564   graded-hedges=0   ungraded-shapes=105
+    rows 176-177           sentences=28    graded-hedges=0   ungraded-shapes=7
+    the index rows         sentences=38    graded-hedges=0   ungraded-shapes=7
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================
