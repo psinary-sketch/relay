@@ -346,7 +346,7 @@ def main():
     checks = []
     checks.append(('37 measured, 33 standing, 4 frequent', m.group(1) == '37' and m.group(4) == '33' and m.group(5) == '4' and 'measured 37 clauses: 33 STANDING' in bank and '4 FREQUENT, NOT STANDING' in bank))
     nl = len(standing.rstrip(chr(10)).split(chr(10)))
-    nb = len(io.open(STANDING, 'rb').read())
+    nb = len(norm(standing).encode('utf-8'))   # ### LF-normalised: autocrlf rewrites the working file after a commit (b309)
     checks.append(('%d lines, %d bytes' % (nl, nb), ('%d lines, %d bytes' % (nl, nb)) in bank))
     for cid, cnt in (('C4', 2), ('C5', 6), ('C6', 1), ('C14', 5)):
         r = [x for x in rows if x['id'] == cid][0]
