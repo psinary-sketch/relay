@@ -1,0 +1,25 @@
+====================================================================================================
+b343 -- COMPONENT 2, THE RESIDUAL AGAINST THE FRAME. ### one aimed seed, three grid-axis frames; a measurement of the instrument.
+====================================================================================================
+  the sealed seed : a = 1.41, gamma = 33.650101, E(gamma=33.650101, a=1.41) ; cond 9.14e+03
+  the object squared : autocorrelation of E(gamma=33.650101, a=1.41) ; support 1.9881 against the frame X = 32 : reached
+  A_z on the squared seed by the derived kernel (b326 channels, refine 1) : +3.501796844737   ### frame-independent by construction
+  INT f eps under the SOURCE convention rho^{+1/2} (b313f, EF)   : uniform -0.234972692439 ; chebyshev -0.234972730752 ; apart 3.831e-08
+  INT f eps under the CORPUS convention rho^{-1/2} (b313r, ER)   : uniform -0.227314057788 ; chebyshev -0.227314092009 ; apart 3.422e-08
+
+  frame (N, X, NY)           free     rank      dim   identity ctl        Tr (square)         R under EF         R under ER
+  (4096, 32, 512)            3968       69     3899      0.000e+00       +3.201465646       +0.535303891       +0.527645256
+  (8192, 32, 512)            7936       69     7867      0.000e+00       +3.202130739       +0.534638798       +0.526980164
+  (16384, 32, 512)          15872       69    15803      0.000e+00       +3.202296035       +0.534473502       +0.526814868
+
+  ### WHAT MOVED AND WHAT DID NOT: N [4096, 8192, 16384] ; X [32.0] ; NY [512] ; ### **THE STABLE-CUT RANK : CONSTANT at 69**
+  ### the residual under the source's convention    : +0.535303891 +0.534638798 +0.534473502 ; step differences -6.651e-04 and -1.653e-04 ; largest relative change 1.242e-03
+  ### the residual under the corpus's convention    : +0.527645256 +0.526980164 +0.526814868 ; step differences -6.651e-04 and -1.653e-04 ; largest relative change 1.260e-03
+
+  ### ### **THE READING, BY THE SEALED RULE OF SECTION (D), AND NO WIDER:**
+  ### the axis the draft names holds the rank CONSTANT at 69 while N doubles twice, so it varies the GRID and not the RANK;
+  ### **THE DRAFT'S (F2) -- *the residual grows with rank* -- CANNOT BE SCORED ON THIS AXIS, AND IS SCORED NOT APPLICABLE.**
+  ### the residual CHANGED across the doublings (largest relative change 1.260e-03) ; the size is reported and NOTHING is concluded
+  ### about b339's floor.
+  wall 170.2 s
+====================================================================================================
