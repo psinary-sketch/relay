@@ -1,0 +1,175 @@
+====================================================================================================
+b336 -- REGISTRATION. ### THE COST CENSUS. ### LEG 1 OF THE SORTIE b335-b338.
+2026-09-06. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE THE CENSUS TOOL IS WRITTEN AND BEFORE ANY WRITE INTO THE LEDGER.** ### The seal
+### block at the foot carries the hash of everything above it.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS, AND WHAT IT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **A CENSUS, TYPED, ON THE FACES LEDGER.** ### For each of the ledger's rows, what moving it ONE
+### grade would take, typed as one of READ / IMPORT / DERIVATION / CONSTRUCTION / MEASUREMENT, with the
+### record's price where the record has one; a sorted view emitted by tool; the pole-constant relation
+### between the Li and positivity faces added as its own row, STATED, cost zero; the b328 phase-rule
+### refinement filed as an addendum to b328's block. ### **NO GRADE MOVED.** ### A cost is a typing of
+### what the record says is owed, in the row's own words; it is not a plan, not a promise, and not a
+### grade.
+### ### **THE PLACEMENT, AND WHY IT IS A BLOCK.** ### The ledger's own law (b327, the writer's docstring):
+### *rows above are never rewritten; an UPDATE to a row is a block that names the row.* ### A column
+### added to the table would rewrite the header and every row; the typed cost column is therefore
+### filed as an APPEND-ONLY BLOCK through the writer's `append_block`, one line per row id, keyed to the
+### rows, under the mark `<!-- b336 cost census -->`; the sorted view is a relay data file emitted by
+### the same tool. ### The new row goes through the writer's `write_row`, with its quotations verified
+### by the writer against their emitting files. ### The phase-rule addendum is a second block, under
+### the mark `<!-- b336 addendum to b328 -->`, naming b328's update and citing b334's chart.
+### ### **THE MISREADINGS, NAMED BEFORE ANY WRITE:** ### (i) a cost read as a grade -- the census confers
+### none and moves none; (ii) a price read as a prediction -- b322's own sentence, *a price is not a
+### prediction*, governs every price quoted; (iii) the pole-constant row read as new mathematics -- it
+### states a relation b327 derived under its sealed bar and the fold already carries, and costs zero
+### because nothing is owed on it; (iv) the sorted view read as a ranking of importance -- it is sorted
+### by cost type, cheapest kind first, and inside a type by whether the record prices it.
+
+----------------------------------------------------------------------------------------------------
+### (B) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY** ### -- the sortie ferry banked again under this leg's name,
+### `data/b336_ferry_2026-09-06.txt`, byte-identical to leg 0's; scanned: ### **0 STRUCK-CLAUSE HITS, 0 STEM
+### HITS, the standing-clauses citation NONE** (the sortie predates the file).
+### ### **(ii) BOTH CENSUSES** ### -- `b336_census.txt`, `b336_faces_census.txt`: ### **TOTAL MISSING : 0
+### at each.**
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** ### -- `b336_pins_stepzero.txt`:
+### relay `2a0cd78`, SIDE-global-section `53ae6fe`, PLACE-papers `c6fbcbe`, each 0/0 and equal.
+### ### **(iv) THE EXTRACT STEP** ### -- `tools/b336_extract.py` -> `data/b336_extract_notes.txt`: every
+### ledger row at its id; the four prices at their emitters; the pole-constant relation at b327's bank
+### and at the fold; b334's threshold sentence and its chart's sign column; the writer's entry points;
+### the sortie ferry's leg-1 sentences.
+### ### **(v) THE INDEX QUERY** ### -- `data/audit_b336_index_query.txt`: `the pole constant` reaches b327's
+### key; `the cost census`, `cost census`, `the cost column`, `what moving it one grade would take`,
+### `the pole-constant relation`, `the phase rule`, `45 to 135 degrees` : NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE TYPING, FIXED HERE. ### [SEAT, PRE-WRITE]
+----------------------------------------------------------------------------------------------------
+### ### **THE FIVE TYPES, AS THE ORDER NAMES THEM, AND THE ORDER THEY SORT IN (cheapest kind first):**
+###   READ (a source read at a pin) < IMPORT (a statement carried under the import bar with its owner
+###   named) < MEASUREMENT (an instrument run at named cells or families) < DERIVATION (a chain on
+###   named imports or content) < CONSTRUCTION (an object built, or a kernel module compiled).
+### ### **ONE GRADE** means the next grade up in the row's own grade words -- NAMED-ONLY -> NAMED, NAMED
+### -> IMPORTED, IMPORTED -> DERIVED, MEASURED -> DERIVED, DERIVED -> PROVED, sign -> size, one
+### direction -> both -- as the row's fourth cell states its holding; the census names the grade the
+### row holds and the grade one step up, in those words, and types the step.
+### ### **THE PRICE** is quoted only where the record prices the step, from the emitter: the unit's
+### domain factor (b322: `3.104e+02`, the domain that would be required against the domain reached, an
+### extrapolation of a fitted slope labelled as one); the exponent's ratio (b321: the two remainder
+### copies apart by between one twenty-fourth and one fifth of the instrument's own distance from the
+### equality); the instrument's act count (b321_run imports the instrument from six acts, b316 to b321);
+### the crossing widths (b328: SEES IT at the even widths 40, 81, 160 and the odd widths 20, 40, 81,
+### 160; b334: three aims, at heights 16.290216 and 46.960994). ### A row the record does not price
+### carries `no price in the record`.
+### ### **THE ROWS TYPED (the seat's typing, each from the row's own cells, refutable by the cell):**
+###   R1 NAMED -> PROVED : CONSTRUCTION (the hypothesis is the face; no price).
+###   R2 one direction PROVED -> both : CONSTRUCTION (the converse compiled; no price).
+###   R3 NAMED-ONLY -> compiled STRUCTURE : CONSTRUCTION (the T3 pinned sorry; no price).
+###   R4 PROVED to the finite range -> all n : DERIVATION (the decomposition conjunct and the tail
+###      premise; no price beyond the certificate's own reach `N_0(T) ~ 2T^2`).
+###   R5 the distance PROVED -> a positive pairing : CONSTRUCTION (disclaimed; no price).
+###   F1 MEASURED as a control -> the Li family closed : MEASUREMENT (priced by L1 at one act).
+###   F2 sign certified -> size certified : MEASUREMENT (priced: the domain factor; the exponent's
+###      ratio; the instrument's act count).
+###   F3 MEASURED to n = 300 -> all n : DERIVATION (the face R4 itself; no price).
+###   F4 NAMED-ONLY -> a space : CONSTRUCTION (the wall; disclaimed; no price).
+###   F5 MEASURED and DERIVED at a finite place -> the archimedean place : DERIVATION (the refusal
+###      stands; no price).
+###   F6 IMPORTED archimedean member -> constructed : CONSTRUCTION (no price).
+###   F7 MEASURED (DOES NOT SEE IT; SEES IT at seven of eight) -> the crossing located : MEASUREMENT
+###      (priced: the crossing widths).
+###   L1 IMPORTED and DERIVED -> the bridge : DERIVATION (the relation between the compressed square
+###      and the finite-place channel; no price -- "none is in the record").
+###   S1 STATED, the softest pair at MEASURED-AT-COVERED-CELLS -> MEASURED-ON-FAMILIES : MEASUREMENT
+###      (priced: the domain factor, the act count; b334 charted the families and conferred nothing).
+###   L2 (this act's row) STATED : cost ZERO -- nothing is owed on it.
+### ### **NOTHING ABOVE MOVES A GRADE.** ### Every type and price is refutable by the row's own cell or
+### the price's own emitter, and the suite pulls each.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NEW ROW, L2, AND THE ADDENDUM. ### [SEAT, PRE-WRITE]
+----------------------------------------------------------------------------------------------------
+### ### **L2 -- the pole-constant relation between the Li and positivity faces:** the deposit's
+### archimedean channel on the Li family is the archimedean distribution plus the pole constant `1`
+### (b327's derivation under its sealed bar: `lambda_A(n) = S_inf(n) + 1`, `log s` the keystone's, *"a
+### contribution from the pole at s = 0"* the source's), so the Li margin and the Sonin margin are two
+### evaluations of one distribution separated by the pole constant (the fold, FINDINGS). ### Register:
+### the fourth, at two families. ### Holding: STATED -- the relation as the record states it, no proof
+### here, no grade conferred; cost ZERO. ### Rows touched: the b327 rows 166, 167. ### Bridges: none
+### typed; to L1: the same relation, there derived and corroborated, here stated as a face-to-face
+### relation. ### Quotations verified by the writer against b327's bank, FINDINGS and row L1.
+### ### **THE ADDENDUM TO b328's BLOCK:** the phase rule as b328 stated it -- *negative exactly past
+### forty-five degrees* -- is refined by b334's map: the quadruple's term `4 |G|^2 cos 2 phi` is
+### negative only between `45` and `135` degrees, and b334's chart carries the term's sign beside every
+### threshold verdict (270 aims past the threshold, 170 with a negative term, 100 with the phase near
+### 180); b328's own phases sat near ninety and are unaffected. ### Filed as a block naming b328's
+### update; nothing in b328's block or bank is edited.
+
+----------------------------------------------------------------------------------------------------
+### (E) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-COST`: the census block names every row id of the table once, with a type from the five and
+###       a price cell that is a quotation located in the extract file or the words `no price in the
+###       record`; the sorted view's order is the type order of (C).
+### (F2)  `G-NOGRADE`: every existing row byte-identical; the fourth cell of every row unchanged; the
+###       bank never says a grade moved (must-fail).
+### (F3)  `G-L2`: row L2 present once, through the writer, its quotations verified, its holding STATED
+###       and its cost ZERO; the writer's append-only check on the working file and the blob.
+### (F4)  `G-ADDENDUM`: the block names b328's update, cites b334's chart sign column, carries `45` and
+###       `135`; b328's block byte-identical.
+### (F5)  `G-PRICES`: each of the four prices is a quotation located in the extract file at its emitter.
+### (F6)  `G-ROW` (NO TERMINAL, the reason), `G-KEY` (`cost-census`), `G-ORDER`, `G-HOOK` / `G-MIRROR`
+###       (the papers repo moves), `G-NUMBERS`, `G-TOOLNUM`, `G-ONCE`, the hedge audit, the stem sweep at
+###       extended scope, the must-fail fixtures -- standing.
+### (F7)  `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   PLACE-papers files written ........... ### CAP 1 (FACES_LEDGER.md: one row through write_row, two blocks through append_block)
+###   ledger rows written .................. ### CAP 1 (L2)
+###   ledger blocks appended ............... ### CAP 2 (the cost census; the addendum to b328)
+###   correspondence rows appended ......... ### CAP 1
+###   findings sections edited ............. ### CAP 0
+###   grades moved or conferred ............ ### CAP 0
+###   proofs attempted ..................... ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   claims about the quantifier .......... ### CAP 0
+###   claims about h2, totality, the roster  ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   `.lean` files edited ................. ### CAP 0
+###   TECHNE files written ................. ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   owner instrument files edited ........ ### CAP 0
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE NON-ZERO CAPS ARE THE ORDER'S OWN PLACEMENT CLAUSES.**
+
+----------------------------------------------------------------------------------------------------
+### (G) THE SHADOW, AND WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A census compiles nothing.
+### ### **NOT THAT ANY GRADE MOVED, NOT THAT A PRICE IS A PREDICTION, NOT THAT A COST IS A PLAN, NOT
+### THAT L2 IS NEW MATHEMATICS.** ### `M-2` IS OWED UNDER b310's CAP; its row is unchanged. ### THE
+### SEAM'S DEBT ITEM 1 STANDS. ### THE PATENT CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED
+### ON THIS SEAT'S RECORD. ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS
+### SEPARATE. ### NOTHING DEPOSITS.
+### ### **NEXT, BY THE SORTIE: LEG 2, b337, THE WAVE'S HOUSEKEEPING.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 2297b0d9910085dba16bd6d4c7014184a26a5d826bf3e3b9c457a696b4253642
+### bytes sealed : 13879
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b336_registration_2026-09-06.txt`.**
+====================================================================================================

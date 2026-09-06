@@ -1,0 +1,180 @@
+====================================================================================================
+b336 -- GATE SUITE (THE COST CENSUS: TYPED, THROUGH THE WRITER, NO GRADE MOVED)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  ledger -- the column law
+    PASS  ### row S1
+    PASS  ### row L1
+    PASS  ### b328's update block
+    PASS  b322 -- the unit's domain factor
+    PASS  b321 -- the exponent's ratio
+    PASS  b321_run -- the instrument's acts, imported
+    PASS  ### b321
+    PASS  b328 -- the crossing widths
+    PASS  b334 -- the crossing region
+    PASS  b327 -- the pole-at-zero constant
+    PASS  ### the fold: one distribution, the pole constant 1
+    PASS  ### row L1 carries the derivation
+    PASS  b334 bank -- the threshold rule is not the sign condition
+    PASS  b334 chart -- the sign column
+    PASS  b328 bank -- the rule as b328 stated it
+    PASS  the writer -- write_row
+    PASS  ### append_block
+    PASS  the sortie -- leg 1
+    PASS  ### no grade moved
+
+  SELF NEEDLES:
+    PASS  bank states the census first
+    PASS  ### (1) fifteen rows typed
+    PASS  ### no read or import as the next step
+    PASS  ### (2) the four prices
+    PASS  ### (3) row L2
+    PASS  ### (4) the phase rule
+    PASS  ### no grade moved
+    PASS  bank keeps the order
+    PASS  bank gives the tool and its runs
+    PASS  bank gives the row and the key
+    PASS  ### the seat's defects
+    PASS  ### E1
+    PASS  bank gives the standing rows
+    PASS  ### the shadow none
+    PASS  ### next
+    PASS  registration -- no grade moved
+    PASS  registration -- the placement
+    PASS  registration -- expected nothing
+    PASS  the ledger -- the cost block
+    PASS  ### the addendum
+    PASS  ### row L2
+    PASS  the sorted view -- no grade moved
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says a grade moved
+    PASS  the bank never says a price predicts
+    PASS  the bank never says L2 is new mathematics
+    PASS  the bank never says K8 is owned
+    PASS  the bank never says the clause moved
+
+  G-COST (F1: the block names every row id once with a type from the five and a price cell; the sorted view in the type order):
+    ids in the block 15 = table rows 15 ; types ok True ; prices ok True ; sorted view in type order True : True
+
+  G-NOGRADE (F2: every existing row byte-identical, the fourth cell of every row unchanged):
+    existing rows identical True ; rows added ['L2'] : True
+
+  G-L2 (F3: row L2 present once, through the writer, quotations verified, STATED and cost zero, the writer append-only):
+    True
+
+  G-ADDENDUM (F4: the block names b328's update, cites b334's chart sign column, carries 45 and 135; b328's block byte-identical):
+    mark once True ; names b328 True ; cites the chart True ; b328 block identical True : True
+
+  G-PRICES (F5: each of the four prices a quotation located in the extract file at its emitter):
+    True
+
+  G-ROW / G-ANCESTOR (row 183: NO TERMINAL with the reason, a census act, NO GRADE MOVED, M-2; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-NOTAGRADE (one row; the must-not-hit queries NO KEY; the answer says no grade moved):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (owner files, sealed files, the deposit, TECHNE, HANDOFF, the banks quoted: no tracked change beyond the act's files):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond the ledger) [] ; TECHNE '' ; deposit '' ; FINDINGS untouched True : True
+
+  G-ORDER (the seal verifies; the tool, the runs, the ledger, the row and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the tool, the runs, the ledger, the row and the bank after the seal True [file times (pre-commit)] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    the ledger not yet committed ; the hook and the mirror are owed after the commit (records present: False / False)
+
+  G-NUMBERS (every number the bank quotes, read back from its producing file):
+    15 rows typed                                PASS
+    CONSTRUCTION rows                            PASS
+    DERIVATION rows                              PASS
+    MEASUREMENT rows                             PASS
+    priced rows F1, F2, F7, S1                   PASS
+    quotations verified 6                        PASS
+    row 183                                      PASS
+    13879 bytes sealed                           PASS
+    23 clauses                                   PASS
+    the domain factor                            PASS
+    270 / 170 / 100                              PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded; the numbered runs as the bank tells them):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 24   struck-clause hits 0   stem hits 0  PASS
+    b336_checks.py                       struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b336_ferry_2026-09-06.txt            struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b336_ferry_scan.txt                  struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b336_reg_termscan.txt                struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b336_extract_notes.txt               struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (extended scope: the cost block, row L2, the addendum, row 183, the index row, swept):
+    the cost block     struck : 0   stem : 0   (5441 chars)
+    row L2             struck : 0   stem : 0   (1784 chars)
+    the addendum       struck : 0   stem : 0   (1220 chars)
+    row 183            struck : 0   stem : 0   (2630 chars)
+    index row          struck : 0   stem : 0   (1775 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    15 rows typed, the types, the priced rows, the sorted view tools/b336_cost.py                 exists=True tracked=False
+    row 183                                                    tools/b336_correspondence.py       exists=True tracked=False
+    the key                                                    tools/b336_index_append.py         exists=True tracked=False
+    23 clauses                                                 tools/b336_regspec.py              exists=True tracked=False
+    the satisfiability verdict                                 tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                           tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                  tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                    tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                   tools/b303_pins.py                 exists=True tracked=True
+    13879 bytes sealed                                         tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                          tools/b336_extract.py              exists=True tracked=False
+    the hook                                                   tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                                 tools/mirror_verify.py             exists=True tracked=True
+    the ledger writer, 6 quotations verified                   tools/b327_faces_row.py            exists=True tracked=True
+    3.104e+02 (b322)                                           tools/b322_ladder.py               exists=True tracked=True
+    the twenty-fourth and the fifth (b321)                     tools/b321_run.py                  exists=True tracked=True
+    SEES IT at seven cells (b328)                              tools/b328_family.py               exists=True tracked=True
+    270 / 170 / 100 (b334)                                     tools/b334_aimmap.py               exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the cost block, row L2, the addendum, the row and the index row included):
+    b336_the_cost_census.txt             sentences=133   graded-hedges=0   ungraded-shapes=24
+    b336_registration_2026-09-06.txt     sentences=240   graded-hedges=0   ungraded-shapes=39
+    b336_cost_run.txt                    sentences=13    graded-hedges=0   ungraded-shapes=1
+    b336_cost_run2.txt                   sentences=13    graded-hedges=0   ungraded-shapes=0
+    b336_cost_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=1
+    b336_cost_rerun2.txt                 sentences=13    graded-hedges=0   ungraded-shapes=0
+    b336_cost_sorted.txt                 sentences=23    graded-hedges=0   ungraded-shapes=2
+    b336_corr_run.txt                    sentences=16    graded-hedges=0   ungraded-shapes=3
+    b336_corr_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=2
+    b336_index_run.txt                   sentences=27    graded-hedges=0   ungraded-shapes=5
+    b336_index_rerun.txt                 sentences=30    graded-hedges=0   ungraded-shapes=5
+    b336_census.txt                      sentences=30    graded-hedges=0   ungraded-shapes=6
+    b336_faces_census.txt                sentences=17    graded-hedges=0   ungraded-shapes=2
+    b336_regspec_run.txt                 sentences=24    graded-hedges=0   ungraded-shapes=2
+    audit_b336_reg_satisfiable.txt       sentences=70    graded-hedges=0   ungraded-shapes=4
+    b336_pins_stepzero.txt               sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b336_index_query.txt           sentences=100   graded-hedges=0   ungraded-shapes=15
+    b336_reg_gate.txt                    sentences=7     graded-hedges=0   ungraded-shapes=2
+    b336_extract.py                      sentences=126   graded-hedges=0   ungraded-shapes=15
+    b336_regspec.py                      sentences=88    graded-hedges=0   ungraded-shapes=7
+    b336_cost.py                         sentences=179   graded-hedges=0   ungraded-shapes=34
+    b336_correspondence.py               sentences=127   graded-hedges=0   ungraded-shapes=15
+    b336_index_append.py                 sentences=134   graded-hedges=0   ungraded-shapes=13
+    the cost block                       sentences=27    graded-hedges=0   ungraded-shapes=14
+    row L2                               sentences=7     graded-hedges=0   ungraded-shapes=3
+    the addendum                         sentences=12    graded-hedges=0   ungraded-shapes=5
+    row 183                              sentences=14    graded-hedges=0   ungraded-shapes=7
+    the index row                        sentences=19    graded-hedges=0   ungraded-shapes=3
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'cost-census': ['the cost census', 'cost census', 'the cost column', 'the typed cost column', 'what moving it one grade would take',
+                    'what would it cost to move a face', 'the sorted view', 'the pole-constant relation', 'the pole-constant row', 'row L2',
+                    'the phase rule refined', '45 to 135 degrees', 'the addendum to b328'],
     'ferry-standing': ['the standing clauses', 'ferry standing', 'FERRY_STANDING', 'the standing file', 'where are the standing clauses',
                        'the STOP format', 'the stop format', 'the draft ferry', 'DRAFT -- NAVIGATOR EDITS', 'the citation check',
                        'a stale citation', 'what is the STOP format', 'Rule 6'],
@@ -511,6 +514,19 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE COST CENSUS (b336, leg 1 of the sortie b335-b338).
+    ("cost-census", "b336 (a census on the faces ledger, typed; no grade moved)",
+     "THE COST CENSUS: for each of the faces ledger's rows, what moving it ONE grade would take, typed as READ / IMPORT / MEASUREMENT /"
+     " DERIVATION / CONSTRUCTION (cheapest kind first) with the record's price quoted at its emitter where the record prices the step -- 15 rows"
+     " typed, the rows the record prices F1, F2, F7, S1 (the unit's domain factor 3.104e+02 at b322; the exponent's ratio, a twenty-fourth to a fifth, at b321;"
+     " the instrument's six acts at b321_run; the crossing widths at b328 and b334), every other row 'no price in the record'; filed as an append-only"
+     " block keyed to the row ids through the writer, the sorted view at relay data/b336_cost_sorted.txt. ROW L2, the pole-constant relation between the"
+     " Li and positivity faces: the deposit's archimedean channel on the Li family is the archimedean distribution plus the pole constant 1, the two"
+     " margins two evaluations of one distribution and not one functional (FINDINGS), separated by the pole constant (b331) -- STATED, cost zero. THE ADDENDUM TO b328's BLOCK: the quadruple's term"
+     " 4 |G|^2 cos 2 phi is negative only between 45 and 135 degrees, b334's chart sign column cited.",
+     "### NO GRADE MOVED; every existing row byte-identical. ### A COST IS NOT A GRADE, NOT A PLAN, NOT A PREDICTION. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b336_the_cost_census.txt; data/b336_cost_run.txt; data/b336_cost_sorted.txt; data/b336_registration_2026-09-06.txt (sealed before any write);"
+     " FACES_LEDGER.md (the b336 cost census block; row L2; the b336 addendum to b328); CORRESPONDENCE.md row 183"),
     # ### THE STANDING CLAUSES, FILED (b335, leg 0 of the sortie b335-b338).
     ("ferry-standing", "b335 (filings only: a standing-clauses file, a scanner check by order, a rule of the executor's format)",
      "THE STANDING CLAUSES OF THE RESEARCH SEAT'S FERRIES, in relay/tools/FERRY_STANDING.md VERSION 1: generated from the 15 banked ferries"
