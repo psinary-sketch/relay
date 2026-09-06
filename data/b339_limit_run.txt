@@ -1,0 +1,37 @@
+====================================================================================================
+b339 -- THE LIMIT READING ON THE EXISTING LADDER. ### A SIDE READING, LABELLED. ### NOT A VERDICT; NO FRAME BUILT.
+====================================================================================================
+  ### m(X) = W_inf - Tr(X) at X = [8.0, 16.0, 32.0, 64.0, 128.0] (b320's five frames, read through b339_price.json);
+  ### d(X) = m(X) - m(2X) ; fit_power on d against X gives p ; m_inf = m(128) - d(64) 2^-p / (1 - 2^-p).
+  ### the candidates: INT_EF (the source's convention) and INT_ER (the corpus's); s their separation.
+
+  ### a = 1.3     INT_EF = 0.158889558   INT_ER = 0.157908477   s = 0.000981080
+    d(X) at X = [8.0, 16.0, 32.0, 64.0] : ['0.590228966', '0.193772781', '0.065373240', '0.023957955']
+    successive ratios d(X)/d(2X) : ['3.046', '2.964', '2.729']   (a clean X^-p descent keeps them at 2^p)
+    fitted p on d : 1.543569 (rms 0.0282)   the last-step p : 1.448195
+    m(128) = 0.182113440 ; m_inf by the fitted p : 0.169603720 ; by the last-step p : 0.168254218
+    m_inf - INT_EF = +0.010714162  (10.92 s) ; m_inf - INT_ER = +0.011695243  (11.92 s)     [fitted p]
+    m_inf - INT_EF = +0.009364660  (9.55 s) ; m_inf - INT_ER = +0.010345741  (10.55 s)     [last-step p]
+
+  ### a = 1.35    INT_EF = 0.186481766   INT_ER = 0.184544767   s = 0.001936999
+    d(X) at X = [8.0, 16.0, 32.0, 64.0] : ['0.415529594', '0.157108335', '0.056918532', '0.021317150']
+    successive ratios d(X)/d(2X) : ['2.645', '2.760', '2.670']   (a clean X^-p descent keeps them at 2^p)
+    fitted p on d : 1.431938 (rms 0.0088)   the last-step p : 1.416884
+    m(128) = 0.207274631 ; m_inf by the fitted p : 0.194721025 ; by the last-step p : 0.194510495
+    m_inf - INT_EF = +0.008239259  (4.25 s) ; m_inf - INT_ER = +0.010176258  (5.25 s)     [fitted p]
+    m_inf - INT_EF = +0.008028729  (4.14 s) ; m_inf - INT_ER = +0.009965728  (5.14 s)     [last-step p]
+
+  ### a = 1.41    INT_EF = 0.221284108   INT_ER = 0.217290580   s = 0.003993528
+    d(X) at X = [8.0, 16.0, 32.0, 64.0] : ['0.304701184', '0.131712257', '0.050497292', '0.019188467']
+    successive ratios d(X)/d(2X) : ['2.313', '2.608', '2.632']   (a clean X^-p descent keeps them at 2^p)
+    fitted p on d : 1.335036 (rms 0.0345)   the last-step p : 1.395967
+    m(128) = 0.240091889 ; m_inf by the fitted p : 0.227491261 ; by the last-step p : 0.228331714
+    m_inf - INT_EF = +0.006207153  (1.55 s) ; m_inf - INT_ER = +0.010200681  (2.55 s)     [fitted p]
+    m_inf - INT_EF = +0.007047606  (1.76 s) ; m_inf - INT_ER = +0.011041134  (2.76 s)     [last-step p]
+
+  ### ### **WHAT THIS SAYS AND WHAT IT DOES NOT.** ### The descent's ratios fall from step to step, so the ladder
+  ### is not on a clean power law yet and `m_inf` is an extrapolation whose two readings disagree by the amount
+  ### printed; where both readings sit MANY SEPARATIONS from BOTH candidates, the residual the price tool
+  ### extrapolated is descending toward a floor and not toward zero, and a price computed from its slope is
+  ### an UNDER-estimate. ### NOT A VERDICT. ### NO CANDIDATE PREFERRED. ### REPORTED FOR THE NEXT PRICING.
+====================================================================================================

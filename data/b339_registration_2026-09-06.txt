@@ -1,0 +1,188 @@
+====================================================================================================
+b339 -- REGISTRATION. ### THE EXPONENT RESOLVED. ### LEG 1 OF THE SORTIE b339-b343.
+2026-09-06. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE THE PRICE IS COMPUTED, BEFORE ANY FRAME IS BUILT, AND BEFORE ANY VALUE OF THE
+### ### REMAINDER AT A NEW DOMAIN IS SEEN.** ### The seal block at the foot carries the hash of everything
+### above it. ### Standing clauses: `FERRY_STANDING v1`, carried by reference.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS, AND WHAT IT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **A PRICE, THEN -- IF IT FITS -- A MEASUREMENT AT THE PRICED DOMAIN, ON THE CERTIFIED INSTRUMENT.**
+### The exponent question (b313, b321, b322): the archimedean remainder `eps` carries `rho ** +0.5` in the
+### source's own formula and `rho ** -0.5` in the corpus's banked instrument, one character apart in two
+### copies that the record keeps side by side; the identity control (Theorem 4.7 as an equality) held
+### for both at b321 because the instrument's own distance from the equality was five to twenty-four
+### times the candidates' separation -- ### **UNDER-RESOLVED, NOT OPEN, AND THE PRICE IS THE RATIO** (b322's
+### sealed rule, which governs here). ### This act prices the domain the remainder instrument needs to
+### split the candidates and, where the price fits one act's ceiling, runs the instrument there.
+### ### **NO BAR MOVED. NO GRADE CONFERRED BY A SEAT. NO CLAIM ABOUT h2, TOTALITY, OR THE ROSTER.** ### The
+### wave is PARKED by the author's ruling of this day and is not named as next anywhere.
+### ### **THE MISREADINGS, NAMED BEFORE ANY VALUE:** ### (i) the price read as a prediction -- b322's own
+### sentence, *a price is not a prediction*, governs; the price says what the instrument would have to
+### reach IF the fitted rate continues; (ii) a verdict RESOLVED read as a proof about the source's
+### formula -- it is the identity control's preference at a domain, on one instrument, at one cell, and
+### the erratum's consequence is stated as an append and not as a correction of any owner file; (iii) a
+### residual passing through a candidate's value read as preference -- a margin descending toward its
+### limit crosses the nearer candidate on the way, so the direct reading alone is not the verdict
+### (section (D)); (iv) the corpus's convention read as wrong -- E-2026-09-03-1 says the corpus's is its
+### own, and a RESOLVED verdict toward the source's convention names which one the identity prefers,
+### nothing more.
+
+----------------------------------------------------------------------------------------------------
+### (B) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN** ### -- `data/b339_ferry_scan.txt`: ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS, THE
+### STANDING-CLAUSES CITATION CURRENT (`FERRY_STANDING v1`).**
+### ### **(ii) BOTH CENSUSES** ### -- `b339_census.txt`, `b339_faces_census.txt`: ### **TOTAL MISSING : 0
+### at each.**
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** ### -- `b339_pins_stepzero.txt`:
+### relay `3706ae1`, SIDE-global-section `ff2c299`, PLACE-papers `312f3f7`, each 0/0 and equal.
+### ### **(iv) THE EXTRACT STEP** ### -- `tools/b339_extract.py` -> `data/b339_extract_notes.txt`: the two
+### candidates at their lines; b321's ladder and separation table; b322's rule, its price and its
+### fitter; b323's rates; the frames, the cut and the square at their definitions; the erratum's
+### standing clause; the leg-1 sentences and (L1).
+### ### **(v) THE INDEX QUERY** ### -- `data/audit_b339_index_query.txt`: `the convention erratum` reaches
+### b314's key; `the exponent resolved`, `the exponent question`, `the exponent's ratio`, `the
+### resolving-power rule`, `the remainder's convention`, `the price of the exponent` : NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE PRICE, UNDER b322's SEALED RULE. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE INPUTS, EACH QUOTED FROM ITS BANK:** ### the identity residual along the domain ladder at
+### each covered cell -- b320's banked `weil` and its domain-axis `Tr` at the frames `X = 8, 16, 32, 64,
+### 128` (`data/b320_rows.json`, `axes[a].domain`), and b321's remainder under the source's convention
+### (`0.158889558`, `0.186481766`, `0.221284108` at `a = 1.3, 1.35, 1.41`), so that `R(X) = (weil - Tr(X)) -
+### (-INT)` reproduces b321's ladder (`0.896556824 ... 0.023223882` at `a = 1.3`); the candidates'
+### separation `s` at each cell -- b321's *apart by* column: `0.000981080`, `0.001936999`, `0.003993528`.
+### ### **THE RATE:** ### `fit_power` (b322's, IMPORTED, least squares for `log R = A + p log X` over the
+### five frames) per cell, its `rms` printed beside it; the last-step slope (`X = 64 -> 128`) printed as
+### the conservative reading. ### **THE SPLIT CRITERION, FIXED HERE:** the instrument splits the candidates
+### when its distance from the equality falls below HALF their separation, `R <= s/2`, so that the
+### measured margin sits nearer one candidate than the other. ### **THE PRICE:** ### `X_req = 128 x
+### (R(128) / (s/2))^(1/|p|)`, the ratio `X_req / 128` quoted to `0.01`, per cell; ### **AN EXTRAPOLATION
+### OF A FITTED SLOPE, LABELLED AS ONE.**
+### ### **ONE ACT'S CEILING, FIXED HERE AND NOT AFTER THE PRICE:** ### the frame `(N, X, NY) = (128 X, X,
+### 512)` at `X = 512`, `N = 65536`. ### Why: the square's kernel costs `N^2` evaluations per trace; b320's
+### largest frame `(16384, 128)` ran inside its act with its seven smaller frames; sixteen times that
+### kernel per trace, at two frames per cell, is inside one act's budget on this machine as b334's
+### instrument legs were; the frame's matrices (`NY x N` doubles) fit its memory. ### A cell whose
+### `X_req` exceeds `512` is UNAFFORDABLE at this ceiling, its price banked.
+### ### **THE GATE ON THE RUN:** the run proceeds at every cell whose `X_req <= 512`, at the two frames `X
+### = X_run / 2` and `X_run`, where `X_run` is the smallest power of two at or above `X_req` (so the domain
+### drift is measured); no cell is added or moved after the price is seen.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE RUN, IF THE PRICE FITS, AND THE VERDICT RULE. ### [SEAT, PRE-RUN]
+----------------------------------------------------------------------------------------------------
+### ### **THE FUNCTION:** `f = autocorrelation(mean_zero_variant(a))` (b317, b318), the same object b320
+### and b321 measured; ### **THE SQUARE:** `Tr(theta(g) S theta(g)^*)` on b319's stable cut (`both_subspaces`,
+### `tau = 1e-6`) by b318's `square_trace` at the two frames; ### **THE LEFT SIDE:** `A_z(f)` by the derived
+### kernel on two transforms (b326's `channels`, the atlas's `hhat_blocked` and the Simpson route), with
+### b320's banked `weil` printed beside as the record's route; ### **THE RIGHT SIDE:** the remainder under
+### both conventions (`EF`, the source's; `ER`, the corpus's) by both quadratures (uniform, Chebyshev),
+### which are a limit and not two routes (b321 said so first). ### **EVERY QUANTITY NAMED WITH ITS FUNCTION
+### AND ITS CONVENTION** (b333's like-for-like rule; the erratum's standing clause).
+### ### **TWO READINGS, BOTH SEALED:**
+###   (R1) THE DIRECT READING at `X_run`: `R_c = (A_z - Tr(X_run)) - (-INT_c)` for each candidate `c`; the
+###        domain drift `|Tr(X_run) - Tr(X_run/2)|`; candidate `c` is preferred directly when `|R_c| <= s/2`,
+###        the other's `|R| > s/2`, and the drift `<= s/2`.
+###   (R2) THE LIMIT READING: the margin's descent `m(X) = A_z - Tr(X)` along the whole ladder (b320's five
+###        frames plus the two new ones, at the same `A_z`), fitted as `m(X) = m_inf + C X^(-p)` from the
+###        successive differences `d(X) = m(X) - m(2X)` (`fit_power` on `d` against `X`), `m_inf = m(X_run) -
+###        d(X_run/2) 2^(-p) / (1 - 2^(-p))`; candidate `c` is preferred in the limit when `|m_inf - (-INT_c)|
+###        <= s/2` and the other's exceeds `s/2`; the fit's `rms` printed beside it.
+### ### **THE VERDICT:** ### **RESOLVED** (the convention named) when (R1) and (R2) prefer the same
+### candidate; ### **STILL UNDER-RESOLVED** with the new ratio `min_c |R_c| / s` at `X_run` when either
+### reading prefers neither or the two disagree; ### **UNAFFORDABLE** when no cell's `X_req` is at or below
+### the ceiling, the price banked. ### A disagreement between the readings is reported at full
+### prominence with both readings' numbers.
+### ### **THE CONSEQUENCE FOR THE CONVENTION ERRATUM, ONLY ON RESOLVED:** one block appended to ERRATA
+### under `<!-- b339 note to E-2026-09-03-1 -->`, internal-record by the partition, stating which
+### convention the identity prefers at the priced domain, at which cell and frames, with the two
+### readings' numbers; the entry itself untouched; its standing clause restated. ### On any other
+### verdict ERRATA is not touched.
+### ### **THE LEDGER, WHERE A ROW'S STATUS MOVES:** one update block through the writer naming row `F2`
+### (the Sonin margin) and row `S1`'s constituent K6, carrying the price and the verdict; the cost
+### census's price for `F2` (the exponent's ratio) brought to this act's number.
+
+----------------------------------------------------------------------------------------------------
+### (E) BOTH SEATS' EXPECTATIONS. ### **NO COUNTS PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L1), AS THE ORDER STATES IT:** *the price fits and the identity prefers the
+### source's convention.*
+### ### **THIS SEAT'S, WRITTEN BEFORE THE PRICE EXISTS:** ### the price fits at `a = 1.41` alone (the
+### widest separation, `R(128)/s = 4.7`) and does not fit at `a = 1.3` (`R(128)/s = 23.7`) nor at `a =
+### 1.35` under a rate near `1.3`; at `a = 1.41` the direct reading at `X_run` sits near half the
+### separation and the verdict is
+### STILL UNDER-RESOLVED with a ratio below one -- refuted by a RESOLVED verdict, which this seat would
+### welcome and does not expect; ### the limit reading, if the descent keeps its rate, lands nearer the
+### source's copy than the corpus's -- refuted by `m_inf` nearer the corpus's.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-PRICE`: every input of (C) a quotation located in the extract file or a field of b320's
+###       record; the fitted rate reproduces b321's ladder at `a = 1.3`; the price per cell printed with
+###       its rms and the last-step slope; the ceiling as sealed.
+### (F2)  `G-GATE`: the run happens at exactly the cells whose `X_req <= 512`, at the two frames of (C).
+### (F3)  `G-RUN`: the square at both frames on the stable cut; `A_z` by two transforms with the banked
+###       `weil` beside; the remainder under both conventions by both quadratures; every line naming the
+###       function and the convention.
+### (F4)  `G-VERDICT`: both readings printed with their numbers; the verdict by (D)'s rule and no other;
+###       a disagreement between the readings first.
+### (F5)  `G-ERRATUM`: on RESOLVED, one appended block, the entry byte-identical, the file a true prefix
+###       of its blob; on any other verdict, ERRATA byte-identical to its blob.
+### (F6)  `G-LEDGER`: one block through the writer naming F2 and K6; every existing row byte-identical.
+### (F7)  `G-NOBAR` (must-fail: the bank never says a bar moved, never says the source's formula is
+###       proved), `G-ROW` (NO TERMINAL, the reason), `G-KEY` (`exponent-resolved`), `G-ORDER`, `G-HOOK` /
+###       `G-MIRROR` (the papers repo moves), `G-NUMBERS`, `G-TOOLNUM`, `G-ONCE`, the hedge audit, the stem
+###       sweep at extended scope -- standing.
+### (F8)  `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   PLACE-papers files written ........... ### CAP 2 (FACES_LEDGER.md, one block through the writer; ERRATA.md, one appended block ONLY ON RESOLVED)
+###   ERRATA entries edited ................ ### CAP 0
+###   ledger rows written (faces) .......... ### CAP 0 (an update block, not a row)
+###   correspondence rows appended ......... ### CAP 1
+###   findings sections edited ............. ### CAP 0
+###   bars moved ........................... ### CAP 0
+###   grades conferred by a seat ........... ### CAP 0
+###   cells added or moved after the price . ### CAP 0
+###   proofs attempted ..................... ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   claims about the quantifier .......... ### CAP 0
+###   claims about h2, totality, the roster  ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   `.lean` files edited ................. ### CAP 0
+###   TECHNE files written ................. ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   owner instrument files edited ........ ### CAP 0 (b313f, b313r, b316-b322 imported, never edited)
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE NON-ZERO CAPS ARE THE ORDER'S OWN PLACEMENT CLAUSES.**
+
+----------------------------------------------------------------------------------------------------
+### (H) THE SHADOW, AND WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A price and a measurement compile nothing.
+### ### **NOT THAT THE SOURCE'S FORMULA IS PROVED, NOT THAT THE CORPUS'S CONVENTION IS WRONG, NOT THAT A
+### PRICE PREDICTS.** ### `M-2` IS OWED UNDER b310's CAP. ### THE SEAM'S DEBT ITEM 1 STANDS. ### THE PATENT
+### CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD. ### `h2` STANDS EXACTLY
+### WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE. ### NOTHING DEPOSITS.
+### ### **NEXT, BY THE SORTIE: LEG 2, b340, THE LI FAMILY CONTROL.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 1182f2638287bed831eec0ddec1b5b9b70ebb49cb25ee9fbd10f7f0a21310270
+### bytes sealed : 15337
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b339_registration_2026-09-06.txt`.**
+====================================================================================================

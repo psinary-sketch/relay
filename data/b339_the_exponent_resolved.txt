@@ -1,0 +1,105 @@
+====================================================================================================
+b339 -- THE EXPONENT RESOLVED. ### LEG 1 OF THE SORTIE b339-b343.
+The price of splitting the two exponent candidates, under b322's sealed rule; the verdict at a
+ceiling sealed before the price.
+2026-09-06. ### SOLO (research seat). ### Registration: `data/b339_registration_2026-09-06.txt`
+(sealed `1182f263...`, 15337 bytes, before the price was computed and before any frame; 25 CLAUSES
+SATISFIABLE).
+====================================================================================================
+
+### ### ### **THE ANSWERS, FIRST.**
+### ### **(1) THE VERDICT: UNAFFORDABLE AT THE SEALED CEILING AT EVERY COVERED CELL; THE PRICE BANKED.** ### No
+### frame was built, no remainder was evaluated at a new domain, and the erratum E-2026-09-03-1 is
+### untouched; its standing clause governs. ### The question stays UNDER-RESOLVED, NOT OPEN, by b322's
+### rule, with the new figure its price.
+### ### **(2) THE PRICE, PER CELL, AN EXTRAPOLATION OF A FITTED SLOPE AND LABELLED AS ONE**
+### (`data/b339_price_run.txt`): the identity residual `R(X) = (W_inf - Tr(X)) - INT_EF` along b320's domain
+### ladder, reproduced from the record at every covered cell (b321's column *residual to -INT* to the
+### last digit), fitted by b322's `fit_power`, the split criterion `R <= s/2`, the ceiling `X = 512`:
+###     a = 1.3  : R(128)/s = 23.67 ; rate X^-1.324 (rms 0.104 ; the last step X^-1.023) ; X_req = 2358 ; ratio 18.42 (by the last step 5564)
+###     a = 1.35 : R(128)/s = 10.73 ; rate X^-1.263 (rms 0.076 ; the last step X^-1.018) ; X_req = 1451 ; ratio 11.33 (by the last step 2602)
+###     a = 1.41 : R(128)/s =  4.71 ; rate X^-1.214 (rms 0.054 ; the last step X^-1.015) ; X_req =  812 ; ratio  6.34 (by the last step 1168)
+### ### The cheapest cell asks for `X = 812` against a ceiling of `512`, a factor `6.34` on the reached
+### `X = 128`; the sealed gate (no cell added or moved after the price; the ceiling not raised after
+### the price) closes the run.
+### ### **(3) THE SIDE READING, LABELLED, NOT A VERDICT ARM** (`data/b339_limit_run.txt`): the sealed
+### limit reading (R2) applied to the five frames the record already holds -- the margin's descent
+### fitted from its successive differences -- puts `m_inf` ABOVE BOTH CANDIDATES at every cell: by
+### `10.9 s` and `11.9 s` at `a = 1.3`, `4.3 s` and `5.3 s` at `1.35`, `1.6 s` and `2.6 s` at `1.41` (the
+### source's copy first, the corpus's second). ### **THAT IS NOT A PREFERENCE:** the limit is nearer the
+### larger candidate by exactly their separation because it sits above both, which is arithmetic.
+### ### What it says is that the residual the price extrapolated is descending toward a FLOOR and not
+### toward zero -- the descent's ratios fall step by step (3.05, 2.96, 2.73 at `a = 1.3`) -- so the price
+### in (2) is an UNDER-estimate, and the verdict UNAFFORDABLE stands the more firmly for it. ### The
+### floor is what the next pricing must price; its origin (the fixed `NY = 512`, the cut's `tau`, the
+### taper) is not decided here.
+### ### **(4) BOTH SEATS' EXPECTATIONS, SCORED:** the navigator's (L1) -- *the price fits and the identity
+### prefers the source's convention* -- ### **NOT MET at this ceiling** (the first clause fails; the
+### second is not reached). ### This seat's -- *the price fits at `a = 1.41` alone* -- ### **NOT MET** (it
+### fits nowhere); the seat's pre-seal arithmetic used `R <= s` where the sealed criterion is `R <=
+### s/2` and a rate near `1.3` where the last step's is near `1.0`.
+### ### **(5) THE ROW, THE BLOCK, THE KEY:** CORRESPONDENCE row 187 with NO TERMINAL and the reason (a
+### price, not a measurement); the faces ledger's b339 update block naming F2 and S1/K6 through the
+### writer, the cost census's price for F2 joined by this act's; the key `exponent-resolved`.
+### ### **NO BAR MOVED. NO CANDIDATE PREFERRED. NO GRADE CONFERRED. NO ACT RE-VERDICTED. TECHNE NOT
+### ### TOUCHED. NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE ORDER OF THIS ACT, KEPT.
+----------------------------------------------------------------------------------------------------
+### Step zero for the sortie: the ferry banked (`data/b339_ferry_2026-09-06.txt`) and scanned (`0/0`, the
+### standing-clauses citation CURRENT, `FERRY_STANDING v1`); both censuses (`0` missing); the pins
+### (`data/b339_pins_stepzero.txt`: relay `3706ae1`, SIDE `ff2c299`, PLACE-papers `312f3f7`, each 0/0 and
+### equal -- NOTHING WAS AHEAD OF ORIGIN). ### The extract step (`data/b339_extract_notes.txt`, 0 missing
+### on the first run: the two candidates at their lines, b321's ladder and separation table, b322's rule
+### and fitter, b323's rates, the frames, the cut, the square, the erratum's standing clause, the leg's
+### sentences). ### The index queried (`the convention erratum` reaches b314's key; six phrasings NO
+### KEY). ### THE REGISTRATION SEALED BEFORE THE PRICE: the term scan `0/0`, the hedge audit clean, no
+### counts predicted, 25 CLAUSES SATISFIABLE, the gate PASS; the ceiling `X = 512` and the split criterion
+### `R <= s/2` fixed in it. ### Then the price tool, the side reading, the block, the row, the key.
+
+----------------------------------------------------------------------------------------------------
+### THE INSTRUMENTS AND THEIR JUDGEMENT.
+----------------------------------------------------------------------------------------------------
+### `tools/b339_price.py`: reads b320's record (`rows[].weil`, `axes[a].domain`) and b321's banked
+### remainders and separation (each located in the extract file), reproduces the ladder, fits by the
+### imported `fit_power`, prints the rms and the last step's slope beside every rate, and applies the
+### sealed criterion, the sealed price formula and the sealed ceiling. ### It builds nothing. ###
+### `tools/b339_limit.py`: the sealed (R2) arithmetic on the existing five frames, labelled a side
+### reading. ### **THE JUDGEMENTS THE MECHANISMS DO NOT MAKE, DECLARED:** the choice of `s/2` as the split
+### criterion (a margin nearer one candidate than the other) is this seat's and was sealed; the
+### choice of `X = 512` as one act's ceiling (sixteen times b320's largest kernel per trace) is this
+### seat's and was sealed; the reading that a falling ratio means a floor is this seat's and is
+### labelled so.
+### ### **THE SEAT'S OWN DEFECTS, DECLARED:** ### (E1) the pre-seal arithmetic in this seat's expectation
+### used the wrong criterion and rate, declared in (4); the expectation was sealed as written and is
+### scored as written. ### (E2) the registration's (D) sealed the limit reading as part of a run that
+### did not happen; the side reading applies its arithmetic to the record's frames and is labelled as
+### not a verdict arm. ### (E3) the sealed price rule extrapolates a slope that the record's own ladder
+### shows is not yet a power law; the rule was b322's and governs, and the correction is filed here
+### as the floor for the next pricing, not as a moved bar.
+
+----------------------------------------------------------------------------------------------------
+### THE ROW, THE BLOCK AND THE KEY.
+----------------------------------------------------------------------------------------------------
+### `tools/b339_correspondence.py`: row 187, NO TERMINAL with its reason -- A PRICE, NOT A MEASUREMENT;
+### six cells, none blank; the second run wrote nothing. ### `tools/b339_ledger.py`: the block `<!-- b339
+### update -->` on FACES_LEDGER.md through `append_block`, naming F2 and S1/K6, every number read from the
+### price and limit records, append-only against the working file and the blob; the second run
+### refused as DUPLICATE. ### `tools/b339_index_append.py`: the key `exponent-resolved`, one row, every
+### alias reaching it; `the convention resolved`, `the source's convention preferred`, `the exponent
+### measured` still NO KEY.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING ROWS.
+----------------------------------------------------------------------------------------------------
+### M-2's row unchanged, `SPECIFIED-NOT-STATED`, under b310's cap; no aggregation stated. ### The seam's
+### debt item 1 restated, still unpaid. ### The patent clock restated: carried on the patent seat's
+### report, UNCONFIRMED on this seat's record. ### h2 exactly where the deposit left it; the posture
+### lock separate. ### TECHNE-Core private, nothing pushed. ### The wave PARKED by the author's ruling.
+### ### NOTHING DEPOSITS.
+### ### THE SHADOW: NONE. ### A price compiles nothing.
+
+----------------------------------------------------------------------------------------------------
+### NEXT, BY THE SORTIE: LEG 2, b340, THE LI FAMILY CONTROL.
+----------------------------------------------------------------------------------------------------

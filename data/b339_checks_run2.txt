@@ -1,0 +1,185 @@
+====================================================================================================
+b339 -- GATE SUITE (THE EXPONENT RESOLVED: A PRICE UNDER b322's SEALED RULE, UNAFFORDABLE AT THE SEALED CEILING)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  b321_window -- the source exponent
+    PASS  ### the corpus's banked exponent
+    PASS  ### the source copy, its line
+    PASS  ### the corpus copy, its line
+    PASS  b321 -- frame 5 of the ladder
+    PASS  ### a = 1.3 in the separation table
+    PASS  ### a = 1.35
+    PASS  ### a = 1.41
+    PASS  b322 -- the price is the ratio
+    PASS  ### a price is not a prediction
+    PASS  ### an extrapolation labelled as one
+    PASS  ### the fitter
+    PASS  b323 -- the two rates
+    PASS  b317 -- the domain axis
+    PASS  ERRATA -- quotable only with its convention named
+    PASS  the sortie -- leg 1
+    PASS  ### the three verdicts
+    PASS  ### the sealed rule governs
+    PASS  ### (L1) stated
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  ### (1) the verdict
+    PASS  ### the question stays under-resolved
+    PASS  ### (2) the price labelled
+    PASS  ### the gate closes the run
+    PASS  ### (3) the side reading labelled
+    PASS  ### not a preference
+    PASS  ### the floor
+    PASS  ### (4) L1 not met
+    PASS  ### the seat's not met
+    PASS  ### (5) the row, the block, the key
+    PASS  ### no bar moved
+    PASS  bank keeps the order
+    PASS  bank gives the instruments
+    PASS  ### the seat's defects
+    PASS  bank gives the standing rows
+    PASS  ### the shadow none
+    PASS  ### next
+    PASS  registration -- sealed before the price
+    PASS  registration -- the ceiling
+    PASS  registration -- the split criterion
+    PASS  registration -- the gate
+    PASS  registration -- unaffordable defined
+    PASS  registration -- expected nothing
+    PASS  price run -- the gate
+    PASS  price run -- the ladder reproduced
+    PASS  limit run -- not a verdict
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says a bar moved
+    PASS  the bank never says the source's formula is proved
+    PASS  the bank never says the price fits
+    PASS  the bank never says the identity prefers a convention
+    PASS  the bank never says RESOLVED as its verdict
+    PASS  the bank never says a price is a prediction
+
+  G-PRICE (F1: the inputs from the record, the ladder reproduced, the rate and the price recomputed live through the imported fitter, the ceiling as sealed):
+    a = 1.3    R recomputed equal True ; p live -1.324020 vs recorded -1.324020 ; X_req live 2357.7 vs recorded 2357.7 ; fits False : True
+    a = 1.35   R recomputed equal True ; p live -1.263185 vs recorded -1.263185 ; X_req live 1450.6 vs recorded 1450.6 ; fits False : True
+    a = 1.41   R recomputed equal True ; p live -1.214024 vs recorded -1.214024 ; X_req live 811.9 vs recorded 811.9 ; fits False : True
+    ceiling 512 True ; split 1/2 True ; ladder reproduced True ; the registration names both : True
+    True
+
+  G-GATE (F2: no cell fits; no frame built; no resolve run file exists; no cell added or moved after the price):
+    fits [] ; resolve tool absent True ; the cells are the record's covered cells True : True
+
+  G-RUN (F3): NOT EXERCISED -- the gate closed the run; nothing to check and nothing claimed.
+
+  G-VERDICT (F4: UNAFFORDABLE everywhere the act speaks -- the price run, the bank, the row, the ledger block, the index row; the side reading labelled):
+    True
+
+  G-ERRATUM (F5: the verdict is not RESOLVED, so ERRATA.md is byte-identical to its blob):
+    identical True ; no b339 mark True : True
+
+  G-LEDGER (F6: one block through the writer naming F2 and K6; the ledger a true prefix of its blob; every row line present):
+    mark once True ; names F2 and K6 True ; prefix of blob True (committed False) ; rows preserved 124 ; written then duplicate True : True
+
+  G-ROW / G-ANCESTOR (row 187: NO TERMINAL with the reason; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-NOPREFERENCE (one row; the must-not-hit queries NO KEY; the answer says a price is not a prediction, no candidate preferred):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (owner instruments, sealed files, the deposit, TECHNE, HANDOFF, the banks read: no tracked change beyond the act's files):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond the ledger) [] ; TECHNE '' ; deposit '' : True
+
+  G-ORDER (the seal verifies; the price, the side reading, the block, the row, the key and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the price, the side reading, the block, the row, the key and the bank after the seal True [file times (pre-commit)] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    the ledger not yet committed ; the hook and the mirror are owed after the commit (records present: False / False)
+
+  G-NUMBERS (every number the bank quotes, read back from its producing record):
+    the price line at a = 1.3                    PASS
+    the price line at a = 1.35                   PASS
+    the price line at a = 1.41                   PASS
+    the six limit offsets in separations         PASS
+    the three descent ratios at a = 1.3          PASS
+    row 187                                      PASS
+    15337 bytes sealed                           PASS
+    25 clauses                                   PASS
+    the cheapest cell X = 812 against 512, factor 6.34 PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 27   struck-clause hits 0   stem hits 0  PASS
+    b339_checks.py                       struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b339_ferry_2026-09-06.txt            struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b339_ferry_scan.txt                  struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b339_reg_termscan.txt                struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b339_extract_notes.txt               struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 187, the ledger block, the index row, swept):
+    row 187            struck : 0   stem : 0   (2739 chars)
+    the ledger block   struck : 0   stem : 0   (3532 chars)
+    index row          struck : 0   stem : 0   (1552 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the price per cell, the rates, the ratios, the ceiling           tools/b339_price.py                exists=True tracked=False
+    the limit reading, the offsets, the ratios of the descent        tools/b339_limit.py                exists=True tracked=False
+    row 187                                                          tools/b339_correspondence.py       exists=True tracked=False
+    the ledger block                                                 tools/b339_ledger.py               exists=True tracked=False
+    the key                                                          tools/b339_index_append.py         exists=True tracked=False
+    25 clauses                                                       tools/b339_regspec.py              exists=True tracked=False
+    the satisfiability verdict                                       tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                                 tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                        tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                          tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                         tools/b303_pins.py                 exists=True tracked=True
+    15337 bytes sealed                                               tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                                tools/b339_extract.py              exists=True tracked=False
+    the hook                                                         tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                                       tools/mirror_verify.py             exists=True tracked=True
+    the fitter                                                       tools/b322_ladder.py               exists=True tracked=True
+    the record's weil and Tr                                         tools/b320_run.py                  exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the row, the block and the index row included):
+    b339_the_exponent_resolved.txt       sentences=142   graded-hedges=0   ungraded-shapes=16
+    b339_registration_2026-09-06.txt     sentences=267   graded-hedges=0   ungraded-shapes=29
+    b339_price_run.txt                   sentences=57    graded-hedges=0   ungraded-shapes=1
+    b339_limit_run.txt                   sentences=39    graded-hedges=0   ungraded-shapes=4
+    b339_ledger_run.txt                  sentences=7     graded-hedges=0   ungraded-shapes=0
+    b339_ledger_rerun.txt                sentences=7     graded-hedges=0   ungraded-shapes=0
+    b339_corr_run.txt                    sentences=16    graded-hedges=0   ungraded-shapes=3
+    b339_corr_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=2
+    b339_index_run.txt                   sentences=27    graded-hedges=0   ungraded-shapes=5
+    b339_index_rerun.txt                 sentences=30    graded-hedges=0   ungraded-shapes=5
+    b339_census.txt                      sentences=30    graded-hedges=0   ungraded-shapes=6
+    b339_faces_census.txt                sentences=17    graded-hedges=0   ungraded-shapes=2
+    b339_regspec_run.txt                 sentences=22    graded-hedges=0   ungraded-shapes=2
+    audit_b339_reg_satisfiable.txt       sentences=74    graded-hedges=0   ungraded-shapes=3
+    b339_pins_stepzero.txt               sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b339_index_query.txt           sentences=113   graded-hedges=0   ungraded-shapes=17
+    b339_reg_gate.txt                    sentences=7     graded-hedges=0   ungraded-shapes=2
+    b339_extract.py                      sentences=136   graded-hedges=0   ungraded-shapes=13
+    b339_regspec.py                      sentences=90    graded-hedges=0   ungraded-shapes=6
+    b339_price.py                        sentences=141   graded-hedges=0   ungraded-shapes=6
+    b339_limit.py                        sentences=98    graded-hedges=0   ungraded-shapes=10
+    b339_ledger.py                       sentences=83    graded-hedges=0   ungraded-shapes=7
+    b339_correspondence.py               sentences=125   graded-hedges=0   ungraded-shapes=10
+    b339_index_append.py                 sentences=137   graded-hedges=0   ungraded-shapes=9
+    row 187                              sentences=17    graded-hedges=0   ungraded-shapes=4
+    the ledger block                     sentences=20    graded-hedges=0   ungraded-shapes=7
+    the index row                        sentences=20    graded-hedges=0   ungraded-shapes=1
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

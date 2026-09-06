@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'exponent-resolved': ['the exponent resolved', 'the exponent question', 'the exponent\'s ratio', 'the exponent priced', 'the price of the exponent',
+                          'the resolving-power rule', 'the remainder\'s convention', 'was the exponent resolved', 'unaffordable', 'the exponent unaffordable',
+                          'the two exponent candidates', 'the sealed ceiling', 'the price banked'],
     'stated-clause-arc-fold': ['the fold b331 to b334', 'the fold of b331', 'the sortie fold', 'the stated-clause arc', 'the stated clause arc',
                                'what did the stated-clause arc find', 'the wave\'s candidate list', 'the candidate list', 'the candidate list restated',
                                'the housekeeping\'s state', 'the desk after b337', 'the fold of the sortie'],
@@ -520,6 +523,18 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE EXPONENT PRICED (b339, leg 1 of the sortie b339-b343).
+    ("exponent-resolved", "b339 (a pricing act under b322's sealed rule; no frame built)",
+     "THE EXPONENT PRICED: the domain the remainder instrument needs to split the two exponent candidates (rho ** +0.5, the source's; rho ** -0.5,"
+     " the corpus's) priced at every covered cell from b320's domain ladder and b321's separation -- the identity residual fitted by b322's fit_power,"
+     " the split criterion R <= s/2, the price X_req = 128 (R(128)/(s/2))^(1/p) -- against a ceiling X = 512 sealed before the price: a = 1.3: X_req 2358 (ratio 18.42); a = 1.35: X_req 1451 (ratio 11.33); a = 1.41: X_req 812 (ratio 6.34)."
+     " UNAFFORDABLE AT THE SEALED CEILING AT EVERY COVERED CELL; THE PRICE BANKED; NO FRAME BUILT; NO REMAINDER EVALUATED AT A NEW DOMAIN. The side"
+     " reading on the same five frames puts the margin's limit above both candidates at every cell, so the price is an under-estimate and the floor is"
+     " what the next pricing must price.",
+     "### A PRICE IS NOT A PREDICTION. ### NO CANDIDATE PREFERRED. ### THE QUESTION STAYS UNDER-RESOLVED, NOT OPEN, BY b322's RULE. ### NO BAR MOVED."
+     " ### THE ERRATUM E-2026-09-03-1 UNTOUCHED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b339_the_exponent_resolved.txt; data/b339_price_run.txt; data/b339_price.json; data/b339_limit_run.txt; data/b339_registration_2026-09-06.txt"
+     " (sealed before the price); FACES_LEDGER.md (the b339 update, rows F2 and S1/K6); CORRESPONDENCE.md row 187"),
     # ### THE STATED-CLAUSE ARC, b331-b334 -- THE FOLD (b338, leg 3 of the sortie b335-b338).
     ("stated-clause-arc-fold", "b338 (a filings act: the fold of four acts, purely additive)",
      "THE FOLD, b331 THROUGH b334: one section appended to FINDINGS.md (+114 lines, 3116 -> 3230) by a committed generator --"
