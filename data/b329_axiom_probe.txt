@@ -1,0 +1,99 @@
+====================================================================================================
+b329 -- THE AXIOM PROBE. ### WHICH TACTICS AND WHICH CORE LEMMAS CARRY AXIOMS, MEASURED.
+====================================================================================================
+  probe file        : b329_axiom_probe.lean
+  exit code / stderr bytes : 0 / 0
+  prints            : 85  (axiom-free 49 ; carrying axioms 36)
+
+  ### THE PRINTS, VERBATIM:
+      't_omega' depends on axioms: [propext, Quot.sound]
+      't_acrfl' depends on axioms: [propext, Quot.sound]
+      't_simp' depends on axioms: [propext]
+      't_rwiff' depends on axioms: [propext]
+      't_bycases_dvd' depends on axioms: [propext]
+      't_obtain' does not depend on any axioms
+      't_strong' does not depend on any axioms
+      't_rw' does not depend on any axioms
+      't_rcases' does not depend on any axioms
+      't_decide' does not depend on any axioms
+      't_cases_deceq' does not depend on any axioms
+      'Nat.Coprime.pow_right' depends on axioms: [propext, Quot.sound]
+      'Nat.Coprime.dvd_of_dvd_mul_left' depends on axioms: [propext, Quot.sound]
+      'Nat.Coprime.symm' depends on axioms: [propext, Quot.sound]
+      'Nat.coprime_iff_gcd_eq_one' does not depend on any axioms
+      'Nat.gcd_dvd_left' depends on axioms: [propext, Quot.sound]
+      'Nat.gcd_dvd_right' depends on axioms: [propext, Quot.sound]
+      'Nat.dvd_trans' depends on axioms: [propext]
+      'Nat.dvd_sub' depends on axioms: [propext]
+      'Nat.dvd_mul_left' does not depend on any axioms
+      'Nat.eq_one_of_dvd_one' depends on axioms: [propext]
+      'Nat.mod_eq_zero_of_dvd' depends on axioms: [propext]
+      'Nat.dvd_of_mod_eq_zero' depends on axioms: [propext]
+      'Nat.sub_one_mul' depends on axioms: [propext]
+      'Nat.sub_mod_eq_zero_of_mod_eq' depends on axioms: [propext]
+      'Nat.mod_eq_of_lt' depends on axioms: [propext]
+      'Nat.eq_zero_of_dvd_of_lt' depends on axioms: [propext]
+      'Nat.mul_mod_mod' depends on axioms: [propext]
+      'Nat.mul_assoc' depends on axioms: [propext]
+      'Nat.mul_sub' depends on axioms: [propext]
+      'Nat.mul_sub_one' depends on axioms: [propext]
+      'Nat.div_add_mod' depends on axioms: [propext]
+      'Nat.mod_mod_of_dvd' depends on axioms: [propext]
+      'Nat.pow_dvd_pow' depends on axioms: [propext]
+      'Nat.dvd_refl' depends on axioms: [propext]
+      'Nat.add_mul' depends on axioms: [propext]
+      'Nat.pow_add' depends on axioms: [propext]
+      'Nat.pow_mul' depends on axioms: [propext]
+      'Nat.add_left_cancel' depends on axioms: [propext]
+      'Nat.add_right_cancel' depends on axioms: [propext]
+      'Nat.succ_ne_zero' depends on axioms: [propext]
+      'List.all_eq_true' depends on axioms: [propext, Quot.sound]
+      'Bool.and_eq_true' depends on axioms: [propext]
+      'Nat.dvd_iff_mod_eq_zero' depends on axioms: [propext]
+      'Nat.pow_pos' does not depend on any axioms
+      'Nat.zero_mod' does not depend on any axioms
+      'Nat.one_mul' does not depend on any axioms
+      'Nat.pow_succ' does not depend on any axioms
+      'Nat.pow_zero' does not depend on any axioms
+      'Nat.mul_one' does not depend on any axioms
+      'Nat.mul_zero' does not depend on any axioms
+      'Nat.zero_mul' does not depend on any axioms
+      'Nat.mul_succ' does not depend on any axioms
+      'Nat.succ_mul' does not depend on any axioms
+      'Nat.mul_add' does not depend on any axioms
+      'Nat.mul_comm' does not depend on any axioms
+      'Nat.add_comm' does not depend on any axioms
+      'Nat.add_assoc' does not depend on any axioms
+      'Nat.add_zero' does not depend on any axioms
+      'Nat.add_succ' does not depend on any axioms
+      'Nat.add_right_comm' does not depend on any axioms
+      'Nat.two_mul' does not depend on any axioms
+      'Nat.eq_of_mul_eq_mul_right' does not depend on any axioms
+      'Nat.pow_le_pow_right' does not depend on any axioms
+      'Nat.mul_le_mul_right' does not depend on any axioms
+      'Nat.lt_of_not_le' does not depend on any axioms
+      'Nat.pos_of_ne_zero' does not depend on any axioms
+      'Nat.lt_of_lt_of_le' does not depend on any axioms
+      'Nat.le_trans' does not depend on any axioms
+      'Nat.lt_irrefl' does not depend on any axioms
+      'Nat.le_antisymm' does not depend on any axioms
+      'Nat.zero_le' does not depend on any axioms
+      'Nat.le_refl' does not depend on any axioms
+      'Nat.le_succ_of_le' does not depend on any axioms
+      'Nat.le_of_lt_succ' does not depend on any axioms
+      'Nat.eq_or_lt_of_le' does not depend on any axioms
+      'Nat.lt_or_ge' does not depend on any axioms
+      'Nat.lt_add_of_pos_right' does not depend on any axioms
+      'Nat.le_add_left' does not depend on any axioms
+      'Nat.eq_zero_of_add_eq_zero_right' does not depend on any axioms
+      'Nat.decEq' does not depend on any axioms
+      'Nat.succ.inj' does not depend on any axioms
+      'Nat.strongRecOn' does not depend on any axioms
+      'List.Mem' does not depend on any axioms
+      'congrArg' does not depend on any axioms
+
+  ### TACTICS CARRYING AXIOMS : 5  -- t_omega, t_acrfl, t_simp, t_rwiff, t_bycases_dvd
+  ### CORE LEMMAS CARRYING AXIOMS : 31
+  ### THE CONSEQUENCE: the general theorems of FiniteSideSeal.lean are stated as equations with
+  ### witnesses and proved from the axiom-free names in section (3) plus helpers proved by induction.
+====================================================================================================

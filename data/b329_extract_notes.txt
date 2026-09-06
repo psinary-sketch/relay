@@ -1,0 +1,171 @@
+====================================================================================================
+b329_extract.py -- THE FINITE-SIDE SEAL. ### EVERY QUOTATION AT ITS EMITTING FILE, WITH ITS LINE.
+====================================================================================================
+### ==== b309 -- the mechanism in one sentence, first half
+###      <relay>/data/b309_the_scaling_trace.txt | fragment 'THE SCALING MAP HAS NO FIXED POINT OFF THE BALL,' | 1 hit(s)
+    | line 183   ### ### ### **THE MECHANISM IN ONE SENTENCE: ### THE SCALING MAP HAS NO FIXED POINT OFF THE BALL,
+
+### ==== ### its second half: p^j - 1 invertible
+###      <relay>/data/b309_the_scaling_trace.txt | fragment 'BECAUSE `p^j - 1` IS INVERTIBLE' | 1 hit(s)
+    | line 184   ### ### ### IN EITHER CONGRUENCE, BECAUSE `p^j - 1` IS INVERTIBLE -- AND THE ONLY FIXED POINT IT HAS
+
+### ==== ### its third half: the only fixed point is where the object vanishes
+###      <relay>/data/b309_the_scaling_trace.txt | fragment 'IS THE ONE PLACE THE OBJECT IS REQUIRED TO VANISH.' | 1 hit(s)
+    | line 185   ### ### ### IS THE ONE PLACE THE OBJECT IS REQUIRED TO VANISH.**
+
+### ==== b310 -- the fixed-point sentence, first line
+###      <relay>/data/b310_the_smear_collapses.txt | fragment 'IS A SIGNED COUNT OF THE OFF-BALL POINTS `t` FIXES, IN THE TWO' | 2 hit(s)
+    | line 101   ### ### **`Tr(theta(t) Pi)` IS A SIGNED COUNT OF THE OFF-BALL POINTS `t` FIXES, IN THE TWO
+    | line 127   ### ### ### **`Tr(theta(t) Pi)` IS A SIGNED COUNT OF THE OFF-BALL POINTS `t` FIXES, IN THE TWO
+
+### ==== ### its second line, with the Haar factor
+###      <relay>/data/b310_the_smear_collapses.txt | fragment "CONGRUENCES THE OBJECT'S TWO CONDITIONS IMPOSE, WEIGHTED BY THE EMBEDDING'S HAAR FACTOR." | 1 hit(s)
+    | line 102   ### ### CONGRUENCES THE OBJECT'S TWO CONDITIONS IMPOSE, WEIGHTED BY THE EMBEDDING'S HAAR FACTOR.**
+
+### ==== ### b304 and b309 are one statement
+###      <relay>/data/b310_the_smear_collapses.txt | fragment 'THOSE ARE ONE STATEMENT, AND THIS IS IT:' | 1 hit(s)
+    | line 126   ### its mechanism `p^j - 1` being a unit. ### **THOSE ARE ONE STATEMENT, AND THIS IS IT:**
+
+### ==== ### the identity value
+###      <relay>/data/b310_the_smear_collapses.txt | fragment 'at `t = 1` every off-ball point is fixed and the count is `(p^n - 1)^2`;' | 1 hit(s)
+    | line 129   ###   ### at `t = 1` every off-ball point is fixed and the count is `(p^n - 1)^2`;
+
+### ==== b304 -- the smeared object unfolded
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'Tr(theta(f) Pi) = SUM_t f(t) Tr(theta(t) Pi)' | 1 hit(s)
+    | line 343   ### ### **THE SMEARED OBJECT, UNFOLDED:** ### `Tr(theta(f) Pi) = SUM_t f(t) Tr(theta(t) Pi)`, and
+
+### ==== ### the averaged sum is the projection onto the invariants
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'SUM_{t in U} theta(t) = |U| * Q' | 1 hit(s)
+    | line 412   ### `SUM_{t in U} theta(t) = |U| * Q` with `Q` the projection onto the `U`-invariants (the averaged
+
+### ==== ### the orbits are the valuation shells
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'VALUATION SHELLS' | 1 hit(s)
+    | line 414   ### of `m -> t m` are the ### VALUATION SHELLS ### , so the invariants are spanned by shell
+
+### ==== ### a shell at or above the level lies in the ball
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'WHERE EVERY `Son` VECTOR VANISHES' | 1 hit(s)
+    | line 417   ###   ### a shell with `j >= n` lies inside the ball, ### **WHERE EVERY `Son` VECTOR VANISHES**;
+
+### ==== ### a shell below the level is a union of fibers
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'each zero by the transform condition.' | 1 hit(s)
+    | line 419   ###     `Son` vector over it is a sum of ### FIBER SUMS ### , each zero by the transform condition.
+
+### ==== ### both limbs checked at every cell
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'BOTH LIMBS CHECKED AT EVERY CELL' | 1 hit(s)
+    | line 420   ### ### **BOTH LIMBS CHECKED AT EVERY CELL** -- orthogonality to every shell, and the union-of-
+
+### ==== ### the zero at all six cells
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'THE SMEARED VALUE EXACTLY 0 AT ALL SIX' | 1 hit(s)
+    | line 784   ### 64, 16, 36 against the owner's law at every cell; ### **THE SMEARED VALUE EXACTLY 0 AT ALL SIX**,
+
+### ==== ### b304's own refusal: the traces are not all zero
+###      <relay>/data/b304_the_demands_shape.txt | fragment 'AND THOSE TRACES ARE NOT ALL ZERO' | 1 hit(s)
+    | line 432   ### `SUM_t f(t) Tr(theta(t) Pi)`, AND THOSE TRACES ARE NOT ALL ZERO**, so the object is not
+
+### ==== B309 module -- the cells
+###      <side>/Core/ScalingTraceShadow.lean | fragment 'def cells : List (Nat × Nat) := [(2, 1), (2, 2), (3, 1), (3, 2), (5, 1), (7, 1), (2, 3)]' | 1 hit(s)
+    | line 55    def cells : List (Nat × Nat) := [(2, 1), (2, 2), (3, 1), (3, 2), (5, 1), (7, 1), (2, 3)]
+
+### ==== ### the grid
+###      <side>/Core/ScalingTraceShadow.lean | fragment 'def gridN (p n : Nat) : Nat := p ^ (2 * n)' | 1 hit(s)
+    | line 58    def gridN (p n : Nat) : Nat := p ^ (2 * n)
+
+### ==== ### the ball
+###      <side>/Core/ScalingTraceShadow.lean | fragment 'def ballQ (p n : Nat) : Nat := p ^ n' | 1 hit(s)
+    | line 61    def ballQ (p n : Nat) : Nat := p ^ n
+
+### ==== ### the per-cell theorem it decides
+###      <side>/Core/ScalingTraceShadow.lean | fragment 'theorem no_offball_fixed_point_of_scaling' | 1 hit(s)
+    | line 147   theorem no_offball_fixed_point_of_scaling :
+
+### ==== ### its header: the general law uncompiled
+###      <side>/Core/ScalingTraceShadow.lean | fragment "general law is the bank's derivation and is uncompiled" | 1 hit(s)
+    | line 25    general law is the bank's derivation and is uncompiled, exactly as the finite
+
+### ==== B310 module -- the signed count
+###      <side>/Core/SmearCollapseShadow.lean | fragment 'def offBallFixed (p n t m : Nat) : Nat :=' | 1 hit(s)
+    | line 67    def offBallFixed (p n t m : Nat) : Nat :=
+
+### ==== ### the identity theorem
+###      <side>/Core/SmearCollapseShadow.lean | fragment 'theorem signed_count_at_the_identity_is_the_dimension' | 1 hit(s)
+    | line 79    theorem signed_count_at_the_identity_is_the_dimension :
+
+### ==== ### the collapse theorem
+###      <side>/Core/SmearCollapseShadow.lean | fragment 'theorem identity_term_survives_alone' | 1 hit(s)
+    | line 99    theorem identity_term_survives_alone :
+
+### ==== B270 module -- the polarity idiom
+###      <side>/Core/BallAbsorptionShadow.lean | fragment 'def hasLiveStep (p n k : Nat) : Bool :=' | 1 hit(s)
+    | line 75    def hasLiveStep (p n k : Nat) : Bool :=
+
+### ==== ### and why it exists: a dead operator
+###      <side>/Core/BallAbsorptionShadow.lean | fragment 'THIS PART, PART (1) WOULD BE COMPATIBLE WITH A DEAD OPERATOR' | 1 hit(s)
+    | line 35    THIS PART, PART (1) WOULD BE COMPATIBLE WITH A DEAD OPERATOR and would settle
+
+### ==== AllPrints.lean -- the last import
+###      <side>/AllPrints.lean | fragment 'import TopLevelSilenceShadow' | 1 hit(s)
+    | line 111   import TopLevelSilenceShadow
+
+### ==== ### the last print
+###      <side>/AllPrints.lean | fragment '#print axioms TopLevelSilenceShadow.only_the_candidate_count_is_zero' | 1 hit(s)
+    | line 680   #print axioms TopLevelSilenceShadow.only_the_candidate_count_is_zero
+
+### ==== the toolchain pin
+###      <side>/lean-toolchain | fragment 'v4.29.1' | 1 hit(s)
+    | line 1     leanprover/lean4:v4.29.1
+
+### ==== the repo's build sentence
+###      <side>/README.md | fragment 'compiles each module standalone' | 1 hit(s)
+    | line 39    Core: `lean` at the pinned toolchain compiles each module standalone (sibling imports via
+
+### ==== b315 -- the coverage gate is supposed to fail
+###      <relay>/tools/b315_coverage_gate.py | fragment 'IT IS SUPPOSED TO FAIL' | 3 hit(s)
+    | line 2     """b315_coverage_gate.py -- THE KERNEL-COVERAGE GATE. ### **IT IS SUPPOSED TO FAIL.**
+    | line 74    print('b315_coverage_gate.py -- THE KERNEL-COVERAGE GATE. ### **IT IS SUPPOSED TO FAIL.**')
+
+### ==== b310 registration -- the refusal that travels with a build
+###      <relay>/data/b310_registration_2026-09-03.txt | fragment 'IT CERTIFIES ARITHMETIC AND NOT' | 1 hit(s)
+    | line 222   ### ### ### **AND THE REFUSAL THAT TRAVELS WITH ANYTHING BUILT: ### IT CERTIFIES ARITHMETIC AND NOT
+
+### ==== CORRESPONDENCE row 130
+###      <side>/CORRESPONDENCE.md | fragment '| 130 | THE SCALING TRACE, COMPUTED (b309)' | 1 hit(s)
+    | line 203   | 130 | THE SCALING TRACE, COMPUTED (b309): `Tr(theta(p^k) Pi)` for `k != 0` — the compression of the SCALING part of the local multiplicative group against the projection onto the object's own space. **b304 COMPUTED THE COMPACT PART AND REFUSED THIS ONE** — *this file computes the `Z_p^x` part exactly and refuses the `p^Z` part* — because in the model `theta(p^k)` folds. b308 built the frame where it does not fold and named this computation without performing it. **THE FIRST THING THE ACT ESTABLISHES IS THAT THE T
+
+### ==== ### row 131
+###      <side>/CORRESPONDENCE.md | fragment '| 131 | THE MECHANISM: NO OFF-BALL FIXED POINT (b309)' | 1 hit(s)
+    | line 204   | 131 | THE MECHANISM: NO OFF-BALL FIXED POINT (b309): **TWO REGIMES, TWO MECHANISMS.** ABOVE THE LEVEL (`abs(k) >= n`) the object's support and its image's are DISJOINT — the object vanishes on the ball, so its support sits at absolute values `p^1 .. p^n` and the image's at `p^(1+k) .. p^(n+k)` — and **the compression is the ZERO OPERATOR**, measured. BELOW IT (`1 <= abs(k) <= n−1`) **THE SUPPORTS GENUINELY MEET AND THE TRACE IS STILL ZERO**, and the reason is arithmetic: against the projector's closed form the tr
+
+### ==== ### row 132
+###      <side>/CORRESPONDENCE.md | fragment '| 132 | THE SMEAR COLLAPSES (b310)' | 1 hit(s)
+    | line 205   | 132 | THE SMEAR COLLAPSES (b310): the source's own construction — *"one can associate to a test function `f in C_c^infinity(R*_+)` the trace `Tr(theta(f) S)`"* — assembled on the b308 instrument. **AT A FINITE PLACE THE SCALING PART OF `Q_p^x` IS `p^Z`, WHICH IS DISCRETE**, so the source's integral over it is a SUM over the powers of the prime with the test function evaluated at those powers: `T(w) = SUM over k of w_k Tr(theta(p^k) Pi)`. The weight is SYMBOLIC — no bump is chosen, so no class question arises and 
+
+### ==== ### row 133
+###      <side>/CORRESPONDENCE.md | fragment '| 133 | THE FIXED-POINT SENTENCE, AND ITS BEARING (b310)' | 1 hit(s)
+    | line 206   | 133 | THE FIXED-POINT SENTENCE, AND ITS BEARING (b310): b304 computed the COMPACT part of the local multiplicative group and found its smear over the units zero; b309 computed the SCALING part and found it zero at every nonzero power. **THOSE ARE ONE STATEMENT: `Tr(theta(t) Pi)` IS A SIGNED COUNT OF THE OFF-BALL POINTS `t` FIXES, IN THE TWO CONGRUENCES THE OBJECT'S TWO CONDITIONS IMPOSE, WEIGHTED BY THE EMBEDDING'S HAAR FACTOR.** At `t = 1` every off-ball point is fixed and the count is `(p^n − 1)^2`; at `t = p^k
+
+### ==== ### the last row before this act
+###      <side>/CORRESPONDENCE.md | fragment '| 169 | THE NEGATIVE CONTROL UNDER THE DISCRIMINATING FAMILY' | 1 hit(s)
+    | line 242   | 169 | THE NEGATIVE CONTROL UNDER THE DISCRIMINATING FAMILY: SEES IT (b328): the places sides computed with NO ZERO (b326's channels, imported: the pole term, the archimedean channels by two routes, zeta's prime sum by two routes, the Epstein finite side with Lambda_Q by two routes), every sign through the noise-floor gate at du and du/4; the closure with every located zero (146 on the line, 17 off it; zeta's 10000 ordinates) as corroboration, the off-line terms reported separately. THE CELLS: E20: Q - -4.748e-04,
+
+### ==== the faces ledger's fixed-point-silence row
+###      <papers>/FACES_LEDGER.md | fragment '| F5 | F5 -- the fixed-point silence' | 1 hit(s)
+    | line 24    | F5 | F5 -- the fixed-point silence: at a finite place the source's construction on the object's space returns the test function at the identity times a dimension and carries no arithmetic; the scaling map's only fixed point is where the object vanishes | the third's instrument at a finite place -- and the mechanism *"does not type at the archimedean place"* (the fold of b307–b313) | INTERNAL -- relay `data/b309_the_scaling_trace.txt`, `data/b310_the_smear_collapses.txt`, `data/b311_the_identitys_neighbourhood.txt
+
+### ==== lore_rules -- the last mechanized entry's close
+###      <relay>/tools/lore_rules.py | fragment "discharged='b328')," | 1 hit(s)
+    | line 98    discharged='b328'),
+
+### ==== ### the fixture list's last line
+###      <relay>/tools/lore_rules.py | fragment "('phase condition (b326/b328)', _fixture_phase_condition)]:" | 1 hit(s)
+    | line 287   ('phase condition (b326/b328)', _fixture_phase_condition)]:
+
+### ==== b328 named this act next
+###      <relay>/data/b328_the_discriminating_family.txt | fragment 'THE FINITE-SIDE SEALING MODULE IS NAMED NEXT BY THE ORDER' | 1 hit(s)
+    | line 312   ### ### **THE FINITE-SIDE SEALING MODULE IS NAMED NEXT BY THE ORDER**, the kernel act; ### **THEN THE
+
+### ==== b327 named it too
+###      <relay>/data/b327_the_faces_ledger.txt | fragment 'THEN THE FINITE-SIDE SEALING MODULE' | 1 hit(s)
+    | line 331   ### ### **THEN THE FINITE-SIDE SEALING MODULE**, the kernel act; ### **THEN THE TECHNE EXTRACTION.**
+
+  ### ### **PATHS MISSING : 0 ; QUOTATIONS NOT FOUND : 0**
+====================================================================================================

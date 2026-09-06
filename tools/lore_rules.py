@@ -96,6 +96,17 @@ MECHANIZED = [
               'negative, 30 deg positive; the odd part the other way round); the sine-aimed even seed '
               'measured at 89 degrees and the cosine-aimed odd seed at 0.',
          discharged='b328'),
+    dict(rule='General and per-cell are stated in the module header, never averaged: a kernel module '
+              'that mixes decided cells with general theorems carries both scope words as separate '
+              'statements in its own header, and its rows and ledger updates say which is which.',
+         incident='b329 -- the finite-side seal: the decomposition and the scaling part GENERAL, the '
+                  'compact part PER CELL, in one module (FiniteSideSeal.lean); b309\'s own header had '
+                  'called its general law uncompiled, and b329 compiled it without letting the per-cell '
+                  'arm borrow the word -- and found that the audit bar (zero axioms) forbids the '
+                  'library\'s divisibility lemmas, so the general theorems are equations with witnesses.',
+         tool='b329_header_gate.check -- fires on a header carrying one scope word only or an averaging '
+              'phrase; quiet on FiniteSideSeal.lean\'s header; both polarities in its fixtures().',
+         discharged='b329'),
 ]
 
 # ### ==========================================================================================
@@ -256,6 +267,14 @@ def _fixture_phase_condition():
     return (a and c), (b and d)
 
 
+def _fixture_header_scope():
+    """### BOTH POLARITIES: a header with one scope word and an averaging phrase makes the gate FIRE;
+    ### FiniteSideSeal.lean's own header leaves it QUIET."""
+    sys.path.insert(0, os.path.join(ROOT, 'tools'))
+    import b329_header_gate
+    return b329_header_gate.fixtures()
+
+
 def self_test(verbose=True):
     out = []
 
@@ -284,7 +303,8 @@ def self_test(verbose=True):
                      ('noise floor, drift arm (b272)', _fixture_noise_floor),
                      ('hedge audit, both shapes (b279)', _fixture_hedge),
                      ('scope-bound constant (b325/b326)', _fixture_scope_bound),
-                     ('phase condition (b326/b328)', _fixture_phase_condition)]:
+                     ('phase condition (b326/b328)', _fixture_phase_condition),
+                     ('header scope, general vs per-cell (b329)', _fixture_header_scope)]:
         a, b = fn()
         ok = a and b
         if not ok:

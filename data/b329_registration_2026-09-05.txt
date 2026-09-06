@@ -1,0 +1,329 @@
+====================================================================================================
+b329 -- REGISTRATION. ### THE FINITE-SIDE SEAL.
+2026-09-05. ### CONCURRENCY: SOLO (research seat; every read through the extract-to-disk step).
+### ### **SEALED BEFORE THE BANK, BEFORE THE MODULE EXISTS, AND BEFORE ANY BUILD RUNS.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (0) WHAT THIS FILE IS.
+----------------------------------------------------------------------------------------------------
+### ### **A KERNEL BUILD INSIDE THE EXISTING KERNEL'S CORE, IN THE PLACES-CATALOGUE PATTERN.** ###
+### One vanilla-Lean module, imported by the certification file in the same commit, whose theorems
+### are banked derivations and nothing else: b309's mechanism (the scaling map has no fixed point off
+### the ball because `p^j - 1` is invertible), b310's fixed-point sentence (the trace is a signed
+### count of the off-ball points the map fixes, in the two congruences the object's two conditions
+### impose), and b304's zero for the compact part (the compressed smear over the units vanishes by
+### orthogonality to the valuation shells). ### **NO NEW MATHEMATICS.** ### Every theorem cites the act
+### that derived it in its own docstring. ### **AND THE GENERAL AND THE PER-CELL ARE KEPT APART IN THE
+### MODULE'S OWN HEADER, NEVER AVERAGED** -- that sentence is the act's lore entry and its first gate.
+
+----------------------------------------------------------------------------------------------------
+### (1) STEP ZERO, DONE BEFORE THIS FILE EXISTS.
+----------------------------------------------------------------------------------------------------
+### ### **(i) THE FERRY SCAN** ### -- `data/b329_ferry_scan.txt`: 3 struck entries, 10 patterns, 0
+### UNCONFIRMED skipped, self-test PASS, ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **(ii) BOTH CENSUSES, EACH WITH ITS SCOPE** ### -- `b329_census.txt` over HANDOFF.md and
+### `b329_faces_census.txt` over FACES_LEDGER.md, self-tests PASS, ### **TOTAL MISSING : 0 at each.**
+### ### They count NAMES and not understanding, one ledger each, and their act lists do not reach
+### this act.
+### ### **(iii) THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO.** ### `b329_pins_stepzero.txt`:
+### relay `345891b`, SIDE-global-section `50200cc`, PLACE-papers `9401e08`, each 0/0, equal True.
+### ### Two untracked files predate this act and are not its writing (relay
+### `data/b259_blob_sensitivity.txt`; PLACE-papers `internal/BLOB_SENSITIVITY_2026-08-29.md`); they
+### are left exactly as found and are not staged by this act.
+### ### **(iv) THE EXTRACT STEP** ### -- `tools/b329_extract.py` wrote `data/b329_extract_notes.txt`:
+### PATHS MISSING 0, QUOTATIONS NOT FOUND 0. ### Every quotation below is located there at its
+### emitting file and line before it is used here.
+### ### **(v) THE INDEX QUERY** ### -- `data/audit_b329_index_query.txt`; see (4).
+### ### **(vi) THE KERNEL BASELINE, RUN BEFORE THE BUILD CAP BELOW WAS WRITTEN (b309's precedent)**
+### -- `tools/b329_kernel.py --baseline` wrote `data/b329_kernel_baseline.txt`: the banked profile
+### on disk is 566 prints, 566 zero-axiom, 0 otherwise, 40885 bytes; IDENTICAL to the blob at HEAD
+### (normalised); no BOM; the certification file 680 lines, 108 imports, 566 prints; the regeneration
+### from the UNCHANGED certification file ### **BYTE-IDENTICAL TO THE BANKED PROFILE : True.** ###
+### Nothing was built and nothing was written to the kernel by that run.
+### ### **(vii) THE LIBRARY, PROBED AND NOT ASSUMED.** ### Vanilla Lean v4.29.1 (the pinned
+### toolchain) was probed for the core names the general proofs lean on, in the scratchpad and not in
+### the kernel: PRESENT `Nat.Coprime`, `Nat.Coprime.dvd_of_dvd_mul_left`, `Nat.Coprime.pow_right`,
+### `Nat.coprime_iff_gcd_eq_one`, `Nat.dvd_sub`, `Nat.sub_mod_eq_zero_of_mod_eq`, `Nat.mul_sub`,
+### `Nat.mul_sub_one`, `Nat.eq_zero_of_dvd_of_lt`, `Nat.pow_pos`, `Nat.pow_le_pow_right`,
+### `Nat.pow_lt_pow_iff_right`, `Nat.pow_dvd_pow`, `Nat.eq_of_mul_eq_mul_left`, `Nat.strongRecOn`,
+### `Nat.div_add_mod`, `Nat.mod_mod_of_dvd`, `Nat.mul_mod`; ABSENT `Nat.Prime`, `Nat.ModEq`,
+### `Nat.dvd_pow`, `Nat.pos_pow_of_pos`, `Nat.dvd_sub'`. ### `decide` was seen to evaluate
+### `List.range`/`filter`/`Nat.gcd`/`Int` subtraction on literals. ### **`omega` does not decide
+### goals with a variable product in them; the general arithmetic below is therefore by rewriting
+### and the named lemmas, and `omega` where the goal is linear.**
+
+----------------------------------------------------------------------------------------------------
+### (2) WHAT THIS ACT IS, AND THE THREE THINGS IT IS MOST AT RISK OF BEING READ AS.
+----------------------------------------------------------------------------------------------------
+### ### **A KERNEL BUILD OF BANKED DERIVATIONS. ### NO GRADE MOVES. ### NO ACT IS RE-VERDICTED. ###
+### ### NOTHING DEPOSITS. ### `M-2` IS OWED. ### NOTHING ABOUT `h2` BEYOND THE REGISTER SENTENCE
+### ### EXACT.**
+### ### ### **AND THE THREE MISREADINGS, NAMED BEFORE THE BUILD SO NONE CAN PASS QUIETLY:**
+###   ### **(A) IT IS NOT A GENERAL PROOF OF THE COMPACT PART'S SILENCE.** ### The compact part is
+###     decided AT THE BANKED CELLS, as exact arithmetic over explicit lists. ### b304's derivation of
+###     that zero is general in `p` and `n`, but it runs through the projection onto the
+###     unit-invariants of the object's own space -- linear algebra over a cyclotomic field -- and
+###     that is not something vanilla Lean decides. ### **THE MODULE'S HEADER SAYS PER-CELL AND SAYS
+###     WHY.** ### A general proof of the integer identity the cells decide would be NEW MATHEMATICS
+###     and is forbidden at (3).
+###   ### **(B) IT IS NOT A STATEMENT ABOUT THE ARCHIMEDEAN PLACE.** ### There the multiplicative
+###     group is continuous, the scaling part is not a set of powers of a prime, and none of this
+###     applies. ### b285's boundary stands; b310's (9) stands.
+###   ### **(C) IT IS NOT A CLAIM THAT THE FINITE SIDE CONTRIBUTES NOTHING, AND NOT A VERDICT ON
+###     `M-2`.** ### It is a statement about what the source's construction returns AT A FINITE PLACE,
+###     ON THIS OBJECT, IN THIS MODEL (the grid `Z/p^{2n}`, the ball `p^n Z/p^{2n}`, the object's two
+###     conditions). ### A distribution is not a trace on a space, and saying one trace is silent is
+###     not saying the place is.
+
+----------------------------------------------------------------------------------------------------
+### (3) SCOPE, AND WHAT IS FORBIDDEN.
+----------------------------------------------------------------------------------------------------
+ · ### ### **VANILLA LEAN.** ### No imports in the module. ### `theorem`, never `lemma`. ### `by omega`
+   preferred where the arithmetic is linear. ### **ZERO-AXIOM TARGET AT THE AUDIT BAR: every terminal
+   prints `does not depend on any axioms`.** ### No `native_decide`. ### No `sorry`. ### No `axiom`.
+ · ### ### **NO NEW MATHEMATICS.** ### Every statement compiled is a banked derivation, cited by act
+   in its docstring. ### A statement that resists proof in vanilla Lean is DECLARED NOT MET and left
+   out; it is not sorried and it is not weakened silently.
+ · ### ### **NO CLAIM BEYOND THE FINITE PLACES, THE OBJECT AS DEFINED, AND THE PAIRING OF THE SHAPE
+   THE ACTS PAIR.** ### The model's definitions are restated in this module's namespace (no imports),
+   and the restatement is checked against the emitting modules' text at the extract step: `gridN`,
+   `ballQ` and `cells` as B309 has them; `offBallFixed` as B310 has it.
+ · ### ### **THE GENERAL AND THE PER-CELL ARE STATED IN THE MODULE HEADER, NEVER AVERAGED.** ### Each
+   theorem's docstring says which it is; the correspondence rows say which it is; the faces ledger's
+   update says which it is, part by part.
+ · ### ### **A CLAIMED COMPILE IS REPORTED ONLY FROM ITS PRINTED PROFILE.** ### Every kernel number
+   from `tools/b329_kernel.py`, which imports b302's byte checks and never copies them.
+ · ### ### **THE CERTIFICATION FILE IS EDITED APPEND-ONLY:** ### the import after the last import, the
+   prints at the END, so the banked profile is a TRUE BYTE PREFIX of the new one (b310's check).
+ · ### **NO DEPOSITED TEXT, NO OWNER INSTRUMENT, NO SEALED FILE, NO ANCESTOR ROW, NO MIRROR ROSTER
+   ROW, NO HANDOFF.md LINE IS EDITED.** ### The faces ledger is written only through
+   `tools/b327_faces_row.py`'s `append_block`; the rows above the update are never rewritten.
+ · ### **EXACT ARITHMETIC IN EVERY VERDICT. ### ZERO FLOAT LITERALS ANYWHERE IN THIS ACT.**
+ · ### **EVERY REPORTED NUMBER FROM A COMMITTED TOOL WITH FIXTURES.** ### No shell-typed number in the
+   bank (G-TOOLNUM).
+ · ### **NEEDLES PULLED FROM EMITTING FILES; THE SUITE'S OWNER NEEDLES COME FROM THE EXTRACT FILE.**
+ · ### **THE STEM SWEEP AT ITS EXTENDED SCOPE** over every file written; the hedge audit over every
+   file written; must-fail fixtures assert whole-line equality.
+ · ### ### **THE SUITE IS RE-RUN AFTER THE PUSH AND ITS RESULT REPORTED EITHER WAY** (b309: a gate
+   passed before its commit and failed after it, on autocrlf).
+ · ### **NO AGGREGATION IS STATED. ### NOTHING ABOUT THE IDENTITY, ABOUT `h2` BEYOND THE REGISTER
+   SENTENCE EXACT, ABOUT THE ROSTER, OR ABOUT TOTALITY.**
+
+----------------------------------------------------------------------------------------------------
+### (4) THE INDEX QUERY, RUN BEFORE ANY COMPONENT (b160, b185).
+----------------------------------------------------------------------------------------------------
+### `data/audit_b329_index_query.txt`. ### **`finite-side-seal` : NO KEY. ### `the finite-side
+### seal` : NO KEY.** ### `the fixed-point silence` reaches `faces-ledger` (b327's two rows); `the
+### fixed-point sentence` reaches `fixed-point-silence` (b310: "a derivation, and a bearing that is
+### never a decision"); `the scaling trace` reaches `scaling-trace` (b309: "a computation, and its
+### value is zero; not an obstruction theorem"). ### `no off-ball fixed point`, `the smear
+### collapses`, `the compact part`, `exhaustiveness`, `the places catalogue`, `the unit
+### decomposition` : NO KEY each. ### **NOTHING IN THE INDEX CLAIMS A COMPILED GENERAL STATEMENT OF
+### THE FINITE SIDE'S SILENCE; b309's own module header says its general law is uncompiled.** ###
+### This act's key `finite-side-seal` is appended at the close, with its generality in the row.
+
+----------------------------------------------------------------------------------------------------
+### (5) BOTH SEATS' EXPECTATIONS. ### **NO COUNTS PREDICTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, AS THE ORDER'S FOOT STATES IT:** ### *after this act the finite side's
+### silence is one compiled statement with its generality honest in its own header, sitting in the
+### certification file beside the places catalogue's seal.*
+
+### ### ### **THIS SEAT'S, WRITTEN BEFORE THE MODULE EXISTS. ### THE THEOREMS ARE THE BARS, EACH WITH
+### ### ### ITS GENERALITY; A BAR NOT MET IS DECLARED, NOT EDITED, NOT SORRIED.** ### Names are the
+### module's intended names; the mathematics, not the spelling, is what is sealed. ### Throughout,
+### `N = p^{2n}` is the grid, `q = p^n` the ball's modulus, an INDEX is `t` with `0 < t < N`, the BALL
+### is `{ t : q divides t }`, and a UNIT is `u` with `p` not dividing `u`.
+
+### ### **COMPONENT 1 -- THE DECOMPOSITION, GENERAL (b304's unit-times-scaling split, b309's `p^j`).**
+###   (T1.1) `valuation_exists` : for every `p >= 2` and every `t > 0` there are `j` and `u` with
+###          `t = u * p^j` and `p` not dividing `u`. ### By strong induction on `t`. ### GENERAL.
+###   (T1.2) `valuation_unique` : for `p >= 2`, if `p` divides neither `u` nor `u'` and
+###          `u * p^j = u' * p^j'`, then `j = j'` and `u = u'`. ### GENERAL.
+###   (T1.3) `exponent_below_level` : for `p >= 2`, `u > 0`, `u * p^j < p^L` gives `j < L`. ### GENERAL.
+###   (T1.4) `unit_of_not_dvd` : for a prime `p` (defined in the module: `2 <= p` and every divisor is
+###          `1` or `p`), `p` not dividing `u` gives `u` coprime to every `p^k`. ### GENERAL. ### This
+###          is where primality is used and the only place.
+###   (T1.5) `index_decomposes` : for a prime `p`, every index `0 < t < p^L` is `u * p^j` with `j < L`
+###          and `u` coprime to `p^L`. ### GENERAL. ### **THE EXHAUSTIVENESS STATEMENT'S FOUNDATION,
+###          AND THE MODULE SAYS SO.**
+###   (T1.6) `action_factors` : if `t = u * p^j` then multiplication by `t` modulo `M` is
+###          multiplication by `u` after multiplication by `p^j`, modulo `M`. ### GENERAL.
+###   ### **REFUTABLE BY A STATEMENT ABOVE THAT DOES NOT COMPILE WITHOUT AN AXIOM, OR AT ALL.**
+
+### ### **COMPONENT 2 -- THE SCALING PART'S SILENCE, GENERAL (b309's mechanism; b310's sentence).**
+###   (T2.1) `scaling_shift_coprime` : for `p >= 2` and `j > 0`, `p^j - 1` is coprime to every `p^m`.
+###          ### GENERAL. ### b309: *"BECAUSE `p^j - 1` IS INVERTIBLE"*.
+###   (T2.2) `scaling_congruence_forces_ball` : for `p >= 2`, `j > 0`, if `p^m` divides
+###          `(p^j - 1) * t` then `p^m` divides `t`. ### GENERAL.
+###   (T2.3) `scaling_fixed_point_in_ball` : for `p >= 2`, `j > 0`, if `p^j * t` and `t` agree modulo
+###          `p^m` then `p^m` divides `t`. ### GENERAL, IN EITHER CONGRUENCE (`m = 2n` the grid,
+###          `m = n` the ball) -- b309: *"IN EITHER CONGRUENCE"*.
+###   (T2.4) `scaling_fixes_nothing_off_ball` : in the model's form, for `p >= 2`, `j > 0`, an index
+###          `t < N` fixed by `t -> p^j * t mod N` lies in the ball. ### GENERAL over all primes,
+###          levels and powers. ### b309's per-cell terminal `no_offball_fixed_point_of_scaling` is
+###          the instance list; this is the law its header called uncompiled.
+###   ### **THE POLARITY CONTROLS, BESIDE IT:**
+###   (T2.5) `identity_fixes_every_index` : multiplication by `1` fixes every `t < M`. ### GENERAL.
+###   (T2.6) `unit_fixes_offball_at_cells` : at the level-two-and-above banked cells a NON-IDENTITY
+###          UNIT that fixes an OFF-BALL index exists -- `9` fixes `2` at `(2,2)`; `28` fixes `3` at
+###          `(3,2)`; `17` fixes `4` at `(2,3)`. ### DECIDED, PER CELL. ### **SO THE BALL-FORCING IS
+###          THE SCALING MAP'S AND NOT EVERY MAP'S.**
+###   (T2.7) `no_unit_fixes_offball_at_level_one` : at `(2,1)`, `(3,1)`, `(5,1)`, `(7,1)` no
+###          non-identity unit fixes any off-ball index. ### DECIDED, PER CELL. ### Both arms.
+###   ### **REFUTABLE AS ABOVE, AND BY THE DECIDED ARMS EVALUATING FALSE.**
+
+### ### **COMPONENT 3 -- THE COMPACT PART'S SILENCE, PER CELL (b304's zero; b310's form of it).**
+###   ### The definitions: `cells = [(2,1),(2,2),(3,1),(3,2),(5,1),(7,1),(2,3)]` (B309/B310's list);
+###   `offBallFixed p n t m` exactly as B310 has it; `units p n` the residues below `N` not divisible
+###   by `p`; the signed trace at a unit `u` in b310's form `q * A_N(u) - A_q(u)`.
+###   (T3.1) `compact_smear_vanishes_at_cells` : at every listed cell, `q * SUM_u A_N(u) = SUM_u A_q(u)`
+###          over the units -- b304's zero for the constant test function on the units, in b310's
+###          signed-count form. ### DECIDED, PER CELL. ### **b304 tabulated six cells; the seventh,
+###          `(2,3)`, is b309/b310's cell and is decided here by the same arithmetic -- a check added,
+###          not a claim added, because b304's derivation is general in `p` and `n`.**
+###   (T3.2) `identity_trace_is_the_dimension` : at every listed cell the signed trace at the identity
+###          is `q * (p^n - 1)^2` -- the NOT-DEAD witness; b310's terminal restated in this namespace.
+###          ### DECIDED, PER CELL.
+###   (T3.3) `traces_not_all_zero_off_identity` : at every listed cell some NON-IDENTITY unit has a
+###          nonzero signed trace -- b304's own refusal, *"AND THOSE TRACES ARE NOT ALL ZERO"*, so the
+###          object is not identically dead and the zero is the constant function's. ### DECIDED.
+###   ### **THE UNAVAILABLE ARM, STATED IN THE HEADER AND NOT MANUFACTURED:** ### the opposite
+###   polarity -- a cell at which the constant smear over the units SURVIVES -- cannot be exhibited,
+###   because b304's derivation forbids it at every `p` and `n`. ### **NO CONTROL CAN EXIST THERE, AND
+###   THE MODULE SAYS SO IN WORDS RATHER THAN PRETENDING A THEOREM.**
+###   ### **WHY PER-CELL, IN THE HEADER:** ### the general zero is orthogonality of the object's space
+###   to the shell indicators, linear algebra over a cyclotomic field; not vanilla-decidable; and a
+###   general proof of the integer identity in (T3.1) would be new mathematics, forbidden at (3).
+###   ### **REFUTABLE BY ANY DECIDED ARM EVALUATING FALSE -- at which point the bank prints the cell
+###   and the act stops, because a false (T3.1) would contradict b304's banked table.**
+
+### ### **COMPONENT 4 -- EXHAUSTIVENESS, ONE THEOREM WITH ITS HYPOTHESES NAMING THE GENERALITY.**
+###   (T4.1) `finite_side_silence` : for a prime `p`, a level `n`, and an index `0 < t < N`:
+###          (a) `t = u * p^j` with `j < 2n` and `u` coprime to `N` -- from Component 1, GENERAL;
+###          (b) for every `j > 0`, if `p^j * t mod N = t` then `t` is in the ball -- Component 2,
+###              GENERAL;
+###          (c) if `(p, n)` is in `cells` then `q * SUM_u A_N(u) = SUM_u A_q(u)` -- Component 3, PER
+###              CELL, with the cell list as the hypothesis.
+###          ### Its docstring quotes b310's sentence from its emitting file: *"`Tr(theta(t) Pi)` IS A
+###          SIGNED COUNT OF THE OFF-BALL POINTS `t` FIXES, IN THE TWO CONGRUENCES THE OBJECT'S TWO
+###          CONDITIONS IMPOSE, WEIGHTED BY THE EMBEDDING'S HAAR FACTOR."*
+###   ### **REFUTABLE BY THE THEOREM NOT COMPILING FROM (T1.x)-(T3.x), OR BY ITS HYPOTHESES FAILING TO
+###   NAME THE CELL LIST OR THE PRIME.**
+
+### ### **COMPONENT 5 -- THE PROFILE AND THE ROWS.**
+###   ### the module imported by `AllPrints.lean` in the same commit; the profile regenerated, read,
+###   compared on raw bytes: every pre-existing print byte-identical (the banked profile a TRUE BYTE
+###   PREFIX), counts before and after printed by the tool, every added terminal zero-axiom; the
+###   coverage gate `b315_coverage_gate.py` still passing; one correspondence row per component with
+###   the generality stated in the row; the faces ledger's F5 row updated through the writer's
+###   `append_block` to ### **PROVED-GENERAL for the scaling part and PROVED-AT-CELLS for the compact
+###   part**, the row above never rewritten.
+###   ### **REFUTABLE BY THE PREFIX CHECK FAILING, BY A TERMINAL DEPENDING ON AN AXIOM, BY THE
+###   COVERAGE GATE FIRING, OR BY A ROW WITHOUT ITS GENERALITY.**
+
+### ### **AND THE RISK THIS SEAT NAMES AGAINST ITSELF:** ### the general proofs are written against a
+### library probed by name and not by proof; the first general proof attempt before this seal failed
+### on two absent names. ### **A GENERAL BAR THAT RESISTS IS DECLARED NOT MET, THE PER-CELL ARM IS NOT
+### PROMOTED TO COVER FOR IT, AND THE HEADER STATES EXACTLY WHAT COMPILED.**
+
+----------------------------------------------------------------------------------------------------
+### (6) THE FALSIFIERS AND GATES.
+----------------------------------------------------------------------------------------------------
+### (F1)  `G-BASELINE`: the regeneration from the UNCHANGED certification file reproduces the banked
+###       profile byte for byte (done at step zero; re-read by the suite from the run file).
+### (F2)  `G-PROFILE`: the banked profile is a TRUE BYTE PREFIX of the regenerated one; prints added
+###       equal the module's own terminals; every terminal `does not depend on any axioms`; no BOM.
+### (F3)  `G-VANILLA`: in the module's code with comments stripped: `import` 0, `lemma` 0,
+###       `native_decide` 0, `sorry` 0, `axiom` 0 -- measured by the kernel tool, not asserted.
+### (F4)  `G-GENERAL`: the Component 1 and 2 theorems are universally quantified over `p`, `n`, `j`,
+###       `t` as their statements above say -- checked on the source text: no cell literal in their
+###       statements.
+### (F5)  `G-CELLS`: the Component 3 theorems and the decided polarity arms range over the explicit
+###       `cells` list and name it.
+### (F6)  `G-HEADER`: the module header carries the words `GENERAL` and `PER CELL` as separate
+###       statements of scope, the `UNAVAILABLE` arm, and the sentence of what it does not certify.
+### (F7)  `G-POLARITY`: (T2.5)-(T2.7) and (T3.2)-(T3.3) present and printed zero-axiom.
+### (F8)  `G-DOCSTRING`: every theorem's docstring names an act among b304, b309, b310; (T4.1)'s
+###       docstring carries b310's sentence verbatim as pulled at the extract step.
+### (F9)  `G-COVERAGE`: `b315_coverage_gate.py` exit 0 after the build.
+### (F10) `G-ROWS`: each new correspondence row carries `GENERAL` or `PER CELL` in its statement cell,
+###       its own scope refusal, and M-2's row.
+### (F11) `G-LEDGER`: the FACES_LEDGER update block once, through the writer, naming F5, carrying
+###       `PROVED-GENERAL` for the scaling part and `PROVED-AT-CELLS` for the compact part; the blob
+###       at HEAD a TRUE PREFIX; the deposit byte-unchanged.
+### (F12) `G-ORDER`: the seal verifies; the sealed file predates the module file and every kernel
+###       run file except the baseline.
+### (F13) `G-LORE`: the lore gains *general and per-cell are stated in the module header, never
+###       averaged* with a gate that fires on a header averaging them and stays quiet on this one.
+### (F14) `G-TOOLNUM`, the hedge audit, the stem sweep over OWNED files and CARRIERS, the must-fail
+###       fixtures -- standing.
+### (F15) `G-SUITE-AFTER-PUSH`: the whole suite re-run after the push, its result reported either way.
+
+----------------------------------------------------------------------------------------------------
+### (7) THE CAPS.
+----------------------------------------------------------------------------------------------------
+###   `.lean` modules CREATED .............. ### CAP 1
+###   `.lean` files EDITED other than the new module and `AllPrints.lean` ### CAP 0
+###   `AllPrints.lean` edits ............... ### CAP 1, APPEND-ONLY (import after the last import, prints at the end)
+###   profile files rewritten .............. ### CAP 1
+###   axioms in any terminal ............... ### CAP 0
+###   `sorry` / `native_decide` / `axiom` / `lemma` / `import` in the module ### CAP 0
+###   theorems without a citing act ........ ### CAP 0
+###   new mathematics ...................... ### CAP 0
+###   PLACE-papers files written ........... ### CAP 1 (FACES_LEDGER.md, through the writer)
+###   ledger rows written other than through the writer ### CAP 0
+###   deposited texts touched .............. ### CAP 0
+###   owner instrument files edited ........ ### CAP 0
+###   ancestors' correspondence rows rewritten ### CAP 0
+###   grades moved ......................... ### CAP 0
+###   acts re-verdicted .................... ### CAP 0
+###   aggregations stated .................. ### CAP 0
+###   verdicts on `M-2` .................... ### CAP 0
+###   claims about the archimedean place ... ### CAP 0
+###   sealed files edited .................. ### CAP 0
+###   mirror roster rows changed ........... ### CAP 0
+###   HANDOFF.md edits ..................... ### CAP 0
+###   ad-hoc shell-typed numbers in the bank ### CAP 0
+###   float literals anywhere in this act .. ### CAP 0
+###   artifact counts predicted here ....... ### CAP 0 (U-1 STRUCK; measured by `b300_regspec`, imported)
+### ### **THE NON-ZERO CAPS ARE THE ORDER'S OWN BUILD CLAUSE**, and the baseline at (1)(vi) was run
+### BEFORE they were written, so a cap permits a build the tool has already shown it can stand on.
+### ### **A CAP OF ONE DOES NOT OBLIGE THE ACT TO WRITE ONE** (b301).
+
+----------------------------------------------------------------------------------------------------
+### (8) THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **THIS ACT IS THE SHADOW.** ### There is no separate candidate to test: the module is the
+### shadow of b304/b309/b310's finite-side derivations, and its own header carries what it certifies
+### and what it does not. ### **TEST ONE -- FINITE-DECIDABLE WHERE IT IS PER-CELL,** by `decide` over
+### explicit lists at named cells; ### **GENERAL WHERE THE BANKED DERIVATION IS GENERAL AND VANILLA
+### LEAN CAN CARRY IT,** by induction and the named core lemmas. ### **TEST TWO -- CARRIES ITS OWN
+### SCOPE:** the per-cell statements name the cells; the general statements quantify; the
+### exhaustiveness theorem's hypotheses name which is which. ### **THE REFUSAL THAT TRAVELS WITH IT:
+### ### IT CERTIFIES THE ARITHMETIC OF THE MODEL AND THE COUNTING FORM OF THE TRACE, NOT THE
+### ### IDENTIFICATION OF THAT COUNT WITH THE SOURCE'S TRACE** -- that identification is b310's
+### derivation, checked at b310 against b304's `trace_scaled` and b309's reduced sum, and UNCOMPILED.
+
+----------------------------------------------------------------------------------------------------
+### (9) WHAT THIS ACT IS FORBIDDEN TO CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **NOT THAT THE SOURCE'S CONSTRUCTION IS EMPTY.** ### A statement about what it returns at a
+### finite place, on this object, in this model.
+### ### **NOT THAT THE FINITE SIDE CONTRIBUTES NOTHING.** ### The arithmetic at a finite place enters
+### through the local distribution, which the corpus holds as its prime sum.
+### ### **NOT ANYTHING ABOUT THE ARCHIMEDEAN PLACE.** ### The mechanism does not type there.
+### ### **NOT A VERDICT ON `M-2`, NOT A DECISION ON b262's BRANCH, NOT A MOVED GRADE.**
+### ### **NOT A GENERAL COMPACT-PART SILENCE.** ### Per cell, and the header says so.
+### ### **`M-2` IS OWED UNDER b310's CAP (SPECIFIED-NOT-STATED). ### THE SEAM'S DEBT ITEM 1 STANDS. ###
+### ### THE PATENT CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD.
+### ### `h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE. ### NOTHING
+### ### DEPOSITS.**
+### ### **NEXT, BY THE ORDER: THE TECHNE EXTRACTION, AND THE FOLD FROM b323 ONWARD.**
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 380f2a84e9db57bc922437dff575f3cc9cfb01435e8539360365cb64d6a1cbe7
+### bytes sealed : 26542
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b329_registration_2026-09-05.txt`.**
+====================================================================================================

@@ -1,0 +1,252 @@
+====================================================================================================
+b329 -- THE FINITE-SIDE SEAL.
+2026-09-05. ### SOLO (research seat). ### Registration: `data/b329_registration_2026-09-05.txt`
+(sealed `380f2a84...`, 26542 bytes, before this bank, before the module existed, and before any build ran).
+====================================================================================================
+
+### ### ### **THE ANSWERS, FIRST.**
+### ### **THE FINITE SIDE'S SILENCE IS ONE COMPILED MODULE, `Core/FiniteSideSeal.lean`, WITH ITS
+### ### GENERALITY IN ITS OWN HEADER: GENERAL FOR THE DECOMPOSITION AND THE SCALING PART, PER CELL
+### ### FOR THE COMPACT PART, NEVER AVERAGED.** ### Twenty-four terminals, every one `does not depend
+### on any axioms`; the profile 566 -> 590 prints, the banked profile a true byte prefix of the new
+### one (`data/b329_kernel_run.txt`). ### The exhaustiveness theorem `finite_side_silence` carries
+### both scope words in its hypotheses and quotes b310's fixed-point sentence in its docstring.
+### ### **THE AXIOM FINDING, WHICH THIS SEAT DID NOT EXPECT AND WHICH CHANGED THE MODULE'S FORM:**
+### ### the core library's lemmas about `∣`, `%`, `/` and `Nat.Coprime` -- and `Nat.mul_assoc` --
+### carry `propext` (and often `Quot.sound`), as do `omega`, `simp`, `ac_rfl` and `by_cases` on
+### divisibility: 36 of 85 probed prints carry axioms, 5 tactics and 31 core lemmas
+### (`data/b329_axiom_probe.txt`). ### The audit bar is zero axioms. ### **SO THE GENERAL THEOREMS ARE
+### STATED AS EQUATIONS WITH THEIR WITNESSES AND PROVED FROM THE AXIOM-FREE PART OF CORE PLUS SIX
+### HELPERS PROVED BY INDUCTION.** ### Three registered bars are NOT MET in their registered form,
+### and said: `(D1)`-`(D3)` below. ### Nothing sorried, nothing weakened silently, no per-cell arm
+### promoted to cover for a general one.
+
+### ### **A KERNEL BUILD OF BANKED DERIVATIONS. ### NO NEW MATHEMATICS. ### NO GRADE MOVES. ### NO ACT
+### ### IS RE-VERDICTED. ### NOTHING DEPOSITS. ### `M-2` IS OWED. ### NOTHING ABOUT `h2` BEYOND THE
+### ### REGISTER SENTENCE EXACT. ### NOTHING ABOUT THE ARCHIMEDEAN PLACE.**
+
+====================================================================================================
+### STEP ZERO.
+====================================================================================================
+### ### **THE FERRY SCAN** ### -- `data/b329_ferry_scan.txt`: 3 struck entries, 10 patterns, self-test
+### PASS, ### **0 STRUCK-CLAUSE HITS, 0 STEM HITS.**
+### ### **THE LEDGER CENSUS, WITH ITS SCOPE, OVER TWO LEDGERS:** ### `data/b329_census.txt` over
+### HANDOFF.md and `data/b329_faces_census.txt` over FACES_LEDGER.md, ### **TOTAL MISSING : 0 at
+### each.** ### They count NAMES and not understanding; their act lists do not reach this act.
+### ### **THE PUSH: NOTHING WAS AHEAD OF ORIGIN IN ANY REPO** -- `data/b329_pins_stepzero.txt`: relay
+### `345891b`, SIDE-global-section `50200cc`, PLACE-papers `9401e08`, each 0/0 and equal. ### Two
+### untracked files predate this act (relay `data/b259_blob_sensitivity.txt`; PLACE-papers
+### `internal/BLOB_SENSITIVITY_2026-08-29.md`); left as found, not staged.
+### ### **THE EXTRACT STEP** ### -- `tools/b329_extract.py` -> `data/b329_extract_notes.txt`: PATHS
+### MISSING 0, QUOTATIONS NOT FOUND 0. ### Every quotation in this bank is located there.
+### ### **THE INDEX QUERY** ### -- `data/audit_b329_index_query.txt`: `finite-side-seal` NO KEY before
+### this act; `the fixed-point sentence` reaches b310's `fixed-point-silence`; `the scaling trace`
+### reaches b309's `scaling-trace`; nothing in the index claimed a compiled general statement.
+### ### **THE KERNEL BASELINE, BEFORE THE BUILD CAP WAS WRITTEN** ### -- `tools/b329_kernel.py
+### --baseline` -> `data/b329_kernel_baseline.txt`: 566 prints, 566 zero-axiom, 40885 bytes, IDENTICAL
+### to the blob at HEAD, no BOM; the regeneration from the unchanged certification file
+### ### **BYTE-IDENTICAL TO THE BANKED PROFILE : True.**
+### ### **THE REGISTRATION** ### -- 26542 bytes; term-scanned (`data/b329_reg_termscan.txt`, 0/0);
+### the count-prediction counter run on its own text (`data/b329_regspec_run.txt`, 0 found);
+### satisfiability at ### **24 CLAUSES, ALL SATISFIABLE** (`data/audit_b329_reg_satisfiable.txt`);
+### index-gated (`data/b329_reg_gate.txt`, PASS); hedge-audited (0 flagged); ### **SEALED
+### `380f2a84...` BEFORE THE MODULE EXISTED.**
+
+====================================================================================================
+### THE ORDER OF THIS ACT, KEPT.
+====================================================================================================
+### ### **THE REGISTRATION WAS SEALED BEFORE ANY BUILD OF THIS ACT RAN.** ### The only kernel
+### elaboration before the seal was the BASELINE, which builds nothing and writes nothing to the
+### kernel (b309's precedent, named in the registration at (1)(vi)). ### The library-name probes before
+### the seal were `#check` lines in the scratchpad, not builds. ### The module file was created after
+### the seal; the seal verifies on raw bytes; the gate suite measures the order by file times.
+
+====================================================================================================
+### COMPONENT 1 -- THE DECOMPOSITION, GENERAL.
+====================================================================================================
+### ### **EVERY NONZERO INDEX MODULO A POWER OF `p >= 2` IS UNIQUELY A NON-MULTIPLE OF `p` TIMES A POWER
+### ### OF `p`, WITH THE EXPONENT BELOW THE LEVEL -- COMPILED, GENERAL, ZERO AXIOMS.**
+###   `B329.valuation_exists` -- existence, by strong induction; the bounded `B329.search` decides
+###     at each step whether a factor of `p` is there, with `Nat.decEq` (axiom-free).
+###   `B329.valuation_unique` -- uniqueness of exponent and unit, by induction on the exponent.
+###   `B329.exponent_below_level` -- `u * p^j < p^L` gives `j < L`.
+###   `B329.index_decomposes` -- the exhaustiveness statement's foundation: `0 < t < p^L` is
+###     `u * p^j` with `j < L` and `p` not dividing `u`.
+###   `B329.action_factors` -- `t = u * p^j` gives `t * s = u * (p^j * s)`: the action factors
+###     through the two parts.
+### ### "`p` does not divide `u`" is `NotDiv p u := ∀ c, u ≠ p * c` -- an equation's refusal, because
+### the library's `∣` carries `propext`. ### **THE HELPERS**, each by induction: `mul_assoc'`,
+### `pow_add'`, `add_right_cancel'`, `add_left_cancel'`, `multiple_of_add_multiple`, `search`.
+### ### **(D1) THE REGISTERED (T1.4) IS NOT MET IN ITS REGISTERED FORM:** ### "`u` coprime to every
+### `p^k`" is not compiled; `Nat.Coprime.pow_right`, `Nat.gcd_dvd_left` and their kin carry
+### `propext`/`Quot.sound`. ### **CONSEQUENTLY PRIMALITY IS USED NOWHERE IN THE MODULE**, and the
+### general theorems hold for every `p >= 2` -- a stronger hypothesis-side, and the identification
+### of a non-multiple of a prime with a unit of `Z/p^k` is the library's, UNCOMPILED, and the header
+### says so. ### The registration's own risk clause foresaw this shape: *a general bar that resists
+### is declared NOT MET, the per-cell arm is not promoted to cover for it, and the header states
+### exactly what compiled.*
+
+====================================================================================================
+### COMPONENT 2 -- THE SCALING PART'S SILENCE, GENERAL, WITH ITS POLARITY CONTROLS.
+====================================================================================================
+### ### **`p^j - 1` IS INVERTIBLE MODULO EVERY `p^m`, AND THE FIXED-POINT CONGRUENCE FORCES THE INDEX
+### ### INTO THE BALL, IN EITHER CONGRUENCE -- COMPILED, GENERAL, ZERO AXIOMS.**
+###   `B329.geom_identity` -- `p^j * G(k) + 1 = G(k) + p^(jk)` for the geometric sum `G`.
+###   `B329.scaling_shift_inverse` -- for `j > 0`: `∃ S c, p^j * S + 1 = S + p^m * c`, the inverse of
+###     `p^j - 1` exhibited (b309: ### **"BECAUSE `p^j - 1` IS INVERTIBLE"**).
+###   `B329.scaling_congruence_forces_ball` -- `∃ c, p^j * t = t + p^m * c` gives `∃ d, t = p^m * d`,
+###     over every base, power and modulus.
+###   `B329.scaling_fixed_point_in_ball` -- the ball congruence's instance (`m = n`).
+###   `B329.scaling_fixes_nothing_off_ball` -- the model's form: `t < p^(2n)` fixed modulo the grid
+###     gives `t % p^n = 0` (it is zero). ### **THIS IS THE LAW B309's OWN HEADER CALLED UNCOMPILED**
+###     (*"general law is the bank's derivation and is uncompiled"*), and b309's seven-cell terminal
+###     `no_offball_fixed_point_of_scaling` is now its instance list. ### b309: ### **"THE SCALING MAP
+###     HAS NO FIXED POINT OFF THE BALL, IN EITHER CONGRUENCE."**
+### ### **THE POLARITY CONTROLS, BOTH ARMS:**
+###   `B329.identity_fixes_every_index` -- GENERAL: `1 * t = t + M * 0`.
+###   `B329.unit_fixes_offball_at_cells` -- PER CELL, decided: `9` fixes `2` at `(2,2)`, `28` fixes
+###     `3` at `(3,2)`, `17` fixes `4` at `(2,3)`; `B329.some_unit_fixes_offball_above_level_one` over
+###     the list `[(2,2),(3,2),(2,3)]`.
+###   `B329.no_unit_fixes_offball_at_level_one` -- PER CELL, THE OTHER ARM, over
+###     `[(2,1),(3,1),(5,1),(7,1)]`: no non-identity unit fixes any off-ball index.
+###   ### **SO THE BALL-FORCING IS THE SCALING MAP'S PROPERTY AND NOT EVERY MAP'S.**
+### ### **(D2) THE REGISTERED (T2.1) IS NOT MET IN ITS `Nat.Coprime` FORM**; the explicit inverse is
+### the same fact with its witness. ### **(D3) THE REGISTERED (T1.6) IS THE FACTORIZATION BEFORE
+### REDUCTION**; the reduction's commuting with multiplication is `Nat.mul_mod_mod`, which carries
+### `propext`. ### The congruences throughout are written with their witnesses
+### (`p^j * t = t + p^m * c`) rather than with `%`, for the same reason; the model's `%`-form
+### conclusion `t % p^n = 0` is reached through `Nat.zero_mod`, which is axiom-free.
+
+====================================================================================================
+### COMPONENT 3 -- THE COMPACT PART'S SILENCE, PER CELL.
+====================================================================================================
+### ### **AT EVERY BANKED CELL THE COMPRESSED SMEAR OVER THE UNITS VANISHES -- DECIDED, PER CELL, ZERO
+### ### AXIOMS, AND PER CELL IS SAID IN THE HEADER WITH ITS REASON.**
+###   `B329.compact_smear_vanishes_at_cells` -- over `cells = [(2,1),(2,2),(3,1),(3,2),(5,1),(7,1),(2,3)]`
+###     and no other: `q * SUM_u A_N(u) = SUM_u A_q(u)`, b304's zero for the constant test function on
+###     the units in b310's signed-count form. ### b304: ### **"THE SMEARED VALUE EXACTLY 0 AT ALL
+###     SIX"**; the seventh cell is b309/b310's, decided by the same arithmetic -- ### **A CHECK ADDED,
+###     NOT A CLAIM ADDED**, because b304's derivation is general in `p` and `n`.
+###   `B329.identity_trace_is_the_dimension` -- THE NOT-DEAD WITNESS: the signed count at the identity
+###     is `q * (p^n - 1)^2`, b310's terminal restated (b310: ### **"at `t = 1` every off-ball point is
+###     fixed and the count is `(p^n - 1)^2`"**).
+###   `B329.traces_not_all_zero_off_identity` -- b304's own refusal, decided: at every listed cell
+###     some non-identity unit has a NONZERO signed trace (b304: ### **"AND THOSE TRACES ARE NOT ALL
+###     ZERO"**), so the object is not identically dead and the zero is the constant function's alone.
+### ### **THE UNAVAILABLE ARM, STATED IN THE HEADER AND NOT MANUFACTURED:** ### a cell at which the
+### constant smear over the units SURVIVES cannot be exhibited, because b304's derivation forbids it
+### at every `p` and `n`. ### **NO CONTROL CAN EXIST THERE, AND THE MODULE SAYS SO IN WORDS RATHER
+### THAN PRETENDING A THEOREM.**
+### ### **WHY PER CELL (the header's own words):** the general zero is orthogonality of the object's
+### space to the valuation shells -- linear algebra over a cyclotomic field, not vanilla-decidable --
+### and a general proof of the integer identity decided here would be new mathematics, forbidden to
+### this act. ### `decide` at the largest cell `(3,2)` needed `maxRecDepth` raised; the raise is a
+### `set_option ... in` on two theorems and adds no axiom.
+### ### **THE SEAM, NAMED:** the general part's `NotDiv p u` and the decided part's `u % p != 0` are
+### the same condition by the library's `Nat.dvd_iff_mod_eq_zero`, which carries `propext` and is NOT
+### compiled; the header says so.
+
+====================================================================================================
+### COMPONENT 4 -- EXHAUSTIVENESS, ONE THEOREM, HYPOTHESES NAMING THE GENERALITY.
+====================================================================================================
+### ### `B329.finite_side_silence` -- for `p >= 2`, a level `n`, an index `0 < t < p^(2n)`:
+###   (a) GENERAL -- `t = u * p^j` with `j < 2n` and `NotDiv p u` (Component 1);
+###   (b) GENERAL -- for every `j > 0`, a fixed point of `t -> p^j t` modulo the grid, with its
+###       witness, is in the ball (Component 2);
+###   (c) PER CELL -- `(p, n) ∈ cells` gives `q * SUM_u A_N(u) = SUM_u A_q(u)` (Component 3), the cell
+###       list as the hypothesis, each cell decided after the membership is split.
+### ### Its docstring quotes b310 from its emitting act: ### **"`Tr(theta(t) Pi)` IS A SIGNED COUNT OF
+### THE OFF-BALL POINTS `t` FIXES, IN THE TWO CONGRUENCES THE OBJECT'S TWO CONDITIONS IMPOSE,
+### WEIGHTED BY THE EMBEDDING'S HAAR FACTOR."** ### **THE COUNTING FORM IS WHAT IS COMPILED; THE
+### IDENTIFICATION OF THAT COUNT WITH THE SOURCE'S TRACE IS b310's DERIVATION AND IS NOT.**
+
+====================================================================================================
+### COMPONENT 5 -- THE PROFILE AND THE ROWS.
+====================================================================================================
+### ### **THE PROFILE** ### -- `data/b329_kernel_run.txt`: the baseline re-run byte-identical; the
+### module alone 24 terminals, 24 zero-axiom, 0 otherwise; `import`, `lemma`, `native_decide`,
+### `sorry`, `axiom` each 0 in its code with comments stripped; the import written after the last
+### import and the 24 prints at the END of `AllPrints.lean` by the tool; the profile regenerated,
+### ### **566 -> 590 PRINTS, 566 -> 590 ZERO-AXIOM, 0 -> 0 OTHERWISE, 40885 -> 42320 BYTES, THE
+### BANKED PROFILE A TRUE BYTE PREFIX OF THE NEW ONE : True**, no BOM, read back byte-wise.
+### ### **THE COVERAGE GATE** ### -- `data/b329_coverage_gate.txt`: modules with a print target and not
+### imported 0; print targets not in the profile 0; exit 0.
+### ### **THE ROWS** ### -- `data/b329_corr_run2.txt`: rows 170-174, one per component, every theorem
+### named with its scope word read from its own docstring; the ferry's "for each theorem" carried
+### inside its component's row; each row carries GENERAL or PER CELL in its statement cell, its own
+### scope refusal, and M-2's row. ### The idempotent re-run wrote nothing (`b329_corr_rerun.txt`).
+### ### **THE LEDGER** ### -- `data/b329_filings_run.txt`: the F5 update block through the writer's
+### `append_block`, ### **PROVED-GENERAL (the scaling part) / PROVED-AT-CELLS (the compact part)**,
+### with the UNAVAILABLE arm named; append-only against the working file and the blob; the deposit
+### byte-unchanged; the re-run a DUPLICATE, nothing written.
+### ### **THE INDEX** ### -- `data/b329_index_run.txt`: the key `finite-side-seal`, two rows, eight
+### aliases reaching it; `a general compact-part silence` and `the archimedean silence` NO KEY before
+### and after; 0 stem hits after the write; the re-run wrote nothing.
+### ### **THE LORE** ### -- `data/b329_lore_run.txt`: *general and per-cell are stated in the module
+### header, never averaged*, with `tools/b329_header_gate.py` as its gate, both polarities (fires on
+### an averaging header, quiet on this module's); the lore's self-test exit 0; the re-run wrote nothing.
+
+====================================================================================================
+### THE AXIOM FINDING, AND WHAT THE SEAT DID WITH IT.
+====================================================================================================
+### ### **THE FIRST DRAFT OF THE MODULE COMPILED, AND ITS GENERAL THEOREMS PRINTED `[propext,
+### ### Quot.sound]`.** ### That draft used `omega`, `simp`, `ac_rfl`, `rw` with an `iff`, `by_cases`
+### on `∣`, and the library's `Nat.Coprime`, `∣` and `%` lemmas. ### **NO PROFILE WAS WRITTEN FROM
+### IT.** ### The probe (`tools/b329_axiom_probe.py` -> `data/b329_axiom_probe.txt`) measured which
+### tactics and which core names carry axioms: 85 prints, 49 axiom-free, 36 carrying; the tactics
+### `omega`, `ac_rfl`, `simp`, `rw` with an iff, `by_cases` on divisibility; among the lemmas
+### `Nat.mul_assoc`, `Nat.dvd_refl`, `Nat.mod_eq_of_lt`, `Nat.add_right_cancel`, `Nat.succ_ne_zero`,
+### `List.all_eq_true`, every `Nat.Coprime` and `Nat.gcd` lemma probed. ### **THE MODULE WAS REWRITTEN
+### IN EQUATIONAL FORM AND COMPILED ZERO-AXIOM ON ITS FIRST ATTEMPT IN THAT FORM.** ### The deviations
+### `(D1)`-`(D3)` are the whole of what changed in the statements; the header carries them.
+
+====================================================================================================
+### THE SEAT'S OWN DEFECTS, DECLARED.
+====================================================================================================
+###   (E1) The first module draft placed `set_option maxRecDepth ... in` between a docstring and its
+###        theorem, a parse error; the option was moved before the docstring.
+###   (E2) The row tool's first docstring regex ran past a `-/` and swallowed a definition's docstring
+###        together with a section comment ahead of `mul_assoc'`, so one theorem read as scope `?`
+###        and the tool REFUSED to write (`data/b329_corr_run.txt`, kept); the regex was narrowed and
+###        the rows written on the second run (`b329_corr_run2.txt`).
+###   (E3) The index tool ran in the same batch as that refused row run, so its location cell named
+###        `rows 170-174` BEFORE those rows existed; the numbers turned out to be the ones written,
+###        but the order was wrong and is declared.
+###   (E4) The kernel tool's (D) arm was not idempotent as first written (it required the added
+###        prints to equal the module's terminals on every run); repaired to require zero added
+###        prints and a byte-identical profile on the already-imported path. ### The re-run BEFORE
+###        the commit then REFUSED on the tool's own precondition -- the working profile differs
+###        from HEAD until the commit carries it (`data/b329_kernel_run2.txt`, kept) -- so the
+###        idempotent re-run is the post-commit one, and the suite reads the latest run file.
+###   (E6) Two docstrings (`geom_identity`, `scaling_fixed_point_in_ball`) cited no act on the
+###        suite's first run; both now cite b309, and the module was recompiled alone through the
+###        tool's `--module` path with the profile unchanged.
+###   (E5) The registration's (T1.4), (T1.6), (T2.1) were written in library vocabulary the audit
+###        bar could not carry -- the risk clause foresaw the shape, not the cause. ### `(D1)`-`(D3)`.
+
+====================================================================================================
+### WHAT THIS ACT DOES NOT SAY.
+====================================================================================================
+### ### **IT DOES NOT SAY THE COMPACT PART'S SILENCE IS PROVED IN GENERAL.** ### Per cell, seven cells,
+### and the header says so with its reason.
+### ### **IT DOES NOT SAY THE SOURCE'S TRACE IS COMPILED.** ### The counting form is; the
+### identification is b310's derivation, uncompiled.
+### ### **IT DOES NOT SAY THE FINITE SIDE CONTRIBUTES NOTHING.** ### A distribution is not a trace on
+### a space.
+### ### **IT DOES NOT SAY ANYTHING ABOUT THE ARCHIMEDEAN PLACE.** ### b285's boundary stands.
+### ### **IT DOES NOT SAY A UNIT IS A UNIT.** ### `NotDiv p u` is what is compiled; that it is a unit of
+### `Z/p^k` for prime `p` is the library's, uncompiled.
+### ### **IT DOES NOT RE-VERDICT b304, b309 OR b310.** ### It compiles what they derived, at the scope
+### each derived it.
+
+====================================================================================================
+### THE STANDING ROWS.
+====================================================================================================
+### ### **`M-2` REMAINS OWED UNDER b310's CAP (SPECIFIED-NOT-STATED); NO AGGREGATION IS STATED.**
+### ### **THE SEAM'S DEBT ITEM 1 IS RESTATED AND STILL UNPAID.**
+### ### **THE PATENT CLOCK IS CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD.**
+### ### **`h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE.**
+### ### **NOTHING DEPOSITS.**
+### ### **THE SHADOW: THIS ACT IS THE SHADOW.** ### Its header carries what it certifies and what it
+### does not; nothing beyond the header was expected, and nothing beyond it appeared.
+### ### **NEXT, BY THE ORDER: THE TECHNE EXTRACTION, THEN THE FOLD FROM b323 ONWARD.**

@@ -1,0 +1,27 @@
+====================================================================================================
+b315_coverage_gate.py -- THE KERNEL-COVERAGE GATE. ### **IT IS SUPPOSED TO FAIL.**
+====================================================================================================
+  ### THE GATE'S OWN FIXTURES, RUN BEFORE IT READS THE KERNEL : [True, True, True, True, True]  PASS
+  ### **ARM (ii) IS THE ONE THAT MATTERS: THE GATE MUST BE ABLE TO PASS.** ### A gate
+  ### that cannot come back clean is not reporting a defect, it is reporting itself.
+
+  Core modules on disk                         : 110
+  Core modules carrying a `#print axioms` target: 52
+  modules the certification file imports        : 109
+  ### modules OUTSIDE the certification file    : 1
+  ### **MODULES WITH A PRINT TARGET AND NOT IMPORTED : 0**
+  ### **PRINT TARGETS NOT IN THE PROFILE            : 0**
+
+  ### THE TWO COUNTS ARE DIFFERENT AND BOTH ARE PRINTED:
+    outside but carrying NO target of its own : ['M4EnvelopeShadow']
+    ### -- its terminals are printed by a separate checker, which is itself outside.
+
+  ### THE MODULES THE GATE SEES:
+
+  ### GATE PASSES -- every module carrying a print target is imported.
+  ### ### **WHAT THE GATE CANNOT DO, IN ITS OWN OUTPUT SO IT IS NOT TRUSTED BEYOND IT:**
+  ### it cannot tell whether a terminal is WORTH certifying. ### It compares two sets of
+  ### names. ### **A TERMINAL THAT ELABORATES WITH ZERO AXIOMS IS NOT THEREBY A
+  ### TERMINAL WORTH CERTIFYING**, and that judgement is the author's, not a set
+  ### difference's.
+====================================================================================================

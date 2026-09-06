@@ -1,0 +1,26 @@
+====================================================================================================
+b329 -- THE FINITE-SIDE SEAL. ### THE BUILD AND ITS PROFILE. ### EVERY NUMBER FROM THIS FILE.
+====================================================================================================
+
+  SELF-TEST (the byte checks, imported from b302_kernel and re-run here):
+  fixture                                                    got/exp      agree
+  the print counter separates zero-axiom from other          True/True    YES
+  the print counter ignores blank lines                      True/True    YES
+  the BOM test fires on a real BOM                           True/True    YES
+  the BOM test stays quiet on clean bytes                    False/False  YES
+  a true prefix is recognised                                True/True    YES
+  a BOM-differing pair is NOT a byte prefix                  False/False  YES
+  CRLF normalises to LF                                      True/True    YES
+
+----------------------------------------------------------------------------------------------------
+  THE STATE BEFORE ANYTHING IS CHANGED.
+----------------------------------------------------------------------------------------------------
+  banked profile on disk   : 590 prints, 590 zero-axiom, 0 otherwise, 42320 bytes
+  banked profile at HEAD   : ### DIFFERS FROM DISK ###   ### compared NORMALISED (b309 D6)
+  raw bytes on disk / at HEAD : 42320 / 40885   ### they differ by line endings alone
+  BOM on the banked file   : False   ### read from RAW bytes
+  AllPrints lines / imports / prints : 705 / 109 / 590
+  AllPrints imports FiniteSideSeal   : True
+  AllPrints prints B329.*     : 24
+  module file present      : True
+  ### HARD FAILURE -- the working tree profile already differs from HEAD.

@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'finite-side-seal': ['finite-side seal', 'the finite-side seal', 'finite side seal', 'the finite-side sealing module',
+                         'FiniteSideSeal', 'the exhaustiveness theorem', 'the unit decomposition', 'the scaling shift inverse',
+                         'general and per-cell', 'the axiom finding', 'the compact part per cell', 'the scaling part general'],
     'discriminating-family': ['discriminating family', 'the discriminating family', 'the phase condition',
                               'the four-term sum', 'the off-line quadruple', 'the sine-aimed seed',
                               'the odd seed', 'the quadruple sum', 'forty-five degrees', 'the phase threshold',
@@ -487,6 +490,39 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FINITE-SIDE SEAL -- THE MODULE AND ITS TWO SCOPES (b329).
+    ("finite-side-seal", "b329 (a kernel build of banked derivations)",
+     "Core/FiniteSideSeal.lean (B329), vanilla Lean, no imports, no native_decide, no sorry: GENERAL over every"
+     " base p >= 2, level, power and index -- the decomposition of a nonzero index as a non-multiple of p times a"
+     " power of p with the exponent below the level (existence, uniqueness), the action factoring through the two"
+     " parts, p^j - 1 invertible modulo every p^m with the inverse exhibited, the fixed-point congruence forcing"
+     " the index into the ball in either congruence (b309's law, compiled). PER CELL, decided over the seven banked"
+     " cells and no other -- the compressed smear over the units vanishes (b304's zero in b310's signed-count"
+     " form), the not-dead witness, b304's refusal, the polarity controls. ONE exhaustiveness theorem whose"
+     " hypotheses name which is which. ### The profile 566 -> 590 prints, all zero-axiom, the banked"
+     " profile a true byte prefix",
+     "### GENERAL FOR THE SCALING PART, PER CELL FOR THE COMPACT PART -- STATED IN THE MODULE HEADER AND NEVER"
+     " AVERAGED. ### Faces ledger F5: PROVED-GENERAL (scaling) / PROVED-AT-CELLS (compact). ### What is compiled"
+     " is the model's arithmetic and the counting form of the trace; the identification with the source's trace"
+     " is b310's derivation, uncompiled. ### NOTHING ABOUT THE ARCHIMEDEAN PLACE. ### NO GRADE MOVED. ### M-2"
+     " UNCHANGED",
+     "D:/SIDE-global-section/Core/FiniteSideSeal.lean; AXIOM_PRINTS.txt (B329.*); data/b329_kernel_run.txt;"
+     " data/b329_the_finite_side_seal.txt; data/b329_registration_2026-09-05.txt (sealed before any build);"
+     " CORRESPONDENCE.md rows 170-174; FACES_LEDGER.md (the b329 update)"),
+    # ### THE FINITE-SIDE SEAL -- THE AXIOM FINDING AND THE THREE BARS NOT MET IN THEIR REGISTERED FORM (b329).
+    ("finite-side-seal", "b329 (a measurement on the toolchain; three declared deviations)",
+     "the core library's lemmas about divisibility, modulus and Nat.Coprime -- and Nat.mul_assoc -- carry"
+     " propext (and often Quot.sound), as do omega, simp, ac_rfl and by_cases on divisibility; the audit bar is"
+     " zero axioms, so the general theorems are stated as equations with witnesses (NotDiv p u := forall c,"
+     " u != p * c; the congruence p^j t = t + p^m c; the ball t = p^m d) and proved from the axiom-free part of"
+     " core plus helpers proved by induction. ### THREE REGISTERED BARS NOT MET IN THEIR REGISTERED FORM, SAID:"
+     " (T1.4) the coprimality form of 'unit' (primality used nowhere in the module); (T1.6) the factorization"
+     " before reduction; (T2.1) the explicit inverse rather than Nat.Coprime",
+     "### NOTHING SORRIED, NOTHING WEAKENED SILENTLY; the first draft's general proofs printed [propext,"
+     " Quot.sound] and were rewritten BEFORE any profile was written. ### The per-cell arm was not promoted to"
+     " cover for a general bar. ### NO GRADE MOVED",
+     "data/b329_axiom_probe.txt; data/b329_axiom_probe.lean; tools/b329_axiom_probe.py;"
+     " data/b329_the_finite_side_seal.txt (the deviations); CORRESPONDENCE.md row 174"),
     # ### THE DISCRIMINATING FAMILY -- THE CONDITION AND THE SEEDS (b328).
     ("discriminating-family", "b328 (a derivation from the pinned source; a construction)",
      "for f = g * g^7 the four-term sum at an off-line quadruple {rho, conj rho, 1 - rho, 1 - conj rho} is"
