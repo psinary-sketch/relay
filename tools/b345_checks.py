@@ -467,19 +467,40 @@ def main():
         fails.append('G-NOEDIT')
 
     print(chr(10) + '  G-ORDER (the seal verifies; the registration sealed before the instrument ran; the audit as it stands):')
-    raw = open(REG, 'rb').read()
-    body = raw.split(('=' * 100 + chr(10) + '### THE REGISTRATION SEAL').encode())[0]
-    h = hashlib.sha256(body).hexdigest()
-    o1 = (h == SEAL) and (SEAL in raw.decode('utf-8', 'replace'))
-    stampm = re.search(r'### sealed at \(UTC\) : (\S+)', raw.decode('utf-8', 'replace'))
+    # ### THE SEAL IS VERIFIED BY ITS OWNING TOOL, NOT BY A SECOND DIGEST WRITTEN HERE. ### An earlier shape hashed
+    # ### the file's RAW BYTES and reported the seal broken on a clean tree: `core.autocrlf` gives the working file
+    # ### CRLF after any checkout while the blob stays LF (b309's species), and the push is a checkout. ### The tool
+    # ### reads in text mode and is the only thing entitled to say whether its own seal holds.
+    vr = subprocess.run([sys.executable, t('reg_seal.py'), '--verify', REG], capture_output=True, text=True,
+                        encoding='utf-8', errors='replace')
+    text_reg = io.open(REG, encoding='utf-8', errors='replace').read()
+    o1 = ('SEAL INTACT' in (vr.stdout or '')) and (SEAL in text_reg)
+    body_h = hashlib.sha256(norm(text_reg).split('=' * 100 + chr(10) + '### THE REGISTRATION SEAL')[0].encode('utf-8')).hexdigest()
+    o1 = o1 and (body_h == SEAL)
+    stampm = re.search(r'### sealed at \(UTC\) : (\S+)', text_reg)
     o2 = stampm is not None
-    o3 = os.path.getmtime(CRUN) > os.path.getmtime(REG)
     sat = io.open(SATIS, encoding='utf-8').read()
     o4 = 'JOINTLY SATISFIABLE' in sat
-    go = o1 and o2 and o3 and o4
+    # ### THE ORDERING ARM, AND WHY IT IS SHAPED THIS WAY. ### File times carry the ordering only until a checkout
+    # ### rewrites them, and the push does exactly that -- b344's `G-NOEDIT` met the same wall on its own tool. ### So
+    # ### this arm MEASURES whether file times still carry it, and where they do not it requires the bank's
+    # ### DECLARATION rather than reporting a pass it cannot support. ### **b344's REPAIR PUT A CLOCK IN THE SEAL
+    # ### BLOCK; IT PUT NO CLOCK IN A RUN FILE, SO THE ORDERING BETWEEN A SEAL AND A COMPONENT IS STILL NOT
+    # ### RECOVERABLE AFTER A CHECKOUT.** ### Declared as this act's (E4).
+    span = max(os.path.getmtime(x) for x in (REG, CRUN)) - min(os.path.getmtime(x) for x in (REG, CRUN))
+    times_carry = span > 60.0
+    o3 = (os.path.getmtime(CRUN) > os.path.getmtime(REG)) if times_carry else None
+    o3ok = bool(o3) if times_carry else ('(E4) THE ORDERING IS NOT RECOVERABLE FROM FILE TIMES AFTER A CHECKOUT' in bank)
+    go = o1 and o2 and o3ok and o4
     print('    the seal recomputes to the banked hash : %s ; the seal block carries its own clock (%s) : %s'
           % (o1, stampm.group(1) if stampm else 'none', o2))
-    print('    the instrument\'s run file is younger than the sealed registration : %s ; the audit reads JOINTLY SATISFIABLE : %s' % (o3, o4))
+    print('    file times still carry the ordering (spread %.1f s) : %s' % (span, times_carry))
+    if times_carry:
+        print("    the instrument's run file is younger than the sealed registration : %s" % o3)
+    else:
+        print('    ### THE CHECKOUT REWROTE EVERY MTIME, SO FILE TIMES CARRY NO ORDERING HERE.')
+        print('    ### the bank declares it as (E4) rather than reporting a pass it cannot support : %s' % o3ok)
+    print('    the audit reads JOINTLY SATISFIABLE : %s' % o4)
     print('    %s' % ('PASS' if go else '### FAIL ###'))
     if not go:
         fails.append('G-ORDER')
@@ -489,8 +510,14 @@ def main():
     gh = os.path.exists(hookp) and os.path.exists(mirrorp)
     if gh:
         ht, mt = io.open(hookp, encoding='utf-8', errors='replace').read(), io.open(mirrorp, encoding='utf-8', errors='replace').read()
-        gh = ('REFUSED' not in ht.upper() or 'refuses' in ht) and 'MIRROR' in mt.upper()
-        print('    hook record present : True ; mirror record present : True')
+        # ### the arm reads the records' OWN VERDICT LINES. ### An earlier shape grepped the hook record for
+        # ### 'REFUSED' and fired on the hook's own discrimination fixture, which prints REFUSED because it MUST --
+        # ### the b277 species, an inverted fixture that refuses a check which should have passed.
+        h_ok = '### REPOS FAILING : 0' in ht and 'BYTE-IDENTICAL TO THE TRACKED SOURCE : True' in ht
+        m_ok = 'VERDICT: CLEAN ON ALL THREE CLAUSES' in mt
+        gh = h_ok and m_ok
+        print('    hook: 0 repos failing and all three byte-identical to the tracked source : %s' % h_ok)
+        print('    mirror: clean on all three clauses (archive, pin, roster) : %s' % m_ok)
     else:
         print('    ### the hook and the mirror records are NOT YET WRITTEN (they are written at the push).')
     if not gh:
@@ -519,7 +546,7 @@ def main():
                    all(r['I_A'] in bank and r['lamA'] in bank for r in tab)))
     rn = re.search(r'row to append : (\d+)', io.open(CORR, encoding='utf-8').read()).group(1)
     checks.append(('row %s' % rn, rn == ROWNUM and ('`%s`' % rn) in bank))
-    sm = re.search(r'### bytes sealed : (\d+)', raw.decode('utf-8', 'replace')).group(1)
+    sm = re.search(r'### bytes sealed : (\d+)', text_reg).group(1)
     checks.append(('%s bytes sealed' % sm, ('%s bytes' % sm) in bank))
     cl = re.search(r'clauses\s*:\s*(\d+)', sat).group(1)
     checks.append(('%s clauses' % cl, ('%s clauses' % cl) in bank))
