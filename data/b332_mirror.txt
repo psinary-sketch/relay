@@ -1,0 +1,44 @@
+==============================================================================
+MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
+  archive: D:/MY-DOwnloads/mirror-refresh-2026-09-06b332.zip
+==============================================================================
+
+--- CLAUSE 1: THE ARCHIVE AGAINST ITS OWN MANIFEST ---
+  files in archive (excl MANIFEST) : 41
+  rows parsed from MANIFEST        : 41
+  md5 / byte mismatches            : 0
+  CLAUSE 1 : CLEAN
+
+--- CLAUSE 2: THE BUILD'S SOURCE HEAD AGAINST ls-remote ---
+  manifest declares source HEAD    : a041657
+  ls-remote origin/main              : a0416574fe537301fa8e1f09fc412cf7da2c1cdc
+  CLAUSE 2 : CLEAN -- they agree
+
+--- CLAUSE 3: THE ARCHIVE'S CONTENTS AGAINST THE ROSTER ---
+  roster entries (source paths) : 41
+  archive files (excl MANIFEST) : 41
+  in roster, MISSING from archive : 0
+  in archive, NOT in roster       : 0
+  CLAUSE 3 : CLEAN -- archive and roster agree, name for name
+
+=== AUDIT SIDECAR (emitted; do not retype) ===
+  tool      : mirror_verify
+  act       : b332
+  run at    : 2026-09-06T09:32:53 (local)
+  input     : mirror-refresh-2026-09-06b332.zip
+  files     : 41
+  rows      : 41
+  mismatch  : 0
+  declared  : a041657
+  ls-remote : a0416574fe53
+  VERDICT   : CLEAN ON ALL THREE CLAUSES
+  self-hash : sha256/32 751820bf89d3b87c67a2b873f93d541e
+=== END AUDIT SIDECAR ===
+
+  sidecar written: D:\relay\data\audit_b332_mirror_verify.txt
+
+  ### VERDICT: CLEAN ON ALL THREE CLAUSES
+  ### NO CLAUSE ALONE IS THE VERIFICATION; THE LAW REQUIRES ALL THREE.
+  ### clause 1 is the archive against ITSELF, clause 2 is the pin, and
+  ### clause 3 is the archive against the ROSTER -- ### THE ONLY ONE OF THE
+  ### THREE THAT CAN SEE A FILE THAT NEVER ENTERED THE STAGING DIRECTORY.
