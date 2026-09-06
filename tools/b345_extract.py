@@ -74,6 +74,14 @@ WANTED = [
     ('the ledger -- the bridge row L1', LEDGER, '| L1 | L1 -- the Li-to-Weil bridge: the Li coefficients as the Weil functional on the Li test family'),
     ("b327 -- one distribution on two families", d('b327_the_faces_ledger.txt'), '### ### ### **ONE DISTRIBUTION ON TWO FAMILIES, NOT ONE FUNCTIONAL.**'),
     ('### the family lies outside the class', d('b327_the_faces_ledger.txt'), 'function whose inverse Mellin transform has no compact support, so the Li family lies outside'),
+    # ### ---- b344's printed figures for the two axes it did NOT move, which this act's closing files as priceable
+    ('b344 -- the two held axes, printed at every rung', d('b344_the_floor_priced.txt'), "### later act can price them without re-running this one: the cut's `tau = 1.0e-06` in force, with `2`"),
+    ('### the eigenvalues either side, and the smallest kept', d('b344_the_floor_priced.txt'), "### of the sandwich's eigenvalues inside a decade either side of it at every rung, the smallest kept"),
+    ('### one axis moved is one axis moved', d('b344_the_floor_priced.txt'), '### **ONE AXIS MOVED IS ONE AXIS MOVED: NOTHING IS CONCLUDED ABOUT THE TWO HELD, AND THE FLOOR IS NOT'),
+    ("### b344's own ladder tool, which printed them", t('b344_ny.py'), 'def held_axes(st):'),
+    ('the trails ledger -- the owed-bridges table head', os.path.join(PP, 'OPEN_TRAILS.md'), '| | trail | species | what is owed | price, as the record states it | trigger |'),
+    ('### an appended trail update, the shape to follow', os.path.join(PP, 'OPEN_TRAILS.md'), '<!-- b328 trail update -->'),
+    ('### nothing here is a route', os.path.join(PP, 'OPEN_TRAILS.md'), '*Nothing here is a route. No grade moves. h2 stands exactly where the deposit left it.*'),
     # ### ---- the sortie ferry, leg 1
     ('the sortie -- leg 1', FERRY, 'LEG 1 (b344) \u2014 THE LI CONTROL, RE-RUN: the prior leg\'s bar is'),
     ('### the tail rule fixed before any value', FERRY, 'with the tail'),

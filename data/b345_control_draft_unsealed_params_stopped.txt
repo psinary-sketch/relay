@@ -1,0 +1,34 @@
+### ### **A DRAFT RUN AT PARAMETERS THIS ACT DID NOT SEAL. ### STOPPED. ### NO VALUE OF IT IS USED ANYWHERE.**
+### The seat's first draft of `tools/b345_control.py` gave the hand-rolled kernel an upward recurrence to
+### `|w| >= 30` and the Stirling asymptotic through `B_16`. ### **THE SEALED REGISTRATION, SECTION (C), FIXES
+### `|w| >= 20` AND `B_10`.** ### The draft was killed mid-table the moment the divergence was seen, and the
+### instrument was rewritten to the sealed parameters. ### This file is kept because a run that happened is a
+### run that is banked; it is declared as this act's (E1). ### **ITS FIXTURE FIGURE (`6.725e-27`) IS NOT THIS
+### ACT'S; the sealed parameters are measured in `b345_control_run.txt` and reach a different number, which is
+### the whole of what this act found out about its own seal.**
+====================================================================================================
+====================================================================================================
+b345 -- THE LI CONTROL, RE-RUN. ### the tail rule fixed before any value; two routes sharing no code.
+====================================================================================================
+
+  (C) THE KERNEL FIXTURE: route B's hand-rolled psi against mpmath's, and a broken copy that must fail:
+      u = 0      hand-rolled -4.22745353337626550427 ; mpmath -4.22745353337626550427 ; |diff| 6.725e-27 ; the broken copy misses by 1.653e-02
+      u = 0.3    hand-rolled -3.15386720072303239348 ; mpmath -3.15386720072303239348 ; |diff| 6.697e-27 ; the broken copy misses by 1.653e-02
+      u = 2      hand-rolled -0.01682720511817973816 ; mpmath -0.01682720511817973816 ; |diff| 5.518e-27 ; the broken copy misses by 1.651e-02
+      u = 7      hand-rolled +1.25190955712501672537 ; mpmath +1.25190955712501672537 ; |diff| 2.864e-27 ; the broken copy misses by 1.631e-02
+      u = 50     hand-rolled +3.21885915703462144322 ; mpmath +3.21885915703462144322 ; |diff| 7.266e-28 ; the broken copy misses by 9.349e-03
+      u = 300    hand-rolled +5.01063483113239271916 ; mpmath +5.01063483113239271916 ; |diff| 2.031e-39 ; the broken copy misses by 5.556e-06
+    worst 6.725e-27 (bar 1.0e-25) ; the broken copy's smallest miss 5.556e-06 : PASS
+
+  THE KEYSTONE'S TABLE (owner file, line 299): 22 rows, indices [1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 24, 30, 40, 52, 60, 70, 80, 88, 100, 110, 120, 130]
+
+  ROUTE A' -- lambda_A(n) and the pole constant by the bench's own definitions (b327_bridge loader), two radii, M = 512:
+    bench head executed : 69 lines ; 92 s ; the two radii agree to 1.856e-212 ; the pole constant L_n[log s] - 1 worst 1.420e-39
+    ROUTE B' -- S_inf(n) + 1 by the source's (4.11): worst |lambda_A - S_inf - 1| = 1.975e-216 (b327's identity, re-measured)
+
+  THE INSTRUMENT -- I(n) by ROUTE A (b340 theta, imported) and ROUTE B (u, complex power, hand-rolled kernel), both TANH-SINH:
+    n    I(n) route A             I(n) route B             drift       gate      pole  lambda_A                 |I+1-lamA|  bar?   
+    1    -1.5541199559354118268   -1.5541199559354118268   1.820e-23   RESOLVED  1.0   -0.55411995593541182679  2.035e-30   HOLDS    (3 s; keystone -0.554119955935 off by 4.12e-13)
+    2    -1.8745393617346538262   -1.8745393617346538262   7.238e-23   RESOLVED  1.0   -0.87453936173465382623  7.870e-30   HOLDS    (3 s; keystone -0.874539361735 off by 3.46e-13)
+    3    -2.013058007662370998    -2.013058007662370998    1.165e-22   RESOLVED  1.0   -1.013058007662370998    1.722e-29   HOLDS    (4 s; keystone -1.01305800766 off by 2.37e-12)
+    4    -2.0067976523790162874   -2.0067976523790162874   1.599e-22   RESOLVED  1.0   -1.0067976523790162874   3.015e-29   HOLDS    (5 s; keystone -1.00679765238 off by 9.84e-13)

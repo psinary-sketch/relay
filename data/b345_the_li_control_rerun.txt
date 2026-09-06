@@ -1,0 +1,244 @@
+====================================================================================================
+b345 -- THE LI CONTROL, RE-RUN. ### THE BANK.
+2026-09-06. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v1, by reference.
+### Registration `data/b345_registration_2026-09-06.txt`, sealed
+### `911122779f5f9ded8a62f5dbe691b5d1a01abf48b49a1075eb85edb8cee1e1a6`, 17001 bytes, 26 clauses JOINTLY
+### SATISFIABLE -- ### **AND IT IS THE FIRST SEAL BLOCK IN THE CORPUS TO CARRY ITS OWN CLOCK,**
+### `### sealed at (UTC) : 2026-09-06T22:37:06Z`, written by the tool b344 repaired the day before.
+### ### **THE ORDER'S OWN TEXT LABELS THIS LEG `LEG 1 (b344)`.** ### The act is `b345` by the author's
+### ruling of this day, which slid the earlier sortie down and left its content UNEDITED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE VERDICT, AS THE SEALED RULE STATES IT.
+----------------------------------------------------------------------------------------------------
+### ### ### **A FOURTH CONTROL HOLDS.**
+### ### ### **THE INSTRUMENT AGREES WITH A MARGIN THE DEPOSIT PROVED, ON A FAMILY OUTSIDE THE LAWFUL CLASS.**
+### ### **THAT SENTENCE AND NO MORE.** ### The bar section (D) sealed holds at ### **22 of the 22** ### indices
+### the balance keystone tabulates: the identity's worst miss is `7.47e-26` against `1e-9 max(1, |lambda_A|)`,
+### the worst drift between the two routes is `1.27e-17` against the same bar, and the noise-floor gate returns
+### `RESOLVED` at every index. ### The navigator's expectation (L1) -- *the control HOLDS under the fixed rule*
+### -- is ### **MET**.
+### ### **AND THE ACT CLOSES WITH ONE SEALED ARM TABLED AS A DEFECTIVE BAR:** the kernel fixture of section
+### (C) failed at its own threshold, is measured and tabled in (4) below, and is not repaired into passing.
+### **NOTHING IT WOULD HAVE LICENSED IS CONFERRED.**
+
+----------------------------------------------------------------------------------------------------
+### (2) WHAT WAS FIXED BEFORE ANY VALUE, AND WHY IT IS THE POINT OF THE ACT.
+----------------------------------------------------------------------------------------------------
+### b340 asked two things of every index: the identity, and the drift between two sealed quadratures. ### The
+### identity held at all twenty-two indices; ### **THE DRIFT DID NOT**, because the sealed refinement route put
+### Gauss-Legendre on an infinite panel with a logarithmic tail. ### b340's own diagnosis named the rule that
+### works, in its own record: *"the same `u` route by tanh-sinh meets the sealed bar"*, against *"the sealed
+### refinement route (Gauss-Legendre on an infinite panel with a logarithmic tail) is what failed, and not the
+### identity"*.
+### ### **THIS ACT SEALED THAT RULE AS ITS TAIL PANEL'S QUADRATURE RULE BEFORE ANY VALUE WAS SEEN, AND NO PANEL
+### ### OF EITHER ROUTE USES GAUSS-LEGENDRE.**
+### ### **b340's BAR IS NOT REWRITTEN. ### ITS VERDICT IS NOT RE-VERDICTED. ### ITS BANK IS NOT EDITED.**
+### A re-run under a new bar is a new measurement and not a correction of the old one, and the sentence that
+### makes this act honest is that one: ### **WHAT CHANGED IS THE RULE THIS ACT SEALED, NOT b340's RESULT.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE TWO ROUTES, AND WHAT THEY SHARE -- NAMED, NOT CLAIMED DISJOINT.
+----------------------------------------------------------------------------------------------------
+### ### **ROUTE A** -- b340's `I_theta`, IMPORTED FROM `tools/b340_li_control.py` AND NOT EDITED: the
+### substitution `u = tan(theta/2)/2`, the oscillation as `2 sin^2` or `2 cos^2` of `n theta / 2`, the kernel by
+### `mpmath`'s digamma, tanh-sinh on `4n + 4` equal panels in `theta`.
+### ### **ROUTE B** -- written fresh in `tools/b345_control.py`: the variable is `u` and not `theta`; the
+### transform factor is the COMPLEX POWER `Re[1 - ((s-1)/s)^n]` at `s = 1/2 + iu`, and NOT the cosine identity
+### route A uses; ### **THE KERNEL IS HAND-ROLLED** -- `psi` by upward recurrence and then the Stirling
+### asymptotic, at the parameters section (C) sealed -- and the panels are the phase multiples with the infinite
+### tail, by tanh-sinh.
+### ### **THE SHARED SURFACE, MEASURED RATHER THAN ASSERTED** (by walking each route's syntax tree and
+### collecting every attribute it takes from `mpmath`):
+###     route A takes  : `atan`, `cos`, `digamma`, `log`, `mpc`, `mpf`, `pi`, `quad`, `re`, `sin`, `workdps`
+###     route B takes  : `inf`, `log`, `mpc`, `mpf`, `pi`, `quad`, `re`, `tan`, `workdps`
+###     shared         : `log`, `mpc`, `mpf`, `pi`, `quad`, `re`, `workdps`
+### ### **`digamma` IS TAKEN BY ROUTE A ALONE. ### ROUTE B CALLS NO SPECIAL FUNCTION OF `mpmath`, AND NO
+### ### FUNCTION OF ROUTE A OR OF THIS ACT IS CALLED BY BOTH.**
+### ### **AND ONE NAME ON THAT SHARED LIST IS NOT ON THE SEALED ONE. ### DECLARED AS (E3) BELOW.**
+
+----------------------------------------------------------------------------------------------------
+### (4) THE KERNEL FIXTURE: A SEALED BAR FOUND DEFECTIVE BY RUNNING IT, MEASURED AND TABLED.
+----------------------------------------------------------------------------------------------------
+### Section (C) sealed, in one paragraph, BOTH of these:
+###   (i)  route B's `psi` by *"upward recurrence to `|w| >= 20` and then the Stirling asymptotic through
+###        `B_10`"*; and
+###   (ii) a fixture requiring that hand-rolled `psi` to agree with `mpmath`'s *"to `1e-25`"* at
+###        `u` in `{0, 0.3, 2, 7, 50, 300}`, with a broken copy failing the same test.
+### ### **THE TWO CANNOT BOTH HOLD, AND RUNNING THE FIXTURE IS WHAT SHOWED IT.**
+
+###     u       |w| after     true |diff|    FIRST TERM     broken copy    at 1e-25
+###             recurrence    vs mpmath      DROPPED        vs mpmath      true / broken
+###     0       20.25         4.394e-18      4.436e-18      2.469e-02      FAIL / FAIL
+###     0.3     20.2506       4.376e-18      4.435e-18      2.469e-02      FAIL / FAIL
+###     2       20.2747       3.596e-18      4.372e-18      2.463e-02      FAIL / FAIL
+###     7       20.5502       1.702e-18      3.718e-18      2.398e-02      FAIL / FAIL
+###     50      25.0012       3.534e-19      3.537e-19      2.000e-04      FAIL / FAIL
+###     300     150.0         1.626e-28      1.626e-28      5.556e-06      PASS / FAIL
+
+### ### **THE MEASURED MISS TRACKS THE FIRST DROPPED TERM AT EVERY ONE OF THE SIX POINTS**, so what is being
+### measured is the sealed truncation's own floor and ### **NOT A CODING DEFECT**. ### The worst true miss is
+### `4.394e-18`; the sealed threshold is `1e-25`; ### **AT `1e-25` THE FIXTURE REJECTS THE CORRECT COPY AS WELL
+### ### AS THE BROKEN ONE, SO AT ITS OWN THRESHOLD IT SEPARATES NOTHING.**
+### ### **WHICH HALF CARRIES THE DEFECT, ISOLATED.** ### Holding the sealed truncation at `B_10` and carrying
+### only the recurrence further, to `|w| >= 300`, brings the same routine to `3.929e-32` while the broken copy
+### still misses by `1.442e-03` -- so the fixture would separate there. ### **THE DEFECTIVE HALF IS THE
+### RECURRENCE THRESHOLD `|w| >= 20`, NOT THE TRUNCATION THROUGH `B_10`.** ### That reading is a
+### ### **DIAGNOSTIC**: ### **IT IS NOT THIS ACT'S ROUTE B, AND NO VALUE IN THIS BANK IS COMPUTED WITH IT.**
+### ### **WHAT IS DONE ABOUT IT: NOTHING.** ### The sealed registration is not edited, the bar is not rewritten,
+### and route B ran at the sealed parameters throughout. ### **WHAT THE BAR WOULD HAVE LICENSED AND IS
+### THEREFORE NOT CONFERRED: THAT ROUTE B's KERNEL IS CORRECT AT THE SEALED TOLERANCE.** ### What is carried
+### instead is a measurement -- agreement to `4.394e-18` -- and ### **A MEASUREMENT IS NOT A MET BAR.** ### That
+### this measurement sits nine orders below the act's own `1e-9` bar is an observation printed beside the
+### verdict; ### **IT IS NOT A REPAIR OF THE FIXTURE, WHICH STAYS FAILED AND STAYS UNEDITED.**
+### ### This is the same doctrine b342 wrote for its order arm and b333 for its bar: ### **A SEALED BAR FOUND
+### ### DEFECTIVE BY RUNNING IT IS MEASURED AND TABLED, NEVER EDITED, AND THE CONSEQUENCE IS CARRIED.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE INSTRUMENT AT THE TWENTY-TWO TABULATED INDICES, WITH THE POLE CONSTANT ITS OWN COLUMN.
+----------------------------------------------------------------------------------------------------
+### The keystone's table is read from the owner file `phase1.5/spectral/BALANCE_AND_POSITIVITY.md` at line 299.
+### `lambda_A(n)` comes by the bench's own definitions executed from its file through b327's loader, at the
+### bench's two radii, which agree to `1.86e-212`; the source's (4.11) gives `S_inf(n) + 1` and agrees with it
+### to `1.98e-216`; the pole constant `L_n[log s]` is carried as its own column and is `1` at every index to
+### `1.42e-39`. ### The keystone's own PRINTED column is reproduced to `4.57e-10`, at `n = 100`, where that
+### column carries eleven digits after the point.
+
+###     n      I(n), route A (theta)        drift A-B     lambda_A(n)                   |I + 1 - lambda_A|
+###     1      -1.554119955935411826792202  1.9e-18       -0.5541199559354118267922018  2.03e-30
+###     2      -1.874539361734653826230092  3.25e-18      -0.8745393617346538262300923  7.87e-30
+###     3      -2.013058007662370998038442  4.12e-18      -1.013058007662370998038442   1.72e-29
+###     4      -2.006797652379016287395769  4.63e-18      -1.006797652379016287395769   3.01e-29
+###     5      -1.882725785735990201067847  4.8e-18       -0.8827257857359902010678474  4.74e-29
+###     6      -1.66073231492983830163474   4.73e-18      -0.6607323149298383016347396  6.82e-29
+###     7      -1.355730722667883134566462  4.44e-18      -0.3557307226678831345664621  9.27e-29
+###     8      -0.9791000669723710235994066 4.02e-18      0.02089993302762897640059343  1.21e-28
+###     10     -0.0444643205031363169403465 2.82e-18      0.9555356794968636830596535   1.89e-28
+###     20     7.098624059294224267639133   3.22e-18      8.098624059294224267639133    7.56e-28
+###     24     10.75698026861869069427132   4.03e-18      11.75698026861869069427132    1.09e-27
+###     30     16.85665232952980643992203   3.1e-18       17.85665232952980643992203    1.7e-27
+###     40     28.31331919239033937094335   2.19e-18      29.31331919239033937094335    3.03e-27
+###     52     43.70433900495932784483523   8.86e-18      44.70433900495932784483523    5.11e-27
+###     60     54.75980040419653838144041   1.16e-17      55.75980040419653838144041    6.81e-27
+###     70     69.32358919263512561295237   1.27e-17      70.32358919263512561295237    9.27e-27
+###     80     84.604088501017671485144     1.11e-17      85.604088501017671485144      1.21e-26
+###     88     97.28324469190594652051989   8.05e-18      98.28324469190594652051989    1.85e-26
+###     100    116.9750225615431237776278   4.18e-18      117.9750225615431237776278    2.39e-26
+###     110    133.9396642509114690083799   2.32e-18      134.9396642509114690083799    7.47e-26
+###     120    151.3594732566417702579652   3.11e-18      152.3594732566417702579652    3.44e-26
+###     130    169.1964276706799802037412   6.07e-18      170.1964276706799802037412    3.19e-26
+
+### ### **THE TWO COLUMNS THAT MATTER, READ TOGETHER.** ### The identity's miss is of order `1e-26` and does
+### not know about the kernel fixture at all, because the identity is measured on route A, whose kernel is
+### `mpmath`'s. ### The drift between the routes is of order `1e-17` -- ### **AND THAT IS THE SEALED
+### ### TRUNCATION'S FLOOR SHOWING UP IN THE SECOND PLACE IT WAS ALWAYS GOING TO SHOW UP.** ### One sealed
+### parameter explains the failed fixture and the size of the drift, and it touches the identity nowhere.
+
+----------------------------------------------------------------------------------------------------
+### (6) THE CERTIFICATIONS, LISTED AS THE PRIOR LEG LISTED THEM.
+----------------------------------------------------------------------------------------------------
+### ### **WHICH APPLY:** the kernel identity (b333), a property of the kernel; the arrangement
+### `Z = P - PR + A` (b321), which on the Li family is the source's (4.6) channel for channel; the noise-floor
+### gate as a method.
+### ### **WHICH DO NOT:** Theorem 1's inequality and the Sonin margin, both defined on the class only; the
+### square on the stable cut; b321's control bar and b326's per-cell closures; the atlas's zero-side truncation
+### bound.
+### ### **AND THE FAMILY IS NOT IN THE LAWFUL CLASS:** three of three of Theorem 1's conditions fail, as b340
+### measured and this act re-states without re-measuring. ### **THE SONIN MARGIN IS NOT DEFINED ON THIS FAMILY
+### ### AT ALL**, so there is nothing here to compare it with.
+
+----------------------------------------------------------------------------------------------------
+### (7) THE DEPOSIT'S FINITE-RANGE POSITIVITY, RESTATED AT ITS SCOPE BESIDE THE VALUES.
+----------------------------------------------------------------------------------------------------
+### The monograph, `day1/A_Place_to_Stand.md` line 1804: *"`partialPositivity_finiteRange` (v0.8.0) certifies
+### lambda_n >= 0 for n up to Voros's detection threshold N0(T) ~ 2T^2, with the on-line term's nonnegativity
+### proved -- a certificate reaching exactly to where discrimination would begin, and no further"*.
+### The bench, `internal/bench/li_bench.py` line 115: *"positivity of lambda_n in a finite range is NOT evidence
+### of the kind the criterion respects"*.
+### The margin `lambda_n = lambda_A(n) + lambda_Z(n)` is POSITIVE at all twenty-two tabulated indices, and the
+### keystone's own `lambda_Z` column is reproduced to `4.73e-12`.
+### ### **THE CERTIFICATE IS THE DEPOSIT'S AND ITS PREMISES ARE NAMED AND OPEN. ### THIS ACT DID NOT PROVE IT,
+### ### DOES NOT EXTEND IT, AND CONFERS NOTHING FROM IT.**
+
+----------------------------------------------------------------------------------------------------
+### (8) WHAT IS MEASURED AND WHAT IS NOT.
+----------------------------------------------------------------------------------------------------
+### ### **MEASURED:** the archimedean constituent of the explicit formula on the Li test family, at the
+### twenty-two indices the balance keystone tabulates, at this act's own bar, by two routes sharing no code.
+### ### **NOT MEASURED:** the zero side over the atlas's ordinates; the finite side `S_f`. ### Together these
+### keep ### **`W-ORD-LI-FAMILY-CONTROL` OWED** -- the explicit formula is NOT closed on the Li family, and this
+### act pays that trail at its archimedean constituent only. ### **AND THE SONIN MARGIN, WHICH IS NOT DEFINED
+### ### ON THIS FAMILY AT ALL.**
+
+----------------------------------------------------------------------------------------------------
+### (9) BOTH SEATS' EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L1)** -- *the control HOLDS under the fixed rule* : ### **MET.**
+### ### **THIS SEAT'S (a)** -- the control holds at all twenty-two indices AND the drift stays below `1e-20` :
+### ### **HALF MET, HALF REFUTED.** ### It holds at all twenty-two; the drift is `1.27e-17`, three orders above
+### the figure this seat wrote down. ### **THE REFUTATION HAS A TRACEABLE CAUSE AND IT IS THE SAME ONE AS (4)'s:**
+### the sealed recurrence threshold's truncation floor. ### The seat wrote `1e-20` without pricing the sealed
+### kernel's own floor first, which is the lesson of this act and is carried, not filed.
+### ### **THIS SEAT'S (b)** -- the hand-rolled kernel agrees to better than `1e-25` and its broken copy fails :
+### ### **REFUTED**, on the first half. ### The broken copy does fail; the true copy fails too.
+### ### **THIS SEAT'S (c)** -- the identity's worst miss is of the same order b340 measured by its theta route
+### alone, `7.47e-26`, because the identity was never what failed : ### **MET, AND EXACTLY**, at `7.47e-26`.
+### ### **THAT THE THIRD EXPECTATION LANDED ON THE SAME DIGITS IS NOT A SECOND MEASUREMENT:** route A is b340's
+### route, imported unedited, so agreement there is a check that the import is the import and nothing more.
+
+----------------------------------------------------------------------------------------------------
+### (10) DECLARATIONS ON THIS ACT'S SEALED FACE.
+----------------------------------------------------------------------------------------------------
+### ### **(E1) A DRAFT RAN AT PARAMETERS THIS ACT DID NOT SEAL, AND WAS STOPPED.** ### The seat's first draft of
+### `tools/b345_control.py` gave the hand-rolled kernel a recurrence to `|w| >= 30` and the Stirling asymptotic
+### through `B_16`. ### Section (C) seals `|w| >= 20` and `B_10`. ### The draft was killed the moment the
+### divergence was seen, mid-table; the instrument was rewritten to the sealed parameters and re-run from the
+### top. ### The stopped run is kept, with a header naming it, at
+### `data/b345_control_draft_unsealed_params_stopped.txt`. ### **NO VALUE OF IT IS USED ANYWHERE IN THIS BANK,
+### ### AND ITS FIXTURE FIGURE (`6.725e-27`) IS NOT THIS ACT'S.** ### It is banked because a run that happened
+### is a run that is banked, and because the two figures side by side are the clearest statement of what the
+### sealed parameters cost.
+### ### **(E2) THE KERNEL FIXTURE IS A DEFECTIVE BAR, TABLED AND NOT REPAIRED.** ### Set out in full at (4).
+### ### **THE SATISFIABILITY AUDIT DID NOT AND COULD NOT CATCH IT:** `reg_satisfiable.py` read this
+### registration's 26 clauses as JOINTLY SATISFIABLE, and they are, as clauses -- the inconsistency is
+### NUMERICAL, between a truncation's floor and a threshold, and no textual audit reaches it. ### **THAT IS A
+### ### LIMIT OF THE AUDIT, STATED HERE AND NOT REPAIRED HERE.**
+### ### **(E3) ONE NAME IS MISSING FROM THE SEALED SHARED LIST.** ### Section (C) names what the two routes
+### share as *"`mpmath`'s arbitrary-precision arithmetic and its elementary functions (`log`, `exp`, `atan`,
+### `sqrt`, complex arithmetic), and nothing else"*. ### Measured at (3), the shared surface is `log`, `mpc`,
+### `mpf`, `pi`, `quad`, `re`, `workdps`. ### Six of those seven are arithmetic or elementary. ### **`quad` IS
+### ### NEITHER: IT IS `mpmath`'s QUADRATURE, AND BOTH ROUTES CALL IT.** ### The sealed sentence's *"and
+### nothing else"* is therefore inaccurate by exactly one name. ### **THE SEALED FILE IS NOT EDITED AND NO
+### ### ERRATA ENTRY IS WRITTEN (CAP 0).** ### What the omission does NOT touch: the claim the fixture was built
+### for, that route B calls no SPECIAL function of `mpmath`, which is measured true -- `digamma` is taken by
+### route A alone. ### What it DOES mean is that the two routes share a quadrature implementation, and a reader
+### weighing their independence should weigh that.
+
+----------------------------------------------------------------------------------------------------
+### (11) WHAT MOVED IN THE LEDGERS.
+----------------------------------------------------------------------------------------------------
+### ### **`FACES_LEDGER.md`** -- ONE update block through the writer's `append_block`, naming row `L1`, the
+### Li-to-Weil bridge, and carrying the order's own words ### **ONE DISTRIBUTION ON TWO FAMILIES**, with what is
+### measured and what is not set out as (8) sets it out. ### **ROW L1 ITSELF IS NOT REWRITTEN.**
+### ### **`OPEN_TRAILS.md`** -- ONE appended block under the `b345` mark, opening the author's work-order with
+### its own ID, ### **`W-ORD-FLOOR-HELD-AXES`**, species PRICE. ### It quotes b344's PRINTED figures for the two
+### axes b344 did not move: the cut's `tau = 1.0e-06` in force at every rung, with the eigenvalue counts within
+### a decade either side and the smallest-kept / largest-dropped / distance at each of the five rungs; the taper
+### at `ALPHA = 1.0`, `BETA = 1.0` throughout, the source's own constants. ### **THE SENTENCE THE AUTHOR ASKED
+### ### FOR IS THE BLOCK'S POINT: THE FLOOR'S TWO UNMOVED AXES ARE PRICEABLE FROM b344's PRINTED FIGURES
+### ### WITHOUT RE-RUNNING b344.** ### **NOTHING IS PRICED HERE AND NO AXIS IS MOVED.**
+### ### **`CORRESPONDENCE.md`** -- row `193`, NO TERMINAL with its reason.
+### ### **`tools/banked_index.py`** -- one key `li-control-rerun` and one row; `b340 corrected`, `the li family
+### is lawful`, `the trail is paid` and `the formula closed on the li family` are NO KEY before and after.
+
+----------------------------------------------------------------------------------------------------
+### (12) WHAT THIS ACT DOES NOT CONCLUDE.
+----------------------------------------------------------------------------------------------------
+### ### **NOT THAT b340 IS CORRECTED.** ### **NOT THAT THE LI FAMILY IS LAWFUL.** ### **NOT THAT THE TRAIL IS
+### ### PAID.** ### **NOT THAT `lambda_n >= 0` FOR ALL `n`.** ### A control certifies the instrument, not the
+### object. ### `M-2` IS OWED UNDER b310's CAP. ### THE SEAM'S DEBT ITEM 1 STANDS. ### THE PATENT CLOCK IS
+### CARRIED ON THE PATENT SEAT'S REPORT, UNCONFIRMED ON THIS SEAT'S RECORD. ### `h2` STANDS EXACTLY WHERE THE
+### DEPOSIT LEFT IT. ### THE POSTURE LOCK IS SEPARATE. ### THE WAVE STAYS PARKED. ### NOTHING DEPOSITS.
+### ### **NEXT, BY THE AUTHOR'S RULING: b346, THE EXPONENT BY RATE.**
+====================================================================================================

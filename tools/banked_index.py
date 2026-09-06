@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'li-control-rerun': ['the li control re-run', 'the li control rerun', 'the tail panel', 'the two routes',
+                         'the fourth control', 'the kernel fixture', 'the hand-rolled kernel', 'the work-order for the axes',
+                         'the floor\'s two axes', 'one distribution on two families'],
     'floor-priced': ['the floor priced', 'the floor\'s origin', 'what is the floor\'s origin', 'the NY axis', 'the ny ladder',
                      'the seal\'s clock', 'the seal\'s own time', 'the seal carries its clock', 'the room\'s edge', 'the bracketed minimum',
                      'the cut\'s tau', 'the taper', 'the axes held'],
@@ -537,6 +540,30 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LI CONTROL, RE-RUN (b345).
+    ("li-control-rerun", "b345 (a control re-run under a new bar with the tail rule fixed first)",
+     "THE LI CONTROL RE-RUN: b340 asked two things of every index -- the identity, and the drift between two sealed quadratures. The identity held;"
+     " the drift did not, because the sealed refinement route put Gauss-Legendre on an infinite panel with a logarithmic tail. b345 registered ITS OWN"
+     " bar with the tail rule FIXED BEFORE ANY VALUE as TANH-SINH -- the rule b340\'s own diagnosis named -- and required its two routes to share no"
+     " code: route A is b340\'s theta route imported unedited, route B is fresh in the u variable with the transform factor as the complex power"
+     " Re[1 - ((s-1)/s)^n] and a HAND-ROLLED digamma. VERDICT, BY THE SEALED RULE: A FOURTH CONTROL HOLDS at 22 of 22 tabulated indices --"
+     " worst identity miss 7.47e-26 against 1e-9 max(1, |lambda_A|), worst drift between routes 1.27e-17, every index RESOLVED,"
+     " the pole constant L_n[log s] its own column and equal to 1 to 1.42e-39. AND ONE SEALED FIXTURE FAILED AT ITS OWN THRESHOLD: section (C)"
+     " sealed a recurrence to |w| >= 20 with Stirling through B_10 AND a fixture threshold of 1.0e-25 in the same paragraph; the"
+     " truncation\'s first dropped term leaves a floor near 4.394e-18, so at 1.0e-25 the fixture rejects the CORRECT copy too and separates"
+     " nothing. Carrying only the recurrence to |w| >= 300 brings the same routine to 3.929e-32, which locates the defect in one named half.",
+     "### A CONTROL CERTIFIES THE INSTRUMENT, NOT THE OBJECT. ### THE LI FAMILY IS NOT IN THE LAWFUL CLASS -- three of three of Theorem 1\'s"
+     " conditions fail -- so Theorem 1\'s inequality and the Sonin margin DO NOT APPLY, and the Sonin margin is not defined on this family at all."
+     " ### b340\'s BAR IS NOT REWRITTEN AND ITS VERDICT IS NOT RE-VERDICTED: a re-run under a new bar is a new measurement, not a correction."
+     " ### THE ZERO SIDE AND THE FINITE SIDE ARE NOT EVALUATED, SO W-ORD-LI-FAMILY-CONTROL STAYS OWED and is paid at its archimedean constituent"
+     " only. ### THE DEPOSIT\'S FINITE-RANGE POSITIVITY IS THE DEPOSIT\'S, restated at its scope; positivity in a finite range is not evidence of the"
+     " kind the criterion respects. ### THE FAILED FIXTURE IS TABLED, NOT REPAIRED INTO PASSING, AND CONFERS NOTHING. ### NO GRADE MOVED."
+     " ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b345_the_li_control_rerun.txt; data/b345_control_run.txt; data/b345_filings_run.txt;"
+     " data/b345_registration_2026-09-06.txt (sealed before the tail panel was integrated once and before the second route was written);"
+     " data/b345_control_draft_unsealed_params_stopped.txt (a draft at parameters this act did not seal, stopped, no value used);"
+     " PLACE-papers FACES_LEDGER.md (row L1 update block) and OPEN_TRAILS.md (W-ORD-FLOOR-HELD-AXES);"
+     " CORRESPONDENCE.md row 193"),
     # ### THE FLOOR PRICED, THE SEAL'S OWN CLOCK, AND THE ROOM'S EDGE (b344).
     ("floor-priced", "b344 (one axis of three moved; a tool repair; a chart extended)",
      "THE FLOOR PRICED ON ONE AXIS: of the three origins b339 named for the identity residual's floor -- the fixed NY, the cut's tau, the taper -- NY was"
