@@ -1,0 +1,207 @@
+====================================================================================================
+b344 -- GATE SUITE (ONE AXIS MOVED, A TOOL REPAIRED, A CHART EXTENDED)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  the ferry -- addition one
+    PASS  the ferry -- addition two, the room's edge
+    PASS  ### a finer chart and not a trend
+    PASS  the draft -- component 1
+    PASS  ### the three candidate origins
+    PASS  ### component 2, the seal's clock
+    PASS  ### the order's words for the repair
+    PASS  ### what it does not recover
+    PASS  ### one axis moved is one axis moved
+    PASS  the ruling -- this act's number
+    PASS  b339 -- the floor and its three candidates
+    PASS  b321 -- the separation at the cell
+    PASS  b343 -- the room's minimum at the edge
+    PASS  b342 -- the order arm is a defective bar
+    PASS  b319 -- tau, 57 times inside the separation
+    PASS  b316 -- the taper ALPHA
+    PASS  b317 -- NY fixed, one axis at a time
+
+  SELF NEEDLES:
+    PASS  bank states the answers first
+    PASS  ### (1) the residual moves
+    PASS  ### (2) the rank does not move
+    PASS  ### (3) the reading beside the verdict
+    PASS  ### both sentences true
+    PASS  ### (4) the two axes held, printed
+    PASS  ### one axis moved is one axis moved
+    PASS  ### (5) the seal carries its clock
+    PASS  ### the honest limit
+    PASS  ### it does not recover b342
+    PASS  ### (6) bracketed
+    PASS  ### (7) a finer chart and not a trend
+    PASS  ### (8) the expectations scored
+    PASS  ### no grade moved
+    PASS  bank keeps the order
+    PASS  bank gives the number first
+    PASS  bank gives the instruments
+    PASS  ### the seat's defects
+    PASS  bank gives the standing rows
+    PASS  ### the ferry-standing note for v2
+    PASS  ### the shadow none
+    PASS  registration -- sealed before any rung
+    PASS  registration -- the axis named
+    PASS  registration -- why not tau
+    PASS  registration -- why not the taper
+    PASS  registration -- the ladder fixed
+    PASS  registration -- the verdict rule
+    PASS  registration -- the span fixed
+    PASS  registration -- expected nothing
+    PASS  the ladder record -- the verdict
+    PASS  the ladder record -- nothing about the held axes
+    PASS  the edge record -- bracketed
+    PASS  the edge record -- the standing sentence
+    PASS  the seal record -- same verdict
+    PASS  the seal record -- the limit stated
+    PASS  the module record -- not pushed
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the floor is explained
+    PASS  the bank never exonerates the axes held
+    PASS  the bank never says the seal recovers b342
+    PASS  the bank never says the narrowing is a trend
+    PASS  the bank never says TECHNE was pushed
+    PASS  the bank never says a grade moved
+
+  G-AXIS (the axis named with its reason before any value; the two held printed at every rung and unchanged in their emitters):
+    named with its reason True ; the two held printed at all 5 rungs True ; their emitters unchanged '' : True
+
+  G-LADDER (exactly the sealed rungs at the sealed frame and object):
+    True (rungs [128, 256, 512, 1024, 2048], frame N=4096 X=32.0, cell 1.41)
+
+  G-FLOOR (the verdict by the sealed rule, recomputed; nothing concluded about the two held):
+    span 1.239328e-02 ; floor +0.006389645 ; recomputed verdict 'OF THE SIZE THE FLOOR REQUIRES' ; recorded 'OF THE SIZE THE FLOOR REQUIRES' ; moves True : True
+
+  G-SEAL (every existing seal unchanged in verdict, none rewritten; the fresh clock; the limit stated; cmd_verify untouched):
+    66 of 66 verdicts unchanged ; rewritten [] ; fixtures True/True/True ; cmd_verify, digest and split_body byte-identical to their blobs True : True
+
+  G-MODULE (the September shape; b342's incident from the extract; the index appended; local and NOT PUSHED):
+    shape True ; quotations 5, unlocated 0 [] ; the act's net effect on modules/ {'modules/2026-09/SEAL_CARRIES_ITS_CLOCK.md': 'A', 'modules/INDEX.md': 'M'} ; remote 22739c9, on a remote branch '' : True
+
+  G-EDGE (exactly the sealed heights at one width; the verdict by its rule; the narrowing quoted with the standing sentence):
+    heights [1.0, 1.25, 1.5, 1.75] at a = 81.0 ; interior True ; no crossing True ; 17 joint heights True : True
+
+  G-ROW / G-ANCESTOR (row 192: NO TERMINAL with the reason; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-NOTEXPLAINED (one row; the must-not-hit queries NO KEY; the answer refuses the four overreadings):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (no owner instrument but reg_seal changed; the papers repo untouched; the deposit and HANDOFF clean):
+    relay owners '' ; SIDE (beyond the table) [] ; PLACE-papers [] ; TECHNE '' ; reg_seal changed (the one edit by the order) False : False
+
+  G-ORDER (the seal verifies; the components after the seal; the audit as it stands):
+    seal verifies True ; hash equals the literal True ; the audit JOINTLY SATISFIABLE True ; this registration carries no clock (sealed before the repair) True
+    the components, the row, the key and the bank after the seal True [the pre-commit suite record] : True
+
+  G-PAPERS (no file written in the papers repo, so the hook and the mirror are NOT OWED):
+    True
+
+  G-NUMBERS (every number the bank quotes, read back from its producing record):
+    the five residuals under EF                          PASS
+    the five under ER                                    PASS
+    the span 1.239328e-02                                PASS
+    the floor +0.006389645                               PASS
+    the relative 2.351e-02                               PASS
+    the rank 69 and free 3968                            PASS
+    tau and the taper                                    PASS
+    66 sealed files                                      PASS
+    the stamp 2026-09-06T22:06:34Z                       PASS
+    the module commit 023a7bb and 52 lines               PASS
+    the index 92 lines                                   PASS
+    the edge minimum +0.000026234 at 1.25                PASS
+    the ratio 3.43                                       PASS
+    row 192                                              PASS
+    19309 bytes sealed                                   PASS
+    29 clauses                                           PASS
+
+  G-ONCE (run files written once per path; the refused first census kept):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 38   struck-clause hits 0   stem hits 0  PASS
+    b344_checks.py                           struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b344_ferry_2026-09-06.txt                struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b344_ferry_scan.txt                      struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b344_reg_termscan.txt                    struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b344_extract_notes.txt                   struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    b344_seal_before_run_falsepositive.txt   struck : 0  stem : 0  ### CARRIER -- the census's own refused first pass, kept
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 192, the module, the index block, the index row, swept):
+    row 192            struck : 0   stem : 0   (3823 chars)
+    the module         struck : 0   stem : 0   (3095 chars)
+    the index block    struck : 0   stem : 0   (577 chars)
+    index row          struck : 0   stem : 0   (2369 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the ladder, the residual, the held axes                          tools/b344_ny.py                   exists=True tracked=True
+    the extended heights and the bracketing                          tools/b344_edge.py                 exists=True tracked=True
+    the seal census and the three fixtures                           tools/b344_seal_clock.py           exists=True tracked=True
+    the module, the index block, the local commit                    tools/b344_module.py               exists=True tracked=True
+    the clock the seal now writes                                    tools/reg_seal.py                  exists=True tracked=True
+    row 192                                                          tools/b344_correspondence.py       exists=True tracked=True
+    the key                                                          tools/b344_index_append.py         exists=True tracked=True
+    29 clauses                                                       tools/b344_regspec.py              exists=True tracked=True
+    the satisfiability verdict                                       tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                                 tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                        tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                          tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                         tools/b303_pins.py                 exists=True tracked=True
+    19309 bytes sealed                                               tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                                tools/b344_extract.py              exists=True tracked=True
+    the draft banked                                                 tools/b344_draft.py                exists=True tracked=True
+    the aim-map's seed, quantities and gate                          tools/b334_aimmap.py               exists=True tracked=True
+    the stable cut                                                   tools/b319_stable.py               exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the module, the row and the index row included):
+    b344_the_floor_priced.txt                sentences=212   graded-hedges=0   ungraded-shapes=52
+    b344_registration_2026-09-06.txt         sentences=341   graded-hedges=0   ungraded-shapes=62
+    b344_ruling_2026-09-06.txt               sentences=26    graded-hedges=0   ungraded-shapes=4
+    b344_executor_draft_2026-09-06.txt       sentences=56    graded-hedges=0   ungraded-shapes=10
+    b344_ny_run.txt                          sentences=37    graded-hedges=0   ungraded-shapes=3
+    b344_edge_run.txt                        sentences=39    graded-hedges=0   ungraded-shapes=8
+    b344_seal_before_run.txt                 sentences=8     graded-hedges=0   ungraded-shapes=1
+    b344_seal_after_run.txt                  sentences=19    graded-hedges=0   ungraded-shapes=5
+    b344_module_run.txt                      sentences=13    graded-hedges=0   ungraded-shapes=1
+    b344_corr_run.txt                        sentences=16    graded-hedges=0   ungraded-shapes=3
+    b344_corr_rerun.txt                      sentences=13    graded-hedges=0   ungraded-shapes=2
+    b344_index_run.txt                       sentences=27    graded-hedges=0   ungraded-shapes=7
+    b344_index_rerun.txt                     sentences=30    graded-hedges=0   ungraded-shapes=7
+    b344_census.txt                          sentences=30    graded-hedges=0   ungraded-shapes=6
+    b344_faces_census.txt                    sentences=17    graded-hedges=0   ungraded-shapes=2
+    b344_regspec_run.txt                     sentences=24    graded-hedges=0   ungraded-shapes=2
+    audit_b344_reg_satisfiable.txt           sentences=84    graded-hedges=0   ungraded-shapes=3
+    b344_pins_stepzero.txt                   sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b344_index_query.txt               sentences=113   graded-hedges=0   ungraded-shapes=50
+    b344_reg_gate.txt                        sentences=7     graded-hedges=0   ungraded-shapes=2
+    b344_ruling_scan.txt                     sentences=22    graded-hedges=0   ungraded-shapes=1
+    b344_extract.py                          sentences=168   graded-hedges=0   ungraded-shapes=26
+    b344_regspec.py                          sentences=94    graded-hedges=0   ungraded-shapes=6
+    b344_draft.py                            sentences=49    graded-hedges=0   ungraded-shapes=2
+    b344_ny.py                               sentences=160   graded-hedges=0   ungraded-shapes=11
+    b344_edge.py                             sentences=138   graded-hedges=0   ungraded-shapes=11
+    b344_seal_clock.py                       sentences=156   graded-hedges=0   ungraded-shapes=13
+    b344_module.py                           sentences=188   graded-hedges=0   ungraded-shapes=26
+    b344_correspondence.py                   sentences=150   graded-hedges=0   ungraded-shapes=19
+    b344_index_append.py                     sentences=146   graded-hedges=0   ungraded-shapes=22
+    SEAL_CARRIES_ITS_CLOCK.md                sentences=48    graded-hedges=0   ungraded-shapes=17
+    row 192                                  sentences=21    graded-hedges=0   ungraded-shapes=9
+    the index block                          sentences=8     graded-hedges=0   ungraded-shapes=3
+    the index row                            sentences=29    graded-hedges=0   ungraded-shapes=8
+
+====================================================================================================
+  ### GATES FAILING : 1 ['G-NOEDIT']
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

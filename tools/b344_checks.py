@@ -367,9 +367,13 @@ def main():
     st_s = [x for x in git(SIDE, 'status', '--porcelain').splitlines() if x.strip() and not x.strip().endswith('CORRESPONDENCE.md')]
     st_p = [x for x in git(PP, 'status', '--porcelain').splitlines() if x.strip() and 'BLOB_SENSITIVITY' not in x]
     st_t = git(TC, 'status', '--porcelain').strip()
-    seal_changed = 'tools/reg_seal.py' in git(ROOT, 'status', '--porcelain', '--', 'tools/reg_seal.py')
+    # ### the one owner-instrument edit this act made, BY THE ORDER'S WORDS, must be present -- and the test must give
+    # ### the same answer before and after the commit. ### `git status` says "modified" only until the commit; the
+    # ### stable test is against the tree this act found (`963bfc2`, its step-zero pin). ### The first post-push run
+    # ### failed on exactly that.
+    seal_changed = bool(git(ROOT, 'diff', '--name-only', '963bfc2', '--', 'tools/reg_seal.py').strip())
     gn2 = not st_r and not st_s and not st_p and not st_t and seal_changed
-    print('    relay owners %r ; SIDE (beyond the table) %s ; PLACE-papers %s ; TECHNE %r ; reg_seal changed (the one edit by the order) %s : %s'
+    print('    relay owners %r ; SIDE (beyond the table) %s ; PLACE-papers %s ; TECHNE %r ; reg_seal changed against the pre-act tree (the one edit by the order) %s : %s'
           % (st_r, st_s, st_p, st_t, seal_changed, gn2))
     if not gn2:
         fails.append('G-NOEDIT')
