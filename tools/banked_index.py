@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'housekeeping': ['the housekeeping', 'the wave\'s housekeeping', 'housekeeping', 'the errata partition', 'the partition of errata',
+                     'the deposit fetch', 'the read-only fetch', 'the three ledgers reconciled', 'the ledgers reconciled', 'the August TECHNE files',
+                     'the TECHNE commit', 'the patent receipts checked', 'what did the housekeeping do', 'the currency note'],
     'cost-census': ['the cost census', 'cost census', 'the cost column', 'the typed cost column', 'what moving it one grade would take',
                     'what would it cost to move a face', 'the sorted view', 'the pole-constant relation', 'the pole-constant row', 'row L2',
                     'the phase rule refined', '45 to 135 degrees', 'the addendum to b328'],
@@ -514,6 +517,21 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE WAVE'S HOUSEKEEPING (b337, leg 2 of the sortie b335-b338).
+    ("housekeeping", "b337 (housekeeping: filings and checks; no claim, no grade, no deposit action)",
+     "THE THREE LEDGERS (ERRATA.md, VERIFICATION_LOOM.md, OPEN_TRAILS.md) RECONCILED TO REGISTRY AGAINST ONE READ-ONLY FETCH of the public record"
+     " (v1.1.2, published 2026-07-24, DOI 10.5281/zenodo.21539167, 11 files): REGISTRY's d1-1 row agrees on every field, the local canonical copy matches the"
+     " published MD5s at 11 of 11; the loom and the trails CURRENT; ERRATA's head (v1.1.1 as current) DRIFT, repaired by an APPENDED currency"
+     " note, the head not edited. THE ERRATA PARTITION per the author's ruling ratified by the sortie paste: one appended block, five entries"
+     " DEPOSIT-FACING and five INTERNAL-RECORD by their own words, entries unmoved. THE NINE AUGUST TECHNE MODULE FILES committed at 4c0a6af in the"
+     " canonical local clone by explicit list, the remote unchanged, NOT PUSHED. THE PATENT RECEIPTS: ABSENT ON THE MOUNTED VOLUMES (C, D) for"
+     " both applications; F: not mounted this session; the four office notices and the 2026-08-30 response packages present; the repo of record"
+     " has no remote.",
+     "### NO DEPOSIT ACTION; NOTHING WAS WRITTEN AT ZENODO. ### NO ENTRY MOVED OR EDITED. ### TECHNE NOT PUSHED. ### NOTHING IS CONCLUDED ABOUT WHETHER"
+     " A REPLY WAS FILED. ### NO GRADE, NO CLAIM, NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b337_the_housekeeping.txt; data/b337_fetch_run.txt; data/b337_record.json; data/b337_errata_run.txt; data/b337_techne_run.txt;"
+     " data/b337_receipts_run.txt; data/b337_registration_2026-09-06.txt (sealed before any tool); PLACE-papers ERRATA.md (the b337 partition block);"
+     " TECHNE-Core local commit 4c0a6af; CORRESPONDENCE.md row 184"),
     # ### THE COST CENSUS (b336, leg 1 of the sortie b335-b338).
     ("cost-census", "b336 (a census on the faces ledger, typed; no grade moved)",
      "THE COST CENSUS: for each of the faces ledger's rows, what moving it ONE grade would take, typed as READ / IMPORT / MEASUREMENT /"

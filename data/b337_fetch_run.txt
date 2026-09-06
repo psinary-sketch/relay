@@ -1,0 +1,15 @@
+====================================================================================================
+b337 -- THE FETCH, READ-ONLY, AND THE THREE LEDGERS RECONCILED TO REGISTRY AGAINST IT.
+====================================================================================================
+  record URL (the only thing sent) : https://zenodo.org/api/records/21539167
+  the record returns : version v1.1.2 ; published 2026-07-24 ; DOI 10.5281/zenodo.21539167 ; concept 10.5281/zenodo.19675355 ; files 11
+  ### REGISTRY d1-1 AGREES WITH THE RECORD ON EVERY FIELD : version, date, DOI, concept, file count.
+  REGISTRY d1-1 row carries v1.1.2 True ; the DOI True ; the concept True ; the date True
+  the local canonical copy DEPOSITED-v1.1.2 : 11 of 11 files match the published MD5 ; missing none ; mismatching none
+
+  THE THREE LEDGERS, EACH AGAINST THE FETCH:
+    VERIFICATION_LOOM.md   the gate-1 pin         located True ; states v1.1.2  : CURRENT
+    OPEN_TRAILS.md         the deposit-voice pin  located True ; states v1.1.2  : CURRENT
+    ERRATA.md              the head               located True ; states v1.1.1  : DRIFT (states v1.1.1 against the record's v1.1.2)
+  ### DRIFT is repaired by an APPENDED note (the ledgers are append-only); nothing is edited.
+====================================================================================================

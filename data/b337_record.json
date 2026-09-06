@@ -1,0 +1,223 @@
+{
+ "created": "2026-07-24T20:02:59.850709+00:00",
+ "modified": "2026-07-24T20:03:00.375969+00:00",
+ "id": 21539167,
+ "conceptrecid": "19675355",
+ "doi": "10.5281/zenodo.21539167",
+ "conceptdoi": "10.5281/zenodo.19675355",
+ "doi_url": "https://doi.org/10.5281/zenodo.21539167",
+ "metadata": {
+  "title": "A Place To Stand: Proof of the Riemann Hypothesis via the SIDE method",
+  "doi": "10.5281/zenodo.21539167",
+  "publication_date": "2026-07-24",
+  "description": "<p>MAIN THEOREM. The Riemann Hypothesis: every nontrivial zero of the Riemann zeta function has real part 1/2.</p>\n<p>METHOD. The SIDE Exclusion Principle &mdash; Symmetry, Independence, Determination, Exhaustiveness. Applied to zeta, it proves that no off-line zero exists by enumerating the catalogue of mechanism classes from which an off-line zero would have to arise and excluding each one. The seven mechanism classes are proven exhaustive via Ostrowski's classification and the structure of &xi;(s); no class produces the algebraic signature of an off-line zero; independence of the constraints forbids conspiracy among them; symmetry forces &sigma; = 1/2 as the third identity element. The proof operates entirely within ZFC, and every component theorem is classical (Ostrowski 1916, Tate 1950, St&oslash;rmer 1897, Artin&ndash;Whaples 1945, Cartan 1876/1951).</p>\n<p>THE PROOF IN TWO FORMS. The argument exists as a human-readable mathematical monograph and as a machine-verified Lean 4 kernel, on the pattern of Hales's Kepler-conjecture proof and its Flyspeck verification: the manuscript proves the mathematics; the kernel compiles the logical architecture through three independent routes and reports its axiom base at named theorems. A skeptic can run lake build at the pinned kernel commit (SIDE-kernel v1.5 = 0e5233f) and #print axioms at the named route theorems (structural_exhaustiveness_proved; SpectralCannonFull.spectral_cannon; ConservationBridge.riemann_hypothesis &mdash; the third is the compiled implication from the named interface ConservationHypothesis, whose mathematics is the manuscript's Chapter 13 territory and whose ledger is &sect;27.3). All route terminals report {propext, Classical.choice, Quot.sound}. Verification claims are made by named theorem at pinned public commits, never by file counts; the standing correction record is the enclosed ERRATA.md.</p>\n<p>WHAT THE MANUSCRIPT ESTABLISHES, AND WHAT IT NAMES AS OPEN. Proved and machine-checked around the argument: the exhaustiveness of the seven-class catalogue over the places of \u211a; Conservation of Spectra from Tate's thesis (Chapter 13); the Mechanism Theorem derived from the Independence, Determination, and Symmetry principles (Chapter 10); five independent compiled identifications of &sigma; = 1/2 in five machineries; h1 complete at the witness &mdash; all eight per-class coupling facts of Chapter 15 machine-checked at the fixed Mellin witness and conjoined (h1_complete_at_Phi, SIDE-lv-conservation); the finite-range Li positivity certificate to the Voros detection threshold, whose finite-set conjunct is now itself proved (lowFinset_mem_iff, v0.10.0); and the step (9) assembly stated in its two-sentence form &mdash; the identity reading (every zero participates in the Guinand&ndash;Weil prime/zero ledger; classical and shared) separated from the sign reading (participation forces &sigma; = 1/2; the clause). Section 27.3, \"The One Premise,\" names that clause in five equivalent registers with its full literature ancestry (Li 1997; Bombieri&ndash;Lagarias 1999; Oesterl&eacute;; Voros 2006; Lagarias 2007), locates it at one compiled goal state, and counts exactly what stands certified around it; the C\u2085-output (Hilbert&ndash;P&oacute;lya) register is explicitly disclaimed, never claimed. A companion census, Paths to the Critical Line, catalogues the field's completing and non-completing paths in relation, including the sign-layer survey (&sect;ANNEX B) and two machine-checked negative results.</p>\n<p>CONTENTS. A_Place_to_Stand.md &mdash; the full manuscript (v5.10.2). Six companion papers: Exhaustive_Enumeration, Which_Structure_Confines, Spectral_Inertness, Third_Identity_Element, Silence_of_Foundations, Seven_Mechanism_Classes. ONE_PAGE_PROOF.md &mdash; the condensed proof chain. FORMATION_ARCHITECTURE.html, PAPER_DEPENDENCIES.svg &mdash; visualization assets. ERRATA.md &mdash; the standing correction record.</p>\n<p>PAIRED DEPOSITS. SIDE-kernel v1.5, DOI 10.5281/zenodo.21520474 (all versions: 10.5281/zenodo.19674312). SIDE-lv-conservation v0.10.0, DOI 10.5281/zenodo.21539068 (all versions: 10.5281/zenodo.21433177). Two Mathlib contributions from this work are merged: PR #36881 (tendsto_mul_logDeriv_simple_zero) and PR #36865 (analyticOrderAt_eq_one_of_zero_deriv_ne_zero).</p>\n<p>VERSION. v5.7&ndash;v5.8 (July 2026): the fulcrum reframe (&sect;27.3 to five registers with ancestry) and h1 completed at the witness, with the C\u2084 strengthening story told in full. v1.1.2 / manuscript v5.10.2 (July 2026): the re-articulation release &mdash; the monograph's narrative re-articulated end to end in five meaning-preserving passes (spine orientation, seam bridges, canonical homes for repeated stories, voice separation, currency); &sect;25.8 and &sect;25.1 currency to kernel v1.5; &sect;27.3 currency to lv v0.10.0 (the proved finite-set conjunct); step (9) recast into its identity/sign sentences with step (10) carrying the explicit clause tag; the Third_Identity element-level convention caveat; ERRATA entry E-2026-07-23-1 (&sect;18.2 label correction). No mathematical claim changed in any of these releases; the open clause stands exactly as named.</p>",
+  "access_right": "open",
+  "creators": [
+   {
+    "name": "Seale, J. York",
+    "affiliation": null,
+    "orcid": "0009-0008-7993-0310"
+   }
+  ],
+  "keywords": [
+   "Riemann Hypothesis",
+   "SIDE method",
+   "SIDE Exclusion Principle",
+   "exhaustive enumeration",
+   "mechanism exclusion",
+   "analytic number theory",
+   "Silence Principle",
+   "Ostrowski classification",
+   "Tate thesis",
+   "critical line"
+  ],
+  "related_identifiers": [
+   {
+    "identifier": "10.5281/zenodo.19674312",
+    "relation": "isSupplementTo",
+    "resource_type": "software",
+    "scheme": "doi"
+   }
+  ],
+  "version": "v1.1.2",
+  "language": "eng",
+  "resource_type": {
+   "title": "Preprint",
+   "type": "publication",
+   "subtype": "preprint"
+  },
+  "license": {
+   "id": "cc-by-4.0"
+  },
+  "relations": {
+   "version": [
+    {
+     "index": 4,
+     "is_last": true,
+     "parent": {
+      "pid_type": "recid",
+      "pid_value": "19675355"
+     }
+    }
+   ]
+  }
+ },
+ "title": "A Place To Stand: Proof of the Riemann Hypothesis via the SIDE method",
+ "links": {
+  "self": "https://zenodo.org/api/records/21539167",
+  "self_html": "https://zenodo.org/records/21539167",
+  "preview_html": "https://zenodo.org/records/21539167?preview=1",
+  "doi": "https://doi.org/10.5281/zenodo.21539167",
+  "self_doi": "https://doi.org/10.5281/zenodo.21539167",
+  "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21539167",
+  "reserve_doi": "https://zenodo.org/api/records/21539167/draft/pids/doi",
+  "parent": "https://zenodo.org/api/records/19675355",
+  "parent_html": "https://zenodo.org/records/19675355",
+  "parent_doi": "https://doi.org/10.5281/zenodo.19675355",
+  "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.19675355",
+  "self_iiif_manifest": "https://zenodo.org/api/iiif/record:21539167/manifest",
+  "self_iiif_sequence": "https://zenodo.org/api/iiif/record:21539167/sequence/default",
+  "files": "https://zenodo.org/api/records/21539167/files",
+  "media_files": "https://zenodo.org/api/records/21539167/media-files",
+  "archive": "https://zenodo.org/api/records/21539167/files-archive",
+  "archive_media": "https://zenodo.org/api/records/21539167/media-files-archive",
+  "latest": "https://zenodo.org/api/records/21539167/versions/latest",
+  "latest_html": "https://zenodo.org/records/21539167/latest",
+  "versions": "https://zenodo.org/api/records/21539167/versions",
+  "draft": "https://zenodo.org/api/records/21539167/draft",
+  "access_links": "https://zenodo.org/api/records/21539167/access/links",
+  "access_grants": "https://zenodo.org/api/records/21539167/access/grants",
+  "access_users": "https://zenodo.org/api/records/21539167/access/users",
+  "access_request": "https://zenodo.org/api/records/21539167/access/request",
+  "access": "https://zenodo.org/api/records/21539167/access",
+  "communities": "https://zenodo.org/api/records/21539167/communities",
+  "communities-suggestions": "https://zenodo.org/api/records/21539167/communities-suggestions",
+  "request_deletion": "https://zenodo.org/api/records/21539167/request-deletion",
+  "file_modification": "https://zenodo.org/api/records/21539167/file-modification",
+  "quota_increase": "https://zenodo.org/api/records/21539167/quota-increase",
+  "requests": "https://zenodo.org/api/records/21539167/requests"
+ },
+ "updated": "2026-07-24T20:03:00.375969+00:00",
+ "recid": "21539167",
+ "revision": 3,
+ "files": [
+  {
+   "id": "2f1dff7a-b571-42ba-953f-21490669b91a",
+   "key": "Silence_of_Foundations.md",
+   "size": 20853,
+   "checksum": "md5:c6e1593165449e004e0791239cac149f",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/Silence_of_Foundations.md/content"
+   }
+  },
+  {
+   "id": "29c71c8c-4bcb-4d24-bbbf-e0b5b598b8f2",
+   "key": "Seven_Mechanism_Classes.md",
+   "size": 22228,
+   "checksum": "md5:6caa6e80300584c037cf48882941ad00",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/Seven_Mechanism_Classes.md/content"
+   }
+  },
+  {
+   "id": "a76dbe09-b783-4613-9a51-50c7bdefa145",
+   "key": "Third_Identity_Element.md",
+   "size": 17819,
+   "checksum": "md5:ae918605afbd706faf54aa8474a30eb3",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/Third_Identity_Element.md/content"
+   }
+  },
+  {
+   "id": "101052fc-84cb-45e7-aa6b-c0f2bc5f66ef",
+   "key": "FORMATION_ARCHITECTURE.html",
+   "size": 6909,
+   "checksum": "md5:5d8cf664416d4311c34a5b2c95a13dc9",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/FORMATION_ARCHITECTURE.html/content"
+   }
+  },
+  {
+   "id": "d7499889-1a27-4107-aadf-71787d8d3d67",
+   "key": "ERRATA.md",
+   "size": 13951,
+   "checksum": "md5:8fa2ea2839199583d24119680d31c23f",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/ERRATA.md/content"
+   }
+  },
+  {
+   "id": "fc205f95-160f-4a8f-ad8b-382820c81227",
+   "key": "Exhaustive_Enumeration.md",
+   "size": 11994,
+   "checksum": "md5:218d290942dbfb7d150088d7c6dfe811",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/Exhaustive_Enumeration.md/content"
+   }
+  },
+  {
+   "id": "496db9c9-46ff-41d3-9f5e-32374c7a5601",
+   "key": "Spectral_Inertness.md",
+   "size": 12234,
+   "checksum": "md5:db5ab3d3d231cb83a243338c4aa35f76",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/Spectral_Inertness.md/content"
+   }
+  },
+  {
+   "id": "1d5f0e8f-526f-4abe-9aca-119269587d04",
+   "key": "ONE_PAGE_PROOF.md",
+   "size": 5174,
+   "checksum": "md5:0c727f16277beb41b62ec29254d0aebc",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/ONE_PAGE_PROOF.md/content"
+   }
+  },
+  {
+   "id": "eeff11b4-e665-49ff-829c-aa83bb3afeb9",
+   "key": "PAPER_DEPENDENCIES.svg",
+   "size": 3376,
+   "checksum": "md5:14ad53eabbc775280ac1808639498346",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/PAPER_DEPENDENCIES.svg/content"
+   }
+  },
+  {
+   "id": "72151bc8-0d74-4584-9f01-77e5fd5ed58e",
+   "key": "Which_Structure_Confines.md",
+   "size": 13125,
+   "checksum": "md5:6b18d69bcf9e619d3b2fb22376ccc432",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/Which_Structure_Confines.md/content"
+   }
+  },
+  {
+   "id": "dbb98294-af05-42f9-afe9-71bf8803df2c",
+   "key": "A_Place_to_Stand.md",
+   "size": 224080,
+   "checksum": "md5:e90e2d06d5cadc059c62c29a849e9f8c",
+   "links": {
+    "self": "https://zenodo.org/api/records/21539167/files/A_Place_to_Stand.md/content"
+   }
+  }
+ ],
+ "swh": {},
+ "owners": [
+  {
+   "id": "1616645"
+  }
+ ],
+ "status": "published",
+ "stats": {
+  "downloads": 61,
+  "unique_downloads": 59,
+  "views": 140,
+  "unique_views": 123,
+  "version_downloads": 1,
+  "version_unique_downloads": 1,
+  "version_unique_views": 19,
+  "version_views": 21
+ },
+ "state": "done",
+ "submitted": true
+}

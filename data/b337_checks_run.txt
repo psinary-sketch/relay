@@ -1,0 +1,180 @@
+====================================================================================================
+b337 -- GATE SUITE (THE WAVE'S HOUSEKEEPING: FILINGS AND CHECKS; NO DEPOSIT ACTION)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  REGISTRY -- the d1-1 row
+    PASS  ERRATA -- its head names v1.1.1 as current
+    PASS  ### entries never restated
+    PASS  the loom -- the gate-1 pin
+    PASS  the trails -- the deposit-voice pin
+    PASS  E-2026-07-23-1
+    PASS  ### no deposited artifact affected
+    PASS  ### no deposit action, nothing written at Zenodo
+    PASS  E-2026-09-03-1
+    PASS  b236 -- the record URL
+    PASS  the counsel list -- item 3
+    PASS  the deadline board -- enumerate the volumes
+    PASS  the sortie -- leg 2
+    PASS  ### the ERRATA ruling
+    PASS  ### the TECHNE ruling
+
+  SELF NEEDLES:
+    PASS  bank states the four items first
+    PASS  ### (1) the fetch agrees
+    PASS  ### nothing routed
+    PASS  ### (2) the partition
+    PASS  ### (3) TECHNE
+    PASS  ### (4) the receipts
+    PASS  ### nothing concluded about the reply
+    PASS  ### no deposit action
+    PASS  bank keeps the order
+    PASS  bank gives the tools
+    PASS  bank gives the row and the key
+    PASS  ### the seat's defects
+    PASS  ### E1
+    PASS  bank gives the standing rows
+    PASS  ### the shadow none
+    PASS  ### next
+    PASS  registration -- no deposit action
+    PASS  registration -- F: not mounted
+    PASS  registration -- expected nothing
+    PASS  ERRATA -- the partition block
+    PASS  ### the ruling as the header line
+    PASS  ### the currency note
+    PASS  the fetch run -- every field agrees
+    PASS  the techne run -- unchanged, not pushed
+    PASS  the receipts run -- F: not mounted
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says a deposit action was taken
+    PASS  the bank never says a Zenodo write was made
+    PASS  the bank never says TECHNE was pushed
+    PASS  the bank never says the reply was filed
+    PASS  the bank never says an entry moved
+    PASS  the bank never says K8 is owned
+
+  G-FETCH (F1: the record fields; REGISTRY agreeing on every field; the local MD5s):
+    agree {'version': True, 'date': True, 'doi': True, 'concept': True, 'nfiles': True} ; local 11 of 11 ; record kept True : True
+
+  G-LEDGERS (F2: the three ledgers scored CURRENT / DRIFT / ROUTED from the located lines):
+    {'VERIFICATION_LOOM.md': 'CURRENT', 'OPEN_TRAILS.md': 'CURRENT', 'ERRATA.md': 'DRIFT'} : True
+
+  G-PARTITION (F3: the block once; every entry in exactly one list; entries byte-identical; the file a true prefix of its blob plus the block):
+    mark once True ; ids covered True ; entries identical True ; prefix True : True
+
+  G-TECHNE (F4: the nine tracked; the remote unchanged; two ahead; the second clone untouched; the commit exactly the nine):
+    tracked 9 ; remote 22739c9 ; ahead 2 ; commit files 9 ; second clone 6e8638a : True
+
+  G-RECEIPTS (F5: the volumes named, F: absent, ABSENT per application, the search paths listed, the repo of record without a remote):
+    True
+
+  G-ROW / G-ANCESTOR (row 184: NO TERMINAL with the reason, not pushed, nothing concluded, M-2; the table a true prefix of its blob):
+    True
+
+  G-KEY / G-NODEPOSIT (one row; the must-not-hit queries NO KEY; the answer says no deposit action, not pushed, nothing concluded):
+    True
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT (owner files, sealed files, the deposit, HANDOFF, the patent repo, the other ledgers: no tracked change beyond the act's files):
+    relay '' ; SIDE (beyond the table) [] ; PLACE-papers (beyond ERRATA) [] ; patent repo '' ; deposit '' ; the other ledgers '' : True
+
+  G-ORDER (the seal verifies; the tools, the runs, the ledger, the row and the bank after the seal):
+    seal verifies True ; hash equals the literal True ; the tools, the runs, the ledger, the row and the bank after the seal True [file times (pre-commit)] : True
+
+  G-HOOK / G-MIRROR (read from their records when they exist; owed after the push):
+    ERRATA not yet committed ; the hook and the mirror are owed after the commit (records present: False / False)
+
+  G-NUMBERS (every number the bank quotes, read back from its producing file):
+    the record fields                            PASS
+    11 of 11                                     PASS
+    +26 lines, 265 -> 291                        PASS
+    4c0a6af, 621 insertions, 2 ahead             PASS
+    22739c9, 6e8638a                             PASS
+    row 184                                      PASS
+    15347 bytes sealed                           PASS
+    25 clauses                                   PASS
+    five and five                                PASS
+
+  G-ONCE (run files written once per path; the re-runs recorded):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 30   struck-clause hits 0   stem hits 0  PASS
+    b337_checks.py                       struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b337_ferry_2026-09-06.txt            struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b337_ferry_scan.txt                  struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b337_reg_termscan.txt                struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b337_extract_notes.txt               struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    b337_record.json                     struck : 0  stem : 0  ### CARRIER -- the public record's JSON, as fetched
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (extended scope: the ERRATA block, row 184, the index row, the TECHNE commit message, swept):
+    the ERRATA block     struck : 0   stem : 0   (2414 chars)
+    row 184              struck : 0   stem : 0   (2673 chars)
+    index row            struck : 0   stem : 0   (1826 chars)
+    the TECHNE message   struck : 0   stem : 0   (581 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    v1.1.2, 2026-07-24, the DOIs, 11 files, 11 of 11, CURRENT/ tools/b337_fetch.py                exists=True tracked=False
+    +26 lines, 265 -> 291, the two lists                       tools/b337_errata.py               exists=True tracked=False
+    4c0a6af, 9 files, 621 insertions, 2 ahead, 22739c9, 6e8638 tools/b337_techne.py               exists=True tracked=False
+    C and D, F: absent, ABSENT per application, the notices    tools/b337_receipts.py             exists=True tracked=False
+    row 184                                                    tools/b337_correspondence.py       exists=True tracked=False
+    the key                                                    tools/b337_index_append.py         exists=True tracked=False
+    25 clauses                                                 tools/b337_regspec.py              exists=True tracked=False
+    the satisfiability verdict                                 tools/reg_satisfiable.py           exists=True tracked=True
+    0/0 on the scans                                           tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                                  tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                                    tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                                   tools/b303_pins.py                 exists=True tracked=True
+    15347 bytes sealed                                         tools/reg_seal.py                  exists=True tracked=True
+    the extract zeros                                          tools/b337_extract.py              exists=True tracked=False
+    the hook                                                   tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                                 tools/mirror_verify.py             exists=True tracked=True
+    the record URL, the MD5 rule                               tools/b236_deposit_fetch.py        exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the ERRATA block, the row, the index row and the TECHNE message included):
+    b337_the_housekeeping.txt            sentences=135   graded-hedges=0   ungraded-shapes=17
+    b337_registration_2026-09-06.txt     sentences=259   graded-hedges=0   ungraded-shapes=44
+    b337_fetch_run.txt                   sentences=14    graded-hedges=0   ungraded-shapes=5
+    b337_errata_run.txt                  sentences=7     graded-hedges=0   ungraded-shapes=0
+    b337_errata_rerun.txt                sentences=7     graded-hedges=0   ungraded-shapes=0
+    b337_techne_run.txt                  sentences=12    graded-hedges=0   ungraded-shapes=1
+    b337_techne_rerun.txt                sentences=11    graded-hedges=0   ungraded-shapes=1
+    b337_techne_commit_msg.txt           sentences=4     graded-hedges=0   ungraded-shapes=1
+    b337_receipts_run.txt                sentences=33    graded-hedges=0   ungraded-shapes=4
+    b337_corr_run.txt                    sentences=16    graded-hedges=0   ungraded-shapes=3
+    b337_corr_rerun.txt                  sentences=13    graded-hedges=0   ungraded-shapes=2
+    b337_index_run.txt                   sentences=29    graded-hedges=0   ungraded-shapes=5
+    b337_index_rerun.txt                 sentences=32    graded-hedges=0   ungraded-shapes=5
+    b337_census.txt                      sentences=30    graded-hedges=0   ungraded-shapes=6
+    b337_faces_census.txt                sentences=17    graded-hedges=0   ungraded-shapes=2
+    b337_regspec_run.txt                 sentences=23    graded-hedges=0   ungraded-shapes=2
+    audit_b337_reg_satisfiable.txt       sentences=74    graded-hedges=0   ungraded-shapes=3
+    b337_pins_stepzero.txt               sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b337_index_query.txt           sentences=87    graded-hedges=0   ungraded-shapes=13
+    b337_reg_gate.txt                    sentences=7     graded-hedges=0   ungraded-shapes=2
+    b337_extract.py                      sentences=132   graded-hedges=0   ungraded-shapes=14
+    b337_regspec.py                      sentences=90    graded-hedges=0   ungraded-shapes=6
+    b337_fetch.py                        sentences=130   graded-hedges=0   ungraded-shapes=10
+    b337_errata.py                       sentences=111   graded-hedges=0   ungraded-shapes=11
+    b337_techne.py                       sentences=101   graded-hedges=0   ungraded-shapes=8
+    b337_receipts.py                     sentences=113   graded-hedges=0   ungraded-shapes=8
+    b337_correspondence.py               sentences=129   graded-hedges=0   ungraded-shapes=14
+    b337_index_append.py                 sentences=144   graded-hedges=0   ungraded-shapes=10
+    the ERRATA block                     sentences=20    graded-hedges=0   ungraded-shapes=9
+    row 184                              sentences=15    graded-hedges=0   ungraded-shapes=4
+    the index row                        sentences=24    graded-hedges=0   ungraded-shapes=1
+    the TECHNE message                   sentences=4     graded-hedges=0   ungraded-shapes=1
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================
