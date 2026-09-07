@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'priced-and-resolved-fold': ['the fold b339', 'the priced-and-resolved arc', 'the arc as one statement',
+                                'use and mention', 'the scanner over prose', 'the census as a finding',
+                                'the failure-mode partition', 'the judgement rule'],
     'bar-floor-rule': ['the bar-floor rule', 'the run file\'s clock', 'the flattener', 'the two-routes rule',
                       'the satisfiability audit\'s limit', 'the standing clauses v2', 'the act-number clause',
                       'a bar below its floor', 'arms that are one arm'],
@@ -546,6 +549,30 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PRICED-AND-RESOLVED ARC, b339-b347 -- THE FOLD (b348).
+    ("priced-and-resolved-fold", "b348 (a filings act; it proves nothing and moves no grade)",
+     "THE FOLD OF b339-b347: nine acts filed as one section of the findings document, PURELY ADDITIVE, with every quotation located at the act that ORIGINATED"
+     " it and -- new in this fold -- THE NO-GRADE-MOVED CLAIM ITSELF MECHANICAL: every grade string had to appear verbatim in the bank of the act it is"
+     " attributed to, or the section would not have been written. Quotations failing 0; grade anchors failing 0; 135 lines added, nothing"
+     " edited. Three further tables from the acts\' own declarations: 3 corrections the acts made to their OWN readings, 3 sealed bars found"
+     " defective and tabled rather than edited into passing, 2 defects the seats declared on their own faces. THE ARC AS ONE STATEMENT: a question"
+     " priced UNAFFORDABLE by value on one axis was RESOLVED on another the record already held; the deposit\'s Li channel and the derived kernel are ONE"
+     " DISTRIBUTION ON TWO FAMILIES, measured; the archimedean instrument has a floor the one axis moved does not explain; the room\'s minimum is BRACKETED at"
+     " the lowest height charted; the clause\'s constituents stand as the stated-clause anchor has them. ONE SPECIES MINTED: a scanner over prose cannot tell"
+     " use from mention -- a sentence denying a thing contains the thing -- five incidents at b316, b317, b345, b346 and b347\'s own arm which found its own"
+     " search string. THE CENSUS AS A FINDING: 333 registrations gated, 52 would fire, 281 clear, 276 of those carrying nothing for an arm to look at.",
+     "### A FOLD IS A SUMMARY OF ITS ACTS AT THEIR OWN GRADES: it proves nothing, discharges nothing, and MOVES NO GRADE -- and in this fold that is CHECKED"
+     " rather than asserted. ### THE RATE AXIS RESOLVES THE TWO CONVENTIONS AND DOES NOT MAKE A CONVENTION CORRECT; b313\'s clause governs and a rate is not a"
+     " vote on it. ### THE FLOOR IS NOT EXPLAINED -- one axis of three was moved and the other two are named, not moved. ### W-ORD-LI-FAMILY-CONTROL STAYS"
+     " OWED: the zero side and the finite side are not evaluated. ### THE CENSUS IS A MEASUREMENT OF THE RECORD AND NOT A GRADE ON IT, and the gate it reports"
+     " is PROSPECTIVE -- the record\'s quiet is mostly the absence of stated numerical bars, not bars checked and approved. ### THE MINTED SPECIES IS A"
+     " JUDGEMENT RULE, NOT MECHANIZED, and is deliberately NOT LISTED BESIDE THE MECHANIZED ONES; what would mechanize it is named and not built. ### THE"
+     " FAILURE-MODE PARTITION IS NAMED AS A RESEARCH PROPOSAL AND NOT OPENED, AND NO SUCH PARTITION IS KNOWN TO EXIST. ### K8 UNOWNED. ### NO GRADE MOVED."
+     " ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b348_the_fold.txt; data/b348_fold_run.txt; data/b348_fold_emitted.md;"
+     " data/b348_registration_2026-09-07.txt (sealed before any line was emitted into the findings document);"
+     " PLACE-papers FINDINGS.md (the appended section); TECHNE-Core modules/2026-09/USE_AND_MENTION.md (local, NOT PUSHED);"
+     " CORRESPONDENCE.md row 196"),
     # ### THE THREE REPAIRS AND THE TWO RULES (b347).
     ("bar-floor-rule", "b347 (an instrument act; it decides nothing about the mathematics)",
      "THE BAR-FLOOR RULE, MINTED OVER BOTH SPECIES: a numerical bar is stated with the floor of the object it tests, and a bar below that floor is"
