@@ -1,0 +1,192 @@
+====================================================================================================
+b347 -- GATE SUITE (THREE REPAIRS, TWO RULES, AND AN ACT CAUGHT BY ITS OWN NEW ARM)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    PASS  b345 -- the fixture is a defective bar
+    PASS  b345 -- why a run file needs a clock
+    PASS  b346 -- the arm that did no work
+    PASS  b346 -- the shared engine
+    PASS  b344 -- the seal's own clock
+    PASS  b322 -- the weaker of the two
+    PASS  FERRY_STANDING -- the seat adds none by hand
+    PASS  the ruling that ordered the act-number clause
+    PASS  the order -- the rule over both species
+    PASS  the order -- the two-routes third clause
+    PASS  the order -- the flattener and its reach
+    PASS  the order -- the fold is next
+
+  SELF NEEDLES:
+    PASS  the bank states what the act is first
+    PASS  ### the clock does not reach backwards
+    PASS  ### the audit is named and priced, not closed
+    PASS  ### the gate matches text
+    PASS  ### no past act is re-verdicted
+    PASS  ### not one run file can be given a clock
+    PASS  ### the price is not a plan
+    PASS  ### the count is a lower bound
+    PASS  ### an untaken branch is not an unmatched arm
+    PASS  ### the defect points toward false alarm
+    PASS  ### the rule itself
+    PASS  ### a quiet row is quiet because there was nothing to look at
+    PASS  ### the act did not exempt itself
+    PASS  ### carried and not fixed
+    PASS  ### the modules are not pushed
+    PASS  ### author-ruled, not measured
+    PASS  ### the scan was not taught it
+    PASS  ### the expectations scored
+    PASS  ### (b) refuted
+    PASS  ### what this act does not conclude
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the audit is closed
+    PASS  the bank never says a past act was wrong
+    PASS  the bank never says the clock dates the old runs
+    PASS  the bank never calls a repair a result
+
+  G-CLOCK (a parseable instant and the next number; both polarities; the limit in the file; the census):
+    the four fixtures : True ; this act's own run file carries its clock (2026-09-07T00:15:31Z) : True
+    the limit stated in the tool where the line is written : True
+    the census: 370 run files, 0 carried a clock before this act : True
+    PASS
+
+  G-PRICE (the limit named in the audit's own output; the price a COUNT; existing verdicts unchanged):
+    named in the output and b346's verdict unchanged : True ; the counts add up (27 = 7 + 20) : True
+    the bank says named and priced, not closed : True ; and that a price is not a plan : True
+    PASS
+
+  G-FLAT (one utility; both polarities; the reach measured; every past copy byte-identical to its blob):
+    the four fixtures : True ; this suite defines NO flattener of its own and uses the utility : True
+    every past checks file byte-identical to its blob : True ([True, True, True, True, True])
+    the reach reported as a LOWER BOUND : True ; arms weakened : [['b346', 'A SHARED ENGINE IS A SHARED ERROR SOURCE']]
+    PASS
+
+  G-RULE (both species in the rule; both incidents in the module; the September shape; local, NOT PUSHED):
+    the September shape : True ; both incidents with their figures : True ; grade-honest and named as b322's case : True
+    TECHNE local HEAD 58750a0 ; its remote does NOT carry it (NOT PUSHED) : True ; its tree clean : True
+    PASS
+
+  G-GATE (both arms; both polarities; the index-query arm untouched; the census; this act's own file gated):
+    six fixtures, both polarities : True ; the index-query arm still fires and still clears : True
+    the census adds up (52 fire + 281 clear = 333) : True
+    this act's own registration fires on 1 arm(s) and the bank says so : True
+    the gate states its own reach and keeps its original header : True
+    PASS
+
+  G-TWOROUTES (one appended block; the module a true prefix of its prior bytes; the clause; b346 cited):
+    one block under the mark : True ; a TRUE PREFIX of its prior committed bytes : True
+    the clause in the order's words : True ; b346 cited in the block : True
+    PASS
+
+  G-STANDING (v2 by the generator; counts re-measured live; the author-ruled clause marked; the scan NOT taught):
+    VERSION 2 : True ; --check re-measures live with 0 disagreeing : True
+    the clause in its own section, marked NOT MEASURED : True ; the ruling cited : True
+    the scan was NOT taught the clause, and the file says so : True
+    PASS
+
+  G-ROW / G-ANCESTOR (row 195: NO TERMINAL with the reason; the table a true prefix of its blob):
+    row 195 present once : True ; true prefix of its blob : True
+    PASS
+
+  G-KEY / G-NOTEXPLAINED:
+    one key and one row : True ; the four overreadings NO KEY after : True ; the key run passed : True
+    PASS
+
+  G-APPENDONLY (banked_index.py: every line of the blob still present, in order):
+    True
+
+  G-NOEDIT / G-PAPERS (no owner instrument; the papers repo untouched, so the hook and the mirror are NOT OWED):
+    owner instruments modified : none ; papers-repo dirty paths : none
+    no hook or mirror record written, and the bank says they are not owed : True
+    PASS
+
+  G-ORDER (the seal verifies through its owning tool; the seal clock; the audit as it stands):
+    the seal recomputes to the banked hash : True ; the seal block carries its clock (2026-09-07T00:07:10Z) : True
+    ### AND THE ORDERING IS READ FROM TWO CLOCKS, NOT FROM FILE TIMES: seal 2026-09-07T00:07:10Z < run 2026-09-07T00:15:31Z : True
+    the audit reads JOINTLY SATISFIABLE : True
+    PASS
+
+  G-NUMBERS (every number the bank quotes, read back from its producing record):
+    the run-file census 370 / 0                              PASS
+    the price counts                                         PASS
+    the reach table                                          PASS
+    the weakened count                                       PASS
+    the census counts                                        PASS
+    this act's own arm miss and its line                     PASS
+    the run clock 2026-09-07T00:15:31Z                       PASS
+    the seal stamp                                           PASS
+    the seal hash                                            PASS
+    21740 bytes sealed                                       PASS
+    31 clauses                                               PASS
+    row 195                                                  PASS
+    the TECHNE commit 58750a0                                PASS
+
+  G-ONCE (run files written once per path):
+    True
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 23   struck-clause hits 0   stem hits 0  PASS
+    b347_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b347_order_2026-09-06.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b347_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b347_reg_termscan.txt                        struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b347_extract_notes.txt                       struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 195, the module, the appended block, the index row, swept):
+    row 195                struck : 0   stem : 0   (5683 chars)
+    the new module         struck : 0   stem : 0   (4801 chars)
+    the appended block     struck : 0   stem : 0   (1735 chars)
+    the index row          struck : 0   stem : 0   (3282 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the five components and every census           tools/b347_repairs.py                  exists=True tracked=True
+    the run file's clock and its fixtures          tools/run_clock.py                     exists=True tracked=True
+    the repaired flattener and its fixtures        tools/gate_text.py                     exists=True tracked=True
+    the two bar-floor arms and their fixtures      tools/registration_gate.py             exists=True tracked=True
+    the audit's named numerical limit              tools/reg_satisfiable.py               exists=True tracked=True
+    FERRY_STANDING v2 and its live counts          tools/b335_standing.py                 exists=True tracked=True
+    row 195                                        tools/b347_correspondence.py           exists=True tracked=True
+    the key                                        tools/b347_index_append.py             exists=True tracked=True
+    31 clauses                                     tools/b347_regspec.py                  exists=True tracked=True
+    21740 bytes sealed, and the seal clock         tools/reg_seal.py                      exists=True tracked=True
+    0/0 on the scans                               tools/ferry_scan.py                    exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                      tools/b307_handoff_census.py           exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                        tools/b327_faces_census.py             exists=True tracked=True
+    the pins                                       tools/b303_pins.py                     exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the row, the module, the block and the index row included):
+    b347_the_three_repairs.txt                     sentences=317   graded-hedges=0   ungraded-shapes=66
+    b347_registration_2026-09-06.txt               sentences=401   graded-hedges=0   ungraded-shapes=74
+    b347_order_2026-09-06.txt                      sentences=27    graded-hedges=0   ungraded-shapes=9
+    b347_repairs_run.txt                           sentences=184   graded-hedges=0   ungraded-shapes=39
+    b347_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=3
+    b347_index_run.txt                             sentences=29    graded-hedges=0   ungraded-shapes=10
+    b347_census.txt                                sentences=30    graded-hedges=0   ungraded-shapes=6
+    b347_faces_census.txt                          sentences=17    graded-hedges=0   ungraded-shapes=2
+    b347_regspec_run.txt                           sentences=25    graded-hedges=0   ungraded-shapes=2
+    audit_b347_reg_satisfiable.txt                 sentences=89    graded-hedges=0   ungraded-shapes=4
+    b347_pins_stepzero.txt                         sentences=37    graded-hedges=0   ungraded-shapes=1
+    audit_b347_index_query.txt                     sentences=40    graded-hedges=0   ungraded-shapes=3
+    b347_reg_gate.txt                              sentences=7     graded-hedges=0   ungraded-shapes=2
+    b347_reg_termscan.txt                          sentences=22    graded-hedges=0   ungraded-shapes=1
+    b347_extract.py                                sentences=194   graded-hedges=0   ungraded-shapes=35
+    b347_regspec.py                                sentences=96    graded-hedges=0   ungraded-shapes=7
+    b347_repairs.py                                sentences=539   graded-hedges=0   ungraded-shapes=68
+    b347_correspondence.py                         sentences=166   graded-hedges=0   ungraded-shapes=38
+    b347_index_append.py                           sentences=164   graded-hedges=0   ungraded-shapes=27
+    run_clock.py                                   sentences=129   graded-hedges=0   ungraded-shapes=20
+    gate_text.py                                   sentences=90    graded-hedges=0   ungraded-shapes=16
+    row 195                                        sentences=30    graded-hedges=0   ungraded-shapes=19
+    the new module                                 sentences=78    graded-hedges=0   ungraded-shapes=23
+    the appended block                             sentences=28    graded-hedges=0   ungraded-shapes=7
+    the index row                                  sentences=43    graded-hedges=0   ungraded-shapes=13
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================
