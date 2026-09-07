@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'aim-plane-coordinates': ['the aim plane', 'the partition question', 'the abscissa', 'the height',
+                             'the phase window', 'the seed\'s width', 'a finite classification',
+                             'a bound on the instrument'],
     'held-axes-priced': ['the held axes', 'the price of the axes', 'the cut\'s threshold', 'the taper',
                         'the rank-preserving band', 'the floor is explained', 'the floor unexplained',
                         'pricing is not measuring'],
@@ -555,6 +558,28 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PARTITION QUESTION (b351).
+    ("aim-plane-coordinates", "b351 (a read under a ceiling; it computes nothing)",
+     "THE AIM PLANE\'S COORDINATES READ FOR WHETHER THE RECORD CAN BOUND THEM, under the sealed distinction that A BOUND ON THE INSTRUMENT IS NOT A"
+     " BOUND ON THE COORDINATE. THE ABSCISSA: BOUNDED BY AN ARGUMENT -- b326\'s summed bound SUM r_Q(k) k^(-3/2) = 1.38 < 2 confines every zero of"
+     " Lambda_Q to (-0.5, 1.5), a statement about ALL zeros, banked since the completeness census and never cited for the aim plane. THE SEED\'S PHASE:"
+     " BOUNDED BY AN ARGUMENT and finitely cut -- for an EVEN seed the quadruple\'s term is 4 G^2 cos(2 phi), the coordinate lives on a circle, and the"
+     " sign cuts it at exactly 45 and 135 degrees; ONE class survives, the vanishing transform, which the sign condition cannot see. THE HEIGHT: BOUNDED"
+     " ONLY BY A MEASUREMENT -- sixty boxes over t in [0.5, 150], the count closing at 180 against a main term of 178.6, and nothing claimed above it;"
+     " AND ITS ONLY METHOD PRODUCES INSTANCES WHOSE COUNT THE MAIN TERM SAYS NEVER RUN OUT, so the price of 0.40134 boxes per unit of height"
+     " (60 further boxes to T = 300, in boxes because the record printed no wall) BUYS INSTANCES WHILE THE MISSING STATEMENT NEEDS A CLASS. THE SEED\'S"
+     " WIDTH: NOT BOUNDED, and worse off than the height -- the square and remainder are NOT REACHED at the charted widths, the remainder evaluator"
+     " changes sign past rho = 100, and for Z_Q the record\'s own words are NOT AN INSTRUMENT THE RECORD HAS, so its missing statement is UNPRICEABLE"
+     " from banked figures and its pricing unpriceable too. VERDICT: UNDECIDED, both other branches SHOWN UNREACHABLE.",
+     "### UNDECIDED IS A STATEMENT ABOUT THE RECORD AND NOT ABOUT THE OBJECT: the aim plane may well admit a finite classification, and this act says"
+     " only that the record contains neither one nor a proof that there is none. ### NO PARTITION WAS CONSTRUCTED, NO CLASS PROVED SILENT, NO INSTRUMENT"
+     " WRITTEN, and nothing computed beyond one labelled division of two banked counts. ### A COORDINATE BEING BOUNDED IS NOT THE MARGIN BEING SAFE"
+     " THERE, and no margin was measured at any aim. ### TWO CLOSED COORDINATES ARE NOT HALF A CLASSIFICATION, because a classification of a product is"
+     " not two classifications of two factors. ### THE PHASE\'S FINITE CUT IS STATED FOR AN EVEN SEED, the condition b328 states it under. ### NO CLASS"
+     " IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b351_the_partition_question.txt; data/b351_read_run.txt; data/b351_extract_notes2.txt;"
+     " data/b351_registration_2026-09-07.txt (sealed before one coordinate was judged);"
+     " CORRESPONDENCE.md row 199"),
     # ### THE FLOOR'S TWO HELD AXES, PRICED (b350).
     ("held-axes-priced", "b350 (a pricing act; it moves nothing and measures nothing)",
      "THE FLOOR\'S TWO HELD AXES PRICED FROM b344\'S PRINTED FIGURES, with no frame built and nothing re-run. THE COST is the same for both --"
