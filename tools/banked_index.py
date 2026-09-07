@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'uniformity-fold': ['the fold b349', 'the uniformity arc', 'the three that rhyme',
+                       'what the checks certify', 'the instrument edge', 'the mirror roster addition',
+                       'the span b349', 'the fourth instance'],
     'ledger-currency-pass': ['the ledger currency pass', 'the currency pass', 'the front door',
                             'the federation map', 'the deposit state', 'the precedence',
                             'are the ledgers current', 'the federation pins', 'the mirror roster'],
@@ -583,6 +586,31 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE UNIFORMITY ARC, b349-b359 -- THE FOLD (b360).
+    ("uniformity-fold", "b360 (a filings act; it proves nothing and moves no grade)",
+     "THE FOLD OF b349-b359: 11 acts filed as one section of the findings document, PURELY ADDITIVE, 180 lines added and nothing above them"
+     " edited. THE SPAN IS COUNTED, NOT TYPED: the emitter reads the last fold section\'s own filing line off FINDINGS.md and finds each act\'s bank on disk,"
+     " and refuses to emit if the counted span and the result table disagree. F-QUOTE 0 failing; F-NOGRADE 0 failing, the no-grade-moved claim"
+     " mechanical as b348 built it. The extract located 68 of 68 reads, 39 anchors differing from the hint that found them."
+     " THE ARC AS ONE STATEMENT, at the grade the acts support: the archimedean instrument\'s EDGE is located at the quadrature bound and the floor is still"
+     " unexplained; the exponent resolved on the rate axis; the partition UNDECIDED with its coordinates failing in different ways and the abscissa closed"
+     " by a sum already in the record; the width statement an equivalence at each fixed support and not across supports; the Li tail circular; the"
+     " lawfulness checks confirming the construction rather than testing the class; and THE CLAUSE HAS NOT MOVED. THE THREE THAT RHYME -- the clause\'s"
+     " quantifier (b332), the height coordinate\'s enumeration (b351), the width coordinate\'s union (b353) -- with b358\'s localization as a FOURTH ENTRY OF THE"
+     " SAME KIND and NOT a fifth obstruction. AND THE AUTHOR\'S RULING EXECUTED: FACES_LEDGER.md added to the mirror roster, 41 rows to 42, appended at"
+     " the END so no existing slot changes.",
+     "### A FOLD IS A SUMMARY OF ITS ACTS AT THEIR OWN GRADES: it proves nothing, discharges nothing, and MOVES NO GRADE -- checked, not asserted."
+     " ### THREE OBSTRUCTIONS THAT RHYME ARE THREE OBSTRUCTIONS, AND NO BRIDGE IS TYPED between them in either direction; the deposit\'s own refusal to"
+     " compile cross-register equivalence is quoted at the deposited file. ### AN EDGE LOCATED IS NOT A FLOOR EXPLAINED: b350\'s THE FLOOR IS"
+     " UNEXPLAINED stands and b352\'s UNDER-RESOLVED AS A FIT stands. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS"
+     " NOT MOVED. ### THE ROSTER ROW IS A CARRYING DECISION AND NOTHING ELSE: carrying a ledger in an archive says nothing about whether what the"
+     " ledger says is true, and the addition reaches the archive from this rebuild forward and does NOT place it in any prior mirror. ### THE SPAN\'S"
+     " CLOSING SENTENCE IS A STATEMENT ABOUT THIS BOARD AND NOT A CLAIM THAT NO MOVE EXISTS, and it opens nothing. ### NO GRADE MOVED. ### NO BAR"
+     " MOVED. ### NO ACT RE-VERDICTED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b360_the_fold.txt; data/b360_fold_run4.txt; data/b360_fold_emitted.md; data/b360_extract_notes2.txt;"
+     " data/b360_registration_2026-09-07.txt (LOCKED before any write, on the audit\'s own exit code);"
+     " PLACE-papers FINDINGS.md (the appended section); relay tools/mirror_roster.json (the author\'s ruling executed);"
+     " CORRESPONDENCE.md row 209"),
     # ### THE LEDGER CURRENCY PASS (b359).
     ("ledger-currency-pass", "b359 (a read, a fetch and a pin sweep; it computes nothing and deposits nothing)",
      "NO DRIFT IS FOUND. Nine claims located and classified across the front door and the federation map -- 7 CURRENT, 2 SILENT, 0 STALE, none unclassified -- and SIX"
