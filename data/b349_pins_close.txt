@@ -1,0 +1,37 @@
+====================================================================================================
+b303_pins.py -- PINS. ### BY `ls-remote`, ALL THREE REPOS.
+====================================================================================================
+  parser fixture                                 got/expected           agree
+  a real pair, tab-separated                     (0, 1)/(0, 1)          YES
+  a real pair, space-separated                   (2, 3)/(2, 3)          YES
+  both zero -- the synchronised state            (0, 0)/(0, 0)          YES
+  ### an error message, NOT a pair               None/None              YES
+  ### empty output -- the silent-zero trap       None/None              YES
+  ### one number only                            None/None              YES
+  ### three numbers                              None/None              YES
+  ### a non-integer                              None/None              YES
+  parser self-test : PASS
+
+--- relay   (D:\relay)
+    local HEAD   : cfedfbb1db5a845051bdcfe4e8dab1e56e11d6eb
+    ls-remote    : cfedfbb1db5a845051bdcfe4e8dab1e56e11d6eb
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 11 untracked
+--- SIDE-global-section   (D:\SIDE-global-section)
+    local HEAD   : f4f2526f6bd1db732430a0ac0e3d1f32b50db22d
+    ls-remote    : f4f2526f6bd1db732430a0ac0e3d1f32b50db22d
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 0 untracked
+--- PLACE-papers   (D:\MY-DOwnloads\PLACE-papers)
+    local HEAD   : 12d96d3a4d5d2346bf3bf1755b371197ac8c8ad6
+    ls-remote    : 12d96d3a4d5d2346bf3bf1755b371197ac8c8ad6
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 1 untracked
+
+  ### REPOS HARD-FAILING : 0
+  ### **A PIN IS A SHA READ BACK FROM THE REMOTE. ### IT SAYS WHAT IS THERE,
+  ### NOT THAT WHAT IS THERE IS RIGHT.**
+====================================================================================================
