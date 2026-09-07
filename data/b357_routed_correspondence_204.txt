@@ -1,0 +1,47 @@
+====================================================================================================
+### ### **A DEFECT FOUND IN A BANKED ROW WHILE WRITING THE NEXT ONE. ### DECLARED AND ROUTED.**
+### ### **NOT EDITED**, because `b357`'s sealed registration forbids this act from touching any byte of
+### `CORRESPONDENCE.md` except its own appended row, and a banked row is the author's to correct.
+### Found 2026-09-07 by the research seat while reading the table's tail to number row 205.
+====================================================================================================
+
+### **WHERE:** ### `SIDE-global-section/CORRESPONDENCE.md`, ### **ROW 204** ### (line 277), which is
+### `b356`'s own row, pushed at `SIDE 17e3aaf`.
+
+### **WHAT IT SAYS**, in the marker sentence that opens the row:
+###   *"...THE RANK IS NO LONGER AT ITS BOUND -- ### **SO b356'S SIXTH RUNG WAS THE INSTRUMENT'S EDGE**,
+###   AND THE FIVE-FRAME PICTURE STANDS WITH ITS EDGE NOW LOCATED AT X = 256 WITH NY = 512..."*
+
+### **WHAT IS WRONG:** ### ### **IT SHOULD READ `b354`.** ### `b354` ran the sixth rung at `NY = 512` and
+### that rung was the instrument's edge; `b356` ran the sixth rung again with the axis raised and is the
+### act that LOCATED the edge. ### As written, the row says `b356`'s own frame was the edge, which is the
+### opposite of what `b356` measured -- `b356`'s frame cleared the bound with 506 dimensions to spare.
+
+### **HOW FAR IT REACHES:** ### ### **ONE WORD, IN ONE CELL, IN ONE ROW.**
+###   ### The ### **REST OF ROW 204 IS CORRECT** ### and says so explicitly two sentences later: *"b354
+###     found the residual negative and the rank saturated at the quadrature bound IN THE SAME STEP and
+###     separated them nowhere, saying so."*
+###   ### `data/b356_the_boundary.txt` is ### **CORRECT**: *"SO b354's SIXTH RUNG WAS THE INSTRUMENT'S
+###     EDGE."*
+###   ### The index key `object-or-boundary` is ### **CORRECT**: *"SO b354'S SIXTH RUNG WAS THE
+###     INSTRUMENT'S EDGE."*
+###   ### **SO THE BANK AND THE INDEX BOTH READ RIGHT AND ONLY THE CORRESPONDENCE ROW READS WRONG.**
+###   ### **NO NUMBER IS AFFECTED. ### NO VERDICT MOVES. ### `b356` IS NOT RE-VERDICTED.**
+
+### **WHERE IT CAME FROM:** ### the marker string is typed as a literal in
+### `tools/b356_correspondence.py`, in the `m = (...)` block, and every FIGURE in that row is read from
+### `data/b356_raised.json` while every ACT NUMBER in the marker is typed. ### **THE GATE SUITE RECOMPUTES
+### FIGURES AND DOES NOT CHECK TYPED ACT NUMBERS**, so `G-NUMBERS` had nothing to fire on.
+
+### **WHAT IS OFFERED, AND NOT DONE:**
+###   ### **(1) THE CORRECTION ITSELF** -- `b356'S` to `b354'S` in row 204's marker cell, which the author
+###     may make directly or route to an act. ### **THIS SEAT HAS NOT MADE IT.**
+###   ### **(2) A GUARD WORTH ITS COST, IF THE AUTHOR WANTS ONE:** ### an arm that extracts every `bNNN`
+###     token from a row about to be written and requires each to appear in the act's own bank -- the same
+###     shape as `G-NUMBERS`, applied to act numbers instead of figures. ### **NAMED AND NOT BUILT**, and
+###     it belongs beside the standing work-order to route gate arms through `tools/anchor_from_file.py`,
+###     since both are the same defect: ### **A STRING TYPED WHERE IT COULD HAVE BEEN READ.**
+
+### ### **AND WHAT THIS NOTE IS NOT:** ### it is not an ERRATA entry and does not ask to be one -- a typed
+### act number in a correspondence marker is a slip in a row, not a claim the record made. ### **THE AUTHOR
+### ### RULES ON WHICH IT IS.**

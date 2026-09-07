@@ -83,6 +83,10 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'what-the-ledgers-certify': ['what the ledgers say the checks certify', 'the wider sentence',
+                                'the narrower sentence', 'the attribution fault',
+                                'what the checks certify', 'the ledger read', 'the errata draft',
+                                'the construction-confirming scan'],
     'object-or-boundary': ['the object or the boundary', 'the raised axis', 'the quadrature bound',
                           'the instrument edge', 'the sixth rung again', 'six dimensions',
                           'the rank at the bound', 'the control at the raised axis'],
@@ -573,6 +577,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### WHAT THE LEDGERS SAY THE CHECKS CERTIFY (b357).
+    ("what-the-ledgers-certify", "b357 (a read of four ledgers; it computes nothing and edits nothing)",
+     "SOME ROWS SAY IT. Twelve passages located and classified across FINDINGS.md, FACES_LEDGER.md, CORRESPONDENCE.md and tools/banked_index.py,"
+     " NONE UNCLASSIFIED, splitting 5 WIDER / 6 NARROWER / 1 SILENT -- and THE FIVE WIDER REACH ALL FOUR LEDGERS, which is what made the erratum owed"
+     " rather than optional: FINDINGS.md:3039 (b328), FACES_LEDGER.md:140 (b328), FACES_LEDGER.md:176 (b334), CORRESPONDENCE.md:251 (b332),"
+     " tools/banked_index.py:1022 (b332) -- A STRADDLING READING, DECLARED BY b352\'S RULE: 1022 is the line the act READ and RELIED ON, and appending"
+     " this very key moved that row to 1054, which is where a later reader finds it. THE TWO FINDINGS ARE KEPT APART, AS THE SEAL REQUIRED BEFORE ANY ROW WAS READ: (1) THE ATTRIBUTION FAULT, 3"
+     " rows, crediting the Definition 3.1 scan with establishing membership by a parenthetical or by the preposition BY; (2) MEMBERSHIP ASSERTED WITH"
+     " NO WARRANT NAMED, 2 rows carrying the same summarised parenthetical. THE CONSEQUENCE, STATED ONCE: CLASS MEMBERSHIP IN THIS FAMILY RESTS ON THE"
+     " CONSTRUCTION, AND THE SCAN CONFIRMS IT RATHER THAN TESTING IT -- every f is built as g conv g-sharp, for a true autocorrelation the transform is"
+     " a squared modulus so positivity is automatic and the scan CANNOT FAIL, and what it discriminates is arithmetic that has gone wrong, which is"
+     " what b320\'s own wide-minus-narrow control at min f-hat = -5.85e-01 shows and why the scan is not vacuous. AN INDEPENDENT TEST WOULD REQUIRE AN"
+     " OBJECT NOT BUILT AS AN AUTOCORRELATION; NO ACT HAS NEEDED ONE AND NONE IS ORDERED HERE. An ERRATA entry is DRAFTED AND ROUTED and NOTHING IS"
+     " WRITTEN TO ERRATA.md. AND THE ACT MADE A FRESH INSTANCE OF ITS OWN SUBJECT: its first run grouped the five wider rows by GREPPING THIS SEAT\'S"
+     " OWN COMMENTARY for the word ATTRIBUTION and mis-grouped 2 of 5 -- b348\'s use-and-mention species -- so the grouping is now DECLARED DATA, row"
+     " by row, and the superseded run is kept UNEDITED with the verdict, the twelve statuses and the five wider rows IDENTICAL in both.",
+     "### THE WIDER SENTENCE IS NOT NECESSARILY FALSE, AND THE ACT DOES NOT SAY IT IS: the corpus builds f with the source\'s support and vanishing"
+     " conditions, and WHAT IS WRONG IN THE THREE IS THE WARRANT, NOT THE CLAIM. ### THE MEMBERSHIP QUESTION IS NOT DECIDED -- whether the"
+     " piecewise-linear object is in a class defined over smooth functions is b355\'s H1, graded REFUTABLE and ROUTED, and it stands exactly there."
+     " ### TWELVE PASSAGES THIS SEAT CHOSE ARE NOT A CENSUS: nothing mechanical enumerated the candidates, so a row that says the wider sentence and"
+     " was not looked for is NOT COUNTED. ### THE CORRECTION IS DRAFTED, NOT MADE. ### NO ROW IS EDITED. ### NO BANKED NUMBER IS AFFECTED. ### NO"
+     " CHECK IS DEMOTED -- every check that passed still passed. ### NO ACT IS RE-VERDICTED. ### NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED."
+     " ### NO GRADE MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b357_what_the_ledgers_say.txt; data/b357_read_run2.txt; data/b357_read.json;"
+     " data/b357_read_run_SUPERSEDED_LEXICAL_GROUPING.txt (the first grouping, kept unedited);"
+     " data/b357_errata_draft.txt (DRAFTED AND ROUTED, NOT OPENED); data/b357_extract_notes.txt;"
+     " data/b357_registration_2026-09-07.txt (sealed on the audit\'s own exit code, before the reading was classified);"
+     " CORRESPONDENCE.md row 205"),
     # ### THE OBJECT OR THE BOUNDARY (b356).
     ("object-or-boundary", "b356 (one frame, one parameter re-tuned, deliberately)",
      "THE BOUNDARY. b354 found the sixth rung\'s residual negative AND the rank saturated at the quadrature bound IN THE SAME STEP, and separated"
