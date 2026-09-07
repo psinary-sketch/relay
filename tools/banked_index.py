@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'floor-fourth-candidate': ['the floor as a fit', 'the fourth candidate', 'the three models',
+                              'the model selection', 'a floor or a power law', 'the frame price',
+                              'the straddling gate', 'the spectral void'],
     'aim-plane-coordinates': ['the aim plane', 'the partition question', 'the abscissa', 'the height',
                              'the phase window', 'the seed\'s width', 'a finite classification',
                              'a bound on the instrument'],
@@ -558,6 +561,26 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FLOOR'S FOURTH CANDIDATE (b352).
+    ("floor-fourth-candidate", "b352 (a refit of banked figures; nothing recomputed)",
+     "THE IDENTITY RESIDUAL REFITTED UNDER THREE MODELS SEALED BEFORE ANY FIT -- M1 = A X^-p (k=2), M2 = A X^-p + c (k=3), M3 = A X^-p + B X^-(p+1) (k=3) --"
+     " all by ONE criterion, least squares on log R, with M1 reproducing b322\'s own fit_power at every cell to 1e-9 (the fitter IMPORTED) so that the"
+     " three scores are comparable. VERDICT: THE FLOOR IS UNDER-RESOLVED AS A FIT. The five frames DO separate a constant floor from a faster-decaying"
+     " correction -- M2 beats M3 at every cell -- but M2 against M1 is preferred at a = 1.3 by less than the bar, decisively at a = 1.35, and REJECTED at"
+     " a = 1.41 by 7.01. AND THE REASON IS THE CRITERION AND NOT THE DATA: at n = 5 a third parameter costs 20 AICc units against a bar of 2, so S must"
+     " fall by a factor of 54.6 to break even and the winner turns on the penalty. The fitted constant is POSITIVE at all three cells and passes the"
+     " second bar at all three, refuting the seat\'s registered expectation. THE PRICE OF SETTLING IT IS ONE MORE FRAME: the binding cell needs 6 where"
+     " the record holds 5, the next rung is X = 256, N = 32768, AND THAT SITS INSIDE THE CEILING b339 SEALED AT X = 512 -- affordable where b339\'s own"
+     " question was not. Component 3 filed the spectral void\'s width as the MEASURED 10.62 with b350 named, and minted the straddling-gate rule.",
+     "### A MODEL WINNING A SELECTION SCORE IS NOT A FLOOR EXISTING: a fit ranks descriptions of five numbers and measures nothing. ### WHAT THIS ACT"
+     " COULD NOT HAVE SEEN IS PRINTED PER CELL -- a true floor below the fit\'s own scatter at the last rung would pass no arm here. ### NO ACT IS"
+     " RE-VERDICTED: b339\'s UNAFFORDABLE STANDS, b346 stands, b350 stands, b351\'s UNDECIDED stands. ### b339\'S SIDE-READING IS RESTATED AS FIT-DEPENDENT"
+     " AND IS NOT WITHDRAWN -- its own act labelled it that seat\'s reading. ### THE FRAME PRICE IS A PRICE AND NOT A PREDICTION, and the act does not"
+     " run it. ### NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b352_the_fourth_candidate.txt; data/b352_fit_run6.txt; data/b352_filings_run.txt;"
+     " data/b352_registration_2026-09-07.txt (sealed before one model was fitted);"
+     " PLACE-papers OPEN_TRAILS.md (the W-ORD-VOID-WIDTH block); TECHNE-Core STRADDLING_GATE.md (local-only);"
+     " tools/registration_gate.py (the straddle arm, appended); CORRESPONDENCE.md row 200"),
     # ### THE PARTITION QUESTION (b351).
     ("aim-plane-coordinates", "b351 (a read under a ceiling; it computes nothing)",
      "THE AIM PLANE\'S COORDINATES READ FOR WHETHER THE RECORD CAN BOUND THEM, under the sealed distinction that A BOUND ON THE INSTRUMENT IS NOT A"

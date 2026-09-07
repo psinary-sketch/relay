@@ -1,0 +1,222 @@
+====================================================================================================
+b352 -- THE FLOOR'S FOURTH CANDIDATE. ### LEG 1 OF THE SORTIE b352-b353. ### THE REGISTRATION.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation
+### CURRENT by `tools/ferry_scan.py` on the ferry.
+### ### **SEALED BEFORE ONE MODEL WAS FITTED.** ### The extract and the frame-count verification ran first,
+### because the order's adopted note requires the count checked BEFORE the seal; no parameter, residual,
+### score or verdict exists at the moment of sealing.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER, AND THE THREE NOTES IT ADOPTS.
+----------------------------------------------------------------------------------------------------
+### The order is leg 1 of `data/b352_ferry_2026-09-07.txt`, which adopts the navigator's `(C)` block
+### banked unedited at `data/b351_ferry_2026-09-07.txt`. ### Its scope, quoted: ### *"a REFIT from figures
+### already banked; NO frame built, NO instrument run, NO act re-verdicted -- b339's verdict stands and
+### this act measures the same figures under models it names."*
+### ### **THE THREE NOTES, ADOPTED AND DISCHARGED HERE OR NAMED FOR DISCHARGE:**
+###   ### **(N1)** Component 3's filing touches the papers repo, so ### **THE HOOK AND THE MIRROR ARE
+###   ### OWED AND WILL BE PAID.** ### The gate suite carries `G-HOOK` and `G-MIRROR` as owed arms.
+###   ### **(N2)** the spectral void's width is carried as ### **THE MEASURED `10.62`, WITH b350 NAMED**,
+###   ### and not as a round decade.
+###   ### **(N4)** the frame count is verified BEFORE this seal. ### **IT IS VERIFIED, AND THE COUNT IS
+###   ### REPORTED IN (B) BELOW FROM THE RECORD RATHER THAN FROM THE ORDER'S WORDS.**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE FRAME COUNT, VERIFIED BEFORE THIS SEAL, AND WHAT THE ACT WILL FIT.
+----------------------------------------------------------------------------------------------------
+### ### **MEASURED OFF `data/b339_price.json`, NOT OFF PROSE**, and recorded at
+### `data/b352_extract_notes3.txt` and `data/b352_frames.json` before this file was written:
+###   ### the domain ladder is `X = [8.0, 16.0, 32.0, 64.0, 128.0]`, `N = 128 X`, `NY = 512`;
+###   ### the covered cells are `a = 1.3`, `1.35`, `1.41`;
+###   ### ### **THE COUNT IS `5` FRAMES AT EVERY ONE OF THE `3` COVERED CELLS, IDENTICAL AT ALL THREE**,
+###   ### and every cell's `reproduces` flag against b321's ladder ends is `True`.
+### ### **SO THE ORDER'S PHRASE "the five frames" IS CORRECT, AND THE ACT CHECKED IT RATHER THAN
+### ### ACCEPTING IT.** ### The registration says so here because the adopted note requires the count
+### reported whatever it is, and a count that agrees is still a count that was measured.
+### ### **AND ONE THING THE ORDER'S PHRASE COULD BE MISREAD AS, SEPARATED HERE:** ### there are `3`
+### covered cells and not five. ### **FIVE IS THE FRAME COUNT PER CELL, NOT THE CELL COUNT**, and every
+### fit below is per cell over five points.
+
+----------------------------------------------------------------------------------------------------
+### (C) THE MODELS. ### FIXED HERE, BEFORE ANY FIT, WITH THEIR PARAMETER COUNTS.
+----------------------------------------------------------------------------------------------------
+### The object fitted is `R(X)`, the identity residual b339 banked at each covered cell, read from
+### `data/b339_price.json` and NOT recomputed.
+###   ### **`M1` -- THE PURE POWER LAW, NO FLOOR:** ### `R = A X^(-p)`. ### `k = 2`.
+###   ### **`M2` -- THE POWER LAW PLUS A CONSTANT FLOOR:** ### `R = A X^(-p) + c`. ### `k = 3`.
+###   ### **`M3` -- THE TWO-TERM ALTERNATIVE:** ### `R = A X^(-p) + B X^(-p-1)`. ### `k = 3`.
+### ### ### **WHY `M3` IS FIXED AT THREE PARAMETERS AND NOT FOUR, DECIDED HERE AND NOT AFTER SEEING A
+### ### ### SCORE:** ### a freely-exponented second term has `k = 4`, and with `n = 5` its corrected
+### ### ### information criterion has `n - k - 1 = 0` in a denominator and ### **CANNOT BE SCORED AT
+### ### ### ALL.** ### Fixing the second exponent one unit steeper -- the next term of an asymptotic
+### ### ### expansion -- makes `M3` cost exactly what `M2` costs, so ### **THE COMPARISON THAT MATTERS
+### ### ### IS AT EQUAL COMPLEXITY: A CONSTANT FLOOR AGAINST A FASTER-DECAYING CORRECTION.** ### If five
+### ### ### points cannot separate those two, the floor is under-resolved as a fit, and that is the
+### ### ### question the order asks.
+### ### **THE FREE TWO-TERM MODEL IS NOT FITTED**, and the reason above is the whole reason; the act
+### reports it as unscoreable rather than fitting it and quietly declining to score it.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE FITTING CRITERION. ### ONE CRITERION FOR ALL THREE, FIXED HERE.
+----------------------------------------------------------------------------------------------------
+### ### **ALL THREE MODELS ARE FITTED BY MINIMISING THE SUM OF SQUARED RESIDUALS OF `log R`:**
+### `S = sum_i (log R_i - log f(X_i))^2`.
+### ### ### **WHY LOG AND NOT LINEAR, DECIDED BEFORE ANY FIT:** ### `R` spans about `1.7` orders across
+### the ladder, so a linear-error fit is dominated by the single largest point at `X = 8` and says almost
+### nothing about the last rung, which is exactly where a floor would show. ### **AND THERE IS A SECOND,
+### ### DECISIVE REASON: b322's `fit_power`, WHICH THE RECORD ALREADY USED ON THIS OBJECT, IS A LOG-SPACE
+### ### FIT.** ### Fitting `M2` and `M3` in linear space while `M1` came from a log-space fit would be a
+### comparison of two different criteria wearing one name.
+### ### **THE LIKE-FOR-LIKE FIXTURE, REQUIRED BEFORE ANY SCORE IS REPORTED:** ### this act's own `M1`
+### must reproduce `b322_ladder.fit_power`'s `(p, A, rms)` at every cell, ### **THE FITTER IMPORTED AND
+### ### NOT COPIED**, to `1e-9` relative. ### **IF IT DOES NOT, NO SCORE IS REPORTED AND THE ACT SAYS SO.**
+### ### **THE SELECTION CRITERION: `AICc = n log(S/n) + 2k + 2k(k+1)/(n - k - 1)`**, with `n = 5` per cell.
+### ### Lower is preferred. ### **AND WHERE `n - k - 1 <= 0` THE MODEL IS MARKED `NOT SCOREABLE ON THIS
+### ### LADDER` AND IS NOT RANKED**, which for `n = 5` is every model with four or more parameters.
+
+----------------------------------------------------------------------------------------------------
+### (E) THE BARS. ### EACH WITH THE FLOOR OF THE OBJECT IT TESTS. ### THE BAR-FLOOR RULE, MINTED AT b347.
+----------------------------------------------------------------------------------------------------
+### ### **THE OBJECT'S FLOOR, MEASURED BEFORE THIS SEAL AND NOT ASSUMED:** ### `R = margin - int_ef`, and
+### `int_ef` enters b339's record with ### **`9` DECIMAL PLACES AT ALL THREE CELLS**, so `R` is known to
+### ### **`5e-10` ABSOLUTE** however many digits the JSON prints. ### The smallest residual anywhere on the
+### ladder is `1.880778106e-02`, so the ### **RELATIVE FLOOR AT THE LAST RUNG IS `2.658e-08`.**
+### ### **BAR 1 -- DISTINGUISHABLE BY SCORE.** ### Two scoreable models are DISTINGUISHABLE when their
+### `AICc` differ by more than `2.0`.
+###   ### **ITS FLOOR:** ### an `AICc` difference is driven by `n log(S/n)`; with `n = 5` and the relative
+###   ### floor `2.658e-08`, the smallest `S` distinguishable from zero is about `5 x (2.658e-08)^2 =
+###   ### 3.5e-15`, and `AICc` differences at that scale are far below `2.0`. ### **THE BAR SITS ABOVE ITS
+###   ### OBJECT'S FLOOR BY MANY ORDERS, AND IS THEREFORE STRICT RATHER THAN UNINFORMATIVE.**
+### ### **BAR 2 -- A POSITIVE FLOOR, AS A STATEMENT ABOUT ONE PARAMETER.** ### `M2`'s fitted `c` counts as
+### a POSITIVE FLOOR only when ### **`c > 0` AND `c` EXCEEDS THE M2 FIT'S OWN SCATTER AT THE LAST RUNG**,
+### that scatter being `rms(M2) x R(128)` in absolute terms.
+###   ### **ITS FLOOR:** ### `5e-10` absolute, as above. ### A bar on `c` below `5e-10` would be a bar on
+###   ### the printing of `int_ef` and not on the residual.
+### ### ### **WHAT MAKES BAR 1 AND BAR 2 INDEPENDENT, NAMED AS b347's RULE REQUIRES:** ### Bar 1 ranks
+### ### WHOLE MODELS by total fit across five points; Bar 2 asks whether ONE PARAMETER of ONE model is
+### ### positive and larger than that model's own scatter. ### **THEY CAN DISAGREE, AND THE CASE WHERE
+### ### THEY DO IS THE INFORMATIVE ONE:** `M2` may score best while its `c` comes out negative, which is
+### ### a better fit achieved by an unphysical floor and is evidence AGAINST a floor, not for one. ### An
+### ### act that ran only Bar 1 could report "the floor model wins" in exactly that case.
+### ### **THIS IS A TWO-ARM BAR AND IS NOT MARKED `SINGLE-ARM`**, and the independence above is what the
+### rule demands be named.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE VERDICT'S BRANCHES, FIXED HERE.
+----------------------------------------------------------------------------------------------------
+### ### **(FLOOR ESTABLISHED)** -- at every covered cell, `M2` beats `M1` by more than Bar 1 AND its `c`
+### passes Bar 2. ### **THE MARGIN IS PRINTED**, as the `AICc` difference and as `c` against its bar.
+### ### **(FLOOR UNDER-RESOLVED AS A FIT)** -- the five frames cannot separate the models by both bars.
+### ### Then: ### **THE NUMBER OF FRAMES OR THE DOMAIN REACH THAT WOULD, PRICED**; and ### **b339's
+### side-reading RESTATED AS FIT-DEPENDENT RATHER THAN WITHDRAWN** -- b339 labelled it its own seat's
+### reading and this act does not overturn a reading its author labelled.
+### ### **(NO FLOOR PREFERRED)** -- `M1` fits as well or better at every cell, ### **AT FULL PROMINENCE**;
+### with what that does to b346's premise stated, and ### **b346 NOT RE-VERDICTED.**
+### ### ### **IN EVERY BRANCH:** ### the exponent's resolution on the RATE axis is untouched, because it
+### ### did not rest on the floor; ### **b339's UNAFFORDABLE STANDS**; and no act is re-verdicted.
+### ### **AND ONE THING FIXED HERE BECAUSE IT IS THIS ACT'S WHOLE HAZARD:** ### **A MODEL WINNING A
+### ### SELECTION SCORE IS NOT A FLOOR EXISTING.** ### `AICc` ranks descriptions of five numbers. ### It
+### ### cannot see a floor below the ladder's reach, and a floor smaller than the last rung's residual
+### ### would be invisible to every arm in this act. ### **THE ACT MUST SAY WHAT ITS OWN INSTRUMENT
+### ### COULD NOT HAVE SEEN**, and Bar 2's threshold is exactly that statement in numbers.
+
+----------------------------------------------------------------------------------------------------
+### (G) COMPONENT 3 -- THE TWO FILINGS.
+----------------------------------------------------------------------------------------------------
+### ### **FILING ONE -- THE SPECTRAL VOID'S WIDTH, AS A WORK-ORDER NOTE.** ### One appended block on the
+### papers repo, carrying ### **THE MEASURED FACTOR `10.62` WITH b350 NAMED** and the band's two ends
+### `(2.144048e-07, 2.277535e-06)`; that it is robust across the quadrature ladder as b350 measured it;
+### that a finer instrument narrowing it would leave the stable-rank cut under-determined; and that ###
+### **IT IS NOT ATTEMPTED HERE.** ### Append-only, under its own mark, a true prefix of what it was and
+### of its committed blob.
+### ### **FILING TWO -- THE LORE'S THIRD SIGHTING, MINTED.** ### The rule: ### **A GATE THAT STRADDLES AN
+### EVENT HAS TWO READINGS, AND THE ACT NAMES THE ONE IT RELIES ON.** ### Its three incidents, each
+### located and quoted at its own emitting file: the mirror's own warning that a clean first clause on a
+### stale build looks exactly like a correct one; b350's `G-HOOK`/`G-MIRROR`, which cannot pass before the
+### push because the records it reads are written at the push; and the ancestry arm's *true prefix of its
+### blob*, which is a strong check before a commit and a near-vacuous one after it, because the blob then
+### is the file.
+### ### ### **MECHANIZED IF MECHANIZABLE, ELSE FILED AS JUDGEMENT -- AND THE SPLIT IS DECIDED HERE.**
+### ### **THE MECHANIZABLE HALF:** ### a registration that names a gate arm reading a REPOSITORY state
+### ### must say whether that arm is read BEFORE or AFTER the push, or mark it `SIDE-INVARIANT`. ### That
+### ### is a textual demand of exactly the shape `registration_gate.py` already carries for the bar-floor
+### ### rule, and it goes there, with fixtures in BOTH polarities.
+### ### **THE JUDGEMENT HALF, FILED AS JUDGEMENT AND NOT LISTED BESIDE THE MECHANIZED ONE:** ### **WHICH
+### ### ARMS STRADDLE CANNOT BE DECIDED BY A STRING.** ### An arm straddles when its VERDICT would change
+### ### across the event, and no scanner can compute that from the arm's text. ### The mechanized half
+### ### forces a declaration; it does not and cannot check that the declaration is right.
+### ### **THE TECHNE MODULE IS WRITTEN LOCAL-ONLY AND IS NOT PUSHED**, as every module since b330.
+
+----------------------------------------------------------------------------------------------------
+### (H) THE GATE SUITE'S ARMS.
+----------------------------------------------------------------------------------------------------
+### ### `G-FRAMES` -- the frame count re-measured from `b339_price.json` and equal to what (B) sealed, and
+###   the verification's run file older than this seal.
+### ### `G-NOREBUILD` -- STRIPPED code: the fitting tool imports no instrument that could recompute a
+###   residual, and every `R` it fits is byte-equal to b339's banked array.
+### ### `G-LIKEFORLIKE` -- this act's `M1` reproduces `b322_ladder.fit_power` at every cell to `1e-9`
+###   relative, the fitter IMPORTED; and the fixture is reported before any score.
+### ### `G-MODELS` -- the three sealed models fitted, their forms as sealed, their parameter counts `2`,
+###   `3`, `3`; the free two-term model NOT fitted and its unscoreability stated.
+### ### `G-BARS` -- both bars applied at every cell, their floors printed beside them, and the
+###   independence sentence present.
+### ### `G-VERDICT` -- the branch by (F)'s rule, with the branches not taken shown unreachable.
+### ### `G-NOTSEEN` -- the act states what its own instrument could not have seen: the smallest floor Bar 2
+###   could detect, printed per cell.
+### ### `G-STANDS` -- b339's `UNAFFORDABLE` and b346's verdict both stated as standing, and neither
+###   re-verdicted; b339's side-reading handled by the branch rule and never withdrawn.
+### ### `G-VOID` -- the work-order block carries `10.62` and names b350; it does not say "a decade".
+### ### `G-STRADDLE` -- the three incidents located at their emitting files; the mechanized half present in
+###   `registration_gate.py` with fixtures both polarities; the judgement half stated as judgement.
+### ### `G-APPENDONLY`, `G-NOEDIT`, `G-ORDER`, `G-ROW`, `G-KEY`, `G-STRUCK`, `G-STEM`, `G-SHARED`,
+###   `G-TOOLNUM`, `G-NUMBERS`, `G-ONCE`, `G-HOOK`, `G-MIRROR` (OWED), the hedge audit, and `G-AFTER` --
+###   the whole suite re-run after the push, reported either way.
+### ### **THE MUST-FAIL FIXTURES, AS WHOLE LINES:** ### the bank must not contain `### THE FLOOR IS
+###   ESTABLISHED.`, `### b339 IS RE-VERDICTED.`, `### THE SIDE-READING IS WITHDRAWN.`, or
+###   `### THE LADDER IS A POWER LAW.`
+
+----------------------------------------------------------------------------------------------------
+### (I) BOTH SEATS' EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L1), QUOTED:** ### *"the five frames cannot distinguish and the floor is
+### under-resolved as a fit"*, and the order adds it is ### *"refutable by a printed margin."*
+### ### **THIS SEAT'S:** ### that `M2`'s fitted `c` will come out at or below zero at at least one cell --
+### because b339's own ladder ratios still fall by about a half per doubling at the last rung, which is a
+### power law near `X^-1` and not a floor. ### **REFUTABLE:** by a positive `c` above Bar 2 at every cell.
+### ### **AND WHAT NEITHER SEAT MAY DO:** ### an expectation is scored, never satisfied.
+
+----------------------------------------------------------------------------------------------------
+### (J) THE SCOPE REFUSALS.
+----------------------------------------------------------------------------------------------------
+### ### **A FIT IS A DESCRIPTION OF FIVE NUMBERS AND NOT A FACT ABOUT AN OBJECT.** ### Nothing in this act
+### measures a residual, builds a frame, runs an instrument or extends a ladder.
+### ### **NO ACT IS RE-VERDICTED.** ### b339 stands, b346 stands, b350 stands, b351's `UNDECIDED` stands.
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER.** ### **NO
+### CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED.** ### `M-2` remains (SPECIFIED-NOT-STATED) under
+### b310's cap. ### **NO GRADE IS CONFERRED BY THIS SEAT.**
+### ### The seam's debt item 1 stands. ### The patent lane is carried on the patent seat's report,
+### UNCONFIRMED on this seat's record. ### The posture lock is separate. ### `h2` stands exactly where the
+### deposit left it. ### **THE WAVE STAYS PARKED. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (K) THE EXTRACT'S OWN INCIDENT, DECLARED BECAUSE IT HAPPENED BEFORE THE SEAL.
+----------------------------------------------------------------------------------------------------
+### ### **THE EXTRACT RAN THREE TIMES AND ALL THREE RUN FILES STAY ON DISK.** ### The first reported `6`
+### of `26` reads UNPULLABLE: four anchors typed with a curly apostrophe or an em dash where the banked
+### file carries a straight one, and two typed from an intended layout rather than the file's own wrapping.
+### ### **NOT ONE WAS A MISSING SENTENCE.** ### All six were this seat mis-typing a sentence that is there.
+### ### ### **AND THIS IS NOW THE SECOND ACT RUNNING WITH THE SAME INCIDENT** -- b351 had two of twenty-six
+### ### -- **SO IT IS RECORDED HERE AS A STANDING DEFECT OF THIS SEAT'S METHOD AND NOT AS AN ACCIDENT.**
+### ### The cure that would work is not more care: it is building the anchor by READING the line from the
+### file rather than typing it. ### **THAT CURE IS NAMED HERE AND NOT BUILT HERE**, because building it is
+### a tool this order did not ask for; it is offered to the next ferry.
+### ### `data/b352_extract_notes.txt`, `..._notes2.txt` and `..._notes3.txt` are the three runs, and the
+### act relies on the third.
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 122fe8d8a0d7125187febab73c78b7c36517a5dfa315a6c00279f251c8d38fac
+### bytes sealed : 18747
+### sealed at (UTC) : 2026-09-07T03:03:54Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b352_registration_2026-09-07.txt`.**
+====================================================================================================

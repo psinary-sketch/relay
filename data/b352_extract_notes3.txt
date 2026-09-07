@@ -1,0 +1,159 @@
+### run at (UTC) : 2026-09-07T03:01:33Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b352 -- EXTRACT-TO-DISK, AND THE FRAME COUNT VERIFIED BEFORE THE SEAL.
+====================================================================================================
+
+  ### ### **THE FRAME COUNT, VERIFIED BEFORE THE SEAL AND OFF THE RECORD RATHER THAN OFF PROSE.**
+    the domain ladder, as b339 banked it : [8.0, 16.0, 32.0, 64.0, 128.0]
+    covered cells found                  : ['1.3', '1.35', '1.41']
+    a        frames   Tr       margin   int_ef       s            reproduces b321
+    1.3      5        5        5        0.158889558  0.00098108   True
+    1.35     5        5        5        0.186481766  0.001936999  True
+    1.41     5        5        5        0.221284108  0.003993528  True
+    ### frames per cell identical at every covered cell : True
+    ### ### **THE COUNT FOUND : 5 AT EVERY ONE OF 3 COVERED CELLS.**
+    ### ### **THE ORDER SAID "the five frames". ### THE RECORD SAYS 5. ### THEY AGREE, AND THE ACT
+    ### ### CHECKED RATHER THAN ACCEPTED.**
+    ### ### **AND WHAT IS NOT FIVE: THE CELLS.** ### There are 3 covered cells, not five, and the
+    ### models are fitted per cell over 5 frames each.
+
+  ### ### **THE OBJECT'S PRECISION FLOOR, READ OFF THE RECORD AND NOT ASSUMED.**
+    `int_ef` enters `R = margin - int_ef` with [9, 9, 9] decimal places at the three cells,
+    so ### **R IS KNOWN TO +/- 5e-10 ABSOLUTE**, whatever precision the JSON prints.
+    the smallest residual anywhere on the ladder : 1.880778106e-02
+    ### ### **SO THE RELATIVE FLOOR AT THE LAST RUNG IS 2.658e-08**, and any bar this act sets must sit
+    ### ### above it or be marked UNPRICED.
+
+----------------------------------------------------------------------------------------------------
+  ### THE READS.
+----------------------------------------------------------------------------------------------------
+
+  [ORDER] the order -- leg 1 adopts the (C) block with three notes
+      data/b352_ferry_2026-09-07.txt : line 25
+      | (C) block as banked, ADOPTED with the executor's three notes
+      | accepted: Component 3's filing makes the hook and mirror owed
+
+  [ORDER] the order -- the frame count verified before sealing
+      data/b352_ferry_2026-09-07.txt : line 29
+      | frame count is verified before sealing, with whatever count is
+      | found reported — if it is not five at every covered cell, the
+
+  [ORDER] the order -- the void carried as the measured 10.62
+      data/b352_ferry_2026-09-07.txt : line 27
+      | and they are paid; the spectral void's width is carried as the
+      | measured 10.62 with b350 named, not as a round decade; and the
+
+  [ORDER] the (C) block -- the models, fixed before any fit
+      data/b351_ferry_2026-09-07.txt : line 31
+      | models fixed in the registration before any fit — at minimum a
+      | pure power law with no floor, a power law plus a constant
+
+  [ORDER] the (C) block -- the question the fit must answer
+      data/b351_ferry_2026-09-07.txt : line 35
+      | Report each model's parameters, its residuals, and whether the
+      | five frames can distinguish a positive floor from a slowly
+
+  [ORDER] the (C) block -- b339 is not re-verdicted
+      data/b351_ferry_2026-09-07.txt : line 22
+      | re-verdicted — b339's verdict stands and this act measures the
+      | same figures under models it names; registration sealed before
+
+  [b339 ] b339 -- the domain ladder and its frames
+      data/b339_price_run.txt : line 4
+      |   ### the domain ladder, b317's DOMAIN_AXIS : X = [8.0, 16.0, 32.0, 64.0, 128.0] ; N = 128 X ; NY = 512
+      |   ### the record read : data/b320_rows.json (`rows[].weil`, `axes[a].domain`) ; the remainders and the
+
+  [b339 ] b339 -- the verdict that stands
+      data/b339_price_run.txt : line 54
+      |   ### ### **THE GATE ON THE RUN (sealed): the cells whose X_req <= 512 : NONE -- UNAFFORDABLE**
+      |   ### ### **THE LADDER REPRODUCED FROM THE RECORD AT EVERY CELL : YES**
+
+  [b339 ] b339 -- an extrapolation of a fitted slope, labelled as one
+      data/b339_price_run.txt : line 22
+      |     ### **AN EXTRAPOLATION OF A FITTED SLOPE, LABELLED AS ONE. A PRICE IS NOT A PREDICTION.**
+
+  [b339 ] b339 -- the side reading: descending toward a floor
+      data/b339_the_exponent_resolved.txt : line 31
+      | ### ### What it says is that the residual the price extrapolated is descending toward a FLOOR and not
+      | ### toward zero -- the descent's ratios fall step by step (3.05, 2.96, 2.73 at `a = 1.3`) -- so the price
+
+  [b339 ] b339 -- the floor reading is THIS SEAT'S and labelled so
+      data/b339_the_exponent_resolved.txt : line 71
+      | ### choice of `X = 512` as one act's ceiling (sixteen times b320's largest kernel per trace) is this
+      | ### seat's and was sealed; the reading that a falling ratio means a floor is this seat's and is
+
+  [b339 ] b339 -- its own words: the ladder is not yet a power law
+      data/b339_the_exponent_resolved.txt : line 78
+      | ### not a verdict arm. ### (E3) the sealed price rule extrapolates a slope that the record's own ladder
+      | ### shows is not yet a power law; the rule was b322's and governs, and the correction is filed here
+
+  [b339 ] b339 -- the floor is what the next pricing must price
+      data/b339_the_exponent_resolved.txt : line 34
+      | ### floor is what the next pricing must price; its origin (the fixed `NY = 512`, the cut's `tau`, the
+      | ### taper) is not decided here.
+
+  [FIT  ] b322 -- the fitter, imported and not copied
+      tools/b322_ladder.py : line 103
+      |     """### ### **LEAST SQUARES FOR `log y = A + p log x`. ### RETURNS `(p, A, rms)`.**
+
+  [FIT  ] b322 -- a slope without a fit quality
+      tools/b322_ladder.py : line 105
+      |     ### The exponent is what the order calls the rate. ### **`rms` IS REPORTED BESIDE IT BECAUSE A
+      |     ### ### SLOPE WITHOUT A FIT QUALITY IS A NUMBER PRETENDING TO BE A MEASUREMENT.**
+
+  [RULE ] b322 -- a price is not a prediction
+      data/b322_the_membership.txt : line 221
+      | ### it does. ### **A PRICE IS NOT A PREDICTION.**
+
+  [b350 ] b350 -- the band, and its measured width
+      data/b350_the_two_held_axes.txt : line 47
+      | ### ### ### **THE RANK-PRESERVING BAND IS `(2.144048e-07, 2.277535e-06)`, A FACTOR OF `10.62` WIDE**, and
+      | ### the corpus's own `tau = 1.0e-06` sits inside it: free to fall by a factor of `4.66` or rise by a factor
+
+  [b350 ] b350 -- a band is about the cut and not the residual
+      data/b350_the_two_held_axes.txt : line 50
+      | ### ### ### **AND THAT IS A FACT ABOUT THE CUT AND NOT ABOUT THE RESIDUAL.** ### The registration fixed
+      | ### this distinction before the arithmetic, and it is the whole of what this act had to keep straight: the
+
+  [b350 ] b319 -- the threshold sits 57 times inside that separation
+      tools/b319_stable.py : line 61
+      | # ### `TAU = 1e-6` therefore sits ### **57 TIMES INSIDE THAT SEPARATION** ### and ten orders of
+      | # ### magnitude above double precision, so it separates the space from the first prolate mode without
+
+  [LORE ] straddle (i) -- the mirror clean on a stale build
+      tools/mirror_verify.py : line 15
+      | ### ### A CLEAN CLAUSE 1 ON A STALE BUILD IS EXACTLY AS CLEAN-LOOKING AS A
+      | ### ### CORRECT ONE. Neither clause alone is the verification.
+
+  [LORE ] straddle (ii) -- the hook and mirror arm, owed but unwritable before the push
+      data/b350_checks_run_prepush.txt : line 84
+      |     ### the hook and the mirror records are NOT YET WRITTEN (they are written at the push).
+
+  [LORE ] straddle (iii) -- a true prefix of its blob, before and after the commit
+      data/b351_checks_run_prepush.txt : line 73
+      |     row 199 present once : True ; true prefix of its blob : True ; PASS
+
+  [LORE ] the rule this act mints, in its own words at b351
+      data/b351_sortie_closing.txt : line 183
+      | ### commit and near-vacuous after; and `b342`'s post-seal marking, which destroys the timestamp it marks.
+      | ### ### **THEY ARE OFFERED AS CANDIDATES AND NOT AS THE THREE**, and the author's list governs.
+
+  [b346 ] b346 -- the floor is present, and the rate resolves
+      data/b346_the_exponent_by_rate.txt : line 14
+      | ### ### ### **A FLOOR IS PRESENT. ### SO NO DOMAIN RESOLVES THE EXPONENT BY VALUE.**
+      | ### The premise was TESTED and not assumed, on the frames already in the record and with no new frame
+
+  [RULE ] b350 -- pricing is not measuring
+      data/b350_the_two_held_axes.txt : line 16
+      | ### ### **NO MEASUREMENT OF THE RESIDUAL AT ALL.** ### **PRICING IS NOT MEASURING, AND NOTHING PRICED HERE
+      | ### ### EXPLAINS ANYTHING.**
+
+  [b351 ] b351 -- the partition stays UNDECIDED
+      data/b351_the_partition_question.txt : line 13
+      | ### ### ### **UNDECIDED.**
+      | ### ### **THE RECORD DOES NOT CONTAIN A FINITE CLASSIFICATION OF THE WAYS THE MARGIN COULD FAIL, AND IT
+
+====================================================================================================
+  reads attempted : 26   ### UNPULLABLE : 0
+  ### ### **AN EXTRACT IS A QUOTATION AT A LINE. ### IT IS NOT A READING OF THE ARGUMENT AROUND IT.**
+====================================================================================================

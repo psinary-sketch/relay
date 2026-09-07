@@ -174,6 +174,92 @@ def bar_floor_self_test(verbose=True):
     return all(ok for _w, ok in r)
 
 
+# ======================================================================================================
+# ### ### **THE STRADDLING-GATE RULE (minted b352). ### APPENDED, NOTHING ABOVE IS EDITED.**
+# ### ### **A GATE THAT STRADDLES AN EVENT HAS TWO READINGS, AND THE ACT NAMES THE ONE IT RELIES ON.**
+# ###
+# ### THREE INCIDENTS, EACH QUOTED AT ITS OWN EMITTING FILE:
+# ###   (i)   `tools/mirror_verify.py` -- *"A CLEAN CLAUSE 1 ON A STALE BUILD IS EXACTLY AS CLEAN-LOOKING AS A
+# ###         CORRECT ONE."* ### The mirror must be rebuilt AFTER the commit; run before, it passes on a stale
+# ###         archive and the pass looks identical.
+# ###   (ii)  `data/b350_checks_run_prepush.txt` -- *"the hook and the mirror records are NOT YET WRITTEN (they
+# ###         are written at the push)."* ### The arm CANNOT pass before the push, and its whole content is the
+# ###         after-reading.
+# ###   (iii) the ancestry arm's *true prefix of its blob*: a strong check BEFORE a commit and a near-vacuous
+# ###         one after it, because the blob then IS the file (`data/b351_checks_run_prepush.txt`, and named in
+# ###         b351's own closing).
+# ###
+# ### ### **THE MECHANIZABLE HALF, WHICH IS WHAT THIS CODE IS:** a registration that names a gate arm reading
+# ### a REPOSITORY state must say whether that arm is read BEFORE or AFTER the push, or mark it
+# ### `SIDE-INVARIANT`.
+# ### ### **THE JUDGEMENT HALF, WHICH THIS CODE CANNOT CARRY AND WHICH IS FILED AS JUDGEMENT:** ### WHICH ARMS
+# ### STRADDLE CANNOT BE DECIDED BY A STRING. ### An arm straddles when its VERDICT would change across the
+# ### event, and no scanner computes that from the arm's text. ### **THIS FORCES A DECLARATION; IT DOES NOT
+# ### AND CANNOT CHECK THAT THE DECLARATION IS RIGHT.**
+# ======================================================================================================
+
+REPO_STATE = re.compile(
+    r'\bblob\b|\bls-remote\b|\bworking tree\b|\bcommitted\b|\bthe push\b|\bpushed\b|\bHEAD\b'
+    r'|\bthe mirror\b|\bthe hook\b|\btrue prefix\b|\bancestry\b|\bgit\b', re.I)
+SIDE_WORD = re.compile(
+    r'\bBEFORE THE PUSH\b|\bAFTER THE PUSH\b|\bbefore the commit\b|\bafter the commit\b'
+    r'|\bpre-push\b|\bpost-push\b|\bSIDE-INVARIANT\b|\bOWED\b', re.I)
+ARMNAME = re.compile(r'`G-[A-Z0-9-]+`|\bG-[A-Z0-9-]{3,}\b')
+
+
+def _flatpara(para):
+    """### ### **THE WRAP CURE, AND IT WAS FOUND BY THIS ARM'S OWN FIXTURE FAILING.** ### A registration wraps,
+    ### and `AFTER THE PUSH` can land with a line break and a marker inside it. ### An arm that searched the raw
+    ### paragraph would raise a FALSE ALARM on a registration that HAD declared its side -- which is the
+    ### needle-wrapping species the record has banked six times. ### Markers and newlines are collapsed here so
+    ### the search sees the sentence rather than the layout."""
+    return re.sub(r'\s+', ' ', re.sub(r'#{2,}', ' ', para)).strip()
+
+
+def straddle_check(txt):
+    """### RETURN `(misses, n_repo_paras)`. ### A MISS is a paragraph that names a gate arm AND touches a
+    ### repository state, and says on neither side of the event it is read."""
+    miss, nrepo = [], 0
+    for start, para in _paragraphs(txt):
+        flat = _flatpara(para)
+        if ARMNAME.search(flat) and REPO_STATE.search(flat):
+            nrepo += 1
+            if not SIDE_WORD.search(flat):
+                miss.append((start, para.strip().split(chr(10))[0][:88]))
+    return miss, nrepo
+
+
+def straddle_self_test(verbose=True):
+    """### FIXTURES, BOTH POLARITIES, ON SYNTHETIC TEXT WRITTEN HERE AND DRAWN FROM NO BANK."""
+    def say(s):
+        if verbose:
+            print(s)
+
+    bad = '### `G-ROW` -- the row present once, and the table a true prefix of its blob.'
+    good_after = ('### `G-ROW` -- the row present once, and the table a true prefix of its blob, read AFTER THE\n'
+                  '### PUSH, which is the reading this act relies on.')
+    good_before = '### `G-TRAIL` -- a true prefix of its committed blob, pre-push. ### That is the arm that carries.'
+    good_inv = '### `G-STATE` -- every state one of the sealed three, read off the blob. ### SIDE-INVARIANT.'
+    quiet = '### `G-NUMBERS` -- every figure in the bank recomputes from the act own record.'
+    also_quiet = '### the working tree is clean and the mirror was rebuilt, with no arm named in this sentence.'
+    r = []
+    m1, _n = straddle_check(bad)
+    r.append(('the straddle arm FIRES on an arm reading a blob with no side named', bool(m1)))
+    m2, _n = straddle_check(good_after)
+    r.append(('and is QUIET when the arm says AFTER THE PUSH', not m2))
+    m3, _n = straddle_check(good_before)
+    r.append(('and is QUIET when the arm says pre-push', not m3))
+    m4, _n = straddle_check(good_inv)
+    r.append(('and is QUIET on a deliberate SIDE-INVARIANT', not m4))
+    m5, n5 = straddle_check(quiet)
+    r.append(('and does NOT fire on an arm that touches no repository state', not m5 and n5 == 0))
+    m6, n6 = straddle_check(also_quiet)
+    r.append(('and does NOT fire on repository prose that names no arm', not m6 and n6 == 0))
+    for what, ok in r:
+        say('    %-62s %s  %s' % (what, ok, 'PASS' if ok else '### FAIL ###'))
+    return all(ok for _w, ok in r)
+
+
 def check(path):
     if not os.path.exists(path):
         return 2, ["### HARD FAILURE -- registration not found: %s" % path]

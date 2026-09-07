@@ -1,0 +1,289 @@
+====================================================================================================
+b352 -- THE FLOOR'S FOURTH CANDIDATE. ### LEG 1 OF THE SORTIE b352-b353. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation CURRENT.
+### Registration `data/b352_registration_2026-09-07.txt`, sealed
+### `122fe8d8a0d7125187febab73c78b7c36517a5dfa315a6c00279f251c8d38fac`, 18747 bytes, 36 clauses JOINTLY
+### SATISFIABLE, its seal block carrying its own clock: sealed at (UTC) 2026-09-07T03:03:54Z, which is before
+### one model was fitted -- the fit run's clock is 2026-09-07T03:08:18Z and the filings run's is
+### 2026-09-07T03:12:38Z.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE FLOOR IS UNDER-RESOLVED AS A FIT.**
+### ### **AND THE REASON IS NOT THE ONE EITHER SEAT NAMED.** ### The navigator expected that the five
+### frames could not distinguish. ### **THEY CAN.** ### At every covered cell the constant floor beats the
+### faster-decaying second term decisively, at equal complexity, by `2.30`, `19.89` and `8.21` score units
+### against a bar of `2`. ### **THE INSTRUMENT HAS RESOLVING POWER. ### THE CELLS DO NOT AGREE.**
+### ### **THE FLOOR MODEL AGAINST THE PURE POWER LAW COMES OUT DIFFERENTLY AT EACH OF THE THREE CELLS:**
+###     `a = 1.3`  : the floor model preferred, by `1.42` -- ### **LESS THAN THE BAR.**
+###     `a = 1.35` : the floor model preferred, by `10.29` -- ### decisively.
+###     `a = 1.41` : ### **THE PURE POWER LAW PREFERRED, BY `7.01`.**
+### ### ### **AND THE REASON THE CELLS DISAGREE IS THE CRITERION AND NOT THE DATA.** ### At `n = 5` the
+### corrected information criterion charges ### **`20` UNITS FOR A THIRD PARAMETER -- TEN TIMES THE BAR OF
+### ### `2`.** ### To break even, the sum of squares must fall by a factor of `54.6`. ### **AT FIVE POINTS
+### ### THE CRITERION IS MOSTLY COUNTING PARAMETERS**, and which model "wins" turns on the penalty rather
+### than on the fit. ### The criterion was sealed before any fit and is not changed here.
+### ### **A MODEL WINNING A SELECTION SCORE IS NOT A FLOOR EXISTING.** ### The registration fixed that
+### sentence before any number existed, and it is the whole of what this act may claim.
+### ### **b339 IS NOT RE-VERDICTED. ### ITS `UNAFFORDABLE` STANDS.** ### **b346 IS NOT RE-VERDICTED.**
+### ### **AND b339'S SIDE-READING IS RESTATED AS FIT-DEPENDENT AND IS NOT WITHDRAWN.**
+
+----------------------------------------------------------------------------------------------------
+### (2) THE FRAME COUNT, VERIFIED BEFORE THE SEAL, BECAUSE THE ORDER REQUIRED IT.
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER ADOPTED A NOTE FROM THIS SEAT ASKING THAT THE COUNT BE CHECKED RATHER THAN ACCEPTED**,
+### and it was, off `data/b339_price.json` and not off any prose, before one byte of the registration was
+### written.
+### ### ### **THE COUNT IS `5` FRAMES AT EVERY ONE OF THE `3` COVERED CELLS**, identical at all three, with
+### every cell's `reproduces` flag against b321's ladder ends `True`. ### The ladder is
+### `X = [8, 16, 32, 64, 128]`, `N = 128 X`, `NY = 512`; the cells are `a = 1.3`, `1.35`, `1.41`.
+### ### **SO THE ORDER'S PHRASE "the five frames" IS CORRECT.** ### It is reported here because a count
+### that agrees is still a count that was measured, and the note asked for whatever was found.
+### ### **AND ONE THING SEPARATED SO IT CANNOT LATER BE MISREAD:** ### there are `3` covered cells and not
+### five. ### **FIVE IS THE FRAME COUNT PER CELL.**
+### ### **AND THE SAME PASS MEASURED THE OBJECT'S FLOOR:** ### `R = margin - int_ef`, and `int_ef` enters
+### b339's record with `9` decimal places at all three cells, so ### **`R` IS KNOWN TO `5e-10` ABSOLUTE**,
+### however many digits any JSON prints. ### Against the smallest residual on the ladder,
+### `1.880778106e-02`, that is a relative floor of `2.658e-08`. ### **EVERY BAR BELOW SITS ABOVE IT.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE MODELS, AND WHY `M3` HAS THREE PARAMETERS AND NOT FOUR.
+----------------------------------------------------------------------------------------------------
+### Sealed in section (C) before any fit:
+###     `M1 = A X^(-p)`                 ### `k = 2`   the pure power law, no floor
+###     `M2 = A X^(-p) + c`             ### `k = 3`   the power law plus a constant floor
+###     `M3 = A X^(-p) + B X^(-p-1)`    ### `k = 3`   the two-term alternative
+### ### ### **THE DECISION THAT MADE THE ACT WORTH RUNNING WAS MADE BEFORE THE FIT AND IS THIS:** ### a
+### freely-exponented second term costs `k = 4`, and at `n = 5` its corrected criterion has `n - k - 1 = 0`
+### in a denominator and ### **CANNOT BE SCORED AT ALL.** ### Fixing the second exponent one unit steeper
+### -- the next term of an asymptotic expansion -- makes `M3` cost exactly what `M2` costs. ### **SO THE
+### ### COMPARISON THAT MATTERS IS AT EQUAL COMPLEXITY: A CONSTANT FLOOR AGAINST A FASTER-DECAYING
+### ### CORRECTION**, with no parameter-count advantage on either side.
+### ### **THE FREE TWO-TERM MODEL WAS NOT FITTED**, and the reason above is the whole reason. ### The act
+### did not fit it and then decline to score it.
+
+----------------------------------------------------------------------------------------------------
+### (4) ONE CRITERION FOR ALL THREE, AND THE FIXTURE THAT MAKES THE SCORES COMPARABLE.
+----------------------------------------------------------------------------------------------------
+### All three models minimise the same thing: ### `S = sum (log R_i - log f(X_i))^2`.
+### ### **WHY LOG AND NOT LINEAR, DECIDED BEFORE ANY FIT:** ### `R` spans about `1.7` orders across the
+### ladder, so a linear-error fit is dominated by the single largest point at `X = 8` and says almost
+### nothing about the last rung, which is exactly where a floor would show. ### **AND DECISIVELY: b322's
+### ### `fit_power`, WHICH THE RECORD ALREADY USED ON THIS OBJECT, IS A LOG-SPACE FIT.** ### Fitting `M2`
+### and `M3` in linear space against an `M1` that came from a log-space fit would have been a comparison of
+### two criteria wearing one name.
+### ### ### **THE LIKE-FOR-LIKE FIXTURE, RUN BEFORE ANY SCORE WAS REPORTED, THE FITTER IMPORTED AND NOT
+### ### COPIED:** ### this act's `M1`, started from a NEUTRAL `(A, p) = (1, 1)` so the fixture tests the
+### minimiser rather than restating its input, reproduces `b322_ladder.fit_power` at every cell to
+### `1.32e-11`, `1.62e-11` and `6.82e-12` relative, against the sealed tolerance of `1e-9`.
+### ### **AND THAT IS WHAT MAKES THE THREE SCORES COMPARABLE.** ### Without it they would be three numbers
+### from two different criteria.
+
+----------------------------------------------------------------------------------------------------
+### (5) COMPONENT 1 -- THE MODELS, THEIR PARAMETERS, THEIR RESIDUALS.
+----------------------------------------------------------------------------------------------------
+
+###   a = 1.3    R = 8.965568238e-01  3.063278574e-01  1.125550763e-01  4.718183674e-02  2.322388152e-02
+###     M1  k=2  A=12.554998  p=1.324020                    S=5.385256e-02  rms=0.103781  AICc=-12.6547
+###     M2  k=3  A=22.057336  p=1.551336  c=+1.151251e-02   S=7.432315e-04  rms=0.012192  AICc=-14.0697
+###     M3  k=3  A= 0.739044  p=0.773711  B=+29.708951      S=1.177078e-03  rms=0.015343  AICc=-11.7708
+###   a = 1.35   R = 6.716664764e-01  2.561368825e-01  9.902854707e-02  4.211001538e-02  2.079286517e-02
+###     M1  k=2  A= 8.630181  p=1.263185                    S=2.859901e-02  rms=0.075629  AICc=-15.8191
+###     M2  k=3  A=13.094772  p=1.433109  c=+8.283397e-03   S=6.684081e-05  rms=0.003656  AICc=-26.1132
+###     M3  k=3  A= 2.081307  p=0.970563  B=+24.730013      S=3.566439e-03  rms=0.026707  AICc= -6.2281
+###   a = 1.41   R = 5.249069802e-01  2.202057965e-01  8.849353956e-02  3.799624780e-02  1.880778106e-02
+###     M1  k=2  A= 6.310576  p=1.214024                    S=1.470759e-02  rms=0.054236  AICc=-19.1441
+###     M2  k=3  A= 8.432791  p=1.333380  c=+5.629124e-03   S=1.095244e-03  rms=0.014800  AICc=-12.1311
+###     M3  k=3  A= 3.248900  p=1.074105  B=+14.016910      S=5.655392e-03  rms=0.033632  AICc= -3.9229
+
+### ### **BAR 1, THE SCORE.** ### `M2 - M1` is `-1.4150`, `-10.2941`, `+7.0131`; ### `M2 - M3` is `-2.2989`,
+### `-19.8850`, `-8.2082`. ### **THE FLOOR BEATS THE FASTER TERM AT EVERY CELL, PAST THE BAR EVERY TIME.**
+### ### **BAR 2, THE PARAMETER.** ### `c` is `+1.151251e-02`, `+8.283397e-03`, `+5.629124e-03` -- ### **
+### ### POSITIVE AT ALL THREE CELLS, AND ABOVE THE M2 FIT'S OWN SCATTER AT THE LAST RUNG AT ALL THREE.**
+### ### **THE TWO BARS AGREE HERE, AND THE REGISTRATION SAID IN ADVANCE WHY THEY MIGHT NOT:** ### a score
+### ranks whole models, a floor is one parameter of one model, and the informative case is `M2` winning with
+### `c` negative -- a better fit bought with an unphysical floor. ### **THAT CASE DID NOT ARISE, AND THE ACT
+### ### CHECKED FOR IT RATHER THAN ASSUMING IT AWAY.**
+
+----------------------------------------------------------------------------------------------------
+### (6) WHAT THIS ACT COULD NOT HAVE SEEN, PRINTED PER CELL BECAUSE AN ACT MUST SAY WHAT ITS OWN
+### INSTRUMENT IS DEAF TO.
+----------------------------------------------------------------------------------------------------
+### ### A true floor below the `M2` fit's own scatter at the last rung would pass no arm here:
+###     `a = 1.3`  : below `2.831469e-04`, which is `1.219%` of `R(128) = 2.322388152e-02`
+###     `a = 1.35` : below `7.602391e-05`, which is `0.366%` of `R(128) = 2.079286517e-02`
+###     `a = 1.41` : below `2.783607e-04`, which is `1.480%` of `R(128) = 1.880778106e-02`
+### ### ### **SO THIS LADDER IS DEAF TO ANY FLOOR SMALLER THAN ABOUT ONE PART IN A HUNDRED OF THE LAST
+### ### ### RESIDUAL**, and every statement in this act is silent about floors below that. ### **NOT
+### ### ### "THERE IS NO SUCH FLOOR". ### "THIS INSTRUMENT WOULD NOT HAVE SEEN ONE."**
+
+----------------------------------------------------------------------------------------------------
+### (7) COMPONENT 2 -- THE VERDICT, AND THE BRANCH'S OWN PRICE.
+----------------------------------------------------------------------------------------------------
+### ### **(FLOOR ESTABLISHED) FAILS ITS OWN SEALED CONDITION**, which demanded `M2` beating `M1` past the
+### bar AND `c` passing bar 2 at ### EVERY ### cell: at `a = 1.3` the margin is `1.42`, below the bar, and
+### at `a = 1.41` the pure power law is preferred outright.
+### ### **(NO FLOOR PREFERRED) FAILS ITS OWN SEALED CONDITION TOO**, which demanded `M1` fitting as well or
+### better everywhere: it is beaten at `a = 1.3` and `a = 1.35`.
+### ### ### **THEREFORE: FLOOR UNDER-RESOLVED AS A FIT**, by the rule sealed before any figure existed.
+### ### **THE PRICE THE BRANCH REQUIRES, IN FRAMES.** ### With the score ratios the five points give, the
+### number of frames that would pay for the third parameter past the bar is `6` at `a = 1.3`, `5` at
+### `a = 1.35` (already met) and `6` at `a = 1.41`. ### **THE BINDING CELL NEEDS SIX FRAMES WHERE THE RECORD
+### ### HOLDS FIVE.** ### One more frame is `X = 256`, `N = 32768`.
+### ### ### **AND THAT SITS INSIDE THE CEILING b339 SEALED AT `X = 512`.** ### b339 found ITS question
+### UNAFFORDABLE at that ceiling because its split criterion needed `X_req` between `812` and `2358`. ###
+### **THE FIT ASKS A DIFFERENT QUESTION OF THE SAME LADDER, AND ITS PRICE IS AFFORDABLE WHERE b339'S WAS
+### ### NOT.** ### That is the most useful sentence this act produced and it is a price, not a plan.
+### ### **AND IT IS A PRICE AND NOT A PREDICTION**, in b322's own words. ### It assumes the score ratio the
+### five points give would survive a sixth -- exactly the extrapolation b339 labelled when it priced its
+### own. ### **NOTHING HERE SAYS WHAT A SIXTH FRAME WOULD SHOW.** ### **THE ACT DOES NOT RUN IT**, because
+### running it builds a frame, which this act may not do.
+### ### **b339'S SIDE-READING, HANDLED BY THE SEALED BRANCH RULE:** ### b339 read a falling ratio as a
+### descent toward a floor and ### **LABELLED THAT READING AS ITS OWN SEAT'S.** ### This act reports what a
+### fit can and cannot say about it. ### **IT IS RESTATED AS FIT-DEPENDENT AND IT IS NOT WITHDRAWN**, and
+### an act does not overturn a reading whose author already marked it a reading.
+
+----------------------------------------------------------------------------------------------------
+### (8) COMPONENT 3 -- THE TWO FILINGS.
+----------------------------------------------------------------------------------------------------
+### ### **FILING ONE -- `W-ORD-VOID-WIDTH`, ON `OPEN_TRAILS.md`.** ### One appended block under its own
+### mark, nothing above it edited, a true prefix of what it was and of its committed blob ### **CHECKED
+### ### BEFORE THE PUSH, WHICH IS THE READING THAT CARRIES.**
+### ### It carries the width as ### **THE MEASURED `10.62`, WITH b350 NAMED**, and the band's two ends
+### `(2.144048e-07, 2.277535e-06)` -- ### **AND IT SAYS IN SO MANY WORDS THAT IT IS `10.62` AND NOT "A
+### ### DECADE"**, because a round decade invites the reading that the threshold is comfortably free and a
+### factor of ten and a half is not comfortable. ### It records that a finer instrument narrowing the void
+### would, at the limit, leave the stable-rank cut ### **UNDER-DETERMINED** -- the rank the corpus reports
+### becoming a property of the threshold chosen rather than of the operator -- ### **A COST PAID IN THE
+### ### MEANING OF EVERY RANK THE RECORD HAS BANKED, NOT IN WALL TIME.** ### **NOT ATTEMPTED HERE.**
+### ### **FILING TWO -- THE LORE'S THIRD SIGHTING, MINTED:** ### **A GATE THAT STRADDLES AN EVENT HAS TWO
+### ### READINGS, AND THE ACT NAMES THE ONE IT RELIES ON.**
+### ### Its three incidents, each located and quoted at its own emitting file:
+###   ### `tools/mirror_verify.py`, warning about itself: *"A CLEAN CLAUSE 1 ON A STALE BUILD IS EXACTLY AS
+###     CLEAN-LOOKING AS A CORRECT ONE."*
+###   ### `data/b350_checks_run_prepush.txt`: *"the hook and the mirror records are NOT YET WRITTEN (they
+###     are written at the push)."* ### That arm CANNOT pass before the push, and b350 banked the failing
+###     run rather than hiding it.
+###   ### the ancestry arm's *true prefix of its blob* -- a real append-only proof BEFORE a commit and a
+###     near-vacuous check after it, because the blob then IS the file.
+### ### ### **THE SPLIT, DECIDED IN THE REGISTRATION AND NOT AFTER SEEING WHAT WAS EASY:**
+### ### **THE MECHANIZED HALF**, appended to `tools/registration_gate.py` beside the bar-floor arms and
+### ### editing nothing: a registration that names a gate arm AND touches a repository state must say
+### ### whether the arm is read BEFORE or AFTER the push, or mark it `SIDE-INVARIANT`. ### Six fixtures,
+### ### both polarities, all holding.
+### ### **THE JUDGEMENT HALF, FILED AS JUDGEMENT AND DELIBERATELY NOT LISTED BESIDE THE MECHANIZED ONE:**
+### ### **WHICH ARMS STRADDLE CANNOT BE DECIDED BY A STRING.** ### An arm straddles when its VERDICT would
+### ### change across the event, and no scanner computes that from the arm's text. ### The mechanized half
+### ### forces a declaration; ### **IT DOES NOT AND CANNOT CHECK THAT THE DECLARATION IS RIGHT**, and an
+### ### act that marks every arm `SIDE-INVARIANT` passes the gate and has decided nothing.
+### ### **APPLIED TO THIS ACT'S OWN SEALED REGISTRATION, WHICH WAS SEALED BEFORE THE ARM EXISTED:** ### `3`
+### arm-paragraphs touch a repository state, ### `0` undeclared. ### A test, not a self-fulfilment.
+### ### **AND THE CENSUS OVER EVERY SEALED REGISTRATION IN THE RECORD:** ### `341` scanned, `46`
+### arm-paragraphs touching a repository state, ### **`11` UNDECLARED**, in nine acts from `b96` to `b344`.
+### ### **THAT IS A COUNT AND NOT A CHARGE.** ### **NOTHING IS RE-VERDICTED**, and no act is asked to answer
+### for a rule that did not exist when it ran.
+### ### **THE TECHNE MODULE IS LOCAL-ONLY AND IS NOT PUSHED**, as every module since b330.
+
+----------------------------------------------------------------------------------------------------
+### (9) BOTH SEATS' EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L1)** -- *the five frames cannot distinguish and the floor is under-resolved as a
+### fit* : ### **MET ON THE VERDICT, REFUTED ON THE REASON.** ### The floor IS under-resolved as a fit. ###
+### But the five frames ### DO ### distinguish -- they separate the constant floor from the faster-decaying
+### term at every cell, past the bar every time. ### **WHAT DEFEATS THE QUESTION IS NOT THE INSTRUMENT'S
+### ### RESOLVING POWER BUT THE CELLS' DISAGREEMENT, AND UNDERNEATH IT A SELECTION PENALTY TEN TIMES THE
+### ### BAR.** ### The order asked for a printed margin as the refutation; the margins are printed above.
+### ### **THIS SEAT'S** -- *`M2`'s fitted `c` will come out at or below zero at at least one cell, because
+### the ladder ratios still fall by about a half per doubling at the last rung* : ### **REFUTED.** ### `c`
+### is positive at all three cells and passes bar 2 at all three. ### The seat read the last ratio as
+### evidence about the floor's sign and it is not.
+
+----------------------------------------------------------------------------------------------------
+### (10) THE THING NO SEAT WROTE DOWN, AND THE ACT FOUND ANYWAY.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE SIXTH FRAME IS AFFORDABLE, AND IT IS AFFORDABLE UNDER A CEILING ALREADY SEALED.**
+### b339 sealed `X = 512` as its ceiling and returned `UNAFFORDABLE`, because the question it asked of the
+### ladder needed `X_req` between `812` and `2358`. ### **THE FIT'S QUESTION NEEDS `X = 256`.** ### The same
+### ladder, the same ceiling, the same figures -- and a question that fits inside a ceiling the record had
+### already decided nothing fits inside.
+### ### **AND THE SHAPE TO CARRY IS THAT `UNAFFORDABLE` IS A VERDICT ABOUT A QUESTION AND NOT ABOUT A
+### ### LADDER.** ### A ceiling that refuses one question can afford another asked of the very same rungs,
+### and an act that reads a banked `UNAFFORDABLE` as a property of the instrument will price nothing again.
+
+----------------------------------------------------------------------------------------------------
+### (11) THE ACT'S OWN DEFECTS AND INCIDENTS, ALL DECLARED, NONE HIDDEN.
+----------------------------------------------------------------------------------------------------
+### ### **(E1) THE EXTRACT RAN THREE TIMES; ALL THREE RUNS ARE ON DISK AND THE FIRST IS DECLARED ON THE
+### ### SEALED FACE.** ### The first reported `6` of `26` reads UNPULLABLE: four anchors typed with a curly
+### apostrophe or an em dash where the banked file carries a straight one, and two typed from an intended
+### layout rather than the file's own wrapping. ### **NOT ONE WAS A MISSING SENTENCE.** ### **AND THIS IS
+### ### THE SECOND ACT RUNNING WITH IT** -- b351 had two of twenty-six -- **SO IT IS A STANDING DEFECT OF
+### ### THIS SEAT'S METHOD AND IS RECORDED AS ONE.** ### The cure is not more care: it is building the
+### anchor by READING the line from the file rather than typing it. ### **NAMED HERE, NOT BUILT HERE**, and
+### offered to the next ferry.
+### ### **(E2) THE FIT RAN SIX TIMES AND THE FIRST THREE FAILED ITS OWN SEALED FIXTURE.** ### `scipy` is not
+### installed in this environment, so the minimiser was written here; a derivative-free simplex converges on
+### the FUNCTION to machine precision and therefore on the PARAMETERS only to about its square root. ###
+### It missed the sealed `1e-9` at `1.1e-09`, `2.3e-08`, `1.3e-09`. ### **THE ACT REPORTED NO SCORE AND
+### ### SAID SO, WHICH IS WHAT THE SEALED FIXTURE IS FOR.** ### The cure was a Gauss-Newton polish on the
+### SAME objective, then a central-difference step at `eps^(1/3)` rather than a small one -- a step of
+### `1e-8` is roundoff-dominated and costs eight digits -- then accepting a lateral step at the flat bottom,
+### where a strict decrease test rejects the very step that fixes the parameters. ### **THE SEALED
+### ### CRITERION WAS NEVER CHANGED. ### ONLY THE MINIMISER WAS MADE TO MEET IT.** ### The failing run is
+### banked at `data/b352_fit_run_simplex_only_fixture_failed.txt` and the numbered runs are all on disk.
+### ### **(E3) AN ARM INSIDE THE FILE THAT MINTS THE WRAP-TOLERANT STRADDLE ARM WAS ITSELF
+### ### WRAP-INTOLERANT.** ### The filings tool asked whether the module names *"true prefix"* with a plain
+### substring test, and got `False` because the module wraps between the two words. ### Cured by putting it
+### through `quote_norm`, which the sortie built in its step zero for exactly this; both runs are on disk.
+### ### **(E4) THE STRADDLE ARM'S OWN FIRST FIXTURE FAILED, AND THE FAILURE WAS THE CURE.** ### It searched
+### the raw paragraph and raised a FALSE ALARM on a fixture that HAD declared its side, because the
+### declaration wrapped across a line. ### **THAT IS THE NEEDLE-WRAPPING SPECIES, INSIDE THE ARM.** ###
+### Markers and newlines are now collapsed before the search, and the reason is in the code.
+### ### **(E5) A SEALED CLAUSE OF THIS ACT'S OWN REGISTRATION IS DEFECTIVE, AND IT IS TABLED AND NOT
+### ### EDITED.** ### The clause *"relay tools created: 3"* named the extract, the fit and the suite. ### The
+### act in fact also wrote the ritual tools -- the filings, the correspondence and the index-append -- as
+### every act does. ### **THE CLAUSE HAS NEVER BEEN READ AS COUNTING EVERY FILE:** b350 declared `2` and
+### wrote `7`. ### **SO THE CLAUSE COUNTS AN ACT'S SUBSTANTIVE INSTRUMENTS AND ITS WORDING DOES NOT SAY
+### ### SO**, and by the defective-bar doctrine it is measured and carried rather than repaired here.
+### ### **(E6) THE BAR-FLOOR ARM'S MULTI-ARM DETECTOR DID NOT SEE THIS ACT'S TWO-ARM BAR.** ### The
+### registration declares two bars and names their independence at length; `MULTIARM` returned `0`, because
+### it keys on phrases like *"the largest of"* and *"by two routes"* which this act did not use. ### **THE
+### ### ACT NAMED THE INDEPENDENCE ANYWAY**, so nothing is lost here -- but the arm's reach is narrower than
+### its rule, and that is a measurement of the mechanization and not of this act.
+### ### **THE CLOCKS, EACH WRITTEN BY THE UTILITY b347 BUILT:** ### the seal at `2026-09-07T03:03:54Z`,
+### then `data/b352_fit_run6.txt` at `2026-09-07T03:08:18Z`, then `data/b352_filings_run2.txt` at
+### `2026-09-07T03:12:38Z`. ### **THE SEAL IS FIRST, AND THAT IS THE ORDER THE RITUAL REQUIRES.**
+
+----------------------------------------------------------------------------------------------------
+### (12) WHAT IS NOT CLAIMED.
+----------------------------------------------------------------------------------------------------
+### ### **A FIT IS A DESCRIPTION OF FIVE NUMBERS AND NOT A FACT ABOUT AN OBJECT.** ### No frame was built,
+### no instrument run, no ladder extended, no residual recomputed.
+### ### **A MODEL WINNING A SELECTION SCORE IS NOT A FLOOR EXISTING**, and a positive fitted constant is a
+### parameter of a description, not a measured floor.
+### ### **THE ACT IS SILENT ABOUT ANY FLOOR BELOW ONE PART IN A HUNDRED OF THE LAST RESIDUAL**, and section
+### (6) prints the number per cell rather than leaving it to be inferred.
+### ### **THE FRAME PRICE IS A PRICE AND NOT A PLAN**, and b322's rule stands over it: *A PRICE IS NOT A
+### PREDICTION.* ### b350's stands beside it: ### *PRICING IS NOT MEASURING.*
+### ### **NO ACT IS RE-VERDICTED.** ### b339 stands with its `UNAFFORDABLE` and its labelled side-reading;
+### b346 stands and the exponent's resolution on the RATE axis is untouched, because it never rested on the
+### floor; b350 stands; b351's `UNDECIDED` stands.
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER.** ### **NO
+### CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO
+### TERMINAL. ### `M-2` UNCHANGED**, owed under b310's cap. ### The seam's debt item 1 stands. ### The
+### patent lane is carried on the patent seat's report, UNCONFIRMED on this seat's record. ### The posture
+### lock is separate. ### `h2` stands exactly where the deposit left it. ### **THE WAVE STAYS PARKED. ###
+### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### A refit of banked numbers under models an act chose produces no new fact
+### about the object, and the temptation it must resist is the tidiness of three models ranked in a table.
+### ### **NOT THAT THE FLOOR EXISTS. ### NOT THAT IT DOES NOT. ### NOT THAT A POSITIVE `c` AT THREE CELLS
+### ### IS THREE PIECES OF EVIDENCE -- IT IS ONE LADDER READ THREE TIMES. ### NOT THAT A SIXTH FRAME WOULD
+### ### SETTLE ANYTHING; ONLY THAT THE RECORD COULD AFFORD TO ASK.**
+### ### **THE MOST THIS ACT HAS DONE IS SHOW THAT THE QUESTION IS CHEAP AND HAS NOT BEEN ASKED.**
+### ### **NEXT IN THE SORTIE: b353, THE WIDTH COORDINATE'S MISSING STATEMENT.**

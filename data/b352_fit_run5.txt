@@ -1,0 +1,100 @@
+### run at (UTC) : 2026-09-07T03:06:51Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b352 -- THE FLOOR'S FOURTH CANDIDATE. ### THE MODELS, AND THE VERDICT.
+====================================================================================================
+  ### THE LADDER, READ : X = [8.0, 16.0, 32.0, 64.0, 128.0] ; NY = 512 ; cells ['1.3', '1.35', '1.41']
+  ### frames per cell, verified before the seal : 5 ; covered cells : 3
+  ### the object's floor : 5.0e-10 absolute ; relative at the last rung : 2.658e-08
+  ### ### **NOTHING IS RECOMPUTED. ### THE RESIDUALS BELOW ARE b339's BANKED ARRAY.**
+
+----------------------------------------------------------------------------------------------------
+  ### THE LIKE-FOR-LIKE FIXTURE (section (D)). ### **IT RUNS BEFORE ANY SCORE IS REPORTED.**
+----------------------------------------------------------------------------------------------------
+  a        p (b322)         p (this act)     |rel diff|     A (b322)         A (this act)     agree
+  1.3      -1.324020109     -1.324020109     1.32e-11       12.554998010     12.554998010     YES
+  1.35     -1.263184880     -1.263184880     1.62e-11       8.630180565      8.630180565      YES
+  1.41     -1.214024404     -1.214024404     6.82e-12       6.310575860      6.310575860      YES
+  ### ### **M1 REPRODUCES b322's `fit_power` AT EVERY CELL TO 1e-09 RELATIVE : True**
+  ### and that means the two fits are the same fit, which is what makes the three scores comparable.
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 1 -- THE MODELS, THEIR PARAMETERS AND THEIR RESIDUALS.
+----------------------------------------------------------------------------------------------------
+
+  ### a = 1.3   R = ['8.965568238e-01', '3.063278574e-01', '1.125550763e-01', '4.718183674e-02', '2.322388152e-02']
+  mod  k   parameters                                           S (log-space)  rms(log)    AICc         d(AICc)
+  M1   2   A=12.554998 p=1.324020                               5.385256e-02   0.103781    -12.6547     +1.4150
+  M2   3   A=22.057336 p=1.551336 c=+1.151251e-02               7.432315e-04   0.012192    -14.0697     +0.0000
+  M3   3   A=0.739044 p=0.773711 B=+29.708951                   1.177078e-03   0.015343    -11.7708     +2.2989
+  ### the free two-term model (k = 4) : ### **NOT SCOREABLE ON THIS LADDER** (n - k - 1 = 0),
+  ### ### and it is NOT FITTED, for the sealed reason rather than after seeing a score.
+  ### **BAR 1** (AICc apart by more than 2.0 ; floor ~1e-14, so the bar is strict) :
+      M2 - M1 = -1.4150  distinguishable : False
+      M3 - M1 = +0.8839
+      M2 - M3 = -2.2989  distinguishable : True   ### **THE FLOOR AGAINST THE FASTER TERM, AT EQUAL k**
+  ### **BAR 2** (c > 0 AND c > the M2 fit's own scatter at the last rung AND c > 5e-10) :
+      c = +1.151251e-02   the fit's scatter at X = 128 : 2.831469e-04   POSITIVE FLOOR : True
+  ### **WHAT THIS ACT COULD NOT HAVE SEEN, PRINTED:** a true floor below 2.831469e-04 would pass no arm
+      here, because it is under this fit's own scatter at the last rung. ### That is 1.219% of
+      R(128) = 2.322388152e-02, so this ladder is deaf to any floor smaller than that.
+
+  ### a = 1.35   R = ['6.716664764e-01', '2.561368825e-01', '9.902854707e-02', '4.211001538e-02', '2.079286517e-02']
+  mod  k   parameters                                           S (log-space)  rms(log)    AICc         d(AICc)
+  M1   2   A=8.630181 p=1.263185                                2.859901e-02   0.075629    -15.8191     +10.2941
+  M2   3   A=13.094772 p=1.433109 c=+8.283397e-03               6.684081e-05   0.003656    -26.1132     +0.0000
+  M3   3   A=2.081307 p=0.970563 B=+24.730013                   3.566439e-03   0.026707    -6.2281      +19.8850
+  ### the free two-term model (k = 4) : ### **NOT SCOREABLE ON THIS LADDER** (n - k - 1 = 0),
+  ### ### and it is NOT FITTED, for the sealed reason rather than after seeing a score.
+  ### **BAR 1** (AICc apart by more than 2.0 ; floor ~1e-14, so the bar is strict) :
+      M2 - M1 = -10.2941  distinguishable : True
+      M3 - M1 = +9.5910
+      M2 - M3 = -19.8850  distinguishable : True   ### **THE FLOOR AGAINST THE FASTER TERM, AT EQUAL k**
+  ### **BAR 2** (c > 0 AND c > the M2 fit's own scatter at the last rung AND c > 5e-10) :
+      c = +8.283397e-03   the fit's scatter at X = 128 : 7.602391e-05   POSITIVE FLOOR : True
+  ### **WHAT THIS ACT COULD NOT HAVE SEEN, PRINTED:** a true floor below 7.602391e-05 would pass no arm
+      here, because it is under this fit's own scatter at the last rung. ### That is 0.366% of
+      R(128) = 2.079286517e-02, so this ladder is deaf to any floor smaller than that.
+
+  ### a = 1.41   R = ['5.249069802e-01', '2.202057965e-01', '8.849353956e-02', '3.799624780e-02', '1.880778106e-02']
+  mod  k   parameters                                           S (log-space)  rms(log)    AICc         d(AICc)
+  M1   2   A=6.310576 p=1.214024                                1.470759e-02   0.054236    -19.1441     +0.0000
+  M2   3   A=8.432791 p=1.333380 c=+5.629124e-03                1.095244e-03   0.014800    -12.1311     +7.0131
+  M3   3   A=3.248900 p=1.074105 B=+14.016910                   5.655392e-03   0.033632    -3.9229      +15.2212
+  ### the free two-term model (k = 4) : ### **NOT SCOREABLE ON THIS LADDER** (n - k - 1 = 0),
+  ### ### and it is NOT FITTED, for the sealed reason rather than after seeing a score.
+  ### **BAR 1** (AICc apart by more than 2.0 ; floor ~1e-14, so the bar is strict) :
+      M2 - M1 = +7.0131  distinguishable : True
+      M3 - M1 = +15.2212
+      M2 - M3 = -8.2082  distinguishable : True   ### **THE FLOOR AGAINST THE FASTER TERM, AT EQUAL k**
+  ### **BAR 2** (c > 0 AND c > the M2 fit's own scatter at the last rung AND c > 5e-10) :
+      c = +5.629124e-03   the fit's scatter at X = 128 : 2.783607e-04   POSITIVE FLOOR : True
+  ### **WHAT THIS ACT COULD NOT HAVE SEEN, PRINTED:** a true floor below 2.783607e-04 would pass no arm
+      here, because it is under this fit's own scatter at the last rung. ### That is 1.480% of
+      R(128) = 1.880778106e-02, so this ladder is deaf to any floor smaller than that.
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 2 -- THE VERDICT, BY THE SEALED BRANCH RULE OF SECTION (F).
+----------------------------------------------------------------------------------------------------
+  a        best by AICc   M2-M1          M2-M3          c sign     BAR2
+  1.3      M2             -1.4150        -2.2989        positive   True
+  1.35     M2             -10.2941       -19.8850       positive   True
+  1.41     M1             +7.0131        -8.2082        positive   True
+
+  ### **(FLOOR ESTABLISHED)** -- demands M2 beating M1 by more than the bar AND c passing bar 2, at
+    EVERY cell. ### got : False
+  ### **(NO FLOOR PREFERRED)** -- demands M1 fitting as well or better at every cell. ### got : False
+  ### ### ### **VERDICT : FLOOR UNDER-RESOLVED AS A FIT**
+
+  ### ### **AND THE ANSWER TO THE QUESTION THE ORDER ASKED IN ITS OWN TERMS -- can the five frames
+  ### ### distinguish a positive floor from a slowly decaying power law?**
+    cells where the floor model and the faster-decaying term are separated at equal complexity : ['1.3', '1.35', '1.41']
+    cells where a positive floor passes bar 2 : ['1.3', '1.35', '1.41']
+  ### ### **NO FIT HERE MEASURES A FLOOR. ### IT RANKS DESCRIPTIONS OF FIVE NUMBERS**, and the
+  ### ### smallest floor any arm here could have seen is printed per cell above.
+
+  ### **b339 IS NOT RE-VERDICTED. ### ITS `UNAFFORDABLE` STANDS.** ### And its side-reading -- that
+  ### the residual descends toward a floor -- was labelled by its own act as that seat's reading;
+  ### this act reports what a fit can and cannot say about it and ### **DOES NOT WITHDRAW IT.**
+  ### **b346 IS NOT RE-VERDICTED EITHER**, and the exponent's resolution on the RATE axis is
+  ### untouched, because it never rested on the floor.
+====================================================================================================
