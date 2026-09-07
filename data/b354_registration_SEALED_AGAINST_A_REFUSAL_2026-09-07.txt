@@ -1,0 +1,213 @@
+====================================================================================================
+b354 -- THE SIXTH FRAME. ### LEG 1 OF THE SORTIE b354-b355. ### THE REGISTRATION.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation
+### CURRENT by `tools/ferry_scan.py` on the ferry.
+### ### **SEALED BEFORE THE INSTRUMENT RUNS.** ### The sortie's step-zero tool and this act's extract ran
+### first; the frame has been SIZED and not COMPUTED, and no residual, no fit, no score and no verdict
+### exists at the moment of sealing.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER, AND ITS TWO ADDITIONS.
+----------------------------------------------------------------------------------------------------
+### The order adopts the executor's draft banked at `data/b353_sortie_closing.txt` and adds two clauses,
+### quoted from `data/b354_ferry_2026-09-07.txt`:
+###   ### **(i)** *"The ceiling: the wall is not in the record, so the sealed ceiling is a CHOSEN number and
+###   ### the registration says so in those words, with the basis of the choice stated (the prior act's
+###   ### measured walls, scaled) and the sentence that a chosen ceiling is not a read one."*
+###   ### **(ii)** *"After the frame lands, the three models are refitted on six frames under the SAME
+###   ### sealed criterion as before -- not a new one -- and the act reports whether the cells still
+###   ### disagree, whether the floor survives, and what the sixth frame changed. If the frame overruns the
+###   ### chosen ceiling it is abandoned and the overrun reported as the finding, with no bar moved."*
+### ### **WHAT THIS ACT IS:** ### ONE new rung on b320's domain ladder at the three covered cells, on the
+### existing instrument with ### **NOTHING RE-TUNED**, followed by a refit under b352's criterion.
+### ### **WHAT IT IS NOT:** ### it does not re-verdict b352, it EXTENDS b352's fit; it does not re-verdict
+### b339, whose `UNAFFORDABLE` stands; and it touches the rate axis nowhere.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE SIXTH FRAME, SIZED BEFORE THIS SEAL.
+----------------------------------------------------------------------------------------------------
+### ### **MEASURED OFF THE INSTRUMENT'S OWN SHAPES, NOT OFF PROSE**, and recorded at
+### `data/b354_extract_notes.txt` and `data/b354_frames.json` before this file was written:
+###   ### the ladder as `b317_smear.py` fixes it ends at `(16384, 128.0, 512)`;
+###   ### **THE SIXTH RUNG IS `(32768, 256.0, 512)`**, which is `N = 128 X` continued and `NY` UNCHANGED;
+###   ### the decomposed matrix `C` is `512 x 16256` (`66.6` MB) at the fifth rung and
+###   ### **`512 x 32640` (`133.7` MB) AT THE SIXTH.**
+### ### ### **AND THE SHAPE THAT MATTERS FOR THE CEILING: `C` IS `NY x free` WITH `NY = 512` FIXED.** ###
+### The decomposition is `O(NY^2 * free)`, so it grows ### **LINEARLY IN `N`, NOT QUADRATICALLY**, and the
+### sixth rung is `2.01` times the fifth by size.
+### ### **THAT IS A SHAPE READ FROM THE CODE. ### IT IS NOT A MEASURED WALL.**
+
+----------------------------------------------------------------------------------------------------
+### (C) THE CEILING. ### **IT IS A CHOSEN NUMBER, AND THIS SECTION SAYS SO IN THOSE WORDS.**
+----------------------------------------------------------------------------------------------------
+### ### ### **THE WALL IS NOT IN THE RECORD.** ### `b320` ran the eight-frame table and thirteen cells and
+### printed no wall for any frame. ### `b339` re-read that table and printed `elapsed : 0.0 s`, which is
+### the cost of READING the record and not of building it. ### **SO THE ORDER'S OWN BASIS -- "the prior
+### ### act's measured walls, scaled" -- HAS NO WALLS TO SCALE**, and this registration says that rather
+### than scaling a number that does not exist.
+### ### **THE CEILING, CHOSEN:**
+###   ### **`900` SECONDS OF WALL** for the whole of Component 1, measured from the first line of the run.
+###   ### **`8` GIGABYTES** of resident memory, as the largest single allocation the component may make.
+### ### **THE BASIS OF THE CHOICE, STATED IN FULL:**
+###   ### **(1) A SHAPE, NOT A MEASUREMENT.** ### Section (B)'s reading says the decomposition is linear in
+###   ### `N` and that the sixth rung is twice the fifth by size. ### `b320` built EIGHT frames including
+###   ### the fifth rung, plus thirteen cells, inside one act. ### **SO THE SHAPE PREDICTS THE SIXTH RUNG
+###   ### COSTS A SMALL MULTIPLE OF ONE FRAME OF THAT ACT'S WORK**, and `900` seconds is far above it.
+###   ### **(2) A SEAT'S PATIENCE.** ### The rest of the number is how long this seat is willing to wait
+###   ### before calling a run a different kind of event. ### **THAT IS NOT A MEASUREMENT OF ANYTHING.**
+### ### ### **AND THE SENTENCE THE ORDER REQUIRES, WRITTEN PLAINLY: ### A CHOSEN CEILING IS NOT A READ
+### ### ### ONE.** ### If the run lands inside `900` seconds that says the run was faster than a number
+### ### ### this seat picked. ### **IT SAYS NOTHING ABOUT WHETHER THE RUNG WAS CHEAP**, because there is no
+### ### ### banked cost to call it cheap or dear against. ### The act will PRINT its own wall, and that
+### ### ### printed wall is the first measured wall this ladder has, which is a fact about the record's
+### ### ### state and not a comparison.
+### ### **AND IF IT OVERRUNS:** ### the run is ### **ABANDONED**, the overrun is reported as ### **THE
+### ### FINDING**, no bar is moved, no partial value is taken, and the stopped output is banked as it
+### stood -- which is what `b345` did with its own stopped run.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE CRITERION. ### **b352's, IMPORTED AND NOT REPLACED. ### THE ORDER SAYS "NOT A NEW ONE".**
+----------------------------------------------------------------------------------------------------
+### The three models and the one criterion are b352's, sealed there before any fit and quoted here:
+###   ### `M1 = A X^(-p)` (`k = 2`); `M2 = A X^(-p) + c` (`k = 3`); `M3 = A X^(-p) + B X^(-p-1)` (`k = 3`).
+###   ### *"ALL THREE MODELS ARE FITTED BY MINIMISING THE SUM OF SQUARED RESIDUALS OF `log R`."*
+###   ### `AICc = n log(S/n) + 2k + 2k(k+1)/(n - k - 1)`, lower preferred, and a model with
+###   ### `n - k - 1 <= 0` marked `NOT SCOREABLE ON THIS LADDER`.
+###   ### **BAR 1:** two scoreable models are DISTINGUISHABLE when their `AICc` differ by more than `2.0`.
+###   ### **BAR 2:** `M2`'s `c` counts as a POSITIVE FLOOR only when `c > 0` AND `c` exceeds the `M2` fit's
+###   ### own scatter at the last rung AND `c > 5e-10`.
+### ### ### **THE MODEL FUNCTIONS AND THE MINIMISER ARE IMPORTED FROM `tools/b352_fit.py`, NEVER COPIED.**
+### **A CRITERION RETYPED IS A SECOND CRITERION**, and the order's whole point in clause (ii) is that this
+### act reuses the first.
+### ### **WHAT CHANGES, AND IT IS ONLY THIS: `n` GOES FROM `5` TO `6`.** ### At `n = 6` the `AICc` penalty
+### for a third parameter is `2 + 24/(n-4) - 12/(n-3) = 2 + 12 - 4 = 10` instead of `20`. ### **THAT IS
+### ### ARITHMETIC OF THE SEALED CRITERION AND NOT A CHANGE TO IT**, and it is written here before the
+### frame lands so that a halved penalty cannot later read as a tuned one.
+
+----------------------------------------------------------------------------------------------------
+### (E) THE BARS ON THE FRAME ITSELF. ### EACH WITH THE FLOOR OF THE OBJECT IT TESTS.
+----------------------------------------------------------------------------------------------------
+### ### **BAR 3 -- THE IDENTITY CONTROL.** ### The frame's identity trace must equal its `dim` to `1e-9`
+### absolute, which is the control `b320` applied at every one of its frames and this act applies
+### unchanged.
+###   ### **ITS FLOOR:** ### the trace is a sum of `dim` terms each of order one, `dim` near `32000`, so
+###   ### accumulated rounding is of order `dim * eps ~ 7e-12`. ### **THE BAR SITS ABOVE THAT FLOOR BY
+###   ### ABOUT TWO ORDERS AND IS THEREFORE STRICT RATHER THAN UNINFORMATIVE.**
+### ### **BAR 4 -- THE REPRODUCTION.** ### Before the sixth rung is computed, the FIFTH is recomputed here
+### and must reproduce `b320`'s banked `domain` value at every covered cell to `1e-9` relative.
+###   ### **ITS FLOOR:** ### `b320` banked those values at full double precision in
+###   ### `data/b320_rows.json`, so the floor is machine epsilon on a quantity of order `8`, about
+###   ### `2e-15` relative. ### **THE BAR SITS ABOVE IT AND IS STRICT.**
+###   ### ### **AND THIS IS THE ARM THAT LICENSES EVERYTHING ELSE.** ### If the instrument does not
+###   ### reproduce the ladder the record already holds, ### **THE SIXTH RUNG IS NOT A SIXTH RUNG OF THAT
+###   ### LADDER**, and no fit may be reported. ### `IF IT FAILS, THE ACT STOPS AND SAYS SO.`
+### ### **BAR 3 AND BAR 4 ARE INDEPENDENT, AND WHAT MAKES THEM SO IS NAMED:** ### bar 3 is a property of
+### one frame checked against its own dimension and needs no other act; bar 4 compares this run's numbers
+### to numbers a different act banked on a different day. ### **ONE CAN HOLD WHILE THE OTHER FAILS:** an
+### instrument that has drifted since `b320` would pass its own identity control and fail the reproduction,
+### which is exactly the case bar 4 exists to catch.
+
+----------------------------------------------------------------------------------------------------
+### (F) THE VERDICT'S BRANCHES, FIXED HERE.
+----------------------------------------------------------------------------------------------------
+### ### **(FLOOR ESTABLISHED)** -- on six frames, `M2` beats `M1` by more than Bar 1 AND `c` passes Bar 2,
+### ### **AT EVERY COVERED CELL.** ### The margin printed; and b339's side-reading upgraded from
+### fit-dependent to measured ### **ONLY IF THIS BRANCH IS REACHED.**
+### ### **(FLOOR UNDER-RESOLVED STILL)** -- the six frames do not settle it by both bars at every cell. ###
+### Then: ### **THE NUMBER OF FURTHER FRAMES PRICED AGAINST b339's CEILING**, and whether that ceiling now
+### binds.
+### ### **(NO FLOOR PREFERRED)** -- `M1` fits as well or better at every cell, ### **AT FULL PROMINENCE**,
+### with what that does to b346's premise stated and ### **b346 NOT RE-VERDICTED.**
+### ### **(ABANDONED)** -- the run overran the chosen ceiling of section (C). ### The overrun IS the
+### finding; no bar moves; no fit is reported; the stopped output is banked as it stood.
+### ### ### **IN EVERY BRANCH:** ### the exponent's resolution on the RATE axis is untouched, because it
+### ### never rested on the floor; ### **b352's FIT IS NOT RE-VERDICTED, IT IS EXTENDED**; and b339's
+### ### `UNAFFORDABLE` stands.
+### ### **AND THE HAZARD THIS ACT MUST NOT WALK INTO, FIXED HERE:** ### **A PENALTY THAT HALVES BECAUSE
+### ### `n` GREW IS NOT EVIDENCE ABOUT A FLOOR.** ### If `M2` wins at six frames where it lost at five, the
+### act must say how much of that is the extra datum and how much is the smaller penalty -- and section
+### (D) fixed the two penalty numbers in advance so the split can be computed rather than asserted.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE GATE SUITE'S ARMS.
+----------------------------------------------------------------------------------------------------
+### ### `G-CEILING` -- the ceiling present as a CHOSEN number in those words, with its basis and the
+###   sentence that a chosen ceiling is not a read one; and the run's own measured wall printed.
+### ### `G-REPRO` -- Bar 4: the fifth rung recomputed and equal to b320's banked value at every cell.
+### ### `G-IDENTITY` -- Bar 3 at the sixth frame, printed with its floor.
+### ### `G-SAMECRITERION` -- the models and minimiser IMPORTED from `tools/b352_fit.py`, checked by object
+###   identity and not by name; and this act's five-frame refit reproducing b352's banked scores exactly.
+### ### `G-SIXTH` -- the sixth rung's residual present at every covered cell, and the first five equal to
+###   b339's banked array byte for byte.
+### ### `G-PENALTY` -- the two penalty numbers printed, and the change attributed between the extra datum
+###   and the smaller penalty rather than asserted.
+### ### `G-VERDICT` -- the branch by (F)'s rule, with the branches not taken shown unreachable.
+### ### `G-NOTSEEN` -- what the six-frame ladder could not have seen, printed per cell, as b352 did for five.
+### ### `G-STANDS` -- b339, b346 and b352 all stated as standing; b352 EXTENDED and not re-verdicted.
+### ### `G-ANCHORS` -- every anchor in this act built by `anchor_from_file`, its fixtures run, and the count
+###   of anchors that differ from the hint that found them printed.
+### ### `G-NOGRADE`, `G-NOEDIT`, `G-ORDER`, `G-ROW`, `G-KEY`, `G-APPENDONLY`, `G-STRUCK`, `G-STEM`,
+###   `G-SHARED`, `G-TOOLNUM`, `G-NUMBERS`, `G-ONCE`, the hedge audit, and `G-AFTER` -- the whole suite
+###   re-run after the push, reported either way.
+### ### **EVERY ARM THAT READS A REPOSITORY STATE DECLARES ITS SIDE OF THE PUSH** (b352's rule):
+###   `G-ROW`/`G-ANCESTOR` and `G-APPENDONLY` are read BEFORE THE PUSH and again after, and the pre-push
+###   reading is the one that carries; `G-NOEDIT` is `SIDE-INVARIANT`; this act writes nothing to the
+###   papers repo, so `G-HOOK`/`G-MIRROR` are NOT OWED and that is CHECKED rather than assumed.
+### ### **THE MUST-FAIL FIXTURES, AS WHOLE LINES:** ### the bank must not contain `### THE FLOOR IS
+###   ESTABLISHED.`, `### b352 IS RE-VERDICTED.`, `### THE CEILING WAS READ.`, or `### THE LADDER IS A
+###   POWER LAW.`
+
+----------------------------------------------------------------------------------------------------
+### (H) BOTH SEATS' EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L1), QUOTED:** ### *"the sixth frame lands inside the chosen ceiling and the
+### cells still disagree."*
+### ### **THIS SEAT'S:** ### that the sixth frame lands in well under a tenth of the chosen ceiling,
+### because the decomposition is linear in `N`; and that ### **`M2` WINS AT MORE CELLS THAN IT DID AT FIVE
+### ### FRAMES, AND MOSTLY BECAUSE THE PENALTY HALVED RATHER THAN BECAUSE THE DATUM SPOKE.** ###
+### **REFUTABLE:** by the attribution in `G-PENALTY` coming out the other way.
+### ### **AND WHAT NEITHER SEAT MAY DO:** ### an expectation is scored, never satisfied.
+
+----------------------------------------------------------------------------------------------------
+### (I) THE SCOPE REFUSALS.
+----------------------------------------------------------------------------------------------------
+### ### **A SIXTH FRAME IS A SIXTH NUMBER.** ### It is not a proof, not a limit, and not a statement about
+### the ladder beyond it.
+### ### **A FIT IS A DESCRIPTION AND NOT A FACT ABOUT AN OBJECT**, which b352 fixed and this act carries.
+### ### **NO ACT IS RE-VERDICTED.** ### b339 stands with its `UNAFFORDABLE`; b346 stands; b350, b351, b352
+### and b353 stand as banked, and b351's `UNDECIDED` on the partition stands.
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER.** ### **NO
+### CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED.** ### `M-2` remains (SPECIFIED-NOT-STATED) under
+### b310's cap. ### **NO GRADE IS CONFERRED BY THIS SEAT.**
+### ### The seam's debt item 1 stands. ### The patent lane is carried on the patent seat's report,
+### UNCONFIRMED on this seat's record. ### The posture lock is separate. ### `h2` stands exactly where the
+### deposit left it. ### **THE WAVE STAYS PARKED. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (J) THE SORTIE'S STEP ZERO, BUILT BEFORE THIS SEAL, AND WHAT ITS OWN FIXTURES FOUND.
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER REQUIRED THE ANCHOR CURE BUILT**, *"since it has now been named twice and built
+### never"*. ### `tools/anchor_from_file.py` is that cure: a hint typed however the seat likes, the ONE
+### matching line found after normalisation, and ### **THE FILE'S OWN LINE RETURNED AS THE ANCHOR.** ###
+### Eight fixtures, four of the other polarity: an absent sentence RAISES, an ambiguous hint RAISES rather
+### than choosing, a changed word does not match, and the single-line form REFUSES a wrapped hint.
+### ### ### **AND ITS OWN FIXTURES FOUND TWO DEFECTS IN IT BEFORE IT WAS USED ONCE:**
+###   ### **(1) `quote_norm` FOLDS AN EM DASH TO ONE HYPHEN**, so a seat typing `--` where the file holds
+###   ### an em dash STILL MISSES after normalisation -- ### **WHICH IS EXACTLY b352's SPECIES, AND MEANS
+###   ### THE SHARED NORMALISER ALONE NEVER CURED IT.** ### Cured by a dash-run fold applied ON TOP of
+###   ### `quote_norm`, scoped to anchor-finding and NOT written into the shared normaliser, which every
+###   ### act's emitter and checker import and which widening would widen everywhere.
+###   ### **(2) THE SPAN FORM RETURNED THE WIDEST WINDOW RATHER THAN THE RIGHT ONE**, reporting a wrapped
+###   ### sentence as starting at line `1`. ### **A SPAN THAT REPORTS THE WRONG START IS WORSE THAN NO
+###   ### SPAN.** ### Cured by making the run length the outer loop.
+### ### **AND THE TOOL REFUSED FIVE OF THIS ACT'S OWN TWENTY-SIX HINTS ON ITS FIRST RUN** -- four that
+### crossed a line break in the ferry, one that matched two lines -- ### **AND EVERY REFUSAL WAS RIGHT.**
+### The hints were shortened to single lines; the second run built `26` of `26`.
+====================================================================================================
+### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 91f61c7bfa2ff7a6d896216afd9d65a287cb40f3e313fc38571eefd7e5ef2c74
+### bytes sealed : 17798
+### sealed at (UTC) : 2026-09-07T17:20:27Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b354_registration_2026-09-07.txt`.**
+====================================================================================================

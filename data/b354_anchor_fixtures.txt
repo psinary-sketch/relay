@@ -1,0 +1,11 @@
+====================================================================================================
+anchor_from_file.py -- THE FIXTURES, BOTH POLARITIES.
+====================================================================================================
+    a straight apostrophe finds the curly line, and returns the FILE's bytes True  PASS
+    two hyphens find the em-dash line                                    True  PASS
+    a marker-free hint finds the doubled-marker line                     True  PASS
+    a wrapped sentence returns its RUN of lines, and says where it starts True  PASS
+    an absent sentence RAISES                                            True  PASS
+    an ambiguous hint RAISES rather than choosing                        True  PASS
+    a CHANGED WORD does not match                                        True  PASS
+    the single-line form REFUSES a wrapped hint, and find_span is the way True  PASS

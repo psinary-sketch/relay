@@ -1,0 +1,143 @@
+### run at (UTC) : 2026-09-07T17:54:25Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b354 -- THE SIXTH FRAME. ### THE INSTRUMENT IMPORTED, NOTHING RE-TUNED.
+====================================================================================================
+  ### the ladder as banked : ((1024, 8.0, 512), (2048, 16.0, 512), (4096, 32.0, 512), (8192, 64.0, 512), (16384, 128.0, 512))
+  ### the sixth rung, sealed : N=32768 X=256 NY=512
+  ### THE CHOSEN CEILING (registration (C)) : 900 s of wall ; 8 GB
+  ### ### **A CHOSEN CEILING IS NOT A READ ONE.** ### The record holds no wall for this ladder.
+
+----------------------------------------------------------------------------------------------------
+  ### BAR 4 -- THE REPRODUCTION. ### **THE FIFTH RUNG, RECOMPUTED. ### IT LICENSES EVERYTHING ELSE.**
+----------------------------------------------------------------------------------------------------
+    N=16384  X=128.0  free=16256  rank=262  dim=15994    identity |Tr - dim| = 0.000e+00 (bar 1e-09)
+    a        Tr recomputed here   b320's banked Tr     |rel diff|    bar 1e-9
+    1.3      8.599100560775       8.599100560775       0.000e+00     HOLDS
+    1.35     6.923497715683       6.923497715683       0.000e+00     HOLDS
+    1.41     5.507915818314       5.507915818314       0.000e+00     HOLDS
+    ### ### **BAR 4 : HOLDS AT EVERY CELL**
+    ### and that licenses the sixth rung: the same code, one step further along the same axis.
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 1 -- THE SIXTH RUNG.
+----------------------------------------------------------------------------------------------------
+    N=32768  X=256.0  free=32640  rank=512  dim=32128 
+    ### **BAR 3, THE IDENTITY CONTROL** : |Tr - dim| = 0.000e+00   bar 1e-09   floor ~ dim*eps = 7.1e-12   HOLDS
+    ### the decomposition alone : 8.1 s
+
+    ### ### **THE RANK, AND A THING THIS ACT MUST CHECK BEFORE IT READS ANY RESIDUAL.**
+      the ranks along the banked ladder : [20, 37, 69, 133, 262]
+      their ratios per doubling         : ['1.850', '1.865', '1.928', '1.970']
+      extrapolated sixth rank           : 516
+      OBSERVED sixth rank               : 512      NY, the constraint count : 512
+      ### ### ### **THE RANK HAS SATURATED AT `NY`.** ### It would have been about `516` and
+      ### ### ### it is `512`, because `NY = 512` is the number of constraints and the rank
+      ### ### ### cannot exceed it. ### **SO THE SIXTH RUNG IS THE FIRST RUNG AT WHICH THE
+      ### ### ### RANK IS LIMITED BY `NY` RATHER THAN BY `X`** -- and it is limited only
+      ### ### ### barely, by about `4` dimensions out of `512`.
+      ### **`b316` FIXED `NY` INDEPENDENTLY OF `X` ON PURPOSE**, so that lengthening the
+      ### domain would not weaken the second condition. ### **AT THIS RUNG THAT INDEPENDENCE
+      ### ### HAS REACHED ITS OWN LIMIT**, and the act carries it into everything below.
+
+    a        W_inf            Tr(256)          margin W - Tr    R = margin - INT_EF wall
+    1.3      8.781214000      8.622600446      0.158613555      -0.000276003       54.5 s
+    1.35     7.130772347      6.944512069      0.186260278      -0.000221488       50.5 s
+    1.41     5.748007707      5.526892233      0.221115475      -0.000168633       52.2 s
+
+    ### ### **THE SIXTH RUNG LANDED. ### WALL SO FAR : 203.8 s AGAINST A CHOSEN CEILING OF 900 s.**
+    ### ### **AND THAT PRINTED WALL IS THE FIRST MEASURED WALL THIS LADDER HAS.** ### It is not a
+    ### ### comparison, because there is no banked cost to compare it to.
+
+    ### THE LADDER, NOW SIX RUNGS : X = [8.0, 16.0, 32.0, 64.0, 128.0, 256.0]
+    a=1.3    R = ['8.965568e-01', '3.063279e-01', '1.125551e-01', '4.718184e-02', '2.322388e-02']  ### + -2.760034747e-04
+           ratios per doubling : ['0.3417', '0.3674', '0.4192', '0.4922', '-0.0119']
+    a=1.35   R = ['6.716665e-01', '2.561369e-01', '9.902855e-02', '4.211002e-02', '2.079287e-02']  ### + -2.214878369e-04
+           ratios per doubling : ['0.3813', '0.3866', '0.4252', '0.4938', '-0.0107']
+    a=1.41   R = ['5.249070e-01', '2.202058e-01', '8.849354e-02', '3.799625e-02', '1.880778e-02']  ### + -1.686334338e-04
+           ratios per doubling : ['0.4195', '0.4019', '0.4294', '0.4950', '-0.0090']
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 2 -- THE REFIT ON SIX FRAMES, UNDER b352's SEALED CRITERION, IMPORTED.
+----------------------------------------------------------------------------------------------------
+    ### the models, the minimiser and the score come from `tools/b352_fit.py` : b352_fit.py
+    ### **A CRITERION RETYPED IS A SECOND CRITERION**, so none of it is retyped here.
+    ### **THE PENALTY FOR A THIRD PARAMETER**, from the sealed criterion and fixed in (D) before
+    ### the frame landed : at n = 5 it is 20.0 ; at n = 6 it is 10.0.
+
+    ### ### **BEFORE ANY SCORE: IS THE SEALED CRITERION DEFINED ON THIS LADDER?**
+    a        R over six rungs                               non-positive rungs
+    1.3      8.9656e-01 ... -2.7600e-04                     [5]
+    1.35     6.7167e-01 ... -2.2149e-04                     [5]
+    1.41     5.2491e-01 ... -1.6863e-04                     [5]
+
+    ### ### ### **THE SEALED CRITERION IS UNDEFINED ON THIS LADDER.**
+    ### It minimises the sum of squared residuals of `log R`, and ### **`log R` IS UNDEFINED
+    ### ### AT A NON-POSITIVE `R`.** ### The sixth rung is negative at every covered cell.
+    ### ### **SO NO SIX-FRAME SCORE EXISTS, AND NONE IS REPORTED.** ### The first run of this
+    ### ### file printed a not-a-number in every score column and is banked as it stood at
+    ### ### `data/b354_sixth_run_first_nan_scores.txt`. ### **THAT IS NOT A SCORE AND MUST NOT
+    ### ### BE TABLED AS ONE.**
+    ### ### ### **AND THE CRITERION IS TABLED, NOT EDITED.** ### The order says the criterion is
+    ### ### ### the SAME one and not a new one. ### A linear-space fit would fit these six
+    ### ### ### numbers -- and it would be ### **A SECOND CRITERION**, chosen after seeing that
+    ### ### ### the first failed, which is exactly the move a sealed criterion exists to
+    ### ### ### prevent. ### **THE DEFECT IS MEASURED AND CARRIED.**
+    ### **WHAT THE DEFECT IS, PRECISELY:** b352 sealed a criterion on five POSITIVE residuals
+    ### and it was well defined there. ### **ITS DOMAIN OF DEFINITION WAS NEVER STATED**, and
+    ### the sixth rung stepped outside it. ### A criterion is stated with the domain on which
+    ### it is defined, or the first datum outside that domain returns a not-a-number in
+    ### silence.
+
+  ### a = 1.3
+    ### **G-SAMECRITERION:** this act refitting FIVE frames reproduces b352's banked AICc to
+    ### 2.50e-12 absolute -- ### **SO THE CRITERION IS THE SAME CRITERION**, and b352 is EXTENDED
+    ### and not re-verdicted. ### Its five-frame scores stand exactly as banked.
+    ### the sixth residual : -2.760034747e-04   ### **NEGATIVE**
+    ### the ratio at the last doubling : -0.0119, where the previous five ran ['0.3417', '0.3674', '0.4192', '0.4922']
+
+  ### a = 1.35
+    ### **G-SAMECRITERION:** this act refitting FIVE frames reproduces b352's banked AICc to
+    ### 7.11e-14 absolute -- ### **SO THE CRITERION IS THE SAME CRITERION**, and b352 is EXTENDED
+    ### and not re-verdicted. ### Its five-frame scores stand exactly as banked.
+    ### the sixth residual : -2.214878369e-04   ### **NEGATIVE**
+    ### the ratio at the last doubling : -0.0107, where the previous five ran ['0.3813', '0.3866', '0.4252', '0.4938']
+
+  ### a = 1.41
+    ### **G-SAMECRITERION:** this act refitting FIVE frames reproduces b352's banked AICc to
+    ### 3.55e-14 absolute -- ### **SO THE CRITERION IS THE SAME CRITERION**, and b352 is EXTENDED
+    ### and not re-verdicted. ### Its five-frame scores stand exactly as banked.
+    ### the sixth residual : -1.686334338e-04   ### **NEGATIVE**
+    ### the ratio at the last doubling : -0.0090, where the previous five ran ['0.4195', '0.4019', '0.4294', '0.4950']
+
+----------------------------------------------------------------------------------------------------
+  ### THE VERDICT, BY THE SEALED BRANCH RULE OF SECTION (F).
+----------------------------------------------------------------------------------------------------
+    ### **(FLOOR ESTABLISHED)** demands M2 past bar 1 AND c passing bar 2 at EVERY cell.
+      ### **UNREACHABLE, AND SHOWN SO: NO SIX-FRAME SCORE EXISTS.** ### got : False
+    ### **(NO FLOOR PREFERRED)** demands M1 fitting as well or better at every cell.
+      ### **UNREACHABLE FOR THE SAME REASON.** ### got : False
+    ### **(ABANDONED)** is for a ceiling overrun. ### The run did NOT overrun: 212.1 s against 900 s.
+    ### ### ### **THEREFORE, BY THE LETTER OF THE SEALED CONDITION: FLOOR UNDER-RESOLVED STILL.**
+
+    ### ### **AND THE REASON IS NOT THE ONE THE BRANCH ANTICIPATED, WHICH THE ACT SAYS AT FULL
+    ### ### PROMINENCE RATHER THAN LETTING THE LABEL CARRY IT.** ### The branch was written for
+    ### ### six frames that fit and did not settle. ### **WHAT HAPPENED IS THAT THE SIXTH FRAME
+    ### ### DID NOT FIT AT ALL**, because the residual changed sign and the sealed criterion is
+    ### ### undefined there. ### **THE SEALED BRANCH RULE HAS NO SLOT FOR THIS OUTCOME**, and that
+    ### ### is itself a finding: the branches were written over the fit verdicts and not over the
+    ### ### fit existing at all. ### **TABLED, NOT EDITED.**
+
+    ### ### **DO THE CELLS STILL DISAGREE?** ### The question presumes three scores to compare and
+    ### ### **THERE ARE NONE.** ### At five frames they disagreed; at six there is nothing to
+    ### ### disagree about.
+
+    ### ### **THE MEASURED WALL FOR THE WHOLE COMPONENT : 212.1 s, AGAINST A CHOSEN CEILING OF 900 s.**
+    ### ### **AND THAT PRINTED WALL IS THE FIRST MEASURED WALL THIS LADDER HAS.**
+    ### **b339 IS NOT RE-VERDICTED. ### ITS `UNAFFORDABLE` STANDS.** ### And its side-reading --
+    ### that the residual descends toward a floor -- was labelled by its own act as that seat's
+    ### reading. ### **THE SIXTH RUNG IS EVIDENCE AGAINST IT, AND THIS ACT DOES NOT WITHDRAW IT**,
+    ### because b339 marked it a reading and because the sixth rung is the rung where the rank
+    ### saturates -- so the act cannot tell the object from the instrument there.
+    ### **b346 IS NOT RE-VERDICTED. ### b352 IS EXTENDED, NOT RE-VERDICTED** -- its five-frame
+    ### scores are reproduced here to 3e-12 and stand.
+====================================================================================================

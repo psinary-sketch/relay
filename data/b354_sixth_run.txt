@@ -1,0 +1,114 @@
+### run at (UTC) : 2026-09-07T17:31:56Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b354 -- THE SIXTH FRAME. ### THE INSTRUMENT IMPORTED, NOTHING RE-TUNED.
+====================================================================================================
+  ### the ladder as banked : ((1024, 8.0, 512), (2048, 16.0, 512), (4096, 32.0, 512), (8192, 64.0, 512), (16384, 128.0, 512))
+  ### the sixth rung, sealed : N=32768 X=256 NY=512
+  ### THE CHOSEN CEILING (registration (C)) : 900 s of wall ; 8 GB
+  ### ### **A CHOSEN CEILING IS NOT A READ ONE.** ### The record holds no wall for this ladder.
+
+----------------------------------------------------------------------------------------------------
+  ### BAR 4 -- THE REPRODUCTION. ### **THE FIFTH RUNG, RECOMPUTED. ### IT LICENSES EVERYTHING ELSE.**
+----------------------------------------------------------------------------------------------------
+    N=16384  X=128.0  free=16256  rank=262  dim=15994    identity |Tr - dim| = 0.000e+00 (bar 1e-09)
+    a        Tr recomputed here   b320's banked Tr     |rel diff|    bar 1e-9
+    1.3      8.599100560775       8.599100560775       0.000e+00     HOLDS
+    1.35     6.923497715683       6.923497715683       0.000e+00     HOLDS
+    1.41     5.507915818314       5.507915818314       0.000e+00     HOLDS
+    ### ### **BAR 4 : HOLDS AT EVERY CELL**
+    ### and that licenses the sixth rung: the same code, one step further along the same axis.
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 1 -- THE SIXTH RUNG.
+----------------------------------------------------------------------------------------------------
+    N=32768  X=256.0  free=32640  rank=512  dim=32128 
+    ### **BAR 3, THE IDENTITY CONTROL** : |Tr - dim| = 0.000e+00   bar 1e-09   floor ~ dim*eps = 7.1e-12   HOLDS
+    ### the decomposition alone : 7.3 s
+
+    a        W_inf            Tr(256)          margin W - Tr    R = margin - INT_EF wall
+    1.3      8.781214000      8.622600446      0.158613555      -0.000276003       53.2 s
+    1.35     7.130772347      6.944512069      0.186260278      -0.000221488       70.0 s
+    1.41     5.748007707      5.526892233      0.221115475      -0.000168633       77.0 s
+
+    ### ### **THE SIXTH RUNG LANDED. ### WALL SO FAR : 244.7 s AGAINST A CHOSEN CEILING OF 900 s.**
+    ### ### **AND THAT PRINTED WALL IS THE FIRST MEASURED WALL THIS LADDER HAS.** ### It is not a
+    ### ### comparison, because there is no banked cost to compare it to.
+
+    ### THE LADDER, NOW SIX RUNGS : X = [8.0, 16.0, 32.0, 64.0, 128.0, 256.0]
+    a=1.3    R = ['8.965568e-01', '3.063279e-01', '1.125551e-01', '4.718184e-02', '2.322388e-02']  ### + -2.760034747e-04
+           ratios per doubling : ['0.3417', '0.3674', '0.4192', '0.4922', '-0.0119']
+    a=1.35   R = ['6.716665e-01', '2.561369e-01', '9.902855e-02', '4.211002e-02', '2.079287e-02']  ### + -2.214878369e-04
+           ratios per doubling : ['0.3813', '0.3866', '0.4252', '0.4938', '-0.0107']
+    a=1.41   R = ['5.249070e-01', '2.202058e-01', '8.849354e-02', '3.799625e-02', '1.880778e-02']  ### + -1.686334338e-04
+           ratios per doubling : ['0.4195', '0.4019', '0.4294', '0.4950', '-0.0090']
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 2 -- THE REFIT ON SIX FRAMES, UNDER b352's SEALED CRITERION, IMPORTED.
+----------------------------------------------------------------------------------------------------
+    ### the models, the minimiser and the score come from `tools/b352_fit.py` : b352_fit.py
+    ### **A CRITERION RETYPED IS A SECOND CRITERION**, so none of it is retyped here.
+    ### **THE PENALTY FOR A THIRD PARAMETER**, from the sealed criterion and fixed in (D) before
+    ### the frame landed : at n = 5 it is 20.0 ; at n = 6 it is 10.0.
+
+  ### a = 1.3
+    ### **G-SAMECRITERION, HERE:** this act refitting FIVE frames reproduces b352's banked
+    ### AICc to 2.50e-12 absolute -- so the criterion is the same criterion.
+    mod  k   parameters (six frames)                            S             rms(log)    AICc(6)      AICc(5)
+    M1   2   A=1.000000 p=1.000000                              nan           nan         nan          -12.6547
+    M2   3   A=1.000000 p=1.000000 c=+0.000000e+00              nan           nan         nan          -14.0697
+    M3   3   A=1.000000 p=1.000000 B=+0.000000                  nan           nan         nan          -11.7708
+    ### **BAR 1** : M2-M1 = +nan (was -1.4150 at five)  distinguishable : False
+              M2-M3 = +nan  distinguishable : False
+    ### **BAR 2** : c = +0.000000e+00   scatter at the last rung nan   POSITIVE FLOOR : False
+    ### **THE ATTRIBUTION (registration (F)):** the change in M2-M1 is +nan.
+        of which the SMALLER PENALTY contributes -10.0000, and the DATUM AND REFIT contribute +nan.
+        ### ### **A PENALTY THAT HALVES BECAUSE `n` GREW IS NOT EVIDENCE ABOUT A FLOOR.**
+    ### **WHAT SIX FRAMES STILL COULD NOT HAVE SEEN:** a floor below nan -- nan% of R(256) = -2.760034747e-04.
+
+  ### a = 1.35
+    ### **G-SAMECRITERION, HERE:** this act refitting FIVE frames reproduces b352's banked
+    ### AICc to 7.11e-14 absolute -- so the criterion is the same criterion.
+    mod  k   parameters (six frames)                            S             rms(log)    AICc(6)      AICc(5)
+    M1   2   A=1.000000 p=1.000000                              nan           nan         nan          -15.8191
+    M2   3   A=1.000000 p=1.000000 c=+0.000000e+00              nan           nan         nan          -26.1132
+    M3   3   A=1.000000 p=1.000000 B=+0.000000                  nan           nan         nan          -6.2281
+    ### **BAR 1** : M2-M1 = +nan (was -10.2941 at five)  distinguishable : False
+              M2-M3 = +nan  distinguishable : False
+    ### **BAR 2** : c = +0.000000e+00   scatter at the last rung nan   POSITIVE FLOOR : False
+    ### **THE ATTRIBUTION (registration (F)):** the change in M2-M1 is +nan.
+        of which the SMALLER PENALTY contributes -10.0000, and the DATUM AND REFIT contribute +nan.
+        ### ### **A PENALTY THAT HALVES BECAUSE `n` GREW IS NOT EVIDENCE ABOUT A FLOOR.**
+    ### **WHAT SIX FRAMES STILL COULD NOT HAVE SEEN:** a floor below nan -- nan% of R(256) = -2.214878369e-04.
+
+  ### a = 1.41
+    ### **G-SAMECRITERION, HERE:** this act refitting FIVE frames reproduces b352's banked
+    ### AICc to 3.55e-14 absolute -- so the criterion is the same criterion.
+    mod  k   parameters (six frames)                            S             rms(log)    AICc(6)      AICc(5)
+    M1   2   A=1.000000 p=1.000000                              nan           nan         nan          -19.1441
+    M2   3   A=1.000000 p=1.000000 c=+0.000000e+00              nan           nan         nan          -12.1311
+    M3   3   A=1.000000 p=1.000000 B=+0.000000                  nan           nan         nan          -3.9229
+    ### **BAR 1** : M2-M1 = +nan (was +7.0131 at five)  distinguishable : False
+              M2-M3 = +nan  distinguishable : False
+    ### **BAR 2** : c = +0.000000e+00   scatter at the last rung nan   POSITIVE FLOOR : False
+    ### **THE ATTRIBUTION (registration (F)):** the change in M2-M1 is +nan.
+        of which the SMALLER PENALTY contributes -10.0000, and the DATUM AND REFIT contribute +nan.
+        ### ### **A PENALTY THAT HALVES BECAUSE `n` GREW IS NOT EVIDENCE ABOUT A FLOOR.**
+    ### **WHAT SIX FRAMES STILL COULD NOT HAVE SEEN:** a floor below nan -- nan% of R(256) = -1.686334338e-04.
+
+----------------------------------------------------------------------------------------------------
+  ### THE VERDICT, BY THE SEALED BRANCH RULE OF SECTION (F).
+----------------------------------------------------------------------------------------------------
+    a        best by AICc   M2-M1 (six)    M2-M1 (five)   c sign     BAR2
+    1.3      M1             +nan           -1.4150        NEGATIVE   False
+    1.35     M1             +nan           -10.2941       NEGATIVE   False
+    1.41     M1             +nan           +7.0131        NEGATIVE   False
+
+    ### **DO THE CELLS STILL DISAGREE?** ### best-scoring models across the cells : ['M1']  -> NO, THEY NOW AGREE
+    ### **(FLOOR ESTABLISHED)** demands M2 past the bar AND c passing bar 2 at EVERY cell : False
+    ### **(NO FLOOR PREFERRED)** demands M1 as good or better at every cell : False
+    ### ### ### **VERDICT : FLOOR UNDER-RESOLVED STILL**
+
+    ### ### **THE MEASURED WALL FOR THE WHOLE COMPONENT : 535.6 s, AGAINST A CHOSEN CEILING OF 900 s.**
+    ### **b339 IS NOT RE-VERDICTED; b346 IS NOT RE-VERDICTED; AND b352 IS EXTENDED, NOT
+    ### RE-VERDICTED** -- its five-frame scores are reproduced here to 3e-12 and stand.
+====================================================================================================

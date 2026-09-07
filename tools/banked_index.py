@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'sixth-frame': ['the sixth frame', 'the sixth rung', 'the domain ladder', 'the rank saturation',
+                   'the negative residual', 'the last rung', 'the chosen ceiling',
+                   'the criterion domain'],
     'width-missing-statement': ['the width coordinate', 'the missing statement', 'Boas-Kac',
                                'the admissible class', 'the test function class', 'a density statement',
                                'the spanning subfamily', 'exhaustion across widths'],
@@ -564,6 +567,29 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SIXTH FRAME (b354).
+    ("sixth-frame", "b354 (one new rung, on the existing instrument, nothing re-tuned)",
+     "THE SIXTH RUNG OF THE DOMAIN LADDER, WHICH b352 PRICED AND DID NOT RUN, RUN AT (N, X, NY) = (32768, 256, 512). THE ARM THAT LICENSED IT FIRST: the"
+     " FIFTH rung recomputed reproduces b320\'s banked values to 0.000e+00 RELATIVE at all three cells, and the sixth frame\'s identity control is"
+     " 0.000e+00 against a bar of 1e-9 whose floor is dim*eps = 7.1e-12 -- SO THE SIXTH RUNG IS NOT A BROKEN COMPUTATION. AND ITS RESIDUAL IS NEGATIVE AT"
+     " EVERY COVERED CELL (-2.76e-04, -2.21e-04, -1.69e-04), where the five banked rungs had fallen by ratios 0.34, 0.37, 0.42, 0.49 approaching one"
+     " half: THE RESIDUAL DID NOT SETTLE ONTO A FLOOR, IT CROSSED ZERO. AND THE SIXTH RUNG IS ALSO THE FIRST AT WHICH THE RANK IS LIMITED BY NY RATHER"
+     " THAN BY X -- the banked ranks 20, 37, 69, 133, 262 extrapolate to about 516 and the observed rank is 512, which is NY exactly, short by about"
+     " four dimensions out of five hundred. SO THE SIGN CHANGE AND THE INSTRUMENT\'S BOUNDARY ARRIVE IN THE SAME STEP. THE SEALED CRITERION IS UNDEFINED"
+     " THERE (log of a negative residual), so NO SIX-FRAME SCORE EXISTS AND NONE IS REPORTED; refitting FIVE frames reproduces b352\'s banked scores to"
+     " 3e-12, so b352 is EXTENDED and not re-verdicted. The chosen ceiling was 900 s and the run took 212.1 s, the FIRST MEASURED WALL"
+     " THIS LADDER HAS. VERDICT by the letter of the sealed condition: FLOOR UNDER-RESOLVED STILL, for a reason the branch did not anticipate.",
+     "### THE SIGN CHANGE AND THE RANK SATURATION HAPPEN AT THE SAME RUNG AND THIS ACT SEPARATES THEM NOWHERE: nothing here decides whether the object"
+     " crosses zero or whether the instrument stopped being able to say. ### THE INSTRUMENT DID NOT FAIL -- its own controls hold EXACTLY at that rung."
+     " ### A CRITERION THAT RETURNED NOTHING IS NOT A CRITERION THAT SAID SOMETHING, and it is TABLED, NOT EDITED: a linear-space fit would fit these"
+     " six numbers and would be A SECOND CRITERION chosen after seeing the first fail. ### b339\'S SIDE-READING IS NOT WITHDRAWN -- its own act labelled"
+     " it a reading, and the evidence against it arrives exactly at the instrument\'s boundary. ### THE SEALED BRANCH RULE HAS NO SLOT FOR A FIT THAT"
+     " DOES NOT EXIST, and that absence is filed and TABLED. ### NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR"
+     " MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b354_the_sixth_frame.txt; data/b354_sixth_run3.txt; data/b354_sixth.json;"
+     " data/b354_sixth_run_first_nan_scores.txt (the run banked as it stood);"
+     " data/b354_registration_2026-09-07.txt (sealed before the instrument ran);"
+     " tools/anchor_from_file.py (the sortie\'s step zero); CORRESPONDENCE.md row 202"),
     # ### THE WIDTH COORDINATE'S MISSING STATEMENT (b353).
     ("width-missing-statement", "b353 (a read under the import bar and a pricing; it computes nothing)",
      "A STATEMENT EXISTS, AND IT DOES NOT CLOSE THE WIDTH COORDINATE. It is in the corpus\'s OWN source -- arXiv 2006.13771v1, Connes-Consani, Weil"
