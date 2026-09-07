@@ -1,0 +1,243 @@
+{
+ "ny_ladder": [
+  {
+   "NY": 128,
+   "rank": 69,
+   "Tr": 5.44996107884016,
+   "rel": null
+  },
+  {
+   "NY": 256,
+   "rank": 69,
+   "Tr": 5.440400789183773,
+   "rel": 0.00175419411590035
+  },
+  {
+   "NY": 512,
+   "rank": 69,
+   "Tr": 5.438230059814712,
+   "rel": 0.000399001737772041
+  },
+  {
+   "NY": 1024,
+   "rank": 69,
+   "Tr": 5.437699654668931,
+   "rel": 9.753267882149126e-05
+  },
+  {
+   "NY": 2048,
+   "rank": 69,
+   "Tr": 5.43756780133625,
+   "rel": 2.4247998428417823e-05
+  }
+ ],
+ "step_512_to_1024": 9.753267882149126e-05,
+ "ranks_constant": true,
+ "b344_frame": {
+  "N": 4096,
+  "X": 32.0,
+  "cell": 1.41,
+  "rank": 69
+ },
+ "raised": 1024,
+ "sizes": [
+  {
+   "N": 32768,
+   "X": 256.0,
+   "NY": 512,
+   "rows": 512,
+   "free": 32640,
+   "C_bytes": 133693440
+  },
+  {
+   "N": 32768,
+   "X": 256.0,
+   "NY": 1024,
+   "rows": 1024,
+   "free": 32640,
+   "C_bytes": 267386880
+  }
+ ],
+ "reads": 25,
+ "without_anchor": 0,
+ "anchors_differing": 22,
+ "built": [
+  {
+   "label": "the order -- leg 1, with three additions",
+   "tag": "ORDER",
+   "file": "data/b356_ferry_2026-09-07.txt",
+   "line": 19,
+   "differs": false
+  },
+  {
+   "label": "the order -- it cannot price its own frame from the record",
+   "tag": "ORDER",
+   "file": "data/b356_ferry_2026-09-07.txt",
+   "line": 21,
+   "differs": true
+  },
+  {
+   "label": "the order -- raising the quadrature axis is re-tuning",
+   "tag": "ORDER",
+   "file": "data/b356_ferry_2026-09-07.txt",
+   "line": 24,
+   "differs": true
+  },
+  {
+   "label": "the order -- the fifth rung recomputed as a control",
+   "tag": "ORDER",
+   "file": "data/b356_ferry_2026-09-07.txt",
+   "line": 25,
+   "differs": true
+  },
+  {
+   "label": "the order -- the verdict set, fixed",
+   "tag": "ORDER",
+   "file": "data/b356_ferry_2026-09-07.txt",
+   "line": 27,
+   "differs": true
+  },
+  {
+   "label": "the order -- the seal chained on the audit exit code",
+   "tag": "ORDER",
+   "file": "data/b356_ferry_2026-09-07.txt",
+   "line": 13,
+   "differs": false
+  },
+  {
+   "label": "b354 -- the residual negative at every covered cell",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 13,
+   "differs": true
+  },
+  {
+   "label": "b354 -- the rank saturated at the quadrature bound",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 101,
+   "differs": true
+  },
+  {
+   "label": "b354 -- the two arrive together and are not separated",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 26,
+   "differs": true
+  },
+  {
+   "label": "b354 -- what the next act would have to settle first",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 156,
+   "differs": true
+  },
+  {
+   "label": "b354 -- the measured wall, the first this ladder has",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 76,
+   "differs": true
+  },
+  {
+   "label": "b354 -- the criterion undefined, tabled not edited",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 126,
+   "differs": true
+  },
+  {
+   "label": "b354 -- the seal taken against a refusal",
+   "tag": "b354",
+   "file": "data/b354_the_sixth_frame.txt",
+   "line": 199,
+   "differs": true
+  },
+  {
+   "label": "b344 -- the axis it moved, and why that one",
+   "tag": "AXIS",
+   "file": "data/b344_registration_2026-09-06.txt",
+   "line": 72,
+   "differs": true
+  },
+  {
+   "label": "b344 -- the rank does not move at all along that axis",
+   "tag": "AXIS",
+   "file": "data/b344_the_floor_priced.txt",
+   "line": 25,
+   "differs": true
+  },
+  {
+   "label": "b344 -- the effective rank is intrinsic across four doublings",
+   "tag": "AXIS",
+   "file": "data/b344_the_floor_priced.txt",
+   "line": 27,
+   "differs": true
+  },
+  {
+   "label": "b344 -- the residual converges along it",
+   "tag": "AXIS",
+   "file": "data/b344_the_floor_priced.txt",
+   "line": 33,
+   "differs": true
+  },
+  {
+   "label": "b316 -- why the quadrature grid is independent of the domain",
+   "tag": "AXIS",
+   "file": "tools/b316_instrument.py",
+   "line": 64,
+   "differs": true
+  },
+  {
+   "label": "b316 -- what tying them together did",
+   "tag": "AXIS",
+   "file": "tools/b316_instrument.py",
+   "line": 68,
+   "differs": true
+  },
+  {
+   "label": "b316 -- the transform matrix is NY by N",
+   "tag": "AXIS",
+   "file": "tools/b316_instrument.py",
+   "line": 85,
+   "differs": true
+  },
+  {
+   "label": "the stable cut, from one decomposition",
+   "tag": "AXIS",
+   "file": "tools/b319_stable.py",
+   "line": 99,
+   "differs": true
+  },
+  {
+   "label": "b320 -- the frames table with each frame's rank",
+   "tag": "AXIS",
+   "file": "data/b320_components_run.txt",
+   "line": 93,
+   "differs": false
+  },
+  {
+   "label": "b322 -- a price is not a prediction",
+   "tag": "RULE",
+   "file": "data/b322_the_membership.txt",
+   "line": 221,
+   "differs": true
+  },
+  {
+   "label": "b355 -- unaffordable is about a question",
+   "tag": "RULE",
+   "file": "data/b355_sortie_closing.txt",
+   "line": 83,
+   "differs": true
+  },
+  {
+   "label": "b345 -- a stopped run is banked as it stood",
+   "tag": "RULE",
+   "file": "data/b345_the_li_control_rerun.txt",
+   "line": 193,
+   "differs": true
+  }
+ ],
+ "run_file": "b356_extract_notes3.txt",
+ "run_clock": "2026-09-07T18:40:07Z"
+}

@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'object-or-boundary': ['the object or the boundary', 'the raised axis', 'the quadrature bound',
+                          'the instrument edge', 'the sixth rung again', 'six dimensions',
+                          'the rank at the bound', 'the control at the raised axis'],
     'what-the-arrays-are': ['what the arrays are', 'the test functions', 'the piecewise-linear object',
                            'the lawfulness checks', 'what the scan certifies', 'the three layers',
                            'the relabelling', 'the smooth bump'],
@@ -570,6 +573,31 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE OBJECT OR THE BOUNDARY (b356).
+    ("object-or-boundary", "b356 (one frame, one parameter re-tuned, deliberately)",
+     "THE BOUNDARY. b354 found the sixth rung\'s residual negative AND the rank saturated at the quadrature bound IN THE SAME STEP, and separated"
+     " them nowhere. b356 raises NY from 512 to 1024 -- a value the record had already used, being a rung of b344\'s own ladder -- with nothing else"
+     " moved. THE CONTROL RAN FIRST AND LICENSED EVERYTHING ELSE: the FIFTH rung under the raised axis has rank 262 EXACTLY as banked and its trace"
+     " reproduces b320 to 4.895e-04 worst against a bar of 1e-3 whose floor is b344\'s own measured 9.753e-05 move of THIS axis over EXACTLY this step"
+     " -- the observed move being 5.02 times that floor, so a bar set AT the floor would have failed on a correct computation. THE RANK AT THE RAISED"
+     " AXIS IS 518 AGAINST A BOUND OF 1024, where b354 measured 512 against 512 and extrapolated to about 516: THE EXTRAPOLATION WAS ACCURATE TO TWO."
+     " AND THE RESIDUAL RETURNS POSITIVE AT EVERY COVERED CELL: -2.760e-04 becomes +1.085e-02, -2.215e-04 becomes +9.723e-03, -1.686e-04 becomes"
+     " +8.801e-03. SO b354\'S SIXTH RUNG WAS THE INSTRUMENT\'S EDGE, AND THE FIVE-FRAME PICTURE STANDS WITH ITS EDGE NOW LOCATED AT X = 256 WITH"
+     " NY = 512. AND SIX DIMENSIONS DECIDED THE SIGN: the cut needs 518 and at NY = 512 it got 512, and the six it could not have turned +1.08e-02"
+     " into -2.76e-04 -- a change larger than the residual itself, from ONE PART IN EIGHTY-SIX of the cut. The run took 264.6 s against a chosen"
+     " ceiling of 1800 s.",
+     "### TWO POINTS ON AN AXIS ARE NOT A CONVERGENCE, AND THIS ACT HAS TWO: nothing here says the residual is positive in the limit, and b344\'s own"
+     " ladder shows the trace still moving at NY = 2048. ### A SIGN THAT RETURNS UNDER ONE RAISE IS NOT A SIGN THAT IS SAFE. ### b354 IS NOT"
+     " RE-VERDICTED -- it named its own ambiguity, could not have resolved it, and its figures stand exactly as banked and are used here. ### THE"
+     " RAISED FRAME IS COMPARABLE TO b354\'S SIXTH RUNG AND TO NOTHING ELSE: comparing it to the banked fifth-rung residual moves TWO parameters at"
+     " once, and the act refuses that comparison by name. ### b339\'S SIDE-READING IS NOT WITHDRAWN -- b354\'s evidence against it is removed here, so"
+     " it returns to where b339 left it, a reading its own act labelled, neither confirmed nor refuted. ### THE FLOOR QUESTION IS EXACTLY WHERE b352"
+     " LEFT IT: no fit was ordered and NO SCORE IS REPORTED. ### NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR"
+     " MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b356_the_boundary.txt; data/b356_raised_run2.txt; data/b356_raised.json;"
+     " data/b356_axis.json (b344\'s ladder, read for the bar\'s floor);"
+     " data/b356_registration_2026-09-07.txt (sealed on the audit\'s own exit code, before the instrument ran);"
+     " CORRESPONDENCE.md row 204"),
     # ### WHAT THE ARRAYS ARE (b355).
     ("what-the-arrays-are", "b355 (a read and a filing; it computes nothing and moves nothing)",
      "THE RECORD DOES STATE WHAT ITS ARRAYS ARE, AT THE LINE WHERE IT MAKES THEM, WITH ITS REASON -- and b353, which graded the smoothness hypothesis"

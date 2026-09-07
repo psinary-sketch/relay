@@ -1,0 +1,137 @@
+### run at (UTC) : 2026-09-07T18:39:33Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b356 -- EXTRACT-TO-DISK, AND THE RAISED AXIS SIZED BEFORE THE SEAL.
+====================================================================================================
+
+  ### the step-zero tool's fixtures, run here before it is trusted:
+  ### anchor_from_file fixtures : True
+
+  ### ### **THE ONE MEASUREMENT OF THE QUADRATURE AXIS THE RECORD HOLDS**, read from
+  ### ### `data/b344_ny.json` and not from prose:
+    b344 moved the axis at a FIXED frame N=4096 X=32.0, cell a=1.41
+    NY       rank     Tr                     relative move from the previous rung
+    128      69       5.449961078840160      --
+    256      69       5.440400789183773      1.754e-03
+    512      69       5.438230059814712      3.990e-04
+    1024     69       5.437699654668931      9.753e-05
+    2048     69       5.437567801336250      2.425e-05
+    ### ### **THE STEP THAT MATTERS: `NY = 512` TO `NY = 1024` MOVES THE TRACE BY `9.753e-05` RELATIVE.**
+    ### ### **AND THE RANK IS CONSTANT AT `69` ACROSS THE WHOLE AXIS** : True
+    ### ### **SO AT A RUNG WHERE THE BOUND IS NOT BINDING, RAISING THE AXIS LEAVES THE RANK ALONE
+    ### ### AND MOVES THE TRACE BY ABOUT ONE PART IN TEN THOUSAND.** ### That is the floor this
+    ### ### act's control bar is stated against, and it is a MEASURED figure of THIS axis, from
+    ### ### the only act that moved it.
+    ### **AND WHAT IT IS NOT:** ### b344 measured it at `N = 4096, X = 32` with rank `69` against a
+    ### bound of `512` -- ### **FAR FROM THE BOUND.** ### The fifth rung sits at rank `262` against
+    ### the same `512`, which is closer, and ### **NOTHING HERE SAYS THE RANK IS CONVERGED THERE.**
+    ### **THAT IS EXACTLY WHAT THIS ACT'S CONTROL TESTS.**
+
+  ### ### **THE RAISED AXIS, CHOSEN, AND THE SHAPE OF WHAT IT COSTS.**
+    N=32768  X=256.0  NY=512    C is 512 x 32640 = 133.7 MB
+    N=32768  X=256.0  NY=1024   C is 1024 x 32640 = 267.4 MB
+    ### **THE RAISED VALUE IS `1024`, AND IT IS NOT AN INVENTED NUMBER:** ### it is a rung of b344's
+    ### own ladder, already run by that act at a different frame.
+    ### **THE HEADROOM:** ### b354 measured the sixth rung's rank at `512` against a bound of
+    ### `512`, with the banked ranks extrapolating to about `516`. ### At `1024` the bound is about
+    ### twice that estimate. ### **AN ESTIMATE IS NOT A GUARANTEE, AND THE THIRD VERDICT EXISTS
+    ### ### FOR THE CASE WHERE THE RAISE DOES NOT CLEAR IT.**
+    ### **THE COST'S SHAPE:** ### the decomposition is `O(NY^2 * free)`, so doubling the axis is
+    ### about FOUR TIMES the decomposition -- b354 measured `8.1` s for it. ### **WHAT THE CELLS
+    ### ### COST IS NOT A SHAPE THIS SEAT CAN READ:** b354 measured about `52` s per cell at rank
+    ### `512`, and how that scales with a larger rank is ### **NOT IN THE RECORD.**
+    ### ### **SO THIS ACT CANNOT PRICE ITS OWN FRAME FROM THE RECORD, AND ITS CEILING IS CHOSEN.**
+
+----------------------------------------------------------------------------------------------------
+  ### THE READS. ### **HINT TYPED -> ANCHOR READ FROM THE FILE -> NEEDLE PULLED.**
+----------------------------------------------------------------------------------------------------
+
+  [ORDER] the order -- leg 1, with three additions
+      data/b356_ferry_2026-09-07.txt : line 19   ### anchor differs from the hint : False
+      | LEG 1 (b356) — THE OBJECT OR THE BOUNDARY, as drafted, with
+
+  [ORDER] the order -- it cannot price its own frame from the record
+      data/b356_ferry_2026-09-07.txt : line 21   ### anchor differs from the hint : True
+      | that this act cannot price its own frame from the record, so
+
+  [ORDER] the order -- raising the quadrature axis is re-tuning
+      data/b356_ferry_2026-09-07.txt : line 24   ### anchor differs from the hint : True
+      | licenses comparison only against b354's own sixth rung and says
+
+  [ORDER] the order -- the fifth rung recomputed as a control
+      data/b356_ferry_2026-09-07.txt : line 25   ### anchor differs from the hint : True
+      | so; the fifth rung is recomputed under the raised axis as a
+
+  [ORDER] the order -- the verdict set, fixed
+      data/b356_ferry_2026-09-07.txt : line 27   ### anchor differs from the hint : True
+      | and reports that instead. (iii) The verdict set is fixed here:
+  ### ### **NO ANCHOR** : the order -- the seal chained on the audit exit code
+      NO LINE MATCHES: "the seal chained on the AUDIT's exit code (b354's incident," in D:\relay\data\b356_ferry_2026-09-07.txt
+
+  [b354 ] b354 -- the residual negative at every covered cell
+      data/b354_the_sixth_frame.txt : line 13   ### anchor differs from the hint : True
+      | ### ### ### **THE SIXTH RUNG LANDED, AND ITS RESIDUAL IS NEGATIVE AT EVERY COVERED CELL.**
+
+  [b354 ] b354 -- the rank saturated at the quadrature bound
+      data/b354_the_sixth_frame.txt : line 101   ### anchor differs from the hint : True
+      | ### ### ### **THE OBSERVED RANK IS `512`. ### THAT IS `NY` EXACTLY.**
+
+  [b354 ] b354 -- the two arrive together and are not separated
+      data/b354_the_sixth_frame.txt : line 26   ### anchor differs from the hint : True
+      | ### ### ### **SO THE TWO THINGS HAPPEN AT THE SAME RUNG, AND THIS ACT CANNOT SEPARATE THEM.** ### The
+  ### ### **NO ANCHOR** : b354 -- what the next act would have to settle first
+      NO LINE MATCHES: 'whether the sign change is the object' in D:\relay\data\b354_the_sixth_frame.txt
+
+  [b354 ] b354 -- the measured wall, the first this ladder has
+      data/b354_the_sixth_frame.txt : line 76   ### anchor differs from the hint : True
+      | ### ### **AND NOW THERE IS ONE: `212.1` SECONDS IS THE FIRST MEASURED WALL THIS LADDER HAS.** ### The
+
+  [b354 ] b354 -- the criterion undefined, tabled not edited
+      data/b354_the_sixth_frame.txt : line 126   ### anchor differs from the hint : True
+      | ### ### ### **THE CRITERION IS TABLED, NOT EDITED, AND THE TEMPTATION IS WORTH NAMING.** ### A linear-space
+
+  [b354 ] b354 -- the seal taken against a refusal
+      data/b354_the_sixth_frame.txt : line 199   ### anchor differs from the hint : True
+      | ### ### ### **(E1) A FIRST VERSION OF THIS REGISTRATION WAS SEALED AGAINST AN EXPLICIT REFUSAL.** ### The
+  ### ### **NO ANCHOR** : b344 -- the axis it moved, and why that one
+      AMBIGUOUS (2 lines match): 'WHY `NY` AND NOT THE' in D:\relay\data\b344_registration_2026-09-06.txt -- lines [72, 78]
+  ### ### **NO ANCHOR** : b344 -- the rank along the quadrature ladder
+      NO LINE MATCHES: 'THE RANK ALONG THE LADDER' in D:\relay\data\b344_the_floor_priced.txt
+
+  [AXIS ] b344 -- the residual converges along it
+      data/b344_the_floor_priced.txt : line 33   ### anchor differs from the hint : True
+      | ### CORPUS'S OWN `NY = 512` THE REMAINING TRAVEL IS `7.059e-04`, about a ninth of the floor**; from
+
+  [AXIS ] b316 -- why the quadrature grid is independent of the domain
+      tools/b316_instrument.py : line 64   ### anchor differs from the hint : True
+      |         # ### ### **THE TRANSFORM GETS ITS OWN GRID, AND THAT IS NOT A CONVENIENCE.**
+
+  [AXIS ] b316 -- what tying them together did
+      tools/b316_instrument.py : line 68   ### anchor differs from the hint : True
+      |         # ### AS THE DOMAIN LENGTHENS, AND AT `X = 64` IT WAS WEAK ENOUGH TO ADMIT A VECTOR b292
+
+  [AXIS ] b316 -- the transform matrix is NY by N
+      tools/b316_instrument.py : line 85   ### anchor differs from the hint : True
+      |         return 2.0 * np.cos(2.0 * math.pi * np.outer(self.y, self.x)) * self.w[None, :]
+
+  [AXIS ] the stable cut, from one decomposition
+      tools/b319_stable.py : line 99   ### anchor differs from the hint : True
+      |     """### ### **BOTH CUTS FROM ONE SVD.** ### Returns `(stable, grid)`.
+
+  [AXIS ] b320 -- the frames table with each frame's rank
+      data/b320_components_run.txt : line 93   ### anchor differs from the hint : False
+      |   ### (2a) THE FRAMES, ON b319's STABLE CUT, WITH THE RANK PRINTED.
+
+  [RULE ] b322 -- a price is not a prediction
+      data/b322_the_membership.txt : line 221   ### anchor differs from the hint : True
+      | ### it does. ### **A PRICE IS NOT A PREDICTION.**
+  ### ### **NO ANCHOR** : b355 -- unaffordable is about a question
+      NO LINE MATCHES: 'a price is a verdict about a question, not about a ladder' in D:\relay\data\b355_sortie_closing.txt
+
+  [RULE ] b345 -- a stopped run is banked as it stood
+      data/b345_the_li_control_rerun.txt : line 193   ### anchor differs from the hint : True
+      | ### ### **(E1) A DRAFT RAN AT PARAMETERS THIS ACT DID NOT SEAL, AND WAS STOPPED.** ### The seat's first draft of
+
+====================================================================================================
+  reads attempted : 24   ### WITHOUT AN ANCHOR : 5
+  ### anchors differing from the hint that found them : 17 of 19
+====================================================================================================
