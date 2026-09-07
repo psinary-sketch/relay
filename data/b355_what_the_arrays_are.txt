@@ -1,0 +1,230 @@
+====================================================================================================
+b355 -- WHAT THE ARRAYS ARE. ### LEG 2 OF THE SORTIE b354-b355. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation CURRENT.
+### Registration `data/b355_registration_2026-09-07.txt`, sealed
+### `582934274b47bae1ac72dced2abd448a5065c24aaafca88b9585db562abf49c2`, 14242 bytes, 35 clauses JOINTLY
+### SATISFIABLE, its seal block carrying its own clock: sealed at (UTC) 2026-09-07T18:07:48Z, which is
+### after the extract at 2026-09-07T18:06:01Z and before the read at 2026-09-07T18:09:33Z.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE RECORD STATES IT, AND `b353` DID NOT LOOK AT THE LINE.**
+### ### **THE CORPUS INTEGRATES A PIECEWISE-LINEAR INTERPOLANT OF A SAMPLED SMOOTH BUMP, DELIBERATELY, AND
+### ### THE REASON THE RECORD GIVES IS AGREEMENT WITH ITS OWN BANKED NUMBERS.**
+### The three layers, each at an emitting line:
+###   ### **LAYER 1, THE GENERATING FORMULA** (`tools/e16/carto_atlas.py:49`):
+###     `w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))` -- ### **THE TEXTBOOK `Cc^infty` BUMP.** ### The formula
+###     the code writes down IS in the source's class, and that is said first because the rest is easy to
+###     misread as saying the corpus never had a smooth function in hand.
+###   ### **LAYER 2, THE SAMPLED ARRAY** (`:45` and `:50`): sampled at `NV` nodes, then
+###     `w /= np.trapezoid(w, v)` -- ### **SO THE NORMALISING CONSTANT IS THE PIECEWISE-LINEAR INTEGRAL**,
+###     not the smooth one. ### Even the array is not a plain sampling: it is the smooth bump rescaled by a
+###     constant only the piecewise-linear reading makes exact.
+###   ### **LAYER 3, THE OBJECT INTEGRATED** (`tools/b317_smear.py:136`):
+###     `return np.interp(np.log(rho), self.v, self.w, left=0.0, right=0.0)`, and at `:126` the header
+###     says it in words: *"EVALUATION IS PIECEWISE-LINEAR INTERPOLATION OF THAT GRID AND ZERO OUTSIDE
+###     IT"*.
+### ### ### **AND THE REASON, IN THE SAME BREATH AT `:128`:** ### *"the function this act integrates is the
+### ### function the corpus's number was formed from."*
+### ### ### **THAT IS THE WHOLE ANSWER: THE CHOICE WAS MADE FOR INTERNAL CONSISTENCY WITH BANKED NUMBERS,
+### ### ### NOT FOR MEMBERSHIP IN THE SOURCE'S CLASS.** ### **NOBODY TRADED THE CLASS AWAY. ### THE
+### ### ### QUESTION WAS NOT BEING ASKED AT THAT LINE.**
+### ### **`H1` -- SMOOTHNESS -- FAILS FOR THE OBJECT INTEGRATED**, and the record settles it rather than
+### leaving it to be inferred, which is what `b353` said it did not.
+### ### **`H3` -- POINTWISE POSITIVITY -- IS A DIFFERENT QUESTION AND ITS GRADE STANDS UNDISTURBED.**
+### ### **AND THE CONSEQUENCE IS A RELABELLING AND NOT A DEMOTION.** ### **EVERY BANKED NUMBER STANDS. ###
+### ### EVERY CHECK THAT PASSED STILL PASSED.** ### What changes is the sentence describing what passing
+### established. ### **NO VERDICT IS MOVED BY THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (2) `H1`, ANSWERED ON ITS OWN. ### THE ORDER SAID "SEPARATELY AND NOT MERGED".
+----------------------------------------------------------------------------------------------------
+### ### **WHAT THE EQUIVALENCE REQUIRES:** ### `f in Cc^infty(R)`.
+### ### **WHAT THE CORPUS INTEGRATES:** ### a piecewise-linear interpolant, by layer 3.
+### ### ### **SO THE OBJECT INTEGRATED IS NOT IN THE CLASS THE EQUIVALENCE QUANTIFIES OVER.**
+### ### **AND WHAT DOES NOT FOLLOW, SAID IMMEDIATELY:** ### the smooth bump exists at layer 1, and the
+### piecewise-linear object is uniformly close to it on a fine grid. ### **NOTHING HERE SAYS THE TWO GIVE
+### ### DIFFERENT NUMBERS.** ### What it says is that ### **THE OBJECT THE EQUIVALENCE IS ABOUT AND THE
+### ### OBJECT THE CORPUS INTEGRATES ARE NOT THE SAME**, and ### **NO ACT HAS MEASURED THE DIFFERENCE.**
+### ### **THE RECORD HAS ALREADY DRAWN ONE CONSEQUENCE OF THE CHOICE, AT ANOTHER FILE**, and it is not a
+### small one: `tools/b326_closure.py:285` records that `f = autocorrelation(seed)` is piecewise linear on
+### the uniform grid ### **AND THAT ITS TRANSFORM THEREFORE ALIASES**, with peaks at every multiple of
+### `2 pi / dv`. ### **SO THE PIECEWISE-LINEARITY WAS NEVER INVISIBLE TO THE RECORD.** ### It was seen,
+### named, and its consequence measured -- in a different act, about a different question.
+
+----------------------------------------------------------------------------------------------------
+### (3) `H3`, ANSWERED ON ITS OWN, AND IT IS A DIFFERENT QUESTION.
+----------------------------------------------------------------------------------------------------
+### ### **WHAT THE EQUIVALENCE REQUIRES:** ### `f^(t) >= 0` for ALL `t`.
+### ### **WHAT THE CORPUS DOES:** ### `tools/b318_square.py` scans a finite interval in `t`, in units of
+### the cell's own width, and says of itself: *"it can show a function is NOT positive definite by
+### exhibiting a negative value, and it cannot prove one IS beyond the interval scanned."*
+### ### **`b353` GRADED IT `UNDECIDABLE FROM THE RECORD` ON THAT BASIS. ### THAT GRADE STANDS AND THIS ACT
+### ### DOES NOT DISTURB IT.**
+### ### ### **AND HERE IS WHY THE ORDER WAS RIGHT TO SEPARATE THE TWO:** ### `H1` fails because of WHAT
+### ### THE OBJECT IS. ### `H3` is undecided because of HOW FAR THE LOOKING WENT. ### **AN ANSWER TO
+### ### EITHER SETTLES NOTHING ABOUT THE OTHER.** ### An act that had merged them would have produced one
+### verdict about "the arrays" covering two facts that share only a subject.
+
+----------------------------------------------------------------------------------------------------
+### (4) EVERY BANKED LAWFULNESS CHECK, CLASSIFIED ONE BY ONE.
+----------------------------------------------------------------------------------------------------
+### ### **THE DISTINCTION THE REGISTRATION FIXED BEFORE ANY CHECK WAS LOOKED AT:** ### for a true
+### autocorrelation `f = g conv g-sharp`, `f^ = |g^|^2` and positivity is ### **AUTOMATIC.** ### So a scan
+### applied to an object BUILT as an autocorrelation is ### **NOT AN INDEPENDENT TEST OF CLASS
+### ### MEMBERSHIP.** ### It is a test of whether the DISCRETE construction behaves like the continuous
+### one.
+
+### ### **b320 -- the square of the seed is in the source's class, 13 of 13. ### `USED BOTH`.**
+###   ### The object was BUILT as `g conv g-sharp` -- the equivalence's second condition -- and THEN
+###   scanned for the first. ### **CERTIFIES: that the discrete construction behaves like a continuous
+###   ### autocorrelation, within the scan's reach.** ### **SO THE SCAN CORROBORATED THE ARITHMETIC, NOT
+###   ### THE CLASS.**
+###   ### **AND THE CONTROL THAT KEEPS IT FROM BEING VACUOUS, WHICH b320 RAN ITSELF:** ### *"AND THE TEST
+###   CAN FAIL"* -- on b318's wide-minus-narrow fixture, which is NOT an autocorrelation, the same code
+###   path returns `min f-hat = -5.85e-01`. ### **THAT CONTROL IS WHY THE SCAN IS WORTH RUNNING AND IS
+###   ### ALSO WHY IT CERTIFIES WHAT IT CERTIFIES:** it separates objects built as autocorrelations from
+###   objects not built that way. ### **IT DOES NOT SEPARATE MEMBERS OF THE SOURCE'S CLASS FROM
+###   ### NON-MEMBERS.**
+### ### **b320 -- Theorem 1's three conditions, per cell. ### `USED NEITHER`.**
+###   ### **CERTIFIES:** that the piecewise-linear object has the support the source demands and that its
+###   two moments vanish to `1e-16` and `1e-17`. ### Those are the source's OTHER two conditions, measured
+###   directly; `b353` graded them `MET TO A MEASURED TOLERANCE` and that stands.
+### ### **b320 -- the covered cells named from the check. ### `USED NEITHER`.**
+###   ### **CERTIFIES:** which widths satisfy the support condition. ### Arithmetic on `a`, and not a class
+###   test at all.
+### ### **b328 -- lawfulness (L1), the source's Definition 3.1 by b318's scan. ### `USED BOTH`.**
+###   ### **CERTIFIES:** the same as b320's, at the aimed seeds.
+### ### **b334, b343, b344, b349 -- every aimed seed checked lawful before being charted. ### `USED BOTH`.**
+###   ### **CERTIFIES:** the same, once per seed. ### **NO ACT IN THIS FAMILY EVER TESTED CLASS MEMBERSHIP
+###   ### INDEPENDENTLY OF THE CONSTRUCTION**, because every seed in the family is built the same way. ###
+###   b349's own caveat rides with it: *"NOT THAT THREE LAWFUL SEEDS AT LOW HEIGHTS MEAN THE CONSTRUCTION
+###   NEVER DEGENERATES -- IT MEANS THESE THREE DID NOT."*
+### ### ### **AND THE ONE THING THAT WOULD HAVE BEEN AN INDEPENDENT CLASS TEST IS ABSENT FROM THE
+### ### ### RECORD:** ### a scan of `f^` on an object NOT built as an autocorrelation and claimed to be in
+### ### ### the class. ### **NO ACT RAN ONE, AND NONE WAS ASKED TO.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE BRANCH, WITH BOTH OTHERS SHOWN UNREACHABLE.
+----------------------------------------------------------------------------------------------------
+### ### **(THE RECORD DOES NOT STATE IT) -- UNREACHABLE.** ### Three emitting lines state it: the
+### interpolating call, the header sentence naming the interpolation, and the sentence giving the reason.
+### ### **(THE RECORD CONTRADICTS ITSELF) -- UNREACHABLE.** ### The smooth formula and the piecewise-linear
+### object are stated at DIFFERENT LAYERS and both are stated plainly. ### **A SMOOTH FORMULA SAMPLED AND
+### ### THEN INTERPOLATED IS NOT A CONTRADICTION; IT IS A PIPELINE**, and the record describes each stage
+### of it correctly.
+### ### ### **THEREFORE: THE RECORD STATES IT.**
+### ### **AND THIS IS THE FOURTH OUTCOME THE REGISTRATION ANTICIPATED**, from the executor's own note (N2)
+### written before the seal: stated at one layer and another, neither missing nor contradictory. ### It is
+### reported under the first branch with the layers named, ### **EXACTLY AS THE REGISTRATION SAID IT WOULD
+### ### BE**, rather than widening a branch after the reading.
+
+----------------------------------------------------------------------------------------------------
+### (6) WHAT FOLLOWS, IN THE ORDER'S OWN TWO CASES.
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER'S FIRST CASE -- IF THE ARRAYS MEET THE HYPOTHESES:** ### the equivalence would apply at
+### each fixed width, and the width coordinate would be closed AT A WIDTH and open ACROSS widths. ### **THAT
+### ### CASE DOES NOT ARISE FOR THE OBJECT INTEGRATED**, because `H1` fails there. ### **AND THIS ACT
+### ### CONFIRMS b353'S SENTENCE AND DOES NOT STRENGTHEN IT.**
+### ### **THE ORDER'S SECOND CASE -- IF THEY DO NOT:** ### the corpus's own instrument is outside the
+### statement it was measured against, and the consequence for every banked lawfulness check is named. ###
+### **THAT IS THE CASE, AND SECTION (4) NAMES THEM ONE BY ONE.**
+### ### ### **AND THE CONSEQUENCE IS A RELABELLING AND NOT A DEMOTION:**
+###   ### **EVERY BANKED NUMBER STANDS.** ### Nothing here recomputes one or contradicts one.
+###   ### **EVERY CHECK THAT PASSED STILL PASSED.** ### What changes is the sentence describing what
+###   passing established.
+###   ### **THE OLD READING:** ### *the seeds are in the source's class, tested by the source's own
+###   Definition 3.1.*
+###   ### **THE READING THIS ACT SUPPORTS:** ### *the seeds are built as autocorrelations of a
+###   piecewise-linear interpolant of a sampled smooth bump, and the scan confirms the discrete
+###   construction behaves like a continuous autocorrelation within its reach.*
+###   ### ### **THE SECOND IS NARROWER AND IT IS TRUE. ### THE FIRST WAS NEVER MEASURED.**
+### ### **AND WHAT IS ROUTED RATHER THAN DECIDED:** ### whether any banked VERDICT turns on the difference.
+### **THIS SEAT'S READING IS THAT NONE DOES**, because every verdict in the family is stated over the
+### corpus's own constructed objects and not over the source's class -- but ### **THAT IS A READING AND THE
+### ### AUTHOR MOVES ROWS**, so it is filed and not applied. ### **NO ERRATA ENTRY IS DRAFTED**, because no
+### verdict was found to turn on it; if the author reads it otherwise, the entry is one act away.
+
+----------------------------------------------------------------------------------------------------
+### (7) BOTH SEATS' EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L2)** -- *the arrays do not meet the smoothness hypothesis and the consequence
+### is a relabelling of what the lawfulness checks certify, not a defect in any measurement* : ### **MET,
+### ### BOTH HALVES.**
+### ### **THIS SEAT'S** -- *the record states it at both layers, gives a reason, and the reason is internal
+### consistency rather than class membership* : ### **MET**, and the reason is quoted at
+### `tools/b317_smear.py:128`.
+
+----------------------------------------------------------------------------------------------------
+### (8) THE THING NO SEAT WROTE DOWN, AND THE ACT FOUND ANYWAY.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE SCAN AND THE CONSTRUCTION WERE NEVER INDEPENDENT, AND EVERY ACT IN THE FAMILY READ THEM
+### ### ### AS IF THEY WERE.**
+### `b320` built `f` as an autocorrelation and then tested `f-hat >= 0`. ### For a true autocorrelation
+### that test cannot fail. ### **SO THE `13 OF 13` WAS NEVER THIRTEEN INDEPENDENT CONFIRMATIONS OF CLASS
+### ### MEMBERSHIP; IT WAS THIRTEEN CONFIRMATIONS THAT THE DISCRETE ARITHMETIC HELD.**
+### ### **AND THAT IS A REAL RESULT, WORTH HAVING, AND NARROWER THAN IT READ.** ### `b320`'s own control --
+### the wide-minus-narrow fixture returning `-5.85e-01` -- proves the test discriminates. ### **WHAT IT
+### ### DISCRIMINATES IS AUTOCORRELATIONS FROM NON-AUTOCORRELATIONS, WHICH IS NOT THE SAME AS MEMBERS FROM
+### ### NON-MEMBERS.**
+### ### **THE SHAPE TO CARRY:** ### **A TEST APPLIED TO AN OBJECT BUILT TO PASS IT MEASURES THE
+### ### CONSTRUCTION, NOT THE PROPERTY.** ### It is still worth running -- it catches arithmetic that has
+### gone wrong -- but its name should say construction and not class, and for five acts it did not.
+
+----------------------------------------------------------------------------------------------------
+### (9) THE ACT'S INCIDENTS, ALL DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THE EXTRACT RAN THREE TIMES AND ALL THREE RUN FILES ARE ON DISK.** ### The step-zero tool refused
+### `5` of `32` hints on the first run and `1` on the second, ### **AND EVERY REFUSAL WAS RIGHT: ### EVERY
+### ### ONE WAS A DROPPED POSSESSIVE** -- this seat typing *"the corpus arrays"* where the file holds *"the
+### corpus's arrays"*, and five more of that shape.
+### ### ### **AND THAT IS A DIFFERENT SPECIES FROM THE ONE THE TOOL WAS BUILT FOR, WHICH IS WORTH SAYING.**
+### `b352`'s six misses were PRESENTATION -- curly quotes, em dashes, markers -- which normalisation folds
+### away. ### **A DROPPED POSSESSIVE IS A CHANGED WORD**, and the tool refuses it for the same reason it
+### refuses any changed word: ### **A TOOL THAT MATCHED IT WOULD LAUNDER A WRONG QUOTATION.** ### The
+### tool's own negative fixture for a changed word is what makes that refusal principled rather than
+### accidental.
+### ### **`18` OF THE `32` ANCHORS DIFFER FROM THE HINT THAT FOUND THEM**, the same proportion `b354`
+### measured, recorded here as a second independent reading of the species.
+### ### **THE READ RAN TWICE**, the second time only to capture the run file after the first had been
+### inspected; both are on disk and the act relies on the second.
+### ### **THE CLOCKS, EACH WRITTEN BY THE UTILITY b347 BUILT:** ### the extract at
+### `2026-09-07T18:06:01Z`, the seal at `2026-09-07T18:07:48Z`, the read at `2026-09-07T18:09:33Z`. ###
+### **THE SEAL SITS BETWEEN THEM**, after the evidence and before the verdict.
+
+----------------------------------------------------------------------------------------------------
+### (10) WHAT IS NOT CLAIMED.
+----------------------------------------------------------------------------------------------------
+### ### **NO VERDICT IS MOVED. ### NO MEASUREMENT IS WRONG. ### NO ACT IS RE-VERDICTED.** ### Every banked
+### number stands exactly as banked, and nothing here recomputes one.
+### ### **NOT THAT THE SMOOTH BUMP AND THE PIECEWISE-LINEAR OBJECT GIVE DIFFERENT NUMBERS.** ### No act has
+### measured the difference and this one did not either.
+### ### **NOT THAT THE CORPUS CHOSE BADLY.** ### It chose for a stated reason -- agreement with its own
+### banked numbers -- and that reason is a good one for the question it was answering.
+### ### **NOT THAT THE `13 OF 13` IS WORTHLESS.** ### It is a real check with a real control; it certifies
+### something narrower than it was read as certifying, and ### **A CHECK THAT CERTIFIES SOMETHING NARROWER
+### ### IS STILL A CHECK THAT PASSED.**
+### ### **THE WIDTH COORDINATE IS NOT CLOSED BY THIS ACT**, and b353's sentence is confirmed and not
+### strengthened. ### **THE PARTITION b351 LEFT `UNDECIDED` STAYS `UNDECIDED`.**
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER.** ### **NO
+### CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO
+### TERMINAL. ### `M-2` UNCHANGED**, owed under b310's cap. ### The seam's debt item 1 stands. ### The
+### patent lane is carried on the patent seat's report, UNCONFIRMED on this seat's record. ### The posture
+### lock is separate. ### `h2` stands exactly where the deposit left it. ### **THE WAVE STAYS PARKED. ###
+### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: A SMALL BOOKKEEPING ANSWER.** ### What arrived is a relabelling that touches five acts,
+### and the temptation this act must resist is the feeling of having caught something.
+### ### **NOTHING WAS CAUGHT.** ### The corpus wrote down what it was doing, at the line where it did it,
+### with its reason. ### **WHAT WAS MISSING WAS NOT A DISCLOSURE BUT A QUESTION**, and no seat asked it
+### until an order sent one looking.
+### ### **NOT THAT THE RECORD WAS WRONG. ### NOT THAT A NAME IS A RESULT. ### NOT THAT RENAMING WHAT A
+### ### CHECK CERTIFIES CHANGES WHAT IT MEASURED.**
+### ### **THE MOST THIS ACT HAS DONE IS PUT A NARROWER SENTENCE BESIDE A WIDER ONE AND SAY WHICH WAS
+### ### MEASURED.**
+### ### **NEXT: the sortie closes here.**

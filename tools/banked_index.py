@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'what-the-arrays-are': ['what the arrays are', 'the test functions', 'the piecewise-linear object',
+                           'the lawfulness checks', 'what the scan certifies', 'the three layers',
+                           'the relabelling', 'the smooth bump'],
     'sixth-frame': ['the sixth frame', 'the sixth rung', 'the domain ladder', 'the rank saturation',
                    'the negative residual', 'the last rung', 'the chosen ceiling',
                    'the criterion domain'],
@@ -567,6 +570,31 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### WHAT THE ARRAYS ARE (b355).
+    ("what-the-arrays-are", "b355 (a read and a filing; it computes nothing and moves nothing)",
+     "THE RECORD DOES STATE WHAT ITS ARRAYS ARE, AT THE LINE WHERE IT MAKES THEM, WITH ITS REASON -- and b353, which graded the smoothness hypothesis"
+     " REFUTABLE and said the record did not settle it, did not look at that line. THREE LAYERS, EACH AT AN EMITTING LINE: the GENERATING FORMULA at"
+     " carto_atlas.py:49 is exp(-1/(1-t^2)) on the unit interval, the textbook Cc-infinity bump, so the formula the code writes down IS in the class;"
+     " the SAMPLED ARRAY at :45 and :50 is that formula at NV nodes divided by its own TRAPEZOID integral; and the OBJECT INTEGRATED at"
+     " b317_smear.py:136 is np.interp between nodes and zero outside, stated in words at :126 and given its reason at :128 -- the function this act"
+     " integrates is the function the corpus\'s number was formed from. SO THE CHOICE WAS MADE FOR INTERNAL CONSISTENCY WITH BANKED NUMBERS AND NOT FOR"
+     " MEMBERSHIP IN THE SOURCE\'S CLASS. H1 and H3 are answered SEPARATELY: H1 fails on what the object IS, H3 is undecided on how far the looking"
+     " went, and H3\'s grade stands undisturbed. AND THE DISTINCTION FIXED BEFORE ANY CHECK WAS LOOKED AT: for a true autocorrelation the transform is"
+     " the squared modulus and positivity is AUTOMATIC, so A SCAN APPLIED TO AN OBJECT BUILT AS AN AUTOCORRELATION IS NOT AN INDEPENDENT TEST OF CLASS"
+     " MEMBERSHIP. The checks one by one: b320\'s 13 of 13 USED BOTH; b320\'s Theorem 1 conditions and covered-cell naming USED NEITHER; b328\'s"
+     " lawfulness and every aimed seed at b334, b343, b344 and b349 USED BOTH. NO ACT IN THE FAMILY EVER TESTED CLASS MEMBERSHIP INDEPENDENTLY OF THE"
+     " CONSTRUCTION. VERDICT: THE RECORD STATES IT.",
+     "### A RELABELLING IS NOT A DEMOTION: every banked number stands exactly as banked, nothing here recomputes one or contradicts one, and every"
+     " check that passed still passed -- what changes is the sentence describing what passing established. ### THE OLD READING was that the seeds are"
+     " in the source\'s class; THE READING THIS ACT SUPPORTS is that they are built as autocorrelations of a piecewise-linear interpolant of a sampled"
+     " smooth bump, and the scan confirms the discrete construction behaves like a continuous one within its reach. THE SECOND IS NARROWER AND IT IS"
+     " TRUE; THE FIRST WAS NEVER MEASURED. ### NOT that the two objects give different numbers -- NO ACT HAS MEASURED THE DIFFERENCE. ### NOT that the"
+     " corpus chose badly: it chose for a stated reason. ### NO VERDICT IS MOVED BY THIS ACT; whether any turns on the difference is a reading, and the"
+     " author moves rows. ### b353\'s width sentence is CONFIRMED AND NOT STRENGTHENED and the partition stays UNDECIDED. ### NO CLASS IS DISCHARGED."
+     " ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b355_what_the_arrays_are.txt; data/b355_read_run2.txt; data/b355_extract_notes3.txt;"
+     " data/b355_registration_2026-09-07.txt (sealed before the reading was turned into a verdict);"
+     " tools/e16/carto_atlas.py:45,49,50; tools/b317_smear.py:126,128,136; CORRESPONDENCE.md row 203"),
     # ### THE SIXTH FRAME (b354).
     ("sixth-frame", "b354 (one new rung, on the existing instrument, nothing re-tuned)",
      "THE SIXTH RUNG OF THE DOMAIN LADDER, WHICH b352 PRICED AND DID NOT RUN, RUN AT (N, X, NY) = (32768, 256, 512). THE ARM THAT LICENSED IT FIRST: the"
