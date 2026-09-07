@@ -1,0 +1,211 @@
+====================================================================================================
+b359 -- GATE SUITE (THE LEDGER CURRENCY PASS)
+====================================================================================================
+
+  G-NODEPOSIT (STRIPPED code: nothing this act runs can write to a platform):
+    write verbs / tokens / method overrides in stripped code : none
+    every target recorded as GET : True ; nothing written remotely : True
+    and the bank says so : True / True  PASS
+
+  G-FETCH (one read-only fetch per target, hashed, its hash in the bank):
+    2 of 2 fetched, all HTTP 200 : True / True ; hashed : True ; the hash in the bank : True  PASS
+
+  G-PRECEDENCE (quoted from the front door, and OBEYED):
+    the precedence sentence located at README.md:147 : True ; quoted in the bank : True
+    ### **REGISTRY.md IS BYTE-IDENTICAL TO ITS BLOB (READ, NOT WRITTEN)** : True
+    fetch and source of truth agree : True ; the direction is stated : True  PASS
+
+  G-STATUSES (every claim located and carrying one of the locked three):
+    9 claims, every status one of the locked three : True (statuses 3)
+    none unclassified : True ; the counts add up : True ; every line still pullable : True  PASS
+
+  G-PINSLIVE (every asserted pin resolved by ls-remote, or UNRESOLVED; none recalled):
+    6 pins, each resolved or UNRESOLVED : True / True ; every CURRENT one actually matches : True
+    the counts add up : True ; the tool defines and calls ls_remote, and names it raw : True  PASS
+
+  G-PINHEAD (a deposit-pin and a working head are never merged):
+    the lv row is read as TWO objects : True ; two distinct shas : True
+    the ruling is quoted in the bank : True / True  PASS
+
+  G-APPENDONLY-LEDGER (README and SPIRAL_MAP untouched; REGISTRY byte-identical):
+    README.md        BYTE-IDENTICAL to its blob : True
+    SPIRAL_MAP.md    BYTE-IDENTICAL to its blob : True
+    REGISTRY.md      BYTE-IDENTICAL to its blob : True
+    nothing appended : True ; the bank says so : True  PASS
+
+  G-MIRRORCARRIES (rebuilt AFTER the write, three clauses, and what it carries named):
+    clean on all three clauses : True
+    ### the faces ledger is genuinely absent from the roster : True ; reported : True
+    the carried documents named in the bank : True ; ### **THE ROSTER IS UNCHANGED** : True  PASS
+
+  G-BRANCH (the branch by (H)'s locked rule, the others shown unreachable):
+    ### the pass run is RESOLVED BY ITS OWN CLOCK, not named : b359_pass_run.txt of ['b359_pass_run.txt']
+    verdict agrees : True ; all three others unreachable : True / True / True
+    the branch conditions recompute : True ; mixture rule named : True  PASS
+
+  G-PRELOCK (the pre-lock reads declared, and no currency claim formed before the lock):
+    section (A-PRE) present : True ; no currency claim formed : True ; no fetch, no pin : True
+    ### **LOCK 2026-09-07T20:53:11Z < fetch 2026-09-07T20:53:52Z < extract 2026-09-07T20:55:11Z < pass 2026-09-07T20:57:05Z** : True ; declared in the bank : True  PASS
+
+  G-ANCHORS (every anchor built by the tool; its fixtures run; the count printed):
+    fixtures hold : True ; without a match : 0 ; differing from their hint : 23 of 34
+    the faces writer's refusal is reported : True  PASS
+
+  G-NOGRADE (no grade conferred, nothing compiled, no act re-verdicted):
+    no grade / no re-verdict / no class : True / True / True
+    the faces block is NAMED-ONLY and compiles nothing : True ; adds no new reading : True
+    wave parked, nothing deposits : True  PASS
+
+  G-LOCKCHAIN (LOCKED, on the audit's own exit code, and the block is a LOCK block):
+    the bank says it : True ; the audit is satisfiable : True ; a LOCK block : True
+    locked BEFORE any read : True ; the tool self-tests on both marks : True  PASS
+
+  SELF NEEDLES (each hint resolved to the bank's own line by the step-zero tool):
+    PASS  the bank states the verdict first                    line 12
+    PASS  ### no drift is found                                line 14
+    PASS  ### the counts                                       line 15
+    PASS  ### so nothing is appended                           line 19
+    PASS  ### both left byte-identical                         line 23
+    PASS  ### the precedence, quoted                           line 29
+    PASS  ### no deposit field checked against disk            line 32
+    PASS  ### the direction was never exercised                line 39
+    PASS  ### the witness is not a fourth rank                 line 41
+    PASS  ### two GETs, both hashed                            line 49
+    PASS  ### five fields, five agreements                     line 57
+    PASS  ### the pointer has not drifted                      line 61
+    PASS  ### the eleven                                       line 64
+    PASS  ### the two silent claims                            line 85
+    PASS  ### the tense the registration said not to read      line 94
+    PASS  ### six asserted, six resolved                       line 99
+    PASS  ### the pin and the head are two objects             line 110
+    PASS  ### unresolved was available and not needed          line 116
+    PASS  ### what the archive does not carry                  line 131
+    PASS  ### the roster is not changed                        line 135
+    PASS  ### the mirror's limit                               line 145
+    PASS  ### the expectation, not met                         line 154
+    PASS  ### the faces run refused and why                    line 184
+    PASS  ### registry is read, not written                    line 203
+    PASS  ### the shadow                                       line 224
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the deposit is updated
+    PASS  the bank never says REGISTRY is repaired from the fetch
+    PASS  the bank never says a sentence is edited
+    PASS  the bank never says the mirror proves the ledgers true
+
+  OWNER NEEDLES (each at its emitting file, each in the extract):
+    ### the extract is RESOLVED BY ITS OWN CLOCK, not named : b359_extract_notes2.txt of ['b359_extract_notes.txt', 'b359_extract_notes2.txt']
+    reads 34 ; all located and in the extract : True ; cited lines : 34
+
+  G-ROW / G-ANCESTOR (row 208). ### **PRE-PUSH READING CARRIES.**
+    row present once : True ; true prefix of its blob : True ; PASS
+
+  G-KEY / G-NOTVERIFIED (the index):
+    ### the index run is RESOLVED BY ITS OWN CLOCK, not named : b359_index_run.txt of ['b359_index_run.txt']
+    one key and one row : True ; the four overreadings NO KEY after : True ; the key run passed : True ; PASS
+
+  G-APPENDONLY (banked_index.py, FACES_LEDGER.md). ### **READ BEFORE THE PUSH.**
+    tools/banked_index.py        every committed line still present, in order : True
+    FACES_LEDGER.md              every committed line still present, in order : True
+
+  G-NOEDIT (no owner instrument edited beyond the additive modes of R3).
+    ### the owner and TECHNE halves are SIDE-INVARIANT; ### **THE PAPERS HALF STRADDLES.**
+    owner instruments modified : none ; TECHNE dirty : none
+    ### the two ADDITIVE tools under R3 : none
+    ### **THE SIDE THIS READING IS ON : POST-PUSH (the HEAD commit)**
+    the ONLY papers files this act touches : ['FACES_LEDGER.md']  PASS
+
+  G-HOOK / G-MIRROR (the papers repo moves, so BOTH ARE OWED):
+    hook: 0 repos failing, all three byte-identical : True
+    mirror: clean on all three clauses : True
+
+  G-ORDER (the lock verifies; the ordering read from clocks):
+    the lock recomputes : True ; clock 2026-09-07T20:53:11Z
+    ### **LOCK 2026-09-07T20:53:11Z < fetch 2026-09-07T20:53:52Z < extract 2026-09-07T20:55:11Z < pass 2026-09-07T20:57:05Z** : True
+    JOINTLY SATISFIABLE : True  PASS
+
+  G-NUMBERS:
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    19328 bytes locked                                       PASS
+    47 clauses                                               PASS
+    row 208                                                  PASS
+    the four clocks                                          PASS
+    the reads and the differing anchors                      PASS
+    the claim counts                                         PASS
+    the pin counts                                           PASS
+    the deposit fields                                       PASS
+    both fetch hashes                                        PASS
+    the fetch byte counts                                    PASS
+    every asserted sha                                       PASS
+
+  G-ONCE (every relied-on run file resolved by its OWN CLOCK, never by name):
+    the extract resolved to the newest of 2 and carrying its JSON clock : True
+    the pass run resolved to the newest of 1 and carrying its JSON clock : True
+    the index run resolved to the newest of 1 : True
+    the faces run resolved to the newest of 2 : True (b359_faces_row_run2.txt)
+    the relied-on extract named in the bank and the refusal declared : True  PASS
+
+  G-STRUCK / G-STEM:
+    files scanned 27   struck-clause hits 0   stem hits 0  PASS
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED:
+    row 208                struck : 0   stem : 0   (5923 chars)
+    the index row          struck : 0   stem : 0   (4353 chars)
+    the faces block        struck : 0   stem : 0   (2995 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the pass, its statuses and its branch                tools/b359_pass.py                 exists=True tracked=True
+    the read-only fetch and its hashes                   tools/b359_fetch.py                exists=True tracked=True
+    the thirty-four reads                                tools/b359_extract.py              exists=True tracked=True
+    the anchors, built by reading                        tools/anchor_from_file.py          exists=True tracked=True
+    the needle puller                                    tools/needle_pull.py               exists=True tracked=True
+    the shared normaliser                                tools/quote_norm.py                exists=True tracked=True
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    the gate flattener                                   tools/gate_text.py                 exists=True tracked=True
+    row 208                                              tools/b359_correspondence.py       exists=True tracked=True
+    the key, read back                                   tools/b359_index_check.py          exists=True tracked=True
+    row U1's second update block                         tools/b359_faces_row.py            exists=True tracked=True
+    the faces ledger's writer, IMPORTED                  tools/b327_faces_row.py            exists=True tracked=True
+    the registration clauses                             tools/b359_regspec.py              exists=True tracked=True
+    19328 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    0/0 on the scans, and the DEPRECATED arm             tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                            tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                              tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                             tools/b303_pins.py                 exists=True tracked=True
+    the hooks                                            tools/b304_hooks.py                exists=True tracked=True
+    the roster the mirror reads                          tools/mirror_roster.json           exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT:
+    b359_the_currency_pass.txt                     sentences=392   graded-hedges=0   ungraded-shapes=85
+    b359_registration_2026-09-07.txt               sentences=374   graded-hedges=0   ungraded-shapes=85
+    b359_ferry_2026-09-07.txt                      sentences=44    graded-hedges=0   ungraded-shapes=14
+    b359_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=4
+    b359_census.txt                                sentences=30    graded-hedges=0   ungraded-shapes=6
+    b359_faces_census.txt                          sentences=17    graded-hedges=0   ungraded-shapes=2
+    b359_regspec_run.txt                           sentences=31    graded-hedges=0   ungraded-shapes=2
+    audit_b359_reg_satisfiable.txt                 sentences=144   graded-hedges=0   ungraded-shapes=17
+    b359_pins_stepzero.txt                         sentences=37    graded-hedges=0   ungraded-shapes=1
+    b359_hooks.txt                                 sentences=43    graded-hedges=0   ungraded-shapes=7
+    b359_reg_gate.txt                              sentences=7     graded-hedges=0   ungraded-shapes=2
+    b359_reg_termscan.txt                          sentences=26    graded-hedges=0   ungraded-shapes=2
+    b359_ferry_scan.txt                            sentences=26    graded-hedges=0   ungraded-shapes=2
+    b359_fetch.py                                  sentences=147   graded-hedges=0   ungraded-shapes=11
+    b359_extract.py                                sentences=176   graded-hedges=0   ungraded-shapes=22
+    b359_regspec.py                                sentences=114   graded-hedges=0   ungraded-shapes=16
+    b359_pass.py                                   sentences=477   graded-hedges=0   ungraded-shapes=42
+    b359_correspondence.py                         sentences=185   graded-hedges=0   ungraded-shapes=52
+    b359_index_check.py                            sentences=138   graded-hedges=0   ungraded-shapes=24
+    b359_faces_row.py                              sentences=158   graded-hedges=0   ungraded-shapes=23
+    row 208                                        sentences=29    graded-hedges=0   ungraded-shapes=22
+    the index row                                  sentences=57    graded-hedges=0   ungraded-shapes=18
+    the faces block                                sentences=21    graded-hedges=0   ungraded-shapes=10
+
+====================================================================================================
+  ### GATES FAILING : 0 
+====================================================================================================
