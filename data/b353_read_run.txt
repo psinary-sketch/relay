@@ -1,0 +1,207 @@
+### run at (UTC) : 2026-09-07T03:35:01Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b353 -- THE WIDTH COORDINATE'S MISSING STATEMENT. ### A READ UNDER THE IMPORT BAR, AND A PRICING.
+====================================================================================================
+  ### THE SEALED STATUSES, AND NO OTHERS : MET / MET TO A MEASURED TOLERANCE / REFUTABLE / UNDECIDABLE FROM THE RECORD
+  ### ### **THE HYPOTHESES ARE GRADED TWICE AND THE TWO GRADINGS ARE NEVER MERGED.**
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE STATEMENT, LOCATED IN A REAL SOURCE AND PINNED.
+----------------------------------------------------------------------------------------------------
+    source   : arXiv 2006.13771v1 -- Weil positivity and Trace formula, the archimedean place
+    authors  : Alain Connes and Caterina Consani ; submitted 24 June 2020
+    pinned   : sha256 b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0
+               1213504 bytes, from https://arxiv.org/pdf/2006.13771v1
+    read at  : https://ar5iv.labs.arxiv.org/html/2006.13771   ### the PDF carries no text layer the reader could use
+    grade    : ### **TRUSTED-AT-CITE** (import bar, b233)
+
+    ### ### **THIS IS THE CORPUS'S OWN ARC SOURCE, NOT A NEW ONE.** ### The record already carries
+    ### it as the paper whose Definition 3.1 and Theorem 1 the corpus tests against at every cell.
+
+    ### ### **THE STATEMENT OF THE SHAPE THE ORDER NAMES -- `PROPOSITION 2`, BOAS-KAC:**
+      | Let f in Cc^infty(R) have support in the interval [-A, A] (A > 0). The following conditions 
+      | are equivalent: 1. The Fourier transform f^ is pointwise positive. 2. There exists g in Cc^i
+      | nfty(R) with support in [-A/2, A/2] such that f = g * g^*.
+    ### ### **IT IS AN EQUIVALENCE, AND THAT IS STRONGER THAN A DENSITY STATEMENT.** ### It does not
+    ### approximate the class by a subfamily; ### **IT EXHAUSTS IT.** ### Every positive-definite
+    ### `f` supported in `[-A, A]` IS `g * g^*` for some `g` supported in `[-A/2, A/2]`.
+    ### ### **SO POSITIVITY OF THE WEIL FUNCTIONAL ON THE SEED FAMILY AT HALF-WIDTH CARRIES TO THE
+    ### ### WHOLE ADMISSIBLE CLASS AT FULL WIDTH, WITH NO LIMIT ARGUMENT AND NO TOPOLOGY.**
+    ### ### **AND THE ORDER ASKED FOR A DENSITY OR APPROXIMATION STATEMENT; WHAT THE SOURCE CARRIES
+    ### ### IS BETTER IN KIND AND WEAKER IN REACH, AND THE DIFFERENCE IS THIS ACT'S WHOLE CONTENT.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE HYPOTHESES, UNFOLDED AND GRADED TWICE.
+----------------------------------------------------------------------------------------------------
+
+    ### **(H1) `f in Cc^infty(R)` -- SMOOTH, COMPACTLY SUPPORTED.**
+      ### GRADING (i), AGAINST THE SOURCE'S CLASS : ### **MET.**
+        The source's own class in Theorem 1 is `g in Cc^infty(R+*)`, and the class in its RH
+        criterion is `Cc^infty(R+*)`. ### The hypothesis IS the class.
+      ### GRADING (ii), AGAINST THE CORPUS'S CONSTRUCTED OBJECTS : ### **REFUTABLE**, and the record says
+      ### it in its own words:
+        tools/b326_closure.py:285
+          | ### `f = autocorrelation(seed)` is piecewise linear on b318's uniform grid, and its transform has
+        tools/b317_smear.py:169
+          | ### ### **THE UNION GRID IS NOT A CONVENIENCE EITHER.** ### Each bump is piecewise linear on its
+        ### ### **A PIECEWISE-LINEAR FUNCTION IS NOT `C^infty`. ### IT IS NOT EVEN `C^1`.**
+        ### **AND WHAT THAT DOES AND DOES NOT MEAN, SAID CAREFULLY:** the corpus's arrays are a
+        ### NUMERICAL REPRESENTATION, and whether the record intends them as discretisations of
+        ### smooth functions or as the objects themselves is ### **A QUESTION THE RECORD DOES NOT
+        ### SETTLE.** ### What is refutable is the hypothesis about the objects AS CONSTRUCTED.
+
+    ### **(H2) `supp f subset [-A, A]` -- COMPACT SUPPORT AT A NAMED WIDTH.**
+      ### GRADING (i) : ### **MET.** ### It is the source's own restriction.
+      ### GRADING (ii) : ### **MET**, by construction -- every seed is built on a finite grid.
+      ### ### **AND THIS IS THE COORDINATE AT ISSUE.** ### The source states its own instance at
+      ### `supp` in `(1/2, 2)`:
+        | In this paper we consider the simplest instance of this strategy, namely when the support of
+        |  the test function is contained in the interval (1/2, 2) subset R+*.
+        tools/b334_aimmap.py:53
+          | REACHING = (40.0, 81.0)
+          ### and the reaching legs sit at a = 40 and 81, FAR outside the source's own interval
+
+    ### **(H3) `f^ >= 0` POINTWISE -- THE SOURCE'S DEFINITION 3.1.**
+      ### GRADING (i) : ### **MET.** ### It is one side of the equivalence and is stated exactly.
+      ### GRADING (ii) : ### **UNDECIDABLE FROM THE RECORD**, and the corpus's own tool says why:
+        tools/b318_square.py:103
+          | ### show a function is NOT positive definite by exhibiting a negative value, and it cannot prove
+        ### ### **THE TEST IS A SCAN OVER A FINITE INTERVAL IN `t`, AND `POINTWISE` MEANS ALL `t`.**
+        ### The record reports `13 of 13` passing with minima four to eight orders inside its floor,
+        ### ### **AND THAT IS A RANGE RESULT WHERE THE HYPOTHESIS IS A GLOBAL ONE.**
+        ### **NOT REFUTABLE:** nothing in the record exhibits a negative value. ### **NOT MET:** a
+        ### scan does not establish a pointwise claim, and the instrument says so itself.
+
+    ### **(H4) THE SOURCE'S TWO VANISHING CONDITIONS** -- Theorem 1 also asks the transform to
+    ### vanish at `i/2` and at `0`; the corpus tests them as part of Theorem 1's three conditions.
+      ### GRADING (i) : ### **MET.** ### They are exact conditions defining an ideal:
+        | The vanishing conditions int f(rho) rho^(+-1/2) d*rho = 0 define an ideal J in the convoluti
+        | on algebra Cc^infty(R+*).
+      ### GRADING (ii) : ### **MET TO A MEASURED TOLERANCE.**
+        data/b320_the_lawful_function.txt:160
+          | ### ### **(1c) THEOREM 1's THREE CONDITIONS, PER CELL.**
+          ### the measured values run at 1e-16 and 1e-17, which is a number against a bar and not a vanishing
+        ### ### **THE CONDITIONS AS STATED ARE EXACT AND THE RECORD MEETS THEM AS NUMBERS.** ###
+        ### That is the sealed status `MET TO A MEASURED TOLERANCE`, and it is NOT `MET`.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE VERDICT, BY THE SEALED BRANCH RULE OF SECTION (D).
+----------------------------------------------------------------------------------------------------
+         hypothesis                                 grading (i) SOURCE     grading (ii) CORPUS
+    H1   f in Cc^infty(R), compactly supported      MET                    REFUTABLE
+    H2   supp f subset [-A, A]                      MET                    MET
+    H3   f^ >= 0 pointwise (Definition 3.1)         MET                    UNDECIDABLE FROM THE RECORD
+    H4   transform vanishes at i/2 and 0            MET                    MET TO A MEASURED TOLERANCE
+
+    ### **(EXISTS BUT DOES NOT APPLY) -- UNREACHABLE, AND SHOWN SO.** ### It is taken when a
+      hypothesis FAILS FOR THE SOURCE'S OWN CLASS. ### Failing hypotheses in grading (i) : NONE
+    ### **(NO SUCH STATEMENT LOCATED) -- UNREACHABLE, AND SHOWN SO.** ### A statement of the named
+      shape IS located, in the corpus's own source, quoted above and pinned by hash.
+    ### ### ### **THEREFORE: A STATEMENT EXISTS.**
+
+    ### ### **AND GRADING (ii) IS REPORTED HERE AT FULL PROMINENCE, WHERE SECTION (D) PUT IT,
+    ### ### RATHER THAN BEING ALLOWED TO PICK THE BRANCH:**
+    ### ### **AGAINST THE CORPUS'S CONSTRUCTED OBJECTS, ONE HYPOTHESIS IS REFUTABLE, ONE IS
+    ### ### UNDECIDABLE FROM THE RECORD, ONE IS MET ONLY TO A MEASURED TOLERANCE, AND ONE IS MET.**
+    ### **A DEFECT IN THE CORPUS'S NUMERICS IS A FACT ABOUT THE CORPUS AND NOT ABOUT WHETHER THE
+    ### LITERATURE CARRIES THE STATEMENT** -- and both facts are in this act, labelled.
+
+----------------------------------------------------------------------------------------------------
+  ### (4) AND IT DOES NOT CLOSE THE WIDTH COORDINATE. ### **THE ACT'S CENTRAL FINDING.**
+----------------------------------------------------------------------------------------------------
+    ### ### **THE LOCATED STATEMENT IS INDEXED BY `A`, AND EVERY CONCLUSION IT GIVES IS AT THAT
+    ### ### SAME `A`.** ### It carries the seed family at `A/2` onto the admissible class at `A`.
+    ### ### **IT SAYS NOTHING WHATEVER ABOUT PASSING FROM ONE `A` TO A LARGER ONE.**
+    ### And the criterion it serves quantifies over the union of ALL supports:
+      | RH <=> sum_v W_v(g * gbar^#) <= 0, for all g in Cc^infty(R+*) with g~(z) = 0 for all z in F.
+    ### ### **SO THE CLASS THE ORDER CALLS "the whole admissible class" IS A UNION OVER THE WIDTH
+    ### ### COORDINATE, AND THE LOCATED STATEMENT IS A FAMILY OF STATEMENTS INDEXED BY IT.**
+    ### ### **AN EXHAUSTION AT EVERY WIDTH IS NOT AN EXHAUSTION ACROSS WIDTHS.**
+
+    ### **AND THE SEARCH FOR THE CROSSING STATEMENT, RECORDED, INCLUDING WHAT IT DID NOT FIND:**
+      - the words "dense", "density", "approximation", "exhaust", "uniform in", applied to the test-function class, anywhere in the pinned source
+        -> NOT FOUND in the rendered text of 2006.13771v1
+      - a statement carrying positivity from one support to a larger one, or to the union over all supports
+        -> NOT LOCATED in the pinned source
+      - a statement bounding the Weil functional uniformly in the support parameter
+        -> NOT LOCATED in the pinned source
+    ### ### **THAT IS AN ABSENCE OF READING AND NOT AN ABSENCE OF LITERATURE.** ### One source was
+    ### ### read at content; two web searches were run; one publisher copy refused the fetch. ###
+    ### ### **NOTHING HERE SAYS THE LITERATURE CARRIES NO SUCH STATEMENT.**
+
+----------------------------------------------------------------------------------------------------
+  ### (5) WHAT CLOSING THE WIDTH COORDINATE WOULD REQUIRE, PRICED AND NOT ATTEMPTED.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE MISSING STATEMENT, TYPED AS A SENTENCE THAT WOULD HAVE TO BE TRUE:**
+      "there is a bound on the Weil functional over the admissible class at support A that is UNIFORM IN A -- or an argument that non-negativity at every finite A implies it on the union over all A."
+    ### ### **AND WHY THE SECOND HALF IS NOT AUTOMATIC**, said plainly because it looks as if it
+    ### ### should be: the union is an increasing union, and non-negativity of a functional on each
+    ### ### member of an increasing family DOES give it on the union ### **IF THE FUNCTIONAL IS THE
+    ### ### SAME FUNCTIONAL ON EACH.** ### The record does not establish that the object it
+    ### ### evaluates at `a = 40` is the same functional it evaluates at `a = 1.41`; b334 measured
+    ### ### that the square and the remainder are ### **NOT REACHED** ### at the reaching widths.
+    ### ### **SO THE MISSING STATEMENT IS NOT A LIMIT ARGUMENT ANYONE HAS DECLINED TO WRITE. ### IT
+    ### ### IS A STATEMENT ABOUT AN INSTRUMENT THAT DOES NOT REACH.**
+
+    ### ### **THE PRICE, IN THE ONLY UNIT THIS ACT CAN HONESTLY OFFER:**
+      ### **THE LOCATED HALF COSTS NOTHING FURTHER.** ### Boas-Kac is banked in the corpus's own
+      ### source; the corpus already builds its `f` as `g * g^#`, so it is already inside the
+      ### family the equivalence names, at every covered cell.
+      ### **THE CROSSING HALF IS UNPRICEABLE FROM BANKED FIGURES.** ### There is no rung, box,
+      ### cell, frame or aim in the record whose count would scale to it, because ### **THE WORK IT
+      ### NAMES IS A PROOF AND NOT A RUN.** ### An act that priced it in seconds would be pricing
+      ### a computation nobody has proposed.
+      ### **AND PRICING THE PRICING IS UNPRICEABLE TOO**, for the same reason, and the act says so
+      ### rather than manufacture a number. ### b350 priced a pricing where the record printed a
+      ### ladder; here the record prints nothing of the kind.
+    ### ### **IT IS NOT ATTEMPTED. ### THE CEILING FORBIDS IT AND THE ACT DOES NOT WANT TO.**
+
+----------------------------------------------------------------------------------------------------
+  ### (6) THE COVERAGE CLASS, FILED BESIDE THE VERDICT AND NOT INSIDE IT.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE PHASE COORDINATE'S VANISHING-TRANSFORM CLASS IS A COVERAGE CLASS, NOT A FAILURE
+    ### ### CLASS.** ### A failure class is a way the margin could fail; a coverage class is a
+    ### region the instrument does not report on. ### When the seed's transform vanishes the
+    ### quadruple's term is zero whatever the angle is and the angle is undefined, so the sign
+    ### condition ### **DOES NOT REPORT ON IT AT ALL** -- which is silence, not a negative reading.
+    ### **b349's OWN WORDS ON EXACTLY THIS CLASS, FROM THE ACT THAT LOOKED FOR IT:**
+        data/b349_the_room_relative.txt:168
+          | ### ### NEVER DEGENERATES -- IT MEANS THESE THREE DID NOT.** ### `M-2` IS OWED UNDER b310's CAP. ### THE
+        data/b349_the_room_relative.txt:98
+          | ### ### DEGENERATE.** ### The window is b328's refinement as b334 carries it -- `45 < |phase| < 135`
+    ### ### **FILING IT AS A FAILURE CLASS WOULD BE A CLAIM THE RECORD DOES NOT HOLD.** ### Filing
+    ### ### it as nothing would lose the one class the phase coordinate's algebra cannot see.
+
+----------------------------------------------------------------------------------------------------
+  ### (7) THE IMPORT BAR, DISCHARGED.
+----------------------------------------------------------------------------------------------------
+    ### the located statement (Boas-Kac, as Proposition 2 of the pinned source) : ### **TRUSTED-AT-CITE**
+    ### is an internal verification TOOL-REACHABLE? ### **NO, AND THE REASON IS NOT SHYNESS:**
+    ### verifying it internally means proving a factorisation theorem, and ### **THIS ACT MAY
+    ### CONSTRUCT NO ARGUMENT.** ### No work-order is opened, and the bar asks for one only where
+    ### an internal verification is tool-reachable.
+    ### ### **WHAT WOULD BE TOOL-REACHABLE AND IS NOT A VERIFICATION:** ### checking that a corpus
+    ### ### `f` passing Definition 3.1 factors as `g * g^#` with a `g` of half the support. ###
+    ### ### **THAT WOULD BE CIRCULAR HERE**, because the corpus BUILDS its `f` as `g * g^#` by
+    ### ### construction; the check would confirm the construction and say nothing about Boas-Kac.
+    ### ### **SO IT IS NOT OFFERED AS A BENCH VERIFICATION**, and naming why is the point.
+
+----------------------------------------------------------------------------------------------------
+  ### (8) BOTH SEATS' EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+    ### **THE NAVIGATOR'S (L2)** -- a statement exists in the literature and at least one hypothesis
+    ### is undecidable from the record : ### **MET, BOTH HALVES.** ### The statement exists and is
+    ### the corpus's own source's Proposition 2; and H3 is `UNDECIDABLE FROM THE RECORD`, because the corpus's
+    ### positive-definiteness test is a scan over a finite interval where the hypothesis is
+    ### pointwise. ### **AND MORE THAN THE EXPECTATION ASKED:** one hypothesis is also `REFUTABLE`
+    ### against the objects as constructed, and one is met only to a measured tolerance.
+    ### **THIS SEAT'S** -- whatever is located will be indexed by the support and will give an
+    ### exhaustion AT a width rather than a passage BETWEEN widths : ### **MET.** ### `Proposition
+    ### 2` is indexed by `A` and concludes at `A`; the width coordinate survives it intact.
+
+====================================================================================================
+  VERDICT : ### **A STATEMENT EXISTS**
+  ### ### **AND WHAT IT IS NOT: ### THE WIDTH COORDINATE IS NOT CLOSED BY THIS ACT. ### NO CLASS IS
+  ### ### PROVED OR SPANNED. ### THE PARTITION b351 LEFT `UNDECIDED` STAYS `UNDECIDED`. ### THE
+  ### ### CLAUSE HAS NOT MOVED.**
+====================================================================================================

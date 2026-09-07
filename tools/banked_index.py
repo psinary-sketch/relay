@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'width-missing-statement': ['the width coordinate', 'the missing statement', 'Boas-Kac',
+                               'the admissible class', 'the test function class', 'a density statement',
+                               'the spanning subfamily', 'exhaustion across widths'],
     'floor-fourth-candidate': ['the floor as a fit', 'the fourth candidate', 'the three models',
                               'the model selection', 'a floor or a power law', 'the frame price',
                               'the straddling gate', 'the spectral void'],
@@ -561,6 +564,27 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE WIDTH COORDINATE'S MISSING STATEMENT (b353).
+    ("width-missing-statement", "b353 (a read under the import bar and a pricing; it computes nothing)",
+     "A STATEMENT EXISTS, AND IT DOES NOT CLOSE THE WIDTH COORDINATE. It is in the corpus\'s OWN source -- arXiv 2006.13771v1, Connes-Consani, Weil"
+     " positivity and Trace formula the archimedean place, pinned at sha256 b8e0b54ade8535cf3ca633d1ef325bfc..., 1213504 bytes, graded"
+     " TRUSTED-AT-CITE. ITS PROPOSITION 2, BOAS-KAC: for f in Cc^infty(R) supported in [-A, A], pointwise positivity of the Fourier transform is"
+     " EQUIVALENT to f = g conv g-star for some g supported in [-A/2, A/2]. THAT IS STRONGER THAN THE DENSITY STATEMENT THE ORDER ASKED FOR -- it"
+     " EXHAUSTS the admissible class rather than approximating it -- AND EVERY CONCLUSION IT GIVES IS AT THE SAME A IT WAS GIVEN, while the criterion"
+     " it serves quantifies over the union of ALL supports. SO AN EXHAUSTION AT EVERY WIDTH IS NOT AN EXHAUSTION ACROSS WIDTHS. The hypotheses"
+     " graded TWICE and never merged: against the source\'s class all four are MET; against the corpus\'s constructed objects H1 (smoothness) is"
+     " REFUTABLE -- the record\'s own word for its test functions is PIECEWISE LINEAR -- H3 (pointwise positivity) is UNDECIDABLE FROM THE RECORD"
+     " because the corpus\'s test is a scan and says so itself, and H4 (the vanishing conditions) is MET ONLY TO A MEASURED TOLERANCE. The missing"
+     " statement is typed and is UNPRICEABLE from banked figures, because the work it names is a proof and not a run.",
+     "### A LOCATED STATEMENT IS NOT A PROVED ONE, AND A CHECKED HYPOTHESIS IS NOT A DISCHARGED OBLIGATION. ### THE WIDTH COORDINATE IS NOT CLOSED BY"
+     " THIS ACT, no class is proved or spanned, and the partition b351 left UNDECIDED STAYS UNDECIDED. ### H1 BEING REFUTABLE AGAINST THE ARRAYS IS"
+     " NOT A FINDING THAT THE CORPUS\'S RESULTS ARE WRONG: it is a finding that the record does not say what its arrays are meant to be, and that"
+     " question is routed and not answered. ### THE SEARCH IS NOT A SURVEY -- one source was read at content, and the absence of a crossing statement"
+     " is AN ABSENCE OF READING AND NOT AN ABSENCE OF LITERATURE. ### NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ###"
+     " NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b353_the_missing_statement.txt; data/b353_read_run.txt; data/b353_extract_notes.txt;"
+     " data/b353_source.json (the pin and the search); data/b353_registration_2026-09-07.txt"
+     " (sealed before one hypothesis was graded); CORRESPONDENCE.md row 201"),
     # ### THE FLOOR'S FOURTH CANDIDATE (b352).
     ("floor-fourth-candidate", "b352 (a refit of banked figures; nothing recomputed)",
      "THE IDENTITY RESIDUAL REFITTED UNDER THREE MODELS SEALED BEFORE ANY FIT -- M1 = A X^-p (k=2), M2 = A X^-p + c (k=3), M3 = A X^-p + B X^-(p+1) (k=3) --"

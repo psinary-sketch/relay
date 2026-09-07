@@ -1,0 +1,31 @@
+====================================================================================================
+b303_pins.py -- PINS. ### BY `ls-remote`, ALL THREE REPOS.
+====================================================================================================
+  parser fixture                                 got/expected           agree
+  a real pair, tab-separated                     (0, 1)/(0, 1)          YES
+  a real pair, space-separated                   (2, 3)/(2, 3)          YES
+  both zero -- the synchronised state            (0, 0)/(0, 0)          YES
+  ### an error message, NOT a pair               None/None              YES
+  ### empty output -- the silent-zero trap       None/None              YES
+  ### one number only                            None/None              YES
+  ### three numbers                              None/None              YES
+  ### a non-integer                              None/None              YES
+  parser self-test : PASS
+
+--- relay   (D:\relay)
+    local HEAD   : 4f95be96275d0c5aacb5a9f38caad66f82f5f5a2
+    ls-remote    : ### UNRESOLVED
+    ### HARD FAILURE -- A REPO THAT DOES NOT RESOLVE IS NOT 0/0.
+--- SIDE-global-section   (D:\SIDE-global-section)
+    local HEAD   : 9c8c4cc33e5354ad389f963162e9f5bc2455e621
+    ls-remote    : ### UNRESOLVED
+    ### HARD FAILURE -- A REPO THAT DOES NOT RESOLVE IS NOT 0/0.
+--- PLACE-papers   (D:\MY-DOwnloads\PLACE-papers)
+    local HEAD   : 4b3fb41e8d8c3fc1bffaf791bfb2f59e1e311b14
+    ls-remote    : ### UNRESOLVED
+    ### HARD FAILURE -- A REPO THAT DOES NOT RESOLVE IS NOT 0/0.
+
+  ### REPOS HARD-FAILING : 3
+  ### **A PIN IS A SHA READ BACK FROM THE REMOTE. ### IT SAYS WHAT IS THERE,
+  ### NOT THAT WHAT IS THERE IS RIGHT.**
+====================================================================================================

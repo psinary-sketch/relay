@@ -1,0 +1,246 @@
+====================================================================================================
+b353 -- THE WIDTH COORDINATE'S MISSING STATEMENT. ### LEG 2 OF THE SORTIE b352-b353. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation CURRENT.
+### Registration `data/b353_registration_2026-09-07.txt`, sealed
+### `dbc62f54e2453ed65dcd63a18b2a6a7d34887d95ca8700d1640d306db38ac065`, 15817 bytes, 35 clauses JOINTLY
+### SATISFIABLE, its seal block carrying its own clock; the clocks are printed in section (10).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **A STATEMENT EXISTS -- AND IT DOES NOT CLOSE THE WIDTH COORDINATE, AND CANNOT.**
+### ### **THE STATEMENT IS IN THE CORPUS'S OWN SOURCE, NOT A NEW ONE.** ### `arXiv 2006.13771v1`,
+### Connes-Consani, *Weil positivity and Trace formula, the archimedean place*, pinned at
+### `sha256 b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0`, `1213504` bytes. ### Its
+### ### **`PROPOSITION 2`, BOAS-KAC**, quoted:
+###   ### *"Let f in Cc^infty(R) have support in the interval [-A, A] (A > 0). The following conditions are
+###   ### equivalent: 1. The Fourier transform f^ is pointwise positive. 2. There exists g in Cc^infty(R)
+###   ### with support in [-A/2, A/2] such that f = g * g^*."*
+### ### ### **IT IS AN EQUIVALENCE, WHICH IS STRONGER THAN THE DENSITY STATEMENT THE ORDER ASKED FOR.** ###
+### It does not approximate the admissible class by a subfamily; ### **IT EXHAUSTS IT.** ### Every
+### positive-definite `f` supported in `[-A, A]` ### IS ### `g * g^*` for a `g` supported in `[-A/2, A/2]`.
+### So positivity of the Weil functional on the seed family at half-width carries to the whole admissible
+### class at full width, ### **WITH NO LIMIT ARGUMENT AND NO TOPOLOGY.**
+### ### ### **AND EVERY CONCLUSION IT GIVES IS AT THE SAME `A` IT WAS GIVEN.** ### It carries the seeds at
+### `A/2` onto the class at `A`. ### **IT SAYS NOTHING WHATEVER ABOUT PASSING FROM ONE `A` TO A LARGER
+### ### ONE.** ### And the criterion it serves quantifies over the union of all supports -- the source's own
+### line: ### *"RH <=> sum_v W_v(g * gbar^#) <= 0, for all g in Cc^infty(R+*) with g~(z) = 0 for all z in
+### F."*
+### ### ### **SO: AN EXHAUSTION AT EVERY WIDTH IS NOT AN EXHAUSTION ACROSS WIDTHS.** ### That sentence is
+### the whole content of this act, and the width coordinate `b351` found unbounded survives the located
+### statement intact.
+### ### **NO COORDINATE IS CLOSED. ### THE PARTITION STAYS `UNDECIDED`. ### THE CLAUSE HAS NOT MOVED.**
+
+----------------------------------------------------------------------------------------------------
+### (2) THE HYPOTHESES, GRADED TWICE, AND THE TWO GRADINGS NEVER MERGED.
+----------------------------------------------------------------------------------------------------
+### The registration fixed, before one hypothesis had a status, that they be graded against ### **(i) the
+### source's class as the source defines it** ### and ### **(ii) the corpus's constructed objects** -- two
+### different questions that can have different answers -- and that ### **THE BRANCH BE PICKED BY (i)
+### ALONE.**
+
+###     hypothesis                                   grading (i) SOURCE   grading (ii) CORPUS
+###     H1  f in Cc^infty(R), compactly supported     MET                  ### **REFUTABLE**
+###     H2  supp f subset [-A, A]                     MET                  MET
+###     H3  f^ >= 0 pointwise (Definition 3.1)        MET                  ### **UNDECIDABLE FROM THE RECORD**
+###     H4  transform vanishes at i/2 and 0           MET                  ### **MET TO A MEASURED TOLERANCE**
+
+### ### **(H1) SMOOTHNESS. ### REFUTABLE AGAINST THE OBJECTS AS CONSTRUCTED, IN THE RECORD'S OWN WORDS.**
+### `b326_closure.py`: *"`f = autocorrelation(seed)` is piecewise linear on b318's uniform grid"*.
+### `b317_smear.py`: *"Each bump is piecewise linear on its own nodes"*. ### **A PIECEWISE-LINEAR FUNCTION
+### ### IS NOT `C^infty`. ### IT IS NOT EVEN `C^1`.** ### And what that does and does not mean, said
+### carefully: the corpus's arrays are a NUMERICAL REPRESENTATION, and ### **WHETHER THE RECORD INTENDS
+### ### THEM AS DISCRETISATIONS OF SMOOTH FUNCTIONS OR AS THE OBJECTS THEMSELVES IS A QUESTION THE RECORD
+### ### DOES NOT SETTLE.** ### What is refutable is the hypothesis about the objects as constructed.
+### ### **(H3) POINTWISE POSITIVITY. ### UNDECIDABLE FROM THE RECORD, AND THE CORPUS'S OWN TOOL SAYS WHY.**
+### `b318_square.py`: *"it can show a function is NOT positive definite by exhibiting a negative value, and
+### it cannot prove one IS beyond the interval scanned"*. ### The test is a scan over a finite interval in
+### `t`; the hypothesis is about all `t`. ### The record reports `13 of 13` passing with minima four to
+### eight orders inside its floor, and ### **THAT IS A RANGE RESULT WHERE THE HYPOTHESIS IS A GLOBAL ONE.**
+### ### **NOT REFUTABLE** -- nothing in the record exhibits a negative value. ### **NOT MET** -- a scan does
+### not establish a pointwise claim, and the instrument says so itself.
+### ### **(H4) THE VANISHING CONDITIONS. ### MET TO A MEASURED TOLERANCE, WHICH IS NOT `MET`.** ### The
+### source's conditions are exact and define an ideal; b320's Theorem 1 table meets them as numbers at
+### `1e-16` and `1e-17`. ### The registration fixed this status in advance precisely so that a number
+### against a bar could not be written down as an exact vanishing.
+### ### **(H2) COMPACT SUPPORT. ### MET ON BOTH GRADINGS -- AND IT IS THE COORDINATE AT ISSUE.** ### The
+### source states its own instance: *"In this paper we consider the simplest instance of this strategy,
+### namely when the support of the test function is contained in the interval (1/2, 2) subset R+*."* ###
+### The corpus's covered cells `1.3, 1.35, 1.41` sit inside it; ### **THE REACHING LEGS AT `a = 40` AND
+### ### `a = 81` SIT FAR OUTSIDE IT**, which is where the width question lives.
+
+----------------------------------------------------------------------------------------------------
+### (3) THE VERDICT, WITH BOTH OTHER BRANCHES SHOWN UNREACHABLE.
+----------------------------------------------------------------------------------------------------
+### ### **(EXISTS BUT DOES NOT APPLY) -- UNREACHABLE.** ### The registration fixed that this branch is
+### taken when a hypothesis FAILS FOR THE SOURCE'S OWN CLASS. ### **FAILING HYPOTHESES IN GRADING (i):
+### ### NONE.** ### All four are `MET` there, because the hypotheses ARE the source's class.
+### ### **(NO SUCH STATEMENT LOCATED) -- UNREACHABLE.** ### A statement of the named shape IS located,
+### quoted and pinned.
+### ### ### **THEREFORE: A STATEMENT EXISTS.**
+### ### **AND GRADING (ii) IS REPORTED AT FULL PROMINENCE INSIDE THIS BRANCH, WHERE THE REGISTRATION PUT
+### ### IT, RATHER THAN BEING ALLOWED TO PICK THE BRANCH.** ### Against the corpus's constructed objects
+### one hypothesis is REFUTABLE, one is UNDECIDABLE FROM THE RECORD, one is MET ONLY TO A MEASURED
+### TOLERANCE, and one is MET. ### **A DEFECT IN THE CORPUS'S NUMERICS IS A FACT ABOUT THE CORPUS AND NOT
+### ### ABOUT WHETHER THE LITERATURE CARRIES THE STATEMENT**, and both facts are here, labelled.
+
+----------------------------------------------------------------------------------------------------
+### (4) THE SEARCH, RECORDED -- INCLUDING WHAT IT DID NOT FIND.
+----------------------------------------------------------------------------------------------------
+### Two web searches; four fetches, one of which -- the publisher's own copy at `alainconnes.org` --
+### **REFUSED WITH HTTP 403**; the arXiv PDF downloaded and hashed but carrying no text layer the reader
+### could use, so the reading was done on a rendered HTML version; five index queries returning `NO KEY`
+### and three returning hits.
+### ### **WHAT WAS LOOKED FOR AND NOT FOUND:**
+###   ### the words *dense*, *density*, *approximation*, *exhaust*, *uniform in*, applied to the
+###     test-function class, anywhere in the pinned source -- ### **NOT FOUND** in its rendered text;
+###   ### a statement carrying positivity from one support to a larger one, or to the union over all
+###     supports -- ### **NOT LOCATED** in the pinned source;
+###   ### a statement bounding the Weil functional uniformly in the support parameter -- ### **NOT
+###     LOCATED** in the pinned source.
+### ### ### **THAT IS AN ABSENCE OF READING AND NOT AN ABSENCE OF LITERATURE.** ### One source was read at
+### content. ### **NOTHING HERE SAYS THE LITERATURE CARRIES NO SUCH STATEMENT**, and the record has four
+### incidents of its own to explain why that distinction is not a formality.
+
+----------------------------------------------------------------------------------------------------
+### (5) WHAT CLOSING THE WIDTH COORDINATE WOULD REQUIRE, PRICED AND NOT ATTEMPTED.
+----------------------------------------------------------------------------------------------------
+### ### **THE MISSING STATEMENT, TYPED:** ### *"there is a bound on the Weil functional over the admissible
+### class at support `A` that is UNIFORM IN `A` -- or an argument that non-negativity at every finite `A`
+### implies it on the union over all `A`."*
+### ### ### **AND WHY THE SECOND HALF IS NOT AUTOMATIC, SAID PLAINLY BECAUSE IT LOOKS AS IF IT SHOULD
+### ### BE.** ### The union is an increasing union, and non-negativity on each member of an increasing
+### family does give it on the union ### **IF THE FUNCTIONAL IS THE SAME FUNCTIONAL ON EACH.** ### The
+### record does not establish that the object it evaluates at `a = 40` is the same functional it evaluates
+### at `a = 1.41`: b334 measured that the square and the remainder are ### **NOT REACHED** ### at the
+### reaching widths, the evaluator changing sign and growing past `rho = 100`. ### **SO THE MISSING
+### ### STATEMENT IS NOT A LIMIT ARGUMENT ANYONE HAS DECLINED TO WRITE. ### IT IS A STATEMENT ABOUT AN
+### ### INSTRUMENT THAT DOES NOT REACH.**
+### ### **THE PRICE:**
+###   ### **THE LOCATED HALF COSTS NOTHING FURTHER.** ### Boas-Kac is banked in the corpus's own source,
+###     and the corpus already builds its `f` as `g * g^#`, so it is already inside the family the
+###     equivalence names, at every covered cell.
+###   ### **THE CROSSING HALF IS UNPRICEABLE FROM BANKED FIGURES.** ### There is no rung, box, cell, frame
+###     or aim in the record whose count would scale to it, because ### **THE WORK IT NAMES IS A PROOF AND
+###     ### NOT A RUN.** ### An act that priced it in seconds would be pricing a computation nobody has
+###     proposed.
+###   ### **AND PRICING THE PRICING IS UNPRICEABLE TOO**, for the same reason. ### b350 priced a pricing
+###     where the record printed a ladder; here the record prints nothing of the kind, and the act says so
+###     rather than manufacture a number.
+### ### **IT IS NOT ATTEMPTED.**
+
+----------------------------------------------------------------------------------------------------
+### (6) THE COVERAGE CLASS, FILED BESIDE THE VERDICT AND NOT INSIDE IT.
+----------------------------------------------------------------------------------------------------
+### ### **THE PHASE COORDINATE'S VANISHING-TRANSFORM CLASS IS A COVERAGE CLASS, NOT A FAILURE CLASS.**
+### A failure class is a way the margin could fail. ### **A COVERAGE CLASS IS A REGION THE INSTRUMENT DOES
+### NOT REPORT ON.** ### When the seed's transform vanishes, the quadruple's term is zero whatever the
+### angle is and the angle is undefined, so the sign condition ### **DOES NOT REPORT ON IT AT ALL** --
+### which is silence, not a negative reading.
+### ### **b349's OWN WORDS, FROM THE ACT THAT LOOKED FOR IT:** ### *"NOT THAT THREE LAWFUL SEEDS AT LOW
+### HEIGHTS MEAN THE CONSTRUCTION NEVER DEGENERATES -- IT MEANS THESE THREE DID NOT."* ### And the reading
+### that produced it: *"ALL THREE LAWFUL, ALL THREE IN THE WINDOW, AND NONE DEGENERATE."*
+### ### **FILING IT AS A FAILURE CLASS WOULD BE A CLAIM THE RECORD DOES NOT HOLD.** ### Filing it as
+### nothing would lose the one class the phase coordinate's algebra cannot see.
+
+----------------------------------------------------------------------------------------------------
+### (7) THE IMPORT BAR, DISCHARGED.
+----------------------------------------------------------------------------------------------------
+### The located statement is graded ### **`TRUSTED-AT-CITE`**, under the author's b233 ruling, because the
+### ceiling forbids this act to construct an argument and it therefore cannot verify a proof.
+### ### **IS AN INTERNAL VERIFICATION TOOL-REACHABLE? ### NO, AND THE REASON IS NOT SHYNESS:** ### verifying
+### Boas-Kac internally means proving a factorisation theorem. ### **NO WORK-ORDER IS OPENED**, and the bar
+### asks for one only where an internal verification is tool-reachable.
+### ### **AND WHAT WOULD BE TOOL-REACHABLE AND IS NOT A VERIFICATION, NAMED SO THAT NOBODY LATER MISTAKES
+### ### IT FOR ONE:** ### checking that a corpus `f` passing Definition 3.1 factors as `g * g^#` with a `g`
+### of half the support. ### **THAT WOULD BE CIRCULAR HERE**, because the corpus BUILDS its `f` as
+### `g * g^#` by construction; the check would confirm the construction and say nothing about Boas-Kac.
+### ### **SO IT IS NOT OFFERED AS A BENCH VERIFICATION**, and naming why is the point.
+
+----------------------------------------------------------------------------------------------------
+### (8) BOTH SEATS' EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S (L2)** -- *a statement exists in the literature and at least one hypothesis is
+### undecidable from the record* : ### **MET, BOTH HALVES.** ### The statement exists and is the corpus's
+### own source's `Proposition 2`; and `H3` is `UNDECIDABLE FROM THE RECORD`, because the corpus's
+### positive-definiteness test is a scan over a finite interval where the hypothesis is pointwise. ### **AND
+### ### MORE THAN THE EXPECTATION ASKED:** ### one hypothesis is also `REFUTABLE` against the objects as
+### constructed, and one is met only to a measured tolerance.
+### ### **THIS SEAT'S** -- *whatever is located will be indexed by the support parameter and will give an
+### exhaustion AT a width rather than a passage BETWEEN widths* : ### **MET.** ### `Proposition 2` is
+### indexed by `A` and concludes at `A`.
+
+----------------------------------------------------------------------------------------------------
+### (9) THE THING NO SEAT WROTE DOWN, AND THE ACT FOUND ANYWAY.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE STATEMENT THE ORDER SENT THIS ACT LOOKING FOR IS ALREADY IN THE CORPUS'S OWN SOURCE, AND
+### ### ### HAS BEEN SINCE THE ARC BEGAN.** ### `Proposition 2` sits in the same paper whose `Definition
+### 3.1` the corpus runs at every cell and whose `Theorem 1` names the corpus's covered cells. ### **NO ACT
+### ### HAD EVER CITED IT FOR THIS PURPOSE**, and the search that found it was a search of a paper the
+### record already holds.
+### ### **AND THE SHAPE TO CARRY IS THE ONE THAT MADE IT USELESS FOR THE WIDTH:** ### the strongest kind of
+### statement -- an exhaustion, not an approximation -- ### **STILL CLOSES NOTHING WHEN IT IS INDEXED BY
+### ### THE VERY COORDINATE IN QUESTION.** ### Strength in kind is not reach across an index, and an act
+### hunting for a density argument would have walked past an equivalence that is better and does less.
+
+----------------------------------------------------------------------------------------------------
+### (10) THE ACT'S INCIDENTS, ALL DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **(E1) THE OPENING PINS FAILED TWICE AND RESOLVED ON THE THIRD ATTEMPT**, declared on the sealed
+### face. ### The first returned `### UNRESOLVED` for all three repositories and `REPOS HARD-FAILING : 3`;
+### the second resolved two of three; the third resolved all three, `0/0` and equal. ### A direct
+### `git ls-remote` in between reported *"Recv failure: Connection was reset"*. ### **THAT IS A NETWORK
+### ### FAILURE AND NOT A REPOSITORY FAILURE, AND THE TOOL WAS RIGHT TO REFUSE TO CALL AN UNRESOLVED REPO
+### ### `0/0`.** ### All three run files stay on disk and the act relies on the third.
+### ### **(E2) THE SOURCE'S PDF CARRIES NO TEXT LAYER THE READER COULD USE**, and the publisher's own copy
+### refused the fetch with HTTP 403, also declared on the sealed face. ### **THE HASH PINS THE PDF WHILE
+### THE QUOTATIONS COME FROM A RENDERING**, and that is a real seam between the pin and the reading. ###
+### The registration's bar 1 states its floor: a hash identifies a file and does not certify that the
+### rendered text is a faithful rendering of it. ### **NO BAR IN THIS ACT CHECKS A TRANSCRIPTION AGAINST
+### ### THE TYPESET ORIGINAL.**
+### ### **(E3) THE HEDGE AUDITOR FIRED ONCE ON THE REGISTRATION BEFORE THE SEAL**, on a sentence that
+### attached the import grade to a reason phrased with a permission word rather than an uncertainty one.
+### It is a lexical arm and the hit was a false positive of exactly the kind the record has banked for
+### `U-1`. ### **REPHRASED, NOT FOUGHT**, before sealing.
+### ### **AND THE SAME ARM FIRED A SECOND TIME ON THIS VERY PARAGRAPH IN ITS FIRST DRAFT**, because a
+### sentence reporting a lexical hit contained the word that caused it. ### **THAT IS b348's MINTED
+### ### USE-AND-MENTION SPECIES, INSIDE AN INCIDENT REPORT ABOUT A LEXICAL ARM**, and the cure was the
+### one that rule prescribes for prose: rewrite the seat's own sentence, never soften the needle.
+### ### **(E4) THE EXTRACT RAN ONCE, `23` OF `23`, `0` UNPULLABLE** -- the first act in three where it did,
+### because this seat built every anchor by grepping the emitting file first instead of typing it. ###
+### **THAT IS THE CURE b352 NAMED AND DID NOT BUILD, APPLIED BY HAND**, and it worked.
+### ### **THE CLOCKS, EACH WRITTEN BY THE UTILITY b347 BUILT:** ### the extract at `2026-09-07T03:31:06Z`,
+### the seal at `2026-09-07T03:33:14Z`, the read at `2026-09-07T03:35:01Z`. ### **THE SEAL SITS BETWEEN
+### THEM**, after the evidence and before the verdict, which is the order the ritual requires, and
+### `G-ORDER` measures it.
+
+----------------------------------------------------------------------------------------------------
+### (11) WHAT IS NOT CLAIMED.
+----------------------------------------------------------------------------------------------------
+### ### **A LOCATED STATEMENT IS NOT A PROVED ONE, AND A CHECKED HYPOTHESIS IS NOT A DISCHARGED
+### ### OBLIGATION.** ### This act quotes; it verifies no proof and may not.
+### ### **THE WIDTH COORDINATE IS NOT CLOSED BY THIS ACT.** ### **NO CLASS IS PROVED OR SPANNED.** ### The
+### partition b351 left `UNDECIDED` stays `UNDECIDED`.
+### ### **`H1` BEING REFUTABLE AGAINST THE CORPUS'S ARRAYS IS NOT A FINDING THAT THE CORPUS'S RESULTS ARE
+### ### WRONG.** ### It is a finding that the record does not say what its arrays are meant to be, and that
+### question is routed and not answered here.
+### ### **THE SEARCH IS NOT A SURVEY.** ### One source was read at content; the absence of a crossing
+### statement is an absence of reading.
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER.** ### **NO
+### CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO
+### TERMINAL. ### `M-2` UNCHANGED**, owed under b310's cap. ### **NO ACT IS RE-VERDICTED:** b349, b351 and
+### b352 stand as banked. ### The seam's debt item 1 stands. ### The patent lane is carried on the patent
+### seat's report, UNCONFIRMED on this seat's record. ### The posture lock is separate. ### `h2` stands
+### exactly where the deposit left it. ### **THE WAVE STAYS PARKED. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: NOTHING.** ### An act that reads a paper and grades four hypotheses has produced no
+### fact about the object, and the temptation it must resist is the authority of a real citation.
+### ### **NOT THAT THE WIDTH IS CLOSABLE. ### NOT THAT IT IS NOT. ### NOT THAT A PINNED HASH MAKES A
+### ### TRANSCRIPTION A QUOTATION. ### NOT THAT FOUR HYPOTHESES GRADED ARE FOUR OBLIGATIONS MET.**
+### ### **THE MOST THIS ACT HAS DONE IS SAY WHICH SENTENCE WOULD HAVE TO BE TRUE, AND THAT THE RECORD
+### ### CANNOT PRICE GETTING IT.**
+### ### **NEXT: the sortie closes here.**
