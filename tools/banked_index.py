@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'held-axes-priced': ['the held axes', 'the price of the axes', 'the cut\'s threshold', 'the taper',
+                        'the rank-preserving band', 'the floor is explained', 'the floor unexplained',
+                        'pricing is not measuring'],
     'room-relative': ['the room', 'the relative room', 'the room relative', 'the point of maximum tension',
                       'the shared normaliser', 'the extended height grid', 'the phase window',
                       'a degenerate seed'],
@@ -552,6 +555,25 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FLOOR'S TWO HELD AXES, PRICED (b350).
+    ("held-axes-priced", "b350 (a pricing act; it moves nothing and measures nothing)",
+     "THE FLOOR\'S TWO HELD AXES PRICED FROM b344\'S PRINTED FIGURES, with no frame built and nothing re-run. THE COST is the same for both --"
+     " 89.35 seconds of wall per value tried, summed from the walls b344 printed over its sealed ladder -- because a move is a ladder either way, and"
+     " what it buys is ONE value. THE ROOM is priceable for the threshold and not for the taper: the intersection across the rungs of (largest dropped,"
+     " smallest kept) is (2.144048e-07, 2.277535e-06), a factor of 10.62 wide, with the corpus\'s own tau inside it, free to fall by 4.66 or rise"
+     " by 2.28 with the same rank. The taper\'s constants are printed as constants with nothing beside them, so NO ROOM FOR IT IS PRICEABLE AT ALL, and"
+     " the act prices the pricing instead: two ladders, 178.70 seconds, AND EVEN THAT WOULD GIVE A DIFFERENCE AND NOT A ROOM. WHAT EACH MOVE WOULD"
+     " CONFOUND, in the sealed words of the act that declined it: the threshold confounds the RANK with the FLOOR; the taper confounds the INSTRUMENT with"
+     " the OBJECT. VERDICT: THE FLOOR IS UNEXPLAINED. The trail W-ORD-FLOOR-HELD-AXES is RESTATED, NOT DISCHARGED.",
+     "### PRICING IS NOT MEASURING, and a price is a statement about what an act would cost made by an act that does not perform it: no frame was built,"
+     " no ladder run, no cell evaluated and NO AXIS MOVED. ### A RANK-PRESERVING BAND IS A FACT ABOUT THE CUT AND NOT ABOUT THE RESIDUAL -- the same"
+     " subspace kept does not mean the same residual, and b344 printed no residual at a second threshold. ### THE FLOOR IS UNEXPLAINED: the one axis moved"
+     " does not account for it and for the two held axes the record contains NO measurement of the residual at all. ### THE TRAIL IS RESTATED, NOT"
+     " DISCHARGED -- its price half is paid and its measurement half is not, and A TRAIL IS NOT DISCHARGED BY PAYING THE CHEAPER HALF OF IT. ### NO GRADE"
+     " MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b350_the_two_held_axes.txt; data/b350_price_run.txt; data/b350_filings_run.txt;"
+     " data/b350_registration_2026-09-07.txt (sealed before one price was computed);"
+     " PLACE-papers OPEN_TRAILS.md (the b350 block); CORRESPONDENCE.md row 198"),
     # ### THE ROOM, RELATIVE BEFORE EXTENDED (b349).
     ("room-relative", "b349 (a second measure of banked figures, then three new heights)",
      "THE ROOM MEASURED RELATIVE TO THE TERMS IT SITS BETWEEN, the denominator fixed before any value as the LARGER of the two terms so the ratio cannot be"

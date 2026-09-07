@@ -1,0 +1,37 @@
+============================================================================
+COMMIT SELF-DESCRIPTION CHECK (commit_selfcheck.py, b149)
+============================================================================
+  repo            : D:/relay
+  rev             : (staged)
+  paths touched   : 29
+  paths WRITTEN   : 29   ### only these are evidence of a write
+  message chars   : 2600
+
+  (1) FOREIGN-SEAT PATHS
+      none  (prefixes checked: phase1.5/method/patent-package/)
+
+  (2) READ-ONLY CLAIMS IN THE MESSAGE vs THE FILE LIST
+      no read-only claim detected in the message
+
+  (3) COMPLIANCE ASSERTION
+      none detected
+
+=== AUDIT SIDECAR (emitted; do not retype) ===
+  tool      : commit_selfcheck
+  act       : b350
+  run at    : 2026-09-06T21:46:50 (local)
+  input     : D:/relay
+  input     : (staged)
+  written   : 29
+  foreign   : 0
+  ro-claim  : none
+  compliance : none
+  VERDICT   : CLEAN
+  self-hash : sha256/32 758f33e21f86fa59fe47f78674b27096
+=== END AUDIT SIDECAR ===
+
+  sidecar written: D:\relay\data\audit_b350_commit_selfcheck_r2.txt
+
+  ### VERDICT: CLEAN
+  ### REACH: explicit patterns only. This cannot read meaning and does
+  ### not close the class -- see the header.

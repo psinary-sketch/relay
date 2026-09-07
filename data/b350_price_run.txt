@@ -1,0 +1,85 @@
+### run at (UTC) : 2026-09-07T01:36:51Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b350 -- THE FLOOR'S TWO HELD AXES, PRICED. ### read from b344's printed figures; nothing is run.
+====================================================================================================
+
+  b344's PRINTED FIGURES, READ AND NOT RECOMPUTED (data/b344_ny.json):
+    NY      wall s    rank   tau       eig in decade  smallest kept    largest dropped  ALPHA     BETA   
+    128     0.84      69     1.0e-06   1              2.277535e-06     5.862987e-08     1.0       1.0    
+    256     2.36      69     1.0e-06   2              4.821247e-06     1.625900e-07     1.0       1.0    
+    512     10.06     69     1.0e-06   2              5.638377e-06     2.011555e-07     1.0       1.0    
+    1024    25.41     69     1.0e-06   2              5.854358e-06     2.117078e-07     1.0       1.0    
+    2048    50.68     69     1.0e-06   2              5.909088e-06     2.144048e-07     1.0       1.0    
+
+  ### (1) THE COST OF A LADDER, summed from the walls b344 printed:
+    the sealed ladder [128, 256, 512, 1024, 2048] at the reference frame : 0.84 + 2.36 + 10.06 + 25.41 + 50.68
+    ### ### **89.35 SECONDS OF WALL PER VALUE TRIED, FOR EITHER AXIS**, because a move is a ladder either
+    ### way and the ladder is the same shape. ### **THE COST IS THE SAME FOR BOTH AXES AND IT IS SMALL.**
+    ### **AND WHAT THAT COST BUYS IS ONE VALUE.** ### A ladder answers what the residual does at ONE new
+    ### threshold or ONE new taper, not what it does across either axis.
+
+  ### (2) THE ROOM EACH AXIS HAS BEFORE THE INSTRUMENT KEEPS SOMETHING DIFFERENT:
+    THE CUT'S THRESHOLD -- the intersection across the rungs of (largest dropped, smallest kept):
+      the widest largest-dropped over the rungs : 2.144048e-07
+      the narrowest smallest-kept over the rungs : 2.277535e-06
+      ### ### **THE RANK-PRESERVING BAND IS ( 2.144048e-07 , 2.277535e-06 ), A FACTOR OF 10.62 WIDE**, and the corpus's
+      ### own `tau = 1.0e-06` sits inside it : True -- it may fall by a factor of 4.66 or rise by a factor of
+      ### 2.28 with the SAME eigenvalues kept at every rung, and therefore the same rank.
+      ### ### **AND THAT IS A FACT ABOUT THE CUT AND NOT ABOUT THE RESIDUAL.** ### The same subspace kept
+      ### does not mean the same residual; the residual depends on how the kept subspace is used and not
+      ### only on which vectors are in it. ### **b344 PRINTED NO RESIDUAL AT A SECOND THRESHOLD, SO THE
+      ### ### RESIDUAL'S RESPONSE TO THE THRESHOLD IS NOT PRICED BY THESE FIGURES.**
+
+    THE TAPER -- what the printed figures say about it:
+      ALPHA takes the values [1.0] across every rung ; BETA takes [1.0].
+      ### ### **THEY ARE PRINTED AS CONSTANTS AND NOTHING IS PRINTED BESIDE THEM.** ### There is no second
+      ### value, no neighbourhood, no eigenvalue interval and no derivative. ### **SO THE PRINTED FIGURES
+      ### ### PRICE NO ROOM FOR THE TAPER AT ALL, AND THIS ACT SAYS SO RATHER THAN INVENTING ONE.**
+      ### ### **AND THE PRICING IS THEN PRICED, AS THE ORDER REQUIRES:** to price the taper's room one
+      ### would need the residual at a second `ALPHA` and at a second `BETA` -- **two ladders, 178.70 s of
+      ### wall in total at the reference frame** -- and even that would give a difference and not a room,
+      ### because the taper has no analogue of the eigenvalue interval that gives the threshold one.
+
+  ### (3) WHAT EACH MOVE WOULD CONFOUND -- in the SEALED WORDS of the act that declined it,
+  ### located through the sortie's shared normaliser at the sealed file:
+    the cut's threshold    located at b344_registration_2026-09-06.txt line 72 : True
+    the taper              located at b344_registration_2026-09-06.txt line 78 : True
+    THE CUT'S THRESHOLD would confound the RANK with the FLOOR: moving it moves the stable cut, and b343
+      showed the rank constant across the grid axis, so a residual that moved with the threshold could not
+      be told from a residual that moved with the rank. ### b319 records that the corpus's threshold sits
+      ### **57 TIMES INSIDE THAT SEPARATION**, which is why it was chosen and why moving it is not free.
+    THE TAPER would confound the INSTRUMENT with the OBJECT: `ALPHA` and `BETA` are the source's own
+      constants -- b316 records them as *"Definition 4.4's `a`, at the source's own `S(1,1)`"* -- so a
+      taper moved is no longer the source's object, and any change in the residual would be a change in
+      what was being measured. ### **THAT IS A HARDER CONFOUND THAN THE THRESHOLD'S, AND IT IS WHY THE
+      ### ### CHEAPNESS OF THE LADDER IS NOT THE WHOLE PRICE.**
+
+====================================================================================================
+  THE VERDICT ON THE FLOOR, BY SECTION (D)'s RULE AND NO OTHER.
+====================================================================================================
+    the three origins b339 named : the fixed `NY`, the cut's `tau`, the taper.
+    moved, with the residual measured against it : `NY` only (b344).
+    measured in this act : ### **NOTHING. ### THIS ACT MOVES NO AXIS AND MEASURES NO RESIDUAL.**
+    the record's measurements of the residual against a HELD origin : ### **NONE.**
+
+  ### ### ### **THE FLOOR IS UNEXPLAINED.**
+  ### The one axis that was moved does not account for it -- b344 found the residual CONVERGES in `NY`,
+  ### with the remaining travel from the corpus's own `NY = 512` about a ninth of the floor -- and for the
+  ### two held axes the record contains no measurement of the residual at all. ### **PRICING IS NOT
+  ### ### MEASURING, AND NOTHING PRICED HERE EXPLAINS ANYTHING.**
+  ### **THE UNEXPLAINED PART, NAMED:** the residual's response to the cut's threshold anywhere in its
+  ### rank-preserving band, and the residual's response to the taper at any value. ### **NEITHER IS IN
+  ### ### THE RECORD AND NEITHER IS PRICED BY b344's PRINTED FIGURES; ONLY THE COST OF GETTING THEM IS.**
+
+  THE TRAIL `W-ORD-FLOOR-HELD-AXES`, AGAINST ITS OWN TWO DEMANDS:
+    its demand for the MEASUREMENT located in its own text : True
+    its demand for the PRICE located in its own text        : True
+    ### ### **THE PRICE HALF IS PAID.** ### The ladder cost is stated for both axes, the threshold's
+    ### rank-preserving band is computed from the printed figures with no new frame, and the taper's
+    ### unpriceability is stated with the cost of removing it.
+    ### ### **THE MEASUREMENT HALF IS NOT PAID AND IS NOT ATTEMPTED.** ### No axis moved.
+    ### ### ### **SO THE TRAIL IS RESTATED, NOT DISCHARGED. ### A TRAIL IS NOT DISCHARGED BY PAYING THE
+    ### ### ### CHEAPER HALF OF IT.**
+
+  ### NO FRAME BUILT ; NO LADDER RUN ; NO CELL EVALUATED ; NO AXIS MOVED ; NO ACT RE-VERDICTED.
+====================================================================================================
