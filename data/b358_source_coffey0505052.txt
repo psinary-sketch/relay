@@ -1,0 +1,3574 @@
+=== PAGE 1 ===
+arXiv:math-ph/0505052v1  19 May 2005
+Toward veriﬁcation of the Riemann hypothesis:
+Application of the Li criterion
+Mark W. Coﬀey
+Department of Physics
+Colorado School of Mines
+Golden, CO 80401
+(Received 2004)
+August 10, 2004
+Abstract
+We substantially apply the Li criterion for the Riemann hypo thesis to hold.
+Based upon a series representation for the sequence {λk}, which are certain
+logarithmic derivatives of the Riemann xi function evaluat ed at unity, we de-
+termine new bounds for relevant Riemann zeta function sums a nd the sequence
+itself. We ﬁnd that the Riemann hypothesis holds if certain c onjectured prop-
+erties of a sequence ηj are valid. The constants ηj enter the Laurent expansion
+of the logarithmic derivative of the zeta function about s = 1 and appear to
+have remarkable characteristics. On our conjecture, not only does the Riemann
+hypothesis follow, but an inequality governing the values λn and inequalities
+for the sums of reciprocal powers of the nontrivial zeros of t he zeta function.
+Key words and phrases
+Riemann zeta function, Riemann xi function, logarithmic derivatives , Riemann hy-
+pothesis, Li criterion, Stieltjes constants, Laurent expansion, L function, Dirichlet
+series, Hecke L function, Dedekind zeta function, extended Riema nn hypothesis
+1
+=== PAGE 2 ===
+Introduction
+In this paper, we reduce the veriﬁcation of the Riemann hypothesis to a conjec-
+ture concerning the behavior of certain coeﬃcients ηk which appear in the Laurent
+expansion of the logarithmic derivative of the zeta function about s = 1. Moreover,
+should the conjectured property hold, we would then derive a resu lt stronger than the
+Riemann hypothesis itself. Namely, we would have obtained an explicit lo wer bound
+for a sequence {λj} of certain logarithmic derivatives of the xi function evaluated at
+unit argument. Since the coeﬃcients ηj can be written as particular limits involving
+the von Mangoldt function Λ, these quantities seem to encapsulate both number the-
+oretic and analytic information. Such information is expected to be e ncountered in
+any rigorous denial or veriﬁcation of the Riemann hypothesis.
+We ﬁrst present an overview of our approach. We shall use the Li e quivalence
+for the Riemann hypothesis to hold [25]. This equivalence results from a necessary
+and suﬃcient condition that the logarithmic derivative of the functio n ξ[1/(1 −z)]
+be analytic in the unit disk. The function ξ is determined from the Riemann zeta
+function ζ by way of the relation ξ(s) = (s/2)(s − 1)π−s/2Γ(s/2)ζ(s), where Γ is the
+Gamma function [13, 20, 22, 38, 37]. Then the xi function satisﬁes t he functional
+equation ξ(s) = ξ(1 −s). The Li equivalence states that a necessary and suﬃcient
+condition for the nontrivial zeros of the Riemann zeta function to lie on the critical
+line Re s = 1/2 is that a sequence of real numbers λk is nonnegative for every integer
+k. In this paper, we investigate the behavior of this sequence, base d upon a series
+2
+=== PAGE 3 ===
+representation previously derived [9]. Of this representation, we a re able to bound
+one ﬁnite sum and make progress in bounding the other. We ﬁnd that indeed the
+sequence {λk} has only nonnegative numbers, subject to the conjectured prop erties
+of the sequence ηj. Among other connections, the ηj can be readily related to the
+Stieltjes constantsγk. This gives one of several avenues for further investigation of th e
+ηj expansion coeﬃcients. This paper includes a series of appendices A– L which con-
+tain various extensions of our summation estimations, occasional a lternative proofs,
+series representations analogous to that for λn relevant to other L-functions, tabu-
+lated numerical values, derivative relations of the Riemann zeta fun ction, alternative
+expansions of the logarithmic derivative of the Riemann zeta and xi f unctions, re-
+marks on the integer-order derivatives of the Dedekind zeta and x i functions, and
+other reference material.
+We stress that we do not just conjecture as to the nature of the ηj’s, but provide a
+perhaps strong plausibility argument in favor. In addition, current numerical evidence
+[29] seems to fully support our conjecture.
+The sequence {λn}∞
+n=1 is deﬁned by
+λn = 1
+(n − 1)!
+dn
+dsn [sn−1 lnξ(s)]s=1. (1)
+Then Li’s criterion for the Riemann hypothesis to hold is that all {λn}∞
+n=1 are non-
+negative [25]. We note that Li’s convention for the xi function has a f actor of two
+diﬀerence: ξLi(s) = 2ξ(s), although this is immaterial in logarithmic derivatives such
+3
+=== PAGE 4 ===
+as λj. We also have
+λn = (−1)n
+(n − 1)!
+dn
+dsn [(1 −s)n−1 lnξ(s)]s=0, (2)
+and ξ(0) = −ζ(0) = 1 /2. (Hence ξLi(0) = 1.) The approximate numerical values
+for the ﬁrst few λj’s are: λ1 ≃ 0.0230957, λ2 ≃ 0.0923457, and λ3 ≃ 0.207639 (see
+Appendix D). In fact, we have λ1 = −B, where B ≡ ln 2 + (1/2) lnπ − 1 −γ/2 ≃
+−0.0230957, and γ ≃ 0.5772156649 is the Euler constant. This follows from the
+logarithmic derivative [20]
+ξ′(s)
+ξ(s) =B +
+∑
+ρ
+(
+1
+s −ρ + 1
+ρ
+)
+, (3)
+where ρ runs over all the nontrivial zeros of the zeta function. Thus ξ′(s)/ξ(s) =
+∑
+ρ(s −ρ)−1, which is consistent with ξLi(s) = ∏
+ρ(1 −s/ρ). In general, the λj’s are
+connected to sums over the nontrivial zeros of ζ(s) by way of [25]
+λn =
+∑
+ρ
+[
+1 −
+(
+1 − 1
+ρ
+)n]
+. (4)
+By using the Laurent expansion of the zeta function about s = 1,
+ζ(s) = 1
+s − 1 +
+∞∑
+n=0
+(−1)n
+n! γn(s − 1)n, (5)
+where the γk are the Stieltjes constants [20, 19], it is possible to write a closed for m
+for the λj’s. The Stieltjes constants can be evaluated from the expression
+γk = lim
+N →∞
+( N∑
+m=1
+1
+m lnkm − lnk+1N
+k + 1
+)
+, (6)
+4
+=== PAGE 5 ===
+and several other forms have been given [19]. For instance, we hav e
+λ2 = 1 + γ −γ2 +π2/8 − 2 ln 2 − lnπ − 2γ1, (7)
+and
+λ3 = 1
+2
+[
+2 + 3
+4π2 − 6 ln 2 − 3 lnπ − 12γ1 +γ[3 + 2(γ − 3)γ + 6γ1] + 3γ2 − 7
+4ζ(3)
+]
+.
+(8)
+It is not diﬃcult to determine that λj contains the term −(−1)j[j/(j − 1)!]γj−1. The
+successiveλj’s can be related in several diﬀerent ways, including simply
+λn+1 =λn + 1
+n!
+[
+dn
+dsnsnξ′(s)
+ξ(s)
+]
+s=1
+. (9)
+Alternatively, in the particular case ofλ2, one can writeλ2 = 2λ1−λ2
+1+lims→1sξ′′(s)/ξ(s).
+Elsewhere, we have very recently obtained a general explicit relatio n for λk in terms
+of the Stieltjes constants [11].
+Alternative representation of Li’s λj’s
+Of particular importance for the purposes of this paper is an altern ative formula
+for the particular sequence of logarithmic derivatives of the Rieman n xi function given
+in Eq. (1). Due to the centrality of this result, we brieﬂy review the d erivation [9] of
+the following representation,
+Theorem 1
+λn = −
+n∑
+m=1
+(
+n
+m
+)
+ηm−1 +
+n∑
+m=2
+(−1)m
+(
+n
+m
+)
+(1 − 2−m)ζ(m) + 1−n
+2 (γ + lnπ + 2 ln 2), (10)
+5
+=== PAGE 6 ===
+where the constants ηj can be written as
+ηk = (−1)k
+k! lim
+N →∞
+( N∑
+m=1
+1
+mΛ(m) lnkm − lnk+1N
+k + 1
+)
+, (11)
+and Λ is the von Mangoldt function [13, 20, 22, 38, 37, 21]. From the e xpansion
+around s = 1 of the logarithmic derivative of the zeta function,
+ζ ′(s)
+ζ(s) = −(s − 1)−1 −
+∞∑
+p=0
+ηp(s − 1)p, (12)
+we have
+lnζ(s) = − ln(s − 1) −
+∞∑
+p=1
+ηp−1
+p (s − 1)p, (13)
+giving
+lnξ(s) = − ln 2 + lns − s
+2 lnπ + ln Γ(s/2) −
+∞∑
+p=1
+ηp−1
+p (s − 1)p. (14)
+The radius of convergence of the expansion (12) is 3, as the ﬁrst s ingularity encoun-
+tered is the trivial zero of ζ(s) at s = −2. We then evaluate
+dn
+dsn [sn−1 lnξ(s)]s=1 = (n − 1)!
+n−1∑
+j=0
+(
+n
+j
+)
+1
+(n −j − 1)!
+[
+dn−j
+dsn−j lnξ(s)
+]
+s=1
+, (15)
+using in particular the special valuesψ(1/2) = −γ−2 ln 2 andψ(n)(1/2) = ( −1)n+1n!(2n+1−
+1)ζ(n + 1) for n ≥ 1, where ψ = Γ ′/Γ is the digamma function and ψ(j) is the
+polygamma function. Finally, the sum in Eq. (15) over j can be converted to a sum
+overm =n −j and the simple result −
+∑ n
+m=1(−1)m
+(n
+m
+)
+= 1 used, yielding Eq. (10).
+The Laurent expansion of ζ ′/ζ with the form of the constants ηj in Eq. (11) can
+be developed by applying Theorem 1 of Ref. [21]. In this case, the cou nting function
+A(x) = −
+∑
+n≤x Λ(n) = −ψ(x), where ψ is the Chebyshev function, and the error
+6
+=== PAGE 7 ===
+term is given by u(x) = x −ψ(x). Equation (10) has been derived alternatively in
+Ref. [6] by a method connected with A. Weil’s explicit formula. Our appr oach is
+independent, and we believe, more direct. In Appendix G we present an extension of
+Theorem 1 which accounts explicitly for the presence of the ﬁrst six trivial zeros of
+the zeta function.
+Estimation of Sums
+We characterize each of the two summation terms on the right side o f Eq. (10) in
+turn. Before this discussion, we emphasize that the ﬁrst few λj’s may be explicitly
+written, as indicated above, and directly veriﬁed to be positive. In a ddition, we note
+that apparently it is already known [5] that λn ≥ 0 for all n ≤ 2.975... × 1017.
+The sum
+S1(n) ≡
+n∑
+m=2
+(−1)m
+(
+n
+m
+)
+(1 − 2−m)ζ(m), (16)
+may be written in several equivalent ways, including
+S1(n) =
+∞∑
+k=0
+n∑
+m=2
+(−1)m
+(
+n
+m
+)
+1
+(2k + 1)m =
+∞∑
+k=0
+[
+n
+2k + 1 − 1 + 2nkn
+(2k + 1)n
+]
+. (17)
+Equation (17) results from the use of (e.g., [1])
+(1 − 2−n)ζ(n) =
+∞∑
+k=0
+(2k + 1)−n, n ≥ 2, (18)
+and interchange of the order of the two summations in Eq. (16). It appears to be
+equally proﬁtable to write S1 as
+S1(n) =
+∞∑
+k=1
+n∑
+m=2
+(−1)m
+(
+n
+m
+)
+(1−2−m) 1
+km =
+∞∑
+k=1
+[ n
+2k +
+(
+1 − 1
+k
+)n
+−
+(
+1 − 1
+2k
+)n]
+. (19)
+7
+=== PAGE 8 ===
+By using integrals estimating these forms, we obtain
+Theorem 2
+S1(n) ≥ n
+2 lnn + (γ − 1)n
+2 + 1
+2. (20)
+Remark. By inserting an integral representation for ζ into Eq. (16), it is possible
+to obtain the sum S1 in the form
+S1(n) = n
+2
+∫ ∞
+0
+[1 + 1F1(1 −n; 2;t/2) − 2 1F1(1 −n; 2;t)] dt
+(et − 1),
+where 1F1 is the Kummer conﬂuent hypergeometric function. In this equation ,
+n 1F1(1 −n; 2;w) = L1
+n−1(w), where Lα
+n is an associated Laguerre polynomial.
+Proof of Theorem 2. We proceed on the basis of comparison to the f orm of Eq.
+(17), leaving the comparison to Eq. (19) to Appendix A. In addition, we relegate
+to Appendix L the application of Euler-Maclaurin summation to S1(n), which gives
+improved estimates of the linear term.
+By making a change of variable in the integral
+I1(n) =
+∫ ∞
+0
+[
+n
+2k + 1 − 1 + 2nkn
+(2k + 1)n
+]
+dk, (21)
+we obtain
+I1(n) = 1
+2
+∫ ∞
+1
+[
+n
+x − 1 + (x − 1)n
+xn
+]
+dx. (22)
+Another change of variable and an integration by parts yields
+I1(n) = n
+2
+∫ 1
+0
+[1 − (1 −t)n−1]dt
+t − 1
+2 (n − 1). (23)
+8
+=== PAGE 9 ===
+Evaluation of the integration [16] then gives
+I1(n) = n
+2 [ψ(n) +γ − 1] + 1
+2. (24)
+Since the integrand of Eq. (21) is monotonically decreasing with k, the inequality
+(20) readily follows.
+Corollary With the other sum term in Eq. (10) denoted as S2, we have already
+obtained the inequality λn ≥ (n/2) lnn−(n/2)(1+ln π +2 ln 2)+3/2−|S2|. Similarly,
+it is possible to readily obtain an upper bound for S1 and λn. We have, for instance,
+S1(n) ≤ (n/2) lnn + (γ + 1)n/2 − 1/2. It is possible to develop improved coeﬃcients
+for the linear in n term, giving tighter bounds for S1(n), as shown in Appendix L.
+Remarks. (1) Since Li has very recently obtained explicit formulas f or both Dirich-
+let and Hecke L-functions [26], which are analogous to Eq. (10), we m ay expect our
+summation estimation techniques to aid in making progress in verifying the extended
+and generalized Riemann hypotheses. In fact, we may observe tha t the term τχ(n)
+deﬁned in Theorem 1 of Ref. [26] can be rewritten as
+τχ(n) = S1 −n ln 2 if χ(−1) = 1,
+=S0 −S1, if χ(−1) = −1, (25)
+where S0 is deﬁned in Eq. (A.15) of Appendix A. The second line of Theorem 2 of
+Ref. [26] for λE(n) may be written as
+2
+(
+1 − 1
+3 ln 2
+)
+n +S3 −S0 + 2n + (−1)n − 1, (26)
+9
+=== PAGE 10 ===
+where S3 is deﬁned in Eq. (A.18) of Appendix A. Inequality results based upon t he
+use of Eqs. (25) and (26) and the estimations of Appendix A are give n in Appendix
+E, while estimations of generalized Riemann zeta functions sums are p resented in
+Appendix F.
+(2) In Ref. [39], the rate of growth of the sum S1(n) is conjectured. An integral
+expression for the Li constants is written and a saddle point metho d is applied. How-
+ever, the dominant O(n lnn) behaviour that we have demonstrated is not rigorously
+obtained.
+It is not diﬃcult to show that the following recursion relation exists be tween the
+Stieltjes constants of Eq. (5) and the coeﬃcients ηj. We have η0 = −γ0 = −γ and
+ηn = −(−1)n
+[
+(n + 1)
+n! γn +
+n−1∑
+k=0
+(−1)k−1
+(n −k − 1)!ηkγn−k−1
+]
+. (27)
+This equation is equivalent to the statement [ ζ ′(s)/ζ(s)]ζ(s) = ζ ′(s) and will be
+applied later on.
+It is also of interest to relate the sequence {ηj} to the sequence {σk} which occurs
+in the expansion
+lnξ(s) = − ln 2 −
+∞∑
+k=1
+(−1)kσk
+k (s − 1)k. (28)
+The ensueing relation ﬁgures prominently in our conjecture for the behaviour of the
+coeﬃcients ηj. One reason for the importance of the coeﬃcients σk is their correspon-
+dence to sums of reciprocal powers of the nontrivial zeros ρ of the ζ function [24, 31]:
+σk =∑
+ρρ−k. From Eq. (4) we see that the connection between the values λn and the
+sequence {σk} is λn = −∑ n
+j=1(−1)j
+(n
+j
+)
+σj. Further discussion of the σj’s is presented
+10
+=== PAGE 11 ===
+in Appendix J. We shall next demonstrate
+Theorem 3
+σk = (−1)kηk−1 − (1 − 2−k)ζ(k) + 1, k ≥ 2. (29)
+Proof of Theorem 3. The key to showing that Eq. (29) holds is to eva luate the
+particular successive Riemann zeta function sums
+∞∑
+n=k
+[ζ(n) − 1]
+2n
+(
+n − 1
+k − 1
+)
+= (1 − 2−k)ζ(k) − 1, k ≥ 2. (30)
+From Eq. (14) and the expansion [1]
+ln
+[
+sΓ
+(s
+2
+)]
+= ln 2 + (γ − 1)
+2 + (1 −γ)
+2 (s − 1) +
+∞∑
+n=2
+[ζ(n) − 1]
+n2n [1 − (s − 1)]n, (31)
+we have
+lnξ(s) = −1
+2 lnπ +γ − 1
+2 +
+∞∑
+n=2
+[ζ(n) − 1]
+n2n + (1−s)
+[
+lnπ
+2 − 1
+2 (γ + 1) +
+∞∑
+n=2
+[ζ(n) − 1]
+2n
+]
+−
+∞∑
+p=2
+ηp−1
+p (s − 1)p +
+∞∑
+n=2
+n∑
+j=2
+[ζ(n) − 1]
+n2n
+(
+n
+j
+)
+(1 −s)j. (32)
+Upon comparison with Eq. (28), the constant term in this equation ( i.e., the coeﬃ-
+cient of the (1 −s)0 term) is readily shown to be zero (or see Appendix B) and the
+linear term immediately gives
+σ1 = −lnπ
+2 + γ
+2 + 1 − ln 2 = λ1. (33)
+We then have
+−
+∞∑
+p=2
+ηp−1
+p (s − 1)p +
+∞∑
+n=2
+n∑
+j=2
+[ζ(n) − 1]
+n2n
+(
+n
+j
+)
+(1 −s)j = −
+∞∑
+k=2
+σk
+k (1 −s)k. (34)
+11
+=== PAGE 12 ===
+Upon reordering the two sums we obtain
+σk = (−1)kηk−1 −
+∞∑
+n=k
+[ζ(n) − 1]
+2n
+(
+n − 1
+k − 1
+)
+, k ≥ 2. (35)
+We now need to demonstrate Eq. (30). We ﬁrst note that
+∞∑
+n=k
+[ζ(n) − 1]
+2n
+(
+n − 1
+k − 1
+)
+=
+∞∑
+ℓ=2
+1
+(k − 1)!
+∞∑
+n=k
+(n − 1)(n − 2) · · · (n −k + 1)
+(2ℓ)n (36)
+and
+∞∑
+k=j+1
+k(k − 1)(k − 2) · · ·(k −j)qk−j−1 = (j + 1)!
+(1 −q)j+2, |q|< 1. (37)
+Equation (37) is easily veriﬁed by mathematical induction. With Eq. (3 6), we have
+proceeded by interchanging two summations. However, we could ha ve equally well
+used the integral representation
+ζ(s) = 1
+Γ(s)
+∫ ∞
+0
+ts−1
+(et − 1)dt, Re s> 1, (38)
+and then interchanged the order of summation and integration, wh ich is carried out
+in Appendix B. By applying Eq. (37) to Eq. (36) we obtain the succinct result
+∞∑
+n=k
+[ζ(n) − 1]
+2n
+(
+n − 1
+k − 1
+)
+=
+∞∑
+ℓ=1
+1
+(2ℓ + 1)k. (39)
+If we then invoke Eq. (18) we obtain successively Eqs. (30) and (29 ). Theorem 3 is
+proved in another manner in Appendix C.
+Since in Eq. (12) ζ ′(s)/ζ(s) + (s − 1)−1 is a transcendental function analytic in
+the disc |s − 1|< 3, there are an inﬁnite number of ηj’s which are nonzero. From this
+12
+=== PAGE 13 ===
+equation we have a good deal of information on sums and moments of this sequence.
+For instance, we have
+∞∑
+p=0
+ηp = −
+[
+1 + ζ ′(2)
+ζ(2)
+]
+≃ −0.430039< 0, (40a)
+∞∑
+p=0
+(−1)pηp = 1 − ln 2π ≃ −0.837877< 0, (40b)
+and more generally, by taking successive derivatives,
+∞∑
+p=j
+p(p − 1) · · ·(p −j + 1)ηp = −(−1)jj! −
+[
+ζ ′(s)
+ζ(s)
+] (j)⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+s=2
+. (41)
+Various formulas for zeta function derivatives, and in particular co ncerning the loga-
+rithmic derivative occurring in this equation, are presented in Appen dix H. Further-
+more, Eq. (13) gives
+lnζ(2) = −
+∞∑
+p=1
+ηp−1
+p , (42a)
+and
+ln 2 =
+∞∑
+p=1
+(−1)pηp−1
+p . (42b)
+By evaluating Eq. (12) at s = 1/2 and using the functional equation we obtain
+∞∑
+p=0
+(
+−1
+2
+)p
+ηp = 2 − 1
+2
+[
+lnπ −ψ
+(1
+4
+)]
+, (43a)
+or
+∞∑
+p=1
+(
+−1
+2
+)p
+ηp = 2 −
+[
+lnπ −γ + π
+2 + 3 ln 2
+]
+. (43b)
+An equation such as (40a) shows that not all the ηj’s can be positive. In fact, we
+can argue that there are an inﬁnite number of ηj’s which are positive, and an inﬁnite
+13
+=== PAGE 14 ===
+number which are negative. This result, together with the fact tha t the sequence ηj
+decreases to zero with j increasing to inﬁnity, as shown by either Eq. (40a) or (41),
+provides a Theorem 4 .
+By multiplying Eq. (12) by sq withq >−1 and integrating over s from 0 to 1 we
+obtain
+∞∑
+p=0
+(−1)pB(p + 1,q + 1)ηp = −[ψ(q + 1) +γ] −
+∫ 1
+0
+[
+sqζ ′(s)
+ζ(s) + 1
+s − 1
+]
+ds, (44)
+where B is the Beta function.
+We now characterize the behaviour of the sequence {ηj} as a function of its index.
+We have
+Theorem 5
+|ηj−1| ≤ |σj| + 2−jζ(j), (45)
+and
+Conjecture 1 (i) The sequence {σj} decays with j faster than 1/3j. Then, (ii) for
+j suﬃciently large, the sequence {ηj} alternates in sign and decreases in magnitude
+as approximately 1 /3j. (iii) For all j ≥ 0, the magnitudes |ηk| satisfy |ηk| ≤ γ2−k.
+Furthermore, (iv) the sequence {ηj} alternates in sign for all j ≥ 0.
+Remark. Since the radius of convergence of the expansion (12) is 3 , we know that
+|ηj| cannot increase faster than 1 /3j for suﬃciently large j. In fact, the expression
+ηj ≃ −γ(−1/3)j for all j ≥ 0 is a very good approximation. One may readily verify
+this assertion, for instance, with the sums appearing in Eqs. (40)– (43). In addition,
+14
+=== PAGE 15 ===
+all currently known numerical evidence [29] supports both this app roximation and
+the strict sign alternation suggested in the conjecture.
+We can not currently prove all parts of Conjecture 1, but we can o ﬀer what we
+believe to be a strong plausibility argument. In the course of this arg ument we do
+prove Theorem 5. In addition, based upon known properties of σj, we very recently
+have proved part (iv) on the strict sign alternation of the {ηj} sequence for all values
+of j [11].
+(i) The ﬁrst nontrivial zero ρ1 of the zeta function is known to lie on the critical
+line and to have ordinate approximately given by 14 .134725142 (e.g., [33]), i.e., ρ1 =
+1/2 + iα1. This zero, along with its complex conjugate, dominate the sum σk so
+that for large k we have σk ∼ α−k
+1 , a rate of decrease much faster than 3 −k. In
+fact, depending upon whether k is even or odd, and if even, divisible or not by 4, a
+leading behaviour of σk is given by one of the four forms ±2αk
+1/(1/4 + α2
+1)k (for k
+even) or ±kαk−1
+1 /(1/4 + α2
+1)k (for k odd). In addition, one may argue much more
+conservatively with the expression
+(1
+2 −iα1
+)k
++
+(1
+2 +iα1
+)k
+= 2
+k∑
+j=0
+(
+k
+j
+)
+αj
+1
+2k−j ×
+1 j = 4m
+0 j = 4m + 1
+−1 j = 4m + 2
+0 j = 4m + 3
+(46)
+by taking the approximate largest value of the binomial coeﬃcient an d ignoring the
+attenuating eﬀect of the powers of 1 /2. This will yield a form of approximately
+σk ∼ (2/
+√
+k)(2/α1)k, which is still a much faster decrease with k than 1/3k.
+15
+=== PAGE 16 ===
+For both emphasis and clarity, we restate Eq. (29) as
+ηj−1 = (−1)j[σj + (1 − 2−j)ζ(j) − 1], j ≥ 2. (47)
+By appeal to Eq. (18) we have
+2−jζ(j)> (1 − 2−j)ζ(j) − 1 =
+∞∑
+k=1
+1
+(2k + 1)j > 1
+3j, j ≥ 2. (48)
+Applying the triangle inequality to Eq. (47) and using the left inequality in (48) gives
+Theorem 5.
+Continuing with the argument for part (ii) of conjecture 1, by part (i), (1 −
+2−j)ζ(j) − 1> 0 then dominates in the brackets in Eq. (47) and the sign alternation
+of the sequence {ηj} then follows for suﬃciently large j. (iii) With the aid of the
+recursion relation (27) or by several other means, it is possible to c alculate ηk for
+any desired initial set k = 1,...,k 0 and directly verify their sign alternation and the
+stated inequality (e.g., as in Appendix D). For larger values of k, this inequality may
+hold due to the left inequality in (48) when combined with Eq. (47).
+Remark. It is not essential to our main purpose here, but we may co mment on
+the sign pattern of the {σk} sequence. The initial, and in a sense typical, sign pattern
+is simply − − + + − −..., with σ1 > 0. Initially, as k takes on the respective values
+4m, 4m + 1, 4m + 2, 4m + 3, where m is a positive integer, the sign of σk is given by
++, +, −, −. This pattern continues to the point where k(k − 1)> 8α2
+1. This explains
+whyσ46 > 0 rather than σ46 < 0. Similar considerations apply for larger values of k
+in this sequence.
+16
+=== PAGE 17 ===
+Mainly for reference purposes, we will now indicate other possible us es of the
+recursion relation (27). It has been proved that [4]
+|γn| ≤ [3 + (−1)n](n − 1)!
+πn , n ≥ 1, (49)
+which has been improved to [31]
+|γn| ≤ [3 + (−1)n](2n)!
+nn+1(2π)n , n ≥ 1. (50)
+As an illustration of the use of such results, the combination of Eqs. (27) and (49)
+gives
+Lemma 1
+|ηn| ≤ 1
+πn
+{
+(n + 1)
+n [3 + (−1)n] +
+n−1∑
+k=1
+[3 + (−1)n−k]πk+1
+(n −k) |ηk−1|
+}
++γ2, n ≥ 1. (51)
+Similarly, the inequality (50) may be applied to Eq. (27), permitting, fo r example,
+inductive arguments on |ηn|, but we have already deduced Theorem 5.
+We are now in position to estimate the sum
+S2(n) ≡ −
+n∑
+m=1
+(
+n
+m
+)
+ηm−1, (52)
+of Eq. (10). On conjecture 1, we have that the ηj’s decrease in magnitude with j and
+always alternate in sign. This means that, similar to the behaviour of t he sum S1,
+there is a near exponential amount of cancellation in the sum S2. Indeed, we have
+Conjecture 2
+|S2| ≤ 3γ +C2n1/2+ǫ, (53)
+17
+=== PAGE 18 ===
+whereC2 is a positive constant and ǫ is positive and arbitrarily small. This conjecture
+is partially motivated by our discussion elsewhere [11] of the possible c onnection
+between the Stieltjes and Li constants and Brownian motion [5].
+The combination of Eq. (10) and the inequalities (20) and (53) result s in
+Conjecture 3
+λn ≥ n
+2 lnn − n
+2 (1 + lnπ + 2 ln 2) + 3
+2 − 3γ −C2n1/2+ǫ, (54)
+where the approximate numerical value of the coeﬃcient 1 + ln π + 2 ln 2 is 3 .53.
+This estimation would show, in the absence of the last two terms on th e right side,
+that already for values of n exceeding 34, we would be ensured that all λn’s are
+nonnegative. In addition, as previously mentioned, for smaller value s of n one has
+only to directly calculate these particular logarithmic derivatives, fr om either Eq. (1),
+(2), or Eq. (10) itself and verify the nonnegativeness of the λj’s (Appendix D).
+Summary and Brief Discussion
+Our program for veriﬁcation of the celebrated Riemann hypothesis should now be
+clear. We have invoked the Li equivalence [25], wherein it is necessary to demonstrate
+the nonnegativity of the sequence {λn}∞
+n=1. Our starting point has been the reformu-
+lation of the deﬁnition (1) as the series representation (10), λn =S1 +S2 + 1 −n(γ +
+lnπ + 2 ln 2)/2. Some attention to the sums S1 and S2 [Eqs. (16) and (52)] has been
+required because they exhibit the phenomenon of exponential can cellation. That is,
+the binomial coeﬃcient
+(n
+m
+)
+within the two summands can take on values approaching
+18
+=== PAGE 19 ===
+2n/√n. The strict sign alternation in the summands of S1 and S2 is critical. For the
+sum S1 the sign alternation is explicit, while for S2 it has to be deduced [11], as in
+Conjecture 1. It should be mentioned that the line of reasoning sug gested here for a
+complete proof of the Riemann hypothesis does not require strict s ign alternation of
+the sequence {ηj}–it is just that this result could make the estimation of the sum S2
+much easier. In fact, very recently we have proved the strict sign alternation of this
+sequence [11]. What is next required is an argument that correlates the magnitude
+of say ηj to ηj+1. As previously mentioned, current numerical evidence [29] seems t o
+support Conjecture 1 for the behaviour of the {ηj} and {σk} sequences. Certainly
+both further computation and analysis appear to be in order.
+In contrast to the Stieltjes constants γj, whose sign pattern is not so easy to
+discern, that of the two sequences {ηk}∞
+k=0 and {λk}∞
+k=1 seems to be remarkably simple.
+Upon Conjecture 1 and Eqs. (29) and (48), our approach would als o yield various
+inequalities for the sums σk of reciprocal powers of the nontrivial zeros of the zeta
+function.
+To put it very mildly, many implications could follow from the results pres ented.
+We may stress that the conjectured behaviour of the sequence {ηj} has multiple
+implications for the von Mangoldt and Chebyshev functions, among m any others.
+We may additionally stress, that should the claims of the propositions and conjec-
+tures herein indeed be valid, we would have not only veriﬁed the Rieman n hypothesis
+but produced yet a stronger result. Namely, we would have develop ed the inequality
+19
+=== PAGE 20 ===
+(54) for the sequence {λn}. Moreover, it seems that an asymptotic version of inequal-
+ity (54) will suﬃce to verify the Riemann hypothesis since evidently [5] so many λj’s
+are already known to be nonnegative.
+The approach of this paper suggests that veriﬁcation of the Riema nn hypothesis
+may be possible within analysis. Indeed, our approach may be amenab le to con-
+fronting the generalized Riemann hypothesis. Some of our sum estim ations carry
+over immediately to the explicit formulas for λχ(n) and λE(n) in Theorems 1 and 2
+respectively in Ref. [26]. In turn, one is left with estimating sums which contain the
+von Mangoldt function, reciprocal powers of k, powers of ln k, and Dirichlet char-
+acters. To us, this appears to be a realistic approach to the gener alized Riemann
+hypothesis for Dirichlet and Hecke L-functions and the Dedekind ze ta function. We
+include in Appendix E example results along this line of investigation.
+Acknowledgement
+I thank J. C. Lagarias for useful discussion concerning a fall 2003 version of this
+manuscript.
+20
+=== PAGE 21 ===
+Figure Caption
+FIG. 1. Diagram of consecutively increasing circles of convergence corresponding
+to the inclusion of the ﬁrst six trivial zeros of the Riemann zeta func tion in the
+expansion (G.2). The location of the ﬁrst nontrivial zero ρ1 is indicated.
+21
+=== PAGE 22 ===
+Appendix A: Estimation of the sum S1 of Eq. (16) and of other sums
+Here we present the derivation of the inequality (20) for the sum S1 of Eq. (16),
+based upon the form (19). By making a change of variable in the integ ral
+I1(n) ≡
+∫ ∞
+1
+[ n
+2k +
+(
+1 − 1
+k
+)n
+−
+(
+1 − 1
+2k
+)n]
+dk, (A.1)
+we obtain
+I1(n) =
+∫ 1
+0
+[ n
+2y + (1 −y)n −
+(
+1 − y
+2
+)n] dy
+y2. (A.2)
+We then evaluate this integral with an integration by parts, resultin g in
+I1(n) = n
+2
+{
+ψ(n) +γ − 1 +
+∫ 1
+0
+[ (
+1 −y
+2
+)n−1
+− (1 −y)n−1
+]
+dy
+y
+}
++ 2−n, (A.3)
+where ψ is the digamma function. Since the remaining integral is nonsingular an d
+O(1) the inequality (20) follows. However, we may continue much fur ther.
+By adding and subtracting 1 in the integrand in Eq. (A.3), we may write
+I1(n) = n
+2 [ψ(n) +γ − 1] + n
+2
+∫ 1
+0
+[ (
+1 − y
+2
+)n−1
+− 1
+]
+dy
+y +n
+2 [ψ(n) +γ] + 2−n, (A.4)
+where
+∫ 1
+0
+[ (
+1 −y
+2
+)n−1
+− 1
+]
+dy
+y = −ψ(n) −γ −
+∫ 1
+1/2
+(1 −w)n−1
+w dw + ln 2. (A.5)
+The integral on the right side of Eq. (A.5) may be evaluated in multiple w ays. A
+ﬁrst method is to use the Gauss hypergeometric function 2F1:
+∫ 1
+1/2
+(1 −w)n−1
+w dw = 1
+2n−1
+∫ 1
+0
+(1 −x)n−1
+1 +x dx = 1
+n2n−1 2F1(1, 1;n + 1; −1), (A.6)
+22
+=== PAGE 23 ===
+where
+2F1(1, 1;n + 1; −1) =
+∞∑
+j=0
+(−1)j j!
+(n + 1)j
+=n!
+∞∑
+j=0
+(−1)j j!
+(j +n)!, (A.7)
+and (.)k is the Pochhammer symbol. By using a partial fractional decomposit ion
+of the summand in Eq. (A.7), it is possible to show that the sum contain s a term
+n2n−1 ln 2, leading to a possibly new reduction of the particular 2F1 at minus unit
+argument. By applying the well known formula (e.g., [17])
+N!
+x(x + 1) · · ·(x +N) =
+N∑
+k=0
+(
+N
+k
+)
+(−1)k
+x +k, (A.8)
+whose right side is simply (−1)N ∆ N (1/x), where ∆ is the diﬀerence operator, ∆ f (x) =
+f (x + 1) −f (x), we obtain
+2F1(1, 1;n + 1; −1) = n
+n−1∑
+k=0
+(−1)k
+(
+n − 1
+k
+) ∞∑
+j=0
+(−1)j
+(j +k + 1)
+=n
+
+2n−1 ln 2 −
+n−1∑
+k=0
+(
+n − 1
+k
+)k−1∑
+j=0
+(−1)j
+j + 1
+
+. (A.9)
+Next, we proceed alternatively. By way of binomial expansion in the in tegrand of
+the second integral in Eq. (A.6), we have
+∫ 1
+0
+(1 −x)n−1
+1 +x dx =
+n−1∑
+j=0
+(−1)j
+(
+n − 1
+j
+)
+β(j + 1), (A.10)
+where [16]
+β(j + 1) = ( −1)j ln 2 +
+j∑
+k=1
+(−1)k+j
+k , (A.11)
+giving
+∫ 1
+1/2
+(1 −w)n−1
+w dw = ln 2 + 1
+2n−1
+n−1∑
+j=0
+(
+n − 1
+j
+) j∑
+k=1
+(−1)k
+k . (A.12)
+23
+=== PAGE 24 ===
+This result is in agreement with Eqs. (A.6) and (A.9). The sum in Eq. (A.1 2) is
+easily estimated, leading to
+−1 + 1
+2n ≤ n
+2
+∫ 1
+1/2
+(1 −w)n−1
+w dw ≤ 1 − 1
+2n. (A.13)
+Using Eqs. (A.4), (A.5), (A.12), and (A.13) gives
+I1(n) ≥ n
+2 [ψ(n) +γ + ln 2 − 1] − 1 + 21−n. (A.14)
+The approach followed here can be used to estimate many other Riem ann zeta
+function sums of interest. For instance, we have
+S0(n) ≡
+n∑
+m=2
+(−1)m
+(
+n
+m
+)
+ζ(m) =
+∞∑
+k=1
+[ n
+k − 1 +
+(
+1 − 1
+k
+)n]
+. (A.15)
+Then one can determine
+I0(n) =
+∫ ∞
+1
+[ n
+k − 1 +
+(
+1 − 1
+k
+)n]
+dk =
+n∑
+j=2
+(
+n
+j
+)
+(−1)j
+(j − 1), (A.16)
+obtained by binomial expansion and term-by-term integration. On t he other hand,
+by using
+I0(n) =
+∫ 1
+0
+[ny − 1 + (1 −y)n]dy
+y2, (A.17)
+and an integration by parts, we have S0 ≥I0 =n[ψ(n)+γ −1]+1. Since the digamma
+function satisﬁes [1] ψ(x) = ln x − 1/2x − 1/12x2 +O(x−4) as x → ∞, the inequality
+S0(n) ≥n(lnn +γ − 1) + 1 follows for n ≥ 2.
+Additionally, we may estimate
+S3(n) ≡
+n∑
+j=2
+(−1)j
+(
+n
+j
+)
+2jζ(j). (A.18)
+24
+=== PAGE 25 ===
+Then we have the comparison integral
+I3(n) =
+∫ ∞
+1
+[ 2n
+k − 1 +
+(
+1 − 2
+k
+)n]
+dk =
+∫ 1
+0
+[2ny − 1 + (1 − 2y)n]dy
+y2. (A.19)
+An integration by parts gives
+I3(n) = 2n
+∫ 1
+0
+[1 − (1 − 2y)n−1]dy
+y − 2n + 1 − (−1)n, (A.20)
+and then we have
+I3 = (−1)nn
+{
+ψ
+(1 −n
+2
+)
+−ψ
+(n
+2
+)
++ 2(−1)n[γ + ln 2 +ψ(n)] +π tan
+(nπ
+2
+)}
+−2n+1−(−1)n.
+(A.21)
+One may note that the last three terms on the right side of Eq. (A.21 ) enter with
+opposite signs from Eq. (26). The form of I3 in Eq. (A.21) may be further rewritten
+with the use of the relation [16] ψ[(1−n)/2] = ψ[(n+1)/2]−π tan(nπ/2), together with
+the doubling formula for the digamma function, ψ[(n+1)/2] = 2ψ(n)−ψ(n/2)−2 ln 2.
+The result is
+I3(n) = 2n
+{
+[1 + (−1)n]ψ(n) − (−1)nψ
+(n
+2
+)
++γ + [1 − (−1)n] ln 2
+}
+− 2n + 1− (−1)n,
+(A.22)
+which we ﬁnd to be very useful in Appendix E.
+Since we have developed many estimates based upon the digamma fun ction, it
+may be useful to record another inequality for this function. By wa y of Binet’s ﬁrst
+formula [16]
+ln Γ(z) = (z − 1/2) lnz −z + 1
+2 ln 2π +
+∫ ∞
+0
+(1
+2 − 1
+t + 1
+et − 1
+)e−tz
+t dt, (A.23)
+25
+=== PAGE 26 ===
+we have
+ψ(z) − lnz = −1
+z +
+∫ ∞
+0
+(1
+t − 1
+et − 1
+)
+e−tzdt. (A.24)
+By performing manipulations on this representation, it is then possib le to show that
+− 1
+2z − 1
+12z2 <ψ (z) − lnz <− 1
+2z. (A.25)
+The right inequality in (A.25) also follows immediately from the fact 1 /t−1/(et −1)<
+1/2 proved in Ref. [8].
+Another way to proceed in estimating a ﬁnite alternating sum such as S1 is to
+rewrite it as a contour integral [23, 15],
+N∑
+k=ℓ
+(
+N
+k
+)
+(−1)kf (k) = − 1
+2πi
+∫
+C
+B(N + 1, −z)f (z)dz, (A.26)
+where C is a positively oriented closed curve surrounding the points ℓ,ℓ + 1,...,N ,
+B(x,y ) = Γ(x)Γ(y)/Γ(x+y) is the Beta function, and f (z) is an analytic continuation
+of the discrete sequence f (k) to the complex plane, with no poles within the region
+surrounded by C. When the integrand decreases suﬃciently rapidly toward ±i∞, the
+asymptotic evaluation of this expression can be achieved by extend ing the contour
+of the integral to the left and collecting the residues at the newly en countered poles.
+However, in this paper we have been interested in gaining more inform ation than just
+an asymptotic evaluation.
+26
+=== PAGE 27 ===
+Appendix B: Alternative evaluation of the summation (30)
+Here we perform the sum of Eq. (30) by using the integral represe ntation of Eq.
+(38) for the zeta function. We also record two simpler sums which ar e useful in the
+proof of Theorem 3.
+Upon substituting Eq. (38) into the left side of Eq. (30) we ﬁnd that
+∞∑
+n=k
+ζ(n)
+2n
+(
+n − 1
+k − 1
+)
+= 1
+2k+1(k − 1)!
+∫ ∞
+0
+tk−1dt
+sinh(t/2). (B.1)
+With a change of variable and evaluation of the integral [16] we have
+∞∑
+n=k
+ζ(n)
+2n
+(
+n − 1
+k − 1
+)
+= 1
+2(k − 1)!
+∫ ∞
+0
+uk−1du
+sinhu = (1 − 2−k)ζ(k). (B.2)
+Then
+∞∑
+n=k
+[ζ(n) − 1]
+2n
+(
+n − 1
+k − 1
+)
+= (1 − 2−k)ζ(k) − 1
+2k
+∞∑
+n=0
+1
+2n
+(
+n +k − 1
+n
+)
+= (1 − 2−k)ζ(k) − 1,
+(B.3)
+which is Eq. (30).
+In connection with the proof of Theorem 3, and Eq. (33) in particula r, we write
+two other zeta function sums:
+∞∑
+n=2
+[ζ(n) − 1]
+n2n = 1 −γ
+2 + ln
+√π
+2 , (B.4a)
+∞∑
+n=2
+[ζ(n) − 1]
+2n = ln 2 − 1
+2. (B.4b)
+27
+=== PAGE 28 ===
+Appendix C: Alternative proof of Theorem 3
+We proceed to deduce Theorem 3 in a way similar to the proof of Theor em 5 of
+Ref. [31]. In the process, we correct a typographical error which appears in both that
+proof and Remark 5 and Eq. (1.11) of this reference.
+From the deﬁnition of the xi function in terms of the zeta function a nd Eq. (28),
+we have
+ξ′(s)
+ξ(s) = 1
+s − 1
+2 lnπ + 1
+2ψ
+(s
+2
+)
++ ζ ′(s)
+ζ(s) + 1
+s − 1 =
+∞∑
+k=0
+(−1)kσk+1(s − 1)k, (C.1)
+where the sum of the last two terms on the left side is given by Eq. (12 ) and simply
+1/s =
+∑ ∞
+j=0(1 −s)j for |1 −s|< 1. From the expansion [16]
+ψ(x) = −γ +
+∞∑
+k=2
+(−1)kζ(k)(x − 1)k−1, (C.2)
+and the doubling formula satisﬁed by the digamma function, ψ(2z) = 1
+2[ψ(z) +ψ(z +
+1/2)] + ln 2, we obtain
+1
+2ψ
+(s
+2
+)
+= −γ
+2 +
+∞∑
+k=1
+(−1)k+1ζ(k + 1)(1 − 2−k−1)(s − 1)k − ln 2. (C.3)
+The substitution of Eq. (C.3) into Eq. (C.1) and the equating of coeﬃ cients of like
+powers of s − 1 gives again Eq. (33) for σ1 from the constant term and Eq. (29) from
+the rest of the terms. This gives Theorem 3, linking sums of reciproc al powers of the
+complex zeros of the zeta function with the sequence {ηj} appearing in the expansion
+(12) of the logarithmic derivative of the zeta function.
+28
+=== PAGE 29 ===
+Appendix D: Tabulated numerical values
+k λk ηk
+0 -0.577216
+1 0.0230957 0.187546
+2 0.0923457 -0.0516886
+3 0.207639 0.0147517
+4 0.368793 -0.00452448
+5 0.575543 0.0014468
+6 0.827566 -0.000471544
+7 1.12446 0.00015518
+8 1.46576 -0.0000513452
+9 1.85092 0.0000170414
+10 2.27934 −5.66605 × 10−6
+11 2.75036 1.88585 × 10−6
+12 3.26326 −6.28055 × 10−7
+13 3.81724 2.09241 × 10−7
+14 4.41148 −6.97247 × 10−8
+15 5.04508 2.32372 × 10−8
+16 5.71711 −7.74484 × 10−9
+17 6.42658 2.58144 × 10−9
+18 7.17248 −8.60444 × 10−10
+19 7.95374 2.86808 × 10−10
+20 8.76928 −9.56012 × 10−11
+21 9.61796 3.18668 × 10−11
+22 10.4986 −1.06222 × 10−11
+23 11.4101 3.54072 × 10−12
+24 12.3513 −1.18024 × 10−12
+25 13.3210 3.93412 × 10−13
+26 14.3179 −1.31137 × 10−13
+27 15.3408 4.37124 × 10−14
+28 16.3885 −1.45708 × 10−14
+29 17.4599 4.85694 × 10−15
+30 18.5538 −1.61898 × 10−15
+29
+=== PAGE 30 ===
+k λk ηk
+31 19.6689 5.3966 × 10−16
+32 20.8041 −1.79887 × 10−16
+33 21.9582 5.99622 × 10−17
+34 23.1301 −1.99874 × 10−17
+35 24.3188 6.66247 × 10−18
+36 25.5232 −2.22082 × 10−18
+37 26.7422 7.40274 × 10−19
+38 27.9749 −2.46755 × 10−19
+39 29.2202 8.22527 × 10−20
+40 30.4774 −2.74176 × 10−20
+41 31.7454 9.13919 × 10−21
+42 33.0236 −3.0464 × 10−21
+43 34.3111 1.01547 × 10−21
+44 35.6072 −3.38488 × 10−22
+45 36.9113 1.12829 × 10−22
+46 38.2227 −3.76098 × 10−23
+47 39.5408 1.25366 × 10−23
+48 40.8653 −4.17887 × 10−24
+49 42.1955 1.39295 × 10−24
+50 43.5311 −4.64318 × 10−25
+51 44.8718 1.54773 × 10−25
+52 46.2172 −5.15909 × 10−26
+53 47.5671 1.71970 × 10−26
+54 48.9214 −5.73232 × 10−27
+55 50.2798 1.91077 × 10−27
+56 51.6423 −6.36925 × 10−28
+57 53.0089 2.12308 × 10−28
+58 54.3795 −7.07695 × 10−29
+59 55.7542 2.35898 × 10−29
+60 57.1331 −7.86327 × 10−30
+30
+=== PAGE 31 ===
+k λk ηk
+61 58.5163 2.62109 × 10−30
+62 59.9039 −8.73697 × 10−31
+63 61.2962 2.91232 × 10−31
+64 62.6934 −9.70775 × 10−32
+65 64.0957 3.23591 × 10−32
+66 65.5033 −1.07864 × 10−32
+67 66.9167 3.59546 × 10−33
+68 68.3361 −1.19849 × 10−33
+69 69.7618 3.99496 × 10−34
+70 71.1942 −1.33165 × 10−34
+71 72.6337 4.43884 × 10−35
+72 74.0805 −1.47961 × 10−35
+73 75.5350 4.93205 × 10−36
+74 76.9976 −1.64402 × 10−36
+75 78.4686 5.48005 × 10−37
+76 79.9484 −1.82668 × 10−37
+77 81.4373 6.08895 × 10−38
+78 82.9357 −2.02964 × 10−38
+79 84.4437 6.76550 × 10−39
+80 85.9617 −2.25516 × 10−39
+81 87.4900 7.51722 × 10−40
+82 89.0288 −2.50574 × 10−40
+83 90.5782 8.35246 × 10−41
+84 92.1386 −2.78415 × 10−41
+85 93.7099 9.28051 × 10−42
+86 95.2924 −3.09350 × 10−42
+87 96.8862 1.03117 × 10−42
+88 98.4912 −3.43723 × 10−43
+89 100.1076 1.14574 × 10−43
+90 101.7352 −3.81914 × 10−44
+31
+=== PAGE 32 ===
+k λk ηk
+91 103.3741 1.27304 × 10−44
+92 105.0242 −4.24349 × 10−45
+93 106.6852 1.41450 × 10−45
+94 108.3572 −4.71500 × 10−46
+95 110.0398 1.57166 × 10−46
+96 111.7328 −5.23888 × 10−47
+97 113.4361 1.74629 × 10−47
+98 115.1492 −5.82098 × 10−48
+99 116.8719 1.94032 × 10−48
+100 118.6038 −6.46775 × 10−49
+32
+=== PAGE 33 ===
+Appendix EI: Sum estimations and lower bounds pertinent to o ther Dirichlet functions
+Analogous to the Corollary which we have presented below Eq. (24) o f the text,
+here we develop similar lower bounds appropriate for explicit formulas for Dirichlet
+and Hecke L-functions. We make substantial use of the very rece nt results of Ref.
+[26], of which we need to recall some details. We relegate to the end of this ﬁrst part
+of the Appendix some relations concerning elementary sums. In the second part, we
+provide independent derivations of the major results, Theorems 1 and 2, of Ref. [26].
+Let χ be a primitive Dirichlet character of modulus r, and L(s,χ ) the Dirichlet
+L-function of character χ. The function
+ξ(s,χ ) =
+(π
+r
+)−(s+a)/2
+Γ
+(s +a
+2
+)
+L(s,χ ), (E.1)
+where a is 0 if χ(−1) = 1 and a is 1 if χ(−1) = −1, satisﬁes the functional equation
+ξ(s,χ ) = ǫχξ(1 − s, ¯χ), with ǫχ a constant of absolute value one. The function
+ξ(s,χ ) is an entire function of order one and has a product representat ion ξ(s,χ ) =
+ξ(0,χ )∏
+ρ(1 −s/ρ), where the product is over all the zeros of ξ(s,χ ).
+We put
+λχ(n) =
+∑
+ρ
+[
+1 −
+(
+1 − 1
+ρ
+)n]
+, n ≥ 1. (E.2)
+We presume that λχ(n)> 0 for all n = 1, 2,... if and only if all of the zeros of ξ(s,χ )
+are located on the critical line Re s = 1/2. Then, Li has obtained [26]
+λχ(n) = Sχ(n) + n
+2
+(
+ln r
+π −γ
+)
++τχ(n), (E.3)
+33
+=== PAGE 34 ===
+where
+Sχ(n) ≡ −
+n∑
+j=1
+(
+n
+j
+)
+(−1)j−1
+(j − 1)!
+∞∑
+k=1
+Λ(k)
+k ¯χ(k)(lnk)j−1,
+= −
+∞∑
+k=1
+Λ(k)
+k ¯χ(k)L1
+n−1(lnk), (E.4)
+τχ(n) =
+n∑
+j=2
+(
+n
+j
+)
+(−1)j(1 − 2−j)ζ(j) − n
+2
+∞∑
+ℓ=1
+1
+ℓ(2ℓ − 1) for χ(−1) = 1,
+=
+n∑
+j=2
+(
+n
+j
+)
+(−1)j2−jζ(j) for χ(−1) = −1, (E.5)
+and Lα
+n is an associated Laguerre polynomial. We recall Eq. (25) of the text ,
+τχ(n) = S1 −n ln 2 if χ(−1) = 1.
+=S0 −S1, if χ(−1) = −1. (E.6)
+whereS0 is deﬁned in Eq. (A.15) of Appendix A. Therefore, by using the summa tion
+estimations presented in Appendix A, we obtain
+λχ ≥Sχ(n) + n
+2 lnn + n
+2
+(
+ln r
+π − 1 − 2 ln 2
+)
++ 1
+2 for χ(−1) = 1,
+≥Sχ(n) + n
+2 lnn + n
+2
+(
+ln r
+π − 1
+)
++ 1
+2 for χ(−1) = −1. (E.7)
+In accord with the discussion of the text, we conjecture that the sum Sχ is ’small’.
+By this we mean that Sχ(n) could be O(n) and probably even Sχ is O(n1/2+ǫ), for
+ǫ> 0. This could result from a near exponential amount of cancellation in this sum
+due to the phases present in the Dirichlet characters.
+We next introduce the function
+ξE(s) = cENs/2(2π)−sΓ
+(
+s + 1
+2
+)
+LE
+(
+s + 1
+2
+)
+, (E.8)
+34
+=== PAGE 35 ===
+whereLE is the L-series associated with an elliptic curve E over the rational numbers,
+N is the conductor, and cE is a constant chosen so that ξE(1) = 1 [7, 30]. The function
+of Eq. (E.8) is an entire function of order one and satisﬁes ξE(s) = wξE(1 −s) where
+w = (−1)r with r being the vanishing order of ξE(s) at s = 1/2.
+We let
+λE(n) =
+∑
+ρ
+[
+1 −
+(
+1 − 1
+ρ
+)n]
+, n ≥ 1, (E.9)
+where the sum is over all zeros ρ of ξE(s). All of these zeros lie on the critical line if
+and only if [26] λE(n)> 0 for all n = 1, 2,... .
+Now Li [26] has obtained the explicit formula
+λE(n) = SE+n
+(
+ln
+√
+N
+2π −γ
+)
++n
+(
+−2
+3 +
+∞∑
+ℓ=1
+3
+ℓ(2ℓ + 3)
+)
++
+n∑
+j=2
+(
+n
+j
+)
+(−1)j
+∞∑
+ℓ=1
+1
+(ℓ + 1/2)j,
+(E.10)
+where
+SE(n) ≡ −
+n∑
+j=1
+(
+n
+j
+)
+(−1)j−1
+(j − 1)!
+∞∑
+k=1
+Λ(k)
+k3/2 b(k)(lnk)j−1,
+= −
+∞∑
+k=1
+Λ(k)
+k3/2 b(k)L1
+n−1(lnk). (E.11)
+In Eq. (E.11), b(pk) = ak
+p if p|N and b(pk) = αk
+p +βk
+p if (p,N ) = 1, where for each
+prime number p,αp andβp are the roots of the equation T 2 −apT +p and the values
+of ap are connected with the reduction of E at p [26].
+We recall Eq. (26) of the text, so that we may write
+λE(n) = SE(n)+n
+(
+ln
+√
+N
+2π −γ
+)
++2
+(
+1 − 1
+3 ln 2
+)
+n+S3−S0 +2n+(−1)n−1, (E.12)
+35
+=== PAGE 36 ===
+where the zeta function sum S3 is deﬁned in Eq. (A.18) of Appendix A (and see
+below, Eq. (E.15)). Then, by the results of Appendix A we obtain
+λE(n) ≥SE(n) +n lnn +n ln
+√
+N
+2π +
+(
+3 + 4
+3 ln 2
+)
+n − 1. (E.13)
+Again, we conjecture that the sum SE is O(n1/2+ǫ). The values of ap include 0 and
+±1, so that the values of b(pk) can either be zero or include signiﬁcant sign alternation
+when p|N. Similarly, for ( p,N ) = 1, the roots of T 2 −apT +p can include ±√p and
+[±1 ± √1 − 4p]/2, giving various sign changes in b(pk). When E has good reduction
+at p, −2√p ≤ ap ≤ 2√p, so that it again appears that b(pk) can have signiﬁcant
+changes in sign, possibly leading to much cancellation in SE.
+Concerning Eqs. (E.6) and (E.12) we record and brieﬂy discuss some elementary
+summation results. We have
+ln 2 =
+∞∑
+n=1
+1
+2n − 1 − 1
+2
+∞∑
+n=1
+1
+n, (E.14a)
+giving
+ln 2 = 4
+3 − 3
+∞∑
+n=1
+1
+2n(2n + 3), (E.14b)
+leading to
+−2
+3 +
+∞∑
+n=1
+3
+n(2n + 3) = 2(1 − ln 2). (E.14c)
+In addition, we have
+∞∑
+ℓ=1
+1
+(ℓ + 1/2)j =
+∞∑
+m=1
+2j
+(2m + 1)j =
+∞∑
+m=1
+( 2
+2m + 1
+)j
++
+∞∑
+m=1
+( 2
+2m
+)j
+−ζ(j)
+36
+=== PAGE 37 ===
+=
+∞∑
+k=3,odd
+(2
+k
+)j
++
+∞∑
+k=2,even
+(2
+k
+)j
+−ζ(j)
+=
+∞∑
+k=2
+(2
+k
+)j
+−ζ(j) = 2j[ζ(j) − 1] −ζ(j). (E.15)
+This equation is a restatement of the relation between the Riemann z eta function and
+the Hurwitz zeta function ζ(s,a ): ζ(s) = ζ(s, 1) = (2s − 1)−1ζ(s, 1/2).
+The sum of Eq. (E.15) also has a close relation to ψ(n)(1/2), where ψ(j) is the
+polygamma function, because [16]
+ψ(n)
+(1
+2
+)
+= (−1)n+1n!
+∞∑
+k=0
+1
+(k + 1/2)n+1. (E.16a)
+Then, with the use of Eq. (E.15), we have
+ψ(n)
+(1
+2
+)
+= (−1)n+1n!(2n+1 − 1)ζ(n + 1), (E.16b)
+which is the expected result. In general, we have ψ(n)(x) = ( −1)n+1n!ζ(n + 1,x ).
+We may also write an integral representation for the polygamma fun ction which
+is very useful for evaluating terms in explicit formulas for sums over zeros of zeta
+functions. By diﬀerentiating an integral representation for ψ(z) +γ, we have
+ψ(m−1)(z) = ( −1)m
+∫ ∞
+0
+e−zttm−1
+1 −e−t dt = (−1)m
+2
+∫ ∞
+0
+tm−1e−(z−1/2)t
+sinh(t/2) dt, (E.17)
+giving the speciﬁc values
+ψ(m−1)
+(1
+2
+)
+= (−1)m2m−1
+∫ ∞
+0
+ym−1
+sinhydy, (E.18a)
+ψ(m−1)(1) = ( −1)m2m−1
+∫ ∞
+0
+ym−1e−y
+sinhy dy, (E.18b)
+37
+=== PAGE 38 ===
+and
+ψ(m−1)
+(3
+2
+)
+= (−1)m
+2
+∫ ∞
+0
+tm−1e−t
+sinh(t/2)dt. (E.18c)
+38
+=== PAGE 39 ===
+Appendix EII: Explicit Formulas for Dirichlet and Hecke L-F unctions
+Here we give alternative derivations of the very recent main results of Li [26],
+Theorems 1 and 2, of Ref. [26]. The procedure is very similar to the pr oof of Theorem
+1 of the text. The Riemann zeta function case extends since the Dir ichlet and Hecke
+L-functions also have product expansions over their zeros and ha ve explicit forms
+of their logarithmic derivatives. These derivations also make it very a pparent that
+certain polygamma constants are the source of the elementary su ms described in the
+ﬁrst part of this Appendix.
+Due to the product expansion of ξ(s,χ ), we have the formula
+λχ(n) =
+n∑
+m=1
+(
+n
+m
+)
+1
+(m − 1)!
+[
+dm
+dsm lnξ(s,χ )
+]
+s=1
+. (E.19)
+This equation is the analog of Eq. (15) of the text or Eq. (G.5) of App endix G for
+the Riemann zeta function case. From Eq. (E.1) we have
+lnξ(s,χ ) = −(s +a)
+2 ln
+(π
+r
+)
++ ln Γ
+(s +a
+2
+)
++ lnL(s,χ ), (E.20)
+giving
+d
+ds lnξ(s,χ ) = ln
+(r
+π
+)
++ 1
+2ψ
+(s +a
+2
+)
+−
+∞∑
+n=1
+Λ(n)χ(n)
+ns , Re s> 1, (E.21)
+where ψ = Γ ′/Γ is the digamma function and Λ is the von Mangoldt function, such
+that Λ( k) = ln p when k is a power of a prime and Λ( k) = 0 otherwise. For m ≥ 2,
+we then have
+[lnξ(s,χ )](m) = 1
+2mψ(m−1)
+(s +a
+2
+)
+− (−1)m−1
+∞∑
+n=1
+Λ(n)χ(n)
+ns lnm−1n, (E.22)
+39
+=== PAGE 40 ===
+whereψ(n) is again the polygamma function. By taking the limit s → 1 in Eq. (E.22)
+we then obtain the representation
+λχ(n) =
+[
+ln
+(r
+π
+)
++ψ
+(a + 1
+2
+)] n
+2 +
+n∑
+m=2
+(
+n
+m
+)
+1
+(m − 1)!2−mψ(m−1)
+(a + 1
+2
+)
+−
+n∑
+m=1
+(
+n
+m
+)
+(−1)m−1
+(m − 1)!
+∞∑
+n=1
+Λ(n)χ(n)
+n lnm−1n, (E.23)
+where ψ(1/2) = −γ − 2 ln 2, ψ(1) = −γ, γ is the Euler constant, ψ(m−1)(1) =
+(−1)m(m − 1)!ζ(m), and ψ(m−1)(1/2) is given in Eq. (E.16b). The inﬁnite series
+in the sum Sχ(n) is convergent by the prime number theorem for arithmetic progre s-
+sions [26, 12]. We have therefore obtained the result Eq. (E.3).
+Similarly, due to the product expansion of ξE(s), we have the formula
+λE(n) =
+n∑
+m=1
+(
+n
+m
+)
+1
+(m − 1)!
+[
+dm
+dsm lnξE(s)
+]
+s=1
+, (E.24)
+where from Eq. (E.8) we have
+lnξE(s) = ln cE + s
+2 lnN −s ln 2π + ln Γ
+(
+s + 1
+2
+)
++ lnLE
+(
+s + 1
+2
+)
+, (E.25)
+and
+d
+ds lnξE(s) = 1
+2 lnN − ln 2π +ψ
+(
+s + 1
+2
+)
+−
+∞∑
+n=1
+Λ(n)b(n)
+ns+1/2 , Re s> 1, (E.26)
+where b(n) is discussed in the ﬁrst part of this Appendix. For m ≥ 2, we then have
+[lnξE(s)](m) =ψ(m−1)
+(
+s + 1
+2
+)
+− (−1)m−1
+∞∑
+n=1
+Λ(n)b(n)
+ns+1/2 lnm−1n. (E.27)
+40
+=== PAGE 41 ===
+By taking the limit s → 1 in Eq. (E.27) we then obtain the representation
+λE(n) =
+[
+ln
+(√
+N
+2π
+)
++ψ
+(3
+2
+)]
+n +
+n∑
+m=2
+(
+n
+m
+)
+1
+(m − 1)!ψ(m−1)
+(3
+2
+)
+−
+n∑
+m=1
+(
+n
+m
+)
+(−1)m−1
+(m − 1)!
+∞∑
+n=1
+Λ(n)b(n)
+n3/2 lnm−1n, (E.28)
+whereψ(3/2) = 2(1 −ln 2)−γ andψ(m−1)(3/2) = ( −1)m(m−1)![2m(ζ(m)−1)−ζ(m)],
+giving the result Eq. (E.12).
+Finally, we consider the case of the Dedekind zeta function ζk, for which we need
+to introduce some additional notation. We let k be an algebraic number ﬁeld with
+r1 real places, r2 imaginary places, and degree ˜ n = r1 + 2r2. The zeta function
+ζk has the product expansion ζk(s) = ∏
+p(1 −Np −s)−1 for Re s > 1, where the
+product is taken over all ﬁnite prime divisors of k. We put G1(s) = π−s/2Γ(s/2) and
+G2(s) = (2π)1−sΓ(s), so that obviously G1(1) = G2(1) = 1. Then the function
+Zk(s) ≡Gr1
+1 (s)Gr2
+2 (s)ζk(s), (E.29)
+satisﬁes the functional equation Zk(s) = |dk|1/2−sZk(1 −s), where dk is the discrimi-
+nant of k.
+We letck = 2r1(2π)r2hR/e, where h,R, and e are respectively the number of ideal
+classes of k, the regulator of k, and the number of roots of unity in k. With
+ξk(s) ≡c−1
+k s(s − 1)|dk|s/2Zk(s), (E.30)
+this function is entire and has ξk(0) = 1 [40, 32]. We ﬁrst present a motivation that
+an explicit formula analogous to that for λE and λχ exists, and then develop the
+41
+=== PAGE 42 ===
+corresponding explicit formula, putting
+λn =
+n∑
+m=1
+(
+n
+m
+)
+1
+(m − 1)!
+[
+dm
+dsm lnξk(s)
+]
+s=1
+. (E.31)
+From Eqs. (E.29) and (E.30) we have
+lnξk(s) = − lnck + lns + ln(s − 1) + s
+2 ln |dk| +r1
+[
+−s
+2 lnπ − ln Γ
+(s
+2
+)]
++r2[(1 −s) ln(2π) + ln Γ(s)] + lnζk(s), (E.32)
+and
+d
+ds lnξk(s) = 1
+s + 1
+s − 1+ 1
+2 ln |dk|+r1
+2
+[
+− lnπ +ψ
+(s
+2
+)]
++r2[− ln(2π)+ψ(s)]+ζ ′
+k(s)
+ζk(s), Res> 1,
+(E.33)
+where [34]
+ζ ′
+k(s)
+ζk(s) = −
+∑
+p
+∞∑
+m=1
+lnNp
+Npms, Re s> 1. (E.34)
+In Eq. (E.34), p runs over the prime ideals of k and N represents the norm.
+Form ≥ 2, we then have
+dm
+dsm lnξk(s) = (−1)m(m − 1)!
+sm−1 + (−1)m(m − 1)!
+(s − 1)m−1 + r1
+2mψ(m−1)
+(s
+2
+)
++r2ψ(m−1)(s)
++ dm−1
+dsm−1
+[
+ζ ′
+k(s)
+ζk(s)
+]
+, Re s> 1, (E.35)
+where the evaluation of the ﬁrst, third and fourth terms on the rig ht side of Eq.
+(E.35) at s = 1 gives the contribution to λn of
+λ(ψ)
+n =
+n∑
+m=2
+(−1)m
+(
+n
+m
+){
+1 + [(1 − 2−m)r1 +r2]ζ(m)
+}
+. (E.36)
+42
+=== PAGE 43 ===
+The evaluation of all of the terms on the right side of Eq. (E.33) but t he second and
+last at s = 1 gives to λn the contribution n[1 + 1
+2 ln |dk| − ˜n
+2 (lnπ +γ) − (r1 +r2) ln 2].
+With the aid of Eq. (E.34) we have
+dm−1
+dsm−1
+[
+ζ ′
+k(s)
+ζk(s)
+]
+= −
+∑
+p
+∞∑
+ℓ=1
+(−1)m−1ℓm−1 lnmNp
+Npℓs , Re s> 1. (E.37)
+Taking the limits → 1 in Eqs. (E.33)–(E.35) and (E.37) should yield the ﬁnal explicit
+representation forλn, subject to justiﬁcation of the convergence of the resulting ser ies.
+43
+=== PAGE 44 ===
+Appendix F: Further Riemann zeta function sum estimations
+As a generalization of sums such as S1 of Eq. (16) of the text and S0 of Eq. (A.15)
+of Appendix A, we consider here sums of the form
+Sν(κ,n ) ≡
+n∑
+m=ν+2
+(−1)m
+(
+n
+m
+)
+κmζ(m −ν), (F.1)
+where ν + 2 ≤ n, which can be extended to |Re ν| + 2 ≤ n. In Eq. (F.1) we have
+introduced both the positive multiplier κ and shift ν. The special cases of Eq. (F.1)
+of direct interest to this paper are ν = 0 with κ = 1 or κ = 2 ±1. We are interested to
+both reformulate the sum Sν and to obtain a lower bound for it.
+If we reorder the two sums in Eq. (F.1), the inner sum takes the for m
+n∑
+m=ν+2
+(−1)m
+(
+n
+m
+)
+κm
+jm−ν = (−1)νκν+2n!
+j2
+n−ν−2∑
+m=0
+(1)m
+(n −m −ν − 2)!(m +ν + 2)!
+1
+m!
+(
+κ
+j
+)m
+.
+(F.2)
+If we use the relations ( m +ν + 2)! = ( ν + 2)!(ν + 3)m and (n −m −ν − 2)! =
+(n −ν − 2)!/(2 +ν −n)m, where the Pochhammer symbol ( z)n = Γ(z +n)/Γ(z), we
+obtain the terminating hypergeometric form
+n∑
+m=ν+2
+(−1)m
+(
+n
+m
+)
+κm
+jm−ν = (−1)ν
+(
+n
+ν + 2
+)
+κν+2
+j2 2F1(1, 2 −n +ν;ν + 3;κ/j), (F.3)
+giving
+Sν(κ,n ) = ( −1)ν
+(
+n
+ν + 2
+)
+κν+2
+∞∑
+j=1
+1
+j2 2F1(1, 2 −n +ν;ν + 3;κ/j). (F.4)
+We now deﬁne the comparison integral
+Iν(κ,n ) ≡ (−1)ν
+(
+n
+ν + 2
+)
+κν+2
+∫ ∞
+1
+1
+j2 2F1(1, 2 −n +ν;ν + 3;κ/j)dj. (F.5)
+44
+=== PAGE 45 ===
+With the change of variable v = 1/j the integration is easily accomplished [16] in
+terms of the generalized hypergeometric function pFq [3]:
+Iν(κ,n ) = ( −1)ν
+(
+n
+ν + 2
+)
+κν+2
+3F2(1, 1,ν + 2 −n; 2,ν + 3;κ). (F.6)
+Equation (F.6) is simply the result of term-by-term integration and t he fact that
+(1)k/(2)k = 1 /(k + 1). The relation Sν(κ,n ) ≥ Iν(κ,n ) then yields a family of
+inequalities.
+When κ is unity we have the reduction ψ(z) = (z − 1) 3F2(1, 1, 2 −z; 2, 2; 1) −γ
+and therefore
+Iν(1,n ) = ( −1)ν
+(
+n
+ν + 1
+)
+[ψ(n + 1) +γ −Hν+1], (F.7)
+where ψ is the digamma function and Hn = ∑ n
+k=1 1/k is the nth harmonic number
+[10], which can also be written as
+Iν(1,n ) = ( −1)ν
+(
+n
+ν + 1
+)
+[Hn −Hν+1]. (F.8)
+Forν = 0, this gives the result of Eq. (A.17). An alternative form of Iν(1,n ) can be
+obtained by applying Theorem 1 of Ref. [36]:
+Iν(1,n ) = ( −1)ν
+(
+n
+ν + 1
+)[
+ψ(n −ν) −ψ(ν + 2) −
+ν+1∑
+k=1
+(−ν − 1)k
+k(n −ν)k
+]
+, (F.9)
+valid for n >0 and integral ν ≥ − 1. The relations above at unit argument can also
+be looked upon as special cases of [28]
+3F2(1, 1,ν + 1; 2,λ + 1; 1) = λ
+ν [ψ(λ) −ψ(λ −ν)], ν ⁄= 0, Re(λ −ν)> 0,
+45
+=== PAGE 46 ===
+=λψ′(λ), ν = 0, Re(λ)> 0, (F.10)
+i.e.,
+∞∑
+n=1
+(ν)n
+n(λ)n
+=ψ(λ) −ψ(λ −ν), Re(λ −ν)> 0, λ ⁄= 0, −1, −2,.... (F.11)
+Forκ = 1/2 we obtain
+Iν(1/2,n ) = ( −1)ν
+(
+n
+ν + 2
+)
+1
+2ν+2 3F2(1, 1,ν + 2 −n; 2,ν + 3; 1/2), (F.12)
+which for ν = 0 is in agreement with I0 −I1, where I1 is given in Eq. (24) of the text.
+Forκ = 2 we obtain
+Iν(2,n ) = ( −1)ν
+(
+n
+ν + 2
+)
+2ν+2
+3F2(1, 1,ν + 2 −n; 2,ν + 3; 2), (F.13)
+which is in agreement with I3 of Eq. (A.22) of Appendix A when ν = 0.
+46
+=== PAGE 47 ===
+Appendix G: Alternative representation of Li’s λj’s
+Here we extend Theorem 1, based upon an expansion of the logarith mic derivative
+of the Riemann zeta function with a larger radius of convergence th an Eq. (12) of
+the text. We demonstrate the following representation,
+λn = −
+n∑
+m=1
+(
+n
+m
+)
+η(12)
+m−1 + 7 −
+[( 2
+3
+)n
++
+(4
+5
+)n
++
+(6
+7
+)n
++
+(8
+9
+)n
++
+(10
+11
+)n
++
+(12
+13
+)n]
++
+n∑
+m=2
+(−1)m
+(
+n
+m
+)
+(1 − 2−m)ζ(m) − n
+2 (γ + lnπ + 2 ln 2), (G.1)
+where we currently do not have an arithmetic interpretation of the constantsη(12)
+j .
+From the expansion arounds = 1 of the logarithmic derivative of the zeta function,
+ζ ′(s)
+ζ(s) = − 1
+(s − 1) +
+6∑
+j=1
+1
+(s + 2j) −
+∞∑
+p=0
+η(12)
+p (s − 1)p, (G.2)
+we have
+lnζ(s) = − ln(s − 1) +
+6∑
+j=1
+ln(s + 2j) −
+∞∑
+p=1
+η(12)
+p−1
+p (s − 1)p + constant, (G.3)
+giving
+lnξ(s) = − ln 2 + lns −s
+2 lnπ + ln Γ
+(s
+2
+)
++ constant +
+6∑
+j=1
+ln(s + 2j) −
+∞∑
+p=1
+η(12)
+p−1
+p (s − 1)p.
+(G.4)
+With the expansion (G.2) the radius of convergence has been increa sed to 13 (see
+Figure 1), as we have included the contribution of all trivial zeros of ζ prior to the
+encounter with the ﬁrst complex zero ρ1. We next evaluate
+λn =
+n∑
+m=1
+(
+n
+m
+)
+1
+(m − 1)!
+[
+dm
+dsm lnξ(s)
+]
+s=1
+, (G.5)
+47
+=== PAGE 48 ===
+using again the special values ψ(1/2) = −γ − 2 ln 2 andψ(n)(1/2) = ( −1)n+1n!(2n+1 −
+1)ζ(n + 1) for n ≥ 1, where ψ = Γ ′/Γ is the digamma function and ψ(j) is the
+polygamma function. Recalling the relations
+dj
+dsj ln(s + 2k) = −(−1)j(j − 1)!
+(s + 2k)j , j ≥ 1, (G.6)
+and (dj/dsj)(s − 1)k = 0 for k <j, and the sum
+n∑
+m=1
+(
+n
+m
+)(
+− 1
+k
+)m
+= −1 +
+(
+k − 1
+k
+)n
+, (G.7)
+we ﬁnd Eq. (G.1). The constant term of 6 = 7 − 1 in Eq. (G.1) serves as a count
+of the number of trivial zeros of ζ accounted for in the expansion (G.2) while the
+additional explicit negative terms beyond Eq. (10) of the text appe aring there are
+exponentially decreasing with n. We have developed in Eq. (G.2) an expansion with
+coeﬃcients η(12)
+j whose magnitudes increase no faster than 1 /13j for large j.
+By using Eq. (20) for S1, an extension of the Corollary of the text is
+Corollary G1
+λn ≥ n
+2 lnn − (1 + lnπ + 2 ln 2)n
+2 + 15
+2
+−
+[( 2
+3
+)n
++
+(4
+5
+)n
++
+(6
+7
+)n
++
+(8
+9
+)n
++
+(10
+11
+)n
++
+(12
+13
+)n]
+− |S(12)
+2 |, (G.8)
+where we have put S(12)
+2 ≡ −
+∑ n
+m=1
+(n
+m
+)
+η(12)
+m−1.
+In developing expansions such as
+ζ(s−> −2k) = ζ ′(−2k)(s+2k)+ 1
+2ζ ′′(−2k)(s+2k)2+ 1
+6ζ ′′′(−2k)(s+2k)3+O[(s+2k)4], k ≥ 1,
+(G.9)
+48
+=== PAGE 49 ===
+and
+ζ ′(s)
+ζ(s) = 1
+(s + 2k) + ζ ′′(−2k)
+2ζ ′(−2k) +
+[
+− [ζ ′′(−2k)]2
+4[ζ ′(−2k)]2 + ζ ′′′(−2k)
+3ζ ′(−2k)
+]
+(s + 2k) +O[(s + 2k)2],
+(G.10)
+it is useful to have the derivatives
+ζ ′(−2n) = ( −1)n (2n)!
+2(2π)2nζ(2n + 1), n ≥ 1, (G.11)
+and
+ζ ′′(−2n) = ( −1)n (2n)!
+2(2π)2n
+{[
+ln(4π2) − 2ψ(2n) − 1
+n
+]
+ζ(2n + 1) − 2ζ ′(2n + 1)
+}
+, n ≥ 1,
+(G.12)
+which follow easily by diﬀerentiating the functional equation for ζ(s) and putting
+s = 2n + 1.
+We note in passing the numerical value of the constant
+1
+2
+6∑
+k=1
+ζ ′′(−2k)
+ζ ′(−2k) = −81959
+5544 + 6(γ + ln 2π) −
+6∑
+k=1
+ζ ′(2k + 1)
+ζ(2k + 1) ≃ −0.0926073. (G.13)
+We see from Eq. (G.2) that the value of η(12)
+0 is given by
+η(12)
+0 =γ −
+6∑
+k=1
+1
+2k + 1 ≃ 0.377918. (G.14)
+Therefore we can modify Eq. (G.8) to
+Corollary G2
+λn ≥ n
+2 lnn − (1 + lnπ + 2 ln 2)n
+2 + 15
+2
+−
+[( 2
+3
+)n
++
+(4
+5
+)n
++
+(6
+7
+)n
++
+(8
+9
+)n
++
+(10
+11
+)n
++
+(12
+13
+)n]
+−
+⏐
+⏐
+⏐η(12)
+0
+⏐
+⏐
+⏐n −
+⏐
+⏐
+⏐
+⏐
+⏐
+n∑
+m=2
+(
+n
+m
+)
+η(12)
+m−1
+⏐
+⏐
+⏐
+⏐
+⏐.
+(G.15)
+49
+=== PAGE 50 ===
+Appendix H: On derivatives of the Riemann zeta function
+Here we capture various formulas for integer order derivatives of the zeta func-
+tion. We anticipate that these could be useful in further developme nt of the discrete
+moment problem for the coeﬃcients ηj of Eqs. (10)-(14) and Eq. (41) and η(12)
+j of
+Eqs. (G.1)-(G.4) of Appendix G.
+We ﬁrst note that the functional equation for ζ, along with the evaluation ζ(1 −
+2n) = −B2n/2n for n ≥ 1, where Bn are Bernoulli numbers, yields
+ζ ′(−1) = ζ ′(2)
+2π2 + 1
+12 (ln 2π +γ), (H.1)
+and
+ζ ′′(−1) = 1
+6
+(
+π2
+8 − ln2 2
+2
+)
++
+[
+(1 −γ)π2
+6 +ζ ′(2)
+]
+ln 2
+π2 − (1 −γ)
+π2 ζ ′(2) − 1
+2π2ζ ′′(2)
+− 1
+12
+[
+−1 + (1 −γ)2 + π2
+6
+]
++ 1
+12 ln2π + 2 lnπζ ′(−1), (H.2)
+where γ is the Euler constant, and this can be continued to higher order der ivatives.
+The derived functional equation upon which Eqs. (H.1) and (H.2) are based is
+21−sΓ(s)ζ(s) cos
+(π
+2s
+)
+[ψ(s) − ln 2] + 21−sΓ(s)ζ ′(s) cos
+(π
+2s
+)
+−π
+2 21−sΓ(s)ζ(s) sin
+(π
+2s
+)
+=πs lnπζ (1 −s) −πsζ ′(1 −s). (H.3)
+Now Elizalde [14] has given an expression for ζ ′(−m,q ), where ζ(z,q ) is the Hurwitz
+zeta function, valid for any negative integer value of z. We state here special cases
+for q = 1:
+ζ ′(−1) = −1
+6 − 1
+2
+∞∑
+k=1
+B2k+2
+k(2k + 1)(2k + 2), (H.4)
+50
+=== PAGE 51 ===
+ζ ′(−2) = − 1
+36 −
+∞∑
+k=1
+B2k+2
+(2k − 1)k(2k + 1)(2k + 2), (H.5)
+and
+ζ ′(−k) = − 1
+(k + 1)2 −
+∞∑
+ℓ=1
+(−1)ℓ(2ℓ − 1)!
+22ℓ−1π2ℓ
+
+
+min(2ℓ−2,k)∑
+r=0
+(
+k
+r
+)
+(−1)r
+(2ℓ −r − 1)
+
+ζ(2ℓ). (H.6)
+This means that we also have explicit expressions for ζ ′(1 + k). In particular Eqs.
+(H.1) and (H.4) or (H.6) yield an explicit form for ζ ′(2).
+On the other hand, we can employ the integral representation, Eq . (38) of the text,
+to at least partially yield explicit values of the zeta derivatives for Re s >1. Other
+integral representation could be used for Re s> 0, but Eq. (38) serves for illustration.
+In the following, ψ denotes the digamma function and ψ(j) the polygamma function,
+as usual.
+We have
+ζ ′(s) = −ψ(s)ζ(s) + 1
+Γ(s)
+∫ ∞
+0
+ts−1 lnt
+et − 1 dt, (H.7)
+ζ ′′(s) = −ψ′(s)ζ(s) +ψ2(s)ζ(s) − 2ψ(s)
+Γ(s)
+∫ ∞
+0
+ts−1 lnt
+et − 1 dt + 1
+Γ(s)
+∫ ∞
+0
+ts−1 ln2t
+et − 1 dt, (H.8)
+and therefore
+ζ ′(s)
+ζ(s) = −ψ(s) + 1
+Γ(s)ζ(s)
+∫ ∞
+0
+ts−1 lnt
+et − 1 dt, (H.9)
+and
+[
+ζ ′(s)
+ζ(s)
+] ′
+= −ψ′(s) + 1
+Γ(s)ζ(s)
+
+
+
+∫ ∞
+0
+ts−1 ln2t
+et − 1 dt − 1
+Γ(s)ζ(s)
+[ ∫ ∞
+0
+ts−1 lnt
+et − 1 dt
+] 2
+
+.
+(H.10)
+51
+=== PAGE 52 ===
+This process can be continued,
+[
+ζ ′(s)
+ζ(s)
+] ′′
+= −ψ′′(s) +ψ3(s) −ψ(s)ψ′(s) −ψ′(s)ζ ′(s)
+ζ(s) +ψ2(s)ζ ′(s)
+ζ(s)
++ 1
+Γ(s)ζ(s)[ψ′(s) −ψ2(s)]
+∫ ∞
+0
+ts−1 lnt
+et − 1 dt − 3
+Γ 2(s)ζ 2(s)
+∫ ∞
+0
+ts−1 lnt
+et − 1 dt
+∫ ∞
+0
+ts−1 ln2t
+et − 1 dt
++ 1
+Γ(s)ζ(s)
+∫ ∞
+0
+ts−1 ln3t
+et − 1 dt + 2
+Γ 3(s)ζ 3(s)
+[ ∫ ∞
+0
+ts−1 lnt
+et − 1 dt
+] 3
+, (H.11)
+and we note that
+−ψ(j)(2) = ( −1)jj![ζ(j + 1) − 1]. (H.12)
+Following on Eq. (H.7) we have
+ζ (j+1)(s) = −
+j∑
+m=0
+(
+j
+m
+)
+ψ(j−m)(s)ζ (m)(s)+
+j∑
+m=0
+(
+j
+m
+)[(
+d
+ds
+)m
+1
+Γ(s)
+] ∫ ∞
+0
+ts−1 lnj−m+1t
+et − 1 dt.
+(H.13)
+The relations of this Appendix can be developed much more for applica tion to
+Eq. (41) of the text or elsewhere.
+52
+=== PAGE 53 ===
+Appendix I: A digamma function integral and a Mellin transfo rm
+Here we consider the integral
+I(λ) =
+∫ ∞
+1
+(1 −x−λ)
+x(x2 − 1)dx (I.1)
+of Eq. (3.4) of Ref. [6] and evaluate it in two diﬀerent ways from tabu lated results
+[16]. In Ref. [6] the asymptotic behaviour of this integral for large λ was of interest
+for determining a certain limit denoted by the PF operation [Eq. (3.2) t here]. We
+also note a polynomial of Ref. [6] that can be written as a terminating conﬂuent
+hypergeometric series. This associated Laguerre polynomial was u sed in calculating
+forward and inverse Mellin transforms and we give alternative trans forms.
+With the change of variable v(x) = x−1 in Eq. (I.1) we have
+I(λ) =
+∫ ∞
+0
+v(1 −vλ)
+(1 −v2) dv. (I.2)
+From Ref. [16] we then obtain
+I(λ) = 1
+2
+[
+ψ
+(
+λ
+2 + 1
+)
++γ
+]
+= 1
+2
+[
+ψ
+(
+λ
+2
+)
++γ + 2
+λ
+]
+, λ> −2, (I.3)
+where ψ = Γ ′/Γ is the digamma function. On the other hand, we may employ a
+partial fractional decomposition in Eq. (I.2) and another tabulate d result [16] so that
+I(λ) = 1
+2
+∫ 1
+0
+(1 −vλ)
+[
+1
+(1 −v) − 1
+(1 +v)
+]
+dv = 1
+2
+[
+ψ(λ + 1) +γ − ln 2 +
+∫ 1
+0
+vλ
+1 +vdv
+]
+,
+(I.4)
+where the last integral is given by [16]
+β(λ + 1) = 1
+2
+[
+ψ
+(
+λ
+2 + 1
+)
+−ψ
+(
+λ + 1
+2
+)]
+. (I.5)
+53
+=== PAGE 54 ===
+Use of the doubling formulaψ[(λ+1)/2] = 2ψ(λ)−ψ(λ/2)−2 ln 2 then again yields Eq.
+(I.3). In Appendix A we have additionally given many inequalities for the digamma
+function.
+The polynomial
+Pn(x) =
+n∑
+j=1
+(
+n
+j
+)
+xj−1
+(j − 1)! (I.6)
+was used in Ref. [6] in connection with computing Mellin transforms. By using the
+relations (
+n
+j
+)
+= (−1)j(−n)j
+j! and ( −n)j+1 = −n(1 −n)j, (I.7)
+where (.)n is the Pochhammer symbol, this polynomial can be written as a termina ting
+conﬂuent hypergeometric series: Pn(x) = n 1F1(1 −n; 2; −x). In particular, a certain
+Mellin transform involving Pn converts to a Laplace transform:
+∫ 1
+0
+Pn(lnx)xs−1dx =
+∫ ∞
+0
+Pn(−u)e−sudu =n
+∫ ∞
+0
+1F1(1 −n; 2;u)e−sudu
+= n
+sF
+(
+1 −n, 1; 2; 1
+s
+)
+= 1 −
+(
+1 − 1
+s
+)n
+, (I.8)
+where F is the Gauss hypergeometric function [16], which is the expected res ult [6].
+In obtaining Eq. (I.8) we have used the reduction [16]
+F
+(
+1 −n, 1; 2; −z
+t
+)
+= (t +z)n −tn
+nztn−1 . (I.9)
+Another useful point of view of the particular polynomial (I.6) is aﬀo rded by the
+theory of Laguerre polynomials Ln. This family is orthogonal on the interval [0 , ∞)
+with decaying exponential weight function. We have the relations
+Pn(−x) = −dLn(x)
+dx =L1
+n−1(x), (I.10)
+54
+=== PAGE 55 ===
+where Lα
+n is an associated Laguerre polynomial. In addition, the recursion rela tions
+satisﬁed by the Laguerre polynomials [16] give
+Pn(−x) = −n
+x [Ln(x) −Ln−1(x)] = −(n + 1)
+x Ln+1(x) + (n + 1 −x)
+x Ln(x). (I.11)
+Then one can recast the important Mellin transform-inverse trans form pair of Eq.
+(I.8):
+∫ ∞
+0
+Pn(−u)e−sudu = −
+∫ ∞
+0
+dLn(u)
+du e−sudu = 1 −
+(
+1 − 1
+s
+)n
+, Re s> 0. (I.12)
+In obtaining this equation, one can use integration by parts, the La place transform
+of Ln [16], and the property Ln(0) = 1. All these relations are consistent with the
+connection L1
+n−1(x) = n 1F1(1 −n; 2;x) and the derivative property of the conﬂuent
+hypergeometric function.
+55
+=== PAGE 56 ===
+Appendix J: Regarding Conjectures 1–3
+We present here plausibility arguments in possible support of our con jectures
+concerning the detailed behaviour of the sequences {σk} and {λj}. For this discussion,
+we let N(T ) be the number of zeros of the Riemann zeta function in the critical strip
+in the upper half plane to height T . That is, N(T ) denotes the number of complex
+zeros in the rectangle 0 ≤ Re s ≤ 1 and 0 ≤ Im s ≤T .
+Backlund [2] showed that N(T ) satisﬁes
+N(T ) = T
+2π ln
+(T
+2π
+)
+− T
+2π + 7
+8 +e(T ), (J.1)
+where
+|e(T )|< 0.137 lnT + 0.443 ln lnT + 4.35 for T ≥ 2. (J.2)
+We believe then that if one were to assume certain statistical prope rties of the distri-
+bution of the Riemann zeros, Conjectures 2 and 3 would follow.
+From Eqs. (J.1) and (J.2) we can show that there is a constant T0 such that
+π[N(T + 1) −N(T )] ≤π lnT for T ≥T0. (J.3)
+If we write N(T ) = M(T ) +e(T ), then
+M(T +1)−M(T ) = 1
+2π ln
+(T
+2π
+)
++ 1
+2π
+( 1
+2T − 1
+6T 2 + 1
+12T 3 − · · ·
+)
+< 1
+2π ln
+(T
+2π
+)
++ 1
+4πT.
+(J.4)
+Then with Eq. (J.2) we have
+N(T +1)−N(T )< 1
+2π ln
+(T
+2π
+)
++ 1
+4πT 0.137
+[
+2 lnT + ln
+(
+1 + 1
+T
+)]
++0.866 ln ln(T +1)+8.70,
+56
+=== PAGE 57 ===
+T ≥ 2. (J.5)
+Since ln(1 + 1/T )< 1/T , we ﬁnd
+N(T + 1) −N(T )< 0.433 lnT + 0.866 ln ln(T + 1) + 8.407 + 0.216
+T . (J.6)
+We also have that
+0.866 ln ln(T + 1) ≤ 0.135 lnT for T ≥T0, (J.7)
+8.407 ≤ 0.431 lnT for T ≥T0, (J.8)
+and we may take T0 = 3 × 108. These relations yield inequality (J.3).
+We now assume that the Riemann hypothesis holds and consider one p ossible
+bound that may result for the sums σk =∑
+jρ−k
+j , where {ρj} represents the nontrivial
+zeros of the zeta function. The nontrivial zeros have the form ρj = 1/2+ǫ+iαj, where
+bounds for ǫ exist in the literature due to results on zero-free regions. As ment ioned
+in the text, a zero ρj enters the sum σk along with its complex conjugate. We then
+consider the sums
+∞∑
+j=m
+1
+αk
+j
+≤ 1
+(k − 1)2
+[1 − ln([αm] − 1) +k ln([αm] − 1)]
+([αm] − 1)k−1 , [αm] ≥T0, (J.9)
+as an approximation to σk, where [x] denotes the greatest integer contained within x.
+We have
+∞∑
+j=m
+1
+αk
+j
+≤
+∞∑
+j=[αm]
+∑
+j≤αℓ<j+1
+1
+αk
+ℓ
+≤
+∞∑
+j=[αm]
+[N(j + 1) −N(j)]
+jk ≤
+∞∑
+j=[αm]
+lnj
+jk , for [ αm] ≥T0, (J.10)
+57
+=== PAGE 58 ===
+where we applied inequality (J.3). Since the last sum in inequality (J.10) is bounded
+by
+∫ ∞
+[αm]−1
+lnu
+uk du = 1
+(k − 1)2
+[1 − ln([αm] − 1) +k ln([αm] − 1)]
+([αm] − 1)k−1 , (J.11)
+we obtain inequality (J.9).
+58
+=== PAGE 59 ===
+Appendix K: Observations concerning a Dedekind xi function
+We note here some relations concerning a Dedekind xi function ξk, extending some
+of our earlier derivative results for the Riemann xi function [9].
+We let k be an imaginary quadratic ﬁeld of discriminant d, and
+Φ(t) = π√
+|d|
+∑
+F
+∞∑
+m,n=−∞
+F (m,n )
+
+ πt
+√
+|d|
+F (m,n ) − 1
+
+ exp
+
+− 2πt
+√
+|d|
+F (m,n )
+
+, (K.1)
+where the ﬁrst sum is over the inequivalent classes of positive deﬁnit e integral quadratic
+forms of discriminant d. Then Li [27] has very recently shown that
+ξk(s) = 4
+w
+∫ ∞
+1
+Φ(t)(ts +t1−s)dt, (K.2)
+for all complex s, where w is the number of roots of unity. The function ξk is entire
+and satisﬁes ξk(s) = ξk(1 −s) and ξk(0) = ξk(1) = 2 r1hR/w, where the number of
+real places r1 = 0, the number of complex places r2 = 1, R = 1 is the regulator, and
+h is the number of ideal classes of k.
+The inequivalent classes of positive deﬁnite integral quadratic form s of discrim-
+inant d consist of the classes represented by the forms [18, 27] F (x,y ) satisfying
+b2 − 4ac = d for either −a < b ≤ a < c or 0 ≤ b ≤ a = c. Now it has also
+been shown [27] that F (x,y ) = ax2 + bxy +cy2 satisfying this condition is such
+that F (m,n ) ≥
+√
+|d|/2 for all integers m, n with n ⁄= 0. It follows trivially that
+πtF (m,n )/
+√
+|d| − 1 ≥πt/2 − 1> 0 for all t ∈ [1, ∞). We then have the immediate
+Proposition. For all the inequivalent classes of positive deﬁnite integral quadrat ic
+forms of discriminant d, we have ξk(s) > 0 for all real s. Furthermore, the integer-
+59
+=== PAGE 60 ===
+order derivatives
+ξ(m)
+k (s) = 4
+w
+∫ ∞
+1
+Φ(t)[ts + (−1)mt1−s] lnmtdt, (K.3)
+satisfy ξ(m)
+k (s) ≥ 0 for all s ≥ 1/2. The even order derivatives obey the condition
+ξ(2m)
+k (s) > 0 for all s ≥ 1/2. Of course, as also seen by the functional equation
+for ξk(s), the odd-order derivatives ξ(2m+1)
+k vanish at s = 1/2; we have ξ(m)
+k (s) =
+(−1)mξ(m)
+k (1 −s). This Proposition seems to mean that ξk(s) has no zeros for real
+values of s.
+This Proposition extends some of the results of Ref. [9]. In turn, we may apply
+some of the explicit integration results obtained there in order to ev aluate the function
+γ(a) ≡
+∫ ∞
+1
+ω(t)dt√
+t +
+∫ √
+|d|/2a
+1
+ω(t)dt
+t , (K.4)
+introduced in Ref. [27], where ω is the θ series given by ω(t) = ∑ ∞
+n=1 exp(−πn2t). We
+have for the ﬁrst term on the right side of Eq. (K.4)
+∞∑
+n=1
+∫ ∞
+1
+e−πn2tt−1/2dt = 1
+√π
+∞∑
+n=1
+1
+nΓ(1/2,n 2π) =
+∞∑
+n=1
+1
+n
+[
+1 −Erf (n√π)
+]
+, (K.5)
+where Γ( x,y ) is the incomplete Gamma function [16] and Γ(1 /2,n 2π) = √π[1 −
+2n 1F1(1/2; 3/2; −πn2)] and 1F1 is the conﬂuent hypergeometric function [16, 3],
+such that 1F1(1/2; 3/2;x) = ( √π/2)Erf (√−x)/√−x, whereErf is the error function
+(probability integral) [16].
+For the second term on the right side of Eq. (K.4) we have
+∞∑
+n=1
+∫ √
+|d|/2a
+1
+e−πn2tt−1dt =
+∞∑
+n=1
+
+Ei
+
+−
+πn2
+√
+|d|
+2a
+
+ −Ei(−πn2)
+
+, (K.6)
+60
+=== PAGE 61 ===
+where Ei is the exponential integral [16]. We also have various elementary rela tions,
+including
+∫ √
+|d|/2a
+1
+e−πn2tt−1dt =πn2
+∫ √
+|d|/2a
+1
+e−πn2t lntdt + exp
+(
+−πn2
+√
+|d|/2a
+)
+ln
+
+
+√
+|d|
+2a
+
+,
+(K.7)
+obtained by integration by parts, and
+∫ √
+|d|/2a
+1
+e−πn2t lntdt = 1
+πn2
+∫ πn2
+√
+|d|/2a
+πn2
+e−u[lnu − ln(πn2)]dt
+= 1
+πn2
+
+
+∫ πn2
+√
+|d|/2a
+πn2
+e−u lnudu −
+(
+exp(−πn2
+√
+|d|/2a) − exp(−πn2)
+)
+ln(πn2)
+
+.
+(K.8)
+Moreover, the particular derivative values
+ξ(2m)
+k
+(1
+2
+)
+= 8
+w
+∫ ∞
+1
+Φ(t)t1/2 ln2mt dt, (K.9)
+and
+ξ(m)
+k (1) = 4
+w
+∫ ∞
+1
+Φ(t)[t + (−1)m] lnmt dt, (K.10)
+can be evaluated in terms of inﬁnite series with the analytic methods o f Ref. [9], and
+we note that ξ(m)
+k (1)> 0 for all nonnegative integers m. These special values of Eq.
+(K.10) enter the particular logarithmic derivatives of Eq. (E.31) for λn.
+61
+=== PAGE 62 ===
+Appendix L: Euler-Maclaurin summation applied to S1(n)
+Here we apply Euler-Maclaurin summation to the form of the sum S1(n) given in
+Eq. (17) of the text. Accordingly, we deﬁne the summand function
+f (k) ≡ n
+2k + 1 − 1 + 2nkn
+(2k + 1)n, k ≥ 0, n ≥ 2, (L.1)
+such that f (0) = n − 1 and f (∞) = 0. We can write the arbitrary integer order
+derivative of each term of Eq. (L.1). For the ﬁrst term on the right side we have
+(
+d
+dk
+)j
+n
+(2k + 1) = (−1)j 2jj!
+(2k + 1)j+1n, j ≥ 1. (L.2)
+When evaluated at k = 0, this term gives ( −1)j2jj!n. In regard to the last term of
+Eq. (L.1) we have
+(
+d
+dk
+)j
+1
+(2k + 1)n = (−1)j 2j(n)j
+(2k + 1)n+j, j ≥ 1, (L.3a)
+where (.)j is the Pochhammer symbol, and
+(
+d
+dk
+)r
+kn = n!
+(n −r)!kn−r, (L.3b)
+which can be equally expressed as
+(
+d
+dk
+)r
+kn =r!
+(
+n
+r
+)
+kn−r = (−1)r(−n)rkn−r. (L.3c)
+Therefore we can write
+2n
+(
+d
+dk
+)ℓ
+kn(2k + 1)−n = 2n
+ℓ∑
+m=n
+(
+ℓ
+m
+)
+(−1)ℓ−m2ℓ−m(n)ℓ−m
+(2k + 1)n+ℓ−m
+n!
+(n −m)!kn−m. (L.4)
+62
+=== PAGE 63 ===
+A version of the Euler-Maclaurin formula, given that all derivatives o ff vanish at
+inﬁnity, is
+∞∑
+n=M
+f (n) =
+∫ ∞
+M
+f (x)dx −
+∞∑
+m=1
+Bm
+m!f (m−1)(M), (L.5a)
+where Bm are Bernoulli numbers, or
+∞∑
+n=0
+f (n) =
+∫ ∞
+0
+f (x)dx + 1
+2f (0) −
+∞∑
+m=2,even
+Bm
+m!f (m−1)(0). (L.5b)
+By using Eq. (24) of the text for the integral in Eq. (L.5b) we there fore obtain
+S1(n) = n
+2 [ψ(n) +γ] −
+∞∑
+m=2,even
+Bm
+m!f (m−1)(0), (L.6)
+whereψ is the digamma function and γ is the Euler constant. The sums in Eqs. (L.5)-
+(L.6) are meant in an asymptotic sense; they are highly unlikely to be c onvergent.
+From Eq. (L.6) we may obtain the successive approximations
+S1(n) = n
+2 [ψ(n) +γ] + n
+6 −
+∞∑
+m=4,even
+Bm
+m!f (m−1)(0), n> 1, (L.7a)
+and
+S1(n) = n
+2 [ψ(n) +γ] + n
+10 −
+∞∑
+m=6,even
+Bm
+m!f (m−1)(0), n> 3. (L.7b)
+Equation (L.7a) is expected to be a useful approximate upper boun d to S1 and Eq.
+(L.7b) an approximate lower bound for this sum. When n is suﬃciently large, only
+the ﬁrst term on the right side of Eq. (L.1) contributes in Eqs. (L.6) -(L.7), giving
+Bmf (m−1)(0)/m! = −2m−1Bm(n/m), as m − 1 is always an odd integer. Given al-
+ternation in sign from B2m to B2m+2, these successive terms will change sign also.
+However, we emphasize that the sums in Eq. (L.6)-(L.7) are genera lly divergent.
+63
+=== PAGE 64 ===
+References
+[1] M. Abramowitz and I. A. Stegun, Handbook of Mathematical Fun ctions, Wash-
+ington, National Bureau of Standards (1964).
+[2] R. J. Backlund, ¨Uber die Nullstellen der Riemannschen Zetafunktion, Acta Math.
+41, 345-375 (1918).
+[3] W. N. Bailey, Generalized Hypergeometric Series, Cambridge Unive rsity Press
+(1935); G. E. Andrews, R. Askey, and R. Roy, Special Functions, Cambridge
+University Press (1999).
+[4] B. C. Berndt, On the Hurwitz zeta function, Rocky Mtn. J. Math . 2, 151-157
+(1972).
+[5] P. Biane, J. Pitman, and M. Yor, Probability laws related to the Jac obi theta
+and Riemann zeta functions and Brownian excursions, Bull. Amer. Ma th. Soc.
+38, 435-465 (2001).
+[6] E. Bombieri and J. C. Lagarias, Complements to Li’s criterion for t he Riemann
+hypothesis, J. Number Theory 77, 274-287 (1999).
+[7] D. Bump, Automorphic Forms and Representations, Cambridge U niversity Press
+(1997).
+[8] W. E. Clark and M. E. H. Ismail, Inequalities involving gamma and psi f unctions,
+http://www.math.usf.edu/∼clark, to appear in Analysis and Applications.
+64
+=== PAGE 65 ===
+[9] M. W. Coﬀey, Relations and positivity results for derivatives of th e Riemann ξ
+function, J. Comput. Appl. Math., 166, 525-534 (2004).
+[10] M. W. Coﬀey, On some log-cosine integals related to ζ(2), ζ(3), and ζ(6), J.
+Comput. Appl. Math. 159, 205-215 (2003).
+[11] M. W. Coﬀey, New results on the Li constants, preprint (2004 )
+[12] H. Davenport, Multiplicative Number Theory, Springer Verlag (2 000).
+[13] H. M. Edwards, Riemann’s Zeta Function, Academic Press, New Y ork (1974).
+[14] E. Elizalde, An asymptotic expansion for the ﬁrst derivative of t he generalized
+Riemann zeta function, Math. Comp. 47, 347-350 (1986).
+[15] P. Flajolet and R. Sedgewick, Mellin transforms and asymptotics : Finite diﬀer-
+ences and Rice’s integrals, Th. Comp. Sci. 144, 101-124 (1995).
+[16] I. S. Gradshteyn and I. M. Ryzhik, Table of Integrals, Series, and Products,
+Academic Press, New York (1980).
+[17] R. L. Graham, D. E. Knuth, and O. Patashnik, Concrete Mathe matics, 2nd ed.,
+Addison Wesley (1994).
+[18] L. K. Hua, Introduction to Number Theory, Springer Verlag (1 982).
+[19] M. I. Israilov, On the Laurent Decomposition of Riemann’s zeta f unction, Dokl.
+Akad. Nauk SSSR (Russian) 12, 9 (1979); M. I. Israilov, Trudy Mat. Inst.
+65
+=== PAGE 66 ===
+Steklova 158, 98-104 (1981); G. H. Hardy, Note on Dr. Vacca’s series for γ,
+Quart. J. Pure Appl. Math. 43, 215-216 (1912); J. C. Kluyver, On certain series
+of Mr. Hardy, Quart. J. Pure Appl. Math. 50, 185-192 (1927); W. E. Briggs,
+Some constants associated with the Riemann zeta-function, Mich. Math. J. 3,
+117-121 (1955); D. Mitrovi´ c, The signs of some constants asso ciated with the
+Riemann zeta function, Mich. Math. J. 9, 395-397 (1962).
+[20] A. Ivi´ c, The Riemann Zeta-Function, Wiley (1985).
+[21] A. Ivi´ c, The Laurent coeﬃcients of certain Dirichlet series, P ubls. Inst. Math.
+53, 23-36 (1993). In Eq. (1.7), (log x)x should be replaced with (log x)k and on
+p. 25 ”comparing with (1.15) should be replaced with ”comparing with ( 1.5)”.
+[22] A. A. Karatsuba and S. M. Voronin, The Riemann Zeta-Function , Walter de
+Gruyter, New York (1992).
+[23] D. E. Knuth, The Art of Computer Programming, Vol. 3, Addison Wesley (1973).
+[24] D. H. Lehmer, The sum of like powers of the zeros of the Riemann zeta function,
+Math. Comput. 50, 265-273 (1988).
+[25] X.-J. Li, The positivity of a sequence of numbers and the Riemann hypothesis,
+J. Number Th. 65, 325-333 (1997).
+[26] X.-J. Li, Explicit formulas for Dirichlet and Hecke L-functions, to appear in Ill.
+J. Math. (2004).
+66
+=== PAGE 67 ===
+[27] X.-J. Li, A formula for the Dedekind ξ-function of an imaginary quadratic ﬁeld,
+J. Math. Anal. Appl. 260, 404-420 (2001).
+[28] Y. L. Luke, The Special Functions and Their Approximations, Ac ademic Press
+(1969).
+[29] K. Ma´ slanka, http://nac.oa.uj.edu.pl/ ˜ maslanka; Eﬀective method of computing
+Li’s coeﬃcients and their properties, to appear in Exp. Math. (2004 ).
+[30] J.-F. Mestre, Formules explicites et minorations de conducteur s de vari´ et´ es
+alg´ ebriques, Compositio Math.58, 209-232 (1986).
+[31] Z. Nan-Yue and K. S. Williams, Some results on the generalized Stie ltjes con-
+stants, Analysis 14, 147-162 (1994). In addition to the typographical errors
+pointed out in Appendix C, the ﬁrst term on the right side of Eq. (6.2) should
+read (logna)/a, and in both Eqs. (6.5) and (6.11), Pn should appear in place of
+P1. On p. 157 of this reference, (7.2) should be replaced with (7.1) in th e second
+line of text from the bottom, and on p. 158 (7.2) should be replaced w ith (1.9)
+in the third line of text.
+[32] J. Neukirch, Algebraic Number Theory, Springer Verlag (1999) .
+[33] A. M. Odlyzko, http://www.dtc.umn.edu/˜ odlyzko/
+67
+=== PAGE 68 ===
+[34] A. M. Odlyzko, Bounds for discriminants and related estimates f or class numbers,
+regulators and zeros of zeta functions: A survey of recent resu lts, Sem. Th. No.,
+Bordeaux, g, 1-15 (1989).
+[35] S. Omar, Localization of the ﬁrst zero of the Dedekind zeta fun ction, Math.
+Comp. 70, 1607-1616 (2001).
+[36] K. S. Rao, G. V. Berghe, and C. Krattenthaler, An entry of Ra manujan on hyper-
+geometric series in his notebooks, preprint arXiv:math.CA/0304317 v1 (2003).
+[37] B. Riemann, ¨Uber die Anzahl der Primzahlen unter einer gegebenen Gr¨ osse,
+Monats. Preuss. Akad. Wiss., 671 (1859-1860).
+[38] E. C. Titchmarsh, The Theory of the Riemann Zeta-Function, 2 nd ed., Oxford
+University Press, Oxford (1986).
+[39] A. Voros, A sharpening of Li’s criterion for the Riemann hypothe sis,
+arXiv:math.NT/0404213 (2004)
+[40] A. Weil, Basic Number Theory, Springer Verlag (1967).
+68
+=== PAGE 69 ===
+This figure "lambda2fig1.jpg" is available in "jpg"
+ format from:
+http://arxiv.org/ps/math-ph/0505052v1

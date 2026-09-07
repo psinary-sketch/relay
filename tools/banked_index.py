@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'li-asymptotics-circular': ['the li asymptotics', 'the li tail', 'the li coefficients asymptotic',
+                               'what would close the tail', 'the detection threshold',
+                               'the finite range', 'the circularity check', 'the two channels'],
     'what-the-ledgers-certify': ['what the ledgers say the checks certify', 'the wider sentence',
                                 'the narrower sentence', 'the attribution fault',
                                 'what the checks certify', 'the ledger read', 'the errata draft',
@@ -577,6 +580,40 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LI ASYMPTOTICS, READ UNDER A CAP (b358).
+    ("li-asymptotics-circular", "b358 (a read and a pricing under a cap; it computes nothing)",
+     "EXISTS BUT CIRCULAR. The deposit's finite range is its own sentence -- partialPositivity_finiteRange (v0.8.0) certifies lambda_n >= 0 for n up to Voros's"
+     " detection threshold N_0(T) approx 2T^2, a certificate reaching exactly to where discrimination would begin AND NO FURTHER -- and this act asked the"
+     " literature, under the import bar, what would close the rest. SEVEN STATEMENTS LOCATED AND PINNED; ONE meets all four conditions locked before any source"
+     " was opened (Voros's (17), the tame form for lambda_n); IT FIRES AT ALL THREE LOCKED CIRCULARITY QUESTIONS, and the source says so in its own abstract:"
+     " \"For n -> infinity we obtain that if (and only if) the Hypothesis is true, lambda_n ~ n(A log n + B)\", with the derivation opening \"all the zeros lie on"
+     " the critical line\". AND THE SPLIT IS EXACT, WHICH IS SHARPER THAN SAYING THE ASYMPTOTIC ASSUMES RH: on the decomposition the record already holds (b327),"
+     " THE ARCHIMEDEAN CHANNEL HAS AN UNCONDITIONAL ASYMPTOTIC WITH AN EXPLICIT ERROR TERM FROM BOTH SOURCES INDEPENDENTLY -- Voros's (24) \"unconditionally\", to"
+     " all orders, and Lagarias's Theorem 5.1 with an ABSOLUTE implied constant and an explicit index n >= K(pi) -- WHILE THE ZERO CHANNEL HAS NO UNCONDITIONAL"
+     " BOUND AT ALL, Theorem 6.1 reducing it unconditionally and bounding it only at \"If the Riemann hypothesis holds for L(s,pi) then...\". SO THE ONE PART OF"
+     " THE DECOMPOSITION THAT WOULD CLOSE THE TAIL IS THE PART THE HYPOTHESIS CONTROLS. 4 of 7 statements are circular and 3 are not, AND NOT ONE OF THE THREE"
+     " NON-CIRCULAR ONES IS A SHAPE: everything about lambda_n itself is conditional, everything unconditional is about a part. Bombieri-Lagarias Cor 1(c),"
+     " quoted inside Voros, is the one statement running in the useful direction and it demands its bound FOR EVERY n. EIGHT HYPOTHESES GRADED TWICE AND NEVER"
+     " MERGED: 8 of 8 MET on the sources' own objects; on the corpus's, 3 MET and 5 UNDECIDABLE-FROM-THE-RECORD. THE PRICING: THERE IS NO INDEX BEYOND WHICH THE"
+     " LOCATED SHAPE WOULD ACT, because it acts only on the branch its own condition selects; the two banked figures bracketing the demand are n = 300 computed"
+     " and n approx 1e18 before a violating zero could register, one labelled division giving 3.33e+15 -- A DISTANCE IN INDEX AND NOT A PRICE IN WALL TIME."
+     " Sources pinned: Voros math/0506326 sha256 dd360dab..., 178832 bytes; LAGARIAS math/0404394v4 sha256 86f3d3c4..., 423379 bytes, WHICH IS THE RECORD'S OWN"
+     " b327 PIN RE-VERIFIED BYTE FOR BYTE; Coffey math-ph/0505052 searched and not quoted; Bombieri-Lagarias 1999 NOT FETCHED (HTTP 404), as the faces ledger"
+     " already recorded, so its corollary is used at one remove and said to be.",
+     "### A STATEMENT LOCATED IS NOT A STATEMENT APPLIED, AND THIS ACT APPLIES NONE: no argument constructed, no bound proved, no theorem extended, sharpened or"
+     " combined. ### FIVE ADDRESSES, FOUR FETCHED, ONE OF THOSE A DUPLICATE SURFACE -- AN ABSENCE OF READING IS NOT AN ABSENCE OF LITERATURE, and a statement this"
+     " act did not look for is not counted. ### NOT A DISCOVERY ABOUT THE LITERATURE: both sources write the conditionality in their own abstracts, and what is"
+     " new is only that the record now holds it pinned with the split located at the line. ### NOT THAT NO UNCONDITIONAL TAIL BOUND EXISTS AND NOT THAT NONE"
+     " COULD. ### NOT THAT THE FIVE UNDECIDABLE GRADES ARE PERMANENT: H-NGEK is undecidable ONLY BECAUSE THIS ACT'S OWN CAP FORBADE ONE EVALUATION, which is"
+     " NAMED AND NOT ORDERED. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE TWO FACES' EQUIVALENCE IS NOT COMPILED. ### NO CLASS IS"
+     " DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b358_the_li_asymptotics.txt; data/b358_read_run3.txt; data/b358_read.json;"
+     " data/b358_locate_run.txt and data/b358_locate.json (the fetch and the hashes);"
+     " data/b358_source_voros0506326.txt and data/b358_source_lagarias0404394.txt (the pinned texts);"
+     " data/b358_extract_notes2.txt (33 of 33 located, 18 anchors differing from their hints);"
+     " data/b358_registration_2026-09-07.txt (LOCKED on the audit's own exit code, BEFORE any source was opened);"
+     " PLACE-papers FACES_LEDGER.md (row U1's update block) and ERRATA.md (E-2026-09-07-1, ruling R2);"
+     " CORRESPONDENCE.md rows 206 and 207 (207 is ruling R1's correction row)"),
     # ### WHAT THE LEDGERS SAY THE CHECKS CERTIFY (b357).
     ("what-the-ledgers-certify", "b357 (a read of four ledgers; it computes nothing and edits nothing)",
      "SOME ROWS SAY IT. Twelve passages located and classified across FINDINGS.md, FACES_LEDGER.md, CORRESPONDENCE.md and tools/banked_index.py,"

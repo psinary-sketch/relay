@@ -1,0 +1,295 @@
+====================================================================================================
+b358 -- THE LI ASYMPTOTICS, READ UNDER A CAP. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation CURRENT.
+### Registration `data/b358_registration_2026-09-07.txt`, ### **LOCKED** ### -- the author's ruling R3, and
+### this is the first registration in the record to carry a LOCK block rather than a seal block --
+### `8419da7b98fbb9259085dd24b5d7515d2d3ad725cf2e0b40de5ad24047ee38f7`, 15930 bytes, 46 clauses JOINTLY
+### SATISFIABLE, and ### **LOCKED ONLY AFTER THE AUDIT'S OWN EXIT CODE CAME BACK `0`**, locked at (UTC)
+### 2026-09-07T19:51:36Z. ### **AND LOCKED BEFORE ANY SOURCE WAS OPENED**, which the order required and
+### which is stricter than b357's order. ### The clocks are printed in section (9).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **EXISTS BUT CIRCULAR.**
+### ### **A SHAPE EXISTS AND IT DOES NOT SURVIVE COMPONENT 3.** ### Seven statements were located and
+### quoted from two pinned sources; ### **ONE** ### meets all four conditions locked in section (B) before
+### any source was opened -- Voros's asymptotic (17) for `lambda_n` -- and it is circular at ### **ALL
+### ### THREE** ### of the questions locked in section (D). ### **NONE SURVIVES.**
+### ### ### **AND THE CIRCULARITY IS NOT VAGUE. ### THE SOURCE STATES IT IN ITS OWN ABSTRACT, IN FOUR
+### ### ### WORDS:** ### *"For n → ∞ we obtain that if (and only if) the Hypothesis is true, λ_n ∼ n(A log
+### ### ### n + B)"*.
+### ### **AND THE DERIVATION OPENS THE SAME WAY**, at the line the anchor tool located: ### *"all the zeros
+### lie on the critical line, first transform the summation (1) into a Stieltjes integral"*.
+### ### **SO THE TAIL IS CLOSED ONLY UNDER THE THING BEING PROVED**, which is a result about the face and
+### is reported as one -- not as a defect in the source, which is doing something else and doing it well,
+### and not as a failure of this act.
+
+----------------------------------------------------------------------------------------------------
+### (2) WHAT MAKES THIS SHARPER THAN "THE ASYMPTOTIC ASSUMES RH". ### **THE SPLIT IS EXACT.**
+----------------------------------------------------------------------------------------------------
+### The record already holds the decomposition (b327, from the same pinned source): ### `lambda_n =
+### S_inf(n) - S_f(n) + 1`, the archimedean place, the finite places, and the pole. ### **THE TWO HALVES
+### ### COME OUT OF THIS READING IN OPPOSITE STATES, AND THE LINE BETWEEN THEM IS THE FINDING.**
+### ### **THE ARCHIMEDEAN HALF IS UNCONDITIONAL, AND BOTH SOURCES SAY SO INDEPENDENTLY:**
+###   ### **VOROS (24)**, at the line carrying the word itself: ### *"S_n ∼ ½n(log n − 1 + γ − log 2π) +
+###     ¾ − Σ B_2k/4k n^(1−2k) (n → ∞) unconditionally"*, and ### *"to all orders in n"*.
+###   ### **LAGARIAS THEOREM 5.1:** ### `S_inf(n,π) = (N/2) n log n + C_1(π) n + O(N(K(π)+1))` for
+###     `n ≥ K(π)`, with `K(π) = max_j |κ_j(π)|²` and ### **THE IMPLIED CONSTANT STATED TO BE ABSOLUTE.**
+###   ### ### **AND THE TWO AGREE, BY INSPECTION OF THE TWO QUOTED FORMULAE.** ### At `N = 1` and
+###     `Q(π) = 1` -- the corpus's case, and ### **THE ONLY SUBSTITUTION THIS ACT MAKES, NAMED HERE** --
+###     Lagarias's `C_1(π) = (N/2)(γ − 1 − log 2π) + ½ log Q(π)` is `½(γ − 1 − log 2π)`, which is Voros's
+###     bracket exactly. ### **THIS IS A COMPARISON OF TWO QUOTATIONS, NOT A DERIVATION.**
+### ### **THE ZERO HALF HAS NO UNCONDITIONAL BOUND AT ALL, AND BOTH SOURCES SAY THAT TOO:**
+###   ### **LAGARIAS THEOREM 6.1** gives `S_f(n,π) = λ_n(√n, π^∨) + O(√n log n)` unconditionally -- ###
+###     **BUT THAT IS A REDUCTION TO ANOTHER LI-TYPE QUANTITY, NOT A BOUND ON IT** -- and the bound
+###     arrives only in the next sentence, at the line the anchor tool located: ### *"If the Riemann
+###     hypothesis holds for L(s,π) then λ_n(√n,π^∨) = O(√n log n)"*.
+###   ### **LAGARIAS'S ABSTRACT SPLITS IT IN ONE BREATH:** ### *"We derive an unconditional asymptotic
+###     formula for the coefficients λ_n(π), ### **in terms of the zeros** ### of L(s,π). ### **Assuming
+###     the Riemann hypothesis** ### for L(s,π), we deduce that λ_n(π) = N/2 n log n + C_1(π) n + O(√n log
+###     n)"*. ### **UNCONDITIONAL BUT IN TERMS OF THE ZEROS; CLOSED ONLY UNDER THE HYPOTHESIS.**
+###   ### **VOROS (25) AND (26)** are the same fact as a dichotomy: the zero channel is `o(n)` under
+###     `[RH true]`, and under `[RH false]` it is `λ_n` itself, ### *"which gives oscillations that blow up
+###     exponentially with n"*.
+### ### ### **SO WHAT IS MISSING FROM THE LITERATURE THIS ACT READ IS NOT AN ASYMPTOTIC. ### IT IS AN
+### ### ### UNCONDITIONAL BOUND ON ONE CHANNEL OF A DECOMPOSITION WHOSE OTHER CHANNEL IS ALREADY KNOWN TO
+### ### ### ALL ORDERS.**
+
+----------------------------------------------------------------------------------------------------
+### (3) COMPONENT 1 -- THE SHAPE ASKED FOR, AND WHERE THE DEPOSIT'S RANGE STOPS.
+----------------------------------------------------------------------------------------------------
+### ### **FROM THE DEPOSIT'S OWN WORDS**, located at `outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md`:
+### ### *"`partialPositivity_finiteRange` (v0.8.0) certifies λ_n ≥ 0 for n up to Voros's detection
+### ### threshold N₀(T) ≈ 2T², with the on-line term's nonnegativity proved -- a certificate reaching
+### ### exactly to where discrimination would begin, and no further; it is not RH"*.
+### ### **SO THE FINITE RANGE IS `n ≤ N_0(T) ≈ 2T²` AND IT STOPS THERE**, and the deposit says in the same
+### sentence what it is not.
+### ### **AND VOROS CARRIES THE THRESHOLD IN THE INVERSE FORM, WHICH IS WHERE THE DEPOSIT GOT IT:** ###
+### *"can only reliably signal a zero violating RH up to a height |Im ρ| ≲ √(n/2); so vice-versa, since
+### such zeros are now known to require |Im ρ| ≳ 10⁹, they could only be detected by ... for n ≳ 10¹⁸"*.
+### ### **THE DEPOSIT'S ATTRIBUTION IS CORRECT AND IS NOW PINNED**, which is worth one line on its own: a
+### ledger's citation was checked against the cited bytes and it held.
+### ### **THE SEVEN STATEMENTS, AND WHAT EACH LACKS:**
+###   ### **`V-17`** (Voros's tame form for `lambda_n`) -- ### **THE ONE SHAPE.** ### All four conditions.
+###   ### **`V-24`** (Voros's archimedean expansion) -- fails ### **(B)(1)**: its subject is `S_n`, one
+###     channel, not `lambda_n`.
+###   ### **`V-26`** (the RH-false branch) -- fails ### **(B)(3)**: it gives no index beyond which
+###     positivity would follow; it says the opposite.
+###   ### **`L-5.1`** (Lagarias's unconditional archimedean asymptotic) -- fails ### **(B)(1)**, the same
+###     way `V-24` does, from the other source.
+###   ### **`L-6.1`** (the finite-place theorem) -- fails ### **(B)(1)** and ### **(B)(3)**.
+###   ### **`L-ABS`** (Lagarias's abstract) -- fails ### **(B)(3)**: no index is stated, and the implied
+###     constant is said to DEPEND ON `π` rather than being absolute, so none is recoverable either.
+###   ### **`BL-1c`** (Bombieri-Lagarias Corollary 1(c), quoted inside Voros: `λ_n ≥ −c e^(εn)` implies
+###     RH) -- fails ### **(B)(2)** and ### **(B)(3)**, and the second one is the one that matters: ###
+###     **IT DEMANDS THE BOUND FOR EVERY `n`.** ### It weakens what must be shown; it does not close a tail
+###     from a finite check. ### **IT IS THE ONE LOCATED STATEMENT RUNNING IN THE USEFUL DIRECTION, AND IT
+###     ### STILL DOES NOT DO THIS JOB.**
+
+----------------------------------------------------------------------------------------------------
+### (4) COMPONENT 2 -- THE HYPOTHESES, GRADED TWICE. ### **EIGHT HYPOTHESES, SIXTEEN GRADES, NEVER MERGED.**
+----------------------------------------------------------------------------------------------------
+### ### **ON AXIS 1, AGAINST THE SOURCES' OWN OBJECTS: `MET` 8, `REFUTABLE` 0, `UNDECIDABLE` 0.** ### And
+### `MET` here means only that the source uses the hypothesis consistently in its own setting -- ### **NOT
+### ### THAT IT HOLDS.** ### A source that conditions on RH is not asserting RH.
+### ### **ON AXIS 2, AGAINST THE CORPUS'S OWN OBJECTS: `MET` 3, `UNDECIDABLE-FROM-THE-RECORD` 5,
+### ### `REFUTABLE` 0.**
+###   ### **THE THREE THAT ARE `MET`, AND THEY ARE MET BY MEASUREMENT AND NOT BY ASSUMPTION:**
+###     ### `H-NONE` (no hypothesis at all -- Voros's `unconditionally`): the deposit reports its measured
+###       archimedean channel reproducing that asymptotic ### *"to hundreds of digits"*, and `b327`
+###       measured the corresponding identity to `1.33e-251` at `n ≤ 30` ### **BY TWO ROUTES.** ### **THIS
+###       ### IS THE ONE HYPOTHESIS THE CORPUS HAS ITS OWN EVIDENCE FOR.**
+###     ### `H-COUNT` (Voros's counting law (16)): `b334`'s banked zero count over `t` in `[0.5, 150]`
+###       closes at `180` against a main term of `178.6`, which is that law at the corpus's own scale.
+###     ### `H-CUSP` (`π` cuspidal on `GL(N)`): the corpus's object is `ζ`, the `N = 1`, `Q = 1` case.
+###   ### **THE FIVE THAT ARE `UNDECIDABLE-FROM-THE-RECORD`:** ### `H-RH`, `H-NOTRH` and `H-RHL` are the
+###     open clause under three names; ### `H-ALLN` is Bombieri-Lagarias's demand over ALL `n`, and it is
+###     undecidable in the way that matters most here -- ### **THE DEPOSIT'S CERTIFICATE REACHES A FINITE
+###     ### RANGE AND THIS HYPOTHESIS IS A DEMAND OVER EVERY INDEX**, so the record can neither meet it nor
+###     refute it; and ### `H-NGEK` is the interesting one, ### **AND IT IS UNDECIDABLE ONLY BECAUSE OF
+###     ### THIS ACT'S OWN CAP.**
+### ### ### **`H-NGEK` DESERVES ITS OWN SENTENCE.** ### Lagarias's Theorem 5.1 holds for `n ≥ K(π)` with
+### `K(π) = max_j |κ_j(π)|²`, and the corpus HAS the gamma factor that determines the `κ_j` -- `b327` banked
+### the deposit's ### *"f_A(s) = log s + logΓ(s/2) − (s/2)log π"*. ### **SO `K(π)` IS DETERMINED BY THINGS
+### ### THE RECORD ALREADY HOLDS. ### DETERMINED IS NOT COMPUTED**, the cap forbids this act from computing
+### it, and ### **ONE EVALUATION WOULD DECIDE IT.** ### That is named here and is NOT ordered.
+### ### **NO HYPOTHESIS CARRIES A MERGED GRADE.** ### Every one carries two, and the pairs that differ --
+### `MET` on axis 1 and `UNDECIDABLE` on axis 2, five times -- are the whole reason the order asked for two.
+
+----------------------------------------------------------------------------------------------------
+### (5) COMPONENT 3 -- THE CIRCULARITY CHECK, RUN BEFORE THE VERDICT.
+----------------------------------------------------------------------------------------------------
+### ### **FOUR OF THE SEVEN LOCATED STATEMENTS ARE CIRCULAR: `V-17`, `V-26`, `L-6.1`, `L-ABS`.**
+### ### **THREE ARE NOT: `V-24`, `L-5.1`, `BL-1c`** -- and ### **NOT ONE OF THE THREE IS A SHAPE.**
+### ### ### **THAT COINCIDENCE IS THE ACT'S RESULT, STATED PLAINLY: ### IN THE LITERATURE THIS ACT READ,
+### ### ### EVERY STATEMENT THAT IS ABOUT `lambda_n` ITSELF IS CONDITIONAL, AND EVERY STATEMENT THAT IS
+### ### ### UNCONDITIONAL IS ABOUT A PART.**
+### ### **AND THE ONE UNCONDITIONAL ERROR TERM IN THE READING IS WORTH NAMING**, because (D)(iii) was
+### written to catch its absence: ### **LAGARIAS THEOREM 5.1'S `O(N(K(π)+1))` HAS AN ABSOLUTE IMPLIED
+### ### CONSTANT AND AN EXPLICIT INDEX.** ### It survives (D)(iii) completely. ### It is about `S_inf`.
+### ### **`V-17` FIRES AT ALL THREE:** ### (i) the abstract names the Hypothesis and the derivation opens
+### by placing the zeros on the line; ### (ii) the source states the two as EQUIVALENT, which is the
+### strongest possible form of (ii); ### (iii) the deviation from (17) is exactly (18), whose size is what
+### the Hypothesis decides.
+### ### **AND THE CONVERSE, LOCKED IN (D) BEFORE ANY SOURCE WAS OPENED AND HELD TO HERE:** ### a statement
+### passing all three is ### **NOT THEREBY A CLOSURE OF THE TAIL.** ### `V-24`, `L-5.1` and `BL-1c` are
+### statements ### **THIS ACT FAILED TO FIND CIRCULAR**, which is a fact about this act's reading.
+
+----------------------------------------------------------------------------------------------------
+### (6) BAR 3 -- THE PRICING. ### **LABELLED, FROM BANKED FIGURES, AND NOT ATTEMPTED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE INDEX BEYOND WHICH THE LOCATED SHAPE WOULD ACT: ### THERE IS NONE**, and that is the finding
+### rather than a missing number. ### `V-17` acts only on the branch its own condition selects, so ### **NO
+### ### FINITE CHECK PUTS THE RECORD ON THAT BRANCH.**
+### ### **WHAT THE RECORD'S OWN TWO BANKED FIGURES SAY ABOUT THE SIZE OF THE DEMAND, IF A NON-CIRCULAR
+### ### SHAPE EVER ARRIVED:**
+###     the corpus has computed its channels to        `n = 300`      (the deposit, at guaranteed precision)
+###     a violating zero could first register at about `n = 1e+18`    (Voros; the deposit repeats him)
+###     ### **THE RATIO, ONE LABELLED DIVISION OF TWO BANKED COUNTS : `3.33e+15`** ### (`b351`'s precedent)
+### ### **AND WHAT THE RATIO IS NOT:** ### it is ### **NOT A PRICE IN WALL TIME, MEMORY OR PRECISION**,
+### because the record prints no cost per index for this channel and this act may not measure one. ### **IT
+### ### IS A DISTANCE IN INDEX AND NOTHING ELSE.**
+### ### **THE BAR'S FLOOR, AS THE REGISTRATION REQUIRED:** ### the threshold is stated by the deposit and
+### by Voros as `≈ 2T²` and `≳ 10¹⁸` -- ### **APPROXIMATE IN BOTH** -- so the ratio is approximate too and
+### is printed to two figures and no more. ### `SINGLE-ARM`.
+
+----------------------------------------------------------------------------------------------------
+### (7) THE SOURCES, AND ONE THAT DID NOT FETCH.
+----------------------------------------------------------------------------------------------------
+### ### **FOUR OF FIVE FETCHED, EVERY ONE HASHED:**
+###   ### `S1` Voros, *Sharpenings of Li's criterion for the Riemann Hypothesis*, arXiv:math/0506326 --
+###     HTTP 200, 178832 bytes, ### **sha256 `dd360dab4379590e3597d4ee0be81c0b3b486e62693ee08cf79a37bae5c1c802`**
+###   ### `S2` Lagarias, *Li coefficients for automorphic L-functions*, arXiv:math/0404394v4 -- HTTP 200,
+###     423379 bytes, ### **sha256 `86f3d3c49f5a889f121bb1f04f67694cb9066dc8360f6988165788679594a4a7`**
+###     ### ### **AND THAT IS THE RECORD'S OWN PIN FROM b327, RE-VERIFIED BYTE FOR BYTE.** ### The faces
+###     ledger's row L1 carries `86f3d3c4…, 423379 bytes`; the re-fetch returns the same hash and the same
+###     count. ### **A PIN BANKED FIVE ACTS AGO HELD.**
+###   ### `S3` Coffey, arXiv:math-ph/0505052 -- HTTP 200, 337660 bytes, sha256 `5302307fa82cdcdb…`. ###
+###     **SEARCHED AND NOT QUOTED:** ### none of this act's hints found an asymptotic statement in it, and
+###     the act reports that rather than mining it for one.
+###   ### `S4` the arXiv abstract page for `S1`, 40476 bytes, sha256 `650f86d490cb0cb1…`, fetched as a
+###     second independent surface for the same statement.
+### ### **AND ONE NOT FETCHED:** ### `S5` Bombieri and Lagarias, *Complements to Li's criterion*, J. Number
+### Theory 77 (1999) -- ### **HTTP 404 at the address tried.** ### **NOTHING FROM IT IS QUOTED DIRECTLY**,
+### and this is not a new finding: the faces ledger's row L1 already records it as ### *"not obtainable by
+### this seat"*. ### **ITS COROLLARY 1(c) IS OBTAINED AT ONE REMOVE, QUOTED INSIDE VOROS**, and the bank
+### says so wherever it uses it.
+### ### ### **AND THE SENTENCE THE RECORD'S FOUR INCIDENTS EARNED:** ### **THIS IS AN ABSENCE OF READING,
+### ### ### NOT AN ABSENCE OF LITERATURE.** ### The searches this act ran are the searches this act ran.
+
+----------------------------------------------------------------------------------------------------
+### (8) BOTH SEATS' EXPECTATIONS, SCORED. ### AN EXPECTATION IS SCORED, NEVER SATISFIED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, QUOTED:** ### *"A SHAPE EXISTS but at least one hypothesis is undecidable from
+### the record, and Component 3 is the risk."*
+###   ### **FIRST HALF: NOT MET.** ### A shape exists -- exactly one -- but it does not survive, so the
+###     verdict is the second branch and not the first.
+###   ### **SECOND HALF: MET, AND BY A MARGIN.** ### Five of eight hypotheses are
+###     `UNDECIDABLE-FROM-THE-RECORD` on axis 2.
+###   ### **AND THE RISK THE NAVIGATOR NAMED IS THE ONE THAT FIRED.** ### That is the part worth recording:
+###     ### **THE ORDER PREDICTED ITS OWN FAILURE MODE AND THE PREDICTION WAS RIGHT.**
+### ### **THIS SEAT'S:** ### that a shape would exist and that Component 3 would fire ### *"on the error
+### term rather than on the main term -- (D)(iii) rather than (D)(i)"*.
+###   ### **THE FIRST CLAUSE: MET.** ### A shape exists.
+###   ### **THE SECOND CLAUSE: NOT MET, AND IT WAS THE WHOLE POINT OF THE PREDICTION.** ### `V-17` fires at
+###     (i), (ii) AND (iii). ### The Hypothesis is not lurking in an error term there; ### **IT IS IN THE
+###     ### ABSTRACT, IN THE THEOREM'S CONDITION, AND IN THE FIRST LINE OF THE DERIVATION.**
+###   ### **THIS SEAT WAS RIGHT ABOUT WHERE THE DECOMPOSITION SPLITS AND WRONG ABOUT WHERE THE CIRCULARITY
+###     ### HIDES.** ### It does not hide. ### The prediction assumed the literature would be subtle about
+###     it, and the literature is not: Voros puts *if (and only if)* in his abstract.
+
+----------------------------------------------------------------------------------------------------
+### (9) THE RECORD, AND ITS CLOCKS.
+----------------------------------------------------------------------------------------------------
+### ### `data/b358_ferry_2026-09-07.txt` -- the order, banked verbatim; `tools/ferry_scan.py` CURRENT, and
+###   the scan's new ### **DEPRECATED** ### arm reports `0` on it.
+### ### `data/b358_registration_2026-09-07.txt` -- ### **LOCKED**
+###   `8419da7b98fbb9259085dd24b5d7515d2d3ad725cf2e0b40de5ad24047ee38f7`, 15930 bytes, locked at (UTC)
+###   ### **`2026-09-07T19:51:36Z`**, and ### **ONLY AFTER `reg_satisfiable.py` EXITED `0`** -- the chain
+###   reads the audit's own exit code, never a `grep`'s, which is `b354`'s incident mechanized.
+### ### `data/b358_locate_run.txt` -- the fetch, run at (UTC) ### **`2026-09-07T19:53:35Z`**, with
+###   `data/b358_locate.json` and the five extracted source texts beside it.
+### ### `data/b358_extract_notes2.txt` -- ### **THE RELIED-ON EXTRACT**, run at (UTC)
+###   ### **`2026-09-07T19:57:22Z`.** ### **33 READS, 33 LOCATED, 0 WITHOUT AN ANCHOR ON THE FIRST RUN**,
+###   and ### **18 OF 33 ANCHORS DIFFER FROM THE HINT THAT FOUND THEM.** ### Its fixtures ran first and
+###   returned `True`. ### `data/b358_extract_notes.txt` is the same run repeated, ### **BYTE-IDENTICAL IN
+###   ### ITS BODY**, kept because `run_clock` numbers repeats and the record does not delete them.
+### ### `data/b358_read_run3.txt` -- ### **THE RELIED-ON READING**, run at (UTC)
+###   ### **`2026-09-07T20:00:04Z`**, with `data/b358_read.json` beside it. ### `data/b358_read_run.txt` is
+###   ### **SUPERSEDED AND KEPT UNEDITED** ### -- it carries an unformatted `%d` on the branch line, a
+###   defect found by reading the act's own output -- and `data/b358_read_run2.txt` is the same corrected
+###   content as `run3`, byte for byte in its body. ### **THE SUITE IS POINTED AT `run3` AND CHECKS THAT
+###   ### THE FILE IT READS CARRIES THE RELIED-ON JSON'S OWN CLOCK**, which is `b357`'s cure, used here on
+###   the first act after it was minted.
+### ### **AND THE NUMBERED-REPEAT SPECIES HIT THIS ACT FOUR TIMES, SO IT IS NOW MECHANIZED.** ###
+###   `run_clock` numbers a repeat rather than overwriting, and a suite that NAMES a run file therefore
+###   reads whichever run happened FIRST. ### It cost `b356` a wrong extract, `b357` a wrong reading, and
+###   this act ### **TWO MORE -- THE EXTRACT AND THE INDEX RUN.** ### `G-ONCE` already compared the reading
+###   and extract files against their JSONs' own clocks; the suite now also ### **RESOLVES THE INDEX RUN BY
+###   ### ITS OWN RECORDED CLOCK RATHER THAN BY ITS NAME, AND PRINTS WHICH IT CHOSE AND OUT OF WHAT**, so
+###   the choice is evidence and not a habit. ### **THE HELPER IS LOCAL TO THIS SUITE AND IS NOT OFFERED AS
+###   ### A SHARED UTILITY** -- `b347`'s rule says a shared repair is its own act's subject, and this act's
+###   subject is the Li asymptotics.
+### ### **THE ANCHOR TOOL REFUSED TWO HINTS WHILE THIS EXTRACT WAS BEING WRITTEN** -- one absent, one
+###   ### **AMBIGUOUS ACROSS FOUR LINES** ### -- and both were rewritten against the file rather than
+###   forced. ### That is what Bar 2 is for and it is reported because it happened.
+### ### **THIS ACT COMPUTED NOTHING.** ### No frame, no seed, no transform, no quadrature, no fit, no
+### score, no coefficient evaluated and no series summed. ### The only arithmetic is section (6)'s labelled
+### division, and `G-CAP` re-measures the claim on STRIPPED code rather than trusting this sentence.
+
+----------------------------------------------------------------------------------------------------
+### (10) THE AUTHOR'S RULINGS, DISCHARGED.
+----------------------------------------------------------------------------------------------------
+### ### **(R1) THE MIS-ATTRIBUTING ROW IS CORRECTED BY AN APPEND-ONLY CORRECTION ROW.** ### Correspondence
+### row `204` -- `b356`'s own -- reads *"SO b356'S SIXTH RUNG WAS THE INSTRUMENT'S EDGE"* where `b356`'s
+### bank and its index key both read `b354`. ### **THE ROW ITSELF IS NOT EDITED.** ### A correction row is
+### appended, citing the bank and the key, exactly as the ruling directs.
+### ### **(R2) THE ROUTED ERRATA ENTRY IS FILED**, as `E-2026-09-07-1`, in the ### **INTERNAL-RECORD**
+### section the partition assigns it -- by the partition's own convention, which is that an entry is placed
+### by its own words and appended, and ### **NO ENTRY ABOVE IT MOVES AND NONE IS EDITED.**
+### ### **(R3) THE VOCABULARY, PROSPECTIVE ONLY.** ### `reg_seal.py` gained `--lock`; this registration is
+### the first LOCKED one. ### **`--seal` IS UNTOUCHED AND EVERY REGISTRATION SEALED BEFORE THIS ONE STILL
+### ### VERIFIES** -- checked on `b341`, `b345`, `b354`, `b356` and `b357`, all `SEAL INTACT`, and by the
+### tool's own `--selftest` on both marks and both polarities. ### `ferry_scan.py` gained a ### **DEPRECATED
+### ### ARM** ### with eight fixtures, both polarities, whose quiet cases are the point: the tool's own
+### filename, a banked hash line and the new wording must all stay silent. ### **THE ARM IS INFORMATIONAL:
+### ### IT IS EXCLUDED FROM THE VERDICT'S HIT COUNT AND FROM THE EXIT CODE**, because the ruling is
+### prospective and every act that used the retired word used it correctly.
+### ### **(R4) THE INSTRUMENT LANE IS PARKED.** ### **NO FRAME WAS RECOMPUTED BY THIS ACT OR BY ANY PART OF
+### ### IT**, and `G-RULINGS` CHECKS that rather than asserting it. ### The anchored-arm helper stands as
+### available mechanical work, ### **UNSCHEDULED AND NOT BUILT.**
+
+----------------------------------------------------------------------------------------------------
+### (11) WHAT THIS ACT DID NOT DO.
+----------------------------------------------------------------------------------------------------
+### ### **NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED** (`b351`). ### **THE CLAUSE HAS NOT
+### ### MOVED. ### THE TWO FACES' EQUIVALENCE IS NOT COMPILED. ### NO CLASS IS DISCHARGED.**
+### ### **A STATEMENT LOCATED IS NOT A STATEMENT APPLIED, AND THIS ACT APPLIES NONE.** ### No argument was
+### constructed, no bound proved, no source's theorem extended, sharpened or combined with another.
+### ### **NO GRADE IS CONFERRED BY THIS SEAT. ### NO BAR MOVED. ### NO TERMINAL. ### NO ACT IS
+### ### RE-VERDICTED:** ### b327, b340, b341, b345, b351, b353, b355, b356 and b357 stand exactly as banked,
+### and `b327`'s pin is not merely undisturbed but re-verified.
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER. ### `M-2`
+### ### UNCHANGED** (SPECIFIED-NOT-STATED) under b310's cap. ### The seam's debt item 1 stands. ### The
+### patent lane is carried on the patent seat's report, UNCONFIRMED on this seat's record. ### The posture
+### lock is separate. ### `h2` stands exactly where the deposit left it. ### **THE WAVE STAYS PARKED. ###
+### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: A LIBRARY SEARCH THAT WOULD EITHER FIND THE TOOL OR FIND THE SHELF EMPTY.** ### It
+### found neither, and the temptation is to read `EXISTS BUT CIRCULAR` as a discovery about the literature.
+### ### **IT IS NOT.** ### That the Li asymptotic is conditional on RH is not news to anyone who works on
+### this; Voros writes it in his abstract and Lagarias writes it in his. ### **WHAT IS NEW IS ONLY THAT
+### ### THE RECORD NOW HOLDS IT, PINNED, WITH THE SPLIT LOCATED AT THE LINE.**
+### ### **AND THE SEARCH WAS SMALL.** ### Five addresses, four fetched, one of them a duplicate surface.
+### **A STATEMENT THIS ACT DID NOT LOOK FOR IS NOT COUNTED HERE**, and the hints that found nothing in
+### Coffey may say more about the hints than about Coffey.
+### ### **NOT THAT NO UNCONDITIONAL TAIL BOUND EXISTS. ### NOT THAT NONE COULD. ### NOT THAT THE FIVE
+### ### `UNDECIDABLE` GRADES ARE PERMANENT** -- one of them, `H-NGEK`, is undecidable only because this
+### act's own cap forbade one evaluation.
+### ### **THE MOST THIS ACT HAS DONE IS SHOW THAT THE ONE PART OF THE DECOMPOSITION THAT WOULD CLOSE THE
+### ### TAIL IS THE PART THE HYPOTHESIS CONTROLS, AND SHOW IT IN THE SOURCES' OWN WORDS.**

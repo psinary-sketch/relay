@@ -1,0 +1,15 @@
+====================================================================================================
+b358 -- TWO ROWS: THE ACT, AND RULING (R1)'S APPEND-ONLY CORRECTION.
+====================================================================================================
+  BLANK-CHECK FIXTURE (imported from b302): real blank=True  quiet on full=True  PASS
+  SPLITTER FIXTURE (imported from b303): plain=True escaped=True content=True raw=True  PASS
+  blank cells in the whole table (line-scoped) : 0
+  cells carrying an UNESCAPED pipe (checked BEFORE writing) : 0  PASS
+  marker is a literal prefix of its statement : PASS
+  the rows say NO TERMINAL with reasons, the split, the re-verified pin, the unfetched source, two axes, hook owed, R1 not editing 204 : True
+  last existing row : 205 ; rows to append : 206 and 207
+  READ BACK         : last row number is 207 ; cells on disk [6, 6] (6 required, none blank)
+  ### **ROW 204 IS UNTOUCHED AND THE TABLE IS A TRUE PREFIX OF ITSELF ABOVE THESE TWO ROWS** : True
+  table rows now    : 207  PASS
+  ### and that means THE CELLS SURVIVED. It does not mean they are true.
+====================================================================================================

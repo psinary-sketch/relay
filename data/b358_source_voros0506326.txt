@@ -1,0 +1,518 @@
+=== PAGE 1 ===
+arXiv:math/0506326v2  [math.NT]  25 Jan 2006
+Sharpenings of Li’s criterion
+for the Riemann Hypothesis
+Andr´ e Voros∗
+CEA, Service de Physique Th´ eorique de Saclay
+(CNRS URA 2306)
+F-91191 Gif-sur-Yvette CEDEX (France)
+E-mail : voros@spht.saclay.cea.fr
+September 25, 2018
+Abstract
+Exact and asymptotic formulae are displayed for the coeﬃcie nts λ n used in Li’s criterion for
+the Riemann Hypothesis. For n → ∞ we obtain that if (and only if) the Hypothesis is true,
+λ n ∼ n(A log n + B) (with A > 0 and B explicitly given, also for the case of more general zeta
+or L-functions); whereas in the opposite case, λ n has a non-tempered oscillatory form.
+Li’s criterion for the Riemann Hypothesis (RH) states that the latter is true if an d
+only if a speciﬁc real sequence {λ n}n=1, 2,... has all its terms positive [17, 2]. Here we show
+that it actually suﬃces to probe the λ n for their large-n behavior, which fully encodes the
+Riemann Hypothesis by way of a clear-cut and explicit asymptotic alternative . To wit, we
+ﬁrst represent λ n exactly by a ﬁnite oscillatory sum (9), then by a derived integral for mula
+(12), which can ﬁnally be evaluated by the saddle-point method in the n → +∞ limit. As
+a result, λ n takes one of two sharply distinct and mutually exclusive asymptotic f orms:
+if RH is true, λ n will grow tamely according to (17); if RH is false, λ n will oscillate with
+an exponentially growing amplitude , in both + and − directions, as described by (18).
+This dichotomy thus provides a sharp criterion of a new asymptotic type for the Riemann
+Hypothesis (and for other zeta-type functions as well, replacing ( 17) by (15)).
+This work basically reexposes our results of April 2004 announced in [28], but with an
+uncompressed text; we also update the references and related c omments: for instance, we
+now derive as (24) a large- n expansion surmised by Ma´ slanka [20] in the meantime.
+∗ Also at: Institut de Math´ ematiques de Jussieu–Chevaleret (CNRS UMR 7586), Universit´ e Paris 7,
+F-75251 Paris CEDEX 05, France.
+1
+=== PAGE 2 ===
+1 Background and notations.
+We study the sequence [12, 17] (in the notations of Li, whose λ n are n times Keiper’s)
+λ n =
+∑
+ρ
+[1 − (1 − 1/ρ )n] ( n = 1, 2,... ), (1)
+where ρ are the nontrivial zeros of Riemann’s ζ(s), grouped by pairs within summations
+and products as
+{ρ = 1
+2 ± iτk}k=1, 2,... , Re τk positive and non-decreasing; (2)
+we also parametrize each such pair by the single number xk =ρ(1 − ρ) = 1
+4 +τk2.
+We will use the completed zeta function Ξ( s) (normalized as Ξ(0) = Ξ(1) = 1) and a
+symmetrized form of its Hadamard product formula [7, 26],
+Ξ(s) = s(s − 1)Γ(s/ 2)π −s/ 2ζ(s) ≡
+∞∏
+k=1
+[
+1 − s(1 − s)
+xk
+]
+; (3)
+we will also use a “secondary” zeta function built over the Riemann ze ros,
+Z(σ) =
+∞∑
+k=1
+xk
+−σ, Re σ > 1
+2, (4)
+which extends to a meromorphic function in C having all its poles at the negative half-
+integers, plus one pole at σ = + 1
+2 [13] of polar part [26]
+Z( 1
+2 +ε) = R−2ε−2 +R−1ε−1 +O(1)ε→0, (5)
+with
+R−2 = (8π)−1, R −1 = − (4π)−1 log 2π in this case. (6)
+Our results [28] mainly relate to those of Keiper [12], of which we only le arned later
+(thanks to K. Ma´ slanka; they were almost never cited), of Bombie ri–Lagarias [2] on Li’s
+criterion [17], and of Ma´ slanka [20]. Other earlier works considering t he λ n are [1, 3].
+2 New exact forms for λn.
+To reexpress the λ n, we start from their generating function [12, 17]
+f (z) = d
+dz log Ξ
+( 1
+1 − z
+)
+≡
+∞∑
+n=1
+λ nzn−1. (7)
+Now the inﬁnite product formula in (3) implies
+log Ξ
+( 1
+1 − z
+)
+=
+∞∑
+k=1
+log
+[
+1 + z
+(1 − z)2xk
+]
+= −
+∞∑
+j=1
+(− 1)j
+j
+[ z
+(1 − z)2
+] j
+Z(j); (8)
+2
+=== PAGE 3 ===
+then, expanding (1 − z)−2j by the generalized binomial formula, reordering in powers of
+z and substituting the output into (7), we get as ﬁrst result
+λ n = −n
+n∑
+j=1
+(− 1)j
+j
+( n +j − 1
+2j − 1
+)
+Z(j). (9)
+Other sums related to the Z(k) are Zj = ∑
+ρρ−j [22, 16, 26] (often denoted σj, but
+here we use σ as variable). It was already known that λ n = ∑ n
+j=1(− 1)j+1( nj
+)
+Zj [12,
+Equation (27)], and that the Zj in turn are complicated polynomials in the Stieltjes
+constants {γk}k<j [22] (for λ n and γk see also [21, 3, 4] and references therein). Now the
+latter relations boil down to Zj = 1 − (1 − 2−j)ζ(j) + (− 1)jηj−1 [26, Equation (46)] simply
+by promoting logarithmic coeﬃcients ηj [11, 2] (cf. also [16, Equation (12)])
+log[sζ(1 +s)] ≡ −
+∞∑
+n=1
+ηn−1
+sn
+n (10)
+in place of
+sζ(1 +s) = 1 −
+∞∑
+n=1
+γn−1
+(−s)n
+(n − 1)!.
+The λ n thus express as aﬃne combinations of the ηj [2, thm 2].
+Remarks:
+- the ηj are the Stieltjes [constants’]cumulants, up to some relabelings [26, 27];
+- the ηj admit an arithmetic expression over the primes [2, Equation (4.1)]; see also
+[10], which cites [25] for the case η0 = −γ;
+- relation (9) can be inverted also in closed form, by the same techniq ue as for [26,
+Equation (48)]:
+Z(j) =
+j∑
+n=1
+(− 1)n+1
+( 2j
+j − n
+)
+λ n. (11)
+The expression (9) for λ n has some distinctive advantages: it involves the functional
+equation Ξ(s) = Ξ(1 − s) through (3); and unlike the Zj, the Z(j) are positive and gently
+varying factors: the function Z(σ) is regular and very smooth for real σ ≥ 1. Still, (9) is
+an oscillatory sum, hence diﬃcult to control directly.
+Now an integral representation, equivalent to (9) simply by residue calculus, will nev-
+ertheless prove much more ﬂexible:
+λ n = (− 1)nn i
+π
+∮
+C
+I(σ) dσ, I (σ) = Γ(σ +n)Γ(σ − n)
+Γ(2σ + 1) Z(σ), (12)
+where C is a positive contour encircling just the subset of poles σ = +1,..., +n of the
+integrandI(σ).
+3
+=== PAGE 4 ===
+3 Asymptotic alternative for λn, n → ∞ .
+The integral formula (12) readily suggests an asymptotic ( n → ∞ ) evaluation by the
+classic saddle-point method [8], using |I(σ)| as height function. First, the integration
+contourC is to be moved in the direction of decreasing |I(σ)| as far down as possible: it
+will thus pass through some saddle-points σ∗ of |I(σ)|. Then for large n, I(σ) peaks near
+each of these points σ∗, where it makes a contribution of the order of magnitude |I(σ∗)|to
+the integral: thus the highest saddle-point(s) give(s) the dominan t behavior. Consistent
+asymptotic approximations can also be made inside I(σ) throughout: e.g. here, Stirling
+formulae used for Γ( n + const).
+This approach, for an integrand not controlled in fully clos ed form, partly retains an
+experimental character. We currently advocate it for this problem as a heuristic, rather
+than rigorous, tool: it predicts the global structure of the result s at once, and it treats all
+the cases readily and correctly, as other techniques conﬁrm.
+In the present problem, for large n the landscape of the function |I(σ)|is dominantly
+controlled: by its Γ factors, asymptotically ∼ π [sinπσ Γ(2σ + 1)]−1n2σ −1 for ﬁnite σ; and
+by the polar parts of I(σ) near its poles. The induced contour deformation starts as a
+dilation of C away from the segment [1 ,n ] in all directions, and goes to inﬁnity in the
+directions |argσ|< π
+2 − δ. The encountered saddle-points can be of two types here (once
+n is large enough).
+1) For σ on the segment ( 1
+2, 1), |I(σ)| ∼ π [sinπσ Γ(2σ + 1)]−1n2σ −1Z(σ) always has
+one real minimumσr(n) (tending to 1
+2 as n → ∞ ), which will be reached by the moving
+contour; other real saddle-points lie below σ = 1
+2 and will not get reached here.
+2) Complex saddle-points may enter as well, for which we may focus on the upper half-
+plane alone: the lower half-plane will give complex-conjugate (“c.c.”) contributions. As
+long as the moving contour stays inside a half-plane {Re σ > 1
+2 +ε}, the integrand can be
+decomposed as I = ∑
+kIk according to (4); then for each individual term and within the
+Stirling approximation for the Γ-ratio, the saddle-point equation is 0 = d
+dσ log |Ik(σ)| ∼
+log(σ 2 − n2) − 2 log 2σ − logxk, yielding the saddle-point location
+σk(n) = n i/ 2τk. (13)
+Thus any zero on the critical axis ( τk real) yields a purely imaginary σk(n), not eligible:
+it lies outside the domain of validity of (4), and its contribution would be subdominant
+anyway. So in the end, this paragraph excludes the real τk.
+The discussion then fundamentally splits depending on the p resence or absence of zeros
+oﬀ the critical axis.
+[RH false]
+If there is any zero ( 1
+2 ± iτk) oﬀ the critical axis, we select arg τk > 0 and assume the
+case of a simple zero for argument’s sake. Paragraph 2) above fully applies to each such
+zero: the complex saddle-point σk(n) given by (13) lies inside the domain of convergence
+{Re σ > 1
+2} as soon as n> |Im 1/τ k|−1, and for n → +∞ it gives an additive contribution
+∼ [(τk + i/ 2)/ (τk − i/ 2)]n (in the usual quadratic approximation of log I(σ) around σk(n)),
+4
+=== PAGE 5 ===
+which grows exponentially in modulus and ﬂuctuates in phase; it will indeed exponentially
+dominate the contribution of the real saddle-point σr(n), to be computed later.
+This result can also be conﬁrmed rigorously and more directly: by a co nformal mapping
+[2], the function f (z) in (7) has precisely the points zk = (τk − i/ 2)(τk + i/ 2)−1 and z∗
+k as
+simple poles of residue 1 in the unit disk; then a general Darboux theo rem [6, chap. VII
+§2] applies here to the poles with |zk|< 1, implying that the Taylor coeﬃcients of f
+(namely, the λ n) indeed have the asymptotic form
+λ n ∼
+∑
+{|zk|<1}
+z−n
+k + c. c. (mod o(eεn) ∀ε> 0), n → ∞ , (14)
+which now holds for multiple zeros as well, counted with their multiplicities . Concretely,
+λ n then oscillates between exponentially growing values of both signs .
+Inﬁnitely many zeros ( 1
+2 ± iτk) oﬀ the critical axis are perfectly admissible here: their
+zk satisfy |zk|< 1, zk → 1, and the corresponding inﬁnite sums ∑
+kz−n
+k still deﬁne valid
+n → +∞ asymptotic expansions. On the other hand, the general Darboux formula (14)
+hopelessly breaks down if the inﬁnitely many z−n
+k have identical and dominant modulus,
+which is precisely realized in the case [RH true], with all the zk on the unit circle!
+[RH true]
+Here, Darboux’s theorem only tells that λ n =o(eεn) ∀ε >0, but it fails to give any clue
+as to an explicit asymptotic equivalent for λ n. By contrast, the saddle-point treatment
+of the integral (12) itself remains thoroughly applicable. Simply now, all the τk are real,
+Z(σ) = O(Z(Re σ) |Imσ|−3/ 2) in {Re σ > 1
+2 }, and the contour C can be freely moved
+towards the boundary {Re σ = 1
+2} without meeting any of the σk(n) (all of which are
+purely imaginary). Hence the only dominant saddle-point is now σr(n) ∈ ( 1
+2, 1); it is
+shaped by the double pole of Z(σ) at 1
+2 (itself generated by the totality of Riemann
+zeros), so that σr(n) ∼ 1
+2 + 1
+log n . This saddle-point is however non-isolated (it tends to
+the pole), so the standard saddle-point evaluation using the quadr atic approximation of
+logI(σ) around σr(n) works very poorly. Here, it is at once simpler and more accurate
+to keep on deforming a portion of the contour C nearest to σ = 1
+2 until it fully encircles
+this pole (now clockwise), and to note that the ensuing modiﬁcations to the integral are
+asymptotically smaller. Hence for [RH true], λ n is given (mod o(n)) by [28]
+λ n ∼ (− 1)n 2n Resσ =1/ 2I(σ) = 2 πn [2R−2(ψ ( 1
+2 +n) − 1 +γ) +R−1]
+= 2 πn [2R−2(logn − 1 +γ) +R−1] + O(1/n ) (15)
+(with ψ ≡ Γ ′/ Γ estimated by the Stirling formula, γ = Euler’s constant, and using the
+polar structure (5) for Z(σ)).
+Prior to using (6) to ﬁx the R−j, the argument covers zeros ρ of a more general
+(arithmetic) Dirichlet series L(s): as long as the latter has a meromorphic structure and
+functional equation similar enough to ζ(s), its secondary zeta function Z(σ) keeps a double
+pole at σ = 1
+2 [27]. A related but more concrete requirement can be put on the fun ction
+5
+=== PAGE 6 ===
+N(T ), the number of zeros of L(s) with 0 < Im ρ < T: we ask that for some constants
+R−2, R −1 and some α< 1 (all now depending on the chosen L-series),
+N(T ) = 2T [2R−2(logT − 1) +R−1] +δN(T ), δN (T ) = O(T α ) for T → +∞ (16)
+(implying R−2 ≥ 0). If both conditions (5) and (16) hold, then the polar coeﬃcients of
+Z(σ) in (5) have to be precisely the R−j from (16). All of that is realized in many cases
+including, but not limited to, Dedekind zeta functions [15, 13, 27] and some Dirichlet
+L-functions [5, 27, 18]; see also [14] (discussed at end); in all those in stances, δN(T ) =
+O(logT ). For the corresponding λ n, our saddle-point evaluation then always yields: either
+(16) ⇒ (15) if all the zeros have Re ρ = 1
+2 – or the immediately general result (14)
+otherwise.
+Like (14) before, (15) can be derived quite rigorously but by still an other method,
+previously unknown to us, and written for the Riemann zeros by J. O esterl´ e [23] (pri-
+vate communication). We thank him for allowing us to repeat his argum ent here; we
+actually word it in the more general present setting (and slightly streamline it ). When
+all the zeros lie on the critical line, ﬁrst transform the summation (1 ) into a Stieltjes
+integral (where θ(T ) = 2 arctan(1 / 2T )): λ n = 2
+∫ ∞
+0 [1 − cosnθ(T )] dN(T ), then inte-
+grate by parts: n−1λ n = 2
+∫ π
+0 sinnθN ( 1
+2 cot θ
+2) dθ. Now replace N(T ) by its large- T
+form (16) neglecting δN(T ) and other O(θ−α ) terms: the error is o(1) by the Riemann–
+Lebesgue lemma, mainly because (16) makes δN( 1
+2 cot θ
+2 ) integrable over the closed interval
+[0,π ]; hence n−1λ n =
+∫ π
+0 sinnθ 1
+θ [8R−2(log 1
+θ − 1) + 4R−1] dθ +o(1). Next, change vari-
+able: nθ = t, then replace upper t-bound nπ by + ∞ again with an o(1) error; thus,
+λ n = n
+∫ ∞
+0
+sin t
+t [8R−2(log n
+t − 1) + 4R−1] dt (mod o(n)), and the last integral evaluates
+in closed form [9] to yield (15). Unfortunately, we do not see how to e xtend this purely
+real-analytic argument to include the [RH false] case as well.
+Recapitulation
+As we ended up with two mutually exclusive large- n behaviors for the λ n, (14) and (15),
+together they provide a sharp equivalence result. For the Riemann zeros, using the explicit
+values (6):
+Theorem (asymptotic criterion for the Riemann Hypothesis). For n → +∞ , the
+sequenceλ n built over the Riemann zeros follows one of these asymptotic behaviors:
+- [RH true] ⇔ tempered growth to + ∞ , as
+λ n ∼ 1
+2n(logn − 1 +γ − log 2π) (mod o(n)); (17)
+- [RH false] ⇔ non-tempered oscillations, as
+λ n ∼
+∑
+{arg τk>0}
+( τk + i/ 2
+τk − i/ 2
+) n
++ c. c. (mod o(eεn) ∀ε> 0). (18)
+This comprehensive asymptotic statement [28] is new on the [RH false ] side to our
+knowledge, and it also completes some earlier results in the [RH true] c ase.
+6
+=== PAGE 7 ===
+Our main end formula ((17), assuming RH) had actually been displayed by Keiper [12,
+Equation (37)], but under a somewhat misleading context: in his word s, (17) required not
+just RH but also “very evenly distributed” zeros, and was “much st ronger than” RH; no
+details or proofs were ever supplied. All that hardly points toward o ur present conclusion
+that (17) and RH are strictly equivalent.
+Oesterl´ e had a proof of the statement [RH true] ⇒ (17) (see above), but he neither
+published nor even posted his typescript [23].
+In [2, Cor. 1(c)], rather weak exponential lower bounds λ n ≥ − ceεn were shown to
+imply RH; the backward assertion [RH true] ⇐ (17) is thus also implied by [2] (but
+cannot be inferred therefrom, as [2] never alludes to asymptotics regarding the λ n).
+Our saddle-point approach also handles both cases (17)–(18) at o nce for the ﬁrst time.
+Numerical data [12, 20] agree well with (17) for n< 7000 (and even better in the mean
+if we add the contribution like (15) but from the next pole of I(σ),
+δλn = (− 1)n2n Resσ =0I(σ) = 2Z(0) = +7/ 4 (19)
+[26, Equation (41)], although this correction should not count asym ptotically, dominated
+as it seems by oscillatory terms). Yet the above numerical agreeme nt is inconclusive
+regarding the Riemann Hypothesis: any currently possible violation o f RH would yield a
+deviation from (17) detectable only at much higher n (see end of Sect. 4).
+4 An even more sensitive sequence.
+A slightly stronger diﬀerence of behavior follows for the special linea r combinations (20)
+below of the coeﬃcients ηn themselves (deﬁned by (10) above).
+Indeed, the deﬁnition Ξ( s) = Γ(s/ 2)π −s/ 2s(s− 1)ζ(s) substituted into (7) readily yields
+a decomposition λ n =Sn +
+Sn , where [2, thm 2]
+Sn = −
+n∑
+j=1
+( n
+j
+)
+ηj−1 (20)
+is the contribution of ( s − 1)ζ(s), and
+Sn = 1 − log 4π +γ
+2 n + ˆSn, with ˆSn =
+n∑
+j=2
+( n
+j
+)
+(− 1)j(1 − 2−j)ζ(j), (21)
+is the contribution of the remaining (more explicit) factor. The large -n behavior of the
+sum ˆSn is also computable, by the same route we followed from (9) to (15) th rough (12).
+First,
+ˆSn = (− 1)nn!
+2πi
+∮
+C′
+J(σ) dσ, J (σ) = Γ(σ − n)
+Γ(σ + 1) (1 − 2−σ )ζ(σ), (22)
+integrated around the poles σ = 2,...,n ofJ(σ); hence for n → +∞ , ˆSn is asymptotically
+(− 1)n−1n! Resσ =1J(σ) = 1
+2n[ψ (n) + log 2 − 1 + 2γ], (23)
+7
+=== PAGE 8 ===
+now (mod o(n−N ) ∀N >0) because J(σ) has no further singularities; so that ﬁnally, using
+the Stirling expansion for ψ (n) in terms of the Bernoulli numbers B2k,
+Sn ∼ 1
+2n(logn − 1 +γ − log 2π) + 3
+4 −
+∞∑
+k=1
+B2k
+4k n1−2k (n → ∞ ) unconditionally. (24)
+This at once conﬁrms two empirical conjectures made by Ma´ slanka[20, Equations (2.5),
+(2.8)]: mod o(n), the sequence {Sn} expresses the “trend” (17) obeyed by the sequence
+{λ n} under [RH true] ; and to all orders in n, {Sn} has the asymptotic expansion (24).
+But whether RH holds or not it makes sense to withdraw the ﬁxed {Sn}-contribution
+from the previous formulae (17) and (18), as we did in [28] to ﬁnd:
+Sn =o(n) [RH true] (25)
+(a case further discussed in [21, 24, 4]), versus
+Sn ∼ λ n ∼
+∑
+{arg τk>0}
+( τk + i/ 2
+τk − i/ 2
+) n
++ c. c. (mod o(eεn) ∀ε> 0) [RH false] , (26)
+which gives oscillations that blow up exponentially with n.
+Still, in absolute size, any contribution from (26) will stay considerab ly smaller than
+(25) (the background from the set of real τj) up to n ≈ min{arg τk>0}{|Im 1/τ k|−1}: i.e., Sn
+can only reliably signal a zero violating RH up to a height |Im ρ|≲
+√
+n/ 2; so vice-versa,
+since such zeros are now known to require |Im ρ|/greaterorsimilar109, they could only be detected by
+Sn for n /greaterorsimilar1018 (see also [1, 23], [14, p. 5]).
+Our asymptotic criteria may thus not surpass others in practical s ensitivity, but their
+sharpness is theoretically interesting. For instance, Li’s criterion λ n > 0 ( ∀n) is now
+strengthened in that, beyond a ﬁnite n-range, it refers to ever larger amplitudes either
+way, i.e., delicate borderline situations such as λ n → 0 are ruled out.
+5 More general cases: a summary
+For the more general zeta-type functions satisfying (5) and (16 ), the asymptotic alterna-
+tive for the associated λ n is: either (15) if the generalized Riemann Hypothesis (GRH)
+holds, or (18) otherwise. In the former case, the connection (16 ) ⇒ (15) often makes the
+asymptotic form of λ n fully explicit without any calculation, and it also ensures R−2 ≥ 0
+in line with the corresponding generalized Li’s criterion [2, 14, 18, 19].
+The λ n have also been generalized to L-functions deﬁned by Hecke operators for the
+congruence subgroup Γ 0(N) [18][19, specially remark 5.4].
+More recently and in a broader setting (the λ n for automorphic L-functions), La-
+garias presented an alternative approach to estimate the λ n with greater accuracy, mod
+O(√
+n logn) under GRH [14]: in the notations of (20)–(21), he directly proves t hat Sn
+obeys (15) mod O(1) unconditionally (thm 5.1), then that Sn =O(√ n logn) under GRH
+(thm 6.1). We note that his leading λ n-behavior remains tied to the large- T behavior of a
+counting function according to the rule (16) ⇒ (15) [14, Equations (2.11–12),(1.18),(5.2)].
+8
+=== PAGE 9 ===
+References
+[1] Biane, P., Pitman, J. and Yor, M.: Probability laws related to the Jac obi theta and
+Riemann zeta functions, Bull. Amer. Math. Soc. 38 (2001), 435–465 [Sect. 2.3].
+[2] Bombieri, E. and Lagarias, J.C.: Complements to Li’s criterion for th e Riemann
+Hypothesis, J. Number Theory 77 (1999), 274–287.
+[3] Coﬀey, M.W.: Relations and positivity results for the derivatives of the Riemann ξ
+function, J. Comput. Appl. Math. 166 (2004), 525–534.
+[4] Coﬀey, M.W.: New results concerning power series expansions of t he Riemann xi
+function and the Li/Keiper constants, preprint (Jan. 2005); Tow ard veriﬁcation of
+the Riemann Hypothesis: application of the Li criterion, Math. Phys. Anal. Geom.
+8 (2005) 211–255.
+[5] Davenport, H.: Multiplicative Number Theory , 3rd ed., revised by H.L. Montgomery,
+Graduate Texts in Mathematics 74, Springer-Verlag (2000) [chap. 16].
+[6] Dingle, R.B.: Asymptotic Expansions: Their Derivation and Interpretati on, Aca-
+demic Press (1973).
+[7] Edwards, H.M.: Riemann ’s Zeta Function, Academic Press (1974) [Sect. 1.10].
+[8] Erd´ elyi, A.: Asymptotic Expansions , Dover (1956) [Sect. 2.5].
+[9] Gradshteyn, I.S. and Ryzhik, I.M.: Table of Integrals, series and products , 5th ed.,
+A. Jeﬀrey ed., Academic Press (1994) [Equations (3.721(1)) p. 444 and (4.421(1))
+p. 626].
+[10] Hashimoto, Y.: Euler constants of Euler products, J. Ramanujan Math. Soc. 19
+(2004), 1–14.
+[11] Israilov, M.I.: On the Laurent expansion of the Riemann zeta-fu nction, Proc. Steklov
+Inst. Math. 4 (1983), 105–112 [Russian: Trudy Mat. Inst. i. Steklova 158 (1981),
+98–104].
+[12] Keiper, J.B.: Power series expansions of Riemann’s ξ function, Math. Comput. 58
+(1992), 765–773.
+[13] Kurokawa, N.: Parabolic components of zeta functions, Proc. Japan Acad. 64, Ser. A
+(1988), 21–24; Special values of Selberg zeta functions, in: Algebraic K-theory and
+algebraic number theory (Proceedings, Honolulu 1987), M.R. Stein and R. Keith
+Dennis eds., Contemp. Math. 83, Amer. Math. Soc. (1989), pp. 133–149.
+[14] Lagarias, J.C.: Li coeﬃcients for automorphic L-functions, Ann. Inst. Fourier,
+Grenoble (2006, to appear) [math.NT/0404394 v4] .
+[15] Landau, E.: Einf¨ uhrung in die elementare und analytische Theorie der a lgebraischen
+Zahlen und der Ideale , Chelsea, New York (1949) [Satz 173 p. 89].
+[16] Lehmer, D.H.: The sum of like powers of the zeros of the Riemann z eta function,
+Math. Comput. 50 (1988), 265–273.
+[17] Li, X.-J.: The positivity of a sequence of numbers and the Riemann Hypothesis, J.
+Number Theory 65 (1997), 325–333.
+9
+=== PAGE 10 ===
+[18] Li, X.-J.: Explicit formulas for Dirichlet and Hecke L-functions, Illinois J. Math. 48
+(2004), 491–503.
+[19] Li, X.-J.: An arithmetic formula for certain coeﬃcients of the Eule r product of Hecke
+polynomials, J. Number Theory 113 (2005), 175–200.
+[20] Ma´ slanka, K.: Eﬀective method of computing Li’s coeﬃcients and their properties,
+Experiment. Math. (to appear) [math.NT/0402168 v5] .
+[21] Ma´ slanka, K.: An explicit formula relating Stieltjes constants an d Li’s numbers,
+preprint [math.NT/0406312 v2] .
+[22] Matsuoka, Y.: A note on the relation between generalized Euler c onstants and the
+zeros of the Riemann zeta function, J. Fac. Educ. Shinshu Univ. 53 (1985), 81–82;
+A sequence associated with the zeros of the Riemann zeta function , Tsukuba J. Math.
+10 (1986), 249–254.
+[23] Oesterl´ e, J.: R´ egions sans z´ eros de la fonction zˆ eta de Riemann, typescript (2000,
+revised 2001, uncirculated).
+[24] Smith, W.D.: A “good” problem equivalent to the Riemann hypothes is, e-print
+on http://www.math.temple.edu/∼wds/homepage/works.html (2005 version, unpub-
+lished).
+[25] de la Vall´ ee Poussin, C.-J.: Recherches analytiques sur la th´ eo rie des nombres pre-
+miers I, Ann. Soc. Sci. Bruxelles 20 (1896), 183–256 [p. 251].
+[26] Voros, A.: Zeta functions for the Riemann zeros, Ann. Inst. Fourier, Grenoble 53
+(2003), 665–699; erratum: 54 (2004), 1139.
+[27] Voros, A.: Zeta functions over zeros of general zeta and L-functions, in: Zeta Func-
+tions, Topology and Quantum Physics (Proceedings, Osaka, March 2003), T. Aoki,
+S. Kanemitsu, M. Nakahara and Y. Ohno eds., Developments in Mathe matics 14,
+Springer-Verlag (2005), pp. 171–196.
+[28] Voros, A.: A sharpening of Li’s criterion for the Riemann Hypothe sis, preprint
+(Saclay-T04/040 April 2004, unpublished) [math.NT/0404213 v2] .
+10

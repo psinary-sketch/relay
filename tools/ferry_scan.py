@@ -170,6 +170,81 @@ def _line_of(text, offset):
     return line_no, text[start:end if end != -1 else len(text)]
 
 
+# ### ==============================================================================================
+# ### THE DEPRECATED ARM (b358, the author's ruling R3). ### **A THIRD CATEGORY, AND IT FAILS NOTHING.**
+# ### ==============================================================================================
+# ### ### **WHY IT IS A THIRD CATEGORY AND NOT A FOURTH STEM.** ### A STRUCK clause is a clause the
+# ### record refuses to make. ### A BANNED stem is a word the record's own voice may not use. ### **A
+# ### ### DEPRECATED TERM IS NEITHER: IT IS A WORD THAT WAS RIGHT UNTIL A RULING RETIRED IT**, and
+# ### every act that used it before the ruling used it correctly. ### Ruling R3 is PROSPECTIVE and
+# ### edits nothing, so the arm that reports it must not make a banked act look faulty and must not
+# ### make this act's own exit code non-zero.
+# ### ### **THE ARM IS INFORMATIONAL. ### IT IS REPORTED, COUNTED SEPARATELY, AND EXCLUDED FROM THE
+# ### ### VERDICT'S HIT COUNT AND FROM THE EXIT CODE.**
+#
+# ### ### **AND THE SCOPE IS NARROW ON PURPOSE, WHICH IS b348's RULE APPLIED IN ADVANCE.** ### A bare
+# ### pattern on the retired word would fire on `tools/reg_seal.py`, on every banked seal hash, on the
+# ### phrase *seal block*, and on every act that correctly describes what an OLDER act did. ### **A
+# ### ### SCANNER OVER PROSE CANNOT TELL USE FROM MENTION**, so the patterns below require the retired
+# ### word to sit WITH the object the ruling is about -- a registration, its bars, its block -- and
+# ### even then the hit is a string and not a fault.
+DEPRECATED = [
+    ('deprecated wording (b358 R3): a registration is LOCKED, not sealed',
+     re.compile(r'\b(?:un)?seal\w*\s+(?:the\s+|a\s+|its\s+|this\s+)?registration\b'
+                r'|\bregistration\s+(?:is\s+|was\s+|be\s+|been\s+)?(?:un)?seal\w*'
+                r'|\bregistration\s+seal\b|\bsealed\s+bars?\b|\bseal\s+block\b', re.IGNORECASE),
+     'LOCKED / lock block / locked bars'),
+]
+
+
+def deprecated_scan(text):
+    """### RETURNS `(label, line_no, col, line, replacement)` for each DEPRECATED hit.
+
+    ### ### **SEPARATE FROM `scan_text` BY DESIGN.** ### `scan_text` returns a 2-tuple that every
+    ### banked gate suite from b299 onward unpacks; ### **CHANGING ITS SIGNATURE WOULD BREAK FIFTY
+    ### ### COMMITTED SUITES TO REPORT A WORD THAT FAILS NOTHING.**
+    """
+    flat, idx = _flatten(text)
+    out = []
+    for lbl, rx, repl in DEPRECATED:
+        for m in rx.finditer(flat):
+            if m.start() >= len(idx):
+                continue
+            off = idx[m.start()]
+            n, line = _line_of(text, off)
+            col = off - (text.rfind('\n', 0, off) + 1) + 1
+            out.append((lbl, n, col, line.strip(), repl))
+    out.sort(key=lambda h: (h[1], h[2]))
+    return out
+
+
+def deprecated_self_test(verbose=True):
+    """### BOTH POLARITIES. ### **THE QUIET CASES ARE THE POINT:** the tool's own filename, a banked
+    ### hash line and a sentence about what an older act did must all stay silent, or the arm would
+    ### report the corpus instead of the ruling."""
+    def say(s):
+        if verbose:
+            print(s)
+    cases = [
+        ('fires: the registration was sealed', 'the registration was sealed before any read', True),
+        ('fires: seal the registration', 'the act will seal the registration first', True),
+        ('fires: its bars are sealed bars', 'its sealed bars are stated with their floors', True),
+        ('fires: the seal block', 'the seal block carries the hash', True),
+        ('quiet: the tool filename', 'emitted by tools/reg_seal.py; do not retype', False),
+        ('quiet: a banked hash line', '### sha256 of every byte ABOVE this block : 060b9f86', False),
+        ('quiet: the new wording', 'the registration was LOCKED before any read', False),
+        ('quiet: an unrelated sentence', 'the scan confirms the construction rather than testing it', False),
+    ]
+    ok = True
+    say('  %-46s %-9s %s' % ('deprecated fixture', 'hits/exp', 'agree'))
+    for lbl, text, expect in cases:
+        got = bool(deprecated_scan(text))
+        g = (got == expect)
+        ok = ok and g
+        say('  %-46s %-9s %s' % (lbl, '%s/%s' % (got, expect), 'YES' if g else '### NO ###'))
+    return ok
+
+
 def scan_text(text, struck=None, stem_list=None):
     """### RETURNS `(clause_hits, stem_hits)`, each `(label, line_no, col, the line)`.
 
@@ -330,10 +405,15 @@ def self_test(verbose=True):
 def main(argv):
     if not argv or argv[0] in ('--self-test', '-t'):
         ok, _ = self_test()
-        return 0 if ok else 2
+        print()
+        print('  ### THE DEPRECATED ARM (b358, R3):')
+        dok = deprecated_self_test(True)
+        print('  ### deprecated-arm fixtures : %s' % ('PASS' if dok else '### FAIL ###'))
+        return 0 if (ok and dok) else 2
 
     path = argv[0]
     ok, _ = self_test(verbose=False)
+    dok = deprecated_self_test(verbose=False)
     struck, unconf = parse_record()
     stem_list = stems()
     text = io.open(path, encoding='utf-8', errors='replace').read()
@@ -349,6 +429,8 @@ def main(argv):
           % (len(struck), sum(len(e['patterns']) for e in struck)))
     print('  UNCONFIRMED entries skipped   : %d   ### NONE PROMOTED' % unconf)
     print('  self-test                     : %s' % ('PASS' if ok else '### FAIL ###'))
+    print('  deprecated-arm fixtures       : %s' % ('PASS' if dok else '### FAIL ###'))
+    ok = ok and dok
     if not ok:
         print('  ### REFUSING TO REPORT A SCAN FROM A SUITE THAT DOES NOT PASS ITS OWN FIXTURES.')
         return 2
@@ -367,6 +449,16 @@ def main(argv):
     for lbl, i, c, line in sh:
         print('    line %-4d col %-4d  %s' % (i, c, lbl))
         print('        %s' % line[:104])
+    print()
+    # ### ### **THE DEPRECATED ARM (b358, R3). ### REPORTED, AND EXCLUDED FROM THE VERDICT.**
+    dep = deprecated_scan(text)
+    print('  ### DEPRECATED-WORDING HITS : %d   ### **INFORMATIONAL. ### NOT A HIT IN THE VERDICT'
+          % len(dep))
+    print('  ### AND NOT IN THE EXIT CODE** -- ruling R3 is PROSPECTIVE and edits nothing.')
+    for lbl, i, c, line, repl in dep:
+        print('    line %-4d col %-4d  %s' % (i, c, lbl))
+        print('        %s' % line[:104])
+        print('        ### the current wording : %s' % repl)
     print()
     # ### b335: the standing-clauses citation, checked against the file's current version.
     status, cited, current = citation_check(text)

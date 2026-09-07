@@ -20,9 +20,21 @@
 ### ### What makes it evidence in practice is that the seal is COMMITTED with the act: after the
 ### ### push, git's own history dates it, and a later re-seal is a visible diff.
 
+### ### **THE LOCK BLOCK, ADDED AT b358 BY THE AUTHOR'S RULING (R3), PROSPECTIVE ONLY.** ### The ruling
+### retires *sealed* for a registration: ### **A REGISTRATION IS LOCKED, IT PRODUCES A LOCK BLOCK, AND ITS
+### ### BARS ARE LOCKED BARS.** ### `--lock` writes that block. ### **NOTHING IS EDITED AND NOTHING IS
+### ### RETIRED IN THE FILE:** ### `--seal` is untouched, `split_body` now recognises EITHER mark, and
+### **EVERY REGISTRATION SEALED BEFORE THIS LINE STILL VERIFIES BYTE-FOR-BYTE UNCHANGED** -- which is
+### checked by `--selftest`, on both marks, both polarities. ### The hash semantics are identical: the
+### digest covers every byte ABOVE the block, and the clock sits outside the hash exactly as before.
+### ### **THE FILENAME STILL SAYS `reg_seal`.** ### The ruling says filenames migrate at convenience, and
+### renaming a tool that fifty banked registrations name in their own text is not convenience.
+
 Usage:
-    python reg_seal.py --seal <file>      write the seal block (refuses if already sealed)
+    python reg_seal.py --lock <file>      write the LOCK block (refuses if already locked or sealed)
+    python reg_seal.py --seal <file>      write the seal block (retired wording; kept working)
     python reg_seal.py --verify <file>    recompute and compare; exit 1 on mismatch
+    python reg_seal.py --selftest         both marks, both polarities, on temporary files
 """
 import datetime
 import hashlib
@@ -35,6 +47,10 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 BAR = '=' * 100
 MARK = '### THE REGISTRATION SEAL (emitted by tools/reg_seal.py; do not retype).'
+# ### **THE LOCK MARK (b358, ruling R3).** ### A second mark, never a replacement: `split_body` accepts
+# ### either, so a file carrying the old mark verifies exactly as it always did.
+LOCKMARK = '### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).'
+MARKS = (MARK, LOCKMARK)
 PREFIX = '### sha256 of every byte ABOVE this block : '
 # ### ### **THE SEAL'S OWN CLOCK, ADDED AT b344 BY THE ORDER'S WORDS** -- *"have reg_seal.py record the seal's UTC
 # ### instant inside the seal block it writes"*. ### **WHY:** b342's order arm was declared a defective bar because a
@@ -53,10 +69,14 @@ def stamp():
 
 
 def split_body(text):
-    """### RETURN (body, seal_hex_or_None). ### The body is everything above the seal bar."""
-    i = text.find(BAR + '\n' + MARK)
-    if i < 0:
+    """### RETURN (body, hex_or_None). ### The body is everything above the seal OR lock bar.
+    ### ### **EITHER MARK IS ACCEPTED, AND THE EARLIEST ONE WINS**, so a registration sealed before b358
+    ### splits exactly where it always did."""
+    hits = [text.find(BAR + '\n' + m) for m in MARKS]
+    hits = [h for h in hits if h >= 0]
+    if not hits:
         return text, None
+    i = min(hits)
     body = text[:i]
     tail = text[i:]
     for line in tail.split('\n'):
@@ -88,6 +108,65 @@ def cmd_seal(path):
     print('  sha256 banked : %s' % h)
     print('  ### **SEALED. ### The hash covers every byte above the seal block.**')
     return 0
+
+
+def cmd_lock(path):
+    """### WRITE THE LOCK BLOCK (b358, ruling R3). ### Same digest, same fixed point, new wording.
+    ### ### **IT REFUSES A FILE THAT ALREADY CARRIES EITHER MARK**, so a locked registration cannot be
+    ### sealed on top and a sealed one cannot be locked on top."""
+    text = io.open(path, encoding='utf-8').read()
+    body, existing = split_body(text)
+    if existing is not None:
+        print('  ### REFUSED -- already locked or sealed. ### Use --verify.')
+        print('  banked : %s' % existing)
+        return 2
+    h = digest(body)
+    block = (BAR + '\n' + LOCKMARK + '\n' + PREFIX + h + '\n'
+             + '### bytes locked : %d\n' % len(body.encode('utf-8'))
+             + '### locked at (UTC) : ' + stamp()
+             + '   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.\n'
+             + '### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify ' + os.path.basename(path)
+             + '`.**\n' + BAR + '\n')
+    io.open(path, 'a', encoding='utf-8', newline='\n').write(block)
+    print('  file          : %s' % path)
+    print('  bytes locked  : %d' % len(body.encode('utf-8')))
+    print('  sha256 banked : %s' % h)
+    print('  ### **LOCKED. ### The hash covers every byte above the lock block.**')
+    return 0
+
+
+def selftest(verbose=True):
+    """### BOTH MARKS, BOTH POLARITIES, ON TEMPORARY FILES. ### **THE ARM THAT MATTERS IS THE THIRD:**
+    ### a body carrying the OLD mark must still split and verify, or b358's change broke fifty banked
+    ### registrations."""
+    import tempfile
+    def say(s):
+        if verbose:
+            print(s)
+    ok = True
+    body = 'a registration body\n### with two lines\n'
+    for label, writer, mark in (('--lock', cmd_lock, LOCKMARK), ('--seal', cmd_seal, MARK)):
+        p = os.path.join(tempfile.mkdtemp(prefix='regseal_'), 'r.txt')
+        io.open(p, 'w', encoding='utf-8', newline='\n').write(body)
+        import contextlib
+        with contextlib.redirect_stdout(io.StringIO()):
+            rc = writer(p)
+            rc2 = cmd_verify(p)
+            rc3 = writer(p)          # ### must REFUSE a second write
+        txt = io.open(p, encoding='utf-8').read()
+        g = (rc == 0 and rc2 == 0 and rc3 == 2 and mark in txt
+             and split_body(txt)[1] == digest(body))
+        ok = ok and g
+        say('    %-8s writes, verifies, refuses a second write : %s' % (label, g))
+        # ### THE NEGATIVE POLARITY: a changed body must FAIL.
+        io.open(p, 'w', encoding='utf-8', newline='\n').write(txt.replace('two lines', 'three lines'))
+        with contextlib.redirect_stdout(io.StringIO()):
+            rc4 = cmd_verify(p)
+        ok = ok and (rc4 == 1)
+        say('    %-8s a changed body FAILS verification            : %s' % (label, rc4 == 1))
+    say('    ### the seal mark and the lock mark are different strings : %s' % (MARK != LOCKMARK))
+    ok = ok and (MARK != LOCKMARK)
+    return ok
 
 
 def cmd_verify(path):
@@ -135,9 +214,18 @@ def cmd_reseal(path):
 
 
 def main(argv):
-    if len(argv) < 2:
+    if not argv:
         print(__doc__)
         return 2
+    if argv[0] != '--selftest' and len(argv) < 2:
+        print(__doc__)
+        return 2
+    if argv[0] == '--selftest':
+        ok = selftest(True)
+        print('  ### %s' % ('PASS' if ok else '### FAIL ###'))
+        return 0 if ok else 1
+    if argv[0] == '--lock':
+        return cmd_lock(argv[1])
     if argv[0] == '--seal':
         return cmd_seal(argv[1])
     if argv[0] == '--verify':

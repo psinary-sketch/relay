@@ -1,0 +1,202 @@
+{
+ "verdict": "EXISTS BUT CIRCULAR",
+ "grades": [
+  "MET",
+  "REFUTABLE",
+  "UNDECIDABLE-FROM-THE-RECORD"
+ ],
+ "statements": [
+  {
+   "sid": "V-17",
+   "source": "Voros math/0506326",
+   "file": "b358_source_voros0506326.txt",
+   "line": 13,
+   "is_shape": true,
+   "fails": [],
+   "circular": [
+    "i",
+    "ii",
+    "iii"
+   ],
+   "hyps": [
+    "H-RH",
+    "H-COUNT"
+   ]
+  },
+  {
+   "sid": "V-24",
+   "source": "Voros math/0506326",
+   "file": "b358_source_voros0506326.txt",
+   "line": 406,
+   "is_shape": false,
+   "fails": [
+    1
+   ],
+   "circular": [],
+   "hyps": [
+    "H-NONE"
+   ]
+  },
+  {
+   "sid": "V-26",
+   "source": "Voros math/0506326",
+   "file": "b358_source_voros0506326.txt",
+   "line": 421,
+   "is_shape": false,
+   "fails": [
+    3
+   ],
+   "circular": [
+    "i",
+    "ii",
+    "iii"
+   ],
+   "hyps": [
+    "H-NOTRH",
+    "H-COUNT"
+   ]
+  },
+  {
+   "sid": "L-5.1",
+   "source": "Lagarias math/0404394v4",
+   "file": "b358_source_lagarias0404394.txt",
+   "line": 1207,
+   "is_shape": false,
+   "fails": [
+    1
+   ],
+   "circular": [],
+   "hyps": [
+    "H-CUSP",
+    "H-NGEK"
+   ]
+  },
+  {
+   "sid": "L-6.1",
+   "source": "Lagarias math/0404394v4",
+   "file": "b358_source_lagarias0404394.txt",
+   "line": 2000,
+   "is_shape": false,
+   "fails": [
+    1,
+    3
+   ],
+   "circular": [
+    "i",
+    "iii"
+   ],
+   "hyps": [
+    "H-CUSP",
+    "H-RHL"
+   ]
+  },
+  {
+   "sid": "L-ABS",
+   "source": "Lagarias math/0404394v4",
+   "file": "b358_source_lagarias0404394.txt",
+   "line": 23,
+   "is_shape": false,
+   "fails": [
+    3
+   ],
+   "circular": [
+    "i",
+    "iii"
+   ],
+   "hyps": [
+    "H-CUSP",
+    "H-RHL"
+   ]
+  },
+  {
+   "sid": "BL-1c",
+   "source": "Bombieri-Lagarias 1999, QUOTED INSIDE VOROS",
+   "file": "b358_source_voros0506326.txt",
+   "line": 351,
+   "is_shape": false,
+   "fails": [
+    2,
+    3
+   ],
+   "circular": [],
+   "hyps": [
+    "H-ALLN"
+   ]
+  }
+ ],
+ "shapes": [
+  "V-17"
+ ],
+ "not_shapes": [
+  "V-24",
+  "V-26",
+  "L-5.1",
+  "L-6.1",
+  "L-ABS",
+  "BL-1c"
+ ],
+ "circular": [
+  "V-17",
+  "V-26",
+  "L-6.1",
+  "L-ABS"
+ ],
+ "clean": [
+  "V-24",
+  "L-5.1",
+  "BL-1c"
+ ],
+ "clean_shapes": [],
+ "hypotheses": {
+  "H-RH": {
+   "name": "the Riemann Hypothesis itself, as the stated condition of the tame branch",
+   "axis1": "MET",
+   "axis2": "UNDECIDABLE-FROM-THE-RECORD"
+  },
+  "H-COUNT": {
+   "name": "Voros's counting-function law (16): `N(T) = 2T[2R_-2(log T - 1) + R_-1] + dN(T)` with `dN(T) = O(T^alpha)`",
+   "axis1": "MET",
+   "axis2": "MET"
+  },
+  "H-NONE": {
+   "name": "no hypothesis beyond the definitions -- the source writes `unconditionally` on the line",
+   "axis1": "MET",
+   "axis2": "MET"
+  },
+  "H-NOTRH": {
+   "name": "the negation of the Hypothesis, as the stated condition of the oscillating branch",
+   "axis1": "MET",
+   "axis2": "UNDECIDABLE-FROM-THE-RECORD"
+  },
+  "H-CUSP": {
+   "name": "`pi` an irreducible cuspidal unitary automorphic representation on `GL(N)`",
+   "axis1": "MET",
+   "axis2": "MET"
+  },
+  "H-NGEK": {
+   "name": "`n >= K(pi)` with `K(pi) = max_j |kappa_j(pi)|^2`",
+   "axis1": "MET",
+   "axis2": "UNDECIDABLE-FROM-THE-RECORD"
+  },
+  "H-RHL": {
+   "name": "the Riemann hypothesis for `L(s,pi)` -- for the corpus, for `zeta`",
+   "axis1": "MET",
+   "axis2": "UNDECIDABLE-FROM-THE-RECORD"
+  },
+  "H-ALLN": {
+   "name": "the bound `lambda_n >= -c e^(eps n)` holding FOR EVERY `n`",
+   "axis1": "MET",
+   "axis2": "UNDECIDABLE-FROM-THE-RECORD"
+  }
+ },
+ "n_undecidable_axis2": 5,
+ "not_located": [],
+ "price": {
+  "computed_to": 300,
+  "detect_index": 1000000000000000000,
+  "height": 1000000000
+ },
+ "price_ratio": 3333333333333333.5,
+ "run_file": "b358_read_run3.txt",
+ "run_clock": "2026-09-07T20:00:04Z"
+}
