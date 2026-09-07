@@ -1,0 +1,162 @@
+====================================================================================================
+b347_extract.py -- THE THREE REPAIRS AND THE TWO RULES. ### EVERY QUOTATION AT ITS EMITTING FILE, WITH ITS LINE.
+====================================================================================================
+### ==== b345 -- the fixture is a defective bar
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment '### ### **THE TWO CANNOT BOTH HOLD, AND RUNNING THE FIXTURE IS WHAT SHOWED IT.**' | 1 hit(s)
+    | line 69    ### ### **THE TWO CANNOT BOTH HOLD, AND RUNNING THE FIXTURE IS WHAT SHOWED IT.**
+
+### ==== ### it separates nothing at its own threshold
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment '### **AT `1e-25` THE FIXTURE REJECTS THE CORRECT COPY AS WELL' | 1 hit(s)
+    | line 82    ### `4.394e-18`; the sealed threshold is `1e-25`; ### **AT `1e-25` THE FIXTURE REJECTS THE CORRECT COPY AS WELL
+
+### ==== ### the defective half is the recurrence threshold
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment '### **THE DEFECTIVE HALF IS THE' | 1 hit(s)
+    | line 86    ### still misses by `1.442e-03` -- so the fixture would separate there. ### **THE DEFECTIVE HALF IS THE
+
+### ==== ### a measurement is not a met bar
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment '### instead is a measurement -- agreement to `4.394e-18` -- and ### **A MEASUREMENT IS NOT A MET BAR.**' | 1 hit(s)
+    | line 92    ### instead is a measurement -- agreement to `4.394e-18` -- and ### **A MEASUREMENT IS NOT A MET BAR.** ### That
+
+### ==== ### (E4), why a run file needs a clock
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment '### ### RUNNING ITS OWN SUITE TWICE.**' | 1 hit(s)
+    | line 218   ### ### RUNNING ITS OWN SUITE TWICE.** ### Before the push, `G-ORDER` established the execution order the ritual
+
+### ==== ### the seal is dated and the component is not
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment "### own clock -- this act's registration is the first that does, at `2026-09-06T22:37:06Z` -- but ### **NO RUN FILE" | 1 hit(s)
+    | line 224   ### own clock -- this act's registration is the first that does, at `2026-09-06T22:37:06Z` -- but ### **NO RUN FILE
+
+### ==== b346 -- (E1), the sealed uncertainty arm that did no work
+###      <relay>/data/b346_the_exponent_by_rate.txt | fragment '### ### **(E1) ONE OF THE SEALED UNCERTAINTY ARMS DID NO WORK, AND THE SEALED PAIRING IS DEFECTIVE.**' | 1 hit(s)
+    | line 147   ### ### **(E1) ONE OF THE SEALED UNCERTAINTY ARMS DID NO WORK, AND THE SEALED PAIRING IS DEFECTIVE.**
+
+### ==== ### a two-point drift-zero is the local slope
+###      <relay>/data/b346_the_exponent_by_rate.txt | fragment '### ### SLOPE OF THOSE SAME TWO POINTS.**' | 1 hit(s)
+    | line 150   ### ### SLOPE OF THOSE SAME TWO POINTS.** ### So route B COLLAPSES ONTO ROUTE A at the top: `(u3)` sits at
+
+### ==== ### the direction of the risk
+###      <relay>/data/b346_the_exponent_by_rate.txt | fragment '### ### **THE DIRECTION OF THE RISK, NAMED:**' | 1 hit(s)
+    | line 155   ### ### **THE DIRECTION OF THE RISK, NAMED:** an arm that is structurally zero cannot INFLATE the
+
+### ==== ### a bar whose two arms are the same arm
+###      <relay>/data/b346_the_exponent_by_rate.txt | fragment '### ### THAT ORDER: A BAR WHOSE TWO ARMS ARE THE SAME ARM.**' | 1 hit(s)
+    | line 163   ### ### THAT ORDER: A BAR WHOSE TWO ARMS ARE THE SAME ARM.**
+
+### ==== ### (E2), the shared engine
+###      <relay>/data/b346_the_exponent_by_rate.txt | fragment '### ### **(E2) THE TWO EVALUATORS SHARE AN ENGINE, AND IT IS NAMED RATHER THAN CLAIMED ABSENT.**' | 1 hit(s)
+    | line 164   ### ### **(E2) THE TWO EVALUATORS SHARE AN ENGINE, AND IT IS NAMED RATHER THAN CLAIMED ABSENT.** ### Both
+
+### ==== b322 -- under-resolved is the weaker of the two
+###      <relay>/data/b322_components_run.txt | fragment '  ### ### ### **THE ACT TAKES THE WEAKER OF THE TWO: ### UNDER-RESOLVED.** ###' | 1 hit(s)
+    | line 170   ### ### ### **THE ACT TAKES THE WEAKER OF THE TWO: ### UNDER-RESOLVED.** ###
+
+### ==== ### and it carries its price
+###      <relay>/data/b322_the_membership.txt | fragment '### ### ### **(5) SO THE VERDICT IS `UNDER-RESOLVED`, AND IT CARRIES ITS PRICE.**' | 1 hit(s)
+    | line 37    ### ### ### **(5) SO THE VERDICT IS `UNDER-RESOLVED`, AND IT CARRIES ITS PRICE.** ### From the fitted
+
+### ==== the resolving-power module, which this rule extends downward
+###      <techne>/modules/2026-09/RESOLVING_POWER.md | fragment '# The resolving-power rule' | 1 hit(s)
+    | line 1     # The resolving-power rule, with its price
+
+### ==== b344 -- the seal's own clock, by the order's words
+###      <relay>/tools/reg_seal.py | fragment "CLOCK = '### sealed at (UTC) : '" | 1 hit(s)
+    | line 48    CLOCK = '### sealed at (UTC) : '
+
+### ==== ### the clock is outside the hash, said where the line is written
+###      <relay>/tools/reg_seal.py | fragment '# ### `cmd_verify` are untouched; they cover the bytes ABOVE the block, so every seal written before this line existed' | 1 hit(s)
+    | line 44    # ### `cmd_verify` are untouched; they cover the bytes ABOVE the block, so every seal written before this line existed
+
+### ==== ### it recovers nothing sealed before it
+###      <relay>/tools/reg_seal.py | fragment "# ### the seal was written by a tool that meant to record it. ### **IT RECOVERS NOTHING SEALED BEFORE IT, b342's OWN" | 1 hit(s)
+    | line 46    # ### the seal was written by a tool that meant to record it. ### **IT RECOVERS NOTHING SEALED BEFORE IT, b342's OWN
+
+### ==== b344 -- the census before and after, none rewritten
+###      <relay>/tools/b344_seal_clock.py | fragment '###   `--before`   every sealed file in `data/` verified and its verdict recorded, before the edit.' | 1 hit(s)
+    | line 8     ###   `--before`   every sealed file in `data/` verified and its verdict recorded, before the edit.
+
+### ==== the satisfiability audit's own statement of its reach
+###      <relay>/data/audit_b346_reg_satisfiable.txt | fragment '  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act' | 1 hit(s)
+    | line 70    ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+
+### ==== ### it narrows the class; it does not close it
+###      <relay>/data/audit_b346_reg_satisfiable.txt | fragment '  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**' | 1 hit(s)
+    | line 72    ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
+
+### ==== b345 -- the audit could not catch a numerical inconsistency
+###      <relay>/data/b345_the_li_control_rerun.txt | fragment '### ### **THE SATISFIABILITY AUDIT DID NOT AND COULD NOT CATCH IT:**' | 1 hit(s)
+    | line 203   ### ### **THE SATISFIABILITY AUDIT DID NOT AND COULD NOT CATCH IT:** `reg_satisfiable.py` read this
+
+### ==== the flattener as b344 wrote it
+###      <relay>/tools/b344_checks.py | fragment '    return re.sub(r\'\\s+\', \' \', re.sub(r\'(?m)^###\\s*\', \' \', s.replace(\'\\u2019\', "\'"))).strip()' | 1 hit(s)
+    | line 190   return re.sub(r'\s+', ' ', re.sub(r'(?m)^###\s*', ' ', s.replace('\u2019', "'"))).strip()
+
+### ==== ### as b345 copied it
+###      <relay>/tools/b345_checks.py | fragment '    return re.sub(r\'\\s+\', \' \', re.sub(r\'(?m)^###\\s*\', \' \', s.replace(\'\\u2019\', "\'"))).strip()' | 1 hit(s)
+    | line 192   return re.sub(r'\s+', ' ', re.sub(r'(?m)^###\s*', ' ', s.replace('\u2019', "'"))).strip()
+
+### ==== ### and as b346 repaired it locally
+###      <relay>/tools/b346_checks.py | fragment '    return re.sub(r\'\\s+\', \' \', re.sub(r\'(?m)^(?:###\\s*)+\', \' \', s.replace(\'\\u2019\', "\'"))).strip()' | 1 hit(s)
+    | line 191   return re.sub(r'\s+', ' ', re.sub(r'(?m)^(?:###\s*)+', ' ', s.replace('\u2019', "'"))).strip()
+
+### ==== b346 -- the closing record naming the defect
+###      <relay>/data/b346_checks_after.txt | fragment '  G-ROUTES (route B calls no function of route A; both evaluators unedited; the shared engine NAMED; the collapsed arm DECLARED):' | 1 hit(s)
+    | line 69    G-ROUTES (route B calls no function of route A; both evaluators unedited; the shared engine NAMED; the collapsed arm DECLARED):
+
+### ==== FERRY_STANDING -- the version and the citation form
+###      <relay>/tools/FERRY_STANDING.md | fragment 'VERSION: 1' | 1 hit(s)
+    | line 3     VERSION: 1
+
+### ==== ### the rule, and that the seat adds none by hand
+###      <relay>/tools/FERRY_STANDING.md | fragment 'RULE: a clause is STANDING when a majority of the range carries it (8 or more of 15); a clause below that is listed as FREQUENT, NOT STANDING; the seat adds none by hand' | 1 hit(s)
+    | line 7     RULE: a clause is STANDING when a majority of the range carries it (8 or more of 15); a clause below that is listed as FREQUENT, NOT STANDING; the seat adds none by hand -- every clause is a line of a banked ferry, the wording b334's where b334 carries it
+
+### ==== ### this file binds nothing by itself
+###      <relay>/tools/FERRY_STANDING.md | fragment 'THIS FILE BINDS NOTHING BY ITSELF: a ferry that restates a clause is not in conflict with it' | 1 hit(s)
+    | line 9     THIS FILE BINDS NOTHING BY ITSELF: a ferry that restates a clause is not in conflict with it; a ferry that strikes or amends a clause does so in the ferry, and the next version of this file records it
+
+### ==== ### its generator
+###      <relay>/tools/b335_standing.py | fragment 'VERSION = 1' | 1 hit(s)
+    | line 22    VERSION = 1
+
+### ==== the collision that the act-number clause answers
+###      <relay>/data/b344_ruling_2026-09-06.txt | fragment 'behaviour and is banked as such. Add to FERRY_STANDING v2, when' | 1 hit(s)
+    | line 17    behaviour and is banked as such. Add to FERRY_STANDING v2, when
+
+### ==== the two-routes module -- what it refuses
+###      <techne>/modules/2026-09/TWO_ROUTES.md | fragment '## WHAT IT REFUSES' | 1 hit(s)
+    | line 20    ## WHAT IT REFUSES
+
+### ==== ### two quadratures over one integrand
+###      <techne>/modules/2026-09/TWO_ROUTES.md | fragment '- Two quadratures over one integrand as corroboration:' | 1 hit(s)
+    | line 22    - Two quadratures over one integrand as corroboration: *"two quadratures over one integrand are
+
+### ==== ### a module confers no grade
+###      <techne>/modules/2026-09/TWO_ROUTES.md | fragment 'a module states the grade its owning act carries and confers none' | 1 hit(s)
+    | line 3     *TECHNE module draft · extracted 2026-09-06 (research seat, b330) · **PRIVATE, TECHNE-Core, local-only**. Owning-act citations are to the `relay` record. **Grade-honest: a module states the grade its owning act carries and confers none.** Nothing deposits.*
+
+### ==== the defective-bars module, which the new rule sits beside
+###      <techne>/modules/2026-09/SEALED_BARS_FOUND_DEFECTIVE.md | fragment '# ' | 5 hit(s)
+    | line 1     # The sealed-bars-found-defective table
+    | line 7     ## WHAT IT DOES
+
+### ==== the order -- the rule over both species
+###      <relay>/data/b347_order_2026-09-06.txt | fragment '(1) The bar-floor rule is stated over BOTH species and the' | 1 hit(s)
+    | line 5     (1) The bar-floor rule is stated over BOTH species and the
+
+### ==== ### the gate mechanization, both arms
+###      <relay>/data/b347_order_2026-09-06.txt | fragment "numerical threshold carries its object's floor or the word" | 1 hit(s)
+    | line 9     numerical threshold carries its object's floor or the word
+
+### ==== ### the two-routes third clause
+###      <relay>/data/b347_order_2026-09-06.txt | fragment '(2) The two-routes module gains the third clause by appended' | 1 hit(s)
+    | line 14    (2) The two-routes module gains the third clause by appended
+
+### ==== ### the flattener repair and its reach
+###      <relay>/data/b347_order_2026-09-06.txt | fragment '(3) The flattener defect is repaired in the gate utility once,' | 1 hit(s)
+    | line 20    (3) The flattener defect is repaired in the gate utility once,
+
+### ==== ### and the fold is next
+###      <relay>/data/b347_order_2026-09-06.txt | fragment 'After b347, the board returns to mathematics and the next act' | 1 hit(s)
+    | line 29    After b347, the board returns to mathematics and the next act
+
+  ### ### **PATHS MISSING : 0 ; QUOTATIONS NOT FOUND : 0**
+====================================================================================================

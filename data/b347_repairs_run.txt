@@ -1,0 +1,176 @@
+### run at (UTC) : 2026-09-07T00:15:31Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b347 -- THE THREE REPAIRS AND THE TWO RULES. ### THE COMPONENTS, IN THE SEALED ORDER.
+====================================================================================================
+
+====================================================================================================
+  (C) THE RUN FILE'S OWN CLOCK.
+====================================================================================================
+  THE FIXTURES, BOTH POLARITIES:
+    (1) written through the tool carries a clock : True (2026-09-07T00:15:29Z)  PASS
+    (2) written the OLD way carries none, and the reader says so : True  PASS
+    (3) a second run takes the next number and the first survives : True  PASS
+    (4) a MALFORMED clock reads as no clock : True  PASS
+
+  THE CENSUS OF WHAT CARRIES A CLOCK, over every run file in data/:
+    run files in the record : 370 ; carrying a clock : 0 ; carrying none : 370
+    carrying one : none yet -- this act writes the first
+    ### ### **THE REPAIR IS NOT RETROACTIVE AND THE CENSUS IS HOW THAT IS SAID IN NUMBERS.** ### Every
+    ### run file written before this tool carries no clock and cannot be given one; b345's `(E4)` stays
+    ### exactly as b345 declared it.
+  ### PASS
+
+====================================================================================================
+  (D) THE SATISFIABILITY AUDIT'S NUMERICAL LIMIT -- NAMED IN ITS OWN OUTPUT, AND PRICED.
+====================================================================================================
+  the limit named in the audit's own printed output : True
+  b346's spec re-audited after the edit and its verdict unchanged : True
+
+  THE PRICE, AS A COUNT READ FROM THE RECORD. ### **A PRICE IS NOT A PREDICTION AND THIS IS NOT A PLAN.**
+    registrations in the record                                  : 333
+    carrying at least one numerical threshold                    : 27
+    whose thresholds already sit beside a floor or an UNPRICED    : 7
+    that would need a hand reading to pair a threshold to a floor : 20
+    ### ### **THAT LAST NUMBER IS THE PRICE OF CLOSING THE LIMIT AT THE TEXTUAL LAYER.** ### The
+    ### NUMERICAL layer -- a checker that knows what floor a routine actually has -- is not priced here
+    ### and is not built. ### **THE LIMIT IS NAMED AND PRICED. ### IT IS NOT CLOSED.**
+  ### PASS
+
+====================================================================================================
+  (E) THE FLATTENER -- ONE UTILITY, AND ITS REACH MEASURED.
+====================================================================================================
+  THE FIXTURES, BOTH POLARITIES:
+    (1) the doubled-marker sentence IS found by the repair          : True  PASS
+    (2) and is NOT found by the old behaviour (the discrimination)  : True  PASS
+    (3) a one-line sentence is found by the repair                  : True  PASS
+    (4) and by the old behaviour too, so the repair loses nothing   : True  PASS
+
+  THE REACH, MEASURED STATICALLY FROM EACH ACT'S OWN CHECKS FILE AGAINST ITS OWN BANK:
+    b342   phrases compared against the flattened bank : 0   ; found under BOTH : 0   ; found ONLY under the repair : 0   ; found under NEITHER : 0
+    b343   phrases compared against the flattened bank : 5   ; found under BOTH : 3   ; found ONLY under the repair : 0   ; found under NEITHER : 2
+    b344   phrases compared against the flattened bank : 4   ; found under BOTH : 4   ; found ONLY under the repair : 0   ; found under NEITHER : 0
+    b345   phrases compared against the flattened bank : 1   ; found under BOTH : 1   ; found ONLY under the repair : 0   ; found under NEITHER : 0
+    b346   phrases compared against the flattened bank : 7   ; found under BOTH : 6   ; found ONLY under the repair : 1   ; found under NEITHER : 0
+        ### WEAKENED BY THE DEFECT : 'A SHARED ENGINE IS A SHARED ERROR SOURCE'
+
+    ### ### **ARMS THE DEFECT SILENTLY WEAKENED : 1**
+    ### **AND THE MEASUREMENT'S OWN LIMIT, SO THE COUNT IS NOT READ FOR MORE THAN IT IS:** the extractor
+    ### reads the syntax tree for phrases compared against the flattened bank by name (`bf`, `bf.lower()`,
+    ### `bf.upper()`, `flat(...)`). ### **AN ARM THAT FLATTENS INTO A VARIABLE UNDER ANOTHER NAME, OR THAT
+    ### COMPARES A COMPUTED STRING RATHER THAN A LITERAL, IS INVISIBLE TO IT.** ### The count is a lower
+    ### bound on the reach and is reported as one.
+    ### **AND `found under NEITHER` IS NOT A DEFECT COUNT.** ### The extractor is STATIC and cannot see
+    ### which branch of a conditional arm ran. ### b343's two are one phrase, taken twice from the two
+    ### halves of a single `if/else` whose OTHER half is the one that matched; its arm passed on that
+    ### half. ### **A PHRASE IN AN UNTAKEN BRANCH IS NOT AN UNMATCHED ARM, AND NOTHING IS RE-VERDICTED
+    ### ON THIS COUNT.**
+    ### ### **AND WHAT FOLLOWS FROM THAT IS NOTHING AUTOMATIC.** ### An arm whose phrase failed to match
+    ### made its gate FAIL, not pass: ### **THE DEFECT'S DIRECTION IS TOWARD FALSE ALARM, NOT TOWARD
+    ### FALSE CLEARANCE.** ### That is why it survived two acts -- a failing arm gets rewritten, and a
+    ### rewritten arm looks like a passing one. ### **NO PAST ACT IS RE-VERDICTED AND NO PAST COPY OF THE
+    ### FLATTENER IS EDITED: THE RECORD DOES NOT SILENTLY OVERWRITE ITSELF.**
+  ### PASS
+
+====================================================================================================
+  (F) THE BAR-FLOOR RULE -- THE GATE ARMS, THEIR FIXTURES, AND THE CENSUS OVER THE RECORD.
+====================================================================================================
+  THE FIXTURES, BOTH POLARITIES OF EACH ARM, ON SYNTHETIC TEXT DRAWN FROM NO BANK:
+    the floor arm FIRES on a bare threshold              True  PASS
+    and is QUIET when the floor is beside it             True  PASS
+    and is QUIET on a deliberate UNPRICED                True  PASS
+    the arms arm FIRES on an unqualified multi-arm bar   True  PASS
+    and is QUIET when independence is named              True  PASS
+    and is QUIET on a deliberate SINGLE-ARM              True  PASS
+
+  THE INDEX-QUERY ARM, UNTOUCHED, STILL FIRING ON ITS OWN CASE:
+    a mark with no query -> HARD FAILURE (1) ; a mark with a recorded query -> PASS (0) : True
+
+  THE CENSUS OVER EVERY REGISTRATION IN THE RECORD. ### **NO PAST REGISTRATION IS RE-VERDICTED.**
+    registrations gated : 333 ; would FIRE on at least one arm : 52 ; CLEAR : 281
+    ### **THE ROWS THAT WOULD FIRE ARE LISTED; THE ONES THAT WOULD NOT ARE COUNTED AND NOT LISTED.** ### Most
+    ### of the record carries no numerical threshold at all, and a quiet row is quiet because there was
+    ### nothing for the arm to look at, not because the arm looked and approved.
+    registration                                   thresholds   floor miss   multi-arm    arm miss
+    b113_registration_2026-08-22.txt               1            1            0            0
+    b116_registration_2026-08-23.txt               0            0            1            1
+    b132_registration_2026-08-24.txt               0            0            1            1
+    b14_registration_2026-08-18.txt                0            0            1            1
+    b168_registration_2026-08-25.txt               1            1            0            0
+    b19_registration_2026-08-18.txt                0            0            1            1
+    b205_registration_2026-08-26.txt               0            0            2            2
+    b207_registration_2026-08-26.txt               0            0            1            1
+    b229_registration_2026-08-28.txt               1            1            0            0
+    b243_registration_2026-08-29.txt               1            1            0            0
+    b251_registration_2026-08-29.txt               1            1            0            0
+    b252_registration_2026-08-29.txt               1            1            0            0
+    b260_registration_2026-08-30.txt               2            2            10           8
+    b261_registration_2026-08-30.txt               0            0            7            5
+    b262_registration_2026-08-31.txt               0            0            5            4
+    b263_registration_2026-08-31.txt               0            0            7            7
+    b264_registration_2026-08-31.txt               3            3            0            0
+    b268_registration_2026-08-31.txt               0            0            1            1
+    b269_registration_2026-08-31.txt               0            0            1            1
+    b280_registration_2026-09-01.txt               0            0            1            1
+    b292_registration_2026-09-02.txt               0            0            1            1
+    b297_registration_2026-09-02.txt               0            0            1            1
+    b317_registration_2026-09-04.txt               0            0            7            7
+    b318_registration_2026-09-04.txt               0            0            2            2
+    b319_registration_2026-09-04.txt               1            1            3            3
+    b320_registration_2026-09-04.txt               1            0            2            2
+    b321_registration_2026-09-04.txt               1            1            6            6
+    b322_registration_2026-09-04.txt               0            0            6            5
+    b323_registration_2026-09-04.txt               0            0            6            6
+    b324_registration_2026-09-04.txt               0            0            6            6
+    b325_registration_2026-09-04.txt               0            0            7            7
+    b326_registration_2026-09-04.txt               3            2            3            1
+    b327_registration_2026-09-05.txt               1            1            1            0
+    b328_registration_2026-09-05.txt               3            1            4            3
+    b333_registration_2026-09-06.txt               1            1            0            0
+    b334_registration_2026-09-06.txt               2            0            3            2
+    b335_registration_2026-09-06.txt               0            0            1            1
+    b339_registration_2026-09-06.txt               0            0            1            1
+    b340_registration_2026-09-06.txt               3            0            1            1
+    b341_registration_2026-09-06.txt               2            2            5            3
+    b343_registration_2026-09-06.txt               0            0            3            3
+    b344_registration_2026-09-06.txt               0            0            1            1
+    b345_registration_2026-09-06.txt               3            2            6            5
+    b346_registration_2026-09-06.txt               0            0            3            2
+    b347_registration_2026-09-06.txt               1            0            2            1
+    b35_registration_2026-08-18.txt                2            2            0            0
+    b36_registration_2026-08-18.txt                2            2            0            0
+    b37_registration_2026-08-18.txt                1            1            0            0
+    b40_registration_2026-08-18.txt                1            1            0            0
+    b63_registration_2026-08-21.txt                0            0            2            2
+    b72_registration_2026-08-21.txt                0            0            1            1
+    b9_registration_2026-08-17.txt                 0            0            1            1
+    ### of the 281 that would not fire, 276 carry NEITHER a threshold NOR a multi-arm passage for the arms to see
+    ### ### **A REGISTRATION THAT WOULD FIRE IS NAMED AND LEFT EXACTLY AS IT IS.** ### The arms bind
+    ### registrations written AFTER them. ### Nothing above is edited and nothing is re-verdicted.
+
+  AND THIS ACT'S OWN REGISTRATION, GATED, ITS VERDICT REPORTED WHATEVER IT IS:
+    thresholds 1 ; floor misses 0 ; multi-arm passages 2 ; arm misses 1
+        line 155   ### ### **THE TWO-ROUTES MODULE GAINS ITS THIRD CLAUSE BY AN APPENDED BLOCK. ### NOTHING
+    ### ### **THIS ACT DOES NOT EXEMPT ITSELF, AND ITS OWN FILE IS SEALED, SO WHAT THE ARMS FIND HERE IS
+    ### ### CARRIED AND NOT FIXED.**
+  ### PASS
+
+====================================================================================================
+  (G) THE TWO MODULES AND THE STANDING CLAUSES' SECOND VERSION.
+====================================================================================================
+  BAR_FLOOR_RULE.md : ALREADY PRESENT -- not rewritten
+    the September shape (does / applies / refuses / provenance) : True ; and it confers no grade : True
+  TWO_ROUTES.md     : the b347 mark is already present -- REFUSED, nothing written
+    TWO_ROUTES.md is a TRUE PREFIX of what it was, so nothing above the block is edited : True
+    the clause in the order's words : True
+
+  FERRY_STANDING : VERSION 2 : True ; the author-ruled section present : True
+    the clause marked NOT MEASURED : True ; the file says the scan was not taught it : True
+    and the scan really was NOT taught it (its source carries no act-number rule) : True
+    every measured count RE-MEASURED LIVE and none disagreeing : True
+  ### TECHNE files written this run : 0 (CAP 2)
+  ### PASS
+
+====================================================================================================
+  ### NOTHING HERE MEASURED AN OBJECT ; NO FRAME BUILT ; NO BAR MOVED ; NO ACT RE-VERDICTED.
+  ### COMPONENTS FAILING : 0 
+====================================================================================================

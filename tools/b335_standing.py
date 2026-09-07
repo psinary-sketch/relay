@@ -10,6 +10,7 @@
 ### clause by hand: every clause here is a line of a banked ferry, located in the extract file first.
 ### ### `--check` re-measures every count live and compares it with the file's; the suite calls it.
 """
+import hashlib
 import io
 import os
 import re
@@ -19,7 +20,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, 'data')
 OUT = os.path.join(ROOT, 'tools', 'FERRY_STANDING.md')
 RUN = os.path.join(D, 'b335_standing_run.txt')
-VERSION = 1
+# ### ### **RAISED TO 2 AT b347 BY THE AUTHOR'S ORDER.** ### v2 differs from v1 in one way and one way only:
+# ### it carries an AUTHOR-RULED section, marked as not measured, holding the act-number clause the numbering
+# ### ruling of 2026-09-06 asked for. ### Every measured clause is RE-MEASURED LIVE when this file is run, so
+# ### the version bump does not carry any count forward on trust.
+VERSION = 2
 FILED = '2026-09-06 (b335)'
 MAJORITY = 8
 
@@ -159,6 +164,14 @@ def render(rows):
     else:
         L.append('- none: every clause carried here is standing')
     L.append('')
+    L.append('## AUTHOR-RULED CLAUSES (NOT MEASURED)')
+    L.append('')
+    L.append("**Everything above this heading is MEASURED: every clause is a line of a banked ferry and its count is re-measured live by `--check`. Everything in this section is NOT.** It is here because the author ruled it, and the file has to say which is which or it misdescribes its own method -- the RULE line at the head says *the seat adds none by hand*, so a clause that is not a line of a banked ferry must declare itself.")
+    L.append('')
+    L.append("- **A1** A ferry carries its act number, and a number already claimed by an unclosed ferry is a hit for the ferry scan.  --- **AUTHOR-RULED 2026-09-06**, in the numbering ruling banked at `relay/data/b344_ruling_2026-09-06.txt`: *\"Add to FERRY_STANDING v2, when next revised: a ferry carries its act number, and a number already claimed by an unclosed ferry is a hit for the ferry scan.\"* The occasion was a collision the author named as the navigator's own -- a second ferry issued under a live number -- with the seat's refusal to choose between them banked as the correct behaviour. **NOT MEASURED; carried by no count.**")
+    L.append('')
+    L.append("**AND THE SCAN HAS NOT BEEN TAUGHT THIS CLAUSE.** Recording it here and implementing it in `relay/tools/ferry_scan.py` are different acts; b347 did the first and states plainly that it did not do the second. Until an act does the second, **A1 binds a reader and not a tool.**")
+    L.append('')
     L.append('## HOW A FERRY CITES THIS FILE')
     L.append('')
     L.append('One line in the ferry\'s head, for example: `Standing clauses: FERRY_STANDING v%d, carried by reference.` The ferry then states only what is specific to the act. The scan (`relay/tools/ferry_scan.py`) reads the version cited against the `VERSION:` line here and reports NONE, CURRENT, STALE or NO FILE; a STALE citation is a hit, and the reader rules.' % VERSION)
@@ -198,10 +211,28 @@ def main(argv):
         rec('  --check : VERSION in file %s ; counts disagreeing with the file %d %s' % (ver, len(bad), bad if bad else ''))
         rec('=' * 100)
         return 0 if (not bad and ver == VERSION) else 1
+    # ### ### **THE GUARD, AND THE ONE DOOR THROUGH IT, OPENED AT b347.** ### The guard's own words are that
+    # ### a new version is a new act. ### `--newversion` is that act saying so out loud, and it REFUSES unless
+    # ### the file on disk carries a DIFFERENT version from this generator's -- so the flag cannot rewrite a
+    # ### file at the same version, which is the case the guard exists for. ### The prior version's bytes are
+    # ### hashed and printed before the write, so the supersession is a visible event and not a silent one.
     if os.path.exists(OUT):
-        rec('  ### %s EXISTS -- NOT REWRITTEN (a new version is a new act).' % os.path.basename(OUT))
-        rec('=' * 100)
-        return 3
+        prior = io.open(OUT, encoding='utf-8').read()
+        pv = re.search(r'^VERSION: (\d+)$', prior, re.M)
+        pv = int(pv.group(1)) if pv else None
+        if not (argv and argv[0] == '--newversion'):
+            rec('  ### %s EXISTS -- NOT REWRITTEN (a new version is a new act).' % os.path.basename(OUT))
+            rec('  ### To write a NEW version, an act says so: `--newversion`.')
+            rec('=' * 100)
+            return 3
+        if pv == VERSION:
+            rec('  ### REFUSED -- the file on disk is already VERSION %s and this generator is VERSION %d.' % (pv, VERSION))
+            rec('  ### ### **`--newversion` WRITES A NEW VERSION; IT DOES NOT REWRITE THE CURRENT ONE.**')
+            rec('=' * 100)
+            return 3
+        rec('  ### SUPERSEDING VERSION %s -> %d ; the prior file was %d bytes, sha256 %s'
+            % (pv, VERSION, len(prior.encode('utf-8')), hashlib.sha256(prior.encode('utf-8')).hexdigest()))
+        rec('  ### ### **THE PRIOR VERSION IS SUPERSEDED IN PLACE AND ITS BYTES SURVIVE IN git HISTORY.**')
     text = render(rows)
     open(OUT + '.tmp', 'wb').write(text.encode('utf-8'))
     os.replace(OUT + '.tmp', OUT)

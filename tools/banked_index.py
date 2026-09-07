@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'bar-floor-rule': ['the bar-floor rule', 'the run file\'s clock', 'the flattener', 'the two-routes rule',
+                      'the satisfiability audit\'s limit', 'the standing clauses v2', 'the act-number clause',
+                      'a bar below its floor', 'arms that are one arm'],
     'exponent-by-rate': ['the exponent by rate', 'the decay rate', 'the even sector', 'the convention',
                          'the rate separates the conventions', 'which convention the banked values carry',
                          'the resolving power in the rate', 'the floor is present'],
@@ -543,6 +546,31 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE THREE REPAIRS AND THE TWO RULES (b347).
+    ("bar-floor-rule", "b347 (an instrument act; it decides nothing about the mathematics)",
+     "THE BAR-FLOOR RULE, MINTED OVER BOTH SPECIES: a numerical bar is stated with the floor of the object it tests, and a bar below that floor is"
+     " UNINFORMATIVE RATHER THAN STRICT; and a bar with several arms is stated with what makes the arms independent, since arms that are algebraically one"
+     " arm are one arm. It is b322\'s resolving-power rule one level down. Minted from two banked incidents: b345 sealed a fixture demanding 1e-25 of a"
+     " routine whose truncation left it a floor near 4.4e-18, so at its own threshold it rejected the correct copy too; b346 sealed an uncertainty whose"
+     " second estimator was algebraically its first, so one arm sat at machine level and another was structurally zero. Mechanized as two arms in"
+     " registration_gate.py beside the index-query arm, six fixtures in both polarities; the census over 333 registrations found 52 that would fire and"
+     " 281 clear, of which 276 carry nothing for the arms to look at. AND THE ACT DID NOT EXEMPT ITSELF: its own sealed registration fires on one arm and"
+     " carries it. THE OTHER TWO REPAIRS: run_clock.py gives a run file the instant it was written -- 370 run files in the record carried none before it;"
+     " and gate_text.py repairs the flattener in one place, its reach measured statically at 1 arm and reported as a LOWER BOUND. The satisfiability"
+     " audit\'s numerical limit is named in its own output and PRICED at 20 registrations of hand reading. FERRY_STANDING v2 written by its generator,"
+     " counts re-measured live, the act-number clause in its own section marked AUTHOR-RULED, NOT MEASURED.",
+     "### A SHARPER INSTRUMENT IS NOT A RESULT, and nothing in this act decides anything about the mathematics: no frame built, no cell evaluated, no"
+     " object measured. ### THE CLOCK DOES NOT REACH BACKWARDS -- every run file written before it carries none and cannot be given one, and b345\'s (E4)"
+     " stands exactly as b345 declared it. ### THE AUDIT\'S NUMERICAL LIMIT IS NAMED AND PRICED, NOT CLOSED; no numerical checker is built. ### THE GATE"
+     " MATCHES TEXT and cannot tell a floor from the words of one -- a registration that writes UNPRICED beside every bar passes and has priced nothing."
+     " ### NO PAST ACT IS RE-VERDICTED, no past copy of the flattener is edited, and no registration the new arms would fire on is touched. ### THE SCAN"
+     " WAS NOT TAUGHT THE ACT-NUMBER CLAUSE, so it binds a reader and not a tool. ### THE MODULES ARE PRIVATE AND NOT PUSHED. ### NO GRADE MOVED."
+     " ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b347_the_three_repairs.txt; data/b347_repairs_run.txt (the first run file in the corpus carrying its own clock);"
+     " data/b347_registration_2026-09-06.txt (sealed before any tool was touched and before any module was written);"
+     " data/b347_order_2026-09-06.txt; tools/run_clock.py; tools/gate_text.py; tools/registration_gate.py (the two arms);"
+     " tools/FERRY_STANDING.md (v2); TECHNE-Core modules/2026-09/BAR_FLOOR_RULE.md and TWO_ROUTES.md (local, NOT PUSHED);"
+     " CORRESPONDENCE.md row 195"),
     # ### THE EXPONENT BY RATE (b346).
     ("exponent-by-rate", "b346 (a premise tested, then a different axis measured)",
      "THE EXPONENT BY RATE: b339 priced the split between the exponent\'s two candidates BY VALUE and banked it UNAFFORDABLE, with a side reading"

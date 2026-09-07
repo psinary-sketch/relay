@@ -1,8 +1,8 @@
 # FERRY_STANDING -- the standing clauses of the research seat's ferries
 
-VERSION: 1
+VERSION: 2
 FILED: 2026-09-06 (b335)
-CITE AS: `FERRY_STANDING v1` (a ferry that cites this file carries every STANDING clause below by reference; the ferry scan reports a citation of any other version as a stale citation)
+CITE AS: `FERRY_STANDING v2` (a ferry that cites this file carries every STANDING clause below by reference; the ferry scan reports a citation of any other version as a stale citation)
 RANGE: the 15 banked ferries b320-b334 (`relay/data/b3NN_ferry_<date>.txt`; resume pastes excluded, they are re-pastes)
 RULE: a clause is STANDING when a majority of the range carries it (8 or more of 15); a clause below that is listed as FREQUENT, NOT STANDING; the seat adds none by hand -- every clause is a line of a banked ferry, the wording b334's where b334 carries it
 STRUCK CLAUSES: `relay/data/STRUCK_CLAUSES.md` is the record (S-1, U-1, U-2 STRUCK as of b300); it is referenced here and not restated; the ferry scan reads it
@@ -79,7 +79,15 @@ GENERATOR: `relay/tools/b335_standing.py` (written once; `--check` re-measures e
 - **C6** (THE STANDING SCOPE) the like-for-like rule enforced by name (every comparison names the test function on both sides -- b333's species)  — carried by 1 of 15 (b334); source b334 lines 17-19
 - **C14** (THE STANDING SCOPE) run files written once per path  — carried by 5 of 15 (b326 b327 b328 b331 b334); source b334 lines 22-23
 
+## AUTHOR-RULED CLAUSES (NOT MEASURED)
+
+**Everything above this heading is MEASURED: every clause is a line of a banked ferry and its count is re-measured live by `--check`. Everything in this section is NOT.** It is here because the author ruled it, and the file has to say which is which or it misdescribes its own method -- the RULE line at the head says *the seat adds none by hand*, so a clause that is not a line of a banked ferry must declare itself.
+
+- **A1** A ferry carries its act number, and a number already claimed by an unclosed ferry is a hit for the ferry scan.  --- **AUTHOR-RULED 2026-09-06**, in the numbering ruling banked at `relay/data/b344_ruling_2026-09-06.txt`: *"Add to FERRY_STANDING v2, when next revised: a ferry carries its act number, and a number already claimed by an unclosed ferry is a hit for the ferry scan."* The occasion was a collision the author named as the navigator's own -- a second ferry issued under a live number -- with the seat's refusal to choose between them banked as the correct behaviour. **NOT MEASURED; carried by no count.**
+
+**AND THE SCAN HAS NOT BEEN TAUGHT THIS CLAUSE.** Recording it here and implementing it in `relay/tools/ferry_scan.py` are different acts; b347 did the first and states plainly that it did not do the second. Until an act does the second, **A1 binds a reader and not a tool.**
+
 ## HOW A FERRY CITES THIS FILE
 
-One line in the ferry's head, for example: `Standing clauses: FERRY_STANDING v1, carried by reference.` The ferry then states only what is specific to the act. The scan (`relay/tools/ferry_scan.py`) reads the version cited against the `VERSION:` line here and reports NONE, CURRENT, STALE or NO FILE; a STALE citation is a hit, and the reader rules.
+One line in the ferry's head, for example: `Standing clauses: FERRY_STANDING v2, carried by reference.` The ferry then states only what is specific to the act. The scan (`relay/tools/ferry_scan.py`) reads the version cited against the `VERSION:` line here and reports NONE, CURRENT, STALE or NO FILE; a STALE citation is a hit, and the reader rules.
 

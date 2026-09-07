@@ -71,6 +71,20 @@ def main(argv):
     rec("  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act")
     rec("  ### never computed is invisible to it, exactly as b264's was invisible to b264.")
     rec("  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**")
+    # ### ### **THE NUMERICAL LIMIT, NAMED HERE AT b347 BY THE AUTHOR'S ORDER. ### NAMED AND PRICED, NOT
+    # ### ### CLOSED.** ### b345's registration passed this audit with 26 clauses JOINTLY SATISFIABLE and was
+    # ### NUMERICALLY SELF-CONTRADICTORY: section (C) sealed a truncation whose first dropped term left the
+    # ### routine a floor near `4.4e-18`, and sealed a fixture threshold of `1e-25` in the same paragraph.
+    # ### The two cannot both hold. ### **THIS AUDIT COULD NOT HAVE SEEN IT AND CANNOT SEE ITS KIND:** the
+    # ### inconsistency is between a NUMBER a routine can reach and a NUMBER a bar demands, and this file
+    # ### compares COUNTS AGAINST CEILINGS. ### The line below says so in the output, where a reader of a
+    # ### verdict will meet it, rather than only in this comment.
+    rec("  ### ### **AND ONE KIND OF INCONSISTENCY IT CANNOT SEE AT ALL, NAMED AT b347: A NUMERICAL ONE.**")
+    rec("  ### A registration may seal a bar finer than the floor of the object that bar tests, or arms")
+    rec("  ### that are algebraically one arm, and read JOINTLY SATISFIABLE here -- b345's did. ### This")
+    rec("  ### audit compares COUNTS AGAINST CEILINGS; that defect is between a number a routine can reach")
+    rec("  ### and a number a bar demands. ### **THE TEXTUAL ARM AGAINST IT IS `registration_gate.py`'s")
+    rec("  ### bar-floor arms (b347); THE NUMERICAL ONE IS NOT BUILT, AND ITS PRICE IS BANKED AT b347.**")
 
     if '--emit' in argv:
         i = argv.index('--emit')
