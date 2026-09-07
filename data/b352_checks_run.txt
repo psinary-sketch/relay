@@ -1,0 +1,196 @@
+====================================================================================================
+b352 -- GATE SUITE (A REFIT THAT RECOMPUTES NOTHING AND RE-VERDICTS NOTHING)
+====================================================================================================
+
+  G-FRAMES (the count re-measured here, and the verification older than the seal):
+    re-measured: [5, 5, 5] frames at each of 3 cells : True
+    the verification's clock 2026-09-07T03:01:33Z is BEFORE the seal 2026-09-07T03:03:54Z : True
+    every cell reproduces b321 : True ; the bank carries both counts : True  PASS
+
+  G-NOREBUILD (STRIPPED code; and every R fitted is byte-equal to b339's banked array):
+    forbidden instrument imports in the CODE : none
+    what it does import : ['b322_ladder', 'io', 'json', 'math', 'numpy', 'os', 'run_clock', 'sys']
+    every fitted R byte-equal to b339's banked array : True  PASS
+
+  G-LIKEFORLIKE (M1 reproduces b322's fit_power at every cell, the fitter IMPORTED):
+    worst relative disagreement recomputed here : 1.228e-11 (bar 1e-9) : True
+    the run file says it passed : True ; the record says so : True  PASS
+
+  G-MODELS (the sealed forms and parameter counts; the free two-term model NOT fitted):
+    parameter counts {'M1': 2, 'M2': 3, 'M3': 3} : True ; exactly three models fitted : True
+    the k=4 model stated unscoreable : True ; and stated NOT FITTED : True  PASS
+
+  G-BARS (both bars at every cell, their floors printed, the independence sentence present):
+    both bars recorded at every cell : True ; bar values as sealed : True
+    the object's floor printed in the bank : True ; the independence sentence present : True  PASS
+
+  G-VERDICT (the branch by (F)'s rule; the branches not taken shown unreachable):
+    the verdict and the bank agree : True
+    FLOOR ESTABLISHED shown unreachable : True ; NO FLOOR PREFERRED shown unreachable : True
+    and the ESTABLISHED condition recomputes as unmet here : True  PASS
+
+  G-NOTSEEN (the act prints what its own instrument could not have seen, per cell):
+      a = 1.3    smallest floor any arm could see : 2.831469e-04   in the bank : True
+      a = 1.35   smallest floor any arm could see : 7.602391e-05   in the bank : True
+      a = 1.41   smallest floor any arm could see : 2.783607e-04   in the bank : True
+    and the deafness stated in the act's own words : True  PASS
+
+  G-STANDS (no act re-verdicted; the side-reading restated and not withdrawn):
+    b339 stands : True ; b346 stands : True ; b351 stands : True
+    the side-reading restated, not withdrawn : True  PASS
+
+  G-VOID (the work-order block carries the MEASURED 10.62 and names b350; not "a decade"):
+    one block under the mark : True ; carries 10.62 and names b350 : True
+    says it is not a round decade : True ; the cut goes under-determined and it is not attempted : True
+    the band's two ends present : True  PASS
+
+  G-STRADDLE (the three incidents located; the mechanized half with fixtures; the judgement half apart):
+    the three incidents located at their emitting files : True
+    the mechanized half present and its fixtures hold : True
+    the judgement half filed APART, and says a scanner cannot decide : True
+    this act's own sealed registration: 0 undeclared of 3 ; census over 341 registrations : True
+    the module exists in TECHNE and is LOCAL-ONLY : True  PASS
+
+  SELF NEEDLES:
+    PASS  the bank states the verdict first
+    PASS  ### the frames CAN distinguish
+    PASS  ### the criterion, not the data
+    PASS  ### a score is not a floor
+    PASS  ### the frame count checked
+    PASS  ### the object's floor
+    PASS  ### why M3 has three parameters
+    PASS  ### the like-for-like fixture
+    PASS  ### what the act could not have seen
+    PASS  ### the sixth frame is affordable
+    PASS  ### a price and not a prediction
+    PASS  ### the side-reading is not withdrawn
+    PASS  ### the void carried as 10.62 and not a decade
+    PASS  ### the straddle rule minted
+    PASS  ### the judgement half apart
+    PASS  ### the census is a count and not a charge
+    PASS  ### the thing no seat wrote down
+    PASS  ### the shadow
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the floor is established
+    PASS  the bank never says b339 is re-verdicted
+    PASS  the bank never says the side-reading is withdrawn
+    PASS  the bank never says the ladder is a power law
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE EXTRACT FILE):
+    reads 26 ; all located and in the extract : True ; cited lines in the extract : 26
+
+  G-ROW / G-ANCESTOR (row 200). ### **THIS ARM IS READ BEFORE THE PUSH AND AFTER IT, AND
+  ### THE PRE-PUSH READING IS THE ONE THAT CARRIES** -- after the push the blob IS the file.
+    row 200 present once : True ; true prefix of its blob : True ; PASS
+
+  G-KEY / G-NOTMEASURED:
+    one key and one row : True ; the four overreadings NO KEY after : True ; the key run passed : True ; PASS
+
+  G-APPENDONLY (banked_index.py, and registration_gate.py which this act APPENDED TO).
+  ### **READ BEFORE THE PUSH; after it the blob is the file.**
+    tools/banked_index.py              every committed line still present, in order : True
+    tools/registration_gate.py         every committed line still present, in order : True
+
+  G-NOEDIT (no owner instrument edited; only the declared paths moved). ### SIDE-INVARIANT.
+    owner instruments modified : none ; papers paths beyond OPEN_TRAILS.md : none  PASS
+
+  G-NOPUSH-TECHNE (the module is written and is NOT pushed). ### AFTER THE PUSH, and owed either way.
+    TECHNE local HEAD 79a80b5 ; remote 22739c9 ; local is AHEAD of (or apart from) the remote : True
+
+  G-HOOK / G-MIRROR (the papers repo moves, so both are OWED). ### **READ AFTER THE PUSH.**
+    hook: 0 repos failing, all three byte-identical : True ; mirror clean on all three clauses : True
+
+  G-ORDER (the seal verifies; the ordering read from clocks):
+    the seal recomputes : True ; clock 2026-09-07T03:03:54Z
+    frames 2026-09-07T03:01:33Z < seal < fit 2026-09-07T03:08:18Z <= filings 2026-09-07T03:12:38Z : True ; JOINTLY SATISFIABLE : True
+    PASS
+
+  G-NUMBERS:
+    the seal hash                                            PASS
+    the seal stamp                                           PASS
+    18747 bytes sealed                                       PASS
+    36 clauses                                               PASS
+    row 200                                                  PASS
+    both run clocks                                          PASS
+    a=1.3: the two score gaps                                PASS
+    a=1.3: the fitted c                                      PASS
+    a=1.3: the smallest visible floor                        PASS
+    a=1.35: the two score gaps                               PASS
+    a=1.35: the fitted c                                     PASS
+    a=1.35: the smallest visible floor                       PASS
+    a=1.41: the two score gaps                               PASS
+    a=1.41: the fitted c                                     PASS
+    a=1.41: the smallest visible floor                       PASS
+
+  G-ONCE (the numbered repeats are on disk AND declared, which is the rule):
+    b352 run files on disk : 14 ; the repeats declared in the bank : True
+
+  G-STRUCK / G-STEM:
+    files scanned 29   struck-clause hits 0   stem hits 0  PASS
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED:
+    row 200              struck : 0   stem : 0   (4542 chars)
+    the void block       struck : 0   stem : 0   (2313 chars)
+    the index row        struck : 0   stem : 0   (2646 chars)
+    the TECHNE module    struck : 0   stem : 0   (4340 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the three models, the scores and the verdict         tools/b352_fit.py                  exists=True tracked=True
+    b322's fitter, IMPORTED and not copied               tools/b322_ladder.py               exists=True tracked=True
+    b339's banked residuals, READ and not recomputed     tools/b339_price.py                exists=True tracked=True
+    the frame count and the reads                        tools/b352_extract.py              exists=True tracked=True
+    the two filings                                      tools/b352_filings.py              exists=True tracked=True
+    the straddle arm and its fixtures                    tools/registration_gate.py         exists=True tracked=True
+    the sortie's shared normaliser                       tools/quote_norm.py                exists=True tracked=True
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    row 200                                              tools/b352_correspondence.py       exists=True tracked=True
+    the key                                              tools/b352_index_append.py         exists=True tracked=True
+    36 clauses                                           tools/b352_regspec.py              exists=True tracked=True
+    18747 bytes sealed, and the seal clock               tools/reg_seal.py                  exists=True tracked=True
+    0/0 on the scans                                     tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                            tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                              tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                             tools/b303_pins.py                 exists=True tracked=True
+    the hook                                             tools/b304_hooks.py                exists=True tracked=True
+    the mirror                                           tools/mirror_verify.py             exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT:
+    b352_the_fourth_candidate.txt                  sentences=459   graded-hedges=0   ungraded-shapes=99
+    b352_registration_2026-09-07.txt               sentences=356   graded-hedges=0   ungraded-shapes=72
+    b352_ferry_2026-09-07.txt                      sentences=76    graded-hedges=0   ungraded-shapes=16
+    b352_fit_run6.txt                              sentences=149   graded-hedges=0   ungraded-shapes=26
+    b352_filings_run2.txt                          sentences=46    graded-hedges=0   ungraded-shapes=11
+    b352_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=3
+    b352_index_run.txt                             sentences=29    graded-hedges=0   ungraded-shapes=9
+    b352_census.txt                                sentences=30    graded-hedges=0   ungraded-shapes=6
+    b352_faces_census.txt                          sentences=17    graded-hedges=0   ungraded-shapes=2
+    b352_regspec_run.txt                           sentences=28    graded-hedges=0   ungraded-shapes=2
+    audit_b352_reg_satisfiable.txt                 sentences=110   graded-hedges=0   ungraded-shapes=8
+    b352_pins_stepzero.txt                         sentences=37    graded-hedges=0   ungraded-shapes=1
+    b352_reg_gate.txt                              sentences=7     graded-hedges=0   ungraded-shapes=2
+    b352_reg_termscan.txt                          sentences=21    graded-hedges=0   ungraded-shapes=1
+    b352_extract_notes3.txt                        sentences=186   graded-hedges=0   ungraded-shapes=32
+    b352_extract_notes.txt                         sentences=176   graded-hedges=0   ungraded-shapes=29
+    b352_extract_notes2.txt                        sentences=176   graded-hedges=0   ungraded-shapes=29
+    b352_ferry_scan.txt                            sentences=21    graded-hedges=0   ungraded-shapes=1
+    b352_fit_run_simplex_only_fixture_failed.txt   sentences=26    graded-hedges=0   ungraded-shapes=3
+    b352_extract.py                                sentences=204   graded-hedges=0   ungraded-shapes=28
+    b352_regspec.py                                sentences=101   graded-hedges=0   ungraded-shapes=8
+    b352_fit.py                                    sentences=456   graded-hedges=0   ungraded-shapes=43
+    b352_filings.py                                sentences=297   graded-hedges=0   ungraded-shapes=50
+    b352_correspondence.py                         sentences=155   graded-hedges=0   ungraded-shapes=31
+    b352_index_append.py                           sentences=157   graded-hedges=0   ungraded-shapes=20
+    row 200                                        sentences=26    graded-hedges=0   ungraded-shapes=16
+    the void block                                 sentences=16    graded-hedges=0   ungraded-shapes=8
+    the index row                                  sentences=37    graded-hedges=0   ungraded-shapes=11
+    the TECHNE module                              sentences=65    graded-hedges=0   ungraded-shapes=25
+
+====================================================================================================
+  ### GATES FAILING : 0 
+====================================================================================================
