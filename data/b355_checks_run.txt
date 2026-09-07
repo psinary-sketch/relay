@@ -1,0 +1,166 @@
+====================================================================================================
+b355 -- GATE SUITE (A READ THAT MOVES NOTHING)
+====================================================================================================
+
+  G-ANCHORS (the step-zero tool built every anchor, its fixtures hold, the refusals reported):
+    fixtures hold : True ; anchors without a match : 0 ; differing from their hint : 18 of 32
+    the counts in the bank : True ; the refusal species named : True  PASS
+
+  G-SEPARATE (H1 and H3 in their own sections, neither stated in terms of the other):
+    H1 has its own section : True ; H3 has its own : True
+    the reason for keeping them apart present : True / True  PASS
+
+  G-LAYERS (three layers named, each located at an emitting line):
+    three layers recorded : True ; each named in the bank : True
+    emitting lines cited : True ; the separation sealed in the registration : True  PASS
+
+  G-EACHCHECK (every check classified by the sealed vocabulary and by no other):
+      b320                         USED BOTH              the square of the seed is in the source's cl
+      b320                         USED NEITHER           Theorem 1's three conditions, per cell
+      b320                         USED NEITHER           the covered cells named from the check
+      b328                         USED BOTH              lawfulness (L1): the source's Definition 3.1
+      b334, b343, b344, b349       USED BOTH              every aimed seed checked lawful before being
+    checks classified : 5 ; off-vocabulary : none ; each says what it certifies : True  PASS
+
+  G-RELABEL (a relabelling is not a demotion, in the act's own words):
+    stated in the bank : True ; numbers and checks stand : True
+    sealed in the registration : True ; the two readings given : True  PASS
+
+  G-NOMOVE (the act moves no verdict, and says so):
+    says no verdict is moved : True ; routes rather than applies : True
+    no errata drafted, recorded and stated : True / True  PASS
+
+  G-CONFIRMNOTSTRENGTHEN (where it confirms b353, it says it does not strengthen):
+    said in the act : True / True ; the partition still UNDECIDED : True  PASS
+
+  G-NOCOMPUTE (STRIPPED code: the read tool imports nothing that could compute):
+    forbidden imports in the CODE : none ; what it does import : ['anchor_from_file', 'io', 'json', 'needle_pull', 'os', 'quote_norm', 'run_clock', 'sys']  PASS
+
+  G-BRANCH (the branch by (C)'s rule; the branches not taken shown unreachable):
+    verdict agrees : True ; both others unreachable : True / True ; the fourth outcome named : True  PASS
+
+  SELF NEEDLES (each hint resolved to the bank's own line by the step-zero tool):
+    PASS  the bank states the verdict first                    line 13
+    PASS  ### the one-sentence answer                          line 14
+    PASS  ### layer 1, the smooth formula                      line 18
+    PASS  ### layer 2, the trapezoid normalisation             line 22
+    PASS  ### layer 3, and the reason                          line 31
+    PASS  ### H1 answered on its own                           line 46
+    PASS  ### and what does not follow                         line 48
+    PASS  ### H3 is a different question                       line 66
+    PASS  ### the automatic positivity                         line 75
+    PASS  ### the scan is not an independent class test        line 76
+    PASS  ### the control that keeps it from being vacuous     line 85
+    PASS  ### no act tested membership independently           line 101
+    PASS  ### the branch, and the fourth outcome               line 119
+    PASS  ### a relabelling and not a demotion                 line 37
+    PASS  ### the two readings, old and new                    line 143
+    PASS  ### no errata drafted, and why                       line 147
+    PASS  ### confirm and not strengthen                       line 130
+    PASS  ### the dropped-possessive species                   line 185
+    PASS  ### the thing no seat wrote down                     line 163
+    PASS  ### the shadow                                       line 221
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the arrays are in the class
+    PASS  the bank never says the arrays are not in the class
+    PASS  the bank never says a measurement is wrong
+    PASS  the bank never says the width coordinate is closed
+
+  OWNER NEEDLES (each at its emitting file, each in the extract):
+    reads 32 ; all located and in the extract : True ; cited lines : 32
+
+  G-ROW / G-ANCESTOR (row 203). ### **PRE-PUSH READING CARRIES.**
+    row 203 present once : True ; true prefix of its blob : True ; PASS
+
+  G-KEY / G-NOTDEMOTED (the index):
+    one key and one row : True ; the four overreadings NO KEY after : True ; the key run passed : True ; PASS
+
+  G-APPENDONLY (banked_index.py). ### **READ BEFORE THE PUSH.**
+    every committed line still present, in order : True
+
+  G-NOEDIT (no owner instrument edited; nothing outside relay/SIDE moved). ### SIDE-INVARIANT.
+    owner instruments modified : none ; papers dirty : none ; TECHNE dirty : none  PASS
+
+  G-NOHOOK (nothing written to the papers repo, so hook and mirror NOT owed -- CHECKED):
+    papers tree clean : True ; HEAD equals remote : True ; the row says NOT OWED : True  PASS
+
+  G-ORDER (the seal verifies; the ordering read from clocks):
+    the seal recomputes : True ; clock 2026-09-07T18:07:48Z
+    extract 2026-09-07T18:06:01Z < seal < read 2026-09-07T18:09:33Z : True ; JOINTLY SATISFIABLE : True
+    PASS
+
+  G-NUMBERS:
+    the seal hash                                            PASS
+    the seal stamp                                           PASS
+    14242 bytes sealed                                       PASS
+    35 clauses                                               PASS
+    row 203                                                  PASS
+    the extract and read clocks                              PASS
+    the anchors differing                                    PASS
+    the reads attempted                                      PASS
+
+  G-ONCE (the numbered repeats on disk AND declared):
+    True
+
+  G-STRUCK / G-STEM:
+    files scanned 26   struck-clause hits 0   stem hits 0  PASS
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED:
+    row 203              struck : 0   stem : 0   (4966 chars)
+    the index row        struck : 0   stem : 0   (3301 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the three layers, the checks and the verdict         tools/b355_read.py                 exists=True tracked=True
+    the anchors, built by reading                        tools/anchor_from_file.py          exists=True tracked=True
+    the reads                                            tools/b355_extract.py              exists=True tracked=True
+    the generating formula, READ                         tools/e16/carto_atlas.py           exists=True tracked=True
+    the object integrated, READ                          tools/b317_smear.py                exists=True tracked=True
+    the scan and its stated reach, READ                  tools/b318_square.py               exists=True tracked=True
+    the aliasing consequence, READ                       tools/b326_closure.py              exists=True tracked=True
+    the sortie's shared normaliser                       tools/quote_norm.py                exists=True tracked=True
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    row 203                                              tools/b355_correspondence.py       exists=True tracked=True
+    the key                                              tools/b355_index_append.py         exists=True tracked=True
+    35 clauses                                           tools/b355_regspec.py              exists=True tracked=True
+    14242 bytes sealed, and the seal clock               tools/reg_seal.py                  exists=True tracked=True
+    0/0 on the scans                                     tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                            tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                              tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                             tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT:
+    b355_what_the_arrays_are.txt                   sentences=367   graded-hedges=0   ungraded-shapes=78
+    b355_registration_2026-09-07.txt               sentences=276   graded-hedges=0   ungraded-shapes=53
+    b355_ferry_2026-09-07.txt                      sentences=74    graded-hedges=0   ungraded-shapes=21
+    b355_read_run2.txt                             sentences=280   graded-hedges=0   ungraded-shapes=66
+    b355_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=3
+    b355_index_run.txt                             sentences=29    graded-hedges=0   ungraded-shapes=12
+    b355_census.txt                                sentences=30    graded-hedges=0   ungraded-shapes=6
+    b355_faces_census.txt                          sentences=17    graded-hedges=0   ungraded-shapes=2
+    b355_regspec_run.txt                           sentences=26    graded-hedges=0   ungraded-shapes=2
+    audit_b355_reg_satisfiable.txt                 sentences=109   graded-hedges=0   ungraded-shapes=13
+    b355_pins_stepzero.txt                         sentences=37    graded-hedges=0   ungraded-shapes=1
+    b355_reg_gate.txt                              sentences=7     graded-hedges=0   ungraded-shapes=2
+    b355_reg_termscan.txt                          sentences=21    graded-hedges=0   ungraded-shapes=1
+    b355_extract_notes3.txt                        sentences=188   graded-hedges=0   ungraded-shapes=34
+    b355_extract_notes.txt                         sentences=175   graded-hedges=0   ungraded-shapes=33
+    b355_extract_notes2.txt                        sentences=186   graded-hedges=0   ungraded-shapes=34
+    b355_read_run.txt                              sentences=280   graded-hedges=0   ungraded-shapes=66
+    b355_ferry_scan.txt                            sentences=21    graded-hedges=0   ungraded-shapes=1
+    b355_extract.py                                sentences=169   graded-hedges=0   ungraded-shapes=33
+    b355_regspec.py                                sentences=101   graded-hedges=0   ungraded-shapes=12
+    b355_read.py                                   sentences=432   graded-hedges=0   ungraded-shapes=71
+    b355_correspondence.py                         sentences=150   graded-hedges=0   ungraded-shapes=38
+    b355_index_append.py                           sentences=164   graded-hedges=0   ungraded-shapes=36
+    row 203                                        sentences=20    graded-hedges=0   ungraded-shapes=13
+    the index row                                  sentences=45    graded-hedges=0   ungraded-shapes=18
+
+====================================================================================================
+  ### GATES FAILING : 0 
+====================================================================================================
