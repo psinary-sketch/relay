@@ -384,7 +384,11 @@ def main():
     o2 = len(J['files']) == R['after'] == R['before'] + 1
     o3 = R['existing_rows_unmoved'] and R['blob_rows_unmoved']
     o4 = os.path.exists(os.path.join(PP, 'FACES_LEDGER.md'))
-    o5 = 'does not retroactively place it in any prior mirror' in bank.lower()
+    # ### **THE BANK WRAPS THROUGH THIS SENTENCE, SO THE ARM READS THE FLATTENED BANK.** ### Its first
+    # ### version searched the raw text and fired on a bank that says the thing across two lines -- the
+    # ### needle-wrapping species, in an arm of the very act that carries the shared flattener. ### **THE
+    # ### ### CURE IS THE FLATTENER, NEVER A SHORTER NEEDLE.**
+    o5 = 'does not retroactively place it in any prior mirror' in gate_text.flat(bank).lower()
     mir = d('b360_mirror.txt')
     o6 = None
     if os.path.exists(mir):
