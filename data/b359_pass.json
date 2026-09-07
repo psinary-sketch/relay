@@ -1,0 +1,167 @@
+{
+ "verdict": "NO DRIFT IS FOUND",
+ "statuses": [
+  "CURRENT",
+  "STALE",
+  "SILENT"
+ ],
+ "claims": [
+  {
+   "cid": "R-DEP",
+   "doc": "README.md",
+   "line": 129,
+   "status": "CURRENT",
+   "ranked_by": "REGISTRY.md row d1-1, and the read-only fetch as witness"
+  },
+  {
+   "cid": "R-SOT",
+   "doc": "README.md",
+   "line": 133,
+   "status": "CURRENT",
+   "ranked_by": "itself; it is the rule, not a deposit field"
+  },
+  {
+   "cid": "R-DAY1",
+   "doc": "README.md",
+   "line": 107,
+   "status": "CURRENT",
+   "ranked_by": "REGISTRY.md, for the live-versus-deposit distinction"
+  },
+  {
+   "cid": "M-WAVE-MONO",
+   "doc": "SPIRAL_MAP.md",
+   "line": 46,
+   "status": "CURRENT",
+   "ranked_by": "REGISTRY.md row d1-1, and the fetch as witness"
+  },
+  {
+   "cid": "M-WAVE-LV",
+   "doc": "SPIRAL_MAP.md",
+   "line": 48,
+   "status": "CURRENT",
+   "ranked_by": "README.md's deposit note, which carries the same pair"
+  },
+  {
+   "cid": "M-WAVE-KERNEL",
+   "doc": "SPIRAL_MAP.md",
+   "line": 45,
+   "status": "CURRENT",
+   "ranked_by": "README.md's kernel line, which asserts the same tag and commit"
+  },
+  {
+   "cid": "M-WAVE-T7",
+   "doc": "SPIRAL_MAP.md",
+   "line": 47,
+   "status": "CURRENT",
+   "ranked_by": "README.md's deposit note, which carries the same DOI and date"
+  },
+  {
+   "cid": "M-FROZEN",
+   "doc": "SPIRAL_MAP.md",
+   "line": 32,
+   "status": "SILENT",
+   "ranked_by": "(C)'s locked distinction, not a ranking party"
+  },
+  {
+   "cid": "M-VERSION",
+   "doc": "SPIRAL_MAP.md",
+   "line": 14,
+   "status": "SILENT",
+   "ranked_by": "the map's own reconciliation note of 2026-08-24, which is later"
+  }
+ ],
+ "unclassified": [],
+ "n_current": 7,
+ "n_stale": 0,
+ "n_silent": 2,
+ "pins": [
+  {
+   "pid": "P-KERNEL",
+   "doc": "README.md",
+   "repo": "SIDE-kernel",
+   "kind": "TAG",
+   "ref": "v1.5",
+   "line": 15,
+   "asserted": "0e5233f",
+   "resolved": "0e5233f011533d09e4799107394c216a915028a1",
+   "status": "CURRENT",
+   "note": ""
+  },
+  {
+   "pid": "P-KERNEL-MAP",
+   "doc": "SPIRAL_MAP.md",
+   "repo": "SIDE-kernel",
+   "kind": "TAG",
+   "ref": "v1.5",
+   "line": 45,
+   "asserted": "0e5233f",
+   "resolved": "0e5233f011533d09e4799107394c216a915028a1",
+   "status": "CURRENT",
+   "note": ""
+  },
+  {
+   "pid": "P-LV-PIN",
+   "doc": "SPIRAL_MAP.md",
+   "repo": "SIDE-lv-conservation",
+   "kind": "TAG",
+   "ref": "v0.10.0",
+   "line": 82,
+   "asserted": "93c27ec",
+   "resolved": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+   "status": "CURRENT",
+   "note": ""
+  },
+  {
+   "pid": "P-LV-HEAD",
+   "doc": "SPIRAL_MAP.md",
+   "repo": "SIDE-lv-conservation",
+   "kind": "HEAD",
+   "ref": "HEAD",
+   "line": 82,
+   "asserted": "2f71068",
+   "resolved": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23",
+   "status": "CURRENT",
+   "note": ""
+  },
+  {
+   "pid": "P-EFFECTS",
+   "doc": "SPIRAL_MAP.md",
+   "repo": "SIDE-effects",
+   "kind": "HEAD",
+   "ref": "HEAD",
+   "line": 77,
+   "asserted": "afa9ccf",
+   "resolved": "afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd",
+   "status": "CURRENT",
+   "note": ""
+  },
+  {
+   "pid": "P-T7",
+   "doc": "SPIRAL_MAP.md",
+   "repo": "SIDE-t7-topology-cmb",
+   "kind": "TAG",
+   "ref": "v0.3",
+   "line": 83,
+   "asserted": "8eb0d5a",
+   "resolved": "8eb0d5ad0b331a0bf1a8160003d396648727a55a",
+   "status": "CURRENT",
+   "note": ""
+  }
+ ],
+ "n_pins": 6,
+ "n_pins_current": 6,
+ "n_pins_stale": 0,
+ "n_pins_unresolved": 0,
+ "fetch_vs_registry": "AGREE",
+ "deposit": {
+  "version": "v1.1.2",
+  "doi": "10.5281/zenodo.21539167",
+  "conceptdoi": "10.5281/zenodo.19675355",
+  "publication_date": "2026-07-24",
+  "n_files": 11,
+  "is_last": true
+ },
+ "appended_anything": false,
+ "run_file": "b359_pass_run.txt",
+ "run_clock": "2026-09-07T20:57:05Z"
+}

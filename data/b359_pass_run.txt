@@ -1,0 +1,174 @@
+### run at (UTC) : 2026-09-07T20:57:05Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b359 -- THE LEDGER CURRENCY PASS. ### IT COMPUTES NOTHING AND IT DEPOSITS NOTHING.
+====================================================================================================
+  ### the three statuses, locked before any claim was read : CURRENT / STALE / SILENT
+  ### and a pin that will not resolve is UNRESOLVED, never carried forward.
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE PRECEDENCE, QUOTED FROM THE FRONT DOOR AND OBEYED. ### **(ADDITION ONE.)**
+----------------------------------------------------------------------------------------------------
+      the precedence sentence                README.md:147
+      | later reader can re-run this: REGISTRY > README > SPIRAL_MAP for deposits; disk
+      and its second half                    README.md:148
+      | for live pins only, never for deposits.**
+      the pin/head ruling the map quotes     SPIRAL_MAP.md:437
+      | **Two rows were stale and are corrected above.** ### **The reading order in §5 was sending a new reader to the SUPERSEDED v1.0.2 deposit** — *by the same document whose §1 table already reco
+  ### ### **SO: FOR A DEPOSIT FIELD, `REGISTRY` RULES; FOR A LIVE PIN, DISK RULES AND ONLY FOR
+  ### ### PINS. ### EVERY REPAIR BELOW RUNS TOWARD THE SOURCE OF TRUTH AND NEVER THE REVERSE.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE READ-ONLY FETCH, AGAINST `REGISTRY`'S GOVERNING ROW.
+----------------------------------------------------------------------------------------------------
+      REGISTRY.md:82 -- the governing d1-1 row, located.
+      version              fetch: v1.1.2                                         REGISTRY carries it: True  AGREE
+      DOI                  fetch: 10.5281/zenodo.21539167                        REGISTRY carries it: True  AGREE
+      concept DOI          fetch: 10.5281/zenodo.19675355                        REGISTRY carries it: True  AGREE
+      publication date     fetch: 2026-07-24                                     REGISTRY carries it: True  AGREE
+      manuscript version   fetch: ms v5.10.2 (per the record's own title/descrip REGISTRY carries it: True  AGREE
+      file count           fetch: 11                                            
+      is_last (version pointer) fetch: True                                          
+      concept resolves to id fetch: 21539167                                      
+      ### **THE CONCEPT DOI RESOLVES TO THE SAME RECORD AND IT IS `is_last` : True**
+      ### ### **SO NO LATEST-VERSION POINTER HAS DRIFTED.**
+  ### ### **SOURCE OF TRUTH AND FETCH: THEY AGREE.**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE CLAIMS, EACH LOCATED THEN CLASSIFIED AGAINST THE PARTY THAT OUTRANKS IT.
+----------------------------------------------------------------------------------------------------
+
+  ### **[R-DEP] README.md : 129**
+      | **Deposit note (`day1/`).** Citable deposits: the monograph at manuscript **v5.10.2** / Zenodo **v1.1.2** ([10.5281/zenodo.21539167](https://doi.org/10.5281/zenodo.21539167); concept [10.528
+      ### what it claims : the front door's deposit note: the monograph at ms v5.10.2 / Zenodo v1.1.2, DOI 10.5281/zenodo.21539167, concept 10.5281/zenodo.19675355; the live line at v5.13 and AHEAD of the deposit.
+      ### ranked by      : REGISTRY.md row d1-1, and the read-only fetch as witness
+      ### **STATUS : CURRENT**
+      ### why           : every field matches `REGISTRY`'s `d1-1` row and the fetch: version `v1.1.2`, DOI `10.5281/zenodo.21539167`, concept `10.5281/zenodo.19675355`, manuscript `v5.10.2`. ### And the sentence that most often goes stale here -- ### **the live line being AHEAD of the ### deposit** -- is present and correct: `REGISTRY` carries `v5.13` in the same row.
+
+  ### **[R-SOT] README.md : 133**
+      | 1. **REGISTRY.md is the single source of truth.** Update it whenever you update a paper.
+      ### what it claims : the front door's rule 1, which is the precedence's own foundation.
+      ### ranked by      : itself; it is the rule, not a deposit field
+      ### **STATUS : CURRENT**
+      ### why           : it states the precedence this act obeys, and `REGISTRY`'s own governing row is what every other claim here was checked against. ### **A RULE IS NOT A DEPOSIT FIELD**, and it is classified only because a currency pass that skipped its own authority would be odd.
+
+  ### **[R-DAY1] README.md : 107**
+      | ├── day1/                ← 7 papers + monograph (live line; see deposit note below)
+      ### what it claims : the tree line for `day1/`, which the 2026-08-24 note records as one of the two rows it corrected.
+      ### ranked by      : REGISTRY.md, for the live-versus-deposit distinction
+      ### **STATUS : CURRENT**
+      ### why           : it points the reader at the deposit note rather than asserting a deposit field itself, which is exactly what the 2026-08-24 repair made it do.
+
+  ### **[M-WAVE-MONO] SPIRAL_MAP.md : 46**
+      | | *A Place to Stand* monograph Zenodo v1.1.2 (ms v5.10.2) | 10.5281/zenodo.21539167 | Monograph refresh (supersedes v1.1.1 / 21436278) |
+      ### what it claims : the map's deposit-wave row for the monograph: Zenodo v1.1.2, ms v5.10.2, DOI 10.5281/zenodo.21539167.
+      ### ranked by      : REGISTRY.md row d1-1, and the fetch as witness
+      ### **STATUS : CURRENT**
+      ### why           : version, manuscript version and DOI all match `REGISTRY` and the fetch, and the row names what it supersedes (`v1.1.1 / 21436278`) rather than silently replacing it.
+
+  ### **[M-WAVE-LV] SPIRAL_MAP.md : 48**
+      | | SIDE-lv-conservation v0.10.0 (`93c27ec`) | 10.5281/zenodo.21539068 | Mellin factorization + s-darkness + T3 bracket pair + register pentagon + partial-positivity + C₅-marker (supersedes v0
+      ### what it claims : the map's deposit-wave row for `SIDE-lv-conservation`: v0.10.0 = `93c27ec`, DOI 10.5281/zenodo.21539068.
+      ### ranked by      : README.md's deposit note, which carries the same pair
+      ### **STATUS : CURRENT**
+      ### why           : the front door's deposit note states `SIDE-lv-conservation v0.10.0 = 93c27ec` with the same DOI, and `REGISTRY` is silent on this artifact's DOI, so the ranking party under (B) is the front door and the two agree.
+
+  ### **[M-WAVE-KERNEL] SPIRAL_MAP.md : 45**
+      | | SIDE-kernel v1.5 (`0e5233f`) | 10.5281/zenodo.21520474 | Lean 4 kernel, three RH routes + formation calculus; `native_decide` eliminated corpus-wide (supersedes v1.3 / 21417776) |
+      ### what it claims : the map's deposit-wave row for the kernel: v1.5 = `0e5233f`, DOI 10.5281/zenodo.21520474.
+      ### ranked by      : README.md's kernel line, which asserts the same tag and commit
+      ### **STATUS : CURRENT**
+      ### why           : the front door names the same tag and the same commit, and the map's row names what it supersedes.
+
+  ### **[M-WAVE-T7] SPIRAL_MAP.md : 47**
+      | | T7 matched-arc search | 10.5281/zenodo.21436282 | Registered-search record, Outcome D; published 2026-07-19 (concept 10.5281/zenodo.21436281) |
+      ### what it claims : the map's deposit-wave row for the T7 registered-search record, published 2026-07-19.
+      ### ranked by      : README.md's deposit note, which carries the same DOI and date
+      ### **STATUS : CURRENT**
+      ### why           : the front door states the same DOI, the same concept DOI and the same publication date.
+
+  ### **[M-FROZEN] SPIRAL_MAP.md : 32**
+      | **Frozen Day-1 deposit (history):**
+      ### what it claims : the map's frozen Day-1 table, carrying `PLACE-papers v1.0.2` and `SIDE-kernel v1.1` -- both SUPERSEDED versions.
+      ### ranked by      : (C)'s locked distinction, not a ranking party
+      ### **STATUS : SILENT**
+      ### why           : ### **IT IS EXPLICITLY MARKED AS HISTORY AND IS THEREFORE NOT A CLAIM ABOUT NOW.** ### The heading says *history*, and the table's own annotation says the row *"is historical and is not rewritten"*. ### The locked registration fixed this before any row was read: ### **A ### DOCUMENT THAT SAYS "THIS WAS TRUE THEN" IS NOT SAYING "THIS IS TRUE NOW"**, and classifying it `STALE` would be this seat reading a tense it was told not to read.
+
+  ### **[M-VERSION] SPIRAL_MAP.md : 14**
+      | **v0.6 — July 2026** (revises v0.5 — currency + new-layer-synthesis pass: refreshes all federation pins to the deposit wave (SIDE-kernel v1.4, SIDE-lv-conservation v0.9.0, SIDE-bijection v0.
+      ### what it claims : the map's own version line, which says v0.6 refreshed all federation pins to the deposit wave and names `SIDE-lv-conservation v0.9.0` among them.
+      ### ranked by      : the map's own reconciliation note of 2026-08-24, which is later
+      ### **STATUS : SILENT**
+      ### why           : ### **IT IS A CHANGELOG ENTRY DESCRIBING WHAT v0.6 DID**, not an assertion that `v0.9.0` is current -- and the map's own later note says the `v0.9.0` cell was corrected to a deposit-pin/working-head pair. ### A changelog that records a past state is the same shape as `M-FROZEN` and is treated the same way.
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE PINS, READ LIVE BY `ls-remote`. ### **(ADDITION TWO.) ### NONE RECALLED.**
+----------------------------------------------------------------------------------------------------
+
+  ### **[P-KERNEL] README.md : 15**   (SIDE-kernel, TAG v1.5)
+      | **Kernel:** [SIDE-kernel](https://github.com/psinary-sketch/SIDE-kernel) — cited by named terminal, not by count. At tag `v1.5` (`0e5233f`, route terminals re-profiled clean at the v1.5 enac
+      ### asserted by the ledger : 0e5233f
+      ### ls-remote returned     : 0e5233f011533d09e4799107394c216a915028a1
+      ### **STATUS : CURRENT**
+
+  ### **[P-KERNEL-MAP] SPIRAL_MAP.md : 45**   (SIDE-kernel, TAG v1.5)
+      | | SIDE-kernel v1.5 (`0e5233f`) | 10.5281/zenodo.21520474 | Lean 4 kernel, three RH routes + formation calculus; `native_decide` eliminated corpus-wide (supersedes v1.3 / 21417776) |
+      ### asserted by the ledger : 0e5233f
+      ### ls-remote returned     : 0e5233f011533d09e4799107394c216a915028a1
+      ### **STATUS : CURRENT**
+
+  ### **[P-LV-PIN] SPIRAL_MAP.md : 82**   (SIDE-lv-conservation, TAG v0.10.0)
+      | | `SIDE-lv-conservation` | deposit-pin **v0.10.0** (`93c27ec`) · working head `2f71068` | Mathlib-backed (Lean v4.29.1 + Mathlib 5e932f9, matching SIDE-grh-transfer; federation-clean, Mathli
+      ### asserted by the ledger : 93c27ec
+      ### ls-remote returned     : 93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f
+      ### **STATUS : CURRENT**
+
+  ### **[P-LV-HEAD] SPIRAL_MAP.md : 82**   (SIDE-lv-conservation, HEAD HEAD)
+      | | `SIDE-lv-conservation` | deposit-pin **v0.10.0** (`93c27ec`) · working head `2f71068` | Mathlib-backed (Lean v4.29.1 + Mathlib 5e932f9, matching SIDE-grh-transfer; federation-clean, Mathli
+      ### asserted by the ledger : 2f71068
+      ### ls-remote returned     : 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23
+      ### **STATUS : CURRENT**
+
+  ### **[P-EFFECTS] SPIRAL_MAP.md : 77**   (SIDE-effects, HEAD HEAD)
+      | | ### **`SIDE-effects`** | ### **`main` `afa9ccf`** *(merged 2026-08-14)* | ### **The exclusion engine, genuine Type-D exclusion via CRT exhaustiveness, and the graded exhaustiveness-license
+      ### asserted by the ledger : afa9ccf
+      ### ls-remote returned     : afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd
+      ### **STATUS : CURRENT**
+
+  ### **[P-T7] SPIRAL_MAP.md : 83**   (SIDE-t7-topology-cmb, TAG v0.3)
+      | | `SIDE-t7-topology-cmb` | v0.3 (`8eb0d5a`) | 𝕋₇ surviving-signature test (matched-arc CMB search formalization); honest boundary recorded (see §2A). |
+      ### asserted by the ledger : 8eb0d5a
+      ### ls-remote returned     : 8eb0d5ad0b331a0bf1a8160003d396648727a55a
+      ### **STATUS : CURRENT**
+
+  ### ### **AND THE RULE THE LOCKED REGISTRATION FIXED, HELD TO HERE:** ### a DEPOSIT-PIN and a
+  ### ### WORKING HEAD are ### **NOT THE SAME OBJECT**, and this act classifies each against its
+  ### ### own party. ### A deposit-pin differing from a live head is NOT thereby stale.
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE COUNT.
+----------------------------------------------------------------------------------------------------
+    claims located and classified : 9 ; unclassified : 0
+      CURRENT    7      STALE      0      SILENT     2
+    pins asserted and read live   : 6
+      CURRENT    6      STALE      0      UNRESOLVED 0
+
+----------------------------------------------------------------------------------------------------
+  ### (6) THE BRANCH, BY (H)'S LOCKED RULE.
+----------------------------------------------------------------------------------------------------
+    ### **(THE FETCH DID NOT RETURN) -- UNREACHABLE, AND SHOWN SO.** ### 2 of 2 targets
+      returned HTTP 200 and were hashed.
+    ### **(THE SOURCE OF TRUTH AND THE FETCH DISAGREE) -- UNREACHABLE, AND SHOWN SO.** ### every field the governing row
+      carries matched the record the platform returned, and the concept pointer is `is_last`.
+    ### **(A DRIFT IS FOUND AND FILED) -- UNREACHABLE, AND SHOWN SO.** ### 0 claim(s) and 0 pin(s) are STALE.
+    ### **AND THE MIXTURE RULE, LOCKED BEFORE THE READING:** ### if any claim is STALE and others
+      are CURRENT or SILENT, the second branch is taken and the others are reported beside it.
+    ### ### ### **THEREFORE: NO DRIFT IS FOUND.**
+    ### ### **AND SECTION (E) GOVERNS WHAT FOLLOWS: IF NOTHING IS STALE, NOTHING IS APPENDED.**
+    ### ### A currency pass that finds no drift and writes a note anyway would be adding
+    ### ### noise and calling it work.
+
+====================================================================================================
+  VERDICT : ### **NO DRIFT IS FOUND**
+  ### ### **NOTHING IS DEPOSITED. ### NOTHING IS WRITTEN AT ZENODO. ### `REGISTRY.md` IS NOT
+  ### ### WRITTEN. ### NO SENTENCE IS EDITED.**
+====================================================================================================

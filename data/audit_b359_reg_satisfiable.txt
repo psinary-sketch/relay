@@ -1,0 +1,114 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b359_registration_2026-09-07.txt -- b359, THE LEDGER CURRENCY PASS
+  clauses      : 47
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  deposit actions                    0                0                actions SATISFIABLE
+      demand from : ### section (A): NOTHING IS DEPOSITED AND NOTHING IS WRITTEN AT ZENODO, in every branch.
+  writes to any platform             0                0                writes SATISFIABLE
+      demand from : ### section (G) Bar 1: the fetch is ONE READ-ONLY GET. ### RE-MEASURED by G-NODEPOSIT on STRIPPED code.
+  deposited artifacts touched        0                0                files  SATISFIABLE
+      demand from : ### section (K): the records are immutable at their versions.
+  read-only fetches                  1                1                fetches SATISFIABLE
+      demand from : section (G) Bar 1.
+  ranks in the precedence            3                3                ranks  SATISFIABLE
+      demand from : ### section (B): REGISTRY > README > SPIRAL_MAP for deposits.
+  repairs running AWAY from the sour 0                0                repairs SATISFIABLE
+      demand from : ### section (B): toward it, never the reverse.
+  deposit fields repaired from disk  0                0                fields SATISFIABLE
+      demand from : ### section (B): disk for live pins only, never for deposits.
+  REGISTRY.md writes                 0                0                writes SATISFIABLE
+      demand from : ### section (E): it is the source of truth and this act READS it.
+  statuses available per claim       3                3                statuses SATISFIABLE
+      demand from : ### section (C): CURRENT / STALE / SILENT.
+  pins recalled rather than resolved 0                0                pins   SATISFIABLE
+      demand from : ### section (D): every asserted pin by ls-remote, or UNRESOLVED.
+  deposit-pins merged with working h 0                0                merges SATISFIABLE
+      demand from : ### section (D): they are not the same object, and the ruling is quoted.
+  sentences edited in README.md or S 0                0                sentences SATISFIABLE
+      demand from : ### section (E): APPEND-ONLY; a stale sentence is left as written and corrected by an appended note.
+  currency notes appended when nothi 0                0                notes  SATISFIABLE
+      demand from : ### section (E): if nothing is stale, nothing is appended.
+  mirror rebuilds                    1                1                rebuilds SATISFIABLE
+      demand from : ### section (F): AFTER the repair, verified on all three clauses.
+  verdict branches                   4                4                branches SATISFIABLE
+      demand from : ### section (H): three, plus the source-of-truth-versus-fetch outcome.
+  numerical bars on computed quantit 0                0                bars   SATISFIABLE
+      demand from : ### section (G): this act computes nothing.
+  exact bars                         4                4                bars   SATISFIABLE
+      demand from : ### section (G): the fetch, the anchor, the pin, and the append-only bar.
+  multi-arm bars naming what makes t 1                1                bars   SATISFIABLE
+      demand from : ### section (G) Bar 4: the working copy and the blob see different things.
+  claims classified without being lo 0                0                claims SATISFIABLE
+      demand from : ### section (G) Bar 2.
+  relay tools created                4                4                files  SATISFIABLE
+      demand from : the fetch, the extract, the read, and this act's suite.
+  owner instrument files edited      0                0                files  SATISFIABLE
+      demand from : none.
+  PLACE-papers files written         3                0                files  SATISFIABLE
+      demand from : ### README.md and/or SPIRAL_MAP.md if stale, and FACES_LEDGER.md always. ### THE HOOK AND THE MIRROR ARE OWED.
+  TECHNE files written               0                0                files  SATISFIABLE
+      demand from : none.
+  correspondence rows appended       1                1                rows   SATISFIABLE
+      demand from : the closing.
+  faces ledger rows appended         1                1                rows   SATISFIABLE
+      demand from : ### row U1's update block with b358's finding, NAMED-ONLY.
+  faces ledger rows rewritten        0                0                rows   SATISFIABLE
+      demand from : ### rows above are never rewritten; an update names the row it bears on.
+  equivalences compiled              0                0                compilations SATISFIABLE
+      demand from : ### section (K): nothing compiled; the deposit's refusal is quoted.
+  findings sections edited           0                0                sections SATISFIABLE
+      demand from : none.
+  ERRATA entries opened              0                0                entries SATISFIABLE
+      demand from : none by this act.
+  ledger rows moved                  0                0                rows   SATISFIABLE
+      demand from : section (K).
+  bars moved                         0                0                bars   SATISFIABLE
+      demand from : section (K).
+  grades conferred by a seat         0                0                grades SATISFIABLE
+      demand from : section (K).
+  acts re-verdicted                  0                0                acts   SATISFIABLE
+      demand from : section (K).
+  proofs attempted                   0                0                proofs SATISFIABLE
+      demand from : section (K).
+  new mathematics                    0                0                statements SATISFIABLE
+      demand from : section (K).
+  coordinates closed                 0                0                coordinates SATISFIABLE
+      demand from : section (K).
+  claims about the quantifier        0                0                claims SATISFIABLE
+      demand from : section (K).
+  claims about h2, totality, the ros 0                0                claims SATISFIABLE
+      demand from : section (K).
+  `.lean` files edited               0                0                files  SATISFIABLE
+      demand from : none.
+  posture-lock changes               0                0                changes SATISFIABLE
+      demand from : ### section (K): the posture lock is separate and is not touched by a currency pass.
+  locked or sealed files edited      0                0                files  SATISFIABLE
+      demand from : none.
+  mirror roster rows changed         0                0                rows   SATISFIABLE
+      demand from : none.
+  HANDOFF.md edits                   0                0                edits  SATISFIABLE
+      demand from : none.
+  aggregations stated                0                0                statements SATISFIABLE
+      demand from : M-2 IS OWED AND STAYS OWED.
+  verdicts on M-2                    0                0                verdicts SATISFIABLE
+      demand from : carried from b310.
+  ad-hoc shell-typed numbers in the  0                0                count  SATISFIABLE
+      demand from : RULING (3). ### RE-MEASURED BY G-TOOLNUM.
+  artifact counts predicted in this  0                0                predictions SATISFIABLE
+      demand from : RULING (1), U-1 STRUCK. ### MEASURED off this registration's own text by `b300_regspec.count_predictions`, IMPORTED.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
+  ### ### **AND ONE KIND OF INCONSISTENCY IT CANNOT SEE AT ALL, NAMED AT b347: A NUMERICAL ONE.**
+  ### A registration may seal a bar finer than the floor of the object that bar tests, or arms
+  ### that are algebraically one arm, and read JOINTLY SATISFIABLE here -- b345's did. ### This
+  ### audit compares COUNTS AGAINST CEILINGS; that defect is between a number a routine can reach
+  ### and a number a bar demands. ### **THE TEXTUAL ARM AGAINST IT IS `registration_gate.py`'s
+  ### bar-floor arms (b347); THE NUMERICAL ONE IS NOT BUILT, AND ITS PRICE IS BANKED AT b347.**

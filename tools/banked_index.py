@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'ledger-currency-pass': ['the ledger currency pass', 'the currency pass', 'the front door',
+                            'the federation map', 'the deposit state', 'the precedence',
+                            'are the ledgers current', 'the federation pins', 'the mirror roster'],
     'li-asymptotics-circular': ['the li asymptotics', 'the li tail', 'the li coefficients asymptotic',
                                'what would close the tail', 'the detection threshold',
                                'the finite range', 'the circularity check', 'the two channels'],
@@ -580,6 +583,38 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LEDGER CURRENCY PASS (b359).
+    ("ledger-currency-pass", "b359 (a read, a fetch and a pin sweep; it computes nothing and deposits nothing)",
+     "NO DRIFT IS FOUND. Nine claims located and classified across the front door and the federation map -- 7 CURRENT, 2 SILENT, 0 STALE, none unclassified -- and SIX"
+     " ASSERTED FEDERATION PINS READ LIVE BY ls-remote, all six resolving on the first attempt and all six MATCHING. THE PRECEDENCE IS THE FRONT DOOR'S OWN, QUOTED AND"
+     " OBEYED: \"REGISTRY > README > SPIRAL_MAP for deposits; disk for live pins only, never for deposits\" -- so every deposit claim was ranked against REGISTRY, every"
+     " pin went to ls-remote and nowhere else, and NO DEPOSIT FIELD WAS CHECKED AGAINST DISK. THE READ-ONLY FETCH, two GETs, both HTTP 200, both hashed (sha256"
+     " 903356429b0876d7..., 11796 bytes): version v1.1.2, DOI 10.5281/zenodo.21539167, concept 10.5281/zenodo.19675355, published 2026-07-24, n_files 11, is_last True"
+     " -- five fields against REGISTRY's governing d1-1 row and FIVE AGREEMENTS, and THE CONCEPT DOI RESOLVES TO THE SAME RECORD AND THAT RECORD IS is_last, SO NO"
+     " LATEST-VERSION POINTER HAS DRIFTED. The bundle description and the count agree: REGISTRY says the monograph + 6 companions + ONE_PAGE_PROOF + ERRATA + two"
+     " graphics, eleven items, and the platform returns eleven. THE TWO SILENT CLAIMS ARE THE JUDGEMENT THAT COULD HAVE GONE THE OTHER WAY: the map's frozen Day-1"
+     " table and its v0.6 changelog line both name superseded versions and both are marked as history, and the locked face fixed in advance that a document saying"
+     " THIS WAS TRUE THEN is not saying THIS IS TRUE NOW. THE PINS: SIDE-kernel v1.5 0e5233f from both documents; SIDE-lv-conservation deposit-pin v0.10.0 93c27ec AND"
+     " working head 2f71068 as TWO OBJECTS IN ONE CELL, each resolved against its own ref; SIDE-effects main afa9ccf; SIDE-t7-topology-cmb v0.3 8eb0d5a. SO NOTHING IS"
+     " APPENDED to README.md or SPIRAL_MAP.md and both are left BYTE-IDENTICAL, because a currency pass that finds no drift and writes a note anyway is noise. AND ONE"
+     " THING THE PASS FOUND THAT NOBODY ASKED FOR: FACES_LEDGER.md IS NOT IN THE MIRROR ROSTER -- the roster holds 41 source paths, README, SPIRAL_MAP, REGISTRY,"
+     " ERRATA and FINDINGS among them, and the faces ledger is not, so the one file this act writes to the papers repo DOES NOT REACH THE MIRROR AT ALL; the roster is"
+     " NOT changed and the question is routed to the author.",
+     "### A LEDGER RECONCILED IS NOT A LEDGER VERIFIED: named fields against a named ranking party, named pins against live remotes, and neither document read for the"
+     " correctness of anything else. ### NINE CLAIMS AND SIX PINS THIS SEAT CHOSE ARE NOT A CENSUS of a 152-line front door and a 438-line map, and a stale claim not"
+     " looked for is not counted. ### NOT THAT THE DEPOSIT IS CORRECT -- only that the ledgers agree with it and with each other. ### NOT THAT THE PLATFORM'S RECORD IS"
+     " RIGHT: a hash fixes the bytes it returned and nothing more. ### NOT THAT A PIN THAT RESOLVES TODAY WILL RESOLVE TOMORROW, which is why the order said read"
+     " live. ### AND THE MIRROR PASSING ITS THREE CLAUSES SAYS NOTHING ABOUT WHETHER WHAT IT CARRIES IS TRUE. ### NOTHING IS DEPOSITED AND NOTHING WAS WRITTEN AT"
+     " ZENODO. ### REGISTRY.md IS READ, NOT WRITTEN. ### NO SENTENCE IS EDITED. ### NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO COORDINATE IS CLOSED."
+     " ### THE PARTITION STAYS UNDECIDED. ### NO GRADE MOVED. ### NO BAR MOVED. ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b359_the_currency_pass.txt; data/b359_pass_run.txt; data/b359_pass.json;"
+     " data/b359_fetch_run.txt and data/b359_fetch.json (two GETs, hashed);"
+     " data/b359_fetch_F1.json and data/b359_fetch_F2.json (the bytes the platform returned);"
+     " data/b359_extract_notes2.txt (34 of 34 located, 23 anchors differing from their hints);"
+     " data/b359_registration_2026-09-07.txt (LOCKED on the audit's own exit code, with its three pre-lock reads declared);"
+     " data/b359_mirror.txt (clean on all three clauses, rebuilt AFTER the write);"
+     " PLACE-papers FACES_LEDGER.md (row U1's second update block, b358's finding localized);"
+     " CORRESPONDENCE.md row 208"),
     # ### THE LI ASYMPTOTICS, READ UNDER A CAP (b358).
     ("li-asymptotics-circular", "b358 (a read and a pricing under a cap; it computes nothing)",
      "EXISTS BUT CIRCULAR. The deposit's finite range is its own sentence -- partialPositivity_finiteRange (v0.8.0) certifies lambda_n >= 0 for n up to Voros's"

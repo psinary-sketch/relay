@@ -1,0 +1,239 @@
+====================================================================================================
+b359 -- THE LEDGER CURRENCY PASS. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation CURRENT.
+### Registration `data/b359_registration_2026-09-07.txt`, ### **LOCKED**
+### `326c9055f6a6511f7e2726c2a51d2b8a0bf4571ce119f623b4593f84e7d5d909`, 19328 bytes, 47 clauses JOINTLY
+### SATISFIABLE, and ### **LOCKED ONLY AFTER THE AUDIT'S OWN EXIT CODE CAME BACK `0`**, locked at (UTC)
+### 2026-09-07T20:53:11Z. ### **LOCKED BEFORE ANY READ, WITH THREE PRE-LOCK READS DECLARED ON ITS OWN
+### ### FACE IN SECTION (A-PRE).** ### The clocks are printed in section (8).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **NO DRIFT IS FOUND.**
+### ### **NINE CLAIMS LOCATED AND CLASSIFIED, NONE UNCLASSIFIED: SEVEN `CURRENT`, TWO `SILENT`, ZERO
+### ### `STALE`.** ### **SIX PINS ASSERTED AND READ LIVE BY `ls-remote`: SIX `CURRENT`, ZERO `STALE`, ZERO
+### ### `UNRESOLVED`.** ### And the read-only fetch agrees with `REGISTRY`'s governing `d1-1` row on every
+### field it carries.
+### ### ### **SO, BY THE REGISTRATION'S OWN SECTION (E), NOTHING IS APPENDED TO `README.md` OR
+### ### ### `SPIRAL_MAP.md`.** ### A currency pass that finds no drift and writes a note anyway would be
+### adding noise and calling it work, and the locked face said so before any claim was read.
+### ### **THE FRONT DOOR AND THE FEDERATION MAP ARE RECONCILED TO THE SOURCE OF TRUTH AS THEY STAND, AND
+### ### THIS ACT LEAVES THEM BYTE-IDENTICAL.**
+
+----------------------------------------------------------------------------------------------------
+### (2) THE PRECEDENCE, QUOTED AND OBEYED. ### **(ADDITION ONE.)**
+----------------------------------------------------------------------------------------------------
+### ### **THE FRONT DOOR'S OWN WORDS**, `README.md:147-148`, from its reconciliation note of 2026-08-24:
+### ### *"Precedence, so a later reader can re-run this: REGISTRY > README > SPIRAL_MAP for deposits; disk
+### ### for live pins only, never for deposits."*
+### ### **AND IT WAS OBEYED IN BOTH DIRECTIONS, WHICH IS THE PART WORTH RECORDING:**
+###   ### **NO DEPOSIT FIELD WAS CHECKED AGAINST DISK.** ### Every deposit claim was ranked against
+###     `REGISTRY.md`, and where `REGISTRY` is silent on an artifact -- it carries no DOI for
+###     `SIDE-lv-conservation` or for the T7 record -- ### **THE FRONT DOOR IS THE NEXT RANK AND WAS USED
+###     ### AS ONE**, which is what the precedence is for.
+###   ### **NO PIN WAS CHECKED AGAINST A DEPOSIT FIELD.** ### Pins went to `ls-remote` and nowhere else.
+###   ### **AND EVERY REPAIR WOULD HAVE RUN TOWARD THE SOURCE OF TRUTH AND NEVER THE REVERSE**, which is
+###     the locked registration's own wording and the order's. ### None was needed, so the direction was
+###     never exercised -- ### **WHICH IS A FACT ABOUT THIS RUN AND NOT A DEMONSTRATION THAT THE RULE
+###     ### WORKS.**
+### ### **AND THE EXTERNAL WITNESS WAS NOT PROMOTED TO A FOURTH RANK.** ### The fetch is evidence ABOUT
+### `REGISTRY`, not a party above it. ### Had they disagreed, branch (H)(4) would have taken the act to a
+### report and ### **NOTHING WOULD HAVE BEEN REPAIRED**, because repairing a source of truth from a
+### platform read would invert the precedence this act was ordered to obey. ### **THEY DID NOT DISAGREE.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE READ-ONLY FETCH, AND WHAT THE PLATFORM RETURNED.
+----------------------------------------------------------------------------------------------------
+### ### **TWO TARGETS, BOTH `GET`, BOTH HTTP 200, BOTH HASHED:**
+###   ### the VERSION record `REGISTRY` names, `https://zenodo.org/api/records/21539167` -- 11796 bytes,
+###     sha256 `903356429b0876d73357c7efecdfa863edf4e18f9b288f90830b8cff287c7bac`
+###   ### the CONCEPT record, `https://zenodo.org/api/records/19675355` -- 11796 bytes, and ### **THE SAME
+###     ### SHA-256**, because the concept id resolves to the version record itself.
+### ### **THE FIELDS, AS THE PLATFORM RETURNED THEM:** ### `version v1.1.2`; `doi 10.5281/zenodo.21539167`;
+### `conceptdoi 10.5281/zenodo.19675355`; `publication_date 2026-07-24`; ### **`n_files 11`**;
+### ### **`is_last True`**; title *"A Place To Stand: Proof of the Riemann Hypothesis via the SIDE method"*.
+### ### **AGAINST `REGISTRY`'S GOVERNING `d1-1` ROW, LOCATED AT `REGISTRY.md:82`: FIVE FIELDS, FIVE
+### ### AGREEMENTS** -- version, DOI, concept DOI, publication date and manuscript version, each present in
+### the row and each matching the record.
+### ### ### **AND THE POINTER CHECK, WHICH IS THE ONE A DEPOSIT LEDGER CANNOT DO FOR ITSELF: THE CONCEPT
+### ### ### DOI RESOLVES TO THE SAME RECORD AND THAT RECORD IS `is_last`.** ### **SO NO LATEST-VERSION
+### ### ### POINTER HAS DRIFTED**, which is exactly the check the map's own 2026-08-24 note performed and
+### is now performed again against live bytes rather than recalled from that note.
+### ### **AND THE `11` IS WORTH ONE LINE.** ### `REGISTRY`'s line 77 describes the bundle as ### *"the
+### monograph + 6 companions + `ONE_PAGE_PROOF` + `ERRATA` + two graphics"* ### -- which is eleven items --
+### and the platform returns `n_files 11`. ### **THE DESCRIPTION AND THE COUNT AGREE**, and that pairing is
+### what `E-2026-08-24-1` was filed to repair when it did not.
+
+----------------------------------------------------------------------------------------------------
+### (4) THE CLAIMS. ### NINE LOCATED, NINE CLASSIFIED, NONE FROM MEMORY.
+----------------------------------------------------------------------------------------------------
+### ### **`CURRENT` -- SEVEN.**
+###   ### `README.md:129` -- the deposit note. ### Every field matches `d1-1` and the fetch, and the
+###     sentence that most often goes stale here is present and right: ### **THE LIVE LINE IS AHEAD OF THE
+###     ### DEPOSIT**, `v5.13` against the deposit's `v5.10.2`, which is what the 2026-08-24 repair put in.
+###   ### `README.md:133` -- rule 1, `REGISTRY.md` as the single source of truth.
+###   ### `README.md:107` -- the `day1/` tree line, which now points the reader at the deposit note rather
+###     than asserting a field itself, which is what its own repair made it do.
+###   ### `SPIRAL_MAP.md:46` -- the monograph's deposit-wave row, matching `REGISTRY` and the fetch and
+###     naming what it supersedes.
+###   ### `SPIRAL_MAP.md:48` -- `SIDE-lv-conservation v0.10.0` = `93c27ec`, ranked against the front door,
+###     which carries the same pair and the same DOI.
+###   ### `SPIRAL_MAP.md:45` -- `SIDE-kernel v1.5` = `0e5233f`, likewise.
+###   ### `SPIRAL_MAP.md:47` -- the T7 registered-search record, likewise, with the same date.
+### ### **`SILENT` -- TWO, AND BOTH ARE THE SAME SHAPE.**
+###   ### `SPIRAL_MAP.md:32` -- the ### **frozen Day-1 deposit table**, carrying `PLACE-papers v1.0.2` and
+###     `SIDE-kernel v1.1`, both superseded. ### **IT IS MARKED AS HISTORY AND IS NOT A CLAIM ABOUT NOW**,
+###     and its own annotation says the row ### *"is historical and is not rewritten"*.
+###   ### `SPIRAL_MAP.md:14` -- the map's version line, a ### **CHANGELOG ENTRY** ### describing what `v0.6`
+###     refreshed, which names `SIDE-lv-conservation v0.9.0` as a past state and is superseded in the same
+###     document by its own later note.
+### ### ### **AND THE DISTINCTION THAT DECIDED BOTH WAS LOCKED BEFORE EITHER WAS READ:** ### **A DOCUMENT
+### ### ### THAT SAYS "THIS WAS TRUE THEN" IS NOT SAYING "THIS IS TRUE NOW"**, and calling either `STALE`
+### would have been this seat reading a tense it was told not to read. ### **THAT IS THE ONE JUDGEMENT IN
+### ### THIS ACT THAT COULD HAVE GONE THE OTHER WAY, AND THE REGISTRATION FIXED IT IN ADVANCE ON PURPOSE.**
+### ### **`STALE` -- NONE.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE PINS, READ LIVE. ### **(ADDITION TWO.) ### SIX ASSERTED, SIX RESOLVED, SIX MATCH.**
+----------------------------------------------------------------------------------------------------
+### ### **EVERY SHA BELOW WAS READ OFF THE LEDGER'S OWN LOCATED LINE AND COMPARED AGAINST WHAT
+### ### `git ls-remote` RETURNED FROM THE NAMED REPOSITORY. ### NONE WAS RECALLED.**
+###     `README.md:15`      `SIDE-kernel` tag `v1.5`            asserts `0e5233f` ; live `0e5233f0115…`  ### **CURRENT**
+###     `SPIRAL_MAP.md:45`  `SIDE-kernel` tag `v1.5`            asserts `0e5233f` ; live `0e5233f0115…`  ### **CURRENT**
+###     `SPIRAL_MAP.md:82`  `SIDE-lv-conservation` tag `v0.10.0` asserts `93c27ec` ; live `93c27ec2cb9…`  ### **CURRENT**
+###     `SPIRAL_MAP.md:82`  `SIDE-lv-conservation` working head  asserts `2f71068` ; live `2f71068ac35…`  ### **CURRENT**
+###     `SPIRAL_MAP.md:77`  `SIDE-effects` `main`                asserts `afa9ccf` ; live `afa9ccfbddc…`  ### **CURRENT**
+###     `SPIRAL_MAP.md:83`  `SIDE-t7-topology-cmb` tag `v0.3`    asserts `8eb0d5a` ; live `8eb0d5ad0b3…`  ### **CURRENT**
+### ### **AND THE RULE THE REGISTRATION FIXED WAS HELD TO, AND IT MATTERED AT LINE 82:** ### that row
+### carries ### **TWO SHAS IN ONE CELL** -- a deposit-pin and a working head -- and ### **THEY ARE NOT THE
+### ### SAME OBJECT**, as `REGISTRY`'s own ruling says and the map quotes: ### *"a repository has a pin the
+### corpus cites in published prose and a head where work continues, and they are not the same object."*
+### ### **SO EACH WAS RESOLVED AGAINST ITS OWN REF** -- the tag `v0.10.0` for one, `HEAD` for the other --
+### and a difference between them is not a drift. ### **THE MAP'S OWN 2026-08-24 REPAIR SPLIT THAT CELL
+### ### INTO TWO COLUMNS, AND THIS ACT'S READING IS ONLY POSSIBLE BECAUSE IT DID.**
+### ### **AND `UNRESOLVED` WAS AVAILABLE AND WAS NOT NEEDED.** ### `b353`'s incident stands behind the
+### branch: pins have failed to resolve in this record before, and the tool was right to refuse to call an
+### unresolved repository anything. ### **SIX OF SIX RESOLVED ON THE FIRST ATTEMPT.**
+
+----------------------------------------------------------------------------------------------------
+### (6) THE MIRROR. ### **(ADDITION THREE.) ### WHAT THE ARCHIVE CARRIES, AND WHAT IT DOES NOT.**
+----------------------------------------------------------------------------------------------------
+### ### **NO DOCUMENT NEEDED REPAIR, SO THE ARCHIVE CARRIES NO REPAIR.** ### The order's Addition Three
+### presumes one; the honest discharge is to say what the archive carries in the state this act verified it
+### in, and that is done here.
+### ### **THE ARCHIVE CARRIES, AND THIS ACT CHECKED EACH OF THEM AGAINST THE SOURCE OF TRUTH AND A LIVE
+### ### FETCH BEFORE THE REBUILD:** ### `README.md` (three claims, all `CURRENT`), `SPIRAL_MAP.md` (six
+### claims, four `CURRENT` and two `SILENT`, and five of the six live pins), and ### **`REGISTRY.md`
+### ### ITSELF, THE SOURCE OF TRUTH, WHICH THIS ACT READ AND DID NOT WRITE.**
+### ### ### **AND WHAT THE ARCHIVE DOES NOT CARRY, WHICH IS THIS ACT'S ONE UNEXPECTED FINDING:**
+### ### ### **`FACES_LEDGER.md` IS NOT IN THE MIRROR ROSTER.**
+### The roster holds 41 source paths; `README.md`, `SPIRAL_MAP.md`, `REGISTRY.md`, `ERRATA.md` and
+### `FINDINGS.md` are among them and ### **`FACES_LEDGER.md` IS NOT.** ### So the one file this act writes
+### to the papers repo -- row `U1`'s update block -- ### **DOES NOT REACH THE MIRROR AT ALL.**
+### ### **AND THE ROSTER IS NOT CHANGED BY THIS ACT.** ### The locked registration caps roster changes at
+### zero, and `b183`'s history is why: the roster was once an OUTPUT written as though it were an INPUT,
+### and a row added to it changed nothing while a file verified CLEAN without being in the archive. ###
+### **CHANGING IT IS THE AUTHOR'S, AND WHETHER THE FACES LEDGER BELONGS IN A PUBLIC MIRROR IS A QUESTION
+### ### ABOUT WHAT THE MIRROR IS FOR, NOT A DEFECT THIS ACT MAY QUIETLY FIX.**
+### ### **THE MIRROR WAS REBUILT AFTER THE FACES-LEDGER WRITE AND VERIFIED ON ALL THREE CLAUSES:** ### 41
+### files against 41 manifest rows with zero md5 or byte mismatches; the manifest's declared source head
+### agreeing with `ls-remote`; and the archive agreeing with the roster name for name, ### **0 MISSING AND
+### ### 0 EXTRA.**
+### ### ### **AND THE LIMIT, RESTATED BECAUSE THIS ACT'S OWN SUBJECT IS THE REASON FOR IT:** ### the three
+### clauses check the archive against its manifest, its pin and its roster. ### **THEY DO NOT CHECK THAT
+### ### THE LEDGERS INSIDE IT SAY TRUE THINGS.** ### That is what sections (3), (4) and (5) are for, and a
+### clean mirror does not repeal them.
+
+----------------------------------------------------------------------------------------------------
+### (7) THE EXPECTATION, SCORED. ### AN EXPECTATION IS SCORED, NEVER SATISFIED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS SEAT'S, CARRIED FROM THE DRAFT AND LOCKED UNCHANGED:** ### *"A DRIFT WILL BE FOUND AND IT
+### WILL BE IN THE FRONT DOOR RATHER THAN THE MAP."*
+### ### ### **NOT MET, AND NOT MET IN ITS FIRST CLAUSE.** ### No drift was found anywhere. ### The
+### expectation's reasoning was that `README.md` is the document most written for a reader and least
+### re-read against `REGISTRY`, and that the record is more careful where it is grading than where it is
+### narrating (`b357`). ### **THE REASONING WAS SOUND AND THE PREDICTION WAS WRONG, FOR A REASON THIS SEAT
+### ### SHOULD HAVE WEIGHED AND DID NOT: BOTH DOCUMENTS WERE RECONCILED TO `REGISTRY` ON 2026-08-24 AND
+### ### EACH CARRIES ITS OWN NOTE SAYING SO.** ### A document that has been reconciled once and not
+### touched since is not a document drifting; the front door's exposure to a reader is a reason it gets
+### WRITTEN loosely, not a reason it goes stale while nobody edits it.
+### ### **THE NAVIGATOR SET NO EXPECTATION IN THIS FERRY**, and this act invented none for the seat that
+### did not state one.
+
+----------------------------------------------------------------------------------------------------
+### (8) THE RECORD, AND ITS CLOCKS.
+----------------------------------------------------------------------------------------------------
+### ### `data/b359_ferry_2026-09-07.txt` -- the order, banked verbatim; `tools/ferry_scan.py` CURRENT, and
+###   the DEPRECATED arm reports `0` on it.
+### ### `data/b359_registration_2026-09-07.txt` -- ### **LOCKED**
+###   `326c9055f6a6511f7e2726c2a51d2b8a0bf4571ce119f623b4593f84e7d5d909`, 19328 bytes, locked at (UTC)
+###   ### **`2026-09-07T20:53:11Z`**, ### **ONLY AFTER `reg_satisfiable.py` EXITED `0`.**
+### ### `data/b359_fetch_run.txt` and `data/b359_fetch.json` -- the fetch, run at (UTC)
+###   ### **`2026-09-07T20:53:52Z`**, with both records' bytes on disk.
+### ### `data/b359_extract_notes2.txt` -- ### **THE RELIED-ON EXTRACT**, run at (UTC)
+###   ### **`2026-09-07T20:55:11Z`.** ### **34 READS, 34 LOCATED, 0 WITHOUT AN ANCHOR ON THE FIRST RUN**,
+###   and ### **23 OF 34 ANCHORS DIFFER FROM THE HINT THAT FOUND THEM.** ### Its fixtures ran first and
+###   returned `True`. ### `data/b359_extract_notes.txt` is the same run repeated, kept because
+###   `run_clock` numbers repeats; ### **THE SUITE RESOLVES BOTH BY THEIR OWN RECORDED CLOCKS AND NOT BY
+###   ### NAME** (b358's cure, and this is the third act it has caught something in).
+### ### `data/b359_pass_run.txt` and `data/b359_pass.json` -- the pass itself, run at (UTC)
+###   ### **`2026-09-07T20:57:05Z`**.
+### ### `data/b359_faces_row_run2.txt` -- ### **THE RELIED-ON FACES RUN.** ### The first attempt ###
+###   **REFUSED TO WRITE THE BLOCK** ### because one of its five quotations did not locate: a hint typed
+###   from memory ran past where the bank wrapped the line. ### **THE TOOL REFUSED RATHER THAN WROTE, THE
+###   ### HINT WAS CORRECTED AGAINST THE FILE, AND THE BLOCK WAS WRITTEN ON THE SECOND RUN.** ### That is
+###   Bar 2 doing its job on this act's own prose, and both runs are on disk.
+### ### **THE MIRROR:** ### `data/b359_mirror.txt`, and the hook at `data/b359_hooks.txt`.
+### ### **THE APPENDED RECORD:** ### `CORRESPONDENCE.md` row 208, the index key
+###   `ledger-currency-pass`, and `FACES_LEDGER.md`'s second update block on row `U1`. ### **THOSE
+###   ### THREE ARE THE WHOLE OF WHAT THIS ACT WROTE OUTSIDE THE RELAY REPOSITORY'S OWN `data/` AND
+###   ### `tools/`.**
+### ### **THIS ACT COMPUTED NOTHING.** ### No frame, no seed, no transform, no quadrature, no fit, no
+### score. ### **AND IT WROTE NOTHING ANYWHERE EXCEPT THIS REPOSITORY, THE CORRESPONDENCE TABLE, AND ONE
+### ### APPENDED BLOCK IN THE FACES LEDGER.** ### `G-NODEPOSIT` re-measures the platform half of that claim
+### on STRIPPED code rather than trusting this sentence.
+
+----------------------------------------------------------------------------------------------------
+### (9) WHAT THIS ACT DID NOT DO.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING IS DEPOSITED. ### NOTHING IS WRITTEN AT ZENODO. ### NO DEPOSITED ARTIFACT IS TOUCHED.**
+### The two fetches were `GET` and nothing else; the deposited records are immutable at their versions.
+### ### **`REGISTRY.md` IS NOT WRITTEN.** ### It is the source of truth and this act READ it.
+### ### **NOT ONE SENTENCE OF `README.md` OR `SPIRAL_MAP.md` IS EDITED, AND NOTHING IS APPENDED TO EITHER**,
+### because nothing was stale and section (E) forbids a note that corrects nothing.
+### ### **THE MIRROR ROSTER IS NOT CHANGED**, and the faces ledger's absence from it is REPORTED and left
+### to the author.
+### ### **A LEDGER RECONCILED IS NOT A LEDGER VERIFIED.** ### This act checked named fields against a named
+### ranking party and named pins against live remotes. ### **IT DID NOT READ EITHER DOCUMENT FOR THE
+### ### CORRECTNESS OF ANYTHING ELSE**, and a claim it did not look for is not counted here.
+### ### **NO CLASS IS DISCHARGED. ### THE CLAUSE HAS NOT MOVED. ### NO COORDINATE IS CLOSED. ### THE
+### ### PARTITION STAYS UNDECIDED. ### NO GRADE IS CONFERRED BY A SEAT. ### NO BAR MOVED. ### NO TERMINAL.
+### ### NO ACT IS RE-VERDICTED**, and row `U1`'s new block adds no reading of its own -- every figure in it
+### is `b358`'s, quoted from `b358`'s bank at its own line.
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY, ON THE IDENTITY'S TRUTH OR ON THE ROSTER.** ### `M-2`
+### remains (SPECIFIED-NOT-STATED) under b310's cap. ### The seam's debt item 1 stands. ### The patent lane
+### is carried on the patent seat's report, UNCONFIRMED on this seat's record. ### **THE POSTURE LOCK IS
+### SEPARATE AND WAS NOT TOUCHED.** ### `h2` stands exactly where the deposit left it. ### **THE WAVE STAYS
+### ### PARKED. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### THE SHADOW.
+----------------------------------------------------------------------------------------------------
+### ### **EXPECTED: A TIDY AUDIT THAT WOULD FIND A DRIFT AND FILE IT.** ### It found none, and the
+### temptation is to read `NO DRIFT IS FOUND` as the ledgers being sound.
+### ### **WHAT WAS CHECKED IS NINE CLAIMS AND SIX PINS THAT THIS SEAT CHOSE.** ### Nothing mechanical
+### enumerated the candidates in a 152-line front door and a 438-line map. ### **A STALE CLAIM THAT WAS NOT
+### ### LOOKED FOR IS NOT COUNTED HERE**, and `b357`'s sentence applies unchanged: a hand-picked set is not
+### a census.
+### ### **AND THE FIELDS CHECKED WERE THE DEPOSIT FIELDS AND THE PINS.** ### Neither document was read for
+### anything else, and both are long documents full of other assertions.
+### ### **NOT THAT THE DEPOSIT IS CORRECT -- ONLY THAT THE LEDGERS AGREE WITH IT AND WITH EACH OTHER. ###
+### ### NOT THAT THE PLATFORM'S RECORD IS RIGHT: A HASH FIXES THE BYTES IT RETURNED AND NOTHING MORE. ###
+### ### NOT THAT A PIN THAT RESOLVES TODAY WILL RESOLVE TOMORROW -- THAT IS WHY THE ORDER SAID READ LIVE.**
+### ### **AND THE MIRROR PASSING ITS THREE CLAUSES SAYS NOTHING ABOUT WHETHER WHAT IT CARRIES IS TRUE**,
+### which is the sentence this whole act exists to keep in the record.
+### ### **THE MOST THIS ACT HAS DONE IS CHECK, AGAINST LIVE BYTES AND LIVE REMOTES, THAT TWO DOCUMENTS
+### ### RECONCILED ONCE IN AUGUST ARE STILL RECONCILED IN SEPTEMBER -- AND FIND ONE FILE THAT THE MIRROR
+### ### THE AUTHOR IS REFRESHING DOES NOT CARRY.**
