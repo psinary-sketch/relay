@@ -4,7 +4,9 @@
 ### ### **EVERY `G-NO*` ARM READS STRIPPED CODE** (b348), ### **EVERY PRESENCE ARM READS RAW SOURCE** (b349),
 ### every quotation goes through `quote_norm`, and ### **EVERY ARM THAT READS A REPOSITORY STATE DECLARES ITS
 ### SIDE OF THE PUSH** (b352): `G-ROW`/`G-ANCESTOR` and `G-APPENDONLY` are read BEFORE THE PUSH and again
-### after, and the pre-push reading is the one that carries; `G-NOEDIT` is `SIDE-INVARIANT`; ### **THIS ACT
+### after, and the pre-push reading is the one that carries; ### **`G-NOEDIT` STRADDLES TOO AND SAYS SO**
+### -- its owner-instrument and TECHNE halves are `SIDE-INVARIANT`, its PAPERS half reads the working tree
+### before the push and the HEAD commit's file list after, and PRINTS WHICH SIDE IT IS ON; ### **THIS ACT
 ### ### WRITES TO THE PAPERS REPO** -- the faces ledger's update block and the errata filing -- ### **SO THE
 ### ### HOOK AND THE MIRROR ARE OWED AND THIS SUITE CHECKS THEM.**
 ### ### ### **AND THE ARM THIS ACT ADDED BECAUSE b357 EARNED IT:** ### `G-ONCE` compares the run file this
@@ -493,7 +495,13 @@ def main():
     if not ap:
         fails.append('G-APPENDONLY')
 
-    print(chr(10) + '  G-NOEDIT (no owner instrument edited beyond the ruling\'s additive modes). ### SIDE-INVARIANT.')
+    # ### ### **THIS ARM STRADDLES THE PUSH AND SAYS SO** (b352's rule). ### Its OWNER-INSTRUMENT and
+    # ### TECHNE halves are SIDE-INVARIANT; ### **ITS PAPERS HALF IS NOT** -- before the push the two
+    # ### files are DIRTY, after it the tree is CLEAN and the same fact lives in the HEAD commit's file
+    # ### list. ### **THE FIRST WRITING OF THIS ARM DECLARED THE WHOLE THING SIDE-INVARIANT AND FAILED
+    # ### ### POST-PUSH ON ITS OWN CORRECT STATE**, which is what b352 minted the rule for.
+    print(chr(10) + '  G-NOEDIT (no owner instrument edited beyond the additive modes of R3).')
+    print('    ### the owner and TECHNE halves are SIDE-INVARIANT; ### **THE PAPERS HALF STRADDLES.**')
     owner = ['tools/b316_instrument.py', 'tools/b317_smear.py', 'tools/b318_square.py',
              'tools/b319_stable.py', 'tools/b320_run.py', 'tools/b352_fit.py', 'tools/quote_norm.py',
              'tools/run_clock.py', 'tools/gate_text.py', 'tools/registration_gate.py',
@@ -505,11 +513,21 @@ def main():
     ppstat = [x for x in git(PP, 'status', '--porcelain').splitlines() if x.strip()
               and 'BLOB_SENSITIVITY' not in x]
     ppexp = sorted(x.split()[-1] for x in ppstat)
-    gne = (not touched) and (not tcstat) and ppexp == ['ERRATA.md', 'FACES_LEDGER.md']
+    WANT = ['ERRATA.md', 'FACES_LEDGER.md']
+    if ppexp:
+        side, ppfiles = 'PRE-PUSH (the working tree)', ppexp
+    else:
+        head_msg = git(PP, 'log', '-1', '--format=%s').strip()
+        ppfiles = sorted(x for x in git(PP, 'show', '--name-only', '--format=', 'HEAD').split() if x)
+        side = 'POST-PUSH (the HEAD commit)'
+        if not head_msg.startswith('b358'):
+            ppfiles = ['### HEAD IS NOT THIS ACT S COMMIT: %s' % head_msg[:40]]
+    gne = (not touched) and (not tcstat) and ppfiles == WANT
     print('    owner instruments modified : %s ; TECHNE dirty : %s' % (touched or 'none', tcstat or 'none'))
     print('    ### the two ADDITIVE tools under R3 : %s' % (changed_add or 'none'))
-    print('    papers dirty, and ONLY the two files this act writes : %s  %s'
-          % (ppexp, 'PASS' if gne else '### FAIL ###'))
+    print('    ### **THE SIDE THIS READING IS ON : %s**' % side)
+    print('    the ONLY papers files this act touches : %s  %s'
+          % (ppfiles, 'PASS' if gne else '### FAIL ###'))
     if not gne:
         fails.append('G-NOEDIT')
 
