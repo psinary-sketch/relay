@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'room-relative': ['the room', 'the relative room', 'the room relative', 'the point of maximum tension',
+                      'the shared normaliser', 'the extended height grid', 'the phase window',
+                      'a degenerate seed'],
     'priced-and-resolved-fold': ['the fold b339', 'the priced-and-resolved arc', 'the arc as one statement',
                                 'use and mention', 'the scanner over prose', 'the census as a finding',
                                 'the failure-mode partition', 'the judgement rule'],
@@ -549,6 +552,26 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ROOM, RELATIVE BEFORE EXTENDED (b349).
+    ("room-relative", "b349 (a second measure of banked figures, then three new heights)",
+     "THE ROOM MEASURED RELATIVE TO THE TERMS IT SITS BETWEEN, the denominator fixed before any value as the LARGER of the two terms so the ratio cannot be"
+     " inflated by a small one. On the 54 aims already charted, reading and running no seed: THE MINIMUM SURVIVES AT BOTH WIDTHS -- absolute and relative"
+     " minima both at gamma = 2.5 at a = 40, and both at gamma = 1.25 at a = 81 -- SO THE LOCATED POINT OF MAXIMUM TENSION IS NOT AN ARTIFACT OF ABSOLUTE"
+     " MEASUREMENT. And the relative measure IS FLATTER at both widths (8028 against 4336 at a = 40; 23707 against 20395 at a = 81),"
+     " so the navigator\'s expectation is half met and half refuted and the halves point opposite ways. PART (b) THEREFORE RAN: three sealed heights at"
+     " a = 81, every seed checked for lawfulness by the source\'s Definition 3.1 AND for its phase inside b328\'s WINDOW of 45 to 135 degrees --"
+     " ALL THREE LAWFUL, ALL THREE IN THE WINDOW, NONE DEGENERATE. NO CROSSING on the extended grid, and the minimum stays at gamma = 1.25, INTERIOR IN"
+     " BOTH MEASURES. The sortie\'s step zero also built tools/quote_norm.py, one normaliser imported by both sides of every quotation comparison, over"
+     " the species banked at b298, b309 and b348.",
+     "### ONE MEASURE AGREEING WITH ANOTHER IS WEAKER THAN EITHER BEING RIGHT, and the relative measure is a DIFFERENT measure and not a better one."
+     " ### NO CROSSING IS CLAIMED AT ANY HEIGHT. ### A NARROWER ROOM AT A LOWER HEIGHT IS A LOWER HEIGHT AND NOT A TREND: below gamma = 1 the room moves"
+     " very little across three heights while the dip at 1.25 sits an order of magnitude under all of them, a local feature and not a descent. ### THREE"
+     " LAWFUL SEEDS MEAN THESE THREE DID NOT DEGENERATE; THEY DO NOT MEAN THE CONSTRUCTION NEVER DOES. ### THE SQUARE AND THE REMAINDER ARE NOT REACHED"
+     " AT THIS WIDTH. ### THE ORDER NAMED A b305 INCIDENT THIS SEAT COULD NOT LOCATE AND NONE WAS MANUFACTURED. ### NO GRADE MOVED. ### NO BAR MOVED."
+     " ### NO TERMINAL. ### M-2 UNCHANGED",
+     "data/b349_the_room_relative.txt; data/b349_relative_run.txt; data/b349_extend_run.txt;"
+     " data/b349_registration_2026-09-07.txt (sealed before one relative value was computed and before any new seed);"
+     " tools/quote_norm.py (the sortie\'s shared normaliser); CORRESPONDENCE.md row 197"),
     # ### THE PRICED-AND-RESOLVED ARC, b339-b347 -- THE FOLD (b348).
     ("priced-and-resolved-fold", "b348 (a filings act; it proves nothing and moves no grade)",
      "THE FOLD OF b339-b347: nine acts filed as one section of the findings document, PURELY ADDITIVE, with every quotation located at the act that ORIGINATED"
