@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'apparatus-arc-fold': ['the apparatus arc', 'the fold b361', 'the span counted',
+                          'the three mints', 'the durability split'],
     'list-repaired-in-place': ['the list repaired', 'the list repaired in place',
                               'the original preserved verbatim', 'the roster mended',
                               'the refinement pass priced'],
@@ -608,6 +610,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE APPARATUS ARC, b361-b369 -- THE FOLD (b370).
+    ("apparatus-arc-fold", "b370 (a fold; it proves nothing, discharges nothing and moves no grade -- plus one owner instrument repaired and three lore modules minted)",
+     "THE FOLD, b361 THROUGH b369 -- 9 ACTS, THE SPAN COUNTED AND NOT TYPED. The counter reads the last fold section own filing line off FINDINGS.md and counts"
+     " forward, and the section is written ONLY because the count agreed with the range it names. F-NOGRADE HELD: 0 grade strings were not found verbatim in their own act bank."
+     " AND THE ATTRIBUTION WAS THE HARD HALF, NOT THE PRESENCE: the grade word SUPPORTED-BY-THE-SOURCE APPLICATION is b366 RULING and not b365 FINDING, and b365 row carries what b365 own bank says."
+     " 7 obstacles are quoted, each located in the bank of the act that ORIGINATED it. THE ARC AS ONE STATEMENT: this span produced NO NEW MATHEMATICS about the clause; it produced two results about the"
+     " clause SHAPE -- the approximation register located and closed with its obstruction a RATE (b362), and the Li localization archimedean half supported at zeta with a stated constant (b361, b365) --"
+     " and its main product was NEITHER: it was making the record checkable by a reader who trusts none of it. SEVEN OF THE NINE ACTS PRODUCED NO RESULT ABOUT THE OBJECT AT ALL. THE THREE MINTS: one"
+     " incident does not show you a partition; a predicate that knows one shape finds one shape; and THE DURABILITY SPLIT -- a repair to a tracked file travels with a clone and a repair to an untracked"
+     " one does not, so the guards that have caught the most are the ones a fresh clone starts without. 39 reads, 0 without an anchor.",
+     "### A FOLD MOVES NO GRADE AND SETTLES NOTHING. ### NO ACT IN THE SPAN IS RE-VERDICTED: every grade is its own act, checked verbatim against that act bank, and the two shape results are left at"
+     " the grades their own acts gave them and are NOT PROMOTED. ### THE CLAUSE HAS NOT MOVED AND NO ACT IN THE SPAN CLAIMS OTHERWISE. ### A FOLD THAT LET THE SEVEN APPARATUS ACTS READ AS PROGRESS ON"
+     " THE CLAUSE WOULD BE THE EXACT DEFECT THIS SPAN SPENT ITSELF FINDING ELSEWHERE. ### THE FOLD IS PURELY ADDITIVE: 0 existing sections edited, FINDINGS.md before a true prefix of after and"
+     " of its committed blob, read BEFORE THE PUSH. ### STEP ZERO: tools/b363_span.py wrote a run file and a JSON under b363 own stem on every run, whoever ran it -- filed twice, fixed never, a revert"
+     " both times. IT NOW READS AND DOES NOT WRITE; --emit writes under the CALLER own stem; its act number is read from the record; and A FIXTURE PROVES IT IN BOTH POLARITIES, because an arm that"
+     " cannot fail is not an arm. ### THE THREE MINTS EACH STATE THEIR MECHANIZABLE HALF APART: the first has NONE and says so first; the second is caught by re-derivation and NOT by any arm, because"
+     " the gate would have been written by the same hand with the same predicate; the third is mechanizable as a DURABLE / NOT DURABLE column and NOT mechanizable as a ranking by what a guard has"
+     " caught. ### THE DESK: 9 of 9 CONFIRMED-BY-FILE, 0 CLOSED -- the THIRD act running to report that number with that caveat, and A MEASUREMENT WHOSE RESULT AND WHOSE"
+     " CAVEAT BOTH NEVER MOVE IS A MEASUREMENT NOBODY IS USING. ### TWO ITEMS NAMED AS STILL OWED: the count claim above the repaired list, so THE FRONT DOCUMENT IS NOT NOW CORRECT; and the hook non-"
+     " durability, PRICED AND NOT BUILT. ### COMPONENT 5 IS NAMED, PRICED AND NOT OPENED: no repository audited, no surface read for correctness, and THE PROFILE THAT WOULD SETTLE ITS FIRST TARGET IS"
+     " NOT OPENED. ### NO LEAN FILE TOUCHED, NO BUILD RUN, NO TECHNE MODULE PUSHED. ### NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### M-2"
+     " UNCHANGED",
+     "data/b370_the_fold.txt; data/b370_extract_notes2.txt; data/b370_span_notes.txt; data/b370_fold_notes.txt;"
+     " data/b370_lore_notes.txt; data/b370_desk_notes.txt;"
+     " data/b370_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b370_fold.py (F-NOGRADE, the obstacles and the additive bar); tools/b370_lore.py (the three mints); tools/b363_span.py (REPAIRED: reads, does not write, with a two-polarity fixture);"
+     " PLACE-papers FINDINGS.md (one fold section, purely additive, 10555 bytes; FACES_LEDGER.md NOT written, no row moved);"
+     " TECHNE-Core modules/2026-09 (3 minted, local commit d48d8ac, NOT PUSHED); CORRESPONDENCE.md row 219"),
     # ### THE LIST REPAIRED IN PLACE, THE ROSTER MENDED, THE PASS PRICED (b369).
     ("list-repaired-in-place", "b369 (a bounded edit under ruling (R4), two hygiene repairs and a priced pass; it writes no Lean, runs no build and audits nothing)",
      "THE LAYER-1 EXPORT LIST IS REPAIRED IN PLACE AND THE ORIGINAL IS PRESERVED VERBATIM IN THE SAME FILE. Ruling (R4): append-only is right for a ledger, where a reader reads the file; it is wrong for"

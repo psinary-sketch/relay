@@ -1,0 +1,256 @@
+====================================================================================================
+b370 -- THE FOLD, b361 THROUGH b369. ### THE BANK.
+2026-09-08. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, citation CURRENT.
+### Registration `data/b370_registration_2026-09-08.txt`, ### **LOCKED**
+### `d9241326c9240bab40e414d38b00e3b813a3bf3fd1d043d034c6d2759f4e81d5`, 17787 bytes, 68 clauses JOINTLY
+### SATISFIABLE, and ### **LOCKED ONLY AFTER THE AUDIT'S OWN EXIT CODE CAME BACK `0`**, locked at (UTC)
+### 2026-09-08T14:44:38Z. ### **LOCKED BEFORE ANY WRITE OF THIS ACT.** ### The clocks are in section (8).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE FOLD IS FILED, AND THE SPAN WAS COUNTED BEFORE IT WAS WRITTEN.**
+### The counter reads the last fold section`s own filing line off `FINDINGS.md` and counts forward:
+### ### **THE SPAN STARTS AT `b361` AND RUNS THROUGH `b369` -- `9` ACTS**, and the fold names exactly
+### that range. ### **HAD THEY DISAGREED THE FOLD WOULD NOT HAVE BEEN WRITTEN**, and the tool has
+### that branch and can take it.
+### ### **`F-NOGRADE` HELD: GRADE STRINGS NOT FOUND VERBATIM IN THEIR OWN ACT`S BANK : `0`.**
+### ### **AND THE FOLD IS PURELY ADDITIVE:** ### `FINDINGS.md` before is a true prefix of
+### `FINDINGS.md` after (`True`) and of its committed blob (`True`), read ### **BEFORE THE PUSH.**
+### `65` lines appended, `10555` bytes; ### **`0` EXISTING SECTIONS EDITED, `0` GRADES MOVED, `0`
+### ### ACTS RE-VERDICTED.**
+### ### ### **AND STEP ZERO IS DONE, WHICH IS THE PART THAT WAS OWED AND NOT ORDERED TWICE BEFORE.**
+### The span counter ### **READS AND NO LONGER WRITES**, its act number is read from the record
+### rather than baked into the file, and a caller who wants a record gets one ### **UNDER ITS OWN
+### ### STEM.**
+
+----------------------------------------------------------------------------------------------------
+### (2) STEP ZERO -- THE TOOL THAT WROTE INTO ANOTHER ACT.
+----------------------------------------------------------------------------------------------------
+### ### **THE DEFECT WAS THIS: `tools/b363_span.py` WROTE A RUN FILE AND A JSON UNDER `b363`S OWN
+### ### STEM ON EVERY RUN, WHOEVER RAN IT.** ### `b368` ran it to COUNT and rewrote `b363`s run
+### pointer; `b369` did the same one act later. ### **BOTH REVERTED IT. ### NEITHER FIXED IT.**
+### ### **THE ORDER`S OWN SENTENCE, AND IT IS THE WHOLE JUSTIFICATION:** ### *a lesson filed in a
+### bank and not built into a tool is a lesson that will be learned again.*
+### ### **WHAT THE FIX IS:**
+###   (1) ### **THE DEFAULT PATH WRITES NOTHING AT ALL.** ### It prints and returns `0`.
+###   (2) ### **`--emit bNNN` WRITES UNDER THE CALLER`S OWN STEM**, never under this file`s.
+###   (3) ### **THE ACT NUMBER IS READ FROM THE RECORD** -- the highest act with a banked file --
+###       instead of being a constant every later caller inherited silently.
+### ### ### **AND THE FIXTURE PROVES IT IN BOTH POLARITIES, WHICH IS THE HALF THAT MATTERS:**
+###   ### **(a)** ### a default run leaves the foreign pointer ### **BYTE-IDENTICAL**, hashed before
+###       and after and compared -- not promised in a docstring.
+###   ### **(b)** ### an `--emit` run ### **DOES** ### write, under the caller`s stem. ### Without
+###       (b) the arm would pass on a tool that had simply stopped working: ### **AN ARM THAT CANNOT
+###       ### FAIL IS NOT AN ARM**, which is `b363`s own sentence, applied to `b363`s own tool.
+###   ### **(c)** ### and the emit run leaves the foreign pointer alone too.
+### ### **AND WHAT THE FIX DOES NOT DO, SAID RATHER THAN LEFT:** ### it does not recover the two run
+### files already written under `b363`s stem. ### They stay where they are, and they are ###
+### **ARTIFACTS OF A DEFECT, NOT OF `b363`.**
+### ### ### **AND ONE THING THE FIX EXPOSED IMMEDIATELY:** ### with the act number read from the
+### record, the default run counts through the ### **LATEST BANKED ACT, WHICH IS THIS ONE** -- so it
+### returns `10`, not `9`. ### **THE FOLDING ACT IS NOT IN ITS OWN FOLD**, and the span this act
+### folds was counted with `--act 369`. ### **A DEFAULT THAT READS THE RECORD READS THE ACT DOING
+### ### THE READING TOO**, and that is stated here rather than left for the next caller to trip on.
+
+----------------------------------------------------------------------------------------------------
+### (3) COMPONENT 1 -- THE FOLD.
+----------------------------------------------------------------------------------------------------
+### ### **`9` ROWS, EACH WITH ITS GRADE, ITS OWNING ACT AND ITS SCOPE SENTENCE.**
+### ### **EVERY GRADE STRING WAS REQUIRED TO APPEAR VERBATIM IN THE BANK OF THE ACT IT IS
+### ### ATTRIBUTED TO**, under the shared normaliser, or the section would not have been written.
+### ### ### **AND THE ATTRIBUTION WAS THE HARD HALF, NOT THE PRESENCE.** ### The grade word
+### `SUPPORTED-BY-THE-SOURCE`S-APPLICATION` is ### **`b366`S RULING, NOT `b365`S FINDING.** ###
+### `b365`s own bank says `SUPPORTED AT ζ, WITH A STATED CONSTANT`, and that is what `b365`s row
+### carries. ### **PUTTING `b366`S WORD IN `b365`S ROW WOULD HAVE FIRED THE ARM, AND IT SHOULD
+### ### HAVE.**
+### ### **`7` OBSTACLES, EACH LOCATED BY THE ANCHOR TOOL IN THE BANK OF THE ACT THAT ORIGINATED
+### ### IT** -- never in a later act`s summary of it (`b360`s rule).
+### ### **AND TWO FURTHER TABLES, AS THE ORDER ASKED:** ### `5` CORRECTIONS the acts made to their
+### own readings and to each other`s, and `6` acts` DECLARED DEFECTS. ### **A CORRECTION IS NOT A
+### ### RE-VERDICT AND THE TABLE SAYS WHICH IS WHICH.**
+### ### **THE DEFECTS TABLE IS NOT A CONFESSION AND IT IS NOT A BOAST.** ### It is there because the
+### arc`s claimed product is a record checkable by a reader who trusts none of it, and ### **A RECORD
+### ### WHOSE DEFECTS ARE DECLARED ONLY WHEN CONVENIENT IS NOT THAT.**
+
+----------------------------------------------------------------------------------------------------
+### (4) COMPONENT 2 -- THE ARC AS ONE STATEMENT.
+----------------------------------------------------------------------------------------------------
+### ### ### **THIS SPAN PRODUCED NO NEW MATHEMATICS ABOUT THE CLAUSE.**
+### ### **IT PRODUCED TWO RESULTS ABOUT THE CLAUSE`S SHAPE:** ### the approximation register located
+### and closed, with its obstruction identified as a RATE (`b362`); and the Li localization`s
+### archimedean half supported at `ζ` with a stated constant (`b361`, `b365`), under the grade word
+### `b366` ruled for that kind of support.
+### ### ### **AND ITS MAIN PRODUCT WAS NEITHER: IT WAS MAKING THE RECORD CHECKABLE BY A READER WHO
+### ### ### TRUSTS NONE OF IT.**
+### ### **SEVEN OF THE NINE ACTS PRODUCED NO RESULT ABOUT THE OBJECT AT ALL.** ### They built the
+### needle helper and measured its reach against the banks rather than the draft that proposed it;
+### diagnosed a failing suite instead of repairing it to pass; swept every arm in the record for a
+### species one of them had just minted; and found, measured and repaired a front document that had
+### been exporting eighteen names its source does not declare.
+### ### **A FOLD THAT LET THOSE SEVEN READ AS PROGRESS ON THE CLAUSE WOULD BE THE EXACT DEFECT THIS
+### ### SPAN SPENT ITSELF FINDING ELSEWHERE**, and that sentence is in the filed section, not only
+### here.
+### ### **SCOPE:** ### this is a statement about what the span put on the board, not about what is
+### true of the object. ### **THE CLAUSE HAS NOT MOVED AND NO ACT IN THE SPAN CLAIMS OTHERWISE.**
+### The two shape results are left at the grades their own acts gave them and are ### **NOT PROMOTED
+### ### HERE.**
+
+----------------------------------------------------------------------------------------------------
+### (5) COMPONENT 3 -- THE LORE, WITH ITS MINTS.
+----------------------------------------------------------------------------------------------------
+### ### **MINTED : `3`. ### MODULES NOW UNDER `modules/2026-09` : `35`. ### LOCAL COMMIT `d48d8ac`,
+### ### `15` AHEAD OF `origin/main`, ### NOT PUSHED.**
+###     `ONE_INCIDENT_IS_NOT_A_PARTITION.md` -- 2116 bytes
+###     `PREDICATE_ONE_SHAPE.md` -- 2926 bytes
+###     `DURABILITY_SPLIT.md` -- 2932 bytes
+### ### **(i) `ONE INCIDENT DOES NOT SHOW YOU A PARTITION`.** ### A single failure licenses a CLASS,
+### never its PARTS. ### **NO MECHANIZABLE HALF AT ALL, AND THE MODULE SAYS SO FIRST** -- a tool can
+### count the instances a claim rests on; it cannot tell you about the parts you have not met,
+### because those leave nothing to count.
+### ### **(ii) `A PREDICATE THAT KNOWS ONE SHAPE FINDS ONE SHAPE`.** ### Five incidents in nine
+### acts. ### **THE SHARP ONE WAS CAUGHT BY RE-DERIVATION AND NOT BY ANY ARM**, and the reason is
+### structural: ### **THE GATE WOULD HAVE BEEN WRITTEN BY THE SAME HAND, IN THE SAME SITTING, WITH
+### ### THE SAME PREDICATE.** ### Mechanizable: whether a matcher was exercised against more than
+### one shape. ### Not: whether the shapes you thought to test are the shapes that exist -- ### **A
+### ### PREDICATE CAN BE WIDENED BUT NEVER SHOWN COMPLETE.**
+### ### **(iii) `THE DURABILITY SPLIT`.** ### A repair to a TRACKED file travels with a clone; a
+### repair to an UNTRACKED one does not. ### **SO THE GUARDS THAT HAVE CAUGHT THE MOST ARE THE ONES
+### ### A FRESH CLONE STARTS WITHOUT** -- the pre-push hook has refused more bad pushes than any
+### other single check here, and it has the shortest lifetime of any of them.
+### ### **AND THE THIRD IS MECHANIZABLE IN PART, AND THE MODULE SAYS WHICH PART:** ### whether a
+### guard`s file is tracked is one command per path with no judgement in it, and a tool ### **CAN
+### ### AND SHOULD** ### produce a DURABLE / NOT DURABLE column. ### **NO TOOL CAN RANK GUARDS BY
+### ### HOW MUCH THEY HAVE CAUGHT**, because that is in the prose of the acts they stopped.
+
+----------------------------------------------------------------------------------------------------
+### (6) COMPONENT 4 -- THE DESK, AND WHAT IS STILL OWED.
+----------------------------------------------------------------------------------------------------
+### ### **ITEMS SWEPT `9`; CONFIRMED-BY-FILE `9`; UNCONFIRMED `0`; ### CLOSED `0`.**
+### ### ### **AND THIS IS THE THIRD TIME THE SAME NUMBER HAS BEEN REPORTED WITH THE SAME CAVEAT.**
+### `b368` swept and marked it; `b369` swept and said the result was weaker than it looks; `b370`
+### sweeps and gets the same answer again. ### **A MEASUREMENT WHOSE RESULT AND WHOSE CAVEAT BOTH
+### ### NEVER MOVE IS A MEASUREMENT NOBODY IS USING**, and three acts have now paid for it. ###
+### `b369`s draft asked the next act to re-verify ONE item properly; this order did not carry that,
+### ### **SO IT IS CARRIED FORWARD AGAIN -- WHICH IS ITSELF THE FINDING.**
+### ### **TWO ITEMS ARE NAMED AS STILL OWED, AND NEITHER IS CLOSED:**
+### ### **(i) THE COUNT CLAIM ABOVE THE REPAIRED LIST.** ### `b369` repaired the export list and
+### left the paragraph above it asserting a count of framework consequences. ### **THE FRONT
+### ### DOCUMENT IS NOT NOW CORRECT**, and no act has claimed it is.
+### ### **(ii) THE HOOK IS NOT DURABLE, AND A DURABLE FIX IS PRICED AND NOT BUILT.** ### The guard
+### already ships as a tracked file; what is missing is that ### **NOTHING FAILS WHEN IT IS NOT
+### ### INSTALLED.** ### The fix is a bootstrap step plus ### **AN ALREADY-DURABLE CHECK THAT FAILS
+### ### ON ITS ABSENCE** -- an arm in the closing suite reading `.git/hooks/pre-push` in every
+### rostered repository. ### **THE PRICE IS ONE ARM IN ONE SUITE PLUS A LINE IN THE PUSH
+### ### PROCEDURE.**
+### ### ### **AND THE ACT DOES NOT BUILD IT, WHICH IS WORTH NOTICING:** ### it is exactly the shape
+### of the STEP ZERO repair this act WAS sent to make -- ### **A LESSON FILED AND NOT BUILT.** ###
+### The order priced it and did not order it, and this seat does not widen its own order. ### **BUT
+### ### THE RECORD NOW HAS THE SAME SPECIES OPEN AGAIN, ONE COMPONENT AWAY FROM THE PLACE IT WAS
+### ### JUST CLOSED.**
+
+----------------------------------------------------------------------------------------------------
+### (7) COMPONENT 5 -- THE NEXT ARC, NAMED AND PRICED AND NOT OPENED.
+----------------------------------------------------------------------------------------------------
+### ### **THE FEDERATION CURRENCY AUDIT, IN THE SHAPE `b369` PRICED**, with the order`s two
+### corrections to that plan recorded here:
+### ### **CORRECTION ONE: IT ENUMERATES SURFACE KINDS, NOT REPOSITORIES ALONE.** ### `b369`s
+### ranking was built on repository DESCRIPTIONS and ### **THE DEFECT THE RECORD HAD JUST REPAIRED
+### ### DID NOT LIVE THERE** -- it lived in a front document. ### A ranking is only as wide as the
+### surface it reads, so the audit`s unit is the ### **SURFACE KIND** ### (description, `README`,
+### front document, module docstring) and each kind is swept across the federation rather than each
+### repository being swept across its kinds.
+### ### **CORRECTION TWO: ITS FIRST TARGET IS THE ONE CONFIRMED LIVE CLAIM.** ### `b369` located
+### exactly one: the construction kernel`s public description names a ### **Core terminal count**,
+### against a certified profile that is larger. ### **THE TWO NUMBERS ARE BOTH REAL AND THE
+### ### QUESTION IS WHETHER THE SMALLER IS A SCOPE OR A STALE FIGURE** -- and that is settled by ###
+### **ONE READ** ### of the kernel`s own printed profile against its own description.
+### ### **THE OUTCOME IS ONE OF TWO WORDS AND BOTH ARE ANSWERS:** ### `SCOPE-DEPENDENT` (the
+### description is counting a named subset and says so, or can be made to) or `STALE` (it is
+### counting what the kernel used to have).
+### ### ### **AND IT IS NOT OPENED HERE.** ### The profile is not read, no surface is read for
+### correctness, no repository is audited and no repository is graded. ### **THE READ THAT WOULD
+### ### SETTLE THE FIRST TARGET IS PRECISELY THE READ THIS ACT MAY NOT MAKE**, and naming it
+### precisely is what makes the next act cheap.
+
+----------------------------------------------------------------------------------------------------
+### (8) THE RECORD, ITS REFS, AND ITS CLOCKS.
+----------------------------------------------------------------------------------------------------
+###   `data/b370_registration_2026-09-08.txt` -- `d9241326c9240bab40e414d38b00e3b813a3bf3fd1d043d034c6d2759f4e81d5`, 17787 bytes, locked 2026-09-08T14:44:38Z.
+###   `data/b370_ferry_2026-09-08.txt` -- the order, banked verbatim.
+###   `data/b370_extract_notes2.txt` (2026-09-08T14:40:44Z) -- the extract-to-disk pass.
+###   `data/b370_span_notes.txt` (2026-09-08T14:45:56Z) -- the span, counted.
+###   `data/b370_fold_notes.txt` (2026-09-08T14:48:11Z) -- the fold.
+###   `data/b370_lore_notes2.txt` (2026-09-08T14:58:29Z) -- the mints.
+###   `data/b370_desk_notes.txt` (2026-09-08T14:50:06Z) -- the desk sweep.
+###   `tools/b370_extract.py`, `tools/b370_regspec.py`, `tools/b370_reg_gate.py`,
+###     `tools/b370_fold.py`, `tools/b370_lore.py`, `tools/b370_desk.py`, `tools/b370_bank.py`.
+###   `tools/b363_span.py` -- ### **REPAIRED BY THIS ACT**, and the only owner instrument it touched.
+### ### **THE REF WRITTEN:** ### `PLACE-papers` at `main` = `02730d9aab832c739ed79c017c4b45dbaddf2e9c`.
+
+----------------------------------------------------------------------------------------------------
+### (9) THE ACT'S OWN INCIDENTS, ALL DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **(i) `U-1`S COUNTER FIRED ON THIS REGISTRATION, AND THEN ON THE SENTENCE EXPLAINING IT.**
+### The face carried a spelled numeral governing the word the order uses for its own parts -- a
+### statement of fact about the ORDER`s shape, read as a prediction of this act`s artifacts. ### The
+### record banked that false positive at `b317`, `b318` and `b319` and its ruling is ### **REPHRASE,
+### ### DO NOT FIGHT THE COUNTER.** ### It was rephrased. ### **AND THEN THE EXPLANATION QUOTED THE
+### ### PHRASE AND FIRED IT AGAIN** -- the use-and-mention species (`b348`) meeting a lexical
+### scanner. ### The example is ELIDED and the elision is MARKED, which is `b367`s cure.
+### ### **(ii) THREE EXTRACT HINTS WERE TYPED ACROSS LINE WRAPS** and missed on the first run. ###
+### The tool refused them; they were retyped until it found the line. ### **THE LINE THE TOOL
+### ### RETURNS IS WHAT IS QUOTED, NEVER THE HINT.**
+### ### **(iii) THE REPAIRED SPAN COUNTER`S DEFAULT COUNTS THE ACT DOING THE READING.** ### Reading
+### the act number from the record means the default includes this act, so it returns `10` for a span
+### the fold names as `9`. ### **THE FOLDING ACT IS NOT IN ITS OWN FOLD.** ### Declared, and the
+### span was counted with an explicit `--act 369`.
+### ### **(iv) THE PLACEHOLDER-SPLIT SPECIES, AGAIN, IN THIS ACT`S OWN BANK WRITER.** ### A format
+### string ended one line and its argument was attached to the NEXT call, so the first line kept its
+### placeholder and the second raised. ### This is `b365`s species and the record has now met it in
+### `b365`, `b368`, `b369` and here. ### **IT IS CAUGHT EVERY TIME BY RUNNING THE WRITER AND NEVER
+### ### BY READING IT**, which is the only reason it stays cheap -- ### **AND IT IS THE SAME SHAPE AS
+### ### EVERYTHING ELSE THIS FOLD RECORDS: A LESSON FILED FOUR TIMES AND NOT BUILT INTO ANYTHING.**
+
+----------------------------------------------------------------------------------------------------
+### (10) THE EXPECTATIONS, SCORED. ### **AN EXPECTATION IS SCORED, NEVER SATISFIED.**
+----------------------------------------------------------------------------------------------------
+### ### **(E1) `THE COUNTED SPAN WILL AGREE WITH THE ORDER`S nine` -- MET.** ### The counter reads
+### `b361` through `b369`, `9` acts, from the last fold`s own filing line.
+### ### ### **(E2) `THE NO-GRADE-MOVED ARM WILL FIRE AT LEAST ONCE BEFORE IT PASSES` -- REFUTED,
+### ### ### AND THE REASON IS MORE INTERESTING THAN A PASS.** ### The arm reported `0` misses on
+### its first and only run. ### **IT DID NOT FIRE BECAUSE THE CHECK IT MECHANIZES WAS RUN BY HAND
+### ### ONE STEP EARLIER:** ### this seat searched `b365`s bank for the grade word before writing
+### `b365`s row, found it absent, and located it at `b366` instead. ### **THE DISCIPLINE CAUGHT WHAT
+### ### THE ARM WAS BUILT TO CATCH, AND SO THE ARM HAD NOTHING TO CATCH.**
+### ### **THAT IS NOT THE ARM BEING USELESS AND THIS ACT DOES NOT CLAIM IT IS.** ### An arm that
+### never fires is either a discipline working or a check that cannot see; ### **THIS ONE CAN SEE --
+### ### IT WAS RUN AGAINST NINE STRINGS AND WOULD HAVE FIRED ON THE WRONG ATTRIBUTION** -- and the
+### only evidence of that is that the seat checked first. ### **A SEAT SAYING ITS OWN ARM WOULD HAVE
+### ### CAUGHT SOMETHING IT NEVER SAW IS EXACTLY THE CLAIM THIS RECORD DISTRUSTS**, so it is
+### recorded as what it is: the prediction was wrong, and the seat cannot prove why.
+### ### **BOTH EXPECTATIONS WERE PROCEDURAL AND NEITHER WAS ABOUT THE RECORD.** ### **A SEAT THAT
+### ### PREDICTS ONLY ITS OWN PROCEDURE HAS PREDICTED THE EASY HALF**, and this act predicted its
+### own error rate and got that wrong too.
+
+----------------------------------------------------------------------------------------------------
+### (11) WHAT IS NOT CLAIMED.
+----------------------------------------------------------------------------------------------------
+### ### **NO GRADE IS MOVED. ### NO ACT IS RE-VERDICTED. ### NOTHING IN THE FOLD IS NEW
+### ### MATHEMATICS. ### NO COORDINATE IS CLOSED. ### NO CLAUSE IS ADVANCED.**
+### ### **NO EXISTING SECTION OF `FINDINGS.md` IS EDITED** and no ledger row is moved.
+### ### **NO REPOSITORY IS AUDITED AND NO PUBLIC SURFACE IS READ FOR CORRECTNESS.** ### Component 5
+### is NAMED and PRICED; ### **THE PROFILE THAT WOULD SETTLE ITS FIRST TARGET IS NOT OPENED.**
+### ### **NO DESK ITEM IS CLOSED. ### NO DURABLE HOOK FIX IS BUILT. ### NO `.lean` FILE IS TOUCHED.
+### ### NO BUILD IS RUN. ### NO TECHNE MODULE IS PUSHED.**
+### ### **NO GRADE IS CONFERRED BY A SEAT AND NO FACE IS PROMOTED.**
+### ### **NOTHING IS CLAIMED ABOUT THE MATHEMATICS OF ANY NAMED SUBJECT.**
+### ### **NOTHING IS COMPUTED ABOUT THE OBJECT. ### NOTHING IS COMPILED AND NO BRIDGE IS TYPED.**
+### ### **THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED.**
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY OR ON THE ROSTER.** ### `M-2` remains
+### (SPECIFIED-NOT-STATED) under `b310`s cap. ### The seam`s debt item 1 stands. ### The patent lane
+### is carried on the patent seat`s report, UNCONFIRMED on this seat`s record. ### **THE POSTURE LOCK
+### ### IS SEPARATE.** ### **THE INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED.** ### `h2`
+### stands exactly where the deposit left it. ### **NOTHING DEPOSITS.**
+====================================================================================================
