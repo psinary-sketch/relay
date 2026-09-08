@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'three-tests-one-word': ['the keystone census', 'three tests one word',
+                            'the cluster census', 'the document class',
+                            'the integration state'],
     'descriptive-layer-measured': ['the descriptive layer', 'the hedge audit', 'the glossary',
                                   'the bibliography', 'the undated figures',
                                   'the functional equation filing'],
@@ -619,6 +622,26 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE KEYSTONE AND CLUSTER CENSUS (b375).
+    ("three-tests-one-word", "b375 (one census over 349 documents; it classifies and repairs nothing, confers no class, moves no grade and closes no list)",
+     "THREE TESTS, ONE WORD. The corpus carries three definitions of KEYSTONE and they do not select the same documents: the author-ruled taxonomy Tier K (certification at a pin) selects "
+     " 17, the order rubric (synthesis against other content) selects 32, and THE_KEYSTONE_CENSUS own test selects 16 -- and only "
+     " 3 documents are in all three. 349 tracked documents were classified from content and never from a path; 42 declare a class line and 307 do not. 6 subject "
+     " clusters have registry rows and no keystone. Column (d) of the integration state is non-empty for 24 of 32 keystones. And with b374 audit UNMODIFIED the keystone layer carries "
+     " 19.5 hedges per thousand sentences against the support layer 7.7 -- THE OPPOSITE DIRECTION FROM b374 OWN MEASUREMENT ONE ACT AGO, WITH THE SAME INSTRUMENT AND A DIFFERENT DEFINITION.",
+     "### NOTHING WAS REPAIRED AND NO CLASS WAS CONFERRED ON A DOCUMENT THAT DECLARES ITS OWN; every declared class line is QUOTED VERBATIM and never overwritten or translated. ### A"
+     " DECLARATION OF NOT PLACED IS A DECLARATION and the census does not place those documents. ### WHICH OF THE THREE TESTS GOVERNS IS A RULING AND NOT A READ, and this act "
+     " measured all three and reconciled none. ### A MEASUREMENT OF A LAYER IS A MEASUREMENT OF WHICHEVER DEFINITION OF THAT LAYER YOU USED. ### NO CLUSTER WAS ENUMERATED FROM A"
+     " DIRECTORY NAME AND NO KEYSTONE WAS ASSIGNED BY RESEMBLANCE; UNASSIGNED is an answer. ### NO CELL WAS INFERRED -- NOT DETERMINABLE FROM THE DOCUMENT is a full answer. ### NO"
+     " KERNEL WAS OPENED AND NO CITATION WAS CHECKED. ### NO DOCUMENT IS PRONOUNCED TO FAIL THE RUBRIC; the measurement is the product and the disposition is the author. ### NO LIST"
+     " WAS CLOSED -- the four lists b373 and b374 produced are restated OPEN by name. ### NO NEW TRACKING DOCUMENT WAS CREATED; where the census should live is ROUTED. ### NO LEAN"
+     " FILE TOUCHED, NO BUILD RUN. ### NOTHING COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### M-2 UNCHANGED",
+     "data/b375_the_keystone_and_cluster_census.txt; data/b375_population_notes.txt; data/b375_clusters_notes2.txt; data/b375_integration_notes.txt; data/b375_rubric_notes.txt;"
+     " data/b375_registration_2026-09-08_reissued.txt (LOCKED before any write, on the audit exit code AND the registration gate AND the term scan);"
+     " data/b375_registration_2026-09-08.txt (THE FIRST FACE, LEFT ON THE RECORD WITH ITS SEAL INTACT: it carried a live struck-stem use this seat did not read before locking);"
+     " tools/b375_population.py (three columns, never merged); tools/b375_clusters.py (from the documents and the registry, never from paths);"
+     " tools/b375_integration.py (four columns, never averaged; column (d) by anchor); tools/b375_rubric.py (b374 audit UNMODIFIED, with the control beside it);"
+     " PLACE-papers OPEN_TRAILS.md (an append-only block; NO DOCUMENT CLASSIFIED BY THIS ACT WAS EDITED); CORRESPONDENCE.md row 224"),
     # ### THE DESCRIPTIVE LAYER MEASURED, AND THE FUNCTIONAL EQUATION FILED (b374).
     ("descriptive-layer-measured", "b374 (four measurements and one filing; it repairs nothing, grades no document, modifies no instrument and proves no theorem)",
      "A COUNT OVER PROSE IS A COUNT OF SHAPES AND THE SHAPES ARE NOT FAULTS. The hedge audit was run UNMODIFIED over the keystone corpus and the deposited companions -- a surface it had"
