@@ -31,9 +31,8 @@ b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL 4 ROSTERED REPOS AND EXERCI
   ### nothing. ### **THE COMMIT AND BOTH BRANCHES ARE DELETED AFTERWARDS.**
 
   repo                   NEGATIVE     POSITIVE     HEAD ok   remote ok branch restored
-  relay                  ### **SKIPPED -- working tree carries 2 uncommitted path(s). ### THE GUARD IS NOT EXERCISED HERE.**
-        ### **RUN THIS AFTER THE PUSH, WHEN THE TREE IS CLEAN** -- which is where
-        ### the closing sequence has always run it.
+  relay                  REFUSED      ALLOWED      True      True      True   PASS
+        refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branc
   SIDE-global-section    REFUSED      ALLOWED      True      True      True   PASS
         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branc
   PLACE-papers           REFUSED      ALLOWED      True      True      True   PASS
@@ -41,7 +40,7 @@ b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL 4 ROSTERED REPOS AND EXERCI
   SIDE-effects           REFUSED      ALLOWED      True      True      True   PASS
         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branc
 
-  ### REPOS FAILING : 1
+  ### REPOS FAILING : 0
   ### **INSTALLED BUT NOT EXERCISED HERE, AND SAID RATHER THAN IMPLIED:** ### the
   ### `held/*` refusal and the `DO NOT PUSH` ancestry refusal are present in the copied
   ### text and were NOT run. ### They are installed, not demonstrated.

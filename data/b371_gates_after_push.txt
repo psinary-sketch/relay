@@ -1,0 +1,262 @@
+====================================================================================================
+b371 -- GATE SUITE (THE FIRST TARGET, THE DESK CLOSED, THE GUARD MOVED)
+====================================================================================================
+
+  OWNER NEEDLES:
+    PASS  the order -- the act
+    PASS  the order -- (R6)
+    PASS  the order -- (R7)
+    PASS  the order -- component 1
+    PASS  the order -- the two words
+    PASS  the order -- component 2
+    PASS  the order -- audit nothing
+    PASS  the order -- component 3
+    PASS  the order -- not both
+    PASS  the order -- the navigator's expectation
+    PASS  the kernel README -- the Core line  ### -- ITS RECORDED PREFIX
+    PASS  the kernel's correspondence -- the tag count sentence  ### -- ITS RECORDED PREFIX
+
+  SELF NEEDLES:
+    PASS  the bank states the verdict first
+    PASS  ### the same thing at different refs
+    PASS  ### the test was fixed before the read
+    PASS  ### the coincidence refused
+    PASS  ### the description carried no qualifier
+    PASS  ### a description has no history
+    PASS  ### the count removed rather than updated
+    PASS  ### the adjacent finding is the sharper half
+    PASS  ### rows listed and not checked
+    PASS  ### the pinless set is a finding
+    PASS  ### the cross-reference is not a check
+    PASS  ### a row so flagged is not thereby wrong
+    PASS  ### one ranking factor cannot be filled
+    PASS  ### the guard chosen by a test
+    PASS  ### a clone is still not guarded
+    PASS  ### a smaller hole and not no hole
+    PASS  ### the old location a net and a trap
+    PASS  ### the exerciser followed the guard
+    PASS  ### the act's own repair created a stale surface
+    PASS  ### the desk closed for the first time
+    PASS  ### a closure without a killing file is an opinion
+    PASS  ### none of the three acts is re-verdicted
+    PASS  ### one closure flagged as this act`s own
+    PASS  ### the navigator`s expectation splits
+    PASS  ### (E1) half met half refuted
+    PASS  ### the seat predicted its own next command
+    PASS  ### the placeholder split, twice in this act
+
+  MUST-FAIL FIXTURES:
+    PASS  the bank never says a row was checked
+    PASS  the bank never says a kernel was opened for a row
+    PASS  the bank never says a build was run
+    PASS  the bank never says a clone runs the hook
+    PASS  the bank never says an item closed without a file
+
+  G-REF / G-PROFILE (BAR 2: the profile at a named ref and against its blob):
+    ls-remote equals HEAD at the read : True ; the read head is an ancestor and every commit since is this act`s : True (1 since)
+    ### **THE BLOB AND THE WORKING FILE AGREE : True** ; every line zero-axiom : True
+    the tag and its count are both read : True (`v0.1.0` -> 114)
+    PASS
+
+  G-SETTLED / G-SCOPEQUOTED (BAR 1: one of two words, on a stated sentence):
+    the verdict is one of the two ruled words : True ('STALE')
+    ### **AND IT FOLLOWS FROM THE DECIDING EQUALITY, NOT FROM PREFERENCE** : True
+    the scope candidates were sought in documents that STATE them : True (2 located)
+    the registration fixed the test before the read : True
+    ### **AND THE DESCRIPTION CARRIED NO QUALIFIER AT ALL** : True []
+    PASS
+
+  G-NOBUILD (the profile was READ, never recomputed):
+    build run : False ; no build invocation in stripped sources : True
+    ### **AND NO `.lean` FILE IS DIRTY IN THE CONSTRUCTION KERNEL** : True
+    PASS
+
+  G-ADJACENT (the README finding is reported and NOT repaired):
+    the writer recorded it as not repaired : True ; headline vs breakdown : 212 vs 250
+    ### **AND THE README IS UNTOUCHED IN THE WORKING TREE** : True
+    the bank calls it the sharper half and routes it : True
+    PASS
+
+  G-INVENTORY / G-NOAUDIT / G-PINLESS (BAR 3):
+    rows checked 0 ; kernels opened 0
+    completeness claimed : False ; the split partitions the set : True
+    every inventoried row really names a kernel and a terminal : True
+    ### **AND has_pin AGREES WITH THE PINS RECORDED, ROW BY ROW** : True
+    ### **AND THE TOOL RESOLVES NO REF AND FETCHES NOTHING** (stripped code) : True
+    PASS
+
+  G-PRICE / G-RANK / G-CROSSREF:
+    three price parts : True ; the criterion is the order's : True
+    ### **AND THE FACTOR THAT NEEDS A KERNEL IS RECORDED NOT FILLED** : True
+    the cross-reference count matches its list : True ; and is marked not a check : True
+    PASS
+
+  G-HOOKPATH / G-POLARITY / G-RESIDUAL (BAR 4) ### RE-MEASURED HERE:
+    tracked in every repo : True ; identical (EOL-normalised) : True ; hooksPath set : True
+    ### **BOTH POLARITIES CORRECT, HEAD UNMOVED, BRANCH RESTORED, EVERYWHERE** : True
+    ### **AND THE ACT DOES NOT CLAIM A CLONE IS GUARDED** : True ; residual named : True
+    the old location is left in place : True
+    PASS
+
+  G-EXERCISER (the checker followed the guard):
+    the exerciser names the tracked dir : True ; the old path is gone from its code : True
+    ### **AND IT NAMES THE SPECIES IT WOULD OTHERWISE HAVE BECOME** : True
+    its own run record passes : True
+    PASS
+
+  G-CLOSED / G-KILLFILE / G-STANDS (BAR 5):
+    the dispositions partition the desk : True (12 = 3 + 9 + 0)
+    every closure names a file that exists and carries its sentence : True
+    ### **AND EVERY KILLING FILE IS RE-READ HERE** : True 
+    every standing item gives a reason : True ; acts re-verdicted : 0
+    PASS
+
+  G-TRAIL (one append-only block; no block above edited) ### BEFORE THE PUSH:
+    the mark appears once : True ; blob is a true prefix : True
+    append-only both ways, no placeholders : True ; names the prior blocks : True
+    ### **SCAFFOLD-TERMINALS IS CLOSED** : True ; b157's sentence still there once : True
+    PASS
+
+  G-ROW (row 220) ### BEFORE THE PUSH:
+    row 220 present once : True ; true prefix of its blob : True
+    PASS
+
+  G-KEY / G-NOTCHECKED:
+    one key and one row : True ; four overreadings NO KEY after : True ; run passed : True
+    ### **AND THE KEY SAYS THE ROWS ARE NOT CHECKED AND THE CLONE IS NOT GUARDED** : True
+    PASS
+
+  G-ORDER ### SIDE-INVARIANT:
+    the lock recomputes : True ; clock 2026-09-08T15:14:28Z
+    ### **EVERY RELIED-ON RUN IS AFTER THE LOCK** : True
+    audit JOINTLY SATISFIABLE : True ; face says LOCKED BEFORE ANY WRITE : True ; gate CLEAR : True
+    PASS
+
+  G-HOOK / G-MIRROR ### AFTER THE PUSH:
+    hook: 0 failing, all byte-identical : True ; mirror clean : True
+
+  G-NUMBERS:
+    the figure 114                                           PASS
+    prints at the tag 114                                    PASS
+    prints at head 590                                       PASS
+    commits ahead 168                                        PASS
+    readme headline 212                                      PASS
+    readme breakdown 250                                     PASS
+    rows 320                                                 PASS
+    with pin 201 / without 119                               PASS
+    flagged 12                                               PASS
+    distinct pins 98                                         PASS
+    desk items 12                                            PASS
+    closed 3                                                 PASS
+    trail grew 6324                                          PASS
+    row 220                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    the relied-on settle run                                 PASS
+    the relied-on repair run                                 PASS
+
+  G-ONCE:
+    extract    b371_extract_notes2.txt      clock 2026-09-08T15:16:04Z == JSON's 2026-09-08T15:16:04Z : True
+    settle     b371_settle_notes.txt        clock 2026-09-08T15:18:05Z == JSON's 2026-09-08T15:18:05Z : True
+    repair     b371_repair_desc_notes2.txt  clock 2026-09-08T15:19:35Z == JSON's 2026-09-08T15:19:35Z : True
+    inventory  b371_inventory_notes2.txt    clock 2026-09-08T15:21:11Z == JSON's 2026-09-08T15:21:11Z : True
+    hookpath   b371_hookpath_notes4.txt     clock 2026-09-08T15:41:21Z == JSON's 2026-09-08T15:41:21Z : True
+    desk       b371_desk_notes.txt          clock 2026-09-08T15:25:01Z == JSON's 2026-09-08T15:25:01Z : True
+    filing     b371_filing_notes2.txt       clock 2026-09-08T15:38:31Z == JSON's 2026-09-08T15:38:31Z : True
+    PASS
+
+  G-NOCOMPUTE:
+    numerical calls : 0  ; libraries : none
+    PASS
+
+  G-BYCONTENT:
+    b371_correspondence.py     line 161    | cells = [G.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        it takes `[-1:]` -- the LAST line of the table THIS ACT JUST WROTE.
+    ### hits : 1 ; UNDECLARED : 0  PASS
+
+  G-NOEDIT ### BEFORE THE PUSH:
+    owner instruments modified : none
+    ### **LICENSED : ['tools/b304_hooks.py']** ; ### **UNLICENSED : none**
+    other relay files of other acts : none
+    papers paths beyond the trail and the guard : none
+    construction-kernel paths beyond the row and the guard : none
+    ### **FACES_LEDGER UNTOUCHED** : True ; FINDINGS clean : True
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed):
+    files scanned 22   struck 0   stem 0   ### **LIVE : 0** PASS
+    b371_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b371_ferry_2026-09-08.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER
+    b371_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b371_reg_termscan.txt                        struck : 0  stem : 2  ### CARRIER -- the term scan's log
+    b371_extract_notes2.txt                      struck : 0  stem : 0  ### CARRIER -- the extract carries the kernel's own documents
+    b371_settle_notes.txt                        struck : 0  stem : 0  ### CARRIER -- the settle run carries the description and the README's own lines
+    b371_repair_desc_notes2.txt                  struck : 0  stem : 0  ### CARRIER -- the repair run carries the description before and after
+    b371_inventory_notes2.txt                    struck : 0  stem : 0  ### CARRIER -- the inventory carries the rows' own text
+    b371_hookpath_notes4.txt                     struck : 0  stem : 0  ### CARRIER -- the hook run carries the guard's own refusal text
+    b371_desk_notes.txt                          struck : 0  stem : 0  ### CARRIER -- the desk run carries the fold's own sentence
+    b371_filing_notes2.txt                       struck : 0  stem : 0  ### CARRIER -- the filing carries the closures
+    b371_inventory.py                            struck : 0  stem : 0  ### CARRIER -- ITS PATTERNS ARE THE ROWS' OWN SHAPES
+    b371_hooks.txt                               struck : 0  stem : 0  ### CARRIER -- the exerciser's own log
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 220, the trail block, the index row):
+    row 220                struck : 0   stem : 0   (8272 chars)
+    the trail block        struck : 0   stem : 0   (6245 chars)
+    the index row          struck : 0   stem : 0   (4768 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the two refs and the deciding equality               tools/b371_settle.py               exists=True tracked=True
+    the repair and its read-back                         tools/b371_repair_desc.py          exists=True tracked=True
+    the declared predicate, the sweep and the price      tools/b371_inventory.py            exists=True tracked=True
+    the guard moved and exercised                        tools/b371_hookpath.py             exists=True tracked=True
+    (R7), with every closure naming a killing file       tools/b371_desk.py                 exists=True tracked=True
+    the closures filed                                   tools/b371_filing.py               exists=True tracked=True
+    every figure in the bank, read from the JSONs        tools/b371_bank.py                 exists=True tracked=True
+    the 30 reads                                         tools/b371_extract.py              exists=True tracked=True
+    the three-arm registration gate                      tools/b371_reg_gate.py             exists=True tracked=True
+    (R2)'s detector, turned on this act                  tools/b366_sweep.py                exists=True tracked=True
+    the anchor built by reading its line                 tools/anchor_from_file.py          exists=True tracked=True
+    the needle helper                                    tools/gate_needle.py               exists=True tracked=True
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    row 220                                              tools/b371_correspondence.py       exists=True tracked=True
+    the key                                              tools/b371_index_append.py         exists=True tracked=True
+    the clause spec                                      tools/b371_regspec.py              exists=True tracked=True
+    19007 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    the guard exercised across four                      tools/b304_hooks.py                exists=True tracked=True
+    the pins across four                                 tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT:
+    b371_the_first_target.txt                      sentences=539   graded-hedges=0   ungraded-shapes=111
+    b371_registration_2026-09-08.txt               sentences=389   graded-hedges=0   ungraded-shapes=96
+    b371_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=4
+    b371_index_run.txt                             sentences=28    graded-hedges=0   ungraded-shapes=11
+    b371_census_stepzero.txt                       sentences=30    graded-hedges=0   ungraded-shapes=6
+    b371_faces_census_stepzero.txt                 sentences=17    graded-hedges=0   ungraded-shapes=2
+    b371_regspec_run.txt                           sentences=32    graded-hedges=0   ungraded-shapes=3
+    audit_b371_reg_satisfiable.txt                 sentences=223   graded-hedges=0   ungraded-shapes=25
+    b371_pins_stepzero.txt                         sentences=43    graded-hedges=0   ungraded-shapes=1
+    b371_reg_gate.txt                              sentences=18    graded-hedges=0   ungraded-shapes=2
+    b371_regspec.py                                sentences=174   graded-hedges=0   ungraded-shapes=26
+    b371_extract.py                                sentences=232   graded-hedges=0   ungraded-shapes=23
+    b371_reg_gate.py                               sentences=67    graded-hedges=0   ungraded-shapes=5
+    b371_bank.py                                   sentences=697   graded-hedges=0   ungraded-shapes=118
+    b371_correspondence.py                         sentences=212   graded-hedges=0   ungraded-shapes=59
+    b371_index_append.py                           sentences=189   graded-hedges=0   ungraded-shapes=34
+    b371_settle.py                                 sentences=287   graded-hedges=0   ungraded-shapes=30
+    b371_repair_desc.py                            sentences=217   graded-hedges=0   ungraded-shapes=28
+    b371_hookpath.py                               sentences=330   graded-hedges=0   ungraded-shapes=36
+    b371_desk.py                                   sentences=223   graded-hedges=0   ungraded-shapes=35
+    b371_filing.py                                 sentences=237   graded-hedges=0   ungraded-shapes=46
+    row 220                                        sentences=43    graded-hedges=0   ungraded-shapes=31
+    the trail block                                sentences=48    graded-hedges=0   ungraded-shapes=30
+    the index row                                  sentences=52    graded-hedges=0   ungraded-shapes=20
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================

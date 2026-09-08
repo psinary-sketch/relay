@@ -248,6 +248,15 @@ b371 -- THE AUDIT'S FIRST TARGET, THE DESK CLOSED, THE HOOK MADE DURABLE. ### TH
 ### ### **(ii) THREE EXTRACT HINTS MISSED ON THE FIRST RUN.** ### Two were typed across line wraps.
 ### ### **THE THIRD WAS GENUINELY AMBIGUOUS -- SIX IDENTICAL TABLE HEADERS IN ONE DOCUMENT -- AND
 ### ### THE TOOL REFUSED IT**, which is the tool working: an ambiguous anchor is not a located line.
+### ### **(iii-b) AND THE EOL HAZARD THE TRACKED GUARD CREATES, NAMED AND NOT FIXED.** ### The guard
+### is now a TRACKED TEXT FILE, so git rewrites its line endings on checkout: the blob is LF and this
+### platform checks it out as CRLF. ### On a clone that does the
+### same, ### **`#!/bin/sh` CARRIES A CARRIAGE RETURN AND THE GUARD MAY NOT RUN AT ALL.** ### No
+### `.gitattributes` pins it. ### **THE FIX IS ONE LINE PER REPOSITORY AND IS OUTSIDE THIS ACT`S
+### ### DECLARED CAPS**, so it is reported and routed rather than half-applied to the repositories
+### whose caps happen to allow it -- ### **AN INCONSISTENTLY GUARDED FEDERATION IS WORSE THAN A
+### ### UNIFORMLY UNGUARDED ONE.** ### And the identity arm is now EOL-normalised, so ### **THAT ARM
+### ### WILL NOT TELL THE NEXT ACT EITHER**, which is why it is written here.
 ### ### **(iii) A GARBLED WORD IN THE REGISTRATION`S OWN DRAFT.** ### An attempt to avoid a banned
 ### stem mangled the word it was avoiding, and it was caught by reading the file before the lock.
 ### ### ### **(iv) AND THE ONE THAT COST THE MOST: THIS ACT`S OWN HOOK-MOVER DESTROYED UNCOMMITTED
@@ -276,7 +285,18 @@ b371 -- THE AUDIT'S FIRST TARGET, THE DESK CLOSED, THE HOOK MADE DURABLE. ### TH
 ### ### **EVERYTHING DESTROYED WAS DETERMINISTIC AND WAS REBUILT BY RE-RUNNING ITS WRITER**, which is
 ### the only reason this is an incident and not a loss -- ### **AND THAT IS AN ARGUMENT FOR WRITERS
 ### ### THAT REGENERATE, NOT A REASON TO BE RELAXED ABOUT DESTROYING THINGS.**
-### ### **(v) AND THIS ACT`S OWN REPAIR CREATED A STALE SURFACE.** ### Moving
+### ### ### **(v) THE HEREDOC TRAP, IN ITS SHARPEST FORM YET: IT SUBSTITUTED A CONTROL
+### ### ### CHARACTER RATHER THAN DROPPING A BACKSLASH.** ### An arm written through a shell
+### heredoc asked for a word boundary; what reached the file was a literal ### **BACKSPACE BYTE**,
+### so the regex matched nothing and ### **THE LINE LOOKED CORRECT UNDER `grep`.** ### The arm
+### failed, was reproduced correctly in isolation, and took four passes to find -- ### **BECAUSE THE
+### ### EYE CANNOT SEE THE DEFECT AND THE ISOLATION TEST DID NOT CARRY IT.** ### Found by dumping
+### the bytes.
+### ### **THE RECORD ALREADY HELD THIS TRAP AS `A HEREDOC COLLAPSES A BACKSLASH`.** ### That
+### statement is too narrow: ### **IT ALSO SUBSTITUTES**, and a substitution is worse than a
+### deletion because a deletion usually breaks something visibly. ### The cure is unchanged and was
+### ignored again in this act: ### **WRITE THE FILE WITH THE EDITOR, NOT THROUGH A HEREDOC.**
+### ### **(vi) AND THIS ACT`S OWN REPAIR CREATED A STALE SURFACE.** ### Moving
 ### the guard made its own front matter`s install line wrong. ### **AN ACT AUDITING STALE SURFACES
 ### ### MADE ONE**, in the same run, and reported it rather than leaving it for the next sweep.
 

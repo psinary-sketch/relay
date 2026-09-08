@@ -260,9 +260,23 @@ def main():
     p2 = S['blob_equals_working'] is True
     p3 = S['prints_at_head'] == S['prints_at_head_all']
     p4 = S['tag'] is not None and S['prints_at_tag'] is not None
-    p5 = S['head'] == now
+    # ### **SIDE-DEPENDENT, AND `b370`'S INCIDENT (vi) IS WHY THIS IS WRITTEN THIS WAY.** ### Before
+    # ### the push the kernel head IS the head that was read; after this act's own commit it is not,
+    # ### and demanding equality would demand that this act not have happened. ### **THE INVARIANT
+    # ### ### TEST IS ANCESTRY PLUS AUTHORSHIP.**
+    anc = subprocess.run(['git', '-C', SIDE, 'merge-base', '--is-ancestor', S['head'], 'HEAD'],
+                         capture_output=True).returncode == 0
+    since = [x for x in git(SIDE, 'log', '--format=%s', '%s..HEAD' % S['head']).splitlines()
+             if x.strip()]
+    # ### **THE MARKER IS A PLAIN SUBSTRING AND THE WORD-BOUNDARY ESCAPE IS DELIBERATELY NOT
+    # ### USED.** ### Writing this arm through a shell heredoc turned that escape into a literal
+    # ### BACKSPACE byte, and the file then LOOKED correct under `grep` while matching nothing.
+    # ### ### **THE HEREDOC TRAP DOES NOT ALWAYS DROP A BACKSLASH -- SOMETIMES IT SUBSTITUTES A
+    # ### ### CONTROL CHARACTER**, which is worse: the eye cannot see it and the arm fails silent.
+    p5 = (S['head'] == now) or (anc and all('b371' in x for x in since))
     gp = p1 and p2 and p3 and p4 and p5
-    print('    ls-remote equals HEAD at the read : %s ; head unmoved since : %s' % (p1, p5))
+    print('    ls-remote equals HEAD at the read : %s ; the read head is an ancestor and every'
+          ' commit since is this act`s : %s (%d since)' % (p1, p5, len(since)))
     print('    ### **THE BLOB AND THE WORKING FILE AGREE : %s** ; every line zero-axiom : %s' % (p2, p3))
     print('    the tag and its count are both read : %s (`%s` -> %s)' % (p4, S['tag'],
                                                                           S['prints_at_tag']))
@@ -351,10 +365,19 @@ def main():
     print(chr(10) + '  G-HOOKPATH / G-POLARITY / G-RESIDUAL (BAR 4) ### RE-MEASURED HERE:')
     src_b = open(t(os.path.join('git-hooks', 'pre-push')), 'rb').read()
     reps = {'relay': ROOT, 'SIDE-global-section': SIDE, 'PLACE-papers': PP, 'SIDE-effects': KER}
+    # ### **EOL-NORMALISED IDENTITY, AND THE SAME CORRECTION THIS ACT MADE TO THE TOOL.** ### The guard
+    # ### is a TRACKED text file now, so git rewrites its line endings on checkout: the blob is LF and
+    # ### the checkout is CRLF. ### **BYTE-IDENTITY IS NOT ACHIEVABLE FOR A TRACKED GUARD HERE**, and an
+    # ### arm demanding it fails on the act's own success. ### The arm asks *is this the same guard*, and
+    # ### EOL-normalised identity answers that -- ### **AND WHAT IT NO LONGER CATCHES, AN EOL DIFFERENCE,
+    # ### ### IS EXACTLY THE HAZARD THIS ACT REPORTS INSTEAD OF CATCHING.**
+    def _nl(b):
+        return b.replace(bytes([13, 10]), bytes([10]))
+
     tracked, ident, cfgok = [], [], []
     for nm, rp in reps.items():
         f = os.path.join(rp, H['tracked_dir'], 'pre-push')
-        ident.append(os.path.exists(f) and open(f, 'rb').read() == src_b)
+        ident.append(os.path.exists(f) and _nl(open(f, 'rb').read()) == _nl(src_b))
         tracked.append(bool(git(rp, 'ls-files', '--', '%s/pre-push' % H['tracked_dir']).strip()))
         cfgok.append(git(rp, 'config', '--get', 'core.hooksPath').strip() == H['tracked_dir'])
     h1 = all(ident) and all(tracked) and all(cfgok)
@@ -370,7 +393,7 @@ def main():
     h4 = H['clone_is_guarded'] is False and H['residual_named'] is True
     h5 = H['old_location_deleted'] is False and all(H['old_location_present'].values())
     gh = h1 and h2 and h3 and h4 and h5
-    print('    tracked in every repo : %s ; byte-identical : %s ; hooksPath set : %s'
+    print('    tracked in every repo : %s ; identical (EOL-normalised) : %s ; hooksPath set : %s'
           % (all(tracked), all(ident), all(cfgok)))
     print('    ### **BOTH POLARITIES CORRECT, HEAD UNMOVED, BRANCH RESTORED, EVERYWHERE** : %s' % h3)
     print('    ### **AND THE ACT DOES NOT CLAIM A CLONE IS GUARDED** : %s ; residual named : %s'
