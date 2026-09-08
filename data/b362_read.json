@@ -1,0 +1,31 @@
+{
+ "hint_status": "CONFIRMED, WITH ONE CORRECTION",
+ "finite_instance_unconditional": true,
+ "carries_window_shortfall": false,
+ "shortfall_carried": "the criterion is a limit statement and the finite side is bounded away from zero at every index by an unconditional theorem",
+ "circularity": [
+  {
+   "statement": "the criterion (both forms)",
+   "verdict": "NOT CIRCULAR",
+   "why": "the hypothesis is one SIDE of an equivalence, not an item in a hypothesis list; a criterion is a translation and not a conditional result"
+  },
+  {
+   "statement": "the lower bound on the rate",
+   "verdict": "NOT CIRCULAR",
+   "why": "the theorem carries no hypothesis; the source states that if the hypothesis FAILS the result is true but trivial, so the assumption in the PROOF is a case split and not a condition on the statement; and there is no error term for (iii) to bite on"
+  },
+  {
+   "statement": "the upper bound on the rate",
+   "verdict": "### CIRCULAR AT (i) ###",
+   "why": "the statement is made *\"under the Riemann hypothesis\"*, in the source\u2019s own words, and is unavailable without it"
+  }
+ ],
+ "uniformity": "REAPPEARS, AS A RATE",
+ "bridge_typed": false,
+ "verdict": "LOCATED BUT NOT WORTH OPENING",
+ "register_adopted": false,
+ "face_promoted": false,
+ "distances_evaluated": 0,
+ "run_file": "b362_read4.txt",
+ "run_clock": "2026-09-08T01:03:28Z"
+}

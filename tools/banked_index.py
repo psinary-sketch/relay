@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'approximation-register': ['the approximation register', 'Nyman-Beurling', 'Baez-Duarte',
+                              'the closed span of dilations', 'the distance to the span',
+                              'the register read under a cap'],
     'index-condition-decided': ['H-NGEK', 'the held item', 'the index condition',
                                'the archimedean index condition', 'the absolute constant',
                                'the vacuous condition'],
@@ -589,6 +592,30 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE APPROXIMATION REGISTER, READ UNDER A CAP (b362).
+    ("approximation-register", "b362 (a read and a pricing; it computes nothing and adopts nothing)",
+     "LOCATED BUT NOT WORTH OPENING at the reach this record can afford. The classical criterion and the variant restricting its family to the naturals were"
+     " located at pinned sources (5 addresses attempted, 5 fetched, every one hashed) and quoted with their hypotheses unfolded one by one; the"
+     " navigator\'s hint was treated as a SEARCH STRING AND NEVER AS A SOURCE and comes out CONFIRMED, WITH ONE CORRECTION -- the space, which the source"
+     " itself flags as a modified form of an original set elsewhere. THE STRUCTURAL FINDING: A FINITE INSTANCE HERE IS AN UNCONDITIONAL UPPER BOUND, since"
+     " the quantity\'s definition mentions no zero and no hypothesis and an infimum over a subset is at least the infimum over the whole -- SO THIS REGISTER"
+     " DOES NOT CARRY THE SHORTFALL THE WINDOW ACT FOUND IN THE POSITIVITY REGISTER. THE SHORTFALL IT CARRIES INSTEAD IS THE RATE: the criterion is a"
+     " statement about a LIMIT and an UNCONDITIONAL theorem bounds the finite side away from zero at every reach, while the only UPPER bound located is"
+     " CIRCULAR AT (i), made under the hypothesis in its source\'s own words. So what is unconditional here is the OBSTRUCTION and what would be progress"
+     " is CONDITIONAL. 37 reads located, 7 anchors differing from the hint that found them.",
+     "### THE REGISTER IS LOCATED AND PINNED AND IS NOT ADOPTED. ### NO FACE IS PROMOTED. ### NO GRADE IS CONFERRED BY A SEAT: the ledger row grades an"
+     " IMPORT at cite and says the corpus holds nothing here. ### NOTHING WAS COMPUTED AND NO DISTANCE WAS EVALUATED at any index, by any route, at any"
+     " precision. ### A LOCATED STATEMENT IS NOT A PROVED ONE, and a criterion located is not a criterion the corpus holds. ### AN UNCONDITIONAL FINITE"
+     " SIDE IS NOT A ROUTE: it is the one thing here better than the positivity register\'s and it buys nothing, because the question was never about"
+     " any finite index. ### NOT WORTH OPENING IS A JUDGEMENT ABOUT WHAT THIS RECORD CAN AFFORD AND NOT ABOUT THE MATHEMATICS. ### THE PRICING WAS NOT"
+     " ATTEMPTED AND WAS THEN PRICED: the record holds no value, no control and no fixture here, the literature\'s numbers are at a reference this act did"
+     " NOT fetch, and an instrument with no control is a number with no standing. ### THE SEARCH IS NOT A SURVEY and what was not located is AN ABSENCE OF"
+     " READING. ### NO BRIDGE IS TYPED to any other instance, in either direction. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE"
+     " CLAUSE HAS NOT MOVED. ### NO ACT IS RE-VERDICTED. ### M-2 UNCHANGED",
+     "data/b362_the_approximation_register.txt; data/b362_read2.txt; data/b362_extract_notes2.txt; data/b362_locate_run.txt;"
+     " data/b362_registration_2026-09-07.txt (LOCKED before any read, search or fetch, on the audit\'s own exit code);"
+     " the pinned renderings at data/b362_source_*.txt;"
+     " PLACE-papers FACES_LEDGER.md (row N1, a NEW row); CORRESPONDENCE.md row 211"),
     # ### THE HELD ITEM, QUOTED THEN BRANCHED (b361).
     ("index-condition-decided", "b361 (a read and one square of zero; it proves nothing and confers no grade)",
      "THE INDEX CONDITION ON THE ARCHIMEDEAN CHANNEL IS VACUOUS FOR THE CORPUS\'S OBJECT: K(pi_triv) = 0, so Lagarias\'s Theorem 5.1,"
