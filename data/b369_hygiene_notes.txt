@@ -1,0 +1,63 @@
+### run at (UTC) : 2026-09-08T14:06:57Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b369 -- COMPONENT 2: THE TWO HYGIENE ITEMS.
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE ROSTERS, AS THEY STAND. ### **READ BEFORE THEY ARE EDITED.**
+----------------------------------------------------------------------------------------------------
+    b303_pins.py       roster at line 27   : ['relay', 'SIDE-global-section', 'PLACE-papers']
+    b304_hooks.py      roster at line 52   : ['relay', 'SIDE-global-section', 'PLACE-papers']
+    ### ### **NEITHER NAMES THE EXCLUSION KERNEL, WHICH IS WHY `b368` PINNED IT BY HAND.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE MEND. ### **THE ROSTER, THEN THE PROSE THAT COUNTS IT.**
+----------------------------------------------------------------------------------------------------
+    b303_pins.py       : ADDED
+        wording pairs applied : 2 of 2
+    b304_hooks.py      : ADDED
+        wording pairs applied : 5 of 5
+    ### **THE WORDING IS MENDED BY EXACT STRING PAIRS, NEVER BY PATTERN** -- a regex over a
+    ### tool`s prose is a change nobody can review.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) BOTH TOOLS STILL IMPORT AND STILL RUN. ### **AN EDITED INSTRUMENT IS EXERCISED.**
+----------------------------------------------------------------------------------------------------
+    b303_pins.py       parses : True 
+    b304_hooks.py      parses : True 
+    b303_pins.py       roster now : ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects']
+    b304_hooks.py      roster now : ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects']
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE HOOK. ### **INSTALLED BY THE ROSTERED TOOL, EXERCISED IN BOTH POLARITIES.**
+----------------------------------------------------------------------------------------------------
+    tracked source : tools/git-hooks/pre-push ; 3068 bytes
+    ### the exclusion kernel had a pre-push hook BEFORE this act : False
+    |   repo                   install                                sha256 on disk (first 32)
+    |   relay                  ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
+    |   SIDE-global-section    ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
+    |   PLACE-papers           ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
+    |   SIDE-effects           INSTALLED                              bf112af62a679bef882f8e54443835a3
+    |   ### ALL 4 BYTE-IDENTICAL TO THE TRACKED SOURCE : True  PASS
+    |   repo                   NEGATIVE     POSITIVE     HEAD ok   remote ok branch restored
+    |   relay                  REFUSED      ALLOWED      True      True      True   PASS
+    |         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current bran
+    |   SIDE-global-section    REFUSED      ALLOWED      True      True      True   PASS
+    |         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current bran
+    |   PLACE-papers           REFUSED      ALLOWED      True      True      True   PASS
+    |         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current bran
+    |   SIDE-effects           REFUSED      ALLOWED      True      True      True   PASS
+    |         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current bran
+    |   ### REPOS FAILING : 0
+    ### ### **THE INSTALLED HOOK IS BYTE-IDENTICAL TO THE TRACKED SOURCE : True** (3068 bytes)
+    ### ### **REPOS FAILING THE POLARITY EXERCISE : 0**
+    ### ### **AND WHAT THIS DOES NOT FIX, SAID NOW AND NOT DISCOVERED LATER:** ### `.git/hooks/`
+    ### is UNTRACKED. ### **A FRESH CLONE OF ANY OF THESE REPOSITORIES STILL HAS NO HOOK.**
+    ### The roster mend is TRACKED and survives a clone; the hook install is NOT. ### **THE TWO
+    ### ### REPAIRS ARE NOT EQUAL IN DURABILITY AND THIS ACT SAYS WHICH IS WHICH.**
+    ### **AND NO `.lean` FILE WAS TOUCHED : True**
+====================================================================================================
+  ### ### **COMPONENT 2 : EXECUTED**
+====================================================================================================

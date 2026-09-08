@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""b303_pins.py -- THE PINS, ### **BY `ls-remote` ACROSS ALL THREE REPOS.**
+"""b303_pins.py -- THE PINS, ### **BY `ls-remote` ACROSS EVERY REPOSITORY THE ROSTER NAMES.**
 
 ### WHY THIS IS A TOOL AND NOT THREE SHELL LINES. ### b301 and b302 recorded their pins by typing
 ### what `git` printed. ### **THAT IS A SHELL-TYPED NUMBER IN EVERYTHING BUT NAME** -- the
@@ -28,6 +28,7 @@ REPOS = [
     ('relay', r'D:\relay'),
     ('SIDE-global-section', r'D:\SIDE-global-section'),
     ('PLACE-papers', r'D:\MY-DOwnloads\PLACE-papers'),
+    ('SIDE-effects', r'D:\SIDE-effects'),
 ]
 
 
@@ -83,7 +84,8 @@ def self_test(verbose=True):
 def main(argv):
     label = argv[0] if argv else 'PINS'
     print('=' * 100)
-    print('b303_pins.py -- %s. ### BY `ls-remote`, ALL THREE REPOS.' % label)
+    print('b303_pins.py -- %s. ### BY `ls-remote`, ALL %d REPOS THE ROSTER NAMES.'
+          % (label, len(REPOS)))
     print('=' * 100)
     ok_suite = self_test()
     print('  parser self-test : %s' % ('PASS' if ok_suite else '### FAIL ###'))

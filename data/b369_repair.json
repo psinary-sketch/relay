@@ -1,0 +1,178 @@
+{
+ "ref": "main",
+ "head": "5530d7c327e0d4d57b408fd3fb24be68f5c98722",
+ "ls_remote": "5530d7c327e0d4d57b408fd3fb24be68f5c98722",
+ "pinned": true,
+ "dirty": false,
+ "exported": 20,
+ "present": [
+  "no_type_d",
+  "formation_seven"
+ ],
+ "absent": [
+  "all_gapped",
+  "mass_gap",
+  "all_excluded",
+  "sectors_complete",
+  "gap_bounds",
+  "twist_cancels",
+  "formation_preserved_grh",
+  "grh_exclusion",
+  "no_ls_zero",
+  "no_conspiracy_twins",
+  "no_conspiracy_goldbach",
+  "no_conspiracy_sg",
+  "all_bound",
+  "sha_bounded",
+  "all_mismatch_absent",
+  "bsd_full",
+  "artin_from_grh",
+  "side_exclusion"
+ ],
+ "n_present": 2,
+ "n_absent": 18,
+ "sites": {
+  "no_type_d": {
+   "file": "SIDEEffects/Structural.lean",
+   "line": 54,
+   "text": "theorem no_type_d (\u03b1 : Type) (coupling modular : \u03b1 \u2192 Prop)"
+  },
+  "formation_seven": {
+   "file": "SIDEEffects/Structural.lean",
+   "line": 41,
+   "text": "theorem formation_seven : 2 + 3 + 2 + 0 = 7 := rfl"
+  }
+ },
+ "layer_of": {
+  "all_gapped": "Yang-Mills mass gap layer",
+  "mass_gap": "Yang-Mills mass gap layer",
+  "all_excluded": "Yang-Mills mass gap layer",
+  "sectors_complete": "Yang-Mills mass gap layer",
+  "gap_bounds": "Yang-Mills mass gap layer",
+  "twist_cancels": "GRH layer",
+  "formation_preserved_grh": "GRH layer",
+  "grh_exclusion": "GRH layer",
+  "no_ls_zero": "Landau-Siegel layer",
+  "no_type_d": "Additive-multiplicative / Type-D layer",
+  "no_conspiracy_twins": "Additive-multiplicative / Type-D layer",
+  "no_conspiracy_goldbach": "Additive-multiplicative / Type-D layer",
+  "no_conspiracy_sg": "Additive-multiplicative / Type-D layer",
+  "all_bound": "BSD layer",
+  "sha_bounded": "BSD layer",
+  "all_mismatch_absent": "BSD layer",
+  "bsd_full": "BSD layer",
+  "artin_from_grh": "Artin layer",
+  "side_exclusion": "Shared engine",
+  "formation_seven": "Shared engine"
+ },
+ "b368_absent_constant": 18,
+ "agrees_with_b368": true,
+ "ledger_headings": [
+  "Yang-Mills mass gap",
+  "GRH",
+  "Landau-Siegel",
+  "Type-D \u2014 Twin Primes / Goldbach / Sophie Germain",
+  "BSD \u0428-finiteness, full BSD",
+  "Artin primitive-root conjecture",
+  "side_exclusion (\u00acP \u2192 \u00acP)"
+ ],
+ "ledger_named": [
+  "mass_gap",
+  "gap_bounds",
+  "twist_cancels",
+  "grh_exclusion",
+  "no_ls_zero",
+  "no_conspiracy_twins",
+  "sha_bounded",
+  "bsd_full",
+  "artin_from_grh",
+  "side_exclusion"
+ ],
+ "ledger_by_abbreviation": [
+  "no_conspiracy_goldbach",
+  "no_conspiracy_sg"
+ ],
+ "ledger_layer_only": [
+  "all_gapped",
+  "all_excluded",
+  "sectors_complete",
+  "formation_preserved_grh",
+  "all_bound",
+  "all_mismatch_absent"
+ ],
+ "ledger_silent": [],
+ "ledger_cover": {
+  "all_gapped": "Yang-Mills mass gap",
+  "all_excluded": "Yang-Mills mass gap",
+  "sectors_complete": "Yang-Mills mass gap",
+  "formation_preserved_grh": "GRH",
+  "all_bound": "BSD \u0428-finiteness, full BSD",
+  "all_mismatch_absent": "BSD \u0428-finiteness, full BSD"
+ },
+ "abbreviations": {
+  "no_conspiracy_goldbach": "no_conspiracy_twins/goldbach/sg",
+  "no_conspiracy_sg": "no_conspiracy_twins/goldbach/sg"
+ },
+ "n_named": 10,
+ "n_by_abbr": 2,
+ "n_layer_only": 6,
+ "n_silent": 0,
+ "b368_split_reported": [
+  9,
+  8,
+  1
+ ],
+ "b368_silent_claim_refuted": true,
+ "silent_history": {},
+ "rows_located": [
+  {
+   "line": 62,
+   "text": "- **Yang-Mills mass gap layer**: `all_gapped`, `mass_gap`, `all_excluded`, `sectors_complete`, `gap_bounds`"
+  },
+  {
+   "line": 63,
+   "text": "- **GRH layer**: `twist_cancels`, `formation_preserved_grh`, `grh_exclusion`"
+  },
+  {
+   "line": 64,
+   "text": "- **Landau-Siegel layer**: `no_ls_zero`"
+  },
+  {
+   "line": 65,
+   "text": "- **Additive-multiplicative / Type-D layer**: `no_type_d`, `no_conspiracy_twins`, `no_conspiracy_goldbach`, `no_conspiracy_sg`"
+  },
+  {
+   "line": 66,
+   "text": "- **BSD layer**: `all_bound`, `sha_bounded`, `all_mismatch_absent`, `bsd_full`"
+  },
+  {
+   "line": 67,
+   "text": "- **Artin layer**: `artin_from_grh` (via Hooley 1967)"
+  },
+  {
+   "line": 68,
+   "text": "- **Shared engine**: `side_exclusion`, `formation_seven`"
+  }
+ ],
+ "rows_replaced": 7,
+ "rows_written": 3,
+ "new_rows": [
+  "- **Additive-multiplicative / Type-D layer**: `no_type_d`",
+  "- **Shared engine**: `formation_seven`",
+  "- **Every other layer this list once named**: no theorem of this kernel. Those names were retired; they are preserved verbatim, with what the retirement ledger does and does not say about them, in the note at the foot of this file."
+ ],
+ "mark": "<!-- b369 (R4): the original list preserved verbatim, and the list repaired -->",
+ "bar1_preserved": true,
+ "bar2_exports_none": true,
+ "still_absent": [],
+ "bar3_bounded": true,
+ "bar3_above": true,
+ "bar3_below": true,
+ "lean_touched": 0,
+ "build_run": false,
+ "reasons_asserted": 0,
+ "successors_named": 0,
+ "side": "BEFORE THE PUSH",
+ "run_file": "b369_repair_notes2.txt",
+ "run_clock": "2026-09-08T14:04:30Z"
+}

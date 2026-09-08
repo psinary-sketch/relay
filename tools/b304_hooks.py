@@ -5,7 +5,7 @@
 ### hook + `ls-remote` read-back* -- was satisfied in two parts of three: ### **THE HOOK WAS
 ### INSTALLED IN `relay` ONLY.** ### The order for b304 closes that.
 
-### ### **ONE TRACKED SOURCE, THREE INSTALLS.** ### The hook is copied ### BYTE-IDENTICALLY ###
+### ### **ONE TRACKED SOURCE, ONE INSTALL PER ROSTERED REPOSITORY.** ### The hook is copied ### BYTE-IDENTICALLY ###
 ### from `relay/tools/git-hooks/pre-push`, which is the tracked copy and the single source of
 ### truth. ### **THE `HELD_CARRIER_PATHS` LIST IS KEPT AS IT IS EVEN THOUGH THOSE PATHS EXIST ONLY
 ### IN `relay`** -- a per-repo edit would be three files to keep in step, which is the drift
@@ -30,7 +30,7 @@
 ### THE LIMITS, IN THE HEADER SO THE TOOL IS NOT TRUSTED BEYOND THEM:
 ### ### (1) ### **`.git/hooks/` IS NOT TRACKED BY GIT.** ### An installed hook is local to this
 ###     working copy and to no other. ### **THE HASHES BELOW ARE THE ONLY EVIDENCE OF IDENTITY**,
-###     and a fresh clone of any of the three repos will have no hook until someone installs one.
+###     and a fresh clone of any rostered repo will have no hook until someone installs one.
 ### ### (2) ### **IT EXERCISES THE BRANCH-DISCIPLINE ARM.** ### The `held/*` refusal and the
 ###     `DO NOT PUSH` ancestry refusal are present in the copied text and are NOT exercised here;
 ###     they are reported as installed-but-unexercised rather than as passing.
@@ -53,6 +53,7 @@ REPOS = [
     ('relay', r'D:\relay'),
     ('SIDE-global-section', r'D:\SIDE-global-section'),
     ('PLACE-papers', r'D:\MY-DOwnloads\PLACE-papers'),
+    ('SIDE-effects', r'D:\SIDE-effects'),
 ]
 NEG_BRANCH = 'hookcheck-b304'          # ### NOT `push-*`: the hook must refuse this one
 POS_BRANCH = 'push-b304-hookcheck'     # ### `push-*`: the hook must let this one through
@@ -166,8 +167,9 @@ def exercise(name, repo):
 
 def main(argv):
     print('=' * 100)
-    print('b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL THREE AND EXERCISED IN BOTH')
-    print('                 POLARITIES. ### ONE TRACKED SOURCE, THREE INSTALLS.')
+    print('b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL %d ROSTERED REPOS AND '
+          'EXERCISED IN BOTH' % len(REPOS))
+    print('                 POLARITIES. ### ONE TRACKED SOURCE, ONE INSTALL EACH.')
     print('=' * 100)
     ok = self_test()
     print('  classifier self-test : %s' % ('PASS' if ok else '### FAIL ###'))
@@ -196,8 +198,8 @@ def main(argv):
         installs[name] = h
         print('  %-22s %-38s %s' % (name, action, h[:32]))
     identical = len(set(installs.values())) == 1 and installs.get('relay') == sha256_bytes(src)
-    print('  ### ALL THREE BYTE-IDENTICAL TO THE TRACKED SOURCE : %s  %s'
-          % (identical, 'PASS' if identical else '### FAIL ###'))
+    print('  ### ALL %d BYTE-IDENTICAL TO THE TRACKED SOURCE : %s  %s'
+          % (len(REPOS), identical, 'PASS' if identical else '### FAIL ###'))
     if not identical:
         fails += 1
 

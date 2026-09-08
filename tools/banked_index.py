@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'list-repaired-in-place': ['the list repaired', 'the list repaired in place',
+                              'the original preserved verbatim', 'the roster mended',
+                              'the refinement pass priced'],
     'front-document-reconciled': ['the front document reconciled', 'the currency block',
                                  'the layer-1 export list', 'the eighteen absent names',
                                  'the desk freshness rule'],
@@ -605,6 +608,38 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LIST REPAIRED IN PLACE, THE ROSTER MENDED, THE PASS PRICED (b369).
+    ("list-repaired-in-place", "b369 (a bounded edit under ruling (R4), two hygiene repairs and a priced pass; it writes no Lean, runs no build and audits nothing)",
+     "THE LAYER-1 EXPORT LIST IS REPAIRED IN PLACE AND THE ORIGINAL IS PRESERVED VERBATIM IN THE SAME FILE. Ruling (R4): append-only is right for a ledger, where a reader reads the file; it is wrong for"
+     " a list, where a reader reads the list. 7 export rows were located, quoted verbatim into the currency note, verified byte-for-byte, and ONLY THEN replaced by 3. The repaired list"
+     " carries 0 of the names the classification calls absent, by a CONTENT predicate over the rows themselves. THE EDIT IS BOUNDED AND MEASURED: every byte above the rows is its committed blob own"
+     " (True) and every byte below them up to the appended note is too (True), both read BEFORE THE PUSH -- AN EDIT IS NOT AN APPEND. The classification was RE-DERIVED for the third time and"
+     " AGREES for the third time: of 20 names, 2 declared and 18 absent. AND THE RE-DERIVATION CAUGHT WHAT NOBODY REGISTERED: b368 SHARPER CLAIM IS WRONG. b368 reported one"
+     " retired name as having NO LEDGER ENTRY FOR ITS LAYER AT ALL; the ledger carries an entry HEADED BY THAT DECLARATION OWN NAME. b368 predicate required a backtick or a slash before a name and the"
+     " ledger names that one as a bare heading -- A PREDICATE THAT KNOWS ONE SHAPE FINDS ONE SHAPE. Re-derived from the ledger own entry headings: 10 named outright, 2 named only by its slash"
+     " abbreviation (kept apart, because reading an abbreviation as naming its expansions is a judgement not a string match), 6 covered only by a layer entry, and 0 not covered at all --"
+     " EVERY RETIRED NAME IS REACHED BY THE LEDGER. THE TWO HYGIENE ITEMS ARE DONE: the exclusion kernel is in the pins roster and carries the pre-push hook, byte-identical to the one tracked source"
+     " and exercised in BOTH POLARITIES with 0 failing. THE REFINEMENT PASS IS PRICED AND NOT RUN: 50 repositories enumerated LIVE, 48 of them programme material.",
+     "### THE FRONT DOCUMENT IS NOT NOW CORRECT: the paragraph above the repaired list still asserts a count of framework consequences and THIS ACT DID NOT TOUCH IT, because the order said the LIST is"
+     " corrected and a count is not a name -- which is why the trail is UPDATED and NOT CLOSED. ### THE PRESERVATION IS NOT AN APPEND AND THE ACT DOES NOT CLAIM A PREFIX ARM IT CANNOT HAVE. ### NO ACT"
+     " IS RE-VERDICTED: b368 COUNT stands and is confirmed a third time; its SPLIT is corrected, which is a measurement replaced by a better measurement. ### (R5) HOLDS: no retirement reason is supplied"
+     " beyond what the kernel own record carries, and where the record is silent the act says the record is silent. ### NO SENTENCE OF b368 BLOCK IS EDITED -- it is NAMED and marked SUPERSEDED, because"
+     " a ruling that reverses a disposition dates the prose that announced it. ### TWO OWNER INSTRUMENTS WERE EDITED AND BOTH WERE NAMED ON THE REGISTRATION FACE BEFORE THE EDIT. ### THE TWO HYGIENE"
+     " REPAIRS ARE NOT EQUAL IN DURABILITY: the roster mend is TRACKED and survives a clone, the hook install is NOT, because .git/hooks/ is untracked. ### REPOSITORIES AUDITED 0, SURFACES READ FOR"
+     " CORRECTNESS 0, REPOSITORIES GRADED 0 -- audit nothing was the cap and it held; a count-SHAPED string is not a claim and an age is not a staleness. ### THE RANKING IS OF"
+     " EXPOSURE, NOT OF ERROR, AND WHAT IT CANNOT SEE IS REPORTED: SIDE-effects is NOT on it, because its description carries no count shape and the claim lived in its front document -- a criterion is"
+     " only as wide as the surface it reads. ### THE HINT: (H1) CONFIRMED -- exactly one description uses the word construction and it carries the shape 114 zero-axiom terminals; (H2) NOT LOCATED, because deciding it requires"
+     " reading the profile, which is the audit. ### THE DESK SWEEP PRODUCED MARKS, NOT VERDICTS: 9 of 9 CONFIRMED-BY-FILE, 0 CLOSED, and the same caveat a second time -- a file that"
+     " mentions an item is not a file that confirms it. A MEASUREMENT WHOSE RESULT AND WHOSE CAVEAT BOTH NEVER MOVE IS A MEASUREMENT NOBODY IS USING. ### NO LEAN FILE WRITTEN, NO BUILD RUN, NO AXIOM"
+     " PROFILE COMPUTED, NO SUCCESSOR NAMED, NO DESK ITEM CLOSED, NO GRADE CONFERRED. ### NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE"
+     " CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b369_the_list_repaired.txt; data/b369_extract_notes.txt; data/b369_repair_notes2.txt; data/b369_hygiene_notes.txt;"
+     " data/b369_pass_notes5.txt; data/b369_desk_notes.txt; data/b369_filing_notes2.txt;"
+     " data/b369_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b369_repair.py (the located rows, the re-derivation, the ledger split and the three bars); tools/b369_hygiene.py (the roster mend and the hook);"
+     " tools/b369_pass.py (the live enumeration, the price and the ranking); SIDE-effects at main = 5530d7c327e0d4d57b408fd3fb24be68f5c98722, its front document REPAIRED and no .lean file written;"
+     " PLACE-papers OPEN_TRAILS.md (SCAFFOLD-TERMINALS marked REPAIRED IN PLACE, NOT CLOSED, an append-only block; FACES_LEDGER.md NOT written, no row moved);"
+     " tools/b303_pins.py and tools/b304_hooks.py (rosters mended); CORRESPONDENCE.md row 218"),
     # ### THE FRONT DOCUMENT RECONCILED, APPEND-ONLY (b368).
     ("front-document-reconciled", "b368 (a live read, a classification and one appended block; it writes no Lean, runs no build and edits no sentence)",
      "THE FRONT DOCUMENT IS RECONCILED BY AN APPENDED CURRENCY BLOCK, AND THE LIST ITSELF IS STILL WRONG. Of the 20 names AGENTS.md exports at Layer 1, 2 are declared in this kernel own"
