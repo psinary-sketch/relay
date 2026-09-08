@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'index-condition-decided': ['H-NGEK', 'the held item', 'the index condition',
+                               'the archimedean index condition', 'the absolute constant',
+                               'the vacuous condition'],
     'uniformity-fold': ['the fold b349', 'the uniformity arc', 'the three that rhyme',
                        'what the checks certify', 'the instrument edge', 'the mirror roster addition',
                        'the span b349', 'the fourth instance'],
@@ -586,6 +589,30 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE HELD ITEM, QUOTED THEN BRANCHED (b361).
+    ("index-condition-decided", "b361 (a read and one square of zero; it proves nothing and confers no grade)",
+     "THE INDEX CONDITION ON THE ARCHIMEDEAN CHANNEL IS VACUOUS FOR THE CORPUS\'S OBJECT: K(pi_triv) = 0, so Lagarias\'s Theorem 5.1,"
+     " whose implied constant is ABSOLUTE, holds at every index the corpus computes and its error term O(N(K(pi)+1)) collapses to O(1). b358 left"
+     " it UNDECIDABLE-FROM-THE-RECORD under its own cap -- DETERMINED IS NOT COMPUTED -- and named one evaluation as what would decide it. THE"
+     " BRANCH WAS FIXED BY THE ORDER BEFORE THE QUOTATION WAS SEEN and the registration was LOCKED BEFORE ANY READ, with the locked face declaring"
+     " that this seat had read the item\'s bank one act earlier and that RECOLLECTION IS NEVER A SOURCE FOR A VALUE. The definition is located AT"
+     " CONTENT in the pinned source ((2.1), (2.2), (2.3), (5.3)); the source states its own completed L-function for the trivial representation and"
+     " states its conductor; at N = 1 these force the archimedean parameter to zero, and (5.3) gives the constant. 35 reads, 0 without an anchor,"
+     " 16 anchors differing from the hint that found them. AND THE THING NO SEAT WROTE DOWN: the source\'s own introduction already gives the same"
+     " asymptotic for all n >= 1 at (1.12), but with an implied constant that DEPENDS ON pi -- so the index condition was always the price of the"
+     " ABSOLUTE constant, and nobody had put the two statements side by side, including b358, which quoted (5.1) and not (1.12).",
+     "### AN INDEX CONDITION DECIDED IS NOT A BOUND PROVED, AND IT IS NOT A CLOSED TAIL: the tail is closed by the ZERO channel, which has NO"
+     " UNCONDITIONAL BOUND AT ALL. ### THE CIRCULARITY FINDING IS UNTOUCHED -- the tail bound asserts the hypothesis, and no decision here changes"
+     " that. ### THE VALUE IS NOT QUOTED FROM THE SOURCE: it is an IDENTIFICATION of two of the source\'s own displayed formulae, and the source"
+     " writes neither the parameter nor the constant for this representation anywhere. ### H-CUSP IS INHERITED AND NOT DECIDED: Theorem 5.1 is"
+     " stated for an irreducible CUSPIDAL representation and the corpus\'s object is the one the source marks as its exception; b358 graded that"
+     " question and this act stands on that grade. ### A VACUOUS CONDITION IS NOT AN OBSTRUCTION REMOVED -- a condition that costs nothing to"
+     " satisfy was never the obstruction. ### NO GRADE IS CONFERRED BY A SEAT; the row grade NAMED-ONLY stands. ### NO ACT IS RE-VERDICTED. ### NO"
+     " COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b361_the_held_item.txt; data/b361_read5.txt; data/b361_extract_notes.txt;"
+     " data/b361_registration_2026-09-07.txt (LOCKED before any read, on the audit\'s own exit code);"
+     " the source pinned at b358, data/b358_source_lagarias0404394.txt;"
+     " PLACE-papers FACES_LEDGER.md (row U1, an appended UPDATE BLOCK); CORRESPONDENCE.md row 210"),
     # ### THE UNIFORMITY ARC, b349-b359 -- THE FOLD (b360).
     ("uniformity-fold", "b360 (a filings act; it proves nothing and moves no grade)",
      "THE FOLD OF b349-b359: 11 acts filed as one section of the findings document, PURELY ADDITIVE, 180 lines added and nothing above them"
