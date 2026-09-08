@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'dated-arm-sweep': ['the dated-arm sweep', 'the rewrite rule', 'gate_content',
+                       'the standing check', 'address predicate'],
     'cuspidality-convention': ['the cuspidality convention', 'the convention is located',
                               'the exceptional case', 'W-ORD-LI-CUSP', 'the owed read'],
     'dated-arm': ['the dated arm', 'a dated arm', 'the copy that did not reproduce',
@@ -598,6 +600,28 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE DATED-ARM SWEEP (b366).
+    ("dated-arm-sweep", "b366 (a classification and a rule; it repairs nothing and rules nothing)",
+     "3 DATED ARMS IN THE WHOLE RECORD, OUT OF 1255 ARMS ACROSS 146 GATE SUITES, and 2 of the 3 are ONE SUBSTITUTION FROM STANDING. The third is not harder to"
+     " write -- IT IS MISSING ITS CONTENT: its act banked a line number and not the text found there, so there is nothing to look the content up BY. THE SPECIES IS REAL, IT IS CONFIRMED, AND IT IS"
+     " NOT A CLASS THIS RECORD IS RIDDLED WITH. The classification is by the author ruling (R2): an arm on the act own artifacts is STANDING and must reproduce; an arm on the living record is a"
+     " MOMENT CERTIFICATE unless written by CONTENT rather than by ADDRESS. THE COUNT IS MECHANICAL AND THE CLASSIFICATION IS DECLARED, arm by arm with the code line printed beside it, because a"
+     " detector cannot decide whether the file being indexed is the act own artifact or the living record -- that is a question about what a computed path names. 7 lines flagged: 3 DATED,"
+     " 1 ADDRESS-SHAPED BUT STANDING (an act indexing its own frozen extraction -- the case that shows the classification cannot be left to a detector), and 3 not address predicates at all."
+     " THE DETECTOR FOUND THE ONE CONFIRMED INSTANCE THE RECORD HOLDS, b357 G-LOCATED diagnosed at b364. AND THE REWRITE RULE FELL ON THE HELPER SIDE OF THE ORDER OWN TEST: the substitution is one"
+     " call, tools/gate_content.py, with six fixtures in both polarities. 35 reads located, 16 anchors differing from the hint that found them.",
+     "### A CLASSIFICATION IS NOT A CURE. ### NO SUITE IS EDITED AND NO DATED ARM IS CURED BY THIS ACT -- a rewrite RULE is a thing a later act applies, and suite files differing from their"
+     " committed blobs: 0. ### NO PAST VERDICT IS WITHDRAWN AND NO ACT IS RE-VERDICTED: b363 control is RELABELLED as having measured drift on its dated arms and correctness on its standing ones,"
+     " which is not the same thing. ### NO RULING IS MADE BY THIS SEAT: R1, R2 and R3 are the author own and this act executes them. ### THE DETECTOR IS A NET OF THREE NAMED SHAPES AND IS NOT A"
+     " DECISION PROCEDURE -- an address predicate written in a shape it does not name would not be found. ### THE COUNT IS OF ARMS THE SUITES REGISTER UNDER A NAME, and 243 registrations whose"
+     " name is not a literal are reported as UNATTRIBUTED rather than folded in. ### NO GRADE IS CONFERRED BY A SEAT: (R3) word is the author own, APPLIED and not conferred, and it grades the"
+     " ARCHIMEDEAN half and nothing else. ### NO PROOF IS VERIFIED. ### b358 CIRCULARITY FINDING IS UNTOUCHED. ### NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NO FACE IS PROMOTED. ### NO COORDINATE"
+     " IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b366_the_dated_arm_sweep.txt; data/b366_sweep_run.txt; data/b366_extract_notes2.txt; data/b366_faces_row_run.txt; data/b366_mint_notes.txt;"
+     " data/b366_registration_2026-09-07.txt (LOCKED before any write, on the audit own exit code, with the pre-lock survey declared on its face);"
+     " tools/b366_sweep.py (the count, the detector and the declared classification); tools/gate_content.py (the rewrite rule, six fixtures, both polarities);"
+     " TECHNE-Core modules/2026-09/DATED_ARM.md (local-only at 42e41dd, NOT pushed; kept BESIDE modules/2026-09/WRONG_ARM.md and not inside it);"
+     " PLACE-papers FACES_LEDGER.md (row U1, an UPDATE BLOCK through the ledger own writer, applying (R3)); CORRESPONDENCE.md row 215"),
     # ### THE OWED READ, PAID (b365).
     ("cuspidality-convention", "b365 (a read; it computes nothing, verifies no proof and moves no grade)",
      "THE CONVENTION IS LOCATED AND THE SOURCE WORKS THE EXCEPTIONAL CASE ITSELF. Lagarias math/0404394v4 states results for irreducible cuspidal representations and the corpus object"

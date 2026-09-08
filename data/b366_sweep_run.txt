@@ -1,0 +1,107 @@
+### run at (UTC) : 2026-09-08T03:36:00Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b366 -- THE SWEEP. ### **COUNTED BY TOOL. ### CLASSIFIED BY (R2). ### NO SUITE EDITED.**
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+
+  ### THE DETECTOR'S OWN FIXTURES, BOTH POLARITIES, RUN BEFORE IT IS BELIEVED:
+  ### detector fixtures : True
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE POPULATION, COUNTED FROM THE SUITES THEMSELVES.
+----------------------------------------------------------------------------------------------------
+    gate suites in the relay repository : 146
+    ### ### **ARMS REGISTERED BY THEIR OWN SUITES : 1255**
+    registrations whose name is not a literal (UNATTRIBUTED, reported not dropped) : 243
+    suites that would not tokenize : 0 
+    ### **AN ARM IS COUNTED WHERE ITS OWN SUITE REGISTERS IT UNDER A NAME.** ### The same name
+    ### in two suites is two arms, because they are two predicates in two acts.
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE DETECTOR. ### **ADDRESS-SHAPED CODE, WITH ITS REACH STATED.**
+----------------------------------------------------------------------------------------------------
+    S1  a stored line field compared or read
+    S2  a file split into lines and indexed
+    S3  a bare index variable compared
+    ### **AND WHAT IT CANNOT DO:** ### it cannot tell whether the file being indexed is the
+    ### act's own artifact or the living record, because that is a question about what a
+    ### COMPUTED PATH NAMES. ### **SO IT FLAGS, AND THIS SEAT CLASSIFIES.**
+
+    ### ### **FLAGGED LINES : 7, IN 7 SUITES.**
+
+    b326_checks.py         line 413    arm G-NOEDIT
+        | print(                                                % (stat.splitlines()[-1] if stat else                    ))
+
+    b330_checks.py         line 80     arm G-EXTRACT
+        | os.path.join(SEP, n) for n in os.listdir(SEP) if n.endswith(     ) and n !=                              )
+
+    b335_checks.py         line 258    arm G-DIFF
+        | print(                                                                                                 % (diff.strip().splitlines()[-1] if diff.strip(
+
+    b340_checks.py         line 287    arm G-SCOPE
+        | and                                          in io.open(BENCH, encoding=       ).read().splitlines()[J[            ] - 1] and J[                      
+
+    b341_checks.py         line 251    arm G-LOCATE
+        | line = io.open(d(s[           ]), encoding=       ).read().splitlines()[h[      ] - 1]
+
+    b357_checks.py         line 214    arm G-LOCATED
+        | if n != r[      ]:
+
+    b359_checks.py         line 278    arm G-STATUSES
+        | needle_pull.pull(path, io.open(path, encoding=       ).read().splitlines()[c[      ] - 1])
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE CLASSIFICATION. ### **DECLARED, ARM BY ARM, WITH THE CODE ABOVE.**
+----------------------------------------------------------------------------------------------------
+    ### ### **EVERY FLAGGED ARM IS DECLARED, AND EVERY DECLARATION IS FLAGGED : True**
+
+    b326_checks.py         G-NOEDIT     NOT AN ADDRESS PREDICATE one substitution from standing : False
+        the index is `[-1]` -- the LAST line of a `git status` capture -- and it is inside a `print`. ### A constant index into a command’s own output is not an address into the record.
+
+    b330_checks.py         G-EXTRACT    NOT AN ADDRESS PREDICATE one substitution from standing : False
+        `n` here is a FILENAME, not a line index: the comparison excludes one module by name. ### **THE SHAPE `n !=` IS THE WIDEST PART OF THE NET AND THIS IS WHAT IT COSTS.**
+
+    b335_checks.py         G-DIFF       NOT AN ADDRESS PREDICATE one substitution from standing : False
+        a diff is split into lines to be PRINTED. ### No line position enters the pass condition.
+
+    b340_checks.py         G-SCOPE      DATED                    one substitution from standing : True
+        it indexes `tools/li_bench.py` -- ### **A LIVING OWNER INSTRUMENT** -- at a banked line number, and the result enters the pass condition. ### **AND THE SENTENCE IS RIGHT THERE BESIDE THE NUMBER**, so the substitution is available.
+
+    b341_checks.py         G-LOCATE     STANDING                 one substitution from standing : False
+        it is address-shaped and it indexes ### **THE ACT’S OWN BANKED EXTRACTION** (`data/b341_source_*.txt`), which is frozen with the act. ### **UNDER (R2) THAT IS THE ACT’S OWN ARTIFACT AND THE ARM IS STANDING** -- and it is the case that shows why the classification cannot be left to the detector.
+
+    b357_checks.py         G-LOCATED    DATED                    one substitution from standing : True
+        ### **THE ONE CONFIRMED INSTANCE**, diagnosed at `b364`: it recomputes a line position in four LIVING ledgers and compares it against a literal frozen in its own bank. ### The arm already calls `AF.find` on the row’s own TEXT, so the address half is an ADDITION to a content arm and comes off by deletion.
+
+    b359_checks.py         G-STATUSES   DATED                    one substitution from standing : False
+        it indexes `README.md` and `SPIRAL_MAP.md` -- ### **LIVING PAPERS FILES** -- at banked line numbers. ### **AND IT IS NOT ONE SUBSTITUTION FROM STANDING:** ### `b359`’s own JSON carries `line` and not the claim’s TEXT, so there is nothing to look the content up BY until a text is derived and banked first.
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE COUNTS, AND THE TWO FIGURES THE ORDER ASKED FOR APART.
+----------------------------------------------------------------------------------------------------
+    ### ### **DATED ARMS IN THE RECORD : 3.**
+    ### ### **OF THOSE, ONE SUBSTITUTION FROM STANDING : 2.**
+    ### **AND THEY ARE DIFFERENT NUMBERS, WHICH IS WHY THE ORDER ASKED FOR BOTH.** ### The one
+    ### that is NOT one substitution away is not harder to write -- ### **IT IS MISSING ITS
+    ### ### CONTENT.** ### An arm can only be rewritten by content if a content was banked.
+    ### address-shaped but STANDING (the act’s own frozen artifact) : 1
+    ### flagged and NOT an address predicate at all : 3
+    ### ### **SO THE NET’S PRECISION ON THIS POPULATION IS 4 OF 7**, and the rest is what a
+    ### wide net costs. ### **THE COST IS PAID IN READING, NOT IN FALSE FINDINGS.**
+
+    ### ### **AND THE DETECTOR FOUND THE ONE CONFIRMED INSTANCE THE RECORD HOLDS : True**
+    ### `b357`’s `G-LOCATED`, diagnosed at `b364`. ### **A DETECTOR THAT MISSED IT WOULD HAVE
+    ### ### BEEN REPORTED AS MISSING IT**, and the sweep would not have been emitted.
+
+    ### ### **DATED ARMS AS A FRACTION OF THE POPULATION: 3 OF 1255.**
+    ### **AND THAT FRACTION IS THE FINDING, AND IT IS A SMALL ONE.** ### The species is real, it
+    ### is confirmed, and ### **IT IS NOT A CLASS THIS RECORD IS RIDDLED WITH.**
+
+----------------------------------------------------------------------------------------------------
+  ### (5) NO SUITE WAS EDITED. ### **BYTE-FOR-BYTE AGAINST THE COMMITTED BLOBS.**
+----------------------------------------------------------------------------------------------------
+    suite files differing from their committed blobs : 0 none
+    ### **READ BEFORE THE PUSH** (`b352`): after this act’s own commit the blob is whatever
+    ### this act left, and the same comparison would prove nothing.
+====================================================================================================

@@ -1,0 +1,86 @@
+{
+ "suites": 146,
+ "arms": 1255,
+ "unattributed": 243,
+ "untokenizable": [],
+ "flagged": 7,
+ "rows": [
+  {
+   "suite": "b326_checks.py",
+   "arm": "G-NOEDIT",
+   "line": 413,
+   "code": "print(                                                % (stat.splitlines()[-1] if stat else                    ))",
+   "classification": "NOT AN ADDRESS PREDICATE",
+   "one_substitution": false,
+   "why": "the index is `[-1]` -- the LAST line of a `git status` capture -- and it is inside a `print`. ### A constant index into a command\u2019s own output is not an address into the record."
+  },
+  {
+   "suite": "b330_checks.py",
+   "arm": "G-EXTRACT",
+   "line": 80,
+   "code": "os.path.join(SEP, n) for n in os.listdir(SEP) if n.endswith(     ) and n !=                              )",
+   "classification": "NOT AN ADDRESS PREDICATE",
+   "one_substitution": false,
+   "why": "`n` here is a FILENAME, not a line index: the comparison excludes one module by name. ### **THE SHAPE `n !=` IS THE WIDEST PART OF THE NET AND THIS IS WHAT IT COSTS.**"
+  },
+  {
+   "suite": "b335_checks.py",
+   "arm": "G-DIFF",
+   "line": 258,
+   "code": "print(                                                                                                 % (diff.strip().splitlines()[-1] if diff.strip(",
+   "classification": "NOT AN ADDRESS PREDICATE",
+   "one_substitution": false,
+   "why": "a diff is split into lines to be PRINTED. ### No line position enters the pass condition."
+  },
+  {
+   "suite": "b340_checks.py",
+   "arm": "G-SCOPE",
+   "line": 287,
+   "code": "and                                          in io.open(BENCH, encoding=       ).read().splitlines()[J[            ] - 1] and J[                      ",
+   "classification": "DATED",
+   "one_substitution": true,
+   "why": "it indexes `tools/li_bench.py` -- ### **A LIVING OWNER INSTRUMENT** -- at a banked line number, and the result enters the pass condition. ### **AND THE SENTENCE IS RIGHT THERE BESIDE THE NUMBER**, so the substitution is available."
+  },
+  {
+   "suite": "b341_checks.py",
+   "arm": "G-LOCATE",
+   "line": 251,
+   "code": "line = io.open(d(s[           ]), encoding=       ).read().splitlines()[h[      ] - 1]",
+   "classification": "STANDING",
+   "one_substitution": false,
+   "why": "it is address-shaped and it indexes ### **THE ACT\u2019S OWN BANKED EXTRACTION** (`data/b341_source_*.txt`), which is frozen with the act. ### **UNDER (R2) THAT IS THE ACT\u2019S OWN ARTIFACT AND THE ARM IS STANDING** -- and it is the case that shows why the classification cannot be left to the detector."
+  },
+  {
+   "suite": "b357_checks.py",
+   "arm": "G-LOCATED",
+   "line": 214,
+   "code": "if n != r[      ]:",
+   "classification": "DATED",
+   "one_substitution": true,
+   "why": "### **THE ONE CONFIRMED INSTANCE**, diagnosed at `b364`: it recomputes a line position in four LIVING ledgers and compares it against a literal frozen in its own bank. ### The arm already calls `AF.find` on the row\u2019s own TEXT, so the address half is an ADDITION to a content arm and comes off by deletion."
+  },
+  {
+   "suite": "b359_checks.py",
+   "arm": "G-STATUSES",
+   "line": 278,
+   "code": "needle_pull.pull(path, io.open(path, encoding=       ).read().splitlines()[c[      ] - 1])",
+   "classification": "DATED",
+   "one_substitution": false,
+   "why": "it indexes `README.md` and `SPIRAL_MAP.md` -- ### **LIVING PAPERS FILES** -- at banked line numbers. ### **AND IT IS NOT ONE SUBSTITUTION FROM STANDING:** ### `b359`\u2019s own JSON carries `line` and not the claim\u2019s TEXT, so there is nothing to look the content up BY until a text is derived and banked first."
+  }
+ ],
+ "dated": 3,
+ "standing": 1,
+ "not_address": 3,
+ "one_substitution": 2,
+ "confirmed_instance_found": true,
+ "suites_dirty": [],
+ "detector_fixtures": true,
+ "shapes": [
+  "S1  a stored line field compared or read",
+  "S2  a file split into lines and indexed",
+  "S3  a bare index variable compared"
+ ],
+ "run_file": "b366_sweep_run.txt",
+ "run_clock": "2026-09-08T03:36:00Z"
+}
