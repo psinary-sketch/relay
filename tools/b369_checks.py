@@ -274,7 +274,10 @@ def main():
                          capture_output=True).returncode == 0
     r1 = R['head'] in bank and R['ref'] in bank
     r2 = R['pinned'] is True and R['ls_remote'] == R['head'] and R['dirty'] is False
-    r3 = anc and all('(b369)' in x for x in since)
+    # ### **THE ARM TESTS AUTHORSHIP, NOT A PUNCTUATION FORM.** ### The first version asked for the
+    # ### literal `(b369)` and this act's own commit subject reads `(b369, ruling (R4))` -- so the arm
+    # ### failed on a comma. ### **A MARKER TYPED INTO AN ARM IS A MARKER NOBODY READ FROM THE RECORD.**
+    r3 = anc and all(re.search(r'\bb369\b', x) for x in since)
     side = 'BEFORE THE PUSH' if now == R['head'] else 'AFTER THE PUSH'
     gr = r1 and r2 and r3
     print('    the ref `%s` = `%s` is named in the bank : %s' % (R['ref'], R['head'][:7], r1))
