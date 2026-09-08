@@ -274,13 +274,20 @@ def main():
     r2 = (h0 == h1)
     r3 = "'b363_span_notes'" not in ssrc and "'b363_span.json'" not in ssrc
     r4 = 'THIS_ACT' not in ssrc
-    r5 = git(ROOT, 'diff', '--name-only', 'HEAD', '--', 'tools/b363_span.py').strip() != ''
+    # ### **THIS CLAUSE WAS DECLARED SIDE-INVARIANT AND WAS NOT.** ### It asked for a DIRTY working
+    # ### tree, which is true only BEFORE the push; after this act's own commit the diff is empty and
+    # ### the arm failed on its own success. ### **THE INVARIANT TEST IS AUTHORSHIP, NOT DIRTINESS:**
+    # ### the instrument is dirty now, or the last commit that touched it is this act's.
+    dirty5 = git(ROOT, 'diff', '--name-only', 'HEAD', '--', 'tools/b363_span.py').strip() != ''
+    last5 = git(ROOT, 'log', '-1', '--format=%s', '--', 'tools/b363_span.py').strip()
+    r5 = dirty5 or bool(re.search(r'\bb370\b', last5))
     gro = r1 and r2 and r3 and r4 and r5
     print("    ### **THE TOOL'S OWN FIXTURE, RUN HERE AND NOT READ FROM ITS DOCSTRING : %s**" % r1)
     print('    ### **AND RUNNING IT LEFT THE FOREIGN POINTER BYTE-IDENTICAL : %s** (%s)' % (r2, h0[:16]))
     print('    no hardcoded foreign stem in the stripped source : %s ; no hardcoded act number : %s'
           % (r3, r4))
-    print('    ### **AND THE INSTRUMENT WAS ACTUALLY EDITED BY THIS ACT** : %s' % r5)
+    print('    ### **AND THE INSTRUMENT WAS ACTUALLY EDITED BY THIS ACT** : %s ### (dirty now : %s ; '
+          'last commit touching it : %s)' % (r5, dirty5, last5[:56]))
     print('    %s' % ('PASS' if gro else '### FAIL ###'))
     if not gro:
         fails.append('G-READONLY/G-FIXTURE')
