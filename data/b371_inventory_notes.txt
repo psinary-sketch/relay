@@ -1,0 +1,357 @@
+### run at (UTC) : 2026-09-08T15:21:03Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b371 -- COMPONENT 2: THE ROW INVENTORY. ### **LISTED, NOT CHECKED.**
+====================================================================================================
+
+  ### ### **THE CAP, FIRST, IN THE ORDER`S OWN WORDS: `Audit nothing.`**
+  ### No kernel is opened for any row. ### Every field below is taken FROM THE ROW.
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE PREDICATE, DECLARED BEFORE THE SWEEP.
+----------------------------------------------------------------------------------------------------
+    a row qualifies if it names all three of:
+      KERNEL   -- `(SIDE-[a-z0-9-]+|SIDEEffects/[A-Za-z0-9_/]+\.lean|[A-Za-z0-9_]+\.lean)`
+      TERMINAL -- a backticked dotted identifier, or a backticked snake_case name
+      PIN      -- a hex of 7 to 40, or a `vN.N[.N]` tag
+    ### ### **AND ITS FAILURE MODE IS NAMED WITH IT (`PREDICATE_ONE_SHAPE`):** ### a row whose
+    ### pin is written in a shape this predicate does not know is reported PINLESS. ### **THE
+    ### ### SWEEP REPORTS WHAT IT MATCHED AND CLAIMS NO COMPLETENESS.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE SWEEP. ### `PLACE-papers` at `692d6cc`, 349 tracked markdown files.
+----------------------------------------------------------------------------------------------------
+    table rows scanned : 14950
+    ### ### **ROWS NAMING A KERNEL AND A TERMINAL : 320**
+    ### ### **OF THOSE, NAMING A PIN TOO : 201 ### / ### NAMING NO PIN : 119**
+
+    by file:
+      phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md                   31 rows,  29 with a pin
+      VERIFICATION_LOOM.md                                            26 rows,   2 with a pin
+      phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md              17 rows,  17 with a pin
+      REGISTRY.md                                                     16 rows,  15 with a pin
+      archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-da  15 rows,  15 with a pin
+      phase1.5/method/EXCLUSION_ENGINE.md                             15 rows,   7 with a pin
+      day1/A_Place_to_Stand.md                                        13 rows,   1 with a pin
+      phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md                   13 rows,  13 with a pin
+      phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md        13 rows,  13 with a pin
+      SPIRAL_MAP.md                                                   12 rows,  12 with a pin
+      phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md             12 rows,  11 with a pin
+      internal/SIDE_EFFECTS.md                                        11 rows,   0 with a pin
+      phase1.5/spectral/GRH_CASCADE.md                                11 rows,  11 with a pin
+      phase1.5/rcurve/R_CURVE_CRITERION.md                            10 rows,  10 with a pin
+      phase1.5/method/INVARIANCE_BARRIERS.md                           9 rows,   9 with a pin
+      phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md              9 rows,   9 with a pin
+      outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md                     7 rows,   0 with a pin
+      archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_v3.m   6 rows,   0 with a pin
+      phase1.5/method/SIDE_EXCLUSION.md                                6 rows,   0 with a pin
+      phase1.5/method/THE_SUBSTRATE.md                                 6 rows,   3 with a pin
+      FACES_LEDGER.md                                                  4 rows,   3 with a pin
+      archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historic   4 rows,   2 with a pin
+      day1/Seven_Mechanism_Classes.md                                  4 rows,   1 with a pin
+      phase1.5/method/EXHAUSTIVENESS_LICENSE.md                        4 rows,   0 with a pin
+      archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-thr   3 rows,   0 with a pin
+      archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md      3 rows,   0 with a pin
+      kernel-docs/MATHLIB_LINEAGE.md                                   3 rows,   0 with a pin
+      outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md              3 rows,   0 with a pin
+      phase1.5/spectral/BALANCE_AND_POSITIVITY.md                      3 rows,   2 with a pin
+      phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md                     3 rows,   3 with a pin
+      ERRATA.md                                                        2 rows,   1 with a pin
+      FINDINGS.md                                                      2 rows,   0 with a pin
+      OPEN_TRAILS.md                                                   2 rows,   0 with a pin
+      day1/Third_Identity_Element.md                                   2 rows,   2 with a pin
+      outputs/DEPOSITED-v1.1.2/ERRATA.md                               2 rows,   1 with a pin
+      phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md                2 rows,   2 with a pin
+      phase2/method/THE_EULER_SPECIFICATION.md                         2 rows,   2 with a pin
+      phase2/method/THE_IDENTITY_CHAIN.md                              2 rows,   0 with a pin
+      archive/2026-08-27-trim-backfill/E_DIFFICULTY_THEOREM_PAPER.md   1 rows,   0 with a pin
+      day1/Exhaustive_Enumeration.md                                   1 rows,   1 with a pin
+      day1/ONE_PAGE_PROOF.md                                           1 rows,   1 with a pin
+      day1/Silence_of_Foundations.md                                   1 rows,   1 with a pin
+      day1/Spectral_Inertness.md                                       1 rows,   1 with a pin
+      phase1.5/method/GAUGE_AND_INVARIANT.md                           1 rows,   0 with a pin
+      phase1.5/method/TECHNE_TOOLKIT.md                                1 rows,   0 with a pin
+      phase1.5/method/THE_METHODOLOGY_DAY_RUNBOOK.md                   1 rows,   0 with a pin
+      phase1.5/proofs/THE_RESIDUE_OF_RH.md                             1 rows,   0 with a pin
+      phase2/empirical/BSD_VIA_FORMATION_TRANSFER.md                   1 rows,   1 with a pin
+      phase2/method/E_DIFFICULTY_THEOREM.md                            1 rows,   0 with a pin
+      phase2/physics/STORMER.md                                        1 rows,   0 with a pin
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE ROWS THAT NAME ALL THREE. ### **THE SET `(R6)` CAN ACTUALLY CHECK.**
+----------------------------------------------------------------------------------------------------
+    ERRATA.md:47
+        kernel(s) : TheBridgeComplete.lean
+        terminal(s): `TheBridgeComplete.lean`
+        pin(s)     : `v5.4`
+    FACES_LEDGER.md:16
+        kernel(s) : SIDE-kernel, SIDE-lv-conservation
+        terminal(s): `silence_universal`
+        pin(s)     : `0bc21c0`, `2d86182`, `v0.7.0`, `v1.1.2`
+    FACES_LEDGER.md:17
+        kernel(s) : SIDE-kernel
+        terminal(s): `ConservationBridge.ConservationHypothesis`, `ConservationBridge.riemann_hypothesis`
+        pin(s)     : `0bc21c0`, `v1.3`
+    FACES_LEDGER.md:27
+        kernel(s) : SIDE-li-map, SIDE-lv-conservation
+        terminal(s): `lam_add`
+        pin(s)     : `2d86182`, `6efa9e5`, `73cee42`, `v0.7.0`
+    REGISTRY.md:167
+        kernel(s) : CartanBBridge.lean, SIDE-kernel
+        terminal(s): `elliptic_regularity_collapse`, `formation_n_3_eq_two`, `identity_theorem_unique_bridge`, `output_stage_card`, `output_stage_exhaustiveness_proved`
+        pin(s)     : `5e668b4`
+    REGISTRY.md:187
+        kernel(s) : SIDE-frobenius
+        terminal(s): `g_two_three`
+        pin(s)     : `2efe9f2`, `v0.1.0`, `v0.2`
+    REGISTRY.md:209
+        kernel(s) : SIDE-kernel, SIDE-lv-conservation, SIDE-rcurve
+        terminal(s): `SIDERCurve.monotone_unique_zero`
+        pin(s)     : `0e5233f`, `21520474`, `21539068`, `21539167`
+    REGISTRY.md:258
+        kernel(s) : SIDE-effects
+        terminal(s): `Module1.no_type_d_conspiracies`, `TYPE_D_EXCLUSION.md`
+        pin(s)     : `4924040`, `v0.2.3`
+    REGISTRY.md:266
+        kernel(s) : Theorem.lean
+        terminal(s): `SIDEOmegaB.omega_b_equals_4_over_81`
+        pin(s)     : `9c80279`, `v1.0`
+    REGISTRY.md:270
+        kernel(s) : SIDE-effects, SIDE-yang-mills-formation
+        terminal(s): `YangMills.mass_gap`
+        pin(s)     : `v0.2`
+    REGISTRY.md:278
+        kernel(s) : SIDE-cosmo, SIDE-structural-error-correction
+        terminal(s): `ERROR_CORRECTION.md`, `fano_two_design`
+        pin(s)     : `6a4f482`, `c5cba30`, `v0.2.1`, `v1.1`
+    REGISTRY.md:451
+        kernel(s) : TheBridgeComplete.lean
+        terminal(s): `ConservationBridge.riemann_hypothesis`, `SpectralCannonFull.spectral_cannon`, `structural_exhaustiveness_proved`
+        pin(s)     : `2a69d77`, `c8882f3`, `da36b20`, `e8114be`
+    REGISTRY.md:461
+        kernel(s) : Core.lean, SIDE-kernel, TheBridgeComplete.lean
+        terminal(s): `ConservationBridge.riemann_hypothesis`, `SIDEKernel.formation`, `SpectralCannonFull.spectral_cannon`, `seven_classes`, `structural_exhaustiveness_proved`
+        pin(s)     : `19937590`, `9d61701`, `e0a8ba0`, `v1.1`
+    REGISTRY.md:477
+        kernel(s) : SIDE-archimedean, SIDE-frobenius, SIDE-kernel, SIDE-lv-conservation
+        terminal(s): `CartanBridge.formation_n_3_eq_two`, `PoissonExhaustion.gate_e_exhaustive_derived`, `ProductFormula.conservation_of_spectra`, `SIDEArchimedean.archimedean_forces_half`, `SIDEFrobenius.indicial_forces_half`, `SIDEKernel.formation`
+        pin(s)     : `v0.1.0`, `v0.2.0`, `v0.6`, `v1.2`
+    REGISTRY.md:483
+        kernel(s) : SIDE-archimedean, SIDE-frobenius, SIDE-kernel, SIDE-lv-conservation
+        terminal(s): `CartanBridge.formation_n_3_eq_two`, `ProductFormula.conservation_of_spectra`, `SIDEKernel.formation`, `T3.T3_perClass_to_combinations`, `T3.T3doubleprime_general_commutation_fails`, `T3.T3prime_shared_witness`
+        pin(s)     : `691295b`, `v0.1.0`, `v0.2.0`, `v0.4`
+    REGISTRY.md:533
+        kernel(s) : SIDE-fano-darkness
+        terminal(s): `first_moment`, `frequency_match`, `lines_are_triples`, `pair_line_count`, `pair_triple_count`, `point_line_count`
+        pin(s)     : `0f6ce5b`
+    REGISTRY.md:534
+        kernel(s) : SIDE-li-map
+        terminal(s): `binom_self_zero`, `lam_add`, `lam_one`, `lam_zero`
+        pin(s)     : `73cee42`
+    REGISTRY.md:629
+        kernel(s) : SIDE-frobenius
+        terminal(s): `FROBENIUS.md`
+        pin(s)     : `2efe9f2`
+    REGISTRY.md:675
+        kernel(s) : SIDE-window
+        terminal(s): `apex_is_exactly_half`, `apex_ladder_is_not_window`
+        pin(s)     : `09e4123`, `1bd2865`, `612d223`, `7e7743d`
+    SPIRAL_MAP.md:45
+        kernel(s) : SIDE-kernel
+        terminal(s): `native_decide`
+        pin(s)     : `0e5233f`, `21417776`, `21520474`, `v1.3`
+    SPIRAL_MAP.md:77
+        kernel(s) : SIDE-effects
+        terminal(s): `grh_exclusion`, `no_ls_zero`
+        pin(s)     : `afa9ccf`
+    SPIRAL_MAP.md:103
+        kernel(s) : SIDE-archimedean
+        terminal(s): `archimedean_forces_half`, `archimedean_identifies_half`, `fe_reflect_fixed_iff`, `focus_codim_eq_one_iff`, `theta_weight_doubles_to_one`
+        pin(s)     : `8019d9d`, `v0.1.0`
+    SPIRAL_MAP.md:104
+        kernel(s) : SIDE-frobenius
+        terminal(s): `g_two_three`, `g_two_three_minimal`, `indicial_factor`, `indicial_forces_half`, `indicial_root_unique`
+        pin(s)     : `2efe9f2`, `v0.1.0`
+    SPIRAL_MAP.md:105
+        kernel(s) : SIDE-rcurve
+        terminal(s): `monotone_unique_zero`, `monotonicity_formula`, `offline_zero_codim_two`, `online_zero_codim_one`, `second_zero_breaks_monotone`, `singular_repulsion`
+        pin(s)     : `d5f33b4`, `v0.1.0`
+    SPIRAL_MAP.md:106
+        kernel(s) : SIDE-spinor
+        terminal(s): `aperture_decomp`, `half_iff_centered_zero`, `orbit_collapse_iff`, `phase_unit`, `spectral_volume`, `spinor_forces_half`
+        pin(s)     : `b235bc6`, `v0.1.0`
+    SPIRAL_MAP.md:107
+        kernel(s) : SIDE-simplicity
+        terminal(s): `Classical.choice`, `codim_exceeds_curve`, `codim_margin`, `margin_fails_at_threshold`, `no_tuning`, `transversal_generic_empty`
+        pin(s)     : `54ba4f3`, `v0.1.0`
+    SPIRAL_MAP.md:108
+        kernel(s) : SIDE-window
+        terminal(s): `apex_13`, `apex_2`, `apex_counts`, `apex_is_exactly_half`, `apex_is_the_entry_point`, `apex_ladder_is_not_window`
+        pin(s)     : `1bd2865`, `v0.4.0`
+    SPIRAL_MAP.md:121
+        kernel(s) : SIDE-grh-transfer
+        terminal(s): `VERIFICATION_LOOM.md`
+        pin(s)     : `68ec127a`, `v0.4.0`
+    SPIRAL_MAP.md:122
+        kernel(s) : SIDE-constants
+        terminal(s): `lambda_arithmetic_verified`, `parameter_arithmetic_verified`, `prime_mosaic_verified`
+        pin(s)     : `545dde2`
+    SPIRAL_MAP.md:154
+        kernel(s) : SIDE-orchestrator
+        terminal(s): `spiraling_theorem`
+        pin(s)     : `v0.1`
+    SPIRAL_MAP.md:406
+        kernel(s) : SIDE-kernel
+        terminal(s): `InvarianceBarrier.invariance_barrier`
+        pin(s)     : `v1.6`
+    VERIFICATION_LOOM.md:647
+        kernel(s) : SIDE-kernel, SieveCeiling.lean, SieveCeilingSemantic.lean
+        terminal(s): `SieveCeilingWitness.dh_sieve_ceiling`, `sieve_ceiling`, `sieve_ceiling_semantic`
+        pin(s)     : `f374174`, `v1.4`
+    VERIFICATION_LOOM.md:648
+        kernel(s) : SieveCeiling.lean
+        terminal(s): `Classical.choice`, `List.replicate`, `e_difficulty`, `e_difficulty_xi`, `h_conserved`, `s.interfaces`
+        pin(s)     : `f374174`, `v1.1`, `v1.3`, `v1.4`
+    archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:2154
+        kernel(s) : SIDE-class-number-anomaly, SIDE-dirichlet-mod-24, SIDE-substrate-cluster
+        terminal(s): `partition_cardinalities`, `triple_identification_diagonal`
+        pin(s)     : `597b0869`, `v0.1.0`, `v0.2`, `v0.4`
+    archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:2239
+        kernel(s) : SIDE-cosmo, SteaneExemplar.lean
+        terminal(s): `THE_SECOND_EXEMPLAR.md`
+        pin(s)     : `03590ed`, `63ee47f`, `c5cba30`, `cfdead3`
+    archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:1017
+        kernel(s) : Voice3b.lean
+        terminal(s): `Integration.voice3b_certificate`, `Integration.voice7_certificate`, `cr_forces_half`, `hadamard_contrib`, `topological_constant`, `topological_no_sigma_preference`
+        pin(s)     : `5be31be`, `e960b84`
+    archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:1392
+        kernel(s) : SIDE-interfaces
+        terminal(s): `interface_split`, `kappa_zero_of_no_mechanism`, `parametric_mechanism_theorem`
+        pin(s)     : `1728796`, `cbdcd5f`, `v0.2`
+    archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:1393
+        kernel(s) : SIDE-kernel
+        terminal(s): `archimedean_times_padic_product`, `conservation_of_spectra`, `product_formula_finsupp`, `product_formula_prime_pow`
+        pin(s)     : `e7ab5a2`, `v1.1`
+    archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:1394
+        kernel(s) : SIDE-kernel
+        terminal(s): `ECondition.type_I_has_ostrowski`
+        pin(s)     : `e7ab5a2`, `v1.1`
+    archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md:1396
+        kernel(s) : SIDE-trivium
+        terminal(s): `mechanism_class_card`, `quadratic_discriminant_card`
+        pin(s)     : `1df5bad4`
+    ... and 161 more, all in the JSON
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE ROWS THAT NAME NO PIN. ### **A FINDING, NOT A HOLE IN THE SWEEP.**
+----------------------------------------------------------------------------------------------------
+    ### `(R6)` says the rows are checked ### *"at the kernel and pin the row itself names"*.
+    ### ### **SO A ROW WITHOUT A PIN CANNOT BE CHECKED THE WAY THE RULING SPECIFIES.** ### It
+    ### is not a miss of this sweep; it is a property of the row.
+      VERIFICATION_LOOM.md                                            24
+      day1/A_Place_to_Stand.md                                        12
+      internal/SIDE_EFFECTS.md                                        11
+      phase1.5/method/EXCLUSION_ENGINE.md                              8
+      outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md                     7
+      archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_v3.m   6
+      phase1.5/method/SIDE_EXCLUSION.md                                6
+      phase1.5/method/EXHAUSTIVENESS_LICENSE.md                        4
+      archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-thr   3
+      archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md      3
+      day1/Seven_Mechanism_Classes.md                                  3
+      kernel-docs/MATHLIB_LINEAGE.md                                   3
+    ### ### **AND THE RATIO IS THE FINDING: 119 OF 320 ROWS THAT CITE A KERNEL AND A TERMINAL
+    ### ### CARRY NO PIN AT ALL.**
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE CROSS-REFERENCE. ### **AGAINST THIS RECORD`S OWN BANKED FINDING, NOT A CHECK.**
+----------------------------------------------------------------------------------------------------
+    the classification `b368` banked and `b369` re-derived names 18 declarations ABSENT from
+    the exclusion kernel at its own pinned ref. ### **COMPARING A NAME AGAINST THAT LIST OPENS
+    ### ### NO KERNEL AND VERIFIES NO ROW.**
+    ### ### **ROWS NAMING A DECLARATION THIS RECORD HAS ALREADY CLASSIFIED ABSENT : 12**
+      REGISTRY.md                                   :270   `mass_gap`
+      SPIRAL_MAP.md                                 :77    `grh_exclusion`, `no_ls_zero`
+      VERIFICATION_LOOM.md                          :529   `no_conspiracy_twins`   ### (and it names no pin)
+      VERIFICATION_LOOM.md                          :530   `no_conspiracy_goldbach`   ### (and it names no pin)
+      VERIFICATION_LOOM.md                          :531   `no_conspiracy_sg`   ### (and it names no pin)
+      VERIFICATION_LOOM.md                          :540   `side_exclusion`   ### (and it names no pin)
+      VERIFICATION_LOOM.md                          :548   `mass_gap`   ### (and it names no pin)
+      VERIFICATION_LOOM.md                          :581   `grh_exclusion`   ### (and it names no pin)
+      phase1.5/method/EXCLUSION_ENGINE.md           :190   `mass_gap`   ### (and it names no pin)
+      phase1.5/method/EXCLUSION_ENGINE.md           :192   `bsd_full`
+      phase1.5/method/EXCLUSION_ENGINE.md           :193   `no_conspiracy_twins`   ### (and it names no pin)
+      phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRA:400   `no_conspiracy_goldbach`, `no_conspiracy_sg`, `no_conspiracy_twins`
+    ### ### **A ROW SO FLAGGED IS NOT THEREBY WRONG.** ### The record`s finding is about a
+    ### kernel at a ref; the row may name a different kernel, an older ref, or a name that
+    ### moved. ### **IT IS A ROW WHOSE CHECK THE RANKING SHOULD ORDER FIRST, AND THAT IS ALL
+    ### ### THIS FLAG MEANS.**
+
+----------------------------------------------------------------------------------------------------
+  ### (6) THE PRICE, IN THREE PARTS, REPORTED SEPARATELY.
+----------------------------------------------------------------------------------------------------
+    ### ### **PART ONE -- WHAT VERIFYING ONE ROW COSTS.**
+    ###   MECHANICAL: resolve the pin (one `git rev-parse` or `ls-remote`), fetch the kernel at
+    ###   that pin, and search its `.lean` files for a declaration of the named terminal. ###
+    ###   **THAT IS `b368`S CLASSIFIER WITH A REF ARGUMENT, AND IT ALREADY EXISTS.**
+    ###   READ: deciding whether the row`s CLAIM about the terminal is what the terminal says.
+    ###   ### **A NAME PRESENT IS NOT A ROW TRUE** -- `b367` found the names gone; `b369` found
+    ###   a ledger that named them; neither was settled by presence alone.
+    ### ### **PART TWO -- WHAT THE WHOLE SET COSTS.**
+    ###   rows citing a kernel and a terminal : ### **320**. ### with a pin : ### **201**.
+    ###   ### **THE MECHANICAL HALF OVER THE PINNED SET IS ONE ACT** -- distinct pins are few
+    ###   and a fetch is amortised across every row that names the same one.
+    ###   ### **THE PINLESS SET IS NOT CHEAPER; IT IS UNPRICEABLE UNDER `(R6)` AS WRITTEN**,
+    ###   because the ruling checks a row at the pin the row names and these name none. ###
+    ###   **THEY NEED A RULING BEFORE THEY NEED AN ACT.**
+    ### ### **PART THREE -- THE SPLIT.**
+    ###   ### **A TOOL CAN SETTLE:** ### does the pin resolve; does the kernel at that pin
+    ###   declare the named terminal; has the kernel moved since.
+    ###   ### **A TOOL CANNOT SETTLE:** ### whether the row`s sentence is what the terminal
+    ###   supports. ### **THAT IS THE READ, AND IT IS THE HALF THAT DOES NOT SCALE.**
+    ###   distinct pins named across the pinned set : ### **98**
+
+----------------------------------------------------------------------------------------------------
+  ### (7) THE RANKING. ### **BY THE ORDER`S OWN CRITERION, PRINTED BEFORE THE RANKING.**
+----------------------------------------------------------------------------------------------------
+  ### THE CRITERION, THE ORDER`S AND NOT THIS SEAT`S:
+  ###   (a) pin age;
+  ###   (b) whether the row names a COUNT rather than a TERMINAL;
+  ###   (c) whether the kernel has MOVED since.
+  ### ### **THE ORDER GAVE THREE FACTORS AND NO WEIGHTING AND THIS ACT INVENTS NONE.** ### The
+  ### table prints them side by side. ### **AND ONE FACTOR CANNOT BE FILLED IN WITHOUT OPENING
+  ### ### A KERNEL:** ### `(c)` asks whether the kernel has moved since the pin, which is a
+  ### resolve-and-compare -- ### **THAT IS THE CHECK, AND THE CAP FORBIDS IT.** ### So `(c)` is
+  ### recorded as `NOT FILLED` for every row, and the ranking runs on `(a)` and `(b)`.
+
+    row                                            pin?   count? moved?   names an already-absent name?
+    FACES_LEDGER.md:153                            NO     YES    NOT FILLED -
+    OPEN_TRAILS.md:2630                            NO     YES    NOT FILLED -
+    OPEN_TRAILS.md:2632                            NO     YES    NOT FILLED -
+    VERIFICATION_LOOM.md:627                       NO     YES    NOT FILLED -
+    VERIFICATION_LOOM.md:628                       NO     YES    NOT FILLED -
+    VERIFICATION_LOOM.md:641                       NO     YES    NOT FILLED -
+    VERIFICATION_LOOM.md:3670                      NO     YES    NOT FILLED -
+    REGISTRY.md:278                                yes    YES    NOT FILLED -
+    REGISTRY.md:675                                yes    YES    NOT FILLED -
+    SPIRAL_MAP.md:108                              yes    YES    NOT FILLED -
+    archive/2026-08-24-ledger-split/VERIFICATION_L yes    YES    NOT FILLED -
+    archive/2026-08-24-ledger-split/VERIFICATION_L yes    YES    NOT FILLED -
+    phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LI yes    YES    NOT FILLED -
+    phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md: yes    YES    NOT FILLED -
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZERO yes    YES    NOT FILLED -
+    phase2/method/THE_EULER_SPECIFICATION.md:33    yes    YES    NOT FILLED -
+    ERRATA.md:73                                   NO     -      NOT FILLED -
+    FINDINGS.md:2429                               NO     -      NOT FILLED -
+    FINDINGS.md:3000                               NO     -      NOT FILLED -
+    REGISTRY.md:643                                NO     -      NOT FILLED -
+    VERIFICATION_LOOM.md:528                       NO     -      NOT FILLED -
+    VERIFICATION_LOOM.md:529                       NO     -      NOT FILLED YES
+    VERIFICATION_LOOM.md:530                       NO     -      NOT FILLED YES
+    VERIFICATION_LOOM.md:531                       NO     -      NOT FILLED YES
+    VERIFICATION_LOOM.md:539                       NO     -      NOT FILLED -
+
+    ### ### **AND WHAT THIS RANKING IS NOT: IT IS A RANKING OF EXPOSURE, NOT OF ERROR.** ### No
+    ### row on it has been shown to be wrong, and this act did not look.
+====================================================================================================
+  ### ### **COMPONENT 2 : LISTED. ### ROWS CHECKED : 0. ### KERNELS OPENED : 0.**
+====================================================================================================

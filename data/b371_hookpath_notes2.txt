@@ -1,0 +1,95 @@
+### run at (UTC) : 2026-09-08T15:36:07Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b371 -- COMPONENT 3: THE GUARD MOVED TO A TRACKED PATH.
+====================================================================================================
+
+  tracked source : tools/git-hooks/pre-push ; 3068 bytes
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE TEST THAT DECIDES THE OUTCOME. ### **NOT A PREFERENCE.**
+----------------------------------------------------------------------------------------------------
+    ### the question the order poses: ### **CAN A TRACKED DIRECTORY IN EACH REPOSITORY HOLD THE
+    ### ### GUARD, AND DOES THE REPOSITORY THEN RUN IT?**
+    ### **IF IT RUNS AND REFUSES AND ALLOWS CORRECTLY, THE ITEM IS MADE DURABLE. ### IF IT
+    ### ### CANNOT, THE ITEM IS STRUCK WITH THE REASON.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE MOVE. ### **ONE TRACKED COPY PER REPOSITORY, BYTE-IDENTICAL TO THE SOURCE.**
+----------------------------------------------------------------------------------------------------
+    relay                  .githooks/pre-push  3068 bytes  identical : True  ### -- staged AFTER the exercise
+    SIDE-global-section    .githooks/pre-push  3068 bytes  identical : True  ### -- staged AFTER the exercise
+    PLACE-papers           .githooks/pre-push  3068 bytes  identical : True  ### -- staged AFTER the exercise
+    SIDE-effects           .githooks/pre-push  3068 bytes  identical : True  ### -- staged AFTER the exercise
+    ### ### **AND THAT IS THE WHOLE DIFFERENCE FROM `b369`S INSTALL:** ### these copies are
+    ### ### **INSIDE THE REPOSITORY`S OWN TREE AND STAGED FOR COMMIT**, so a clone carries them.
+    ### **FOUR COPIES CAN DRIFT**, and the exerciser`s byte-identity arm against the one source
+    ### is what catches that -- ### **THE DRIFT RISK IS REAL AND IT IS GUARDED.**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE CONFIGURATION. ### **THE RESIDUAL MANUAL STEP, NAMED.**
+----------------------------------------------------------------------------------------------------
+    relay                  core.hooksPath = `.githooks`
+    SIDE-global-section    core.hooksPath = `.githooks`
+    PLACE-papers           core.hooksPath = `.githooks`
+    SIDE-effects           core.hooksPath = `.githooks`
+    ### ### ### **AND THIS IS THE PART THAT IS NOT DURABLE AND IS SAID SO:** ###
+    ### `core.hooksPath` lives in `.git/config`, which is ### **NOT TRACKED.**
+    ### ### **A FRESH CLONE STILL RUNS NO GUARD UNTIL SOMEONE RUNS:**
+    ###     `git config core.hooksPath .githooks`
+    ### ### **WHAT CHANGED IS WHICH HALF IS MISSING.** ### Before: the clone had neither the
+    ### guard nor the wiring, and the guard existed only on this machine. ### Now: the clone has
+    ### ### **THE GUARD**, and lacks ### **ONE COMMAND.** ### That is a smaller hole and it is
+    ### not no hole.
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE EXERCISE. ### **BOTH POLARITIES, IN EACH REPOSITORY, FROM THE TRACKED PATH.**
+----------------------------------------------------------------------------------------------------
+    relay                  NEGATIVE REFUSED  POSITIVE ALLOWED  head unmoved True  branch restored True
+          refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: h
+    SIDE-global-section    NEGATIVE REFUSED  POSITIVE ALLOWED  head unmoved True  branch restored True
+          refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: h
+    PLACE-papers           NEGATIVE REFUSED  POSITIVE ALLOWED  head unmoved True  branch restored True
+          refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: h
+    SIDE-effects           NEGATIVE REFUSED  POSITIVE ALLOWED  head unmoved True  branch restored True
+          refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: h
+    ### ### **REPOSITORIES FAILING THE POLARITY EXERCISE : 0 **
+
+----------------------------------------------------------------------------------------------------
+  ### (4b) THE STAGING, AFTER THE EXERCISE. ### **BECAUSE THE EXERCISE DESTROYS AN INDEX.**
+----------------------------------------------------------------------------------------------------
+    ### the polarity exercise commits a throwaway commit and `reset --hard`s it away, which
+    ### discards the INDEX with it. ### **SO THE GUARD IS STAGED NOW, NOT BEFORE.**
+    relay                  TRACKED BY GIT : True
+    SIDE-global-section    TRACKED BY GIT : True
+    PLACE-papers           TRACKED BY GIT : True
+    SIDE-effects           TRACKED BY GIT : True
+    ### ### **TRACKED IN EVERY REPOSITORY : True**
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE OLD LOCATION. ### **LEFT IN PLACE, INERT, AND NAMED.**
+----------------------------------------------------------------------------------------------------
+    relay                  .git/hooks/pre-push present : True  ### -- INERT while core.hooksPath is set
+    SIDE-global-section    .git/hooks/pre-push present : True  ### -- INERT while core.hooksPath is set
+    PLACE-papers           .git/hooks/pre-push present : True  ### -- INERT while core.hooksPath is set
+    SIDE-effects           .git/hooks/pre-push present : True  ### -- INERT while core.hooksPath is set
+    ### ### **A SAFETY NET AND A TRAP.** ### If the config is unset the old copy becomes live
+    ### again, which is a net; and two copies can drift, which is a trap. ### **BOTH ARE SAID
+    ### ### RATHER THAN LEAVING A READER TO FIND THE SECOND COPY.**
+
+----------------------------------------------------------------------------------------------------
+  ### (6) WHAT THIS ACT FOUND AND DID NOT REPAIR.
+----------------------------------------------------------------------------------------------------
+    the guard`s own front matter still says:
+        | # Tracked copy: tools/git-hooks/pre-push. Install: cp tools/git-hooks/pre-push .git/hooks/pre-push
+    ### ### **THAT INSTALL PATH IS NOW SUPERSEDED**, and the sentence went stale the moment the
+    ### guard moved. ### **A GUARD`S OWN FRONT MATTER IS A SURFACE TOO** -- which is the exact
+    ### species this act spent Components 1 and 2 on, committed by this act`s own repair.
+    ### ### **IT IS NOT REPAIRED HERE**, and the reason is the cap: the registration licensed
+    ### ### **ONE** ### owner instrument edit, and that one is the exerciser. ### **EDITING THE
+    ### ### GUARD WOULD BE A SECOND, AND WOULD ALSO CHANGE THE BYTES ALL FOUR COPIES ARE
+    ### ### COMPARED AGAINST.** ### Reported and routed.
+====================================================================================================
+  ### ### **COMPONENT 3 OUTCOME : MADE DURABLE**
+  ### **AND `DURABLE` IS THE ORDER`S WORD, NOT A CLAIM THAT A CLONE IS GUARDED.** ### The GUARD
+  ### travels; the WIRING does not; the residual step is one command and it is named above.
+====================================================================================================

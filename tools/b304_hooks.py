@@ -49,6 +49,11 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 SOURCE = os.path.join(ROOT, 'tools', 'git-hooks', 'pre-push')
+# ### **THE TRACKED HOOKS DIRECTORY (b371).** ### `core.hooksPath` must name it, and that setting is
+# ### LOCAL CONFIG -- so a clone carries the guard and still needs one command. ### This tool REPORTS
+# ### that setting rather than assuming it, because a copy in a directory nothing reads is exactly
+# ### the failure the move was made against.
+HOOKS_DIR = '.githooks'
 REPOS = [
     ('relay', r'D:\relay'),
     ('SIDE-global-section', r'D:\SIDE-global-section'),
@@ -119,7 +124,14 @@ def self_test(verbose=True):
 
 def install(repo_path, src_bytes):
     """### RETURNS `(action, sha256_on_disk)`. ### **NEVER OVERWRITES A DIFFERING HOOK SILENTLY.**"""
-    dest = os.path.join(repo_path, '.git', 'hooks', 'pre-push')
+    # ### **THE GUARD MOVED TO A TRACKED PATH AT b371 AND THIS EXERCISER FOLLOWED IT IN THE SAME
+    # ### ACT.** ### A guard that moves while its checker does not is `GUARD_WITH_NOTHING_LISTENING`
+    # ### -- the record keeps checking a file nothing runs. ### The destination is the repository's
+    # ### own TRACKED `.githooks/`, which a clone carries; `.git/hooks/` was untracked and did not.
+    dest = os.path.join(repo_path, HOOKS_DIR, 'pre-push')
+    d = os.path.dirname(dest)
+    if not os.path.isdir(d):
+        os.makedirs(d)
     if os.path.exists(dest):
         cur = io.open(dest, 'rb').read()
         if cur == src_bytes:
@@ -132,8 +144,24 @@ def install(repo_path, src_bytes):
 
 
 def exercise(name, repo):
-    """### RUN BOTH POLARITIES AGAINST `main`, UNDER `--dry-run`, AND CLEAN UP AFTER."""
+    """### RUN BOTH POLARITIES AGAINST `main`, UNDER `--dry-run`, AND CLEAN UP AFTER.
+
+    ### ### ### **AND IT REFUSES A DIRTY TREE, ADDED b371 AFTER THIS FUNCTION DESTROYED FOUR
+    ### ### ### REPOSITORIES' UNCOMMITTED WORK.**
+    ### The throwaway commit goes on a scratch branch, and ### **A SCRATCH BRANCH CARRIES WHATEVER IS
+    ### ### UNCOMMITTED; DELETING THE BRANCH DELETES THE WORK WITH IT.**
+    ### ### **THIS DEFECT HAS BEEN HERE SINCE b304 AND HAS NEVER FIRED**, because this tool has only
+    ### ever been run in the closing sequence, AFTER the push, when every tree is clean. ### `b371` ran
+    ### it mid-act on dirty trees and it ate the act's own staged guard, twice.
+    ### ### **A GUARD-CHECKER THAT IS SAFE ONLY BECAUSE OF WHEN IT HAPPENS TO BE CALLED IS NOT SAFE.**
+    ### It is now safe because it checks."""
     results = {}
+    dirty = [x for x in git(repo, 'status', '--porcelain')[1].splitlines()
+             if x.strip() and not x.startswith('??')]
+    if dirty:
+        return {'skipped': True, 'reason': 'working tree carries %d uncommitted path(s)' % len(dirty),
+                'negative': None, 'positive': None, 'head_ok': None, 'remote_ok': None,
+                'branch_restored': None}
     rc, start_branch, _e = git(repo, 'rev-parse', '--abbrev-ref', 'HEAD')
     rc, head_before, _e = git(repo, 'rev-parse', 'HEAD')
     rc, remote_before, _e = git(repo, 'ls-remote', 'origin', 'refs/heads/main')
@@ -183,6 +211,14 @@ def main(argv):
     src = io.open(SOURCE, 'rb').read()
     print()
     print('  tracked source : tools/git-hooks/pre-push')
+    print('  installed at   : %s/pre-push in each repo ### **TRACKED; A CLONE CARRIES IT**'
+          % HOOKS_DIR)
+    for _n, _p in REPOS:
+        _v = subprocess.run(['git', '-C', _p, 'config', '--get', 'core.hooksPath'],
+                            capture_output=True, text=True).stdout.strip()
+        print('    %-22s core.hooksPath = %-14s ### %s'
+              % (_n, repr(_v), 'READS THE TRACKED DIR' if _v == HOOKS_DIR
+                 else '### **NOT SET -- THE TRACKED COPY IS INERT HERE**'))
     print('  bytes / sha256 : %d / %s' % (len(src), sha256_bytes(src)))
     print()
 
@@ -215,6 +251,16 @@ def main(argv):
         if not os.path.isdir(os.path.join(path, '.git')):
             continue
         r = exercise(name, path)
+        if r.get('skipped'):
+            # ### **A SKIP IS NOT A PASS AND IS NOT A FAILURE OF THE GUARD.** ### It is this tool
+            # ### refusing to put uncommitted work on a throwaway branch, and it counts as a FAILURE of
+            # ### the RUN so nobody reads a skipped exercise as an exercised one.
+            fails += 1
+            print('  %-22s ### **SKIPPED -- %s. ### THE GUARD IS NOT EXERCISED HERE.**'
+                  % (name, r['reason']))
+            print('        ### **RUN THIS AFTER THE PUSH, WHEN THE TREE IS CLEAN** -- which is where')
+            print('        ### the closing sequence has always run it.')
+            continue
         good = (r['negative'] == 'REFUSED' and r['positive'] == 'ALLOWED'
                 and r['head_unchanged'] and r['remote_unchanged'] and r['branch_restored'])
         fails += 0 if good else 1

@@ -1,0 +1,107 @@
+{
+ "outcome": "MADE DURABLE",
+ "tracked_dir": ".githooks",
+ "source_bytes": 3068,
+ "placed": {
+  "relay": {
+   "path": ".githooks/pre-push",
+   "bytes": 3068,
+   "identical": true,
+   "existed_before": true,
+   "tracked": true
+  },
+  "SIDE-global-section": {
+   "path": ".githooks/pre-push",
+   "bytes": 3068,
+   "identical": true,
+   "existed_before": true,
+   "tracked": true
+  },
+  "PLACE-papers": {
+   "path": ".githooks/pre-push",
+   "bytes": 3068,
+   "identical": true,
+   "existed_before": true,
+   "tracked": true
+  },
+  "SIDE-effects": {
+   "path": ".githooks/pre-push",
+   "bytes": 3068,
+   "identical": true,
+   "existed_before": true,
+   "tracked": true
+  }
+ },
+ "config": {
+  "relay": ".githooks",
+  "SIDE-global-section": ".githooks",
+  "PLACE-papers": ".githooks",
+  "SIDE-effects": ".githooks"
+ },
+ "exercise": {
+  "relay": {
+   "exercised": false,
+   "reason": "the working tree carries uncommitted work; exercising it here would put that work on a throwaway branch",
+   "dirty": 2
+  },
+  "SIDE-global-section": {
+   "exercised": false,
+   "reason": "the working tree carries uncommitted work; exercising it here would put that work on a throwaway branch",
+   "dirty": 1
+  },
+  "PLACE-papers": {
+   "exercised": false,
+   "reason": "the working tree carries uncommitted work; exercising it here would put that work on a throwaway branch",
+   "dirty": 1
+  },
+  "SIDE-effects": {
+   "exercised": true,
+   "negative": {
+    "want": "REFUSED",
+    "refused": true,
+    "got": "REFUSED",
+    "ok": true,
+    "text": [
+     "pre-push: REFUSED \u2014 pushes to main only from push-*/repair-* branches (Rule 4.10); current branch: hookcheck-b371"
+    ]
+   },
+   "positive": {
+    "want": "ALLOWED",
+    "refused": false,
+    "got": "ALLOWED",
+    "ok": true,
+    "text": []
+   },
+   "head_unmoved": true,
+   "branch_restored": true
+  }
+ },
+ "failing": [],
+ "deferred": [
+  "relay",
+  "SIDE-global-section",
+  "PLACE-papers"
+ ],
+ "exercised_here": 1,
+ "polarity_bar_met_by": "tools/b304_hooks.py, after the push",
+ "old_location_present": {
+  "relay": true,
+  "SIDE-global-section": true,
+  "PLACE-papers": true,
+  "SIDE-effects": true
+ },
+ "old_location_deleted": false,
+ "residual_step": "git config core.hooksPath .githooks",
+ "residual_named": true,
+ "clone_is_guarded": false,
+ "guard_front_matter_stale": true,
+ "guard_front_matter_repaired": false,
+ "repos": [
+  "relay",
+  "SIDE-global-section",
+  "PLACE-papers",
+  "SIDE-effects"
+ ],
+ "run_file": "b371_hookpath_notes4.txt",
+ "run_clock": "2026-09-08T15:41:21Z"
+}

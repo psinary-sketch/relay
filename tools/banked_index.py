@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'count-claim-stale': ['the count claim', 'the first target', 'the row inventory',
+                         'the desk closes', 'the hook made durable'],
     'apparatus-arc-fold': ['the apparatus arc', 'the fold b361', 'the span counted',
                           'the three mints', 'the durability split'],
     'list-repaired-in-place': ['the list repaired', 'the list repaired in place',
@@ -610,6 +612,33 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FIRST TARGET SETTLED, THE DESK CLOSED, THE GUARD MOVED (b371).
+    ("count-claim-stale", "b371 (one settling, one inventory listed and not checked, one guard moved to a tracked path; it opens no kernel for any row and runs no build)",
+     "THE ONE CONFIRMED LIVE CLAIM IS STALE, AND IT WAS EXACT WHEN IT WAS WRITTEN. The construction kernel public description named a Core figure of 114; the printed profile carried exactly"
+     " that at tag v0.1.0; the repository is 168 commits past that tag and its profile now carries 590. THE TEST WAS FIXED BEFORE THE READ: SCOPE-DEPENDENT requires that the"
+     " two words count DIFFERENT THINGS, and STALE is what remains when they count THE SAME THING AT DIFFERENT REFS. They count the same thing -- the zero-axiom print count of Core -- so the verdict is"
+     " STALE and not scope-dependent. AND THE ARITHMETIC COINCIDENCE IS REPORTED AS A COINCIDENCE AND NOT PROMOTED TO A SCOPE: the record names summands that add to the figure, but they are the"
+     " composition of the tag own count, not a subset of a larger present one. THE DESCRIPTION CARRIED NO REF, TAG, VERSION OR DATE AT ALL, which is why the figure read as current. It is repaired, the"
+     " original preserved in the bank because a description has no history. THE DESK CLOSED FOR THE FIRST TIME under (R7): 12 items swept, 3 closed, 9 standing, 0 closures refused for want"
+     " of a killing file. SCAFFOLD-TERMINALS is CLOSED after b157, b367, b368 and b369. THE GUARD IS MADE DURABLE: .githooks/pre-push, TRACKED, in each of the 4 rostered repositories, exercised in both"
+     " polarities with 0 failing. THE ROW INVENTORY: 320 rows name a kernel and a terminal, 201 with a pin and 119 with none, across 349 tracked markdown files.",
+     "### THE ROWS ARE LISTED AND NOT CHECKED: ROWS CHECKED 0, KERNELS OPENED 0, and the sweep claims no completeness because a row whose pin is written in a shape the predicate does"
+     " not know is reported PINLESS. ### A ROW WITHOUT A PIN CANNOT BE CHECKED THE WAY (R6) SPECIFIES, which checks a row at the kernel and pin the row itself names -- a finding, not a hole in the"
+     " sweep. ### 12 rows name a declaration this record has already classified absent: a CROSS-REFERENCE against a banked finding and NOT A CHECK, and a row so flagged is not thereby wrong. ###"
+     " ONE OF THE ORDER THREE RANKING FACTORS CANNOT BE FILLED WITHOUT OPENING A KERNEL, so it is recorded NOT FILLED for every row. ### A CLONE IS NOT GUARDED: core.hooksPath is local config in an"
+     " untracked .git/config, so a clone carries the guard and still needs one command; MADE DURABLE is the order word for what was done, not a claim that it is done. THE OLD LOCATION IS LEFT INERT --"
+     " a safety net and a trap. ### THE KERNEL OWN README IS NOT REPAIRED: its headline says 212, its own breakdown sums to 250, its ratio says 250/250, and the profile it ships"
+     " carries 590 -- ROUTED, and it is the SHARPER half because the README travels with a clone and the description does not. ### THE GUARD OWN FRONT MATTER IS NOT REPAIRED EITHER: moving the guard"
+     " made its install line wrong, and an act auditing stale surfaces made one. ### NO ITEM CLOSED WITHOUT ITS KILLING FILE AND DATE, and one closure is flagged because its killing file is this act"
+     " own. ### NO ACT IS RE-VERDICTED: (R7) reverses a disposition b368, b369 and b370 each carried, and each obeyed the rule it was given -- the author changed the rule. ### NO LEAN FILE TOUCHED, NO"
+     " BUILD RUN, NO AXIOM PROFILE RECOMPUTED. ### NOTHING COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### M-2 UNCHANGED",
+     "data/b371_the_first_target.txt; data/b371_extract_notes2.txt; data/b371_settle_notes.txt; data/b371_repair_desc_notes2.txt;"
+     " data/b371_inventory_notes2.txt; data/b371_hookpath_notes3.txt; data/b371_desk_notes.txt; data/b371_filing_notes2.txt;"
+     " data/b371_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b371_settle.py (the two refs, the deciding equality and the coincidence refused); tools/b371_inventory.py (the declared predicate, the sweep and the price);"
+     " tools/b371_hookpath.py (the guard moved to a tracked path and exercised); tools/b371_desk.py ((R7), with every closure required to name a killing file);"
+     " SIDE-global-section public DESCRIPTION (repaired; original preserved in the bank) and .githooks/pre-push (NEW, TRACKED); tools/b304_hooks.py (the one licensed owner instrument, following the guard);"
+     " PLACE-papers OPEN_TRAILS.md (SCAFFOLD-TERMINALS CLOSED, an append-only block; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 220"),
     # ### THE APPARATUS ARC, b361-b369 -- THE FOLD (b370).
     ("apparatus-arc-fold", "b370 (a fold; it proves nothing, discharges nothing and moves no grade -- plus one owner instrument repaired and three lore modules minted)",
      "THE FOLD, b361 THROUGH b369 -- 9 ACTS, THE SPAN COUNTED AND NOT TYPED. The counter reads the last fold section own filing line off FINDINGS.md and counts"
