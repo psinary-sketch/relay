@@ -1,0 +1,186 @@
+====================================================================================================
+b361 -- GATE SUITE (THE HELD ITEM, DECIDED)
+====================================================================================================
+
+  OWNER NEEDLES (each at the file that EMITTED it, each also IN THE RELIED-ON EXTRACT FILE):
+    PASS  the order -- leg 1
+    PASS  the order -- the branch, fixed before the quotation is seen
+    PASS  the order -- the circularity clause over both branches
+    PASS  the order -- the ledger condition
+    PASS  b358 -- the item
+    PASS  b358 -- the cap clause
+    PASS  b358 -- the grade class the item sits in
+    PASS  b358 -- H-CUSP, inherited and not decided
+    PASS  the draft -- its parking claim, quoted as a claim
+    PASS  source -- the definition of the constant
+    PASS  source -- the archimedean factor
+    PASS  source -- the conductor of the trivial representation, stated
+    PASS  source -- Theorem 5.1's own hypothesis
+    PASS  source -- the ABSOLUTE implied constant
+    PASS  source -- the introduction's version, for all n >= 1
+    PASS  source -- and ITS constant depends on pi
+
+  SELF NEEDLES:
+    PASS  the bank states the verdict first
+    PASS  ### the value is identified, not quoted
+    PASS  ### the circularity finding stands
+    PASS  ### the rule that bound the seat
+    PASS  ### the branch taken
+    PASS  ### the draft's claim tested rather than inherited
+    PASS  ### bar 2 met
+    PASS  ### H-CUSP inherited and not decided
+    PASS  ### the two statements, side by side
+    PASS  ### the reader ran five times, declared
+    PASS  ### the shell patch that failed, declared
+    PASS  ### the navigator's second clause refuted by a quotation
+    PASS  ### what a vacuous condition means
+    PASS  ### the shadow
+
+  MUST-FAIL FIXTURES (whole-line equality, never substring):
+    PASS  the bank never says the tail is closed
+    PASS  the bank never says the circularity is removed
+    PASS  the bank never says a grade is conferred
+    PASS  the bank never says the value is recalled
+
+  G-QUOTE (the extract located every read on its first run; no quotation typed from memory):
+    35 of 35 reads located, 0 without an anchor : True ; the run file says so : True
+    and the LOCKED registration fixed the rule against recollection : True
+    PASS
+
+  G-BRANCH (the branch decided on the quoted text; the other shown unreachable):
+    branch A, verdict DECIDED : True ; the run says so : True
+    the other branch shown unreachable : True ; the draft tested not inherited : True
+    PASS
+
+  G-DEFINITION (bar 2: the definition located at content; the VALUE not quoted from the source):
+    the definition located at content : True ; the value NOT stated in the source : True
+    the act says so : True / True ; the value : kappa=0 K=0 : True
+    PASS
+
+  G-SCOPE (the tail untouched; the circularity untouched; H-CUSP inherited; no grade conferred):
+    an index condition and nothing else : True ; the circularity stands : True
+    H-CUSP inherited : True ; no grade conferred, row grade 'NAMED-ONLY, UNCHANGED' : True
+    and the bank says a decided condition is not a closed tail : True
+    PASS
+
+  G-LEDGER (the row moved, and it moved ONLY because the decision moved it; through the writer) ### the ancestry reading READ BEFORE THE PUSH:
+    the decision moves the row : True ; written through the writer as an update block : True
+    the block appears once : True ; the ledger a true prefix of its blob : True
+    the grade is unchanged : True (NAMED-ONLY, UNCHANGED)
+    PASS
+
+  G-ROW / G-ANCESTOR (row 210: NO TERMINAL with the reason) ### READ BEFORE THE PUSH:
+    row 210 present once : True ; true prefix of its blob : True
+    PASS
+
+  G-KEY / G-NOTDECIDED:
+    one key and one row : True ; the four overreadings NO KEY after : True ; the run passed : True
+    PASS
+
+  G-NOEDIT (no owner instrument; only this act's papers path touched) ### the working-tree half READ BEFORE THE PUSH; the blob half SIDE-INVARIANT:
+    owner instruments modified : none ; papers paths beyond FACES_LEDGER.md : none
+    HANDOFF clean : True ; the deposited monograph clean : True ; FINDINGS clean : True ; TECHNE clean : True
+    PASS
+
+  G-ORDER (the lock verifies; EVERY relied-on run is AFTER the lock; nothing before it) ### SIDE-INVARIANT:
+    the lock recomputes : True ; it carries its clock (2026-09-08T00:18:32Z) : True
+    ### **EVERY RELIED-ON RUN IS AFTER THE LOCK** : True
+        lock    2026-09-08T00:18:32Z
+        extract 2026-09-08T00:23:30Z   read 2026-09-08T00:26:08Z   ledger 2026-09-08T00:27:38Z
+    the audit reads JOINTLY SATISFIABLE : True ; the face says LOCKED BEFORE ANY READ : True
+    PASS
+
+  G-HOOK / G-MIRROR (the papers repo moves, so both are OWED) ### READ AFTER THE PUSH:
+    hook: 0 repos failing, all three byte-identical : True ; mirror clean on all three : True
+    ### **THE ROSTER SLOT EXERCISED: the faces ledger is IN the rebuilt archive** : True
+
+  G-NUMBERS (every number the bank quotes, read back from its producing record):
+    reads 35                                                 PASS
+    without an anchor 0                                      PASS
+    anchors differing 16                                     PASS
+    the source rendering sha256                              PASS
+    the source rendering bytes 97101                         PASS
+    b358's pin on the PDF                                    PASS
+    row 210                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    14057 bytes locked                                       PASS
+    49 clauses                                               PASS
+    the relied-on extract run file                           PASS
+    the relied-on read run file                              PASS
+
+  G-ONCE (the relied-on run files resolved by their own recorded clocks, never by name):
+    extract  b361_extract_notes.txt     clock on disk 2026-09-08T00:23:30Z == the JSON's 2026-09-08T00:23:30Z : True
+    read     b361_read5.txt             clock on disk 2026-09-08T00:26:08Z == the JSON's 2026-09-08T00:26:08Z : True
+    ledger   b361_faces_row_run.txt     clock on disk 2026-09-08T00:27:38Z == the JSON's 2026-09-08T00:27:38Z : True
+    PASS
+
+  G-NOCOMPUTE (nothing computed but one square of zero, RE-MEASURED ON STRIPPED CODE):
+    numerical calls in this act's STRIPPED sources : 0 
+    numerical libraries imported : none
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 22   struck-clause hits 0   stem hits 0  PASS
+    b361_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b361_ferry_2026-09-07.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b361_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b361_reg_termscan.txt                        struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b361_extract_notes.txt                       struck : 0  stem : 0  ### CARRIER -- the extract file carries the emitters' own words
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 210, the ledger block, the index row, swept):
+    row 210              struck : 0   stem : 0   (6161 chars)
+    the ledger block     struck : 0   stem : 0   (3657 chars)
+    the index row        struck : 0   stem : 0   (3104 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the branch, the route and the one square of zero     tools/b361_read.py                 exists=True tracked=True
+    the 35 reads and the 16 differing anchors            tools/b361_extract.py              exists=True tracked=True
+    the anchor built by reading its line                 tools/anchor_from_file.py          exists=True tracked=True
+    the U1 update block                                  tools/b361_faces_row.py            exists=True tracked=True
+    the ledger writer it imports                         tools/b327_faces_row.py            exists=True tracked=True
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    row 210                                              tools/b361_correspondence.py       exists=True tracked=True
+    the key                                              tools/b361_index_append.py         exists=True tracked=True
+    49 clauses                                           tools/b361_regspec.py              exists=True tracked=True
+    14057 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    0/0 on the scans                                     tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                            tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                              tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                             tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the row, the ledger block and the index row):
+    b361_the_held_item.txt                         sentences=426   graded-hedges=0   ungraded-shapes=111
+    b361_registration_2026-09-07.txt               sentences=277   graded-hedges=0   ungraded-shapes=64
+    b361_ferry_2026-09-07.txt                      sentences=107   graded-hedges=0   ungraded-shapes=19
+    b361_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=4
+    b361_index_run.txt                             sentences=28    graded-hedges=0   ungraded-shapes=11
+    b361_census_stepzero.txt                       sentences=7     graded-hedges=0   ungraded-shapes=1
+    b361_faces_census_stepzero.txt                 sentences=11    graded-hedges=0   ungraded-shapes=2
+    b361_regspec_run.txt                           sentences=27    graded-hedges=0   ungraded-shapes=2
+    audit_b361_reg_satisfiable.txt                 sentences=157   graded-hedges=0   ungraded-shapes=19
+    b361_pins_stepzero.txt                         sentences=22    graded-hedges=0   ungraded-shapes=1
+    b361_reg_gate.txt                              sentences=20    graded-hedges=0   ungraded-shapes=2
+    b361_reg_termscan.txt                          sentences=26    graded-hedges=0   ungraded-shapes=2
+    b361_extract_notes.txt                         sentences=193   graded-hedges=0   ungraded-shapes=22
+    b361_read5.txt                                 sentences=285   graded-hedges=0   ungraded-shapes=52
+    b361_faces_row_run.txt                         sentences=40    graded-hedges=0   ungraded-shapes=8
+    b361_regspec.py                                sentences=121   graded-hedges=0   ungraded-shapes=19
+    b361_extract.py                                sentences=205   graded-hedges=0   ungraded-shapes=30
+    b361_read.py                                   sentences=431   graded-hedges=0   ungraded-shapes=54
+    b361_faces_row.py                              sentences=189   graded-hedges=0   ungraded-shapes=36
+    b361_correspondence.py                         sentences=177   graded-hedges=0   ungraded-shapes=42
+    b361_index_append.py                           sentences=173   graded-hedges=0   ungraded-shapes=34
+    row 210                                        sentences=33    graded-hedges=0   ungraded-shapes=22
+    the ledger block                               sentences=24    graded-hedges=0   ungraded-shapes=12
+    the index row                                  sentences=40    graded-hedges=0   ungraded-shapes=17
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles unpullable : 0 ; owner needles not in the extract file : 0
+====================================================================================================

@@ -1,0 +1,38 @@
+==============================================================================
+MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
+  archive: D:/MY-DOwnloads/mirror-refresh-2026-09-07.zip
+==============================================================================
+
+--- CLAUSE 1: THE ARCHIVE AGAINST ITS OWN MANIFEST ---
+  files in archive (excl MANIFEST) : 42
+  rows parsed from MANIFEST        : 42
+  md5 / byte mismatches            : 0
+  CLAUSE 1 : CLEAN
+
+--- CLAUSE 2: THE BUILD'S SOURCE HEAD AGAINST ls-remote ---
+  manifest declares source HEAD    : d742a6b
+  ls-remote origin/main              : d742a6b8bc862dafec925ce0879b49e62bb8693d
+  CLAUSE 2 : CLEAN -- they agree
+
+--- CLAUSE 3: THE ARCHIVE'S CONTENTS AGAINST THE ROSTER ---
+  roster entries (source paths) : 42
+  archive files (excl MANIFEST) : 42
+  in roster, MISSING from archive : 0
+  in archive, NOT in roster       : 0
+  CLAUSE 3 : CLEAN -- archive and roster agree, name for name
+
+  ### VERDICT: CLEAN ON ALL THREE CLAUSES
+  ### NO CLAUSE ALONE IS THE VERIFICATION; THE LAW REQUIRES ALL THREE.
+  ### clause 1 is the archive against ITSELF, clause 2 is the pin, and
+  ### clause 3 is the archive against the ROSTER -- ### THE ONLY ONE OF THE
+  ### THREE THAT CAN SEE A FILE THAT NEVER ENTERED THE STAGING DIRECTORY.
+
+--- THE ROSTER SLOT b360 ADDED, EXERCISED FOR THE FIRST TIME (b361) ---
+  archive files (excl MANIFEST)          : 42
+  ### **FACES_LEDGER.md IS IN THE REBUILT ARCHIVE : True**
+  and the copy in the archive is byte-identical to the pushed source : True
+  ### ### **THIS IS THE FIRST FACES UPDATE EVER TO REACH THE ARCHIVE.** ### b359 found the ledger
+  ### absent from the roster and routed it; b360 added the row on the author's ruling; b361 is the
+  ### first act to write the ledger with that row in place, so the slot is EXERCISED rather than
+  ### merely present.
+  ### **AND CARRYING A LEDGER IN AN ARCHIVE SAYS NOTHING ABOUT WHETHER WHAT THE LEDGER SAYS IS TRUE.**
