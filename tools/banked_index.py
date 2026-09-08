@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'scaffold-not-located': ['the scaffold terminals', 'grh_exclusion', 'no_ls_zero',
+                            'twist_cancels', 'the scaffold repair'],
     'dated-arm-sweep': ['the dated-arm sweep', 'the rewrite rule', 'gate_content',
                        'the standing check', 'address predicate'],
     'cuspidality-convention': ['the cuspidality convention', 'the convention is located',
@@ -600,6 +602,29 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SCAFFOLD REPAIR, NOT LOCATED (b367).
+    ("scaffold-not-located", "b367 (a location and a read; it prices nothing, writes no Lean and runs no build)",
+     "NOT LOCATED. The scaffold terminals do not exist. Searching the kernel own six .lean files at SIDE-effects ref main = afa9ccf for the names the ledger carries"
+     " -- grh_exclusion, twist_cancels, no_ls_zero -- gives 0 LIVE DECLARATIONS. There are 3 mentions and EVERY ONE IS INSIDE A COMMENT: Structural.lean own RETIREMENT LEDGER,"
+     " recording that they were removed and why. SIDE-grh-transfer at ref 858cbf6 carries 0 occurrences. THE HINT WAS SCORED AGAINST WHAT WAS FOUND: the kernel and the"
+     " structural module CONFIRMED and the two subjects CONFIRMED as the ledger own headings, but THE BRANCH CLAUSE IS CORRECTED (the working head is main and is ahead of both feature branches, with"
+     " 0 branches carrying work the read ref lacks), THE COUNT IS CORRECTED (the ledger retires NINE framework consequences; the two subjects carry THREE named declarations), and THE"
+     " CHARACTERISATION trivially true IS CORRECTED BY THE KERNEL OWN DISTINCTION -- the audit separates True-valued stubs from opaque-Prop templates and files these two as opaque-Prop. THE HINT"
+     " NAMED THE RIGHT TERMINALS AND THE WRONG DEFECT. AND THE RECORD ALREADY FOUND THIS ON 2026-08-25 (b157). THE LIVE DEFECT IS NOT THE SCAFFOLD: the front document AGENTS.md exports 20 named"
+     " theorems at Layer 1 of which 18 are ABSENT from the source, exactly b157 figure, unmoved. 35 reads located, 12 anchors differing from the hint that found them.",
+     "### NOT LOCATED IS A FULL VERDICT AND NOT A FAILURE OF THE SEARCH. ### THE THREE ROUTES ARE NOT PRICED, CHOSEN OR RECOMMENDED -- all three take the terminal as their input and there is no"
+     " terminal; the cap says NOT LOCATED stops the act. ### AND ROUTE (c) IS ALREADY WHAT HAPPENED: the kernel did not price deletion, it deleted, and the retirement ledger IS that route executed."
+     " ### NO LEAN FILE IS WRITTEN, NO TERMINAL REPLACED, NO STATEMENT PROVED, NO BUILD RUN, and not one byte of either kernel changed. ### NOTHING IS CLAIMED ABOUT THE MATHEMATICS OF EITHER"
+     " SUBJECT: no statement was read, because the kernel holds none. ### THE RETIREMENT IS REPORTED, NOT ENDORSED. ### THE 18-OF-20 FIGURE IS A COUNT AGAINST THE KERNEL OWN SIX .lean FILES AND IS"
+     " NOT A CLAIM THAT THE KERNEL IS EMPTY. ### WHAT THE RECORD SANCTIONS IS REPORTED AND NOT RECOMMENDED: of INTERFACES it says this is a legitimate architecture, not a defect, and it uses it at"
+     " Route 3 own terminal; and ENCODES-CONCLUSION / SHELL is already classified a work-order, not a citation, so the ban on these two was never a special rule. ### NO ACT IS RE-VERDICTED: b157"
+     " finding is CONFIRMED AS STILL LIVE. ### NO GRADE IS CONFERRED BY A SEAT. ### NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE"
+     " CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b367_the_scaffold_repair.txt; data/b367_locate_run.txt; data/b367_extract_notes2.txt; data/b367_filing_notes2.txt;"
+     " data/b367_registration_2026-09-07.txt (LOCKED before any read of the kernel, on the audit own exit code);"
+     " tools/b367_locate.py (the refs, the live-vs-mention split, the front-document count and the bounded sweep);"
+     " SIDE-effects at main = afa9ccf and SIDE-grh-transfer at main = 858cbf6, both READ and neither written;"
+     " PLACE-papers OPEN_TRAILS.md (SCAFFOLD-TERMINALS marked NOT LOCATED, an append-only block; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 216"),
     # ### THE DATED-ARM SWEEP (b366).
     ("dated-arm-sweep", "b366 (a classification and a rule; it repairs nothing and rules nothing)",
      "3 DATED ARMS IN THE WHOLE RECORD, OUT OF 1255 ARMS ACROSS 146 GATE SUITES, and 2 of the 3 are ONE SUBSTITUTION FROM STANDING. The third is not harder to"

@@ -1,0 +1,110 @@
+### run at (UTC) : 2026-09-08T04:10:58Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b367 -- THE LOCATION, THE READ AND THE SWEEP. ### **A READ. ### NO BUILD. ### NO WRITE.**
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+  ### the needle helper fixtures, run before it is trusted : True
+
+----------------------------------------------------------------------------------------------------
+  ### (0) BAR 2 -- THE REFS. ### **THE ACT NAMES THE REF IT READ AND THE REFS IT DID NOT.**
+----------------------------------------------------------------------------------------------------
+    SIDE-effects           READ AT ref `main` = `afa9ccf`   (working tree dirty : False)
+        ### not read : `w-ladder-skeleton         ` -- the read ref is 1 ahead of it, it is 0 ahead of the
+        ### read ref.
+        ### not read : `w4-recovery-2026-07-13    ` -- the read ref is 5 ahead of it, it is 0 ahead of the
+        ### read ref.
+    SIDE-grh-transfer      READ AT ref `main` = `858cbf6`   (working tree dirty : False)
+    ### ### **BRANCHES CARRYING WORK THE READ REF DOES NOT HAVE : 0** ### -- so a read of the
+    ### checked-out ref misses nothing.
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE LOCATION. ### **LIVE DECLARATIONS VS MENTIONS.**
+----------------------------------------------------------------------------------------------------
+
+    ### subject from the hint : **GRH**
+      `grh_exclusion`          LIVE DECLARATIONS : 0 ; mentions : 1
+          SIDEEffects/Structural.lean:79  (inside a comment : True)
+            | --     exhaustiveness analog). (Retired: opaque-Prop `grh_exclusion`,
+      `twist_cancels`          LIVE DECLARATIONS : 0 ; mentions : 1
+          SIDEEffects/Structural.lean:80  (inside a comment : True)
+            | --     `twist_cancels : balance ↔ balance`.)
+      `formation_preserved_grh` LIVE DECLARATIONS : 0 ; mentions : 0
+
+    ### subject from the hint : **Landau-Siegel**
+      `no_ls_zero`             LIVE DECLARATIONS : 0 ; mentions : 1
+          SIDEEffects/Structural.lean:84  (inside a comment : True)
+            | --     opaque-Prop `no_ls_zero`.)
+
+    ### ### **LIVE DECLARATIONS FOUND : 0.** ### mentions : 3, every one inside a comment : True
+
+----------------------------------------------------------------------------------------------------
+  ### (2) AND THE SAME NAMES WHERE THE LEDGER POINTS INSTEAD.
+----------------------------------------------------------------------------------------------------
+    `SIDE-grh-transfer` occurrences of any hinted name : 0
+    ### ### **SO THE NAMES ARE NOT LIVE THERE EITHER.**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE FRONT DOCUMENT. ### **WHAT IT EXPORTS AGAINST WHAT THE SOURCE HAS.**
+----------------------------------------------------------------------------------------------------
+    Yang-Mills mass gap layer                      line 62    names 5
+    GRH layer                                      line 63    names 3
+    Landau-Siegel layer                            line 64    names 1
+    Additive-multiplicative / Type-D layer         line 65    names 4
+    BSD layer                                      line 66    names 4
+    Artin layer                                    line 67    names 1
+    Shared engine                                  line 68    names 2
+
+    ### ### **NAMES THE FRONT DOCUMENT EXPORTS AT LAYER 1 : 20.**
+    ### ### **PRESENT IN THE SOURCE : 2  ### -- ABSENT : 18.**
+    ### present : no_type_d, formation_seven
+    ### ### **AND THE THREE THE HINT NAMES ARE AMONG THE ABSENT : True**
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE CITATION SWEEP. ### **BOUNDED, AND IT SAYS WHERE IT LOOKED.**
+----------------------------------------------------------------------------------------------------
+    relay                  hits 48   in 14 tracked file(s)
+        HANDOFF.md
+        data/b157_federation_survey.txt
+        data/b157_registration_2026-08-25.txt
+        data/b158_selection.txt
+        data/b77_reacquaintance.txt
+        reports/2026-07-13-w4-screening.md
+        reports/2026-08-14-four-rulings-close-and-side-effects-conflict.md
+        reports/2026-08-14-item6-compliance-and-phase-map.md
+    SIDE-global-section    hits 0    in 0 tracked file(s)
+    PLACE-papers           hits 21   in 7 tracked file(s)
+        OPEN_TRAILS.md
+        SPIRAL_MAP.md
+        VERIFICATION_LOOM.md
+        archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md
+        archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md
+        archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md
+        phase2/method/THE_GLOBAL_SECTION.md
+    SIDE-effects           hits 7    in 2 tracked file(s)
+        AGENTS.md
+        SIDEEffects/Structural.lean
+    SIDE-grh-transfer      hits 0    in 0 tracked file(s)
+    ### ### **AN ABSENCE FOUND BY THIS SEARCH IS AN ABSENCE FROM THESE FIVE REPOSITORIES**, and
+    ### is reported in those words rather than as an absence from the record.
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE AXIOM PROFILE. ### **READ, NEVER RUN.**
+----------------------------------------------------------------------------------------------------
+    AXIOM_PRINTS.txt       present in the kernel : False
+    AxiomCheck.lean        present in the kernel : False
+    ### ### **NO PRINTED PROFILE COVERS THE HINTED NAMES : True**
+    ### **AND THE REASON IS NOT A MISSING FILE. ### IT IS THAT THERE IS NOTHING TO PROFILE:**
+    ### a profile is a statement about a declaration, and no such declaration exists.
+    ### **NO BUILD WAS RUN, WHICH THE CAP FORBIDS.**
+
+====================================================================================================
+  ### (6) THE VERDICT.
+====================================================================================================
+    ### ### ### **NOT LOCATED** ### -- no live declaration of any hinted name exists in the kernel at the ref read.
+    ### **AND THE CAP IS EXPLICIT: `NOT LOCATED stops the act`.** ### The three routes are NOT
+    ### priced, because pricing a route to replace a terminal that does not exist would be
+    ### pricing work against this seat’s own reading of a hint.
+    ### **WHAT IS REPORTED INSTEAD IS WHAT WAS SEARCHED AND WHERE**, which is above, and what
+    ### the kernel says happened to them, which is quoted in the bank.
+====================================================================================================
