@@ -1,0 +1,37 @@
+### run at (UTC) : 2026-09-08T05:21:35Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b368 -- ADDITION THREE: THE APPEND-ONLY CURRENCY BLOCK.
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+  ### the classification, read from the classifier and not typed : {'RETIRED': 18, 'PRESENT': 2}
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE BRANCH, DECIDED BY THE CLASSIFICATION.
+----------------------------------------------------------------------------------------------------
+    every exported name has a kind : True ; the kinds partition the list : True
+    ### ### **SO A BLOCK CAN SAY WHAT IS PRESENT, WHAT IS RETIRED AND WHERE THE RETIREMENTS
+    ### ### ARE RECORDED, WITHOUT EDITING A SENTENCE : True**
+    ### ### ### **BRANCH TAKEN: (APPEND-ONLY RECONCILIATION).**
+    ### **(PRICED AND ROUTED) -- UNREACHABLE**, because reconciliation needs no existing
+    ### sentence changed, and the append-only test below decides that mechanically.
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE APPEND.
+----------------------------------------------------------------------------------------------------
+    bytes before : 10157 ### after : 13364 ### grew by : 3207
+    ### ### **THE FILE BEFORE IS A TRUE PREFIX OF THE FILE AFTER : True**
+    ### ### **THE COMMITTED BLOB IS A TRUE PREFIX OF THE WORKING FILE : True**
+    ### **READ BEFORE THE PUSH** (`b352`), which is the reading that carries.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE VERIFICATION. ### **A CHECK ON THE BLOCK, NOT ON THE DOCUMENT.**
+----------------------------------------------------------------------------------------------------
+    lines in the block carrying the export shape `- **X**: `name`` : 0
+    absent names mentioned outside a status row : 0 []
+    ### ### **THE BLOCK EXPORTS NO ABSENT TERMINAL : True**
+    ### **AND THE CHECK IS ON THE BLOCK.** ### The list ABOVE it still exports 18 absent names,
+    ### and this act did not edit it -- which is the whole of what append-only means here.
+
+    ### ### **AND NO `.lean` FILE WAS TOUCHED : True** 
+====================================================================================================

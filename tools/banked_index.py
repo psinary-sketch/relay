@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'front-document-reconciled': ['the front document reconciled', 'the currency block',
+                                 'the layer-1 export list', 'the eighteen absent names',
+                                 'the desk freshness rule'],
     'scaffold-not-located': ['the scaffold terminals', 'grh_exclusion', 'no_ls_zero',
                             'twist_cancels', 'the scaffold repair'],
     'dated-arm-sweep': ['the dated-arm sweep', 'the rewrite rule', 'gate_content',
@@ -602,6 +605,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FRONT DOCUMENT RECONCILED, APPEND-ONLY (b368).
+    ("front-document-reconciled", "b368 (a live read, a classification and one appended block; it writes no Lean, runs no build and edits no sentence)",
+     "THE FRONT DOCUMENT IS RECONCILED BY AN APPENDED CURRENCY BLOCK, AND THE LIST ITSELF IS STILL WRONG. Of the 20 names AGENTS.md exports at Layer 1, 2 are declared in this kernel own"
+     " six .lean files and 18 are ABSENT, at SIDE-effects ref main = afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd, pinned by ls-remote before the first classification and unmoved since b367. THE EIGHTEEN WERE"
+     " RE-DERIVED AND NOT CARRIED: b367 constant is held in the classifier as a COMPARISON ONLY and is never an input to the count, and the two independent derivations AGREE. EVERY ABSENT NAME IS"
+     " RETIRED: RENAMED 0, NEVER EXISTED 0. Each is classified on its own evidence and none from its own sound -- the ledger names the declaration, or its layer entry records the removal, or the"
+     " repository own history shows the name present in an earlier commit and gone now, and that third kind is why no name is NEVER EXISTED. RENAMED 0 IS A REFUSAL, NOT AN ABSENCE OF LOOKING: a"
+     " successor was accepted only from a declared mapping, the mapping is deliberately empty, and one resemblance -- a retired name and a live one differing only in case -- was MET AND REFUSED. AND"
+     " THE NEW FINDING, WHICH NEITHER b157 NOR b367 HAD: THE RETIREMENT LEDGER NAMES ONLY 9 OF THE 18. Another 8 are covered only by their layer entry, which"
+     " records that the layer skeletons were retired without listing which, and 1 HAS NO LEDGER ENTRY FOR ITS LAYER AT ALL -- THE LEDGER IS ACCURATE ABOUT WHAT IT SAYS AND INCOMPLETE"
+     " ABOUT WHAT IT NAMES, and the third group is the sharper half: there the ledger omits a name, here it omits a whole layer. 32 reads, 0 without an anchor.",
+     "### THE DOCUMENT IS ANNOTATED, NOT REPAIRED, AND THE HALF-REPAIR IS THE POINT: the Layer-1 list above the block STILL EXPORTS 18 ABSENT NAMES and this act did not edit it. A"
+     " reader who stops at the list is still misled; a reader who reaches the block is not. REPAIRING THE LIST EDITS SENTENCES, AND THAT IS THE AUTHOR DECISION. ### THE BRANCH WAS DECIDED BY THE"
+     " CLASSIFICATION, NOT CHOSEN: every exported name has a kind and the kinds partition the list, so the price-and-route branch was UNREACHABLE. ### APPEND-ONLY IS MECHANICAL AND WAS READ BEFORE"
+     " THE PUSH: the file before is a true prefix of the file after (True) and of its committed blob (True). ### THE BLOCK EXPORTS NOTHING -- 0 lines in the document own"
+     " export shape, 0 absent names outside a status row -- which is a check on the BLOCK, not on the document. ### NO .lean FILE WAS TOUCHED, NO BUILD WAS RUN, NO AXIOM PROFILE WAS COMPUTED"
+     " AND NO EXISTING SENTENCE WAS EDITED. ### THE RETIREMENTS ARE REPORTED, NOT ENDORSED. ### THE DESK-FRESHNESS RULE IS FILED as a TECHNE module, LOCAL ONLY, with b367 and b157 as incidents, and"
+     " IT STATES ITS OWN LIMIT: a tool can demand that an item CARRY a file and a date, and no tool can check that the named file still confirms it. ### THE SWEEP PRODUCED MARKS, NOT VERDICTS:"
+     " 9 of 9 CONFIRMED-BY-FILE, 0 UNCONFIRMED, 0 CLOSED -- and that result is WEAKER THAN IT LOOKS, because a file that mentions an item is not a file that confirms it."
+     " ### NO HOOK WAS INSTALLED and the absence of a pre-push hook in SIDE-effects is FILED AS A FINDING. ### NO ACT IS RE-VERDICTED: b157 and b367 are RE-MEASURED. ### NO GRADE IS CONFERRED BY A"
+     " SEAT. ### NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b368_the_front_document_reconciled.txt; data/b368_extract_notes2.txt; data/b368_classify_run2.txt; data/b368_reconcile_run2.txt;"
+     " data/b368_desk_notes3.txt; data/b368_filing_notes2.txt;"
+     " data/b368_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b368_classify.py (the live ref, the re-derivation and the per-name evidence); tools/b368_reconcile.py (the branch and the append-only arms);"
+     " tools/b368_desk.py (the rule and the sweep); SIDE-effects at main = afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd, READ and annotated but with no .lean file written;"
+     " SIDE-effects AGENTS.md (one appended currency block); PLACE-papers OPEN_TRAILS.md (SCAFFOLD-TERMINALS marked UPDATED, NOT CLOSED, an append-only block; FACES_LEDGER.md NOT written, no row moved);"
+     " TECHNE-Core modules/2026-09/DESK_FRESHNESS.md (local commit 961b9a2, NOT PUSHED); CORRESPONDENCE.md row 217"),
     # ### THE SCAFFOLD REPAIR, NOT LOCATED (b367).
     ("scaffold-not-located", "b367 (a location and a read; it prices nothing, writes no Lean and runs no build)",
      "NOT LOCATED. The scaffold terminals do not exist. Searching the kernel own six .lean files at SIDE-effects ref main = afa9ccf for the names the ledger carries"

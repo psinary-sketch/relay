@@ -1,0 +1,173 @@
+### run at (UTC) : 2026-09-08T05:48:23Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b368 -- THE RE-DERIVATION AND THE CLASSIFICATION. ### **NO FIGURE IS CARRIED.**
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+
+----------------------------------------------------------------------------------------------------
+  ### (0) ADDITION ONE -- THE REF, PINNED BY `ls-remote` BEFORE ANY CLASSIFICATION.
+----------------------------------------------------------------------------------------------------
+    ref            : `main`
+    local HEAD     : afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd
+    ls-remote      : afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd
+    ### ### **EQUAL : True** ### ; working tree dirty : False
+    ### **AND THE HEAD `b367` READ WAS `afa9ccf`. ### MOVED SINCE : False.**
+    ### **THE OTHER REFS, NOT READ:**
+        a0dc376fb825  refs/heads/w-ladder-skeleton
+        d0c4814a785d  refs/heads/w4-recovery-2026-07-13
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE FRONT DOCUMENT'S OWN EXPORT LINES, FOUND BY THEIR SHAPE.
+----------------------------------------------------------------------------------------------------
+    line 62    Yang-Mills mass gap layer                  names 5
+    line 63    GRH layer                                  names 3
+    line 64    Landau-Siegel layer                        names 1
+    line 65    Additive-multiplicative / Type-D layer     names 4
+    line 66    BSD layer                                  names 4
+    line 67    Artin layer                                names 1
+    line 68    Shared engine                              names 2
+    ### ### **NAMES THE FRONT DOCUMENT EXPORTS AT LAYER 1 : 20.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE RE-DERIVATION. ### **A DECLARATION IN THE KERNEL, OR NOT.**
+----------------------------------------------------------------------------------------------------
+    ### ### **PRESENT : 2 ### / ### ABSENT : 18.**
+    present : no_type_d, formation_seven
+
+    ### ### **THE DISAGREEMENT LINE, COMPUTED AND NOT ASSUMED.** ### `b367` reported `18`
+    ### absent at head `afa9ccf`. ### This act re-derives `18` at head `afa9ccf`.
+    ### ### **THEY AGREE : True.**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE CLASSIFICATION. ### **ONE ROW EACH, WITH ITS KIND’S OWN EVIDENCE.**
+----------------------------------------------------------------------------------------------------
+
+    all_gapped                 RETIRED        Yang-Mills mass gap layer
+        ledger line 69
+        | --   Yang-Mills mass gap
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    mass_gap                   RETIRED        Yang-Mills mass gap layer
+        ledger line 73
+        | --     (Retired: `gapped := True` on four sectors ⇒ `mass_gap : ¬Massless`;
+        named by the ledger itself
+
+    all_excluded               RETIRED        Yang-Mills mass gap layer
+        ledger line 69
+        | --   Yang-Mills mass gap
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    sectors_complete           RETIRED        Yang-Mills mass gap layer
+        ledger line 69
+        | --   Yang-Mills mass gap
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    gap_bounds                 RETIRED        Yang-Mills mass gap layer
+        ledger line 74
+        | --     `gap_bounds : 50 ≤ 170`. MetaKernel `ym_massless := False` likewise retired.)
+        named by the ledger itself
+
+    twist_cancels              RETIRED        GRH layer
+        ledger line 80
+        | --     `twist_cancels : balance ↔ balance`.)
+        named by the ledger itself
+
+    formation_preserved_grh    RETIRED        GRH layer
+        ledger line 76
+        | --   GRH
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    grh_exclusion              RETIRED        GRH layer
+        ledger line 79
+        | --     exhaustiveness analog). (Retired: opaque-Prop `grh_exclusion`,
+        named by the ledger itself
+
+    no_ls_zero                 RETIRED        Landau-Siegel layer
+        ledger line 84
+        | --     opaque-Prop `no_ls_zero`.)
+        named by the ledger itself
+
+    no_type_d                  PRESENT        Additive-multiplicative / Type-D layer
+        declared at SIDEEffects/Structural.lean:54
+        | theorem no_type_d (α : Type) (coupling modular : α → Prop)
+        axiom profile : NO PRINTED PROFILE
+        a printed profile covering this declaration was not located in the kernel; no build was run in its place
+
+    no_conspiracy_twins        RETIRED        Additive-multiplicative / Type-D layer
+        ledger line 91
+        | --     ⇒ `no_conspiracy_twins/goldbach/sg`.)
+        named by the ledger itself
+
+    no_conspiracy_goldbach     RETIRED        Additive-multiplicative / Type-D layer
+        ledger line 86
+        | --   Type-D — Twin Primes / Goldbach / Sophie Germain
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    no_conspiracy_sg           RETIRED        Additive-multiplicative / Type-D layer
+        ledger line 86
+        | --   Type-D — Twin Primes / Goldbach / Sophie Germain
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    all_bound                  RETIRED        BSD layer
+        ledger line 93
+        | --   BSD Ш-finiteness, full BSD
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    sha_bounded                RETIRED        BSD layer
+        ledger line 99
+        | --     `sha_bounded`, `bsd_full`. The `Sha_finite`/`sha_finite`/
+        named by the ledger itself
+
+    all_mismatch_absent        RETIRED        BSD layer
+        ledger line 93
+        | --   BSD Ш-finiteness, full BSD
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER DOES NOT NAME THIS DECLARATION.** ### Its LAYER entry is quoted instead, and the kernel’s own history shows the name was present and was removed
+
+    bsd_full                   RETIRED        BSD layer
+        ledger line 99
+        | --     `sha_bounded`, `bsd_full`. The `Sha_finite`/`sha_finite`/
+        named by the ledger itself
+
+    artin_from_grh             RETIRED        Artin layer
+        ledger line 105
+        | --     (Retired: opaque-Prop modus-ponens `artin_from_grh`.)
+        named by the ledger itself
+
+    side_exclusion             RETIRED        Shared engine
+        ledger line 0
+        | NO LEDGER ENTRY FOR THIS LAYER
+        history : 2 commit(s) changed this name in `.lean`
+        ### **THE LEDGER HAS NO ENTRY FOR THIS LAYER AT ALL.** ### Neither the declaration nor its layer is recorded, and the kernel’s own history is the whole of the evidence that it existed
+
+    formation_seven            PRESENT        Shared engine
+        declared at SIDEEffects/Structural.lean:41
+        | theorem formation_seven : 2 + 3 + 2 + 0 = 7 := rfl
+        axiom profile : NO PRINTED PROFILE
+        a printed profile covering this declaration was not located in the kernel; no build was run in its place
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE COUNTS.
+----------------------------------------------------------------------------------------------------
+    PRESENT          2
+    RETIRED          18
+    RENAMED          0
+    NEVER EXISTED    0
+    ### ### **AND THE RETIRED SPLIT, WHICH IS THIS ACT’S OWN FINDING ABOUT THE LEDGER:**
+    ### ### **NAMED BY THE LEDGER : 9 ### / ### COVERED ONLY BY THEIR LAYER’S ENTRY : 8 ###
+    ### ### / ### COVERED BY NEITHER, AND EVIDENCED BY THE HISTORY ALONE : 1.**
+    ### **THE THIRD GROUP IS THE SHARPER HALF OF THE FINDING:** ### the ledger is not merely
+    ### incomplete about the names it lists -- ### **FOR ONE LAYER IT HAS NO ENTRY AT ALL.**
+    ### **NO NAME WAS CLASSIFIED FROM ITS OWN SOUND: `RENAMED` ROWS EMITTED : 0**, and this
+    ### seat declared no successor -- the ledger’s pointers are pointers to GENUINE CONTENT,
+    ### which its own heading says, and `SIDE_exclusion` differs from `side_exclusion` only in
+    ### case. ### **THAT RESEMBLANCE IS EXACTLY WHAT THE ORDER’S BAR FORBIDS ACTING ON.**
+====================================================================================================
