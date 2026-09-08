@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'descriptive-layer-measured': ['the descriptive layer', 'the hedge audit', 'the glossary',
+                                  'the bibliography', 'the undated figures',
+                                  'the functional equation filing'],
     'rule-outruns-record': ['the pins ruling', 'the sourcing rule', 'the status column',
                            'cites at an unknown ref', 'the writing act'],
     'pin-is-a-date': ['the eol pin', 'the readme figures', 'the first batch',
@@ -616,6 +619,27 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE DESCRIPTIVE LAYER MEASURED, AND THE FUNCTIONAL EQUATION FILED (b374).
+    ("descriptive-layer-measured", "b374 (four measurements and one filing; it repairs nothing, grades no document, modifies no instrument and proves no theorem)",
+     "A COUNT OVER PROSE IS A COUNT OF SHAPES AND THE SHAPES ARE NOT FAULTS. The hedge audit was run UNMODIFIED over the keystone corpus and the deposited companions -- a surface it had"
+     " never covered. Per thousand sentences the keystones hedge 6.9, the deposited companions 7.6, the working notes 13.3; undated figures run 9.7 against "
+     " 8.7. THE GLOSSARY IS ENTIRELY CURRENT and its frozen twin diverges by nothing at all. The bibliography carries 69 entries, 51 pointing at an external work,"
+     " and 5 cited nowhere in the corpus but the register itself. The count-and-ref sweep lists 2965 figures across the roster stated without a ref, tag, version or"
+     " date IN THEIR OWN SENTENCE. And the functional equation is FILED at the level of the family, with both halves quoted from their own acts.",
+     "### NOTHING WAS REPAIRED IN ANY COMPONENT: no sentence rewritten, no entry rewritten, no figure dated, no document graded, no instrument modified. ### A HEDGE IS NOT A FAULT and"
+     " the count is not a score; a document that says this is conditional is doing what the record demands everywhere else. ### THE THIRD CLASS IS NAMED UNSOURCED EXPECTATION AND NOT"
+     " IMPORTED, because the predicate can see only that the document offers no source -- the second word would claim what the tool cannot see. ### AN EXTERNAL WORK WAS NEVER EXPECTED TO"
+     " LIVE IN THIS RECORD, so the bibliography test is stated as: is the entry still cited under that key. ### THE WINDOW FOR A REF IS THE SENTENCE AND THAT IS A DECLARED CHOICE; the"
+     " document-wide alternative is named so the author can disagree. ### THE LIST IS THE PRODUCT AND IT IS NOT RANKED, NOT PRIORITISED AND NOT A PLAN. ### THE FILING CARRIES ITS OWN"
+     " LIMIT IN ITS BODY AND NOT IN A FOOTNOTE -- none of the reflection is extended to the finite places -- and it joins nothing the two acts did not join. ### NO NEW MATHEMATICS, NO"
+     " GRADE CONFERRED OR MOVED, NO BAR SET. ### NO FROZEN SURFACE EDITED. ### NO PIN ADDED. ### CLOSING NOTHING IS THE RIGHT ANSWER FOR A LEG THAT MEASURES AND REPAIRS NOTHING. ### NO"
+     " LEAN FILE TOUCHED, NO BUILD RUN. ### NOTHING COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### M-2 UNCHANGED",
+     "data/b374_the_descriptive_layer.txt; data/b374_hedge_notes.txt; data/b374_entries_notes2.txt; data/b374_figures_notes.txt;"
+     " data/b374_funceq_notes.txt; data/b374_desk_notes.txt;"
+     " data/b374_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b374_hedge.py (the instrument IMPORTED and untouched, with two predicates this act declares as its own); tools/b374_entries.py (four words and no fifth);"
+     " tools/b374_figures.py (the sweep, with the ref-window declared); tools/b374_funceq.py (the filing, quotations pulled by anchor and never typed);"
+     " PLACE-papers OPEN_TRAILS.md (an append-only block; NO DOCUMENT SWEPT BY THIS LEG WAS EDITED); CORRESPONDENCE.md row 223"),
     # ### THE PINS SOURCED FROM THE WRITING ACT, AND THE STATUS COLUMN LISTED (b373).
     ("rule-outruns-record", "b373 (one ruling executed to exhaustion and writing nothing, one status sweep listed and routed, one licensed instrument corrected; it opens no kernel and moves no grade)",
      "A RULE CAN OUTRUN THE RECORD IT REACHES INTO. Ruling (R9) says a citing row names a pin, sourced ONLY from the act that wrote the row and located in that act own bank, never from the current"

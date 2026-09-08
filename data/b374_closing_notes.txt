@@ -1,0 +1,50 @@
+### run at (UTC) : 2026-09-08T18:33:46Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b374 -- THE THREE CLOSING WRITES: THE TRAIL BLOCK, THE ROW, THE KEY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE TRAIL BLOCK, APPEND-ONLY.
+----------------------------------------------------------------------------------------------------
+  ### the prior block is present and is not edited : True
+  ### bytes 356224 -> 362214 ; append-only True ; committed still a substring True
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE CORRESPONDENCE ROW.
+----------------------------------------------------------------------------------------------------
+  BLANK-CHECK FIXTURE (b302): True True ; SPLITTER (b303): True True True True
+  cells carrying an UNESCAPED pipe (checked BEFORE writing) : 0
+  marker is a literal prefix of its statement : True
+  the row says the measurement, the unmodified instrument, no terminal and a filing not a result, nothing repaired, the glossary and bibliography, the unranked list, the filing with its limit, the expectations, the desk closing nothing, and the scope : True
+  last existing row : 222 ; row to append : 223
+  READ BACK : last row 223 ; cells [6] ; true prefix True ; PASS
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE INDEX KEY.
+----------------------------------------------------------------------------------------------------
+    the prose is repaired                    NO KEY before : True
+    the figures are dated                    NO KEY before : True
+    the entries are rewritten                NO KEY before : True
+    the functional equation is proved        NO KEY before : True
+  READ BACK : descriptive-layer-measured returns 1 row(s)  PASS
+    the descriptive layer                        reaches the b374 key : True
+    the hedge audit                              reaches the b374 key : True
+    the glossary                                 reaches the b374 key : True
+    the bibliography                             reaches the b374 key : True
+    the undated figures                          reaches the b374 key : True
+    the functional equation filing               reaches the b374 key : True
+    nothing was repaired                         : True
+    a hedge is not a fault                       : True
+    the class is not called IMPORTED             : True
+    the list is not a plan                       : True
+    the filing carries its own limit             : True
+    closing nothing is right here                : True
+    the prose is repaired                    NO KEY after  : True
+    the figures are dated                    NO KEY after  : True
+    the entries are rewritten                NO KEY after  : True
+    the functional equation is proved        NO KEY after  : True
+  ### PASS
+
+====================================================================================================
+  ### trail appended : True ; row : 223 ; key : True
+====================================================================================================

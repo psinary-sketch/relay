@@ -1,0 +1,1007 @@
+### run at (UTC) : 2026-09-08T18:24:03Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b374 -- COMPONENT 1: THE HEDGE AUDIT, RUN UNMODIFIED OVER THE KEYSTONES AND THE DEPOSIT.
+====================================================================================================
+
+  ### the instrument, IMPORTED and untouched : hedge_audit.py
+  ### its own hedge stems  : ('may', 'might', 'plausibly', 'suggests', 'likely', 'appears', 'seems', 'could', 'would seem')
+  ### its own grade tokens : ('DERIVES-on-IMP', 'DERIVES', 'VERIFIED-AT-BENCH', 'AT-BENCH', 'TRUSTED-AT-CITE', 'OBSERVED', 'ABSENT', 'UNCERTIFIED', 'NAVIGATOR-ASSERTED')
+  ### its own fixtures, run here before it is trusted : True
+  ### ### **THIS ACT ADDS TWO PREDICATES OF ITS OWN AND WRITES NEITHER INTO THE INSTRUMENT:**
+  ###   UNSOURCED EXPECTATION : (?<![A-Za-z])(should|must|ought to|is expected to|are expected to|we expect|one expects|expected to)(?![A-Za-z])
+  ###     excluded when the sentence carries a source shape : arXiv|doi|DOI|\(19\d\d\)|\(20\d\d\)|\[[0-9]+\]|zenodo|`[0-9a-f]{7,40}`|Theorem \d|Lemma \d|§\d
+  ###     ### **IT CANNOT SEE WHETHER AN EXPECTATION IS FOREIGN.** ### It sees only that the
+  ###     ### document offers no source for it, which is why the class is not called IMPORTED.
+  ###   WORKING NOTE : ['TODO', 'TK]', 'XXX', 'FIXME', '[?]', 'draft:', 'note to self', 'WIP', 'placeholder', 'PLACEHOLDER', '???', 'to be written', 'TBD']
+  ###     ### **A SHAPE THIS LIST DOES NOT KNOW WILL NOT BE FOUND** (`PREDICATE_ONE_SHAPE`).
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE SCOPE, TAKEN FROM THE CENSUS'S OWN TABLE.
+----------------------------------------------------------------------------------------------------
+    the census names 16 keystones in its table (read at `THE_KEYSTONE_CENSUS.md`)
+    resolved to a tracked path : 16 ### / ### UNRESOLVED : 0 ### / ### AMBIGUOUS : 0
+    deposited companions : 9
+    ### ### **THE WORKING NOTES, BY THE CENSUS'S OWN TEST (i) -- no Abstract heading and no
+    ### ### ORCID block, archives and outputs excluded : 165 documents.**
+    ### **THE POPULATION IS THE CENSUS`S, NOT THIS SEAT`S.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE MEASUREMENT, PER DOCUMENT.
+----------------------------------------------------------------------------------------------------
+
+    ### **KEYSTONE** ### -- 16 documents
+    document                                                   sents  hedged    bare   unsrc   notes  hedge/k
+    phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md                614       7       7       3       0     11.4
+    phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md                240       0       0       0       0      0.0
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md           536       5       5       0       0      9.3
+    phase1.5/spectral/GRH_CASCADE.md                             463       2       2       0       0      4.3
+    phase1.5/rcurve/R_CURVE_CRITERION.md                         470       4       4       2       0      8.5
+    phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md          763       3       3       2       0      3.9
+    phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md     682       5       5       2       0      7.3
+    phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md          449       3       3       1      13      6.7
+    phase1.5/method/INVARIANCE_BARRIERS.md                       689       4       4       4       0      5.8
+    phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md                 340       1       1       1       0      2.9
+    phase1.5/method/TECHNE_TOOLKIT.md                            703       7       7       0       0     10.0
+    phase2/method/E_DIFFICULTY_THEOREM.md                        275       3       3       3       0     10.9
+    phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md            245       0       0       2       0      0.0
+    phase1.5/method/ENUMERA.md                                  1043       5       5       5       0      4.8
+    phase1.5/method/EXHAUSTIVENESS_LICENSE.md                    127       1       1       0       0      7.9
+    phase1.5/proofs/THE_RESIDUE_OF_RH.md                         214       4       4       1       0     18.7
+    ### TOTAL                                                   7853      54      54      26      13      6.9
+
+    ### **DEPOSITED COMPANION** ### -- 9 documents
+    document                                                   sents  hedged    bare   unsrc   notes  hedge/k
+    outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md                2579      23      23       8       0      8.9
+    outputs/DEPOSITED-v1.1.2/ERRATA.md                           116       2       2       1       0     17.2
+    outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md           182       0       0       0       0      0.0
+    outputs/DEPOSITED-v1.1.2/ONE_PAGE_PROOF.md                    63       0       0       0       0      0.0
+    outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md          271       1       1       0       0      3.7
+    outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md           253       3       3       2       0     11.9
+    outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md               181       0       0       0       0      0.0
+    outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md           218       0       0       1       0      0.0
+    outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md         196       2       2       2       0     10.2
+    ### TOTAL                                                   4059      31      31      14       0      7.6
+
+    ### **WORKING NOTE** ### -- 165 documents
+    document                                                   sents  hedged    bare   unsrc   notes  hedge/k
+    BIBLIOGRAPHY.md                                              349       4       4       2       0     11.5
+    EMERGING_RESEARCH_PROGRAMMES.md                              188       4       4       4       0     21.3
+    ERRATA.md                                                    376       5       5       2       0     13.3
+    FACES_LEDGER.md                                              649       5       5       1       0      7.7
+    FINDINGS.md                                                 4309      61      61      20       3     14.2
+    OPEN_TRAILS.md                                              4674      63      63      10       6     13.5
+    README.md                                                    168       1       1       0       1      6.0
+    REGISTRY.md                                                 1223       8       8       3      16      6.5
+    VERIFICATION_LOOM.md                                        7277      75      74      39       2     10.3
+    clusters/CARMICHAEL_SIDE_CONSULT.md                          137       6       6       4       0     43.8
+    clusters/COLLATZ_SIDE_CONSULT.md                             139       4       4       0       0     28.8
+    clusters/CUBIT_TRIVIUM_CLUSTER_SYNTHESIS_2026-05-19.md       326       6       6       1       0     18.4
+    clusters/FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md         232      18      18       1       0     77.6
+    clusters/IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_     183       9       9       0       0     49.2
+    clusters/MAHLER_SIDE_CONSULT.md                              143       4       4       0       0     28.0
+    clusters/MATTER_COSMOLOGY_CLUSTER_SYNTHESIS_2026-05-19.m     182      10      10       1       0     54.9
+    clusters/METHODOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md         274      29      29       1       0    105.8
+    clusters/PHILOSOPHY_COGNITION_CLUSTER_SYNTHESIS_2026-06-     180       3       3       1       0     16.7
+    clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md          209      17      17       0       0     81.3
+    clusters/SINGMASTER_SIDE_CONSULT.md                          163       6       6       1       0     36.8
+    clusters/THEORY_SPACE_PHYSICS_CLUSTER_SYNTHESIS_2026-06-     185       2       2       3       0     10.8
+    heritage/UNIFICATION_OF_FORCES.md                            684       8       8       0       1     11.7
+    heritage/WHAT_YOU_LEARN.md                                   394       1       1       1       0      2.5
+    internal/CASCADES.md                                        6202     134     134      12       1     21.6
+    internal/CATALOGOS.md                                       1027      14      14       7       0     13.6
+    internal/CONVERGENCE.md                                    41372     505     505      38       3     12.2
+    internal/CRITICAL_RESOLVE.md                                5319      77      77       8       0     14.5
+    internal/DISCLOSURE_TIMELINE_FOR_COUNSEL.md                  172       2       2       1       0     11.6
+    internal/TECHNE_ELEMENTS.md                                  941      11      11       0       0     11.7
+    internal/TECHNE_INTAKE.md                                    115       2       2       0       0     17.4
+    internal/W_ATTEMPT_2_REVIEW_PACKET.md                        212       2       2       2       0      9.4
+    meta/PATENT_SUPPLEMENT_DOSSIER.md                             79       3       3       2       0     38.0
+    meta/RAIL_ONLY_PRESERVATION_2026-08-09.md                    625      13      13       2       1     20.8
+    meta/VERIFICATION_AND_PROPAGATION.md                         108       2       2       1       0     18.5
+    phase1.5/deep-structure/CONSTANCE.md                        2662      67      67      11       1     25.2
+    phase1.5/deep-structure/TRIVIUM_FINDINGS.md                  544      10      10       2       0     18.4
+    phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md        1183       5       5       3       0      4.2
+    phase1.5/experiments/LAGARIAS_TERNARY_SIDE_CONSULT.md        121       2       2       1       0     16.5
+    phase1.5/method/COMPUTE_MEDIUM_SURVEY.md                      44       1       1       0       0     22.7
+    phase1.5/method/CONTRIBUTION_MAP_2026-08.md                  215       1       1       1       0      4.7
+    phase1.5/method/GAMMA04_ATTEMPT_SPEC.md                       79       1       1       0       0     12.7
+    phase1.5/method/GAUGE_AND_INVARIANT.md                       153       1       1       0       1      6.5
+    phase1.5/method/I6_PERSPECTIVE_SHIFT_SPEC.md                  65       1       1       0       0     15.4
+    phase1.5/method/INSTRUMENTS.md                               389      11      11       3       0     28.3
+    phase1.5/method/INVENTION_DISCLOSURE.md                       67       1       1       1       0     14.9
+    phase1.5/method/LEAN_VERIFICATION_LESSONS.md                 108       1       1       5       0      9.3
+    phase1.5/method/METHODOLOGY_LESSONS.md                        40       1       1       0       0     25.0
+    phase1.5/method/PATENT_CONSOLIDATION_WORKSHEET.md             78       2       2       0       0     25.6
+    phase1.5/method/PATENT_LINKAGE_TABLE.md                       32       6       6       0       0    187.5
+    phase1.5/method/SEEDS_BENCH_INVENTORY.md                     135       1       1       0       0      7.4
+    phase1.5/method/SIDE_DOOR.md                                 565      12      12       3       0     21.2
+    phase1.5/method/SIEVE_TO_SIDE.md                             120       1       1       0       0      8.3
+    phase1.5/method/STRANGER_TEST_RESULT.md                       41       1       1       0       0     24.4
+    phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md                64       4       4       1       0     62.5
+    phase1.5/method/THE_EXEMPLAR_BENCH.md                         70       4       4       2       0     57.1
+    phase1.5/method/THE_INSTRUMENT_SUITE_RELEASE.md              150       3       3       1       0     20.0
+    phase1.5/method/THE_LOAD_BEARING_MAP.md                       67       1       1       0       0     14.9
+    phase1.5/method/THE_METHODOLOGY_DAY_RUNBOOK.md                94       4       4       0       0     42.6
+    phase1.5/method/THE_METHOD_CANON.md                          298       5       5       2       0     16.8
+    phase1.5/method/THE_PRIVACY_COROLLARY.md                      40       2       2       1       0     50.0
+    phase1.5/method/THE_RIPE_LIST.md                              30       2       2       0       0     66.7
+    phase1.5/method/THE_SECOND_EXEMPLAR.md                        91       2       2       0       0     22.0
+    phase1.5/method/THE_SUBSTRATE.md                              97       2       2       0       0     20.6
+    phase1.5/method/THE_VERIFICATION_BROKER.md                   101       3       3       0       0     29.7
+    phase1.5/method/THE_VERIFICATION_PROTOCOL.md                 107       1       1       3       0      9.3
+    phase1.5/method/THE_WANTED_POSTER_METHOD.md                   31       1       1       8       0     32.3
+    phase1.5/proofs/HELD_COMPLETER_ASSESSMENT.md                  45       2       2       1       0     44.4
+    phase1.5/proofs/HELD_CP4_crystallization.md                   68       2       2       0       0     29.4
+    phase1.5/rcurve/P22_CLOSURE.md                               238       3       3       0       0     12.6
+    phase1.5/rcurve/P22_REPORT.md                                196       1       1       0       0      5.1
+    phase1.5/simplicity/ALL_ZEROS_SIMPLE.md                      675       5       5       0       0      7.4
+    phase1.5/simplicity/CASE_FOR_SIMPLICITY.md                   663       6       6       0       0      9.0
+    phase1.5/simplicity/CONVERGENT_ARGUMENTS_SIMPLICITY.md       204       1       1       2       0      4.9
+    phase1.5/simplicity/DERIVATIVE_IMAGINARY_THEOREM.md          271       2       2       0       0      7.4
+    phase1.5/spectral/CONSERVATION.md                            767      12      12       5       1     15.6
+    phase1.5/structural/AFTER_PARTY.md                           470       4       4       1       0      8.5
+    phase1.5/structural/AT_REST.md                               423       6       6       2       0     14.2
+    phase1.5/structural/BIJECTION.md                             207       1       1       1       0      4.8
+    phase1.5/structural/CASE_FOR_TWO.md                          257       5       5       0       0     19.5
+    phase1.5/structural/STRUCTURAL_COUNT.md                      531       1       1       1       1      1.9
+    phase1.5/structural/VOCABULARY.md                            367       9       9       2       0     24.5
+    phase2/empirical/BSD_TRANSFER.md                             207       1       1       0       0      4.8
+    phase2/formation/TIME_DIRECTION_AND_FORMATION_CUBE.md        115      17      17       1       0    147.8
+    phase2/formation/UNIVERSALITY.md                             376       2       2       0       0      5.3
+    phase2/method/E_DIFFICULTY.md                                287       2       2       0       0      7.0
+    phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md              197       1       1       0       0      5.1
+    phase2/method/IDENTITY_PROTOCOL.md                           571       1       1       9       0      1.8
+    phase2/method/IDENTITY_SUBSPACE.md                           379       1       1       0       0      2.6
+    phase2/method/RELEASE_ARCHITECTURE_BRAINSTORM.md             114       1       1       2       0      8.8
+    phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md             192       1       1       2       0      5.2
+    phase2/method/THE_ATTEMPT_RECORD.md                          549       4       4       0       0      7.3
+    phase2/method/THE_BOUNDARY_CONSTRUCTION_PROGRAM.md           350       7       7       1       1     20.0
+    phase2/method/THE_BOUNDARY_LICENSE_SPECIFICATION.md          238       2       2       1       0      8.4
+    phase2/method/THE_CARRIER_SPECIFICATION.md                   675       4       4       6       1      5.9
+    phase2/method/THE_CONSOLIDATION_MAP.md                       117       2       2       2       0     17.1
+    phase2/method/THE_DAY1_IMPLICATIONS.md                       207       1       1       2       0      4.8
+    phase2/method/THE_DEEP_STRUCTURE_CROSSREFERENCE.md           160       1       1       2       0      6.2
+    phase2/method/THE_EULER_SPECIFICATION.md                     773       4       4       2       0      5.2
+    phase2/method/THE_GLOBAL_SECTION.md                         3583      56      55      17       1     15.6
+    phase2/method/THE_H2_PROGRAMME_CHARTER.md                    358       6       6       5       0     16.8
+    phase2/method/THE_IDENTITY_CHAIN.md                         3711      21      21       6       0      5.7
+    phase2/method/THE_MUTUAL_LIGHT_MAP.md                        140       3       3       1       0     21.4
+    phase2/method/THE_SEMILOCAL_CARRIER_SPECIFICATION.md         100       1       1       0       0     10.0
+    phase2/method/THE_TWO_RADIUS_FAMILY_AND_THE_ANNIHILATION     136       1       1       0       0      7.4
+    phase2/physics-speculative/T7_CMB_PIPELINE_PREREGISTRATI     165       2       2       0       0     12.1
+    phase2/physics-speculative/T7_PIPELINE_POINTER.md             39       1       1       0       0     25.6
+    phase2/physics/HODGE_CONSERVATION.md                         133       4       4       0       0     30.1
+    phase2/quantum/FANO_PLANE.md                                 591       1       1       0       0      1.7
+    phase2/quantum/QEC_KAPPA_MAGIC_FINDINGS_v0_1.md              110       4       4       0       0     36.4
+    phase2/quantum/STEANE_CODE.md                                438       3       3       1       0      6.8
+    protocols/CELL_SCORING_METHOD_RESONANCE_RECONCILED_2026-     107       2       2       0       0     18.7
+    protocols/EDITORIAL_BACKLOG_2026-06-05.md                    147       3       3       0       0     20.4
+    protocols/EXECUTOR_RULES.md                                  154       2       2       0       0     13.0
+    ### TOTAL                                                 112122    1496    1494     310      41     13.3
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE QUOTATIONS. ### **EVERY ONE LOCATED IN ITS FILE.**
+----------------------------------------------------------------------------------------------------
+
+    ### `BIBLIOGRAPHY.md` ### [WORKING NOTE]
+      HEDGED            line 30     | May 2024) |
+      HEDGED            line 38     | **`TITLE-UNVERIFIED` — cited in the corpus, title NOT established at content here.** *Act 2b resolves each at its abs page; none is given a guessed ti
+      HEDGED            line 179    | Standard content appears in the literature exactly where someone had to DEPART from it.**
+      UNSOURCED EXPECT  line 53     | "The Moscovici line" is a programme's nickname and MUST NOT appear as a reference.**
+      UNSOURCED EXPECT  line 171    | > **All five `TITLE-UNVERIFIED` here.** *Three are physics-side (`10.1103/*`, `10.1038/*`) and belong to the cosmology/QECC constellations rather than
+
+    ### `EMERGING_RESEARCH_PROGRAMMES.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Synthesis-suggested tier · inside-voice register.** A register of successor programmes the corpus *suggests* but does not *claim*.
+      HEDGED            line 23     | The E-Difficulty result localizes undecidability to a structural condition on determined systems; read as a statement about *minds*, it suggests a **h
+      HEDGED            line 35     | The recognized bounds of physics may be, at bottom, the **arithmetic floor of every ledger** — what is left when the dynamics is subtracted and only t
+      UNSOURCED EXPECT  line 17     | The Silence Principle (essential → universal → constant → dark) says an interface that must serve every case carries no case-specific content: κ = 0 i
+      UNSOURCED EXPECT  line 59     | Any claim under this seed must show the *content* is carried at the terminal, not smuggled into a translation.
+      UNSOURCED EXPECT  line 103    | The flag is load-bearing: this is speculative and must clear the screen *before* it is spoken outward, not after.
+
+    ### `ERRATA.md` ### [WORKING NOTE]
+      HEDGED            line 99     | **Method.** The deposited monograph was fetched from the Zenodo record (`GET /api/records/19938917`) and hashed: **md5 `c8ec9b46c6afdcb7e6d227191e392a
+      HEDGED            line 106    | | **1497** | "**Current counts (v1.1, May 2026):** 560+ theorems, lemmas, and definitions in the sorry-free core…" | Finding 2 — the v1.0-scope figure
+      HEDGED            line 148    | | **b247** | quotes `lambda(n)^2` down to *"4.746e-16 — THE float64 FLOOR"* and rules *"ANY IMPORTED DECAY MUST MATCH THESE SEVEN POINTS AND MAY NOT B
+      UNSOURCED EXPECT  line 83     | This is why the corpus now cites named terminals (REGISTRY, 2026-07-12) and why no number in this entry should be lifted without its command.
+      UNSOURCED EXPECT  line 148    | | **b247** | quotes `lambda(n)^2` down to *"4.746e-16 — THE float64 FLOOR"* and rules *"ANY IMPORTED DECAY MUST MATCH THESE SEVEN POINTS AND MAY NOT B
+
+    ### `FACES_LEDGER.md` ### [WORKING NOTE]
+      HEDGED            line 23     | b324 measured that *"THE SPACE IS THE WALL"* appears zero times in the deposited monograph.
+      HEDGED            line 274    | **GRADE: `NAMED-ONLY`, UNCHANGED.** A shape exists by the locked definition and does not survive, so nothing is established that could lift a naming; 
+      HEDGED            line 284    | **THE INDEX DISTANCE, RECORDED AS MEASURED AND NOT AS A PRICE:** the corpus has computed its channels to `n = 300` and a violating zero could first re
+      UNSOURCED EXPECT  line 304    | **AND THE PAPER WORKS THE CASE ITSELF, IN FOUR PLACES b365 LOCATED AND THIS BLOCK RE-PULLS FROM THE PINNED RENDERING:** it names a convention for it —
+
+    ### `FINDINGS.md` ### [WORKING NOTE]
+      HEDGED            line 160    | > - F.2026-08-14b — the research turn: one capstone confirmed, one kernel rung, and one experiment that could not run
+      HEDGED            line 164    | THE MEASUREMENT COULD NOT RUN**
+      HEDGED            line 460    | One quarter appears twice;
+      UNSOURCED EXPECT  line 67     | > - F.2026-07-29-f — A release tag belongs on the release line, and a tag audit must confirm every paper-cited terminal is present on the branch tagge
+      UNSOURCED EXPECT  line 499    | **WHY THIS IS A CURIO AND MUST NOT BE PROMOTED: it is Euclid's theorem applied to a closed
+      UNSOURCED EXPECT  line 534    | > one thing a reference layer must not do is soften an obstacle by restating it.
+      WORKING NOTE      line 1060   | (TODO) *kernel-verified* — INTERFACETS_REFINED §5 Theorem (Parametric); INTERFACE_CONSERVATION_HODGE_AND_INTERFACETS §V.2 LV-M-4 closure 
+      WORKING NOTE      line 1311   | (placeholder) - ### **Illustrative placeholder values that are not filed data** — they demonstrate a profile's structure where the filing define
+      WORKING NOTE      line 1657   | ([?]) | caught by | **the author, in-conversation, with a [?] mark** |
+
+    ### `OPEN_TRAILS.md` ### [WORKING NOTE]
+      HEDGED            line 270    | > - **AND THE NAME-IDENTITY CHECK FIRES AT THE SHARPEST PLACE IT COULD**
+      HEDGED            line 423    | > - §2 — THE SHAPE: **WHAT COULD NOT BE COMPUTED, AND WHY**
+      HEDGED            line 653    | > - `W-ORD-CARTOGRAPHY` — **ACT 3: THE RANGE IS CERTIFIED, AND `E6` IS REFUTED BY A QUANTITY THAT COULD NOT HAVE ANSWERED IT** (2026-08-11; relay `rep
+      UNSOURCED EXPECT  line 971    | beneath it: reading at content; **a result carries its conditions**; a verifier must be
+      UNSOURCED EXPECT  line 1346   | 37 are ENUMERATED ONLY, and their grades are not assigned and must not be inferred.**
+      UNSOURCED EXPECT  line 1544   | unmeasured, it is UNDEFINED at owner grade, so a definition must precede the measurement
+      WORKING NOTE      line 1705   | (placeholder) prose*; and the **batch deviations**, including the illustrative placeholders
+      WORKING NOTE      line 1810   | (placeholder) side-channel counts; illustrative placeholders owed real data or marks.*
+      WORKING NOTE      line 1819   | (placeholder) **THEN, IN ORDER:** ### **(6) the κ-vocabulary ruling** — which classification governs at conversion; ### **(7) the `k`-constructi
+
+    ### `README.md` ### [WORKING NOTE]
+      HEDGED            line 29     | registers successor programmes the corpus *suggests* but does not *claim*.)
+      WORKING NOTE      line 65     | (placeholder) concludes a placeholder. These are **work-orders, not citations**, and are labelled
+
+    ### `REGISTRY.md` ### [WORKING NOTE]
+      HEDGED            line 265    | | p2-9 | Matter as Arithmetic | `phase2/physics/MATTER_AS_ARITHMETIC.md` | v0.2.1 | ◇-debt | REVIEW | 1,661 | TBD; v1.1 consolidated placed in sibling
+      HEDGED            line 380    | ### **The two May rows are REGISTRY-backed** — their numbers and dates were already carried here and **no receipt for them was located at `D:\Personal
+      HEDGED            line 487    | Interim-header anomaly recorded here (not in the paper): the placed file carried a `v0.1` header while its own footer identified the consolidated line
+      UNSOURCED EXPECT  line 119    | **The grading found a defect in the instrument itself** — `arch_present` tests non-vanishing where it should test independence — compiled as `archPart
+      UNSOURCED EXPECT  line 554    | The two are cross-referenced, not merged; if a later pass decides one should absorb the other, that is an author ruling, not a consolidation artifact.
+      UNSOURCED EXPECT  line 574    | Author ruling needed on which; the row keeps its annotation until then, and no reader should trust "v1.0 / REVIEW" against a file that has never exist
+      WORKING NOTE      line 247    | (TBD) | p2-22 | Identity Subspace of Arithmetic (Paper) | `phase2/method/IDENTITY_SUBSPACE.md` | v1.0 | ● | READY | ~4,117 | TBD |
+      WORKING NOTE      line 248    | (TBD) | p2-28 | Interface Darkness: Domain-General Cognitive Variable | `phase2/philosophy/INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_V
+      WORKING NOTE      line 265    | (TBD) | p2-9 | Matter as Arithmetic | `phase2/physics/MATTER_AS_ARITHMETIC.md` | v0.2.1 | ◇-debt | REVIEW | 1,661 | TBD; v1.1 consolidat
+
+    ### `VERIFICATION_LOOM.md` ### [WORKING NOTE]
+      HEDGED            line 113    | THE SECOND-INGREDIENT TEST (what could bound E by λ_A)
+      HEDGED            line 408    | > - WHAT A RESULT COULD AND COULD NOT DO
+      HEDGED            line 470    | ### **A SYNTHESIS DOCUMENT CARRIES NO MARK OF THE OPEN/NAVIGATOR-ASSERTED/UNREAD SPECIES EXCEPT WHERE IT IS EXPLICITLY REPORTING THE RECORD'S OPEN ITE
+      UNSOURCED EXPECT  line 471    | **The build's reported source HEAD must be read against `ls-remote` before the verdict is quoted.** Kin: *a check's species is part of its report*; *a
+      UNSOURCED EXPECT  line 480    | **The rule's reason:** a reader checking a claim must know which of the four they are reading; a corrected figure inside a body sentence reads as a he
+      UNSOURCED EXPECT  line 490    | Kin: the height control's i.i.d.-surmise caveat — **a synthetic control must be shown to realize the process it stands for, not merely to resemble it.
+      WORKING NOTE      line 452    | (XXX) > - **ASTRAL CHARACTERS GO IN AS `\U0001XXXX` OR AS THE LITERAL CHARACTER, NEVER AS A SURROGATE PAIR** —
+      WORKING NOTE      line 3667   | (placeholder) | **The batch deviations**, incl. illustrative placeholders owed real data or marks | the methodology-day agenda | `OPEN_TRAILS`, 
+
+    ### `clusters/CARMICHAEL_SIDE_CONSULT.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Date:** May 30, 2026
+      HEDGED            line 5      | **Predecessors:** Lagarias (May 27); Collatz, Singmaster, Mahler 3/2 (May 30)
+      HEDGED            line 36     | Empirical data — the hard case appears empty
+      UNSOURCED EXPECT  line 50     | This is consistent with Ford-Konyagin-Pomerance's lower bound: any counterexample must exceed 10^(10^10).
+      UNSOURCED EXPECT  line 76     | - If m has only one preimage n, then n must be divisible by all primes p such that (p−1) | m and p ≤ some bound.
+      UNSOURCED EXPECT  line 89     | **Empirical evidence that the hard case may be empty.** Zero observed cases with all-even preimages in n ≤ 50,000 supports the conjecture and indicate
+
+    ### `clusters/COLLATZ_SIDE_CONSULT.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Date:** May 30, 2026
+      HEDGED            line 5      | **Predecessor:** Lagarias ternary consult (May 27, 2026); Erdős TECHNE consult (same)
+      HEDGED            line 105    | The tools — effective Hochman-Shmerkin type bounds on orbit-fractal intersections in p-adic spaces — could apply here as they could to Lagarias.
+
+    ### `clusters/CUBIT_TRIVIUM_CLUSTER_SYNTHESIS_2026-05-19.md` ### [WORKING NOTE]
+      HEDGED            line 20     | | `ARITHMETIC_ORIGIN_OF_QUANTUM_CODES.md` | May 2026, v0.1 | Keystone — literal-identity claim |
+      HEDGED            line 22     | | `PAPER_015_THE_TRIVIUM_v0_2.md` | May 2026, v0.2 | Trivium structural framing (Three Roads) |
+      HEDGED            line 168    | `ARITHMETIC_ORIGIN_OF_QUANTUM_CODES` (May v0.1, keystone) and `ARITHMETIC_ORIGIN_STEANE_CODE_v3` (Apr v3).**
+      UNSOURCED EXPECT  line 234    | The cubit-constellation kernels are exactly the kind of artifact that should be at github working lab so the synthesis pressure can rest on them.
+
+    ### `clusters/FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md` ### [WORKING NOTE]
+      HEDGED            line 65     | **E_DIFFICULTY_CONJECTURE (296 lines, May 2026)** — "THE E-DIFFICULTY CONJECTURE: RESOLUTION".
+      HEDGED            line 69     | **E-Difficulty layer judgment.** E-Difficulty has moved from conjecture (THE_SEARCH_TERMINATES, March) to resolution (E_DIFFICULTY_CONJECTURE, May) to
+      HEDGED            line 71     | Per user memory, the E-Difficulty paper was also "drafted from Python artifact" on May 14 (E_DIFFICULTY_THEOREM_PAPER), but that draft is not visible 
+      UNSOURCED EXPECT  line 5      | Identifies what holds, what supersedes, what's a synthesis candidate, what should weed.
+
+    ### `clusters/IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_2026-05-19.md` ### [WORKING NOTE]
+      HEDGED            line 67     | **Note relationship with cubit's TRIVIUM_The_Third_Identity_Element (840 lines):** the 409-line IDENTITY_SUBSPACE_PAPER is likely the earlier focused-
+      HEDGED            line 73     | **FROBENIUS_23_SPECTRAL_REALIZATION_v0_2 (144 lines, May 2026)** — v0.2 explicitly revises v1, renamed from "{2,3} Spectral Realization of the Riemann
+      HEDGED            line 75     | The v1 (Jan 2026, 409 lines) is CONVERGENCE-cycle voice with overreach; v0_2 (May 2026, 144 lines) is current-voice with calibrated scope.
+
+    ### `clusters/MAHLER_SIDE_CONSULT.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Date:** May 30, 2026
+      HEDGED            line 5      | **Predecessors:** Lagarias (May 27); Collatz (May 30); Singmaster (May 30)
+      HEDGED            line 54     | The b_n sequence appears equidistributed in the long run — consistent with the conjecture that no ξ has infinite 0-run.
+
+    ### `clusters/MATTER_COSMOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md` ### [WORKING NOTE]
+      HEDGED            line 34     | **MATTER_AS_ARITHMETIC v0.7 (May 17, 2026)**
+      HEDGED            line 44     | **Hold.** Could later be absorbed into MATTER_AS_ARITHMETIC's §III as an embedded derivation, but its standalone form makes it directly citable from a
+      HEDGED            line 64     | **DARK_SECTOR_AS_FORMATION_DISTANCE v0.2 (May 2026, 199 lines)**
+      UNSOURCED EXPECT  line 5      | Identifies what holds, what supersedes, what's a synthesis candidate, and what should weed.
+
+    ### `clusters/METHODOLOGY_CLUSTER_SYNTHESIS_2026-05-19.md` ### [WORKING NOTE]
+      HEDGED            line 42     | | v0.2 | May 11 | Two-component framework (SIDE + formation calculus).
+      HEDGED            line 43     | | **v0.3** | **May 16** | **Three-component framework adds presentation discipline; introduces "domain Ostrowski" naming.
+      HEDGED            line 44     | | v1.0 | May 17 | Re-iteration of v0.3 framework.
+      UNSOURCED EXPECT  line 130    | **PRIME GROUND family** documents (TERMINUS, PRIME_GROUND_v1_0_19, PRIME_GROUND_STATUS_AND_PERIODIC_TABLE, PRIME_CORE_READER) are explicitly supersede
+
+    ### `clusters/PHILOSOPHY_COGNITION_CLUSTER_SYNTHESIS_2026-06-05.md` ### [WORKING NOTE]
+      HEDGED            line 38     | **Cluster keystone — INTERFACE_DARKNESS_DOMAIN_GENERAL_COGNITIVE_VARIABLE v0.1 (May 2026).**
+      HEDGED            line 103    | Option (b) is likely right — distinct genre, distinct venue
+      HEDGED            line 164    | The sieve-ceiling structure now appears in
+      UNSOURCED EXPECT  line 90     | should be reconciled together in one pass so the canonical form of each genre is
+
+    ### `clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md` ### [WORKING NOTE]
+      HEDGED            line 42     | Consolidated form (May 16 synthesis paper)
+      HEDGED            line 44     | **SIMPLICITY_OF_RIEMANN_ZEROS v1.0 (390 lines, May 16, 2026)**
+      HEDGED            line 58     | **Possibly worth preserving as standalone** even after consolidation — the codimension argument is a focused mathematical contribution that may want a
+
+    ### `clusters/SINGMASTER_SIDE_CONSULT.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Date:** May 30, 2026
+      HEDGED            line 5      | **Predecessors:** Lagarias ternary consult (May 27); Collatz consult (May 30)
+      HEDGED            line 6      | **Subject:** Singmaster's conjecture — the number of times an integer N > 1 appears as an interior binomial coefficient in Pascal's triangle is bounde
+      UNSOURCED EXPECT  line 96     | The programme's contribution is identifying the right SIDE-Exclusion shape: as more places are added, the feasibility set should stabilize at O(1).
+
+    ### `clusters/THEORY_SPACE_PHYSICS_CLUSTER_SYNTHESIS_2026-06-05.md` ### [WORKING NOTE]
+      HEDGED            line 108    | Where Lean *could* eventually contribute, stated as opportunity not precondition: formalizing
+      HEDGED            line 133    | where a future Lean contribution could help (formalizing I/D/S as decision procedures, §6).
+      UNSOURCED EXPECT  line 55     | mean should converge toward 0.9118 as scoring is refined — and a non-trivial directionality
+      UNSOURCED EXPECT  line 69     | A v1 of THEORY_SPACE_PHYSICS is implied by the v2 label and should be located and retired to
+      UNSOURCED EXPECT  line 111    | is a future strengthening, never a gate the existing papers must pass to be filed.
+
+    ### `heritage/UNIFICATION_OF_FORCES.md` ### [WORKING NOTE]
+      HEDGED            line 112    | The zeta function seems to have placed its 46th gap **precisely where physics needed it**.
+      HEDGED            line 169    | **137 appears NOWHERE else in G's conventional description**
+      HEDGED            line 175    | - 1370 could only contain 137 if physics requires it
+      WORKING NOTE      line 566    | (???) - Therefore: multiverse, or designer, or ???
+
+    ### `heritage/WHAT_YOU_LEARN.md` ### [WORKING NOTE]
+      HEDGED            line 230    | order of the functional equation) appears at every structural
+      UNSOURCED EXPECT  line 155    | components are interfaces; interfaces must be universal to be
+
+    ### `internal/CASCADES.md` ### [WORKING NOTE]
+      HEDGED            line 124    | Anywhere claims could be formulated precisely enough to assess.
+      HEDGED            line 211    | Part VI (Failures and Limits) documents what went wrong and what could.
+      HEDGED            line 221    | <- ::` appears throughout, marking convergence points—places where independent paths arrive at the same destination.
+      UNSOURCED EXPECT  line 525    | This predicts a correlation: famous, celebrated theorems should have more proofs than obscure, specialized theorems.
+      UNSOURCED EXPECT  line 883    | In 1957, Aleksandr Khinchin proved that any measure of information satisfying three axioms must have Shannon's form.
+      UNSOURCED EXPECT  line 2584   | The dichotomy assumes mathematics is the kind of thing that must be one or the other.
+      WORKING NOTE      line 1226   | (placeholder) | Zero as placeholder | Babylon, Maya, India |
+
+    ### `internal/CATALOGOS.md` ### [WORKING NOTE]
+      HEDGED            line 76     | Different proof techniques may access the same class through different computational methods — the explicit formula and the approximate functional equ
+      HEDGED            line 85     | *The term "formation" is native to this research arc — it appears in TERMINUS (our investigation of prime structure) for the prime 337 ("floor of the 
+      HEDGED            line 98     | TYPE classification predicts which problems yield to exhaustive enumeration and which require fundamentally different approaches — or may be independe
+      UNSOURCED EXPECT  line 166    | To produce a C₈, an objector must identify: a third group structure on ℤ (none exists), or a second Fourier-type duality for θ (none found in 200+ yea
+      UNSOURCED EXPECT  line 491    | This predicts: deterministically trained networks (kernel methods, exact Gaussian process inference) should have binary κ with no gradient zone; the g
+      UNSOURCED EXPECT  line 614    | The dark stage contributes nothing (as it should — it has zero spectral weight).
+
+    ### `internal/CONVERGENCE.md` ### [WORKING NOTE]
+      HEDGED            line 64     | Some may be wrong.
+      HEDGED            line 386    | - Essential chapters: 12 (RH walkthrough), 20 (P vs NP—likely independent)
+      HEDGED            line 605    | - "True" = what appears most often
+      UNSOURCED EXPECT  line 66     | The question is not whether the logic follows (it does), but whether the foundational principles should be accepted.
+      UNSOURCED EXPECT  line 166    | The question is not "are the proofs valid given I.D.S.?" (they are) but "should mathematics accept I.D.S.?"
+      UNSOURCED EXPECT  line 1228   | The difference: Not just "RH is true" but "**RH MUST be true** because independent structures forbid alternatives."
+      WORKING NOTE      line 39666  | (TBD) - Community acceptance TBD
+      WORKING NOTE      line 49292  | (TBD) - Resistance: TBD (framework is new)
+      WORKING NOTE      line 54236  | (placeholder) - **39 FIGURE PLANNED placeholders removed** (internal production notes not meant for readers)
+
+    ### `internal/CRITICAL_RESOLVE.md` ### [WORKING NOTE]
+      HEDGED            line 91     | - **Anticipated Objections** — Responses to likely critiques
+      HEDGED            line 185    | The reader may find unexpected connections---between Greek
+      HEDGED            line 218    | where the novel content appears.
+      UNSOURCED EXPECT  line 164    | The reader who follows carefully should arrive at
+      UNSOURCED EXPECT  line 165    | each conclusion just as it is stated --- the argument should feel
+      UNSOURCED EXPECT  line 1532   | Now we must be precise about what 'determined' means.
+
+    ### `internal/DISCLOSURE_TIMELINE_FOR_COUNSEL.md` ### [WORKING NOTE]
+      HEDGED            line 70     | **APPEARS-RELATED FLAGS ONLY** *(no legal characterization offered)*
+      HEDGED            line 149    | force-removed; unreachable objects may persist on GitHub until purged.
+      UNSOURCED EXPECT  line 99     | **THAT SECTION IS THE REFERENCE LINE AGAINST WHICH EVERY ROW ABOVE SHOULD BE READ, AND IT
+
+    ### `internal/GITHUB_PURGE_REQUEST_DRAFT.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 30     | No other history was affected; the current `main` is correct and should not be altered.
+
+    ### `internal/TECHNE_ELEMENTS.md` ### [WORKING NOTE]
+      HEDGED            line 113    | Independence from base theory likely.
+      HEDGED            line 172    | Both may be dark, both may be essential.
+      HEDGED            line 175    | An interface with conservation rank 0 for location parameters may still have positive conservation rank for density parameters.
+
+    ### `internal/TECHNE_INTAKE.md` ### [WORKING NOTE]
+      HEDGED            line 29     | **`STANDARD-AT-TEXT` IS THE LADDER'S ONE ORIGINAL RUNG AND ITS JUSTIFICATION IS EMPIRICAL: four independent sweeps returned nothing because arXiv inde
+      HEDGED            line 82     | lands or stalls independently and no client's verdict may speak for
+
+    ### `internal/W_ATTEMPT_2_REVIEW_PACKET.md` ### [WORKING NOTE]
+      HEDGED            line 27     | **THE COVER IS THE CHARTER'S `§3`, VERBATIM IN FORCE:** *if an attempt ever appears to close the
+      HEDGED            line 35     | > T1–T10 as of this opening"* — *and the precedent it runs under: "an attempt may be opened sub-gate, by
+      UNSOURCED EXPECT  line 2      | **WHAT WAS BUILT, WHAT HOLDS EXACTLY, WHAT THE SIGN IS ON THE BUILT OBJECT, WHAT IS SCOPE — AND THE QUESTIONS A REVIEWER SHOULD ATTACK FIRST, IN THE B
+      UNSOURCED EXPECT  line 178    | headlines a reviewer should have: R4 instantiated-and-checked at the model (the four separations from
+
+    ### `meta/PATENT_SUPPLEMENT_DOSSIER.md` ### [WORKING NOTE]
+      HEDGED            line 32     | **plausibly within the PROV-1/2 verification-architecture families** — same subject area, later refinements.
+      HEDGED            line 43     | **14 May 2027** |
+      HEDGED            line 53     | ### **Whether the existing public repositories already constitute disclosure of any candidate — the federation has been public since May 2026 for many
+      UNSOURCED EXPECT  line 26     | **They are NOT conception dates and must not be used as such — counsel should establish conception separately.**
+      UNSOURCED EXPECT  line 55     | Whether that matters is counsel's to say, and it should be said before `WIDEN` is ruled on rather than after.**
+
+    ### `meta/RAIL_ONLY_PRESERVATION_2026-08-09.md` ### [WORKING NOTE]
+      HEDGED            line 18     | **v0.5, May 2026** (revises v0.4)
+      HEDGED            line 45     | *v1.0, May 2026*
+      HEDGED            line 70     | *v0.1, May 2026 — cluster keystone for the Foundations cluster, drafted from cluster constituents: SILENCE_PRINCIPLE_FORMAL, Silence_of_Foundations (v
+      UNSOURCED EXPECT  line 74     | (C) follows from (B) + determination: in a determined system, every $P$-value must trace to the specification through some mechanism class; if all cla
+      UNSOURCED EXPECT  line 348    | The structural proof provides the constraint the construction must satisfy: any consistent quantization of pure SU(N) Yang-Mills theory in four dimens
+      WORKING NOTE      line 350    | (TODO) Seale, J.Y. (2026). *SIDE-effects (SIDEEffects/Structural.lean).* [TODO: SIDE-effects deposit citation — repo/version/DOI to be fi
+
+    ### `meta/VERIFICATION_AND_PROPAGATION.md` ### [WORKING NOTE]
+      HEDGED            line 72     | | "multiplicative" vs "non-archimedean" | Programme standard is "multiplicative" | Some papers may still say "non-archimedean" | VERIFY in repo |
+      HEDGED            line 101    | Files likely affected:
+      UNSOURCED EXPECT  line 51     | memory (updated April 2026) says "merged." The user should check:
+
+    ### `outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md` ### [DEPOSITED COMPANION]
+      HEDGED            line 137    | Every binary operation worth its name may possess an identity element: the unique value that leaves all others unchanged.
+      HEDGED            line 163    | From "the zeros happen to be at 1/2" to "the zeros are at the identity subspace of arithmetic." The first formulation makes 1/2 look arbitrary — a coo
+      HEDGED            line 241    | This is the same seven that appears as the formation count (2, 3, 2, 0) = 7 of the Riemann zeta function — a fact proved independently through complet
+      UNSOURCED EXPECT  line 149    | This is immediate: the exponents must be equal, so −σ = −(1−σ), giving σ = 1 − σ, giving σ = 1/2.
+      UNSOURCED EXPECT  line 161    | In the language of identity elements, Theorem (RH) is the statement that the zeros of the function encoding all primes must lie where primes return id
+      UNSOURCED EXPECT  line 795    | Every construction of ξ(s) from ℚ's field data must respect ∏_v |x|_v = 1 because that identity holds in the field.
+
+    ### `outputs/DEPOSITED-v1.1.2/ERRATA.md` ### [DEPOSITED COMPANION]
+      HEDGED            line 84     | **Method.** The deposited monograph was fetched from the Zenodo record (`GET /api/records/19938917`) and hashed: **md5 `c8ec9b46c6afdcb7e6d227191e392a
+      HEDGED            line 91     | | **1497** | "**Current counts (v1.1, May 2026):** 560+ theorems, lemmas, and definitions in the sorry-free core…" | Finding 2 — the v1.0-scope figure
+      UNSOURCED EXPECT  line 68     | This is why the corpus now cites named terminals (REGISTRY, 2026-07-12) and why no number in this entry should be lifted without its command.
+
+    ### `outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md` ### [DEPOSITED COMPANION]
+      HEDGED            line 103    | Nevanlinna's value distribution theory, resurgent functions (Ecalle), Borel transforms, and Stokes phenomena might appear to constitute intermediate s
+
+    ### `outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md` ### [DEPOSITED COMPANION]
+      HEDGED            line 102    | The second arrow distinguishes interfaces (whose output is the same regardless of which configurations they couple) from merely universal forms (which
+      HEDGED            line 120    | Non-essential, contingent structural features: initial conditions, boundary conditions, specific configurations, parameters that could have been diffe
+      HEDGED            line 140    | The principle correctly predicts that multi-component systems have silent foundations, while single-component systems may not.
+      UNSOURCED EXPECT  line 13     | We identify the mechanism: essential components of coupled systems are interfaces, and interfaces must be universal to be essential.
+      UNSOURCED EXPECT  line 110    | Reductionism holds that knowing the fundamental laws should predict all higher-level phenomena.
+
+    ### `outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md` ### [DEPOSITED COMPANION]
+      UNSOURCED EXPECT  line 97     | The Identity-Formation Bijection (proved in the companion monograph) establishes that the mechanism count and the identity-element count must agree — 
+
+    ### `outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md` ### [DEPOSITED COMPANION]
+      HEDGED            line 107    | The Davenport–Heilbronn theorem establishes off-line zeros generically; whether specific non-generic binary Epstein functions with class number exceed
+      HEDGED            line 119    | If the seven-class decomposition missed a structural force, removing the Euler product alone should not reliably produce off-line zeros — the missing 
+      UNSOURCED EXPECT  line 103    | This coincidence is sometimes cited as evidence that the functional equation alone should confine zeros.
+      UNSOURCED EXPECT  line 115    | Functions lacking the Euler product axiom are not expected to satisfy the Riemann Hypothesis, and the Epstein and Davenport–Heilbronn examples confirm
+
+    ### `phase1.5/deep-structure/CONSTANCE.md` ### [WORKING NOTE]
+      HEDGED            line 188    | This could be coincidence.
+      HEDGED            line 300    | This order will prove significant: it is the determination sequence of physics itself (Chapter 11), and the three fermion generations may instantiate 
+      HEDGED            line 385    | The scattering matrix — which governs how spectral data propagates through the arithmetic — is therefore a single function rather than the matrix that
+      UNSOURCED EXPECT  line 306    | > *"If one proves the equality of two numbers a and b by showing first that a ≤ b and then a ≥ b, it is unfair; one should instead show that they are 
+      UNSOURCED EXPECT  line 370    | Any universe with gap-free integer accessibility—any universe where all values are reachable—must use these numbers.
+      UNSOURCED EXPECT  line 615    | Before you can say how heavy something is, you must establish how things relate to each other.
+      WORKING NOTE      line 2031   | (???) - **Why does physics require gap-free accessibility? → ???**
+
+    ### `phase1.5/deep-structure/TRIVIUM_FINDINGS.md` ### [WORKING NOTE]
+      HEDGED            line 203    | This stratification — sub-bit observable, hidden 2-bit phase, zero-bit determination — appears to be characteristic of IDS (Independent, Determined, S
+      HEDGED            line 233    | The missing ingredient, across all approaches, appears to be **order** — positivity, inequalities, topological constraints — information that the mult
+      HEDGED            line 253    | A small but striking observation about how the transcendental constant π appears in the Trivium's arithmetic.
+      UNSOURCED EXPECT  line 32     | Stated this way, RH is not a conjecture about a mysterious location — it is the claim that the zeros of the function encoding all primes must lie wher
+      UNSOURCED EXPECT  line 313    | If v_{−n} = i·v_n, then the sum over all entries must have equal real and imaginary parts (the positive entries contribute real, the negative entries 
+
+    ### `phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md` ### [WORKING NOTE]
+      HEDGED            line 63     | Every binary operation on a set may possess an identity element: the unique value that leaves all other elements unchanged.
+      HEDGED            line 357    | The original question asked at what distance ε from σ = 1/2 the Möbius monodromy first appears.
+      HEDGED            line 484    | The question is no longer why are all zeros on the line, but what conceivable mechanism could put one off it.*
+      UNSOURCED EXPECT  line 496    | Between consecutive extrema t*ₖ and t*ₖ₊₁, ξ_ℝ must change sign (it has opposite signs at consecutive extrema if they bracket a zero), hence must cros
+      UNSOURCED EXPECT  line 522    | Its derivative with respect to t is iξ′(1/2+it), which must also be real, so ξ′(1/2+it) is purely imaginary.
+      UNSOURCED EXPECT  line 560    | For Vₖ to return to zero at some σ₁ > 1/2, there must exist σ_f ∈ (1/2, σ₁) where V′ₖ changes sign, which requires u_t(σ_f, t_R(σ_f)) = 0.
+
+    ### `phase1.5/experiments/LAGARIAS_TERNARY_SIDE_CONSULT.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Date:** May 27, 2026 (revised same day)
+      HEDGED            line 5      | **Predecessor:** TECHNE CONSULT on Erdős open problems (May 27, 2026)
+      UNSOURCED EXPECT  line 104    | The lacuna is in the rate-of-collapse argument, which is automaton-theoretic and combinatorial — the kind of work the programme is positioned to do, n
+
+    ### `phase1.5/method/COMPUTE_MEDIUM_SURVEY.md` ### [WORKING NOTE]
+      HEDGED            line 26     | The photonic candidate is the one where that follow-on is most likely to close, because the three-DOF independence is already demonstrated.
+
+    ### `phase1.5/method/CONTRIBUTION_MAP_2026-08.md` ### [WORKING NOTE]
+      HEDGED            line 177    | ### The one item this act could not deliver, at full prominence
+      UNSOURCED EXPECT  line 201    | Whether they should share a tree is not this act's to
+
+    ### `phase1.5/method/CRANK_HARVEST_LIST.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 30     | | **The Summit ¶3** (searched-not-found, never cannot-be-found) | **II-D exhibit (honesty rider)** | the two-darknesses discipline in plain voice — th
+      UNSOURCED EXPECT  line 38     | - **FLAG E1 — the honesty rider.** The exhibit's "certificate of where the wall is" and "screen any claim in minutes" should carry the two-darknesses 
+
+    ### `phase1.5/method/ENUMERA.md` ### [KEYSTONE]
+      HEDGED            line 266    | **The heuristic:** If a theorem seems obviously true but unprovable, suspect the definitions.
+      HEDGED            line 344    | **Note:** This correspondence suggests P ≠ NP reflects the structural gap between identity (codimension 1) and traversal (codimension > 1).
+      HEDGED            line 571    | No sixth path could reach a class not already reached.
+      UNSOURCED EXPECT  line 264    | The Identity-Formation Bijection was expected to require operadic machinery.
+      UNSOURCED EXPECT  line 268    | The 21/21 empirical match was evidence a simple proof should exist.
+      UNSOURCED EXPECT  line 506    | **Precision:** The distance d = 3 is a FORMATION DISTANCE — the minimum number of formation stages that must be perturbed to corrupt σ-location inform
+
+    ### `phase1.5/method/EXHAUSTIVENESS_LICENSE.md` ### [KEYSTONE]
+      HEDGED            line 23     | Step (c) is valid only if the catalogue is **exhaustive** — if there is no missed case that could produce the property.
+
+    ### `phase1.5/method/GAMMA04_ATTEMPT_SPEC.md` ### [WORKING NOTE]
+      HEDGED            line 46     | ### **No statement that “prolate continuum positivity is RH-equivalent” was located there.** ***So the sentence may well be true on Weil's classical e
+
+    ### `phase1.5/method/GAUGE_AND_INVARIANT.md` ### [WORKING NOTE]
+      HEDGED            line 107    | > ***A synthesis may not re-admit under a new heading a word the title law removed from a paper.*** **The distinction is refused as named.** *A condit
+      WORKING NOTE      line 95     | (TBD) REVIEW, v0.1, ### **kernel pairing: TBD — there is no kernel.** **PARTIAL.**
+
+    ### `phase1.5/method/I6_PERSPECTIVE_SHIFT_SPEC.md` ### [WORKING NOTE]
+      HEDGED            line 62     | **The prediction lands on a problem the programme never worked** — the independent evidence the primary run could not supply.
+
+    ### `phase1.5/method/I7_SURVEYABILITY_GRADER.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 25     | **The two-leg architecture is the structural answer to closed-but-unsurveyable.** Split the certificate into a **human-surveyable structural leg** (wh
+
+    ### `phase1.5/method/IID_EXHIBIT_PLAIN.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 16     | - That missing object has a **"wanted poster"**: from the constraints alone, we can list its forced properties — its dimension behavior, its symmetrie
+
+    ### `phase1.5/method/INSTRUMENTS.md` ### [WORKING NOTE]
+      HEDGED            line 65     | **Definitional-freedom degradation:** count the effective "shots" — how many equally-natural definitions the model could have used (each a potential p
+      HEDGED            line 97     | **Output: REFUSE THE COMPUTATION, and state why.** (A refused statistic may still be valuable in its own register; the screen classifies, it does not 
+      HEDGED            line 101    | **Cost saved on its first firing:** an Epstein-witness computation of hundreds of zeros at high precision, which would have returned a separation caus
+      UNSOURCED EXPECT  line 251    | **Why name-frequency is not evidence, and runs the wrong way.** **Repetition is what an unresolvable name does.** A term that has been stated is state
+      UNSOURCED EXPECT  line 269    | | **NAME-COUNT** (a term is held if named often) | **repetition is unresolvability's signature**, not its refutation — a stated term is stated once an
+      UNSOURCED EXPECT  line 272    | **Both proxies over-credit, in opposite directions, and the criterion is what remains when both failures are excluded: a screen must measure the reade
+
+    ### `phase1.5/method/INVARIANCE_BARRIERS.md` ### [KEYSTONE]
+      HEDGED            line 37     | The barrier appears as an exponent: density is provable at exponent 3/4, equidistribution would require 1/2, and no technical improvement within the s
+      HEDGED            line 322    | - Systems without the Independence condition I may admit mechanism classes that fail to separate cleanly through interfaces; the theorem's per-class d
+      HEDGED            line 439    | The density/placement bound weakens, and the decidability ⟺ domain-Ostrowski equivalence may not hold.
+      UNSOURCED EXPECT  line 215    | Corollary 3.6 is the form of the theorem used in the E-Difficulty chain: any proof of universality must contain at least one inference step operating 
+      UNSOURCED EXPECT  line 263    | Equivalently (contrapositive): **any derivation of the positivity for ξ must use a tool outside T — and the tool T omits is the Euler product.** This 
+      UNSOURCED EXPECT  line 305    | For the universal statement to be established, every mechanism class C_i must have at least one MCA-step accessing it.
+
+    ### `phase1.5/method/INVENTION_DISCLOSURE.md` ### [WORKING NOTE]
+      HEDGED            line 37     | **Problem.** A machine-checked proof can *pass* while its statement does not claim what it appears to claim — a proof that compiles with zero errors y
+      UNSOURCED EXPECT  line 49     | **Problem.** Producing certified knowledge at scale needs organization: effort should route to where it is structurally warranted, credentials should 
+
+    ### `phase1.5/method/LEAN_VERIFICATION_LESSONS.md` ### [WORKING NOTE]
+      HEDGED            line 27     | *Scar:* SIDE-effects reported 3 `sorry` (CI) but carries **10** (`Module1.lean` not in the build target); the "clean health" was an artifact of an ins
+      UNSOURCED EXPECT  line 9      | **S1 · No identically-true predicate.** *Rule:* a certified terminal must not discharge over a predicate that is `fun _ => True` — it compiles, proves
+      UNSOURCED EXPECT  line 27     | **P2 · Build-target completeness.** *Rule:* a `sorry`-count must scan **every** `.lean` file, not just those in the build target — a file outside the 
+      UNSOURCED EXPECT  line 35     | **W1 · A cited terminal must exist at its pin.** *Rule:* never cite a terminal by a name that does not resolve on disk at the stated pin; memory is an
+
+    ### `phase1.5/method/METHODOLOGY_LESSONS.md` ### [WORKING NOTE]
+      HEDGED            line 37     | **The human–AI verification protocol may warrant its OWN claim scope** — it is a reproducible *method* (rule/execute/verify-at-source/hold/gate) demon
+
+    ### `phase1.5/method/PATENT_CONSOLIDATION_WORKSHEET.md` ### [WORKING NOTE]
+      HEDGED            line 58     | The eighth piece, **the verification broker** (`THE_VERIFICATION_BROKER.md`), is the cluster's software-only, ships-today face — READ+ALIGN with a UI,
+      HEDGED            line 67     | | **[B] Compute cluster** | eight pieces (⑧ = the verification broker) | **HOLD-PENDING-SCOPE** — embodiment of P-ZONE/P-IDENT + an architecture-synth
+
+    ### `phase1.5/method/PATENT_LINKAGE_TABLE.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **The executor cannot read the filed patent claims** (author-held scope docs); this is the CHECKLIST for the author's confirming read against PROV-1/2
+      HEDGED            line 7      | | **I-1 strip-locate pipeline** | **P-ZONE** | medium | a computational detection instrument (locate off-line zeros / spectral anomalies in a strip) —
+      HEDGED            line 8      | | **The wanted-poster method** | **P-FANO-WPT** | medium | a method to characterize an unbuilt object from its constraint set — plausibly the WPT (Wan
+
+    ### `phase1.5/method/SEEDS_BENCH_INVENTORY.md` ### [WORKING NOTE]
+      HEDGED            line 28     | | **M-5** | methodology-day + patent conversions | "day held; PROV-1/2 (Apr 2027), P-ZONE/P-FANO-WPT (May 14 2027)" | FLAGGED |
+
+    ### `phase1.5/method/SIDE_DOOR.md` ### [WORKING NOTE]
+      HEDGED            line 109    | No probabilistic reasoning appears.
+      HEDGED            line 126    | - **Without S:** The search domain may be too large to enumerate.
+      HEDGED            line 127    | - **Without I:** Components may interact in complex ways, making exhaustive cataloguing intractable.
+      UNSOURCED EXPECT  line 153    | **Proof by Contradiction.** SIDE proofs ARE proofs by contradiction (assume P(x), derive that a mechanism must exist, show none does, contradiction).
+      UNSOURCED EXPECT  line 271    | The objector must then identify a specific gap: "which consequence of n² → θ → ξ did you miss?" This is answerable.
+      UNSOURCED EXPECT  line 474    | The reviewer who objects to SIDE must explain why the classification of finite simple groups is a valid proof but SIDE is not — since both use the sam
+
+    ### `phase1.5/method/SIEVE_TO_SIDE.md` ### [WORKING NOTE]
+      HEDGED            line 34     | This inversion — from "what does the specification produce?" to "what KIND of specification could produce THIS?" — is the seed.
+
+    ### `phase1.5/method/STRANGER_TEST_RESULT.md` ### [WORKING NOTE]
+      HEDGED            line 23     | *(Minor, noted not filed: the forcing-REACH admission test is framed for arithmetic-substrate forcing and could not be run with no arithmetic substrat
+
+    ### `phase1.5/method/TECHNE_TOOLKIT.md` ### [KEYSTONE]
+      HEDGED            line 38     | **Ξ.6 Problem Classifier.** Decision tree assigning a problem to TYPE I (closed, mechanisms enumerable, direct proof), TYPE II (closed, mechanisms par
+      HEDGED            line 122    | **Name, don't count.** A premise may hold INTERFACES grade only if its content is named (Ξ.23); a counted premise ("one thing left") is not named and 
+      HEDGED            line 123    | **A shell is a work-order, not a citation.** A NOT-COMPILED shell may never be cited as a certificate; it is listed as content-named residue and sched
+
+    ### `phase1.5/method/THE_CHIASMUS_PATTERN.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 22     | | **Yang–Mills** (statement-grade) | **must be constructed** (Osterwalder–Schrader reflection positivity of the measure) | the mass gap follows from t
+      UNSOURCED EXPECT  line 24     | For **analytic / measure** systems (Yang–Mills) the positivity *is* the geometry that must be built, so the **positivity** binds.
+      UNSOURCED EXPECT  line 28     | Given a new determined system whose answer is a positivity: identify whether its positivity is a *free algebraic pairing* (then the realization binds 
+
+    ### `phase1.5/method/THE_CORNER_MAP.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 28     | **Coverage-ledger correction (filed honestly):** CRITICAL_RESOLVE's Routes A/B/C were an ungraded proposal set that *should* have been in the original
+
+    ### `phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md` ### [WORKING NOTE]
+      HEDGED            line 8      | **PURPOSE:** *the corpus’s own standing document-class standard — the four tiers K / C / N / E, what each must carry and how each may be cited; for an
+      HEDGED            line 10     | Every corpus document belongs to one of four tiers, and the tier fixes what it must carry and how it may be cited.
+      HEDGED            line 14     | *Citation rule:* **may be cited as certification** — the terminal, at its grade, is the warrant.
+      UNSOURCED EXPECT  line 10     | Every corpus document belongs to one of four tiers, and the tier fixes what it must carry and how it may be cited.
+
+    ### `phase1.5/method/THE_EXEMPLAR_BENCH.md` ### [WORKING NOTE]
+      HEDGED            line 42     | | **Classification of finite simple groups** | moderate (pure algebra) | must derive (none yet) | UNRUN (a *completed* classification — likely complet
+      HEDGED            line 54     | **Verdict: completion-bound as a classical determined system, but INADMISSIBLE as a formation-calculus exemplar as written.** The honest verdict files
+      HEDGED            line 56     | The honest state: opening any *completion* exemplar now requires first deriving its arithmetic substrate — which for the axiomatically-forced candidat
+      UNSOURCED EXPECT  line 44     | | *(any the sweep surfaces)* | — | must derive | UNRUN | — | recorded here as the bench is worked |
+      UNSOURCED EXPECT  line 52     | §I-bis Step-2's check (the tuple must match an independently-known quantity) has nothing to match; and Shannon is already **embedded as ξ's class 5**,
+
+    ### `phase1.5/method/THE_INSTRUMENT_SUITE_RELEASE.md` ### [WORKING NOTE]
+      HEDGED            line 11     | After each, a **stranger check**: could you use this one alone?
+      HEDGED            line 90     | **Freedom degradation:** count how many equally-natural definitions the model could have used (each a potential prediction); multiply the single-shot 
+      HEDGED            line 133    | **Statement.** Given a **stuck** problem with its current representation named, rank the ways of re-viewing it most likely to make its structure visib
+      UNSOURCED EXPECT  line 23     | 60 and 90 sample points); they must agree to an integer, or the box is discarded.
+
+    ### `phase1.5/method/THE_INTERFACE_HARVEST.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 22     | *The taxonomy's own lesson: **the drift modes are not the programme's — they are AI-assisted knowledge work's.** Each cure generalizes to any human di
+
+    ### `phase1.5/method/THE_LOAD_BEARING_MAP.md` ### [WORKING NOTE]
+      HEDGED            line 37     | **Finding: the claim-certificate calculus holds — every premise the compiled part rests on appears as a named INTERFACES row; no premise is carried im
+
+    ### `phase1.5/method/THE_METHODOLOGY_DAY_RUNBOOK.md` ### [WORKING NOTE]
+      HEDGED            line 46     | | The wanted-poster method | **HOLD-PENDING-SCOPE** | a *reproducible characterization method* | plausibly own-scope; claim status undecided |
+      HEDGED            line 47     | | The protocol paper | **HOLD-PENDING-SCOPE** | a *reproducible collaboration method* (role/ferry/verify/gate) | plausibly own-scope (author-owned); u
+      HEDGED            line 57     | Per export: the filing it *plausibly* feeds, the **decision it needs**, and the relevant deadline **as dates only**.
+
+    ### `phase1.5/method/THE_METHOD_CANON.md` ### [WORKING NOTE]
+      HEDGED            line 125    | Every corpus document is one of three tiers, and the tier fixes how it may be cited:
+      HEDGED            line 130    | The parsing-invariant a Tier-C panel may assert across its rows is **classification × certification**, never a shared tuple.
+      HEDGED            line 166    | **The standing form: when a validation step could be answered by the held-aside data, answer it another way or the hold-aside is already broken.** **T
+      UNSOURCED EXPECT  line 39     | *Check:* formation_total, visible_slots, dark_slots must match the system's independently-known block length / observable dimension / hidden dimension
+      UNSOURCED EXPECT  line 257    | **ELOQUENCE IS A HYPOTHESIS GENERATOR, NEVER EVIDENCE; THE MORE A SENTENCE RESONATES, THE SOONER IT MUST MEET A READ.**
+
+    ### `phase1.5/method/THE_PRIVACY_COROLLARY.md` ### [WORKING NOTE]
+      HEDGED            line 23     | - **Sensor-relative darkness** — dark *to a given basis/receptor*: a different basis (a prism) could make it bright.
+      HEDGED            line 26     | **The spec rule (conclusion): every privacy property must declare its kind, and only a derived property may claim the structural kind.** A merely sens
+      UNSOURCED EXPECT  line 26     | **The spec rule (conclusion): every privacy property must declare its kind, and only a derived property may claim the structural kind.** A merely sens
+
+    ### `phase1.5/method/THE_RIPE_LIST.md` ### [WORKING NOTE]
+      HEDGED            line 9      | | 1 | **Lagarias carry-propagation lemma** (O.10) | "approaching paper-grade … carries 'may already be in literature' caveat" | one **literature check
+      HEDGED            line 10     | | 2 | **Mahler ξ∈(0,1) partial result** (O.10) | "approaching paper-grade … 'may already be in literature'" | same: literature check → note or retire 
+
+    ### `phase1.5/method/THE_SECOND_EXEMPLAR.md` ### [WORKING NOTE]
+      HEDGED            line 75     | *(the M-4A obligation: could a reader reconstruct the method from this exemplar + the canon alone?)*
+      HEDGED            line 80     | A reader with the canon alone could *certify* a [[7,1,3]] code handed to them, but could **not derive the (2,3,2,0) tuple** that generates it.
+
+    ### `phase1.5/method/THE_SUBSTRATE.md` ### [WORKING NOTE]
+      HEDGED            line 3      | The keystone's mathematics is **h2-independent** — it rests on no premise of the RH programme; h2 appears only in the boundary note, and only to be ex
+      HEDGED            line 68     | h2 appears in this keystone only here, and only to say the substrate does not reach it.
+
+    ### `phase1.5/method/THE_VERIFICATION_BROKER.md` ### [WORKING NOTE]
+      HEDGED            line 74     | `[COUNSEL]` **P-IDENT may be the broker's primary filing home** — confirm scope: whether the broker's identity/privacy core files under P-IDENT (the a
+      HEDGED            line 76     | - **Role in the lab:** noted in the lab memo as the **likely first product** — READ + ALIGN with a UI, the **light path**: software-only, shippable no
+      HEDGED            line 78     | - **Partition.** **GBG stays separate** — it is one candidate *coordination habitat* only (a place the coordination layer might live if ruled), never 
+
+    ### `phase1.5/method/THE_VERIFICATION_PROTOCOL.md` ### [WORKING NOTE]
+      HEDGED            line 84     | Skip verify-at-source and errors get *more likely*, but the other checks still catch many.
+      UNSOURCED EXPECT  line 9      | When a person directs a machine assistant to help produce claims that must actually be **true** — a proof, a factual report, an engineering conclusion
+      UNSOURCED EXPECT  line 70     | Each was caught by the standing rule that a claim about an artifact must re-fetch that artifact rather than trust its stamp.
+      UNSOURCED EXPECT  line 74     | - **The coverage tool's first act was to find its own omission.** An instrument built to certify that the body of work had been fully reviewed caught,
+
+    ### `phase1.5/method/THE_WANTED_POSTER_METHOD.md` ### [WORKING NOTE]
+      HEDGED            line 13     | **Derive the consistent-but-unforced properties.** For each property X *may* have without contradiction, but which nothing compels, record it in the *
+      UNSOURCED EXPECT  line 3      | *The domain-general statement of the method: given a problem reduced to one missing object, describe that object from the constraints it must satisfy,
+      UNSOURCED EXPECT  line 7      | When a problem reduces to **one missing object** — an object nobody has built, but whose existence would settle the question — you can often say a gre
+      UNSOURCED EXPECT  line 12     | **Derive the forced properties.** For each property the constraints *compel* — X must have it, or the constraints contradict — record it in the **FORC
+
+    ### `phase1.5/proofs/HELD_COMPLETER_ASSESSMENT.md` ### [WORKING NOTE]
+      HEDGED            line 26     | ## (iii) The against-case (honest — what research could still reshape the story) — UPDATED 2026-07-27
+      HEDGED            line 30     | - **NO unexplored face remains that could MOVE the story.** All three faces visited; the frontier is frozen-ready.
+      UNSOURCED EXPECT  line 38     | **The only reservation:** completer-now freezes the *absence-of-construction* verdict — correct today and confirmed on all three faces, but by nature 
+
+    ### `phase1.5/proofs/HELD_CP4_crystallization.md` ### [WORKING NOTE]
+      HEDGED            line 22     | The **¾ barrier appears in all three faces** — the algebraic ceiling, the topological interpolation-midpoint (whose endpoint admits no continuous arri
+      HEDGED            line 34     | Its 𝔽_q anchor is Katz–Sarnak monodromy over a family — family/equidistribution language that is *tower-adjacent* (monodromy lives at the covering lev
+
+    ### `phase1.5/proofs/HELD_RESIDUE_v1_1.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 31     | The unbuilt object is now *characterized* from the constraint set — a wanted poster: it is forced to be infinite-dimensional, with a weight-1 middle c
+
+    ### `phase1.5/proofs/IDS_TO_RH.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 270    | If the answer is yes — and five traditions of human thought say it should be — then:
+
+    ### `phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md` ### [KEYSTONE]
+      HEDGED            line 196    | detail deserves its own line: the log 2π that appears in the Stirling half of the derivation
+      HEDGED            line 336    | **The claim is only that the catches sort by position rather than scattering** — not that the division is optimal, nor that one position could not hav
+      HEDGED            line 365    | **One grade added at v0.13 — OVER-HYPOTHESIZED.** A terminal is over-hypothesized when its statement carries a hypothesis its proof does not use: the 
+      UNSOURCED EXPECT  line 331    | **The wall''s sixth face — the currency is definable only after the crossing.** A statistic that prices the approach to the pairing must contain the z
+      UNSOURCED EXPECT  line 363    | **One standard added at v0.15 — PREMISES MUST BE RESOLVABLE FROM THE MIRROR.** A row's named premises are what the row rests on, so **a premise whose 
+
+    ### `phase1.5/proofs/INTEGRATED_PROOF.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 251    | This is why they must agree — they're different views of the same structure.
+
+    ### `phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md` ### [KEYSTONE]
+      HEDGED            line 153    | One could obstruct six of seven and still land.
+      HEDGED            line 165    | - **Internal.** The C₈ Stress-Tester (Ξ.9) — in plain words, a check for whether any eighth mechanism class could exist: the SIDE-internal exhaustiven
+      HEDGED            line 385    | **Standing corpus rule: no keystone may present a growth-class form of the joint as a contribution.**
+      UNSOURCED EXPECT  line 251    | BALANCE_AND_POSITIVITY's B.5 concordance already indexed SIDE-li-map at this pin — the federation's citation tables are the index a terminal-absence c
+      UNSOURCED EXPECT  line 392    | **The obstruction the recast must respect is B3.** Downstream: **R3-RECAST** cites A1/A3/A6–A7/A8 and states B3 as the boundary, claiming *localizatio
+      UNSOURCED EXPECT  line 408    | The enumeration of realization-**routes** is **search-grade on the programme's own ladder** — the *named* candidates are exhausted (Berry–Keating/Conn
+
+    ### `phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 408    | A skeptic who accepts n₁, n₂, and n₄ but disputes n₃ must identify a structural property of entire functions of order 1 that is neither local (derivat
+
+    ### `phase1.5/proofs/THE_RESIDUE_OF_RH.md` ### [KEYSTONE]
+      HEDGED            line 25     | The reader who wants the destination first may read §7.
+      HEDGED            line 47     | One might hope some other family carries a positivity that reaches further.
+      HEDGED            line 53     | The E-characterization: what could bound the oscillation
+      UNSOURCED EXPECT  line 63     | The unbuilt object is now *characterized* from the constraint set — a wanted poster: forced to be infinite-dimensional, with a weight-1 middle cohomol
+
+    ### `phase1.5/proofs/THE_RIEMANN_PATHS_CLUSTER_SPINE.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 15     | **What a reader should take away.** A large amount of this is machine-verified in the Lean 4 proof assistant, and the tables below say exactly which p
+
+    ### `phase1.5/rcurve/P22_CLOSURE.md` ### [WORKING NOTE]
+      HEDGED            line 159    | The Lagarias circle is broken not by proving Re(ξ'/ξ) > 0 directly, but by proving there is nothing in the specification that could make it otherwise.
+      HEDGED            line 175    | The system was designed (by its specification) so that the Gamma floor is already dominant before any zero appears.
+      HEDGED            line 212    | The balance tips positive everywhere because the specification n² → θ → ξ produces only positive structural forces in the Hadamard decomposition, and 
+
+    ### `phase1.5/rcurve/P22_REPORT.md` ### [WORKING NOTE]
+      HEDGED            line 128    | If V satisfies a Sturm-Liouville equation, comparison theorems might force V·V'' > 0.
+
+    ### `phase1.5/rcurve/R_CURVE_CRITERION.md` ### [KEYSTONE]
+      HEDGED            line 9      | *v0.2.1, May 2026 (rev.
+      HEDGED            line 199    | The negative disk geometry establishes the complete picture of how off-line zeros could threaten positivity:
+      HEDGED            line 333    | The monotonicity margin is wider than $\mathrm{Re}(\xi'/\xi)$ alone suggests.
+      UNSOURCED EXPECT  line 305    | R-curves are not wandering objects; they are narrow channels through which zeros must pass.
+      UNSOURCED EXPECT  line 406    | A first compiled down-payment on exactly this dominance question is now on record: finite-range Li positivity, $\lambda_n \geq 0$ for $1 \leq n \leq N
+
+    ### `phase1.5/simplicity/ALL_ZEROS_SIMPLE.md` ### [WORKING NOTE]
+      HEDGED            line 127    | It appears in C1 (the functional equation uses the completed function) but does not appear in C2 (the Euler product) or C3 (the Ramanujan bound).
+      HEDGED            line 206    | You could prove every zero was simple and still wonder: "But what if some non-simple structure at enormous height creates off-line zeros?" Conservatio
+      HEDGED            line 423    | The Hilbert-Pólya approach would prove simplicity through spectral theory (if it could establish the operator and its spectral properties).
+
+    ### `phase1.5/simplicity/CASE_FOR_SIMPLICITY.md` ### [WORKING NOTE]
+      HEDGED            line 57     | The central difficulty has been: *is this convergence everything, or could something else pull zeros away?*
+      HEDGED            line 111    | Only Scenario A remains: could ℚ's own field constraints, every one of which identifies σ = 1/2, somehow permit zeros elsewhere?
+      HEDGED            line 212    | Before Conservation, one could not even formulate this clearly — the worry "what if something outside the system acts?" was unresolved.
+
+    ### `phase1.5/simplicity/CONVERGENT_ARGUMENTS_SIMPLICITY.md` ### [WORKING NOTE]
+      HEDGED            line 231    | The same pattern appears across all three approaches:
+      UNSOURCED EXPECT  line 32     | This approach shows simplicity is CONSISTENT, not that it must hold.
+      UNSOURCED EXPECT  line 46     | *(C₇-order bracket, 2026-07-19 — ARM 2 refinement.) What the order-≤1 input must **not** be is now also compiled: the finite-exponential-type form `‖G
+
+    ### `phase1.5/simplicity/DERIVATIVE_IMAGINARY_THEOREM.md` ### [WORKING NOTE]
+      HEDGED            line 73     | This appears catastrophic — transversality collapsing by 28 orders of magnitude.
+      HEDGED            line 216    | The computation cannot rule out that |ζ'(ρ)| might eventually decrease to zero at some enormous height.
+
+    ### `phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md` ### [KEYSTONE]
+      HEDGED            line 140    | In a system with free parameters, one might tune parameters to force $\Phi(\gamma)$ into $H$ — placing the curve on the hyperplane by adjusting coeffi
+      HEDGED            line 142    | The only way $\Phi(\mathbb{R})$ could intersect $H$ non-generically is if the specification forced a structural relationship between the contributions
+      HEDGED            line 369    | The structural framework predicts that the zeta zeros' distribution is not exactly GUE — it is the distribution forced by the seven-mechanism architec
+
+    ### `phase1.5/spectral/CONSERVATION.md` ### [WORKING NOTE]
+      HEDGED            line 75     | The question this article addresses: *Is this convergence everything, or could something else pull zeros away?*
+      HEDGED            line 252    | In a system where components combine opaquely, one could worry about emergent properties not predictable from the components analyzed separately.
+      HEDGED            line 252    | If the combination produced some effect not traceable to the three structural components, that effect would be visible in the construction — you could
+      UNSOURCED EXPECT  line 63     | The difficulty is explaining *why* they must all have σ = 1/2.
+      UNSOURCED EXPECT  line 457    | It has no opinion about where zeros should sit on the real axis.
+      UNSOURCED EXPECT  line 622    | It says: "every force in this closed system identifies σ = 1/2, no other forces exist, therefore σ = 1/2." To deny this, one must assert that a system
+      WORKING NOTE      line 729    | (TBD) | **Influence/Abundance Duality** | New; mechanism TBD | Potency concentrates, volume disperses — across domains |
+
+    ### `phase1.5/spectral/GRH_CASCADE.md` ### [KEYSTONE]
+      HEDGED            line 179    | The structural connection: Artin's conjecture is about the density of primes with a specific multiplicative structure; the density appears as a sum of
+      HEDGED            line 246    | The structural exclusion is verified as `Module1.no_type_d_conspiracies`; the analytic content (Hardy-Littlewood, circle method, sieve bounds) appears
+
+    ### `phase1.5/structural/AFTER_PARTY.md` ### [WORKING NOTE]
+      HEDGED            line 4      | *A narrative in which the findings are encountered as they might actually be encountered — gradually, skeptically, and with a drink in hand.*
+      HEDGED            line 53     | She said this the way a surgeon might say "the operation was successful." Clinical.
+      HEDGED            line 115    | And SIDE could, in principle, catalogue all mechanisms by which B7 might fail to produce Coltrane."
+      UNSOURCED EXPECT  line 19     | The bar was called The Residue, which should have been a warning.
+
+    ### `phase1.5/structural/AT_REST.md` ### [WORKING NOTE]
+      HEDGED            line 14     | The argument is simple: the specification n² → θ → ξ(s) produces exactly seven structural forces that could place zeros.
+      HEDGED            line 42     | Every binary operation on a set may possess an identity element: the unique value that leaves all other elements unchanged.
+      HEDGED            line 46     | The Structural Count (§2) shows this pipeline forces exactly seven mechanism classes — seven distinct structural consequences that could constrain whe
+      UNSOURCED EXPECT  line 67     | Conservation's dual seal explains why: every tool that touches ξ must enter through ℚ's field structure, which means through some combination of C₁–C₇
+      UNSOURCED EXPECT  line 275    | If E₆ automorphic theory develops and yields n₁ = 2 (formation 7), the Gal-orbit formula must be revised.
+
+    ### `phase1.5/structural/BIJECTION.md` ### [WORKING NOTE]
+      HEDGED            line 73     | In a determined system (D), the parameter space carries no free parameters that could be tuned to create such a coincidence.
+      UNSOURCED EXPECT  line 161    | The 21/21 empirical confirmation was evidence that a simple proof should exist.
+
+    ### `phase1.5/structural/CASE_FOR_TWO.md` ### [WORKING NOTE]
+      HEDGED            line 69     | Each scale could in principle host independent constraints.
+      HEDGED            line 81     | This means there is no "intermediate domain" where information could exist that is invisible to both the local jet and the global function.
+      HEDGED            line 151    | The vanishing of H¹ says there is no intermediate level where independent information could reside.
+
+    ### `phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md` ### [KEYSTONE]
+      HEDGED            line 240    | The barrier appears as an exponent: density is provable at exponent $3/4$; equidistribution would require $1/2$; no technical improvement within the s
+      HEDGED            line 260    | The same structural barrier appears in both, with the same structural diagnosis.
+      HEDGED            line 294    | By the Silence Principle's exclusion property (§II.1.C), the enumeration must be exhaustive (otherwise some $P$-violation could occur in an unenumerat
+      UNSOURCED EXPECT  line 80     | (C) follows from (B) + determination: in a determined system, every $P$-value must trace to the specification through some mechanism class; if all cla
+      UNSOURCED EXPECT  line 290    | *Step 2.* $P$ is a universal property: "$\forall x \in X: P(x)$." Therefore $\pi$ must establish $P(x)$ for EVERY $x$ — not merely for a measure-one s
+
+    ### `phase1.5/structural/STRUCTURAL_COUNT.md` ### [WORKING NOTE]
+      HEDGED            line 48     | The weight falls on **E**: the seven mechanism classes C₁–C₇ exhaust all structural consequences of the specification that could place zeros.
+      UNSOURCED EXPECT  line 223    | This is what Conservation predicts: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distri
+      WORKING NOTE      line 250    | (TBD) | Acceptance timeline | Immediate | ~40 years | TBD |
+
+    ### `phase1.5/structural/VOCABULARY.md` ### [WORKING NOTE]
+      HEDGED            line 24     | Before the word *gene* existed, Mendel's patterns could be observed but not discussed systematically.
+      HEDGED            line 64     | **For ξ(s).** Seven mechanism classes C₁–C₇, each representing a distinct structural force that could constrain zero locations.
+      HEDGED            line 78     | Different L-functions may have different formations, requiring different proof strategies.
+      UNSOURCED EXPECT  line 66     | This reframing turns "which approach should I try?" into "which mechanism class does this approach access?" The latter question has a definite answer.
+      UNSOURCED EXPECT  line 333    | Without this term, the question "what proof strategy should I use for this L-function?" has no structural framework.
+
+    ### `phase2/empirical/BSD_TRANSFER.md` ### [WORKING NOTE]
+      HEDGED            line 49     | The √ appears in the Γ-factor: Γ(s) contains the gamma function's Stirling approximation with √(2π).
+
+    ### `phase2/formation/TIME_DIRECTION_AND_FORMATION_CUBE.md` ### [WORKING NOTE]
+      HEDGED            line 3      | **Date:** May 31, 2026
+      HEDGED            line 5      | **Subject:** Whether the Gaztañaga interpretation of ER bridges as time-direction structure suggests an extension of the (ℤ/2)³ formation cube to (ℤ/2
+      HEDGED            line 17     | (ii) The Big Bang may not be the absolute beginning but a quantum transition between a contracting phase and an expanding phase, each with its own tim
+      UNSOURCED EXPECT  line 41     | Under (ℤ/2)⁴ extension where time-reversal is a fourth factor commuting with the other three, the symmetric selection that gave 4/81 should give 8/162
+
+    ### `phase2/formation/UNIVERSALITY.md` ### [WORKING NOTE]
+      HEDGED            line 121    | Their existence may explain why GRH for Dedekind zeta functions over real quadratic fields has different analytic behavior from GRH over imaginary qua
+      HEDGED            line 145    | Its 2-torsion Cl[2] could potentially enlarge K*/K*².
+
+    ### `phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md` ### [KEYSTONE]
+      HEDGED            line 19     | Prior: v0.1, May 2026.*
+      HEDGED            line 330    | The unification suggests a broader family of additive–multiplicative conspiracy problems all reducible to the same kernel-verifiable structural skelet
+      HEDGED            line 423    | Continues from v0.1, May 2026 (synthesized from SIDE_EFFECTS v2 Chapter 7).
+      UNSOURCED EXPECT  line 262    | The no-conspiracy argument is one application of the Mechanism Theorem at additive-multiplicative scale: every additive-multiplicative event must trac
+      WORKING NOTE      line 19     | (placeholder) *v0.2 (2026-07-12): scope ruling — the finite-modulus no-conspiracy is compiled; the three conjectures are open, their shared anal
+      WORKING NOTE      line 85     | (placeholder) **Kernel-citation pin (2026-07-13).** The placeholder instantiations quoted in this paper — `TwinFinite`, `GoldbachFails`, `SGFini
+      WORKING NOTE      line 227    | (placeholder) The genuine structural exclusion is `Module1.no_type_d_conspiracies` (CRT exhaustiveness via periodic lift), vanilla Lean 4, no so
+
+    ### `phase2/method/E_DIFFICULTY.md` ### [WORKING NOTE]
+      HEDGED            line 195    | (likely independent).
+      HEDGED            line 230    | Different proofs of the same theorem may look different on the
+
+    ### `phase2/method/E_DIFFICULTY_THEOREM.md` ### [KEYSTONE]
+      HEDGED            line 6      | **v1.0.3, 2026-07-23** (was v1.0.2, 2026-07-19; v1.0.1, 2026-07-16; v1.0, May 2026)
+      HEDGED            line 46     | A domain Ostrowski for a mechanism catalogue plays the same role for a different object: it is a finite enumeration of the mechanism classes through w
+      HEDGED            line 120    | It reduces "is P undecidable?" to "can we close the catalogue?" The criterion does not yield an algorithm — closing the catalogue may itself be undeci
+      UNSOURCED EXPECT  line 18     | The reverse direction is the substantive content: any proof of P, however presented, must contain an implicit mechanism-class enumeration, because the
+      UNSOURCED EXPECT  line 112    | A proof presented through analytic continuation, algebraic geometry, model theory, or any other apparatus must contain the enumeration embedded within
+      UNSOURCED EXPECT  line 177    | The catalogue of TECHNE.Core instances (27+ systems verifying I+D+S structure across number theory, algebra, combinatorics, and topology) is a catalog
+
+    ### `phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md` ### [WORKING NOTE]
+      HEDGED            line 170    | It does not enter the mirror roster; `OPEN_TRAILS` may carry a
+
+    ### `phase2/method/IDENTITY_PROTOCOL.md` ### [WORKING NOTE]
+      HEDGED            line 543    | The stages are natural but not unique — other decompositions could be proposed.
+      UNSOURCED EXPECT  line 11     | > *"Has it been proved?" must become a standard, objective check of the system.*
+      UNSOURCED EXPECT  line 14     | > *"Has this person been verified?" must become equally objective —*
+      UNSOURCED EXPECT  line 51     | The binding is informationally rich when it should be informationally silent.
+
+    ### `phase2/method/IDENTITY_SUBSPACE.md` ### [WORKING NOTE]
+      HEDGED            line 7      | **Abstract.** Every binary operation on a set may possess an identity element: the unique value that leaves all other elements unchanged.
+
+    ### `phase2/method/RELEASE_ARCHITECTURE_BRAINSTORM.md` ### [WORKING NOTE]
+      HEDGED            line 13     | **Patent day `≤ April 2027` PRECEDES ANY ZENODO WAVE.** No shape below may be executed before it.
+      UNSOURCED EXPECT  line 65     | **this is exactly the manifest law, which act 3 must do anyway** — no new cost |
+      UNSOURCED EXPECT  line 73     | This does not discriminate between shapes — it is one file either way, and it should be built first regardless of the ruling.**
+
+    ### `phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md` ### [KEYSTONE]
+      UNSOURCED EXPECT  line 186    | A reader who already holds the folklore should read this as an attempt to make
+      UNSOURCED EXPECT  line 215    | product, is what a successful derivation must use essentially.
+
+    ### `phase2/method/SIGN_ARRANGEMENT_RECONCILIATION.md` ### [WORKING NOTE]
+      HEDGED            line 112    | | **2** | **DEPOSIT** (earlier record) | `outputs/DEPOSITED/A_Place_to_Stand.DEPOSITED.md` — its own header: **"v5.4, May 2026"** | — *(`W_∞` occurs *
+      UNSOURCED EXPECT  line 29     | **THEREFORE THE OWED RECONCILIATION CANNOT BE DISCHARGED THE WAY IT WAS EXPECTED TO BE.** *The previous note flagged the discrepancy as "two conventio
+      UNSOURCED EXPECT  line 29     | The discrepancy is therefore not bookkeeping — it is a claim about a sign, and it must be adjudicated as one.***
+
+    ### `phase2/method/THE_ATTEMPT_RECORD.md` ### [WORKING NOTE]
+      HEDGED            line 7      | > and none appears here.*
+      HEDGED            line 25     | **NEGATIVITY ARRIVES AT THE EDGE, IN THE FLIPPED CHANNEL** — the first off-class negative direction appears exactly at a PLACE-ARRIVAL EDGE (`a² = 3`,
+      HEDGED            line 95     | > the room branch and nothing else, and read the branch it could see as the whole function.* **`1 − log2/logL`
+
+    ### `phase2/method/THE_BOUNDARY_CONSTRUCTION_PROGRAM.md` ### [WORKING NOTE]
+      HEDGED            line 22     | **“the owner specifies the kind of thing that could
+      HEDGED            line 25     | > could never have produced a license*** — and the record had already said so:
+      HEDGED            line 61     | > NOTHING IN THIS REGISTRATION CHANGES THAT, AND NOTHING IN IT MAY BE CITED AS PROGRESS TOWARD IT.”**
+      UNSOURCED EXPECT  line 248    | requirement is what caught it:** *“the read must establish that the frame is two-sided in the
+      WORKING NOTE      line 39     | (to be written) > would delete the only readable account of how a program came to be written for finished work.*
+
+    ### `phase2/method/THE_BOUNDARY_LICENSE_SPECIFICATION.md` ### [WORKING NOTE]
+      HEDGED            line 32     | THE OWNER SPECIFIES THE KIND OF THING THAT COULD LICENSE, AND IT IS
+      HEDGED            line 151    | **IT MAY NOT BE CITED AS EVIDENCE ABOUT THE BOUNDARY.**
+      UNSOURCED EXPECT  line 101    | **THE BLOCKING STEP, NAMED: NO OWNER IN THE RECORD STATES WHAT A CONSTRUCTION MUST ESTABLISH
+
+    ### `phase2/method/THE_CARRIER_SPECIFICATION.md` ### [WORKING NOTE]
+      HEDGED            line 39     | These are the accumulated constraints on any object that could carry Weil positivity over ℚ.
+      HEDGED            line 48     | | **5** | **The genus paradox is the curve-level death certificate.** The classical Jacobian of `Spec ℤ` is its ideal class group, which is trivial — 
+      HEDGED            line 195    | sense but be a **surface bearing some kind of intersection theory**, and … we could then **mimic
+      UNSOURCED EXPECT  line 131    | > **So `Δ4` is necessary and not sufficient: the operators must be geometric, not merely
+      UNSOURCED EXPECT  line 140    | | **Cancellative** | signed classes must exist, so the additive structure cannot be idempotent | `no_idempotent_candidate`: no idempotent candidate sa
+      UNSOURCED EXPECT  line 141    | | **Archimedean-inclusive from the ground up** | the ℝ-at-∞ component is a founding coordinate, not a deferred import — and it must be **independent**
+      WORKING NOTE      line 14     | (XXX) **v0.3 also REPAIRS literal `\uXXXX` escape damage that §§9–14 had carried since v0.2.**
+
+    ### `phase2/method/THE_CODOMAIN_SPECIFICATION.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 12     | > IT NOWHERE.** *This document specifies what the missing object must be; specifying is not building
+
+    ### `phase2/method/THE_CONSOLIDATION_MAP.md` ### [WORKING NOTE]
+      HEDGED            line 26     | `VERIFY-BY` APPEARS IN ONE DOCUMENT OUT OF 224.** *The walk-sheet standard was instituted in `THE_METHOD_CANON` §XVI and applied to the 40-row walk sh
+      HEDGED            line 71     | > **Four of those are the `Internal` working logs and may be exempt by scope.**
+      UNSOURCED EXPECT  line 26     | **It has essentially zero corpus penetration.** That is not a failure — the standard is three weeks old and the corpus is fifteen months old — but act
+      UNSOURCED EXPECT  line 37     | **2.5 MB in six files; these are working logs and must be scoped OUT of the language pass or they will consume it** |
+
+    ### `phase2/method/THE_DAY1_IMPLICATIONS.md` ### [WORKING NOTE]
+      HEDGED            line 100    | **The classes are exhaustive and `C₂`/Euler is one of them** — placement may live inside the Euler class and simply be underived.
+      UNSOURCED EXPECT  line 92     | **"Any `h2`-decider must inject placement information at the multiplicative place from a source that is NOT the additive–multiplicative interface."**
+      UNSOURCED EXPECT  line 114    | **NO SIGN CLAIM IS INHERITED IN EITHER DIRECTION, AND THE ERA MUST NOT READ ITS NEGATIVE `A` AS CONTRADICTING DAY-1'S POSITIVE `W_∞` UNTIL THE TWO ARR
+
+    ### `phase2/method/THE_DEEP_STRUCTURE_CROSSREFERENCE.md` ### [WORKING NOTE]
+      HEDGED            line 31     | **THEREFORE "`C₁` IS THE CONJUGATION CLASS" IS A CONVENTION AND NO AXIS MAY BE NAMED "THE ARCHIMEDEAN AXIS".** *What IS canonical is not an axis but a
+      UNSOURCED EXPECT  line 55     | **THEREFORE THE INCIDENCE STRUCTURE CONSTRAINS NOTHING ABOUT WHAT ITS EXCLUSION MUST TOUCH.** *An incidence geometry constrains its points; the conspi
+      UNSOURCED EXPECT  line 113    | **Absent an exact identity from a text or a derivation, the orphan is permanent, and the register should stop offering it a home.***
+
+    ### `phase2/method/THE_EULER_SPECIFICATION.md` ### [WORKING NOTE]
+      HEDGED            line 5      | **Sealed before the `ζ_K` grading ran**, so the grading could not choose the reading that suited it.*
+      HEDGED            line 357    | > settings that could have broken it — the Epstein family and the Beurling systems — each couple the pair
+      HEDGED            line 436    | **`S4` ⟺ "an Euler product exists."** *These were never two properties; the row may be read either way with no loss.* |
+      UNSOURCED EXPECT  line 259    | **The route is the specs' own statements, and it exposes an ambiguity in `S1` that must be declared:**
+      UNSOURCED EXPECT  line 513    | **Why** a decomposition that breaks the monoid should move zeros off the line is exactly the
+
+    ### `phase2/method/THE_GLOBAL_SECTION.md` ### [WORKING NOTE]
+      HEDGED            line 144    | no local-to-global argument may treat place-wise data as independent factors.
+      HEDGED            line 499    | cumulative reading could drift toward more confidence than any row asserts (mitigation:
+      HEDGED            line 576    | step six may open, the bar riding it.
+      UNSOURCED EXPECT  line 554    | **The value ledger derives what a two-point stationary sum must be (row 57).** The
+      UNSOURCED EXPECT  line 1126   | **The refusal that follows is a refusal to fit:** a derivation of convergence must
+      UNSOURCED EXPECT  line 1242   | record should have seen it first, and it is fenced because **a shape shared is not a
+      WORKING NOTE      line 2113   | (placeholder) **Both are stated neutrally and neither is resolved here.** *Smaller items travel with them:* a parenthetical whose stated statist
+
+    ### `phase2/method/THE_H2_PROGRAMME_CHARTER.md` ### [WORKING NOTE]
+      HEDGED            line 27     | MINIMAL INSTANCE FIRST.** *Run the smallest case that could break it before the general one.
+      HEDGED            line 31     | **if any synthesis appears to constitute progress on the clause — STOP, state at grade, hold for the author.**
+      HEDGED            line 37     | **If an attempt ever appears to close the sign step, ALL FOUR of the following happen, IN THIS ORDER, before the register's own statement changes:**
+      UNSOURCED EXPECT  line 48     | **AND THE HONEST NOTE THIS CHARTER SHOULD CARRY: the corpus's most-cited source says the same thing in its last paragraph.** *Weil, 1952: **"It hardly
+      UNSOURCED EXPECT  line 94     | across all three**, *which is the column the carrier must have.* **The first construction move ran and
+      UNSOURCED EXPECT  line 163    | ### **Requiring it would close the attempt track permanently, which is a decision about the programme and not about an attempt.** *It is listed becaus
+
+    ### `phase2/method/THE_IDENTITY_CHAIN.md` ### [WORKING NOTE]
+      HEDGED            line 43     | > restricted-tensor assembly appears in the constituent list and NOT in the identity's signature.**
+      HEDGED            line 153    | > (I-differ); the act checked whether it could, and it cannot.”*
+      HEDGED            line 353    | **the object term 3 names may not be well-defined as written.** ***This act does not decide that; it reports that the record's own purity finding rais
+      UNSOURCED EXPECT  line 233    | **WHAT IS ROUTED TO THE AUTHOR IS THE NAMING: how the values' debts should be TYPED in this
+      UNSOURCED EXPECT  line 721    | **This section establishes what the record SAYS, not what the name should be.**
+      UNSOURCED EXPECT  line 1161   | value is the corresponding value of `α`, which must be close to `±√2π = ±4.44288293815837`
+
+    ### `phase2/method/THE_MUTUAL_LIGHT_MAP.md` ### [WORKING NOTE]
+      HEDGED            line 7      | **THE `h2` REGISTER VERBATIM WHEREVER IT APPEARS.** · **banned terms swept** · **Placement and Correspondence stay in back matter** ·
+      HEDGED            line 20     | A one-page summary SHOULD quote the long version verbatim — and the `h2` sentence is one the standing constraints require to appear verbatim wherever 
+      HEDGED            line 49     | **a stranger may read the second as covered by the first.** |
+      UNSOURCED EXPECT  line 20     | A one-page summary SHOULD quote the long version verbatim — and the `h2` sentence is one the standing constraints require to appear verbatim wherever 
+
+    ### `phase2/method/THE_SEMILOCAL_CARRIER_SPECIFICATION.md` ### [WORKING NOTE]
+      HEDGED            line 53     | CLAIMED PROPERTY — the very property `§1`'s own test exists to decide — and a title may not presume its
+
+    ### `phase2/method/THE_TECHNIQUE_SPECIFICATION.md` ### [WORKING NOTE]
+      UNSOURCED EXPECT  line 39     | **A technique's mechanism must remain sign-preserving at vanishing margin.** **AMENDED 2026-08-12 — THE REACH THEOREM RIDES THIS ROW:** *"the bench me
+      UNSOURCED EXPECT  line 39     | ### **THE ROW CONSTRAINS TECHNIQUES AND IS NOT EVIDENCE ABOUT THE HYPOTHESIS — by a DEPOSITED RESULT about the instrument's reach, not by house style.
+
+    ### `phase2/method/THE_TWO_RADIUS_FAMILY_AND_THE_ANNIHILATION_BOUNDARY.md` ### [WORKING NOTE]
+      HEDGED            line 66     | The resemblance between the two constructions was named and refused first, and appears nowhere in the derivation.
+
+    ### `phase2/physics-speculative/T7_CMB_PIPELINE_PREREGISTRATION_v0_1.md` ### [WORKING NOTE]
+      HEDGED            line 6      | **Document version:** v0.1 (May 2026)
+      HEDGED            line 176    | Document committed in advance of archive access, May 2026.
+
+    ### `phase2/physics-speculative/T7_PIPELINE_POINTER.md` ### [WORKING NOTE]
+      HEDGED            line 23     | - `MATTER_AS_ARITHMETIC_v1_0_CONSOLIDATED` = **this repo's `phase2/physics/MATTER_AS_ARITHMETIC.md`** — version-drift: the repo of record carries the 
+
+    ### `phase2/physics/HODGE_CONSERVATION.md` ### [WORKING NOTE]
+      HEDGED            line 40     | This increases the image, making surjectivity more likely.
+      HEDGED            line 62     | At p ≥ 2: J^p(X) = H^{2p-1}(X,ℂ) / (F^p + H^{2p-1}(X,ℤ)) is a complex torus that may lack a polarization.
+      HEDGED            line 129    | Could a structure acting on ker(cl) INDIRECTLY create obstructions in coker(cl)?
+
+    ### `phase2/quantum/FANO_PLANE.md` ### [WORKING NOTE]
+      HEDGED            line 287    | The terminus 337 appears in the α⁶ coefficient of Λ (TERMINUS §15.4).
+
+    ### `phase2/quantum/QEC_KAPPA_MAGIC_FINDINGS_v0_1.md` ### [WORKING NOTE]
+      HEDGED            line 40     | The fluctuation could reflect: (a) genuine non-monotonic structure of magic measured by κ at this interface, (b) statistical noise at this sample size
+      HEDGED            line 54     | The Steane code's robustness in keeping κ < 0.15 even at high T-count is interesting — it might indicate that Steane is precisely the kind of "magic-r
+      HEDGED            line 70     | This may not affect the programme's σ = 1/2 derivation (which doesn't depend on Berry-Keating) but does raise the question of whether the Berry-Keatin
+
+    ### `phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md` ### [KEYSTONE]
+      HEDGED            line 164    | **Is Shannon's channel capacity theorem a special case of the Formation Distance Theorem?** Shannon's capacity C = B log₂(1 + S/N) might be derivable 
+      UNSOURCED EXPECT  line 174    | Each is stated as a condition a realization must satisfy, with its consequence — never as a property the design possesses.
+
+    ### `phase2/quantum/STEANE_CODE.md` ### [WORKING NOTE]
+      HEDGED            line 36     | The number 7 appears in both because the topology of {2,3}-smooth numbers closes at exactly this range.
+      HEDGED            line 171    | If the Trivium's [[7,1,3]] is a special case of a general pattern — identity subspaces of algebraic systems producing quantum codes — then other algeb
+      HEDGED            line 210    | For k > 1 (multiple bright eigenvalues), the codespace has additional structure that may break the complementarity.
+      UNSOURCED EXPECT  line 122    | The improvement (d_eff = 5 vs d = 3) arises because the formation-block model is more structured: errors must corrupt entire stages, not individual co
+
+    ### `protocols/CELL_SCORING_METHOD_RESONANCE_RECONCILED_2026-06-05.md` ### [WORKING NOTE]
+      HEDGED            line 91     | **structural** read — it will likely show IFB and RH-cascade as high-centrality (IFB is "cited by
+      HEDGED            line 102    | A cluster-cell may contain
+
+    ### `protocols/EDITORIAL_BACKLOG_2026-06-05.md` ### [WORKING NOTE]
+      HEDGED            line 20     | SIDE-bijection kernel is early; it may cover the base bijection but not this.
+      HEDGED            line 54     | (May, calibrated).
+      HEDGED            line 89     | still appears.
+
+    ### `protocols/EXECUTOR_RULES.md` ### [WORKING NOTE]
+      HEDGED            line 20     | gate may live in the missing tail).
+      HEDGED            line 84     | **The one subtraction:** the scope line appears ONCE per report, on its face — no chorus of guard
+
+====================================================================================================
+  ### (4) THE COMPARISON `(L2)` ASKS FOR, PER THOUSAND SENTENCES AND PER DOCUMENT.
+====================================================================================================
+  population                     docs  sentences     hedged    hedge/k  notes/doc
+  KEYSTONE                         16       7853         54        6.9       0.81
+  DEPOSITED COMPANION               9       4059         31        7.6       0.00
+  WORKING NOTE                    165     112122       1496       13.3       0.25
+
+  ### ### **AND THE RAW TOTALS ARE PRINTED BESIDE THE RATES ON PURPOSE:** ### a raw total
+  ### would make the larger population lose by being larger, which would score the
+  ### expectation on a fact about file sizes.
+  ### **A HEDGE IS NOT A FAULT.** ### A document that says *this is conditional* is doing
+  ### what this record demands everywhere else. ### **THE COUNT IS NOT A SCORE.**
+  ### **NOTHING WAS REPAIRED. ### NO SENTENCE WAS REWRITTEN. ### NO DOCUMENT WAS GRADED.**
+====================================================================================================
