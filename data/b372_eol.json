@@ -1,0 +1,157 @@
+{
+ "mode": "write",
+ "fixture": {
+  "with the attribute": {
+   "blob": 400,
+   "checkout": 400,
+   "equal": true
+  },
+  "without it": {
+   "blob": 400,
+   "checkout": 440,
+   "equal": false
+  }
+ },
+ "fixture_ok": true,
+ "state": {
+  "relay": {
+   "path": "D:\\relay",
+   "file_present": true,
+   "tracked": true,
+   "lines": [
+    "snapshots/** text eol=lf"
+   ],
+   "text_attr": "unspecified",
+   "eol_attr": "unspecified",
+   "governed": false
+  },
+  "SIDE-global-section": {
+   "path": "D:\\SIDE-global-section",
+   "file_present": true,
+   "tracked": true,
+   "lines": [
+    "* text=auto eol=lf"
+   ],
+   "text_attr": "auto",
+   "eol_attr": "lf",
+   "governed": true
+  },
+  "PLACE-papers": {
+   "path": "D:\\MY-DOwnloads\\PLACE-papers",
+   "file_present": true,
+   "tracked": true,
+   "lines": [
+    "* text=auto eol=lf"
+   ],
+   "text_attr": "auto",
+   "eol_attr": "lf",
+   "governed": true
+  },
+  "SIDE-effects": {
+   "path": "D:\\SIDE-effects",
+   "file_present": false,
+   "tracked": false,
+   "lines": [],
+   "text_attr": "unspecified",
+   "eol_attr": "unspecified",
+   "governed": false
+  }
+ },
+ "before": {
+  "relay": {
+   "working": 3139,
+   "blob": 3068,
+   "fresh": 3139,
+   "working_equals_blob": false,
+   "fresh_equals_blob": false
+  },
+  "SIDE-global-section": {
+   "working": 3068,
+   "blob": 3068,
+   "fresh": 3068,
+   "working_equals_blob": true,
+   "fresh_equals_blob": true
+  },
+  "PLACE-papers": {
+   "working": 3068,
+   "blob": 3068,
+   "fresh": 3068,
+   "working_equals_blob": true,
+   "fresh_equals_blob": true
+  },
+  "SIDE-effects": {
+   "working": 3139,
+   "blob": 3068,
+   "fresh": 3139,
+   "working_equals_blob": false,
+   "fresh_equals_blob": false
+  }
+ },
+ "wrote": {
+  "relay": {
+   "action": "WRITTEN",
+   "preserved": [
+    "snapshots/** text eol=lf"
+   ],
+   "old_bytes": 25,
+   "new_bytes": 676,
+   "preservation_verified": true
+  },
+  "SIDE-global-section": {
+   "action": "NOT WRITTEN",
+   "reason": "already governed",
+   "existing": [
+    "* text=auto eol=lf"
+   ]
+  },
+  "PLACE-papers": {
+   "action": "NOT WRITTEN",
+   "reason": "already governed",
+   "existing": [
+    "* text=auto eol=lf"
+   ]
+  },
+  "SIDE-effects": {
+   "action": "WRITTEN",
+   "preserved": [],
+   "old_bytes": 0,
+   "new_bytes": 651,
+   "preservation_verified": true
+  }
+ },
+ "after": {
+  "relay": {
+   "text_attr": "auto",
+   "eol_attr": "lf",
+   "blob": 3068,
+   "fresh": 3068,
+   "equal": true
+  },
+  "SIDE-global-section": {
+   "text_attr": "auto",
+   "eol_attr": "lf",
+   "blob": 3068,
+   "fresh": 3068,
+   "equal": true
+  },
+  "PLACE-papers": {
+   "text_attr": "auto",
+   "eol_attr": "lf",
+   "blob": 3068,
+   "fresh": 3068,
+   "equal": true
+  },
+  "SIDE-effects": {
+   "text_attr": "auto",
+   "eol_attr": "lf",
+   "blob": 3068,
+   "fresh": 3068,
+   "equal": true
+  }
+ },
+ "all_equal": true,
+ "guard": ".githooks/pre-push",
+ "line": "* text=auto eol=lf",
+ "run_file": "b372_eol_notes2.txt",
+ "run_clock": "2026-09-08T16:44:03Z"
+}

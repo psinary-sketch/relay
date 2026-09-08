@@ -1,0 +1,652 @@
+{
+ "heads": {
+  "SIDE-effects": {
+   "head": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "branch": "main",
+   "profiles": []
+  },
+  "SIDE-kernel": {
+   "head": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+   "branch": "main",
+   "profiles": []
+  }
+ },
+ "rows": [
+  {
+   "row": "01",
+   "file": "REGISTRY.md",
+   "line": 270,
+   "text": "| p2-31 | The Yang-Mills Mass Gap via SIDE Exclusion | `phase2/physics/YANG_MILLS_MONOGRAPH.md` | v0.2 | ○ | REVIEW | ~5,500 | Paired kernels: `SIDE-effects` (`YangMills.mass_gap`, form-level per VERIFICATION_LOOM 2026-06-01); `SIDE-yang-mills-formation`. Promotion to ◆ requires kernel-verification sweep |",
+   "kernel": "SIDE-effects",
+   "pins": [
+    {
+     "pin": "v0.2",
+     "resolves": false,
+     "commit": ""
+    }
+   ],
+   "terminals": [
+    "YangMills.mass_gap"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "YangMills.mass_gap",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 73,
+      "text": "--     (Retired: `gapped := True` on four sectors ⇒ `mass_gap : ¬Massless`;"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "02",
+   "file": "SPIRAL_MAP.md",
+   "line": 77,
+   "text": "| ### **`SIDE-effects`** | ### **`main` `afa9ccf`** *(merged 2026-08-14)* | ### **The exclusion engine, genuine Type-D exclusion via CRT exhaustiveness, and the graded exhaustiveness-license ladder.** *`EDifficultyTop` is carried as a **named `INTERFACES` premise — open, labelled, never proved**. The retired framework-consequence skeletons (`grh_exclusion`, `no_ls_zero` and kin) were withdrawn by `W-2` on 2026-06-16 and survive only at the historical tag `phase-1.5-module-1-v2`.* ### **The non-default-branch disclosure no longer applies: the ladder is on `main`.** |",
+   "kernel": "SIDE-effects",
+   "pins": [
+    {
+     "pin": "afa9ccf",
+     "resolves": true,
+     "commit": "afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd"
+    }
+   ],
+   "terminals": [
+    "grh_exclusion",
+    "no_ls_zero",
+    "EDifficultyTop"
+   ],
+   "ref": "afa9ccfbddc21e5bbd5ee2a4cbdf23f6a88498dd",
+   "mode": "AT-PIN",
+   "verdicts": [
+    {
+     "terminal": "grh_exclusion",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 79,
+      "text": "--     exhaustiveness analog). (Retired: opaque-Prop `grh_exclusion`,"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    },
+    {
+     "terminal": "no_ls_zero",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 84,
+      "text": "--     opaque-Prop `no_ls_zero`.)"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    },
+    {
+     "terminal": "EDifficultyTop",
+     "verdict": "PRESENT",
+     "note": "PROFILE NOT LOCATED",
+     "declared": [
+      {
+       "file": "SIDEEffects/ExhaustivenessLicense.lean",
+       "line": 135,
+       "text": "def EDifficultyTop (e : Evidence) (typeI_discharged : Prop) : Prop :="
+      }
+     ],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "this act`s declared extension",
+     "last_declared": null
+    }
+   ],
+   "row_verdict": "PRESENT x1, RETIRED x2"
+  },
+  {
+   "row": "03",
+   "file": "VERIFICATION_LOOM.md",
+   "line": 529,
+   "text": "| no-conspiracy twin primes | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `AddMult.no_conspiracy_twins` | ✓F |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "AddMult.no_conspiracy_twins"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "AddMult.no_conspiracy_twins",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 91,
+      "text": "--     ⇒ `no_conspiracy_twins/goldbach/sg`.)"
+     },
+     "named_outright": true,
+     "named_abbrev": true,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "04",
+   "file": "VERIFICATION_LOOM.md",
+   "line": 530,
+   "text": "| no-conspiracy Goldbach | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `AddMult.no_conspiracy_goldbach` | ✓F |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "AddMult.no_conspiracy_goldbach"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "AddMult.no_conspiracy_goldbach",
+     "verdict": "RETIRED",
+     "note": "named by the ledger`s `a/b/c` abbreviation in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 91,
+      "text": "--     ⇒ `no_conspiracy_twins/goldbach/sg`.)"
+     },
+     "named_outright": false,
+     "named_abbrev": true,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "05",
+   "file": "VERIFICATION_LOOM.md",
+   "line": 531,
+   "text": "| no-conspiracy Sophie Germain | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `AddMult.no_conspiracy_sg` | ✓F |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "AddMult.no_conspiracy_sg"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "AddMult.no_conspiracy_sg",
+     "verdict": "RETIRED",
+     "note": "named by the ledger`s `a/b/c` abbreviation in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 91,
+      "text": "--     ⇒ `no_conspiracy_twins/goldbach/sg`.)"
+     },
+     "named_outright": false,
+     "named_abbrev": true,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "06",
+   "file": "VERIFICATION_LOOM.md",
+   "line": 540,
+   "text": "| `side_exclusion` | `D:\\SIDE-kernel\\Kernel\\Layer1.lean` | `techne_kernel.SIDE_exclusion` | ✓C |",
+   "kernel": "SIDE-kernel",
+   "pins": [],
+   "terminals": [
+    "side_exclusion",
+    "techne_kernel.SIDE_exclusion"
+   ],
+   "ref": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "side_exclusion",
+     "verdict": "ABSENT",
+     "note": "no declaration at this ref and no line of the kernel`s record names it",
+     "declared": [],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": null
+    },
+    {
+     "terminal": "techne_kernel.SIDE_exclusion",
+     "verdict": "PRESENT",
+     "note": "PROFILE NOT LOCATED",
+     "declared": [
+      {
+       "file": "Kernel/Layer1.lean",
+       "line": 30,
+       "text": "theorem SIDE_exclusion"
+      }
+     ],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": null
+    }
+   ],
+   "row_verdict": "ABSENT x1, PRESENT x1"
+  },
+  {
+   "row": "07",
+   "file": "VERIFICATION_LOOM.md",
+   "line": 548,
+   "text": "| Yang-Mills mass gap (form) | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `YangMills.mass_gap` is a retired `gapped := True` stub (no mass-gap proof); genuine YM content is formation-level placement in `SIDE-yang-mills-formation`, mass gap OPEN | ⊘ |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "YangMills.mass_gap"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "YangMills.mass_gap",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 73,
+      "text": "--     (Retired: `gapped := True` on four sectors ⇒ `mass_gap : ¬Massless`;"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "08",
+   "file": "VERIFICATION_LOOM.md",
+   "line": 581,
+   "text": "| GRH exclusion (form) | ### **RETIRED — not present on any live branch** | ~~`GRH.grh_exclusion`~~ | ### **RETIRED BY THE `W-2` WITHDRAWAL** *(executed 2026-06-16; landed on `main` 2026-07-13; `Structural.lean` 34 declarations → 3)*. Present only at the historical tag `phase-1.5-module-1-v2`, where it is an opaque-Prop template — a theorem taking its conclusion's content as a `Prop` hypothesis and discharging by the supplied implication. ### **Cited by ZERO manuscripts** *(census by scan, 2026-08-14)*. *Row corrected 2026-08-14: it had read \"⊘ scaffold-pattern\", which says present-but-weak of a declaration that is absent.* |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "GRH.grh_exclusion"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "GRH.grh_exclusion",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 79,
+      "text": "--     exhaustiveness analog). (Retired: opaque-Prop `grh_exclusion`,"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "09",
+   "file": "phase1.5/method/EXCLUSION_ENGINE.md",
+   "line": 190,
+   "text": "| `mass_gap` / `Massless` | SIDE-effects `Structural.lean:43-57` | **SHELL** | `gapped` is `fun _ => True` on all four sectors | **W-2** |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "mass_gap",
+    "Massless"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "mass_gap",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 73,
+      "text": "--     (Retired: `gapped := True` on four sectors ⇒ `mass_gap : ¬Massless`;"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    },
+    {
+     "terminal": "Massless",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 73,
+      "text": "--     (Retired: `gapped := True` on four sectors ⇒ `mass_gap : ¬Massless`;"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "this act`s declared extension",
+     "last_declared": {
+      "commit": "afb196e08578a46959a1443962f18b2f17f49ecc",
+      "date": "2026-04-28"
+     }
+    }
+   ],
+   "row_verdict": "RETIRED"
+  },
+  {
+   "row": "10",
+   "file": "phase1.5/method/EXCLUSION_ENGINE.md",
+   "line": 192,
+   "text": "| `bsd_full` / `RankMismatch` / `MismatchMechanism` | SIDE-effects `Structural.lean:221-238` | **SHELL** | `mismatch_absent` is `fun _ => True` — *the exemplar v2.0 called substance* | **W-2** |",
+   "kernel": "SIDE-effects",
+   "pins": [
+    {
+     "pin": "v2.0",
+     "resolves": false,
+     "commit": ""
+    }
+   ],
+   "terminals": [
+    "bsd_full",
+    "mismatch_absent",
+    "MismatchMechanism",
+    "RankMismatch"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "bsd_full",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 99,
+      "text": "--     `sha_bounded`, `bsd_full`. The `Sha_finite`/`sha_finite`/"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    },
+    {
+     "terminal": "mismatch_absent",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 98,
+      "text": "--     (Retired: `bounds_sha := True`, `mismatch_absent := True` ⇒"
+     },
+     "named_outright": true,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    },
+    {
+     "terminal": "MismatchMechanism",
+     "verdict": "ABSENT",
+     "note": "no declaration at this ref and no line of the kernel`s record names it",
+     "declared": [],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "this act`s declared extension",
+     "last_declared": {
+      "commit": "afb196e08578a46959a1443962f18b2f17f49ecc",
+      "date": "2026-04-28"
+     }
+    },
+    {
+     "terminal": "RankMismatch",
+     "verdict": "ABSENT",
+     "note": "no declaration at this ref and no line of the kernel`s record names it",
+     "declared": [],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "this act`s declared extension",
+     "last_declared": {
+      "commit": "afb196e08578a46959a1443962f18b2f17f49ecc",
+      "date": "2026-04-28"
+     }
+    }
+   ],
+   "row_verdict": "ABSENT x2, RETIRED x2"
+  },
+  {
+   "row": "11",
+   "file": "phase1.5/method/EXCLUSION_ENGINE.md",
+   "line": 193,
+   "text": "| `no_conspiracy_twins` / `TwinFinite` | SIDE-effects `Structural.lean:166-170` | **SHELL** (honestly marked in-source) | `TypeD Nat (fun _ => True) (fun _ => True)` | **W-2** |",
+   "kernel": "SIDE-effects",
+   "pins": [],
+   "terminals": [
+    "no_conspiracy_twins",
+    "TwinFinite"
+   ],
+   "ref": "b67f29b72512a2b1b94c3afea1676113e54349a6",
+   "mode": "CHECKED-AT-HEAD",
+   "verdicts": [
+    {
+     "terminal": "no_conspiracy_twins",
+     "verdict": "RETIRED",
+     "note": "named outright in the kernel`s own retirement ledger",
+     "declared": [],
+     "quote": {
+      "file": "SIDEEffects/Structural.lean",
+      "line": 91,
+      "text": "--     ⇒ `no_conspiracy_twins/goldbach/sg`.)"
+     },
+     "named_outright": true,
+     "named_abbrev": true,
+     "pattern": "b371 imported",
+     "last_declared": {
+      "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+      "date": "2026-05-13"
+     }
+    },
+    {
+     "terminal": "TwinFinite",
+     "verdict": "ABSENT",
+     "note": "no declaration at this ref and no line of the kernel`s record names it",
+     "declared": [],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "this act`s declared extension",
+     "last_declared": {
+      "commit": "afb196e08578a46959a1443962f18b2f17f49ecc",
+      "date": "2026-04-28"
+     }
+    }
+   ],
+   "row_verdict": "ABSENT x1, RETIRED x1"
+  },
+  {
+   "row": "12",
+   "file": "phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md",
+   "line": 400,
+   "text": "| Per-conjecture instantiations | SIDE-effects (`c66f3c5`) | `no_conspiracy_twins`, `no_conspiracy_goldbach`, `no_conspiracy_sg` (over `TypeD Nat (fun _ => True) (fun _ => True)`) | — (uniformly-True predicates) | Placeholder — retired from the claim structure |",
+   "kernel": "SIDE-effects",
+   "pins": [
+    {
+     "pin": "c66f3c5",
+     "resolves": true,
+     "commit": "c66f3c590adfaf26e1c07997253ecade41f58b36"
+    }
+   ],
+   "terminals": [
+    "no_conspiracy_goldbach",
+    "no_conspiracy_sg",
+    "no_conspiracy_twins"
+   ],
+   "ref": "c66f3c590adfaf26e1c07997253ecade41f58b36",
+   "mode": "AT-PIN",
+   "verdicts": [
+    {
+     "terminal": "no_conspiracy_goldbach",
+     "verdict": "PRESENT",
+     "note": "PROFILE NOT LOCATED",
+     "declared": [
+      {
+       "file": "SIDEEffects/Structural.lean",
+       "line": 176,
+       "text": "theorem no_conspiracy_goldbach : ¬GoldbachFails :="
+      }
+     ],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": null
+    },
+    {
+     "terminal": "no_conspiracy_sg",
+     "verdict": "PRESENT",
+     "note": "PROFILE NOT LOCATED",
+     "declared": [
+      {
+       "file": "SIDEEffects/Structural.lean",
+       "line": 183,
+       "text": "theorem no_conspiracy_sg : ¬SGFinite :="
+      }
+     ],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": null
+    },
+    {
+     "terminal": "no_conspiracy_twins",
+     "verdict": "PRESENT",
+     "note": "PROFILE NOT LOCATED",
+     "declared": [
+      {
+       "file": "SIDEEffects/Structural.lean",
+       "line": 169,
+       "text": "theorem no_conspiracy_twins : ¬TwinFinite :="
+      }
+     ],
+     "quote": null,
+     "named_outright": false,
+     "named_abbrev": false,
+     "pattern": "b371 imported",
+     "last_declared": null
+    }
+   ],
+   "row_verdict": "PRESENT"
+  }
+ ],
+ "tally": {
+  "RETIRED": 7,
+  "PRESENT x1, RETIRED x2": 1,
+  "ABSENT x1, PRESENT x1": 1,
+  "ABSENT x2, RETIRED x2": 1,
+  "ABSENT x1, RETIRED x1": 1,
+  "PRESENT": 1
+ },
+ "modes": {
+  "CHECKED-AT-HEAD": 10,
+  "AT-PIN": 2
+ },
+ "terminal_tally": {
+  "RETIRED": 13,
+  "PRESENT": 5,
+  "ABSENT": 4
+ },
+ "absent": [
+  [
+   "06",
+   "side_exclusion"
+  ],
+  [
+   "10",
+   "MismatchMechanism"
+  ],
+  [
+   "10",
+   "RankMismatch"
+  ],
+  [
+   "11",
+   "TwinFinite"
+  ]
+ ],
+ "date": "2026-09-08",
+ "run_file": "b372_batch_notes5.txt",
+ "run_clock": "2026-09-08T17:00:06Z"
+}

@@ -1,0 +1,53 @@
+### run at (UTC) : 2026-09-08T16:43:54Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b372 -- COMPONENT 1: THE END-OF-LINE ATTRIBUTE, TRACKED.
+====================================================================================================
+
+  ### mode : READ ONLY -- NOTHING IS WRITTEN
+  ### the roster is IMPORTED from b303_pins.py : 4 repositories
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE MECHANISM, EXERCISED IN BOTH POLARITIES BEFORE IT IS TRUSTED.
+----------------------------------------------------------------------------------------------------
+    with the attribute     blob 400   checkout 400   ### equal : True
+    without it             blob 400   checkout 440   ### equal : False
+    ### ### **FIXTURE VERDICT : BOTH POLARITIES HELD** ### -- it passes only if the attribute is the CAUSE.
+
+----------------------------------------------------------------------------------------------------
+  ### (2) WHAT EACH REPOSITORY ALREADY CARRIES. ### **ASKED OF GIT, NOT OF A PATTERN.**
+----------------------------------------------------------------------------------------------------
+    relay                  .gitattributes True  tracked True    ### `.githooks/pre-push` -> text=unspecified eol=unspecified
+    SIDE-global-section    .gitattributes True  tracked True    ### `.githooks/pre-push` -> text=auto eol=lf
+    PLACE-papers           .gitattributes True  tracked True    ### `.githooks/pre-push` -> text=auto eol=lf
+    SIDE-effects           .gitattributes False tracked False   ### `.githooks/pre-push` -> text=unspecified eol=unspecified
+
+    ### ### **GOVERNED BY `eol=lf` AT THE GUARD`S PATH : ['SIDE-global-section', 'PLACE-papers']**
+    ### ### **NOT GOVERNED : ['relay', 'SIDE-effects']**
+    ### ### **A REPOSITORY CARRYING A PATH-SCOPED LINE THAT DOES NOT REACH THE GUARD IS
+    ### ### NOT `ALREADY CARRYING IT`, AND THE MEASUREMENT ABOVE IS WHY.**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE BYTES, BEFORE ANY WRITE. ### **WORKING FILE vs BLOB vs A FRESH CHECKOUT.**
+----------------------------------------------------------------------------------------------------
+    relay                  working 3139  blob 3068  fresh 3139   ### working==blob False fresh==blob False
+    SIDE-global-section    working 3068  blob 3068  fresh 3068   ### working==blob True  fresh==blob True
+    PLACE-papers           working 3068  blob 3068  fresh 3068   ### working==blob True  fresh==blob True
+    SIDE-effects           working 3139  blob 3068  fresh 3139   ### working==blob False fresh==blob False
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE VERIFICATION THE ORDER NAMES: ### **A FRESH CHECKOUT`S BYTES vs THE BLOB`S.**
+----------------------------------------------------------------------------------------------------
+    relay                  eol=unspecified blob 3068  fresh checkout 3139    ### ### **EQUAL : False**
+    SIDE-global-section    eol=lf          blob 3068  fresh checkout 3068    ### ### **EQUAL : True**
+    PLACE-papers           eol=lf          blob 3068  fresh checkout 3068    ### ### **EQUAL : True**
+    SIDE-effects           eol=unspecified blob 3068  fresh checkout 3139    ### ### **EQUAL : False**
+
+====================================================================================================
+  ### ### **REPOSITORIES WHOSE FRESH CHECKOUT EQUALS ITS BLOB : 2 of 4**
+  ### ### **VERDICT : NOT ALL PINNED**
+  ### **AND THE FLOOR, WITH THE FINDING AND NOT AFTER IT:** ### this fixes WHAT THE NEXT
+  ### CHECKOUT PRODUCES. ### **THE WORKING FILES ON THIS DISK ARE NOT RENORMALISED BY IT AND
+  ### ### THIS ACT DOES NOT RENORMALISE THEM.** ### The `working` column above may stay as it
+  ### is, and the act says so rather than claiming the defect is gone from this machine.
+  ### **NO WORKING FILE WAS DELETED, NO BRANCH WAS CREATED, NOTHING WAS RESET.**
+====================================================================================================

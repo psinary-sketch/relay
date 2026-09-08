@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'pin-is-a-date': ['the eol pin', 'the readme figures', 'the first batch',
+                     'checked at head', 'the row classification'],
     'count-claim-stale': ['the count claim', 'the first target', 'the row inventory',
                          'the desk closes', 'the hook made durable'],
     'apparatus-arc-fold': ['the apparatus arc', 'the fold b361', 'the span counted',
@@ -612,6 +614,34 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE EOL PIN, THE README FIGURES, THE FIRST BATCH OF ROW CHECKS (b372).
+    ("pin-is-a-date", "b372 (one attribute written in two repositories, one README repaired, twelve rows classified and none repaired; it opens no kernel for a build and adds no pin)",
+     "A PIN IS A DATE THAT SURVIVES. The same three declarations -- no_conspiracy_twins, no_conspiracy_goldbach, no_conspiracy_sg -- are PRESENT at the pin a row names and RETIRED at the head, and the"
+     " rows citing them without a pin cannot say which they meant. Of the twelve flagged rows, 2 were opened AT A PIN and 10 at the kernel live head under ruling (R8) and are marked"
+     " CHECKED-AT-HEAD, which is weaker than a pinned row check and the record says why. Across them 13 named terminals classify RETIRED, 5 PRESENT and 4 ABSENT; every RETIRED verdict"
+     " quotes the kernel own retirement ledger and none is an inference from absence. THE THREE README FIGURES DO NOT COUNT THREE DIFFERENT SCOPES: they count ONE QUANTITY -- Core zero-axiom terminals,"
+     " one per printed line -- AT THREE DIFFERENT REFS, and each was exact when it was written. At 3fe41b9 the headline, the breakdown, the ratio and the shipped profile all read 212; at"
+     " 1f423da all of them moved to 250 except the headline, which was left behind; at the head the profile carries 590. AND NONE OF THE THREE NAMES THE REF IT HOLDS AT. THE"
+     " END-OF-LINE ATTRIBUTE IS NOW TRACKED IN ALL 4 ROSTERED REPOSITORIES and a fresh checkout of the tracked guard equals its blob in every one; before this act it was 2 of 4, and the two"
+     " that failed were exactly the two without the attribute.",
+     "### NO ROW WAS REPAIRED AND NO PIN WAS ADDED TO ANY ROW: (R8) makes the addition of pins a SEPARATE RULING, PRICED AND NOT ATTEMPTED, and the classification is the product. ### NO HEAD WAS"
+     " WRITTEN INTO A ROW; every head read is recorded in the act own bank and dated. ### A CHECK AT A HEAD IS WEAKER THAN A CHECK AT A PIN: a pinned check is reproducible by anyone who resolves the"
+     " pin, and a check at a head is true of a moving target and only as good as the date beside it. ### THE ORDER PRESENT TEST CANNOT BE FULLY SATISFIED IN EITHER KERNEL READ, BECAUSE NEITHER SHIPS A"
+     " PRINTED AXIOM PROFILE: a declaration found alive is recorded PRESENT with its profile NOT LOCATED and is not silently upgraded. ### THE ORDER LABEL AND ITS DESCRIPTION NAMED DIFFERENT FILES: the"
+     " label said the exclusion kernel README, which has one count line, no breakdown and ships no profile at all; the object was identified BY THE DESCRIPTION, because a description is checkable"
+     " against a file and a label is not, and NOTHING IN THE EXCLUSION KERNEL README WAS REPAIRED. ### THE FIGURE WAS REMOVED RATHER THAN RESTATED, and the layer census was PRESERVED VERBATIM AND"
+     " DATED to the ref it holds at; re-deriving that census at the head rewrites a claim and not a number and is ROUTED. ### THE ATTRIBUTE FIXES WHAT THE NEXT CHECKOUT PRODUCES AND NOT THIS DISK: no"
+     " repository was renormalised, no working file was deleted to force a checkout and no branch was created or reset. ### 2 rows the previous act counted as pinned carry something that LOOKS"
+     " LIKE A PIN AND IS NOT. ### NO LEAN FILE TOUCHED, NO BUILD RUN, NO AXIOM PROFILE RECOMPUTED. ### NOTHING COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS"
+     " UNDECIDED. ### M-2 UNCHANGED",
+     "data/b372_the_first_batch.txt; data/b372_extract_notes.txt; data/b372_eol_notes2.txt; data/b372_readme_notes2.txt;"
+     " data/b372_batch_notes5.txt; data/b372_desk_notes.txt; data/b372_filing_notes.txt;"
+     " data/b372_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b372_eol.py (the attribute, asked of git and verified by a fresh checkout into a scratch directory, both polarities);"
+     " tools/b372_readme.py (what each figure counts, measured at the ref that introduced it); tools/b372_batch.py (the twelve rows, re-anchored by content and opened at pin or head);"
+     " tools/b372_desk.py ((R7), with every closure required to name a killing file resolved by its recorded clock);"
+     " relay/.gitattributes and SIDE-effects/.gitattributes (WRITTEN, the pre-existing path-scoped line PRESERVED); SIDE-global-section/README.md (REPAIRED, original in the bank);"
+     " PLACE-papers OPEN_TRAILS.md (an append-only block; NO ROW IN ANY PAPER EDITED; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 221"),
     # ### THE FIRST TARGET SETTLED, THE DESK CLOSED, THE GUARD MOVED (b371).
     ("count-claim-stale", "b371 (one settling, one inventory listed and not checked, one guard moved to a tracked path; it opens no kernel for any row and runs no build)",
      "THE ONE CONFIRMED LIVE CLAIM IS STALE, AND IT WAS EXACT WHEN IT WAS WRITTEN. The construction kernel public description named a Core figure of 114; the printed profile carried exactly"

@@ -1,1 +1,13 @@
 snapshots/** text eol=lf
+
+# Disk bytes must equal blob bytes.
+#
+# core.autocrlf=true checks text files out with CRLF while every blob is LF, so a working
+# file differs from its blob on raw bytes on a CLEAN tree. b309 met this in the construction
+# kernel; b371 met it again under the tracked pre-push guard (blob 3068 bytes, checkout 3139)
+# and had to weaken an identity arm to EOL-normalised comparison to get past it.
+# An arm weakened to survive a checkout is an arm the checkout won.
+#
+# eol=lf makes checkout match storage. Added b372 (2026-09-08). Do not remove without
+# re-verifying every guard that byte-compares a working file against its blob.
+* text=auto eol=lf

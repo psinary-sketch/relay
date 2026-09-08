@@ -1,0 +1,263 @@
+====================================================================================================
+b372 -- THE README, THE EOL PIN, AND THE FIRST BATCH. ### THE REGISTRATION.
+2026-09-08. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference.
+### ### **THIS FILE IS LOCKED BEFORE ANY WRITE OF THIS ACT**, and the lock is chained on
+### `tools/reg_seal.py` running only after the satisfiability audit's own exit code came back `0`.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER, AND THE RULING IT CARRIES.
+----------------------------------------------------------------------------------------------------
+### ### **`(R8)` SAYS WHAT A PINLESS ROW IS WORTH.** ### A row without a pin is ### **NOT CHECKABLE THE
+### ### WAY THE ARCHITECTURE PROMISES.** ### It may be checked at the kernel's live head; the head is
+### recorded ### **IN THIS ACT'S OWN BANK AND NEVER WRITTEN INTO THE ROW**; and the result is marked
+### `CHECKED-AT-HEAD`, ### **WHICH IS WEAKER THAN A PINNED ROW'S CHECK, AND THE RECORD SAYS WHY.**
+### ### **WHY IT IS WEAKER, STATED HERE AND NOT LEFT TO THE READER:** ### a pinned check is reproducible
+### by anyone who resolves the pin; ### **A CHECK AT A HEAD IS TRUE OF A MOVING TARGET AND IS ONLY AS
+### ### GOOD AS THE DATE BESIDE IT.** ### The head moves; the row does not; and nothing in the row will
+### ever tell a later reader which head was meant.
+### ### **AND `(R8)` FORBIDS THE OBVIOUS REPAIR IN THE SAME BREATH.** ### Whether pins are ADDED to those
+### rows is ### **A SEPARATE RULING, PRICED AND NOT ATTEMPTED**, and this act neither adds one nor argues
+### for one. ### It prices.
+### ### ### **AND `(R8)` IS RATIFIED BY THE PASTE AND IS STRIKEABLE**, which this face records so that a
+### later act reading `CHECKED-AT-HEAD` knows the mark rests on a ruling and not on a measurement.
+
+----------------------------------------------------------------------------------------------------
+### (A-PRE) WHAT PRECEDED THE LOCK, DECLARED RATHER THAN CONCEALED.
+----------------------------------------------------------------------------------------------------
+### ### **(P1) THE FERRY SCAN, BOTH CENSUSES AND THE STEP-ZERO PINS** ran first: `0` struck-clause hits,
+### `0` stem hits, citation CURRENT; both censuses TOTAL MISSING `0`; the pins equal across every
+### repository the roster names.
+### ### **(P2) THE EXTRACT RAN BEFORE THE LOCK**, as the order's own sequence requires, and every anchor
+### in it was ### **READ FROM ITS FILE AND NOT TYPED.**
+### ### ### **(P3) AND THIS FACE MUST DECLARE A RECONNAISSANCE, BECAUSE COMPONENT 2's OBJECT COULD NOT BE
+### ### ### IDENTIFIED WITHOUT ONE.** ### The following were seen BEFORE this file was locked, and none
+### of them is presented as a finding this act made after locking:
+###   -- `relay` carries a `.gitattributes` with ### **A PATH-SCOPED LINE ONLY**, not a repository-wide
+###      one; `SIDE-global-section` and `PLACE-papers` each carry a repository-wide one with a comment
+###      block naming `b309` as the reason; ### **`SIDE-effects` CARRIES NO `.gitattributes` AT ALL.**
+###   -- the tracked guard's working bytes were compared against its committed blob in each of the
+###      rostered repositories, and ### **THE TWO THAT DIFFER ARE EXACTLY THE TWO WITHOUT THE
+###      ### REPOSITORY-WIDE ATTRIBUTE.** ### That correspondence is the whole argument for Component 1
+###      and it was in hand before the lock.
+###   -- `SIDE-effects/README.md` states ONE count line and ### **SHIPS NO AXIOM PROFILE FILE**;
+###      `SIDE-global-section/README.md` states a headline figure, a parenthetical breakdown that sums to
+###      a different figure, and points at a shipped profile carrying a third.
+### ### **THE MEASUREMENTS, THE CLASSIFICATIONS AND THE REPAIR ARE DONE AFTER THE LOCK AND BY TOOL.**
+### ### **A LOCK THAT HIDES ITS OWN PRELUDE IS A LOCK ON NOTHING** (`b325`).
+
+----------------------------------------------------------------------------------------------------
+### (B) COMPONENT 1 -- THE EOL PIN, FIRST BECAUSE IT PROTECTS THE REST.
+----------------------------------------------------------------------------------------------------
+### ### **THE DEFECT IT CLOSES IS ALREADY IN THIS RECORD AND IS NOT HYPOTHETICAL.** ### `b309` found a
+### working file differing from its blob on a CLEAN tree; `b371` found the same thing again under a
+### tracked guard -- blob `3068`, checkout `3139` -- and had to weaken an identity arm to
+### EOL-NORMALISED to get past it. ### **AN ARM WEAKENED TO SURVIVE A CHECKOUT IS AN ARM THE CHECKOUT
+### ### WON.**
+### ### **WHAT IS WRITTEN, AND WHERE, IS DECIDED BY MEASUREMENT AND NOT BY TIDINESS:**
+###   -- ### **WHERE A REPOSITORY-WIDE ATTRIBUTE IS ALREADY PRESENT, NOTHING IS WRITTEN AND THE ACT SAYS
+###      ### SO** -- the order's own instruction, and the file is quoted rather than restated.
+###   -- ### **WHERE IT IS ABSENT, IT IS ADDED.** ### And where a repository carries a PATH-SCOPED
+###      attribute that does not reach the guard, ### **THAT IS ABSENCE FOR THIS PURPOSE AND THE ACT
+###      ### SAYS WHY** -- the existing line is ### **PRESERVED, NOT REPLACED**; the repository-wide line
+###      is added beside it.
+### ### **THE VERIFICATION IS THE ORDER'S OWN AND IT IS NOT AN ASSERTION:** ### a tracked file's working
+### bytes must equal its blob's ### **AFTER A FRESH CHECKOUT.**
+### ### ### **AND THE FRESH CHECKOUT IS MADE INTO A SCRATCH DIRECTORY, NEVER BY DELETING A FILE IN A LIVE
+### ### ### TREE.** ### This is not fastidiousness: ### **LAST ACT THIS SEAT DESTROYED UNCOMMITTED WORK
+### ### IN FOUR REPOSITORIES** with a mover that thought it was being careful. ### The checkout is taken
+### with `git checkout-index` into a temporary directory, which reads the working tree's attribute file
+### and writes ### **NOTHING INSIDE ANY REPOSITORY.**
+### ### **AND THAT MECHANISM IS ITSELF TESTED BEFORE IT IS TRUSTED**, in both polarities: with the
+### attribute in force the extracted bytes must equal the blob, and ### **WITH THE ATTRIBUTE SUPPRESSED
+### ### THEY MUST NOT** -- otherwise the check would pass for a reason that has nothing to do with the
+### line this act wrote. ### **A ONE-POLARITY CHECK OF A FIX CANNOT DISTINGUISH THE FIX FROM THE
+### ### WEATHER.**
+### ### **WHAT THIS BUYS, AND ITS FLOOR, STATED WITH THE FINDING:** ### `.gitattributes` is a ### **TRACKED
+### ### FILE**, so it travels with a clone (`DURABILITY_SPLIT`, minted `b370`) -- unlike `core.hooksPath`,
+### which does not. ### **BUT AN ATTRIBUTE ADDED TODAY DOES NOT NORMALISE A WORKING TREE THAT WAS CHECKED
+### ### OUT YESTERDAY**, and this act does not renormalise one. ### The bytes on this machine may stay as
+### they are; ### **WHAT IS FIXED IS WHAT THE NEXT CHECKOUT PRODUCES**, and the act says exactly that
+### rather than claiming the defect is gone from this disk.
+### ### **NO REPOSITORY IS RENORMALISED, NO TRACKED FILE'S CONTENT IS REWRITTEN, AND NO WORKING FILE IS
+### ### DELETED TO FORCE A CHECKOUT.**
+
+----------------------------------------------------------------------------------------------------
+### (C) COMPONENT 2 -- THE README, AND THE LABEL THAT DOES NOT FIT IT.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE ORDER'S LABEL AND THE ORDER'S DESCRIPTION NAME DIFFERENT OBJECTS, AND THIS IS SETTLED
+### ### ### ON THIS FACE BEFORE ANY READ.** ### The order says ### *"the exclusion kernel's README"* and
+### then describes ### *"a headline figure, a breakdown that sums to a different figure, and ships a
+### profile carrying a third."*
+### ### **THE EXCLUSION KERNEL'S README HAS NO SUCH SHAPE:** ### one count line, no breakdown, ### **AND
+### ### NO SHIPPED PROFILE OF ANY KIND.** ### The README that answers all three clauses is the
+### ### **CONSTRUCTION KERNEL'S**, and this record has already said so once -- `b371` routed exactly
+### these figures as an adjacent finding it was not sent to repair.
+### ### **THE RESOLUTION, FIXED BEFORE THE READ:** ### **THE OBJECT IS IDENTIFIED BY THE DESCRIPTION, NOT
+### ### BY THE LABEL**, because the description is checkable against a file and the label is not; ### the
+### discrepancy is ### **REPORTED AT FULL PROMINENCE AND NOT ABSORBED**; and ### **NOTHING IN THE
+### ### EXCLUSION KERNEL'S README IS REPAIRED BY THIS ACT.**
+### ### ### **THIS IS `b367`'s SPECIES AND IT IS NAMED AS ONE:** ### a hint that names the right terminals
+### and the wrong defect. ### **A SEAT THAT SILENTLY EXECUTES THE LABEL REPAIRS THE WRONG FILE; A SEAT
+### ### THAT SILENTLY EXECUTES THE DESCRIPTION AND SAYS NOTHING LEAVES THE AUTHOR BELIEVING A DIFFERENT
+### ### REPOSITORY WAS TOUCHED.** ### Both are failures; the report is the difference.
+### ### **AND IF THE AUTHOR MEANT THE LABEL, THE ACT HAS LOST NOTHING**, because the exclusion kernel's
+### README is READ and QUOTED here too, and its one count line is checked against its kernel. ### **BOTH
+### ### CANDIDATES ARE READ; ONLY THE ONE THE DESCRIPTION FITS IS REPAIRED.**
+### ### **WHAT EACH FIGURE COUNTS IS DETERMINED AT CONTENT AND NOT GUESSED**, by opening the profile and
+### the source tree the README describes. ### **A FIGURE WHOSE SCOPE CANNOT BE ESTABLISHED FROM A
+### ### DOCUMENT THAT STATES IT IS REPORTED AS UNESTABLISHED** -- `b371`'s rule, unamended: ### **A SUM
+### ### THAT HAPPENS TO MATCH IS NOT A SCOPE; A SENTENCE THAT NAMES THE SUM IS.**
+### ### **THE REPAIR FOLLOWS `b371`'s PRECEDENT EXACTLY:**
+###   -- the original is ### **PRESERVED VERBATIM IN THE BANK** before any edit;
+###   -- a figure is ### **REMOVED RATHER THAN RESTATED**, unless the document ### **CAN NAME THE REF IT
+###      ### HOLDS AT** -- and a README shipped in the same tree as the profile it cites CAN name that
+###      tree, which is a ref a reader can resolve;
+###   -- ### **IF THE REPAIR WOULD REWRITE A CLAIM RATHER THAN A NUMBER, IT IS ROUTED AND NOT MADE**, and
+###      the act says which figures were numbers and which were claims.
+### ### **AND NO `.lean` FILE IS TOUCHED AND NO BUILD IS RUN.** ### The profile is READ as a printed
+### record; if it cannot be read the answer is `NOT LOCATED` and that is a full answer (`b367`).
+
+----------------------------------------------------------------------------------------------------
+### (D) COMPONENT 3 -- THE FIRST BATCH, UNDER `(R6)` AND `(R8)`.
+----------------------------------------------------------------------------------------------------
+### ### **THE SET IS THE ONE `b371` FLAGGED AND IS NOT RE-DERIVED HERE:** ### the flagged rows, four
+### naming a pin and eight naming none. ### **EACH IS RE-ANCHORED BY ITS OWN CONTENT BEFORE IT IS
+### ### CLASSIFIED**, because a row cited by line number is a row that moves (`(R2)`).
+### ### **THE CLASSIFICATION IS THE ORDER'S, AND THE ACT MAY NOT INVENT A FIFTH WORD:**
+###   ### **`PRESENT`** -- statement AND axiom profile, ### **THE PROFILE READ FROM A PRINTED PROFILE.**
+###   ### **`RETIRED`** -- ### **THE KERNEL'S OWN RECORD QUOTED**, not this seat's inference from absence.
+###   ### **`RENAMED`** -- ### **A SUCCESSOR LOCATED**, named, and shown.
+###   ### **`ABSENT`** -- none of the above.
+### ### ### **AND ONE OBSTACLE IS DECLARED BEFORE IT IS MET, BECAUSE IT WILL DECIDE SEVERAL ROWS:** ###
+### the exclusion kernel ### **SHIPS NO PRINTED AXIOM PROFILE.** ### So for a row whose declaration is
+### found alive there, ### **THE SECOND HALF OF `PRESENT` CANNOT BE SATISFIED THE WAY THE ORDER
+### ### SPECIFIES.** ### Such a row is recorded as ### **PRESENT WITH ITS PROFILE `NOT LOCATED`**, the
+### shortfall is stated in the same line as the verdict, ### **AND IT IS NOT SILENTLY UPGRADED TO A CLEAN
+### ### `PRESENT`.** ### That is not a fifth word; it is the fourth word with its own evidence audited.
+### ### **THE REF EACH ROW IS OPENED AT IS DECIDED BY `(R8)` AND BY NOTHING ELSE:**
+###   -- ### **A ROW NAMING A PIN IS OPENED AT ITS PIN**, and the pin must RESOLVE in the kernel it names
+###      or the row is reported as naming a pin that does not resolve.
+###   -- ### **A ROW NAMING NO PIN IS OPENED AT THE KERNEL'S LIVE HEAD**, the head is recorded ### **IN
+###      ### THIS BANK AND NOT IN THE ROW**, the date is recorded with it, and the result is marked
+###      `CHECKED-AT-HEAD`.
+### ### **AND THE KERNELS ARE OPENED THROUGH `git show <ref>:<path>`, NOT THROUGH THE WORKING TREE**, so
+### that a check at a pin is a check at that pin and not a check of whatever is on this disk (`b309`).
+### ### ### **NO REPAIR IS MADE TO ANY ROW. ### THE CLASSIFICATION IS THE PRODUCT.** ### What each
+### classification IMPLIES for the papers that carry the row is ### **REPORTED AND ROUTED**, with the
+### document and the line named, ### **AND NOT ACTED ON.**
+### ### **AND THE PRICE OF THE SEPARATE RULING IS GIVEN WITHOUT ARGUING FOR IT:** ### what it would cost
+### to add a pin to a pinless row, and what it would cost across the set `b371` inventoried. ### **THE
+### ### ACT PRICES AND DOES NOT ADVOCATE.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE DESK, UNDER `(R7)`.
+----------------------------------------------------------------------------------------------------
+### ### **EACH ITEM IS CLOSED, STANDS, OR IS `UNCONFIRMED`.**
+### ### **AN ITEM CLOSES ONLY WITH THE FILE AND DATE THAT KILLED IT NAMED.** ### **A CLOSURE WITHOUT A
+### ### KILLING FILE IS AN OPINION**, and this act emits none.
+### ### **THE ITEM THIS ACT IS MOST LIKELY TO CLOSE IS ITS OWN**, and that is exactly the case where the
+### rule bites: ### **THE KILLING FILE MUST BE A FILE, NOT THIS ACT'S SAY-SO**, and the sweep may not
+### confirm an item from this act's own paperwork (`b368`'s defect, mechanised in `b368_desk.py`).
+### ### **THE SWEEP IS RE-RUN, NOT RESTATED FROM LAST ACT'S JSON.**
+
+----------------------------------------------------------------------------------------------------
+### (F) THE BARS. ### EACH AN EQUALITY OR A PRESENCE; NONE IS A TOLERANCE.
+----------------------------------------------------------------------------------------------------
+### ### **THIS ACT COMPUTES NOTHING ABOUT THE OBJECT.** ### No frame, no seed, no transform, no
+### quadrature, no fit, no score, no series. ### **SO THERE IS NO NUMERICAL BAR ON A COMPUTED QUANTITY.
+### ### UNPRICED, and said so rather than left blank.**
+### ### **BAR 1 -- THE ATTRIBUTE BAR.** ### In every rostered repository, after the act, a tracked file
+### extracted by a fresh checkout is byte-identical to its blob. ### Its floor: ### **IT PROVES WHAT THE
+### ### NEXT CHECKOUT PRODUCES. ### IT DOES NOT PROVE THIS DISK IS NORMALISED**, and it is not.
+### `SINGLE-ARM`.
+### ### **BAR 2 -- THE POLARITY BAR ON THE MECHANISM.** ### With the attribute suppressed, the same
+### extraction must FAIL to match. ### Its floor: ### **IT PROVES THE ATTRIBUTE IS THE CAUSE. ### IT
+### ### PROVES NOTHING ABOUT ANY OTHER FILE.** ### `MUST-FAIL FIXTURE`.
+### ### **BAR 3 -- THE PRESERVATION BAR.** ### The original of every edited document appears VERBATIM in
+### the bank before the edit, whitespace-normalised comparison, and the edit is located by an anchor read
+### from the file. ### Its floor: ### **IT PROVES THE ORIGINAL SURVIVES. ### IT DOES NOT PROVE THE EDIT
+### ### IS RIGHT.** ### `SINGLE-ARM`.
+### ### **BAR 4 -- THE SCOPE BAR.** ### Every figure the act says a document counts is either backed by a
+### QUOTED sentence or is marked UNESTABLISHED. ### Its floor: ### **IT PROVES THE SCOPE RESTS ON
+### ### SOMEBODY'S SENTENCE. ### IT DOES NOT PROVE THE SENTENCE IS RIGHT.** ### `SINGLE-ARM`.
+### ### **BAR 5 -- THE REF BAR.** ### Every classified row records the ref it was opened at; every pinned
+### row's ref is the pin the row names; every pinless row's ref is a head recorded in this bank with its
+### date and marked `CHECKED-AT-HEAD`. ### Its floor: ### **IT PROVES THE CHECK IS DATED. ### IT DOES NOT
+### ### MAKE A PINLESS ROW CHECKABLE**, which is the whole of `(R8)`. ### `SINGLE-ARM`.
+### ### **BAR 6 -- THE RETIREMENT-EVIDENCE BAR.** ### Every `RETIRED` verdict quotes the kernel's own
+### record; every `RENAMED` verdict names the successor and shows it. ### Its floor: ### **IT PROVES THE
+### ### VERDICT HAS A WITNESS. ### IT DOES NOT PROVE THE WITNESS IS COMPLETE.** ### `SINGLE-ARM`.
+### ### **BAR 7 -- THE NO-REPAIR BAR.** ### The papers repository's tracked rows are byte-unchanged by
+### this act except where Component 2 edits a README, and no edit touches any of the flagged rows. ###
+### Its floor: ### **IT PROVES THE CAP HELD.** ### `SINGLE-ARM`.
+### ### **THE GATE ARMS:** ### `G-REF`, `G-ATTR`, `G-NOWRITETWICE`, `G-FRESH`, `G-NORENORM`, `G-NODELETE`,
+### `G-README`, `G-OBJECT`, `G-LABEL`, `G-PRESERVED`, `G-REMOVED`, `G-SCOPE`, `G-ROUTED`, `G-BATCH`,
+### `G-ATHEAD`, `G-PINRESOLVES`, `G-QUOTED`, `G-NOFIFTH`, `G-NOROWREPAIR`, `G-PRICE`, `G-CLOSED`,
+### `G-KILLFILE`, `G-TRAIL`, `G-ROW`, `G-KEY`, `G-NOBUILD`, `G-NOLEAN`, `G-NOEDIT`, `G-ORDER`,
+### `G-NUMBERS`, `G-TOOLNUM`, `G-ONCE`, `G-NOCOMPUTE`, `G-BYCONTENT`, the struck-clause and stem sweeps,
+### `G-SHARED`, the hedge audit, the must-fail fixtures.
+### ### **AND EVERY `G-NO*`-SHAPED ARM READS STRIPPED CODE OR A MARKED REGION AND NEVER RAW PROSE**
+### (`b348`); this suite uses `gate_text.flat` and `gate_needle` and defines no flattener of its own.
+### ### ### **AND EVERY ARM IS WRITTEN BY CONTENT AND NOT BY ADDRESS** (`(R2)`), re-measured by
+### `G-BYCONTENT` with `b366`'s own detector.
+### ### **THE SIDES, DECLARED BY `b352`'s RULE:** ### `G-NOEDIT`'s, `G-TRAIL`'s and `G-ROW`'s working-tree
+### and ancestry readings are ### **BEFORE THE PUSH**; the hook, the polarity exercise and the mirror are
+### ### **AFTER**; `G-ORDER` is `SIDE-INVARIANT`. ### **AND ANY ARM THAT WOULD TEST A DIRTY WORKING TREE
+### ### IS SIDE-DEPENDENT AND SAYS SO** -- `b370`'s incident (vi), where an arm declared invariant failed
+### on its own success.
+### ### **AND THE RUN FILES ARE RESOLVED BY THEIR OWN RECORDED CLOCKS, NEVER BY NAME** (`b358`).
+### ### **THE MUST-FAIL FIXTURES, AS WHOLE LINES:** ### the bank must not contain `### A ROW WAS
+### REPAIRED.`, `### A BUILD WAS RUN.`, `### A WORKING FILE WAS DELETED TO FORCE A CHECKOUT.`,
+### `### A REPOSITORY WAS RENORMALISED.`, or `### A PINLESS ROW WAS CHECKED AT ITS PIN.`
+
+----------------------------------------------------------------------------------------------------
+### (G) THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, BOTH REFUTABLE BY A QUOTATION:**
+### ### **`(F1)` THE README'S THREE FIGURES COUNT THREE DIFFERENT SCOPES AND NONE NAMES ITS REF.**
+### ### **`(F2)` MOST OF THE TWELVE CLASSIFY `RETIRED` RATHER THAN `ABSENT`.**
+### ### **THIS SEAT REGISTERS TWO OF ITS OWN:**
+### ### **`(E1)` THE TWO REPOSITORIES NEEDING THE ATTRIBUTE ARE EXACTLY THE TWO WHOSE GUARD BYTES ALREADY
+### ### DIFFER FROM ITS BLOB** -- ### **AND THIS ONE IS ALREADY DECIDED BY THE PRE-LOCK RECONNAISSANCE IN
+### ### `(A-PRE)`, SO IT IS NOT A PREDICTION AND IS SCORED AS `NOT AN EXPECTATION`.** ### It is recorded
+### only so that no reader mistakes a measurement already in hand for a forecast this act made.
+### ### **`(E2)` THE `RETIRED` VERDICTS WILL BE CARRIED BY THE PAPERS' OWN ROWS AS OFTEN AS BY THE
+### ### KERNEL'S RECORD** -- that is, several of the twelve rows ### **ALREADY SAY THE THING IS RETIRED**,
+### and the act's work on those rows is to confirm the kernel agrees rather than to discover anything.
+### ### Refutable by counting how many of the twelve rows state a retirement in their own text.
+### ### **AND `(E2)` IS THE WEAK ONE AND IS SAID TO BE:** ### it predicts that documents which were
+### corrected once are still correct. ### **A SEAT THAT PREDICTS THE RECORD AGREES WITH ITSELF HAS
+### ### PREDICTED LITTLE**, and the record has said so about this seat before.
+
+----------------------------------------------------------------------------------------------------
+### (H) WHAT THIS ACT DOES NOT DO.
+----------------------------------------------------------------------------------------------------
+### ### **NO ROW IS REPAIRED.** ### Component 3's cap, and the order's own words.
+### ### **NO PIN IS ADDED TO ANY ROW.** ### `(R8)` makes that a separate ruling; this act prices it.
+### ### **NO REPOSITORY IS RENORMALISED AND NO TRACKED FILE'S CONTENT IS REWRITTEN BY AN ATTRIBUTE.**
+### ### **NO WORKING FILE IS DELETED TO FORCE A CHECKOUT, AND NO SCRATCH BRANCH IS CREATED OR RESET IN
+### ### ANY REPOSITORY** -- `b371`'s destructive incident, named here so the shape cannot recur quietly.
+### ### **NOTHING IN THE EXCLUSION KERNEL'S README IS REPAIRED**, and the label/description discrepancy
+### is REPORTED rather than resolved by this seat's preference.
+### ### **NO `.lean` FILE IS TOUCHED. ### NO BUILD IS RUN. ### NO AXIOM PROFILE IS RECOMPUTED** -- every
+### profile is READ as a printed record.
+### ### **NO FEDERATION-WIDE SURFACE SWEEP IS OPENED.** ### `(R6)`'s second pass stays shut.
+### ### **NO GRADE IS CONFERRED BY A SEAT AND NO FACE IS PROMOTED.** ### A classification of a row is
+### about a declaration's existence, ### **NOT ABOUT ITS MATHEMATICAL WORTH.**
+### ### **NOTHING IS CLAIMED ABOUT THE MATHEMATICS OF ANY NAMED SUBJECT.** ### That a declaration is
+### present says nothing about whether what it names is true.
+### ### **NOTHING IS COMPUTED ABOUT THE OBJECT. ### NOTHING IS COMPILED AND NO BRIDGE IS TYPED.**
+### ### **NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED.**
+### ### **NOTHING HERE BEARS ON `h2`, ON TOTALITY OR ON THE ROSTER.** ### `M-2` remains
+### (SPECIFIED-NOT-STATED) under `b310`'s cap. ### The seam's debt item 1 stands. ### The patent lane is
+### carried on the patent seat's report, UNCONFIRMED on this seat's record. ### **THE POSTURE LOCK IS
+### SEPARATE.** ### **THE INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED.** ### `h2` stands
+### exactly where the deposit left it. ### **NOTHING DEPOSITS.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : a4af7650995b760afb79b0cc001713d8192f6723f9ea497a2f3008548370e0c0
+### bytes locked : 22273
+### locked at (UTC) : 2026-09-08T16:42:32Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b372_registration_2026-09-08.txt`.**
+====================================================================================================
