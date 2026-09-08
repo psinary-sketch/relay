@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'cuspidality-convention': ['the cuspidality convention', 'the convention is located',
+                              'the exceptional case', 'W-ORD-LI-CUSP', 'the owed read'],
     'dated-arm': ['the dated arm', 'a dated arm', 'the copy that did not reproduce',
                   'G-LOCATED', 'the arm that no longer holds'],
     'anchored-gate-arms': ['the anchored gate arms', 'gate_needle', 'the anchored-arm helper',
@@ -596,6 +598,28 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE OWED READ, PAID (b365).
+    ("cuspidality-convention", "b365 (a read; it computes nothing, verifies no proof and moves no grade)",
+     "THE CONVENTION IS LOCATED AND THE SOURCE WORKS THE EXCEPTIONAL CASE ITSELF. Lagarias math/0404394v4 states results for irreducible cuspidal representations and the corpus object"
+     " is the trivial representation of GL(1), which the same paper marks as its own exception. THE PAPER NAMES A CONVENTION FOR IT AND SAYS WHY IT IS FORCED -- it removes the poles at s = 0 and"
+     " s = 1 for that case and concludes that its completed function is entire IN ALL CASES. AND IT CARRIES THE EXCEPTION THROUGH ITS OWN CUSPIDAL-HYPOTHESIS RESULTS, which a hypothesis line alone"
+     " would have hidden: Lemma 4.3 is stated for a cuspidal representation and applied to the exception by a Remark printed beneath it, and Lemma 4.2 hypothesis says cuspidal while its own"
+     " conclusion defines a term that is 1 exactly when the representation is the trivial one. THE CONSTANT AND THE ERROR TERM ARE DERIVED INDEPENDENTLY OF CUSPIDALITY: C1 depends on N and the"
+     " conductor alone, the implied constant is ABSOLUTE in the paper own word, AND THE PAPER PRINTS C1 FOR THE EXCEPTION AS A NUMBER in the paragraph after Theorem 5.1. A PAPER THAT COMPUTES A"
+     " THEOREM OWN CONSTANT FOR A CASE IS APPLYING THE THEOREM TO THAT CASE. SO THE LOCALIZATION IS SUPPORTED AT ZETA, WITH A STATED CONSTANT. AND WHAT IN THIS RECORD RESTS ON IT IS A NEGATIVE ANSWER: a bounded"
+     " pass found 3 of the ledger 16 blocks citing b358 or b361, every one an update to row U1, and NO BANKED NUMBER OF THIS RECORD IS COMPUTED FROM THEOREM 5.1 CONSTANT."
+     " 37 reads located, 17 anchors differing from the hint that found them, 16 source lines located at the pinned rendering.",
+     "### NO GRADE MOVES IN EITHER DIRECTION: H-CUSP stands where b358 left it and b361 decision stands where b361 left it, and A READ THAT SUPPORTS A GRADE DOES NOT RAISE IT. ### THE SUPPORT IS"
+     " BY THE PAPER OWN APPLICATION AND NOT BY ITS OWN QUANTIFIER: the theorem hypothesis line still says irreducible cuspidal and the paper never re-states it to admit the exception; what it does"
+     " instead is APPLY it, which is weaker and is what the quotations support. ### NO PROOF IS VERIFIED -- this act read what the paper states, checked no derivation, and could not; A LOCATED"
+     " STATEMENT IS NOT A PROVED ONE. ### b358 CIRCULARITY FINDING IS UNTOUCHED and nothing here bears on the zero channel. ### NO SOURCE WAS FETCHED and the rendering seam stands. ### THE"
+     " THRESHOLD IS PROPOSED AT 9 ACTS AND NOT RULED, with the spread 4 to 16 printed beside it. ### THE MINT SHIPS NO ARM and claims no audit. ### NOTHING WAS COMPUTED"
+     " ABOUT THE OBJECT. ### NO ACT IS RE-VERDICTED. ### NO FACE IS PROMOTED. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b365_the_owed_read_paid.txt; data/b365_read_run2.txt; data/b365_extract_notes2.txt; data/b365_mint_notes.txt; data/b365_filing_notes.txt;"
+     " data/b365_registration_2026-09-07.txt (LOCKED before the read, on the audit own exit code, with the pre-lock search declared on its face);"
+     " the pinned rendering at data/b358_source_lagarias0404394.txt (pinned b327, re-verified b358, NOT re-fetched here);"
+     " TECHNE-Core modules/2026-09/WRONG_ARM.md (local-only at 86a0dc1, NOT pushed);"
+     " PLACE-papers OPEN_TRAILS.md (W-ORD-LI-CUSP marked PAID; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 214"),
     # ### THE COPY THAT DID NOT REPRODUCE, DIAGNOSED AND NOT REPAIRED (b364).
     ("dated-arm", "b364 (a diagnosis; it repairs nothing and decides nothing that is the author own)",
      "THE COPY WAS INNOCENT AND THE BRANCH IS REAL. b363 found b357 copy reporting a failing gate where b357 banked none. b364 ran the BANKED SUITE tools/b357_checks.py AT ITS OWN"

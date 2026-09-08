@@ -1,0 +1,163 @@
+### run at (UTC) : 2026-09-08T02:57:26Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b365 -- THE OWED READ, PAID. ### **READS ONLY. ### NOTHING COMPUTED. ### NOTHING FETCHED.**
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+  ### the needle helper fixtures, run before it is trusted : True
+  ### the source, pinned by b327 and re-verified by b358 : 86f3d3c49f5a889f121bb1f04f67694cb9066dc8360f6988165788679594a4a7
+  ### ### **NOT RE-FETCHED BY THIS ACT. ### THE EXTRACTED TEXT ON DISK IS THE ONLY TEXT READ.**
+
+====================================================================================================
+  ### (i) THE CONVENTION. ### **QUOTED, NOT PARAPHRASED.**
+====================================================================================================
+
+    the paper's own marked exception   ### b358_source_lagarias0404394.txt:317
+      | representation, all other Λ( s,π ) are entire functions.
+
+    the convention, named as a convention by the paper itself   ### b358_source_lagarias0404394.txt:383
+      | GL(1) we have e(0,π triv ) = e(1,π triv ) = −1, and ξ(s,π triv ) = 2ξ(s). This convention is forced
+
+    and why it is forced   ### b358_source_lagarias0404394.txt:384
+      | if we wish to have entire functions in all cases, for we must re move the poles at s = 0 and
+
+    and the consequence the paper draws from it, IN ALL CASES   ### b358_source_lagarias0404394.txt:502
+      | whose singularities are simple poles at s = 0, 1. It follows that ξ(s,π ) is an entire function in
+
+    ### ### **VERDICT ON (i): LOCATED.**
+    ### The paper does not merely tolerate the exception -- ### **IT NAMES A CONVENTION, CALLS
+    ### ### IT ONE, AND SAYS WHY IT IS FORCED**: the completed function for the trivial
+    ### representation has simple poles at `s = 0` and `s = 1`, and the paper removes them by
+    ### setting `ξ(s,π_triv) = 2ξ(s)`. ### **AND IT DRAWS THE CONSEQUENCE IN ITS OWN WORDS:**
+    ### *"It follows that ξ(s,π) is an entire function in all cases."*
+
+====================================================================================================
+  ### (i-b) AND WHETHER THE PAPER CARRIES THE EXCEPTION THROUGH ITS CUSPIDAL-HYPOTHESIS RESULTS.
+====================================================================================================
+
+    the final term is 1 for the trivial representation, in the introduction   ### b358_source_lagarias0404394.txt:193
+      | The ﬁnal term δ(π) = δ(π∨) = 1 for the trivial representation π = πtriv over GL(1) and
+
+    Lemma 4.2's hypothesis line says cuspidal   ### b358_source_lagarias0404394.txt:955
+      | Lemma 4.2. Letπ be an irreducible cuspidal automorphic representation on GL(N ) over Q.
+
+    and Lemma 4.2's own conclusion carries the exception inside it   ### b358_source_lagarias0404394.txt:974
+      | and δ(π) = 1 if π =πtriv and δ(π) = 0 otherwise.
+
+    Lemma 4.3's hypothesis line says cuspidal   ### b358_source_lagarias0404394.txt:1082
+      | Lemma 4.3. For an irreducible cuspidal automorphic representation π onGL(N ) andn ≥ 1,
+
+    and its own Remark applies it to the trivial representation   ### b358_source_lagarias0404394.txt:1178
+      | Remark. For the case πtriv on GL(1) Lemma 4.3 yields
+
+    ### ### **AND THIS IS THE PART THE ORDER ASKED FOR AND THE PART A HYPOTHESIS LINE ALONE
+    ### ### WOULD HAVE HIDDEN.** ### The lemmas that feed Theorem 5.1 say ### *"irreducible
+    ### cuspidal"* ### in their hypothesis lines and then ### **HANDLE THE TRIVIAL
+    ### ### REPRESENTATION INSIDE THEIR OWN CONCLUSIONS AND REMARKS** -- Lemma 4.2 defines a term
+    ### that is `1` exactly when `π = π_triv`, and Lemma 4.3 is applied to `π_triv` by a Remark
+    ### printed immediately beneath it.
+
+====================================================================================================
+  ### (ii) THE CONSTANT AND THE ERROR TERM.
+====================================================================================================
+
+    Theorem 5.1's own hypothesis line   ### b358_source_lagarias0404394.txt:1207
+      | Theorem 5.1. For any irreducible cuspidal (unitary) automorphic representationπ onGL(N )
+
+    the constant of (5.1), at its own equation number   ### b358_source_lagarias0404394.txt:1218
+      | 2 logQ(π), (5.2)
+
+    the index condition, and the implied constant   ### b358_source_lagarias0404394.txt:1223
+      | and the implied constant in the O-notation is absolute.
+
+    and the paper EVALUATES that constant FOR the exception, by name   ### b358_source_lagarias0404394.txt:1229
+      | C1(πtriv ) = 1
+
+    with the conductor it uses to do so   ### b358_source_lagarias0404394.txt:1231
+      | using Q(πtriv) = 1.
+
+    the introduction's own form of the same asymptotic   ### b358_source_lagarias0404394.txt:201
+      | 2n logn +C1(π) n +O (1), (1.12)
+
+    what the proof reduces the archimedean sum to   ### b358_source_lagarias0404394.txt:1256
+      | using (4.24). We proceed to estimate an individual sum T (n,z ). The formulas for ˜τj(z) give
+
+    ### ### **VERDICT ON (ii): DERIVED INDEPENDENTLY OF CUSPIDALITY, AND THE PAPER EVALUATES
+    ### ### THEM FOR THE EXCEPTION ITSELF.**
+    ### `C_1(π)` is a function of `N` and the conductor `Q(π)` alone; the implied constant in
+    ### the error term is ### **ABSOLUTE**, in the paper's own word; and the archimedean sum the
+    ### proof estimates is reduced to the archimedean parameters by (4.24) and nothing else.
+    ### ### **AND THE PAPER PRINTS `C_1(π_triv)` AS A NUMBER**, using `Q(π_triv) = 1`, in the
+    ### paragraph immediately after Theorem 5.1. ### **A PAPER THAT COMPUTES A THEOREM'S OWN
+    ### ### CONSTANT FOR A CASE IS APPLYING THE THEOREM TO THAT CASE.**
+
+====================================================================================================
+  ### (iii) WHAT IN THIS RECORD RESTS ON IT. ### **A BOUNDED PASS, AND IT REPORTS WHAT IT READ.**
+====================================================================================================
+    ### blocks in `FACES_LEDGER.md` : 16 ; blocks citing `b358` or `b361` : 3
+
+    line 268   ## UPDATE — filed 2026-09-07 (b358): row U1, the uniformity obstruction
+        rows : ['U1'] ; cites Theorem 5.1 : True ; cites the constant : False ; cites ABSOLUTE : True
+
+    line 278   ## UPDATE — filed 2026-09-07 (b359): row U1, the uniformity obstruction — the tail bound localized
+        rows : ['U1'] ; cites Theorem 5.1 : True ; cites the constant : False ; cites ABSOLUTE : True
+
+    line 288   ## UPDATE — filed 2026-09-07 (b361): row U1, the uniformity obstruction — the index condition decided
+        rows : ['U1'] ; cites Theorem 5.1 : True ; cites the constant : False ; cites ABSOLUTE : True
+
+    ### ### **EVERY BLOCK IS AN UPDATE TO THE SAME ROW: %s.** ### The pass is bounded to these
+    ### and reads nothing wider, which is what the registration fixed.
+    ### ### **AND THE ANSWER IS A NEGATIVE ONE, WHICH IS WHY IT HAD TO BE LOOKED FOR:**
+    ### **NO BANKED NUMBER OF THIS RECORD IS COMPUTED FROM THEOREM 5.1's CONSTANT.** ### What
+    ### rests on the theorem is a ### **STATEMENT ABOUT CONDITIONALITY** -- that the archimedean
+    ### channel is unconditional and that its index condition is vacuous for the corpus's
+    ### object -- and not an arithmetic value. ### `C_1(π)` appears in no banked computation.
+
+====================================================================================================
+  ### ADDITION ONE, ANSWERED IN ITS OWN TWO PARTS. ### **THE FIRST QUOTED, THE SECOND ARGUED.**
+====================================================================================================
+    ### ### **PART ONE -- WHAT THE SOURCE STATES ABOUT THE EXCEPTIONAL CASE. ### THIS IS A FACT
+    ### ### ABOUT THE PAPER AND IT IS QUOTED ABOVE.**
+    ### The three answers the registration fixed were: the asymptotic with an absolute constant
+    ### HOLDS THERE; or HOLDS WITH A DIFFERENT CONSTANT; or IS NOT STATED AT ALL.
+    ### ### ### **IT HOLDS THERE, AND THE PAPER STATES THE CONSTANT FOR IT BY NAME.**
+    ### `C_1(π_triv)` is printed as a closed form and as a number, using `Q(π_triv) = 1`, and
+    ### the implied constant in the error term is absolute for every `π`.
+    ### **`IS NOT STATED AT ALL` IS UNREACHABLE**, because the paper states it.
+    ### **`HOLDS WITH A DIFFERENT CONSTANT` IS UNREACHABLE**, because the constant the paper
+    ### evaluates for the exception is (5.2) itself at `N = 1, Q = 1`, not another one.
+
+    ### ### **PART TWO -- WHAT THAT DOES TO THE LOCALIZATION. ### THIS IS A JUDGEMENT ABOUT THIS
+    ### ### RECORD AND IT IS ARGUED, NOT QUOTED.**
+    ### The three answers the registration fixed were: SUPPORTED AT `ζ`; or SUPPORTED WITH A
+    ### STATED CONSTANT; or INHERITED FROM A THEOREM WHOSE HYPOTHESES `ζ` DOES NOT MEET.
+    ### ### ### **SUPPORTED AT `ζ`, WITH A STATED CONSTANT.**
+    ### **AND THE HONEST QUALIFICATION, WHICH IS NOT A HEDGE:** ### Theorem 5.1's hypothesis
+    ### line still says ### *"irreducible cuspidal"*, ### and the paper never re-states it with a
+    ### hypothesis that syntactically admits `π_triv`. ### **WHAT IT DOES INSTEAD IS APPLY IT**,
+    ### explicitly, by name, in the paragraph beneath it -- and it does the same at Lemma 4.3.
+    ### ### **SO THE SUPPORT IS BY THE PAPER'S OWN APPLICATION AND NOT BY ITS OWN QUANTIFIER**,
+    ### and this act says which of the two it is rather than reporting the stronger one.
+    ### ### **AND THE THIRD BRANCH -- INHERITED FROM HYPOTHESES `ζ` DOES NOT MEET -- IS
+    ### ### UNREACHABLE**, because the source itself works the case rather than leaving it
+    ### outside; a reading that took the hypothesis line alone would have reached it, and would
+    ### have been reading a quantifier instead of a paper.
+
+====================================================================================================
+  ### THE BRANCH, FIXED BEFORE THE READ AND NOW TAKEN.
+====================================================================================================
+    ### ### **TAKEN: (LOCATED AND COVERS THE CASE).**
+    ### **`H-CUSP` DOES NOT MOVE AND NOTHING IS PROMOTED.** ### The act says what was read and
+    ### stops. ### `b358`'s grade stands as `b358` left it and `b361`'s decision stands as
+    ### `b361` left it.
+    ### **(LOCATED AND DOES NOT COVER THE CASE) -- UNREACHABLE**, because the paper applies its
+    ### own results to the case explicitly and computes the theorem's constant for it.
+    ### **(NOT LOCATED) -- UNREACHABLE**, because the convention is at a named line and is
+    ### quoted above with its number.
+    ### ### **AND NO GRADE MOVES IN EITHER DIRECTION, WHICH THE CAP MADE ABSOLUTE BEFORE THE
+    ### ### READ.** ### A read that SUPPORTS a grade does not raise it; the support is recorded
+    ### and the grade is the author's.
+    ### ### **AND `b358`'s CIRCULARITY FINDING IS UNTOUCHED.** ### It was never about the
+    ### archimedean channel: `b358` localized the conditionality to the ZERO channel, and this
+    ### read is entirely about the archimedean one.
+====================================================================================================
