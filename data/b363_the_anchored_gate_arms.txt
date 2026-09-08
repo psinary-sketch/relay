@@ -1,0 +1,391 @@
+====================================================================================================
+b363 -- THE ANCHORED GATE ARMS. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, the citation CURRENT.
+### Registration `data/b363_registration_2026-09-07.txt`, ### **LOCKED**
+### `6b80dfea957c4a877b6e6d8cf355170975e9181aa5df93b7ebf3401d38d48eb8`, 16623 bytes, 48 clauses JOINTLY
+### SATISFIABLE, and ### **LOCKED ONLY AFTER THE AUDIT'S OWN EXIT CODE CAME BACK `0`**, locked at (UTC)
+### 2026-09-08T01:21:52Z. ### **LOCKED BEFORE ANY WRITE.** ### The clocks are printed in section (11).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE HELPER IS BUILT AND IT IS NARROWER THAN THE RULE IT WAS PROPOSED UNDER.**
+### `tools/gate_needle.py` exists, its fixtures hold in ### **BOTH POLARITIES** -- including an arm that
+### SHOULD fire and still does -- and the census puts its reach at ### **7 OF 11 ARMS**, not at the
+### draft's nine or ten.
+### ### ### **AND THE DRAFT IS REFUTED IN ITS INPUT AS WELL AS IN ITS OUTPUT.** ### The draft counted
+### ### **THIRTEEN** incidents. ### The banks declare ### **ELEVEN**: `b360` FOUR, `b361` TWO, `b362`
+### FIVE, each figure quoted from its own act's own headline sentence and summed by the tool. ### The
+### draft's own arithmetic over its own banks was wrong, ### **WHICH IS EXACTLY WHY THE ORDER ASKED FOR A
+### ### COUNT AND NOT FOR A CONFIRMATION.**
+### ### ### **AND THE FOUR THAT ARE NOT RETIRED SPLIT INTO TWO KINDS, NOT ONE.** ### **TWO ARE WRONG
+### ### ARMS** (`A3`, `A10`) -- their predicates test something other than what their labels name, and no
+### needle tool reaches that, because a needle built from a file is still a needle for the wrong question.
+### ### **TWO ARE MISSING SENTENCES** (`A6`, `A9`) -- the bank genuinely did not carry what the arm asked
+### for, the arm was RIGHT to fire, and ### **A HELPER THAT MADE EITHER OF THEM QUIET WOULD BE A DEFECT
+### ### AND NOT A CURE.**
+### ### ### **SO THE NAVIGATOR'S EXPECTATION IS MET, AND ITS STATED REASON IS MET TWICE OVER, PLUS A
+### ### ### SECOND REASON THE EXPECTATION DID NOT FORESEE.**
+### ### ### **AND THE CONTROL HELD FIVE TIMES OUT OF SIX, WITH THE SIXTH REPORTED AND NOT ADJUSTED.**
+
+----------------------------------------------------------------------------------------------------
+### (2) THE HELPER, BUILT -- AND ITS REACH STATED AS LIMITS, NOT AS A CLAIM.
+----------------------------------------------------------------------------------------------------
+### `tools/gate_needle.py`. ### The shape is one sentence: ### **A HINT IS TYPED; THE FILE'S OWN LINE IS
+### RETURNED; THE COMPARISON HAPPENS UNDER A NORMALISER BOTH SIDES PASS THROUGH.** ### It wraps
+### `anchor_from_file.py` (`b354`) and `quote_norm.py` (`b349`) and adds one thing of its own: it strips
+### marker runs ### **WHEREVER THEY OCCUR** and not only at the start of a line, because `gate_text.flat`
+### (`b347`) strips them only at line start and `b362` had a refusal phrase printed across two INDENTED
+### lines that kept a marker mid-phrase.
+### ### **THE HEADER STATES FIVE LIMITS, AND THEY ARE THE POINT OF THE FILE:**
+###   ### (1) it makes a needle equal to a file's line; ### **IT DOES NOT MAKE THE ARM RIGHT.**
+###   ### (2) ### **IT DOES NOT REACH A WRONG ARM** -- a correct needle for the wrong predicate is still
+###       the wrong predicate.
+###   ### (3) ### **IT DOES NOT REACH A MISSING SENTENCE**, and must not: the arm is doing its job.
+###   ### (4) it inherits `quote_norm`'s deafness to presentation -- it cannot tell two renderings apart,
+###       which is the whole of what it buys and also the whole of what it costs.
+###   ### (5) ### **IT DOES NOT LAUNDER A CHANGED WORD**; a dropped possessive is still a MISS, and there
+###       is a fixture for exactly that.
+### ### **SEVEN FIXTURES, BOTH POLARITIES, ALL PASS.** ### The one that matters most is the negative one:
+### ### *"### and an arm whose sentence is ABSENT still FIRES"*. ### **AN INSTRUMENT THAT ONLY EVER
+### ### QUIETENS ARMS IS NOT AN INSTRUMENT, IT IS A SOFTENER**, and `b348`'s rule already forbids softening
+### a needle. ### The fixture is what keeps this tool on the right side of that rule.
+### ### **AND `absent_exact` IS DELIBERATELY NOT NORMALISED**: the must-fail form is whole-line equality,
+### because a must-fail arm asks whether a forbidden sentence is literally absent and normalising that
+### question would weaken it.
+
+----------------------------------------------------------------------------------------------------
+### (3) ADDITION ONE -- THE POPULATION, COUNTED FROM THE BANKS AND NOT TAKEN FROM THE DRAFT.
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER: "ENUMERATED FROM THEIR BANKS BY THE ANCHOR TOOL."** ### So the count has two halves
+### that must agree before anything is emitted.
+###   ### **HALF ONE, THE HEADLINES.** ### Each act's own incident section opens with its own figure, and
+###     each figure was located by the anchor tool at that act's own bank:
+###     ### `b360` -- *"(E7) FOUR ARMS OF THIS ACT'S OWN SUITE FIRED ON THIS ACT'S OWN CORRECT WORK"*
+###     ### `b361` -- *"(E4) TWO ARMS OF THIS ACT'S OWN SUITE FIRED ON ITS OWN CORRECT WORK"*
+###     ### `b362` -- *"(E5) FIVE ARMS OF THIS ACT'S OWN SUITE FIRED ON ITS OWN CORRECT WORK"*
+###     ### ### **FOUR PLUS TWO PLUS FIVE IS ELEVEN.**
+###   ### **HALF TWO, THE ENUMERATION.** ### Eleven arms, `A1` through `A11`, each pinned to the line of
+###     the bank that describes it, each line located by `anchor_from_file` and printed beside its entry.
+###     ### **ELEVEN ENUMERATED.**
+### ### ### **THE TOOL REFUSES TO EMIT IF THE TWO DISAGREE**, because a census whose parts do not add to
+### its own total is not a census. ### **THEY AGREE.**
+### ### **AND ONE DETAIL THAT IS NOT A PEDANTRY: THE CENSUS COUNTS ARMS AND NOT LINES.** ### `b362`
+### describes TWO of its arms in ONE sentence (*"Two were inherited needles still carrying the previous
+### leg's wording"*), so `A7` and `A8` share a bank line. ### A count of lines would have returned ten.
+### ### **THE EXTRACT THAT FEEDS THIS: 28 READS, 0 WITHOUT AN ANCHOR, 13 POPULATION LINES LOCATED, AND
+### ### 20 OF 28 ANCHORS DIFFERING FROM THE HINT THAT FOUND THEM** -- which is the tool working, not
+### failing: twenty times the typed hint was not what the file says, and twenty times the file's bytes
+### were taken instead.
+
+----------------------------------------------------------------------------------------------------
+### (4) ADDITION ONE -- THE CLASSIFICATION, ARM BY ARM. ### **DECLARED, NOT INFERRED FROM PROSE.**
+----------------------------------------------------------------------------------------------------
+### ### **WHY DECLARED.** ### `b357`'s incident is the reason and the cure is the same one: ### **A
+### ### SCANNER THAT INFERS A JUDGEMENT FROM PROSE IS A CHECK THAT CAN CONFIRM RATHER THAN TEST**, and the
+### subject of this act is precisely a check that could confirm rather than test. ### So the class of each
+### arm is ### **THIS SEAT'S JUDGEMENT, STATED IN THE TOOL AS DATA**, with the anchor it rests on located
+### and printed beside it. ### **WHAT THE TOOL DECIDES IS THE ARITHMETIC AND NOTHING ELSE.**
+### ### **RETIRED BY THE HELPER -- SEVEN.**
+###   ### `A1` (`b360`): a self-needle typed with a marker prefix the bank does not carry on that line.
+###     ### The needle was ### **TYPED.** ### Built from the file it would have been the file's own line,
+###     markers and all.
+###   ### `A2` (`b360`): a plain substring searched against markup carrying emphasis inside the phrase.
+###     ### A PRESENTATION mismatch; the helper discards emphasis on both sides.
+###   ### `A4` (`b360`): `G-ROSTER` searched the raw bank for a sentence the bank wraps through.
+###     ### A PRESENTATION mismatch of the wrapping kind; the helper discards markers and line breaks on
+###     both sides.
+###   ### `A5` (`b361`): `G-SCOPE` typed a noun the reading does not use. ### **TYPED, AND TYPED WITH A
+###     ### DIFFERENT WORD FOR THE SAME THING.**
+###   ### `A7` (`b362`): an inherited needle still carrying the previous leg's wording. ### **THE HELPER
+###     ### RAISES ON A HINT THAT MATCHES NOTHING IN ITS OWN FILE**, so the silence becomes a refusal.
+###   ### `A8` (`b362`): a second inherited needle, the same shape, sharing `A7`'s bank line.
+###   ### `A11` (`b362`): a phrase printed across two INDENTED lines, where the shared flattener strips
+###     markers only at line start. ### **THIS IS THE ARM THAT SET THIS HELPER'S NORMALISATION.**
+### ### **NOT RETIRED -- FOUR, IN TWO KINDS.**
+###   ### **WRONG ARMS -- TWO.**
+###     ### `A3` (`b360`): `G-ORDER` demanded an ordering between two components that the registration
+###       never fixed. ### **ITS PREDICATE TESTED THE SEAT'S HABITS AND NOT THE RITUAL ITS LABEL NAMED.**
+###     ### `A10` (`b362`): a true-prefix test on a ledger whose new row is SPLICED INTO the table, not
+###       appended. ### **THE PREDICATE TESTED APPEND-ONLYNESS WHERE THE CORRECT WRITE IS AN INSERTION**,
+###       and `b362`'s own bank says so in those words.
+###   ### **MISSING SENTENCES -- TWO.**
+###     ### `A6` (`b361`) and `A9` (`b362`): each asked its bank for a correspondence row number the bank
+###       had not printed. ### **THE ARM WAS RIGHT AND THE CURE WAS THE BANK PRINTING WHAT IT OWED.**
+### ### ### **RETIRED BY THE HELPER : 7 ### / ### NOT RETIRED : 4 ### OF 11.**
+
+----------------------------------------------------------------------------------------------------
+### (5) ADDITION ONE -- THE DRAFT, SCORED AGAINST THE COUNT.
+----------------------------------------------------------------------------------------------------
+### The draft at `data/b362_closing.txt` said ### *"NINE ARMS THAT FIRED ON THEIR OWN ACTS' CORRECT WORK,
+### and `b360` PRODUCED FOUR MORE"* and priced the cure at ### *"a census of thirteen incidents should
+### convert to a cure covering nine or ten"*. ### Both halves were located by the anchor tool at the
+### draft's own file before the census ran.
+### ### ### **THE DRAFT IS REFUTED, AND REFUTED IN ITS INPUT AS WELL AS ITS OUTPUT.**
+###   ### **INPUT: THIRTEEN CLAIMED, ELEVEN COUNTED.** ### The draft's thirteen was arithmetic over its
+###     own banks and it was wrong.
+###   ### **OUTPUT: NINE OR TEN CLAIMED, SEVEN COUNTED.**
+### ### **AND THE TWO ERRORS ARE NOT THE SAME KIND.** ### The output figure was an estimate and estimates
+### may be wrong. ### **THE INPUT FIGURE WAS A COUNT THE DRAFT COULD HAVE MADE AND DID NOT**, and it was
+### stated with the confidence of a count. ### That is the sharper of the two findings about the draft,
+### and it is a finding about ### **THIS SEAT'S OWN WRITING**, since this seat wrote the draft.
+
+----------------------------------------------------------------------------------------------------
+### (6) THE FOURTH SPECIES, NAMED -- AND UNTOUCHED BY ANY NEEDLE TOOL.
+----------------------------------------------------------------------------------------------------
+### The record already names three species of gate defect: ### **NEEDLE-WRAPPING** (`b309`-`b317`),
+### ### **USE-AND-MENTION** (`b348`) and ### **NUMBERED-REPEAT** (`b358`). ### This act names the fourth:
+### ### ### **THE WRONG ARM -- AN ARM WHOSE PREDICATE TESTS SOMETHING OTHER THAN WHAT ITS LABEL SAYS.**
+### `b362` banked the sentence this act adopts: ### **"AN ARM THAT CANNOT PASS ON A CORRECT EDIT IS NOT A
+### STRICTER ARM; IT IS THE WRONG ARM."**
+### ### **AND THE POINT OF NAMING IT HERE IS THAT THIS ACT'S OWN INSTRUMENT DOES NOT TOUCH IT.** ### The
+### first three species are all failures of ### *how a sentence is written down*, and a needle built from
+### the file cures every one of them. ### The fourth is a failure of ### *which question is asked*, and no
+### amount of correctness about bytes reaches it. ### **A NEEDLE BUILT FROM A FILE IS STILL A NEEDLE FOR
+### THE WRONG QUESTION**, and this act says that plainly rather than letting a 7-of-11 figure imply that
+### the remaining four are merely harder cases of the same thing. ### **THEY ARE NOT. ### TWO OF THEM ARE
+### ### A DIFFERENT DEFECT AND TWO OF THEM ARE NOT A DEFECT AT ALL.**
+
+----------------------------------------------------------------------------------------------------
+### (7) ADDITION TWO -- THE CONTROL. ### **THE BANKED SUITES, COPIED AND RUN. ### NOT EDITED.**
+----------------------------------------------------------------------------------------------------
+### ### **THE ORDER: THE BANKED SUITES ARE NOT EDITED.** ### Each is copied into `tools/` under a
+### declaring name (`b363_copy_<act>_checks.py`) so its own path arithmetic still works, run as a
+### subprocess, compared against the verdict its own act banked, and ### **THE COPY IS DELETED IN A
+### `finally`.** ### The copies are not tools this act ships and none of them survives the run.
+###   ### `b355` -- banked GATES FAILING 0 ; the copy reports 0 ; ### **REPRODUCED.**
+###   ### `b356` -- banked GATES FAILING 0 ; the copy reports 0 ; ### **REPRODUCED.**
+###   ### `b357` -- banked GATES FAILING 0 ; the copy reports 1, `['G-LOCATED']` ; ### **DOES NOT
+###     ### REPRODUCE. ### REPORTED, NOT ADJUSTED.**
+###   ### `b360` -- banked GATES FAILING 0 ; the copy reports 0 ; ### **REPRODUCED.**
+###   ### `b361` -- banked GATES FAILING 0 ; the copy reports 0 ; ### **REPRODUCED.**
+###   ### `b362` -- banked GATES FAILING 0 ; the copy reports 0 ; ### **REPRODUCED.**
+### ### ### **COPIES REPRODUCING THEIR OWN ACT'S VERDICT : 5 of 6.**
+### ### **AND THE ONE THAT DOES NOT IS NOT A FAILURE OF THE HELPER, WHICH NO COPY USES.** ### `b357`'s
+### `G-LOCATED` reads an index whose lines have since moved -- ### **AND `b357`'s OWN BANK PREDICTED
+### ### EXACTLY THIS**, that appending an index key moves the lines an act cites. ### **A COPY THAT DOES
+### NOT REPRODUCE IS A MEASUREMENT OF A SUITE READING A MOVED REPOSITORY.** ### It is reported at full
+### prominence here rather than adjusted, and no suite was touched to make it go quiet.
+### ### **AND THE FIXTURES ARE BOTH POLARITIES**, as the order required: the helper's own seventh fixture
+### is an arm that SHOULD fire and still does.
+
+----------------------------------------------------------------------------------------------------
+### (8) ADDITION TWO -- THE HELPER EXERCISED OVER EVERY NEEDLE THOSE SIX SUITES DECLARE.
+----------------------------------------------------------------------------------------------------
+###   ### `b355` declares `SELF_HINTS`(20 pairs) ### -> 20 needles ### -> BUILT 20 ### REFUSED 0
+###   ### `b356` declares `SELF_HINTS`(18 pairs) ### -> 18 needles ### -> BUILT 18 ### REFUSED 0
+###   ### `b357` declares `SELF_HINTS`(23 pairs) ### -> 23 needles ### -> BUILT 23 ### REFUSED 0
+###   ### `b360` declares `OWNER_NEEDLES`(15) + `SELF_NEEDLES`(15) ### -> 30 ### -> BUILT 30 ### REFUSED 0
+###   ### `b361` declares `OWNER_NEEDLES`(16) + `SELF_NEEDLES`(14) ### -> 30 ### -> BUILT 30 ### REFUSED 0
+###   ### `b362` declares `OWNER_NEEDLES`(17) + `SELF_NEEDLES`(14) ### -> 31 ### -> BUILT 31 ### REFUSED 0
+### ### ### **152 NEEDLES DECLARED, 152 BUILT, 0 REFUSED.**
+### ### **AND WHAT A REFUSAL WOULD HAVE MEANT HERE IS NOT WHAT IT MEANS IN A LIVE SUITE:** ### these
+### anchors were verified by their own acts against files that have since moved, so ### **A REFUSAL IS A
+### MEASUREMENT OF DRIFT IN THE RECORD AND NOT A DEFECT IN THE ARM THAT PASSED.** ### There were none.
+### ### **THIS IS A MEASUREMENT OF THE RECORD'S OWN SUITES AND NOT A GRADE ON THEM, AND NO SUITE WAS
+### EDITED BY IT.**
+### ### **THE FIGURE ABOVE IS THE THIRD ONE THIS ACT PRODUCED, AND THE FIRST TWO WERE WRONG.** ### That
+### is section (12) and it is this act's own subject turned on this act's own tool.
+
+----------------------------------------------------------------------------------------------------
+### (9) ADDITION THREE -- THE OWED READ, FILED BY ID AND PRICED. ### **NOT ATTEMPTED.**
+----------------------------------------------------------------------------------------------------
+### ### **`W-ORD-LI-CUSP`, appended to `PLACE-papers/OPEN_TRAILS.md` under its own mark**, append-only,
+### the file a true prefix of what it was ### **AND OF ITS COMMITTED BLOB**, checked before the push --
+### which by `b352`'s straddling rule is the reading that carries, since after the commit the blob IS the
+### file and the same arm proves nothing about how it got there. ### It grew the file by 4797 bytes and
+### nothing above the mark was touched.
+### ### **THE SUBJECT: THE APPLICABILITY GRADE THE LI LOCALIZATION INHERITS.** ### Lagarias's Theorem 5.1
+### is stated ### *"For any irreducible cuspidal (unitary) automorphic representation π on GL(N)"*, and
+### the corpus's object is the trivial representation of `GL(1)` -- ### **THE SOURCE'S OWN MARKED
+### ### EXCEPTION**, *"Aside from this representation, all other Λ(s,π) are entire functions."*
+### ### **FOUR QUOTATIONS, ALL BUILT BY THE ANCHOR TOOL FROM THEIR OWN FILES**: the theorem and the
+### exception at the pinned source (`86f3d3c4…`, lines 1207 and 316), `b358`'s grade at its own bank
+### (line 106) and `b361`'s inheritance sentence at its own bank (lines 110-115).
+### ### **AND ONE MECHANICAL DETAIL WORTH THE SENTENCE:** ### a bank line carries this record's `###`
+### scaffolding and a papers file does not, so the quotation is reproduced without it -- and ### **THE
+### ### EQUALITY IS CHECKED UNDER THE SHARED NORMALISER BEFORE THE APPEND**, so *"and nothing else
+### changed"* is a computation in this act and not a promise.
+### ### **WHY IT IS A TRAIL AND NOT A DEFECT.** ### `b358` did not assume the question away and `b361` did
+### not quietly inherit it -- each printed it, and `b361` printed the consequence in the same sentence as
+### the inheritance. ### **WHAT NEITHER ACT DID WAS READ THE SOURCE'S CONVENTION AND SAY WHAT IT
+### ### LICENSES.** ### `MET` on the corpus axis is a statement about WHICH CASE the object is; it is not
+### a statement that the theorem's proof survives the poles. ### **TWO DIFFERENT CLAIMS, AND ONLY THE
+### FIRST IS IN THE RECORD.**
+### ### **THE PRICE, NAMED IN THREE LOCATIONS AND NOT PAID**: the stated convention in the source and
+### whether §5's argument uses entirety anywhere; whether `C₁(π)` and the error term in (5.1) are derived
+### under the same hypothesis; and which banked numbers rest on that constant rather than on the
+### archimedean channel `b358` found unconditional. ### **ONE READING COMPONENT OF ONE ACT. ### NO FRAME,
+### NO SEED, NO TRANSFORM, NO QUADRATURE, NO FIT, NO SERIES, NO NEW SOURCE FETCHED.**
+### ### ### **NAMING A READ IS NOT PERFORMING ONE, AND THIS ACT PERFORMED NONE OF IT.**
+
+----------------------------------------------------------------------------------------------------
+### (10) WHAT MOVED, AND WHAT DID NOT.
+----------------------------------------------------------------------------------------------------
+### ### **MOVED.** ### One new shared tool (`tools/gate_needle.py`), this act's own tools and run files,
+### one correspondence row, one index key, and ### **ONE APPEND-ONLY BLOCK IN `OPEN_TRAILS.md`.**
+### ### **DID NOT MOVE.** ### **NO FACE IS PROMOTED AND NO LEDGER ROW MOVED**, so `FACES_LEDGER.md` was
+### not written and its writer was not called -- the order's *"only if a row moves"* is honoured by NOT
+### writing. ### **NO BANKED SUITE WAS EDITED.** ### No findings section was written. ### No roster row
+### changed. ### Nothing in TECHNE-Core. ### **NO ACT IS RE-VERDICTED**: `b355`, `b356`, `b357`, `b360`,
+### `b361` and `b362` stand exactly as banked, and the one copy that does not reproduce changes none of
+### them.
+### ### **AND NOTHING ABOUT THE OBJECT MOVED, BECAUSE NOTHING ABOUT THE OBJECT WAS COMPUTED.** ### No
+### frame, no seed, no transform, no quadrature, no fit, no score, no series. ### This act counted arms and
+### ran suites. ### **A SHARPER INSTRUMENT IS NOT A RESULT**, and a gate helper is a long way from being
+### even an instrument.
+### ### `M-2` remains (SPECIFIED-NOT-STATED) under `b310`'s cap. ### The seam's debt item 1 stands. ### The
+### patent lane is carried on the patent seat's report, UNCONFIRMED on this seat's record. ### **THE
+### ### INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED. ### THE POSTURE LOCK IS SEPARATE.**
+### ### **`h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (11) THE RECORD, ITS PINS, AND ITS CLOCKS.
+----------------------------------------------------------------------------------------------------
+### ### **THE REGISTRATION.** ### `data/b363_registration_2026-09-07.txt`, ### **LOCKED**
+### `6b80dfea957c4a877b6e6d8cf355170975e9181aa5df93b7ebf3401d38d48eb8`, 16623 bytes, 48 clauses, locked at
+### 2026-09-08T01:21:52Z, ### **AFTER `tools/reg_satisfiable.py` RETURNED EXIT CODE `0` AND CHAINED ON
+### ### THAT CODE.**
+### ### **THE RUN FILES, EACH RESOLVED BY ITS OWN RECORDED CLOCK** (`b358`'s cure; a suite that NAMES a
+### run file reads whichever ran FIRST, and this act produced repeats of two of them):
+###   ### `b363_extract_notes.txt` 2026-09-08T01:25:39Z -- superseded, and why is in (12).
+###   ### `b363_extract_notes2.txt` 2026-09-08T01:25:57Z -- ### **THE RELIED-ON EXTRACT.**
+###   ### `b363_census_run.txt` 2026-09-08T01:28:06Z -- superseded.
+###   ### `b363_census_run2.txt` 2026-09-08T01:29:18Z -- superseded.
+###   ### `b363_census_run3.txt` 2026-09-08T01:33:19Z -- ### **THE RELIED-ON CENSUS.**
+###   ### `b363_trail_notes.txt` 2026-09-08T01:38:07Z -- ### **THE RELIED-ON TRAIL RUN.**
+### ### **THE JSONS.** ### `b363_satisfiable.json` (48 clauses), `b363_reads.json` (28 reads, 0 without an
+### anchor), `b363_census.json` (11 / 11 / 7 / 4, 152 needles), `b363_trail.json` (`W-ORD-LI-CUSP`, 4
+### quotations, append-only both ways).
+### ### **THE APPENDED RECORDS.** ### `CORRESPONDENCE.md` gains ONE row, `212`, appended and read back
+### with the table a true prefix of itself above it. ### `tools/banked_index.py` gains ONE key,
+### `anchored-gate-arms`, reachable by six aliases, with four overreadings (*the gate is cured*, *every arm
+### is retired*, *a sharper instrument is a result*, *a banked suite was edited*) checked ### **NO KEY
+### BEFORE AND NO KEY AFTER.** ### `OPEN_TRAILS.md` gains ONE append-only block, `W-ORD-LI-CUSP`, 4797
+### bytes. ### **`FACES_LEDGER.md` GAINS NOTHING AND ITS WRITER WAS NOT CALLED.**
+### ### **THE SOURCE PIN, NOT RE-FETCHED AND NOT RE-VERIFIED BY THIS ACT.** ### The Lagarias text this act
+### quotes was pinned by `b327` at `86f3d3c49f5a889f121bb1f04f67694cb9066dc8360f6988165788679594a4a7` and
+### re-verified by `b358`. ### **THIS ACT READ THE EXTRACTED TEXT ON DISK AND FETCHED NOTHING**, and the
+### seam stands: ### **A HASH ON A PDF DOES NOT CERTIFY THAT ITS EXTRACTED TEXT IS A FAITHFUL RENDERING
+### OF IT.**
+
+----------------------------------------------------------------------------------------------------
+### (12) THE ACT'S OWN INCIDENTS, ALL DECLARED. ### **THE SUBJECT OF THIS ACT, TURNED ON THIS ACT.**
+----------------------------------------------------------------------------------------------------
+### ### **INCIDENT 1 -- THE UNFORMATTED PLACEHOLDER, A THIRD TIME.** ### `tools/b363_extract.py` carried a
+### `%d` with nothing to fill it and printed the literal. ### **THIS IS THE THIRD REPEAT IN FOUR ACTS**:
+### `b358` had it, `b361` had it and banked four runs before anyone read the output, and this act had it
+### again. ### Found by reading this act's own output. ### **THE STANDING CURE IS UNCHANGED AND UNMET: A
+### ### RUN'S OWN TEXT MUST BE READ, NOT ASSUMED.**
+### ### **INCIDENT 2 -- THE NUMBERED REPEAT, TWICE.** ### `run_clock` numbered `b363_extract_notes2.txt`
+### and `b363_census_run3.txt`. ### **A SUITE THAT NAMES `<name>_run.txt` READS WHICHEVER RAN FIRST**
+### (`b358`), and the relied-on runs here are the LAST ones. ### Section (11) states which run carries for
+### every repeat, and this act's suite resolves run files by their own recorded clock.
+### ### ### **INCIDENT 3 -- AND IT IS THIS ACT'S OWN SUBJECT COMMITTED BY THIS ACT'S OWN TOOL, TWICE, ONE
+### ### ### LAYER APART.**
+###   ### **LAYER ONE: A NAME TYPED RATHER THAN READ.** ### The helper exercise looked for lists called
+###     `OWNER_NEEDLES` and `SELF_NEEDLES`. ### `b355`, `b356` and `b357` declare theirs as `SELF_HINTS`.
+###     ### The exercise reported ### **`0 declared`** for all three and the first census banked that.
+###     ### **AN ABSENCE THAT WAS NOT THERE, PRODUCED BY A NAME TYPED RATHER THAN READ.**
+###   ### **LAYER TWO: A SHAPE ASSUMED RATHER THAN READ.** ### The correction read the list NAMES from the
+###     module and found all three -- and still reported ### **`BUILT 0`**, because the exercise required
+###     `len(item) >= 3` and those three suites declare ### **PAIRS** `(label, hint)` against the module's
+###     own `BANK` while the newer three declare ### **TRIPLES** `(label, path, hint)`.
+###     ### **A SECOND ABSENCE THAT WAS NOT THERE, ONE LAYER DOWN.**
+###   ### **BOTH WERE FOUND BY GREPPING THE SUITES THEMSELVES**, which is what the census should have done
+###     in the first place. ### The figure moved ### **0 -> 0 -> 61** for those three suites and
+###     ### **91 -> 91 -> 152** overall. ### **THE FIRST TWO CENSUS RUNS ARE BANKED AND SUPERSEDED, NOT
+###     ### DELETED.**
+###   ### ### **AND THE LESSON IS THE ACT'S OWN THESIS, PAID FOR IN ITS OWN RUNS: A TOOL THAT TYPES WHAT
+###     ### ### IT COULD HAVE READ MANUFACTURES ABSENCES.** ### The helper cures that for a SENTENCE. ###
+###     **IT DOES NOT CURE IT FOR AN IDENTIFIER OR FOR A DATA SHAPE**, and this act found the limit by
+###     walking into it twice.
+### ### **INCIDENT 4 -- THE HEREDOC, A FOURTH TIME, IN A NEW SHAPE.** ### A shell heredoc carrying this
+### act's trail tool did not terminate and ### **WROTE NOTHING AT ALL** -- no file, no error at the point
+### of failure, just an EOF complaint about a later line. ### The three earlier heredoc incidents
+### (`b360`, `b361`, `b362`) all collapsed a backslash and produced a WRONG file; this one produced NO
+### file, and would have been invisible to any check that only ever reads what was written.
+### ### **CAUGHT BY AN `ls`. ### THE STANDING CURE HELD AND WAS APPLIED: THE FILE WAS WRITTEN BY THE
+### EDITOR, NOT BY A SHELL.**
+### ### ### **INCIDENT 5 -- AND THIS ONE IS THE POPULATION'S OWN SPECIES, LIVE, IN THIS ACT'S OWN SUITE.**
+### `G-TRAIL`'s first version asked whether the filed entry says ### `NOT ATTEMPTED`. ### The entry says
+### it in lower case: ### *"it is affordable and it is not attempted here."* ### **THE ARM FIRED ON ITS
+### ### OWN ACT'S CORRECT WORK, AND IT FIRED BECAUSE THE NEEDLE WAS TYPED RATHER THAN READ.**
+### ### **AND THE HELPER RETIRED IT** -- the needle is now built by `gate_needle` from `OPEN_TRAILS.md`
+### itself and the arm is quiet on the same file, which is exactly the census's `RETIRED BY THE HELPER`
+### class doing its work on a twelfth arm rather than on the eleven it counted.
+### ### **THE ENTRY WAS NOT SOFTENED AND THE FILE WAS NOT EDITED** (`b348`'s rule): an append-only block
+### could not have been edited to suit a gate in any case, and the arm was the thing that was wrong.
+### ### **AND IT IS NOT ADDED TO THE POPULATION.** ### The census counted eleven arms in `b360`, `b361`
+### and `b362` and that count is closed; ### **AN ACT MAY NOT ENLARGE THE EVIDENCE IT WAS ASKED TO
+### COUNT BY PRODUCING MORE OF IT.**
+### ### **WHY NONE OF THE FIVE IS IN THE CENSUS.** ### The first four are not gate arms at all -- they are
+### defects in this act's own tools and shell. ### The fifth ### **IS** ### a gate arm firing on correct
+### work, and it still does not belong in the population, for a different reason: ### **THE POPULATION WAS
+### FIXED BY THE ORDER AS THE ARMS `b360`, `b361` AND `b362` DECLARED**, and an act may not enlarge the
+### evidence it was asked to count by producing more of it. ### **ALL FIVE ARE THIS ACT'S OWN AND ALL FIVE
+### ARE DECLARED HERE RATHER THAN IN THE CENSUS**, because putting any of them in the census would have
+### moved the very number the order asked to be counted honestly.
+
+----------------------------------------------------------------------------------------------------
+### (13) BOTH SEATS' EXPECTATIONS, SCORED. ### AN EXPECTATION IS SCORED, NEVER SATISFIED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, QUOTED FROM THE ORDER:** ### *"the helper retires fewer arms than the draft
+### estimates, because at least one of the nine is a wrong arm wearing a needle's clothes -- refutable by
+### the count."*
+### ### ### **MET, AND ITS STATED REASON IS MET TWICE OVER.** ### Fewer: ### **7 against nine or ten.**
+### ### At least one wrong arm: ### **TWO** (`A3`, `A10`), and one of them is called a wrong arm in its own
+### act's bank.
+### ### **AND THE EXPECTATION IS UNDERSTATED IN TWO WAYS IT DID NOT FORESEE.** ### First, the population
+### itself was wrong -- the expectation reasoned about *"the nine"* and there were never nine, nor
+### thirteen, but ELEVEN. ### Second, ### **TWO OF THE FOUR SURVIVORS ARE NOT DEFECTS AT ALL**: `A6` and
+### `A9` are arms that were RIGHT, and no helper should ever quieten them. ### **SO THE GAINSAYING OF THE
+### DRAFT IS SHARPER THAN THE EXPECTATION ASKED FOR, AND IT IS SHARPER IN THE DIRECTION OF THE HELPER
+### BEING WORTH LESS, NOT MORE.**
+### ### **THIS SEAT'S, QUOTED FROM SECTION (I) OF THE LOCKED REGISTRATION, CARRIED FROM THE DRAFT
+### UNCHANGED SO IT COULD BE SCORED HONESTLY:** ### *"THE HELPER WILL BUILD, ITS FIXTURES WILL HOLD, AND
+### IT WILL BE NARROWER THAN THE SPECIES COUNT SUGGESTS."*
+### ### ### **ALL THREE MET -- AND THAT IS WORTH VERY LITTLE, WHICH THIS SECTION SAYS RATHER THAN LETTING
+### ### ### THREE `MET`s STAND AS A SCORE.** ### The helper built. ### Its seven fixtures hold in both
+### polarities. ### It is narrower: ### **7 OF 11.**
+### ### **AND HERE IS WHY THAT IS CHEAP.** ### The third clause is the only one with any content, and the
+### registration itself already named the reason it would come out this way: ### **ARITHMETIC OVER ONE'S
+### ### OWN BANKS IS NOT A MEASUREMENT.** ### A seat that predicts its own draft was optimistic, having
+### written the draft, has predicted its own habit and not the world.
+### ### **AND THE ONE THING THIS SEAT DID NOT PREDICT IS THE ONE THING WORTH HAVING:** ### that the
+### population itself was wrong. ### **THE EXPECTATION REASONED ABOUT REACH AND SAID NOTHING ABOUT COUNT**,
+### and the count is where the draft failed worst.
+### ### **AND THE ACT'S OWN FIGURES CAME OUT RIGHT ONLY ON THE THIRD RUN.** ### 152 of 152 needles built
+### -- ### **AFTER TWO WRONG FIGURES OF THIS TOOL'S OWN MAKING** (section (12)). ### **A SEAT THAT REACHES
+### THE RIGHT NUMBER ON THE THIRD RUN HAS DEBUGGED SOMETHING, NOT PREDICTED IT.** ### And the control's one
+### exception was predicted by `b357`'s own bank rather than by this seat.
+### ### **THE VERDICT BRANCH TAKEN, AND THE OTHER TWO SHOWN UNREACHABLE** (`b350`'s rule).
+###   ### **TAKEN: (BUILT AND FOUND NARROWER THAN ITS RULE)** -- the helper exists, its fixtures hold in
+###     both polarities, the census is enumerated and classified, the control is run and reported, and the
+###     reach is below what the draft claimed.
+###   ### **(BUILT) -- UNREACHABLE**, because it is the same branch without the comparison, and the
+###     comparison was made and came out below.
+###   ### **(UNAFFORDABLE) -- UNREACHABLE**, because the whole act cost one tool, one census run and one
+###     append; nothing in it was priced out and nothing was declined for cost. ### `b355`'s lore over that
+###     word stands and is simply not invoked here.
+
+----------------------------------------------------------------------------------------------------
+### (14) WHAT IS NOT CLAIMED.
+----------------------------------------------------------------------------------------------------
+### ### **A SHARPER INSTRUMENT IS NOT A RESULT.** ### `gate_needle.py` makes needles equal to their files.
+### It says nothing about whether any gate asks the right question, and it says nothing whatever about the
+### object of study.
+### ### **THE HELPER IS NOT CLAIMED TO RETIRE THE WRONG-ARM SPECIES**, and the act says so in its own
+### section (6) rather than leaving a reader to infer it from a fraction.
+### ### **NO ARM IS RETIRED IN FACT BY THIS ACT.** ### The census says what the helper ### *would have*
+### reached had it existed; ### **IT DID NOT REWRITE A SINGLE BANKED ARM**, and the banked suites are
+### byte-identical to what their acts left.
+### ### **`7 OF 11` IS NOT A RATE AND NOT A FORECAST.** ### It is a count over eleven named arms in three
+### named acts, and it predicts nothing about the twelfth.
+### ### **NOTHING ABOUT THE QUANTIFIER, `h2`, TOTALITY OR THE ROSTER.** ### **NO CLASS IS DISCHARGED, THE
+### CLAUSE HAS NOT MOVED, NO COORDINATE IS CLOSED, THE PARTITION STAYS UNDECIDED.** ### **NO GRADE IS
+### CONFERRED BY A SEAT AND NO FACE IS PROMOTED.** ### The trail entry opens a question and decides none:
+### ### **`b358`'s GRADE STANDS AS `b358` LEFT IT AND `b361`'s DECISION STANDS AS `b361` LEFT IT.**
+### ### **NOTHING IS DEPOSITED AND NOTHING WAS WRITTEN AT ZENODO.**
+====================================================================================================

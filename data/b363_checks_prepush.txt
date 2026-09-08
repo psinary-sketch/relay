@@ -1,0 +1,234 @@
+====================================================================================================
+b363 -- GATE SUITE (THE ANCHORED GATE ARMS)
+====================================================================================================
+
+  OWNER NEEDLES ### BUILT BY `gate_needle` FROM THE FILE THAT EMITTED THEM, AND EACH
+  ### ALSO PRESENT IN THE RELIED-ON EXTRACT FILE:
+    PASS  the order -- the act
+    PASS  the order -- addition one, the count
+    PASS  the order -- addition two, the control
+    PASS  the order -- addition three, the owed read
+    PASS  the order -- the fourth species is untouched by any needle tool
+    PASS  the order -- the navigator's expectation
+    PASS  the order -- the next draft, counted and not typed
+    PASS  the draft -- its own population figure
+    PASS  the draft -- its own retirement estimate
+    PASS  b360 -- its own headline figure
+    PASS  b361 -- its own headline figure
+    PASS  b362 -- its own headline figure
+    PASS  b362 -- the wrong arm, in its own act’s words
+    PASS  b361 -- the missing sentence, in its own act’s words
+    PASS  the trail -- b358 grades the hypothesis
+    PASS  the trail -- b361 inherits it and does not decide it
+    PASS  the trail -- the theorem's own hypothesis, at the pinned source
+
+  SELF NEEDLES ### BUILT BY `gate_needle` FROM THIS ACT’S OWN BANK:
+    PASS  the bank states the verdict first
+    PASS  ### the draft refuted in its input as well as its output
+    PASS  ### the survivors split into two kinds, not one
+    PASS  ### a helper that quietened a right arm would be a defect
+    PASS  ### the navigator's expectation met, and met twice over
+    PASS  ### the control held five of six
+    PASS  ### the helper's shape in one sentence
+    PASS  ### the helper does not reach a wrong arm
+    PASS  ### seven fixtures, both polarities
+    PASS  ### the headline sum
+    PASS  ### the census refuses to emit on a disagreement
+    PASS  ### arms and not lines
+    PASS  ### why the classification is declared and not inferred
+    PASS  ### the retirement count
+    PASS  ### the draft's input figure was a count it could have made
+    PASS  ### the fourth species, named
+    PASS  ### and no needle tool reaches it
+    PASS  ### the control's one exception, reported not adjusted
+    PASS  ### the exercise figure
+    PASS  ### the trail filed and not performed
+    PASS  ### the ledger NOT written, because no row moved
+    PASS  ### this act's own species, committed by its own tool
+    PASS  ### and the same species one layer down
+    PASS  ### the heredoc, a fourth time, in a new shape
+    PASS  ### the expectation met, and worth very little
+    PASS  ### the branch taken
+    PASS  ### and the branches shown unreachable
+    PASS  ### what the helper is not claimed to do
+    PASS  ### 7 of 11 is not a rate and not a forecast
+
+  MUST-FAIL FIXTURES (whole-line equality, NEVER normalised and never a substring):
+    PASS  the bank never says the wrong arm is cured
+    PASS  the bank never says every arm is retired
+    PASS  the bank never says a banked suite was edited
+    PASS  the bank never says a sharper instrument is a result
+
+  G-COUNT (the population counted TWICE and the two halves made to agree):
+    headline sum 11 == enumerated 11, and the tool says they agree : True
+    the enumeration has as many entries as it counts : True
+    ### **THE TOOL REFUSES TO EMIT IF THE TWO DISAGREE** (in its own source) : True
+    every population line located by the anchor tool, 0 without an anchor : True
+    ### and the count is NOT the draft's figure (11 vs 13) : True
+    PASS
+
+  G-CLASSIFY (two values only; the partition closes; the two kinds kept apart):
+    retired 7 + not retired 4 == 11 : True
+    exactly the two declared values are used : True ['NOT RETIRED', 'RETIRED BY THE HELPER']
+    ### **THE SURVIVORS PARTITION: 2 WRONG ARMS ['A3', 'A10'] + 2 MISSING SENTENCES ['A6', 'A9'] = 4** : True
+    and no arm is in both kinds : True ; the locked face fixed the two values : True
+    PASS
+
+  G-REACH (the helper’s limits are stated, and the wrong arm is named as OUT OF REACH):
+    the helper's own header states it does not reach a wrong arm : True
+    ### nor a missing sentence : True
+    the bank says both in its own words : True / True
+    ### **AND THE CENSUS PUTS THE REACH BELOW THE POPULATION (7 < 11)** : True
+    PASS
+
+  G-FIXTURE (the helper holds its own fixtures, BOTH POLARITIES, re-run here):
+    every fixture passes on a fresh run : True
+    ### **THE POSITIVE POLARITY INCLUDES AN ARM THAT SHOULD FIRE AND STILL DOES** : True
+    ### and a changed word is still a MISS : True
+    and the helper claims no completeness : True
+    PASS
+
+  G-CONTROL (six banked suites copied and run; the one that does not reproduce is NAMED):
+    6 suites copied, 5 reproducing their own act’s banked verdict
+    every copy has a row in the record : True
+    ### **EACH NON-REPRODUCING COPY IS NAMED WITH ITS REASON, NOT ADJUSTED** : True ['b357']
+    ### **NO COPY SURVIVED THE RUN** (tools/b363_copy_*) : True 
+    PASS
+
+  G-NOEDIT (no owner instrument; NO BANKED SUITE EDITED; only this act’s papers path) ### the working-tree half READ BEFORE THE PUSH:
+    owner instruments modified : none
+    ### **BANKED SUITES MODIFIED : none**
+    papers paths beyond OPEN_TRAILS.md : none
+    ### **FACES_LEDGER.md UNTOUCHED, BECAUSE NO ROW MOVED** : True
+    HANDOFF clean : True ; the deposited monograph clean : True ; FINDINGS clean : True ; TECHNE clean : True
+    PASS
+
+  G-TRAIL (one append-only block, filed and NOT attempted) ### READ BEFORE THE PUSH:
+    the mark appears exactly once : True ; the committed blob is a true prefix : True
+    the writing tool recorded append-only both ways, priced, NOT attempted : True
+    ### **ALL 4 QUOTATIONS EQUAL TO THEIR FILES UNDER THE SHARED NORMALISER** : True
+    the entry says, in ITS OWN WORDS, that it is filed and not run and not attempted : True
+    ### **BOTH NEEDLES BUILT FROM THE FILE BY THE HELPER, NOT TYPED**; named in the bank : True
+    PASS
+
+  G-ROW / G-ANCESTOR (row 212: NO TERMINAL with the reason) ### READ BEFORE THE PUSH:
+    row 212 present once : True ; true prefix of its blob : True
+    PASS
+
+  G-KEY / G-NOTCURED:
+    one key and one row : True ; the four overreadings NO KEY after : True ; the run passed : True
+    PASS
+
+  G-ORDER (the lock verifies; EVERY relied-on run is AFTER the lock) ### SIDE-INVARIANT:
+    the lock recomputes : True ; it carries its clock (2026-09-08T01:21:52Z) : True
+    ### **EVERY RELIED-ON RUN IS AFTER THE LOCK** : True
+        lock    2026-09-08T01:21:52Z
+        extract 2026-09-08T01:25:57Z   census 2026-09-08T01:33:19Z   trail 2026-09-08T01:38:07Z
+    the audit reads JOINTLY SATISFIABLE : True ; the face says LOCKED BEFORE ANY WRITE : True
+    PASS
+
+  G-HOOK / G-MIRROR (the papers repo moves, so both are OWED) ### READ AFTER THE PUSH:
+    ### the hook and the mirror records are NOT YET WRITTEN (they are written at the push).
+
+  G-NUMBERS (every number the bank quotes, read back from its producing record):
+    the headline sum 11                                      PASS
+    enumerated 11                                            PASS
+    retired 7 of 11                                          PASS
+    wrong arms ['A3', 'A10']                                 PASS
+    missing sentences ['A6', 'A9']                           PASS
+    the draft's population 13                                PASS
+    the draft's estimate 'nine or ten'                       PASS
+    control 5 of 6                                           PASS
+    needles 152/152/0                                        PASS
+    reads 28                                                 PASS
+    without an anchor 0                                      PASS
+    anchors differing 20                                     PASS
+    the trail entry grew the file by 4797 bytes              PASS
+    row 212                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    16623 bytes locked                                       PASS
+    48 clauses                                               PASS
+    the relied-on extract run file                           PASS
+    the relied-on census run file                            PASS
+    the relied-on trail run file                             PASS
+
+  G-ONCE (the relied-on run files resolved by their own recorded clocks, never by name):
+    extract  b363_extract_notes2.txt    clock on disk 2026-09-08T01:25:57Z == the JSON's 2026-09-08T01:25:57Z : True
+    census   b363_census_run3.txt       clock on disk 2026-09-08T01:33:19Z == the JSON's 2026-09-08T01:33:19Z : True
+    trail    b363_trail_notes.txt       clock on disk 2026-09-08T01:38:07Z == the JSON's 2026-09-08T01:38:07Z : True
+    ### **EVERY REPEAT IS NAMED IN THE BANK, SUPERSEDED OR RELIED ON : True** ['b363_census_run.txt', 'b363_census_run2.txt', 'b363_census_run3.txt', 'b363_extract_notes.txt', 'b363_extract_notes2.txt']
+    PASS
+
+  G-NOCOMPUTE (nothing computed about the object, RE-MEASURED ON STRIPPED CODE):
+    numerical calls in this act's STRIPPED sources : 0 
+    numerical libraries imported : none
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed not loaded):
+    files scanned 23   struck-clause hits 0   stem hits 0  PASS
+    b363_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b363_ferry_2026-09-07.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER -- not this act's writing
+    b363_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b363_reg_termscan.txt                        struck : 0  stem : 0  ### CARRIER -- the term scan's own log
+    b363_extract_notes2.txt                      struck : 0  stem : 0  ### CARRIER -- the extract file carries three other acts' own words
+    b358_source_lagarias0404394.txt              struck : 0  stem : 0  ### CARRIER -- A PINNED SOURCE -- its words are its own
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 212, the trail block, the index row, swept):
+    row 212              struck : 0   stem : 0   (6470 chars)
+    the trail block      struck : 0   stem : 0   (4763 chars)
+    the index row        struck : 0   stem : 0   (3165 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the helper, and its seven fixtures                   tools/gate_needle.py               exists=True tracked=False
+    11 / 11 / 7 / 4, and the 152 needles                 tools/b363_census.py               exists=True tracked=False
+    the 28 reads and the 20 differing anchors            tools/b363_extract.py              exists=True tracked=False
+    the anchor built by reading its line                 tools/anchor_from_file.py          exists=True tracked=True
+    the shared normaliser both sides pass through        tools/quote_norm.py                exists=True tracked=True
+    W-ORD-LI-CUSP, and the 4797 bytes                    tools/b363_trail.py                exists=True tracked=False
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    row 212                                              tools/b363_correspondence.py       exists=True tracked=False
+    the key                                              tools/b363_index_append.py         exists=True tracked=False
+    48 clauses                                           tools/b363_regspec.py              exists=True tracked=False
+    16623 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    0/0 on the scans                                     tools/ferry_scan.py                exists=True tracked=True
+    TOTAL MISSING 0 (HANDOFF)                            tools/b307_handoff_census.py       exists=True tracked=True
+    TOTAL MISSING 0 (FACES)                              tools/b327_faces_census.py         exists=True tracked=True
+    the pins                                             tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT (over every file this act wrote, the row, the trail block and the index row):
+    b363_the_anchored_gate_arms.txt                sentences=670   graded-hedges=0   ungraded-shapes=140
+    b363_registration_2026-09-07.txt               sentences=318   graded-hedges=0   ungraded-shapes=75
+    b363_ferry_2026-09-07.txt                      sentences=53    graded-hedges=0   ungraded-shapes=14
+    b363_corr_run.txt                              sentences=16    graded-hedges=0   ungraded-shapes=4
+    b363_index_run.txt                             sentences=28    graded-hedges=0   ungraded-shapes=10
+    b363_census_stepzero.txt                       sentences=14    graded-hedges=0   ungraded-shapes=3
+    b363_faces_census_stepzero.txt                 sentences=11    graded-hedges=0   ungraded-shapes=2
+    b363_regspec_run.txt                           sentences=29    graded-hedges=0   ungraded-shapes=2
+    audit_b363_reg_satisfiable.txt                 sentences=159   graded-hedges=0   ungraded-shapes=16
+    b363_pins_stepzero.txt                         sentences=22    graded-hedges=0   ungraded-shapes=1
+    b363_reg_gate.txt                              sentences=16    graded-hedges=0   ungraded-shapes=2
+    b363_reg_termscan.txt                          sentences=26    graded-hedges=0   ungraded-shapes=2
+    b363_extract_notes2.txt                        sentences=170   graded-hedges=0   ungraded-shapes=20
+    b363_census_run3.txt                           sentences=181   graded-hedges=0   ungraded-shapes=37
+    b363_trail_notes.txt                           sentences=45    graded-hedges=0   ungraded-shapes=14
+    gate_needle.py                                 sentences=247   graded-hedges=0   ungraded-shapes=42
+    b363_regspec.py                                sentences=128   graded-hedges=0   ungraded-shapes=15
+    b363_extract.py                                sentences=173   graded-hedges=0   ungraded-shapes=16
+    b363_census.py                                 sentences=474   graded-hedges=0   ungraded-shapes=37
+    b363_trail.py                                  sentences=252   graded-hedges=0   ungraded-shapes=43
+    b363_correspondence.py                         sentences=189   graded-hedges=0   ungraded-shapes=52
+    b363_index_append.py                           sentences=174   graded-hedges=0   ungraded-shapes=33
+    row 212                                        sentences=35    graded-hedges=0   ungraded-shapes=24
+    the trail block                                sentences=29    graded-hedges=0   ungraded-shapes=18
+    the index row                                  sentences=44    graded-hedges=0   ungraded-shapes=15
+
+====================================================================================================
+  ### GATES FAILING : 1 ['G-HOOK/G-MIRROR (owed, not yet recorded)']
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================

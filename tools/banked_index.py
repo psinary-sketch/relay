@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'anchored-gate-arms': ['the anchored gate arms', 'gate_needle', 'the anchored-arm helper',
+                           'the needle helper', 'the wrong arm', 'the gate arms counted'],
     'approximation-register': ['the approximation register', 'Nyman-Beurling', 'Baez-Duarte',
                               'the closed span of dilations', 'the distance to the span',
                               'the register read under a cap'],
@@ -592,6 +594,28 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ANCHORED GATE ARMS, COUNTED AND NOT ASSERTED (b363).
+    ("anchored-gate-arms", "b363 (a tool, a count and a filing; it computes nothing about the object)",
+     "BUILT AND FOUND NARROWER THAN THE RULE IT WAS PROPOSED UNDER. tools/gate_needle.py takes a typed hint, returns the FILE OWN LINE, and compares under a"
+     " normaliser both sides pass through, stripping marker runs WHEREVER THEY OCCUR and not only at line start -- seven fixtures, both polarities, including an"
+     " arm that SHOULD fire and still does. THE POPULATION IS COUNTED AND NOT TAKEN FROM THE DRAFT: the three acts own headline figures, located by the anchor"
+     " tool at their own banks, are FOUR, TWO and FIVE, summing to 11; 11 arms were enumerated one by one, each pinned to the bank line that"
+     " describes it; AND THE TOOL REFUSES TO EMIT IF THE TWO DISAGREE. The draft claimed 13 and was wrong about its own banks. THE HELPER WOULD HAVE REACHED"
+     " 7 OF 11, against the draft estimate of nine or ten. THE FOUR IT DOES NOT REACH SPLIT INTO TWO KINDS: TWO ARE WRONG ARMS (A3, A10), whose predicates test"
+     " something other than what their labels name, and TWO ARE MISSING SENTENCES (A6, A9), arms that were RIGHT. THE CONTROL IS THE BANKED SUITES, UNEDITED:"
+     " six copied, run, deleted in a finally, 5 OF 6 reproducing their own act verdict, the exception (b357, G-LOCATED) reported at full prominence."
+     " THE HELPER WAS EXERCISED OVER 152 DECLARED NEEDLES: 152 BUILT, 0 REFUSED. 28 reads located, 20 anchors differing from the hint that found them.",
+     "### A SHARPER INSTRUMENT IS NOT A RESULT. ### NO ARM WAS ACTUALLY RETIRED: the census says what the helper WOULD HAVE reached had it existed, and the"
+     " banked suites are byte-identical to what their acts left. ### NO BANKED SUITE WAS EDITED. ### 7 OF 11 IS NOT A RATE AND NOT A FORECAST -- it is a count"
+     " over eleven named arms in three named acts. ### THE HELPER DOES NOT REACH THE WRONG-ARM SPECIES, and the act says so rather than letting a fraction imply"
+     " it: A NEEDLE BUILT FROM A FILE IS STILL A NEEDLE FOR THE WRONG QUESTION. ### AND IT MUST NOT REACH A MISSING SENTENCE: a helper that quietened A6 or A9"
+     " would be a defect and not a cure. ### THE CLASSIFICATION IS DECLARED DATA AND NOT INFERRED FROM PROSE. ### THE TRAIL ENTRY IS FILED AND NOT PAID, AND"
+     " NAMING A READ IS NOT PERFORMING ONE. ### NO GRADE IS CONFERRED BY A SEAT AND NO FACE IS PROMOTED. ### NO ACT IS RE-VERDICTED. ### NOTHING WAS COMPUTED"
+     " ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b363_the_anchored_gate_arms.txt; data/b363_trail_notes.txt; data/b363_census_run3.txt; data/b363_extract_notes2.txt;"
+     " data/b363_registration_2026-09-07.txt (LOCKED before any write, on the audit own exit code);"
+     " tools/gate_needle.py (the shared helper); tools/b363_census.py (the count, the classification and the control);"
+     " PLACE-papers OPEN_TRAILS.md (W-ORD-LI-CUSP, an append-only block; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 212"),
     # ### THE APPROXIMATION REGISTER, READ UNDER A CAP (b362).
     ("approximation-register", "b362 (a read and a pricing; it computes nothing and adopts nothing)",
      "LOCATED BUT NOT WORTH OPENING at the reach this record can afford. The classical criterion and the variant restricting its family to the naturals were"
