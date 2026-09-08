@@ -1,0 +1,121 @@
+{
+ "suite": "tools/b357_checks.py",
+ "predicate": [
+  {
+   "label": "the label the arm prints for itself",
+   "line": 207,
+   "text": "    print(chr(10) + '  G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW):')"
+  },
+  {
+   "label": "the ledgers it reads",
+   "line": 76,
+   "text": "LEDGERS = {'FINDINGS.md': FINDINGS, 'FACES_LEDGER.md': FACES,"
+  },
+  {
+   "label": "what it does with each classified row",
+   "line": 212,
+   "text": "            n, line = AF.find(path, r['text'][:110])"
+  },
+  {
+   "label": "what it calls a hard failure",
+   "line": 218,
+   "text": "            print('    ### FAIL (NO ANCHOR NOW)  %s : %d' % (r['ledger'], r['line']))"
+  },
+  {
+   "label": "what it allows -- a MOVED line -- and on what condition",
+   "line": 225,
+   "text": "        ok_dec = ('%d' % was) in bank and ('%d' % now) in bank and 'STRADDLE THIS ACT' in bf"
+  }
+ ],
+ "predicate_missing": 0,
+ "copy_failing": 1,
+ "copy_names": "['G-LOCATED']",
+ "copy_rc": 1,
+ "home_failing": 1,
+ "home_names": "['G-LOCATED']",
+ "home_rc": 1,
+ "copy_section": "  G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW):\n    rows re-located at their ledgers : 12 of 12 ; unclassified : 0\n    ### lines that MOVED since the reading (b352's straddle, declared not hidden) : [('FACES_LEDGER.md', 140, 141), ('FACES_LEDGER.md', 176, 177), ('banked_index.py', 1022, 1232), ('banked_index.py', 613, 823)]\n        FACES_LEDGER.md        read at 140, now 141 ; both declared in the bank : False\n        FACES_LEDGER.md        read at 176, now 177 ; both declared in the bank : False\n        banked_index.py        read at 1022, now 1232 ; both declared in the bank : False\n        banked_index.py        read at 613, now 823 ; both declared in the bank : False\n    ### FAIL ###",
+ "home_section": "  G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW):\n    rows re-located at their ledgers : 12 of 12 ; unclassified : 0\n    ### lines that MOVED since the reading (b352's straddle, declared not hidden) : [('FACES_LEDGER.md', 140, 141), ('FACES_LEDGER.md', 176, 177), ('banked_index.py', 1022, 1232), ('banked_index.py', 613, 823)]\n        FACES_LEDGER.md        read at 140, now 141 ; both declared in the bank : False\n        FACES_LEDGER.md        read at 176, now 177 ; both declared in the bank : False\n        banked_index.py        read at 1022, now 1232 ; both declared in the bank : False\n        banked_index.py        read at 613, now 823 ; both declared in the bank : False\n    ### FAIL ###",
+ "branch": "REAL",
+ "why": "G-LOCATED fails at the banked suite own location too",
+ "unchanged_before": [
+  {
+   "path": "tools/b357_checks.py",
+   "exists": true,
+   "worktree": "e32e6c072d165b89755f40cc0a2288ac3b315de8f91d0b5c2a5589431a6ddbe0",
+   "blob": "e32e6c072d165b89755f40cc0a2288ac3b315de8f91d0b5c2a5589431a6ddbe0"
+  },
+  {
+   "path": "tools/banked_index.py",
+   "exists": true,
+   "worktree": "4458fb1e1b885c3d16e58d48875592b42fecc98a3da11f92296bf1ffb61a0b34",
+   "blob": "4458fb1e1b885c3d16e58d48875592b42fecc98a3da11f92296bf1ffb61a0b34"
+  },
+  {
+   "path": "data/b357_what_the_ledgers_say.txt",
+   "exists": true,
+   "worktree": "fd52eef01eabaaa44bddf390c6044a2cc5073fd73bb7a208c9ba034ff8e277b0",
+   "blob": "fd52eef01eabaaa44bddf390c6044a2cc5073fd73bb7a208c9ba034ff8e277b0"
+  },
+  {
+   "path": "data/b357_read.json",
+   "exists": true,
+   "worktree": "f6bd35a1df2fd2af3b324ebd13f1d960c14dba44db48f4008b9064b357812a57",
+   "blob": "f6bd35a1df2fd2af3b324ebd13f1d960c14dba44db48f4008b9064b357812a57"
+  },
+  {
+   "path": "data/b357_read_run2.txt",
+   "exists": true,
+   "worktree": "043f378188531cb74c52bc268b18e9e6ba547be3edb703896a1d7865fe1629cd",
+   "blob": "043f378188531cb74c52bc268b18e9e6ba547be3edb703896a1d7865fe1629cd"
+  },
+  {
+   "path": "data/b363_census_run3.txt",
+   "exists": true,
+   "worktree": "44a65cd7eebeb6cefda5f56aa8c9f13e787e4598e58f7efb07ed12eafbb44a48",
+   "blob": "44a65cd7eebeb6cefda5f56aa8c9f13e787e4598e58f7efb07ed12eafbb44a48"
+  }
+ ],
+ "unchanged_after": [
+  {
+   "path": "tools/b357_checks.py",
+   "exists": true,
+   "worktree": "e32e6c072d165b89755f40cc0a2288ac3b315de8f91d0b5c2a5589431a6ddbe0",
+   "blob": "e32e6c072d165b89755f40cc0a2288ac3b315de8f91d0b5c2a5589431a6ddbe0"
+  },
+  {
+   "path": "tools/banked_index.py",
+   "exists": true,
+   "worktree": "4458fb1e1b885c3d16e58d48875592b42fecc98a3da11f92296bf1ffb61a0b34",
+   "blob": "4458fb1e1b885c3d16e58d48875592b42fecc98a3da11f92296bf1ffb61a0b34"
+  },
+  {
+   "path": "data/b357_what_the_ledgers_say.txt",
+   "exists": true,
+   "worktree": "fd52eef01eabaaa44bddf390c6044a2cc5073fd73bb7a208c9ba034ff8e277b0",
+   "blob": "fd52eef01eabaaa44bddf390c6044a2cc5073fd73bb7a208c9ba034ff8e277b0"
+  },
+  {
+   "path": "data/b357_read.json",
+   "exists": true,
+   "worktree": "f6bd35a1df2fd2af3b324ebd13f1d960c14dba44db48f4008b9064b357812a57",
+   "blob": "f6bd35a1df2fd2af3b324ebd13f1d960c14dba44db48f4008b9064b357812a57"
+  },
+  {
+   "path": "data/b357_read_run2.txt",
+   "exists": true,
+   "worktree": "043f378188531cb74c52bc268b18e9e6ba547be3edb703896a1d7865fe1629cd",
+   "blob": "043f378188531cb74c52bc268b18e9e6ba547be3edb703896a1d7865fe1629cd"
+  },
+  {
+   "path": "data/b363_census_run3.txt",
+   "exists": true,
+   "worktree": "44a65cd7eebeb6cefda5f56aa8c9f13e787e4598e58f7efb07ed12eafbb44a48",
+   "blob": "44a65cd7eebeb6cefda5f56aa8c9f13e787e4598e58f7efb07ed12eafbb44a48"
+  }
+ ],
+ "unchanged_ok": true,
+ "copies_left": [],
+ "run_file": "b364_diagnose_run.txt",
+ "run_clock": "2026-09-08T02:35:13Z"
+}

@@ -1,0 +1,299 @@
+====================================================================================================
+b364 -- THE COPY THAT DID NOT REPRODUCE. ### LEG 1 OF THE SORTIE b364-b365. ### THE BANK.
+2026-09-07. ### CONCURRENCY: SOLO (research seat). ### FERRY_STANDING v2, by reference, citation CURRENT.
+### Registration `data/b364_registration_2026-09-07.txt`, ### **LOCKED**
+### `5e78a12c4733de389e4e2f698ea3e51175310bf78d3a502e9e8f39b954b880ee`, 12769 bytes, 49 clauses JOINTLY
+### SATISFIABLE, and ### **LOCKED ONLY AFTER THE AUDIT'S OWN EXIT CODE CAME BACK `0`**, locked at (UTC)
+### 2026-09-08T02:31:46Z. ### **LOCKED BEFORE ANY READ OF THE SUITE UNDER DIAGNOSIS AND BEFORE ANY RUN OF
+### IT.** ### The clocks are in section (9).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **THE BRANCH IS `REAL`, AND THE COPY WAS INNOCENT.**
+### `tools/b357_checks.py`, run ### **AT ITS OWN LOCATION, UNEDITED**, reports ### **`GATES FAILING : 1
+### ['G-LOCATED']`** -- the same failure, the same arm and the same four rows the copy found. ### **THE
+### ### FAILURE HAS NOTHING TO DO WITH COPYING, WITH PATHS OR WITH A WORKING DIRECTORY.**
+### ### ### **SO THE NAVIGATOR'S EXPECTATION IS REFUTED, AND IT IS REFUTED BY A RUN AND NOT BY AN
+### ### ### ARGUMENT.** ### `(L1) ENVIRONMENTAL` was the expectation; ### **`ENVIRONMENTAL` IS
+### ### UNREACHABLE**, because it requires the banked suite to PASS where it lives and it does not.
+### ### **AND THIS SEAT'S EXPECTATION IS REFUTED TOO, IN THE SAME WORD.**
+### ### ### **WHAT THE ARM WAS CERTIFYING -- TWO THINGS, AND ONLY ONE OF THEM HAS FAILED.**
+###   ### **(a) THAT EVERY ROW `b357` CLASSIFIED IS STILL FINDABLE AT ITS OWN LEDGER, NOW.** ### **THIS
+###     ### HALF HOLDS AT EVERY ROW:** ### *"rows re-located at their ledgers : 12 of 12 ; unclassified :
+###     0"*.
+###   ### **(b) THAT ANY ROW WHOSE LINE NUMBER HAS MOVED SINCE THE READING IS DECLARED IN `b357`'s OWN
+###     ### BANK, WITH BOTH NUMBERS.** ### **THIS HALF CANNOT HOLD AND CANNOT BE MADE TO.**
+### ### ### **AND THE SPECIES IS NAMED: A DATED ARM.** ### An arm whose pass condition is a literal in a
+### frozen file, compared against a quantity recomputed at every run, ### **IS DATED BY CONSTRUCTION.**
+### ### **IT DOES NOT BECOME WRONG. ### IT BECOMES OLD**, and the moment of its expiry is set by the next
+### act that moves a line.
+### ### ### **NOTHING IS REPAIRED, NOTHING IS EDITED, AND NO VERDICT IS MOVED BY THIS SEAT.**
+
+----------------------------------------------------------------------------------------------------
+### (2) (i) WHAT THE ARM CHECKED. ### **QUOTED FROM ITS OWN SUITE, NEVER PARAPHRASED.**
+----------------------------------------------------------------------------------------------------
+### ### **BAR 1 OF THE LOCKED REGISTRATION: A PARAPHRASED PREDICATE IS THIS SEAT'S READING OF AN ARM AND
+### ### NOT THE ARM.** ### Five lines were located at `tools/b357_checks.py` by the anchor tool and are
+### printed in the extract at `data/b364_extract_notes2.txt` with their line numbers.
+### ### **THE LABEL, AT LINE `207`:**
+###     *"G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW)"*
+### ### **THE LEDGERS IT READS, AT LINE `76`:** ### `FINDINGS.md`, `FACES_LEDGER.md`,
+### `CORRESPONDENCE.md` and `tools/banked_index.py`. ### **FOUR LEDGERS, THREE OF THEM IN A REPOSITORY
+### ### THIS SEAT WRITES TO ON ALMOST EVERY ACT.**
+### ### **WHAT IT DOES WITH EACH ROW, AT LINE `212`:** ### `n, line = AF.find(path, r['text'][:110])` --
+### it re-locates the row by ITS OWN TEXT, which is why half (a) is robust: text does not move when lines
+### do.
+### ### **WHAT IT CALLS A HARD FAILURE, AT LINE `218`:** ### `### FAIL (NO ANCHOR NOW)` -- raised only if
+### the row's text cannot be found at all. ### **THAT DID NOT HAPPEN ONCE.**
+### ### **AND WHAT IT ALLOWS, AND ON WHAT CONDITION, AT LINE `225`:**
+###     `ok_dec = ('%d' % was) in bank and ('%d' % now) in bank and 'STRADDLE THIS ACT' in bf`
+### ### ### **THAT IS THE WHOLE OF THE DEFECT, IN ONE LINE.** ### `now` is computed at run time. ### `bank`
+### is `b357`'s bank -- ### **WRITTEN ONCE, APPEND-ONLY, AND CORRECTLY UNEDITABLE.** ### The arm passes
+### only while the future happens to be a number already printed in the past.
+
+----------------------------------------------------------------------------------------------------
+### (3) (ii) WHAT IT FOUND IN THE COPY.
+----------------------------------------------------------------------------------------------------
+### `b363` banked, at `data/b363_census_run3.txt`: ### *"b357 banked GATES FAILING 0 ; the copy reports 1
+### ; ### REPRODUCED : False"*.
+### This act re-made the copy exactly as `b363`'s control made it -- copied into `tools/` under a
+### declaring name, run as a subprocess, ### **DELETED IN A `finally`** -- and it reports ### **`GATES
+### FAILING : 1 ['G-LOCATED']`**, with four rows moved and none declared.
+### ### **AND THAT IS ALL THE COPY EVER SAID.** ### `b363` reported it under the heading of a CONTROL, and
+### the natural reading of a control that fails is that the control did something to the thing it
+### measured. ### **THIS ACT SHOWS THAT IT DID NOT.**
+
+----------------------------------------------------------------------------------------------------
+### (4) (iii) WHAT IT FINDS IN THE BANKED SUITE AT ITS OWN LOCATION. ### **RUN THERE, UNEDITED.**
+----------------------------------------------------------------------------------------------------
+### ### **BAR 2: A SUITE RUN SOMEWHERE ELSE IS THE COPY AGAIN, AND THE COPY IS THE THING BEING
+### ### DIAGNOSED.** ### So `tools/b357_checks.py` was run from `D:\relay`, which is where its own act ran
+### it, with no argument, no edit and no copy.
+### ### ### **`GATES FAILING : 1 ['G-LOCATED']`.**
+### ### **THE FOUR ROWS, READ OFF THE SUITE'S OWN OUTPUT AND NOT RETYPED:**
+###     `FACES_LEDGER.md` read at `140`, now `141`
+###     `FACES_LEDGER.md` read at `176`, now `177`
+###     `banked_index.py` read at `1022`, now `1232`
+###     `banked_index.py` read at `613`, now `823`
+### ### **AND `b357` DECLARED TWO OF THESE MOVEMENTS ITSELF** -- `banked_index.py` `1022` to `1054` and
+### `613` to `645`, the moves ### **`b357`'s OWN INDEX APPEND CAUSED**, printed under its own straddle
+### declaration by `b352`'s rule. ### It could not declare `1232` or `823`: the acts that produced those
+### numbers had not yet run.
+### ### ### **SO `b357` PREDICTED THE SHAPE AND WAS RIGHT ABOUT IT. ### IT COULD NOT PREDICT THE
+### ### ### ARITHMETIC OF THE FUTURE, AND NOTHING COULD.**
+### ### **AND `b363`'s READING OF THE INCIDENT WAS RIGHT IN ITS SENTENCE AND MISLEADING IN ITS PLACE.**
+### `b363` banked ### *"A COPY THAT DOES NOT REPRODUCE IS A MEASUREMENT OF A SUITE READING A MOVED
+### REPOSITORY"* -- ### **THAT SENTENCE IS EXACTLY RIGHT AND THIS ACT CONFIRMS IT.** ### But it sat under
+### a section headed THE CONTROL, and a reader would take the copy to be part of the story. ### **THE COPY
+### ### IS NOT PART OF THE STORY. ### THE SENTENCE WOULD HAVE BEEN TRUE WITH NO COPY IN THE RECORD AT
+### ### ALL.**
+
+----------------------------------------------------------------------------------------------------
+### (5) THE BRANCH, AND THE TWO SHOWN UNREACHABLE.
+----------------------------------------------------------------------------------------------------
+### ### ### **TAKEN: `REAL`** -- the arm fails at the banked suite's own location too.
+### ### **`ENVIRONMENTAL` -- UNREACHABLE.** ### The order's own words require that the banked suite at its
+### own location ### *"still passes, shown by running it there"*. ### It was run there and it reports
+### `GATES FAILING : 1`. ### **THE BRANCH IS CLOSED BY THE RUN THE ORDER ITSELF NOMINATED.**
+### ### **AND SO THE ABSOLUTE-PATH SHORTFALL IS NOT RESTATED HERE.** ### `b314`'s `W-ORD-ABSOLUTE-PATHS`
+### is real and stands where `b314` filed it -- ### *"AN INSTRUMENT CARRYING ONE CANNOT BE RUN FROM A
+### CLONE WITHOUT REACHING BACK INTO THE ORIGINAL"* -- ### **BUT THIS IS NOT ITS LIVE INCIDENT, AND
+### ### ATTACHING IT HERE WOULD HAVE FILED A TRUE WORK-ORDER AGAINST A FALSE CAUSE.**
+### ### **`UNDECIDED` -- UNREACHABLE.** ### No step resisted. ### The suite ran to a verdict at its own
+### location and the verdict line was read off its own output.
+
+----------------------------------------------------------------------------------------------------
+### (6) WHAT THE `REAL` BRANCH OBLIGED, DONE.
+----------------------------------------------------------------------------------------------------
+### ### **REPORTED AT FULL PROMINENCE:** ### the answer section of this bank says it first, and the
+### correspondence row says it in its marker.
+### ### **WHAT THE ARM WAS CERTIFYING, NAMED:** ### section (2), and the two halves are kept apart because
+### only one has failed.
+### ### **RE-VERDICTED: NOTHING.** ### `b357`'s verdict was true when it was banked. ### **THIS ACT DOES
+### ### NOT WITHDRAW IT; IT RECORDS THAT RE-RUNNING THAT SUITE TODAY NO LONGER REPRODUCES IT, AND WHY.**
+### ### **FILED FOR THE AUTHOR:** ### `FINDING-DATED-ARM`, one append-only block under its own mark in
+### `PLACE-papers/OPEN_TRAILS.md`, 4778 bytes, the file a true prefix of what it was ### **AND OF ITS
+### COMMITTED BLOB**, read before the push. ### **IT PROPOSES NOTHING.** ### The choices -- leave the arm,
+### retire it, or rewrite the class of arm -- are the author's, and this act names none of them as
+### preferred.
+### ### **AND IT IS NOT AN ERRATA ENTRY.** ### ERRATA is for defects in deposited text. ### Nothing
+### deposited is wrong here; a gate arm in the working record has aged out.
+
+----------------------------------------------------------------------------------------------------
+### (7) THE SPECIES, AND WHY IT IS NOT `b363`'s.
+----------------------------------------------------------------------------------------------------
+### `b363` named a fourth species one act ago: ### **THE WRONG ARM -- an arm whose predicate tests
+### something other than what its label says.** ### It is tempting to file this one beside it and be done.
+### ### ### **THEY ARE NOT THE SAME AND THE RECORD SHOULD NOT CONFUSE THEM.**
+###   ### **A WRONG ARM WAS WRONG THE DAY IT WAS WRITTEN.** ### Its cure is a second reader, and `b363`
+###     showed no needle tool reaches it.
+###   ### **A DATED ARM WAS RIGHT THE DAY IT WAS WRITTEN.** ### `G-LOCATED` tested exactly what its label
+###     says. ### Its cure is not a reader at all: it is a decision about what a gate suite is FOR once its
+###     act has closed.
+### ### **AND THAT DECISION IS THE AUTHOR'S AND IS NOT MADE HERE.** ### A suite may be a certificate of
+### the act's own moment, in which case re-running it later is a category error and `b363`'s control was
+### measuring drift, not correctness. ### Or it may be a standing check, in which case an arm like this
+### one must never have been written in that form. ### **THE RECORD HAS NOT DECIDED WHICH, AND THIS ACT
+### ### DOES NOT DECIDE IT EITHER -- IT NAMES THE CHOICE.**
+
+----------------------------------------------------------------------------------------------------
+### (8) THE DRIFT REACHES THE PROSE, NOT ONLY THE GATE.
+----------------------------------------------------------------------------------------------------
+### `b357`'s own answer section prints its row addresses as text: ### *"`FACES_LEDGER.md : 140` (about
+### b328)"*. ### **THAT ROW IS NOW AT `141`.**
+### ### ### **A BANKED ACT THAT CITES A LINE NUMBER IS CITING A MOVING TARGET, AND NO GATE ARM ANYWHERE
+### ### ### PROTECTS A NUMBER PRINTED IN PROSE.**
+### ### **THIS IS NOT A NEW DEFECT AND IT IS NOT REPAIRED HERE.** ### It is the same fact one layer out,
+### and it is worth one sentence because a reader who cures the gate arm and leaves the prose has cured
+### the half that complains and left the half that does not.
+
+----------------------------------------------------------------------------------------------------
+### (9) THE RECORD, ITS CLOCKS, AND THE UNCHANGED BAR.
+----------------------------------------------------------------------------------------------------
+### ### **THE REGISTRATION.** ### `data/b364_registration_2026-09-07.txt`, ### **LOCKED**
+### `5e78a12c4733de389e4e2f698ea3e51175310bf78d3a502e9e8f39b954b880ee`, 12769 bytes, 49 clauses, locked at
+### 2026-09-08T02:31:46Z ### **AFTER `tools/reg_satisfiable.py` RETURNED EXIT CODE `0` AND CHAINED ON
+### ### THAT CODE.**
+### ### **THE RUN FILES, EACH RESOLVED BY ITS OWN RECORDED CLOCK** (`b358`'s cure):
+###     `b364_extract_notes.txt` -- superseded, and why is in (11).
+###     `b364_extract_notes2.txt` -- ### **THE RELIED-ON EXTRACT.** ### 21 reads, 0 without an anchor, 10
+###       of 21 anchors differing from the hint that found them, ### **5 PREDICATE LINES LOCATED AT THE
+###       SUITE ITSELF.**
+###     `b364_diagnose_run.txt` -- ### **THE RELIED-ON DIAGNOSIS.**
+###     `b364_filing_notes.txt` -- ### **THE RELIED-ON FILING RUN.**
+### ### **THE JSONS.** ### `b364_satisfiable.json` (49 clauses), `b364_reads.json`, `b364_diagnose.json`
+### (the branch, both runs, both unchanged readings), `b364_filing.json`.
+### ### **THE APPENDED RECORDS.** ### `CORRESPONDENCE.md` gains ONE row, `213`, appended and read back
+### with the table a true prefix of itself above it. ### `tools/banked_index.py` gains ONE key,
+### `dated-arm`, reachable by five aliases, with four overreadings (*the arm is repaired*, *the banked
+### verdict is withdrawn*, *b357 is re-verdicted*, *the copy was at fault*) checked ### **NO KEY BEFORE AND
+### NO KEY AFTER.** ### `OPEN_TRAILS.md` gains ONE append-only block, `FINDING-DATED-ARM`, 4778 bytes.
+### ### **`FACES_LEDGER.md` GAINS NOTHING AND ITS WRITER WAS NOT CALLED.**
+### ### ### **AND ONE FILE IS BOTH READ BY THE DIAGNOSIS AND WRITTEN BY THE CLOSING, WHICH IS DECLARED
+### ### ### HERE RATHER THAN LEFT TO LOOK LIKE A VIOLATION:** ### `tools/banked_index.py` is one of the
+### four ledgers `G-LOCATED` reads, and it is also where every act appends its own key. ### **THE
+### ### REGISTRATION'S CLAIM IS THAT THE DIAGNOSIS DID NOT WRITE IT** -- recorded byte-for-byte at BOTH
+### ends of the diagnosis -- ### **AND NOT THAT THE ACT NEVER TOUCHES IT.** ### The closing's append is
+### proved order-preserving: every line of the committed blob is still present, in order. ### **AND THE
+### ### KEY IS SPLICED, NOT APPENDED** (`b362`'s incident), so a true-prefix test could not pass on a
+### correct write and is not the arm used.
+### ### ### **BAR 3, THE UNCHANGED BAR: EVERY FILE THE DIAGNOSIS READS IS BYTE-IDENTICAL TO ITS COMMITTED
+### ### ### BLOB, BEFORE AND AFTER.** ### Six files: `tools/b357_checks.py`, `tools/banked_index.py`,
+### `data/b357_what_the_ledgers_say.txt`, `data/b357_read.json`, `data/b357_read_run2.txt` and
+### `data/b363_census_run3.txt`. ### **AND THE COMPARISON NORMALISES LINE ENDINGS AND NOTHING ELSE** --
+### `b309`'s trap: `core.autocrlf` makes a checked-out file CRLF while its blob stays LF, and a raw
+### comparison would report an edit that never happened.
+### ### **AND NO COPY SURVIVED THE RUN** (`tools/b364_copy_*`), which the diagnosis checks by listing the
+### directory rather than by trusting its own `finally`.
+### ### **ITS FLOOR, STATED:** ### **IT PROVES NO EDIT WAS MADE. ### IT DOES NOT PROVE THE DIAGNOSIS IS
+### ### RIGHT.**
+
+----------------------------------------------------------------------------------------------------
+### (10) WHAT MOVED, AND WHAT DID NOT.
+----------------------------------------------------------------------------------------------------
+### ### **MOVED.** ### This act's own tools and run files; one correspondence row; one index key; and
+### ### **ONE APPEND-ONLY BLOCK IN `OPEN_TRAILS.md`.** ### **SO THE PAPERS REPO MOVES AND THE HOOK AND THE
+### ### MIRROR ARE OWED.**
+### ### **DID NOT MOVE.** ### **NO SUITE, NO BANK, NO INDEX ROW AND NO RUN FILE OF ANY OTHER ACT.** ### No
+### arm repaired. ### **NO VERDICT WITHDRAWN AND NO ACT RE-VERDICTED.** ### `FACES_LEDGER.md` not written
+### and its writer not called, because no row moved. ### No findings section. ### No roster row. ### Nothing
+### in TECHNE-Core. ### No ERRATA entry opened.
+### ### **AND NOTHING ABOUT THE OBJECT MOVED, BECAUSE NOTHING ABOUT THE OBJECT WAS COMPUTED.** ### No
+### frame, no seed, no transform, no quadrature, no fit, no score, no series. ### This act read a predicate
+### and ran a suite.
+### ### `M-2` remains (SPECIFIED-NOT-STATED) under `b310`'s cap. ### The seam's debt item 1 stands. ### The
+### patent lane is carried on the patent seat's report, UNCONFIRMED on this seat's record. ### **THE
+### ### INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED. ### THE POSTURE LOCK IS SEPARATE.**
+### ### **`h2` STANDS EXACTLY WHERE THE DEPOSIT LEFT IT. ### NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (11) THE ACT'S OWN INCIDENTS, ALL DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **INCIDENT 1 -- THE REGISTRATION GATE FIRED ON THIS ACT'S OWN REGISTRATION, AND IT WAS RIGHT.**
+### `registration_gate.py`'s straddling arm (`b352`, mechanized at `b352`) found one paragraph naming a
+### gate arm and touching a repository state without declaring which side of the push it is read: section
+### (D), the no-edit rule, which compares files against their committed blobs. ### **THE REGISTRATION WAS
+### CORRECTED BEFORE THE LOCK AND THE ARM WAS NOT SOFTENED**, and the side is now declared in the same
+### sentence: ### **BEFORE THE PUSH**, because after this act's own commit the blob would be whatever this
+### act left.
+### ### **INCIDENT 2 -- TWO HINTS TYPED FROM THE ORDER'S SENSE RATHER THAN ITS LINE BREAKS.** ### The
+### first extract run reported ### **`WITHOUT AN ANCHOR : 2`** for the two branch clauses: the ferry wraps
+### them differently from the way this seat remembered them. ### **THE HINTS WERE CORRECTED FROM THE FILE
+### ### AND THE EXTRACT WAS RE-RUN**; the superseded run is `b364_extract_notes.txt` and is banked, not
+### deleted. ### **THIS IS THE SAME SPECIES `b363` COUNTED IN THREE OTHER ACTS**, and the cure is the one
+### that act built: read the line, do not type it.
+### ### **INCIDENT 3 -- THE GATE RUNNER'S RETURN SHAPE WAS ASSUMED AND NOT READ.** ### A first attempt to
+### run every registration-gate arm unpacked `bar_floor_check` as `(thresholds, misses, ...)`; it returns
+### `(floor_misses, arm_misses, n_threshold_paras, n_multiarm_paras)`. ### It raised a `TypeError` and
+### wrote a truncated gate record, which was replaced. ### **A SHAPE ASSUMED RATHER THAN READ, WHICH IS
+### ### EXACTLY WHAT `b363` DECLARED ONE ACT AGO ABOUT ITS OWN CENSUS**, and this seat walked into it
+### again in a different file. ### **THE STANDING CURE IS UNCHANGED AND WAS NOT APPLIED IN TIME: READ THE
+### ### CALLEE'S OWN SIGNATURE.**
+### ### ### **INCIDENT 4 -- THREE ARMS OF THIS ACT'S OWN SUITE FIRED ON THIS ACT'S OWN CORRECT WORK, AND
+### ### ### TWO OF THEM WERE THE WRONG ARM -- IN THE ACT THAT NAMED THE OTHER SPECIES.**
+###   ### **`G-PREDICATE` ASKED THE BANK FOR A `print(...)` STATEMENT.** ### The bank quotes the arm's
+###     LABEL, which is what a bank should quote; the suite's line is python. ### **THE ARM COULD NOT HAVE
+###     ### PASSED ON CORRECT WRITING**, which is `b362`'s banked test for a wrong arm exactly.
+###   ### **`G-UNCHANGED` DEMANDED THAT `tools/banked_index.py` BE BYTE-IDENTICAL TO ITS BLOB *NOW*.** ###
+###     It is, at both ends of the diagnosis -- and then this act's own closing appends its key to it, as
+###     every act does. ### **THE ARM TESTED A CLAIM THE REGISTRATION NEVER MADE**, and it would have
+###     fired on any correct closing. ### Replaced with the invariant the registration actually fixed: the
+###     DIAGNOSIS wrote nothing, and the CLOSING's write is order-preserving.
+###   ### **`G-NUMBERS` BUILT A NEEDLE WITH A LINE BREAK IN IT** and asked a whitespace-collapsed bank for
+###     it. ### A PRESENTATION mismatch, of the kind `b363`'s helper exists for; the cure was to read the
+###     figure off the FLATTENED bank.
+###   ### ### **AND THE FOURTH SUB-ARM THAT FIRED WAS RIGHT: `G-NUMBERS` ASKED THE BANK FOR ITS
+###     ### CORRESPONDENCE ROW NUMBER AND THE BANK HAD NOT PRINTED IT.** ### That is `b363`'s MISSING
+###     SENTENCE class, `A6` and `A9`'s shape, in a third act -- ### **AND THE CURE WAS THE BANK PRINTING
+###     ### WHAT IT OWED**, which section (9) now does.
+### ### ### **SO THIS ACT PRODUCED, IN ONE SUITE, BOTH OF THE CLASSES `b363` COUNTED IN THREE OTHER
+### ### ### ACTS -- AND IT PRODUCED THE ONE `b363` SAID NO TOOL REACHES, TWICE.** ### `b363` banked that
+### the wrong arm's *"only cure is a second reader"*. ### **THERE WAS NO SECOND READER HERE. ### THE ARMS
+### ### WERE CAUGHT BY BEING RUN, AND THAT IS NOT THE SAME THING AND IS NOT AS GOOD:** ### an arm that is
+### wrong AND quiet would have survived this act untouched.
+### ### **AND NONE OF THE FOUR IS ADDED TO ANY POPULATION.** ### `b363`'s census counted eleven arms in
+### three named acts and that count is closed.
+### ### **WHAT NONE OF THESE FOUR ARE.** ### None is an edit to anything this act was forbidden to write,
+### and the unchanged bar proves that mechanically at both ends.
+
+----------------------------------------------------------------------------------------------------
+### (12) BOTH SEATS' EXPECTATIONS, SCORED. ### AN EXPECTATION IS SCORED, NEVER SATISFIED.
+----------------------------------------------------------------------------------------------------
+### ### **THE NAVIGATOR'S, QUOTED FROM THE ORDER:** ### *"(L1) ENVIRONMENTAL"*.
+### ### ### **REFUTED.** ### By the run the order itself nominated, at the location the order itself
+### named.
+### ### **THIS SEAT'S, QUOTED FROM SECTION (G) OF THE LOCKED REGISTRATION:** ### **ENVIRONMENTAL**, on the
+### reasoning that `b357` had predicted this shape and that an arm reading a moved line is an arm reading a
+### moved repository, not a broken arm.
+### ### ### **ALSO REFUTED -- AND THE REASONING WAS THE TRAP.** ### Every clause of it is true: `b357` did
+### predict the shape; the lines did move; the arm is not broken. ### **AND THE CONCLUSION DOES NOT
+### ### FOLLOW.** ### `ENVIRONMENTAL` was not a claim about WHY the arm fails; the order defined it as a
+### claim about WHERE it fails, and this seat answered the question it found easier to answer.
+### ### ### **THE REGISTRATION SAW THIS COMING AND SAID SO BEFORE THE RUN:** ### *"THIS SEAT'S EXPECTATION
+### IS WORTH LESS THAN THE NAVIGATOR'S ... this seat wrote `b363`'s report of the incident and is
+### therefore predicting its own earlier reading."* ### **THAT IS EXACTLY WHAT IT DID, AND IT WAS WRONG.**
+### ### **AND THE CHEAPEST THING THIS ACT COULD HAVE DONE WAS THE THING THE ORDER FORBADE:** ### running
+### the copy again, seeing the same failure, and calling it a property of copying. ### **THE ORDER'S OWN
+### ### BRANCH TEST -- RUN IT WHERE IT LIVES -- IS THE WHOLE OF WHY THIS CAME OUT DIFFERENTLY**, and the
+### credit for the finding belongs to the test and not to the seat that ran it.
+
+----------------------------------------------------------------------------------------------------
+### (13) WHAT IS NOT CLAIMED.
+----------------------------------------------------------------------------------------------------
+### ### **`b357`'s FINDING IS UNTOUCHED.** ### Which passages say what, and the `5 WIDER / 6 NARROWER / 1
+### SILENT` split, rest on half (a) of the arm, which still holds at every one of the twelve rows.
+### ### **WHAT HAS AGED OUT IS A CURRENCY CHECK `b357` WROTE ABOUT ITS OWN BANK, NOT THE READING `b357`
+### MADE ABOUT THE LEDGERS.**
+### ### **NO VERDICT IS WITHDRAWN AND NO ACT IS RE-VERDICTED.** ### **NO ARM IS REPAIRED AND NO SUITE IS
+### EDITED.** ### **NO CURE IS PROPOSED** -- the filing names the author's choices and prefers none.
+### ### **AND THE FINDING IS NOT GENERALISED BEYOND ITS EVIDENCE.** ### One arm in one suite was
+### diagnosed. ### **THIS ACT DID NOT AUDIT THE OTHER FIVE SUITES FOR ARMS OF THE SAME SHAPE**, and it does
+### not claim they are clean; `b363`'s control found them reproducing TODAY, which is a different and
+### weaker statement.
+### ### **NOTHING ABOUT THE QUANTIFIER, `h2`, TOTALITY OR THE ROSTER.** ### **NO CLASS IS DISCHARGED, THE
+### CLAUSE HAS NOT MOVED, NO COORDINATE IS CLOSED, THE PARTITION STAYS UNDECIDED.** ### **NO GRADE IS
+### CONFERRED BY A SEAT AND NO FACE IS PROMOTED.**
+### ### **NOTHING IS DEPOSITED AND NOTHING WAS WRITTEN AT ZENODO.**
+====================================================================================================

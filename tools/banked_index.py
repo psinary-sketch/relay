@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'dated-arm': ['the dated arm', 'a dated arm', 'the copy that did not reproduce',
+                  'G-LOCATED', 'the arm that no longer holds'],
     'anchored-gate-arms': ['the anchored gate arms', 'gate_needle', 'the anchored-arm helper',
                            'the needle helper', 'the wrong arm', 'the gate arms counted'],
     'approximation-register': ['the approximation register', 'Nyman-Beurling', 'Baez-Duarte',
@@ -594,6 +596,27 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE COPY THAT DID NOT REPRODUCE, DIAGNOSED AND NOT REPAIRED (b364).
+    ("dated-arm", "b364 (a diagnosis; it repairs nothing and decides nothing that is the author own)",
+     "THE COPY WAS INNOCENT AND THE BRANCH IS REAL. b363 found b357 copy reporting a failing gate where b357 banked none. b364 ran the BANKED SUITE tools/b357_checks.py AT ITS OWN"
+     " LOCATION, UNEDITED, and it reports the same GATES FAILING : 1 ['G-LOCATED'] -- the same arm and the same four rows. THE FAILURE HAS NOTHING TO DO WITH COPYING, PATHS OR A"
+     " WORKING DIRECTORY. THE PREDICATE IS QUOTED FROM ITS OWN SUITE AND NOT PARAPHRASED (5 lines located by the anchor tool). THE ARM CERTIFIES TWO THINGS AND ONLY ONE HAS"
+     " FAILED: (a) that every row b357 classified is still findable at its own ledger NOW, located by the row OWN TEXT -- rows re-located at their ledgers : 12 of 12 ; unclassified : 0; and (b) that any row whose LINE NUMBER moved is"
+     " declared in b357 own bank with both numbers -- and THAT HALF CANNOT HOLD AND CANNOT BE MADE TO, because it compares a number computed now against a literal in a bank written once, in an"
+     " append-only file that may never be edited. 4 rows have moved: FACES_LEDGER.md 140 to 141; FACES_LEDGER.md 176 to 177; banked_index.py 1022 to 1232; banked_index.py 613 to 823. b357 declared two of them itself, the ones its own index append caused, and could not"
+     " declare the rest. THE SPECIES IS NAMED: A DATED ARM -- an arm whose pass condition is a literal in a frozen file, compared against a quantity recomputed at every run, is dated by"
+     " construction; it does not become wrong, it becomes old. 21 reads located, 10 anchors differing from the hint that found them.",
+     "### A DIAGNOSIS IS NOT A CURE. ### NO VERDICT IS WITHDRAWN AND NO ACT IS RE-VERDICTED: b357 verdict was true when it was banked, and what is recorded is that RE-RUNNING that suite today"
+     " no longer reproduces it, and why. ### NO ARM IS REPAIRED AND NO SUITE, BANK, INDEX OR RUN FILE IS EDITED -- diagnose, do not repair-to-pass, and every file read is proved byte-identical to"
+     " its committed blob at both ends. ### b357 FINDING IS UNTOUCHED: which passages say what, and the 5 wider / 6 narrower / 1 silent split, rest on the half that still holds at every row."
+     " ### A DATED ARM IS NOT A WRONG ARM: a wrong arm was wrong the day it was written and a dated arm was right the day it was written, and they need different cures. ### NO CURE IS PROPOSED:"
+     " the filing names the author choices and prefers none. ### THE OTHER FIVE SUITES WERE NOT AUDITED for arms of this shape and are not claimed clean. ### THE ABSOLUTE-PATH WORK-ORDER IS NOT"
+     " RESTATED, because this is not its incident. ### NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NO GRADE IS CONFERRED BY A SEAT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED."
+     " ### THE CLAUSE HAS NOT MOVED. ### M-2 UNCHANGED",
+     "data/b364_the_copy_that_did_not_reproduce.txt; data/b364_diagnose_run.txt; data/b364_filing_notes.txt; data/b364_extract_notes2.txt;"
+     " data/b364_registration_2026-09-07.txt (LOCKED before any read of the suite and before any run of it, on the audit own exit code);"
+     " tools/b364_diagnose.py (the predicate, both runs and the unchanged bar); tools/b364_filing.py (the filing);"
+     " PLACE-papers OPEN_TRAILS.md (FINDING-DATED-ARM, an append-only block; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 213"),
     # ### THE ANCHORED GATE ARMS, COUNTED AND NOT ASSERTED (b363).
     ("anchored-gate-arms", "b363 (a tool, a count and a filing; it computes nothing about the object)",
      "BUILT AND FOUND NARROWER THAN THE RULE IT WAS PROPOSED UNDER. tools/gate_needle.py takes a typed hint, returns the FILE OWN LINE, and compares under a"

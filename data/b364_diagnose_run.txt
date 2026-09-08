@@ -1,0 +1,99 @@
+### run at (UTC) : 2026-09-08T02:35:13Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b364 -- THE DIAGNOSIS. ### **DIAGNOSE, DO NOT REPAIR-TO-PASS.**
+====================================================================================================
+
+  ### the anchor tool fixtures, run before it is trusted : True
+  ### the needle helper fixtures, run before it is trusted : True
+
+----------------------------------------------------------------------------------------------------
+  ### (0) THE UNCHANGED BAR, READ BEFORE THE DIAGNOSIS. ### **BEFORE THE PUSH.**
+----------------------------------------------------------------------------------------------------
+    tools/b357_checks.py                     worktree==blob : True   e32e6c072d165b89
+    tools/banked_index.py                    worktree==blob : True   4458fb1e1b885c3d
+    data/b357_what_the_ledgers_say.txt       worktree==blob : True   fd52eef01eabaaa4
+    data/b357_read.json                      worktree==blob : True   f6bd35a1df2fd2af
+    data/b357_read_run2.txt                  worktree==blob : True   043f378188531cb7
+    data/b363_census_run3.txt                worktree==blob : True   44a65cd7eebeb6ce
+    ### ### **EVERY FILE THE DIAGNOSIS READS IS BYTE-IDENTICAL TO ITS COMMITTED BLOB : True**
+
+----------------------------------------------------------------------------------------------------
+  ### (i) WHAT THE ARM CHECKED. ### **QUOTED FROM ITS OWN SUITE, NEVER PARAPHRASED.**
+----------------------------------------------------------------------------------------------------
+
+    the label the arm prints for itself   ### b357_checks.py:207
+      |     print(chr(10) + '  G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW):')
+
+    the ledgers it reads   ### b357_checks.py:76
+      | LEDGERS = {'FINDINGS.md': FINDINGS, 'FACES_LEDGER.md': FACES,
+
+    what it does with each classified row   ### b357_checks.py:212
+      |             n, line = AF.find(path, r['text'][:110])
+
+    what it calls a hard failure   ### b357_checks.py:218
+      |             print('    ### FAIL (NO ANCHOR NOW)  %s : %d' % (r['ledger'], r['line']))
+
+    what it allows -- a MOVED line -- and on what condition   ### b357_checks.py:225
+      |         ok_dec = ('%d' % was) in bank and ('%d' % now) in bank and 'STRADDLE THIS ACT' in bf
+
+    ### ### **SO THE ARM CERTIFIES TWO THINGS AND NOT ONE:**
+    ###   ### **(a) EVERY ROW `b357` CLASSIFIED IS STILL FINDABLE AT ITS OWN LEDGER, NOW** -- by
+    ###     the anchor tool, on the row text, at one of FOUR ledgers: `FINDINGS.md`,
+    ###     `FACES_LEDGER.md`, `CORRESPONDENCE.md` and `tools/banked_index.py`.
+    ###   ### **(b) AND ANY ROW WHOSE LINE NUMBER HAS MOVED SINCE THE READING IS DECLARED IN
+    ###     ### `b357`'s OWN BANK, WITH BOTH NUMBERS**, and the bank carries the phrase
+    ###     `STRADDLE THIS ACT`.
+    ### ### **AND (b) IS THE HALF THAT CANNOT SURVIVE TIME.** ### It compares a number computed
+    ### NOW against a fixed string in a bank that was written ONCE and is append-only. ### **AN
+    ### ### ARM WHOSE PASS CONDITION IS A LITERAL IN A FROZEN FILE IS DATED BY CONSTRUCTION.**
+
+----------------------------------------------------------------------------------------------------
+  ### (ii) WHAT IT FOUND IN THE COPY.
+----------------------------------------------------------------------------------------------------
+    ### b363, banked : b357  banked GATES FAILING 0     ; the copy reports 1     ; ### REPRODUCED : False
+    ### this act re-made the copy, ran it, and DELETED it in a `finally`.
+    ### the copy reports GATES FAILING : 1 ['G-LOCATED']   (exit 1)
+      |   G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW):
+      |     rows re-located at their ledgers : 12 of 12 ; unclassified : 0
+      |     ### lines that MOVED since the reading (b352's straddle, declared not hidden) : [('FACES_LEDGER.md', 140, 141), ('FACES_LEDGER.md', 176, 177), ('banked_index.py', 102
+      |         FACES_LEDGER.md        read at 140, now 141 ; both declared in the bank : False
+      |         FACES_LEDGER.md        read at 176, now 177 ; both declared in the bank : False
+      |         banked_index.py        read at 1022, now 1232 ; both declared in the bank : False
+      |         banked_index.py        read at 613, now 823 ; both declared in the bank : False
+      |     ### FAIL ###
+
+----------------------------------------------------------------------------------------------------
+  ### (iii) WHAT IT FINDS IN THE BANKED SUITE AT ITS OWN LOCATION. ### **RUN THERE, UNEDITED.**
+----------------------------------------------------------------------------------------------------
+    ### `tools/b357_checks.py` run from `D:\relay`
+    ### ### **GATES FAILING : 1 ['G-LOCATED']**   (exit 1)
+      |   G-LOCATED (every classified row located by the anchor tool at its own ledger, NOW):
+      |     rows re-located at their ledgers : 12 of 12 ; unclassified : 0
+      |     ### lines that MOVED since the reading (b352's straddle, declared not hidden) : [('FACES_LEDGER.md', 140, 141), ('FACES_LEDGER.md', 176, 177), ('banked_index.py', 102
+      |         FACES_LEDGER.md        read at 140, now 141 ; both declared in the bank : False
+      |         FACES_LEDGER.md        read at 176, now 177 ; both declared in the bank : False
+      |         banked_index.py        read at 1022, now 1232 ; both declared in the bank : False
+      |         banked_index.py        read at 613, now 823 ; both declared in the bank : False
+      |     ### FAIL ###
+
+----------------------------------------------------------------------------------------------------
+  ### (0) THE UNCHANGED BAR, READ AGAIN AFTER THE DIAGNOSIS.
+----------------------------------------------------------------------------------------------------
+    ### every file still byte-identical to its blob : True ; unchanged across the run : True
+    ### ### **NO COPY SURVIVED THE RUN** (tools/b364_copy_*) : True 
+
+----------------------------------------------------------------------------------------------------
+  ### (iv) THE BRANCH, DECIDED BY (iii) AND NOT BY (ii).
+----------------------------------------------------------------------------------------------------
+    the copy fails            : True (1 ['G-LOCATED'])
+    the banked suite at home  : GATES FAILING 1 ['G-LOCATED']
+    ### ### **BRANCH : REAL** ### -- G-LOCATED fails at the banked suite own location too
+    ### **AND THE OTHER TWO BRANCHES ARE SHOWN UNREACHABLE, NOT LEFT UNCLAIMED** (b350):
+    ###   (ENVIRONMENTAL) -- UNREACHABLE: it requires the banked suite to PASS at its own
+    ###     location, and it reports GATES FAILING 1.
+    ###   (UNDECIDED) -- UNREACHABLE: no step resisted. ### The suite ran to a verdict at
+    ###     its own location and the verdict line was read off its own output.
+
+    ### ### **AND WHAT IS NOT DONE, IN EITHER DIRECTION: NOTHING IS REPAIRED, NOTHING IS EDITED,
+    ### ### AND NO VERDICT IS MOVED BY THIS SEAT.**
+====================================================================================================
