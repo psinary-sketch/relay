@@ -1,0 +1,225 @@
+====================================================================================================
+b374 -- GATE SUITE (THE DESCRIPTIVE LAYER)
+====================================================================================================
+
+  OWNER NEEDLES:
+    PASS  the order -- leg 2
+    PASS  the order -- the hedge audit unmodified
+    PASS  the order -- a surface it has never covered
+    PASS  the order -- classify and repair nothing
+    PASS  the order -- the glossary and the bibliography
+    PASS  the order -- the four words
+    PASS  the order -- the count-and-ref sweep
+    PASS  the order -- the list is the product
+    PASS  the order -- the filing
+    PASS  the order -- nothing claimed beyond
+    PASS  the order -- (L2)
+    PASS  the census -- its own class test
+    PASS  the bibliography -- its own name-identity law  ### -- ITS RECORDED PREFIX
+    PASS  the glossary -- its heading
+    PASS  b291 -- the reflection, derived
+    PASS  b291 -- how far it does NOT go
+
+  SELF NEEDLES:
+    PASS  the bank leads with the measurement
+    PASS  ### the halves are not equally strong
+    PASS  ### the instrument was not tuned
+    PASS  ### a seat that picked its own keystones
+    PASS  ### a hedge is not a fault
+    PASS  ### the class is not called IMPORTED
+    PASS  ### an external work was never expected to live here
+    PASS  ### a finding about the register, not the work
+    PASS  ### the window is the sentence
+    PASS  ### the list is not a plan
+    PASS  ### the filing carries its limit
+    PASS  ### the filing joins nothing
+    PASS  ### closing nothing is right for this leg
+    PASS  ### a leg that accumulates by instruction
+    PASS  ### the predicate that read the wrong column
+
+  MUST-FAIL FIXTURES:
+    PASS  the bank never says a document was repaired
+    PASS  the bank never says a sentence was rewritten
+    PASS  the bank never says an entry was rewritten
+    PASS  the bank never says the instrument was tuned
+    PASS  the bank never says the filing proves a theorem
+
+  G-UNMODIFIED (BAR 1) ### THE INSTRUMENT AGAINST ITS OWN BLOB:
+    EOL-normalised identity with its blob : True ; git sees it unchanged : True
+    ### **AND ITS OWN FIXTURES WERE RUN BEFORE IT WAS TRUSTED** : True
+    PASS
+
+  G-SCOPE / G-CENSUS (BAR 2):
+    the census names partition into resolved / unresolved / ambiguous : True
+    every deposited companion is under the deposit prefix : True
+    ### **NO DOCUMENT WAS AUDITED AS A KEYSTONE THAT THE CENSUS DOES NOT NAME** : True 
+    PASS
+
+  G-QUOTED / G-HEDGE / G-EXPECT / G-NOTES (BAR 3):
+    every banked quotation re-located in its file : True 
+    ### **AND THE GRADED / BARE SPLIT PARTITIONS THE HEDGES, DOCUMENT BY DOCUMENT** : True
+    quotations banked : 511
+    PASS
+
+  G-FOURWORD / G-EXTERNAL / G-NOMERGE (BAR 4):
+    every glossary verdict is one of the four : True ; every bibliography verdict : True
+    the external class is separated : True ; entries rewritten : 0 ; fifth words : 0
+    ### **AND `BIBLIOGRAPHY.md` IS BYTE-IDENTICAL TO ITS BLOB** : True
+    PASS
+
+  G-FIGURE / G-LIST / G-NOPLAN:
+    the banked list length equals the reported total : True (2965)
+    every listed figure carries a file, a line and the numeral : True
+    ### **THE PREDICATES ARE PRINTED WITH THE RESULT** : True ; the list is not a plan : True
+    PASS
+
+  G-FILING / G-LIMIT / G-NOJOIN (BAR 6):
+    every quotation pulled by anchor : True ; both halves, the grade and the limit : True
+    ### **THE LIMIT IS IN THE FILING ITSELF** : True
+    nothing joined beyond the acts, no grade conferred, no bar set : True ; and said : True
+    PASS
+
+  G-NOREPAIR / G-FROZEN (BAR 5) ### EVERY ROSTERED REPOSITORY AGAINST ITS BLOBS:
+    tracked paths changed beyond the declared set : {'relay': [], 'SIDE-global-section': [], 'PLACE-papers': [], 'SIDE-effects': []}
+    ### **FROZEN PATHS CHANGED : none**
+    PASS
+
+  G-CLOSED / G-KILLFILE:
+    the dispositions partition the desk : True (17 = 0 + 17)
+    every standing item gives a reason : True ; closures refused : 0
+    ### **AND CLOSING NOTHING IS DECLARED, NOT SILENT** : True
+    PASS
+
+  G-TRAIL / G-ROW / G-KEY ### BEFORE THE PUSH:
+    trail: mark once and append-only : True ; blob a true prefix : True
+    row 223 present once and a true prefix : True
+    key read back : True ; four overreadings NO KEY after : True
+    PASS
+
+  G-SORTIE (BAR 7):
+    one paragraph per leg : True ; both expectations named : True ; both scored : True
+
+  G-NOBUILD / G-NOLEAN:
+    no build invocation in stripped sources : True ; no dirty `.lean` : True True
+    PASS
+
+  G-ORDER ### SIDE-INVARIANT:
+    the lock recomputes : True ; every relied-on run is after the lock : True
+    audit JOINTLY SATISFIABLE : True ; face says LOCKED BEFORE ANY WRITE : True ; gate CLEAR : True
+    PASS
+
+  G-HOOK / G-MIRROR ### AFTER THE PUSH:
+    hook: 0 failing : True ; mirror clean : True
+
+  G-NUMBERS:
+    keystone hedge/k 6.9                                     PASS
+    working hedge/k 13.3                                     PASS
+    glossary entries 30                                      PASS
+    bibliography entries 69                                  PASS
+    not located 5                                            PASS
+    undated total 2965                                       PASS
+    desk items 17                                            PASS
+    row 223                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    the relied-on hedge run                                  PASS
+    the relied-on figures run                                PASS
+    the filing run                                           PASS
+
+  G-ONCE:
+    extract    b374_extract_notes2.txt      clock 2026-09-08T18:18:01Z == JSON's 2026-09-08T18:18:01Z : True
+    hedge      b374_hedge_notes.txt         clock 2026-09-08T18:24:03Z == JSON's 2026-09-08T18:24:03Z : True
+    entries    b374_entries_notes2.txt      clock 2026-09-08T18:26:53Z == JSON's 2026-09-08T18:26:53Z : True
+    figures    b374_figures_notes.txt       clock 2026-09-08T18:28:10Z == JSON's 2026-09-08T18:28:10Z : True
+    funceq     b374_funceq_notes.txt        clock 2026-09-08T18:28:59Z == JSON's 2026-09-08T18:28:59Z : True
+    desk       b374_desk_notes.txt          clock 2026-09-08T18:29:45Z == JSON's 2026-09-08T18:29:45Z : True
+    closing    b374_closing_notes.txt       clock 2026-09-08T18:33:46Z == JSON's 2026-09-08T18:33:46Z : True
+    PASS
+
+  G-NOCOMPUTE:
+    numerical calls : 0  ; libraries : none
+    PASS
+
+  G-BYCONTENT:
+    b374_closing.py            line 316    | cells = [GD.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        it takes `[-1:]` -- the LAST line of the table THIS ACT JUST WROTE.
+    ### hits : 1 ; UNDECLARED : 0  PASS
+
+  G-NOEDIT ### BEFORE THE PUSH:
+    owner instruments modified : none ### -- this act licenses NONE
+    other relay files of other acts : none
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed):
+    files scanned 18   struck 0   stem 0   ### **LIVE : 0** PASS
+    b374_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b374_ferry_2026-09-08.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER
+    b374_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b374_reg_termscan.txt                        struck : 0  stem : 2  ### CARRIER -- the term scan's log
+    b374_extract_notes2.txt                      struck : 0  stem : 0  ### CARRIER -- the extract carries the corpus's own documents
+    b374_hedge_notes.txt                         struck : 0  stem : 6  ### CARRIER -- the hedge run carries the documents' own sentences
+    b374_entries_notes2.txt                      struck : 0  stem : 0  ### CARRIER -- the entries run carries the register's own keys
+    b374_figures_notes.txt                       struck : 0  stem : 0  ### CARRIER -- the figures run carries the corpus's own lines
+    b374_funceq_notes.txt                        struck : 0  stem : 0  ### CARRIER -- the filing carries two acts' own words
+    b374_desk_notes.txt                          struck : 0  stem : 0  ### CARRIER -- the desk run carries the items' own sentences
+    b374_hedge.py                                struck : 0  stem : 0  ### CARRIER -- ITS PREDICATES QUOTE THE CORPUS'S OWN SHAPES
+    b374_figures.py                              struck : 0  stem : 0  ### CARRIER -- ITS NOUN LIST IS THE CORPUS'S OWN VOCABULARY
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 223, the trail block, the index row):
+    row 223                struck : 0   stem : 0   (5502 chars)
+    the trail block        struck : 0   stem : 0   (5886 chars)
+    the index row          struck : 0   stem : 0   (3286 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the hedge audit run unmodified                       tools/b374_hedge.py                exists=True tracked=True
+    four words and no fifth                              tools/b374_entries.py              exists=True tracked=True
+    the count-and-ref sweep, ref-window declared         tools/b374_figures.py              exists=True tracked=True
+    the filing, quotations pulled by anchor              tools/b374_funceq.py               exists=True tracked=True
+    (R7), with every closure naming a killing file       tools/b374_desk.py                 exists=True tracked=True
+    the trail block, the row and the key                 tools/b374_closing.py              exists=True tracked=True
+    every figure in the bank, read from the JSONs        tools/b374_bank.py                 exists=True tracked=True
+    the reads                                            tools/b374_extract.py              exists=True tracked=True
+    the three-arm registration gate                      tools/b374_reg_gate.py             exists=True tracked=True
+    the clause spec                                      tools/b374_regspec.py              exists=True tracked=True
+    (R2)'s detector, turned on this act                  tools/b366_sweep.py                exists=True tracked=True
+    the anchor built by reading its line                 tools/anchor_from_file.py          exists=True tracked=True
+    the needle helper                                    tools/gate_needle.py               exists=True tracked=True
+    the run files' clocks                                tools/run_clock.py                 exists=True tracked=True
+    19817 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    THE INSTRUMENT, IMPORTED AND UNTOUCHED               tools/hedge_audit.py               exists=True tracked=True
+    the roster, imported and not typed                   tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  HEDGE AUDIT ON THIS ACT'S OWN PROSE:
+    b374_the_descriptive_layer.txt                 sentences=354   graded-hedges=0   ungraded-shapes=75
+    b374_registration_2026-09-08.txt               sentences=414   graded-hedges=0   ungraded-shapes=102
+    b374_closing_notes.txt                         sentences=47    graded-hedges=0   ungraded-shapes=12
+    b374_census_stepzero.txt                       sentences=30    graded-hedges=0   ungraded-shapes=6
+    b374_faces_census_stepzero.txt                 sentences=17    graded-hedges=0   ungraded-shapes=2
+    b374_regspec_run.txt                           sentences=27    graded-hedges=0   ungraded-shapes=2
+    audit_b374_reg_satisfiable.txt                 sentences=228   graded-hedges=0   ungraded-shapes=26
+    b374_pins_stepzero.txt                         sentences=43    graded-hedges=0   ungraded-shapes=1
+    b374_reg_gate.txt                              sentences=18    graded-hedges=0   ungraded-shapes=2
+    b374_bank.py                                   sentences=415   graded-hedges=0   ungraded-shapes=65
+    b374_checks.py                                 sentences=713   graded-hedges=0   ungraded-shapes=64
+    b374_closing.py                                sentences=539   graded-hedges=0   ungraded-shapes=118
+    b374_desk.py                                   sentences=198   graded-hedges=0   ungraded-shapes=30
+    b374_entries.py                                sentences=293   graded-hedges=0   ungraded-shapes=23
+    b374_extract.py                                sentences=214   graded-hedges=0   ungraded-shapes=15
+    b374_figures.py                                sentences=224   graded-hedges=0   ungraded-shapes=16
+    b374_funceq.py                                 sentences=198   graded-hedges=0   ungraded-shapes=24
+    b374_hedge.py                                  sentences=316   graded-hedges=0   ungraded-shapes=18
+    b374_reg_gate.py                               sentences=67    graded-hedges=0   ungraded-shapes=5
+    b374_regspec.py                                sentences=179   graded-hedges=0   ungraded-shapes=26
+    row 223                                        sentences=32    graded-hedges=0   ungraded-shapes=23
+    the trail block                                sentences=54    graded-hedges=0   ungraded-shapes=27
+    the index row                                  sentences=43    graded-hedges=0   ungraded-shapes=16
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================
