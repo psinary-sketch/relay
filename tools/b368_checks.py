@@ -301,12 +301,26 @@ def main():
     r1 = C['head'] in bank and C['ref'] in bank
     r2 = C['pinned'] is True and C['ls_remote'] == C['head']
     r3 = C['dirty'] is False
-    r4 = C['head'] == git(KERNEL, 'rev-parse', 'HEAD').strip()
+    # ### **THIS CLAUSE IS SIDE-DEPENDENT AND THE FIRST VERSION DID NOT SAY SO** (`b352`). ### Before the
+    # ### push the kernel head IS the head that was read. ### **AFTER THIS ACT'S OWN COMMIT IT IS NOT --
+    # ### AND DEMANDING EQUALITY WOULD BE DEMANDING THAT THIS ACT NOT HAVE HAPPENED.** ### The reading
+    # ### that carries either way: ### **THE READ HEAD IS STILL AN ANCESTOR, AND EVERY COMMIT SINCE IS
+    # ### ### THIS ACT'S OWN.**
+    now = git(KERNEL, 'rev-parse', 'HEAD').strip()
+    since = [x for x in git(KERNEL, 'log', '--format=%H %s',
+                            '%s..HEAD' % C['head']).splitlines() if x.strip()]
+    anc = subprocess.run(['git', '-C', KERNEL, 'merge-base', '--is-ancestor', C['head'], 'HEAD'],
+                         capture_output=True).returncode == 0
+    r4 = anc and all('(b368)' in x for x in since)
+    r4side = 'BEFORE THE PUSH' if now == C['head'] else 'AFTER THE PUSH'
     r5 = 'PINNED BY `ls-remote` BEFORE THE FIRST CLASSIFICATION' in bank
     gr = r1 and r2 and r3 and r4 and r5
     print('    the ref `%s` = `%s` is named in the bank : %s' % (C['ref'], C['head'][:7], r1))
     print('    ### **LOCAL HEAD == ls-remote** : %s ; working tree clean at the read : %s' % (r2, r3))
-    print('    ### **AND THE HEAD IS STILL THE ONE THAT WAS READ** : %s' % r4)
+    print('    ### **AND THE READ HEAD IS STILL AN ANCESTOR, EVERY COMMIT SINCE BEING THIS ACT’S OWN** '
+          ': %s ### (read %s ; %d commit(s) since)' % (r4, r4side, len(since)))
+    for x in since:
+        print('        | %s' % x[:96])
     print('    and the bank says the pin came first : %s' % r5)
     print('    %s' % ('PASS' if gr else '### FAIL ###'))
     if not gr:
