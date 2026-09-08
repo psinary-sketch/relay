@@ -1,0 +1,258 @@
+{
+ "classified": 23,
+ "classified_names": [
+  "Massless",
+  "MismatchMechanism",
+  "RankMismatch",
+  "TwinFinite",
+  "all_bound",
+  "all_excluded",
+  "all_gapped",
+  "all_mismatch_absent",
+  "artin_from_grh",
+  "bsd_full",
+  "formation_preserved_grh",
+  "gap_bounds",
+  "grh_exclusion",
+  "mass_gap",
+  "mismatch_absent",
+  "no_conspiracy_goldbach",
+  "no_conspiracy_sg",
+  "no_conspiracy_twins",
+  "no_ls_zero",
+  "sectors_complete",
+  "sha_bounded",
+  "side_exclusion",
+  "twist_cancels"
+ ],
+ "from_b369": 18,
+ "from_b372": 13,
+ "files": 349,
+ "rows_scanned": 14974,
+ "hits": 10,
+ "defect": 6,
+ "corrected": 3,
+ "live_graded": 1,
+ "carriers": [
+  "VERIFICATION_LOOM.md",
+  "phase1.5/method/EXCLUSION_ENGINE.md"
+ ],
+ "grades": [
+  "✓F",
+  "✓C",
+  "✓",
+  "⊘",
+  "SHELL",
+  "DERIVES",
+  "INTERFACES",
+  "ENCODES-CONCLUSION",
+  "TAUTOLOGY",
+  "DEFINED-ONLY",
+  "PROVED",
+  "VERIFIED"
+ ],
+ "detail": [
+  {
+   "file": "SPIRAL_MAP.md",
+   "line": 77,
+   "declarations": [
+    "grh_exclusion",
+    "no_ls_zero"
+   ],
+   "grades": [
+    "INTERFACES"
+   ],
+   "states_own_retirement": true,
+   "retirement_words": [
+    "withdrawn",
+    "retired",
+    "no longer"
+   ],
+   "grades_a_live_declaration": [
+    "EDifficultyTop"
+   ],
+   "classified": {
+    "grh_exclusion": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED",
+    "no_ls_zero": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| ### **`SIDE-effects`** | ### **`main` `afa9ccf`** *(merged 2026-08-14)* | ### **The exclusion engine, genuine Type-D exclusion via CRT exhaustiveness, and the graded exhaustiveness-license ladder.** *`EDifficultyTop` is carried as a **named `INTERFACES` premise — open, labelled, never proved**. The retired framework-consequence skeletons (`grh_exclusion`, `no_ls_zero` and kin) were withdrawn by `W-2` on 2026-06-16 and survive only at the historical tag `phase-1.5-module-1-v2`.* ### **The non-default-branch disclosure no longer applies: the ladder is on `main`.** |"
+  },
+  {
+   "file": "VERIFICATION_LOOM.md",
+   "line": 529,
+   "declarations": [
+    "no_conspiracy_twins"
+   ],
+   "grades": [
+    "✓F",
+    "✓"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "no_conspiracy_twins": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| no-conspiracy twin primes | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `AddMult.no_conspiracy_twins` | ✓F |"
+  },
+  {
+   "file": "VERIFICATION_LOOM.md",
+   "line": 530,
+   "declarations": [
+    "no_conspiracy_goldbach"
+   ],
+   "grades": [
+    "✓F",
+    "✓"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "no_conspiracy_goldbach": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| no-conspiracy Goldbach | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `AddMult.no_conspiracy_goldbach` | ✓F |"
+  },
+  {
+   "file": "VERIFICATION_LOOM.md",
+   "line": 531,
+   "declarations": [
+    "no_conspiracy_sg"
+   ],
+   "grades": [
+    "✓F",
+    "✓"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "no_conspiracy_sg": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| no-conspiracy Sophie Germain | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `AddMult.no_conspiracy_sg` | ✓F |"
+  },
+  {
+   "file": "VERIFICATION_LOOM.md",
+   "line": 540,
+   "declarations": [
+    "side_exclusion"
+   ],
+   "grades": [
+    "✓C",
+    "✓"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [
+    "techne_kernel.SIDE_exclusion"
+   ],
+   "classified": {
+    "side_exclusion": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: ABSENT"
+   },
+   "text": "| `side_exclusion` | `D:\\SIDE-kernel\\Kernel\\Layer1.lean` | `techne_kernel.SIDE_exclusion` | ✓C |"
+  },
+  {
+   "file": "VERIFICATION_LOOM.md",
+   "line": 548,
+   "declarations": [
+    "mass_gap"
+   ],
+   "grades": [
+    "⊘"
+   ],
+   "states_own_retirement": true,
+   "retirement_words": [
+    "retired"
+   ],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "mass_gap": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| Yang-Mills mass gap (form) | `D:\\SIDE-effects\\SIDEEffects\\Structural.lean` | `YangMills.mass_gap` is a retired `gapped := True` stub (no mass-gap proof); genuine YM content is formation-level placement in `SIDE-yang-mills-formation`, mass gap OPEN | ⊘ |"
+  },
+  {
+   "file": "VERIFICATION_LOOM.md",
+   "line": 581,
+   "declarations": [
+    "grh_exclusion"
+   ],
+   "grades": [
+    "⊘"
+   ],
+   "states_own_retirement": true,
+   "retirement_words": [
+    "RETIRED",
+    "not present on any live branch"
+   ],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "grh_exclusion": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| GRH exclusion (form) | ### **RETIRED — not present on any live branch** | ~~`GRH.grh_exclusion`~~ | ### **RETIRED BY THE `W-2` WITHDRAWAL** *(executed 2026-06-16; landed on `main` 2026-07-13; `Structural.lean` 34 declarations → 3)*. Present only at the historical tag `phase-1.5-module-1-v2`, where it is an opaque-Prop template — a theorem taking its conclusion's content as a `Prop` hypothesis and discharging by the supplied implication. ### **Cited by ZERO manuscripts** *(census by scan, 2026-08-14)*. *Row corrected 2026-08-14: it had read \"⊘ scaffold-pattern\", which says present-but-weak of a declaration that is absent.* |"
+  },
+  {
+   "file": "phase1.5/method/EXCLUSION_ENGINE.md",
+   "line": 190,
+   "declarations": [
+    "Massless",
+    "mass_gap"
+   ],
+   "grades": [
+    "SHELL"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "Massless": "b372: RETIRED",
+    "mass_gap": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| `mass_gap` / `Massless` | SIDE-effects `Structural.lean:43-57` | **SHELL** | `gapped` is `fun _ => True` on all four sectors | **W-2** |"
+  },
+  {
+   "file": "phase1.5/method/EXCLUSION_ENGINE.md",
+   "line": 192,
+   "declarations": [
+    "MismatchMechanism",
+    "RankMismatch",
+    "bsd_full",
+    "mismatch_absent"
+   ],
+   "grades": [
+    "SHELL"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "MismatchMechanism": "b372: ABSENT",
+    "RankMismatch": "b372: ABSENT",
+    "bsd_full": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED",
+    "mismatch_absent": "b372: RETIRED"
+   },
+   "text": "| `bsd_full` / `RankMismatch` / `MismatchMechanism` | SIDE-effects `Structural.lean:221-238` | **SHELL** | `mismatch_absent` is `fun _ => True` — *the exemplar v2.0 called substance* | **W-2** |"
+  },
+  {
+   "file": "phase1.5/method/EXCLUSION_ENGINE.md",
+   "line": 193,
+   "declarations": [
+    "TwinFinite",
+    "no_conspiracy_twins"
+   ],
+   "grades": [
+    "SHELL"
+   ],
+   "states_own_retirement": false,
+   "retirement_words": [],
+   "grades_a_live_declaration": [],
+   "classified": {
+    "TwinFinite": "b372: ABSENT",
+    "no_conspiracy_twins": "b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED"
+   },
+   "text": "| `no_conspiracy_twins` / `TwinFinite` | SIDE-effects `Structural.lean:166-170` | **SHELL** (honestly marked in-source) | `TypeD Nat (fun _ => True) (fun _ => True)` | **W-2** |"
+  }
+ ],
+ "grades_moved": 0,
+ "run_file": "b373_status_notes3.txt",
+ "run_clock": "2026-09-08T17:59:39Z"
+}

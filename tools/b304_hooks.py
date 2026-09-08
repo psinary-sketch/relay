@@ -301,8 +301,18 @@ def main(argv):
     print('  ### ### **AND ONE HAZARD THIS TOOL CANNOT CATCH, NAMED RATHER THAN IMPLIED:** ### the')
     print('  ### guard is a TRACKED TEXT FILE, so git rewrites its line endings on checkout. ### On a')
     print('  ### platform that checks it out with CRLF, ### **`#!/bin/sh` CARRIES A CARRIAGE RETURN**')
-    print('  ### and the guard may not run at all. ### No `.gitattributes` pins it, and the identity')
-    print('  ### arm above is EOL-normalised, so ### **THIS ARM WILL NOT TELL YOU.**')
+    print('  ### and the guard may not run at all.')
+    # ### **CORRECTED AT b373, BECAUSE b372 MADE THE PREVIOUS SENTENCE FALSE.** ### It read
+    # ### ### *No `.gitattributes` pins it, and the identity arm above is EOL-normalised, so THIS ARM
+    # ### ### WILL NOT TELL YOU.* ### The first half is no longer true in any rostered repository.
+    # ### ### **AND THE CAVEAT IS KEPT, NOT DELETED WITH THE FALSEHOOD** -- what the attribute fixes
+    # ### is what the NEXT checkout produces, and the identity arm is still EOL-normalised, so this
+    # ### arm still would not tell you if a checkout somewhere disarmed the guard.
+    print('  ### ### **`.gitattributes` NOW PINS `eol=lf` IN EVERY ROSTERED REPOSITORY (b372)**, and a')
+    print('  ### fresh checkout of this guard was shown byte-identical to its blob in all of them.')
+    print('  ### ### **THAT FIXES WHAT THE NEXT CHECKOUT PRODUCES, NOT WHAT IS ON A DISK TODAY**, and')
+    print('  ### the identity arm above is still EOL-normalised, so ### **THIS ARM STILL WOULD NOT')
+    print('  ### ### TELL YOU** -- what changed is that the hazard is now pinned shut upstream of it.')
     print('=' * 100)
     return 0 if fails == 0 else 1
 

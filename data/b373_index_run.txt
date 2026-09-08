@@ -1,0 +1,27 @@
+====================================================================================================
+b373 -- THE INDEX KEY. ### A RULE CAN OUTRUN THE RECORD IT REACHES INTO.
+====================================================================================================
+    the pins are added                       NO KEY before : True
+    the grades are corrected                 NO KEY before : True
+    the rows are checked                     NO KEY before : True
+    the archive is updated                   NO KEY before : True
+  rule-outruns-record key/row already present : False / False
+  READ BACK : rule-outruns-record returns 1 row(s), 1 required  PASS
+    the pins ruling                              reaches the b373 key : True  PASS
+    the sourcing rule                            reaches the b373 key : True  PASS
+    the status column                            reaches the b373 key : True  PASS
+    cites at an unknown ref                      reaches the b373 key : True  PASS
+    the writing act                              reaches the b373 key : True  PASS
+  ### ### **G-NOTCHECKED -- THE ARM THIS FILE EXISTS FOR.**
+    no pin was written                                          : True
+    ### and the reason is the record, not a seat declining       : True
+    ### no grade was moved                                       : True
+    ### no deposited or archived surface was edited              : True
+    ### the graded-against-absent defect is bounded              : True
+    ### the bar tests the value, the ruling forbids the source   : True
+    the pins are added                       NO KEY after  : True  PASS
+    the grades are corrected                 NO KEY after  : True  PASS
+    the rows are checked                     NO KEY after  : True  PASS
+    the archive is updated                   NO KEY after  : True  PASS
+  ### PASS
+====================================================================================================

@@ -1,0 +1,291 @@
+====================================================================================================
+b373 -- THE PINS AND THE STATUS COLUMN. ### THE BANK.
+2026-09-08. ### CONCURRENCY: SOLO (research seat). ### SORTIE LEG 1 OF 2.
+### FERRY_STANDING v2, by reference, citation CURRENT.
+### Registration `data/b373_registration_2026-09-08.txt`, ### **LOCKED**
+### `710dcc0688509502e4ef3464c34e2e95b9a51da6eedf7fad48411a738699d66a`, 20255 bytes, 74 clauses JOINTLY
+### SATISFIABLE, and ### **LOCKED ONLY AFTER THE AUDIT'S OWN EXIT CODE CAME BACK `0`**, locked at (UTC)
+### 2026-09-08T17:32:21Z. ### **LOCKED BEFORE ANY WRITE OF THIS ACT.** ### The clocks are in section (9).
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (1) THE ANSWER, FIRST.
+----------------------------------------------------------------------------------------------------
+### ### ### **`(R9)` WAS EXECUTED AS FAR AS ITS OWN SOURCING RULE ALLOWS, AND IT WROTE NO PIN.**
+### Not because the price did not fit -- it fitted, at `2.0` seconds a row over `119` rows -- and
+### not because the seat declined. ### **BECAUSE THE CHAIN THE RULING REQUIRES DOES NOT CLOSE.**
+
+### ### ### **THE PAPERS ARE OLDER THAN THE INSTRUMENTS. ### THAT IS THE FINDING.**
+### `33` of `119` rows have a locatable writing act; ### **`86` DO NOT**, because the commit that
+### introduced them carries a subject that names no act. ### And of the `33` that do, the chain
+### fails again: `18` no pins record and no ref in the act's bank; `5` row names no placeable kernel.
+### ### **THE PINS INSTRUMENT BEGINS AT `b300`.** ### Most rows needing a ref were written before
+### there was an instrument that banked one. ### **`(R9)` IS A GOOD RULE REACHING BACK INTO A
+### ### RECORD THAT DID NOT YET KEEP THE EVIDENCE THE RULE REQUIRES.**
+
+### ### **`10` ROWS WERE PINNABLE. ### ALL `10` OF THEM SIT ON A SURFACE NO ACT MAY REWRITE:**
+###   `2` on append-only ledger entry
+###   `8` on archived snapshot
+### ### **SO NO PIN WAS WRITTEN TO ANY ROW**, and that is a scope decision fixed on the
+### registration`s face before any read, not a discovery made when the edit got difficult.
+### ### **WHETHER THOSE SURFACES SHOULD CARRY PINS AT ALL IS ROUTED, NOT DECIDED** -- it is the
+### author`s question, and a citation-hygiene ruling is not a licence to rewrite a deposit.
+
+### ### ### **THE STATUS COLUMN: `6` ROWS IN `2` DOCUMENTS ASSERT A GRADE AGAINST A DECLARATION
+### ### ### THIS RECORD HAS CLASSIFIED RETIRED OR ABSENT.** ### `3` more state their own
+### retirement and `1` grades a declaration `b372` found alive -- ### **NEITHER IS THE DEFECT.**
+### ### **AND EVERY ONE OF THE `6` IS INSIDE THE TWELVE `b372` ALREADY FLAGGED.** ### The sweep
+### found ### **NO INSTANCE OUTSIDE THAT SET**, which bounds the problem rather than widening it.
+### ### **NO GRADE WAS MOVED BY THIS SEAT.**
+
+### ### **THE INSTRUMENT `b372` MADE FALSE IS CORRECTED**, under the order`s own licence, ### **AND
+### ### ITS CAVEAT IS KEPT RATHER THAN DELETED ALONG WITH THE FALSEHOOD.**
+### ### **THE DESK: `16` SWEPT, `2` CLOSED, `14` STANDING.**
+
+----------------------------------------------------------------------------------------------------
+### (2) COMPONENT 1 -- `(R9)`, PRICED AND THEN EXECUTED.
+----------------------------------------------------------------------------------------------------
+### **THE CHAIN, AS DECLARED ON THE FACE AND AS RUN:** ### the row re-anchored ### **BY ITS OWN
+### CONTENT** -> the commit that INTRODUCED that content -> the ACT that commit`s subject names ->
+### ### **THAT ACT`S OWN BANKED REF.**
+### ### **AND THE LAST LINK HAS TWO FORMS, BOTH INSIDE THE RULING`S WORDS:** ### the act`s own
+### `ls-remote` pins record, and ### **A REF NAMED IN THE ACT`S OWN BANK** where no pins record
+### exists. ### The second was added because the acts that wrote most of these rows predate the
+### pins instrument entirely, and ### **`located in its own bank` IS THE RULING`S OWN PHRASE.**
+### ### **MORE THAN ONE RESOLVING REF FOR ONE KERNEL IS AMBIGUOUS AND IS REFUSED**, the way an
+### ambiguous anchor is refused.
+
+### **THE CLASSIFICATION:**
+###   rows walked                         : 119
+###   ### **WITH A LOCATABLE WRITING ACT   : 33  (28%)**
+###   ### **WHOSE ACT COULD NOT BE LOCATED : 86**
+###   ### **PINNABLE                       : 10**
+###   ### **CITES-AT-AN-UNKNOWN-REF        : 109**
+
+### **THE REASONS, KEPT APART BECAUSE THEY WILL NOT HAVE THE SAME CURE:**
+###   WRITING ACT NOT NAMED                          86
+###   NO PINS RECORD AND NO REF IN THE ACT'S BANK    18
+###   ROW NAMES NO PLACEABLE KERNEL                  5
+###   (no reason -- these are the PINNABLE rows)     10
+### ### **A ROW NOBODY CAN DATE AND A ROW WHOSE KERNEL WAS NEVER ROSTERED ARE NOT THE SAME
+### ### PROBLEM.** ### Collapsing them into one number would have hidden the only thing this
+### component found.
+
+### **THE PINNABLE ROWS, EVERY ONE OF THEM:**
+###   FACES_LEDGER.md                                           :153    act `b329`  kernel `SIDE-global-section`
+###       pin `50200cc7c845` ### -- THE ACT'S OWN PINS RECORD, from `b329_pins_stepzero.txt`
+###       ### **NOT WRITTEN : APPEND-ONLY LEDGER ENTRY**
+###   FINDINGS.md                                               :3000   act `b331`  kernel `SIDE-global-section`
+###       pin `81f5cbe6261c` ### -- THE ACT'S OWN PINS RECORD, from `b331_pins_stepzero.txt`
+###       ### **NOT WRITTEN : APPEND-ONLY LEDGER ENTRY**
+###   archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_:171    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_:172    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_:173    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_:174    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_:175    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/SIDE_EXCLUSION_PRINCIPLE_:176    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.m:204    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+###   archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.m:205    act `b209`  kernel `SIDE-kernel`
+###       pin `0256e9e1297f` ### -- A REF NAMED IN THE ACT'S OWN BANK, from `b209_registration_2026-08-27.txt`
+###       ### **NOT WRITTEN : ARCHIVED SNAPSHOT**
+
+### ### ### **AND ONE THING IS REPORTED RATHER THAN WORKED AROUND:** ### `8` of those pins
+### ### **EQUAL A CURRENT HEAD** -- not because a head was used as the source, but because the
+### kernel has not moved since the act that wrote the rows, and ### **THAT ACT`S OWN BANK SAYS SO
+### ### IN AS MANY WORDS.** ### `BAR 2` as locked forbids writing a pin equal to a head. ### **THE
+### ### BAR TESTS THE VALUE; THE RULING FORBIDS THE SOURCE; A KERNEL THAT HAS NOT MOVED MAKES THE
+### ### TWO COINCIDE.** ### The bar as locked was obeyed, and the tension is filed rather than
+### resolved by a seat.
+
+### **THE PRICE, IN THREE PARTS:**
+###   ### **ONE ROW** : `2.03` seconds, dominated entirely by the history search.
+###   ### **THE WHOLE SET** : `241` seconds for `119` rows. ### **THE PRICE FITS ONE ACT**, which is
+###     why this act executed rather than only priced.
+###   ### **THE SPLIT** : ### the locating is entirely mechanical. ### **WHAT IS NOT MECHANICAL IS
+###     ### WHICH SURFACES MAY BE EDITED AT ALL** -- decided on the face and routed -- ### **AND
+###     ### WHETHER A ROW`S CLAIM IS TRUE AT THE PIN**, which is a check no search can buy.
+
+----------------------------------------------------------------------------------------------------
+### (3) COMPONENT 2 -- THE STATUS COLUMN.
+----------------------------------------------------------------------------------------------------
+### **THE CLASSIFIED SET IS THE RECORD`S OWN:** ### `18` names from `b369` (confirmed after `b367`
+### and `b368`) and `13` from `b372`s twelve, ### **`23` DISTINCT DECLARATIONS.** ### **NO KERNEL
+### ### WAS OPENED TO RE-CLASSIFY ANY OF THEM.**
+### **THE SWEEP:** ### `14974` table rows across `349` tracked markdown files; ### **`10` NAME A
+### ### CLASSIFIED DECLARATION AND CARRY A GRADE.**
+### ### **AND THE THREE-WAY SPLIT IS THE WHOLE CARE OF THIS COMPONENT:**
+###   ### **3 STATE THEIR OWN RETIREMENT** -- reporting the withdrawal, not asserting the
+###     declaration is there. ### **NOT THE DEFECT.**
+###   ### **1 GRADES A DECLARATION `b372` FOUND ALIVE** -- its first cell carries a retired
+###     concept LABEL while its terminal cell names a live one. ### **NOT THE DEFECT**, and
+###     counting it would be the same mistake one step further out.
+###   ### **6 ASSERT THE GRADE WITH NEITHER. ### THOSE ARE THE DEFECT.**
+
+### **THE DEFECTIVE ROWS, EACH WITH THE DOCUMENT THAT CARRIES IT:**
+###   `VERIFICATION_LOOM.md`:529   grade ✓F, ✓
+###       declarations : `no_conspiracy_twins`
+###       | | no-conspiracy twin primes | `D:\SIDE-effects\SIDEEffects\Structural.lean` | `AddMult.no_conspiracy_twins` | ✓F |
+###   `VERIFICATION_LOOM.md`:530   grade ✓F, ✓
+###       declarations : `no_conspiracy_goldbach`
+###       | | no-conspiracy Goldbach | `D:\SIDE-effects\SIDEEffects\Structural.lean` | `AddMult.no_conspiracy_goldbach` | ✓F |
+###   `VERIFICATION_LOOM.md`:531   grade ✓F, ✓
+###       declarations : `no_conspiracy_sg`
+###       | | no-conspiracy Sophie Germain | `D:\SIDE-effects\SIDEEffects\Structural.lean` | `AddMult.no_conspiracy_sg` | ✓F |
+###   `phase1.5/method/EXCLUSION_ENGINE.md`:190   grade SHELL
+###       declarations : `Massless`, `mass_gap`
+###       | | `mass_gap` / `Massless` | SIDE-effects `Structural.lean:43-57` | **SHELL** | `gapped` is `fun _ => True` on all four sectors | **W-2** |
+###   `phase1.5/method/EXCLUSION_ENGINE.md`:192   grade SHELL
+###       declarations : `MismatchMechanism`, `RankMismatch`, `bsd_full`, `mismatch_absent`
+###       | | `bsd_full` / `RankMismatch` / `MismatchMechanism` | SIDE-effects `Structural.lean:221-238` | **SHELL** | `mismatch_absent` is `fun _ => True` — *the exemplar v2.0 called substance* | **W-2
+###   `phase1.5/method/EXCLUSION_ENGINE.md`:193   grade SHELL
+###       declarations : `TwinFinite`, `no_conspiracy_twins`
+###       | | `no_conspiracy_twins` / `TwinFinite` | SIDE-effects `Structural.lean:166-170` | **SHELL** (honestly marked in-source) | `TypeD Nat (fun _ => True) (fun _ => True)` | **W-2** |
+
+### **AND THE ROWS THAT ARE NOT THE DEFECT, NAMED SO THEY ARE NOT MISTAKEN FOR IT:**
+###   `SPIRAL_MAP.md`:77 ### -- states its own retirement (withdrawn, retired)
+###   `VERIFICATION_LOOM.md`:548 ### -- states its own retirement (retired)
+###   `VERIFICATION_LOOM.md`:581 ### -- states its own retirement (RETIRED, not present on any live branch)
+###   `VERIFICATION_LOOM.md`:540 ### -- names `side_exclusion` but grades `techne_kernel.SIDE_exclusion`, which `b372` found ALIVE
+
+### ### **THE CONSEQUENCE, ROUTED AND NOT ACTED ON.** ### A stale count misstates a quantity;
+### ### **A GRADE AGAINST AN ABSENT DECLARATION ASSERTS THAT SOMETHING WAS CHECKED THAT IS NOT
+### ### THERE TO CHECK**, and a reader traversing the row cannot see the difference.
+### **THE AUTHOR FACES THREE CHOICES PER ROW, NAMED HERE WITHOUT ONE BEING CHOSEN:** ### strike the
+### grade; restate it as a retirement, as `VERIFICATION_LOOM.md` already does for one pair; or leave
+### it with a pin that dates it -- ### **AND THIS ACT HAS JUST SHOWN A PIN CANNOT BE SOURCED FOR
+### ### THESE ROWS.**
+### ### **NO GRADE WAS MOVED. ### A SEAT THAT REGRADES IS A SEAT THAT DECIDED WHAT WAS VERIFIED.**
+
+----------------------------------------------------------------------------------------------------
+### (4) COMPONENT 3 -- THE GUARD`S OWN FRONT MATTER.
+----------------------------------------------------------------------------------------------------
+### **ONE OWNER INSTRUMENT WAS LICENSED BY THE ORDER AND NAMED ON THE FACE BEFORE THE EDIT:**
+### `tools/b304_hooks.py`. ### It reported that ### *no `.gitattributes` pins the guard, and the
+### identity arm above is EOL-normalised, so THIS ARM WILL NOT TELL YOU* -- ### **AND `b372` MADE
+### ### THE FIRST HALF FALSE IN EVERY ROSTERED REPOSITORY.**
+### ### **THE CAVEAT IS KEPT, NOT DELETED WITH THE FALSEHOOD.** ### The tool now says the attribute
+### pins `eol=lf` everywhere and that a fresh checkout was shown byte-identical to its blob, ### **AND
+### ### THAT THIS FIXES WHAT THE NEXT CHECKOUT PRODUCES AND NOT WHAT IS ON A DISK TODAY, AND THAT
+### ### THE ARM STILL WOULD NOT TELL YOU.** ### **A CORRECTION THAT DELETES THE CAVEAT IS A WORSE
+### ### FILE.**
+### **AND ONE ITEM IS DELIBERATELY NOT CLOSED WITH IT:** ### the guard`s own install line, in the
+### guard and not in the exerciser, ### **STILL NAMES A PATH THE RECORD NO LONGER USES.** ### That
+### is a different sentence in a different file and conflating them would close an item nothing
+### killed.
+
+----------------------------------------------------------------------------------------------------
+### (5) THE DESK, UNDER `(R7)`.
+----------------------------------------------------------------------------------------------------
+### ### **`16` SWEPT. ### `2` CLOSED. ### `14` STANDING. ### REFUSED FOR WANT OF A KILLING FILE :
+### ### `0`.**
+###   CLOSED  the pinless rows, awaiting a ruling on whether pins ar killing file `data/b373_pins_notes4.txt`, dated 2026-09-08
+###           ### **FLAGGED: THE KILLING FILE IS THIS ACT`S OWN** (`b368`s rule).
+###   CLOSED  the guard's own front matter                           killing file `data/b373_hooks.txt`, dated 2026-09-08
+###           ### **FLAGGED: THE KILLING FILE IS THIS ACT`S OWN** (`b368`s rule).
+### ### ### **AND ONE CLOSURE IS THE INTERESTING ONE:** ### *the pinless rows, awaiting a ruling on
+### ### whether pins are added* CLOSES -- ### **ITS OCCASION WAS AN UNMADE RULING AND THE RULING IS
+### ### MADE.** ### What the execution then FOUND is filed as a ### **NEW** ### item, not as the
+### old one surviving: ### **AN ITEM THAT CHANGES ITS MEANING WHILE KEEPING ITS NAME IS A DESK THAT
+### ### NEVER CLOSES ANYTHING.**
+### **THE TRAILS LEDGER WAS UPDATED THROUGH ITS WRITER**, append-only `True`, the committed version
+### still a substring `True`, `349573` -> `356224` bytes.
+### ### **AND THIS ACT APPENDED TO A LEDGER IT REFUSED TO EDIT.** ### Appending a block is not the
+### same act as changing a row somebody else wrote, and the difference is the whole of section (C).
+
+----------------------------------------------------------------------------------------------------
+### (6) THE EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+### ### ### **`(L1)` -- THE NAVIGATOR`S: *more than half the pinless rows have a locatable writing
+### ### ### act.* ### REFUTED, BY A PRINTED CLASSIFICATION.** ### `33` of `119`, which is `28%`.
+### ### **AND THE REFUTATION IS THE ACT`S RESULT, NOT A DISAPPOINTMENT:** ### it says the record`s
+### commit subjects did not name acts when most of these rows were written, and ### **NO AMOUNT OF
+### ### SEARCHING WILL CHANGE THAT.**
+
+### ### ### **`(E1)` -- THIS SEAT`S: *the binding constraint will not be locating the act; it will
+### ### ### be that the act`s pins record does not carry the kernel.* ### REFUTED.** ### The binding
+### constraint IS locating the act: `86` of `119` fail at that link, against `23` failing later.
+### ### **THIS SEAT PREDICTED THE ROSTER WOULD BE THE WALL AND THE COMMIT SUBJECTS WERE.**
+
+### ### ### **`(E2)` -- THIS SEAT`S: *the status-column set will be smaller than the pinless set and
+### ### ### worse.* ### THE FIRST HALF HELD AND WAS SAID TO BE NEARLY ARITHMETIC** (`6` against
+### `119`). ### **THE HALF WORTH SCORING -- WHETHER ANY SUCH ROW EXISTS OUTSIDE THE TWELVE `b372`
+### ### ALREADY FOUND -- IS REFUTED: NONE DOES.** ### Every graded-against-absent row is inside that
+### set. ### **THE DEFECT IS BOUNDED, AND THAT IS BETTER NEWS THAN THE EXPECTATION ASKED FOR.**
+
+----------------------------------------------------------------------------------------------------
+### (7) WHAT THIS ACT DID NOT DO.
+----------------------------------------------------------------------------------------------------
+### **NO PIN WAS WRITTEN TO ANY ROW, AND NO PIN WAS TAKEN FROM ANY CURRENT HEAD.**
+### **NO ROW WAS CHECKED AT ANY PIN.** ### Adding a pin dates a claim; it does not verify one.
+### **NO GRADE WAS MOVED, NO FACE PROMOTED, AND NO GRADE CONFERRED BY A SEAT.**
+### **NO DEPOSITED FILE, NO ARCHIVED FILE AND NO APPEND-ONLY LEDGER ENTRY WAS EDITED.**
+### **NO NEW COLUMN WAS ADDED TO ANY TABLE AND NO TABLE`S SHAPE WAS CHANGED.**
+### **NO `.lean` FILE WAS TOUCHED. ### NO BUILD WAS RUN. ### NO AXIOM PROFILE WAS RECOMPUTED.**
+### **NO KERNEL WAS RE-CLASSIFIED.** ### The retired-and-absent set is the record`s own.
+### **ONLY THE ONE LICENSED OWNER INSTRUMENT MOVED.**
+### **LEG 2 WAS NOT BEGUN.** ### The hedge audit over the keystones, the glossary and bibliography,
+### the count-and-ref sweep and the functional-equation filing belong to `b374`.
+### **NOTHING WAS CLAIMED ABOUT THE MATHEMATICS OF ANY NAMED SUBJECT.** ### A pin is about when a
+### claim was made, not about whether it is true.
+### **NOTHING WAS COMPUTED ABOUT THE OBJECT. ### NOTHING COMPILED AND NO BRIDGE TYPED.**
+### **NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### THE CLAUSE HAS NOT MOVED.**
+### **NOTHING HERE BEARS ON `h2`, ON TOTALITY OR ON THE ROSTER.** ### `M-2` remains
+### (SPECIFIED-NOT-STATED) under `b310`s cap. ### The seam`s debt item 1 stands. ### The patent lane
+### is carried on the patent seat`s report, UNCONFIRMED on this seat`s record. ### **THE POSTURE
+### ### LOCK IS SEPARATE. ### THE INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED.**
+### `h2` stands exactly where the deposit left it. ### **NOTHING DEPOSITS.**
+
+----------------------------------------------------------------------------------------------------
+### (8) THE SPECIES THIS ACT ADDS, AND THE ONES IT MET AGAIN.
+----------------------------------------------------------------------------------------------------
+### ### ### **NEW -- `A RULE CAN OUTRUN THE RECORD IT REACHES INTO`.** ### `(R9)` is sound and its
+### evidence is `b372`s own. ### It still pins nothing, because ### **THE RECORD DOES NOT CARRY, FOR
+### ### MOST ROWS, THE ACT-NAME AND THE BANKED REF THE RULE NEEDS.** ### The failure is not of the
+### rule and not of the execution: ### **IT IS A FACT ABOUT WHEN THE INSTRUMENTS WERE BUILT.**
+### ### ### **NEW -- `AN ARM THAT TESTS THE VALUE CANNOT TEST THE SOURCE`.** ### `BAR 2` forbids a
+### pin equal to a head, to stop a seat sourcing from today. ### **BUT A KERNEL THAT HAS NOT MOVED
+### ### MAKES A CORRECTLY-SOURCED PIN EQUAL A HEAD**, and the arm cannot tell the two apart. ### The
+### bar was obeyed as locked and the tension filed.
+### **MET AGAIN -- `PREDICATE_ONE_SHAPE`, AND THIS TIME IN THIS ACT`S OWN TOOL, TWICE.** ### The
+### kernel list was TYPED and did not know `SIDE-carrier-spec` or `SIDE-li-map`, so rows naming them
+### came back NAMING NO KERNEL; it is now ### **DISCOVERED FROM THE DISK.** ### And a bare `X.lean`
+### was not placed at all until each kernel was ASKED whether it tracks such a file. ### **AN ACT
+### ### WHOSE SUBJECT IS A PREDICATE THAT KNEW ONE SHAPE COMMITTED THE SPECIES TWICE IN ITS OWN
+### ### INSTRUMENT.**
+### **MET AGAIN -- THE SCOPE OF A SEARCH IS A PREDICATE.** ### Dropping the pathspec from the
+### history search looked safer and made the located-act count FALL from `33` to `7`, because
+### ### **THE SAME ROW TEXT LIVES IN THE LIVING PAPER, ITS DEPOSITED COPY AND ITS ARCHIVED
+### ### SNAPSHOT.** ### Both searches are now run and the wider one is REPORTED, not substituted.
+
+----------------------------------------------------------------------------------------------------
+### (9) THE CLOCKS, THE REFS AND THE FILES.
+----------------------------------------------------------------------------------------------------
+### registration locked at (UTC) 2026-09-08T17:32:21Z
+### b373_reads     run file `b373_extract_notes2.txt` recorded clock 2026-09-08T17:29:07Z
+### b373_pins      run file `b373_pins_notes4.txt` recorded clock 2026-09-08T17:56:30Z
+### b373_status    run file `b373_status_notes3.txt` recorded clock 2026-09-08T17:59:39Z
+### b373_desk      run file `b373_desk_notes.txt` recorded clock 2026-09-08T18:01:38Z
+### b373_filing    run file `b373_filing_notes.txt` recorded clock 2026-09-08T18:02:41Z
+### **THE REFS THIS ACT READ, AND NONE OF THEM IS A PIN IT WROTE:**
+###   relay                  `main` = `1d980632122b686b979e429271983615d2b6ccf4`
+###   SIDE-global-section    `main` = `2126e081041871adf77e9bae4c121e97de7b1a6d`
+###   PLACE-papers           `main` = `eb05a93349b6d679935ae9733b22987f8ce43c23`
+###   SIDE-effects           `main` = `5217b71705b3fe78356753ed70109ae870e91f33`
+###   SIDE-kernel            `main` = `0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164`
+### **THE EXTRACT:** ### `29` reads, `0` without an anchor, `14` anchors differing from the hint
+### that found them. ### **EVERY ANCHOR WAS READ FROM ITS FILE AND NONE WAS TYPED.**
+====================================================================================================

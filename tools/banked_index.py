@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'rule-outruns-record': ['the pins ruling', 'the sourcing rule', 'the status column',
+                           'cites at an unknown ref', 'the writing act'],
     'pin-is-a-date': ['the eol pin', 'the readme figures', 'the first batch',
                      'checked at head', 'the row classification'],
     'count-claim-stale': ['the count claim', 'the first target', 'the row inventory',
@@ -614,6 +616,30 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PINS SOURCED FROM THE WRITING ACT, AND THE STATUS COLUMN LISTED (b373).
+    ("rule-outruns-record", "b373 (one ruling executed to exhaustion and writing nothing, one status sweep listed and routed, one licensed instrument corrected; it opens no kernel and moves no grade)",
+     "A RULE CAN OUTRUN THE RECORD IT REACHES INTO. Ruling (R9) says a citing row names a pin, sourced ONLY from the act that wrote the row and located in that act own bank, never from the current"
+     " head. It was executed over all 119 pinless rows at 2.0 seconds a row, and IT WROTE NO PIN. Not because the price did not fit and not because the seat declined:"
+     " BECAUSE THE CHAIN THE RULING REQUIRES DOES NOT CLOSE. 33 of 119 rows have a locatable writing act (28 percent); 86 were introduced by commits whose subject names no"
+     " act at all; and the pins instrument that banks a kernel ref begins at b300, later than most rows that need one. THE PAPERS ARE OLDER THAN THE INSTRUMENTS. 10 rows were PINNABLE and every"
+     " one of them sits on a deposited companion, an archived snapshot or an append-only ledger entry, which this seat will not rewrite on a citation-hygiene ruling. THE STATUS COLUMN: 6 rows in"
+     " two documents assert a grade against a declaration this record has classified retired or absent, and EVERY ONE IS INSIDE THE TWELVE b372 ALREADY FLAGGED -- the sweep of 14974 table rows across"
+     " 349 files found no instance outside that set.",
+     "### NO PIN WAS WRITTEN TO ANY ROW AND NO PIN WAS TAKEN FROM ANY CURRENT HEAD. ### NO ROW WAS CHECKED AT ANY PIN: adding a pin dates a claim, it does not verify one, and no kernel was opened."
+     " ### NO GRADE WAS MOVED BY THIS SEAT; a seat that regrades is a seat that decided what was verified, and the author faces three named choices per row without one being chosen. ### NO DEPOSITED"
+     " FILE, NO ARCHIVED FILE AND NO APPEND-ONLY LEDGER ENTRY WAS EDITED -- a deposited companion edited here no longer matches what was deposited, an archive that changes is not an archive, and a"
+     " ledger row is a historical statement already dated by the act that wrote it; whether those surfaces should carry pins is ROUTED. ### A ROW NOBODY CAN DATE AND A ROW WHOSE KERNEL WAS NEVER"
+     " ROSTERED ARE NOT THE SAME PROBLEM and the reasons are kept apart. ### AN ARM THAT TESTS THE VALUE CANNOT TEST THE SOURCE: 8 correctly-sourced pins equal a current head because their kernel"
+     " has not moved, and the locked bar forbids writing them; the bar was obeyed and the tension filed. ### THE THREE-WAY SPLIT IN THE STATUS SWEEP DECIDED ROWS: 3 state their own retirement and"
+     " 1 grades a declaration b372 found ALIVE, and neither is the defect. ### NO KERNEL RE-CLASSIFIED. ### NO LEAN FILE TOUCHED, NO BUILD RUN. ### LEG 2 NOT BEGUN. ### NOTHING COMPUTED ABOUT THE"
+     " OBJECT. ### NO COORDINATE IS CLOSED. ### THE PARTITION STAYS UNDECIDED. ### M-2 UNCHANGED",
+     "data/b373_the_pins_and_the_status_column.txt; data/b373_extract_notes2.txt; data/b373_pins_notes4.txt; data/b373_status_notes3.txt;"
+     " data/b373_desk_notes.txt; data/b373_filing_notes.txt;"
+     " data/b373_registration_2026-09-08.txt (LOCKED before any write of this act, on the audit own exit code);"
+     " tools/b373_pins.py (the sourcing chain, declared before it was run, with every link failure keeping its own name);"
+     " tools/b373_status.py (the grade sweep, with the three-way split drawn before the sweep ran); tools/b373_desk.py ((R7));"
+     " tools/b304_hooks.py (THE ONE LICENSED OWNER INSTRUMENT, corrected: the sentence b372 made false, with its caveat kept);"
+     " PLACE-papers OPEN_TRAILS.md (an append-only block; NO ROW IN ANY PAPER EDITED; FACES_LEDGER.md NOT written, no row moved); CORRESPONDENCE.md row 222"),
     # ### THE EOL PIN, THE README FIGURES, THE FIRST BATCH OF ROW CHECKS (b372).
     ("pin-is-a-date", "b372 (one attribute written in two repositories, one README repaired, twelve rows classified and none repaired; it opens no kernel for a build and adds no pin)",
      "A PIN IS A DATE THAT SURVIVES. The same three declarations -- no_conspiracy_twins, no_conspiracy_goldbach, no_conspiracy_sg -- are PRESENT at the pin a row names and RETIRED at the head, and the"

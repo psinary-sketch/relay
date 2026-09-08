@@ -1,0 +1,83 @@
+### run at (UTC) : 2026-09-08T17:59:01Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b373 -- COMPONENT 2: THE STATUS COLUMN. ### **LISTED AND ROUTED; NO GRADE MOVED.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE CLASSIFIED SET. ### **THE RECORD'S OWN, NOT RE-DERIVED HERE.**
+----------------------------------------------------------------------------------------------------
+    from `b369` (the kernel at `5530d7c327e0`) : 18 names classified ABSENT
+    from `b372` (the twelve flagged rows)   : 13 names classified RETIRED or ABSENT
+    ### ### **THE UNION : 23 DISTINCT DECLARATIONS.**
+    ['Massless', 'MismatchMechanism', 'RankMismatch', 'TwinFinite', 'all_bound', 'all_excluded', 'all_gapped', 'all_mismatch_absent', 'artin_from_grh', 'bsd_full', 'formation_preserved_grh', 'gap_bounds', 'grh_exclusion', 'mass_gap', 'mismatch_absent', 'no_conspiracy_goldbach', 'no_conspiracy_sg', 'no_conspiracy_twins', 'no_ls_zero', 'sectors_complete', 'sha_bounded', 'side_exclusion', 'twist_cancels']
+    ### **NO KERNEL IS OPENED TO RE-CLASSIFY ANY OF THEM.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE SWEEP. ### **349 TRACKED MARKDOWN FILES.**
+----------------------------------------------------------------------------------------------------
+    the grade vocabulary, declared : ['✓F', '✓C', '✓', '⊘', 'SHELL', 'DERIVES', 'INTERFACES', 'ENCODES-CONCLUSION', 'TAUTOLOGY', 'DEFINED-ONLY', 'PROVED', 'VERIFIED']
+    ### ### **A ROW STATING ITS GRADE IN A SHAPE THIS LIST DOES NOT KNOW WILL NOT BE FOUND.**
+    ### ### **NO COMPLETENESS IS CLAIMED.**
+    table rows scanned : 14974
+    ### ### **ROWS NAMING A CLASSIFIED DECLARATION AND CARRYING A GRADE : 10**
+    ### ### **OF THOSE, STATING THEIR OWN RETIREMENT : 3 ### -- NOT THE DEFECT**
+    ### ### **AND GRADING A DECLARATION  FOUND ALIVE : 1 ### -- ALSO NOT THE DEFECT**
+    ### ### **AND ASSERTING THE GRADE WITHOUT EITHER : 6 ### -- THE DEFECT**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE DEFECTIVE ROWS, EACH WITH THE DOCUMENT THAT CARRIES IT.
+----------------------------------------------------------------------------------------------------
+
+    ### **CARRIER : `VERIFICATION_LOOM.md`** ### -- 3 row(s)
+      line 529    grade(s) ✓F,✓                         declaration(s) `no_conspiracy_twins`
+        | | no-conspiracy twin primes | `D:\SIDE-effects\SIDEEffects\Structural.lean` | `AddMult.no_conspiracy_twins` | ✓F |
+        ### ### **`no_conspiracy_twins` : b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED**
+      line 530    grade(s) ✓F,✓                         declaration(s) `no_conspiracy_goldbach`
+        | | no-conspiracy Goldbach | `D:\SIDE-effects\SIDEEffects\Structural.lean` | `AddMult.no_conspiracy_goldbach` | ✓F |
+        ### ### **`no_conspiracy_goldbach` : b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED**
+      line 531    grade(s) ✓F,✓                         declaration(s) `no_conspiracy_sg`
+        | | no-conspiracy Sophie Germain | `D:\SIDE-effects\SIDEEffects\Structural.lean` | `AddMult.no_conspiracy_sg` | ✓F |
+        ### ### **`no_conspiracy_sg` : b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED**
+
+    ### **CARRIER : `phase1.5/method/EXCLUSION_ENGINE.md`** ### -- 3 row(s)
+      line 190    grade(s) SHELL                        declaration(s) `Massless`, `mass_gap`
+        | | `mass_gap` / `Massless` | SIDE-effects `Structural.lean:43-57` | **SHELL** | `gapped` is `fun _ => True` on all four sectors | **W-2** |
+        ### ### **`Massless` : b372: RETIRED**
+        ### ### **`mass_gap` : b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED**
+      line 192    grade(s) SHELL                        declaration(s) `MismatchMechanism`, `RankMismatch`, `bsd_full`, `mismatch_absent`
+        | | `bsd_full` / `RankMismatch` / `MismatchMechanism` | SIDE-effects `Structural.lean:221-238` | **SHELL** | `mismatch_absent` is `fun _ => True` — *the exemplar v2.0 called substance* | **W-2** |
+        ### ### **`MismatchMechanism` : b372: ABSENT**
+        ### ### **`RankMismatch` : b372: ABSENT**
+        ### ### **`bsd_full` : b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED**
+        ### ### **`mismatch_absent` : b372: RETIRED**
+      line 193    grade(s) SHELL                        declaration(s) `TwinFinite`, `no_conspiracy_twins`
+        | | `no_conspiracy_twins` / `TwinFinite` | SIDE-effects `Structural.lean:166-170` | **SHELL** (honestly marked in-source) | `TypeD Nat (fun _ => True) (fun _ => True)` | **W-2** |
+        ### ### **`TwinFinite` : b372: ABSENT**
+        ### ### **`no_conspiracy_twins` : b369 (confirmed after b367 and b368): ABSENT at the kernel ; b372: RETIRED**
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE ROWS THAT STATE THEIR OWN RETIREMENT. ### **REPORTED SO THEY ARE NOT MISTAKEN
+  ### ### FOR THE DEFECT.**
+----------------------------------------------------------------------------------------------------
+      SPIRAL_MAP.md                                            line 77     `grh_exclusion`, `no_ls_zero`
+        the words by which it says so : ['withdrawn', 'retired', 'no longer']
+      VERIFICATION_LOOM.md                                     line 548    `mass_gap`
+        the words by which it says so : ['retired']
+      VERIFICATION_LOOM.md                                     line 581    `grh_exclusion`
+        the words by which it says so : ['RETIRED', 'not present on any live branch']
+
+====================================================================================================
+  ### (5) THE CONSEQUENCE, ROUTED AND NOT ACTED ON.
+====================================================================================================
+  ### ### **6 ROWS IN 2 DOCUMENTS ASSERT A GRADE AGAINST A DECLARATION THIS RECORD HAS
+  ### ### CLASSIFIED RETIRED OR ABSENT.**
+  ### ### **THAT IS NOT A STALE NUMBER. ### IT SAYS A THING WAS VERIFIED THAT IS NOT THERE TO
+  ### ### VERIFY**, and a reader traversing the row has no way to see the difference.
+  ### **AND NO GRADE IS MOVED BY THIS SEAT.** ### A grade is a judgement about verified
+  ### content; ### **A SEAT THAT REGRADES IS A SEAT THAT DECIDED WHAT WAS VERIFIED.** ### The
+  ### list is the product and the decision is the author`s.
+  ### ### **AND WHAT THE AUTHOR IS BEING ASKED IS NARROW:** ### for each row, whether the grade
+  ### should be struck, re-stated as a retirement the way `VERIFICATION_LOOM.md` already does
+  ### for one pair, or left with a pin that dates it. ### **THREE CHOICES, NOT AN OPEN
+  ### ### QUESTION**, and this act names them without choosing.
+====================================================================================================
