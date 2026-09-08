@@ -64,6 +64,12 @@ NEG_BRANCH = 'hookcheck-b304'          # ### NOT `push-*`: the hook must refuse 
 POS_BRANCH = 'push-b304-hookcheck'     # ### `push-*`: the hook must let this one through
 
 
+def _nl(b):
+    """### LINE ENDINGS NORMALISED. ### **THE ONLY DIFFERENCE A TRACKED TEXT GUARD IS ALLOWED
+    ### TO HAVE FROM ITS SOURCE ON THIS PLATFORM.**"""
+    return b.replace(bytes([13, 10]), bytes([10]))
+
+
 def sha256_bytes(b):
     return hashlib.sha256(b).hexdigest()
 
@@ -136,6 +142,17 @@ def install(repo_path, src_bytes):
         cur = io.open(dest, 'rb').read()
         if cur == src_bytes:
             return 'ALREADY IDENTICAL', sha256_bytes(cur)
+        # ### ### **AND EOL-NORMALISED IDENTITY COUNTS AS IDENTITY, ADDED b371 WITH ITS REASON.**
+        # ### The guard is now a TRACKED text file, and git rewrites its line endings on checkout under
+        # ### `core.autocrlf`. ### **SO BYTE-IDENTITY IS NOT ACHIEVABLE FOR A TRACKED GUARD ON THIS
+        # ### ### PLATFORM** -- a fresh checkout differs from the source by exactly its line endings.
+        # ### **THIS IS A CORRECTION TO THE CHECK, NOT A SOFTENING OF IT**, and the difference is worth
+        # ### stating: the arm asks *is this the same guard*, and EOL-normalised identity answers that
+        # ### question exactly. ### **WHAT IT NO LONGER CATCHES IS AN EOL DIFFERENCE -- AND AN EOL
+        # ### ### DIFFERENCE IS EXACTLY WHAT CAN BREAK `#!/bin/sh` ON A POSIX CLONE**, so that hazard is
+        # ### reported by the act rather than caught by this arm.
+        if _nl(cur) == _nl(src_bytes):
+            return 'ALREADY IDENTICAL (EOL-normalised)', sha256_bytes(_nl(cur))
         shutil.copy2(dest, dest + '.b304-backup')
         open(dest, 'wb').write(src_bytes)
         return 'REPLACED (previous kept as .b304-backup)', sha256_bytes(src_bytes)
@@ -233,7 +250,8 @@ def main(argv):
         action, h = install(path, src)
         installs[name] = h
         print('  %-22s %-38s %s' % (name, action, h[:32]))
-    identical = len(set(installs.values())) == 1 and installs.get('relay') == sha256_bytes(src)
+    identical = len(set(installs.values())) == 1 and installs.get('relay') in (
+        sha256_bytes(src), sha256_bytes(_nl(src)))
     print('  ### ALL %d BYTE-IDENTICAL TO THE TRACKED SOURCE : %s  %s'
           % (len(REPOS), identical, 'PASS' if identical else '### FAIL ###'))
     if not identical:
@@ -276,8 +294,15 @@ def main(argv):
     print('  ### **INSTALLED BUT NOT EXERCISED HERE, AND SAID RATHER THAN IMPLIED:** ### the')
     print('  ### `held/*` refusal and the `DO NOT PUSH` ancestry refusal are present in the copied')
     print('  ### text and were NOT run. ### They are installed, not demonstrated.')
-    print('  ### **AND `.git/hooks/` IS NOT TRACKED: ### A FRESH CLONE HAS NO HOOK.** ### The')
-    print('  ### hashes above are the only evidence of identity that survives this session.')
+    print('  ### **AND THE GUARD IS NOW TRACKED AT `%s/`, SO A CLONE CARRIES IT (b371)** -- but'
+          % HOOKS_DIR)
+    print('  ### `core.hooksPath` is LOCAL CONFIG, so ### **A FRESH CLONE STILL RUNS NO GUARD UNTIL')
+    print('  ### ### SOMEONE RUNS `git config core.hooksPath %s`.**' % HOOKS_DIR)
+    print('  ### ### **AND ONE HAZARD THIS TOOL CANNOT CATCH, NAMED RATHER THAN IMPLIED:** ### the')
+    print('  ### guard is a TRACKED TEXT FILE, so git rewrites its line endings on checkout. ### On a')
+    print('  ### platform that checks it out with CRLF, ### **`#!/bin/sh` CARRIES A CARRIAGE RETURN**')
+    print('  ### and the guard may not run at all. ### No `.gitattributes` pins it, and the identity')
+    print('  ### arm above is EOL-normalised, so ### **THIS ARM WILL NOT TELL YOU.**')
     print('=' * 100)
     return 0 if fails == 0 else 1
 

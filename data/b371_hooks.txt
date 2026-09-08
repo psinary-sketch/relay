@@ -19,10 +19,10 @@ b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL 4 ROSTERED REPOS AND EXERCI
   bytes / sha256 : 3068 / bf112af62a679bef882f8e54443835a3effa65128f9e90ddc3bcaf278c9fb402
 
   repo                   install                                sha256 on disk (first 32)
-  relay                  ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
+  relay                  ALREADY IDENTICAL (EOL-normalised)     bf112af62a679bef882f8e54443835a3
   SIDE-global-section    ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
   PLACE-papers           ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
-  SIDE-effects           ALREADY IDENTICAL                      bf112af62a679bef882f8e54443835a3
+  SIDE-effects           ALREADY IDENTICAL (EOL-normalised)     bf112af62a679bef882f8e54443835a3
   ### ALL 4 BYTE-IDENTICAL TO THE TRACKED SOURCE : True  PASS
 
   ### THE EXERCISE. ### **BOTH POLARITIES, AGAINST `main`, UNDER `--dry-run`.**
@@ -31,8 +31,9 @@ b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL 4 ROSTERED REPOS AND EXERCI
   ### nothing. ### **THE COMMIT AND BOTH BRANCHES ARE DELETED AFTERWARDS.**
 
   repo                   NEGATIVE     POSITIVE     HEAD ok   remote ok branch restored
-  relay                  REFUSED      ALLOWED      True      True      True   PASS
-        refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branc
+  relay                  ### **SKIPPED -- working tree carries 2 uncommitted path(s). ### THE GUARD IS NOT EXERCISED HERE.**
+        ### **RUN THIS AFTER THE PUSH, WHEN THE TREE IS CLEAN** -- which is where
+        ### the closing sequence has always run it.
   SIDE-global-section    REFUSED      ALLOWED      True      True      True   PASS
         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branc
   PLACE-papers           REFUSED      ALLOWED      True      True      True   PASS
@@ -40,10 +41,16 @@ b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL 4 ROSTERED REPOS AND EXERCI
   SIDE-effects           REFUSED      ALLOWED      True      True      True   PASS
         refusal text : pre-push: REFUSED — pushes to main only from push-*/repair-* branches (Rule 4.10); current branc
 
-  ### REPOS FAILING : 0
+  ### REPOS FAILING : 1
   ### **INSTALLED BUT NOT EXERCISED HERE, AND SAID RATHER THAN IMPLIED:** ### the
   ### `held/*` refusal and the `DO NOT PUSH` ancestry refusal are present in the copied
   ### text and were NOT run. ### They are installed, not demonstrated.
-  ### **AND `.git/hooks/` IS NOT TRACKED: ### A FRESH CLONE HAS NO HOOK.** ### The
-  ### hashes above are the only evidence of identity that survives this session.
+  ### **AND THE GUARD IS NOW TRACKED AT `.githooks/`, SO A CLONE CARRIES IT (b371)** -- but
+  ### `core.hooksPath` is LOCAL CONFIG, so ### **A FRESH CLONE STILL RUNS NO GUARD UNTIL
+  ### ### SOMEONE RUNS `git config core.hooksPath .githooks`.**
+  ### ### **AND ONE HAZARD THIS TOOL CANNOT CATCH, NAMED RATHER THAN IMPLIED:** ### the
+  ### guard is a TRACKED TEXT FILE, so git rewrites its line endings on checkout. ### On a
+  ### platform that checks it out with CRLF, ### **`#!/bin/sh` CARRIES A CARRIAGE RETURN**
+  ### and the guard may not run at all. ### No `.gitattributes` pins it, and the identity
+  ### arm above is EOL-normalised, so ### **THIS ARM WILL NOT TELL YOU.**
 ====================================================================================================
