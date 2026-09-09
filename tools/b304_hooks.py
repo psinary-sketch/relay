@@ -48,7 +48,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-SOURCE = os.path.join(ROOT, 'tools', 'git-hooks', 'pre-push')
+SOURCE = os.path.join(ROOT, '.githooks', 'pre-push')
 # ### **THE TRACKED HOOKS DIRECTORY (b371).** ### `core.hooksPath` must name it, and that setting is
 # ### LOCAL CONFIG -- so a clone carries the guard and still needs one command. ### This tool REPORTS
 # ### that setting rather than assuming it, because a copy in a directory nothing reads is exactly
@@ -153,9 +153,24 @@ def install(repo_path, src_bytes):
         # ### reported by the act rather than caught by this arm.
         if _nl(cur) == _nl(src_bytes):
             return 'ALREADY IDENTICAL (EOL-normalised)', sha256_bytes(_nl(cur))
-        shutil.copy2(dest, dest + '.b304-backup')
+        # ### ### **THIS TOOL DESTROYED A BACKUP AT `b385` AND THE CONTENT WAS ONLY
+        # ### ### IDENTIFIED AFTERWARDS.** ### It wrote `.b304-backup` unconditionally, over a
+        # ### backup a previous run had left there. ### **REPAIRED AT `b386` UNDER `(R15)`'s act:
+        # ### ### IT NEVER OVERWRITES AN EXISTING BACKUP.**
+        # ### ### **THE INVARIANT IMPLEMENTED IS STRICTLY STRONGER THAN THE ONE ASKED FOR.** ###
+        # ### The order said *a backup it did not create*; a file cannot be asked who wrote it, so
+        # ### the tool refuses to overwrite ANY existing backup and takes a fresh name instead.
+        # ### **A STRONGER INVARIANT SUBSTITUTED FOR A WEAKER ONE IS STILL A SUBSTITUTION**, and
+        # ### it is named here rather than slipped in.
+        bak = dest + '.b304-backup'
+        n = 0
+        while os.path.exists(bak):
+            n += 1
+            bak = '%s.b304-backup-%d' % (dest, n)
+        shutil.copy2(dest, bak)
         open(dest, 'wb').write(src_bytes)
-        return 'REPLACED (previous kept as .b304-backup)', sha256_bytes(src_bytes)
+        return ('REPLACED (previous kept as %s)' % os.path.basename(bak),
+                sha256_bytes(src_bytes))
     open(dest, 'wb').write(src_bytes)
     return 'INSTALLED', sha256_bytes(src_bytes)
 
