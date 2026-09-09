@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'every-test-crosses': ['the two axis read', 'every test crosses',
+                          'the class ruling evidence', 'the apparatus and the prose',
+                          'the floor question'],
     'three-tests-one-word': ['the keystone census', 'three tests one word',
                             'the cluster census', 'the document class',
                             'the integration state'],
@@ -622,6 +625,27 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE TWO-AXIS READ (b376).
+    ("every-test-crosses", "b376 (one read over 349 documents on two axes; it produces the evidence a class ruling needs and MAKES NO RULING)",
+     "EVERY TEST CROSSES. The corpus three definitions of KEYSTONE each mix two independent axes -- axis A, synthesises against other available content, and axis B, carries a "
+     " correspondence table naming kernel, terminal, pin and grade that a stranger can traverse. All 3 tests cross the quadrants and NONE equals either axis, so THE THREE TESTS DO NOT DISAGREE BECAUSE ONE IS WRONG -- "
+     " EACH IS ASKING BOTH QUESTIONS AT ONCE. And the corpus own prior attempt does it too: THE_KEYSTONE_CENSUS states three clauses and operationalises two through proxies, DROPS "
+     " CLAUSE (iii) ENTIRELY and ADDS A SIZE FLOOR THE DEFINITION NEVER MENTIONS; re-applied at the head its own operation returns 29 where it printed 16. "
+     " 20 documents carry a traversable row and 18 of those say nothing about their own role, SO THE APPARATUS AND THE PROSE COME APART; of the 17 declaring TIER K, 9 carry a "
+     " traversable row and 6 do not. THE RUBRIC-TEST SET IS A FLOOR AND NOT A POPULATION, and MOST QUALIFIERS QUALIFY ON A CLASS LINE A LATER ACT WROTE INTO THE DOCUMENT. "
+     " AND THE LARGEST FACT IS THE SILENCE: 340 of 349 documents DO NOT SAY WHAT THEY ARE.",
+     "### NO CLASS WAS RULED, NO DOCUMENT WAS RECLASSIFIED, NO CLASS LINE WAS WRITTEN, NO DOCUMENT WAS REPAIRED AND NO LIST WAS CLOSED. ### A MARK ON AN AXIS IS NOT A CLASS."
+     " ### WHICH TEST GOVERNS IS A RULING AND NOT A READ, and this act states the options and what each would oblige WITHOUT RECOMMENDING ONE. ### THE CENSUS WAS QUOTED, NOT REPAIRED."
+     " ### NOT DETERMINABLE IS A FULL ANSWER AND WAS NEVER ROUNDED INTO A QUADRANT. ### AXIS A CANNOT TELL A DOCUMENT OWN VOICE FROM A CLASS LINE A LATER ACT ADDED, which is"
+     " load-bearing on the floor finding and is printed beside it. ### AXIS B READS THE SHAPE OF A TRAVERSABLE ROW AND NEVER THE TRAVERSAL: NO KERNEL WAS OPENED AND NO PIN RESOLVED."
+     " ### WHERE DECLARATION AND APPARATUS AGREE THAT IS REPORTED AS AGREEMENT AND NOT AS CONFIRMATION THAT THE DECLARATIONS ARE CORRECT. ### THE FOUR OPEN LISTS ARE RESTATED"
+     " OPEN BY NAME. ### NO NEW TRACKING DOCUMENT WAS CREATED. ### NO LEAN FILE TOUCHED, NO BUILD RUN. ### NOTHING COMPUTED ABOUT THE OBJECT. ### NO COORDINATE IS CLOSED. ###"
+     " THE PARTITION STAYS UNDECIDED. ### M-2 UNCHANGED",
+     "data/b376_the_two_axis_read.txt; data/b376_prior_notes.txt; data/b376_axes_notes2.txt; data/b376_tests_notes3.txt; data/b376_lockgate_notes2.txt;"
+     " data/b376_registration_2026-09-08.txt (LOCKED before any write, CHAINED ON A GATE THAT READS EVERY PRE-LOCK GATE -- 7 of them, fixtured in both polarities);"
+     " tools/b376_lockgate.py (the cure for b375 incident: a tool that REFUSES, not a note that remembers); tools/b376_prior.py (the corpus own prior attempt, heard first);"
+     " tools/b376_axes.py (two axes quoted from their sources, each fixtured in both polarities, each declaring what it is deaf to); tools/b376_tests.py (the crossings and the floor);"
+     " PLACE-papers OPEN_TRAILS.md (an append-only block; NO DOCUMENT SCORED BY THIS ACT WAS EDITED); CORRESPONDENCE.md row 225"),
     # ### THE KEYSTONE AND CLUSTER CENSUS (b375).
     ("three-tests-one-word", "b375 (one census over 349 documents; it classifies and repairs nothing, confers no class, moves no grade and closes no list)",
      "THREE TESTS, ONE WORD. The corpus carries three definitions of KEYSTONE and they do not select the same documents: the author-ruled taxonomy Tier K (certification at a pin) selects "

@@ -1,0 +1,42 @@
+### run at (UTC) : 2026-09-08T23:46:18Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b376 -- STEP ZERO: ### **THE LOCK READS EVERY GATE.**
+====================================================================================================
+
+  ### ### **`b375`S INCIDENT:** ### the lock chained on the satisfiability verdict alone while
+  ### ### the term scan read `NOT CLEAN` and nobody looked. ### **THE CURE IS A TOOL THAT
+  ### ### REFUSES, NOT A NOTE THAT REMEMBERS.**
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE FIXTURE, BOTH POLARITIES, BEFORE THE GATE IS TRUSTED.
+----------------------------------------------------------------------------------------------------
+    all gates clean                    permits : True    failing : none
+    one gate dirty (the term scan)     permits : False   failing : ['the banned-term scan on the face']
+    ### ### **FIXTURE VERDICT : BOTH POLARITIES HELD**
+    ### **A GATE THAT HAS ONLY EVER SAID YES IS NOT A GATE**, and the dirty polarity must
+    ### refuse for the RIGHT gate rather than merely refuse.
+
+----------------------------------------------------------------------------------------------------
+  ### (2) EVERY PRE-LOCK GATE OF `b376`, AND THE VERDICT EACH ONE PRINTED.
+----------------------------------------------------------------------------------------------------
+    the ferry scan (struck clauses and stems)      b376_ferry_scan.txt                      PASS
+        looked for : ### VERDICT: ### **0 HIT(S) REPORTED.
+    the handoff census                             b376_census_stepzero.txt                 PASS
+        looked for : TOTAL MISSING : 0
+    the faces census                               b376_faces_census_stepzero.txt           PASS
+        looked for : TOTAL MISSING : 0
+    the pins, by ls-remote through the roster      b376_pins_stepzero.txt                   PASS
+        looked for : ### REPOS HARD-FAILING : 0
+    the registration gate (three arms)             b376_reg_gate.txt                        ### FAIL ###
+        looked for : GATE VERDICT : CLEAR
+        ### ### **the gate left no run record**
+    the banned-term scan on the face               b376_reg_termscan.txt                    ### FAIL ###
+        looked for : VERDICT          : CLEAN
+        ### ### **the gate left no run record**
+    the satisfiability audit                       audit_b376_reg_satisfiable.txt           ### FAIL ###
+        looked for : JOINTLY SATISFIABLE
+        ### ### **the gate left no run record**
+
+    ### ### **GATES READ : 7. ### PASSING : 4. ### VERDICT : ### LOCK REFUSED ###**
+    ### ### **AND THE LOCK IS CHAINED ON THIS EXIT CODE, NOT ON ANY ONE GATE`S.**
+====================================================================================================
