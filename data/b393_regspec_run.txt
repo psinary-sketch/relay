@@ -1,0 +1,39 @@
+====================================================================================================
+b393_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b393_registration_2026-09-09.txt
+  bytes/lines  : 19704 / 245
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 34
+
+  clauses emitted : 68
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 16**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 6    cap 6
+      clusters surfaced                                              demand 5    cap 5
+      clusters carried by a quotation from the act that found them   demand 5    cap 5
+      clusters printed in this act`s closing message                 demand 5    cap 5
+      distinct verdicts the anchor question returns                  demand 4    cap 4
+      records priced                                                 demand 2    cap 2
+      remediations priced per record                                 demand 2    cap 2
+      limbs the class`s obligation is split into                     demand 3    cap 3
+      limbs the record already answers                               demand 1    cap 1
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 4    cap 4
+      gate arms declared                                             demand 34   cap 34
+      new `relay` tool files                                         demand 6    cap 6
+  written : b393_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 39fbc120d09339e7054a10a4b371ceb5eba8b499d47fd40d2b37cb94d6255435  (b393_registration_2026-09-09.txt)
