@@ -1,0 +1,52 @@
+====================================================================================================
+b389_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  ITS SELF-TEST, RUN HERE BEFORE IT IS TRUSTED:
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b389_registration_2026-09-09.txt
+  bytes/lines  : 21614 / 271
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE THREE OPEN CLAUSES, MEASURED RATHER THAN TYPED:**
+      SYN      8
+      HEADS    4
+      ARMS     34
+
+  clauses emitted : 82
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 25**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 6    cap 6
+      populations of cluster syntheses reported separately           demand 3    cap 3
+      syntheses whose date and self-described cluster are read from  demand 8    cap 8
+      Zenodo routes probed and recorded with code and byte count     demand 6    cap 6
+      positive controls run against a host known to answer           demand 1    cap 1
+      DOIs swept                                                     demand 17   cap 17
+      verdicts returned on (F2)                                      demand 1    cap 1
+      halves of the deposit-rule search printed                      demand 2    cap 2
+      standing laws quoted and named as NOT a deposit rule           demand 2    cap 2
+      credential-free routes tried on the repository name            demand 4    cap 4
+      public repositories listed on the account                      demand 42   cap 42
+      corpus citations of the name, classified by their own hedging  demand 10   cap 10
+      verdicts returned on the repository                            demand 1    cap 1
+      b388 findings withdrawn by this act                            demand 1    cap 1
+      withdrawals reported as a component result rather than a footn demand 1    cap 1
+      head notes written                                             demand 2    cap 2
+      corpus documents written into by this act                      demand 2    cap 2
+      prior head declarations re-read out of the files after the wri demand 4    cap 4
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 4    cap 4
+      gate arms declared                                             demand 34   cap 34
+      new `relay` tool files                                         demand 6    cap 6
+  written : b389_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 2aba01833be61e8ceae0be51ef5ac5699e75cc361b7140072b4cc31ebab7dacd  (b389_registration_2026-09-09.txt)
