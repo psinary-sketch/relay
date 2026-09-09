@@ -7,7 +7,7 @@
 #      (added 2026-08-23 by the eighteenth seam close's protection ruling,
 #       on b126's finding that six of these sit UNTRACKED in the working tree
 #       where a single `git add -A` would carry them onto main).
-# Tracked copy: tools/git-hooks/pre-push. Install: cp tools/git-hooks/pre-push .git/hooks/pre-push
+# Tracked at .githooks/pre-push (moved there b371, 2026-09-08). Install: git config core.hooksPath .githooks
 
 remote="$1"
 branch=$(git symbolic-ref --short HEAD 2>/dev/null)
