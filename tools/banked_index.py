@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'an-upper-bound-at-one-ref': ['the refs widened', 'an upper bound at one ref',
+                                 'the two conventions', 'the archives confirmed',
+                                 'a search that cannot run'],
     'the-pin-was-missing': ['the unblocked obligation', 'the pin was the missing element',
                            'the branch applied', 'the role clause', 'the six documents'],
     'every-test-crosses': ['the two axis read', 'every test crosses',
@@ -627,6 +630,27 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE REFS WIDENED AND THE CONVENTION SWEPT (b378).
+    ("an-upper-bound-at-one-ref", "b378 (the terminal search re-run across every ref; the two conventions swept; the archives confirmed and NOT removed)",
+     "AN UPPER BOUND TAKEN AT ONE REF IS NOT A COUNT. b377 searched 43 refs -- one per kernel -- and reported 37 identifiers no kernel "
+     " declares. Searching 270 refs behind 209 distinct commits cuts it to 14. Of the rest, 13 are Mathlib names, 7 name a corpus document rather than a "
+     " terminal, 2 are declared ONLY ON A TAG and on no branch, and 1 is declared in more than one kernel. AND THE SHARPEST FINDING IS ABOUT THE SEARCH ITSELF: the "
+     " first sweep handed git grep a Python-only pattern, every invocation died, the caller read the fatal exit as NO MATCHES, and it reported ZERO FOUND ACROSS 270 REFS -- "
+     " a clean confident false answer exposed only by a CONTRADICTION with b377 own record. THE MATCHER NOW ACCEPTS BOTH CONVENTIONS and the sweep found NOT ONE citing "
+     " document using the dotted convention alone, so b376 DOTTED-ONLY axis-B predicate COULD NOT HAVE PASSED ANY OF THEM -- WHICH IS WHAT SELECTED THE SIX. 6 of "
+     " 6 archive files the mirror carries are CONFIRMED PRESENT by digest AND title line and NEVER by filename. And one NOT DETERMINABLE document "
+     " was read by hand: 20 of 37 identifiers locate in exactly one kernel, SO THE HAND READ DECIDES WHAT THE TABLE SCAN COULD NOT.",
+     "### NO CLASS WAS RULED, NO DOCUMENT RECLASSIFIED, NO DECLARATION MOVED AND NO LIST CLOSED. ### NO CORPUS DOCUMENT WAS WRITTEN INTO AT ALL. ### NO ARCHIVE FILE WAS"
+     " REMOVED, MOVED OR RENAMED; the removal is the author and depends on this report. ### NO DOCUMENT WAS REWRITTEN INTO THE OTHER CONVENTION: bare and dotted are both"
+     " correct in their own dialect. ### AN ABSENCE IS ONLY REPORTED FROM A SEARCH THAT PROVED IT CAN FIND A PRESENCE, and a git exit above 1 is an error and not an answer."
+     " ### A NAME DECLARED IN MORE THAN ONE KERNEL IS NOT A TERMINAL A DOCUMENT CAN CITE. ### b376 AXIS-B COLUMN IS NAMED AS SUSPECT AND NOT RE-MEASURED. ### THE FOUR OPEN"
+     " LISTS ARE RESTATED OPEN BY NAME. ### NO NEW TRACKING DOCUMENT WAS CREATED. ### NO LEAN FILE TOUCHED, NO BUILD RUN. ### NOTHING COMPUTED ABOUT THE OBJECT. ### M-2"
+     " UNCHANGED",
+     "data/b378_the_refs_widened.txt; data/b378_terminals_notes3.txt; data/b378_archives_notes.txt; data/b378_hand_notes.txt; data/b378_lockgate_notes2.txt;"
+     " data/b378_registration_2026-09-08.txt (LOCKED before any write, CHAINED ON A LOCK GATE THAT CHECKS WHAT EACH GATE READ -- 8 gates read, 4 checked by digest);"
+     " tools/gate_hash.py (SHARED, new: it stamps a gate record with the sha256 of what the gate read); tools/b378_lockgate.py (fixtured in FOUR polarities);"
+     " tools/b378_terminals.py (every ref, both conventions, and a positive control that must find a presence before any absence is reported); tools/b378_archives.py;"
+     " tools/b378_hand.py; PLACE-papers OPEN_TRAILS.md (append-only); CORRESPONDENCE.md row 227"),
     # ### THE UNBLOCKED OBLIGATION (b377).
     ("the-pin-was-missing", "b377 (one repair-or-route under an obligation the taxonomy already states, plus evidence for a ruling it does NOT make)",
      "THE PIN WAS THE MISSING ELEMENT, NOT THE TERMINAL. Of the six documents declaring TIER K and scoring no traversable row at b376, several ALREADY CARRY a Correspondence table "

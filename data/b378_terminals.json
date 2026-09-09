@@ -1,0 +1,757 @@
+{
+ "fixtures_ok": true,
+ "fixtures": [
+  {
+   "case": "BARE, present            -- accepts",
+   "got": true,
+   "want": true
+  },
+  {
+   "case": "DOTTED, present          -- accepts",
+   "got": true,
+   "want": true
+  },
+  {
+   "case": "BARE, absent             -- ### REFUSES",
+   "got": false,
+   "want": false
+  },
+  {
+   "case": "DOTTED, absent           -- ### REFUSES",
+   "got": false,
+   "want": false
+  },
+  {
+   "case": "### **DOTTED, right name WRONG namespace -- REFUSES**",
+   "got": false,
+   "want": false
+  },
+  {
+   "case": "a mention that is not a declaration -- ### REFUSES",
+   "got": false,
+   "want": false
+  },
+  {
+   "case": "a prefix of a real name  -- ### REFUSES",
+   "got": false,
+   "want": false
+  }
+ ],
+ "control_ok": true,
+ "control_name": "residue_irreducible",
+ "control_hits": 3,
+ "control_non_main": 2,
+ "grep_errors": [],
+ "kernels": 43,
+ "refs": 270,
+ "commits": 209,
+ "prior_refs_searched": 43,
+ "carried": 37,
+ "rows": [
+  {
+   "name": "E_h",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "IDENTITY_SUBSPACE",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "THE_CHIASMUS_PATTERN",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "THE_CORNER_MAP",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "Third_Identity",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "ZeroActingPairing.yieldsInequality",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "OPEN_TRAILS",
+   "doc": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "ArithmeticFunction.vonMangoldt_nonneg",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "Complex.Gamma",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "PhragmenLindelof.vertical_strip",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/Analysis/Complex/PhragmenLindelof.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "Real.log_le_sub_one_of_pos",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "THE_RESIDUE_OF_RH",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "W_pole",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "completedRiemannZeta_eq",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "completedRiemannZeta_one_sub",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "differentiable_completedZeta₀",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "eulerMascheroniSeq_lt_eulerMascheroniConstant",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "f_modif",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "hasSum_int_evenKernel",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "isBigO_atTop_evenKernel_sub",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "one_half_lt_eulerMascheroniConstant",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "riemannZeta_ne_zero_of_one_lt_re",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "A-Mathlib-NAME",
+   "where": "Mathlib/Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "silence_universal",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "prior_kind": "AMBIGUOUS",
+   "classification": "### **FOUND-BUT-IN MORE THAN ONE KERNEL**",
+   "where": "declared in 2 kernels : SIDE-kernel, SIDE-silence-principle",
+   "hits": 12,
+   "kernels": [
+    "SIDE-kernel",
+    "SIDE-silence-principle"
+   ],
+   "n_kernels": 2,
+   "refs_found_on": [
+    "refs/heads/derivative-engine",
+    "refs/heads/main",
+    "refs/remotes/origin/derivative-engine",
+    "refs/remotes/origin/main",
+    "refs/remotes/origin/phase-1.5",
+    "refs/tags/v1.0",
+    "refs/tags/v1.1",
+    "refs/tags/v1.2",
+    "refs/tags/v1.3",
+    "refs/tags/v1.4",
+    "refs/tags/v1.5",
+    "refs/tags/v1.6",
+    "refs/tags/v1.7"
+   ],
+   "on_main": 2,
+   "off_main": 10
+  },
+  {
+   "name": "A_n",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "F_v",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "OPEN_TRAILS",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "THE_CODOMAIN_SPECIFICATION",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NAMES-A-CORPUS-DOCUMENT",
+   "where": "a `.md` in PLACE-papers, not a terminal",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "e_n",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "grh_exclusion",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "### **FOUND-ON-A-NON-main-REF**",
+   "where": "SIDE-effects @ refs/tags/phase-1.5-module-1-v2 (SIDEEffects/Structural.lean)",
+   "hits": 2,
+   "kernels": [
+    "SIDE-effects"
+   ],
+   "n_kernels": 1,
+   "refs_found_on": [
+    "refs/tags/phase-1.5-module-1-v2",
+    "refs/tags/v0.1"
+   ],
+   "on_main": 0,
+   "off_main": 2
+  },
+  {
+   "name": "is_last",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "no_ls_zero",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "### **FOUND-ON-A-NON-main-REF**",
+   "where": "SIDE-effects @ refs/tags/phase-1.5-module-1-v2 (SIDEEffects/Structural.lean)",
+   "hits": 2,
+   "kernels": [
+    "SIDE-effects"
+   ],
+   "n_kernels": 1,
+   "refs_found_on": [
+    "refs/tags/phase-1.5-module-1-v2",
+    "refs/tags/v0.1"
+   ],
+   "on_main": 0,
+   "off_main": 2
+  },
+  {
+   "name": "per_mode_eps_grids",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "psi_coarse",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  },
+  {
+   "name": "resid_N",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "prior_kind": "DECLARED-NOWHERE",
+   "classification": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "where": "none of 270 refs across 43 kernels, nor Mathlib",
+   "hits": 0,
+   "kernels": [],
+   "n_kernels": 0,
+   "refs_found_on": [],
+   "on_main": 0,
+   "off_main": 0
+  }
+ ],
+ "tally": {
+  "NOT-FOUND-ON-ANY-REF-SEARCHED": 14,
+  "NAMES-A-CORPUS-DOCUMENT": 7,
+  "A-Mathlib-NAME": 13,
+  "### **FOUND-BUT-IN MORE THAN ONE KERNEL**": 1,
+  "### **FOUND-ON-A-NON-main-REF**": 2
+ },
+ "still_not_found": 14,
+ "mathlib": {
+  "PhragmenLindelof.vertical_strip": "Mathlib/Analysis/Complex/PhragmenLindelof.lean",
+  "Complex.Gamma": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+  "Real.log_le_sub_one_of_pos": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+  "ArithmeticFunction.vonMangoldt_nonneg": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+  "eulerMascheroniSeq_lt_eulerMascheroniConstant": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+  "one_half_lt_eulerMascheroniConstant": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+  "f_modif": "Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean",
+  "riemannZeta_ne_zero_of_one_lt_re": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
+  "hasSum_int_evenKernel": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+  "isBigO_atTop_evenKernel_sub": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+  "completedRiemannZeta_eq": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+  "completedRiemannZeta_one_sub": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+  "differentiable_completedZeta₀": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean"
+ },
+ "mathlib_root": "D:\\SIDE-archimedean\\.lake\\packages\\mathlib",
+ "held_branch": {
+  "name": "word-pairing-interface",
+  "kernel": "SIDE-lv-conservation",
+  "refs": [
+   "refs/heads/word-pairing-interface",
+   "refs/remotes/origin/word-pairing-interface"
+  ],
+  "line": 97,
+  "sentence": "The seven branch artifacts and the edge lemma, at their pins with `#print axioms` profiles, read from the held branch `word-pairing-interface` (SIDE-lv-conservation; **not merged, nothing deposited**).",
+  "identifiers_found": []
+ },
+ "conventions": [
+  {
+   "file": "phase1.5/method/GAUGE_AND_INVARIANT.md",
+   "bare": 1,
+   "dotted": 0,
+   "convention": "BARE ONLY"
+  },
+  {
+   "file": "phase1.5/method/INSTRUMENTS.md",
+   "bare": 9,
+   "dotted": 1,
+   "convention": "BOTH"
+  },
+  {
+   "file": "phase1.5/method/THE_METHOD_CANON.md",
+   "bare": 7,
+   "dotted": 0,
+   "convention": "BARE ONLY"
+  },
+  {
+   "file": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "bare": 23,
+   "dotted": 0,
+   "convention": "BARE ONLY"
+  },
+  {
+   "file": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "bare": 40,
+   "dotted": 10,
+   "convention": "BOTH"
+  },
+  {
+   "file": "phase2/method/THE_GLOBAL_SECTION.md",
+   "bare": 15,
+   "dotted": 3,
+   "convention": "BOTH"
+  }
+ ],
+ "found": {
+  "grh_exclusion": {
+   "hits": 2,
+   "kernels": [
+    "SIDE-effects"
+   ],
+   "refs": [
+    "refs/tags/phase-1.5-module-1-v2",
+    "refs/tags/v0.1"
+   ],
+   "sample": [
+    {
+     "kernel": "SIDE-effects",
+     "sha": "444b9a2b2d32",
+     "refs": [
+      "refs/tags/phase-1.5-module-1-v2"
+     ],
+     "path": "SIDEEffects/Structural.lean",
+     "line": 115,
+     "code": "theorem grh_exclusion (balance_forces_half sigma_ne_half : Prop)"
+    },
+    {
+     "kernel": "SIDE-effects",
+     "sha": "70323bba8096",
+     "refs": [
+      "refs/tags/v0.1"
+     ],
+     "path": "SIDEEffects/Structural.lean",
+     "line": 115,
+     "code": "theorem grh_exclusion (balance_forces_half sigma_ne_half : Prop)"
+    }
+   ]
+  },
+  "no_ls_zero": {
+   "hits": 2,
+   "kernels": [
+    "SIDE-effects"
+   ],
+   "refs": [
+    "refs/tags/phase-1.5-module-1-v2",
+    "refs/tags/v0.1"
+   ],
+   "sample": [
+    {
+     "kernel": "SIDE-effects",
+     "sha": "444b9a2b2d32",
+     "refs": [
+      "refs/tags/phase-1.5-module-1-v2"
+     ],
+     "path": "SIDEEffects/Structural.lean",
+     "line": 136,
+     "code": "theorem no_ls_zero (balance_forces_half sigma_gt_3_4 : Prop)"
+    },
+    {
+     "kernel": "SIDE-effects",
+     "sha": "70323bba8096",
+     "refs": [
+      "refs/tags/v0.1"
+     ],
+     "path": "SIDEEffects/Structural.lean",
+     "line": 136,
+     "code": "theorem no_ls_zero (balance_forces_half sigma_gt_3_4 : Prop)"
+    }
+   ]
+  },
+  "silence_universal": {
+   "hits": 12,
+   "kernels": [
+    "SIDE-kernel",
+    "SIDE-silence-principle"
+   ],
+   "refs": [
+    "refs/heads/derivative-engine",
+    "refs/heads/main",
+    "refs/remotes/origin/derivative-engine",
+    "refs/remotes/origin/main",
+    "refs/remotes/origin/phase-1.5",
+    "refs/tags/v1.0",
+    "refs/tags/v1.1",
+    "refs/tags/v1.2",
+    "refs/tags/v1.3",
+    "refs/tags/v1.4",
+    "refs/tags/v1.5",
+    "refs/tags/v1.6",
+    "refs/tags/v1.7"
+   ],
+   "sample": [
+    {
+     "kernel": "SIDE-kernel",
+     "sha": "01e5633a12bf",
+     "refs": [
+      "refs/heads/derivative-engine",
+      "refs/remotes/origin/derivative-engine"
+     ],
+     "path": "Kernel/SilenceTheorem.lean",
+     "line": 74,
+     "code": "theorem silence_universal"
+    },
+    {
+     "kernel": "SIDE-kernel",
+     "sha": "0256e9e1297f",
+     "refs": [
+      "refs/heads/main",
+      "refs/remotes/origin/main"
+     ],
+     "path": "Kernel/SilenceTheorem.lean",
+     "line": 74,
+     "code": "theorem silence_universal"
+    },
+    {
+     "kernel": "SIDE-kernel",
+     "sha": "9792769ada24",
+     "refs": [
+      "refs/remotes/origin/phase-1.5"
+     ],
+     "path": "Kernel/SilenceTheorem.lean",
+     "line": 74,
+     "code": "theorem silence_universal"
+    }
+   ]
+  }
+ },
+ "run_file": "b378_terminals_notes3.txt",
+ "run_clock": "2026-09-09T01:50:18Z"
+}

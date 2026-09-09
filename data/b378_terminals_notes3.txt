@@ -1,0 +1,185 @@
+### run at (UTC) : 2026-09-09T01:50:18Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b378 -- ADDITION ONE AND ADDITION TWO. ### **EVERY REF, AND BOTH CONVENTIONS.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION TWO (a) -- THE MATCHER, FIXTURED BEFORE IT IS USED.
+----------------------------------------------------------------------------------------------------
+      BARE, present            -- accepts                      got True  want True   ok
+      DOTTED, present          -- accepts                      got True  want True   ok
+      BARE, absent             -- ### REFUSES                  got False want False  ok
+      DOTTED, absent           -- ### REFUSES                  got False want False  ok
+      ### **DOTTED, right name WRONG namespace -- REFUSES**    got False want False  ok
+      a mention that is not a declaration -- ### REFUSES       got False want False  ok
+      a prefix of a real name  -- ### REFUSES                  got False want False  ok
+    ### ### **FIXTURE VERDICT : BOTH DIALECTS ACCEPTED, AND IT STILL REFUSES**
+    ### **THE DISCRIMINATION ARM IS THE LAST THREE CASES.** ### A matcher that accepts
+    ### everything is not a matcher; widening one that was too narrow is exactly the moment
+    ### to prove it did not become too wide.
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION ONE (a) -- THE REFS, ENUMERATED LIVE FROM EACH REPOSITORY.
+----------------------------------------------------------------------------------------------------
+    kernels on disk : 43
+    ### **REFS ENUMERATED : 270 ### / ### DISTINCT COMMITS BEHIND THEM : 209**
+    ### ### **`b377` SEARCHED 43 REFS -- ONE PER KERNEL. ### THIS ACT SEARCHES 270.**
+    ### refs pointing at the same commit are searched ONCE and reported for every ref that
+    ### shares it. ### **DEDUPLICATION BY COMMIT IS NOT A SAMPLE.**
+
+      SIDE-archimedean                    3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-bijection                      5 refs /  3 commits  main, tag:v0.1, tag:v0.1.0, tag:v0.2.0
+      SIDE-bsd-formation-transfer         4 refs /  2 commits  main, tag:v0.1.0, tag:v0.1.1
+      SIDE-bsd-multiplicity               4 refs /  2 commits  main, tag:v0.1.0, tag:v0.1.1
+      SIDE-carrier-spec                   6 refs /  5 commits  main, tag:v0.2.0, tag:v0.3.0, tag:v0.4.0, tag:v0.4.1
+      SIDE-class-coupling                 4 refs /  2 commits  main, tag:v0.1, tag:v0.1.0
+      SIDE-class-number-anomaly           3 refs /  2 commits  main, tag:v0.2
+      SIDE-compression                    4 refs /  3 commits  main, tag:v0.1.0, tag:v0.2.0
+      SIDE-cosmo                          6 refs /  4 commits  main, second-exemplar-m4a, tag:v0.2, tag:v0.3
+      SIDE-coupling                       4 refs /  3 commits  main, tag:v0.1, tag:v0.1.0
+      SIDE-cubit-axis                     3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-dark-interface                 3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-dirichlet-mod-24               3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-effects                        9 refs /  5 commits  main, push-b372, w-ladder-skeleton, w4-recovery-2026-07-13, 
+      SIDE-formation-arithmetic           4 refs /  3 commits  main, tag:v0.1, tag:v0.1.0
+      SIDE-formation-procedure            3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-frobenius                      3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-global-section                70 refs / 68 commits  main, push-b193, push-b194s, push-b198, push-b204, push-b207
+      SIDE-grh-transfer                   7 refs /  6 commits  main, tag:v0.1.0, tag:v0.2.0, tag:v0.3.0, tag:v0.4.0, tag:v0
+      SIDE-interfaces                     7 refs /  6 commits  main, tag:v0.1, tag:v0.1.1, tag:v0.1.2, tag:v0.1.3, tag:v0.2
+      SIDE-kernel                        13 refs / 11 commits  derivative-engine, main, tag:v1.0, tag:v1.1, tag:v1.2, tag:v
+      SIDE-li-map                         3 refs /  1 commits  main, word-lambda-nonneg
+      SIDE-local-cosmic-interface         3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-lv-conservation               20 refs / 17 commits  composition-barrier, main, word-p1-finset-a, word-pairing-in
+      SIDE-meta                           5 refs /  3 commits  main, tag:v0.1, tag:v0.1.0, tag:v0.3
+      SIDE-omega-b                        4 refs /  2 commits  main, tag:v0.1, tag:v0.1.0
+      SIDE-orchestrator                   4 refs /  3 commits  main, tag:v0.1, tag:v0.1.0
+      SIDE-quaternionic-dark-sector       3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-rcurve                         3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-residual-bridge                4 refs /  3 commits  main, tag:v0.1, tag:v0.1.0
+      SIDE-silence-principle              3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-simplicity                     3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-spinor                         5 refs /  3 commits  main, substrate-spinor-leg, tag:v0.1.0
+      SIDE-spinor-calibration             4 refs /  3 commits  main, tag:v0.1.0, tag:v0.2.0
+      SIDE-spinor-calibration-mathlib     3 refs /  2 commits  main, tag:v0.1.0
+      SIDE-structural-error-correction    5 refs /  4 commits  main, tag:v0.1.0, tag:v0.2.0, tag:v0.2.1
+      SIDE-substrate-cluster              6 refs /  5 commits  main, tag:v0.1, tag:v0.1.0, tag:v0.2, tag:v0.4
+      SIDE-t7-topology-cmb                6 refs /  5 commits  main, tag:v0.1.0, tag:v0.2, tag:v0.2.1, tag:v0.3
+      SIDE-trivium                        3 refs /  2 commits  main, tag:v0.1
+      SIDE-window                         7 refs /  5 commits  main, tag:v0.1.0, tag:v0.2.0, tag:v0.3.0, tag:v0.4.0, tag:v0
+      SIDE-yang-mills-formation           4 refs /  2 commits  main, tag:v0.1.0, tag:v0.1.1
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION ONE (b) -- THE SEARCH, ACROSS EVERY REF.
+----------------------------------------------------------------------------------------------------
+    identifiers carried forward : 37
+    ### **IDENTIFIERS FOUND ON SOME REF : 3**
+    ### ### **SEARCHES THAT COULD NOT RUN : 0** 
+
+    ### **THE POSITIVE CONTROL. ### A SEARCH THAT CANNOT RUN LOOKS EXACTLY LIKE A SEARCH
+    ### ### THAT FOUND NOTHING**, and the first run of this file reported `0` across 270
+    ### refs because `git grep` was rejecting a Python-only pattern and the caller read the
+    ### fatal exit as an answer. ### **SO THE SWEEP NOW PROVES ITSELF CAPABLE BEFORE IT
+    ### ### REPORTS AN ABSENCE.**
+    ### control name : `residue_irreducible`
+    ### ### **FOUND ON 3 COMMIT(S), OF WHICH 2 ARE NOT `main` : CONTROL HELD**
+    ###   SIDE-lv-conservation @ composition-barrier, refs/remotes/origin/composition-barrier
+    ###   SIDE-lv-conservation @ word-pairing-interface, refs/remotes/origin/word-pairing-interface
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION ONE (c) -- AND `Mathlib`, WHICH IS ALSO ON THIS DISK.
+----------------------------------------------------------------------------------------------------
+    mathlib package read at : SIDE-archimedean\.lake\packages\mathlib
+    mathlib `.lean` files read : 7871
+    ### **IDENTIFIERS DECLARED IN `Mathlib` : 13**
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION ONE (d) -- THE HELD BRANCH THE DOCUMENT NAMES IN ITS OWN TEXT.
+----------------------------------------------------------------------------------------------------
+    ### **THE DOCUMENT`S OWN SENTENCE**, `THE_RESIDUE_OF_RH.md` line 97:
+      | The seven branch artifacts and the edge lemma, at their pins with `#print axioms` profiles,
+      | read from the held branch `word-pairing-interface` (SIDE-lv-conservation; **not merged,
+      | nothing deposited**).
+    ### the branch it names : `word-pairing-interface` in `SIDE-lv-conservation`
+    ### refs matching that name, enumerated live : ['refs/heads/word-pairing-interface', 'refs/remotes/origin/word-pairing-interface']
+    ### **IDENTIFIERS FOUND ON THAT HELD BRANCH : 0**
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION ONE (e) -- THE CORRECTED CLASSIFICATION. ### **EXACTLY ONE PER IDENTIFIER.**
+----------------------------------------------------------------------------------------------------
+    identifier                                     classification                   where
+    ----------------------------------------------------------------------------------------------
+    E_h                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    IDENTITY_SUBSPACE                              NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    THE_CHIASMUS_PATTERN                           NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    THE_CORNER_MAP                                 NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    Third_Identity                                 NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    Z_Q                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    ZeroActingPairing.yieldsInequality             NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    OPEN_TRAILS                                    NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    Z_Q                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    ArithmeticFunction.vonMangoldt_nonneg          A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/ArithmeticF
+    Complex.Gamma                                  A-Mathlib-NAME                   Mathlib/Mathlib/Analysis/SpecialFunction
+    PhragmenLindelof.vertical_strip                A-Mathlib-NAME                   Mathlib/Mathlib/Analysis/Complex/Phragme
+    Real.log_le_sub_one_of_pos                     A-Mathlib-NAME                   Mathlib/Mathlib/Analysis/SpecialFunction
+    THE_RESIDUE_OF_RH                              NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    W_pole                                         NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    Z_Q                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    completedRiemannZeta_eq                        A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Rie
+    completedRiemannZeta_one_sub                   A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Rie
+    differentiable_completedZeta₀                  A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Rie
+    eulerMascheroniSeq_lt_eulerMascheroniConstant  A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/Harmonic/Eu
+    f_modif                                        A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Abs
+    hasSum_int_evenKernel                          A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Hur
+    isBigO_atTop_evenKernel_sub                    A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Hur
+    one_half_lt_eulerMascheroniConstant            A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/Harmonic/Eu
+    riemannZeta_ne_zero_of_one_lt_re               A-Mathlib-NAME                   Mathlib/Mathlib/NumberTheory/LSeries/Dir
+    silence_universal                              ### **FOUND-BUT-IN MORE THAN ONE declared in 2 kernels : SIDE-kernel, SID
+    A_n                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    F_v                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    OPEN_TRAILS                                    NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    THE_CODOMAIN_SPECIFICATION                     NAMES-A-CORPUS-DOCUMENT          a `.md` in PLACE-papers, not a terminal
+    e_n                                            NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    grh_exclusion                                  ### **FOUND-ON-A-NON-main-REF**  SIDE-effects @ refs/tags/phase-1.5-modul
+    is_last                                        NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    no_ls_zero                                     ### **FOUND-ON-A-NON-main-REF**  SIDE-effects @ refs/tags/phase-1.5-modul
+    per_mode_eps_grids                             NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    psi_coarse                                     NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+    resid_N                                        NOT-FOUND-ON-ANY-REF-SEARCHED    none of 270 refs across 43 kernels, nor 
+
+    ### ### **THE TALLY : {'NOT-FOUND-ON-ANY-REF-SEARCHED': 14, 'NAMES-A-CORPUS-DOCUMENT': 7, 'A-Mathlib-NAME': 13, '### **FOUND-BUT-IN MORE THAN ONE KERNEL**': 1, '### **FOUND-ON-A-NON-main-REF**': 2}**
+    ### ### ### **`b377` REPORTED `37` UNRESOLVED AT ONE REF. ### THAT WAS AN UPPER BOUND
+    ### ### ### TAKEN AT ONE REF, AND IT IS SAID HERE IN THOSE WORDS.**
+    ### ### **THE CORRECTED COUNT OF IDENTIFIERS NO SEARCHED REF DECLARES : 14.**
+
+----------------------------------------------------------------------------------------------------
+  ### ADDITION TWO (b) -- WHICH CONVENTION EACH CITING DOCUMENT USES.
+----------------------------------------------------------------------------------------------------
+    GAUGE_AND_INVARIANT                bare 1   dotted 0    ### **BARE ONLY**
+    INSTRUMENTS                        bare 9   dotted 1    ### **BOTH**
+    THE_METHOD_CANON                   bare 7   dotted 0    ### **BARE ONLY**
+    THE_RESIDUE_OF_RH                  bare 23  dotted 0    ### **BARE ONLY**
+    BALANCE_AND_POSITIVITY             bare 40  dotted 10   ### **BOTH**
+    THE_GLOBAL_SECTION                 bare 15  dotted 3    ### **BOTH**
+
+    ### ### **BOTH DIALECTS ARE CORRECT IN THEIR OWN TERMS AND NO DOCUMENT IS REWRITTEN BY
+    ### ### THIS ACT.** ### An older document naming `residue_irreducible` is not wrong; it
+    ### ### is writing the convention its era wrote.
+
+    ### **WHAT THE EARLIER PREDICATE`S NARROWNESS COST, STATED AND NOT ESTIMATED:**
+    ### `b376`s axis-B predicate required a ### **DOTTED** ### terminal, inside a row also
+    ### carrying kernel, pin and grade. ### A table in the BARE dialect could not satisfy it
+    ### however complete it was.
+    ### ### **THE COST IS NOT HYPOTHETICAL: ### IT SELECTED THE SIX.** ### `b377` inherited
+    ### that verdict as its whole population, and then found that several of the six already
+    ### carried a correspondence table -- which is the same defect surfacing twice.
+    ### **WHERE ELSE IN THE RECORD IT MAY HAVE COST THE SAME, NAMED AND NOT SWEPT:**
+    ###   ### **`b376`S WHOLE AXIS-B COLUMN** -- `303` documents scored `B-` on that
+    ###     predicate, and any of them writing the BARE dialect is scored as an absence.
+    ###     ### **THAT COLUMN IS NOT RE-MEASURED HERE AND IS NAMED AS SUSPECT.**
+    ###   ### **`b376`S `A+B+` QUADRANT AND EVERY COUNT DERIVED FROM IT**, including the
+    ###     certification/rubric overlap `b376` printed BY DOCUMENT.
+    ###   ### **AND `b375`S EXISTING-CENSUS COMPARISON**, which used a heading test rather
+    ###     than a terminal test and is therefore ### **NOT** ### affected by this defect --
+    ###     said so that the suspicion is bounded rather than free-floating.
+====================================================================================================

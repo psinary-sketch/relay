@@ -1,0 +1,276 @@
+====================================================================================================
+b378 -- GATE SUITE (THE TWO-AXIS READ)
+====================================================================================================
+
+  OWNER NEEDLES:
+    PASS  the order -- the act
+    PASS  the order -- the draft adopted with three additions
+    PASS  the order -- the lock re-checked if the face is rewritten
+    PASS  the order -- addition one, every ref not main
+    PASS  the order -- addition one, an upper bound at one ref
+    PASS  the order -- addition one, the held branch by name
+    PASS  the order -- addition two, the two conventions
+    PASS  the order -- addition two, a discrimination arm
+    PASS  the order -- addition two, none is rewritten
+    PASS  the order -- addition two, what the narrowness cost
+    PASS  the order -- addition three, the archives
+    PASS  the order -- addition three, never by filename
+    PASS  the order -- addition three, remove nothing
+    PASS  the order -- the closing
+    PASS  the order -- the navigator's expectations
+    PASS  the order -- (F2), a non-main ref
+    PASS  the draft -- only main was searched
+    PASS  the draft -- close the hole in the tool
+    PASS  the draft -- the two by hand
+    PASS  the draft -- the author chooses the fourth
+    PASS  the held branch -- the document names it  ### -- ITS RECORDED PREFIX
+    PASS  the taxonomy -- Tier K and what it obliges  ### -- ITS RECORDED PREFIX
+
+  SELF NEEDLES:
+    PASS  the bank leads with the upper bound and the broken search
+    PASS  ### the earlier number was never wrong
+    PASS  ### a clean confident entirely false answer
+    PASS  ### exposed only by a contradiction
+    PASS  ### an exit code above 1 is an error
+    PASS  ### it refuses until it can find a presence
+    PASS  ### the face was rewritten and every gate re-stamped
+    PASS  ### what the stamp still does not prove
+    PASS  ### the branch was searched and the answer is still no
+    PASS  ### not one document uses dotted alone
+    PASS  ### the cost is not hypothetical
+    PASS  ### the axis-B column is suspect and not re-measured
+    PASS  ### b375 is unaffected, so the suspicion is bounded
+    PASS  ### neither dialect is rewritten
+    PASS  ### confirmed by digest and title, never by filename
+    PASS  ### the removal is the author`s
+    PASS  ### the hand read decides what the scan could not
+    PASS  ### the outcome is a mark, not a class
+    PASS  ### the clusters stay filed and not opened
+    PASS  ### the reading was declared in advance
+    PASS  ### a rule minted is not a rule carried
+    PASS  ### (E3) refuted without softening
+    PASS  ### the four lists restated open in the desk`s own words
+
+  MUST-FAIL FIXTURES ### (THE ORDER`S FIVE PROHIBITIONS, AS WHOLE LINES):
+    PASS  the bank never says a class was ruled
+    PASS  the bank never says a declaration was moved
+    PASS  the bank never says a list was closed
+    PASS  the bank never says a document was rewritten
+    PASS  the bank never says an archive was removed
+    PASS  the bank never says a name was confirmed without being found
+
+  G-STAMPED / G-EVERYGATE / G-FIXTURE4 / G-NOSTALE (BAR 1):
+    gates read 8 / passing 8 ; face-subject gates 4 ; all pass : True
+      the ferry scan (struck clauses and stems)      b378_ferry_scan.txt                    PASS   stamp n/a
+      the handoff census                             b378_census_stepzero.txt               PASS   stamp n/a
+      the faces census                               b378_faces_census_stepzero.txt         PASS   stamp n/a
+      the pins, by ls-remote through the roster      b378_pins_stepzero.txt                 PASS   stamp n/a
+      the registration gate, all its own arms        b378_reg_gate.txt                      PASS   stamp cf491cc04ea5
+      the banned-term scan on the face               b378_reg_termscan.txt                  PASS   stamp cf491cc04ea5
+      the clause spec emitted from the face          b378_regspec_run.txt                   PASS   stamp cf491cc04ea5
+      the satisfiability audit                       audit_b378_reg_satisfiable.txt         PASS   stamp cf491cc04ea5
+    ### **THE STAMP EQUALS THE FACE THAT WAS LOCKED** : True (cf491cc04ea5d640)
+    ### **EVERY FACE-SUBJECT GATE CARRIES THAT DIGEST** : True
+      all gates clean                            permits True  failing none
+      one gate`s phrase missing                  permits False failing ['the banned-term scan on the face']
+      ### **one gate`s subject digest STALE**    permits False failing ['the registration gate, all its own arms']
+      one gate carries no subject digest         permits False failing ['the clause spec emitted from the face']
+    ### **FOUR POLARITIES, EACH REFUSING FOR ITS OWN GATE** : True
+    PASS
+
+  G-EVERYREF / G-REFSLIVE / G-HELDBRANCH (BAR 2):
+    refs searched 270 vs kernels 43 ; b377 searched 43
+    ### **THE SEARCH LEFT main** : True
+    ### **POSITIVE CONTROL HELD, ON 2 NON-main COMMIT(S)** : True
+    ### **SEARCHES THAT COULD NOT RUN : 0** -- an exit above 1 is an error, not an answer
+    ### **THE HELD BRANCH WAS SEARCHED BY NAME AND ITS SENTENCE QUOTED** : True ['refs/heads/word-pairing-interface', 'refs/remotes/origin/word-pairing-interface']
+    PASS
+
+  G-DIALECT / G-DISCRIMINATE / G-SWEEP (BAR 3):
+    matcher fixtures held : True ; every case matched : True
+    ### **ACCEPTS BARE : True ; ACCEPTS DOTTED : True**
+    ### **DISCRIMINATION ARM -- cases it must REFUSE : 5** : True
+    citing documents swept : 6 ; each carries a convention verdict : True
+      GAUGE_AND_INVARIANT                  bare 1   dotted 0    BARE ONLY
+      INSTRUMENTS                          bare 9   dotted 1    BOTH
+      THE_METHOD_CANON                     bare 7   dotted 0    BARE ONLY
+      THE_RESIDUE_OF_RH                    bare 23  dotted 0    BARE ONLY
+      BALANCE_AND_POSITIVITY               bare 40  dotted 10   BOTH
+      THE_GLOBAL_SECTION                   bare 15  dotted 3    BOTH
+    PASS
+
+  G-CORRECTION / G-UPPERBOUND / G-COST (BAR 4):
+    identifiers carried 37 ; every one classified : True ; tally sums : True
+    ### **THE EARLIER FIGURE IS RESTATED AS AN UPPER BOUND AT ONE REF** : True
+    ### **A NAME IN MORE THAN ONE KERNEL IS CLASSIFIED AS SUCH** : True
+    the cost is stated : True ; the suspect column is not re-measured : True
+    tally : {'NOT-FOUND-ON-ANY-REF-SEARCHED': 14, 'NAMES-A-CORPUS-DOCUMENT': 7, 'A-Mathlib-NAME': 13, '### **FOUND-BUT-IN MORE THAN ONE KERNEL**': 1, '### **FOUND-ON-A-NON-main-REF**': 2}
+    PASS
+
+  G-NOREWRITE / G-NOMOVE / G-NOREMOVE (BAR 5):
+    tracked paths changed beyond the declared set : {'relay': [], 'SIDE-global-section': [], 'PLACE-papers': [], 'SIDE-effects': []}
+    ### **CORPUS DOCUMENTS WRITTEN INTO : 0** 
+    ### **ARCHIVE FILES REMOVED, MOVED OR RENAMED : 0**
+    ### **ANYTHING UNDER archive/ CHANGED : none**
+    the hand read moved no declaration and wrote no byte : True
+    PASS
+
+  G-ARCHIVE / G-DIGEST / G-NOTBYNAME (BAR 6):
+    archive files reported 6 of 6 ; each with a verdict : True
+    ### **CONFIRMED IFF DIGEST AND TITLE BOTH MATCH** : True
+    every CONFIRMED carries a digest : True ; every NOT CONFIRMED says what is missing : True
+    ### **THE BANK SAYS NEVER BY FILENAME** : True ; the wider count is CONTEXT : True
+    confirmed 6 / not confirmed 0
+    PASS
+
+  G-NORULING / G-HAND / G-OPEN / G-NONEWDOC (BAR 7):
+    hand read : 37 named = 20 + 2 + 15 : True ; every row carries its sentence : True
+    ### **THE OTHER NOT-DETERMINABLE DOCUMENT IS LEFT** : True ['day1/A_Place_to_Stand.md']
+    the four lists named in the bank : True ; restated OPEN : True ; in the trail : True
+    lists closed : 0 ; desk closures : 1 (["the lock gate's remaining hole"])
+    ### **THE CLUSTERS STAY FILED AND NOT OPENED** : True
+    ### **AND NO NEW TRACKING DOCUMENT WAS CREATED** : True 
+    PASS
+
+  G-TRAIL / G-ROW / G-KEY ### BEFORE THE PUSH:
+    trail: mark once and append-only : True ; blob a true prefix : True
+    row 227 present once and a true prefix : True
+    key read back : True ; four overreadings NO KEY after : True
+    PASS
+
+  G-ORDER ### SIDE-INVARIANT:
+    ### **AND b376`S FACE STILL VERIFIES, UNEDITED** : True
+    this act`s lock recomputes : True
+    every relied-on run is after the lock : True
+    audit SATISFIABLE True ; gate CLEAR True ; ### **TERM SCAN CLEAN True**
+    ### **AND b375`S DEFECTIVE FACE STILL VERIFIES, UNEDITED** : True
+    PASS
+
+  G-HOOK / G-MIRROR ### AFTER THE PUSH:
+    ### the hook/mirror records are NOT YET WRITTEN (they are written at the push).
+
+  G-NUMBERS:
+    gates read 8                                             PASS
+    face-subject gates 4                                     PASS
+    refs 270                                                 PASS
+    commits 209                                              PASS
+    kernels 43                                               PASS
+    carried 37                                               PASS
+    still not found 14                                       PASS
+    the face sha                                             PASS
+    archives confirmed 6                                     PASS
+    archive files under archive/ 92                          PASS
+    hand read named 37                                       PASS
+    hand read located 20                                     PASS
+    desk items 31                                            PASS
+    row 227                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    the relied-on terminals run                              PASS
+    the relied-on archives run                               PASS
+    the relied-on hand run                                   PASS
+    the relied-on lock-gate run                              PASS
+
+  G-ONCE:
+    extract      b378_extract_notes3.txt        clock 2026-09-09T01:38:00Z == JSON's 2026-09-09T01:38:00Z : True
+    lockgate     b378_lockgate_notes2.txt       clock 2026-09-09T01:43:08Z == JSON's 2026-09-09T01:43:08Z : True
+    terminals    b378_terminals_notes3.txt      clock 2026-09-09T01:50:18Z == JSON's 2026-09-09T01:50:18Z : True
+    archives     b378_archives_notes.txt        clock 2026-09-09T01:48:06Z == JSON's 2026-09-09T01:48:06Z : True
+    hand         b378_hand_notes.txt            clock 2026-09-09T01:51:48Z == JSON's 2026-09-09T01:51:48Z : True
+    desk         b378_desk_notes.txt            clock 2026-09-09T01:57:07Z == JSON's 2026-09-09T01:57:07Z : True
+    PASS
+
+  G-NOCOMPUTE:
+    ### raw substring hits (a substring is not a call) : none
+    numerical calls : 0  ; libraries : none
+    PASS
+
+  G-NOLEAN:
+    .lean or kernel files changed : none  PASS
+
+  G-BYCONTENT:
+    b378_archives.py           line 58     | for ln in text.split(chr(10))[:60]:
+        the span is located by content and only then indexed.
+    b378_archives.py           line 61     | for ln in text.split(chr(10))[:60]:
+        the span is located by content and only then indexed.
+    b378_desk.py               line 654    | cells = [GD.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        it takes `[-1:]` -- the LAST line of the table THIS ACT JUST WROTE.
+    ### hits : 3 ; UNDECLARED : 0  PASS
+
+  G-NOEDIT ### BEFORE THE PUSH:
+    owner instruments modified : none ### -- this act licenses NONE
+    other relay files of other acts : none
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed):
+    files scanned 19   struck 0   stem 0   ### **LIVE : 0** PASS
+    b378_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b378_ferry_2026-09-08.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER
+    b378_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b378_reg_termscan.txt                        struck : 0  stem : 2  ### CARRIER -- the term scan's log
+    b378_extract_notes3.txt                      struck : 0  stem : 0  ### CARRIER -- the extract carries the corpus's own documents
+    b378_lockgate_notes2.txt                     struck : 0  stem : 0  ### CARRIER -- the lock gate's run carries every gate's own phrase
+    b378_terminals_notes3.txt                    struck : 0  stem : 0  ### CARRIER -- the terminals run carries the documents' own identifiers
+    b378_archives_notes.txt                      struck : 0  stem : 0  ### CARRIER -- the archives run carries the archives' own title lines
+    b378_hand_notes.txt                          struck : 0  stem : 0  ### CARRIER -- the hand read carries the document's own sentences
+    b378_desk_notes.txt                          struck : 0  stem : 0  ### CARRIER -- the desk run carries the items' own sentences
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 227, the trail block, the index row):
+    row 227                struck : 0   stem : 0   (6928 chars)
+    the trail block        struck : 0   stem : 0   (7601 chars)
+    the index row          struck : 0   stem : 0   (3091 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    STEP ZERO -- the stamp the lock can compare (SHARED) tools/gate_hash.py                 exists=True tracked=False
+    the lock gate that checks what each gate read        tools/b378_lockgate.py             exists=True tracked=False
+    every ref, both conventions, and a positive control  tools/b378_terminals.py            exists=True tracked=False
+    the archives, by digest and title line               tools/b378_archives.py             exists=True tracked=False
+    one NOT DETERMINABLE document, read by hand          tools/b378_hand.py                 exists=True tracked=False
+    (R7), the trail block, the row and the key           tools/b378_desk.py                 exists=True tracked=False
+    every figure in the bank, read from the JSONs        tools/b378_bank.py                 exists=True tracked=False
+    the reads                                            tools/b378_extract.py              exists=True tracked=False
+    the registration gate                                tools/b378_reg_gate.py             exists=True tracked=False
+    the clause spec                                      tools/b378_regspec.py              exists=True tracked=False
+    19310 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    the anchor built by reading its line                 tools/anchor_from_file.py          exists=True tracked=True
+    (R2)'s detector, turned on this act                  tools/b366_sweep.py                exists=True tracked=True
+    the roster, imported and not typed                   tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-CAP ### THE REGISTRATION CAPPED THIS ACT AT ELEVEN NEW TOOLS:
+    new relay tools this act : 11  ['tools/b378_archives.py', 'tools/b378_bank.py', 'tools/b378_checks.py', 'tools/b378_desk.py', 'tools/b378_extract.py', 'tools/b378_hand.py', 'tools/b378_lockgate.py', 'tools/b378_reg_gate.py', 'tools/b378_regspec.py', 'tools/b378_terminals.py', 'tools/gate_hash.py']
+    PASS
+
+  HEDGE AUDIT ON THIS ACT'S OWN PROSE:
+    b378_the_refs_widened.txt                      sentences=495   graded-hedges=0   ungraded-shapes=64
+    b378_registration_2026-09-08.txt               sentences=386   graded-hedges=0   ungraded-shapes=93
+    b378_desk_notes.txt                            sentences=184   graded-hedges=0   ungraded-shapes=45
+    b378_census_stepzero.txt                       sentences=30    graded-hedges=0   ungraded-shapes=6
+    b378_faces_census_stepzero.txt                 sentences=17    graded-hedges=0   ungraded-shapes=2
+    b378_regspec_run.txt                           sentences=35    graded-hedges=0   ungraded-shapes=4
+    audit_b378_reg_satisfiable.txt                 sentences=265   graded-hedges=0   ungraded-shapes=30
+    b378_pins_stepzero.txt                         sentences=43    graded-hedges=0   ungraded-shapes=1
+    b378_reg_gate.txt                              sentences=19    graded-hedges=0   ungraded-shapes=2
+    b378_archives.py                               sentences=272   graded-hedges=0   ungraded-shapes=24
+    b378_bank.py                                   sentences=568   graded-hedges=0   ungraded-shapes=68
+    b378_checks.py                                 sentences=877   graded-hedges=0   ungraded-shapes=93
+    b378_desk.py                                   sentences=807   graded-hedges=0   ungraded-shapes=165
+    b378_extract.py                                sentences=222   graded-hedges=0   ungraded-shapes=18
+    b378_hand.py                                   sentences=269   graded-hedges=0   ungraded-shapes=14
+    b378_lockgate.py                               sentences=262   graded-hedges=0   ungraded-shapes=19
+    b378_reg_gate.py                               sentences=67    graded-hedges=0   ungraded-shapes=5
+    b378_regspec.py                                sentences=203   graded-hedges=0   ungraded-shapes=28
+    b378_terminals.py                              sentences=576   graded-hedges=0   ungraded-shapes=35
+    gate_hash.py                                   sentences=115   graded-hedges=0   ungraded-shapes=17
+    row 227                                        sentences=45    graded-hedges=0   ungraded-shapes=31
+    the trail block                                sentences=40    graded-hedges=0   ungraded-shapes=23
+    the index row                                  sentences=40    graded-hedges=0   ungraded-shapes=13
+
+====================================================================================================
+  ### GATES FAILING : 1 ['G-HOOK/G-MIRROR (owed, not yet recorded)']
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================

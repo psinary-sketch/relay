@@ -1,0 +1,337 @@
+====================================================================================================
+b378 -- THE REFS WIDENED AND THE CONVENTION SWEPT. ### THE BANK.
+====================================================================================================
+
+### ### ### **THE HEADLINE IS A CORRECTION, AND THE SHARPEST FINDING IS ABOUT THIS ACT`S OWN
+### ### ### SEARCH:**
+### ### ### **AN UPPER BOUND TAKEN AT ONE REF IS NOT A COUNT** -- and ### **A SEARCH THAT CANNOT
+### ### ### RUN LOOKS EXACTLY LIKE A SEARCH THAT FOUND NOTHING.**
+
+### `b377` searched ### **43 REFS -- ONE PER KERNEL** ### and reported ### **37** ### identifiers
+### that no kernel declares. ### This act searched ### **270 REFS BEHIND 209 DISTINCT COMMITS**, and
+### the figure falls to ### **14**.
+### ### **`b377`S NUMBER WAS NEVER WRONG. ### IT WAS AN UPPER BOUND TAKEN AT ONE REF AND WAS NOT
+### ### LABELLED AS ONE**, and it is labelled as one now.
+
+### ### **WHERE THE OTHER 23 WENT, EACH TO EXACTLY ONE CLASSIFICATION:**
+###   ### **13 ARE `Mathlib` NAMES** ### -- declared in the Mathlib package on this disk. ### A
+###     paper may cite a library lemma it did not prove; ### **THAT IS A CATEGORY AND NOT A
+###     ### FAULT.**
+###   ### **7 NAME A CORPUS DOCUMENT RATHER THAN A TERMINAL** ### -- `OPEN_TRAILS`,
+###     `THE_RESIDUE_OF_RH`, `THE_CODOMAIN_SPECIFICATION` and others are `.md` files. ### **THEY
+###     ### WERE NEVER TERMINALS AND WERE COUNTED AS MISSING ONES.**
+###   ### **2 ARE DECLARED ON A TAG AND ON NO BRANCH AT ALL** ### -- `grh_exclusion` and
+###     `no_ls_zero`, on `refs/tags/phase-1.5-module-1-v2` of `SIDE-effects`. ### **A TAG IS A
+###     ### REF, AND `b377` DID NOT SEARCH IT.** ### This is `(F2)`, met.
+###   ### **1 IS DECLARED IN MORE THAN ONE KERNEL** ### -- `silence_universal`, in `SIDE-kernel`
+###     and `SIDE-silence-principle`. ### `b377` minted the rule that such a name is not a
+###     terminal a document can cite; ### **CARRYING IT HERE IS WHAT STOPPED THIS ACT READING THE
+###     ### FIRST OF SEVERAL SILENTLY, AS ITS OWN FIRST RUN DID.**
+### ### ### **`(F1)` IS MET: ### 14 IS MATERIALLY LOWER THAN 37.** ### And `(F2)` is met by the
+### ### ### tag. ### **BOTH BY A PRINTED CLASSIFICATION, PER IDENTIFIER.**
+
+----------------------------------------------------------------------------------------------------
+### THE DEFECT THIS ACT FOUND IN ITSELF, AT FULL STRENGTH.
+----------------------------------------------------------------------------------------------------
+### The first sweep handed `git grep -E` a pattern containing `(?:...)`. ### **POSIX ERE REJECTS
+### ### IT.** ### Every one of the 209 invocations died with `Invalid preceding regular expression`;
+### the caller read the non-zero exit as ### **NO MATCHES**; and the sweep reported
+### ### **`0` IDENTIFIERS FOUND ACROSS 270 REFS.**
+### ### ### **A CLEAN, CONFIDENT, ENTIRELY FALSE ANSWER.**
+### ### **IT WAS EXPOSED ONLY BY A CONTRADICTION WITH `b377`S OWN RECORD**, which had found
+### `silence_universal` in two kernels. ### Without that contradiction this act would have
+### reported ### **`37` STILL MISSING** ### and called the widening a refutation of `(F1)`.
+### ### **THE CURE IS THREE THINGS, AND THE SECOND IS THE ONE THAT GENERALISES:**
+###   (1) the pattern handed to `git` is ### **POSIX**, and the Python pattern stays in Python;
+###   (2) ### **AN EXIT CODE ABOVE 1 IS AN ERROR AND NOT AN ANSWER** -- `git grep` exits `1` for
+###       *no matches* and higher for *I could not search*, and ### **CONFLATING THOSE IS HOW A
+###       ### BROKEN SWEEP REPORTS A CLEAN ONE**;
+###   (3) a ### **POSITIVE CONTROL** ### -- a name known to sit on a non-`main` ref -- runs first,
+###       and the tool ### **REFUSES TO REPORT AN ABSENCE UNTIL IT HAS PROVED IT CAN FIND A
+###       ### PRESENCE.**
+### ### **THE CONTROL HELD ON THE FINAL RUN: `residue_irreducible` FOUND ON 3 COMMIT(S), 2 OF THEM NOT `main`.**
+### ### **AND SEARCHES THAT COULD NOT RUN, ON THE FINAL SWEEP : 0.**
+
+----------------------------------------------------------------------------------------------------
+### STEP ZERO -- THE LOCK GATE`S REMAINING HOLE, CLOSED IN THE TOOL.
+----------------------------------------------------------------------------------------------------
+### `b376` proved every gate passed and ### **COULD NOT PROVE WHAT ANY OF THEM PASSED ON**, and
+### said so on its own face. ### `b377` hit it: a late rewrite left gate records stale and only
+### the seat`s discipline caught it.
+### ### **`tools/gate_hash.py`, NEW AND SHARED:** ### it stamps a gate`s own run record with the
+### `sha256` of the bytes that gate read, ### **APPENDING AND NEVER REWRITING**, so the gate`s own
+### output survives exactly as the gate wrote it.
+### ### **`tools/b378_lockgate.py`, NEW:** ### every face-subject gate must carry a stamp
+### ### **EQUAL TO THE FACE IT IS ABOUT TO LOCK**, and a record carrying no stamp is
+### ### **REFUSED, NOT WAVED THROUGH** -- an absent claim is not a true one.
+###   gates read : ### **8** ### / passing : ### **8** ### / checked by digest : ### **4**
+###   the face`s sha256 : `cf491cc04ea5d6406eeb2f48de48e17dd7e1d77b170d51544c2953d405693873`
+### ### **FIXTURED IN FOUR POLARITIES, NOT TWO:**
+###     all gates clean                            permits : True    failing : none
+###     one gate`s phrase missing                  permits : False   failing : ['the banned-term scan on the face']
+###     ### **one gate`s subject digest STALE**    permits : False   failing : ['the registration gate, all its own arms']
+###     one gate carries no subject digest         permits : False   failing : ['the clause spec emitted from the face']
+### ### ### **AND THE STALE-DIGEST POLARITY IS THE ONE `b377` SUFFERED.**
+### ### **THIS ACT`S OWN FACE WAS REWRITTEN BEFORE THE LOCK** -- `U-1` fired on two sentences --
+### **AND EVERY FACE-SUBJECT GATE WAS RE-RUN AND RE-STAMPED.** ### The gate would have refused
+### otherwise, which is the whole point of building it.
+### ### **WHAT IT STILL DOES NOT PROVE, SAID ON THE FACE BEFORE IT RAN:** ### the stamp is
+### ### **THE CALLER`S CLAIM ABOUT WHAT IT FED THE GATE**, not the gate vouching for itself.
+### Making the gate vouch for itself would mean editing the shared instruments, and ### **THIS ACT
+### ### EDITS NO OWNER INSTRUMENT.**
+
+----------------------------------------------------------------------------------------------------
+### ADDITION ONE -- EVERY REF, AND THE CORRECTED CLASSIFICATION.
+----------------------------------------------------------------------------------------------------
+### refs enumerated live from each repository : ### **270** ### behind ### **209** ### distinct
+### commits, across ### **43** ### kernels. ### **NEVER TYPED, NEVER ASSUMED.**
+
+###   identifier                                     classification                     where
+###   ----------------------------------------------------------------------------------------------
+###   E_h                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   IDENTITY_SUBSPACE                              NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   THE_CHIASMUS_PATTERN                           NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   THE_CORNER_MAP                                 NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   Third_Identity                                 NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   Z_Q                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   ZeroActingPairing.yieldsInequality             NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   OPEN_TRAILS                                    NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   Z_Q                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   ArithmeticFunction.vonMangoldt_nonneg          A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/ArithmeticF
+###   Complex.Gamma                                  A-Mathlib-NAME                     Mathlib/Mathlib/Analysis/SpecialFunction
+###   PhragmenLindelof.vertical_strip                A-Mathlib-NAME                     Mathlib/Mathlib/Analysis/Complex/Phragme
+###   Real.log_le_sub_one_of_pos                     A-Mathlib-NAME                     Mathlib/Mathlib/Analysis/SpecialFunction
+###   THE_RESIDUE_OF_RH                              NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   W_pole                                         NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   Z_Q                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   completedRiemannZeta_eq                        A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Rie
+###   completedRiemannZeta_one_sub                   A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Rie
+###   differentiable_completedZeta₀                  A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Rie
+###   eulerMascheroniSeq_lt_eulerMascheroniConstant  A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/Harmonic/Eu
+###   f_modif                                        A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Abs
+###   hasSum_int_evenKernel                          A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Hur
+###   isBigO_atTop_evenKernel_sub                    A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Hur
+###   one_half_lt_eulerMascheroniConstant            A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/Harmonic/Eu
+###   riemannZeta_ne_zero_of_one_lt_re               A-Mathlib-NAME                     Mathlib/Mathlib/NumberTheory/LSeries/Dir
+###   silence_universal                              FOUND-BUT-IN MORE THAN ONE KERNEL  declared in 2 kernels : SIDE-kernel, SID
+###   A_n                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   F_v                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   OPEN_TRAILS                                    NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   THE_CODOMAIN_SPECIFICATION                     NAMES-A-CORPUS-DOCUMENT            a `.md` in PLACE-papers, not a terminal
+###   e_n                                            NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   grh_exclusion                                  FOUND-ON-A-NON-main-REF            SIDE-effects @ refs/tags/phase-1.5-modul
+###   is_last                                        NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   no_ls_zero                                     FOUND-ON-A-NON-main-REF            SIDE-effects @ refs/tags/phase-1.5-modul
+###   per_mode_eps_grids                             NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   psi_coarse                                     NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+###   resid_N                                        NOT-FOUND-ON-ANY-REF-SEARCHED      none of 270 refs across 43 kernels, nor 
+
+### ### **THE TALLY : {'NOT-FOUND-ON-ANY-REF-SEARCHED': 14, 'NAMES-A-CORPUS-DOCUMENT': 7, 'A-Mathlib-NAME': 13, '### **FOUND-BUT-IN MORE THAN ONE KERNEL**': 1, '### **FOUND-ON-A-NON-main-REF**': 2}**
+
+### **THE HELD BRANCH THE DOCUMENT NAMES IN ITS OWN TEXT:**
+###   `THE_RESIDUE_OF_RH.md` line 97 :
+###     | The seven branch artifacts and the edge lemma, at their pins with `#print axioms`
+###     | profiles, read from the held branch `word-pairing-interface` (SIDE-lv-conservation; **not
+###     | merged, nothing deposited**).
+###   the branch : `word-pairing-interface` in `SIDE-lv-conservation`
+###   refs matching it, enumerated live : ['refs/heads/word-pairing-interface', 'refs/remotes/origin/word-pairing-interface']
+###   ### **CARRIED IDENTIFIERS FOUND ON IT : 0**
+### ### **THE BRANCH WAS SEARCHED BY NAME AND THE ANSWER THERE IS STILL NO.** ### The positive
+### control IS on it, which is how we know the branch was genuinely read rather than skipped.
+### ### **A DOCUMENT THAT TELLS YOU WHERE TO LOOK HAD ALREADY DONE HALF THE WORK.**
+
+----------------------------------------------------------------------------------------------------
+### ADDITION TWO -- THE TWO CONVENTIONS, SWEPT AND NEITHER REWRITTEN.
+----------------------------------------------------------------------------------------------------
+### ### **THE MATCHER, FIXTURED BEFORE IT WAS USED:**
+###   BARE, present            -- accepts                      got True  want True  ok
+###   DOTTED, present          -- accepts                      got True  want True  ok
+###   BARE, absent             -- ### REFUSES                  got False want False ok
+###   DOTTED, absent           -- ### REFUSES                  got False want False ok
+###   DOTTED, right name WRONG namespace -- REFUSES            got False want False ok
+###   a mention that is not a declaration -- ### REFUSES       got False want False ok
+###   a prefix of a real name  -- ### REFUSES                  got False want False ok
+### ### **THE LAST THREE ARE THE DISCRIMINATION ARM.** ### A matcher that accepts everything is
+### not a matcher, and widening one that was too narrow is exactly the moment to prove it did not
+### become too wide.
+
+### ### **WHICH CONVENTION EACH CITING DOCUMENT USES:**
+###   GAUGE_AND_INVARIANT                  bare 1   dotted 0    ### **BARE ONLY**
+###   INSTRUMENTS                          bare 9   dotted 1    ### **BOTH**
+###   THE_METHOD_CANON                     bare 7   dotted 0    ### **BARE ONLY**
+###   THE_RESIDUE_OF_RH                    bare 23  dotted 0    ### **BARE ONLY**
+###   BALANCE_AND_POSITIVITY               bare 40  dotted 10   ### **BOTH**
+###   THE_GLOBAL_SECTION                   bare 15  dotted 3    ### **BOTH**
+### ### ### **NOT ONE OF THEM USES THE DOTTED CONVENTION ALONE.**
+### ### **AND `b376`S AXIS-B PREDICATE REQUIRED A DOTTED TERMINAL, SO IT COULD NOT HAVE PASSED
+### ### ANY OF THEM.** ### **THE COST IS NOT HYPOTHETICAL: ### IT SELECTED THE SIX**, and `b377`
+### inherited that selection as its whole population.
+### **WHERE ELSE IN THE RECORD IT MAY HAVE COST THE SAME, NAMED AND NOT SWEPT:**
+###   ### **`b376`S ENTIRE AXIS-B COLUMN** -- `303` documents scored `B-` on that predicate. ###
+###     Any of them writing the bare dialect is scored as an absence. ### **THAT COLUMN IS NAMED
+###     ### HERE AS SUSPECT AND IS NOT RE-MEASURED**, because re-measuring it is an act and not a
+###     footnote.
+###   ### **AND `b376`S `A+B+` QUADRANT AND EVERY COUNT DERIVED FROM IT.**
+###   ### **BUT NOT `b375`S CENSUS COMPARISON**, which used a HEADING test rather than a terminal
+###     test and is therefore ### **UNAFFECTED** -- said so that the suspicion is bounded rather
+###     than free-floating.
+### ### **NO DOCUMENT IS REWRITTEN INTO THE OTHER DIALECT. ### BOTH ARE CORRECT IN THEIR OWN
+### ### TERMS**, and an older document naming `residue_irreducible` is writing the convention its
+### era wrote.
+
+----------------------------------------------------------------------------------------------------
+### ADDITION THREE -- THE ARCHIVES, CONFIRMED AND NOT REMOVED.
+----------------------------------------------------------------------------------------------------
+### the project mirror : `mirror-refresh-2026-09-08.zip`, 43 entries
+### ### **THE ORDERED POPULATION -- ARCHIVE FILES THE MIRROR CARRIES : 6**
+
+###   `archive/2026-08-24-ledger-split/README.md`
+###     ### **CONFIRMED PRESENT**
+###     sha256 : `9d656c018d734370cda9f3cc20fe628d91a628544b003e60cbc7f99d3dad6e3c`
+###     digest match : True   title-line match : True 
+###     title : # LEDGER SPLIT — 2026-08-24 (the twenty-fifth seam close)
+###     ### *(filename in the mirror `2026-08-24-ledger-split__README.md` -- ### **NOT USED AS EVIDENCE**)*
+###   `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md`
+###     ### **CONFIRMED PRESENT**
+###     sha256 : `d400ee73b85eb8d4b42a5304af4a507e159911ec7d8af40211566d0ef288140d`
+###     digest match : True   title-line match : True 
+###     title : **DOCUMENT CLASS — THE STANDING TAXONOMY (K/C/N/E, author-ruled 2026-07-28): ### NOT PLA
+###     ### *(filename in the mirror `OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md` -- ### **NOT USED AS EVIDENCE**)*
+###   `archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md`
+###     ### **CONFIRMED PRESENT**
+###     sha256 : `3788b581a905f1884a37c766de88bf2e8a46ab6e2213df03df3c3fda00584866`
+###     digest match : True   title-line match : True 
+###     title : ## Session landing — 2026-07-09 (new trails; fold into "Open trails (active)" at next ha
+###     ### *(filename in the mirror `OPEN_TRAILS-archive-2-historical-landings-and-programs.md` -- ### **NOT USED AS EVIDENCE**)*
+###   `archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md`
+###     ### **CONFIRMED PRESENT**
+###     sha256 : `6c4f3a7559454d162077847ad31debb28c50ccc63718cb27ba0cddf2680d11c9`
+###     digest match : True   title-line match : True 
+###     title : ## 2026-06-12 -- native_decide cleanup pass
+###     ### *(filename in the mirror `VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md` -- ### **NOT USED AS EVIDENCE**)*
+###   `archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-through-2026-08-20c.md`
+###     ### **CONFIRMED PRESENT**
+###     sha256 : `bd13d64ce5d49e0e0bc613fd340b5ac002b8dea9eb0f2fed4a63e8e1d4bff82f`
+###     digest match : True   title-line match : True 
+###     title : ## M3 (hinge transparent) — refinement: the off-line sign step localized to one order-2 
+###     ### *(filename in the mirror `FINDINGS-archive-1-entries-through-2026-08-20c.md` -- ### **NOT USED AS EVIDENCE**)*
+###   `archive/2026-08-24-ledger-split/FINDINGS-archive-2-entries-2026-08-21-and-22.md`
+###     ### **CONFIRMED PRESENT**
+###     sha256 : `c8975ab88c699dce6b019496fa6d8b3b6c703b98fbfbb2c34433110fcf6c6311`
+###     digest match : True   title-line match : True 
+###     title : ## F.2026-08-22a - THE DISSOLUTION SHAPE'S SECOND INSTANCE: THE ABSOLUTE ORIENTATION IS 
+###     ### *(filename in the mirror `FINDINGS-archive-2-entries-2026-08-21-and-22.md` -- ### **NOT USED AS EVIDENCE**)*
+
+### ### **CONFIRMED PRESENT : 6 ### / ### NOT CONFIRMED : 0 ### of 6**
+### ### **CONFIRMED BY A VERIFIED DIGEST AND BY A TITLE LINE. ### NEVER BY FILENAME** -- the
+### mirror export is flat and derives each name from its source path, and the repository strips
+### version suffixes besides. ### The filename comparison is printed beside each verdict
+### ### **SO A READER CAN SEE IT WAS NOT USED.**
+### **CONTEXT, LABELLED AS CONTEXT AND NOT THE ORDERED REPORT:** ### `92` files sit under
+### `archive/` on the canonical drive and the mirror carries `6` of them; the other `86` were
+### ### **NOT CONFIRMED BY THIS ACT AND IT MAKES NO CLAIM ABOUT THEM.**
+### ### ### **NOTHING WAS REMOVED, MOVED OR RENAMED. ### THE REMOVAL IS THE AUTHOR`S AND DEPENDS
+### ### ### ON THIS REPORT** -- which is exactly why the report had to be able to say NOT
+### ### ### CONFIRMED, and why a near miss is reported as a near miss rather than rounded up.
+
+----------------------------------------------------------------------------------------------------
+### THE DRAFT`S COMPONENT 3 -- ONE `NOT DETERMINABLE` DOCUMENT, READ BY HAND.
+----------------------------------------------------------------------------------------------------
+### **CHOSEN : `phase1.5/method/THE_LOAD_BEARING_MAP.md`** ### -- by a stated rule: the more bounded read, by candidate count.
+### The other, `day1/A_Place_to_Stand.md`, is ### **LEFT EXACTLY AS `b377` LEFT IT.**
+###   identifiers named, each with the sentence that names it : ### **37**
+###   ### **LOCATED IN EXACTLY ONE KERNEL : 20**
+###   located in more than one : 2 ### / ### not located on any ref : 15
+### ### ### **WHAT THE HAND READ DECIDES THAT THE TABLE SCAN COULD NOT:** ### the document
+### ### ### ### **CARRIES SOME APPARATUS AND SOME NAMES DO NOT RESOLVE.**
+### ### **AND WHAT IT STILL DOES NOT DECIDE:** ### whether the document`s SENTENCES about those
+### terminals are right. ### **LOCATING A NAME SAYS IT EXISTS AT THAT NAME**, and this read
+### checked existence and not truth.
+### ### ### **THE OUTCOME IS A MARK, NOT A CLASS.** ### No declaration was moved, no class was
+### ruled, and ### **NOT ONE BYTE WAS WRITTEN INTO THE DOCUMENT.**
+
+----------------------------------------------------------------------------------------------------
+### WHAT THIS ACT DID NOT DO.
+----------------------------------------------------------------------------------------------------
+### ### **NO CLASS WAS RULED. ### NO DOCUMENT WAS RECLASSIFIED. ### NO DECLARATION WAS MOVED.
+### ### ### NO LIST WAS CLOSED.**
+### ### **NO CORPUS DOCUMENT WAS WRITTEN INTO AT ALL** -- not the six, not the two, not the
+### archives, not the census. ### **NO ARCHIVE FILE WAS REMOVED, MOVED OR RENAMED.**
+### ### **NO DOCUMENT WAS REWRITTEN INTO THE OTHER CONVENTION.**
+### ### **THE SIX SUBJECT CLUSTERS STAY FILED AND NOT OPENED.** ### The order adopted the
+### executor`s draft and named three additions, none of which is the cluster lane, and its own
+### closing does not mention it. ### **THAT READING WAS DECLARED ON THIS ACT`S LOCKED FACE IN
+### ### ADVANCE, WHERE THE AUTHOR CAN CORRECT IT** -- which is the only honest place to put an
+### interpretation of an order. ### 6 clusters, unchanged.
+### ### **THE CENSUS STAYS QUOTED AND NOT REPAIRED. ### THE COLUMN-(d) FIGURE STAYS A FLOOR AND
+### ### IS NOT RE-MEASURED.**
+### ### **NO OWNER INSTRUMENT WAS EDITED**, `b376`s lock gate included: it is superseded for this
+### act by a new file and is left exactly as it stands.
+### ### **NO `.lean` FILE TOUCHED, NO BUILD RUN, NO AXIOM PROFILE RECOMPUTED.**
+### ### **THE FOUR OPEN LISTS ARE RESTATED `OPEN` BY NAME, IN THE DESK`S OWN WORDS:**
+###   ### **OPEN** ### -- the rows that cite at a ref nobody can name
+###   ### **OPEN** ### -- the rows grading a declaration the record has classified absent
+###   ### **OPEN** ### -- the undated figures across the roster
+###   ### **OPEN** ### -- the bibliography entries nothing cites
+### ### **NONE IS CLOSED. ### NO NEW TRACKING DOCUMENT WAS CREATED.**
+### ### **NOTHING WAS COMPUTED ABOUT THE OBJECT.** ### `h2` stands exactly where the deposit left
+### it and this act makes no claim about it in either direction. ### The instrument lane stays
+### PARKED; the wave stays PARKED; nothing deposits.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, THE DESK, THE WRITES, AND THE SPECIES.
+----------------------------------------------------------------------------------------------------
+### ### **`(F1)` MET.** ### 14 is materially lower than 37.
+### ### **`(F2)` MET.** ### `grh_exclusion` and `no_ls_zero` sit on a TAG and on no branch.
+### ### **`(E1)`, THIS SEAT`S, PARTLY WRONG.** ### It predicted the largest single category would
+### be ### **NEVER WAS A TERMINAL.** ### The largest is ### **NOT-FOUND-ON-ANY-REF (14)**, with
+### `Mathlib` names second (13) and corpus-document names third (7). ### **THE PREDICTION WAS
+### ### RIGHT THAT THE FALL WOULD NOT BE ABOUT REFS, AND WRONG ABOUT WHICH NON-REF CAUSE
+### ### DOMINATES.**
+### ### **`(E2)` MET.** ### A `Mathlib` name is reported as a category and not as a fault.
+### ### **`(E3)`, THIS SEAT`S, REFUTED.** ### It predicted the held branch would resolve some of
+### `THE_RESIDUE_OF_RH`s names. ### **IT RESOLVED NONE.** ### The document names its own source
+### and the source does not carry the names it left unresolved -- ### **A FINDING ABOUT A DOCUMENT
+### ### THAT NAMES ITS OWN SOURCE AND IS STILL WRONG**, reported without softening.
+
+### desk items swept : 31 ### / ### closed : 1 ### / ### standing : 30 ### / ### lists closed : 0
+### ### **AND THE ONE CLOSURE IS THE LOCK GATE`S HOLE**, closed under `(R7)` by this act`s own
+### killing file -- the occasion is gone because the tool now refuses.
+### trail block appended (append-only True, committed prefix intact True); `CORRESPONDENCE.md` row 227;
+### index key `an-upper-bound-at-one-ref` reachable by every alias : True
+
+### ### ### **NEW -- `A SEARCH THAT CANNOT RUN LOOKS EXACTLY LIKE A SEARCH THAT FOUND NOTHING`.**
+### The failure mode is silent, confident and total, and ### **THE ONLY THING THAT CAUGHT IT WAS A
+### ### CONTRADICTION WITH A PRIOR ACT`S RECORD.** ### A positive control is now the price of
+### reporting an absence.
+### ### ### **NEW -- `AN EXIT CODE ABOVE ONE IS AN ERROR AND NOT AN ANSWER`.** ### `git grep`
+### exits `1` for *no matches* and higher for *I could not search*. ### **CONFLATING THOSE IS HOW
+### ### A BROKEN SWEEP REPORTS A CLEAN ONE.**
+### ### ### **NEW -- `AN UPPER BOUND TAKEN AT ONE REF IS NOT A COUNT`.** ### `b377`s figure was
+### right about what it measured and was not labelled as a bound. ### **A MEASUREMENT`S SCOPE
+### ### BELONGS IN ITS SENTENCE, NOT IN THE READER`S MEMORY.**
+### **MET AGAIN -- `A NAME DECLARED IN TWO KERNELS IS NOT A TERMINAL YOU CAN CITE`.** ### `b377`
+### minted it after its own tool took the first of several silently; ### **THIS ACT`S FIRST RUN
+### ### DID THE SAME THING AND HAD TO BE CORRECTED.** ### A rule minted is not a rule carried.
+### **MET AGAIN -- `PREDICATE_ONE_SHAPE`, NOW TRACED TO ITS COST.** ### The dotted-only predicate
+### knew one dialect and scored the other as an absence.
+### **MET AGAIN -- A SLICE IS AN ADDRESS AND BOTH ITS ENDS ARE VERIFIED** (`b377`), which this act
+### paid for once more while rebuilding a gate suite.
+
+### registration locked at (UTC) 2026-09-09T01:43:08Z
+### ### **18684 bytes, sha256 `cf491cc04ea5d6406eeb2f48de48e17dd7e1d77b170d51544c2953d405693873`, 84 clauses, ### LOCKED BEFORE ANY WRITE AND CHAINED ON A GATE
+### ### THAT CHECKS WHAT EACH GATE READ.**
+### b378_reads         run file `b378_extract_notes3.txt` recorded clock 2026-09-09T01:38:00Z
+### b378_lockgate      run file `b378_lockgate_notes2.txt` recorded clock 2026-09-09T01:43:08Z
+### b378_terminals     run file `b378_terminals_notes3.txt` recorded clock 2026-09-09T01:50:18Z
+### b378_archives      run file `b378_archives_notes.txt` recorded clock 2026-09-09T01:48:06Z
+### b378_hand          run file `b378_hand_notes.txt` recorded clock 2026-09-09T01:51:48Z
+### b378_desk          run file `b378_desk_notes.txt` recorded clock 2026-09-09T01:57:07Z
+### **THE REFS THIS ACT READ IN THE ROSTERED REPOSITORIES:**
+###   relay                  `main` = `709820fdd43f`
+###   SIDE-global-section    `main` = `4c03dc9b46e4`
+###   PLACE-papers           `main` = `33b6baa91a41`
+###   SIDE-effects           `main` = `5217b71705b3`
+### **THE EXTRACT:** ### `30` reads, `0` without an anchor, `8` anchors differing from the hint
+### that found them. ### **EVERY ANCHOR WAS READ FROM ITS FILE AND NONE WAS TYPED.**
+====================================================================================================
