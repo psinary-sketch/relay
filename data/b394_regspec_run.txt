@@ -1,0 +1,44 @@
+====================================================================================================
+b394_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b394_registration_2026-09-09.txt
+  bytes/lines  : 18585 / 230
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 39
+
+  clauses emitted : 77
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 21**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 5    cap 5
+      census keystones on disk                                       demand 15   cap 15
+      keystones whose terminals the drive can reach                  demand 4    cap 4
+      keystones read whole by this act                               demand 3    cap 3
+      keystones excluded and named with a reason                     demand 11   cap 11
+      keystones set aside with their own reason                      demand 1    cap 1
+      buckets reported per subject                                   demand 3    cap 3
+      citations repaired in place                                    demand 2    cap 2
+      annotations preserving the pre-repair form                     demand 1    cap 1
+      keystones reconciled after this act                            demand 4    cap 4
+      ways this sample is unrepresentative, named                    demand 1    cap 1
+      species the corpus-wide sweep reports                          demand 3    cap 3
+      corrected-but-unpropagated instances found                     demand 2    cap 2
+      superseded citations reported                                  demand 6    cap 6
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 4    cap 4
+      gate arms declared                                             demand 39   cap 39
+      new `relay` tool files                                         demand 6    cap 6
+  written : b394_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : bd702a23febdafdbb40f6c27e28b643ddcaef504b9cb92b546d3147b9a6cb4a2  (b394_registration_2026-09-09.txt)
