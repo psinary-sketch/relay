@@ -1,0 +1,43 @@
+====================================================================================================
+b392_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b392_registration_2026-09-09.txt
+  bytes/lines  : 19991 / 249
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 37
+
+  clauses emitted : 66
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 20**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 5    cap 5
+      rulings written                                                demand 2    cap 2
+      amendments made additively                                     demand 2    cap 2
+      guards written into the new class                              demand 1    cap 1
+      failures quoted beside the guard                               demand 2    cap 2
+      limbs of the deposit rule written verbatim                     demand 3    cap 3
+      currency obligations stated as a disjunction                   demand 1    cap 1
+      files the rule is written into                                 demand 1    cap 1
+      files carrying a pointer at the rule                           demand 1    cap 1
+      deposited records the corpus knows of                          demand 16   cap 16
+      records the deposit note lists as citable                      demand 3    cap 3
+      unlisted records                                               demand 10   cap 10
+      unlisted records given a limb verdict                          demand 10   cap 10
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 4    cap 4
+      gate arms declared                                             demand 37   cap 37
+      new `relay` tool files                                         demand 6    cap 6
+  written : b392_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : bec15a4abd5b9beefcae558d0b24401ab802cb8a87280b3e7c23b00c1b4e127c  (b392_registration_2026-09-09.txt)
