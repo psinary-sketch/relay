@@ -1,0 +1,682 @@
+{
+ "chosen": "day1/A_Place_to_Stand.md",
+ "chosen_by": "by exclusion -- the one of the two b378 did not read",
+ "already_done": "phase1.5/method/THE_LOAD_BEARING_MAP.md",
+ "named": 62,
+ "categories": {
+  "NOT_LOCATED": 16,
+  "CORPUS_TERMINAL": 44,
+  "MANUSCRIPT_RESIDENT": 1,
+  "ON_A_TAG_NOT_A_BRANCH": 1
+ },
+ "located": 45,
+ "not_located": 16,
+ "decided": "CARRIES APPARATUS",
+ "concordance_language": true,
+ "control_held": true,
+ "grep_errors": [],
+ "rows": [
+  {
+   "name": "AnalyticOn.contDiffOn",
+   "line": 1530,
+   "sentence": "The CartanBBridge module also realigns the file with current Mathlib API (April 2026): `AnalyticOn.contDiffOn` requires a `UniqueDiffOn` argument, the Identity Theorem moved to `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, and `IsOpen.analyticOn_iff_analyticOnNhd` bridges `AnalyticOn` and `A",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+   "line": 1530,
+   "sentence": "The CartanBBridge module also realigns the file with current Mathlib API (April 2026): `AnalyticOn.contDiffOn` requires a `UniqueDiffOn` argument, the Identity Theorem moved to `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, and `IsOpen.analyticOn_iff_analyticOnNhd` bridges `AnalyticOn` and `A",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "ArithmeticFunction.vonMangoldt_nonneg",
+   "line": 1166,
+   "sentence": "**(9)** The SIDE syllogism: all properties of ξ trace to the specification n² → θ → ξ (Determination, Step 1). If a zero existed at σ ≠ 1/2, some mechanism in the specification would produce it. The mechanism catalogue is exhaustive (Step 6, Ostrowski). Tate's thesis verifies Determination for ξ: th",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "Bridge.StructuralExhaustiveness",
+   "line": 1563,
+   "sentence": "taking the direct-form proposition to Mathlib's `RiemannHypothesis`. This is one of the building blocks of Route 3 (§25.5): `Bridge/ConservationBridge.lean` chains `ConservationHypothesis` through Voice 1's `balance_theorem` to produce `Integration.StructuralExhaustiveness`, then applies `rh_from_st",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "C4_modularity",
+   "line": 1802,
+   "sentence": "**What remains, exactly.** The bracket's two obligations are h1 — the per-class constraints of Chapter 15, instantiated at the fixed witness — and h2 — nonvanishing of the transform at the point in question. As of SIDE-lv-conservation v0.6.0, **h1 is complete at the witness**: all eight coupling dis",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "Classical.choice",
+   "line": 1681,
+   "sentence": "**Closure.** Across `Kernel/`, `Bridge/`, and `MetaKernel.lean` there are zero `axiom` declarations, zero `sorry`, and zero `native_decide`. Those are the only three sources of a non-standard axiom, so every declaration in the core — not only the terminals above — depends on at most `propext`, `Clas",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "ConservationBridge.riemann_hypothesis",
+   "line": 115,
+   "sentence": "**Formal verification:** the Lean 4 kernel verifies the proof's logical structure — the three route terminals at their pins, composing under the named premise `h2` (criterion + verified surround, not end-to-end) — each at zero `sorry` and zero custom axioms. The sorry-free core (`Kernel/`, `Bridge/`",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "Finset.prod",
+   "line": 1540,
+   "sentence": "**The Product Formula.** Three files — `ProductFormula_Prime.lean`, `ProductFormula_Int.lean`, `ProductFormula_Rat.lean` — proving for any positive integer n that the product of its archimedean and p-adic absolute values equals 1: ∏_v |n|_v = 1. Proved using Mathlib's `padicNorm`, `padicValRat`, and",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "Integration.StructuralExhaustiveness",
+   "line": 1558,
+   "sentence": "**The RH-reduction theorem.** `Integration.lean` defines the proposition `Integration.StructuralExhaustiveness` as `∀ σ, is_xi_zero σ → σ = 1/2` — a direct restatement of RH on the σ-coordinate — and proves:",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "IsOpen.analyticOn_iff_analyticOnNhd",
+   "line": 1530,
+   "sentence": "The CartanBBridge module also realigns the file with current Mathlib API (April 2026): `AnalyticOn.contDiffOn` requires a `UniqueDiffOn` argument, the Identity Theorem moved to `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`, and `IsOpen.analyticOn_iff_analyticOnNhd` bridges `AnalyticOn` and `A",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "Lean.ofReduceBool",
+   "line": 1655,
+   "sentence": "The claims this chapter makes about the kernel are meant to be checked, not trusted. For each load-bearing theorem the table gives its fully qualified name, the module it lives in, and the axioms it depends on as reported by Lean's `#print axioms`. A clean entry reads `[propext, Classical.choice, Qu",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "LiLinearMap.lam_nonneg_of_nonneg",
+   "line": 1166,
+   "sentence": "**(9)** The SIDE syllogism: all properties of ξ trace to the specification n² → θ → ξ (Determination, Step 1). If a zero existed at σ ≠ 1/2, some mechanism in the specification would produce it. The mechanism catalogue is exhaustive (Step 6, Ostrowski). Tate's thesis verifies Determination for ξ: th",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-li-map"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "Module1.no_type_d_conspiracies",
+   "line": 1675,
+   "sentence": "**Inter-class independence.** The `CrossClassExclusion` module certifies κ = 0 for every inter-mechanism-class coupling: no pair of mechanism classes conspires to place an off-line zero that neither produces alone. Its terminals — `all_pairs_excluded` (all pairs), `cross_class_exclusion` (per pair),",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-effects"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "Quot.sound",
+   "line": 1681,
+   "sentence": "**Closure.** Across `Kernel/`, `Bridge/`, and `MetaKernel.lean` there are zero `axiom` declarations, zero `sorry`, and zero `native_decide`. Those are the only three sources of a non-standard axiom, so every declaration in the core — not only the terminals above — depends on at most `propext`, `Clas",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "Rat.AbsoluteValue.equiv_real_or_padic",
+   "line": 1677,
+   "sentence": "**On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states. Read per conjunct: the catalogue completeness `Fintype.card MechanismClass = 7` is `decide`; the Ostrowski conjunct (e",
+   "category": "MANUSCRIPT_RESIDENT",
+   "why": "the row says so in the front door's own word",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "SIDEKernel.formation",
+   "line": 1554,
+   "sentence": "**The Formation Count.** `decide` verifies 2 + 3 + 2 + 0 = 7 (the canonical `SIDEKernel.formation`, axiom-free). The Poisson Exhaustion structure is encoded as a `Place` type with Ostrowski classification.",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "SpectralCannonFull.spectral_cannon",
+   "line": 115,
+   "sentence": "**Formal verification:** the Lean 4 kernel verifies the proof's logical structure — the three route terminals at their pins, composing under the named premise `h2` (criterion + verified surround, not end-to-end) — each at zero `sorry` and zero custom axioms. The sorry-free core (`Kernel/`, `Bridge/`",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "W_pole",
+   "line": 2258,
+   "sentence": "> **The two arrangements are IDENTICAL — there is no sign-convention difference.** Both write the pole and the archimedean terms with the same signs, so the gap this era went looking for does not exist. Three consequences follow and none of them is a claim about ζ. **(1)** `W_∞` is **not sign-defini",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "all_pairs_excluded",
+   "line": 1675,
+   "sentence": "**Inter-class independence.** The `CrossClassExclusion` module certifies κ = 0 for every inter-mechanism-class coupling: no pair of mechanism classes conspires to place an off-line zero that neither produces alone. Its terminals — `all_pairs_excluded` (all pairs), `cross_class_exclusion` (per pair),",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "balance_theorem",
+   "line": 1563,
+   "sentence": "taking the direct-form proposition to Mathlib's `RiemannHypothesis`. This is one of the building blocks of Route 3 (§25.5): `Bridge/ConservationBridge.lean` chains `ConservationHypothesis` through Voice 1's `balance_theorem` to produce `Integration.StructuralExhaustiveness`, then applies `rh_from_st",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "c2_forces_half",
+   "line": 1547,
+   "sentence": "| Voice2 | C₁ | `c2_forces_half` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "c6_exclusion",
+   "line": 1677,
+   "sentence": "**On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states. Read per conjunct: the catalogue completeness `Fintype.card MechanismClass = 7` is `decide`; the Ostrowski conjunct (e",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "cartan_B_consequence",
+   "line": 1528,
+   "sentence": "The v1.1 release adds `Bridge/CartanBBridge.lean`, which certifies the enumeration side of n₃ = 2 as a Lean-verified theorem (`output_stage_card : Fintype.card OutputStageClass = 2`). The three classical theorems mathematically supporting n₃ = 2 (elliptic regularity for ∂̄ and the Identity Theorem a",
+   "category": "ON_A_TAG_NOT_A_BRANCH",
+   "why": "declared in a corpus kernel, on a tag and on no branch",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "certifiedInput_not_zeroRealizing",
+   "line": 1804,
+   "sentence": "**The registers, compiled.** After h1 completed at the witness, the programme took the *register structure itself* to the compiler. SIDE-lv-conservation now carries, with clean profiles: the **register pentagon** (`RegisterPentagon`, v0.7.0) — the five faces R1–R5 and the goal state as Prop-level ob",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "completedRiemannZeta₀_one_sub",
+   "line": 1698,
+   "sentence": "Over successive iterations, each axiom became a theorem. The trajectory was mathematical discovery, not engineering: each elimination revealed something about ξ(s) that had been assumed rather than understood. The Schwarz reflection axiom fell because the Mellin kernel is real-valued — an insight ab",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "conservation_certificate",
+   "line": 1573,
+   "sentence": "The kernel's core is a three-file chain proving the product formula ∏_v |x|_v = 1 from prime powers (`ProductFormula_Prime.lean`, terminating in `prod_prime_power_absValues`) through general integers (`ProductFormula_Int.lean`, terminating in `prod_int_absValues`) to rationals with the conservation ",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "coupling_strength_zero",
+   "line": 1675,
+   "sentence": "**Inter-class independence.** The `CrossClassExclusion` module certifies κ = 0 for every inter-mechanism-class coupling: no pair of mechanism classes conspires to place an off-line zero that neither produces alone. Its terminals — `all_pairs_excluded` (all pairs), `cross_class_exclusion` (per pair),",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "cr_forces_half",
+   "line": 1549,
+   "sentence": "| Voice3b | C₆ | `cr_forces_half` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "cross_class_exclusion",
+   "line": 1675,
+   "sentence": "**Inter-class independence.** The `CrossClassExclusion` module certifies κ = 0 for every inter-mechanism-class coupling: no pair of mechanism classes conspires to place an off-line zero that neither produces alone. Its terminals — `all_pairs_excluded` (all pairs), `cross_class_exclusion` (per pair),",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "deriv_fe",
+   "line": 1556,
+   "sentence": "**The Perpendicular Crossing Probe.** `Kernel/PerpendicularCrossing.lean` proves that the derivative of the completed zeta function satisfies ξ'(s) = −ξ'(1−s) (the differentiated functional equation, `deriv_fe`) and Re(ξ'(1/2 + it)) = 0 for all real t (the spectral cannon `SpectralCannonFull.spectra",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "detection_threshold_mono",
+   "line": 1787,
+   "sentence": "**The five registers.** First: the *universality hypothesis* carried by the Universal Silence Theorem. Chapter 14 states it plainly — the hypothesis is load-bearing; removing it from the proof of `silence_universal` leaves an unsolved goal — and the SIDE-kernel deposit description repeats the disclo",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "determination_bridge",
+   "line": 1657,
+   "sentence": "**Kernel lineage note (2026-07-24, deposit advanced to v1.5).** The profiles in this table were re-profiled at v1.3 = `0bc21c0` and are **unmoved at the current deposit, `v1.5 = 0e5233f`** (SHA-triple verified: annotated tag-object `922c0fc`, peeled commit = local = remote = `0e5233f`). Deposit line",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "escape_kind_discriminates",
+   "line": 2191,
+   "sentence": "v5.13 (2026-07-27, the substrate season — the completer): **E-2026-07-27** — the season absorbs the sign-frontier's maturation into the monograph at synthesis grade (detail in *Paths to the Critical Line* §ANNEX C/D and the residue paper v1.1). **R1 §27.3 fifth register:** h2's residual named as a s",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "h1_complete_at_Phi",
+   "line": 1802,
+   "sentence": "**What remains, exactly.** The bracket's two obligations are h1 — the per-class constraints of Chapter 15, instantiated at the fixed witness — and h2 — nonvanishing of the transform at the point in question. As of SIDE-lv-conservation v0.6.0, **h1 is complete at the witness**: all eight coupling dis",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "lowFinset_mem_iff",
+   "line": 1804,
+   "sentence": "**The registers, compiled.** After h1 completed at the witness, the programme took the *register structure itself* to the compiler. SIDE-lv-conservation now carries, with clean profiles: the **register pentagon** (`RegisterPentagon`, v0.7.0) — the five faces R1–R5 and the goal state as Prop-level ob",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "modular_forces_half",
+   "line": 1550,
+   "sentence": "| Voice5 | C₄ | `modular_forces_half` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "mul_add",
+   "line": 825,
+   "sentence": "The product formula interfaces between archimedean and multiplicative structures. Without it, no adelic integration, no ξ(s). It carries zero information about zero locations. The distributive law a(b+c) = ab+ac couples addition and multiplication. Without it, no ring structure, no ζ. Its spectral i",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "native_decide",
+   "line": 1655,
+   "sentence": "The claims this chapter makes about the kernel are meant to be checked, not trusted. For each load-bearing theorem the table gives its fully qualified name, the module it lives in, and the axioms it depends on as reported by Lean's `#print axioms`. A clean entry reads `[propext, Classical.choice, Qu",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "none_produce",
+   "line": 1677,
+   "sentence": "**On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states. Read per conjunct: the catalogue completeness `Fintype.card MechanismClass = 7` is `decide`; the Ostrowski conjunct (e",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "offLine_of_codim_two",
+   "line": 1657,
+   "sentence": "**Kernel lineage note (2026-07-24, deposit advanced to v1.5).** The profiles in this table were re-profiled at v1.3 = `0bc21c0` and are **unmoved at the current deposit, `v1.5 = 0e5233f`** (SHA-triple verified: annotated tag-object `922c0fc`, peeled commit = local = remote = `0e5233f`). Deposit line",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "output_stage_card",
+   "line": 1757,
+   "sentence": "**Proof architecture corrections.** Thom transversality removed from the proof's logical spine (retained only as Closure 5 in §18). The n₃ = 2 enumeration was elevated to a Lean-verified `output_stage_card` via CartanBBridge; the three classical theorems mathematically supporting n₃ = 2 (elliptic re",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "partialPositivity_finiteRange",
+   "line": 1804,
+   "sentence": "**The registers, compiled.** After h1 completed at the witness, the programme took the *register structure itself* to the compiler. SIDE-lv-conservation now carries, with clean profiles: the **register pentagon** (`RegisterPentagon`, v0.7.0) — the five faces R1–R5 and the goal state as Prop-level ob",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-lv-conservation"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "prod_int_absValues",
+   "line": 1573,
+   "sentence": "The kernel's core is a three-file chain proving the product formula ∏_v |x|_v = 1 from prime powers (`ProductFormula_Prime.lean`, terminating in `prod_prime_power_absValues`) through general integers (`ProductFormula_Int.lean`, terminating in `prod_int_absValues`) to rationals with the conservation ",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "prod_prime_power_absValues",
+   "line": 1573,
+   "sentence": "The kernel's core is a three-file chain proving the product formula ∏_v |x|_v = 1 from prime powers (`ProductFormula_Prime.lean`, terminating in `prod_prime_power_absValues`) through general integers (`ProductFormula_Int.lean`, terminating in `prod_int_absValues`) to rationals with the conservation ",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "prod_rat_absValues",
+   "line": 1573,
+   "sentence": "The kernel's core is a three-file chain proving the product formula ∏_v |x|_v = 1 from prime powers (`ProductFormula_Prime.lean`, terminating in `prod_prime_power_absValues`) through general integers (`ProductFormula_Int.lean`, terminating in `prod_int_absValues`) to rationals with the conservation ",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "kernels": [],
+   "n_kernels": 0
+  },
+  {
+   "name": "produces_offline",
+   "line": 1605,
+   "sentence": "For each mechanism class, `produces_offline` is defined as the algebraic signature that class would imprint at an off-line zero, and refuted by a named Voice theorem:",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "reflect_fixed_iff",
+   "line": 1548,
+   "sentence": "| Voice3 | C₃ | `reflect_fixed_iff` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "rh_from_structural_exhaustiveness",
+   "line": 1563,
+   "sentence": "taking the direct-form proposition to Mathlib's `RiemannHypothesis`. This is one of the building blocks of Route 3 (§25.5): `Bridge/ConservationBridge.lean` chains `ConservationHypothesis` through Voice 1's `balance_theorem` to produce `Integration.StructuralExhaustiveness`, then applies `rh_from_st",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "schwarz_deriv",
+   "line": 1556,
+   "sentence": "**The Perpendicular Crossing Probe.** `Kernel/PerpendicularCrossing.lean` proves that the derivative of the completed zeta function satisfies ξ'(s) = −ξ'(1−s) (the differentiated functional equation, `deriv_fe`) and Re(ξ'(1/2 + it)) = 0 for all real t (the spectral cannon `SpectralCannonFull.spectra",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "self_adjoint_forces_half",
+   "line": 1551,
+   "sentence": "| Voice6 | C₅ | `self_adjoint_forces_half` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "silence_universal",
+   "line": 1787,
+   "sentence": "**The five registers.** First: the *universality hypothesis* carried by the Universal Silence Theorem. Chapter 14 states it plainly — the hypothesis is load-bearing; removing it from the proof of `silence_universal` leaves an unsolved goal — and the SIDE-kernel deposit description repeats the disclo",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel",
+    "SIDE-silence-principle"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "spectral_cannon",
+   "line": 1347,
+   "sentence": "This result is formally verified in Lean 4 as `spectral_cannon`: Re(ξ'(1/2 + it)) = 0 for all real t, compiled against Mathlib with zero `sorry`.",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "structural_exhaustiveness_proved",
+   "line": 115,
+   "sentence": "**Formal verification:** the Lean 4 kernel verifies the proof's logical structure — the three route terminals at their pins, composing under the named premise `h2` (criterion + verified surround, not end-to-end) — each at zero `sorry` and zero custom axioms. The sorry-free core (`Kernel/`, `Bridge/`",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "topological_no_sigma_preference",
+   "line": 1552,
+   "sentence": "| Voice7 | C₇ | `topological_no_sigma_preference` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "voice1_balance",
+   "line": 1610,
+   "sentence": "| C₂ Euler | ∃ σ ≠ 1/2, −σ = −(1 − σ) | `voice1_balance` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "voice2_conjugation",
+   "line": 1609,
+   "sentence": "| C₁ Schwarz | ∃ σ ≠ 1/2, σ = 1 − σ | `voice2_conjugation` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "voice3_reflect_fixed",
+   "line": 1611,
+   "sentence": "| C₃ Functional eq | ∃ σ ≠ 1/2, (1 − σ) = σ | `voice3_reflect_fixed` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "voice4_S_fixed",
+   "line": 1612,
+   "sentence": "| C₄ Modular | ∃ σ ≠ 1/2, 1 − σ = σ | `voice4_S_fixed` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "voice5_spectral_offset",
+   "line": 1613,
+   "sentence": "| C₅ Spectral | ∃ σ ≠ 1/2, σ − 1/2 = 0 | `voice5_spectral_offset` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "voice7_sigma_neutral",
+   "line": 1615,
+   "sentence": "| C₇ Hadamard | ∃ σ, hadamard_contrib σ ≠ hadamard_contrib(1/2) | `voice7_sigma_neutral` |",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel"
+   ],
+   "n_kernels": 1
+  },
+  {
+   "name": "zero_codim",
+   "line": 1657,
+   "sentence": "**Kernel lineage note (2026-07-24, deposit advanced to v1.5).** The profiles in this table were re-profiled at v1.3 = `0bc21c0` and are **unmoved at the current deposit, `v1.5 = 0e5233f`** (SHA-triple verified: annotated tag-object `922c0fc`, peeled commit = local = remote = `0e5233f`). Deposit line",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-kernel",
+    "SIDE-rcurve"
+   ],
+   "n_kernels": 2
+  },
+  {
+   "name": "zero_codimension",
+   "line": 1657,
+   "sentence": "**Kernel lineage note (2026-07-24, deposit advanced to v1.5).** The profiles in this table were re-profiled at v1.3 = `0bc21c0` and are **unmoved at the current deposit, `v1.5 = 0e5233f`** (SHA-triple verified: annotated tag-object `922c0fc`, peeled commit = local = remote = `0e5233f`). Deposit line",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "kernels": [
+    "SIDE-grh-transfer",
+    "SIDE-kernel"
+   ],
+   "n_kernels": 2
+  }
+ ],
+ "declaration_moved": false,
+ "class_ruled": false,
+ "bytes_written": 0,
+ "run_file": "b379_hand_notes.txt",
+ "run_clock": "2026-09-09T02:55:17Z"
+}

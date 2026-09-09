@@ -83,6 +83,9 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-suspect-column-re-measured': ['the apparatus axis re-scored', 'the suspect column',
+                                      'the row categories', 'a category is not an absence',
+                                      'the download layer drift'],
     'an-upper-bound-at-one-ref': ['the refs widened', 'an upper bound at one ref',
                                  'the two conventions', 'the archives confirmed',
                                  'a search that cannot run'],
@@ -630,6 +633,28 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE APPARATUS AXIS RE-SCORED, AND TWO FILINGS (b379).
+    ("the-suspect-column-re-measured", "b379 (the axis-B column b378 named suspect, re-measured; the row categories; two filings about a document outside the tree)",
+     "THE SUSPECT COLUMN RE-MEASURED. b376 axis-B predicate required a DOTTED terminal and b378 found NOT ONE citing document uses the dotted convention alone, so the whole "
+     " 303-document B- column was suspect. Re-measured with a both-dialect matcher: B+ moves from 20 to 27, 7 gained and NONE LOST. THE DIRECTION WAS REGISTERED BEFORE THE RUN -- "
+     " a widened matcher finds more and never fewer, so a document losing a mark would be A DEFECT IN THE INSTRUMENT and reported as one. AND THE MOVEMENT LANDED ENTIRELY IN THE "
+     " CORPUS SILENCE: 0 documents moved into the both-axes quadrant, so the correction ENLARGES THE APPARATUS COLUMN AND LEAVES THE ROLE COLUMN EXACTLY WHERE IT "
+     " WAS. A CATEGORY REPORTED AS AN ABSENCE IS A FALSE DEFECT: row_categories is new and SHARED, carries the front door own MANUSCRIPT-RESIDENT and RESEARCH-REACH, adds the "
+     " three b378 met, and reports 14 absences where the old vocabulary reported 37. THE DAY-1 DOCUMENT CARRIES APPARATUS: 45 of 62 identifiers "
+     " locate in a corpus kernel. AND THE DOWNLOAD-LAYER BOOK DRIFTS: the registry carries it at v0_5 as NON-KEYSTONE while later documents carry it at v0_6 and v0.7 as a TIER C "
+     " NARRATIVE KEYSTONE, with 3 versions on disk -- A CHAIN THAT MOVED AND A PRECEDENCE SOURCE THAT DID NOT.",
+     "### NO CLASS WAS RULED, NO DOCUMENT RECLASSIFIED, NO DECLARATION MOVED AND NO LIST CLOSED. ### NO CORPUS DOCUMENT WAS WRITTEN INTO AT ALL AND REGISTRY.md WAS NOT EDITED --"
+     " under the corpus own rule the registry is what the others reconcile TO, and a seat that edits the precedence source to match a document that drifted has inverted the"
+     " rule it is enforcing. ### NOTHING ON THE DOWNLOAD LAYER WAS WRITTEN, MOVED, RENAMED OR REMOVED and the book was not read for content. ### EVERY ABSENCE CARRIES A POSITIVE"
+     " CONTROL THAT FINDS A KNOWN PRESENCE FIRST, AND AN ERROR EXIT IS NOT AN ANSWER. ### THE CATEGORY MODULE RETURNS A CATEGORY AND NEVER A VERDICT; a category is not an"
+     " excuse. ### NO OPTION IS RECOMMENDED and the ruling remains the author. ### THE CORRECTED COLUMN IS THIS SEAT SECOND PREDICATE AND NOT A GROUND TRUTH. ### THE FOUR"
+     " OPEN LISTS ARE RESTATED OPEN BY NAME. ### NO NEW TRACKING DOCUMENT WAS CREATED. ### NO LEAN FILE TOUCHED, NO BUILD RUN. ### NOTHING COMPUTED ABOUT THE OBJECT. ### M-2"
+     " UNCHANGED",
+     "data/b379_the_apparatus_axis_rescored.txt; data/b379_rescore_notes.txt; data/b379_survivors_notes.txt; data/b379_hand_notes.txt; data/b379_filings_notes.txt;"
+     " data/b379_registration_2026-09-08.txt (LOCKED before any write, chained on tools/b378_lockgate.py run as b379 -- 8 gates read, 4 checked by digest);"
+     " tools/row_categories.py (SHARED, new: the front door own words carried, three categories added, fixtured in both polarities); tools/b379_rescore.py (b376_axes"
+     " IMPORTED UNMODIFIED and the prior column RE-RUN, not trusted); tools/b379_survivors.py; tools/b379_hand.py; tools/b379_filings.py;"
+     " PLACE-papers OPEN_TRAILS.md (append-only); CORRESPONDENCE.md row 228"),
     # ### THE REFS WIDENED AND THE CONVENTION SWEPT (b378).
     ("an-upper-bound-at-one-ref", "b378 (the terminal search re-run across every ref; the two conventions swept; the archives confirmed and NOT removed)",
      "AN UPPER BOUND TAKEN AT ONE REF IS NOT A COUNT. b377 searched 43 refs -- one per kernel -- and reported 37 identifiers no kernel "

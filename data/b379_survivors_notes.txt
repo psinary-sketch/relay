@@ -1,0 +1,132 @@
+### run at (UTC) : 2026-09-09T02:53:48Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b379 -- THE SURVIVORS, ONE STEP FURTHER. ### **AND THE ROW CATEGORIES, APPLIED.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE CATEGORY MODULE, FIXTURED BEFORE IT IS USED.
+----------------------------------------------------------------------------------------------------
+      a kernel find is a corpus terminal                         got CORPUS_TERMINAL          want CORPUS_TERMINAL          ok
+      ### **and a kernel find is NOT called a library one**      got True                     want True                     ok
+      a dependency-package find is a library terminal            got LIBRARY_TERMINAL         want LIBRARY_TERMINAL         ok
+      ### **and a library find is NOT called NOT_LOCATED**       got True                     want True                     ok
+      a tag-only find is tag-only                                got ON_A_TAG_NOT_A_BRANCH    want ON_A_TAG_NOT_A_BRANCH    ok
+      ### **and a branch find is NOT called tag-only**           got CORPUS_TERMINAL          want CORPUS_TERMINAL          ok
+      a row saying manuscript-resident is taken at the front doo got MANUSCRIPT_RESIDENT      want MANUSCRIPT_RESIDENT      ok
+      a row saying research-reach likewise                       got RESEARCH_REACH           want RESEARCH_REACH           ok
+      ### **and a silent row is NOT read as either**             got True                     want True                     ok
+      a name that is a corpus document is named as one           got NAMES_A_CORPUS_DOCUMENT  want NAMES_A_CORPUS_DOCUMENT  ok
+      ### **and a name that is not a document is NOT**           got NOT_LOCATED              want NOT_LOCATED              ok
+      nothing found and nothing said is NOT_LOCATED              got NOT_LOCATED              want NOT_LOCATED              ok
+      ### **and NOT_LOCATED is never returned when a hit exists* got True                     want True                     ok
+      every category the module names is reachable               got True                     want True                     ok
+    ### ### **FIXTURE VERDICT : EVERY CATEGORY RECOGNISED, AND EVERY ONE REFUSED WHERE IT DOES NOT APPLY**
+    ### **THE FRONT DOOR`S OWN WORDS, CARRIED AND NOT REPLACED** (`PLACE-papers/README.md, section "Correspondence tables"`):
+    ###   | Where no kernel exists, the status says so in words -- manuscript-resident or research-reach -- rather than being omitted.
+    ### categories : 7, of which ADDED AT b379 : 3 -- LIBRARY_TERMINAL, NAMES_A_CORPUS_DOCUMENT, ON_A_TAG_NOT_A_BRANCH
+    ### ### **THE MODULE RETURNS A CATEGORY AND NEVER A VERDICT.** ### Naming a row a library
+    ### lemma says where the terminal lives; ### **IT DOES NOT SAY THE ROW IS RIGHT.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE CATEGORIES, ASSIGNED BY THE MODULE OVER ALL 37 CARRIED IDENTIFIERS.
+----------------------------------------------------------------------------------------------------
+    identifier                                     category                     why
+    ----------------------------------------------------------------------------------------------
+    E_h                                            NOT_LOCATED                  no searched ref declares it and 
+    IDENTITY_SUBSPACE                              NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    THE_CHIASMUS_PATTERN                           NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    THE_CORNER_MAP                                 NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    Third_Identity                                 NOT_LOCATED                  no searched ref declares it and 
+    Z_Q                                            NOT_LOCATED                  no searched ref declares it and 
+    ZeroActingPairing.yieldsInequality             NOT_LOCATED                  no searched ref declares it and 
+    OPEN_TRAILS                                    NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    Z_Q                                            NOT_LOCATED                  no searched ref declares it and 
+    ArithmeticFunction.vonMangoldt_nonneg          LIBRARY_TERMINAL             declared at `.lake/packages/math
+    Complex.Gamma                                  LIBRARY_TERMINAL             declared at `.lake/packages/math
+    PhragmenLindelof.vertical_strip                LIBRARY_TERMINAL             declared at `.lake/packages/math
+    Real.log_le_sub_one_of_pos                     LIBRARY_TERMINAL             declared at `.lake/packages/math
+    THE_RESIDUE_OF_RH                              NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    W_pole                                         NOT_LOCATED                  no searched ref declares it and 
+    Z_Q                                            NOT_LOCATED                  no searched ref declares it and 
+    completedRiemannZeta_eq                        LIBRARY_TERMINAL             declared at `.lake/packages/math
+    completedRiemannZeta_one_sub                   LIBRARY_TERMINAL             declared at `.lake/packages/math
+    differentiable_completedZeta₀                  LIBRARY_TERMINAL             declared at `.lake/packages/math
+    eulerMascheroniSeq_lt_eulerMascheroniConstant  LIBRARY_TERMINAL             declared at `.lake/packages/math
+    f_modif                                        LIBRARY_TERMINAL             declared at `.lake/packages/math
+    hasSum_int_evenKernel                          LIBRARY_TERMINAL             declared at `.lake/packages/math
+    isBigO_atTop_evenKernel_sub                    LIBRARY_TERMINAL             declared at `.lake/packages/math
+    one_half_lt_eulerMascheroniConstant            LIBRARY_TERMINAL             declared at `.lake/packages/math
+    riemannZeta_ne_zero_of_one_lt_re               LIBRARY_TERMINAL             declared at `.lake/packages/math
+    silence_universal                              CORPUS_TERMINAL              declared in a corpus kernel on a
+    A_n                                            NOT_LOCATED                  no searched ref declares it and 
+    F_v                                            NOT_LOCATED                  no searched ref declares it and 
+    OPEN_TRAILS                                    NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    THE_CODOMAIN_SPECIFICATION                     NAMES_A_CORPUS_DOCUMENT      the backticked name is a documen
+    e_n                                            NOT_LOCATED                  no searched ref declares it and 
+    grh_exclusion                                  ON_A_TAG_NOT_A_BRANCH        declared in a corpus kernel, on 
+    is_last                                        NOT_LOCATED                  no searched ref declares it and 
+    no_ls_zero                                     ON_A_TAG_NOT_A_BRANCH        declared in a corpus kernel, on 
+    per_mode_eps_grids                             NOT_LOCATED                  no searched ref declares it and 
+    psi_coarse                                     NOT_LOCATED                  no searched ref declares it and 
+    resid_N                                        NOT_LOCATED                  no searched ref declares it and 
+
+    ### ### **THE TALLY : {'NOT_LOCATED': 14, 'NAMES_A_CORPUS_DOCUMENT': 7, 'LIBRARY_TERMINAL': 13, 'CORPUS_TERMINAL': 1, 'ON_A_TAG_NOT_A_BRANCH': 2}**
+    ### ### **AND ONLY 14 OF 37 ARE `NOT_LOCATED` -- THE ONE CATEGORY THAT ASSERTS AN
+    ### ### ABSENCE.** ### A checker with these categories reports 14 defects where the old
+    ### ### one reported 37.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE SURVIVORS, ONE STEP FURTHER, FROM THE SENTENCE THAT NAMES EACH.
+----------------------------------------------------------------------------------------------------
+    ### **WHAT `b378` LEFT:** ### 14 identifiers that no ref of any kernel declares and that
+    ### `Mathlib` does not carry either.
+
+    ### `E_h` ### -- `INSTRUMENTS` line 83
+        the sentence that names it : - **the deformation face:** progress on the Lagarias `E_h` chain at `h < ½`, or past the Conrey-Li refutation.
+        ### ### **PROSE-THAT-WAS-NEVER-A-TERMINAL** ### -- the sentence uses it as a quantity or a symbol, not as a citation
+    ### `Third_Identity` ### -- `INSTRUMENTS` line 131
+        the sentence that names it : | (a) identity-element re-centering | move the distinguished/identity element | Ξ.10 RESONANCE + `Third_Identity` / `IDENTITY_SUBSPA
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `Z_Q` ### -- `INSTRUMENTS` line 18
+        the sentence that names it : 1. **Construct** the function via a fast-converging analytic continuation (for Epstein `Z_Q`: the incomplete-gamma theta-transform `
+        ### ### **PROSE-THAT-WAS-NEVER-A-TERMINAL** ### -- the sentence uses it as a quantity or a symbol, not as a citation
+    ### `ZeroActingPairing.yieldsInequality` ### -- `INSTRUMENTS` line 133
+        the sentence that names it : | (c) distinguished subspace | restrict to a structured subspace | **FE-even** (`ZeroActingPairing.yieldsInequality`); brightening *
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `Z_Q` ### -- `THE_RESIDUE_OF_RH` line 57
+        the sentence that names it : **The discriminator anatomy, completed.** The two codimension-2 coincidences the object faces — off-line (`Re ξ = Im ξ = 0`) and dou
+        ### ### **PROSE-THAT-WAS-NEVER-A-TERMINAL** ### -- the sentence uses it as a quantity or a symbol, not as a citation
+    ### `W_pole` ### -- `BALANCE_AND_POSITIVITY` line 59
+        the sentence that names it : > ### **WHY.** That document measured `W_∞ < 0` for every `a ≳ 1.13` on test functions of exactly the admissible form `f ⋆ f̃`, with
+        ### ### **PROSE-THAT-WAS-NEVER-A-TERMINAL** ### -- the sentence uses it as a quantity or a symbol, not as a citation
+    ### `Z_Q` ### -- `BALANCE_AND_POSITIVITY` line 76
+        the sentence that names it : *The coherence characterization of this channel — that the averaged arithmetic channel `C[L]=(1/N)Σλ_Z^L` measures ledger-positivity
+        ### ### **PROSE-THAT-WAS-NEVER-A-TERMINAL** ### -- the sentence uses it as a quantity or a symbol, not as a citation
+    ### `A_n` ### -- `THE_GLOBAL_SECTION` line 2581
+        the sentence that names it : because b115's decisive structural fact is that `A_n` and `e_n` carry no window parameter,
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `F_v` ### -- `THE_GLOBAL_SECTION` line 109
+        the sentence that names it : gluing runs along the `E₁`-units — the `+1`-eigenvectors of the local transform `F_v` on
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `e_n` ### -- `THE_GLOBAL_SECTION` line 2581
+        the sentence that names it : because b115's decisive structural fact is that `A_n` and `e_n` carry no window parameter,
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `is_last` ### -- `THE_GLOBAL_SECTION` line 1965
+        the sentence that names it : All four deposited records were fetched **read-only** and matched the registry on **DOI, concept DOI, version and date**: the monogr
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `per_mode_eps_grids` ### -- `THE_GLOBAL_SECTION` line 2616
+        the sentence that names it : > `per_mode_eps_grids` takes an empty-range branch at `ρ = 1` and leaves the entry at zero;
+        ### ### **PROSE-THAT-WAS-NEVER-A-TERMINAL** ### -- the sentence uses it as a quantity or a symbol, not as a citation
+    ### `psi_coarse` ### -- `THE_GLOBAL_SECTION` line 1929
+        the sentence that names it : **The two functionals, awaiting the ε-extension at its now-quantified number.** ### **One object — quantitative control of `psi_coar
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+    ### `resid_N` ### -- `THE_GLOBAL_SECTION` line 2208
+        the sentence that names it : owner-quotable list proper**, `resid_N` being recorded nonzero at every cell; only under the
+        ### ### **UNDECIDED-BY-ITS-SENTENCE** ### -- the sentence does not decide which explanation applies
+
+    ### ### **THE EXPLANATIONS : {'PROSE-THAT-WAS-NEVER-A-TERMINAL': 6, 'UNDECIDED-BY-ITS-SENTENCE': 8}**
+    ### ### ### **NOT ONE DOCUMENT WAS REPAIRED AND NOT ONE NAME WAS INVENTED.** ### The
+    ### ### ### outcome is a classification, which is what the draft asked for.
+    ### **AND WHERE THE SENTENCE DOES NOT DECIDE, THE ANSWER IS `UNDECIDED-BY-ITS-SENTENCE`**
+    ### rather than a guess. ### **A READING OF A DOCUMENT IS NOT A VERDICT ON IT.**
+====================================================================================================

@@ -1,0 +1,598 @@
+{
+ "fixtures_ok": true,
+ "fixtures": [
+  {
+   "case": "a kernel find is a corpus terminal",
+   "got": "CORPUS_TERMINAL",
+   "want": "CORPUS_TERMINAL"
+  },
+  {
+   "case": "### **and a kernel find is NOT called a library one**",
+   "got": "True",
+   "want": "True"
+  },
+  {
+   "case": "a dependency-package find is a library terminal",
+   "got": "LIBRARY_TERMINAL",
+   "want": "LIBRARY_TERMINAL"
+  },
+  {
+   "case": "### **and a library find is NOT called NOT_LOCATED**",
+   "got": "True",
+   "want": "True"
+  },
+  {
+   "case": "a tag-only find is tag-only",
+   "got": "ON_A_TAG_NOT_A_BRANCH",
+   "want": "ON_A_TAG_NOT_A_BRANCH"
+  },
+  {
+   "case": "### **and a branch find is NOT called tag-only**",
+   "got": "CORPUS_TERMINAL",
+   "want": "CORPUS_TERMINAL"
+  },
+  {
+   "case": "a row saying manuscript-resident is taken at the front door's word",
+   "got": "MANUSCRIPT_RESIDENT",
+   "want": "MANUSCRIPT_RESIDENT"
+  },
+  {
+   "case": "a row saying research-reach likewise",
+   "got": "RESEARCH_REACH",
+   "want": "RESEARCH_REACH"
+  },
+  {
+   "case": "### **and a silent row is NOT read as either**",
+   "got": "True",
+   "want": "True"
+  },
+  {
+   "case": "a name that is a corpus document is named as one",
+   "got": "NAMES_A_CORPUS_DOCUMENT",
+   "want": "NAMES_A_CORPUS_DOCUMENT"
+  },
+  {
+   "case": "### **and a name that is not a document is NOT**",
+   "got": "NOT_LOCATED",
+   "want": "NOT_LOCATED"
+  },
+  {
+   "case": "nothing found and nothing said is NOT_LOCATED",
+   "got": "NOT_LOCATED",
+   "want": "NOT_LOCATED"
+  },
+  {
+   "case": "### **and NOT_LOCATED is never returned when a hit exists**",
+   "got": "True",
+   "want": "True"
+  },
+  {
+   "case": "every category the module names is reachable",
+   "got": "True",
+   "want": "True"
+  }
+ ],
+ "front_door": "PLACE-papers/README.md, section \"Correspondence tables\"",
+ "front_door_quote": "Where no kernel exists, the status says so in words -- manuscript-resident or research-reach -- rather than being omitted.",
+ "categories": [
+  "CORPUS_TERMINAL",
+  "MANUSCRIPT_RESIDENT",
+  "RESEARCH_REACH",
+  "LIBRARY_TERMINAL",
+  "NAMES_A_CORPUS_DOCUMENT",
+  "ON_A_TAG_NOT_A_BRANCH",
+  "NOT_LOCATED"
+ ],
+ "added_at_b379": [
+  "LIBRARY_TERMINAL",
+  "NAMES_A_CORPUS_DOCUMENT",
+  "ON_A_TAG_NOT_A_BRANCH"
+ ],
+ "assigned": [
+  {
+   "name": "E_h",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 83,
+   "sentence": "- **the deformation face:** progress on the Lagarias `E_h` chain at `h < ½`, or past the Conrey-Li refutation."
+  },
+  {
+   "name": "IDENTITY_SUBSPACE",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 131,
+   "sentence": "| (a) identity-element re-centering | move the distinguished/identity element | Ξ.10 RESONANCE + `Third_Identity` / `IDENTITY_SUBSPACE`; brightening *inversion-change* |"
+  },
+  {
+   "name": "THE_CHIASMUS_PATTERN",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 136,
+   "sentence": "| (f) reading / composition order | reverse/re-order the reading (the *chiasmus* kind) | `THE_CHIASMUS_PATTERN` (\"the space is the wall\") |"
+  },
+  {
+   "name": "THE_CORNER_MAP",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 135,
+   "sentence": "| (e) representation coordinates | re-coordinatize (the *corner-map* kind) | `THE_CORNER_MAP` (operator coords, spectrum = ordinates); brightening *structure-transport* |"
+  },
+  {
+   "name": "Third_Identity",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 131,
+   "sentence": "| (a) identity-element re-centering | move the distinguished/identity element | Ξ.10 RESONANCE + `Third_Identity` / `IDENTITY_SUBSPACE`; brightening *inversion-change* |"
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 18,
+   "sentence": "1. **Construct** the function via a fast-converging analytic continuation (for Epstein `Z_Q`: the incomplete-gamma theta-transform `make_Z(a,b,c,K)` — representation numbers `r_Q(k)` weighting `α^{−s}Γ(s,α) + α^{s−1}Γ(1−s,α)`, `α = 2πk/√|d|"
+  },
+  {
+   "name": "ZeroActingPairing.yieldsInequality",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 133,
+   "sentence": "| (c) distinguished subspace | restrict to a structured subspace | **FE-even** (`ZeroActingPairing.yieldsInequality`); brightening *subspace-restriction* |"
+  },
+  {
+   "name": "OPEN_TRAILS",
+   "doc": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 145,
+   "sentence": "| ### **one cited pin fails** | ### **`bd2ae1a` **[UNREPRODUCIBLE-AS-CITED (2026-08-12). The cited held branch `word-pairing-interface` of `SIDE-lv-conservation` EXISTS AND IS SOUND. The hash itself resolves nowhere: tested against all 43 l"
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 57,
+   "sentence": "**The discriminator anatomy, completed.** The two codimension-2 coincidences the object faces — off-line (`Re ξ = Im ξ = 0`) and double (`ξ = ξ′ = 0`) — have *different* discriminators. The **arithmetic** clause discriminates by **Euler-con"
+  },
+  {
+   "name": "ArithmeticFunction.vonMangoldt_nonneg",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean`, which is a dependency and not a corpus kernel",
+   "line": 23,
+   "sentence": "**Sign-layer map.** The clause this paper localizes has its state-of-the-field survey in `PATHS_TO_THE_CRITICAL_LINE §ANNEX B` — the proven partial paths (A1–A10), the obstructions (B1–B5), and the **B3 boundary**: Λ(n) ≥ 0 reaches the σ = "
+  },
+  {
+   "name": "Complex.Gamma",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean`, which is a dependency and not a corpus kernel",
+   "line": 585,
+   "sentence": "| Stirling control of Γ (`Gamma/Stirling`, any norm bound on `Complex.Gamma`) | **NO — absent entirely** |"
+  },
+  {
+   "name": "PhragmenLindelof.vertical_strip",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/Analysis/Complex/PhragmenLindelof.lean`, which is a dependency and not a corpus kernel",
+   "line": 584,
+   "sentence": "| `PhragmenLindelof.vertical_strip` | **YES** — `Analysis/Complex/PhragmenLindelof.lean` |"
+  },
+  {
+   "name": "Real.log_le_sub_one_of_pos",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean`, which is a dependency and not a corpus kernel",
+   "line": 600,
+   "sentence": "**How C₇-order was discharged — the price named above was never owed (W-8, 2026-07-15, `v0.4.0`).** The route built **no `Complex.Gamma` Stirling bound** and invoked **no Phragmén–Lindelöf**. Instead: `completedRiemannZeta₀ s = ½·mellin f_m"
+  },
+  {
+   "name": "THE_RESIDUE_OF_RH",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 76,
+   "sentence": "*The coherence characterization of this channel — that the averaged arithmetic channel `C[L]=(1/N)Σλ_Z^L` measures ledger-positivity (the edge), not RH-truth, confirmed on a positive-ledger RH-false family (Epstein `Z_Q` disc −23) — is synt"
+  },
+  {
+   "name": "W_pole",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 59,
+   "sentence": "> ### **WHY.** That document measured `W_∞ < 0` for every `a ≳ 1.13` on test functions of exactly the admissible form `f ⋆ f̃`, with the explicit-formula identity closing to `10⁻¹⁰`. ### **`W_∞` is NOT sign-definite** — the kernel `Re ψ(1/4"
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 76,
+   "sentence": "*The coherence characterization of this channel — that the averaged arithmetic channel `C[L]=(1/N)Σλ_Z^L` measures ledger-positivity (the edge), not RH-truth, confirmed on a positive-ledger RH-false family (Epstein `Z_Q` disc −23) — is synt"
+  },
+  {
+   "name": "completedRiemannZeta_eq",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean`, which is a dependency and not a corpus kernel",
+   "line": 595,
+   "sentence": "- **C₇-ENTIRETY** — *the completed Mellin transform of Φ agrees on the half-plane with an **entire** function*: `∃ G, Differentiable ℂ G ∧ ∀ s, 1 < re s → G s = mellin Φ (s/2) + 1/s + 1/(1−s)`. **PROVED at Φ** (`C7_entirety_at_Phi`), with `"
+  },
+  {
+   "name": "completedRiemannZeta_one_sub",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean`, which is a dependency and not a corpus kernel",
+   "line": 381,
+   "sentence": "| **C₃** theta transformation | `∀ t > 0, Φ (1/t) = √t · Φ t + (√t − 1)/2` | **OPEN** (`sorry`) — Mathlib has the FE for Λ (`completedRiemannZeta_one_sub`); the Φ-side transport needs the theta inversion law for `evenKernel 0`, which is not"
+  },
+  {
+   "name": "differentiable_completedZeta₀",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/RiemannZeta.lean`, which is a dependency and not a corpus kernel",
+   "line": 385,
+   "sentence": "| **C₇** order-≤1 completed continuation | entire `G` extending the Mellin factor, `‖G s‖ ≤ C·exp(A·‖s‖·log(‖s‖+2))` (true order ≤ 1) | **PROVED** (`C7_order_at_Phi`, `v0.4.0` = `0d2d74c`) — entirety via `differentiable_completedZeta₀`; ord"
+  },
+  {
+   "name": "eulerMascheroniSeq_lt_eulerMascheroniConstant",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean`, which is a dependency and not a corpus kernel",
+   "line": 393,
+   "sentence": "The proposed `3γ + 2 ≥ ln(4π)` is *true* but its slack is 1.2006…, so it is a different, weaker statement. The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 = 0.53102…, and Mathlib"
+  },
+  {
+   "name": "f_modif",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean`, which is a dependency and not a corpus kernel",
+   "line": 600,
+   "sentence": "**How C₇-order was discharged — the price named above was never owed (W-8, 2026-07-15, `v0.4.0`).** The route built **no `Complex.Gamma` Stirling bound** and invoked **no Phragmén–Lindelöf**. Instead: `completedRiemannZeta₀ s = ½·mellin f_m"
+  },
+  {
+   "name": "hasSum_int_evenKernel",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean`, which is a dependency and not a corpus kernel",
+   "line": 548,
+   "sentence": "- **C₅-INPUT** — *there is a real, non-negative spectrum whose heat trace is the kernel*: `∃ μ : ℤ → ℝ, (∀ n, 0 ≤ μ n) ∧ ∀ t > 0, ∑_{n:ℤ} exp(−π·μ n·t) = 2·Φ t + 1`. **PROVED at Φ**, with **μ n = n²**, via Mathlib's `hasSum_int_evenKernel`."
+  },
+  {
+   "name": "isBigO_atTop_evenKernel_sub",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean`, which is a dependency and not a corpus kernel",
+   "line": 600,
+   "sentence": "**How C₇-order was discharged — the price named above was never owed (W-8, 2026-07-15, `v0.4.0`).** The route built **no `Complex.Gamma` Stirling bound** and invoked **no Phragmén–Lindelöf**. Instead: `completedRiemannZeta₀ s = ½·mellin f_m"
+  },
+  {
+   "name": "one_half_lt_eulerMascheroniConstant",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean`, which is a dependency and not a corpus kernel",
+   "line": 393,
+   "sentence": "The proposed `3γ + 2 ≥ ln(4π)` is *true* but its slack is 1.2006…, so it is a different, weaker statement. The correct form is stated in the kernel as `n_one_binding_instance` and is **OPEN**: it needs γ ≥ ln(4π) − 2 = 0.53102…, and Mathlib"
+  },
+  {
+   "name": "riemannZeta_ne_zero_of_one_lt_re",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "A-Mathlib-NAME",
+   "category": "LIBRARY_TERMINAL",
+   "why": "declared at `.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/Dirichlet.lean`, which is a dependency and not a corpus kernel",
+   "line": 380,
+   "sentence": "| **C₂** half-plane Mellin nonvanishing | `∀ s, 1 < s.re → mellin Φ (s/2) ≠ 0` | **PROVED** — `C2_halfplane_nonvanishing_at_Phi`, no `sorryAx`. Route: `completedRiemannZeta_eq_mellinPhi` (T1/T2) ⇒ `riemannZeta_ne_zero_of_one_lt_re` + `Gamma"
+  },
+  {
+   "name": "silence_universal",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "### **FOUND-BUT-IN MORE THAN ONE KERNEL**",
+   "category": "CORPUS_TERMINAL",
+   "why": "declared in a corpus kernel on a searched ref",
+   "line": 144,
+   "sentence": "The premise, in the four registers established in §IV: the universality hypothesis of `silence_universal`; Route 3's `ConservationHypothesis`; the one premise of the reduction analysis; the balance→positivity distance. Sharpest form (§III):"
+  },
+  {
+   "name": "A_n",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2581,
+   "sentence": "because b115's decisive structural fact is that `A_n` and `e_n` carry no window parameter,"
+  },
+  {
+   "name": "F_v",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 109,
+   "sentence": "gluing runs along the `E₁`-units — the `+1`-eigenvectors of the local transform `F_v` on"
+  },
+  {
+   "name": "OPEN_TRAILS",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 304,
+   "sentence": "**The wanted poster, quoted as filed** (`OPEN_TRAILS`, W-ORD-ARCHIMEDEAN-SECTOR-INVARIANT):"
+  },
+  {
+   "name": "THE_CODOMAIN_SPECIFICATION",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NAMES-A-CORPUS-DOCUMENT",
+   "category": "NAMES_A_CORPUS_DOCUMENT",
+   "why": "the backticked name is a document in the corpus",
+   "line": 96,
+   "sentence": "> `THE_CODOMAIN_SPECIFICATION` v0.2, clause (e) — built over function fields, not yet over"
+  },
+  {
+   "name": "e_n",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2581,
+   "sentence": "because b115's decisive structural fact is that `A_n` and `e_n` carry no window parameter,"
+  },
+  {
+   "name": "grh_exclusion",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "### **FOUND-ON-A-NON-main-REF**",
+   "category": "ON_A_TAG_NOT_A_BRANCH",
+   "why": "declared in a corpus kernel, on a tag and on no branch",
+   "line": 2329,
+   "sentence": "opaque-Prop)\"* — among them `grh_exclusion` and `no_ls_zero`, which this record had"
+  },
+  {
+   "name": "is_last",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 1965,
+   "sentence": "All four deposited records were fetched **read-only** and matched the registry on **DOI, concept DOI, version and date**: the monograph at Zenodo **v1.1.2** / `21539167` (concept `19675355`, 2026-07-24); **SIDE-kernel v1.5** / `21520474` (c"
+  },
+  {
+   "name": "no_ls_zero",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "### **FOUND-ON-A-NON-main-REF**",
+   "category": "ON_A_TAG_NOT_A_BRANCH",
+   "why": "declared in a corpus kernel, on a tag and on no branch",
+   "line": 2329,
+   "sentence": "opaque-Prop)\"* — among them `grh_exclusion` and `no_ls_zero`, which this record had"
+  },
+  {
+   "name": "per_mode_eps_grids",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2616,
+   "sentence": "> `per_mode_eps_grids` takes an empty-range branch at `ρ = 1` and leaves the entry at zero;"
+  },
+  {
+   "name": "psi_coarse",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 1929,
+   "sentence": "**The two functionals, awaiting the ε-extension at its now-quantified number.** ### **One object — quantitative control of `psi_coarse`'s profile on the interior of the licensed window — entering through TWO functionals**, a rise bounded be"
+  },
+  {
+   "name": "resid_N",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2208,
+   "sentence": "owner-quotable list proper**, `resid_N` being recorded nonzero at every cell; only under the"
+  }
+ ],
+ "tally": {
+  "NOT_LOCATED": 14,
+  "NAMES_A_CORPUS_DOCUMENT": 7,
+  "LIBRARY_TERMINAL": 13,
+  "CORPUS_TERMINAL": 1,
+  "ON_A_TAG_NOT_A_BRANCH": 2
+ },
+ "not_located": 14,
+ "survivors": [
+  {
+   "name": "E_h",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 83,
+   "sentence": "- **the deformation face:** progress on the Lagarias `E_h` chain at `h < ½`, or past the Conrey-Li refutation.",
+   "explanation": "PROSE-THAT-WAS-NEVER-A-TERMINAL",
+   "explanation_why": "the sentence uses it as a quantity or a symbol, not as a citation"
+  },
+  {
+   "name": "Third_Identity",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 131,
+   "sentence": "| (a) identity-element re-centering | move the distinguished/identity element | Ξ.10 RESONANCE + `Third_Identity` / `IDENTITY_SUBSPACE`; brightening *inversion-change* |",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 18,
+   "sentence": "1. **Construct** the function via a fast-converging analytic continuation (for Epstein `Z_Q`: the incomplete-gamma theta-transform `make_Z(a,b,c,K)` — representation numbers `r_Q(k)` weighting `α^{−s}Γ(s,α) + α^{s−1}Γ(1−s,α)`, `α = 2πk/√|d|",
+   "explanation": "PROSE-THAT-WAS-NEVER-A-TERMINAL",
+   "explanation_why": "the sentence uses it as a quantity or a symbol, not as a citation"
+  },
+  {
+   "name": "ZeroActingPairing.yieldsInequality",
+   "doc": "phase1.5/method/INSTRUMENTS.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 133,
+   "sentence": "| (c) distinguished subspace | restrict to a structured subspace | **FE-even** (`ZeroActingPairing.yieldsInequality`); brightening *subspace-restriction* |",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 57,
+   "sentence": "**The discriminator anatomy, completed.** The two codimension-2 coincidences the object faces — off-line (`Re ξ = Im ξ = 0`) and double (`ξ = ξ′ = 0`) — have *different* discriminators. The **arithmetic** clause discriminates by **Euler-con",
+   "explanation": "PROSE-THAT-WAS-NEVER-A-TERMINAL",
+   "explanation_why": "the sentence uses it as a quantity or a symbol, not as a citation"
+  },
+  {
+   "name": "W_pole",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 59,
+   "sentence": "> ### **WHY.** That document measured `W_∞ < 0` for every `a ≳ 1.13` on test functions of exactly the admissible form `f ⋆ f̃`, with the explicit-formula identity closing to `10⁻¹⁰`. ### **`W_∞` is NOT sign-definite** — the kernel `Re ψ(1/4",
+   "explanation": "PROSE-THAT-WAS-NEVER-A-TERMINAL",
+   "explanation_why": "the sentence uses it as a quantity or a symbol, not as a citation"
+  },
+  {
+   "name": "Z_Q",
+   "doc": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 76,
+   "sentence": "*The coherence characterization of this channel — that the averaged arithmetic channel `C[L]=(1/N)Σλ_Z^L` measures ledger-positivity (the edge), not RH-truth, confirmed on a positive-ledger RH-false family (Epstein `Z_Q` disc −23) — is synt",
+   "explanation": "PROSE-THAT-WAS-NEVER-A-TERMINAL",
+   "explanation_why": "the sentence uses it as a quantity or a symbol, not as a citation"
+  },
+  {
+   "name": "A_n",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2581,
+   "sentence": "because b115's decisive structural fact is that `A_n` and `e_n` carry no window parameter,",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "F_v",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 109,
+   "sentence": "gluing runs along the `E₁`-units — the `+1`-eigenvectors of the local transform `F_v` on",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "e_n",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2581,
+   "sentence": "because b115's decisive structural fact is that `A_n` and `e_n` carry no window parameter,",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "is_last",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 1965,
+   "sentence": "All four deposited records were fetched **read-only** and matched the registry on **DOI, concept DOI, version and date**: the monograph at Zenodo **v1.1.2** / `21539167` (concept `19675355`, 2026-07-24); **SIDE-kernel v1.5** / `21520474` (c",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "per_mode_eps_grids",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2616,
+   "sentence": "> `per_mode_eps_grids` takes an empty-range branch at `ρ = 1` and leaves the entry at zero;",
+   "explanation": "PROSE-THAT-WAS-NEVER-A-TERMINAL",
+   "explanation_why": "the sentence uses it as a quantity or a symbol, not as a citation"
+  },
+  {
+   "name": "psi_coarse",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 1929,
+   "sentence": "**The two functionals, awaiting the ε-extension at its now-quantified number.** ### **One object — quantitative control of `psi_coarse`'s profile on the interior of the licensed window — entering through TWO functionals**, a rise bounded be",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  },
+  {
+   "name": "resid_N",
+   "doc": "phase2/method/THE_GLOBAL_SECTION.md",
+   "b378_class": "NOT-FOUND-ON-ANY-REF-SEARCHED",
+   "category": "NOT_LOCATED",
+   "why": "no searched ref declares it and no other category applies",
+   "line": 2208,
+   "sentence": "owner-quotable list proper**, `resid_N` being recorded nonzero at every cell; only under the",
+   "explanation": "UNDECIDED-BY-ITS-SENTENCE",
+   "explanation_why": "the sentence does not decide which explanation applies"
+  }
+ ],
+ "explanations": {
+  "PROSE-THAT-WAS-NEVER-A-TERMINAL": 6,
+  "UNDECIDED-BY-ITS-SENTENCE": 8
+ },
+ "documents_repaired": 0,
+ "names_invented": 0,
+ "run_file": "b379_survivors_notes.txt",
+ "run_clock": "2026-09-09T02:53:48Z"
+}
