@@ -1,0 +1,44 @@
+====================================================================================================
+b391_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b391_registration_2026-09-09.txt
+  bytes/lines  : 20506 / 254
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 36
+
+  clauses emitted : 77
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 21**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 5    cap 5
+      clusters reported                                              demand 5    cap 5
+      clusters carried by a quotation                                demand 5    cap 5
+      phantom instances enumerated from the files                    demand 32   cap 32
+      documents carrying them                                        demand 13   cap 13
+      instances classified before any edit                           demand 32   cap 32
+      citations repaired                                             demand 24   cap 24
+      instances excluded, each named with its reason                 demand 8    cap 8
+      origins located and quoted with a date                         demand 1    cap 1
+      screen yields printed                                          demand 5    cap 5
+      screen tightenings made after its output was seen              demand 4    cap 4
+      candidates surviving the screen                                demand 4    cap 4
+      candidates read by hand with a printed verdict                 demand 4    cap 4
+      superseded citations reported                                  demand 66   cap 66
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 4    cap 4
+      gate arms declared                                             demand 36   cap 36
+      new `relay` tool files                                         demand 6    cap 6
+  written : b391_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 80e96487f126f52fff38cc22a76fa183c04d5943b72f11e2aac87d4d5a584fab  (b391_registration_2026-09-09.txt)
