@@ -1,0 +1,256 @@
+====================================================================================================
+b386 -- GATE SUITE (THE GUARD MADE SINGLE-SOURCED UNDER (R15))
+====================================================================================================
+
+  OWNER NEEDLES ### (THE ORDER, AS THE EXTRACT RECORDED IT):
+    PASS  the order -- the act
+    PASS  the ruling (R15) -- one guard, one source
+    PASS  the ruling (R15) -- the three disposals of a second copy
+    PASS  the ruling (R15) -- a topology defect, not a repair job
+    PASS  the order -- component 1, the three options quoted first
+    PASS  the order -- component 1, halt if none implements it
+    PASS  the order -- component 2, the face written wide enough to finish
+    PASS  the order -- component 2, the gate cleared by the repair not the arm
+    PASS  the order -- component 3, the installer`s second defect
+    PASS  the order -- component 4(i), the search lesson
+    PASS  the order -- component 4(ii), the paraphrase corrected on the record
+    PASS  the order -- the closing, closed only if the exercise passes
+    PASS  the order -- (F1), deletion of the untracked-path copy
+    PASS  the order -- (F2), the backup recoverable from a tracked blob
+
+  SELF NEEDLES:
+    PASS  the bank leads with the ruling and the wider defect
+    PASS  ### the face was written from the survey, not a belief
+    PASS  ### the options discrepancy is reported
+    PASS  ### option (b) implements the ruling
+    PASS  ### the order of operations b385 got wrong
+    PASS  ### never by filename and never by size alone
+    PASS  ### the third disposal, and the judgement marked as one
+    PASS  ### the gate cleared by the repair, not the arm
+    PASS  ### the substituted invariant is named
+    PASS  ### the repair fired for real on the roster
+    PASS  ### the contamination is itself the finding
+    PASS  ### necessary and not sufficient
+    PASS  ### the correction is of a paraphrase, not the rule
+    PASS  ### a conditional closure whose condition is not measured
+    PASS  ### the face was not widened mid-act
+    PASS  ### (F1) met in substance, refuted in its description
+
+  MUST-FAIL FIXTURES ### (THE LOCKED FACE`S OWN EIGHT, AS WHOLE LINES):
+    PASS  the bank never says a class was ruled
+    PASS  the bank never says a standard was edited
+    PASS  the bank never says an option was invented
+    PASS  the bank never says a copy was deleted unchecked
+    PASS  the bank never says the arm was widened
+    PASS  the bank never says the rule was edited
+    PASS  the bank never says a techne module was pushed
+    PASS  the bank never says the face was widened mid-act
+
+  G-STAMPED / G-EVERYGATE / G-FIXTURE4 (BAR 1):
+    gates read 8 / passing 8 ; face-subject 4 ; all pass : True
+    ### **THE STAMP EQUALS THE FACE THAT WAS LOCKED** : True (1b2618fbd40c0e0b)
+    ### **EVERY FACE-SUBJECT GATE CARRIES THAT DIGEST** : True
+    four polarities, each refusing for its own gate : True ; lock gate inherited : True
+    PASS
+
+  G-OPTIONS / G-NOINVENT (BAR 2):
+    ### **OPTIONS REPRODUCED 3 ; IMPLEMENTING ['(b)'] ; INVENTED 0 ; HALT False**
+    all three appear verbatim in the run record : True
+    ### **THEY ARE NOT IN b385`S BANK, AND THE ACT SAYS SO** : True / True
+    PASS
+
+  G-SINGLESOURCE / G-INSTALLER (BAR 3):
+    relay                  tracked guard copies : 1  ['.githooks/pre-push']
+    SIDE-global-section    tracked guard copies : 1  ['.githooks/pre-push']
+    PLACE-papers           tracked guard copies : 1  ['.githooks/pre-push']
+    SIDE-effects           tracked guard copies : 1  ['.githooks/pre-push']
+    ### **EXACTLY ONE TRACKED GUARD PER REPOSITORY : True**
+    ### **THE INSTALLER`S SOURCE** : SOURCE = os.path.join(ROOT, '.githooks', 'pre-push')
+    it names .githooks and not tools/git-hooks : True ; the second copy is gone : True
+    PASS
+
+  G-PROPAGATED / G-REPAIREDLINE (BAR 4):
+    relay                  blob-equal (LF) : True    carries the repaired line : True 
+    SIDE-global-section    blob-equal (LF) : True    carries the repaired line : True 
+    PLACE-papers           blob-equal (LF) : True    carries the repaired line : True 
+    SIDE-effects           blob-equal (LF) : True    carries the repaired line : True 
+    ### **ALL FOUR EQUAL TO THE SOURCE`S BLOB : True ; ALL FOUR CARRY THE LINE : True**
+    ### **AND THE THREE THAT MOVED DID NOT CARRY IT BEFORE THIS ACT** : True [('SIDE-global-section', True), ('PLACE-papers', True), ('SIDE-effects', True)]
+    PASS
+
+  G-RECOVERABLE / G-ORDEROFOPS (BAR 5):
+    the proof was printed and the file matched a blob : True ['323fd7a:tools/git-hooks/pre-push', '6de6336:.githooks/pre-push']
+    ### **COPIES MATCHING NO TRACKED BLOB, SURVEYED BEFORE THE LOCK : 0**
+    ### **THE PROOF PRECEDES THE DELETION IN THE RECORD, BY POSITION** : True (3736 < 4090)
+    PASS
+
+  G-EXERCISE / G-HOOK (BAR 6):
+    ### **`### REPOS FAILING : 0` -- b385`S PREDICATE, UNCHANGED : True**
+    ### **REPOSITORIES EXERCISED IN BOTH POLARITIES AND PASSING : 4 of 4**
+        relay                  REFUSED      ALLOWED      True      True      True   PASS
+        SIDE-global-section    REFUSED      ALLOWED      True      True      True   PASS
+        PLACE-papers           REFUSED      ALLOWED      True      True      True   PASS
+        SIDE-effects           REFUSED      ALLOWED      True      True      True   PASS
+    ### **THE ARM WAS NOT WIDENED. ### THE GATE WAS CLEARED BY THE REPAIR.**
+    PASS
+
+  G-BACKUP / G-BACKUPFIXTURE (BAR 7):
+    the never-overwrite loop is in the stripped source : True ; the old call is gone : True
+    ### **FIXTURE POLARITIES : 2, BOTH HELD : True**
+    ### **AND IT FIRED ON THE ROSTER, NOT ONLY IN A TEMP DIRECTORY** : True
+    PASS
+
+  G-ATTEST / G-ATTESTLIMIT (BAR 8):
+    the corpus as it stands                b383 6/6   b385 7/7   (control 10)
+    with the b383-b386 records excluded    b383 2/6   b385 7/7   (control 5)
+    ### **EVERY TERM OF BOTH LISTS IS PRINTED IN THE BANK : True**
+    ### **FILED AS MECHANIZED, AND ITS LIMIT IS STATED : True / True**
+    PASS
+
+  G-TECHNE / G-NOPUSHTECHNE:
+    the module exists and is committed : True / True
+    ### **LOCAL ONLY** : branch `## main...origin/main [ahead 16]` ; no remote ref contains it : True
+    PASS
+
+  G-PARAPHRASE / G-NOEDITRULE:
+    ### **REGISTRY.md IS BYTE-IDENTICAL TO ITS BLOB, AND UNCHANGED SINCE BEFORE THIS ACT** : True / True
+    the mark and the exact correction are in the bank : True / True
+    PASS
+
+  G-NORULING / G-OPEN / G-NONEWDOC:
+    the four lists STAND and are named OPEN in the block : True / True
+    ### **THE CITATION QUESTION IS RESTATED AS AWAITING THE AUTHOR AND NOT MOVED** : True
+    no new tracking document in PLACE-papers : True 
+    ### **UNTRACKED PATHS THAT ARE NOT TRACKING DOCUMENTS, EXCLUDED AND NAMED** : ['.githooks/pre-push.b304-backup']
+    PASS
+
+  G-NOWRITE / G-NOREGISTRY / G-NOHOOKSDELETE:
+    tracked paths changed beyond the declared set : {'relay': [], 'SIDE-global-section': [], 'PLACE-papers': [], 'SIDE-effects': []}
+    ### **REGISTRY.md UNCHANGED SINCE BEFORE THIS ACT** : True
+    ### **EVERY `.git/hooks/pre-push` STILL PRESENT : True** [('relay', True), ('SIDE-global-section', True), ('PLACE-papers', True), ('SIDE-effects', True)]
+    ### **AND EVERY ONE STILL INERT (core.hooksPath = .githooks) : True**
+    archive/ and outputs/ untouched : True
+    PASS
+
+  G-TRAIL / G-ROW / G-KEY:
+    trail: mark once and append-only : True ; pre-act blob a true prefix : True
+    row 235 present once and a true prefix : True
+    key read back : True ; four overreadings NO KEY after : True
+    ### **THE BLOCK SAYS THE EXERCISE PASSED AND MARKS THE JUDGEMENT AS ONE** : True
+    PASS
+
+  G-ORDER ### SIDE-INVARIANT:
+    components AFTER  the lock : 2026-09-09T17:39:17Z vs 2026-09-09T17:35:03Z
+    desk_bank  AFTER  the lock : 2026-09-09T17:47:07Z vs 2026-09-09T17:35:03Z
+    extract    BEFORE the lock : 2026-09-09T17:28:58Z vs 2026-09-09T17:35:03Z
+    lockgate   BEFORE the lock : 2026-09-09T17:34:56Z vs 2026-09-09T17:35:03Z
+    this act`s lock recomputes : True
+    ### **POST-LOCK RUNS AFTER IT : True ; PRE-LOCK GATES BEFORE IT : True**
+    audit SATISFIABLE True ; gate CLEAR True ; ### **TERM SCAN CLEAN True**
+    ### **AND b385`S FACE STILL VERIFIES, UNEDITED** : True
+    PASS
+
+  G-MIRROR ### AFTER THE PUSH:
+    mirror clean on all three clauses : True
+
+  G-NUMBERS:
+    gates read 8                                             PASS
+    face-subject gates 4                                     PASS
+    copies on disk 9                                         PASS
+    tracked 5 / untracked 4                                  PASS
+    options 3                                                PASS
+    deleted 1                                                PASS
+    the lost backup 3139 bytes                               PASS
+    desk items 29                                            PASS
+    row 235                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    the component run                                        PASS
+    the extract run                                          PASS
+    the techne head                                          PASS
+
+  G-ONCE:
+    extract      b386_extract_notes2.txt        clock 2026-09-09T17:28:58Z == JSON's 2026-09-09T17:28:58Z : True
+    lockgate     b386_lockgate_notes3.txt       clock 2026-09-09T17:34:56Z == JSON's 2026-09-09T17:34:56Z : True
+    components   b386_components_notes.txt      clock 2026-09-09T17:39:17Z == JSON's 2026-09-09T17:39:17Z : True
+    desk_bank    b386_desk_notes2.txt           clock 2026-09-09T17:47:07Z == JSON's 2026-09-09T17:47:07Z : True
+    PASS
+
+  G-NOCOMPUTE:
+    ### raw substring hits (a substring is not a call) : none
+    numerical calls : 0 ; libraries : none  PASS
+
+  G-NOLEAN:
+    .lean files changed : none  PASS
+
+  G-BYCONTENT:
+    b386_checks.py             line 476    | sb = git(TC,         ,      ).split(chr(10))[0]
+        the span is located by content and only then indexed.
+    b386_components.py         line 604    | ahead = git(TC,         ,      ).split(chr(10))[0].strip()
+        the span is located by content and only then indexed.
+    b386_desk_bank.py          line 714    | cells = [GD.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        `[-1:]` -- the LAST line of the table THIS ACT JUST WROTE.
+    ### hits : 3 ; UNDECLARED : 0  PASS
+
+  G-NOEDIT:
+    owner instruments modified beyond the declared one : none
+    other relay files beyond the four declared : none
+    ### **b304_hooks.py IS NAMED ON THE LOCKED FACE** : True
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed):
+    files scanned 15   struck 0   stem 0   ### **LIVE : 0** PASS
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 235, the trail block, the index row):
+    row 235                struck : 0   stem : 0   (7559 chars)
+    the trail block        struck : 0   stem : 0   (6700 chars)
+    the index row          struck : 0   stem : 0   (3864 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the extract, the topology survey and the attestation tools/b386_extract.py              exists=True tracked=True
+    the four components, and the repair inside two of th tools/b386_components.py           exists=True tracked=True
+    (R7), the three closing writes and the bank          tools/b386_desk_bank.py            exists=True tracked=True
+    the registration gate                                tools/b386_reg_gate.py             exists=True tracked=True
+    the clause spec                                      tools/b386_regspec.py              exists=True tracked=True
+    the installer, repointed and repaired                tools/b304_hooks.py                exists=True tracked=True
+    the anchor that read every quoted line               tools/anchor_from_file.py          exists=True tracked=True
+    the lock gate that checks what each gate read        tools/b378_lockgate.py             exists=True tracked=True
+    the face-subject stamps                              tools/gate_hash.py                 exists=True tracked=True
+    22609 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    (R2)'s detector, turned on this act                  tools/b366_sweep.py                exists=True tracked=True
+    the roster, imported and not typed                   tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-CAP ### THE REGISTRATION CAPPED THIS ACT AT SIX NEW TOOL FILES:
+    new relay tools this act : 6  ['tools/b386_checks.py', 'tools/b386_components.py', 'tools/b386_desk_bank.py', 'tools/b386_extract.py', 'tools/b386_reg_gate.py', 'tools/b386_regspec.py']
+    PASS
+
+  HEDGE AUDIT ON THIS ACT'S OWN PROSE:
+    b386_the_guard_single_sourced.txt              sentences=403   graded-hedges=0   ungraded-shapes=48
+    b386_registration_2026-09-09.txt               sentences=461   graded-hedges=0   ungraded-shapes=90
+    b386_desk_notes2.txt                           sentences=207   graded-hedges=0   ungraded-shapes=43
+    b386_census_stepzero.txt                       sentences=30    graded-hedges=0   ungraded-shapes=6
+    b386_faces_census_stepzero.txt                 sentences=17    graded-hedges=0   ungraded-shapes=2
+    b386_regspec_run.txt                           sentences=48    graded-hedges=0   ungraded-shapes=6
+    audit_b386_reg_satisfiable.txt                 sentences=281   graded-hedges=0   ungraded-shapes=22
+    b386_pins_stepzero.txt                         sentences=43    graded-hedges=0   ungraded-shapes=1
+    b386_reg_gate.txt                              sentences=20    graded-hedges=0   ungraded-shapes=2
+    b386_hooks.txt                                 sentences=71    graded-hedges=0   ungraded-shapes=12
+    b386_checks.py                                 sentences=981   graded-hedges=0   ungraded-shapes=97
+    b386_components.py                             sentences=845   graded-hedges=0   ungraded-shapes=76
+    b386_desk_bank.py                              sentences=1430  graded-hedges=0   ungraded-shapes=226
+    b386_extract.py                                sentences=466   graded-hedges=0   ungraded-shapes=34
+    b386_reg_gate.py                               sentences=67    graded-hedges=0   ungraded-shapes=5
+    b386_regspec.py                                sentences=220   graded-hedges=0   ungraded-shapes=20
+    row 235                                        sentences=48    graded-hedges=0   ungraded-shapes=34
+    the trail block                                sentences=40    graded-hedges=0   ungraded-shapes=26
+    the index row                                  sentences=32    graded-hedges=0   ungraded-shapes=21
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================
