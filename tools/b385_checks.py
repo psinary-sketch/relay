@@ -545,7 +545,16 @@ def main():
     w3 = not [x for x in ppch if x.startswith('outputs/') or x.startswith('archive/')]
     # ### **THE GUARD REPAIR IS EXACTLY ONE LINE, AND IT IS A COMMENT.** ### `(R4)` licenses a
     # ### repair by edit; ### **IT DOES NOT LICENSE A BEHAVIOUR CHANGE**, so the diff is counted.
-    gd_diff = git(ROOT, 'diff', '-U0', '--', '.githooks/pre-push')
+    # ### ### **THE ARM IS SIDE-INVARIANT (`b352`), SO IT DIFFS AGAINST THE PRE-ACT BLOB AND
+    # ### ### NOT AGAINST `HEAD`.** ### Before the push `HEAD` is `b384`'s; after it, `HEAD` is this
+    # ### act's own and carries the repair, so a `HEAD` diff would read EMPTY and the arm would pass
+    # ### on an act that made no repair at all. ### **AN ARM THAT MEASURES DIFFERENTLY ON THE TWO
+    # ### ### SIDES OF THE PUSH IS NOT MEASURING THE ACT.**
+    base = subprocess.run(['git', '-C', ROOT, 'log', '--format=%H', '-1', '--skip=0',
+                           '--grep=^b385 --', 'HEAD'], capture_output=True, text=True,
+                          encoding='utf-8', errors='replace').stdout.strip()
+    base = (base + '~1') if base else 'HEAD'
+    gd_diff = git(ROOT, 'diff', '-U0', base, '--', '.githooks/pre-push')
     adds = [x for x in gd_diff.split(chr(10)) if x.startswith('+') and not x.startswith('+++')]
     dels = [x for x in gd_diff.split(chr(10)) if x.startswith('-') and not x.startswith('---')]
     w4 = len(adds) == len(dels) == 1
@@ -649,6 +658,18 @@ def main():
         m_ok = 'VERDICT: CLEAN ON ALL THREE CLAUSES' in mt
         gh2 = h_ok and m_ok
         print('    hook: 0 failing : %s ; mirror clean : %s' % (h_ok, m_ok))
+        if not h_ok:
+            # ### ### **THE ARM IS NOT SOFTENED; THE REASON IS PRINTED BESIDE IT.**
+            for ln in ht.split(chr(10)):
+                if 'REPLACED' in ln or 'SKIPPED' in ln or 'REPOS FAILING' in ln:
+                    print('        ### %s' % ln.strip()[:150])
+            print('        ### ### **THE CAUSE, NAMED: `b304_hooks.py` INSTALLS FROM')
+            print('        ### ### `tools/git-hooks/pre-push`, WHICH THIS ACT DID NOT REPAIR AND')
+            print('        ### ### ITS OWN FACE DOES NOT LICENSE IT TO REPAIR.** ### So the tool')
+            print('        ### ### overwrote the repaired guard, the tree went dirty, and the')
+            print('        ### ### relay exercise was SKIPPED. ### **THE REPAIR WAS APPLIED TO')
+            print('        ### ### THE INSTALLED COPY AND NOT TO THE SOURCE**, and the arm is')
+            print('        ### ### reporting that rather than being widened to accept it.')
     else:
         print('    ### the hook/mirror records are NOT YET WRITTEN (they are written at the push).')
     if not gh2:
