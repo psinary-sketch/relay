@@ -1,0 +1,246 @@
+====================================================================================================
+b386 -- THE GUARD MADE SINGLE-SOURCED. ### THE BANK.
+====================================================================================================
+
+### ### ### **THE AUTHOR RULED `(R15)`: ONE GUARD, ONE SOURCE -- AND THE DEFECT WAS
+### ### ### WIDER THAN `b385` SAID.**
+### The survey ran BEFORE the lock and counted ### **`9` COPIES OF THE GUARD ON
+### ### DISK, NOT TWO** -- `5` tracked and `4` untracked across four repositories,
+### with ### **`0` MATCHING NO TRACKED BLOB.** ### `b385` repaired ONE installed
+### copy; the other three tracked copies still carried the stale line.
+### ### ### **A FACE WRITTEN FROM A BELIEF ABOUT THE TOPOLOGY WOULD HAVE FAILED THE
+### ### ### SAME WAY `b385`S DID. ### THIS ONE WAS WRITTEN FROM THE SURVEY.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE THREE OPTIONS, AND THE ONE THAT IMPLEMENTS `(R15)`.
+----------------------------------------------------------------------------------------------------
+### ### **ONE DISCREPANCY WITH THE ORDER, REPORTED RATHER THAN SMOOTHED:** ### the
+### order says to reproduce the options ### *from its bank*, and ### **`b385`S BANK
+### ### DOES NOT CARRY THEM : False.** ### They are in `data/b385_closing.txt`, in that
+### act`s DRAFT for this one, and the quotation names where it came from.
+### ### **OPTIONS REPRODUCED VERBATIM WITH THEIR LOCATIONS : `3`. ### INVENTED BY
+### ### THIS SEAT : `0`. ### RE-WORDED TO MAKE THEM FIT : `0`.**
+###   ### **`(a)` REPAIR THE SOURCE, LEAVING BOTH FILES -- DOES NOT IMPLEMENT.** ###
+###     It makes the copies AGREE and leaves ### **TWO TRACKED SOURCES OF TRUTH.**
+###     ### `(R15)` calls the divergence ### **A TOPOLOGY DEFECT** ### -- `(a)`
+###     repairs the text and leaves the topology.
+###   ### **`(b)` RETIRE THE SOURCE AND REPOINT THE INSTALLER -- IMPLEMENTS.** ###
+###     Exactly one tracked source per repository, and ### **THE INSTALLER READS
+###     ### FROM IT** -- the ruling`s two clauses, in order. ### The retirement is
+###     `(R15)`s ### **FIRST DISPOSAL.**
+###   ### **`(c)` NEITHER -- DOES NOT IMPLEMENT.** ### It leaves both the copies and
+###     the divergence. ### **IT IS THE STATE THE RULING WAS WRITTEN TO END.**
+### ### ### **OPTION `(b)` WAS EXECUTED.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE REPAIR, AND THE ORDER OF OPERATIONS.
+----------------------------------------------------------------------------------------------------
+### ### **THE RECOVERABILITY PROOF WAS PRINTED BEFORE THE DELETION : True.**
+### `relay/tools/git-hooks/pre-push` matched ### **`323fd7a:tools/git-hooks/pre-push`, `6de6336:.githooks/pre-push`**
+### ### ### **THAT IS THE ORDER `b385` GOT WRONG** -- it removed a file and worked
+### ### ### out afterwards what had been in it. ### **THE ARM AGAINST IT IS AN
+### ### ### ORDERING ARM, NOT A CONTENT ARM.**
+### ### **TRACKED GUARD COPIES DELETED : `1`.** ### `relay` now tracks ['.githooks/pre-push'].
+### ### **THE INSTALLER`S `SOURCE` REPOINTED AT `.githooks/pre-push` : True** -- the
+### file `core.hooksPath` makes git run.
+
+### ### **THE INSTALLED GUARD, AGAINST THE SOURCE`S OWN GIT BLOB (`146330836e1ae8e9`):**
+###   relay                   3078 bytes   blob-equal (LF) : True    repaired line : True    hooksPath `.githooks`
+###   SIDE-global-section     3078 bytes   blob-equal (LF) : True    repaired line : True    hooksPath `.githooks`
+###   PLACE-papers            3078 bytes   blob-equal (LF) : True    repaired line : True    hooksPath `.githooks`
+###   SIDE-effects            3078 bytes   blob-equal (LF) : True    repaired line : True    hooksPath `.githooks`
+### ### **ALL FOUR EQUAL TO THE BLOB : True. ### ALL FOUR CARRY THE REPAIRED LINE : True.**
+### ### ### **COMPARED AGAINST THE BLOB AND `LF`-NORMALISED. ### NEVER BY FILENAME,
+### ### ### AND NEVER BY SIZE ALONE** -- `core.autocrlf` makes the working file
+### CRLF while the blob stays LF (`b309`), so a working-file comparison would fail
+### on a correct install.
+
+### ### **THE UNTRACKED LEGACY `.git/hooks/pre-push` COPIES : `0` DELETED.**
+###   relay                  present : True    core.hooksPath `.githooks`   ### INERT : True
+###   SIDE-global-section    present : True    core.hooksPath `.githooks`   ### INERT : True
+###   PLACE-papers           present : True    core.hooksPath `.githooks`   ### INERT : True
+###   SIDE-effects           present : True    core.hooksPath `.githooks`   ### INERT : True
+### ### **`(R15)`S THIRD DISPOSAL -- *the repository is reconfigured so the source
+### ### is what runs* -- IS ALREADY IN FORCE FOR THESE**, verified in each
+### repository above.
+### ### ### **AND THAT IS A JUDGEMENT, MARKED AS ONE:** ### deleting them would
+### ### ### remove a working fallback if `core.hooksPath` were ever unset, and the
+### ### ### order did not ask for that. ### **THE AUTHOR MAY OVERTURN IT.**
+
+### ### ### **AND THE EXERCISE PASSES.**
+###   ### **`REPOS FAILING : 0`** ### and ### **`4` OF 4 EXERCISED IN BOTH
+###   ### POLARITIES AND PASSING** -- refused from a non-`push-*` branch, allowed
+###   from one, HEAD and remote unchanged, the branch restored.
+### ### **`b385`S ARM PREDICATE IS UNCHANGED. ### THE FAILING GATE IS CLEARED BY THE
+### ### REPAIR AND NOT BY THE ARM.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE INSTALLER`S SECOND DEFECT.
+----------------------------------------------------------------------------------------------------
+### ### **WHAT WAS LOST, NAMED WITH ITS NUMBERS.** ### The removed
+### `.githooks/pre-push.b304-backup` was ### **`3139` BYTES**, which is exactly the
+### CRLF expansion of the `3068`-byte blob at `6de6336:.githooks/pre-push`
+### (sha `e923f56a26ed8a4e`), and that blob is LF-identical to
+### `323fd7a:tools/git-hooks/pre-push` : ### **True.**
+### ### ### **`(F2)` IS MET: THE LOST CONTENT IS RECOVERABLE FROM A TRACKED BLOB --
+### ### ### FROM TWO OF THEM**, shown by digest rather than asserted.
+### ### **AND ONE THING THE RECOVERY DOES NOT UNDO:** ### the backup existed to hold
+### what was on disk before an install. ### **THIS ONE HELD NOTHING THE RECORD DID
+### ### NOT ALREADY TRACK.** ### Had it held an untracked local edit, ### **IT WOULD
+### ### HAVE BEEN GONE** -- and that is the hazard the repair removes.
+
+### ### **THE TOOL REPAIRED : True.** ### It ### **NEVER OVERWRITES AN EXISTING
+### ### BACKUP** ### and takes a fresh name instead.
+### ### ### **THE INVARIANT IMPLEMENTED IS STRICTLY STRONGER THAN THE ONE THE ORDER
+### ### ### ASKED FOR.** ### The order said ### *a backup it did not create*; ### a
+### file cannot be asked who wrote it, so the tool refuses to overwrite ANY existing
+### backup. ### **A STRONGER INVARIANT SUBSTITUTED FOR A WEAKER ONE IS STILL A
+### ### SUBSTITUTION**, and it is named rather than slipped in.
+### ### **FIXTURED IN BOTH POLARITIES : True** ### (`2` of `2`) -- a backup the tool
+### may write, and a foreign one that must survive byte-for-byte.
+### ### ### **AND IT FIRED FOR REAL ON THIS ACT`S OWN INSTALL RUN:** ###
+### `SIDE-effects` already carried a `.b304-backup`, which ### **SURVIVED
+### ### BYTE-FOR-BYTE** ### while the new one went to `.b304-backup-1`. ### **A
+### ### FIXTURE PROVES A TOOL IN A TEMPORARY DIRECTORY; THIS PROVED IT IN THE
+### ### ROSTER.**
+### ### **DISPOSITION : DONE. ### ROUTED : False.**
+### The repair is INSIDE this act`s face, which names `tools/b304_hooks.py`. ###
+### **A COMPONENT ROUTED FOR WANT OF A FACE THIS ACT WROTE ITSELF WOULD BE THIS SEAT
+### ### ROUTING ITS OWN OMISSION.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE TWO FILINGS.
+----------------------------------------------------------------------------------------------------
+### ### ### **(i) `A SEARCH FOR A RULE USES THE RULE`S OWN WORDS, NOT THE NAME A`
+### ### ### `READER GAVE IT`.**
+### ### **INCIDENT ONE -- `b383`, A CLEAN ABSENCE THAT WAS WRONG.** ### Terms:
+###   `reservoir`, `reviewer pool`, `reviewer budget`, `reviewers are finite`, `held in reserve`, `one reviewer`
+### ### **INCIDENT TWO -- `b385`, THE SAME RULE, LOCATED.** ### Terms:
+###   `SESSION PROTOCOL`, `mirror-refresh`, `reviewer set`, `not from recall`, `reviewer's authority`, `Currency check`, `reservoir`
+
+### ### **IS IT MECHANIZABLE? ### THE ANSWER IS A RESULT, NOT AN OPINION.**
+### ### **THE LESSON ITSELF IS NOT:** ### a check for the rule`s own words needs the
+### rule, and the rule is what the search was for.
+### ### **THE SHADOW IS:** ### is each term ### **ATTESTED ANYWHERE IN THE CORPUS AT
+### ### ALL?** ### A term that occurs nowhere cannot find anything.
+###   the corpus as it stands                `b383` 6/6 attested   `b385` 7/7   (control fired on 10 files)
+###   with the b383-b386 records excluded    `b383` 2/6 attested   `b385` 7/7   (control fired on 5 files)
+### ### **IT SEPARATES THE TWO INCIDENTS ON THE UNCONTAMINATED SWEEP : True.**
+### ### **AND IT SEPARATES NOTHING ON THE CONTAMINATED ONE**, because
+### ### **`b383`-`b385`S OWN RECORDS NOW CONTAIN EVERY ONE OF `b383`S TERMS.**
+### ### ### **THAT CONTAMINATION IS ITSELF THE FINDING:** ### an act`s own records
+### ### ### make its terms attested afterwards, so ### **THE CHECK MUST EXCLUDE THE
+### ### ### RECORDS OF THE ACT IT IS CHECKING** -- `b368`s sweep rule, one level
+### out.
+### ### ### **FILED AS : MECHANIZED.**
+### ### **AND ITS LIMIT IS STATED BESIDE IT, NOT BELOW IT:** ### it asks whether a
+### term is attested, ### **NOT WHETHER IT IS THE RIGHT TERM.** ### `b385`s own
+### `reservoir` probe was attested and still wrong. ### **NECESSARY AND NOT
+### ### SUFFICIENT**, exactly as `b378`s positive-control rule turned out to be --
+### and ### **A RULE THAT IS NECESSARY AND NOT SUFFICIENT IS NOT LISTED BESIDE THE
+### ### ARMS THAT DECIDE.**
+### ### **THE TECHNE MODULE:** ### `modules/2026-09/SEARCH_BY_THE_RULES_OWN_WORDS.md`, committed locally at `80263a0cae3b` and
+### ### **NOT PUSHED : True.**
+
+### ### ### **(ii) THE NAVIGATOR`S PARAPHRASE, CORRECTED ON THE RECORD.**
+### ### **THE STATEMENT:** ### *the export`s manifest is the reviewer`s authority
+### ### over recall.* ### **MARK : OVER-STATED.**
+### ### **THE CORRECTION, IN THE RULE`S TERMS:** ### the authority is ### **THE
+### ### MANIFEST`S DIGEST AND `last-commit` COLUMNS**, not the manifest wholesale.
+### The ### *Currency check* ### widens the disagreement test to three fields --
+### ### *version, md5, or last-commit* ### -- and ### **NEITHER PLACE MAKES THE
+### ### WHOLE MANIFEST THE AUTHORITY.**
+### ### ### **THE CORRECTION IS OF A PARAPHRASE AND NOT OF THE RULE.** ###
+### `REGISTRY.md` differs from its blob : ### **False.**
+
+----------------------------------------------------------------------------------------------------
+### THE DESK, THE WRITES, AND WHAT THIS ACT DID NOT DO.
+----------------------------------------------------------------------------------------------------
+### desk items swept : 29 ### / ### closed : 4 ### / ### standing : 25 ### / ### lists closed : 0
+### ### **AND THE GUARD ITEM IS CLOSED ON A MEASURED CONDITION.** ### The order
+### closes it ### *only if Component 2`s exercise passes*; the exercise ran BEFORE
+### this writer and the record was read, not assumed. ### **A CONDITIONAL CLOSURE
+### ### WHOSE CONDITION IS NOT MEASURED IS AN UNCONDITIONAL CLOSURE**, which is what
+### `b385` filed.
+### trail block appended (append-only True, committed prefix intact True); `CORRESPONDENCE.md` row 235;
+### index key `the-guard-made-single-sourced-under-r15` reachable by every alias : True
+
+### ### **NO CLASS WAS RULED. ### NO DOCUMENT WAS RECLASSIFIED. ### NO DECLARATION
+### ### WAS MOVED. ### NO GRADE WAS MOVED. ### NO ACT WAS RE-VERDICTED. ### NO LIST
+### ### WAS CLOSED.**
+### ### **NO STANDARD WAS EDITED AND NO AMENDMENT WAS APPLIED** -- the three `b383`
+### drafted that remain stay ### **ROUTED AND UNAPPLIED.**
+### ### **THE RULE WAS NOT EDITED AND `REGISTRY.md` WAS READ AND NOT TOUCHED.**
+### ### **THE CITATION QUESTION IS RESTATED AS AWAITING THE AUTHOR AND IS NOT
+### ### MOVED** -- no option added, none preferred.
+### ### **NO ARCHIVE FILE TOUCHED. ### NO CLUSTER OPENED. ### THE MIRROR ROSTER NOT
+### ### EDITED. ### NO `.git/hooks/pre-push` DELETED IN ANY REPOSITORY.**
+### ### **THE UNTRACKED `.b304-backup` ARTIFACTS THE INSTALLER LEFT ARE NAMED, NOT
+### ### COMMITTED AND NOT DELETED** -- an act that was not asked to tidy them does
+### not tidy them.
+### ### **THE FACE WAS NOT WIDENED MID-ACT.** ### Every write this act made is named
+### on the face that was locked before the first of them.
+### ### **NO `.lean` FILE TOUCHED, NO BUILD RUN, NO AXIOM PROFILE RECOMPUTED.**
+### **THE INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED. ### THE POSTURE
+### LOCK IS SEPARATE.** ### `h2` stands exactly where the deposit left it and this
+### act makes no claim about it in either direction. ### **NOTHING IS DEPOSITED AND
+### ### NOTHING WAS WRITTEN AT ZENODO.**
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, DECIDED.
+----------------------------------------------------------------------------------------------------
+### ### **`(F1)` MET IN SUBSTANCE AND REFUTED IN ITS DESCRIPTION.** ### The disposal
+### that implements `(R15)` IS deletion plus a repointed installer, exactly as the
+### navigator said. ### But the copy deleted was ### **TRACKED, NOT AT AN UNTRACKED
+### ### PATH** -- `git ls-files` carried both `.githooks/pre-push` AND
+### `tools/git-hooks/pre-push`. ### The untracked copies are the `.git/hooks/` ones,
+### and ### **THIS ACT DELETED NONE OF THEM.** ### The substance was right and the
+### name for the file was not.
+### ### **`(F2)` MET, BY DIGEST.** ### `3139` bytes = the CRLF expansion of a `3068`-
+### byte tracked blob, recoverable from two refs.
+### ### **`(E1)` MET.** ### The exercise passes in every rostered repository.
+### ### **`(E2)` MET.** ### `relay` ALREADY IDENTICAL; the three repositories still
+### carrying the stale line REPLACED.
+### ### **`(E3)` MET.** ### Component 3 is `DONE` and not routed.
+
+----------------------------------------------------------------------------------------------------
+### WHAT THIS ACT ADDS TO THE LORE.
+----------------------------------------------------------------------------------------------------
+### ### ### **NEW -- `A SEARCH FOR A RULE USES THE RULE`S OWN WORDS, NOT THE NAME A`
+### ### ### `READER GAVE IT`.** ### Mechanizable only in shadow, and the shadow is
+### ### **NECESSARY AND NOT SUFFICIENT.**
+### ### ### **NEW -- `AN ACT`S OWN RECORDS MAKE ITS TERMS ATTESTED AFTERWARDS`.** ###
+### So a check on a past search must exclude the records of the act it is checking.
+### **`b368`S SWEEP RULE, ONE LEVEL OUT.**
+### ### ### **NEW -- `A CONDITIONAL CLOSURE WHOSE CONDITION IS NOT MEASURED IS AN`
+### ### ### `UNCONDITIONAL CLOSURE`.** ### `b385` filed the guard item closed before
+### the check that refuted it ran.
+### ### ### **NEW -- `A STRONGER INVARIANT SUBSTITUTED FOR A WEAKER ONE IS STILL A`
+### ### ### `SUBSTITUTION`.** ### It is named, not slipped in.
+### ### ### **NEW -- `A FIXTURE PROVES A TOOL IN A TEMPORARY DIRECTORY; THE ROSTER`
+### ### ### `PROVES IT IN THE WORLD`.** ### The backup repair fired for real on the
+### same run that fixtured it.
+### **MET AGAIN -- `A FILE MOVED IS NOT A FILE REPLACED`** (`b385`), and the
+### topology behind it is now fixed rather than the text. ### **MET AGAIN -- AN
+### EXIT CODE ABOVE ZERO IS NOT AN ANSWER** (`b378`): this act invoked
+### `gate_hash.py --stamp`, a flag that does not exist, and read its self-test`s
+### exit `0` as a stamp. ### **THE LOCK GATE CAUGHT IT AND REFUSED.**
+
+----------------------------------------------------------------------------------------------------
+### THE RECORD.
+----------------------------------------------------------------------------------------------------
+### registration locked at (UTC) 2026-09-09T17:35:03Z
+### ### **21983 bytes, sha256 `1b2618fbd40c0e0b3250e9f6766d044258672d1370c652b03754a1b65e1c0f29`, 88 clauses, ### LOCKED BEFORE ANY WRITE AND CHAINED
+### ### ON A GATE THAT CHECKS WHAT EACH GATE READ.** ### 8 gates read, 4 checked by digest.
+### The extract`s clock is `2026-09-09T17:28:58Z` and the lock`s is `2026-09-09T17:35:03Z`.
+### b386_reads         run file `b386_extract_notes2.txt` recorded clock 2026-09-09T17:28:58Z
+### b386_lockgate      run file `b386_lockgate_notes3.txt` recorded clock 2026-09-09T17:34:56Z
+### b386_components    run file `b386_components_notes.txt` recorded clock 2026-09-09T17:39:17Z
+### **THE REFS THIS ACT READ IN THE ROSTERED REPOSITORIES:**
+###   relay                  `main` = `75e45f085388`
+###   SIDE-global-section    `main` = `6bb7d0df39e8`
+###   PLACE-papers           `main` = `2928c8d027eb`
+###   SIDE-effects           `main` = `5217b71705b3`
+### **THE EXTRACT:** ### `47` reads, `0` without an anchor, `7` anchors differing from the hint. ### **EVERY ANCHOR WAS READ FROM ITS FILE AND NONE WAS TYPED.**
+### ### **SIX NEW `relay` TOOLS AGAINST A CAP OF SIX, AND NO SHARED UTILITY.**
+====================================================================================================

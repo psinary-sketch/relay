@@ -1,0 +1,197 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b386_registration_2026-09-09.txt -- b386, THE GUARD MADE SINGLE-SOURCED
+  clauses      : 88
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  deposit actions                    0                0                actions SATISFIABLE
+      demand from : ### section (J): nothing deposits.
+  deposited artifacts touched        0                0                files  SATISFIABLE
+      demand from : ### section (J).
+  `.lean` files touched              0                0                files  SATISFIABLE
+      demand from : ### section (J).
+  terminals written                  0                0                terminals SATISFIABLE
+      demand from : ### section (J).
+  statements proved                  0                0                statements SATISFIABLE
+      demand from : ### section (J).
+  builds run                         0                0                builds SATISFIABLE
+      demand from : ### section (J).
+  axiom profiles recomputed          0                0                profiles SATISFIABLE
+      demand from : ### section (J).
+  new mathematics                    0                0                statements SATISFIABLE
+      demand from : ### section (J).
+  pre-lock gates the lock reads      8                8                gates  SATISFIABLE
+      demand from : ### section (A): read by b378`s gate run as b386, unmodified.
+  gates whose subject is this face   4                4                gates  SATISFIABLE
+      demand from : ### section (A): each carrying a sha256 stamp equal to this face.
+  face-subject gates accepted withou 0                0                gates  SATISFIABLE
+      demand from : ### section (A)/(H) BAR 1.
+  readings of the order declared in  6                6                readings SATISFIABLE
+      demand from : ### section (A): nine copies not two; every copy recoverable; core.hooksPath in all four; the repaired line reached only relay; the destroyed backup identified; and the attestation result known before the lock.
+  readings taken silently            0                0                readings SATISFIABLE
+      demand from : ### section (A).
+  absence claims made without a posi 0                0                claims SATISFIABLE
+      demand from : ### section (A).
+  b385 options reproduced verbatim w 3                3                options SATISFIABLE
+      demand from : ### section (B)/(H) BAR 2: all three, read by the anchor tool from the file that carries them.
+  options invented by this seat      0                0                options SATISFIABLE
+      demand from : ### section (B)/(H) BAR 2: THE AUTHOR DOES NOT RULE ON OPTIONS A SEAT HAS NOT SHOWN HIM.
+  options named as implementing (R15 1                1                options SATISFIABLE
+      demand from : ### section (B): exactly one, with the ruling`s own words beside it.
+  options re-worded to make them fit 0                0                options SATISFIABLE
+      demand from : ### section (B).
+  tracked guard copies per rostered  1                1                copies SATISFIABLE
+      demand from : ### section (C)/(H) BAR 3: (R15) allows exactly one.
+  tracked guard copies deleted       1                1                files  SATISFIABLE
+      demand from : ### section (C): relay/tools/git-hooks/pre-push, (R15)`s first disposal.
+  copies deleted without a printed r 0                0                files  SATISFIABLE
+      demand from : ### section (C)/(H) BAR 5: THE PROOF IS PRINTED BEFORE THE DELETION, NOT AFTER.
+  installer SOURCE constants repoint 1                1                constants SATISFIABLE
+      demand from : ### section (C): at .githooks/pre-push, the file the repositories run.
+  rostered repositories whose instal 4                4                repositories SATISFIABLE
+      demand from : ### section (C)/(H) BAR 4: LF-normalised, never by filename and never by size alone.
+  rostered repositories whose instal 4                4                repositories SATISFIABLE
+      demand from : ### section (C)/(H) BAR 4.
+  untracked .git/hooks/pre-push copi 0                0                files  SATISFIABLE
+      demand from : ### section (C)/(F): (R15)`s THIRD disposal is already in force for them via core.hooksPath, and deleting them would remove a working fallback the order did not ask to remove.
+  rostered repositories exercised in 4                4                repositories SATISFIABLE
+      demand from : ### section (C)/(H) BAR 6.
+  repositories failing in this act`s 0                0                repositories SATISFIABLE
+      demand from : ### section (C)/(H) BAR 6: b385`s exact predicate, kept.
+  gate arms widened to clear a failu 0                0                arms   SATISFIABLE
+      demand from : ### section (C): THE FAILING GATE IS CLEARED BY THE REPAIR AND NOT BY THE ARM.
+  installer defects repaired         1                1                defects SATISFIABLE
+      demand from : ### section (D): it must not overwrite a backup it did not create.
+  polarities the backup fixture hold 2                2                polarities SATISFIABLE
+      demand from : ### section (D)/(H) BAR 7: A FIXTURE THAT PASSES IN ONLY ONE POLARITY IS NOT A FIXTURE.
+  components routed for want of a fa 0                0                components SATISFIABLE
+      demand from : ### section (D): that would be this seat routing its own omission.
+  backups whose lost content is left 0                0                backups SATISFIABLE
+      demand from : ### section (D): named with its byte count, its digest and the ref it is recoverable from.
+  search term lists printed in full  2                2                lists  SATISFIABLE
+      demand from : ### section (E): b383`s six and b385`s seven, taken from those acts` own tools.
+  attestation sweeps run             2                2                sweeps SATISFIABLE
+      demand from : ### section (E)/(H) BAR 8: the corpus as it stands, and with the b383-b386 records excluded.
+  mechanizable checks filed without  0                0                checks SATISFIABLE
+      demand from : ### section (E)/(G): NECESSARY AND NOT SUFFICIENT, as b378`s control rule turned out to be.
+  TECHNE modules written             1                1                files  SATISFIABLE
+      demand from : ### section (E)/(F): beside the arm species.
+  TECHNE modules pushed              0                0                pushes SATISFIABLE
+      demand from : ### the standing refusal.
+  paraphrase clauses corrected on th 1                1                clauses SATISFIABLE
+      demand from : ### section (E)(ii): the manifest clause, marked OVER-STATED with the rule`s own words beside it.
+  rules edited                       0                0                rules  SATISFIABLE
+      demand from : ### section (E)(ii)/(J): THE CORRECTION IS OF A PARAPHRASE AND NOT OF THE RULE.
+  exact bars                         8                8                bars   SATISFIABLE
+      demand from : ### section (H): stamped-gate, option, single-source, propagation, recoverability, exercise, backup, attestation.
+  multi-arm bars                     0                0                bars   SATISFIABLE
+      demand from : ### section (H).
+  arms of this suite written by addr 0                0                arms   SATISFIABLE
+      demand from : ### section (H): (R2) is law.
+  arms whose side is left undeclared 0                0                arms   SATISFIABLE
+      demand from : ### section (H): b352`s rule.
+  arms that measure differently on t 0                0                arms   SATISFIABLE
+      demand from : ### section (H): b385`s defect, made a bar.
+  relay tools created                6                6                files  SATISFIABLE
+      demand from : the extract, the regspec, the reg gate, the four-component writer, the desk-and-bank writer, and this act`s gate suite. ### SIX FILES AND SIX ROLES. ### THE LOCK GATE IS b378`S, RUN AS b386.
+  shared utilities created           0                0                files  SATISFIABLE
+      demand from : ### NONE. ### The attestation check is an experiment inside this act`s components and is not promoted to a shared tool by the act that invented it.
+  owner instrument files edited      1                1                files  SATISFIABLE
+      demand from : ### section (F): tools/b304_hooks.py, DECLARED ON THIS FACE BEFORE THE ACT, its SOURCE and its backup defect.
+  relay tracked files deleted        1                1                files  SATISFIABLE
+      demand from : ### section (F): tools/git-hooks/pre-push.
+  suites, banks or run files of othe 0                0                files  SATISFIABLE
+      demand from : ### section (J).
+  relay tracked files written outsid 0                0                files  SATISFIABLE
+      demand from : none.
+  TECHNE files written               1                1                files  SATISFIABLE
+      demand from : ### section (F): one module, local.
+  SIDE-effects files written         1                1                files  SATISFIABLE
+      demand from : ### section (F): .githooks/pre-push, written by the installer, AND NOTHING ELSE.
+  SIDE-global-section files written  2                2                files  SATISFIABLE
+      demand from : ### section (F): CORRESPONDENCE.md at the closing, and .githooks/pre-push by the installer.
+  PLACE-papers files written         2                2                files  SATISFIABLE
+      demand from : ### section (F): OPEN_TRAILS.md appended, and .githooks/pre-push by the installer. ### NO CORPUS DOCUMENT IS WRITTEN INTO AND REGISTRY.md IS NOT EDITED.
+  new tracking documents created     0                0                documents SATISFIABLE
+      demand from : ### section (J).
+  faces ledger rows moved            0                0                rows   SATISFIABLE
+      demand from : none by this act.
+  mirror roster rows changed         0                0                rows   SATISFIABLE
+      demand from : ### section (F)/(J).
+  findings sections edited           0                0                sections SATISFIABLE
+      demand from : none.
+  HANDOFF.md edits                   0                0                edits  SATISFIABLE
+      demand from : none.
+  correspondence rows appended       1                1                rows   SATISFIABLE
+      demand from : the closing.
+  index keys appended                1                1                keys   SATISFIABLE
+      demand from : the closing.
+  ERRATA entries opened              0                0                entries SATISFIABLE
+      demand from : none by this act.
+  open lists closed                  0                0                lists  SATISFIABLE
+      demand from : ### section (J): restated OPEN by name.
+  citation-question movements        0                0                movements SATISFIABLE
+      demand from : ### section (J): restated as awaiting the author and NOT MOVED.
+  clusters opened, ranked or priorit 0                0                clusters SATISFIABLE
+      demand from : ### section (J).
+  amendments applied                 0                0                amendments SATISFIABLE
+      demand from : ### section (J): the three stay routed.
+  archive files touched, moved, rena 0                0                files  SATISFIABLE
+      demand from : ### section (F)/(J).
+  pins written by this act           0                0                pins   SATISFIABLE
+      demand from : ### section (F).
+  classes ruled                      0                0                classes SATISFIABLE
+      demand from : ### section (J).
+  documents reclassified             0                0                documents SATISFIABLE
+      demand from : ### section (J).
+  class lines written                0                0                lines  SATISFIABLE
+      demand from : ### section (J).
+  grades moved                       0                0                grades SATISFIABLE
+      demand from : ### section (J).
+  standards edited                   0                0                files  SATISFIABLE
+      demand from : ### section (J).
+  bars moved                         0                0                bars   SATISFIABLE
+      demand from : ### section (J).
+  claims about the mathematics of an 0                0                claims SATISFIABLE
+      demand from : ### section (J).
+  grades conferred by a seat         0                0                grades SATISFIABLE
+      demand from : ### section (J).
+  faces promoted                     0                0                faces  SATISFIABLE
+      demand from : ### section (J).
+  coordinates closed                 0                0                coordinates SATISFIABLE
+      demand from : ### section (J).
+  claims about the quantifier        0                0                claims SATISFIABLE
+      demand from : ### section (J).
+  claims about h2, totality, the ros 0                0                claims SATISFIABLE
+      demand from : ### section (J): no claim in either direction.
+  posture-lock changes               0                0                changes SATISFIABLE
+      demand from : ### section (J).
+  locked or sealed files edited      0                0                files  SATISFIABLE
+      demand from : none.
+  frames recomputed                  0                0                frames SATISFIABLE
+      demand from : ### section (J): the instrument lane stays parked.
+  aggregations stated                0                0                statements SATISFIABLE
+      demand from : M-2 IS OWED AND STAYS OWED.
+  verdicts on M-2                    0                0                verdicts SATISFIABLE
+      demand from : carried from b310.
+  values carried from recollection r 0                0                values SATISFIABLE
+      demand from : ### section (A): every quoted line is read out of its own file at its own line number.
+  ad-hoc shell-typed numbers in the  0                0                count  SATISFIABLE
+      demand from : RULING (3). ### RE-MEASURED BY G-TOOLNUM.
+  artifact counts predicted in this  0                0                predictions SATISFIABLE
+      demand from : RULING (1), U-1 STRUCK. ### MEASURED off this registration`s own text by `b300_regspec.count_predictions`, IMPORTED.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
+  ### ### **AND ONE KIND OF INCONSISTENCY IT CANNOT SEE AT ALL, NAMED AT b347: A NUMERICAL ONE.**
+  ### A registration may seal a bar finer than the floor of the object that bar tests, or arms
+  ### that are algebraically one arm, and read JOINTLY SATISFIABLE here -- b345's did. ### This
+  ### audit compares COUNTS AGAINST CEILINGS; that defect is between a number a routine can reach
+  ### and a number a bar demands. ### **THE TEXTUAL ARM AGAINST IT IS `registration_gate.py`'s
+  ### bar-floor arms (b347); THE NUMERICAL ONE IS NOT BUILT, AND ITS PRICE IS BANKED AT b347.**
+### GATE SUBJECT SHA256 : 1b2618fbd40c0e0b3250e9f6766d044258672d1370c652b03754a1b65e1c0f29  (b386_registration_2026-09-09.txt)

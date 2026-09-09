@@ -1,0 +1,224 @@
+### run at (UTC) : 2026-09-09T17:39:17Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b386 -- THE GUARD MADE SINGLE-SOURCED. ### THE FOUR COMPONENTS.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- b385'S THREE OPTIONS, QUOTED, AND THE ONE THAT IMPLEMENTS `(R15)`.
+----------------------------------------------------------------------------------------------------
+### ### **ONE DISCREPANCY WITH THE ORDER, REPORTED RATHER THAN SMOOTHED.** ### The order
+### says to reproduce the three options ### *from its bank*. ### **`b385`S BANK,
+### ### `data/b385_the_six_on_the_trails.txt`, DOES NOT CARRY THEM** -- they are in
+### `data/b385_closing.txt`, in that act`s DRAFT for this one. ### The quotation is taken
+### from where the text is and ### **THE LOCATION IS PRINTED WITH IT.**
+###   the options appear in `b385_the_six_on_the_trails.txt` : ### **False**
+
+### ### **THE THREE OPTIONS, VERBATIM, WITH THEIR LOCATIONS:**
+###   `b385_closing.txt` line 179  
+###   | ###   ### **(a) REPAIR THE SOURCE** ### so the two agree, leaving both files.
+###   `b385_closing.txt` line 180  
+###   | ###   ### **(b) RETIRE THE SOURCE** ### and repoint `b304_hooks.py`s `SOURCE` at
+###   `b385_closing.txt` line 182  
+###   | ###     the tool installs the file the repositories actually run.
+###   `b385_closing.txt` line 183  
+###   | ###   ### **(c) NEITHER**, and record that the guard`s comment is allowed to drift because
+
+### ### **`(R15)`, IN THE AUTHOR`S OWN WORDS, READ AT ITS OWN LINE:**
+###   | strikeable: ONE GUARD, ONE SOURCE. A guard has exactly one
+###   | tracked source of truth in each repository, and whatever
+###   | or made a pointer to the source, or the repository is
+###   | reconfigured so the source is what runs — whichever the
+###   | of one guard is not a repair job; it is a topology defect, and
+
+### ### ### **WHICH OPTION IMPLEMENTS `(R15)`, TESTED CLAUSE BY CLAUSE.**
+###   ### **OPTION `(a)` -- REPAIR THE SOURCE, LEAVING BOTH FILES : DOES NOT**
+###     it makes the two copies AGREE but leaves ### **TWO TRACKED SOURCES OF TRUTH**, which is the first clause of the ruling. ### And `(R15)` says the divergence is ### **A TOP
+###     OLOGY DEFECT** -- (a) repairs the text and leaves the topology.
+###   ### **OPTION `(b)` -- RETIRE THE SOURCE AND REPOINT THE INSTALLER : IMPLEMENTS `(R15)`**
+###     it leaves ### **EXACTLY ONE TRACKED SOURCE** ### per repository and makes ### **THE INSTALLER READ FROM IT** -- the ruling`s two clauses, in order. ### The retirement is 
+###     `(R15)`s FIRST disposal, ### *a second copy is deleted*.
+###   ### **OPTION `(c)` -- NEITHER, THE COMMENT ALLOWED TO DRIFT : DOES NOT**
+###     it leaves both copies AND the divergence. ### **IT IS THE STATE THE RULING WAS WRITTEN TO END.**
+
+### ### **OPTIONS REPRODUCED : 3. ### NAMED AS IMPLEMENTING `(R15)` : 1. ### INVENTED BY THIS SEAT : 0.**
+### ### ### **OPTION `(b)` IS EXECUTED. ### NO OPTION WAS RE-WORDED TO MAKE IT FIT.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE REPAIR. ### **THE PROOF BEFORE THE DELETION.**
+----------------------------------------------------------------------------------------------------
+### ### ### **(a) THE RECOVERABILITY PROOF, PRINTED BEFORE ANYTHING IS DELETED.**
+###   the file about to be deleted : `tools/git-hooks/pre-push`
+###   bytes on disk 3068   sha (LF-normalised) `bf112af62a679bef`
+###   ### **RECOVERABLE FROM : 323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push**
+###   ### **AND THE DELETION IS ITSELF RECOVERABLE**: the file is TRACKED, so `git rm`
+###   leaves it in every commit that carried it. ### **THIS IS THE ORDER `b385` GOT
+###   ### WRONG** -- it removed a file and worked out afterwards what had been in it.
+
+### ### ### **(b) THE DELETION.** ### `(R15)`s FIRST DISPOSAL.
+###   `git rm tools/git-hooks/pre-push` : exit 0 ; gone from the working tree : ### **True**
+###   tracked paths matching `pre-push` in `relay` now : ['.githooks/pre-push']
+
+### ### ### **(c) THE INSTALLER REPOINTED.**
+###   was : `SOURCE = os.path.join(ROOT, 'tools', 'git-hooks', 'pre-push')`
+###   now : `SOURCE = os.path.join(ROOT, '.githooks', 'pre-push')`
+###   ### **THE INSTALLER NOW READS THE FILE THE REPOSITORIES RUN : True**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE INSTALLER'S SECOND DEFECT.
+----------------------------------------------------------------------------------------------------
+### ### ### **(a) WHAT WAS LOST, NAMED WITH ITS NUMBERS.**
+###   the removed file : `.githooks/pre-push.b304-backup`, ### **`3139` BYTES** ### as
+###   `b385` recorded it before the tool overwrote it.
+###   `6de6336:.githooks/pre-push`      : 3068 bytes (LF)   sha `bf112af62a679bef`
+###   the same blob, CRLF-expanded       : 3139 bytes         sha `e923f56a26ed8a4e`
+###   ### **THE CRLF EXPANSION IS `3139` BYTES, WHICH IS THE REMOVED FILE`S SIZE : True**
+###   and `323fd7a:tools/git-hooks/pre-push` is LF-identical to it : ### **True**
+###   ### ### **SO THE LOST CONTENT IS RECOVERABLE FROM A TRACKED BLOB -- FROM TWO OF
+###   ### ### THEM.** ### `(F2)` IS MET, and by a printed digest rather than an
+###   assurance.
+###   ### **AND ONE THING THE RECOVERY DOES NOT UNDO:** ### the backup existed to hold
+###   what was on disk before an install, and ### **THIS ONE HELD NOTHING THE RECORD DID
+###   ### NOT ALREADY TRACK.** ### Had it held an untracked local edit, ### **IT WOULD
+###   ### HAVE BEEN GONE**, and that is the hazard the repair below removes.
+
+### ### ### **(b) THE TOOL REPAIRED.**
+###   `tools/b304_hooks.py` -- the unconditional `shutil.copy2` replaced by a
+###   ### **NEVER-OVERWRITE-AN-EXISTING-BACKUP LOOP** : True
+###   ### **THE INVARIANT IMPLEMENTED IS STRICTLY STRONGER THAN THE ONE ASKED FOR**, and
+###   the substitution is named rather than slipped in.
+
+### ### ### **(c) THE FIXTURE, IN BOTH POLARITIES.**
+###   ### **A FIXTURE THAT PASSES IN ONLY ONE POLARITY IS NOT A FIXTURE** (`b370`).
+###   (+) no backup present -> writes one, replaces dest                   True
+###       verdict: REPLACED (previous kept as pre-push.b304-backup)
+###   (-) foreign backup present -> preserved, new one elsewhere           True
+###       verdict: REPLACED (previous kept as pre-push.b304-backup-1)
+###       the foreign backup survived byte-for-byte : True ; the new one went to `.b304-backup-1` : True
+###   ### ### **BOTH POLARITIES HELD : True**
+
+### ### ### **DISPOSITION : DONE.** ### The repair is INSIDE this act`s face, which names
+### ### ### `tools/b304_hooks.py`. ### **IT IS NOT ROUTED**, because a component routed
+### ### ### for want of a face this act wrote itself would be this seat routing its own
+### ### ### omission.
+
+### ### ### **(d) THE INSTALLER RUN, AND THE INSTALLED BYTES COMPARED TO THE SOURCE`S
+### ### ### OWN GIT BLOB.**
+###   b304_hooks.py -- THE PRE-PUSH HOOK, INSTALLED IN ALL 4 ROSTERED REPOS AND EXERCISED IN BOTH
+###   relay                  ALREADY IDENTICAL                      146330836e1ae8e945c4bd65a756dfec
+###   SIDE-global-section    REPLACED (previous kept as pre-push.b304-backup) 146330836e1ae8e945c4bd65a756dfec
+###   PLACE-papers           REPLACED (previous kept as pre-push.b304-backup) 146330836e1ae8e945c4bd65a756dfec
+###   SIDE-effects           REPLACED (previous kept as pre-push.b304-backup-1) 146330836e1ae8e945c4bd65a756dfec
+###   ### ALL 4 BYTE-IDENTICAL TO THE TRACKED SOURCE : True  PASS
+###   ### **INSTALLED BUT NOT EXERCISED HERE, AND SAID RATHER THAN IMPLIED:** ### the
+###   ### **THE SOURCE`S OWN GIT BLOB** ### `HEAD:.githooks/pre-push` : 3078 bytes (LF), sha `146330836e1ae8e9`
+###   relay                   3078 bytes  blob-equal (LF) : True   repaired line : True   hooksPath `.githooks`
+###   SIDE-global-section     3078 bytes  blob-equal (LF) : True   repaired line : True   hooksPath `.githooks`
+###   PLACE-papers            3078 bytes  blob-equal (LF) : True   repaired line : True   hooksPath `.githooks`
+###   SIDE-effects            3078 bytes  blob-equal (LF) : True   repaired line : True   hooksPath `.githooks`
+###   ### **ALL FOUR LF-NORMALISED-EQUAL TO THE SOURCE`S BLOB : True**
+###   ### **ALL FOUR CARRY THE REPAIRED LINE : True**
+###   ### ### **THE COMPARISON IS AGAINST THE BLOB AND `LF`-NORMALISED. ### NEVER BY
+###   ### ### FILENAME, AND NEVER BY SIZE ALONE.**
+
+### ### ### **(e) THE UNTRACKED `.git/hooks/pre-push` COPIES.**
+###   relay                  present : True    core.hooksPath = `.githooks`  ### ### **INERT : True**
+###   SIDE-global-section    present : True    core.hooksPath = `.githooks`  ### ### **INERT : True**
+###   PLACE-papers           present : True    core.hooksPath = `.githooks`  ### ### **INERT : True**
+###   SIDE-effects           present : True    core.hooksPath = `.githooks`  ### ### **INERT : True**
+###   ### **`(R15)`S THIRD DISPOSAL -- *the repository is reconfigured so the source is
+###   ### what runs* -- IS ALREADY IN FORCE FOR THESE**, verified above in each
+###   repository. ### **NONE IS DELETED.**
+###   ### ### **AND THAT IS A JUDGEMENT, MARKED AS ONE:** ### deleting them would remove
+###   a working fallback if `core.hooksPath` were ever unset, and the order did not ask
+###   for that. ### **THE AUTHOR MAY OVERTURN IT.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE TWO FILINGS.
+----------------------------------------------------------------------------------------------------
+### ### ### **(i) THE SEARCH LESSON, MINTED -- AND TESTED BEFORE IT IS FILED AS A CURE.**
+### ### **THE SPECIES:** ### *a search for a rule uses the rule`s own words, not the name
+### ### a reader gave it.*
+
+### ### **INCIDENT ONE -- `b383`, A CLEAN ABSENCE THAT WAS WRONG.** ### Its six terms:
+###     `reservoir             `  attested in the corpus `b383` searched : 1 file(s)
+###     `reviewer pool         `  attested in the corpus `b383` searched : 0 file(s)   ### ### **UNATTESTED**
+###     `reviewer budget       `  attested in the corpus `b383` searched : 0 file(s)   ### ### **UNATTESTED**
+###     `reviewers are finite  `  attested in the corpus `b383` searched : 0 file(s)   ### ### **UNATTESTED**
+###     `held in reserve       `  attested in the corpus `b383` searched : 1 file(s)
+###     `one reviewer          `  attested in the corpus `b383` searched : 0 file(s)   ### ### **UNATTESTED**
+### ### **INCIDENT TWO -- `b385`, THE SAME RULE, LOCATED.** ### Its seven terms:
+###     `SESSION PROTOCOL      `  attested in the same corpus              : 2 file(s)
+###     `mirror-refresh        `  attested in the same corpus              : 10 file(s)
+###     `reviewer set          `  attested in the same corpus              : 1 file(s)
+###     `not from recall       `  attested in the same corpus              : 2 file(s)
+###     `reviewer's authority  `  attested in the same corpus              : 1 file(s)
+###     `Currency check        `  attested in the same corpus              : 2 file(s)
+###     `reservoir             `  attested in the same corpus              : 1 file(s)
+
+### ### ### **IS IT MECHANIZABLE? ### THE ANSWER IS A RESULT, NOT AN OPINION.**
+### ### **THE LESSON ITSELF IS NOT:** ### a check for ### *the rule`s own words* ### needs
+### the rule, and the rule is what the search was for.
+### ### **THE SHADOW IS:** ### ### **IS EACH TERM ATTESTED ANYWHERE IN THE CORPUS AT
+### ### ALL?** ### A term that occurs nowhere cannot find anything.
+###     the corpus as it stands                 `b383` 6/6 attested   `b385` 7/7   (control fired on 10 files)
+###     with the b383-b386 records excluded     `b383` 2/6 attested   `b385` 7/7   (control fired on 5 files)
+
+### ### ### **THE CHECK SEPARATES THE TWO INCIDENTS ON THE UNCONTAMINATED SWEEP : True.**
+### ### ### **AND IT DOES NOT SEPARATE THEM ON THE CONTAMINATED ONE : True** -- because
+### ### ### **`b383`-`b385`S OWN RECORDS NOW CONTAIN EVERY ONE OF `b383`S TERMS.**
+### ### **THAT CONTAMINATION IS ITSELF THE FINDING:** ### an act`s own records make its
+### terms attested afterwards, so ### **THE CHECK MUST EXCLUDE THE RECORDS OF THE ACT IT
+### ### IS CHECKING** -- `b368`s rule, arriving one level out.
+
+### ### ### **FILED AS : MECHANIZED.**
+### ### **AND ITS LIMIT IS STATED BESIDE IT, NOT BELOW IT:** ### the check asks whether a
+### term is attested, ### **NOT WHETHER IT IS THE RIGHT TERM.** ### `b385`s own
+### `reservoir` probe was attested and still wrong. ### **SO THE CHECK IS NECESSARY AND
+### ### NOT SUFFICIENT**, exactly as `b378`s positive-control rule turned out to be --
+### ### **AND A RULE THAT IS NECESSARY AND NOT SUFFICIENT IS NOT LISTED BESIDE THE ARMS
+### ### THAT DECIDE.**
+
+### ### ### **(ii) THE NAVIGATOR`S PARAPHRASE, CORRECTED ON THE RECORD.**
+### ### **THE RULE`S OWN WORDS, READ AT THE CANONICAL DRIVE AT THEIR OWN LINE NUMBERS:**
+###   `REGISTRY.md` line 33   
+###   | ## SESSION PROTOCOL — reviewer mirror-refresh (standing rule, 2026-07-29)
+###   `REGISTRY.md` line 39   
+###   | - **Currency check.** If a reviewer's claim disagrees with the current MANIFEST (version, md5, or last-commit), the MANIFEST wins and the claim is stale — re-derive before acting on it. Rule 5 above applies transitively: the freshest export wins.
+###   `REGISTRY.md` line 37   
+###   | - **Procedure.** Create `D:\MY-DOwnloads\mirror-refresh-<today>\` fresh; copy in flat the reviewer set (FINDINGS, REGISTRY, OPEN_TRAILS, SPIRAL_MAP, VERIFICATION_LOOM, ERRATA; the five RH-rail papers at current version; EXCLUSION_ENGINE, FOUNDATIONS_OF_THE_SIDE_PROGRAMME, ADDITIVE_MULTIPLICATIVE_CON
+
+### ### **THE NAVIGATOR`S STATEMENT:** ### *the export`s manifest is the reviewer`s
+### ### authority over recall.*
+### ### ### **MARK : OVER-STATED.**
+### ### **THE CORRECTION, IN THE RULE`S TERMS:** ### the authority is ### **THE
+### ### MANIFEST`S DIGEST AND `last-commit` COLUMNS**, not the manifest wholesale. ### The
+### Currency check widens the disagreement test to three fields -- ### *version, md5, or
+### last-commit* ### -- and ### **NEITHER PLACE MAKES THE WHOLE MANIFEST THE AUTHORITY.**
+### ### ### **THE CORRECTION IS OF A PARAPHRASE AND NOT OF THE RULE. ### THE RULE IS NOT
+### ### ### EDITED**, and `REGISTRY.md` is byte-identical to its blob at the end of this
+### act.
+###   `REGISTRY.md` differs from its blob : ### **False**
+
+### ### ### **THE TECHNE MODULE.**
+###   written : `modules/2026-09/SEARCH_BY_THE_RULES_OWN_WORDS.md`
+###   committed locally at `80263a0cae3b` : exit 0
+###   branch state : `## main...origin/main [ahead 16]`
+###   ### **NOT PUSHED. ### THE STANDING REFUSAL: TECHNE-Core STAYS PRIVATE UNTIL THE
+###   ### PROVISIONALS.**
+
+====================================================================================================
+### THE FOUR COMPONENTS, SUMMED.
+====================================================================================================
+### ### **QUOTATIONS THAT FAILED TO RE-READ : 0** 
+### ### **OPTIONS REPRODUCED 3 ; IMPLEMENTING (R15) ['(b)'] ; INVENTED 0**
+### ### **TRACKED GUARD COPIES DELETED : 1, PROOF PRINTED FIRST : True**
+### ### **INSTALLER REPOINTED : True ; ALL FOUR MATCH THE BLOB : True ; ALL FOUR CARRY THE REPAIRED LINE : True**
+### ### **UNTRACKED LEGACY COPIES DELETED : 0** -- (R15)`s third disposal, already in force
+### ### **INSTALLER DEFECT REPAIRED : True ; FIXTURE POLARITIES HELD : True ; DISPOSITION DONE**
+### ### **THE LOST BACKUP IS IDENTIFIED AND RECOVERABLE : True**
+### ### **THE SEARCH LESSON FILED AS : MECHANIZED ; ITS LIMIT STATED : True**
+### ### **THE PARAPHRASE CORRECTED : 1 ; RULES EDITED : 0**
+### ### **NO CLASS RULED. ### NO STANDARD EDITED. ### NO ARCHIVE FILE TOUCHED. ### NO
+### ### CLUSTER OPENED. ### THE MIRROR ROSTER NOT EDITED. ### THE CITATION QUESTION NOT
+### ### MOVED.**
+====================================================================================================

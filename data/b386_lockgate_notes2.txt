@@ -1,0 +1,72 @@
+### run at (UTC) : 2026-09-09T17:34:31Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b378 -- STEP ZERO: ### **THE LOCK READS EVERY GATE, AND CHECKS WHAT EACH ONE READ.**
+====================================================================================================
+
+  ### ### **`b376` PROVED EVERY GATE PASSED. ### IT COULD NOT PROVE WHAT ANY OF THEM PASSED
+  ### ### ON, AND SAID SO ON ITS OWN FACE.** ### `b377` hit that: a late rewrite of its
+  ### ### registration left three gate records stale and only the seat caught it.
+  ### ### ### **THIS GATE CLOSES IT: ### A FACE-SUBJECT GATE MUST CARRY THE SHA256 OF THE
+  ### ### ### BYTES IT READ, AND THAT DIGEST MUST EQUAL THE FACE ABOUT TO BE LOCKED.**
+
+  ### the face : b386_registration_2026-09-09.txt
+  ### its sha256 : 1b2618fbd40c0e0b3250e9f6766d044258672d1370c652b03754a1b65e1c0f29
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE HELPER`S OWN FIXTURES, BEFORE THE GATE USES IT.
+----------------------------------------------------------------------------------------------------
+    an unstamped record reads None, not True             ok
+    a stamp over unchanged bytes MATCHES                 ok
+    ### **A STAMP OVER REWRITTEN BYTES REFUSES**         ok
+    re-stamping after the rewrite matches again          ok
+    ### **AND EXACTLY ONE STAMP LINE SURVIVES**          ok
+    the gate's own output is untouched                   ok
+    ### ### **gate_hash SELF-TEST : HELD**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE GATE`S FIXTURES -- FOUR POLARITIES, NOT TWO.
+----------------------------------------------------------------------------------------------------
+      all gates clean                            permits : True    failing : none
+      one gate`s phrase missing                  permits : False   failing : ['the banned-term scan on the face']
+      ### **one gate`s subject digest STALE**    permits : False   failing : ['the registration gate, all its own arms']
+      one gate carries no subject digest         permits : False   failing : ['the clause spec emitted from the face']
+    ### ### **FIXTURE VERDICT : CLEAN PERMITS AND EACH FAILURE MODE REFUSES FOR ITS OWN GATE**
+    ### **A GATE THAT HAS ONLY EVER SAID YES IS NOT A GATE**, and a gate that refuses for the
+    ### wrong reason is not one either.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) EVERY PRE-LOCK GATE OF `b386`, ITS VERDICT, AND WHAT IT READ.
+----------------------------------------------------------------------------------------------------
+    the ferry scan (struck clauses and stems)      b386_ferry_scan.txt                    PASS
+        looked for   : ### VERDICT: ### **0 HIT(S) REPORTED.
+        subject      : not the face; no digest required
+    the handoff census                             b386_census_stepzero.txt               PASS
+        looked for   : TOTAL MISSING : 0
+        subject      : not the face; no digest required
+    the faces census                               b386_faces_census_stepzero.txt         PASS
+        looked for   : TOTAL MISSING : 0
+        subject      : not the face; no digest required
+    the pins, by ls-remote through the roster      b386_pins_stepzero.txt                 PASS
+        looked for   : ### REPOS HARD-FAILING : 0
+        subject      : not the face; no digest required
+    the registration gate, all its own arms        b386_reg_gate.txt                      ### FAIL ###
+        looked for   : GATE VERDICT : CLEAR
+        subject      : ### **THE FACE** ### -- recorded `NONE`
+        ### ### **### **THE RECORD CARRIES NO SUBJECT DIGEST** -- an absent claim is not a true one**
+    the banned-term scan on the face               b386_reg_termscan.txt                  ### FAIL ###
+        looked for   : VERDICT          : CLEAN
+        subject      : ### **THE FACE** ### -- recorded `NONE`
+        ### ### **### **THE RECORD CARRIES NO SUBJECT DIGEST** -- an absent claim is not a true one**
+    the clause spec emitted from the face          b386_regspec_run.txt                   ### FAIL ###
+        looked for   : ARTIFACT-COUNT PREDICTIONS FOUND : 0
+        subject      : ### **THE FACE** ### -- recorded `NONE`
+        ### ### **### **THE RECORD CARRIES NO SUBJECT DIGEST** -- an absent claim is not a true one**
+    the satisfiability audit                       audit_b386_reg_satisfiable.txt         ### FAIL ###
+        looked for   : JOINTLY SATISFIABLE
+        subject      : ### **THE FACE** ### -- recorded `NONE`
+        ### ### **### **THE RECORD CARRIES NO SUBJECT DIGEST** -- an absent claim is not a true one**
+
+    ### ### **GATES READ : 8. ### PASSING : 4. ### FACE-SUBJECT GATES CHECKED BY DIGEST : 4.**
+    ### ### **VERDICT : ### LOCK REFUSED ###**
+    ### ### **AND THE LOCK IS CHAINED ON THIS EXIT CODE, NOT ON ANY ONE GATE`S.**
+====================================================================================================

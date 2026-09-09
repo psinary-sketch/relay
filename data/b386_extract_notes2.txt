@@ -1,0 +1,294 @@
+### run at (UTC) : 2026-09-09T17:28:58Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b386_extract.py -- EXTRACT-TO-DISK, THE GUARD TOPOLOGY, AND THE ATTESTATION EXPERIMENT.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### THE REFS.
+----------------------------------------------------------------------------------------------------
+    relay                  ref `main` = `75e45f085388`   ### tree dirty : True
+    SIDE-global-section    ref `main` = `6bb7d0df39e8`   ### tree dirty : False
+    PLACE-papers           ref `main` = `2928c8d027eb`   ### tree dirty : True
+    SIDE-effects           ref `main` = `5217b71705b3`   ### tree dirty : True
+
+----------------------------------------------------------------------------------------------------
+  ### THE GUARD TOPOLOGY. ### **EVERY COPY, IN EVERY ROSTERED REPOSITORY, BEFORE
+  ### ANYTHING IS TOUCHED.**
+----------------------------------------------------------------------------------------------------
+  ### tracked blobs of either guard path, across all history : ### **4**
+      323fd7a:tools/git-hooks/pre-push          3068 bytes (LF)   sha bf112af62a679bef
+      4b8ed4d:.githooks/pre-push                3078 bytes (LF)   sha 146330836e1ae8e9
+      6b98b2f:tools/git-hooks/pre-push          1465 bytes (LF)   sha 29113e0a5f51b009
+      6de6336:.githooks/pre-push                3068 bytes (LF)   sha bf112af62a679bef
+
+  repo                   path                         bytes sha (LF-normalised) tracked  recoverable from
+  relay                  .githooks/pre-push            3078 146330836e1ae8e9   True     4b8ed4d:.githooks/pre-push
+  relay                  tools/git-hooks/pre-push      3068 bf112af62a679bef   True     323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  relay                  .git/hooks/pre-push           3068 bf112af62a679bef   False    323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  SIDE-global-section    .githooks/pre-push            3068 bf112af62a679bef   True     323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  SIDE-global-section    .git/hooks/pre-push           3068 bf112af62a679bef   False    323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  PLACE-papers           .githooks/pre-push            3068 bf112af62a679bef   True     323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  PLACE-papers           .git/hooks/pre-push           3068 bf112af62a679bef   False    323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  SIDE-effects           .githooks/pre-push            3139 bf112af62a679bef   True     323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+  SIDE-effects           .git/hooks/pre-push           3068 bf112af62a679bef   False    323fd7a:tools/git-hooks/pre-push, 6de6336:.githooks/pre-push
+
+  ### **`core.hooksPath` IN EVERY ROSTERED REPOSITORY** -- which decides WHICH copy runs:
+      relay                  core.hooksPath = `.githooks`
+      SIDE-global-section    core.hooksPath = `.githooks`
+      PLACE-papers           core.hooksPath = `.githooks`
+      SIDE-effects           core.hooksPath = `.githooks`
+
+  ### ### **COPIES ON DISK : 9. ### TRACKED : 5. ### UNTRACKED : 4.**
+  ### ### **COPIES RECOVERABLE FROM NO TRACKED BLOB : 0.**
+  ### ### **TRACKED COPIES PER REPOSITORY** ### -- `(R15)` allows exactly one:
+      relay                  2  ['.githooks/pre-push', 'tools/git-hooks/pre-push']   ### ### **TWO. THE DEFECT.**
+      SIDE-global-section    1  ['.githooks/pre-push']
+      PLACE-papers           1  ['.githooks/pre-push']
+      SIDE-effects           1  ['.githooks/pre-push']
+  ### ### **DISTINCT CONTENTS ACROSS ALL COPIES : 2** ### -- so the copies DIVERGE
+
+----------------------------------------------------------------------------------------------------
+  ### COMPONENT 4(i) -- IS THE SEARCH LESSON MECHANIZABLE?
+----------------------------------------------------------------------------------------------------
+  ### ### **THE LESSON ITSELF IS NOT CHECKABLE BEFORE THE SEARCH**: it says use the
+  ### rule`s own words, and ### **THE RULE`S OWN WORDS ARE WHAT YOU ARE LOOKING FOR.**
+  ### ### **THE WEAKER CHECK IS MECHANICAL:** ### is each term of the query ### **ATTESTED
+  ### ### ANYWHERE IN THE CORPUS AT ALL?** ### A term that occurs nowhere cannot find
+  ### anything, and an absence assembled from such terms is uninformative.
+
+  ### **SWEEP: the corpus as it stands.** ### POSITIVE CONTROL `internal-until-fruit` : ### **10 FILE(S)**
+    ### **`b383`S QUERY -- 6 TERMS, 6 ATTESTED, 0 UNATTESTED:**
+        `reservoir`              :  11 file(s)
+        `reviewer pool`          :   4 file(s)
+        `reviewer budget`        :   4 file(s)
+        `reviewers are finite`   :   1 file(s)
+        `held in reserve`        :   2 file(s)
+        `one reviewer`           :   1 file(s)
+    ### **`b385`S QUERY -- 7 TERMS, 7 ATTESTED, 0 UNATTESTED:**
+        `SESSION PROTOCOL`       :   5 file(s)
+        `mirror-refresh`         :  15 file(s)
+        `reviewer set`           :   3 file(s)
+        `not from recall`        :   5 file(s)
+        `reviewer's authority`   :   2 file(s)
+        `Currency check`         :   5 file(s)
+        `reservoir`              :  11 file(s)
+
+  ### **SWEEP: with the b383-b386 records excluded.** ### POSITIVE CONTROL `internal-until-fruit` : ### **5 FILE(S)**
+    ### **`b383`S QUERY -- 6 TERMS, 2 ATTESTED, 4 UNATTESTED:**
+        `reservoir`              :   1 file(s)
+        `reviewer pool`          :   0 file(s)   ### ### **UNATTESTED**
+        `reviewer budget`        :   0 file(s)   ### ### **UNATTESTED**
+        `reviewers are finite`   :   0 file(s)   ### ### **UNATTESTED**
+        `held in reserve`        :   1 file(s)
+        `one reviewer`           :   0 file(s)   ### ### **UNATTESTED**
+    ### **`b385`S QUERY -- 7 TERMS, 7 ATTESTED, 0 UNATTESTED:**
+        `SESSION PROTOCOL`       :   2 file(s)
+        `mirror-refresh`         :  10 file(s)
+        `reviewer set`           :   1 file(s)
+        `not from recall`        :   2 file(s)
+        `reviewer's authority`   :   1 file(s)
+        `Currency check`         :   2 file(s)
+        `reservoir`              :   1 file(s)
+
+  ### ### ### **THE CHECK SEPARATES THE TWO INCIDENTS, AND THE SCORE IS PRINTED RATHER
+  ### ### ### THAN ASSERTED.**
+      the corpus as it stands              b383 6/6 attested   b385 7/7 attested
+      b383-b386 records excluded           b383 2/6 attested   b385 7/7 attested
+
+----------------------------------------------------------------------------------------------------
+  ### THE READS. ### **HINT TYPED -> ANCHOR READ FROM THE FILE -> NEEDLE PULLED.**
+----------------------------------------------------------------------------------------------------
+
+  [ORDER   ] the order -- the act
+      b386_ferry_2026-09-09.txt : line 21   ### anchor differs from the hint : False
+      | ACT b386 — THE GUARD MADE SINGLE-SOURCED. Number not claimed by
+
+  [ORDER   ] the order -- the face is not widened mid-act
+      b386_ferry_2026-09-09.txt : line 4   ### anchor differs from the hint : False
+      | gate; the face is not widened mid-act for any reason — b385's
+
+  [RULING  ] the ruling (R15) -- one guard, one source
+      b386_ferry_2026-09-09.txt : line 12   ### anchor differs from the hint : False
+      | strikeable: ONE GUARD, ONE SOURCE. A guard has exactly one
+
+  [RULING  ] the ruling (R15) -- the installer reads from that source
+      b386_ferry_2026-09-09.txt : line 13   ### anchor differs from the hint : False
+      | tracked source of truth in each repository, and whatever
+
+  [RULING  ] the ruling (R15) -- the three disposals of a second copy
+      b386_ferry_2026-09-09.txt : line 15   ### anchor differs from the hint : False
+      | or made a pointer to the source, or the repository is
+
+  [RULING  ] the ruling (R15) -- whichever the repository`s mechanics allow
+      b386_ferry_2026-09-09.txt : line 16   ### anchor differs from the hint : False
+      | reconfigured so the source is what runs — whichever the
+
+  [RULING  ] the ruling (R15) -- a topology defect, not a repair job
+      b386_ferry_2026-09-09.txt : line 18   ### anchor differs from the hint : False
+      | of one guard is not a repair job; it is a topology defect, and
+
+  [ORDER   ] the order -- component 1, the three options quoted first
+      b386_ferry_2026-09-09.txt : line 24   ### anchor differs from the hint : False
+      | COMPONENT 1 — THE THREE OPTIONS, QUOTED FIRST: reproduce b385's
+
+  [ORDER   ] the order -- component 1, halt if none implements it
+      b386_ferry_2026-09-09.txt : line 27   ### anchor differs from the hint : False
+      | that one. If none implements it, HALT and report — the author
+
+  [ORDER   ] the order -- component 2, the face written wide enough to finish
+      b386_ferry_2026-09-09.txt : line 30   ### anchor differs from the hint : False
+      | COMPONENT 2 — THE REPAIR ITSELF, with the face written wide
+
+  [ORDER   ] the order -- component 2, the installer shown reading from the source
+      b386_ferry_2026-09-09.txt : line 32   ### anchor differs from the hint : False
+      | single tracked source carrying the repaired line; the installer
+
+  [ORDER   ] the order -- component 2, the disposal chosen and why
+      b386_ferry_2026-09-09.txt : line 35   ### anchor differs from the hint : False
+      | disposed of per (R15) with which disposal was chosen and why;
+
+  [ORDER   ] the order -- component 2, the gate cleared by the repair not the arm
+      b386_ferry_2026-09-09.txt : line 37   ### anchor differs from the hint : False
+      | repository afterward, with the failing gate cleared by the
+
+  [ORDER   ] the order -- component 3, the installer`s second defect
+      b386_ferry_2026-09-09.txt : line 40   ### anchor differs from the hint : False
+      | COMPONENT 3 — THE INSTALLER'S SECOND DEFECT: the same tool
+
+  [ORDER   ] the order -- component 3, repair the tool or route it with the price
+      b386_ferry_2026-09-09.txt : line 43   ### anchor differs from the hint : False
+      | recoverable from any tracked blob, and repair the tool so it
+
+  [ORDER   ] the order -- component 4(i), the search lesson
+      b386_ferry_2026-09-09.txt : line 47   ### anchor differs from the hint : False
+      | COMPONENT 4 — TWO FILINGS: (i) the search lesson, minted — a
+
+  [ORDER   ] the order -- component 4(i), the rule`s own words not the reader`s name
+      b386_ferry_2026-09-09.txt : line 48   ### anchor differs from the hint : False
+      | search for a rule uses the rule's own words, not the name a
+
+  [ORDER   ] the order -- component 4(i), mechanized or filed as judgement
+      b386_ferry_2026-09-09.txt : line 51   ### anchor differs from the hint : False
+      | mechanized if a query-construction check is mechanizable, else
+
+  [ORDER   ] the order -- component 4(ii), the paraphrase corrected on the record
+      b386_ferry_2026-09-09.txt : line 54   ### anchor differs from the hint : False
+      | (ii) the navigator's paraphrase of the reviewer rule corrected
+
+  [ORDER   ] the order -- the closing, the guard item closed only if the exercise passes
+      b386_ferry_2026-09-09.txt : line 61   ### anchor differs from the hint : False
+      | item closed only if Component 2's exercise passes and left open
+
+  [ORDER   ] the order -- (F1), deletion of the untracked-path copy
+      b386_ferry_2026-09-09.txt : line 68   ### anchor differs from the hint : False
+      | (R15) is deletion of the untracked-path copy with the installer
+
+  [ORDER   ] the order -- (F2), the backup recoverable from a tracked blob
+      b386_ferry_2026-09-09.txt : line 69   ### anchor differs from the hint : False
+      | repointed; (F2) the destroyed backup's content is recoverable
+
+  [OPTION  ] b385 option (a) -- repair the source, leaving both files
+      b385_closing.txt : line 179   ### anchor differs from the hint : False
+      | ###   ### **(a) REPAIR THE SOURCE** ### so the two agree, leaving both files.
+
+  [OPTION  ] b385 option (b) -- retire the source and repoint the installer
+      b385_closing.txt : line 180   ### anchor differs from the hint : False
+      | ###   ### **(b) RETIRE THE SOURCE** ### and repoint `b304_hooks.py`s `SOURCE` at
+
+  [OPTION  ] b385 option (b) -- one source of truth, the tool installs what runs
+      b385_closing.txt : line 182   ### anchor differs from the hint : False
+      | ###     the tool installs the file the repositories actually run.
+
+  [OPTION  ] b385 option (c) -- neither, the comment allowed to drift
+      b385_closing.txt : line 183   ### anchor differs from the hint : False
+      | ###   ### **(c) NEITHER**, and record that the guard`s comment is allowed to drift because
+
+  [OPTION  ] b385 -- the face must name the file it may write
+      b385_closing.txt : line 185   ### anchor differs from the hint : False
+      | ### ### **WHICHEVER IS CHOSEN, THE FACE MUST NAME THE FILE IT MAY WRITE**, because this act`s did
+
+  [PRIOR   ] b385 -- two tracked guard files
+      b385_closing.txt : line 175   ### anchor differs from the hint : False
+      | ### There are ### **TWO TRACKED GUARD FILES** ### in `relay` -- `.githooks/pre-push`, which the
+
+  [PRIOR   ] b385 -- the closure withdrawn
+      b385_closing.txt : line 51   ### anchor differs from the hint : False
+      | ### ### **COMPONENT 3(a), THE GUARD`S STALE INSTALL LINE, IS NOT CLOSED.** ### The desk filed it
+
+  [PRIOR   ] b385 -- the backup overwritten and then removed
+      b385_closing.txt : line 81   ### anchor differs from the hint : False
+      | ### ### **ONE SIDE EFFECT, NAMED RATHER THAN SWALLOWED:** ### `b304_hooks.py` overwrote the
+
+  [PRIOR   ] b385 -- a file moved is not a file replaced
+      b385_closing.txt : line 88   ### anchor differs from the hint : False
+      | ### ### ### **THE SPECIES: `A FILE MOVED IS NOT A FILE REPLACED`.** ### `b371` moved the guard
+
+  [PRIOR   ] b385 bank -- the guard repaired under (R4)
+      b385_the_six_on_the_trails.txt : line 136   ### anchor differs from the hint : False
+      | ### ### **(a) THE GUARD`S STALE INSTALL LINE -- `DONE`.** ### The tracked guard
+
+  [PRIOR   ] b385 hooks record -- relay replaced
+      b385_hooks.txt : line 22   ### anchor differs from the hint : True
+      | relay                  REPLACED (previous kept as .b304-backup) bf112af62a679bef882f8e54443835a3
+
+  [PRIOR   ] b385 hooks record -- the relay exercise skipped
+      b385_hooks.txt : line 34   ### anchor differs from the hint : True
+      | relay                  ### **SKIPPED -- working tree carries 1 uncommitted path(s). ### THE GUARD IS NOT EXERCISED HERE.**
+
+  [GUARD   ] the installed guard -- its repaired install line
+      pre-push : line 10   ### anchor differs from the hint : False
+      | # Tracked at .githooks/pre-push (moved there b371, 2026-09-08). Install: git config core.hooksPath .githooks
+
+  [GUARD   ] the second tracked copy -- its stale install line
+      pre-push : line 10   ### anchor differs from the hint : False
+      | # Tracked copy: tools/git-hooks/pre-push. Install: cp tools/git-hooks/pre-push .git/hooks/pre-push
+
+  [GUARD   ] the installer -- the SOURCE it reads from
+      b304_hooks.py : line 51   ### anchor differs from the hint : False
+      | SOURCE = os.path.join(ROOT, 'tools', 'git-hooks', 'pre-push')
+
+  [GUARD   ] the installer -- the backup it writes without checking
+      b304_hooks.py : line 156   ### anchor differs from the hint : False
+      | shutil.copy2(dest, dest + '.b304-backup')
+
+  [GUARD   ] the installer -- the destination it installs into
+      b304_hooks.py : line 137   ### anchor differs from the hint : False
+      | dest = os.path.join(repo_path, HOOKS_DIR, 'pre-push')
+
+  [RULE    ] the rule -- its standing-rule heading
+      REGISTRY.md : line 33   ### anchor differs from the hint : False
+      | ## SESSION PROTOCOL — reviewer mirror-refresh (standing rule, 2026-07-29)
+
+  [RULE    ] the rule -- the currency check, the authority clause
+      REGISTRY.md : line 39   ### anchor differs from the hint : True
+      | - **Currency check.** If a reviewer's claim disagrees with the current MANIFEST (version, md5, or last-commit), the MANIFEST wins and the claim is stale — re-derive before acting on it. Rule 5 above applies transitively:
+
+  [RULE    ] the rule -- the procedure and the manifest columns
+      REGISTRY.md : line 37   ### anchor differs from the hint : True
+      | - **Procedure.** Create `D:\MY-DOwnloads\mirror-refresh-<today>\` fresh; copy in flat the reviewer set (FINDINGS, REGISTRY, OPEN_TRAILS, SPIRAL_MAP, VERIFICATION_LOOM, ERRATA; the five RH-rail papers at current version; 
+
+  [SEARCH  ] b383`s search -- the reservoir probe
+      b383_components_notes3.txt : line 313   ### anchor differs from the hint : True
+      | ###   probe `reservoir             ` : ### **1 file(s)**
+
+  [SEARCH  ] b383`s search -- the reviewer pool probe
+      b383_components_notes3.txt : line 314   ### anchor differs from the hint : True
+      | ###   probe `reviewer pool         ` : ### **0 file(s)**
+
+  [SEARCH  ] b383`s search -- the reviewer budget probe
+      b383_components_notes3.txt : line 315   ### anchor differs from the hint : True
+      | ###   probe `reviewer budget       ` : ### **0 file(s)**
+
+  [SEARCH  ] b385`s search -- the three terms that found it
+      b385_components_notes3.txt : line 29   ### anchor differs from the hint : False
+      | ### ### ### **THE THREE TERMS THAT FOUND IT WERE `SESSION PROTOCOL`, `reviewer`s
+
+  [SEARCH  ] b385`s search -- all three from the rule`s own vocabulary
+      b385_components_notes3.txt : line 31   ### anchor differs from the hint : False
+      | ### ### ### VOCABULARY, WHICH THE ORDER SUPPLIED.**
+
+====================================================================================================
+  reads attempted : 47   ### WITHOUT AN ANCHOR : 0
+  ### ### **BY TAG : {'ORDER': 17, 'RULING': 5, 'OPTION': 5, 'PRIOR': 7, 'GUARD': 5, 'RULE': 3, 'SEARCH': 5}**
+  ### **NO DOCUMENT WAS EDITED BY THIS TOOL. ### NO COPY WAS DELETED BY IT EITHER.**
+====================================================================================================
