@@ -83,6 +83,8 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-pin-was-missing': ['the unblocked obligation', 'the pin was the missing element',
+                           'the branch applied', 'the role clause', 'the six documents'],
     'every-test-crosses': ['the two axis read', 'every test crosses',
                           'the class ruling evidence', 'the apparatus and the prose',
                           'the floor question'],
@@ -625,6 +627,28 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE UNBLOCKED OBLIGATION (b377).
+    ("the-pin-was-missing", "b377 (one repair-or-route under an obligation the taxonomy already states, plus evidence for a ruling it does NOT make)",
+     "THE PIN WAS THE MISSING ELEMENT, NOT THE TERMINAL. Of the six documents declaring TIER K and scoring no traversable row at b376, several ALREADY CARRY a Correspondence table "
+     " with claims, terminals and axiom profiles; what they lack is THE PIN, one of the three things the taxonomy obliges (grade . terminal . pin). b376 predicate demanded all "
+     " four in one row and could not see a table whose terminals are bare rather than dotted, SO THAT DEFECT WAS PARTLY THE PREDICATE OWN AND THIS ACT SAYS SO. Under a branch "
+     " the order fixed before any document was read, 2 took ARM 1 (a pinned addendum APPENDED, 8 rows, 3 kernels) and 4 took ARM 2 (ROUTED, nothing repaired). "
+     " The author role clause is banked verbatim as EVIDENCE: keystones are for clarifying results and exploring ramifications and insights, and should cover any and all pertinent "
+     " or interesting materials rather than tunnel vision in explanatory clarity driven by a particular problem at a particular research phase. IT SPEAKS TO THE ROLE AXIS AND NOT "
+     " THE APPARATUS AXIS. Two filings, neither opened: the census definition-versus-operation drift, and 6 subject clusters with registry rows and no "
+     " keystone. And the banked column-(d) figure 24 of 32 is restated as a FLOOR against a wider question this act names and does not re-measure.",
+     "### NO CLASS WAS RULED, NO DOCUMENT WAS RECLASSIFIED, NO DECLARATION WAS MOVED AND NO LIST WAS CLOSED. ### A DOCUMENT SAYS WHAT IT SAYS. ### EVERY WRITE INTO A DOCUMENT IS AN"
+     " APPEND and the committed blob remains a TRUE PREFIX. ### NO TERMINAL WAS WRITTEN WITHOUT BEING LOCATED IN A KERNEL ON DISK, CHECKED THERE AND FOUND TO RESOLVE TO EXACTLY"
+     " ONE KERNEL; ONE UNRESOLVED TERMINAL SENT THE WHOLE DOCUMENT TO ARM 2. ### EVERY PIN IS THIS ACT OWN READING OF THAT KERNEL HEAD, never copied from a document or a row."
+     " ### NOT DETERMINABLE IS NOT ABSENT. ### THE TWO THE SCAN LEFT UNDECIDED ARE REPORTED AND LEFT, not repaired, not routed as lacking, not counted among the six. ### NO OPTION"
+     " CARRIES A PREFERENCE WORD AND THE RULING REMAINS THE AUTHOR. ### BOTH FILINGS ARE FILED AND NEITHER IS OPENED; the census is QUOTED, NOT REPAIRED. ### THE FOUR OPEN LISTS"
+     " ARE RESTATED OPEN BY NAME. ### NO NEW TRACKING DOCUMENT WAS CREATED. ### NO LEAN FILE TOUCHED, NO BUILD RUN, NO AXIOM PROFILE RECOMPUTED. ### NOTHING COMPUTED ABOUT THE"
+     " OBJECT. ### NO COORDINATE IS CLOSED. ### M-2 UNCHANGED",
+     "data/b377_the_unblocked_obligation.txt; data/b377_branch_notes3.txt; data/b377_evidence_notes.txt; data/b377_extract_notes.txt;"
+     " data/b377_registration_2026-09-08.txt (LOCKED before any write, CHAINED ON b376 LOCK GATE RUN AS b377 -- 7 of 7 pre-lock gates read and passing, INHERITED NOT REBUILT);"
+     " tools/b377_branch.py (the branch applied and not chosen; a name declared in two kernels is not a terminal it can write into a row); tools/b377_evidence.py (the role"
+     " clause, the five options quoted whole with a bearing line each, and the two filings); PLACE-papers OPEN_TRAILS.md (append-only) and the ARM-1 documents (an APPENDED"
+     " Correspondence addendum each, NO EXISTING BYTE CHANGED); CORRESPONDENCE.md row 226"),
     # ### THE TWO-AXIS READ (b376).
     ("every-test-crosses", "b376 (one read over 349 documents on two axes; it produces the evidence a class ruling needs and MAKES NO RULING)",
      "EVERY TEST CROSSES. The corpus three definitions of KEYSTONE each mix two independent axes -- axis A, synthesises against other available content, and axis B, carries a "

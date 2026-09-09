@@ -1,0 +1,255 @@
+====================================================================================================
+b377 -- GATE SUITE (THE TWO-AXIS READ)
+====================================================================================================
+
+  OWNER NEEDLES:
+    PASS  the order -- the act
+    PASS  the order -- the scope
+    PASS  the order -- nothing ruled, nothing moved
+    PASS  the order -- the role clause, first half
+    PASS  the order -- the role clause, second half
+    PASS  the order -- the role axis, not the apparatus axis
+    PASS  the order -- the five options quoted whole
+    PASS  the order -- the six documents
+    PASS  the order -- the branch fixed here
+    PASS  the order -- route and repair nothing
+    PASS  the order -- a document says what it says
+    PASS  the order -- the census drift filed
+    PASS  the order -- the clusters as a work-order
+    PASS  the order -- priced and NOT opened
+    PASS  the order -- the navigator's expectations
+    PASS  the amendment -- not determinable is not absent
+    PASS  the amendment -- what would decide it
+    PASS  the amendment -- the findings layer alone
+    PASS  the amendment -- the wider question
+    PASS  the amendment -- a FLOOR, not re-measured here
+    PASS  the taxonomy -- Tier K and what it obliges  ### -- ITS RECORDED PREFIX
+    PASS  the census -- the STATED definition
+    PASS  the census -- the OPERATIONALISED line
+
+  SELF NEEDLES:
+    PASS  the bank leads with the pin, not the terminal
+    PASS  ### the predicate had its own share of the defect
+    PASS  ### the lock gate was inherited, not rebuilt
+    PASS  ### the hole was hit in practice
+    PASS  ### the role clause speaks to the role axis
+    PASS  ### a clause on one axis does not rule two
+    PASS  ### none of the five is recommended
+    PASS  ### one unresolved terminal sends the document to arm 2
+    PASS  ### a name in two kernels is not a terminal
+    PASS  ### the first run was reverted, not kept
+    PASS  ### not determinable is a third answer
+    PASS  ### both filings are filed and not opened
+    PASS  ### the banked figure is a floor
+    PASS  ### the act does not re-measure it
+    PASS  ### a document says what it says
+    PASS  ### every write is an append and a true prefix
+    PASS  ### no terminal is claimed by this act
+    PASS  ### the four lists restated open in the desk`s own words
+    PASS  ### (F1) refuted by the print
+
+  MUST-FAIL FIXTURES ### (THE ORDER`S FIVE PROHIBITIONS, AS WHOLE LINES):
+    PASS  the bank never says a class was ruled
+    PASS  the bank never says a document was reclassified
+    PASS  the bank never says a declaration was moved
+    PASS  the bank never says a list was closed
+    PASS  the bank never says a terminal went unchecked
+    PASS  the bank never says a not-determinable document was repaired
+    PASS  the bank never names a preferred option
+
+  G-LOCKGATE / G-EVERYGATE (BAR 1) ### THE TOOL IS b376`S, RUN AS b377:
+    gates read 7 / passing 7 ; all pass : True ; act recorded : b377
+      the ferry scan (struck clauses and stems)      b377_ferry_scan.txt                    PASS
+      the handoff census                             b377_census_stepzero.txt               PASS
+      the faces census                               b377_faces_census_stepzero.txt         PASS
+      the pins, by ls-remote through the roster      b377_pins_stepzero.txt                 PASS
+      the registration gate, all its own arms        b377_reg_gate.txt                      PASS
+      the banned-term scan on the face               b377_reg_termscan.txt                  PASS
+      the satisfiability audit                       audit_b377_reg_satisfiable.txt         PASS
+    the run file carries the verdict : True ; fixture both polarities : True
+    ### **AND THE LOCK GATE WAS INHERITED, NOT REBUILT** : b376 tool unmodified True ; no b377 copy exists True
+    PASS
+
+  G-APPEND / G-PREFIX / G-NOMOVE (BAR 2):
+    documents written into : 2 ['phase1.5/method/GAUGE_AND_INVARIANT.md', 'phase1.5/method/THE_METHOD_CANON.md']
+    ### **THE COMMITTED BLOB IS A TRUE PREFIX OF EVERY ONE** : True 
+    ### **NO DECLARATION MOVED IN ANY OF THE EIGHT** : True 
+    tracked paths changed beyond the declared set : {'relay': [], 'SIDE-global-section': [], 'PLACE-papers': [], 'SIDE-effects': []}
+    frozen paths changed : none
+    PASS
+
+  G-TERMINAL / G-CHECKED / G-PIN / G-OWNPIN (BAR 3, BAR 4):
+    ### **TERMINALS WRITTEN THAT WERE NOT LOCATED AND CHECKED : 0** 
+    ### **TERMINALS WRITTEN THAT RESOLVE TO MORE THAN ONE KERNEL : 0** 
+    ### **PINS THAT ARE NOT THIS ACT`S OWN READING OF THAT KERNEL`S LIVE HEAD : 0** 
+    every pin written is recorded in the bank : True
+    PASS
+
+  G-BRANCH / G-EVIDENCE (BAR 5):
+    every document takes exactly one arm : True ; population is 6 : True
+    every arm carries its why : True
+    ### **ARM 1 IFF LOCATED AND NOTHING UNRESOLVED -- THE BRANCH APPLIED, NOT CHOSEN** : True
+    every document named in the bank : True
+    arm 1 : 2 ; arm 2 : 4
+    PASS
+
+  G-NOTDET / G-NOTREPAIRED (BAR 6):
+    not-determinable documents reported : 2
+    repaired : False ; routed as lacking : False ; counted among the six : False
+    ### **AND NEITHER FILE WAS WRITTEN INTO AT ALL** : True
+    each states what could not be decided and what would decide it : True
+    PASS
+
+  G-ROLECLAUSE / G-OBLIGATION / G-OPTIONS (BAR 7):
+    the role clause re-reads out of the ferry at its own lines : True
+    options reproduced : 5 ; each found in b376`s bank : True
+    ### **EACH QUOTED WHOLE, NOT TRUNCATED TO A HEADLINE** : True (min 7 lines)
+    the taxonomy`s obligation is quoted and carried into the bank : True
+    PASS
+
+  G-NOPREFER / G-NORULING (BAR 8):
+    ### raw preference-word hits in the bearing lines : none
+    live preference words : 0 ; lists closed : 0
+    the bank says none is recommended : True
+    ### **BOTH FILINGS FILED AND NEITHER OPENED** : census True / clusters True
+    ### **THE FLOOR IS NOT RE-MEASURED AND THE WIDER QUESTION IS NAMED** : True
+    PASS
+
+  G-OPEN / G-NONEWDOC:
+    the four lists are named in the bank in the desk`s words : True
+    restated OPEN in the bank : True ; in the trail block : True
+    lists closed : 0 ; desk items closed : 0
+    ### **AND NO NEW TRACKING DOCUMENT WAS CREATED** : True 
+    PASS
+
+  G-TRAIL / G-ROW / G-KEY ### BEFORE THE PUSH:
+    trail: mark once and append-only : True ; blob a true prefix : True
+    row 226 present once and a true prefix : True
+    key read back : True ; four overreadings NO KEY after : True
+    PASS
+
+  G-ORDER ### SIDE-INVARIANT:
+    ### **AND b376`S FACE STILL VERIFIES, UNEDITED** : True
+    this act`s lock recomputes : True
+    every relied-on run is after the lock : True
+    audit SATISFIABLE True ; gate CLEAR True ; ### **TERM SCAN CLEAN True**
+    ### **AND b375`S DEFECTIVE FACE STILL VERIFIES, UNEDITED** : True
+    PASS
+
+  G-HOOK / G-MIRROR ### AFTER THE PUSH:
+    ### the hook/mirror records are NOT YET WRITTEN (they are written at the push).
+
+  G-NUMBERS:
+    gates read 7                                             PASS
+    arm 1 2                                                  PASS
+    arm 2 4                                                  PASS
+    rows appended 8                                          PASS
+    kernels enumerated 43                                    PASS
+    pins written 3                                           PASS
+    census detector 20                                       PASS
+    census published 16                                      PASS
+    census re-applied 29                                     PASS
+    clusters with no keystone 6                              PASS
+    the floor 24 of 32                                       PASS
+    options quoted 5                                         PASS
+    desk items 29                                            PASS
+    row 226                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    the relied-on branch run                                 PASS
+    the relied-on evidence run                               PASS
+    the relied-on lock-gate run                              PASS
+
+  G-ONCE:
+    extract      b377_extract_notes.txt         clock 2026-09-09T00:45:40Z == JSON's 2026-09-09T00:45:40Z : True
+    lockgate     b377_lockgate_notes.txt        clock 2026-09-09T00:50:45Z == JSON's 2026-09-09T00:50:45Z : True
+    branch       b377_branch_notes3.txt         clock 2026-09-09T01:08:19Z == JSON's 2026-09-09T01:08:19Z : True
+    evidence     b377_evidence_notes.txt        clock 2026-09-09T01:10:27Z == JSON's 2026-09-09T01:10:27Z : True
+    desk         b377_desk_notes2.txt           clock 2026-09-09T01:16:39Z == JSON's 2026-09-09T01:16:39Z : True
+    PASS
+
+  G-NOCOMPUTE:
+    ### raw substring hits (a substring is not a call) : none
+    numerical calls : 0  ; libraries : none
+    PASS
+
+  G-NOLEAN:
+    .lean or kernel files changed : none  PASS
+
+  G-BYCONTENT:
+    b377_checks.py             line 436    | q3 = all(o[      ] and o[      ].split(chr(10))[0] in b376bank for o in EV[         ])
+        the span is located by content and only then indexed.
+    b377_desk.py               line 615    | cells = [GD.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        it takes `[-1:]` -- the LAST line of the table THIS ACT JUST WROTE.
+    ### hits : 2 ; UNDECLARED : 0  PASS
+
+  G-NOEDIT ### BEFORE THE PUSH:
+    owner instruments modified : none ### -- this act licenses NONE
+    other relay files of other acts : none
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed):
+    files scanned 16   struck 0   stem 0   ### **LIVE : 0** PASS
+    b377_checks.py                               struck : 5  stem : 0  ### CARRIER -- its own fixtures
+    b377_ferry_2026-09-08.txt                    struck : 0  stem : 0  ### CARRIER -- IT IS THE ORDER
+    b377_ferry_scan.txt                          struck : 0  stem : 0  ### CARRIER -- the scan's own log
+    b377_reg_termscan.txt                        struck : 0  stem : 2  ### CARRIER -- the term scan's log
+    b377_extract_notes.txt                       struck : 0  stem : 0  ### CARRIER -- the extract carries the corpus's own documents
+    b377_lockgate_notes.txt                      struck : 0  stem : 0  ### CARRIER -- the lock gate's run carries every gate's own phrase
+    b377_branch_notes3.txt                       struck : 0  stem : 0  ### CARRIER -- the branch run carries the documents' own identifiers
+    b377_evidence_notes.txt                      struck : 0  stem : 0  ### CARRIER -- the evidence run carries the author's clause and b376's options
+    b377_desk_notes2.txt                         struck : 0  stem : 0  ### CARRIER -- the desk run carries the items' own sentences
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 226, the trail block, the index row):
+    row 226                struck : 0   stem : 0   (6856 chars)
+    the trail block        struck : 0   stem : 0   (6477 chars)
+    the index row          struck : 0   stem : 0   (3445 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    STEP ZERO -- the lock that reads every gate, INHERIT tools/b376_lockgate.py             exists=True tracked=True
+    the branch, applied and not chosen                   tools/b377_branch.py               exists=True tracked=False
+    the role clause, the five options, the two filings   tools/b377_evidence.py             exists=True tracked=False
+    (R7), the trail block, the row and the key           tools/b377_desk.py                 exists=True tracked=False
+    every figure in the bank, read from the JSONs        tools/b377_bank.py                 exists=True tracked=False
+    the reads                                            tools/b377_extract.py              exists=True tracked=False
+    the registration gate                                tools/b377_reg_gate.py             exists=True tracked=False
+    the clause spec                                      tools/b377_regspec.py              exists=True tracked=False
+    18894 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    the anchor built by reading its line                 tools/anchor_from_file.py          exists=True tracked=True
+    (R2)'s detector, turned on this act                  tools/b366_sweep.py                exists=True tracked=True
+    the roster, imported and not typed                   tools/b303_pins.py                 exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-CAP ### THE REGISTRATION CAPPED THIS ACT AT EIGHT NEW TOOLS:
+    new relay tools this act : 8  ['tools/b377_bank.py', 'tools/b377_branch.py', 'tools/b377_checks.py', 'tools/b377_desk.py', 'tools/b377_evidence.py', 'tools/b377_extract.py', 'tools/b377_reg_gate.py', 'tools/b377_regspec.py']
+    PASS
+
+  HEDGE AUDIT ON THIS ACT'S OWN PROSE:
+    b377_the_unblocked_obligation.txt              sentences=599   graded-hedges=0   ungraded-shapes=78
+    b377_registration_2026-09-08.txt               sentences=379   graded-hedges=0   ungraded-shapes=73
+    b377_desk_notes.txt                            sentences=176   graded-hedges=0   ungraded-shapes=44
+    b377_census_stepzero.txt                       sentences=30    graded-hedges=0   ungraded-shapes=6
+    b377_faces_census_stepzero.txt                 sentences=17    graded-hedges=0   ungraded-shapes=2
+    audit_b377_reg_satisfiable.txt                 sentences=267   graded-hedges=0   ungraded-shapes=25
+    b377_pins_stepzero.txt                         sentences=43    graded-hedges=0   ungraded-shapes=1
+    b377_reg_gate.txt                              sentences=18    graded-hedges=0   ungraded-shapes=2
+    b377_bank.py                                   sentences=591   graded-hedges=0   ungraded-shapes=68
+    b377_branch.py                                 sentences=424   graded-hedges=0   ungraded-shapes=40
+    b377_checks.py                                 sentences=877   graded-hedges=0   ungraded-shapes=94
+    b377_desk.py                                   sentences=766   graded-hedges=0   ungraded-shapes=148
+    b377_evidence.py                               sentences=484   graded-hedges=0   ungraded-shapes=53
+    b377_extract.py                                sentences=228   graded-hedges=0   ungraded-shapes=17
+    b377_reg_gate.py                               sentences=67    graded-hedges=0   ungraded-shapes=5
+    b377_regspec.py                                sentences=202   graded-hedges=0   ungraded-shapes=24
+    row 226                                        sentences=47    graded-hedges=0   ungraded-shapes=32
+    the trail block                                sentences=28    graded-hedges=0   ungraded-shapes=18
+    the index row                                  sentences=46    graded-hedges=0   ungraded-shapes=13
+
+====================================================================================================
+  ### GATES FAILING : 1 ['G-HOOK/G-MIRROR (owed, not yet recorded)']
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================

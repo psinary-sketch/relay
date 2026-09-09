@@ -1,0 +1,840 @@
+{
+ "kernels": 43,
+ "six": [
+  {
+   "file": "phase1.5/method/GAUGE_AND_INVARIANT.md",
+   "corr_headings": 1,
+   "candidates": [
+    "fano_two_design"
+   ],
+   "rejected": [
+    "CriticalPassShadow",
+    "DERIVES",
+    "DeAlignment",
+    "OrientationShadow",
+    "b146",
+    "h2"
+   ],
+   "located": [
+    "fano_two_design"
+   ],
+   "located_kernels": {
+    "fano_two_design": [
+     "SIDE-structural-error-correction"
+    ]
+   },
+   "not_resolved": [],
+   "ambiguous": [],
+   "arm": 1,
+   "why": "every one of the 1 named terminals was located at its kernel and resolves to EXACTLY ONE kernel",
+   "rows": [
+    {
+     "claim": "as tabulated above for `fano_two_design`",
+     "kernel": "SIDE-structural-error-correction",
+     "terminal": "fano_two_design",
+     "profile": "axiom-free",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "6a4f4829cf219839f33c6af9d665687b93af772e"
+    }
+   ],
+   "appended": true
+  },
+  {
+   "file": "phase1.5/method/INSTRUMENTS.md",
+   "corr_headings": 0,
+   "candidates": [
+    "E_h",
+    "IDENTITY_SUBSPACE",
+    "THE_CHIASMUS_PATTERN",
+    "THE_CORNER_MAP",
+    "Third_Identity",
+    "Z_Q",
+    "ZeroActingPairing.yieldsInequality",
+    "escape_kind_discriminates",
+    "horizon_kind_shared",
+    "residue_irreducible"
+   ],
+   "rejected": [
+    "K",
+    "c5ef4bc",
+    "distinctFromInput",
+    "dps",
+    "eulerConsuming",
+    "findroot",
+    "t",
+    "yieldsInequality",
+    "zeroActing"
+   ],
+   "located": [
+    "escape_kind_discriminates",
+    "horizon_kind_shared",
+    "residue_irreducible"
+   ],
+   "located_kernels": {
+    "escape_kind_discriminates": [
+     "SIDE-lv-conservation"
+    ],
+    "horizon_kind_shared": [
+     "SIDE-lv-conservation"
+    ],
+    "residue_irreducible": [
+     "SIDE-lv-conservation"
+    ]
+   },
+   "not_resolved": [
+    "E_h",
+    "IDENTITY_SUBSPACE",
+    "THE_CHIASMUS_PATTERN",
+    "THE_CORNER_MAP",
+    "Third_Identity",
+    "Z_Q",
+    "ZeroActingPairing.yieldsInequality"
+   ],
+   "ambiguous": [],
+   "arm": 2,
+   "why": "7 of 10 named terminals did not resolve to exactly one kernel (7 located nowhere, 0 declared in more than one); ### **ONE UNRESOLVED TERMINAL SENDS THE WHOLE DOCUMENT TO ARM 2**",
+   "rows": [],
+   "appended": false
+  },
+  {
+   "file": "phase1.5/method/THE_METHOD_CANON.md",
+   "corr_headings": 0,
+   "candidates": [
+    "coupling_count",
+    "escape_kind_discriminates",
+    "three_lines_per_point",
+    "unique_intersection",
+    "xi_dark",
+    "xi_form_total",
+    "xi_visible"
+   ],
+   "rejected": [
+    "FINDINGS",
+    "THE_BRIGHTENING_MOVES.md",
+    "THE_SECOND_EXEMPLAR.md",
+    "grep",
+    "h2",
+    "sorry"
+   ],
+   "located": [
+    "coupling_count",
+    "escape_kind_discriminates",
+    "three_lines_per_point",
+    "unique_intersection",
+    "xi_dark",
+    "xi_form_total",
+    "xi_visible"
+   ],
+   "located_kernels": {
+    "coupling_count": [
+     "SIDE-cosmo"
+    ],
+    "escape_kind_discriminates": [
+     "SIDE-lv-conservation"
+    ],
+    "three_lines_per_point": [
+     "SIDE-cosmo"
+    ],
+    "unique_intersection": [
+     "SIDE-cosmo"
+    ],
+    "xi_dark": [
+     "SIDE-cosmo"
+    ],
+    "xi_form_total": [
+     "SIDE-cosmo"
+    ],
+    "xi_visible": [
+     "SIDE-cosmo"
+    ]
+   },
+   "not_resolved": [],
+   "ambiguous": [],
+   "arm": 1,
+   "why": "every one of the 7 named terminals was located at its kernel and resolves to EXACTLY ONE kernel",
+   "rows": [
+    {
+     "claim": "as tabulated above for `coupling_count`",
+     "kernel": "SIDE-cosmo",
+     "terminal": "coupling_count",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "c5cba30ce201af2d619498ef087969e729293969"
+    },
+    {
+     "claim": "as tabulated above for `escape_kind_discriminates`",
+     "kernel": "SIDE-lv-conservation",
+     "terminal": "escape_kind_discriminates",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23"
+    },
+    {
+     "claim": "as tabulated above for `three_lines_per_point`",
+     "kernel": "SIDE-cosmo",
+     "terminal": "three_lines_per_point",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "c5cba30ce201af2d619498ef087969e729293969"
+    },
+    {
+     "claim": "as tabulated above for `unique_intersection`",
+     "kernel": "SIDE-cosmo",
+     "terminal": "unique_intersection",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "c5cba30ce201af2d619498ef087969e729293969"
+    },
+    {
+     "claim": "as tabulated above for `xi_dark`",
+     "kernel": "SIDE-cosmo",
+     "terminal": "xi_dark",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "c5cba30ce201af2d619498ef087969e729293969"
+    },
+    {
+     "claim": "as tabulated above for `xi_form_total`",
+     "kernel": "SIDE-cosmo",
+     "terminal": "xi_form_total",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "c5cba30ce201af2d619498ef087969e729293969"
+    },
+    {
+     "claim": "as tabulated above for `xi_visible`",
+     "kernel": "SIDE-cosmo",
+     "terminal": "xi_visible",
+     "profile": "*as tabulated above*",
+     "grade": "**LOCATED-AT-PIN** — the terminal is declared in this kernel at this commit; the grade of the *claim* is unchanged from the row above",
+     "pin": "c5cba30ce201af2d619498ef087969e729293969"
+    }
+   ],
+   "appended": true
+  },
+  {
+   "file": "phase1.5/proofs/THE_RESIDUE_OF_RH.md",
+   "corr_headings": 1,
+   "candidates": [
+    "OPEN_TRAILS",
+    "Z_Q",
+    "coverage_boundary_exact",
+    "detection_threshold_mono",
+    "dhModelLedger_no_pairing",
+    "distinctFromInput_discharged",
+    "edge_drift_neg_for_signNeutral",
+    "edge_drift_nonneg",
+    "escape_kind_discriminates",
+    "exactly_two_clauses_obstruct",
+    "horizon_kind_shared",
+    "location_owned_spectrum_not",
+    "no_asset_realizes_zeroSpectrum",
+    "partial_mono",
+    "positivity_free_obstruction_is_zeroRealization",
+    "residue_irreducible",
+    "signNeutral_not_eulerConsuming",
+    "simplicityFamily_generic_not_universal",
+    "transfer_obstruction_is_the_two_geometric_clauses",
+    "xRealization_to_RH",
+    "xRealization_to_zeroActingPairing",
+    "zeroActingPairing_ledger_not_signNeutral",
+    "zeroActingPairing_to_RH"
+   ],
+   "rejected": [
+    "C",
+    "D",
+    "E",
+    "FINDINGS.md",
+    "N",
+    "S1",
+    "S4",
+    "S6",
+    "SimplicityFamilySpec",
+    "X",
+    "XRealization",
+    "ZeroActingPairing",
+    "bd2ae1a",
+    "certifiedPartialInhabitant",
+    "eulerConsuming",
+    "h2",
+    "main",
+    "n"
+   ],
+   "located": [
+    "coverage_boundary_exact",
+    "detection_threshold_mono",
+    "dhModelLedger_no_pairing",
+    "distinctFromInput_discharged",
+    "edge_drift_neg_for_signNeutral",
+    "edge_drift_nonneg",
+    "escape_kind_discriminates",
+    "exactly_two_clauses_obstruct",
+    "horizon_kind_shared",
+    "location_owned_spectrum_not",
+    "no_asset_realizes_zeroSpectrum",
+    "partial_mono",
+    "positivity_free_obstruction_is_zeroRealization",
+    "residue_irreducible",
+    "signNeutral_not_eulerConsuming",
+    "simplicityFamily_generic_not_universal",
+    "transfer_obstruction_is_the_two_geometric_clauses",
+    "xRealization_to_RH",
+    "xRealization_to_zeroActingPairing",
+    "zeroActingPairing_ledger_not_signNeutral",
+    "zeroActingPairing_to_RH"
+   ],
+   "located_kernels": {
+    "coverage_boundary_exact": [
+     "SIDE-lv-conservation"
+    ],
+    "detection_threshold_mono": [
+     "SIDE-lv-conservation"
+    ],
+    "dhModelLedger_no_pairing": [
+     "SIDE-lv-conservation"
+    ],
+    "distinctFromInput_discharged": [
+     "SIDE-lv-conservation"
+    ],
+    "edge_drift_neg_for_signNeutral": [
+     "SIDE-lv-conservation"
+    ],
+    "edge_drift_nonneg": [
+     "SIDE-lv-conservation"
+    ],
+    "escape_kind_discriminates": [
+     "SIDE-lv-conservation"
+    ],
+    "exactly_two_clauses_obstruct": [
+     "SIDE-lv-conservation"
+    ],
+    "horizon_kind_shared": [
+     "SIDE-lv-conservation"
+    ],
+    "location_owned_spectrum_not": [
+     "SIDE-lv-conservation"
+    ],
+    "no_asset_realizes_zeroSpectrum": [
+     "SIDE-lv-conservation"
+    ],
+    "partial_mono": [
+     "SIDE-lv-conservation"
+    ],
+    "positivity_free_obstruction_is_zeroRealization": [
+     "SIDE-lv-conservation"
+    ],
+    "residue_irreducible": [
+     "SIDE-lv-conservation"
+    ],
+    "signNeutral_not_eulerConsuming": [
+     "SIDE-lv-conservation"
+    ],
+    "simplicityFamily_generic_not_universal": [
+     "SIDE-lv-conservation"
+    ],
+    "transfer_obstruction_is_the_two_geometric_clauses": [
+     "SIDE-lv-conservation"
+    ],
+    "xRealization_to_RH": [
+     "SIDE-lv-conservation"
+    ],
+    "xRealization_to_zeroActingPairing": [
+     "SIDE-lv-conservation"
+    ],
+    "zeroActingPairing_ledger_not_signNeutral": [
+     "SIDE-lv-conservation"
+    ],
+    "zeroActingPairing_to_RH": [
+     "SIDE-lv-conservation"
+    ]
+   },
+   "not_resolved": [
+    "OPEN_TRAILS",
+    "Z_Q"
+   ],
+   "ambiguous": [],
+   "arm": 2,
+   "why": "2 of 23 named terminals did not resolve to exactly one kernel (2 located nowhere, 0 declared in more than one); ### **ONE UNRESOLVED TERMINAL SENDS THE WHOLE DOCUMENT TO ARM 2**",
+   "rows": [],
+   "appended": false
+  },
+  {
+   "file": "phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
+   "corr_headings": 0,
+   "candidates": [
+    "ArithmeticFunction.vonMangoldt_nonneg",
+    "C1_realness_at_Phi",
+    "C2_halfplane_nonvanishing_at_Phi",
+    "C4_modularity_at_Phi",
+    "C7_entirety",
+    "C7_entirety_at_Phi",
+    "C7_finite_type_false",
+    "C7_order",
+    "C7_order_at_Phi",
+    "Complex.Gamma",
+    "LiLinearMap.lam_nonneg_of_nonneg",
+    "PartialPositivity.blTerm_nonneg_of_onLine",
+    "PartialPositivity.partialPositivity_finiteRange",
+    "PhragmenLindelof.vertical_strip",
+    "R4_channelDecomposition",
+    "R4_positivity_to_RH",
+    "R5_output_HilbertPolya_to_RH",
+    "Real.log_le_sub_one_of_pos",
+    "SIDELvConservation.C7_finite_type_false",
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp",
+    "S_add",
+    "S_succ",
+    "S_zero",
+    "S_zero_fun",
+    "T3prime_shared_witness",
+    "THE_RESIDUE_OF_RH",
+    "Voice7Witness.hadamard_does_not_enforce_online",
+    "W_pole",
+    "Z_Q",
+    "binom_self_zero",
+    "blTerm_nonneg_of_onLine",
+    "completedRiemannZeta_eq",
+    "completedRiemannZeta_eq_mellinPhi",
+    "completedRiemannZeta_one_sub",
+    "differentiable_completedZeta₀",
+    "eulerMascheroniSeq_lt_eulerMascheroniConstant",
+    "exists_norm_completedLFunction_le_exp",
+    "exists_norm_completedRiemannZeta₀_le_exp",
+    "f_modif",
+    "h1_complete_at_Phi",
+    "hasSum_int_evenKernel",
+    "isBigO_atTop_evenKernel_sub",
+    "lam_add",
+    "lam_one",
+    "lam_zero",
+    "n_one_binding_instance",
+    "one_half_lt_eulerMascheroniConstant",
+    "partialPositivity_finiteRange",
+    "riemannZeta_ne_zero_of_one_lt_re",
+    "silence_universal"
+   ],
+   "rejected": [
+    "A",
+    "BALANCE_AND_POSITIVITY.md",
+    "ConservationHypothesis",
+    "Coupling",
+    "CouplingsAtPhi.lean",
+    "D",
+    "DEPOSIT_v1_2_NOTES.md",
+    "ExplicitFormulaDecomp",
+    "FINDINGS.md",
+    "G",
+    "Phi",
+    "PinnedGoal.lean",
+    "RegisterPentagon",
+    "SIGN_ARRANGEMENT_RECONCILIATION.md",
+    "T3",
+    "TailBoundPremise",
+    "True",
+    "X",
+    "b1407b2",
+    "b515e6b",
+    "bc4751e",
+    "c80bdc2",
+    "c8e3d31",
+    "completedRiemannZeta",
+    "completedRiemannZeta₀",
+    "e26a9fc",
+    "f59a1cb",
+    "f98fd50",
+    "g",
+    "hurwitzEvenFEPair",
+    "jacobiTheta",
+    "log",
+    "rfl",
+    "riemannZeta",
+    "s",
+    "sevenClasses",
+    "sorry",
+    "sorryAx",
+    "t"
+   ],
+   "located": [
+    "C1_realness_at_Phi",
+    "C2_halfplane_nonvanishing_at_Phi",
+    "C4_modularity_at_Phi",
+    "C7_entirety",
+    "C7_entirety_at_Phi",
+    "C7_finite_type_false",
+    "C7_order",
+    "C7_order_at_Phi",
+    "LiLinearMap.lam_nonneg_of_nonneg",
+    "PartialPositivity.blTerm_nonneg_of_onLine",
+    "PartialPositivity.partialPositivity_finiteRange",
+    "R4_channelDecomposition",
+    "R4_positivity_to_RH",
+    "R5_output_HilbertPolya_to_RH",
+    "SIDELvConservation.C7_finite_type_false",
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp",
+    "S_add",
+    "S_succ",
+    "S_zero",
+    "S_zero_fun",
+    "T3prime_shared_witness",
+    "Voice7Witness.hadamard_does_not_enforce_online",
+    "binom_self_zero",
+    "blTerm_nonneg_of_onLine",
+    "completedRiemannZeta_eq_mellinPhi",
+    "exists_norm_completedLFunction_le_exp",
+    "exists_norm_completedRiemannZeta₀_le_exp",
+    "h1_complete_at_Phi",
+    "lam_add",
+    "lam_one",
+    "lam_zero",
+    "n_one_binding_instance",
+    "partialPositivity_finiteRange"
+   ],
+   "located_kernels": {
+    "C1_realness_at_Phi": [
+     "SIDE-lv-conservation"
+    ],
+    "C2_halfplane_nonvanishing_at_Phi": [
+     "SIDE-lv-conservation"
+    ],
+    "C4_modularity_at_Phi": [
+     "SIDE-lv-conservation"
+    ],
+    "C7_entirety": [
+     "SIDE-lv-conservation"
+    ],
+    "C7_entirety_at_Phi": [
+     "SIDE-lv-conservation"
+    ],
+    "C7_finite_type_false": [
+     "SIDE-lv-conservation"
+    ],
+    "C7_order": [
+     "SIDE-lv-conservation"
+    ],
+    "C7_order_at_Phi": [
+     "SIDE-lv-conservation"
+    ],
+    "LiLinearMap.lam_nonneg_of_nonneg": [
+     "SIDE-li-map"
+    ],
+    "PartialPositivity.blTerm_nonneg_of_onLine": [
+     "SIDE-lv-conservation"
+    ],
+    "PartialPositivity.partialPositivity_finiteRange": [
+     "SIDE-lv-conservation"
+    ],
+    "R4_channelDecomposition": [
+     "SIDE-lv-conservation"
+    ],
+    "R4_positivity_to_RH": [
+     "SIDE-lv-conservation"
+    ],
+    "R5_output_HilbertPolya_to_RH": [
+     "SIDE-lv-conservation"
+    ],
+    "SIDELvConservation.C7_finite_type_false": [
+     "SIDE-lv-conservation"
+    ],
+    "SIDELvConservation.exists_norm_completedLFunction_le_exp": [
+     "SIDE-lv-conservation"
+    ],
+    "S_add": [
+     "SIDE-li-map"
+    ],
+    "S_succ": [
+     "SIDE-li-map"
+    ],
+    "S_zero": [
+     "SIDE-li-map"
+    ],
+    "S_zero_fun": [
+     "SIDE-li-map"
+    ],
+    "T3prime_shared_witness": [
+     "SIDE-lv-conservation"
+    ],
+    "Voice7Witness.hadamard_does_not_enforce_online": [
+     "SIDE-kernel"
+    ],
+    "binom_self_zero": [
+     "SIDE-li-map"
+    ],
+    "blTerm_nonneg_of_onLine": [
+     "SIDE-lv-conservation"
+    ],
+    "completedRiemannZeta_eq_mellinPhi": [
+     "SIDE-lv-conservation"
+    ],
+    "exists_norm_completedLFunction_le_exp": [
+     "SIDE-lv-conservation"
+    ],
+    "exists_norm_completedRiemannZeta₀_le_exp": [
+     "SIDE-lv-conservation"
+    ],
+    "h1_complete_at_Phi": [
+     "SIDE-lv-conservation"
+    ],
+    "lam_add": [
+     "SIDE-li-map"
+    ],
+    "lam_one": [
+     "SIDE-li-map"
+    ],
+    "lam_zero": [
+     "SIDE-li-map"
+    ],
+    "n_one_binding_instance": [
+     "SIDE-lv-conservation"
+    ],
+    "partialPositivity_finiteRange": [
+     "SIDE-lv-conservation"
+    ]
+   },
+   "not_resolved": [
+    "ArithmeticFunction.vonMangoldt_nonneg",
+    "Complex.Gamma",
+    "PhragmenLindelof.vertical_strip",
+    "Real.log_le_sub_one_of_pos",
+    "THE_RESIDUE_OF_RH",
+    "W_pole",
+    "Z_Q",
+    "completedRiemannZeta_eq",
+    "completedRiemannZeta_one_sub",
+    "differentiable_completedZeta₀",
+    "eulerMascheroniSeq_lt_eulerMascheroniConstant",
+    "f_modif",
+    "hasSum_int_evenKernel",
+    "isBigO_atTop_evenKernel_sub",
+    "one_half_lt_eulerMascheroniConstant",
+    "riemannZeta_ne_zero_of_one_lt_re",
+    "silence_universal"
+   ],
+   "ambiguous": [
+    {
+     "name": "silence_universal",
+     "kernels": [
+      "SIDE-kernel",
+      "SIDE-silence-principle"
+     ]
+    }
+   ],
+   "arm": 2,
+   "why": "17 of 50 named terminals did not resolve to exactly one kernel (16 located nowhere, 1 declared in more than one); ### **ONE UNRESOLVED TERMINAL SENDS THE WHOLE DOCUMENT TO ARM 2**",
+   "rows": [],
+   "appended": false
+  },
+  {
+   "file": "phase2/method/THE_GLOBAL_SECTION.md",
+   "corr_headings": 0,
+   "candidates": [
+    "A_n",
+    "E1UnitPurityDraft.kl_fail_2_2",
+    "F_v",
+    "OPEN_TRAILS",
+    "THE_CODOMAIN_SPECIFICATION",
+    "TensorSquareShadow.interleaving_index_law",
+    "TensorSquareShadow.sector_pattern_gap",
+    "compression_tendsto",
+    "e_n",
+    "fe_symmetry",
+    "grh_exclusion",
+    "is_last",
+    "no_ls_zero",
+    "per_mode_eps_grids",
+    "proj4_eigen",
+    "proj4_sum",
+    "psi_coarse",
+    "resid_N"
+   ],
+   "rejected": [
+    "A",
+    "AGENTS.md",
+    "AXIOM_PRINTS.txt",
+    "AdelicPlaneShadow",
+    "BRIGHT",
+    "BallPairShadow",
+    "BridgeShadow",
+    "C",
+    "CharacterSumShadow",
+    "CoherenceShadow",
+    "ConstructorShadow",
+    "CouplingArrival",
+    "CriticalPassShadow",
+    "CrossPlaceShadow",
+    "C₁",
+    "C₈",
+    "DERIVES",
+    "DFTChart",
+    "DeficitShadow",
+    "DeterminationShadow",
+    "DiagonalSection",
+    "E1UnitPurityDraft",
+    "ExtensionShadow",
+    "E₁",
+    "F",
+    "FiniteInstanceIdentity",
+    "FlatnessShadow",
+    "FourthVisitShadow",
+    "FrameBoundaryShadow",
+    "GlobalSection",
+    "GroupRingGlue",
+    "H1Mechanism",
+    "I",
+    "InequalityShadow",
+    "J",
+    "KLSilence",
+    "L",
+    "LefschetzShadow",
+    "LinkShadow",
+    "LocalLimit",
+    "M",
+    "MechanismShadow",
+    "MetaplecticRootShadow",
+    "N",
+    "NQ",
+    "NeitherPolesNorZeros",
+    "NormalizationForced",
+    "OddPInstances",
+    "OddPairingShadow",
+    "OrbitDictionary",
+    "OrientationShadow",
+    "PadicFourier",
+    "PadicStandardAddChar",
+    "PairingShadow",
+    "PhasePlaneShadow",
+    "PlancherelShadow",
+    "ProductLawShadow",
+    "ProductMinusSumShadow",
+    "Q",
+    "QuotientLemmaShadow",
+    "QuotientWeilShape",
+    "R2",
+    "RadializationShadow",
+    "RigidityShadow",
+    "S",
+    "SectorArithmetic",
+    "SilenceOnlyIfShadow",
+    "StaircaseAddresses",
+    "THE_FINDINGS_AS_THEY_STAND.md",
+    "THE_METHOD_AS_IT_STANDS.md",
+    "ThetaBridgeShadow",
+    "ThetaContinuationShadow",
+    "ThetaShadow",
+    "TowerInstance",
+    "TowerLimitShadow",
+    "TowerMonotoneShadow",
+    "TraceSilence",
+    "TwistedRootShadow",
+    "TwistedShadow",
+    "UNVERIFIED",
+    "V",
+    "ValueShadow",
+    "WindowShadow",
+    "a412d01",
+    "bdfd276",
+    "c",
+    "c1",
+    "d5a1a3c",
+    "eeb643c",
+    "f958040",
+    "h2",
+    "i",
+    "main",
+    "n",
+    "np.interp",
+    "p",
+    "proj4",
+    "q",
+    "sorryAx",
+    "true",
+    "u",
+    "v",
+    "x"
+   ],
+   "located": [
+    "E1UnitPurityDraft.kl_fail_2_2",
+    "TensorSquareShadow.interleaving_index_law",
+    "TensorSquareShadow.sector_pattern_gap",
+    "compression_tendsto",
+    "fe_symmetry",
+    "proj4_eigen",
+    "proj4_sum"
+   ],
+   "located_kernels": {
+    "E1UnitPurityDraft.kl_fail_2_2": [
+     "SIDE-global-section"
+    ],
+    "TensorSquareShadow.interleaving_index_law": [
+     "SIDE-global-section"
+    ],
+    "TensorSquareShadow.sector_pattern_gap": [
+     "SIDE-global-section"
+    ],
+    "compression_tendsto": [
+     "SIDE-global-section"
+    ],
+    "fe_symmetry": [
+     "SIDE-kernel"
+    ],
+    "proj4_eigen": [
+     "SIDE-global-section"
+    ],
+    "proj4_sum": [
+     "SIDE-global-section"
+    ]
+   },
+   "not_resolved": [
+    "A_n",
+    "F_v",
+    "OPEN_TRAILS",
+    "THE_CODOMAIN_SPECIFICATION",
+    "e_n",
+    "grh_exclusion",
+    "is_last",
+    "no_ls_zero",
+    "per_mode_eps_grids",
+    "psi_coarse",
+    "resid_N"
+   ],
+   "ambiguous": [],
+   "arm": 2,
+   "why": "11 of 18 named terminals did not resolve to exactly one kernel (11 located nowhere, 0 declared in more than one); ### **ONE UNRESOLVED TERMINAL SENDS THE WHOLE DOCUMENT TO ARM 2**",
+   "rows": [],
+   "appended": false
+  }
+ ],
+ "not_determinable": [
+  {
+   "file": "day1/A_Place_to_Stand.md",
+   "corr_headings": 1,
+   "candidates": 62,
+   "concordance_language": true,
+   "could_not_decide": "whether the apparatus is present, because the naming is in prose or a concordance and axis B scans table rows",
+   "what_would_decide": "a hand read of the naming sentences, checking each named terminal at its kernel",
+   "repaired": false,
+   "routed_as_lacking": false,
+   "counted_among_the_six": false
+  },
+  {
+   "file": "phase1.5/method/THE_LOAD_BEARING_MAP.md",
+   "corr_headings": 2,
+   "candidates": 37,
+   "concordance_language": true,
+   "could_not_decide": "whether the apparatus is present, because the naming is in prose or a concordance and axis B scans table rows",
+   "what_would_decide": "a hand read of the naming sentences, checking each named terminal at its kernel",
+   "repaired": false,
+   "routed_as_lacking": false,
+   "counted_among_the_six": false
+  }
+ ],
+ "arm1": 2,
+ "arm2": 4,
+ "pins": {
+  "SIDE-structural-error-correction": "6a4f4829cf219839f33c6af9d665687b93af772e",
+  "SIDE-cosmo": "c5cba30ce201af2d619498ef087969e729293969",
+  "SIDE-lv-conservation": "2f71068ac356a15a3f43fea073aa8fe4ae4fbf23"
+ },
+ "mark": "<!-- b377 correspondence addendum; pins read at this act -->",
+ "run_file": "b377_branch_notes3.txt",
+ "run_clock": "2026-09-09T01:08:19Z"
+}
