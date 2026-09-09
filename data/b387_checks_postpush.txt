@@ -1,0 +1,261 @@
+====================================================================================================
+b387 -- GATE SUITE (THE GUARD MADE SINGLE-SOURCED UNDER (R15))
+====================================================================================================
+
+  OWNER NEEDLES ### (THE ORDER, AS THE EXTRACT RECORDED IT):
+    PASS  the order -- the act
+    PASS  the order -- a read and a count, no ruling
+    PASS  the order -- the face from a survey, not a belief
+    PASS  the ruling (R16) -- the untracked hook copies stay
+    PASS  the ruling (R16) -- removing a working fallback buys nothing
+    PASS  the order -- component 1, the set from the record not a predicate
+    PASS  the order -- component 1, report the disagreement and do not reconcile
+    PASS  the order -- component 2, every row counted by what backs it
+    PASS  the order -- component 2, unreadable rather than assigned
+    PASS  the order -- component 3, answered from practice not ruled
+    PASS  the order -- component 3, nothing recommended
+    PASS  the order -- component 4, the seat`s own memory
+    PASS  the order -- component 4, against the prior blob not from recall
+    PASS  the order -- (F1), a material fraction not machine-verified
+    PASS  the order -- (F2), nothing was lost from the memory file
+
+  SELF NEEDLES:
+    PASS  the bank leads with a read and a count, closing nothing
+    PASS  ### (R16) is recorded with its reason
+    PASS  ### the set is the union`s own line
+    PASS  ### by shape and never by heading
+    PASS  ### the predicate was wrong twice
+    PASS  ### the absence is proved not assumed
+    PASS  ### the union names an ungraded carrier
+    PASS  ### none of the four is reconciled
+    PASS  ### the categories are the corpus`s own
+    PASS  ### an unreadable row forced into a category
+    PASS  ### the count is of claimed status
+    PASS  ### the bearing stops at the author
+    PASS  ### the order asked for a blob and there is none
+    PASS  ### the screen over-reports by design
+    PASS  ### a claim that lives only in an index hook
+    PASS  ### (E3) refuted by its own check
+
+  MUST-FAIL FIXTURES ### (THE LOCKED FACE`S OWN EIGHT, AS WHOLE LINES):
+    PASS  the bank never says a class was ruled
+    PASS  the bank never says a row was edited
+    PASS  the bank never says a grade was moved
+    PASS  the bank never says the union was corrected
+    PASS  the bank never says an unreadable row was assigned
+    PASS  the bank never says the preferred option is
+    PASS  the bank never says a kernel was re-run
+    PASS  the bank never says the categories did not sum
+
+  G-STAMPED / G-EVERYGATE / G-FIXTURE4 (BAR 1):
+    gates read 8 / passing 8 ; face-subject 4 ; all pass : True
+    ### **THE STAMP EQUALS THE FACE THAT WAS LOCKED** : True (322044cf1b9d86db)
+    ### **EVERY FACE-SUBJECT GATE CARRIES THAT DIGEST** : True
+    four polarities, each refusing for its own gate : True ; lock gate inherited : True
+    PASS
+
+  G-SET / G-BYSHAPE (BAR 2):
+    ### **THE UNION NAMES 14 ; 9 CARRY A TABLE ; 5 CARRY NONE ; THEY SUM : True**
+    every named document exists on disk : True ; every absence carries near-misses : True
+    ### **THE SET IS THE UNION`S OWN LINE, READ BY THE ANCHOR TOOL : True**
+    ### **DISTINCT HEADINGS THE TABLES SIT UNDER : 6** -- so no single heading test produced them
+        25.5 The Three Compiled Routes
+        Appendix A: Complete Theorem Catalogue
+        Correspondence
+        Kernel Correspondence
+        VIII. The salt-check (the exhibit)
+        What this document's kernels do for its 
+    PASS
+
+  G-DISAGREE / G-NORECONCILE (BAR 3):
+    ### **DISAGREEMENTS REPORTED : 4 ; RECONCILED : 0**
+        no correspondence-shaped table
+        the union names an ungraded carrier for MONO
+        filename version suffix
+        ENGINE is a work-order table
+    ### **THE UNION`S NAMED CARRIER FOR MONO IS UNGRADED : True ; THE MONOGRAPH HAS 3 GRADED TABLE(S) ELSEWHERE**
+    ### **THE_LOAD_BEARING_MAP.md IS UNCHANGED SINCE BEFORE THIS ACT : True**
+    PASS
+
+  G-PARTITION (BAR 4):
+    MONO     rows 32   categories 32   sums : True
+    SIMP     rows 21   categories 21   sums : True
+    GRH      rows 13   categories 13   sums : True
+    FOUND    rows 15   categories 15   sums : True
+    SURR     rows 15   categories 15   sums : True
+    LIC      rows 6    categories 6    sums : True
+    RCURVE   rows 12   categories 12   sums : True
+    PATHS    rows 28   categories 28   sums : True
+    ENGINE   rows 20   categories 20   sums : True
+    ### **TOTAL ROWS 162 ; CATEGORY TOTAL 162 ; PRE-LOCK SURVEY 162**
+    ### **A PARTITION THAT DOES NOT SUM IS NOT A PARTITION.**
+    PASS
+
+  G-PREMISE (BAR 5):
+    ### **INTERFACES ROWS : 11 ; WITH A NAMED PREMISE : 11**
+    ### **ROWS RE-COUNTED UNREADABLE FOR WANT OF A NAMEABLE PREMISE : 9**
+    PASS
+
+  G-UNREADABLE (BAR 6):
+    ### **UNREADABLE ROWS : 23, EACH NAMED BY DOCUMENT AND LINE : True**
+    ### **NEVER ASSIGNED : True ; THE RESIDUE IS NON-ZERO AS (E1) REGISTERED : True**
+    PASS
+
+  G-NORECOMMEND / G-NOPREFER / G-QUESTIONUNMOVED / G-SCOPE (BAR 7):
+    ### raw preference-word hits in Component 3 : ['LIKELIEST', 'PREFERRED', 'RECOMMENDED']
+    ### **RECOMMENDED : 0 ; THE QUESTION MOVED : False ; DISPOSITIONS QUOTED : 3**
+    ### **THE SCOPE IS NAMED : True ; A BEARING IS NOT AN ANSWER : True**
+    PASS
+
+  G-MEMORY / G-POINTERS (BAR 8):
+    ### **POINTERS DROPPED : 0 ; RESOLVING TO NO FILE : 0**
+    entries 70 -> 73 ; hooks checked 59 ; screen flagged 34
+    ### **JUDGED COVERED 32 + LOST 2 == FLAGGED 34 : True ; NONE LEFT UNJUDGED : True**
+    ### **NO PRIOR BLOB, AND THE ARTIFACT IS NAMED AS AN ARTIFACT : True**
+    ### **RESTORATIONS : 2, EACH APPENDED INTO THE FILE ITS POINTER NAMES : True**
+    PASS
+
+  G-NOROWEDIT / G-NOTABLEEDIT / G-R16:
+    ### **KEYSTONE DOCUMENTS CHANGED SINCE BEFORE THIS ACT : 0** 
+    README.md unchanged : True ; the taxonomy unchanged : True
+    ### **(R16) RECORDED IN THE TRAIL BLOCK WITH ITS REASON : True**
+    ### **EVERY `.git/hooks/pre-push` STILL PRESENT : True** [('relay', True), ('SIDE-global-section', True), ('PLACE-papers', True), ('SIDE-effects', True)]
+    PASS
+
+  G-NOKERNEL:
+    kernel-invoking strings in this act`s stripped code : none
+    ### **THE WORD `CLAIMED` IS CARRIED WITH THE FIGURES : True ; AND THE LIMIT IS STATED : True**
+    PASS
+
+  G-NORULING / G-OPEN / G-NONEWDOC:
+    the four lists STAND and are named OPEN in the block : True / True
+    ### **THE CITATION QUESTION IS RESTATED AS AWAITING THE AUTHOR AND NOT MOVED** : True
+    no new tracking document in PLACE-papers : True 
+    ### **UNTRACKED PATHS THAT ARE NOT TRACKING DOCUMENTS, EXCLUDED AND NAMED** : ['.githooks/pre-push.b304-backup']
+    PASS
+
+  G-NOWRITE / G-NOREGISTRY / G-NOHOOKSDELETE:
+    tracked paths changed beyond the declared set : {'relay': [], 'SIDE-global-section': [], 'PLACE-papers': [], 'SIDE-effects': []}
+    ### **REGISTRY.md UNCHANGED SINCE BEFORE THIS ACT** : True
+    ### **EVERY `.git/hooks/pre-push` STILL PRESENT : True** [('relay', True), ('SIDE-global-section', True), ('PLACE-papers', True), ('SIDE-effects', True)]
+    ### **AND EVERY ONE STILL INERT (core.hooksPath = .githooks) : True**
+    archive/ and outputs/ untouched : True
+    PASS
+
+  G-TRAIL / G-ROW / G-KEY:
+    trail: mark once and append-only : True ; pre-act blob a true prefix : True
+    row 236 present once and a true prefix : True
+    key read back : True ; four overreadings NO KEY after : True
+    ### **THE BLOCK RECORDS (R16), SAYS NOT RECONCILED, SAYS A MEASUREMENT IS NOT A CLOSURE, AND CARRIES THE WORD CLAIMED** : True
+    PASS
+
+  G-ORDER ### SIDE-INVARIANT:
+    components AFTER  the lock : 2026-09-09T18:32:15Z vs 2026-09-09T18:18:27Z
+    desk_bank  AFTER  the lock : 2026-09-09T18:38:55Z vs 2026-09-09T18:18:27Z
+    extract    BEFORE the lock : 2026-09-09T18:14:54Z vs 2026-09-09T18:18:27Z
+    lockgate   BEFORE the lock : 2026-09-09T18:18:27Z vs 2026-09-09T18:18:27Z
+    this act`s lock recomputes : True
+    ### **POST-LOCK RUNS AFTER IT : True ; PRE-LOCK GATES BEFORE IT : True**
+    audit SATISFIABLE True ; gate CLEAR True ; ### **TERM SCAN CLEAN True**
+    ### **AND b385`S FACE STILL VERIFIES, UNEDITED** : True
+    PASS
+
+  G-MIRROR ### AFTER THE PUSH:
+    mirror clean on all three clauses : True
+
+  G-NUMBERS:
+    gates read 8                                             PASS
+    face-subject gates 4                                     PASS
+    the union names 14                                       PASS
+    with a table 9                                           PASS
+    rows 162                                                 PASS
+    unreadable 23                                            PASS
+    not machine-verified 54                                  PASS
+    hooks checked 59                                         PASS
+    desk items 31                                            PASS
+    row 236                                                  PASS
+    the lock hash                                            PASS
+    the lock stamp                                           PASS
+    the component run                                        PASS
+    the extract run                                          PASS
+
+  G-ONCE:
+    extract      b387_extract_notes3.txt        clock 2026-09-09T18:14:54Z == JSON's 2026-09-09T18:14:54Z : True
+    lockgate     b387_lockgate_notes2.txt       clock 2026-09-09T18:18:27Z == JSON's 2026-09-09T18:18:27Z : True
+    components   b387_components_notes7.txt     clock 2026-09-09T18:32:15Z == JSON's 2026-09-09T18:32:15Z : True
+    desk_bank    b387_desk_notes6.txt           clock 2026-09-09T18:38:55Z == JSON's 2026-09-09T18:38:55Z : True
+    PASS
+
+  G-NOCOMPUTE:
+    ### raw substring hits (a substring is not a call) : none
+    numerical calls : 0 ; libraries : none  PASS
+
+  G-NOLEAN:
+    .lean files changed : none  PASS
+
+  G-BYCONTENT:
+    b387_desk_bank.py          line 715    | cells = [GD.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        `[-1:]` -- the LAST line of the table THIS ACT JUST WROTE.
+    ### hits : 1 ; UNDECLARED : 0  PASS
+
+  G-NOEDIT:
+    owner instruments modified beyond the declared one : none
+    other relay files beyond the four declared : none
+    ### **THE ONLY RELAY WRITE OUTSIDE THIS ACT`S OWN FILES IS THE INDEX KEY, AND THE FACE SAYS SO** : True
+    PASS
+
+  G-STRUCK / G-STEM (record: 3 struck, 10 patterns, 0 unconfirmed):
+    files scanned 14   struck 0   stem 0   ### **LIVE : 0** PASS
+    discrimination arms firing : 3 of 3 ; stem control fires : True
+
+  G-STEM-APPENDED (row 236, the trail block, the index row):
+    row 236                struck : 0   stem : 0   (8131 chars)
+    the trail block        struck : 0   stem : 0   (6478 chars)
+    the index row          struck : 0   stem : 0   (3870 chars)
+
+  G-SHARED:
+    hits : [('CORRESPONDENCE.md', 'row 101'), ('CORRESPONDENCE.md', 'row 2')] ; UNEXPECTED : 0  PASS
+
+  G-TOOLNUM:
+    the extract, the table survey and the attestation of tools/b387_extract.py              exists=True tracked=True
+    the four components, and the count inside two of the tools/b387_components.py           exists=True tracked=True
+    (R7), the three closing writes and the bank          tools/b387_desk_bank.py            exists=True tracked=True
+    the registration gate                                tools/b387_reg_gate.py             exists=True tracked=True
+    the clause spec                                      tools/b387_regspec.py              exists=True tracked=True
+    the anchor that read every quoted line               tools/anchor_from_file.py          exists=True tracked=True
+    the lock gate that checks what each gate read        tools/b378_lockgate.py             exists=True tracked=True
+    the face-subject stamps                              tools/gate_hash.py                 exists=True tracked=True
+    22028 bytes locked, and the lock clock               tools/reg_seal.py                  exists=True tracked=True
+    (R2)'s detector, turned on this act                  tools/b366_sweep.py                exists=True tracked=True
+    the roster, imported and not typed                   tools/b303_pins.py                 exists=True tracked=True
+    the front door's own row categories                  tools/row_categories.py            exists=True tracked=True
+    numbers with no committed producer : 0  PASS
+
+  G-CAP ### THE REGISTRATION CAPPED THIS ACT AT SIX NEW TOOL FILES:
+    new relay tools this act : 6  ['tools/b387_checks.py', 'tools/b387_components.py', 'tools/b387_desk_bank.py', 'tools/b387_extract.py', 'tools/b387_reg_gate.py', 'tools/b387_regspec.py']
+    PASS
+
+  HEDGE AUDIT ON THIS ACT'S OWN PROSE:
+    b387_what_the_tables_carry.txt                 sentences=452   graded-hedges=0   ungraded-shapes=73
+    b387_registration_2026-09-09.txt               sentences=475   graded-hedges=0   ungraded-shapes=88
+    b387_desk_notes6.txt                           sentences=214   graded-hedges=0   ungraded-shapes=54
+    b387_census_stepzero.txt                       sentences=30    graded-hedges=0   ungraded-shapes=6
+    b387_faces_census_stepzero.txt                 sentences=17    graded-hedges=0   ungraded-shapes=2
+    b387_regspec_run.txt                           sentences=35    graded-hedges=0   ungraded-shapes=3
+    audit_b387_reg_satisfiable.txt                 sentences=278   graded-hedges=0   ungraded-shapes=26
+    b387_pins_stepzero.txt                         sentences=43    graded-hedges=0   ungraded-shapes=1
+    b387_reg_gate.txt                              sentences=20    graded-hedges=0   ungraded-shapes=2
+    b387_checks.py                                 sentences=1016  graded-hedges=0   ungraded-shapes=102
+    b387_components.py                             sentences=811   graded-hedges=0   ungraded-shapes=81
+    b387_desk_bank.py                              sentences=1451  graded-hedges=0   ungraded-shapes=279
+    b387_extract.py                                sentences=345   graded-hedges=0   ungraded-shapes=26
+    b387_reg_gate.py                               sentences=67    graded-hedges=0   ungraded-shapes=5
+    b387_regspec.py                                sentences=212   graded-hedges=0   ungraded-shapes=27
+    row 236                                        sentences=46    graded-hedges=0   ungraded-shapes=31
+    the trail block                                sentences=31    graded-hedges=0   ungraded-shapes=22
+    the index row                                  sentences=28    graded-hedges=0   ungraded-shapes=16
+
+====================================================================================================
+  ### GATES FAILING : 0 
+  ### needles refused : 0 ; owner needles not in the extract file : 0
+====================================================================================================
