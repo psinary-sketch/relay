@@ -1,0 +1,47 @@
+====================================================================================================
+b390_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  ITS SELF-TEST, RUN HERE BEFORE IT IS TRUSTED:
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b390_registration_2026-09-09.txt
+  bytes/lines  : 23885 / 297
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSES, MEASURED RATHER THAN TYPED:**
+      ARMS     37
+
+  clauses emitted : 82
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 22**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 5    cap 5
+      routed items swept and classified                              demand 8    cap 8
+      routed items repaired by this act                              demand 1    cap 1
+      routed items named with the reason they are not repaired       demand 7    cap 7
+      keystones the census names as the two the era moved most       demand 2    cap 2
+      keystones this act reads whole                                 demand 1    cap 1
+      candidates measured before the choice                          demand 2    cap 2
+      correspondence tables the subject carries                      demand 2    cap 2
+      anchors in the population                                      demand 11   cap 11
+      anchors opened and read at their own line                      demand 11   cap 11
+      buckets reported                                               demand 3    cap 3
+      samples the price is extrapolated from                         demand 1    cap 1
+      ways this sample is unrepresentative, named                    demand 2    cap 2
+      rulings restated as awaiting the author                        demand 3    cap 3
+      clusters named with what changed in each                       demand 5    cap 5
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 4    cap 4
+      gate arms declared                                             demand 37   cap 37
+      new `relay` tool files                                         demand 6    cap 6
+  written : b390_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 009336bc287120a47143d7bf72ebb512fb9f514889418c822c1b68af65be75ca  (b390_registration_2026-09-09.txt)

@@ -1,0 +1,20 @@
+====================================================================================================
+b390 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b390_registration_2026-09-09.txt
+  marks found  : 1
+      UNREAD                     line 287   ### `23` unreadable rows stay named and unread. ### The download-layer book's registry dri
+  query result : RECORDED at line 155
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 1 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 009336bc287120a47143d7bf72ebb512fb9f514889418c822c1b68af65be75ca  (b390_registration_2026-09-09.txt)
