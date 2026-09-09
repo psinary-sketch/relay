@@ -1,0 +1,246 @@
+### run at (UTC) : 2026-09-09T18:14:34Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b387_extract.py -- EXTRACT-TO-DISK, AND THE TABLE SURVEY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### THE REFS.
+----------------------------------------------------------------------------------------------------
+    relay                  ref `main` = `ab547444d0f0`   ### tree dirty : True
+    SIDE-global-section    ref `main` = `40c1f9467baa`   ### tree dirty : True
+    PLACE-papers           ref `main` = `91492e19c67e`   ### tree dirty : True
+    SIDE-effects           ref `main` = `ef4cff776f89`   ### tree dirty : True
+
+----------------------------------------------------------------------------------------------------
+  ### THE SURVEY. ### **THE UNION NAMES FOURTEEN; THE DISK IS ASKED WHAT IT HAS.**
+----------------------------------------------------------------------------------------------------
+  ### Tables are located ### **BY SHAPE, NOT BY HEADING** ### -- `(R2)`, by content and
+  ### never by address. ### A `status` OR a `grade` column, plus a verification column.
+
+  [MONO  ] union names `day1/A_Place_to_Stand §25.8`
+           on disk : `day1/A_Place_to_Stand.md` ### exists : True
+           line 1619   rows=6   under ## 25.5 The Three Compiled Routes
+               cols: file | key theorems | status
+           line 1926   rows=15  under ## Appendix A: Complete Theorem Catalogue
+               cols: # | theorem | source | status
+           line 2233   rows=11  under ### What this document's kernels do for its argument
+               cols: claim | kernel | fully-qualified terminal | axiom profile | status | verify-by
+
+  [SIMP  ] union names `SIMPLICITY_OF_RIEMANN_ZEROS`
+           on disk : `phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md` ### exists : True
+           line 433    rows=21  under ## Correspondence
+               cols: claim (as stated here) | kernel | theorem (fully qualified) | axiom profile | status
+
+  [GRH   ] union names `GRH_CASCADE`
+           on disk : `phase1.5/spectral/GRH_CASCADE.md` ### exists : True
+           line 377    rows=13  under ## Correspondence
+               cols: claim | kernel | theorem (fully qualified) | axiom profile | status
+
+  [FOUND ] union names `FOUNDATIONS_OF_THE_SIDE_PROGRAMME`
+           on disk : `phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md` ### exists : True
+           line 623    rows=15  under ## Correspondence
+               cols: claim | kernel | theorem (fully qualified) | axiom profile | status
+
+  [SURR  ] union names `THE_UNCONDITIONAL_SURROUND`
+           on disk : `phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md` ### exists : True
+           line 171    rows=15  under ## Correspondence
+               cols: claim (as stated here) | kernel | theorem / field (fully qualified) | axiom profile | status
+
+  [LIC   ] union names `EXHAUSTIVENESS_LICENSE`
+           on disk : `phase1.5/method/EXHAUSTIVENESS_LICENSE.md` ### exists : True
+           line 103    rows=6   under ## Correspondence
+               cols: claim | kernel | theorem (fully qualified) | axiom profile | status
+
+  [RCURVE] union names `R_CURVE_CRITERION`
+           on disk : `phase1.5/rcurve/R_CURVE_CRITERION.md` ### exists : True
+           line 347    rows=12  under # Kernel Correspondence
+               cols: claim | kernel / pin | terminal | #print axioms | grade
+
+  [PATHS ] union names `PATHS_TO_THE_CRITICAL_LINE`
+           on disk : `phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md` ### exists : True
+           line 277    rows=28  under ## Correspondence
+               cols: claim (as stated in this document) | kernel | theorem (fully qualified) | axiom profile | status
+
+  [ENGINE] union names `EXCLUSION_ENGINE`
+           on disk : `phase1.5/method/EXCLUSION_ENGINE.md` ### exists : True
+           line 179    rows=20  under ## VIII. The salt-check (the exhibit)
+               cols: terminal | location | grade | what the source says | work-order
+
+  [DOM   ] union names `DOMAIN_OSTROWSKI_UNIVERSALITY`
+           on disk : `phase1.5/spectral/DOMAIN_OSTROWSKI_UNIVERSALITY_v0_1.md` ### exists : True
+           ### ### **NO CORRESPONDENCE-SHAPED TABLE.** ### tables of any shape in the file : 0
+
+  [IFACE ] union names `INTERFACE_CONSERVATION`
+           on disk : `phase1.5/spectral/INTERFACE_CONSERVATION.md` ### exists : True
+           ### ### **NO CORRESPONDENCE-SHAPED TABLE.** ### tables of any shape in the file : 4
+               near-miss line 93     rows=6   cols:  | conservation of spectra (rh) | hodge conservation (hodge)
+               near-miss line 146    rows=8   cols: system | conservative params | non-conservative params
+               near-miss line 159    rows=4   cols: system | conservative params | non-conservative params
+
+  [SEVEN ] union names `SEVEN_DISCRIMINANTS`
+           on disk : `phase1.5/spectral/SEVEN_DISCRIMINANTS_AND_TRIVIUM_v0_1.md` ### exists : True
+           ### ### **NO CORRESPONDENCE-SHAPED TABLE.** ### tables of any shape in the file : 2
+               near-miss line 43     rows=7   cols: $d$ | $\mathbb{q}(\sqrt{d})$ | conductor $f_d$ | ramified primes
+               near-miss line 111    rows=6   cols: presentation | apparatus | elements
+
+  [CNA   ] union names `CLASS_NUMBER_ANOMALY`
+           on disk : `phase1.5/deep-structure/CLASS_NUMBER_ANOMALY.md` ### exists : True
+           ### ### **NO CORRESPONDENCE-SHAPED TABLE.** ### tables of any shape in the file : 1
+               near-miss line 31     rows=7   cols: $d$ | field | hamming weight | discriminant $d$ | $h(d)$
+
+  [BALPOS] union names `BALANCE_AND_POSITIVITY`
+           on disk : `phase1.5/spectral/BALANCE_AND_POSITIVITY.md` ### exists : True
+           ### ### **NO CORRESPONDENCE-SHAPED TABLE.** ### tables of any shape in the file : 10
+               near-miss line 37     rows=7   cols: weil term | mechanism class | role | sign for g = f ⋆ f̃
+               near-miss line 262    rows=7   cols: class | stage | origin | what it constrains (the coupling c : (ℝ → ℂ) → prop to be exhib
+               near-miss line 287    rows=5   cols: n | computed λ_n | literature | absdiff
+
+  ### ### **THE UNION NAMES `14`. ### DOCUMENTS CARRYING A CORRESPONDENCE-SHAPED TABLE : `9`. ### CARRYING NONE : `5`.**
+  ### ### **ROWS IN ALL LOCATED TABLES : `162`.**
+  ### ### **CARRYING NONE, BY NAME : `DOM`, `IFACE`, `SEVEN`, `CNA`, `BALPOS`**
+
+  ### ### **AND THE UNION POINTS `MONO` AT `§25.8`, SO `§25.8` IS READ.**
+  ###   `## 25.8 Kernel Concordance` at line 1653
+  ###   its table : line 1659, 7 rows, cols: claim | theorem | module | #print axioms
+  ###   ### ### **IT CARRIES A STATUS OR GRADE COLUMN : False.**
+
+----------------------------------------------------------------------------------------------------
+  ### THE READS. ### **HINT TYPED -> ANCHOR READ FROM THE FILE -> NEEDLE PULLED.**
+----------------------------------------------------------------------------------------------------
+
+  [ORDER    ] the order -- the act
+      b387_ferry_2026-09-09.txt : line 20   ### anchor differs from the hint : False
+      | ACT b387 — WHAT THE KEYSTONES' TABLES ACTUALLY CARRY. Number
+
+  [ORDER    ] the order -- a read and a count, no ruling
+      b387_ferry_2026-09-09.txt : line 21   ### anchor differs from the hint : False
+      | not claimed by any unclosed ferry. A READ and a COUNT; no
+
+  [ORDER    ] the order -- the face from a survey, not a belief
+      b387_ferry_2026-09-09.txt : line 4   ### anchor differs from the hint : False
+      | gate; the face is written from a survey, never from a belief
+
+  [RULING   ] the ruling (R16) -- the untracked hook copies stay
+      b387_ferry_2026-09-09.txt : line 13   ### anchor differs from the hint : False
+      | strikeable: THE UNTRACKED HOOK COPIES STAY. The repository
+
+  [RULING   ] the ruling (R16) -- the configuration already makes the source run
+      b387_ferry_2026-09-09.txt : line 14   ### anchor differs from the hint : False
+      | configuration already makes the tracked source the one that
+
+  [RULING   ] the ruling (R16) -- removing a working fallback buys nothing
+      b387_ferry_2026-09-09.txt : line 15   ### anchor differs from the hint : False
+      | runs, and the untracked copies are a fallback; removing a
+
+  [RULING   ] the ruling (R16) -- recorded so a later survey does not read divergence
+      b387_ferry_2026-09-09.txt : line 17   ### anchor differs from the hint : False
+      | with its reason so a later survey does not read them as
+
+  [ORDER    ] the order -- component 1, the set from the record not a predicate
+      b387_ferry_2026-09-09.txt : line 24   ### anchor differs from the hint : False
+      | COMPONENT 1 — THE SET, from the record and not from a
+
+  [ORDER    ] the order -- component 1, report the disagreement and do not reconcile
+      b387_ferry_2026-09-09.txt : line 28   ### anchor differs from the hint : False
+      | documents on disk disagree, report the disagreement and do not
+
+  [ORDER    ] the order -- component 2, every row counted by what backs it
+      b387_ferry_2026-09-09.txt : line 31   ### anchor differs from the hint : False
+      | COMPONENT 2 — EVERY ROW COUNTED BY WHAT BACKS IT: per document
+
+  [ORDER    ] the order -- component 2, unreadable rather than assigned
+      b387_ferry_2026-09-09.txt : line 38   ### anchor differs from the hint : False
+      | unreadable rather than assigned. Quote the front door's status
+
+  [ORDER    ] the order -- component 3, answered from practice not ruled
+      b387_ferry_2026-09-09.txt : line 42   ### anchor differs from the hint : False
+      | COMPONENT 3 — THE QUESTION ANSWERED FROM PRACTICE, not ruled:
+
+  [ORDER    ] the order -- component 3, nothing recommended
+      b387_ferry_2026-09-09.txt : line 49   ### anchor differs from the hint : False
+      | borderline dispositions quoted and NOTHING recommended.
+
+  [ORDER    ] the order -- component 4, the seat`s own memory
+      b387_ferry_2026-09-09.txt : line 51   ### anchor differs from the hint : False
+      | COMPONENT 4 — THE SEAT'S OWN MEMORY: the memory file was over
+
+  [ORDER    ] the order -- component 4, against the prior blob not from recall
+      b387_ferry_2026-09-09.txt : line 54   ### anchor differs from the hint : False
+      | through a pointer, if anything, checked against the file's own
+
+  [ORDER    ] the order -- the lore gains the survey clause
+      b387_ferry_2026-09-09.txt : line 62   ### anchor differs from the hint : False
+      | gains "the face is written from a survey, not from a belief
+
+  [ORDER    ] the order -- (F1), a material fraction not machine-verified
+      b387_ferry_2026-09-09.txt : line 67   ### anchor differs from the hint : False
+      | the keystones already carry a material fraction of rows that
+
+  [ORDER    ] the order -- (F2), nothing was lost from the memory file
+      b387_ferry_2026-09-09.txt : line 68   ### anchor differs from the hint : False
+      | are not machine-verified and are labelled as such; (F2) nothing
+
+  [UNION    ] the union -- the keystone set heading
+      THE_LOAD_BEARING_MAP.md : line 12   ### anchor differs from the hint : False
+      | ## The keystone set (14 graded Correspondence tables)
+
+  [UNION    ] the union -- the fourteen named
+      THE_LOAD_BEARING_MAP.md : line 14   ### anchor differs from the hint : True
+      | MONO (`day1/A_Place_to_Stand` §25.8) · SIMP (`SIMPLICITY_OF_RIEMANN_ZEROS`) · GRH (`GRH_CASCADE`) · FOUND (`FOUNDATIONS_OF_THE_SIDE_PROGRAMME`) · SURR (`THE_UNCONDITIONAL_SURROUND`) · LIC (`EXHAUSTIVENESS_LICENSE`) · RCURVE (`R_CU
+
+  [UNION    ] the union -- the day-1 companions and the §25.8 carrier
+      THE_LOAD_BEARING_MAP.md : line 14   ### anchor differs from the hint : True
+      | MONO (`day1/A_Place_to_Stand` §25.8) · SIMP (`SIMPLICITY_OF_RIEMANN_ZEROS`) · GRH (`GRH_CASCADE`) · FOUND (`FOUNDATIONS_OF_THE_SIDE_PROGRAMME`) · SURR (`THE_UNCONDITIONAL_SURROUND`) · LIC (`EXHAUSTIVENESS_LICENSE`) · RCURVE (`R_CU
+
+  [FRONTDOOR] the front door -- what a row maps
+      README.md : line 43   ### anchor differs from the hint : True
+      | Each row maps a claim the paper makes to the artifact that verifies it: **claim ·
+
+  [FRONTDOOR] the front door -- the five columns
+      README.md : line 44   ### anchor differs from the hint : True
+      | kernel · fully-qualified theorem name · axiom profile · status**. Where no kernel
+
+  [FRONTDOOR] the front door -- where no kernel exists the status says so in words
+      README.md : line 45   ### anchor differs from the hint : False
+      | exists, the status says so in words — *manuscript-resident* or *research-reach* —
+
+  [FRONTDOOR] the front door -- rather than being omitted
+      README.md : line 46   ### anchor differs from the hint : False
+      | rather than being omitted. Every keystone carrying a Correspondence table closes
+
+  [FRONTDOOR] the front door -- the audit surface
+      README.md : line 50   ### anchor differs from the hint : True
+      | A Correspondence table is the paper's audit surface. A reader who wants to check a
+
+  [MONO     ] the monograph -- the §25.8 concordance`s first row
+      ### ### **NO ANCHOR** -- AMBIGUOUS (2 lines match): '| Route 1 — structural exhaustiveness, unconditional in Lean |' in D:\MY-DOwnloads\PLACE-papers\day1\A_Place_to_Stand.md -
+
+  [STANDARD ] the standard -- Tier K may be cited as certification
+      THE_DOCUMENT_CLASS_TAXONOMY.md : line 14   ### anchor differs from the hint : True
+      | **Tier K — Keystone-certified.** A document whose load-bearing claims are backed by a **machine-checked kernel terminal at a pin**, Gate-1-graded (DERIVES, or INTERFACES-with-a-named-premise). *Obligation:* every such claim states
+
+  [STANDARD ] the standard -- Tier C is never cited as certification
+      THE_DOCUMENT_CLASS_TAXONOMY.md : line 16   ### anchor differs from the hint : True
+      | **Tier C — Cluster-synthesis.** A document that **organizes** certified results into a cross-system picture, panel, map, or interpretation — asserting *relationships* not individually certified. *Obligation:* state the invariant i
+
+  [STANDARD ] the standard -- the CATALOGOS borderline
+      THE_DOCUMENT_CLASS_TAXONOMY.md : line 40   ### anchor differs from the hint : True
+      | - **CATALOGOS** — a Tier-C synthesis that *contains* Tier-K terminal citations (the Lean-verified counts). It is **Tier C** (its cross-system claims are synthesis), but its individually-pinned terminal rows are K-grade. Read the p
+
+  [STANDARD ] the standard -- the UNIVERSALITY borderline
+      THE_DOCUMENT_CLASS_TAXONOMY.md : line 41   ### anchor differs from the hint : True
+      | - **UNIVERSALITY.md** — its ζ_K count-7 claim is K-grade (theorem-supported at the arithmetic tier); its head-note is the Gate-1b C-discipline. **Mostly K, with the C-scope note.**
+
+  [STANDARD ] the standard -- the THE_SUBSTRATE borderline
+      THE_DOCUMENT_CLASS_TAXONOMY.md : line 43   ### anchor differs from the hint : True
+      | - **THE_SUBSTRATE** — **Tier K** (its Correspondence table is pinned terminals), *containing* a Related Work section (classical citations, not claims). Read as K.
+
+  [STANDARD ] the standard -- the borderlines are author-ruled
+      THE_DOCUMENT_CLASS_TAXONOMY.md : line 39   ### anchor differs from the hint : True
+      | **Borderlines — author-ruled 2026-07-28 (the rulings confirm the reads below; the classification table now LANDS):**
+
+====================================================================================================
+  reads attempted : 33   ### WITHOUT AN ANCHOR : 1
+  ### ### **BY TAG : {'ORDER': 14, 'RULING': 4, 'UNION': 3, 'FRONTDOOR': 5, 'STANDARD': 6}**
+  ### **NO DOCUMENT WAS EDITED BY THIS TOOL AND NO ROW WAS TOUCHED.**
+====================================================================================================
