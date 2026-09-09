@@ -1,0 +1,125 @@
+### run at (UTC) : 2026-09-09T14:24:25Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b381 -- COMPONENT 3. ### THE CONTROL, RUN BEFORE ANY CORPUS NUMBER EXISTS.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### THE PREDICATE`S OWN FIXTURES, BEFORE IT SCORES ANY REAL DOCUMENT.
+----------------------------------------------------------------------------------------------------
+    a paragraph holding two clusters -- ### **C+**                           got C+             want C+             ok
+    ### **THE SAME SOURCES ONE PER LIST ENTRY -- C-**                        got C-             want C-             ok
+    ### **THE SAME SOURCES ONE PER TABLE ROW -- C-**                         got C-             want C-             ok
+    a document naming nothing -- ### **C?**                                  got C?             want C?             ok
+    a list item is its own unit                                              got ['list_item',  want ['list_item',  ok
+    a table row is its own unit                                              got ['table_row',  want ['table_row',  ok
+    a real heading is in no unit                                             got ['paragraph']  want ['paragraph']  ok
+    a fence is one unit                                                      got ['fence']      want ['fence']      ok
+    ### **THE DEAFNESS THE ORDER NAMES: TWO SOURCES IN SEPARATE PARAGRAPHS D got C-             want C-             ok
+    the ratio of the collection is at or below the threshold                 got True           want True           ok
+    the ratio of the synthesis is above it                                   got True           want True           ok
+  ### ### **FIXTURES : ALL PASS**
+  ### ### **THE ONE THAT MATTERS IS THE COLLECTION:** ### the SAME two sources, one per
+  ### entry, score `C-` where one paragraph scores `C+`. ### **A BLANK-LINE-ONLY SPLITTER
+  ### ### WOULD HAVE SCORED THEM IDENTICALLY**, which is why the unit was fixed on the face.
+
+  ### the document index the predicate resolves names through : 364 entries
+
+----------------------------------------------------------------------------------------------------
+  ### THE SYNTHESIS EXEMPLARS (5) -- the record`s own class declarations.
+----------------------------------------------------------------------------------------------------
+    DOCUMENT                                                       MARK  RATIO    CO-LOCATING / BEARING
+    phase1.5/method/THE_LOAD_BEARING_MAP.md                        C+    1.000    1 / 1
+    phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md                 C-    0.250    1 / 4
+    REGISTRY.md                                                    C-    0.249    55 / 221
+    day1/Spectral_Inertness.md                                     C-    0.000    0 / 7
+    phase2/quantum/FORMATION_DISTANCE_AND_SILENCE_AS_PROTECTION.md C-    0.000    0 / 4
+
+----------------------------------------------------------------------------------------------------
+  ### THE GATHERING EXEMPLARS (61) -- the record`s own purpose statements.
+----------------------------------------------------------------------------------------------------
+    DOCUMENT                                                       MARK  RATIO    CO-LOCATING / BEARING
+    phase1.5/method/INVERSE_THEOREM_CENSUS.md                      C+    1.000    1 / 1
+    archive/2026-08-24-ledger-split/README.md                      C+    0.714    5 / 7
+    README.md                                                      C-    0.500    2 / 4
+    phase1.5/spectral/CONSERVATION.md                              C-    0.500    2 / 4
+    meta/PATENT_SUPPLEMENT_DOSSIER.md                              C-    0.333    2 / 6
+    phase1.5/deep-structure/CLASS_NUMBER_ANOMALY.md                C-    0.333    7 / 21
+    meta/RAIL_ONLY_PRESERVATION_2026-08-09.md                      C-    0.292    7 / 24
+    archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md C-    0.286    4 / 14
+    phase1.5/spectral/SEVEN_DISCRIMINANTS_AND_TRIVIUM_v0_1.md      C-    0.286    2 / 7
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md             C-    0.258    8 / 31
+    phase1.5/proofs/READERS_COMPANION.md                           C-    0.250    2 / 8
+    phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md       C-    0.242    8 / 33
+    archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md C-    0.236    64 / 271
+    phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md                  C-    0.231    6 / 26
+    FINDINGS.md                                                    C-    0.227    10 / 44
+    phase1.5/proofs/THE_RESIDUE_OF_RH.md                           C-    0.200    1 / 5
+    meta/ZENODO_METADATA.md                                        C-    0.143    1 / 7
+    phase1.5/spectral/GRH_CASCADE.md                               C-    0.143    8 / 56
+    phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md                C-    0.125    1 / 8
+    FACES_LEDGER.md                                                C-    0.118    2 / 17
+    phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md                  C-    0.114    8 / 70
+    ERRATA.md                                                      C-    0.100    2 / 20
+    phase1.5/spectral/BALANCE_AND_POSITIVITY.md                    C-    0.100    3 / 30
+    phase1.5/method/EXHAUSTIVENESS_LICENSE.md                      C-    0.091    1 / 11
+    meta/W1_DESCRIPTION_DRAFTS.md                                  C-    0.083    1 / 12
+    phase1.5/method/EXCLUSION_ENGINE.md                            C-    0.077    3 / 39
+    phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md            C-    0.050    1 / 20
+    archive/2026-08-27-trim-backfill/ALL_ZEROS_ARE_SIMPLE_v4.md    C?    0.000    0 / 0
+    archive/2026-08-27-trim-backfill/AT_REST_v3.md                 C?    0.000    0 / 0
+    archive/2026-08-27-trim-backfill/A_VOCABULARY_FOR_THE_CRITICAL_LINE.md C-    0.000    0 / 3
+    archive/2026-08-27-trim-backfill/THE_STRUCTURAL_COUNT.md       C?    0.000    0 / 0
+    internal/TECHNE_INTAKE.md                                      C-    0.000    0 / 2
+    meta/W1_REVIEW_DIGEST.md                                       C-    0.000    0 / 2
+    outputs/DEPOSITED-v1.1.2/ERRATA.md                             C-    0.000    0 / 3
+    phase1.5/deep-structure/CONSTANCE.md                           C?    0.000    0 / 0
+    phase1.5/deep-structure/FROBENIUS.md                           C-    0.000    0 / 6
+    phase1.5/deep-structure/TRIVIUM.md                             C-    0.000    0 / 1
+    phase1.5/deep-structure/TRIVIUM_FINDINGS.md                    C?    0.000    0 / 0
+    phase1.5/experiments/CONTROLLED_EXPERIMENT.md                  C?    0.000    0 / 0
+    phase1.5/method/CONCLUSIONS_OF_RECORD.md                       C-    0.000    0 / 3
+    phase1.5/method/ENUMERA.md                                     C-    0.000    0 / 1
+    phase1.5/method/INSTRUMENTS.md                                 C-    0.000    0 / 4
+    phase1.5/method/SIDE_DOOR.md                                   C-    0.000    0 / 6
+    phase1.5/method/SIDE_EXCLUSION.md                              C-    0.000    0 / 2
+    phase1.5/method/SIEVE_TO_SIDE.md                               C?    0.000    0 / 0
+    phase1.5/method/THE_CORNER_MAP.md                              C-    0.000    0 / 1
+    phase1.5/method/THE_DIGEST.md                                  C?    0.000    0 / 0
+    phase1.5/method/THE_PROSPECTIVE_REGISTER.md                    C-    0.000    0 / 1
+    phase1.5/simplicity/ALL_ZEROS_SIMPLE.md                        C-    0.000    0 / 1
+    phase1.5/simplicity/CASE_FOR_SIMPLICITY.md                     C?    0.000    0 / 0
+    phase1.5/simplicity/CONVERGENT_ARGUMENTS_SIMPLICITY.md         C-    0.000    0 / 2
+    phase1.5/simplicity/DERIVATIVE_IMAGINARY_THEOREM.md            C?    0.000    0 / 0
+    phase1.5/spectral/THE_COHERENCE_INVARIANT.md                   C-    0.000    0 / 1
+    phase1.5/structural/AT_REST.md                                 C-    0.000    0 / 1
+    phase1.5/structural/BIJECTION.md                               C?    0.000    0 / 0
+    phase1.5/structural/CASE_FOR_TWO.md                            C-    0.000    0 / 1
+    phase1.5/structural/SEARCH_TERMINATES.md                       C?    0.000    0 / 0
+    phase1.5/structural/SILENCE_FORMAL.md                          C-    0.000    0 / 1
+    phase1.5/structural/SILENCE_OF_FOUNDATIONS.md                  C-    0.000    0 / 1
+    phase1.5/structural/STRUCTURAL_COUNT.md                        C?    0.000    0 / 0
+    phase1.5/structural/VOCABULARY.md                              C-    0.000    0 / 3
+
+====================================================================================================
+  ### THE SEPARATION, AT THE DECLARED THRESHOLD OF 0.50.
+====================================================================================================
+  ### synthesis exemplars scoring `C+` : ### **1 of 5 (20.0%)**
+  ### gathering exemplars scoring `C+` : ### **2 of 61 (3.3%)**
+  ### ### **THE LOWEST SYNTHESIS RATIO : 0.000 ### / ### THE HIGHEST GATHERING RATIO : 1.000**
+  ### ### **THE THRESHOLD-FREE CHECK -- NO THRESHOLD COULD SEPARATE THEM UNLESS THIS HOLDS :
+  ### ### False**
+
+  ### ### **THE GATHERING EXEMPLARS THAT SCORED `C+` ANYWAY (2), NAMED:**
+      phase1.5/method/INVERSE_THEOREM_CENSUS.md                      1.000  1 / 1
+      archive/2026-08-24-ledger-split/README.md                      0.714  5 / 7
+
+  ### ### ### **THE BRANCH : PARTLY.**
+  ### ### **THE EXEMPLAR SET IS POWERED** -- gathering side 61 against the declared floor of 5.
+  ### ### ### **THE PREDICATE IS NOT ADOPTED.**
+  ### ### **SO THE CORPUS IS NOT RE-SCORED AND NO QUADRANT TABLE IS REDRAWN.** ### That
+  ### is the order`s own clause and it binds here. ### **THE FINDING IS THAT CO-LOCATION
+  ### ### DOES NOT READ ROLE EITHER, AND THAT IS A RESULT.**
+  ### **WHAT WOULD HAVE BEEN NEEDED:** ### every one of the 5 synthesis exemplars at
+  ### `C+` and none of the 61 gathering exemplars there. ### The gap is 2 gathering
+  ### exemplars above the threshold and 4 synthesis exemplars below it.
+====================================================================================================

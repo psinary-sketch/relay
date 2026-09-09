@@ -1,0 +1,39 @@
+====================================================================================================
+b381_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  ITS SELF-TEST, RUN HERE BEFORE IT IS TRUSTED:
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b381_registration_2026-09-09.txt
+  bytes/lines  : 22635 / 270
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  clauses emitted : 88
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 17**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 4    cap 4
+      findings the two facts are reported as                         demand 1    cap 1
+      readings of the head lexicon reported                          demand 2    cap 2
+      kinds of unit the splitter is fixtured on                      demand 3    cap 3
+      separation checks reported                                     demand 2    cap 2
+      statements of what the columns mean                            demand 1    cap 1
+      rulings recorded verbatim                                      demand 1    cap 1
+      ruling-evidence files updated                                  demand 1    cap 1
+      exact bars                                                     demand 9    cap 9
+      relay tools created                                            demand 10   cap 10
+      shared utilities created                                       demand 1    cap 1
+      SIDE-global-section files written                              demand 1    cap 1
+      PLACE-papers files written                                     demand 1    cap 1
+      correspondence rows appended                                   demand 1    cap 1
+      index keys appended                                            demand 1    cap 1
+  written : b381_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 5dffe282ff530628f3c018650686171d2b28002da6f4f5e4b41fe26b12f4a3b9  (b381_registration_2026-09-09.txt)
