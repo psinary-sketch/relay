@@ -1,0 +1,188 @@
+### run at (UTC) : 2026-09-10T00:53:26Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+### run at (UTC) : 2026-09-10T00:51:43Z   ### NOT COVERED BY ANY HASH.
+====================================================================================================
+b396 -- THE EXTRACT, AND THE SURVEYS THE FACE IS WRITTEN FROM.
+====================================================================================================
+    relay                  `main` = `154953028608`
+    SIDE-global-section    `main` = `5ea08ee1a029`
+    PLACE-papers           `main` = `d1685472fd0e`
+    SIDE-effects           `main` = `ef4cff776f89`
+
+----------------------------------------------------------------------------------------------------
+  ### SURVEY 0 -- **THE SWEEP'S OWN PREMISE, TESTED BEFORE ANY INSTRUMENT IS READ.**
+----------------------------------------------------------------------------------------------------
+  ### **THE ORDER, line 17:** sweep's own predicate must be shown capable of finding a
+  ### **ONE NARROW MATCHER, WRITTEN THREE WAYS:**
+    form 1  a raw-string regex, backtick-delimited            FOUND : True
+    form 2  a double-quoted escaped regex                     FOUND : True
+    form 3  ### **NO REGEX AT ALL** -- startswith + `in` + islower()  FOUND : True
+  ### ### **ALL THREE FOUND : True.**
+  ### ### **AND THE WIDE FIXTURE IS CLEAN : True** ### -- without a negative control the
+  ### ### fixture would prove the detector FIRES, not that it DISCRIMINATES.
+      line 3   re          '`(SIDE-[a-z0-9-]+)`'                        BACKTICK,SINGLE-CASE CLASS
+      line 4   re          '\\|\\s*\\*\\*`([A-Z_]+)`'                   BACKTICK,SINGLE-CASE CLASS
+      line 6   startswith  '### '                                       MARKER PREFIX
+      line 6   compare     '`'                                          BACKTICK
+      line 6   case        'islower'                                    CASE TEST
+
+  ### **AND A RAW `grep` IS NOT THE INSTRUMENT:**
+  ###   `tools/b*.py`                          : ### **`857`**
+  ###   carrying a backtick ANYWHERE           : ### **`825`**
+  ### ### **ALMOST EVERY ONE OF THOSE IS PROSE.** ### **A BACKTICK IN A SENTENCE IS NOT
+  ### ### A BACKTICK IN A MATCHER**, and the difference is the whole survey.
+
+  ### **WHAT THIS SWEEP IS DEAF TO, STATED BEFORE ITS RESULT:**
+    -- a narrowness built from a VARIABLE rather than a literal -- `pat = mark + NAME` is assembled at run time and this detector reads literals
+    -- a narrowness that lives in the DATA a tool reads rather than in the tool -- a roster file listing only backticked names would narrow every act that im
+    -- a matcher passed in from ANOTHER module by name, where the literal sits in the caller
+    -- a shape restriction with no string and no case method -- a length test, an index, a slice
+    -- whether a narrow matcher is WRONG. ### **NARROW IS NOT A DEFECT; NARROW UNDER A NEGATIVE FINDING IS A RISK**, and this file measures the shape, never 
+
+----------------------------------------------------------------------------------------------------
+  ### SURVEY 1 -- THE SWEEP. ### **THE PRODUCT IS FINDINGS AT RISK.**
+----------------------------------------------------------------------------------------------------
+  ### **INSTRUMENTS PARSED : `855` ; UNPARSEABLE : `0`.**
+  ### **INSTRUMENTS CARRYING AT LEAST ONE NARROW TEST : `407`.**
+
+  ### **THE TWO NEGATIVITY SIGNALS, APART:**
+  ###   the yield is EMPTINESS-TESTED in the module (precise)     ### **`254`**
+  ###   the module PRINTS AN ABSENCE (co-signal)                  ### **`374`**
+  ###   ### **BOTH : `248`** ### -- neither : `27`
+  ### ### **THEIR SUM IS NOT PRINTED, BECAUSE ADDING THEM WOULD DESCRIBE NEITHER.**
+  ### ### **AT RISK = A NARROW TEST UNDER A NEGATIVE FINDING : `380`.**
+  ### ### **AND `27` INSTRUMENTS ARE NARROW WITH NO NEGATIVE FINDING ON TOP OF THEM.**
+  ### ### **THOSE ARE NOT AT RISK AND ARE NOT COUNTED AS SUCH** -- ### **NARROW IS NOT
+  ### ### A DEFECT.**
+
+----------------------------------------------------------------------------------------------------
+  ### SURVEY 2 -- EXPOSURE. ### **A FINDING CITED BY A RULING IS NOT A FINDING IN A BANK.**
+----------------------------------------------------------------------------------------------------
+  ### **THE FOUR EXPOSURE CLASSES, EACH COUNTED SEPARATELY AND NEVER ADDED:**
+  ###   RULING   -- named in `REGISTRY.md` or the class taxonomy
+  ###   KEYSTONE -- named in a corpus document that is not a ledger  (`296` scanned)
+  ###   FOLD     -- named in `FINDINGS.md`
+  ###   ROW      -- named in `CORRESPONDENCE.md` or `SPIRAL_MAP.md`
+
+  ### ### **THE ORDERING RULE, STATED BEFORE THE RANKING:** ### a ruling outranks a
+  ### ### keystone, a keystone outranks a fold, a fold outranks a row, and ties break on
+  ### ### the total. ### **THE FOUR COUNTS ARE PRINTED SO A READER CAN RANK THEM
+  ### ### DIFFERENTLY**, which is the point of printing them apart.
+
+    instrument                 RULING  KEYSTONE  FOLD   ROW   narrowness
+    b392_checks.py             2       1         0      5     BACKTICK,MARKER PREFIX
+    b392_components.py         2       1         0      5     BACKTICK
+    b392_desk_bank.py          2       1         0      5     ANCHORED MARKER,MARKER PREFIX,SINGLE-CASE CLASS
+    b392_regspec.py            2       1         0      5     SINGLE-CASE CLASS
+    b322_checks.py             0       4         23     16    BACKTICK
+    b322_correspondence.py     0       4         23     16    ANCHORED MARKER
+    b322_index_append.py       0       4         23     16    MARKER PREFIX
+    b299_correspondence.py     0       4         3      3     ANCHORED MARKER
+    b299_keystone.py           0       4         3      3     
+    b293_correspondence.py     0       3         16     8     ANCHORED MARKER
+    b327_bridge.py             0       3         13     7     SINGLE-CASE CLASS
+    b327_checks.py             0       3         13     7     ANCHORED MARKER,BACKTICK,MARKER PREFIX,SINGLE-CASE CLASS
+    b327_correspondence.py     0       3         13     7     ANCHORED MARKER
+    b327_faces_census.py       0       3         13     7     ANCHORED MARKER,MARKER PREFIX,SINGLE-CASE CLASS
+    b327_faces_row.py          0       3         13     7     ANCHORED MARKER,MARKER PREFIX,SINGLE-CASE CLASS
+    b327_index_append.py       0       3         13     7     MARKER PREFIX
+    b296_correspondence.py     0       3         11     7     ANCHORED MARKER
+    b295_correspondence.py     0       3         9      8     ANCHORED MARKER
+    b324_correspondence.py     0       3         7      7     ANCHORED MARKER
+    b324_index_append.py       0       3         7      7     MARKER PREFIX
+    b314_coldclone.py          0       3         3      4     ANCHORED MARKER
+    b314_coldrelay.py          0       3         3      4     
+  ### ### **INSTRUMENTS RANKED : `380`.**
+  ### ### **CARRYING EXPOSURE BEYOND THEIR OWN BANK : `350`.**
+
+----------------------------------------------------------------------------------------------------
+  ### SURVEY 3 -- COST. ### **CHEAP MEANS RE-DERIVABLE BY A TEXT SCAN THIS DRIVE CAN RUN.**
+----------------------------------------------------------------------------------------------------
+  ### **THE COST MEASURE, STATED BEFORE IT IS APPLIED:** ### the number of narrow
+  ### literals that must be widened, plus `1` for each input the drive cannot read
+  ### without a build or a network call. ### **A FINDING WHOSE INPUTS ARE LOCAL `.md`
+  ### ### FILES AND WHOSE MATCHER IS ONE LITERAL IS THE CHEAPEST THING IN THE RECORD.**
+
+    instrument                 cost   net?    build?  narrowness
+    b297_fold.py               1      False   False   
+    b299_keystone.py           1      False   False   
+    b301_checks.py             1      False   False   MARKER PREFIX
+    b302_index_append.py       1      False   False   MARKER PREFIX
+    b303_checks.py             1      False   False   BACKTICK
+    b303_index_append.py       1      False   False   MARKER PREFIX
+    b304_checks.py             1      False   False   BACKTICK
+    b304_index_append.py       1      False   False   MARKER PREFIX
+    b305_checks.py             1      False   False   BACKTICK
+    b305_index_append.py       1      False   False   MARKER PREFIX
+    b305_source.py             1      False   False   
+    b306_index_append.py       1      False   False   MARKER PREFIX
+
+----------------------------------------------------------------------------------------------------
+  ### SURVEY 4 -- THE PRESERVATION HAZARD. ### **`b395`'S NEAR MISS, MEASURED.**
+----------------------------------------------------------------------------------------------------
+  ### **THE ORDER, line 36:** needle matched a preserved quotation and resolved to it
+  ### **BLOCKQUOTED (`>`-PREFIXED) TEXT IN THE PAPER TREE:**
+  ###   documents carrying at least one            ### **`184`**
+  ###   contiguous blocks                          ### **`1672`**
+  ###   lines                                      ### **`8110`** of `156173` total
+  ### **BANNERS NAMING A PRESERVATION EXPLICITLY : `5`.**
+      OPEN_TRAILS.md:3782  (an HTML comment naming a preservation)
+      > <!-- b369 the list repaired in place, the original preserved -->
+      SPIRAL_MAP.md:252  (a PRESERVED/SUPERSEDED banner)
+      > > ### **PRIOR CLUSTER TABLE — SUPERSEDED 2026-09-09 (b388) UNDER RULING (R17), AND PRESERV
+      SPIRAL_MAP.md:280  (a PRESERVED/SUPERSEDED banner)
+      > **THE PRIOR ANCHOR IS RETAINED AS A NAMED MEMBER AND IS NOT DEMOTED.** Nothing is removed 
+      phase1.5/spectral/GRH_CASCADE.md:419  (an HTML comment naming a preservation)
+      > <!-- b394 RECONCILIATION ANNOTATION, 2026-09-09 -->
+      phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md:455  (an HTML comment naming a preservation)
+      > <!-- b390 PROOFREADING ANNOTATION, 2026-09-09 -->
+
+  ### ### **ARE PRESERVED BLOCKS STRUCTURALLY IDENTIFIABLE : True.**
+  ### ### **A `>`-PREFIXED LINE IS A STRUCTURAL FACT A TOOL CAN READ WITHOUT JUDGEMENT**,
+  ### ### and it is the form `b388` used to preserve the superseded cluster table -- the
+  ### ### exact block `b395`'s needle resolved into.
+  ### ### **BUT IT IS A SUFFICIENT CONDITION AND NOT A NECESSARY ONE:** ### not every
+  ### ### preserved passage is blockquoted, and ### **A RULE MECHANIZED ON `>` ALONE
+  ### ### WOULD MISS A PRESERVATION WRITTEN ANY OTHER WAY** -- which is this act's own
+  ### ### subject turned on its own remedy. ### **SO THE MECHANIZED HALF AND THE
+  ### ### JUDGEMENT HALF ARE LISTED APART AND THE SECOND IS NOT CLAIMED AS THE FIRST.**
+
+----------------------------------------------------------------------------------------------------
+  ### SURVEY 5 -- THE PRICE INPUTS, READ FROM THE ACTS THAT MEASURED THEM.
+----------------------------------------------------------------------------------------------------
+  ### **`b394`'S OWN FIGURES, FROM ITS OWN COMPONENT JSON:**
+  ###   minutes for three keystones      ### **`8.3`**
+  ###   per keystone                     ### **`2.8`**
+  ###   `b390`'s figure for one          ### **`24`**
+  ###   reconciled after `b394`          ### **`4` of `16`**
+  ### **`b395`'S FIGURE FOR WHAT IS NOW REACHABLE:** ### **`10` OF THE ELEVEN.**
+  ### ### **BOTH OF `b394`'S FIGURES WERE DECLARED FLOORS BY THE ACT THAT TOOK THEM**,
+  ### ### and a price built on a floor is a floor. ### **THIS ACT DOES NOT PROMOTE ONE
+  ### ### INTO AN ESTIMATE.**
+
+----------------------------------------------------------------------------------------------------
+  ### THE READS. ### **EVERY QUOTED LINE CARRIES AN ANCHOR FOUND BY THE TOOL.**
+----------------------------------------------------------------------------------------------------
+    b396_ferry_2026-09-10.txt      ADDITION ONE                                   ANCHORED   line 15
+    b396_ferry_2026-09-10.txt      ADDITION TWO                                   ANCHORED   line 25
+    b396_ferry_2026-09-10.txt      ADDITION THREE                                 ANCHORED   line 35
+    b396_ferry_2026-09-10.txt      COMPONENT 1 — THE SWEEP                        ANCHORED   line 69
+    b396_ferry_2026-09-10.txt      COMPONENT 2 — RE-RUN                           ANCHORED   line 76
+    b396_ferry_2026-09-10.txt      COMPONENT 3 — THE WORK NOW AVAILABLE           ANCHORED   line 81
+    b392_checks.py                 THE DEPOSIT RULE — RULING `(R20)`              ANCHORED   line 369
+    b392_components.py             No document is reclassified into `Tier K       AMBIGUOUS  line --
+    b392_desk_bank.py              ### NO KEY                                     AMBIGUOUS  line --
+    b297_fold.py                   def                                            AMBIGUOUS  line --
+    b299_keystone.py               def                                            AMBIGUOUS  line --
+    b301_checks.py                 #                                              AMBIGUOUS  line --
+  ### **reads 12 ; ANCHORED 7 ; AMBIGUOUS 5 ; ABSENT 0**
+
+====================================================================================================
+  0 : forms [True, True, True] ; wide clean True ; tools 857 ; raw-backtick 825 ; deaf 5
+  1 : parsed 855 ; narrow 407 ; AT RISK 380 ; emptiness-only 6 ; printed-only 126 ; both 248
+  2 : ranked 380 ; top exposure ['b392_checks.py', 'b392_components.py', 'b392_desk_bank.py']
+  3 : cheapest ['b297_fold.py', 'b299_keystone.py', 'b301_checks.py']
+  4 : quoted blocks 1672 in 184 docs ; banners 5 ; mechanizable True
+  5 : per-keystone 2.8 ; readable 10
+  reads 12 without_anchor 0 ambiguous 5
+  ### **NO DOCUMENT WAS EDITED BY THIS TOOL, AND NOTHING WAS WRITTEN AT ZENODO.**
+====================================================================================================

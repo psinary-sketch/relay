@@ -70,13 +70,58 @@ def _lines(path):
     return io.open(path, encoding='utf-8', errors='replace').read().split(chr(10))
 
 
-def find(path, hint):
+# ### ==================================================================================================
+# ### ### **THE PRESERVATION HAZARD, MECHANIZED IN PART -- ADDED b396, OPT-IN, DEFAULT OFF.**
+# ### ### **THE INCIDENT.** ### `b395` needed the live `Simplicity / RH cascade` row of the cluster
+# ### table in `SPIRAL_MAP.md`. ### Its needle matched `b388`'s ### **PRESERVED QUOTATION** ### of
+# ### the superseded table -- whose row begins with the same cells -- and, meeting it first,
+# ### ### **RESOLVED TO IT SILENTLY.** ### An act editing by that anchor would have edited a
+# ### quotation the corpus preserved precisely so that it would not change, and that is
+# ### ### **FALSIFICATION AND NOT REPAIR.**
+# ###
+# ### ### **THE RULE:** ### an anchor used to EDIT excludes preserved blocks by construction, and an
+# ### anchor resolving inside one is ### **REFUSED RATHER THAN DISAMBIGUATED.** ### Refusing is the
+# ### whole point: a caller told `AMBIGUOUS` picks one, and picking is how the quotation gets edited.
+# ###
+# ### ### **WHY IT IS OPT-IN AND WHY THE DEFAULT DOES NOT MOVE.** ### An anchor used to QUOTE a
+# ### preserved block is CORRECT -- that is how an act cites what an earlier act preserved -- and
+# ### every existing caller reads. ### **THE HAZARD IS EDITING BY AN ANCHOR, NOT READING BY ONE**,
+# ### so the exclusion belongs to the editing caller and to nobody else. ### Turning it on by default
+# ### would break correct readers to guard against a mistake they are not making.
+# ###
+# ### ### **THE MECHANIZED HALF, AND IT IS A FLOOR:** ### a `>`-prefixed line is a structural fact a
+# ### tool reads without judgement, and the paper tree carries `1672` such blocks. ### **BUT `>` IS
+# ### ### SUFFICIENT AND NOT NECESSARY.** ### A preservation written any other way -- a banner, an
+# ### HTML comment, a convention -- is invisible here. ### **THE JUDGEMENT HALF IS NOT CLAIMED AS
+# ### ### MECHANIZED**, and a caller that passes `editing=True` has a floor on the hazard rather than
+# ### a guard against it.
+# ### ==================================================================================================
+_PRESERVED = re.compile(r'^\s*>')
+
+
+def is_preserved_line(line):
+    """### **STRUCTURAL ONLY.** ### True for a blockquoted line. ### It says nothing about a
+    ### preservation written any other way, and the caller is told so in the header above."""
+    return bool(_PRESERVED.match(line))
+
+
+def find(path, hint, editing=False):
     """### RETURN `(lineno, line_as_the_file_holds_it)` for the ONE line matching `hint` after normalisation.
 
     ### ### **RAISES `AnchorError` ON ZERO MATCHES AND ON MORE THAN ONE.**
+    ### ### **`editing=True` (OPT-IN, ADDED b396) EXCLUDES BLOCKQUOTED LINES AND REFUSES AN ANCHOR
+    ### ### THAT RESOLVES ONLY INSIDE ONE.** ### The default is unchanged and no existing caller moves.
     """
     lines = _lines(path)
     hits = [(i, ln) for i, ln in enumerate(lines, 1) if _match(ln, hint)]
+    if editing:
+        live = [(i, ln) for i, ln in hits if not is_preserved_line(ln)]
+        if hits and not live:
+            # ### **REFUSED, NOT DISAMBIGUATED.** ### Every match is inside a preserved block, so
+            # ### there is no live line to edit and the caller must be told that and not handed one.
+            raise AnchorError('REFUSED -- EVERY MATCH IS INSIDE A PRESERVED (BLOCKQUOTED) BLOCK: '
+                              '%r in %s -- lines %s' % (hint, path, [i for i, _l in hits]))
+        hits = live
     if not hits:
         raise AnchorError('NO LINE MATCHES: %r in %s' % (hint, path))
     if len(hits) > 1:
@@ -175,6 +220,53 @@ def self_test(verbose=True):
             r.append(('the single-line form REFUSES a wrapped hint, and find_span is the way', False))
         except AnchorError:
             r.append(('the single-line form REFUSES a wrapped hint, and find_span is the way', True))
+        # ### ==========================================================================
+        # ### ### **THE PRESERVATION FIXTURES, ADDED b396, ON b395'S OWN SHAPE.**
+        # ### The file below is `SPIRAL_MAP.md` in miniature: a preserved quotation of a
+        # ### superseded row, and the live row that supersedes it, both opening on the
+        # ### same cells. ### **THE DEFAULT MUST STILL MEET THE QUOTATION FIRST** -- that
+        # ### is the hazard, and a fixture that hides it proves nothing.
+        # ### ==========================================================================
+        body2 = (
+            '### the refreshed table below; the prior one is preserved above it\n'
+            '> | **Simplicity / RH cascade** | the SUPERSEDED cells | preserved by b388 |\n'
+            '\n'
+            '| **Simplicity / RH cascade** | the LIVE cells | the row an act would edit |\n'
+            '> | **a row that exists ONLY inside a preserved block** | nowhere else |\n'
+        )
+        fd2, p2 = tempfile.mkstemp(suffix='.md', prefix='anchor_preserve_')
+        os.close(fd2)
+        io.open(p2, 'w', encoding='utf-8', newline=chr(10)).write(body2)
+        try:
+            # ### **THE HAZARD, REPRODUCED:** ### the default finds BOTH and calls it ambiguous;
+            # ### with only the quotation present it would resolve to the quotation silently.
+            try:
+                find(p2, '| **Simplicity / RH cascade** |')
+                r.append(('the DEFAULT does not distinguish a quotation from the live row', False))
+            except AnchorError as e:
+                r.append(('the DEFAULT does not distinguish a quotation from the live row',
+                          'AMBIGUOUS' in str(e)))
+            # ### **THE MODE:** ### editing=True skips the quotation and lands on the live row.
+            n2, ln2 = find(p2, '| **Simplicity / RH cascade** |', editing=True)
+            r.append(('editing=True EXCLUDES the preserved block and returns the LIVE row',
+                      n2 == 4 and ln2.startswith('| **Simplicity')))
+            # ### **REFUSED, NOT DISAMBIGUATED:** ### a hint living only inside a preserved
+            # ### block raises rather than handing the caller a line to edit.
+            try:
+                find(p2, 'a row that exists ONLY inside a preserved block', editing=True)
+                r.append(('a hint found ONLY inside a preserved block is REFUSED', False))
+            except AnchorError as e:
+                r.append(('a hint found ONLY inside a preserved block is REFUSED',
+                          'PRESERVED' in str(e)))
+            # ### **AND THE DEFAULT STILL READS IT**, because quoting a preserved block is
+            # ### correct and every existing caller reads rather than edits.
+            n3, _l3 = find(p2, 'a row that exists ONLY inside a preserved block')
+            r.append(('the DEFAULT still finds a preserved line, so no reader moves', n3 == 5))
+        finally:
+            try:
+                os.remove(p2)
+            except OSError:
+                pass
     finally:
         try:
             os.remove(p)

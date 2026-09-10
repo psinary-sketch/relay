@@ -1,0 +1,175 @@
+{
+ "c1": {
+  "parsed": 856,
+  "narrow": 407,
+  "files": 64,
+  "figures": 82,
+  "acts": 51,
+  "discards": 3,
+  "not_at_risk": 343
+ },
+ "c2": {
+  "runs": 6,
+  "verdicts": {
+   "CONFIRMED": 6
+  },
+  "moved": 0,
+  "rows": [
+   {
+    "act": "b307",
+    "inst": "b307_correspondence.py",
+    "what": "correspondence rows the row-parser can see",
+    "kind": "COUNT",
+    "input": "CORRESPONDENCE.md",
+    "narrow": [
+     "^\\| (\\d+) \\|"
+    ],
+    "wide": "^\\s*\\|\\s*(\\d+)\\s*\\|",
+    "said": "allow leading whitespace and any spacing around the pipes -- a row indented or padded differently is still a row",
+    "narrow_hits": 244,
+    "wide_hits": 244,
+    "narrow_figure": 244,
+    "wide_figure": 244,
+    "verdict": "CONFIRMED",
+    "narrowness_without_consequence": false,
+    "set": "CHEAPEST"
+   },
+   {
+    "act": "b318",
+    "inst": "b318_checks.py",
+    "what": "the registration says W_infinity is not computed",
+    "kind": "PRESENCE",
+    "input": "b318_registration_2026-09-04.txt",
+    "narrow": [
+     "W_infinity` IS NOT COMPUTED",
+     "W_infinity` is not computed"
+    ],
+    "wide": "(?is)w[_ ]?infinity.{0,4}\\s+is\\s+not(?:\\s|#)+computed",
+    "said": "drop the backtick, allow an underscore or a space in the name, ignore case, and ### **LET THE PHRASE CROSS A LINE BREAK AND ITS MARKERS** -- the face states this fact more than once and at least one statement wraps",
+    "narrow_hits": 1,
+    "wide_hits": 2,
+    "narrow_figure": true,
+    "wide_figure": true,
+    "verdict": "CONFIRMED",
+    "narrowness_without_consequence": true,
+    "set": "CHEAPEST"
+   },
+   {
+    "act": "b323",
+    "inst": "b323_checks.py",
+    "what": "an index query for a phrase nobody keyed returns NO KEY",
+    "kind": "PRESENCE",
+    "input": "banked_index.py --query (live stdout)",
+    "narrow": [
+     "### NO KEY"
+    ],
+    "wide": "(?i)\\bno\\s+key\\b",
+    "said": "drop the marker prefix and ignore case -- a NO KEY reported without `###` is still a NO KEY",
+    "narrow_hits": 1,
+    "wide_hits": 1,
+    "narrow_figure": true,
+    "wide_figure": true,
+    "verdict": "CONFIRMED",
+    "narrowness_without_consequence": false,
+    "set": "CHEAPEST"
+   },
+   {
+    "act": "b326",
+    "inst": "b326_checks.py",
+    "what": "the correspondence row numbered 164",
+    "kind": "COUNT",
+    "input": "CORRESPONDENCE.md",
+    "narrow": [
+     "\\| 164 \\|"
+    ],
+    "wide": "^\\s*\\|\\s*164\\s*\\|",
+    "said": "allow any spacing around the row number and anchor it to the line start, so a 164 appearing mid-row is not counted",
+    "narrow_hits": 1,
+    "wide_hits": 1,
+    "narrow_figure": 1,
+    "wide_figure": 1,
+    "verdict": "CONFIRMED",
+    "narrowness_without_consequence": false,
+    "set": "MOST EXPOSED"
+   },
+   {
+    "act": "b332",
+    "inst": "b332_correspondence.py",
+    "what": "correspondence rows the row-parser can see",
+    "kind": "COUNT",
+    "input": "CORRESPONDENCE.md",
+    "narrow": [
+     "^\\| (\\d+) \\|"
+    ],
+    "wide": "^\\s*\\|\\s*(\\d+)\\s*\\|",
+    "said": "the same widening as b307, on the same ledger, by the same literal",
+    "narrow_hits": 244,
+    "wide_hits": 244,
+    "narrow_figure": 244,
+    "wide_figure": 244,
+    "verdict": "CONFIRMED",
+    "narrowness_without_consequence": false,
+    "set": "MOST EXPOSED"
+   },
+   {
+    "act": "b392",
+    "inst": "b392_checks.py",
+    "what": "the deposit rule heading stands in the registry",
+    "kind": "PRESENCE",
+    "input": "REGISTRY.md",
+    "narrow": [
+     "THE DEPOSIT RULE \u2014 RULING `(R20)`"
+    ],
+    "wide": "(?i)the\\s+deposit\\s+rule\\s*[\\u2014\\u2013-]+\\s*ruling\\s*.?\\(?R20\\)?",
+    "said": "drop the backticks, accept any dash, allow flexible spacing and ignore case",
+    "narrow_hits": 1,
+    "wide_hits": 1,
+    "narrow_figure": true,
+    "wide_figure": true,
+    "verdict": "CONFIRMED",
+    "narrowness_without_consequence": false,
+    "set": "MOST EXPOSED"
+   }
+  ],
+  "cheapest": [
+   "b307",
+   "b318",
+   "b323"
+  ],
+  "exposed": [
+   "b392",
+   "b326",
+   "b332"
+  ],
+  "shared": 0,
+  "nwc": 1,
+  "l2": false,
+  "l3_by_b395": true
+ },
+ "c3": {
+  "per_keystone": 2.8,
+  "ten": 10,
+  "minutes": 28.0,
+  "reconciled": 4,
+  "of": 16,
+  "after": 14,
+  "remaining": 2
+ },
+ "a3": {
+  "blocks": 1672,
+  "files": 184,
+  "banners": 5,
+  "fixture_rc": 0,
+  "arms": 12,
+  "failing": 0,
+  "callers": 144,
+  "moved": 0,
+  "modules_before": 39,
+  "modules_after": 39,
+  "module": "EDITING_ANCHOR_EXCLUDES_PRESERVED.md",
+  "halves": true,
+  "bytes": 4068
+ },
+ "run_file": "b396_components_run2.txt",
+ "run_clock": "2026-09-10T01:11:31Z"
+}
