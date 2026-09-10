@@ -145,8 +145,15 @@ def arm(name, why, ok, detail=''):
     return bool(ok)
 
 
-def blob(rel):
-    r = subprocess.run(['git', 'show', 'HEAD:' + rel], cwd=PP, capture_output=True)
+def blob(rel, post=False):
+    # ### **THE STRADDLE, AND THIS ARM WALKED INTO IT** (b352's species, (iii)). ### `G-PRESERVE`
+    # ### compares the working file against its committed blob. ### BEFORE the push that blob is the
+    # ### PRE-ACT state and the comparison is strong; AFTER it the blob IS the file and the
+    # ### comparison is vacuous -- the two appended cells come back EQUAL, not longer, and the arm
+    # ### fails on a correct write. ### **SO THE REFERENCE IS THE PRE-ACT COMMIT ON BOTH SIDES:**
+    # ### `HEAD` before the push, `HEAD~1` after it, and the arm prints which it read.
+    ref = 'HEAD~1' if post else 'HEAD'
+    r = subprocess.run(['git', 'show', ref + ':' + rel], cwd=PP, capture_output=True)
     return r.stdout.decode('utf-8', 'replace').replace(chr(13) + chr(10), chr(10))
 
 
@@ -294,8 +301,11 @@ def main():
     rec('  ### BARS 7 AND 8 -- `G-NOGRADE` AND `G-PRESERVE`, READ %s.'
         % ('AFTER THE PUSH' if post else 'BEFORE THE PUSH'))
     bar()
-    fb, ft = blob('FACES_LEDGER.md'), text(FACES)
-    tb, tt = blob('OPEN_TRAILS.md'), text(TRAILS)
+    fb, ft = blob('FACES_LEDGER.md', post), text(FACES)
+    tb, tt = blob('OPEN_TRAILS.md', post), text(TRAILS)
+    rec('  ### the pre-act reference read from `%s` -- **THE SAME STATE ON BOTH SIDES OF THE'
+        % ('HEAD~1' if post else 'HEAD'))
+    rec('  ### PUSH**, which is what keeps this arm from going vacuous after the commit.')
     grade_words = ('DEFINED-ONLY', 'DERIVES-ON-IMPORTS', 'MEASURED-ON-FAMILIES', 'PROVED-GENERAL',
                    'DERIVED-ON-CONTENT', 'UNDER-RESOLVED-AT-BENCH', 'IMPORT-UNDER-THE-BAR',
                    'PROVED-PER-CELL', 'MEASURED-AT-COVERED-CELLS', 'NAMED-ONLY')

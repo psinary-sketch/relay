@@ -1,0 +1,136 @@
+====================================================================================================
+b401_checks.py -- THE GATE SUITE. ### **EVERY ARM TESTS A BAR THIS FACE SET.**
+### side of the push : AFTER THE PUSH
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+  ### THE IMPORTED HELPERS` OWN FIXTURES, RUN BEFORE THEIR VERDICTS ARE USED.
+----------------------------------------------------------------------------------------------------
+  G-FIXTURE        every imported helper passes its own fixtures in both polarities PASS
+----------------------------------------------------------------------------------------------------
+  ### STEP ZERO AND THE FACE.
+----------------------------------------------------------------------------------------------------
+  G-FERRY          the ferry is banked at the bytes and lines the face declares     PASS
+      bytes 3719 ; lines 73
+  G-ANCHOR         the extract left no read AMBIGUOUS or ABSENT                     PASS
+      reads 14 ; anchored 14
+  G-SEAL           the face carries its own lock and the lock gate permitted it     PASS
+      sha 6c8462a90a96494e
+  G-EVERYGATE      every gate the lock read passed, and four were checked by digest PASS
+  G-SEALINTACT     the sealed body is byte-for-byte what was sealed, read by the se PASS
+----------------------------------------------------------------------------------------------------
+  ### THE ORDER`S OWN WORDS, EACH NEEDLE BUILT FROM THE FERRY (b363`s helper).
+----------------------------------------------------------------------------------------------------
+    the two legs are named                                     ### `ferry:1`
+    the write list is built as KINDS                           ### `ferry:7`
+    Addition One, the uniformity question                      ### `ferry:18`
+    the uniform branch and its consequence                     ### `ferry:24`
+    the prime-dependent branch                                 ### `ferry:27`
+    the not-stated branch                                      ### `ferry:29`
+    Addition Two, read whole and not by name                   ### `ferry:34`
+    decided by unfolding, not by the shared word               ### `ferry:40`
+    the fourth site only after Addition One                    ### `ferry:44`
+    the matcher yield printed and the residue hand-read        ### `ferry:43`
+    (N3) the one-prime window bounds a count                   ### `ferry:68`
+    nothing deposits                                           ### `ferry:9`
+  G-QUOTED         every clause of the order resolves in the ferry as a live line   PASS
+      12 of 12 built
+----------------------------------------------------------------------------------------------------
+  ### THE BANK`S OWN SENTENCES, EACH NEEDLE BUILT FROM THE BANK.
+----------------------------------------------------------------------------------------------------
+    the Component 1 verdict                                    ### `bank:11`
+    the element/kind distinction                               ### `bank:16`
+    the located theorem                                        ### `bank:16`
+    the owning act credited                                    ### `bank:16`
+    the three reasons                                          ### `bank:16`
+    the inherited hypothesis                                   ### `bank:16`
+    the uniformity verdict with its scope                      ### `bank:12`
+    the consequence not drawn                                  ### `bank:16`
+    the one-prime window at no support                         ### `bank:16`
+    the stale count                                            ### `bank:38`
+    a quoted headline is not a measurement                     ### `bank:42`
+    the shared index                                           ### `bank:16`
+    nothing deposits                                           ### `bank:55`
+  G-BANKSAYS       every sentence this suite tests for is in the bank as a live lin PASS
+      13 of 13
+----------------------------------------------------------------------------------------------------
+  ### BAR 1 -- `G-SRC`.
+----------------------------------------------------------------------------------------------------
+  G-SRC            both pinned sources verified against the corpus`s banked digests PASS
+  G-SRCLOC         every source fragment the act quotes was located by page index   PASS
+      fragments 12 ; located 12
+----------------------------------------------------------------------------------------------------
+  ### BAR 3 -- `G-YIELD`. ### **AN ABSENCE FOUND BY ONE MATCHER IS A PROPERTY OF THAT
+  ### MATCHER**, so the arm requires five shapes and the counts to agree with the extract.
+----------------------------------------------------------------------------------------------------
+  G-YIELD          five matcher shapes were tried and every yield is printed in the PASS
+      shapes 5 ; counts [1, 2, 12, 14, 103]
+  G-YIELD-RESIDUE  the components hand-read the residue rather than reporting a cou PASS
+  G-YIELD-CTL      and the arm can fail: a sixth shape absent from the extract is d PASS
+----------------------------------------------------------------------------------------------------
+  ### BAR 4 -- `G-VACUOUS`. ### **A BARE `UNIFORM` WOULD READ AS THE STATEMENT THE ROW
+  ### HAS BEEN MISSING**, so the scoping word must stand in the same sentence.
+----------------------------------------------------------------------------------------------------
+  G-VACUOUS        the uniformity verdict carries the word that scopes it, in one s PASS
+  G-NOPRICE        and no prime-by-prime opening is priced under it                 PASS
+  G-VACUOUS-CTL    the same predicate is QUIET on synthetic text carrying only the  PASS
+----------------------------------------------------------------------------------------------------
+  ### BAR 5 -- `G-OWNED`. ### **THE RECORD READ THEOREM 6.1 FIRST.**
+----------------------------------------------------------------------------------------------------
+  G-OWNED          the act cites the owning act rather than importing the statement PASS
+  G-INHERITED      and the hypothesis a prior act left inherited is left inherited  PASS
+----------------------------------------------------------------------------------------------------
+  ### BAR 6 -- `G-NOTRUN`. ### The axiom profile is READ, not measured.
+----------------------------------------------------------------------------------------------------
+  G-NOTRUN         the act declares the profile read from a printed profile and not PASS
+  G-NOBUILD        and no lake or lean invocation appears in any tool of this act   PASS
+----------------------------------------------------------------------------------------------------
+  ### BARS 7 AND 8 -- `G-NOGRADE` AND `G-PRESERVE`, READ AFTER THE PUSH.
+----------------------------------------------------------------------------------------------------
+  ### the pre-act reference read from `HEAD~1` -- **THE SAME STATE ON BOTH SIDES OF THE
+  ### PUSH**, which is what keeps this arm from going vacuous after the commit.
+  G-NOGRADE        no grade token`s count changed in the faces ledger across this l PASS
+      tokens 10 ; changed none
+  G-PRESERVE       five cells of row U1 BYTE-IDENTICAL, two carrying the blob as a  PASS
+      touched-as-prefix [True, True] ; untouched-identical [True, True, True, True, True]
+  G-APPENDONLY     the trail block is append-only: the pre-act bytes are a true pre PASS
+      bytes 535924 -> 542538
+  G-NOLOST         no line was lost from either ledger                              PASS
+----------------------------------------------------------------------------------------------------
+  ### BAR 15 -- `G-SHARED`. ### **AN ENTRY THAT HID THE SHARING WOULD BE COUNTING ONE
+  ### OBSTRUCTION TWICE.**
+----------------------------------------------------------------------------------------------------
+  G-SHARED         the fourth instance names the index it shares with the third, in PASS
+  G-NOBRIDGE       and the row types no bridge between any two of the four          PASS
+----------------------------------------------------------------------------------------------------
+  ### BARS 9 AND 10 -- `G-CAP` AND `G-WRITELIST`, THE LIST BUILT AS KINDS.
+----------------------------------------------------------------------------------------------------
+  G-CAP            new relay tool files at most the six the face declares           PASS
+      wrote 6 : ['b401_checks.py', 'b401_components.py', 'b401_desk_bank.py', 'b401_extract.py', 'b401_reg_gate.py', 'b401_regspec.py']
+  G-WRITELIST      every file this leg wrote is of a KIND the locked face names     PASS
+      files 27 ; of an unnamed KIND 0 : none
+----------------------------------------------------------------------------------------------------
+  ### BAR 11 -- `G-NOINSTRUMENT`.
+----------------------------------------------------------------------------------------------------
+  G-NOINSTRUMENT   no `.lean` file is touched, and SIDE-window is untouched         PASS
+      SIDE-window working tree : ''
+----------------------------------------------------------------------------------------------------
+  ### BARS 12, 13 AND 14 -- THE CENSUSES, THE PINS AND THE MIRROR, READ AFTER THE PUSH.
+----------------------------------------------------------------------------------------------------
+  G-CENSUS         the census reports TOTAL MISSING 0 after the act                 PASS
+  G-FACES          the census reports TOTAL MISSING 0 after the act                 PASS
+  G-PINS           all four repositories equal by ls-remote, read AFTER THE PUSH    PASS
+  G-MIRROR         the mirror was rebuilt AFTER the commit and is clean on all thre PASS
+      ls-remote d128d338e7c29f0e
+----------------------------------------------------------------------------------------------------
+  ### THE ROW, THE KEY AND THE MUST-FAIL FIXTURES.
+----------------------------------------------------------------------------------------------------
+  G-ROW            the correspondence row is present once and its number is the las PASS
+      last row 250
+  G-KEY            the index key resolves and returns exactly one row               PASS
+  G-MUSTFAIL       none of the six forbidden whole lines is in the bank             PASS
+      fixtures 6 ; hits none
+  G-MUSTFAIL-CTL   the same predicate FIRES on synthetic text carrying one of them  PASS
+====================================================================================================
+  ### ### **ARMS : 37. ### PASSING : 37. ### FAILING : 0.**
+  ### run stamp : 2026-09-10T16:47:58Z
+====================================================================================================
