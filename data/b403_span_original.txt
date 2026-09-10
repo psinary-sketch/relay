@@ -3,18 +3,7 @@
 
 ### ### **THE ORDER'S WORDS:** ### the next act *"should propose the fold of b360 onward when the span
 ### reaches the fold's own threshold, counted and not typed."*
-### ### **THERE IS A DECLARED THRESHOLD, AND IT IS NINE.** ### `(R1)`, the author's ruling
-### recorded at `b366`: ### *THE FOLD THRESHOLD IS NINE ACTS.* ### **THIS PARAGRAPH IS THE REPAIR
-### MADE AT `b403`, AND THE SENTENCE IT REPLACES IS PRESERVED HERE BECAUSE A TOOL THAT LOSES ITS
-### OWN HISTORY IS A TOOL THAT WILL BE MISREAD AGAIN:**
-### ### ### *"THERE IS NO DECLARED THRESHOLD ANYWHERE IN THE RECORD, and this tool says so rather
-### ### ### than inventing one."*
-### ### **THAT WAS TRUE WHEN `b363` WROTE IT ON 2026-09-07 AND HAS BEEN FALSE SINCE `b366` RULED
-### ### `(R1)` THREE ACTS LATER.** ### A DATED ARM -- right when written, dated by construction --
-### and `b402` routed it while reading the threshold from the ruling by hand.
-### ### **WHAT THE TOOL STILL DOES NOT DO IS DECIDE.** ### It prints the ruled threshold, the folds
-### the record has actually run, and the current span, so that a later act can compare them rather
-### than
+### ### **THERE IS NO DECLARED THRESHOLD ANYWHERE IN THE RECORD**, and this tool says so rather than
 ### inventing one. ### What the record has instead is ### **EVERY FOLD IT HAS ACTUALLY RUN**, each with its
 ### own span printed in its own heading in `FINDINGS.md`. ### So the threshold is read off the folds
 ### themselves -- their shortest, their longest and their middle -- and the CURRENT span is counted from
@@ -123,13 +112,9 @@ def main(argv=None):
     rec('')
     rec('  ### ### **FOLDS RUN : %d. ### SHORTEST : %d ACTS. ### LONGEST : %d ACTS. ### MIDDLE : %d.**'
         % (len(F), spans[0], spans[-1], mid))
-    # ### **REPAIRED AT b403.** ### The three lines this replaces said there was no
-    # ### declared threshold. ### That was true at b363 and false since b366's (R1);
-    # ### the superseded wording is preserved verbatim in the module docstring above.
-    rec('  ### **AND THE DECLARED THRESHOLD IS NINE** -- `(R1)`, the author`s ruling at `b366`:')
-    rec('  ### *THE FOLD THRESHOLD IS NINE ACTS.* ### **THE SPANS ABOVE ARE THE FOLDS THAT HAPPENED;')
-    rec('  ### ### THE THRESHOLD IS THE RULE, AND THEY ARE DIFFERENT THINGS.** ### This tool prints both')
-    rec('  ### and still decides nothing.')
+    rec('  ### **AND THERE IS NO DECLARED THRESHOLD IN THE RECORD** -- these are the folds that happened,')
+    rec('  ### not a rule anyone wrote down. ### **THE RECORD HAS A HABIT AND NOT A LAW**, and this tool')
+    rec('  ### prints the habit rather than promoting it.')
 
     last = F[-1]
     fold_act = filed_by(last['hi'])
@@ -164,7 +149,7 @@ def main(argv=None):
             newline=chr(10)).write(json.dumps(
                 dict(folds=F, spans=spans, shortest=spans[0], longest=spans[-1], middle=mid,
                      last_fold=last, filed_by=fold_act, span_starts_at=start, this_act=act,
-                     current_span=current, reached_shortest=bool(reached), threshold_declared=True, threshold=9, threshold_ruling='(R1) at b366',
+                     current_span=current, reached_shortest=bool(reached), threshold_declared=False,
                      emitted_for=emit,
                      run_file=os.path.basename(p), run_clock=run_clock.read_stamp(p)), indent=1))
     print('  written: %s and %s_span.json' % (os.path.basename(p), emit))

@@ -1,0 +1,169 @@
+====================================================================================================
+REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT CLAIMED
+====================================================================================================
+  registration : data/b403_registration_2026-09-10.txt -- b403, THE THREE ROUTED ITEMS, DISCHARGED OR RULED
+  clauses      : 74
+
+  clause                             declared cap     demand implied   units  verdict
+  ------------------------------------------------------------------------------------------------
+  deposit actions                    0                0                actions SATISFIABLE
+      demand from : ### section (Z): NOTHING DEPOSITS.
+  bytes written at Zenodo, in any br 0                0                bytes  SATISFIABLE
+      demand from : ### section (Z).
+  platform calls of any kind         0                0                calls  SATISFIABLE
+      demand from : ### section (Z)/(K) BAR 11.
+  instrument runs                    0                0                runs   SATISFIABLE
+      demand from : ### section (Z)/(K) BAR 11.
+  kernel builds run                  0                0                builds SATISFIABLE
+      demand from : ### section (K) BAR 11: the lane is PARKED.
+  objects recomputed                 0                0                objects SATISFIABLE
+      demand from : ### section (Z)/(K) BAR 11.
+  `.lean` files touched              0                0                files  SATISFIABLE
+      demand from : ### (K) BAR 11: SIDE-window`s source is READ and its .lean files are not touched.
+  `.git/hooks/pre-push` copies delet 0                0                files  SATISFIABLE
+      demand from : RULING (R16).
+  `.git/hooks/pre-push` copies insta 0                0                files  SATISFIABLE
+      demand from : ### (K) BAR 15: the installer WRITES when run and the audit lane is PARKED.
+  repositories cloned                0                0                repositories SATISFIABLE
+      demand from : ### section (Z).
+  rules struck or amended            0                0                rules  SATISFIABLE
+      demand from : ### section (Z).
+  grades moved or conferred          0                0                grades SATISFIABLE
+      demand from : ### section (Z).
+  faces promoted                     0                0                faces  SATISFIABLE
+      demand from : ### section (Z).
+  owed rows paid                     0                0                rows   SATISFIABLE
+      demand from : ### section (Z).
+  locked faces edited                0                0                faces  SATISFIABLE
+      demand from : ### section (C): b321`s face is NOT edited; the item stays ROUTED.
+  prior acts` banks edited           0                0                files  SATISFIABLE
+      demand from : ### (K) BAR 7: b401`s bank is not edited; both readings are printed.
+  claims about h2, totality, the ros 0                0                claims SATISFIABLE
+      demand from : ### section (Z).
+  coordinates closed                 0                0                coordinates SATISFIABLE
+      demand from : ### section (Z).
+  instances added to any ledger row  0                0                instances SATISFIABLE
+      demand from : ### (K) BAR 8.
+  ferry parts received               1                1                parts  SATISFIABLE
+      demand from : ### section (A): part 1 of 1, receipt IN FULL.
+  ferry scan hits                    0                0                hits   SATISFIABLE
+      demand from : ### section (A).
+  censuses run at step zero          2                2                censuses SATISFIABLE
+      demand from : ### section (A): TOTAL MISSING 0 each.
+  repositories ahead of origin at st 0                0                repositories SATISFIABLE
+      demand from : ### section (A).
+  extract reads left AMBIGUOUS or AB 0                0                reads  SATISFIABLE
+      demand from : ### section (A): 12 reads, 12 ANCHORED.
+  readings of the order declared in  7                7                readings SATISFIABLE
+      demand from : ### section (A).
+  readings taken silently            0                0                readings SATISFIABLE
+      demand from : ### section (A).
+  files of a KIND the write list doe 0                0                files  SATISFIABLE
+      demand from : ### (K) BAR 10.
+  sites in the counter carrying the  3                3                sites  SATISFIABLE
+      demand from : ### section (B).
+  prior instruments of this seat edi 1                1                instruments SATISFIABLE
+      demand from : ### section (B): tools/b363_span.py, and it is this seat`s own.
+  prior instruments of another seat  0                0                instruments SATISFIABLE
+      demand from : ### section (C).
+  originals replaced without being p 0                0                originals SATISFIABLE
+      demand from : ### section (B)/(K) BAR 2.
+  fold-derived fields compared again 7                7                fields SATISFIABLE
+      demand from : ### (K) BAR 5: folds, spans, shortest, longest, middle, last_fold, span_starts_at.
+  fold-derived fields that moved     0                0                fields SATISFIABLE
+      demand from : ### (K) BAR 5: a move would ROUTE the repair and revert it.
+  runs of the counter banked         2                2                runs   SATISFIABLE
+      demand from : ### (K) BAR 6: before and after.
+  rules invoked by the Addition and  1                1                rules  SATISFIABLE
+      demand from : ### section (C)/(K) BAR 1: b371`s precedent, applied at b372.
+  rules paraphrased from the ferry r 0                0                rules  SATISFIABLE
+      demand from : ### (K) BAR 1.
+  prior repairs the Addition names   2                2                repairs SATISFIABLE
+      demand from : ### section (A) reading (3).
+  prior repairs the Addition names c 1                1                repairs SATISFIABLE
+      demand from : ### section (A) reading (3): both are on SIDE-global-section; the second is the construction kernel`s README and not the exclusion kernel`s.
+  files of another owner repaired by 1                1                files  SATISFIABLE
+      demand from : ### section (C): SIDE-window`s README.
+  files of another owner routed rath 1                1                files  SATISFIABLE
+      demand from : ### section (C): b321`s locked face.
+  figures removed rather than restat 1                1                figures SATISFIABLE
+      demand from : ### (K) BAR 3.
+  figures restated with a ref        0                0                figures SATISFIABLE
+      demand from : ### section (A) reading (5): the carve-out does not reach a tree that ships no profile.
+  originals banked verbatim before t 1                1                originals SATISFIABLE
+      demand from : ### (K) BAR 2.
+  claims strengthened or weakened by 0                0                claims SATISFIABLE
+      demand from : ### (K) BAR 4.
+  claims rewritten rather than numbe 0                0                claims SATISFIABLE
+      demand from : ### section (A) reading (5): removal leaves the claim exactly as strong as it was.
+  write-list residues printed        1                1                residues SATISFIABLE
+      demand from : ### section (D): printed whether empty or not.
+  species minted by this act         0                0                species SATISFIABLE
+      demand from : ### section (D): the order forbids minting until a fourth act shows the same gap twice.
+  acts with a clean KINDS residue be 2                2                acts   SATISFIABLE
+      demand from : ### section (D).
+  bars declared                      15               15               bars   SATISFIABLE
+      demand from : ### section (K).
+  numerical bars on a computed quant 0                0                bars   SATISFIABLE
+      demand from : ### section (K): UNPRICED.
+  gate arms declared                 15               15               arms   SATISFIABLE  emitted: D:\relay\data\audit_b403_reg_satisfiable.txt
+
+      demand from : ### section (K), counted off this face.
+  `G-NO*` arms reading raw prose     0                0                arms   SATISFIABLE
+      demand from : (b348, b373, b400).
+  arms written by address rather tha 0                0                arms   SATISFIABLE
+      demand from : RULING (R2).
+  arms taking their population from  0                0                arms   SATISFIABLE
+      demand from : (b397).
+  arms reading a repository state wi 0                0                arms   SATISFIABLE
+      demand from : ### (K) BAR 2: b401`s species.
+  new `relay` tool files             6                6                files  SATISFIABLE
+      demand from : ### section (A)/(K) BAR 9.
+  files staged by `-A`               0                0                commands SATISFIABLE
+      demand from : b381.
+  archive or outputs files touched   0                0                files  SATISFIABLE
+      demand from : ### section (Z).
+  classes ruled                      0                0                rulings SATISFIABLE
+      demand from : ### section (Z).
+  registry rows edited               0                0                rows   SATISFIABLE
+      demand from : ### section (Z).
+  the census edited                  0                0                files  SATISFIABLE
+      demand from : ### section (Z).
+  standards edited                   0                0                files  SATISFIABLE
+      demand from : ### section (Z).
+  face rows of the faces ledger edit 0                0                rows   SATISFIABLE
+      demand from : ### section (Z).
+  correspondence rows edited         0                0                rows   SATISFIABLE
+      demand from : ### section (Z): rows are APPENDED.
+  claims withdrawn                   0                0                claims SATISFIABLE
+      demand from : ### section (Z).
+  clusters reshaped                  0                0                clusters SATISFIABLE
+      demand from : ### section (Z).
+  map head notes touched             0                0                notes  SATISFIABLE
+      demand from : ### section (Z).
+  lists closed                       0                0                lists  SATISFIABLE
+      demand from : ### section (Z): the four stay OPEN.
+  posture-lock changes               0                0                changes SATISFIABLE
+      demand from : ### section (Z).
+  aggregations stated                0                0                statements SATISFIABLE
+      demand from : M-2 IS OWED AND STAYS OWED.
+  verdicts on M-2                    0                0                verdicts SATISFIABLE
+      demand from : carried from b310.
+  values carried from recollection r 0                0                values SATISFIABLE
+      demand from : ### section (A).
+  ad-hoc shell-typed numbers in the  0                0                count  SATISFIABLE
+      demand from : RULING (3).
+  artifact counts predicted in this  0                0                predictions SATISFIABLE
+      demand from : RULING (1), U-1 STRUCK. ### MEASURED by `b300_regspec.count_predictions`, IMPORTED.
+
+  VERDICT          : ### JOINTLY SATISFIABLE -- every declared cap covers the demand
+  ###                its own registration implies. ### SAFE TO SEAL ON THIS AXIS.
+  ### REACH: it compares the pairs it is GIVEN. ### A ceiling whose demand the act
+  ### never computed is invisible to it, exactly as b264's was invisible to b264.
+  ### **IT NARROWS THE CLASS; IT DOES NOT CLOSE IT.**
+  ### ### **AND ONE KIND OF INCONSISTENCY IT CANNOT SEE AT ALL, NAMED AT b347: A NUMERICAL ONE.**
+  ### A registration may seal a bar finer than the floor of the object that bar tests, or arms
+  ### that are algebraically one arm, and read JOINTLY SATISFIABLE here -- b345's did. ### This
+  ### audit compares COUNTS AGAINST CEILINGS; that defect is between a number a routine can reach
+  ### and a number a bar demands. ### **THE TEXTUAL ARM AGAINST IT IS `registration_gate.py`'s
+  ### bar-floor arms (b347); THE NUMERICAL ONE IS NOT BUILT, AND ITS PRICE IS BANKED AT b347.**
