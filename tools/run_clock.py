@@ -114,6 +114,104 @@ def self_test(verbose=True):
     return ok
 
 
+def latest(directory, stem, ext='.txt'):
+    """### THE NEWEST RUN OF A STEM, BY ITS OWN CLOCK -- NEVER BY MTIME. ### Added b407.
+
+    ### ### **THE INCIDENT THAT BOUGHT IT.** ### `b406` read a dead run record THREE TIMES. ### This
+    ### tool VERSIONS its output (`..._notes.txt`, `..._notes2.txt`, ...) and never overwrites, so a
+    ### directory listing sorted by modification time handed the seat an OLDER file than the run
+    ### that had just finished; it read `HARD FAILURE` from a dead record while the live run was
+    ### passing, and repaired code that was already correct.
+    ###
+    ### ### **THE CURE IS THE STAMP THE WRITER HAS ALWAYS WRITTEN.** ### `write` puts the clock on
+    ### the first line and `read_stamp` reads it back; only the LATEST-BY-STAMP reader was missing.
+    ###
+    ### ### **AND IT REFUSES RATHER THAN GUESSES.** ### If ANY candidate carries no clock, there is
+    ### no total order to take a maximum of, and this returns `(None, None, reason)` -- because a
+    ### reader that silently falls back to mtime is the defect, not the cure. ### **A GUARD THAT
+    ### ### GUESSES WHEN IT CANNOT KNOW IS THE THING THAT WENT WRONG.**
+    ###
+    ### Returns `(path, stamp, note)`; `path` is `None` when it refuses, and `note` always says why.
+    """
+    if not os.path.isdir(directory):
+        return None, None, 'no such directory: %s' % directory
+    cands = []
+    for f in sorted(os.listdir(directory)):
+        if not f.endswith(ext):
+            continue
+        base = f[:-len(ext)]
+        if base == stem or (base.startswith(stem) and base[len(stem):].isdigit()):
+            cands.append(os.path.join(directory, f))
+    if not cands:
+        return None, None, 'no run file for stem %r' % stem
+    stamped = [(read_stamp(c), c) for c in cands]
+    missing = [c for s, c in stamped if s is None]
+    if missing:
+        return None, None, ('REFUSED -- %d of %d candidate(s) carry no clock: %s'
+                            % (len(missing), len(cands),
+                               [os.path.basename(m) for m in missing]))
+    best = max(stamped)
+    return best[1], best[0], ('newest of %d by its own clock' % len(cands))
+
+
+def latest_self_test(verbose=True):
+    """### THE GUARD'S OWN FIXTURES, BOTH POLARITIES. ### Added b407.
+
+    ### ### **THE POSITIVE ARM MUST DISAGREE WITH MTIME OR IT PROVES NOTHING**: the fixture writes
+    ### the stamp-newest record FIRST and then back-dates nothing, touching the OLDER file last so
+    ### that a mtime reader would return the wrong one. ### **A FIXTURE THAT AGREES WITH THE DEFECT
+    ### ### CANNOT CATCH IT.**
+    """
+    import tempfile
+    import time
+    d = tempfile.mkdtemp(prefix='run_clock_latest_')
+    ok = True
+
+    def say(s):
+        if verbose:
+            print(s)
+
+    older = os.path.join(d, 'fx.txt')
+    newer = os.path.join(d, 'fx2.txt')
+    io.open(older, 'w', encoding='utf-8', newline=chr(10)).write(
+        CLOCK + '2026-09-10T09:00:00Z' + NOTE + chr(10) + 'the older run' + chr(10))
+    io.open(newer, 'w', encoding='utf-8', newline=chr(10)).write(
+        CLOCK + '2026-09-10T17:00:00Z' + NOTE + chr(10) + 'the newer run' + chr(10))
+    # ### **TOUCH THE OLDER ONE LAST**, so mtime and the clock DISAGREE.
+    time.sleep(0.01)
+    os.utime(older, None)
+    by_mtime = max(cands_for(d), key=os.path.getmtime)
+    p, s, note = latest(d, 'fx')
+    a1 = (p == newer) and (s == '2026-09-10T17:00:00Z') and (by_mtime == older)
+    say('    (5) returns the STAMP-newest while mtime says otherwise : %s  %s'
+        % (a1, 'PASS' if a1 else '### FAIL ###'))
+    say('        by clock : %s ; by mtime : %s'
+        % (os.path.basename(p or '-'), os.path.basename(by_mtime)))
+    ok = ok and a1
+    # ### THE OTHER POLARITY: one unstamped candidate and it REFUSES.
+    io.open(os.path.join(d, 'fx3.txt'), 'w', encoding='utf-8', newline=chr(10)).write('no clock')
+    p2, s2, note2 = latest(d, 'fx')
+    a2 = p2 is None and 'REFUSED' in note2
+    say('    (6) REFUSES rather than guesses when a candidate has no clock : %s  %s'
+        % (a2, 'PASS' if a2 else '### FAIL ###'))
+    say('        %s' % note2)
+    ok = ok and a2
+    for f in os.listdir(d):
+        try:
+            os.remove(os.path.join(d, f))
+        except OSError:
+            pass
+    try:
+        os.rmdir(d)
+    except OSError:
+        pass
+    return ok
+
+
+def cands_for(directory, ext='.txt'):
+    """### The fixture's own mtime view, so the two orders can be printed side by side."""
+    return [os.path.join(directory, f) for f in os.listdir(directory) if f.endswith(ext)]
+
 if __name__ == '__main__':
     print('run_clock.py -- self-test:')
     sys.exit(0 if self_test() else 1)

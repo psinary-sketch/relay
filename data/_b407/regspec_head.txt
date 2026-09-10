@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+"""b406_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+### ### **THE COUNTER IS IMPORTED FROM `b300_regspec.py`, NEVER COPIED.**
+### ### **AND THE CLAUSES THAT MATTER MOST BOUND ONE SWEEP, ONE PROMOTION AND ONE STOP:** ### a
+### sweep whose subject is the seal and not the words; an amendment made by the standing file's own
+### mechanism without bumping the version every live ferry cites; and a reading that names two
+### clauses and refuses to derive whether they can be met.
+"""
+import io
+import json
+import os
+import re
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, 'tools'))
+import b300_regspec as CNT  # noqa: E402
+
+REG = os.path.join(ROOT, 'data', 'b406_registration_2026-09-10.txt')
+SPEC = os.path.join(ROOT, 'data', 'b406_satisfiable.json')
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+

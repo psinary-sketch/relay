@@ -1,0 +1,221 @@
+====================================================================================================
+b407_extract.py -- THE SURVEY, EXTRACTED TO DISK BEFORE THE FACE IS WRITTEN.
+====================================================================================================
+  anchor tool self-test : PASS
+
+----------------------------------------------------------------------------------------------------
+### (A) THEOREM 3.1, ITS HYPOTHESES, AND THE DEFINITIONS THEY REST ON.
+----------------------------------------------------------------------------------------------------
+  ### DEF 2.1 -- DETERMINED SYSTEM   [INVARIANCE_BARRIERS.md, line 81]
+      | **Definition 2.1 (Determined system).** A structure M is *determined* by specification S if S is a finite set of 𝓛-sentences that has M as its unique model up to isomorphism.
+  ### AND ITS EXAMPLES, INCLUDING THE CORPUS`S OBJECT   [INVARIANCE_BARRIERS.md, line 83]
+      | The programme's examples include: ξ(s) determined by its specification chain n² → θ → Mellin; the SU(N) Yang-Mills Hamiltonian determined by the pure gauge action; elliptic curves E/ℚ determined by their Weierstrass equation.
+
+  ### DEF 2.2 -- INTERFACE, AND WHAT MAKES ONE ESSENTIAL   [INVARIANCE_BARRIERS.md, line 85]
+      | **Definition 2.2 (Interface).** Let M be a determined structure with specification S. An *interface* I of M is a distinguished 𝓛-formula I(x, y) expressing a structural relation between two substructures A, B of M. I is *essential* if removing I from the specification S yields a specification S ∖ I that does not determine M (equivalently, has multiple non-isomorphic models).
+  ### DEF 2.3 -- TARGET PARAMETER   [INVARIANCE_BARRIERS.md, line 87]
+      | **Definition 2.3 (Target parameter).** A *target parameter* P is a unary 𝓛-formula P(x) expressing a property of elements x ∈ M. The sentence (∀x ∈ M: P(x)) is the *universal statement* for P on M.
+  ### AND THE RECORD`S OWN INSTANCE, NAMED IN ITS OWN EXAMPLES   [INVARIANCE_BARRIERS.md, line 90]
+      | - For M = ξ(s): I can be the product formula ∏_v |·|_v = 1 (essential by Ostrowski-Tate); P(x) is "x is a zero with Re(x) = 1/2."
+
+  ### DEF 2.4 -- THE COEFFICIENT   [INVARIANCE_BARRIERS.md, line 96]
+      | **Definition 2.4 (Transmission coefficient).** Let I be an interface of M and let P be a target parameter. The *transmission coefficient* κ(P, I) ∈ [0, 1] measures the fraction of P-dependent information that crosses I. Formally, for perturbations δ applied to the A-side of I:
+  ### AND WHAT `kappa = 0` MEANS   [INVARIANCE_BARRIERS.md, line 100]
+      | where ΔP_B(δ) is the change in the B-side P-observable induced by δ. The supremum is normalized so κ ∈ [0, 1]; κ = 0 indicates I is *P-dark*, and κ = 1 indicates I transmits P-information without attenuation.
+
+  ### DEF 2.5 -- THE CENTRAL NOTION   [INVARIANCE_BARRIERS.md, line 111]
+      | **Definition 2.5 (Factoring through an interface).** Let π be a formal first-order proof in ZFC ∪ S (where S specifies M). An *inference step* π_j in π is an application of a first-order inference rule (modus ponens, universal generalization, etc.) producing a derived sentence from earlier sentences and axioms.
+  ### ITS FIRST CLAUSE -- WHAT A FACTORING STEP MAY REFERENCE   [INVARIANCE_BARRIERS.md, line 115]
+      | 1. The sentences mentioned in π_j's premises and conclusion reference only: (i) quantities internal to one side of I, or (ii) cumulative invariants of I (integrals, densities, or measure-theoretic quantities averaging over I), but not individual-element specifications requiring P-information to cross I.
+  ### AND WHAT IT TAKES FOR A WHOLE PROOF TO FACTOR   [INVARIANCE_BARRIERS.md, line 121]
+      | **Proof π factors through I for P** if every inference step of π factors through I for P.
+
+  ### THEOREM 3.1, HYPOTHESES AND CONCLUSION   [INVARIANCE_BARRIERS.md, line 144]
+      | **Theorem 3.1 (Sieve Ceiling Lemma).** *Let M be a determined structure with specification S, interface I with κ(P, I) = 0 for target parameter P. Let π be a formal first-order proof in ZFC ∪ S. If π factors through I for P, then π does not establish the universal statement (∀x ∈ M: P(x)).*
+  ### AND WHAT IT SAYS THE REACH IS   [INVARIANCE_BARRIERS.md, line 150]
+      | *That is: π can establish "P holds for x in a density-one subset of each I-class," but cannot certify individual elements.*
+
+  ### ### **THE RECORD ASSERTS `kappa = 0` AT ITS OWN OBJECT** -- Prop 3.5`s setup   [INVARIANCE_BARRIERS.md, line 192]
+      | Let I be the product-formula interface (specifying that ∏_v |·|_v = 1 in the adelic setup). For ξ, I is essential and κ(σ, I) = 0. For Z(s), I is *absent* — the specification does not include it — but analogous cumulative-density interfaces exist.
+
+  ### COROLLARY 3.6 -- THE REPAIR   [INVARIANCE_BARRIERS.md, line 211]
+      | **Corollary 3.6 (Bright-interface access).** *If π is a first-order ZFC proof of "∀x ∈ M: P(x)" for a determined I+D+S system M, then at least one inference step of π does not factor through any P-dark interface of M. The proof accesses M through a bright channel at some step.*
+  ### AND THE NAME, WITH WHAT THE CHANNELS ARE SAID TO BE   [INVARIANCE_BARRIERS.md, line 215]
+      | Corollary 3.6 is the form of the theorem used in the E-Difficulty chain: any proof of universality must contain at least one inference step operating through a κ > 0 interface — a bright channel. Such channels, in determined I+D+S systems with n₄ = 0, are exactly the mechanism classes themselves (by the Silence Principle's Independence clause).
+
+  ### ### **AND THE DOCUMENT`S OWN SCOPE LINE: TIER 1 IS CLAIMED, TIER 2 IS NOT**   [INVARIANCE_BARRIERS.md, line 219]
+      | Proposition 3.5 exhibited the Epstein witness inside the abstract proof. This section runs the same witness through the barrier as a full worked instance — the **Tier-1** form of the barrier, where Tier 1 means the method class is a *named finite* toolkit T of checkable tools, rather than the open class of all Euler-product-free derivations (that open-class form, Tier 2, is research-frontier and not claimed here).
+
+----------------------------------------------------------------------------------------------------
+### (B) ROW `U1`’S SIX SITES, FROM THE COMMITTED BLOB.
+----------------------------------------------------------------------------------------------------
+    row U1 at HEAD : 19308 bytes ; cell 5 : 11954 bytes
+  ### (i)   [cell 5 offset 69, 181 bytes]
+      | **(i) THE CLAUSE'S QUANTIFIER**, b332: *"the quantifiers -- over the class, infinite, and through the explicit formula over the zeros -- are UNOWNED, 
+      | and they are the clause."* ### 
+      ---
+  ### (ii)   [cell 5 offset 250, 268 bytes]
+      | **(ii) THE HEIGHT COORDINATE'S ENUMERATION**, b351: the record's only method there produces INSTANCES, and *"Running the census higher buys more insta
+      | nces"* while a class is not made of instances; the coordinate is BOUNDED BY A MEASUREMENT and not by an argument. ### 
+      ---
+  ### (iii)   [cell 5 offset 518, 402 bytes]
+      | **(iii) THE WIDTH COORDINATE'S UNION**, b353: Boas-Kac exhausts the admissible class AT a support and *"AN EXHAUSTION AT EVERY WIDTH IS NOT AN EXHAUST
+      | ION ACROSS WIDTHS"*, while the criterion quantifies over the union of all supports. ### **THE SHAPE, NAMED AND NOT PROVED: in each, what the record ho
+      | lds is a family indexed by something, and what it needs is one statement uniform in that index.** ### 
+      ---
+  ### (iv)   [cell 5 offset 920, 1358 bytes]
+      | **(iv) THE PRIME CONSTITUENT AT A WIDENED SUPPORT**, added 2026-09-10 (b401): the record holds b321’s **ten values** of `Σ_p W_p(f)` at cells above th
+      | e boundary, indexed by the width `a`, and `(Q400)` needs **one statement uniform in `a`** — any statement evaluating or bounding `Σ_p W_p(f)` at `a² ≥
+      |  2` against an archimedean quantity. b401 searched both pinned sources and 4536 corpus files by five matcher shapes and confirmed that statement **ABS
+      | ENT**; what it located instead is Lagarias Theorem 6.1, `S_f(n,π) = λ_n(n,π) + O(n log n)` **unconditionally** — on the *other* family, against the *z
+      | eros*, and already owned by b358. Its correction term is **uniform in the prime and vacuously so, carrying no prime index at all**, and by its own wor
+      | ds the implied constant **depends on π**. ### **SO THIS IS A FOURTH INSTANCE OF THE OBSTRUCTION AND NOT A CRACK IN IT.** ### **AND WHAT IT SHARES WITH
+      |  (iii) IS SAID HERE RATHER THAN LEFT TO BE NOTICED: (iii) AND (iv) SHARE AN INDEX — THE SUPPORT WIDTH — AND DIFFER IN OBJECT**, (iii) being about the 
+      | admissible *class* at a support and (iv) about a *constituent’s value* at one. **Two questions about different things, indexed the same way; a fourth 
+      | row sharing an index with a third is exactly where one obstruction gets counted twice, so the sharing is on the face of the entry.** ### 
+      ---
+  ### (v)   [cell 5 offset 2257, 1614 bytes]
+      | **(v) THE REPRESENTATION-DEPENDENT CONSTANT**, added 2026-09-10 (b404): Lagarias Theorem 6.1’s finite-place bound `S_f(n,π) = λ_n(n,π) + O(n log n)` h
+      | olds *"in which the implied constant in the O-notation **depends on π**"*, while Theorem 5.1’s archimedean bound carries an **ABSOLUTE** constant — so
+      |  the record holds an error term indexed by the representation and needs one that is not. **AND IT IS EMPTY AS AN OBSTRUCTION IN A WAY THE ROW HAS NOT 
+      | HAD TO NAME BEFORE, SO b404 NAMES TWO KINDS: (a) empty because there is nothing to range over — vacuous forever; (b) empty because the available unifo
+      | rmity ranges over a class that does not contain the corpus’s other object — the obstruction real, the instrument aimed elsewhere. (v) IS KIND (b).** T
+      | he corpus is **not** a one-L-function corpus: row F7 is a second object already aimed at, and b325 measured the transfer failure across the two (*THE 
+      | ARCHIMEDEAN DISTRIBUTION DOES NOT TRANSFER*, `Γ(s)` against `Γ(s/2)`). But Theorem 6.1 quantifies over *irreducible cuspidal unitary automorphic repre
+      | sentations on GL(N)*, and the corpus’s second object is **not established to be one** — the record’s own `H-CUSP` grade shows even ζ sits there only u
+      | nder the source’s stated convention (b358, inherited b361). **A uniformity over a class that does not contain your other object is not a uniformity yo
+      | u can spend.** *A correction the navigator recorded and this entry carries: the b403 ferry called the window a fifth site; the window is the row’s **f
+      | ourth**, entered by b401, and b403 entered nothing. This is the distinct fifth.* ### 
+      ---
+  ### (vi)   [cell 5 offset 3842, 2914 bytes]
+      | **(vi) THE TYPE-D RESIDUE AT EVERY FINITE MODULUS**, added 2026-09-10 (b404): the additive–multiplicative conspiracy keystone states its own boundary 
+      | as a quantifier interchange — *"The step from ‘consistent at every finite modulus’ to ‘holds globally’ (positive global density) interchanges a per-mo
+      | dulus quantifier with a global one — a local-to-global passage, not a mechanical corollary."* The compiled half closes at **every** finite modulus; wh
+      | at is missing is the statement **across** them, and the paper files the residue in the same words at all three problems: *the density / representation
+      |  / sieve density lower bound is **the whole of the remaining weight***. **The shape fits, and more sharply than the entries above it, because the keys
+      | tone names the interchange rather than leaving it to be inferred from a measurement.** **AND THE SAME PARAGRAPH CARRIES SOMETHING THIS ROW HAS NEVER C
+      | ITED:** the programme has this shape **compiled** in the RH setting — the unrestricted commutation of the two quantifiers is **FALSE AS A THEOREM** wi
+      | th an explicit countermodel, and it **closes only under a shared witness**. **THAT IS REPORTED, NOT TYPED AS A BRIDGE: a theorem about a SHAPE is not 
+      | a theorem about any instance of it, and this row’s law forbids the crossing.** ### **THE ROW GAINS TWO COORDINATES, added 2026-09-10 (b405) under RULI
+      | NG `(R24)`, the author’s: `KIND`, as b404 minted it, and `WITNESS`, the shared witness that would close the site or `NONE KNOWN`.** *They are entered 
+      | as LABELLED FIELDS inside this cell and NOT as new columns: the ledger’s own COLUMN LAW fixes seven columns and says rows are written only by `b327_fa
+      | ces_row.py`, so a row cannot gain a column alone and this act will not give 159 table lines an eighth cell to give one row one. If the author wants tr
+      ---
+
+----------------------------------------------------------------------------------------------------
+### (C) THE CLAUSE ANCHOR'S CONSTITUENT CHAIN, AND THE E0 GATE'S HALT.
+----------------------------------------------------------------------------------------------------
+  ### THE E0 GATE, LOCATED BY ITS OWN HEADING   [FINDINGS.md, line 3043]
+      | ### The E0 gate: every constituent unfolded to its owner
+  ### ITS EIGHT CONSTITUENT ROWS, IN FILE ORDER FROM THAT HEADING:
+  ### line 3047
+      | | **K1** the class | IMPORT under the bar: the source’s Definition 3.1 (positive definite: transform pointwise non-negative) with Proposition C.1’s va
+      | nishing set `{0, 1}`; a local proposition per seed (lawful or not), decided by b320’s scan |
+  ### line 3048
+      | | **K2** the criterion’s sign | IMPORT under the bar: Proposition C.1, `RH <=> SUM_v W_v(g conv g-bar^#) <= 0` for every `g` with the vanishing condit
+      | ions; the corpus’s convention `places = PR - A` (b326’s tool); a local proposition: for a lawful `f` the pole term vanishes, so `SUM_v W_v(f) = -Z` (b
+      | 321) |
+  ### line 3049
+      | | **K3** the finite places’ contribution | KERNEL TERMINALS: `B329.*` (24, zero-axiom; the decomposition and the scaling part GENERAL, the compact par
+      | t PER CELL) and `B310.*` (the identity count at the seven cells); a derivation on content: the source’s construction on the object returns the test fu
+      | nction at the identity times a dimension (b310) |
+  ### line 3050
+      | | **K4** the prime sum | a derivation on content: the corpus’s prime side IS the source’s finite-places sum, factor for factor on the summand under th
+      | e source’s own normalization, DIFFERENT only in the cutoff window (b306); IMPORT under the bar: the local term (149) |
+  ### line 3051
+      | | **K5** the archimedean distribution | defined at b315 from the source’s own formula; measured at b320 by two routes sharing no code, the second agai
+      | nst the digamma kernel `Re psi(1/4 + i u/2) - log pi`; the sign certified at every frame, the size at none |
+  ### line 3052
+      | | **K6** the decomposition: the compressed square plus the remainder | IMPORT under the bar: Theorem 4.7 as an EQUALITY, `Tr(theta(f) S) = W_infinity(
+      | f) + INT f(rho^-1) eps(rho) d*rho`; a local proposition: the compressed square is non-negative as arithmetic (a sum of squares, b318); measured: the e
+      | quality at the three covered cells and the remainder as the margin (b320, b321) |
+  ### line 3053
+      | | **K7** the object and its archimedean unit | the space from the source’s definition; the unit in by derivation on named imports (b300); its membersh
+      | ip residual UNDER-RESOLVED at bench with its price (b322) |
+  ### line 3054
+      | | **K8** the quantifiers | UNOWNED: over the class (infinite) and, through the explicit formula, over the zeros. No act in the corpus owns either quan
+      | tifier; touched only on families and libraries |
+
+  ### THE HALT, IN THE GATE`S OWN WORDS   [FINDINGS.md, line 3056]
+      | **The gate’s verdict: it halts at K8.** Every constituent but the quantifiers unfolds to a kernel terminal, a local proposition, or an import under the bar with a named owner; **the quantifiers are unowned, and they are the clause.**
+  ### AND THE CHAIN AS ONE SENTENCE   [FINDINGS.md, line 3041]
+      | **The places sum, unfolded as the arc realized it** — in the corpus’s own sign convention (`places = PR − A`, b326’s tool; for a lawful `f` the pole term vanishes, so `Σ_v W_v(f) = −Z`, b321): **the finite places’ contribution** (on the object’s space the source’s construction returns the test function at the identity times a dimension and no arithmetic — b310 derived it, b329 compiled its counting form, general for the decomposition and the scaling part, per cell for the compact part), **plus the prime sum** (the 
+      | source’s finite-places sum factor for factor on the summand, b306), **plus the archimedean distribution** (from the source’s own formula, b315/b320, with its digamma witness), **which decomposes as the object’s compressed square** (non-negative as arithmetic, b318) **plus a remainder that is the margin** (the source’s Theorem 4.7, an equality, verified at the covered cells, b321; the margin measured, b320).
+
+----------------------------------------------------------------------------------------------------
+### (D) THE ESCAPE-KIND'S TWO VALUES, AND THE RECORD'S OWN EXAMPLES OF EACH.
+----------------------------------------------------------------------------------------------------
+  ### THE CLASSIFICATION   [THE_DIFFICULTY_KINDS.md, line 43]
+      | The **escape-kind** (compiled: `escape_kind_discriminates`, held branch `c5ef4bc`) classifies *why* finite certificates don't reach the global claim — orthogonal to the difficulty-kind. Run across the census:
+  ### THE TWO VALUES, WITH THE RECORD`S OWN EXAMPLES   [THE_DIFFICULTY_KINDS.md, line 56]
+      | **Verdict — TWO escape-kinds suffice; the dichotomy is the finding.** The compiled `detectionHorizon` generalizes to **scale-horizon** — an escaping *scale/threshold/limit* governs the finite-to-global gap (RH-sign's receding `N₀(T)`, YM's UV cutoff, NS's blowup time all join). The complement is **raw-infinitude** — an infinite *set* of independent cases with no scale (RH-derivative, BSD, Hodge, Collatz, Goldbach). **No clean third meta-kind emerges** (within scale-horizon there is a sub-distinction — RH-sign's per
+      | -instance receding threshold vs YM/NS's single limit-process — but it is a sub-kind, not a third meta-kind). The I-2 invariant validated at breadth: two kinds classify the census.
+
+----------------------------------------------------------------------------------------------------
+### (E) `(R20)`'S LIMBS, AND THE `SIDE-kernel` QUESTION IT LEFT STANDING.
+----------------------------------------------------------------------------------------------------
+  ### (R20), WHOLE   [OPEN_TRAILS.md, line 4492]
+      | **RULING `(R20)`, THE AUTHOR’S: THE DEPOSIT RULE, WRITTEN, WITH A CURRENCY OBLIGATION.** Written into `REGISTRY.md`, where the corpus’s precedence puts deposits, with `README.md`’s deposit note **pointing at it and not restating it** — the source of truth first, the front door pointing at it. The rule: **a manuscript wave deposits with its companion papers; a kernel deposits when a published claim cites its terminals; a pre-registered search deposits because its registration committed to publishing every outcome.**
+      |  The obligation: **every deposited record either sits at a version a citable claim uses, or carries a note saying it is historical. There is no third state.** **The rule is descriptive before it is prescriptive** — its three limbs are what the corpus already did, and the deposit note’s three citable records match them one for one: the monograph (a wave), `SIDE-lv-conservation` (a kernel published claims cite), the T7 matched-arc search (a registration that committed itself). **It is discovered, not imposed.**
+
+  ### THE `SIDE-kernel` QUESTION, IN b392`S OWN WORDS   [b392_closing.txt, line 60]
+      | ### `SIDE-kernel` as a deposit line with no current citable record; the test for it was proximity,
+  ### AND WHERE b392 FILED IT   [b392_closing.txt, line 161]
+      | ### ### **CANDIDATE C -- THE TWO RECORDS, AND THE `SIDE-kernel` QUESTION.** ### `(R20)` now states
+
+----------------------------------------------------------------------------------------------------
+### (F) `run_clock`, FOR THE STALE-RECORD GUARD.
+----------------------------------------------------------------------------------------------------
+  ### ### **THE WRITER ALREADY STAMPS: THE CLOCK IS THE FIRST LINE**   [run_clock.py, line 54]
+      |     """### WRITE `lines` to the next free path for `stem`, WITH THE CLOCK AS THE FIRST LINE. ### Returns the path."""
+  ### AND IT VERSIONS RATHER THAN OVERWRITES   [run_clock.py, line 45]
+      |     ### number; ### **NO RUN FILE IS EVER OVERWRITTEN BY THIS TOOL.**"""
+    ### ### **SO THE STAMP EXISTS AND ONLY THE READER WAS MISSING** -- which is exactly
+    ### what `b406` was bitten by, and exactly what the guard has to supply.
+
+----------------------------------------------------------------------------------------------------
+### (G) THE SPECTRAL-REALIZATION FACE, AT BOTH ITS ROWS, AND THE EXHAUSTIVENESS SENTENCE.
+----------------------------------------------------------------------------------------------------
+  ### THE ROW R5, CELL BY CELL   [7 cells]
+      -- cell 1 --
+      |  R5 
+      -- cell 2 --
+      |  R5 -- the spectral-realization distance: input-stage coupling certified, output-stage realization disclaimed 
+      -- cell 3 --
+      |  the fifth: spectral-geometric 
+      -- cell 4 --
+      |  DEPOSITED -- section 27.3, lines 1779 and 1796; compiled as STRUCTURE only, `Register5_input` / `Register5_output_HilbertPolya` (v0.7.0 = `2d86182`);
+      |  the boundary marker `certifiedInput_not_zeroRealizing` (v0.9.0 = `e3d08b6`) 
+      -- cell 5 --
+      |  NAMED, and DISCLAIMED as a claim -- the deposit: *"the output-stage claim, that the zeros themselves are the spectrum of a self-adjoint operator with
+      |  a positive pairing, is the Hilbert–Pólya realization, which this programme explicitly disclaims asserting"*; over Q *"no positive pairing is known"*.
+      |  PROVED, the input and the distance: `C5_input_at_Phi` (h1) and *"`certifiedInput_not_zeroRealizing` (v0.9.0) proves that the certified {n²} heat-trac
+      | e input spectrum is *not* a zero-realizing spectrum"* -- a negative that names the distance without shortening it. 
+      -- cell 6 --
+      |  none in CORRESPONDENCE.md 
+      -- cell 7 --
+      |  none typed by this act. To the wall (F4): STATED -- the same distance under its internal name. 
+      ---
+  ### THE ROW F4, CELL BY CELL   [5 cells]
+      -- cell 1 --
+      |  **F4** 
+      -- cell 2 --
+      |  NAMED-ONLY -> a space 
+      -- cell 3 --
+      |  CONSTRUCTION 
+      -- cell 4 --
+      |  *"the positive space on the zeros"*, the wall's own object; the realization is disclaimed (R5) 
+      -- cell 5 --
+      |  no price in the record 
+      ---
+
+  ### THE MECHANISM CLASS THE FACE BELONGS TO   [Seven_Mechanism_Classes.md, line 60]
+      | **Class C₅ (multiplicative).** The local factors L_p(s) = (1 − p⁻ˢ)⁻¹ collectively determine spectral structure: Frobenius eigenvalues, prime distribution, zero spacing.
+  ### ### **AND THE EXHAUSTIVENESS SENTENCE: NO FOURTH SOURCE**   [Seven_Mechanism_Classes.md, line 67]
+      | Existence: explicit construction of C₃, C₄, C₅. Independence: C₃ (archimedean) is not derivable from C₄ ∪ C₅, since the Euler product does not imply the functional equation; C₄ (global) adds the relation (ST)³ = I; C₅ (multiplicative) is not derivable from C₃ ∪ C₄. The Epstein zeta functions provide model-theoretic separation: they possess C₃ (functional equation) but lack C₅ (multiplicative spectral structure), demonstrating that the transformation-stage constraints are genuinely independent. Exhaustiveness: by Os
+      | trowski's theorem, every derivation chain from θ to a zero-location constraint factors through the archimedean, multiplicative, or global structure of ℚ. No fourth source exists.
+
+====================================================================================================
+  ### ### **ANCHOR MISSES : 0** 
+  ### **NOTHING IS WRITTEN TO ANY LEDGER, BANK, ROW, KEY OR STANDING FILE BY THIS TOOL.**
+====================================================================================================
