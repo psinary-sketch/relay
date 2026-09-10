@@ -1,0 +1,99 @@
+====================================================================================================
+b402_checks.py -- THE GATE SUITE. ### **EVERY ARM TESTS A BAR THIS FACE SET.**
+### side of the push : AFTER THE PUSH
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+  ### THE IMPORTED HELPERS` OWN FIXTURES.
+----------------------------------------------------------------------------------------------------
+  G-FIXTURE        every imported helper passes its own fixtures in both polarities PASS
+----------------------------------------------------------------------------------------------------
+  ### STEP ZERO AND THE FACE.
+----------------------------------------------------------------------------------------------------
+  G-FERRY          the ferry is banked at the bytes and lines the face declares     PASS
+  G-SEAL           the face carries its own lock and the lock gate permitted it     PASS
+      sha c015e945e8b59db9
+  G-SEALINTACT     the sealed body is byte-for-byte what was sealed                 PASS
+    the fold is due and written                    ### `bank:11`
+    the two counts                                 ### `bank:12`
+    the threshold and its ruling                   ### `bank:25`
+    the headlines located                          ### `bank:33`
+    the counter`s stale line                       ### `bank:45`
+    a fold proves nothing                          ### `bank:57`
+    nothing deposits                               ### `bank:63`
+  G-BANKSAYS       every sentence this suite tests for is in the bank as a live lin PASS
+      7 of 7
+----------------------------------------------------------------------------------------------------
+  ### BAR 1 -- `F-NOGRADE`, RE-MEASURED BY A SECOND READER.
+  ### **THE GENERATOR CHECKED THIS BEFORE IT WROTE. ### THIS ARM CHECKS IT AGAIN FROM THE
+  ### BANKS THEMSELVES, SO THE CLAIM RESTS ON TWO READERS AND NOT ON ONE.**
+----------------------------------------------------------------------------------------------------
+  F-NOGRADE        every headline re-locates in its own act`s bank, independently o PASS
+      re-located 17 of 17 ; the generator recorded 17 located and 0 missing
+  F-NOGRADE-CTL    and the locator can fail: a hint absent from a bank does not res PASS
+  G-OWNBANK        every headline is attributed to the act whose own bank carries i PASS
+      acts 17 ; each hint read from a bank whose name carries its own act number
+----------------------------------------------------------------------------------------------------
+  ### BARS 2 AND 3 -- THE SPAN FROM THE COUNTER, THE THRESHOLD FROM THE RULING.
+----------------------------------------------------------------------------------------------------
+  G-SPAN           the acts the generator wrote equal the span the counter gives    PASS
+      counter b385-b401 (17) ; generator b385-b401 (17)
+  G-NOTINOWNFOLD   the folding act is not in its own fold                           PASS
+  G-THRESHOLD      the threshold is 9 from (R1) at b366, and its source is named in PASS
+  G-THRESHOLD-STALE and the counter`s own line on the threshold is reported as stale PASS
+  G-DUE            the fold is due by the record`s own rule                         PASS
+----------------------------------------------------------------------------------------------------
+  ### BAR 14 -- `G-COUNTCLAIM`. ### **BOTH NUMBERS, OR THE ARM FAILS.**
+----------------------------------------------------------------------------------------------------
+  G-COUNTCLAIM     the navigator`s count and the tool`s are both in the bank, and s PASS
+      navigator 16 ; tool 17
+  G-COUNTCLAIM-CTL and the arm would fail on a bank carrying only the right number  PASS
+----------------------------------------------------------------------------------------------------
+  ### BAR 4 -- `G-ADDITIVE`, READ AFTER THE PUSH AGAINST `HEAD~1`. ### **b401`S LESSON: NAMING THE SIDE
+  ### ALONE IS HALF A DECLARATION.**
+----------------------------------------------------------------------------------------------------
+  G-ADDITIVE       the pre-act committed FINDINGS.md is a true prefix of the workin PASS
+      blob 410422 bytes -> file 423022 bytes
+  G-NOEDIT         no line of the pre-act FINDINGS.md changed: it is a line-wise pr PASS
+      pre-act lines 3669 ; post-act lines 3752
+  G-APPENDONLY     the trail block is append-only against the same reference        PASS
+  G-SECTION        the fold section is present exactly once and carries its four ta PASS
+      sections named 1
+  G-SCOPE          the arc`s one statement carries its scope sentence beside it     PASS
+  G-SEATDEFECTS    the seat-defect table reaches the last two acts of the span      PASS
+  G-ACTROWS        the act-by-act table carries a row for every act of the span     PASS
+      rows 17 of 17
+----------------------------------------------------------------------------------------------------
+  ### BAR 6 -- `G-NOGRADE`, ACROSS THE LEDGERS.
+----------------------------------------------------------------------------------------------------
+  G-NOGRADE        no grade token`s count changed in the faces ledger across this l PASS
+      tokens 10 ; changed none
+  G-NOFACES        and the faces ledger is untouched by this leg entirely           PASS
+----------------------------------------------------------------------------------------------------
+  ### BARS 8, 9 AND 10 -- THE CAP, THE WRITE LIST, AND THE INSTRUMENTS.
+----------------------------------------------------------------------------------------------------
+  G-CAP            new relay tool files at most 6, and this leg declared 5          PASS
+      wrote 5 : ['b402_checks.py', 'b402_desk_bank.py', 'b402_fold.py', 'b402_reg_gate.py', 'b402_regspec.py']
+  G-WRITELIST      every file this leg wrote is of a KIND the locked face names     PASS
+      files 27 ; of an unnamed KIND 0 : none
+  G-NOINSTRUMENT   no `.lean` file is touched and a fold computes nothing           PASS
+----------------------------------------------------------------------------------------------------
+  ### BARS 11, 12 AND 13 -- THE CENSUSES, THE PINS AND THE MIRROR, READ AFTER THE PUSH.
+----------------------------------------------------------------------------------------------------
+  G-CENSUS         the census reports TOTAL MISSING 0 after the act                 PASS
+  G-FACES          the census reports TOTAL MISSING 0 after the act                 PASS
+  G-PINS           all four repositories equal by ls-remote, read AFTER THE PUSH    PASS
+  G-MIRROR         the mirror was rebuilt AFTER the commit and is clean on all thre PASS
+      ls-remote 92713b4282a6b6d7
+----------------------------------------------------------------------------------------------------
+  ### THE ROW, THE KEY AND THE MUST-FAIL FIXTURES.
+----------------------------------------------------------------------------------------------------
+  G-ROW            the correspondence row is present once and its number is the las PASS
+      last row 251
+  G-KEY            the index key resolves and returns exactly one row               PASS
+  G-MUSTFAIL       none of the six forbidden whole lines is in the bank             PASS
+      fixtures 6 ; hits none
+  G-MUSTFAIL-CTL   the same predicate FIRES on synthetic text carrying one of them  PASS
+====================================================================================================
+  ### ### **ARMS : 35. ### PASSING : 35. ### FAILING : 0.**
+  ### run stamp : 2026-09-10T17:01:11Z
+====================================================================================================
