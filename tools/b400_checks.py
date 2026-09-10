@@ -477,8 +477,22 @@ def main():
                             encoding='utf-8', errors='replace')
         arm('G-PINS', 'all four repositories equal by ls-remote, read AFTER THE PUSH',
             '### REPOS HARD-FAILING : 0' in (pr.stdout or ''))
+        # ### **BAR 14 -- `G-MIRROR`, AND IT IS THE STRADDLING ARM PAR EXCELLENCE.** ### The mirror
+        # ### must be rebuilt AFTER the commit; run before, it verifies a stale archive and ### **A
+        # ### ### CLEAN CLAUSE ON A STALE BUILD LOOKS EXACTLY LIKE A CORRECT ONE.** ### So the arm
+        # ### exists only on the AFTER side, and it reads clause 2 -- the pin -- as well as the
+        # ### verdict, because clause 1 alone is the archive against itself.
+        mrec = text(d('b400_mirror.txt'))
+        head = subprocess.run(['git', '-C', PP, 'ls-remote', 'origin', 'refs/heads/main'],
+                              capture_output=True, text=True).stdout.split(chr(9))[0].strip()
+        arm('G-MIRROR', 'the mirror was rebuilt AFTER the commit and is clean on all three clauses',
+            'VERDICT: CLEAN ON ALL THREE CLAUSES' in mrec and head[:7] in mrec
+            and 'CLAUSE 2 : CLEAN' in mrec,
+            'the archive`s declared source HEAD matches ls-remote %s' % head[:16])
     else:
         rec('  G-PINS           read AFTER THE PUSH only; it cannot pass before it   ### DEFERRED')
+        rec('  G-MIRROR         read AFTER THE PUSH only; a clean clause on a stale build')
+        rec('                   looks exactly like a correct one                    ### DEFERRED')
 
     # ---- BAR 15 : THE INCIDENT -------------------------------------------------------------------
     bar()
