@@ -353,7 +353,12 @@ def main():
                       head=git(rp, 'rev-parse', 'HEAD').strip()[:12])
     # ### relay legitimately moves onto its own push branch, so it is compared by REPOSITORY
     # ### and the kernel repositories are the ones that must not have moved at all.
-    kernels = [k for k in AC['refs_after'] if k.startswith('SIDE-')]
+    # ### **THE POPULATION IS THE REPOSITORIES WHOSE BRANCHES THIS ACT READ, TAKEN FROM THE
+    # ### SURVEY AND NOT FROM A NAME PREFIX.** ### A `SIDE-*` prefix also catches
+    # ### `SIDE-global-section`, which is the CORRESPONDENCE LEDGER this act declares as a
+    # ### write target in section (G) -- so the arm fired on a write the face permits.
+    # ### **AN ARM MUST TEST THE BAR ITS FACE ACTUALLY SET** (`b390`).
+    kernels = sorted(set(x['repo'] for x in S1['rows']))
     moved = [k for k in kernels if now[k] != AC['refs_after'][k]]
     r1 = not moved
     r2 = AC['readonly'] is True
