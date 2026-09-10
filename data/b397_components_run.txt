@@ -1,0 +1,280 @@
+### run at (UTC) : 2026-09-10T01:46:17Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+### run at (UTC) : 2026-09-10T01:46:16Z   ### NOT COVERED BY ANY HASH.
+====================================================================================================
+b397 -- THE COMPONENTS. ### THE UNLANDED WORK.
+====================================================================================================
+  ### **THE ORDER, line 22:** ACT b397 — THE UNLANDED WORK. Number not claimed by any
+
+====================================================================================================
+  COMPONENT 1 -- WHAT IS ON THE HELD BRANCHES. ### **READ ONLY.**
+====================================================================================================
+  ### **THE POPULATION CAME FROM `b395`'S PARTITION AND NOT FROM A ROSTER THIS SEAT
+  ### TYPED**, and every branch was counted ### **IN BOTH DIRECTIONS**, with `--merged`
+  ### read as an independent third witness.
+
+    repo                   branch                     AHEAD   behind  merged  kind
+    SIDE-cosmo             second-exemplar-m4a        0       1       True    research
+    SIDE-effects           push-b372                  0       1       True    push branch (mechanical, excluded)
+    SIDE-effects           push-b386                  0       0       True    push branch (mechanical, excluded)
+    SIDE-effects           w-ladder-skeleton          0       6       True    research
+    SIDE-effects           w4-recovery-2026-07-13     0       10      True    research
+    SIDE-kernel            derivative-engine          4       7       False   research
+    SIDE-li-map            word-lambda-nonneg         0       0       True    research
+    SIDE-lv-conservation   composition-barrier        0       1       True    research
+    SIDE-lv-conservation   word-p1-finset-a           0       18      True    research
+    SIDE-lv-conservation   word-pairing-interface     0       3       True    research
+    SIDE-spinor            substrate-spinor-leg       0       1       True    research
+
+  ### ### **RESEARCH BRANCHES `9` ; PUSH BRANCHES EXCLUDED `2`.**
+  ### ### **FULLY MERGED INTO `main`, CARRYING NOTHING `main` LACKS : `8`.**
+  ### ### **CARRYING COMMITS `main` DOES NOT HAVE : `1`.**
+  ### ### ### **SO THE `HELD` / `UNMERGED` / `BRANCH-RESIDENT` LANGUAGE IN THOSE
+  ### ### ### KEYSTONES IS STALE FOR `8` OF `9` RESEARCH BRANCHES.** ### The work
+  ### ### ### landed and ### **THE PROSE DID NOT FOLLOW IT** -- `b394`'s
+  ### ### ### corrected-but-unpropagated species, about a branch status this time.
+  ### **THE EIGHT THAT LANDED:** ### `second-exemplar-m4a`, `w-ladder-skeleton`, `w4-recovery-2026-07-13`, `word-lambda-nonneg`, `composition-barrier`, `word-p1-finset-a`, `word-pairing-interface`, `substrate-spinor-leg`
+
+  ### **THE COUNTING TRAP, RECORDED:** ### `rev-list --left-right --count main...b` puts
+  ### the count of commits ### **ONLY IN MAIN** ### on the left. ### An earlier form of
+  ### the survey read it as `ahead`, and ### **EIGHT MERGED BRANCHES READ AS ONE COMMIT
+  ### ### AHEAD OF MAIN -- THE EXACT OPPOSITE OF THE TRUTH.** ### It was caught by one
+  ### branch reading `0 0`, a shape the misreading could not explain.
+
+----------------------------------------------------------------------------------------------------
+  ### THE ONE LIVE BRANCH, TERMINAL BY TERMINAL.
+----------------------------------------------------------------------------------------------------
+  ### **`SIDE-kernel/derivative-engine`** -- `4` commit(s) `main` does not have.
+  ### **WHICH KEYSTONES NAME THIS REPOSITORY:** ### `E_DIFFICULTY_THEOREM`, `INDEX_ARITY_AT_THE_CRITICAL_LINE`, `INVARIANCE_BARRIERS`, `PATHS_TO_THE_CRITICAL_LINE`, `R_CURVE_CRITERION`, `SIMPLICITY_OF_RIEMANN_ZEROS`
+
+  ### **DECLARATIONS READ ON THE BRANCH : `72`. ### ABSENT FROM `main` : `4`.**
+  ### ### **THE CITATION TEST IS AGAINST `main`, WHERE A READER RESOLVES IT** -- and two
+  ### ### names the branch appears to add (`invariance_barrier`, `DeterminedBy`) ###
+  ### ### **ALREADY STAND ON `main`** ### and are citable.
+
+    ### **SIDEDerivative.derivGrade**  (`def`, in `Kernel/DerivativeEngine.lean`)
+        ### **THE STATEMENT, AS THE FILE HAS IT:**
+          def derivGrade : DerivClass → Grade
+            | .c1 => .derives
+            | .c3 => .notCompiled
+            | .c2 => .interfaces
+            | .c4 => .interfaces
+            | .c5 => .interfaces
+        ### **AXIOM PROFILE : NOT BUILT.** ### No printed profile sits on this ref;
+        ### the only candidate is a `#print axioms` ### **SOURCE SCRIPT** ### whose
+        ### own comment says ### *Expected: ... axiom-free* ### -- ### **EXPECTED,
+        ### ### NOT PRINTED.** ### **NO EVIDENCE OF A BUILD IS NOT EVIDENCE OF NO
+        ### ### BUILD**, and no build is run here.
+        ### **CITED BY NOTHING.**
+
+    ### **SIDEDerivative.exactly_c1_derives**  (`theorem`, in `Kernel/DerivativeEngine.lean`)
+        ### **THE STATEMENT, AS THE FILE HAS IT:**
+          theorem exactly_c1_derives :
+              (List.filter (fun c => decide (derivGrade c = Grade.derives))
+                [DerivClass.c1, .c2, .c3, .c4, .c5, .c6, .c7]).length = 1 := by decide
+          
+          /-- **C₁ derivative reduction (wired from `spectral_cannon`).** On the critical line the crossing gives
+          `Re ξ′(ρ) = 0`; so a double zero (`ξ′(ρ) = 0`) reduces to `Im ξ′(ρ) = 0`. Abstract over ℂ, consuming
+        ### **AXIOM PROFILE : NOT BUILT.** ### No printed profile sits on this ref;
+        ### the only candidate is a `#print axioms` ### **SOURCE SCRIPT** ### whose
+        ### own comment says ### *Expected: ... axiom-free* ### -- ### **EXPECTED,
+        ### ### NOT PRINTED.** ### **NO EVIDENCE OF A BUILD IS NOT EVIDENCE OF NO
+        ### ### BUILD**, and no build is run here.
+        ### **WHICH KEYSTONE CLAIM IT BACKS : `3` document(s)**
+          VERIFICATION_LOOM.md
+          phase1.5/rcurve/R_CURVE_CRITERION.md
+          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md
+
+    ### **SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero**  (`theorem`, in `Kernel/DerivativeEngine.lean`)
+        ### **THE STATEMENT, AS THE FILE HAS IT:**
+          theorem onLine_doubleZero_iff_imDeriv_zero {z : ℂ} (hRe : z.re = 0) :
+              z = 0 ↔ z.im = 0 := by
+            constructor
+            · intro h; rw [h]; rfl
+            · intro him; exact Complex.ext hRe him
+          
+        ### **AXIOM PROFILE : NOT BUILT.** ### No printed profile sits on this ref;
+        ### the only candidate is a `#print axioms` ### **SOURCE SCRIPT** ### whose
+        ### own comment says ### *Expected: ... axiom-free* ### -- ### **EXPECTED,
+        ### ### NOT PRINTED.** ### **NO EVIDENCE OF A BUILD IS NOT EVIDENCE OF NO
+        ### ### BUILD**, and no build is run here.
+        ### **WHICH KEYSTONE CLAIM IT BACKS : `3` document(s)**
+          phase1.5/proofs/HELD_WMINEDERIV_crystallization.md
+          phase1.5/rcurve/R_CURVE_CRITERION.md
+          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md
+
+    ### **SIDEDerivative.no_onLine_double_iff_transversal**  (`theorem`, in `Kernel/DerivativeEngine.lean`)
+        ### **THE STATEMENT, AS THE FILE HAS IT:**
+          theorem no_onLine_double_iff_transversal {z : ℂ} (hRe : z.re = 0) : z ≠ 0 ↔ z.im ≠ 0 :=
+            not_congr (onLine_doubleZero_iff_imDeriv_zero hRe)
+          
+          end SIDEDerivative
+        ### **AXIOM PROFILE : NOT BUILT.** ### No printed profile sits on this ref;
+        ### the only candidate is a `#print axioms` ### **SOURCE SCRIPT** ### whose
+        ### own comment says ### *Expected: ... axiom-free* ### -- ### **EXPECTED,
+        ### ### NOT PRINTED.** ### **NO EVIDENCE OF A BUILD IS NOT EVIDENCE OF NO
+        ### ### BUILD**, and no build is run here.
+        ### **WHICH KEYSTONE CLAIM IT BACKS : `4` document(s)**
+          phase1.5/method/THE_LOAD_BEARING_MAP.md
+          phase1.5/proofs/HELD_WMINEDERIV_crystallization.md
+          phase1.5/rcurve/R_CURVE_CRITERION.md
+          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md
+
+----------------------------------------------------------------------------------------------------
+
+  ### ### **WHAT THE PROGRAMME HAS COMPILED THAT IT CANNOT CURRENTLY CITE.**
+  ### ### **AND THE ANSWER IS SMALLER THAN THE QUESTION, WHICH IS THE FINDING.**
+  ###   **`derivGrade`** (`def`) -- absent from `main`; cited by `0` document(s); ###
+  ###     **WHAT IT WOULD LET A KEYSTONE SAY:** ### nothing yet. ### It is a
+  ###     `def` -- a grading map for the derivative catalogue -- and ### **A
+  ###     ### DEFINITION IS NOT A RESULT A KEYSTONE CITES.**
+  ###   **`exactly_c1_derives`** (`theorem`) -- absent from `main`; cited by `3` document(s); ###
+  ###     **WHAT IT WOULD LET A KEYSTONE SAY:** ### the citing rows already say
+  ###     it -- landing the branch would make those rows resolvable from a
+  ###     default branch instead of from a ref a reader must be told about.
+  ###   **`onLine_doubleZero_iff_imDeriv_zero`** (`theorem`) -- absent from `main`; cited by `3` document(s); ###
+  ###     **WHAT IT WOULD LET A KEYSTONE SAY:** ### the citing rows already say
+  ###     it -- landing the branch would make those rows resolvable from a
+  ###     default branch instead of from a ref a reader must be told about.
+  ###   **`no_onLine_double_iff_transversal`** (`theorem`) -- absent from `main`; cited by `4` document(s); ###
+  ###     **WHAT IT WOULD LET A KEYSTONE SAY:** ### the citing rows already say
+  ###     it -- landing the branch would make those rows resolvable from a
+  ###     default branch instead of from a ref a reader must be told about.
+  ### ### **`(F1)` ASKED FOR A COMPILED TERMINAL NO KEYSTONE CITES.** ### `derivGrade`
+  ### ### is uncited and absent from `main`, but ### **`COMPILED` REQUIRES A PRINTED
+  ### ### PROFILE AND THE REF CARRIES NONE.** ### **`(F1)` IS NOT ESTABLISHED**, and
+  ### ### what would settle it is one build, which `(R22)` and the parked instrument
+  ### ### lane forbid. ### Declared on the face before the components ran.
+  ### ### **NO TERMINAL ON THE LIVE BRANCH SAYS `RETIRED`**, so the order's
+  ### ### retired-exclusion has `0` members here -- and it is stated rather than
+  ### ### silently unused.
+
+====================================================================================================
+  COMPONENT 2 -- THE DISCLOSURE RULE, APPLIED WHERE IT IS TRUE.
+====================================================================================================
+  ### **THE RULE, QUOTED FROM THE RECORD`S OWN BYTES:**
+  ### `REGISTRY.md` line 725:
+      > > **THE WORKED INSTANCE — `phase1.5/proofs`:** `THE_RESIDUE_OF_RH`'s compiled terminals live on the held, unmerged branch `word-pairing-interface` of `SIDE-lv-conservation`. ### **`git -C SIDE-lv-conservation checkout word-pairing-interface && lake build`.** *The paper said "not merged, nothing deposited" in its preamble from the start; the rule is that this belongs in the status column where a table-reader meets it.
+  ### `THE_KEYSTONE_CENSUS.md` line 233:
+      > > **This is the paper's own preamble — *"not merged, nothing deposited"* — raised to a release-blocking line.** ### **It is the single thing standing between `phase1.5/proofs` and release-readiness, and it is a DISCLOSURE requirement, not a repair: the branch is sound, the terminals compile, and the only defect would be letting a reader assume otherwise.**
+
+  ### ### **AND THE RULE`S OWN WORKED INSTANCE IS STALE.** ### It names
+  ### ### `word-pairing-interface` as ### *the held, unmerged branch* ### carrying
+  ### ### `THE_RESIDUE_OF_RH`'s terminals. ### Component 1 measured that branch at ###
+  ### ### **`0` COMMITS `main` DOES NOT HAVE, `--merged` CONFIRMING.**
+  ### ### **WRITING THE DEMANDED DISCLOSURE INTO THAT ROW WOULD PUT A FALSE STATEMENT
+  ### ### IN A STATUS COLUMN UNDER THE AUTHORITY OF A RULE.** ### The rule is ###
+  ### ### **NOT STRUCK AND NOT AMENDED HERE**; its instance is ### **ROUTED.**
+
+  ### **THE SWEEP.** ### A row is swept if it cites a terminal this act examined on a
+  ### non-default branch; it is ### **REPAIRED ONLY IF THAT TERMINAL IS ABSENT FROM
+  ### ### `main` AND ITS STATUS CELL DOES NOT ALREADY DISCLOSE.**
+
+  ### ### **ROWS SWEPT : `15`. ### ROWS REPAIRED : `6`. ### SWEPT-NOT-REPAIRED : `8`.
+  ### ### ROUTED : `1`.**
+  ### ### **AND THE TWO ARE REPORTED APART, NEVER ADDED.**
+
+    REGISTRY.md                                         :483   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `c7_forces_half`, `topological_constant`
+    SPIRAL_MAP.md                                       :443   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `invariance_barrier`
+    day1/A_Place_to_Stand.md                            :1552  SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `topological_no_sigma_preference`
+    phase1.5/method/INVARIANCE_BARRIERS.md              :504   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `invariance_barrier`
+    phase1.5/method/SIDE_EXCLUSION.md                   :186   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `topological_no_sigma_preference`
+    phase1.5/method/THE_LOAD_BEARING_MAP.md             :54    ROUTED -- not a status-column table row
+        terminals : `no_onLine_double_iff_transversal`
+    phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md       :177   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `c7_forces_half`, `topological_constant`, `topological_contribution`
+    phase1.5/rcurve/R_CURVE_CRITERION.md                :350   REPAIRED -- the disclosure added to the status cell
+        terminals : `exactly_c1_derives`
+    phase1.5/rcurve/R_CURVE_CRITERION.md                :351   REPAIRED -- the disclosure added to the status cell
+        terminals : `onLine_doubleZero_iff_imDeriv_zero`
+    phase1.5/rcurve/R_CURVE_CRITERION.md                :352   REPAIRED -- the disclosure added to the status cell
+        terminals : `no_onLine_double_iff_transversal`
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md  :436   REPAIRED -- the disclosure added to the status cell
+        terminals : `exactly_c1_derives`
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md  :437   REPAIRED -- the disclosure added to the status cell
+        terminals : `onLine_doubleZero_iff_imDeriv_zero`
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md  :438   REPAIRED -- the disclosure added to the status cell
+        terminals : `no_onLine_double_iff_transversal`
+    phase1.5/spectral/GRH_CASCADE.md                    :381   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `topological_no_sigma_preference`
+    phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md   :223   SWEPT, NOT REPAIRED -- its terminal is on `main`
+        terminals : `invariance_barrier`
+
+  ### **THE WRITE, PER DOCUMENT, MEASURED AGAINST THE PRE-ACT BLOB.**
+    phase1.5/rcurve/R_CURVE_CRITERION.md                 +12   -3    changed 3   ### **CONTENT LOST : 0**
+    phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md   +12   -3    changed 3   ### **CONTENT LOST : 0**
+  ### ### **DOCUMENTS EDITED : `2`. ### ROWS EDITED : `6`.**
+  ### ### **CONTENT LOST ACROSS ALL OF THEM : `0`** -- every pre-edit line is
+  ### ### preserved verbatim in the appended annotation. ### `numstat` counts an
+  ### ### in-place edit as one deletion per line and ### **THAT FIGURE IS PRINTED
+  ### ### ABOVE AND NOT SUPPRESSED** (`b390`, `b395`).
+
+  ### ### **`(F2)` ASKED WHETHER THE SWEEP REPAIRS FEWER ROWS THAN IT SWEEPS: `6` OF
+  ### ### `15`. ### **MET.** ### But ### **NOT FOR THE REASON THE ORDER GAVE:** ### the
+  ### ### order expected several rows to disclose already in a preamble; the measurement
+  ### ### says ### **MOST SWEPT ROWS` TERMINALS HAVE SINCE LANDED**, so no disclosure is
+  ### ### owed at all. ### **A PREDICTION MET FOR THE WRONG REASON IS REPORTED WITH THE
+  ### ### REASON.**
+  ### ### **AND ONE THING THIS COMPONENT SAW AND DID NOT TOUCH:** ### the repaired rows
+  ### ### assert axiom profiles (`axiom-free (none)`,
+  ### ### `{propext, Classical.choice, Quot.sound}`) for terminals whose ref carries ###
+  ### ### **NO PRINTED PROFILE.** ### Moving a grade is not this act`s scope and ###
+  ### ### **NO GRADE IS MOVED.** ### **ROUTED.**
+
+====================================================================================================
+  COMPONENT 4 -- THE RESEARCH BOARD, RESTATED FROM THE RECORD.
+====================================================================================================
+  ### **QUOTATIONS. ### NO NEW CLAIMS.** ### Where the record is silent, the board says
+  ### the record is silent.
+
+  ### **WHAT STANDS FACING THE CLAUSE** -- `FINDINGS.md`, the clause anchor:
+      FINDINGS.md:3019
+      > | **The discharge-statement and the aim-map** | NAMED AS THE NEXT TWO RESEARCH ACTS, by the order | **neither is the discharge.** A statement of what would discharge the open clause, and a map of where the corpus aims at it, are a
+      FINDINGS.md:3026
+      > <!-- b332 clause-stated anchor -->
+      FINDINGS.md:3030
+      > ### clause-stated
+      FINDINGS.md:3031
+      > <a id="clause-stated"></a>*Stable anchor: `clause-stated` · tag: statement (the open clause in the arc’s vocabulary); every constituent carries its owner’s grade and no other’s; nothing here is proved and the clause is not dischar
+
+  ### **WHAT STANDS ON ITS OWN** -- `FACES_LEDGER.md`, `142` rows in `90320` bytes:
+      > | R1 | R1 -- the universality hypothesis, carried by the Universal Silence Theorem | the first: kernel-theoretic | DEPOSITED -- `outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md` section 27.3, line 1779; compiled as STRUCTURE only, `R
+      > | R2 | R2 -- `ConservationHypothesis`: every xi-zero forces the Euler balance equation at some prime | the second: formal-interface | DEPOSITED -- section 27.3, line 1779; compiled as STRUCTURE only, `Register2_conservationHypothe
+      > | R3 | R3 -- the totality of the realization of mechanisms through places | the third: category-shaped | DEPOSITED -- section 27.3, line 1779; NOT COMPILED (the pentagon module lists R3 under NOT-COMPILED, its native shadow the T3
+      > | R5 | R5 -- the spectral-realization distance: input-stage coupling certified, output-stage realization disclaimed | the fifth: spectral-geometric | DEPOSITED -- section 27.3, lines 1779 and 1796; compiled as STRUCTURE only, `Reg
+
+  ### **WHAT IS PRICED AND UNOPENED** -- quoted from the acts that priced it:
+      b393_the_clusters_surfaced.txt:129
+      > ### SCOPE: THE FIVE CLUSTERS SURFACED, AND TWO PRICINGS. THIS ACT EDITS NO CORPUS DOCUMENT AT ALL -- its only writes are the two ledgers and its own relay files. NO cluster reshaped, split, merged, renamed or re-anchored; NO docum
+      b396_the_backtick_swept.txt:153
+      > ### ### **THE PRICE : `2.8` x `10` = `28.0` MINUTES.**
+
+  ### ### **AND WHAT THE RECORD DOES NOT SAY, SAID PLAINLY:** ### the clause has not
+  ### ### moved since `b332` stated it; no coordinate is closed; the partition stays
+  ### ### UNDECIDED; and ### **NO ACT IN THIS ARC PRODUCED A RESULT ABOUT THE OBJECT.**
+  ### ### **THAT IS THE ORIENTATION, AND IT IS A QUOTATION OF AN ABSENCE RATHER THAN A
+  ### ### CLAIM ABOUT ONE.**
+
+----------------------------------------------------------------------------------------------------
+  ### **THE READ-ONLY BAR, MEASURED BEFORE AND AFTER THE COMPONENTS:**
+    PLACE-papers             `main` = `9621dcda3165`   unchanged : True
+    SIDE-cosmo               `main` = `c5cba30ce201`   unchanged : True
+    SIDE-effects             `main` = `ef4cff776f89`   unchanged : True
+    SIDE-global-section      `main` = `1661d90c1378`   unchanged : True
+    SIDE-kernel              `main` = `0256e9e1297f`   unchanged : True
+    SIDE-li-map              `main` = `b515e6b62c15`   unchanged : True
+    SIDE-lv-conservation     `main` = `2f71068ac356`   unchanged : True
+    SIDE-spinor              `main` = `520abe7a6b7d`   unchanged : True
+    relay                    `main` = `6e5638077165`   unchanged : True
+  ### ### **EVERY REPOSITORY`S BRANCH AND HEAD BYTE-IDENTICAL : True.**
+  ### ### **`0` MERGES, `0` PUSHES TO ANY BRANCH, `0` CHECKOUTS, `0` CLONES, `0` BUILDS.**
+====================================================================================================
+  1 : research 9 ; landed 8 ; live 1 ; decls 72 ; absent 4 ; cited 3 ; uncited 1
+  2 : swept 15 ; repaired 6 ; swept-not-repaired 8 ; routed 1 ; docs 2 ; lost 0
+  4 : clause lines 6 ; faces rows 142 ; new claims 0
+  read-only : True
+====================================================================================================
