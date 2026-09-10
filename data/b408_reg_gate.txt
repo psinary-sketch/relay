@@ -1,0 +1,21 @@
+====================================================================================================
+b408 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b408_registration_2026-09-10.txt
+  marks found  : 2
+      OPEN                       line 65    ### ### **NO CLAIM THAT EITHER CHANNEL IS OPEN.** ### The act reports what the record hold
+      OPEN                       line 157   ### **BAR 4 -- NO CLAIM THAT A CHANNEL IS OPEN.** ### `0` sentences asserting either class
+  query result : RECORDED at line 42
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 0 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 8946a46a9e7ae784fd3307ea53043d1e03619bd65b8e772bc85d82e61635a341  (b408_registration_2026-09-10.txt)

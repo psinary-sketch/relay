@@ -1,0 +1,139 @@
+# -*- coding: utf-8 -*-
+"""b408_checks.py -- THE GATE SUITE FOR THE BARRIER'S OWN INSTANCE.
+
+### ### **`G-RESEMBLANCE` IS THE ARM THAT MATTERS MOST, AND IT IS A TWO-SIDED ARM.** ### The act
+### found a resemblance so exact that reporting it as an instance would have been easy and wrong.
+### The arm requires BOTH that the verdict is `NOT AN INSTANCE` AND that the resemblance is printed
+### beside it -- because an act that hid the resemblance to make its verdict look obvious would be
+### committing the opposite defect.
+###
+### ### **`G-RUNCLOCK-ADDITIVE` GUARDS THE ONE SHARED INSTRUMENT TOUCHED.** ### It removes the added
+### block from the working file and requires what is left to be BYTE-IDENTICAL to the blob.
+###
+### ### **AND THE STANDING CLAUSES ARE APPLIED TO THIS SUITE FROM ITS FIRST WRITE:** ### every
+### prose-reading arm is assertion-level with a control; every arm reading a verdict reads the
+### ### **VERDICT LINE** ### (`A2`); every write encodes before it opens; and every run record is
+### read ### **FROM ITS RUN**, by `run_clock.latest`, never from a directory listing.
+"""
+import io
+import json
+import os
+import re
+import subprocess
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, 'tools'))
+import ferry_scan                 # noqa: E402
+import gate_text                  # noqa: E402
+import run_clock                  # noqa: E402
+
+D = os.path.join(ROOT, 'data')
+PP = os.path.join('D:', os.sep, 'MY-DOwnloads', 'PLACE-papers')
+SIDE = os.path.join('D:', os.sep, 'SIDE-global-section')
+TRAILS = os.path.join(PP, 'OPEN_TRAILS.md')
+FACES = os.path.join(PP, 'FACES_LEDGER.md')
+TABLE = os.path.join(SIDE, 'CORRESPONDENCE.md')
+INDEX = os.path.join(ROOT, 'tools', 'banked_index.py')
+RC = os.path.join(ROOT, 'tools', 'run_clock.py')
+STANDING = os.path.join(ROOT, 'tools', 'FERRY_STANDING.md')
+MARK = '<!-- b408 the other two channels, the reduction as a classified proof priced -->'
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+
+def d(n):
+    return os.path.join(D, n)
+
+
+def t(n):
+    return os.path.join(ROOT, 'tools', n)
+
+
+def text(p):
+    return io.open(p, encoding='utf-8', errors='replace', newline='').read()
+
+
+def git(repo, *a):
+    return subprocess.run(['git', '-C', repo] + list(a), capture_output=True)
+
+
+REG = d('b408_registration_2026-09-10.txt')
+BANK = d('b408_the_other_two_channels.txt')
+CRUN = d('b408_components.txt')
+XRUN = d('b408_extract.txt')
+LG = json.load(io.open(d('b408_lockgate.json'), encoding='utf-8'))
+SEAL = LG['face_sha']
+
+R = []
+ARMS = []
+
+
+def rec(s=''):
+    R.append(s)
+    print(s, flush=True)
+
+
+def bar(c='-'):
+    rec(c * 100)
+
+
+def arm(name, why, ok, detail=''):
+    ARMS.append((name, bool(ok)))
+    rec('  %-22s %-58s %s' % (name, why[:58], 'PASS' if ok else '### FAIL ###'))
+    if detail:
+        for k in range(0, min(len(detail), 900), 150):
+            rec('      %s' % detail[k:k + 150])
+
+
+NEG = ('does not', 'do not', 'is not', 'are not', 'no claim', 'not made', 'never', 'nothing',
+       'cannot', 'without', 'refus', 'declin', 'not typed', 'not an instance', 'not applied',
+       'not asserting', 'not endorse', 'not read', 'would make', 'not the', 'no coefficient')
+
+
+def asserted(hay, phrase):
+    out = []
+    for s in re.split(r'(?<=[.!?])\s+', gate_text.flat(hay)):
+        if gate_text.flat(phrase) in gate_text.flat(s) and not any(g in s.lower() for g in NEG):
+            out.append(s[:140])
+    return out
+
+
+def verdict_line(out, word):
+    """### **A TOOL'S VERDICT IS A LINE, NOT A SUBSTRING** -- `A2`, inherited by reference."""
+    return any(ln.strip().startswith(word) for ln in (out or '').splitlines())
+
+
+def main(argv):
+    post = '--post' in argv
+    side = 'HEAD~1' if post else 'HEAD'
+    bar('=')
+    rec('b408 -- THE GATE SUITE. ### %s THE PUSH.' % ('AFTER' if post else 'BEFORE'))
+    rec('### **THE PRE-ACT REFERENCE FOR EVERY LEDGER ARM IS NAMED, NOT ONLY ITS SIDE : `%s`.**'
+        % side)
+    bar('=')
+    reg, bank, crun, xrun = text(REG), text(BANK), text(CRUN), text(XRUN)
+
+    # ---- STEP ZERO ---------------------------------------------------------------------------
+    bar()
+    rec('  ### STEP ZERO, RE-READ FROM ITS OWN RECORDS.')
+    bar()
+    arm('G-FERRY', 'the ferry scan reported 0 hits',
+        '0 HIT(S) REPORTED' in text(d('b408_ferry_scan.txt')))
+    arm('G-CENSUS-ZERO', 'both step-zero censuses reported TOTAL MISSING 0',
+        'TOTAL MISSING : 0' in text(d('b408_census_stepzero.txt'))
+        and 'TOTAL MISSING : 0' in text(d('b408_faces_census_stepzero.txt')))
+    arm('G-PINS-ZERO', 'no repository was ahead of its remote at step zero',
+        'REPOS HARD-FAILING : 0' in text(d('b408_pins_stepzero.txt')))
+    arm('G-SEAL', 'the locked face verifies at %s' % SEAL[:16],
+        'SEAL INTACT' in text(d('b408_reg_seal_verify.txt'))
+        and SEAL in text(d('b408_reg_seal_verify.txt')))
+    arm('G-LOCKGATE', 'the lock was chained on 8 gates, 4 by digest',
+        LG['gates_read'] == 8 and LG['gates_passing'] == 8 and LG['face_subject_gates'] == 4)
+    arm('G-ANCHORS', 'the survey left 0 anchor misses', '**ANCHOR MISSES : 0**' in xrun)
+    arm('G-EOTABLE', "the E0 gate's table was located by its own heading, not by a per-row anchor",
+        'THE E0 GATE, LOCATED BY ITS OWN HEADING' in xrun
+        and xrun.count('  ### line 30') >= 6,
+        'the K-rows appear in three tables; a per-row anchor is ambiguous in all three')
+

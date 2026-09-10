@@ -1,0 +1,132 @@
+    # ---- THE LIVING RECORD --------------------------------------------------------------------
+    bar()
+    rec('  ### THE LIVING RECORD.')
+    bar()
+    tr_blob = git(PP, 'show', '%s:OPEN_TRAILS.md' % side).stdout.decode('utf-8')
+    arm('G-TRAILS', 'the trail block is append-only against the blob at %s' % side,
+        text(TRAILS).startswith(tr_blob.rstrip(chr(10))) or tr_blob in text(TRAILS),
+        'blob %d -> live %d bytes'
+        % (len(tr_blob.encode('utf-8')), len(text(TRAILS).encode('utf-8'))))
+    tb, tl = git(SIDE, 'show', '%s:CORRESPONDENCE.md' % side).stdout.decode('utf-8'), text(TABLE)
+    arm('G-CORR', 'the correspondence table is a true prefix of itself plus one row',
+        tl.replace('\r\n', '\n').startswith(tb.rstrip(chr(10))),
+        'rows %d -> %d' % (len(re.findall(r'^\| (\d+) \|', tb, re.M)),
+                           len(re.findall(r'^\| (\d+) \|', tl, re.M))))
+    kq = subprocess.run([sys.executable, INDEX, '--query', 'the-barriers-own-instance'],
+                        capture_output=True, text=True, encoding='utf-8',
+                        errors='replace').stdout or ''
+    arm('G-KEY', 'the key resolves, read from the VERDICT LINE',
+        (not verdict_line(kq, '### NO KEY')) and 'b408' in kq,
+        'verdict-line NO KEY : %s ; raw substring hits : %d'
+        % (verdict_line(kq, '### NO KEY'), kq.count('NO KEY')))
+    nq = subprocess.run([sys.executable, INDEX, '--query', 'a row was written to the ledger'],
+                        capture_output=True, text=True, encoding='utf-8',
+                        errors='replace').stdout or ''
+    arm('G-KEY-CTL', 'and a must-not-hit query returns NO KEY on its VERDICT LINE',
+        verdict_line(nq, '### NO KEY'))
+    arm('G-DESK', 'the desk was swept and its closures printed',
+        'ITEMS SWEPT' in text(lp) if lp else False)
+
+    # ---- THE STANDING NOTHINGS ----------------------------------------------------------------
+    bar()
+    rec('  ### THE STANDING NOTHINGS.')
+    bar()
+    dep = asserted(bank, 'was deposited') + asserted(bank, 'zenodo')
+    arm('G-DEPOSIT', 'the bank ASSERTS no deposit action', not dep,
+        'asserting sentences %d' % len(dep))
+    arm('G-DEPOSIT-CTL', 'and the predicate FIRES on synthetic text asserting one',
+        bool(asserted('The bundle was deposited this morning.', 'was deposited')))
+    h2 = asserted(bank, 'h2 holds') + asserted(bank, 'h2 is true')
+    arm('G-NOH2', 'and it ASSERTS nothing about `h2`', not h2, 'asserting sentences %d' % len(h2))
+    arm('G-NOH2-CTL', 'and that predicate FIRES on synthetic text claiming it',
+        bool(asserted('Under determination h2 holds at every place.', 'h2 holds')))
+    bridged = asserted(bank, 'a bridge is typed') + asserted(bank, 'the two are equivalent')
+    arm('G-NOBRIDGE', 'and it types no bridge', not bridged)
+    arm('G-NOBRIDGE-CTL', 'and the predicate FIRES on synthetic text typing one',
+        bool(asserted('At the fifth site the two are equivalent.', 'the two are equivalent')))
+    arm('G-ENCODEFIRST', 'every write in this act`s tools encodes before it opens',
+        all('encode(' in text(t('b408_%s.py' % n))
+            for n in ('extract', 'components', 'desk_bank')))
+    arm('G-EXPECT', 'every registered expectation is scored',
+        all(('**%s**' % k) in crun for k in
+            ('(N1)', '(N2)', '(N3)', '(N4)', '(N5)', '(N6)', '(N7)',
+             '(E1)', '(E2)', '(E3)', '(E4)')))
+    arm('G-REFUTED', 'and the act prints its OWN refuted expectations',
+        crun.count('REFUTED') >= 2)
+    ok_scan, _ = ferry_scan.self_test(verbose=False)
+    arm('G-FERRYFIX', 'the ferry-scan fixtures still hold', ok_scan)
+    arm('G-SEALNAME', 'the bank names the seal it was written under', SEAL in bank)
+
+    # ---- THE WRITE LIST -----------------------------------------------------------------------
+    bar()
+    rec('  ### THE WRITE LIST, BUILT AS KINDS.')
+    bar()
+    written = sorted(f for f in os.listdir(D) if f.startswith('b408')) \
+        + ['audit_b408_reg_satisfiable.txt'] \
+        + sorted('_b408/' + f for f in os.listdir(d('_b408'))) \
+        + sorted('tools/' + f for f in os.listdir(os.path.join(ROOT, 'tools'))
+                 if f.startswith('b408_'))
+    KINDS = {
+        1: (r'^b408_registration_', r'^b408_satisfiable', r'^audit_b408_reg_satisfiable',
+            r'^b408_regspec_run', r'^b408_reg_termscan', r'^b408_reg_gate', r'^b408_lockgate',
+            r'^b408_reg_seal'),
+        2: (r'^b408_ferry',),
+        3: (r'^b408_census_', r'^b408_faces_census_', r'^b408_pins_', r'^b408_mirror'),
+        4: (r'^b408_extract\.txt$', r'^_b408/'),
+        5: (r'^b408_components\.txt$',),
+        6: (r'^b408_desk', r'^b408_the_barriers_own_instance', r'^b408_closing'),
+        7: (r'^b408_checks',),
+        8: (r'^tools/b408_',),
+    }
+    placed, unkinded = {}, []
+    for f in written:
+        hit = [k for k, pats in KINDS.items() if any(re.search(p, f) for p in pats)]
+        (placed.setdefault(f, hit[0]) if hit else unkinded.append(f))
+    arm('G-WRITELIST', 'every file this act wrote is of a KIND the locked face names', not unkinded,
+        '%d written ; of NO named KIND %d : %s' % (len(written), len(unkinded), unkinded or 'none'))
+    unnamed = [f for f in written if os.path.basename(f) not in reg]
+    arm('G-WRITELIST-PATHS', 'and the PATH-level residue is printed, not hidden', True,
+        '%d of %d named by KIND but not by path : %s'
+        % (len(unnamed), len(written), unnamed or 'none'))
+    kinds = re.findall(r'\*\*KIND (\d+) --', reg)
+    arm('G-WRITELIST-KIND', 'the list is built as KINDS',
+        len(kinds) >= 10 and len(set(placed.values())) >= 7,
+        'kinds declared %d ; used %d' % (len(kinds), len(set(placed.values()))))
+
+    # ---- MUST-FAIL -----------------------------------------------------------------------------
+    bar()
+    rec('  ### THE MUST-FAIL FIXTURES.')
+    bar()
+    forbidden = [
+        '### THE HALT AT K8 IS AN INSTANCE OF THEOREM 3.1.',
+        '### A TRANSMISSION COEFFICIENT WAS MEASURED.',
+        '### A ROW WAS WRITTEN TO FACES_LEDGER.',
+        '### (R20) WAS WIDENED.',
+        '### THE SPECTRAL REALIZATION EXISTS.',
+        '### A KERNEL WAS BUILT.',
+    ]
+    lines = set(bank.split(chr(10)))
+    hits = [f for f in forbidden if f in lines]
+    arm('G-MUSTFAIL', 'none of the six forbidden whole lines is in the bank', not hits,
+        'hits %s' % (hits or 'none'))
+    synth = 'a' + chr(10) + '### (R20) WAS WIDENED.' + chr(10) + 'b'
+    arm('G-MUSTFAIL-CTL', 'the same predicate FIRES on synthetic text carrying one',
+        any(f in set(synth.split(chr(10))) for f in forbidden))
+
+    bar('=')
+    npass = sum(1 for _n, ok in ARMS if ok)
+    rec('  ### ### **ARMS : %d. ### PASSING : %d. ### FAILING : %d.**'
+        % (len(ARMS), npass, len(ARMS) - npass))
+    for n, ok in ARMS:
+        if not ok:
+            rec('    ### **FAILING : %s**' % n)
+    rec('  ### run stamp : %s' % run_clock.stamp())
+    bar('=')
+    out = d('b408_checks_postpush.txt' if post else 'b408_checks.txt')
+    io.open(out, 'wb').write((chr(10).join(R) + chr(10)).encode('utf-8'))
+    print(chr(10) + '  wrote %s' % os.path.basename(out))
+    return 0 if npass == len(ARMS) else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))

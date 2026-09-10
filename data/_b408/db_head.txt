@@ -1,0 +1,63 @@
+# -*- coding: utf-8 -*-
+"""b408_desk_bank.py -- THE DESK, THE TRAIL BLOCK, THE ROW, THE KEY AND THE BANK.
+
+### ### **THIS ACT MAKES NO IN-PLACE REPAIR AND WRITES NO ROW OF `FACES_LEDGER.md`.** ### The
+### verdict on the halt is `NOT AN INSTANCE`, and the face fixed before the read that nothing is
+### filed to the row on any other verdict. ### **A RESEMBLANCE IS NOT AN INSTANCE, AND AN ACT THAT
+### ### FILED ONE WOULD HAVE TYPED THE BRIDGE THE ROW EXISTS TO REFUSE.**
+###
+### ### **AND EVERY RUN RECORD THIS FILE WRITES IS READ BACK BY ITS OWN RETURNED PATH**, never by a
+### directory listing -- the guard `b408` adds to `run_clock` exists because `b406` did the other
+### thing three times.
+"""
+import io
+import json
+import os
+import re
+import subprocess
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, 'tools'))
+import run_clock                  # noqa: E402
+import b302_correspondence as C   # noqa: E402
+import b303_correspondence as GD  # noqa: E402
+
+D = os.path.join(ROOT, 'data')
+PP = os.path.join('D:', os.sep, 'MY-DOwnloads', 'PLACE-papers')
+SIDE = os.path.join('D:', os.sep, 'SIDE-global-section')
+TRAILS = os.path.join(PP, 'OPEN_TRAILS.md')
+TABLE = os.path.join(SIDE, 'CORRESPONDENCE.md')
+INDEX = os.path.join(ROOT, 'tools', 'banked_index.py')
+MARK = '<!-- b408 the other two channels, the reduction as a classified proof priced -->'
+PRIOR = '<!-- b407 the barrier own instance, and the repair priced where it is thin -->'
+BANKOUT = os.path.join(D, 'b408_the_other_two_channels.txt')
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+LINES = []
+
+
+def rec(s=''):
+    LINES.append(s)
+    print(s, flush=True)
+
+
+def bar(c='-'):
+    rec(c * 100)
+
+
+def write_bytes(path, text):
+    """### **ENCODE FIRST, WRITE BYTES SECOND.**"""
+    data = text.encode('utf-8')
+    open(path + '.tmp', 'wb').write(data)
+    os.replace(path + '.tmp', path)
+    return len(data)
+
+
+SEALTXT = io.open(os.path.join(D, 'b408_registration_2026-09-10.txt'), encoding='utf-8').read()
+SEALHASH = re.search(r'([0-9a-f]{64})', SEALTXT.split('LOCK')[-1]).group(1)
+LG = json.load(io.open(os.path.join(D, 'b408_lockgate.json'), encoding='utf-8'))
+COMP = io.open(os.path.join(D, 'b408_components.txt'), encoding='utf-8').read()
+

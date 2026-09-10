@@ -1,0 +1,138 @@
+def main():
+    bar('=')
+    rec('b408 -- THE DESK, THE TRAIL BLOCK, THE ROW, THE KEY AND THE BANK.')
+    bar('=')
+    bar()
+    rec('  ### THE DESK UNDER (R7).')
+    bar()
+    Q = do_desk()
+
+    rec()
+    bar()
+    rec('  ### THE TRAIL BLOCK, APPEND-ONLY.')
+    bar()
+    before = io.open(TRAILS, encoding='utf-8', newline='').read()
+    if MARK in before:
+        rec('  ### ALREADY FILED -- the mark is present. ### NOTHING APPENDED.')
+        after = before
+    else:
+        rec('  ### the b407 block is present and is not edited : %s' % (PRIOR in before))
+        io.open(TRAILS, 'a', encoding='utf-8', newline=chr(10)).write(
+            chr(10).join(trail_block(Q)) + chr(10))
+        after = io.open(TRAILS, encoding='utf-8', newline='').read()
+        ao = after.startswith(before)
+        rec('  ### bytes %d -> %d ; append-only %s'
+            % (len(before.encode('utf-8')), len(after.encode('utf-8')), ao))
+        if not ao:
+            rec('  ### HARD FAILURE -- the write was not append-only.')
+            rec('  ### run record : %s' % run_clock.write(D, 'b408_desk_notes', LINES))
+            return 1
+    seg = after.split(MARK, 1)[-1]
+    low = ' '.join(seg.lower().split())
+    says = {
+        'says_not_an_instance': 'not an instance' in low,
+        'says_four_met': 'four of theorem 3.1' in low,
+        'says_kappa_asserted': 'is asserted by the record' in low,
+        'says_failing_hyp': 'the hypothesis that fails is the one about' in low,
+        'says_import_not_step': 'is not an inference step' in low,
+        'says_tier2_scope': 'research-frontier and not claimed here' in low,
+        'says_resemblance': 'precisely where definition 2.5 says' in low,
+        'says_no_row': 'nothing is filed to row' in low,
+        'says_strict_loose': 'strict: 0 of 6' in low and 'loose: 4 of 6' in low,
+        'says_price': 'from 5 of 6 to 4 of 6' in low,
+        'says_both_sides': 'the same object on both sides' in low,
+        'says_smallest': 'tier-2 form of the barrier' in low,
+        'says_blocker': 'not the parked lane' in low,
+        'says_channel': 'bright channel' in low,
+        'says_one_of_three': 'one of three is not the negation' in low,
+        'says_r20': 'discovered, not imposed' in low,
+        'says_guard': 'refuses rather than guesses' in low,
+        'says_nothing_deposits': 'nothing deposits' in low,
+        'says_h2': 'h2 where the deposit left it' in low,
+    }
+    rec('  ### ### **EVERY CLAIM THE WRITER RECORDS ABOUT ITS OWN BLOCK:**')
+    for k, v in says.items():
+        rec('      %-26s %s' % (k, v))
+    if not all(says.values()):
+        rec('  ### HARD FAILURE -- the block does not say what the writer claims: %s'
+            % [k for k, v in says.items() if not v])
+        rec('  ### run record : %s' % run_clock.write(D, 'b408_desk_notes', LINES))
+        return 1
+    subprocess.run(['git', '-C', PP, 'add', '--', 'OPEN_TRAILS.md'], capture_output=True)
+
+    rec()
+    bar()
+    rec('  ### THE CORRESPONDENCE ROW.')
+    bar()
+    ROWS = corr_rows(Q)
+    txt = io.open(TABLE, encoding='utf-8').read()
+    pos, neg = C.blank_check_fixture()
+    sa, sb, sc, sd = GD.split_fixture()
+    rec('  BLANK-CHECK FIXTURE (b302): %s %s ; SPLITTER (b303): %s %s %s %s'
+        % (pos, neg, sa, sb, sc, sd))
+    bad = [(i, j) for i, r in enumerate(ROWS) for j, c in enumerate(r) if GD.raw_pipes(str(c))]
+    rec('  cells carrying an UNESCAPED pipe : %d' % len(bad))
+    slip = [mm for mm, s, _t, _p, _g, _sc, _st in ROWS if not s.startswith(mm)]
+    rec('  marker is a literal prefix of its statement : %s' % (not slip))
+    if bad or slip or not (pos and neg and sa and sb and sc and sd):
+        rec('  ### run record : %s' % run_clock.write(D, 'b408_desk_notes', LINES))
+        return 1
+    nums = [int(x.group(1)) for x in re.finditer(r'^\| (\d+) \|', txt, re.M)]
+    present = [mm for mm, _s, _t, _p, _g, _sc, _st in ROWS if mm in txt]
+    if present:
+        rec('  ### ROW ALREADY PRESENT -- NOTHING WRITTEN.')
+        rownum = max(nums)
+    else:
+        start = max(nums) + 1
+        rec('  last existing row : %d ; row to append : %d' % (max(nums), start))
+        lines = ['| %d | %s | %s | %s | %s %s | %s |'
+                 % (start + k, stmt, term, prof, grade, scope,
+                    (status % (start + k)) if '%d' in status else status)
+                 for k, (_m, stmt, term, prof, grade, scope, status) in enumerate(ROWS)]
+        new = txt.rstrip(chr(10)) + chr(10) + chr(10).join(lines) + chr(10)
+        write_bytes(TABLE, new)
+        back = io.open(TABLE, encoding='utf-8').read()
+        got = [int(x.group(1)) for x in re.finditer(r'^\| (\d+) \|', back, re.M)]
+        cellsx = [GD.split_cells(t) for t in back.rstrip(chr(10)).split(chr(10))[-1:]]
+        okr = (got[-1] == start and C.blank_cells(back) == 0
+               and all(len(c) == 6 and all(x.strip() for x in c) for c in cellsx)
+               and back.startswith(txt.rstrip(chr(10))))
+        rec('  READ BACK : last row %d ; cells %s ; true prefix %s ; %s'
+            % (got[-1], [len(c) for c in cellsx], back.startswith(txt.rstrip(chr(10))),
+               'PASS' if okr else '### FAIL ###'))
+        if not okr:
+            rec('  ### run record : %s' % run_clock.write(D, 'b408_desk_notes', LINES))
+            return 1
+        rownum = start
+
+    rec()
+    bar()
+    rec('  ### THE INDEX KEY.')
+    bar()
+    kok = do_key(rownum)
+
+    rec()
+    bar()
+    rec('  ### THE BANK.')
+    bar()
+    nb = bank(Q, rownum, kok)
+
+    rec()
+    bar('=')
+    rec('  ### ### **DESK %d SWEPT / %d CLOSED. ### ROWS OF FACES_LEDGER WRITTEN : 0. ### CORR ROW '
+        '%d. ### KEY %s. ### BANK %d LINES.**'
+        % (Q['items'], Q['closed'], rownum, 'PASS' if kok else 'FAIL', nb))
+    bar('=')
+    # ### **THE RUN RECORD IS READ FROM THE RUN, NEVER FROM A DIRECTORY LISTING** (b406, and the
+    # ### reason `run_clock.latest` exists). ### The path this run wrote is PRINTED here.
+    p = run_clock.write(D, 'b408_desk_notes', LINES)
+    print(chr(10) + '  ### THIS RUN WROTE : %s   (stamp %s)'
+          % (os.path.basename(p), run_clock.read_stamp(p)))
+    lp, ls, note = run_clock.latest(D, 'b408_desk_notes')
+    print('  ### AND THE GUARD AGREES : %s   (%s ; %s)'
+          % (os.path.basename(lp or '-'), ls, note))
+    return 0 if kok else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())
