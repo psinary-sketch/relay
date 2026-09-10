@@ -1,0 +1,47 @@
+====================================================================================================
+b405_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b405_registration_2026-09-10.txt
+  bytes/lines  : 23271 / 283
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 40
+
+  clauses emitted : 78
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 24**
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 9    cap 9
+      kernel terminals quoted whole                                  demand 2    cap 2
+      pins printed as both a tag and a commit                        demand 1    cap 1
+      axiom profiles read from a printed file                        demand 1    cap 1
+      sites of row U1 read whole from the committed blob             demand 6    cap 6
+      tests put to each site                                         demand 3    cap 3
+      refusal clauses quoted verbatim                                demand 1    cap 1
+      questions put to the refusal clause                            demand 1    cap 1
+      coordinates added to the row                                   demand 2    cap 2
+      KIND cells written                                             demand 6    cap 6
+      WITNESS cells written                                          demand 6    cap 6
+      touched ledger cells carrying their prior text as a TRUE PREFI demand 2    cap 2
+      untouched ledger cells BYTE-IDENTICAL to the pre-act blob      demand 5    cap 5
+      clauses a shared witness is declared to have                   demand 2    cap 2
+      navigator candidate witnesses scored against the sites` own te demand 2    cap 2
+      branch rules fixed before the read                             demand 1    cap 1
+      branches of Addition Two taken                                 demand 1    cap 1
+      clauses of the finite-side terminal read and labelled          demand 3    cap 3
+      routes priced                                                  demand 1    cap 1
+      bars declared                                                  demand 15   cap 15
+      gate arms declared                                             demand 40   cap 40
+      new `relay` tool files                                         demand 6    cap 6
+  written : b405_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : c2dd31d3ec811028a4ef5de5a6579688807879410f844e32ca3179acbd9eb634  (b405_registration_2026-09-10.txt)

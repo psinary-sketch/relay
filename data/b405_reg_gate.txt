@@ -1,0 +1,24 @@
+====================================================================================================
+b405 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b405_registration_2026-09-10.txt
+  marks found  : 5
+      UNREAD                     line 52    ### ### **THE INDEX QUERIED BEFORE ANY MARK OF `UNREAD` OR `NONE KNOWN` IS MADE (b160's
+      UNREAD                     line 117   ### tracked transcript or the profile is reported ### **UNREAD**. ### ### **NOTHING IS BUI
+      UNREAD                     line 169   ### **BAR 3 -- A PROFILE IS READ OR IT IS UNREAD.** ### `0` axiom profiles inferred. ### A
+      UNREAD                     line 170   ###   printed in a tracked file is READ; anything else is ### **REPORTED UNREAD.**
+      UNREAD                     line 234   ### `G-PROFILE-READ` `G-PROFILE-UNREAD` `G-NOBUILD` `G-NOLEAN` `G-NOTOUCH-LV` `G-SIXSITES`
+  query result : RECORDED at line 52
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 0 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : c2dd31d3ec811028a4ef5de5a6579688807879410f844e32ca3179acbd9eb634  (b405_registration_2026-09-10.txt)

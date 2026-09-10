@@ -1,0 +1,159 @@
+====================================================================================================
+b405_extract.py -- THE SURVEY, EXTRACTED TO DISK BEFORE THE FACE IS WRITTEN.
+====================================================================================================
+  anchor tool self-test : PASS
+
+----------------------------------------------------------------------------------------------------
+### (A) THE COMPILED COUNTERMODEL, AT THE PIN THE CORPUS CITES.
+----------------------------------------------------------------------------------------------------
+    repo          : SIDE-lv-conservation   ### NOT ON THE FOUR-REPO ROSTER
+    working HEAD  : 2f71068ac356a15a3f43fea073aa8fe4ae4fbf23
+    v0.10.0       : 93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f
+    ### **THE PIN IS THE REF THE PAPER CITES; THE WORKING HEAD IS AHEAD OF IT.**
+    materialised  : T3_at_pin.lean  <-  SIDE-lv-conservation@v0.10.0:SIDELvConservation/T3_StepNineBridge.lean  (9480 bytes)
+
+  ### T3' -- THE CLOSED HALF, STATEMENT AND PROOF WHOLE   [T3_at_pin.lean, line 121]
+      | theorem T3prime_shared_witness
+      |     (𝒞 : Set Coupling) (s : ℂ)
+      |     (h1 : ∀ C ∈ 𝒞, C Phi)
+      |     (h2 : mellin Phi (s / 2) ≠ 0) :
+      |     ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 :=
+      |   ⟨Phi, h1, h2⟩
+
+  ### T3'' -- THE COUNTERMODEL, STATEMENT WHOLE AND ITS DATA   [lines 137..147 of T3_at_pin.lean]
+      | theorem T3doubleprime_general_commutation_fails :
+      |     ¬ ∀ (𝒞 : Set Coupling) (s : ℂ),
+      |         (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) →
+      |         ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 := by
+      |   intro habs
+      |   -- Countermodel data.
+      |   let s0 : ℂ := 3
+      |   let f1 : ℝ → ℂ := fun t => if 0 < t then Phi t else (0 : ℂ)
+      |   let f2 : ℝ → ℂ := fun t => if 0 < t then Phi t else (1 : ℂ)
+      |   let C1 : Coupling := fun Φ => Φ = f1
+      |   let C2 : Coupling := fun Φ => Φ = f2
+
+----------------------------------------------------------------------------------------------------
+### (B) ITS AXIOM PROFILE, FROM A PRINTED PROFILE IN THE REPOSITORY ITSELF.
+----------------------------------------------------------------------------------------------------
+    materialised  : VERIFICATION_TRANSCRIPT_at_pin.md  <-  SIDE-lv-conservation@v0.10.0:VERIFICATION_TRANSCRIPT.md  (12198 bytes)
+
+  ### THE PRINTED PROFILE BLOCK -- BOTH TERMINALS   [lines 259..265 of VERIFICATION_TRANSCRIPT_at_pin.md]
+      | 'SIDELvConservation.T3.T3prime_shared_witness'
+      |   depends on axioms: [propext, Classical.choice, Quot.sound]
+      | 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails'
+      |   depends on axioms: [propext, Classical.choice, Quot.sound]
+      | ```
+      | 
+      | Neither carries `sorryAx`; neither introduces a new axiom.
+  ### THE ONE PINNED SORRY, WHERE IT SITS -- THE v0.2.0 ADDENDUM RUN   [VERIFICATION_TRANSCRIPT_at_pin.md, line 249]
+      | warning: SIDELvConservation/T3_StepNineBridge.lean:92:8: declaration uses `sorry`
+
+    ### **THE PROFILE IS PRINTED, NOT RUN HERE.** ### The transcript is a TRACKED file at
+    ### the pin and its axiom block is the stdout of a `#print axioms` run the repository
+    ### banked. ### **THE INSTRUMENT LANE IS PARKED AND NOTHING WAS BUILT.**
+
+----------------------------------------------------------------------------------------------------
+### (C) THE FINITE SIDE'S TERMINAL, ITS CELL LIST, AND THE THEOREM CARRYING THE ZERO.
+----------------------------------------------------------------------------------------------------
+    file          : D:\SIDE-global-section\Core\FiniteSideSeal.lean
+  ### THE CELL LIST, WHOLE   [FiniteSideSeal.lean, line 123]
+      | def cells : List (Nat × Nat) := [(2, 1), (2, 2), (3, 1), (3, 2), (5, 1), (7, 1), (2, 3)]
+
+  ### THE TERMINAL, STATEMENT WHOLE   [lines 505..511 of FiniteSideSeal.lean]
+      | theorem finite_side_silence {p n t : Nat} (hp : 2 ≤ p) (ht : 0 < t) (htN : t < gridN p n) :
+      |     (∃ j u, j < 2 * n ∧ NotDiv p u ∧ t = u * p ^ j)
+      |     ∧ (∀ j, 0 < j → (∃ c, p ^ j * t = t + gridN p n * c) → t % ballQ p n = 0)
+      |     ∧ ((p, n) ∈ cells → ballQ p n * sumAN p n = sumAQ p n) := by
+      |   refine ⟨index_decomposes hp ht htN,
+      |           fun j hj h => scaling_fixes_nothing_off_ball hj htN h,
+      |           fun hc => ?_⟩
+
+  ### THE ZERO ITSELF -- THE SMEAR THEOREM, STATEMENT WHOLE   [lines 463..464 of FiniteSideSeal.lean]
+      | theorem compact_smear_vanishes_at_cells :
+      |     cells.all (fun c => ballQ c.1 c.2 * sumAN c.1 c.2 == sumAQ c.1 c.2) = true := by
+
+  ### THE DOCSTRING'S OWN LABELLING OF THE THREE CLAUSES   [lines 493..498 of FiniteSideSeal.lean]
+      |     (a) GENERAL -- `t = u * p^j` with `j < 2n` and `p` not dividing `u`
+      |         (Component 1);
+      |     (b) GENERAL -- for every `j > 0`, if `p^j * t ≡ t` modulo the grid, with its
+      |         witness, then `t` is in the ball (Component 2);
+      |     (c) PER CELL -- if `(p, n)` is in `cells`, `q * SUM_u A_N(u) = SUM_u A_q(u)`
+      |         (Component 3), with the cell list as the hypothesis, each cell decided.
+
+  ### THE PRINTED PROFILE -- THE TERMINAL   [AXIOM_PRINTS.txt, line 590]
+      | 'B329.finite_side_silence' does not depend on any axioms
+  ### THE PRINTED PROFILE -- THE ZERO   [AXIOM_PRINTS.txt, line 587]
+      | 'B329.compact_smear_vanishes_at_cells' does not depend on any axioms
+
+----------------------------------------------------------------------------------------------------
+### (D) ROW `U1` WHOLE, FROM THE COMMITTED BLOB, BY THE COLUMN LAW.
+----------------------------------------------------------------------------------------------------
+    materialised  : FACES_LEDGER_at_HEAD.md  <-  PLACE-papers@HEAD:FACES_LEDGER.md  (104603 bytes)
+    row line      : 31   bytes 8931   pipe-pieces 9
+    cell 1  : 4 bytes
+    cell 2  : 138 bytes
+    cell 3  : 71 bytes
+    cell 4  : 220 bytes
+    cell 5  : 5189 bytes
+    cell 6  : 59 bytes
+    cell 7  : 3242 bytes
+    ### cell 5 written to U1_cell5.txt -- its own `###` markers turned into line breaks FOR
+    ### READING ONLY. ### The ledger holds the cell on ONE line and this act writes
+    ### it back on one line.
+    ### cell 7 written to U1_cell7.txt -- its own `###` markers turned into line breaks FOR
+    ### READING ONLY. ### The ledger holds the cell on ONE line and this act writes
+    ### it back on one line.
+
+    ### THE SIX SITES, LOCATED BY THEIR OWN OPENING MARKERS IN CELL 5:
+      (i)       : at offset 69
+      (ii)      : at offset 250
+      (iii)     : at offset 518
+      (iv)      : at offset 920
+      (v)       : at offset 2257
+      (vi)      : at offset 3842
+
+----------------------------------------------------------------------------------------------------
+### (E) THE EMITTING BANKS THE ROW NAMES, AT THE SENTENCES IT QUOTES.
+----------------------------------------------------------------------------------------------------
+  ### (i) THE CLAUSE, IN b332 -- THE QUANTIFIERS   [b332_the_clause_stated.txt, line 21]
+      | ### a named owner; the quantifiers -- over the class, infinite, and through the explicit formula over
+
+  ### THE ABSCISSA, IN b351 -- THE NAVIGATOR'S FIRST CANDIDATE WITNESS   [b351_the_partition_question.txt, line 196]
+      | ### ### ### **THE ABSCISSA WAS ALREADY CLOSED, AND HAS BEEN SINCE b326.** ### A one-line summed bound --
+  ### THE ABSCISSA AND THE HEIGHT, SET APART BY b351 ITSELF   [b351_the_partition_question.txt, line 202]
+      | ### SUM, not by a scan -- ### **one convergent series did what sixty boxes of argument principle could not
+  ### (ii) THE HEIGHT, IN b351   [b351_the_partition_question.txt, line 89]
+      | ### *"The Riemann-von Mangoldt main term `(T/pi) log(T sqrt23 / 2 pi e)`"*. ### **SO RUNNING THE CENSUS
+      | ### ### HIGHER BUYS MORE INSTANCES, AND A CLASS IS NOT MADE OF INSTANCES.** ### The registration fixed
+
+  ### (iii) THE WIDTH, IN b353   [b353_the_missing_statement.txt, line 30]
+      | ### ### ### **SO: AN EXHAUSTION AT EVERY WIDTH IS NOT AN EXHAUSTION ACROSS WIDTHS.** ### That sentence is
+  ### (iii) THE INNER EXISTENTIAL, IN BOAS-KAC'S OWN WORDS AS b353 QUOTES THEM   [b353_the_missing_statement.txt, line 18]
+      | ###   ### equivalent: 1. The Fourier transform f^ is pointwise positive. 2. There exists g in Cc^infty(R)
+
+----------------------------------------------------------------------------------------------------
+### (F) THE COLUMN LAW -- BECAUSE A ROW CANNOT GAIN A COLUMN ALONE.
+----------------------------------------------------------------------------------------------------
+  ### THE LEDGER'S COLUMN LAW, WHOLE   [FACES_LEDGER_at_HEAD.md, line 10]
+      | **THE COLUMN LAW.** `id` · `face or equivalence` · `register` · `source, with the emitting file (deposited / internal / imported)` · `what the corpus holds — PROVED (a kernel terminal at a pin), MEASURED (a banked number, at its own act's grade), IMPORTED (at cite, the pinned source named), or NAMED-ONLY — each graded, the claim quoted from the emitting file` · `rows touched (SIDE-global-section CORRESPONDENCE.md)` · `bridges owed, typed`. **No blank cells**; NAMED-ONLY where nothing more is held. Rows are written only by `relay/tools/b327_faces_row.py`, which refuses duplicates, guards notation, verifies every quotation against its emitter before writing, and reads the file back after every write. **Append-only.** Provenance of every row: the file and line it quotes; the extract step at `relay/data/b327_extract_notes.txt`.
+    table lines in the file                     : 159
+    of them, EXACTLY the seven-column shape     : 19
+    ### **A NEW COLUMN IS AN EDIT TO EVERY ONE OF THEM, AND THE LAW SAYS ROWS ARE
+    ### WRITTEN ONLY BY `b327_faces_row.py`.** ### An APPEND INSIDE an existing cell is
+    ### what `b401` and `b404` did to this row and is what this act does; it is a
+    ### RESTATEMENT of a cell, not the writing of a row, and the column count does not move.
+
+----------------------------------------------------------------------------------------------------
+### (G) WHERE THE CORPUS ITSELF PUTS THE SHARED WITNESS'S SECOND CLAUSE.
+----------------------------------------------------------------------------------------------------
+  ### THE CORPUS ON T3'S TWO CLAUSES   [OPEN_TRAILS-archive-2-historical-landings-and-programs.md, line 1289]
+      | - **The joint, located exactly.** Step 7 = Ch 19 §19.1 step (9)'s "per-class exclusion is equivalent to all-combinations exclusion," compiled as `T3` (`SIDE-lv-conservation/T3_StepNineBridge.lean`): the **unrestricted commutation is provably FALSE** (`T3doubleprime_general_commutation_fails`, countermodel at s=3), and closes **only** under a shared witness — `T3prime_shared_witness` with `h1 : ∀ C ∈ 𝒞, C Phi` (complete at Φ, `h1_complete_at_Phi`) **and** `h2 : mellin Phi (s/2) ≠ 0` (open, RH-strength). Determination supplies the *witness* Φ (the h1 side); whether it *forces* the completion is exactly `h2` — §VI.5's D-licenses-E boundary. **The totality argument concentrates its one open premise at the joint, and that premise is h2 — the same h2 of §27.3's five registers (here the R3 totality register).**
+
+    ### **QUOTED AND NOT ENDORSED.** ### This act reads where the record puts the
+    ### second clause. ### **IT MAKES NO CLAIM ABOUT `h2` IN EITHER DIRECTION**, and
+    ### `h2` stands exactly where the deposit left it.
+
+====================================================================================================
+### THE SURVEY IS ON DISK. ### NOTHING IS WRITTEN TO ANY LEDGER BY THIS TOOL.
+====================================================================================================

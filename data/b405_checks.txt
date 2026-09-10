@@ -1,0 +1,132 @@
+====================================================================================================
+b405 -- THE GATE SUITE. ### BEFORE THE PUSH.
+### **THE PRE-ACT REFERENCE FOR EVERY LEDGER ARM IS NAMED, NOT ONLY ITS SIDE : `HEAD`.**
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+  ### STEP ZERO, RE-READ FROM ITS OWN RECORDS.
+----------------------------------------------------------------------------------------------------
+  G-FERRY              the ferry scan reported 0 hits                               PASS
+  G-CENSUS-ZERO        both step-zero censuses reported TOTAL MISSING 0             PASS
+  G-PINS-ZERO          no repository was ahead of its remote at step zero           PASS
+  G-SEAL               the locked face verifies against its banked digest at c2dd31 PASS
+  G-LOCKGATE           the lock was chained on 8 gates, 4 checked by digest         PASS
+      read 8 passing 8 by-digest 4
+----------------------------------------------------------------------------------------------------
+  ### THE SURVEY, AND THE PIN IT READ AT.
+----------------------------------------------------------------------------------------------------
+  G-ANCHORS            the survey left 0 anchor misses and 0 block misses           PASS
+      misses 0
+  G-PINTAG             the tag the corpus cites resolves to the commit the survey p PASS
+      v0.10.0 -> 93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f
+  G-PINREAD            the file the survey read IS the file at the tag, byte for by PASS
+      at pin 9480 bytes ; materialised 9480 bytes
+  G-NOTWORKING         and the working tree is NOT the pin, so reading it would hav PASS
+      HEAD 2f71068ac356 vs pin 93c27ec2cb9b
+  G-T3QUOTE            both terminals are quoted whole in the survey                PASS
+  G-PROFILE-READ       their profile is READ from a printed profile, not inferred   PASS
+  G-PROFILE-GS         and the finite side's two profiles come from AXIOM_PRINTS.tx PASS
+----------------------------------------------------------------------------------------------------
+  ### NOTHING BUILT, NOTHING TOUCHED. ### **EACH ARM REQUIRES ONLY WHAT THIS ACT COULD
+  ### HAVE DONE, AND PRINTS WHAT PREDATES IT.**
+----------------------------------------------------------------------------------------------------
+  G-NOTOUCH-LV         SIDE-lv-conservation carries 0 TRACKED changes               PASS
+      tracked 0 ; untracked and PRE-EXISTING 0 : none
+  G-NOTOUCH-SE         SIDE-effects carries 0 TRACKED changes                       PASS
+      tracked 0 ; untracked and PRE-EXISTING 2 : ['.githooks/pre-push.b304-backup', '.githooks/pre-push.b304-backup-1']
+  G-NOLEAN             no `.lean` file is modified in SIDE-global-section either    PASS
+      lean changes none
+  G-CAP                the act wrote at most 6 new relay tool files                 PASS
+      6 : ['b405_checks.py', 'b405_components.py', 'b405_desk_bank.py', 'b405_extract.py', 'b405_reg_gate.py', 'b405_regspec.py']
+  G-NOBUILD            the bank ASSERTS nowhere that a kernel was built             PASS
+      asserting sentences 0 
+  G-NOBUILD-CTL        and the predicate FIRES on synthetic text asserting it       PASS
+----------------------------------------------------------------------------------------------------
+  ### ROW `U1`, AGAINST THE PRE-ACT BLOB AT `HEAD`.
+----------------------------------------------------------------------------------------------------
+  G-ONEROW             row `U1` is unique in both the blob and the working file     PASS
+  G-BYTEIDENT          the five untouched cells are BYTE-IDENTICAL to the pre-act b PASS
+      identical cells [0, 1, 2, 3, 5]
+  G-PREFIX             the two touched cells carry their prior text as a TRUE PREFI PASS
+      true-prefix cells [4, 6] ; 5189 -> 11954 and 3242 -> 6854 bytes
+  G-NOCOLUMN           EVERY table line has the same column count as before the act PASS
+      table lines 159 -> 159 ; differing lines 0
+  G-TABLELINES         and the file gained no line and lost none                    PASS
+      314 -> 314
+  G-KINDCELLS          six `KIND` cells are on the row                              PASS
+  G-WITNESSCELLS       six `WITNESS` cells are on the row                           PASS
+      count 6
+  G-REFUSAL-VERBATIM   the row's refusal is restated word for word, not summarised  PASS
+  G-REFUSAL-UNARY      and the binary/unary finding is on the face of the row       PASS
+  G-CELLSOURCE         the witness form is sourced from the theorem, named on the r PASS
+----------------------------------------------------------------------------------------------------
+  ### THE ROW’S LAW, APPLIED TO THIS ACT. ### **ASSERTION-LEVEL, WITH CONTROLS.**
+----------------------------------------------------------------------------------------------------
+  G-NOBRIDGE           the bank ASSERTS no bridge and no equivalence anywhere       PASS
+      asserting sentences 0 
+  G-NOBRIDGE-CTL       and the predicate FIRES on synthetic text typing one         PASS
+  G-NOWITNESS          and it ASSERTS nowhere that a shared witness exists at any s PASS
+      asserting sentences 0 
+  G-NOWITNESS-CTL      and that predicate FIRES on synthetic text claiming one      PASS
+  G-NOH2               and it ASSERTS nothing about `h2` in either direction        PASS
+      asserting sentences 0 
+  G-NOH2-CTL           and that predicate FIRES on synthetic text claiming it       PASS
+  G-NOPROSE            no arm in this suite greps raw prose for a forbidden claim   PASS
+----------------------------------------------------------------------------------------------------
+  ### THE COMPONENTS, RE-READ FROM THEIR OWN RUN RECORD.
+----------------------------------------------------------------------------------------------------
+  G-SIXSITES           the six sites were located in the cell by their own markers  PASS
+      offsets line present
+  G-SIXSITES-CTL       and the survey would have said NOT FOUND for a site that was PASS
+  G-TABLE18            component 1 printed six sites times three tests with their q PASS
+  G-VACUOUS            and a residue test with no statement to weigh is called VACU PASS
+  G-CELLSCOUNT         component 3 printed six KIND cells and six WITNESS cells     PASS
+  G-NOFOUND            and no site of the six has a witness FOUND                   PASS
+  G-EXPECT             every registered expectation is scored in the run record     PASS
+  G-REFUTED            and the act prints its OWN refuted expectations rather than  PASS
+  G-DECLINED           both of the navigator's named witnesses are scored and decli PASS
+      abscissa scored : True ; finite side branched : True
+----------------------------------------------------------------------------------------------------
+  ### THE WRITE LIST, BUILT AS KINDS AND RE-MEASURED AGAINST WHAT WAS WRITTEN.
+----------------------------------------------------------------------------------------------------
+  G-WRITELIST          every file this act wrote is of a KIND the locked face names PASS
+      36 written ; of NO named KIND 0 : none
+  G-WRITELIST-PATHS    and the PATH-level residue is printed, not hidden            PASS
+      12 of 36 written files are named by their KIND but NOT by path on the face : ['b405_desk_notes.txt', 'b405_desk_notes2.txt', 'b405_desk_notes3.txt', '
+      b405_desk_notes4.txt', 'b405_lockgate.json', 'b405_lockgate_notes.txt', '_b405/FACES_LEDGER_at_HEAD.md', '_b405/T3_at_pin.lean', '_b405/U1_cell5.txt',
+       '_b405/U1_cell7.txt', '_b405/U1_row_at_HEAD.txt', '_b405/VERIFICATION_TRANSCRIPT_at_pin.md']
+  G-WRITELIST-KIND     and the list is built as KINDS, not as a flat list of paths  PASS
+      kinds declared 9 ; kinds actually used 8
+----------------------------------------------------------------------------------------------------
+  ### THE LIVING RECORD.
+----------------------------------------------------------------------------------------------------
+  G-TRAILS             the trail block is append-only against the pre-act blob at H PASS
+      blob 557514 -> live 564837 bytes
+  G-TRAILPRIOR         and b404's block is present and unedited                     PASS
+  G-CORR               the correspondence table is a true prefix of itself plus one PASS
+      rows 253 -> 254
+  G-KEY                the index key resolves and carries the act                   PASS
+      verdict-line NO KEY : False ; raw substring hits : 1
+  G-KEY-CTL            and a must-not-hit query still returns NO KEY on its VERDICT PASS
+  G-DESK               the desk was swept and its closures printed                  PASS
+----------------------------------------------------------------------------------------------------
+  ### THE STANDING NOTHINGS, RE-MEASURED ON THE BANK.
+----------------------------------------------------------------------------------------------------
+  G-DEPOSIT            the bank ASSERTS no deposit action of any kind               PASS
+      asserting sentences 0 
+  G-DEPOSIT-CTL        and the predicate FIRES on synthetic text asserting one      PASS
+  G-SAYSNOTHING        and it says in its own words that nothing deposits           PASS
+  G-SAYSH2             and that `h2` stands where the deposit left it               PASS
+  G-DEFECTS            and the act prints its own apparatus defects rather than smo PASS
+  G-SCANFIX            the ferry-scan fixtures still hold in both polarities        PASS
+  G-SEALNAME           the bank names the seal it was written under                 PASS
+      seal c2dd31d3ec811028
+----------------------------------------------------------------------------------------------------
+  ### THE MUST-FAIL FIXTURES.
+----------------------------------------------------------------------------------------------------
+  G-MUSTFAIL           none of the six forbidden whole lines is in the bank         PASS
+      hits none
+  G-MUSTFAIL-CTL       the same predicate FIRES on synthetic text carrying one of t PASS
+====================================================================================================
+  ### ### **ARMS : 62. ### PASSING : 62. ### FAILING : 0.**
+  ### run stamp : 2026-09-10T20:17:08Z
+====================================================================================================
