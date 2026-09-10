@@ -1,0 +1,268 @@
+====================================================================================================
+b396 -- HOW MANY FINDINGS REST ON A BACKTICK. ### THE CLOSING.
+### Written 2026-09-10. ### NOT COVERED BY ANY HASH; the face is.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  THE ACT, IN ONE PARAGRAPH.
+----------------------------------------------------------------------------------------------------
+  The order's first instruction was that the sweep's own premise be tested before anything was
+  swept, and it was: the detector was run against a fixture carrying ### **ONE NARROW MATCHER
+  ### WRITTEN THREE WAYS** -- a raw-string regex, a double-quoted escaped regex, and ### **A FORM
+  ### WITH NO REGEX AT ALL** ### (`startswith` + `in` + `islower()`) -- and ### **ALL THREE WERE
+  ### FOUND**, with a ### **WIDE** ### fixture run beside them coming back ### **CLEAN**, because
+  without a negative control a fixture shows a detector ### *fires* ### and not that it ###
+  **DISCRIMINATES.** ### What the sweep is deaf to is stated ### **IN THE INSTRUMENT ITSELF**, and
+  it is five things. Then: ### **A RAW `grep` IS NOT THE INSTRUMENT** -- `826` of `858` files in
+  `tools/` carry a backtick and almost every one is prose, so the sweep reads by `ast` and keeps a
+  literal only where it is ### *used as a test.* ### The funnel: ### **`856` PARSED, `407` CARRYING
+  ### A NARROW TEST, `64` CARRYING AN AT-RISK FIGURE, AND `82` AT-RISK FIGURES ACROSS `51` ACTS.**
+  ### **THREE FILTERS WERE TRIED AND DISCARDED BEFORE THE LOCK AND ALL THREE ARE REPORTED WITH
+  ### THEIR YIELDS**, because a filter that keeps nine tenths of its input is not a filter and a
+  tightening made in silence is one nobody can audit -- and ### **THREE VACUOUS FILTERS IN ONE ACT
+  ### IS ITSELF THE RESULT: THE NARROW SHAPE IS PERVASIVE, SO THE ORDER'S QUESTION HAS NO ANSWER AT
+  ### INSTRUMENT GRANULARITY.** ### It has one at ### **FIGURE** ### granularity, and that is the
+  list. Six findings were re-run -- the cheapest three and the most exposed three, which ### **SHARE
+  ### NO MEMBER**, so ### **ALL SIX WERE RUN** -- with every widening written into the tool before
+  it ran. ### **ALL SIX CONFIRMED; `0` FIGURES MOVED; `1` NARROWNESS WITHOUT CONSEQUENCE.** ###
+  `(L1)` is met at `64` and `82`; ### **`(L2)` IS REFUTED**, which this seat registered as `(E2)`
+  before the lock; ### **`(L3)` IS MET BY `b395` AND NOT BY THIS ACT.** ### The ten now-reachable
+  keystones are ### **PRICED AND NOT READ**, and the preservation hazard is filed with `b395`'s near
+  miss as its incident and ### **MECHANIZED IN PART.** ### Face
+  `f5c83b3d6d9de82541558b912a3b7395b7ec4530a5ff056448abd8318fbc6126`; bank
+  `b396_the_backtick_swept.txt`; correspondence row 245; key `the-backtick-swept`; ### **GATE SUITE:
+  ### 41 ARMS, 0 FAILING**, read after the push and after the mirror.
+
+----------------------------------------------------------------------------------------------------
+  ADDITION ONE -- THE SWEEP'S OWN PREMISE, TESTED FIRST.
+----------------------------------------------------------------------------------------------------
+    form 1   a raw-string regex, backtick-delimited                    ### **FOUND**
+    form 2   a double-quoted escaped regex                             ### **FOUND**
+    form 3   ### **NO REGEX AT ALL** -- `startswith` + `in` + `islower()`   ### **FOUND**
+    the WIDE fixture (a negative control)                              ### **CLEAN**
+
+  ### **AND THE FIGURE-LEVEL FILTER IS TESTED ON BOTH AXES TOO:** ### narrow+absence FIRES;
+  ### narrow+ordinary is QUIET; ### **WIDE+ABSENCE IS QUIET.**
+
+  ### **WHAT THIS SWEEP IS DEAF TO** -- stated in `tools/b396_narrow.py`, not only here:
+    -- a narrowness assembled from a ### **VARIABLE** ### at run time
+    -- a narrowness living in the ### **DATA** ### an instrument reads, not in the instrument
+    -- a matcher passed in from ### **ANOTHER MODULE**, the literal sitting in the caller
+    -- a shape restriction with ### **NO STRING AND NO CASE METHOD** -- a length, an index, a slice
+    -- ### **WHETHER A NARROW MATCHER IS WRONG.** ### The shape is measured; never the verdict.
+
+----------------------------------------------------------------------------------------------------
+  COMPONENT 1 -- THE FUNNEL, AND THE THREE DISCARDS.
+----------------------------------------------------------------------------------------------------
+    `tools/b*.py` parsed                             ### **`856`**   (unparseable `0`)
+    carrying a backtick ANYWHERE (a raw `grep`)      ### **`826`** of `858`
+    carrying at least one NARROW TEST                ### **`407`**
+    ### **CARRYING AT LEAST ONE AT-RISK FIGURE**     ### **`64`**
+    ### **AT-RISK FIGURES**                          ### **`82`** across `51` acts
+    narrow with NO negative finding on it            ### **`343`** -- ### **NOT AT RISK**
+
+  ### **THE THREE FILTERS TRIED AND DISCARDED BEFORE THE LOCK:**
+    (i)   `the module prints an absence somewhere`       kept ### **`374` of `407`**
+    (ii)  `the act's name appears in a ledger`           kept ### **`350` of `380`**
+    (iii) `the instrument reads corpus text`             kept ### **`79` of `82`**
+  ### **(ii) MEASURED NOTHING BECAUSE EVERY ACT NAMES ITSELF IN ITS OWN ROW.**
+  ### **(iii) IS A TRUE DISTINCTION THIS TOOL CANNOT DRAW:** ### a narrow matcher against text the
+  ### act WROTE fails its own gate loudly; one against the CORPUS shrinks a finding in silence --
+  ### `b394`'s species, and ### **WHERE THE RISK ACTUALLY LIVES.** ### Filed as a limit, not applied
+  ### as a filter.
+
+  ### **WHAT MAKES A FIGURE AT RISK:** ### a narrow literal whose yield is bound to a name, and a
+  ### report naming that same name whose ### **OWN LITERAL** ### carries an absence. ### **THE
+  ### ABSENCE AND THE MEASUREMENT MUST SIT IN THE SAME LITERAL**, or it is prose that happens to
+  ### contain the word `no`.
+
+----------------------------------------------------------------------------------------------------
+  ADDITION TWO -- THE EXPOSURE RANKING, AND THE TWO SETS.
+----------------------------------------------------------------------------------------------------
+  Exposure is counted ### **OUTSIDE THE ACT'S OWN ARTIFACTS** -- the order's own distinction, ###
+  *more exposed than one that sits in its own bank* -- so a correspondence row whose marker names
+  the act is that act's own bank and is excluded. ### The ordering rule was stated before the
+  ranking: a RULING outranks a KEYSTONE, a KEYSTONE a FOLD, a FOLD a ROW, ties on the figure count.
+  ### **THE FOUR COUNTS ARE PRINTED APART SO A READER CAN RANK THEM DIFFERENTLY.**
+
+    act    figs   RULING   KEYSTONE   FOLD   ROW    narrowness
+    b392   3      2        1          0      1      BACKTICK, MARKER PREFIX
+    b326   2      0        2          22     11     MARKER PREFIX
+    b332   1      0        2          14     5      ANCHORED MARKER
+    b333   1      0        1          17     5      ANCHORED MARKER
+    b334   1      0        1          16     13     ANCHORED MARKER
+    b358   1      0        1          13     9      ANCHORED MARKER
+    b339   1      0        1          11     11     ANCHORED MARKER
+    b323   1      0        1          9      3      MARKER PREFIX
+    b318   1      0        1          8      9      BACKTICK
+    b353   2      0        1          8      5      ANCHORED MARKER, BACKTICK, SINGLE-CASE CLASS
+    b345   1      0        1          8      5      ANCHORED MARKER
+    b351   1      0        1          7      5      ANCHORED MARKER
+    b359   1      0        1          6      3      ANCHORED MARKER
+    b361   2      0        1          5      7      ANCHORED MARKER, BACKTICK
+    b366   2      0        1          5      4      ANCHORED MARKER, MARKER PREFIX
+    b365   7      0        1          3      3      ANCHORED MARKER, BACKTICK, MARKER PREFIX
+    b307   1      0        1          3      3      ANCHORED MARKER
+    b394   1      0        1          0      2      BACKTICK
+    ... `51` acts ranked in all; the full table is in the bank and the components record.
+
+  ### **THE CHEAPEST THREE : `b307`, `b318`, `b323`.**
+  ### **THE MOST EXPOSED THREE : `b392`, `b326`, `b332`.**
+  ### ### **THEY SHARE `0` MEMBERS. ### THE SETS ARE DISJOINT.**
+  ### **WHICH SET WAS RUN, AND WHY: ### BOTH. ### ALL SIX.** ### The order says to run the draft's
+  ### three and to say so if the sets differ; the navigator says he would rather know the exposed
+  ### ones are wrong than that the cheap ones are right. ### Every one of the six is a local read,
+  ### so ### **RUNNING BOTH SETS COSTS LESS THAN THE PARAGRAPH THAT WOULD JUSTIFY CHOOSING BETWEEN
+  ### THEM.** ### A choice not worth making is not made.
+
+----------------------------------------------------------------------------------------------------
+  COMPONENT 2 -- THE SIX RE-RUNS. ### **THE UNIT IS THE FIGURE, NOT THE MATCH COUNT.**
+----------------------------------------------------------------------------------------------------
+  ### **AN EARLIER FORM OF THIS COMPONENT CALLED TWO OF THE SIX `MOVED`, AND BOTH WERE ARTEFACTS OF
+  ### THE HARNESS.** ### It read each act's `data/` records instead of ### **THE TEXT THE MATCHER
+  ### ACTUALLY READ** ### -- for `b323` that text is a subprocess's stdout, which is in no record
+  ### at all -- and it compared match counts where the figure is a ### **BOOLEAN.** ### **A FIGURE
+  ### THAT DOES NOT MOVE HAS NOT MOVED, WHATEVER THE COUNT DID.** ### Repaired before the bank and
+  ### reported rather than quietly corrected.
+
+    act    set            kind       input                              narrow / wide   verdict
+    b307   CHEAPEST       COUNT      CORRESPONDENCE.md                  244 / 244       CONFIRMED
+    b318   CHEAPEST       PRESENCE   b318_registration_2026-09-04.txt   1 / 2           CONFIRMED
+    b323   CHEAPEST       PRESENCE   banked_index.py --query (live)     1 / 1           CONFIRMED
+    b326   MOST EXPOSED   COUNT      CORRESPONDENCE.md                  1 / 1           CONFIRMED
+    b332   MOST EXPOSED   COUNT      CORRESPONDENCE.md                  244 / 244       CONFIRMED
+    b392   MOST EXPOSED   PRESENCE   REGISTRY.md                        1 / 1           CONFIRMED
+
+  ### **`0` FIGURES MOVED. ### `1` NARROWNESS WITHOUT CONSEQUENCE:** ### `b318`'s literal matches
+  ### once narrow and twice wide -- its face states the same fact more than once and one statement
+  ### wraps -- and ### **THE FIGURE IS `True` EITHER WAY.** ### The instrument is narrow and the
+  ### finding is not at risk from it, which is a real observation and not a moved figure.
+  ### **`(L2)` IS REFUTED**, and this seat registered `(E2)` before the lock: ### *the re-runs will
+  ### mostly confirm, and confirming is the weaker result.* ### **A REFUTED `(L2)` IS A REAL ANSWER
+  ### AND NOT A DISAPPOINTMENT** -- the arc's one known move was found by ### **READING A DOCUMENT,
+  ### NOT BY WIDENING A REGEX.**
+  ### **AND A CONFIRMATION IS THE WEAKER RESULT.** ### It proves a figure is not an artefact of ###
+  **THE SHAPE THAT WAS WIDENED**, and nothing more. ### **`76` OF THE `82` FIGURES ARE UNTESTED**,
+  ### and the five deafnesses stand in front of every `CONFIRMED` above.
+  ### **`(L3)` IS MET BY `b395` AND NOT BY THIS ACT:** ### `b394` reported ### *no kernel repository
+  ### it names is on the drive* ### for `8` keystones and the drive holds one for every one of them.
+  ### **THE ACT NAMES IT RATHER THAN RE-DISCOVERING IT.**
+
+----------------------------------------------------------------------------------------------------
+  COMPONENT 3 -- THE TEN NOW REACHABLE. ### **PRICED. ### NOT READ.**
+----------------------------------------------------------------------------------------------------
+  ### **THE RATE, READ FROM `b394`'S OWN COMPONENT JSON:** ### `8.3` minutes for three, ###
+  **`2.8` PER KEYSTONE**, against `b390`'s `24` for one.
+  ### ### **THE PRICE : `2.8` x `10` = `28.0` MINUTES.**
+  ### **WHAT IT BUYS:** ### `4` of the census's `16` are reconciled today; reading the ten takes
+  ### that to ### **`14` OF `16`**, leaving ### **`2`** ### -- `ENUMERA`, which names no terminal and
+  ### needs an author rather than a reader.
+  ### **THE FIGURE IS A FLOOR BECAUSE ITS INPUT IS A FLOOR.** ### `b394` declared both of its
+  ### figures floors, and ### **A RATE TAKEN FROM THE EASY END PRICES THE HARD END TOO CHEAPLY** --
+  ### `b394` read ### *the reachable ones.*
+  ### **THE TEN ARE NOT READ. ### THE ITEM STAYS ON THE DESK AS AVAILABLE AND NOT DONE.**
+
+----------------------------------------------------------------------------------------------------
+  ADDITION THREE -- THE PRESERVATION HAZARD, FILED AND MECHANIZED IN PART.
+----------------------------------------------------------------------------------------------------
+  ### **THE INCIDENT:** ### `b395`'s needle for the live cluster row matched `b388`'s ### **PRESERVED
+  ### QUOTATION** ### of the superseded table and ### **RESOLVED TO IT SILENTLY**, having met it
+  ### first.
+  ### **THE RULE, FILED:** ### an anchor used to EDIT ### **EXCLUDES PRESERVED BLOCKS BY
+  ### CONSTRUCTION**, and an anchor resolving inside one is ### **REFUSED RATHER THAN
+  ### DISAMBIGUATED** -- a caller told `AMBIGUOUS` picks one, and picking is how the quotation gets
+  ### edited.
+  ### **THE SURVEY THAT MAKES IT MECHANIZABLE:** ### `1672` contiguous blockquoted blocks across
+  ### `184` documents (`8110` lines of `156173`), plus `5` explicit preservation banners -- among
+  ### them `SPIRAL_MAP.md:252`, the very block `b395`'s needle resolved into.
+  ### **THE MECHANIZED HALF:** ### `tools/anchor_from_file.py` gains an ### **OPT-IN, DEFAULT-OFF**
+  ### `editing=True`. ### Its own fixtures: ### **`12` ARMS, `0` FAILING** ### -- the `8`
+  ### pre-existing ones unchanged and `4` new, including one that reproduces `b395`'s exact shape.
+  ### **CALLERS `144` ; CALLERS MOVED `0`.**
+  ### **THE DEFAULT IS OFF ON PURPOSE:** ### an anchor used to QUOTE a preserved block is CORRECT --
+  ### that is how an act cites what an earlier act preserved. ### **THE HAZARD IS EDITING BY AN
+  ### ANCHOR, NOT READING BY ONE**, and one fixture proves the default still finds a preserved line.
+  ### **THE JUDGEMENT HALF, LISTED APART AND NOT CLAIMED AS MECHANIZED:** ### whether a passage
+  ### carrying no `>` is preserved. ### `>` is ### **SUFFICIENT AND NOT NECESSARY**, so the arm is
+  ### ### **A FLOOR ON THE HAZARD AND NOT A GUARD AGAINST IT** -- this act's own subject turned on
+  ### its own remedy, and the act says so rather than letting the mechanized half stand for the
+  ### whole rule.
+  ### **THE MODULE:** ### `EDITING_ANCHOR_EXCLUDES_PRESERVED.md`, `4068` bytes, stating its two
+  ### halves apart. ### `TECHNE-Core/modules/2026-09/` : `38` -> `39`. ### **LOCAL ONLY, UNTRACKED
+  ### AND NOT PUSHED** -- and the writer is idempotent, so a re-run shows `39` -> `39`.
+
+----------------------------------------------------------------------------------------------------
+  THE DESK.
+----------------------------------------------------------------------------------------------------
+  ### ITEMS SWEPT 45 ### CLOSED 1 ### STANDING 44.
+  CLOSED : ### **the predicate that produced `b394`'s ceiling** ### -- under `(R7)`, because ###
+          **THIS ACT IS THE MEASUREMENT.** ### `b395` left it reading *how many other findings rest
+          on a backtick is UNMEASURED*; it is now measured.
+  ### **AND THE MEASUREMENT OPENS FOUR, THREE OF WHICH ARE LIMITS OF THIS ACT'S OWN INSTRUMENT:**
+    the `82` at-risk figures, unrepaired -- `6` re-run, `76` untested, ### **AND THIS ACT REPAIRS
+        NONE OF THEM.** ### OPEN.
+    the self-reading / corpus-reading distinction, ### **UNMEASURABLE AT MODULE GRANULARITY.** ###
+        OPEN.
+    the five deafnesses of this sweep -- ### **EVERY `CONFIRMED` STANDS IN FRONT OF THESE FIVE.**
+        ### OPEN.
+    the judgement half of the preservation rule -- ### **A FLOOR, NOT A GUARD.** ### OPEN.
+  ### **AND TWO STANDING ITEMS GET SHARPER:** ### the fifteen-keystones item is ### **PRICED FOR THE
+  ### FIRST TIME**, and `ENUMERA`'s item is confirmed ### **NOT A READING PROBLEM** -- reading the
+  ### other ten reaches `14` of `16` and leaves it untouched.
+
+  ### THE FOUR LISTS, RESTATED **OPEN** BY NAME, AND THIS ACT CLOSES NONE:
+    LIST 1  the rows that cite at a ref nobody can name                       OPEN
+    LIST 2  the rows grading a declaration the record has classified absent    OPEN  (no grade moved)
+    LIST 3  the undated figures across the roster                              OPEN  (none dated)
+    LIST 4  the bibliography entries nothing cites                             OPEN
+
+----------------------------------------------------------------------------------------------------
+  THE LEDGERS, THE PINS AND THE MIRROR.
+----------------------------------------------------------------------------------------------------
+  CORRESPONDENCE row   : 245, read back, a true prefix, 6 cells, no blank cell.
+  INDEX key            : `the-backtick-swept`, returning 1 row; six aliases reach it; four must-fail
+                         overreadings return NO KEY both before and after.
+  TRAILS               : `OPEN_TRAILS.md` gains a b396 block THROUGH ITS OWN WRITER, append-only,
+                         the pre-act blob a true prefix, the b395 block unedited. ### **AND THE
+                         WRITER'S OWN SELF-CHECK WAS CASE-NARROW ON ITS FIRST RUN** -- it looked for
+                         a lowercase phrase the block states in title case and reported the block
+                         silent about a claim the block makes. ### **THE ACT'S OWN SUBJECT, IN ITS
+                         OWN WRITER**, found and repaired before the bank.
+  HANDOFF census       : ### **TOTAL MISSING 0.**
+  FACES census         : ### **TOTAL MISSING 0.**
+  PINS, by ls-remote   : relay                `81d92fb6246581f2f7e7db6e09dea94583928419`
+                         PLACE-papers         `9621dcda31658ef893a5146fa8fc3a738daaf40e`
+                         SIDE-global-section  `1661d90c1378f7991e95cc217ab28ad21eefae4d`
+                         SIDE-effects         `ef4cff776f8918761bdb08d9e23f684b0abd5875`
+                         ### **ALL FOUR EQUAL, 0/0 BEHIND-AHEAD, REPOS HARD-FAILING 0.**
+  HOOK                 : all four `.git/hooks/pre-push` still present and still inert
+                         (`core.hooksPath = .githooks`); the untracked `.b304-backup` copies left in
+                         place under (R16) and named at the desk.
+  MIRROR               : rebuilt at PLACE-papers `9621dcd`, ### **CLEAN ON ALL THREE CLAUSES** --
+                         42 files against 42 manifest rows with 0 md5/byte mismatches, the declared
+                         source HEAD equal to ls-remote, and 42 roster entries matching the archive
+                         name for name in both directions. Record at `data/b396_mirror.txt`.
+
+----------------------------------------------------------------------------------------------------
+  WHAT THIS ACT DID NOT DO.
+----------------------------------------------------------------------------------------------------
+  ### **NO INSTRUMENT OF ANY PRIOR ACT WAS REPAIRED OR EDITED, AND NO CORPUS DOCUMENT WAS EDITED AT
+  ### ALL.** ### `82` figures were named and not one was fixed -- naming a body of work is not doing
+  it. The one owner instrument this act edits is `tools/anchor_from_file.py`, declared on the face
+  before the act, and its added mode is OFF by default with `0` of `144` callers moved. NOTHING
+  DEPOSITED AND NOTHING WRITTEN AT ZENODO; NO DOI MINTED, CLAIMED OR EDITED; THE PLATFORM WAS NOT
+  CALLED AT ALL. No repository cloned; no branch fetched, merged, pushed or created; no build run
+  and no axiom profile recomputed. No grade moved, no class ruled, no document reclassified or
+  placed in `Tier KC`, no claim withdrawn, no registry row edited, the census not edited, the
+  taxonomy and the deposit rule not amended, NEITHER MAP TOUCHED, no cluster reshaped, no list
+  closed, no prior act's face or bank edited. No new tracking document created. No archive/ or
+  outputs/ file touched, the mirror roster not edited, no `.git/hooks/pre-push` deleted. NO `.lean`
+  FILE TOUCHED. Nothing computed about the object and nothing claimed about the mathematics of any
+  named subject. Nothing about the quantifier, totality or the roster; no class discharged, the
+  clause has not moved, no coordinate closed, the partition of the object stays UNDECIDED. M-2
+  remains (SPECIFIED-NOT-STATED) under b310's cap. The seam's debt item 1 restated, still unpaid.
+  The patent lane carried on the patent seat's report, UNCONFIRMED on this seat's record. ### **THE
+  ### INSTRUMENT LANE STAYS PARKED. ### THE WAVE STAYS PARKED.** ### The posture lock is separate.
+  ### **h2 STANDS EXACTLY WHERE THE DEPOSIT LEFT IT** and this act makes no claim about it in either
+  direction.
+====================================================================================================
