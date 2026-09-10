@@ -1,0 +1,256 @@
+====================================================================================================
+b409_extract.py -- THE SURVEY, EXTRACTED TO DISK BEFORE THE FACE IS WRITTEN.
+====================================================================================================
+  anchor tool self-test : PASS
+
+----------------------------------------------------------------------------------------------------
+### (A) THE CANONICAL INDEX, FROM TWO INDEPENDENT PLACES -- AND THE ONE THAT DISAGREES.
+----------------------------------------------------------------------------------------------------
+  ### **FIRST WITNESS: THE MONOGRAPH`S OWN CLASS TABLE.**
+      | | C₁ (Schwarz reflection) | Primitive | Additive structure (n² coefficients) | Source of all structure; real coefficients |
+      | | C₂ (Euler/multiplicative) | Primitive | Multiplicative structure (Euler product) | Balance at σ = 1/2; unique factorization |
+      | | C₃ (functional equation) | Transformation | Functional equation ξ(s) = ξ(1−s) | Symmetry of zeros about σ = 1/2 |
+      | | C₄ (Modular/PSL₂) | Transformation | Modular symmetry (PSL₂(ℤ) action) | Modular forms framework |
+      | | C₅ (Spectral self-adjointness) | Transformation | Spectral structure (self-adjoint operator) | Spectral constraints on eigenvalues |
+      | | C₆ (Cauchy-Riemann) | Output | Cauchy-Riemann equations | Local analyticity constraints |
+      | | C₇ (Hadamard product) | Output | Hadamard product (global zero distribution) | Topological structure of zero set |
+
+  ### **SECOND WITNESS: `ENUMERA.md``S OWN RECONCILIATION, WRITTEN FOR THIS VERY**
+  ### **QUESTION.**
+  ### THE RECONCILIATION, WHOLE   [ENUMERA.md, line 153]
+      | **Canonical-numbering reconciliation (monograph Ch.15).** ENUMERA groups the seven classes by (2,3,2,0) formation *stage*; the monograph's canonical index is C₁ Schwarz · C₂ Euler · C₃ functional-equation · C₄ modular/PSL₂ · C₅ spectral · C₆ Cauchy–Riemann · C₇ Hadamard — map: Primitive → {C₁ Schwarz, C₂ Euler}; Transformation → {C₃ functional-equation, C₄ modular/PSL₂, C₅ spectral}; Output → {C₆ Cauchy–Riemann, C₇ Hadamard}; Interface → ∅ (dark).
+
+  ### ### **AND THE ONE TABLE THAT DISAGREES WITH BOTH:**
+  ### THE REMARK THAT OPENS IT   [Seven_Mechanism_Classes.md, line 158]
+      | **Remark (Class numbering).**
+  ### ITS ROW C₁ | C₂   [Seven_Mechanism_Classes.md, line 164]
+      | | C₁ | C₂ | Additive / Schwarz reflection |
+  ### ITS ROW C₂ | C₄   [Seven_Mechanism_Classes.md, line 165]
+      | | C₂ | C₄ | Multiplicative / Euler product |
+  ### ITS ROW C₃ | C₁   [Seven_Mechanism_Classes.md, line 166]
+      | | C₃ | C₁ | Archimedean / functional equation |
+  ### ITS ROW C₄ | C₅   [Seven_Mechanism_Classes.md, line 167]
+      | | C₄ | C₅ | Global / PSL₂ symmetry |
+  ### ITS ROW C₅ | C₆   [Seven_Mechanism_Classes.md, line 168]
+      | | C₅ | C₆ | Multiplicative / spectral |
+  ### ITS ROW C₆ | C₃   [Seven_Mechanism_Classes.md, line 169]
+      | | C₆ | C₃ | Local / Cauchy-Riemann |
+  ### ITS ROW C₇ | C₇   [Seven_Mechanism_Classes.md, line 170]
+      | | C₇ | C₇ | Global / Hadamard |
+
+  ### ### **THE COMPARISON, MADE HERE AND NOT ASSUMED:**
+      the monograph`s own table and `ENUMERA`s reconciliation ### **AGREE, SYMBOL FOR
+      SYMBOL** ### -- C1 Schwarz, C2 Euler, C3 functional-equation, C4 modular/PSL2,
+      C5 spectral, C6 Cauchy-Riemann, C7 Hadamard.
+      the correspondence table`s *Monograph* column ### **DISAGREES WITH BOTH OF THEM ON**
+      ### **SIX OF SEVEN SYMBOLS.**
+  ### ### ### **SO THERE IS ONE CANONICAL INDEX ATTESTED TWICE, AND ONE TABLE THAT
+  ### ### ### CONTRADICTS THE DOCUMENT IT NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE SWEEP -- EVERY CLASS-SYMBOL USE, UNDER BOTH WINDOWS.
+----------------------------------------------------------------------------------------------------
+  ### LIVE documents using a class symbol : 95 ; uses : 1506
+  ### DEPOSITED (`outputs/`) documents, NOT TOUCHED : 8 ; uses : 516
+
+  ### **THE TWO WINDOWS, AND WHY BOTH ARE PRINTED:**
+      LOOSE -- 70 characters after the symbol, whatever falls inside.
+      TIGHT -- stops at the NEXT class symbol. ### **A LIST OF CLASSES GIVES EVERY SYMBOL
+      ### A NEIGHBOUR`S CONTENT UNDER THE LOOSE WINDOW**, so the loose DISAGREE count is
+      the list`s shape and not a scheme conflict.
+  ### ### **DOCUMENTS WITH A DISAGREEING PIN: ### LOOSE 24 ### ; TIGHT 20.**
+  ### ### **SCHEME READABLE FROM THE DOCUMENT`S OWN TEXT (TIGHT) : 28**
+  ### ### **SCHEME UNDECLARED : 67**
+
+  ### **THE READABLE DOCUMENTS, WITH THEIR EVIDENCE:**
+      day1/A_Place_to_Stand.md                               uses 179  agree 81   disagree 3
+          evidence: C₃ (functional equation), classified by Os
+          evidence: C₂ (Euler/multiplicative)). No third algeb
+      phase1.5/spectral/BALANCE_AND_POSITIVITY.md            uses 127  agree 16   disagree 0
+          evidence: C₁** Schwarz reflection | Primitive | Addi
+          evidence: C₂** Euler / multiplicative | Primitive | 
+      phase1.5/structural/STRUCTURAL_COUNT.md                uses 106  agree 2    disagree 22
+          evidence: C₅: modular forms have spectral theory.  *
+          evidence: C₅. Modular form theory has spectral theor
+      internal/SIDE_EFFECTS.md                               uses 100  agree 44   disagree 9
+          evidence: C₁ (Schwarz reflection):* From the additiv
+          evidence: C₂ (Euler balance):* From the multiplicati
+      phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md          uses 88   agree 4    disagree 29
+          evidence: C₇ — Hadamard (global).** As an entire fun
+          evidence: C₇ | Topological | Winding, Hadamard | No 
+      internal/TECHNE_ELEMENTS.md                            uses 82   agree 15   disagree 9
+          evidence: C₃ | Functional equation | Transformation 
+          evidence: C₁ | Schwarz reflection | Primitive | Addi
+      phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md          uses 66   agree 14   disagree 3
+          evidence: C₃ (functional equation), 
+          evidence: C₁ (Schwarz reflection). Knows nothing of 
+      day1/Seven_Mechanism_Classes.md                        uses 60   agree 11   disagree 10
+          evidence: C₁ (additive).** The additive structure bu
+          evidence: C₂ (multiplicative).** Unique factorizatio
+      internal/CATALOGOS.md                                  uses 46   agree 13   disagree 3
+          evidence: C₃ (functional equation) of ξ through diff
+          evidence: C₃ | Functional equation | ξ(s) = ξ(1-s) |
+      OPEN_TRAILS.md                                         uses 40   agree 2    disagree 3
+          evidence: C₇ Hadamard voice: tautological terminal r
+          evidence: C₄` is *"the modular symmetry group PSL₂(ℤ
+      phase1.5/structural/CASE_FOR_TWO.md                    uses 35   agree 3    disagree 2
+          evidence: C₇'s zero-location mechanism.** Hadamard f
+          evidence: C₇'s machinery: the Hadamard decomposition
+      phase2/empirical/BSD_TRANSFER.md                       uses 34   agree 3    disagree 10
+          evidence: C₄ are coupled through modularity → Hasse.
+          evidence: C₇: Hadamard Factorization  **For ξ:** ξ i
+      phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md          uses 32   agree 16   disagree 1
+          evidence: C₁ Schwarz reflection, 
+          evidence: C₂ Euler balance | 2 | ℤ's two group struc
+      phase1.5/method/ENUMERA.md                             uses 27   agree 14   disagree 0
+          evidence: C₁ Schwarz · 
+          evidence: C₂ Euler · 
+      phase1.5/method/SIDE_EXCLUSION.md                      uses 25   agree 16   disagree 0
+          evidence: C₁ Schwarz reflection, 
+          evidence: C₂ Euler balance | n₁ = 2 | ℤ's two group 
+      phase1.5/method/TECHNE_TOOLKIT.md                      uses 19   agree 2    disagree 0
+          evidence: C₆ (Cauchy-Riemann) now DERIVES at model l
+          evidence: C₇ (Hadamard) is a definition-encoded stan
+      REGISTRY.md                                            uses 15   agree 1    disagree 0
+          evidence: C₇-order upgrade** — the Ch. 4 Hadamard Co
+      phase2/formation/UNIVERSALITY.md                       uses 15   agree 4    disagree 2
+          evidence: C₁) Additive structure.** The group (𝒪_K, 
+          evidence: C₂) Multiplicative structure.** Unique fac
+      phase1.5/spectral/GRH_CASCADE.md                       uses 11   agree 2    disagree 0
+          evidence: C₄ modularity, was strengthened-then-disch
+          evidence: C₇ Hadamard order-input DERIVES row (item 
+      day1/Third_Identity_Element.md                         uses 9    agree 6    disagree 0
+          evidence: C₁ (additive) | Conjugation, −1 in discrim
+          evidence: C₂ (multiplicative) | Balance on prime 2 |
+      phase2/formation/COMPRESSION.md                        uses 8    agree 2    disagree 5
+          evidence: C₁ (additive/θ) — does the θ-transform pro
+          evidence: C₇ (Hadamard/entire) — does the Hadamard f
+      phase2/empirical/ZERO_SIMPLICITY.md                    uses 7    agree 3    disagree 1
+          evidence: C₁, additive structure).** The n² input to
+          evidence: C₂, multiplicative structure).** The Euler
+      VERIFICATION_LOOM.md                                   uses 6    agree 1    disagree 0
+          evidence: C₄ modularity's schedule vs the theta/E_h 
+      phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md     uses 6    agree 1    disagree 0
+          evidence: C₇-order upgrade** to the Ch. 4 Hadamard C
+      phase2/method/THE_DEEP_STRUCTURE_CROSSREFERENCE.md     uses 6    agree 2    disagree 0
+          evidence: C₁ (additive) | **Conjugation, −1 in discr
+          evidence: C₃ (archimedean) | **Γ-factor at ∞, comple
+      phase1.5/method/SEEDS_BENCH_INVENTORY.md               uses 5    agree 3    disagree 0
+          evidence: C₄ residual modularity** | full modularity
+          evidence: C₄ modularity — RESOLVED (author's record,
+      phase2/method/THE_DAY1_IMPLICATIONS.md                 uses 3    agree 1    disagree 0
+          evidence: C₂`/Euler is one of them** — placement may
+      phase1.5/proofs/READERS_COMPANION.md                   uses 2    agree 1    disagree 0
+          evidence: C₂, the Euler-product class; for a Davenpo
+
+  ### **AND EVERY DOCUMENT WITH A TIGHT DISAGREEMENT, NAMED:**
+      OPEN_TRAILS.md                                         agree 2    DISAGREE 3
+      day1/A_Place_to_Stand.md                               agree 81   DISAGREE 3
+      day1/Seven_Mechanism_Classes.md                        agree 11   DISAGREE 10
+      internal/CATALOGOS.md                                  agree 13   DISAGREE 3
+      internal/SIDE_EFFECTS.md                               agree 44   DISAGREE 9
+      internal/TECHNE_ELEMENTS.md                            agree 15   DISAGREE 9
+      phase1.5/method/SIDE_DOOR.md                           agree 0    DISAGREE 5
+      phase1.5/proofs/HELD_WSUBSTRATE_crystallization.md     agree 0    DISAGREE 1
+      phase1.5/proofs/MECHANISM_EXCLUSION.md                 agree 0    DISAGREE 13
+      phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md          agree 14   DISAGREE 3
+      phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md          agree 4    DISAGREE 29
+      phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md          agree 16   DISAGREE 1
+      phase1.5/rcurve/P22_CLOSURE.md                         agree 0    DISAGREE 5
+      phase1.5/structural/CASE_FOR_TWO.md                    agree 3    DISAGREE 2
+      phase1.5/structural/STRUCTURAL_COUNT.md                agree 2    DISAGREE 22
+      phase2/empirical/BSD_TRANSFER.md                       agree 3    DISAGREE 10
+      phase2/empirical/ZERO_SIMPLICITY.md                    agree 3    DISAGREE 1
+      phase2/formation/COMPRESSION.md                        agree 2    DISAGREE 5
+      phase2/formation/UNIVERSALITY.md                       agree 4    DISAGREE 2
+      phase2/method/THE_EULER_SPECIFICATION.md               agree 0    DISAGREE 1
+
+----------------------------------------------------------------------------------------------------
+### (C) THE TWO HITS `b408` FILED AS ARTEFACTS, READ WHOLE.
+----------------------------------------------------------------------------------------------------
+  ### THE FIFTH PATH, IN `PATHS_TO_THE_CRITICAL_LINE`   [PATHS_TO_THE_CRITICAL_LINE.md, line 107]
+      | *Tradition.* Level-set geometry; Lagarias 1999, P22 2026. *Machinery.* The level curves {Re ξ = 0}, the logarithmic derivative, Stirling asymptotics, the Hadamard product. *Establishes.* RH ⟺ V-monotonicity ⟺ Re(ξ′/ξ) > 0 on the R-curves; the Gamma factor's growth produces a positive floor. *Touches.* output-stage classes (C₃ + C₇) — the first primarily output-stage path, assembling without crossing a dark interface. *State.* An RH-*equivalent*, computatio
+      | nally confirmed (25,000 sample points, zero exceptions; P22). The monotonicity *closure* carries a residual margin (~1% on Re(ΔW) > |Re(W_ζ)|) that does not close — a landscape inequality, hence subject to the shield (VI). Equivalence is compilable; closure is research-reach. **The Hadamard genus-1 order-input is now compiled** — the order ≤ 1 growth of the completed zeta that the Hadamard product assumes as classical input is a pinned terminal, `SIDELvCon
+      | servation.exists_norm_completedRiemannZeta₀_le_exp` at SIDE-lv-conservation v0.4.0 = 0d2d74c (theta-Mellin route, no complex Stirling, no Phragmén–Lindelöf); the assumed growth input is machine-checked, while the monotonicity closure above remains research-reach.
+  ### **AND ITS MACHINERY LINE, WHICH SAYS WHAT IT ACTUALLY TOUCHES:**
+  ### THE MACHINERY   [PATHS_TO_THE_CRITICAL_LINE.md, line 107]
+      | *Tradition.* Level-set geometry; Lagarias 1999, P22 2026. *Machinery.* The level curves {Re ξ = 0}, the logarithmic derivative, Stirling asymptotics, the Hadamard product. *Establishes.* RH ⟺ V-monotonicity ⟺ Re(ξ′/ξ) > 0 on the R-curves; the Gamma factor's growth produces a positive floor. *Touches.* output-stage classes (C₃ + C₇) — the first primarily output-stage path, assembling without crossing a dark interface. *State.* An RH-*equivalent*, computatio
+      | nally confirmed (25,000 sample points, zero exceptions; P22). The monotonicity *closure* carries a residual margin (~1% on Re(ΔW) > |Re(W_ζ)|) that does not close — a landscape inequality, hence subject to the shield (VI). Equivalence is compilable; closure is research-reach. **The Hadamard genus-1 order-input is now compiled** — the order ≤ 1 growth of the completed zeta that the Hadamard product assumes as classical input is a pinned terminal, `SIDELvCon
+      | servation.exists_norm_completedRiemannZeta₀_le_exp` at SIDE-lv-conservation v0.4.0 = 0d2d74c (theta-Mellin route, no complex Stirling, no Phragmén–Lindelöf); the assumed growth input is machine-checked, while the monotonicity closure above remains research-reach.
+
+  ### THE SAME PATH, IN `CRITICAL_RESOLVE`   [CRITICAL_RESOLVE.md, line 1121]
+      | > *The fifth path is notable as the first primarily output-stage path, assembling output classes (C₃ + C₇) without crossing any dark interface. It establishes RH ⟺ V-monotonicity ⟺ Re(ξ'/ξ) > 0 on R-curves — connecting level-set geometry to zero confinement. See P22_RCURVE_MONOTONICITY_REVISED for computational confirmation: 25,000 sample points, zero exceptions.*
+
+----------------------------------------------------------------------------------------------------
+### (D) THE GLOBAL CLASS, BY DESCRIPTION AND UNDER BOTH NUMBERINGS.
+----------------------------------------------------------------------------------------------------
+  ### **THE DESCRIPTION, NOT THE SYMBOL:** ### *the modular symmetry, `PSL2(Z)`, the
+  ### relation between the archimedean and the multiplicative sides.* ### Under the
+  ### canonical index it is `C4`; under the correspondence table`s Monograph column it
+  ### is `C5`. ### **THE SEARCH RUNS ON THE DESCRIPTION AND ON BOTH SYMBOLS.**
+  ### files in scope : 4746
+
+  ### ### **BY DESCRIPTION (the modular relation) BESIDE A CHANNEL WORD : 4**
+      OPEN_TRAILS.md                                :4857   **And the sweep’s real finding is a hazard the corpus carries and tabulates itself: TWO CLASS NUMBERINGS that disagree on six of seven symbols.** The 
+      day1/Seven_Mechanism_Classes.md               :67     Existence: explicit construction of C₃, C₄, C₅. Independence: C₃ (archimedean) is not derivable from C₄ ∪ C₅, since the Euler product does not imply t
+      internal/TECHNE_ELEMENTS.md                   :444    The {π, 2, 3, 5} fundamental elements have structural roles in the mechanism architecture: π enters through C₃ (π^{−s/2} in completion); 2 and 3 enter
+      outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:67     Existence: explicit construction of C₃, C₄, C₅. Independence: C₃ (archimedean) is not derivable from C₄ ∪ C₅, since the Euler product does not imply t
+  ### ### **BY SYMBOL (`C4` or `C5`) BESIDE A CHANNEL WORD : 2**
+      OPEN_TRAILS.md                                :4843   **The spectral-realization face IS the corollary’s bright channel, and the disclaimer is NOT the demand from the other side.** Its output stage is, in
+      internal/CATALOGOS.md                         :688    The five independent paths to σ = 1/2 confirm this structurally. Each originates from a different formation stage: Archimedean (C₃, Transformation), M
+
+  ### ### **THE POSITIVE CONTROL -- THE ARCHIMEDEAN CLASS`S ONE KNOWN EXAMINATION MUST
+  ### ### BE FOUND BY THE SAME PREDICATE : 34 hit(s)**
+      OPEN_TRAILS.md                                :4837   **None of the six sites names an interface in the lemma’s sense, and four of them name a split that is an interface some
+      OPEN_TRAILS.md                                :4841   **The repair is thin, and what would thicken it is named — with the right kind of blocker beside it.** Corollary 3.6 giv
+      OPEN_TRAILS.md                                :4857   **And the sweep’s real finding is a hazard the corpus carries and tabulates itself: TWO CLASS NUMBERINGS that disagree o
+      clusters/RH_CASCADE_CLUSTER_SYNTHESIS_2026-05-19.md:120    **COMPLEX_ANALYSIS_BASECAMP_FOR_REVIEW (287 lines, v1.0 April 2026)** — "What the SIDE Programme Reveals About the Archi
+      day1/A_Place_to_Stand.md                      :991    To produce a C₈, an objector must identify: a third algebraic structure on ℤ beyond addition and multiplication (none ex
+      day1/A_Place_to_Stand.md                      :1245   **Independence.** The archimedean structure (Gamma factor, functional equation) and the multiplicative structure (Euler 
+      day1/Seven_Mechanism_Classes.md               :67     Existence: explicit construction of C₃, C₄, C₅. Independence: C₃ (archimedean) is not derivable from C₄ ∪ C₅, since the 
+      internal/CATALOGOS.md                         :481    *The principle has retrospective power. Why did Bombieri-Vinogradov stop at the 3/4 exponent? Dark interface. Why does t
+  ### **A SEARCH THAT CANNOT FIND WHAT IS THERE HAS NOT SEARCHED.**
+
+  ### **AND THE MONOGRAPH`S OWN DEFINITION OF THE GLOBAL CLASS, FOR THE READING:**
+  ### THE GLOBAL CLASS, DEFINED   [A_Place_to_Stand.md, line 886]
+      | | C₄ (Modular/PSL₂) | Transformation | Modular symmetry (PSL₂(ℤ) action) | Modular forms framework |
+  ### AND ITS ONE-LINE FORM   [A_Place_to_Stand.md, line 846]
+      | - C₄ (Modular/PSL₂): Global → PSL₂ symmetry
+  ### AND THE CLASSES DOCUMENT`S FORM   [Seven_Mechanism_Classes.md, line 58]
+      | **Class C₄ (global coherence).** The modular symmetry group PSL₂(ℤ) ≅ ℤ/2 ∗ ℤ/3 encodes how archimedean and multiplicative places fit together.
+  ### AND WHAT THE MONOGRAPH SAYS OF EVERY CLASS`S CONSTRAINT   [A_Place_to_Stand.md, line 430]
+      | **Existence and Uniqueness (from Symmetry).** The constraint function of each mechanism class is antisymmetric about the reflection axis (the functional equation forces this). An antisymmetric continuous function has exactly one zero on the axis. The derivative-level mechanism enumeration (§22.5) examines each class at the derivative level: the per-class reductions compile (C₁ derives), and the joint step — that no class produces a double zero — is the *ge
+      | ometric clause*, carried openly (§24.4), the derivative-level counterpart of the arithmetic clause that excludes off-line zeros. One zero at the symmetry axis; its simplicity is that geometric clause, not a local consequence here.
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SIEVE CEILING LEMMA'S PROOF AT CONTENT, MOVEMENT BY MOVEMENT.
+----------------------------------------------------------------------------------------------------
+  ### THE STATEMENT   [INVARIANCE_BARRIERS.md, line 144]
+      | **Theorem 3.1 (Sieve Ceiling Lemma).** *Let M be a determined structure with specification S, interface I with κ(P, I) = 0 for target parameter P. Let π be a formal first-order proof in ZFC ∪ S. If π factors through I for P, then π does not establish the universal statement (∀x ∈ M: P(x)).*
+  ### MOVEMENT 1 -- LEMMA 3.2   [INVARIANCE_BARRIERS.md, line 158]
+      | **Lemma 3.2.** *If inference step π_j factors through I for P, then for any x, y ∈ |M| with x ~_{I,P} y, the conclusion of π_j holds at x if and only if it holds at y.*
+  ### COROLLARY 3.3   [INVARIANCE_BARRIERS.md, line 162]
+      | **Corollary 3.3.** *If π factors through I for P, then π's conclusion is a statement whose truth value at any x ∈ M depends only on the ~_{I,P}-equivalence class of x.*
+  ### AND WHAT IT MEANS   [INVARIANCE_BARRIERS.md, line 166]
+      | Corollary 3.3 is the content of κ = 0 at the proof-theoretic level: I-factored inference cannot distinguish within I-classes, because the information needed to distinguish does not cross I.
+  ### MOVEMENT 2 -- LEMMA 3.4   [INVARIANCE_BARRIERS.md, line 170]
+      | **Lemma 3.4.** *Let π be a proof that factors through I for P. The strongest statement about P that π can conclude is:*
+  ### ITS STRONGEST CONCLUSION   [INVARIANCE_BARRIERS.md, line 172]
+      | *(a) "For every I-class C, the set { x ∈ C : P(x) } is measurable and has full measure in C," or*
+  ### MOVEMENT 3 -- PROPOSITION 3.5   [INVARIANCE_BARRIERS.md, line 184]
+      | **Proposition 3.5 (Epstein witness).** *There exists a determined system X with interface I, κ(P, I) = 0 for some P, and the statement "P holds on a density-one subset of each I-class of X" is true, while the universal statement "∀x ∈ X: P(x)" is false.*
+  ### AND THE COMPLETION   [INVARIANCE_BARRIERS.md, line 207]
+      | **Completion of Theorem 3.1.** By Movement 1 (Corollary 3.3), π's conclusions depend only on equivalence-class information. By Movement 2 (Lemma 3.4), the strongest such conclusion is density-one-per-class or weaker. By Movement 3 (Proposition 3.5), density-one-per-class does not imply universality — there exist determined systems with a density-one-per-class conclusion holding *and* the universal statement failing. Therefore, π restricted to I-factoring c
+      | annot establish the universal statement (∀x ∈ M: P(x)). ∎
+
+----------------------------------------------------------------------------------------------------
+### (F) ROW `U1` FROM THE COMMITTED BLOB, AND `b408`'S FOUR IMPORTED PREMISES.
+----------------------------------------------------------------------------------------------------
+    row `U1` at HEAD : 19308 bytes ; cell 5 11954 ; cell 7 6854
+      | ### ### **FOUR DISTINCT IMPORTED PREMISES** -- the source`s Definition 3.1, Proposition
+  ### **AND `b408``S CLASSIFICATION, WHICH THIS ACT USES AND DOES NOT RE-DERIVE.**
+
+====================================================================================================
+  ### ### **ANCHOR MISSES : 0** 
+  ### **NOTHING IS WRITTEN TO ANY LEDGER, ROW, KEY OR DOCUMENT BY THIS TOOL.**
+====================================================================================================

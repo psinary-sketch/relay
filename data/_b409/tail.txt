@@ -1,0 +1,53 @@
+]
+
+
+def count_arms(text):
+    return len(set(re.findall(r'\bG-[A-Z0-9-]+', text)) - {'G-NO'})
+
+
+def main(argv):
+    print('=' * 100)
+    print('b409_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+    print('=' * 100)
+    print('  counter source : %s' % os.path.basename(CNT.__file__))
+    if not CNT.self_test():
+        print('  ### REFUSING TO EMIT A SPEC FROM A COUNTER THAT FAILS ITS OWN FIXTURES.')
+        return 2
+    text = io.open(REG, encoding='utf-8').read()
+    n, hits = CNT.count_predictions(text)
+    print()
+    print('  registration : %s' % os.path.basename(REG))
+    print('  bytes/lines  : %d / %d' % (len(text.encode('utf-8')), len(text.splitlines())))
+    print('  ### ARTIFACT-COUNT PREDICTIONS FOUND : %d' % n)
+    for ln, txt in hits:
+        print('      line %-4d  %s' % (ln, txt))
+    measured = dict(ARMS=count_arms(text))
+    print()
+    print('  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS %d'
+          % measured['ARMS'])
+    CLAUSES[:] = [(c, measured.get(cap, cap), measured.get(dem, dem), u, f)
+                  for (c, cap, dem, u, f) in CLAUSES]
+    clauses = [{"clause": c, "cap": cap,
+                "demand": (n if (dem is None and c.startswith('artifact counts')) else
+                           (cap if dem is None else dem)),
+                "units": u, "from": frm}
+               for (c, cap, dem, u, frm) in CLAUSES]
+    spec = {"registration": ("data/b409_registration_2026-09-10.txt -- b409, THE SITES WITHOUT "
+                             "AN EXISTENTIAL, AND WHAT THEIR REPAIR WOULD BE CALLED"),
+            "clauses": clauses}
+    d = (json.dumps(spec, indent=1, ensure_ascii=False) + chr(10)).encode('utf-8')
+    open(SPEC + '.tmp', 'wb').write(d)
+    os.replace(SPEC + '.tmp', SPEC)
+    print()
+    print('  clauses emitted : %d' % len(clauses))
+    nz = [c for c in clauses if c['demand']]
+    print('  ### ### **CLAUSES WITH A NON-ZERO DEMAND : %d**' % len(nz))
+    for c in nz:
+        print('      %-62s demand %-4s cap %s' % (c['clause'][:62], c['demand'], c['cap']))
+    print('  written : %s' % os.path.basename(SPEC))
+    print('=' * 100)
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))
