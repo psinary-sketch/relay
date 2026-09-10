@@ -1,0 +1,21 @@
+====================================================================================================
+b401 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b401_registration_2026-09-10.txt
+  marks found  : 2
+      OPEN                       line 230   ### its result is banked at `data/b401_index_query.txt`. ### **THE CLAUSE IS STILL OPEN, `
+      OPEN                       line 231   ### ### STILL OPEN, AND NEITHER IS CLOSED, DISCHARGED OR MOVED BY THIS LEG.**
+  query result : RECORDED at line 44
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  1 ARM MISSES   0 []
+  arm+repo-state paragraphs 1 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 6c8462a90a96494e000acab7641d0faac21ae48948c6170a392f1c1ffba7bd21  (b401_registration_2026-09-10.txt)
