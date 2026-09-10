@@ -120,10 +120,11 @@ b400_checks.py -- THE GATE SUITE. ### **EVERY ARM TESTS A BAR THIS FACE SET.**
   ### NAMED IS A DEFECT AND THE ARM REPORTS IT RATHER THAN EXCUSING IT.**
 ----------------------------------------------------------------------------------------------------
   G-WRITELIST      every relay data file this act wrote is named on the locked face ### FAIL ###
-      files 34 ; NOT NAMED 7 : ['b400_components.json', 'b400_components_run2.txt', 'b400_desk_notes2.txt', 'b400_desk_notes3.txt', 'b400_desk_notes4.txt', 
-      'b400_desk_notes5.txt', 'b400_lockgate_notes2.txt']
+      files 38 ; NOT NAMED 8 : ['b400_components.json', 'b400_components_run2.txt', 'b400_desk_notes2.txt', 'b400_desk_notes3.txt', 'b400_desk_notes4.txt', 
+      'b400_desk_notes5.txt', 'b400_lockgate_notes2.txt', 'b400_pins_final.txt']
   G-WRITELIST-KIND no file of a KIND the face does not name was written             ### FAIL ###
-      unnamed files 7 ; of an unnamed KIND 1 : ['b400_components.json'] ; the rest are additional numbered runs of kinds the face names
+      unnamed files 8 ; of an unnamed KIND 2 : ['b400_components.json', 'b400_pins_final.txt'] ; the rest are additional numbered runs of kinds the face nam
+      es
 ----------------------------------------------------------------------------------------------------
   ### BAR 11 -- `G-NOINSTRUMENT`, READ OFF STRIPPED CODE AND OFF THE REPOSITORIES.
 ----------------------------------------------------------------------------------------------------
@@ -163,5 +164,5 @@ b400_checks.py -- THE GATE SUITE. ### **EVERY ARM TESTS A BAR THIS FACE SET.**
   ### ### **ARMS : 49. ### PASSING : 47. ### FAILING : 2.**
     ### **FAILING : G-WRITELIST**
     ### **FAILING : G-WRITELIST-KIND**
-  ### run stamp : 2026-09-10T16:03:48Z
+  ### run stamp : 2026-09-10T16:06:12Z
 ====================================================================================================
