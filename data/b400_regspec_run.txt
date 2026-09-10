@@ -1,0 +1,44 @@
+====================================================================================================
+b400_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b400_registration_2026-09-10.txt
+  bytes/lines  : 25725 / 318
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 15
+
+  clauses emitted : 90
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 21**
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 5    cap 5
+      incidents at step zero declared on this face                   demand 1    cap 1
+      pinned sources this act quotes                                 demand 2    cap 2
+      pinned sources VERIFIED against the corpus`s banked digest     demand 2    cap 2
+      source fragments located by page index                         demand 8    cap 8
+      constraints in the set                                         demand 8    cap 8
+      constraints carrying a file and a line                         demand 8    cap 8
+      constraints the record holds at DERIVES                        demand 2    cap 2
+      verdicts on the bridge                                         demand 1    cap 1
+      sentences naming what the obstruction does NOT show            demand 1    cap 1
+      questions typed at the window                                  demand 1    cap 1
+      cautions carried from the window act                           demand 1    cap 1
+      banked cells surveyed                                          demand 13   cap 13
+      lawful cells                                                   demand 3    cap 3
+      membership lists compared cell by cell rather than by a count  demand 13   cap 13
+      ledger files this act appends to                               demand 2    cap 2
+      bars declared                                                  demand 15   cap 15
+      gate arms declared                                             demand 15   cap 15
+      new `relay` tool files                                         demand 6    cap 6
+  written : b400_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : f35d9626ecfbebc59ae01b4185101e5d8261c36746d9f09e93c398f7bf7244ce  (b400_registration_2026-09-10.txt)
