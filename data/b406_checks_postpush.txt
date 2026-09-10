@@ -1,0 +1,132 @@
+====================================================================================================
+b406 -- THE GATE SUITE. ### AFTER THE PUSH.
+### **THE PRE-ACT REFERENCE FOR EVERY LEDGER ARM IS NAMED, NOT ONLY ITS SIDE : `HEAD~1`.**
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+  ### STEP ZERO, RE-READ FROM ITS OWN RECORDS.
+----------------------------------------------------------------------------------------------------
+  G-FERRY                the ferry scan reported 0 hits                             PASS
+  G-CENSUS-ZERO          both step-zero censuses reported TOTAL MISSING 0           PASS
+  G-PINS-ZERO            no repository was ahead of its remote at step zero         PASS
+  G-SEAL                 the locked face verifies against its banked digest at c980 PASS
+  G-LOCKGATE             the lock was chained on 8 gates, 4 checked by digest       PASS
+  G-ANCHORS              the survey left 0 anchor misses                            PASS
+----------------------------------------------------------------------------------------------------
+  ### THE SWEEP: ITS SUBJECT, ITS TWO MATCHERS, AND WHAT IT REFUSED TO TOUCH.
+----------------------------------------------------------------------------------------------------
+  G-SUBJECT              the sweep's subject is the seal's own terminals, not the E PASS
+  G-SUBJECT-CTL          and the wider shape was run and PRINTED rather than assume PASS
+  G-WIDEYIELD            the wide yield is a real number and is printed             PASS
+      wide sweep: 37 candidates, 18 unqualified
+  G-NOWIDEREPAIR         and NOTHING in the wide yield is hand-read or repaired     PASS
+  G-BOTHMATCHERS         both closure predicates are named in the tool and printed  PASS
+  G-QUALTABLE            the scoped sweep printed its table with a per-line classif PASS
+      scoped: 12 candidates, 11 qualified, 1 unqualified
+----------------------------------------------------------------------------------------------------
+  ### THE ONE REPAIR, AGAINST THE PRE-ACT BLOB AT `HEAD~1`.
+----------------------------------------------------------------------------------------------------
+  G-REPAIR-ADDS          undoing the qualifier restores the pre-act live region EXA PASS
+      live region 564913 bytes ; blob 564837 ; delta +76 = qualifier 75 + separator ; equal after undo : True
+  G-REPAIR-ONE           the qualifier was added exactly once in the live region    PASS
+      NEW 1 ; OLD 0
+  G-ORIGINAL-KEPT        and the original is preserved VERBATIM in this act's own b PASS
+      the original appears in the appended block : True
+  G-NOPRESERVEDIT        and the preserved original was NOT itself repaired         PASS
+      the qualifier appears 0 time(s) inside the preserved block
+  G-NOGRADE              no grade word was added or removed anywhere in the file    PASS
+  G-TRAILS-APPEND        and the block itself is append-only against the blob       PASS
+----------------------------------------------------------------------------------------------------
+  ### WHAT WAS NOT TOUCHED. ### **EACH ARM NAMES ITS REFERENCE.**
+----------------------------------------------------------------------------------------------------
+  G-NOROWWRITE           FACES_LEDGER.md is BYTE-IDENTICAL to the blob at HEAD~1    PASS
+      working 114980 bytes ; blob 114980 bytes
+  G-NOCOORD              and no third coordinate was added to row U1                PASS
+  G-NOTOUCH-LV           SIDE-lv-conservation carries 0 TRACKED changes             PASS
+      tracked 0 ; untracked and PRE-EXISTING 0
+  G-NOLEAN               no `.lean` file is modified anywhere on the roster         PASS
+      lean changes none
+  G-NOBUILD              the bank ASSERTS nowhere that a kernel was built           PASS
+      asserting sentences 0 
+  G-NOBUILD-CTL          and the predicate FIRES on synthetic text asserting it     PASS
+  G-NOFERRYEDIT          no banked ferry was written after the face was locked      PASS
+      217 banked ferries ; modified after the lock : none
+  G-NOBANKEDIT           and no prior act's record was written after the lock eithe PASS
+      2629 prior records ; modified after the lock : none
+----------------------------------------------------------------------------------------------------
+  ### THE COMPONENTS, RE-READ FROM THEIR OWN RUN RECORD.
+----------------------------------------------------------------------------------------------------
+  G-TWOSITES             both sites were written out as a quantifier string         PASS
+  G-TRIVIAL              and a trivially satisfiable existential is CALLED triviall PASS
+  G-NAMEQUOTED           component 2 quotes the barrier and the repair at their sou PASS
+  G-TWOPARTS             and scores them apart rather than reporting one as the oth PASS
+  G-NOMINT               the bank ASSERTS no name of its own                        PASS
+      asserting sentences 0
+  G-NOMINT-CTL           and the predicate FIRES on synthetic text minting one      PASS
+  G-PRICEONLY            the third coordinate is priced with a printed count        PASS
+  G-NOTATTEMPTED         addition one stops where it said it would                  PASS
+  G-ARITY                the arity audit covers four standing laws plus the row     PASS
+  G-ARITYRULES           and rules nothing                                          PASS
+  G-EXPECT               every registered expectation is scored                     PASS
+  G-REFUTED              and the act prints its OWN refuted expectations            PASS
+----------------------------------------------------------------------------------------------------
+  ### THE STANDING CLAUSE.
+----------------------------------------------------------------------------------------------------
+  G-STANDING-A2          A2 is present, under AUTHOR-RULED, declaring itself NOT ME PASS
+  G-STANDING-ACTS        and the six incidents are listed by act                    PASS
+  G-STANDING-VERSION     the VERSION line did not move, and the reason is on the fi PASS
+      blob 2 -> working 2
+  G-STANDING-APPEND      and the rest of the file is byte-identical to the blob     PASS
+      blob 10134 -> working 12315 bytes
+  G-STANDING-ROUTED      the sentence the order did not name is ROUTED and not prom PASS
+      author-ruled clauses in the file : 2 ; the unpromoted sentence is named : True
+  G-SCANFIX              and the ferry scan still reports v2 as CURRENT             PASS
+----------------------------------------------------------------------------------------------------
+  ### THE PROMOTED CLAUSE, APPLIED TO THIS SUITE FROM ITS FIRST WRITE.
+----------------------------------------------------------------------------------------------------
+  G-VERDICTLINE          the key resolves, read from the VERDICT LINE and not a sub PASS
+      verdict-line NO KEY : False ; raw substring hits : 1
+  G-VERDICTLINE-CTL      and a must-not-hit query returns NO KEY on its VERDICT LIN PASS
+  G-KEY                  the key carries the act and its findings                   PASS
+  G-ENCODEFIRST          every write in this act`s tools encodes before it opens    PASS
+      checked: extract, components, desk_bank
+----------------------------------------------------------------------------------------------------
+  ### THE LIVING RECORD.
+----------------------------------------------------------------------------------------------------
+  G-CORR                 the correspondence table is a true prefix of itself plus o PASS
+      rows 254 -> 255
+  G-DESK                 the desk was swept and its closures printed                PASS
+----------------------------------------------------------------------------------------------------
+  ### THE STANDING NOTHINGS, RE-MEASURED ON THE BANK.
+----------------------------------------------------------------------------------------------------
+  G-DEPOSIT              the bank ASSERTS no deposit action of any kind             PASS
+      asserting sentences 0
+  G-DEPOSIT-CTL          and the predicate FIRES on synthetic text asserting one    PASS
+  G-NOH2                 and it ASSERTS nothing about `h2` in either direction      PASS
+      asserting sentences 0
+  G-NOH2-CTL             and that predicate FIRES on synthetic text claiming it     PASS
+  G-NOBRIDGE             and it types no bridge                                     PASS
+  G-DEFECTS              and the act prints its own apparatus defects               PASS
+  G-FERRYFIX             the ferry-scan fixtures still hold in both polarities      PASS
+  G-SEALNAME             the bank names the seal it was written under               PASS
+----------------------------------------------------------------------------------------------------
+  ### THE WRITE LIST, BUILT AS KINDS.
+----------------------------------------------------------------------------------------------------
+  G-WRITELIST            every file this act wrote is of a KIND the locked face nam PASS
+      36 written ; of NO named KIND 0 : none
+  G-WRITELIST-PATHS      and the PATH-level residue is printed, not hidden          PASS
+      8 of 36 named by KIND but not by path : ['b406_desk_notes.txt', 'b406_desk_notes2.txt', 'b406_desk_notes3.txt', 'b406_desk_notes4.txt', 'b406_desk_not
+      es5.txt', 'b406_desk_notes6.txt', 'b406_desk_notes7.txt', '_b406/U1_row_at_HEAD.txt']
+  G-WRITELIST-KIND       the list is built as KINDS                                 PASS
+      kinds declared 9 ; used 8
+  G-CAP                  at most 6 new relay tool files                             PASS
+      6 : ['b406_checks.py', 'b406_components.py', 'b406_desk_bank.py', 'b406_extract.py', 'b406_reg_gate.py', 'b406_regspec.py']
+----------------------------------------------------------------------------------------------------
+  ### THE MUST-FAIL FIXTURES.
+----------------------------------------------------------------------------------------------------
+  G-MUSTFAIL             none of the six forbidden whole lines is in the bank       PASS
+      hits none
+  G-MUSTFAIL-CTL         the same predicate FIRES on synthetic text carrying one    PASS
+====================================================================================================
+  ### ### **ARMS : 64. ### PASSING : 64. ### FAILING : 0.**
+  ### run stamp : 2026-09-10T20:58:52Z
+====================================================================================================
