@@ -117,11 +117,25 @@ def fold(s):
 
 def main(argv):
     post = '--post' in argv
-    side = 'HEAD~1' if post else 'HEAD'
+    # ### **THE PRE-ACT REFERENCE IS FOUND BY CONTENT, NOT BY A FIXED ADDRESS.** ### `HEAD` is the
+    # ### pre-act commit until this act commits, and `HEAD~1` after -- so an arm that named a
+    # ### FIXED side would pass before the push and fail after it for a reason that is not a
+    # ### defect. ### The reference is the newest commit whose subject does NOT name this act, and
+    # ### ### **ITS SHA IS PRINTED** ### so the reader never has to infer which one was used.
+    subj = subprocess.run(['git', '-C', PP, 'log', '-1', '--format=%s'],
+                          capture_output=True, text=True, encoding='utf-8',
+                          errors='replace').stdout or ''
+    committed = subj.strip().startswith('b409')
+    side = 'HEAD~1' if committed else 'HEAD'
+    refsha = subprocess.run(['git', '-C', PP, 'rev-parse', '--short', side],
+                            capture_output=True, text=True).stdout.strip()
     bar('=')
-    rec('b409 -- THE GATE SUITE. ### %s THE PUSH.' % ('AFTER' if post else 'BEFORE'))
-    rec('### **THE PRE-ACT REFERENCE FOR EVERY LEDGER ARM IS NAMED, NOT ONLY ITS SIDE : `%s`.**'
-        % side)
+    rec('b409 -- THE GATE SUITE. ### THE %s RUN, TAKEN WITH THE ACT`S COMMIT %s.'
+        % ('POST-PUSH' if post else 'PRE-PUSH',
+           'ALREADY LANDED' if committed else 'NOT YET MADE'))
+    rec('### **THE PRE-ACT REFERENCE FOR EVERY LEDGER ARM IS NAMED, NOT ONLY ITS SIDE : `%s` = '
+        '`%s`**, chosen because the newest commit %s name this act.'
+        % (side, refsha, 'DOES' if committed else 'does NOT'))
     bar('=')
     reg, bank, crun, xrun = text(REG), text(BANK), text(CRUN), text(XRUN)
     ibtxt, trails, faces = text(IB), text(TRAILS), text(FACES)
@@ -345,7 +359,11 @@ def main(argv):
     bar()
     rec('  ### THE STANDING CLAUSES, RE-MEASURED ON THIS ACT.')
     bar()
-    stat = git(PP, 'diff', '--cached', '--numstat').stdout.decode('utf-8', 'replace')
+    # ### **THE REFERENCE MOVES WITH THE PUSH** -- before the commit the change lives in the
+    # ### index, after it lives between `HEAD~1` and `HEAD`. ### An arm that read only the
+    # ### index would PASS pre-push and FAIL post-push for a reason that is not a defect.
+    stat = (git(PP, 'diff', '--numstat', side, 'HEAD') if committed
+            else git(PP, 'diff', '--cached', '--numstat')).stdout.decode('utf-8', 'replace')
     srows = [ln.split('\t') for ln in stat.split(NL) if ln.count('\t') == 2]
     dele = [(c[2], int(c[1])) for c in srows if c[1].isdigit() and int(c[1]) > 0]
     add = sum(int(c[0]) for c in srows if c[0].isdigit())
