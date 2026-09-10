@@ -1,0 +1,45 @@
+====================================================================================================
+b398_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b398_registration_2026-09-10.txt
+  bytes/lines  : 23789 / 293
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 43
+
+  clauses emitted : 79
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 22**
+      pre-lock gates the lock reads                                  demand 8    cap 8
+      gates whose subject is this face                               demand 4    cap 4
+      readings of the order declared in advance on this face         demand 7    cap 7
+      margins unfolded to their base objects                         demand 2    cap 2
+      place-sets stated before any comparison                        demand 2    cap 2
+      halves of the reading tested                                   demand 2    cap 2
+      halves of the reading found BANKED                             demand 2    cap 2
+      misreadings by this seat, corrected before the lock and printe demand 1    cap 1
+      verdicts issued                                                demand 1    cap 1
+      missing statements named and typed                             demand 1    cap 1
+      exceptions carried rather than dropped                         demand 1    cap 1
+      branches of the order that fire                                demand 1    cap 1
+      owed rows still owed after this act                            demand 1    cap 1
+      refusals quoted beside the sharpening                          demand 1    cap 1
+      next statements named                                          demand 1    cap 1
+      rulings recorded                                               demand 1    cap 1
+      work-order rows whose trigger reads `none`                     demand 3    cap 3
+      bars declared                                                  demand 8    cap 8
+      bars with a stated floor                                       demand 8    cap 8
+      must-fail fixtures                                             demand 5    cap 5
+      gate arms declared                                             demand 43   cap 43
+      new `relay` tool files                                         demand 5    cap 5
+  written : b398_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 52708c49f93bf5c3b9d079304f24c173c47e94afbcbd5418158bb3c487c2e3a2  (b398_registration_2026-09-10.txt)
