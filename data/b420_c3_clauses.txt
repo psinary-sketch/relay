@@ -1,0 +1,58 @@
+====================================================================================================
+b420 COMPONENT 3 -- b419`S KERNEL-WRITE CLAUSES, RE-READ AGAINST THE BUILD PROCEDURE.
+====================================================================================================
+  THE PROCEDURE, AS THE KERNEL README WRITES IT :
+      | Core: `lean` at the pinned toolchain compiles each module standalone (sibling imports via
+      | `LEAN_PATH`); `AllPrints.lean` re-runs every print.
+  the kernel`s .gitignore names build/ : True ; *.olean : True
+
+  b419 face line 78 | ###   (ii) ### **`AllPrints.lean` BY APPEND ONLY:** its import after the last existing import, and its
+      the clause : (C)(ii) AllPrints BY APPEND ONLY: its import after the last existing import, its prints at the end
+      ### **NOT MEETABLE AS WRITTEN**
+      why : its headline APPEND ONLY and its own placement disagree: an import after the last import is an
+      insertion, since Lean admits `import` only before the first command. The placement was met; the headline
+      was not.
+      CORRECTED FORM : AllPrints.lean: ONE import line INSERTED after the last import; the prints APPENDED at
+      the end; nothing else.
+  b419 face line 80 | ###   (iii) ### **`AXIOM_PRINTS.txt` REGENERATED** as the stdout of `lean AllPrints.lean`, and ### **THE
+      the clause : (C)(iii) AXIOM_PRINTS regenerated as the stdout of `lean AllPrints.lean`, the blob at HEAD a true byte prefix
+      ### **MEETABLE AS WRITTEN**
+      why : the profile is the driver`s stdout (b314: *lean AllPrints.lean exit 0*); prints appended at the
+      end of the driver extend its output at the end, so the prior profile can be a prefix. Met at b419.
+  b419 face line 170 | ### **BAR 3 -- ON PROVED, THE PRIOR PROFILE IS A TRUE BYTE PREFIX OF THE NEW**, compared against the
+      the clause : BAR 3 -- the prior profile a true byte prefix of the new; AllPrints` prior bytes a true prefix of its new ones
+      ### **NOT MEETABLE AS WRITTEN (its second half)**
+      why : the first half is meetable and was met; the second asks the driver itself to be append-only, which
+      the import rule forbids. The one b419 found and printed.
+      CORRECTED FORM : the PROFILE`s prior bytes a true prefix of the new; for AllPrints, the prior bytes with
+      one import line inserted a true prefix.
+  b419 face line 199 | ### **KIND 3** -- ### **ONLY ON PROVED:** `SIDE-global-section/Core/SmearGeneral.lean`, NEW.
+      the clause : KIND 3 -- a new module under Core/
+      ### **MEETABLE AS WRITTEN**
+      why : each module compiles standalone with sibling imports via LEAN_PATH (the README`s build section).
+      Met at b419.
+  b419 face line 200 | ### **KIND 4** -- ### **ONLY ON PROVED:** `SIDE-global-section/AllPrints.lean`, APPEND ONLY.
+      the clause : KIND 4 -- AllPrints.lean, APPEND ONLY
+      ### **NOT MEETABLE AS WRITTEN**
+      why : the same import rule as (C)(ii): a new module`s import is an insertion, never an append.
+      CORRECTED FORM : AllPrints.lean: one import INSERTED after the last import, prints APPENDED.
+  b419 face line 201 | ### **KIND 5** -- ### **ONLY ON PROVED:** `SIDE-global-section/AXIOM_PRINTS.txt`, REGENERATED, the prior
+      the clause : KIND 5 -- AXIOM_PRINTS regenerated, the prior profile a true byte prefix
+      ### **MEETABLE AS WRITTEN**
+      why : as (C)(iii). Met at b419.
+  b419 face line 203 | ### **KIND 6** -- ### **ONLY ON PROVED:** `SIDE-global-section/Core/FiniteSideSeal.lean`, `b416`'s drafted
+      the clause : KIND 6 -- FiniteSideSeal.lean, b416`s annotation INSERTED and nothing else
+      ### **MEETABLE AS WRITTEN**
+      why : an insertion inside a comment moves no declaration`s statement; measured at b419 by word sequence.
+      Met.
+  b419 face line 205 | ### **KIND 7** -- ### **ONLY ON PROVED:** oleans under `SIDE-global-section/build/`, which the repository
+      the clause : KIND 7 -- oleans under build/, ignored and never committed
+      ### **MEETABLE AS WRITTEN**
+      why : the kernel`s .gitignore names build/ and *.olean. Met.
+
+  clauses re-read : 8 ; NOT MEETABLE AS WRITTEN : 3 ; MEETABLE : 5
+  ### ### **b419 PRINTED ONE OF THE THREE.** ### Its closing named BAR 3; the same wording stood at (C)(ii)`s headline
+  ### and at KIND 4, and b419`s arm measured all three by the procedure`s form, which is why none failed there.
+  ### ### **THE CORRECTED FORMS ARE BANKED HERE FOR LATER FACES; NO STANDING CLAUSE IS ADDED**, and this act`s own
+  ### face (its KIND 5) asks the profile, not the driver, for sameness.
+====================================================================================================

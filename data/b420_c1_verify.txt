@@ -1,0 +1,23 @@
+====================================================================================================
+b420 COMPONENT 1 -- VERIFIED AFTER THE REBUILD.
+====================================================================================================
+  at (UTC) : 2026-09-11T18:42:41Z
+### SinglePrimeFactor.lean.
+  removing exactly the two inserted texts returns the pin`s bytes : True
+  ### ### **EVERY WORD AT THE PIN SURVIVES, IN ORDER, AND THE ONLY WORDS ADDED ARE THE TWO ANNOTATIONS : True**
+  words : pin 1948, now 2039, added 91
+
+### THE PROFILE.
+  pin blob 43597 bytes sha e01892d838ffe96d ; regenerated 43597 bytes sha e01892d838ffe96d
+  ### ### **THE REGENERATED PROFILE IS BYTE-IDENTICAL TO THE PIN`S : True** ### (so no terminal was added or moved)
+
+### THE FILES THAT MUST NOT MOVE, BY GIT`S OWN VIEW AGAINST THE PIN.
+  Core/FiniteSideSeal.lean     unchanged : True
+  Core/SmearGeneral.lean       unchanged : True
+  AllPrints.lean               unchanged : True
+  AXIOM_PRINTS.txt             unchanged : True
+  Classes.lean                 sha d4f931db1d50c01f ; the before-digest d4f931db1d50c01f : True
+  `sorry` as a term in SinglePrimeFactor.lean : 0
+
+### ### **VERIFY FAILURES : 0 []**
+====================================================================================================

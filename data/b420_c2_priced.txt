@@ -1,0 +1,58 @@
+====================================================================================================
+b420 COMPONENT 2 -- WHAT SEPARATES THE MODEL`S ARITHMETIC FROM THE SOURCE`S TRACE, PRICED.
+====================================================================================================
+  WHAT IS COMPILED (the seal) :
+      | WHAT IT DOES NOT CERTIFY. It certifies the arithmetic of the model (the grid `Z/p^(2n)`, the ball
+      | `p^n Z/p^(2n)`, the object's two conditions read as the two congruences) and the COUNTING FORM of
+      | the trace. The identification of that signed count with the source's `Tr(theta(t) Pi)` is b310's
+      | derivation, checked at b310 against b304's `trace_scaled` and b309's reduced sum, and IT IS NOT
+      | COMPILED HERE.
+  THE KERNEL`S CHARACTER (SinglePrimeFactor`s head) :
+      | Lean 4 (v4.29.1, pinned), no Mathlib import, `decide` and `rfl` only; the axiom profile is PRINTED,
+      | never assumed.
+  THE IDENTIFICATION, AS b310 REGISTERED IT :
+      | `Tr(theta(t) Pi) = |t| * ( A_N(t) - (1/q) A_q(t) )`, where** ### ### ### **`A_M(t) = #{ s in Z/N : q
+      | does not divide s, q does not divide (t s mod N), ### ### ### and (t - 1) s = 0 mod M }`.**
+  b310`s route :
+      | the assembly is `SUM_k w_k Tr(theta(p^k) Pi)`, and the frame algebra fixes that each term ### is a
+      | trace in the smallest ambient containing source and target;
+  and the weight :
+      | The factor is the ### HAAR WEIGHT OF ### THE EMBEDDING ### -- `p^{-max(k,0)}` -- because the ambient
+      | REPEATS the object's vectors when ### `k > 0` and SPREADS them when `k < 0`, and those two
+      | embeddings do not carry the same Gram ### factor. ### **THE COUNT
+
+### ### **THE RECORD DRAWS THE STEP IN TWO PARTS, AND EACH IS PRICED BY WHAT ITS STATEMENT MUST MENTION.**
+
+  PART (i) -- ON THE FINITE AMBIENT: *Tr(theta(t) Pi) is a signed count of the off-ball points t fixes*.
+      must mention : functions on the grid Z/p^(2n); the scaling operator s -> t*s; the object`s projection Pi
+                     in finite form; and a trace, as the sum of the diagonal entries over the grid.
+      in the kernel today : the grid, the ball, both congruence counts and the signed count itself
+                     (`offBallFixed`, `signedTrace`, which already clears the 1/q by multiplying through by q).
+      what it lacks : a DEFINITION of the operator on grid functions and of its trace. ### Both are finite
+                     sums over `List.range (gridN p n)` with Int entries, the kind of definition this module
+                     family already writes by hand; nothing in them needs a real number, a limit or a choice.
+      ### ### **PRICE : ONE LEMMA, IN THE KERNEL`S PRESENT CHARACTER -- AFTER NEW DEFINITIONS OF THE FINITE
+      ### ### OPERATOR AND ITS TRACE.** ### Not attempted; no probe compiled.
+
+  PART (ii) -- THE SOURCE`S FRAME CARRIED TO THAT AMBIENT, WITH THE EMBEDDING`S HAAR WEIGHT.
+      must mention : the source`s space at the finite place and its scaling action; a projection on it; the
+                     Haar weight of the embedding (`p^{-max(k,0)}` in b310`s words); and the trace on an
+                     infinite-dimensional space that the frame algebra reduces to the finite one.
+      in the kernel today : none of these. ### The kernel`s character is `Nat`, `Int`, lists and hand-rolled
+                     lemmas; a measure, a completed space of functions and a trace on it are not definable
+                     there without real analysis.
+      ### ### **PRICE : A QUESTION THE KERNEL IN ITS PRESENT CHARACTER CANNOT STATE. ### THE CHEAPEST ROUTE TO
+      ### ### STATING IT IS A MATHLIB IMPORT, WHICH CHANGES THAT CHARACTER** (the library`s analysis carries
+      propext and Quot.sound at the least, per the seal`s axiom finding). ### Whether the pinned Mathlib
+      supplies every object this part mentions is NOT READ BY THIS ACT, ### **SO THE IMPORT IS A FLOOR ON THE
+      ### PRICE, NOT A QUOTE FOR IT.**
+
+### ### **THE DRAFT`S `(N1)`** -- *the identification in Component 2 prices as NOT STATABLE in the axiom-free
+### kernel without a new definition of the trace* -- ### **ITS CLAUSES SCORED APART (R27):**
+      as written, the identification is not statable without a new definition of the trace -- ### **MET**:
+          neither part is statable today, and part (i) needs exactly that definition (and the operator`s).
+      what it implies, that a new definition of the trace would make it statable -- ### **REFUTED AT PART (ii)**:
+          the frame`s carriage needs a measure and an infinite-dimensional space, which no definition in the
+          present character supplies.
+      ### ### **SO THE DRAFT PRICED ONE PART AND NAMED IT THE WHOLE.**
+====================================================================================================

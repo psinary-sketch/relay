@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-lemma-aimed': ['does the sieve ceiling lemma apply to positivity', 'barrier lemma aimed at positivity', 'the lemma aimed', 'r36 route one', 'can the trace identification be stated in the kernel', 'b419 kernel clauses not meetable'],
     'the-clause-printed': ['is the general smear clause proved', 'smear general zero axioms', 'the clause printed', 'the lock versus the scan priced', 'silent timeouts outside the arc', 'which banked verdicts rest on a timeout'],
     'the-ruling-carried': ['why did the search tool miss relay data records', 'what did the author rule on the formation contradiction', 'is the smear identity proved for prime powers', 'walker guard incomplete never a count', 'where is the hygiene tool retired', 'what happened to the keystone sentence about forty three'],
     'the-contradiction-put': ['which half of the formation contradiction is wrong', 'what would each tuple reading move', 'is n2 load bearing for class b and d', 'which core caveats have been tested outside their evidence', 'what did repairing b369 hygiene write', 'safe by being broken'],
@@ -673,6 +674,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LEMMA AIMED (b420).
+    ('the-lemma-aimed', 'b420 (R36 executed; the proof cited; the reach priced; the clauses re-read; the barrier lemma aimed at positivity)',
+     "b420 PUT THE CORPUS'S BARRIER LEMMA TO POSITIVITY. **NOT AN INSTANCE, ON FORM: THEOREM 3.1 QUANTIFIES OVER FORMAL FIRST-ORDER PROOFS, AND THE ARC'S POSITIVITY ARGUMENT IS A TABLE OF GRADED CONSTITUENTS WITH ITS CLASS QUANTIFIER UNOWNED.** Aiming at the right-hand side removed b410's obstacle and not b407's. **THE LEMMA'S REACH AND THE AIM MAP ARE TWO FACTS OF TWO KINDS.** (R36) ROUTE (1): a scan hit is resolved by re-paste; the mismatch is an instrument item. SinglePrimeFactor.lean cites the proof; the step to the source's trace is priced in two parts, PART (ii) not statable in the kernel's present character; 3 of b419's 8 kernel clauses were not meetable as written.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED, NO LEDGER ENTRY. ### NOTHING DEPOSITS',
+     'data/b420_the_lemma_aimed.txt; data/b420_c4_barrier.txt; data/b420_c2_priced.txt; data/b420_c3_clauses.txt; data/b420_c1_record.txt; data/b420_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); CORRESPONDENCE.md row 269'),
     # ### THE CLAUSE PRINTED (b419).
     ('the-clause-printed', 'b419 (the helper fixed and the general clause proved; the lock priced; the silent timeouts censused)',
      "b419 FIXED THE HELPER AND PRINTED THE CLAUSE. **THE GENERAL CLAUSE IS PROVED, ZERO AXIOMS, ON THE FIRST PROBE: FOR EVERY p WITH A SINGLE PRIME FACTOR AND EVERY n, ballQ p n * sumAN p n = sumAQ p n** (Core/SmearGeneral.lean, smear_general and cells_are_instances), **THE PRIOR PROFILE A TRUE BYTE PREFIX OF THE NEW.** The seal's (T1.4) carries b416's annotation; b414's twenty-eight are re-classified, eight qualified by the proof and twenty unreached. **THE LOCK AND THE SCAN ARE PRICED, NOT RESOLVED**; only a face-named in-paste permission needs the instrument lane. **OF 24 SEARCHES THAT REACHED THE TOOL'S LIMIT, TWO CARRIED A BANKED VERDICT, AND BOTH ARE CONFIRMED** by bounded re-runs.",
