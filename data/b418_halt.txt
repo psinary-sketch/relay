@@ -1,0 +1,41 @@
+====================================================================================================
+b418 -- HALTED AT THE LOCK. ### THE REGISTRATION IS WRITTEN, GATED AND NOT SEALED.
+====================================================================================================
+  written : 2026-09-11 (after the resume), before any component and before any corpus write.
+
+  ### WHAT REFUSED
+  tools/b378_lockgate.py b418 : GATES READ 8, PASSING 7, FACE-SUBJECT GATES CHECKED BY DIGEST 4.
+  VERDICT : LOCK REFUSED. The failing gate is the ferry scan (b418_ferry_scan.txt), whose pass
+  phrase is "VERDICT: ### **0 HIT(S) REPORTED." The scan reports 1 hit: a banned stem
+  (banned_terms.py STEMS = ['gap', 'blind']) at ferry line 35, in the author's own ratified text.
+  The other seven gates pass, the four face-subject gates by digest (face sha256 9c72b779...).
+  The lock gate's own fixtures hold in all four polarities (b418_lockgate_notes.txt).
+
+  ### WHY THIS SEAT DOES NOT PROCEED
+  - The ferry scan's own design says a hit is a string, not a fault, and "THE READER RULES";
+    b299, b307 and b348 carried hits and the seat ruled them -- all BEFORE the lock gate existed.
+  - The lock gate (minted b378) encodes zero hits with no reader override, states that the caller
+    chains on its exit code, and has never before met a ferry carrying a hit.
+  - The three routes past it are not this seat's: editing the author's ratified ferry; editing the
+    lock gate (an instrument, with both instrument lanes PARKED, and a softener of a guard); or
+    sealing past a refusing guard (b354's incident; GUARD_WITH_NOTHING_LISTENING.md).
+
+  ### THE STATE LEFT
+  - Registration data/b418_registration_2026-09-11.txt: written, all four pre-lock gates PASS,
+    NOT SEALED. No component run. (N) not probed: 0 probes, the strategy on the unsealed face.
+  - Writes: 0 staged, 0 committed, in relay, PLACE-papers, SIDE-global-section, SIDE-effects.
+    PLACE-papers, SIDE-global-section and SIDE-effects untouched. Relay carries only untracked
+    b418 pre-lock records and the three pre-lock tools (b418_extract.py, b418_reg_gate.py,
+    b418_regspec.py), plus b417's known stat-cache artifact on two prior-act records.
+  - The survey stands (three runs kept, 0 anchor misses on each): the walker's miss is a
+    20.04-second call that returned a silent partial set at the tool's limit; no ignore rule;
+    b413-b416 made no walker call over relay; the arc's population over relay data is one call.
+
+  ### WHAT WOULD LET THE ACT RESUME -- THE AUTHOR'S, EACH ONE LINE
+  (1) Re-paste b418 with ferry line 35's wording changed; the survey stands, the face is re-gated
+      against the new ferry file and locked.
+  (2) A ruling that a ferry-scan hit inside the author's own ratified paste, named on the face, is
+      a string the lock permits -- which needs the lock gate changed, and so an instrument lane
+      opened.
+  (3) A one-act ruling to seal b418 past the ferry-scan gate, the refusal banked on the face.
+====================================================================================================

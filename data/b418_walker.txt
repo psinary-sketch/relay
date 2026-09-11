@@ -1,0 +1,68 @@
+====================================================================================================
+b418 COMPONENT 1 -- THE WALKER.
+====================================================================================================
+  run at (UTC) : 2026-09-11T14:55:47Z
+  ### the guard`s fixtures, both polarities, before it is trusted : PASS
+
+### (1) WHICH CALLS IN THE ARC RAN OVER THE DIRECTORY, AND WHICH HIT THE LIMIT.
+  calls in the arc under relay : 7 ; over relay`s data records : 1
+    fbe6b4b2  2026-09-11T13:23:58.588    0.44 s  numFiles 0     over data False guard : COMPLETE
+    fbe6b4b2  2026-09-11T13:24:02.437    0.09 s  numFiles 0     over data False guard : COMPLETE
+    fbe6b4b2  2026-09-11T13:26:08.931    2.47 s  numFiles 0     over data False guard : COMPLETE
+    fbe6b4b2  2026-09-11T13:28:55.279   20.04 s  numFiles 13    over data True  guard : INCOMPLETE
+    fbe6b4b2  2026-09-11T13:38:45.609    0.10 s  numFiles 0     over data False guard : COMPLETE
+    fbe6b4b2  2026-09-11T13:41:45.053    0.11 s  numFiles 0     over data False guard : COMPLETE
+    fbe6b4b2  2026-09-11T13:42:40.765    0.11 s  numFiles 0     over data False guard : COMPLETE
+  ### ### **CALLS OVER THE DIRECTORY THAT REACHED THE LIMIT : 1**
+
+### (2) HOW MANY ABSENT VERDICTS REST ON A TRUNCATED CALL -- EACH ACT`S OWN RECORDS READ.
+  lines of b417`s records naming the walker : 8
+    b417_closing.txt                         line 93   > **COMPONENT 5** — why `rg` returned no line from relay records that carry one, diagnosed, and whether any banked ABSEN
+    b417_closing.txt                         line 95   > The navigator's expectations: **(N1)** at least one banked ABSENT in the arc was taken by `rg` over relay `data/`; **(
+    b417_desk_notes.txt                      line 63   `rg` over relay data                                                     STANDING
+    b417_extract.txt                         line 83   ### the ledgers excluded by `b416`s carrier rule. ### **SEARCHED BY PYTHON, NOT `rg`.**
+    b417_extract_run1.txt                    line 77   ### the ledgers excluded by `b416`s carrier rule. ### **SEARCHED BY PYTHON, NOT `rg`.**
+    b417_reads_run1.txt                      line 143  rg class extension | Formation = 7 for all Hecke L-functions and connected-center automorphic L-functions | |
+    b417_registration_2026-09-11.txt         line 45   ### ### **AND EVERY SEARCH IN THIS ACT IS BY PYTHON, NOT BY `rg`**, because `rg` returned no line
+    b417_the_contradiction_put.txt           line 47   `rg` over relay data                                                   STANDING
+  ### ### **EVERY ONE IS A STATEMENT ABOUT THE WALKER -- THAT IT RETURNED NO LINE FROM A RECORD
+  ### ### THAT CARRIES FIVE -- AND NOT ONE IS AN ABSENCE ABOUT THE CORPUS.** ### b417`s own face put
+  ### every search of the act on Python after the miss. ### **ABSENT VERDICTS RESTING ON A
+  ### ### TRUNCATED CALL : 0.** ### The verdict below is therefore over an EMPTY SET of banked
+  ### absences, and the truncated call is re-run bounded anyway, as the face declared.
+
+### (3) THE TRUNCATED CALL, RE-RUN BOUNDED SO IT COMPLETES. ### THE SAME WALKER, GLOB CHUNKS.
+    glob b1*        0.25 s  numFiles 0    guard : 0
+    glob b2*        0.15 s  numFiles 4    guard : 4
+    glob b3*        0.56 s  numFiles 18   guard : 18
+    glob b4*        0.20 s  numFiles 35   guard : 35
+    glob audit_*    0.23 s  numFiles 0    guard : 0
+    glob [!b]*      0.23 s  numFiles 0    guard : 0
+  bounded calls : 6 ; every one COMPLETE under the guard : True
+  the original call, through the guard : INCOMPLETE   (it reported 13 files)
+  the bounded re-run, files that existed at the original call : 40
+  a Python walker over the same files, same pattern : 40
+  the bounded re-run and the Python walker agree file for file : True
+  ### ### **THE TRUNCATED CALL`S RESULT : MOVED -- 13 reported, 40 there.** ### No absence rested
+  ### on it, so no banked verdict moves; ### **ABSENT VERDICTS CONFIRMED : 0, MOVED : 0, OVER AN
+  ### ### EMPTY SET.** ### An absence banked by a walker that cannot reach part of a directory
+  ### is a claim about the walker -- and b417 banked exactly that claim, and no other.
+
+### (4) BEYOND THE ARC, REPORTED AND NOT SCORED: EVERY WALKER CALL THAT REACHED THE LIMIT SILENTLY.
+  walker calls in every transcript : 330 ; reached the limit and SAID SO : 10
+  ### ### **REACHED THE LIMIT AND SAID NOTHING : 14**
+    087e64ab  2026-08-24T22:53:42  numFiles 0     D:\MY-Downloads
+    532df874  2026-08-18T04:36:27  numFiles 14    D:\MY-DOwnloads\PLACE-papers
+    532df874  2026-08-19T01:45:22  numFiles 0     b4/Mathlib/NumberTheory/Padics
+    589832be  2026-09-02T23:59:39  numFiles 0     D:\relay
+    85d87edf  2026-08-05T05:39:04  numFiles 0     D:\MY-DOwnloads\PLACE-papers
+    85d87edf  2026-08-05T20:20:12  numFiles 114   D:\MY-DOwnloads\PLACE-papers
+    85d87edf  2026-08-10T03:26:06  numFiles 0     5e76ab41\scratchpad\borger.txt
+    862416d9  2026-08-13T19:49:06  numFiles 0     D:\
+    862416d9  2026-08-13T19:49:54  numFiles 0     D:\MY-DOwnloads\PLACE-papers
+    e02bb824  2026-08-22T19:35:57  numFiles 94    D:\SIDE-kernel
+    e02bb824  2026-08-22T19:35:57  numFiles 21    D:\SIDE-kernel
+    fbe6b4b2  2026-09-11T13:28:55  numFiles 13    D:\relay\data
+    fbe6b4b2  2026-09-11T14:23:57  numFiles 1     relay\data\b416_components.txt
+    fbe6b4b2  2026-09-11T14:23:57  numFiles 29    D:\relay\data
+====================================================================================================
