@@ -1,0 +1,109 @@
+====================================================================================================
+b417_checks.py -- THE GATE SUITE.  ### POST-PUSH RUN.
+====================================================================================================
+
+ARM                                          WHAT IT READS                                          VERDICT
+----------------------------------------------------------------------------------------------------
+  G-RECEIPT-IN-FULL                          the ferry carries its own paste-end marker, part 1 o PASS
+  G-AMENDMENT-BANKED                         the amendment is in the ferry file and on the face a PASS
+  G-SCAN-CLEAN                               the scan VERDICT LINE reports 0 hits                 PASS
+  G-STEPZERO-CENSUS                          both step-zero censuses report TOTAL MISSING : 0     PASS
+  G-STEPZERO-PINS                            the pins tool reports REPOS HARD-FAILING : 0         PASS
+  G-SURVEY-NOMISS                            the survey reports ANCHOR MISSES : 0                 PASS
+  G-SURVEY-RUN1-KEPT                         the first run is kept, with its two misses           PASS
+  G-REG-LOCKED-FIRST                         the seal verifies, and it was taken before the first PASS
+  G-LOCKGATE-EIGHT                           the lock gate read 8 gates, 8 passing, 4 by digest   PASS
+  G-SEAL-VERIFIES                            the registration gate verdict line reads CLEAR       PASS
+  G-RULINGS-RATIFIED-NOT-EXTENDED            the face says both rulings are executed, not extende PASS
+  G-NOLEAN                                   no .lean file is opened for write by any tool of thi PASS
+  G-NOBUILD                                  no working tool names the Lean compiler as a program PASS
+  G-NOTERMINAL                               the act states 0 terminals added, in its bank        PASS
+  G-SEAL-DIGEST-UNCHANGED                    FiniteSideSeal.lean carries the sha256 recorded befo PASS
+  G-NOTUPLE-EDIT                             Classes.lean carries the sha256 recorded before the  PASS
+  G-NOSENTENCE-EDIT                          MATTER_AS_ARITHMETIC equals its blob at the starting PASS
+  G-DEFECT-REPORT-SIDE-BY-SIDE               both halves are printed in their own words           PASS
+  G-OWNER-CARRIES-BOTH                       the citation control found the owner carrying both h PASS
+  G-CITERS-TWO-SHAPES                        both shapes ran and both yields are printed          PASS
+  G-CITERS-RESIDUE-HAND-READ                 every residue document is printed in full and scored PASS
+  G-NO-SEAT-RULING                           no sentence of the bank says the sentence or the tup PASS
+  G-COSTS-PRICED                             what each change would cost is printed               PASS
+  G-OMEGA-FOUR-AGAINST-HEADER                four header figures read, each agreeing with the for PASS
+  G-LOADBEARING-B-D                          n2 = 2 is load-bearing for B and for D               PASS
+  G-R34-MOVES-PRINTED                        every stated figure marked, moves and unmoved both p PASS
+  G-CLASS-A-UNMOVED-BOTH                     class A`s value is named unmoved under both readings PASS
+  G-B369-REPAIRED                            the tool names the single source b386 left           PASS
+  G-SNAPSHOT-BEFORE-LIVE                     the snapshot ran before the live run, by the records PASS
+  G-SNAPSHOT-DIFF-PRINTED                    contained and escaped writes are both printed        PASS
+  G-ESCAPES-RESTORED                         the snapshot left 0 files differing; what bytes cann PASS
+  G-B369-RUNS-AFTER                          no FileNotFoundError in either run                   PASS
+  G-B369-VERDICT-NOT-EDITED                  one code line removed, and its verdict expression in PASS
+  G-PRIOR-RECORDS-RESTORED                   both prior-act records equal their blobs; no run rec PASS
+  G-BACKUPS-BY-RULE                          swept only because every byte was in a store, and no PASS
+  G-ONLY-B369-REPAIRED                       the existing relay tools modified are b369_hygiene.p PASS
+  G-HARNESS-FIXTURES-BOTH-POLARITIES         the harness`s fixtures pass now, both polarities     PASS
+  G-SPECIES-FILED-BESIDE                     the module sits beside the two siblings              PASS
+  G-SPECIES-CARRIES-B416-WHOLE               the retired path, the SameFileError, the prior recor PASS
+  G-SPECIES-LOCAL-NOT-PUSHED                 TECHNE: origin-only 0, local-only 17, no remote bran PASS
+  G-CAVEATS-LISTED                           the unchanged description yields its caveats         PASS
+  G-CAVEAT-CONTROL-HOLDS                     the b413/b414 control found (T1.4) named             PASS
+  G-CAVEATS-MARKED-EACH                      every caveat carries a mark                          PASS
+  G-CAVEAT-READS-PRINTED                     every caveat`s candidate lines printed before the ma PASS
+  G-P-CONTROL-HOLDS                          the Reader scored 15 of 15 by the same predicate     PASS
+  G-P-LIVE-USE-COUNTED                       members still cited and dropped are both counted     PASS
+  G-DESERT-CONTROL-FIRST                     the control is printed before the live count         PASS
+  G-CONSTANCE-OWN-WORDS-REPORTED             CONSTANCE read in its own words, reported in the ban PASS
+  G-R33-ONE-CLAUSE                           the head carries four numbered clauses and one added PASS
+  G-R33-SEVEN-NAMED                          the seven are named in the clause                    PASS
+  G-R33-PREDICTIONS-CITED                    the predictions section is cited as naming two of th PASS
+  G-R33-NOT-EXTENDED                         the clause names no prime beyond the ruling`s seven  PASS
+  G-READER-BODY-BYTE-IDENTICAL               the placed body equals the canonical bytes           PASS
+  G-READER-PRIOR-CLAUSES-PRESERVED           the head at the starting pin is today`s head less th PASS
+  G-READING-A-RECOMPUTED                     reading (a)`s tuples are recomputed                  PASS
+  G-READING-A-COLLAPSE-COUNTED               distinct tuples under reading (a) are counted        PASS
+  G-READING-B-HYPOTHESIS-QUOTED              the weakening is quoted from the hypothesis lines    PASS
+  G-N4-DOCS-CLASSIFIED                       each n4 document is classified by the universality i PASS
+  G-NEITHER-ADOPTED                          neither reading is adopted, in the components and th PASS
+  G-SLOTS-FIFTEEN-SEPARATE                   no sentence of the bank or the closing joins the slo PASS
+  G-PRIOR-DEFECTS-ROUTED                     the four prior defects are routed on the desk        PASS
+  G-REGISTRY-UNTOUCHED                       REGISTRY.md equals its blob at the starting pin      PASS
+  G-ROWS-BY-MARKER                           b416`s row is 265 by its marker; this act`s row is 2 PASS
+  G-NOGRADE                                  no grade string is minted by this act`s bank         PASS
+  G-NOPREMISE                                the bank states 0 premises discharged                PASS
+  G-NODOOR                                   the bank states 0 doors restated                     PASS
+  G-NOROUTE                                  the bank states 0 routes proposed                    PASS
+  G-NOKAPPA                                  no kappa value is measured                           PASS
+  G-NOCHANNEL                                no channel is opened by the act`s working tools      PASS
+  G-NOLEDGERROW                              FACES_LEDGER.md is not written                       PASS
+  G-NOFOLD                                   FINDINGS.md is not written                           PASS
+  G-NORULE                                   STRUCK_CLAUSES is not written                        PASS
+  G-NODEPOSIT                                no deposit action and no Zenodo byte                 PASS
+  G-NOPLATFORM                               no platform call of any kind                         PASS
+  G-NOH2                                     no claim about h2 beyond the standing sentence       PASS
+  G-NOORIENTATION-EDIT                       neither orientation object is written                PASS
+  G-NOLOCKEDFACE                             no locked face is edited: the seal still verifies    PASS
+  G-NOPRIORBANK                              no prior act`s bank is opened for write              PASS
+  G-NOBANKEDFERRY                            no banked ferry is opened for write                  PASS
+  G-NOCONSTANCE-EDIT                         CONSTANCE equals its blob at the starting pin        PASS
+  G-TRAIL-APPEND-ONLY                        the trail block is appended and the prior mark survi PASS
+  G-CORR-APPEND-ONLY                         this act`s row is appended and b416`s survives, both PASS
+  G-WRITELIST-KINDS                          the face names 10 kinds                              PASS
+  G-NOEXTRAKIND                              the act wrote exactly the six relay act-tool files t PASS
+  G-NOSTAGE-A                                no working tool of this act stages by -A             PASS
+  G-NOBORROWEDBAR                            no `G-NO*` arm of this suite reads a RAW document te PASS
+  G-ARMS-DECLARED-EQ-RUN                     declared on the face equals run here, both ways      PASS
+  G-ARMS-OWN-BANK                            arms this act builds run over this act`s own bank    PASS
+  G-ARMS-STRIP-PROSE                         this suite strips comments AND strings, by the token PASS
+  G-ARMS-FOLD-MARKERS                        this suite folds markup before matching banked prose PASS
+  G-ARMS-NO-SUBSTRING-VERDICT                A2: verdicts are read from their own lines           PASS
+  G-NOWRAP-MIDTOKEN                          the report writers wrap at word boundaries, never by PASS
+  G-MUSTFAIL                                 none of the forbidden whole lines is in the bank     PASS
+----------------------------------------------------------------------------------------------------
+
+  declared on the face : 93
+  run here             : 93
+  declared but not run : none
+  run but not declared : none
+  sentences joining the slots and the fifteen -- bank : none ; closing : none
+
+  ### ### **ARMS : 93. ### PASSING : 93. ### FAILING : 0.**
+====================================================================================================
