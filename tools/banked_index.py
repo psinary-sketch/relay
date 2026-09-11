@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-finite-ambient': ['grid trace signed count', 'the finite ambient built', 'is definition 2.1 satisfiable by an infinite structure', 'lowenheim skolem determined', 'when is the next fold', 'the navigator conflations at b420'],
     'the-lemma-aimed': ['does the sieve ceiling lemma apply to positivity', 'barrier lemma aimed at positivity', 'the lemma aimed', 'r36 route one', 'can the trace identification be stated in the kernel', 'b419 kernel clauses not meetable'],
     'the-clause-printed': ['is the general smear clause proved', 'smear general zero axioms', 'the clause printed', 'the lock versus the scan priced', 'silent timeouts outside the arc', 'which banked verdicts rest on a timeout'],
     'the-ruling-carried': ['why did the search tool miss relay data records', 'what did the author rule on the formation contradiction', 'is the smear identity proved for prime powers', 'walker guard incomplete never a count', 'where is the hygiene tool retired', 'what happened to the keystone sentence about forty three'],
@@ -674,6 +675,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FINITE AMBIENT (b421).
+    ('the-finite-ambient', 'b421 (the finite ambient built; the specification priced; the span counted; the conflations entered)',
+     "b421 BUILT THE FINITE AMBIENT. **PROVED, ZERO AXIOMS: THE TRACE OF A GRID OPERATOR DEFINED IN THIS ACT EQUALS THE MODEL'S COUNTING FORM** (GridTrace.grid_trace_is_signed_count), and its docstring says the source's trace is NOT THE SOURCE'S OBJECT here -- the step from the source's space stays b310's. **HYPOTHESIS 1'S SPECIFICATION IS NOT SUPPLIABLE UNDER DEFINITION 2.1 AS WRITTEN**: no infinite structure is the unique model of a first-order theory (upward Lowenheim-Skolem, the seat's citation); the reading is routed. **THE SPAN COUNTS 9 WITH THIS ACT; THE FOLD OF b413-b421 IS NAMED FOR b422, NOT RUN.** The navigator's three b420 conflations are entered with their corrections.",
+     '### ONE MODULE AND ITS TERMINALS ADDED, NO EXISTING TERMINAL MOVED, NO GRADE MOVED. ### NOTHING DEPOSITS',
+     'data/b421_the_finite_ambient.txt; data/b421_c1_probes.txt; data/b421_c2_specification.txt; data/b421_c3_span.txt; data/b421_conflations.txt; data/b421_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); Core/GridTrace.lean; CORRESPONDENCE.md row 270'),
     # ### THE LEMMA AIMED (b420).
     ('the-lemma-aimed', 'b420 (R36 executed; the proof cited; the reach priced; the clauses re-read; the barrier lemma aimed at positivity)',
      "b420 PUT THE CORPUS'S BARRIER LEMMA TO POSITIVITY. **NOT AN INSTANCE, ON FORM: THEOREM 3.1 QUANTIFIES OVER FORMAL FIRST-ORDER PROOFS, AND THE ARC'S POSITIVITY ARGUMENT IS A TABLE OF GRADED CONSTITUENTS WITH ITS CLASS QUANTIFIER UNOWNED.** Aiming at the right-hand side removed b410's obstacle and not b407's. **THE LEMMA'S REACH AND THE AIM MAP ARE TWO FACTS OF TWO KINDS.** (R36) ROUTE (1): a scan hit is resolved by re-paste; the mismatch is an instrument item. SinglePrimeFactor.lean cites the proof; the step to the source's trace is priced in two parts, PART (ii) not statable in the kernel's present character; 3 of b419's 8 kernel clauses were not meetable as written.",

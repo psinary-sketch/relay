@@ -1,0 +1,533 @@
+====================================================================================================
+b421 COMPONENT 1 -- THE FINITE AMBIENT: EVERY PROBE, ITS SOURCE AND ITS PRINTED PROFILE.
+====================================================================================================
+  banked at (UTC) : 2026-09-11T19:20:06Z
+  probe directory (scratch, outside every repository) : C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\fbe6b4b2-25ed-44b7-91cb-756e5456e21d\scratchpad\n421
+  probes compiled : 3 of the sixteen b418`s budget allows ; minutes from the first probe`s start to the last`s end : 8.2 of 150
+  imports in the last probe : ['SmearGeneral']
+  ### `sorry` as a term in the last probe : 0 ; `axiom` declarations : 0
+  ### the terminal`s own line : 'GridTrace.grid_trace_is_signed_count' does not depend on any axioms
+  ### ### **VERDICT, READ FROM THE PROFILE : PROVED** ### (the exit line is printed below and read by nothing)
+
+  ### THE WAY THERE, PROBE BY PROBE:
+      p01 -- the palette: which library lemmas are axiom-free here. `Nat.add_mul`, `Nat.pow_add`,
+             `Nat.sub_add_cancel`, `Nat.mod_eq_of_lt`, `Nat.add_left_cancel` and `Nat.beq_refl` carry propext;
+             the library was written around them.
+      p02 -- the whole library; ONE error, in `beq_self`: Nat`s `==` here is the decide-based `BEq`, not
+             `Nat.beq`, so `Nat.ne_of_beq_eq_false` did not apply; every other declaration elaborated, and the
+             terminals printed `sorryAx` by inheritance only.
+      p03 -- p02 with `beq_self` proved as `decide_eq_true rfl` and nothing else changed: every print clean.
+
+----------------------------------------------------------------------------------------------------
+### p01.lean -- 52 source lines
+----------------------------------------------------------------------------------------------------
+  | -- b421 (Component 1) probe 01: the palette. Which core lemmas are axiom-free in this toolchain.
+  | import SmearGeneral
+  | #print axioms Nat.add_mul
+  | #print axioms Nat.succ_mul
+  | #print axioms Nat.one_mul
+  | #print axioms Nat.mul_one
+  | #print axioms Nat.add_comm
+  | #print axioms Nat.add_assoc
+  | #print axioms Nat.add_zero
+  | #print axioms Nat.zero_add
+  | #print axioms Nat.pow_add
+  | #print axioms Nat.two_mul
+  | #print axioms Nat.mul_comm
+  | #print axioms Nat.lt_or_ge
+  | #print axioms Nat.lt_irrefl
+  | #print axioms Nat.add_lt_add_left
+  | #print axioms Nat.add_sub_cancel
+  | #print axioms Nat.add_sub_cancel_left
+  | #print axioms Nat.sub_add_cancel
+  | #print axioms Nat.lt_of_lt_of_le
+  | #print axioms Nat.le_of_lt
+  | #print axioms Nat.not_le
+  | #print axioms Nat.not_lt
+  | #print axioms Nat.lt_add_of_pos_left
+  | #print axioms Nat.mod_lt
+  | #print axioms Nat.mod_eq_of_lt
+  | #print axioms Nat.le_antisymm
+  | #print axioms Nat.pos_pow_of_pos
+  | #print axioms Nat.lt_add_right
+  | #print axioms Nat.le_add_right
+  | #print axioms Nat.add_lt_add_right
+  | #print axioms Nat.sub_lt_sub_right
+  | #print axioms Nat.lt_of_add_lt_add_left
+  | #print axioms Nat.add_left_cancel
+  | #print axioms Nat.eq_of_beq_eq_true
+  | #print axioms Nat.beq_refl
+  | #print axioms Nat.ne_of_beq_eq_false
+  | #print axioms Nat.beq_eq_true_eq
+  | #print axioms Bool.and_self
+  | #print axioms Nat.mul_lt_mul_of_pos_left
+  | #print axioms Nat.le_trans
+  | #print axioms Nat.lt_trans
+  | #print axioms Nat.succ_le_of_lt
+  | #print axioms Nat.le_of_succ_le_succ
+  | #print axioms Nat.pos_of_ne_zero
+  | #print axioms Nat.mul_pos
+  | #print axioms SmearGeneral.mod_unique
+  | #print axioms SmearGeneral.add_mul_mod'
+  | #print axioms SmearGeneral.mod_mod_of_mul
+  | #print axioms SmearGeneral.length_filter_ind
+  | #print axioms SmearGeneral.sumf_congr
+  | #print axioms SmearGeneral.pow_pos'
+  ### PRINTED:
+  > 'Nat.add_mul' depends on axioms: [propext]
+  > 'Nat.succ_mul' does not depend on any axioms
+  > 'Nat.one_mul' does not depend on any axioms
+  > 'Nat.mul_one' does not depend on any axioms
+  > 'Nat.add_comm' does not depend on any axioms
+  > 'Nat.add_assoc' does not depend on any axioms
+  > 'Nat.add_zero' does not depend on any axioms
+  > 'Nat.zero_add' does not depend on any axioms
+  > 'Nat.pow_add' depends on axioms: [propext]
+  > 'Nat.two_mul' does not depend on any axioms
+  > 'Nat.mul_comm' does not depend on any axioms
+  > 'Nat.lt_or_ge' does not depend on any axioms
+  > 'Nat.lt_irrefl' does not depend on any axioms
+  > 'Nat.add_lt_add_left' does not depend on any axioms
+  > 'Nat.add_sub_cancel' depends on axioms: [propext]
+  > 'Nat.add_sub_cancel_left' depends on axioms: [propext]
+  > 'Nat.sub_add_cancel' depends on axioms: [propext]
+  > 'Nat.lt_of_lt_of_le' does not depend on any axioms
+  > 'Nat.le_of_lt' does not depend on any axioms
+  > 'Nat.not_le' does not depend on any axioms
+  > 'Nat.not_lt' does not depend on any axioms
+  > 'Nat.lt_add_of_pos_left' does not depend on any axioms
+  > 'Nat.mod_lt' does not depend on any axioms
+  > 'Nat.mod_eq_of_lt' depends on axioms: [propext]
+  > 'Nat.le_antisymm' does not depend on any axioms
+  > C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/fbe6b4b2-25ed-44b7-91cb-756e5456e21d/scratchpad/n421/p01.lean:28:14: error(lean.unknownIdentifier): Unknown constant `Nat.pos_pow_of_pos`
+  > 'Nat.lt_add_right' does not depend on any axioms
+  > 'Nat.le_add_right' does not depend on any axioms
+  > 'Nat.add_lt_add_right' does not depend on any axioms
+  > 'Nat.sub_lt_sub_right' depends on axioms: [propext]
+  > 'Nat.lt_of_add_lt_add_left' does not depend on any axioms
+  > 'Nat.add_left_cancel' depends on axioms: [propext]
+  > 'Nat.eq_of_beq_eq_true' does not depend on any axioms
+  > 'Nat.beq_refl' depends on axioms: [propext]
+  > 'Nat.ne_of_beq_eq_false' does not depend on any axioms
+  > 'Nat.beq_eq_true_eq' depends on axioms: [propext, Quot.sound]
+  > 'Bool.and_self' does not depend on any axioms
+  > 'Nat.mul_lt_mul_of_pos_left' does not depend on any axioms
+  > 'Nat.le_trans' does not depend on any axioms
+  > 'Nat.lt_trans' does not depend on any axioms
+  > 'Nat.succ_le_of_lt' does not depend on any axioms
+  > 'Nat.le_of_succ_le_succ' does not depend on any axioms
+  > 'Nat.pos_of_ne_zero' does not depend on any axioms
+  > 'Nat.mul_pos' does not depend on any axioms
+  > 'SmearGeneral.mod_unique' does not depend on any axioms
+  > 'SmearGeneral.add_mul_mod'' does not depend on any axioms
+  > 'SmearGeneral.mod_mod_of_mul' does not depend on any axioms
+  > 'SmearGeneral.length_filter_ind' does not depend on any axioms
+  > 'SmearGeneral.sumf_congr' does not depend on any axioms
+  > 'SmearGeneral.pow_pos'' does not depend on any axioms
+  > EXIT 1
+
+----------------------------------------------------------------------------------------------------
+### p02.lean -- 187 source lines
+----------------------------------------------------------------------------------------------------
+  | -- b421 (Component 1) probe 02: the whole library, first attempt.
+  | import SmearGeneral
+  | 
+  | /-!
+  |   # GridTrace -- the model's counting form, related to a grid trace DEFINED HERE.
+  | 
+  |   THE TWO OBJECTS THIS MODULE RELATES, NAMED IN ITS STATEMENT:
+  |     (1) the model's counting form, `B329.signedTrace p n t` -- b310's signed count,
+  |         multiplied through by `q`, as `FiniteSideSeal` states it; and
+  |     (2) `gridTrace p n t` -- the trace of an operator on functions on the grid
+  |         `Z/p^(2n)` that THIS MODULE DEFINES: `T_t = q A_t - B_t`, where `A_t` has
+  |         kernel `offb s && offb s' && (t s mod N == s')` (the scaling map read
+  |         between off-ball points) and `B_t` has kernel
+  |         `offb s && offb s' && (t s mod N == s' mod q)` (the same map followed by the
+  |         sum over the fibre of reduction modulo `q`). Each trace is the sum of its
+  |         diagonal over the grid; `tr T_t := q tr A_t - tr B_t`, by linearity.
+  | 
+  |   THE SOURCE'S TRACE IS NOT THIS OBJECT. The source's `Tr(theta(t) Pi)` lives on the
+  |   source's space at the finite place; b310 read it as the signed count, and that
+  |   reading is b310's derivation and is NOT compiled here or anywhere in `Core/`.
+  |   What is compiled is that THIS grid operator's trace equals the model's counting
+  |   form. Where the ferry that ordered this module and the source differ, the source
+  |   governs.
+  | 
+  |   Lean 4 (v4.29.1, pinned), no Mathlib import; the axiom profile is PRINTED, never
+  |   assumed.
+  | -/
+  | 
+  | namespace GridTrace
+  | open SmearGeneral
+  | 
+  | /-- "`x` is off the ball": `q` does not divide `x`. -/
+  | def offb (p n x : Nat) : Bool := !(x % B329.ballQ p n == 0)
+  | 
+  | /-- The scaling map on the grid: `s -> t s mod N`. -/
+  | def img (p n t s : Nat) : Nat := (t * s) % B329.gridN p n
+  | 
+  | /-- The kernel of `A_t`. -/
+  | def kerA (p n t s s' : Nat) : Bool := offb p n s && offb p n s' && (img p n t s == s')
+  | 
+  | /-- The kernel of `B_t`. -/
+  | def kerB (p n t s s' : Nat) : Bool :=
+  |   offb p n s && offb p n s' && (img p n t s % B329.ballQ p n == s' % B329.ballQ p n)
+  | 
+  | /-- `tr A_t`: the sum of `A_t`'s diagonal over the grid. -/
+  | def trA (p n t : Nat) : Nat := sumf (fun s => ind (kerA p n t s s)) (List.range (B329.gridN p n))
+  | 
+  | /-- `tr B_t`: the sum of `B_t`'s diagonal over the grid. -/
+  | def trB (p n t : Nat) : Nat := sumf (fun s => ind (kerB p n t s s)) (List.range (B329.gridN p n))
+  | 
+  | /-- `tr T_t = q tr A_t - tr B_t` -- the grid trace THIS MODULE defines. -/
+  | def gridTrace (p n t : Nat) : Int := (B329.ballQ p n * trA p n t : Int) - (trB p n t : Int)
+  | 
+  | theorem beq_self' (u : Nat) : (u == u) = true := by
+  |   cases h : (u == u) with
+  |   | true => rfl
+  |   | false => exact absurd rfl (Nat.ne_of_beq_eq_false h)
+  | 
+  | theorem and_false' (x : Bool) : (x && false) = false := by cases x <;> rfl
+  | 
+  | theorem mul_k_zero {m r k : Nat} (hr : r < m) (h : r = m * k) : k = 0 := by
+  |   cases k with
+  |   | zero => rfl
+  |   | succ k' =>
+  |     have h1 : m ≤ m * (k' + 1) := by
+  |       rw [Nat.mul_succ, Nat.add_comm]
+  |       exact Nat.le_add_right m (m * k')
+  |     rw [← h] at h1
+  |     exact absurd (Nat.lt_of_lt_of_le hr h1) (Nat.lt_irrefl r)
+  | 
+  | theorem mod_self_lt {s m : Nat} (hs : s < m) : s % m = s :=
+  |   mod_unique s m 0 s (Nat.lt_of_le_of_lt (Nat.zero_le s) hs) hs (Nat.zero_add s).symm
+  | 
+  | /-- With `r, u < m`: `(r + u) mod m` returns `u` exactly when `r = 0`. -/
+  | theorem key (r u m : Nat) (hm : 0 < m) (hr : r < m) (hu : u < m) :
+  |     ((r + u) % m == u) = (r == 0) := by
+  |   cases r with
+  |   | zero =>
+  |     have e : (0 + u) % m = u := mod_unique (0 + u) m 0 u hm hu rfl
+  |     rw [e, beq_self' u]
+  |     rfl
+  |   | succ r' =>
+  |     have hne : ((r' + 1 + u) % m == u) = false := by
+  |       apply ne_beq_false
+  |       intro h
+  |       obtain ⟨k, hk, _⟩ := mod_spec (r' + 1 + u) m hm
+  |       rw [h] at hk
+  |       have h2 : r' + 1 = m * k := B329.add_right_cancel' hk
+  |       have h3 := mul_k_zero hr h2
+  |       rw [h3] at h2
+  |       exact Nat.noConfusion (h2.trans (Nat.mul_zero m))
+  |     rw [hne]
+  |     exact (ne_beq_false (fun h => Nat.noConfusion h)).symm
+  | 
+  | theorem swap4 (X Y Z W : Nat) : (X + Y) + (Z + W) = (Y + W) + (X + Z) := by
+  |   rw [Nat.add_assoc, Nat.add_comm Y (Z + W), Nat.add_assoc Z W Y, Nat.add_comm W Y,
+  |     ← Nat.add_assoc X Z (Y + W), Nat.add_comm (X + Z) (Y + W)]
+  | 
+  | /-- `(a + s) mod m` equals `s mod m` exactly when `m` divides `a`. -/
+  | theorem mod_add_iff (a s m : Nat) (hm : 0 < m) : ((a + s) % m == s % m) = (a % m == 0) := by
+  |   obtain ⟨qa, ha, hra⟩ := mod_spec a m hm
+  |   obtain ⟨qs, hs, hrs⟩ := mod_spec s m hm
+  |   have e1 : a + s = (m * qa + a % m) + (m * qs + s % m) := by rw [← ha, ← hs]
+  |   have e : a + s = (a % m + s % m) + m * (qa + qs) := by
+  |     rw [e1, swap4, Nat.mul_add]
+  |   rw [e, add_mul_mod' _ m _ hm]
+  |   exact key (a % m) (s % m) m hm hra hrs
+  | 
+  | theorem tsub_split (t s : Nat) (ht : 1 ≤ t) : t * s = (t - 1) * s + s := by
+  |   calc t * s = ((t - 1) + 1) * s := by rw [sub_add_cancel' ht]
+  |     _ = (t - 1) * s + s := Nat.succ_mul (t - 1) s
+  | 
+  | theorem grid_sq (p n : Nat) : B329.gridN p n = B329.ballQ p n * B329.ballQ p n := by
+  |   unfold B329.gridN B329.ballQ
+  |   rw [Nat.two_mul, B329.pow_add']
+  | 
+  | theorem diagA (p n t s : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) (hs : s < B329.gridN p n) :
+  |     kerA p n t s s = (!(s % B329.ballQ p n == 0) && !((t * s) % B329.gridN p n % B329.ballQ p n == 0)
+  |       && ((t - 1) * s) % B329.gridN p n == 0) := by
+  |   have hN : 0 < B329.gridN p n := pow_pos' p hp (2 * n)
+  |   have e1 : (img p n t s == s) = (((t - 1) * s) % B329.gridN p n == 0) := by
+  |     unfold img
+  |     rw [tsub_split t s ht]
+  |     have h := mod_add_iff ((t - 1) * s) s (B329.gridN p n) hN
+  |     rw [mod_self_lt hs] at h
+  |     exact h
+  |   unfold kerA
+  |   rw [e1]
+  |   cases hf : (((t - 1) * s) % B329.gridN p n == 0) with
+  |   | false => rw [and_false', and_false']
+  |   | true =>
+  |     have hi : img p n t s = s := beq_true_eq (e1.trans hf)
+  |     unfold img at hi
+  |     unfold offb
+  |     rw [hi]
+  | 
+  | theorem diagB (p n t s : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     kerB p n t s s = (!(s % B329.ballQ p n == 0) && !((t * s) % B329.gridN p n % B329.ballQ p n == 0)
+  |       && ((t - 1) * s) % B329.ballQ p n == 0) := by
+  |   have hq : 0 < B329.ballQ p n := pow_pos' p hp n
+  |   have e2 : (img p n t s % B329.ballQ p n == s % B329.ballQ p n) = (((t - 1) * s) % B329.ballQ p n == 0) := by
+  |     unfold img
+  |     rw [grid_sq, mod_mod_of_mul _ _ _ hq hq, tsub_split t s ht]
+  |     exact mod_add_iff ((t - 1) * s) s (B329.ballQ p n) hq
+  |   unfold kerB
+  |   rw [e2]
+  |   cases hf : (((t - 1) * s) % B329.ballQ p n == 0) with
+  |   | false => rw [and_false', and_false']
+  |   | true =>
+  |     have hi : img p n t s % B329.ballQ p n = s % B329.ballQ p n := beq_true_eq (e2.trans hf)
+  |     unfold img at hi
+  |     unfold offb
+  |     rw [hi]
+  | 
+  | theorem trA_eq (p n t : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     trA p n t = B329.offBallFixed p n t (B329.gridN p n) := by
+  |   unfold trA B329.offBallFixed
+  |   rw [length_filter_ind]
+  |   apply sumf_congr
+  |   intro s hs
+  |   exact congrArg ind (diagA p n t s hp ht (lt_of_mem_range hs))
+  | 
+  | theorem trB_eq (p n t : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     trB p n t = B329.offBallFixed p n t (B329.ballQ p n) := by
+  |   unfold trB B329.offBallFixed
+  |   rw [length_filter_ind]
+  |   apply sumf_congr
+  |   intro s _
+  |   exact congrArg ind (diagB p n t s hp ht)
+  | 
+  | /-- THE STATEMENT, ITS TWO OBJECTS NAMED: the grid trace this module defines equals the
+  |     model's counting form `B329.signedTrace`, for every `p ≥ 1`, every `n`, every `t ≥ 1`.
+  |     It says nothing about the source's `Tr(theta(t) Pi)`, which is not this object. -/
+  | theorem grid_trace_is_signed_count (p n t : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     gridTrace p n t = B329.signedTrace p n t := by
+  |   unfold gridTrace B329.signedTrace
+  |   rw [trA_eq p n t hp ht, trB_eq p n t hp ht]
+  | 
+  | end GridTrace
+  | 
+  | #print axioms GridTrace.key
+  | #print axioms GridTrace.mod_add_iff
+  | #print axioms GridTrace.diagA
+  | #print axioms GridTrace.diagB
+  | #print axioms GridTrace.trA_eq
+  | #print axioms GridTrace.trB_eq
+  | #print axioms GridTrace.grid_trace_is_signed_count
+  ### PRINTED:
+  > C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/fbe6b4b2-25ed-44b7-91cb-756e5456e21d/scratchpad/n421/p02.lean:57:54: error: Application type mismatch: The argument
+  >   h
+  > has type
+  >   (u == u) = false
+  > but is expected to have type
+  >   Nat.beq ?m.44 ?m.44 = false
+  > in the application
+  >   Nat.ne_of_beq_eq_false h
+  > 'GridTrace.key' depends on axioms: [sorryAx]
+  > 'GridTrace.mod_add_iff' depends on axioms: [sorryAx]
+  > 'GridTrace.diagA' depends on axioms: [sorryAx]
+  > 'GridTrace.diagB' depends on axioms: [sorryAx]
+  > 'GridTrace.trA_eq' depends on axioms: [sorryAx]
+  > 'GridTrace.trB_eq' depends on axioms: [sorryAx]
+  > 'GridTrace.grid_trace_is_signed_count' depends on axioms: [sorryAx]
+  > EXIT 1
+
+----------------------------------------------------------------------------------------------------
+### p03.lean -- 184 source lines
+----------------------------------------------------------------------------------------------------
+  | -- b421 (Component 1) probe 03: probe 02 with beq_self' proved as decide_eq_true rfl, nothing else changed.
+  | import SmearGeneral
+  | 
+  | /-!
+  |   # GridTrace -- the model's counting form, related to a grid trace DEFINED HERE.
+  | 
+  |   THE TWO OBJECTS THIS MODULE RELATES, NAMED IN ITS STATEMENT:
+  |     (1) the model's counting form, `B329.signedTrace p n t` -- b310's signed count,
+  |         multiplied through by `q`, as `FiniteSideSeal` states it; and
+  |     (2) `gridTrace p n t` -- the trace of an operator on functions on the grid
+  |         `Z/p^(2n)` that THIS MODULE DEFINES: `T_t = q A_t - B_t`, where `A_t` has
+  |         kernel `offb s && offb s' && (t s mod N == s')` (the scaling map read
+  |         between off-ball points) and `B_t` has kernel
+  |         `offb s && offb s' && (t s mod N == s' mod q)` (the same map followed by the
+  |         sum over the fibre of reduction modulo `q`). Each trace is the sum of its
+  |         diagonal over the grid; `tr T_t := q tr A_t - tr B_t`, by linearity.
+  | 
+  |   THE SOURCE'S TRACE IS NOT THIS OBJECT. The source's `Tr(theta(t) Pi)` lives on the
+  |   source's space at the finite place; b310 read it as the signed count, and that
+  |   reading is b310's derivation and is NOT compiled here or anywhere in `Core/`.
+  |   What is compiled is that THIS grid operator's trace equals the model's counting
+  |   form. Where the ferry that ordered this module and the source differ, the source
+  |   governs.
+  | 
+  |   Lean 4 (v4.29.1, pinned), no Mathlib import; the axiom profile is PRINTED, never
+  |   assumed.
+  | -/
+  | 
+  | namespace GridTrace
+  | open SmearGeneral
+  | 
+  | /-- "`x` is off the ball": `q` does not divide `x`. -/
+  | def offb (p n x : Nat) : Bool := !(x % B329.ballQ p n == 0)
+  | 
+  | /-- The scaling map on the grid: `s -> t s mod N`. -/
+  | def img (p n t s : Nat) : Nat := (t * s) % B329.gridN p n
+  | 
+  | /-- The kernel of `A_t`. -/
+  | def kerA (p n t s s' : Nat) : Bool := offb p n s && offb p n s' && (img p n t s == s')
+  | 
+  | /-- The kernel of `B_t`. -/
+  | def kerB (p n t s s' : Nat) : Bool :=
+  |   offb p n s && offb p n s' && (img p n t s % B329.ballQ p n == s' % B329.ballQ p n)
+  | 
+  | /-- `tr A_t`: the sum of `A_t`'s diagonal over the grid. -/
+  | def trA (p n t : Nat) : Nat := sumf (fun s => ind (kerA p n t s s)) (List.range (B329.gridN p n))
+  | 
+  | /-- `tr B_t`: the sum of `B_t`'s diagonal over the grid. -/
+  | def trB (p n t : Nat) : Nat := sumf (fun s => ind (kerB p n t s s)) (List.range (B329.gridN p n))
+  | 
+  | /-- `tr T_t = q tr A_t - tr B_t` -- the grid trace THIS MODULE defines. -/
+  | def gridTrace (p n t : Nat) : Int := (B329.ballQ p n * trA p n t : Int) - (trB p n t : Int)
+  | 
+  | theorem beq_self' (u : Nat) : (u == u) = true := decide_eq_true rfl
+  | 
+  | theorem and_false' (x : Bool) : (x && false) = false := by cases x <;> rfl
+  | 
+  | theorem mul_k_zero {m r k : Nat} (hr : r < m) (h : r = m * k) : k = 0 := by
+  |   cases k with
+  |   | zero => rfl
+  |   | succ k' =>
+  |     have h1 : m ≤ m * (k' + 1) := by
+  |       rw [Nat.mul_succ, Nat.add_comm]
+  |       exact Nat.le_add_right m (m * k')
+  |     rw [← h] at h1
+  |     exact absurd (Nat.lt_of_lt_of_le hr h1) (Nat.lt_irrefl r)
+  | 
+  | theorem mod_self_lt {s m : Nat} (hs : s < m) : s % m = s :=
+  |   mod_unique s m 0 s (Nat.lt_of_le_of_lt (Nat.zero_le s) hs) hs (Nat.zero_add s).symm
+  | 
+  | /-- With `r, u < m`: `(r + u) mod m` returns `u` exactly when `r = 0`. -/
+  | theorem key (r u m : Nat) (hm : 0 < m) (hr : r < m) (hu : u < m) :
+  |     ((r + u) % m == u) = (r == 0) := by
+  |   cases r with
+  |   | zero =>
+  |     have e : (0 + u) % m = u := mod_unique (0 + u) m 0 u hm hu rfl
+  |     rw [e, beq_self' u]
+  |     rfl
+  |   | succ r' =>
+  |     have hne : ((r' + 1 + u) % m == u) = false := by
+  |       apply ne_beq_false
+  |       intro h
+  |       obtain ⟨k, hk, _⟩ := mod_spec (r' + 1 + u) m hm
+  |       rw [h] at hk
+  |       have h2 : r' + 1 = m * k := B329.add_right_cancel' hk
+  |       have h3 := mul_k_zero hr h2
+  |       rw [h3] at h2
+  |       exact Nat.noConfusion (h2.trans (Nat.mul_zero m))
+  |     rw [hne]
+  |     exact (ne_beq_false (fun h => Nat.noConfusion h)).symm
+  | 
+  | theorem swap4 (X Y Z W : Nat) : (X + Y) + (Z + W) = (Y + W) + (X + Z) := by
+  |   rw [Nat.add_assoc, Nat.add_comm Y (Z + W), Nat.add_assoc Z W Y, Nat.add_comm W Y,
+  |     ← Nat.add_assoc X Z (Y + W), Nat.add_comm (X + Z) (Y + W)]
+  | 
+  | /-- `(a + s) mod m` equals `s mod m` exactly when `m` divides `a`. -/
+  | theorem mod_add_iff (a s m : Nat) (hm : 0 < m) : ((a + s) % m == s % m) = (a % m == 0) := by
+  |   obtain ⟨qa, ha, hra⟩ := mod_spec a m hm
+  |   obtain ⟨qs, hs, hrs⟩ := mod_spec s m hm
+  |   have e1 : a + s = (m * qa + a % m) + (m * qs + s % m) := by rw [← ha, ← hs]
+  |   have e : a + s = (a % m + s % m) + m * (qa + qs) := by
+  |     rw [e1, swap4, Nat.mul_add]
+  |   rw [e, add_mul_mod' _ m _ hm]
+  |   exact key (a % m) (s % m) m hm hra hrs
+  | 
+  | theorem tsub_split (t s : Nat) (ht : 1 ≤ t) : t * s = (t - 1) * s + s := by
+  |   calc t * s = ((t - 1) + 1) * s := by rw [sub_add_cancel' ht]
+  |     _ = (t - 1) * s + s := Nat.succ_mul (t - 1) s
+  | 
+  | theorem grid_sq (p n : Nat) : B329.gridN p n = B329.ballQ p n * B329.ballQ p n := by
+  |   unfold B329.gridN B329.ballQ
+  |   rw [Nat.two_mul, B329.pow_add']
+  | 
+  | theorem diagA (p n t s : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) (hs : s < B329.gridN p n) :
+  |     kerA p n t s s = (!(s % B329.ballQ p n == 0) && !((t * s) % B329.gridN p n % B329.ballQ p n == 0)
+  |       && ((t - 1) * s) % B329.gridN p n == 0) := by
+  |   have hN : 0 < B329.gridN p n := pow_pos' p hp (2 * n)
+  |   have e1 : (img p n t s == s) = (((t - 1) * s) % B329.gridN p n == 0) := by
+  |     unfold img
+  |     rw [tsub_split t s ht]
+  |     have h := mod_add_iff ((t - 1) * s) s (B329.gridN p n) hN
+  |     rw [mod_self_lt hs] at h
+  |     exact h
+  |   unfold kerA
+  |   rw [e1]
+  |   cases hf : (((t - 1) * s) % B329.gridN p n == 0) with
+  |   | false => rw [and_false', and_false']
+  |   | true =>
+  |     have hi : img p n t s = s := beq_true_eq (e1.trans hf)
+  |     unfold img at hi
+  |     unfold offb
+  |     rw [hi]
+  | 
+  | theorem diagB (p n t s : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     kerB p n t s s = (!(s % B329.ballQ p n == 0) && !((t * s) % B329.gridN p n % B329.ballQ p n == 0)
+  |       && ((t - 1) * s) % B329.ballQ p n == 0) := by
+  |   have hq : 0 < B329.ballQ p n := pow_pos' p hp n
+  |   have e2 : (img p n t s % B329.ballQ p n == s % B329.ballQ p n) = (((t - 1) * s) % B329.ballQ p n == 0) := by
+  |     unfold img
+  |     rw [grid_sq, mod_mod_of_mul _ _ _ hq hq, tsub_split t s ht]
+  |     exact mod_add_iff ((t - 1) * s) s (B329.ballQ p n) hq
+  |   unfold kerB
+  |   rw [e2]
+  |   cases hf : (((t - 1) * s) % B329.ballQ p n == 0) with
+  |   | false => rw [and_false', and_false']
+  |   | true =>
+  |     have hi : img p n t s % B329.ballQ p n = s % B329.ballQ p n := beq_true_eq (e2.trans hf)
+  |     unfold img at hi
+  |     unfold offb
+  |     rw [hi]
+  | 
+  | theorem trA_eq (p n t : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     trA p n t = B329.offBallFixed p n t (B329.gridN p n) := by
+  |   unfold trA B329.offBallFixed
+  |   rw [length_filter_ind]
+  |   apply sumf_congr
+  |   intro s hs
+  |   exact congrArg ind (diagA p n t s hp ht (lt_of_mem_range hs))
+  | 
+  | theorem trB_eq (p n t : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     trB p n t = B329.offBallFixed p n t (B329.ballQ p n) := by
+  |   unfold trB B329.offBallFixed
+  |   rw [length_filter_ind]
+  |   apply sumf_congr
+  |   intro s _
+  |   exact congrArg ind (diagB p n t s hp ht)
+  | 
+  | /-- THE STATEMENT, ITS TWO OBJECTS NAMED: the grid trace this module defines equals the
+  |     model's counting form `B329.signedTrace`, for every `p ≥ 1`, every `n`, every `t ≥ 1`.
+  |     It says nothing about the source's `Tr(theta(t) Pi)`, which is not this object. -/
+  | theorem grid_trace_is_signed_count (p n t : Nat) (hp : 1 ≤ p) (ht : 1 ≤ t) :
+  |     gridTrace p n t = B329.signedTrace p n t := by
+  |   unfold gridTrace B329.signedTrace
+  |   rw [trA_eq p n t hp ht, trB_eq p n t hp ht]
+  | 
+  | end GridTrace
+  | 
+  | #print axioms GridTrace.key
+  | #print axioms GridTrace.mod_add_iff
+  | #print axioms GridTrace.diagA
+  | #print axioms GridTrace.diagB
+  | #print axioms GridTrace.trA_eq
+  | #print axioms GridTrace.trB_eq
+  | #print axioms GridTrace.grid_trace_is_signed_count
+  ### PRINTED:
+  > 'GridTrace.key' does not depend on any axioms
+  > 'GridTrace.mod_add_iff' does not depend on any axioms
+  > 'GridTrace.diagA' does not depend on any axioms
+  > 'GridTrace.diagB' does not depend on any axioms
+  > 'GridTrace.trA_eq' does not depend on any axioms
+  > 'GridTrace.trB_eq' does not depend on any axioms
+  > 'GridTrace.grid_trace_is_signed_count' does not depend on any axioms
+  > EXIT 0
+====================================================================================================

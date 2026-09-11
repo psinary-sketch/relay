@@ -1,0 +1,170 @@
+====================================================================================================
+b421_extract.py -- THE SURVEY: THE FINITE AMBIENT, THE SPECIFICATION, THE SPAN, AND THE CONFLATIONS.
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+### READ 0 -- THE ORIENTATION: ROW 269 BY ITS MARKER, AND THE TWO RECORDS THE FERRY CITES.
+----------------------------------------------------------------------------------------------------
+  row of b420`s marker : [269]
+  b420 part (i), priced                        b420_c2_priced.txt line 26
+      | PART (i) -- ON THE FINITE AMBIENT: *Tr(theta(t) Pi) is a signed count of the off-ball points t
+      | fixes*. must mention : functions on the grid Z/p^(2n); the scaling operator s -> t*s; the
+      | object`s projection Pi in finite form; and a trace, as the sum of the diagonal entries over the
+      | grid. in the kernel today : the grid, the ball, both congruence counts and the signed count
+      | itself (`offBallFixed`, `signedTrace`, which already clears the 1/q by multiplying through by
+      | q). what it lacks : a DEFINITION of the operator on grid functions and of its trace. ### Both
+      | are finite sums over `List.range (gridN p n)` with Int entries, the kind of definition this
+      | module family already writes by hand; nothing in them needs a real number, a limit or a choice.
+      | ### ### **PRICE : ONE LEMMA, IN THE KERNEL`S PRESENT CHARACTER -- AFTER NEW DEFINITIONS OF THE
+      | FINITE ### ### OPERATOR AND ITS TRACE.**
+  b420 hypothesis 1, as read                   b420_c4_barrier.txt line 38
+      | ### **FOR THE STRUCTURE WHOSE ELEMENTS ARE THE CLASS`S TEST FUNCTIONS, THE RECORD HAS NO
+      | SENTENCE.** ### Definition 2.1 needs a finite specification S with that structure as its unique
+      | model; the keystone`s examples and Proposition 3.5 name `xi`, whose elements are zeros, and no
+      | document writes S for the functional on the class. ### READING: NOT SUPPLIED BY THE RECORD --
+      | the ferry asserts it; the keystone does not. HYPOTHESIS 2 -- THE INTERFACE IS THE PRODUCT
+      | FORMULA, THE PLACES. ### **MET AS THE KEYSTONE READS IT**: Definition 2.3 names the product
+      | formula for `xi`, and §9`s table sorts the explicit formula`s terms by the same places.
+      | HYPOTHESIS 3 -- THE TARGET IS A UNARY FORMULA. ### **MET**: `P(g)` is a property of one test
+      | function. HYPOTHESIS 4 -- EACH INTERFACE IS P-DARK (kappa = 0). Definition 2.4 : | κ = 0
+      | indicates I is *P-dark*, and κ = 1 indi
+----------------------------------------------------------------------------------------------------
+### READ 1 -- COMPONENT 1: WHAT THE KERNEL ALREADY STATES, AND WHAT b310 SAYS THE TRACE COUNTS.
+----------------------------------------------------------------------------------------------------
+  the grid                                     FiniteSideSeal.lean line 131
+      | def gridN (p n : Nat) : Nat := p ^ (2 * n)
+  the ball                                     FiniteSideSeal.lean line 134
+      | def ballQ (p n : Nat) : Nat := p ^ n
+  the fixed off-ball count                     FiniteSideSeal.lean line 136
+      | /-- The off-ball points that multiplication by `t` fixes modulo `m`, counted. B310's definition,
+      | restated. -/ def offBallFixed (p n t m : Nat) : Nat := ((List.range (gridN p n)).filter (fun s
+      | => !(s % ballQ p n == 0) && !((t * s) % gridN p n % ballQ p n == 0) && ((t - 1) * s) % m ==
+      | 0)).length
+  the signed count                             FiniteSideSeal.lean line 153
+      | /-- b310's signed count at a unit, multiplied through by `q`: `q * A_N(u) - A_q(u)`. -/ def
+      | signedTrace (p n u : Nat) : Int := (ballQ p n * offBallFixed p n u (gridN p n) : Int) -
+      | (offBallFixed p n u (ballQ p n) : Int)
+  b310: the unified formula                    b310_registration_2026-09-03.txt line 132
+      | `Tr(theta(t) Pi) = |t| * ( A_N(t) - (1/q) A_q(t) )`, where** ### ### ### **`A_M(t) = #{ s in Z/N
+      | : q does not divide s, q does not divide (t s mod N), ### ### ### and (t - 1) s = 0 mod M }`.**
+  b310: the reading of that formula            b310_the_smear_collapses.txt line 101
+      | ### ### **`Tr(theta(t) Pi)` IS A SIGNED COUNT OF THE OFF-BALL POINTS `t` FIXES, IN THE TWO ###
+      | ### CONGRUENCES THE OBJECT'S TWO CONDITIONS IMPOSE, WEIGHTED BY THE EMBEDDING'S HAAR FACTOR.**
+  the seal: the scope the new lemma inherits   FiniteSideSeal.lean line 99
+      | WHAT IT DOES NOT CERTIFY. It certifies the arithmetic of the model (the grid `Z/p^(2n)`, the
+      | ball `p^n Z/p^(2n)`, the object's two conditions read as the two congruences) and the COUNTING
+      | FORM of the trace. The identification of that signed count with the source's `Tr(theta(t) Pi)`
+      | is b310's derivation, checked at b310 against b304's `trace_scaled` and b309's reduced sum, and
+      | IT IS NOT COMPILED HERE.
+  the kernel`s character                       SinglePrimeFactor.lean line 4
+      | Lean 4 (v4.29.1, pinned), no Mathlib import, `decide` and `rfl` only; the axiom profile is
+      | PRINTED, never assumed.
+  SmearGeneral`s theorems available to import : 84 ; the remainder and filter helpers among them :
+      mod_spec, mod_zero_witness, mod_unique, mul_mod_self', add_mul_mod', filter_cons_t, filter_cons_f, mem_filter_pred, length_one, beq_true_eq, mem_range_of_lt, lt_of_mem_range, mem_filter_of, mod_self', mod_trans, le_of_mod_zero, sumf_nil, sumf_cons, sumf_congr, sumf_zero, sumf_add, length_filter_ind, sumf_swap, length_append', filter_append', range_succ', ne_beq_false, ind_step, filter_congr', filter_filter', mod_mod_of_mul, notDiv_of_mod, mod_of_notDiv, pow_mod_self, mod_r_one, mod_one_not_dvd, filter_len_zero, sumf_mul
+  AllPrints.lean : imports 111, the last 'import SmearGeneral' ; prints 607
+  AXIOM_PRINTS.txt at HEAD : 607 lines
+  b420: the corrected AllPrints form           b420_c3_clauses.txt line 15
+      | CORRECTED FORM : AllPrints.lean: ONE import line INSERTED after the last import; the prints
+      | APPENDED at the end; nothing else.
+----------------------------------------------------------------------------------------------------
+### READ 2 -- COMPONENT 2: WHAT "DETERMINED" MEANS, IN BOTH DOCUMENTS THAT DEFINE IT.
+----------------------------------------------------------------------------------------------------
+  the keystone`s logic                         INVARIANCE_BARRIERS.md line 79
+      | Throughout, we work in classical first-order logic. Let 𝓛 be a first-order language. A
+      | *structure* M over 𝓛 interprets 𝓛's symbols in a domain |M|.
+  the keystone`s Definition 2.1                INVARIANCE_BARRIERS.md line 81
+      | **Definition 2.1 (Determined system).** A structure M is *determined* by specification S if S is
+      | a finite set of 𝓛-sentences that has M as its unique model up to isomorphism.
+  the keystone`s scope line on its proof       INVARIANCE_BARRIERS.md line 69
+      | The proof uses standard first-order logic and basic model theory; no specialized tools from
+      | analytic number theory are required.
+  the keystone names Lowenheim-Skolem, categoricity or second-order semantics : False
+  the monograph`s formal definition            A_Place_to_Stand.md line 572
+      | **Formal:** System X is determined by specification S if (i) S is finite and explicit, (ii) S
+      | contains no free parameters, (iii) all properties of X are logical consequences of S.
+  the monograph`s specification of xi          A_Place_to_Stand.md line 574
+      | For ξ(s): the specification is θ(τ) = Σ exp(πin²τ), followed by ξ(s) = Mellin transform of (θ −
+      | 1)/2 with explicit gamma factors. The formula contains no adjustable parameters. No human
+      | choices enter.
+  the monograph`s one-line claim               A_Place_to_Stand.md line 76
+      | **(1)** The completed zeta function ξ(s) is determined by the specification n² → θ → ξ. No free
+      | parameters.
+  the class the structure would have to carry  b400_components_run2.txt line 186
+      | ### **PROPOSITION C.1 CARRIES NONE** (page index `51`): *"...a finite set disjoint from Z and
+      | containing {0,1}, then RH <=> SUM_v W_v(g*g^#) <= 0 for all g in C_c^inf(R*_+) with g-tilde(z) =
+      | 0 for all z in F."*
+  b407: hypothesis 1 as b407 read it           b407_the_barriers_own_instance.txt line 14
+      | ### Four of Theorem 3.1’s five hypotheses are ### **MET AT THE CORPUS’S OWN ### ### OBJECT, IN
+      | THE DOCUMENT’S OWN WORDS**: ### `xi` is determined; the interface is ### the product formula;
+      | the target parameter is the clause’s own; and ### **`kappa = 0` ### ### IS ASSERTED BY THE
+      | RECORD ITSELF** -- *"For ξ, I is essential and ### κ(σ, I) = 0."*
+  documents in PLACE-papers (live) naming a specification near the test functions or the class : 1
+      OPEN_TRAILS.md
+----------------------------------------------------------------------------------------------------
+### READ 3 -- COMPONENT 3: THE SPAN, COUNTED BY THE TOOL IN ITS READ MODE (IT WRITES NOTHING).
+----------------------------------------------------------------------------------------------------
+  b363_span.py exit : 0
+      | b363 -- THE FOLD'S OWN THRESHOLD, COUNTED. ### **NOTHING HERE IS TYPED AND NOTHING IS DECIDED.**
+      |   ### (1) EVERY FOLD THE RECORD HAS ACTUALLY RUN, WITH ITS OWN SPAN.
+      |     b266  - b281   16 acts   THE M-2 CAMPAIGN
+      |     b283  - b296   14 acts   THE M-2 CAMPAIGN
+      |     b297  - b306   10 acts   THE ADELIC ARC
+      |     b307  - b313    7 acts   THE INSTRUMENT ARC
+      |     b314  - b322    9 acts   THE ARCHIMEDEAN INSTRUMENT ARC
+      |     b323  - b330    8 acts   THE DISCRIMINATING-FAMILY ARC
+      |     b331  - b334    4 acts   THE STATED-CLAUSE ARC
+      |     b339  - b347    9 acts   THE PRICED-AND-RESOLVED ARC
+      |     b349  - b359   11 acts   THE UNIFORMITY ARC
+      |     b361  - b369    9 acts   THE APPARATUS ARC
+      |     b371  - b383   13 acts   THE RE-DERIVATION ARC
+      |     b385  - b401   17 acts   THE ARTEFACT ARC
+      |     b403  - b411    9 acts   THE CLASSIFICATION ARC
+      |   ### ### **FOLDS RUN : 13. ### SHORTEST : 4 ACTS. ### LONGEST : 17 ACTS. ### MIDDLE : 9.**
+      |   ### **AND THE DECLARED THRESHOLD IS NINE** -- `(R1)`, the author`s ruling at `b366`:
+      |   ### *THE FOLD THRESHOLD IS NINE ACTS.* ### **THE SPANS ABOVE ARE THE FOLDS THAT HAPPENED;
+      |   ### ### THE THRESHOLD IS THE RULE, AND THEY ARE DIFFERENT THINGS.** ### This tool prints both
+      |   ### (2) THE CURRENT SPAN, COUNTED FROM THE LAST FOLD FORWARD.
+      |     the last fold covers      : b403 - b411 (9 acts)
+      |     so the next span STARTS AT: b413
+      |     ### ### **THE CURRENT SPAN : 9 ACT(S).**
+      |     ### the current span has reached the shortest fold the record has run : True
+      |     ### ### **AND THAT IS NOT A DECISION.** ### Whether a span is ready to fold is a judgement
+      |     ### about what the acts in it say, and no count settles it. ### **THIS TOOL SUPPLIES THE
+      |     ### ### NUMBER SO THAT THE NEXT ACT DOES NOT HAVE TO TYPE ONE.**
+      |   ### under your own act`s stem. ### **NO CALLER WRITES UNDER ANOTHER ACT`S STEM.**
+  (R1), the threshold                          b366_extract_notes.txt line 20
+      | (R1) THE FOLD THRESHOLD is NINE acts. Until a span reaches it, ### ### **NO ANCHOR** : (R1) --
+      | and the spans stay beside it NO LINE MATCHES: 'observed spans stay on the record beside the
+      | number.' in D:\relay\data\b366_ferry_2026-09-07.txt [RULIN
+----------------------------------------------------------------------------------------------------
+### READ 4 -- THE CLOSING`S ADDED LINE: THE THREE b420 CONFLATIONS, AND THE CORRECTIONS b420 PRINTED.
+----------------------------------------------------------------------------------------------------
+  (1) the navigator`s words for the theorem    b420_ferry.txt line 37
+      | the general clause proved at b419, which returns the function at the identity times a dimension
+      | and carries nothing about its sign;
+      the seat`s correction                    b420_c4_barrier.txt line 66
+      | ### **b419`S TERMINAL DOES NOT MENTION A TEST FUNCTION, THE IDENTITY, A DIMENSION OR A SIGN.**
+      | It states the compact part`s smear identity for the model`s counting form. *The weight at the
+      | identity times a dimension* is b310`s `T(w) = w_0 (p^n - 1)^2`, DERIVED-ON-CONTENT, and its
+      | identification with the source`s trace is the uncompiled step Component 2 prices.
+  (2) the compressed trace against the place`s term b420_c4_barrier.txt line 69
+      | ### **AND THE FINITE PLACE`S TERM IN THE FUNCTIONAL IS NOT THE COMPRESSED TRACE AT ALL**: b310
+      | itself says the arithmetic is in the distribution `W_p`, which reads the test function at the
+      | prime`s powers.
+      the source b420 quoted for it            b310_the_smear_collapses.txt line 118
+      | The arithmetic is in the distribution, not in ### the compressed trace, and the corpus already
+      | holds that distribution as its prime sum.
+  (3) the navigator`s words for the map        b420_ferry.txt line 53
+      | the aim map measured — every aim inside the margin, no crossing at any height.
+      the map`s own scope sentence             b334_the_aim_map.txt line 141
+      | ### IT SAYS that for zeta the prime sum is inside the margin at every aim reached -- ### **A
+      | PASSED TEST ### OVER A GRID AT THIS REACH AND NOTHING MORE.**
+      the seat`s correction                    b420_c4_barrier.txt line 149
+      | ### **THE WORDING DIFFERS, AND THE SOURCE GOVERNS:** the map says *at every aim AT THIS REACH*
+      | and *nothing more* -- fourteen heights by seven abscissae and 28 lawful seeds per leg -- where
+      | the paraphrase says *at any height*.
+----------------------------------------------------------------------------------------------------
+### THE SURVEY`S OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  READS TAKEN            : 28
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================
