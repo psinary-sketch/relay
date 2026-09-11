@@ -1,0 +1,245 @@
+====================================================================================================
+b415_extract.py -- THE SURVEY FOR LEG 2: THE SUBSTRATE AT GRADE, THE TUPLES, THE SCREEN.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### READ 1 -- THE SUBSTRATE KEYSTONE AT CONTENT. ### THE THREE SELECTION PRINCIPLES.
+----------------------------------------------------------------------------------------------------
+  the object, as the keystone states it    line 9
+      The substrate is the pair of the two smallest primes, **{2,3}** — not chosen, but singled out
+      as *the minimal complete coprime pair*, the same object seen three ways: - **Smoothness /
+      Frobenius.** {2,3} is the unique coprime pair {p,q} whose Frobenius number vanishes to one:
+      g(p,q) = pq − p − q = 1. Kernel: `FrobeniusCalibration.g_two_three` (axiom-free). -
+      **Bernoulli / von Staudt–Clausen.** The primes p with (p−1) | 2 are exactly {2,3}; their
+      product is 6 = denom(B₂). Kernel: `FrobeniusCalibration.psl_eq_denom_B2` (`pslAb = 6`,
+      axiom-free). - **Modular torsion.** The modular group is the free product PSL₂(ℤ) ≅ ℤ/2 ∗ ℤ/3
+      (Serre 1977); its torsion orders {2,3} are the elliptic-point orders — the corner angles of
+      the fundamental domain at i and ρ. Kernel: `FrobeniusCalibration.S_squared_eq_negI` (S² = −I,
+      the order-2 generator; axiom-free). These are not three facts but one: `|PSL₂(ℤ)^ab| = 6 = ℤ/2
+      × ℤ/3 = denom(B₂)` proves the von Staudt–Clausen {2,3} and the modular {2,3} are the same
+      object. **Three independent selection principles — arithmetic (Frobenius), group-theoretic
+      (modular torsion), Diophantine (Størmer finiteness) — converge on the same generating set {−1,
+      2, 3}.** Convergence through disjoint channels is the object's certificate.
+
+  ### ### **THE KEYSTONE NAMES THREE SELECTION PRINCIPLES AND CALLS THEIR CONVERGENCE THE
+  ### ### CERTIFICATE**, and each carries a NAMED KERNEL TERMINAL:
+      arithmetic (Frobenius)             FrobeniusCalibration.g_two_three               NAMED
+      Bernoulli / von Staudt-Clausen     FrobeniusCalibration.psl_eq_denom_B2           NAMED
+      modular torsion                    FrobeniusCalibration.S_squared_eq_negI         NAMED
+  occurrences of `axiom-free` in the keystone : 13
+
+----------------------------------------------------------------------------------------------------
+### READ 2 -- THE Q-NON-EXTENSION, AND WHETHER IT IS COMPILED.
+----------------------------------------------------------------------------------------------------
+  the specialness, at theorem grade        line 47
+      The substrate is ℚ-distinguished, and the boundary of that distinction is proven, two-sided: -
+      **The count lifts.** The formation total 7 holds for the Dedekind zeta of *every* number field
+      K (FORMATION_UNIVERSALITY) — every ζ_K sits on the same arithmetic substrate. This is the
+      legitimate universality. - **The substrate does not.** The identity-subspace dimension is d(K)
+      = 2^(r₁+r₂+2) − 1, *exact, not generic*: d(K) = 7 for ℚ and every imaginary quadratic field
+      (the (ℤ/2)³ substrate), but **d(K) = 15 = 2⁴−1 at the first real quadratic field** — the
+      fundamental unit adds a generator and the substrate becomes (ℤ/2)⁴. The (ℤ/2)³/mod-24
+      structure is confined to ℚ + imaginary quadratics. - **No element-level lift exists.**
+      *Functorial-limit theorem:* there is no canonical natural map from the seven Trivium
+      discriminants to the seven mechanism classes at the element level — three natural partitions
+      (conductor {1,3,3}, weight {3,3,1}, stage {2,3,2}) conflict on at least one element; kernel
+      `element_obstruction` (`597b0869`, axiom-free). The count-level bijection is real
+      (`trivium_theorem`); the element-level bijection is convention, not canonical. - **The
+      calculus is substrate-scoped.** The formation-tuple procedure yields a tuple only on an
+      arithmetic substrate; systems forced axiomatically (Shannon) or continuously (Maxwell) carry
+      no tuple — the three-tier breadth. The (2,3,2,0) parsing is this substrate's, never a
+      universal constant.
+
+  kernel identifiers named inside the specialness section : FrobeniusCalibration.S_squared_eq_negI, FrobeniusCalibration.g_two_three, FrobeniusCalibration.psl_eq_denom_B2, SIDEKernel.formation, crt_decomposition, element_obstruction, psl_eq_denom_B2
+  `element_obstruction` named                         : True
+  the d(K) = 2^(r1+r2+2) - 1 formula carries a kernel name : False
+
+  ### ### **THE TEST THE FERRY ASKS FOR IS WHETHER THE NON-EXTENSION IS COMPILED, NOT
+  ### ### WHETHER IT IS CLAIMED.** ### The section heading says *at theorem grade*; the
+  ### question is whether a KERNEL TERMINAL carries the statement, and the answer is read
+  ### from the document`s own naming rather than from the heading.
+
+----------------------------------------------------------------------------------------------------
+### READ 3 -- *NO OTHER PAIR SATISFIES ALL THREE*: THEOREM, ARGUMENT, OR ASSERTION?
+----------------------------------------------------------------------------------------------------
+  sentences found, live documents only (archive and outputs excluded) : ### **4**
+      phase1.5\deep-structure\CONSTANCE.md
+          But {2, 3} is also unique spectrally — it has specific advantages in the analytical theory
+          of primes that no other pair shares.
+      phase2\physics\PRIME_ORDER.md
+          Among all coprime pairs of integers at least two, only the pair {2,3} leaves a single number
+          unreachable by their non-negative combinations — the unit, one.
+      phase2\physics\PRIME_ORDER.md
+          Any other pair leaves more behind.
+      phase2\physics\PRIME_ORDER.md
+          Two and three are not the generators because they were chosen; they are the generators
+          because no other pair is as complete.
+
+----------------------------------------------------------------------------------------------------
+### READ 4 -- THE FOUR TUPLES, FROM THE KERNEL`S OWN DECLARATIONS.
+----------------------------------------------------------------------------------------------------
+  source : SIDE-formation-arithmetic/SIDEFormationArithmetic/Classes.lean
+  tuple definitions found : ### **4**
+      classA   = (2, 3, 2, 0)   ### **A LITERAL `def`, NOT A THEOREM**
+      classB   = (3, 2, 2, 0)   ### **A LITERAL `def`, NOT A THEOREM**
+      classC   = (3, 3, 2, 0)   ### **A LITERAL `def`, NOT A THEOREM**
+      classD   = (2, 2, 2, 0)   ### **A LITERAL `def`, NOT A THEOREM**
+
+  `OstrowskiBridge.formation_n2`        (n2 = 3 derived) : True
+  `CartanBBridge.formation_n_3_eq_two`  (n3 = 2 derived) : True
+  any bridge theorem deriving n1                        : False
+  any bridge theorem deriving n4                        : False
+
+  ### ### **THE FOUR-BY-FOUR TABLE, FROM THE DECLARATIONS AND NOT FROM A SUMMARY.**
+  class    n1             n2             n3             n4             derived
+  classA   stipulated     DERIVED        DERIVED        stipulated     2 of 4
+  classB   stipulated     stipulated     stipulated     stipulated     0 of 4
+  classC   stipulated     stipulated     stipulated     stipulated     0 of 4
+  classD   stipulated     stipulated     stipulated     stipulated     0 of 4
+
+  ### ### **B, C AND D CARRY `0` DERIVED COMPONENTS BETWEEN THEM.**
+  ### ### **AND CLASS A ITSELF CARRIES ONLY `2` OF FOUR** -- which the ferry did not ask
+  ### and which no sentence of the record states in that form.
+
+----------------------------------------------------------------------------------------------------
+### READ 5 -- THE ANCHOR READ OF 2026-06-15, QUOTED FROM THE LOOM ARCHIVE.
+----------------------------------------------------------------------------------------------------
+  the component-certs item                 line 781
+      (a) COMPONENT CERTS -- tuples are stipulated defs; wire classA (2,3,2,0) to the SIDE-kernel
+      component bridges (OstrowskiBridge n2=3, CartanBBridge n3=2) and CLOSE the CartanBBridge
+      CousinI := True "no third output class" stub (real Mittag-Leffler/Stein). For B/C/D the
+      components are NOT derived -- pending source-paper clarification of which components vary.
+
+  the menu-completeness item               line 788
+      (c) MENU-COMPLETENESS -- four classes defined and shown distinct, but EXACTLY-four is
+      unproven. Prove {A,B,C,D} exhaustive FROM COMPONENTS, not decide-over-a-list (Phase-1 gate
+      target, L895). Distinct from the 7-point (Z/2)^3 substrate exhaustiveness already proven in
+      SIDE-substrate-cluster -- do not conflate.
+
+----------------------------------------------------------------------------------------------------
+### READ 6 -- THE FORCED-VERSUS-PERMITTED SCREEN, AS THE CORPUS RAN IT ON ITS OWN RATIO.
+----------------------------------------------------------------------------------------------------
+  the structural-fraction verdict          line 21
+      The claim: classifying 375 physical theories across 15 domains by Independence, Determination,
+      and Symmetry, the mean structural-alignment score of theories satisfying all three converges
+      to **alpha_T = 0.918 +/- 0.018 (CV 2.0%)** — interpreted as the *structural fraction*, the
+      proportion of a determined theory's content derivable from classification alone, before
+      computation, with the remaining ~8% an instantiation boundary requiring calculation. Epistemic
+      register, stated accurately: this is a **falsifiable empirical regularity with a
+      structurally-motivated predictive formula**, in a healthy open-research state. The measured
+      alpha_T = 0.918 comes from an author-applied I/D/S scoring of a 14-theory I-and-D-and-S
+      sample; THE_STRUCTURAL_FRACTION supplies a forward-directional prediction (alpha -> alpha_T =
+      0.9118) whose components are identified rather than fitted (see §2). The cluster names its own
+      two open questions — independent reproduction of the scoring, and a pure-mathematical
+      derivation of the 11/12 ceiling — and makes falsifiable predictions on both. Those are the
+      work to do, not liabilities; "universal" should be stated as the cluster's *claim under test*,
+      with the two open questions attached, rather than either inherited as settled or dismissed.
+
+  `STRUCTURAL_FRACTION.md` lines : 208
+  the cluster names its own open question about the ceiling : False
+  the cluster says the components are identified rather than fitted : True
+
+  ### ### **SO THE SCREEN, AS THE CORPUS APPLIED IT TO ITSELF, HAS A SHAPE:** ### a
+  ### closed form whose components are ### **IDENTIFIED RATHER THAN FITTED** ### is not
+  ### thereby FORCED -- the cluster keeps *a pure-mathematical derivation of the 11/12
+  ### ceiling* on its own open list. ### **THE CORPUS DID NOT GRADE ITS OWN RATIO FORCED,
+  ### ### AND THAT IS THE STANDARD THE SIBLING`S TWO RATIOS ARE PUT AGAINST.**
+
+----------------------------------------------------------------------------------------------------
+### READ 7 -- THE PROGRAMMES, ENUMERATED FROM THE DRIVE`S OWN STATE DOCUMENTS.
+----------------------------------------------------------------------------------------------------
+  top-level directories considered : 56
+      GBG, HERITAGE, MY-DOCUMENTS, MY-DOwnloads, PLACE-phase1.5, PLACE-phase2, PLANCK-DATA, SIDE-archimedean, SIDE-bijection, SIDE-bsd-formation-transfer, SIDE-bsd-multiplicity, SIDE-carrier-spec, SIDE-class-coupling, SIDE-class-number-anomaly, SIDE-compression, SIDE-constants, SIDE-cosmo, SIDE-coupling, SIDE-cubit-axis, SIDE-dark-interface, SIDE-dirichlet-mod-24, SIDE-effects, SIDE-fano-darkness, SIDE-formation-arithmetic, SIDE-formation-procedure, SIDE-frobenius, SIDE-global-section, SIDE-grh-transfer, SIDE-interfaces, SIDE-kernel, SIDE-li-map, SIDE-local-cosmic-interface, SIDE-lv-conservation, SIDE-meta, SIDE-omega-b, SIDE-orchestrator, SIDE-quaternionic-dark-sector, SIDE-rcurve, SIDE-residual-bridge, SIDE-silence-principle, SIDE-simplicity, SIDE-spinor, SIDE-spinor-calibration, SIDE-spinor-calibration-mathlib, SIDE-structural-error-correction, SIDE-substrate-cluster, SIDE-t7-topology-cmb, SIDE-trivium, SIDE-window, SIDE-yang-mills-formation, WOW_Data, bead-upload, glassbead-app, mathlib4-e960b84-tmp, place-to-stand, relay
+
+  ### ### **A DIRECTORY IS NOT A PROGRAMME.** ### A programme is named here only if the
+  ### drive holds a document that states its OWN state -- a README, a state file or a
+  ### canonical index. ### The test is applied to each and the yield printed.
+      GBG                                ### NO STATE DOCUMENT AT TOP LEVEL
+      HERITAGE                           ### NO STATE DOCUMENT AT TOP LEVEL
+      MY-DOCUMENTS                       ### NO STATE DOCUMENT AT TOP LEVEL
+      MY-DOwnloads                       README.md
+      PLACE-phase1.5                     README.md
+      PLACE-phase2                       README.md
+      PLANCK-DATA                        ### NO STATE DOCUMENT AT TOP LEVEL
+      SIDE-archimedean                   README.md
+      SIDE-bijection                     README.md
+      SIDE-bsd-formation-transfer        README.md
+      SIDE-bsd-multiplicity              README.md
+      SIDE-carrier-spec                  README.md
+      SIDE-class-coupling                README.md
+      SIDE-class-number-anomaly          README.md
+      SIDE-compression                   README.md
+      SIDE-constants                     README.md
+      SIDE-cosmo                         AGENTS.md
+      SIDE-coupling                      README.md
+      SIDE-cubit-axis                    README.md
+      SIDE-dark-interface                README.md
+      SIDE-dirichlet-mod-24              README.md
+      SIDE-effects                       AGENTS.md
+      SIDE-fano-darkness                 ### NO STATE DOCUMENT AT TOP LEVEL
+      SIDE-formation-arithmetic          README.md
+      SIDE-formation-procedure           README.md
+      SIDE-frobenius                     README.md
+      SIDE-global-section                README.md
+      SIDE-grh-transfer                  README.md
+      SIDE-interfaces                    AGENTS.md
+      SIDE-kernel                        AGENTS.md
+      SIDE-li-map                        ### NO STATE DOCUMENT AT TOP LEVEL
+      SIDE-local-cosmic-interface        README.md
+      SIDE-lv-conservation               README.md
+      SIDE-meta                          README.md
+      SIDE-omega-b                       README.md
+      SIDE-orchestrator                  README.md
+      SIDE-quaternionic-dark-sector      README.md
+      SIDE-rcurve                        README.md
+      SIDE-residual-bridge               README.md
+      SIDE-silence-principle             README.md
+      SIDE-simplicity                    README.md
+      SIDE-spinor                        README.md
+      SIDE-spinor-calibration            README.md
+      SIDE-spinor-calibration-mathlib    README.md
+      SIDE-structural-error-correction   README.md
+      SIDE-substrate-cluster             README.md
+      SIDE-t7-topology-cmb               README.md
+      SIDE-trivium                       AGENTS.md
+      SIDE-window                        README.md
+      SIDE-yang-mills-formation          README.md
+      WOW_Data                           ### NO STATE DOCUMENT AT TOP LEVEL
+      bead-upload                        README.md
+      glassbead-app                      ### NO STATE DOCUMENT AT TOP LEVEL
+      mathlib4-e960b84-tmp               README.md
+      place-to-stand                     ### NO STATE DOCUMENT AT TOP LEVEL
+      relay                              ### NO STATE DOCUMENT AT TOP LEVEL
+
+----------------------------------------------------------------------------------------------------
+### READ 8 -- THE PRIME CORE, SEARCHED BY DESCRIPTION. ### THE CONTROL RUNS FIRST.
+----------------------------------------------------------------------------------------------------
+  ### ### **THE DESCRIPTION:** ### a FINITE NAMED SET OF PRIMES carrying STATED INCLUSION
+  ### ### AND EXCLUSION CRITERIA. ### *prime core* is used as a SEARCH STRING and never as
+  ### ### a SOURCE.
+
+  ### **POSITIVE CONTROL -- the substrate`s own set, in its own keystone.**
+      qualifying sets found in `THE_SUBSTRATE.md` : ### **7**
+      {2,3}         
+          ote, and only to be excluded. Its proved content is unconditional; the spinor leg is now
+          compiled (§ii.4), and the one residual is the Γ₀(4)-equivariance of the Trivium projection —
+          an independent research question, not an h2-dependency.* --- ## (i) The object The substrate
+          is the pair of the two sm
+      {2,3}         
+          quivariance of the Trivium projection — an independent research question, not an
+          h2-dependency.* --- ## (i) The object The substrate is the pair of the two smallest primes,
+          **{2,3}** — not chosen, but singled out as *the minimal complete coprime pair*, the same
+          object seen three ways: - **Smoothness
+      {2,3}         
+          (axiom-free). - **Bernoulli / von Staudt–Clausen.** The primes p with (p−1) | 2 are exactly
+          {2,3}; their product is 6 = denom(B₂). Kernel: `FrobeniusCalibration.psl_eq_denom_B2`
+          (`pslAb = 6`, axiom-free). - **Modular torsion.** The modular group is the free product
+          PSL₂(ℤ) ≅ ℤ/2 ∗ ℤ/3 (Serre 1977);
+      ### ### **CONTROL HOLDS: the search finds `{2, 3}` in the keystone that owns it.**
+
+----------------------------------------------------------------------------------------------------
+### THE SURVEY`S OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  READS TAKEN            : 8
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================
