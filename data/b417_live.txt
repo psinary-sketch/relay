@@ -1,0 +1,40 @@
+====================================================================================================
+b417 COMPONENT 3, PHASE TWO -- THE REPAIRED TOOL, LIVE, ITS WRITES CAPTURED.
+====================================================================================================
+  run at (UTC) : 2026-09-11T13:48:04Z
+  the snapshot record precedes this run : True (2026-09-11T13:47:00Z)
+### PHASE : LIVE   ### TOOL : tools\b369_hygiene.py   ### EXIT : 1
+  last stderr line : (none)
+  watch set : relay/tools (bytes); relay/.githooks (bytes); relay/data (size+mtime); relay: .githooks, .git/hooks (bytes); refs, status, loose objects; SIDE-global-section: .githooks, .git/hooks (bytes); refs, status, loose objects; PLACE-papers: .githooks, .git/hooks (bytes); refs, status, loose objects; SIDE-effects: .githooks, .git/hooks (bytes); refs, status, loose objects
+  ### ### **CHANGES ACROSS THE WATCH SET : 7**
+  permitted and left : 0
+      relay/data                 modified  b369_hooks.txt
+      relay/data                 modified  b369_hygiene.json
+      relay/data                 created   b369_hygiene_notes2.txt
+      relay/git                  changed   status
+      SIDE-global-section/git    objects   +1 loose object(s)
+      PLACE-papers/git           objects   +1 loose object(s)
+      SIDE-effects/git           objects   +1 loose object(s)
+  ### ### **RESTORED FROM CAPTURED BYTES : 3**
+  ### ### **NAMED, NOT RESTORABLE BY BYTES : 4**
+      relay/git                  changed   status
+      SIDE-global-section/git    objects   +1 loose object(s)
+      PLACE-papers/git           objects   +1 loose object(s)
+      SIDE-effects/git           objects   +1 loose object(s)
+  ### ### **FILES STILL DIFFERING AFTER THE RESTORE : 2**
+      relay/data                 modified  b369_hooks.txt
+      relay/data                 modified  b369_hygiene.json
+
+  ### **WHAT THE TOOL ITSELF SAID, FROM ITS OWN VERDICT LINES (A2):**
+      |     b303_pins.py       : ALREADY PRESENT
+      |         wording pairs applied : 0 of 2
+      |     b304_hooks.py      : ALREADY PRESENT
+      |         wording pairs applied : 0 of 5
+      |     |   ### ALL 4 BYTE-IDENTICAL TO THE TRACKED SOURCE : True  PASS
+      |     |   relay                  ### **SKIPPED -- working tree carries 1 uncommitted path(s). ### THE GUARD IS NOT EXERC
+      |     |   ### REPOS FAILING : 1
+      |     ### ### **THE INSTALLED HOOK IS BYTE-IDENTICAL TO THE TRACKED SOURCE : False** (3068 bytes)
+      |     ### ### **REPOS FAILING THE POLARITY EXERCISE : 1**
+      |   ### ### **COMPONENT 2 : FAILED**
+  FileNotFoundError in the live run : False
+====================================================================================================

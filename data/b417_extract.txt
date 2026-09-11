@@ -1,0 +1,373 @@
+====================================================================================================
+b417_extract.py -- THE SURVEY: THE CONTRADICTION, THE SECOND TOOL, THE CAVEATS, AND P.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### READ 0 -- THE ORIENTATION-LAYER CITATIONS THE FERRY CARRIES, FOUND OR ABSENT.
+----------------------------------------------------------------------------------------------------
+  the ferry cites correspondence row     : 266
+  the row carrying b416`s marker is      : [265]   (last row of the table 265)
+  a row numbered 266 exists              : False
+  ### ### **THE CITATION`S OBJECT IS PRESENT AND ITS NUMBER IS NOT 266.** ### b416`s own
+  ### desk appended row 265; its closing message printed 266, and the ferry carries the
+  ### closing`s figure. ### **AND THE NEXT ROW THIS ACT APPENDS WILL BE 266**, so a later
+  ### arm asking for `| 266 |` by address would pass on THIS act`s row, not b416`s.
+  b416`s four-tuple table in its closing : True
+  registry row p2-35 present             : True
+
+----------------------------------------------------------------------------------------------------
+### READ 1 -- THE SENTENCE AND THE TUPLES, FROM THE DOCUMENT THAT OWNS BOTH.
+----------------------------------------------------------------------------------------------------
+  the sentence, in the abstract            MATTER_AS_ARITHMETIC.md line 14
+      Three of four formation components are universal across IDS-amenable systems: n₂ = 3 by
+      Chevalley–Steinberg, n₃ = 2 by bipartite complex analysis, n₄ = 0 by Schur's lemma. The fourth
+      component n₁ depends on the base algebra, producing four classes with predicted Ω = n₁^{n₃} /
+      n₂^{n₁+n₃} values: 4/81 (Arithmetic), 9/32 (Gravitational), 1/27 (Gauge), 1/4 (Information).
+
+  the sentence, in section I               MATTER_AS_ARITHMETIC.md line 27
+      Three of four components are universal across IDS-amenable systems:
+  its n2 theorem, with its hypothesis      MATTER_AS_ARITHMETIC.md line 29
+      **Theorem (n₂ = 3).** Connected reductive symmetry groups admit exactly three-level covering
+      towers, terminating at the simply-connected cover G^{sc} because π₁(G^{sc}) = 1.
+      (Chevalley–Steinberg; CORPUS_CATALOGOS v8.2 Theorem 7.4.)
+  its n3 theorem, with its hypothesis      MATTER_AS_ARITHMETIC.md line 31
+      **Theorem (n₃ = 2).** Every output of a determined entire-function system has exactly two
+      structural scales — local (differential, via elliptic regularity) and global (topological, via
+      Hadamard factorization and Cartan's Theorem B) — exhausting the bipartite structure of complex
+      analysis. (Theorem 5.1.)
+  its n4 theorem, with its hypothesis      MATTER_AS_ARITHMETIC.md line 33
+      **Theorem (n₄ = 0).** Universal interfaces are spectrally inert. Schur's lemma applied to the
+      top covering level forces central extensions to act by scalars, preserving eigenvalue ratios.
+      (Corollary 6.2; five proofs.)
+
+  the tuples, in the same section          MATTER_AS_ARITHMETIC.md line 37
+      | Class | Substrate | (n₁, n₂, n₃, n₄) | Total | Examples | |:--|:--|:--|:--|:--| | A — Arithmetic | ℤ via {2,
+      3} | (2, 3, 2, 0) | 7 | ξ(s), Maxwell, CFSG, Navier-Stokes, Dirichlet L-functions, Selberg class, Langlands
+      GL_n | | B — Gravitational | Spacetime / diffeomorphism | (3, 2, 2, 0) | 7 | Einstein field equations, genetic
+      code, protein folding | | C — Gauge | SU(N) | (3, 3, 2, 0) | 8 | Yang-Mills, Standard Model | | D —
+      Information | σ-algebras | (2, 2, 2, 0) | 6 | Shannon entropy, classical thermodynamics |
+
+  ### the owner`s table, parsed : 4 rows
+      A Arithmetic     (2,3,2,0)  examples: ξ(s), Maxwell, CFSG, Navier-Stokes, Dirichlet L-functions, Selberg class, Langlands GL_n
+      B Gravitational  (3,2,2,0)  examples: Einstein field equations, genetic code, protein folding
+      C Gauge          (3,3,2,0)  examples: Yang-Mills, Standard Model
+      D Information    (2,2,2,0)  examples: Shannon entropy, classical thermodynamics
+
+  ### ### **THE OWNER`S OWN DOCUMENT CARRIES BOTH HALVES.** ### The sentence calls `n2`
+  ### universal at 3, and the table eleven lines below it gives `B` and `D` the value 2. ### The
+  ### abstract does the same inside one paragraph: it states the universality and then lists
+  ### `9/32` and `1/4`, which are the values of tuples whose `n2` is 2.
+
+----------------------------------------------------------------------------------------------------
+### READ 2 -- THE KERNEL`S DECLARATIONS AND THE FIGURES ITS OWN HEADER PRINTS.
+----------------------------------------------------------------------------------------------------
+  declarations read from Classes.lean : 4 ; header Omega figures read : 4
+  the formula, from Core.lean : totalCount = n2^(n1+n3) True ; primitiveCount = n1^n3 True
+
+  class   tuple          Omega calc   header       agree   
+  A       (2, 3, 2, 0)   4/81         4/81         True    
+  B       (3, 2, 2, 0)   9/32         9/32         True    
+  C       (3, 3, 2, 0)   1/27         1/27         True    
+  D       (2, 2, 2, 0)   1/4          1/4          True    
+  (primitive, total) pairs as the theorems state them : {'A': (4, 81), 'B': (9, 32), 'C': (9, 243), 'D': (4, 16)}
+  distinct pairs : 4
+
+  ### **THE ARITHMETIC OF `(N4)`**: `n3` and `n4` are constant across the four tuples and `n1`
+  ### takes two values. ### If `n2` were constant too, a pair would be fixed by `n1` alone:
+      values n1 takes : [2, 3] ; so with n2 held at any one value, distinct pairs <= 2
+
+----------------------------------------------------------------------------------------------------
+### READ 3 -- WHO CITES WHAT: THE SENTENCE, THE TUPLES THAT DISAGREE WITH IT, OR BOTH.
+----------------------------------------------------------------------------------------------------
+  ### population : PLACE-papers `.md` outside archive/, outputs/, heritage/, internal/;
+  ### the ledgers excluded by `b416`s carrier rule. ### **SEARCHED BY PYTHON, NOT `rg`.**
+  ### **POSITIVE CONTROL -- the owner must be found carrying BOTH, first.**
+      MATTER_AS_ARITHMETIC in the BOTH bucket : ### **True**
+
+  ### ### **LIVE DOCUMENTS CITING THE SENTENCE AND THE DISAGREEING TUPLES BOTH : 1**
+      phase2/physics/MATTER_AS_ARITHMETIC.md
+  ### ### **CITING THE SENTENCE AND NOT THE DISAGREEING TUPLES : 0**
+  ### ### **CITING THE DISAGREEING TUPLES AND NOT THE SENTENCE : 5**
+      phase1.5/method/A_METHODOLOGY.md
+      phase1.5/method/ENUMERA.md
+      phase1.5/method/THE_EXEMPLAR_BENCH.md
+      phase1.5/method/W_REDERIVE_REPORT.md
+      phase2/physics/STORMER.md
+  ### ### **LIVE DOCUMENTS CITING THE SENTENCE AT ALL : 1**
+
+  ### **A SECOND SHAPE, BEFORE ANY CEILING IS BANKED:** ### any paragraph naming `universal`
+  ### together with the second component or its theorem, in any spelling.
+      paragraphs : 13 ; documents : 8
+      clusters/IDENTITY_FORMATION_BIJECTION_CLUSTER_SYNTHESIS_20 1 paragraph(s)   first shape finds it : False
+          For completed L-functions over number fields, the formation total is **universal**: n₁ +
+          n₂ + n₃ + n₄ = 7 for every Dedekind zeta function ζ_K(s), independent of K. The
+          identity-subspace dimension depends on signature (d(K) = 7 for ℚ and imaginary quadratic
+          fields; d(K) = 15 for real quadratic field
+      meta/W1_REVIEW_DIGEST.md                                   1 paragraph(s)   first shape finds it : False
+          | ID | Ratified title | Role sentence (first, verbatim) | Content | Flag |
+          |:--|:--|:--|:--|:--| | 1.5a-5 | Paths to the Critical Line: a census of the field's
+          routes to σ=1/2 | *This record is a census of the field's routes to σ = 1/2* | Maps the
+          field's independent routes; carries §ANNEX A (curren
+      phase1.5/structural/AT_REST.md                             3 paragraph(s)   first shape finds it : False
+          The formation tuple (n₁, n₂, n₃, n₄) encodes how a determined system distributes its
+          mechanism classes across pipeline stages. We proved three of four components universal
+          and verified the fourth across six systems in six mathematical domains.
+      phase2/formation/CAPACITY.md                               2 paragraph(s)   first shape finds it : False
+          We define the formation capacity C(X) of a determined system X with formation (n₁, n₂,
+          n₃, n₄) as the supremum of perturbation magnitudes under which the system's universal
+          property is preserved, where perturbations are restricted to at most one formation block
+          (weight-1 perturbations). For the comp
+      phase2/formation/UNIVERSALITY.md                           3 paragraph(s)   first shape finds it : False
+          We prove that the formation total n₁ + n₂ + n₃ + n₄ = 7 for the Dedekind zeta function
+          ζ_K(s) of every number field K, and that this universality holds for a structural
+          reason: each summand is determined by a classification theorem that applies to all
+          number fields simultaneously. We distinguish the
+      phase2/physics/MATTER_AS_ARITHMETIC.md                     1 paragraph(s)   first shape finds it : True
+          The cosmic baryon density Ω_b selects the arithmetic substrate for matter content among
+          four predicted formation classes. Three of four formation components are universal
+          across IDS-amenable systems: n₂ = 3 by Chevalley–Steinberg, n₃ = 2 by bipartite complex
+          analysis, n₄ = 0 by Schur's lemma. The fo
+      phase2/physics/YANG_MILLS_MONOGRAPH.md                     1 paragraph(s)   first shape finds it : False
+          | Stage | Count | Content | |:---|:---|:---| | Primitive (n₁) | 3 | Gauge symmetry,
+          Lorentz invariance, quantization | | Transformation (n₂) | 3 | Gauge fixing (BRST),
+          spontaneous symmetry breaking, renormalization | | Output (n₃) | 2 | Local (Feynman
+          rules), global (S-matrix) | | Interface (n₄) | 0
+      phase2/quantum/ARITHMETIC_ORIGIN_QECC.md                   1 paragraph(s)   first shape finds it : False
+          1. **The seven mechanism classes of $\xi(s)$.** The Riemann zeta function's completed
+          form $\xi(s)$ admits a four-stage formation decomposition $(n_1, n_2, n_3, n_4) = (2, 3,
+          2, 0)$ with structural total 7. The seven mechanism classes are the structural sources
+          from which all properties of zeros der
+  ### ### **THE RESIDUE -- found by the second shape and not the first -- IS HAND-READ IN THE
+  ### ### COMPONENTS, NOT SCORED HERE.** ### A word match is a mention, not a citation.
+
+----------------------------------------------------------------------------------------------------
+### READ 4 -- THE THREE DOCUMENTS THAT ARGUE `n4`: WHICH UNIVERSALITY EACH ASSERTS, WHICH TUPLE.
+----------------------------------------------------------------------------------------------------
+  ### **THREE DIFFERENT CLAIMS CARRY THE WORD `universal` IN THIS CLUSTER, AND `(R28)` KEEPS
+  ### ### THEM APART:** ### (U1) the owner`s -- `n2`, `n3`, `n4` universal ACROSS IDS-AMENABLE
+  ### SYSTEMS, i.e. across CLASSES; ### (U2) the tuple `(2,3,2,0)` universal ACROSS DEDEKIND ZETA
+  ### FUNCTIONS, i.e. inside class A; ### (U3) the formation TOTAL invariant across *the
+  ### IDS-amenable cluster*. ### `(N5)` names *the universality sentence*, which is (U1).
+  MATTER_AS_ARITHMETIC         U1 True  U2 False U3 False tuples cited: (2,2,2,0), (2,3,2,0), (3,2,2,0), (3,3,2,0)
+  COMPLEX_ANALYSIS             U1 False U2 True  U3 True  tuples cited: (2,3,2,0), (3,3,2,0)
+  BSD_VIA_FORMATION_TRANSFER   U1 False U2 False U3 False tuples cited: (2,3,2,0)
+
+  COMPLEX_ANALYSIS`s U2, abstract          COMPLEX_ANALYSIS.md line 15
+      This formation is universal: every Dedekind zeta function has it, regardless of the number
+      field.
+  COMPLEX_ANALYSIS`s U3                    COMPLEX_ANALYSIS.md line 60
+      FORMATION_UNIVERSALITY_v3 carries the seven-result extension showing the formation total is
+      invariant across the IDS-amenable cluster.
+  BSD`s invariance                         BSD_VIA_FORMATION_TRANSFER.md line 19
+      but the formation count is invariant
+  COMPLEX_ANALYSIS`s own caveat on tuples  COMPLEX_ANALYSIS.md line 19
+      > **Note (Gate 1b).** The formation tuple $(n_1, n_2, n_3, n_4)$ is decomposition-dependent:
+      different parsings of the same system yield different tuples. The parsing-invariant observable
+      is TYPE × certification status. Formation is a coordinate system for structural analysis; TYPE
+      is the observable quantity. See the Formation Calculus for the complete formalism ($\kappa,
+      \mu, \Delta\mu$).
+
+  ### **AND A SECOND DISAGREEMENT, OF A DIFFERENT KIND, BETWEEN TWO OF THE THREE:** ### the
+  ### example SYSTEMS each document places at a tuple.
+      COMPLEX_ANALYSIS table rows parsed : 4 ; systems named : 13
+      genetic code     MATTER (3,2,2,0)    COMPLEX_ANALYSIS (2,3,2,0)    ### **DISAGREE**
+      Shannon          MATTER (2,2,2,0)    COMPLEX_ANALYSIS (2,3,2,0)    ### **DISAGREE**
+      Navier-Stokes    MATTER (2,3,2,0)    COMPLEX_ANALYSIS (3,3,2,0)    ### **DISAGREE**
+      Yang-Mills       MATTER (3,3,2,0)    COMPLEX_ANALYSIS (3,3,2,0)    agree
+      Dirichlet        MATTER (2,3,2,0)    COMPLEX_ANALYSIS (2,3,2,0)    agree
+  ### ### **SYSTEMS THE TWO DOCUMENTS PLACE AT DIFFERENT TUPLES : 3** -- genetic code, Shannon, Navier-Stokes
+
+----------------------------------------------------------------------------------------------------
+### READ 5 -- READING (b)`S WEAKENING: WHAT THE THEOREMS` OWN HYPOTHESES NAME.
+----------------------------------------------------------------------------------------------------
+  ### The n2 theorem`s hypothesis names `Connected reductive symmetry groups`. ### Does any
+  ### live document say whether the substrates of `B` or `D` carry such a group?
+  paragraphs naming `reductive` together with a B or D substrate : ### **0**
+
+----------------------------------------------------------------------------------------------------
+### READ 6 -- THE SECOND TOOL: WHAT `b369_hygiene.py` NAMES, AND WHAT IT WOULD WRITE.
+----------------------------------------------------------------------------------------------------
+  HOOKSRC names : tools/git-hooks/pre-push   exists on disk : False
+  the single source b386 left, `.githooks/pre-push`, exists : True
+  its `installed` check reads : SIDE-effects/.git/hooks/pre-push
+  it runs `b304_hooks.py` : True
+
+  ### **ITS WRITE SURFACE, READ FROM ITS SOURCE, BEFORE ANY RUN:**
+      run_clock notes under the stem `b369_hygiene_notes` (versioned, never overwritten)
+      data/b369_hooks.txt            True
+      data/b369_hygiene.json         True
+      tools/b303_pins.py, tools/b304_hooks.py  (roster and wording mends, idempotent)
+      ### and, through `b304_hooks.py`: each rostered repository`s `.githooks/pre-push`, a
+      ### `.b304-backup*` beside any hook it replaces, and a THROWAWAY COMMIT on a scratch
+      ### branch in every clean repository, deleted after a `--dry-run` push.
+
+  ### **THE BROKEN TOOL, RUN AS IT STANDS, WITH ITS WRITE SURFACE CAPTURED:**
+      exit code : 1
+      last stderr line : FileNotFoundError: [Errno 2] No such file or directory: 'D:\\relay\\tools\\git-hooks\\pre-push'
+      ### ### **FILES OF ITS WRITE SURFACE CHANGED BY THE BROKEN RUN : 0 ; NEW RUN RECORDS : 0**
+  ### ### **A BROKEN TOOL IS SAFE BY BEING BROKEN** -- measured here, not asserted: it dies
+  ### before its first write, on the retired path.
+
+  ### **THE RESIDUE BACKUPS IN `SIDE-effects`, AND WHETHER THEIR BYTES SURVIVE IN ANY OBJECT STORE:**
+      backups found : 2
+      pre-push.b304-backup          3139 bytes  sha256 e923f56a26ed8a4e  tracked False  blob in : SIDE-effects, relay
+      pre-push.b304-backup-1        3139 bytes  sha256 e923f56a26ed8a4e  tracked False  blob in : SIDE-effects, relay
+
+----------------------------------------------------------------------------------------------------
+### READ 7 -- THE THIRTEEN `Core/` CAVEATS, AND EVERY RECORD THAT NAMES EACH ONE.
+----------------------------------------------------------------------------------------------------
+  ### `b416`s description, re-run unchanged : ### **13 caveats in 9 files**
+  act records searched (relay data/, b416 and b417 excluded -- they only list) : 3627
+  ### **POSITIVE CONTROL -- `(T1.4)` must be named by b413 or b414, which tested it.**
+      records of b413/b414 naming `(T1.4)` : ### **9**
+
+  [ 1] BoundaryValueShadow.lean       line 24   anchor 'BoundaryValueShadow'    acts naming it : 1  b298
+         WHAT IS NOT COMPILED
+  [ 2] FiniteSideSeal.lean            line 89   anchor '(T1.4)'                 acts naming it : 4  b329, b331, b414, b415
+         ` -- so primality is used nowhere in this file and the general theorems hold for every `p
+         ≥ 2` (a residue `p` does not divide is a unit of `Z/p^k` exactly when `p` is prime; that
+         identification is the library's and is NOT compiled
+  [ 3] FiniteSideSeal.lean            line 99   anchor 'Tr(theta(t) Pi)'        acts naming it : 6  b304, b308, b310, b311, b329, b413
+         The identification of that signed count with the source's `Tr(theta(t) Pi)` is b310's
+         derivation, checked at b310 against b304's `trace_scaled` and b309's reduced sum, and IT
+         IS NOT COMPILED
+  [ 4] FiniteSideSeal.lean            line 101  anchor 'dvd_iff_mod_eq_zero'    acts naming it : 1  b329
+         dvd_iff_mod_eq_zero`, which carries `propext` and is NOT compiled
+  [ 5] FiniteSideSeal.lean            line 330  anchor 'coprimality'            acts naming it : 2  b10, b331
+         ) The registered coprimality form of "unit" is NOT compiled
+  [ 6] FiniteSideSeal.lean            line 370  anchor 'scaling_shift_inverse'  acts naming it : 1  b329
+         Coprime` form is not compiled
+  [ 7] H1Mechanism.lean               line 15   anchor 'H1Mechanism'            acts naming it : 3  b221, b226, b227
+         The h = 3 contrast (K = ℚ(√−23): the coupling spectrum (4,1,1) at norm 6/150) is CITED,
+         not compiled here
+  [ 8] IndexRangeShadow.lean          line 32   anchor 'IndexRangeShadow'       acts naming it : 1  b304
+         WHAT IS NOT COMPILED
+  [ 9] RationalEnclosureShadow.lean   line 29   anchor 'RationalEnclosureShadow acts naming it : 1  b302
+         WHAT IS NOT COMPILED
+  [10] ScalingTraceShadow.lean        line 145  anchor 'ScalingTraceShadow'     acts naming it : 2  b309, b329
+         THAT READING IS THE BANK'S AND IS NOT COMPILED
+  [11] SinglePrimeFactor.lean         line 28   anchor 'SinglePrimeFactor'      acts naming it : 2  b414, b415
+         4), that a residue `p` does not divide is a unit of `Z/p^k` *exactly when `p` is prime*,
+         and that this identification is the library's and IS NOT COMPILED
+  [12] SmearCollapseShadow.lean       line 22   anchor 'SmearCollapseShadow'    acts naming it : 2  b310, b329
+         txt` and IT IS NOT COMPILED
+  [13] ValuationDivisibilityShadow.lean line 30   anchor 'ValuationDivisibilitySh acts naming it : 1  b303
+         WHAT IS NOT COMPILED
+
+----------------------------------------------------------------------------------------------------
+### READ 8 -- WHAT EACH READING WOULD MOVE: THE KERNEL`S STATED FIGURES UNDER READING (a).
+----------------------------------------------------------------------------------------------------
+  reading (a) tuples : B (3, 2, 2, 0) -> (3, 3, 2, 0) ; D (2, 2, 2, 0) -> (2, 3, 2, 0)
+  ### reading (a)`s B equals C`s tuple : True ; its D equals A`s tuple : True
+  kernel theorems stating a figure : 14
+      classA_total      states 81    reading (b) 81    reading (a) 81    unmoved
+      classA_primitive  states 4     reading (b) 4     reading (a) 4     unmoved
+      classA_remainder  states 77    reading (b) 77    reading (a) 77    unmoved
+      classA_wall       states 9     reading (b) 9     reading (a) 9     unmoved
+      classB_total      states 32    reading (b) 32    reading (a) 243   ### **MOVES**
+      classB_primitive  states 9     reading (b) 9     reading (a) 9     unmoved
+      classB_remainder  states 23    reading (b) 23    reading (a) 234   ### **MOVES**
+      classC_total      states 243   reading (b) 243   reading (a) 243   unmoved
+      classC_primitive  states 9     reading (b) 9     reading (a) 9     unmoved
+      classC_remainder  states 234   reading (b) 234   reading (a) 234   unmoved
+      classD_total      states 16    reading (b) 16    reading (a) 81    ### **MOVES**
+      classD_primitive  states 4     reading (b) 4     reading (a) 4     unmoved
+      classD_remainder  states 12    reading (b) 12    reading (a) 77    ### **MOVES**
+      classD_wall       states 4     reading (b) 4     reading (a) 9     ### **MOVES**
+      classA_distinct_from_classB : true now ; under reading (a) TRUE
+      classA_distinct_from_classC : true now ; under reading (a) TRUE
+      classA_distinct_from_classD : true now ; under reading (a) ### **FALSE -- THE THEOREM WOULD NOT COMPILE**
+
+  the owner`s Planck figure : Omega_b = 0.04930 +- 0.00066
+      A  now 4/81      0.13 sigma    reading (a) 4/81      0.13 sigma   unmoved
+      B  now 9/32    351.44 sigma    reading (a) 1/27     18.58 sigma   ### **MOVES**
+      C  now 1/27     18.58 sigma    reading (a) 1/27     18.58 sigma   unmoved
+      D  now 1/4     304.09 sigma    reading (a) 4/81      0.13 sigma   ### **MOVES**
+
+----------------------------------------------------------------------------------------------------
+### READ 9 -- `P` AGAINST THE CORPUS`S LIVE USE OF IT. ### (A SEPARATE SUBJECT FROM READS 1-8.)
+----------------------------------------------------------------------------------------------------
+  ### **POSITIVE CONTROL -- the placed Reader, scored by the same predicate, first.**
+      members of P the Reader cites in its own Prime-Core paragraphs : ### **15 of 15**
+  live documents with at least one Prime-Core paragraph citing a member : 50
+      2    cited in 36 live document(s)   clusters/FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md, day1/A_Place_to_Stand.md, day1/Third_Identity_Element.md ...
+      3    cited in 38 live document(s)   clusters/FOUNDATIONS_CLUSTER_SYNTHESIS_2026-05-19.md, day1/A_Place_to_Stand.md, day1/Third_Identity_Element.md ...
+      5    cited in 27 live document(s)   phase1.5/method/COMPUTE_INTERFACE_SPEC.md, phase1.5/method/COMPUTE_NETWORK_PRINCIPLES.md, phase1.5/method/CONTRIBUTION_MAP_2026-08.md ...
+      7    cited in 23 live document(s)   phase1.5/method/COMPUTE_NETWORK_PRINCIPLES.md, phase1.5/method/CONTRIBUTION_MAP_2026-08.md, phase1.5/method/DESIGN_PRINCIPLE_MINIMAL_COMPUTE.md ...
+      11   cited in 11 live document(s)   phase1.5/method/CONTRIBUTION_MAP_2026-08.md, phase1.5/method/patent-package/COUNSEL_ITEMS.md, phase1.5/method/patent-package/COUNSEL_PACKET_2026-08/00_PACKET_INDEX.md ...
+      13   cited in 15 live document(s)   meta/PATENT_SUPPLEMENT_DOSSIER.md, phase1.5/method/CONTRIBUTION_MAP_2026-08.md, phase1.5/method/patent-package/COUNSEL_ITEMS.md ...
+      17   cited in  5 live document(s)   phase1.5/method/CONTRIBUTION_MAP_2026-08.md, phase1.5/spectral/CONSERVATION.md, phase2/physics/PRIME_ORDER.md ...
+      19   cited in  4 live document(s)   phase1.5/spectral/CONSERVATION.md, phase2/physics/PRIME_ORDER.md, phase2/physics-speculative/LOCAL_COSMIC.md ...
+      23   cited in  6 live document(s)   phase1.5/method/patent-package/EVIDENCE_PIN_TABLE.md, phase1.5/method/patent-package/supplementals/ENABLEMENT_NOTE.md, phase1.5/spectral/CONSERVATION.md ...
+      29   cited in  9 live document(s)   phase1.5/method/CONTRIBUTION_MAP_2026-08.md, phase1.5/method/patent-package/COUNSEL_ITEMS.md, phase1.5/method/patent-package/MANIFEST.md ...
+      31   cited in  8 live document(s)   phase1.5/method/patent-package/CORRECTION_2026-08-29_OFFICE-COMMUNICATION.md, phase1.5/method/patent-package/MANIFEST.md, phase1.5/method/patent-package/COUNSEL_PACKET_2026-08/01_the_six/CORRECTION_2026-08-29_OFFICE-COMMUNICATION.md ...
+      41   cited in  5 live document(s)   phase1.5/method/patent-package/figures/REVIEW_SET_2026-08/INDEX.md, phase1.5/spectral/CONSERVATION.md, phase2/physics/PRIME_ORDER.md ...
+      53   cited in  4 live document(s)   phase1.5/spectral/CONSERVATION.md, phase2/physics/PRIME_ORDER.md, phase2/physics-speculative/LOCAL_COSMIC.md ...
+      137  cited in  4 live document(s)   phase1.5/spectral/CONSERVATION.md, phase2/physics/PRIME_ORDER.md, phase2/physics-speculative/LOCAL_COSMIC.md ...
+      337  cited in  5 live document(s)   phase1.5/simplicity/ALL_ZEROS_SIMPLE.md, phase1.5/spectral/CONSERVATION.md, phase2/physics/PRIME_ORDER.md ...
+  ### ### **MEMBERS STILL CITED : 15. ### MEMBERS DROPPED : 0** 
+
+  ### **THE DESERT SENTENCE, SEARCHED EVERYWHERE, CONTROL FIRST:**
+      found in the placed Reader (control) : ### **True**
+      ### ### **LIVE DOCUMENTS ASSERTING IT : 1** ['phase1.5/deep-structure/CONSTANCE.md']
+      every `.md` in the repository carrying it, ledgers and archive included : 5
+          OPEN_TRAILS.md
+          archive/2026-08-23-trim-backfill/CONSTANCE.md
+          archive/2026-08-23-trim-backfill/PRIME_CORE_READER.md
+          heritage/PRIME_CORE_READER.md
+          phase1.5/deep-structure/CONSTANCE.md
+
+  ### **THE LIVE CARRIER, READ IN ITS OWN WORDS -- IS IT A QUOTATION OF THE READER OR ITS OWN?**
+  CONSTANCE, its own lattice sentence      CONSTANCE.md line 408
+      Beyond 41, the lattice has gaps. No combination of powers yields 43, 47, or 53 directly. But
+      further out, compounds reappear: 137 = 2⁷ + 3². Then 337 = 2⁸ + 3⁴. These **anchor primes**
+      mark the formation's extent.
+  CONSTANCE, its desert sentence           CONSTANCE.md line 410
+      The structure is not continuous. It is crystalline—stable sites separated by arithmetic
+      deserts.
+  CONSTANCE, its second desert sentence    CONSTANCE.md line 990
+      The gaps between lattice primes (41 to 137 to 337) are arithmetic deserts, like gaps in a
+      crystal structure.
+  the Reader`s wording present verbatim in CONSTANCE : False
+      CONSTANCE says no combination of powers yields 43 ; 2^a + 3^b = 43 at : [(4, 3)]
+      CONSTANCE says no combination of powers yields 47 ; 2^a + 3^b = 47 at : none
+      CONSTANCE says no combination of powers yields 53 ; 2^a + 3^b = 53 at : none
+
+----------------------------------------------------------------------------------------------------
+### READ 10 -- THE LATTICE, RECOMPUTED, AND WHAT THE RECORD SAYS ABOUT IT.
+----------------------------------------------------------------------------------------------------
+  sum-of-powers primes below 100 outside P : ### **7** -- 43, 59, 67, 73, 83, 89, 97
+  sum-of-powers primes strictly between 41 and 137 : ### **9** -- 43, 59, 67, 73, 83, 89, 97, 113, 131
+
+  the Reader`s desert sentence             PRIME_CORE_READER.md line 129
+      These **jump primes** are separated from the consecutive sequence by arithmetic deserts where
+      no sum of powers yields a prime.
+  the Reader`s predictions, naming gap elements PRIME_CORE_READER.md line 438
+      - Dark matter particle masses may involve gap elements (23, 43, 47, 67, ...)
+  gap elements the predictions name that lie in the desert as sums of powers : [43, 67]
+
+  ### **WHAT THE RECORD SAYS THE DESERT HOLDS:**
+      b416`s own extract                    : 9
+      b416`s bank                            : (no count stated)
+      registry row p2-35                     : six
+      b416`s correspondence row              : six
+  ### ### **THE PRIOR RECORD STATES A COUNT ITS OWN EXTRACT DOES NOT.** ### Reported, and not
+  ### repaired: a banked record and a registry row are not this act`s to edit.
+
+----------------------------------------------------------------------------------------------------
+### READ 11 -- WHERE THE SPECIES IS FILED, AND THE INCIDENT IT CARRIES.
+----------------------------------------------------------------------------------------------------
+  DATED_ARM.md                         present : True
+  GUARD_WITH_NOTHING_LISTENING.md      present : True
+  TECHNE-Core origin/main...HEAD, left-right (ORIGIN-ONLY FIRST, then LOCAL-ONLY) : 0	16
+  TECHNE-Core untracked entries not this act`s : 3
+  b416`s incident -- the retired path             in its record : True
+  b416`s incident -- the SameFileError it hid     in its record : True
+  b416`s incident -- the prior record rewritten   in its record : True
+
+----------------------------------------------------------------------------------------------------
+### THE SURVEY`S OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  READS TAKEN            : 12
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================

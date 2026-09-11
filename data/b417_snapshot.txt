@@ -1,0 +1,36 @@
+====================================================================================================
+b417 COMPONENT 3, PHASE ONE -- THE REPAIRED TOOL AGAINST A CAPTURED SNAPSHOT.
+====================================================================================================
+  run at (UTC) : 2026-09-11T13:47:00Z
+  ### the harness`s fixtures, both polarities, before it is trusted : PASS
+### PHASE : SNAPSHOT   ### TOOL : tools\b369_hygiene.py   ### EXIT : 1
+  last stderr line : (none)
+  watch set : relay/tools (bytes); relay/.githooks (bytes); relay/data (size+mtime); relay: .githooks, .git/hooks (bytes); refs, status, loose objects; SIDE-global-section: .githooks, .git/hooks (bytes); refs, status, loose objects; PLACE-papers: .githooks, .git/hooks (bytes); refs, status, loose objects; SIDE-effects: .githooks, .git/hooks (bytes); refs, status, loose objects
+  ### ### **CONTAINED WRITES (inside the sandbox, discarded) : 3**
+      created   data\b369_hooks.txt
+      created   data\b369_hygiene.json
+      created   data\b369_hygiene_notes.txt
+  ### ### **ESCAPED WRITES (live paths outside the sandbox) : 3**
+      SIDE-global-section/git    objects   +1 loose object(s)
+      PLACE-papers/git           objects   +1 loose object(s)
+      SIDE-effects/git           objects   +1 loose object(s)
+  ### ### **RESTORED FROM CAPTURED BYTES : 0**
+  ### ### **NAMED, NOT RESTORABLE BY BYTES : 3**
+      SIDE-global-section/git    objects   +1 loose object(s)
+      PLACE-papers/git           objects   +1 loose object(s)
+      SIDE-effects/git           objects   +1 loose object(s)
+  ### ### **FILES STILL DIFFERING AFTER THE RESTORE : 0**
+
+  ### **WHAT THE TOOL ITSELF SAID, FROM ITS OWN VERDICT LINES (A2):**
+      |     b303_pins.py       : ALREADY PRESENT
+      |         wording pairs applied : 0 of 2
+      |     b304_hooks.py      : ALREADY PRESENT
+      |         wording pairs applied : 0 of 5
+      |     |   ### ALL 4 BYTE-IDENTICAL TO THE TRACKED SOURCE : True  PASS
+      |     |   relay                  ### **SKIPPED -- working tree carries 1 uncommitted path(s). ### THE GUARD IS NOT EXERC
+      |     |   ### REPOS FAILING : 1
+      |     ### ### **THE INSTALLED HOOK IS BYTE-IDENTICAL TO THE TRACKED SOURCE : False** (3068 bytes)
+      |     ### ### **REPOS FAILING THE POLARITY EXERCISE : 1**
+      |   ### ### **COMPONENT 2 : FAILED**
+  FileNotFoundError in the snapshot run : False
+====================================================================================================

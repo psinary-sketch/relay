@@ -31,7 +31,12 @@ D = os.path.join(ROOT, 'data')
 KERNEL = os.path.join('D:', os.sep, 'SIDE-effects')
 PINS = os.path.join(ROOT, 'tools', 'b303_pins.py')
 HOOKS = os.path.join(ROOT, 'tools', 'b304_hooks.py')
-HOOKSRC = os.path.join(ROOT, 'tools', 'git-hooks', 'pre-push')
+# ### **REPAIRED b417.** ### `b386` single-sourced the guard at `.githooks/pre-push` and deleted
+# ### `tools/git-hooks/pre-push`; this tool went on naming the deleted path and raised
+# ### `FileNotFoundError` on every run -- BEFORE ITS FIRST WRITE, so while it was broken it wrote
+# ### nothing. ### **A BROKEN TOOL IS SAFE BY BEING BROKEN**, and this repair was run first against
+# ### a captured snapshot (`tools/repair_snapshot.py`) before it ran live.
+HOOKSRC = os.path.join(ROOT, '.githooks', 'pre-push')
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')

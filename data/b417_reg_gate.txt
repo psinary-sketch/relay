@@ -1,0 +1,20 @@
+====================================================================================================
+b417 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b417_registration_2026-09-11.txt
+  marks found  : 1
+      OPEN                       line 225   ### **BAR 1 -- THE KERNEL LANE IS OPEN AND THIS ACT READS IT.** ### `0` `.lean` files touc
+  query result : RECORDED at line 274
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  3 ARM MISSES   0 []
+  arm+repo-state paragraphs 1 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 53f6c5718be00b69e0aa4c8d2dd1314ed24ebb46398e03281501176e85105aea  (b417_registration_2026-09-11.txt)
