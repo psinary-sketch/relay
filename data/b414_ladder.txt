@@ -1,0 +1,24 @@
+THE AFFORDABILITY LADDER, MEASURED BASE BY BASE AT LEVEL n = 1.
+work at a base = |units p 1| x |range (gridN p 1)| = (p^2 - p) x p^2, i.e. grows like p^4.
+
+  p =  4   work        192   DECIDED, axiom-free
+  p =  6   work      1,080   DECIDED, axiom-free
+  p =  8   work      3,584   DECIDED, axiom-free
+  p =  9   work      5,832   DECIDED, axiom-free   (needs maxRecDepth above the default)
+  p = 10   work      9,000   DECIDED, axiom-free   (9 and 10 together in 8.5s)
+  p = 12   work     19,008   NOT DECIDED -- ran 292s at maxRecDepth 2000000 and
+                             maxHeartbeats 1000000 and did not land; killed at the budget.
+  p = 14   work     35,672   NOT ATTEMPTED -- larger than a base already over budget.
+  p = 15   work     47,250   NOT ATTEMPTED -- likewise.
+  p = 16   work     61,440   NOT ATTEMPTED -- likewise.
+  p = 26   work    439,400   NOT ATTEMPTED -- b413 decided it in Python in milliseconds.
+
+THE CLIFF IS SHARP AND IT IS NOT PROPORTIONAL. From p = 10 to p = 12 the work rises
+2.1x and the time rises by more than 28x. Kernel reduction is not linear in the work
+it does, so the frontier cannot be predicted from the work count alone -- it has to be
+measured, and it was.
+
+AND THE DEFAULT RECURSION DEPTH IS A TRAP, NOT A LIMIT. At the default, a decide that
+runs out does not fail cleanly: it yields a terminal carrying sorryAx while the build
+prints an error. Measured in the scratch probe -- three of four terminals compiled to
+sorryAx and the fourth was clean, and only the printed profile distinguished them.

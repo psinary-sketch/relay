@@ -1,0 +1,324 @@
+====================================================================================================
+b414_components.py -- LEG 1. ### THE PREDICATE NAMED, AND THE GENERAL CLAUSE STATED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE MODULE RULED.
+----------------------------------------------------------------------------------------------------
+### THE FERRY`S RULING, QUOTED: ### *if the predicate can be stated in the axiom-free
+### module without an import, state it there and say what primitive it adds; if it cannot,
+### rule the statement into the interfaces module and say what that costs.*
+
+### **THE ANTECEDENT IS A QUESTION OF FACT AND WAS SETTLED BY A BUILD.**
+  `.lean` files in `Core/` after this act      : 111
+  MATHLIB imports anywhere in `Core/`          : ### **0**
+  imports of the new module                    : FiniteSideSeal
+  ### ### **AND `FiniteSideSeal` IS A `Core/` MODULE, NOT AN IMPORT FROM OUTSIDE THE
+  ### ### AXIOM-FREE SET.** ### `Core/` is made of module-to-module imports; the ruling`s
+  ### ### *without an import* can only mean without one from outside.
+
+### ### ### **VERDICT: THE PREDICATE IS STATED IN THE AXIOM-FREE MODULE.** ### It compiles
+### there, with no Mathlib, and its profile is read below rather than assumed.
+### ### **SO THE RULING`S FIRST LIMB FIRES AND THE SECOND DOES NOT.** ### The statement is
+### NOT ruled into `Interfaces/`, and the navigator`s `(N5)` is answered by a build.
+
+### ### **AND WHAT PRIMITIVE IT ADDS, NAMED EXACTLY:**
+  ### ### **A PRIMALITY NOTION.** ### `isPrime`, by trial division, as a `Bool`.
+  ### `Core/` carried ### **NO PRIME NOTION IN ANY FORM** ### before this act: the survey
+  ### found `3` declarations whose NAME carries a prime stem and ### **NOT ONE OF THEM
+  ### ### DECIDES PRIMALITY** -- `prime_free_window` names a window, 
+  ### `bench_primes_are_not_in_the_top_family` names a family, and
+  ### `first_level_prime_has_a_level_the_range_does_not_reach` names a level.
+  ### ### **A NAME IS NOT A NOTION, AND THE SURVEY CHECKED RATHER THAN COUNTING NAMES.**
+
+### ### **THE COST OF THE FIRST LIMB, STATED AND NOT HIDDEN.** ### `Core/` is the module
+### whose whole character is that it assumes nothing the library would charge `propext`
+### for. ### **ADDING A PRIMALITY NOTION ADDS A PRIMITIVE TO A MODULE DEFINED BY HAVING
+### ### NONE.** ### It costs nothing in axioms -- the profile below is empty -- but it is a
+### widening of the module`s vocabulary, and the author should see it named rather than
+### discover it. ### **THE RULING CHOSE; THIS SEAT EXECUTED AND PRICED.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE GENERAL CLAUSE STATED, AND ITS PROOF LEFT OPEN.
+----------------------------------------------------------------------------------------------------
+### **THE STATEMENT, AS THE MODULE STATES IT:**
+      For every base `p` with `singlePrimeFactor p = true` and every level `n`,
+          `ballQ p n * sumAN p n = sumAQ p n`.
+
+### ### **AND IT IS NOT PROVED HERE.**
+  `sorry` in this module`s CODE (comments stripped) : ### **0**
+  `sorry` anywhere in `Core/` CODE                  : ### **0**
+  `Prop`-valued definitions in this module          : ### **0**
+  ### ### **NOT A SORRY AND NOT A `Prop`-VALUED DEFINITION DRESSED AS A RESULT.**
+
+### ### **THE IDIOM WAS FOUND BY DESCRIPTION, NOT BY THIS SEAT`S NAME FOR IT.** ### The
+### survey searched `Core/` for an unproved general statement and found ### **`4` MODULES**
+### carrying one -- `KLSilence`, `PairingShadow`, `PlancherelShadow`, `CrossPlaceShadow` --
+### each rendering it as ### **PROSE IN THE DOCSTRING PLUS A CORRESPONDENCE ROW, NEVER A
+### ### SORRY.** ### `KLSilence` says so in those words. ### This act follows the
+### convention; it does not improve on it.
+
+### ### **WHAT IS COMPILED IS THE HYPOTHESIS.** ### The open statement`s subject is a
+### decidable predicate rather than a phrase, so a later seat cannot argue about what was
+### meant. ### **AND THE SEVEN CELLS SURVIVE AS THE INSTANCES THEY ARE:**
+  `FiniteSideSeal.lean` theorems restated or renamed : ### **0**
+  `compact_smear_vanishes_at_cells` still in the seal : yes
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE CONTROL RE-RUN FROM THE KERNEL, NOT FROM A TRANSCRIPTION.
+----------------------------------------------------------------------------------------------------
+  terminals this module declares : ### **15**
+      isPrime_fixtures
+      singlePrimeFactor_fixtures
+      cells_all_single_prime_factor
+      cells_all_hold
+      base_six_breaks_the_identity
+      base_six_values
+      two_prime_bases_break_the_identity
+      two_prime_bases_are_refused
+      composite_bases_keep_the_identity
+      those_bases_are_composite
+      those_bases_are_admitted
+      predicate_agrees_at_small_bases
+      predicate_agrees_at_eight_and_nine
+      predicate_agrees_at_ten
+      predicate_agrees_at_level_two
+
+### ### **EVERY ONE OF THEM, AT ITS PRINTED AXIOM PROFILE, FROM THE KERNEL`S OWN STDOUT.**
+  isPrime_fixtures                           does not depend on any axioms
+  singlePrimeFactor_fixtures                 does not depend on any axioms
+  cells_all_single_prime_factor              does not depend on any axioms
+  cells_all_hold                             does not depend on any axioms
+  base_six_breaks_the_identity               does not depend on any axioms
+  base_six_values                            does not depend on any axioms
+  two_prime_bases_break_the_identity         does not depend on any axioms
+  two_prime_bases_are_refused                does not depend on any axioms
+  composite_bases_keep_the_identity          does not depend on any axioms
+  those_bases_are_composite                  does not depend on any axioms
+  those_bases_are_admitted                   does not depend on any axioms
+  predicate_agrees_at_small_bases            does not depend on any axioms
+  predicate_agrees_at_eight_and_nine         does not depend on any axioms
+  predicate_agrees_at_ten                    does not depend on any axioms
+  predicate_agrees_at_level_two              does not depend on any axioms
+
+  ### ### **TERMINALS PRINTED : 15 OF 15. ### NON-EMPTY PROFILES : 0.**
+
+### ### **AND THE TRAP THIS ACT MET BEFORE THE LOCK, WHICH IS WHY THE PROFILE IS READ AND
+### ### NOT THE EXIT CODE:** ### a `decide` that exceeds `maxRecDepth` or `maxHeartbeats`
+### ### **DOES NOT FAIL CLEANLY -- IT YIELDS A TERMINAL CARRYING `sorryAx`.** ### Measured
+### in the scratch probe: at the default recursion depth three of four terminals compiled
+### to `sorryAx` while the fourth was clean, and the only thing that distinguished them was
+### the profile. ### **A GREEN BUILD IS NOT EVIDENCE; THE PROFILE IS.**
+
+### ### **THE YIELD, MEASURED.**
+  bases at which THE KERNEL re-decides the identity : ### **7** -- 2, 3, 4, 6, 8, 9, 10
+  bases at which THE KERNEL decides the PREDICATE   : ### **18** -- 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 25, 26, 27, 32, 49
+
+  of `b413`s TEN counterexamples, re-decided here   : ### **2** -- 6, 10
+  of `b413`s EIGHT holding prime powers, re-decided : ### **3** -- 4, 8, 9
+  the remainder stay `b413`s measurement, cited to `data/b413_extract.txt`.
+
+### ### **THE BOUNDARY, AND WHY IT IS WHERE IT IS.** ### `decide` here is kernel reduction
+### over `List.range (p^(2n))` twice nested, so the work at a base grows like ### **`p^(4n)`**.
+### The ladder, measured base by base:
+      THE AFFORDABILITY LADDER, MEASURED BASE BY BASE AT LEVEL n = 1.
+      work at a base = |units p 1| x |range (gridN p 1)| = (p^2 - p) x p^2, i.e. grows like p^4.
+      p =  4   work        192   DECIDED, axiom-free
+      p =  6   work      1,080   DECIDED, axiom-free
+      p =  8   work      3,584   DECIDED, axiom-free
+      p =  9   work      5,832   DECIDED, axiom-free   (needs maxRecDepth above the default)
+      p = 10   work      9,000   DECIDED, axiom-free   (9 and 10 together in 8.5s)
+      p = 12   work     19,008   NOT DECIDED -- ran 292s at maxRecDepth 2000000 and
+      maxHeartbeats 1000000 and did not land; killed at the budget.
+      p = 14   work     35,672   NOT ATTEMPTED -- larger than a base already over budget.
+      p = 15   work     47,250   NOT ATTEMPTED -- likewise.
+      p = 16   work     61,440   NOT ATTEMPTED -- likewise.
+      p = 26   work    439,400   NOT ATTEMPTED -- b413 decided it in Python in milliseconds.
+      THE CLIFF IS SHARP AND IT IS NOT PROPORTIONAL. From p = 10 to p = 12 the work rises
+      2.1x and the time rises by more than 28x. Kernel reduction is not linear in the work
+      it does, so the frontier cannot be predicted from the work count alone -- it has to be
+      measured, and it was.
+      AND THE DEFAULT RECURSION DEPTH IS A TRAP, NOT A LIMIT. At the default, a decide that
+      runs out does not fail cleanly: it yields a terminal carrying sorryAx while the build
+      prints an error. Measured in the scratch probe -- three of four terminals compiled to
+      sorryAx and the fourth was clean, and only the printed profile distinguished them.
+### ### **AN AFFORDABILITY LIMIT IS A PROPERTY OF KERNEL REDUCTION, NOT A RESULT ABOUT THE
+### ### ARITHMETIC.** ### The kernel not deciding `26` says nothing whatever about `26`;
+### `b413` decided it in Python in milliseconds. ### The two are not run together here.
+
+### ### **AND THE PREDICATE`S OWN VERDICT REACHES EVERY ONE OF `b413`S EIGHTEEN BASES**,
+### because deciding `singlePrimeFactor` is trial division and costs nothing. ### So the
+### kernel now certifies ### **THE CLASSIFICATION AT ALL EIGHTEEN** ### and ### **THE
+### ### IDENTITY AT THE SUBSET IT CAN AFFORD** -- two different reaches, kept apart.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE TWENTY-EIGHT, SORTED BY WHAT A PROOF WOULD REACH.
+----------------------------------------------------------------------------------------------------
+  rows re-read from `b413`s own record : ### **28**
+
+### ### **THE SORT`S RULE, STATED BEFORE THE SORT IS RUN.** ### A sentence lands in
+### ### **GROUP A** ### if a proof of the open statement would make it true AS WRITTEN --
+### that is, if what it asserts is the vanishing itself, over an index the statement
+### reaches. ### It lands in ### **GROUP B** ### if a proof would leave it exactly as it
+### is, because what it asserts is about something else: compilation status, scope, the
+### archimedean place, an aggregation, or a plan.
+
+### ### **AND THE FACT THAT DECIDES MOST OF THEM, WHICH THIS ACT DID NOT EXPECT:**
+### ### **THE CORPUS`S OBJECT INDEXES ITS FINITE PLACES BY PRIMES.** ### Every base the
+### corpus actually uses is prime, and ### **EVERY PRIME HAS A SINGLE PRIME FACTOR.** ###
+### So the open statement, if proved, covers ### **THE WHOLE RANGE THOSE SENTENCES EVER
+### ### INTENDED** -- and the failure at `6` was never a threat to any of them.
+### ### **WHAT WAS ALWAYS THE THREAT IS THAT THE STATEMENT WAS PROVED AT SEVEN CELLS.**
+
+  ### **PASS 1 -- THE MECHANICAL SPLIT, AND ITS YIELD PRINTED IN FULL.**
+      keyword rule: a VANISHING word present and no ELSEWHERE word present -> A
+      GROUP A : 2 -- rows 1, 26
+      GROUP B : 26 -- rows 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28
+
+  ### ### **AND THE MECHANICAL SPLIT IS DISCARDED, WITH ITS YIELD ON THE RECORD.**
+  ### Its ELSEWHERE list fires on a word anywhere in the sentence, including inside a
+  ### SCOPE CLAUSE -- so a sentence whose CLAIM is the vanishing lands in `B` because its
+  ### scope says *nothing about the archimedean place*. ### **THE MATCHER IS MEASURING
+  ### ### WHERE A WORD APPEARS, NOT WHAT THE SENTENCE ASSERTS.**
+
+  ### **PASS 2 -- THE HAND-READ, ROW BY ROW, WITH A REASON ON EVERY ROW.**
+  ### ### **GROUP A -- A PROOF WOULD MAKE THESE TRUE AS WRITTEN : 8**
+       2  b307_ferry_2026-09-03.txt      the first-level mass is annihilated -- unqualified vanishing claim
+              COMPONENT 2 -- THE ARC AS ONE STATEMENT, at the grade the acts support, with its scope printed beside it: the object's two halves now share 
+       4  b310_ferry_2026-09-03.txt      the finite side's closure reads as ONE statement -- unqualified
+              State the fixed-point sentence as the mechanism common to b304's compact part and b309's scaling part, so that the finite side's closure rea
+       5  b310_ferry_2026-09-03.txt      the finite side cannot supply the first-level mass -- unqualified
+              COMPONENT 4 — THE BEARING on b263's branch, carried as bearing and never as decision: the finite side cannot supply the first-level mass thr
+       6  b310_ferry_2026-09-03.txt      the closure is one statement with one mechanism -- unqualified
+              FOOT: after this act the source's construction at a finite place is one surviving term with no arithmetic in it, the finite side's closure i
+      11  b314_ferry_2026-09-03.txt      the finite side is arithmetically silent by one mechanism -- unqualified
+              COMPONENT 3 — THE ARC AS ONE STATEMENT, at the grade the acts support, scope beside it: the finite side is arithmetically silent on the obje
+      20  b329_ferry_2026-09-05.txt      the silence is one compiled statement -- and its second clause, that the generality is honest in its own header, is what THIS ACT refuted
+              FOOT: after this act the finite side's silence is one compiled statement with its generality honest in its own header, sitting in the certif
+      24  b404_ferry_2026-09-10.txt      the seal IS exhaustiveness over places -- unqualified characterisation
+              ADDITION TWO -- ONE THEOREM OR TWO, priced not proved: the conspiracy paper's compiled half is CRT exhaustiveness via periodic lift; the fin
+      25  b405_ferry.txt                 the finite side's zero as one of two found witnesses -- unqualified
+              Then state, in the theorem's own terms, what a shared witness IS for each of the six sites: the abscissa's convergent sum and the finite sid
+
+  ### ### **GROUP B -- A PROOF WOULD LEAVE THESE EXACTLY AS THEY ARE : 20**
+       1  b305_ferry_2026-09-03.txt      a statement about what the MODEL carries, not about the vanishing
+       3  b308_ferry_2026-09-03.txt      a work order naming objects and radii
+       7  b311_ferry_2026-09-03.txt      a paste header and a work order
+       8  b311_ferry_2026-09-03.txt      a SCOPE clause -- and the one sentence here that was already careful
+       9  b311_ferry_2026-09-03.txt      a question about whether the mechanism reaches infinity, not a claim
+      10  b314_ferry_2026-09-03.txt      a fold work order
+      12  b325_ferry_2026-09-04.txt      a plan item naming what the corpus holds
+      13  b326_ferry_2026-09-04.txt      about a construction the finite side supplies, not about vanishing
+      14  b326_ferry_2026-09-04.txt      a closing work order
+      15  b326_ferry_2026-09-04.txt      a plan: the sealing module follows
+      16  b327_ferry_2026-09-05.txt      a closing work order
+      17  b329_ferry_2026-09-05.txt      a work order about the profile and the rows
+      18  b329_ferry_2026-09-05.txt      a work order line
+      19  b329_ferry_2026-09-05.txt      a filename
+      21  b331_ferry_2026-09-06.txt      about compilation status
+      22  b331_ferry_2026-09-06.txt      a desk list
+      23  b370_ferry_2026-09-08.txt      a fold work order
+      26  b405_ferry.txt                 ALREADY QUALIFIED -- *at one place and one level*; a proof dates it, not falsifies
+      27  b406_ferry.txt                 a heading about the qualifier itself
+      28  b406_ferry.txt                 an expectation about sentences, not a claim about the finite side
+
+  ### ### **THE TWO PASSES DISAGREE ON 10 OF 28 ROWS : 1, 2, 4, 5, 6, 11, 20, 24, 25, 26**
+  ### ### **THE HAND-READ GOVERNS, AND THE MATCHER`S YIELD IS PRINTED RATHER THAN
+  ### ### QUIETLY REPLACED** -- a limit found by a matcher is a property of the matcher
+  ### until a second shape has been tried, and here the second shape was a reader.
+
+  ### ### **SENTENCES EDITED BY THIS ACT : `0`. ### IN EITHER GROUP.**
+  ### ### **SORTING IS NOT REPAIRING**, and a sentence made true by a statement nobody has
+  ### ### proved is ### **STILL NOT TRUE.** ### The groups are kept apart under `(R27)`
+  ### rather than averaged into one number.
+  written : b414_sorted.txt
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 5 -- THE PRICE RE-TAKEN NOW THAT THE STATEMENT EXISTS.
+----------------------------------------------------------------------------------------------------
+### `b413` priced `(N)` at ### **AT LEAST TWO ACTS, UPPER END NOT GIVEN**, and named act 1
+### as *state it*. ### **THIS IS ACT 1, AND IT IS DONE.**
+
+### ### **WHAT ACT 1 ACTUALLY COST, FROM THIS ACT AND NOT FROM AN ESTIMATE:**
+  new `.lean` modules                     : 1
+  new kernel terminals                    : 15
+  lines of the new module                 : 223
+  existing `.lean` files edited           : ### **0**
+  Mathlib imports added                   : ### **0**
+  axioms added                            : ### **0**
+  ### ### **SO THE FLOOR`S FIRST ACT WAS ONE ACT, AS PRICED.** ### `b413`s floor of two is
+  ### **NOT MOVED BY THIS ACT: IT IS HALF-DISCHARGED.** ### One remains, at minimum.
+
+### ### **AND IS THE UPPER END ANY MORE NAMEABLE NOW? ### NO -- AND THE ACT CAN NOW SAY
+### ### WHY WITH A MEASUREMENT RATHER THAN A JUDGEMENT.**
+### The statement`s own evidence is a `decide` over a finite list. ### This act measured
+### what that costs: the work at a base grows like ### **`p^(4n)`**, and the kernel`s
+### reduction ran out before `b413`s Python did, at a base `b413` handled instantly.
+### ### **A PROOF CANNOT BE REACHED BY EXTENDING THE LIST** -- not because the list is
+### long but because ### **NO FINITE LIST IS THE STATEMENT.** ### The proof needs an
+### argument about `units p n` being the unit group, which is a change of ### **KIND**, and
+### naming its length still requires attempting it, ### **WHICH IS BUILDING.**
+
+### ### ### **VERDICT ON THE PRICE: ### ONE ACT SPENT, AT LEAST ONE REMAINING, AND THE
+### ### ### UPPER END IS STILL NOT THIS SEAT`S TO GIVE.**
+
+----------------------------------------------------------------------------------------------------
+### THE ADDITION -- THE NAVIGATOR`S OWN ERROR, ENTERED IN HIS WORDS.
+----------------------------------------------------------------------------------------------------
+### ### **QUOTED FROM THE FERRY, NOT PARAPHRASED:**
+###     *"primality unused" was carried across twenty ferries as if it licensed
+###     generality, when it was true of the clauses that carry no value and false of
+###     the clause that does.*
+
+### ### **IT IS ENTERED AND IT IS NOT ARGUED WITH.** ### The seat`s job is to record it
+### and to measure what can be measured about it.
+
+### ### **AND THE SAME ERROR IS WRITTEN IN THE KERNEL ITSELF, IN ADVANCE.** ### `(T1.4)`,
+### quoted from `FiniteSideSeal.lean` at the survey:
+###     (T1.4) "`u` coprime to every `p^k`" is not compiled -- `Nat.Coprime`'s lemmas carry `propext`
+###     -- so primality is used nowhere in this file and the general theorems hold for every `p ≥ 2`
+###     (a residue `p` does not divide is a unit of `Z/p^k` exactly when `p` is prime; that
+###     identification is the library's and is NOT compiled here);
+
+### ### **SO THE FILE SAID *primality is used nowhere in this file and the general theorems
+### ### hold for every `p >= 2`* -- WHICH IS TRUE OF (a) AND (b) AND SAYS NOTHING ABOUT
+### ### (c).** ### The navigator`s sentence and the file`s sentence are ### **THE SAME
+### ### SENTENCE**, and neither is false: each is true of the clauses that carry no value.
+### ### **THE ERROR IS NOT IN EITHER SENTENCE. ### IT IS IN CARRYING ONE ACROSS A CLAUSE
+### ### OF A DIFFERENT KIND** -- which is `(R28)` exactly, written before anyone knew this
+### act would need it.
+
+### ### **AND THE FILE NAMED THE WRONG CONDITION FOR THE MISSING IDENTIFICATION.** ### It
+### says *exactly when `p` is prime*. ### Measured over bases `2` to `50` at level `1`:
+###     bases the identity holds at that are NOT prime : ### **8** -- 4, 8, 9, 16, 25, 27, 32, 49
+###     decided cells the caveat would exclude          : ### **0**
+### ### **A CAVEAT SOUND ON ITS OWN EVIDENCE IS NOT A CAVEAT TESTED.** ### It was exactly
+### right on the seven cells and wrong on everything else, and it was carried from `b329`
+### to this act -- ### **85 ACTS** -- without a base outside its range ever being tried.
+### ### **NO `.lean` FILE`S EXISTING TEXT IS EDITED TO FIX IT.** ### The correction lives
+### in the new module and in the correspondence row, additively.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, SCORED OVER NAMED POPULATIONS UNDER `(R26)`.
+----------------------------------------------------------------------------------------------------
+**`(N5)`** ### over ### **the design decision between `Core/` and `Interfaces/`**
+      *the decision rules for `Interfaces/`, because a prime predicate in `Core/` is a new
+      primitive in a module defined by having none*
+      ### ### **REFUTED BY A BUILD.** ### The ruling`s antecedent is true: the predicate
+      compiles in `Core/` with no Mathlib and an empty axiom profile, so the ruling`s FIRST
+      limb fires and the statement stays in the axiom-free module. ### **AND THE
+      ### EXPECTATION`S REASON SURVIVES ITS REFUTATION** -- it IS a new primitive in a
+      module defined by having none, which is why the act names it rather than burying it.
+      ### **THE NAVIGATOR WAS RIGHT ABOUT THE COST AND WRONG ABOUT THE DECISION**, and the
+      decision was the author`s ruling, not this seat`s preference.
+
+**`(N6)`** ### over ### **the Lean act as `b413` priced it**
+      *stating it correctly costs one act and the floor does not move*
+      ### ### **MET, BOTH LIMBS.** ### One act, and the floor of two stands with one act
+      spent against it.
+
+----------------------------------------------------------------------------------------------------
+### THE COMPONENTS` OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  ### ### **LIVE-QUOTE FAILURES : 0**
+====================================================================================================

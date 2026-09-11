@@ -1,0 +1,204 @@
+====================================================================================================
+b414_extract.py -- THE SURVEY FOR LEG 1: THE PREDICATE NAMED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### READ 1 -- THE MODULE SURFACE. ### WHAT `Core/` ALREADY IS.
+----------------------------------------------------------------------------------------------------
+  `.lean` files in `Core/`                : 111
+  MATHLIB imports anywhere in `Core/`     : ### **0**
+  Core-internal imports (module -> module): 27
+  ### ### **SO `Core/` IS THE AXIOM-FREE MODULE THE RULING NAMES, AND ITS FILES DO IMPORT
+  ### ### ONE ANOTHER.** ### `b413` said `FiniteSideSeal.lean` has NO IMPORTS AT ALL --
+  ### ### **TRUE OF THAT FILE AND NOT OF THE DIRECTORY.** ### The ruling`s *without an
+  ### ### import* can only mean ### **WITHOUT AN IMPORT FROM OUTSIDE THE AXIOM-FREE SET**,
+  ### ### because a Core-internal import is what `Core/` is made of.
+
+  `Interfaces/` files importing Mathlib   : 6
+
+  DECLARATIONS in `Core/` whose NAME carries a prime stem : ### **11**
+      JunctionLimitShadow.lean : bench_primes_are_not_in_the_top_family
+      SinglePrimeFactor.lean : isPrime
+      SinglePrimeFactor.lean : primeDivisors
+      SinglePrimeFactor.lean : singlePrimeFactor
+      SinglePrimeFactor.lean : isPrime_fixtures
+      SinglePrimeFactor.lean : singlePrimeFactor_fixtures
+      SinglePrimeFactor.lean : cells_all_single_prime_factor
+      SinglePrimeFactor.lean : two_prime_bases_break_the_identity
+      SinglePrimeFactor.lean : two_prime_bases_are_refused
+      StaircaseAddresses.lean : prime_free_window
+      TopLevelSilenceShadow.lean : first_level_prime_has_a_level_the_range_does_not_reach
+  ### ### **A NAME IS NOT A NOTION.** ### Each of these is checked below for whether it
+  ### ### DECIDES primality or merely mentions primes in a window`s name.
+
+----------------------------------------------------------------------------------------------------
+### READ 2 -- THE SEAL`S OWN CAVEAT (T1.4), QUOTED. ### THE FILE WROTE THE GAP IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+  (T1.4), the caveat                     line 85
+  QUOTED FROM THE FILE, not from a paper`s description of it:
+      (T1.4) "`u` coprime to every `p^k`" is not compiled -- `Nat.Coprime`'s lemmas carry `propext` --
+      so primality is used nowhere in this file and the general theorems hold for every `p ≥ 2` (a
+      residue `p` does not divide is a unit of `Z/p^k` exactly when `p` is prime; that identification
+      is the library's and is NOT compiled here);
+
+  ### ### **THE CAVEAT NAMES A CONDITION: *exactly when `p` is prime*.**
+  ### ### `b413` measured the true separator and it is ### **A SINGLE PRIME FACTOR**, not
+  ### ### primality. ### **SO THE FILE`S OWN CAVEAT, PROMOTED TO A HYPOTHESIS, WOULD BE THE
+  ### ### WRONG HYPOTHESIS** -- and the survey tests that claim rather than asserting it.
+
+----------------------------------------------------------------------------------------------------
+### READ 3 -- THE POSITIVE CONTROL. ### SEVEN CELLS, REPRODUCED BEFORE ANY VERDICT.
+----------------------------------------------------------------------------------------------------
+  cell (2, 1)   identity HOLDS    singlePrimeFactor(2) = True 
+  cell (2, 2)   identity HOLDS    singlePrimeFactor(2) = True 
+  cell (3, 1)   identity HOLDS    singlePrimeFactor(3) = True 
+  cell (3, 2)   identity HOLDS    singlePrimeFactor(3) = True 
+  cell (5, 1)   identity HOLDS    singlePrimeFactor(5) = True 
+  cell (7, 1)   identity HOLDS    singlePrimeFactor(7) = True 
+  cell (2, 3)   identity HOLDS    singlePrimeFactor(2) = True 
+  ### ### **CONTROL : 7 OF 7 REPRODUCED.**
+
+----------------------------------------------------------------------------------------------------
+### READ 4 -- THE PREDICATE TESTED AGAINST THE MEASUREMENT, BOTH POLARITIES.
+----------------------------------------------------------------------------------------------------
+  p      n        identity               predicate  AGREE?
+  2      1        HOLDS                  True       yes
+  3      1        HOLDS                  True       yes
+  4      1        HOLDS                  True       yes
+  5      1        HOLDS                  True       yes
+  6      1        FAILS                  False      yes
+  7      1        HOLDS                  True       yes
+  8      1        HOLDS                  True       yes
+  9      1        HOLDS                  True       yes
+  10     1        FAILS                  False      yes
+  11     1        HOLDS                  True       yes
+  12     1        FAILS                  False      yes
+  13     1        HOLDS                  True       yes
+  14     1        FAILS                  False      yes
+  15     1        FAILS                  False      yes
+  16     1        HOLDS                  True       yes
+  17     1        HOLDS                  True       yes
+  18     1        FAILS                  False      yes
+  19     1        HOLDS                  True       yes
+  20     1        FAILS                  False      yes
+  21     1        FAILS                  False      yes
+  22     1        FAILS                  False      yes
+  23     1        HOLDS                  True       yes
+  24     1        FAILS                  False      yes
+  25     1        HOLDS                  True       yes
+  26     1        FAILS                  False      yes
+  27     1        HOLDS                  True       yes
+  28     1        FAILS                  False      yes
+  29     1        HOLDS                  True       yes
+  30     1        FAILS                  False      yes
+  31     1        HOLDS                  True       yes
+  32     1        HOLDS                  True       yes
+  33     1        FAILS                  False      yes
+  34     1        FAILS                  False      yes
+  35     1        FAILS                  False      yes
+  36     1        FAILS                  False      yes
+  37     1        HOLDS                  True       yes
+  38     1        FAILS                  False      yes
+  39     1        FAILS                  False      yes
+  40     1        FAILS                  False      yes
+  41     1        HOLDS                  True       yes
+  42     1        FAILS                  False      yes
+  43     1        HOLDS                  True       yes
+  44     1        FAILS                  False      yes
+  45     1        FAILS                  False      yes
+  46     1        FAILS                  False      yes
+  47     1        HOLDS                  True       yes
+  48     1        FAILS                  False      yes
+  49     1        HOLDS                  True       yes
+  50     1        FAILS                  False      yes
+
+  ### ### **PREDICATE AGREES WITH THE IDENTITY AT 49 OF 49 BASES, DISAGREES AT 0.**
+  ### The population is named: ### **every base `p` from 2 to 50 at level `n = 1`** --
+  ### ### `(R26)`: AN EXPECTATION NAMES THE SET IT QUANTIFIES OVER.
+
+  ### **AND THE SECOND LEVEL, where the grid is `p^4` and the cost is the limit:**
+  p = 2    n = 2   identity HOLDS    predicate True     yes
+  p = 3    n = 2   identity HOLDS    predicate True     yes
+  p = 4    n = 2   identity HOLDS    predicate True     yes
+  p = 5    n = 2   identity HOLDS    predicate True     yes
+  p = 6    n = 2   identity FAILS    predicate False    yes
+  p = 9    n = 2   identity HOLDS    predicate True     yes
+  p = 10   n = 2   identity FAILS    predicate False    yes
+  ### ### **7 OF 7 AGREE AT LEVEL TWO.** ### The predicate is on `p` alone and the
+  ### ### measurement does not contradict that across the levels it can afford.
+
+----------------------------------------------------------------------------------------------------
+### READ 5 -- THE WRONG HYPOTHESIS, PRICED. ### WHAT THE FILE`S CAVEAT WOULD HAVE COST.
+----------------------------------------------------------------------------------------------------
+  bases 2..50 that are PRIME                 : 15
+  bases 2..50 with a SINGLE PRIME FACTOR     : 23
+  held by the identity but NOT prime         : ### **8** -- 4, 8, 9, 16, 25, 27, 32, 49
+  ### ### **THE FILE`S CAVEAT IS TOO STRONG BY 8 BASES IN THIS RANGE.** ### A hypothesis
+  ### ### taken from it would have been SOUND and ### **WOULD HAVE EXCLUDED EVERY
+  ### ### PROPER PRIME POWER AT WHICH THE IDENTITY IS TRUE** -- 4, 8, 9, 16, 25, 27, 32, 49.
+
+  ### **AND HERE IS WHY IT WENT UNCHALLENGED.** ### The seal`s seven decided cells have
+  ### bases 2, 3, 5, 7. ### **DECIDED CELLS THE CAVEAT WOULD EXCLUDE : 0.**
+  ### ### **SO THE CAVEAT IS EXACTLY RIGHT ON THE SET THE KERNEL DECIDES AND WRONG ON THE
+  ### ### SET IT DOES NOT** -- it could never be caught by re-reading the decided cells,
+  ### ### only by leaving them. ### **A CAVEAT SOUND ON ITS OWN EVIDENCE IS NOT A CAVEAT
+  ### ### TESTED**, and this one was carried from ### **b329** (the seal`s own Bank line,
+  ### ### read from the file and not recalled) to this act -- ### **85 ACTS** -- without
+  ### ### a base outside its range ever being tried.
+
+----------------------------------------------------------------------------------------------------
+### READ 6 -- THE KERNEL`S OWN IDIOM FOR AN UNPROVED STATEMENT, FOUND BY DESCRIPTION.
+----------------------------------------------------------------------------------------------------
+  files carrying the phrase NAMED OPEN STATEMENT : ### **6**
+      CrossPlaceShadow.lean
+          NAMED OPEN STATEMENT in the correspondence. The leaves distinction stands: this is COMPATIBI
+          LITY structure (a character-average of products), not factorization. -/ namespace CrossPlace
+          Shadow /-- (1) the flat-place co
+      KLSilence.lean
+          NAMED OPEN STATEMENT (correspondence row; never a sorry — the kernel-purity ruling stands). 
+          The four banked instances are this theorem's corollaries on the silence side and its evidenc
+          e on the only-if side.
+      PairingShadow.lean
+          NAMED OPEN STATEMENT (correspondence; never a sorry): the NOWHERE-FLAT general-dims identity
+           (the full ℤ[i] four-power average with both twisted products nonzero) and the general-k sta
+          tement. The five banked rost
+      PlancherelShadow.lean
+          NAMED OPEN STATEMENT in the correspondence, never a sorry; nothing at complete roster; nothi
+          ng about the level-limit; h2 untouched. -/ import E1UnitPurityDraft import KLSilence set_opt
+          ion maxRecDepth 8192 set_option
+      SinglePrimeFactor.lean
+          NAMED OPEN STATEMENT (correspondence row; never a sorry). For every base `p` with `singlePri
+          meFactor p = true` and every level `n`, `ballQ p n * sumAN p n = sumAQ p n`. THIS IS NOT PRO
+          VED HERE AND NOTHING BEL
+      SinglePrimeFactor.lean
+          NAMED OPEN STATEMENT in the sense the kernel already uses in `KLSilence`, `PairingShadow`, `
+          PlancherelShadow` and `CrossPlaceShadow`: recorded in this docstring and in the CORRESPONDEN
+          CE row, carried by NO `sorry` an
+
+  `sorry` occurrences in `Core/` CODE (comments stripped) : ### **0**
+  ### ### **SO THE IDIOM IS: PROSE IN THE DOCSTRING PLUS A CORRESPONDENCE ROW, NEVER A
+  ### ### SORRY.** ### This act follows it and does not improve on it.
+
+----------------------------------------------------------------------------------------------------
+### READ 7 -- THE AXIOM PRINTS, FROM THE KERNEL`S OWN STDOUT.
+----------------------------------------------------------------------------------------------------
+  `AXIOM_PRINTS.txt` bytes : 43473
+  index_decomposes                   'B329.index_decomposes' does not depend on any axioms
+  scaling_fixes_nothing_off_ball     'B329.scaling_fixes_nothing_off_ball' does not depend on any axioms
+  compact_smear_vanishes_at_cells    'B329.compact_smear_vanishes_at_cells' does not depend on any axioms
+  finite_side_silence                'B329.finite_side_silence' does not depend on any axioms
+  total `#print axioms` lines              : 605
+  lines reporting a NON-EMPTY axiom profile: 0
+
+----------------------------------------------------------------------------------------------------
+### READ 8 -- WHAT LEG 1 OWES THE RECORD: `b413`S TWENTY-EIGHT, RE-READ NOT RECALLED.
+----------------------------------------------------------------------------------------------------
+  `b413` counted, read back from its own record : ### **28** unqualified sentences
+  sentences naming the finite side at all       : 33
+
+----------------------------------------------------------------------------------------------------
+### THE SURVEY`S OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  READS TAKEN            : 8
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================

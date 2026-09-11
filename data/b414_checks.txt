@@ -1,0 +1,97 @@
+====================================================================================================
+b414_checks.py -- THE GATE SUITE.
+====================================================================================================
+
+ARM                                        WHAT IT READS                                            VERDICT
+----------------------------------------------------------------------------------------------------
+  G-RECEIPT-IN-FULL                        the ferry carries its own paste-end marker, part 1 of  PASS
+  G-SCAN-CLEAN                             the scan VERDICT LINE reports 0 hits, read as a line n PASS
+  G-STEPZERO-CENSUS                        both step-zero censuses report TOTAL MISSING : 0 on th PASS
+  G-STEPZERO-PINS                          the pins tool reports REPOS HARD-FAILING : 0           PASS
+  G-SURVEY-NOMISS                          the survey reports ANCHOR MISSES : 0                   PASS
+  G-SURVEY-REPAIRED-BEFORE-LOCK            the face declares the survey sentence repaired before  PASS
+  G-REG-LOCKED-FIRST                       the seal verifies and the face says LOCKED BEFORE ANY  PASS
+  G-LOCKGATE-EIGHT                         the lock gate read 8 gates, 8 passing, 4 by digest     PASS
+  G-SEAL-VERIFIES                          the registration gate verdict line reads CLEAR         PASS
+  G-CORE-NO-MATHLIB                        no file in Core/ imports Mathlib, measured over the di PASS
+  G-CORE-INTERNAL-IMPORTS-COUNTED          the survey counted Core-internal imports rather than r PASS
+  G-FILE-VS-DIRECTORY-DISTINGUISHED        the face distinguishes the FILE having no imports from PASS
+  G-PREDICATE-COMPILED                     the predicate is a def in the new module, read from st PASS
+  G-PREDICATE-AXIOM-FREE                   every predicate fixture terminal prints does not depen PASS
+  G-PRIMITIVE-NAMED                        the module names the one primitive it adds, in its own PASS
+  G-RULING-OBEYED                          the components report the first limb firing and the se PASS
+  G-RULING-ANTECEDENT-BY-BUILD             the face says the antecedent is settled by a build and PASS
+  G-NOSORRY-CODE                           no sorry anywhere in Core/ CODE, comments stripped     PASS
+  G-NOSORRY-PROFILE                        no printed axiom profile anywhere carries sorryAx      PASS
+  G-DECIDE-LIMIT-TRAP                      the act records that an over-budget decide yields sorr PASS
+  G-EVERY-NEW-TERMINAL-PRINTED             every theorem the new module declares has a printed pr PASS
+  G-PROFILE-TRUE-PREFIX                    the prior axiom profile is still a TRUE BYTE PREFIX of PASS
+  G-PROFILE-COUNT-MOVED                    the printed profile gained exactly the new terminals   PASS
+  G-NO-EXISTING-LEAN-EDITED                the act reports 0 existing .lean files edited and the  PASS
+  G-SEAL-UNTOUCHED                         FiniteSideSeal.lean still carries its own seven-cell t PASS
+  G-CELLS-THEOREM-UNTOUCHED                the new module does not redeclare the seal`s cells the PASS
+  G-OPEN-STATEMENT-IDIOM                   the open statement is recorded in the docstring in the PASS
+  G-OPEN-STATEMENT-NOT-A-DEF               the open statement is NOT a Prop-valued definition on  PASS
+  G-IDIOM-FOUND-BY-DESCRIPTION             the idiom was located in four sibling modules, not ass PASS
+  G-CONTROL-SEVEN-FIRST                    the kernel itself decides the seven cells hold         PASS
+  G-CONTROL-BEFORE-VERDICT                 the survey printed CONTROL : 7 OF 7 before any predica PASS
+  G-KERNEL-RERUN-YIELD-PRINTED             the components print how many of b413`s bases the kern PASS
+  G-AFFORDABILITY-NOT-A-RESULT             the limit is stated as reduction`s property AND the la PASS
+  G-BASES-CITED-TO-b413                    bases the kernel cannot afford are cited to b413`s rec PASS
+  G-POPULATION-NAMED                       (R26): the survey names the set its agreement count ra PASS
+  G-CAVEAT-QUOTED                          the seal`s (T1.4) is quoted from the file in both surv PASS
+  G-CAVEAT-TOO-STRONG-MEASURED             the too-strong measurement is a printed count, not an  PASS
+  G-CELLS-EXCLUDED-ZERO                    the act prints that the caveat excludes 0 of the seven PASS
+  G-EMITTING-ACT-READ-NOT-RECALLED         the seal`s emitting act is read from its own Bank line PASS
+  G-NAVIGATOR-ERROR-VERBATIM               the navigator`s error is carried in the ferry`s own wo PASS
+  G-NAVIGATOR-ERROR-NOT-ARGUED             it is not argued with AND it is reported as the same s PASS
+  G-TWENTYEIGHT-REREAD                     the twenty-eight are re-read from b413`s own record, n PASS
+  G-TWENTYEIGHT-SORTED-NOT-REPAIRED        0 sentences edited in either group AND the sorting rul PASS
+  G-TWO-GROUPS-KEPT-APART                  both groups are on disk with their counts AND the fact PASS
+  G-PRICE-FROM-COST-NOT-ESTIMATE           the price is taken from what this act cost, printed as PASS
+  G-NO-UPPER-BOUND-INVENTED                the upper end is refused AND the reason given is that  PASS
+  G-FLOOR-RESTATED                         the floor of two is restated as half-discharged, not m PASS
+  G-NOGRADE                                no grade string is minted by this act`s bank           PASS
+  G-NOPREMISE                              the bank states 0 premises discharged                  PASS
+  G-NODOOR                                 the bank states no door restated                       PASS
+  G-NOROUTE                                no route is proposed in the bank                       PASS
+  G-NOKAPPA                                no kappa value is measured or certified                PASS
+  G-NOCHANNEL                              no channel is opened                                   PASS
+  G-NOLEDGERROW                            FACES_LEDGER.md is not written by this act             PASS
+  G-NOFOLD                                 no fold is run by this act                             PASS
+  G-NORULE                                 no rule is struck or amended                           PASS
+  G-NODEPOSIT                              no deposit action and no Zenodo byte                   PASS
+  G-NOPLATFORM                             no platform call of any kind                           PASS
+  G-NOOUTPUTS                              no file under outputs/ is touched                      PASS
+  G-NOH2                                   no claim about h2 in either direction, beyond the stan PASS
+  G-NOORIENTATION-EDIT                     neither orientation object is written by this act      PASS
+  G-NOLOCKEDFACE                           no locked face is edited: the seal still verifies      PASS
+  G-NOPRIORBANK                            no prior act`s bank is opened for write                PASS
+  G-NOBANKEDFERRY                          no banked ferry is opened for write                    PASS
+  G-NOREGISTRYROW                          REGISTRY.md is not written by this act                 PASS
+  G-TRAIL-APPEND-ONLY                      the trail block is appended and the prior mark survive PASS
+  G-CORR-APPEND-ONLY                       the correspondence row is appended and row 262 survive PASS
+  G-ALLPRINTS-APPEND-ONLY                  AllPrints gained the new import and prints, and the se PASS
+  G-WRITELIST-EXACT                        the face names 8 kinds and the act wrote no other kind PASS
+  G-NOEXTRAKIND                            no build artefact is committed AND the act wrote exact PASS
+  G-NOSTAGE-A                              no arm or tool of this act stages by -A                PASS
+  G-ARMS-DECLARED-EQ-RUN                   declared on the face equals run here, both ways        PASS
+  G-ARMS-OWN-BANK                          arms this act builds run over this act`s own bank      PASS
+  G-ARMS-STRIP-PROSE                       this suite strips comments and docstrings before scann PASS
+  G-ARMS-FOLD-MARKERS                      this suite folds markup before matching banked prose   PASS
+  G-ARMS-OWN-ARTEFACT                      no arm reads a needle from a sibling artefact rather t PASS
+  G-ARMS-NO-SUBSTRING-VERDICT              A2: verdicts are read from their own lines             PASS
+  G-ARMS-CONTENT-NOT-ADDRESS               no arm demands a line number or a byte offset from ano PASS
+  G-NOHEREDOC-BACKSLASH                    no backslash was written through a quoted heredoc      PASS
+  G-NOHASH-ACTNUMBER                       no act number is read out of a hex tail                PASS
+  G-NOWRAP-MIDTOKEN                        no report line in the components is broken mid-token   PASS
+  G-MUSTFAIL                               none of the six forbidden whole lines is in the bank   PASS
+----------------------------------------------------------------------------------------------------
+
+  declared on the face : 82
+  run here             : 82
+  declared but not run : none
+  run but not declared : none
+
+  ### ### **ARMS : 82. ### PASSING : 82. ### FAILING : 0.**
+====================================================================================================
