@@ -1,0 +1,32 @@
+====================================================================================================
+b424_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b424_registration_2026-09-11.txt
+  bytes/lines  : 12358 / 147
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 51
+
+  clauses emitted : 72
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 9**
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 6    cap 6
+      candidates in the population                                   demand 16   cap 16
+      sites attempted                                                demand 1    cap 1
+      ledger blocks appended                                         demand 1    cap 1
+      bars declared                                                  demand 12   cap 12
+      gate arms declared                                             demand 51   cap 51
+      new `relay` act-tool files                                     demand 6    cap 6
+  written : b424_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 7ca3cab35b09f27483e6cc65a3255d49c393cedf8086e23f2dc9c5e30c451af2  (b424_registration_2026-09-11.txt)

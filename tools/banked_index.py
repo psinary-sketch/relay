@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-witness-arc-at-site-i': ['the witness arc at site i', 'site i witness candidates', 'the class site witness enumeration', 'shared witness at the clause quantifier', 'b424 sortie leg 2'],
     'the-r37-question-read': ['the r37 question read', 'do b407 and b420 move under r37', 'hypothesis 1 under the internal reading', 'sieve ceiling lemma first hypothesis', 'b423 sortie leg 1'],
     'the-kernel-arc-folded': ['the kernel arc folded', 'fold of b413 to b421', 'unique model internally to zfc', 'r37 definition 2.1 ruling', 'the witness enumeration arc', 'what did the kernel arc produce'],
     'the-finite-ambient': ['grid trace signed count', 'the finite ambient built', 'is definition 2.1 satisfiable by an infinite structure', 'lowenheim skolem determined', 'when is the next fold', 'the navigator conflations at b420'],
@@ -677,6 +678,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE WITNESS ARC AT SITE (i) (b424).
+    ('the-witness-arc-at-site-i', 'b424 (sortie leg 2: the witness arc at site (i))',
+     "b424 RAN THE WITNESS ARC AT SITE (i) OF ROW U1, THE CLAUSE'S QUANTIFIER OVER THE CLASS: **16 CANDIDATES -- b422'S FOUR AND TWELVE THE SEARCH SUPPLIED -- EACH FAILED AT A QUOTED STEP; NONE HELD.** First failing steps: CLASS BOUNDARY 13; IMPORT UNDER THE BAR 2; REFUTED 1. The site's own cell stands (WITNESS: UNSTATED, a universal with no existential inside). The exhausted list is a FACES_LEDGER block through the writer; row U1's line untouched; checkpoint after the site; no act re-verdicted.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b424_the_witness_arc_at_site_i.txt; data/b424_candidates.txt; data/b424_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); FACES_LEDGER.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 273'),
     # ### THE (R37) QUESTION READ (b423).
     ('the-r37-question-read', 'b423 (sortie leg 1: the (R37) question read)',
      "b423 READ b407'S AND b420'S READINGS OF THE SIEVE CEILING LEMMA'S FIRST HYPOTHESIS AGAINST (R37), THE KEYSTONE'S §10.2. **b407'S (xi DETERMINED): CONFIRMED. b420'S (NOT SUPPLIED BY THE RECORD, FOR THE TEST-FUNCTION STRUCTURE): CONFIRMED** -- suppliable under the internal reading and not written; b421's NOT SUPPLIABLE lapses as a ground. Both verdicts rest on hypothesis 5; not re-verdicted. **ROUTED: UNDER (R37) HYPOTHESIS 1 SEPARATES NO WRITTEN STRUCTURE.**",
