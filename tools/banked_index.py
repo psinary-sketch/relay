@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-r37-question-read': ['the r37 question read', 'do b407 and b420 move under r37', 'hypothesis 1 under the internal reading', 'sieve ceiling lemma first hypothesis', 'b423 sortie leg 1'],
     'the-kernel-arc-folded': ['the kernel arc folded', 'fold of b413 to b421', 'unique model internally to zfc', 'r37 definition 2.1 ruling', 'the witness enumeration arc', 'what did the kernel arc produce'],
     'the-finite-ambient': ['grid trace signed count', 'the finite ambient built', 'is definition 2.1 satisfiable by an infinite structure', 'lowenheim skolem determined', 'when is the next fold', 'the navigator conflations at b420'],
     'the-lemma-aimed': ['does the sieve ceiling lemma apply to positivity', 'barrier lemma aimed at positivity', 'the lemma aimed', 'r36 route one', 'can the trace identification be stated in the kernel', 'b419 kernel clauses not meetable'],
@@ -676,6 +677,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE (R37) QUESTION READ (b423).
+    ('the-r37-question-read', 'b423 (sortie leg 1: the (R37) question read)',
+     "b423 READ b407'S AND b420'S READINGS OF THE SIEVE CEILING LEMMA'S FIRST HYPOTHESIS AGAINST (R37), THE KEYSTONE'S §10.2. **b407'S (xi DETERMINED): CONFIRMED. b420'S (NOT SUPPLIED BY THE RECORD, FOR THE TEST-FUNCTION STRUCTURE): CONFIRMED** -- suppliable under the internal reading and not written; b421's NOT SUPPLIABLE lapses as a ground. Both verdicts rest on hypothesis 5; not re-verdicted. **ROUTED: UNDER (R37) HYPOTHESIS 1 SEPARATES NO WRITTEN STRUCTURE.**",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b423_the_r37_question_read.txt; data/b423_r37_question.txt; data/b423_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 272'),
     # ### THE KERNEL ARC FOLDED (b422).
     ('the-kernel-arc-folded', 'b422 (the kernel arc folded; R37 executed; the orientation layer refreshed; the witness arc named)',
      "b422 FOLDED THE KERNEL ARC, b413-b421. **ITS PRODUCT IS TWO COMPILED GENERAL THEOREMS ABOUT THE MODEL OF THE OBJECT AT A FINITE PLACE** (SmearGeneral.smear_general, GridTrace.grid_trace_is_signed_count); by b412's measure 0 statements about the object as written, with a third column named. **(R37): THE KEYSTONE'S UNIQUE MODEL READ INTERNALLY TO ZFC**, appended as §10.2, Definition 2.1 kept; b407 and b420 not re-verdicted. **THE WITNESS ARC IS NAMED, SIX ACTS, NOT OPENED**; the orientation layer refreshed and no door restated.",
