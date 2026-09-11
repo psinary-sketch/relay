@@ -1,0 +1,1 @@
+def units (p n : Nat) : List Nat := (List.range (gridN p n)).filter (fun u => u % p != 0)
