@@ -1,0 +1,1781 @@
+=== PAGE 1 ===
+Beyond dynamical dark energy: the role of dark sector interactions after DESI DR2
+Weiqiang Yang,1,∗ Sibo Zhang, 1,† Supriya Pan, 2, 3,‡ Andronikos
+Paliathanasis,4, 5, 6, 7, 8,§ and Emmanuel N. Saridakis 9, 10, 11,¶
+1Department of Physics, Liaoning Normal University, Dalian, 116029, People’s Republic of China
+2Department of Mathematics, Presidency University, 86/1 College Street, Kolkata 700073, India
+3Institute of Systems Science, Durban University of Technology, Durban 4000, Republic of South Africa
+4Institute of Systems Science, Durban University of Technology, Durban 4000, South Africa
+5Centre for Space Research, North-West University, Potchefstroom 2520, South Africa.
+6Centro de Investigaci´ on, Innovaci´ on y Creaci´ on (CIIC),
+Universidad Cat´ olica de Temuco, Temuco, Chile
+7Departamento de Ciencias Matem´ aticas y F ´ ısicas,
+Facultad de Ingenier ´ ıa, Universidad Cat´ olica de Temuco, Temuco, Chile
+8National Institute for Theoretical and Computational Sciences (NITheCS), South Africa
+9National Observatory of Athens, Lofos Nymfon 11852, Greece
+10CAS Key Laboratory for Research in Galaxies and Cosmology, School of Astronomy and Space Science,
+University of Science and Technology of China, Hefei 230026, China
+11Departamento de Matem´ aticas, Universidad Cat´ olica del Norte,
+Avda. Angamos 0610, Casilla 1280, Antofagasta, Chile
+Recent DESI DR2 observations have renewed interest in extensions of the ΛCDM cosmological
+model, particularly through indications of a time-varying dark energy equation of state. In this
+work, we investigate whether such deviations may also involve interactions within the dark sec-
+tor. We consider an interacting dark energy scenario in which the dark matter density evolves as
+ρdm ∝a −3+δ, with the constantδquantifying the interaction strength, and allow the dark energy
+equation of state to be either constant but different from−1, or dynamically evolving through the
+CPL parametrization. The models are constrained using Planck CMB data, DESI DR2 BAO mea-
+surements, and three Type Ia supernova compilations: PantheonPlus, Union3, and DES-Dovekie.
+For the constant equation-of-state case, the inclusion of DESI and supernova data leads to a prefer-
+ence for a small negative interaction parameter, with a significance above 2σ. When dynamical dark
+energy is allowed, the evidence for interaction becomes weak, while the data favor a quintessence-like
+evolving dark energy component. In both scenarios, Bayesian model comparison still favors ΛCDM.
+Our results show that the inferred role of dark-sector interactions depends strongly on the nature of
+dark energy, highlighting the importance of jointly testing dark energy dynamics and interactions
+in the DESI era.
+PACS numbers: 98.80.-k, 95.36.+x, 95.35.+d, 98.80.Es
+I. INTRODUCTION
+The standard Λ-Cold Dark Matter (ΛCDM) cosmolog-
+ical model has provided a remarkably successful descrip-
+tion of a wide range of cosmological observations. Nev-
+ertheless, the physical nature of its two dominant dark
+components, dark matter (DM) and dark energy (DE),
+remains one of the most fundamental open questions in
+modern cosmology. Hence, there is no fundamental rea-
+son requiring the dark components to be completely de-
+coupled. This motivates interacting dark energy (IDE)
+scenarios, in which DM and DE are allowed to exchange
+energy and/or momentum through a non-gravitational
+interaction. Such an interaction can modify both the
+background expansion history and the evolution of cos-
+mological perturbations, leaving potentially observable
+∗ d11102004@163.com
+† sbzhang02@163.com
+‡ supriya.maths@presiuniv.ac.in
+§ anpaliat@phys.uoa.gr
+¶ msaridak@noa.gr
+signatures in the cosmic microwave background (CMB),
+large-scale structure, and distance measurements.
+The possibility of an interaction in the dark sector has
+been extensively investigated using both parametric ap-
+proaches [1–89] and non-parametric approaches [65, 90–
+97]. These studies have demonstrated that interactions
+in the dark sector can provide interesting phenomeno-
+logical possibilities, including potential alleviation of the
+coincidence problem [3, 98–102], and of the existing cos-
+mological tensions, such as theH 0 one [103–111], and the
+σ8 one [112–116], as well as the presence of accelerating
+scaling solution [1–5, 7, 36, 51, 67, 73, 117, 118].
+Within the parametric framework of interacting cos-
+mologies, the interaction function is usually introduced
+phenomenologically and the resulting cosmological model
+is confronted with observations. Although several choices
+of interaction forms have been proposed, often motivated
+by field-theoretical considerations, a unique fundamen-
+tal action describing interacting dark energy has not yet
+been established. Therefore, an alternative and partic-
+ularly useful approach is to characterize the interaction
+through its impact on the evolution of dark matter itself.
+arXiv:2608.21938v1  [astro-ph.CO]  22 Aug 2026
+=== PAGE 2 ===
+2
+In the absence of interactions, pressureless dark matter
+follows the standard scaling lawρ dm ∝a −3, whereais
+the scale factor. However, an exchange of energy with
+dark energy naturally modifies this evolution. A simple
+and widely studied phenomenological parametrization is
+therefore given by [8, 19, 119–125]
+ρdm =ρ dm,0a−3+δ,(1)
+whereδquantifies the departure from the standard evo-
+lution and may be either constant or time dependent.
+Positive values ofδcorrespond to a slower dilution of
+dark matter compared with the standarda −3 evolution,
+whereas negative values indicate a faster dilution. Con-
+sequently, deviations fromδ= 0 provide a direct phe-
+nomenological measure of a possible interaction between
+the dark components. This approach has received signif-
+icant attention in the literature.
+The recent second data release of the Dark Energy
+Spectroscopic Instrument (DESI) has renewed interest in
+extensions of ΛCDM, particularly due to indications for
+a time-varying dark energy equation of state. These re-
+sults raise an important question: if the dark energy sec-
+tor is dynamical, is this sufficient to explain the possible
+deviations from ΛCDM, or could dark-sector interactions
+provide an additional contribution? Answering this ques-
+tion requires studying the interaction framework beyond
+the usual assumption of a cosmological constant.
+After the DESI DR2 results, the above dark matter
+scaling scenario was investigated in [125], assuming a
+vacuum dark energy component with a fixed equation of
+statew=−1. In the present work, we extend this analy-
+sis by relaxing this assumption and allowing the dark en-
+ergy equation of state to be either constant but different
+from−1, or dynamically evolving according to the CPL
+parametrization. This extension is essential because the
+inferred strength and even the preferred direction of the
+dark-sector interaction can depend on the intrinsic prop-
+erties of dark energy. Therefore, our analysis provides
+a direct investigation of the interplay between dynamical
+dark energy and dark-sector interactions in the DESI era.
+We constrain the resulting scenarios using a com-
+prehensive combination of current cosmological obser-
+vations, including Planck CMB data, DESI DR2 BAO
+measurements, and three independent Type Ia supernova
+compilations, namely PantheonPlus, Union3, and DES-
+Dovekie. By combining background and perturbation
+analyses, we investigate how the interaction parameter
+and the dark energy equation of state jointly affect cos-
+mological observables. Our results reveal that the role
+of dark-sector interactions is strongly connected with the
+assumed nature of dark energy, providing new insight
+into whether the DESI-era deviations from ΛCDM are
+driven by dynamical dark energy, dark-sector interac-
+tions, or a combination of both.
+The paper is organized as follows. In Sec. II, we de-
+scribe the theoretical framework of the interacting sce-
+nario. Sec. III presents the observational datasets, nu-
+merical implementation, and statistical methodology. In
+Sec. IV, we discuss the observational constraints and the
+implications of the different interacting scenarios. Fi-
+nally, Sec. V summarizes our conclusions.
+II. DARK SECTOR INTERACTION
+FRAMEWORK
+In this section, we present the theoretical framework of
+the interacting dark energy scenarios considered in this
+work. We focus on a phenomenological description in
+which the interaction between dark matter and dark en-
+ergy is encoded through a modification of the standard
+dark matter dilution law. Such an interaction affects
+both the background expansion history and the evolu-
+tion of cosmological perturbations, and therefore both
+aspects must be consistently included when confronting
+the model with observations. We first discuss the back-
+ground dynamics of the interacting scenarios, including
+the different choices adopted for the dark energy equa-
+tion of state. We then describe the evolution of linear
+perturbations, which determines the impact of the inter-
+action on cosmic microwave background anisotropies and
+large-scale structure observables.
+A. Background evolution
+We consider a spatially flat Friedmann-Lema ˆ ıtre-
+Robertson-Walker (FLR W) universe and assume that
+the gravitational sector is described by general relativ-
+ity. The cosmic inventory consists of baryons, radiation,
+neutrinos, pressureless dark matter (DM), and dark en-
+ergy (DE). While the total energy density is conserved,
+we allow for a non-gravitational energy exchange between
+the dark components, so that DM and DE do not evolve
+independently.
+In the presence of such an interaction, the DM den-
+sity no longer necessarily follows the standard scaling
+lawρ dm ∝a −3. Instead, we assume the phenomenolog-
+ical form given by eqn. (1), which leads to the coupled
+continuity equations
+˙ρdm + 3Hρdm =−˙ρde −3H(1 +w(a))ρ de =−Q,(2)
+whereρ dm andρ de denote the energy densities of dark
+matter and dark energy, respectively,w(a) is the dark
+energy equation-of-state parameter, andQdescribes the
+energy transfer between the two dark fluids.
+For a constant interaction parameter,δ=δ 0,1 the in-
+teraction function becomes
+Q=−δ 0Hρ dm,(3)
+1 The case of a dynamicalδwill be explored in a companion work
+including a detailed observational analysis.
+=== PAGE 3 ===
+3
+which corresponds to one of the most widely stud-
+ied phenomenological interacting dark energy scenar-
+ios [8, 19, 119–129].
+The background expansion is then governed by the
+Friedmann equation
+ H
+H0
+2
+= Ωba−3 + Ωra−4 + ρν
+ρct,0
++ Ωdma−3+δ0 + ρde
+ρct,0
+,
+(4)
+where Ω b, Ω r, and Ω dm are the present-day density pa-
+rameters of baryons, radiation, and dark matter, respec-
+tively, whileρ ct,0 denotes the present critical density and
+ρν the neutrino energy density.
+The evolution of the dark energy density is obtained by
+solving the DE conservation equation in (2) after substi-
+tuting the interaction term in (3). Its behavior depends
+on the adopted form of the DE equation of state. Equiv-
+alently, the interacting system can be described through
+effective equations of state for two separately conserved
+fluids,
+˙ρdm + 3H(1 +w eff
+dm)ρdm = 0,(5)
+˙ρde + 3H(1 +w eff
+de )ρde = 0,(6)
+where
+weff
+dm ≡ Q
+3Hρ dm
+=− δ0
+3 ,(7)
+weff
+de ≡w(a)− Q
+3Hρ de
+=w(a) + δ0
+3
+ρdm
+ρde
+.(8)
+These relations show that the sign ofδ 0 determines the
+direction of the energy transfer and modifies the effective
+behavior of both dark components. Furthermore, the
+effective dark energy equation of state depends not only
+on the interaction strength but also on the intrinsic DE
+equation of statew(a).
+In this work we consider two choices for the DE equa-
+tion of state:
+1. We first consider a constant equation of state,
+w(a) =w 0,(9)
+wherew 0 denotes its present-day value. The
+corresponding interacting model is denoted as
+“IDE+w”.
+2. We also consider a dynamical dark energy scenario
+described by the Chevallier-Polarski-Linder (CPL)
+parametrization [130, 131],
+w(a) =w 0 +w a(1−a),(10)
+wherew a quantifies the time evolution of the
+equation of state. This scenario is denoted as
+“IDE+w0wa”.
+These two choices allow us to investigate whether dark
+sector interactions provide additional degrees of freedom
+beyond constant and dynamical dark energy descriptions.
+B. Linear perturbation evolution
+To consistently confront the interacting scenarios with
+cosmological observations, it is necessary to account for
+their impact at the level of linear perturbations. The
+dark sector interaction modifies not only the background
+evolution but also the growth of density fluctuations and
+the corresponding observational signatures. We therefore
+consider the perturbed FLR W metric in the synchronous
+gauge, which takes the form [132]
+ds2 =a 2(τ)
+h
+−dτ 2 + (δij +h ij)dxidxj
+i
+,(11)
+whereτdenotes the conformal time,a(τ) is the scale
+factor, whileδ ij andh ij represent the background and
+perturbed spatial metric components, respectively.
+The evolution of the density contrasts and velocity di-
+vergences of the interacting dark matter and dark energy
+fluids is governed by the coupled perturbation equations
+[132]
+δ′
+de =−[1+w(a)]
+
+θde + h′
+2
+
+−δ 0
+
+θ+ h′
+2
+
+−3Hw(a) ′ θx
+k2
+−3H[c2
+s,de −w(a)]
+
+δde + 3H[1+w(a)] θx
+k2
+
+−3Hδ0
+ρdm
+ρde
+
+δdm −δ de + 3H
+
+c2
+s,de −w(a)
+ θde
+k2
+
+,(12)
+θ′
+de =−H(1−3c 2
+s,de)θde +
+c2
+s,de
+[1+w(a)] k2δde
++3Hδ0
+ρc
+ρde
+"
+(1+c 2
+s,de)θde
+1+w(a)
+#
+,(13)
+δ′
+dm =− h′
+2 +δ 0
+
+θdm + h′
+2
+
+,(14)
+θ′
+dm =−Hθ dm,(15)
+where a prime denotes differentiation with respect to the
+conformal timeτ. The quantitiesδ de (δdm) andθ de (θdm)
+represent, respectively, the density contrasts and velocity
+divergences (in Fourier space) of the dark energy (dark
+matter) fluids. Furthermore,hdenotes the trace of the
+metric perturbationh ij,H=a ′(τ)/a(τ) is the conformal
+Hubble parameter, andc 2
+s,de is the physical (rest-frame)
+sound speed squared of the dark energy fluid, which is
+fixed to unity throughout this work.
+The above equations determine the evolution of cosmo-
+logical perturbations in the interacting scenarios and al-
+low us to consistently evaluate their impact on large-scale
+structure and cosmic microwave background observables.
+III. OBSER V A TIONAL DA T ASETS AND
+ST A TISTICAL ANAL YSIS
+In this section we describe the observational datasets,
+numerical implementation, and statistical methodology
+=== PAGE 4 ===
+4
+adopted to constrain the interacting dark energy scenar-
+ios. As discussed above, we consider two extensions of
+ΛCDM: one in which the dark energy equation of state
+is constant but not necessarily equal to−1, and one in
+which it follows the dynamical CPL parametrization.
+For the constant equation-of-state case, the six stan-
+dard ΛCDM parameters are supplemented by the inter-
+action parameterδ 0 and the DE equation-of-state pa-
+rameterw 0, leading to an eight-dimensional parameter
+space,
+n
+Ωbh2,Ω ch2,100θ MC, τ, ns,ln(10 10As), δ0, w0
+o
+.(16)
+For the dynamical dark energy case described by the CPL
+parametrization, an additional parameterw a is intro-
+duced, resulting in a nine-dimensional parameter space,
+n
+Ωbh2,Ω ch2,100θ MC, τ, ns,ln(10 10As), δ0, w0, wa
+o
+.
+(17)
+The common parameters have their standard mean-
+ings: Ω bh2 and Ωch2 denote the physical baryon and cold
+dark matter densities, respectively;θ MC is the angular
+size of the sound horizon at recombination;τis the opti-
+cal depth to reionization;n s is the scalar spectral index;
+andA s represents the amplitude of the primordial scalar
+perturbation spectrum. The prior ranges adopted for all
+free parameters in the statistical analysis are summarized
+in Table I.
+TABLE I. Prior ranges of the free cosmological parameters
+considered in the statistical analysis of the interacting dark
+energy scenarios.
+Parameter Prior
+Ωbh2 [0.005,0.1]
+Ωdmh2 [0.001,0.99]
+τ [0.01,0.8]
+ns [0.8,1.2]
+100θM C [0.5,10]
+log[1010As] [1.61,3.91]
+δ0 [−1,1]
+w0 [−3,3]
+wa [−3,3]
+To constrain these parameter spaces, we modify the
+publicly available Boltzmann code CAMB [133, 134] to
+incorporate the interacting dark sector dynamics. The
+parameter inference is performed using the publicly avail-
+able Monte Carlo sampling frameworkCobaya[135],
+which provides access to the latest cosmological likeli-
+hoods. The convergence of the Markov chains is as-
+sessed using the Gelman–Rubin statistic [136], while the
+GetDistpackage [137] is used for the analysis and visu-
+alization of the posterior distributions.
+The observational datasets employed in our analysis
+are summarized below.
+•Cosmic microwave background (CMB):We
+use the Planck 2018 temperature and polarization
+angular power spectra [138, 139], specifically the
+likelihood combinationplikTTTEEE+lowl+lowE.
+•Baryon acoustic oscillations (BAO):We in-
+clude the BAO measurements from the second data
+release (DR2) of the DESI survey [140], which pro-
+vide constraints on the expansion history and cos-
+mological distances. We refer to this dataset as
+DESI throughout the paper.
+•Type Ia supernovae (SN Ia):We consider three
+independent supernova compilations: (i) the Pan-
+theonPlus sample [141]; (ii) the expanded Union3
+compilation containing 2087 supernovae [142]; and
+(iii) the five-year Dark Energy Survey supernova
+analysis (labeled DES-Dovekie) [143].
+We quantify the performance of the interacting sce-
+narios using the Bayesian evidence relative to ΛCDM.
+For a modelM i and datasetD, the Bayesian evidence is
+defined as
+Bi =
+Z
+L(D|Θ, Mi)π(Θ|Mi)dΘ,(18)
+whereπ(Θ|M i) denotes the prior distribution, Θ the pa-
+rameter vector, andLthe likelihood function. Compar-
+ing with the reference modelM j = ΛCDM gives the
+Bayes factor
+Bij = Bi
+Bj
+,(19)
+or equivalently,
+lnB ij = lnB i −lnB j.(20)
+Positive values of lnB ij indicate a preference for the ex-
+tended model over ΛCDM. Following the revised Jeffreys
+scale [144], we classify the evidence as inconclusive for
+0≤lnB ij <1, weak for 1≤lnB ij <2.5, moderate for
+2.5≤lnB ij <5, strong for 5≤lnB ij <10, and very
+strong for lnB ij ≥10.
+The Bayesian evidence calculations are performed us-
+ingMCEvidence[145] together with theCobayawrapper
+implemented in thewgcosmorepository [146–148].
+IV. OBSER V A TIONAL CONSTRAINTS
+In this section we present the key results obtained for
+the present interacting scenarios. We consider several
+=== PAGE 5 ===
+5
+TABLE II. 68% and 95% confidence level constraints on the free and derived cosmological parameters of theIDE+wscenario
+for the CMB, CMB+DESI, CMB+DESI+PantheonPlus, CMB+DESI+Union3, and CMB+DESI+DES-Dovekie dataset com-
+binations.
+Parameters CMB CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+Ωbh2 0.02241+0.00017+0.00031
+−0.00016−0.00032 0.02234+0.00017+0.00032
+−0.00017−0.00033 0.02233+0.00016+0.00031
+−0.00017−0.00032 0.02232+0.00016+0.00032
+−0.00016−0.00032 0.02233+0.00016+0.00031
+−0.00016−0.00030
+Ωdmh2 0.12546+0.00306+0.00704
+−0.00369−0.00686 0.11714+0.00115+0.00210
+−0.00105−0.00224 0.11636+0.00093+0.00185
+−0.00095−0.00187 0.11611+0.00103+0.00197
+−0.00102−0.00204 0.11629+0.00095+0.00183
+−0.00096−0.00189
+100θMC 1.04018+0.00052+0.00098
+−0.00038−0.00191 1.04093+0.00028+0.00058
+−0.00028−0.00056 1.04097+0.00029+0.00057
+−0.00028−0.00057 1.04101+0.00028+0.00053
+−0.00028−0.00053 1.04099+0.00028+0.00057
+−0.00028−0.00055
+τ0.0530 +0.0076+0.0160
+−0.0080−0.0152 0.0576+0.0074+0.0171
+−0.0083−0.0152 0.0581+0.0072+0.0175
+−0.0085−0.0152 0.0581+0.0074+0.0163
+−0.0083−0.0153 0.0579+0.0075+0.0167
+−0.0085−0.0162
+ns 0.9671+0.0054+0.0103
+−0.0054−0.0108 0.9777+0.0037+0.0071
+−0.0037−0.0070 0.9784+0.0035+0.0067
+−0.0035−0.0069 0.9785+0.0035+0.0072
+−0.0036−0.0069 0.9782+0.0037+0.0071
+−0.0037−0.0073
+ln(1010As) 3.053 +0.016+0.032
+−0.016−0.031 3.058+0.016+0.034
+−0.016−0.032 3.059+0.015+0.035
+−0.017−0.031 3.059+0.016+0.034
+−0.016−0.032 3.059+0.015+0.035
+−0.018−0.031
+δ0 0.0043+0.0024+0.0055
+−0.0028−0.0056 −0.0018+0.0013+0.0025
+−0.0013−0.0026 −0.0025+0.0012+0.0023
+−0.0012−0.0024 −0.0028+0.0012+0.0024
+−0.0013−0.0024 −0.0026+0.0012+0.0023
+−0.0012−0.0022
+w0 −0.920+0.134+0.484
+−0.292−0.361 −0.998+0.046+0.091
+−0.046−0.094 −0.956+0.027+0.052
+−0.027−0.052 −0.942+0.032+0.064
+−0.033−0.064 −0.949+0.025+0.049
+−0.026−0.049
+Ωm 0.3976+0.0411+0.2119
+−0.1046−0.1442 0.2971+0.0076+0.0151
+−0.0075−0.0146 0.3028+0.0051+0.0105
+−0.0051−0.0099 0.3048+0.0056+0.0115
+−0.0057−0.0113 0.3040+0.0048+0.0093
+−0.0048−0.0093
+σ8 0.776+0.047+0.074
+−0.032−0.089 0.817+0.013+0.024
+−0.012−0.024 0.812+0.011+0.022
+−0.011−0.022 0.810+0.011+0.022
+−0.011−0.022 0.811+0.011+0.022
+−0.012−0.021
+H0 [km/s/Mpc] 62.18 +7.15+10.39
+−4.74−13.43 68.69+0.97+1.98
+−1.01−1.94 67.84+0.59+1.13
+−0.59−1.15 67.56+0.71+1.38
+−0.69−1.33 67.70+0.53+1.06
+−0.55−1.04
+S8 0.882+0.034+0.113
+−0.059−0.088 0.813+0.011+0.022
+−0.011−0.022 0.815+0.011+0.022
+−0.011−0.021 0.817+0.011+0.022
+−0.011−0.021 0.816+0.011+0.022
+−0.011−0.021
+rdrag [Mpc] 146.71 +0.40+0.72
+−0.36−0.76 147.52+0.24+0.47
+−0.23−0.45 147.59+0.23+0.44
+−0.23−0.43 147.61+0.23+0.46
+−0.24−0.45 147.58+0.24+0.46
+−0.23−0.46
+w0 (σ) 0.2002 0.0684 1.6447 1.7665 2.0264
+δ0 (σ) 1.6377 1.4336 2.1813 2.3394 2.2484
+lnBij −7.2−8.6−10.8−10.1−10.1
+1.20
+ 1.05
+ 0.90
+w0
+0.006
+0.003
+0.000
+0
+0.275 0.300 0.325
+m
+66 69 72
+H0
+0.78 0.81 0.84
+S8
+CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+0.004
+ 0.000
+0
+1.2
+1.1
+1.0
+0.9
+w0
+0.275 0.300 0.325
+m
+66 69 72
+H0
+0.78 0.81 0.84
+S8
+CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+FIG. 1.Marginalized one-dimensional posterior distributions and two-dimensional confidence contours for the main cosmo-
+logical parameters of theIDE+wscenario. Results are displayed for the CMB, CMB+DESI, CMB+DESI+PantheonPlus,
+CMB+DESI+Union3, and CMB+DESI+DES-Dovekie dataset combinations.
+dataset combinations in order to robustly constrain the
+interacting scenarios. In total, we perform five analyses:
+CMB alone, CMB+DESI, and CMB+DESI+SNIa, with
+the latter considered separately for the PantheonPlus,
+Union3, and DES-Dovekie compilations. Throughout the
+analysis, the total neutrino mass is fixed to P mν = 0.06
+eV and the effective number of relativistic species is fixed
+toN eff = 3.04. In Table II we present the 68% and 95%
+CL constraints on the free and derived parameters of the
+IDE+winteracting scenario, and in Figs. 1-3 we dis-
+play the corresponding plots. Similarly, in Table III and
+in Figs. 4-7 we present the results for theIDE+w 0wa
+scenario.
+A. Interacting dark energy with constant equation
+of state
+We first consider the case in which the dark energy
+equation of state is constant but not fixed to the cos-
+mological constant value, namely theIDE+wscenario.
+=== PAGE 6 ===
+6
+101
+102 103
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+CTT / CTT
+0 = 0.01
+0 = 0
+0 = 0.01
+10 4
+10 3
+ 10 2
+ 10 1
+100
+k [h/Mpc]
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+P(k) / P(k)
+0 = 0.01
+0 = 0
+0 = 0.01
+FIG. 2.Residuals of the CMB TT angular power spectrum (left panel) and matter power spectrum (right panel) for theIDE+w
+scenario, relative to the Planck 2018 best-fitΛCDM model [138], for different values of the interaction parameterδ 0. The dark
+energy equation of state is fixed tow 0 =−0.9. The remaining cosmological parameters are fixed to the mean values obtained
+from the CMB+DESI+PantheonPlus analysis (fourth column of Table II).
+101
+102 103
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+CTT / CTT
+w0 = 1.1
+w0 = 1.0
+w0 = 0.9
+10 4
+10 3
+ 10 2
+ 10 1
+100
+k [h/Mpc]
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+P(k) / P(k)
+w0 = 1.1
+w0 = 1.0
+w0 = 0.9
+FIG. 3.Residuals of the CMB TT angular power spectrum (left panel) and matter power spectrum (right panel) for theIDE+w
+scenario, relative to the Planck 2018 best-fitΛCDM model [138], for different values of the dark energy equation-of-state
+parameterw 0. The interaction parameter is fixed toδ 0 =−0.01. The remaining cosmological parameters are fixed to the mean
+values obtained from the CMB+DESI+PantheonPlus analysis (fourth column of Table II).
+The constraints are summarized in Table II, while the
+corresponding posterior distributions and parameter cor-
+relations are shown in Fig. 1. The interaction parameter
+δ0 and the present-day dark energy equation of statew 0
+represent the two key parameters controlling the depar-
+ture from the standard ΛCDM scenario.
+We begin with the CMB-only constraints. In this case,
+a mild preference for a non-vanishing interaction is ob-
+served, with
+δ0 = 0.0043+0.0024
+−0.0026,
+corresponding to a deviation from zero slightly above
+the 1σlevel. Sinceδ 0 >0, the preferred direction of
+the energy transfer is from dark energy to dark mat-
+ter. This leads to an increased matter abundance, Ω m =
+0.396+0.041
+−0.101, which in turn shifts the inferred Hubble con-
+stant towards lower values,
+H0 = 62.18+7.15
+−4.74 km/s/Mpc,
+while increasing the clustering amplitude,
+S8 = 0.882+0.034
+−0.059.
+The dark energy equation of state is found to lie in
+the quintessence region, while the Bayesian evidence
+still strongly favors ΛCDM over this extended scenario.
+Therefore, although the CMB data alone allow a mild
+indication of interaction, they do not provide statistical
+support for introducing an additional dark-sector degree
+of freedom.
+The inclusion of DESI BAO measurements signifi-
+cantly changes the preferred region of the interaction pa-
+rameter. The posterior shifts from positive to negative
+values,
+δ0 =−0.0018 +0.0013
+−0.0013,
+indicating a mild preference for energy transfer from dark
+matter to dark energy. At the same time, the dark en-
+=== PAGE 7 ===
+7
+TABLE III. 68% and 95% confidence level constraints on the free and derived cosmological parameters of theIDE+w 0wa sce-
+nario for the CMB, CMB+DESI, CMB+DESI+PantheonPlus, CMB+DESI+Union3, and CMB+DESI+DES-Dovekie dataset
+combinations.
+Parameters CMB CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+Ωbh2 0.02242+0.00016+0.00035
+−0.00018−0.00033 0.02237+0.00015+0.00031
+−0.00016−0.00031 0.02236+0.00016+0.00031
+−0.00016−0.00033 0.02238+0.00016+0.00032
+−0.00016−0.00030 0.02238+0.00016+0.00031
+−0.00017−0.00031
+Ωdmh2 0.12716+0.00305+0.00970
+−0.00490−0.00850 0.11753+0.00113+0.00202
+−0.00094−0.00211 0.11761+0.00110+0.00212
+−0.00099−0.00213 0.11754+0.00102+0.00185
+−0.00093−0.00204 0.11779+0.00104+0.00183
+−0.00084−0.00193
+100θMC 1.04014+0.00047+0.00086
+−0.00042−0.00097 1.04087+0.00055+0.00186
+−0.00045−0.00236 1.04086+0.00047+0.00125
+−0.00035−0.00170 1.04082+0.00082+0.00226
+−0.00064−0.00268 1.04000+0.00165+0.00338
+−−0.00009−0.00838
+τ0.0520 +0.0075+0.0157
+−0.0075−0.0149 0.0572+0.0071+0.0167
+−0.0085−0.0145 0.0570+0.0073+0.0157
+−0.0082−0.0145 0.0572+0.0070+0.0157
+−0.0080−0.0144 0.0573+0.0074+0.0158
+−0.0077−0.0153
+ns 0.9660+0.0054+0.0105
+−0.0053−0.0109 0.9773+0.0035+0.0070
+−0.0034−0.0069 0.9771+0.0035+0.0070
+−0.0035−0.0068 0.9773+0.0035+0.0067
+−0.0036−0.0069 0.9771+0.0034+0.0069
+−0.0034−0.0068
+ln(1010As) 3.051 +0.016+0.032
+−0.016−0.031 3.057+0.015+0.034
+−0.017−0.031 3.057+0.015+0.032
+−0.017−0.031 3.057+0.015+0.033
+−0.017−0.030 3.058+0.016+0.032
+−0.016−0.032
+δ0 0.0060+0.0023+0.0094
+−0.0045−0.0074 −0.0013+0.0014+0.0022
+−0.0010−0.0026 −0.0013+0.0015+0.0023
+−0.0010−0.0025 −0.0013+0.0014+0.0020
+−0.0009−0.0023 −0.0011+0.0013+0.0021
+−0.0009−0.0024
+w0 −1.251+0.519+1.152
+−0.551−1.152 −0.883+0.110+0.186
+−0.080−0.203 −0.891+0.045+0.081
+−0.041−0.087 −0.819+0.057+0.103
+−0.052−0.113 −0.870+0.044+0.076
+−0.037−0.086
+wa 0.545+0.820+1.529
+−0.752−1.544 −0.310+0.140+0.503
+−0.273−0.402 −0.302+0.110+0.314
+−0.177−0.267 −0.444+0.102+0.307
+−0.165−0.260 −0.380+0.100+0.306
+−0.172−0.251
+Ωm 0.3673+0.0636+0.2292
+−0.1266−0.1848 0.3078+0.0132+0.0297
+−0.0133−0.0273 0.3074+0.0068+0.0156
+−0.0066−0.0184 0.3140+0.0108+0.0276
+−0.0096−0.0412 0.3165+0.0013+0.0560
+−0.0166−0.0292
+σ8 0.801+0.063+0.125
+−0.065−0.127 0.807+0.016+0.033
+−0.016−0.033 0.807+0.011+0.027
+−0.013−0.024 0.801+0.014+0.040
+−0.015−0.033 0.801+0.017+0.034
+−0.012−0.047
+H0 [km/s/Mpc] 65.95 +8.39+18.10
+−9.71−17.89 67.64+1.46+3.10
+−1.50−2.98 67.66+0.63+1.63
+−0.77−1.67 66.98+0.90+3.62
+−1.29−3.28 67.10+1.27+3.06
+−0.54−5.58
+S8 0.867+0.047+0.128
+−0.063−0.105 0.817+0.011+0.023
+−0.011−0.022 0.817+0.011+0.023
+−0.011−0.021 0.819+0.012+0.022
+−0.011−0.024 0.819+0.011+0.026
+−0.013−0.027
+rdrag [Mpc] 146.61 +0.39+0.77
+−0.39−0.82 147.50+0.21+0.46
+−0.23−0.42 147.49+0.23+0.45
+−0.23−0.45 147.49+0.22+0.45
+−0.23−0.44 147.48+0.20+0.43
+−0.20−0.41
+w0 (σ) 0.4991 1.1701 2.4336 3.0468 2.8558
+wa (σ) 0.6889 1.2654 1.7488 2.5465 2.1752
+δ0 (σ) 1.8682 1.0885 1.0657 1.2417 0.9482
+lnBij −8.4−11.5−11.5−8.0−9.3
+ergy equation of state becomes fully consistent with the
+cosmological constant boundary,
+w0 =−0.997±0.046.
+The reduced matter density leads to an increase of the
+inferred expansion rate, with
+H0 = 68.69+0.97
+−1.01 km/s/Mpc,
+bringing the model closer to the standard low-redshift
+expansion history. However, despite the improved phe-
+nomenological behavior, the Bayesian evidence remains
+unfavorable compared with ΛCDM, with lnB ij =−8.6.
+The addition of Type Ia supernovae strengthens
+the preference for a negative interaction. For both
+CMB+DESI+PantheonPlus and CMB+DESI+Union3
+combinations, the interaction parameter deviates from
+zero at more than 2σ,
+δ0 =−0.0025 +0.0012
+−0.0012,
+and
+δ0 =−0.0028 +0.0012
+−0.0013,
+respectively. Thus, the combined low-redshift observa-
+tions consistently favor a mild energy transfer from dark
+matter to dark energy. Nevertheless, the Bayesian evi-
+dence continues to penalize the additional interaction de-
+gree of freedom, indicating that the improvement in the
+goodness of fit is not sufficient to establish a departure
+from ΛCDM.
+In summary, the constant-EoS interacting scenario re-
+veals an interesting interplay between the nature of dark
+energy and the dark-sector coupling: once low-redshift
+distance measurements are included, the data favor a
+small negative interaction, while the evidence remains
+statistically inconclusive. This demonstrates that a con-
+stant non-Λ dark energy component can alter the pre-
+ferred interaction behavior, but does not yet provide de-
+cisive evidence for physics beyond the standard cosmo-
+logical model.
+We finally investigate the characteristic signatures
+of theIDE+wscenario in the CMB temperature
+anisotropies and matter power spectrum. Figs. 2 and 3
+show the residuals with respect to the reference ΛCDM
+cosmology for different values ofδ 0 andw 0.
+Fig. 2 illustrates the impact of the dark-sector inter-
+action. A non-zeroδ 0 modifies the dark matter dilution
+history and, consequently, the growth of cosmic struc-
+tures. Positive values ofδ 0 correspond to a slower dilu-
+tion of dark matter due to energy transfer from dark en-
+ergy to dark matter, enhancing clustering and increasing
+the deviations in the matter power spectrum. Conversely,
+negative values lead to faster dark matter dilution and
+suppress structure formation. The modified background
+evolution and gravitational potentials also leave imprints
+on the CMB TT spectrum.
+Fig. 3 shows the effect of varyingw 0 while keep-
+ingδ 0 fixed. Changes in the dark energy equation of
+state modify the expansion history and the evolution of
+gravitational potentials, affecting both CMB anisotropies
+through late-time effects such as the integrated Sachs–
+Wolfe effect and lensing, and the growth of matter per-
+turbations. On large scales, the matter power spectrum
+residuals approach an approximately constant value, re-
+flecting the dominant impact on the overall growth am-
+plitude in the linear regime, while smaller scales exhibit
+a stronger dependence on the detailed perturbation evo-
+=== PAGE 8 ===
+8
+1.2
+ 0.6
+w0
+0.006
+0.003
+0.000
+0.003
+0
+0.8
+ 0.0 0.8
+wa
+0.25 0.50
+m
+50 75
+H0
+0.75 0.90
+S8
+CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+0.006
+ 0.000
+0
+1.25
+1.00
+0.75
+w0
+0.8
+ 0.0 0.8
+wa
+0.25 0.50
+m
+50 75
+H0
+0.75 0.90
+S8
+CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+0.006
+ 0.000
+0
+0.5
+0.0
+0.5
+wa
+1.2
+ 0.6
+w0
+0.25 0.50
+m
+50 75
+H0
+0.75 0.90
+S8
+CMB+DESI CMB+DESI+PantheonPlus CMB+DESI+Union3 CMB+DESI+DES-Dovekie
+FIG. 4.Marginalized one-dimensional posterior distributions and two-dimensional confidence contours for the main cosmo-
+logical parameters of theIDE+w 0wa scenario. Results are displayed for the CMB, CMB+DESI, CMB+DESI+PantheonPlus,
+CMB+DESI+Union3, and CMB+DESI+DES-Dovekie dataset combinations.
+101
+102 103
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+CTT / CTT
+0 = 0.01
+0 = 0
+0 = 0.01
+10 4
+10 3
+ 10 2
+ 10 1
+100
+k [h/Mpc]
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+P(k) / P(k)
+0 = 0.01
+0 = 0
+0 = 0.01
+FIG. 5.Residuals of the CMB TT angular power spectrum (left panel) and matter power spectrum (right panel) for the
+IDE+w0wa scenario, relative to the Planck 2018 best-fitΛCDM model [138], for different values of the interaction parameter
+δ0. The dark energy equation-of-state parameters are fixed tow 0 =−0.9andw a =−0.3. The remaining cosmological parameters
+are fixed to the mean values obtained from the CMB+DESI+PantheonPlus analysis (fourth column of Table III).
+lution.
+These results demonstrate that the interaction param-
+eter and the dark energy equation of state leave distinct
+signatures in cosmological observables, connecting the
+parameter constraints with the underlying dark-sector
+physics.
+B. Interacting dark energy with dynamical
+equation of state
+The constraints for theIDE+w 0wa scenario are sum-
+marized in Table III, while the corresponding posterior
+distributions and parameter correlations are shown in
+Fig. 4. The three panels of Fig. 4 display the correlations
+=== PAGE 9 ===
+9
+101
+102 103
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+CTT / CTT
+w0 = 1.1
+w0 = 1.0
+w0 = 0.9
+10 4
+10 3
+ 10 2
+ 10 1
+100
+k [h/Mpc]
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+P(k) / P(k)
+w0 = 1.1
+w0 = 1.0
+w0 = 0.9
+FIG. 6.Residuals of the CMB TT angular power spectrum (left panel) and matter power spectrum (right panel) for the
+IDE+w0wa scenario, relative to the Planck 2018 best-fitΛCDM model [138], for different values of the dark energy equation-
+of-state parameterw 0. The interaction parameter and the CPL evolution parameter are fixed toδ 0 =−0.01andw a =−0.3,
+respectively. The remaining cosmological parameters are fixed to the mean values obtained from the CMB+DESI+PantheonPlus
+analysis (fourth column of Table III).
+101
+102 103
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+CTT / CTT
+wa = 0.3
+wa = 0
+wa = 0.3
+10 4
+10 3
+ 10 2
+ 10 1
+100
+k [h/Mpc]
+0.3
+0.2
+0.1
+0.0
+0.1
+0.2
+0.3
+P(k) / P(k)
+wa = 0.3
+wa = 0
+wa = 0.3
+FIG. 7.Residuals of the CMB TT angular power spectrum (left panel) and matter power spectrum (right panel) for the
+IDE+w0wa scenario, relative to the Planck 2018 best-fitΛCDM model [138], for different values of the CPL evolution param-
+eterw a. The interaction parameter and the present-day dark energy equation-of-state parameter are fixed toδ 0 =−0.01
+andw 0 =−0.9, respectively. The remaining cosmological parameters are fixed to the mean values obtained from the
+CMB+DESI+PantheonPlus analysis (fourth column of Table III).
+among the main parameters of this scenario, namely the
+interaction parameterδ 0 and the dark energy equation-
+of-state parametersw 0 andw a.
+We first consider the CMB-only constraints, shown in
+the second column of Table III. A mild preference for a
+non-zero interaction is found, withδ 0 ̸= 0 at approxi-
+mately 1.87σ. The preferred positive value ofδ 0 corre-
+sponds to an energy transfer from dark energy to dark
+matter, leading to an increased matter density,
+Ωm = 0.3673+0.0636
+−0.1266,
+and consequently to a lower value ofH 0 due to the well-
+known anti-correlation between these two parameters.
+The present-day dark energy equation of state is shifted
+towards the phantom region,
+w0 =−1.251 +0.519
+−0.551,
+although the cosmological constant value remains within
+the 1σregion. Similarly,w a is consistent with zero.
+Therefore, CMB data alone allow a mild interaction pref-
+erence, but do not provide evidence for a departure from
+a cosmological constant dark energy sector.
+The inclusion of DESI BAO data modifies this pic-
+ture. The indication for a non-zero interaction becomes
+weaker, withδ 0 ̸= 0 only at approximately the 1σlevel.
+At the same time, the dark energy equation of state shifts
+towards the quintessence region, with a mild indication
+of dynamical behavior. The remaining cosmological pa-
+rameters, includingH 0, Ω m, andS 8, remain compatible
+with their ΛCDM values.
+When the three supernova compilations are further
+combined with CMB+DESI, the constraints become con-
+sistent across the different datasets. The interaction pa-
+=== PAGE 10 ===
+10
+rameter remains only mildly displaced from zero, with a
+significance ranging from approximately 0.95σto 1.24σ.
+In contrast, the preference for a quintessence-like present-
+day equation of state becomes stronger, withw 0 >−1 fa-
+vored at the level of approximately 2.43σ−3.05σ. More-
+over, the evolution parameterw a shows a preference for
+non-zero values at approximately 1.75σ−2.55σ, indicat-
+ing support for a dynamical dark energy component. The
+remaining cosmological parameters continue to show val-
+ues close to those of ΛCDM.
+Summarizing, when the dark energy equation of state
+is allowed to evolve, the DESI-era datasets primarily fa-
+vor dynamical dark energy rather than an additional
+dark-sector interaction. The interaction parameter re-
+mains compatible with zero, suggesting that the evidence
+for departures from ΛCDM is mainly associated with the
+evolution of the dark energy equation of state.
+We finally investigate the characteristic signatures
+of theIDE+w 0wa scenario in the CMB temperature
+anisotropies and matter power spectrum. Figures 5, 6,
+and 7 show the residuals with respect to ΛCDM when
+varyingδ 0,w 0, andw a, respectively. The interaction pa-
+rameter directly affects the dark matter dilution history
+and therefore the growth of structures, whilew 0 andw a
+modify the expansion history and the evolution of grav-
+itational potentials. Consequently, all three parameters
+leave distinct signatures in the CMB TT spectrum and
+matter power spectrum. As in the constant-EoS case,
+the matter power spectrum residuals approach an ap-
+proximately constant value on large scales, reflecting the
+dominant effect of these parameters on the overall growth
+amplitude in the linear regime.
+V. SUMMAR Y AND CONCLUSIONS
+The possibility that dark matter and dark energy in-
+teract through a non-gravitational exchange represents
+one of the most interesting extensions of the standard
+ΛCDM cosmological model. In such scenarios, the stan-
+dard dilution law of pressureless dark matter,ρ dm ∝a −3,
+is modified. In this work, we have considered the phe-
+nomenological parametrization
+ρdm ∝a −3+δ0 ,
+where the constant parameterδ 0 quantifies the strength
+of the dark-sector interaction, withδ 0 = 0 recovering the
+standard non-interacting case.
+Motivated by the recent DESI DR2 indications for a
+possible departure from a pure cosmological constant, we
+have investigated how the nature of dark energy affects
+the inferred strength of dark-sector interactions. In par-
+ticular, we have extended the usual interacting dark en-
+ergy framework by considering two different dark energy
+descriptions: a constant equation of state,w(a) =w 0,
+wherew 0 is not fixed to−1, and a dynamical equa-
+tion of state described by the CPL parametrization,
+w(a) =w 0 +w a(1−a). These two scenarios allow us
+to explore whether the possible signatures of dark-sector
+interactions depend on the intrinsic properties of dark
+energy.
+We have constrained these models using a combination
+of current cosmological observations, including Planck
+2018 CMB temperature and polarization spectra, DESI
+DR2 BAO measurements, and three independent Type
+Ia supernova compilations: PantheonPlus, Union3, and
+DES-Dovekie. The analysis has been performed at both
+the background and perturbation levels, allowing us to
+consistently investigate the impact of the interaction on
+the expansion history, CMB anisotropies, and structure
+formation.
+For the constant equation-of-state interacting scenario
+(IDE+w), the combined CMB+DESI+SNIa datasets
+consistently favor a small negative interaction parameter,
+corresponding to an energy transfer from dark matter to
+dark energy, with a significance of approximately 2.2σ.
+At the same time, the present-day dark energy equation
+of state shows a preference for quintessence-like values.
+These results indicate that once the dark energy sector
+is allowed to move away from a strict cosmological con-
+stant, the observational preference for interaction can be
+modified and mildly enhanced. Nevertheless, Bayesian
+evidence calculations show that the additional degrees of
+freedom introduced by the interacting scenario are not
+statistically favored over ΛCDM.
+When the dark energy equation of state is allowed to
+evolve dynamically (IDE+w 0wa), the picture changes.
+The evidence for a non-zero interaction becomes weak
+across all datasets, while the data show a moderate
+preference for a quintessence-like and evolving dark en-
+ergy component. For the combined CMB+DESI+SNIa
+datasets, the preference forw 0 >−1 reaches approxi-
+mately 2.4σ−3.1σ, while the indication for a non-zero
+wa reaches approximately 1.7σ−2.5σ. Therefore, within
+this more general framework, the DESI-era preference
+appears to be primarily associated with the dynamical
+nature of dark energy rather than with an additional in-
+teraction between the dark fluids.
+We have also studied the characteristic signatures of
+the interaction and dark energy parameters in the CMB
+TT angular power spectrum and matter power spec-
+trum. The interaction parameter modifies the dark mat-
+ter evolution and consequently the growth of structures,
+while the dark energy equation-of-state parameters af-
+fect the expansion history and the evolution of gravita-
+tional potentials. These effects leave distinct imprints on
+cosmological observables, providing a direct connection
+between the parameter constraints and the underlying
+dark-sector physics.
+Overall, our results indicate that the interpretation of
+possible deviations from ΛCDM depends crucially on the
+assumed properties of the dark energy sector. A constant
+non-standard equation of state can strengthen the prefer-
+ence for dark-sector interactions, whereas allowing a fully
+dynamical dark energy component shifts the preference
+towards evolving dark energy itself. In all cases, however,
+=== PAGE 11 ===
+11
+Bayesian model comparison continues to favor ΛCDM,
+showing that present observations do not yet require ad-
+ditional dark-sector physics. Future high-precision mea-
+surements, together with more general parametrizations
+of the interaction function, such as a time-dependent
+δ(a), will be essential to determine whether the hints
+found in current data represent new physics or residual
+statistical fluctuations.
+ACKNOWLEDGMENTS
+WY has been supported by the National Natural Sci-
+ence Foundation of China under Grant Nos. 12547110
+and 12175096. AP was partially supported by FONDE-
+CYT Grant 1240514. ENS acknowledges the contribu-
+tion of the LISA Cosmology Working Group (CosWG).
+The authors acknowledge as well support from the COST
+Actions CA21136 - Addressing observational tensions
+in cosmology with systematics and fundamental physics
+(CosmoVerse) - CA23130, Bridging high and low energies
+in search of quantum gravity (BridgeQG) and CA21106
+- COSMIC WISPers in the Dark Universe: Theory, as-
+trophysics and experiments (CosmicWISPers).
+[1] L. Amendola, Coupled quintessence, Phys. Rev. D62,
+043511 (2000), arXiv:astro-ph/9908023.
+[2] L. Amendola, Scaling solutions in general nonminimal
+coupling theories, Phys. Rev. D60, 043501 (1999),
+arXiv:astro-ph/9904120.
+[3] R.-G. Cai and A. Wang, Cosmology with interaction
+between phantom dark energy and dark matter and
+the coincidence problem, JCAP03, 002, arXiv:hep-
+th/0411025.
+[4] J. D. Barrow and T. Clifton, Cosmologies with energy
+exchange, Phys. Rev. D73, 103520 (2006), arXiv:gr-
+qc/0604063.
+[5] Z.-K. Guo, R.-G. Cai, and Y.-Z. Zhang, Cosmological
+evolution of interacting phantom energy with dark mat-
+ter, JCAP05, 002, arXiv:astro-ph/0412624.
+[6] B. Wang, C.-Y. Lin, and E. Abdalla, Constraints on the
+interacting holographic dark energy model, Phys. Lett.
+B637, 357 (2006), arXiv:hep-th/0509107.
+[7] L. P. Chimento, A. S. Jakubi, D. Pavon, and W. Zim-
+dahl, Interacting quintessence solution to the coin-
+cidence problem, Phys. Rev. D67, 083513 (2003),
+arXiv:astro-ph/0303145.
+[8] L. Amendola, G. Camargo Campos, and R. Rosenfeld,
+Consequences of dark matter-dark energy interaction on
+cosmological parameters derived from SNIa data, Phys.
+Rev. D75, 083506 (2007), arXiv:astro-ph/0610806.
+[9] E. Majerotto, J. Valiviita, and R. Maartens, Adiabatic
+initial conditions for perturbations in interacting dark
+energy models, Mon. Not. Roy. Astron. Soc.402, 2344
+(2010), arXiv:0907.4981 [astro-ph.CO].
+[10] M. Jamil, E. N. Saridakis, and M. R. Setare, Thermo-
+dynamics of dark energy interacting with dark mat-
+ter and radiation, Phys. Rev. D81, 023007 (2010),
+arXiv:0910.0822 [hep-th].
+[11] N. A. Koshelev, On the growth of perturbations in in-
+teracting dark energy and dark matter fluids, Gen. Rel.
+Grav.43, 1309 (2011), arXiv:0912.0120 [gr-qc].
+[12] X.-m. Chen, Y. Gong, E. N. Saridakis, and Y. Gong,
+Time-dependent interacting dark energy and transient
+acceleration, Int. J. Theor. Phys.53, 469 (2014),
+arXiv:1111.6743 [astro-ph.CO].
+[13] W. Yang and L. Xu, Cosmological constraints on in-
+teracting dark energy with redshift-space distortion af-
+ter Planck data, Phys. Rev. D89, 083517 (2014),
+arXiv:1401.1286 [astro-ph.CO].
+[14] V. Faraoni, J. B. Dent, and E. N. Saridakis, Covariantiz-
+ing the interaction between dark energy and dark mat-
+ter, Phys. Rev. D90, 063510 (2014), arXiv:1405.7288
+[gr-qc].
+[15] Y. Wang, D. Wands, G.-B. Zhao, and L. Xu, Post-
+P lanckconstraints on interacting vacuum energy, Phys.
+Rev. D90, 023502 (2014), arXiv:1404.5706 [astro-
+ph.CO].
+[16] C. van de Bruck and J. Morrice, Disformal couplings
+and the dark sector of the universe, JCAP04, 036,
+arXiv:1501.03073 [gr-qc].
+[17] S. Pan, S. Bhattacharya, and S. Chakraborty, An an-
+alytic model for interacting dark energy and its obser-
+vational constraints, Mon. Not. Roy. Astron. Soc.452,
+3038 (2015), arXiv:1210.0396 [gr-qc].
+[18] C. van de Bruck, J. Mifsud, J. P. Mimoso, and N. J.
+Nunes, Generalized dark energy interactions with mul-
+tiple fluids, JCAP11, 031, arXiv:1605.03834 [gr-qc].
+[19] R. C. Nunes, S. Pan, and E. N. Saridakis, New
+constraints on interacting dark energy from cos-
+mic chronometers, Phys. Rev. D94, 023508 (2016),
+arXiv:1605.01712 [astro-ph.CO].
+[20] B. Wang, E. Abdalla, F. Atrio-Barandela, and
+D. Pavon, Dark Matter and Dark Energy Interactions:
+Theoretical Challenges, Cosmological Implications and
+Observational Signatures, Rept. Prog. Phys.79, 096901
+(2016), arXiv:1603.08299 [astro-ph.CO].
+[21] W. Yang, H. Li, Y. Wu, and J. Lu, Cosmological
+constraints on coupled dark energy, JCAP10, 007,
+arXiv:1608.07039 [astro-ph.CO].
+[22] C. van de Bruck, J. Mifsud, and J. Morrice, Testing
+coupled dark energy models with their cosmological
+background evolution, Phys. Rev. D95, 043513 (2017),
+arXiv:1609.09855 [astro-ph.CO].
+[23] W. Yang, S. Pan, and J. D. Barrow, Large-scale Sta-
+bility and Astronomical Constraints for Coupled Dark-
+Energy Models, Phys. Rev. D97, 043529 (2018),
+arXiv:1706.04953 [astro-ph.CO].
+[24] S. Pan, A. Mukherjee, and N. Banerjee, Astronomical
+bounds on a cosmological model allowing a general in-
+teraction in the dark sector, Mon. Not. Roy. Astron.
+Soc.477, 1189 (2018), arXiv:1710.03725 [astro-ph.CO].
+[25] J. Mifsud and C. van de Bruck, Probing the imprints
+=== PAGE 12 ===
+12
+of generalized interacting dark energy on the growth of
+perturbations, JCAP11, 001, arXiv:1707.07667 [astro-
+ph.CO].
+[26] X. Xu, Y.-Z. Ma, and A. Weltman, Constraining the in-
+teraction between dark sectors with future HI intensity
+mapping observations, Phys. Rev. D97, 083504 (2018),
+arXiv:1710.03643 [astro-ph.CO].
+[27] W. Yang, S. Pan, and D. F. Mota, Novel approach to-
+ward the large-scale stable interacting dark-energy mod-
+els and their astronomical bounds, Phys. Rev. D96,
+123508 (2017), arXiv:1709.00006 [astro-ph.CO].
+[28] C. van de Bruck and J. Mifsud, Searching for dark
+matter - dark energy interactions: going beyond the
+conformal case, Phys. Rev. D97, 023506 (2018),
+arXiv:1709.04882 [astro-ph.CO].
+[29] W. Yang, S. Pan, E. Di Valentino, R. C. Nunes,
+S. Vagnozzi, and D. F. Mota, Tale of stable interacting
+dark energy, observational signatures, and theH 0 ten-
+sion, JCAP09, 019, arXiv:1805.08252 [astro-ph.CO].
+[30] W. Yang, S. Pan, R. Herrera, and S. Chakraborty,
+Large-scale (in) stability analysis of an exactly solved
+coupled dark-energy model, Phys. Rev. D98, 043517
+(2018), arXiv:1808.01669 [gr-qc].
+[31] S. Pan, W. Yang, C. Singha, and E. N. Saridakis, Ob-
+servational constraints on sign-changeable interaction
+models and alleviation of theH 0 tension, Phys. Rev.
+D100, 083539 (2019), arXiv:1903.10969 [astro-ph.CO].
+[32] C. Li, X. Ren, M. Khurshudyan, and Y.-F. Cai, Impli-
+cations of the possible 21-cm line excess at cosmic dawn
+on dynamics of interacting dark energy, Phys. Lett. B
+801, 135141 (2020), arXiv:1904.02458 [astro-ph.CO].
+[33] S. Pan, W. Yang, E. Di Valentino, E. N. Saridakis, and
+S. Chakraborty, Interacting scenarios with dynamical
+dark energy: Observational constraints and alleviation
+of theH 0 tension, Phys. Rev. D100, 103520 (2019),
+arXiv:1907.07540 [astro-ph.CO].
+[34] W. Yang, S. Pan, E. Di Valentino, B. Wang,
+and A. Wang, Forecasting interacting vacuum-energy
+models using gravitational waves, JCAP05, 050,
+arXiv:1904.11980 [astro-ph.CO].
+[35] W. Yang, S. Vagnozzi, E. Di Valentino, R. C. Nunes,
+S. Pan, and D. F. Mota, Listening to the sound of
+dark sector interactions with gravitational wave stan-
+dard sirens, JCAP07, 037, arXiv:1905.08286 [astro-
+ph.CO].
+[36] W. Khyllep, J. Dutta, S. Basilakos, and E. N. Sari-
+dakis, Background evolution and growth of structures
+in interacting dark energy scenarios through dynami-
+cal system analysis, Phys. Rev. D105, 043511 (2022),
+arXiv:2111.01268 [gr-qc].
+[37] J. D. Barrow and G. Kittou, Non-linear interactions in
+cosmologies with energy exchange, Eur. Phys. J. C80,
+120 (2020), arXiv:1907.06410 [gr-qc].
+[38] R. von Marttens, L. Lombriser, M. Kunz, V. Marra,
+L. Casarini, and J. Alcaniz, Dark degeneracy I: Dynam-
+ical or interacting dark energy?, Phys. Dark Univ.28,
+100490 (2020), arXiv:1911.02618 [astro-ph.CO].
+[39] W. Yang, S. Pan, R. C. Nunes, and D. F. Mota, Dark
+calling Dark: Interaction in the dark sector in presence
+of neutrino properties after Planck CMB final release,
+JCAP04, 008, arXiv:1910.08821 [astro-ph.CO].
+[40] E. Di Valentino, A. Melchiorri, O. Mena, and
+S. Vagnozzi, Interacting dark energy in the early
+2020s: A promising solution to theH 0 and cosmic
+shear tensions, Phys. Dark Univ.30, 100666 (2020),
+arXiv:1908.04281 [astro-ph.CO].
+[41] E. Di Valentino, A. Melchiorri, O. Mena, and
+S. Vagnozzi, Nonminimal dark sector physics and cos-
+mological tensions, Phys. Rev. D101, 063502 (2020),
+arXiv:1910.09853 [astro-ph.CO].
+[42] A. G´ omez-Valent, V. Pettorino, and L. Amendola, Up-
+date on coupled dark energy and theH 0 tension, Phys.
+Rev. D101, 123513 (2020), arXiv:2004.00610 [astro-
+ph.CO].
+[43] A. G´ omez-Valent, Z. Zheng, L. Amendola, C. Wetterich,
+and V. Pettorino, Coupled and uncoupled early dark en-
+ergy, massive neutrinos, and the cosmological tensions,
+Phys. Rev. D106, 103522 (2022), arXiv:2207.14487
+[astro-ph.CO].
+[44] S. Pan, W. Yang, E. Di Valentino, D. F. Mota,
+and J. Silk, IWDM: the fate of an interacting non-
+cold dark matter — vacuum scenario, JCAP07, 064,
+arXiv:2211.11047 [astro-ph.CO].
+[45] R. C. Nunes, S. Vagnozzi, S. Kumar, E. Di Valentino,
+and O. Mena, New tests of dark sector interactions from
+the full-shape galaxy power spectrum, Phys. Rev. D
+105, 123506 (2022), arXiv:2203.08093 [astro-ph.CO].
+[46] Y. Zhai, W. Giar` e, C. van de Bruck, E. Di Valentino,
+O. Mena, and R. C. Nunes, A consistent view of inter-
+acting dark energy from multiple CMB probes, JCAP
+07, 032, arXiv:2303.08201 [astro-ph.CO].
+[47] G. A. Hoerning, R. G. Landim, L. O. Ponte, R. P.
+Rolim, F. B. Abdalla, and E. Abdalla, Constraints
+on interacting dark energy revisited: Implications for
+the Hubble tension, Phys. Rev. D112, 023523 (2025),
+arXiv:2308.05807 [astro-ph.CO].
+[48] M. Forconi, W. Giar` e, O. Mena, Ruchika,
+E. Di Valentino, A. Melchiorri, and R. C. Nunes,
+A double take on early and interacting dark en-
+ergy from JWST, JCAP05, 097, arXiv:2312.11074
+[astro-ph.CO].
+[49] E. M. Teixeira, R. Daniel, N. Frusciante, and C. van de
+Bruck, Forecasts on interacting dark energy with
+standard sirens, Phys. Rev. D108, 084070 (2023),
+arXiv:2309.06544 [astro-ph.CO].
+[50] T.-N. Li, S.-J. Jin, H.-L. Li, J.-F. Zhang, and X. Zhang,
+Prospects for Probing the Interaction between Dark En-
+ergy and Dark Matter Using Gravitational-wave Dark
+Sirens with Neutron Star Tidal Deformation, Astrophys.
+J.963, 52 (2024), arXiv:2310.15879 [astro-ph.CO].
+[51] S. Halder, S. D. Odintsov, S. Pan, T. Saha, and E. N.
+Saridakis, Interacting phantom dark energy: New ac-
+celerating scaling attractors, Phys. Rev. D112, 023519
+(2025), arXiv:2411.18300 [gr-qc].
+[52] B. Wang, E. Abdalla, F. Atrio-Barandela, and
+D. Pav´ on, Further understanding the interaction be-
+tween dark energy and dark matter: current status and
+future directions, Rept. Prog. Phys.87, 036901 (2024),
+arXiv:2402.00819 [astro-ph.CO].
+[53] W. Giar` e, Y. Zhai, S. Pan, E. Di Valentino, R. C. Nunes,
+and C. van de Bruck, Tightening the reins on nonmin-
+imal dark sector physics: Interacting dark energy with
+dynamical and nondynamical equation of state, Phys.
+Rev. D110, 063527 (2024), arXiv:2404.02110 [astro-
+ph.CO].
+[54] M. A. Sabogal, E. Silva, R. C. Nunes, S. Kumar,
+E. Di Valentino, and W. Giar` e, Quantifying the S8
+tension and evidence for interacting dark energy from
+=== PAGE 13 ===
+13
+redshift-space distortion measurements, Phys. Rev. D
+110, 123508 (2024), arXiv:2408.12403 [astro-ph.CO].
+[55] T.-N. Li, P.-J. Wu, G.-H. Du, S.-J. Jin, H.-L. Li, J.-F.
+Zhang, and X. Zhang, Constraints on Interacting Dark
+Energy Models from the DESI Baryon Acoustic Oscil-
+lation and DES Supernovae Data, Astrophys. J.976, 1
+(2024), arXiv:2407.14934 [astro-ph.CO].
+[56] P. Ghedini, R. Hajjar, and O. Mena, Redshift-space
+distortions corner interacting dark energy, Phys. Dark
+Univ.46, 101671 (2024), arXiv:2409.02700 [astro-
+ph.CO].
+[57] T.-N. Li, G.-H. Du, Y.-H. Li, P.-J. Wu, S.-J. Jin, J.-
+F. Zhang, and X. Zhang, Probing the sign-changeable
+interaction between dark energy and dark matter with
+DESI baryon acoustic oscillations and DES supernovae
+data, Sci. China Phys. Mech. Astron.69, 210413 (2026),
+arXiv:2501.07361 [astro-ph.CO].
+[58] J.-Q. Wang, R.-G. Cai, Z.-K. Guo, and S.-J. Wang, Re-
+solving the Planck-DESI tension by nonminimally cou-
+pled quintessence, Phys. Rev. D113, 083534 (2026),
+arXiv:2508.01759 [astro-ph.CO].
+[59] Y. Yang, X. Dai, and Y. Wang, New cosmological con-
+straints on the evolution of dark matter energy den-
+sity, Phys. Rev. D111, 103534 (2025), arXiv:2505.09879
+[astro-ph.CO].
+[60] N. Cruickshank, R. Crittenden, K. Koyama, and
+M. Bruni, Forecasts for interacting dark energy with
+time-dependent momentum exchange, JCAP10, 052,
+arXiv:2504.03555 [astro-ph.CO].
+[61] L. Feng, T.-N. Li, G.-H. Du, J.-F. Zhang, and X. Zhang,
+A search for sterile neutrinos in interacting dark en-
+ergy models using DESI baryon acoustic oscillations
+and DES supernovae data, Phys. Dark Univ.48, 101935
+(2025), arXiv:2503.10423 [astro-ph.CO].
+[62] L. W. K. Goh, I. Ocampo, S. Nesseris, and V. Pet-
+torino, Distinguishing coupled dark energy models with
+neural networks, Astron. Astrophys.692, A101 (2024),
+arXiv:2411.04058 [astro-ph.CO].
+[63] Y. Zhai, M. de Cesare, C. van de Bruck, E. Di Valentino,
+and E. Wilson-Ewing, A low-redshift preference for
+an interacting dark energy model, JCAP11, 010,
+arXiv:2503.15659 [astro-ph.CO].
+[64] N. Nari and M. Roshan, Dynamical Friction by Cou-
+pled Dark Energy, Astrophys. J.982, 75 (2025),
+arXiv:2502.10676 [astro-ph.GA].
+[65] C. You, D. Wang, and T. Yang, Dynamical dark energy
+implies a coupled dark sector: Insights from DESI DR2
+via a data-driven approach, Phys. Rev. D112, 043503
+(2025), arXiv:2504.00985 [astro-ph.CO].
+[66] M. van der Westhuizen, D. Figueruelo, R. Thubisi,
+S. Sahlu, A. Abebe, and A. Paliathanasis, Compartmen-
+talization in the dark sector of the universe after DESI
+DR2 BAO data, Phys. Dark Univ.50, 102107 (2025),
+arXiv:2505.23306 [astro-ph.CO].
+[67] M. Postolak, Non-minimally coupled scalar field dark
+sector of the Universe: in-depth (Einstein frame)
+case study, Class. Quant. Grav.43, 125018 (2026),
+arXiv:2505.07456 [gr-qc].
+[68] Y.-M. Zhang, T.-N. Li, G.-H. Du, S.-H. Zhou, L.-Y.
+Gao, J.-F. Zhang, and X. Zhang, Alleviating theH 0
+tension through the interacting dark energy model from
+quantum gravitational field theory in light of DESI DR2
+(2025), arXiv:2510.12627 [astro-ph.CO].
+[69] E. Silva, G. Hartmann, and R. C. Nunes, One-loop
+power spectrum corrections in interacting dark en-
+ergy cosmologies, Phys. Rev. D113, 063548 (2026),
+arXiv:2512.11678 [astro-ph.CO].
+[70] P.-J. Wu, M. Zhang, and S.-J. Jin, How dark sector
+equations of state govern interaction signatures, Phys.
+Rev. D113, L081302 (2026), arXiv:2512.05548 [astro-
+ph.CO].
+[71] V. Petri, V. Marra, and R. von Marttens, Dark de-
+generacy in DESI DR2 data: Interacting or evolv-
+ing dark energy?, Phys. Rev. D113, 023504 (2026),
+arXiv:2508.17955 [astro-ph.CO].
+[72] T.-N. Li, G.-H. Du, Y.-H. Li, Y. Li, J.-L. Ling, J.-F.
+Zhang, and X. Zhang, Updated constraints on interact-
+ing dark energy: A comprehensive analysis using multi-
+ple CMB probes, DESI DR2, and supernovae observa-
+tions (2025), arXiv:2510.11363 [astro-ph.CO].
+[73] A. Paliathanasis, Indications of a late-time transition to
+a strongly interacting dark sector, Phys. Dark Univ.52,
+102306 (2026), arXiv:2601.02789 [astro-ph.CO].
+[74] X. Dai, Y. Yang, Y. Wang, Y. Qu, S. Yi, and F. Wang,
+Redshift evolution of the Hubble constant: Constraints
+and new insights from an interacting dark energy model,
+Phys. Rev. D113, 063514 (2026), arXiv:2602.22840
+[astro-ph.CO].
+[75] J. Meng, X. Yang, Y. Ren, Y. Shi, B. Wang, J. Li, and
+X. Liu, Interacting dark energy constraints from Fermi
+GRBs and Pantheon+ SNe Ia with full GRB covariance
+(2026), arXiv:2606.00549 [astro-ph.CO].
+[76] T.-N. Li, W. Giar` e, G.-H. Du, Y.-H. Li, E. Di Valentino,
+J.-F. Zhang, and X. Zhang, Robust Preference for Dark
+Sector Interactions (2026), arXiv:2601.07361 [astro-
+ph.CO].
+[77] D. Figueruelo, M. van der Westhuizen, A. Abebe,
+and E. Di Valentino, Late-time background constraints
+on linear and non-linear interacting dark energy af-
+ter DESI DR2, Phys. Dark Univ.52, 102238 (2026),
+arXiv:2601.03122 [astro-ph.CO].
+[78] S. Sahlu, A. Paliathanasis, G. Leon, and A. Abebe,
+Testing the coexistence of dark energy and dark mat-
+ter with late-time observational data, Phys. Dark Univ.
+52, 102280 (2026), arXiv:2603.16533 [astro-ph.CO].
+[79] A. G´ omez-Valent, Z. Zheng, and L. Amendola, Con-
+straints on Coupled Dark Energy in the DESI Era
+(2026), arXiv:2604.12032 [astro-ph.CO].
+[80] A. Paliathanasis and K. J. Duffy, Saturation Mech-
+anisms in the Interacting Dark Sector (2026),
+arXiv:2604.21671 [astro-ph.CO].
+[81] Y. Zhai, C. van de Bruck, E. Di Valentino, B. Li,
+and R. C. Nunes, Non-linear Structure Formation in
+Planck+DESI Favoured Interacting Dark Energy Cos-
+mologies (2026), arXiv:2606.11368 [astro-ph.CO].
+[82] J. Wang, H. Yu, and P. Wu, Coupled quintessence with
+a potential from supergravity exhibits sign-changing in-
+teraction (2026), arXiv:2605.17754 [astro-ph.CO].
+[83] F. Villalobos, J. Magana, and T. Verdugo, Study of dark
+interactions through strong gravitational lenses (2026),
+arXiv:2605.16155 [astro-ph.CO].
+[84] S. Antusch, S. F. King, and X. Wang, Coupled Dark
+Energy and Dark Matter for DESI: An Effective Guide
+to the Phantom Divide (2026), arXiv:2604.08449 [astro-
+ph.CO].
+[85] R. Maier, A No-Go Theorem for Topological
+Bridges with Matter-Vacuum Coupling (2026),
+arXiv:2605.14027 [gr-qc].
+=== PAGE 14 ===
+14
+[86] Y. W. Ambelu, A. Abebe, S. B. Tessema, and S. Sahlu,
+Alleviating the Hubble Tension Using ΛsCDM Model:
+A Coupled Dark Energy - Dark Matter Interaction
+(2026), arXiv:2605.01904 [astro-ph.CO].
+[87] J.-Q. Wang, R.-G. Cai, Z.-K. Guo, Y.-H. Li, S.-
+J. Wang, and X. Zhang, Non-minimally coupled
+quintessence with sign-switching interaction (2026),
+arXiv:2604.02204 [astro-ph.CO].
+[88] H. Li, G.-H. Du, T.-N. Li, H.-L. Li, L. Feng, J.-F.
+Zhang, and X. Zhang, Neutrino mass constraints in in-
+teracting dark energy models after DESI DR2 (2026),
+arXiv:2606.05005 [astro-ph.CO].
+[89] M. Barroso Varela and ´A. de la Cruz-Dombriz, A Tale
+of Two Couplings: Bayesian Selection in the Interacting
+Dark Sector (2026), arXiv:2608.03981 [gr-qc].
+[90] T. Yang, Z.-K. Guo, and R.-G. Cai, Reconstructing the
+interaction between dark energy and dark matter using
+Gaussian Processes, Phys. Rev. D91, 123533 (2015),
+arXiv:1505.04443 [astro-ph.CO].
+[91] R.-G. Cai, N. Tamanini, and T. Yang, Reconstructing
+the dark sector interaction with LISA, JCAP05, 031,
+arXiv:1703.07323 [astro-ph.CO].
+[92] R. von Marttens, J. E. Gonzalez, J. Alcaniz, V. Marra,
+and L. Casarini, Model-independent reconstruction of
+dark sector interactions, Phys. Rev. D104, 043515
+(2021), arXiv:2011.10846 [astro-ph.CO].
+[93] A. Bonilla, S. Kumar, R. C. Nunes, and S. Pan, Re-
+construction of the dark sectors’ interaction: A model-
+independent inference and forecast from GW standard
+sirens, Mon. Not. Roy. Astron. Soc.512, 4231 (2022),
+arXiv:2102.06149 [astro-ph.CO].
+[94] P. Mukherjee and N. Banerjee, Nonparametric recon-
+struction of interaction in the cosmic dark sector, Phys.
+Rev. D103, 123530 (2021), arXiv:2105.09995 [astro-
+ph.CO].
+[95] L. A. Escamilla, O. Akarsu, E. Di Valentino, and J. A.
+Vazquez, Model-independent reconstruction of the in-
+teracting dark energy kernel: Binned and Gaussian pro-
+cess, JCAP11, 051, arXiv:2305.16290 [astro-ph.CO].
+[96] M. Abedin, G.-J. Wang, Y.-Z. Ma, and S. Pan, In search
+of an interaction in the dark sector through Gaussian
+process and ANN approaches, Mon. Not. Roy. Astron.
+Soc.540, 2253 (2025), arXiv:2505.04336 [astro-ph.CO].
+[97] Y.-H. Li and X. Zhang, Cosmic sign-reversal: non-
+parametric reconstruction of interacting dark energy
+with DESI DR2, JCAP12, 018, arXiv:2506.18477
+[astro-ph.CO].
+[98] L. Amendola and D. Tocchini-Valentini, Stationary
+dark energy: The Present universe as a global at-
+tractor, Phys. Rev. D64, 043509 (2001), arXiv:astro-
+ph/0011243.
+[99] A. P. Billyard and A. A. Coley, Interactions in scalar
+field cosmology, Phys. Rev. D61, 083503 (2000),
+arXiv:astro-ph/9908224.
+[100] W. Zimdahl and D. Pavon, Interacting quintessence,
+Phys. Lett. B521, 133 (2001), arXiv:astro-ph/0105479.
+[101] C. Wetterich, The Cosmon model for an asymptot-
+ically vanishing time dependent cosmological ’con-
+stant’, Astron. Astrophys.301, 321 (1995), arXiv:hep-
+th/9408025.
+[102] S. del Campo, R. Herrera, and D. Pavon, Toward a so-
+lution of the coincidence problem, Phys. Rev. D78,
+021302 (2008), arXiv:0806.2116 [astro-ph].
+[103] E. Di Valentino, A. Melchiorri, and J. Silk, Beyond six
+parameters: extending ΛCDM, Phys. Rev. D92, 121302
+(2015), arXiv:1507.06646 [astro-ph.CO].
+[104] S. Kumar and R. C. Nunes, Echo of interactions in
+the dark sector, Phys. Rev. D96, 103511 (2017),
+arXiv:1702.02143 [astro-ph.CO].
+[105] N. Khosravi, S. Baghram, N. Afshordi, and N. Al-
+tamirano,H 0 tension as a hint for a transition in
+gravitational theory, Phys. Rev. D99, 103526 (2019),
+arXiv:1710.09366 [astro-ph.CO].
+[106] E. M¨ ortsell and S. Dhawan, Does the Hubble con-
+stant tension call for new physics?, JCAP09, 025,
+arXiv:1801.07260 [astro-ph.CO].
+[107] W. Yang, S. Pan, E. Di Valentino, E. N. Saridakis,
+and S. Chakraborty, Observational constraints on one-
+parameter dynamical dark-energy parametrizations and
+theH 0 tension, Phys. Rev. D99, 043543 (2019),
+arXiv:1810.05141 [astro-ph.CO].
+[108] M. Martinelli, N. B. Hogg, S. Peirone, M. Bruni,
+and D. Wands, Constraints on the interacting vac-
+uum–geodesic CDM scenario, Mon. Not. Roy. Astron.
+Soc.488, 3423 (2019), arXiv:1902.10694 [astro-ph.CO].
+[109] P. Agrawal, F.-Y. Cyr-Racine, D. Pinner, and L. Ran-
+dall, Rock ‘n’ roll solutions to the Hubble tension, Phys.
+Dark Univ.42, 101347 (2023), arXiv:1904.01016 [astro-
+ph.CO].
+[110] W. Yang, S. Pan, S. Vagnozzi, E. Di Valentino, D. F.
+Mota, and S. Capozziello, Dawn of the dark: unified
+dark sectors and the EDGES Cosmic Dawn 21-cm sig-
+nal, JCAP11, 044, arXiv:1907.05344 [astro-ph.CO].
+[111] W. Giar` e, M. A. Sabogal, R. C. Nunes, and
+E. Di Valentino, Interacting Dark Energy after DESI
+Baryon Acoustic Oscillation Measurements, Phys. Rev.
+Lett.133, 251003 (2024), arXiv:2404.15232 [astro-
+ph.CO].
+[112] A. Pourtsidou and T. Tram, Reconciling CMB
+and structure growth measurements with dark en-
+ergy interactions, Phys. Rev. D94, 043518 (2016),
+arXiv:1604.04222 [astro-ph.CO].
+[113] R. An, C. Feng, and B. Wang, Relieving the Tension
+between Weak Lensing and Cosmic Microwave Back-
+ground with Interacting Dark Matter and Dark En-
+ergy Models, JCAP02, 038, arXiv:1711.06799 [astro-
+ph.CO].
+[114] E. Di Valentino and S. Bridle, Exploring the Tension be-
+tween Current Cosmic Microwave Background and Cos-
+mic Shear Data, Symmetry10, 585 (2018).
+[115] S. Kumar, R. C. Nunes, and S. K. Yadav, Dark sec-
+tor interaction: a remedy of the tensions between
+CMB and LSS data, Eur. Phys. J. C79, 576 (2019),
+arXiv:1903.04865 [astro-ph.CO].
+[116] J. Khoury, M.-X. Lin, and M. Trodden, Apparent w<-1
+and a Lower S8 from Dark Axion and Dark Baryons
+Interactions, Phys. Rev. Lett.135, 181001 (2025),
+arXiv:2503.16415 [astro-ph.CO].
+[117] X.-m. Chen and Y. Gong, Fixed points in interact-
+ing dark energy models, Phys. Lett. B675, 9 (2009),
+arXiv:0811.1698 [gr-qc].
+[118] S. Halder, S. Pan, P. M. S´ a, and T. Saha, Phantom
+cosmology with arbitrary potential: New accelerating
+scaling attractors, Phys. Lett. B873, 140212 (2026),
+arXiv:2510.17765 [gr-qc].
+[119] P. Wang and X.-H. Meng, Can vacuum decay in our uni-
+verse?, Class. Quant. Grav.22, 283 (2005), arXiv:astro-
+=== PAGE 15 ===
+15
+ph/0408495.
+[120] F. E. M. Costa, E. M. Barboza, Jr., and J. S. Al-
+caniz, Cosmology with interaction in the dark sector,
+Phys. Rev. D79, 127302 (2009), arXiv:0905.0672 [astro-
+ph.CO].
+[121] H. Wei, Revisiting the Cosmological Constraints on the
+Interacting Dark Energy Models, Phys. Lett. B691, 173
+(2010), arXiv:1004.0492 [gr-qc].
+[122] R. C. Nunes and E. M. Barboza, Dark matter-dark en-
+ergy interaction for a time-dependent EoS parameter,
+Gen. Rel. Grav.46, 1820 (2014), arXiv:1404.1620 [astro-
+ph.CO].
+[123] J. S. Wang and F. Y. Wang, Cosmological model of
+the interaction between dark matter and dark energy,
+Astron. Astrophys.564, A137 (2014), arXiv:1403.4318
+[astro-ph.CO].
+[124] S. Kumar and R. C. Nunes, Probing the interaction
+between dark matter and dark energy in the presence
+of massive neutrinos, Phys. Rev. D94, 123511 (2016),
+arXiv:1608.02454 [astro-ph.CO].
+[125] S. Pan, S. Paul, E. N. Saridakis, and W. Yang, Inter-
+acting dark energy after DESI DR2: A challenge for the
+ΛCDM paradigm?, Phys. Rev. D113, 023515 (2026),
+arXiv:2504.00994 [astro-ph.CO].
+[126] J.-H. He and B. Wang, Effects of the interaction between
+dark energy and dark matter on cosmological parame-
+ters, JCAP06, 010, arXiv:0801.4233 [astro-ph].
+[127] R. F. L. Holanda, R. S. Gon¸ calves, J. E. Gonzalez, and
+J. S. Alcaniz, An estimate of the dark matter density
+from galaxy clusters and supernovae data, JCAP11,
+032, arXiv:1905.09689 [astro-ph.CO].
+[128] K. Bora, R. F. L. Holanda, and S. Desai, Probing the
+dark matter density evolution law with large scale struc-
+tures, Eur. Phys. J. C81, 596 (2021), arXiv:2105.02168
+[astro-ph.CO].
+[129] K. Bora, R. F. L. Holanda, S. Desai, and S. H. Pereira,
+A test of the standard dark matter density evolution
+law using galaxy clusters and cosmic chronometers,
+Eur. Phys. J. C82, 17 (2022), arXiv:2106.15805 [astro-
+ph.CO].
+[130] M. Chevallier and D. Polarski, Accelerating universes
+with scaling dark matter, Int. J. Mod. Phys. D10, 213
+(2001), arXiv:gr-qc/0009008.
+[131] E. V. Linder, Exploring the expansion history of the uni-
+verse, Phys. Rev. Lett.90, 091301 (2003), arXiv:astro-
+ph/0208512.
+[132] C.-P. Ma and E. Bertschinger, Cosmological perturba-
+tion theory in the synchronous and conformal Newto-
+nian gauges, Astrophys. J.455, 7 (1995), arXiv:astro-
+ph/9506072.
+[133] A. Lewis, A. Challinor, and A. Lasenby, Efficient com-
+putation of CMB anisotropies in closed FR W models,
+Astrophys. J.538, 473 (2000), arXiv:astro-ph/9911177.
+[134] A. Lewis and S. Bridle, Cosmological parameters from
+CMB and other data: A Monte Carlo approach, Phys.
+Rev. D66, 103511 (2002), arXiv:astro-ph/0205436.
+[135] J. Torrado and A. Lewis, Cobaya: Code for Bayesian
+Analysis of hierarchical physical models, JCAP05, 057,
+arXiv:2005.05290 [astro-ph.IM].
+[136] A. Gelman and D. B. Rubin, Inference from Iterative
+Simulation Using Multiple Sequences, Statist. Sci.7,
+457 (1992).
+[137] A. Lewis, GetDist: a Python package for analysing
+Monte Carlo samples, JCAP08, 025, arXiv:1910.13970
+[astro-ph.IM].
+[138] N. Aghanimet al.(Planck), Planck 2018 results. VI.
+Cosmological parameters, Astron. Astrophys.641, A6
+(2020), [Erratum: Astron.Astrophys. 652, C4 (2021)],
+arXiv:1807.06209 [astro-ph.CO].
+[139] N. Aghanimet al.(Planck), Planck 2018 results. V.
+CMB power spectra and likelihoods, Astron. Astrophys.
+641, A5 (2020), arXiv:1907.12875 [astro-ph.CO].
+[140] M. Abdul Karimet al.(DESI), DESI DR2 results. II.
+Measurements of baryon acoustic oscillations and cos-
+mological constraints, Phys. Rev. D112, 083515 (2025),
+arXiv:2503.14738 [astro-ph.CO].
+[141] D. Scolnicet al., The Pantheon+ Analysis: The Full
+Data Set and Light-curve Release, Astrophys. J.938,
+113 (2022), arXiv:2112.03863 [astro-ph.CO].
+[142] D. Rubinet al., Union Through UNITY: Cosmology
+with 2,000 SNe Using a Unified Bayesian Framework,
+Astrophys. J.986, 231 (2025), arXiv:2311.12098 [astro-
+ph.CO].
+[143] B. Popovicet al.(DES), The Dark Energy Survey Su-
+pernova Program: A Reanalysis Of Cosmology Results
+And Evidence For Evolving Dark Energy With An Up-
+dated Type Ia Supernova Calibration, Mon. Not. Roy.
+Astron. Soc.548, stag632 (2026), arXiv:2511.07517
+[astro-ph.CO].
+[144] R. E. Kass and A. E. Raftery, Bayes Factors, J. Am.
+Statist. Assoc.90, 773 (1995).
+[145] A. Heavens, Y. Fantaye, A. Mootoovaloo, H. Eg-
+gers, Z. Hosenie, S. Kroon, and E. Sellentin, Marginal
+Likelihoods from Monte Carlo Markov Chains (2017),
+arXiv:1704.03472 [stat.CO].
+[146] W. Giare, wgcosmo: A set of tools, codes, and method-
+ologies for cosmology (2025), accessed: 2025-03-30.
+[147] Y.-H. Yang, E. N. Saridakis, Y.-F. Cai, and H.-
+R. Yu, Dark energy perturbations and the robust-
+ness of cosmological neutrino-mass constraints (2026),
+arXiv:2606.28074 [astro-ph.CO].
+[148] Y. Yang, Q. Wang, X. Ren, E. N. Saridakis, and Y.-
+F. Cai, Probing the sound speed and clustering of dark
+energy (2025), arXiv:2511.22478 [astro-ph.CO].

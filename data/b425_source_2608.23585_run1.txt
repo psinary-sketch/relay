@@ -1,0 +1,1235 @@
+=== PAGE 1 ===
+Observational constraints on Barrow holographic dark energy coupled with a non-cold
+dark matter component from DESI DR2
+Abdulla Al Mamon, 1,∗ Genly Leon, 2, 3, 4,† Subhajit Saha, 5,‡ and Andronikos Paliathanasis 3, 4, 6, 7, 8,§
+1Department of Physics, Vivekananda Satavarshiki Mahavidyalaya (affiliated
+to the Vidyasagar University), Manikpara-721513, West Bengal, India
+2Departamento de Matem´ aticas, Universidad Cat´ olica del Norte,
+Avenida Angamos 0610, Casilla 1280 Antofagasta, Chile
+3Institute of Systems Science, Durban University of Technology, Durban 4000, South Africa
+4Centre for Space Research, North-West University, Potchefstroom 2520, South Africa
+5Department of Mathematics, Panihati Mahavidyalaya, Kolkata 700110, West Bengal, India
+6Centro de Investigaci´ on, Innovaci´ on y Creaci´ on (CIIC),
+Universidad Cat´ olica de Temuco, Temuco, Chile
+7Departamento de Ciencias Matem´ aticas y F ´ ısicas,
+Facultad de Ingenier ´ ıa, Universidad Cat´ olica de Temuco, Temuco, Chile
+8National Institute for Theoretical and Computational Sciences (NITheCS), South Africa
+We investigate the cosmological viability of Barrow holographic dark energy in a spatially flat
+Friedmann–Lema ˆ ıtre–Robertson–Walker universe in which the dark matter component is allowed to
+have a non-zero pressure, characterized by a constant equation-of-state parameterw m. By consid-
+ering the future event horizon as the infrared cutoff, we derive the master equation, which describes
+the cosmological dynamics for the background space. We constrain the model against late-time
+data, combining the baryon acoustic oscillation from DESI DR2 with three different catalogues for
+the Type Ia Supernova measurements and the Cosmic Chronometers. The dark matter equation of
+state is constrained tow m = 0.033 +0.045
+−0.030, 0.009 +0.047
+−0.041, and 0.033 +0.042
+−0.029, for the PantheonPlus, the
+Union3.0 and the DES-Dovekie supernova datasets respectively. Therefore, the pressureless limit is
+recovered within the 2σregime. On the other hand, the Barrow exponent is weakly constrained, due
+to the ∆−w m degeneracy. The dark energy equation of state remains above the phantom divide
+throughout the redshift range probed. Finally, in the comparison of the statistical parameters with
+that of ΛCDM, it follows ∆AIC = +2.23, +0.75, and +1.38, while for the Bayesian evidence we
+find ∆ lnZ=−0.63, +0.47, and−0.13, which suggest that the datasets considered in this analysis
+do not have a preferred model. Finally the relation with the corresponding Tsalis holographic dark
+energy model is discussed.
+Keywords: Holographic dark energy, Entropy, Non-cold Dark Matter, DESI DR2, Information criteria
+1. INTRODUCTION
+Observations of the late-time Universe show that its
+energy content is overwhelmingly dominated by two dark
+components: dark matter (DM) and dark energy (DE),
+which together make up about 95% of the total cos-
+mic energy budget [1]. Whereas DM is essential for the
+growth and clustering of cosmic structures [2], DE is in-
+voked to explain the present accelerated expansion of the
+Universe [3, 4]. Nevertheless, the fundamental physi-
+cal nature of both components has not yet been under-
+stood at a deeper level. Within the standard ΛCDM
+paradigm, DE is represented by a cosmological constant
+Λ with a fixed equation of state (EoS)w=−1, while
+dark matter is modeled as a cold, pressureless fluid with
+zero EoSw dm = 0, interacting with other components
+only through gravity. Although the ΛCDM model has
+achieved remarkable success, it is still faced with a num-
+∗Electronic address: abdulla.physics@gmail.com
+†Electronic address: genly.leon@ucn.cl
+‡Electronic address: subhajit1729@gmail.com
+§Electronic address: anpaliat@phys.uoa.gr
+ber of theoretical and observational difficulties, especially
+those related to the cosmological constant problem and
+the physical nature of cold dark matter [5].
+Alternatively, various extensions of the standard cos-
+mological model have been proposed. Among them, holo-
+graphic dark energy (HDE) scenarios, motivated by ideas
+from quantum gravity, stand out as a promising class of
+alternatives. In particular, HDE provides a different the-
+oretical framework for explaining DE, grounded in the
+holographic principle [6–9]. More recently, guided by
+developments in generalized statistical mechanics, sev-
+eral extended HDE models have been formulated using
+modified entropy formalisms. In particular, HDE models
+based on Barrow [10], Tsallis [11–13], and Viaggiu [14, 15]
+entropies have attracted significant attention. The cos-
+mological consequences of these generalized HDE con-
+structions have been thoroughly examined in the liter-
+ature [16–35]. For a comprehensive review of the HDE
+paradigm, one may refer to the extensive review [36],
+which trace the theoretical development of HDE from its
+basis in the holographic principle through its observa-
+tional constraints and extensions, including interacting
+scenarios with DM. It is worth noting that a generalized
+horizon entropy has recently been introduced, linking the
+arXiv:2608.23585v1  [physics.gen-ph]  11 Aug 2026
+=== PAGE 2 ===
+2
+field equations of an FLR W universe in a general gravity
+theory to the thermodynamic behavior of the dynamical
+apparent horizon [37–41]. Most of the entropy formalisms
+discussed in the literature, including those of Barrow and
+Tsallis, turn out to be particular cases of this more gen-
+eral form.
+Analysis of recent observations from the Dark En-
+ergy Spectroscopic Instrument (DESI), based on baryon
+acoustic oscillation (BAO) measurements from its second
+data release (DR2), have provided compelling indications
+in favor of dynamical DE, see for example [42]. These re-
+sults suggest that the DE EoS may evolve with cosmic
+time, thereby challenging the standard ΛCDM paradigm.
+It is important to note that such conclusions are typi-
+cally obtained under the conventional assumption that
+DM behaves as a perfectly cold fluid characterized by a
+vanishing EoS.
+This raises a fundamental question regarding the va-
+lidity of this assumption. If DE is allowed to evolve, it
+is natural to explore whether DM may also deviate from
+its standard cold and pressureless description. Given that
+both DM and DE play essential roles in determining the
+expansion history of the Universe as well as the formation
+and growth of large-scale structures, their physical prop-
+erties are inherently coupled at the level of cosmological
+dynamics. This consideration motivates a more general
+framework in which both components of the dark sector
+are treated as dynamical entities, potentially offering a
+richer and more complete description of the Universe.
+Motivated by the theoretical framework introduced in
+Refs. [43, 44], several studies have explored the possibil-
+ity that observational data may favor non-cold DM with a
+non-zero EoS parameter; see, for instance, Refs. [45–63].
+It is worth highlighting that, although previous works
+have investigated the possibility of a time-varying DM
+EoS, these studies have typically been limited to a narrow
+region of parameter space, which may obscure potential
+imprints of new physics [46, 47]. More recently, in [62]
+it addressed this limitation by extending the parameter
+space of the DM EoS to its full range, rather than sim-
+ply incorporating updated observational datasets. Their
+analysis, based on individual probes including the cosmic
+microwave background (CMB), observations from DESI,
+and Pantheon+, reveal hints of dynamical DM at an
+approximately 2σconfidence level. Furthermore, when
+CMB data are combined with low-redshift observations,
+the significance exceeds the 2σthreshold, thereby indi-
+cating a possible scenario in which both dynamical DM
+and dynamical DE coexist within the dark sector. In a
+separate study, in [63] reported that recent observations
+from DESI suggest that DM may deviate from the stan-
+dard cold assumption and could possess a non-zero EoS
+parameter. At the same time, their results also indicate
+that DE may not be consistent with a cosmological con-
+stant, but instead may exhibit dynamical behavior.
+In the present work, we investigate two different
+entropy-inspired HDE frameworks, namely the Barrow
+and Tsallis HDE models, using DESI DR2 data, together
+with dynamical dark sector scenarios in which the dark
+matter has a nonzero pressure component. A detailed
+discussion of the Barrow and Tsallis HDE models is pre-
+sented in the Section 2, where we present the basic equa-
+tions which describe the background dynamics. We focus
+on testing the observational viability of these models and
+constraining their parameters using current late-time cos-
+mological data. In particular we employ a combination of
+Supernova data, of the direct measurements of the Hub-
+ble parameter from the Cosmic Chronometers and the
+BAO measurements. The Bayesian analysis in presented
+in Section 3. Finally in Section 4 we draw our conclu-
+sions.
+2. THEORETICAL FRAMEWORK AND
+MODEL FORMULA TION
+2.1. Basic cosmological equations
+We begin with a spatially flat Friedmann-Lema ˆ ıtre-
+Robertson-Walker metric (FLR W) spacetime, whose line
+element is given by
+ds2 =−dt 2 +a 2(t)δ ij dxidxj,(1)
+wherea(t) is the cosmic scale factor at timet, normalized
+such thata(t 0) = 1, witht 0 denoting the present time.
+The gravitational dynamics are assumed to follow
+Einstein’s General Relativity, with matter fields mini-
+mally coupled to gravity. Furthermore, we assume that
+the various components do not interact through non-
+gravitational processes, so that each fluid evolves inde-
+pendently. In this setup, the dynamics of cosmic expan-
+sion is governed by the Friedmann equations [64],
+H 2 = 1
+3M 2p
+X
+i
+ρi, i= (m, b, d),(2)
+˙H=− 1
+2M 2p
+X
+i
+(ρi +p i).(3)
+In these expressions, the Hubble parameter is given by
+H= ˙a
+a , an overdot denotes differentiation with respect to
+cosmic timetandM p ≡(8πG) − 1
+2 is the reduced Planck
+mass. The quantitiesρ i andp i correspond to the energy
+density and pressure of thei-th component, namely non-
+cold dark matter (m), pressureless baryons (b), and HDE
+(d). Accordingly, the total energy density of the Universe
+can be written as the sum of its individual components:
+ρ=ρ m +ρ b +ρ d,(4)
+while the total pressure is given by
+p=p m +p b +p d.(5)
+We further assume that there are no non-gravitational in-
+=== PAGE 3 ===
+3
+teractions among these components; therefore, each fluid
+evolves independently and satisfies its own conservation
+equation. Consequently, the continuity equation for each
+component can be written as
+˙ρi + 3H(ρi +p i) = 0,(6)
+Each component is also characterized by an EoS param-
+eter defined as
+wi = pi
+ρi
+.(7)
+For the matter component, we take the EoSp m =w mρm
+withw m ̸= 0, whereas baryons are assumed to be pres-
+surelessp b = 0. Under these conditions, Eq. (6) gives
+the standard evolution laws
+ρm =ρ m0 a−3(1+wm),(8)
+ρb =ρ b0 a−3.(9)
+From this point onward in the text, the subscript “0”
+represents the present-day value of a given quantity. In
+addition, the DE component is governed by the continu-
+ity equation
+˙ρd + 3H(1 +w d)ρd = 0.(10)
+Rewriting this relation allows the DE EoS parameter to
+be expressed as
+wd =−1− ˙ρd
+3Hρ d
+.(11)
+This provides a direct relationship between the evolution
+of the DE density and its effective EoS.
+Now, the Raychaudhuri equation (3), which governs
+the evolution of the Hubble parameter, can be rewritten
+as follows:
+˙H=− 1
+2M 2p
+[(1 +w m)ρm +ρ b + (1 +w d)ρd].(12)
+Using the Friedmann equations together with the conser-
+vation relations introduced above, it is convenient to re-
+cast the cosmic dynamics in terms of dimensionless den-
+sity parameters. The dimensionless density parameters
+are defined as
+Ωi = ρi
+3M 2p H 2 , i= (m, b, d),(13)
+and they satisfy the normalization condition;
+Ωm + Ωb + Ωd = 1.(14)
+From Eqs. (8), (9) and (13), the matter and baryonic
+density parameters are expressed as
+Ωm = H 2
+0 Ωm0a−3(1+wm)
+H 2 ,Ω b = H 2
+0 Ωb0a−3
+H 2 .(15)
+Substituting Eq. (15) into Eq. (14) and rearranging the
+resulting equation yields
+H 2 = H 2
+0
+
+Ωm0a−3(1+wm) + Ωb0a−3
+1−Ω d
+,(16)
+or equivalently,
+1
+Ha = a
+1
+2
+p
+(1−Ω d)
+H0
+p
+(Ωm0a−3wm + Ωb0)
+.(17)
+Consequently, the baryonic density parameter can be
+rewritten in the following form:
+Ωb = Ωb0(1−Ω d)
+Ωm0e−3wmx + Ωb0
+.(18)
+withx= lna, or equivalently,a=e x.
+Expressing the energy densities asρ i = 3M 2
+p H 2Ωi, the
+evolution of the Hubble parameter can then be written
+as
+H ′
+H =
+˙H
+H 2 =− 3
+2 [1 +w m(1−Ω b −Ω d) +w dΩd].(19)
+where a prime denotes differentiation with respect to the
+natural logarithm of the scale factor. The above equation
+describes the evolution of the Hubble expansion rate in
+a universe consisting of baryonic matter, a matter with
+non-zero pressure component, and DE. In this case, mat-
+ter behaves like pressureless dust (wm = 0), the evolution
+of the Hubble parameter is determined entirely by the DE
+EoS parameter, and its fractional energy density.
+In the subsequent subsections, we provide a concise
+overview of two different HDE models, namely Barrow
+and Tsallis HDE, considered within the cosmological
+framework introduced above.
+2.2. Barrow holographic dark energy with matter
+This section provides a brief overview of the Barrow
+holographic dark energy (BHDE) framework [16]. Ac-
+cording to the Barrow formulation, departures from the
+standard Bekenstein-Hawking entropy are understood
+as a consequence of quantum gravitational corrections,
+which can give rise to a fractal-type structure on black
+holes as well as cosmological horizons. In this scenario,
+quantum fluctuations are effectively characterized by a
+dimensionless parameter ∆ (0≤∆≤1), which quanti-
+fies the degree of spacetime irregularity on the horizon.
+Accordingly, the entropy-area relation is modified and
+can be written as [10]
+S∆ =
+ A
+A0
+1+ ∆
+2
+.(20)
+=== PAGE 4 ===
+4
+In this expression, the quantum deformation is encoded
+in the exponent ∆, which lies within the interval ∆∈
+[0,1]. In particular, ∆ = 1 represents the case of maximal
+deformation, while ∆ = 0 corresponds to the simplest
+horizon configuration, in which the standard Bekenstein
+entropy is recovered [65, 66]. The standard HDE model
+[9, 36] is based on the entropy boundρ dL4 ≤S, where
+ρd denotes the energy density associated with HDE and
+Lrepresents the infrared (IR) cutoff or the horizon scale.
+Using the usual area scalingS∝A∝L 2 [9, 36], replacing
+the entropy with the Barrow form in Eq. (20), leads to
+the expression [16]
+ρd =CL ∆−2,(21)
+whereCis a constant parameter. The characteristic
+length scale or the IR cutoffLcan be chosen in several
+different ways depending on the physical setup. A com-
+monly used and phenomenologically successful choice is
+the future event horizon [9, 36]. Consequently, in this
+work, we identify the IR cutoff with the future event
+horizon radiusR E, which is mathematically defined as
+the integral
+L=R E =a
+Z ∞
+t
+dt′
+a(t′) =a
+Z ∞
+a
+da′
+Ha ′2 =a
+Z ∞
+x
+dx
+Ha .
+(22)
+Taking the time derivative of Eq. (22) gives
+˙L=HL−1.(23)
+In this scenario, the dimensionless density parameter is
+expressed as
+Ωd ≡ ρd
+3M 2p H 2 = CL ∆−2
+3M 2p H 2 .(24)
+Consequently, the above expression can be expressed in
+terms of the variablexas
+Z ∞
+x
+dx
+Ha = 1
+a
+ C
+3M 2p H 2Ωd
+ 1
+2−∆
+,(25)
+Now, substituting the expression for 1
+Ha obtained from
+Eq. (17) into Eq. (25), we obtain
+Z ∞
+x
+e
+x
+2
+√1−Ωd
+H0
+p
+(Ωm0e−3wmx + Ωb0)
+dx= 1
+a
+ C
+3M 2p H 2Ωd
+ 1
+2−∆
+.
+(26)
+By differentiating Eq. (26) with respect tox= lna, we
+arrive at
+Ω′
+d
+Ωd(1−Ω d) = 1 + ∆ + 3wm
+Ωm0e−3wmx
+(Ωm0e−3wmx + Ωb0) +Q ef f(x)(1−Ω d)
+∆
+2(∆−2) ·(Ω d)
+1
+2−∆ e
+3∆
+2(∆−2) x,(27)
+where
+Qef f(x) = (2−∆)
+ C
+3M 2p
+ 1
+∆−2
+(H0)
+∆
+2−∆
+ 
+Ωm0e−3wmx + Ωb0
+ ∆
+2(2−∆) (28)
+is and the prime denotes differentiation with respect to
+x.
+The differential equation derived above describes the
+evolution of BHDE in a spatially flat universe containing
+matter with non-zero pressure. For the special case ∆ =
+0,w m = 0, Ω b0 = 0 the model reduces to the standard
+HDE scenario, and the corresponding evolution equation
+takes the form
+Ω′
+d
+
+∆=0 = Ωd(1−Ω d)
+
+1 + 2
+ 
+3M 2
+p Ωd
+C
+! 1
+2
+
+ .(29)
+In this limit, the equation admits an implicit analytical
+solution [9, 36]. Furthermore, in the limit of a nonzero
+Barrow exponent ∆, withw m = 0 and Ω b0 = 0, our evo-
+lution equation for Ω d reduces exactly to the evolution
+equation obtained in the original BHDE model, where
+the parameterQ ef fbecomes the constantQdefined in
+Ref. [16]. However, for general values of the Barrow ex-
+ponent ∆, withw m ̸= 0 and Ω b0 ̸= 0, Eq. (27) contains
+an explicit dependence onx= lna, which prevents the
+derivation of a closed-form analytical solution. There-
+fore, the evolution of the DE density parameter must be
+investigated numerically.
+=== PAGE 5 ===
+5
+Using the above relations, the EoS parameter of the
+BHDE model,w d, can be derived. By differentiating the
+DE density given in Eq. (21) with respect to cosmic time
+and making use of Eqs. (10) and (23), we obtain the
+following expression for the EoS parameter:
+wd =− 1
+3 − ∆
+3 + ∆−2
+3HR E
+.(30)
+According to Eq. (24), the quantity 1
+HR E
+can be ex-
+pressed as
+1
+HR E
+=H −1
+ 
+3M 2
+p H 2Ωd
+C
+! 1
+2−∆
+.(31)
+Now, substituting the expression forHfrom Eq. (17), we
+obtain
+1
+HR E
+=
+ 
+3M 2
+p
+C
+! 1
+2−∆
+H
+∆
+2−∆
+0 Ω
+1
+2−∆
+D (1−Ω D)
+∆
+2(∆−2)
+ 
+Ωm0e−3wmx + Ωb0
+ ∆
+2(2−∆) e− 3∆
+2(2−∆) x.(32)
+Therefore, using the above expression for 1
+HR E
+, we finally
+obtain
+wd =− 1 + ∆
+3 − Qef f(x)
+3 (Ωd)
+1
+2−∆ (1−Ω d)
+∆
+2(∆−2) e
+3∆
+2(∆−2) x.
+(33)
+Thus, once the evolution of Ω d is determined by numeri-
+cally solving the corresponding differential equation, the
+EoS parameterw d can be obtained directly. Again, in the
+limiting case ∆ = 0,w m = 0, and Ω b0 = 0, the present
+model recovers the standard HDE scenario [9, 36]. In
+this limit, the EoS parameterw d becomes
+wd
+
+∆=0 =− 1
+3 − 2
+3
+ 
+3M 2
+p Ωd
+C
+! 1
+2
+.(34)
+Similarly, for a nonzero Barrow exponent ∆, withwm = 0
+and Ωb0 = 0, the evolution equation forw d reduces to the
+corresponding result of the original BHDE model. In this
+limit, the effective parameterQ eff becomes the constant
+Qintroduced in Ref. [16].
+2.3. Tsallis holographic dark energy model with
+matter
+This subsection introduces a modified DE model de-
+rived from Tsallis entropy combined with the holographic
+principle, commonly referred to as Tsallis holographic
+dark energy (THDE) [26]. The Tsallis entropy is given
+by [11–13]
+Sµ =
+ A
+A0
+µ
+,(35)
+whereAdenotes the usual horizon area, whileA 0 corre-
+sponds to the Planck area. The parameterµcharacter-
+izes the deviation from the standard Bekenstein-Hawking
+area law and incorporates possible effects arising from
+the underlying theoretical framework. The conventional
+Bekenstein-Hawking entropy is recovered whenµ= 1.
+Within the Tsallis framework, the parameterµquanti-
+fies the extent of non-additivity in the system. When
+µ <1, the system exhibits sub-additive behavior, which
+means that the number of accessible microstates grows
+more slowly than the horizon area, resulting in a slower
+increase of entropy with system size. In contrast,µ >1
+corresponds to a super-additive regime, which may be in-
+terpreted as an effective enhancement in the number of
+degrees of freedom or the presence of nonlocal or high-
+energy effects.
+One can note that the Barrow entropyS∆ in Eq. (20) is
+formally analogous to the Tsallis entropyS µ in Eq. (35),
+upon identifying ∆→2(µ−1). However, this resem-
+blance is purely mathematical as the underlying physical
+origins and interpretations of the two entropies are fun-
+damentally different.
+Barrow originally introduced ∆ via a simple fractal-
+inspired construction which naturally restricts it to the
+interval 0≤∆≤1. However, more general argu-
+ments indicate that negative values of the parameter may
+also be allowed, thus extending the admissible range to
+∆∈(−1,1]; see Refs. [67–70] for a comprehensive dis-
+cussion. Recently, the cosmological framework based on
+Barrow entropy has been further generalized by allow-
+ing the deformation parameter ∆ to evolve dynamically
+with the energy scale, instead of remaining constant as
+assumed in the original Barrow formulation [24, 25, 71].
+This extension provides a broader perspective on entropic
+cosmology and enriches its theoretical structure.
+From the nature of the master equation (27) we see
+that phenomenologically, that a bigger range for the def-
+inition of ∆ is allowed. Therefore, in this work, we con-
+sider ∆∈(−2,2).The limit ∆→2, from (24) recovers
+the cosmological constant limit. Therefore, the Barrow
+exponent interpolates between a strongly evolving holo-
+graphic component and an exact cosmological constant.
+On the other hand, Tsallis entropy is part of nonex-
+=== PAGE 6 ===
+6
+tensive statistical mechanics, which generalizes the
+Boltzmann-Gibbs formalism to systems with long-range
+interactions, memory effects, or fractal structures, such
+as gravitational systems. These features suggest that
+nonextensive behavior may also be relevant at cosmo-
+logical scales, motivating its use in the thermodynamic
+description of the Universe. In such cases, the additiv-
+ity underlying Boltzmann-Gibbs entropy is generally lost.
+Tsallis introduced a generalized entropy to describe these
+nonadditive systems. Nonetheless, the standard Legen-
+dre structure of thermodynamics is preserved when ex-
+pectation values and internal energy are defined consis-
+tently [13].
+Finally, as discussed above, Tsallis holographic dark
+energy can be recovered from the expressions of Barrow
+holographic dark energy through the identification ∆→
+2(µ−1), or equivalently, via the transformationµ→
+1 + ∆
+2 .
+3. OBSER V A TIONAL CONSTRAINTS FROM
+DESI DR2
+We test our model with the late-time observational
+data, and specifically we combine data given by the
+Cosmic Chronometers (CC), Supernova data (SNIa) and
+Baryon Acoustic Oscillations (BAO). For the CC data,
+we consider 31 direct measurements of the Hubble pa-
+rameterH(z) [72] within the redshifts range 0.09≤
+z≤1.965.From the difference dz
+dt between the age of
+galaxies at neighboring redshifts, the Hubble function
+H(a) = dlna
+dt is obtained from the expressionH(z) =
+− 1
+(1+z)
+dz
+dt , recall that 1
+a = 1 +z. The corresponding like-
+lihood is defined by using the full covariance matrix 1 as
+described in [73]. Furthermore, for the SNIa data, we
+consider three different compilations, the PantheonPlus
+(PP) [74], Union3.0 (U3) [75] and DES-Dovekie (DESD)
+[76]. These catalogues provide measurements of the dis-
+tance modulusµ obs as a function of redshift, for the PP
+and U3 catalogues the redshifts are within the range
+10−3 < z <2.27,DESD cataloguez <1.13. Finally
+we consider the seven redshift bins for the BAO as pro-
+vided by the Dark Energy Spectroscopic Instrument Data
+Release 2 (DESI DR2) [77–79]. The bins provide seven
+measurements of the comoving angular distance ratio, the
+volume-averaged distance ratio and the Hubble distance
+ratio, all of them normalized by the sound horizon at the
+baryon drag epochr drag.
+1 https://gitlab.com/mmoresco/CCcovariance
+TABLE I: Priors of the Free Parameters.
+Priors BHDEΛCDM
+H0 [60,80] [60,80]
+Ωm0 [0.01,0.5] [0.01,0.5]
+rdrag [120,170] [120,170]
+∆(−2,2)−
+wm [−0.1,0.1]−
+3.1. Methodology & Priors
+For the Bayesian parameter estimation of the cosmo-
+logical parameters 2 {H0,Ω m0, rdrag,∆, wm}, we employ
+COBAYA3 [80, 81] and a Runge-Kutta solver to com-
+pute the cosmological evolution numerically. The Poly-
+Chord nested sampling algorithm [82, 83] is used, which
+computes the posterior distributions and the Bayesian
+evidence, necessary for the statistical comparison of our
+model with the ΛCDM. Indeed, for the statistical com-
+parison of our model with the ΛCDM we make use of
+the Akaike Information Criterion (AIC) [84] and the
+Bayesian evidence [85] . For the first one, we use the
+difference ∆AICof theAICparameter defined by the
+relation
+∆AIC=χ 2BHDE
+min −χ2 ΛCDM
+min +2
+ 
+N BHDE − NΛCDM 
+,
+in whichNdenote the degrees of freedom for each model.
+Therefore,N BHDE − NΛCDM = 2.Thus, from the
+Akaike’s scale, if|∆AIC|<2, the two models are sta-
+tistically equivalent, for|∆AIC|<6, there is weak ev-
+idence in favor of the model with smallerAICand for
+|∆AIC|>6, the evidence is strong. Nevertheless, the
+Akaike Information Criterion is based on the goodness-
+of-fit value, i.e.χ 2
+min and cannot capture the full statisti-
+cal complexity difference between models, because it does
+not account for the volume of the parameter space or the
+prior information. On the other hand, the Bayesian evi-
+dence, integrates the likelihood over the entire parameter
+space and provides a more robust framework for model
+comparison, naturally balancing goodness-of-fit against
+model complexity through the Occam penalty. There-
+fore, according to the Jeffrey’s scale [85] for the difference
+∆ (lnZ) = ln ZBHDE
+ZΛCDM
+, we conclude, that if|∆ (lnZ)|<1,
+the two models are comparable and the data do not have
+a preferred model. However, when|∆ (lnZ)|>1, there
+is and evidence in favor of the model with the higher
+Bayesian evidence value, if|∆ (lnZ)|<2.5, the evi-
+dence is weak, if 2.5<|∆ (lnZ)|<5 the evidence is
+moderate, while for|∆ (lnZ)|>5, there is very strong
+evidence that the given dataset supports the model with
+2 We have selected C
+3M 2p
+= 1.
+3 https://cobaya.readthedocs.io/
+=== PAGE 7 ===
+7
+65 70 75
+H0
+0.05
+0.00
+0.05
+wm
+1
+0
+1
+0.2
+0.3
+0.4
+m0
+0.2 0.3 0.4
+m0
+1
+ 0 1
+ 0.05
+ 0.00 0.05
+wm
+PP+CC+BAO
+U3+CC+BAO
+DD+CC+BAO
+FIG. 1: Marginalized posterior distributions for the cosmo-
+logical parametersH 0,Ω m0,∆ andw m obtained from the
+Bayesian analysis. The contours correspond to the 68% and
+95% CI.
+the higher value for the Bayesian evidence.
+3.2. Results
+We consider the following combined datasets
+PP+CC+BAO, U3+CC+BAO and DD+CC+BAO
+and priors for the parameters{H 0,Ω m0, rdrag,∆, wm}
+as given in Table I. Recall that for the Ω b0 = ωb
+h2 ,
+we consider the value obtained from the Planck 2018
+collaboration [1]. The analysis of the numerical chains
+was performed by using the GetDist library [86], and
+the obtained median parameters of the posterior space,
+and the 68% confidence intervals (CI) are presented in
+Table II, while the marginalized posterior distributions
+for the cosmological parameters for the 68% and 95% CI
+are given in Fig. 1.
+The numerical results of Table II suggests that the con-
+straints on theH 0 are consistent and independent from
+the choice of the SNIa catalogue. The three datasets sug-
+gestsH 0 = 68.2+1.6
+−1.6, 67.5+1.7
+−1.7 and 68.1+1.6
+−1.6 km/s/Mpc for
+the combined datasets PP+CC+BAO, U3+CC+BAO
+and DD+CC+BAO respectively. The sound horizon at
+the drag epoch,r drag = 146.8 +3.3
+−3.3 Mpc, is recover to
+have the same value for all the different combinations.
+On the other hand, the density parameter for the dark
+matter component is constraint to be within the range
+Ωm0 ≃0.24−0.27, with central values below the value
+obtained for the ΛCDM. This difference, is due to the
+new parameterw m, since a positivew m makes the dark
+matter component dilute faster than (1 +z) 3, so that a
+smaller Ω m0 is required in order to reproduce the same
+expansion history at intermediate redshifts. Parame-
+terw m is constraints asw m = 0.033 +0.045
+−0.030, 0.009 +0.047
+−0.041
+and 0.033 +0.042
+−0.029, that is, the pressureless limitw m = 0
+is recovered within the 1σfor the U3+CC+BAO data
+and within the 2σfor the other catalogues, thus, there is
+not a strong evidence for a nonzero pressure term in the
+dark matter. Finally, parameter ∆ of the BHDE model
+is the least constrained of the set. For U3+CC+BAO
+and DD+CC+BAO we obtain ∆ = 0.26 +1.7
+−0.58 and ∆ =
+0.31+1.6
+−0.56, that is, while for PP+CC+BAO the posterior
+remains flat and no meaningful interval can be quoted.
+It should be emphasized that in the two former cases the
+upper end of the interval ∆≃1.96 is very close to the
+upper limit ∆→2, where the cosmological constant is
+recovered. On the other hand, the data suggest ∆>−0.3
+for the 68% CI.
+The background data employed here are therefore able
+to exclude only the region of large deviations, and the
+determination of ∆ requires observables that are sensitive
+to the perturbations, or to higher redshifts such that to
+break the degeneracy of the parameters ∆−w m as can
+be seen in Fig. 1.
+Finally, concerning the statistical comparison with the
+ΛCDM model, the BHDE model provides a better-fit in
+all three cases, with ∆χ2
+min =−1.77,−3.25 and−2.62, as
+given in Table III. Nevertheless, such an improvement is
+what one expects from the introduction of two additional
+number of free parameters. Hence from the Akaike In-
+formation Criterion we calculate ∆AIC = +2.23, +0.75
+and +1.38, so that ΛCDM to be weakly preferred by the
+PP data, while for the other two datasets the two mod-
+els are statistically equivalent. Finally, for the difference
+of the Bayesian evidence with the ΛCDM is calculated
+∆ lnZ=−0.63, +0.47 and−0.13, which means that the
+two models fit the data in a similar model and are sta-
+tistically equivalent.
+In Fig. 2 we present the qualitative evolution for the
+dark energy equation of state parameterw d (z) as follows
+from the constraint values of Table II. We observe that
+for this model, the dark energy equation of state does
+not cross the phantom divide line, which is in agreement
+with the result obtained before forw m = 0.
+Finally, the obtained cosmological background func-
+tions, such as the deceleration parameterq(z), and the
+dark energy density Ω d (z) are given in Figs. 3 and 4
+respectively.
+4. CONCLUSIONS
+In this work we have considered the BHDE scenario
+in a spatially flat universe whose dark sector is dynami-
+cal on both sides. Specifically, the dark energy density is
+fixed by a Barrow-deformed entropy–area relation with
+the future event horizon as infrared cutoff, while the dark
+=== PAGE 8 ===
+8
+TABLE II: Numerical outcomesfor the BHDE model.
+Dataset PP+CC+BAO U3+CC+BAO DD+CC+BAO
+H0 [km/s/Mpc] 68.2 +1.6
+−1.6 67.5+1.7
+−1.7 68.1+1.6
+−1.6
+Ωm0 0.243+0.030
+−0.056 0.266+0.038
+−0.062 0.245+0.033
+−0.050
+rdrag [Mpc] 146.8 +3.3
+−3.3 146.8+3.3
+−3.3 146.8+3.3
+−3.3
+∆−0.26 +1.7
+−0.58 0.31+1.6
+−0.56
+wm 0.033+0.045
+−0.030 0.009+0.047
+−0.041 0.033+0.042
+−0.029
+∆χ2
+min −1.77−3.25−2.62
+∆AIC+2.23 +0.75 +1.38
+∆ lnZ−0.63 +0.47−0.13
+TABLE III: Comparison of the statistical parameters for the BHDE model with respect to the ΛCDM.
+Dataset∆AIC Akaike’s Scale∆ lnZ Jeffrey’s Scale
+PP+CC+BAO+2.23 Weak evidence for ΛCDM−0.63 Inconclusive
+U3+CC+BAO+0.75 Inconclusive +0.47 Inconclusive
+DD+CC+BAO+1.38 Inconclusive−0.13 Inconclusive
+matter component is endowed with a constant, non-zero
+equation-of-state parameter, that is, the dark energy has
+a nonzero pressure contribution to the cosmic fluid.
+For this model, we have derived the master equation
+which describe the dynamics for the background evo-
+lution. The equation was solved numerically, and we
+employed the COBAYA Bayesian interference, to con-
+front the cosmological model with late-time observational
+data. In particular we employed background data, and
+specifically the BAO measurements given by the second
+release of DESI, the CC and SNIa data. In this work,
+we considered the Barrow exponent ∆ to have the limit
+∆→2, where the case of the cosmological constant is
+recovered. Thus, the exponent ∆ can describe a rapidly
+evolving holographic dark energy for small values of ∆,
+or the cosmological constant when ∆→2. The cos-
+mological data, provided weak fits on the parameter ∆ ,
+suggesting a degeneracy with the dark matter equation
+of state parameterw m. Thus, the cosmological constant
+limit ∆→2, to be within the 1σand 2σregimes, as pre-
+sented in Fig. 1. This explains the obtained values for the
+comparison of the Bayesian evidence, ∆ lnZ=−0.63,
++0.47 and−0.13,between the BHDE and the Bayesian
+evidence.
+Our analysis is restricted to the background evolution,
+and does not account on the effects of the nonzerow m on
+the sound speed for the perturbation equations. Further-
+more, the degeneracy between parameters ∆−w m can
+not break from these background data, and cosmological
+perturbations should be introduced. In a future work we
+plan to work within this direction and address the effects
+of the nonzerow m, as also to explore the deviation of the
+BHDE from the cosmological constant limit.
+Acknowledgments
+GL thanks the support of Vicerrector ´ ıa de Investi-
+gaci´ on y Desarrollo Tecnol´ ogico (VRIDT) of Universidad
+Cat´ olica del Norte (UCN) through Resoluci´ on VRIDT
+No. 096/2022, Resoluci´ on VRIDT No. 200/2025 and
+Resoluci´ on VRIDT No. 021/2026. Part of this study
+was supported by FONDECYT Grant 1240514.
+[1] N. Aghanimet al.[Planck Collaboration], “Planck 2018
+results VI. Cosmological parameters,” Astron. Astro-
+phys. 641, A6 (2020) [Erratum: Astron. Astrophys. 652,
+C4 (2021)]
+[2] R. H. Wechsler and J. L. Tinker, “The Connection be-
+tween Galaxies and their Dark Matter Halos,” Ann. Rev.
+Astron. Astrophys.56, 435 (2018)
+[3] A. G. Riesset al.[Supernova Search Team], “Observa-
+tional evidence from supernovae for an accelerating uni-
+verse and a cosmological constant,” Astron. J.116, 1009
+(1998)
+[4] S. Perlmutteret al.[Supernova Cosmology Project],
+“Measurements of Ω and Λ from 42 High Redshift Su-
+pernovae,” Astrophys. J.517, 565 (1999)
+[5] L. Perivolaropoulos and F. Skara, “Challenges for
+ΛCDM: An update,” New Astron. Rev.95, 101659
+(2022)
+[6] G. ’t Hooft, “Dimensional reduction in quantum gravity,”
+Conf. Proc. C930308, 284 (1993)
+[7] L. Susskind, “The World as a hologram,” J. Math. Phys.
+36, 6377 (1995)
+[8] A. G. Cohen, D. B. Kaplan and A. E. Nelson, “Effective
+field theory, black holes, and the cosmological constant,”
+Phys. Rev. Lett.82, 4971 (1999)
+=== PAGE 9 ===
+9
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+1.0
+0.8
+0.6
+0.4
+0.2
+wDE(z)
+CDM
+PP+CC+BAO
+95% CI
+68% CI
+median
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+CDM
+U3+CC+BAO
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+CDM
+DD+CC+BAO
+Dark energy equation of state
+FIG. 2: Qualitative evolution of the dark energy equation of state parameterw d (z) and the 68% and 95% CI.
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+0.6
+0.4
+0.2
+0.0
+0.2
+0.4
+q(z) q = 0
+PP+CC+BAO
+95% CI
+68% CI
+median
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+q = 0
+U3+CC+BAO
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+q = 0
+DD+CC+BAO
+Deceleration parameter
+FIG. 3: Qualitative evolution of the deceleration parameterq(z) and the 68% and 95% CI.
+[9] M. Li, “A Model of holographic dark energy,” Phys. Lett.
+B603, 1 (2004)
+[10] J. D. Barrow, “The Area of a Rough Black Hole,” Phys.
+Lett. B808, 135643 (2020)
+[11] C. Tsallis and L. J. L. Cirto, “Black hole thermodynam-
+ical entropy,” Eur. Phys. J. C73, 2487 (2013)
+[12] C. Tsallis and L. J. L. Cirto, “Black hole thermodynam-
+ical entropy,” Eur. Phys. J. C73, 2487 (2013)
+[13] C. Tsallis,Introduction to Non-Extensive Statistical
+Mechanics: Approaching a Complex World(Springer,
+Berlin, 2009).
+[14] S. Viaggiu, “Bekenstein-Hawking entropy in expanding
+universes from black hole theorems,” Mod. Phys. Lett. A
+29, 1450091 (2014)
+[15] S. Viaggiu, “First law of thermodynamics for dynami-
+cal apparent horizons and the entropy of Friedmann uni-
+verses,” Gen. Rel. Grav.47, 86 (2015)
+[16] E. N. Saridakis, “Barrow holographic dark energy,” Phys.
+Rev. D102, 123525 (2020)
+[17] F. K. Anagnostopoulos, S. Basilakos, and E. N. Saridakis,
+“Observational constraints on Barrow holographic dark
+energy,” Eur. Phys. J. C80, 826 (2020)
+[18] A. A. Mamon, A. Paliathanasis, and S. Saha, “Dynam-
+ics of an Interacting Barrow Holographic Dark Energy
+Model and its Thermodynamic Implications,” Eur. Phys.
+J. Plus136, 134 (2021)
+[19] P. Adhikary, S. Das, S. Basilakos, and E. N. Saridakis,
+“Barrow holographic dark energy in a nonflat universe,”
+Phys. Rev. D104, 123519 (2021)
+[20] A. Al Mamon, A. K. Mishra and U. K. Sharma, “Barrow
+Holographic dark energy in fractal cosmology,” Int. J.
+Geom. Meth. Mod. Phys.19, 2250231 (2022)
+[21] A. Al Mamon, U. K. Sharma, M. Kumar, and
+A. K. Mishra, “Cosmic consequences of Barrow holo-
+graphic dark energy with Granda-Oliveros cut-off in frac-
+tal cosmology,” Gen. Rel. Grav.55, 74 (2023)
+[22] G. G. Luciano, A. Paliathanasis, and E. N. Saridakis,
+“Barrow and Tsallis entropies after the DESI DR2 BAO
+data,”09, 013 (2025)
+[23] G. G. Luciano, A. Paliathanasis, and E. N. Saridakis,
+“Constraints on Barrow and Tsallis holographic dark en-
+ergy from DESI DR2 BAO data,” JHEAp49, 100427
+(2026)
+[24] S. Di Gennaro and Y. C. Ong, “Sign Switching Dark
+Energy from a Running Barrow Entropy,” Universe8,
+541 (2022)
+=== PAGE 10 ===
+10
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8d(z)
+PP+CC+BAO
+95% CI
+68% CI
+median
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+U3+CC+BAO
+0.0 0.5 1.0 1.5 2.0 2.5
+z
+DD+CC+BAO
+Dark energy density parameter
+FIG. 4: Qualitative evolution of thedark energy density Ω d (z) and the 68% and 95% CI.
+[25] S. Basilakos, A. Lymperis, M. Petronikolou, and
+E. N. Saridakis, “Barrow holographic dark energy with
+varying exponent,” Nucl. Phys. B1015, 116904 (2025)
+[26] M. Tavayef, A. Sheykhi, K. Bamba, and H. Moradpour,
+“Tsallis Holographic Dark Energy,” Phys. Lett. B781,
+195 (2018)
+[27] M. A. Zadeh, A. Sheykhi, H. Moradpour, and K. Bamba,
+“Note on Tsallis holographic dark energy,” Eur. Phys. J.
+C78, 940 (2018)
+[28] S. Ghaffari, H. Moradpour, V. B. Bezerra, J. P. Morais
+Gra¸ ca, and I. P. Lobo, “Tsallis holographic dark energy
+in the brane cosmology,” Phys. Dark Univ.23, 100246
+(2019)
+[29] M. Abdollahi Zadeh, A. Sheykhi, and H. Moradpour,
+“Thermal stability of Tsallis holographic dark energy in
+nonflat universe,” Gen. Rel. Grav.51, 1 (2019)
+[30] A. Al Mamon, A. H. Ziaie, and K. Bamba, “A generalized
+interacting Tsallis holographic dark energy model and its
+thermodynamic implications,” Eur. Phys. J. C80, 974
+(2020)
+[31] U. K. Sharma, N. M. Ali, A. Al Mamon and Pankaj,
+“Interacting New Tsallis holographic dark energy,” Chin.
+J. Phys.89, 657 (2024)
+[32] A. Al Mamon,“Study of Tsallis holographic dark energy
+model in the framework of Fractal cosmology,” Mod.
+Phys. Lett. A35, 2050251 (2020)
+[33] S. Saha, S. Saha, and N. Mahata, “The peculiar case
+of the Viaggiu holographic dark energy,” Nucl. Phys. B
+1025, 117368 (2026)
+[34] A. K. Halder, A. Paliathanasis, S. Viaggiu, A. A. Mamon,
+and S. Saha, “Viaggiu holographic dark energy in light
+of DESI DR2,” Phys. Lett. B876, 140442 (2026)
+[35] A. Jhunjhunwala and S. Maity, “Reconstructingf(R)
+gravity from Viaggiu Holographic Dark Energy under
+Hubble, Event Horizon and Granda Oliveros cutoffs,”
+arXiv:2607.03308 [gr-qc]
+[36] S. Wang, Y. Wang, and M. Li, “Holographic Dark En-
+ergy,” Phys. Rept.696, 1 (2017)
+[37] S. Nojiri, S. D. Odintsov, and T. Paul, “Horizon entropy
+consistent with the FLR W equations for general modified
+theories of gravity and for all equations of state of the
+matter field,” Phys. Rev. D109, 043532 (2024)
+[38] S. Nojiri, S. D. Odintsov, and T. Paul, “Different aspects
+of entropic cosmology,” Universe10, 352 (2024)
+[39] G. G. Luciano and A. Paliathanasis, “Modified cosmol-
+ogy through generalized mass-to-horizon entropy: Obser-
+vational constraints from DESI DR2 BAO data,” Phys.
+Lett. B870, 139954 (2025)
+[40] G. G. Luciano and E. N. Saridakis, “New modified cos-
+mology from a new generalized entropy,” Phys. Lett. B
+879, 140703 (2026)
+[41] M. Leizerovich, S. J. Landau, G. G. Luciano, A. Pap-
+atriantafyllou and E. N. Saridakis, “Observational con-
+straints on Luciano-Saridakis entropic cosmology,” Phys.
+Dark Univ.52, 102333 (2026)
+[42] D. Wang and D. Mota, “Did DESI DR2 truly reveal dy-
+namical dark energy?,” Eur. Phys. J. C85, 1356 (2025)
+[43] F. Zwicky, “Die Rotverschiebung von extragalaktischen
+Nebeln,” Helv. Phys. Acta6, 110 (1933)
+[44] W. Hu, “Structure formation with generalized dark mat-
+ter,” Astrophys. J.506, 485-494 (1998).
+[45] C. M. Muller, “Cosmological bounds on the equation of
+state of dark matter,” Phys. Rev. D71, 047302 (2005)
+[46] S. Kumar and L. Xu, “Observational constraints on vari-
+able equation of state parameters of dark matter and
+dark energy after Planck,” Phys. Lett. B737, 244 (2014)
+[47] S. Kumar, R. C. Nunes, and S. K. Yadav, “Testing the
+warmness of dark matter,” Mon. Not. Roy. Astron. Soc.
+490, 1406 (2019)
+[48] M. Kopp, C. Skordis, and D. B. Thomas, “Extensive in-
+vestigation of the generalized dark matter model,” Phys.
+Rev. D94, 043512 (2016)
+[49] S. Gariazzo, M. Escudero, R. Diamanti, and O. Mena,
+“Cosmological searches for a noncold dark matter com-
+ponent,” Phys. Rev. D96, 043501 (2017)
+[50] R. Murgia, A. Merle, M. Viel, M. Totzauer, and
+A. Schneider, ““Non-cold” dark matter at small scales: a
+general approach,” J. Cosmol. Astropart. Phys.11, 046
+(2017)
+[51] R. Murgia, V. Irˇ siˇ c and M. Viel, “Novel constraints on
+noncold, nonthermal dark matter from Lyman-αforest
+data,” Phys. Rev. D98, 083540 (2018)
+[52] A. Schneider, “Constraining noncold dark matter models
+with the global 21-cm signal,” Phys. Rev. D98, 063021
+(2018)
+[53] M. Kopp, C. Skordis, D. B. Thomas and S. Ili´ c, “Dark
+=== PAGE 11 ===
+11
+Matter Equation of State through Cosmic History,”
+Phys. Rev. Lett.120, 221102 (2018)
+[54] S. N´ ajera and R. A. Sussman, “Non-comoving cold dark
+matter in a ΛCDM background,” Eur. Phys. J. C81, 374
+(2021)
+[55] S. Ili´ c, M. Kopp, C. Skordis and D. B. Thomas,“Dark
+matter properties through cosmic history,” Phys. Rev. D
+104, 043520 (2021)
+[56] Y. H. Yao, J. C. Wang, and X. H. Meng, “Observational
+constraints on noncold dark matter and phenomenolog-
+ical emergent dark energy,” Phys. Rev. D109, 063502
+(2024)
+[57] Y. H. Yao and J. Q. Liu,“Hints of noncold dark mat-
+ter? Observational constraints on barotropic dark mat-
+ter with a constant equation of state parameter,” Phys.
+Dark Univ.49, 102052 (2025)
+[58] T. N. Li, Y. M. Zhang, Y. H. Yao, G. H. Du, P. J. Wu,
+J. F. Zhang, and X. Zhang, “Revisiting the phenomeno-
+logically emergent dark energy model: is non-zero equa-
+tion of state of dark matter favored by DESI DR2?,” J.
+Cosmol. Astropart. Phys.12, 048 (2025)
+[59] Y. Carloni and O. Luongo,“A barotropic alternative
+to Early Dark Energy for alleviating theH 0 tension,”
+arXiv:2604.18053 [astro-ph.CO]
+[60] M. Abedin, L. A. Escamilla, S. Pan, E. Di Valentino
+and W. Yang, When dark matter heats up: A model-
+independent search for noncold behavior, Phys. Rev. D
+112, 123537 (2025)
+[61] W. Yang, S. Pan, E. Di Valentino, O. Mena and D. F.
+Mota, ”Probing the cold nature of dark matter”, Phys.
+Rev. D111, 103509 (2025)
+[62] D. Wang, “Evidence for Dynamical Dark Matter,”
+arXiv:2504.21481 [astro-ph.CO]
+[63] T. N. Li, P. J. Wu, G. H. Du, Y. H. Yao, J. F. Zhang,
+and X. Zhang, “Exploring non-cold dark matter in the
+scenario of dynamical dark energy with DESI DR2 data,”
+Phys. Dark Univ.50, 102068 (2025)
+[64] E. J. Copeland, M. Sami, and S. Tsujikawa, “Dynamics
+of dark energy,” Int. J. Mod. Phys. D15, 1753 (2006)
+[65] J. D. Bekenstein, “Black holes and the second law,” Lett.
+Nuovo Cim.4(1972), 737-740
+[66] J. D. Bekenstein, “Black holes and entropy,” Phys. Rev.
+D7, 2333 (1973)
+[67] E. Dagotto, A. Kocic, and J. B. Kogut, “Collapse of
+the wave function, anomalous dimensions and continuum
+limits in model scalar field theories,” Phys. Lett. B237,
+268 (1990)
+[68] P. Xu, B. Yu, “Developing a new form of permeability
+and Kozeny-Carman constant for homogeneous porous
+media by means of fractal geometry,” Advances in Water
+Resources31, 74 (2008)
+[69] H. H. P. Tang, J. Z. Wang, J. L. Zhu, and Q. B. Ao,
+“Fractal dimension of pore-structure of porous metal ma-
+terials made by stainless steel powder,” Powder Tech.
+217, 383 (2012).
+[70] P. Jizba, G. Lambiase, G. G. Luciano, and L. Mastroto-
+taro, “Imprints of Barrow-Tsallis cosmology in primor-
+dial gravitational waves,” Eur. Phys. J. C84, 1076 (2024)
+[71] G. G. Luciano, O. Luongo and M. Muccino, ”Cosmolog-
+ical consequences of scale-dependent Barrow-Tsallis en-
+tropy”, arXiv:2607.26105 [gr-qc] (2026)
+[72] S. Vagnozzi, A. Loeb, and M. Moresco, “Eppur ´ e piatto?
+The cosmic chronometer take on spatial curvature and
+cosmic concordance,” Astrophys. J.908, 84 (2021)
+[73] M. Moresco, R. Jimenez, L. Verde, A. Cimatti, and
+L. Pozzetti, “Setting the stage for cosmic chronometers.
+II. Impact of stellar population synthesis models system-
+atics and full covariance matrix,” Astrophys. J.898, 82
+(2020)
+[74] D. Broutet al., “The Pantheon+ analysis: cosmological
+constraints,” Astrophys. J.938, 110 (2022)
+[75] D. Rubinet al., “Union through UNITY: Cosmology with
+2,000 SNe using a unified Bayesian framework,” Astro-
+phys. J.986, 231 (2025)
+[76] B. Popovicet al.(DES Collaboration), “The Dark En-
+ergy Survey Supernova Program: A Reanalysis Of Cos-
+mology Results And Evidence For Evolving Dark Energy
+With An Updated Type Ia Supernova Calibration,” Mon.
+Not. R. Astron. Soc.548, 1 (2026)
+[77] M. Abdul Karimet al.(DESI Collaboration), “DESI
+DR2 results. I. Baryon acoustic oscillations from the Ly-
+man alpha forest,” Phys. Rev. D112, 083514 (2025)
+[78] M. Abdul Karimet al.(DESI Collaboration), “DESI
+DR2 results. II. Measurements of baryon acoustic oscil-
+lations and cosmological constraints,” Phys. Rev. D112,
+083515 (2025)
+[79] K. Lodhaet al.(DESI Collaboration), “Extended dark
+energy analysis using DESI DR2 BAO measurements,”
+Phys. Rev. D112, 083511 (2025)
+[80] J. Torrado and A. Lewis, “Cobaya: Bayesian analysis in
+cosmology,” ascl:1910.019 (2019)
+[81] J. Torrado and A. Lewis, “Cobaya: Code for Bayesian
+Analysis of hierarchical physical models,” J. Cosmol. As-
+tropart. Phys.05, 057 (2021)
+[82] W. J. Handley, M. P. Hobson, and A. N. Lasenby, “Poly-
+Chord: nested sampling for cosmology,” Mon. Not. R.
+Astron. Soc.450, L61 (2015)
+[83] W. J. Handley, M. P. Hobson, and A. N. Lasenby, “Poly-
+Chord: next-generation nested sampling,” Mon. Not. R.
+Astron. Soc.453, 4384 (2015)
+[84] H. Akaike, “A new look at the statistical model identifi-
+cation,” IEEE Trans. Automat. Contr.19, 716 (1974)
+[85] H. Jeffreys,Theory of Probability,(Oxford University
+Press, Oxford, 1961)
+[86] A. Lewis, “GetDist: a Python package for analysing
+Monte Carlo samples,” J. Cosmol. Astropart. Phys.08,
+025 (2019)

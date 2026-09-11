@@ -1,0 +1,1372 @@
+=== PAGE 1 ===
+Study of dynamical dark energy using DESI DR2 BAO, CMB, and Type Ia
+Supernovae data
+Pin Wang, Ping Wang, and Jielei Zhang ∗
+School of Physics and Electronics, Henan University, Kaifeng 475004, China
+Dark Energy Spectroscopic Instrument (DESI) Collaboration reported an evidence for dynam-
+ical dark energy model using baryon acoustic oscillation (BAO) measurements from DESI Data
+Release 2 (DR2), cosmic microwave background (CMB), and three Type Ia Supernovae (SNe) data
+(Pantheon+, Union3, and DES-SN5YR) recently. The significances are from 2.8∼4.2σdepending
+on which SNe sample is used, and the highest significance is obtained based on the DES-SN5YR
+data. But more recently, Dark Energy Survey (DES) Collaboration recalibrated the DES-SN5YR
+data, and a significance of only 3.2σis obtained based on the calibrated data, which is called
+DES-Dovekie. In this work, we perform a comprehensive analysis of five representative dynamical
+dark energy parametrization models, including Chevallier-Polarski-Linder (CPL), Barboza-Alcaniz
+(BA), exponential (EXP), logarithmic (LOG), and Jassal-Bagla-Padmanabhan (JBP), using DESI
+DR2 BAO,PlanckCMB, ACT DR6, and SNe data from Pantheon+, Union3, and DES-Dovekie.
+Similarly, a significance of around 3σis obtained based on the DES-Dovekie data. And the signif-
+icances are 2.1∼3.7σfor different SNe samples and different parametrization models, indicating
+an evolutionary dark energy dynamics. Furthermore, a phantom-like behavior in the past and has
+transitioned into quintessence-like behavior today for the dynamical dark energy is preferred.
+I. INTRODUCTION
+In 1998, the accelerated expansion of the universe is ob-
+served firstly through Type Ia Supernovae [1, 2], which is
+a major revolution in cosmology. This phenomenon in-
+dicates that a component with negative pressure must
+exist, and the component is called as “dark energy”
+presently [3, 4]. To explain cosmological measurements
+in a unified framework, a standard cosmological mod-
+el (ΛCDM) is proposed: a spatially flat universe with
+present-time energy density composed of about 5% bary-
+onic matter, 25% cold dark matter (CDM), 70% dark
+energy in the form of Einstein’s cosmological constant
+(Λ) and smaller contributions provided by massive neu-
+trinos and radiation. Meanwhile, this model is further
+supported and confirmed by increasingly accurate cosmic
+microwave background radiation data from WMAP [5, 6]
+andPlanck[7, 8]. The ΛCDM is very concise, and
+can describe more and more observed cosmological mea-
+surements, including Type Ia Supernovae [9–12], cosmic
+microwave background [13, 14], baryon acoustic oscilla-
+tion [15–18], and large-scale structure [19–22]. Therefore,
+the ΛCDM is gradually being widely accepted.
+The existence of dark energy is indisputable, but its
+nature remains one of the most profound unsolved prob-
+lems in modern cosmology and fundamental physics.
+Although the ΛCDM has been successful in explaining
+observational data, it still faces some issues, including the
+“fine-tuning” and “cosmic coincidence” problems [23–28].
+Furthermore, with the improvement of measurement ac-
+curacy, some tensions in measurements have appeared
+within the ΛCDM, such as the “Hubble tension” [29–
+32] and the “S 8 tension” [20, 33–35]. The ΛCDM has
+∗ Corresponding author: zhangjielei@henu.edu.cn
+been challenged by these tensions, and may indicate new
+physics beyond ΛCDM [36]. This leads to the necessity
+of exploring some alternative new cosmological models.
+Especially in 2024, DESI Collaboration reported an ev-
+idence for dynamical dark energy model based on the new
+baryon acoustic oscillation measurements from the first
+data release [37]. The evidence is further enhanced with
+the recent DR2 data from DESI [38, 39], which is from
+2.8∼4.2σdepending on the specific Type Ia Supernovae
+sample used, and the highest significance 4.2σis ob-
+tained based on the DES-SN5YR data. Therefore, the
+ΛCDM has been more severely challenged and the dy-
+namical dark energy model is preferred by these new
+accurate measurements. Interestingly, the results from
+DESI suggest a transition in the equation-of-state pa-
+rameter of dark energy, which isw <−1 at high redshift
+andw >−1 at low redshift. Such a “phantom-crossing”
+behavior is consistent with quintom dark energy mod-
+el [40–42], but further confirmation is still needed. These
+findings have sparked extensive debates on the nature
+of dark energy, including phenomenological dark energy
+models [43–53], scalar field dark energy models [54–63],
+interaction dark energy models [64–83], early dark ener-
+gy models [84–91], holographic dark energy [92–104], and
+modified gravity models [105–114].
+Undoubtedly, once the indication of dynamic dark en-
+ergy reported by DESI is confirmed, it will be a major
+breakthrough in cosmology, with significant implications
+for the understanding of our universe. Therefore, giv-
+en the importance of this result, numerous studies and
+corss-checks are needed to further test the robustness of
+these findings. But recently, DES Collaboration recali-
+brated the DES-SN5YR data, and a significance of only
+3.2σis obtained based on the calibrated data, which is
+called DES-Dovekie [115, 116]. According to this result,
+the evidence for dynamical dark energy model can not
+reach 4σ, and is only around 3σ. This weakens the signif-
+Typeset by REVTEX
+arXiv:2609.10567v1  [physics.gen-ph]  1 Sep 2026
+=== PAGE 2 ===
+2
+icance of dynamic dark energy and increases uncertainty
+about it, so more works are needed to further confirm this
+situation. Therefore, in this work, we perform a com-
+prehensive analysis of five representative dynamical dark
+energy parametrization models using the combinations of
+baryon acoustic oscillation data, cosmic microwave back-
+ground data, and Type Ia Supernovae data. Especially,
+we use the new calibrated Type Ia Supernovae data from
+DES-Dovekie, it can give more reliable results about the
+evolutionary properties of dark energy.
+II.ΛCDM AND DYNAMICAL DARK ENERGY
+MODELS
+In a universe that is uniform and isotropic on a large
+scale, using Friedmann-Lema ˆ ıtre-Robertson-Walker met-
+ric, and assuming that general relativity correctly de-
+scribes the dynamics of expansion, the evolution with
+redshiftzof the Hubble parameterH(z) is governed by
+the Friedmann equation, which can be written as:
+H(z)
+H0
+=
+
+Ωbc(1 +z) 3 + Ωγ(1 +z) 4 + ΩK(1 +z) 2
++ Ων
+ρν(z)
+ρν,0
++ ΩDE
+ρDE(z)
+ρDE,0
+1/2
+.
+(1)
+Here Ω bc = Ω b + Ωc,H 0 is the Hubble parameter to-
+day, and Ωb, Ω c, Ω γ, Ω K, Ω ν, and Ω DE are the present-
+time fractional energy density parameters in baryons,
+cold dark matter, radiation, curvature, massive neutri-
+nos, and dark energy, respectively. All the density pa-
+rameters add up to unity:
+Ωbc + Ωγ + ΩK + Ων + ΩDE = 1.(2)
+The present-time fractional energy density in matter is
+defined as Ω m = Ωbc + Ων, which includes neutrinos be-
+cause they are nonrelativistic today. The energy den-
+sities of baryons and cold dark matter scale as (1 +z) 3,
+while the radiation energy density scale as (1+z)4, so the
+scaling of the neutrino energy density transitions from
+(1 +z) 4 at high redshift to (1 +z) 3 at low redshift, when
+(1 +z)∼(m ν/5×10 −4 eV) [117]. The sum of neutri-
+no masses determines the present-day density [118], as
+follows:
+Ωνh2 =
+P mν
+93.14 eV ,(3)
+whereh≡H 0/(100 km s −1 Mpc−1). When the neu-
+trinos are relativistic at high redshift, it contributes to
+radiation, and the total rediation density Ω R is the sum
+of photons and relativistic neutrinos [5]:
+ΩR = Ωγ
+"
+1 + 7
+8
+ 4
+11
+4/3
+Neff
+#
+= 2.473×10 −5h−2(1 + 0.2271Neff),
+(4)
+whereN eff is the effective number of neutrino species. In
+this work, the P mν andN eff are fixed to be 0.06 eV and
+3.044 [37]. We assume a flat university, and thus set Ω K
+to be zero, motivated by the tight constraints obtained
+on ΩK when it is allowed to vary freely [38].
+For a dark energy component with an equation-of-state
+parameterw(z) =P DE(z)/ρDE(z), whereP DE(z) is its
+pressure, the energy densityρ DE(z) normalized to its
+present value evolves as:
+fDE(z)≡ ρDE(z)
+ρDE,0
+= exp
+
+3
+Z z
+0
+[1 +w(z ′)] dz′
+1 +z ′
+
+.(5)
+The ΛCDM model assumes a cosmological constant dark
+energy (w(z) =−1) with energy density is constant in
+space and time, so thef DE(z) is unity. While for any con-
+stant valuewofw(z), thef DE(z) becomes (1 +z) 3(1+w),
+which is calledwCDM model.
+In this work, we perform a comprehensive analysis of
+five representative dynamical dark energy parametriza-
+tion models, which are described as follows:
+(1) Chevallier-Polarski-Linder (CPL) parametrization
+is a commonly used parametric model expressesw(z) in
+terms of the expansion factora= (1 +z) −1 [119, 120],
+which is:
+w(z) =w 0 +w a(1−a) =w 0 +w a
+z
+1 +z ,(6)
+so thatw(z) evolves from a value∼(w 0+wa) at high red-
+shift to a present-day value of∼w 0. This parametriza-
+tion accurately represents the behavior of many physi-
+cally motivated dark energy models, though more com-
+plicated evolution is possible. In the CPL model, the
+fDE(z) can be obtained as:
+fDE(z) = (1 +z) 3(1+w0+wa)e−3wa z
+1+z .(7)
+(2) Barboza-Alcaniz (BA) parametrization is ex-
+pressed as [121]:
+w(z) =w 0 +w a
+1−a
+a2 + (1−a) 2 =w 0 +w a
+z(1 +z)
+1 +z 2 ,(8)
+this parameterization maintains a similar behavior with
+CPL parameterization at both high and low redshifts,
+and showing linear behavior at low redshift while allow-
+ing deviations from CPL model. Thef DE(z) in the BA
+parametrization can be calculated as:
+fDE(z) = (1 +z) 3(1+w0)(1 +z 2)
+3
+2 wa .(9)
+(3) Exponential (EXP) parametrization is given
+by [122, 123]:
+w(z) =w 0 −w a +w ae1−a =w 0 +w a(e
+z
+1+z −1),(10)
+this parameterization includes an exponential term,
+which shows a similar behavior with CPL at low red-
+shift according to Taylor expansion, while tends towards
+=== PAGE 3 ===
+3
+a value∼(w 0 +w a(e−1)) at high redshift. Thef DE(z)
+in the EXP parametrization can be expressed as:
+fDE(z) = (1 +z) 3(1+w0−wa)e3waF(z) ,(11)
+whereF(z) =
+R z
+0 e
+z′
+1+z′ dz′
+1+z′ , andF(z) can not be ex-
+pressed analytically and can only be calculated numeri-
+cally.
+(4) Logarithmic (LOG) parametrization is expressed
+as [124]:
+w(z) =w 0 −w aln(a) =w 0 +w aln(1 +z),(12)
+this parameterization includes a logarithmic term, it al-
+so shows a similar behavior with CPL at low redshift
+according to Taylor expansion, while the amplitude of
+w(z) can be very large at high redshift. Thef DE(z) in
+the LOG parametrization can be calculated as:
+fDE(z) = (1 +z) 3(1+w0)e
+3
+2 wa[ln(1+z)]2
+.(13)
+(5) Jassal-Bagla-Padmanabhan (JBP) parametrization
+is described as [125]:
+w(z) =w 0 +w aa(1−a) =w 0 +w a
+z
+(1 +z) 2 ,(14)
+this parameterization includes both linear and quadratic
+terms in the evolution term, which shows a similar be-
+havior with CPL at low redshift, while a difference in
+the dark energy behavior at high redshift. Interestingly,
+there are two zero points in the evolution term, sow(z)
+tends towards a same value∼w 0 at both high and low
+redshifts. In the JBP model, thef DE(z) can be obtained
+as:
+fDE(z) = (1 +z) 3(1+w0)e
+3
+2 wa z2
+(1+z)2 .(15)
+III. DA T ASETS AND METHODOLOGY
+A. Baryon acoustic oscillation
+Baryon acoustic oscillation (BAO) provides a power-
+ful tool for measuring the expansion history, using a
+characteristic scale that is imprinted on matter cluster-
+ing by pressure waves that propagate in the coupled
+baryon-photon fluid of the prerecombination Universe.
+DESI Collaboration has released the most accurate BAO
+measurements from more than 14 million galaxies and
+quasars based on three years of operation [38], which
+are extracted using various tracers including the bright
+galaxy survey (BGS), luminous red galaxies (LRG1-3),
+emission line galaxies (ELG1-2), quasars (QSO), and
+Lyman-α(Lyα) forest quasars. These measurements
+give the values ofD M(z)/rd,D H(z)/rd, andD V(z)/rd
+at effective redshiftsz eff ranging from 0.295 to 2.330,
+whereD M(z) =c
+R z
+0
+dz′
+H(z ′) is the transverse comoving
+distance,D H(z) = c
+H(z) is the line-of-sight direction dis-
+tance,D V(z) =
+
+zDM(z)2DH(z)
+ 1
+3 is the angle-average
+distance, andr d is the sound horizon at the drag epoch.
+So in this work, we use these BAO measurements from
+DESI Data Release 2 (DR2) 1.
+B. Cosmic microwave background
+Since the discovery of cosmic microwave background
+(CMB), its temperature (T T) anisotropy has become one
+of the most powerful ways of studying cosmology and
+the physics of the early Universe (z ∗ ≈1090). With
+the improvement of measurement accuracy, the polar-
+ization (EE) and cross (T E) power spectra are also
+measured. Just as BAO, the same physics imprints the
+acoustic peaks in the CMB power spectra, and the an-
+gular scale of these peaks is measured with exquisite
+precision. CMB can provide tight constraints tor d, so
+the BAO+CMB combination allows absolute measure-
+ments ofD M(z) andD H(z). Now the power spectra of
+anisotropies in the CMB have been exquisitely measured
+byPlanckCollaboration [8]. Therefore, we make full use
+of theT T,EE, andT Epower spectra fromPlanck 2,
+specifically using thesimall,Commander(forℓ <30),
+andCamSpec(forℓ≥30) likelihoods, plus the com-
+bination ofPlanckand ACT DR6 CMB lensing 3 from
+Ref. [13].
+C. Type Ia supernova
+Type Ia supernovae (SNe) are luminous standardizable
+candles that provide another probe of the expansion his-
+tory of the Universe, especially useful at low redshifts
+(0.01< z <0.3) where BAO measurements are limit-
+ed by cosmic variance. Three SNe 4 datasets are used in
+this work: Pantheon+ [9, 10], Union3 [11], and DES-
+Dovekie [12]. The Pantheon+ sample comprises 1701
+light curves of 1550 spectroscopically confirmed SNe in
+the redshift range 0.001< z <2.26. The Union3 compi-
+lation has 2087 SNe in the redshift range 0.01< z <2.26,
+while 1363 of which are common to Pantheon+, though
+the analysis methodologies are substantially different.
+Finally, the DES-Dovekie dataset consists of 1623 photo-
+metrically identified SNe from the full DES five-year su-
+pernova survey with redshifts in the range 0.1< z <1.13,
+together with a small set of 197 SNe at 0.025< z <0.1
+from historical low redshift samples, some of which are in
+common with the Pantheon+ and Union3 datasets. It is
+1 https://github.com/CobayaSampler/bao_data
+2 https://github.com/CobayaSampler/planck_native_data
+3 https://lambda.gsfc.nasa.gov/product/act/actadv_dr6_
+lensing_lh_get.html
+4 https://github.com/CobayaSampler/sn_data
+=== PAGE 4 ===
+4
+important to note that in all SNe samples, the absolute
+magnitudeMof the SNe is completely degenerate with
+the Hubble parameterH 0, so the distance moduli can be
+scaled by any constant offset. Therefore, for cosmological
+inference, we marginalize over the value ofM.
+D. Methodology
+In this work, we utilize the Markov Chain Monte Carlo
+(MCMC) sampling to explore the parameter space using
+the Metropolis-Hastings algorithm [126, 127] as imple-
+mented inCobaya[128]. Theory models are computed us-
+ing interfaces to the Boltzmann solver CAMB [129, 130]
+andCobayalikelihoods. The convergence criterion for
+MCMC sampling is that the Gelman-Rubin statistic [131]
+satisfiesR−1<0.02. Summary statistics for our chains
+as well as plots are obtained withgetdistsoftware pack-
+age [132]. In order to determine the best fit points and
+the correspondingχ 2, we use theBOBYQA[133–135] algo-
+rithm starting from the maximum a posteriori (MAP)
+points of each of the chains in the MCMC sampling.
+When comparing the fits of two different models, we com-
+pare the quantity ∆χ 2
+MAP =−2∆lnLrepresenting twice
+the difference in the negative log posteriors at the maxi-
+mum posterior points for each model. We also employ the
+deviance information criterion (DIC) [136, 137] to per-
+form statistical comparisons among the different models.
+The DIC is defined as
+DIC≡D( ¯θ) + 2pD, p D ≡ ⟨D(θ)⟩ −D(¯θ),(16)
+whereθdenotes the set of model parameters, ¯θde-
+notes the posterior mean parameter point,⟨D(θ)⟩is the
+mean deviance evaluated over the MCMC chains, and
+pD denotes the effective number of parameters, which
+measures the effective complexity of the model. Here,
+D(θ) =−2 lnL(θ) +Cis the deviance, whereCis a con-
+stant independent of the model parameters. The differ-
+ence between each model and the ΛCDM model is defined
+as
+∆DICi ≡DIC i −DIC ΛCDM.(17)
+Therefore, a smaller DIC value indicates that the cor-
+responding model is more strongly supported by the
+data. The free cosmological parameters of these mod-
+els and the uniform priors used are listed in Table I.
+The parameters for the ΛCDM model areθ ΛCDM =
+Ωbh2,Ω ch2,100θ MC,ln(10 10As), ns, τ
+	
+, while the pa-
+rameters forwΛCDM model and dynamical dark en-
+ergy models areθ wΛCDM ={θ ΛCDM, w}andθ=
+{θΛCDM, w0, wa}.
+IV. RESUL TS AND DISCUSSIONS
+In this section, we present the constraints on the cos-
+mological parameters. Table II shows the marginalized
+TABLE I. Cosmological parameters and priors used for dif-
+ferent models in this work, and all the priors are flat in the
+given ranges.
+Model Parameter Prior
+ΛCDMΩ bh2 U[0.005,0.1]
+Ωch2 U[0.001,0.99]
+100θMC U[0.5,10]
+ln(1010As)U[1.61,3.91]
+ns U[0.8,1.2]
+τU[0.01,0.8]
+wΛCDMwU[−3,1]
+Dynamical dark energyw 0 U[−3,1]
+wa U[−6,6]
+constraints on cosmological parameters from different
+combinations of observational data, and the parameter
+values are the means of the one-dimensional posterior
+distributions. The marginalized posterior distributions
+of these parameters are shown in Fig. 1.
+The results show that, for the same data combina-
+tion, different dark energy models give similar constraints
+on Ω m andH 0, with no significant differences within a
+range of two standard deviations. For thewCDM model,
+the constraints onwfrom all three data combinations
+are close to−1, showing no significant deviation from
+ΛCDM. It should be noted that even if thewis consis-
+tent with−1, it does not mean that dark energy has no
+dynamic behavior, but only that the weighted average of
+wis close to−1 throughout the effective redshift range.
+From the Fig. 1, we can also see different combinations of
+SNe data give the different results on the constraints of
+dynamic dark energy parameters, where Pantheon+ and
+DES-Dovekie give very similar constraints with a large
+overlap between their two-dimensional credible intervals,
+while the Union3 has slightly significant differences. This
+indicates that the dynamical dark energy parameters, es-
+peciallyw 0 andw a, have a significant data dependence
+on the SNe samples used. In addition, the three sets
+of data show similar parametric correlations. Here, Ω m
+shows a strong negative correlation withH 0, whilew 0
+andw a show a clear negative correlation. However, the
+constraints onw 0 andw a depend more strongly on the
+different models. Sincew 0 andw a describe the evolution
+of the dark energy equation-of-state, we further study
+them by showing the two-dimensional constraints in the
+w0-wa plane for each model.
+Figure 2 shows the contour plots on thew0-wa plane for
+the five dynamical dark energy models. For the ΛCDM
+model, the dark energy equation-of-state isw(z) =−1.
+Therefore, it corresponds to the point (w 0, wa) = (−1,0)
+in the parameter space. Here,w 0 characterizes the
+present-day value of the dark energy equation-of-state,
+whilew a describes the amplitude of its redshift evolution.
+As shown in Fig. 2,w 0 represents the value of the dark
+=== PAGE 5 ===
+5
+TABLE II. Summary table of cosmological parameter constraints in ΛCDM,wΛCDM, and various dynamical dark energy
+models. Results quoted for all parameters are the marginalized posterior means and 68% credible intervals.
+Model/Dataset Ω m H0 (km s−1 Mpc−1)worw 0 wa
+ΛCDM
+BAO + CMB + Pantheon+ 0.3037±0.0037 68.09±0.28 ... ...
+BAO + CMB + Union3 0.3035±0.0035 68.11±0.27 ... ...
+BAO + CMB + DES-Dovekie 0.3040±0.0035 68.07±0.27 ... ...
+wCDM
+BAO + CMB + Pantheon+ 0.3047±0.0050 67.96±0.57−0.994±0.023 ...
+BAO + CMB + Union3 0.3041±0.0059 68.03±0.68−0.997±0.027 ...
+BAO + CMB + DES-Dovekie 0.3061±0.0048 67.79±0.53−0.988±0.021 ...
+CPL
+BAO + CMB + Pantheon+ 0.3112±0.0057 67.53±0.60−0.839±0.055−0.610±0.204
+BAO + CMB + Union3 0.3269±0.0087 65.95±0.84−0.673±0.089−1.062±0.292
+BAO + CMB + DES-Dovekie 0.3132±0.0054 67.34±0.55−0.807±0.056−0.721±0.221
+BA
+BAO + CMB + Pantheon+ 0.3111±0.0057 67.54±0.60−0.863±0.047−0.299±0.099
+BAO + CMB + Union3 0.3258±0.0085 66.06±0.84−0.722±0.075−0.508±0.136
+BAO + CMB + DES-Dovekie 0.3127±0.0053 67.39±0.55−0.840±0.047−0.344±0.104
+EXP
+BAO + CMB + Pantheon+ 0.3113±0.0057 67.53±0.60−0.852±0.050−0.462±0.152
+BAO + CMB + Union3 0.3259±0.0085 66.07±0.83−0.706±0.080−0.784±0.220
+BAO + CMB + DES-Dovekie 0.3129±0.0053 67.39±0.54−0.827±0.050−0.533±0.163
+LOG
+BAO + CMB + Pantheon+ 0.3115±0.0056 67.53±0.60−0.856±0.048−0.429±0.143
+BAO + CMB + Union3 0.3259±0.0085 66.09±0.83−0.720±0.076−0.708±0.200
+BAO + CMB + DES-Dovekie 0.3130±0.0052 67.40±0.53−0.834±0.049−0.492±0.154
+JBP
+BAO + CMB + Pantheon+ 0.3098±0.0056 67.58±0.60−0.810±0.080−1.146±0.474
+BAO + CMB + Union3 0.3281±0.0094 65.72±0.92−0.529±0.132−2.527±0.694
+BAO + CMB + DES-Dovekie 0.3135±0.0056 67.21±0.58−0.733±0.087−1.565±0.519
+energy equation-of-state at the present epoch, so the ver-
+tical linew 0 =−1 divides the parameter space into the
+present-day quintessence-like and phantom-like regions,
+wherew 0 >−1 means quintessence-like behavior, while
+w0 <−1 means phantom-like behavior [138]. However,
+the parameterw 0 alone can not tell us the behavior of
+dark energy at high redshift. For each dynamical dark
+energy model, we calculate its equation-of-state at high
+redshift and setw(z) =−1 to obtain another bound-
+ary line. By combining the present-day and high redshift
+conditions, the parameter space can be divided into four
+typical regions [139, 140]. The boundary conditions and
+region classifications for different dynamical dark energy
+models are shown in Table III. The quintessence region
+always hasw(z)>−1 at any time, while the phantom
+region always hasw(z)<−1. The quintom-A region de-
+notes the evolution fromw(z)>−1 at high redshift to
+w(z)<−1 at low redshift, whereas quintom-B denotes
+an evolution fromw(z)<−1 tow(z)>−1. In the last
+two cases, the dark energy equation-of-state crosses the
+phantom dividew(z) =−1 as the universe evolves.
+For the CPL, BA, EXP, and LOG models, their pre-
+ferred parameter regions all satisfyw 0 >−1. When the
+redshift increases,w(z) becomes more negative, crosses
+the boundaryw(z) =−1 at low or intermediate red-
+shift, and enters the phantom-like region. Thus, these
+models show quintom-B behavior [140], changing from
+a phantom-like state in the past to a quintessence-like
+state at present. However, the JBP model shows a dif-
+ferent behavior and needs to be discussed separately. Its
+dark energy equation-of-state is given by Eq.(14), which
+satisfiesw(z= 0) =w 0 andw(z→ ∞) =w 0. For the
+preferred region withw 0 >−1 andw a <0, the function
+z/(1 +z)2 has its maximum atz= 1. Thus,w(z) reaches
+its minimum value at this redshift:
+wmin =w(z= 1) =w 0 + 1
+4 wa.(18)
+Whenw 0 +w a/4<−1, the JBP equation-of-state de-
+=== PAGE 6 ===
+6
+0.30 0.34
+Ωm
+-1.6
+-0.4
+wa
+-0.9
+-0.5
+w0
+64.6
+68.4
+H0
+64.6 68.4
+H0
+-0.9 -0.5
+w0
+-1.6 -0.4
+wa
+CPL
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.30 0.34
+Ωm
+-1.0
+-0.2
+wa
+-0.9
+-0.5
+w0
+64.6
+68.4
+H0
+64.6 68.4
+H0
+-0.9 -0.5
+w0
+-1.0 -0.2
+wa
+BA
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.30 0.34
+Ωm
+-1.4
+-0.3
+wa
+-0.9
+-0.5
+w0
+64.6
+68.4
+H0
+64.6 68.4
+H0
+-0.9 -0.5
+w0
+-1.4 -0.3
+wa
+EXP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.30 0.34
+Ωm
+-1.3
+-0.3
+wa
+-0.9
+-0.5
+w0
+64.6
+68.4
+H0
+64.6 68.4
+H0
+-0.9 -0.5
+w0
+-1.3 -0.3
+wa
+LOG
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.29 0.35
+Ωm
+-3.6
+-0.9
+wa
+-0.9
+-0.3
+w0
+64.1
+68.9
+H0
+64.1 68.9
+H0
+-0.9 -0.3
+w0
+-3.6 -0.9
+wa
+JBP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+FIG. 1. Marginalised posteriors on Ω m,H 0,w 0, andw a in the CPL, BA, EXP, LOG, and JBP models, and contour plots are
+at the 68% (1σ) and 95% (2σ) credible intervals. The results are from the combinations of BAO, CMB, and different SNe from
+Pantheon+, Union3, and DES-Dovekie in red, green, and blue, respectively.
+TABLE III. Classification of the different dynamical dark energy models in thew 0-wa plane. Quintom-A denotes the dark
+energy evolution fromw >−1 at high redshift tow <−1 at low redshift, whereas Quintom-B denotes an evolution from
+w <−1 tow >−1.
+Model Quintessence Phantom Quintom-A Quintom-B
+CPL:w 0 >−1 andw 0 <−1 andw 0 <−1 andw 0 >−1 and
+w(z) =w 0 +w a z
+1+z w0 +w a >−1w 0 +w a <−1w 0 +w a >−1w 0 +w a <−1
+BA:w 0 >−1 andw 0 <−1 andw 0 <−1 andw 0 >−1 and
+w(z) =w 0 +w a
+z(1+z)
+1+z2 w0 +
+√
+2+1
+2 wa >−1w 0 +
+√
+2+1
+2 wa <−1w 0 +
+√
+2+1
+2 wa >−1w 0 +
+√
+2+1
+2 wa <−1
+EXP:w 0 >−1 andw 0 <−1 andw 0 <−1 andw 0 >−1 and
+w(z) =w 0 +w a(e
+z
+1+z −1)w 0 + (e−1)w a >−1w 0 + (e−1)w a <−1w 0 + (e−1)w a >−1w 0 + (e−1)w a <−1
+LOG:w 0 >−1 andw 0 <−1 andw 0 <−1 andw 0 >−1 and
+w(z) =w 0 +w a ln(1 +z)w a ≥0w a ≤0w a >0w a <0
+JBP:w 0 >−1 andw 0 <−1 andw 0 <−1 andw 0 >−1 and
+w(z) =w 0 +w a z
+(1+z)2 w0 + 1
+4 wa >−1w 0 + 1
+4 wa <−1w 0 + 1
+4 wa >−1w 0 + 1
+4 wa <−1
+=== PAGE 7 ===
+7
+-1.1 -0.6 -0.1
+w0
+-2.3
+-1.0
+0.3
+wa
+CPL
+Quintom-A Quintessence
+Phantom Quintom-B
+w0 + wa = ¡1
+¤CDM
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+-1.1 -0.6 -0.1
+w0
+-1.5
+-0.5
+0.5
+wa
+BA
+Quintom-A Quintessence
+Phantom Quintom-B
+w0 + p
+2 +12 wa =¡1
+ΛCDM
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+-1.1 -0.6 -0.1
+w0
+-1.5
+-0.5
+0.5
+wa
+EXP
+Quintom-A Quintessence
+Phantom Quintom-B
+w0 +(e −1)wa =−1
+ΛCDM
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+-1.1 -0.6 -0.1
+w0
+-1.5
+-0.5
+0.5
+wa
+LOG
+Quintom-A Quintessence
+Phantom Quintom-B
+wa = 0¤CDM
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+-1.2 -0.7 -0.2
+w0
+-6.0
+-2.0
+2.0
+wa
+JBP
+Quintom-A Quintessence
+Phantom Quintom-B
+w0 + 1
+4 wa =¡1
+¤CDM
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+FIG. 2. Contour plots at the 68% (1σ) and 95% (2σ) credible intervals for the five dynamical dark energy models on thew 0-wa
+plane. The red pentagrams mark the ΛCDM model, and the regions of quintessence, phantom, quintom-A, and quintom-B are
+divided by boundary lines.
+creases from the present-day quintessence-like region,
+crossesw(z) =−1, and temporarily enters the phantom-
+like region at intermediate redshift. At higher redshift,
+however,w(z) increases again and gradually approach-
+esw 0 >−1. Therefore, as the redshift increases, the
+JBP model evolves from a quintessence-like state to a
+phantom-like state, and then returns to a quintessence-
+like state. In conclusion, the JBP model may cross the
+w(z) =−1 boundary twice and only enter the phantom-
+like region temporarily. Unlike the standard quintom-B
+evolution, it does not remain phantom-like at the very
+high redshift.
+To show the evolution of dark energy more clearly, we
+reconstruct the evolution ofw(z) andf DE(z) for the five
+parameterizations in Fig. 3 and Fig. 4. For the three SNe
+data combinations, all models satisfy
+w(z= 0)>−1.(19)
+With the increase in redshift,w(z) gradually decreases,
+crosses thew(z) =−1 boundary atz≈0.4, then enters
+the phantom region. The crossing redshift is consistent
+with the position wheref DE(z) reaches its maximum in
+Fig. 4, becausew(z) =−1 corresponds to an extremum
+in the evolution off DE(z). This redshift dependent be-
+havior can not be described by a constant equation-of-
+state, and shows that dark energy may evolve dynam-
+ically. The results for the JBP model shown in these
+figures also support an evolution from a quintessence-
+like state to a phantom-like state and then back to a
+quintessence-like state. Therefore, the difference is that
+the dark energy equation-of-state in the CPL, EXP, BA,
+and LOG models consistently exhibits a declining trend
+with the redshift increases, but the JBP model tends to
+stabilize at high redshifts. In all cases,f DE(z) are always
+equal to 1 atz= 0, and the maximum values are also
+atz≈0.4, which corresponds to the phantom crossing
+redshift. Although the specific evolutionary processes of
+these models vary, their overall trends in the evolution
+of dark energy are similar. These differences stem from
+the functional forms adopted by different parameteriza-
+tion models, but they do not alter the overall preference
+regarding the evolvingw(z) of dark energy. Similar re-
+sults are obtained for the Pantheon+, Union3, and DES-
+Dovekie samples. This consistency shows that the evo-
+lution of dynamical dark energy does not depend on any
+specific SNe sample or specific parameterized model.
+=== PAGE 8 ===
+8
+0.0 1.0 2.0 3.0
+z
+-1.6
+-1.2
+-0.8
+-0.4
+w(z)
+CPL
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+-1.6
+-1.2
+-0.8
+-0.4
+w(z)
+BA
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+-1.8
+-1.2
+-0.6
+w(z)
+EXP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+-2.0
+-1.5
+-1.0
+-0.5
+w(z)
+LOG
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+-1.2
+-0.8
+-0.4
+w(z)
+JBP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+FIG. 3. Evolution of the dark energy equation-of-statew(z) for the CPL, BA, EXP, LOG, and JBP models. The red, green,
+and blue curves correspond to BAO+CMB+Pantheon+, BAO+CMB+Union3, and BAO+CMB+DES-Dovekie, respectively.
+The shaded regions denote the 68% credible intervals, and the black dashed lines markw(z) =−1.
+0.0 1.0 2.0 3.0
+z
+0.4
+0.8
+1.2
+fDE(z)
+CPL
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+0.4
+0.8
+1.2
+fDE(z)
+BA
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+0.4
+0.8
+1.2
+fDE(z)
+EXP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+0.4
+0.8
+1.2
+fDE(z)
+LOG
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 1.0 2.0 3.0
+z
+0.4
+0.8
+1.2
+fDE(z)
+JBP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+FIG. 4. Evolution of the normalized dark energy densityf DE(z) for the CPL, BA, EXP, LOG, and JBP models. The red, green,
+and blue curves correspond to BAO+CMB+Pantheon+, BAO+CMB+Union3, and BAO+CMB+DES-Dovekie, respectively.
+The shaded regions denote the 68% credible intervals, while the black dashed lines represent the ΛCDM predictionf DE(z) = 1.
+To evaluate the statistical preference for the five dy-
+namical dark energy models relative to the ΛCDM mod-
+el, we use two comparison methods: frequentist statis-
+tics [141] and DIC [136, 137]. The results regarding the
+statistical significance of the improved fit and the differ-
+ence in the DIC are shown in the Table IV and Fig. 5. We
+can see that the significances obtained by combining the
+Pantheon+ data give the lowest values, while the high-
+est significances are obtained from the combined Union3
+dataset. Furthermore, the significances obtained from
+the DES-Dovekie combination are all around 3σfor the
+five models, which are lower than that obtained using
+DES-SN5YR from DESI Collaboration [38], and consis-
+tent with the results from DES Collaboration [115, 116].
+=== PAGE 9 ===
+9
+0.0 2.0 4.0 6.0 8.0
+S (¾)
+CPL
+BA
+EXP
+LOG
+JBP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+0.0 4.0 8.0 12.0 16.0
+j¢DICj
+CPL
+BA
+EXP
+LOG
+JBP
+Insignificant
+Positive
+Strong
+Decisive
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+FIG. 5. The statistical significancesS(left) and|∆DIC|values (right) of the five dynamical dark energy models relative to the
+ΛCDM model for different combinations of BAO, CMB, and SNe data. The black dashed line in the left figure represents the
+position of 3σ.
+Therefore, our results show that the current significances
+for the dynamical dark energy models are only around
+the evidence 3σ, and can not reach 4σ.
+TABLE IV. Summary table of significanceSand ∆DIC for
+various dynamical dark energy models relative to the ΛCDM.
+Model/DatasetS∆DIC
+CPL
+BAO + CMB + Pantheon+ 2.8σ−6.7
+BAO + CMB + Union3 3.7σ−15.2
+BAO + CMB + DES-Dovekie 3.3σ−11.1
+BA
+BAO + CMB + Pantheon+ 2.8σ−7.7
+BAO + CMB + Union3 3.7σ−15.3
+BAO + CMB + DES-Dovekie 3.3σ−10.7
+EXP
+BAO + CMB + Pantheon+ 2.8σ−8.1
+BAO + CMB + Union3 3.7σ−16.0
+BAO + CMB + DES-Dovekie 3.3σ−12.3
+LOG
+BAO + CMB + Pantheon+ 2.9σ−9.7
+BAO + CMB + Union3 3.7σ−16.8
+BAO + CMB + DES-Dovekie 3.3σ−12.3
+JBP
+BAO + CMB + Pantheon+ 2.1σ−3.1
+BAO + CMB + Union3 3.2σ−10.0
+BAO + CMB + DES-Dovekie 2.9σ−7.8
+About the results of DIC, the statistical preferences for
+different models relative to ΛCDM based on the magni-
+tude of|∆DIC|are categorized into four regions [136, 137,
+142]: the difference is “insignificant” for 0≤ |∆DIC|<2,
+there is a “positive” preference for 2≤ |∆DIC|<5, the
+preference is “strong” for 5≤ |∆DIC|<10, and there is a
+“decisive” preference for|∆DIC| ≥10. We can see that,
+except for the JBP model with Pantheon+, whose result
+falls in the 0∼5 range, the results for all other models are
+all above 5, indicating “strong” preference for dynamical
+dark energy models. The main conclusions about the
+model preferences drawn from the|∆DIC|are similar to
+those drawn from the significances. The|∆DIC|values
+obtained from the Pantheon+ dataset combination are
+generally lower than those from the Union3 and DES-
+Dovekie combinations, whereas Union3 yields the high-
+est|∆DIC|values across all five dynamical dark energy
+models. In brief, under the Union3 data combination,
+five models receive stronger evidence supporting dynamic
+dark energy, indicating that the choice of data combina-
+tion indeed influences the model preferences. Overall, the
+results from all three datasets show a significant devia-
+tion from the ΛCDM model, indicating that dark energy
+likely evolves over time. But to draw definitive conclu-
+sion about the evolution of dark energy, more future data
+is desired.
+The Hubble tension is one of the most widely discussed
+issues in modern cosmology [143–145]. To investigate the
+impact of different dark energy models on this tension,
+we compare theH 0 constraints derived from the seven
+cosmological models in this wrok with direct measure-
+ments from the local universe and inferences regarding
+the early universe based on CMB observations. For the
+=== PAGE 10 ===
+10
+66 68 70 72 74
+H0 (km s¡1 Mpc¡1)
+¤CDM
+wCDM
+CPL
+BA
+EXP
+LOG
+JBP
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+SPT-3G Collaboration
+H0 = 67:19 § 0:38
+H0DN Collaboration
+H0 = 73:50 § 0:81
+0.0 2.5 5.0 7.5 10.0 12.5
+Level of tension in σ
+ΛCDM
+wCDM
+CPL
+BA
+EXP
+LOG
+JBP
+H0 tension with H0DN
+BAO + CMB + Pantheon+
+BAO + CMB + Union3
+BAO + CMB + DES-Dovekie
+FIG. 6. Constraints on the Hubble parameter todayH 0 in different dark energy models under various SNe data combinations
+(left), and the comparisons of the Hubble tension with H0DN measurement (right).
+reference value of the local universe, we use the results
+obtained from the H0DN Collaboration [31] using a dis-
+tance network,H 0 = (73.50±0.81) km s −1 Mpc−1. For
+the reference value of the early universe, we use the re-
+sults obtained by the SPT-3G Collaboration [14] through
+joint analysis of SPT, ACT, andPlanckCMB data,
+H0 = (67.19±0.38) km s −1 Mpc−1. The former repre-
+sents direct measurement of the late-time universe based
+on distance-scale networks, whereas the latter is derived
+indirectly from CMB observations within the framework
+of ΛCDM cosmological model. By comparing theH 0
+constraints derived from the seven models with these two
+reference values, we can test whether the dynamical dark
+energy models can alleviate the Hubble tension. The
+obtainedH 0 constraints and the corresponding Hubble
+tension are shown in Fig. 6. The measurement results
+in this work are all consistent with that of the SPT-3G
+Collaboration, whereas they differ significantly from the
+results of the H0DN Collaboration, where the tensions
+exceed 5σ. Compared to the ΛCDM model, the dynam-
+ical dark energy models considered in this work do not
+significantly increase the central value ofH 0, nor do they
+reduce the discrepancy with direct measurement from the
+local distance ladder. Therefore, based on the current
+results, these dynamical dark energy models can not ef-
+fectively alleviate the Hubble tension.
+V. CONCLUSION
+In summary, we combine the latest DESI DR2 BAO
+data, complete CMB data, as well as Pantheon+,
+Union3, and DES-Dovekie SNe data to systematical-
+ly compare the ΛCDM,wCDM, and five representative
+dynamic dark energy models. The results show that
+the CPL, EXP, BA, and LOG models generally exhib-
+it quintom-B features evolving from past phantom-like
+state to current quintessence-like state, while the JBP
+model may undergo an evolution from quintessence-like
+to phantom-like and then back to quintessence-like state.
+The statistical significances for the dynamic dark ener-
+gy models are 2.1∼3.7σfor different SNe samples and
+different parametrization models. Among them, Union3
+gives the highest significances for the deviation from
+ΛCDM, while Pantheon+ shows a relatively weaker pref-
+erence, and the JBP model gives the lowest significances
+compared to the other dynamic dark energy models. In
+addition, theH 0 values obtained from each model are
+still closer to the CMB inference results from the early
+universe, and there is a clear difference from the direct
+measurements in the local universe, indicating that the
+dynamic dark energy models considered here can not ef-
+fectively alleviate the Hubble tension. Overall, the cur-
+rent measurements generally favour dynamic dark energy
+at the level of around 3σ. But because the significance
+is only around the evidence 3σ, it is still uncertain about
+the evolution of dark energy. Therefore, in the future,
+with the release of new measurement data and the advent
+of more precise measurement methods, the uncertainties
+of cosmological parameters can be further reduced. This
+will allow us to check whether the dynamic dark energy
+really exists and deepen the understanding of its prop-
+erties, ultimately revealing the physical nature of dark
+energy.
+VI. ACKNOWLEDGMENTS
+This work is supported by the Natural Science
+Foundation of Henan under Contract No. 242300421163;
+and the National Natural Science Foundation of China
+(NSFC) under Contracts Nos. 12375071.
+=== PAGE 11 ===
+11
+[1] A. G. Riesset al.[Supernova Search Team], Astron. J.
+116, 1009 (1998).
+[2] S. Perlmutteret al.[Supernova Cosmology Project],
+Astrophys. J.517, 565 (1999).
+[3] J. Frieman, M. Turner and D. Huterer, Ann. Rev.
+Astron. Astrophys.46, 385 (2008).
+[4] D. H. Weinberg, M. J. Mortonson, D. J. Eisenstein,
+C. Hirata, A. G. Riess and E. Rozo, Phys. Rept.530,
+87 (2013).
+[5] E. Komatsuet al.[WMAP], Astrophys. J. Suppl.180,
+330 (2009).
+[6] G. Hinshawet al.[WMAP], Astrophys. J. Suppl.208,
+19 (2013).
+[7] P. A. R. Adeet al.[Planck], Astron. Astrophys.571,
+A16 (2014).
+[8] N. Aghanimet al.[Planck], Astron. Astrophys.641, A6
+(2020).
+[9] D. Broutet al., Astrophys. J.938, 110 (2022).
+[10] D. Broutet al., Astrophys. J.938, 113 (2022).
+[11] D. Rubinet al., Astrophys. J.986, 231 (2025).
+[12] T. M. C. Abbottet al.[DES], Astrophys. J. Lett.973,
+L14 (2024).
+[13] M. S. Madhavacherilet al.[ACT], Astrophys. J.962,
+113 (2024).
+[14] L. Balkenholet al.[SPT-3G], Phys. Rev. D108, 023510
+(2023).
+[15] D. J. Eisensteinet al.[SDSS], Astrophys. J.633, 560
+(2005).
+[16] W. J. Percivalet al.[SDSS], Mon. Not. Roy. Astron.
+Soc.401, 2148 (2010).
+[17] S. Alamet al.[BOSS], Mon. Not. Roy. Astron. Soc.470,
+2617 (2017).
+[18] S. Alamet al.[eBOSS], Phys. Rev. D103, 083533
+(2021).
+[19] C. Heymanset al., Astron. Astrophys.646, A140
+(2021).
+[20] T. M. C. Abbottet al.[DES], Phys. Rev. D105, 023520
+(2022).
+[21] S. Moreet al., Phys. Rev. D108, 123520 (2023).
+[22] T. M. C. Abbottet al.[Kilo-Degree Survey and DES],
+Open J. Astrophys.6, 2305.17173 (2023).
+[23] S. Weinberg, Rev. Mod. Phys.61, 1 (1989).
+[24] I. Zlatev, L. M. Wang and P. J. Steinhardt, Phys. Rev.
+Lett.82, 896 (1999).
+[25] V. Sahni and A. A. Starobinsky, Int. J. Mod. Phys. D
+9, 373 (2000).
+[26] S. M. Carroll, Living Rev. Rel.4, 1 (2001).
+[27] P. J. E. Peebles and B. Ratra, Rev. Mod. Phys.75, 559
+(2003).
+[28] J. Sola Peracaula, Phil. Trans. Roy. Soc. Lond. A380,
+20210182 (2022).
+[29] A. G. Riesset al., Astrophys. J. Lett.934, L7 (2022).
+[30] L. Breuvalet al., Astrophys. J.973, 30 (2024).
+[31] S. Casertanoet al.[H0DN], Astron. Astrophys.708,
+A166 (2026).
+[32] R. G. Cai and S. J. Wang, Res. Astron. Astrophys.26,
+084011 (2026).
+[33] E. Di Valentinoet al., Astropart. Phys.131, 102604
+(2021).
+[34] O. H. E. Philcox and M. M. Ivanov, Phys. Rev. D105,
+043517 (2022).
+[35] I. Pantos and L. Perivolaropoulos, Phys. Dark Univ.52,
+102286 (2026).
+[36] E. Di Valentinoet al.[CosmoVerse Network], Phys.
+Dark Univ.49, 101965 (2025).
+[37] A. G. Adameet al.[DESI], JCAP02, 021 (2025).
+[38] M. Abdul Karimet al.[DESI], Phys. Rev. D112,
+083515 (2025).
+[39] K. Lodhaet al.[DESI], Phys. Rev. D112, 083511
+(2025).
+[40] B. Feng, X. L. Wang and X. M. Zhang, Phys. Lett. B
+607, 35 (2005).
+[41] Z. K. Guo, Y. S. Piao, X. M. Zhang and Y. Z. Zhang,
+Phys. Lett. B608(2005), 177-182
+[42] W. Hu, Phys. Rev. D71, 047301 (2005).
+[43] W. Giar` e, M. Najafi, S. Pan, E. Di Valentino and
+J. T. Firouzjaee, JCAP10, 035 (2024).
+[44] P. J. Wu, Phys. Rev. D112, 043527 (2025).
+[45] J. X. Li and S. Wang, Eur. Phys. J. C85, 1308 (2025).
+[46] S. Barua and S. Desai, Phys. Dark Univ.49, 101995
+(2025).
+[47] J. L. Ling, G. H. Du, T. N. Li, J. F. Zhang, S. J. Wang
+and X. Zhang, Phys. Rev. D112, 083528 (2025).
+[48] Y. Su, Z. Huang, Y. Yao, J. Wang and J. Liu, Phys.
+Lett. B879, 140684 (2026).
+[49] S. Alam and M. W. Hossain, JCAP04, 042 (2026).
+[50] L. Huang, R. G. Cai and S. J. Wang, Sci. China Phys.
+Mech. Astron.68, 100413 (2025).
+[51] H. Cheng, E. Di Valentino, L. A. Escamilla, A. A. Sen
+and L. Visinelli, JCAP09, 031 (2025).
+[52] D. C. Qiang, J. Y. Jia and H. Wei, JCAP04, 076 (2026).
+[53] M. Bouhmadi-L´ opez and B. Ibarra-Uriondo, Phys. Dark
+Univ.50, 102129 (2025).
+[54] Z. Zhang, T. Xu and Y. Chen, Astrophys. J.999, 248
+(2026).
+[55] M. Postolak, Class. Quant. Grav.43, 125018 (2026).
+[56] C. G. Park and B. Ratra, Int. J. Mod. Phys. D35,
+2650034 (2026).
+[57] R. de Souza, G. Rodrigues and J. Alcaniz, Phys. Rev.
+D112, 083533 (2025).
+[58] D. Andriot, Phys. Dark Univ.49, 102000 (2025).
+[59] J. M. Cline and V. Muralidharan, Phys. Rev. D112,
+063539 (2025).
+[60] A. Paliathanasis, JHEAp54, 100671 (2026).
+[61] S. S. Mishra, W. L. Matthewson, V. Sahni, A. Shafieloo
+and Y. Shtanov, JCAP11, 018 (2025).
+[62] A. Chatterjee and Y. Gong, Phys. Dark Univ.50,
+102137 (2025).
+[63] J. Q. Wang, R. G. Cai, Z. K. Guo and S. J. Wang, Phys.
+Rev. D113, 083534 (2026).
+[64] E. Silva, M. A. Sabogal, M. Scherer, R. C. Nunes, E. Di
+Valentino and S. Kumar, Phys. Rev. D111, 123511
+(2025).
+[65] C. You, D. Wang and T. Yang, Phys. Rev. D112,
+043503 (2025).
+[66] S. Pan, S. Paul, E. N. Saridakis and W. Yang, Phys.
+Rev. D113, 023515 (2026).
+[67] M. Burkmar, M. Bruni and T. Waters, Phys. Rev. D
+113, 023506 (2026).
+[68] N. Cruickshank, R. Crittenden, K. Koyama and
+M. Bruni, JCAP10, 052 (2025).
+=== PAGE 12 ===
+12
+[69] M. van der Westhuizen, D. Figueruelo, R. Thubisi,
+S. Sahlu, A. Abebe and A. Paliathanasis, Phys. Dark
+Univ.50, 102107 (2025).
+[70] B. Barman and S. Girmohanta, Phys. Rev. D113,
+015023 (2026).
+[71] Y. H. Li and X. Zhang, JCAP12, 018 (2025).
+[72] S. Hussain, S. Arora, Y. Rana, B. Rose and A. Wang,
+JCAP04, 070 (2026).
+[73] S. L. Guedezounme, B. R. Dinda and R. Maartens,
+JCAP01, 062 (2026).
+[74] V. Petri, V. Marra and R. von Marttens, Phys. Rev. D
+113, 023504 (2026).
+[75] M. van der Westhuizen, A. Abebe and E. Di Valentino,
+Phys. Dark Univ.50, 102121 (2025).
+[76] S. Hussain, Q. Wu and T. Zhu, JCAP04, 067 (2026).
+[77] A. Pourtsidou, JCAP02, 014 (2026).
+[78] T. N. Li, G. H. Du, Y. H. Li, Y. Li, J. L. Ling,
+J. F. Zhang and X. Zhang, arXiv:2510.11363.
+[79] Y. M. Zhang, T. N. Li, G. H. Du, S. H. Zhou, L. Y. Gao,
+J. F. Zhang and X. Zhang, arXiv:2510.12627.
+[80] P. J. Wu, M. Zhang and S. J. Jin, Phys. Rev. D113,
+L081302 (2026).
+[81] D. Figueruelo, M. van der Westhuizen, A. Abebe and
+E. Di Valentino, Phys. Dark Univ.52, 102238 (2026).
+[82] L. La Penna, A. Notari and M. Redi, JCAP07, 033
+(2026).
+[83] T. N. Li, W. Giar` e, G. H. Du, Y. H. Li, E. Di Valentino,
+J. F. Zhang and X. Zhang, arXiv:2601.07361.
+[84] E. Chaussidonet al., Phys. Rev. D112, 063548 (2025).
+[85] M. Yashiki, Phys. Rev. D112, 063517 (2025).
+[86] Y. H. Pang, X. Zhang and Q. G. Huang, Sci. China
+Phys. Mech. Astron.68, 280410 (2025).
+[87] A. R. Khalifeet al.[SPT-3G], Phys. Rev. D113, 103546
+(2026).
+[88] Y. Toda and O. Seto, JCAP02, 019 (2026).
+[89] A. Reeves, S. Ferraro, A. Nicola and A. Refregier, Phys.
+Rev. D113, 103512 (2026).
+[90] H. Wang and Y. S. Piao, arXiv:2511.16606.
+[91] L. Yin, G. H. Du, T. N. Li and X. Zhang, arX-
+iv:2601.13624.
+[92] G. G. Luciano, A. Paliathanasis and E. N. Saridakis,
+JHEAp49, 100427 (2026).
+[93] G. Guin, S. Paul and S. Gangopadhyay, JCAP11, 048
+(2025).
+[94] A. Tita, B. Gumjudpai and P. Srisawad, Gen. Rel. Grav.
+57, 106 (2025).
+[95] M. A. Zapata, G. Garcia-Arroyo, S. A. Adil and
+J. A. Vazquez, JCAP05, 058 (2026).
+[96] F. Plaza, G. Le´ on and L. Kraiselburd, Eur. Phys. J. C
+85, 1262 (2025).
+[97] P. J. Wu, T. N. Li, G. H. Du and X. Zhang, Chin. Phys.
+C50, 045105 (2026).
+[98] G. G. Luciano and A. Paliathanasis, Eur. Phys. J. C
+85, 1384 (2025).
+[99] J. X. Li and S. Wang, Mon. Not. Roy. Astron. Soc.548,
+stag584 (2026).
+[100] N. Sadeghnezhad, R. Jalalzadeh, Z. Davari and
+B. Afshar, JHEAp51, 100553 (2026).
+[101] T. Denkiewicz and H. Gohar, Phys. Rev. D113, 063564
+(2026).
+[102] M. Leizerovich, S. J. Landau, G. G. Luciano,
+A. Papatriantafyllou and E. N. Saridakis, Phys. Dark
+Univ.52, 102333 (2026).
+[103] A. K. Halder, A. Paliathanasis, S. Viaggiu,
+A. A. Mamon and S. Saha, Phys. Lett. B876,
+140442 (2026).
+[104] Y. Ren, X. Yang, X. Zhang, S. Chen, Y. Shi, C. Cheng,
+X. He and H. Iminniyaz, Phys. Lett. B874, 140246
+(2026).
+[105] D. Kumar, P. K. Dhankar, S. Ray and F. Zhang, Phys.
+Dark Univ.49, 101989 (2025).
+[106] G. K. Goswami, A. Pradhan and S. Krishnannair, arX-
+iv:2505.18226.
+[107] S. D. Odintsov, V. K. Oikonomou and G. S. Sharov,
+JHEAp50, 100471 (2026).
+[108] A. Samaddar and S. S. Singh, Phys. Dark Univ.50,
+102081 (2025).
+[109] A. Paliathanasis, Phys. Dark Univ.49, 101993 (2025).
+[110] R. Mandal, H. Chaudhary, T. Harko, U. Debnath and
+G. Mustafa, Annals Phys.493, 170610 (2026).
+[111] R. Bhagat, S. K. Tripathy and B. Mishra, Annalen
+Phys.538, e00429 (2026).
+[112] S. Nojiri, S. D. Odintsov and V. K. Oikonomou, Phys.
+Rev. D112, 104035 (2025).
+[113] A. Samaddar and S. S. Singh, Astrophys. Space Sci.
+371, 52 (2026).
+[114] A. Samaddar and S. S. Singh, Eur. Phys. J. C85, 1357
+(2025).
+[115] B. Popovicet al.[DES], Mon. Not. Roy. Astron. Soc.
+548, stag632 (2026).
+[116] T. M. C. Abbottet al.[DES], arXiv:2605.27221.
+[117] S. Navaset al.[Particle Data Group], Phys. Rev. D110,
+030001 (2024).
+[118] J. Lesgourgues and S. Pastor, Phys. Rept.429, 307
+(2006).
+[119] M. Chevallier and D. Polarski, Int. J. Mod. Phys. D10,
+213 (2001).
+[120] E. V. Linder, Phys. Rev. Lett.90, 091301 (2003).
+[121] E. M. Barboza and J. S. Alcaniz, Phys. Lett. B666,
+415 (2008).
+[122] N. Dimakis, A. Karagiorgos, A. Zampeli,
+A. Paliathanasis, T. Christodoulakis and P. A. Terzis,
+Phys. Rev. D93, 123518 (2016).
+[123] S. Pan, W. Yang and A. Paliathanasis, Eur. Phys. J. C
+80, 274 (2020).
+[124] G. Efstathiou, Mon. Not. Roy. Astron. Soc.310, 842
+(1999).
+[125] H. K. Jassal, J. S. Bagla and T. Padmanabhan, Phys.
+Rev. D72, 103503 (2005).
+[126] A. Lewis and S. Bridle, Phys. Rev. D66, 103511 (2002).
+[127] A. Lewis, Phys. Rev. D87, 103529 (2013).
+[128] J. Torrado and A. Lewis, JCAP05, 057 (2021).
+[129] A. Lewis, A. Challinor and A. Lasenby, Astrophys. J.
+538, 473 (2000).
+[130] C. Howlett, A. Lewis, A. Hall and A. Challinor, JCAP
+04, 027 (2012).
+[131] A. Gelman and D. B. Rubin, Statist. Sci.7, 457 (1992).
+[132] A. Lewis, JCAP08, 025 (2025).
+[133] C. Cartis, J. Fiala, B. Marteau and L. Roberts, arX-
+iv:1804.00154.
+[134] C. Cartis, L. Roberts and O. Sheridan-Methven,
+Optimization71, 2343 (2021).
+[135] M.J.D. Powell, “The BOBYQA Algorithm for Bound
+Constrained Optimization without Derivatives”,
+(Technical Report 2009/NA06, DAMTP, University of
+Cambridge).
+=== PAGE 13 ===
+13
+[136] D. J. Spiegelhalter, N. G. Best, B. P. Carlin and A. van
+der Linde, J. Roy. Statist. Soc. B64, 583 (2002).
+[137] A. R. Liddle, Mon. Not. Roy. Astron. Soc.377, L74
+(2007).
+[138] R. R. Caldwell, Phys. Lett. B545, 23 (2002).
+[139] V. Barger, E. Guarnaccia and D. Marfatia, Phys. Lett.
+B635, 61 (2006).
+[140] Z. K. Guo, Y. S. Piao, X. Zhang and Y. Z. Zhang, Phys.
+Rev. D74, 127304 (2006).
+[141] S. S. Wilks, Annals Math. Statist.9, 60 (1938).
+[142] J. Sola Peracaula, A. Gomez-Valent, J. de Cruz Perez
+and C. Moreno-Pulido, Universe9, 262 (2023).
+[143] L. Verde, T. Treu and A. G. Riess, Nature Astron.3,
+891 (2019).
+[144] E. Abdallaet al., JHEAp34, 49 (2022).
+[145] E. Di Valentino, O. Mena, S. Pan, L. Visinelli, W. Yang,
+A. Melchiorri, D. F. Mota, A. G. Riess and J. Silk, Class.
+Quant. Grav.38, 153001 (2021).

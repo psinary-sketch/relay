@@ -1,0 +1,1966 @@
+=== PAGE 1 ===
+Draft version September 10, 2026
+Typeset using LATEXtwocolumnstyle in AASTeX7.0.2
+Supernovae Unite: Host-Galaxy Mass Measurements of Type Ia Supernovae and Their Impact on
+Cosmology
+J. Lee
+ ,1 R. Camilleri
+ ,2 T. M. Davis
+ ,2 D. Rubin
+ ,3 K. Bechtol
+ ,1 L. Galbany
+ ,4, 5 M. Sako
+ ,6
+M. Sullivan
+ ,7 T. E. M ¨uller-Bravo
+ ,8, 9 D. Scolnic
+ ,10 M. Vincenzi
+ ,11 D. Brout
+ ,12 C. Lidman
+ ,13
+A. M ¨oller
+ ,14 P. Shah
+ ,15 M. Acevedo
+ ,10 P. Armstrong
+ ,16, 17, 18 B. A. Bassett
+ ,19, 20 R. C. Chen
+ ,21, 22, 23
+H. T. Diehl
+ ,24, 25, 26 J. Frieman
+ ,24, 25, 26 K. Grech
+ ,2 B. Popovic
+ ,7 B. O. S ´anchez
+ ,27 and B. E. Tucker
+ 13
+1Department of Physics, University of Wisconsin Madison, WI 53706-1390, USA
+2School of Mathematics and Physics, University of Queensland, Brisbane, QLD 4072, Australia
+3Department of Physics and Astronomy, University of Hawai‘i at M¯ anoa, Honolulu, Hawai‘i 96822
+4Institute of Space Sciences (ICE-CSIC), Campus UAB, Carrer de Can Magrans, s/n, E-08193 Barcelona, Spain
+5Institut d’Estudis Espacials de Catalunya (IEEC), 08860 Castelldefels (Barcelona), Spain
+6Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104, USA
+7School of Physics and Astronomy, University of Southampton, Southampton, SO17 1BJ, UK
+8School of Physics, Trinity College Dublin, The University of Dublin, Dublin 2, Ireland
+9Instituto de Ciencias Exactas y Naturales (ICEN), Universidad Arturo Prat, Chile
+10Department of Physics, Duke University, Durham, NC 27708, USA
+11Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford OX1 3RH, United Kingdom
+12Departments of Astronomy and Physics, Boston University, Boston, MA 02215
+13Research School of Astronomy and Astrophysics & Centre for Gravitational Astrophysics, The Australian National University,
+Canberra, ACT, Australia
+14Centre for Astrophysics and Supercomputing, Swinburne University of Technology, John St, Hawthorn, VIC 3122, Australia
+15Department of Physics and Astronomy, University College London, Gower Street, London, UK
+16The Research School of Astronomy and Astrophysics, The Australian National University, Canberra, ACT 2611, Australia
+17Department of Physics, University of California Berkeley, Berkeley, CA 94720, USA
+18E.O. Lawrence Berkeley National Laboratory, 1 Cyclotron Rd., Berkeley, CA 94720, USA
+19Wits MIND Institute and School of Computer Science and Applied Mathematics, University of the Witwatersrand, Johannesburg, South
+Africa
+20School for Data Science and Computational Thinking, Stellenbosch University, South Africa
+21Kavli Institute for Particle Astrophysics & Cosmology, P. O. Box 2450, Stanford University, Stanford, CA 94035, USA
+22SLAC National Accelerator Laboratory, Menlo Park, CA 94025, USA
+23Department of Physics, Stanford University, 382 Via Pueblo Mall, Stanford, CA 94305, USA
+24Fermi National Accelerator Laboratory, P. O. Box 500, Batavia, IL 60510, USA
+25Kavli Institute for Cosmological Physics, University of Chicago, Chicago, IL 60637, USA
+26Department of Astronomy and Astrophysics, University of Chicago, Chicago, IL 60637, USA
+27Aix Marseille Univ, CNRS/IN2P3, CPPM, Marseille, France
+ABSTRACT
+Current consensus suggests that Type Ia supernova (SN Ia) brightnesses post light-curve standard-
+ization correlate with their host-galaxy stellar masses, which must be accounted for to obtain accurate
+cosmological constraints. For example, M. Vincenzi et al. (2025) showed that different host-galaxy
+stellar mass measurements for the same dataset produce redshift-dependent differences of order∼0.01
+mag, large enough to appreciably shift cosmological constraints. We present internally consistent host-
+galaxy stellar masses remeasured using aperture photometry and spectral energy distribution (SED)
+fitting for SN-Unite, which combines the spectroscopic Pantheon+ and the photometric Dark Energy
+Survey five-year (DES-SN5YR) samples into the largest SN Ia cosmology sample to date, with 2884
+likely SNe Ia. We find that photometry and SED fitting choices shift SN-Unite FlatwCDM parameters
+well below statistical uncertainties. Our stellar masses differ from the Pantheon+ data release partly
+due to a redshift-dependent internal inconsistency within Pantheon+, while remaining largely consis-
+Email: lee2547@wisc.edu
+arXiv:2609.05321v2  [astro-ph.CO]  9 Sep 2026
+=== PAGE 2 ===
+2
+tent with the DES-SN5YR (DES-Dovekie) data release. When the Pantheon+ subsample of SN-Unite
+is combined with Baryon Acoustic Oscillations (BAO) and Cosmic Microwave Background (CMB)
+measurements, the significance for time-evolving dark energy increases from 3.4σto 4.0σbased on the
+maximuma posterioriwhen our newly derived host-galaxy stellar masses replace the Pantheon+ data-
+release host-galaxy stellar masses, while DES-Dovekie remains virtually unchanged, consistent with the
+findings of T. J. Hoyt et al. (2026). By remeasuring the host-galaxy stellar masses using a consistent
+framework throughout the whole sample, we improve the robustness of the SN-Unite cosmological
+constraints against systematic differences in host-galaxy stellar mass measurements.
+Keywords:Cosmology (343) — Dark Energy (351) — Type Ia Supernovae (1728) — Galaxies (573)
+1.INTRODUCTION
+Type Ia Supernovae (SNe Ia) are powerful cosmologi-
+cal probes, especially in the context of dark energy. Not
+only did SNe Ia observations provide conclusive evidence
+of the accelerated expansion of the universe (A. G. Riess
+et al. 1998; S. Perlmutter et al. 1999), more than 25
+years of observations (e.g., P. Astier et al. 2006; W. M.
+Wood-Vasey et al. 2007a; R. Kessler et al. 2009a; M.
+Sullivan et al. 2011; M. Betoule et al. 2014; D. Brout
+et al. 2022; DES Collaboration et al. 2024; D. Rubin
+et al. 2025) have significantly tightened the constraints
+on the dark energy equation of state,w=P/ρ. The
+preference for an accelerated expansion based on mea-
+surements of the deceleration parameterq 0 has accord-
+ingly increased from around 3σin the late 1990s to
+over 5σwith the recent Dark Energy Survey five-year
+analysis (DES-SN5YR, DES Collaboration et al. 2024).
+That trend continues with this current work, which is
+a companion paper to the SN-Unite cosmology paper
+that combines Pantheon+ and DES-SN5YR SNe Ia (R.
+Camilleri et al. in prep. 2026).
+Furthermore, SNe Ia are independent probes of
+dark energy, providing complementary information to
+other probes of dark energy: the Cosmic Microwave
+Background (CMB) and Baryon Acoustic Oscillations
+(BAO). Therefore, combining all three measurements
+significantly tightens constraints on cosmological pa-
+rameters. While DES-SN5YR (DES Collaboration et al.
+2024) reports (Ω m, w) = (0.264 +0.074
+−0.096,−0.80 +0.14
+−0.16) for
+SNe Ia alone constraints in FlatwCDM, the Dark En-
+ergy Spectroscopic Instrument Data Release 2 (DESI
+DR2, M. Abdul Karim et al. 2025) reports (Ω m, w) =
+(0.3098±0.0050,−0.971±0.021) when DES-SN5YR is
+combined with DESI BAO and CMB fromPlanck
+(Planck Collaboration et al. 2020a,b), the Atacama Cos-
+mology Telescope (ACT) (N. MacCrann et al. 2024;
+M. S. Madhavacheril et al. 2024; F. J. Qu et al. 2024),
+and the South Pole Telescope (SPT) (J. Carlstrom et al.
+2011).
+Figure 1.A visualization of host-galaxy stellar mass-step
+using the SN-Unite sample analyzed in this work. There is
+a correlation between the Hubble residuals (∆µ) and the
+host-galaxy stellar masses even after light-curve corrections.
+Here, ∆µis the Hubble residual with respect to the best-fit
+FlatwCDM cosmology. Host-galaxy stellar mass uncertain-
+ties (∼0.2 dex) are not shown for clarity. For simplicity, ∆µ
+error bars in this figure do not include the full covariance
+matrix. Assuming a mass-step location of 10 10M⊙, we find
+the mass-step size to be approximately 0.035±0.006 from
+this figure.
+The use of SNe Ia as standardizable candles relies on
+the assumption that SNe Ia are consistent in their peak
+brightnesses, and that their intrinsic differences can be
+accounted for using empirical techniques. One common
+method to standardize SNe Ia for cosmology is to fit
+for their light-curves using light-curve fitters such as
+the Spectral Adaptive Light Curve Template (SALT)
+(SALT1 & SALT2, J. Guy et al. 2005, 2007), (SALT3,
+W. Kenworthy et al. 2021) to determine the light-curve
+parametersx 1 (‘stretch’) andc(‘color’) for each SN
+Ia used for cosmological analysis. After the stretch and
+color corrections, a residual correlation between SN Ia
+luminosities and host-galaxy properties remains. In Fig-
+ure 1, we show the correlation between the Hubble resid-
+uals and the host-galaxy stellar mass, when the host-
+galaxy stellar mass step is not accounted for (setting
+=== PAGE 3 ===
+3
+γ= 0 in Equation 1) in the SN-Unite sample analyzed
+in this work.
+The correlation was originally discovered as a de-
+pendence on host-galaxy stellar mass, with SNe Ia in
+higher stellar mass galaxies found to be 0.05 to 0.10 mag
+brighter than those in lower stellar mass galaxies after
+correcting for stretch and color (P. L. Kelly et al. 2010;
+H. Lampeitl et al. 2010; M. Sullivan et al. 2010) (>4σ
+level for the latter two). M. Sullivan et al. (2010) further
+found that including a host-galaxy stellar ‘mass step’ im-
+proves theχ 2 fit to the data, and that not accounting
+for the mass step can cause shifts inwcomparable to
+its statistical uncertainty in FlatwCDM.
+Subsequent analyses found that alternative global
+host-galaxy properties show similar dependence - rest-
+frame color, emission lines, metallicity, age, star forma-
+tion rate, as well as dust (e.g., C. B. D’Andrea et al.
+2011; R. R. Gupta et al. 2011; M. Moreno-Raya et al.
+2018; M. Roman et al. 2018; L. Galbany et al. 2022;
+J. Duarte et al. 2023; L. Kelsey et al. 2023; C. Meldorf
+et al. 2023; P. Wiseman et al. 2023; B. Martin et al. 2024;
+M. Dixon et al. 2025). Several works have additionally
+sought to characterize the correlation of SN Ia luminosi-
+ties with local properties in the vicinity of the SNe Ia
+(M. Rigault et al. 2013; M. Roman et al. 2018; M. Gino-
+lin et al. 2025) due to concerns that global host-galaxy
+properties are not representative of the SN Ia environ-
+ments.
+While some of the aforementioned alternative ap-
+proaches are more physically motivated, there is not
+yet a clear consensus that such approaches provide a
+more robust correction than the global host-galaxy stel-
+lar mass. Moreover, global host-galaxy stellar masses are
+generally more straightforward to measure accurately
+and precisely across large, heterogeneous SN Ia sam-
+ples. As such, host-galaxy stellar masses have continued
+to be used for SN Ia cosmological analyses to account
+for host-dependence of SNe Ia luminosities, including in
+three of the most widely utilized recent SN Ia analyses:
+Pantheon+ (D. Brout et al. 2022), DES-SN5YR (DES
+Collaboration et al. 2024), and Union3 (D. Rubin et al.
+2025). Therefore, we limit our scope to host-galaxy stel-
+lar masses rather than other host-related parameters in
+this work.
+In DES-SN5YR, the full Tripp equation (R. Tripp
+1998) for each SN Iaiis given as:
+µobs,i =m x,i +αx 1,i −βc i +γG host,i −M−∆µ bias,(1)
+withγG host used to capture the dependency between
+the SN Ia luminosity and host-galaxy property (mass
+in the nominal analysis), withG host =± 1
+2 depending
+on whether the host is above or below the host-galaxy
+stellar mass step. DES-SN5YR foundγ= 0.038±0.007,
+or more than 5σsignificance that thereisa host-galaxy
+mass step at 10 10M⊙. The DES-Dovekie reanalysis of
+DES-SN5YR (B. Popovic et al. 2025) found a slightly
+smaller significance atγ= 0.033±0.008.
+While recent surveys such as DES-SN5YR and Pan-
+theon+, as well as earlier surveys like the Supernova
+Legacy Survey (SNLS) and the Joint Light-curve Anal-
+ysis (JLA) (A. Conley et al. 2010; M. Sullivan et al. 2011;
+M. Betoule et al. 2014), used a ‘mass step’ to account
+for the host-galaxy mass, other analyses have considered
+smooth functions and the redshift evolution of the ‘mass
+step’ (M. Vincenzi et al. 2024; B. Popovic et al. 2025;
+D. Rubin et al. 2025, 2026).
+M. Smith et al. (2020a) additionally explores the sys-
+tematic uncertainties of their host-galaxy stellar mass
+estimates for the 206 spectroscopically confirmed Dark
+Energy Survey ‘three-year’ (DES-SN3YR, T. Abbott
+et al. 2019) analysis. They find that their host mass
+estimates are robust to systematic variants such as in-
+troducing additional bursts in star-formation history or
+using a different initial mass function (IMF), meaning
+that such variants can result in an overall systematic
+shift by 0.1 to 0.5 dex, but not a stellar mass-dependent
+offset.
+Since the report of the preference of time-evolving
+dark energy over FlatΛCDM (DES Collaboration et al.
+2024; A. Adame et al. 2025; M. Abdul Karim et al.
+2025) with>3σsignificance when the DESI DR1/DR2
+BAO are combined with the CMB and the DES-
+SN5YR or Union3 datasets, SN Ia cosmology has been
+under increased scrutiny (G. Efstathiou 2025; A. No-
+tari et al. 2025). This is partly because the best-
+fit Flatw 0waCDM results under the linear Chevallier-
+Polarski-Linder (CPL) parametrization (wherew=
+w0 +w a(1−a), M. Chevallier & D. Polarski 2001; E. V.
+Linder 2003) are especially sensitive to low-z(z <0.2)
+SN Ia data where other cosmological constraints are
+largely absent.
+G. Efstathiou (2025) in particular, raised the possibil-
+ity that the increased preference for time-evolving dark
+energy when DES-SN5YR (3.9σin DESI DR1 based on
+the maximuma posteriori(MAP)) is used instead of
+Pantheon+ (2.5σin DESI DR1 based on the MAP) to
+combine with DESI DR1 BAO and the CMB, was due
+to unaddressed systematics in the DES-SN5YR analy-
+sis, leading to a∼0.04 mag difference between the low-
+zand high-zoverlapping samples of DES-SN5YR and
+Pantheon+. In a response to G. Efstathiou (2025), M.
+Vincenzi et al. (2025) found that these differences are
+justified in part because the photometrically classified
+DES-SN5YR sample is substantially more complete and
+=== PAGE 4 ===
+4
+subject to weaker selection effects than the spectroscop-
+ically selected DES subset included in Pantheon+. Ad-
+ditional differences are due to improved intrinsic scatter
+modeling and improved host-galaxy stellar mass mea-
+surements. The difference in host-galaxy mass measure-
+ments contributes to∼0.01 mag out of the∼0.04 mag
+difference confirmed in M. Vincenzi et al. (2025).
+More recently, the DES-Dovekie analysis (B. Popovic
+et al. 2025), a reanalysis of DES-SN5YR with an up-
+dated SN Ia photometric cross-calibration, found a sig-
+nificance for time-evolving dark energy at 3.2σwhen
+combined with DESI-DR2 BAO (M. Abdul Karim et al.
+2025) and the CMB based on the maximumlikelihood
+(ML), down from 4.2σ(based on MAP) when DES-
+SN5YR is combined instead. Intriguingly, the Union3.1
+analysis (D. Rubin et al. 2026; T. J. Hoyt et al. 2026)
+finds 3.4σ(based on MAP), when Union3.1 (using
+UNITY1.7 or UNITY1.8) SNe Ia are combined with
+DESI-DR2 andPlanckCMB, down from 3.8σwith
+Union3 (D. Rubin et al. 2025). Furthermore, T. J. Hoyt
+et al. (2026) find that updating Pantheon+ with newly
+re-derived host-galaxy stellar masses to correct for a
+redshift-dependent internal inconsistency in the original
+Pantheon+ analysis increases the preference for time-
+evolving dark energy from 2.8σ(reported in DESI-DR2)
+to 3.2σ, again, when combined with DESI-DR2 BAO
+andPlanckCMB.
+While the T. J. Hoyt et al. (2026) reanalysis of Pan-
+theon+ with updated host-galaxy stellar masses was
+not done with the same analysis framework as Pan-
+theon+ (D. Brout et al. 2022; D. Scolnic et al. 2022),
+the concordance between the three currently most often
+utilized SN Ia datasets, in terms of the preference for
+time-evolving dark energy when DESI-DR2 BAO and
+PlanckCMB are combined, is striking.
+For some context, Pantheon+ and Union3/Union3.1
+share a similar dataset, using a compilation of histori-
+cal samples of spectroscopically confirmed SNe Ia, while
+DES-SN5YR and DES-Dovekie mostly use photometri-
+cally classified SNe Ia from the DES-SN program (A.
+M¨ oller & T. de Boissi` ere 2020; H. Qu et al. 2021; A.
+M¨ oller et al. 2022; M. Vincenzi et al. 2023; B. S´ anchez
+et al. 2024), with a small (∼200) external low-zsam-
+ple that is largely a subset of the Pantheon+ and Union
+low-zdatasets. All three datasets have a similar number
+of SNe Ia (around 1500 to 2000) and therefore simi-
+lar statistical constraining powers on cosmological pa-
+rameters. For the methodology, Pantheon+ and DES-
+SN5YR (DES-Dovekie) use the same framework, which
+uses Beams with Bias Corrections (BBC, R. Kessler
+& D. Scolnic 2017) to perform simulations-based cor-
+rections to model selection effects, while Union uses
+the Unified Nonlinear Inference for Type Ia cosmologY
+(UNITY, D. Rubin et al. 2015, 2025), a Bayesian hi-
+erarchical model that simultaneously models the SN Ia
+light-curve parameters, selection effects and the cosmo-
+logical parameters.
+In the light of such tantalizing developments, SN-
+Unite (R. Camilleri et al. in prep. 2026) combines the
+DES-SN5YR and Pantheon+ datasets to create the
+largest SN Ia dataset to date numbering 2884 likely SNe
+Ia (P Ia >0.8, with about 46% of SNe Ia spectroscop-
+ically confirmed), and provides the tightest constraints
+to date on Ωm and dark energy using SNe Ia only, as well
+as with combinations of SNe Ia, BAO, and the CMB.
+Due to the developments elucidated above, it is cru-
+cial that we investigate host-galaxy mass measurements
+and their impact on cosmology in detail. For this rea-
+son, we remeasure the host-galaxy stellar masses for the
+SN-Unite sample with a single, consistent pipeline, and
+assess how measurement choices impact the SN-Unite as
+well as the cosmological analyses of the Pantheon+ and
+DES-SN5YR subsamples within SN-Unite.
+This work is organized as follows. In Section 2, we
+describe our dataset and in Section 3, we describe our
+methodology, including our photometry pipeline, as well
+as the spectral energy distribution (SED) fitting we use
+to estimate the host-galaxy stellar mass. In Section 4,
+we show our host-galaxy stellar mass measurements,
+and compare with previous measurements in the liter-
+ature. We describe and assess the impact of different
+methodology choices on cosmology in Section 5.1. In
+Section 5.2, we show cosmological constraints for the
+DES-SN5YR and Pantheon+ subsamples within SN-
+Unite and assess the impact of updating the data-release
+masses with SN-Unite masses, in FlatwCDM using SNe
+Ia only, and in Flatw 0waCDM using SNe Ia + BAO
++ CMB. We end with a Discussion and Conclusion in
+Section 6.
+2.DATA
+In this section, we describe the datasets used for the
+SN-Unite host-galaxy stellar mass measurements.
+2.1.The SN-Unite sample
+We re-determine the host-galaxy masses for over 98%
+of the SNe Ia in the SN-Unite parent sample, that is,
+5271 SNe Ia that have host-galaxy spectroscopic red-
+shifts and converged SALT3 light-curve fits (for the list,
+see Table 3 of R. Camilleri et al. in prep. 2026). For<2%
+of the parent sample, we are not able to re-determine
+the photometry, and hence host stellar masses. This
+is typically due to suboptimal image quality or the
+hosts being too faint for accurate photometry with our
+=== PAGE 5 ===
+5
+pipeline outlined in Section 3.1. We release the host-
+galaxy properties including the spectroscopic redshifts
+and Right Ascension (RA) and Declination (Dec) 28
+adopted from the Pantheon+29 and DES-SN5YR/DES-
+Dovekie30 data-release, as well as our remeasured
+host-galaxy stellar masses and photometry with our
+main data-release at: https://github.com/jasonlee17/
+SN-Unite Host Galaxy Masses. Note that DES-Dovekie
+adopted all host-galaxy photometry and properties from
+DES-SN5YR, so we use the two interchangeably in sub-
+sequent sections unless we are discussing cosmological
+constraints. All of the host-galaxies in the SN-Unite
+sample use some form of the directional-light-radius
+(DLR) method to match SNe Ia with their host-galaxies
+(M. Sullivan et al. 2006; R. R. Gupta et al. 2016), and H.
+Qu et al. (2024) demonstrate that the mis-identification
+of hosts has a negligible impact on DES-SN5YR cos-
+mology, with the mis-identification rate being less than
+2%. Additionally, we inspect each individual galaxy im-
+age as highlighted in Section 3.1, which reduces the risk
+of host-misidentification even further.
+For the majority of this analysis, we focus on the mea-
+surements on theCosmology sample, which are the
+SNe that are included in the SN-Unite Hubble Diagram
+(see Fig. 1 of R. Camilleri et al. (in prep. 2026)) used for
+cosmological inference. The Cosmology sample consists
+of 2884 SN Ia observations after selection cuts, corre-
+sponding to 2742 unique SNe Ia, with some SNe Ia ob-
+served by multiple surveys. The number of unique host-
+galaxies is slightly smaller, as multiple SNe Ia can oc-
+casionally occur in the same galaxy. For the 40 (<2%)
+host-galaxies in the Cosmology sample where we are not
+able to obtain photometry, we adopt the Pantheon+ or
+DES-SN5YR data-release values, which has a negligi-
+ble impact in our analysis. The sample consists of host-
+galaxies of SN Ia candidates for:
+•1549 discovered by DES-SN3YR and DES-
+SN5YR (D. Brout et al. 2019; M. Smith et al.
+2020b; B. S´ anchez et al. 2024; M. Vincenzi et al.
+2024; DES Collaboration et al. 2024)
+•251 by the Pan-STARRS1 Medium-Deep Survey
+(PS1MD, D. M. Scolnic et al. 2018)
+•171 by the Supernova Legacy Survey (SNLS, P.
+Astier et al. 2006; A. Conley et al. 2010; M. Sulli-
+van et al. 2011; M. Betoule et al. 2014)
+28 For 143 or<3% of the Pantheon+ host-galaxies, the host-
+galaxy coordinates are not available, so we use the SN Ia RA
+and Dec instead.
+29 https://github.com/PantheonPlusSH0ES/DataRelease
+30 https://github.com/des-science/DES-SN5YR
+•10 by theHubble Space Telescope(HST, R. L.
+Gilliland et al. 1999; A. G. Riess et al. 2001, 2004,
+2007; N. Suzuki et al. 2012; A. G. Riess et al. 2018)
+•256 by the Sloan Digital Sky Survey (SDSS, M.
+Sako et al. 2018)
+•and 647 by various low-zsurveys, including
+the Lick Observatory Supernova Search (LOSS1,
+LOSS2, M. Ganeshalingam et al. 2010; B. E. Stahl
+et al. 2019), the Swift Optical/Ultraviolet Super-
+nova Archive (SWIFT, P. J. Brown et al. 2014),
+A Complete Nearby (Redshift<0.02) Sample of
+Type Ia Supernova Light Curves (CNIa0.02, P.
+Chen et al. 2022), the Carnegie Supernova Project
+(CSP, K. Krisciunas et al. 2017), and four Center
+for Astrophysics SN surveys (CfA1, CfA2, CfA3,
+CfA4, A. G. Riess et al. 1999; S. Jha et al. 2006;
+M. Hicken et al. 2009, 2012), and various others
+(T. Zhang et al. 2009; P. A. Milne et al. 2010; M.
+Stritzinger et al. 2010; D. Y. Tsvetkov & L. Elenin
+2010; C. Gall et al. 2018; C. R. Burns et al. 2018,
+2020; M. Kawabata et al. 2020)
+2.2.Photometry Dataset
+Although high-quality host-galaxy spectra can provide
+more precise and accurate host-galaxy properties, spec-
+tra are not uniformly available for the SN-Unite host-
+galaxies. In addition, the spectra are often not of high
+enough quality for spectral fitting since the primary pur-
+pose of taking spectra (at least for the case of DES) was
+to obtain host redshifts. Hence the first step in measur-
+ing host-galaxy properties is to obtain photometry of
+the host-galaxies. In this work, we use optical and near-
+ultraviolet observations for our default host-galaxy stel-
+lar masses. For the optical wavelengths, we use the DES
+grizbands from 5-year median coadded images as in H.
+Qu et al. (2024) for the DES-SN5YR hosts. While P.
+Wiseman et al. (2020) (W20) compiled DESgrizhost-
+galaxy photometry using 4-year (excluding the season
+of SN Ia explosion) coadded images for DES-SN5YR,
+we re-derive the photometry for SN-Unite to maintain
+a consistent photometry pipeline throughout all of the
+host-galaxy sample. We note that median coadded im-
+ages that include epochs containing SN Ia light can re-
+tain a small positive flux bias at pixels within the SN
+Ia PSF, as the SN Ia flux shifts the distribution of the
+contributing pixel values toward higher values and can
+therefore increase the sample median. In Table 1, we
+compare the W20 photometry with SN-Unite photom-
+etry for DES-SN5YR hosts and find that the difference
+is quite small, around 0.015 mag or less, well below
+the threshold needed to impact the host-galaxy stellar
+=== PAGE 6 ===
+6
+T able 1.Comparison of host-galaxy photometry between P.
+Wiseman et al. (2020) COADD measurements and the me-
+dian coadded images ofSN-Unite. While median coadded
+images can be biased, this table illustrates that the bias is
+less than 0.015 mag across all bands, which does not impact
+our host-galaxy stellar mass measurements. Differences are
+defined as ∆m=m W20,COADD −m SN−UNITE, while quoted
+values are the mean, error on the mean, and rms of ∆m.
+Quoted values are computed after removing catastrophic out-
+liers using a 5σclip based on the median absolute deviation
+of ∆m. The rms is computed from the clipped ∆mdistribu-
+tion in each band.
+Band⟨∆m⟩(rms)N used/Ntot
+g−0.001±0.003 (0.119) 1428/1509
+r0.014±0.002 (0.074) 1409/1512
+i0.010±0.002 (0.073) 1400/1512
+z0.010±0.002 (0.070) 1399/1512
+mass measurements presented in this work. For the Pan-
+theon+ sample, we use coadded images from:
+1. the broader DES Data Release 2 (DES-DR2, T.
+Abbott et al. 2021)grizbands (∼5000 deg 2)
+2. the LegacySurvey Data Release 10 (LegacySurvey-
+DR10, A. Dey et al. 2019), which consists of the
+Mayallz-band Legacy Survey (MzLS), Dark En-
+ergy Camera Legacy Survey (DECaLS), and the
+Beijing-Arizona Sky Survey (BASS) -grizfor DE-
+CaLS, andgrzfor BASS (∼20000 deg 2) forgrz
+and∼18000 deg 2 fori)
+3. the PanSTARRSgrizbands (E. A. Magnier et al.
+2020) (∼30000 deg 2 at Dec>−30 ◦)
+4. the SkyMapper Southern Survey (SMSS, C. A.
+Onken et al. 2024)uvgrizbands (∼26000 deg 2
+at Dec<16 ◦) only for the 5H 0 calibrators (2
+unique hosts) outside the footprints of DES-DR2,
+LegacySurvey-DR10, and PanSTARRs,
+with images from survey 2 being used when the host is
+outside the footprint of survey 1 and images from survey
+3 being used when the host is outside of the footprint of
+survey 2.
+Out of the 2844 hosts for which masses were deter-
+mined in this work, optical photometry for 1519 hosts
+was obtained using 5-year median DES coadds (DES-
+SN5YR), 310 using DES-DR2 coadds, 823 using Lega-
+cySurvey images, 187 using PanSTARRS images, and 5
+using SMSS.
+A major improvement from the Pantheon+ data-
+release host-galaxy properties is the use of significantly
+deeper DES and LegacySurvey-DR10 images as opposed
+to PanSTARRS or SDSS images for the majority of the
+Pantheon+ host-galaxies. We only use PanSTARRS im-
+ages when the hosts are not in the DES or LegacySurvey-
+DR10 footprints, or if there are image quality issues with
+LegacySurvey images (e.g., bad pixels). The 5σdepths
+of each set of images are shown in Table 2.
+We additionally considered the risk of SNe Ia light
+biasing host-property estimates. Themediancoadded
+images from DES-SN5YR exclude SNe Ia light by def-
+inition, and optical survey images used for the Pan-
+theon+ sample are also from coadds of at least 4-
+years. For the∼200 host galaxies that are found in
+DES, LegacySurvey-DR10, and PanSTARRS, the opti-
+cal photometry and hence the derived host-galaxy stellar
+masses were found to be consistent. This further sug-
+gests that risk for SNe Ia contamination is minimal, as
+the three surveys were observed during different years.
+We also use theNUVimages from theGalaxy Evolu-
+tion Explorer(GALEX, D. C. Martin et al. 2005) when
+available, which is over 90% of our host-galaxies. While
+JHKsimages from the2 Micron All Sky Survey
+(2MASS, M. F. Skrutskie et al. 2006) are also widely
+used, we find that adding2MASS JHKsphotometry
+degrades the quality of the spectral energy distribution
+(SED) fit described in Section 3.2 for the majority of our
+host-galaxies, likely due to the near-IR image resolution
+being suboptimal for our analysis, with theJHKspho-
+tometry scatter being around 0.8 mag. Nonetheless, we
+include the2MASS JHKsphotometry when considering
+variants of our mass measurements in Sections 4 and 5.
+We find that the addition of the near-UV photometry
+reduces the median host-galaxy stellar mass uncertainty
+by about 10% (from 0.25 dex to 0.23 dex, see left plot
+of Figure 10 in Appendix A), but does not change the
+median host-galaxy log stellar mass measurements, as
+shown in Table 5.
+We note that our wavelength coverage of 180−1000
+nm atz= 0 does not probe the same parts of the
+galaxy spectra at higher redshifts. Atz >0.5, we are
+no longer sensitive to any part of the rest-frame near-
+IR, and atz >1, we are only sensitive to rest-frame UV
+and blue/green optical wavelengths. A. Paulino-Afonso
+et al. (2022) find that inconsistent rest-frame coverage
+in photometry can cause up to a∼0.3 dex underesti-
+mation of host-galaxy stellar masses atz∼1, but shifts
+cosmological constraints by less than 1%. Additionally,
+we find that not including the near-IR (or near-UV) has
+a small impact on our mass measurements (see Table 5
+and Figure 5 for more details), although other host prop-
+erties are more sensitive to the wavelength coverage.
+=== PAGE 7 ===
+7
+Surveyg r i zNotes
+DES-SN5YR median coadds (shallow) 26.3 26.0 25.7 25.5 Computed in this work using 1.95 ′′ apertures
+DES-SN5YR median coadds (deep) 27.2 27.2 26.9 26.7 Computed in this work using 1.95 ′′ apertures
+DES-DR2 25.5 25.2 24.6 23.9 Converted from published 10σ1.95 ′′ aperture depths
+LegacySurvey-DR10 24.7 23.6 — 22.8 Typical 5σpoint-source coadd depths
+PanSTARRS (3π) 23.3 23.2 23.1 22.3 Published mean 5σstacked point-source depths
+T able 2.Typical 5σpoint-source depths (AB magnitudes) for wide-field imaging surveys used in host-galaxy photometry.
+Depths correspond to stacked survey coadds and vary across the footprint. Note that DES-SN5YR median coadds are separated
+into shallow and deep fields, with roughly 70% of host-galaxies in the DES-SN5YR subsample being from the shallow fields,
+and 30% being from the deep fields. Note that the LegacySurvey-DR10 does not reporti-band depths.
+3.METHODOLOGY
+We describe our host-galaxy stellar mass estimation
+pipeline in this section.
+3.1.Photometry
+As mentioned in Section 2.2, we start with photome-
+try of the host-galaxies. We use theHostPhot(v3.1.3) 31
+(T. E. M¨ uller-Bravo & L. Galbany 2022) package to
+perform aperture photometry using host RA and Dec
+coordinates obtained by DES-SN5YR, SNLS, PS1MD,
+SDSS, and Pantheon+, largely based on the directional-
+light-radius (DLR) approach to identify host-galaxies
+(M. Sullivan et al. 2006; R. R. Gupta et al. 2016). While
+model-fitting (e.g., fitting a Sersic profile) as in H. Qu
+et al. (2024) is also possible, we perform aperture pho-
+tometry as done in Pantheon+ and DES (P. Wiseman
+et al. 2020) in order to keep the photometry pipeline
+consistent throughout all redshifts.
+Host-galaxy photometry withHostPhotbegins with
+downloading image cutouts; we use 3 ′ by 3′ cutouts for
+zhelio <0.03 hosts (larger for the nearest galaxies), 1.5 ′
+by 1.5 ′ cutouts for 0.03≤z helio <0.10 hosts, and 0.5 ′
+by 0.5 ′ cutouts forz helio ≥0.10 hosts wherez helio de-
+notes the heliocentric redshift. For the DES 5-year me-
+dian coadds, we use a custom code to obtain 100 pixel by
+100 pixel (roughly 0.45′ by 0.45′) cutouts. For reference,
+3′ corresponds to roughly 108 kpc atz= 0.03, while
+1.5′ corresponds to roughly 166 kpc atz= 0.1, and
+0.5′ corresponds to roughly 55 kpc atz= 0.1 assum-
+ing a FlatΛCDM cosmology withH 0 = 70km/s/Mpc
+and Ω m = 0.3. We useriz(grzwheniis not avail-
+able) coadded images to determine the aperture used for
+photometry in all bands. We setoptimize_kronradto
+Trueand set the defaultepsto 0.001, which means that
+the Kron radius is increased until the change in flux is
+less than 0.1%. We also use the masking functionality to
+mask contaminants. We keep the aperture and masking
+settings the same for optical, near-UV, and near-IR.
+31 https://github.com/temuller/hostphot
+Success Scores Meaning
+1.0 Successful
+0.7 Minor contamination
+0.5 Some issues but not enough to change
+mass step bin
+0.3 Major issues (rerun)
+0 Incorrect host (rerun)
+T able 3.Success scores assigned to coadded images for aper-
+ture determination. When the success score is 0.3 or 0, we
+tweak HostPhot with different choices (e.g., smaller, larger
+aperture, or no masking) then rerun. We only use host-galaxy
+mass measurements with a success score of 0.5 or higher.
+One major difference from previous analyses is that we
+visually inspecteach coadded image for all∼5000 (pre-
+selection cuts) host-galaxies to ensure that the aperture
+has been appropriately selected. Based on the inspec-
+tion, we assign ‘success scores’ on the selected aperture
+as denoted in Table 3. An ideally selected aperture (suc-
+cess score: 1) would (i) have little or no contamination
+remaining after masking within theHostPhot-computed
+aperture and (ii) not be a catastrophic failure where in-
+correct masking of host components or image quality
+preventsHostPhotfrom selecting an appropriate aper-
+ture. We only retain measurements when the success
+score is at least 0.5, determined after rerunning with dif-
+ferent variations ofHostPhotparameters - default, small
+aperture (eps= 0.003), large aperture (eps= 0.0005),
+no masking, and no masking tiny aperture (eps= 0.01),
+then selecting the most appropriate option. For all mea-
+surements where the success score is less than 1, we com-
+pute the photometry of the variations and the impact on
+the host-galaxy mass measurements, and hence cosmol-
+ogy in Sections 4 and 5. Examples of galaxies with their
+assigned success scores are shown in Figure 2. Figure 3
+further illustrates that the contaminants and masking
+issues within the selected apertures for success scores
+0.7 and 0.5 do not result in a change in mass-step bins,
+where the mass-step location is assumed to be 10 10M⊙.
+=== PAGE 8 ===
+8
+Figure 2.Examples of success scores given to HostPhot apertures for three very low-z(z <0.03) SN Ia host-galax-
+ies: (Left) 1.0, or successful (Middle) 0.7, with minor contamination (Right) 0.5, with considerable contamination, but
+not enough to change mass step bins. From left to right,z HD = 0.0227, log 10 (Mstellar/M⊙) = 10.79 +0.15
+−0.15;z HD = 0.0220,
+log10 (Mstellar/M⊙) = 10.67+0.15
+−0.15;z HD = 0.0129, log10 (Mstellar/M⊙) = 10.65+0.14
+−0.14. The default aperture was used for SN ‘2002ef’
+and SN ‘1999dg,’ while the ‘small aperture’ was used for SN ‘2001fh.’z HD denotes the peculiar-velocity corrected Hubble Dia-
+gram redshift, although the heliocentric redshiftz helio is used to visualize the aperture (the difference betweenz HD andz helio
+is negligible except at the lowest redshifts). SN ‘2002ef’ and SN ‘1999dg’ are found to be in high-mass galaxies in this analysis
+while Pantheon+ assigned them to the low-mass bin.
+Figure 3.‘Small aperture’ and ‘no masking tiny aperture’ for SN ‘1999dg’ (Left) and SN ‘2001fh’ (Right). For both host-galaxies,
+the selected aperture is now too small to include the outskirts of the galaxies. The masses using these smaller apertures
+are: log 10 (Mstellar/M⊙) = 10.63 +0.12
+−0.12 and log 10 (Mstellar/M⊙) = 10.55 +0.13
+−0.13 respectively. This demonstrates that although the
+aperture selections for the two host-galaxies are not optimal in Figure 2, the contamination or issues in masking are not enough
+for the host-galaxies to switch mass-step bins.
+We find that the visual inspection is quite helpful
+for the low-z,z helio ≤0.10 host-galaxies, as there can
+be significant contamination from foreground stars and
+sources. Forz helio >0.10 host-galaxies, we do not find
+visual inspection crucial, with less than 2% of hosts be-
+ing assigned a success score less than 0.5 in the initial
+run for the DES coadds, although there are some cases
+where inspection is beneficial, such as when a galaxy
+previously assumed to be one is a blend of two or more
+galaxies.
+Once the aperture is determined,HostPhotmeasures
+the host-galaxy photometry in AB magnitudes for the
+optical and near-UV, and in Vega magnitudes for near-
+IR, as is the standard.
+=== PAGE 9 ===
+9
+Variant Explanation
+small aperture (success<1)eps= 0.003
+large aperture (success<1)eps= 0.0005
+no masking (success<1) Contaminants not masked
+no masking tiny aperture
+(success<1) No masking,eps= 0.01
+optical only Optical photometry only
+with NIR with2MASSphotometry
+m2005Salpeter IMFm2005SSP, Salpeter IMF
+bc03Chabrier IMFbc03SSP, Chabrier IMF
+bc03Salpeter IMFbc03SSP, Salpeter IMF
+T able 4.List of variants considered in Sections 4 and 5.
+The [bc03] SSP is based on G. Bruzual & S. Charlot (2003).
+3.2.Spectral Energy Distribution (SED) Fitting
+Once we have measured the photometry, we use the
+CIGALE (M. Boquien et al. 2019) package to deter-
+mine host-galaxy properties. As described in H. Qu
+et al. (2024), CIGALE uses the host-galaxy photom-
+etry and redshifts to find the best-fit combination of
+user-input model parameters. We use thesfhdelayed,
+m2005, and thedustatt_modified_starburstmod-
+ules. Insfhdelayed, the delayed star formation history
+(SFH) is modeled as:
+SFR(t)∝ t
+τ 2 ×exp−t/τ ,0≤t≤t 0,(2)
+wheretdenotes the time elapsed since the onset of
+star formation,t 0 is the age of the main stellar pop-
+ulation at the epoch of observation, andτis the time
+when the star formation rate (SFR) peaks. Dust atten-
+uation industatt_modified_starburstis considered
+based on the starburst attenuation curve of D. Calzetti
+et al. (2000), extended with the C. Leitherer et al. (2002)
+curve.
+While H. Qu et al. (2024) use thebc03library of
+single stellar populations (SSPs) with a Salpeter initial
+mass function (IMF) (E. E. Salpeter 1955), we use the
+m2005(C. Maraston 2005) SSP in order to assume a
+Kroupa IMF (P. Kroupa 2001) for our default masses.
+(CIGALE does not allow the user to assume a Kroupa
+IMF withbc03.) M. Smith et al. (2020a) and P. Wise-
+man et al. (2020) also assume a Kroupa IMF but use
+underlying spectral synthesis templates fromP ´EGASE.2
+(M. Fioc & B. Rocca-Volmerange 1997; D. Le Borgne
+& B. Rocca-Volmerange 2002) when determining the
+DES-SN5YR host-galaxy masses. The main SFH param-
+eter grids span:tau_main= 1 to 8000 Myr,age_main
+= 1000 to 10000 Myr, andf_burst= 0.001 to 0.60,
+with themetallicity= 0.02 andseparation_age=
+10 Myr. The default CIGALE input parameters used
+in this analysis will be included in the SN-Unite data-
+release. With this configuration, one CIGALE run using
+128 cores takes about 2 minutes for 1,000 hosts. While
+it is possible to define a finer grid of parameters, in-
+creasing the total grid size by a factor of 50 leads to
+only a small change in the SED fitting results while in-
+creasing the runtime to∼1 hour. Given our relatively
+restricted wavelength coverage, the photometry limits
+our ability to robustly constrain complex star-formation
+histories. We therefore checked that settingf_burst=
+0 does not affect the host-galaxy stellar mass measure-
+ments significantly enough for cosmological constraints
+to be altered more than for the variants considered in
+Table 4.
+Additionally, we compare each of the multi-band host-
+galaxy fluxes from the CIGALE SED fit with the input
+flux fromHostPhotto identifyindividualbands with
+issues. For<3% of the host-galaxies, the image cutouts
+for one or two specific band(s) have issues such as bad
+pixels, in which case we remove the specific band(s) and
+rerun the SED fitting.
+3.2.1.Host-Galaxy Redshifts
+CIGALE requires either a redshift or an explicit
+distance to set the luminosity distance, which deter-
+mines the conversion between intrinsic model luminosi-
+ties and the observed fluxes used in the SED fit. For the
+CIGALE redshift (or distance) inputs, we mostly use
+host-galaxy redshifts from the DES-SN5YR and Pan-
+theon+ data-release, which are all spectroscopic red-
+shifts. Forz HD ≥0.01 hosts, we use the Hubble Dia-
+gram redshift, which includes peculiar-velocity correc-
+tions. For hosts atz HD <0.01, we instead use the
+CMB frame redshift as peculiar-velocity corrections be-
+come increasingly uncertain at very low redshifts. At
+zCMB <0.003, peculiar velocities become comparable
+to the Hubble expansion velocity, meaning that redshift-
+based distances are no longer reliable. Therefore, for the
+6 unique hosts wherez CMB <0.003 (NGC 4424, M101,
+M82, NGC 5253, NGC 4526, and NGC 2841), we use
+direct distance measurements in Mpc from S. Sakai &
+B. F. Madore (1999); L. M. Macri et al. (2001); D. Hatt
+et al. (2018); E. Sabbi et al. (2018); R. L. Beaton et al.
+(2019).
+3.3.Host-Galaxy Stellar Mass Uncertainties
+We use thebayes.stellar.m_star_totaland
+bayes.stellar.m_star_total_errto compute our log
+stellar mass and log stellar mass error estimates. We set
+additionalerror, which is the relative error added in
+quadrature for fluxes and the extensive properties, to the
+=== PAGE 10 ===
+10
+CIGALE default value of 0.1. While this choice is con-
+servative in the sense that the reducedχ 2 of the SED
+fits are driven to well below unity, we note that this ac-
+counts for various systematic uncertainties arising from
+modeling choices (e.g., using photometry from multiple
+different surveys, choosing a particular IMF or a particu-
+lar SSP library as detailed in Section 3.4). The resulting
+median log host-galaxy stellar mass uncertainty for the
+SN-Unite analysis is 0.23 dex. For more details on the
+host-galaxy stellar mass uncertainties, see Appendix A.
+The various host-galaxy log stellar mass uncertainty dis-
+tributions are shown in Figure 10.
+3.4.Analysis Variants
+Although the host-galaxy stellar mass is one of the
+most straightforward host-galaxy properties to measure,
+various analysis choices can lead to different mass mea-
+surements even for the same host. Table 4 lists the dif-
+ferent analysis variants we consider in Sections 4 and 5
+to assess whether our conclusions are sensitive to the
+analysis choices.
+3.5.Unite Sample Variants and Data-Release Masses
+As advertised in Section 1, the newly derived SN-Unite
+host-galaxy stellar mass measurements and the result-
+ing cosmological constraints are compared to the DES-
+SN5YR and Pantheon+ data-release measurements and
+cosmological constraints in Sections 4.2 and 5.2.
+In Section 5.2, we assess the impact on cosmologi-
+cal constraints of replacing the Pantheon+ and DES-
+SN5YR data-release (DR) masses with the newly de-
+rived SN-Unite masses for each of these three sample
+variants:
+1.The Unite sample- for the original data-
+release (DR) masses (as opposed to newly derived
+masses in this work), we use the Pantheon+ DR
+masses for the low-zhosts common to both DES-
+SN5YR and Pantheon+.
+2.The Unite-DES-SN5YR subsample- for
+the data-release (DR) masses, we use the DES-
+SN5YR DR masses throughout all redshifts in-
+cluding for the external low-zdatasets. The Unite-
+DES-SN5YR DR subsample is similar to the DES-
+Dovekie sample, with some exceptions, described
+in R. Camilleri et al. (in prep. 2026). Notably, SN-
+Unite applies aP Ia >0.8 cut, resulting in fewer
+SNe Ia, and low-zSNe Ia with multiple observa-
+tions are treated differently.
+3.The Unite-Pantheon+ subsample- for the
+data-release (DR) masses, we use the Pan-
+theon+ data-release masses throughout all red-
+shifts. Unlike the Unite-DES-SN5YR subsample,
+we include all of the DES-SN3YR sample includ-
+ing those without host spectroscopic redshifts, and
+perform bias corrections using the DES-SN3YR
+methodology. Note that the Unite-Pantheon+ sub-
+sample considered in this work therefore contains
+more SNe Ia than the Pantheon+ SNe Iacommon
+to Unite discussed in Section 9.2.2 of R. Camilleri
+et al. (in prep. 2026). The Unite-Pantheon+ sub-
+sample, however, isnotidentical to the official
+Pantheon+ sample both because of stricter se-
+lection cuts imposed in SN-Unite, and numerous
+updates in the analysis pipeline since the Pan-
+theon+ analysis.
+3.6.Quantifying the Impact on Cosmology
+As presented in R. Camilleri et al. (in prep. 2026),
+we use the BEAMS with Bias Corrections framework
+(BBC, R. Kessler & D. Scolnic 2017) implemented in
+SNANA32 (SuperNova ANAlysis, R. Kessler et al. 2009b)
+integrated withinPIPPIN(S. Hinton & D. Brout 2020)
+to obtain our bias corrected Hubble diagrams. We
+treat each of the variations considered in Table 4 as
+a systematic to assess its impact on cosmology, as de-
+scribed in Sections 4.9 and 6 of R. Camilleri et al. (in
+prep. 2026). This allows us to compute the shift of cos-
+mological parameters due to each systematic from the
+baseline ‘no-systematics’ results, which include statisti-
+cal uncertainties only, in FlatwCDM. For the subsam-
+ple and data-release (DR) masses analyses, we rerun
+PIPPINseparately, including all the nominal system-
+atics as in the main SN-Unite sample presented in R.
+Camilleri et al. (in prep. 2026), with the exception of
+contamination-related systematics for the spectroscopic
+Unite-Pantheon+ subsample.
+To obtain cosmological constraints for the subsample
+and data-release masses comparison, including combina-
+tions with BAO and the CMB, we use the nested sam-
+plerNautilus 33 (J. U. Lange 2023) within theCosmoSIS
+(J. Zuntz et al. 2015) framework, same as the main
+SN-Unite sample, highlighted in Section 7 of R. Camil-
+leri et al. (in prep. 2026). The cosmological constraints
+shown in this work do not contain weak lensing correc-
+tions described in Section 4.7 of R. Camilleri et al. (in
+prep. 2026), in order to compare the subsample results
+to Pantheon+ and DES-SN5YR data-release constraints
+(which did not include weak lensing corrections) as di-
+rectly as possible.
+32 https://github.com/RickKessler/SNANA
+33 https://github.com/johannesulf/nautilus
+=== PAGE 11 ===
+11
+Figure 4.(Top left) SN-Unite default host-galaxy log stellar masses vs. redshift. The mass measurements are split into 10
+equal size bins in redshift, with the median and the 16th and 84th percentiles shown within each bin. (Top right) SN-Unite
+host-galaxy log mass distribution with the mass-step location and the median log mass shown. About 63% of our sample is above
+the mass-step. (Bottom left and right) Same as above but shown for DES-SN5YR and Pantheon+ samples within SN-Unite
+separately. Host mass uncertainties are not shown for clarity.
+All of the analysis pipelines presented in this work in-
+cluding the host-galaxy stellar mass measurements were
+frozen before unblinding SN-Unite (see Section 5.1 of R.
+Camilleri et al. (in prep. 2026)).
+3.6.1.Impact of Host-galaxy mass uncertainties on
+Cosmology
+Unlike in DES-SN5YR and DES-Dovekie (or Pan-
+theon+), we incorporate our host-galaxy log stellar
+mass uncertainties into the systematic error budget. We
+draw 10 realizations of the SN-Unite host-galaxy stel-
+lar masses fromN(log 10 Mstellar,ln(10)
+σMstellar
+Mstellar
+) where
+Mstellar andσ Mstellar arebayes.stellar.m_star_total
+andbayes.stellar.m_star_total_errfrom CIGALE
+respectively. As discussed in Section 4.10 in R. Camilleri
+et al. (in prep. 2026), each of the realizations is treated
+as an analysis variant (with a weight of 1/10 each) in
+SN-Unite, which allows us to estimate the level of con-
+tribution from host-galaxy stellar mass uncertainties to
+the systematic uncertainties in cosmological parameters
+for SN-Unite.
+4.MASS MEASUREMENTS
+In this Section, we present our new mass measure-
+ments for the SN-Unite cosmological analysis, discuss
+their sensitivity to photometry and SED fitting choices
+as well as compare them to previous measurements.
+=== PAGE 12 ===
+12
+Row Variant⟨∆ log 10(Mstellar/M⊙)⟩(rms) High→Low Low→High
+1 Fiducial (SN Unite default) – – –
+2 Small aperture−0.004±0.003 (0.182) 26 (0.9%) 18 (0.6%)
+3 Large aperture 0.027±0.004 (0.198) 1 (0.0%) 24 (0.8%)
+4 No masking 0.053±0.005 (0.257) 0 (0.0%) 53 (1.9%)
+5 No masking tiny aperture−0.019±0.004 (0.204) 51 (1.8%) 21 (0.7%)
+6 Optical only−0.020±0.002 (0.093) 26 (0.9%) 29 (1.0%)
+7 With NIR−0.013±0.002 (0.110) 35 (1.2%) 21 (0.7%)
+8 Salpeter IMF 0.198±0.000 (0.014) 0 (0.0%) 218 (7.7%)
+9 bc03 Chabrier IMF 0.053±0.001 (0.046) 2 (0.1%) 63 (2.2%)
+10 bc03 Salpeter IMF 0.299±0.001 (0.046) 0 (0.0%) 328 (11.5%)
+T able 5.Comparison of host-galaxy stellar masses derived using different assumptions relative to the default SN-Unite
+measurements. ∆ log 10(Mstellar/M⊙) = log 10(M variant
+stellar /M⊙)−log 10(M SN−Unite default
+stellar /M⊙), and we show the mean, error on
+the mean, and the rms of ∆ log 10(Mstellar/M⊙). High→Low indicates hosts with log 10(M SN−Unite default
+stellar /M⊙)>10 and
+log10(M variant
+stellar /M⊙)<10, and vice versa.
+4.1.Nominal Results
+In Figure 4, we present the nominal host-galaxy log
+stellar masses used in the SN-Unite analysis. In the
+left plot, we show the log mass againstz HD, with the
+median, 16th, and 84th percentiles of the 10 equally
+sized bins (in redshift) overplotted. We use the median
+rather than the mean to mitigate the impact of out-
+liers. On the right plot, we show the distribution of
+the host log mass. The median log mass is found to
+be log 10(Mstellar/M⊙) = 10.25, with about 63% of the
+sample being above the mass-step location of 10 10M⊙.
+For reference, in DES-SN5YR, about 68% of the galaxies
+were found to be high-mass (M. Vincenzi et al. 2024),
+while for Pantheon+, about 54% of the host-galaxies
+are above the mass step. This reflects the differences in
+the selection functions between DES-SN5YR and Pan-
+theon+, especially at the higher redshifts, as shown in
+the bottom left of Figure 4.
+Figure 5 shows the difference ∆ log 10(Mstellar/M⊙) =
+log10(M variant
+stellar /M⊙)−log 10(M SN−Unite default
+stellar /M⊙) be-
+tween the variants introduced in Section 3.4 and the
+default SN-Unite mass measurements against redshift.
+We see a negligible trend with redshift except when we
+limit the photometry to optical only, or include the NIR
+along with the default optical and NUV. We find in Sec-
+tion 5.1 that the slight redshift-dependent trend that
+varies depending on the wavelength coverage has a neg-
+ligible impact on cosmological constraints.
+Table 5 shows the mean, error on the mean, and the
+rms of the difference ∆ log 10(Mstellar/M⊙) between the
+variants introduced in Section 3.4 and the default SN-
+Unite mass measurements. Assuming a Salpeter IMF
+gives 0.2 to 0.3 dex higher log mass measurements (see
+the Salpeter IMF panels of Figure 5), which is expected
+as the Salpeter IMF predicts a much higher fraction of
+low-mass stars than more recently devised IMFs. Other
+variants are consistent with the default measurements,
+both in terms of the difference as well as the number
+of hosts that move across the mass-step. The latter can
+be particularly important given that the mass-step is
+modeled as a step function at 10 10M⊙, meaning that if
+we use thebc03Salpeter IMF, more than 10% of the
+SNe Ia will have distance moduli more than 0.05 mag
+brighter than the default case. In Section 5, we assess
+the offset in cosmological parameters when we use the
+variants instead of the default mass measurements.
+4.2.Comparison with previous measurements
+Given that the differences between the overlap-
+ping low-zmass-measurements in DES-SN5YR and
+Pantheon+ impact cosmological constraints on time-
+evolving dark energy (M. Vincenzi et al. 2025), it is
+important to compare our new measurements with host-
+galaxy stellar mass measurements from both the DES-
+SN5YR and Pantheon+ data-release (DR).
+Figure 6 shows the difference between the DES-
+SN5YR and SN-Unite host-galaxy log stellar masses
+(left) and SN-Unite and Pantheon+ host-galaxy log
+stellar masses (right). We find that the newly de-
+rived SN-Unite masses are largely consistent with the
+DES-SN5YR measurements throughout all redshifts,
+with the median SN-Unite log mass being slightly
+lower than the median DES-SN5YR log mass by about
+0.16 dex atz HD <0.10 and comparable to DES-
+SN5YR atz HD ≥0.10. Assuming anadditionalerror
+= 0.0 instead of 0.1 and therefore removing system-
+atic uncertainties (analogous to DES-SN5YR, which
+only includes statistical uncertainties in host stel-
+lar mass estimates) in SN-Unite masses reduces the
+scatter in ∆ log 10(Mstellar/M⊙) atz HD ≥0.10 and
+∆ log10(Mstellar/M⊙)≈0.1 dex throughout all red-
+shifts. This remaining slight offset likely arises from
+=== PAGE 13 ===
+13
+Figure 5.∆ log 10(Mstellar/M⊙) = log10(M variant
+stellar /M⊙)−log 10(M SN−Unite default
+stellar /M⊙) vs.z HD between the variants introduced
+in Section 3.4 and the default SN-Unite mass measurements. For the Salpeter IMF variants, we also show the mean of
+∆ log10(Mstellar/M⊙) for reference.
+=== PAGE 14 ===
+14
+Figure 6.Difference between SN-Unite and DES-SN5YR host-galaxy log stellar masses (left) and SN-Unite and Pan-
+theon+ (right), used for the SN-Unite cosmological analysis. While DES-SN5YR measurements are largely consistent with
+the new SN-Unite measurements, Pantheon+ masses are noticeably discrepant in a redshift dependent way. Atz HD <0.15,
+Pantheon+ masses tend to be lower than SN-Unite, while atz HD ≥0.15, Pantheon+ masses tend to be higher. This is in
+part because Pantheon+ assumed the Chabrier IMF when re-deriving thez HD <0.15 SN Ia host-galaxy masses from historical
+samples, resulting in a discrepancy with the historical host masses they adopted forz HD >0.15. Uncertainties are not shown
+for clarity, but of order 0.2 dex.
+Samplezbin⟨∆ log 10(Mstellar/M⊙)⟩(rms)N used/Ntot High→Low Low→High
+DES-SN5YR Low-z(z HD <0.10) 0.160±0.009 (0.114) 171/184 1 (0.6%) 11 (6.4%)
+DES-SN5YR High-z(z HD ≥0.10) 0.017±0.004 (0.162) 1357/1373 17 (1.3%) 33 (2.4%)
+Pantheon+ Low-z(z HD <0.15)−0.028±0.019 (0.471) 643/721 100 (15.6%) 39 (6.1%)
+Pantheon+ High-z(z HD ≥0.15) 0.283±0.015 (0.385) 636/666 20 (3.1%) 75 (11.8%)
+T able 6.Comparison of host-galaxy stellar masses between external samples and SN-Unite. Differences are defined as
+∆ log10(Mstellar/M⊙) = log10(M Previous
+stellar /M⊙)−log 10(M SN−Unite
+stellar /M⊙), and we show the mean, error on the mean, and the rms
+of ∆ log10(Mstellar/M⊙). Due to non-negligible catastrophic outliers especially for Pantheon+, we quote⟨∆ log 10(Mstellar/M⊙)⟩
+(rms) values computed after imposing a 5σclip based on the median absolute deviation of ∆ log 10(Mstellar/M⊙). High→
+Low indicates hosts with log 10(M SN−Unite
+stellar /M⊙)>10 and log 10(M Previous
+stellar /M⊙)<10, and vice versa; this includes all hosts
+in the Pantheon+ data-release Hubble diagram. Low-zand high-zselections follow the definitions adopted for DES (split at
+zHD = 0.10) and Pantheon+ (z HD = 0.15) respectively.
+=== PAGE 15 ===
+15
+different analysis choices in the SED fitting. In DES-
+SN5YR, the SED fitting was done using the underlying
+libraries from theP ´EGASE.2spectral synthesis templates
+(M. Fioc & B. Rocca-Volmerange 1997; D. Le Borgne
+& B. Rocca-Volmerange 2002). M. Smith et al. (2020a)
+found that using the C. Maraston (2005) template re-
+sults in a systematic offset of 0.11±0.01 dex for the
+DES-SN3YR survey, with theP ´EGASE.2masses being
+more massive, which is consistent with our finding. We
+note that the SN-Unitegrizhost-galaxy photometry for
+the DES-SN5YR sample is quite consistent with those of
+DES-SN5YR (P. Wiseman et al. 2020; B. S´ anchez et al.
+2024) as reported in Table 1, with the median values
+agreeing to better than 0.015 mag, suggesting that the
+contribution from photometry differences is minor.
+In contrast, we see considerable discrepancy between
+the SN-Unite and Pantheon+ masses, with SN-Unite
+masses being generally higher than Pantheon+ atzHD <
+0.15 and Pantheon+ masses being considerably higher
+atz HD >0.15. This redshift-dependent discrepancy in
+the Pantheon+ host-galaxy masses is also seen in T. J.
+Hoyt et al. (2026). Part of this discrepancy can be at-
+tributed to the Pantheon+ team re-deriving host-galaxy
+stellar masses from historical samples, but only for
+zHD <0.15 using a Chabrier IMF (G. Chabrier 2003a),
+while the historical mass measurements atz HD >0.15
+are typically more consistent with SED fitting assum-
+ing a Salpeter IMF (M. Sullivan et al. 2010; M. Be-
+toule et al. 2014; M. Sako et al. 2018). In Table 6, we
+show the mean offset, the error on the mean, as well
+as the rms between the SN-Unite default measurements
+and DES-SN5YR / Pantheon+ split into high-z/ low-
+z. We find that the mean mass offset between assuming
+a Salpeter IMF and a Chabrier IMF is around 0.25 dex
+in Table 5, and up to 60% of the discrepancy between
+zHD >0.15 andz HD <0.15 host-galaxy log masses in
+Pantheon+ can be explained by their choice of IMF at
+zHD <0.15. Additionally, Pantheon+ assigned hosts
+where they could not obtain host masses to the low-
+mass bin, or log 10(Mstellar/M⊙) = 7 after confirming
+that the hosts are faint and have not been mis-identified
+(D. Scolnic et al. 2022). In SN-Unite, we are able to de-
+termine host-galaxy stellar masses for 80 hosts across all
+redshifts in the SN-Unite sample where Pantheon+ was
+not able to determine the mass, likely due to the deeper
+images used for this analysis. We also find that for 43
+of these hosts, log 10(Mstellar/M⊙)≥10. This is similar
+to the findings of T. J. Hoyt et al. (2026).
+4.2.1.Which Initial Mass Function?
+Given that host-galaxy mass measurements are most
+sensitive to the choice of IMF, one may question, ‘Which
+Figure 7.The Kroupa, Chabrier and Salpeter initial mass
+functions for individual stars. The high-mass tail is essen-
+tially the same for the three while the Kroupa and Chabrier
+IMFs predict fewer low-mass stars. The curves have been
+normalized to the same value atM= 1M ⊙.
+IMF should we then choose for SN Ia host-galaxy mass
+measurements?’ We briefly highlight the difference in
+the three IMFs.
+The initial mass function (IMF) is defined as the num-
+ber of starsNin volumeVobserved at a timetper log
+mass intervaldlogm(E. E. Salpeter 1955; G. Chabrier
+2003b):
+ξ(log10 M) = d(N/V)
+dlog 10 M = dn
+dlog 10 M (3)
+withn=N/Vbeing the stellar number density. In Fig-
+ure 7, we show the Kroupa, Chabrier and Salpeter IMFs.
+The Salpeter IMF is described as a power-law, while the
+Kroupa IMF is a broken power-law, and the Chabrier
+IMF is a log-normal atM <1M ⊙. For explicit expres-
+sions for the IMFs, see Appendix B. While general con-
+sensus for the past few decades has been that the high-
+mass tail is well-described by the power-law given by
+E. E. Salpeter (1955), more recent observations found a
+discrepancy in the low-mass end, hence resulting in the
+Kroupa and Chabrier IMFs. There is not a clear prefer-
+ence between the Chabrier IMF and the Kroupa IMF,
+meaning they are both widely used currently; we note
+that the difference between the Kroupa and Chabrier
+IMFs at the low-mass end is quite small.
+As such, we find that the choice of the IMF itself is not
+very important in determining SN Ia host-galaxy mass
+measurements for cosmological analysis. Our mass mea-
+surements, as well as our cosmological constraints, are
+quite consistent whether we use the Kroupa or Chabrier
+IMF (with thebc03template). While using the Salpeter
+IMF systematically increases the mass measurements by
+=== PAGE 16 ===
+16
+T able 7.Impact of analysis choices on the SALT3 light-curve parameters as well as cosmology. The variations are treated
+as systematics and are compared to the baseline with statistical uncertainties only. ∆Q H (∆w) represents the shift inQ H (w)
+relative to the ‘no systematics’ baseline while ∆χ 2 shows the change in fit quality relative to baseline. Errors onα,β, andγare
+shown in parentheses.
+Systematic SALT3 Parameters Fit Quality Cosmology
+α β γ σint RMS ∆χ2 ∆w σ w ∆QH σQH
+baseline (no systematics) 0.159(3) 3.08(3) 0.040(6) 0.037 0.177 0.0 +0.000 0.096 +0.000 0.015
+mass step loc. 10.2 0.160(3) 3.08(3) 0.043(6) 0.036 0.177 -8.3 +0.009 0.095 -0.004 0.015
+optical only 0.160(3) 3.09(3) 0.042(6) 0.037 0.177 3.9 +0.002 0.096 -0.000 0.015
+with near-IR 0.159(3) 3.08(3) 0.038(6) 0.038 0.177 13.6 +0.001 0.095 -0.000 0.015
+Salpeter 0.158(3) 3.11(3) 0.040(6) 0.044 0.177 6.1 -0.003 0.096 +0.003 0.015
+bc03 Chabrier 0.159(3) 3.09(3) 0.038(6) 0.039 0.177 6.2 -0.002 0.096 +0.000 0.015
+bc03 Salpeter (mass-step loc. 10.5) 0.160(3) 3.11(3) 0.050(6) 0.043 0.177 -18.1 +0.002 0.095 -0.003 0.015
+bc03 Salpeter 0.157(3) 3.13(3) 0.039(7) 0.048 0.178 17.2 -0.005 0.096 +0.003 0.015
+small aperture 0.158(3) 3.08(3) 0.036(6) 0.038 0.177 11.7 +0.000 0.096 -0.000 0.015
+large aperture 0.159(3) 3.09(3) 0.040(6) 0.038 0.177 0.6 -0.000 0.096 -0.000 0.015
+no masking 0.159(3) 3.08(3) 0.042(6) 0.038 0.177 -3.2 +0.004 0.096 +0.001 0.015
+no masking tiny aperture 0.159(3) 3.07(3) 0.039(6) 0.036 0.177 -2.7 -0.003 0.096 -0.001 0.015
+host mass uncertainties 0.159(1) 3.08(1) 0.037(2) 0.038 0.178 21.2 -0.009 0.096 -0.004 0.015
+0.2 dex, we find in Section 5.1 that the impact on cos-
+mology is small.
+In the next section, we assess the impact of using vari-
+ous host-galaxy mass measurements on cosmological pa-
+rameters.
+5.IMPACT ON COSMOLOGY
+We assess the impact of host-galaxy stellar mass mea-
+surements on cosmology in two cases: (i) replacing the
+default SN-Unite masses with variants including those
+presented in Section 4.1 and Table 5 and (ii) updat-
+ing the DES-SN5YR and Pantheon+ data release (DR)
+mass measurements to the new SN-Unite masses de-
+termined in this work for SN-Unite. For case (ii), we
+examine the Unite-DES-SN5YR subsample, the Unite-
+Pantheon+ subsample, and the full SN-Unite sample in-
+dividually. Case (ii) is done for SN Ia only datasets in
+FlatwCDM, as well as Flatw 0waCDM when combined
+with the BAO and CMB.
+As in the main SN-Unite analysis (R. Camilleri
+et al. in prep. 2026), in order to present a single non-
+degenerate parameter constraint in the Ω m-wplane, we
+use the parameterQ H (z= 0.2) (fixingz= 0.2 subse-
+quently) defined in Section 3 of R. Camilleri et al. (2024)
+as:
+QH (z) = 1
+2 [Ωma−3 + Ωde(1 + 3w)a−3(1+w)],(4)
+Note thatQ H ≡ −¨a/(aH2
+0 )≡q(H/H 0)2 anda=
+(1 +z) −1.Q H plays a similar role for SN Ia analyses
+asS 8 does in weak lensing analyses, breaking the de-
+generacy with Ωm in order to isolate the combination of
+parameters that optimizes the constraining power of the
+SN Ia data. Shifts along the degeneracy direction in the
+Ωm-wplane have little impact on the cosmological ex-
+pansion inferred from SNe Ia, although they can affect
+the resulting constraints when SNe Ia are combined with
+other probes that have different degeneracy directions.
+Shifts inQ H , perpendicular to the degeneracy direction,
+are more indicative of changes in the expansion history
+inferred from SNe Ia. We additionally provide shifts in
+the equation of state ∆wfor reference.
+5.1.Sensitivity to Analysis Choices
+In Table 7, we show the shifts inQ H ,w, andχ 2 with
+respect to the baseline (no systematics) case for SN-
+Unite, as well as the SALT3 light-curve parameters and
+their uncertainties for the mass measurement variations
+(4 photometry and 6 SED fitting choices). In addition,
+‘mass step loc. 10.2’ is when the mass step location is set
+to 10 10.2M⊙ instead of 10 10M⊙ and ‘host mass uncer-
+tainties’ shows the shift in cosmological parameters due
+to incorporating the SN-Unite host-galaxy stellar mass
+uncertainties into the cosmological parameters system-
+atic error budget.
+We first see that for all cases, the significance of
+the mass-step (γ) is over 6σ, with the baseline being
+=== PAGE 17 ===
+17
+γ= 0.040±0.006, slightly higher than the significance
+reported in DES-SN5YR (5σ) and DES-Dovekie (4σ).
+∆QH,syst is less than 0.3σ(less than 0.1σforw) for
+all mass measurement variations, showing that our cos-
+mological results are robust even with some changes
+in our mass measurement pipeline. We note that ∆χ 2
+is -8.3 when we shift the mass-step location to 10.2,
+and−18.1 when the mass-step location is taken to
+be 10.5 for thebc03Salpeter IMF variant (median
+log10(Mstellar/M⊙) = 10.55). This suggests that the true
+mass-step location is slightly higher, around the median
+host-galaxy stellar mass of the sample. Ideally, the mass-
+step location should be fit for each SN Ia sample, but the
+currentSNANApipeline does not provide a robust fitting
+of the mass step location. When we fit for a mass-step
+using our analysis pipelines on simulated data, we see
+a bias in recovered cosmological parameters, at least in
+part due to the built-in assumption that the dust prop-
+erties of galaxies change at 10 10M⊙ in the dust model
+for SN-Unite (B. Popovic et al. 2023). We similarly do
+not consider alternative forms of the mass-step, such
+as fitting a line as a function of the host-galaxy stellar
+mass, or not assuming a mass-step at all, and leave such
+investigations to future work.
+5.2.Updating Data Release Masses to SN-Unite
+Masses
+In this section, we show the impact of changing our
+host-galaxy stellar mass measurements from the DES-
+SN5YR and Pantheon+ data-release (DR) versions,
+to the newly derived SN-Unite masses in this work,
+for (i) the full SN-Unite sample, (ii) the Unite-DES-
+SN5YR subsample, and (iii) the Unite-Pantheon+ sub-
+sample.
+5.2.1.FlatwCDM SN Ia Only
+In Table 8 and Figure 8, we show the shifts in cosmo-
+logical parameters for FlatwCDM when we update DR
+masses to the SN-Unite masses presented in this work
+for the 3 samples, SN-Unite, Unite-DES-SN5YR sub-
+sample and the Unite-Pantheon+ subsample as well as
+for the 3 most widely used external SN Ia samples: DES-
+Dovekie (B. Popovic et al. 2025), Union3.1 (D. Rubin
+et al. 2026), and Pantheon+ (D. Brout et al. 2022). The
+shifts ∆Ω m, ∆w, and ∆Q H are computed with respect
+to the SN-Unite Nominal masses constraints.
+We first see that the Unite-DES-SN5YR sub-
+sample constraints change minimally when we up-
+date the DR masses to the SN-Unite masses,
+which we expect given the consistency of the DES-
+SN5YR mass measurements with SN-Unite in Fig-
+ure 6. In contrast, the Unite-Pantheon+ subsample con-
+straints shift considerably in the Ω m-wspace, from
+(Ωm, w) = (0.349 +0.064
+−0.084,−0.999 +0.179
+−0.195) to (Ω m, w) =
+(0.243+0.083
+−0.084,−0.778 +0.113
+−0.154), when we update the DR
+masses to the SN-Unite masses. This shift is away
+from a cosmological constant, withQ H shifting by
+about 0.3σdue to updating the masses. Updating the
+Unite-Pantheon+ subsample masses results in an im-
+proved consistency with the SN-Unite and Unite-DES-
+SN5YR subsample constraints, not only in terms of Ω m
+andw, but also inQ H . Updating the DR masses to the
+new SN-Unite masses changesQ H for the full SN-Unite
+sample by about 0.5σandwshifts away from a cosmo-
+logical constant, as with the Pantheon+ subsample.
+We comment on the consistency between SN-Unite,
+the Unite-DES-SN5YR subsample and the Unite-
+Pantheon+ subsample, as well as compared to the
+external datasets shown in Table 8. First, the SN-
+Unite, Unite-DES-SN5YR subsample and the Unite-
+Pantheon+ subsample using nominal masses are all con-
+sistent to within 1σin terms of Ω m andw. The Unite-
+Pantheon+ subsample is the least consistent with the
+SN-Unite constraints (for Ω m and henceQ H ), which is
+expected given that the Unite-Pantheon+ subsample in
+this work is slightly different from the Pantheon+ SNe
+Ia included in SN-Unite as outlined in Section 3.5.
+Comparing the Unite-DES-SN5YR subsample to the
+external DES-Dovekie results, we find good agree-
+ment in terms ofQ H (−0.403+0.031
+−0.029 for the Unite-
+DES-SN5YR subsample and−0.378 +0.028
+−0.029 for DES-
+Dovekie), although there are some shifts along the
+degeneracy direction for Ω m andw. When we com-
+pare the Unite-Pantheon+ subsample (Nominal masses)
+to Union3.1 and Pantheon+, we also find reason-
+able agreement in terms ofQ H (−0.356+0.035
+−0.035 for the
+Unite-Pantheon+ subsample,−0.363 for Union3.1, and
+−0.380+0.034
+−0.033 for Pantheon+), while Pantheon+ shows
+shifts along the degeneracy direction for Ω m andw
+compared to the Unite-Pantheon+ subsample. The
+comparison of theQ H values (atz= 0.2 as men-
+tioned in Section 5) suggests that all of the datasets,
+SN-Unite, Unite-DES-SN5YR, Unite-Pantheon+, and
+the external datasets are broadly consistent with each
+other. Nevertheless, using consistent host-galaxy stel-
+lar mass measurements throughout all redshifts for
+the official Pantheon+ constraints likely results in a
+shift mostly along the degeneracy directionawayfrom
+FlatΛCDM. One additional interesting feature we note
+is the highly consistent FlatwCDM constraints for Ω m,
+w, andQ H between the Unite-Pantheon+ subsample
+and the Union3.1 constraints; the Unite-Pantheon+ sub-
+sample and Union3.1 sample share a similar dataset
+(with Union3.1 having approximately 40% more SNe Ia)
+but use different analysis pipelines.
+=== PAGE 18 ===
+18
+T able 8.Flat-wCDM constraints for SN-Unite, Unite-DES-SN5YR, and Unite-Pantheon+ subsamples with data-release and
+nominal masses, without weak lensing corrections. Reported values correspond to the medians of the marginalized posterior
+distributions, with 68.27% credible intervals. For each fit we report theχ 2 at the maximum likelihood,χ 2
+ML and the number of
+degrees of freedom. ∆Ω m, ∆w, and ∆Q H are computed with respect to theSN-Unite Nominal massesconstraints. We also
+show constraints from 3 of the currently most widely used SN Ia samples: DES-Dovekie, Union3.1 and Pantheon+. a Note that
+apart from DES-Dovekie, which essentially shares the same dataset and methodology as the Unite-DES-SN5YR subsample in
+this work, the external datasets differ in both the methodology and sample compared to the Unite-Pantheon+ subsample.
+Sample (no lensing corrections)Ω m ∆Ωm w∆w Q H ∆QH χ2
+ML/Ndof
+SN-Unite
+DR masses 0.259 +0.050
+−0.060 +0.053−0.888 +0.112
+−0.119 -0.110−0.429 +0.022
+−0.022 -0.011 2711 / 2851
+Nominal masses0.206 +0.056
+−0.058 —−0.778 +0.084
+−0.103 —−0.419 +0.021
+−0.021 — 2747 / 2881
+DES-SN5YR subsample
+DR masses 0.223 +0.070
+−0.071 +0.017−0.796 +0.110
+−0.142 -0.018−0.406 +0.031
+−0.030 +0.013 1698 / 1752
+Nominal masses 0.228 +0.069
+−0.073 +0.022−0.799 +0.112
+−0.146 -0.021−0.403 +0.031
+−0.029 +0.016 1698 / 1756
+Pantheon+ subsample
+DR masses 0.349 +0.064
+−0.084 +0.143−0.999 +0.179
+−0.195 -0.221−0.345 +0.039
+−0.037 +0.074 1380 / 1483
+Nominal masses 0.243 +0.083
+−0.084 +0.037−0.778 +0.113
+−0.154 -0.000−0.356 +0.035
+−0.035 +0.063 1378 / 1505
+External datasets
+DES-Dovekie 0.263 +0.064
+−0.079 +0.057−0.838 +0.130
+−0.142 -0.060−0.378 +0.028
+−0.029 +0.041 1639 / 1817
+Union3.1 0.240 +0.082
+−0.109 +0.034−0.776 +0.158
+−0.177 +0.002−0.363 +0.056 – / –
+Pantheon+ 0.294 +0.061
+−0.074 +0.088−0.906 +0.140
+−0.155 -0.129−0.380 +0.034
+−0.033 +0.038 – / –
+aFor DES-Dovekie and Pantheon+, we compute the medians of the marginalized posterior distributions using their data-release chains.
+Pantheon+ constraints shown here are therefore slightly different from Table 3 of D. Brout et al. (2022), which uses themeansof the
+marginalized posterior distributions. Since Union3.1 cosmology chains are not yet public, we use values from Table 3 of D. Rubin et al.
+(2026) without uncertainties forQ H .
+Figure 8.1σand 2σΩ m -wcontours in FlatwCDM for DR masses updated to SN-Unite masses for the 3 samples: SN-Unite,
+Unite-DES-SN5YR subsample and the Unite-Pantheon+ subsample. The◦and□symbols denote the medians of the marginal-
+ized posterior distributions. As shown in Table 8, updating the DR masses to the newly derived SN-Unite masses does not have
+an impact on the Unite-DES-SN5YR subsample, but shifts the Unite-Pantheon+ subsample and SN-Unite sample away from
+FlatΛCDM, mostly along the degeneracy direction.
+=== PAGE 19 ===
+19
+5.2.2.Flatw 0waCDM SN Ia + CMB + BAO
+In Table 9 and Figure 9, we show the shifts in cos-
+mological constraints in Flatw 0waCDM combined with
+BAO and CMB when we update data-release masses
+to the SN-Unite masses presented in this work for the
+3 samples as well as for the 3 external datasets as in
+Section 5.2.1. BAO and CMB datasets are the same as
+in R. Camilleri et al. (in prep. 2026) and the prefer-
+ence for Flatw0waCDM over FlatΛCDM is computed in
+the same way as in R. Camilleri et al. (in prep. 2026)
+using the ∆χ 2 at the maximum likelihood (ML), the
+maximum a posteriori(MAP), and ∆ logZ. For the
+external datasets Union3.1 and Pantheon+, we use
+Flatw0waCDM constraints given in T. J. Hoyt et al.
+(2026) (Table 4, UNITY1.8) and M. Abdul Karim et al.
+(2025). The BAO and CMB datasets combined in SN-
+Unite are slightly different from those in DESI DR2; see
+Section 2.4 of R. Camilleri et al. (in prep. 2026) for de-
+tails.
+As with FlatwCDM constraints presented in Sec-
+tion 5.2.1, updating the DR masses to SN-Unite masses
+has virtually no impact on the Unite-DES-SN5YR sub-
+sample + BAO + CMB, as expected given the con-
+sistency between the DES-SN5YR and SN-Unite mass
+measurements. Updating the Unite-Pantheon+ subsam-
+ple + BAO + CMB with SN-Unite masses, however, re-
+sults in a shiftawayfrom FlatΛCDM, from 3.4σ(3.2
+σ) to 4.0σ(3.9σ) using ∆χ 2
+MAP (∆χ2
+ML). Consequently,
+updating the Unite + BAO + CMB sample with SN-
+Unite masses results in a shiftawayfrom FlatΛCDM,
+from 2.5σ(2.2σ) to 3.2σ(3.0σ) using ∆χ 2
+MAP (∆χ2
+ML).
+Similar to Section 5.2.1 for FlatwCDM, we comment
+on the consistency between the Unite and Unite sub-
+samples + BAO + CMB, and with external datasets +
+BAO + CMB. Interestingly, we see slight shiftstowards
+FlatΛCDM in the degeneracy direction as we go from
+Unite-Pantheon+ subsample + BAO + CMB→Unite-
+DES-SN5YR subsample + BAO + CMB→SN-Unite
++ BAO + CMB (Nominal masses) in Figure 9.
+In terms of preference for Flatw 0waCDM over
+FlatΛCDM however, we see a similar significance for
+Unite-DES-SN5YR subsample + BAO + CMB and
+Unite + BAO + CMB, at 3.1σand 3.2σusing ∆χ 2
+MAP
+(2.9σand 3.0σusing ∆χ 2
+ML, respectively) and similar
+(weakly preferred) ∆ logZ.
+The Unite-Pantheon+ subsample + BAO + CMB
+constraints (Nominal masses) are slightly different from
+the nominal Unite + BAO + CMB constraints in terms
+of Ω m,w 0, andw a, and display the highest deviation
+from FlatΛCDM, at 4.0σ(3.9σ) using ∆χ 2
+MAP (∆χ2
+ML)
+and ∆ logZ=−3.62. While this may be surprising,
+we note that the Unite-Pantheon+ subsample is slightly
+different from the SNe Ia directly overlapping with SN-
+Unite due to the treatment of the spectroscopic DES-
+SN3YR sample.
+Comparing the Unite-DES-SN5YR subsample + BAO
++ CMB constraints with the DES-Dovekie + BAO +
+CMB constraints, we see good agreement across all cos-
+mological parameters and preference for Flatw 0waCDM
+over FlatΛCDM.
+The Unite-Pantheon+ subsample + BAO + CMB
+constraints are consistent with Union3.1 + BAO +
+CMB as well, which is encouraging given that almost
+all SNe Ia in the Unite-Pantheon+ subsample are in-
+cluded in Union3.1, although the uncertainties are larger
+for Union3.1 + BAO + CMB, likely due to the differ-
+ent analysis framework. The Unite-Pantheon+ subsam-
+ple (DR masses) + BAO + CMB constraints are also
+consistent with the Pantheon+ + BAO + CMB con-
+straints. The slight differences likely arise from analysis
+updates made when incorporating the Pantheon+ sam-
+ple into SN-Unite.
+This suggests that updating the Pantheon+ DR
+masses to SN-Unite masses results in an∼0.6σin-
+crease of preference for Flatw 0waCDM over FlatΛCDM
+for Pantheon+ +BAO+CMB, consistent with the find-
+ings of T. J. Hoyt et al. (2026).
+5.3.Importance of Consistent Host-Galaxy Stellar
+Mass Measurements
+The analysis in Sections 5.1 and 5.2 can be sum-
+marized as follows. While the specific host-galaxy stel-
+lar mass measurement choices have minimal impact on
+the SN-Unite cosmological constraints, it is crucial to
+maintain a consistent measurement pipeline across all
+of the SN Ia sample considered for cosmology. This was
+true for the DES-SN5YR/DES-Dovekie and Union3.1
+samples, while combining various different host-galaxy
+mass measurements with different underlying assump-
+tions has introduced systematic offsets in both the of-
+ficial Pantheon+ mass measurements and their cosmo-
+logical constraints.
+6.DISCUSSION AND CONCLUSION
+In this work, we remeasure over 98% of the host-
+galaxy stellar masses in the SN-Unite Hubble Diagram
+using consistent photometry and SED fitting techniques.
+We assess the impact of photometry and SED fitting
+analysis variants on the mass measurements as well as
+cosmological constraints. We find that our mass mea-
+surements and cosmological constraints are robust to
+slight changes in the mass measurement methodology,
+with shifts in FlatwCDM being at most 0.1σin terms
+ofwand 0.3σin terms ofQ H , a parameter designed to
+=== PAGE 20 ===
+20
+T able 9.Flat-w0waCDM constraints and preference relative to Flat-ΛCDM for SN-Unite, the Unite-DES-SN5YR, and Unite–
+Pantheon+ subsamples combined with BAO and CMB with data-release (DR) and nominal masses, without weak lensing
+corrections. Reported values correspond to the medians of the marginalized posterior distributions, with 68.27% credible inter-
+vals. For each fit we report theχ 2 at the maximum likelihood,χ 2
+ML, ∆χ 2
+ML, ∆χ 2
+MAP from MAP log-likelihood values, and the
+number of SNe Ia. Both significances are computed using the Wilks-theorem conversion with two degrees of freedom. We also
+show external constraints from 3 of the currently most widely used SN Ia samples: DES-Dovekie, Union3.1 and Pantheon+, as
+in Table 8.
+DatasetN SN Ωm w0 wa χ2
+ML ∆χ2
+ML nσML ∆χ2
+MAP nσMAP ∆logZ
+Unite (no lensing correction) + BAO + CMB
+DR masses 2854 0.3032 +0.0044
+−0.0043 −0.902+0.044
+−0.043 −0.46+0.17
+−0.17 3384 -7.1 2.2 -8.7 2.5 2.01
+Nominal masses 2884 0.3051 +0.0044
+−0.0041 −0.864+0.043
+−0.043 −0.60+0.17
+−0.18 3420 -11.9 3.0 -13.0 3.2 -0.15
+DES-SN5YR subsample + BAO + CMB
+DR masses 1755 0.3091 +0.0057
+−0.0057 −0.831+0.059
+−0.059 −0.66+0.20
+−0.22 2369 -10.8 2.8 -11.9 3.0 0.02
+Nominal masses 1759 0.3092 +0.0056
+−0.0055 −0.829+0.058
+−0.058 −0.67+0.21
+−0.21 2368 -11.2 2.9 -12.3 3.1 -0.19
+Pantheon+ subsample + BAO + CMB
+DR masses 1486 0.3130 +0.0056
+−0.0055 −0.819+0.053
+−0.051 −0.63+0.18
+−0.19 2052 -13.1 3.2 -14.3 3.4 -1.07
+Nominal masses 1508 0.3146 +0.0055
+−0.0053 −0.788+0.051
+−0.050 −0.74+0.19
+−0.19 2048 -18.2 3.9 -19.3 4.0 -3.62
+External datasets + BAO + CMB
+DES-Dovekie 1820 0.313 +0.005
+−0.005 −0.803+0.054
+−0.054 −0.72+0.21
+−0.21 2231 -13.5 3.2 -14.2 3.3 -1.7
+Union3.1 2085 –−0.735 +0.081
+−0.081 −0.92+0.29
+−0.25 – – – -14.0 3.3 –
+Pantheon+ 1701 0.3114 +0.0057
+−0.0057 −0.838+0.055
+−0.055 −0.62+0.22
+−0.19 – – – -10.7 2.8 –
+Figure 9.1σand 2σ w0 -w a contours in Flatw0waCDM for DR masses updated to SN-Unite masses for the 3 samples combined
+with BAO and CMB. The◦and□symbols denote the medians of the marginalized posterior distributions. As shown in Table 9,
+updating the DR masses to the newly derived SN-Unite masses does not have an impact on the DES-SN5YR subsample, but
+shifts the Pantheon+ subsample and SN-Unite samples away from FlatΛCDM.
+assess the cosmological shift perpendicular to the degen-
+eracy direction in the Ω m-wplane.
+Additionally, we find that our new SN-Unite masses
+are consistent with DES-SN5YR data-release (DR)
+masses, but discrepant from the Pantheon+ DR masses
+with the SN-Unite masses being higher atz HD <0.15
+and lower than Pantheon+ DR masses atz HD ≥0.15
+due to an internal discrepancy in the Pantheon+ mea-
+surements. We computed the shifts in cosmologi-
+cal constraints due to updating the Pantheon+ and
+DES-SN5YR DR masses to the newly derived SN-
+Unite masses in FlatwCDM for SN Ia only, and in
+Flatw0waCDM for SN Ia + BAO + CMB.
+The Unite-DES-SN5YR subsample is not affected by
+the updated masses, while the Unite-Pantheon+ sub-
+sample constraints moveawayfrom FlatΛCDM when
+the new SN-Unite masses are used, confirming the
+findings of M. Vincenzi et al. (2025); T. J. Hoyt
+et al. (2026). The preference for Flatw 0waCDM over
+FlatΛCDM when the Unite-Pantheon+ subsample is
+combined with BAO and the CMB increases from 3.4σ
+to 4.0σusing the ∆χ 2
+MAP (3.2σto 3.9σusing the ∆χ 2
+ML),
+=== PAGE 21 ===
+21
+highlighting the importance of consistent host-galaxy
+stellar mass measurements across the full SN Ia sam-
+ple considered.
+This analysis is not the end of investigations of host-
+galaxy correlations with SN Ia brightnesses post light-
+curve corrections. As briefly outlined in Section 1, future
+work should strive to find a more physically motivated,
+yet reliable method to account for host-galaxy correla-
+tions with SN Ia luminosities, as opposed to using the
+global host-galaxy stellar mass. One promising pathway
+may be the two-stretch population approach shown in
+D. Rubin et al. (2026). In addition, future work should
+fit for the host-galaxy mass-step location, rather than
+fixing it to 10 10M⊙, as done in this work.
+Nonetheless, the analysis provided in R. Camilleri
+et al. (in prep. 2026), as well as this current work, shows
+that the 3 representative SN Ia cosmological constraints
+(Union3.1, DES-Dovekie, and Pantheon+) agree with
+each other, and combining each of them with BAO and
+CMB points to a∼3σpreference of time-evolving dark
+energy over FlatΛCDM under a frequentist interpre-
+tation. By re-measuring the host-galaxy stellar masses
+consistently throughout all of SN-Unite, we mitigate po-
+tential systematic shifts in the cosmological constraints
+associated with heterogeneous host-galaxy stellar mass
+measurements, while providing the tightest cosmological
+constraints to date.
+7.DATA A V AILABILITY
+The SN-Unite host-galaxy stellar mass measurements
+and photometrywillbe publicly available upon accep-
+tance of this manuscript.
+ACKNOWLEDGMENTS
+We thank Miranda Gorsuch, Michael Rosenthal,
+and Christy Tremonti for helpful suggestions. JL and
+KB are supported by the US Department of En-
+ergy grant DE-SC0022950. Ryan C. is grateful for
+the support provided by the Big Questions Insti-
+tute and its commitment to fostering fundamental
+research. Parts of this research were conducted by
+the Australian Research Council Centre of Excel-
+lence for Gravitational Wave Discovery (project num-
+ber CE230100016) funded by the Australian Govern-
+ment. LG acknowledges financial support from CSIC,
+MCIN and AEI 10.13039/501100011033 under projects
+PID2023-151307NB-I00, PIE 20215AT016, CEX2020-
+001058-M, and by the MaX-CSIC Excellence Award
+MaX4-SOMMA-ICE. MS was partially supported by
+DOE grant DE-FOA-0003177. TEMB is funded by Hori-
+zon Europe ERC grant no. 101125877. AM is supported
+by Australian Research Council award (DE230100055).
+We acknowledge the use of OpenAI’sChatGPTand
+Codexfor efficient code implementation and manuscript
+proofreading. We thank Sesh Nadathur for a question
+that prompted us to revisit and clarify our MAP values.
+In the first version submitted to arXiv, we inadvertently
+used the MAP posterior, which includes a contribution
+from the prior volume, rather than the likelihood eval-
+uated at the MAP.
+APPENDIX
+A.DETAILS ON HOST GALAXY STELLAR MASS UNCERTAINTIES
+In Figure 10, we show the distributions of the SN-Unite host-galaxy log stellar mass uncertainties, depending on the
+wavelength coverage (left), and the optical survey used for photometry. While the median uncertainty is 0.25 dex when
+using optical photometry only, this decreases to 0.23 dex and 0.21 dex when the NUV fromGALEXand NIR from
+2MASSare included respectively. As we found that2MASS JHKsphotometry typically degrades the SED fit rather
+than improves the fit due to its large (∼0.8 mag) scatter, we only use the optical andGALEXNUV photometry for
+our default host-galaxy stellar mass measurements. The right panel of Figure 10 shows the host-galaxy stellar mass
+uncertainties decreasing as we go to deeper depth optical surveys, which is due to using the default value of 0.1 for
+theCIGALE additionalerror, or the relative error added in quadrature for fluxes and the extensive properties.
+We note that the default median host-galaxy log stellar mass uncertainties for SN-Unite, at 0.23 dex, is much larger
+than the DES-SN5YR data-release median host-galaxy log stellar mass uncertainties, which is around 0.03 dex. This
+is because DES-SN5YR only included statistical uncertainties arising from the uncertainties on photometry itself,
+while we take a more conservative approach to account for systematic (modeling) uncertainties by setting theCIGALE
+=== PAGE 22 ===
+22
+Figure 10.Histograms of the SN-Unite host-galaxy stellar mass uncertainties: (Left) based on wavelength-coverage and (Right)
+based on the optical survey used for photometry. IncludingGALEXNUV and2MASSNIR photometry decreases the median
+host-galaxy stellar mass uncertainties. However, we do not include2MASSphotometry as it degrades the SED fit, likely due to
+the low resolution of2MASSimages. The right figure shows the host-galaxy stellar mass uncertainties decreasing with deeper
+depth optical surveys; this is due to using the default value of 0.1 for the CIGALE ‘additionalerror,’ which is the relative error
+added in quadrature for fluxes and the extensive properties.
+additionalerrorparameter to 0.1. We acknowledge that this is a simplistic approach, and future work can find
+alternative ways to quantify systematic uncertainties in host-galaxy stellar mass measurements more robustly.
+B.INITIAL MASS FUNCTIONS
+In this section, we provide the equations for the Initial Mass Functions (IMFs) considered in this work. In Equa-
+tion B6,ξ(log 10 M) = ln(10)M ξ(M), and we setξ 0 = 0.0443 to match the Chabrier IMF normalization.
+ξSalpeter(log10 M) = ln(10)ξ 0M −1.35,(B1)
+ξKroupa(log10 M) = ln(10)
+
+
+
+A1M 0.7, M <0.08M ⊙,
+A2M −0.3,0.08M ⊙ ≤M <0.5M ⊙,
+A3M −1.3, M≥0.5M ⊙,
+(B2)
+A3 =ξ 0,(B3)
+A2 =A 3 (0.5)−(2.3−1.3),(B4)
+A1 =A 2 (0.08)−(1.3−0.3),(B5)
+ξChabrier(log10 M) = ln(10)
+
+
+
+0.158 exp
+"
+− (log10 M−log 10 0.079)2
+2(0.69)2
+#
+, M <1M ⊙,
+4.43×10 −2M −1.3, M≥1M ⊙.
+(B6)
+REFERENCES
+Abbott, T., Allam, S., Andersen, P., et al. 2019, The
+Astrophysical Journal Letters, 872, L30
+Abbott, T., Adam´ ow, M., Aguena, M., et al. 2021, The
+Astrophysical Journal Supplement Series, 255, 20
+Abdul Karim, M., Aguilar, J., Ahlen, S., et al. 2025,
+Physical Review D, 112, 083515
+Adame, A., Aguilar, J., Ahlen, S., et al. 2025, Journal of
+Cosmology and Astroparticle Physics, 2025, 021
+=== PAGE 23 ===
+23
+Astier, P., Guy, J., Regnault, N., et al. 2006, Astronomy &
+Astrophysics, 447, 31, doi: 10.1051/0004-6361:20054185
+Beaton, R. L., Seibert, M., Hatt, D., et al. 2019, The
+Astrophysical Journal, 885, 141
+Betoule, M., Kessler, R., Guy, J., et al. 2014, Astronomy &
+Astrophysics, 568, A22,
+doi: 10.1051/0004-6361/201423413
+Boquien, M., Burgarella, D., Roehlly, Y., et al. 2019,
+Astronomy & Astrophysics, 622, A103
+Brout, D., Sako, M., Scolnic, D., et al. 2019, ApJ, 874, 106,
+doi: 10.3847/1538-4357/ab06c1
+Brout, D., Scolnic, D., Popovic, B., et al. 2022, The
+Astrophysical Journal, 938, 110
+Brown, P. J., Breeveld, A. A., Holland, S., Kuin, P., &
+Pritchard, T. 2014, Astrophysics and Space Science, 354,
+89, doi: 10.1007/s10509-014-2059-8
+Bruzual, G., & Charlot, S. 2003, Monthly Notices of the
+Royal Astronomical Society, 344, 1000
+Burns, C. R., Parent, E., Phillips, M. M., et al. 2018, The
+Astrophysical Journal, 869, 56,
+doi: 10.3847/1538-4357/aae51c
+Burns, C. R., Ashall, C., Contreras, C., et al. 2020, The
+Astrophysical Journal, 895, 118,
+doi: 10.3847/1538-4357/ab8e3e
+Calzetti, D., Armus, L., Bohlin, R. C., et al. 2000, The
+Astrophysical Journal, 533, 682
+Camilleri, R., Lee, J., Davis, T., & Rubin, D. in prep. 2026,
+Camilleri, R., Davis, T., Vincenzi, M., et al. 2024, Monthly
+Notices of the Royal Astronomical Society, 533, 2615
+Carlstrom, J., Ade, P. A., Aird, K., et al. 2011, Publications
+of the Astronomical Society of the Pacific, 123, 568
+Chabrier, G. 2003a, The Astrophysical Journal, 586, L133
+Chabrier, G. 2003b, Publications of the Astronomical
+Society of the Pacific, 115, 763
+Chen, P., Dong, S., Kochanek, C. S., et al. 2022, The
+Astrophysical Journal Supplement Series, 259, 53,
+doi: 10.3847/1538-4365/ac50b7
+Chevallier, M., & Polarski, D. 2001, IJMP D, 10, 213,
+doi: 10.1142/S0218271801000822
+Conley, A., Guy, J., Sullivan, M., et al. 2010, The
+Astrophysical Journal Supplement Series, 192, 1
+D’Andrea, C. B., Gupta, R. R., Sako, M., et al. 2011, The
+Astrophysical Journal, 743, 172
+DES Collaboration, Abbott, T. M. C., Acevedo, M., et al.
+2024, ApJL, 973, L14, doi: 10.3847/2041-8213/ad6f9f
+Dey, A., Schlegel, D. J., Lang, D., et al. 2019, The
+Astronomical Journal, 157, 168
+Dixon, M., Mould, J., Lidman, C., et al. 2025, Monthly
+Notices of the Royal Astronomical Society, 538, 782
+Duarte, J., Gonz´ alez-Gait´ an, S., Mour˜ ao, A., et al. 2023,
+Astronomy & Astrophysics, 680, A56
+Efstathiou, G. 2025, Monthly Notices of the Royal
+Astronomical Society, 538, 875
+Fioc, M., & Rocca-Volmerange, B. 1997, A&A, 326, 950,
+doi: 10.48550/arXiv.astro-ph/9707017
+Galbany, L., Smith, M., Puertas, S. D., et al. 2022,
+Astronomy & Astrophysics, 659, A89
+Gall, C., Stritzinger, M., Ashall, C., et al. 2018, Astronomy
+& Astrophysics, 611, A58
+Ganeshalingam, M., Li, W., Filippenko, A. V., et al. 2010,
+The Astrophysical Journal Supplement Series, 190, 418,
+doi: 10.1088/0067-0049/190/2/418
+Gilliland, R. L., Nugent, P. E., & Phillips, M. M. 1999, The
+Astrophysical Journal, 521, 30, doi: 10.1086/307549
+Ginolin, M., Rigault, M., Smith, M., et al. 2025, Astronomy
+& Astrophysics, 695, A140
+Gupta, R. R., D’Andrea, C. B., Sako, M., et al. 2011, The
+Astrophysical Journal, 740, 92
+Gupta, R. R., Kuhlmann, S., Kovacs, E., et al. 2016, The
+Astronomical Journal, 152, 154
+Guy, J., Astier, P., Nobili, S., Regnault, N., & Pain, R.
+2005, Astronomy & Astrophysics, 443, 781
+Guy, J., Astier, P., Baumont, S., et al. 2007, Astronomy &
+Astrophysics, 466, 11
+Hatt, D., Freedman, W. L., Madore, B. F., et al. 2018, The
+Astrophysical Journal, 861, 104
+Hicken, M., Challis, P., Jha, S., et al. 2009, ApJ, 700, 331,
+doi: 10.1088/0004-637x/700/1/331
+Hicken, M., Challis, P., Kirshner, R. P., et al. 2012, ApJS,
+200, 12, doi: 10.1088/0067-0049/200/2/12
+Hinton, S., & Brout, D. 2020, Journal of Open Source
+Software, 5, 2122
+Hoyt, T. J., Rubin, D., Aldering, G., et al. 2026, arXiv
+preprint arXiv:2601.19424
+Jha, S., Kirshner, R. P., Challis, P., et al. 2006, The
+Astronomical Journal, 131, 527, doi: 10.1086/497989
+Kawabata, M., Maeda, K., Yamanaka, M., et al. 2020, The
+Astrophysical Journal, 893, 143,
+doi: 10.3847/1538-4357/ab8236
+Kelly, P. L., Hicken, M., Burke, D. L., Mandel, K. S., &
+Kirshner, R. P. 2010, The Astrophysical Journal, 715, 743
+Kelsey, L., Sullivan, M., Wiseman, P., et al. 2023, Monthly
+Notices of the Royal Astronomical Society, 519, 3046
+Kenworthy, W., Jones, D., Dai, M., et al. 2021, The
+Astrophysical Journal, 923, 265
+Kessler, R., & Scolnic, D. 2017, ApJ, 836, 56,
+doi: 10.3847/1538-4357/836/1/56
+=== PAGE 24 ===
+24
+Kessler, R., Becker, A. C., Cinabro, D., et al. 2009a, The
+Astrophysical Journal Supplement Series, 185, 32,
+doi: 10.1088/0067-0049/185/1/32
+Kessler, R., Bernstein, J. P., Cinabro, D., et al. 2009b,
+Publications of the Astronomical Society of the Pacific,
+121, 1028
+Krisciunas, K., Contreras, C., Burns, C. R., et al. 2017,
+The Astronomical Journal, 154, 211,
+doi: 10.3847/1538-3881/aa8df0
+Kroupa, P. 2001, Monthly Notices of the Royal
+Astronomical Society, 322, 231
+Lampeitl, H., Smith, M., Nichol, R. C., et al. 2010, The
+Astrophysical Journal, 722, 566
+Lange, J. U. 2023, MNRAS, 525, 3181,
+doi: 10.1093/mnras/stad2441
+Le Borgne, D., & Rocca-Volmerange, B. 2002, Astronomy
+& Astrophysics, 386, 446
+Leitherer, C., Li, I.-H., Calzetti, D., & Heckman, T. M.
+2002, The Astrophysical Journal Supplement Series, 140,
+303
+Linder, E. V. 2003, PhRvD, 68,
+doi: 10.1103/physrevd.68.083504
+MacCrann, N., Sherwin, B. D., Qu, F. J., et al. 2024, The
+Astrophysical Journal, 966, 138
+Macri, L. M., Stetson, P., Bothun, G., et al. 2001, The
+Astrophysical Journal, 559, 243
+Madhavacheril, M. S., Qu, F. J., Sherwin, B. D., et al.
+2024, The Astrophysical Journal, 962, 113
+Magnier, E. A., Schlafly, E. F., Finkbeiner, D. P., et al.
+2020, The Astrophysical Journal Supplement Series, 251,
+6
+Maraston, C. 2005, Monthly Notices of the Royal
+Astronomical Society, 362, 799
+Martin, B., Lidman, C., Brout, D., et al. 2024, Monthly
+Notices of the Royal Astronomical Society, 533, 2640
+Martin, D. C., Fanson, J., Schiminovich, D., et al. 2005,
+The Astrophysical Journal, 619, L1
+Meldorf, C., Palmese, A., Brout, D., et al. 2023, Monthly
+Notices of the Royal Astronomical Society, 518, 1985
+Milne, P. A., Brown, P. J., Roming, P. W. A., et al. 2010,
+The Astrophysical Journal, 721, 1627,
+doi: 10.1088/0004-637X/721/2/1627
+M¨ oller, A., & de Boissi` ere, T. 2020, Monthly Notices of the
+Royal Astronomical Society, 491, 4277
+M¨ oller, A., Smith, M., Sako, M., et al. 2022, Monthly
+Notices of the Royal Astronomical Society, 514, 5159
+Moreno-Raya, M., Galbany, L., L´ opez-S´ anchez,´A. R., et al.
+2018, Monthly Notices of the Royal Astronomical
+Society, 476, 307
+M¨ uller-Bravo, T. E., & Galbany, L. 2022, arXiv preprint
+arXiv:2208.08117
+Notari, A., Redi, M., & Tesi, A. 2025, Journal of
+Cosmology and Astroparticle Physics, 2025, 048
+Onken, C. A., Wolf, C., Bessell, M. S., et al. 2024,
+Publications of the Astronomical Society of Australia, 41,
+e061
+Paulino-Afonso, A., Gonz´ alez-Gait´ an, S., Galbany, L., et al.
+2022, Astronomy & Astrophysics, 662, A86
+Perlmutter, S., Aldering, G., Goldhaber, G., et al. 1999,
+The Astrophysical Journal, 517, 565
+Planck Collaboration, Aghanim, N., Akrami, Y., et al.
+2020a, A&A, 641, A1, doi: 10.1051/0004-6361/201833880
+Planck Collaboration, Aghanim, N., Akrami, Y., et al.
+2020b, A&A, 641, A6, doi: 10.1051/0004-6361/201833910
+Popovic, B., Brout, D., Kessler, R., & Scolnic, D. 2023, The
+Astrophysical Journal, 945, 84
+Popovic, B., Shah, P., Kenworthy, W., et al. 2025, arXiv
+preprint arXiv:2511.07517
+Qu, F. J., Sherwin, B. D., Madhavacheril, M. S., et al.
+2024, The Astrophysical Journal, 962, 112
+Qu, H., Sako, M., M¨ oller, A., & Doux, C. 2021, The
+Astronomical Journal, 162, 67
+Qu, H., Sako, M., Vincenzi, M., et al. 2024, The
+Astrophysical Journal, 964, 134
+Riess, A. G., Filippenko, A. V., Challis, P., et al. 1998, The
+Astronomical Journal, 116, 1009
+Riess, A. G., Kirshner, R. P., Schmidt, B. P., et al. 1999,
+The Astronomical Journal, 117, 707, doi: 10.1086/300738
+Riess, A. G., Nugent, P. E., Gilliland, R. L., et al. 2001,
+The Astrophysical Journal, 560, 49, doi: 10.1086/322348
+Riess, A. G., Strolger, L.-G., Tonry, J., et al. 2004, The
+Astrophysical Journal, 607, 665, doi: 10.1086/383612
+Riess, A. G., Strolger, L., Casertano, S., et al. 2007, ApJ,
+659, 98–121, doi: 10.1086/510378
+Riess, A. G., Rodney, S. A., Scolnic, D. M., et al. 2018, The
+Astrophysical Journal, 853, 126,
+doi: 10.3847/1538-4357/aaa5a9
+Rigault, M., Copin, Y., Aldering, G., et al. 2013,
+Astronomy & Astrophysics, 560, A66
+Roman, M., Hardin, D., Betoule, M., et al. 2018,
+Astronomy & Astrophysics, 615, A68
+Rubin, D., Hoyt, T., Aldering, G., & Perlmutter, S. 2026,
+arXiv preprint arXiv:2601.19854
+Rubin, D., Aldering, G., Barbary, K., et al. 2015, The
+Astrophysical Journal, 813, 137
+Rubin, D., Aldering, G., Betoule, M., et al. 2025, The
+Astrophysical Journal, 986, 231
+Sabbi, E., Calzetti, D., Ubeda, L., et al. 2018, The
+Astrophysical Journal Supplement Series, 235, 23
+=== PAGE 25 ===
+25
+Sakai, S., & Madore, B. F. 1999, The Astrophysical
+Journal, 526, 599
+Sako, M., Bassett, B., Becker, A. C., et al. 2018,
+Publications of the Astronomical Society of the Pacific,
+130, 064002
+Salpeter, E. E. 1955, Astrophysical Journal, vol. 121, p.
+161, 121, 161
+S´ anchez, B., Brout, D., Vincenzi, M., et al. 2024, The
+Astrophysical Journal, 975, 5
+Scolnic, D., Brout, D., Carr, A., et al. 2022, The
+Astrophysical Journal, 938, 113
+Scolnic, D. M., Jones, D. O., Rest, A., et al. 2018, The
+Astrophysical Journal, 859, 101,
+doi: 10.3847/1538-4357/aab9bb
+Skrutskie, M. F., Cutri, R., Stiening, R., et al. 2006, The
+Astronomical Journal, 131, 1163
+Smith, M., Sullivan, M., Wiseman, P., et al. 2020a, Monthly
+Notices of the Royal Astronomical Society, 494, 4426
+Smith, M., D’Andrea, C. B., Sullivan, M., et al. 2020b, AJ,
+160, 267, doi: 10.3847/1538-3881/abc01b
+Stahl, B. E., Zheng, W., de Jaeger, T., et al. 2019, Monthly
+Notices of the Royal Astronomical Society, 490, 3882,
+doi: 10.1093/mnras/stz2742
+Stritzinger, M., Burns, C. R., Phillips, M. M., et al. 2010,
+The Astronomical Journal, 140, 2036,
+doi: 10.1088/0004-6256/140/6/2036
+Sullivan, M., Le Borgne, D., Pritchet, C., et al. 2006, The
+Astrophysical Journal, 648, 868
+Sullivan, M., Conley, A., Howell, D., et al. 2010, Monthly
+Notices of the Royal Astronomical Society, 406, 782
+Sullivan, M., Guy, J., Conley, A., et al. 2011, The
+Astrophysical Journal, 737, 102
+Suzuki, N., Rubin, D., Lidman, C., et al. 2012, The
+Astrophysical Journal, 746, 85,
+doi: 10.1088/0004-637X/746/1/85
+Tripp, R. 1998, A&A, 331, 815
+Tsvetkov, D. Y., & Elenin, L. 2010, SN 2008fv: the third
+type Ia supernova in NGC 3147,
+https://arxiv.org/abs/1003.2558
+Vincenzi, M., Sullivan, M., M¨ oller, A., et al. 2023, Monthly
+Notices of the Royal Astronomical Society, 518, 1106
+Vincenzi, M., Brout, D., Armstrong, P., et al. 2024, The
+Astrophysical Journal, 975, 86
+Vincenzi, M., Kessler, R., Shah, P., et al. 2025, MNRAS,
+541, 2585, doi: 10.1093/mnras/staf943
+Wiseman, P., Sullivan, M., Smith, M., & Popovic, B. 2023,
+Monthly Notices of the Royal Astronomical Society, 520,
+6214
+Wiseman, P., Smith, M., Childress, M., et al. 2020, Monthly
+Notices of the Royal Astronomical Society, 495, 4040
+Wood-Vasey, W. M., Miknaitis, G., Stubbs, C. W., et al.
+2007a, The Astrophysical Journal, 666, 694,
+doi: 10.1086/510378
+Zhang, T., Wang, X., Li, W., et al. 2009, Publications of
+the Astronomical Society of the Pacific, 122, 1,
+doi: 10.1086/649851
+Zuntz, J., Paterno, M., Jennings, E., et al. 2015, Astronomy
+and Computing, 12, 45,
+doi: https://doi.org/10.1016/j.ascom.2015.05.005

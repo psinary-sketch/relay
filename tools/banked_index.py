@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-falsifier-read': ['the falsifier read', 'desi w = -1 test', 'evolving dark energy against the lane', 'the cosmology lane falsification condition', 'b425 sortie leg 3'],
     'the-witness-arc-at-site-i': ['the witness arc at site i', 'site i witness candidates', 'the class site witness enumeration', 'shared witness at the clause quantifier', 'b424 sortie leg 2'],
     'the-r37-question-read': ['the r37 question read', 'do b407 and b420 move under r37', 'hypothesis 1 under the internal reading', 'sieve ceiling lemma first hypothesis', 'b423 sortie leg 1'],
     'the-kernel-arc-folded': ['the kernel arc folded', 'fold of b413 to b421', 'unique model internally to zfc', 'r37 definition 2.1 ruling', 'the witness enumeration arc', 'what did the kernel arc produce'],
@@ -678,6 +679,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FALSIFIER READ (b425).
+    ('the-falsifier-read', 'b425 (sortie leg 3: the falsifier read)',
+     "b425 READ THE COSMOLOGY LANE'S CONDITION -- w = −1 FOR THE DARK-ENERGY MODE; 'EVOLVING DARK ENERGY REFUTES THE DECOMPOSITION' (FORMATION_DISTANCE.md 160) -- AGAINST THREE arXiv SOURCES CHOSEN BY A LOCKED RULE: 2609.10567 UNDECIDED; 2609.10133 FIRED; 2609.05321 UNDECIDED. **FIRED BY THE RULE AT 2609.10133; REGISTRY p2-d6 AND FORMATION_DISTANCE.md 160 ARE THE AUTHOR`S TO MOVE.** No lane verdict changed by the seat; the rule's limits ROUTED.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b425_the_falsifier_read.txt; data/b425_the_read.txt; data/b425_locate.txt; data/b425_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 274'),
     # ### THE WITNESS ARC AT SITE (i) (b424).
     ('the-witness-arc-at-site-i', 'b424 (sortie leg 2: the witness arc at site (i))',
      "b424 RAN THE WITNESS ARC AT SITE (i) OF ROW U1, THE CLAUSE'S QUANTIFIER OVER THE CLASS: **16 CANDIDATES -- b422'S FOUR AND TWELVE THE SEARCH SUPPLIED -- EACH FAILED AT A QUOTED STEP; NONE HELD.** First failing steps: CLASS BOUNDARY 13; IMPORT UNDER THE BAR 2; REFUTED 1. The site's own cell stands (WITNESS: UNSTATED, a universal with no existential inside). The exhausted list is a FACES_LEDGER block through the writer; row U1's line untouched; checkpoint after the site; no act re-verdicted.",

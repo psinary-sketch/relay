@@ -1,0 +1,3209 @@
+=== PAGE 1 ===
+Prepared for submission to JCAP
+Safe Phantom Divide Crossing from
+Unscreened Non-Minimal Coupling to
+Gravity
+Joel Argudo-Panes, Alex Gonz´ alez-Fuentes and Adri` a
+G´ omez-Valent
+Departament de F ´ ısica Qu` antica i Astrof ´ ısica (FQA) and Institut de Ci` encies del Cos-
+mos (ICCUB), Universitat de Barcelona (UB), c. Mart ´ ı i Franqu´ es 1, 08028 Barcelona,
+Catalonia, Spain
+E-mail: jargudpa7@alumnes.ub.edu, agonzalezfuentes@icc.ub.edu,
+agomezvalent@icc.ub.edu
+Abstract.Recent hints of dynamical dark energy, including a possible crossing of the phan-
+tom divide inferred from the latest cosmological data, have motivated the search for viable
+theoretical explanations. Scalar fields non-minimally coupled to gravity with a coupling of
+the formF(φ) = 1+αφ 2 are physically motivated and have emerged as promising candidates,
+providing a significantly improved fit to the data compared to ΛCDM and even outperform-
+ing thew 0waCDM parametrization. However, in the absence of a screening mechanism, the
+regions of parameter space examined exhaustively so far in the literature (withα <0) vio-
+late stringent local constraints on the strength and time variation of gravity and enhance the
+matter growth rate at low redshifts, in tension with galaxy clustering observations, thereby
+compromising the actual viability of these solutions. In this work, we investigate a largely
+unexplored region of parameter space (withα >0) that realizes a crossing of the phantom
+divide while remaining consistent with Cassini–Huygens bounds and the most recent (and
+tightest) Lunar Laser Ranging measurements, without introducing higher-derivative terms
+in the action. This setup, which admittedly is subject to some degree of fine-tuning, fully
+respects the BBN constraints and leads only to mild deviations of the effective gravitational
+coupling in the past, reaching an extremum in the late universe that differs from Newton’s
+constant by no more than approximately 0.3%. We review the background and linear pertur-
+bation dynamics of the model, deriving illustrative analytical results that provide physical
+insight into its behavior, and update the constraints on the model using the latest cosmo-
+logical data, including the DES-Dovekie supernova sample. We perform for the first time
+a full-fledged Monte Carlo analysis withα >0, studying also the impact of the variation
+ofGon the supernovae absolute luminosity, and compare the results with those obtained
+forα <0, considering in both cases a linear potential. In the context of the model with
+non-minimal coupling andα <0, the standard model is excluded at the 2.50σCL, whereas
+forα >0, the exclusion significance decreases to∼2σCL, indicating a moderate preference
+for these models over ΛCDM.
+Keywords:dark energy experiments, dark energy theory, modified gravity
+arXiv:2609.10133v1  [astro-ph.CO]  9 Sep 2026
+=== PAGE 2 ===
+Contents
+1 Introduction 1
+2 The model 4
+2.1 Field equations 4
+2.2 Effective gravitational coupling and local constraints 5
+2.3 Background dynamics in the expanding Universe 8
+2.4 Linear perturbations and effective gravitational strength at cosmological scales 18
+3 Methodology and data 24
+4 Results and discussion 28
+5 Conclusions 34
+A Geometrical quantities to first order in perturbations 36
+B Approximate solutions for the scalar field during radiation and matter
+domination 36
+1 Introduction
+Current cosmological data from the cosmic microwave background (CMB), baryon acoustic
+oscillations (BAO), and Type Ia supernovae (SNIa) favor the presence of an evolving effective
+dark energy (DE) component in the Universe, exhibiting a crossing of the phantom divide
+atz∼0.5 and with the DE density growing with the expansion prior to that redshift [1].
+These hints have been corroborated in both model-dependent analyses [2–56] and in more
+model-agnostic studies, where the background expansion history and the DE properties are
+directly reconstructed from the data [57–66]. The ΛCDM model is excluded at∼3σCL, and
+the probability of phantom-divide crossing is about 96.7%–98.5% [63]. See also Ref. [67].
+From a theoretical perspective, such a crossing might require the existence of interac-
+tions in the dark sector or may even be a smoking gun of modified gravity. In this work,
+we concentrate on the second possibility, focusing on a subclass of Horndeski scalar-tensor
+theories [68] containing a non-minimal coupling to gravityF(φ) and a potentialV(φ) for
+the dark energy scalar fieldφthat drives the late-time cosmic acceleration. We consider the
+action1
+S=
+Z
+d4x√−g
+ F(φ)
+2κ2 R− 1
+2 ∂µφ ∂µφ−V(φ) +L M
+
+,(1.1)
+withL M the Lagrangian density for the matter sector, which includes the contribution of
+the standard model of particle physics and the required extensions to account for massive
+neutrinos and cold dark matter (CDM).
+1In this paper, we work in natural units by settingc= 1 andG N = 1/m2
+Pl, wherem Pl = 1.22×10 19 GeV
+denotes the Planck mass. Throughout, we use the metric signature (−,+,+,+). We define the curvature
+tensors according toR λ
+µνσ =∂ ν Γλ
+µσ + Γρ
+µσΓλ
+ρν −(ν↔σ) andR µν =R λ
+µλν , and the Ricci scalarR=g µν Rµν .
+These definitions coincide with the (+,+,+) convention in the sign-classification scheme of [69].
+– 1 –
+=== PAGE 3 ===
+Although the late-time forms ofF(φ) andV(φ) can, in principle, be reconstructed from
+constraints on specific DE parametrizations [70, 71] (see also the more recent works [16, 42],
+and [72] for a reconstruction of non-minimally coupled gravity within the effective field theory
+of DE), in this work we consider the simple ansatz
+F(φ) = 1 +αφ 2 andV(φ) =V 0 +βφ ,(1.2)
+assuming that Taylor expansions are valid due to the small field excursion throughout cosmic
+history, i.e., we neglect higher-order terms inφ, which could, in general, be present in the
+effective field theory. We do not include a linear term inF(φ), since it can always be removed
+by a trivial constant shift inφ, and we setκ= (8πG N )1/2, whereG N is Newton’s constant2.
+Forα= 0 (or, equivalently,F= 1) one retrieves the minimally coupled scenario.
+A non-minimal coupling to gravity of the form adopted in Eq. (1.2) is required for a
+consistent renormalization of a scalar field theory in curved spacetime [73], so it is natural
+to analyze its cosmological implications in the context of DE. The action in Eq. (1.1), with
+this particular choice ofF(φ), has been extensively studied since the discovery of cosmic
+acceleration (see, e.g., [74–77]), and it has regained interest in light of the latest observations.
+In [6, 8], it was shown that this model can produce a crossing of the phantom divide such as
+the one preferred by the data when considering negative values of the non-minimal coupling
+(i.e.,α <0) not only in the metric formalism, but also in the Palatini one [78]. For sufficiently
+large absolute values ofα, reasonable initial conditions for the scalar field and regardless of the
+sign of the slope of the potential, this configuration gives rise to the so-called thawing gravity
+behavior, in which gravity remains close to standard during a significant fraction of cosmic
+history, until the moment when the potential starts to compete with non-relativistic matter
+at low redshifts. This enables a transition from an effective phantom phase to quintessence,
+in very good agreement with CMB+BAO+SNIa data.
+However, as pointed out in [18], thawing gravity inevitably enhances the growth of
+large-scale structure belowz∼1.5 for parameter values that produce the required crossing,
+leading to an effective gravitational coupling at cosmological scales that is∼40–100% larger
+than in General Relativity (GR) at present, in tension with low-redshift data from redshift-
+space distortions; see, e.g., [54, 79]. Moreover, in the absence of a screening mechanism –
+which is not present in the action (1.1) – the region of parameter space withα <0 that
+produces the crossing completely spoils the agreement with local gravity constraints. Similar
+problems are also encountered in scalar-tensor theories with a minimal coupling to gravity,
+a non-canonical kinetic term including higher-derivative contributions, and a broken shift
+symmetry through a field-dependent potential, despite their ability to produce the crossing
+[37, 38] (see also [80]) 3. This raises concerns about the viability of these theories or, at the
+very least, points to the need to include additional terms in the action to keep these effects
+under control.
+In this paper, we demonstrate that the action (1.1), with the coupling and potential
+given in Eq. (1.2), can not only give rise to a crossing of the phantom divide but also
+fully satisfy stringent local constraints in the region of parameter space withα >0. This
+possibility, which requires some degree of fine-tuning, was already pointed out in [84] and was
+2The parameterκcould equally well be treated as a free parameter of the theory and included in the
+Monte Carlo analysis. For simplicity, however, we fix it to the value mentioned in the main text.
+3If, instead, the shift symmetry is broken by means of field-dependent terms in the kinetic sector [81, 82] or
+if a pure momentum transfer interaction between the scalar and CDM is also included [83], structure growth
+at linear scales remains close to that predicted in the standard model.
+– 2 –
+=== PAGE 4 ===
+recently further discussed in [85]4. However, those authors neither performed a comprehensive
+Monte Carlo exploration of this region of parameter space, nor considered the effect of the
+variation ofGon SNIa intrinsic luminosities [42, 86–89], and they based their analysis on
+significantly weaker local constraints than those adopted here. Furthermore, [84] argued
+that the potential in Eq. (1.2) should be modified to ensure that DE remains subdominant
+at early times to not spoil the correct description of key processes such as recombination or
+phenomena occurring at even higher redshifts. As we show here, however, this modification
+is not needed as long as the decaying mode forφin the radiation-dominated era is already
+negligible, which might be a natural assumption. Meanwhile, in [85], the authors modified the
+non-minimal couplingF(φ) to freeze the scalar field at the minimum of the effective potential
+during matter domination, thereby preventing the development of background instabilities.
+By contrast, we show that these instabilities are harmless provided the scalar field remains
+sufficiently close to the origin after matter–radiation equality, a scenario that may arise in
+the context of Higgs-type symmetry-breaking mechanisms.
+In addition to analyzing the positive-αscenario, we update previous constraints on the
+model in theα <0 region using the re-calibrated SNIa sample from the Dark Energy Survey
+(DES), known as the DES-Dovekie sample [90]. This updated sample addresses important
+issues affecting the previous DES-Y5 sample [91, 92], which was used in earlier analyses
+[18, 78]. We compare the model dynamics in both regions of parameter space and assess
+their respective fitting performance using the most recent cosmological data. Specifically, we
+combine the DES-Dovekie SNIa sample with CMB data from Planck PR4 [93–95] and BAO
+measurements from the second data release of the Dark Energy Spectroscopic Instrument
+(DESI) [1].
+Before closing the Introduction, we note that the authors of [96] recently presented an
+exhaustive study comparing the non-minimal coupling in theα <0 scenario with other single
+scalar field models of DE (namely, standard quintessence and massive Galileon). Although
+their work updated the constraints using DES-Dovekie, as we do here, we note that their
+setup is slightly different from ours. On the one hand, they include a mass term to the scalar
+field potential, which we discard as the main desired features of this model are induced by
+the linear term in the potential,β. In fact, their contours show thatm 2 = 0 at 1−2σCL
+(cf. Fig. 19 of [96]). Moreover, our CMB likelihood choice is slightly different, since they
+useplikPlanckPR3 CMB power spectra andPlanck+ACTCMB lensing as their baseline.
+Nevertheless, apart from the aforementioned changes to the data set, we focus on theα >0
+case and compare it with theα <0 case for completeness.
+This paper is organized as follows. In Sec. 2, we first present the field equations of
+the model (1.1) and discuss the existing local constraints, together with the theoretical ex-
+pressions required to apply them. We then examine the cosmological background evolution
+and derive approximate analytical solutions for positive and negative values ofα. These
+solutions help justify our choice of initial conditions and clarify the conditions under which
+phantom crossing can occur. We consider that some of these aspects have not been explained
+in sufficient detail in previous works. We also present the basic equations governing the evo-
+lution of matter perturbations. In Sec. 3, we describe the methodology used to solve the
+Einstein–Boltzmann system of equations and the strategy adopted to scan and constrain the
+parameter space of the theory. We also summarize the data sets employed in the analysis.
+Sec. 4 is devoted to the discussion of the results, while Sec. 5 presents our conclusions. Two
+4This work was posted on arXiv during the last stages of the preparation of our manuscript.
+– 3 –
+=== PAGE 5 ===
+appendices complement the information contained in the main text.
+2 The model
+2.1 Field equations
+The modified Einstein equations are obtained from the variation of the action (1.1) with
+respect to the metric tensor. They read:
+F(φ)G µν − ∇ν∇µF(φ) +g µν□F(φ) =κ 2(T (M)
+µν +T (ϕ)
+µν ),(2.1)
+withG µν =R µν −g µνR/2 the Einstein tensor,T (M)
+µν the energy-momentum tensor of matter
+and
+T (ϕ)
+µν =∂ µφ∂νφ−g µν
+ 1
+2 ∂θφ∂θφ+V(φ)
+
+(2.2)
+the energy-momentum tensor of the scalar field, which we deliberately write in the same
+form as in uncoupled scalar field models in order to leave the new terms arising from the
+non-minimal coupling on the left-hand side of Eq. (2.1), treating them as being of pure
+gravitational nature.
+If we vary, instead, the action (1.1) with respect to the scalar field, we are led to the
+modified Klein-Gordon (KG) equation:
+□φ−V ′(φ) + F ′(φ)
+2κ2 R= 0,(2.3)
+with the prime denoting a derivative with respect toφ. The dynamics of the scalar field
+is controlled not only by its potential but also by the curvature of spacetime through the
+non-minimal coupling. It is therefore convenient to define the effective potential 5
+Veff (φ, R)≡V(φ)− (F(φ)−1)
+2κ2 R ,(2.4)
+such that Eq. (2.3) can be written in a form closer to the KG equation found in uncoupled
+scenarios:
+□φ−V ′
+eff (φ, R) = 0.(2.5)
+The non-minimal coupling can modify the geometry of spacetime relative to GR both by
+affecting the dynamics of the scalar field and by shifting the value ofF(φ) away from unity.
+As we will see below, such shifts may exist even in regimes where the scalar-field dynamics is
+strongly suppressed. In these cases, the gravitational coupling entering the modified Einstein
+equations is simply shifted fromκ 2/(8π) toκ 2/(8πF). When curvature induces dynamics to
+φ, additional changes appear due to the non-trivial scalar-field kinetic structure of Eq. (2.1).
+Finally, before closing this section, we briefly discuss the connection between the model (1.1)
+and the original Brans–Dicke (BD) theory [97–99],
+SBD =
+Z
+d4x√−g
+ 1
+16π
+
+Rψ− ωBD
+ψ ∂µψ∂µψ
+
++L m
+
+,(2.6)
+5We emphasize that this effective potential is introduced only at the level of the KG equation. Field-
+independent shifts in the numerator of the second term leave the scalar-field dynamics unchanged. We choose
+a shift such thatF(φ)R/(2κ 2)−V(φ) =R/(2κ 2)−V eff (φ, R) in the action (1.1).
+– 4 –
+=== PAGE 6 ===
+which features a non-canonical kinetic term. The Brans–Dicke fieldψhas dimensions of mass
+squared in natural units andω BD is the (dimensionless) Brans–Dicke parameter. The BD
+action can be rewritten in terms of a canonical kinetic term – as in Eq. (1.1) – by means of
+the field redefinition
+ψ= 2π
+ωBD
+φ2 .(2.7)
+The non-minimal coupling in the transformed Brans–Dicke action then takes the form˜F(φ) =
+κ2φ2/(4ωBD). Therefore, the model (1.1) is equivalent to Brans–Dicke theory only in the limit
+|α|φ2 ≫1, withα/κ 2 = 1/(4ωBD). An analogous result is obtained by instead performing a
+field transformation such that the non-minimal coupling in Eq. (1.2) takes the Brans–Dicke
+form. This transformation is
+ψ= 8π
+κ2
+ 
+1 +αφ 2
+,(2.8)
+which leads to the following Brans–Dicke function in the transformed action (1.1):
+ωBD(ψ) = κ4ψ
+4α(κ2ψ−8π) .(2.9)
+Again, the two models become equivalent in the limit|α|φ 2 ≫1, withα/κ 2 = 1/(4ω BD).
+However, this limit is incompatible with current observational constraints, implying that the
+two theories coincide only in a phenomenologically excluded region of parameter space. In the
+region where the model (1.1) provides a viable description of the data, it is not equivalent
+to the original Brans–Dicke theory and therefore warrants an independent study, even in
+the absence of a scalar potential. For recent in-depth cosmological analyses of Brans–Dicke
+theory with a cosmological constant, we refer the reader to Refs. [100–103]. See also [104]
+for forecasts based on Euclid data.
+2.2 Effective gravitational coupling and local constraints
+The model (1.1) does not include higher-order derivative terms to screen the modified gravity
+effects at local scales as is done in Vainshtein [105] or K-mouflage mechanisms [106] through
+the introduction of□φ∂ µφ∂µφor (∂ µφ∂µφ)2 terms in the action, respectively. Therefore,
+the dynamics of the scalar field affect physics on both cosmological and local scales. The
+field evolves throughout cosmic history, modifying the gravitational strength that governs
+the background expansion (see Sec. 2.3 for details), while also inducing a distinction be-
+tween the latter and the coupling experienced by two test masses,G eff . It is therefore of
+utmost importance to have a theoretical control ofG eff , since it is subject to very tight local
+constraints, which translate into very strong bounds on the model parameters.
+In this section, we compute the effective gravitational coupling that is measured locally
+on Earth and in the Solar System. Although this is a very well-known result, we deem it
+useful to provide the details of the calculation here for completeness and also to emphasize
+the presence of terms that have been incorrectly neglected in recent works, as in [84, 85].
+In these environments, the gravitational potential is sufficiently small that deviations
+from the Minkowski metric can be treated as small perturbations, i.e.,
+gµν =η µν +h µν ,|h µν| ≪1.(2.10)
+Our first step is to solve the coupled system of the modified Einstein and KG equations,
+Eqs. (2.1) and (2.3), in vacuum around a spherical, massive, pressureless object, as the Earth
+– 5 –
+=== PAGE 7 ===
+is to first approximation. We do so considering a static source and in the weak-field limit. At
+sufficiently large distances from the source, the scalar field takes its cosmological value,φ c,
+which varies with the cosmic expansion – we compute it in Sec. 2.3. Due to the presence of
+the source, though, the scalar field receives some correction around the massive object,δφ,
+φ=φ c +δφ ,|δφ| ≪ |φ c|,(2.11)
+which is also small due to the weak-field assumption.
+Using the first-order expansions of the geometrical quantities inh µν, given in Ap-
+pendix A, Eqs. (2.1) and (2.3) can be written, respectively, in the perturbed form,
+(1 +αφ 2
+c)Gµν(h) + 2αφc [ηµν∂α∂αδφ−∂ µ∂νδφ] =κ 2T (M)
+µν ,(2.12)
+∂µ∂µδφ+ αφc
+κ2 (∂µ∂νhµν −∂ µ∂µh) = 0.(2.13)
+Note that we have neglected the scalar field potential, which is responsible for cosmic accel-
+eration in the late Universe. At local scales, its effects are negligible, in complete analogy
+with the cosmological constant in GR. We also neglect the cosmic time variation ofφ c, so by
+symmetryh µν andδφcan only depend on the radial coordinate.
+Eqs. (2.12)–(2.13) are coupled in the variablesh µν andδφ. Fortunately, the field redef-
+inition
+hµν =H µν − 2αφc δφ
+1 +αφ 2c
+ηµν (2.14)
+removesδφfrom the Einstein equations, leaving
+Gµν(H) = κ2T (M)
+µν
+1 +αφ 2c
+,(2.15)
+withT (M)
+µν =ρu µuν,u µ = (1,⃗0) the 4-velocity of the (static) source andρits energy density.
+Therefore, we can solve forH µν without knowingδφ. The trace and 00 component of Eq.
+(2.15) read, respectively,
+δij∇2Hij − ∇2H00 −∂ i∂jHij =− κ2ρ
+1 +αφ 2c
+,(2.16)
+∂i∂jHij −δ ij∇2Hij = 2κ2ρ
+1 +αφ 2c
+,(2.17)
+where∇ 2 =δ ij∂i∂j. Summing the two equations yields
+−∇2H00 = κ2ρ
+1 +αφ 2c
+=⇒H 00(r) = κ2
+1 +αφ 2c
+M
+4πr .(2.18)
+On the other hand, the 0iandijcomponents of Eq. (2.15) lead toH 0i = 0 andH ij =H 00δij.
+The resulting metric can be plugged into the scalar field equation (2.13), whose solution reads
+δφ(r) =
+αφc
+κ2 H00(r)
+1 + 6α2φ2c
+κ2
+1
+1+αφ2c
+= αφc
+1 +αφ 2c + 6α2φ2c
+κ2
+M
+4πr .(2.19)
+– 6 –
+=== PAGE 8 ===
+Hence, coming back toh µν we find
+h00(r) = κ2
+1 +αφ 2c
+M
+4πr
+ κ2(1 +αφ 2
+c) + 8α2φ2
+c
+κ2(1 +αφ 2c) + 6α2φ2c
+
+,(2.20)
+hij(r) = κ2
+1 +αφ 2c
+M
+4πr
+ κ2(1 +αφ 2
+c) + 4α2φ2
+c
+κ2(1 +αφ 2c) + 6α2φ2c
+
+δij .(2.21)
+Now, we are ready to compute the effective gravitational coupling,Geff . We study the motion
+of a free-falling particle, which is subject to the geodesic equation. In the non-relativistic
+limit, we find
+d2xi
+dt2 ≈ h00,i
+2 =− M
+8πr2
+κ2
+1 + ¯α¯φ2c
+ κ2(1 +αφ 2
+c) + 8α2φ2
+c
+κ2(1 +αφ 2c) + 6α2φ2c
+
+ˆri ≡ −Geff M
+r2 ˆri .(2.22)
+Hence, in terms of the dimensionless coupling constant and scalar field, defined as
+¯α≡α/κ2 and ¯φ≡κφ ,(2.23)
+we have
+Geff (z) = κ2
+8π
+1
+1 + ¯α¯φ2c
+ 1 + ¯α¯φ2
+c(1 + 8 ¯α)
+1 + ¯α¯φ2c(1 + 6 ¯α)
+
+,(2.24)
+where the redshift dependence is inherited from the cosmic evolution of ¯φ c. Three observa-
+tions are in order. First, Newton’s gravitational constant,G N =κ 2/(8π), is recovered not
+only when the non-minimal coupling vanishes, i.e., in the GR limit, but also when ¯φ c = 0.
+This means that, even in the presence of a non-zero non-minimal coupling and in the absence
+of a screening mechanism, there can be stages in the cosmic evolution at whichG eff (z) =G N .
+Second, for|¯α|¯φ2
+c ≪1, Eq. (2.24) can be approximated by
+Geff (z) = 1 + ¯α¯φ2
+c(2 ¯α−1) +O[( ¯α¯φ2
+c)2].(2.25)
+This expression tells us that for ¯α= 1/2 the effective gravitational coupling only receives
+corrections of higher order and, therefore, deviations fromG N can be kept small for larger
+values of ¯φc than those required if ¯α̸= 1/2. Third,G eff (z) =κ 2/(8πF(φ c)) only if|¯α| ≪1.
+For|¯α|=O(1), as preferred by current cosmological data, it receives corrections that must
+be duly taken into account, even if the product ¯α¯φ2
+c is small in absolute value. According to
+Eq. (2.25), neglecting them would result in an error of 200 ¯α×¯α¯φ2
+c % in the estimation of
+Geff (z), which can be non-negligible.
+Clearly, any modified gravity model must satisfy very stringent local constraints. We
+need to recover the gravitational strength measured on Earth and in the Solar System
+at present, i.e.,G eff (z= 0) =G N , and fulfill the constraints on the parametrized post-
+Newtonian (PPN) parametersγ PPN andβ PPN [107] (also known as Eddington’s parameters
+[108]), which were measured with exquisite precision by the Cassini [109] and MESSENGER
+[110] spacecraft, respectively. These constraints read 6
+6γPN can be trivially obtained from Eq. (2.21) upon imposingG eff (z= 0) =G N and using the definition
+gij =
+
+1 +γ PPNrs/r+O(r 2
+s /r2)
+
+δij withr s = 2GMthe Schwarzschild radius.β PPN can be obtained in an
+analogous way from Eq. (2.20), but now usingg 00 =−1 +r s/r−β PPNr2
+s /(2r2) +O(r 3
+s /r3). However, this
+would require going to second order in perturbations, which we avoid here. For more details, we refer the
+reader to [107, 108]. See also [111].
+– 7 –
+=== PAGE 9 ===
+γPPN −1 =
+−4 ¯α2 ¯φ2
+c,0
+1 + ¯α¯φ2
+c,0 + 8 ¯α2 ¯φ2
+c,0
+= (2.1±2.3)·10 −5 (68% CL),(2.26)
+βPPN −1 = 1
+4
+¯α¯φc,0(1 + ¯α¯φ2
+c,0)
+1 + ¯α¯φ2
+c,0 + 6 ¯α2 ¯φ2
+c,0
+dγPPN
+d¯φc,0
+= (−2.7±3.9)·10 −5 (68% CL),(2.27)
+with ¯φc,0 ≡¯φ(z= 0). Since GR is recovered whenγ PPN =β PPN = 1, departures of these
+parameters from unity signal deviations from GR. Lastly, the relative time variation of the
+gravitational constant, which can be inferred from Eq. (2.24),
+˙Geff
+Geff
+=−2 ¯α¯φc ˙¯φc
+ 1
+1 + ¯α¯φ2c
+− 1 + 8 ¯α
+1 + (1 + 8 ¯α) ¯α¯φ2c
++ 1 + 6 ¯α
+1 + (1 + 6 ¯α) ¯α¯φ2c
+
+,(2.28)
+is constrained by Lunar Laser Ranging (LLR) measurements [112],
+˙Geff
+Geff
+
+z=0
+= (−5.0±9.6)·10 −15 yr−1 (68% CL).(2.29)
+This is the most stringent measurement available to date. For other (weaker) constraints on
+˙Geff /Geff , we refer the reader to Table 20 of the review [113].
+Since the non-minimally coupled model is recovered for ¯α= 0, in which no phantom-
+divide crossing can occur, such a crossing is only possible if this parameter departs from zero
+and, indeed, takes values of order unity, as will be shown in Sec. 2.3. We simply note this here
+to illustrate that, in order to satisfy the constraints (2.26), (2.27), and (2.29) while allowing
+an effective phantom-divide crossing, ¯φc,0 must be sufficiently close to zero, typically below
+10−3. As will be shown below, this is only possible for ¯α >0, since negative values of ¯α
+necessarily lead to a violation of the local constraints. Achieving the desired phenomenology
+requires therefore positive values of the non-minimal coupling and the fine-tuning of the
+initial value of the scalar field, so that ¯φ(z= 0)≈0. Note, however, that the degree of
+fine-tuning is alleviated when ¯α≈1/2. Not only does this value of ¯αsuppress deviations of
+Geff fromG N in theαφ 2 ≪1 limit, but also that of ˙Geff /Geff . Nevertheless, no suppression
+is observed in the deviations of the PPN parameters from GR for ¯α≈1/2. Thus, even ifα
+is fixed to this value in the model, one cannot completely avoid some degree of fine-tuning if
+both cosmological and local constraints are to be satisfied without a screening mechanism.
+Interestingly, our posterior mean value of ¯αlies close to 1/2. Further discussion of this point
+can be found in Sec. 4.
+2.3 Background dynamics in the expanding Universe
+We want to study the cosmological implications of the non-minimal coupling. As usual, we
+assume the symmetries embedded in the Cosmological Principle, so we use the Friedmann-
+Lema ˆ ıtre-Robertson-Walker (FLR W) metric, considering flat spatial hypersurfaces (i.e., no
+spatial curvature). The line element written in spherical coordinates is
+ds2 =−dt 2 +a 2(t)
+ 
+dr2 +r 2dΩ2
+.(2.30)
+– 8 –
+=== PAGE 10 ===
+The modified Friedmann and pressure equations are derived from the Einstein field equations
+(2.1) upon substitution of the metric (2.30) and the non-minimal coupling specified in Eq.
+(1.2). They read 7, respectively,
+3H 2 = κ2(ρ+ ˙φ2
+2 +V)−6αHφ˙φ
+1 +αφ 2 ,(2.31)
+−(2 ˙H+ 3H 2) = κ2(p+ ˙φ2
+2 −V) + 2α[ ˙φ2 +φ( ¨φ+ 2H˙φ)]
+1 +αφ 2 ,(2.32)
+where the dots denote derivatives with respect to the cosmic timet. Herepandρrefer to
+the energy density and pressure of all the species included in the energy-momentum tensor
+T (M)
+µν , which can be treated as perfect fluids at the background level. They are covariantly
+self-conserved, sinceφdoes not couple directly to the matter sector, but only through gravity.
+Hence,
+∇µT (M)
+µν = 0 =⇒˙ρ+ 3H(p+ρ) = 0,(2.33)
+and the evolution of the energy densityρ i and pressurep i of each cosmic fluid componentiis
+governed by the same dependence on the scale factor (or, equivalently, the redshift) as in the
+standard cosmological model. This also applies to neutrinos, for which we assume the baseline
+normal-ordering mass hierarchy, with a single massive neutrino of mass 0.06 eV. For species
+that remain either relativistic or non-relativistic throughout the cosmic eras considered here,
+the energy density scales asρ i ∝a −3(1+wi), wherew i =p i/ρi is the corresponding constant
+equation-of-state (EoS) parameter. In particular, for baryons and CDM,w b =w cdm =w m =
+0, where the subscriptmdenotes the combination of the former, while for photonsw γ = 1/3.
+The KG equation (2.5) in a FLR W background takes the following form:
+¨φ+ 3H˙φ+∂V
+∂φ − 6αφ
+κ2 ( ˙H+ 2H 2) = 0.(2.34)
+We will focus on parameter values for which the linear potential (1.2) becomes relevant
+only at late times. Consequently, at high redshifts (i.e., during the matter- and radiation-
+dominated epochs, hereafter referred to as MDE and RDE, respectively), the third term in
+the KG equation is negligible compared to the friction term. Hence, if the scalar field evolves
+during these epochs, its dynamics can only be driven by the non-minimal coupling. In Fig.
+1 we show the effective potential and the value of the scalar field at different redshifts for the
+best-fit values inferred from our fitting analyses (cf. Sec. 4).
+Let us begin by analyzing the dynamics of the model during the RDE. SinceR∝
+˙H+ 2H 2 ∼κ 2ρm (up to subdominant corrections of orderα), very deep in the RDE the
+source term in Eq. (2.34) can be neglected, as it is suppressed relative to the friction term,
+since the latter is proportional to the radiation energy density. Therefore, the derivative of
+the scalar field evolves as
+˙φ(a) =Ca−3 (2.35)
+and its kinetic energy scales as ˙φ2 ∼a −6. Consequently, the decaying mode – which undergoes
+a kination phase – eventually becomes negligible, irrespective of the sign ofα, leaving the
+scalar field frozen at a constant value with vanishing kinetic energy. This fully justifies our
+7From this point onward, we omit the subscriptcfrom the scalar field, which was introduced in Sec. 2.2
+to distinguish the cosmological scalar field from its local value.
+– 9 –
+=== PAGE 11 ===
+−0.2 −0.1 0.0 0.1 0.2
+̄φ
+−2500
+−2000
+−1500
+−1000
+−500
+0
+V(φ)/V0
+z = 100
+−0.4 −0.2 0.0 0.2 0.4
+̄φ
+0
+10000
+20000
+30000
+40000
+50000
+60000
+70000
+V(φ)/V0
+z = 100
+−0.2 −0.1 0.0 0.1 0.2
+̄φ
+0.75
+0.80
+0.85
+0.90
+0.95
+1.00
+1.05
+1.10
+1.15
+1.20
+V(φ)/V0
+z = 1.5
+−0.4 −0.2 0.0 0.2 0.4
+̄φ
+−0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+V(φ)/V0
+z = 1.5
+−0.2 −0.1 0.0 0.1 0.2
+̄φ
+0.75
+0.80
+0.85
+0.90
+0.95
+1.00
+1.05
+1.10
+1.15
+1.20
+V(φ)/V0
+z = 0
+−0.4 −0.2 0.0 0.2 0.4
+̄φ
+−0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+V(φ)/V0
+z = 0
+Figure 1: Bare potentialV(φ) (orange line), effective potentialV eff (φ) (blue curve) and the
+value of the scalar field (green dot) at different redshifts for the best-fit parameters, cf. Table
+1. The left panels correspond toα >0, while the right panels correspond toα <0.
+choice of initial conditionsφ ini = const.and ˙φ ini = 0, as long asz ini is sufficiently large – in
+our implementation to the Einstein-Boltzmann solver we set it toz ini = 1011 (cf. the details
+in Sec. 3).
+However, this situation eventually comes to an end, as non-relativistic matter becomes
+increasingly important, making the source term in the KG equation more relevant. As a
+result, the scalar field may become dynamical even during the RDE, depending on the value
+of the coupling parameterα. It is therefore useful to estimate analytically when this occurs.
+– 10 –
+=== PAGE 12 ===
+Figure 2: Exclusion plot in the (|¯α|,|¯φini|) plane obtained by imposing the BBN bound on
+the gravitational strength from [114]. The shaded area (in blue) corresponds to the excluded
+region of parameter space. See the main text for further details.
+Let us assume
+|¯α|¯φ2 ≪1.(2.36)
+This is a very natural condition, since the coupling function should not depart excessively
+from its canonical value at the Big Bang Nucleosynthesis (BBN) epoch, so we expectF(φ)≃1
+deep in the RDE. Under condition (2.36), we find the following solutions of the KG equation:
+φ(a)
+
+RDE
+= φini√a
+s
+Ω0r
+3 ¯αΩ0m
+I1
+ 
+2√a
+s
+3 ¯αΩ0m
+Ω0r
+!
+forα >0,(2.37)
+φ(a)
+
+RDE
+= φini√a
+s
+Ω0r
+3|¯α|Ω0m
+J1
+ 
+2√a
+s
+3|¯α|Ω0m
+Ω0r
+!
+forα <0,(2.38)
+with Ω0
+r =κ 2ρ0
+r/(3H 2
+0 ) the radiation density parameter andρ 0
+r the current radiation energy
+density, computed as if all the neutrino species were still massless today. All the details of
+the calculation of Eqs. (2.37) and (2.38) are provided in Appendix B. The functionsI 1 and
+J1 are the first order modified and standard Bessel functions of the first kind. Here we have
+already neglected the decaying modes. Note that both functions can be approximated by
+J1(x), I1(x)∼x/2 +O(x 2) forx≪1, so we recover the constant field solutionφ(a)→φ ini
+whena→0, as expected. Moreover, we find that the departure from theφ≃const.behavior
+happens whenx=O(1), so at the approximate redshift
+znc ≃ 12|¯α|Ω0
+m
+Ω0r
+−1≃4.5·10 4|¯α| −1.(2.39)
+For values of|¯α|=O(1), as preferred by current data (cf. Sec. 4), and typical values of
+Ω0
+m ≃0.3 and Ω 0
+r ≃8·10 −5, we findz nc ∼4.5×10 4, five orders of magnitude smaller than the
+BBN redshift (z BBN ∼10 9). Therefore,φ BBN ≃φ ini, so ifφ ini yields a value ofFconsistent
+with the BBN bounds, the model will automatically satisfy them at the BBN epoch as well,
+– 11 –
+=== PAGE 13 ===
+4.0 4.5 5.0 5.5 6.0
+log10 (1 + z)
+0.0100
+0.0102
+0.0104
+0.0106
+0.0108
+0.0110¯ϕ
+¯α = 0.05
+¯α = 0.1
+¯α = 0.2
+0.5 1.0 1.5 2.0 2.5 3.0
+log10 (1 + z)
+0.02
+0.04
+0.06
+0.08
+0.10
+0.12¯ϕ
+¯α = 0.05
+¯α = 0.1
+¯α = 0.2
+4.0 4.5 5.0 5.5 6.0
+log10 (1 + z)
+0.00825
+0.00850
+0.00875
+0.00900
+0.00925
+0.00950
+0.00975
+0.01000
+0.01025¯ϕ
+¯α = -0.1
+¯α = -0.2
+¯α = -0.4
+0.5 1.0 1.5 2.0 2.5 3.0
+log10 (1 + z)
+0.001
+0.000
+0.001
+0.002
+0.003
+0.004
+0.005
+0.006
+0.007
+0.008
+¯ϕ
+¯α = -0.1
+¯α = -0.2
+¯α = -0.4
+Figure 3: Evolution of the scalar field in the RDE (left column) and the MDE (right column),
+both for positive (upper row) and negative (lower row) values ofα. Dashed lines correspond
+to the approximate analytical solutions.
+where|F−1| BBN must be smaller than∼5−6% at 95% CL [114] to avoid spoiling the
+primordial abundances of light elements (see also [113]). This constraint can be cast as an
+upper bound on|¯α|¯φ2
+ini leading to an excluded region in the (|¯α|,|¯φini|) plane, as shown in
+Fig. 2. We also note that, according to Eq. (2.39), the field thaws before the end of the RDE
+only if|α|≳0.08.
+During the MDE, the approximate solution for the scalar field (valid when|¯α|¯φ2 ≪1)
+depends again on the sign of ¯α. If ¯α >0, we find
+φ(a)
+
+MDE
+=φ(a ∗)
+ a
+a∗
+ 3
+4
+h
+−1+
+q
+1+ 16
+3 ¯α
+i
+for ¯α >0 (2.40)
+deep in the MDE (witha ∗ some pivot scale factor in that era), whereas for negative ¯αthe
+result depends on whether it is smaller or larger than−3/16:
+φ(a)
+
+MDE
+=a −3/4
+
+d0 cosh
+ 3ξ
+4 ln(a)
+
++d 1 sinh
+ 3ξ
+4 ln(a)
+
+if− 3
+16 <¯α <0,(2.41)
+– 12 –
+=== PAGE 14 ===
+Figure 4:Left plot:Typical enhancement of the scalar field relative to its initial value during
+the late MDE, as a function of ¯α, for ¯α >0. The initial conditions are imposed deep within
+the RDE.Right plot:Suppression ofφ(z= 1) relative toφ ini for the model with ¯α <−3/16.
+φ(a)
+
+MDE
+=a −3/4
+
+d0 cos
+ 3ξ
+4 ln(a)
+
++d 1 sin
+ 3ξ
+4 ln(a)
+
+if ¯α <−3
+16 ,(2.42)
+withξ( ¯α)≡
+q
+|1 + 16
+3 ¯α|and{d 0, d1}integration constants. All the details of these cal-
+culations are also provided in Appendix B. In Fig. 3, we compare the exact (numerical)
+solutions of the KG equation (2.34) with the corresponding analytical approximations dis-
+cussed above for several values of the parameter ¯α, including the decaying modes whenever
+they are present. The agreement is apparent.
+We can now estimate the relative growth (decrease) of the scalar field with respect to
+its initial value for positive (negative) values of ¯αby the end of the MDE, which we take to
+occur atz≃1. This is a useful exercise, as it allows us to determine the typical values ofφ ini
+required to obtain a realistic cosmology. To do so, we match the solutions obtained during
+the radiation- and matter-dominated epochs by imposing continuity at the radiation-matter
+equality time (i.e., atz eq = Ω0
+m/Ω0
+r −1≃3750). Although this is only a rough approximation,
+it is sufficiently accurate for our purposes. We will obtain an analytical expression for the
+ratioφ ini/φ(z= 1).
+For ¯α >0 we arrive at the following expression:
+φini
+φ(z= 1) ≈
+√
+3 ¯α
+I1(2
+√
+3 ¯α)
+ 2
+3750
+ 3
+4
+h
+−1+
+q
+1+ 16 ¯α
+3
+i
+for ¯α >0.(2.43)
+For ¯α <−3/16, instead, we find
+φini
+φ(z= 1) ≈
+p
+3|¯α|
+J1(2
+p
+3|¯α|)
+ 2
+3750
+−3/4
+for ¯α <−3/16.(2.44)
+where we have neglected in both cases the decaying modes and the modulating effect of the
+oscillations in Eq. (2.42). We plot Eqs. (2.43) and (2.44) in Fig. 4 to illustrate that (i) for
+values ofφ ini obeying the condition|¯α|¯φ2
+ini ≪1, the scalar field is very suppressed in the last
+stages of the MDE if ¯α <−3/16, as preferred by the data. In fact, under this condition, the
+– 13 –
+=== PAGE 15 ===
+data cannot distinguish between the casesφ ini = 0 andφ ini ̸= 0, since the cosmic evolution
+during the radiation- and matter-dominated epochs is very similar in both scenarios. Notice
+that, for these values of ¯α, the decay towards ¯φ→0 already occurs during the RDE. This
+motivates the choice of the initial conditionsφ ini = 0 and ˙φini = 0 for negativeα, thereby
+reducing the number of free parameters in the Monte Carlo analysis. This corresponds in
+very good approximation to set the scalar field at the minimum of the effective potential
+(2.4), yieldingV eff =V 0 during the RDE and MDE; and (ii) if ¯αis positive and of order
+one, due to the fact that the effective potential is in this case convex, the scalar field is
+expelled towards large values; it can increase by several orders of magnitude8. This will force
+us to consider values ofφ ini extremely close to zero to obey the local constraints and keep
+the model dynamics stable. This is somewhat unnatural and demands additional structure
+beyond that in the action (1.1) (or at least, more complicated shapes of the functions (1.2)),
+e.g., some Higgs-type symmetry breaking mechanism that confines the field close to zero
+before the moment of imposing our initial conditions 9. We will discuss further details about
+the initial conditions in Sec. 3.
+We note that the analytical solutions obtained forφ(a) under the assumption|¯α|¯φ2 ≪1
+in the RDE and MDE can also be readily used to derive analytical expressions for the
+gravitational strength experienced by test masses through direct substitution into Eq. (2.24),
+as well as for the corrections to the Universe’s expansion rate, for both positive and negative
+values ofα. We leave this exercise for the interested reader.
+At sufficiently low redshifts in the late Universe, the scalar field potentialV(φ) (1.2)
+becomes important and significantly modifies the shape of the effective potential (2.4) in
+the region where the scalar field resides (see again Fig. 1). It is interesting to analyze
+the evolution of the effective DE EoS parameter during this stage of cosmic expansion to
+determine the conditions under which crossing the phantom divide is possible. We obtain the
+expression of the aforementioned EoS parameter by establishing a correspondence between
+the modified Friedmann and pressure equations, Eqs. (2.31) and (2.32), respectively, and
+their counterparts in GR with a DE component, given by
+3H 2 =κ 2(ρ+ρ DE) ;−(2 ˙H+ 3H 2) =κ 2(p+p DE).(2.45)
+The effective DE density and pressure,ρ DE andp DE, encapsulate the modified gravity effects
+that characterize the non-minimally coupled model under study. From Eqs. (2.45), it is clear
+that the effective DE EoS parameter can be constructed as follows:
+wDE = pDE
+ρDE
+=
+−1 + 1
+V
+h
+˙φ2
+2 −αφ 2p+ 2α
+κ2
+
+˙φ2 +φ( ¨φ+ 2H˙φ)
+	i
+1 + 1
+V
+h
+˙φ2
+2 −αφ 2ρ−6 α
+κ2 Hφ˙φ
+i .(2.46)
+Note that ifα̸= 0 DE receives contributions from matter and radiation. That is, if we map
+our theory onto GR, modified gravity effects are interpreted as part of the effective DE. For
+α= 0 we retrieve the EoS of a minimally coupled scalar field, i.e.,
+w=
+˙φ2
+2 −V(φ)
+˙φ2
+2 +V(φ)
+,(2.47)
+8We can always restrict ourselves toφ ini ≥0, since flipping the sign of the scalar field is equivalent to
+flipping the sign ofβ– all other terms in the action (1.1) are invariant underφ→ −φ.
+9See [85] for a modification of the non-minimal couplingF(φ) that makes the field freeze at the minimum
+of the modified effective potential during the RDE and MDE epochs, thereby rendering the model stable.
+– 14 –
+=== PAGE 16 ===
+from which it follows that−1≤w≤1. Hence, standard quintessence cannot cross the
+phantom divide 10. Forα̸= 0, however, (2.46) deviates from this result and, as we will see
+below, can allow for scenarios in which the phantom divide is crossed.
+Under the initial conditions that we are considering for the scalar field, in the last stages
+of the MDE the potential is much larger than the kinetic energy of the scalar field, regardless
+of the sign ofα. Therefore, all the terms in (2.46) involving derivatives of the scalar field are
+suppressed in front ofV. In addition,|α|φ 2 ≪1, so we are allowed to Taylor-expandw DE,
+treating the terms in square brackets of the numerator and the denominator as perturbations,
+i.e.,
+wDE ≡ −1 +ε 1
+1 +ε 2
+,withε 1, ε2 ≪1.(2.48)
+We are led to the following expression:
+wDE =−1 + 1
+V(φ)
+
+˙φ2 −αφ 2ρm + 2α
+κ2
+ 
+˙φ2 +φ¨φ−Hφ˙φ
+
++O(ε 2
+i ) (2.49)
+to first order in the perturbed quantities. We have also neglected radiation, as its contribution
+is negligible during the epoch of interest. Let us now explore the possibility of achieving a
+crossing of the phantom divide in different scenarios.
+Case 1:α >0,β= 0
+Ifβ= 0, upon substituting the solution (2.40) in terms of the cosmic time in Eq. (2.49), we
+find forα >0 during the last stages of the MDE:
+wDE(t)
+
+end MDE
+≈ −1 +C2t4ζ/3−2
+3V0
+ 4
+3 ζ 2(1 + 4 ¯α)−4 ¯α−20
+3 ¯αζ
+
+,(2.50)
+withζ( ¯α)≡3(−1 +
+p
+1 + 16 ¯α/3)/4>0 andCa constant 11. The term in square brackets
+is positive if ¯α >3/2 and negative if ¯α <3/2, causing the effective DE to behave as
+quintessence or phantom DE, respectively. Only the latter case can account for the phantom
+phase preceding the crossing favored by current observations. But what happens in the late
+Universe? In the late UniverseH≈constant as a first approximation in a realistic scenario,
+since the expansion should be dominated by the cosmological constant,V 0. The solution to
+the KG equation (2.34) in that setup for positiveαandβ= 0 reads
+φ(t) =Ae ω+t, ω + = H0
+2 (−3 +
+√
+9 + 48 ¯α),(2.51)
+where we have neglected the decaying modeω −. Substituting into Eq. (2.49) yields
+wDE(t)
+
+late Universe
+≈ −1 +A2ω+e2ω+t
+V0
+[(1 + 4 ¯α)ω+ −2 ¯αH0].(2.52)
+It can be shown that the term inside square brackets remains positive for all (positive) values
+ofα. Thus, in this scenario the effective DE is quintessence-like at low redshift, implying
+that a crossing is indeed expected for 0<¯α <3/2 andβ= 0. Nevertheless, we find that
+10In an uncoupled scenario, one needs at least two uncoupled scalar fields to explain the crossing, one of
+them with the opposite sign in the kinetic term, see, e.g., [29, 36].
+11Cis proportional toφ ini; we consider values ofCsmall enough to keep Eq. (2.50) a good approximation.
+– 15 –
+=== PAGE 17 ===
+1 +w DE in the late Universe is proportional to ¯α¯φ2, so it is not possible to simultaneously
+satisfy the local constraints and produce a sufficiently large deviation fromw DE =−1 to
+reproduce the quintessence-like phase preferred by current observations.
+Case 2:α >0,β >0
+If, instead, we considerβ >0, both features are possible. Under some conditions, the scalar
+field reaches a maximum at the end of the MDE (cf. Appendix B for details). Near it, we of
+course haveφ >0, ˙φ≈0 and ¨φ <0, so Eq. (2.49) reduces to
+wDE
+
+max
+≈ −1 + 1
+V(φ)
+ 
+−αφ2ρm + 2 ¯αφ¨φ
+ 
+max
+<−1.(2.53)
+After that, the scalar field evolves towards the origin, so ˙φ <0. If the initial conditions are
+set such thatφ(z= 0)≈0 in order to satisfy the local constraints described in Sec. 2.2, we
+find
+wDE(z= 0)≈ −1 + ˙φ2
+V0
+(1 + 2 ¯α)>−1.(2.54)
+Therefore, ifβ >0 it is possible to produce the desired crossing, while also fulfilling the local
+constraints.
+We now determine the order of magnitude of the dimensionless parameters ¯αand
+¯β≡ κ
+H 2
+0
+β .(2.55)
+required to reproduce the observations. In the late Universe, whereH≈H 0 is approximately
+constant andφ≈0, the KG equation (2.34) reduces to
+¨φ+ 3H0 ˙φ+β= 0.(2.56)
+Neglecting the rapidly decaying mode,φ(t) depends linearly on cosmic time, with ˙φ≈
+−β/(3H0). Substituting this result into Eq. (2.54), we obtain
+1 +w DE(z= 0)≈
+¯β2
+27Ω0
+V0
+(1 + 2 ¯α),(2.57)
+where Ω0
+V0 =κ 2V0/(3H 2
+0 ) is the density parameter associated with the constant term in the
+potential. For the right-hand side to take values of order 0.1–0.2, as preferred by current
+observations, we require ¯β=O(1).
+As for ¯α, in Appendix B we show that ¯α <9/2 for the scalar field to have a maximum.
+This is a necessary condition to drive the scalar field towards the origin at low redshift, and
+hence satisfy the local constraints. Using Eq. (B.25), one can easily see that the value of
+the scalar field and its second derivative with respect to the cosmic time at the aforesaid
+maximum take the following form:
+¯φ
+
+max
+≈ 4 ¯βa3
+m
+Ω0m(4 ¯α−18)
+ ζ( ¯α)−3
+3ζ( ¯α)
+
+,(2.58)
+¨¯φ
+
+max
+= 4H 2
+0 ¯β[3−ζ( ¯α)]
+4 ¯α−18 ,(2.59)
+witha m the scale factor at the maximum, which is also controlled by the initial value of the
+scalar field. Substituting these expressions into Eq. (2.53) yields
+– 16 –
+=== PAGE 18 ===
+Figure 5: Color map of the redshift corresponding to the maximum of the scalar field,
+zm( ¯α,¯β), in the ¯α,¯β >0 scenario (case 2 in the main text), where phantom behavior occurs.
+The map is obtained from Eq. (2.60) by settingw DE =−1.1, with Ω 0
+V0 = 0.7 and Ω 0
+m = 0.3.
+1 +w DE
+
+max
+≈ −16 ¯α¯β2[3−ζ( ¯α)]2[2ζ( ¯α) + 1]a3
+m
+ζ( ¯α)(4 ¯α−18)
+h
+9ζ( ¯α)Ω0
+V0Ω0m(4 ¯α−18) + 4¯β2[ζ( ¯α)−3]a3m
+i .(2.60)
+By fixing the density parameters Ω 0
+V0 and Ω 0
+m to representative values, together with 1 +
+wDE
+
+max =−O(10 −1), as preferred by current observations, one can use the previous expres-
+sion to determinea m( ¯α,¯β) or, equivalently, the corresponding redshiftz m( ¯α,¯β). Fig. 5 is
+generated in this way, adopting 1 +w DE
+
+max =−0.1. We find that, for the values ¯β∼1
+required for a late-time quintessence phase, the scalar field reaches its maximum at a redshift
+close to the value preferred by current observations over a wide range of ¯α, approximately
+0.2≲¯α≲1.2.
+It is worth mentioning that in this scenario the effective DE densityρ DE becomes neg-
+ative at high redshift, makingw DE diverge whenρ DE = 0. This is not problematic, however,
+sinceρ DE is strictly an effective quantity and the total, physical densityρ tot remains positive
+at all times. Indeed, for the best-fit values (see Sec. 4),ρ DE is negative atz >6.5. Since at
+these epochs the energy budget of the Universe is overwhelmingly dominated by matter and
+radiation,ρ tot >0 and the expansion history remains physically viable.
+Case 3:α <0,β= 0
+We can repeat the exercise considering negative values of ¯α. First, we can convince ourselves
+that the only viable possibility to generate a crossing is to haveβ̸= 0. Ifβ= 0 and ¯α <0
+with|¯α| ≪1, the scalar field evolves as indicated in Eq. (B.20). By neglecting the terms
+quadratic in the coupling parameter in Eq. (2.49), we find
+– 17 –
+=== PAGE 19 ===
+wDE
+
+end MDE
+≈ −1−¯α¯φ2 ρm
+V0
+>−1.(2.61)
+Therefore, in this case the effective dark energy behaves as quintessence during the final stages
+of the MDE. By contrast, if ¯β= 0 and ¯α <0 with|¯α|=O(1), the field is already located at
+the minimum of the effective potential, namely at the origin. As a result,w DE
+
+end MDE
+≃ −1,
+and there is no significant departure from the behavior of a cosmological constant.
+Case 4:α <0,β >0
+The situation is much more favorable if ¯αis negative and of order unity, andβ >0, since in
+this case the field evolves at the end of the MDE as
+¯φ(t)
+
+end MDE
+≈ 3β t2
+4 ¯α−18,(2.62)
+where we have used Eq. (B.25), retained only the second term, and expressed the result in
+terms of cosmic time. Substituting this expression into Eq. (2.49) we find
+wDE
+
+end MDE
+≈ −1 +4t2
+V(φ)
+ 3β
+4 ¯α−18
+2
+(1 + 2 ¯α),(2.63)
+which leads to phantom behavior if ¯α <−1/2, as desired. In the late Universe,H≈constant,
+and, neglecting decaying modes,
+φ(t)
+
+late Universe
+≈ β
+12 ¯αH2
+0
+,(2.64)
+so
+wDE
+
+late Universe
+≈ −1−
+¯β2
+144 ¯α
+ρm
+V(φ) >−1.(2.65)
+This is, of course, only a rough estimate, but it is sufficient to show that, if we aim to explain
+the crossing of the phantom divide preferred by current observations with negative values of
+¯α, then ¯αmust be of order one and accompanied by positive values of ¯β, also of order one
+or larger.
+To summarize, a crossing of the phantom divide as preferred by cosmological data
+requiresβ >0 and of order unity and can be achieved with both negative and positive values
+ofαsatisfying the bounds ¯α <−1/2 and ¯α <9/2, respectively. The former case leads to
+large (negative) values of the scalar field atz= 0, in tension with the local gravitational
+constraints discussed in Sec. 2.2. Remarkably, the latter case allows for the fulfillment of the
+local constraints by choosingφ ini such thatφ(z= 0)≈0.
+2.4 Linear perturbations and effective gravitational strength at cosmological
+scales
+In this section, we compute the linear perturbation equations corresponding to our model,
+following the formalism of Ma and Bertschinger [115]. We employ the synchronous gauge,
+work in Fourier space and consider only scalar modes. The perturbed metric reads
+ds2 =a 2(τ)
+
+−dτ 2 + (δij +h ij)dxidxj
+,(2.66)
+– 18 –
+=== PAGE 20 ===
+with
+hij(⃗ x, τ) =
+Z
+d3k ei⃗k·⃗ x
+
+ˆkiˆkjh(⃗k, τ) +
+
+ˆkiˆkj − 1
+3 δij
+
+6η(⃗k, τ)
+
+,(2.67)
+andτthe conformal time. Scalar perturbations in Fourier space are encoded in the two
+functionsh(the trace) andη. We also expand the scalar field around the background 12:
+φ= ¯φ(τ) +δφ(⃗ x, τ).(2.68)
+The perturbed cosmological equations read:
+Scalar field equation —
+δφ′′ + 2Hδφ′ −
+h
+6 α
+κ2 (H′ +H 2)−k 2
+i
+δφ− α
+κ2 ¯φ
+ 
+h′′ + 3Hh′ −4k 2η
+
++ h′
+2 ¯φ′ = 0,(2.69)
+Time-time equation —
+−2 α
+κ2
+
+3H2 +k 2
+¯φδφ−6 α
+κ2 H( ¯φδφ′ + ¯φ′δφ) + ¯φ′δφ′ +a 2βδφ
+− 1
+κ2
+
+(1 +α¯φ2)H+α¯φ¯φ′
+h′ + 2k2η
+κ2
+ 
+1 +α¯φ2
+=a 2δT 00 ,
+(2.70)
+Longitudinal time-space equation —
+k2
+
+2η′ 1 +α¯φ2
+κ2 −2 α
+κ2
+ 
+¯φ′δφ+ ¯φδφ′ − H¯φδφ
+
+−¯φ′δφ
+
+=a 2(¯ρ+ ¯P)θ ,(2.71)
+Trace space-space equation —
+ 
+−2Hh′ −h ′′ + 2k2η
+ 1 +α¯φ2
+κ2 −2 α
+κ2
+(
+3
+ 
+2H′ +H 2
+¯φδφ+ 3H( ¯φ′δφ+ ¯φδφ′)+
++3( ¯φ′′δφ+ 2 ¯φ′δφ′ + ¯φδφ′′) + 2k2 ¯φδφ+h′ ¯φ¯φ′
+)
+−3 ¯φ′δφ′ + 3a2βδφ=a 2δT ii ,
+(2.72)
+Longitudinal traceless space-space equation —
+(1 +α¯φ2)
+
+2H(h′ + 6η′) +h ′′ + 6η′′ −2k 2η
+
++ 4k2α¯φδφ+ 2α(h′ + 6η′) ¯φ¯φ′ =−3κ 2a2(¯ρ+¯P)σ .
+(2.73)
+In this section, a prime denotes a derivative with respect to conformal time, andH=
+a′/a. The variables ¯ρand ¯Prepresent the total background energy density and pressure,
+respectively, while the total velocity divergenceθand anisotropic stressσare defined by
+(¯ρ+ ¯P)θ≡ik iδT 0i,(¯ρ+ ¯P)σ≡ −
+
+ˆkiˆkj − 1
+3 δij
+
+Σij,Σ ij ≡T ij − 1
+3 δi
+jT.(2.74)
+Before proceeding, two points are worth stressing. Firstly, in the GR limit (α→0) and for a
+constant scalar-field potential (β→0) the background scalar field has no dynamics and the
+equations successfully reduce to those of ΛCDM [115]. Secondly, the standard conservation
+12In this subsection ¯φrepresents the background value of the dimensionful scalar field, rather than the
+dimensionless one introduced in Eq. (2.23).
+– 19 –
+=== PAGE 21 ===
+law, Eq. (2.33), holds at all orders in perturbation theory, since the action (1.1) does not
+have any term that couples matter and radiation to the scalar field. Therefore, the right-hand
+side of the first-order Einstein equations (i.e., the energy-momentum tensor perturbations,
+which are derived from the Boltzmann equation) are unmodified with respect to GR.
+To conclude the analysis of linear perturbations, let us derive the linear growth equation
+for the matter density contrast, which is defined as
+δm ≡ δρm
+¯ρm
+.(2.75)
+We will restrict ourselves to deep sub-horizon scales, in the so-called quasi-static approxima-
+tion:
+k≫ H, X ′ ∼ HX, X′′ ∼ H2X,(2.76)
+whereXis a generic function (e.g., the scalar field). That is, all quantities are assumed to
+evolve on Hubble timescales, so that time derivatives can be neglected in favor of spatial
+gradients (the only exception ish ′, which, as we will see, is proportional toδ ′
+m). Under
+these approximations, the perturbed time-time, traceless and scalar field equations can be
+combined to obtain
+h′′ + a′
+a h′ =− κ2
+1 +α¯φ2
+κ2(1 +α¯φ2) + 8α2 ¯φ2
+κ2(1 +α¯φ2) + 6α2 ¯φ2 a2 ¯ρmδm.(2.77)
+Now, in order to relate the metric perturbationhto the density contrastδ, we use the
+perturbed conservation equations∇ µT µν = 0, which for non-relativistic matter reduce to
+δ′
+m + h′
+2 = 0.(2.78)
+Substituting this relation into Eq. (2.77) finally yields
+δ′′
+m + a′
+a δ′
+m −4π
+ κ2
+8π
+1
+1 +α¯φ2
+κ2(1 +α¯φ2) + 8α2 ¯φ2
+κ2(1 +α¯φ2) + 6α2 ¯φ2
+
+a2 ¯ρmδm = 0.(2.79)
+The term inside square brackets corresponds to the effective gravitational constantG eff com-
+puted in Sec. 2.2. That is, the cosmological effective gravitational constant governing linear
+structure growth within the horizon coincides with that associated with a spherically sym-
+metric source in the weak-field limit, as expected in the absence of a screening mechanism.
+In Figs. 6 and 7, we show the CMB temperature and linear matter power spectra,
+together with the effective DE density and EoS parameter, for different values of ¯αand ¯βin
+theα <0 andα >0 models, respectively. The latter background plots are aimed at easing
+the interpretation of the spectra. We fix the other parameters to the same fiducial values,
+but in the case ofα >0 we tuneφ ini to automatically satisfy the local constraints (cf. Sec. 3
+for details). We find that values of ¯αand ¯βof order unity, as preferred by current data, can
+lead to physically viable power spectra, with deviations from ΛCDM reaching the subpercent
+level. This is true for both positive and negative values ofα.
+The CMB temperature fluctuations depend on DE through the integrated Sachs-Wolfe
+(ISW) effect [116], gravitational lensing [117] (e.g., by altering the energy fraction contained
+in pressureless matter, which has an impact on the clustering), and the distance to the last
+scattering surface (LSS). They are all sensitive to the late-time cosmic history, with the
+kernels of the ISW effect and CMB lensing peaking atz≲1 andz∼2−3, respectively.
+– 20 –
+=== PAGE 22 ===
+0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 2.00
+Redshift z
+0.980
+0.985
+0.990
+0.995
+1.000
+1.005
+1.010
+1.015
+1.020ρDE/ρΛ
+ΛCDM
+̄α = -0.8, ̄β = 1.58
+̄α = -1.0, ̄β = 1.58
+̄α = -0.8, ̄β = 1.09
+̄α = -0.8, ̄β = 1.98
+0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 2.00
+Redshift z
+−1.01
+−1.00
+−0.99
+−0.98
+−0.97
+−0.96
+−0.95
+wDE
+¤CDM
+¹® = -0.8, ¹¯ = 1.58
+¹® = -1.0, ¹¯ = 1.58
+¹® = -0.8, ¹¯ = 1.09
+¹® = -0.8, ¹¯ = 1.98
+0
+1
+2
+3
+4
+5
+6
+7
+8ℓ(ℓ + 1)Cℓ/2π
+1e−10
+ΛCDM
+̄α = -0.8, ̄β = 1.58
+̄α = -1.0, ̄β = 1.58
+̄α = -0.8, ̄β = 1.09
+̄α = -0.8, ̄β = 1.98
+500 1000 1500 2000 2500
+Multipole moment ℓ
+−0.0100
+−0.0075
+−0.0050
+−0.0025
+0.0000
+0.0025
+(Cℓ − CΛCDM, ℓ)/CΛCDM, ℓ
+10 20 30
+0.00
+−0.05
+102
+103
+104
+P(k) [Mpc/h]3
+ΛCDM
+̄α = -0.8, ̄β = 1.58
+̄α = -1.0, ̄β = 1.58
+̄α = -0.8, ̄β = 1.09
+̄α = -0.8, ̄β = 1.98
+10−5 10−4 10−3 10−2 10−1 100
+Wavenumber k [h/Mpc]
+0.990
+0.992
+0.994
+0.996
+0.998
+1.000P(k)/PΛCDM(k)
+Figure 6: Effective DE density and EoS parameter (upper row), together with the corre-
+sponding CMB temperature and linear matter power spectra (lower row) for different values
+of ¯α <0 and ¯β. All remaining parameters are fixed to the same fiducial values across all
+models. The bottom panels of each spectrum shows the relative deviation from ΛCDM. For
+the CMB temperature power spectrum, we provide an inner plot showing the low-multipole
+region to facilitate visualization of the differences induced by the ISW effect.
+The former affect the low multipoles of the CMB spectrum, while the latter modifies the
+large-multipole range.
+The amplitude of these oscillations decreases withαand increases withβ, both in the
+positive and negativeαscenarios. The reason is that both larger values ofβand lower (or
+more negative) values ofαlead to more DE density at lowz, diluting matter away and
+thus reducing the lensing effect, which results in sharper peaks/troughs. Furthermore, the
+acoustic peaks are shifted towards the left. This is because a larger DE density leads to a
+larger Hubble rate at late times, which results in a smaller distance to the LSS. This increases
+the angular size of the peaks, with the corresponding multipole moment becoming smaller.
+We remark that, at the background level, the differences among the various curves only reside
+in the effective DE density, since the matter energy density, optical depth and the parameters
+– 21 –
+=== PAGE 23 ===
+0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 2.00
+Redshift z
+0.85
+0.90
+0.95
+1.00
+1.05
+1.10
+1.15ρDE/ρΛ
+ΛCDM
+̄α = 0.8, ̄β = 1.55
+̄α = 0.5, ̄β = 1.55
+̄α = 0.8, ̄β = 1.08
+̄α = 0.8, ̄β = 1.92
+0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 2.00
+Redshift z
+−1.15
+−1.10
+−1.05
+−1.00
+−0.95
+−0.90
+−0.85
+−0.80
+wDE
+¤CDM
+¹® = 0.8, ¹¯ = 1.55
+¹® = 0.5, ¹¯ = 1.55
+¹® = 0.8, ¹¯ = 1.08
+¹® = 0.8, ¹¯ = 1.92
+0
+1
+2
+3
+4
+5
+6
+7
+8ℓ(ℓ + 1)Cℓ/2π
+1e−10
+ΛCDM
+̄α = 0.8, ̄β = 1.55
+̄α = 0.5, ̄β = 1.55
+̄α = 0.8, ̄β = 1.08
+̄α = 0.8, ̄β = 1.92
+500 1000 1500 2000 2500
+Multipole moment ℓ
+−0.04
+−0.02
+0.00
+(Cℓ − CΛCDM, ℓ)/CΛCDM, ℓ
+10 20 30
+0.00
+−0.01
+102
+103
+104
+P(k) [Mpc/h]3
+ΛCDM
+̄α = 0.8, ̄β = 1.55
+̄α = 0.5, ̄β = 1.55
+̄α = 0.8, ̄β = 1.08
+̄α = 0.8, ̄β = 1.92
+10−5 10−4 10−3 10−2 10−1 100
+Wavenumber k [h/Mpc]
+0.96
+0.98
+1.00
+1.02
+1.04P(k)/PΛCDM(k)
+Figure 7: The same as in Fig. 6, but for ¯α >0. The parameterφ ini is chosen such that
+φ(z= 0) = 0 – see Sec. 3 for a detailed description of the scalar field’s initial conditions.
+characterizing the shape of the primordial power spectrum are fixed to the same values in all
+models.
+As for the matter power spectrum, we observe that matter density perturbations at sub-
+horizon scales are enhanced with respect to super-horizon scales. This behavior is expected
+from an attractive fifth force mediated by the scalar field between matter particles, which
+can only contribute to matter clustering at causally connected scales – that is, inside the
+horizon. In the super-horizon limit (k≪ H),G eff →G N , see Ref. [118]. Nevertheless, we
+note that the datasets we employ (see Sec. 3) are largely insensitive to these scales. The
+main exception is the CMB low-multipole region, which exhibits large uncertainties due to
+cosmic variance (see, however, [54]).
+We focus on the effect of ¯αand ¯βat subhorizon scales. The first parameter affects
+matter clustering both through the background expansion and the effective gravitational
+constant, cf. Eq. (2.79), whereas ¯βonly has an impact through the background functions.
+Using Eq. (2.25), which is valid in the limit of interest|α|φ 2 ≪1, one can see that, for|¯α|
+not exceedingly large,G eff grows with ¯αif ¯α >1/4. For the values considered in Figs. 6 and
+– 22 –
+=== PAGE 24 ===
+7,|¯α|>1/4 and of order one, soG eff grows in all cases with the absolute value of ¯α13.
+Let us start by analyzing the effect of these two parameters for the case ¯α <0, focusing
+on theP(k) spectra shown in Fig. 6. All models produce a larger DE density than that
+encountered in ΛCDM, since both larger values of ¯βand more negative values of ¯αlead to a
+more pronounced phantom behavior in the past, following the thawing of the scalar field (see
+Eq. (2.63)) 14. This pushes all the corresponding curves of the ratioP/P ΛCDM below unity.
+However, there is a competing effect, namely the enhancement ofP(k) due to the increase in
+Geff induced by more negative values of ¯α. This can partially counteract the aforementioned
+effect arising purely from the background evolution. In fact, the curve with ¯α=−1 exhibits
+larger values ofP(k) than that corresponding to ¯α=−0.8 – despite having more DE – due
+to the enhancement ofG eff .
+Now, we turn our attention to the model withα >0, which we analyze by adjusting
+φini such thatφ(z= 0) = 0, thereby ensuring that the local constraints are satisfied. These
+results are displayed in Fig. 7. In this case, it is much more difficult to disentangle the effects
+of ¯αand ¯βon the shape ofP(k), mainly because the value ofφ ini plays an important role in
+the phenomenology of the model and is adjusted in a non-trivial way – for instance, larger
+values of ¯αare accompanied by lower values ofφ ini (see Fig. 8), which clearly introduces
+a compensating effect at the level ofG eff . The effective DE density curves of the various
+models cross, such that models with a smaller DE density in the past have a larger DE
+density at low redshifts. This likewise gives rise to compensating effects, but they are clearly
+subdominant. We therefore limit ourselves to presenting the plot, which reflects a complex
+and non-intuitive phenomenology. For instance, the matter power spectrum at sub-horizon
+scales appears largely insensitive toα, whereas at super-horizon scales lower values ofαlead
+to more structure — despite the increase in DE density. Another non-trivial feature is the
+opposite effectβhas on large scales (where it suppresses structure formation) and small
+scales (where it enhances it).
+Lastly, we briefly comment on the behavior of vector and tensor perturbations in this
+non-minimally coupled scalar field model. As in ΛCDM, vector perturbations decay with
+cosmic expansion and are therefore neglected in our analysis. On the other hand, although
+the running of the gravitational coupling affects the friction term in the equation governing
+the propagation of gravitational waves and, consequently, their amplitude [119–124], their
+propagation speed,c gw, coincides with the speed of light [125, 126]. Therefore, the model
+satisfies the very stringent constraint onc gw,|c gw/c−1|<5·10 −16 atz∼0, reported
+by the LIGO-VIRGO Collaboration in [127]. Recently, measurements of the gravitational
+wave luminosity distances from the LIGO–Virgo–KAGRA Collaboration, together with the
+corresponding redshift inferred using two alternative indirect techniques (based on features
+in the mass spectrum and statistical host galaxy association) have already been employed
+to constrain modified gravity [128]. However, the resulting constraints are still quite loose
+compared to those derived from the cosmological probes used in this paper (see, e.g., Fig. 5
+in [129] for a comparison of the constraints obtained for the model withα <0). Future mea-
+surements with the gravitational-wave interferometer LISA might provide direct constraints
+on the evolution of the effective gravitational coupling out to redshiftsz∼ O(1–10) relative to
+its present-day value thanks to the detection of the signals with electromagnetic counterpart
+13One can see thatG eff eventually decreases again with ¯αfor sufficiently large values of this parameter,
+¯α≫1.
+14We note that for all these modelsρ DE →V 0 at sufficiently high redshift, with the value ofV 0 taken to be
+the same throughout this discussion.
+– 23 –
+=== PAGE 25 ===
+emitted by supermassive black hole mergers. These observations are expected to constrain
+the ratioG eff (z)/GN at the few-percent level [130, 131], providing further constraining power
+for the model under discussion.
+3 Methodology and data
+We have implemented the model inhi class[132–134] to solve the Einstein–Boltzmann
+equations governing the background and linear perturbations. This allows us to compute the
+theoretical quantities needed to establish the connection with observations. The correct func-
+tioning of our implementation inhi classhas been duly tested by comparing the background
+output with that obtained with our Python solver15 as well as with the background and linear
+perturbation solutions obtained from our own implementation of the model inCLASS 16. For
+a thorough analysis of the consistency ofhi classwith other Einstein-Boltzmann solvers
+for modified theories of gravity, we refer the reader to [135].
+We employ the following state-of-the-art cosmological data:
+•Cosmic Microwave Background (CMB):We usePlancktemperature (T), polarization
+(E) and cross (TE) power spectra [93]. We use theCommanderandsimalllikelihoods
+for low-ℓandNPIPE (PR4) CamSpechigh-ℓlikelihood [94, 95], as well as PR4 lensing
+[136].
+•Baryon Acoustic Oscillations (BAO):We use measurements of the BAO scale, i.e.
+transverse angular comovingD M , line-of-sightD H and angle-averagedD V distances
+relative to the sound horizonr d at redshifts 0.295≤z≤2.33 and their correlations
+from DESI DR2 as described in Table IV of [1].
+•Type Ia Supernovae (SNIa):We include distance modulus measurements from the
+recalibrated DES SNIa compilation Dovekie [90], which supersedes the previous DES-
+Y5 [91, 92].
+As discussed in Sec. 2.2, the cosmological evolution of the scalar field induces a time variation
+ofG eff on local scales in the absence of a screening mechanism, causing the gravitational
+strength experienced by SNIa to differ fromG N . This, of course, affects the standardization
+process of these objects by shifting their absolute luminositiesLand, hence, their absolute
+magnitudes,M. In order to account for the impact of the modification ofG eff , we follow [89]
+and study the influence of an unscreened fifth-force by modeling the luminosity asL∝G C
+17, which leads to the following correction in the absolute magnitude,
+M(G eff ) =M(G N )−2.5Clog 10
+ Geff
+GN
+
+.(3.1)
+We takeC= 1.46, as obtained in [89] from a linear fit to the relationL(G) derived in [88] (see
+the left panel of their Fig. 7). Forα <0, it makes little sense to consider this correction, since,
+as discussed above, the region of parameter space preferred by the cosmological data already
+violates the local constraints displayed in Sec. 2.2. Consequently, the viability of this model
+15The code is available athttps://github.com/Joel-Argudo/Modified-Gravity-Background-Solver.
+16The code is available athttps://github.com/Joel-Argudo/class_public.
+17See [86, 87] for older works that, instead of simulating the effect of a varying Chandrasekhar massM Ch ∼
+G−3/2 on the supernovae light curves to infer the impact of such a variation on the relationL(G), directly
+took for granted a concrete relation of the typeL∼G −γ withγ >0 of order unity.
+– 24 –
+=== PAGE 26 ===
+would require a screening mechanism, which is left unspecified in our study but is assumed
+to exist. In this setup, we just assume thatG eff =G N in the SNIa environment. Forα >0,
+instead, it is possible to satisfy the local constraints without relying on a screening mechanism.
+Nevertheless, there can still be deviations ofG eff fromG N in the local environments of SNIa
+at past redshifts. Thus, the shift in Eq. (3.1) could in principle play a role. However, we find
+that it is negligible, since in this setup|G eff /GN −1| ≪1 for allz. For the best-fit model, we
+find|G eff /GN −1| ∼0.2 % at most and, therefore, the induced shift in the absolute magnitude
+is much smaller than the uncertainties of the SNIa apparent magnitudes, as we will explicitly
+show in Sec. 4. Thus, also in this case, we can safely neglect this correction.
+We perform the Monte Carlo Markov Chain (MCMC) analysis using the standard
+Metropolis-Hastings [137, 138] algorithm fixing Gelman-Rubin [139] stopping criterionR−
+1 = 0.03 withCobaya[140] in two distinct scenarios:
+a)Non-minimal coupling withα <0: Initial conditions are set toφ ini = 0 andφ ′
+ini =
+0. As discussed in Sec. 2.3, consideringφ ini ̸= 0 does not lead to any appreciable
+differences for|¯α|>0.08, which is the region of parameter space preferred by the data.
+This is because ¯φ ini →0 before matter-radiation equality. Consequently, for these
+values of the coupling and in the realistic regime|¯α|¯φ 2
+ini ≪1, no significant features
+are imprinted on the observables used in this work to constrain the model. A more
+general approach would leave ¯φini free in the MCMC analysis. However, this procedure
+would not introduce any significant difference in our results and, in addition, would
+complicate the comparison with previous works in the literature, which made use of
+initial conditions closer to those employed in this work by us.
+b)Non minimal coupling withα >0satisfying local constraints, which we dub “α >0 +
+LC”: Initial conditions are set toφ ′
+ini = 0 andφ ini tuned to satisfy the boundary
+conditionφ(z= 0)∼0, which ensures all local gravitational constraints are fulfilled
+(see Sec. 2.2). However, instead of performing a shooting algorithm at each step of
+the Monte Carlo run, which would slow down the sampling,φ ini andH 0 are estimated
+using a cubic interpolation over a grid in the parameter space spanned byω b +ω cdm,
+α,β,V 0, and the corresponding values ofφ ini andH 018. The grid points used for the
+interpolation are themselves obtained using a shooting algorithm 19, and we perform
+the interpolation using theRegularGridInterpolatorclass from thescipyPython
+package. Using this procedure, we manage to keep ¯φ(z= 0) at theO(10 −5) level (cf.
+Table 1). For illustrative purposes, we show in Fig. 8 the interpolated value of ¯φ ini as
+a function of ¯αand ¯β, obtained by fixing sensible values for the remaining parameters.
+We usehalofitto include non-linearities [141, 142], assuming mild departures from GR
+and ΛCDM, as done in previous works (see, e.g., [6, 8, 18, 96]). A more rigorous approach
+should include modified gravity effects (see e.g. [143]). This is beyond the scope of this paper
+and is left for future work.
+18hi class, for the scalar-field potential and minimal coupling considered in this paper, takes as input
+the parameters (τ, ns, As, ωb, ωcdm, H0, α, β, φini) and uses a shooting algorithm to compute the value ofV 0
+required to reach the specified value ofH0. For the MCMC ofα >0+LC, we vary (τ, ns, As, ωb, ωcdm, V0, α, β),
+interpolateφ ini (so thatφ(z= 0)∼0) andH 0, and feed these values tohi class, treatingV 0 as an initial
+guess that is tuned to precisely match the value ofH 0. The use of the grid makes this recursive process
+extremely fast.
+19The file with the grid can be found inhttps://github.com/Joel-Argudo/phi_ini_grid.
+– 25 –
+=== PAGE 27 ===
+0.0 0.2 0.4 0.6 0.8 1.0
+̄α
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+̄β
+−9.1
+−8.1
+−7.1
+−6.1
+−5.1
+−4.1
+−3.1
+−2.1
+−1.1
+−0.1
+log10 ( ̄φini)
+Figure 8: Color plot of the initial value of the scalar field ¯φini required to fulfill the condition
+¯φ(z= 0)≈0, as a function of ¯αand ¯β, for the modelα >0 + LC. It is obtained from the grid
+interpolation described in Sec. 3. The remaining parameters are fixed to the mean values of
+Table 1.
+We adopt flat, sufficiently broad priors on the sampled parameters, i.e., we take them
+to be largely uninformative, much broader than the likelihood. Our Markov chains are pro-
+cessed and analyzed with the aid ofGetDist[144]. In addition to fitting the ΛCDM and
+non-minimally coupled models in the two configurations described above, we also consider
+the Chevallier-Polarski-Linder (CPL) parametrization, also known asw 0waCDM, of the DE
+EoS parameter,w DE(a) =w 0 +w a(1−a) [145, 146], which has been widely used to phe-
+nomenologically describe possible dynamics of the DE sector (see, e.g., [1, 62, 63]). It can
+mimic quite well the behavior encountered in freezing and thawing models of DE, while also
+allowing for a phenomenological description of scenarios involving a crossing of the phantom
+divide, either from phantom to quintessence – as preferred by current data in the absence
+of new physics before recombination, which is required to accommodate the data when the
+distance-ladder calibration from SH0ES [147] is taken into account [5, 63, 66] – or vice versa.
+We use the CPL parametrization as a baseline model, as is commonly done in the literature.
+We assess the goodness of fit of each model with the minimum chi-squareχ 2
+min =
+−2 logLmax, whereL max is the maximum likelihood. We note, however, that the model with
+non-minimal coupling withα <0 has two more parameters than ΛCDM (namely,αand
+β)20. In the MCMC analysis of theα >0+LC model, we vary exactly the same number
+of parameters as in theα <0 scenario. One could therefore conclude that, also in this
+case, the model has two additional parameters relative to ΛCDM. However, this parameter
+counting is partly a consequence of the sampling strategy adopted to explore the parameter
+space efficiently. In principle, one could instead allowφ ini to vary freely in the MCMC
+and include the contribution of the local constraints described in Sec. 2.2 directly in the
+likelihood. Treatingφ ini as an additional free parameter on top ofαandβwould, however,
+be computationally prohibitive, since the resulting likelihood would be non-negligible only
+within an extremely narrow region of parameter space. For this reason, we adopt the grid
+method described above, which effectively fixesφ ini as a function of the other parameters
+20This is also the case of CPL, which includesw 0 andw a on top of the ΛCDM parameters.
+– 26 –
+=== PAGE 28 ===
+entering the fit. This procedure automatically restricts the sampling to the narrow region of
+parameter space compatible with the local constraints. Althoughφ ini is not varied freely in
+the MCMC analysis, it could nevertheless be regarded as an effective degree of freedom that
+is tuned to satisfy these constraints at each step of the Monte Carlo. From a conservative
+perspective, we could therefore treatφ ini as an additional parameter and assign three extra
+degrees of freedom to theα >0+LC model relative to ΛCDM, rather than two. For the sake
+of generality, for theα >0+LC model we provide the results under both parameter-counting
+prescriptions.
+In any case, it is important to bear in mind the presence of additional parameters when
+performing the model comparison in order to properly penalize overfitting. To compare
+the fitting performance of models with a different number of parametersn p we employ two
+different methods. First, we use the Akaike information criterion (AIC) [148], which for the
+large number of data points considered in this study is simply defined as
+AIC =χ 2
+min + 2np .(3.2)
+More concretely, we define the relative AIC difference of modeliand the ΛCDM, i.e., ∆AIC≡
+AICΛCDM −AICi. The ΛCDM model is naturally taken as a benchmark. A positive difference
+∆AIC is obtained if the penalization factor 2n p that accounts for the use of additional
+parameters in modeliis successfully compensated by a lowerχ 2
+min. Hence, such positive
+differences are encountered when modeliperforms better than the standard model even
+after applying Occam’s razor. Values 2≤∆AIC<6 are usually considered to showpositive
+evidenceaccording to Jeffreys’ scale [149–151]. Values ∆AIC<2 entail onlyweak evidencefor
+modeli; values in the range 6≤∆AIC<10 indicatestrong evidence, whereas values ∆AIC>
+10 point to avery strongstatistical evidence for the modelicompared to ΛCDM. Although,
+strictly speaking, AIC differences cannot be interpreted universally through Jeffreys’ scale
+(see [63, 152] for details), it can work in many situations as a good approximation. It can be
+considered a proxy of two times the natural logarithm of the Bayes factor, and it is insensitive
+to the choice of priors, as long as they are much wider than the likelihood21. This is a welcome
+feature when theoretical considerations or observational data (beyond those considered in our
+fitting analysis) are vague in setting robust prior boundaries in parameter space, as it might
+be in the model under study.
+Second, we employ the likelihood-ratio test [157] for model comparison, in order to as-
+sess whether it leads to the same conclusions as the AIC, thereby providing an independent
+consistency check. By Wilks’ theorem [158], the distribution of the difference between mini-
+mumχ 2 values of modeliand ΛCDM is aχ 2
+ν withν=n p,i −n p,ΛCDM degrees of freedom. We
+first compute thep-value associated with the value of ∆χ 2 =χ 2
+min,ΛCDM −χ 2
+min,i obtained in
+our fitting analysis. Then, we determine the confidence level at which we can reject the null
+hypothesis – which in our case is the validity of ΛCDM – and finally translate thesep-values
+into a number of sigmas,ξ, by solving the equation
+p−value = 1− 1√
+2π
+Z ξ
+−ξ
+e−y2/2dy .(3.3)
+21More rigorous methods, such as the Frequentist-Bayesian approach described in [153–155] and recently
+applied in [63, 156], are also largely insensitive to broad priors and do not rely on the validity of Jeffreys’ scale.
+However, they require simulations and can be computationally very expensive in the presence of strong non-
+Gaussianities in the posterior distributions or when the full CMB likelihood is considered, as in the present
+study. This is why we opt to stick to AIC here.
+– 27 –
+=== PAGE 29 ===
+66 67 68
+H0
+0.30
+0.31
+0.32
+0.33
+0
+m
+0.6
+0.7
+0
+V0
+0
+4
+8
+2
+0
+2
+ 0
+ 0 4 8
+ 0.6 0.7
+0
+V0
+0.30 0.32
+0
+m
+< 0
+> 0 + LC
+CDM
+Figure 9: Triangle plot showing the 68% and 95% CL marginalized constraints in some of
+the most relevant planes of both models with non-minimal coupling and ΛCDM.H 0 is given
+in km/s/Mpc.
+This is a fairly standard approach, recently adopted, for instance, by the DESI collabora-
+tion in their cosmological analysis [1]. We define the exclusion level of the standard model
+(relative to the considered modeli) asE ΛCDM ≡ξ×σ. As will become apparent in the
+next section, both the AIC andE ΛCDM lead to fully consistent interpretations of the results,
+thereby reinforcing the main conclusions of our work. We remark, however, that Wilks’ the-
+orem assumes a well-behaved quadratic expansion in lnL(i.e., no significant deviations from
+Gaussianity) and a parameter space such that it does not reduce to the null hypothesis at
+the boundary. This is not satisfied in our setup (cf. Fig. 9), so the values obtained should
+be interpreted with caution as estimates of the true value 22.
+4 Results and discussion
+In Table 1, we show the parameter constraints obtained for the various models from the
+corresponding MCMC analyses, following the pipeline described in the previous section. In
+Fig. 9, we display the one- and two-dimensional marginalized posteriors for some of the
+most relevant parameters of the non-minimally coupled model, whereas in Figs. 10-12 we
+reconstruct several cosmological functions of interest, which will help us interpret the results
+and facilitate the discussion.
+Let us start the discussion of the results obtained for the model with non-minimal
+coupling andα <0. We obtain a value ofχ 2
+min that is roughly 9 units below that found for
+22Again, a more detailed estimation ofE ΛCDM would require very time-consuming simulations, which we
+avoid in this work.
+– 28 –
+=== PAGE 30 ===
+Parameter ΛCDM CPL NMC(α <0)NMC(α >0 +LC)
+H0 [km s−1 Mpc−1] 68.07±0.28 67.33±0.54 66.71 +0.40
+−0.56 67.49+0.53
+−0.40
+102ωb 2.230±0.012 2.222±0.012 2.233±0.012 2.230±0.012
+10ωcdm 1.178±0.006 1.190±0.008 1.175±0.006 1.181±0.006
+ln(1010As) 3.046+0.013
+−0.015 3.036±0.014 3.041±0.014 3.046±0.014
+ns 0.967±0.003 0.965±0.004 0.968±0.003 0.969±0.003
+τreio 0.058+0.006
+−0.007 0.053±0.007 0.056±0.007 0.059±0.007
+w0 − −0.811±0.054− −
+wa − −0.70±0.21− −
+¯α − − −1.59 +0.84
+−0.25 0.499+0.07
+−0.37
+¯β − −4.2±1.3 1.30 +0.55
+−0.39
+Ω0m 0.304±0.004 0.313±0.005 0.316 +0.006
+−0.005 0.310+0.004
+−0.006
+rd [Mpc] 147.76±0.19 147.54±0.21 147.82±0.19 147.71±0.19
+σ12(z= 0) 0.794±0.006 0.801±0.007 0.802±0.007 0.797±0.006
+S8 0.811±0.008 0.824±0.009 0.823±0.010 0.816±0.009
+¯φc(z= 0) − − −0.28 +0.15
+−0.12
+  −2.5+5.1
+−2.5
+ ·10 −5
+˙¯φc(z= 0) yr−1 − −   −8.1+6.3
+−3.3
+ ·10 −19   −6.2+2.2
+−2.9
+ ·10 −19
+Ω0
+V0 0.696±0.004 0.683±0.005 0.668 +0.038
+−0.020 0.674+0.019
+−0.011˙Geff
+Geff (z= 0) yr−1 0 0   3.8+1.3
+−2.9
+ ·10 −11   0.496+0.08
+−0.70
+ ·10 −15
+Geff
+GN (z= 0) 1 1 1.33 +0.11
+−0.20 1.000001±0.000017
+γPPN −1 0 0−0.274 +0.055
+−0.097 (−0.4±5.1 )·10 −5
+βPPN −1 0 0 0.050 +0.009
+−0.031 (−0.3±3.9 )·10 −5
+χ2
+min 12622.30 12611.22 12613.51 12615.45
+∆AIC −7.08 4.79 2.85 (0.85)
+p−value −0.00393 0.0124 0.0326 (0.0769)
+EΛCDM −2.88σ2.50σ2.14σ(1.77σ)
+T able 1: Mean and 68% CL values for the main cosmological parameters left free in the
+MCMC runs (upper panel) and the most important derived parameters (middle panel), in-
+cluding those that parameterize the local deviations with respect to GR atz= 0. The
+acronym NMC refers to the model with non-minimal coupling studied in this paper. In the
+lowest panel, we display the values of the statistical quantities employed to assess the relative
+fitting performance of the models, which we duly discuss in Sec. 4. Forα >0+LC, we display
+∆AIC,p-value andE ΛCDM considering 2 extra parameters, and, in parentheses, considering
+φini as an additional degree of freedom. We refer the reader to Sec. 3 for technical details on
+the definition and use of these indicators.
+ΛCDM, indicating that the model provides a non-negligible improvement in the description
+of the data relative to the standard model.
+We remark once again that this model is unable to produce a crossing of the phantom
+divide close to that preferred by the data without strongly violating the local constraints,
+given in Eqs. (2.26), (2.27), and (2.29). This is apparent from the posterior constraints on
+the locally measured value of the gravitational coupling and its time derivative, as well as on
+the PPN parameters. Hence, this model is viable only in the presence of a screening mech-
+anism capable of rendering deviations from GR sufficiently small locally. The cosmological
+analysis of the negative-αscenario therefore makes sense only if such a screening mechanism
+– 29 –
+=== PAGE 31 ===
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+1.0
+1.1
+1.2
+1.3
+1.4
+1.5
+1.6
+1.7
+Geff
+GN
+95% CL
+68% CL
+Mean
+Best fit
+GR (G = GN)
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Geff
+Geff
+ [yr 1]
+1e 10
+95% CL
+68% CL
+Mean
+Best fit
+GR (G = GN)
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+1.3
+1.2
+1.1
+1.0
+0.9
+0.8
+wDE
+95% CL
+68% CL
+Mean
+Best fit
+CDM
+CPL best fit
+< 0
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+0.996
+0.998
+1.000
+1.002
+1.004
+1.006
+Geff
+GN
+95% CL
+68% CL
+Mean
+Best fit
+GR (G = GN)
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+8
+6
+4
+2
+0
+2
+4
+6
+Geff
+Geff
+ [yr 1]
+1e 13
+95% CL
+68% CL
+Mean
+Best fit
+GR (G = GN)
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+1.3
+1.2
+1.1
+1.0
+0.9
+wDE
+95% CL
+68% CL
+Mean
+Best fit
+CDM
+CPL best fit
+> 0 + LC
+Figure 10:Upper plots:68% and 95% CL bands forG eff (z)/GN , ˙Geff (z)/Geff (z) andw DE(z),
+respectively, obtained withα <0. The corresponding best-fit curves are displayed as black
+dashed lines, while those for ΛCDM are displayed as gray dashed lines. In the third column,
+we also include the best-fit curve for CPL.Lower plots:Same forα >0+LC. Note that the
+scale of ˙Geff /Geff (i.e., 10 −13 yr−1) is chosen for visualization purposes. It is not indicative
+of its value atz= 0, where this ratio is of order 10 −15 yr−1, in full agreement with the local
+constraint (2.29), as displayed in Table 1.
+is assumed. In this setup, our constraints onG eff and ˙Geff /Geff must be interpreted as being
+of cosmological nature, affecting the clustering of matter on cosmic linear scales through Eq.
+(2.79), while leaving the physics of the Solar System untouched. The upper panel of Fig. 10
+shows the evolution of these quantities as a function of redshift. The modified-gravity effects
+are switched off atz≫1 because the scalar field is frozen – we have thawing gravity. In the
+late Universe, however, the CMB+BAO+SNIa data set allows for very significant departures
+from GR at present, with the effective gravitational strength increasing monotonically with
+the expansion and being allowed to deviate by as much as∼70% at the 95% CL. This has, of
+course, an impact on the observablef σ8(z), which can be measured from peculiar velocities
+at low redshifts and, over a broader redshift range, through the analysis of redshift-space
+distortions in galaxy surveys. Here,f(z) =dlnδ m/dlnais the growth rate, whileσ 8 is the
+root-mean-square matter fluctuation at the scaleR 8 = 8/hMpc. In the rightmost panel
+of Fig. 11, we display the best-fit curves of the functionf σ 12(z) for the various models,
+where the smoothing scale is set toR 12 = 12 Mpc, making the quantity insensitive to the
+value ofh. This allows us to compare all the models on equal footing, considering their
+effect on the same scale range; see Refs. [159, 160] for details. It is clear from the plot that
+the best-fit model withα <0 leads to substantially larger values off σ 12(z) belowz∼0.5
+than the other models, and in particular than ΛCDM. This exacerbates the tension with
+the clustering data already present in the standard model [54, 79, 161–167], as evidenced
+– 30 –
+=== PAGE 32 ===
+0.0 0.2 0.4 0.6 0.8 1.0 1.2 1.4
+z
+0.5
+0.6
+0.7
+0.8
+0.9
+f(z)
+CDM
+CPL
+< 0
+> 0 + LC
+0.0 0.2 0.4 0.6 0.8 1.0 1.2 1.4
+z
+0.4
+0.5
+0.6
+0.7
+0.812(z)
+CDM
+CPL
+< 0
+> 0 + LC
+0.0 0.2 0.4 0.6 0.8 1.0 1.2 1.4
+z
+0.2
+0.3
+0.4
+0.5
+0.6
+f 12(z)
+CDM
+CPL
+< 0
+> 0 + LC
+Figure 11: Growth ratef=dlnδ m/dlna, variance of mass fluctuationsσ 12 at scaleR 12 =
+12 Mpc andf σ12 as a function of redshift for the best fits of the four models under study.
+We have computed the functions at a scalek= 0.05 Mpc −1, which lies well within the linear
+regime covered by galaxy surveys, and have explicitly checked that the result is stable along
+several linear scales. In the rightmost plot, we also display the points from ALF ALF A [172],
+6dFGS+SDSS [173], GAMA [174, 175], WiggleZ [176], DR12 BOSS [177], VIPERS [178],
+VVDS [179, 180], FastSound [181], eBOSS Quasar [182], DESI DR1 ShapeFit [168] and
+Stiskalek [183].
+by the fact that most of the data points in the figure lie below the theoretical curves at
+those low redshifts, with the only exception being the recent DESI DR1 measurement [168].
+These findings are fully consistent with the conclusions reached in [18, 96]. However, we
+identify here that the origin of this enhancement does not lie in a substantially larger am-
+plitude of the matter fluctuations, as theσ 12 curve is very close to those obtained for the
+other models (see the values in Table 1), being strongly constrained by the CMB. Rather,
+it is driven by an increase in the growth rate at low redshifts, which controls the rate of
+structure formation in the Universe (cf. the leftmost and central plots in Fig. 11). Since
+the amount of clustering in the past is not significantly enhanced compared to ΛCDM, the
+weak-lensing observableS 8 =σ 8(z= 0)(Ω 0
+m/0.3)0.5 remains only slightly higher than in the
+standard model. It is compatible with the measurement from the Kilo Degree Survey (KiDS),
+S8 = 0.815 +0.016
+−0.021 [169], although it is still∼1.8σhigher than the value measured by DES
+[170],S 8 = 0.775+0.026
+−0.024, and∼1.5σhigher than that measured by the Hyper Suprime-Cam
+[171],S 8 = 0.763+0.040
+−0.036. These differences, though, are not statistically significant.
+In any case, the fitting performance found for this model is consistent with the shape
+ofw DE(z) displayed in the rightmost panel of Fig. 10. The model is able to reproduce the
+crossing of the phantom divide, which happens to be in the ballpark ofz= 0.5, as well as the
+large values of the effective DE EoS parameter in the quintessence region at low redshifts 23,
+as preferred by the CPL parametrization and model-agnostic reconstructions (see, e.g., [63]).
+However, it is somewhat unable to produce sufficiently phantom behavior before the crossing,
+most probably because we consider a vanishing mass term for the scalar field. This limits
+the ability of the model to achieve an even stronger exclusion of ΛCDM [96].
+We emphasize that our data set differs from that employed in [96] in three main respects:
+(i) we employ different Planck CMB likelihoods; (ii) we adopt a more conservative approach
+23The mean value of|¯α|is close to unity, while the mean value of ¯βis somewhat larger, with ¯β∼4 being
+preferred (cf. Table 1). This is expected to yield the desired level of quintessence-like behavior, as can be seen
+from Eq. (2.65).
+– 31 –
+=== PAGE 33 ===
+0.0 0.5 1.0 1.5 2.0 2.5 3.0
+z
+0.000
+0.025
+0.050
+0.075
+0.100
+0.125
+0.150
+0.175
+ 95% CL
+68% CL
+Mean
+> 0 + LC
+0 1 2 3 4 5
+log10(1 + z)
+0.000
+0.025
+0.050
+0.075
+0.100
+0.125
+0.150
+0.175
+ 95% CL
+68% CL
+Mean
+> 0 + LC
+Figure 12:Left plot:Same as Fig. 10, but for ¯φ, in the same redshift range. The redshift
+zm at which the scalar field reaches its maximum is consistent with Fig. 5, given the range
+of values of ¯αand ¯βpreferred by the data (cf. Table 1);Right plot:Here, we simply extend
+the redshift range of the left plot to encompass a substantial fraction of the RDE.
+and do not include the ACT DR6 CMB lensing data; and (iii) we consider a massless scalar
+field, whereas these authors include a mass term in the scalar-field potential. These differences
+explain why, after properly penalizing the use of additional parameters, we find a somewhat
+weaker statistical improvement over the standard model than that reported in [96]. We find
+that ΛCDM can be excluded at 2.50σCL, with ∆AIC = 4.79, indicating positive evidence
+in favor of the dynamical dark energy model under consideration. In contrast, the authors
+of [96] found a Bayes ratio that lies slightly within the strong-evidence regime.
+We now turn to the results obtained with theα >0+LC model, for which a crossing of
+the phantom divide is also possible and the local constraints can be satisfied without invoking
+any screening mechanism, at the expense of a considerable degree of fine-tuning of the initial
+conditions deep in the RDE (see also [85]). In this case,χ 2
+min decreases by∼7 units with
+respect to ΛCDM, resulting in a milder exclusion of the standard model at the 2.14σCL
+and in a consistently smaller difference in the Akaike information criterion, ∆AIC = 2.85.
+This estimate assumes that the model has two additional parameters compared to ΛCDM.
+In a more conservative analysis, in which the model is considered to have three additional
+parameters (see the details in Sec. 3), ∆AIC decreases to 0.85, whileE ΛCDM = 1.77σ. The
+evidence in favor of theα >0+LC model can therefore be considered weak, or at most
+mildly positive in the light of the Occam’s razor. We can understand why by looking at the
+shape ofw DE(z) in Fig. 10. The model is able to produce a much more pronounced phantom
+evolution prior to the crossing, withw DE reaching values as low as−1.2 or even−1.3 in some
+cases24. However, the quintessence phase is considerably more modest than required by the
+data. In other words, theα >0+LC model provides a better description of the phantom
+phase, but it is accompanied by a poorer description of the quintessence phase. Since the
+latter occurs over the redshift range where the data are more abundant, this ultimately leads
+24The existence of this phantom phase is necessary to reproduce the distance to the LSS measured by Planck
+in models with standard pre-recombination physics, such as the one studied in this work – note that the values
+of the comoving sound horizon at the baryon-drag epoch,r d, are fully compatible with those obtained with
+ΛCDM, regardless of the sign ofα(cf. Table 1). Without it, this distance would be altered by the excess of
+DE at low redshift relative to ΛCDM. As explained in Sec. 2.3, in the case of the model withα >0+LC, this
+phase is possible thanks to the existence of a peak in ¯φ(z). For illustrative purposes, we show its reconstructed
+shape in Fig. 12.
+– 32 –
+=== PAGE 34 ===
+0.0 0.2 0.4 0.6 0.8 1.0
+z
+0.01
+0.00
+0.01
+0.02
+0.03
+M/ ( )
+68% band
+Mean
+Figure 13: Change in the absolute magnitude induced byG eff (z)/GN from Eq. (3.1) with
+respect to the uncertainties from the DES-Dovekie sample. We compute the reconstructed
+∆M≡M(G eff )−M(G N ) from Eq. (3.1) and evaluate the ratio ∆M/σ(µ) at the SNIa
+redshifts, whereσ 2(µ) =C ii from the covariance matrix. For ease of visualization, we plot
+this function using a linear interpolation between points.
+to a less significant improvement in the overall fit compared to the model withα <0.
+In theα >0+LC scenario, we findG eff /GN and ˙Geff /Geff curves with both concave
+and convex shapes, which make the uncertainty bands span regions above and below the GR
+values (see the lower panels of Fig. 10). The reason behind this dual behavior is the posterior
+mean value of ¯α∼0.5 (cf. Table 1). As discussed in Sec. 2.2, this is precisely the frontier
+value that, in the expansion of Eq. (2.25), determines whetherG eff is greater or smaller
+thanG N , and also controls the sign of its time derivative. Interestingly, the data require
+departures from GR to remain small even at high redshifts. Indeed,G eff deviates fromG N
+by no more than∼0.3%, with an extremum occurring aroundz∼1. For the best-fit model,
+we find only a mild increase off σ 12(z) compared to the ΛCDM, which is partially induced
+by the larger fraction of non-relativistic matter in the universe found within this model.
+However, this enhancement is much smaller than the one found withα <0. Regarding the
+weak-lensing observableS 8, both models yield similar predictions.
+Since this model does not assume the existence of a screening mechanism at local scales,
+it is natural to ask whether these small deviations ofG eff fromG N can affect the SNIa
+likelihood by shifting the effective absolute magnitude of SNIa (see Eq. (3.1) and the related
+discussion in Sec. 3). To check whether this is indeed the case, we plot in Fig. 13 the
+correction to the absolute magnitude of the SNIa in the DES-Dovekie sample induced by
+modified-gravity effects, normalized by the corresponding uncertainties in their apparent
+magnitudes. This function grows with redshift, while its mean remains below 0.5% at all
+redshifts, with deviations reaching at most∼3% at the 2σCL. Hence, for the small deviations
+ofG eff fromG N allowed by the data in the context of theα >0+LC model, these corrections
+are tiny and can be safely neglected to an excellent approximation. We note, however, that
+these effects could play an important role in other modified-gravity models that predict larger
+deviations at local scales. A self-consistent analysis of such models using SNIa data must
+therefore account for these effects.
+– 33 –
+=== PAGE 35 ===
+It is also natural to compare the fitting performance of the two models with non-minimal
+coupling with that offered by the CPL parametrization. The latter provides the best fit
+to the data and is the only dynamical DE model studied in this paper that is strongly
+favored over ΛCDM according to the AIC, with ∆AIC = 7.08. Therefore, despite the use
+of the recalibrated DES-Dovekie sample, the signal for dynamical dark energy in the CPL
+framework remains strong according to Jeffreys’ scale, and the standard model is excluded
+at∼2.9σCL. Our results for this model are in agreement with [90, 96] 25.
+It is important to bear in mind that CPL is a phenomenological parametrization of the
+DE EoS parameter, while the other two are derived from an action and offer a microphysical
+description of DE in terms of a non-minimally coupled scalar field. However, it is also worth
+noting that the good performance of the model withα <0 relies on a screening mechanism,
+whose existence and plausibility remain to be established. By contrast, the model with
+α >0+LC, despite not requiring any screening, leads to a poorer fit and is subject to a high
+degree of fine tuning. The initial value of the scalar field must be finely tuned to sufficiently
+small values to prevent values of ¯αof order unity from driving the field to exceedingly large
+values and thereby inducing an excessively large departure from GR (see the left plot of Fig.
+4, and Fig. 8).
+We also note that the various late-time dynamical DE models studied in this work
+yield values of the Hubble constant that are in strong tension with the local distance-ladder
+measurement from the SH0ES Team [147]. This is not unexpected, since it is by now well
+established that late-time DE dynamics alone cannot provide a viable resolution to the Hubble
+tension (see, e.g., [62, 63, 185–193]), at least when anisotropic BAO data are included in the
+fitting analysis26. In fact, model-agnostic studies incorporating BAO and SNIa data, together
+with the SH0ES calibration and a prior on the CMB acoustic scale, indicate that resolving
+the Hubble tension while providing a good fit to the low-zdata requires not only new physics
+before recombination, but also a very large value ofω m = Ω0
+mh2 (i.e., an anomalously high
+matter energy density at low redshifts), larger than those typically obtained in early DE
+models. These analyses further indicate that, in the light of the Hubble tension, crossing
+the phantom divide in the late Universe is not necessary, although there may still be some
+non-null preference for quintessence [5, 63, 66]. Therefore, the inclusion of the Hubble tension
+into the discussion can have a very important impact on the results. We state this explicitly
+to emphasize that, if the Hubble tension persists in the future, our results, as well as those
+of previous analyses, e.g., those in [6, 18], will need to be revisited.
+5 Conclusions
+The increasing amount and constraining power of cosmological data has set the stage for
+exploring the phenomenological properties of dark energy, with the hope of achieving a the-
+oretical understanding of the dark sector. One of the most basic and fundamental questions
+regarding the nature of dark energy is whether its associated energy density evolves with the
+cosmic expansion, in contrast to the immutable energy density of the cosmological constant
+that underlies the standard model of cosmology. Hints of dark energy dynamics have emerged
+25See also [184] for recent results obtained with the Supernovae Unite compilation, which combines in a
+consistent way the SNIa from the Pantheon+ and DES-SN5YR samples. These data are not yet publicly
+available.
+26Angular (or 2D) BAO are in strong tension with anisotropic BAO data, as quantified in [194–196]. Data
+on 2D BAO still leave room for a late-time resolution of the Hubble tension. See, e.g., [3, 10, 190, 197–199].
+– 34 –
+=== PAGE 36 ===
+intermittently over the last decade, after the advent of Planck and well before DESI (see,
+e.g., [9, 10, 185, 200–207]), often sparked by the numerous anomalies and tensions between
+the data and ΛCDM [208, 209]. Recently, the BAO observations from DESI, together with
+data from several SNIa teams and CMB collaborations, have provided new insights into the
+dark energy puzzle, pointing to the possibility that the effective dark energy density crossed
+the phantom divide, with a transition from phantom- to quintessence-like behavior occurring
+atz∼0.5 [1].
+Scalar fields non-minimally coupled to gravity stand as compelling candidates arising
+naturally from a scalar-tensor approach to modified gravity. In this work, we have studied
+the case of a non-minimal coupling of the formF(φ) = 1 +αφ 2 and a linear potential in the
+action (1.1). We have presented a detailed study of the analytical solutions to the background
+equations in the|α|φ 2 ≪1 limit, closing a gap that has been overlooked in the literature,
+to the best of our knowledge. In this manner, we have also justified our choice of initial
+conditions. Regardless of the sign ofα, these models manage to reproduce a phantom crossing
+close to that required to fully alleviate the BAO-CMB distance tension within ΛCDM. We
+have emphasized that in the extensively studiedα <0 case, this is achieved at the expense
+of violating stringent local constraints or invoking a screening mechanism that is absent from
+the action formulation of the model. Even if such a screening mechanism existed, the model
+would produce large-scale structure at a higher rate than is seemingly preferred by current
+data from redshift-space distortions and peculiar velocities. Future galaxy survey data below
+redshiftz∼1 will be decisive in further scrutinizing the viability of this model. Of particular
+interest will be the analysis of this model using upcoming data releases from DESI [210] and
+Euclid [211]. At present, in light of the CMB+SNIa+BAO data set employed in this work,
+we find positive evidence in its favor, with ΛCDM excluded at the 2.50σCL.
+In contrast, our results withα >0 show that a scalar-tensor theory compatible with
+both cosmological and Solar System observations is physically viable without requiring a
+screening mechanism. As a result, we manage to keep the action simpler – i.e., we are
+not forced to add higher-order derivatives or additional couplings that have to be carefully
+chosen to suppress the fifth-force effects at local scales. This comes at the price of fine-
+tuning the initial value of the scalar field, so there is a trade-off between the two approaches.
+Nonetheless, one may argue that for each combination of parameters we simply choose the
+only trajectory that is compatible with observations. Of course, a more satisfactory answer
+would involve constructing a physically-motivated mechanism to justify the scalar field initial
+conditions and the corresponding values of the model parameters,αandβ. This is beyond the
+scope of this paper, although we have argued that small values of the scalar field deep in the
+radiation-dominated epoch could arise from a spontaneous symmetry-breaking mechanism in
+which the effective potential has a minimum at the origin prior to symmetry breaking. The
+model withα >0+LC is only weakly preferred over the standard model, at∼2σCL.
+In view of the results obtained in this paper, we deem it prudent to temper our en-
+thusiasm regarding the performance of these models, not only because of the various issues
+affecting them and the moderate statistical evidence in their favor, but also because the
+inclusion of the Hubble tension in the analysis could prove to be a game-changer.
+Finally, let us briefly discuss some possible directions for future research. This work can
+be extended and improved in several ways. For instance, modified-gravity effects could be
+incorporated into the computation of non-linear corrections to the matter power spectrum,
+with a possible impact on the CMB lensing, while large-scale structure data could be included
+to obtain tighter constraints. Concrete screening mechanisms could also be investigated,
+– 35 –
+=== PAGE 37 ===
+including for the caseα >0, where they could help alleviate the fine-tuning. Additionally,
+mapping the non-minimally coupled model onto an interacting DM-DE scenario could be of
+interest, as screening would not be necessary in this case either. Another interesting avenue
+would be to study the Hubble tension in the context of these models, as well as their interplay
+with new physics prior to recombination. We leave some of these investigations for future
+work.
+Acknowledgments
+JAP is supported by grant FPU25/00603 and AGF by grant FPU24/01241, both from the
+Spanish Ministry of Science, Innovation and Universities (MICIU). AGV is funded by a
+Ram´ on y Cajal contract from MICIU with Ref. RYC2024-049138-I, and is also supported
+by projects PID2022-136224NB-C21 (MICIU), 2021-SGR-00249 (Generalitat de Catalunya)
+and CEX2024-001451-M (ICCUB). He also acknowledges the funding from “la Caixa” Foun-
+dation (ID 100010434) and the European Union’s Horizon 2020 research and innovation
+programme under the Marie Sk lodowska-Curie grant agreement No. 847648, with fellow-
+ship code LCF/BQ/PI23/11970027. AGF and AGV acknowledge the participation in the
+COST Action CA21136 “Addressing observational tensions in cosmology with systematics
+and fundamental physics” (CosmoVerse).
+A Geometrical quantities to first order in perturbations
+The Christoffel symbols, Ricci tensor, Ricci scalar and Einstein tensor to first order in the
+perturbed metrich µν (2.10) read, respectively:
+Γα
+βκ(h) = ηαµ
+2 (hµβ,κ +h µκ,β −h βκ,µ),(A.1)
+Rµν(h) = 1
+2
+h
+∂α∂νhαµ +∂ α∂µhαν −∂ µ∂νh−η αβ∂α∂βhµν
+i
+,(A.2)
+R(h) =∂ α∂µhαµ −η αµ∂α∂µh ,(A.3)
+Gµν(h) = 1
+2
+h
+∂α∂νhαµ +∂ α∂µhαν −∂ µ∂νh−η αβ∂α∂βhµν +η µν(ηαβ∂α∂βh−∂ α∂βhαβ)
+i
+,
+(A.4)
+withh≡η µνhµν.
+B Approximate solutions for the scalar field during radiation and matter
+domination
+In this appendix, we provide all the details of the calculation of the approximate analytical
+solutions for the scalar field during the RDE and MDE discussed in Sec. 2.3, in the limit in
+which|¯α|¯φ2 ≪1, which ensures that the non-minimal couplingFis close to unity.
+RDE
+In that limit, we find that during the RDE the scale factor and Hubble function read
+– 36 –
+=== PAGE 38 ===
+a(t) =C
+√
+tandH(t) = 1
+2t (B.1)
+in very good approximation, withC≡
+  4
+3 κ2ρ0
+r
+1/4. Substituting these functions in the KG
+equation (2.34) and neglecting the effect of the scalar-field potential term we find,
+¨φ+3
+2t φ− Aφ
+t3/2 = 0,withA≡αρ 0
+mC−3 .(B.2)
+We perform now the change of variables{t, φ} → {x, y},
+t=x r ;φ=x py ,(B.3)
+whererandpare real numbers. Under this change, Eq. (B.2) takes the following form,
+x2 d2y
+dx2 +x dy
+dx
+h
+1 + 2p+ r
+2
+i
++y
+h
+p2 + pr
+2 −Ar 2xr/2
+i
+= 0,(B.4)
+which is not that far from a Bessel-type differential equation. Indeed, if we setr= 4 and
+p=−1, it further simplifies,
+x2 d2y
+dx2 +x dy
+dx −
+
+1 + 16Ax2
+y= 0,(B.5)
+and now it is clear that we just need to definez≡4
+√
+A xifα >0 (A >0) orz≡4
+p
+|A|xif
+α <0 (A <0) to finally obtain,
+z2 d2y
+dz2 +z dy
+dz −
+
+z2 + 1
+
+y= 0 forα >0,(B.6)
+z2 d2y
+dz2 +z dy
+dz +
+
+z2 −1
+
+y= 0 forα <0,(B.7)
+These equations are the modified and standard Bessel differential equations, respectively.
+The solution to the former is expressed in terms of the modified Bessel functions of the first
+and second kind of order one,I 1(z) andK 1(z), whereas the solution to the latter is expressed
+in terms of the Bessel functions of the first and second kind of order one,J 1(z) andY 1(z).
+Therefore, by undoing the changes of variables and expressing the result in terms of the scale
+factor, we have
+φ(a)
+
+RDE
+(a) = 1√a
+"
+c0I1
+ 
+2√a
+s
+3 ¯αΩ0m
+Ω0r
+!
++c 1K1
+ 
+2√a
+s
+3 ¯αΩ0m
+Ω0r
+!#
+forα >0,(B.8)
+φ(a)
+
+RDE
+(a) = 1√a
+"
+˜c0J1
+ 
+2√a
+s
+3 ¯αΩ0m
+Ω0r
+!
++ ˜c1Y1
+ 
+2√a
+s
+3 ¯αΩ0m
+Ω0r
+!#
+forα <0,(B.9)
+where{c 0, c1,˜c0,˜c1}are integration constants to be fixed by the initial conditions. Here, we
+recall the form of the Bessel functions,
+I1(z) = z
+2 + z3
+22 ·4 + z5
+22 ·4 2 ·6 + z7
+22 ·4 2 ·6 2 ·8 +... ,(B.10)
+– 37 –
+=== PAGE 39 ===
+K1(z) =I 1(z)
+Z dz
+zI 2
+1 (z) ,(B.11)
+and
+J1(x) = x
+2 − x3
+22 ·4 + x5
+22 ·4 2 ·6 − x7
+22 ·4 2 ·6 2 ·8 +... ,(B.12)
+Y1(z) =J 1(z)
+Z dz
+zJ 2
+1 (z) .(B.13)
+The terms proportional toK 1(z) andY 1(z) in Eqs. (B.8) and (B.9) are associated to decaying
+modes and can be neglected, since we assume that the initial conditions are set when they
+are already very small. Hence, we find,
+φ(a)
+
+RDE
+= φini√a
+s
+Ω0r
+3 ¯αΩ0m
+I1
+ 
+2√a
+s
+3 ¯αΩ0m
+Ω0r
+!
+forα >0,(B.14)
+φ(a)
+
+RDE
+= φini√a
+s
+Ω0r
+3|¯α|Ω0m
+J1
+ 
+2√a
+s
+3|¯α|Ω0m
+Ω0r
+!
+forα <0.(B.15)
+MDE
+In the MDE, instead, if|¯α|φ 2 ≪1 the background evolution is governed by the following
+scale factor and Hubble function,
+a(t) =Dt 2/3 ;H(t) = 2
+3t ,(B.16)
+withD≡
+  3
+4 κ2ρ0
+m
+1/3. Again, we can replace these functions in Eq. (2.34) and obtain,
+¨φ+2
+t ˙φ−4 ¯α
+3t2 φ= 0,(B.17)
+whose solution for both positive and negativeαreads,
+φ(t)
+
+MDE
+= 1√
+t
+
+b0t
+1
+2
+q
+1+ 16
+3 ¯α+b 1t− 1
+2
+q
+1+ 16
+3 ¯α
+
+,(B.18)
+or, alternatively, in terms of the scale factor,
+φ(a)
+
+MDE
+=a −3/4
+
+˜b0a
+3
+4
+q
+1+ 16
+3 ¯α+ ˜b1a− 3
+4
+q
+1+ 16
+3 ¯α
+
+,(B.19)
+with{b 0, b1, ˜b0, ˜b1}integration constants. For small values of ¯α, the second term in the
+solution is a fast decaying mode, which can be again neglected for large enough values of
+the scale factor, and by Taylor-expandingφ(a) we find that it evolves logarithmically with
+a, i.e.,
+φ(a)
+
+MDE
+=b 0
+
+1 + 2 ¯αln(a) +O( ¯α2)
+
+for|¯α| ≪1.(B.20)
+For general values of ¯α >0,
+φ(a)
+
+MDE
+=φ(a ∗)
+ a
+a∗
+ 3
+4
+h
+−1+
+q
+1+ 16
+3 ¯α
+i
+for ¯α >0,(B.21)
+– 38 –
+=== PAGE 40 ===
+since the second term in Eq. (B.19) always behaves as a decaying mode. Here,a ∗ is a scale
+factor deep in the MDE.
+For ¯α <0, instead, it is important to keep that term in Eq. (B.19). The solution will
+take the following form, depending on whether ¯αis larger or smaller than−3/16,
+φ(a)
+
+MDE
+=a −3/4
+
+d0 cosh
+ 3ξ
+4 ln(a)
+
++d 1 sinh
+ 3ξ
+4 ln(a)
+
+if− 3
+16 <¯α <0,(B.22)
+φ(a)
+
+MDE
+=a −3/4
+
+d0 cos
+ 3ξ
+4 ln(a)
+
++d 1 sin
+ 3ξ
+4 ln(a)
+
+if ¯α <−3
+16 ,(B.23)
+withξ( ¯α)≡
+q
+|1 + 16
+3 ¯α|. Here, we have used the identitya x =e xln(a) , together with the
+fact that exponential functions with real exponents (found when ¯α >−3/16) can be written
+in terms of hyperbolic functions, whereas those with imaginary exponents (found when ¯α <
+−3/16) can be written in terms of ordinary trigonometric functions.
+Including the effect of the linear potential (1.2) on the scalar field in the last stages of
+the MDE is quite simple. One just needs to consider the particular solution to equation
+¨φ+2
+t ˙φ−4 ¯α
+3t2 φ=−β ,(B.24)
+on top of the solutions to the homogeneous Eq. (B.17), in (B.21) and (B.22)-(B.23). For
+instance, for the positive- ¯αcase, we have
+¯φ(a) = ¯φ(a∗)
+ a
+a∗
+ 3
+4
+h
+−1+
+q
+1+ 16
+3 ¯α
+i
++ 2 ¯β
+3Ω0m(2 ¯α−9)
+
+a3 −a 3
+∗
+ a
+a∗
+ 3
+4
+h
+−1+
+q
+1+ 16
+3 ¯α
+i
+ .(B.25)
+If ¯α,¯β >0, the effective potential has a maximum at ¯φ max(a) = ¯βa3/(3Ω0
+m ¯α). The scalar
+field can be slowed down (if ¯φ <¯φ max at some point) and eventually reach a maximum
+only if ¯α <9/2, a limiting value that is, in any case, well above those preferred by current
+data. This is necessary for the field to evolve towards the origin, which is required to satisfy
+the local constraints discussed in Sec. 2.2. Reaching that maximum is also crucial for the
+model to explain the phantom behavior before crossing the phantom divide (see Sec. 2.3).
+When these conditions are not met, the potential cannot counteract the force exerted by the
+non-minimal coupling during matter domination. As a result, the field continues to grow
+until the assumption of small field excursions breaks down, thereby invalidating the linear
+approximation to the potential and contravening the local constraints.
+If ¯α <0, instead, the effective potential has a minimum at ¯φmin(a) =− ¯βa3/(3Ω0
+m|¯α|),
+which is extremely close to the origin deep in the MDE (cf. Fig. 1). In fact, for sufficiently
+large values of ¯αthe scalar field reaches the minimum of the effective potential even before the
+onset of matter domination (see Sec. 2.3 for details). The scalar field sits close to the origin
+until the linear term of the potential becomes sizable, in the last stages of the MDE. When
+this happens, the field moves towards negative values, eventually behaving as quintessence.
+– 39 –
+=== PAGE 41 ===
+References
+[1]DESIcollaboration,DESI DR2 results. II. Measurements of baryon acoustic oscillations and
+cosmological constraints,Phys. Rev. D112(2025) 083515 [2503.14738].
+[2] A. Chakraborty, T. Ray, S. Das, A. Banerjee and V. Ganesan,Hint of Dark Matter–Dark
+Energy Interaction in DESI DR2 and Current Cosmological Dataset?,Astrophys. J.998
+(2026) 83 [2403.14247].
+[3] A. G´ omez-Valent and J. Sol` a Peracaula,Phantom Matter: A Challenging Solution to the
+Cosmological Tensions,Astrophys. J.975(2024) 64 [2404.18845].
+[4] D. Benisty, S. Pan, D. Staicova, E. Di Valentino and R.C. Nunes,Late-time constraints on
+interacting dark energy: Analysis independent of H0, rd, and MB,Astron. Astrophys.688
+(2024) A156 [2403.00056].
+[5] V. Poulin, T.L. Smith, R. Calder´ on and T. Simon,Implications of the cosmic calibration
+tension beyond H0 and the synergy between early- and late-time new physics,Phys. Rev. D
+111(2025) 083552 [2407.18292].
+[6] G. Ye, M. Martinelli, B. Hu and A. Silvestri,Hints of Nonminimally Coupled Gravity in DESI
+2024 Baryon Acoustic Oscillation Measurements,Phys. Rev. Lett.134(2025) 181002
+[2407.15832].
+[7] W.J. Wolf, C. Garc ´ ıa-Garc ´ ıa, D.J. Bartlett and P.G. Ferreira,Scant evidence for thawing
+quintessence,Phys. Rev. D110(2024) 083528 [2408.17318].
+[8] W.J. Wolf, P.G. Ferreira and C. Garc ´ ıa-Garc ´ ıa,Matching current observational constraints
+with nonminimally coupled dark energy,Phys. Rev. D111(2025) L041303 [2409.17019].
+[9] C.-G. Park, J. de Cruz P´ erez and B. Ratra,Using non-DESI data to confirm and strengthen
+the DESI 2024 spatially flat w0waCDM cosmological parametrization result,Phys. Rev. D110
+(2024) 123533 [2405.00502].
+[10] A. G´ omez-Valent and J. Sol` a Peracaula,Composite dark energy and the cosmological tensions,
+Phys. Lett. B864(2025) 139391 [2412.15124].
+[11] S.D. Odintsov, D. S´ aez-Chill´ on G´ omez and G.S. Sharov,Modified gravity/dynamical dark
+energy vsΛCDM: is the game over?,Eur. Phys. J. C85(2025) 298 [2412.09409].
+[12] Y. Tiwari, U. Upadhyay and R.K. Jain,Exploring cosmological imprints of phantom crossing
+with dynamical dark energy in Horndeski gravity,Phys. Rev. D111(2025) 043530
+[2412.00931].
+[13] W. Giar` e, T. Mahassen, E. Di Valentino and S. Pan,An overview of what current data can
+(and cannot yet) say about evolving dark energy,Phys. Dark Univ.48(2025) 101906
+[2502.10264].
+[14] R.E. Keeley, K.N. Abazajian, M. Kaplinghat and A. Shafieloo,Preference for evolving dark
+energy from cosmological distance measurements and possible signatures in the growth rate of
+perturbations,Phys. Rev. D112(2025) 043501 [2502.12667].
+[15] J. Khoury, M.-X. Lin and M. Trodden,Apparent w<-1 and a Lower S8 from Dark Axion and
+Dark Baryons Interactions,Phys. Rev. Lett.135(2025) 181001 [2503.16415].
+[16] J. Pan and G. Ye,Nonminimally coupled gravity constraints from DESI DR2 data,Phys. Rev.
+D113(2026) L041304 [2503.19898].
+[17] Z. Lu, T. Simon and P. Zhang,Preference for evolving dark energy in light of the galaxy
+bispectrum,2503.04602.
+[18] W.J. Wolf, C. Garc ´ ıa-Garc ´ ıa, T. Anton and P.G. Ferreira,Assessing Cosmological Evidence
+for Nonminimal Coupling,Phys. Rev. Lett.135(2025) 081001 [2504.07679].
+– 40 –
+=== PAGE 42 ===
+[19] E. Chaussidon et al.,Early time solution as an alternative to the late time evolving dark
+energy with DESI DR2 BAO,Phys. Rev. D112(2025) 063548 [2503.24343].
+[20] A. Chakraborty, P.K. Chanda, S. Das and K. Dutta,DESI results: hint towards coupled dark
+matter and dark energy,JCAP11(2025) 047 [2503.10806].
+[21] Y. Yang, Q. Wang, X. Ren, E.N. Saridakis and Y.-F. Cai,Modified Gravity Realizations of
+Quintom Dark Energy after DESI DR2,Astrophys. J.988(2025) 123 [2504.06784].
+[22] X. Chen and A. Loeb,Evolving dark energy or dark matter with an evolving
+equation-of-state?,JCAP07(2025) 059 [2505.02645].
+[23] L. Giani, R. Von Marttens and O.F. Piattella,The matter with(in) CPL,2505.08467.
+[24] Y. Cai, X. Ren, T. Qiu, M. Li and X. Zhang,The quintom theory of dark energy after DESI
+DR2,Natl. Sci. Rev.13(2026) nwag115 [2505.24732].
+[25] M. Braglia, X. Chen and A. Loeb,Exotic dark matter and the DESI anomaly,JCAP11
+(2025) 064 [2507.13925].
+[26] E. ¨Oz¨ ulker, E. Di Valentino and W. Giar` e,Dark Energy Crosses the Line: Quantifying and
+Testing the Evidence for Phantom Crossing,2506.19053.
+[27] V. Poulin, T.L. Smith, R. Calder´ on and T. Simon,Impact of ACT DR6 and DESI DR2 for
+early dark energy and the Hubble tension,Phys. Rev. D113(2026) 063519 [2505.08051].
+[28] D. Camarena, K. Greene, J. Houghteling and F.-Y. Cyr-Racine,Designing concordant
+distances in the age of precision cosmology: The impact of density fluctuations,Phys. Rev. D
+112(2025) 083526 [2507.17969].
+[29] A. G´ omez-Valent and A. Gonz´ alez-Fuentes,Effective phantom divide crossing with standard
+and negative quintessence,Phys. Lett. B872(2026) 140096 [2508.00621].
+[30] J.-Q. Wang, R.-G. Cai, Z.-K. Guo and S.-J. Wang,Resolving the Planck-DESI tension by
+nonminimally coupled quintessence,Phys. Rev. D113(2026) 083534 [2508.01759].
+[31] W. Yang, S. Zhang, O. Mena, S. Pan and E. Di Valentino,Dark Energy Is Not That Into
+You: Variable Couplings after DESI DR2 BAO,2508.19109.
+[32] Z. Yao, G. Ye and A. Silvestri,A general model for dark energy crossing the phantom divide,
+JCAP10(2025) 078 [2508.01378].
+[33] S. Nojiri, S.D. Odintsov and V.K. Oikonomou,Phantom crossing and oscillating dark energy
+with F(R) gravity,Phys. Rev. D112(2025) 104035 [2506.21010].
+[34] M. Artola, I. Ayuso, R. Lazkoz and V. Salzano,Is Chevallier-Polarski-Linder dark energy a
+mirage?,Phys. Rev. D113(2026) 023513 [2510.04191].
+[35] S.S. Mishra, W.L. Matthewson, V. Sahni, A. Shafieloo and Y. Shtanov,Braneworld dark
+energy in light of DESI DR2,JCAP11(2025) 018 [2507.07193].
+[36] L.W.K. Goh and A.N. Taylor,Phantom Crossing with Quintom Models,Mon. Not. Roy.
+Astron. Soc.3142(2025) 3157 [2509.12335].
+[37] S. Tsujikawa,Crossing the phantom divide in scalar-tensor and vector-tensor theories,Phys.
+Rev. D113(2026) L041301 [2508.17231].
+[38] W.J. Wolf, P.G. Ferreira and C. Garc ´ ıa-Garc ´ ıa,Cosmological constraints on Galileon dark
+energy with broken shift symmetry,Phys. Rev. D113(2026) 023551 [2509.17586].
+[39] T. Adi,Lowering the horizon on Dark Energy: A late-time response to early solutions for the
+Hubble tension,JCAP03(2026) 015 [2509.12331].
+[40] G. Alestas, M. Caldarola, I. Ocampo, S. Nesseris and S. Tsujikawa,DESI constraints on
+two-field quintessence with exponential potentials,Phys. Rev. D114(2026) 023532
+[2510.21627].
+– 41 –
+=== PAGE 43 ===
+[41] R.K. Sharma and J. Lesgourgues,Constraints on neutrino mass and dark energy agnostic to
+the sound horizon,JCAP02(2026) 034 [2510.15835].
+[42] D. Efstratiou, E.A. Paraskevas and L. Perivolaropoulos,Addressing the DESI DR2
+phantom-crossing anomaly and enhanced H0 tension with reconstructed scalar-tensor gravity,
+Phys. Rev. D113(2026) 123525 [2511.04610].
+[43] H. Cheng, S. Pan and E. Di Valentino,Beyond Two Parameters: Revisiting Dark Energy with
+the Latest Cosmic Probes,Astrophys. J.999(2026) 190 [2512.09866].
+[44] P. Ghedini, R. Hajjar and O. Mena,Dark energy and neutrinos along the cosmic expansion
+history,Phys. Dark Univ.52(2026) 102237 [2512.16781].
+[45] M.W. Hossain,Probing the sensitivity of dark energy dynamics to equation of state
+parametrization flexibility,2512.16731.
+[46] J. de Cruz P´ erez, A. G´ omez-Valent and J. Sol` a Peracaula,Dynamical dark energy models in
+light of the latest observations,Phys. Rev. D113(2026) 083521 [2512.20616].
+[47] T.-N. Li, W. Giar` e, G.-H. Du, Y.-H. Li, E. Di Valentino, J.-F. Zhang et al.,Strong Evidence
+for Dark Sector Interactions,2601.07361.
+[48] B. Ibarra-Uriondo and M. Bouhmadi-L´ opez,Sign-switching dark energy: Smooth transitions
+with recent DESI DR2 observations,Phys. Dark Univ.52(2026) 102351 [2602.12347].
+[49] ¨O. Akarsu, M. Caruana, K.F. Dialektopoulos, L.A. Escamilla, E.O. Kahya and J. Levi Said,
+Hints of sign-changing scalar field energy density and a transient acceleration phase atz∼2
+from model-agnostic reconstructions,2602.08928.
+[50] C.-G. Park, J. de Cruz P´ erez and B. Ratra,Is thew 0waCDM cosmological parameterization
+evidence for dark energy dynamics partially caused by the excess smoothing of Planck PR4
+CMB anisotropy data?,2604.03756.
+[51] T. Jhaveri, T. Karwal, T. Crawford, W. Hu, A.R. Khalife, L. Balkenhol et al.,Disentangling
+cosmic distance tensions with early and late dark energy,2604.08530.
+[52] J.-Q. Wang, R.-G. Cai, Z.-K. Guo, Y.-H. Li, S.-J. Wang and X. Zhang,Nonminimally coupled
+quintessence with sign-switching interaction,Phys. Rev. D114(2026) 043514 [2604.02204].
+[53] A. G´ omez-Valent, Z. Zheng and L. Amendola,Constraints on coupled dark energy in the
+DESI era,Phys. Rev. D114(2026) 043540 [2604.12032].
+[54] Y. Toda and A. G´ omez-Valent,Signatures of Modified Gravity on Linear Scales in a
+Dynamical Dark Energy Background,2605.22309.
+[55] W. Giar` e, D.H. Lee and E. Di Valentino,Intertwined constraints in extended cosmologies:
+Dark energy, curvature, neutrinos, and inflation,New Astron. Rev.103(2026) 101759
+[2607.01226].
+[56] J. Sol` a Peracaula, A. G´ omez-Valent and A. Gonz´ alez-Fuentes, ΛXCDM: a running vacuum
+strategy for crossing the phantom divide,2607.26050.
+[57]DESIcollaboration,DESI 2024: reconstructing dark energy using crossing statistics with
+DESI DR1 BAO data,JCAP10(2024) 048 [2405.04216].
+[58] J.-Q. Jiang, D. Pedrotti, S.S. da Costa and S. Vagnozzi,Nonparametric late-time expansion
+history reconstruction and implications for the Hubble tension in light of recent DESI and type
+Ia supernovae data,Phys. Rev. D110(2024) 123519 [2408.02365].
+[59]DESIcollaboration,Extended dark energy analysis using DESI DR2 BAO measurements,
+Phys. Rev. D112(2025) 083511 [2503.14743].
+[60] M. Berti, E. Bellini, C. Bonvin, M. Kunz, M. Viel and M. Zumalac´ arregui,Reconstructing the
+dark energy density in light of DESI BAO observations,Phys. Rev. D112(2025) 023518
+[2503.13198].
+– 42 –
+=== PAGE 44 ===
+[61] J.-X. Li and S. Wang,Reconstructing dark energy with model independent methods after DESI
+DR2,Eur. Phys. J. C85(2025) 1308 [2506.22953].
+[62] A. Gonz´ alez-Fuentes and A. G´ omez-Valent,Reconstruction of dark energy and late-time
+cosmic expansion using the Weighted Function Regression method,JCAP12(2025) 049
+[2506.11758].
+[63] A. Gonz´ alez-Fuentes and A. G´ omez-Valent,Exploring the interplay of late-time dynamical
+dark energy and new physics before recombination,JCAP07(2026) 040 [2603.26560].
+[64] A. Paliathanasis,Cosmo-PINN: A Physics-Informed Neural Network for Cosmological
+Reconstruction,2605.30139.
+[65] K. Wang, J.-Y. Feng and J. Lu,Implicit Likelihood Inference andz-Binned Reconstruction of
+Dark Energyw(z),2608.08007.
+[66] N. Sch¨ oneberg, R. Calder´ on and J. Lesgourgues,Deus exH0– Is evidence for dynamical dark
+energy conditioned on early cosmology?,2608.07654.
+[67] R.E. Keeley, A. Shafieloo and W.L. Matthewson,Could We Be Fooled about Phantom
+Crossing?,2506.15091.
+[68] G.W. Horndeski,Second-order scalar-tensor field equations in a four-dimensional space,
+International Journal of Theoretical Physics10(1974) 363.
+[69] C.W. Misner, K.S. Thorne and J.A. Wheeler,Gravitation, W. H. Freeman, San Francisco
+(1974).
+[70] B. Boisseau, G. Esposito-Farese, D. Polarski and A.A. Starobinsky,Reconstruction of a scalar
+tensor theory of gravity in an accelerating universe,Phys. Rev. Lett.85(2000) 2236
+[gr-qc/0001066].
+[71] R. Gannouji, D. Polarski, A. Ranquet and A.A. Starobinsky,Scalar-Tensor Models of Normal
+and Phantom Dark Energy,JCAP09(2006) 016 [astro-ph/0606287].
+[72] G. Ye, A. Chudaykin, C. Bonvin and M. Kunz,Late-time reconstruction of non-minimally
+coupled gravity with a smoothness prior,2605.12415.
+[73] N.D. Birrell and P.C.W. Davies,Quantum Fields in Curved Space, Cambridge Monographs on
+Mathematical Physics, Cambridge University Press, Cambridge (1982).
+[74] T. Chiba,Quintessence, the gravitational constant, and gravity,Phys. Rev. D60(1999)
+083508 [gr-qc/9903094].
+[75] F. Perrotta, C. Baccigalupi and S. Matarrese,Extended quintessence,Phys. Rev. D61(1999)
+023507 [astro-ph/9906066].
+[76] A. Riazuelo and J.-P. Uzan,Cosmological observations in scalar - tensor quintessence,Phys.
+Rev. D66(2002) 023525 [astro-ph/0107386].
+[77] F. Perrotta and C. Baccigalupi,On the dark energy clustering properties,Phys. Rev. D65
+(2002) 123505 [astro-ph/0201335].
+[78] S. S´ anchez L´ opez, A. Karam and D.K. Hazra,Non-Minimally Coupled Quintessence in Light
+of DESI,2510.14941.
+[79] Y. Toda, A. G´ omez-Valent and K. Koyama,Efficient compression of redshift-space distortion
+data for late-time modified gravity models,JCAP12(2024) 033 [2408.16388].
+[80] R. Calder´ on and E.V. Linder,Charging Across the Phantom Divide with Modified Gravity,
+2605.26259.
+[81] K. Naidoo, J. Hallam, T. Baker and S. Sirera,Constraints on Horndeski Gravity with
+Phantom Crossing,2606.20794.
+– 43 –
+=== PAGE 45 ===
+[82] J. Hallam, K. Naidoo, S. Sirera and T. Baker,Rolling Galileons: Evolving Braiding Strength
+for Viable Dark Energy,2607.16395.
+[83] M.C. Pookkillath and S. Tsujikawa,Phantom-divide crossing and suppressed structure growth
+in kinetically braided dark energy with momentum exchange,2607.26447.
+[84] H. Adam, M.P. Hertzberg, D. Jim´ enez-Aguilar and I. Khan,Comparing minimal and
+non-minimal quintessence models to 2025 DESI data,JCAP04(2026) 052 [2509.13302].
+[85] H. Adam, M.P. Hertzberg and D. Jim´ enez-Aguilar,Constraints on Stable Scalar-Tensor Dark
+Energy from DESI Data and Solar System Tests,2606.14014.
+[86] L. Amendola, P.S. Corasaniti and F. Occhionero,Time variability of the gravitational
+constant and type Ia supernovae,astro-ph/9907222.
+[87] E. Garcia-Berro, E. Gaztanaga, J. Isern, O. Benvenuto and L. Althaus,On the evolution of
+cosmological type ia supernovae and the gravitational constant,astro-ph/9907440.
+[88] B.S. Wright and B. Li,Type Ia supernovae, standardizable candles, and gravity,Phys. Rev. D
+97(2018) 083505 [1710.07018].
+[89] H. Desmond, B. Jain and J. Sakstein,Local resolution of the Hubble tension: The impact of
+screened fifth forces on the cosmic distance ladder,Phys. Rev. D100(2019) 043537
+[1907.03778].
+[90]DEScollaboration,The Dark Energy Survey Supernova Program: A Reanalysis Of Cosmology
+Results And Evidence For Evolving Dark Energy With An Updated Type Ia Supernova
+Calibration,Mon. Not. Roy. Astron. Soc.548(2026) stag632 [2511.07517].
+[91]DEScollaboration,The Dark Energy Survey Supernova Program: Cosmological Analysis and
+Systematic Uncertainties,Astrophys. J.975(2024) 86 [2401.02945].
+[92]DEScollaboration,The Dark Energy Survey: Cosmology Results with∼1500 New
+High-redshift Type Ia Supernovae Using the Full 5 yr Data Set,Astrophys. J. Lett.973(2024)
+L14 [2401.02929].
+[93]Planckcollaboration,Planck 2018 results. VI. Cosmological parameters,Astron. Astrophys.
+641(2020) A6 [1807.06209].
+[94] G. Efstathiou and S. Gratton,A Detailed Description of the CamSpec Likelihood Pipeline and
+a Reanalysis of the Planck High Frequency Maps,1910.00483.
+[95] E. Rosenberg, S. Gratton and G. Efstathiou,CMB power spectra and cosmological parameters
+from Planck PR4 with CamSpec,Mon. Not. Roy. Astron. Soc.517(2022) 4620 [2205.10869].
+[96] C. Garc ´ ıa-Garc ´ ıa, P.G. Ferreira and W.J. Wolf,The Status of Single Scalar Field Dark
+Energy,2607.07777.
+[97] C. Brans and R.H. Dicke,Mach’s principle and a relativistic theory of gravitation,Physical
+Review124(1961) 925.
+[98] C. Brans,Mach’s principle and a relativistic theory of gravitation. ii,Physical Review125
+(1962) 2194.
+[99] R.H. Dicke,Mach’s principle and invariance under transformation of units,Physical Review
+125(1962) 2163.
+[100] A. Avilez and C. Skordis,Cosmological constraints on Brans-Dicke theory,Phys. Rev. Lett.
+113(2014) 011101 [1303.4330].
+[101] J. Sol` a Peracaula, A. G´ omez-Valent, J. de Cruz P´ erez and C. Moreno-Pulido,Brans–Dicke
+Gravity with a Cosmological Constant Smoothes OutΛCDM Tensions,Astrophys. J. Lett.
+886(2019) L6 [1909.02554].
+– 44 –
+=== PAGE 46 ===
+[102] J. Sol` a Peracaula, A. G´ omez-Valent, J. de Cruz P´ erez and C. Moreno-Pulido,Brans–Dicke
+cosmology with aΛ-term: a possible solution toΛCDM tensions,Class. Quant. Grav.37
+(2020) 245003 [2006.04273].
+[103] S. Joudaki, P.G. Ferreira, N.A. Lima and H.A. Winther,Testing gravity on cosmic scales: A
+case study of Jordan-Brans-Dicke theory,Phys. Rev. D105(2022) 043522 [2010.15278].
+[104]Euclidcollaboration,Euclid preparation. Review of forecast constraints on dark energy and
+modified gravity,2512.09748.
+[105] A.I. Vainshtein,To the problem of nonvanishing gravitation mass,Phys. Lett. B39(1972)
+393.
+[106] E. Babichev, C. Deffayet and R. Ziour,k-Mouflage gravity,Int. J. Mod. Phys. D18(2009)
+2147 [0905.2943].
+[107] C.M. Will,Theory and Experiment in Gravitational Physics, Cambridge Studies in
+Mathematical Physics, Cambridge University Press, Cambridge, 2 ed. (1993),
+10.1017/CBO9780511564246.
+[108] Y. Fujii and K.-I. Maeda,The Scalar-Tensor Theory of Gravitation, Cambridge Monographs
+on Mathematical Physics, Cambridge University Press, Cambridge (2003),
+10.1017/CBO9780511535093.
+[109] B. Bertotti, L. Iess and P. Tortora,A test of general relativity using radio links with the
+cassini spacecraft,Nature425(2003) 374 [gr-qc/0307012].
+[110] R.S. Park, W.M. Folkner, A.S. Konopliv, J.G. Williams, D.E. Smith and M.T. Zuber,
+Precession of Mercury’s Perihelion from Ranging to the MESSENGER Spacecraft,Astron. J.
+153(2017) 121.
+[111] A. Karam, S. S´ anchez L´ opez and J.J. Terente D ´ ıaz,Post-Newtonian constraints on
+scalar-tensor gravity,Phys. Rev. D114(2026) 023528 [2604.16226].
+[112] L. Biskupek, J. M¨ uller and J.-M. Torre,Benefit of New High-Precision LLR Data for the
+Determination of Relativistic Parameters,Universe7(2021) 34 [2012.12032].
+[113] J.-P. Uzan,Fundamental constants: from measurement to the universe, a window on
+gravitation and cosmology,Living Rev. Rel.28(2025) 6 [2410.07281].
+[114] J. Alvey, N. Sabti, M. Escudero and M. Fairbairn,Improved BBN Constraints on the
+Variation of the Gravitational Constant,Eur. Phys. J. C80(2020) 148 [1910.10730].
+[115] C.-P. Ma and E. Bertschinger,Cosmological perturbation theory in the synchronous and
+conformal Newtonian gauges,Astrophys. J.455(1995) 7 [astro-ph/9506072].
+[116] R.K. Sachs and A.M. Wolfe,Perturbations of a cosmological model and angular variations of
+the microwave background,The Astrophysical Journal147(1967) 73.
+[117] A. Lewis and A. Challinor,Weak gravitational lensing of the CMB,Phys. Rept.429(2006) 1
+[astro-ph/0601594].
+[118] A. De Felice, T. Kobayashi and S. Tsujikawa,Effective gravitational couplings for cosmological
+perturbations in the most general scalar-tensor theories with second-order field equations,
+Phys. Lett. B706(2011) 123 [1108.4242].
+[119] B.F. Schutz,Determining the Hubble Constant from Gravitational Wave Observations,Nature
+323(1986) 310.
+[120] I.D. Saltas, I. Sawicki, L. Amendola and M. Kunz,Anisotropic Stress as a Signature of
+Nonstandard Propagation of Gravitational Waves,Phys. Rev. Lett.113(2014) 191101
+[1406.7139].
+[121] L. Lombriser and A. Taylor,Breaking a Dark Degeneracy with Gravitational Waves,JCAP
+03(2016) 031 [1509.08458].
+– 45 –
+=== PAGE 47 ===
+[122] A. Nishizawa,Generalized framework for testing gravity with gravitational-wave propagation.
+I. Formulation,Phys. Rev. D97(2018) 104037 [1710.04825].
+[123] E. Belgacem, Y. Dirian, S. Foffa and M. Maggiore,Gravitational-wave luminosity distance in
+modified gravity theories,Phys. Rev. D97(2018) 104066 [1712.08108].
+[124] E. Belgacem, Y. Dirian, S. Foffa and M. Maggiore,Modified gravitational-wave propagation
+and standard sirens,Phys. Rev. D98(2018) 023510 [1805.08731].
+[125] P. Creminelli and F. Vernizzi,Dark Energy after GW170817 and GRB170817A,Phys. Rev.
+Lett.119(2017) 251302 [1710.05877].
+[126] J.M. Ezquiaga and M. Zumalac´ arregui,Dark Energy After GW170817: Dead Ends and the
+Road Ahead,Phys. Rev. Lett.119(2017) 251304 [1710.05901].
+[127]LIGO Scientific, Virgocollaboration,GW170817: Observation of Gravitational Waves
+from a Binary Neutron Star Inspiral,Phys. Rev. Lett.119(2017) 161101 [1710.05832].
+[128]LIGO Scientific, VIRGO, KAGRAcollaboration,GWTC-5.0: Constraints on the Cosmic
+Expansion Rate and Modified Gravitational-wave Propagation,2605.27227.
+[129] M. Lagos and W.J. Wolf,Consistency between cosmological and standard siren observations in
+evolving dark energy,2609.04112.
+[130] N. Tamanini, C. Caprini, E. Barausse, A. Sesana, A. Klein and A. Petiteau,Science with the
+space-based interferometer eLISA. III: Probing the expansion of the Universe using
+gravitational wave standard sirens,JCAP04(2016) 002 [1601.07112].
+[131]LISA Cosmology Working Groupcollaboration,Testing modified gravity at cosmological
+distances with LISA standard sirens,JCAP07(2019) 024 [1906.01593].
+[132] M. Zumalac´ arregui, E. Bellini, I. Sawicki, J. Lesgourgues and P.G. Ferreira,hi class:
+Horndeski in the Cosmic Linear Anisotropy Solving System,JCAP08(2017) 019
+[1605.06102].
+[133] E. Bellini, I. Sawicki and M. Zumalac´ arregui,hi class: Background Evolution, Initial
+Conditions and Approximation Schemes,JCAP02(2020) 008 [1909.01828].
+[134] D. Blas, J. Lesgourgues and T. Tram,The Cosmic Linear Anisotropy Solving System
+(CLASS) II: Approximation schemes,JCAP07(2011) 034 [1104.2933].
+[135] E. Bellini et al.,Comparison of Einstein-Boltzmann solvers for testing general relativity,Phys.
+Rev. D97(2018) 023520 [1709.09135].
+[136] J. Carron, M. Mirmelstein and A. Lewis,CMB lensing from Planck PR4 maps,JCAP09
+(2022) 039 [2206.07773].
+[137] N. Metropolis et al.,Equation of state calculations by fast computing machines,J. Chem.
+Phys.21(1953) 1087.
+[138] W. Hastings,Monte Carlo Sampling Methods Using Markov Chains and Their Applications,
+Biometrika57(1970) 97.
+[139] A. Gelman and D.B. Rubin,Inference from Iterative Simulation Using Multiple Sequences,
+Statist. Sci.7(1992) 457.
+[140] J. Torrado and A. Lewis,Cobaya: Code for Bayesian Analysis of hierarchical physical models,
+JCAP05(2021) 057 [2005.05290].
+[141]VIRGO Consortiumcollaboration,Stable clustering, the halo model and nonlinear
+cosmological power spectra,Mon. Not. Roy. Astron. Soc.341(2003) 1311
+[astro-ph/0207664].
+[142] R. Takahashi, M. Sato, T. Nishimichi, A. Taruya and M. Oguri,Revising the Halofit Model
+for the Nonlinear Matter Power Spectrum,Astrophys. J.761(2012) 152 [1208.2701].
+– 46 –
+=== PAGE 48 ===
+[143] L. Yi, K. Koyama, Q. Xiong and G.-B. Zhao,Emulating the nonlinear effects of modified
+gravity on the matter power spectrum for reconstruction,2607.29683.
+[144] A. Lewis,GetDist: a Python package for analysing Monte Carlo samples,JCAP08(2025)
+025 [1910.13970].
+[145] M. Chevallier and D. Polarski,Accelerating universes with scaling dark matter,Int. J. Mod.
+Phys. D10(2001) 213 [gr-qc/0009008].
+[146] E.V. Linder,Exploring the expansion history of the universe,Phys. Rev. Lett.90(2003)
+091301 [astro-ph/0208512].
+[147] A.G. Riess et al.,A Comprehensive Measurement of the Local Value of the Hubble Constant
+with 1 km/s/Mpc Uncertainty from the Hubble Space Telescope and the SH0ES Team,
+Astrophys. J. Lett.934(2022) L7 [2112.04510].
+[148] H. Akaike,A new look at the statistical model identification,IEEE Transactions on Automatic
+Control19(1974) 716.
+[149] H. Jeffreys,Theory of Probability, Oxford University Press, Oxford, 3 ed. (1961).
+[150] R. Trotta,Applications of Bayesian model selection to cosmological parameters,Mon. Not.
+Roy. Astron. Soc.378(2007) 72 [astro-ph/0504022].
+[151] R. Trotta,Bayes in the sky: Bayesian inference and model selection in cosmology,Contemp.
+Phys.49(2008) 71 [0803.4089].
+[152] S. Nesseris and J. Garcia-Bellido,Is the Jeffreys’ scale a reliable tool for Bayesian model
+comparison in cosmology?,JCAP08(2013) 036 [1210.7652].
+[153] C.R. Jenkins and J.A. Peacock,The power of Bayesian evidence in astronomy,Mon. Not.
+Roy. Astron. Soc.413(2011) 2895 [1101.4822].
+[154] R.E. Keeley and A. Shafieloo,On the distribution of Bayesian evidence,Mon. Not. Roy.
+Astron. Soc.515(2022) 293 [2111.04231].
+[155] L. Amendola, V. Patel, Z. Sakr, E. Sellentin and K. Wolz,Distribution of Bayes’ factor,Phys.
+Rev. D110(2024) 123522 [2404.00744].
+[156] Z. Sakr,Applying the BF method on the DESI evidence for dynamical dark energy models,
+2512.10763.
+[157] J. Neyman and E.S. Pearson,On the problem of the most efficient tests of statistical
+hypotheses,Philosophical Transactions of the Royal Society of London. Series A231(1933)
+289.
+[158] S.S. Wilks,The large-sample distribution of the likelihood ratio for testing composite
+hypotheses,The Annals of Mathematical Statistics9(1938) 60.
+[159] A.G. Sanchez,Arguments against usingh −1Mpcunits in observational cosmology,Phys. Rev.
+D102(2020) 123511 [2002.07829].
+[160] M. Forconi, A. Favale and A. G´ omez-Valent,Illustrating the consequences of a misuse ofσ8
+in cosmology,Phys. Rev. D112(2025) 023517 [2501.11571].
+[161] E. Macaulay, I.K. Wehus and H.K. Eriksen,Lower Growth Rate from Recent Redshift Space
+Distortion Measurements than Expected from Planck,Phys. Rev. Lett.111(2013) 161301
+[1303.6583].
+[162] A. G´ omez-Valent and J. Sola,Relaxing theσ8-tension through running vacuum in the
+Universe,EPL120(2017) 39001 [1711.00692].
+[163] S. Nesseris, G. Pantazis and L. Perivolaropoulos,Tension and constraints on modified gravity
+parametrizations ofG eff(z)from growth rate and Planck data,Phys. Rev. D96(2017) 023542
+[1703.10538].
+– 47 –
+=== PAGE 49 ===
+[164] A. G´ omez-Valent and J. Sol` a Peracaula,Density perturbations for running vacuum: a
+successful approach to structure formation and to theσ 8-tension,Mon. Not. Roy. Astron. Soc.
+478(2018) 126 [1801.08501].
+[165] D. Benisty,Quantifying theS 8 tension with the Redshift Space Distortion data set,Phys. Dark
+Univ.31(2021) 100766 [2005.03751].
+[166] R.C. Nunes and S. Vagnozzi,Arbitrating the S8 discrepancy with growth rate measurements
+from redshift-space distortions,Mon. Not. Roy. Astron. Soc.505(2021) 5427 [2106.01208].
+[167] N.-M. Nguyen, D. Huterer and Y. Wen,Evidence for Suppression of Structure Growth in the
+Concordance Cosmological Model,Phys. Rev. Lett.131(2023) 111001 [2302.01331].
+[168]DESIcollaboration,DESI 2024 V: Full-Shape galaxy clustering from galaxies and quasars,
+JCAP09(2025) 008 [2411.12021].
+[169] A.H. Wright et al.,KiDS-Legacy: Cosmological constraints from cosmic shear with the
+complete Kilo-Degree Survey,Astron. Astrophys.703(2025) A158 [2503.19441].
+[170]DEScollaboration,Dark Energy Survey Year 3 results: Cosmological constraints from galaxy
+clustering and weak lensing,Phys. Rev. D105(2022) 023520 [2105.13549].
+[171] H. Miyatake et al.,Hyper Suprime-Cam Year 3 results: Cosmology from galaxy clustering and
+weak lensing with HSC and SDSS using the emulator based halo model,Phys. Rev. D108
+(2023) 123517 [2304.00704].
+[172] F. Avila, A. Bernui, E. de Carvalho and C.P. Novaes,The growth rate of cosmic structures in
+the local Universe with the ALF ALF A survey,Mon. Not. Roy. Astron. Soc.505(2021) 3404
+[2105.10583].
+[173] K. Said, M. Colless, C. Magoulas, J.R. Lucey and M.J. Hudson,Joint analysis of 6dFGS and
+SDSS peculiar velocities for the growth rate of cosmic structure and tests of gravity,Mon. Not.
+Roy. Astron. Soc.497(2020) 1275 [2007.04993].
+[174] F. Simpson, C. Blake, J.A. Peacock, I. Baldry, J. Bland-Hawthorn, A. Heavens et al.,Galaxy
+and mass assembly: Redshift space distortions from the clipped galaxy field,Phys. Rev. D93
+(2016) 023525 [1505.03865].
+[175] C. Blake et al.,Galaxy And Mass Assembly (GAMA): improved cosmic growth measurements
+using multiple tracers of large-scale structure,Mon. Not. Roy. Astron. Soc.436(2013) 3089
+[1309.5556].
+[176] C. Blake, S. Brough, M. Colless, C. Contreras, W. Couch, S. Croom et al.,The wigglez dark
+energy survey: the growth rate of cosmic structure since redshift z=0.9: Wigglez survey:
+growth of structure,Monthly Notices of the Royal Astronomical Society415(2011) 2876–2891.
+[177] H. Gil-Mar ´ ın, W.J. Percival, L. Verde, J.R. Brownstein, C.-H. Chuang, F.-S. Kitaura et al.,
+The clustering of galaxies in the SDSS-III Baryon Oscillation Spectroscopic Survey: RSD
+measurement from the power spectrum and bispectrum of the DR12 BOSS galaxies,Mon. Not.
+Roy. Astron. Soc.465(2017) 1757 [1606.00439].
+[178] F.G. Mohammad et al.,The VIMOS Public Extragalactic Redshift Survey (VIPERS):
+Unbiased clustering estimate with VIPERS slit assignment,Astron. Astrophys.619(2018)
+A17 [1807.05999].
+[179] L. Guzzo et al.,A test of the nature of cosmic acceleration using galaxy redshift distortions,
+Nature451(2008) 541 [0802.1944].
+[180] Y.-S. Song and W.J. Percival,Reconstructing the history of structure formation using Redshift
+Distortions,JCAP10(2009) 004 [0807.0810].
+[181] T. Okumura et al.,The Subaru FMOS galaxy redshift survey (FastSound). IV. New constraint
+– 48 –
+=== PAGE 50 ===
+on gravity theory from redshift space distortions atz∼1.4,Publ. Astron. Soc. Jap.68(2016)
+38 [1511.08083].
+[182]eBOSScollaboration,The Completed SDSS-IV extended Baryon Oscillation Spectroscopic
+Survey: BAO and RSD measurements from anisotropic clustering analysis of the Quasar
+Sample in configuration space between redshift 0.8 and 2.2,Mon. Not. Roy. Astron. Soc.500
+(2020) 1201 [2007.08998].
+[183] R. Stiskalek,S8 from peculiar velocities: agreement with Planck for Tully–Fisher and
+supernovae, tension for the fundamental plane,Mon. Not. Roy. Astron. Soc.550(2026)
+stag1266 [2509.20235].
+[184] R. Camilleri et al.,Supernovae Unite: Combining Pantheon+ and DES-SN5YR,2609.05053.
+[185] J. Sol` a, A. G´ omez-Valent and J. de Cruz P´ erez,TheH0 tension in light of vacuum dynamics
+in the Universe,Phys. Lett. B774(2017) 317 [1705.06723].
+[186] L. Knox and M. Millea,Hubble constant hunter’s guide,Phys. Rev. D101(2020) 043533
+[1908.03663].
+[187] C. Krishnan, R. Mohayaee, E. ´O. Colg´ ain, M.M. Sheikh-Jabbari and L. Yin,Does Hubble
+tension signal a breakdown in FLR W cosmology?,Class. Quant. Grav.38(2021) 184001
+[2105.09790].
+[188] B.-H. Lee, W. Lee, E. ´O. Colg´ ain, M.M. Sheikh-Jabbari and S. Thakur,Is local H 0 at odds
+with dark energy EFT?,JCAP04(2022) 004 [2202.03906].
+[189] R.E. Keeley and A. Shafieloo,Ruling Out New Physics at Low Redshift as a Solution to the
+H0 Tension,Phys. Rev. Lett.131(2023) 111002 [2206.08440].
+[190] A. G´ omez-Valent, A. Favale, M. Migliaccio and A.A. Sen,Late-time phenomenology required
+to solve the H0 tension in view of the cosmic ladders and the anisotropic and angular BAO
+datasets,Phys. Rev. D109(2024) 023525 [2309.07795].
+[191] D. Pedrotti, L.A. Escamilla, V. Marra, L. Perivolaropoulos and S. Vagnozzi,BAO
+miscalibration cannot rescue late-time solutions to the Hubble tension,Phys. Rev. D113
+(2026) 043507 [2510.01974].
+[192] P. Bansal and D. Huterer,Difficulties with late-time solutions for the Hubble tension,Phys.
+Rev. D113(2026) 103539 [2602.06293].
+[193] M.A. Sabogal, L.A. Escamilla, D. Pedrotti, E. Selimaj and S. Vagnozzi,Hubble tension: the
+shape wall,2607.21244.
+[194] A. Favale, A. G´ omez-Valent and M. Migliaccio,Quantification of 2D vs 3D BAO tension
+using SNIa as a redshift interpolator and test of the Etherington relation,Phys. Lett. B858
+(2024) 139027 [2405.12142].
+[195] I. Pantos and L. Perivolaropoulos,On the origin of the BAOtr-DESI tension,Phys. Dark
+Univ.52(2026) 102347 [2604.11106].
+[196] D. Sapone,A blind spot in transverse BAO calibration,2608.20296.
+[197] A. Bernui, E. Di Valentino, W. Giar` e, S. Kumar and R.C. Nunes,Exploring the H0 tension
+and the evidence for dark sector interactions from 2D BAO measurements,Phys. Rev. D107
+(2023) 103531 [2301.06097].
+[198] O. Akarsu, E. Di Valentino, S. Kumar, R.C. Nunes, J.A. Vazquez and A. Yadav, Λ sCDM
+model: A promising scenario for alleviation of cosmological tensions,2307.10899.
+[199] S. Dwivedi and M. H¨ og ˚ as,2D BAO vs. 3D BAO: Solving the Hubble Tension with Bimetric
+Cosmology,Universe10(2024) 406 [2407.04322].
+[200] V. Sahni, A. Shafieloo and A.A. Starobinsky,Model independent evidence for dark energy
+evolution from Baryon Acoustic Oscillations,Astrophys. J. Lett.793(2014) L40 [1406.2209].
+– 49 –
+=== PAGE 51 ===
+[201] V. Salvatelli, N. Said, M. Bruni, A. Melchiorri and D. Wands,Indications of a late-time
+interaction in the dark sector,Phys. Rev. Lett.113(2014) 181301 [1406.7297].
+[202] J. Sol` a, A. G´ omez-Valent and J. de Cruz P´ erez,Hints of dynamical vacuum energy in the
+expanding Universe,Astrophys. J. Lett.811(2015) L14 [1506.05793].
+[203] J. Sol` a, A. G´ omez-Valent and J. de Cruz P´ erez,First evidence of running cosmic vacuum:
+challenging the concordance model,Astrophys. J.836(2017) 43 [1602.02103].
+[204] J. Sol` a Peracaula, J. de Cruz P´ erez and A. G´ omez-Valent,Dynamical dark energy vs.Λ=
+const in light of observations,EPL121(2018) 39001 [1606.00450].
+[205] G.-B. Zhao et al.,Dynamical dark energy in light of the latest observations,Nature Astron.1
+(2017) 627 [1701.08165].
+[206] J. Sol` a Peracaula, J. de Cruz P´ erez and A. G´ omez-Valent,Possible signals of vacuum
+dynamics in the Universe,Mon. Not. Roy. Astron. Soc.478(2018) 4357 [1703.08218].
+[207] J. Sol` a Peracaula, A. G´ omez-Valent and J. de Cruz P´ erez,Signs of Dynamical Dark Energy in
+Current Observations,Phys. Dark Univ.25(2019) 100311 [1811.03505].
+[208] L. Perivolaropoulos and F. Skara,Challenges forΛCDM: An update,New Astron. Rev.95
+(2022) 101659 [2105.05208].
+[209]CosmoVerse Networkcollaboration,The CosmoVerse White Paper: Addressing
+observational tensions in cosmology with systematics and fundamental physics,Phys. Dark
+Univ.49(2025) 101965 [2504.01669].
+[210]DESIcollaboration,Validation of the Scientific Program for the Dark Energy Spectroscopic
+Instrument,Astron. J.167(2024) 62 [2306.06307].
+[211] L. Amendola et al.,Cosmology and fundamental physics with the Euclid satellite,Living Rev.
+Rel.21(2018) 2 [1606.00180].
+– 50 –

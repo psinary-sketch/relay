@@ -1,0 +1,62 @@
+====================================================================================================
+b425_checks.py -- THE GATE SUITE.
+====================================================================================================
+  hosts named in the component`s strings : ['arxiv.org', 'export.arxiv.org', 'www.w3.org']
+  G-RECEIPT-IN-FULL                          the ferry carries its own paste-end marker               PASS
+  G-SCAN-CLEAN                               the ferry`s scan reports 0 hits                          PASS
+  G-STEPZERO-CENSUS                          both step-zero censuses report TOTAL MISSING : 0         PASS
+  G-STEPZERO-PINS                            the pins report REPOS HARD-FAILING : 0                   PASS
+  G-SURVEY-NOMISS                            the survey reports ANCHOR MISSES : 0                     PASS
+  G-REG-LOCKED-FIRST                         the seal verifies and precedes the first search and the  PASS
+  G-LOCKGATE-EIGHT                           the lock run read 8, passed 8, 4 by digest               PASS
+  G-SEAL-VERIFIES                            the seal verifies and the registration gate reads CLEAR  PASS
+  G-LEG2-CLOSED                              b424 at row 273 by its marker and its closing record tra PASS
+  G-F-COMMITMENT-QUOTED                      the lane quoted at its pins, every blob matching         PASS
+  G-F-WITHDRAWN-NOT-GOVERNING                the withdrawal line quoted and the weaker sentence set a PASS
+  G-F-SEARCH-PRINTED                         the three declared queries run and printed, twenty-five  PASS
+  G-F-SELECTION-BY-RULE                      the chosen three re-derived from the banked results by t PASS
+  G-F-SOURCES-HASHED                         every source`s bytes hashed and its text on disk         PASS
+  G-F-CAP                                    at most three sources                                    PASS
+  G-F-SIGNIFICANCE-QUOTED                    every quotation re-found in its source`s text            PASS
+  G-F-TENSION-THREE-PARTS                    each source carries parts (a), (b) and (c)               PASS
+  G-F-DECISION-BY-RULE                       each verdict is the rule`s on its deciding sentence      PASS
+  G-F-ROUTED                                 routed, and a FIRED reading names the row as the author` PASS
+  G-F-NOCOMPUTE                              no fit, sampler or likelihood in the act`s code          PASS
+  G-L3-APART                                 (L3)`s two clauses scored apart                          PASS
+  G-FOUR-LISTS-OPEN                          the trail and the bank restate the four lists OPEN with  PASS
+  G-NOKERNEL                                 no kernel .lean file changed and the profile unchanged   PASS
+  G-NOGRADE                                  no grade string minted                                   PASS
+  G-NOPREMISE                                the bank states 0 premises discharged                    PASS
+  G-NODOOR                                   the bank states 0 doors restated                         PASS
+  G-NOROUTE                                  the bank states 0 routes proposed                        PASS
+  G-NOKAPPA                                  no kappa value measured                                  PASS
+  G-NORULE                                   STRUCK_CLAUSES is not written                            PASS
+  G-NODEPOSIT                                no Zenodo byte                                           PASS
+  G-NOPLATFORM                               the only hosts named are the arXiv listing`s             ### **FAIL**
+  G-NOH2                                     no claim about h2 beyond the standing sentence           PASS
+  G-NOLOCKEDFACE                             the seal still verifies                                  PASS
+  G-NOPRIORBANK                              no prior act`s bank opened for write                     PASS
+  G-NOBANKEDFERRY                            no banked ferry opened for write                         PASS
+  G-NOLANEEDIT                               the lane`s documents and REGISTRY.md unchanged since the PASS
+  G-NOLEDGERROW                              FACES_LEDGER.md unchanged since the pin                  PASS
+  G-NOFOLD                                   FINDINGS.md unchanged since the pin and no span record u PASS
+  G-TRAIL-APPEND-ONLY                        the pin`s trail is a true prefix and both marks are pres PASS
+  G-CORR-APPEND-ONLY                         the pin`s table a true prefix; b424 at 273 and this act  PASS
+  G-WRITELIST-KINDS                          the face names 5 kinds                                   PASS
+  G-NOEXTRAKIND                              exactly six relay act-tool files                         PASS
+  G-NOSTAGE-A                                no working tool stages by -A                             PASS
+  G-NOBORROWEDBAR                            no `G-NO*` arm reads a raw document text                 PASS
+  G-ARMS-DECLARED-EQ-RUN                     declared on the face equals run here, both ways          PASS
+  G-ARMS-OWN-BANK                            arms run over this act`s own bank                        PASS
+  G-ARMS-STRIP-PROSE                         this suite strips comments and strings by the tokenizer  PASS
+  G-ARMS-FOLD-MARKERS                        this suite folds markup before matching                  PASS
+  G-ARMS-NO-SUBSTRING-VERDICT                A2: verdict lines read                                   PASS
+  G-NOWRAP-MIDTOKEN                          the writers wrap at word boundaries                      PASS
+  G-MUSTFAIL                                 none of the forbidden lines is in the bank               PASS
+----------------------------------------------------------------------------------------------------
+  declared on the face : 51
+  run here             : 51
+  declared but not run : none
+  run but not declared : none
+  ### ### **ARMS : 51. ### PASSING : 50. ### FAILING : 1.**
+====================================================================================================
