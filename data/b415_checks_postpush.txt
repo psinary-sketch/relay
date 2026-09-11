@@ -1,0 +1,98 @@
+====================================================================================================
+b415_checks.py -- THE GATE SUITE.  ### POST-PUSH RUN.
+====================================================================================================
+
+ARM                                        WHAT IT READS                                            VERDICT
+----------------------------------------------------------------------------------------------------
+  G-RECEIPT-IN-FULL                        the ferry carries its own paste-end marker, part 1 of  PASS
+  G-SCAN-CLEAN                             the scan VERDICT LINE reports 0 hits                   PASS
+  G-LEG1-CLOSED-FIRST                      the face records leg 1 closed and pushed before this a PASS
+  G-STEPZERO-CENSUS                        both step-zero censuses report TOTAL MISSING : 0       PASS
+  G-STEPZERO-PINS                          the pins tool reports REPOS HARD-FAILING : 0           PASS
+  G-SURVEY-NOMISS                          the survey reports ANCHOR MISSES : 0                   PASS
+  G-ANCHOR-REPAIRED-BEFORE-LOCK            the face declares the anchor repaired before the lock  PASS
+  G-REG-LOCKED-FIRST                       the seal verifies and the face says LOCKED BEFORE ANY  PASS
+  G-LOCKGATE-EIGHT                         the lock gate read 8 gates, 8 passing, 4 by digest     PASS
+  G-SEAL-VERIFIES                          the registration gate verdict line reads CLEAR         PASS
+  G-NOLEAN                                 no .lean file is opened for write by any tool of this  PASS
+  G-NOBUILD                                no working tool of this act names the Lean compiler as PASS
+  G-NOTERMINAL                             the act states 0 terminals added, in its bank          PASS
+  G-THREE-PRINCIPLES-NAMED                 the survey names three selection principles            PASS
+  G-EACH-PRINCIPLE-HAS-A-TERMINAL          each principle is checked against a named kernel termi PASS
+  G-KEYSTONE-QUOTED                        the keystone is quoted from the file, not paraphrased  PASS
+  G-HEADING-IS-NOT-A-THEOREM               the act refuses the heading the status of a theorem    PASS
+  G-NONEXTENSION-COMPILATION-TESTED        the act reports which non-extension clause is compiled PASS
+  G-NOOTHERPAIR-SEARCHED-BY-DESCRIPTION    the no-other-pair sentences are found by a description PASS
+  G-NOOTHERPAIR-GRADED                     the claim is graded into one of the three kinds the fe PASS
+  G-ARCHIVE-EXCLUDED                       the search excludes archive and outputs, and says so   PASS
+  G-TUPLES-FROM-DECLARATIONS               the tuples are read from the kernel source file        PASS
+  G-FOUR-TUPLES-FOUND                      the survey found exactly four tuple definitions        PASS
+  G-TUPLES-ARE-LITERAL-DEFS                each tuple is reported as a literal def, not a theorem PASS
+  G-BRIDGES-READ                           both component bridges are read and reported           PASS
+  G-TABLE-IS-FOUR-BY-FOUR                  the printed table carries four class rows              PASS
+  G-CLASS-A-ROW-PRESENT                    class A has its own row and its own count              PASS
+  G-NOTE-AS-WITNESS                        the 2026-06-15 note is used as a second witness, never PASS
+  G-SCREEN-INSTANCE-QUOTED-FIRST           the corpus`s own worked instance is quoted before the  PASS
+  G-SCREEN-IS-THE-CORPUS-OWN               the standard is the corpus`s, stated as such           PASS
+  G-BOTH-RATIOS-SCREENED                   both ratios get a verdict of their own                 PASS
+  G-SECOND-WITNESS-NAMED                   a second witness is named for each claim               PASS
+  G-PERMITTED-IS-NOT-REFUTED               the act states that PERMITTED is not a refutation      PASS
+  G-NOSIBLING-WRITE                        no tool of this act opens a path outside the corpus fo PASS
+  G-NOSIBLING-ADOPTED                      the act states 0 sibling claims adopted                PASS
+  G-EXPERIMENT-PRICED-NOT-RUN              the act prints a price and states 0 runs               PASS
+  G-INSTRUMENT-LANE-PARKED                 the act says the instrument lane stays parked          PASS
+  G-WHAT-A-RUN-ADDS-STATED                 the act states what a run would add and what is alread PASS
+  G-PROGRAMMES-ENUMERATED                  the record is written AND all three promotion passes a PASS
+  G-DIRECTORY-IS-NOT-A-PROGRAMME           the act states the distinction and applies it          PASS
+  G-STATE-DOCUMENT-TEST-DECLARED           the promotion test is declared before it is run        PASS
+  G-CITATION-BETWEEN-PROGRAMMES-MEASURED   the cross-citation count is measured and printed, over PASS
+  G-PRIMECORE-BY-DESCRIPTION               the search is by description, and the description is s PASS
+  G-PRIMECORE-STRING-NOT-SOURCE            the act states the term is a search string, never a so PASS
+  G-CONTROL-RUNS-FIRST                     the control is printed before any absence is reported  PASS
+  G-CONTROL-HOLDS                          the control holds AND an empty population is reported  PASS
+  G-NO-SET-FROM-RECOLLECTION               the act states that an unread set is not named         PASS
+  G-MEMORY-BYTES-PRINTED                   bytes before and after are printed AND the result is u PASS
+  G-MEMORY-HOOKS-RESOLVE                   every hook in the index resolves to a file on disk     PASS
+  G-MEMORY-TARGETS-UNTOUCHED               only MEMORY.md was written; no target file was opened  PASS
+  G-MEMORY-B387-PAIR-PRESENT               both hooks b387 recorded as lost are in the index      PASS
+  G-MEMORY-NO-HOOK-REMOVED                 the record reports 0 hooks removed and 0 unresolved    PASS
+  G-NOGRADE                                no grade string is minted by this act`s bank           PASS
+  G-NOPREMISE                              the bank states 0 premises discharged                  PASS
+  G-NODOOR                                 the bank states 0 doors restated                       PASS
+  G-NOROUTE                                the bank states 0 routes proposed                      PASS
+  G-NOKAPPA                                no kappa value is measured                             PASS
+  G-NOCHANNEL                              no channel is opened by the act`s working tools        PASS
+  G-NOLEDGERROW                            FACES_LEDGER.md is not written                         PASS
+  G-NOFOLD                                 FINDINGS.md is not written                             PASS
+  G-NORULE                                 STRUCK_CLAUSES is not written                          PASS
+  G-NODEPOSIT                              no deposit action and no Zenodo byte                   PASS
+  G-NOPLATFORM                             no platform call of any kind                           PASS
+  G-NOOUTPUTS                              no file under outputs/ is touched                      PASS
+  G-NOH2                                   no claim about h2 beyond the standing sentence         PASS
+  G-NOORIENTATION-EDIT                     neither orientation object is written                  PASS
+  G-NOLOCKEDFACE                           no locked face is edited: the seal still verifies      PASS
+  G-NOPRIORBANK                            no prior act`s bank is opened for write                PASS
+  G-NOBANKEDFERRY                          no banked ferry is opened for write                    PASS
+  G-NOREGISTRYROW                          REGISTRY is not written                                PASS
+  G-TRAIL-APPEND-ONLY                      the trail block is appended and the prior mark survive PASS
+  G-CORR-APPEND-ONLY                       the correspondence row is appended and row 263 survive PASS
+  G-WRITELIST-EXACT                        the face names 6 kinds                                 PASS
+  G-NOEXTRAKIND                            the act wrote exactly the six relay tool files the fac PASS
+  G-NOSTAGE-A                              no working tool of this act stages by -A               PASS
+  G-ARMS-DECLARED-EQ-RUN                   declared on the face equals run here, both ways        PASS
+  G-ARMS-OWN-BANK                          arms this act builds run over this act`s own bank      PASS
+  G-ARMS-STRIP-PROSE                       this suite strips comments AND strings, by the tokeniz PASS
+  G-ARMS-FOLD-MARKERS                      this suite folds markup before matching banked prose   PASS
+  G-ARMS-OWN-ARTEFACT                      no arm reads a needle from a sibling artefact rather t PASS
+  G-ARMS-NO-SUBSTRING-VERDICT              A2: verdicts are read from their own lines             PASS
+  G-NOWRAP-MIDTOKEN                        the report writer wraps at word boundaries, not at a f PASS
+  G-MUSTFAIL                               none of the six forbidden whole lines is in the bank   PASS
+----------------------------------------------------------------------------------------------------
+
+  declared on the face : 83
+  run here             : 83
+  declared but not run : none
+  run but not declared : none
+
+  ### ### **ARMS : 83. ### PASSING : 83. ### FAILING : 0.**
+====================================================================================================
