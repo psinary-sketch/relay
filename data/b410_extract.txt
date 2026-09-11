@@ -1,0 +1,264 @@
+====================================================================================================
+b410_extract.py -- THE SURVEY. ### EVERY READ ANCHORED, EVERY MISS COUNTED.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) DEFINITION 2.5, THE CRITERION THE CLASSIFICATION MUST APPLY.
+----------------------------------------------------------------------------------------------------
+  ### DEFINITION 2.5, THE HEAD   [INVARIANCE_BARRIERS.md, line 111]
+      | **Definition 2.5 (Factoring through an interface).** Let π be a formal first-order proof in ZFC ∪ S (where S specifies M). An *inference step* π_j in 
+      | π is an application of a first-order inference rule (modus ponens, universal generalization, etc.) producing a derived sentence from earlier sentences
+      |  and axioms.
+  ### CLAUSE 1 -- THE SYNTACTIC TEST   [INVARIANCE_BARRIERS.md, line 115]
+      | 1. The sentences mentioned in π_j's premises and conclusion reference only: (i) quantities internal to one side of I, or (ii) cumulative invariants of
+      |  I (integrals, densities, or measure-theoretic quantities averaging over I), but not individual-element specifications requiring P-information to cros
+      | s I.
+  ### CLAUSE 2 -- THE SEMANTIC TEST   [INVARIANCE_BARRIERS.md, line 117]
+      | 2. Equivalently: π_j's conclusion holds in any model M′ that agrees with M on both sides of I and on the cumulative I-invariants, even if M′ differs f
+      | rom M in individual-element correspondences across I.
+  ### AND WHAT IT IS DEFINED *OF*   [INVARIANCE_BARRIERS.md, line 121]
+      | **Proof π factors through I for P** if every inference step of π factors through I for P.
+  ### ### **NOTE FOR (R28): ### DEFINITION 2.5 DEFINES FACTORING OF AN ### INFERENCE
+  ### ### STEP ### AND OF A ### PROOF. ### IT DOES NOT DEFINE IT OF A STANDALONE
+  ### ### SENTENCE.** ### Clause 1 speaks of *the sentences mentioned in* a step, and
+  ### clause 2 of *the step`s conclusion*. ### **THE KIND CHECK IS APPLIED TO THIS ACT`S
+  ### ### OWN TASK BELOW, NOT ONLY TO THE RECORD`S.**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE INTERFACE AND THE TARGET, IN THE RECORD`S OWN WORDS.
+----------------------------------------------------------------------------------------------------
+  ### THE INTERFACE, AND kappa(sigma, I) = 0   [INVARIANCE_BARRIERS.md, line 192]
+      | Let I be the product-formula interface (specifying that ∏_v |·|_v = 1 in the adelic setup). For ξ, I is essential and κ(σ, I) = 0. For Z(s), I is *abs
+      | ent* — the specification does not include it — but analogous cumulative-density interfaces exist.
+  ### DEFINITION 2.4, THE SUPREMUM   [INVARIANCE_BARRIERS.md, line 96]
+      | **Definition 2.4 (Transmission coefficient).** Let I be an interface of M and let P be a target parameter. The *transmission coefficient* κ(P, I) ∈ [0
+      | , 1] measures the fraction of P-dependent information that crosses I. Formally, for perturbations δ applied to the A-side of I:
+  ### ### **SO THE TARGET PARAMETER IS `σ` AND THE INTERFACE IS THE RECORD`S OWN,
+  ### ### NOT A COINAGE OF `b409`.** ### And `σ` -- the real part, the PLACEMENT of an
+  ### individual zero -- is ### **THE SAME OBJECT §9 CALLS THE PLACEMENT REGISTER.**
+
+----------------------------------------------------------------------------------------------------
+### (C) COROLLARY 3.6, AND WHAT ITS EXISTENTIAL RANGES OVER.
+----------------------------------------------------------------------------------------------------
+  ### THE COROLLARY   [INVARIANCE_BARRIERS.md, line 211]
+      | **Corollary 3.6 (Bright-interface access).** *If π is a first-order ZFC proof of "∀x ∈ M: P(x)" for a determined I+D+S system M, then at least one inf
+      | erence step of π does not factor through any P-dark interface of M. The proof accesses M through a bright channel at some step.*
+  ### AND WHAT THE CHANNELS ARE   [INVARIANCE_BARRIERS.md, line 215]
+      | Corollary 3.6 is the form of the theorem used in the E-Difficulty chain: any proof of universality must contain at least one inference step operating 
+      | through a κ > 0 interface — a bright channel. Such channels, in determined I+D+S systems with n₄ = 0, are exactly the mechanism classes themselves (by
+      |  the Silence Principle's Independence clause).
+  ### THE ANTISYMMETRY, OF *EVERY* CLASS   [A_Place_to_Stand.md, line 432]
+      | **Existence and Uniqueness (from Symmetry).** The constraint function of each mechanism class is antisymmetric about the reflection axis (the function
+      | al equation forces this). An antisymmetric continuous function has exactly one zero on the axis. The derivative-level mechanism enumeration (§22.5) ex
+      | amines each class at the derivative level: the per-class reductions compile (C₁ derives), and the joint step — that no class produces a double zero — 
+      | is the *geometric clause*, carried openly (§24.4), the derivative-level counterpart of the arithmetic clause that excludes off-line zeros. One zero at
+      |  the symmetry axis; its simplicity is that geometric clause, not a local consequence here.
+
+----------------------------------------------------------------------------------------------------
+### (D) SECTION 9 -- THE CALIBRATION FAMILY, READ WHOLE.
+----------------------------------------------------------------------------------------------------
+  ### THE HEADING   [INVARIANCE_BARRIERS.md, line 479]
+      | ## 9. The calibration family: the archimedean instance and the per-place table
+  ### THE FAMILY`S OWN FRAME   [INVARIANCE_BARRIERS.md, line 481]
+      | The barrier hypothesis-shape of Theorem 3.1 — an interface graded by what register it transmits — admits instance rows beyond the sieve and natural-la
+      | nguage cases of §5. The first calibrated instance, folded at the author's ruling:
+  ### ROW 1 -- THE ARCHIMEDEAN ROW, WHOLE   [INVARIANCE_BARRIERS.md, line 483]
+      | **The archimedean row.** *The archimedean interface carries κ > 0 for the density register and κ = 0 for the placement register.* The bright half is c
+      | ertified: the trivial lattice's angle-sum and the digamma density — two independent routes — compute the mean counting law of the nontrivial zeros to 
+      | quadrature accuracy, bracketing true counts with |S(T)| < 1 (the gauge verification). The dark half is the standing barrier corpus: single-place, sing
+      | le-index data provably reaches the σ = 1 edge and never the centre (the drift lemma and its sign-neutral break; the compiled negatives of the companio
+      | n keystone). The row is a manuscript-resident structural reading with its two certificates named — an instance of this paper's hypothesis shape at the
+      |  archimedean place, not a new theorem.
+  ### THE PER-PLACE TABLE, WHOLE   [INVARIANCE_BARRIERS.md, line 485]
+      | **The per-place table.** The explicit formula's terms sorted by place, each asking what register that place transmits: every single-place row — the ar
+      | chimedean digamma term, each finite prime's ledger terms — transmits the density register; the joint sum over all places is the exactness of the formu
+      | la, the unconditional duality; and the one placement cell in the table is the sign of the joint quadratic functional — Weil positivity, the arc's open
+      |  clause. The table is classical objects under this paper's register labels; the labels are readings, the constituent facts carry their classical cites
+      | , and the dark cell is exactly `h2`, not narrowed here.
+  ### THE FORWARD   [INVARIANCE_BARRIERS.md, line 489]
+      | The calibration family is open as a programme: the arity barrier (a compilable obstruction that no finite single-index composition yields the pair-ind
+      | ex form — the Tier-2 direction's nearest compilable face) and further per-place instance rows are the named next moves; the family grows by calibrated
+      |  instances, each with its certificates on its face. No false finality: the rows classify interfaces, they do not discharge the clause.
+  ### AND §9`S OWN CORRESPONDENCE ROW   [INVARIANCE_BARRIERS.md, line 510]
+      | | §9 — the archimedean κ-row and the per-place table | (none) | — | — | Manuscript-resident structural readings; bright-half certificate = the two-rou
+      | te gauge verification (relay record); dark half = the drift/edge lemma and the compiled negatives (companion keystone); the table's dark cell = `h2`, 
+      | carried open |
+
+----------------------------------------------------------------------------------------------------
+### (E) THE FOUR IMPORTS, FROM THE E0 GATE`S TABLE, LOCATED BY ITS OWN HEADING.
+----------------------------------------------------------------------------------------------------
+  ### THE E0 GATE, BY ITS HEADING   [FINDINGS.md, line 3043]
+      | ### The E0 gate: every constituent unfolded to its owner
+  ### ### **THE EIGHT ROWS, IN FILE ORDER FROM THAT HEADING -- 8 FOUND.**
+  ### line 3047
+      | | **K1** the class | IMPORT under the bar: the source’s Definition 3.1 (positive definite: transform pointwise non-negative) with Proposition C.1’s va
+      | nishing set `{0, 1}`; a local proposition per seed (lawful or not), decided by b320’s scan |
+  ### line 3048
+      | | **K2** the criterion’s sign | IMPORT under the bar: Proposition C.1, `RH <=> SUM_v W_v(g conv g-bar^#) <= 0` for every `g` with the vanishing condit
+      | ions; the corpus’s convention `places = PR - A` (b326’s tool); a local proposition: for a lawful `f` the pole term vanishes, so `SUM_v W_v(f) = -Z` (b
+      | 321) |
+  ### line 3049
+      | | **K3** the finite places’ contribution | KERNEL TERMINALS: `B329.*` (24, zero-axiom; the decomposition and the scaling part GENERAL, the compact par
+      | t PER CELL) and `B310.*` (the identity count at the seven cells); a derivation on content: the source’s construction on the object returns the test fu
+      | nction at the identity times a dimension (b310) |
+  ### line 3050
+      | | **K4** the prime sum | a derivation on content: the corpus’s prime side IS the source’s finite-places sum, factor for factor on the summand under th
+      | e source’s own normalization, DIFFERENT only in the cutoff window (b306); IMPORT under the bar: the local term (149) |
+  ### line 3051
+      | | **K5** the archimedean distribution | defined at b315 from the source’s own formula; measured at b320 by two routes sharing no code, the second agai
+      | nst the digamma kernel `Re psi(1/4 + i u/2) - log pi`; the sign certified at every frame, the size at none |
+  ### line 3052
+      | | **K6** the decomposition: the compressed square plus the remainder | IMPORT under the bar: Theorem 4.7 as an EQUALITY, `Tr(theta(f) S) = W_infinity(
+      | f) + INT f(rho^-1) eps(rho) d*rho`; a local proposition: the compressed square is non-negative as arithmetic (a sum of squares, b318); measured: the e
+      | quality at the three covered cells and the remainder as the margin (b320, b321) |
+  ### line 3053
+      | | **K7** the object and its archimedean unit | the space from the source’s definition; the unit in by derivation on named imports (b300); its membersh
+      | ip residual UNDER-RESOLVED at bench with its price (b322) |
+  ### line 3054
+      | | **K8** the quantifiers | UNOWNED: over the class (infinite) and, through the explicit formula, over the zeros. No act in the corpus owns either quan
+      | tifier; touched only on families and libraries |
+
+----------------------------------------------------------------------------------------------------
+### (F) THE DENSITY REGISTER -- WHAT THE RECORD HOLDS, AND WHAT IT DECLINED.
+----------------------------------------------------------------------------------------------------
+  ### THE COUNTERMODEL LIVES IN THE DENSITY REGISTER   [INVARIANCE_BARRIERS.md, line 196]
+      | *Density-one-per-class:* By Potter-Titchmarsh zero-density estimates and modern extensions (Bui-Heath-Brown), the zeros of Z(s) have density one on th
+      | e critical line: the proportion of zeros with |Re(s) − 1/2| > ε vanishes as the height increases.
+  ### AND THE TOOLKIT ### **DELIBERATELY EXCLUDES** ### THAT REGISTER   [INVARIANCE_BARRIERS.md, line 249]
+      | Every tool in T is PROVED-FOR-BOTH; no reducible-only or open tool remains. We assert no agreement beyond this: **stronger zero-density estimates — N(
+      | σ,T) bounds, positive-proportion-on-line — are deliberately outside T, and T is not widened to include them.** The reason, stated honestly: the strong
+      | est such facts are not unconditionally available for ξ itself, so they are not legitimate T-tools; and where Epstein analogues are studied (Bombieri–H
+      | ejhal 1995), the off-line-zero count for ξ_Q is in fact a positive proportion — which would strengthen divergence but is not needed and would burden t
+      | he agreement clause.
+  ### THE ONE CLASSICAL DENSITY RESULT THE RECORD STATES   [CRITICAL_RESOLVE.md, line 2232]
+      | Selberg (1942): A positive proportion of zeros lie on the critical line.
+  ### AND ONE MORE, ON SIMPLICITY RATHER THAN PLACEMENT   [MONOTONICITY.md, line 360]
+      | The theorems assume zeros are simple. Under GRH for Dirichlet L-functions, all zeros of ζ are simple. The best unconditional result is that a positive
+      |  proportion of zeros are simple (Conrey 1989). A multiple zero would be a point where ξ'(ρ) = 0, violating the implicit function theorem for R-curves.
+      |  The Spectral Cannon's Persistence finding — |ζ'(ρ)| ~ √γ growing without bound — provides strong evidence against multiple zeros.
+
+  ### **THE SEARCH BY DESCRIPTION, WITH ITS YIELDS PRINTED AND ITS CONTROL.**
+      files in scope : 303 live `.md`, `outputs/` and `archive/` excluded
+      a PROPORTION of zeros on the line              9 hit(s) in  6 document(s)
+          internal/CONVERGENCE.md
+          internal/CRITICAL_RESOLVE.md
+          phase1.5/method/INVARIANCE_BARRIERS.md
+          phase1.5/rcurve/MONOTONICITY.md
+          phase1.5/simplicity/ALL_ZEROS_SIMPLE.md
+          phase1.5/simplicity/CASE_FOR_SIMPLICITY.md
+      a ZERO-DENSITY estimate                       27 hit(s) in 16 document(s)
+          BIBLIOGRAPHY.md
+          internal/SIDE_EFFECTS.md
+          internal/TECHNE_ELEMENTS.md
+          phase1.5/deep-structure/TRIVIUM_FINDINGS.md
+          phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md
+          phase1.5/method/INVARIANCE_BARRIERS.md
+          ... and 10 more
+      the COUNTING LAW / N(T)                       41 hit(s) in 13 document(s)
+          EMERGING_RESEARCH_PROGRAMMES.md
+          REGISTRY.md
+          VERIFICATION_LOOM.md
+          internal/CONVERGENCE.md
+          internal/SIDE_EFFECTS.md
+          phase1.5/method/INVARIANCE_BARRIERS.md
+          ... and 7 more
+      the DENSITY REGISTER by that name              8 hit(s) in  7 document(s)
+          FINDINGS.md
+          OPEN_TRAILS.md
+          SPIRAL_MAP.md
+          phase1.5/method/INSTRUMENTS.md
+          phase1.5/method/INVARIANCE_BARRIERS.md
+          phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md
+          ... and 1 more
+      the PLACEMENT REGISTER by that name            4 hit(s) in  3 document(s)
+          OPEN_TRAILS.md
+          phase1.5/method/INVARIANCE_BARRIERS.md
+          phase2/method/THE_EULER_SPECIFICATION.md
+  ### ### **THE POSITIVE CONTROL -- A REGISTER WORD THE RECORD CERTAINLY USES MUST BE
+  ### ### FOUND BY THE SAME MACHINERY:** ### `κ` itself.
+      the control (`κ` in a live document) : ### **112 document(s)** ### -- ### **PASSES**
+
+----------------------------------------------------------------------------------------------------
+### (G) `b409`’S OWN §10, READ BACK SO THE KIND CHECK CAN BE APPLIED TO IT.
+----------------------------------------------------------------------------------------------------
+  ### THE RESTATEMENT, WHOLE   [INVARIANCE_BARRIERS.md, line 650]
+      | **Theorem 3.1-H (relativized form).** *Let `M` be a determined structure with specification `S`, let `I` be an interface with `κ(P, I) = 0` for target
+      |  parameter `P`, and let `H` be a finite set of `ℒ`-sentences **every member of which factors through `I` for `P`** in the sense of Definition 2.5. Let
+      |  `π` be a formal first-order proof in `ZFC ∪ S` of `H ⟹ (∀x ∈ M: P(x))`. If `π` factors through `I` for `P`, then `π` does not establish that statemen
+      | t; the strongest statement `π` can establish has the form `H ⟹` (`P` holds on a density-one subset of each `I`-class), and the individual element rema
+      | ins unreached.*
+  ### AND THE CONDITION IT LEAVES UNRUN   [INVARIANCE_BARRIERS.md, line 656]
+      | **And what it does not settle.** Applying 3.1-H to the corpus’s reduction — with `H` = { the source’s Definition 3.1, Proposition C.1, the local term 
+      | (149), Theorem 4.7 } — requires classifying **those four sentences** under Definition 2.5, and **nobody has run that classification**. So the relativi
+      | zation succeeds and hands the corpus a new unasked question in place of the old one. **A theorem that applies *provided a condition* is not a theorem 
+      | that applies.**
+
+----------------------------------------------------------------------------------------------------
+### (H) THE `66` ROUTED DOCUMENTS, AND THEIR SYMBOL YIELD.
+----------------------------------------------------------------------------------------------------
+  ### documents in `b409`’s table : 95 ; ROUTED : 66
+      no symbol pinned at all                 61 document(s),   291 symbol use(s)
+      symbols pinned but TIED                  0 document(s),     0 symbol use(s)
+      pinned only by the SHARED symbol C7      5 document(s),     6 symbol use(s)
+
+----------------------------------------------------------------------------------------------------
+### (I) THE INSTRUMENT THE RECORD ALREADY HAS FOR EXACTLY THIS QUESTION.
+----------------------------------------------------------------------------------------------------
+  ### THE SCREEN`S HEAD -- STANDING, AUTHOR-RULED   [INSTRUMENTS.md, line 93]
+      | ## I-7 — THE PLACEMENT SCREEN (standing; filed 2026-08-05, author-ruled)
+  ### THE SCREEN ITSELF   [INSTRUMENTS.md, line 97]
+      | **The screen, one question, asked of the DEFINITION and not of the intuition:** *does the statistic's definition contain the zeros' REAL PARTS?* If it
+      |  does not, the statistic is density-register by construction — its value is unchanged when the zeros are moved off the line with their imaginary parts
+      |  held — and it **cannot price placement**. **Output: REFUSE THE COMPUTATION, and state why.** (A refused statistic may still be valuable in its own re
+      | gister; the screen classifies, it does not condemn — π₀ was refused as a currency and retained as a shape discriminant.)
+  ### ITS FOUR DERIVATIONS, AND THE BOUNDARY THEY REACH   [INSTRUMENTS.md, line 99]
+      | **The evidence base — four independent derivations of the same boundary:** (1) **E-17's register crossing** (ensemble law → the instance's pairing is 
+      | the un-compiled step); (2) **F.2026-07-31's density screening** (the DQPT channel classified density-register, no bearing on the pairing); (3) **E-10'
+      | s null** (the coefficient-level distance does not even correlate with off-line placement); (4) **E-24's definitional exclusion** (π₀ takes the same va
+      | lue for every placement, so its placement-power is zero by construction rather than by insufficient data). Four routes, one boundary: the density regi
+      | ster does not reach placement.
+  ### AND WHAT ITS FIRST FIRING SAVED   [INSTRUMENTS.md, line 101]
+      | **Cost saved on its first firing:** an Epstein-witness computation of hundreds of zeros at high precision, which would have returned a separation caus
+      | ed by the witness's different correlation structure and could have been misread as a placement channel.
+  ### AND IT HAS A SECOND STAGE   [INSTRUMENTS.md, line 146]
+      | ### I-7's SECOND RUN — the screen applies twice: to the DEFINITION, and to the IMPLEMENTATION
+  ### THE WALL`S SIXTH FACE, BANKED   [INDEX_ARITY_AT_THE_CRITICAL_LINE.md, line 331]
+      | **The wall''s sixth face — the currency is definable only after the crossing.** A statistic that prices the approach to the pairing must contain the z
+      | eros'' REAL PARTS; the enumerated ζ-side candidates are either the pairing whose positivity is the open premise, or take placement as an input. The pr
+      | icing clause is therefore not satisfiable in advance of the proof. *(Definitional; the enumeration explicitly NOT shown exhaustive.)*
+  ### AND THE ARC`S OWN VERDICT ON THE REGISTER   [INDEX_ARITY_AT_THE_CRITICAL_LINE.md, line 327]
+      | now shown the density register cannot supply one** (the placement screen; the currency null).
+
+  ### ### **AND NEITHER INSTRUMENT CITES THE OTHER -- MEASURED, NOT ASSUMED.**
+      `INVARIANCE_BARRIERS.md` naming the screen : ### **0**
+      `INSTRUMENTS.md` naming Definition 2.5, the coefficient, or the keystone : ### **0**
+  ### ### **SO THE RECORD STATES ONE TEST TWICE, IN TWO DOCUMENTS THAT DO NOT KNOW
+  ### ### ABOUT EACH OTHER.**
+
+  ### ### **AND A THIRD NUMBERING COLLISION, THIS ONE NOT YET LANDED.**
+  ### A SECOND DOCUMENT CLAIMING `I-7`   [I7_SURVEYABILITY_GRADER.md, line 1]
+      | # I-7 — the surveyability grader (spec)
+  ### AND IT IS QUEUED TO JOIN AS `I-7`   [I7_SURVEYABILITY_GRADER.md, line 38]
+      | v0.1, **held at spec.** *Boundary:* I-7 types a certificate's surveyability/checkability and names the resolution; it does **not** perform the split f
+      | or you (finding the surveyable structural leg is the mathematical work). **Validation-case-first, per the I-6 precedent:** the four-color migration is
+      |  the validation; a second independent case (a different closed-but-unsurveyable theorem walked through the grader) is the robustness criterion, kept o
+      | pen. Joins `INSTRUMENTS.md` as I-7 on the author's confirming word.
+      live documents citing `I-7` : ### **12**
+          VERIFICATION_LOOM.md
+          phase1.5/method/COMPUTE_NETWORK_PRINCIPLES.md
+          phase1.5/method/COMPUTE_VERIFICATION_SPEC.md
+          phase1.5/method/DESIGN_PRINCIPLE_MINIMAL_COMPUTE.md
+          phase1.5/method/I7_SURVEYABILITY_GRADER.md
+          phase1.5/method/INSTRUMENTS.md
+          phase1.5/method/PATENT_CONSOLIDATION_WORKSHEET.md
+          phase1.5/method/STRANGER_TEST_RESULT.md
+          phase1.5/method/THE_METHOD_CANON.md
+          phase1.5/method/THE_STRANGER_TEST_PROTOCOL.md
+          phase1.5/method/patent-package/filings/A-CANDIDATE.md
+          phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md
+  ### ### **THE NUMBER IS OCCUPIED BY A STANDING, AUTHOR-RULED INSTRUMENT, AND THE
+  ### ### COLLISION FIRES ON A WORD THE AUTHOR HAS NOT YET SAID.** ### **ROUTED.**
+
+====================================================================================================
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================
