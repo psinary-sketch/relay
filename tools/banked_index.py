@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-kernel-arc-folded': ['the kernel arc folded', 'fold of b413 to b421', 'unique model internally to zfc', 'r37 definition 2.1 ruling', 'the witness enumeration arc', 'what did the kernel arc produce'],
     'the-finite-ambient': ['grid trace signed count', 'the finite ambient built', 'is definition 2.1 satisfiable by an infinite structure', 'lowenheim skolem determined', 'when is the next fold', 'the navigator conflations at b420'],
     'the-lemma-aimed': ['does the sieve ceiling lemma apply to positivity', 'barrier lemma aimed at positivity', 'the lemma aimed', 'r36 route one', 'can the trace identification be stated in the kernel', 'b419 kernel clauses not meetable'],
     'the-clause-printed': ['is the general smear clause proved', 'smear general zero axioms', 'the clause printed', 'the lock versus the scan priced', 'silent timeouts outside the arc', 'which banked verdicts rest on a timeout'],
@@ -675,6 +676,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE KERNEL ARC FOLDED (b422).
+    ('the-kernel-arc-folded', 'b422 (the kernel arc folded; R37 executed; the orientation layer refreshed; the witness arc named)',
+     "b422 FOLDED THE KERNEL ARC, b413-b421. **ITS PRODUCT IS TWO COMPILED GENERAL THEOREMS ABOUT THE MODEL OF THE OBJECT AT A FINITE PLACE** (SmearGeneral.smear_general, GridTrace.grid_trace_is_signed_count); by b412's measure 0 statements about the object as written, with a third column named. **(R37): THE KEYSTONE'S UNIQUE MODEL READ INTERNALLY TO ZFC**, appended as §10.2, Definition 2.1 kept; b407 and b420 not re-verdicted. **THE WITNESS ARC IS NAMED, SIX ACTS, NOT OPENED**; the orientation layer refreshed and no door restated.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b422_the_kernel_arc_folded.txt; data/b422_fold.txt; data/b422_r37.txt; data/b422_orient.txt; data/b422_witness_arc.txt; data/b422_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); FINDINGS.md; CORRESPONDENCE.md row 271'),
     # ### THE FINITE AMBIENT (b421).
     ('the-finite-ambient', 'b421 (the finite ambient built; the specification priced; the span counted; the conflations entered)',
      "b421 BUILT THE FINITE AMBIENT. **PROVED, ZERO AXIOMS: THE TRACE OF A GRID OPERATOR DEFINED IN THIS ACT EQUALS THE MODEL'S COUNTING FORM** (GridTrace.grid_trace_is_signed_count), and its docstring says the source's trace is NOT THE SOURCE'S OBJECT here -- the step from the source's space stays b310's. **HYPOTHESIS 1'S SPECIFICATION IS NOT SUPPLIABLE UNDER DEFINITION 2.1 AS WRITTEN**: no infinite structure is the unique model of a first-order theory (upward Lowenheim-Skolem, the seat's citation); the reading is routed. **THE SPAN COUNTS 9 WITH THIS ACT; THE FOLD OF b413-b421 IS NAMED FOR b422, NOT RUN.** The navigator's three b420 conflations are entered with their corrections.",
