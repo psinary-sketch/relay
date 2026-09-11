@@ -1,0 +1,109 @@
+====================================================================================================
+b416_checks.py -- THE GATE SUITE.
+====================================================================================================
+
+ARM                                          WHAT IT READS                                          VERDICT
+----------------------------------------------------------------------------------------------------
+  G-RECEIPT-IN-FULL                          the ferry carries its own paste-end marker, part 1 o PASS
+  G-SCAN-CLEAN                               the scan VERDICT LINE reports 0 hits                 PASS
+  G-STEPZERO-CENSUS                          both step-zero censuses report TOTAL MISSING : 0     PASS
+  G-STEPZERO-PINS                            the pins tool reports REPOS HARD-FAILING : 0         PASS
+  G-SURVEY-NOMISS                            the survey reports ANCHOR MISSES : 0                 PASS
+  G-REG-LOCKED-FIRST                         the seal verifies and the face says LOCKED BEFORE AN PASS
+  G-LOCKGATE-EIGHT                           the lock gate read 8 gates, 8 passing, 4 by digest   PASS
+  G-SEAL-VERIFIES                            the registration gate verdict line reads CLEAR       PASS
+  G-R32-RATIFIED-NOT-EXTENDED                the face says (R32) is executed and not extended     PASS
+  G-NOLEAN                                   no .lean file is opened for write by any tool of thi PASS
+  G-NOBUILD                                  no working tool names the Lean compiler as a program PASS
+  G-NOTERMINAL                               the act states 0 terminals added, in its bank        PASS
+  G-COMPONENTS-COUNT-PER-COMPONENT           the act answers per component and the face says so   PASS
+  G-N1-MEANING-FROM-OWNER                    n1`s meaning is quoted from the owning document      PASS
+  G-N4-MEANING-FROM-OWNER                    n4`s meaning is quoted from the owning document      PASS
+  G-OWNER-DOCUMENT-NAMED                     the owning document is named in the components       PASS
+  G-UNIVERSALITY-SENTENCE-QUOTED             the owner`s universality sentence is quoted          PASS
+  G-UNIVERSALITY-TESTED-AGAINST-DECLARATIONS the claim is tested against the kernel`s own tuples  PASS
+  G-TUPLES-READ-NOT-RECALLED                 the tuples are read from Classes.lean                PASS
+  G-PRICE-SEARCH-RUN                         the search for a priced derivation route was run and PASS
+  G-BRIDGE-PATTERN-READ                      both bridges are read from their own source          PASS
+  G-BRIDGE-SUPPLY-NAMED                      what each bridge had to supply is named              PASS
+  G-N1-PRICE-PRINTED                         a price for deriving n1 is printed                   PASS
+  G-N1-PRICED-NOT-BUILT                      the act states 0 .lean files written                 PASS
+  G-PRICE-ANSWERS-THE-MEASUREMENT            the price turns on what the act measured, not on the PASS
+  G-DATEDTOOL-BY-DESCRIPTION                 the dated-tool search is by description, not by name PASS
+  G-MENTION-IS-NOT-A-BREAK                   the act states the distinction and applies it        PASS
+  G-DATEDTOOL-RUN-NOT-GREPPED                each hit was run, and the breaks counted separately  PASS
+  G-B371-REPAIRED                            the tool now names the path b386 left                PASS
+  G-B371-RUNS-AFTER                          it runs clean AND the records it re-wrote were resto PASS
+  G-B371-FIXTURES-BOTH-POLARITIES            its own polarity exercise ran                        PASS
+  G-ONLY-B371-REPAIRED                       exactly one existing tool of the roster was edited   PASS
+  G-OTHER-DATEDTOOL-ROUTED                   the other dated tool is named and routed             PASS
+  G-T14-ANNOTATION-DRAFTED                   the annotation is drafted in the components          PASS
+  G-T14-BYTES-SHOWN                          the edit`s byte and line counts are printed          PASS
+  G-T14-NOT-APPLIED                          the annotation is not in the sealed file             PASS
+  G-SEAL-DIGEST-UNCHANGED                    the sealed file`s sha256 is the one recorded before  PASS
+  G-ANNOTATION-IS-ADDITIVE                   the annotation removes nothing                       PASS
+  G-CAVEATS-BY-DESCRIPTION                   the caveat search is by description                  PASS
+  G-CAVEAT-CONTROL-FIRST                     the control is printed before the count              PASS
+  G-CAVEAT-CONTROL-HOLDS                     the control found a caveat in the file that owns (T1 PASS
+  G-CAVEATS-COUNTED-NOT-GRADED               the act says it counts and does not grade            PASS
+  G-READER-LOCATED-BY-DIGEST                 the canonical copy is located by digest              PASS
+  G-READER-BODY-BYTE-IDENTICAL               the placed body equals the canonical bytes           PASS
+  G-READER-HEAD-THREE-CLAUSES                the currency note carries exactly three clauses      PASS
+  G-READER-CLASS-LINE                        the head carries a class line naming Tier N          PASS
+  G-READER-SCHEME-LINE                       the head carries a scheme line                       PASS
+  G-READER-TIER-N                            the registry row records Tier N and the theory-space PASS
+  G-READER-ENCODING-REPORTED                 the encoding damage is measured and printed          PASS
+  G-READER-BODY-NOT-EDITED                   0 bytes of the body edited, so the defects found in  PASS
+  G-REGISTRY-ROW-WRITTEN                     the registry carries row p2-35 once                  PASS
+  G-THREE-CARRIERS-CROSSREFERENCED           three carriers are named on the row                  PASS
+  G-LINEAGE-ONE-LINE-ONLY                    the lineage appears exactly once in the corpus       PASS
+  G-CONTINUATION-NAMED-OUTSIDE               the continuation is named as outside the repo        PASS
+  G-NOCONTINUATION-WRITE                     no tool of this act writes outside the named reposit PASS
+  G-FINDING-IN-RECORD-NOT-IN-BODY            the defects found are in the act`s record and not in PASS
+  G-FIGURE-WRITTEN                           the figure exists and is an SVG                      PASS
+  G-FIGURE-FROM-ARITHMETIC                   the figure is computed, not transcribed              PASS
+  G-FIGURE-FOUR-KINDS                        four kinds are distinguished in the figure           PASS
+  G-FIGURE-FORTYTHREE-SHOWN                  43 is on the lattice and marked outside P            PASS
+  G-FIGURE-READER-SENTENCE-BESIDE            the Reader`s own sentence is beside it, read across  PASS
+  G-FIGURE-NO-GRADE                          the figure states it carries no grade                PASS
+  G-FIGURE-NOT-CITED-AS-EVIDENCE             the figure is cited nowhere as evidence              PASS
+  G-ONE-OUTPUTS-FILE                         exactly one file under outputs was written by this a PASS
+  G-NOGRADE                                  no grade string is minted by this act`s bank         PASS
+  G-NOPREMISE                                the bank states 0 premises discharged                PASS
+  G-NODOOR                                   the bank states 0 doors restated                     PASS
+  G-NOROUTE                                  the bank states 0 routes proposed                    PASS
+  G-NOKAPPA                                  no kappa value is measured                           PASS
+  G-NOCHANNEL                                no channel is opened by the act`s working tools      PASS
+  G-NOLEDGERROW                              FACES_LEDGER.md is not written                       PASS
+  G-NOFOLD                                   FINDINGS.md is not written                           PASS
+  G-NORULE                                   STRUCK_CLAUSES is not written                        PASS
+  G-NODEPOSIT                                no deposit action and no Zenodo byte                 PASS
+  G-NOPLATFORM                               no platform call of any kind                         PASS
+  G-NOH2                                     no claim about h2 beyond the standing sentence       PASS
+  G-NOORIENTATION-EDIT                       neither orientation object is written                PASS
+  G-NOLOCKEDFACE                             no locked face is edited: the seal still verifies    PASS
+  G-NOPRIORBANK                              no prior act`s bank is opened for write              PASS
+  G-NOBANKEDFERRY                            no banked ferry is opened for write                  PASS
+  G-TRAIL-APPEND-ONLY                        the trail block is appended and the prior mark survi PASS
+  G-CORR-APPEND-ONLY                         the correspondence row is appended and row 264 survi PASS
+  G-REGISTRY-APPEND-ONLY                     the registry row is appended and p2-34 survives      PASS
+  G-WRITELIST-EXACT                          the face names 9 kinds                               PASS
+  G-NOEXTRAKIND                              the act wrote exactly the six relay tool files the f PASS
+  G-NOSTAGE-A                                no working tool of this act stages by -A             PASS
+  G-NOBORROWEDBAR                            no `G-NO*` arm of this suite reads a RAW document te PASS
+  G-ARMS-DECLARED-EQ-RUN                     declared on the face equals run here, both ways      PASS
+  G-ARMS-OWN-BANK                            arms this act builds run over this act`s own bank    PASS
+  G-ARMS-STRIP-PROSE                         this suite strips comments AND strings, by the token PASS
+  G-ARMS-FOLD-MARKERS                        this suite folds markup before matching banked prose PASS
+  G-ARMS-NO-SUBSTRING-VERDICT                A2: verdicts are read from their own lines           PASS
+  G-NOWRAP-MIDTOKEN                          the report writers wrap at word boundaries, not at a PASS
+  G-MUSTFAIL                                 none of the six forbidden whole lines is in the bank PASS
+----------------------------------------------------------------------------------------------------
+
+  declared on the face : 94
+  run here             : 94
+  declared but not run : none
+  run but not declared : none
+
+  ### ### **ARMS : 94. ### PASSING : 94. ### FAILING : 0.**
+====================================================================================================

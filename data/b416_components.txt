@@ -1,0 +1,371 @@
+====================================================================================================
+b416_components.py -- THE TWO STIPULATIONS, THE DATED TOOL, AND THE READER.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- `n1` AND `n4`, FROM OWNERS. ### PER COMPONENT, NOT PER CLASS.
+----------------------------------------------------------------------------------------------------
+         WHAT THE CORPUS SAYS IT COUNTS                 WHICH DOCUMENT STATES IT           ROUTE PRICED?
+  n1     independent algebraic structures on the        phase2/physics/                    ### **NEVER**
+         substrate -- the independent algebraic         MATTER_AS_ARITHMETIC.md, §I        
+         channels through which the specification       (and the kernel`s own              
+         accesses the substrate                         `Core.lean` field docstring)       
+
+  n4     mechanism classes contributed by the           phase2/physics/                    ### **NEVER**
+         bindings between stages                        MATTER_AS_ARITHMETIC.md, §I        
+
+
+### ### **AND `n4` IS NOT UNARGUED. ### THREE DOCUMENTS ARGUE IT, AND THE OWNER NAMES A
+### ### REASON.**
+  ### `MATTER_AS_ARITHMETIC` §I   -- ### **`n4 = 0` BY SCHUR`S LEMMA**, named as one of
+      three components universal across IDS-amenable systems.
+  ### `phase2/formation/COMPLEX_ANALYSIS.md` -- *All interfaces between mechanism classes
+      are dark for zero locations. The product formula carries no information about where
+      specific zeros lie (spectrally inert).*
+  ### `phase2/empirical/BSD_VIA_FORMATION_TRANSFER.md` -- the interface row of its transfer
+      table, *Product formula spectrally inert*, carried to `Lambda(E,s)`.
+
+### ### ### **SO `(N1)` SPLITS UNDER `(R27)`.** ### **ITS PREMISE IS MET:** ### `n4` does
+### count something the model asserts is empty -- the bindings contribute no mechanism
+### class. ### **ITS CONCLUSION IS REFUTED BY A PRINTED RESULT:** ### *no document argues
+### it* is false, and the owning document does not merely assert it -- ### **IT NAMES A
+### ### THEOREM.**
+
+### ### **AND THE COMPONENT THAT IS REALLY UNARGUED IS THE OTHER ONE.** ### `n1` is the one
+### the owner declares ### **FREE** ### -- *the fourth component `n1` depends on the base
+### algebra* -- so it is not stipulated for want of an argument; ### **IT IS THE CLASS
+### ### LABEL ITSELF.** ### Asking why `classA.n1 = 2` is asking why class A is class A.
+
+### ### ### **AND HERE IS WHAT NEITHER THE FERRY NOR `b415` ASKED, AND IT UNDOES THE
+### ### ### OWNER`S OWN SENTENCE.**
+    class    n1     n2     n3     n4
+    classA   2      3      2      0
+    classB   3      2      2      0
+    classC   3      3      2      0
+    classD   2      2      2      0
+    n1 takes 2 distinct values across the four classes : 2, 3   -- ### **VARIES**
+    n2 takes 2 distinct values across the four classes : 2, 3   -- ### **VARIES**
+    n3 takes 1 distinct value across the four classes : 2   -- CONSTANT
+    n4 takes 1 distinct value across the four classes : 0   -- CONSTANT
+    ### ### **THE OWNER SAYS THREE COMPONENTS ARE UNIVERSAL AND ONE VARIES.**
+    ### ### **THE KERNEL`S TUPLES HAVE 2 CONSTANT (n3, n4) AND 2 VARYING (n1, n2).**
+    ### ### ### **SO THE UNIVERSALITY SENTENCE AND THE DECLARATIONS DISAGREE.** ### The
+    ### document gives `n2 = 3 by Chevalley-Steinberg` as UNIVERSAL, and the kernel
+    ### declares `classB.n2 = 2` and `classD.n2 = 2`. ### **A REASON THAT WOULD DERIVE A
+    ### ### COMPONENT CANNOT DERIVE IT IN A CLASS WHERE THE COMPONENT HAS ANOTHER VALUE.**
+  ----------------------------------------------------------------------------------------------------
+
+### ### **THIS IS WHY `b415` FOUND `0` DERIVED COMPONENTS IN `B`, `C` AND `D`, AND IT IS
+### ### NOT AN OVERSIGHT.** ### The two bridges derive `n2 = 3` and `n3 = 2` from reasons
+### the owner calls UNIVERSAL. ### **A UNIVERSAL REASON CANNOT DERIVE A COMPONENT IN A
+### ### CLASS WHERE THAT COMPONENT HAS ANOTHER VALUE** -- and `classB.n2` and `classD.n2`
+### are `2`. ### So the bridges cannot reach `B` and `D` even in principle, and `C` gets
+### `n2 = 3` and `n3 = 2` only by sharing `A`s values rather than by its own argument.
+### ### **THE STIPULATION IS NOT LAZINESS. ### THE TUPLES CONTRADICT THE UNIVERSALITY
+### ### CLAIM THAT WOULD HAVE DERIVED THEM.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- DERIVING `n1` FOR CLASS A, PRICED ON THE BRIDGES` OWN PATTERN.
+----------------------------------------------------------------------------------------------------
+    OstrowskiBridge.lean
+        terminal            : formation_n2   PRESENT
+        imports             : Mathlib.NumberTheory.Ostrowski, Kernel.Core
+        types/defs declared : Place, TransformationStage
+        cardinality taken of: TransformationStage
+        ### ### **THE PATTERN: DECLARE A FINITE TYPE WHOSE ELEMENTS *ARE* THE THINGS
+        ### ### COUNTED, PROVE IT EXHAUSTIVE, AND TAKE ITS CARDINALITY.**
+    CartanBBridge.lean
+        terminal            : formation_n_3_eq_two   PRESENT
+        imports             : Mathlib.Analysis.Analytic.IsolatedZeros, Mathlib.Analysis.Analytic.Uniqueness, Mathlib.Analysis.Analytic.Within, Mathlib.Analysis.Complex.RemovableSingularity, Mathlib.Analysis.Complex.UpperHalfPlane.Basic, Mathlib.Topology.Algebra.InfiniteSum.Basic, Mathlib.Data.Fintype.Card
+        types/defs declared : OutputStageClass, OutputStageExhaustiveness, n_3, as
+        cardinality taken of: OutputStageClass
+        ### ### **THE PATTERN: DECLARE A FINITE TYPE WHOSE ELEMENTS *ARE* THE THINGS
+        ### ### COUNTED, PROVE IT EXHAUSTIVE, AND TAKE ITS CARDINALITY.**
+  ----------------------------------------------------------------------------------------------------
+
+### ### **THE PATTERN, STATED FROM THE TWO CASES:** ### declare a FINITE TYPE whose
+### elements ARE the things counted; prove an EXHAUSTIVENESS theorem over it; take
+### `Fintype.card`. ### **THE HARD PART IS NEVER THE CARDINALITY -- IT IS THE
+### ### EXHAUSTIVENESS**, and in both existing cases the exhaustiveness came from a named
+### classical theorem: Ostrowski`s classification of the places, and the identity theorem
+### with elliptic regularity.
+
+### ### **THE ANALOGOUS SUPPLY FOR `n1` AT CLASS A, NAMED EXACTLY:** ### a finite type whose
+### elements are the ### **INDEPENDENT ALGEBRAIC CHANNELS THROUGH WHICH THE SPECIFICATION
+### ### ACCESSES `Z`**, and a theorem that there are exactly two of them.
+
+### ### ### **AND THERE IS AN OBSTRUCTION BEFORE THE LEAN BEGINS, WHICH `(R28)` NAMES.**
+### The corpus has a compiled `2` close at hand: the substrate is ### **THE MINIMAL COMPLETE
+### ### COPRIME PAIR `{2,3}`**, cardinality two, with three converging selection principles
+### and `FrobeniusCalibration.g_two_three` axiom-free beneath it. ### **BUT THAT `2` COUNTS
+### ### PRIMES AND `n1` COUNTS CHANNELS**, and ### **A RESULT APPLIES TO AN OBJECT ONLY IF
+### ### THE OBJECT IS OF THE KIND THE RESULT QUANTIFIES OVER.** ### Nothing in the record
+### identifies a channel with a generator. ### **THE TWO TWOS ARE NOT KNOWN TO BE THE SAME
+### ### TWO**, and an act that wired them together would be assuming exactly what a
+### derivation of `n1` is supposed to establish.
+
+### ### **THE PRICE.**
+  ### **ACT 1 -- AND IT IS NOT LEAN WORK AT ALL.** ### State, in the corpus, what an
+      independent algebraic channel IS, and whether the channels of `Z` are in bijection
+      with the generators of the substrate. ### **THIS IS A CORPUS STATEMENT NOBODY HAS
+      ### MADE**, and until it exists there is nothing for a bridge to be a bridge TO.
+  ### **ACT 2 -- THE BRIDGE, IF ACT 1 SUCCEEDS.** ### Declare the finite type, prove
+      exhaustiveness, take the cardinality -- the pattern the two existing bridges set.
+  ### ### ### **VERDICT ON THE PRICE: AT LEAST TWO ACTS, AND THE FIRST IS NOT A BUILD.**
+  ### ### **AND IT MAY BE UNBUILDABLE RATHER THAN MERELY UNBUILT:** ### the owner declares
+  ### `n1` the component that ### **DEPENDS ON THE BASE ALGEBRA**, which is to say the one
+  ### that is chosen and not derived. ### **A DERIVATION OF THE CLASS LABEL WOULD COLLAPSE
+  ### ### THE FOUR CLASSES INTO ONE**, and the model needs four.
+  ### ### **PRICED; NOT BUILT.** ### `0` `.lean` files written.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE DATED INSTRUMENT REPAIRED.
+----------------------------------------------------------------------------------------------------
+    ### **SEARCHED BY DESCRIPTION**: a tool whose source builds a filesystem path from
+    ### literal segments, where that path is absent from disk. ### Not by name.
+    tools scanned : 1013
+    ### ### **TOOLS NAMING A PATH THAT DOES NOT EXIST : 7**
+        b369_hygiene.py                -> tools/git-hooks/pre-push
+        b371_hookpath.py               -> tools/git-hooks/pre-push
+        b386_checks.py                 -> tools/git-hooks/pre-push
+        b386_components.py             -> tools/git-hooks/pre-push
+        b386_components.py             -> tools/git-hooks/pre-push
+        b386_extract.py                -> tools/git-hooks/pre-push
+        b386_extract.py                -> tools/git-hooks/pre-push
+    ### ### **A STATIC HIT IS A MENTION. ### ONLY A RUN PROVES A BREAK.**
+    ### `b410`s `G-NOBORROWEDBAR` fired on the act`s own comment saying the bar was removed;
+    ### the same shape is here. ### **A FILE THAT NAMES THE RETIRED PATH IN ORDER TO RECORD
+    ### ### RETIRING IT IS NOT A DATED TOOL.** ### So each is RUN, and the verdict is taken
+    ### from what happens rather than from what it contains.
+        b369_hygiene.py                ### **BREAKS ON THE RETIRED PATH**
+        b371_hookpath.py               ### **BREAKS ON THE RETIRED PATH**
+        b386_checks.py                 runs -- the path is mentioned, not read
+        b386_components.py             runs -- the path is mentioned, not read
+        b386_extract.py                runs -- the path is mentioned, not read
+    ### ### **MENTIONS : 7 hits in 5 files. ### BREAKS : 2.**
+    ### ### **THE DATED TOOLS ARE: b369_hygiene.py, b371_hookpath.py.**
+    ### The ferry orders `b371_hookpath.py` repaired. ### **`b369_hygiene.py` IS FOUND BY THE
+    ### ### SAME SEARCH AND IS NOT IN THIS ACT`S ORDER**, so it is ROUTED and named, not
+    ### quietly repaired alongside.
+    ### **AND THE REPAIR THE FERRY NAMES, READ FROM `b386`S OWN CHECK:**
+        `b386_checks.py` asserts the installer ### **names `.githooks` and not `tools/git-hooks`**
+        `.githooks/pre-push` present in relay : True
+  ----------------------------------------------------------------------------------------------------
+
+### ### **THE REPAIR, APPLIED:** ### `b371_hookpath.py` now names ### **`.githooks`**, the
+### path `b386` left, read from `b386`s own check and not from this seat`s memory.
+  the tool`s `SOURCE` line names `.githooks` : ### **True**
+  it runs without a `FileNotFoundError`        : ### **True**
+  its exit code                                : 0
+      ====================================================================================================
+        ### ### **COMPONENT 3 OUTCOME : MADE DURABLE**
+        ### **AND `DURABLE` IS THE ORDER`S WORD, NOT A CLAIM THAT A CLONE IS GUARDED.** ### The GUARD
+        ### travels; the WIRING does not; the residual step is one command and it is named above.
+      ====================================================================================================
+        written: b371_hookpath_notes8.txt
+
+
+### ### ### **AND RUNNING IT REVEALED A THIRD THING, WHICH IS THE ONE WORTH KEEPING.**
+### A repaired instrument ### **DOES WHAT IT WAS BUILT TO DO** -- and this one was built to
+### write its own run records. ### Those records live under ### **PRIOR ACTS` NAMES**:
+      data/b371_hookpath.json
+      data/b386_reads.json
+  prior-act records the run modified : ### **1**
+  restored from the bytes captured before the run : ### **1**
+  still differing after the restore  : ### **0**
+### ### **WHILE THE TOOL WAS BROKEN IT WROTE NOTHING.** ### Repairing it made this breach
+### possible ### **FOR THE FIRST TIME**, and the act met it on the first run. ### A dated
+### tool is inert; a repaired one is live, and ### **A LIVE TOOL`S WRITES ARE THE
+### ### REPAIRING ACT`S WRITES.** ### They are captured, restored, and counted here rather
+### than discovered later in a diff.
+
+### ### **AND ONE RESIDUE IS LEFT STANDING AND NAMED:** ### the installer leaves
+### `pre-push.b304-backup*` files beside each guard, and `SIDE-effects` now carries two of
+### them. ### **THEY ARE UNTRACKED, IN A REPOSITORY THIS ACT DOES NOT WRITE TO**, and
+### removing them is not in this act`s order. ### ROUTED.
+
+### ### **AND `b369_hygiene.py` IS FOUND BY THE SAME SEARCH AND IS NOT REPAIRED.** ### The
+### ferry orders one tool repaired and the write list names one. ### **IT IS ROUTED:** ### it
+### breaks on the same retired path, for the same reason, and its repair is one line.
+### ### **AN ACT THAT REPAIRS WHAT IT WAS NOT ASKED TO REPAIR HAS WIDENED ITS OWN ORDER.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE `(T1.4)` ANNOTATION, DRAFTED AND NOT APPLIED.
+----------------------------------------------------------------------------------------------------
+  `Core/FiniteSideSeal.lean` sha256 BEFORE this act : 3965fd0818676241ab779abfe3687835c5d82afaf86c8be4a755ca116e35c9cd
+  `Core/FiniteSideSeal.lean` sha256 NOW             : 3965fd0818676241ab779abfe3687835c5d82afaf86c8be4a755ca116e35c9cd
+  ### ### **UNCHANGED : True**
+
+### ### **THE ANNOTATION THE AUTHOR WOULD NEED TO APPROVE, QUOTED AND NOT APPLIED.**
+### It is ### **ADDITIVE**: it adds one sentence immediately after `(T1.4)`s existing
+### words and ### **STRIKES NOTHING.** ### The original caveat survives in place, because a
+### correction that deletes the sentence it corrects destroys the evidence that the
+### correction was needed.
+
+### ### **THE EDIT`S EXACT BYTES** ### -- one line, inserted after the clause ending
+### *`that identification is the library's and is NOT compiled here);`* :
+
+      |  (T1.4-a, b414) AND THE CONDITION NAMED THERE IS TOO STRONG: the compact-smear
+      |  identity of `compact_smear_vanishes_at_cells` also holds at 4, 8, 9, 16, 25, 27, 32
+      |  and 49, every one composite; the separator is a SINGLE PRIME FACTOR, not primality.
+      |  See `Core/SinglePrimeFactor.lean` and relay `data/b414_components.txt`.
+
+  bytes the annotation would add : ### **326**
+  lines it would add             : ### **4**
+  bytes it would remove          : ### **0**
+  ### ### **APPLIED BY THIS ACT : NO.** ### The digests above are the proof, and they are
+  ### taken from the file rather than claimed.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 5 -- THE OTHER KERNEL CAVEATS, COUNTED BY DESCRIPTION.
+----------------------------------------------------------------------------------------------------
+    ### **THE DESCRIPTION:** ### a passage that STATES a condition or identification and says
+    ### in the same breath that it is ### **NOT COMPILED HERE** ### -- the shape `(T1.4)` has.
+    ### **POSITIVE CONTROL -- `(T1.4)` must be found first, in the file that owns it.**
+        caveats found in `FiniteSideSeal.lean` : ### **5**
+        ### ### **CONTROL HOLDS.**
+    ### ### **CAVEATS OF THIS SHAPE ACROSS `Core/` : ### 13, IN 9 FILES.**
+        BoundaryValueShadow.lean
+            WHAT IS NOT COMPILED
+        FiniteSideSeal.lean
+            Coprime`'s lemmas carry `propext` -- so primality is used nowhere in this file and the
+            general theorems hold for every `p ≥ 2` (a residue `p` does not divide is a unit of
+            `Z/p^k` exactly when `p` is prime; that identification is the library's and is NOT
+            compiled
+        FiniteSideSeal.lean
+            The identification of that signed count with the source's `Tr(theta(t) Pi)` is b310's
+            derivation, checked at b310 against b304's `trace_scaled` and b309's reduced sum, and IT
+            IS NOT COMPILED
+        FiniteSideSeal.lean
+            dvd_iff_mod_eq_zero`, which carries `propext` and is NOT compiled
+        FiniteSideSeal.lean
+            ) The registered coprimality form of "unit" is NOT compiled
+        FiniteSideSeal.lean
+            Coprime` form is not compiled
+        H1Mechanism.lean
+            The h = 3 contrast (K = ℚ(√−23): the coupling spectrum (4,1,1) at norm 6/150) is CITED,
+            not compiled here
+        IndexRangeShadow.lean
+            WHAT IS NOT COMPILED
+        RationalEnclosureShadow.lean
+            WHAT IS NOT COMPILED
+        ScalingTraceShadow.lean
+            THAT READING IS THE BANK'S AND IS NOT COMPILED
+        SinglePrimeFactor.lean
+            4), that a residue `p` does not divide is a unit of `Z/p^k` *exactly when `p` is prime*,
+            and that this identification is the library's and IS NOT COMPILED
+        SmearCollapseShadow.lean
+            txt` and IT IS NOT COMPILED
+        ValuationDivisibilityShadow.lean
+            WHAT IS NOT COMPILED
+  ----------------------------------------------------------------------------------------------------
+
+### ### ### **`(N2)` SAID AT LEAST THREE OTHER `Core/` CAVEATS STATE AN UNCOMPILED
+### ### ### CONDITION.**
+### ### ### **TOTAL 13 IN 9 FILES; 5 OF THEM IN THE SEAL ITSELF, SO 8 ELSEWHERE.**
+### ### **AND THEY ARE COUNTED, NOT GRADED.** ### `b414` showed a caveat of exactly this
+### shape can be right on its own evidence and wrong off it; testing thirteen of them is
+### not this act`s order, and a count that pretended to be a verdict would be the same
+### mistake in the other direction.
+
+----------------------------------------------------------------------------------------------------
+### ADDITION ONE -- `(R32)` EXECUTED. ### THE READER PLACED.
+----------------------------------------------------------------------------------------------------
+  b416 ADDITION ONE -- THE READER PLACED, UNDER (R32).
+    canonical copy : D:\MY-DOwnloads\PRIME_CORE_READER.md
+    bytes 40950   sha256 a090ea63630190c647132ef7d6f59faea37bbc194904d90169e66fb54db4b28d
+    placed         : heritage/PRIME_CORE_READER.md
+    bytes 42344 = head 1394 + body 40950
+    body sha256    : a090ea63630190c647132ef7d6f59faea37bbc194904d90169e66fb54db4b28d
+    ### ### **BODY BYTE-IDENTICAL TO THE CANONICAL COPY : True**
+    ### ### **BYTES OF THE BODY EDITED : 0**
+    em-dashes written correctly in the body        : 25
+    em-dashes carrying cp1252 re-encoding damage  : ### **51**
+    ### ### **THE DAMAGE TRAVELS WITH THE COPY.** ### `(R32)` says nothing in the body is
+    ### edited, and an encoding repair IS an edit to the body. ### Reported, not fixed.
+    head block clauses : class line 1, scheme line 1, currency note items 3
+    ### ### **VERDICT : PLACED AS (R32) SPECIFIES**
+
+### ### **AND WHAT THE ACT FOUND IN THE READER, WHICH GOES IN THIS RECORD AND NOT IN ITS
+### ### BODY.**
+  ### **THE READER`S OWN SENTENCE, QUOTED FROM THE FILE:**
+    the desert sentence                      line 105
+        These **jump primes** are separated from the consecutive sequence by arithmetic deserts where
+        no sum of powers yields a prime.
+    ### ### ### **THE SENTENCE SAYS *no sum of powers yields a prime* IN THAT RANGE, AND THE
+    ### ### ### ARITHMETIC SAYS THERE ARE 9.** ### Measured, not argued.
+    ### ### **AND THE READER CONTRADICTS ITSELF LATER IN ITS OWN BODY**: its predictions
+    ### section lists *gap elements (23, 43, 47, 67, ...)*, and `43` and `67` are sums of
+    ### powers sitting inside the range the desert sentence says is empty of them.
+    ### ### **THIS IS REPORTED AND THE BODY IS NOT EDITED** -- `(R32)` forbids it, and a
+    ### document placed as Tier N is placed as it stands.
+
+### ### **THE HEAD NOTE CARRIES THE THREE CLAUSES `(R32)` SPECIFIES AND NOT A FOURTH.**
+### ### **WHETHER IT SHOULD GROW ONE IS THE AUTHOR`S RULING**, and this act does not
+### anticipate it. ### A Tier N document is placed as it stands.
+
+----------------------------------------------------------------------------------------------------
+### ADDITION TWO -- THE LATTICE DRAWN.
+----------------------------------------------------------------------------------------------------
+  b416 ADDITION TWO -- THE LATTICE DRAWN. ### A FIGURE CARRIES NO GRADE.
+    written : outputs/prime-core-lattice-b416.svg  (17894 bytes)
+    lattice cells drawn        : 70
+    primes lit                 : 35
+    members of P on the lattice: 13
+    kinds distinguished        : 4 -- consecutive, generator, inclusion, jump
+    43 present on the lattice  : True
+    43 outside P               : True
+    primes on the lattice outside P : ### **19** -- [43, 59, 67, 73, 83, 89, 97, 113, 131, 251, 257, 283, 307, 499, 521, 593, 733, 761, 857]
+    ### ### **A FIGURE CARRIES NO GRADE.** ### It is filed as illustration of a Tier N
+    ### document and cited nowhere as evidence.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, SCORED OVER NAMED POPULATIONS UNDER `(R26)`.
+----------------------------------------------------------------------------------------------------
+**`(N1)`** over ### **the component `n4` across the four classes**
+      *stipulated because it counts something the model asserts is empty, and no document
+      argues it*
+      ### ### **MET IN PREMISE / REFUTED IN CONCLUSION, UNDER `(R27)`.** ### It does count
+      something the model asserts empty. ### **BUT THREE DOCUMENTS ARGUE IT AND THE OWNER
+      ### NAMES SCHUR`S LEMMA.** ### The unargued component is `n1`, and it is unargued
+      because the owner declares it FREE.
+
+**`(N2)`** over ### **the passages of `Core/` stating an uncompiled condition**
+      *at least three other caveats*
+      ### **MET** -- 13 in 9 files, 8 elsewhere than the seal, under a control that holds.
+
+**`(N3)`** over ### **the tools of `relay/tools`**
+      *`b371_hookpath.py` is not the only dated tool*
+      ### **MET** -- `b369_hygiene.py` breaks on the same retired path. ### **AND THE
+      ### COUNT DEPENDS ENTIRELY ON WHAT *DATED* MEANS**: 7 static hits in 5 files, but
+      only 2 files actually break. ### The other three are `b386`s own records of moving
+      away from that path, and ### **A FILE THAT NAMES A RETIRED PATH IN ORDER TO RECORD
+      ### RETIRING IT IS NOT A DATED TOOL.**
+
+**`(N4)`** over ### **the Reader`s canonical copy on this drive**
+      *on the download layer with at least one duplicate, per the orphan census`s pattern*
+      ### ### **MET IN PREMISE / REFUTED IN CONCLUSION, UNDER `(R27)`.** ### It IS on the
+      download layer, at `D:\MY-DOwnloads\PRIME_CORE_READER.md`. ### **BUT IT HAS `0`
+      ### NUMBERED DUPLICATES**, and the census`s `O.10` pattern -- an orphan with `(1)`,
+      `(2)`, `(3)` copies -- ### **DOES NOT APPLY TO IT AT ALL.** ### It is not in the
+      census, and the reason is a date: ### **THE CENSUS IS 2026-07-11 AND THE FILE`S mtime
+      ### IS 2026-08-08.** ### The census could not have covered a file that did not yet
+      exist. ### **AND IT IS NOT AN ORPHAN EITHER** -- a byte-identical copy is already
+      TRACKED in the papers repo`s archive, which by the census`s own vocabulary makes it
+      ### **MATCHED.**
+
+**`(N5)`** over ### **the primes below 100 of the form `2^a + 3^b`**
+      *forty-three is the only one P excludes*
+      ### ### **REFUTED BY A PRINTED RESULT. ### THERE ARE 7: 43, 59, 67, 73, 83, 89, 97.**
+      ### Each is prime, each is a sum of a power of two and a power of three, and none is
+      in `P`. ### **AND SIX OF THE SEVEN LIE BETWEEN 41 AND 137** -- inside the interval
+      the Reader`s own sentence calls an arithmetic desert *where no sum of powers yields a
+      prime*. ### **THE DESERT HAS SIX OASES, AND THE READER`S OWN PREDICTIONS SECTION
+      ### NAMES TWO OF THEM** (`43` and `67`) as gap elements -- so the document
+      contradicts itself in its own body. ### **REPORTED HERE; THE BODY IS NOT EDITED.**
+
+----------------------------------------------------------------------------------------------------
+### THE COMPONENTS` OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  ### ### **LIVE-QUOTE FAILURES : 0**
+====================================================================================================

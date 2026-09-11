@@ -1,0 +1,272 @@
+====================================================================================================
+b416_extract.py -- THE SURVEY: THE TWO STIPULATIONS, THE DATED TOOL, AND THE READER.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### READ 1 -- WHAT `n1` AND `n4` COUNT, FROM THE DOCUMENT THAT OWNS THEM.
+----------------------------------------------------------------------------------------------------
+  n1   = primitive count   [kernel `Core.lean` docstring]
+  n2   = transformation count   [kernel `Core.lean` docstring]
+  n3   = output count   [kernel `Core.lean` docstring]
+  n4   = interface count   [kernel `Core.lean` docstring]
+
+  the owner`s definitions, §I              line 22
+      - **Primitive (n₁):** independent algebraic structures on the substrate - **Transformation
+      (n₂):** structurally distinct ways the primitive structures combine - **Output (n₃):**
+      structural scales of the resulting object - **Interface (n₄):** mechanism classes contributed
+      by the bindings between stages Three of four components are universal across IDS-amenable
+      systems: **Theorem (n₂ = 3).** Connected reductive symmetry groups admit exactly three-level
+      covering towers, terminating at the simply-connected cover G^{sc} because π₁(G^{sc}) = 1.
+      (Chevalley–Steinberg; CORPUS_CATALOGOS v8.2 Theorem 7.4.) **Theorem (n₃ = 2).** Every output
+      of a determined entire-function system has exactly two structural scales — local
+      (differential, via elliptic regularity) and global (topological, via Hadamard factorization
+      and Cartan's Theorem B) — exhausting the bipartite structure of complex analysis. (Theorem
+      5.1.) **Theorem (n₄ = 0).** Universal interfaces are spectrally inert. Schur's lemma applied
+      to the top covering level forces central extensions to act by scalars, preserving eigenvalue
+      ratios. (Corollary 6.2; five proofs.) The remaining component n₁ counts independent algebraic
+      channels through which the specification accesses the substrate. The Substrate-Class
+      correspondence (PHASE_2_PROGRAMME, Formation Total Conjecture) gives: | Class | Substrate |
+      (n₁, n₂, n₃, n₄) | Total | Examples | |:--|:--|:--|:--|:--| | A — Arithmetic | ℤ via {2, 3} |
+      (2, 3, 2, 0) | 7 | ξ(s), Maxwell, CFSG, Navier-Stokes, Dirichlet L-functions, Selberg class,
+      Langlands GL_n | | B — Gravitational | Spacetime / diffeomorphism | (3, 2, 2, 0) | 7 |
+      Einstein field equations, genetic code, protein folding | | C — Gauge | SU(N) | (3, 3, 2, 0) |
+      8 | Yang-Mills, Standard Model | | D — Information | σ-algebras | (2, 2, 2, 0) | 6 | Shannon
+      entropy, classical thermodynamics | Class A's tuple is theorem-forced for every Dedekind zeta
+      function ζ_K(s) (FORMATION_UNIVERSALITY_v3, Theorem 1).
+
+  the universality sentence                line 14
+      Three of four formation components are universal across IDS-amenable systems: n₂ = 3 by
+      Chevalley–Steinberg, n₃ = 2 by bipartite complex analysis, n₄ = 0 by Schur's lemma. The fourth
+      component n₁ depends on the base algebra,
+
+  ### ### **THAT SENTENCE IS THE WHOLE OF COMPONENT 1 AND IT IS TESTABLE.** ### It names a
+  ### REASON for three of the four and declares the fourth free. ### The test is whether the
+  ### KERNEL`S OWN FOUR TUPLES agree, and it is run below rather than assumed.
+
+  n4 argued a second time                  line 46
+      $n_4 = 0$: All interfaces between mechanism classes are dark for zero locations. The product
+      formula carries no information about where specific zeros lie (spectral inertness, proved in
+      the companion paper). The Gamma factor carries no information about which zeros exist (it has
+      no finite zeros on the critical line). The functional equation constrains zeros to symmetric
+      pairs but does not determine their locations.
+
+----------------------------------------------------------------------------------------------------
+### READ 2 -- THE UNIVERSALITY CLAIM AGAINST THE KERNEL`S OWN FOUR TUPLES.
+----------------------------------------------------------------------------------------------------
+  class    n1     n2     n3     n4    
+  classA   2      3      2      0     
+  classB   3      2      2      0     
+  classC   3      3      2      0     
+  classD   2      2      2      0     
+
+  n1 takes 2 distinct values across the four classes : 2, 3   -- ### **VARIES**
+  n2 takes 2 distinct values across the four classes : 2, 3   -- ### **VARIES**
+  n3 takes 1 distinct value across the four classes : 2   -- CONSTANT
+  n4 takes 1 distinct value across the four classes : 0   -- CONSTANT
+
+  ### ### **THE OWNER SAYS THREE COMPONENTS ARE UNIVERSAL AND ONE VARIES.**
+  ### ### **THE KERNEL`S TUPLES HAVE 2 CONSTANT (n3, n4) AND 2 VARYING (n1, n2).**
+  ### ### ### **SO THE UNIVERSALITY SENTENCE AND THE DECLARATIONS DISAGREE.** ### The
+  ### document gives `n2 = 3 by Chevalley-Steinberg` as UNIVERSAL, and the kernel
+  ### declares `classB.n2 = 2` and `classD.n2 = 2`. ### **A REASON THAT WOULD DERIVE A
+  ### ### COMPONENT CANNOT DERIVE IT IN A CLASS WHERE THE COMPONENT HAS ANOTHER VALUE.**
+
+----------------------------------------------------------------------------------------------------
+### READ 3 -- WHETHER ANY ROUTE TO DERIVING `n1` OR `n4` HAS EVER BEEN PRICED.
+----------------------------------------------------------------------------------------------------
+  sentences mentioning n1 together with a price, cost, derivation or bridge : ### **13**
+      archive\2026-08-24-ledger-split\OPEN_TRAILS-archive-2-historical-landings-and-programs.md
+          The candidate derivation routes ({2,3}-minimality · PSL₂'s ℤ/2∗ℤ/3 freeness · Størmer)
+          each fix ξ's *specific* n₁=2, **none derives the general ≤3 bound**.
+      archive\2026-08-24-ledger-split\VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md
+          - **FORCED-substrate** (the Størmer derivation, `STORMER_DERIVATION_OMEGA_B`): the chain
+          `(2,3,2,0) ξ-tuple → wall² = n₂^(n₁+n₃) = 81 → visible = p₁² = 2² = 4 → 4/81` is a
+          **genuine zero-free-parameter arithmetic derivation** from the {2,3}/Størmer substrate.
+      archive\2026-08-27-trim-backfill\A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v1_2.md
+          The total formation count $n = n_1 + n_2 + n_3 + n_4$ gives the number of mechanism
+          classes from which all properties of X derive.
+      archive\2026-08-27-trim-backfill\FORMATION_UNIVERSALITY_v3.md
+          redicted for E₆, E₇ under certain forms), the disconnected component group π₀(Z(Ĝ)) acts
+          as an independent algebraic constraint at the primitive stage, raising n₁ to 3 and giving
+          formation (3, 3, 2, 0) = 8.
+      archive\2026-08-27-trim-backfill\QUATERNIONIC_DARK_SECTOR_PAPER_v0_3.md
+          The neutrino bridge controlled experiment (SYMMETRY_FILTER §3) shows the κ-gradient
+          operating within a single particle sector: mixing angles (gauge-invariant, n₁-content) → κ
+          ≈ 1; mass-squared differences (symmetry-breaking, requiring place-information) → κ ≈ 0.
+  sentences mentioning n4 together with a price, cost, derivation or bridge : ### **9**
+      archive\2026-08-24-ledger-split\VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md
+          n4_BSD) -- it RECORDS the formation assignment, it does not derive it.
+      archive\2026-08-27-trim-backfill\A_METHODOLOGY_FOR_DETERMINED_SYSTEMS_v1_2.md
+          The total formation count $n = n_1 + n_2 + n_3 + n_4$ gives the number of mechanism
+          classes from which all properties of X derive.
+      archive\2026-08-27-trim-backfill\CARTAN_B_DOMAIN_OSTROWSKI_v2.md
+          ime of the main deposit: n₁ = 2 by the algebraic classification of group operations on ℤ,
+          n₂ = 3 by Ostrowski's theorem on the absolute values of ℚ (1916), and n₄ = 0 by
+          Conservation of Spectra (Tate, with Lean-verified derivation).
+      archive\2026-08-27-trim-backfill\Third_Identity_Element.md
+          The seven classes derive from four stages of the specification, with (n₁, n₂, n₃, n₄) =
+          (2, 3, 2, 0).
+      day1\Third_Identity_Element.md
+          The seven classes derive from four stages of the specification, with (n₁, n₂, n₃, n₄) =
+          (2, 3, 2, 0).
+
+----------------------------------------------------------------------------------------------------
+### READ 4 -- THE TWO EXISTING BRIDGES: WHAT EACH HAD TO SUPPLY.
+----------------------------------------------------------------------------------------------------
+  OstrowskiBridge.lean
+      terminal            : formation_n2   PRESENT
+      imports             : Mathlib.NumberTheory.Ostrowski, Kernel.Core
+      types/defs declared : Place, TransformationStage
+      cardinality taken of: TransformationStage
+      ### ### **THE PATTERN: DECLARE A FINITE TYPE WHOSE ELEMENTS *ARE* THE THINGS
+      ### ### COUNTED, PROVE IT EXHAUSTIVE, AND TAKE ITS CARDINALITY.**
+  CartanBBridge.lean
+      terminal            : formation_n_3_eq_two   PRESENT
+      imports             : Mathlib.Analysis.Analytic.IsolatedZeros, Mathlib.Analysis.Analytic.Uniqueness, Mathlib.Analysis.Analytic.Within, Mathlib.Analysis.Complex.RemovableSingularity, Mathlib.Analysis.Complex.UpperHalfPlane.Basic, Mathlib.Topology.Algebra.InfiniteSum.Basic, Mathlib.Data.Fintype.Card
+      types/defs declared : OutputStageClass, OutputStageExhaustiveness, n_3, as
+      cardinality taken of: OutputStageClass
+      ### ### **THE PATTERN: DECLARE A FINITE TYPE WHOSE ELEMENTS *ARE* THE THINGS
+      ### ### COUNTED, PROVE IT EXHAUSTIVE, AND TAKE ITS CARDINALITY.**
+
+----------------------------------------------------------------------------------------------------
+### READ 5 -- THE DATED TOOL, AND EVERY OTHER TOOL NAMING A PATH THAT DOES NOT EXIST.
+----------------------------------------------------------------------------------------------------
+  ### **SEARCHED BY DESCRIPTION**: a tool whose source builds a filesystem path from
+  ### literal segments, where that path is absent from disk. ### Not by name.
+  tools scanned : 1013
+  ### ### **TOOLS NAMING A PATH THAT DOES NOT EXIST : 7**
+      b369_hygiene.py                -> tools/git-hooks/pre-push
+      b371_hookpath.py               -> tools/git-hooks/pre-push
+      b386_checks.py                 -> tools/git-hooks/pre-push
+      b386_components.py             -> tools/git-hooks/pre-push
+      b386_components.py             -> tools/git-hooks/pre-push
+      b386_extract.py                -> tools/git-hooks/pre-push
+      b386_extract.py                -> tools/git-hooks/pre-push
+
+
+  ### ### **A STATIC HIT IS A MENTION. ### ONLY A RUN PROVES A BREAK.**
+  ### `b410`s `G-NOBORROWEDBAR` fired on the act`s own comment saying the bar was removed;
+  ### the same shape is here. ### **A FILE THAT NAMES THE RETIRED PATH IN ORDER TO RECORD
+  ### ### RETIRING IT IS NOT A DATED TOOL.** ### So each is RUN, and the verdict is taken
+  ### from what happens rather than from what it contains.
+      b369_hygiene.py                ### **BREAKS ON THE RETIRED PATH**
+      b371_hookpath.py               ### **BREAKS ON THE RETIRED PATH**
+      b386_checks.py                 runs -- the path is mentioned, not read
+      b386_components.py             runs -- the path is mentioned, not read
+      b386_extract.py                runs -- the path is mentioned, not read
+
+  ### ### **MENTIONS : 7 hits in 5 files. ### BREAKS : 2.**
+  ### ### **THE DATED TOOLS ARE: b369_hygiene.py, b371_hookpath.py.**
+  ### The ferry orders `b371_hookpath.py` repaired. ### **`b369_hygiene.py` IS FOUND BY THE
+  ### ### SAME SEARCH AND IS NOT IN THIS ACT`S ORDER**, so it is ROUTED and named, not
+  ### quietly repaired alongside.
+
+  ### **AND THE REPAIR THE FERRY NAMES, READ FROM `b386`S OWN CHECK:**
+      `b386_checks.py` asserts the installer ### **names `.githooks` and not `tools/git-hooks`**
+      `.githooks/pre-push` present in relay : True
+
+----------------------------------------------------------------------------------------------------
+### READ 6 -- THE KERNEL CAVEATS, SEARCHED BY DESCRIPTION. ### CONTROL FIRST.
+----------------------------------------------------------------------------------------------------
+  ### **THE DESCRIPTION:** ### a passage that STATES a condition or identification and says
+  ### in the same breath that it is ### **NOT COMPILED HERE** ### -- the shape `(T1.4)` has.
+  ### **POSITIVE CONTROL -- `(T1.4)` must be found first, in the file that owns it.**
+      caveats found in `FiniteSideSeal.lean` : ### **5**
+      ### ### **CONTROL HOLDS.**
+
+  ### ### **CAVEATS OF THIS SHAPE ACROSS `Core/` : ### 13, IN 9 FILES.**
+      BoundaryValueShadow.lean
+          WHAT IS NOT COMPILED
+      FiniteSideSeal.lean
+          Coprime`'s lemmas carry `propext` -- so primality is used nowhere in this file and the
+          general theorems hold for every `p ≥ 2` (a residue `p` does not divide is a unit of
+          `Z/p^k` exactly when `p` is prime; that identification is the library's and is NOT
+          compiled
+      FiniteSideSeal.lean
+          The identification of that signed count with the source's `Tr(theta(t) Pi)` is b310's
+          derivation, checked at b310 against b304's `trace_scaled` and b309's reduced sum, and IT
+          IS NOT COMPILED
+      FiniteSideSeal.lean
+          dvd_iff_mod_eq_zero`, which carries `propext` and is NOT compiled
+      FiniteSideSeal.lean
+          ) The registered coprimality form of "unit" is NOT compiled
+      FiniteSideSeal.lean
+          Coprime` form is not compiled
+      H1Mechanism.lean
+          The h = 3 contrast (K = ℚ(√−23): the coupling spectrum (4,1,1) at norm 6/150) is CITED,
+          not compiled here
+      IndexRangeShadow.lean
+          WHAT IS NOT COMPILED
+      RationalEnclosureShadow.lean
+          WHAT IS NOT COMPILED
+      ScalingTraceShadow.lean
+          THAT READING IS THE BANK'S AND IS NOT COMPILED
+      SinglePrimeFactor.lean
+          4), that a residue `p` does not divide is a unit of `Z/p^k` *exactly when `p` is prime*,
+          and that this identification is the library's and IS NOT COMPILED
+      SmearCollapseShadow.lean
+          txt` and IT IS NOT COMPILED
+      ValuationDivisibilityShadow.lean
+          WHAT IS NOT COMPILED
+
+----------------------------------------------------------------------------------------------------
+### READ 7 -- THE READER`S CANONICAL COPY, LOCATED BY DIGEST.
+----------------------------------------------------------------------------------------------------
+  download layer  : D:\MY-DOwnloads\PRIME_CORE_READER.md
+      bytes 40950   md5 6265c7c181122f060f14101f031e835b
+  archived copy   : archive/2026-08-23-trim-backfill/PRIME_CORE_READER.md
+      bytes 40950   md5 6265c7c181122f060f14101f031e835b
+  ### ### **BYTE-IDENTICAL : True**
+  duplicates beside it on the download layer : ### **0** 
+  named in the 2026-07-11 orphan census     : False
+  canonical copy mtime                      : 2026-08-08
+  census date                               : 2026-07-11
+  ### ### **THE CENSUS IS EARLIER THAN THE FILE**, so its pattern could not have covered
+  ### ### it -- which is a fact about the dates and not about the file.
+
+  ### **AND THE ENCODING, READ FROM THE BYTES:**
+      occurrences of the mojibake em-dash sequence : ### **0**
+      ### ### **THE CANONICAL COPY IS DAMAGED: UTF-8 BYTES ONCE READ AS cp1252 AND
+      ### ### RE-ENCODED.** ### `(R32)` says NOTHING IN ITS BODY IS EDITED, so the damage
+      ### ### **TRAVELS WITH THE COPY AND IS REPORTED RATHER THAN SILENTLY FIXED.**
+
+----------------------------------------------------------------------------------------------------
+### READ 8 -- THE LATTICE, COMPUTED. ### THE FIGURE IS DRAWN FROM NUMBERS, NOT FROM PROSE.
+----------------------------------------------------------------------------------------------------
+  P as the Reader writes it : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 53, 137, 337
+  |P| = 15
+
+  primes of the form 2^a + 3^b with a,b >= 0, up to 400 : 2, 3, 5, 7, 11, 13, 17, 19, 29, 31, 41, 43, 59, 67, 73, 83, 89, 97, 113, 131, 137, 251, 257, 283, 307, 337
+  of those, IN P     : 2, 3, 5, 7, 11, 13, 17, 19, 29, 31, 41, 137, 337
+  of those, NOT in P : ### **43, 59, 67, 73, 83, 89, 97, 113, 131, 251, 257, 283, 307**
+
+  ### ### **SUM-OF-POWERS PRIMES BELOW 100 THAT P EXCLUDES : ### 7** -- 43, 59, 67, 73, 83, 89, 97
+  ### ### **AND BETWEEN 41 AND 137 -- THE READER`S *ARITHMETIC DESERT* -- THERE ARE ### 9**
+  ### ### -- 43, 59, 67, 73, 83, 89, 97, 113, 131
+
+  ### **THE READER`S OWN SENTENCE, QUOTED FROM THE FILE:**
+  the desert sentence                      line 105
+      These **jump primes** are separated from the consecutive sequence by arithmetic deserts where
+      no sum of powers yields a prime.
+
+  ### ### ### **THE SENTENCE SAYS *no sum of powers yields a prime* IN THAT RANGE, AND THE
+  ### ### ### ARITHMETIC SAYS THERE ARE 9.** ### Measured, not argued.
+  ### ### **AND THE READER CONTRADICTS ITSELF LATER IN ITS OWN BODY**: its predictions
+  ### section lists *gap elements (23, 43, 47, 67, ...)*, and `43` and `67` are sums of
+  ### powers sitting inside the range the desert sentence says is empty of them.
+  ### ### **THIS IS REPORTED AND THE BODY IS NOT EDITED** -- `(R32)` forbids it, and a
+  ### document placed as Tier N is placed as it stands.
+
+  ### **THE FIFTEEN, BY KIND, AS THE READER`S OWN CHAPTER 2-3 SETS THEM:**
+      generator    2 : 2, 3
+      consecutive  9 : 5, 7, 11, 13, 17, 19, 29, 31, 41
+      jump         2 : 137, 337
+      inclusion    2 : 23, 53
+  written : b416_lattice.txt
+
+----------------------------------------------------------------------------------------------------
+### THE SURVEY`S OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  READS TAKEN            : 8
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================

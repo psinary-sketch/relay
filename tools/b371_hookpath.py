@@ -23,7 +23,12 @@ sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import run_clock   # noqa: E402
 
 D = os.path.join(ROOT, 'data')
-SOURCE = os.path.join(ROOT, 'tools', 'git-hooks', 'pre-push')
+# ### **REPAIRED b416.** ### `b386` single-sourced the guard and left it at `.githooks/`;
+# ### this tool went on naming `tools/git-hooks/pre-push`, a path that no longer exists, and
+# ### raised `FileNotFoundError` on every run. ### **THE GUARD WAS SOUND AND THE INSTRUMENT
+# ### ### THAT CHECKS IT WAS NOT.** ### The path is read from `b386_checks.py`'s own
+# ### assertion -- *it names .githooks and not tools/git-hooks* -- and not from memory.
+SOURCE = os.path.join(ROOT, '.githooks', 'pre-push')
 TRACKED_DIR = '.githooks'
 REPOS = [('relay', os.path.join('D:', os.sep, 'relay')),
          ('SIDE-global-section', os.path.join('D:', os.sep, 'SIDE-global-section')),
@@ -77,7 +82,14 @@ def main():
             os.makedirs(dd)
         dst = os.path.join(dd, 'pre-push')
         existed = os.path.exists(dst)
-        shutil.copyfile(SOURCE, dst)
+        # ### **REPAIRED b416, THE SECOND CONSEQUENCE OF THE SAME MOVE.** ### `b386` made
+        # ### `.githooks/pre-push` the SINGLE SOURCE, and this loop copies the source into each
+        # ### repo's `.githooks/`. ### In `relay` those are now ### **THE SAME FILE**, and
+        # ### `shutil.copyfile` raises `SameFileError` rather than doing nothing.
+        # ### ### **REPOINTING THE PATH REVEALED A DEFECT THE PATH WAS HIDING** -- the tool could
+        # ### not have reached this line while it was still looking for a file that did not exist.
+        if not (os.path.exists(dst) and os.path.samefile(SOURCE, dst)):
+            shutil.copyfile(SOURCE, dst)
         try:
             os.chmod(dst, 0o755)
         except OSError:
