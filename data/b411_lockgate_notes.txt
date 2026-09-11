@@ -1,0 +1,68 @@
+### run at (UTC) : 2026-09-11T00:47:31Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b378 -- STEP ZERO: ### **THE LOCK READS EVERY GATE, AND CHECKS WHAT EACH ONE READ.**
+====================================================================================================
+
+  ### ### **`b376` PROVED EVERY GATE PASSED. ### IT COULD NOT PROVE WHAT ANY OF THEM PASSED
+  ### ### ON, AND SAID SO ON ITS OWN FACE.** ### `b377` hit that: a late rewrite of its
+  ### ### registration left three gate records stale and only the seat caught it.
+  ### ### ### **THIS GATE CLOSES IT: ### A FACE-SUBJECT GATE MUST CARRY THE SHA256 OF THE
+  ### ### ### BYTES IT READ, AND THAT DIGEST MUST EQUAL THE FACE ABOUT TO BE LOCKED.**
+
+  ### the face : b411_registration_2026-09-10.txt
+  ### its sha256 : 9b77c7e7513f09a720196fb1a237600549c9f48825550ba9e960c87951d47c1d
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE HELPER`S OWN FIXTURES, BEFORE THE GATE USES IT.
+----------------------------------------------------------------------------------------------------
+    an unstamped record reads None, not True             ok
+    a stamp over unchanged bytes MATCHES                 ok
+    ### **A STAMP OVER REWRITTEN BYTES REFUSES**         ok
+    re-stamping after the rewrite matches again          ok
+    ### **AND EXACTLY ONE STAMP LINE SURVIVES**          ok
+    the gate's own output is untouched                   ok
+    ### ### **gate_hash SELF-TEST : HELD**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE GATE`S FIXTURES -- FOUR POLARITIES, NOT TWO.
+----------------------------------------------------------------------------------------------------
+      all gates clean                            permits : True    failing : none
+      one gate`s phrase missing                  permits : False   failing : ['the banned-term scan on the face']
+      ### **one gate`s subject digest STALE**    permits : False   failing : ['the registration gate, all its own arms']
+      one gate carries no subject digest         permits : False   failing : ['the clause spec emitted from the face']
+    ### ### **FIXTURE VERDICT : CLEAN PERMITS AND EACH FAILURE MODE REFUSES FOR ITS OWN GATE**
+    ### **A GATE THAT HAS ONLY EVER SAID YES IS NOT A GATE**, and a gate that refuses for the
+    ### wrong reason is not one either.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) EVERY PRE-LOCK GATE OF `b411`, ITS VERDICT, AND WHAT IT READ.
+----------------------------------------------------------------------------------------------------
+    the ferry scan (struck clauses and stems)      b411_ferry_scan.txt                    PASS
+        looked for   : ### VERDICT: ### **0 HIT(S) REPORTED.
+        subject      : not the face; no digest required
+    the handoff census                             b411_census_stepzero.txt               PASS
+        looked for   : TOTAL MISSING : 0
+        subject      : not the face; no digest required
+    the faces census                               b411_faces_census_stepzero.txt         PASS
+        looked for   : TOTAL MISSING : 0
+        subject      : not the face; no digest required
+    the pins, by ls-remote through the roster      b411_pins_stepzero.txt                 PASS
+        looked for   : ### REPOS HARD-FAILING : 0
+        subject      : not the face; no digest required
+    the registration gate, all its own arms        b411_reg_gate.txt                      PASS
+        looked for   : GATE VERDICT : CLEAR
+        subject      : ### **THE FACE** ### -- recorded `9b77c7e7513f09a7`
+    the banned-term scan on the face               b411_reg_termscan.txt                  PASS
+        looked for   : VERDICT          : CLEAN
+        subject      : ### **THE FACE** ### -- recorded `9b77c7e7513f09a7`
+    the clause spec emitted from the face          b411_regspec_run.txt                   PASS
+        looked for   : ARTIFACT-COUNT PREDICTIONS FOUND : 0
+        subject      : ### **THE FACE** ### -- recorded `9b77c7e7513f09a7`
+    the satisfiability audit                       audit_b411_reg_satisfiable.txt         PASS
+        looked for   : JOINTLY SATISFIABLE
+        subject      : ### **THE FACE** ### -- recorded `9b77c7e7513f09a7`
+
+    ### ### **GATES READ : 8. ### PASSING : 8. ### FACE-SUBJECT GATES CHECKED BY DIGEST : 4.**
+    ### ### **VERDICT : LOCK PERMITTED**
+    ### ### **AND THE LOCK IS CHAINED ON THIS EXIT CODE, NOT ON ANY ONE GATE`S.**
+====================================================================================================
