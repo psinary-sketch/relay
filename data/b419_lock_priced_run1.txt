@@ -1,0 +1,60 @@
+====================================================================================================
+b419 COMPONENT 2 -- THE LOCK AND THE SCAN: PRICED, NOT RESOLVED. ### ROUTED TO THE AUTHOR.
+====================================================================================================
+### THE TWO RULES, QUOTED FROM THEIR SOURCES.
+  (1) the lock gate, tools/b378_lockgate.py -- its ferry gate, whose last field says the gate has no digest
+      and whose looked-for string admits exactly one verdict:
+      ('the ferry scan (struck clauses and stems)', '%s_ferry_scan.txt', '### VERDICT: ### **0 HIT(S) REPORTED.', False),
+      ### the lock permits only when EVERY gate passes, and this gate has no reader`s override.
+  (2) the scan, tools/ferry_scan.py -- its first doctrine, verbatim:
+      # ### (1) ### **A HIT IS A STRING, NOT A FAULT.** ### The ferry that STRIKES a clause quotes the
+      # ###     clause in order to strike it, and that quotation hits. ### **THE EXPECTED READING OF
+      # ###     THIS TOOL'S OUTPUT IS THEREFORE NEVER "ZERO OR FAIL"; IT IS "HERE ARE THE SITES".**
+  ### ### **THE CONFLICT, STATED ONCE:** the scan says a hit is a SITE for a reader to rule on; the lock reads the
+  ### scan`s count as a verdict and admits only zero. ### A ferry that must QUOTE a banned stem -- to strike a
+  ### clause, or to name a species -- is correct by the scan and refused by the lock.
+
+### HOW OFTEN IT HAS FIRED -- EVERY FERRY SCAN IN relay`s data/, READ BY ITS VERDICT LINE.
+  scan records read : 123 ; with a verdict line reading a non-zero count : 4
+  the lock gate`s first commit : ec824c2 2026-09-08T22:03:53-04:00 b378 -- the refs widened and the convention swept; the lock gate's hole clos
+  scan records from b378 on, the acts the lock gate has gated : 43
+      b299_ferry_scan.txt                2 hit(s) ; before the lock gate existed -- the reader ruled, as the scan says
+      b307_ferry_scan.txt                1 hit(s) ; before the lock gate existed -- the reader ruled, as the scan says
+      b348_ferry_scan.txt                1 hit(s) ; before the lock gate existed -- the reader ruled, as the scan says
+      b418_ferry_scan_run1.txt           1 hit(s) ; LOCK GATE IN FORCE -- the act HALTED at the lock and was re-pasted
+  ### ### **SINCE THE LOCK GATE WAS BUILT IT HAS REFUSED ONE FERRY IN 43 GATED SCANS; BEFORE IT, A HIT WAS READ.**
+
+### THE THREE RESOLUTIONS, AS b418`s HALT RECORD NAMED THEM:
+  ### WHAT WOULD LET THE ACT RESUME -- THE AUTHOR'S, EACH ONE LINE (1) Re-paste b418 with ferry line 35's
+  wording changed; the survey stands, the face is re-gated against the new ferry file and locked. (2) A ruling
+  that a ferry-scan hit inside the author's own ratified paste, named on the face, is a string the lock permits
+  -- which needs the lock gate changed, and so an instrument lane opened. (3) A one-act ruling to seal b418 past
+  the ferry-scan gate, the refusal banked on the face. 
+
+### EACH ONE PRICED -- WHAT IT COSTS, WHO ACTS, AND WHETHER IT NEEDS THE INSTRUMENT LANE.
+  ROUTE (1) -- RE-PASTE WITH THE LINE CHANGED.
+      cost : one round trip to the author per hit, the act halted between; and the author`s words changed to pass
+             a string test that the scan`s own doctrine says is not a fault. ### Nothing learned is kept: the
+             next ferry that must quote a stem halts the same way.
+      who  : the author, once per occurrence.
+      lane : ### **NONE** -- no instrument changes.
+      measured frequency : one halt in the gated scans above.
+  ROUTE (2) -- A RULING THAT A HIT INSIDE THE AUTHOR`S OWN PASTE, NAMED ON THE FACE, IS A STRING THE LOCK PERMITS.
+      cost : one ruling, then an edit to the lock gate: the ferry gate reads the scan`s sites, and admits a hit only
+             where the face names that site by line and the site lies inside the ratified paste; with fixtures in
+             both polarities -- a named in-paste hit PASSES, an unnamed hit and a named out-of-paste hit FAIL. ###
+             **IT OPENS A PATH THROUGH THE LOCK**, bounded by the face`s own naming, which the lock`s other gates
+             already hash.
+      who  : the author rules; a seat builds it in the instrument lane.
+      lane : ### **YES -- THE LOCK GATE IS AN EXISTING SHARED INSTRUMENT, AND EDITING IT IS THE INSTRUMENT LANE`S
+             ### WORK. THAT LANE IS PARKED; THIS ACT DOES NOT OPEN IT.** ### After it, no round trips.
+  ROUTE (3) -- A ONE-ACT RULING TO SEAL PAST THE FERRY GATE, THE REFUSAL BANKED ON THE FACE.
+      cost : one ruling per occurrence, and a sealed face whose lock notes say REFUSED -- the lock`s verdict stops
+             meaning what it says for that act, and every later reader must read the ruling to know why.
+      who  : the author, once per occurrence.
+      lane : ### **NONE** -- no instrument changes.
+
+### ### **ONLY ROUTE (2) NEEDS THE INSTRUMENT LANE; ROUTES (1) AND (3) COST THE AUTHOR ONE ACTION PER HIT.** ###
+### **ROUTED TO THE AUTHOR. THIS ACT CHOOSES NONE, AND 0 BYTES OF THE LOCK GATE OR THE SCAN CHANGE.**
+  lock gate equals its blob : True ; scan equals its blob : False
+====================================================================================================

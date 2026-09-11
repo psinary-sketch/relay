@@ -1,0 +1,81 @@
+====================================================================================================
+b419_checks.py -- THE GATE SUITE.
+====================================================================================================
+  G-RECEIPT-IN-FULL                          the ferry carries its own paste-end marker               PASS
+  G-SCAN-CLEAN                               the ferry`s scan reports 0 hits                          PASS
+  G-STEPZERO-CENSUS                          both step-zero censuses report TOTAL MISSING : 0         PASS
+  G-STEPZERO-PINS                            the pins report REPOS HARD-FAILING : 0                   PASS
+  G-SURVEY-NOMISS                            the survey reports ANCHOR MISSES : 0                     PASS
+  G-SURVEY-RUN1-KEPT                         survey run 1 kept, and run 2 maps with agreement         PASS
+  G-REG-LOCKED-FIRST                         the seal verifies and precedes the first probe           PASS
+  G-LOCKGATE-EIGHT                           the lock run read 8, passed 8, 4 by digest               PASS
+  G-SEAL-VERIFIES                            the registration gate verdict reads CLEAR                PASS
+  G-N-REPAIR-AS-NAMED                        the probe carries b418`s named term                      PASS
+  G-N-FIRST-PROBE-ONLY-REPAIR                the first probe differs from b418`s probe 16 by that one PASS
+  G-N-PROBES-OUTSIDE-REPOS                   every probe is a scratch file outside the repositories   PASS
+  G-N-BUDGET-HONOURED                        no more than sixteen probes and 150 minutes              PASS
+  G-N-ONE-VERDICT                            exactly one verdict line                                 PASS
+  G-N-PROFILE-READ                           the verdict is read from the profile`s lines, the exit l PASS
+  G-N-PROFILES-BANKED                        every probe`s source and printed profile is banked       PASS
+  G-N-NO-SORRY                               no probe and no Core file carries sorry as a term        PASS
+  G-N-KERNEL-BY-VERDICT                      PROVED, and the kernel changed in exactly the four named PASS
+  G-N-PREFIX-TRUE                            the pin`s profile is a true byte prefix of the kernel`s  PASS
+  G-N-ALLPRINTS-APPEND-ONLY                  (C)(ii)`s measure: one import inserted, the prints appen PASS
+  G-N-CELLS-INSTANCES                        the terminal deriving the seven cells prints clean       PASS
+  G-N-RECLASSIFIED                           eight qualified and twenty unreached, over b414`s hand-r PASS
+  G-N-T14-VERBATIM                           every line of b416`s drafted annotation is in the seal   PASS
+  G-N-SEAL-WORDS-SURVIVE                     every word of the seal at the pin survives in order      PASS
+  G-N-CLASSES-UNCHANGED                      Classes.lean carries its before-digest                   PASS
+  G-N1-APART                                 (N1)`s three clauses printed on three lines              PASS
+  G-LOCK-RULES-QUOTED                        both rules quoted from their sources                     PASS
+  G-LOCK-ROUTES-PRICED                       three routes, each with a cost, a who and a lane         PASS
+  G-LOCK-LANE-NAMED                          the route needing the instrument lane is named           PASS
+  G-LOCK-FREQUENCY                           every scan read by its verdict line, the refusals counte PASS
+  G-LOCK-ROUTED                              routed to the author, none chosen                        PASS
+  G-NOLOCKGATE-EDIT                          the lock gate unchanged since the pin, in git`s view     PASS
+  G-NOSCAN-EDIT                              the scan unchanged since the pin, in git`s view          PASS
+  G-T-POPULATION-LISTED                      the population record exists and every scored call is li PASS
+  G-T-ACT-MAPPED                             every scored call carries an act or NO ACT               PASS
+  G-T-BATCH-SAID                             every silent batched call is said to be beyond the guard PASS
+  G-T-GUARD-APPLIED                          every call whose result says timeout reads INCOMPLETE    PASS
+  G-T-RESTING-READ                           every decision printed with the line read, none unread   PASS
+  G-T-CONTROL-FIRST                          the control passes and precedes every re-run             PASS
+  G-T-CONFIRMED-OR-MOVED                     each resting verdict reads CONFIRMED or MOVED            PASS
+  G-T-NO-REVERDICT                           neither resting act`s bank changed since the pin         PASS
+  G-FOUR-LISTS-OPEN                          the trail and the bank restate the four lists OPEN with  PASS
+  G-NOGRADE                                  no grade string minted                                   PASS
+  G-NOPREMISE                                the bank states 0 premises discharged                    PASS
+  G-NODOOR                                   the bank states 0 doors restated                         PASS
+  G-NOROUTE                                  the bank states 0 routes proposed                        PASS
+  G-NOKAPPA                                  no kappa value measured                                  PASS
+  G-NOLEDGERROW                              FACES_LEDGER.md is not written                           PASS
+  G-NOFOLD                                   FINDINGS.md is not written                               PASS
+  G-NORULE                                   STRUCK_CLAUSES is not written                            PASS
+  G-NODEPOSIT                                no Zenodo byte                                           PASS
+  G-NOPLATFORM                               no platform call                                         PASS
+  G-NOH2                                     no claim about h2 beyond the standing sentence           PASS
+  G-NOLOCKEDFACE                             the seal still verifies                                  PASS
+  G-NOPRIORBANK                              no prior act`s bank opened for write                     PASS
+  G-NOBANKEDFERRY                            no banked ferry opened for write                         PASS
+  G-TRAIL-APPEND-ONLY                        the pin`s trail is a true prefix and both marks are pres PASS
+  G-CORR-APPEND-ONLY                         b418`s row at 267 and this act`s at 268, both by marker  PASS
+  G-WRITELIST-KINDS                          the face names 10 kinds                                  PASS
+  G-NOEXTRAKIND                              exactly six relay act-tool files                         PASS
+  G-NOSTAGE-A                                no working tool stages by -A                             PASS
+  G-NOBORROWEDBAR                            no `G-NO*` arm reads a raw document text                 PASS
+  G-ARMS-DECLARED-EQ-RUN                     declared on the face equals run here, both ways          PASS
+  G-ARMS-OWN-BANK                            arms run over this act`s own bank                        PASS
+  G-ARMS-STRIP-PROSE                         this suite strips comments and strings by the tokenizer  PASS
+  G-ARMS-FOLD-MARKERS                        this suite folds markup before matching                  PASS
+  G-ARMS-NO-SUBSTRING-VERDICT                A2: verdict lines read                                   PASS
+  G-NOWRAP-MIDTOKEN                          the writers wrap at word boundaries                      PASS
+  G-MUSTFAIL                                 none of the forbidden lines is in the bank               PASS
+----------------------------------------------------------------------------------------------------
+  declared on the face : 69
+  run here             : 69
+  declared but not run : none
+  run but not declared : none
+  ### the face`s BAR 3 clause, as written -- AllPrints` prior bytes a prefix of its new : False ### (a defect of the
+  ### face: Lean takes an import only at a file`s head; (C)(ii)`s measure is the arm G-N-ALLPRINTS-APPEND-ONLY)
+  ### ### **ARMS : 69. ### PASSING : 69. ### FAILING : 0.**
+====================================================================================================

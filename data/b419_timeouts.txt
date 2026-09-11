@@ -1,0 +1,270 @@
+====================================================================================================
+b419 COMPONENT 3 -- SILENT TIMEOUTS OUTSIDE THE ARC. ### THE GUARD WHERE THE RECORD ALLOWS IT.
+====================================================================================================
+  population (survey run 2) : 24 calls reached the limit in every transcript ; scored (inside relay or a directory
+  holding it) : 14 ; elsewhere, listed and not scored : 10
+  guard : walker_guard.verdict, IMPORTED, limit 20.0 s less a margin of 0.5 s
+
+### THE POSITIVE CONTROL, RUN BEFORE ANY COUNT (BAR 9): b417`s truncated call, re-run by this walker.
+  the call returned 13 files ; the floor tree (20ce1c7) holds 38 matching, the ceiling tree (cf09c22) 48, together 48
+  ### every file the call returned is reached : True ; at least the forty b418 counted : True
+  ### ### **CONTROL : PASS**
+
+### EVERY SCORED CALL, WITH THE GUARD WHERE THE RECORD ALLOWS IT, AND WHETHER A BANKED VERDICT RESTS ON IT.
+
+  85d87edf 2026-08-09T19:51:00  AN ANCESTOR OF RELAY  20.18 s  returned None  said-timeout True  batch 0  act NO ACT (lag 313.75 h)
+      path D:\ ; pattern SIDEDerivative
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : NO ACT. The tool said it timed out; the session then walked the kernels in Python
+      and reported its zero from THAT walk.
+      line read : next text: "`SIDEDerivative` returns zero hits across all 40 kernels." -- after a Python
+      walk, not the call
+
+  862416d9 2026-08-13T19:49:06  AN ANCESTOR OF RELAY  20.14 s  returned 0  said-timeout False  batch 1  act NO ACT (lag 217.79 h)
+      path D:\ ; pattern bd2ae1a|banned-term|banned term|inflation sitting|inflation-sitting
+      ### THE RECORD DOES NOT ALLOW THE GUARD -- issued beside 1 sibling call(s), so its recorded 20.14 s is the batch`s, an upper bound only
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : NO ACT. Silent; its content result carried matches, and the session resolved the
+      cited commit by git. No count or absence taken.
+      line read : next text: "bd2ae1a resolved at cite"
+
+  e02bb824 2026-08-20T16:16:27  AN ANCESTOR OF RELAY  20.18 s  returned None  said-timeout True  batch 1  act NO ACT (lag 53.33 h)
+      path D:\ ; pattern TensorSquareShadow
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : NO ACT. The tool said it timed out; a shell `grep -ril` over relay found the file,
+      which was then read.
+      line read : next tool: grep -ril "TensorSquareShadow" /d/relay; next text: "TensorSquareShadow read"
+
+  2bde398e 2026-08-28T20:48:32  INSIDE RELAY  20.02 s  returned None  said-timeout True  batch 0  act b231 (lag 0.49 h)
+      path D:\relay ; pattern g\(\s*[-−±]\s*log|g\(x\)\s*\+\s*g\(|g\(u\)\s*\+\s*g\(|log n\)\s*\+\s*g|\+\s*g\(\s*[-−]\s*l
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : YES
+      what the act took : b231 banked (ABSENT) -- "NO MATCH. NOT ONE, ANYWHERE." -- over a scope it states as
+      including relay/data; the only walker call over relay/data with its notation is this one, which timed
+      out, and its shell sweeps over relay read `.md` and `.py` only (the one reading `.txt` aborted, as its
+      bank says).
+      line read : b231_the_two.txt: "relay/reports, relay/data, SIDE-global-section, SIDE-kernel." / "NO
+      MATCH. NOT ONE, ANYWHERE."
+
+  589832be 2026-09-02T23:59:39  INSIDE RELAY  20.10 s  returned 0  said-timeout False  batch 1  act b300 (lag 0.63 h)
+      path D:\relay ; pattern Sonin sector
+      ### THE RECORD DOES NOT ALLOW THE GUARD -- issued beside 1 sibling call(s), so its recorded 20.10 s is the batch`s, an upper bound only
+      ### A BANKED VERDICT RESTS ON IT : YES
+      what the act took : b300 decision (a), DIFFERENT, quotes what "the Sonin sector" names "from the file
+      that adopted it"; the silent, batched call is the search that surfaced the adopting act`s files, so a
+      truncation could have hidden another definition.
+      line read : b300_the_archimedean_leg.txt: "WHAT THE PHRASE NAMES, FROM THE FILE THAT ADOPTED IT
+      (data/b206_variable_passage.txt)"
+
+  76ff68b8 2026-09-03T15:33:16  INSIDE RELAY  20.17 s  returned None  said-timeout True  batch 1  act b303 (lag 1.02 h)
+      path D:\relay ; pattern 3\.3\.1
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : The tool said it timed out; a PowerShell Select-String over data/ completed and
+      found the files.
+      line read : next text: "Found the corpus`s own extract and b197`s read."
+
+  81923c42 2026-09-03T20:02:32  INSIDE RELAY  20.18 s  returned None  said-timeout True  batch 0  act b308 (lag 0.64 h)
+      path D:\relay ; pattern def pair_at_n|S_quot|def A_matrix|A at k = n
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : The tool said it timed out; a narrowed walker call over tools/ found the
+      definitions.
+      line read : next tool: Grep "S_quot|pair_at_n" over D:\relay\tools
+
+  81923c42 2026-09-04T01:07:15  INSIDE RELAY  231.41 s  returned None  said-timeout True  batch 1  act b314 (lag 0.65 h)
+      path D:\relay\data\b307_the_fold.txt ; pattern NAMES AND NOT UNDERSTANDING|ONE LEDGER AND NO OTHER
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : The tool said it timed out, on a single file; the file was then read by line range.
+      line read : next tool: sed -n "10,16p;28,60p" data/b307_the_fold.txt
+
+  2513b655 2026-09-11T00:40:36  INSIDE RELAY  20.34 s  returned None  said-timeout True  batch 0  act b411 (lag 0.28 h)
+      path D:\relay ; pattern angle-sum|gauge verification|digamma density|trivial lattice
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : The tool said it timed out; a narrowed call over relay/reports located the
+      certificate, read whole.
+      line read : next text: "The certificate is located -- reports/2026-08-01-w-half-consult.md"
+
+  fbe6b4b2 2026-09-11T13:10:24  AN ANCESTOR OF RELAY  21.61 s  returned None  said-timeout True  batch 2  act b417 (lag 0.88 h)
+      path D:\ ; pattern b417
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : The tool said it timed out; the seat listed D: and searched elsewhere.
+      line read : next tool: Get-ChildItem D:\ -Directory
+
+  fbe6b4b2 2026-09-11T13:11:02  INSIDE RELAY  22.93 s  returned None  said-timeout True  batch 2  act b417 (lag 0.87 h)
+      path D:\relay ; pattern b417
+      INCOMPLETE -- the tool`s own result says it timed out
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : The tool said it timed out; the seat searched the transcripts instead.
+      line read : next tool: Grep over the session transcripts
+
+  fbe6b4b2 2026-09-11T13:28:55  INSIDE RELAY  20.04 s  returned 13  said-timeout False  batch 4  act b417 (lag 0.57 h)
+      path D:\relay\data ; pattern BoundaryValueShadow|IndexRangeShadow|RationalEnclosureShadow|ScalingTraceShadow|SmearColla
+      ### THE RECORD DOES NOT ALLOW THE GUARD -- issued beside 4 sibling call(s), so its recorded 20.04 s is the batch`s, an upper bound only
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : b418 read b417`s records line by line: b417 banked only a claim ABOUT the walker,
+      and 0 ABSENT verdicts.
+      line read : b418_walker.txt: "0 ABSENT verdicts rest on the truncated call" (carried; b418 printed its
+      lines)
+
+  fbe6b4b2 2026-09-11T14:23:57  INSIDE RELAY  28.57 s  returned 29  said-timeout False  batch 3  act b418 (lag 1.21 h)
+      path D:\relay\data ; pattern T1\.4
+      ### THE RECORD DOES NOT ALLOW THE GUARD -- issued beside 3 sibling call(s), so its recorded 28.57 s is the batch`s, an upper bound only
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : b418`s resume probes; b418 banked no count from them -- its survey counted with
+      Python.
+      line read : b418_components.txt: "Two of the silent limits it lists are this act`s own resume probes,
+      whose results were complete"
+
+  fbe6b4b2 2026-09-11T14:23:57  INSIDE RELAY  27.67 s  returned 1  said-timeout False  batch 3  act b418 (lag 1.21 h)
+      path D:\relay\data\b416_components.txt ; pattern T1\.4
+      ### THE RECORD DOES NOT ALLOW THE GUARD -- issued beside 3 sibling call(s), so its recorded 27.67 s is the batch`s, an upper bound only
+      ### A BANKED VERDICT RESTS ON IT : NO
+      what the act took : b418`s resume probes; b418 banked no count from them -- its survey counted with
+      Python.
+      line read : b418_components.txt: "Two of the silent limits it lists are this act`s own resume probes,
+      whose results were complete"
+
+### ### **BANKED VERDICTS RESTING ON A TIMED-OUT CALL : 2**
+
+----------------------------------------------------------------------------------------------------
+### RE-RUN : 2bde398e 2026-08-28T20:48:32 (act b231) -- case-insensitive True, path '(whole relay)'
+  floor tree (last relay commit before the call) 159637f : 0 files match
+  ceiling tree (first relay commit after it)      1f56964 : 4 files match ; of them not in the floor : 4
+    CEILING ONLY HANDOFF.md   (1 lines)
+    CEILING ONLY data/b231_registration_2026-08-28.txt   (2 lines)
+    CEILING ONLY data/b231_the_two.txt   (3 lines)
+    CEILING ONLY reports/2026-08-28-the-two.md   (3 lines)
+
+----------------------------------------------------------------------------------------------------
+### RE-RUN : 589832be 2026-09-02T23:59:39 (act b300) -- case-insensitive True, path '(whole relay)'
+  floor tree (last relay commit before the call) c0e84be : 34 files match
+  ceiling tree (first relay commit after it)      312a027 : 39 files match ; of them not in the floor : 5
+    FLOOR HANDOFF.md
+        | **Minted 2026-08-23 at the one-sign act (b117); brought current at THE SPACE-LEVEL BARRIER (b278) — *** ### ### **VERDICT: (UNDECIDED). ### THE RESIST
+    FLOOR data/audit_b206_index_query.txt
+        | ### THIS ACT IT LISTS THEM UNDER THE FERRY'S ADOPTED NAMES -- ### THE SONIN SECTOR, THE
+    FLOOR data/audit_b206_name_fixtures.txt
+        | the sonin sector           HIT
+    FLOOR data/audit_b206_naming_pass.txt
+        | ###   SECTORS       : THE SONIN SECTOR | THE CONSTRAINT SECTOR | THE COMPRESSION SECTOR
+        | ###    ### reads as THE SONIN SECTOR and the citation as THE COMPRESSION SECTOR, ### AND WHICH
+        | ###    transform F_v ON THE CONSTRAINED SECTOR". ### DETERMINABLE: THE SONIN SECTOR.
+    FLOOR data/audit_b207_index_query.txt
+        | the sonin sector           HIT
+        | ### THE OBJECT THIS ACT IS ABOUT -- ### THE SONIN SECTOR -- IS NOW REACHABLE BY ITS OWN NAME,
+    FLOOR data/audit_b210_index_query.txt
+        | the sonin sector                 HIT
+    FLOOR data/audit_b211_index_query.txt
+        | the sonin sector             HIT
+    FLOOR data/audit_b212_index_query.txt
+        | the sonin sector             HIT
+    FLOOR data/audit_b213_index_query.txt
+        | the sonin sector         HIT
+    FLOOR data/audit_b214_index_query.txt
+        | the sonin sector           HIT
+    FLOOR data/b206_registration_2026-08-26.txt
+        | ###   THE SONIN SECTOR      -- in the archimedean Sonin space. ### THE GLUING SENTENCE'S OBJECT.
+        | ###   THE CONSTRAINT SECTOR -- act 15's constraint span E+B. ### ORTHOGONAL TO THE SONIN SECTOR.
+    FLOOR data/b206_variable_passage.txt
+        | ###   THE SONIN SECTOR       -- the +1 eigenspace of F on the archimedean Sonin space.
+        | ###   THE CONSTRAINT SECTOR  -- act 15's constraint span E+B. ### ORTHOGONAL TO THE SONIN SECTOR.
+        | ### "E_1(infinity)". ### b200 found its SUBJECT reads as THE SONIN SECTOR and its CITATION as THE
+        | ### THE KEYSTONE'S GLUING SENTENCE IS DETERMINABLE (THE SONIN SECTOR) AND IS **NOT EDITED**: it is
+    FLOOR data/b207_alternation.txt
+        | ### ### **THE SONIN SECTOR IS NONZERO -- AT BENCH GRADE, AND AT NO HIGHER GRADE.** ***
+        | ### ### **THE SONIN SECTOR AT tau = 2 pi IS NONZERO.**
+        | ### ### THE ACT KNOWS THAT ONE OF THE SIX IS IN THE SONIN SECTOR AND ### CANNOT SAY WHICH.
+        | *** ### **M22 CLEARS AT BENCH GRADE: THE SONIN SECTOR AT tau = 2 pi IS NONZERO.**
+    FLOOR data/b207_registration_2026-08-26.txt
+        | ON AT ANY STEP; the object is ### THE SONIN SECTOR and the naming question is not pre-empted;
+        | ### property of the mode ladder rather than of tau. ### THE TRANSFER: ### THE SONIN SECTOR IS
+        | (e5) *** ### THE GRADE, AND IT IS THE DISCIPLINE OF THE ACT: ### **BENCH.** ### The Sonin sector's
+        | · ### THE NAMING QUESTION IS NOT PRE-EMPTED. The object is THE SONIN SECTOR by the adopted names,
+    FLOOR data/b208_successor_fold.txt
+        | ### BOTH VALUES OF c OCCUR AT tau = 2 pi, SO THE SONIN SECTOR IS NONZERO -- at bench and at
+        | ### ### of the six is in the Sonin sector and CANNOT SAY WHICH." ### Six is what is claimed.
+        | ###   Sonin sector at bench grade is NOT a held unit, and the C_0 condition still wants EVERY
+    FLOOR data/b210_wronskian_gate.txt
+        | nothing, and it says nothing about the Sonin sector's occupancy that b207 did not already say.
+    FLOOR data/b211_alternation_derived.txt
+        | ### ### THE SONIN SECTOR IS NONZERO -- DERIVES on named imports. ***
+        | ### THE NAMING QUESTION IS NOT PRE-EMPTED: this is a fact about THE SONIN SECTOR, and NOT a
+        | ### claim that the Sonin sector is what term 3 needs. That ruling stands with the author.
+        | (C4) ### THE SONIN SECTOR IS NONZERO -- **DERIVES**, on I9 (with I7 as an independent second
+    FLOOR data/b211_registration_2026-08-27.txt
+        | ### SONIN SECTOR, not a claim that it is what term 3 needs.
+        | the Sonin sector nonzero      -- DERIVES, on CM Corollary 3.2 (and RRT Lemma 2(iii) as an
+        | (f) WHAT THIS ACT WILL NOT DO: no new computation; no claim that the Sonin sector is what term 3
+    FLOOR data/b212_odd_family.txt
+        | that the line's SUBJECT read as the Sonin sector while its CITATION named b33's compression
+        | · M22 RESTATED FOR ALL FOUR SECTORS IN THE RULING'S NAMES: E_1 (THE SONIN SECTOR) and E_-1
+    FLOOR data/b216_fixtures.txt
+        | the sonin sector           HIT
+    FLOOR data/b225_registration_2026-08-28.txt
+        | ### with the archimedean unit from the Sonin sector under the b212 ruling; the canonical spanning
+    FLOOR data/b225_serializing_close.txt
+        | ### with the archimedean unit from the Sonin sector under the b212 ruling; the canonical spanning
+    FLOOR data/b226_registration_2026-08-28.txt
+        | ### with the archimedean unit from the Sonin sector under the b212 ruling; the canonical spanning
+        | ### its E_1 is THE SONIN SECTOR" -- provenance the conversation layer, NOT a derivation.
+    FLOOR data/b226_stated_choice.txt
+        | ### the archimedean Sonin space S(1,1); ### its E_1 is THE SONIN SECTOR" -- ### PROVENANCE: THE
+    FLOOR data/b227_the_trace.txt
+        | ### ### THE ABSTRACT RESTATEMENT: ### **THE rank-2 eigenfunction, norm one, in the Sonin sector.**
+    FLOOR data/b54_mixed_pattern.txt
+        | DFT is far larger than the Sonin sector; the identity as first coded was false algebra,
+    FLOOR data/b58_registration_2026-08-21.txt
+        | u = 4 P_1 g lies in E_1 of the Sonin sector (S preserves Son by (S2)); u /= 0 with
+    FLOOR data/b58_row29_onlyif.txt
+        | u = 4 P_1 g lies in E_1 of the Sonin sector (S preserves Son by (S2)); u /= 0 with
+    FLOOR reports/2026-08-26-alternation.md
+        | > ### **THE SONIN SECTOR IS NONZERO — AT BENCH GRADE, AND AT NO HIGHER GRADE.** ***
+        | > ### **THE SONIN SECTOR IS NONZERO — AT BENCH GRADE, AND AT NO HIGHER GRADE.** ***
+        | ### **so both values occur and the Sonin sector at `τ = 2π` is nonzero.**
+        | the `+1` one.** ### **It knows one of the six is in the Sonin sector and cannot say which.**
+    FLOOR reports/2026-08-26-successor-fold.md
+        | | 7 | ### **BOTH VALUES OF `c` OCCUR AT `τ = 2π` → THE SONIN SECTOR IS NONZERO** | b201→b207 | ### **BENCH** | ### **no absolute sign; no element name
+        | > ### **b207's condition, quoted: “a nonzero Sonin sector at bench grade is NOT a held unit,
+        | the sonin sector         HIT  (1 indexed)
+    FLOOR reports/2026-08-26-variable-passage.md
+        | ### **THE NAMES, ADOPTED BY THE AUTHOR'S FERRY AND USED FROM HERE:** ### **THE SONIN SECTOR** ·
+        | is determinable (the Sonin sector) and is NOT edited: a naming pass is not a licence to rewrite
+        | ### **M22, in the adopted names: IS THE SONIN SECTOR AT `τ = 2π` NONZERO? Uncomputed, and
+        | ###   SECTORS       : THE SONIN SECTOR | THE CONSTRAINT SECTOR | THE COMPRESSION SECTOR
+    FLOOR reports/2026-08-27-alternation-derived.md
+        | > ### **THE SONIN SECTOR IS NONZERO AT DERIVATION GRADE ON NAMED IMPORTS.** ***
+        | > ### **IT IS A FACT ABOUT THE SONIN SECTOR. IT IS NOT A CLAIM THAT THE SONIN SECTOR IS WHAT TERM
+        | | **C4** | ### **the Sonin sector is nonzero** | ### **DERIVES** | I9, I7, I6, C3 |
+        | discharge it; the Sonin sector **LIFTED** bench → derivation; ### **the odd family added as a new
+    FLOOR reports/2026-08-27-odd-family.md
+        | line's *subject* read as the Sonin sector while its *citation* named b33's compression modes.
+        | | `E₁` — **THE SONIN SECTOR** | nonzero, derivation grade | b211 |
+    FLOOR tools/banked_index.py
+        | 'archimedean-sector': ['archimedean sector', 'the sonin sector', 'the constraint sector',
+        | " b206: ### THE SONIN SECTOR (the +1 eigenspace of F on the archimedean Sonin space --"
+        | " E+B, v_n^+ -- ORTHOGONAL to the Sonin sector); ### THE COMPRESSION SECTOR (b33's"
+        | 'the Sonin sector is nonzero is b211 derivation, and the ruling ATTACHES that result to '
+    CEILING ONLY data/b300_ferry_2026-09-02.txt   (2 lines)
+    CEILING ONLY data/b300_index_query.txt   (1 lines)
+    CEILING ONLY data/b300_registration_2026-09-02.txt   (2 lines)
+    CEILING ONLY data/b300_the_archimedean_leg.txt   (4 lines)
+    CEILING ONLY tools/b300_index_append.py   (2 lines)
+
+### THE CALLS ELSEWHERE, LISTED AND NOT SCORED:
+  85d87edf 2026-08-05T05:39:04  35.57 s  said False  batch 1  D:\MY-DOwnloads\PLACE-papers
+  85d87edf 2026-08-05T20:20:12  26.98 s  said False  batch 1  D:\MY-DOwnloads\PLACE-papers
+  85d87edf 2026-08-10T03:26:06  24.32 s  said False  batch 0  C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\85d87edf-f542-4a50-9160-0af85e76ab41\scratchpad\borger.txt
+  862416d9 2026-08-13T19:49:54  19.52 s  said False  batch 1  D:\MY-DOwnloads\PLACE-papers
+  532df874 2026-08-18T04:36:27  48.48 s  said False  batch 1  D:\MY-DOwnloads\PLACE-papers
+  532df874 2026-08-19T01:45:22  42.93 s  said False  batch 1  /d/mathlib4/Mathlib/NumberTheory/Padics
+  e02bb824 2026-08-22T19:35:57  20.20 s  said False  batch 2  D:\SIDE-kernel
+  e02bb824 2026-08-22T19:35:57  20.11 s  said False  batch 2  D:\SIDE-kernel
+  087e64ab 2026-08-24T22:53:42  20.04 s  said False  batch 1  D:\MY-Downloads
+  2bde398e 2026-08-28T22:37:36  20.14 s  said True  batch 0  D:\SIDE-kernel
+====================================================================================================

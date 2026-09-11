@@ -1,0 +1,51 @@
+====================================================================================================
+b419 COMPONENT 1 -- THE KERNEL, VERIFIED AFTER THE BUILD.
+====================================================================================================
+  at (UTC) : 2026-09-11T16:24:18Z
+### (iii) THE PROFILE.
+  prior (blob at HEAD) : 43473 bytes, 605 lines, sha e6167b6b7d21fc4c
+  new (working file)   : 43597 bytes, 607 lines, sha e01892d838ffe96d
+  carriage returns in the new file : 0
+  ### ### **THE PRIOR PROFILE IS A TRUE BYTE PREFIX OF THE NEW : True**
+  the lines beyond the prefix : 2
+      + 'SmearGeneral.smear_general' does not depend on any axioms
+      + 'SmearGeneral.cells_are_instances' does not depend on any axioms
+  ### every line beyond it is a terminal of the new module, and clean : True
+  ### lines in the whole new profile NOT reading "does not depend on any axioms" : 0
+
+### (ii) AllPrints.lean.
+  ### ### **THE FACE`S BAR 3 CLAUSE, QUOTED: *`AllPrints.lean`s prior bytes are a true prefix of its new ones.*
+  ### ### THAT CLAUSE CANNOT BE MET AS WRITTEN, AND IT IS THIS SEAT`S DEFECT, NOT THE KERNEL`S:** Lean admits an
+  ### `import` only before the first command, so a new module`s import cannot be appended at the end of the file.
+  ### The face`s own (C)(ii) says where it goes -- *after the last existing import* -- and the two sentences of
+  ### the face disagree. ### **THE LOCKED FACE IS NOT EDITED.** ### The clause is measured as written and as the
+  ### procedure it stands for, and both results are printed:
+  the prior bytes a true prefix of the new, AS WRITTEN : False
+  the prior bytes with ONE import line inserted after the last import, a true prefix of the new : True
+  what follows that prefix :
+      + #print axioms SmearGeneral.smear_general
+      + #print axioms SmearGeneral.cells_are_instances
+  ### ### **THE PROCEDURE`S MEASURE -- ONE IMPORT INSERTED, THE PRINTS APPENDED, NOTHING ELSE : True**
+
+### (v) THE SEAL.
+  words : before 4698, after 4742, the annotation 44
+  ### ### **EVERY EXISTING WORD SURVIVES, IN ORDER, AND THE ONLY WORDS ADDED ARE b416`s, AT ONE PLACE : True**
+  the insertion falls after the word 'here);'
+  lines : before 548, after 553
+
+### THE FILES THAT MUST NOT MOVE.
+  SinglePrimeFactor.lean equals its blob : True
+  Classes.lean sha d4f931db1d50c01f ; the before-record`s d4f931db1d50c01f : True
+
+### (iv) THE SEVEN DECIDED CELLS, FROM THE KERNEL`S OWN `B329.cells`: (2, 1), (2, 2), (3, 1), (3, 2), (5, 1), (7, 1), (2, 3)
+  ### every one is an instance by `SmearGeneral.cells_are_instances`, which the profile prints clean : True
+
+### (i) THE MODULE.
+  lines 978 ; `sorry` in its code 0 ; `N418` left : 1, and each is in its header`s provenance sentence : True
+  the statement, as the module carries it :
+      theorem smear_general (p n : Nat) (h : singlePrimeFactor p = true) :
+      B329.ballQ p n * B329.sumAN p n = B329.sumAQ p n := by
+  ### ### **IT IS THE NAMED OPEN STATEMENT OF `SinglePrimeFactor`, WORD FOR WORD, WITH NO FURTHER HYPOTHESIS.**
+
+### ### **VERIFY FAILURES : 0 []**
+====================================================================================================

@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-clause-printed': ['is the general smear clause proved', 'smear general zero axioms', 'the clause printed', 'the lock versus the scan priced', 'silent timeouts outside the arc', 'which banked verdicts rest on a timeout'],
     'the-ruling-carried': ['why did the search tool miss relay data records', 'what did the author rule on the formation contradiction', 'is the smear identity proved for prime powers', 'walker guard incomplete never a count', 'where is the hygiene tool retired', 'what happened to the keystone sentence about forty three'],
     'the-contradiction-put': ['which half of the formation contradiction is wrong', 'what would each tuple reading move', 'is n2 load bearing for class b and d', 'which core caveats have been tested outside their evidence', 'what did repairing b369 hygiene write', 'safe by being broken'],
     'the-reader-placed': ['what do n1 and n4 count in the formation tuple', 'why are the formation tuple components stipulated', 'what would it cost to derive n1', 'where is the prime core reader placed', 'is the reader arithmetic desert sentence true', 'which relay tools point at a retired path'],
@@ -672,6 +673,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CLAUSE PRINTED (b419).
+    ('the-clause-printed', 'b419 (the helper fixed and the general clause proved; the lock priced; the silent timeouts censused)',
+     "b419 FIXED THE HELPER AND PRINTED THE CLAUSE. **THE GENERAL CLAUSE IS PROVED, ZERO AXIOMS, ON THE FIRST PROBE: FOR EVERY p WITH A SINGLE PRIME FACTOR AND EVERY n, ballQ p n * sumAN p n = sumAQ p n** (Core/SmearGeneral.lean, smear_general and cells_are_instances), **THE PRIOR PROFILE A TRUE BYTE PREFIX OF THE NEW.** The seal's (T1.4) carries b416's annotation; b414's twenty-eight are re-classified, eight qualified by the proof and twenty unreached. **THE LOCK AND THE SCAN ARE PRICED, NOT RESOLVED**; only a face-named in-paste permission needs the instrument lane. **OF 24 SEARCHES THAT REACHED THE TOOL'S LIMIT, TWO CARRIED A BANKED VERDICT, AND BOTH ARE CONFIRMED** by bounded re-runs.",
+     '### ONE MODULE AND TWO TERMINALS ADDED, NO EXISTING TERMINAL MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b419_the_clause_printed.txt; data/b419_components.txt; data/b419_n_probe.txt; data/b419_n_verify.txt; data/b419_timeouts.txt; data/b419_lock_priced.txt; data/b419_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); Core/SmearGeneral.lean; CORRESPONDENCE.md row 268'),
     # ### THE RULING CARRIED (b418).
     ('the-ruling-carried', "b418 (R35 executed, the walker's miss traced to a silent timeout and guarded, three repairs, and (N) attempted to OVER-BUDGET with one helper unsupplied)",
      "b418 CARRIED THE AUTHOR'S RULING AND MEASURED THE WALKER. **(R35) READING (b) EXECUTED: THE UNIVERSALITY SENTENCE NARROWED IN PLACE, THE ORIGINAL QUOTED, B AND D STIPULATED; NO TUPLE MOVED.** **THE WALKER'S MISS AT b417 WAS A SILENT TIMEOUT AT THE TOOL'S TWENTY-SECOND LIMIT**, not a file kind and not an ignore pattern; **NO ABSENT VERDICT RESTS ON IT**; **THE GUARD tools/walker_guard.py REPORTS A CALL THAT REACHED ITS LIMIT AS INCOMPLETE, NEVER AS A COUNT.** **(N) IS OVER-BUDGET AT SIXTEEN PROBES WITH ONE HELPER UNSUPPLIED, pow_pred; THE THEOREM IS NOT CLAIMED.** The keystone's sentence about 43 carries one correcting line; p2-35's stale figures are removed; the hygiene tool is RETIRED to tools/retired/.",
