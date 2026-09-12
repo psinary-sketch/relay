@@ -1,0 +1,173 @@
+====================================================================================================
+b429 (FOLLOW-ON READ) -- THE WRITEUP'S MAIN THEOREM AGAINST THE LEAN TERMINAL.
+### **A READ TAKEN AT THE AUTHOR'S DIRECT INSTRUCTION, OUTSIDE THE ACT PROTOCOL.**
+### ### NO REGISTRATION WAS SEALED FOR IT, NO CORRESPONDENCE ROW IS WRITTEN, NO GRADE IS MOVED.
+### ### It is banked here so its quotations are citable, and it is available to be folded into a
+### ### numbered act if the author wants one.
+====================================================================================================
+
+  the writeup : https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf
+  sha256      : 0e779481c4da40bd28d1e642e1d8ca57447d129610df28dfa5a11e9af8ae228f ; 2,959,204 bytes ; 166 pages
+  its text    : relay data/b429_source_writeup.txt (extracted here; the digest above re-verified at extraction)
+  the clone   : D:\_b429_external\repo at f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+
+----------------------------------------------------------------------------------------------------
+### (1) THE WRITEUP'S MAIN THEOREM, QUOTED VERBATIM FROM ITS OWN PAGE 1.
+----------------------------------------------------------------------------------------------------
+  | Theorem 1.1. For every nu > 0 there exist a force f in C^inf_c(R3 x (0, inf); R3), a compact set
+  | K subset R3, and smooth velocity and pressure fields u, p on R3 x [0, 1) satisfying
+  |     d_t u + (u . grad)u - nu Laplacian u + grad p = f,   div u = 0,   u(., 0) = 0,        (1.1)
+  | such that supp u(., t) union supp p(., t) subset K for every 0 <= t < 1,
+  |     sup_{0 <= t < 1} ||u(t)||_{L2(R3)} < infinity,
+  |     limsup_{t -> 1-} ||u(t)||_{Linf(R3)} = infinity.
+  | Consequently, there is no smooth solution (u, P) on R3 x [0, infinity) with the same force and
+  | initial datum whose kinetic energy is uniformly bounded sup_{t >= 0} (1/2) INT_{R3} |u(x,t)|^2 dx
+  | < infinity.
+  | This establishes alternative (C) in the Millennium problem statement for Navier-Stokes as stated
+  | by Fefferman in [13]. Compact support also yields the corresponding construction on T3 = R3/Z3,
+  | establishing alternative (D) in [13]; see Corollary 10.6.
+
+  ### ### **THEOREM 1.1 HAS TWO HALVES, AND THE SENTENCE `Consequently` IS THE HINGE:**
+  ###   ### **(a) THE CONSTRUCTION** -- a force, a compact set and smooth fields on `[0, 1)` solving
+  ###       the equations from rest, supported in `K`, of uniformly bounded `L2` norm, whose `Linf`
+  ###       norm blows up as `t` rises to one.
+  ###   ### **(b) THE CONSEQUENCE** -- no smooth global solution of uniformly bounded kinetic energy
+  ###       for that same force and datum.
+  ### ### **(b) IS CLAY'S ALTERNATIVE (C). ### (a) IS STRICTLY MORE THAN CLAY ASKS FOR**, because C
+  ### requires only that no solution exist and never asks anyone to exhibit the blowup.
+
+----------------------------------------------------------------------------------------------------
+### (2) THE TERMINAL b429 GRADED, AND WHAT IT IS.
+----------------------------------------------------------------------------------------------------
+  NavierStokes/ComparatorSolution.lean lines 16-19
+      16| theorem navier_stokes_breakdown_R3 (nu : R) (hnu : nu > 0) :
+      17|     exists (u_0 : R3 -> R3) (f : R3 -> R -> R3),
+      18|     InitialVelocityConditionDecay u_0 and ForceConditionDecay f and
+      19|     not (exists v p, NavierStokesExistenceAndSmoothnessRn nu u_0 f v p)
+
+  ### ### ### **THIS IS THEOREM 1.1's HALF (b) ALONE, IN CLAY'S OWN SHAPE. ### IT DOES NOT STATE THE
+  ### ### ### CONSTRUCTION, THE COMPACT SUPPORT, THE BOUNDED ENERGY OR THE BLOWUP.**
+  ### That is not a defect: the manifest names it as the declaration for alternative (C), `b429` graded
+  ### it against alternative (C), and against (C) it is exactly right -- `DERIVES`, all ten clauses of C
+  ### mapped, profile `[propext, Classical.choice, Quot.sound]`, no `sorryAx`.
+  ### ### **BUT IT IS NOT THE WRITEUP'S MAIN THEOREM**, and an act that had graded it as though it were
+  ### would have graded a projection and called it the whole.
+
+----------------------------------------------------------------------------------------------------
+### (3) THE WRITEUP'S MAIN THEOREM *IS* FORMALIZED -- UNDER A DIFFERENT NAME.
+----------------------------------------------------------------------------------------------------
+  NavierStokes/R3/ProblemStatement.lean line 150
+     150| def breakdownStatement : Prop :=
+     151|   forall nu : R, 0 < nu ->
+     152|     exists u : VelocityField, exists p : PressureField, exists f : VelocityField, exists K : Set Space,
+     153|       CandidateProperties nu u p f K and not Nonempty (GlobalFiniteEnergySolution nu f)
+
+  NavierStokes/R3/Theorem.lean line 46
+      46| theorem theorem_1_1 : ProblemStatement.breakdownStatement := by
+
+  ### ### **`CandidateProperties` IS HALF (a) AND `not Nonempty (GlobalFiniteEnergySolution)` IS HALF
+  ### ### (b). ### SO `NavierStokesR3.theorem_1_1` IS THEOREM 1.1 ENTIRE.**
+  ### ### **AND ITS AXIOM PROFILE, PRINTED ON THIS MACHINE FROM `#print axioms`'S OWN OUTPUT:**
+      | 'NavierStokesR3.theorem_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+      | 'NavierStokesR3.theorem_1_1_with_initial_rest' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### The standard three, no `sorryAx`, on the same build `b429` ran.
+
+----------------------------------------------------------------------------------------------------
+### (4) HALF (a), CLAUSE BY CLAUSE, AGAINST `CandidateProperties` (ProblemStatement.lean:92).
+----------------------------------------------------------------------------------------------------
+  writeup clause                                          Lean field                         where
+  ------------------------------------------------------  ---------------------------------  --------------
+  "for every nu > 0"                                      the binder of `breakdownStatement`  R3/PS:151
+  "a force f in C^inf_c(R3 x (0, inf); R3)"               force_smooth + force_support        R3/PS:97-98
+      ### `CompactPositiveTimeSupport f = HasCompactSupport f and tsupport f subset (Ioi 0) x univ`
+      ### -- compact in SPACETIME and inside `t > 0`, which is the writeup's `C^inf_c(R3 x (0, inf))`.
+  "a compact set K subset R3"                             support_compact : IsCompact K       R3/PS:95
+  "smooth u, p on R3 x [0, 1)"                            velocity_smooth, pressure_smooth    R3/PS:93-94
+      ### on `preSingularDomain = Ico 0 1 x univ` -- the writeup's `[0, 1)` exactly.
+  "d_t u + (u.grad)u - nu Lap u + grad p = f"             navier_stokes                       R3/PS:105
+  "div u = 0"                                             divergence_free                     R3/PS:103
+  "u(., 0) = 0"                                           zero_initial_velocity               R3/PS:102
+  "supp u union supp p subset K for 0 <= t < 1"           velocity_support, pressure_support  R3/PS:99-101
+  "sup_{0<=t<1} ||u(t)||_{L2} < infinity"                 energy_bounded                      R3/PS:107
+  "limsup_{t->1-} ||u(t)||_{Linf} = infinity"             speed_unbounded                     R3/PS:108
+
+  ### ### **TEN CLAUSES, TEN NAMED FIELDS, NOTHING UNMAPPED.**
+
+  ### ### **AND THE TWO PLACES THE WORDING DIFFERS, PRINTED RATHER THAN SMOOTHED:**
+
+  ### **(i) THE EQUATION IS ASSERTED ON THE OPEN INTERVAL WHERE THE WRITEUP WRITES THE CLOSED ONE.**
+  ###     `navier_stokes : forall t in Ioo 0 1, ...` while `divergence_free` uses `Ico 0 1` and the
+  ###     writeup writes both on `[0, 1)`. ### So the equation at the single instant `t = 0` is not a
+  ###     field of the structure. ### **IT FOLLOWS FROM THE FIELDS THAT ARE THERE:** `velocity_smooth`
+  ###     and `pressure_smooth` are `ContDiffOn` on `Ico 0 1`, so the residual is continuous there; it
+  ###     equals the continuous `f` on `Ioo 0 1`; and `t = 0` is a limit of that set. ### **A
+  ###     DIFFERENCE IN THE STATEMENT AND NOT IN THE CONTENT** -- and it is said here rather than
+  ###     passed over. ### **THIS SEAT DID NOT CHECK THAT DERIVATION IN LEAN**, and says so.
+
+  ### **(ii) THE ENERGY IS BOUNDED AS AN ENERGY, NOT AS A NORM.** ### The writeup bounds
+  ###     `||u(t)||_{L2}`; the Lean bounds `kineticEnergy u t = (1/2) INT ||u(t,x)||^2` by one `E`.
+  ###     ### **THE SAME CONDITION**, since one bound gives the other. ### And the Lean adds
+  ###     `SquareIntegrableAtTime` at every time in the range, with its own docstring naming the
+  ###     reason: *"This condition is explicit because the real Bochner integral is totalized."* ###
+  ###     **THAT IS THE SAME JUNK-VALUE REPAIR `b429` FOUND IN THE COMPARATOR CLASS**, made twice
+  ###     independently in the two statements, and in both places it RESTORES the intended meaning
+  ###     rather than narrowing it.
+
+----------------------------------------------------------------------------------------------------
+### (5) HALF (b), AGAINST `GlobalFiniteEnergySolution` (ProblemStatement.lean:125).
+----------------------------------------------------------------------------------------------------
+  ### The writeup: *"no smooth solution (u, P) on R3 x [0, infinity) with the same force and initial
+  ### datum whose kinetic energy is uniformly bounded."*
+  ### The Lean structure's fields: `velocity_smooth`, `pressure_smooth` on `futureDomain = Ici 0 x univ`;
+  ### `zero_initial_velocity`; `divergence_free` on `Ici 0`; `navier_stokes` on `Ioi 0`;
+  ### `energy_bounded : UniformFiniteEnergy (Ici 0)`.
+  ### ### **AND THE STRUCTURE'S OWN DOCSTRING STATES THE NON-NARROWING IN ITS OWN WORDS:**
+  ###     | There are no support, periodicity, pressure-growth, derivative-growth, or energy
+  ###     | inequality assumptions on a competitor. The square-integrability requirement and its
+  ###     | uniform energy bound use all of R3 and all nonnegative times.
+  ### ### **A COMPETITOR CLASS THAT IS NOT NARROWED IS THE WHOLE OF WHAT MAKES A NON-EXISTENCE WORTH
+  ### ### HAVING**, and the source says so itself rather than leaving a reader to check it.
+  ### ### **THE ONE ASYMMETRY, AND IT RUNS THE SAFE WAY:** the competitor's equation is required only
+  ### on `Ioi 0`, which makes the competitor class LARGER and the non-existence STRONGER.
+
+----------------------------------------------------------------------------------------------------
+### (6) THE PERIODIC SIDE: COROLLARY 10.6 AGAINST THE SECOND TERMINAL.
+----------------------------------------------------------------------------------------------------
+  ### Corollary 10.6, quoted from the writeup:
+  | Corollary 10.6. For every nu > 0, there is a smooth force on T3 x [0, inf), compactly supported in
+  | time, for which the solution (U, P_per) of the periodic Navier-Stokes equations with viscosity nu
+  | and zero initial velocity is smooth on [0, 1) and satisfies limsup_{t -> 1-} ||U(t)||_{Linf(T3)} =
+  | infinity. Its velocity and pressure have support in a fixed compact subset of the interior of Q_0
+  | at every time before one. There is no global smooth periodic solution for the same datum and force.
+  ### The manifest names `NavierStokes.Comparator.navier_stokes_breakdown_periodic` for alternative
+  ### (D), and its profile is the same standard three with no `sorryAx`.
+  ### ### **THE SAME SHAPE REPEATS: the corollary's last sentence is (D); its first two sentences are
+  ### ### the construction, which (D) does not ask for and the Comparator terminal does not state.**
+
+----------------------------------------------------------------------------------------------------
+### (7) WHAT THIS READ CHANGES, AND WHAT IT DOES NOT.
+----------------------------------------------------------------------------------------------------
+  ### ### **IT DOES NOT DISTURB `b429`'s GRADE.** ### `b429` graded
+  ### `navier_stokes_breakdown_R3` against ### **CLAY STATEMENT C**, because that is the object the
+  ### ferry named, and against C it is `DERIVES` with the unrun Comparator check as its residue. ###
+  ### Nothing here touches that.
+  ### ### **IT ADDS THE THING THE GRADE DEPENDS ON AND `b429` DID NOT HAVE TO SAY: WHICH CLAIM IS
+  ### ### BEING NAMED.** ### The same terminal, graded against the WRITEUP'S Theorem 1.1 instead of
+  ### against Clay C, would read ### **`NOT THE CLAIM`** -- it states strictly less, dropping the
+  ### construction and the blowup. ### And `NavierStokesR3.theorem_1_1`, graded against the writeup's
+  ### Theorem 1.1, would read ### **`DERIVES`**.
+  ### ### ### **SO A GRADE IS A RELATION BETWEEN A TERMINAL AND A NAMED CLAIM, NOT A PROPERTY OF THE
+  ### ### ### TERMINAL.** ### The corpus's own three grades already say as much -- `INTERFACES` names
+  ### a premise, `ENCODES-CONCLUSION` names what was stipulated -- but the record has never had a case
+  ### where one terminal takes two different grades against two different claims, both of them
+  ### honestly stated by the same source. ### **THIS IS THAT CASE**, and it is filed as one.
+  ### ### **AND THE FOURTH GRADE THE `b429` FERRY MINTED EARNS ITS PLACE HERE:** `NOT THE CLAIM` is
+  ### exactly the reading the writeup's Theorem 1.1 forces on the Comparator terminal, and the
+  ### corpus's own three could not have expressed it.
+
+  ### ### **WHAT IS NOT CLAIMED:** ### nothing about whether the writeup's proof is correct. ### This
+  ### read compares STATEMENTS -- the page's against the Lean's -- and reports that the Lean development
+  ### contains a faithful rendering of both halves of Theorem 1.1, that both build, and that both
+  ### carry only the standard three axioms. ### **WHETHER THE 166 PAGES ESTABLISH WHAT THEY SAY IS NOT
+  ### ### A QUESTION A STATEMENT COMPARISON CAN REACH**, and this record does not reach for it.
+====================================================================================================
