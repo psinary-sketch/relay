@@ -1,0 +1,98 @@
+====================================================================================================
+b442 -- THE MINIMUM NAMED, AND SITE (v).
+THE BANK.
+====================================================================================================
+
+### b442 — the minimum named, and site (v) — filed 2026-09-12
+**`u0` has a name, with a range on it; site (v) closes with no witness; and b440’s two corrections now sit under b440’s own name.** No new instrument, no new family, no lane opened, no cell written. `(R53)` and `(R54)` ratified by the paste and entered; the ferry carried no scanned-before-sending line, the seat’s own scan found `0` hits, and the permission to refuse was not used.
+#### Component 1 — `u0` is the minimum of the Riemann–Siegel theta, on `0 ≤ t ≤ 50`
+From K5’s import — CC’s *“It is the derivative of 2 θ(τ)”* — theta falls where `h₊ < 0` and rises where `h₊ > 0`. Checked rather than argued: golden-section search on theta’s **values alone**, never touching `h₊`, finds the argmin within `1.6e-20` of b440’s `u0`; theta at `u0` is **`-3.5309728290166074377`** by `loggamma` and by `quad` over `digamma`, agreeing to `4.6e-41`; theta is odd at five heights; `h₊` changes sign exactly once on `(0, 50]`. **So the name holds with its quantifier** — theta being odd, there is no minimum on the whole line, and `−u0` is its maximum on the mirror range.
+| status | the record now holds |
+|:--|:--|
+| defining equation | HELD — `Re ψ(¼ + iu/2) = log π` |
+| classical asymptote | HELD — `2π`, which is not `u0` |
+| name | **HELD** — the minimum of theta on `0 ≤ t ≤ 50`, DERIVES-ON-IMPORTS |
+| closed form | **NOT HELD** |
+| classical value of theta there | **NOT SOURCED** — neither verified source states it; computed, not matched |
+The room’s mechanism in theta’s vocabulary keeps b440’s qualifier: **a heuristic, right at 9 of 10 cells, wrong for the second family at `a = 1.2`.** Filed through the writer’s `append_block` directly after b441’s block.
+#### Component 2 — site (v), the representation-dependent constant: exhausted
+| candidate | first failing step |
+|:--|:--|
+| **V1** Theorem 6.1`s own hypotheses, against the Epstein form | S1 — CLASS BOUNDARY |
+| **V2** Theorem 6.1 over the two-element class {zeta, Z_Q} by the finite maximum | S1 — CLASS BOUNDARY |
+| **V3** Lagarias`s Dedekind-zeta sentence | S1 — CLASS BOUNDARY |
+| **V4** Theorem 5.1`s absolute constant | S1 — COORDINATE BOUNDARY |
+| **V5** Theorem 2.1(4)`s counting law | S1 — CLASS BOUNDARY |
+| **V6** CC`s statements | S1 — CLASS BOUNDARY |
+| **V7** row F7`s own measured statements | S2 — BOUNDED BY A MEASUREMENT |
+| **V8** b325`s transfer of the archimedean distribution | S2 — REFUTED |
+| **S1*** the counting error with an absolute constant via the analytic conductor (Lagarias citing IK 5.8) | S1 — CLASS BOUNDARY |
+| **S2*** Theorem 3.1 on the Li class L of test functions | S1 — CLASS BOUNDARY |
+**10 candidates, 0 held — CLASS BOUNDARY 7; COORDINATE BOUNDARY 1; BOUNDED BY A MEASUREMENT 1; REFUTED 1.** The near-miss is Lagarias’s citation of a counting error *“with an absolute constant, which involves the analytic conductor”*: uniform across cuspidal representations, but about the counting function, not the finite-place sum, and still outside the class for the second object. **At the scale the order set, the obstruction is membership, not uniformity**: over two objects the maximum of two constants is one constant, and every theorem with a representation-dependent constant assumes cuspidality while the record measured that the Epstein function has no Euler product. The boundary count at five sites, from banked JSON: union of kinds **11** before this site and **11** after — **no new kind**. And one transcription noted, not repaired: row U1’s entry (v) writes Theorem 6.1 as `λ_n(n,π) + O(n log n)`; the source reads `λn(√n,π∨) + O(√n log n)`. **The arc is checkpointed after (v).**
+#### Component 3 — b440’s two corrections, entered as b440’s, beside row 289
+The table takes appends only, so the corrections ride in this act’s row, headed as b440’s and naming row 289, in b441’s words, quoted verbatim from `b441_closing.txt`: (1) *“THE RECORD NEVER DENIED THE IDENTIFICATION.”* (2) *“b440's sentence -- "b430's defect, still live in every act since" -- is FALSE”* (3) *“AND b440'S REPAIR WAS DEFECTIVE TOO, AND IT REACHED THIS ACT.”* **The broken repair’s rule, `origin/main == HEAD`, is the wrong one**: it is true before an act commits anything. b439’s predicate — a commit naming this act, made and on the remote — stands as restored in b441’s committed suite and is carried unchanged in b442’s. `b440_checks.py` and row 289 are not edited.
+#### The expectations
+| | the navigator’s | verdict |
+|:--|:--|:--|
+| (N1)(a) | `u0` is theta’s argmin | **HELD, WITH ITS QUANTIFIER** — on `0 ≤ t ≤ 50`; theta is odd and has no minimum on the line |
+| (N1)(b) | the record now holds all three states | **HELD** — defining equation, asymptote, name; closed form still not held |
+| (N2)(a) | site (v) exhausted, no witness held | **HELD** — 10 candidates, 0 held |
+| (N2)(b) | failures land at the class boundary because the class excludes the second object by hypothesis | **MOSTLY** — 7 of 10; the other 3 land at coordinate boundary, bounded by a measurement, and refuted |
+*This seat’s own, from the face: (N1)(a) held only with the quantifier — held; (N1)(b) held with closed form not held and the value unsourced — held; (N2)(b) mostly, not wholly — held.*
+
+----------------------------------------------------------------------------------------------------
+### u0 AND theta.
+----------------------------------------------------------------------------------------------------
+  u0_banked    : 6.289835988836902779665090100821853396658
+  argmin       : 6.289835988836902779681286395028889630244
+  argmin_gap   : 1.6196294207036234e-20
+  theta_B      : -3.530972829016607437704244487986459815407
+  theta_A      : -3.530972829016607437704244487986459815407
+  route_gap    : 4.591774807899561e-41
+  odd_max      : 0.0
+  sign_changes : [[6.25, 6.3]]
+
+----------------------------------------------------------------------------------------------------
+### SITE (v), THE CANDIDATES.
+----------------------------------------------------------------------------------------------------
+  V1   S1       CLASS BOUNDARY             Theorem 6.1`s own hypotheses, against the Epstein form
+  V2   S1       CLASS BOUNDARY             Theorem 6.1 over the two-element class {zeta, Z_Q} by the finite maximum
+  V3   S1       CLASS BOUNDARY             Lagarias`s Dedekind-zeta sentence
+  V4   S1       COORDINATE BOUNDARY        Theorem 5.1`s absolute constant
+  V5   S1       CLASS BOUNDARY             Theorem 2.1(4)`s counting law
+  V6   S1       CLASS BOUNDARY             CC`s statements
+  V7   S2       BOUNDED BY A MEASUREMENT   row F7`s own measured statements
+  V8   S2       REFUTED                    b325`s transfer of the archimedean distribution
+  S1*  S1       CLASS BOUNDARY             the counting error with an absolute constant via the analytic conductor (Lagarias citing IK 5.8)
+  S2*  S1       CLASS BOUNDARY             Theorem 3.1 on the Li class L of test functions
+
+----------------------------------------------------------------------------------------------------
+### THE BOUNDARY COUNT AT FIVE SITES.
+----------------------------------------------------------------------------------------------------
+  b424  16 candidates {'CLASS BOUNDARY': 13, 'IMPORT UNDER THE BAR': 2, 'REFUTED': 1}
+  b427  19 candidates {'COORDINATE BOUNDARY': 2, 'BOUNDED BY A MEASUREMENT': 2, 'DENSITY-PLACEMENT SPLIT': 1, 'CLASS BOUNDARY': 10, 'INSTANCES NOT A CLASS': 1, 'IMPORT UNDER THE BAR': 2, 'FORM': 1}
+  b428  20 candidates {'INSTRUMENT DOES NOT REACH': 2, 'ABSENT': 3, 'CLASS BOUNDARY': 12, 'IMPORT UNDER THE BAR': 1, 'BOUNDED BY A MEASUREMENT': 2}
+  b436   7 candidates {'CLASS BOUNDARY': 1, 'COORDINATE BOUNDARY': 1, 'ABSENT': 1, 'INSTANCES NOT A CLASS': 1, 'FORM': 1, 'IMPORT UNDER THE BAR': 1, 'WRONG DIRECTION': 1}
+  b442  10 candidates {'CLASS BOUNDARY': 7, 'COORDINATE BOUNDARY': 1, 'BOUNDED BY A MEASUREMENT': 1, 'REFUTED': 1}
+  union before 11 ; after 11 ; new kinds []
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE.
+----------------------------------------------------------------------------------------------------
+  arms run 91 ; passing 91 ; failing 0
+  gates read 8 ; checked by digest 4
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  whether u0 is the minimum of the Riemann-Siegel theta                  CLOSE
+  which statuses the record holds for u0                                 CLOSE
+  site (v) of the witness arc                                            CLOSE
+  row U1 entry (v)`s transcription of Theorem 6.1                        STAND
+  site (vi)                                                              STAND
+
+  ITEMS SWEPT : 5. CLOSED : 3. STANDING : 2.
+
+  CORRESPONDENCE ROW : 291. ### KEY : PASS.
+
+====================================================================================================

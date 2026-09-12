@@ -1,0 +1,332 @@
+====================================================================================================
+b442 -- THE MINIMUM NAMED, AND SITE (v). ### THE COMPONENTS, RUN AFTER THE LOCK.
+====================================================================================================
+
+====================================================================================================
+  ### ### **COMPONENT 1 -- IS u0 THE MINIMUM OF THE RIEMANN-SIEGEL theta?**
+====================================================================================================
+    ### u0 as banked by b440 (the root of h+) : 6.28983598883690277966509010082
+
+----------------------------------------------------------------------------------------------------
+  ### (a) THE ARGMIN FROM theta`S VALUES ALONE -- GOLDEN SECTION, NO h+ (face, BAR 5)
+----------------------------------------------------------------------------------------------------
+      golden-section argmin on [5, 8] : 6.289835988836902779681286   (146 iterations)
+      |argmin - u0|                    : 1.620e-20   against the stated 1e-12
+
+----------------------------------------------------------------------------------------------------
+  ### (b) theta AT u0 BY TWO ROUTES THAT SHARE NO CODE
+----------------------------------------------------------------------------------------------------
+      route B  loggamma            theta(u0) = -3.530972829016607437704244
+      route A  quad over digamma/2 theta(u0) = -3.530972829016607437704244
+      |A - B|                                 = 4.592e-41   against the stated 1e-12
+      theta at the argmin, route B          = -3.530972829016607437704244
+    ### ### **NO VERIFIED CLASSICAL VALUE IS PRINTED BESIDE IT** (face, BAR 1): neither verified source
+    ### states theta`s minimum or its value, and none is supplied from memory.
+
+----------------------------------------------------------------------------------------------------
+  ### (c) THE QUANTIFIER -- ODDNESS, AND THE SIGN PATTERN OF h+ ON (0, 50]
+----------------------------------------------------------------------------------------------------
+      theta(1    ) + theta(-1    ) = 0.000e+00
+      theta(3    ) + theta(-3    ) = 0.000e+00
+      theta(6.29 ) + theta(-6.29 ) = 0.000e+00
+      theta(20   ) + theta(-20   ) = 0.000e+00
+      theta(50   ) + theta(-50   ) = 0.000e+00
+      h+ on (0, 50], step 0.05 : first sign -1, last sign +1, sign changes 1 at [(6.25, 6.3)]
+    ### ### **theta IS ODD (MEASURED), FALLS WHILE h+ < 0 AND RISES WHILE h+ > 0, AND h+ CHANGES SIGN ONCE ON
+    ### ### (0, 50] (MEASURED). SO u0 IS THE MINIMUM OF theta ON 0 <= t <= 50 -- AND, theta BEING ODD, THE
+    ### ### LINE`S MIRROR POINT -u0 IS ITS MAXIMUM ON -50 <= t <= 0. THERE IS NO GLOBAL MINIMUM ON THE LINE.**
+    ### The range beyond 50 is not measured here; the grid does not reach it, and the sentence filed
+    ### names the range it holds on.
+
+    ### ### **COMPONENT 1 VERDICT : HOLDS, WITH ITS QUANTIFIER.**
+
+----------------------------------------------------------------------------------------------------
+  ### (d) THE MECHANISM, RESTATED WITH b440`S QUALIFIER (face, BAR 3)
+----------------------------------------------------------------------------------------------------
+      b440_components.txt:279
+        | ### ### HALF. ### IT AGREES AT 9 OF 10 CELLS, ACROSS BOTH FAMILIES.**
+      b440_components.txt:280
+        | ### ### **AND THE SECOND FAMILY`S NEVER CROSSING: NOT EXPLAINED BY THE SAME
+        | SENTENCE.**
+    ### **RESTATED:** the archimedean slack on the seed family closes when half the seed`s transform
+    ### mass lies above the height at which theta attains its minimum on t >= 0 -- ### **A HEURISTIC,
+    ### RIGHT AT 9 OF 10 CELLS, WRONG FOR THE SECOND FAMILY AT a = 1.2, EXACTLY AS b440 MEASURED IT.**
+
+----------------------------------------------------------------------------------------------------
+  ### (e) THE STATUSES THE RECORD NOW HOLDS FOR u0, APART (face, BAR 4)
+----------------------------------------------------------------------------------------------------
+      DEFINING EQUATION   : HELD   -- Re psi(1/4 + iu/2) = log pi (b439, b440)
+      CLASSICAL ASYMPTOTE : HELD   -- 2 pi, the zero of log(u / 2 pi), which is not u0 (b440)
+      NAME                : HELD   -- the minimum of the Riemann-Siegel theta on 0 <= t <= 50,
+                                    DERIVES-ON-IMPORTS: one line on K5`s imported h+ = 2 theta`
+      CLOSED FORM         : NOT HELD -- a name is not a closed form; no expression in named constants
+      CLASSICAL VALUE     : NOT SOURCED -- theta(u0) is computed; no verified source states it
+
+====================================================================================================
+  ### ### **COMPONENT 2 -- THE WITNESS ARC AT SITE (v), THE REPRESENTATION-DEPENDENT CONSTANT**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### THE SITE`S OWN CELL, QUOTED FIRST
+----------------------------------------------------------------------------------------------------
+      FACES_LEDGER.md:31
+        | **(v) THE REPRESENTATION-DEPENDENT CONSTANT**, added 2026-09-10 (b404): Lagarias
+        | Theorem 6.1’s finite-place bound `S_f(n,π) = λ_n(n,π) + O(n log n)` holds *"in
+        | which the implied constant in the O-notation **depends on π**"*, while Theorem
+        | 5.1’s archimedean bound carries an **ABSOLUTE** constant — so the record holds an
+        | error term indexed by the representation and needs one that is not. **AND IT IS
+        | EMPTY AS AN OBSTRUCTION IN A WAY THE ROW HAS NOT HAD TO NAME BEFORE, SO b404 NAMES
+        | TWO KINDS: (a) empty because there is nothing to range over — vacuous forever; (b)
+        | empty because the available uniformity ranges over a class that does not contain
+        | the corpus’s other object — the obstruction real, the instrument aimed elsewhere.
+        | (v) IS KIND (b).** The corpus is **not** a one-L-function corpus: row F7 is a
+        | second object already aimed at, and b325 measured the transfer failure across the
+        | two (*THE ARCHIMEDEAN DISTRIBUTION DOES NOT TRANSFER*, `Γ(s)` against `Γ(s/2)`).
+        | But Theorem 6.1 quantifies over *irreducible cuspidal unitary automorphic
+        | representations on GL(N)*, and the corpus’s second object is **not established to
+        | be one** — the record’s own `H-CUSP` grade shows even ζ sits there only under the
+        | source’s stated convention (b358, inherited b361). **A uniformity over a class
+        | that does not contain your other object is not a uniformity you can spend.** *A
+        | correction the navigator recorde
+      FACES_LEDGER.md:31
+        | ### **`(v)` — KIND: `(b)`. WITNESS: `NONE KNOWN`.** The KIND cell is a
+        | transcription, not a reading: the entry declares *"(v) IS KIND (b)"* itself, and
+        | is the only one of the six that declares a kind at all. The witness would be ONE
+        | CONSTANT SERVING EVERY REPRESENTATION — this site IS a `∀∃ ⟹ ∃∀`, the implied
+        | constant being the inner existential — and the entry names the shape by contrast
+        | without supplying the witness, since Theorem 5.1’s absolute constant is a witness
+        | for the ARCHIMEDEAN side and not for this one. ### **`(vi)` — KIND: NOT EMPTY.
+        | WITNESS: `NONE KNOWN`.** A residue filed as the whole of the remaining weight is
+        | the opposite of empty. And **THIS IS THE ONLY SITE OF THE SIX WHOS
+
+----------------------------------------------------------------------------------------------------
+  ### THE CELL`S TRANSCRIPTION AGAINST ITS SOURCE (face, BAR 8)
+----------------------------------------------------------------------------------------------------
+      FACES_LEDGER.md:31
+        | S_f(n,π) = λ_n(n,π) + O(n log n)` **unconditionally** — on the *other* family,
+        | against the *zeros*, and already owned by b358. Its correction term is **uniform
+      b358_source_lagarias0404394.txt:1994
+        | Theorem 6.1. For any irreducible cuspidal (unitary) automorphic repres entation on
+        | GL(N )
+        | there holds
+        | Sf (n,π ) = λn(√n,π ∨) +O
+        | ( √n logn
+        | )
+        | , (6.2)
+        | in which the implied constant in the O-notation depends on π. If the Riemann
+        | hypothesis holds
+    ### ### **THE ROW WRITES `lambda_n(n,pi) + O(n log n)`; THE SOURCE READS `lambda_n(sqrt n, pi-dual) +
+    ### ### O(sqrt n log n)`.** The dependence of the constant on pi -- the site`s content -- is the same in
+    ### both. ### **THE ROW IS NOT REWRITTEN.**
+
+----------------------------------------------------------------------------------------------------
+  ### V1 -- Theorem 6.1`s own hypotheses, against the Epstein form
+----------------------------------------------------------------------------------------------------
+      b358_source_lagarias0404394.txt:1994
+        | Theorem 6.1. For any irreducible cuspidal (unitary) automorphic repres entation on
+        | GL(N )
+      b326_the_reach.txt:304
+        | there is no Euler product to keep it); the archimedean
+      b358_source_lagarias0404394.txt:318
+        | Each completed automorphic L-function Λ(s,π ) has an Euler product factorization
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        Theorem 6.1 ranges over cuspidal automorphic representations, whose L-functions each
+        carry an Euler product; the record measured that the Epstein function has none. The
+        second object is outside the class by hypothesis.
+
+----------------------------------------------------------------------------------------------------
+  ### V2 -- Theorem 6.1 over the two-element class {zeta, Z_Q} by the finite maximum
+----------------------------------------------------------------------------------------------------
+      b358_source_lagarias0404394.txt:1994
+        | Theorem 6.1. For any irreducible cuspidal (unitary) automorphic repres entation on
+        | GL(N )
+      FACES_LEDGER.md:31
+        | the corpus’s second object is **not established to be one** — the record’s own
+        | `H-CUSP` grade shows even ζ sits there only under the source’s stated convention
+        | (b358, inherited b361). **A uniformity over a class that does not contain your
+        | other object is not a uniformity you can spend.** *A correction the navigator
+        | recorded and this entry carries: the b403 ferry called the window a fifth site;
+        | the window is the row’s
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        Over a finite class the maximum of the constants IS one constant, so the interchange
+        is free (BAR 7) -- but the maximum needs a constant for each member, and Theorem 6.1
+        supplies none for Z_Q. The failure is membership, not uniformity.
+
+----------------------------------------------------------------------------------------------------
+  ### V3 -- Lagarias`s Dedekind-zeta sentence
+----------------------------------------------------------------------------------------------------
+      b358_source_lagarias0404394.txt:63
+        | Dedekind zeta functions of any algebraic numbe r ﬁeld K.
+      b326_the_reach.txt:304
+        | there is no Euler product to keep it); the archimedean
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        The sentence reports Li`s criterion for Dedekind zeta functions, which carry Euler
+        products; it states no constant, and its class does not contain the single-form
+        Epstein function the record holds.
+
+----------------------------------------------------------------------------------------------------
+  ### V4 -- Theorem 5.1`s absolute constant
+----------------------------------------------------------------------------------------------------
+      FACES_LEDGER.md:31
+        | Theorem 5.1’s absolute constant is a witness for the ARCHIMEDEAN side and not for
+        | this one. ### **`(vi)` — KIND: NOT EMPTY. WITNESS: `NONE KNOWN`.** A residue filed
+        | as the whole of the remaining weight is the opposite of empty. And **THIS IS THE
+        | ONLY SITE OF THE SIX WHOSE OWN TEXT NAMES BOTH CLAUSES OF THE WITNESS FORM**: `h1`
+        | is *"consistent at every finite modulus"*; `h2` is the *"(positive global
+        | density)"* the pa
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- COORDINATE BOUNDARY.**
+        The absolute constant is on the archimedean term; site (v) needs one on the
+        finite-place term.
+
+----------------------------------------------------------------------------------------------------
+  ### V5 -- Theorem 2.1(4)`s counting law
+----------------------------------------------------------------------------------------------------
+      b358_source_lagarias0404394.txt:387
+        | Theorem 2.1. Letπ be a irreducible cuspidal unitary automorphic representat ion of
+        | GL(n)
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        Same hypothesis, same exclusion; and its constant depends on pi besides.
+
+----------------------------------------------------------------------------------------------------
+  ### V6 -- CC`s statements
+----------------------------------------------------------------------------------------------------
+      b328_source_text.txt:30
+        | multi-set of non-trivial zeros of the Riemann zeta function and for a precise
+        | class
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        CC`s objects are the zeros of the Riemann zeta function; the class holds one member,
+        not two.
+
+----------------------------------------------------------------------------------------------------
+  ### V7 -- row F7`s own measured statements
+----------------------------------------------------------------------------------------------------
+      FACES_LEDGER.md:26
+        | the formula closes for the Epstein function at 21 of 21 cells below its ceiling on
+        | a library of 146 on-line and 17 off-line zeros. THE FAMILY FINDING: *"A FAMILY
+        | THAT SEES THE FAILURE NEEDS A SIGN"* structure the arc's construction does not
+        | have -- the off-line four-term sums come out positive for a seed whose transform
+        | keeps its sign across β and 1 − β; *"A seed that changes sign there is"* priced,
+        | not built. THE EN
+      attempted : S1 CLASS -> S2 HELD
+      ### ### **FAILED AT S2 -- BOUNDED BY A MEASUREMENT.**
+        The row speaks of both objects, so S1 passes; but what it holds is measured at
+        finitely many cells, and a measurement is not a constant serving every
+        representation.
+
+----------------------------------------------------------------------------------------------------
+  ### V8 -- b325`s transfer of the archimedean distribution
+----------------------------------------------------------------------------------------------------
+      FACES_LEDGER.md:31
+        | THE ARCHIMEDEAN DISTRIBUTION DOES NOT TRANSFER*, `Γ(s)` against `Γ(s/2)`). But
+        | Theorem 6.1 quantifies over *irreducible cuspidal unitary automorphic
+        | representations on GL(N)*, and the corpus’s second object is **not established to
+        | be one** — the record’s own `H-CUSP` grade shows even ζ sits there only under the
+        | source’s stated convention (b358, inherited b361). **A uniformity over a class
+        | that does not contain your o
+      attempted : S1 CLASS -> S2 HELD
+      ### ### **FAILED AT S2 -- REFUTED.**
+        A constant shared across the two objects would need the archimedean side to transfer
+        between them; the record measured that it does not.
+
+----------------------------------------------------------------------------------------------------
+  ### S1* -- the counting error with an absolute constant via the analytic conductor (Lagarias citing IK 5.8)
+----------------------------------------------------------------------------------------------------
+      b358_source_lagarias0404394.txt:467
+        | with an absolute constant, which involves the analytic conductor
+      b358_source_lagarias0404394.txt:1994
+        | Theorem 6.1. For any irreducible cuspidal (unitary) automorphic repres entation on
+        | GL(N )
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        THE NEAR-MISS OF THE SITE: the constant IS uniform across representations, carried
+        by the conductor -- but only across cuspidal ones, it bounds the counting function
+        and not the finite-place sum, and Lagarias cites it from a source the record does
+        not hold. It fails first at the class.
+
+----------------------------------------------------------------------------------------------------
+  ### S2* -- Theorem 3.1 on the Li class L of test functions
+----------------------------------------------------------------------------------------------------
+      b358_source_lagarias0404394.txt:767
+        | Theorem 3.1. Letπ be an irreducible cuspidal unitary automorphic representation of
+        | GL(N ),
+      attempted : S1 CLASS
+      ### ### **FAILED AT S1 -- CLASS BOUNDARY.**
+        The test-function class L does not depend on the object, which is why it was
+        hand-picked; the theorem that uses it still quantifies over cuspidal pi.
+
+----------------------------------------------------------------------------------------------------
+  ### THE SEARCH HITS READ AND NOT MADE CANDIDATES -- EACH WITH ITS REASON
+----------------------------------------------------------------------------------------------------
+      1395      a constant independent of z, a proof variable
+      1457      an absolute constant inside a proof estimate
+      1630      an absolute constant inside a proof estimate
+      1652      independent of a contour, not an object
+      1770      a constant independent of z
+      2441      uniform convergence in z
+      2483      uniform convergence on a disc
+      2794      the uniform norm on test functions
+      CC 2713   a numerical uniform approximation
+      CC 4062   a uniform bound in rho for zeta`s construction
+      697       the class A of test functions, O-constant depending on the function
+
+    ### ### **10 CANDIDATES, 0 HELD. FIRST FAILING STEPS: CLASS BOUNDARY 7; COORDINATE BOUNDARY 1; BOUNDED BY A MEASUREMENT 1; REFUTED 1.**
+
+----------------------------------------------------------------------------------------------------
+  ### THE BOUNDARY COUNT AT FIVE SITES -- FROM BANKED JSON, NEVER TYPED
+----------------------------------------------------------------------------------------------------
+      b424  16 candidates  3 kinds  {'CLASS BOUNDARY': 13, 'IMPORT UNDER THE BAR': 2, 'REFUTED': 1}
+      b427  19 candidates  7 kinds  {'COORDINATE BOUNDARY': 2, 'BOUNDED BY A MEASUREMENT': 2, 'DENSITY-PLACEMENT SPLIT': 1, 'CLASS BOUNDARY': 10, 'INSTANCES NOT A CLASS': 1, 'IMPORT UNDER THE BAR': 2, 'FORM': 1}
+      b428  20 candidates  5 kinds  {'INSTRUMENT DOES NOT REACH': 2, 'ABSENT': 3, 'CLASS BOUNDARY': 12, 'IMPORT UNDER THE BAR': 1, 'BOUNDED BY A MEASUREMENT': 2}
+      b436   7 candidates  7 kinds  {'CLASS BOUNDARY': 1, 'COORDINATE BOUNDARY': 1, 'ABSENT': 1, 'INSTANCES NOT A CLASS': 1, 'FORM': 1, 'IMPORT UNDER THE BAR': 1, 'WRONG DIRECTION': 1}
+      b442  10 candidates  4 kinds  {'CLASS BOUNDARY': 7, 'COORDINATE BOUNDARY': 1, 'BOUNDED BY A MEASUREMENT': 1, 'REFUTED': 1}
+      union across the four earlier sites : 11 ; across all five : 11
+      this site`s failures landing at a kind an earlier site used : 10 of 10 ; new kinds : []
+    ### ### **CLASS BOUNDARY : 7 of 10. THE OTHER 3 LAND ELSEWHERE -- ['BOUNDED BY A MEASUREMENT', 'COORDINATE BOUNDARY', 'REFUTED'].**
+    ### ### **AND THE FINITE CLASS SAYS WHY THE CLASS BOUNDARY DOMINATES:** over the two objects the corpus
+    ### ### holds, uniformity is free once both are members; every theorem the verified sources hold with
+    ### ### a representation-dependent constant assumes cuspidality, and the record measured that the
+    ### ### Epstein function has no Euler product. ### **The obstruction at this scale is membership.**
+
+    ### **SITE (v) IS EXHAUSTED WITH NO WITNESS HELD. The arc is checkpointed after (v); (vi) remains.**
+
+====================================================================================================
+  ### ### **COMPONENT 3 -- b440`S TWO CORRECTIONS, IN b441`S WORDS -- VERIFIED BEFORE THE ROW IS WRITTEN**
+====================================================================================================
+      b441_closing.txt:48
+        | ### ### **VERDICT: THE RECORD NEVER DENIED THE IDENTIFICATION.** ### And the word
+        | *denial* was this
+        | seat's -- written in `b440_components.py` and b440's closing -- before the
+        | navigator's premise
+        | repeated it.
+      b441_closing.txt:113
+        | working file. Nothing re-verdicted. **b440's sentence -- "b430's defect, still
+        | live in every act
+        | since" -- is FALSE**, and b440's bank is not edited.
+        | 
+      b441_closing.txt:116
+        | **AND b440'S REPAIR WAS DEFECTIVE TOO, AND IT REACHED THIS ACT.** b440 replaced
+        | the broken predicate
+        | with `origin/main == HEAD`, which is true before an act commits anything --
+        | measured here, before
+        | b441's first commit: HEAD == origin/main **True**. That is the species b434's own
+        | docstring names:
+    ### **THE WRONG RULE, IN b440`S TOOL AS IT STANDS (NOT EDITED):**
+      b440_checks.py:191
+        | remote = git(ROOT, 'rev-parse', 'origin/main').strip()
+        | return bool(head) and head == remote
+    ### **AND b439`S PREDICATE AS RESTORED IN b441`S COMMITTED SUITE:**
+      b441_checks.py:132
+        | if 'b441' not in subj:
+        | continue
+        | for f in git(repo, 'show', '--name-only', '--format=', sha).splitlines():
+        | f = f.strip()
+
+====================================================================================================
+  ### ### **COMPONENT 1 : HOLDS WITH ITS QUANTIFIER ; COMPONENT 2 : 10 candidates, 0 held, {'CLASS BOUNDARY': 7, 'COORDINATE BOUNDARY': 1, 'BOUNDED BY A MEASUREMENT': 1, 'REFUTED': 1} ; MISSES 0 **
+====================================================================================================
