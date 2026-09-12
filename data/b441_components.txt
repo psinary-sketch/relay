@@ -1,0 +1,327 @@
+====================================================================================================
+b441 -- THE IDENTIFICATION FILED, THE OVERSTATEMENT CORRECTED, AND TWO FILINGS.
+### ### **THE COMPONENTS. ### RUN AFTER THE LOCK.**
+====================================================================================================
+
+====================================================================================================
+  ### ### **COMPONENT 1 -- THE IDENTIFICATION FILED AS ABSENT, NOT AS DENIED**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### b440`S THREE NEAR LINES -- EACH QUOTED WHOLE, EACH SAID IN ONE SENTENCE (`K` BAR 2)
+----------------------------------------------------------------------------------------------------
+
+      PLACE-papers/SPIRAL_MAP.md:114
+        | > ### **`SIDE-window`'s NON-CLAIMS, CARRIED HERE AS WELL AS IN ITS SOURCE.** *It
+        | proves nothing about ζ, about `h2`, or about any operator inequality — **nothing
+        | in it bears on the sign of `W_∞ − W_2`, and its `W` is a prime-power COUNTING
+        | FUNCTION unrelated to `W_2`/`W_∞` despite the name.** It proves the **arithmetic
+        | residue** of Lemma A (`primePowersLE 2 = [2]`), not the corpus's statement over
+        | the real interval `λ² ∈ (2,3)`. The windows are **half-vacuous** — every prime
+        | power is `≥ 2 > 1 ≥ 1/L`, so the lower endpoint never binds. **Maximality is
+        | proved at INTEGER bounds only.** The `δ/L` law is deliberately absent: comment
+        | only, no definition, no statement, no theorem.*
+      ### **WHAT IT SAYS:**
+        It DENIES that SIDE-window`s `W` -- a function counting PRIME POWERS -- is related
+        to `W_2`/`W_inf`, a true disclaimer about a name collision; it says NOTHING about
+        the zeros or about any density of them, so it neither denies nor asserts the
+        identification.
+
+      2026-08-24-ledger-split/FINDINGS-archive-1-entries-through-2026-08-20c.md:2678
+        | NO open term: the odd-sector W_inf mass (this act), the even-sector eps mass (the
+        | density
+      ### **WHAT IT SAYS:**
+        It is an open-term inventory for a different sector decomposition, in which `W_inf`
+        names an odd-sector mass and `density` belongs to the even sector`s epsilon
+        question; it makes no statement about `h+` as a counting density.
+
+      2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:9037
+        | **ERA ANNOTATIONS FOLDED WITH PROVENANCE, NO §-TEXT REWRITTEN:** the sign
+        | reconciliation's `W_∞` repair · the sealed `S1`–`S6` inventory (### **§2's
+        | Davenport–Heilbronn contrast is the Epstein witness reached from the other side**)
+        | · `S6` + the crossing · and for the conspiracy paper, ### **`Q2`'s no-class-point
+        | verdict — with the consequence stated and NOT folded into the argument: the TYPE
+        | II classification is UNTOUCHED, because those conjectures' difficulty was already
+        | located in DENSITY content, which is exactly what the interface DOES transmit.**
+      ### **WHAT IT SAYS:**
+        It is an era-annotation list that cites the sign reconciliation`s `W_inf` repair by
+        name; it states no density and no identification.
+
+    ### ### **`SPIRAL_MAP.md:114` IS LEFT UNEDITED.** ### It is true, and it is about a different
+    ### object. ### **THE DISTINCTION:** a prime-power counting function (SIDE-window`s `W`) and a
+    ### zero-ordinate counting density (`h+/2 pi`) count different point sets.
+    ### ### **AND THE SENTENCE THAT CALLED IT A DENIAL WAS THIS SEAT`S** -- `b440_components.py`
+    ### and b440`s closing record -- and the navigator`s premise repeated it (`K` BAR 1).
+      the phrase in b440`s own records : 2 occurrence(s)
+
+----------------------------------------------------------------------------------------------------
+  ### THE KERNEL HALF -- A VERIFIED SOURCE`S STATEMENT, QUOTED (`K` BAR 4)
+----------------------------------------------------------------------------------------------------
+      data/b328_source_text.txt:3814
+        | The function h`pτq is
+        | h`pτq“´ logπ` ℜpλp1{4`iτ{2qq, λ pzq“ Γ1pzq{Γpzq. (153)
+      data/b328_source_text.txt:3816
+        | It is the derivative of 2 θpτq, where θ is the Riemann-Siegel angular function
+        | deﬁned as
+        | θpEq“´ E
+        | 2 logπ` ℑ log Γ
+        | ˆ1
+        | 4`iE
+    ### **AND THE RECORD HAS CARRIED IT:** b333`s survey quoted this line and b333 filed the digamma
+    ### kernel under row S1, constituent K5, at DERIVES-ON-IMPORTS:
+      data/b333_extract_notes.txt:53
+        | ### <relay>/data/b328_source_text.txt | fragment 'It is the derivative of 2 θpτq,
+        | where θ is the Riemann-Siegel angular function deﬁned as' | 1 hit(s)
+      PLACE-papers/FACES_LEDGER.md:165
+        | | **S1**, constituent **K5** (the archimedean distribution) | THE CLASSICAL TERM
+        | DERIVED under the import bar: the source's Appendix B read link by link — (150)
+        | the principal value at the identity, (151) the Gamma factor with its power of π
+        | and its logarithmic derivative against the transform, (152)
+    ### ### **SO THE KERNEL HALF IS CARRIED -- IN RELAY`S BANKS AND AT K5 -- AND b440`S "NOT CARRIED
+    ### ### BY THE CORPUS" HELD ONLY OVER PLACE-papers PROSE** (`K` BAR 3).
+    ### It stays CC`s statement; this act checks it numerically below and grades it no higher.
+
+----------------------------------------------------------------------------------------------------
+  ### THE COUNTING HALF -- TWO ROUTES THAT SHARE NO CODE, AGAINST TOLERANCES STATED ON THE FACE
+----------------------------------------------------------------------------------------------------
+    ### ROUTE A : `INT_0^T h+(u)/(2 pi) du` by `mpmath.quad` over `digamma` (b440`s route)
+    ### ROUTE B : `theta(T)/pi`, `theta(T) = Im loggamma(1/4 + iT/2) - (T/2) log pi`, NO QUADRATURE,
+    ###           NO `digamma`
+    ### TOLERANCE 1 (face, BAR 5) : |A - B| < 1e-12 at every T
+    ### TOLERANCE 2 (face, BAR 5) : |deficit x 48 pi T - 1| < 1e-6 at every T >= 1000
+
+      T       route A                    route B                    |A-B|      1-(RvM-B)              x 48 pi T
+      50      8.4229144220606985463      8.4229144220606985463      0.00e+00   0.000132632214314      1.00002333629
+      100     28.00240990227181678       28.00240990227181678       7.35e-40   6.63149464688e-5       1.00000583352
+      500     268.58673088123579582      268.58673088123579582      0.00e+00   1.3262915019e-5        1.00000023333
+      1000    647.61624194442369931      647.61624194442369931      0.00e+00   6.631456349e-6         1.00000005833
+      5000    4519.3311747080683158      4519.3311747080683158      9.40e-38   1.32629119553e-6       1.00000000233
+      20000   22490.411696911713147      22490.411696911713147      0.00e+00   3.31572798156e-7       1.00000000015
+
+      ### ### **TOLERANCE 1 : MET. ### TOLERANCE 2 : MET.**
+      ### The residual in the last column is the `O(T^-3)` term, `7/(5760 pi T^3)`, which moves
+      ### `x 48 pi T` by `7 x 48 / (5760 T^2)` -- `5.8e-08` at `T = 1000` -- the floor BAR 5 names.
+
+    ### ### **THE COUNTING HALF, AS MEASURED:** `RvM main term - theta(T)/pi = 1 - 1/(48 pi T)
+    ### ### + O(T^-3)`, by two routes sharing no code agreeing to the stated `1e-12`, the deficit
+    ### ### agreeing with `1/(48 pi T)` to `1e-6` relative at `T >= 1000`. ### **THE `1` IS THE POLE
+    ### ### OF ZETA AT `s = 1`.** ### **MEASURED -- NOT A THEOREM OF THIS RECORD** (`K` BAR 6).
+    ### And the counting half is ### **ABSENT** ### from PLACE-papers prose, from relay`s banks, and
+    ### from both verified sources: CC`s counting vocabulary counts `0`, Lagarias names no theta.
+
+====================================================================================================
+  ### ### **COMPONENT 2 -- WHAT THE IDENTIFICATION BUYS -- PRICED, FROM THE VERIFIED SOURCES ONLY**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (c1)
+----------------------------------------------------------------------------------------------------
+      data/b328_source_text.txt:3816
+        | It is the derivative of 2 θpτq, where θ is the Riemann-Siegel angular function
+        | deﬁned as
+        | θpEq“´ E
+        | 2 logπ` ℑ log Γ
+        | ˆ1
+        | 4`iE
+      price     : READ
+      replaces  : the numeric check of the kernel half (b440`s route A table, and route B above)
+      uniformity: EXACT AT EVERY HEIGHT -- an identity, "defined as", with no height restriction
+
+----------------------------------------------------------------------------------------------------
+  ### (c2)
+----------------------------------------------------------------------------------------------------
+      data/b328_source_text.txt:764
+        | where θ is the Riemann-Siegel angular function (see (154)) and its derivative
+        | Bθpsq is Oplog|s|q
+      price     : IMPORT
+      replaces  : nothing the arc measures: the arc tabulated `h+` against `log(u/2 pi)` at six heights (b440), and an `O(log|s|)` fixes the order and not the constant
+      uniformity: UNIFORM FOR LARGE HEIGHT ONLY IN THE O-SENSE -- the source says "when |s| -> infinity"
+
+----------------------------------------------------------------------------------------------------
+  ### (c3)
+----------------------------------------------------------------------------------------------------
+      data/b328_source_text.txt:766
+        | θ by using Binet’s ﬁrst formula
+        | logpΓpzqq“p z´ 1
+        | 2q logz´z` 1
+        | 2 logp2πq`
+      price     : IMPORT plus a derivation
+      replaces  : b440`s table of `h+` against `log(u/2 pi)` and its `O(u^-2)` reading -- Binet`s formula would derive the expansion rather than measure it
+      uniformity: NOT STATED BY THE SOURCE -- CC quotes the formula only as a tool, "One controls the growth of the higher derivatives of theta by using Binet`s first formula", and states no domain in the quoted text; the first writing of this line called it exact at every height, which was this seat`s and not CC`s, and the suite`s uniformity arm caught it
+
+----------------------------------------------------------------------------------------------------
+  ### (c4)
+----------------------------------------------------------------------------------------------------
+      data/b358_source_lagarias0404394.txt:403
+        | (4) The counting function N +
+        | π (T ) (resp. N −
+        | π (T )) for zeros of Λ(s,π ) with 0 ≤ ℑ (ρπ)<T
+        | (resp. −T ≤ ℑ(ρπ) ≤ 0) each satisfy
+        | N ±
+        | π (T ) = N
+        | 2πT logT + 1
+      price     : IMPORT
+      replaces  : nothing measured: b351`s census counts instances and this states their count
+      uniformity: UNIFORM FOR LARGE HEIGHT IN THE O-SENSE -- "as T -> infinity", "the O-constant depends on pi"
+
+----------------------------------------------------------------------------------------------------
+  ### (c5)
+----------------------------------------------------------------------------------------------------
+      data/b358_source_lagarias0404394.txt:2387
+        | The zero-counting estimate in Theorem 2.1(4) implies there are at most O(logT )
+        | zeros in
+        | an interval of length 1 at height T , where the O-constant depends on the
+        | representation π.
+      price     : IMPORT
+      replaces  : nothing measured
+      uniformity: UNIFORM IN THE O-SENSE -- "at height T", "the O-constant depends on the representation"
+
+----------------------------------------------------------------------------------------------------
+  ### SITE (ii)`S OWN FAILURE STEPS, QUOTED FROM THE WRITER`S b427 BLOCK
+----------------------------------------------------------------------------------------------------
+      PLACE-papers/FACES_LEDGER.md:352
+        | | **B3** the density theorems, as the register the channels are bright for | S2 —
+        | DENSITY-PLACEMENT SPLIT | *"The screen, one question, asked of the DEFINITION and
+        | not of the intuition: \*does the statistic's definition contain the zeros' REAL
+        | PARTS?\* If it does not, the statistic is density-register by construction — its
+        | value …"* (PLACE-papers phase1.5/method/INSTRUMENTS.md I-7); *"Classical sieve
+        | methods operate through this coupling. They prove density theorems — that zeros
+        | are dense near the critical line — but not the Riemann Hypothesis. The interface
+        | transmits density information but not …"* (PLACE-papers
+        | day1/Silence_of_Foundations.md) |
+      PLACE-papers/FACES_LEDGER.md:354
+        | | **B5** the Riemann-von Mangoldt main term | S3 — INSTANCES NOT A CLASS | *"The
+        | same act prints the main term that says the instances never run out: \*"The
+        | Riemann-von Mangoldt main term (T/pi) log(T sqrt23 / 2 pi e)"\*. SO RUNNING THE
+        | CENSUS HIGHER BUYS MORE INSTANCES, AND A CLASS IS NOT MADE OF …"* (relay
+        | data/b351_the_partition_question.txt) |
+
+    ### ### **B3 -- DOES THE IDENTIFICATION CHANGE THE STEP? NO.** ### I-7`s screen asks one question
+    ### of a statistic`s DEFINITION: *does it contain the zeros` REAL PARTS?* ### `h+/2 pi` is built
+    ### from the gamma factor alone and contains no zero at all; `N(T)` counts zeros by ORDINATE.
+    ### ### **SO THE IDENTIFIED CHANNEL IS DENSITY-REGISTER BY CONSTRUCTION, AND IDENTIFYING IT AS THE
+    ### ### ORDINATE DENSITY CONFIRMS THE SPLIT RATHER THAN CROSSING IT.** ### B3 stands at S2.
+    ### ### **B5 -- DOES IT CHANGE THE STEP? NO, THOUGH IT CHANGES WHAT B5 IS.** ### After this act the
+    ### main term is the corpus`s own integrated channel plus the pole. ### But c4 and c5, the
+    ### uniform statements, are still COUNTS: a count uniform in the height says how many instances
+    ### lie below every height, and still places none. ### **B5 stands at S3, INSTANCES NOT A CLASS.**
+
+      candidates quotable : 5 of 5 ; exact at every height : ['c1'] ; uniform only in the O-sense : ['c2', 'c4', 'c5'] ; not stated : ['c3']
+    ### **NOTHING IMPORTED, NO CELL REPLACED, NO SITE REOPENED.**
+
+====================================================================================================
+  ### ### **COMPONENT 3 -- TWO FILINGS AND ONE MEASUREMENT**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (i) THE POLE`S DOUBLE ROLE -- FROM b440`S BANKED RECORD, AND NO FURTHER
+----------------------------------------------------------------------------------------------------
+      data/b440_components.txt:538
+        | ### ### DISGUISE -- IT IS THE LAWFULNESS CONDITION `h-hat(i/2) = 0`, THE
+        | REQUIREMENT
+      data/b440_components.txt:127
+        | ### ### **THE `1` IS THE POLE OF ZETA AT `s = 1`.** ### The smooth density counts
+        | the
+      data/b440_components.txt:562
+        | ### ### IT IS EXACTLY `(1 + 1/c) / 2`, TO EVERY DIGIT PRINTED.** ### The
+        | derivation
+      tools/b317_smear.py:41
+        | ### test function is the single condition `INT w(v) cosh(v/2) dv = 0`.
+
+    ### ### **THE FILING, AT THE GRADE THOSE LINES SUPPORT:** the aim`s second moment condition is the
+    ### lawfulness condition, which is the requirement that the test function not register the pole
+    ### (READ, the instrument`s header, eq. (54)); the constant separating the integrated channel from
+    ### the classical main term is that pole (MEASURED, Component 1); and that same condition is what
+    ### breaks the seed family`s self-similarity, by the exact factor `(1 + 1/c)/2` (MEASURED at b439,
+    ### the factor derived at b440 and checked to nine figures). ### **SO THE OBJECT THAT BREAKS THE
+    ### SELF-SIMILARITY IS THE OBJECT THE COUNTING FORMULA CARRIES AS ITS CONSTANT.** ### A
+    ### juxtaposition of three graded lines; ### **NO MECHANISM LINKING THEM IS CLAIMED.**
+
+----------------------------------------------------------------------------------------------------
+  ### (ii) THE PUSH-SIDE DEFECT`S REACH -- READ FROM GIT HISTORY AS FIRST COMMITTED (`K` BAR 8)
+----------------------------------------------------------------------------------------------------
+    ### For each act: the push-side predicate in its suite AS FIRST COMMITTED; every commit that
+    ### touched its pre-push file; the header of the pre-push file as FIRST committed; whether the
+    ### banked pre-push and post-push files differ.
+
+      act   predicate as first committed       pre-cmts  pre head   post head  differ    readings
+      b430  NONE -- one output path            1         no header  no header  True      TWO
+      b431  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b432  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b433  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b434  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b435  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b436  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b437  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b438  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b439  act subject + merge-base           1         PRE-PUSH   POST-PUSH  True      TWO
+      b440  branch --contains, SHA in names    1         PRE-PUSH   POST-PUSH  True      TWO
+
+      ### ### **SUITES FIRST COMMITTED WITH NO PUSH-SIDE PREDICATE AT ALL : ['b430']**
+    ### b430 is the origin incident: its first suite wrote one file, the post-push run overwrote the
+    ### pre-push record in the working tree, and the commit `2be1943` had already banked the pre-push
+    ### reading; `81127eb` added the predicate and the second file. ### b440 wrote the broken
+    ### predicate, its post-push runs overwrote `b440_checks.txt` in the working tree TWICE, and both
+    ### times the committed pre-push blob from `74808c7` was restored before any further commit.
+    ### ### **IN BOTH, THE BANK`S PRE-PUSH READING IS THE ONE COMMITTED BEFORE THE PUSH -- EACH
+    ### ### PRE-PUSH FILE WAS COMMITTED EXACTLY ONCE -- AND IN BOTH, ONLY THE COMMIT SAVED IT.**
+
+      ### ### **SUITES WHOSE FIRST-COMMITTED PREDICATE WAS THE BROKEN ONE : ['b440']**
+      ### ### **PRE-PUSH FILES TOUCHED BY MORE THAN ONE COMMIT : []**
+      ### ### **ACTS WHOSE BANK SHOWS ONE READING : 0 of 11 []**
+
+    ### **WHAT THE LIST SAYS, AND NOTHING IS RE-VERDICTED:** the broken predicate was committed in
+    ### b440`s suite alone -- a regression this seat wrote when it typed b440`s suite fresh instead of
+    ### carrying b439`s `merge-base` predicate, which is `(R46)`'s species exactly: a cure that lived
+    ### in one tool per act, and was dropped the first time a tool was not copied. ### b440`s closing
+    ### sentence -- *"b430`s defect, still live in every act since"* -- is ### **FALSE, AND CORRECTED
+    ### HERE**; b440`s bank is not edited.
+
+    ### ### **AND WHY THE DISCIPLINE EXISTS:** a pre-push reading is the suite`s verdict on the tree
+    ### ### BEFORE the work reached the remote. ### If the post-push run lands in the same file, the
+    ### ### banked verdict is dated by the commit after it, and nobody can tell from the bank whether
+    ### ### the act was clean before it pushed or only afterward. ### **TWO READINGS IN TWO FILES
+    ### ### ARE HOW A VERDICT KEEPS ITS DATE.**
+
+----------------------------------------------------------------------------------------------------
+  ### (ii, continued) THE PREDICATE b440 LEFT IN ITS TREE, AND WHAT IT DID TO THIS ACT
+----------------------------------------------------------------------------------------------------
+    ### b440`s suite at HEAD decides the side by: remote ref == HEAD
+    ### measured now, BEFORE this act commits : HEAD == origin/main is True ; HEAD`s subject names b441 : False
+    ### ### **SO THAT PREDICATE CALLS AN UNCOMMITTED TREE PUSHED.** ### It is b434`s documented
+    ### species -- *"HEAD is trivially on the remote"* -- retyped by this seat at b440 as a repair.
+    ### b440 escaped it only because its pre-push reading was already committed when the repair
+    ### landed. ### **b441 DID NOT ESCAPE IT:** its suite, typed from b440`s helpers, wrote its first
+    ### pre-push reading into the POST-push file. That file, as written before any b441 commit:
+      | ====================================================================================================
+      | b441 -- THE CONTROL SUITE. ### **POST-PUSH READING.**
+      | ====================================================================================================
+      |   ### ARMS RUN : 106. ### PASSING : 106. ### FAILING : 0 
+    ### ### **AND THE LOCKED FACE ENCODES THE SAME DEFECT** -- BAR 11 and arm
+    ### `G-PUSH-SIDE-BY-REMOTE-REF` name the rule as *"the push side decided by the remote ref"*.
+    ### The face is not edited; the suite now carries b439`s predicate -- a commit naming THIS act
+    ### made and on the remote -- and the arm checks that, with this breach printed beside it.
+    ### **THE REACH TABLE ABOVE IS OF PREDICATES AS FIRST COMMITTED; THIS SECTION ADDS THE ONE LEFT
+    ### IN b440`S TREE, WHICH NO COMMITTED PRE-PUSH FILE OF b430-b440 WAS WRITTEN UNDER.**
+
+----------------------------------------------------------------------------------------------------
+  ### (iii) THE AXIOM-FORM LORE -- WRITTEN BY `b441_filings.py` INTO TECHNE-Core, LOCAL
+----------------------------------------------------------------------------------------------------
+    ### The incident, quoted from b440`s own axiom profile:
+      data/b440_components.txt:371
+        | | 'edge_16' depends on axioms: [propext, Quot.sound]
+      data/b440_components.txt:374
+        | | 'edge_16_bool' does not depend on any axioms
+      PLACE-papers/README.md:77
+        | Axiom profiles are recorded at the corpus's defined shorthands — `std3` =
+        | `[propext, Classical.choice, Quot.sound]`, `[propext, Quot.sound]` = constructive,
+        | `none` = constructively axiom-free (VERIFICATION_LOOM, *Axiom shorthand*) — and
+        | are
+
+====================================================================================================
+  ### ### **COMPONENT 1 : kernel half CARRIED (CC 153-154, b333, K5) ; counting half ABSENT and MEASURED,
+  ### ### tolerance 1 MET, tolerance 2 MET ; SPIRAL_MAP.md:114 UNEDITED.**
+  ### ### **COMPONENT 2 : 5 of 5 candidates quotable ; B3 STANDS ; B5 STANDS.**
+  ### ### **COMPONENT 3(ii) : broken predicate first committed in ['b440'] ; one-reading banks 0 of 11.**
+  ### MISSES : 0 
+====================================================================================================
