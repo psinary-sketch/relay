@@ -1,0 +1,600 @@
+====================================================================================================
+b440 -- THE FIXED POINT NAMED, THE BREAK ATTRIBUTED, AND TWO FACTS BUILT.
+### ### **THE COMPONENTS. ### RUN AFTER THE LOCK.**
+====================================================================================================
+
+====================================================================================================
+  ### ### **COMPONENT 1 -- WHAT u0 IS. ### FOUR CLAUSES, FOUR VERDICTS.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### CLAUSE (a) -- `u0` IS THE EXACT ROOT OF `Re psi(1/4 + iu/2) = log pi`.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE TOLERANCE IS STATED BEFORE THE COMPARISON: `1e-12`.** ### The two routes
+    ### are the record`s own pair, `b333`s, which share no code: ### **ROUTE A** ### is
+    ### `digamma` directly; ### **ROUTE B** ### is the log-derivative of the completed
+    ### gamma factor through `loggamma` and a numerical derivative.
+
+    ### ### **AND ONE DEFECT OF THIS SEAT`S IS PRINTED RATHER THAN QUIETLY ROUTED AROUND,
+    ### ### BECAUSE IT IS THE ACT`S OWN SUBJECT ONE LEVEL DOWN.** ### The first draft of
+    ### this component took route B from `carto_atlas.kernel(U)`. ### **THAT FUNCTION IS
+    ### CACHED IN A MODULE GLOBAL AND IGNORES ITS ARGUMENT AFTER THE FIRST CALL:**
+      carto_atlas.py:35
+        | global _KERN
+        | if _KERN is None:
+        | from mpmath import mp, digamma, mpc, re as mre
+        | mp.dps = 15
+        | _KERN = np.array([float(mre(digamma(mpc(0.25, uu / 2.0)))) for uu in U]) -
+        | math.log(math.pi)
+      ### ### **SO A BISECTION THROUGH IT RETURNS THE SAME VALUE AT EVERY TRIAL POINT AND
+      ### ### CONVERGES ON ITS OWN LOWER BRACKET.** ### It returned `6.00000000000000000`
+      ### ### WITH A RESIDUAL OF `1.618e-03`, AND A LOOSER TOLERANCE WOULD HAVE PASSED IT.**
+      ### The instrument is correct for its own use -- the atlas calls it once, on one
+      ### fixed grid -- and ### **IT IS NOT EDITED HERE** (`W`). ### What is banked is that
+      ### it is ### **NOT USABLE FOR A ROOT SEARCH**, and the tolerance is what caught it.
+
+      route A  digamma, 40 dps               u0 = 6.28983598883690277966509
+      route A  residual                      h+(u0) = 2.8946e-42
+      route B  loggamma + numerical deriv    u0 = 6.28983598883690277966509
+      route B  residual                      h+(u0) = -2.03131e-42
+
+      ### ### **THE TWO ROUTES DIFFER BY 8.758e-47, AGAINST THE STATED `1e-12`.**
+      ### ### **CLAUSE (a) : HOLDS.**
+      ### The navigator`s wording is exact: `u0` IS the root of that equation, and the
+      ### equation is its ### **DEFINING EQUATION** ### and not a description of it.
+
+----------------------------------------------------------------------------------------------------
+  ### CLAUSE (c) -- THE ASYMPTOTIC FORM GIVES `2 pi`. ### TAKEN BEFORE (b) BECAUSE (b) USES IT.
+----------------------------------------------------------------------------------------------------
+      u         h+(u)                      log(u / 2 pi)              |difference|
+      6.2898    -5.73392339223745e-6       0.00105220729509938        1.058e-03
+      10        0.46429062686493           0.4647080265847            4.174e-04
+      50        2.07412927118522           2.0741459390188            1.667e-05
+      200       3.46043925846747           3.46044030013869           1.042e-06
+      1000      5.06987817090612           5.06987821257279           4.167e-08
+      10000     7.37246330515017           7.37246330556684           4.167e-10
+
+    ### **THE DIFFERENCE FALLS BY A FACTOR OF `100` FOR EVERY FACTOR OF `10` IN `u`** --
+    ### `4.167e-08` at `1000`, `4.167e-10` at `10000`. ### **SO `h+(u) = log(u / 2 pi) +
+    ### O(u^-2)`, AND THE ASYMPTOTE`S ZERO IS `2 pi` EXACTLY**, `log` being injective.
+      h+(2 pi) = -0.00106018017418 ### -- ### **THE ASYMPTOTE VANISHES THERE; THE EXACT KERNEL DOES NOT.**
+
+    ### ### **AND THE RECORD HAS CARRIED THIS SINCE `b235`, IN ITS OWN WORDS:**
+      SIGN_ARRANGEMENT_RECONCILIATION.md:56
+        | > ### **`Re ψ(1/4 + iu/2) ~ log(u/2)`, WHICH EQUALS `log π` EXACTLY AT `u = 2π`.**
+        | *A wide window puts `ĥ`'s mass at low `u`, where the kernel is negative → `W_∞ <
+        | 0`. A narrow window spreads `ĥ` to high `u`, where the kernel is positive → `W_∞ >
+        | 0` (and diverges as `a → 1⁺`).*
+
+      ### ### **CLAUSE (c) : HOLDS -- AND IT IS NOT NEW.** ### The corpus stated it as a
+      ### property of the archimedean kernel `W_inf`; ### **THE NAVIGATOR RESTATES IT AS
+      ### A PROPERTY OF A COUNTING DENSITY, WHICH IS CLAUSE (b) AND A DIFFERENT CLAIM.**
+
+----------------------------------------------------------------------------------------------------
+  ### CLAUSE (b) -- IS THAT EXPRESSION THE SMOOTH ZERO-COUNTING DENSITY?
+----------------------------------------------------------------------------------------------------
+    ### ### **TWO QUESTIONS, AND THE ACT REFUSES TO LET EITHER STAND FOR THE OTHER**
+    ### (`K` BAR 2): ### **(b-i)** ### is the identification TRUE; ### **(b-ii)** ### does
+    ### the CORPUS make it.
+
+    ### **(b-i) THE MATHEMATICS, FROM THE INSTRUMENT`S OWN ARRANGEMENT.**
+    ### The atlas writes the archimedean channel as
+      SIGN_ARRANGEMENT_RECONCILIATION.md:16
+        | | **Day-1** (`BALANCE_AND_POSITIVITY` §I, `1989c5d…`) | `Σ_ρ h(γ_ρ) = W_∞(g) +
+        | W_pole(g) − Σ_p Σ_{k≥1} (log p / p^{k/2})·(g(k log p) + g(−k log p))` |
+
+    ### ### So `A = INT h-hat(u) * [h+(u) / 2 pi] du`: ### **THE TEST FUNCTION INTEGRATED
+    ### ### AGAINST `h+(u) / 2 pi`.** ### The zero side of the same identity is
+    ### `Z = SUM over ordinates h-hat(gamma)` -- ### **THE TEST FUNCTION SUMMED OVER THE
+    ### ACTUAL ZEROS.** ### A smooth measure that replaces a sum over a point set is a
+    ### DENSITY for that point set precisely when it reproduces its counting function, and
+    ### the check is arithmetic:
+
+      ### `INT_0^T h+(u) / (2 pi) du`  against  the Riemann-von Mangoldt main term.
+
+      T        INT_0^T h+/2pi du      RvM main term          RvM - INT     
+      50       8.422914422061         9.422781789846         +0.999867367786
+      100      28.002409902272        29.002343587325        +0.999933685054
+      500      268.586730881236       269.586717618321       +0.999986737085
+      1000     647.616241944424       648.616235312967       +0.999993368544
+      5000     4519.331174708068      4520.331173381777      +0.999998673709
+
+    ### ### **THE DIFFERENCE IS NOT SMALL, AND IT IS NOT NOISE. ### IT RISES TOWARD
+    ### ### `1`, AND ITS DEFICIT FROM `1` IS ITSELF A NAMED TERM:**
+
+      T        1 - (RvM - INT)      1 / (48 pi T)        ratio
+      50       1.326322143e-04      1.326291192e-04      1.000023336
+      100      6.631494647e-05      6.631455962e-05      1.000005834
+      500      1.326291499e-05      1.326291192e-05      1.000000231
+      1000     6.631456358e-06      6.631455962e-06      1.000000060
+      5000     1.326290658e-06      1.326291192e-06      0.999999597
+
+    ### ### **THE RATIO IS `1` TO EIGHT FIGURES AT EVERY `T`, SO THE ACCOUNTING IS
+    ### ### EXACT AND BOTH LEFTOVER TERMS HAVE NAMES:**
+
+      `RvM main term - INT_0^T h+/(2 pi) du  =  1  -  1/(48 pi T)  +  O(T^-3)`.
+
+    ### The `1/(48 T)` is the next term of the Riemann-Siegel theta expansion, over
+    ### `pi`. ### **AND A DIFFERENCE OF EXACTLY ONE IS NOT AN ERROR; IT IS A TERM.**
+
+    ### **AND THE RECORD`S OWN ARRANGEMENT NAMES IT.** ### The identity is classical and
+    ### exact: with `theta` the Riemann-Siegel theta function,
+
+      `theta`(T) = arg Gamma(1/4 + iT/2) - (T/2) log pi`, so `theta`(T) = h+(T) / 2`,
+      hence  `INT_0^T h+(u) / (2 pi) du  =  theta(T) / pi`,
+      and    `N(T) = theta(T) / pi + 1 + S(T)`.
+
+    ### ### **THE `1` IS THE POLE OF ZETA AT `s = 1`.** ### The smooth density counts the
+    ### ### ZEROS; the counting function `N(T)` carries, in addition, the pole -- which is
+    ### ### the same `W_pole` Component 3 is about, arriving here by a different door.**
+    ### The remaining `S(T)` oscillates about zero and is what the SMOOTH term drops; it
+    ### does not appear in the table because `quad` integrates the smooth term exactly.
+
+    ### ### **SO (b-i) IS TRUE, AND SHARPER THAN THE CLAUSE CLAIMED:** ### `h+(u) / 2 pi`
+    ### ### IS THE SMOOTH ZERO-COUNTING DENSITY, ITS INTEGRAL IS `theta(T) / pi`, AND THE
+    ### ### RIEMANN-VON MANGOLDT MAIN TERM IS THAT INTEGRAL PLUS ONE.**
+    ### ### **AND THE FACTOR MATTERS: `h+` ITSELF IS `2 pi` TIMES THE DENSITY.** ### The
+    ### navigator`s clause (b) says `that expression` is the density; ### **IT IS THE
+    ### DENSITY UP TO `2 pi`, AND `2 pi` IS EXACTLY THE CONSTANT CLAUSE (c) TURNS ON.**
+
+    ### **THE FIRST DRAFT OF THIS PARAGRAPH PREDICTED `AGREEMENT TO A FEW PARTS IN A
+    ### THOUSAND` AND WAS WRONG** -- the agreement is exact and offset by a term. ### The
+    ### prediction was typed before the table was run, and ### **IT IS CORRECTED HERE
+    ### RATHER THAN DELETED**, because the correction is the better result.
+
+    ### **AND ONE CONSEQUENCE THE ACT STATES BECAUSE IT LOOKS LIKE AN OBJECTION AND IS
+    ### NOT:** ### `h+` is NEGATIVE below `u0`, and a density is not. ### The smooth
+    ### density is a FORMAL one: it is negative exactly where the true counting function
+    ### is flat at zero -- the first ordinate sits at `14.13`, far above `u0 = 6.29` --
+    ### ### **SO THE NEGATIVE REGION IS WHERE THERE ARE NO ZEROS TO COUNT.**
+
+    ### **(b-ii) WHAT THE CORPUS ACTUALLY CARRIES.** ### Every hit hand-read at its line.
+
+    ### the classical counting law, by name:
+      FACES_LEDGER.md:354
+        | | **B5** the Riemann-von Mangoldt main term | S3 — INSTANCES NOT A CLASS | *"The
+        | same act prints the main term that says the instances never run out: \*"The
+        | Riemann-von Mangoldt main term (T/pi) log(T sqrt23 / 2 pi e)"\*. SO RUNNING THE
+        | CEN
+
+    ### the archimedean kernel, by its operational name:
+      SIGN_ARRANGEMENT_RECONCILIATION.md:50
+        | **THE MECHANISM, AND IT IS ELEMENTARY:** the archimedean kernel `Re ψ(1/4 + iu/2)
+        | − log π` is **NEGATIVE at low frequency and POSITIVE at high frequency**, crossing
+        | near `u = 2π`:
+
+    ### the sign change, as a property of `W_inf`:
+      SIGN_ARRANGEMENT_RECONCILIATION.md:50
+        | **THE MECHANISM, AND IT IS ELEMENTARY:** the archimedean kernel `Re ψ(1/4 + iu/2)
+        | − log π` is **NEGATIVE at low frequency and POSITIVE at high frequency**, crossing
+        | near `u = 2π`:
+
+    ### the dictionary row that defines `A`:
+      SIGN_ARRANGEMENT_RECONCILIATION.md:16
+        | | **Day-1** (`BALANCE_AND_POSITIVITY` §I, `1989c5d…`) | `Σ_ρ h(γ_ρ) = W_∞(g) +
+        | W_pole(g) − Σ_p Σ_{k≥1} (log p / p^{k/2})·(g(k log p) + g(−k log p))` |
+
+    ### ### **AND THE JOIN -- A FILE THAT WRITES `h+` AND A FILE THAT WRITES `N(T)` DOES
+    ### ### NOT JOIN THEM.** ### The search for a site that calls this expression a zero
+    ### density, or derives `N(T)` FROM it, is run over the whole corpus:
+      documents scanned : 405
+      LOOSE screen, a density word near an archimedean word : 21 lines
+      ### ### **AND THAT NUMBER IS NOT THE ANSWER.** ### Hand-reading the loose hits
+      ### finds `the archimedean density` of a different object, `the density question`,
+      ### and a Lagarias citation -- ### **TWO WORDS NEAR EACH OTHER, NOT TWO THINGS
+      ### JOINED.** ### `b435` banked exactly this: a mention is not a reference.
+
+      ### **TIGHT screen -- THE EXPRESSION ITSELF beside a counting word, one line:**
+      ### ### **LINES : 3**
+        SPIRAL_MAP.md:114
+          | > ### **`SIDE-window`'s NON-CLAIMS, CARRIED HERE AS WELL AS IN ITS SOURCE.** *It
+          | proves nothing about ζ, about `h2`, or about any operator inequality — **nothing
+          | in it bears on the sign of `W_∞ − W_2`, and its `W` is a prime-power COUNTING
+          | FUNCTION unrelated t
+        archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-through-2026-08-20c.md:2678
+          | NO open term: the odd-sector W_inf mass (this act), the even-sector eps mass
+          | (the density
+        archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:9037
+          | **ERA ANNOTATIONS FOLDED WITH PROVENANCE, NO §-TEXT REWRITTEN:** the sign
+          | reconciliation's `W_∞` repair · the sealed `S1`–`S6` inventory (### **§2's
+          | Davenport–Heilbronn contrast is the Epstein witness reached from the other
+          | side**) · `S6` + the crossing · and
+
+
+      ### ### **AND EACH IS HAND-READ AND CLASSIFIED, BECAUSE A SCREEN CANNOT SETTLE
+      ### ### THIS** (`K` BAR 2). ### The classification is typed by this seat against
+      ### ### the lines above, and ### **ANY HIT NOT IN THE TABLE IS REPORTED
+      ### ### UNCLASSIFIED AND FAILS THE COMPONENT**, so the table cannot go stale.
+
+        SPIRAL_MAP.md:114   ### ### **NOT A JOIN**
+            it is the window kernel`s NON-CLAIM, and it sets the two side by side
+            precisely to hold them APART -- *its `W` is a prime-power COUNTING FUNCTION
+            unrelated to `W_2`/`W_inf`*. ### **A DISCLAIMER OF A RELATION IS THE OPPOSITE
+            OF AN IDENTIFICATION.**
+
+        archive/2026-08-24-ledger-split/FINDINGS-archive-1-entries-through-2026-08-20c.md:2678   ### ### **NOT A JOIN**
+            an open-term inventory -- *the odd-sector W_inf mass ... the even-sector eps
+            mass*. The word `density` belongs to a different sector`s question, not to
+            `h+`.
+
+        archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:9037   ### ### **NOT A JOIN**
+            an era-annotation list naming the sign reconciliation`s `W_inf` repair. It
+            cites the repair; it states no density.
+
+      ### ### **HITS HAND-READ : 3. ### CLASSIFIED `JOIN` : 0.**
+
+      ### ### **CLAUSE (b) : HOLDS AS MATHEMATICS, AND SHARPER THAN THE CLAUSE CLAIMED; NOT CARRIED BY THE CORPUS AS AN IDENTIFICATION.**
+      ### ### **AND THE NEAREST THING THE CORPUS HAS IS A LINE THAT DENIES THE
+      ### ### RELATION** -- the window kernel`s own non-claim, warning a reader that
+      ### ### its `W` is a counting function UNRELATED to `W_inf`. ### The corpus has
+      ### ### taken care to keep a counting function and `W_inf` apart, and has never
+      ### ### remarked that `W_inf` IS one, on a different scale.**
+      ### ### **AND THE TWO NAMES THE CORPUS DOES USE ARE `Riemann-von Mangoldt` FOR THE
+      ### ### COUNTING LAW AND `the archimedean kernel` / `W_inf` FOR THE EXPRESSION.**
+      ### `(N1)(b)` said the atlas already carries the expression ### **UNDER ANOTHER
+      ### NAME**, and that half is right -- it carries it as `W_inf`. ### What it does
+      ### not carry is the JOIN, and the join is the content of clause (b).
+
+----------------------------------------------------------------------------------------------------
+  ### CLAUSE (d) -- THE DIGITS.
+----------------------------------------------------------------------------------------------------
+      the navigator`s : 6.28983598883690277966
+      this seat`s     : 6.28983598883690277967   ### at 40 decimal places of working precision
+      u0 to 30 dps    : 6.289835988836902779665090100822
+      2 pi to 30 dps  : 6.283185307179586476925286766559
+      ratio u0 / 2 pi : 1.00105848886069249
+
+      ### ### **THE TWO STRINGS AGREE TO 20 SIGNIFICANT FIGURES, AND DIFFER IN THE LAST DIGIT PRINTED.**
+      ### **BOTH ARE PRINTED AND NEITHER IS QUIETLY PREFERRED** (`K` BAR 4). ### The
+      ### twentieth significant figure is a ROUNDING of the same number: the true
+      ### value continues `...779669`, so `...77966` truncates and `...77967` rounds.
+      ### ### **NEITHER IS WRONG; THEY ARE THE SAME `u0` WRITTEN TWO WAYS.**
+      ### And the ratio `1.001058` the navigator gives is exact to the digits he gives.
+      ### ### **CLAUSE (d) : HOLDS.**
+
+----------------------------------------------------------------------------------------------------
+  ### THE MECHANISM -- STATED ONLY BECAUSE (b) HOLDS AS MATHEMATICS, AND THEN TESTED.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE SENTENCE, ONCE:** ### the archimedean slack closes when half the seed`s
+    ### ### transform mass lies above the height at which the smooth zero-density turns
+    ### ### positive, `u0 = 6.2898`.
+
+    ### **AND NOW IT IS TESTED, ON BOTH FAMILIES, WHICH IS THE ONLY THING THAT MAKES IT
+    ### MORE THAN A RESTATEMENT.** ### The archimedean route is evaluated as `b438` and
+    ### `b439` evaluated it; no new family and no new instrument.
+
+      family  a         median u of |h-hat| mass above u0    A (arch)     sign of A
+      aimed   1.2000    67.506101        0.999978         20.319442    +
+      aimed   2.0000    17.815630        0.986410         1.857356     +
+      aimed   4.0000    8.891507         0.791017         0.027075     +
+      aimed   8.0000    5.915133         0.444106         -0.337690    -
+      aimed   16.0000   4.425780         0.259360         -0.446897    -
+      corpus  1.2000    9.439738         0.651366         -0.822680    -
+      corpus  2.0000    2.452851         0.138499         -1.990246    -
+      corpus  4.0000    1.205966         0.054712         -1.519552    -
+      corpus  8.0000    0.790379         0.027828         -1.237534    -
+      corpus  16.0000   0.582621         0.014669         -1.052560    -
+
+      ### ### **THE SENTENCE PREDICTS `A > 0` EXACTLY WHERE THE MASS ABOVE `u0` EXCEEDS
+      ### ### HALF. ### IT AGREES AT 9 OF 10 CELLS, ACROSS BOTH FAMILIES.**
+      ### ### **AND THE SECOND FAMILY`S NEVER CROSSING: NOT EXPLAINED BY THE SAME SENTENCE.**
+      ### the cell that breaks it : family `corpus`, `a = 1.2000` -- mass above `u0` is
+      ### `0.651366`, over half, and yet `A = -0.822680`.
+
+    ### ### **SO THE SENTENCE IS A HEURISTIC AND THE ACT SAYS SO RATHER THAN ROUNDING
+    ### ### 9 OF 10 UP TO A MECHANISM.** ### `A` is not a median of `h-hat`; it is the
+    ### WEIGHTED balance `INT h-hat(u) h+(u) du`, and `h+` keeps GROWING above `u0` while
+    ### it is bounded below it only by `-log`-sized values near the origin. ### **A CELL
+    ### WITH BARELY HALF ITS MASS ABOVE `u0` CAN STILL SIT AT `A < 0` IF THE MASS BELOW
+    ### SITS WHERE `h+` IS MOST NEGATIVE**, which is what the second family does at
+    ### `a = 1.2`. ### The exact criterion is the balance itself and is a tautology; the
+    ### sentence`s content is that `u0` is the hinge, and ### **THAT PART SURVIVES.**
+
+    ### ### **AND ONE WRITE-LIST INCIDENT OF THIS ACT`S OWN, PRINTED NOT PATCHED AWAY:**
+    ### the first writing of this component emitted `data/b440_mechanism.json`, ### **A
+    ### PATH THE LOCKED FACE NEVER DECLARED.** ### `(R47)` requires the list to name
+    ### paths, and it does; what failed was the act, not the list. ### **THE FACE IS NOT
+    ### EDITED** -- the rows are written into `b440_clauses.json`, which the face DOES
+    ### name, and the stray file is removed. ### The write-list arm is what caught it.
+
+----------------------------------------------------------------------------------------------------
+  ### WHAT THE RECORD CAN NOW SAY ABOUT `u0`. ### **THREE STATUSES, KEPT APART** (`K` BAR 3).
+----------------------------------------------------------------------------------------------------
+    ### **DEFINING EQUATION** ### -- ### **HELD.** ### `u0` is the unique positive root of
+    ### `Re psi(1/4 + iu/2) = log pi`. ### That is an equation, it is exact, and two
+    ### independent routes agree on its root to better than `1e-12`.
+    ### **CLASSICAL ASYMPTOTE** ### -- ### **HELD, AND IT IS `2 pi`.** ### The asymptotic
+    ### form `log(u / 2 pi)` has its zero at `2 pi` exactly, and `u0 / 2 pi = 1.001058`.
+    ### ### **`2 pi` IS NOT `u0`. ### IT IS THE ZERO OF A DIFFERENT FUNCTION THAT AGREES
+    ### ### WITH `h+` TO `O(u^-2)`, AND `h+(2 pi) = -1.06e-03` IS NOT ZERO.**
+    ### **CLOSED FORM** ### -- ### **NOT HELD.** ### The record gives `u0` a defining
+    ### equation and twenty-one digits, and no expression in named constants. ### **A
+    ### TWENTY-ONE-DIGIT VALUE IS NOT A CLOSED FORM**, and the near-coincidence with
+    ### `2 pi` is an asymptotic fact, not an identity.
+
+====================================================================================================
+  ### ### **COMPONENT 2 -- THE TWO FACTS. ### CAN THEY BE STATED AT ALL?**
+====================================================================================================
+  ### The order`s own condition governs and is quoted before anything is attempted:
+  ### ### *"If either fact cannot be stated axiom-free, say so and build neither."*
+
+----------------------------------------------------------------------------------------------------
+  ### (alpha) THE ELIMINATION OF THE REALS, WRITTEN OUT AND NOT WAVED AT.
+----------------------------------------------------------------------------------------------------
+    ### Fact (ii) is the weight table `2 Lambda(n) / sqrt(n)` with its maximizer. ### The
+    ### maximizer claim is a COMPARISON, so the honest question is whether the comparison
+    ### reduces to arithmetic on naturals. ### **IT IS CARRIED AS FAR AS IT GOES:**
+
+      `2 log p / sqrt(p^k)  >  2 log q / sqrt(q^j)`
+        <=>  `sqrt(q^j) log p > sqrt(p^k) log q`            (all quantities positive)
+        <=>  `q^j (log p)^2 > p^k (log q)^2`                (squaring, sign preserved)
+        <=>  `(log p / log q)^2 > p^k / q^j`
+        <=>  ### **`(log_q p)^2 > p^k / q^j`.**
+
+    ### ### **AND THAT IS THE STEP AT WHICH THE IRRATIONAL SURVIVES.** ### The right side
+    ### is a rational number. ### The left side is the square of `log_q p`, and for
+    ### distinct primes `p, q` that is irrational -- if `log_q p = m/n` then `p^n = q^m`,
+    ### which unique factorisation forbids. ### **NO FURTHER MANIPULATION REMOVES IT:**
+    ### exponentiating returns `p^(sqrt(q^j)) > q^(sqrt(p^k))`, which puts the
+    ### irrational in the EXPONENT, where `Nat`s `^` cannot take it.
+
+    ### **THE ACTUAL COMPARISON THE TABLE TURNS ON, AT THE TOP TWO ENTRIES:**
+      `2 log 7 / sqrt 7`   = 1.470969808022     (the maximizer, b439)
+      `2 log 11 / sqrt 11` = 1.445985255716     (the runner-up)
+      so the claim is      `(log_11 7)^2 > 7 / 11`
+      `(log_11 7)^2`       = 0.658544524737
+      `7 / 11`             = 0.636363636364
+      ### ### **TRUE, AND BY 2.218e-02 -- ### AN INEQUALITY BETWEEN A TRANSCENDENTAL AND A
+      ### ### RATIONAL, WHICH NO FINITE `Nat` COMPUTATION DECIDES.**
+
+----------------------------------------------------------------------------------------------------
+  ### (beta) THE PROBE. ### **RUN IN THE SESSION SCRATCHPAD, IN NO REPOSITORY.**
+----------------------------------------------------------------------------------------------------
+    ### **AND IT CARRIES A POSITIVE CONTROL**: the `Nat` half of the same act, so that a
+    ### refusal is a statement about the WEIGHT and not about the prover.
+
+    ### **PROBE FILE 1 -- `Real`, `Rat`, `Float`, AND THE `Nat` CONTROL.**
+    ### lean : exit 1
+      | Probe.lean:4:12: error(lean.unknownIdentifier): Unknown identifier `Real`
+      | 0 : Rat
+      | Float.sqrt 2.0 : Float
+      | Float.log 7.0 : Float
+      | Probe.lean:13:2: error: Tactic `decide` failed for proposition
+      |   2.0 * Float.log 7.0 / Float.sqrt 7.0 > 2.0 * Float.log 2.0 / Float.sqrt 2.0
+      | because its `Decidable` instance
+      |   (2.0 * Float.log 2.0 / Float.sqrt 2.0).decLt (2.0 * Float.log 7.0 / Float.sqrt 7.0)
+      | did not reduce to `isTrue` or `isFalse`.
+      | 
+      | Reduction got stuck at the `Decidable` instance
+      |   (2.0 * Float.log 2.0 / Float.sqrt 2.0).decLt (2.0 * Float.log 7.0 / Float.sqrt 7.0)
+      | inferInstance : Decidable (1.0 < 2.0)
+      | 'edge_16' depends on axioms: [propext, Quot.sound]
+      | 'edge_17' depends on axioms: [propext, Quot.sound]
+      | 'below_16' does not depend on any axioms
+      | 'edge_16_bool' does not depend on any axioms
+      | 'edge_17_bool' does not depend on any axioms
+      | 'edge_9_bool' does not depend on any axioms
+      | 'edge_present' does not depend on any axioms
+      | Probe.lean:50:23: error(lean.unknownIdentifier): Unknown constant `Nat.sqrt`
+      | Probe.lean:50:52: error(lean.unknownIdentifier): Unknown constant `Nat.sqrt`
+
+    ### **PROBE FILE 2 -- THE RATIONAL SURROGATE.**
+    ### lean : exit 1
+      | Probe2.lean:4:62: error: Tactic `decide` failed for proposition
+      |   19459 / 10000 > 13862 / 10000
+      | because its `Decidable` instance
+      |   (13862 / 10000).instDecidableLt (19459 / 10000)
+      | did not reduce to `isTrue` or `isFalse`.
+      | 
+      | After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Int.decLt`, `Int.decNonneg`,
+      |   match (13862 / 10000).blt (19459 / 10000), true with
+      |   | false, false => isTrue ⋯
+      |   | false, true => isFalse ⋯
+      |   | true, false => isFalse ⋯
+      |   | true, true => isTrue ⋯
+      | Probe2.lean:7:8: error(lean.unknownIdentifier): Unknown constant `Rat.sqrt`
+      | Probe2.lean:8:8: error(lean.unknownIdentifier): Unknown constant `Rat.log`
+      | Probe2.lean:16:66: error: Tactic `decide` failed for proposition
+      |   11 * logSurrogate 7 ^ 2 > 7 * logSurrogate 11 ^ 2
+      | because its `Decidable` instance
+      |   (7 * logSurrogate 11 ^ 2).instDecidableLt (11 * logSurrogate 7 ^ 2)
+      | did not reduce to `isTrue` or `isFalse`.
+      | 
+      | After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Int.decLt`, `Int.decNonneg`,
+      |   match (7 * logSurrogate 11 ^ 2).blt (11 * logSurrogate 7 ^ 2), true with
+      |   | false, false => isTrue ⋯
+      |   | false, true => isFalse ⋯
+      |   | true, false => isFalse ⋯
+      |   | true, true => isTrue ⋯
+
+    ### ### **WHAT THE PROBE ESTABLISHES, LINE BY LINE:**
+    ### `Real`            -- ### **UNKNOWN IDENTIFIER.** ### There are no reals here.
+    ### `Rat`             -- ### **EXISTS** ### in core, so a rational is WRITABLE...
+    ### `Rat` comparison  -- ### **`decide` FAILS**: *"reduction got stuck at the
+    ###                      `Decidable` instance"*. ### Core `Rat`s `blt` is opaque.
+    ### `Float.log/sqrt`  -- ### **TYPECHECK**, so the weight is WRITABLE as a `Float`...
+    ### `Float` comparison-- ### **`decide` FAILS**, same reduction failure.
+    ### `Decidable` inst. -- ### **EXISTS** ### for `Float` order. ### **THIS IS THE SHARP
+    ###                      FORM: THE PROPOSITION IS NOMINALLY DECIDABLE AND `decide`
+    ###                      STILL CANNOT CLOSE IT, THE INSTANCE BEING `@[extern]`.**
+    ### `Nat.sqrt`        -- ### **UNKNOWN CONSTANT.** ### Not in vanilla core.
+    ### the `Nat` control -- ### **EVERY ONE CLOSED BY `decide`, AND THE AXIOM PROFILES
+    ###                      ARE PRINTED RATHER THAN INFERRED FROM SILENCE.**
+
+    ### ### **AND THE PROFILES CARRY A RESULT THIS SEAT DID NOT EXPECT AND DID NOT
+    ### ### DECLARE ON THE FACE:**
+      `edge_16 : 16 not-in primePowersLT 16`   ### **[propext, Quot.sound]**
+      `edge_17 : 17 not-in primePowersLT 17`   ### **[propext, Quot.sound]**
+      `below_16 : primePowersLT 16 = [...]`    ### **no axioms at all**
+      `edge_16_bool : (primePowersLT 16).elem 16 = false`   ### **no axioms at all**
+      `edge_17_bool`, `edge_9_bool`                         ### **no axioms at all**
+      `edge_present : (primePowersLT 17).elem 16 = true`    ### **no axioms at all**
+
+    ### ### **SO THE FORM OF THE STATEMENT DECIDES WHETHER IT IS AXIOM-FREE.** ### The
+    ### natural phrasing -- PROPOSITIONAL non-membership, `not-in` -- routes through
+    ### library lemmas about `List.Mem` and drags in `propext` and `Quot.sound`. ### **BY
+    ### THIS KERNEL`S OWN DECLARED BAR -- *not `{propext, Classical.choice, Quot.sound}`,
+    ### BUT NO AXIOMS AT ALL* -- THAT PHRASING WOULD NOT QUALIFY.** ### The DECIDABLE-
+    ### EQUALITY phrasing, `.elem ... = false`, closes by reduction alone and does.
+    ### ### **`b418` BANKED THIS AS A GENERAL LESSON AND IT IS CONFIRMED HERE ON A NEW
+    ### ### STATEMENT: EQUATION FORMS ARE CLEAN, PROPOSITIONAL FORMS ARE NOT.**
+    ### ### **AND `edge_present` IS THE POSITIVE CONTROL** -- `16` IS in
+    ### `primePowersLT 17` -- ### **SO THE ARM CAN SAY `true` AS WELL AS `false`,** ### and
+    ### the three `false`s are not a tool that always answers one way.
+    ### ### **FACT (i) IS THEREFORE STATABLE AXIOM-FREE, IN ONE FORM AND NOT THE OTHER.**
+
+----------------------------------------------------------------------------------------------------
+  ### (gamma) WOULD A RATIONAL-ENCLOSURE SURROGATE BE LEGITIMATE? ### THE KERNEL HAS RULED.
+----------------------------------------------------------------------------------------------------
+    ### The probe showed the surrogate does not even RUN. ### But suppose it did -- suppose
+    ### `Rat` reduced. ### The statement would compare `19459/10000` with `23979/10000`,
+    ### and ### **NOTHING IN IT WOULD SAY THOSE ARE LOGARITHMS.** ### The bridge would
+    ### live in a comment. ### **THE KERNEL HAS ALREADY REFUSED EXACTLY THIS PATTERN:**
+
+      Ladder.lean:42
+        | `MEASURED-AT-BANK` and never proved. It appears in this repository only as a
+        | comment.
+        | There is deliberately no definition, statement or theorem about it.
+        | -/
+
+    ### ### **SO THE SURROGATE FALLS UNDER THE LADDER`S OWN REFUSAL, AND WOULD FALL UNDER
+    ### ### IT EVEN IF IT COMPILED.** ### Two independent reasons, and the act needed only
+    ### one.
+
+----------------------------------------------------------------------------------------------------
+  ### THE DECISION.
+----------------------------------------------------------------------------------------------------
+    ### **FACT (i)** ### -- a prime power at the support edge contributes exactly zero.
+    ### ### **STATABLE AXIOM-FREE -- IN ITS DECIDABLE-EQUALITY FORM ONLY -- AND THE
+    ### ### PROBE CLOSED IT WITH `0` AXIOMS, FOUR TIMES, WITH A POSITIVE CONTROL.**
+    ### `primePowersLT x` filters `List.range x = [0, ..., x-1]`, so `x` itself is never
+    ### in it; the bump`s vanishing at the support edge is the analytic half, and it is
+    ### quoted from its source, not proved here.
+    ### **FACT (ii)** ### -- the weight table with its maximizer.
+    ### ### **NOT STATABLE IN THIS KERNEL`S STYLE.** ### It is an inequality between a
+    ### transcendental and a rational; the kernel has no reals; its `Rat` and `Float` are
+    ### opaque to `decide`; and a literal surrogate is the pattern `Ladder.lean` refuses.
+
+    ### ### **AND SO, BY THE ORDER`S OWN CONDITION: ### NEITHER FACT IS BUILT.**
+    ### ### **NOTHING IS WRITTEN INTO `SIDE-window`. ### NO `.lean` FILE, AND NOT
+    ### ### `README.md` EITHER** -- `(R52)` updates non-claims when CONTENTS CHANGE, and
+    ### nothing changing is not a change. ### The kernel`s non-claims stand as they are.
+
+    ### ### **WHAT IS ROUTED BACK AND NOT DECIDED HERE** (`K` BAR 7): ### fact (i) alone
+    ### ### IS buildable and would be a true, decidable, axiom-free terminal -- the probe
+    ### ### has already closed it four times outside the repository. ### **THE ORDER
+    ### ### FORBIDS BUILDING IT ALONE, SO IT IS NOT BUILT**, and the choice -- whether
+    ### ### to take fact (i) by itself in a later act -- is the author`s.**
+    ### ### **AND ONE THING THE AUTHOR SHOULD HAVE BEFORE DECIDING: THE STATEMENT WOULD
+    ### ### HAVE TO BE WRITTEN `.elem n = false`, NOT `n not-in`, OR IT WOULD CARRY TWO
+    ### ### AXIOMS AND BREAK THE REPOSITORY`S OWN STANDARD.**
+
+====================================================================================================
+  ### ### **COMPONENT 3 -- THE BREAK ATTRIBUTED. ### FROM THE SOURCE, NOT NAMED BY THE SEAT.**
+====================================================================================================
+  ### The order`s clause is CONDITIONAL: ### *"Read from the source what that weight is --
+  ### whether it is the archimedean factor`s own scaling, the thing that makes the pairing
+  ### a Weil pairing. ### **IF IT IS**, state the finding..."*
+
+----------------------------------------------------------------------------------------------------
+  ### THE SOURCE`S OWN TERM-FOR-TERM DICTIONARY. ### TWO ROWS, SIDE BY SIDE.
+----------------------------------------------------------------------------------------------------
+      SIGN_ARRANGEMENT_RECONCILIATION.md:16
+        | | **Day-1** (`BALANCE_AND_POSITIVITY` §I, `1989c5d…`) | `Σ_ρ h(γ_ρ) = W_∞(g) +
+        | W_pole(g) − Σ_p Σ_{k≥1} (log p / p^{k/2})·(g(k log p) + g(−k log p))` |
+      SIGN_ARRANGEMENT_RECONCILIATION.md:16
+        | | **Day-1** (`BALANCE_AND_POSITIVITY` §I, `1989c5d…`) | `Σ_ρ h(γ_ρ) = W_∞(g) +
+        | W_pole(g) − Σ_p Σ_{k≥1} (log p / p^{k/2})·(g(k log p) + g(−k log p))` |
+
+    ### ### **`cosh(v/2)` IS THE WEIGHT OF `W_pole`. ### THE ARCHIMEDEAN WEIGHT IS
+    ### ### `Re psi(1/4 + iu/2) - log pi`, A DIFFERENT EXPRESSION IN A DIFFERENT
+    ### ### VARIABLE -- `u`, THE FREQUENCY, NOT `v`, THE LOG-RADIUS.**
+
+    ### ### **THE PREMISE OF THE ORDER`S CONDITIONAL THEREFORE FAILS, AND THE OFFERED
+    ### ### FINDING IS NOT STATED** (`K` BAR 1). ### The act says instead what the weight
+    ### ### IS, and whether the break is structural for a reason the source also supplies.
+
+----------------------------------------------------------------------------------------------------
+  ### WHAT `cosh(v/2)` IS, IN THE SOURCE`S WORDS.
+----------------------------------------------------------------------------------------------------
+      SIGN_ARRANGEMENT_RECONCILIATION.md:78
+        | > ### **THE `2` IS `W_pole`.** `P = ĥ(i/2) + ĥ(−i/2) ≈ 2·ĥ(0) = 2` **because the
+        | autocorrelation is unit-normalised and `cosh(0) = 1` — it is the count of the two
+        | pole terms, `s = 0` and `s = 1`.** ### **The arch channel sits near `−2` for the
+        | elementary reason that the zero side and the prime side are both near zero in that
+        | band, so the identity forces `A ≈ −P ≈ −2`.**
+
+    ### **AND WHAT THE AIM`S SECOND MOMENT CONDITION IS, IN THE INSTRUMENT`S HEADER:**
+      b317_smear.py:41
+        | ### test function is the single condition `INT w(v) cosh(v/2) dv = 0`.
+
+      b321_run.py:310
+        | rec(' ### `g-hat(i/2) = 0`, which force both Mellin values of `f = g conv g^#` to
+        | zero.')
+        | rec(' ### ### **SO FOR A LAWFUL `f`, (148) COLLAPSES TO ### `SUM_v W_v(f) = -
+        | Z`.**')
+
+    ### ### **SO THE AIM`S SECOND MOMENT CONDITION IS NOT A MOMENT CONDITION AT ALL IN
+    ### ### DISGUISE -- IT IS THE LAWFULNESS CONDITION `h-hat(i/2) = 0`, THE REQUIREMENT
+    ### ### THAT THE TEST FUNCTION KILL THE POLE TERM.** ### `b439` found the aim`s second
+    ### condition is what breaks scale invariance; this component says WHAT that condition
+    ### is, and it is the poles, not the gamma factor.
+
+----------------------------------------------------------------------------------------------------
+  ### IS THE BREAK STRUCTURAL? ### YES -- AND FOR THE FUNCTIONAL EQUATION`S REASON.
+----------------------------------------------------------------------------------------------------
+    ### With the corpus`s half-line normalization `f(x) = x^(-1/2) w(log x)` and `v = log x`,
+
+      `cosh(v/2) = (e^(v/2) + e^(-v/2)) / 2 = (x^(1/2) + x^(-1/2)) / 2`.
+
+    ### ### **A SINGLE POWER OF `x` IS DILATION-COVARIANT: `(cx)^s = c^s x^s`, and the
+    ### ### CONSTANT COMES OUT. ### A SUM OF TWO DIFFERENT POWERS IS NOT, BECAUSE THE TWO
+    ### ### CONSTANTS `c^(1/2)` AND `c^(-1/2)` DIFFER AND NEITHER FACTORS OUT.**
+    ### The demonstration, on the object itself:
+
+      c        INT phi cosh(v/2)    c^(1/2) * base       ratio          (1 + 1/c) / 2
+      1.5000   1.925673814858       2.310808577830       0.833333333    0.833333333
+      2.0000   2.001218931684       2.668291908912       0.750000000    0.750000000
+      4.0000   2.358459128721       3.773534605953       0.625000000    0.625000000
+
+
+    ### ### **THE RATIO IS NOT `1` AND NOT CONSTANT, AND IT IS NOT VAGUE EITHER --
+    ### ### IT IS EXACTLY `(1 + 1/c) / 2`, TO EVERY DIGIT PRINTED.** ### The derivation
+    ### is two lines: with `s = log c` and `phi` even,
+
+      `INT phi(v - s) cosh(v/2) dv = cosh(s/2) INT phi cosh(v/2) dv`,
+      so the ratio to `c^(1/2) = e^(s/2)` is `cosh(s/2) / e^(s/2) = (1 + 1/c) / 2`.
+
+    ### ### **THAT IS THE TWO POWERS, VISIBLE: `c^(1/2)` AND `c^(-1/2)` ARRIVE WITH
+    ### ### DIFFERENT WEIGHTS AND THEIR AVERAGE IS NOT EITHER ONE.** ### It tends to
+    ### `1/2` as `c` grows and to `1` as `c -> 1`, so ### **THE BREAK IS LARGEST AT LARGE
+    ### RADIUS AND VANISHES AT THE SMALLEST**, which is the shape `b439` measured.
+    ### For the FIRST moment, whose weight is `1`, the same calculation gives `1`, and
+    ### `b439` measured that half as fixed.
+
+    ### ### **AND `(x^(1/2) + x^(-1/2)) / 2` IS THE `s <-> 1 - s` SYMMETRIC COMBINATION --
+    ### ### THE TWO POLES OF THE COMPLETED FUNCTION, AT `s = 0` AND `s = 1`, WHICH THE
+    ### ### FUNCTIONAL EQUATION EXCHANGES.** ### The source says so in its own words: the
+    ### `2` is `W_pole`, ### *"the count of the two pole terms, `s = 0` and `s = 1`"*.
+    ### ### **SO THE BREAK IS STRUCTURAL, AND ITS STRUCTURE IS THE FUNCTIONAL EQUATION`S
+    ### ### POLE PAIR, NOT THE ARCHIMEDEAN GAMMA FACTOR.**
+
+----------------------------------------------------------------------------------------------------
+  ### AND THE NUMBER IS NOT RE-OPENED (`K` BAR 9).
+----------------------------------------------------------------------------------------------------
+    ### `b439` banked a spread of `2.266e-04` between two radii and attributed it to the
+    ### `cosh`. ### **THAT MEASUREMENT IS UNTOUCHED BY THIS COMPONENT AND IS NOT RE-RUN.**
+    ### The `cosh` is still the reason. ### **WHAT CHANGES IS ONLY THE NAME OF WHAT THE
+    ### `cosh` BELONGS TO: ### THE POLE TERM, NOT THE ARCHIMEDEAN TERM.**
+    ### ### **A MEASUREMENT AND ITS ATTRIBUTION ARE SEPARABLE, AND ONLY THE SECOND MOVES.**
+
+====================================================================================================
+  ### ### **THE CLAUSE VERDICTS, APART** (`R27`):
+      clause (a) : HOLDS
+      clause (b) : HOLDS AS MATHEMATICS, AND SHARPER THAN THE CLAUSE CLAIMED; NOT CARRIED BY THE CORPUS AS AN IDENTIFICATION
+      clause (c) : HOLDS
+      clause (d) : HOLDS
+  ### ### **COMPONENT 2 : fact (i) STATABLE ; fact (ii) NOT STATABLE ; OBJECTS BUILT 0.**
+  ### ### **COMPONENT 3 : THE PREMISE FAILS -- `cosh(v/2)` IS THE POLE WEIGHT.**
+  ### hand-read lines : 19
+====================================================================================================

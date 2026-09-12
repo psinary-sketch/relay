@@ -1,0 +1,166 @@
+====================================================================================================
+b440 -- THE FIXED POINT NAMED, THE BREAK ATTRIBUTED. ### THE SURVEY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (1) DOES THE CORPUS ALREADY CARRY THE SMOOTH ZERO-COUNTING DENSITY, AND UNDER WHAT NAME?
+----------------------------------------------------------------------------------------------------
+    ### **THE SEARCH, BY THE CLASSICAL NAME AND BY THE FORM:**
+      the name                               5    FACES_LEDGER.md, OPEN_TRAILS.md
+      the counting function                  16   EMERGING_RESEARCH_PROGRAMMES.md, REGISTRY.md
+      the density, written out               12   archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md, archive/2026-08-27-trim-backfill/CARTAN_B_DOMAIN_OSTROWSKI_v2.md
+      the asymptote 2 pi in a counting law   0    -
+
+    ### **AND THE NAME, AT A LINE:**
+      FACES_LEDGER.md:354
+        | | **B5** the Riemann-von Mangoldt main term | S3 — INSTANCES NOT A CLASS | *"The
+        | same act prints the main term that says the instances never run out: \*"The
+        | Riemann-von Mangoldt main term (T/pi) log(T sqrt23 / 2 pi e)"\*. SO RUNNING THE
+        | CENSUS HIGHER BUYS MORE INSTANCES, AND A CLASS IS NOT MADE OF …
+
+    ### ### **AND THE CROSSING AT `2 pi` IS ALREADY IN THE CORPUS, IN THESE WORDS:**
+      SIGN_ARRANGEMENT_RECONCILIATION.md:56
+        | > ### **`Re ψ(1/4 + iu/2) ~ log(u/2)`, WHICH EQUALS `log π` EXACTLY AT `u = 2π`.**
+        | *A wide window puts `ĥ`'s mass at low `u`, where the kernel is negative → `W_∞ < 0`.
+        | A narrow window spreads `ĥ` to high `u`, where the kernel is positive → `W_∞ > 0`
+        | (and diver
+
+      SIGN_ARRANGEMENT_RECONCILIATION.md:50
+        | **THE MECHANISM, AND IT IS ELEMENTARY:** the archimedean kernel `Re ψ(1/4 + iu/2) −
+        | log π` is **NEGATIVE at low frequency and POSITIVE at high frequency**, crossing
+        | near `u = 2π`:
+
+    ### ### **SO THE RECORD CARRIES THE CROSSING AS A PROPERTY OF `W_inf`, THE
+    ### ### ARCHIMEDEAN KERNEL. ### WHETHER IT ALSO CARRIES IT AS A ZERO-COUNTING
+    ### ### DENSITY IS COMPONENT 1`S CLAUSE (2), AND THE NAMES ABOVE ARE THE EVIDENCE.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) DOES THE CORPUS`S OWN DERIVATION OF `h+` EXHIBIT THIS EXPRESSION?
+----------------------------------------------------------------------------------------------------
+    ### **`b333` DERIVED `h+` AND ITS EPSTEIN SIBLING, AND THE SIBLING IS THE CHECK:**
+      b333_derive.py:74
+        | hplus = -log(pi) + mre(digamma(mpc(mpf(1) / 4, tau / 2)))
+
+      b333_derive.py:77
+        | kq = 2 * mre(digamma(mpc(mpf(1) / 2, tau))) - 2 * log(2 * pi / sqrt(23))
+
+    ### ### **THE TWO HAVE THE SAME SHAPE WITH DIFFERENT CONSTANTS:** ### for zeta,
+    ### `Re psi(1/4 + i u/2) - log pi`; for the Epstein object of discriminant `-23`,
+    ### `2 Re psi(1/2 + i u) - 2 log(2 pi / sqrt 23)`. ### **THE CONSTANT IS THE
+    ### CONDUCTOR`S**, and that is what Component 1 must check against the counting law.
+
+    ### and the corpus`s own Epstein counting law, for the comparison:
+      OPEN_TRAILS-archive-2-historical-landings-and-programs.md:1986
+        | - **`W-ORD-T5-EPSTEIN-COUNT`** (NEW, from the v1.2 T5 correction) — derive/source
+        | the **exact zero-counting law of ξ_Q (disc −23, principal form) with its constant**:
+        | the completed form carries the degree-2 gamma factor (√23/2π)^s Γ(s), giving N(T) ∼
+        | (T/π) log
+
+----------------------------------------------------------------------------------------------------
+  ### (3) `h+` AGAINST ITS OWN ASYMPTOTE. ### **TWO CLOSED EXPRESSIONS, NO FAMILY.**
+----------------------------------------------------------------------------------------------------
+      u         h+(u)                    log(u / 2 pi)            |difference|
+      6.2898    -5.7339233922375e-6      0.0010522072950994       1.058e-03
+      10        0.46429062686493         0.4647080265847          4.174e-04
+      50        2.0741292711852          2.0741459390188          1.667e-05
+      200       3.4604392584675          3.4604403001387          1.042e-06
+      1000      5.0698781709061          5.0698782125728          4.167e-08
+      10000     7.3724633051502          7.3724633055668          4.167e-10
+
+      ### ### **u0 (the exact zero of `h+`)   = 6.28983598883690277967**
+      ### ### **2 pi (the asymptote`s zero)   = 6.28318530717958647693**
+      ### ### **RATIO u0 / 2 pi              = 1.00105848886**
+      ### and `h+(2 pi) = -0.00106018017418` -- ### **THE ASYMPTOTE VANISHES AT `2 pi`; THE EXACT
+      ### KERNEL DOES NOT.**
+
+    ### ### **THE DIFFERENCE FALLS LIKE `u^-2`** -- `4.17e-08` at `u = 1000` and
+    ### `4.17e-10` at `u = 10000`, a factor of `100` for a factor of `10`. ### So the
+    ### asymptote is exact and the correction is the digamma`s own tail.
+
+----------------------------------------------------------------------------------------------------
+  ### (4) WHAT IS THE `cosh(v/2)` WEIGHT? ### **READ FROM THE SOURCE, NOT NAMED BY THE SEAT.**
+----------------------------------------------------------------------------------------------------
+    ### **WHERE IT ENTERS THE AIM:**
+      b317_smear.py:189
+        | M = np.array([np.trapezoid(p * np.cosh(V / 2.0), V) for p in phi])
+
+    ### **AND WHAT THE SAME EXPRESSION IS IN THE EXPLICIT FORMULA -- THE POLE TERM:**
+      carto_atlas.py:64
+        | P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v)) # pole
+
+      b321_window.py:139
+        | P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v))
+
+    ### ### **THE SAME INTEGRAL IS THE AIM`S SECOND MOMENT AND THE EXPLICIT FORMULA`S
+    ### ### POLE TERM.** ### Component 3 must say what that weight IS, from the source.
+
+    ### and the corpus`s own name for what the pole term is:
+      b321_run.py:300
+        | rec(' %-6s %-18s %-18s %-18s' % ('a', 'f-tilde(0)+f-tilde(1)', 'Z (zeros)', 'min
+        | f-hat'))
+
+      b321_run.py:310
+        | rec(' ### `g-hat(i/2) = 0`, which force both Mellin values of `f = g conv g^#` to
+        | zero.')
+        | rec(' ### ### **SO FOR A LAWFUL `f`, (148) COLLAPSES TO ### `SUM_v W_v(f) = -
+        | Z`.**')
+
+    ### **AND WHAT THE AIM`S SECOND CONDITION IS, IN THE INSTRUMENT`S OWN HEADER:**
+      b317_smear.py:41
+        | ### test function is the single condition `INT w(v) cosh(v/2) dv = 0`.
+
+    ### ### **THE CORPUS`S OWN TERM-FOR-TERM DICTIONARY -- ### THE ANSWER TO
+    ### ### COMPONENT 3 IS A TABLE ROW, NOT AN INFERENCE:**
+      SIGN_ARRANGEMENT_RECONCILIATION.md:23
+        | | `P = ĥ(i/2) + ĥ(−i/2) = 2∫w cosh(v/2)dv` | `W_pole(g)` | ### **`+` in both** |
+      SIGN_ARRANGEMENT_RECONCILIATION.md:24
+        | | `A = (1/2π)∫ĥ(u)[Re ψ(1/4 + iu/2) − log π]du` | `W_∞(g)` | ### **`+` in both** |
+
+    ### ### **`cosh(v/2)` WEIGHTS `W_pole`. ### THE ARCHIMEDEAN WEIGHT IS A DIFFERENT
+    ### ### EXPRESSION IN A DIFFERENT VARIABLE.** ### Component 3 scores (N3) on this.
+
+    ### **AND WHAT THE `2` IS, IN THE SOURCE`S WORDS:**
+      SIGN_ARRANGEMENT_RECONCILIATION.md:78
+        | > ### **THE `2` IS `W_pole`.** `P = ĥ(i/2) + ĥ(−i/2) ≈ 2·ĥ(0) = 2` **because the
+        | autocorrelation is unit-normalised and `cosh(0) = 1` — it is the count of the two
+        | pole terms, `s = 0` and `s = 1`.** ### **The arch channel sits near `−2` for the
+        | elementary reason that the zero side and the prime side are both near zero in that
+        | band, so the identity forces `A ≈ −P ≈ −2`.**
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE KERNEL`S DEPENDENCIES -- ### **WHAT COMPONENT 2 MAY AND MAY NOT STATE.**
+----------------------------------------------------------------------------------------------------
+    SIDE-window pin : 3dab5f4249f4a29bdd51391fc2f8e1119c0f4c09
+    working tree    : CLEAN
+
+      Ladder.lean:7
+        | Vanilla Lean 4. No Mathlib, no Batteries, no dependencies. Every theorem is closed
+        | by
+        | `decide`, so the whole file is checkable by the Lean kernel alone.
+
+    ### **AND THE MANIFEST, WHICH SETTLES IT:**
+      packages in lake-manifest.json : 0 
+
+    ### **THE DEFINITION FACT (i) WOULD REST ON:**
+      Window.lean:92
+        | def primePowersLT (x : Nat) : List Nat := (List.range x).filter IsPrimePower
+        | 
+
+    ### ### **AND THE ONE THING THE SURVEY FLAGS FOR THE FACE, WITHOUT DECIDING IT:**
+    ### fact (ii) is `2 Lambda(n) / sqrt(n)` -- ### **A REAL NUMBER.** ### This kernel has
+    ### no Mathlib, no Batteries and no dependencies, so it has ### **NO REALS, NO `log`
+    ### AND NO `sqrt`.** ### Whether that makes the fact unstatable here is Component 2`s
+    ### call and the face declares how it will be made.
+
+    ### **AND THE KERNEL`S OWN PRECEDENT FOR REFUSING A MEASURED TABLE:**
+      Ladder.lean:42
+        | `MEASURED-AT-BANK` and never proved. It appears in this repository only as a
+        | comment.
+        | There is deliberately no definition, statement or theorem about it.
+        | -/
+
+====================================================================================================
+  ### READS ATTEMPTED : 18
+  ### MISSES          : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================

@@ -1,0 +1,21 @@
+====================================================================================================
+b440 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b440_registration_2026-09-12.txt
+  marks found  : 2
+      OPEN                       line 28    ### ### **PARKED.** ### The wave parked. ### Nothing deposits. ### **AND THE KERNEL LANE I
+      OPEN                       line 255   ### INSTRUMENT LANE OPENED.** ### **THE KERNEL LANE IS OPEN TO BUILD FOR COMPONENT 2 ALONE
+  query result : RECORDED at line 222
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 0 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 515bc105d665c9c24f0856ecfa9ac8f3d9f5e4428e5f68065c5aecaff7924e0a  (b440_registration_2026-09-12.txt)
