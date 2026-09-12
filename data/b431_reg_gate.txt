@@ -1,0 +1,20 @@
+====================================================================================================
+b431 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b431_registration_2026-09-12.txt
+  marks found  : 1
+      OPEN                       line 19    ### KERNEL lane is OPEN TO READ and, ### **FOR THIS LEG ONLY AND BY THE ORDER'S OWN WORD, 
+  query result : RECORDED at line 34
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 0 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : fce23cad96671d86c4978fb3c393847db7c570a63ae244d708f9776b6d7f2cc0  (b431_registration_2026-09-12.txt)

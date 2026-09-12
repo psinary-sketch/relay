@@ -1,0 +1,43 @@
+b431 -- THE FOREIGN BUILD, ONE JOB AT A TIME.
+  repo      : D:/_b431_external/repo   (outside every rostered repository)
+  pin       : 03a1190d0bc5502d9f54eeb60ad3e45e22b0df0b
+  toolchain : leanprover/lean4:v4.33.0
+  corpus is : leanprover/lean4:v4.29.1
+
+  === job: LongGapsBetweenPrimes
+✔ [636/831] Built Batteries.Data.Float.Lemmas (18s)
+✔ [646/862] Built Aesop.Util.Tactic.Ext (15s)
+✔ [3119/4391] Built Mathlib.Tactic.Order (282s)
+✔ [3300/4676] Built Mathlib.Order.Filter.Basic (303s)
+✔ [3827/5107] Built Mathlib.Algebra.Algebra.NonUnitalSubalgebra (336s)
+✔ [3831/5107] Built Mathlib.LinearAlgebra.Multilinear.Basic (320s)
+✔ [4207/5121] Built Mathlib.CategoryTheory.Monoidal.Cartesian.Mon (315s)
+✔ [5000/5167] Built Mathlib.Topology.Sheaves.Presheaf (51s)
+✔ [6284/6383] Built Mathlib.Algebra.Category.CommAlgCat.Basic (110s)
+✔ [6777/6818] Built Mathlib.CategoryTheory.Localization.Trifunctor (18s)
+✔ [7134/7163] Built Mathlib.FieldTheory.Galois.IsGaloisGroup (133s)
+✔ [7255/7282] Built Mathlib.Data.List.Sigma (14s)
+✔ [7738/7769] Built Mathlib.Analysis.Normed.Module.Bases (94s)
+✔ [8196/8262] Built Mathlib.Probability.Independence.Basic (26s)
+✔ [8700/8707] Built Mathlib.Combinatorics.SimpleGraph.LapMatrix (78s)
+✔ [8701/8707] Built Mathlib.Probability.Kernel.Condexp (26s)
+
+  === RESUMED after an OOM kill at [5000/5167]. ###  b429's OOM, recurring.
+  ### lake 5.0.0 has NO -j either, so parallelism is cut with LEAN_NUM_THREADS=1;
+  ### the build is incremental, so this resumes rather than restarts.
+  === job: LongGapsBetweenPrimes (resumed)
+
+  === RETRY 2. ### The first resume was killed with a SINGLE worker at ~1.5 GB and
+  ### climbing, so the pressure is NOT parallelism: one lean process elaborating a 236 KB
+  ### file against Mathlib-wide imports is itself the load. ### Retried on a quieter
+  ### machine (7.0 GB free) with this seat's own background tasks stopped.
+  === job: LongGapsBetweenPrimes (retry 2)
+
+  === RETRY 3, IN THE FOREGROUND. ### The three prior kills were the harness protecting the
+  ### system against BACKGROUND tasks, not Lean's own allocator failing. ### This attempt
+  ### tests whether that policy is what stops the build.
+  === job: LongGapsBetweenPrimes (retry 3, foreground)
+ℹ [8706/8707] Built LongGapsBetweenPrimes (307s)
+info: LongGapsBetweenPrimes.lean:4541:0: 'LongGapsBetweenPrimes.long_prime_gaps' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8707 jobs).
+      rc=0

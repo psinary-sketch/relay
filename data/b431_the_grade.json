@@ -1,0 +1,46 @@
+{
+  "seal_read_from_face": "fce23cad96671d86c4978fb3c393847db7c570a63ae244d708f9776b6d7f2cc0",
+  "pin_pre": "03a1190d0bc5502d9f54eeb60ad3e45e22b0df0b",
+  "pin_post": "03a1190d0bc5502d9f54eeb60ad3e45e22b0df0b",
+  "pins_agree": true,
+  "paper_sha256": "e7ede84ba0b24b9d14c58d8a846876fd9f4d021b2101d0c43926ddb7f12f104b",
+  "paper_thm11": "Theorem 1.1. There is an absolute constant c> 0 such that, for all suﬃciently large X, G(X) ≥c logX(log2X)2 log4X (log3X)2 . This improves (1.1) by a factor log2X. The main input is the following statement about translates of a set of integ",
+  "paper_covering": "maining positions. Let S be the set left after these choices. Mertens' product estimate gives |S| ≤ |S0| ∏ w<p≤z (1 − 1/p) ≪ H logx logw logz ≪ H(log2x)2 (logx)2 log3x ≪ηx. (3.1) Choose arbitrary classes for x/2 < p≤ x and discard any further positions covered from S. For suﬃciently small η, the remaining set satisﬁes |S| ≤ δx. By the Chinese remainder theorem, choose 0 ≤ b < Qwith b ≡ −ap (mod p) for every prime p ≤ x. For a covered position n, the integer b +Qt +n is divisible by its covering prime for every t ≥ 1, and is greater than that prime. Proposition 1.2 handles the remaining positions S. It supplies 1 ≤ t ≤ ex such that N + 1,...,N +H are co",
+  "declared_terminals": [
+    "LongGapsBetweenPrimes.long_prime_gaps",
+    "LongGapsBetweenPrimes.long_gap_theorem",
+    "LongGapsBetweenPrimes.short_translates"
+  ],
+  "terminal_line": 4502,
+  "terminal_src": "theorem long_prime_gaps : ∃ c X₀ : ℝ, 0 < c ∧ ∀ X : ℝ, X₀ ≤ X → ∃ n : ℕ, (Nat.nth Nat.Prime (n + 1) : ℝ) < X ∧ c * (Real.log X * Real.log (Real.log X) ^ 2 * Real.log (Real.log (Real.log (Real.log X))) / Real.log (Real.log (Real.log X)) ^ 2) < (Nat.nth Nat.Prime (n + 1) : ℝ) - Nat.nth Nat.Prime n := by obtain ⟨c, hc, hgap⟩ := long_gap_theorem",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "jobs": 1,
+  "jobs_ok": 1,
+  "built": true,
+  "profile_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "axioms_beyond_three": [],
+  "profile_line": "'LongGapsBetweenPrimes.long_prime_gaps' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "sorryAx": 0,
+  "profile_clean": true,
+  "sorry_raw": 1,
+  "sorry_terms": 1,
+  "clauses_mapped": 5,
+  "clauses_total": 5,
+  "defenc": false,
+  "defenc_control_fires": true,
+  "reference_statement_identical": true,
+  "comparator_shipped": true,
+  "comparator_run": false,
+  "comparator_deps_present": {
+    "landrun": false,
+    "lean4export": false,
+    "nanoda_bin": false
+  },
+  "grade": "DERIVES",
+  "witness_moduli_singleton": true,
+  "typed_verdict": "TWO THEOREMS SHARING A NAME"
+}

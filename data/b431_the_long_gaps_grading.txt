@@ -1,0 +1,74 @@
+====================================================================================================
+b431 -- THE LongGapsBetweenPrimes GRADING, AND THE TYPE-D QUESTION.
+THE BANK.
+====================================================================================================
+
+### b431 — the LongGapsBetweenPrimes grading, and the Type-D question — filed 2026-09-12
+**A second stranger graded by the same protocol, and a question about the corpus’s own keystone decided by unfolding. __TRIGGER: cited nowhere until the author rules whether it is.__ Banked at relay; no corpus document cites it.**
+#### A breach of order, declared
+**The repository address was resolved by `ls-remote` at step zero, before this act’s face was locked.** That is a network read ahead of the lock and the rule says the lock comes first. It is recorded at `data/b431_stepzero_lsremote.txt`; the post-lock pin is printed beside it and **the two agree at `03a1190d0bc5`**. The breach changed nothing and is a breach regardless.
+#### The addresses, and the terminal
+Two, and no others; nothing guessed. `github.com/openai/LongGapsBetweenPrimes` at `03a1190d0bc5`; the paper at `cdn.openai.com`, `sha256 e7ede84ba0b24b9d`. **The README names no theorem** — as at b429 — and the terminals come from `formalization.yaml`, which declares three main results and says the project formalizes *“Theorem 1.1 and Proposition 1.2”*. Of the three, the one whose **statement** is Theorem 1.1 is `LongGapsBetweenPrimes.long_prime_gaps`, chosen by reading the statements and not the names.
+Foreign toolchain `leanprover/lean4:v4.33.0` against the corpus’s `v4.29.1` — **the foreign pin is newer**, again. The build ran one job at a time. The profile is `depends on axioms: [propext, Classical.choice, Quot.sound]`, read from the printer’s own output.
+#### The grade
+**GRADE: `DERIVES`, against the paper’s Theorem 1.1** — the claim named in the same sentence, under (R40). 5 of 5 clauses of Theorem 1.1 map to the terminal’s own text: an absolute constant `c > 0`; all sufficiently large `X`; a gap between **consecutive** primes (`Nat.nth Nat.Prime (n+1)` and `Nat.nth Nat.Prime n`); the gap below `X`; and the bound `log X (log₂X)² log₄X / (log₃X)²` term for term.
+**The four clauses b429 compared were applied here too**, because b430 settled that they are the discipline’s and not one act’s: the profile from the printer with `sorryAx` sought by name; the statement unfolded to its base objects; the fourth grade available; and the definitions put to `rowgen`’s `defenc` with a control appended so that a `False` is a result.
+#### The Type-D question: **TWO THEOREMS SHARING A NAME**
+**Decided by unfolding and never by the word.** One of these is *called* `crt_exhaustiveness`; the other *uses* the Chinese remainder theorem in its proof. Neither fact is evidence about what either states.
+- **The paper:** *“By the Chinese remainder theorem, choose 0 ≤ b < Q with b ≡ −a_p (mod p) for every prime p ≤ x”*, with `Q(x) = ∏_{p≤x} p`. **The number of moduli is π(x) and it grows without bound** — the theorem is about all sufficiently large `X`, with `x = (log X)/3`.
+- **The keystone’s lemma:** `crt_exhaustiveness (sc : StructuralCoupling) : ∃ m : ModularCoupling, ∀ n, sc.eval n ↔ m.eval n`. `StructuralCoupling` is a **syntactic** inductive over six constructors, each carrying an explicit finite modulus; its `period` is the lcm of its own moduli and is **fixed by the term**. The witness is `to_modular sc = ofPeriodic sc.period`, whose **`moduli := {L}` is a singleton**.
+**They part at what is quantified — a fixed period against all moduli.** And one refinement the measurement adds to that reading: the keystone’s lemma does not range over all moduli and then collapse them. **Its witness never leaves a single modulus at all.** No product over primes appears in the statement or in the proof, and no Chinese remainder theorem is invoked — the proof is the periodic lift, `ofPeriodic_eval`.
+**What the verdict does not say.** It does **not** say the keystone’s lemma is false: it is true and cleanly proved — a predicate built from finitely many congruence conditions *is* a congruence condition modulo the lcm of its moduli. It does **not** say the paper’s construction is an instance of it, or that it is not: the two statements do not quantify over the same thing, so neither contains the other and no bridge is available to be typed.
+**And one finding about the corpus’s own keystone, routed and not acted on.** The name `crt_exhaustiveness`, and the keystone’s prose about *“what the Chinese Remainder Theorem explains at every finite modulus”*, describe the intuition; the statement is the periodic lift. **No bridge typed, keystone unedited, grade unmoved.** The author rules whether the name and the prose should say what the lemma says.
+#### The arc, and the lanes this act leaves where it found them
+**W-ORD-WITNESS-ENUMERATION stays checkpointed after site (iii)**; this act entered no site. The disproof lane named at b428 stays **named and not opened**. Both instrument lanes stay parked and the wave stays parked.
+#### The four lists
+**LIST 1** — the rows that cite at a ref nobody can name (b373). **OPEN.** **LIST 2** — the rows grading a declaration the record has classified absent (b373). **OPEN.** **LIST 3** — the undated figures across the roster (b374). **OPEN.** **LIST 4** — the bibliography entries nothing cites (b374). **OPEN.** Trigger: the ruling on which test governs, or any disposition on the four open lists.
+#### What this act did not do
+0 grades of the corpus’s own moved, conferred or minted on the record. 0 bridges typed. 0 keystones edited, annotated or re-graded. 0 premises discharged. 0 doors restated. 0 routes proposed. 0 lanes opened. 0 kappa measured. 0 corpus `.lean` files touched and 0 corpus kernel builds. 0 rows of `FACES_LEDGER.md`. 0 register rows. 0 bytes of the foreign repository entered any rostered repository. 0 claims about either conjecture’s truth. 0 deposit actions. **And h2 where the deposit left it.**
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATION (L2), AS THE REPORT SCORED IT.
+----------------------------------------------------------------------------------------------------
+  (L2)(a) the terminal grades DERIVES            : True
+  (L2)(b) its profile is clean                   : True
+  (L2)(c) the Type-D verdict reads TWO THEOREMS  : True
+  (L2)(c) and its REASON, scored apart -- parting at what is quantified : True
+  ### **EACH CLAUSE SCORED ONCE, APART, AND EACH REFUTABLE BY A PRINTED RESULT.**
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE.
+----------------------------------------------------------------------------------------------------
+  arms run 79 ; passing 77
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  the LongGapsBetweenPrimes grading (leg 2 of the b430-b432 sortie)      CLOSE
+  the Type-D question                                                    CLOSE
+  the conspiracy keystone`s lemma name and prose                         STANDING
+  the three gradings, cited nowhere                                      STANDING
+  the pre-lock network read at b431 step zero                            STANDING
+  the fourth grade`s standing in the corpus`s vocabulary                 STANDING
+  the write list that omits the ritual`s own writes                      STANDING
+  the disproof lane, named and not opened (b428)                         STANDING
+  W-ORD-WITNESS-ENUMERATION, sites (iv) to (vi)                          STANDING
+  whether the arc is converging on one boundary                          STANDING
+  whether the witness cell should carry the list inside its own text (b4 STANDING
+  (R38)`s two clauses, divergent on a mixed set                          STANDING
+  the lane`s condition under (R38)                                       STANDING
+  OPEN_TRAILS O.8 -- the DESI five-year release                          STANDING
+  the seat`s reading of §10.2 (b423)                                     STANDING
+  the four open lists                                                    STANDING
+  W-ORD-LI-WEIL-BRIDGE                                                   STANDING
+  W-ORD-DISCRIMINATING-FAMILY / W-ORD-LI-FAMILY-CONTROL                  STANDING
+  the scan`s sites against the lock`s zero                               STANDING
+  row U1                                                                 STANDING
+  M-2                                                                    STANDING
+  h2                                                                     STANDING
+
+  ITEMS SWEPT : 22. CLOSED : 2. STANDING : 20.
+
+  CORRESPONDENCE ROW : 280. ### KEY : PASS.
+
+====================================================================================================

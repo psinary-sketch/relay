@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-long-gaps-grading': ['the long gaps grading', 'long_prime_gaps graded', 'the type-d question', 'is the covering construction the keystone`s lemma', 'crt exhaustiveness unfolded'],
     'the-self-control': ['the self-control', 'smear_general graded', 'grading the corpus`s own terminal', 'the four clauses compared', 'is the grading discipline symmetric'],
     'the-external-grading-read': ['the external grading read', 'the navier stokes lean terminal graded', 'the self grading test', 'calibration of the grading discipline', 'b429 external read'],
     'site-iii-and-two-filings': ['the witness arc at site iii', 'the width coordinate union', 'the disproof lane named', 'the external grading read priced', 'b428 site iii and two filings'],
@@ -684,6 +685,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE LongGapsBetweenPrimes GRADING (b431).
+    ('the-long-gaps-grading', 'b431 (the LongGapsBetweenPrimes grading and the Type-D question)',
+     "b431 GRADED openai/LongGapsBetweenPrimes' long_prime_gaps AGAINST THE PAPER'S OWN THEOREM 1.1. Repository pinned at 03a1190d0bc5, paper at sha256 e7ede84ba0b24b9d, foreign toolchain leanprover/lean4:v4.33.0 against the corpus's v4.29.1; built one job at a time; profile from #print axioms. GRADE DERIVES, 5 of 5 clauses mapped, all four of b429's clauses applied. THE TYPE-D QUESTION: TWO THEOREMS SHARING A NAME. The paper chooses a residue class modulo every prime p <= x and assembles by CRT into one class mod Q(x); the keystone's compiled crt_exhaustiveness takes ONE syntactic coupling whose period is fixed by the term, and its witness's modulus set is a SINGLETON -- no product over primes and no CRT in the proof, which is the periodic lift. They part at what is quantified. The lemma is true; it is the name and the keystone's prose that claim CRT, and that is ROUTED. No bridge typed, keystone unedited. Cited in no corpus document.",
+     "### NO GRADE OF THE CORPUS'S OWN MOVED. ### NO BRIDGE TYPED. ### NO KEYSTONE EDITED. ### NOTHING DEPOSITS",
+     'data/b431_the_long_gaps_grading.txt; data/b431_components.txt; data/b431_the_grade.json; data/b431_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 280'),
     # ### THE SELF-CONTROL (b430).
     ('the-self-control', 'b430 (the self-control)',
      "b430 GRADED THE CORPUS'S OWN SmearGeneral.smear_general BY b429'S PROTOCOL, TWICE UNDER (R40). Built at pin 6e454b1b7ba3, 3 jobs one at a time; profile from #print axioms, empty, no sorryAx; statement unfolded to 4 of 4 base objects at their own file and line; definitions checked by rowgen's defenc with a live control, False. GRADE DERIVES against the claim correspondence row 268 names; GRADE NOT THE CLAIM against the claim the finite-side prose makes (F5 line 153 and K3), for two independent reasons -- scope, and the objects the statement names. THE FOUR CLAUSES: 4 of 4 applied to itself as to the stranger; VERDICT SYMMETRIC; one trial against one trial. Cited in no corpus document.",
