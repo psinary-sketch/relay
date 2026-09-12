@@ -121,11 +121,20 @@ def committed_by_act(repo, pat):
     ### THEN SEES NOTHING** -- so the post-push reading would score the write list over an empty
     ### set and call that a pass. ### The act`s own written set is the union of what the tree
     ### still shows and what THIS ACT`S COMMIT carries."""
-    head = git(repo, 'log', '-1', '--format=%s')
-    if 'b440' not in head:
-        return []
-    out = git(repo, 'show', '--name-only', '--format=', 'HEAD').splitlines()
-    return [f.strip() for f in out if f.strip() and re.search(pat, f)]
+    # ### **AN ACT IS NOT ONE COMMIT.** ### b440 lands in four -- the act, the closing suite, the
+    # ### closing record, and this repair -- so an arm reading only `HEAD` sees the last of them
+    # ### and scores the write list over two files. ### **EVERY COMMIT WHOSE SUBJECT NAMES THIS
+    # ### ACT IS READ**, and the act's own boundary bounds how far back that can reach.
+    out = []
+    for ln in git(repo, 'log', '--format=%H %s', '-40').splitlines():
+        sha, _, subj = ln.partition(' ')
+        if 'b440' not in subj:
+            continue
+        for f in git(repo, 'show', '--name-only', '--format=', sha).splitlines():
+            f = f.strip()
+            if f and re.search(pat, f):
+                out.append(f)
+    return sorted(set(out))
 
 
 def appended_only(repo, path):
