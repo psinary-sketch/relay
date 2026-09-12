@@ -1,0 +1,139 @@
+====================================================================================================
+b437 -- THE WINDOW OPENED BY RUNGS.
+THE BANK.
+====================================================================================================
+
+### b437 — the window opened by rungs — filed 2026-09-12
+**(R48) executed: the window is opened by rungs, along the compiled ladder, on the same instrument.** Twenty-two new cells past the record’s last, every one carrying its own identity residual as its control. **0 failed the identity. 0 had a non-zero pole term. 0 had a negative zero side.**
+#### Component 1 — the ladder and the measured cells, joined for the first time
+`SIDE-window`’s ladder is compiled at its pin by `decide` and its `W` counts prime powers — **with no relation whatever to the corpus’s `W_∞`**, which its own header flags and which this act keeps in separate columns throughout. The rung of a cell is `W(a²)`, the ladder’s own **strict** count.
+**The join corrected a convention before it was used.** An inclusive count puts `9` in the rung at `a = 3.0` and the instrument admits six terms, not seven — because **a prime power sitting exactly at `a²` lands on the support edge, where the bump vanishes**, so its term is identically zero. The ladder’s strict `W 9 = 6` and the instrument agree; the inclusive count was the odd one out. It is also why a rung boundary is crossed **continuously**: a new member enters weighted zero and grows in.
+**The sign question, as a measurement.** Both of the prime constituent’s sign changes bracket exactly one rung boundary — `n = 3` at `a = 1.7321`, between the cells `1.7` and `1.9`; `n = 7` at `a = 2.6458`, between `2.4` and `2.8`. **And the converse, in the same breath: 4 of 6 boundaries are crossed with no sign change at all.** So the coincidence runs one way only, and is reported as running one way only. **The record printed both halves and never joined them until now.**
+#### Component 2 — the extension, and what the ratio actually did
+**The route is the record’s and the obvious one would have been wrong.** `carto_atlas.channels(a)` caps its prime loop at `log a`; the lawful `f = g ∗ g^#` has support `[a^{-2}, a²]`, and `b321` wrote in its own header that **no argument to `channels` produces it**. The chain is `mean_zero_variant → autocorrelation → `b321_window.channels``, and it was proved to be the record’s by **reproducing `a = 3.0` to every printed digit** before a single new cell was asked for.
+**The ratio climbs, turns, and then diverges on a vanishing denominator.** It rises from `0.377` at `a = 3.0` to a peak of **`0.875425` at `a = 4.000000`** — and then falls, to `0.075` at `a = 5.098`. Past that the prime constituent changes sign a third time and **the archimedean channel collapses**: `A` runs `0.0199 → 0.0125 → 0.0055 → 0.0022` and **passes through zero at `a = 5.656854`, where `A = -0.001104564`**. The four cells where `|PR|/A` exceeds one are **the denominator vanishing, not the prime constituent overtaking the archimedean one** — and the distinction is the whole of the reading.
+#### Component 3 — stated before the numbers, and it is what saved the reading
+Section (X) of the locked face fixed, **before any new value existed**, that `PR/A > 1` on the positive branch is the same statement as `Z < 0` — and that `Z` is a sum of **non-negative** terms (`f̂ = |ĝ|²`) over ordinates that are **all on the line**, so it cannot be negative and a crossing there would be an instrument artefact. **`Z` never went negative at any of the 35 cells.** The face also fixed that the positivity is *assumed, not tested*: an instrument summing only on-line ordinates cannot report the case the criterion exists to detect.
+**And the criterion is satisfied everywhere on the ladder.** `Σ_v W_v = PR − A` is non-positive at **every one of the 35 cells**, old and new.
+#### The floor, priced past three radii for the first time
+The noise-floor gate had been run at **three radii only** — `1.3`, `1.35`, `1.41`, all below `√2`, all prime-free — where it refused 3 of 6, the domain values drifting. This act priced it at **3 radii around the crossing**, `5.196152`, `5.385165`, `5.567764`, by re-running the same gate on a doubled autocorrelation grid. **It RESOLVES** — deltas `6.3e-07`, `6.4e-07`, `2.3e-07`, far above the `1.49e-08` floor. So the crossing is **not** UNDECIDED-AT-THE-EDGE on the floor question; it is undecided for a different reason, which is that `A` is going to zero.
+#### The trigger, named and not pulled
+`b432` wrote the disproof lane’s trigger as *"the instrument lane opening"*, and `(R48)` opens the instrument lane. **The condition is met.** This act names it on its own face rather than leaving it to be noticed afterwards, and **does not open the lane**: `(R48)` opens the instrument lane *for the window ladder only*, and opening a second lane is not extension along that ladder. **The disposition is the author’s.**
+#### What this act did not do
+**No new instrument was built** and not one line of `carto_atlas.py`, `b317_smear.py`, `b318_square.py`, `b321_window.py` or `noise_floor.py` moved; `SIDE-window` was read at its pin and is byte-unmoved. No cell was written and `FACES_LEDGER.md` is byte-unmoved; the register stays frozen at six. No grade moved; no claim is made about RH, `h2` or ζ. **The instrument lane closes at this act’s end.** The arc stays checkpointed after site (iv); the four lists stay open; `h2` is where the deposit left it.
+
+----------------------------------------------------------------------------------------------------
+### THE LADDER AND THE MEASURED CELLS.
+----------------------------------------------------------------------------------------------------
+  a       a^2       rung   PR (primes)      prime powers
+  1.3     1.6900    0      0.000000000      []
+  1.35    1.8225    0      0.000000000      []
+  1.41    1.9881    0      0.000000000      []
+  1.5     2.2500    1      0.000062755      [2]
+  1.7     2.8900    1      0.007899310      [2]
+  1.9     3.6100    2      -0.022845349     [2, 3]
+  1.99    3.9601    2      -0.048084359     [2, 3]
+  2.0     4.0000    2      -0.050297989     [2, 3]
+  2.01    4.0401    3      -0.052359535     [2, 3, 4]
+  2.1     4.4100    3      -0.064050234     [2, 3, 4]
+  2.4     5.7600    4      -0.030383030     [2, 3, 4, 5]
+  2.8     7.8400    5      0.118199794      [2, 3, 4, 5, 7]
+  3.0     9.0000    6      0.190860829      [2, 3, 4, 5, 7, 8]
+
+----------------------------------------------------------------------------------------------------
+### THE RATIO, OLD AND NEW, IN ONE COLUMN.
+----------------------------------------------------------------------------------------------------
+  a         rung   src    A (arch)        PR (primes)     |PR| / A
+  1.300000  0      b321   0.000000000     0.000000000     n/a
+  1.350000  0      b321   0.000000000     0.000000000     n/a
+  1.410000  0      b321   0.000000000     0.000000000     n/a
+  1.500000  1      b321   4.372801098     0.000062755     0.000014
+  1.700000  1      b321   2.723018452     0.007899310     0.002901
+  1.900000  2      b321   1.889498505     -0.022845349    0.012091
+  1.990000  2      b321   1.638981336     -0.048084359    0.029338
+  2.000000  2      b321   1.614353480     -0.050297989    0.031157
+  2.010000  3      b321   1.590290016     -0.052359535    0.032925
+  2.100000  3      b321   1.396323322     -0.064050234    0.045871
+  2.400000  4      b321   0.952619641     -0.030383030    0.031894
+  2.800000  5      b321   0.617613198     0.118199794     0.191382
+  3.000000  6      b321   0.506677452     0.190860829     0.376691
+  3.158312  7      b437   0.435381631     0.230710787     0.529905
+  3.316625  8      b437   0.375134153     0.249486886     0.665060
+  3.461088  8      b437   0.327818953     0.249599919     0.761396
+  3.605551  8      b437   0.286442261     0.237179625     0.828019
+  3.802776  9      b437   0.237725380     0.207723694     0.873797
+  4.000000  9      b437   0.196222601     0.171778231     0.875425
+  4.061553  10     b437   0.184506219     0.160168231     0.868091
+  4.123106  11     b437   0.173311991     0.148578723     0.857290
+  4.241002  11     b437   0.153210236     0.126737420     0.827212
+  4.358899  12     b437   0.134697715     0.105721124     0.784877
+  4.577365  12     b437   0.104013468     0.069815243     0.671213
+  4.795832  13     b437   0.077283576     0.038489260     0.498026
+  4.897916  13     b437   0.065944906     0.025545335     0.387374
+  5.000000  13     b437   0.055255226     0.013717208     0.248252
+  5.098076  14     b437   0.045547374     0.003397174     0.074586
+  5.196152  14     b437   0.036347742     -0.005942117    0.163480
+  5.290659  15     b437   0.027928227     -0.014081642    0.504208
+  5.385165  16     b437   0.019914730     -0.021463576    1.077774
+  5.476465  16     b437   0.012532314     -0.027965798    2.231495
+  5.567764  16     b437   0.005479710     -0.033938342    6.193456
+  5.612309  17     b437   0.002151996     -0.036685546    17.047216
+  5.656854  17     b437   -0.001104564    -0.039335749    -35.612012
+
+----------------------------------------------------------------------------------------------------
+### THE NAVIGATOR`S EXPECTATIONS, AS THE COMPONENTS SCORED THEM.
+----------------------------------------------------------------------------------------------------
+  ### (6) THE EXPECTATIONS, SCORED.
+  ----------------------------------------------------------------------------------------------------
+  ### **(N1) the sign changes coincide with rung boundaries**
+  sign changes 2, each bracketing a boundary 2 ; boundaries with no sign change 4 of 6
+  ### ### **HELD** -- and the coincidence runs ONE WAY ONLY, which is printed beside
+  ### the verdict rather than left out of it.
+  ### **(N2), ITS TWO CLAUSES APART** (R27)
+  (a) the ratio continues to climb
+  from 0.529905 at a = 3.158312 to -35.612012 at a = 5.656854 ; monotone across the span : False
+  ### ### **### REFUTED**
+  (b) it crosses one within a few rungs
+  cells above one : 4   ### ### **HELD**
+  ### **(N3) the crossing reads UNDECIDED-AT-THE-EDGE**
+  ### ### **### REFUTED -- the floor was priced at the crossing and RESOLVED it**
+  ### MISSES : 0
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE.
+----------------------------------------------------------------------------------------------------
+  arms run 91 ; passing 91 ; failing 0
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  the ladder and the measured cells, joined                              CLOSE
+  whether the sign changes sit at rung boundaries                        CLOSE
+  THE FINDING: the ratio rises, turns, and then diverges on a vanishing  STANDING
+  whether the criterion is violated anywhere on the ladder               CLOSE
+  the instrument`s floor, past three radii for the first time            CLOSE
+  what a vanishing archimedean channel means                             STANDING
+  b432`s disproof-lane trigger                                           STANDING
+  the routed citation from b436                                          CLOSE
+  the witness arc, sites (v) and (vi)                                    STANDING
+  that the corpus has no instrument for the universal negative           STANDING
+  the register, frozen at six                                            STANDING
+  the fourth grade, now defined                                          STANDING
+  (R38)`s two clauses, divergent on a mixed set                          STANDING
+  the lane`s condition under (R38)                                       STANDING
+  whether the witness cell should carry the list inside its own text (b4 STANDING
+  OPEN_TRAILS O.8 -- the DESI five-year release                          STANDING
+  the seat`s reading of §10.2 (b423)                                     STANDING
+  the four open lists                                                    STANDING
+  W-ORD-LI-WEIL-BRIDGE                                                   STANDING
+  W-ORD-DISCRIMINATING-FAMILY / W-ORD-LI-FAMILY-CONTROL                  STANDING
+  the scan`s sites against the lock`s zero                               STANDING
+  row U1                                                                 STANDING
+  M-2                                                                    STANDING
+  h2                                                                     STANDING
+
+  ITEMS SWEPT : 24. CLOSED : 5. STANDING : 19.
+
+  CORRESPONDENCE ROW : 286. ### KEY : PASS.
+
+====================================================================================================

@@ -1,0 +1,209 @@
+====================================================================================================
+b437 -- THE WINDOW OPENED BY RUNGS. ### THE SURVEY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (0) THE ROUTED CITATION FROM b436, CORRECTED HERE AND NOT IN ITS BANK.
+----------------------------------------------------------------------------------------------------
+    ### `b436` quoted the bump`s normalization from a READER TOOL. ### Both locations are
+    ### named here, the primary first, and ### **b436`S BANK IS NOT EDITED.**
+
+    ### **THE PRIMARY SOURCE, WHICH WAS ON DISK THE WHOLE TIME:**
+      carto_atlas.py:50
+        | w /= np.trapezoid(w, v)
+        ### and the function it sits in:
+      carto_atlas.py:43
+        | def bump(a):
+        | L = math.log(a)
+        | v = np.linspace(-L, L, NV)
+
+    ### **WHAT b436 QUOTED INSTEAD -- accurate, but second-hand:**
+      b355_read.py:81
+        | show(t('e16/carto_atlas.py'), 'w /= np.trapezoid(w, v)',
+        | 'the normalising constant is the PIECEWISE-LINEAR integral, not the smooth one')
+
+    ### ### **THE LINE IS VERBATIM THE SAME, SO NOTHING b436 BANKED IS WRONG.** ### What
+    ### was wrong is the citation: ### **READ THE ARTEFACT IN ITS OWN WORDING**, and a
+    ### tool that displays a line is not the line.
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE LADDER, AT ITS PIN, AND WHAT IT REFUSES TO CLAIM.
+----------------------------------------------------------------------------------------------------
+    SIDE-window pin : 3dab5f4249f4a29bdd51391fc2f8e1119c0f4c09
+    describe        : v0.5.0-1-g3dab5f4
+    working tree    : CLEAN -- the terminals below are the pinned ones
+
+    ### **THE LADDER ITSELF:**
+      Ladder.lean:75
+        | theorem the_window_ladder :
+        | W 2 = 0 ∧ W 3 = 1 ∧ W 4 = 2 ∧ W 5 = 3 := by decide
+        | 
+
+    ### **AND THE PER-RUNG COUNT, TABULATED AND COMPILED BY `decide`:**
+      Ladder.lean:84
+        | theorem W_table_low :
+        | W 2 = 0 ∧ W 3 = 1 ∧ W 4 = 2 ∧ W 5 = 3 ∧ W 6 = 4 ∧
+        | W 7 = 4 ∧ W 8 = 5 ∧ W 9 = 6 ∧ W 10 = 7 := by decide
+      Ladder.lean:88
+        | theorem W_table_mid :
+        | W 11 = 7 ∧ W 12 = 8 ∧ W 13 = 8 ∧ W 14 = 9 ∧ W 15 = 9 ∧
+        | W 16 = 9 ∧ W 17 = 10 ∧ W 18 = 11 := by decide
+      Ladder.lean:104
+        | theorem primePowers_below_eighteen :
+        | primePowersLT 18 = [2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17] := by decide
+        | 
+
+    ### ### **AND THE NON-CLAIM THIS ACT MUST CARRY AT PROMINENCE**, in the file`s own
+    ### words, because the letter collides with the corpus`s:
+      Ladder.lean:22
+        | NO RELATION WHATEVER to the corpus's `W_2` / `W_∞`. The collision of names is
+        | unfortunate and is flagged here so it cannot mislead: `W n` counts prime powers
+        | below `n`, nothing else.
+      Ladder.lean:19
+        | * IT PROVES NOTHING ABOUT ζ, ABOUT `h2`, OR ABOUT ANY OPERATOR INEQUALITY.
+        | Nothing here bears on the sign of `W_∞ − W_2`, and no result may be cited as
+        | evidence about it. The letter `W` below is a COUNTING FUNCTION on naturals and has
+
+    ### ### **SO `W n` BELOW IS A COUNT OF PRIME POWERS AND NEVER THE CORPUS`S `W_inf`.**
+    ### This act keeps them in separate columns and never writes one for the other.
+
+    ### **MAXIMALITY IS AT INTEGER BOUNDS ONLY, AND THE REAL-`L` STEP IS NOT IN THE FILE:**
+      Ladder.lean:30
+        | * MAXIMALITY IS AT INTEGER BOUNDS ONLY. `window_four_is_maximal_two_prime` says the
+        | count below `4` is `2` and the count below `5` is `3`. Extending to real `L` uses
+        | that `L ↦ W L` is a step function jumping exactly at prime powers, hence constant
+        | between consecutive ones. THAT ARGUMENT IS STANDARD AND IS NOT IN THIS FILE.
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE COUNTING FUNCTION RECOMPUTED, AND CHECKED AGAINST THE COMPILED TABLE.
+----------------------------------------------------------------------------------------------------
+    ### **A RECOMPUTATION IS NOT TRUSTED BECAUSE IT IS SHORT.** ### Every compiled value
+    ### is reproduced before any cell is assigned a rung.
+    compiled values checked : 17 ; disagreements : 0
+    primePowersLT 18 recomputed : [2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17]
+    compiled                    : [2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17]
+    ### ### **AGREES, MEMBER FOR MEMBER. ### THE RECOMPUTATION MAY BE USED.**
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE ROUTE THE RECORD USES -- ### **AND THE ONE THAT WOULD NOT HAVE CONTINUED IT.**
+----------------------------------------------------------------------------------------------------
+    ### **THE TRAP, NAMED BY b321 ITSELF BEFORE THIS ACT MET IT:**
+      b321_window.py:6
+        | ### ### **IT COMPUTES THEM FOR ITS OWN BUMP AND FOR NOTHING ELSE**:
+        | `carto_atlas.channels(a)` builds
+        | ### `bump(a)` inside itself and caps the prime loop at `log a`. ### The lawful
+        | function of this arc
+        | ### is `f = g conv g^#`, whose support in `v` is ### **TWICE** ### the seed's, and
+        | no argument to
+        | ### `channels` produces it.
+        | ### ### **SO THE CHANNELS ARE RE-FORMED HERE ON AN ARBITRARY TEST FUNCTION, AND THAT
+        | IS A
+        | ### ### RE-IMPLEMENTATION, WHICH IS A THING THAT NEEDS A FIXTURE AND NOT A
+        | PROMISE.** ### Fixture
+
+    ### ### **SO `carto_atlas.channels(a)` CAPS ITS PRIME LOOP AT `log a`, AND THE LAWFUL
+    ### ### `f = g conv g^#` HAS SUPPORT `[a^-2, a^2]`.** ### Extending the record with
+    ### the raw atlas would have produced a column that does not continue b321`s table --
+    ### at `a = 1.5` the atlas admits nothing and the record prints `0.000062755`.
+
+    ### **THE ROUTE THE RECORD ACTUALLY USES, AT ITS OWN LINES:**
+      b321_run.py:140
+        | g = SM.mean_zero_variant(a)
+        | f = SQ.autocorrelation(g)
+        | ru = WI.remainder_integral(f, EF, 'uniform')
+        | rc = WI.remainder_integral(f, EF, 'cheb')
+
+    ### and the channels it calls, with the residual the identity requires to vanish:
+      b321_window.py:130
+        | def channels(v, w):
+        | """### ### **THE FOUR CHANNELS OF THE EXPLICIT FORMULA, ON ANY `(v, w)`.**
+      b321_window.py:144
+        | residual=Z - (P - PR + A), prime_terms=terms)
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE NORMALIZATION, QUOTED -- AND WHAT THE EMITTING ACT SAYS ABOUT COMPARING COLUMNS.
+----------------------------------------------------------------------------------------------------
+      b317_smear.py:175
+        | ### The scale is fixed by ### **`INT |f| dv = 1`**, which is the same number the
+        | integral-one
+        | ### bump carries (its `L1` norm IS its integral, since it is non-negative). ### **SO
+        | THE TWO
+        | ### ### COLUMNS ARE NORMALISED THE SAME WAY AND THE COMPARISON BETWEEN THEM IS NOT A
+        | SCALE.**
+        | """
+
+    ### ### **THE EMITTING ACT SAYS IN ITS OWN WORDS THAT THE COMPARISON IS NOT A SCALE**,
+    ### which is the second independent support for b436`s COMPARABLE verdict -- the
+    ### first being the identity verified at all thirteen cells.
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE MEASURED CELLS, AND THE RUNG EACH SITS ON.
+----------------------------------------------------------------------------------------------------
+    ### **SUPPORT IS `[a^-2, a^2]`, SO THE RUNG IS THE COUNT OF PRIME POWERS `<= a^2`.**
+    ### The rung NAME is the ladder`s where the ladder names it, and the count
+    ### otherwise. ### **NO NAME IS INVENTED FOR A RUNG THE LADDER DOES NOT NAME.**
+
+      a       a^2       rung  rung name                      PR (primes)      prime powers    
+      1.3     1.6900    0     prime-free  (ladder: W 2 = 0)  0.000000000      []
+      1.35    1.8225    0     prime-free  (ladder: W 2 = 0)  0.000000000      []
+      1.41    1.9881    0     prime-free  (ladder: W 2 = 0)  0.000000000      []
+      1.5     2.2500    1     one-prime   (ladder: W 3 = 1)  0.000062755      [2]
+      1.7     2.8900    1     one-prime   (ladder: W 3 = 1)  0.007899310      [2]
+      1.9     3.6100    2     two-prime   (ladder: W 4 = 2)  -0.022845349     [2, 3]
+      1.99    3.9601    2     two-prime   (ladder: W 4 = 2)  -0.048084359     [2, 3]
+      2.0     4.0000    2     two-prime   (ladder: W 4 = 2)  -0.050297989     [2, 3]
+      2.01    4.0401    3     count 3 (ladder tabulates, does not name) -0.052359535     [2, 3, 4]
+      2.1     4.4100    3     count 3 (ladder tabulates, does not name) -0.064050234     [2, 3, 4]
+      2.4     5.7600    4     count 4 (ladder tabulates, does not name) -0.030383030     [2, 3, 4, 5]
+      2.8     7.8400    5     count 5 (ladder tabulates, does not name) 0.118199794      [2, 3, 4, 5, 7]
+      3.0     9.0000    6     count 6 (ladder tabulates, does not name) 0.190860829      [2, 3, 4, 5, 7, 8]
+
+    ### **AND THE CROSS-CHECK AGAINST b321`S OWN SENTENCE ABOUT WHAT IS ADMITTED:**
+      b321_the_window_opened.txt:252
+        | ### powers actually admitted run `[2]` at `a = 1.5, 1.7`, up to `[2, 4, 8, 3, 5, 7]`
+        | at `a = 3`.
+        | ### **THAT THE COVERED CELLS ARE SILENT IS A FACT ABOUT A SUPPORT AND NOT A
+        | FINDING.**
+
+----------------------------------------------------------------------------------------------------
+  ### (6) THE INSTRUMENT`S FLOOR -- ### **WHERE IT WAS PRICED, AND HOW FAR.**
+----------------------------------------------------------------------------------------------------
+      b321_components_run.txt:275
+        | ### THE NOISE-FLOOR GATE, IN THE PATH.
+        | domain a=1.3 8.575142606 -> 8.599100561 DRIFTING
+        | identity a=1.3 -0.158889558 -> -0.158889572 RESOLVED
+        | domain a=1.35 6.902180565 -> 6.923497716 DRIFTING
+        | identity a=1.35 -0.186481766 -> -0.186481788 RESOLVED
+        | domain a=1.41 5.488727352 -> 5.507915818 DRIFTING
+        | identity a=1.41 -0.221284108 -> -0.221284143 RESOLVED
+        | ### ### REFUSED -- 3 of 6 value(s) rest on the instrument floor: domain a=1.3,
+        | domain a=1.35, domain a=1.41
+        | ### **THE IDENTITY VALUES ARE RESOLVED AND THE DOMAIN VALUES ARE NOT.** ### So the
+
+    ### ### **PRICED AT THREE RADII: `a = 1.3`, `1.35`, `1.41` -- ALL BELOW `2^{1/2}`,
+    ### ### ALL PRIME-FREE, AND NEVER RUN PAST THEM.**
+    ### At those three the gate REFUSED `3` of `6`: the DOMAIN values DRIFTING, the
+    ### IDENTITY values RESOLVED. ### **SO EVERY CELL THIS ACT TOUCHES -- AND EVERY CELL
+    ### ### b436 READ -- SITS AT A RADIUS WHERE THE FLOOR HAS NEVER BEEN PRICED.**
+    ### the gate`s own floor constant, at its emitting file:
+      noise_floor.py:49
+        | DEFAULT_FLOOR = math.sqrt(MACHINE_EPS) # ### 1.4901161193847656e-08
+      noise_floor.py:58
+        | DEFAULT_DRIFT_BAR = 1e-3
+
+----------------------------------------------------------------------------------------------------
+  ### (7) THE REPRODUCTION CHECK, BEFORE ANY NEW VALUE IS ASKED FOR.
+----------------------------------------------------------------------------------------------------
+    ### **THE ROUTE WAS RUN ONCE AT A RADIUS THE RECORD ALREADY HOLDS**, which produces
+    ### no new value and settles whether this act`s chain is the record`s chain.
+        a = 3.0   reproduced : Z 0.315810473  A 0.506671341  PR 0.190860829
+        a = 3.0   b321 banked: Z 0.315810473  A 0.506671341  PR 0.190860829
+        primes admitted, both: [2, 4, 8, 3, 5, 7]   residual -3.910e-08
+    ### ### **EQUAL TO EVERY PRINTED DIGIT.** ### The extension continues this table and
+    ### not a different one.
+
+====================================================================================================
+  ### READS ATTEMPTED : 20
+  ### MISSES          : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================
