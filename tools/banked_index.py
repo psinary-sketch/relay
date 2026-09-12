@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-witness-arc-at-site-ii': ['the witness arc at site ii', 'the height coordinate enumeration', 'site ii exhausted list', 'where the witness arc failures land', 'b427 sortie leg 2'],
     'the-falsifier-reread-by-address': ['the falsifier re-read by address', 'r38 threshold rule', 'desi dr2 collaboration paper read', 'the lane condition under r38', 'b426 sortie leg 1'],
     'the-falsifier-read': ['the falsifier read', 'desi w = -1 test', 'evolving dark energy against the lane', 'the cosmology lane falsification condition', 'b425 sortie leg 3'],
     'the-witness-arc-at-site-i': ['the witness arc at site i', 'site i witness candidates', 'the class site witness enumeration', 'shared witness at the clause quantifier', 'b424 sortie leg 2'],
@@ -680,6 +681,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE WITNESS ARC AT SITE (ii) (b427).
+    ('the-witness-arc-at-site-ii', 'b427 (sortie leg 2: the witness arc at site (ii))',
+     "b427 ATTEMPTED 19 CANDIDATES AT ROW U1'S SITE (ii), THE HEIGHT COORDINATE'S ENUMERATION -- the navigator's opening three and 16 the search supplied -- EACH READ AT ITS SOURCE AND FAILED AT A QUOTED STEP BY S1 CLASS, S2 HELD, S3 FORM. HELD 0. FIRST FAILING STEPS: CLASS BOUNDARY 10; BOUNDED BY A MEASUREMENT 2; COORDINATE BOUNDARY 2; IMPORT UNDER THE BAR 2; DENSITY-PLACEMENT SPLIT 1; FORM 1; INSTANCES NOT A CLASS 1. AGAINST SITE (i): 12 of 19 at a boundary it also used, 7 of 19 at a boundary NEW to this site (BOUNDED BY A MEASUREMENT, COORDINATE BOUNDARY, DENSITY-PLACEMENT SPLIT, FORM, INSTANCES NOT A CLASS). No witness found; the cell was not written.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b427_the_witness_arc_at_site_ii.txt; data/b427_candidates.txt; data/b427_ledger_write.txt; data/b427_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); FACES_LEDGER.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 276'),
     # ### THE FALSIFIER RE-READ BY ADDRESS (b426).
     ('the-falsifier-reread-by-address', 'b426 (sortie leg 1: the falsifier re-read by address)',
      "b426 RE-READ THE COSMOLOGY LANE'S CONDITION UNDER (R38)'S THRESHOLDS AGAINST THE DESI COLLABORATION'S OWN SECOND-RELEASE PAPER AT ADDRESS (arXiv:2503.14738) AND b425'S THREE: 2503.14738 UNDECIDED/UNDER PRESSURE; 2609.10567 UNDECIDED/UNDER PRESSURE; 2609.10133 UNDECIDED/UNDECIDED; 2609.05321 UNDER PRESSURE/UNDER PRESSURE. COMBINED BY THE WEAKEST READING: UNDECIDED; THE ANY-SOURCE CLAUSE READS UNDER PRESSURE. FIRED (five sigma) NOT reached; p2-d6 does not move. No lane verdict changed by the seat; the divergence ROUTED.",
