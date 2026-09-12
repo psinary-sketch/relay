@@ -20,6 +20,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from check_harness import Harness, contains   # noqa: E402
+import force_rm   # noqa: E402
 
 ROOT = 'D:/relay'
 D = os.path.join(ROOT, 'data')
@@ -62,7 +63,7 @@ def hook_verdict(repo, staged_foreign):
         return subprocess.run([sys.executable, HOOKSRC], env=env,
                               capture_output=True).returncode
     finally:
-        shutil.rmtree(d, ignore_errors=True)
+        force_rm.rmtree(d)
 
 
 def main():

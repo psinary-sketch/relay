@@ -24,6 +24,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import run_clock            # noqa: E402
 import b303_pins            # noqa: E402
+import force_rm             # noqa: E402
 
 D = os.path.join(ROOT, 'data')
 GUARD = '.githooks/pre-push'
@@ -120,7 +121,7 @@ def polarity_fixture():
         got = fresh_checkout(repo, 'f.sh', out)
         res[label] = dict(blob=len(blob or b''), checkout=len(got or b''),
                           equal=(blob is not None and got is not None and blob == got))
-        shutil.rmtree(tmp, ignore_errors=True)
+        force_rm.rmtree(tmp)
     return res
 
 

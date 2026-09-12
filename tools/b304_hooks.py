@@ -255,6 +255,8 @@ def main(argv):
     print()
 
     fails = 0
+    skips = 0
+    exercised = 0
     print('  %-22s %-38s %s' % ('repo', 'install', 'sha256 on disk (first 32)'))
     installs = {}
     for name, path in REPOS:
@@ -286,9 +288,13 @@ def main(argv):
         r = exercise(name, path)
         if r.get('skipped'):
             # ### **A SKIP IS NOT A PASS AND IS NOT A FAILURE OF THE GUARD.** ### It is this tool
-            # ### refusing to put uncommitted work on a throwaway branch, and it counts as a FAILURE of
-            # ### the RUN so nobody reads a skipped exercise as an exercised one.
-            fails += 1
+            # ### refusing to put uncommitted work on a throwaway branch.
+            # ### ### **CORRECTED AT b435.** ### It used to be counted into `fails` -- which kept it
+            # ### out of the PASS column at the price of putting it in the FAIL column, so the one
+            # ### number a reader quotes said FAILING where nothing had failed. ### **A SKIP IS NOW
+            # ### ### ITS OWN COUNT, AND THE VERDICT LINE NAMES ALL THREE STATES**, so no table can
+            # ### show a skip as either a pass or a failure. ### (R46)'s sortie, Component 2.
+            skips += 1
             print('  %-22s ### **SKIPPED -- %s. ### THE GUARD IS NOT EXERCISED HERE.**'
                   % (name, r['reason']))
             print('        ### **RUN THIS AFTER THE PUSH, WHEN THE TREE IS CLEAN** -- which is where')
@@ -296,6 +302,7 @@ def main(argv):
             continue
         good = (r['negative'] == 'REFUSED' and r['positive'] == 'ALLOWED'
                 and r['head_unchanged'] and r['remote_unchanged'] and r['branch_restored'])
+        exercised += 1 if good else 0
         fails += 0 if good else 1
         print('  %-22s %-12s %-12s %-9s %-9s %s   %s'
               % (name, r['negative'], r['positive'], r['head_unchanged'],
@@ -306,6 +313,12 @@ def main(argv):
 
     print()
     print('  ### REPOS FAILING : %d' % fails)
+    print('  ### REPOS SKIPPED : %d' % skips)
+    # ### **THE ONE LINE A READER IS MEANT TO QUOTE, AND IT CANNOT SHOW A SKIP AS A PASS** (A2).
+    print('  ### ### **VERDICT : %s -- %d FAILING, %d SKIPPED, %d EXERCISED AND PASSING**'
+          % ('GUARD EXERCISED AND PASSING' if (fails == 0 and skips == 0) else
+             ('### NOT FULLY EXERCISED' if fails == 0 else '### GUARD FAILING'),
+             fails, skips, exercised))
     print('  ### **INSTALLED BUT NOT EXERCISED HERE, AND SAID RATHER THAN IMPLIED:** ### the')
     print('  ### `held/*` refusal and the `DO NOT PUSH` ancestry refusal are present in the copied')
     print('  ### text and were NOT run. ### They are installed, not demonstrated.')
@@ -329,7 +342,7 @@ def main(argv):
     print('  ### the identity arm above is still EOL-normalised, so ### **THIS ARM STILL WOULD NOT')
     print('  ### ### TELL YOU** -- what changed is that the hazard is now pinned shut upstream of it.')
     print('=' * 100)
-    return 0 if fails == 0 else 1
+    return 0 if (fails == 0 and skips == 0) else (1 if fails else 2)
 
 
 if __name__ == '__main__':

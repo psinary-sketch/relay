@@ -1,0 +1,94 @@
+====================================================================================================
+b435_extract.py -- THE SURVEY. ### THE HANDLER, THE SITES, THE SKIP, AND THE CENSUS SCOPE.
+====================================================================================================
+  ### NOTHING IS FETCHED. ### NOTHING IS BUILT. ### THIS TOOL WRITES NO TOOL.
+
+----------------------------------------------------------------------------------------------------
+  (1) b314`S HANDLER, AT ITS OWN FILE AND LINE.
+----------------------------------------------------------------------------------------------------
+    tools/b314_coldclone.py:47
+        def _force_rm(func, path, _exc):
+            """### git objects arrive read-only on Windows; a plain `rmtree` refuses them."""
+            os.chmod(path, stat.S_IWRITE)
+            func(path)
+    and its one use, at line(s)   : [149]
+    ### **IT HAS LIVED HERE SINCE b314 AND IN NO OTHER TOOL**, which is the whole of what
+    ### `(R46)` is about. ### A second tool, `b314_coldrelay.py`, carries its own copy:
+      b314_coldrelay.py defines its own `_force_rm` : True
+    ### **SO THE CURE WAS ALREADY DUPLICATED ONCE INSIDE ITS OWN ACT**, which is the same
+    ### defect one step earlier: a copy is not a share.
+
+----------------------------------------------------------------------------------------------------
+  (2) EVERY CALL SITE, AND THE EVIDENCE THAT DECIDES IT.
+----------------------------------------------------------------------------------------------------
+    call sites found : 10 in 7 files
+
+    file                     line   what its own source shows in that function
+    b257_checks.py           65     git init in it; a filter that excludes .git; mkdtemp
+    b372_eol.py              123    git init in it; mkdtemp
+    b372_eol.py              251    mkdtemp
+    b376_lockgate.py         93     mkdtemp
+    b378_lockgate.py         139    mkdtemp
+    b386_components.py       422    mkdtemp
+    gate_hash.py             115    mkdtemp
+    repair_snapshot.py       246    (nothing but the removal)
+    repair_snapshot.py       344    mkdtemp
+    repair_snapshot.py       345    mkdtemp
+
+    ### **THIS PRINTS EVIDENCE AND CLASSIFIES NOTHING.** ### Three successive mechanical
+    ### rules were tried here and each mis-sorted a site: one matched `git` anywhere in the
+    ### function and called a sandbox that FILTERS `.git` OUT git-bearing; the next excluded
+    ### on any `.git` string and flipped a directory that really is `git init`-ed. ### **A
+    ### ### DERIVATION THAT KEEPS CHANGING ITS ANSWER IS NOT A MEASUREMENT**, and dressing
+    ### the seat`s judgement as one would hide where the judgement actually lies.
+    ### **SO THE CALL IS THE SEAT`S, MADE ON THE EVIDENCE ABOVE, BY A RULE THE FACE STATES**
+    ### and carried per site in the components tool with its reason -- which is how this
+    ### corpus already chooses a keystone row when a marker matches three (b430`s `F5`).
+
+    ### AND THE GUARDS AMONG THEM, NAMED SEPARATELY AS THE ORDER REQUIRES:
+      b376_lockgate.py         [('b376_lockgate.py', 93)]
+      b378_lockgate.py         [('b378_lockgate.py', 139)]
+      gate_hash.py             [('gate_hash.py', 115)]
+    ### **THESE ARE INSTRUMENTS THAT DECIDE WHETHER AN ACT MAY SEAL**, so a change to them
+    ### is a change to the gate itself and is reported on its own line, not in a total.
+
+----------------------------------------------------------------------------------------------------
+  (3) THE SKIP THAT PRINTS LIKE A PASS.
+----------------------------------------------------------------------------------------------------
+    b304_hooks.py:292
+        print(' %-22s ### **SKIPPED -- %s. ### THE GUARD IS NOT EXERCISED HERE.**'
+    the line that totals it :
+        print('  ### REPOS FAILING : %d' % fails)
+    ### **THE SKIP IS COUNTED INTO THE SAME TOTAL AS A FAILURE**, which is why the number
+    ### reads as a failure in one table and as a pass in another. ### The state exists in
+    ### the per-repository row and is LOST in the total.
+
+    ### THE THREE STATES THE REPORT MUST DISTINGUISH: ### **PASS** (the guard ran and
+    ### refused what it should), ### **FAIL** (it ran and did not), ### **SKIPPED** (it
+    ### could not run, with the reason).
+
+----------------------------------------------------------------------------------------------------
+  (4) THE CENSUS SCOPE, AND ITS POSITIVE CONTROL.
+----------------------------------------------------------------------------------------------------
+    ### **THE CENSUS IS BY DESCRIPTION, NOT BY A LIST THIS SEAT TYPES.** ### A handler for
+    ### an environmental failure is a routine that catches or works around a condition of
+    ### the MACHINE rather than of the corpus -- a read-only tree, a rate limit, an
+    ### encoding, a lock, a timeout, a memory ceiling -- and that lives in ONE tool.
+    ### **THE POSITIVE CONTROL IS b314`S OWN HANDLER**: a census that cannot find the one
+    ### the order names is not a census, and its count means nothing.
+
+    the descriptions the census will search, each a MACHINE condition:
+      read-only tree         tools matching : 3
+      rate limit / retry     tools matching : 11
+      encoding               tools matching : 940
+      lock / busy            tools matching : 0
+      timeout ceiling        tools matching : 29
+      memory ceiling         tools matching : 0
+    ### **THESE ARE SCOPE COUNTS, NOT THE CENSUS.** ### The census is Component 3 and it
+    ### narrows these to handlers that live in ONE tool and nowhere else.
+
+====================================================================================================
+  ### READS ATTEMPTED : 7923
+  ### MISSES          : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================

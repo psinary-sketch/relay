@@ -1,0 +1,299 @@
+### run at (UTC) : 2026-09-12T15:02:43Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+====================================================================================================
+b435 -- THE CURE SHARED, AND THE SKIPS THAT PRINT LIKE PASSES. ### THE COMPONENTS.
+====================================================================================================
+  ### **THIS RECORD IS WRITTEN BY THIS RUN.** ### `run_clock` stamps it, so a reader can
+  ### tell it from a previous run`s file left on disk when a tool raised (BAR 11, b434).
+  ### pre-act blobs pinned before any write:
+      b257_checks.py         ea025b3b2b54a7d494f01f8f06311a2124a7c6f591d8f4a073a8fd7f9de5f195
+      b372_eol.py            6545fa3b1eb13dc1e4e5b220aebeb4eaf07cd2a0b50d983bd69ed6705fb6feb1
+      b304_hooks.py          701d95ff77633290c4d2975ce12e8a426be6c046be1746c666498cd86fa5508c
+
+----------------------------------------------------------------------------------------------------
+  ### (0) THE RULING THIS ACT EXECUTES, ### **QUOTED FROM THE BANKED PASTE.**
+----------------------------------------------------------------------------------------------------
+      | RULING (R46), the author's, ratified by this paste and
+      | strikeable: A CURE THAT LIVES IN ONE TOOL IS NOT A GUARD. When
+      | an act writes a handler for an environmental failure -- a
+      | read-only tree, a rate limit, an encoding, a lock -- the handler
+      | is extracted to a shared tool in the same act, or the act
+      | states why it cannot and files the extraction with a trigger.
+      | The instrument lane is opened FOR THIS ACT AND FOR THE GUARD
+      | LAYER ONLY, to carry the extraction b433 needed and b314
+      | already had. It closes at this act's end.
+
+    ### ### **A CURE THAT LIVES IN ONE TOOL IS NOT A GUARD** -- the ruling`s own words,
+    ### and this act executes them and does not extend them. ### The extraction it orders
+    ### is Component 1; the census it orders is Component 3; ### **AND THE CENSUS REPAIRS
+    ### ### NOTHING**, because the ruling governs what happens to the rest GOING FORWARD.
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE HANDLER `b314` ALREADY HAD, QUOTED AT ITS OWN FILE AND LINE.
+----------------------------------------------------------------------------------------------------
+    tools/b314_coldclone.py, lines 47-50 -- ### **VERBATIM, NOT PARAPHRASED:**
+
+       47 | def _force_rm(func, path, _exc):
+       48 |     """### git objects arrive read-only on Windows; a plain `rmtree` refuses them."""
+       49 |     os.chmod(path, stat.S_IWRITE)
+       50 |     func(path)
+
+    its one call site in that file  : line 149, `shutil.rmtree(clone, onerror=_force_rm)`
+    ### ### **WRITTEN AT b314. ### NEVER SHARED. ### REINVENTED AT b433, NINETEEN ACTS LATER.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE EXTRACTION: `tools/force_rm.py`, AND ITS FIXTURES IN BOTH POLARITIES.
+----------------------------------------------------------------------------------------------------
+    ### **CONTROL: the bare `rmtree` REFUSES a read-only tree** ok
+    a read-only tree is removed, and the tree is gone          ok
+    ### **a genuine failure still RAISES (PermissionError)**   ok
+    ### **a removal that left the tree standing is REFUSED**   ok
+    a missing path returns False and does not raise            ok
+    and refuses when the caller asked for strict               ok
+    ### ### **FIXTURE VERDICT : HELD**
+
+    ### **THE SECOND POLARITY IS THE ONE THAT MATTERS.** ### A helper that swallowed every
+    ### error would pass the read-only fixture and be WORSE than the bare call it replaced.
+    ### And the CONTROL above is why the first fixture means anything: the bare `rmtree` was
+    ### shown to REFUSE that same tree, so the cure is what removed it.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE TEN CALL SITES. ### EACH NAMED, EACH WITH ITS CALL AND ITS REASON.
+----------------------------------------------------------------------------------------------------
+    ### **THE RULE, STATED ON THE LOCKED FACE AND APPLIED HERE WITHOUT EXCEPTION:**
+    ### REPOINT a site whose tree CAN CONTAIN A `.git` DIRECTORY when it is removed --
+    ### that is the only way it holds files git marks read-only.
+    ### LEAVE a site every file of whose tree the tool wrote itself with default
+    ### permissions: the only failure mode is a leaked temporary directory, and
+    ### **NO VERDICT DEPENDS ON THE REMOVAL.**
+    ### ### **THREE MECHANICAL RULES WERE TRIED IN THE SURVEY AND EACH MIS-SORTED A SITE.**
+    ### So the survey prints evidence and classifies nothing, and ### **THE CALL BELOW IS
+    ### ### THE SEAT`S, MADE ON THAT EVIDENCE, AND IS SAID TO BE RATHER THAN DRESSED AS A
+    ### ### MEASUREMENT.** ### A derivation that keeps changing its answer is not one.
+
+    THE SEVEN ORDINARY SITES, IN FOUR TOOLS
+      b257_checks.py         65    GIT-BEARING  REPOINTED
+          the tree is `git -C d init`-ed and `add -A`-ed in this same function (lines 58-61),
+          so `.git/objects` holds blobs git marks read-only
+      b372_eol.py            123   GIT-BEARING  REPOINTED
+          `repo` under `tmp` is `git init`-ed, configured, added and committed in
+          `polarity_fixture` (lines 105-116) -- a real object store, read-only by the time it
+          is removed
+      b372_eol.py            251   PLAIN        LEFT AS WRITTEN
+          the tree holds only what `fresh_checkout` wrote, and THE CALLEE USES `git
+          checkout-index --prefix` (line 84) -- blobs only, no `.git` directory is ever
+          created there
+      b386_components.py     422   PLAIN        LEFT AS WRITTEN
+          the fixture writes backup files the tool itself creates; no repository is
+          initialised
+      repair_snapshot.py     246   PLAIN        LEFT AS WRITTEN
+          the sandbox is built by `copytree` of `tools/` and `.githooks/` ONLY (lines 211-214)
+          -- THE CALLEE NEVER COPIES `.git`, so no read-only object can reach it
+      repair_snapshot.py     344   PLAIN        LEFT AS WRITTEN
+          the toy root holds only files the fixture wrote itself -- `tools/toy_in.py`,
+          `data/out.txt`, `.githooks/pre-push`
+      repair_snapshot.py     345   PLAIN        LEFT AS WRITTEN
+          the far root holds only the `.githooks/pre-push` the fixture wrote itself
+
+    ### **THE THREE GUARD SITES, ON THEIR OWN ROWS** -- they decide whether an act may seal
+      b376_lockgate.py       93    PLAIN        LEFT AS WRITTEN
+          the fixture writes plain text gate records into `tmp` with `io.open` (lines 84-89)
+          and creates no repository
+      b378_lockgate.py       139   PLAIN        LEFT AS WRITTEN
+          the fixture writes plain text gate records into `tmp` and creates no repository
+      gate_hash.py           115   PLAIN        LEFT AS WRITTEN
+          the fixture writes a synthetic gate record and a synthetic subject file; no
+          repository
+
+    ### ### **GIT-BEARING : 2   ### LEFT AS WRITTEN : 8   ### TOTAL : 10**
+    ### **THE GUARDS ARE REPORTED SEPARATELY AND ARE NOT FOLDED INTO A TOTAL** -- a line
+    ### that moves inside an instrument deciding whether an act may seal is not one line
+    ### among ten. ### **ALL THREE ARE LEFT, SO NO GATE CHANGED A BYTE.**
+
+----------------------------------------------------------------------------------------------------
+  ### (4) THE REPOINTS, APPLIED AND MEASURED AGAINST THE PRE-ACT BLOB.
+----------------------------------------------------------------------------------------------------
+    b257_checks.py         import force_rm   # noqa: E402         APPLIED
+    b257_checks.py         force_rm.rmtree(d)                     APPLIED
+    b372_eol.py            import force_rm             # noqa: E4 APPLIED
+    b372_eol.py            force_rm.rmtree(tmp)                   APPLIED
+
+    b257_checks.py         pre ea025b3b2b54  ->  post a62551221717   delta +13 bytes
+    b372_eol.py            pre 6545fa3b1eb1  ->  post 2f032fbb093c   delta +23 bytes
+
+----------------------------------------------------------------------------------------------------
+  ### (5) THE REPOINTED TOOLS, EXERCISED -- ### **BEHAVIOUR UNCHANGED EXCEPT THE SILENT SKIP.**
+----------------------------------------------------------------------------------------------------
+    ### The two repointed FUNCTIONS are called directly rather than their suites run, so
+    ### this act exercises the changed line WITHOUT writing a file its list does not name.
+
+    b257_checks.hook_verdict   foreign staged -> rc 1 ; clean -> rc 0   ### **SAME VERDICTS AS BEFORE**
+    b372_eol.polarity_fixture  {'with the attribute': True, 'without it': False}   ### **RAN AND RETURNED ITS FIXTURE**
+
+    ### ### **AND THE THING THE REPOINT ACTUALLY BUYS:** ### both trees are `git init`-ed,
+    ### so both previously left a read-only object store on disk and said nothing. ### They
+    ### now remove it, and ### **RAISE IF THEY CANNOT** -- which is the silent skip, cured.
+
+----------------------------------------------------------------------------------------------------
+  ### (6) COMPONENT 2 -- ### **THE SKIP THAT PRINTS LIKE A PASS.**
+----------------------------------------------------------------------------------------------------
+    the subject : tools/b304_hooks.py, the pre-push guard`s exercise.
+    ### **THE DEFECT, IN ITS OWN WORDS:** ### the per-repository row already SAYS SKIPPED
+    ### with its reason -- and then `fails += 1` folds that state into the one number the
+    ### closing tables quote. ### **SO THE SAME `1` READS AS A FAILURE IN ONE TABLE AND AS
+    ### ### AN EXERCISED GUARD IN ANOTHER**, and neither reader is wrong about what it says.
+
+    the skip gets its own count, not the failure count   APPLIED
+    the totals name all three states                     APPLIED
+    the counters are initialised                         APPLIED
+    an exercised repository is counted as exercised      APPLIED
+    the exit code cannot say 0 on a skipped run          APPLIED
+
+    b304_hooks.py  pre 701d95ff7763 -> post f83d944d45ae   delta +920 bytes
+    the repaired file parses : yes
+
+----------------------------------------------------------------------------------------------------
+  ### (7) THE THREE STATES, EXERCISED. ### **PASS, FAIL, SKIPPED -- EACH DISTINGUISHABLE.**
+----------------------------------------------------------------------------------------------------
+    ### The report`s own summary block is run over three synthetic outcome sets, so the
+    ### fixture reads THE LINE A READER QUOTES and not the code that produced it.
+
+    all four exercised and passing     -> ### ### **VERDICT : GUARD EXERCISED AND PASSING -- 0 FAILING, 0 SKIPPED, 4 EXERCISED AND PASSING**
+    ### one repository FAILING         -> ### ### **VERDICT : ### GUARD FAILING -- 1 FAILING, 0 SKIPPED, 3 EXERCISED AND PASSING**
+    ### four SKIPPED -- the step-zero state -> ### ### **VERDICT : ### NOT FULLY EXERCISED -- 0 FAILING, 4 SKIPPED, 0 EXERCISED AND PASSING**
+    mixed: one failing, one skipped    -> ### ### **VERDICT : ### GUARD FAILING -- 1 FAILING, 1 SKIPPED, 2 EXERCISED AND PASSING**
+
+    all four verdict lines distinct                     : True
+    ### **the SKIPPED state cannot be read as a pass**  : True
+    ### **nor as a failure of the guard**               : True
+    ### ### **THREE-STATE FIXTURE VERDICT : HELD**
+
+----------------------------------------------------------------------------------------------------
+  ### (8) THE SWEEP, ### **BY DESCRIPTION** ### -- OTHER SKIPS INDISTINGUISHABLE FROM PASSES.
+----------------------------------------------------------------------------------------------------
+    ### **THE DESCRIPTION, NOT A LIST THIS SEAT TYPED:** ### a tool is a candidate when its
+    ### own PRINTED VOCABULARY carries a skip-word AND it prints a pass/fail summary -- so
+    ### a reader of its summary meets a state the rows knew about and the total did not.
+
+    tools scanned                                       : 1135
+    ### **CANDIDATES -- a skip-word AND a pass/fail summary** : 160
+
+    ### **AND THE CANDIDATE SET IS NOT THE FINDING.** ### Most of these print SKIPPED in a
+    ### row and never total it at all, which is correct as written. ### The finding is the
+    ### subset where a skip is FOLDED INTO a pass or a fail count -- read by hand below.
+
+    ### **POSITIVE CONTROL -- the arm over b304_hooks.py AS IT WAS** : FOUND the fold at line 291
+
+    ### ### **SKIPS FOLDED INTO A FAILURE COUNT, BY BRANCH : 0**
+      ### **NONE BEYOND THE ONE THIS ACT REPAIRED.** ### b304_hooks.py matched here
+      ### before the repair and does not after. ### An empty bucket is reported as
+      ### plainly as a full one.
+
+    ### ### **REPAIRED HERE : 0 FURTHER.** ### The order permits a repair only where it is
+    ### THE SAME ONE LINE, and no remaining candidate is that. ### **COUNTED AND LEFT : 160**
+    ### and they are left as a COUNT, not as a work item this act pretends to have done.
+
+----------------------------------------------------------------------------------------------------
+  ### (9) COMPONENT 3 -- ### **THE SHARED-CURE CENSUS.** ### ONCE, AND IT REPAIRS NOTHING.
+----------------------------------------------------------------------------------------------------
+    ### **THE DESCRIPTION:** ### a routine whose own docstring or heading names a condition
+    ### of the MACHINE rather than of the corpus -- a read-only tree, a rate limit, an
+    ### encoding, a lock, a time limit, a memory ceiling, a path the OS refuses -- and that
+    ### is defined in a single tool and referenced by no other.
+    ### ### **THE POPULATION IS THE CORPUS AS THIS ACT FOUND IT: A CENSUS MUST NOT COUNT THE CENSUS.**
+    ### This act`s own tools are excluded, and `force_rm.py` -- this act`s ANSWER -- is
+    ### reported apart from the findings, below.
+
+    ### **POSITIVE CONTROL -- it must find b314`s `_force_rm`** : FOUND at b314_coldclone.py:47
+
+    handlers of a MACHINE condition found, by description : 11
+    ### ### **OF THOSE, LIVING IN A SINGLE TOOL AND NOWHERE ELSE : 11**
+    referenced from another tool (already shared)        : 0
+
+    ### **THE CENSUS, AND WHAT EACH ONE HANDLES:**
+      b302_kernel.py           normalise            line 89     an encoding or an EOL  matched on `BOM`
+            LEAN'S STDOUT AS THE BANKED FILE HOLDS IT: LF ENDINGS, ONE TRAILING NEWLINE,
+            NO BOM.
+      b304_hooks.py            _nl                  line 67     an encoding or an EOL  matched on `LINE ENDING`
+            LINE ENDINGS NORMALISED. ### **THE ONLY DIFFERENCE A TRACKED TEXT GUARD IS
+            ALLOWED
+      b313_checks.py           git_show_relay       line 235    an encoding or an EOL  matched on `autocrlf`
+            `b302_kernel.git_show` is hard-wired to SIDE-global-section. ### **THIS ONE
+            READS THE
+      b314_coldclone.py        _force_rm            line 47     a read-only tree       matched on `read-only`
+            git objects arrive read-only on Windows; a plain `rmtree` refuses them.
+      b319_coverage_repair.py  blob                 line 67     an encoding or an EOL  matched on `autocrlf`
+            THE BYTES THE RECORD HOLDS, not the bytes `core.autocrlf` left in the
+            working tree.
+      b364_diagnose.py         worktree_sha         line 86     an encoding or an EOL  matched on `LINE ENDING`
+            THE WORKING FILE'S BYTES, NORMALISED FOR LINE ENDINGS ONLY -- ###
+            `core.autocrlf` makes a
+      b369_repair.py           nl                   line 68     an encoding or an EOL  matched on `CRLF`
+            **THE WORKING FILE IS CRLF AND ITS BLOB IS LF** (`core.autocrlf`, `b309`'s
+            trap). ### Every
+      b372_batch.py            last_declared        line 171    a read-only tree       matched on `Read-only`
+            **WHEN WAS IT LAST A DECLARATION?** ### Read-only history, so a row that is
+            false at the
+      b372_eol.py              polarity_fixture     line 97     an encoding or an EOL  matched on `autocrlf`
+            **BOTH POLARITIES, IN A REPOSITORY BUILT AND DESTROYED HERE.** ### With the
+            attribute, a
+      b389_extract.py          probe                line 131    a read-only tree       matched on `READ-ONLY`
+            **READ-ONLY: `curl -sL` WITH NO METHOD, NO BODY, NO CREDENTIAL.** ###
+            Returns the
+      b426_components.py       get                  line 86     a rate limit           matched on `RATE-LIMIT`
+            **THE LISTING RATE-LIMITED AND THEN 503'd ON RUN 1**
+            (`data/b426_locate_run1.txt`: three queries, three
+
+    ### **AND THE ELEVEN READ ONE BY ONE, BECAUSE A DESCRIPTION MATCHES WORDS:**
+      b372_batch.py            last_declared        ### NOT A HANDLER
+            READ-ONLY here means it does not WRITE history -- a discipline, not a
+            machine state
+      b372_eol.py              polarity_fixture     ### NOT A HANDLER
+            a FIXTURE that exercises `autocrlf`; it demonstrates the condition, it
+            does not cure it
+      b389_extract.py          probe                ### NOT A HANDLER
+            READ-ONLY here means a request with no method or body -- access
+            discipline, not a file
+    ### ### **CANDIDATES 11  ->  GENUINE SINGLE-TOOL ENVIRONMENTAL HANDLERS : 8**
+
+    ### ### **THE SAME CONDITION MET INDEPENDENTLY, BY ACT:**
+      an encoding or an EOL    6 tool(s), 6 act(s) : b302, b304, b313, b319, b364, b369
+      a read-only tree         1 tool(s), 1 act(s) : b314
+      a rate limit             1 tool(s), 1 act(s) : b426
+
+    ### ### **REPAIRED ON THE STRENGTH OF THIS CENSUS : 0.** ### (K) BAR 8 -- the census
+    ### is the product, and (R46) governs what happens to the rest going forward.
+
+    ### **THE TOOL THIS ACT ITSELF CREATED IS NOT IN THE POPULATION ABOVE**, and here is
+    ### the evidence it is a guard and not another single-tool cure:
+      force_rm.py              rmtree               obtained by : b257_checks.py, b372_eol.py
+
+====================================================================================================
+  ### ### **THE COMPONENTS, SCORED.**
+====================================================================================================
+    the ruling is quoted from the banked paste           HELD
+    the shared tool holds both polarities                HELD
+    the ten sites named, called and reasoned             HELD
+    the repointed tools behave as before                 HELD
+    the guard report distinguishes three states          HELD
+    the three-state fixtures hold                        HELD
+    the census is not void                               HELD
+
+  ### ### **(N1) at least two of the ten sites are correct as written and are left**
+      left as written : 8 of 10   ### ### **HELD**
+  ### ### **(N2), ITS TWO CLAUSES SCORED APART** (R27).
+      (a) the census finds MORE THAN THREE single-tool cures
+          candidates 11, genuine 8   ### ### **HELD**
+      (b) at least one handles a failure ANOTHER ACT HAS ALREADY MET INDEPENDENTLY
+          ### **an encoding or an EOL -- met independently by 6 acts: b302, b304, b313, b319, b364, b369**
+            b302_kernel.py           normalise            line 89
+            b304_hooks.py            _nl                  line 67
+            b313_checks.py           git_show_relay       line 235
+            b319_coverage_repair.py  blob                 line 67
+            b364_diagnose.py         worktree_sha         line 86
+            b369_repair.py           nl                   line 68
+          ### ### **HELD** -- and it is not a near miss: 6 separate acts each
+          ### wrote their own cure for the same machine condition.
+
+  ### MISSES : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================
