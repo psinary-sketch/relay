@@ -1,0 +1,30 @@
+====================================================================================================
+b428_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b428_registration_2026-09-12.txt
+  bytes/lines  : 16747 / 191
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 71
+
+  clauses emitted : 83
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 7**
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 7    cap 7
+      steps each candidate is attempted by                           demand 3    cap 3
+      bars declared                                                  demand 14   cap 14
+      gate arms declared                                             demand 71   cap 71
+      new `relay` act-tool files                                     demand 6    cap 6
+  written : b428_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : e39761cb1cef5692449fb3ab35735735f2c552c8c40ec82f44eeec29acfec426  (b428_registration_2026-09-12.txt)

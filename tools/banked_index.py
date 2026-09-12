@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'site-iii-and-two-filings': ['the witness arc at site iii', 'the width coordinate union', 'the disproof lane named', 'the external grading read priced', 'b428 site iii and two filings'],
     'the-witness-arc-at-site-ii': ['the witness arc at site ii', 'the height coordinate enumeration', 'site ii exhausted list', 'where the witness arc failures land', 'b427 sortie leg 2'],
     'the-falsifier-reread-by-address': ['the falsifier re-read by address', 'r38 threshold rule', 'desi dr2 collaboration paper read', 'the lane condition under r38', 'b426 sortie leg 1'],
     'the-falsifier-read': ['the falsifier read', 'desi w = -1 test', 'evolving dark energy against the lane', 'the cosmology lane falsification condition', 'b425 sortie leg 3'],
@@ -681,6 +682,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### SITE (iii), AND TWO FILINGS FROM OUTSIDE (b428).
+    ('site-iii-and-two-filings', 'b428 (site (iii), and two filings from outside)',
+     "b428 ATTEMPTED 20 CANDIDATES AT ROW U1'S SITE (iii), THE WIDTH COORDINATE'S UNION -- the navigator's opening three and 17 the search supplied -- EACH READ AT ITS SOURCE AND FAILED AT A QUOTED STEP. HELD 0. FIRST FAILING STEPS: CLASS BOUNDARY 12; ABSENT 3; BOUNDED BY A MEASUREMENT 2; INSTRUMENT DOES NOT REACH 2; IMPORT UNDER THE BAR 1. THE CLASS BOUNDARY'S SHARE AT THREE SITES: (i) 13 of 16; (ii) 10 of 19; (iii) 12 of 20; UNION OF KINDS 10 -- the arc is NOT converging on one boundary. COMPONENT 2 NAMED THE DISPROOF LANE (the barrier's clause names no direction, so the proof and disproof lanes are symmetric) AND OPENED NOTHING. COMPONENT 3 PRICED THE EXTERNAL READ AT 4 ACTS, 1 UNPRICEABLE, AND REPORTED THE ADDRESS NOT LOCATED; NOT RUN.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED OR CONFERRED, NO LANE OPENED. ### NOTHING DEPOSITS',
+     'data/b428_site_iii_and_two_filings.txt; data/b428_candidates.txt; data/b428_ledger_write.txt; data/b428_disproof_lane.txt; data/b428_external_price.txt; data/b428_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); FACES_LEDGER.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 277'),
     # ### THE WITNESS ARC AT SITE (ii) (b427).
     ('the-witness-arc-at-site-ii', 'b427 (sortie leg 2: the witness arc at site (ii))',
      "b427 ATTEMPTED 19 CANDIDATES AT ROW U1'S SITE (ii), THE HEIGHT COORDINATE'S ENUMERATION -- the navigator's opening three and 16 the search supplied -- EACH READ AT ITS SOURCE AND FAILED AT A QUOTED STEP BY S1 CLASS, S2 HELD, S3 FORM. HELD 0. FIRST FAILING STEPS: CLASS BOUNDARY 10; BOUNDED BY A MEASUREMENT 2; COORDINATE BOUNDARY 2; IMPORT UNDER THE BAR 2; DENSITY-PLACEMENT SPLIT 1; FORM 1; INSTANCES NOT A CLASS 1. AGAINST SITE (i): 12 of 19 at a boundary it also used, 7 of 19 at a boundary NEW to this site (BOUNDED BY A MEASUREMENT, COORDINATE BOUNDARY, DENSITY-PLACEMENT SPLIT, FORM, INSTANCES NOT A CLASS). No witness found; the cell was not written.",
