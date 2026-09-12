@@ -1,0 +1,31 @@
+====================================================================================================
+b434_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b434_registration_2026-09-12.txt
+  bytes/lines  : 18237 / 208
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 75
+
+  clauses emitted : 88
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 8**
+      folds run                                                      demand 1    cap 1
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 8    cap 8
+      bars declared                                                  demand 12   cap 12
+      gate arms declared                                             demand 75   cap 75
+      new `relay` act-tool files                                     demand 7    cap 7
+      existing `relay` tools edited in place                         demand 1    cap 1
+  written : b434_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 05f34980e00e05fe66a42fe165d1cfa43b5cfab82ae7cece8305873229f599df  (b434_registration_2026-09-12.txt)

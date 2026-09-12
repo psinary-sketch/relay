@@ -1,0 +1,122 @@
+====================================================================================================
+b434_extract.py -- THE SURVEY FOR THE FOLD, b423 THROUGH b432.
+====================================================================================================
+  ### NOTHING IS FETCHED. ### NOTHING IS BUILT. ### THIS TOOL WRITES NO CORPUS FILE.
+
+----------------------------------------------------------------------------------------------------
+  (1) THE SPAN, COUNTED BY THE TOOL THAT OWNS THE COUNT -- AND BOTH ITS FIGURES.
+----------------------------------------------------------------------------------------------------
+    the last fold                  : b413 - b421 (9 acts)
+    filed by                       : b422
+    the next span starts at        : b423
+    it runs through                : b434
+    the tool`s raw count           : 12
+
+    ### **THE TWO FIGURES, AND WHY THEY DIFFER.** ### The tool counts forward to the
+    ### LATEST act number it can see, which is this act. ### The span a fold FILES has
+    ### always ended before its filing act -- the record`s own pattern, checked here:
+      b349 - b359  (11 acts)
+      b361 - b369  (9 acts)
+      b371 - b383  (13 acts)
+      b385 - b401  (17 acts)
+      b403 - b411  (9 acts)
+      b413 - b421  (9 acts)
+    ### and the one the tool names outright: b422 filed b413 - b421
+    ### **b422 FILED b413-b421 AND WAS NOT IN ITS OWN FOLD.** ### By that pattern the span
+    ### this act files is ### **b423 THROUGH b432 -- TEN ACTS** ### -- and the tool`s raw
+    ### twelve counts b433 and b434, the two acts of the sortie that is filing it.
+    ### **BOTH NUMBERS ARE PRINTED AND NEITHER IS QUIETLY DROPPED** (b390`s rule).
+
+----------------------------------------------------------------------------------------------------
+  (2) THE TEN ACTS, AND EVERY GRADE STRING VERIFIED IN ITS OWN BANK.
+----------------------------------------------------------------------------------------------------
+    act    its own closing bank           the string the fold asserts    in that bank?
+    b423   b423_closing.txt               CONFIRMED                      VERIFIED
+    b424   b424_closing.txt               none held                      VERIFIED
+    b425   b425_closing.txt               FIRED AT ONE OF THREE SOURCES  VERIFIED
+    b426   b426_closing.txt               SPANS                          VERIFIED
+    b427   b427_closing.txt               NOT CONVERGING                 VERIFIED
+    b428   b428_closing.txt               NOT CONVERGING                 VERIFIED
+    b429   b429_closing.txt               DERIVES                        VERIFIED
+    b430   b430_closing.txt               SYMMETRIC                      VERIFIED
+    b431   b431_closing.txt               TWO THEOREMS SHARING A NAME    VERIFIED
+    b432   b432_closing.txt               NO INSTRUMENT POINTED          VERIFIED
+
+    ### **EVERY STRING ABOVE WAS READ OUT OF THAT ACT`S OWN BANK**, not out of a later
+    ### act`s summary of it and not out of this seat`s memory.
+
+----------------------------------------------------------------------------------------------------
+  (3) THE FOLD`S RULES, AND THE LAST FOLD`S GENERATOR PATTERN.
+----------------------------------------------------------------------------------------------------
+    the most recent fold generator : tools/b402_fold.py
+    its length                     : 390 lines
+    its anchor constant            : ### ### **BY THE ANCHOR TOOL IN THE BANK OF THE ACT IT IS ATTRIBUTED TO** -- or the sect
+    its entry point                : def main():
+    how it writes                  : LINES.append(s)
+
+    ### **THE FOLD IS PURELY ADDITIVE**: it appends a section to `FINDINGS.md` and edits
+    ### nothing. ### The threshold is `(R1)`, the author`s ruling at b366: NINE ACTS.
+    ### **THE SPAN THIS ACT FILES IS TEN, WHICH IS OVER THE THRESHOLD.**
+
+    ### AND b412`S THIRD COLUMN, WHICH MUST BE KEPT APART:
+        What the arc produced, counted by the measure b412 used, with one column added. The
+        criterion, quoted: *a statement about the OBJECT is one about ξ, about the zeros, about
+        the Epstein object, or about a number computed from them. A statement about the RECORD
+        is one about documents, grades, instruments, numbering, arms, counts, or what the corpus
+        has or has not asked.* Under it: statements about the object: 0; about the record: 5. A
+        third column, declared on the fold's registration before the count, OBJECT-MODEL --
+        statements about the model of the object at a finite place, which the criterion'
+
+----------------------------------------------------------------------------------------------------
+  (4) THE THREE LORE INCIDENTS, FROM THEIR OWN BANKS.
+----------------------------------------------------------------------------------------------------
+    b414 -- the over-budget decide yielding a sorry axiom
+          G-DECIDE-LIMIT-TRAP the act records that an over-budget decide yields sorr PASS
+
+    b418 -- the search returning a partial count at its time limit with no flag
+          fbe6b4b2 2026-09-11T13:28:55.279 20.04 s numFiles 13 over data True guard : INCOMPLETE
+          the original call, through the guard : INCOMPLETE (it reported 13 files)
+
+    b433 -- the recursive delete skipping read-only files in silence
+          # ignore_errors=True HID A REAL FAILURE AND LEFT 36 FILES BEHIND. git marks
+          # The handler clears the read-only bit and retries; anything it still cannot remove is
+
+    ### **THE GUARD CENSUS, MEASURED RATHER THAN ASSERTED.**
+      b414 -- is the cure STANDING? ### the printed axiom profile is read by every act`s
+      ### suite and `AXIOM_PRINTS.txt` is the corpus`s own record of it:
+        act suites that seek `sorryAx` by name : 3
+      b418 -- is the cure STANDING or act-local?
+        tools carrying the duration guard      : ['b418_checks.py', 'b418_components.py', 'b418_extract.py', 'b419_components.py', 'b419_extract.py', 'b434_extract.py', 'walker_guard.py']
+      b433 -- is there a STANDING guard for a removal?
+        tools that pass a handler (the cure)   : ['b314_coldclone.py', 'b314_coldrelay.py', 'b433_components.py']
+        tools still passing `ignore_errors`    : 10 sites in 7 files
+          b257_checks.py               1
+          b372_eol.py                  2
+          b376_lockgate.py             1
+          b378_lockgate.py             1
+          b386_components.py           1
+          gate_hash.py                 1
+          repair_snapshot.py           3
+        tools that VERIFY absence afterwards   : (measured in components)
+    ### **AND THE CURE FOR b433`S INCIDENT ALREADY EXISTED AT b314**, in
+    ### `b314_coldclone.py`, whose helper says in its own docstring: *"git objects arrive
+    ### read-only on Windows; a plain `rmtree` refuses them."* ### **IT WAS NEVER SHARED,**
+    ### **AND b433 REINVENTED IT.**
+
+----------------------------------------------------------------------------------------------------
+  (5) THE FIVE FINDINGS THE ARC`S ONE STATEMENT MUST CARRY, EACH AT ITS SOURCE.
+----------------------------------------------------------------------------------------------------
+    two external proofs graded DERIVES, the discipline symmetr b430_grades.json           FOUND
+    the corpus`s own terminal NOT THE CLAIM against its own pr b430_grades.json           FOUND
+    a keystone lemma named for a theorem it does not invoke    b431_the_grade.json        FOUND
+    the falsifier read at address: under pressure, not fired   b426_components.txt        FOUND
+    three witness sites exhausted, the arc not converging      b428_closing.txt           FOUND
+
+    ### **EACH IS VERIFIED AT ITS OWN SOURCE BEFORE THE FOLD STATES IT**, so the one
+    ### statement rests on measurements and not on this seat`s summary of them.
+
+====================================================================================================
+  ### READS ATTEMPTED : 3423
+  ### MISSES          : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================
