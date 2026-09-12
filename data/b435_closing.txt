@@ -1,0 +1,182 @@
+====================================================================================================
+b435 -- THE CURE SHARED, AND THE SKIPS THAT PRINT LIKE PASSES. ### THE CLOSING RECORD. ### 2026-09-12.
+====================================================================================================
+
+**(R46) EXECUTED AND EXTENDED NOWHERE. ### b314'S HANDLER IS A GUARD, TWO OF TEN SITES ARE
+REPOINTED AND EIGHT ARE NAMED AND LEFT, THE PRE-PUSH GUARD'S SKIP NO LONGER PRINTS LIKE A PASS,
+AND THE CENSUS IS COUNTED AND NOT ACTED ON.**
+The registration was locked before any write, at `82935892...2c1a`: 8 gates, 8 passing, 4 by digest,
+and the seal RECOMPUTED at the close by the tool that wrote it.
+
+----------------------------------------------------------------------------------------------------
+### THE NAVIGATOR'S EXPECTATIONS, EACH SCORED ONCE AND EACH REFUTABLE BY A PRINTED RESULT.
+----------------------------------------------------------------------------------------------------
+  (N1) at least two of the ten sites are correct as written and are left
+       left as written : **8 of 10**                                        ### **HELD**
+  (N2)(a) the census finds more than three single-tool cures
+       candidates 11, genuine after hand-reading : **8**                    ### **HELD**
+  (N2)(b) at least one handles a failure another act has already met independently
+       **the line-ending condition -- met independently by SIX acts:**
+       b302_kernel.normalise, b304_hooks._nl, b313_checks.git_show_relay,
+       b319_coverage_repair.blob, b364_diagnose.worktree_sha, b369_repair.nl
+                                                                            ### **HELD**
+  ### **BOTH EXPECTATIONS HELD, AND (N2)(b) IS NOT A NEAR MISS.** ### Six separate acts each wrote
+  ### their own normaliser for what `core.autocrlf` does to a tracked file. ### That is the exact
+  ### shape `(R46)` was ruled against, standing in the corpus six times over.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE CALL-SITE TABLE, PRINTED IN FULL AS THE ORDER ASKS.
+----------------------------------------------------------------------------------------------------
+  ### **THE RULE, STATED ON THE LOCKED FACE BEFORE THE SITES WERE READ:** ### repoint a site whose
+  ### tree CAN CONTAIN A `.git` DIRECTORY when it is removed -- the only way it holds files git
+  ### marks read-only; leave a site every file of whose tree the tool wrote itself, where the only
+  ### failure mode is a leaked temporary directory and **no verdict depends on the removal.**
+
+  THE SEVEN ORDINARY SITES, IN FOUR TOOLS
+    b257_checks.py        65   GIT-BEARING  **REPOINTED**
+        the tree is `git -C d init`-ed and `add -A`-ed in this same function (lines 58-61)
+    b372_eol.py          123   GIT-BEARING  **REPOINTED**
+        `repo` under `tmp` is init-ed, configured, added and committed in `polarity_fixture`
+    b372_eol.py          251   PLAIN        LEFT AS WRITTEN
+        THE CALLEE uses `git checkout-index --prefix` (line 84) -- blobs only, no `.git`
+    b386_components.py   422   PLAIN        LEFT AS WRITTEN
+        the fixture writes backup files the tool itself creates; no repository is initialised
+    repair_snapshot.py   246   PLAIN        LEFT AS WRITTEN
+        THE CALLEE copies `tools/` and `.githooks/` ONLY (lines 211-214); `.git` never reaches it
+    repair_snapshot.py   344   PLAIN        LEFT AS WRITTEN
+        the toy root holds only files the fixture wrote itself
+    repair_snapshot.py   345   PLAIN        LEFT AS WRITTEN
+        the far root holds only the `.githooks/pre-push` the fixture wrote itself
+
+  ### **THE THREE GUARD SITES, ON THEIR OWN ROWS** -- they decide whether an act may seal
+    b376_lockgate.py      93   PLAIN        LEFT AS WRITTEN
+    b378_lockgate.py     139   PLAIN        LEFT AS WRITTEN
+    gate_hash.py         115   PLAIN        LEFT AS WRITTEN
+        each writes plain text fixture records; none initialises a repository
+  ### ### **ALL THREE LEFT. ### NO GATE CHANGED A BYTE.**
+
+  ### **GIT-BEARING 2. ### LEFT AS WRITTEN 8. ### TOTAL 10.**
+  ### **AND THE CALL IS THE SEAT'S, SAID SO RATHER THAN DRESSED AS A DERIVATION.** ### Three
+  ### successive mechanical rules were tried in the survey and each mis-sorted a site -- one called
+  ### `repair_snapshot`'s sandbox, which FILTERS `.git` OUT, git-bearing; the next flipped
+  ### `b257_checks`, which really is `git init`-ed. ### **A DERIVATION THAT KEEPS CHANGING ITS
+  ### ANSWER IS NOT A MEASUREMENT**, and dressing a judgement as one hides where the judgement is.
+  ### The survey therefore prints evidence and classifies nothing. ### Where the decisive fact sits
+  ### in a CALLED function, the reason names the callee, so a reader can check it without trusting
+  ### this seat.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE CENSUS, PRINTED IN FULL AS THE ORDER ASKS. ### IT REPAIRED NOTHING.
+----------------------------------------------------------------------------------------------------
+  positive control -- it must find b314's : **FOUND at b314_coldclone.py:47**
+  handlers of a machine condition, by description : 11 ### of those, single-tool : 11
+  ### **AFTER READING ALL ELEVEN: GENUINE SINGLE-TOOL ENVIRONMENTAL HANDLERS : 8**
+
+    b302_kernel.py          normalise         line  89   an encoding or an EOL   (BOM)
+    b304_hooks.py           _nl               line  67   an encoding or an EOL   (line endings)
+    b313_checks.py          git_show_relay    line 235   an encoding or an EOL   (autocrlf)
+    b314_coldclone.py       _force_rm         line  47   a read-only tree
+    b319_coverage_repair.py blob              line  67   an encoding or an EOL   (autocrlf)
+    b364_diagnose.py        worktree_sha      line  86   an encoding or an EOL   (line endings)
+    b369_repair.py          nl                line  68   an encoding or an EOL   (CRLF vs LF blob)
+    b426_components.py      get               line  86   a rate limit
+
+  ### **AND THE THREE THAT ARE NOT HANDLERS, NAMED RATHER THAN QUIETLY DROPPED:**
+    b372_batch.py  last_declared  -- READ-ONLY there means it does not WRITE history: a discipline
+    b389_extract.py  probe        -- READ-ONLY there means a request with no method or body
+    b372_eol.py  polarity_fixture -- a FIXTURE that exercises `autocrlf`; it does not cure it
+  ### **MAKING THE CORPUS LOOK WORSE THAN IT IS IS AS MUCH A DEFECT AS MAKING IT LOOK BETTER.**
+
+  ### **THE SHAPE OF THE FINDING:** ### one read-only cure, one rate-limit cure -- and **SIX
+  ### SEPARATE LINE-ENDING CURES, ONE PER ACT.** ### `(R46)` governs what happens to them going
+  ### forward. ### **THIS ACT COUNTED THEM AND STOPPED.**
+
+----------------------------------------------------------------------------------------------------
+### FIVE DEFECTS IN THIS ACT'S OWN INSTRUMENTS, AND ONE THE REPAIR NEARLY MINTED.
+----------------------------------------------------------------------------------------------------
+  ### **(1) THE CENSUS COUNTED MENTIONS AS REFERENCES.** ### Matching the bare name made this act's
+  ### own QUOTATION of `_force_rm` vote four times that b314's cure was shared, and made a handler
+  ### named `blob` look referenced by 282 tools. ### b434 banked this lesson about call sites and
+  ### the arm committed it anyway. ### The test is now whether another tool can OBTAIN the handler
+  ### -- `from M import H`, or `import M` with `M.H` -- read from code with comments and strings
+  ### stripped, so **a quotation cannot vote**, and this act's own tools are out of the population.
+
+  ### **(2) `429` WAS WRITTEN UNBOUNDED AND REACHED INSIDE `b429`.** ### The rate-limit pattern
+  ### matched the act number itself -- **precisely the lesson `b429` banked**, committed by the arm
+  ### meant to carry it. ### The qualifier is now demanded (`HTTP 429`, `status 429`).
+
+  ### **(3) A DESCRIPTION THAT MATCHED ANYWHERE IN A FUNCTION MADE EVERY `main` A HANDLER.** ### A
+  ### four-hundred-line suite mentioning `autocrlf` in passing became "a handler for an encoding",
+  ### and `lock` -- a corpus word in this corpus -- made every checks suite a handler for a held
+  ### file. ### **A HANDLER IS A ROUTINE, NOT A TOOL**, and a description is what a routine says it
+  ### is for, AT ITS TOP. ### Both are now demanded, and the count fell from 50 to 11.
+
+  ### **(4) A SWEEP THAT MEASURED DISTANCE INSTEAD OF STRUCTURE.** ### Its one hit was
+  ### `b304_hooks.py`'s BYTE-IDENTITY check, four lines from an unrelated print. ### Re-aimed at the
+  ### `if` body -- and then accused `ferry_scan.py` of a fold whose increment is in one branch and
+  ### whose skip-word is in the other. ### **A BRANCH IS NOT ITS SIBLING.** ### The two suites are
+  ### now read apart, and the arm carries a POSITIVE CONTROL over the pre-act bytes, so its zero
+  ### means something rather than nothing.
+
+  ### **(5) AN ARM THAT RE-IMPLEMENTED THE SEAL IT WAS CHECKING.** ### It found the lock block's
+  ### header and hashed everything above it -- and got a different digest, because the sealed body
+  ### ends 101 bytes earlier, at the separator rule. ### **A COPY THAT TAKES HALF A RULE DRIFTS**
+  ### (b430's species). ### The arm now asks `reg_seal.py --verify` and reads its verdict line.
+  ### ### **AND ONE MORE OF THE SAME FAMILY:** ### an arm was pointed at `b435_lockgate.txt`, a file
+  ### the lock gate never writes -- it writes `_notes`. ### **AN ARM AIMED AT AN ABSENT FILE READS
+  ### THE EMPTY STRING AND FAILS FOR A REASON THAT IS NOT THE ACT'S**, and is one sign flip away
+  ### from passing on nothing. ### The suite now refuses to run if that record is missing.
+
+  ### **AND THE ONE THE REPAIR NEARLY MINTED, WHICH IS THE SHARPEST THING HERE.** ### Moving the
+  ### skip out of `fails` was the whole point of Component 2 -- and it would have left
+  ### `return 0 if fails == 0 else 1`, so **A WHOLLY SKIPPED RUN WOULD HAVE EXITED `0`.** ### Before
+  ### the repair a skip exited `1`: the wrong word, but the right refusal. ### **THE CURE WOULD HAVE
+  ### MINTED b434'S OWN SPECIES -- A TOOL ASKED NOT TO COMPLAIN REPORTING A SUCCESS IT DID NOT EARN
+  ### -- IN THE ACT OF CURING IT.** ### Three exit codes now: `0` exercised and passing, `1`
+  ### failing, `2` not fully exercised.
+
+----------------------------------------------------------------------------------------------------
+### ONE BREACH, PRINTED AND NOT REPAIRED.
+----------------------------------------------------------------------------------------------------
+  ### The pre-push suite reports **2 UNLISTED WRITES**: `tools/b257_checks.py` and `tools/b372_eol.py`
+  ### -- the two repointed sites. ### This act's own locked face named them as a **CLASS** -- *"the
+  ### call sites this act repoints"* -- where `(R44)`'s standing form requires a tool to be **NAMED**.
+  ### The write ledger refused the class, exactly as it was built to.
+  ### ### **THE FACE IS LOCKED AND WAS NOT EDITED.** ### Two arms fail and they are right to fail.
+  ### ### **AND THE POST-PUSH READING DOES NOT OVERTURN IT:** ### on a clean tree the write-list
+  ### arms are vacuous and pass for that reason, which the suite says in its own words. ### The
+  ### PRE-PUSH reading governs. ### **A VACUOUS PASS IS NOT EVIDENCE.**
+  ### Whether `(R44)`'s form should forbid a class outright is the author's.
+
+----------------------------------------------------------------------------------------------------
+### THE LANE.
+----------------------------------------------------------------------------------------------------
+  ### The instrument lane was opened by `(R46)` **FOR THIS ACT AND FOR THE GUARD LAYER ONLY.**
+  ### Four tools moved: `force_rm.py` (new), `b304_hooks.py`, `b257_checks.py`, `b372_eol.py` --
+  ### every one of them guard layer. ### **NOT ONE FILE OF THE LI, FAMILY, WITNESS OR FALSIFIER
+  ### MACHINERY WAS TOUCHED**, and no lockgate or hash tool changed a byte.
+  ### ### ### **THE INSTRUMENT LANE CLOSES AT THIS ACT'S END. ### IT IS CLOSED.**
+  ### `W-ORD-DISCRIMINATING-FAMILY` and `W-ORD-LI-FAMILY-CONTROL` remain blocked by the PARKED
+  ### lane; this act's exception never reached them.
+
+----------------------------------------------------------------------------------------------------
+### THE CLOSE.
+----------------------------------------------------------------------------------------------------
+  suite, pre-push  : 78 arms, 76 passing -- **the 2 failing are the write-list arms, above**
+  suite, post-push : 78 arms, 78 passing -- **and the write-list arms are VACUOUS there**
+  write ledger     : 2 unlisted writes (named), 0 inherited dirt
+  act tools written: 6, against a declared cap of 6
+  censuses         : TOTAL MISSING 0, both
+  guard, at close  : **GUARD EXERCISED AND PASSING -- 0 FAILING, 0 SKIPPED, 4 EXERCISED**
+                     and at step zero the same tool read **NOT FULLY EXERCISED -- 1 SKIPPED**.
+                     ### **BEFORE THIS ACT BOTH WERE A BARE NUMBER.**
+  mirror           : rebuilt after the commit; **CLEAN ON ALL THREE CLAUSES** at 7468043
+  correspondence   : row 284; row 283 still reads at its own marker
+  desk             : 23 items swept, 4 closed, 19 standing
+  W-REMOVAL-VERIFIED : **DISCHARGED** -- its own trigger fired, this act opening the lane
+  TECHNE-Core      : untouched by this act; still 18 ahead, **NOT PUSHED**
+  the four lists   : ALL FOUR OPEN
+  the witness arc  : CHECKPOINTED after site (iii); sites (iv)-(vi) remain
+  the disproof lane: **STILL SHUT. ### TRIGGER UNTOUCHED.**
+  h2               : **READ AND NOT MOVED. ### WHERE THE DEPOSIT LEFT IT.**
+====================================================================================================
