@@ -1,0 +1,77 @@
+====================================================================================================
+b431 -- THE LongGapsBetweenPrimes GRADING, AND THE TYPE-D QUESTION.
+THE BANK.
+====================================================================================================
+
+### b432 — the disproof lane, restated with a worked case — filed 2026-09-12
+**The lane was named at b428 with no example of what a graded disproof looks like. The sortie has since produced one terminal of each shape, so the restatement can now point at something. __The lane is restated and NOT opened; its trigger is untouched.__**
+#### The two worked cases, and that they are of two shapes
+- **b429, against Clay statement C:** graded `DERIVES`. C’s conclusion is a **universal negative** — in the terminal’s own Lean, `¬ (∃ v p, …)`.
+- **b431, against the paper’s Theorem 1.1:** graded `DERIVES`. The statement is an **existential — a construction**: `∃ c X₀, 0 < c ∧ ∀ X ≥ X₀, ∃ n, …`, a witness at every large X.
+**Both grades are the same word, and the statements are of opposite shape.** The shape is read from the statement, never from the grade — which is the point of the pairing.
+#### What a disproof would have to state, in the corpus’s own vocabulary
+The hypothesis is the corpus’s own, quoted from `INVARIANCE_BARRIERS.md`: **`h2`, the positive space on the zeros** — *a positive-definite pairing realized on the nontrivial zeros; equivalently, realization-totality at the ξ interface*. **RH follows from `h2`, so a disproof of RH must deny `h2` — and a denial of `h2` is not by itself a disproof of RH.** The implication runs one way and this record says so.
+- **Form (a), an exhibited zero off the line.** *There exists `s₀` with `ξ(s₀) = 0` and `Re s₀ ≠ 1/2`, exhibited* — a witness, not a density statement. The clause it must meet is the keystone’s **T6**: *F real-valued on σ = 1/2 (from T1 + real coefficients), so off-line zeros require Re F = Im F = 0 (two real conditions)* — **codimension 2**.
+- **Form (b), the universal negative.** *No arrangement of zeros on the line is consistent with the Euler balance* — the positive space cannot be realized at all. **It exhibits nothing**, and it quantifies over every arrangement.
+**And the shapes match the two cases:** form (b) has b429’s shape (`¬∃`), form (a) has b431’s (`∃`). That is what a graded disproof would look like in each form.
+**Neither form is asserted here and neither is constructed here.**
+#### Which form the corpus’s instruments are for
+**Decided by what each is run on and what it reports, never by its name** — the bar b431 minted on `crt_exhaustiveness` applies here too.
+- **The negative control is an instrument for form (a).** It is run on the Epstein zeta the corpus calls its own counterexample — *Davenport–Heilbronn (1936) proved that Z(s) has infinitely many zeros off the critical line; Stark (1967) established explicit off-line zeros* — and what it reports is whether the instrument **sees** that zero: b325 *DOES NOT SEE IT*, b328 *SEES IT* at seven of eight cells. **It cannot be an instrument for form (b): a universal negative exhibits no object, so there is nothing for a control of this kind to be run on.**
+- **The phase condition is for form (a) too, and for the same reason.** The four-term sum is `4 Re(G_e² − G_o²)` **at an off-line quadruple**, negative only past forty-five degrees of phase. It is the condition on the seed that decides whether the control can fire at all — **the calibration of the negative control, not a second instrument**.
+**So both named instruments serve form (a), and the corpus has no instrument pointed at form (b) at all.** That is consistent with b428’s finding by a different route — a certified disproof instrument the corpus has never pointed — and it sharpens it: **the instrument it has is of the wrong kind for one of the two forms, not merely unpointed.** **This is not a claim that form (b) is unreachable**, and no price is put on an instrument for it.
+**And each act’s own scope travels with its words:** b328 states that its verdict is *on this family, on this instrument, at this reach, and says nothing about the method or about zeta*, and its own obstacle sentence reads *“IT DOES NOT SAY THE INSTRUMENT SEES COUNTEREXAMPLES.”*
+#### The symmetry clause, quoted beside it
+The keystone’s **T1**: *∃ a reflective FE F(s) = F(1−s) (self-dual completion), centring the critical line at σ = 1/2* — **the s ↔ 1−s symmetry**. With real coefficients an off-line zero comes as a **quadruple** `s₀, 1−s₀, s̄₀, 1−s̄₀`, which is why the corpus’s instrument is tested at an off-line quadruple and why the phase condition is stated there. **The scope is the keystone’s and this act adds none:** T1 is listed as a tool of the six-tool toolkit `T`, and the keystone’s claim is about what `T` cannot establish — not a claim about zeta’s zeros.
+#### The lane, left where it was found
+**Trigger unchanged: the instrument lane opening.** Lanes opened by this act: 0. Candidates constructed: 0. Claims about reach: 0. Keystones edited: 0. **The restatement is the whole of what this act did to the lane.**
+#### The four lists
+**LIST 1** — the rows that cite at a ref nobody can name (b373). **OPEN.** **LIST 2** — the rows grading a declaration the record has classified absent (b373). **OPEN.** **LIST 3** — the undated figures across the roster (b374). **OPEN.** **LIST 4** — the bibliography entries nothing cites (b374). **OPEN.** Trigger: the ruling on which test governs, or any disposition on the four open lists.
+#### What this act did not do
+0 lanes opened. 0 triggers moved. 0 candidate zeros, seeds, families or arrangements constructed. 0 claims that either form is reachable, cheap, dear or impossible. 0 claims about RH, about `h2`, or about zeta. 0 grades moved, conferred or minted. 0 premises discharged — **`h2` is not discharged, not weakened and not restated**. 0 keystones edited or annotated. 0 kernels built. 0 addresses resolved and nothing fetched. 0 rows of `FACES_LEDGER.md`. 0 register rows. 0 deposit actions. **And h2 where the deposit left it.**
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATION (L2), AS THE REPORT SCORED IT.
+----------------------------------------------------------------------------------------------------
+  (L3)(a) the negative control is for the EXHIBITED-ZERO form : True
+  (L3)(b) it is NOT for the universal negative                : True
+  ### AND PRINTED, SCORED AGAINST NOTHING (the face says so):
+      the phase condition serves form                         : a
+      an instrument pointed at form (b) exists                : False
+  ### **EACH CLAUSE SCORED ONCE, APART, AND EACH REFUTABLE BY A PRINTED RESULT.**
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE.
+----------------------------------------------------------------------------------------------------
+  arms run 69 ; passing 69
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  the disproof lane, restated with a worked case (leg 3 of the b430-b432 CLOSE
+  which form the corpus`s instruments serve                              CLOSE
+  that the corpus has no instrument for form (b)                         STANDING
+  the three gradings, cited nowhere                                      STANDING
+  the conspiracy keystone`s lemma name and prose (b431)                  STANDING
+  the write list against what an act discovers it needs                  STANDING
+  the fourth grade`s standing in the corpus`s vocabulary                 STANDING
+  W-ORD-WITNESS-ENUMERATION, sites (iv) to (vi)                          STANDING
+  whether the arc is converging on one boundary                          STANDING
+  whether the witness cell should carry the list inside its own text (b4 STANDING
+  (R38)`s two clauses, divergent on a mixed set                          STANDING
+  the lane`s condition under (R38)                                       STANDING
+  OPEN_TRAILS O.8 -- the DESI five-year release                          STANDING
+  the seat`s reading of §10.2 (b423)                                     STANDING
+  the four open lists                                                    STANDING
+  W-ORD-LI-WEIL-BRIDGE                                                   STANDING
+  W-ORD-DISCRIMINATING-FAMILY / W-ORD-LI-FAMILY-CONTROL                  STANDING
+  the scan`s sites against the lock`s zero                               STANDING
+  row U1                                                                 STANDING
+  M-2                                                                    STANDING
+  h2                                                                     STANDING
+
+  ITEMS SWEPT : 21. CLOSED : 2. STANDING : 19.
+
+  CORRESPONDENCE ROW : 281. ### KEY : PASS.
+
+====================================================================================================
