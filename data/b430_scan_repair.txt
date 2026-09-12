@@ -1,0 +1,59 @@
+====================================================================================================
+b430 STEP ZERO -- THE FERRY SCAN'S EXCEPTION DRIFT, REPAIRED AND DEMONSTRATED.
+====================================================================================================
+  the defect : ferry_scan.stems() read banned_terms.STEMS and never banned_terms.EXCEPT,
+               so an exception the record ruled at b142 was refused at the lock.
+  the repair : a banned-stem hit is put to banned_terms.classify at its own column; an
+               excepted hit is REPORTED SEPARATELY and excluded from the verdict count.
+  NOT touched: the standing mismatch between this tool's "the reader rules" and the lock
+               gate's zero. That stays routed exactly as it was.
+
+  ### INCIDENT (2), THE POSITIVE CONTROL DEMONSTRATED AT THE HALT, RE-RUN:
+    line                                   : the exclusion is stated for the mass-gap problem (Clay 2000)
+    ferry_scan LIVE stem hits   BEFORE b430: 1
+    ferry_scan LIVE stem hits   AFTER  b430: 0
+    excepted, in the owner's words         : CLAY / BIBLIOGRAPHY CITATION
+    banned_terms.classify on the same line : CLAY / BIBLIOGRAPHY CITATION
+    ### THE TWO READERS NOW RETURN ONE ANSWER.
+
+  ### THE OTHER POLARITY, SAME STEM, SO THE EXCEPTION IS NOT A HOLE:
+    line                                   : the gap in the argument is the act's own word
+    LIVE stem hits                         : 1   ### STILL FAILS
+    excepted                               : 0
+
+  ### REGRESSION: THE BANKED CALLERS. The filter can only REMOVE hits, so an arm that
+  ### passes on a zero cannot flip. The two banked positive controls are re-run here.
+    b299_checks:202 / b300_checks:349 control fires : True  PASS
+    ferry_scan.py                            live stem hits : 1
+    b299_keystone.py                         live stem hits : 0
+    STRUCK_CLAUSES.md                        live stem hits : 0
+    ### swept 3   live stem hits 1  ### FAIL ###
+====================================================================================================
+
+  ### RE-RUN AFTER THE SELF-INFLICTED HIT WAS REMOVED.
+  ### The first writing of this repair NAMED INCIDENT (1) BY QUOTING THE HYPHENATED FORM,
+  ### which is a LIVE USE of the stem in the scanner's own source -- the thing this file's
+  ### header rule (4) forbids and b299_checks sweeps for. ### **THE REPAIR REPRODUCED THE
+  ### ### INCIDENT IT WAS WRITTEN TO RECORD.** Named without spelling it; swept again:
+    ferry_scan.py                live stem hits : 0
+    b299_keystone.py             live stem hits : 0
+    b299_checks.py               live stem hits : 0
+    b300_checks.py               live stem hits : 0
+    b301_checks.py               live stem hits : 0
+    banned_terms.py              live stem hits : 1
+    STRUCK_CLAUSES.md            live stem hits : 0
+    ### swept 7   live stem hits 1  ### FAIL ###
+    ### ferry_scan fixtures (18, both polarities on the exception arm) : PASS
+====================================================================================================
+
+  ### THE PATH ARGUMENT, THREADED (same repair, found by the sweep above).
+  ### banned_terms.classify carries a FILE-LEVEL exception for the rule-owning source, which
+  ### must spell every stem it governs. ### **A SCAN THAT DOES NOT PASS THE PATH REPORTS THE
+  ### ### RULEBOOK AS A VIOLATION OF THE RULE** -- 1 live hit on banned_terms.py before, 0 now.
+    banned_terms.py      live(with path) 0   live(no path, as b299 calls it) 1   excepted 10
+        THE SCANNER'S OWN SOURCE (declared exception, file-level)
+    ferry_scan.py        live(with path) 0   live(no path, as b299 calls it) 0   excepted 2
+        CLAY / BIBLIOGRAPHY CITATION
+  ### **THE BANKED b299 ARM PASSES NO PATH AND STILL READS ZERO**, because the Clay exception
+  ### is line-level; nothing committed moves.
+====================================================================================================

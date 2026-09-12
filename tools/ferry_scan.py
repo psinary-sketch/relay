@@ -19,6 +19,52 @@
 ###       ### **RATHER THAN COPIED**, so the three tools cannot drift apart.
 ### ### **IT REPORTS. ### IT DOES NOT EDIT AND IT DOES NOT REFUSE.**
 
+### ### ==========================================================================================
+### ### THE EXCEPTION DRIFT, REPAIRED AT b430. ### **THE DOCSTRING ABOVE WAS TRUE OF THE STEMS AND
+### ### ### FALSE OF THE RULE.**
+### ### ==========================================================================================
+### ### `banned_terms.py` owns Rule 3, and Rule 3 is TWO lists: `STEMS`, the stems, and `EXCEPT`,
+### the uses of those stems the record has ruled lawful. ### **THIS TOOL READ `STEMS` AND NEVER
+### ### READ `EXCEPT`**, so from b299 to b430 it enforced a rule stricter than the one the record
+### carries -- and it said, in the paragraph above, that it read the rule "from the tool that owns
+### it". ### **A COPY THAT TAKES HALF A RULE IS A DRIFT EVEN WHEN IT COPIES NOTHING**, which is the
+### form this defect took: no stem was ever spelled here, and the divergence happened anyway.
+###
+### ### **THE TWO INCIDENTS, NAMED, BECAUSE A REPAIRED DEFECT WITH NO CASES READS AS HOUSEKEEPING.
+### ### ### AND THEY ARE TWO SPECIES, NOT TWO OF A KIND -- ONLY THE SECOND IS THIS DEFECT.**
+### ### **(1) THE b430-b432 SORTIE FERRY (2026-09-12) -- THE OCCASION, AND A CORRECT REFUSAL.**
+### ###     The author's ferry named a leg after the repository `LongGapsBetweenPrimes`,
+### ###     ### **HYPHENATED IN PROSE** -- and a hyphen is not a word character, so it opens the
+### ###     boundary the stem pattern needs. ### This scan reported 2 hits, `b378_lockgate` refuses
+### ###     the lock on any hit, and ### **THE ACT HALTED AT STEP ZERO ON A WORD IN THE AUTHOR'S
+### ###     OWN ORDER.** ### That halt is what sent someone to look at the exception list.
+### ###     ### **BUT MEASURE BEFORE FILING IT UNDER THE DEFECT: `banned_terms.classify` RETURNS
+### ###     ### `None` ON THAT LINE.** ### The owner excepts no such use, so the refusal was Rule 3
+### ###     applied correctly and ### **THIS REPAIR DOES NOT CURE IT** -- the as-received ferry,
+### ###     re-scanned by the repaired tool, still reports the same 2 live hits. ### What cured it
+### ###     was the author's re-wording to the artefact's real names, `LongGapsBetweenPrimes` and
+### ###     `long_gaps.pdf`, which close that boundary and never hit.
+### ###     ### **THE HYPHENATED FORM IS NOT SPELLED HERE**, by this file's own header rule (4):
+### ###     it would be a live use, and `b299_checks` sweeps this source for exactly that.
+### ### **(2) THE MASS-GAP REFUSAL, DEMONSTRATED AT THAT HALT BY A POSITIVE CONTROL -- THE DEFECT
+### ###     ITSELF.** ### One line citing the Clay mass-gap problem: ### **this scan reported 1
+### ###     hit; `banned_terms.classify` on the same line returned `CLAY / BIBLIOGRAPHY CITATION`**
+### ###     -- an exception the record ruled at b142. ### Two readers, one rule, two answers, and
+### ###     ### **THAT IS THE WHOLE OF WHAT THIS REPAIR FIXES.** ### It is a demonstrated refusal
+### ###     and not a hypothetical one, but it was demonstrated by a control rather than suffered:
+### ###     ### **NO BANKED ACT IS KNOWN TO HAVE BEEN HALTED BY IT**, and this file does not claim
+### ###     one was.
+###
+### ### **WHAT THE REPAIR CHANGES AND WHAT IT DOES NOT.** ### It changes WHICH STEMS THIS SCAN
+### reports: a banned-stem hit is now put to `banned_terms.classify`, and a hit the owner excepts is
+### REPORTED SEPARATELY AND EXCLUDED FROM THE VERDICT, exactly as the deprecated arm is.
+### ### **IT DOES NOT TOUCH THE STANDING MISMATCH BETWEEN THIS TOOL'S "THE READER RULES" AND THE
+### ### LOCK GATE'S ZERO** -- that a reported string refuses a lock, when this tool's whole header
+### says a hit is not a fault, is a live routed item and is NOT settled here.
+### ### **THE RETIRED STEM IS NOT FILTERED.** ### `EXCEPT` belongs to `banned_terms`; `stem_sweep`
+### owns the retired stem and carries no exception list, and reading one tool's exceptions over
+### another tool's stems would be the same defect again with the sign reversed.
+
 # ### THE LIMITS, IN THE HEADER SO IT IS NOT TRUSTED BEYOND THEM:
 # ### (1) ### **A HIT IS A STRING, NOT A FAULT.** ### The ferry that STRIKES a clause quotes the
 # ###     clause in order to strike it, and that quotation hits. ### **THE EXPECTED READING OF
@@ -115,18 +161,37 @@ def parse_record(path=None):
     return struck, unconfirmed
 
 
+BANNED_OWNER = 'banned_terms'   # ### the owner whose `EXCEPT` list governs its stems
+RETIRED_OWNER = 'stem_sweep'    # ### owns the retired stem and carries NO exception list
+
+
 def stems():
     """### THE BANNED AND RETIRED STEMS, ### **READ FROM THE TOOLS THAT OWN THEM.**
 
-    ### Returns a list of `(label, compiled)`. ### The stems are never spelled in this file; that
-    ### is what makes a drift between the three tools impossible rather than merely unlikely.
+    ### Returns a list of `(label, compiled, owner)`. ### The stems are never spelled in this file;
+    ### that is what makes a drift between the three tools impossible rather than merely unlikely.
+
+    ### ### **THE THIRD ELEMENT IS THE b430 REPAIR AND IT IS WHY THE TUPLE GREW.** ### An exception
+    ### list belongs to the tool that owns the stem, so a hit cannot be put to the right owner
+    ### unless the stem carries its owner with it. ### **EVERY BANKED CALLER PASSES THIS LIST
+    ### STRAIGHT BACK INTO `scan_text` AND UNPACKS NOTHING** (b299, b300, b301 checks and
+    ### `b299_keystone`), and `_owner_of` below still accepts a hand-built 2-tuple, so the widening
+    ### breaks no committed suite.
     """
     out = []
     for s in banned_terms.STEMS:
-        out.append(('banned stem (Rule 3, banned_terms.py)', re.compile(r'\b%s\w*' % re.escape(s),
-                                                                       re.IGNORECASE)))
-    out.append(('retired stem (b280, stem_sweep.py)', re.compile(stem_sweep.RETIRED, re.IGNORECASE)))
+        out.append(('banned stem (Rule 3, banned_terms.py)',
+                    re.compile(r'\b%s\w*' % re.escape(s), re.IGNORECASE), BANNED_OWNER))
+    out.append(('retired stem (b280, stem_sweep.py)',
+                re.compile(stem_sweep.RETIRED, re.IGNORECASE), RETIRED_OWNER))
     return out
+
+
+def _owner_of(t):
+    """### The owner of a stem tuple; ### **a 2-tuple from an older caller is UNOWNED, and an
+    ### unowned stem is never filtered** -- the conservative direction, which keeps a stranger's
+    ### hand-built list reading exactly as it did before this repair."""
+    return t[2] if len(t) > 2 else None
 
 
 # ### ==============================================================================================
@@ -245,18 +310,25 @@ def deprecated_self_test(verbose=True):
     return ok
 
 
-def scan_text(text, struck=None, stem_list=None):
-    """### RETURNS `(clause_hits, stem_hits)`, each `(label, line_no, col, the line)`.
+def _scan_both(text, struck=None, stem_list=None, path=None):
+    """### THE ONE PASS. ### RETURNS `(clause_hits, live_stem_hits, excepted_stem_hits)`.
 
     ### **THE SEARCH IS OVER THE FLATTENED TEXT, SO A CLAUSE BROKEN BY A LINE WRAP IS SEEN.**
     ### The line number reported is the line the match STARTS on.
+
+    ### ### **THE b430 ARM.** ### A hit on a stem owned by `banned_terms` is put to that tool's own
+    ### `classify`, at the matched column, and a hit it excepts is moved to the third list rather
+    ### than dropped. ### **AN EXCEPTION IS REPORTED, NEVER SILENT** -- a scanner that quietly
+    ### forgives is the same failure as one that cannot forgive, read from the other side.
+    ### ### The column handed to `classify` is the column IN THE ORIGINAL LINE, because `EXCEPT` is
+    ### written against lines a reader can open, not against this tool's flattened buffer.
     """
     if struck is None:
         struck, _ = parse_record()
     if stem_list is None:
         stem_list = stems()
     flat, idx = _flatten(text)
-    ch, sh = [], []
+    ch, sh, ex = [], [], []
 
     def hits(rx):
         for m in rx.finditer(flat):
@@ -264,7 +336,7 @@ def scan_text(text, struck=None, stem_list=None):
                 continue
             off = idx[m.start()]
             n, line = _line_of(text, off)
-            yield n, off - (text.rfind('\n', 0, off) + 1) + 1, line.strip()
+            yield n, off - (text.rfind('\n', 0, off) + 1) + 1, line
 
     for e in struck:
         seen = set()
@@ -273,13 +345,44 @@ def scan_text(text, struck=None, stem_list=None):
                 if (n, col) in seen:
                     continue
                 seen.add((n, col))
-                ch.append(('%s  %s' % (e['id'], e['clause'][:56]), n, col, line))
-    for lbl, rx in stem_list:
+                ch.append(('%s  %s' % (e['id'], e['clause'][:56]), n, col, line.strip()))
+    for t in stem_list:
+        lbl, rx, owner = t[0], t[1], _owner_of(t)
         for n, col, line in hits(rx):
-            sh.append((lbl, n, col, line))
+            # ### `path` IS PART OF THE SAME RULE AND NOT AN EXTRA. ### `classify` carries a
+            # ### FILE-LEVEL exception for the rule-owning source itself, which must spell every
+            # ### stem it governs; ### **WITHOUT THE PATH THIS SCAN REPORTS THE RULEBOOK AS A
+            # ### VIOLATION OF THE RULE.** ### Found by sweeping a file b299's arm never swept.
+            why = banned_terms.classify(line, at=col - 1, path=path) if owner == BANNED_OWNER else None
+            if why:
+                ex.append((lbl, n, col, line.strip(), why))
+            else:
+                sh.append((lbl, n, col, line.strip()))
     ch.sort(key=lambda h: (h[1], h[2]))
     sh.sort(key=lambda h: (h[1], h[2]))
+    ex.sort(key=lambda h: (h[1], h[2]))
+    return ch, sh, ex
+
+
+def scan_text(text, struck=None, stem_list=None, path=None):
+    """### RETURNS `(clause_hits, stem_hits)`, each `(label, line_no, col, the line)`.
+
+    ### ### **THE SIGNATURE IS NOT WIDENED, AND THAT IS DELIBERATE** -- fifty committed suites
+    ### unpack this 2-tuple, and b430's exception arm is reported through `excepted_stem_scan`
+    ### exactly as b358's deprecated arm is reported through `deprecated_scan`.
+    ### ### The stem list this returns is now the LIVE one: excepted uses have been removed, so the
+    ### change can only make a banked arm's count SMALLER. ### **EVERY BANKED STEM ARM PASSES ON A
+    ### ZERO AND CONTROLS ON A LINE NO EXCEPTION COVERS**, so none of them moves.
+    """
+    ch, sh, _ex = _scan_both(text, struck, stem_list, path)
     return ch, sh
+
+
+def excepted_stem_scan(text, struck=None, stem_list=None, path=None):
+    """### RETURNS `(label, line_no, col, line, reason)` for each stem hit ### **THE OWNING TOOL
+    ### EXCEPTS** -- the reason is `banned_terms.classify`'s own words, never this file's."""
+    _ch, _sh, ex = _scan_both(text, struck, stem_list, path)
+    return ex
 
 
 # ### ==============================================================================================
@@ -371,6 +474,70 @@ def self_test(verbose=True):
         bad += 0 if ok else 1
         rec('  %-56s %-9s %s' % (lbl, '%s/%s' % (got, expect), 'YES' if ok else '### NO ###'))
 
+    # ### ==========================================================================================
+    # ### (d) THE EXCEPTION FIXTURES (b430). ### **BOTH POLARITIES ON THE SAME STEM, WHICH IS THE
+    # ### ### ONLY ARRANGEMENT THAT TESTS AN EXCEPTION AT ALL.**
+    # ### ==========================================================================================
+    # ### An excepted line that stays quiet proves nothing on its own: a scanner that had simply
+    # ### stopped reading stems would pass it. ### **SO EVERY EXCEPTED FIXTURE IS PAIRED WITH THE
+    # ### ### SAME STEM USED LIVE, AND THE PAIR IS SCORED AS ONE.** ### The excepted phrases are
+    # ### BUILT FROM THE LOADED STEM, never typed, so this file still spells no banned stem.
+    # ### ### AND THE REASON IS COMPARED, NOT JUST THE SILENCE: a hit forgiven for the wrong reason
+    # ### would read identically in a hits/expected column.
+    rec()
+    rec('  %-56s %-9s %s' % ('exception fixture (b430)', 'got/exp', 'agree'))
+    ex_cases = [
+        # ### INCIDENT (2), THE ONE DEMONSTRATED AT THE b430 HALT.
+        ('(d) excepted: the Clay citation the record ruled at b142',
+         'the exclusion is stated for the mass-%s problem (Clay)' % s0,
+         'CLAY / BIBLIOGRAPHY CITATION'),
+        # ### STEM-INDEPENDENT, so this pair survives any edit to `STEMS`.
+        # ### FIRST WRITING SAID "the banned-term list", and `classify` answered RETIRED TERM IN A
+        # ### CORRECTION RECORD -- EXCEPT's THIRD pattern carries the word *banned* and matched
+        # ### before the fourth. ### **THE FIXTURE WAS EXCEPTED FOR A REASON THAT WAS NOT THE ONE
+        # ### ### UNDER TEST, AND ONLY THE REASON COMPARISON SAW IT**: the hits column read 0/0.
+        ('(d) excepted: the scanner\'s own rule text',
+         'the STEMS list carries %s at Rule 3' % s0,
+         "THE SCANNER'S OWN RULE TEXT"),
+        # ### FIRST WRITING PUT THE STEM AFTER AN UNDERSCORE AND THE FIXTURE HAD NO SUBJECT: `_` is
+        # ### a word character, so the stem pattern's leading boundary never opens and the scan
+        # ### never hit at all. ### **A FIXTURE THAT PASSES BECAUSE NOTHING MATCHED TESTS NOTHING**,
+        # ### and it would have read as a working exception for as long as it was banked.
+        ('(d) excepted: a quoted kernel identifier',
+         'the lemma `%s_witness` is imported unchanged' % s0,
+         'QUOTED KERNEL IDENTIFIER'),
+    ]
+    n_ex = 0
+    for lbl, text, want in ex_cases:
+        _c, sh, ex = _scan_both(text, [], stem_list)
+        why = ex[0][4] if ex else None
+        owner_says = banned_terms.classify(text)
+        # ### THE EXCEPTION MUST HOLD IN THE OWNING TOOL FIRST. ### If `EXCEPT` no longer covers
+        # ### the built phrase, the fixture is INAPPLICABLE and says so; ### **IT IS NOT SCORED AS
+        # ### A PASS AND IT IS NOT SCORED AS A FAILURE OF THIS SCAN** -- a fixture that has lost
+        # ### its subject measures the fixture, not the tool.
+        if owner_says is None:
+            rec('  %-56s %-9s %s' % (lbl, 'N/A', '### INAPPLICABLE -- banned_terms excepts it no longer'))
+            continue
+        n_ex += 1
+        ok = (not sh) and why == want == owner_says
+        bad += 0 if ok else 1
+        rec('  %-56s %-9s %s' % (lbl, '%s/%s' % (len(sh), 0), 'YES' if ok else '### NO ###'))
+        rec('  %-56s %s' % ('        reason, in the owning tool\'s words', why or '### NONE ###'))
+        # ### THE PAIRED LIVE USE OF THE SAME STEM. ### **THIS IS THE HALF THAT FAILS.**
+        live = 'the %s in the argument is the act\'s own word' % s0
+        _c2, sh2, ex2 = _scan_both(live, [], stem_list)
+        n_ex += 1
+        ok2 = bool(sh2) and not ex2
+        bad += 0 if ok2 else 1
+        rec('  %-56s %-9s %s' % ('        paired LIVE use of the same stem still fails',
+                                 '%s/%s' % (len(sh2), '>=1'), 'YES' if ok2 else '### NO ###'))
+    # ### b167's LAW AGAIN: ### **A VERDICT OVER AN EMPTY SCOPE IS NOT A VERDICT.**
+    if not n_ex:
+        rec('  ### HARD FAILURE -- NO EXCEPTION FIXTURE WAS APPLICABLE. The arm that reads')
+        rec('  ### `banned_terms.EXCEPT` would then be untested on every input.')
+        bad += 1
+
     # ### THE CITATION FIXTURES (b335), BUILT FROM THE LOADED VERSION, NEVER TYPED; skipped when the
     # ### standing file is absent, and said so.
     cur = standing_version()
@@ -396,9 +563,11 @@ def self_test(verbose=True):
         rec('  citation fixtures : SKIPPED -- no standing file at %s' % os.path.basename(STANDING))
 
     rec()
-    rec('  ### FIXTURES AGREEING : %d of %d' % (len(cases) + len(stem_cases) + len(cite_cases) - bad,
-                                                len(cases) + len(stem_cases) + len(cite_cases)))
+    total = len(cases) + len(stem_cases) + len(cite_cases) + n_ex
+    rec('  ### FIXTURES AGREEING : %d of %d   ### (exception pairs counted singly : %d)'
+        % (total - bad, total, n_ex))
     rec('  ### **BOTH ARMS FIRE, BOTH STAY QUIET, AND THE NEAR-MISS DOES NOT FIRE.**')
+    rec('  ### **AND THE EXCEPTED USE PASSES WHILE THE SAME STEM USED LIVE STILL FAILS.**')
     return bad == 0, out
 
 
@@ -438,17 +607,30 @@ def main(argv):
         print('  ### HARD FAILURE -- THE FERRY FILE IS EMPTY. A scan of nothing is not a scan.')
         return 2
 
-    ch, sh = scan_text(text, struck, stem_list)
+    ch, sh, exs = _scan_both(text, struck, stem_list, path)
     print()
     print('  ### STRUCK-CLAUSE HITS : %d' % len(ch))
     for lbl, i, c, line in ch:
         print('    line %-4d col %-4d  %s' % (i, c, lbl))
         print('        %s' % line[:104])
     print()
-    print('  ### BANNED/RETIRED-STEM HITS : %d' % len(sh))
+    print('  ### BANNED/RETIRED-STEM HITS : %d   ### **LIVE USES; THE OWNER\'S EXCEPTIONS ARE'
+          % len(sh))
+    print('  ### BELOW AND ARE NOT IN THIS COUNT** (b430).')
     for lbl, i, c, line in sh:
         print('    line %-4d col %-4d  %s' % (i, c, lbl))
         print('        %s' % line[:104])
+    print()
+    # ### ### **THE EXCEPTION ARM (b430). ### REPORTED, AND EXCLUDED FROM THE VERDICT.**
+    # ### The reason is `banned_terms.classify`'s own return value; this file supplies no reasons.
+    print('  ### EXCEPTED STEM USES : %d   ### **RULED LAWFUL BY `banned_terms.EXCEPT`, THE LIST'
+          % len(exs))
+    print('  ### THE STEM\'S OWN TOOL CARRIES.** ### Shown because a silent exception is the same')
+    print('  ### defect read from the other side.')
+    for lbl, i, c, line, why in exs:
+        print('    line %-4d col %-4d  %s' % (i, c, lbl))
+        print('        %s' % line[:104])
+        print('        ### excepted as : %s' % why)
     print()
     # ### ### **THE DEPRECATED ARM (b358, R3). ### REPORTED, AND EXCLUDED FROM THE VERDICT.**
     dep = deprecated_scan(text)

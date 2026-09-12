@@ -1,0 +1,21 @@
+====================================================================================================
+b430 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b430_registration_2026-09-12.txt
+  marks found  : 2
+      OPEN                       line 26    ### KERNEL lane is OPEN TO READ.
+      OPEN                       line 28    ### standing head says the kernel lane is open to read "and, for leg 2 only, to build a fo
+  query result : RECORDED at line 44
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 0 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 620e081e6e5e8c8f870c8f375066eb3f017ebfaef66ee1e6320a19f26bf39e7a  (b430_registration_2026-09-12.txt)

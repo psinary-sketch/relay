@@ -1,0 +1,178 @@
+smear_general : ∀ (p n : Nat),
+  SinglePrimeFactor.singlePrimeFactor p = true → B329.ballQ p n * B329.sumAN p n = B329.sumAQ p n
+theorem SmearGeneral.smear_general : ∀ (p n : Nat),
+  SinglePrimeFactor.singlePrimeFactor p = true → B329.ballQ p n * B329.sumAN p n = B329.sumAQ p n :=
+fun p n h =>
+  Exists.casesOn (SmearGeneral.spf_power p h) fun r h =>
+    Exists.casesOn h fun e h =>
+      And.casesOn h fun hr right =>
+        And.casesOn right fun he hp =>
+          have hr2 := SmearGeneral.isPrime_two_le hr;
+          have hr0 := Nat.lt_of_lt_of_le (of_decide_eq_true (id (Eq.refl true))) hr2;
+          have hq :=
+            id
+              (Eq.mpr (id (congrArg (fun _a => _a ^ n = r ^ (e * n)) hp))
+                (Eq.mpr (id (congrArg (fun _a => _a = r ^ (e * n)) (SmearGeneral.pow_mul' r e n)))
+                  (Eq.refl (r ^ (e * n)))));
+          have hNr :=
+            id
+              (Eq.mpr (id (congrArg (fun _a => _a ^ (2 * n) = r ^ (e * n + e * n)) hp))
+                (Eq.mpr (id (congrArg (fun _a => _a = r ^ (e * n + e * n)) (SmearGeneral.pow_mul' r e (2 * n))))
+                  (Eq.mpr (id (congrArg (fun _a => r ^ (e * _a) = r ^ (e * n + e * n)) (Nat.two_mul n)))
+                    (Eq.mpr (id (congrArg (fun _a => r ^ _a = r ^ (e * n + e * n)) (Nat.mul_add e n n)))
+                      (Eq.refl (r ^ (e * n + e * n)))))));
+          have hNqq :=
+            Eq.mpr (id (congrArg (fun _a => _a = B329.ballQ p n * B329.ballQ p n) hNr))
+              (Eq.mpr (id (congrArg (fun _a => r ^ (e * n + e * n) = _a * _a) hq))
+                (Eq.mpr (id (congrArg (fun _a => _a = r ^ (e * n) * r ^ (e * n)) (B329.pow_add' r (e * n) (e * n))))
+                  (Eq.refl (r ^ (e * n) * r ^ (e * n)))));
+          Eq.mpr (id (congrArg (fun _a => B329.ballQ p n * _a = B329.sumAQ p n) (SmearGeneral.sumAN_swap p n)))
+            (Eq.mpr
+              (id
+                (congrArg
+                  (fun _a =>
+                    B329.ballQ p n *
+                        SmearGeneral.sumf
+                          (fun s =>
+                            (List.filter
+                                (fun u =>
+                                  !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                    (u - 1) * s % B329.gridN p n == 0)
+                                (B329.units p n)).length)
+                          (List.range (B329.gridN p n)) =
+                      _a)
+                  (SmearGeneral.sumAQ_swap p n)))
+              (Eq.mpr
+                (id
+                  (congrArg
+                    (fun _a =>
+                      _a =
+                        SmearGeneral.sumf
+                          (fun s =>
+                            (List.filter
+                                (fun u =>
+                                  !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                    (u - 1) * s % B329.ballQ p n == 0)
+                                (B329.units p n)).length)
+                          (List.range (B329.gridN p n)))
+                    (Eq.symm
+                      (SmearGeneral.sumf_mul (B329.ballQ p n)
+                        (fun s =>
+                          (List.filter
+                              (fun u =>
+                                !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                  (u - 1) * s % B329.gridN p n == 0)
+                              (B329.units p n)).length)
+                        (List.range (B329.gridN p n))))))
+                (SmearGeneral.sumf_congr
+                  (fun x =>
+                    B329.ballQ p n *
+                      (List.filter
+                          (fun u =>
+                            !x % B329.ballQ p n == 0 && !u * x % B329.gridN p n % B329.ballQ p n == 0 &&
+                              (u - 1) * x % B329.gridN p n == 0)
+                          (B329.units p n)).length)
+                  (fun s =>
+                    (List.filter
+                        (fun u =>
+                          !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                            (u - 1) * s % B329.ballQ p n == 0)
+                        (B329.units p n)).length)
+                  (List.range (B329.gridN p n)) fun s a =>
+                  id
+                    (if hz : s % B329.ballQ p n = 0 then
+                      have hb := Eq.mpr (id (congrArg (fun _a => (_a == 0) = true) hz)) (Eq.refl (0 == 0));
+                      have cN0 :=
+                        SmearGeneral.filter_len_zero
+                          (fun u =>
+                            !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                              (u - 1) * s % B329.gridN p n == 0)
+                          (B329.units p n) fun u x =>
+                          Eq.mpr
+                            (id
+                              (congrArg
+                                (fun _a =>
+                                  (!_a && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                      (u - 1) * s % B329.gridN p n == 0) =
+                                    false)
+                                hb))
+                            (Eq.refl
+                              (!true && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                (u - 1) * s % B329.gridN p n == 0));
+                      have cQ0 :=
+                        SmearGeneral.filter_len_zero
+                          (fun u =>
+                            !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                              (u - 1) * s % B329.ballQ p n == 0)
+                          (B329.units p n) fun u x =>
+                          Eq.mpr
+                            (id
+                              (congrArg
+                                (fun _a =>
+                                  (!_a && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                      (u - 1) * s % B329.ballQ p n == 0) =
+                                    false)
+                                hb))
+                            (Eq.refl
+                              (!true && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                (u - 1) * s % B329.ballQ p n == 0));
+                      Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a =>
+                              B329.ballQ p n * _a =
+                                (List.filter
+                                    (fun u =>
+                                      !s % B329.ballQ p n == 0 && !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                        (u - 1) * s % B329.ballQ p n == 0)
+                                    (B329.units p n)).length)
+                            cN0))
+                        (Eq.mpr (id (congrArg (fun _a => B329.ballQ p n * 0 = _a) cQ0))
+                          (Eq.mpr (id (congrArg (fun _a => _a = 0) (Nat.mul_zero (B329.ballQ p n)))) (Eq.refl 0)))
+                    else
+                      have hoff := hz;
+                      Exists.casesOn
+                        (SmearGeneral.offball_val r e n s hr2
+                          (Eq.mpr (id (congrArg (fun _a => s % _a ≠ 0) (Eq.symm hq))) hoff))
+                        fun k h =>
+                        Exists.casesOn h fun s' h =>
+                          And.casesOn h fun hs right =>
+                            And.casesOn right fun hns' hk =>
+                              have hs' := SmearGeneral.mod_of_notDiv hr0 hns';
+                              have hkNN := Nat.lt_of_lt_of_le hk (Nat.le_add_right (e * n) (e * n));
+                              have hD1 :=
+                                Nat.lt_of_lt_of_le (Nat.lt_of_lt_of_le (of_decide_eq_true (id (Eq.refl true))) hr2)
+                                  (SmearGeneral.pow_ge r (e * n + e * n - k) hr0 (SmearGeneral.one_le_sub hkNN));
+                              have hD2 :=
+                                Nat.lt_of_lt_of_le (Nat.lt_of_lt_of_le (of_decide_eq_true (id (Eq.refl true))) hr2)
+                                  (SmearGeneral.pow_ge r (e * n - k) hr0 (SmearGeneral.one_le_sub hk));
+                              have cN :=
+                                Eq.trans
+                                  (SmearGeneral.per_s_count r e (e * n) (e * n + e * n) k s' p (B329.ballQ p n)
+                                    (B329.gridN p n) (B329.gridN p n) s hr he hs' hk (Nat.le_add_right (e * n) (e * n))
+                                    hp hq hNqq hNr hs hoff)
+                                  (SmearGeneral.count_is (r ^ (e * n + e * n - k)) (r ^ k) (B329.gridN p n) hD1
+                                    (Eq.mpr (id (congrArg (fun _a => _a = r ^ (e * n + e * n - k) * r ^ k) hNr))
+                                      (SmearGeneral.grid_factor_N r (e * n) k hk)));
+                              have cQ :=
+                                Eq.trans
+                                  (SmearGeneral.per_s_count r e (e * n) (e * n) k s' p (B329.ballQ p n) (B329.gridN p n)
+                                    (B329.ballQ p n) s hr he hs' hk (Nat.le_refl (e * n)) hp hq hNqq hq hs hoff)
+                                  (SmearGeneral.count_is (r ^ (e * n - k)) (r ^ (e * n) * r ^ k) (B329.gridN p n) hD2
+                                    (Eq.mpr (id (congrArg (fun _a => _a = r ^ (e * n - k) * (r ^ (e * n) * r ^ k)) hNr))
+                                      (SmearGeneral.grid_factor_q r (e * n) k hk)));
+                              Eq.mpr
+                                (id
+                                  (congrArg
+                                    (fun _a =>
+                                      B329.ballQ p n * _a =
+                                        (List.filter
+                                            (fun u =>
+                                              !s % B329.ballQ p n == 0 &&
+                                                  !u * s % B329.gridN p n % B329.ballQ p n == 0 &&
+                                                (u - 1) * s % B329.ballQ p n == 0)
+                                            (B329.units p n)).length)
+                                    cN))
+                                (Eq.mpr (id (congrArg (fun _a => B329.ballQ p n * r ^ k = _a) cQ))
+                                  (Eq.mpr (id (congrArg (fun _a => _a * r ^ k = r ^ (e * n) * r ^ k) hq))
+                                    (Eq.refl (r ^ (e * n) * r ^ k))))))))

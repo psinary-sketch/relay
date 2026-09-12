@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-self-control': ['the self-control', 'smear_general graded', 'grading the corpus`s own terminal', 'the four clauses compared', 'is the grading discipline symmetric'],
     'the-external-grading-read': ['the external grading read', 'the navier stokes lean terminal graded', 'the self grading test', 'calibration of the grading discipline', 'b429 external read'],
     'site-iii-and-two-filings': ['the witness arc at site iii', 'the width coordinate union', 'the disproof lane named', 'the external grading read priced', 'b428 site iii and two filings'],
     'the-witness-arc-at-site-ii': ['the witness arc at site ii', 'the height coordinate enumeration', 'site ii exhausted list', 'where the witness arc failures land', 'b427 sortie leg 2'],
@@ -683,6 +684,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE SELF-CONTROL (b430).
+    ('the-self-control', 'b430 (the self-control)',
+     "b430 GRADED THE CORPUS'S OWN SmearGeneral.smear_general BY b429'S PROTOCOL, TWICE UNDER (R40). Built at pin 6e454b1b7ba3, 3 jobs one at a time; profile from #print axioms, empty, no sorryAx; statement unfolded to 4 of 4 base objects at their own file and line; definitions checked by rowgen's defenc with a live control, False. GRADE DERIVES against the claim correspondence row 268 names; GRADE NOT THE CLAIM against the claim the finite-side prose makes (F5 line 153 and K3), for two independent reasons -- scope, and the objects the statement names. THE FOUR CLAUSES: 4 of 4 applied to itself as to the stranger; VERDICT SYMMETRIC; one trial against one trial. Cited in no corpus document.",
+     "### NO GRADE OF THE CORPUS'S OWN MOVED ON THE RECORD. ### NO LANE OPENED. ### NOTHING DEPOSITS",
+     'data/b430_the_self_control.txt; data/b430_components.txt; data/b430_grades.json; data/b430_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 279'),
     # ### THE EXTERNAL GRADING READ (b429).
     ('the-external-grading-read', 'b429 (the external grading read)',
      "b429 GRADED THE COLLABORATION'S NAVIER-STOKES LEAN TERMINAL AGAINST THE CLAY PAGE'S STATEMENT C. Three author-supplied addresses, 3 resolved, 0 guessed; repository pinned at f9e8bc5b38b6; foreign toolchain leanprover/lean4:v4.34.0-rc2 against the corpus's leanprover/lean4:v4.29.0-rc8/leanprover/lean4:v4.29.1; BUILT True; axiom profile ['propext', 'Classical.choice', 'Quot.sound'] from #print axioms with no sorryAx. All 10 clauses of C map to a named field; the conclusion is C's UNIVERSAL NEGATIVE; the initial data is AT REST; uniqueness is NEITHER USED NOR NEEDED. GRADE DERIVES, with the unrun Comparator check named as the residue. THE SELF-GRADING TEST: the corpus's own route terminal grades INTERFACES under the same reading, and 2 clause(s) were applied asymmetrically -- BOTH FAVOURING THE STRANGER. Cited in no corpus document.",
