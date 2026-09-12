@@ -116,6 +116,18 @@ def touched(repo, pat, since=True):
     return out
 
 
+def committed_by_act(repo, pat):
+    """### **AFTER THE COMMIT THE WORKING TREE IS CLEAN, AND A WRITE ARM READING ONLY THE TREE
+    ### THEN SEES NOTHING** -- so the post-push reading would score the write list over an empty
+    ### set and call that a pass. ### The act`s own written set is the union of what the tree
+    ### still shows and what THIS ACT`S COMMIT carries."""
+    head = git(repo, 'log', '-1', '--format=%s')
+    if 'b440' not in head:
+        return []
+    out = git(repo, 'show', '--name-only', '--format=', 'HEAD').splitlines()
+    return [f.strip() for f in out if f.strip() and re.search(pat, f)]
+
+
 def appended_only(repo, path):
     old = git(repo, 'show', 'HEAD:%s' % path)
     new = read(os.path.join(repo, path))
@@ -158,8 +170,17 @@ DEC = sorted(set(re.findall(r'\b[GF]-[A-Z0-9-]+', FACET)) - {'G-NO'})
 
 
 def _pushed():
+    """### **WHICH SIDE OF THE PUSH THIS READING IS ON.**
+
+    ### The inherited test asked whether the HEAD **SHA** appeared in the output of
+    ### `git branch -r --contains <sha>` -- ### **WHICH PRINTS BRANCH NAMES AND NEVER A SHA**, so it
+    ### was false after every push and the post-push reading overwrote the pre-push one. ### That is
+    ### `b430`'s defect, still live, and the two-file rule existed to prevent exactly it.
+    ### **THE HONEST TEST COMPARES THE REMOTE REF TO HEAD.**
+    """
     head = git(ROOT, 'rev-parse', 'HEAD').strip()
-    return bool(head) and head in git(ROOT, 'branch', '-r', '--contains', head)
+    remote = git(ROOT, 'rev-parse', 'origin/main').strip()
+    return bool(head) and head == remote
 
 
 def main(argv):
@@ -169,7 +190,7 @@ def main(argv):
     rec('=' * 100)
 
     kern_files = touched(WINREPO, r'.')
-    relay_new = touched(ROOT, r'b440')
+    relay_new = sorted(set(touched(ROOT, r'b440')) | set(committed_by_act(ROOT, r'b440')))
 
     ARMS = [
         # ---- STEP ZERO, THE FACE, THE LOCK ---------------------------------------------------
@@ -333,7 +354,7 @@ def main(argv):
          'b440_components.py' in FACET and 'b440_closing.txt' in FACET),
         ('G-WRITELIST-COUNTS-NEW', 'the arm counts NEW files and is scoped to this act`s own',
          'def touched(' in SRC_CHK and 'ACT_START' in pycode_of(SRC_CHK)
-         and len(touched(ROOT, r'b440')) >= 20),
+         and len(relay_new) >= 20),
         ('G-WRITELIST-KERNEL-SET-ENUMERATED', 'the SIDE-window set is enumerated and its actual 0',
          'SIDEWindow/Weights.lean' in FACET and 0 == len(kern_files)),
         ('G-NOSTAGE-A', 'no `git add -A` in this act`s own tools',
