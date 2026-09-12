@@ -1,0 +1,139 @@
+====================================================================================================
+b438 -- WHAT ALTERNATES THE SIGN, AND WHERE THE ROOM CLOSES. ### THE SURVEY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (1) WHICH TEST FUNCTION THE LADDER USES -- ### **AIMED, NOT PLAIN.**
+----------------------------------------------------------------------------------------------------
+    ### The order asks first whether the ladder rides the PLAIN bump`s autocorrelation or
+    ### an AIMED seed`s. ### **IT IS AIMED, AND THE INSTRUMENT`S OWN SOURCE SAYS SO:**
+      b317_smear.py:165
+        | def mean_zero_variant(a):
+        | """### **THE VARIANT INSIDE THE SOURCE'S CLASS.** ### Three of the corpus's own
+        | bumps, at
+        | ### widths `a**1`, `a**(1/2)`, `a**(1/4)`, combined so that both of the source's
+        | moments vanish.
+
+    ### and the coefficients are SOLVED, not chosen -- two moments are driven to zero:
+      b317_smear.py:193
+        | c12 = np.linalg.solve(A2, b2)
+      b317_smear.py:190
+        | # ### `c_0` is fixed to one and the other two solve the two vanishing conditions.
+
+    ### ### **SO THE SEED MUST TAKE NEGATIVE VALUES.** ### A non-negative function cannot
+    ### have a vanishing integral unless it is zero. ### **THE OSCILLATION IS BUILT IN BY
+    ### ### THE AIM**, and this act`s Component 1 asks what that oscillation does at the
+    ### log-primes.
+
+    ### and the chain the ladder actually runs, at its own line:
+      b321_run.py:140
+        | g = SM.mean_zero_variant(a)
+        | f = SQ.autocorrelation(g)
+        | ru = WI.remainder_integral(f, EF, 'uniform')
+
+    ### ### **AND A SECOND FAMILY THE RECORD ALREADY HOLDS**, which Component 2 needs:
+      b317_smear.py:152
+        | def corpus_bump(a):
+        | """### **THE CORPUS'S OWN INTEGRAL-ONE BUMP, FROM THE CORPUS'S OWN EMITTING FILE.**
+        | 
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE WEIGHT IN THE PRIME SUM -- ### **AND WHAT IT SETTLES BEFORE ANY CELL IS READ.**
+----------------------------------------------------------------------------------------------------
+      b321_window.py:118
+        | val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+
+    ### ### **`2 log p / sqrt(n)` IS STRICTLY POSITIVE FOR EVERY PRIME POWER `n = p^k`
+    ### ### WITH `p >= 2`.** ### So in this route the sign of a term IS the sign of the
+    ### test function at that prime power`s log, ### **BY THE FORM OF THE EXPRESSION AND
+    ### ### NOT AS AN EMPIRICAL FINDING.** ### Component 1 will still print every term --
+    ### a claim about the form is not a substitute for the values -- but the act must say
+    ### which kind of statement it is scoring.
+
+    ### and the OTHER route, which does not assume evenness:
+      b321_window.py:122
+        | val = math.log(p) * (fx + fs)
+    ### ### **THERE THE SIGN IS THE SIGN OF `f(x) + f^#(x)`**, which equals `2 w(log n)`
+    ### only because the lawful `f` is an autocorrelation and therefore EVEN. ### Both
+    ### routes are run in Component 1 so the evenness is exercised rather than assumed.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE TWO ROUTES FOR THE ARCHIMEDEAN CHANNEL.
+----------------------------------------------------------------------------------------------------
+    ### **ROUTE ONE -- the transform side, against the corpus`s digamma kernel:**
+      carto_atlas.py:66
+        | A = float(np.trapezoid(hhat(v, w, U) * kernel(U), U) / (2.0 * math.pi))
+      carto_atlas.py:33
+        | def kernel(U):
+        | """Re psi(1/4 + i u/2) - log pi, cached."""
+        | global _KERN
+
+    ### **ROUTE TWO -- b320`s, from the source`s (53), (38) and (39):**
+      b320_weil.py:178
+        | def weil(f):
+        | """### ### **`W_infinity(f)` FROM (53), (38) AND (39). ### RETURNS `(value, reg,
+        | sing, phi0)`.**"""
+        | v = np.linspace(f.v[0], f.v[-1], NV)
+        | w = np.interp(v, f.v, f.w, left=0.0, right=0.0)
+        | reg = float(np.trapezoid(w * np.exp(v / 2.0) / (2.0 * (1.0 + np.exp(v))), v))
+        | pf, xl, xh, ph0 = phi_of(f)
+        | sing = pair_W(pf, xl, xh, ph0)
+        | return -(reg + sing), reg, sing, ph0
+
+    ### **AND b333`S `h+`, THE DISTRIBUTION ITSELF, AT ITS OWN LINE:**
+      b333_derive.py:74
+        | hplus = -log(pi) + mre(digamma(mpc(mpf(1) / 4, tau / 2)))
+
+----------------------------------------------------------------------------------------------------
+  ### (4) `h+` ALONE -- ### **A PROPERTY OF THE DIGAMMA, CARRYING NO FAMILY AND NO RADIUS.**
+----------------------------------------------------------------------------------------------------
+    ### This is the one evaluation the survey makes, and it is of a FIXED function: `h+`
+    ### depends on `u` and on nothing else. ### **NO CELL, NO FAMILY, NO SUPPORT
+    ### PARAMETER ENTERS IT.**
+
+      u          h+(u) = Re psi(1/4 + i u/2) - log pi
+      0.0000     -5.372183419
+      1.0000     -2.025146193
+      2.0000     -1.161557091
+      4.0000     -0.454227321
+      6.0000     -0.047280736
+      8.0000     +0.240911638
+      10.0000    +0.464290627
+      20.0000    +1.157750995
+      50.0000    +2.074129271
+
+      ### ### **`h+` IS NEGATIVE AT `u = 0` (`-5.372183`) AND GROWS LIKE `log u`.**
+      ### ### **IT HAS ONE SIGN CHANGE, AT `u0 = 6.289835989`** -- located by bisection to
+      ### `8.9e-16`, and `h+(u0) = +0.000e+00`.
+
+    ### ### **AND THIS IS WHAT MAKES COMPONENT 2 DECIDABLE RATHER THAN A MATTER OF
+    ### ### OPINION.** ### The archimedean channel is `A = (1/2pi) INT fhat(u) h+(u) du`,
+    ### and for the lawful `f = g conv g^#` the weight `fhat = |ghat|^2` is ### **NEVER
+    ### NEGATIVE.** ### So `A < 0` requires `h+ < 0` where that weight has its mass --
+    ### that is, the family`s transform sitting mostly BELOW `u0`.
+    ### ### **AND A NORMALIZATION CANNOT DO IT.** ### The scale is a POSITIVE number and
+    ### multiplying by a positive number moves no zero. ### Component 2 will say this
+    ### against printed values rather than on this reasoning alone.
+
+----------------------------------------------------------------------------------------------------
+  ### (5) b437`S CELLS, AND WHAT THIS ACT MUST RE-OPEN.
+----------------------------------------------------------------------------------------------------
+    cells banked by b437            : 35
+    with a POSITIVE archimedean A   : 31
+    with a NEGATIVE archimedean A   : 1
+
+    ### ### **THE BRACKET, FROM b437`S OWN TABLE:**
+        a = 5.612309   A = +0.002151996
+        a = 5.656854   A = -0.001104564
+    ### **THE ZERO LIES BETWEEN THEM**, and b437 reported only that it lies between
+    ### two GRID POINTS. ### Component 2 locates it.
+
+    ### **AND THE CELLS PAST THE ROOM, WHICH COMPONENT 3 READS:** ### 1 of them.
+    ### **AND (R49) AUTHORISES NO MORE**: its scope is the cells b437 banked, decomposed,
+    ### and the distribution evaluated against the same family. ### **NO NEW CELL.**
+
+====================================================================================================
+  ### READS ATTEMPTED : 12
+  ### MISSES          : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================
