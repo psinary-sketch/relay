@@ -1,0 +1,12 @@
+
+=== NavierStokesR3.theorem_1_1  [repo @ f9e8bc5b38b6e212696e8a30e3e91517af887bbd]  exists=True defenc=False
+  check:  NavierStokesR3.theorem_1_1 : NavierStokesR3.ProblemStatement.breakdownStatement
+  axioms: 'NavierStokesR3.theorem_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+  doc:    Theorem 1.1, with all properties of the same velocity, pressure, force, and compact support witnessed simultaneously, for every positive viscosity.
+  body1:  by
+
+=== NavierStokes.Comparator.navier_stokes_breakdown_R3  [repo @ f9e8bc5b38b6e212696e8a30e3e91517af887bbd]  exists=True defenc=False
+  check:  NavierStokes.Comparator.navier_stokes_breakdown_R3 : ∀ nu > 0,
+  axioms: 'NavierStokes.Comparator.navier_stokes_breakdown_R3' depends on axioms: [propext, Classical.choice, Quot.sound]
+  doc:    (C) Breakdown of Navier–Stokes solutions on ℝ³.
+  body1:  by

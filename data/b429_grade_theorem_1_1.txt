@@ -1,0 +1,167 @@
+====================================================================================================
+b429 (FOLLOW-ON) -- `NavierStokesR3.theorem_1_1` GRADED FORMALLY AGAINST THE WRITEUP'S THEOREM 1.1.
+### **A GRADE TAKEN AT THE AUTHOR'S DIRECT INSTRUCTION, OUTSIDE THE ACT PROTOCOL.** ### No
+### registration sealed, no correspondence row, no grade of the corpus's own moved. ### Banked so
+### its checks and quotations are citable.
+====================================================================================================
+
+  THE CLAIM NAMED : the writeup's Theorem 1.1, page 1 of the PDF pinned
+                    sha256 0e779481c4da40bd28d1e642e1d8ca57447d129610df28dfa5a11e9af8ae228f
+  THE TERMINAL    : NavierStokesR3.theorem_1_1, NavierStokes/R3/Theorem.lean line 46,
+                    in the clone at f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+  ### ### **AND THE FIRST THING A GRADE MUST SAY IS WHICH CLAIM IT IS AGAINST.** ### `b429` graded a
+  ### DIFFERENT terminal against a DIFFERENT claim -- the Comparator terminal against Clay C. ### This
+  ### is a second grade, of a second terminal, against a second claim, and it neither confirms nor
+  ### disturbs the first.
+
+----------------------------------------------------------------------------------------------------
+### (1) THE STATEMENT, UNFOLDED TO ITS BASE OBJECTS.
+----------------------------------------------------------------------------------------------------
+  `#check`, from the toolchain's own output at the pin:
+      | NavierStokesR3.theorem_1_1 : NavierStokesR3.ProblemStatement.breakdownStatement
+
+  breakdownStatement (R3/ProblemStatement.lean:150) unfolds to
+      | forall nu : R, 0 < nu ->
+      |   exists u p f K, CandidateProperties nu u p f K and not Nonempty (GlobalFiniteEnergySolution nu f)
+
+  and through the operators (ProblemStatement.lean:55-79) to Mathlib primitives, with NO intervening
+  definition of this repository's own invention at the analytic layer:
+      | temporalDerivative u t x = fderiv R (fun s : R => u (s, x)) t 1                    (:55-56)
+      | spatialDerivative  u t x = fderiv R (fun y : Space => u (t, y)) x                  (:59-60)
+      | advection          u t x = spatialDerivative u t x (u (t, x))                      (:63-64)
+      | spatialDivergence  u t x = SUM_i (spatialDerivative u t x (coordinateVector i)) i  (:67-68)
+      | pressureGradient   p t x = SUM_i (fderiv R (fun y => p (t,y)) x (e_i)) . e_i       (:71-73)
+      | spatialLaplacian   u t x = SUM_i fderiv R (fun y => spatialDerivative u t y e_i) x e_i (:76-79)
+      | Space = EuclideanSpace R (Fin 3) ; SpaceTime = R x Space                           (:30-33)
+      | kineticEnergy u t = (1/2) * INT x, ||u (t,x)||^2 d(volume)                         (R3:76-77)
+  ### ### **EVERY OPERATOR IS `fderiv` OR A FINITE SUM OF `fderiv`s ON `EuclideanSpace R (Fin 3)`, AND
+  ### ### THE ENERGY IS MATHLIB'S BOCHNER INTEGRAL AGAINST `volume`.** ### There is no stand-in, no
+  ### `Bool` field assigned true, and no predicate defined as `fun _ => True`.
+
+----------------------------------------------------------------------------------------------------
+### (2) THE ELEVEN CLAUSES OF THEOREM 1.1, EACH TO A NAMED FIELD.
+----------------------------------------------------------------------------------------------------
+   #  the writeup's clause                                    the Lean field                      where
+  --  ------------------------------------------------------  ---------------------------------  ------------
+   1  "For every nu > 0"                                      the binder of breakdownStatement    R3/PS:151
+   2  "a force f in C^inf_c(R3 x (0, inf); R3)"               force_smooth + force_support        R3/PS:97-98
+   3  "a compact set K subset R3"                             support_compact                     R3/PS:95
+   4  "smooth u, p on R3 x [0, 1)"                            velocity_smooth, pressure_smooth    R3/PS:93-94
+   5  "d_t u + (u.grad)u - nu Lap u + grad p = f"             navier_stokes                       R3/PS:105
+   6  "div u = 0"                                             divergence_free                     R3/PS:103
+   7  "u(., 0) = 0"                                           zero_initial_velocity               R3/PS:102
+   8  "supp u union supp p subset K for 0 <= t < 1"           velocity_support, pressure_support  R3/PS:99-101
+   9  "sup_{0<=t<1} ||u(t)||_{L2} < infinity"                 energy_bounded                      R3/PS:107
+  10  "limsup_{t->1-} ||u(t)||_{Linf} = infinity"             speed_unbounded                     R3/PS:108
+  11  "Consequently, there is no smooth solution (u, P) on    not Nonempty                        R3/PS:153
+      R3 x [0, inf) with the same force and initial datum      (GlobalFiniteEnergySolution nu f)   R3/PS:125
+      whose kinetic energy is uniformly bounded"
+
+  ### ### **ELEVEN CLAUSES, ELEVEN NAMED FIELDS. ### UNMAPPED : 0. ### ADDED BEYOND THE CLAIM : 0.**
+
+----------------------------------------------------------------------------------------------------
+### (3) THE MECHANICAL CHECKS, BY THE CORPUS'S OWN INSTRUMENT WHERE IT HAS ONE.
+----------------------------------------------------------------------------------------------------
+  ### **(a) `rowgen.py generate`, THE CORPUS'S OWN GRADING TOOL, RUN ON THE STRANGER**
+  ###     (relay `data/b429_rowgen_terminals.json`, run `data/b429_rowgen_run.txt`):
+      | === NavierStokesR3.theorem_1_1  [repo @ f9e8bc5b...]  exists=True defenc=False
+      |   check:  NavierStokesR3.theorem_1_1 : NavierStokesR3.ProblemStatement.breakdownStatement
+      |   axioms: depends on axioms: [propext, Classical.choice, Quot.sound]
+  ###     ### **THIS IS THE ASYMMETRY `b429` FOUND AND DID NOT CLOSE.** ### That act accepted the
+  ###     stranger's definitions on a READING while the corpus runs `rowgen` on its own. ### **THE
+  ###     TOOL IS RUN HERE**, and it is the corpus's own file, imported and not copied.
+
+  ### **(b) `definition_encoded` WIDENED BEYOND ITS OWN REACH, AND THE WIDENING SAID.** ### `rowgen`'s
+  ###     predicate scans only the terminal's OWN file; this statement's identifiers are defined
+  ###     across three. ### The corpus's predicate was IMPORTED and applied to all three at once
+  ###     (21,519 characters): ### **`defenc = False`, no identifier of the conclusion has a literal
+  ###     or `True` body.**
+  ###     And the shapes the tool's own README pairs it with, counted in the same three files:
+  ###       `X = X` 0 ; `X <-> X` 0 ; `:= True` 0 ; `:= trivial` 0.
+
+  ### **(c) THE CLOSURE.** ### `#print axioms` on this machine, from the printer's own output:
+      | 'NavierStokesR3.theorem_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+      | 'NavierStokesR3.theorem_1_1_with_initial_rest' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ###     The standard three; ### **no `sorryAx`**, so no `sorry` anywhere in the closure.
+
+  ### **(d) NON-VACUITY, MACHINE-CHECKED -- THE CHECK A NEGATIVE STATEMENT ACTUALLY NEEDS.**
+  ###     ### **A `not Nonempty (...)` IS WORTHLESS IF THE CLASS IS EMPTY BY CONSTRUCTION**, and
+  ###     nothing above would catch that: a contradictory field set passes every check in (a)-(c).
+  ###     Two probes were written and compiled at the pin (relay `data/b429_probes.lean`):
+      | theorem b429_probe_class_inhabited (nu : R) :
+      |     Nonempty (GlobalFiniteEnergySolution nu (fun _ => 0))
+      |   -- the zero fields solve the unforced equations from rest at zero energy
+      | 'b429_probe_class_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+      |
+      | theorem b429_probe_blowup_refuses_zero :
+      |     not SpeedUnboundedAtOne (fun _ => 0)
+      | 'b429_probe_blowup_refuses_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ###     ### **SO THE EXCLUDED CLASS IS INHABITABLE FOR SOME FORCE** -- the negation is not true of
+  ###     every `f` for free -- ### **AND THE CONSTRUCTION HALF REFUSES THE DEGENERATE WITNESS** --
+  ###     `speed_unbounded` rules out `u = 0`, so clause 10 cannot be met by a trivial field.
+  ###     ### **BOTH PROBES ARE THIS SEAT'S OWN WORK, COMPILED AGAINST THE STRANGER'S DEFINITIONS**,
+  ###     and both carry only the standard three axioms.
+
+----------------------------------------------------------------------------------------------------
+### (4) A CORRECTION TO WHAT THIS SEAT SAID ONE TURN AGO.
+----------------------------------------------------------------------------------------------------
+  ### The previous read called the open interval in `navier_stokes` (`Ioo 0 1` where the writeup
+  ### writes `[0, 1)`) a difference that ### *"follows from the fields that are there ... by
+  ### continuity"*, and flagged that the derivation was unchecked. ### **THAT FRAMING WAS WRONG.** ###
+  ### It treated the open interval as a gap needing closing. ### The module says why it is there, in
+  ### its own words (R3/ProblemStatement.lean:19-22):
+      | Smoothness of velocity and pressure at time zero is relative to the physical half-domain. The
+      | equation uses ordinary derivatives at positive times; zero initial velocity is imposed
+      | separately. This avoids differentiating an arbitrary extension to negative time at the
+      | boundary.
+  ### ### **AND THE READING OF (1) MAKES THE REASON EXACT:** ### `temporalDerivative` is the
+  ### UNRESTRICTED `fderiv` in time. ### At `t` in `(0, 1)` the domain `Ico 0 1 x univ` is a
+  ### neighbourhood, so `ContDiffOn` there makes `fderiv` the genuine derivative. ### At `t = 0` it is
+  ### not a neighbourhood, and an unrestricted `fderiv` would be differentiating an arbitrary
+  ### extension to negative time. ### **THE OPEN INTERVAL IS NOT A WEAKENING; IT IS THE ONLY PLACE
+  ### ### THE OPERATOR AS DEFINED MEANS WHAT IT SAYS**, and the source chose it deliberately.
+  ### ### **THE CLAUSE IS THEREFORE MET, NOT MET-WITH-A-GAP**, and the earlier hedge is withdrawn.
+  ### ### **WHAT REMAINS UNCHECKED IS SMALLER AND IS STATED AS ITSELF:** that `ContDiffOn` on a set
+  ### which is a neighbourhood yields the unrestricted `fderiv` is a Mathlib fact this seat read and
+  ### did not machine-check.
+
+----------------------------------------------------------------------------------------------------
+### (5) THE GRADE.
+----------------------------------------------------------------------------------------------------
+  ### **DERIVES** -- the statement unfolded is Theorem 1.1 and every step is in the closure.
+  ###   Eleven clauses to eleven named fields, nothing unmapped and nothing added; the conclusion is
+  ###   the paper's own, not a weaker substitute; the closure carries the standard three and no
+  ###   `sorryAx`; `defenc` false across the whole statement; and the two ways the statement could
+  ###   have been true for nothing -- an empty excluded class, a degenerate construction witness --
+  ###   are closed by compiled probes.
+  ### **NOT `INTERFACES`** -- `theorem_1_1` takes NO hypothesis at all: it is `theorem theorem_1_1 :
+  ###   ProblemStatement.breakdownStatement`, with the viscosity quantified inside the statement.
+  ###   Its own docstring says so: *"No construction hypotheses remain."*
+  ### **NOT `ENCODES-CONCLUSION / SHELL`** -- nothing is stipulated and no placeholder concluded;
+  ###   `defenc = False` by the corpus's own predicate at a widened scope, and the probes show the
+  ###   statement is not satisfied for free.
+  ### **NOT `NOT THE CLAIM`** -- it states neither less nor more than Theorem 1.1.
+
+----------------------------------------------------------------------------------------------------
+### (6) THE RESIDUE, NAMED BY CONTENT -- AND IT IS LARGER THAN `b429`'s.
+----------------------------------------------------------------------------------------------------
+  ### **(i) THE SOURCE SUPPLIES BOTH SIDES OF THIS COMPARISON.** ### At `b429` the claim was
+  ###     ### **CLAY STATEMENT C** -- an external text, fixed by a third party, which the
+  ###     formalization had to meet. ### Here the claim is ### **THE WRITEUP'S OWN THEOREM 1.1** ###
+  ###     and the formalization is ### **THE SAME AUTHORS' OWN DEFINITIONS.** ### **SO A `DERIVES`
+  ###     ### HERE SAYS THE LEAN STATEMENT SAYS WHAT THE PAPER'S THEOREM SAYS -- A SELF-CONSISTENCY
+  ###     ### CHECK, NOT AN EXTERNAL ONE.** ### It is a weaker kind of certificate than `b429`'s, and
+  ###     the weakness is structural rather than a defect of anyone's work.
+  ### **(ii) THERE IS NO EXTERNAL CHECKER FOR THESE DEFINITIONS AT ALL.** ### `Comparator` checks the
+  ###     `NavierStokes.Comparator` definitions against an independent reference; it does NOT check
+  ###     `NavierStokesR3.ProblemStatement`. ### So the fidelity of `CandidateProperties` to the
+  ###     prose of Theorem 1.1 rests on ### **THIS SEAT'S CLAUSE-BY-CLAUSE READING**, supported by
+  ###     the four mechanical checks of section (3) and by nothing else.
+  ### **(iii) AND THE ONE MECHANICAL CHECK NOT RUN:** the Mathlib step in (4), that `ContDiffOn` on a
+  ###     neighbourhood gives the unrestricted `fderiv`.
+
+  ### ### **WHAT IS NOT CLAIMED.** ### Nothing about whether the 166 pages prove Theorem 1.1. ### The
+  ### grade is a relation between a terminal and a named claim; it says the terminal STATES the claim
+  ### and that its closure is clean. ### **WHETHER THE PROOF IS RIGHT IS NOT A QUESTION A GRADE ASKS**,
+  ### and this record does not ask it.
+====================================================================================================
