@@ -1,0 +1,120 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b442 -- THE MINIMUM NAMED, AND SITE (v). ### 2026-09-12.
+### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+  ferry            : part 1 of 1, received IN FULL -- **0 HIT(S)**. It carried no scanned-before-sending line;
+                     under (R54) the seat MAY refuse such a ferry, did not, and said so on the face
+  rulings entered  : (R53) the identification lives in the faces ledger; (R54) the lock keeps refusing
+                     author-text hits, no override
+  registration     : LOCKED BEFORE ANY WRITE, sha256 `2d82cdb5c42f2838...`; SEAL INTACT
+  gates            : **8 READ, 8 PASSING, 4 CHECKED BY DIGEST**
+  survey           : 16 reads, **0 MISSES**
+  arms             : **91 DECLARED, 91 RUN, 91 PASSING** -- pre-push `b442_checks.txt`, post-push
+                     `b442_checks_postpush.txt`, each written under its own header
+  censuses / pins  : **TOTAL MISSING 0** both, step zero and close; **HARD-FAILING 0** both
+  mirror           : **CLEAN ON ALL THREE CLAUSES** at `ea52028`
+  guard            : **EXERCISED AND PASSING -- 0 FAILING, 0 SKIPPED, 4 EXERCISED**
+  correspondence   : row **291**; row 290 reads at its own marker
+  ledger           : `<!-- b442 update: u0 -->` and `<!-- b442 update: site (v) -->`, through the writer,
+                     14 quotations verified, 0 misses; row U1 byte-unmoved; no cell
+  HELD             : **0** HELD-only files in the pushed tree
+  TECHNE-Core / SIDE-window : **UNTOUCHED**
+  desk             : 5 items swept, 3 closed, 2 standing
+  addendum slot    : `data/b442_addendum.txt`, **EMPTY**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE VERDICT.
+----------------------------------------------------------------------------------------------------
+  ### ### **u0 IS THE MINIMUM OF THE RIEMANN-SIEGEL theta ON 0 <= t <= 50. HOLDS, WITH ITS QUANTIFIER.**
+
+    argmin from theta's VALUES alone (golden section, never h+) : 6.289835988836902779681
+    u0 as banked by b440 (root of h+)                           : 6.289835988836902779665
+    |difference|                                                : 1.6e-20   (stated 1e-12)
+    theta(u0), route B loggamma                                 : -3.5309728290166074377
+    theta(u0), route A quad over digamma                        : -3.5309728290166074377
+    |difference|                                                : 4.6e-41   (stated 1e-12)
+    theta(t) + theta(-t) at t = 1, 3, 6.29, 20, 50               : 0 at all five -- theta is ODD
+    h+ on (0, 50], step 0.05                                     : one sign change, in (6.25, 6.30)
+
+  **Theta is odd, so it has no minimum on the whole line**; `-u0` is its maximum on `-50 <= t <= 0`.
+  The range beyond 50 is not measured and the name does not claim it.
+
+      DEFINING EQUATION   : HELD     -- Re psi(1/4 + iu/2) = log pi
+      CLASSICAL ASYMPTOTE : HELD     -- 2 pi, which is not u0
+      NAME                : HELD     -- the minimum of theta on 0 <= t <= 50, DERIVES-ON-IMPORTS on K5
+      CLOSED FORM         : NOT HELD -- a name is not a closed form
+      CLASSICAL VALUE     : NOT SOURCED -- neither verified source states theta's minimum; -3.53097... is
+                            computed here and matched against nothing remembered
+
+  **The mechanism in theta's vocabulary keeps b440's qualifier**: a heuristic, right at 9 of 10 cells,
+  wrong for the second family at a = 1.2.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- SITE (v), THE CANDIDATE TABLE.
+----------------------------------------------------------------------------------------------------
+  cell, quoted first: KIND (b); WITNESS NONE KNOWN; "ONE CONSTANT SERVING EVERY REPRESENTATION".
+
+      V1   Theorem 6.1's own hypotheses vs the Epstein form      S1  CLASS BOUNDARY
+      V2   Theorem 6.1 over {zeta, Z_Q} by the finite maximum    S1  CLASS BOUNDARY
+      V3   Lagarias's Dedekind-zeta sentence                     S1  CLASS BOUNDARY
+      V4   Theorem 5.1's absolute constant                       S1  COORDINATE BOUNDARY
+      V5   Theorem 2.1(4)'s counting law                         S1  CLASS BOUNDARY
+      V6   CC's statements (zeta only)                           S1  CLASS BOUNDARY
+      V7   row F7's own measured statements                      S2  BOUNDED BY A MEASUREMENT
+      V8   b325's transfer of the archimedean distribution       S2  REFUTED
+      S1*  counting error, absolute constant via the analytic    S1  CLASS BOUNDARY   <- the near-miss
+           conductor (Lagarias citing IK 5.8)
+      S2*  Theorem 3.1 on the Li class L of test functions       S1  CLASS BOUNDARY
+
+  **10 candidates, 0 held. CLASS BOUNDARY 7; COORDINATE BOUNDARY 1; BOUNDED BY A MEASUREMENT 1;
+  REFUTED 1.** Eleven further search hits read and named as non-candidates, each with its reason.
+
+  ### **AT THE ORDER'S SCALE THE OBSTRUCTION IS MEMBERSHIP, NOT UNIFORMITY.** Over the corpus's two
+  objects the maximum of two constants is one constant; every verified-source theorem with a
+  representation-dependent constant assumes cuspidality, and the record measured that the Epstein
+  function has no Euler product.
+
+  **Boundary count at five sites, from banked JSON:** kinds 11 across (i)-(iv), 11 across all five;
+  10 of 10 of this site's failures land at a kind already used; **no new kind.**
+  **Transcription noted, not repaired:** row U1 (v) writes Theorem 6.1 as `lambda_n(n,pi) + O(n log n)`;
+  the source reads `lambda_n(sqrt n, pi-dual) + O(sqrt n log n)`. The pi-dependence is the same.
+  **The arc is checkpointed after (v). Site (vi) remains.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3.
+----------------------------------------------------------------------------------------------------
+  b440's corrections ride in row 291, headed **"CORRECTIONS TO ROW 289, ENTERED AS b440'S"**, in b441's
+  words quoted verbatim: (1) "THE RECORD NEVER DENIED THE IDENTIFICATION."; (2) "b440's sentence --
+  "b430's defect, still live in every act since" -- is FALSE"; (3) "AND b440'S REPAIR WAS DEFECTIVE TOO,
+  AND IT REACHED THIS ACT." -- the rule `origin/main == HEAD` named wrong, b439's predicate standing as
+  restored in b441's suite and carried in b442's. Row 289 and `b440_checks.py` not edited.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+  (N1)(a) u0 is theta's argmin                    ### **HELD, WITH ITS QUANTIFIER** -- 0 <= t <= 50
+  (N1)(b) the record holds all three states       ### **HELD** -- closed form still NOT HELD
+  (N2)(a) site (v) exhausted, no witness          ### **HELD** -- 10 candidates, 0 held
+  (N2)(b) failures at the class boundary, by      ### **MOSTLY** -- 7 of 10; 3 land elsewhere
+          hypothesis
+  ### this seat's own from the face -- all three **HELD**.
+
+----------------------------------------------------------------------------------------------------
+### THIS ACT'S OWN DEFECTS.
+----------------------------------------------------------------------------------------------------
+  1. **The site (v) ledger block attributed three ledger quotations to `relay data/FACES_LEDGER.md`.**
+     Caught on read-back before commit; the append reverted and re-filed through the writer.
+  2. **Correspondence row 291's first writing paraphrased b441's sentence in capitals instead of
+     quoting it**, and its verification checked only a prefix of a line-wrapped sentence. Caught by
+     `G-C3-B441-WORDS-VERIFIED`; row, key and trail reverted before commit and re-written verbatim.
+  3. **A patch applied through a heredoc aborted on the backslash trap**, and the desk step then
+     re-wrote the paraphrase once more before the revert. Nothing of it was committed.
+  4. **Two arms mis-aimed**: one sought a heading format never printed; one counted TECHNE modules left
+     untracked by earlier acts. Repaired and said.
+
+  ### STANDING: row U1 (v)'s transcription -- whether an update block should carry it is the author's.
+  ### **THE FOUR LISTS ARE OPEN. THE ARC IS CHECKPOINTED AFTER (v). (R51) STANDS. BOTH INSTRUMENT LANES
+  PARKED. NO GRADE MOVED, NO CELL WRITTEN, NO CLAIM ABOUT RH OR ANY ZERO.**
+  ### ### **AND `h2` WHERE THE DEPOSIT LEFT IT.**
+====================================================================================================
