@@ -1,0 +1,79 @@
+**RECEIPT CONFIRMED IN FULL. ACT b429, BANKED, PUSHED AND READ BACK.**
+
+**THE FOREIGN TERMINAL BUILDS, ITS CLOSURE IS CLEAN, AND IT GRADES `DERIVES`. THE SELF-GRADING TEST FINDS TWO CLAUSES APPLIED ASYMMETRICALLY — AND BOTH FAVOUR THE STRANGER, WHICH IS THE OPPOSITE DIRECTION FROM THE CONCERN b428 ROUTED.** The registration was locked before any write, fetch, clone or build, at `2e7f681b…da48`: 8 gates read, 8 passing, 4 by digest.
+
+---
+
+## THE ADDRESSES, AS THE AUTHOR SUPPLIED THEM
+
+Three, and no others; **nothing guessed**, and b428's four constructed candidates were not retried. All three resolved and were pinned by digest: the Lean repository `github.com/openai/NavierStokesAndEuler` at **`f9e8bc5b38b6e212696e8a30e3e91517af887bbd`** (branch `main`); the writeup PDF, `sha256 0e779481…228f`, 2,959,204 bytes; the Clay formulation, `sha256 c1b5f27b…6d0c`, 203,736 bytes. Each document's bytes on disk re-hash to the digest recorded at fetch.
+
+## COMPONENT 1 — STATEMENT C AT CONTENT
+
+The page is Fefferman's. **(C)**, verbatim: *"Breakdown of Navier–Stokes solutions on R3. Take ν > 0 and n = 3. Then there exist a smooth, divergence-free vector field u◦(x) on R3 and a smooth f(x, t) on R3 × [0, ∞), satisfying (4), (5), for which there exist no solutions (p, u) of (1), (2), (3), (6), (7) on R3 × [0, ∞)."* Conditions quoted at the same place: **(4)** `|∂α_x u◦(x)| ≤ CαK(1 + |x|)−K on Rn, for any α and K`; **(5)** `|∂α_x ∂m_t f(x, t)| ≤ CαmK(1 + |x| + t)−K on Rn × [0, ∞), for any α, m, K`; **(6)** `p, u ∈ C∞(Rn × [0, ∞))`; **(7)** `∫Rn |u(x, t)|2dx < C for all t ≥ 0 (bounded energy)`.
+
+**THE PAGE CARRIES AN ERRATA SECTION, AND NEITHER ENTRY TOUCHES (C) OR (4)–(7).** The first makes `p(x + ej, t) = p(x, t)` explicit in Eqn (8) — the periodicity condition, which only **(D)** uses. The second replaces an "Eqn (10)" with a weak-form identity, **while the page as served at this digest numbers (10) as the periodicity condition**; that disagreement between the erratum's numbering and the page's is reported, not resolved. On either reading it reaches (D) or the weak formulation, not (C).
+
+## COMPONENT 2 — THE TERMINAL LOCATED, AND THE PROFILE PRINTED
+
+**The README names the statements and names no theorem.** b428 priced ACT 1 as *"read the repository's README … and name the single theorem"*, adding *"if the README names none, the act ends there and says so."* **It names none, and the act did not end** — the repository carries a machine-readable `formalization.yaml` that names `NavierStokes.Comparator.navier_stokes_breakdown_R3` for (C) and `…_periodic` for (D). **b428's ACT 1 is refuted in its premise**, and the refutation is printed rather than absorbed.
+
+**It builds.** Foreign toolchain `leanprover/lean4:v4.34.0-rc2`, Mathlib `85e3a25e006c`, against the corpus's `v4.29.0-rc8` and `v4.29.1` — **the foreign pin is newer**. `Build completed successfully (9371 jobs)`. The axiom profile, read from **`#print axioms`'s own output on this machine** and not from an exit code:
+
+```
+'NavierStokes.Comparator.navier_stokes_breakdown_R3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NavierStokes.Comparator.navier_stokes_breakdown_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+**The standard three and nothing else; no `sorryAx`.** The repository's four bare `sorry` terms are all in `ComparatorChallenges/`, its own reference statements — and the profile tests that claim independently, since a `sorry` in the closure would show as `sorryAx`.
+
+**AND THE BUILD FAILED TWICE BEFORE IT SUCCEEDED, WITH NO FAILURE IN THE MATHEMATICS.** Run 2 stopped on three modules: `SlowRecursion` with `libc++abi: terminating due to uncaught exception of type std::bad_alloc`, `UniformHarmonicInteraction` with `out of memory`, and `ShapedWaitBounds` with a Mathlib cache artefact (`Independent.olean.private`) that had not been decompressed. **Two explicit out-of-memory under twelve-way parallelism on a 15.8 GiB machine, and one missing cache file.** Re-fetching the cache and building those three **one at a time** gave `RC=0` for each. **A build that fails on one machine is a fact about the machine until it is shown to be a fact about the proof, and nothing here shows that.** Runs 1 and 2 are kept on disk.
+
+## COMPONENT 3 — THE STATEMENT READ AGAINST C
+
+- **Quantifiers** — `∀ nu, nu > 0 → ∃ u₀ f, …`, with `n = 3` fixed by `EuclideanSpace ℝ (Fin 3)`. Exactly C's *"Take ν > 0 and n = 3. Then there exist …"*.
+- **The decay of (5)** — a stated hypothesis: `ForceConditionDecay.decay`. It bounds the **total** `m`-th derivative, which dominates every mixed partial of that order — **at least as strong as the page's condition, on the side where being stronger makes the theorem weaker**.
+- **The initial data** — existential in the terminal, and **at rest one level down**: the witness is `fun _ => 0` (`NavierStokes/R3/ComparatorBridge.lean:85`), its lemma named `zero_initial_condition_decay`, its paper-side theorem `theorem_1_1_with_initial_rest` — whose own docstring adds *"No construction hypotheses remain."* **C permits this exactly**: it asks for *some* smooth divergence-free `u₀` satisfying (4), and the zero field is one. The forcing does the work.
+- **The conclusion** — `¬ (∃ v p, NavierStokesExistenceAndSmoothnessRn nu u₀ f v p)`: **the universal negative of C, not the blowup of a constructed solution.** And the transport into the repository's own excluded class, `globalSolutionOfComparator`, is a **total definition** taking only the Comparator-class solution — so any solution in C's class yields one in the excluded class, and the negative reaches the whole of C's class.
+- **Uniqueness** — **neither used nor needed.** A universal negative never has to identify a solution, so it never has to know there is only one. **The question's premise — that the conclusion is a constructed blowup needing uniqueness to reach C — does not hold here.** The terminal's four-file chain names `uniqueness` zero times.
+
+**All 10 clauses of C map to a named field.** And the one place a reader would suspect a narrowing — the added `integrable : ∀ t ≥ 0, MemLp (‖v · t‖) 2` — **restores C's meaning rather than narrowing it**: Mathlib's Bochner integral returns the junk value `0` for a non-integrable function, so without that field the energy bound would hold **vacuously** for exactly the solutions C means to exclude. And (7)'s constant sits **outside** the quantifier, `∃ E, ∀ t ≥ 0, … < E`, which is the page's *"< C for all t ≥ 0"* and not the weaker per-time bound.
+
+## COMPONENT 4 — THE GRADE, AND THE SELF-GRADING TEST
+
+**GRADE: `DERIVES`.** Every clause of C maps to a named field; the conclusion is C's universal negative; the terminal takes **no premise beyond `nu > 0`**, so it is not INTERFACES; it stipulates nothing and concludes no placeholder, so it is not a SHELL; it states nothing weaker than C, so it is not NOT THE CLAIM. The closure carries only the standard three axioms and no `sorryAx`.
+
+**THE RESIDUE, NAMED BY CONTENT as the corpus's own calculus requires:** the statement is written against the repository's **own copy** of the Formal Conjectures definitions, of which the repository says *"Comparator checks these definitions against the independent reference at runtime."* **This act did not run Comparator.** Their agreement with the Clay text was established here **by reading** — Component 1 against Component 3, clause by clause — and **a reading is not a checker**.
+
+**THE CORPUS'S OWN ROUTE TERMINAL, UNDER THE SAME READING: `INTERFACES`.** `ConservationBridge.riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis` concludes **Mathlib's own** `RiemannHypothesis`, so it is no shell; it is conditional, so it is not DERIVES; its premise is identified and discharged nowhere in the closure. **That is the grade the corpus already gives it** — the instrument reproduces the corpus's own reading of itself. *(The order named the premise `h2`; the source names it `h_cons : ConservationHypothesis`, and under BAR 8 the source governs.)*
+
+**THE CLAUSES, EACH QUOTED BOTH WAYS — 2 the same, 2 asymmetric:**
+
+| clause | to the stranger | to itself | |
+|:--|:--|:--|:--|
+| *"every step is in the closure"* | a clean `#print axioms` required; `sorryAx` looked for; source sweep run | `AXIOM_PRINTS.txt`; the §VIII salt-check on its own terminals | **SAME** |
+| *"the statement unfolded to its base objects"* | unfolded three structure layers to Mathlib primitives; definitions read, not trusted | its own salt-check found *"most of the application-layer terminals this paper cited in v2.0 are shells"* | **SAME, and harshly** |
+| the available vocabulary | **four** grades, including `NOT THE CLAIM` | **three** — the corpus names no such grade | **ASYMMETRIC — favours the stranger; unused, so it changed no outcome** |
+| the instrument behind the definitions | accepted on a **reading**, its own checker available and **unrun** | `rowgen`'s `defenc` flag exists *because a reading once passed a stand-in* | **ASYMMETRIC — favours the stranger, and it bears on the grade** |
+
+**So the seat's routed concern at b428 — that a discipline which has only graded its own work might grade itself more generously than a stranger — is NOT CONFIRMED on this trial: both asymmetries run the other way.** It is **not refuted either**; one trial on one terminal is one trial.
+
+**AND WHAT THE TEST CANNOT TELL, SAID PLAINLY:** whether the corpus would confer `DERIVES` on a terminal of its own with this profile and this mapping. **It has never had one** — its route terminal carries a premise, and the salt-check's subjects were shells. There is no like case on its own side, so the strictest form of the question is **CANNOT TELL FROM THIS RECORD**.
+
+## THE EXPECTATIONS
+
+- **(N1)** *the repository resolves and builds* — **MET** (3 of 3 addresses; built). *on a Mathlib pin newer than the corpus's* — **MET** (`v4.34.0-rc2` against `v4.29.0-rc8` / `v4.29.1`).
+- **(N2)** *the terminal grades INTERFACES, with uniqueness as the named premise or as a Mathlib import* — **REFUTED**. The grade is **DERIVES**; the terminal takes no premise beyond `nu > 0`; and uniqueness is **neither used nor needed**, because the conclusion is the universal negative rather than a constructed blowup.
+- **(N3)** *the self-grading test finds no clause applied differently* — **REFUTED** (2 of 4 asymmetric, **both favouring the stranger**).
+
+## THE ACT'S OWN INCIDENTS, NAMED
+
+Four arms failed on their first reading, and **every one was a defect in this act's own instrument, not a finding about the object**: `G-CITED-NOWHERE` matched `b429` as a **substring of a git SHA** (`…4b4296e5cc…`) that `REGISTRY.md` has carried for months — an act token is a word, not a substring; `G-NOCORPUSBUILD` matched the string `lake build` inside **the tool's own `say(...)` line reporting the foreign build's exit code** — the exact species BAR 12 names, now reading stripped code instead; `G-SELFGRADE-BOTH-WAYS` **counted prose** ("the corpus applied it to itself harshly") as labels, now counting only labelled lines; and `G-ARC-CHECKPOINTED` failed because the checkpoint sentence lived only in a desk item's why-text, which the bank does not carry — the trail block now carries it. Each was repaired at its cause and the first readings are on the record. **And the mirror check caught a fifth, mine: the date rolled over mid-act and I verified yesterday's archive; CLAUSE 2 reported `STALE BUILD` and the correct archive then read CLEAN on all three.**
+
+## THE CLOSING STATE
+
+**The grading is cited in no corpus document** — banked at relay, entered on the trails as a calibration record whose **trigger is *"cited nowhere until the author rules whether it is."*** **The witness arc stays checkpointed after site (iii)**; sites (iv)–(vi) remain, one act each. The disproof lane named at b428 stays named and unopened. **Four lists — LIST 1, LIST 2, LIST 3, LIST 4: all OPEN.**
+
+**Desk: 19 swept, 1 closed, 18 standing.** **CORRESPONDENCE ROW : 278. KEY : PASS.** Both censuses **TOTAL MISSING : 0** at step zero and at close. Pins by `ls-remote`: **REPOS HARD-FAILING : 0**, all four 0/0 — relay `34c63cc`, PLACE-papers `dc1fa8d`, SIDE-global-section `6e454b1`; the HELD commit's files absent from the pushed tree. Suite **72/72** pre-push and **72/72** post-push. **Mirror** rebuilt after the commit and **CLEAN on all three clauses** at source HEAD `dc1fa8d`. **Hook** exercised in 3 of 4 repositories, skipped in relay for the standing reason.
+
+**0 grades of the corpus's own moved, conferred or minted. 0 premises discharged. 0 doors restated. 0 routes proposed. 0 lanes opened. 0 kappa measured. 0 corpus kernel files touched. 0 corpus kernel builds. 0 rows of `FACES_LEDGER.md`. 0 register rows. 0 keystones. 0 lane documents. 0 bytes of the foreign repository entered any rostered repository. 0 claims that the external proof is correct or incorrect beyond what its grade says. 0 deposit actions. And h2 where the deposit left it.**
