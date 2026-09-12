@@ -331,9 +331,18 @@ def main(argv):
         # ### ### **b430 BANKED THIS SPECIES AND HERE IT IS AGAIN**: a record overwritten by a
         # ### later, quieter run of the same tool. ### The durable figure is git's, so the arm reads
         # ### the working tree against the committed blob instead.
-        ('G-FOLD-DELTA-POSITIVE', 'the fold grew FINDINGS.md, measured against the committed blob',
-         len(read(os.path.join(PP, 'FINDINGS.md')).encode('utf-8'))
-         > len(git(PP, 'show', 'HEAD:FINDINGS.md').encode('utf-8'))),
+        # ### **AND ONCE THE FOLD IS COMMITTED, THE WORKING TREE EQUALS HEAD AND THIS ARM HAS NO
+        # ### ### SUBJECT LEFT** -- it read `0` post-push and failed, having passed pre-push on the
+        # ### same true fact. ### A measurement that evaporates when the work lands is not a
+        # ### measurement of the work. ### **THE DURABLE REFERENCE IS THE COMMIT ITSELF**: the
+        # ### numstat of whichever commit touching `FINDINGS.md` names this act.
+        ('G-FOLD-DELTA-POSITIVE', 'the commit that filed the fold added lines and removed none',
+         (lambda st: bool(st) and st[0].isdigit() and int(st.split()[0]) > 0
+          and st.split()[1] == '0')(
+             git(PP, 'log', '-1', '--format=', '--numstat', '--grep=b434', '--', 'FINDINGS.md')
+             .strip()
+             or (lambda w, h: '%d	0	FINDINGS.md' % max(0, len(w) - len(h)))(
+                 read(os.path.join(PP, 'FINDINGS.md')), git(PP, 'show', 'HEAD:FINDINGS.md')))),
         ('G-FOLD-NOTHING-EDITED', 'the committed text is a TRUE PREFIX of the file now',
          G.get('fold_true_prefix') is True and appended_only(PP, 'FINDINGS.md')),
         ('G-THIRD-COLUMN-APART', 'b412`s third column is kept apart and never summed',
