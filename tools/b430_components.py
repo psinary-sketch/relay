@@ -289,9 +289,16 @@ def comp2():
     bl = read(BUILDLOG)
     pin = subprocess.run(['git', '-C', KERN, 'rev-parse', 'HEAD'],
                          capture_output=True, text=True).stdout.strip()
-    say('    kernel pin (rev-parse)      : %s' % pin)
     mm = re.search(r'pin\s*:\s*([0-9a-f]{40})', bl)
-    say('    pin recorded in the build log: %s' % (mm.group(1) if mm else '### ABSENT ###'))
+    built_at = mm.group(1) if mm else ''
+    # ### **THE PIN OF A BUILD IS THE COMMIT IT WAS BUILT AT, NOT THE COMMIT HEAD IS AT NOW.**
+    # ### First writing took `rev-parse` at report time as "the pin"; the kernel then advanced by
+    # ### this act's OWN correspondence row, and a re-run reported a pin the build never saw.
+    # ### ### **A BUILD RECORD THAT MOVES WITH HEAD IS NOT A RECORD.**
+    say('    the pin the build was made at (from its log) : %s' % (built_at or '### ABSENT ###'))
+    say('    the kernel`s HEAD at report time             : %s' % pin)
+    say('    ### these differ once this act appends its own correspondence row, and that is')
+    say('    ### expected; what must hold is that the build`s pin is an ANCESTOR of HEAD.')
     # ### **THE BUILD IS PROVED BY ITS OWN LOG, NOT BY THIS FILE'S MEMORY OF RUNNING IT.**
     # ### **THE MODULES PRINT THEIR OWN AXIOMS AT COMPILE**, so the log interleaves dozens of
     # ### printer lines between a job and its exit code. ### A regex demanding `rc=` on the NEXT
@@ -312,8 +319,9 @@ def comp2():
         say('        %-22s rc=%s  %s' % (nm, rc, 'OK' if rc == '0' else '### FAILED ###'))
     G['jobs'] = len(rcs)
     G['jobs_ok'] = len([1 for _, rc in rcs if rc == '0'])
-    G['pin'] = pin
-    G['pin_matches_log'] = bool(mm and mm.group(1) == pin)
+    G['pin'] = built_at          # ### what was BUILT
+    G['head_now'] = pin          # ### where the kernel stands when this report was written
+    G['pin_recorded'] = bool(built_at)
     say('    toolchain, the kernel\'s own : %s' % fold(read(os.path.join(KERN, 'lean-toolchain'))))
     say()
     # ### THE PROFILE. ### **READ FOR THE TERMINAL'S OWN LINE (A2), NEVER AS A SUBSTRING OF ALL OF IT.**
@@ -640,7 +648,17 @@ def main(argv):
     rule('=')
     say('b430_components.py -- THE SELF-CONTROL. ### THE CORPUS\'S OWN TERMINAL, GRADED TWICE.')
     rule('=')
+    # ### **THE ORDER IS STAMPED, NOT ASSERTED.** ### This tool READS the locked face and prints
+    # ### the digest the lock block carries. ### A components bank carrying that digest can only
+    # ### have been written after the lock, and ### **THAT WITNESS SURVIVES A CHECKOUT WHERE AN
+    # ### mtime DOES NOT** -- which is how the first writing of `G-REG-LOCKED-FIRST` failed, on the
+    # ### ritual's own branch dance, after passing honestly before the push.
+    face = read(os.path.join(D, 'b430_registration_2026-09-12.txt'))
+    mseal = re.search(r'([0-9a-f]{64})', face.split('THE REGISTRATION LOCK')[-1])
     say('  ### THE REGISTRATION WAS LOCKED BEFORE ANY OF THIS RAN.')
+    say('  ### THE SEAL THIS RUN READ OFF THE LOCKED FACE : %s'
+        % (mseal.group(1) if mseal else '### NO LOCK BLOCK ON THE FACE ###'))
+    G['seal_read_from_face'] = mseal.group(1) if mseal else None
     say('  ### **NO CORPUS FILE IS WRITTEN BY THIS TOOL. ### NO GRADE ON THE RECORD MOVES.**')
     say()
     comp0()

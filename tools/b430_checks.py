@@ -28,7 +28,26 @@ T = os.path.join(ROOT, 'tools')
 PP = os.path.join('D:', os.sep, 'MY-DOwnloads', 'PLACE-papers')
 KERN = os.path.join('D:', os.sep, 'SIDE-global-section')
 FACE = os.path.join(D, 'b430_registration_2026-09-12.txt')
-OUT = os.path.join(D, 'b430_checks.txt')
+# ### **THE SUITE IS READ TWICE AND MUST NOT OVERWRITE ITS OWN FIRST READING.** ### It did: every
+# ### post-push run wrote back to the pre-push path, and the pre-push record -- the one that had
+# ### the two failing write-list arms in it -- survived only because it had already been committed.
+# ### ### **A TOOL THAT DESTROYS ITS OWN EARLIER EVIDENCE IS A TOOL THAT CANNOT BE READ TWICE.**
+# ### The side is decided by whether this act's commit is already on the remote, which is the same
+# ### fact the two readings differ about.
+PREPUSH = os.path.join(D, 'b430_checks.txt')
+POSTPUSH = os.path.join(D, 'b430_checks_postpush.txt')
+
+
+def _pushed():
+    try:
+        return 0 == subprocess.run(
+            ['git', '-C', ROOT, 'merge-base', '--is-ancestor', 'HEAD', 'origin/main'],
+            capture_output=True).returncode
+    except Exception:
+        return False
+
+
+OUT = POSTPUSH if _pushed() else PREPUSH
 NL = chr(10)
 THREE = ['propext', 'Classical.choice', 'Quot.sound']
 
@@ -212,9 +231,15 @@ def main(argv):
          '`0` HARD-FAILING' in FACET and '`0` BEHIND AND `0` AHEAD' in FACET),
         ('G-SURVEY-NOMISS', 'the survey printed its own miss count and it is 0',
          verdict_line(EXT, 'MISSES : 0')),
-        ('G-REG-LOCKED-FIRST', 'the face carries a lock block and the components ran after it',
-         'THE REGISTRATION LOCK' in FACET
-         and os.path.getmtime(os.path.join(D, 'b430_components.txt')) >= os.path.getmtime(FACE)),
+        # ### **mtime WAS THE WITNESS AND A CHECKOUT ERASED IT.** ### This arm passed honestly
+        # ### before the push and failed after it, on nothing but the ritual's own branch dance.
+        # ### The durable witness is the SEAL ITSELF: the components bank prints the digest it read
+        # ### off the locked face, and ### **A RUN CAN ONLY PRINT THAT DIGEST IF THE LOCK WAS
+        # ### ALREADY THERE WHEN IT RAN.**
+        ('G-REG-LOCKED-FIRST', 'the components bank carries the digest the face`s lock block does',
+         'THE REGISTRATION LOCK' in FACET and bool(G.get('seal_read_from_face'))
+         and G.get('seal_read_from_face') in FACET
+         and G.get('seal_read_from_face') in COMP),
         ('G-LOCKGATE-EIGHT', 'the lock gate read 8 gates, 8 passing, 4 by digest',
          verdict_line(LOCKG, 'GATES READ : 8. PASSING : 8. FACE-SUBJECT GATES CHECKED BY DIGEST: 4.')
          or verdict_line(LOCKG, 'GATES READ : 8.') and verdict_line(LOCKG, 'VERDICT : LOCK PERMITTED')),
@@ -276,8 +301,18 @@ def main(argv):
          COMP.find('GRADE AGAINST CLAIM A -- THE CLAIM')),
 
         # ### ---- THE BUILD AND THE PROFILE -----------------------------------------------------
-        ('G-BUILT-AT-PIN', 'the pin in the build log equals the kernel`s rev-parse at run time',
-         G.get('pin_matches_log') is True and G.get('jobs') == 3 and G.get('jobs_ok') == 3),
+        # ### **`rev-parse` NOW IS THE WRONG REFERENCE AFTER THE PUSH.** ### The kernel advanced
+        # ### by this act's OWN correspondence row, so an arm demanding equality with HEAD calls a
+        # ### true build stale. ### The durable claim is that ### **THE BUILD'S PIN IS AN ANCESTOR
+        # ### OF HEAD AND EVERY COMMIT SINCE IT IS THIS ACT'S OWN** -- which holds before the push
+        # ### (zero commits since) and after it (one, and it names b430).
+        ('G-BUILT-AT-PIN', 'the build`s pin is an ancestor of HEAD and only this act moved it since',
+         G.get('pin_recorded') is True and G.get('jobs') == 3 and G.get('jobs_ok') == 3
+         and 0 == subprocess.run(['git', '-C', KERN, 'merge-base', '--is-ancestor',
+                                  G.get('pin', ''), 'HEAD'],
+                                 capture_output=True).returncode
+         and all('b430' in ln for ln in git(KERN, 'log', '--format=%s',
+                                            '%s..HEAD' % G.get('pin', '')).splitlines())),
         ('G-PROFILE-FROM-PRINTER', 'the graded profile line came from the printer`s own stdout',
          profile_line.strip() in [ln.strip() for ln in PROF.splitlines()] and bool(profile_line)),
         ('G-NOT-FROM-AXIOM-PRINTS', 'no tool of this act read the kernel`s banked profile file',
@@ -439,6 +474,21 @@ def main(argv):
         rec('      BEFORE THIS ACT BEGAN           : %-28s %s' % (os.path.basename(r), f))
     rec('      this act`s unlisted writes : %d ; inherited dirty : %d'
         % (len(unlisted_writes()), len(inherited_dirty())))
+    # ### **A CLEAN TREE MAKES THESE TWO ARMS VACUOUS, AND A VACUOUS PASS IS NOT EVIDENCE.**
+    # ### Once this act's files are committed, `git status` reports nothing and the write-list arms
+    # ### pass because there is nothing left to judge. ### **THE PRE-PUSH READING IS THE ONE THAT
+    # ### COUNTS**, and it is banked at `data/b430_checks.txt`: it read TWO unlisted writes --
+    # ### `data/b373_pins.json` and `tools/banked_index.py` -- and FAILED on them.
+    # ### the pre-push reading is READ BACK, not remembered: if it recorded unlisted writes and
+    # ### this reading finds none, the difference is the commit and not a repair.
+    _pre = re.search(r"this act`s unlisted writes : (\d+)", read(PREPUSH))
+    if not unlisted_writes() and _pre and int(_pre.group(1)) > 0:
+        rec('      ### **G-WRITELIST-KINDS AND G-NOEXTRAKIND ARE VACUOUS ON A CLEAN TREE.**')
+        rec('      ### They pass here because nothing is uncommitted, not because nothing was')
+        rec('      ### unlisted. ### **THE PRE-PUSH READING GOVERNS: 2 UNLISTED WRITES, 2 ARMS')
+        rec('      ### FAILING**, banked at data/b430_checks.txt and named in the closing.')
+        rec('      ### the pre-push reading, read back from its own bank : %s unlisted write(s)'
+            % _pre.group(1))
     rec()
     rec('  arms declared on the face : %d' % len(DEC))
     rec('  arms run by this suite    : %d' % len(ARMS))
