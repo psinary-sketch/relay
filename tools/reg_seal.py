@@ -89,6 +89,47 @@ def digest(body):
     return hashlib.sha256(body.encode('utf-8')).hexdigest()
 
 
+def gate_record_check(path, body):
+    """### **`(R56)`, b443: THE SEAL REFUSES A REFUSED GATE IN THE TOOL, NOT IN THE SHELL.**
+
+    ### b354 sealed against a refusal because the seal was chained to a filter's exit code. ### b443 sealed
+    ### against a refusal because PowerShell's semicolon runs the next command whatever the exit code.
+    ### A cure that lives in the caller is only as good as the caller's shell. ### **So the seal reads the
+    ### lock gate's own record for the face it is about to seal**, `<stem>_lockgate.json` beside the face,
+    ### where `<stem>` is the file name before `_registration`, and returns `(ok, reasons)`.
+    ### It refuses when the record is ABSENT, names a DIFFERENT FACE, says the lock is NOT PERMITTED, or
+    ### carries a `face_sha` that is not this body's digest -- a gate run against an earlier face.
+    ### ### **An absent record is a refusal, not a pass: an absent claim is not a true one.**
+    """
+    import json
+    base = os.path.basename(path)
+    stem = base.split('_registration')[0] if '_registration' in base else os.path.splitext(base)[0]
+    rec_path = os.path.join(os.path.dirname(os.path.abspath(path)), '%s_lockgate.json' % stem)
+    if not os.path.exists(rec_path):
+        return False, ['NO GATE RECORD -- %s is absent; the lock gate was not run for this face'
+                       % os.path.basename(rec_path)]
+    try:
+        rec = json.loads(io.open(rec_path, encoding='utf-8').read())
+    except Exception as e:                                         # noqa: BLE001
+        return False, ['GATE RECORD UNREADABLE -- %s: %s' % (os.path.basename(rec_path), str(e)[:80])]
+    reasons = []
+    if rec.get('face') != base:
+        reasons.append('GATE RECORD NAMES A DIFFERENT FACE -- %r, not %r' % (rec.get('face'), base))
+    if rec.get('face_sha') != digest(body):
+        reasons.append('GATE RECORD IS STALE -- it read face sha256 %s, this body is %s'
+                       % (str(rec.get('face_sha'))[:16], digest(body)[:16]))
+    if rec.get('permits') is not True:
+        failing = [g for g in (rec.get('gates') or []) if not g.get('passed')]
+        reasons.append('THE LOCK GATE REFUSED -- %s of %s gates passing'
+                       % (rec.get('gates_passing'), rec.get('gates_read')))
+        for g in failing:
+            reasons.append('    refusing arm : %s (%s) -- %s'
+                           % (g.get('gate'), g.get('file'), g.get('why') or 'did not pass'))
+        if not failing:
+            reasons.append('    refusing arm : not itemised in the record')
+    return (not reasons), reasons
+
+
 def cmd_seal(path):
     text = io.open(path, encoding='utf-8').read()
     body, existing = split_body(text)
@@ -120,6 +161,13 @@ def cmd_lock(path):
         print('  ### REFUSED -- already locked or sealed. ### Use --verify.')
         print('  banked : %s' % existing)
         return 2
+    ok, reasons = gate_record_check(path, body)
+    if not ok:
+        print('  ### ### **REFUSED -- THE SEAL WILL NOT LOCK A FACE ITS GATE DID NOT PERMIT** (`R56`).')
+        for r_ in reasons:
+            print('  %s' % r_)
+        print('  ### Nothing was written.')
+        return 3
     h = digest(body)
     block = (BAR + '\n' + LOCKMARK + '\n' + PREFIX + h + '\n'
              + '### bytes locked : %d\n' % len(body.encode('utf-8'))
@@ -145,9 +193,19 @@ def selftest(verbose=True):
             print(s)
     ok = True
     body = 'a registration body\n### with two lines\n'
+    import json
+
+    def gate(pth, **kw):
+        rec_ = dict(face=os.path.basename(pth), face_sha=digest(body), permits=True,
+                    gates_read=8, gates_passing=8, gates=[])
+        rec_.update(kw)
+        io.open(os.path.join(os.path.dirname(pth), 'r_lockgate.json'), 'w', encoding='utf-8').write(
+            json.dumps(rec_))
+
     for label, writer, mark in (('--lock', cmd_lock, LOCKMARK), ('--seal', cmd_seal, MARK)):
         p = os.path.join(tempfile.mkdtemp(prefix='regseal_'), 'r.txt')
         io.open(p, 'w', encoding='utf-8', newline='\n').write(body)
+        gate(p)
         import contextlib
         with contextlib.redirect_stdout(io.StringIO()):
             rc = writer(p)
@@ -164,6 +222,39 @@ def selftest(verbose=True):
             rc4 = cmd_verify(p)
         ok = ok and (rc4 == 1)
         say('    %-8s a changed body FAILS verification            : %s' % (label, rc4 == 1))
+    # ### **`(R56)` FIXTURES, BOTH POLARITIES.** ### Four ways the gate record must REFUSE, each checked to
+    # ### write NOTHING and to name its reason; one clean record that must PERMIT.
+    import contextlib
+    cases = [
+        ('absent record', None, 'NO GATE RECORD'),
+        ('the gate refused', dict(permits=False, gates_passing=7,
+                                  gates=[dict(gate='the banned-term scan on the face',
+                                              file='r_reg_termscan.txt', passed=False,
+                                              why='the record does not carry the gate`s own pass phrase')]),
+         'refusing arm : the banned-term scan on the face'),
+        ('a different face', dict(face='other_registration.txt'), 'NAMES A DIFFERENT FACE'),
+        ('a stale digest', dict(face_sha='0' * 64), 'IS STALE'),
+    ]
+    for label, kw, needle in cases:
+        p = os.path.join(tempfile.mkdtemp(prefix='regseal56_'), 'r.txt')
+        io.open(p, 'w', encoding='utf-8', newline='\n').write(body)
+        if kw is not None:
+            gate(p, **kw)
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            rc = cmd_lock(p)
+        unwritten = io.open(p, encoding='utf-8').read() == body
+        g = (rc == 3 and unwritten and needle in buf.getvalue())
+        ok = ok and g
+        say('    (R56) --lock REFUSES on %-18s, writes nothing, names why : %s' % (label, g))
+    p = os.path.join(tempfile.mkdtemp(prefix='regseal56_'), 'r.txt')
+    io.open(p, 'w', encoding='utf-8', newline='\n').write(body)
+    gate(p)
+    with contextlib.redirect_stdout(io.StringIO()):
+        rc = cmd_lock(p)
+    g = (rc == 0 and LOCKMARK in io.open(p, encoding='utf-8').read())
+    ok = ok and g
+    say('    (R56) --lock PERMITS a clean, current, matching gate record       : %s' % g)
     say('    ### the seal mark and the lock mark are different strings : %s' % (MARK != LOCKMARK))
     ok = ok and (MARK != LOCKMARK)
     return ok

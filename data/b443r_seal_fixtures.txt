@@ -1,0 +1,17 @@
+    --lock   writes, verifies, refuses a second write : True
+    --lock   a changed body FAILS verification            : True
+    --seal   writes, verifies, refuses a second write : True
+    --seal   a changed body FAILS verification            : True
+    (R56) --lock REFUSES on absent record     , writes nothing, names why : True
+    (R56) --lock REFUSES on the gate refused  , writes nothing, names why : True
+    (R56) --lock REFUSES on a different face  , writes nothing, names why : True
+    (R56) --lock REFUSES on a stale digest    , writes nothing, names why : True
+    (R56) --lock PERMITS a clean, current, matching gate record       : True
+    ### the seal mark and the lock mark are different strings : True
+  ### PASS
+
+  ### (R56) AGAINST THE REAL INCIDENT AND THE REAL FACE -- READ-ONLY; gate_record_check writes nothing.
+  b443_registration_2026-09-12.txt           permits : False
+    THE LOCK GATE REFUSED -- 7 of 8 gates passing
+        refusing arm : the banned-term scan on the face (b443_reg_termscan.txt) -- the record does not carry the gate`s own pass phrase
+  b443r_registration_2026-09-12.txt          permits : True
