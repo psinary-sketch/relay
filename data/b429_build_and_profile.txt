@@ -1,0 +1,92 @@
+====================================================================================================
+b429 -- COMPONENT 2: THE TERMINAL LOCATED AND THE PROFILE PRINTED.
+====================================================================================================
+  at (UTC) : 2026-09-12T05:58:42Z
+
+----------------------------------------------------------------------------------------------------
+### (a) THE CLONE, PINNED.
+----------------------------------------------------------------------------------------------------
+  clone at            : D:\_b429_external\repo ### OUTSIDE EVERY ROSTERED REPOSITORY
+  default branch      : main
+  commit pinned       : f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+  equals the SHA the remote returned at reading (1) : True
+
+----------------------------------------------------------------------------------------------------
+### (b) THE TERMINAL, LOCATED. ### **AND WHERE IT WAS LOCATED FROM, WHICH IS NOT WHERE b428 PRICED IT.**
+----------------------------------------------------------------------------------------------------
+  the README names statements (C) and (D) : True
+  the README names a terminal THEOREM      : False
+  ### ### **THE README NAMES THE STATEMENTS AND NAMES NO THEOREM.** ### `b428` priced ACT 1 as *"read
+  ### ### the repository`s README ... and name the single theorem"* and added *"if the README names
+  ### ### none, the act ends there and says so."* ### **IT NAMES NONE, AND THE ACT DID NOT END** --
+  ### the repository carries a machine-readable manifest, `formalization.yaml`, which names them, and
+  ### that is where the terminals were taken from. ### **b428`s ACT 1 IS REFUTED IN ITS PREMISE**, and
+  ### the refutation is printed rather than quietly absorbed.
+  declarations named by `formalization.yaml` : ['NavierStokes.Comparator.navier_stokes_breakdown_R3', 'NavierStokes.Comparator.navier_stokes_breakdown_periodic', 'Euler.euler_breakdown_R3', 'Euler.exists_compact_smooth_euler_singularity']
+  the manifest`s own claim for each          : sorry_count ['0'] ; axioms ['Classical.choice', 'Quot.sound', 'propext']
+  ### **THAT IS THE REPOSITORY`S OWN CLAIM ABOUT ITSELF. ### THIS ACT DOES NOT TAKE IT: the profile
+  ### below is printed by `#print axioms` on this machine.**
+
+----------------------------------------------------------------------------------------------------
+### (c) THE TOOLCHAIN, FOREIGN AGAINST THE CORPUS`S OWN.
+----------------------------------------------------------------------------------------------------
+  the foreign repository pins : leanprover/lean4:v4.34.0-rc2
+  its Mathlib                 : rev 85e3a25e006c ; inputRev v4.34.0-rc2
+  the corpus pins SIDE-kernel         : leanprover/lean4:v4.29.0-rc8
+  the corpus pins SIDE-global-section : leanprover/lean4:v4.29.1
+  the corpus`s Mathlib        : rev e960b84129b3
+  ### ### **THE FOREIGN PIN IS NEWER THAN THE CORPUS`S : True** (v4.34.0 against v4.29.1)
+  ### **NEITHER PIN WAS INSTALLED ON THIS MACHINE BEFORE THIS ACT**, so the build fetched its own.
+
+----------------------------------------------------------------------------------------------------
+### (d) THE BUILD. ### **AND IF IT DOES NOT BUILD, THE ACT REPORTS WHAT IT NEEDED AND STOPS.**
+----------------------------------------------------------------------------------------------------
+  `lake exe cache get` exit : 0
+  `lake build` exit         : 0
+  hosts the build reached, from its own logs : ['github.com', 'lakecache.blob.core.windows.net']
+      github.com                       named 10 time(s) in the build logs
+      lakecache.blob.core.windows.net  named 1 time(s) in the build logs
+  the last lines of the build`s own output :
+      | ✔ [9362/9371] Built NavierStokes.ActualCandidateAssembly (24s)
+      | ✔ [9363/9371] Built NavierStokes.R3ActualCandidate (575s)
+      | ✔ [9364/9371] Built NavierStokes.R3.ActualCandidate (29s)
+      | ✔ [9365/9371] Built NavierStokes.R3.Theorem (31s)
+      | ✔ [9366/9371] Built NavierStokes.ComparatorR3Theorem (36s)
+      | ✔ [9367/9371] Built NavierStokes.PeriodicPaperTheorem (37s)
+      | ✔ [9368/9371] Built NavierStokes.PeriodicComparatorSolution (27s)
+      | ✔ [9369/9371] Built NavierStokes.PeriodicPaperComparator (28s)
+      | ✔ [9370/9371] Built NavierStokes.ComparatorTheorem (28s)
+      | ℹ [9371/9371] Built NavierStokes.ComparatorSolution (28s)
+      | info: NavierStokes/ComparatorSolution.lean:31:0: 'NavierStokes.Comparator.navier_stokes_breakdown_R3' depends on
+      | info: NavierStokes/ComparatorSolution.lean:32:0: 'NavierStokes.Comparator.navier_stokes_breakdown_periodic' depe
+      | Build completed successfully (9371 jobs).
+      | BUILD_RC=0
+  ### ### **BUILD : SUCCEEDED**
+
+----------------------------------------------------------------------------------------------------
+### (e) THE AXIOM PROFILE. ### **FROM `#print axioms`'S OWN OUTPUT, NEVER FROM AN EXIT CODE.**
+----------------------------------------------------------------------------------------------------
+  the printer`s own output, verbatim :
+      | 'NavierStokes.Comparator.navier_stokes_breakdown_R3' depends on axioms: [propext, Classical.choice, Quot.sound]
+      | 'NavierStokes.Comparator.navier_stokes_breakdown_periodic' depends on axioms: [propext, Classical.choice, Quot.s
+  navier_stokes_breakdown_R3                                 axioms ['propext', 'Classical.choice', 'Quot.sound']
+      beyond the standard three : none ; `sorryAx` present : False
+  navier_stokes_breakdown_periodic                           axioms ['propext', 'Classical.choice', 'Quot.sound']
+      beyond the standard three : none ; `sorryAx` present : False
+
+----------------------------------------------------------------------------------------------------
+### (f) THE SOURCE-LEVEL `sorry` SWEEP OF THE WHOLE REPOSITORY.
+----------------------------------------------------------------------------------------------------
+  lines matching the word `sorry` : 5 ; of them bare `sorry` terms : 4
+      | ComparatorChallenges/Euler.lean:88:  sorry
+      | ComparatorChallenges/Euler.lean:184:  sorry
+      | ComparatorChallenges/NavierStokes.lean:29:are retained, including their intentional `sorry` challenge placeholde
+      | ComparatorChallenges/NavierStokes.lean:277:  sorry
+      | ComparatorChallenges/NavierStokes.lean:284:  sorry
+  ### ### **EVERY BARE `sorry` IS IN `ComparatorChallenges/` : True**
+  ### The repository`s own header calls them *"intentional `sorry` challenge placeholders"* -- they are
+  ### the REFERENCE statements a checker compares against, not steps of the proof. ### **AND THAT IS A
+  ### CLAIM THE AXIOM PROFILE ABOVE TESTS INDEPENDENTLY**: a `sorry` anywhere in the terminal`s closure
+  ### would appear as `sorryAx` in its profile, and the profile is what this act reads.
+  anchor misses : 0 []
+====================================================================================================

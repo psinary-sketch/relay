@@ -1,0 +1,142 @@
+====================================================================================================
+b429 -- COMPONENT 4: THE GRADE, AND THE SELF-GRADING TEST.
+====================================================================================================
+  at (UTC) : 2026-09-12T05:59:24Z
+
+----------------------------------------------------------------------------------------------------
+### (a) THE FOUR GRADES THIS ACT MAY CONFER, AND WHERE EACH COMES FROM.
+----------------------------------------------------------------------------------------------------
+  DERIVES                      the statement unfolded is statement C and every step is in the closure
+  INTERFACES                   the statement is C on a named premise, the premise identified
+  ENCODES-CONCLUSION / SHELL   the terminal stipulates what is claimed or concludes a placeholder
+  NOT THE CLAIM                the terminal states something weaker than C, named
+  ### the corpus`s README names DERIVES / INTERFACES / ENCODES-CONCLUSION : True
+  ### the corpus names a grade `NOT THE CLAIM` in its grading vocabulary : False
+  ### ### **THE FOURTH GRADE IS THE ORDER`S AND NOT THE CORPUS`S.** ### The corpus`s three cover a
+  ### terminal that PROVES the claim, one that proves it ON A PREMISE, and one that STIPULATES it.
+  ### They do not cover a terminal that honestly proves something WEAKER. ### **A VOCABULARY SHAPED
+  ### ### AROUND ONE`S OWN WORK NEED NOT HAVE THAT GRADE, BECAUSE ONE`S OWN WORK IS WRITTEN TO THE
+  ### ### CLAIM.** ### That the navigator had to mint it to grade a stranger is a datum of the
+  ### calibration and is recorded as one; it is carried to section (c) and not left here.
+
+----------------------------------------------------------------------------------------------------
+### (b) THE GRADE OF THE FOREIGN TERMINAL.
+----------------------------------------------------------------------------------------------------
+  the terminal            : NavierStokes.Comparator.navier_stokes_breakdown_R3
+  its axiom profile       : ['propext', 'Classical.choice', 'Quot.sound']   (printed by `#print axioms`, not inferred)
+  axioms beyond the three : none
+  `sorryAx` in the closure: False
+  clauses of C mapped to a named field : 10 of 10
+  the conclusion          : THE UNIVERSAL NEGATIVE of C, not a constructed blowup
+  a named premise         : NONE -- the terminal`s only binders are `nu` and `hnu : nu > 0`
+
+  ### ### ### **GRADE : DERIVES.**
+  ### Every clause of statement C maps to a named field of the terminal`s own statement; the
+  ### conclusion is C`s universal negative and not a weaker substitute; the terminal takes NO
+  ### premise beyond `nu > 0`, so it is not INTERFACES; it stipulates nothing and concludes no
+  ### placeholder, so it is not a SHELL; and it states nothing weaker than C, so it is not NOT
+  ### THE CLAIM. ### **AND THE CLOSURE CARRIES ONLY THE STANDARD THREE AXIOMS AND NO `sorryAx`,
+  ### ### READ FROM THE PRINTER`S OWN OUTPUT ON THIS MACHINE.**
+
+  ### ### **AND THE RESIDUE, NAMED BY CONTENT AS THE CORPUS`S OWN CALCULUS REQUIRES:** ### the
+  ### statement graded is written against the repository`s OWN COPY of the Formal Conjectures
+  ### definitions, and the repository says of them that *"Comparator checks these definitions
+  ### against the independent reference at runtime."* ### **THIS ACT DID NOT RUN COMPARATOR.** ###
+  ### The agreement of those definitions with the Clay text was established HERE BY READING --
+  ### Component 1 against Component 3, clause by clause -- and a reading is not a checker. ###
+  ### **SO THE GRADE IS `DERIVES` AGAINST THE DEFINITIONS AS READ, AND THE UNRUN CHECK IS THE
+  ### ### RESIDUE.** ### It is named, not counted.
+
+----------------------------------------------------------------------------------------------------
+### (c) THE SELF-GRADING TEST. ### **WOULD THE CORPUS`S OWN ROUTE TERMINAL GET THE SAME TREATMENT?**
+----------------------------------------------------------------------------------------------------
+  the corpus`s own route terminal              Bridge/ConservationBridge.lean lines 52-56
+        52| /-- The Riemann Hypothesis, conditional on Conservation. Zero sorry. -/
+        53| theorem riemann_hypothesis
+        54|     (h_cons : ConservationHypothesis) : RiemannHypothesis :=
+        55|   rh_from_structural_exhaustiveness (structural_exhaustiveness_proved h_cons)
+        56| 
+  its premise, defined in the same file        Bridge/ConservationBridge.lean lines 26-32
+        26| def ConservationHypothesis : Prop :=
+        27|   ∀ (σ : ℝ), is_xi_zero σ →
+        28|   ∃ (p : Nat) (hp : Nat.Prime p),
+        29|   (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ))
+        30| 
+        31| /-- Conservation of Spectra: at any nontrivial zero of ζ,
+        32|     the Euler product structure is active at some prime. Conditional on
+  ### its conclusion `RiemannHypothesis` is MATHLIB`S OWN DEFINITION, not the corpus`s:
+      | def RiemannHypothesis : Prop :=
+      |   ∀ (s : ℂ) (_ : riemannZeta s = 0) (_ : ¬∃ n : ℕ, s = -2 * (n + 1)) (_ : s ≠ 1), s.re = 1 / 2
+  ### ### **UNDER THE SAME READING IT GRADES `INTERFACES`**: its conclusion is a real statement and
+  ### not a placeholder, so it is not a SHELL; it is not unconditional, so it is not DERIVES; and it
+  ### is C`s analogue rather than something weaker, so it is not NOT THE CLAIM. ### **THE PREMISE IS
+  ### ### IDENTIFIED: `h_cons : ConservationHypothesis`, defined in the same file and discharged
+  ### ### NOWHERE IN THE CLOSURE** -- the corpus`s own monograph calls it *"the programme`s one
+  ### counted premise"*. ### **THAT IS EXACTLY THE GRADE THE CORPUS ALREADY GIVES IT**, so the test`s
+  ### first half finds the instrument reproducing the corpus`s own reading of itself.
+
+  ### ### **AND THE ORDER`S OWN PARAPHRASE IS CORRECTED HERE, UNDER BAR 8:** ### it names the premise
+  ### `h2`. ### The source names it `h_cons : ConservationHypothesis`. ### `h2` is a different object
+  ### in this record -- the deposit`s -- and a source governs its paraphrase, so the source`s name is
+  ### the one used and the order`s is printed beside it rather than silently followed.
+
+  ### ### **NOW THE CLAUSES, EACH QUOTED BOTH WAYS.**
+
+  ### CLAUSE 1 -- *"every step is in the closure"*.
+      TO THE STRANGER : a clean `#print axioms` was REQUIRED, read from the printer`s own output, and
+                        `sorryAx` was looked for in the closure and a source-level `sorry` sweep run.
+      TO ITSELF       : the corpus records axiom profiles at `AXIOM_PRINTS.txt` and its own
+                        `EXCLUSION_ENGINE.md` §VIII salt-check did the same to its own terminals.
+      ### ### **APPLIED THE SAME.**
+
+  ### CLAUSE 2 -- *"the statement unfolded to its base objects"*.
+      TO THE STRANGER : unfolded through three structure layers to Mathlib primitives, and the
+                        definitions were READ rather than trusted.
+      TO ITSELF       : the corpus`s own salt-check reports *"most of the application-layer terminals
+                        this paper cited in v2.0 are shells, including the one v2.0 named as its
+                        exemplar of substance."*
+      ### ### **APPLIED THE SAME -- AND THE CORPUS APPLIED IT TO ITSELF HARSHLY.**
+
+  ### CLAUSE 3 -- THE AVAILABLE VOCABULARY.
+      TO THE STRANGER : four grades, including `NOT THE CLAIM`.
+      TO ITSELF       : three. ### The corpus`s README and `EXCLUSION_ENGINE.md` §0 name DERIVES,
+                        INTERFACES and ENCODES-CONCLUSION / SHELL, and nothing else.
+      ### ### **AN ASYMMETRY, AND IT FAVOURS THE STRANGER**: a finer grade was available against the
+      ### stranger than the corpus has ever made available against itself. ### **IT CHANGED NO
+      ### OUTCOME HERE, BECAUSE IT WAS NOT USED** -- but an unused finer grade is still an asymmetry
+      ### in the instrument and it is reported as one.
+
+  ### CLAUSE 4 -- THE VERIFICATION INSTRUMENT BEHIND THE DEFINITIONS.
+      TO THE STRANGER : its definitions were accepted ON A READING. ### The repository ships a
+                        checker for exactly this -- Comparator, with a config per statement -- and
+                        ### **THIS ACT DID NOT RUN IT.**
+      TO ITSELF       : the corpus does not accept its own definitions on a reading. ### It runs
+                        `rowgen`, whose `defenc` flag exists because a reading passed a stand-in:
+                        *"true if any definition named in the conclusion has a body that is a literal
+                        constant ... This is what catches a stand-in."*
+      ### ### ### **AN ASYMMETRY, AND IT ALSO FAVOURS THE STRANGER: A LIGHTER INSTRUMENT WAS APPLIED
+      ### ### ### TO IT THAN THE CORPUS APPLIES TO ITSELF.**
+
+----------------------------------------------------------------------------------------------------
+### (d) THE TEST`S ANSWER.
+----------------------------------------------------------------------------------------------------
+  ### CLAUSES COMPARED : 4. ### APPLIED THE SAME : 2. ### ASYMMETRIC : 2.
+      every step is in the closure                         SAME
+      the statement unfolded to its base objects           SAME
+      the available vocabulary                             ASYMMETRIC -- favours the stranger, unused
+      the verification instrument behind the definitions   ASYMMETRIC -- favours the stranger, and it bears on the grade
+
+  ### ### **THE SEAT`S ROUTED CONCERN AT b428 WAS THAT A DISCIPLINE WHICH HAS ONLY GRADED ITS OWN
+  ### ### WORK MIGHT GRADE ITSELF MORE GENEROUSLY THAN A STRANGER. ### ON THIS ONE TRIAL THE
+  ### ### ASYMMETRY RUNS THE OTHER WAY:** both differences found favour the STRANGER -- a finer grade
+  ### available only against it, and a lighter verification instrument applied to it. ### **THE
+  ### ### CONCERN IS NOT CONFIRMED HERE, AND IT IS NOT REFUTED EITHER**, because one trial on one
+  ### terminal is one trial: what it establishes is that on THIS object the leniency ran outward.
+  ### ### **AND WHAT THE ACT CANNOT TELL, SAID PLAINLY:** ### whether the corpus would have conferred
+  ### `DERIVES` on a terminal of its own with this profile and this mapping. ### **IT HAS NEVER HAD
+  ### ### ONE**: its own route terminal carries a premise, and the salt-check`s subjects were shells.
+  ### The comparison has no like case on the corpus`s side, so the strictest question the test could
+  ### ask -- would it grade its own DERIVES as readily? -- is ### **CANNOT TELL FROM THIS RECORD.**
+
+  anchor misses : 0 []
+====================================================================================================

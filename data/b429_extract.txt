@@ -1,0 +1,129 @@
+====================================================================================================
+b429_extract.py -- THE SURVEY: THE EXTERNAL GRADING READ. ### NOTHING FETCHED, NO ADDRESS RESOLVED.
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+### READ 0 -- THE ORIENTATION: ROW 277 BY ITS MARKER, AND b428`S PRICE AT RUN 2.
+----------------------------------------------------------------------------------------------------
+  b428`s row by its marker : [277]   (expected [277])
+  b428`s price, run 2                                b428_external_price.txt
+      | THE PRICE: 4 ACTS IF THE REPOSITORY IS REACHABLE AND ITS README NAMES THE TERMINAL. AND THE
+      | PRICE IS NOT ONE ACT, which is what the navigator expected. ACT 2 is the reason: an axiom
+      | profile is not a read, it is a BUILD -- the toolchain the repository pins, its dependency graph,
+      | and a machine that compiles them. The corpus has never built a foreign kernel, so there is no
+      | banked figure that scales to it, and ACT 2 IS UNPRICEABLE FROM BANKED FIGURES (b353s own words
+      | for the same situation). ACTS 1, 3 AND 4 ARE READS AND COST ONE ACT EACH. SO: THREE ACTS PRICED,
+      | ONE UNPRICEABLE, AND THE UNPRICEABLE ONE IS THE ONE THAT CARRIES THE CERTIFICATE. A grading that
+      | skipped it would be grading an announcement.
+  b428`s address verdict                             b428_external_price.txt
+      | NOT LOCATED. No candidate address resolves. THE ADDRESS IS THE AUTHORS TO SUPPLY, and the act
+      | does not widen its search to find something: an announcement the seat has not read is not a
+      | source, and guessing a URL until one answers would be manufacturing a citation.
+----------------------------------------------------------------------------------------------------
+### READ 1 -- THE GRADING DISCIPLINE, IN THE CORPUS`S OWN WORDS. ### THE OBJECT THIS ACT CALIBRATES.
+----------------------------------------------------------------------------------------------------
+  the three grades, README                           README.md
+      | The three grades A theorem's axiom profile says nothing about whether its *statement* matches
+      | the claim made for it. Each cited terminal is graded by reading the statement: - DERIVES — the
+      | theorem's statement, unfolded to its base objects, establishes the claim. - INTERFACES — the
+      | theorem takes the claim as a named hypothesis, discharged elsewhere and identified in the row.
+      | This is a legitimate architecture, not a defect; it is how a kernel cites a manuscript result.
+      | The row names the premise. - ENCODES-CONCLUSION / SHELL — the theorem stipulates what the paper
+      | claims, or concludes a placeholder. These are work-orders, not citations, and are labelled as
+      | such wherever they appear.
+  the three grades, the exclusion keystone           EXCLUSION_ENGINE.md
+      | Every kernel citation in this paper carries one of three grades. The grades were introduced by
+      | the salt-check of 2026-07-12 (§VIII), and instituting them is the main content of this version.
+      | - DERIVES — the kernel proves the stated content from structure. The theorem would be false if
+      | the mathematics were false. - INTERFACES — the kernel proves a conditional whose premise is a
+      | named manuscript result. Legitimate and load-bearing, *provided the premise is named at the
+      | citation site*. A theorem T (h : H) : C with H discharged elsewhere composes; a theorem whose H
+      | is discharged nowhere is a promissory note. - ENCODES-CONCLUSION / SHELL — the kernel writes the
+      | conclusion in: a Bool field assigned true, a predicate defined as fun _ => True, a hypothesis
+      | that *is* the claim, an X = X. It compiles, it has zero sorry, and it certifies nothing. A shell
+      | is a work-order, not a citation.
+  what the salt-check found in the corpus`s own work EXCLUSION_ENGINE.md
+      | The third grade is not a hypothetical. As of the 2026-07-12 salt-check, most of the
+      | application-layer terminals this paper cited in v2.0 are shells, including the one v2.0 named as
+      | its exemplar of substance. That finding is the reason this version exists, and §VIII is its
+      | exhibit.
+  grade named in README : DERIVES                True
+  grade named in README : INTERFACES             True
+  grade named in README : ENCODES-CONCLUSION     True
+  ### ### **AND A FOURTH GRADE THE ORDER NAMES -- `NOT THE CLAIM` -- IS SEARCHED FOR IN THE CORPUS:**
+  ### corpus documents naming a grade `NOT THE CLAIM` : 3 ['ERRATA.md', 'FINDINGS.md', 'phase1.5\\method\\THE_SUBSTRATE.md']
+----------------------------------------------------------------------------------------------------
+### READ 2 -- THE CORPUS`S OWN ROUTE TERMINAL, AT SOURCE. ### THE SELF-GRADING TEST`S SUBJECT.
+----------------------------------------------------------------------------------------------------
+  the named premise, defined                         Bridge/ConservationBridge.lean line 26
+      | def ConservationHypothesis : Prop :=
+      |   ∀ (σ : ℝ), is_xi_zero σ →
+      |   ∃ (p : Nat) (hp : Nat.Prime p),
+      |   (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ))
+      | 
+  the terminal itself                                Bridge/ConservationBridge.lean line 53
+      | theorem riemann_hypothesis
+      |     (h_cons : ConservationHypothesis) : RiemannHypothesis :=
+      |   rh_from_structural_exhaustiveness (structural_exhaustiveness_proved h_cons)
+      | 
+      | end ConservationBridge
+  the terminal`s own docstring                       ConservationBridge.lean
+      | The Riemann Hypothesis, conditional on Conservation. Zero sorry. -/ theorem riemann_hypothesis
+      | (h_cons : ConservationHypothesis) : RiemannHypothesis := rh_from_structural_exhaustiveness
+      | (structural_exhaustiveness_proved h_cons) end ConservationBridge
+  ### ### **AND THE ORDER NAMES THE PREMISE `h2`; THE SOURCE NAMES IT `h_cons : ConservationHypothesis`.**
+  ### A source governs its paraphrase (BAR 8); both are printed and the source`s name is the one used.
+  where `RiemannHypothesis` is DEFINED : ### NOT RESOLVED BY git grep
+  Mathlib`s own definition, quoted :
+      | def RiemannHypothesis : Prop :=
+      |   ∀ (s : ℂ) (_ : riemannZeta s = 0) (_ : ¬∃ n : ℕ, s = -2 * (n + 1)) (_ : s ≠ 1), s.re = 1 / 2
+----------------------------------------------------------------------------------------------------
+### READ 3 -- THE CORPUS`S OWN TOOLCHAIN PINS. ### WHAT COMPONENT 2 COMPARES THE FOREIGN ONE AGAINST.
+----------------------------------------------------------------------------------------------------
+  SIDE-kernel            lean-toolchain : 'leanprover/lean4:v4.29.0-rc8'
+  SIDE-global-section    lean-toolchain : 'leanprover/lean4:v4.29.1'
+  SIDE-kernel`s Mathlib : rev e960b84129b3 ; its own toolchain 'leanprover/lean4:v4.29.0-rc8'
+  ### **THE CORPUS`S KERNELS ARE PINNED AT `v4.29.0-rc8` AND `v4.29.1`; THE FOREIGN PIN IS READ AFTER THE LOCK.**
+----------------------------------------------------------------------------------------------------
+### READ 4 -- THIS MACHINE. ### A BUILD IS ORDERED, SO WHAT THE MACHINE HAS IS A FACT THE FACE NEEDS.
+----------------------------------------------------------------------------------------------------
+  elan on PATH        : C:\Users\echo chamber\.elan\bin\elan.EXE
+  lake on PATH        : C:\Users\echo chamber\.elan\bin\lake.EXE
+  lake --version      : Lake version 5.0.0-src+819816b (Lean version 4.33.1)
+  lean --version      : Lean (version 4.33.1, x86_64-w64-windows-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Relea
+  toolchains INSTALLED: ['leanprover--lean4---v4.14.0', 'leanprover--lean4---v4.28.0', 'leanprover--lean4---v4.29.tmp']
+  ### ### **NEITHER OF THE CORPUS`S TWO PINS IS AMONG THEM**, and the foreign pin is unknown until the
+  ### repository is read -- so ### **ELAN WILL HAVE TO FETCH A TOOLCHAIN**, which is a host this act must name.
+  free space C:       : 1.4 GiB of 104.6 GiB
+  free space D:       : 667.2 GiB of 929.9 GiB
+  ### ### **`C:` IS THE DRIVE `~/.elan` LIVES ON AND IT IS NEARLY FULL.** ### A Lean toolchain is of the
+  ### order of a gigabyte and a Mathlib cache several. ### **THE BUILD MUST BE POINTED AT `D:` OR IT WILL
+  ### ### FAIL FOR ROOM RATHER THAN FOR MATHEMATICS**, and an act that let it fail that way would report a
+  ### disk as a defect in a proof.
+  a Mathlib olean cache on D: : True (104092 entries)
+----------------------------------------------------------------------------------------------------
+### READ 5 -- WHAT THE CORPUS ALREADY SAYS ABOUT NAVIER-STOKES. ### SO THE ACT RELIES ON NONE OF IT.
+----------------------------------------------------------------------------------------------------
+  the corpus`s own Navier-Stokes sentence            A_Place_to_Stand.md
+      | For Navier-Stokes, three structural conflicts (alignment/roughening, concentration/dissipation,
+      | smooth controller/rough controlled) prevent blowup. These analyses are documented in companion
+      | papers. Their completeness theorems have not been subjected to the same scrutiny as Ostrowski's
+      | classification and should be evaluated independently, on their own terms.
+  and its own retraction beside it                   A_Place_to_Stand.md
+      | Scope retractions. Twin primes and Goldbach: mechanism enumerations were insufficiently thorough
+      | for quantitative claims. Qualitative structural observations maintained. Yang-Mills,
+      | Navier-Stokes, BSD: investigated via the same method in subsequent work.
+  ### ### **NONE OF THAT IS EVIDENCE ABOUT THE OBJECT THIS ACT GRADES.** ### The corpus`s Navier-Stokes
+  ### material is its own companion work, unbuilt and unverified here; ### **IT IS PRINTED SO THAT IT CANNOT
+  ### ### LATER BE READ AS A PRIOR**, and the grading uses the Clay page and the foreign source only.
+----------------------------------------------------------------------------------------------------
+### READ 6 -- THE ACT`S OWN SCOPE, MEASURED: WHAT IS ALREADY ON DISK UNDER THE ADDRESSES` NAMES.
+----------------------------------------------------------------------------------------------------
+  the scratch clone directory D:\_b429_external : exists False
+  ### The clone, the toolchain and every fetched byte go OUTSIDE every rostered repository, and their
+  ### digests come back into `relay/data/`. ### **`0` BYTES OF THE FOREIGN REPOSITORY ENTER ANY CORPUS REPO.**
+----------------------------------------------------------------------------------------------------
+### THE SURVEY`S OWN TALLY.
+----------------------------------------------------------------------------------------------------
+  READS TAKEN            : 25
+  ### ### **ANCHOR MISSES : 0**
+====================================================================================================

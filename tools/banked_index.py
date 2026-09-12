@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-external-grading-read': ['the external grading read', 'the navier stokes lean terminal graded', 'the self grading test', 'calibration of the grading discipline', 'b429 external read'],
     'site-iii-and-two-filings': ['the witness arc at site iii', 'the width coordinate union', 'the disproof lane named', 'the external grading read priced', 'b428 site iii and two filings'],
     'the-witness-arc-at-site-ii': ['the witness arc at site ii', 'the height coordinate enumeration', 'site ii exhausted list', 'where the witness arc failures land', 'b427 sortie leg 2'],
     'the-falsifier-reread-by-address': ['the falsifier re-read by address', 'r38 threshold rule', 'desi dr2 collaboration paper read', 'the lane condition under r38', 'b426 sortie leg 1'],
@@ -682,6 +683,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE EXTERNAL GRADING READ (b429).
+    ('the-external-grading-read', 'b429 (the external grading read)',
+     "b429 GRADED THE COLLABORATION'S NAVIER-STOKES LEAN TERMINAL AGAINST THE CLAY PAGE'S STATEMENT C. Three author-supplied addresses, 3 resolved, 0 guessed; repository pinned at f9e8bc5b38b6; foreign toolchain leanprover/lean4:v4.34.0-rc2 against the corpus's leanprover/lean4:v4.29.0-rc8/leanprover/lean4:v4.29.1; BUILT True; axiom profile ['propext', 'Classical.choice', 'Quot.sound'] from #print axioms with no sorryAx. All 10 clauses of C map to a named field; the conclusion is C's UNIVERSAL NEGATIVE; the initial data is AT REST; uniqueness is NEITHER USED NOR NEEDED. GRADE DERIVES, with the unrun Comparator check named as the residue. THE SELF-GRADING TEST: the corpus's own route terminal grades INTERFACES under the same reading, and 2 clause(s) were applied asymmetrically -- BOTH FAVOURING THE STRANGER. Cited in no corpus document.",
+     "### NO GRADE OF THE CORPUS'S OWN MOVED OR CONFERRED. ### NO LANE OPENED. ### NOTHING DEPOSITS",
+     'data/b429_the_external_grading_read.txt; data/b429_the_grade.txt; data/b429_build_and_profile.txt; data/b429_statement_read.txt; data/b429_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 278'),
     # ### SITE (iii), AND TWO FILINGS FROM OUTSIDE (b428).
     ('site-iii-and-two-filings', 'b428 (site (iii), and two filings from outside)',
      "b428 ATTEMPTED 20 CANDIDATES AT ROW U1'S SITE (iii), THE WIDTH COORDINATE'S UNION -- the navigator's opening three and 17 the search supplied -- EACH READ AT ITS SOURCE AND FAILED AT A QUOTED STEP. HELD 0. FIRST FAILING STEPS: CLASS BOUNDARY 12; ABSENT 3; BOUNDED BY A MEASUREMENT 2; INSTRUMENT DOES NOT REACH 2; IMPORT UNDER THE BAR 1. THE CLASS BOUNDARY'S SHARE AT THREE SITES: (i) 13 of 16; (ii) 10 of 19; (iii) 12 of 20; UNION OF KINDS 10 -- the arc is NOT converging on one boundary. COMPONENT 2 NAMED THE DISPROOF LANE (the barrier's clause names no direction, so the proof and disproof lanes are symmetric) AND OPENED NOTHING. COMPONENT 3 PRICED THE EXTERNAL READ AT 4 ACTS, 1 UNPRICEABLE, AND REPORTED THE ADDRESS NOT LOCATED; NOT RUN.",

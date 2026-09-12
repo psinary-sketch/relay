@@ -1,0 +1,74 @@
+====================================================================================================
+b429 -- THE EXTERNAL GRADING READ. ### A CALIBRATION RECORD.
+THE BANK.
+====================================================================================================
+
+### b429 — the external grading read: a calibration record — filed 2026-09-12
+**This is a calibration of the corpus’s grading discipline against a proof it did not write. __TRIGGER: cited nowhere until the author rules whether it is.__ It is banked at relay and entered here; no corpus document cites it, and none should until that ruling.**
+#### The addresses, as the author supplied them
+Three, and no others; nothing guessed. The Lean repository `github.com/openai/NavierStokesAndEuler`, pinned at `f9e8bc5b38b6`; the writeup PDF at `cdn.openai.com`, `sha256 0e779481c4da40bd`; the Clay formulation at `claymath.org`, `sha256 c1b5f27b1a64705c`. **3 of 3 resolved.**
+#### Statement C, at content
+The page is Fefferman’s. **(C)** reads: *“Breakdown of Navier–Stokes solutions on R3. Take ν > 0 and n = 3. Then there exist a smooth, divergence-free vector field u◦(x) on R3 and a smooth f(x,t) on R3 × [0,∞), satisfying (4), (5), for which there exist no solutions (p, u) of (1), (2), (3), (6), (7) on R3 × [0,∞).”* Conditions (4) and (5) are the rapid-decay bounds on `u◦` and `f`; (6) is `p, u ∈ C^∞(Rn × [0,∞))`; (7) is *“∫ |u(x,t)|²dx < C for all t ≥ 0 (bounded energy)”*, with the constant outside the quantifier. **The page carries an errata section, and neither entry touches (C) or (4)–(7):** one makes a pressure-periodicity condition explicit in Eqn (8), which only (D) uses; the other replaces an “Eqn (10)” with a weak-form identity, while the page as served numbers (10) as the periodicity condition — a disagreement this act reports rather than resolves.
+#### The terminal, and the build
+The README names the statements and **names no theorem**; the terminals were taken from the repository’s `formalization.yaml` manifest instead. **b428’s ACT 1 priced “read the README … and name the single theorem”, and said that if the README names none the act ends there — it names none, and the act did not end.** That pricing premise is refuted and the refutation is printed.
+The foreign toolchain is `leanprover/lean4:v4.34.0-rc2` with Mathlib `85e3a25e006c`; the corpus pins `leanprover/lean4:v4.29.0-rc8/leanprover/lean4:v4.29.1` — **the foreign pin is newer**. **It builds.** `#print axioms NavierStokes.Comparator.navier_stokes_breakdown_R3` returns `['propext', 'Classical.choice', 'Quot.sound']`, read from the printer’s own output on this machine and not from an exit code — **the standard three and nothing else, and no `sorryAx` in the closure**. The repository’s 4 bare `sorry` terms are all in `ComparatorChallenges/`, its own reference statements, which the axiom profile independently confirms are outside the terminal’s closure.
+#### The statement, read against C
+- **Quantifiers:** `∀ nu, nu > 0 → ∃ u₀ f, …`, with `n = 3` fixed by `EuclideanSpace ℝ (Fin 3)`. Exactly C’s *“Take ν > 0 and n = 3. Then there exist …”*.
+- **The decay of (5):** a stated field, `ForceConditionDecay.decay`. It bounds the **total** `m`-th derivative, which dominates every mixed partial of that order — **at least as strong as the page’s condition, on the side where being stronger makes the theorem weaker**.
+- **The initial data:** existential in the terminal, and **at rest one level down** — the witness is `fun _ => 0` (`NavierStokes/R3/ComparatorBridge.lean:85`), with the lemma named `zero_initial_condition_decay`. **C permits this exactly**; the forcing does the work.
+- **The conclusion:** `¬ (∃ v p, NavierStokesExistenceAndSmoothnessRn nu u₀ f v p)` — **the universal negative of C, not the blowup of a constructed solution**. The transport into the repository’s own excluded class is a **total definition**, so any solution in C’s class yields one in the excluded class.
+- **Uniqueness:** **not used and not needed.** A universal negative never has to identify a solution, so it never has to know there is only one. The question’s premise does not hold here.
+**All 10 clauses of C map to a named field.** And the one place a reader would suspect a narrowing — the added `integrable : ∀ t ≥ 0, MemLp (‖v · t‖) 2` — **restores C’s meaning rather than narrowing it**: Mathlib’s Bochner integral returns `0` for a non-integrable function, so without it the energy bound would hold vacuously for exactly the solutions C means to exclude.
+#### The grade, and the self-grading test
+**GRADE: DERIVES.**
+Every clause of C maps to a named field; the conclusion is C’s universal negative; the terminal takes **no premise beyond `nu > 0`**, so it is not INTERFACES; it stipulates nothing, so it is not a SHELL; it states nothing weaker than C, so it is not NOT THE CLAIM. **Residue, named by content:** the statement is written against the repository’s own copy of the Formal Conjectures definitions, of which the repository says *“Comparator checks these definitions against the independent reference at runtime”* — **and this act did not run Comparator**. The agreement was established here **by reading**, and a reading is not a checker.
+**The corpus’s own route terminal, under the same reading: INTERFACES.** `ConservationBridge.riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis` concludes **Mathlib’s own** `RiemannHypothesis`, so it is no shell; it is conditional, so it is not DERIVES; its premise is identified and discharged nowhere in the closure. That is the grade the corpus already gives it. *(The order named the premise `h2`; the source names it `h_cons : ConservationHypothesis`, and a source governs its paraphrase.)*
+**The clauses, compared both ways: 2 the same, 2 asymmetric.**
+- *“every step is in the closure”* — **the same**: a clean `#print axioms` was required of the stranger, and the corpus records its own profiles and ran the §VIII salt-check on itself.
+- *“the statement unfolded to its base objects”* — **the same, and the corpus applied it to itself harshly**: its own salt-check found *“most of the application-layer terminals this paper cited in v2.0 are shells, including the one v2.0 named as its exemplar of substance.”*
+- **the available vocabulary** — **asymmetric, favouring the stranger**: four grades were available here and the corpus has only ever had three. Unused, so it changed no outcome; an unused finer grade is still an asymmetry in the instrument.
+- **the verification instrument behind the definitions** — **asymmetric, favouring the stranger, and it bears on the grade**: the stranger’s definitions were accepted on a reading, with its own checker available and unrun, while the corpus does not accept its own definitions on a reading — `rowgen`’s `defenc` flag exists because a reading once passed a stand-in.
+**So the seat’s routed concern at b428 — that a discipline which has only graded its own work might grade itself more generously than a stranger — is not confirmed on this trial: both asymmetries run the other way.** It is not refuted either; one trial on one terminal is one trial. **And what the test cannot tell, said plainly: whether the corpus would confer `DERIVES` on a terminal of its own with this profile and this mapping — it has never had one, so there is no like case on its own side.**
+#### The arc, and the lanes this act leaves where it found them
+**W-ORD-WITNESS-ENUMERATION stays checkpointed after site (iii)** — sites (iv) to (vi) remain, one act each, and this act entered none of them. The disproof lane named at b428 stays **named and not opened**. Both instrument lanes stay parked and the wave stays parked.
+#### The four lists
+**LIST 1** — the rows that cite at a ref nobody can name (b373). **OPEN.** **LIST 2** — the rows grading a declaration the record has classified absent (b373). **OPEN.** **LIST 3** — the undated figures across the roster (b374). **OPEN.** **LIST 4** — the bibliography entries nothing cites (b374). **OPEN.** Trigger: the ruling on which test governs, or any disposition on the four open lists.
+#### What this act did not do
+0 grades of the corpus’s own moved, conferred or minted. 0 premises discharged. 0 doors restated. 0 routes proposed. 0 lanes opened. 0 kappa measured. 0 corpus kernel files touched. 0 corpus kernel builds. 0 rows of `FACES_LEDGER.md`. 0 register rows. 0 keystones. 0 lane documents. 0 bytes of the foreign repository entered any rostered repository. 0 claims that the external proof is correct or incorrect beyond what its grade says. 0 deposit actions. **And h2 where the deposit left it.**
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, AS THE REPORT SCORED THEM.
+----------------------------------------------------------------------------------------------------
+  (N1) *the repository resolves and builds* -- ### **MET** (3 of 3 addresses resolved; built True).
+  (N1) *on a Mathlib pin newer than the corpus`s* -- ### **MET** (leanprover/lean4:v4.34.0-rc2 against ['leanprover/lean4:v4.29.0-rc8', 'leanprover/lean4:v4.29.1']).
+  (N2) *the terminal grades INTERFACES, with uniqueness as the named premise or as a Mathlib import rather than proved in the closure* -- ### **REFUTED** (the grade is DERIVES; the terminal takes NO premise beyond `nu > 0`, and uniqueness is NOT USED -- the universal negative needs no uniqueness).
+  (N3) *the self-grading test finds no clause applied differently* -- ### **REFUTED** (2 of 4 clauses asymmetric, and BOTH favour the stranger rather than the corpus).
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  the external grading read                                              CLOSE
+  the calibration record, cited nowhere                                  STANDING
+  the two asymmetries the self-grading test found                        STANDING
+  what the self-grading test cannot tell                                 STANDING
+  the disproof lane, named and not opened (b428)                         STANDING
+  W-ORD-WITNESS-ENUMERATION, sites (iv) to (vi)                          STANDING
+  whether the arc is converging on one boundary                          STANDING
+  whether the witness cell should carry the list inside its own text (b4 STANDING
+  (R38)`s two clauses, divergent on a mixed set                          STANDING
+  the lane`s condition under (R38)                                       STANDING
+  OPEN_TRAILS O.8 -- the DESI five-year release                          STANDING
+  the seat`s reading of §10.2 (b423)                                     STANDING
+  the four open lists                                                    STANDING
+  W-ORD-LI-WEIL-BRIDGE                                                   STANDING
+  W-ORD-DISCRIMINATING-FAMILY / W-ORD-LI-FAMILY-CONTROL                  STANDING
+  the scan’s sites against the lock’s zero                               STANDING
+  row U1                                                                 STANDING
+  M-2                                                                    STANDING
+  h2                                                                     STANDING
+
+  ITEMS SWEPT : 19. CLOSED : 1. STANDING : 18.
+
+  CORRESPONDENCE ROW : 278. ### KEY : PASS.
+
+====================================================================================================

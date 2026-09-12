@@ -1,0 +1,56 @@
+====================================================================================================
+b429 -- COMPONENT 1: STATEMENT C AT CONTENT. ### THE OBJECT GRADED AGAINST IS THE PAGE.
+====================================================================================================
+  at (UTC) : 2026-09-12T01:20:36Z
+
+  the formulation, pinned : https://claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+  status RESOLVED ; bytes 203736 ; sha256 c1b5f27b1a64705cfaf1afceea513db5deedca8a18ca56ab32e7f86445a06d0c
+  its extracted text on disk : data/b429_source_clay.txt (6 pages of source)
+  ### **THE AUTHOR OF THE PAGE, AS THE PAGE GIVES IT : CHARLES L. FEFFERMAN**
+
+  (4) the decay of the initial velocity :
+      | (4) |∂α x u◦(x)| ≤ CαK(1 + |x|)−K on Rn, for any α and K
+  (5) the decay of the force :
+      | (5) |∂α x ∂m t f (x, t)| ≤ CαmK(1 + |x| + t)−K on Rn × [0, ∞), for any α, m, K.
+  (6) smoothness of the solution :
+      | (6) p, u ∈ C ∞(Rn × [0, ∞)) and
+  (7) bounded energy :
+      | (7) ∫ Rn |u(x, t)|2dx < C for all t ≥ 0 (bounded energy)
+  STATEMENT C, VERBATIM :
+      | (C) Breakdown of Navier–Stokes solutions on R3. Take ν > 0 and n = 3. Then there exist a
+      | smooth, divergence-free vector ﬁeld u◦(x) on R3 and a smooth f (x, t) on R3 × [0, ∞),
+      | satisfying (4), (5), for which there exist no solutions ( p, u) of (1), (2), (3), (6), (7) on
+      | R3 × [0, ∞).
+  STATEMENT D, VERBATIM (the repository claims it too) :
+      | (D) Breakdown of Navier–Stokes Solutions on R3/Z3. Take ν > 0 and n = 3. Then there exist a
+      | smooth, divergence-free vector ﬁeld u◦(x) on R3 and a smooth f (x, t) on R3 × [0, ∞),
+      | satisfying (8), (9), for which there exist no solutions (p, u) of (1), (2), (3), (10), (11) on
+      | R3 × [0, ∞).
+
+----------------------------------------------------------------------------------------------------
+### THE ERRATA, LOOKED FOR ON THE PAGE ITSELF.
+----------------------------------------------------------------------------------------------------
+  occurrences of an errata word on the page : 1
+      ...eness of weak solutions of the Euler equation , Comm. Pure & Appl. Math. 50 (1997), 1260–1286. === PAGE 6 === Errata The further condition p(x +ej,t ) = p(x,t ) should be made explicit in Eqn (8). Eqn (10) should read: − x R3×R u· ∂θ ∂t dxdt− ∑ ij x R3×R uiuj ...
+  ### THE ERRATA SECTION, QUOTED IN FULL:
+      | Errata The further condition p(x +ej,t ) = p(x,t ) should be made explicit in Eqn (8). Eqn
+      | (10) should read: − x R3×R u· ∂θ ∂t dxdt− ∑ ij x R3×R uiuj ∂θi ∂xj dxdt = ν x R3×R u·∆θ dxdt +
+      | x R3×R f·θ dxdt + x R3×R p· (divθ) dxdt 
+  ### ### **WHERE THEY APPLY, READ CLAUSE BY CLAUSE:**
+  ### (i) *"The further condition p(x + ej, t) = p(x, t) should be made explicit in Eqn (8)"* --
+  ###     Eqn (8) is the PERIODICITY condition, which statement ### **(D)** ### uses and statement
+  ###     ### **(C)** ### does not. ### **IT DOES NOT TOUCH (C), NOR (4), (5), (6) OR (7).**
+  ### (ii) *"Eqn (10) should read: ..."* -- the replacement is a WEAK-FORM identity. ### **AND THE
+  ###     PAGE AS SERVED AT THIS DIGEST NUMBERS (10) AS THE PERIODICITY CONDITION**, not as a weak
+  ###     form: the only occurrences of `(10)` in its text layer are that condition and the two
+  ###     statements citing it. ### **SO THE ERRATUM`S NUMBERING AND THE PAGE`S DISAGREE, AND THIS
+  ###     ACT REPORTS THAT RATHER THAN RESOLVING IT.** ### On either reading -- the periodicity
+  ###     condition or the weak formulation -- ### **IT DOES NOT TOUCH STATEMENT (C) OR CONDITIONS
+  ###     (4), (5), (6), (7)**, which are the whole of what this act grades against.
+
+  ### ### **AND THE ONE THING WORTH SAYING ABOUT (7):** ### the page writes it as an INTEGRAL BOUND,
+  ### *"∫ |u(x, t)|2dx < C for all t ≥ 0 (bounded energy)"* -- uniform in `t`, with the constant `C`
+  ### outside the quantifier. ### **A FORMALISATION THAT PUT `C` INSIDE THE `∀ t` WOULD BE A DIFFERENT
+  ### ### AND WEAKER CONDITION**, and Component 3 checks which one the terminal has.
+  anchor misses : 0 []
+====================================================================================================

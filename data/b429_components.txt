@@ -1,0 +1,29 @@
+====================================================================================================
+b429_components.py -- THE EXTERNAL GRADING READ. ### THE REPORT.
+====================================================================================================
+  addresses supplied 3 ; resolved 3 ; unreachable [] ; guessed 0
+  repository pinned  f9e8bc5b38b6 ; branch main
+  foreign toolchain  leanprover/lean4:v4.34.0-rc2 ; corpus ['leanprover/lean4:v4.29.0-rc8', 'leanprover/lean4:v4.29.1']
+  foreign pin newer  True
+  BUILT              True
+  axiom profile (C)  ['propext', 'Classical.choice', 'Quot.sound']
+  beyond the three   [] ; sorryAx False
+  clauses of C mapped 10 of 10
+  Q1   for all nu > 0; exists u0, f; n = 3 fixed by the notation
+  Q2   YES -- ForceConditionDecay.decay, at least as strong as (5)
+  Q3   AT REST -- the witness is `fun _ => 0`; C permits it
+  Q4   THE UNIVERSAL NEGATIVE of C, not a constructed blowup
+  Q5   NOT USED -- the universal negative needs no uniqueness
+  ### ### **GRADE : DERIVES**
+  ### the corpus`s own terminal, under the same reading : INTERFACES
+  ### clauses compared 4 ; same 2 ; asymmetric 2
+  every component record reports anchor misses : 0 -- True
+
+### THE EXPECTATIONS, THEIR CLAUSES APART (R27):
+  (N1) *the repository resolves and builds* -- ### **MET** (3 of 3 addresses resolved; built True).
+  (N1) *on a Mathlib pin newer than the corpus`s* -- ### **MET** (leanprover/lean4:v4.34.0-rc2 against ['leanprover/lean4:v4.29.0-rc8', 'leanprover/lean4:v4.29.1']).
+  (N2) *the terminal grades INTERFACES, with uniqueness as the named premise or as a Mathlib import rather than proved in the closure* -- ### **REFUTED** (the grade is DERIVES; the terminal takes NO premise beyond `nu > 0`, and uniqueness is NOT USED -- the universal negative needs no uniqueness).
+  (N3) *the self-grading test finds no clause applied differently* -- ### **REFUTED** (2 of 4 clauses asymmetric, and BOTH favour the stranger rather than the corpus).
+
+### THE COMPONENTS` OWN TALLY : RECORD FAILURES 0 []
+====================================================================================================

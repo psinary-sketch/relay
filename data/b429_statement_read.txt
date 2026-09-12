@@ -1,0 +1,163 @@
+====================================================================================================
+b429 -- COMPONENT 3: THE STATEMENT READ AGAINST C.
+====================================================================================================
+  at (UTC) : 2026-09-12T05:59:23Z
+
+  the terminal : NavierStokes.Comparator.navier_stokes_breakdown_R3
+  the clone    : D:\_b429_external\repo at f9e8bc5b38b6
+
+----------------------------------------------------------------------------------------------------
+### (a) THE TERMINAL ITSELF, AS WRITTEN.
+----------------------------------------------------------------------------------------------------
+  the terminal for statement (C)               NavierStokes/ComparatorSolution.lean lines 11-20
+        11| namespace NavierStokes.Comparator
+        12| 
+        13| local notation "ℝ³" => EuclideanSpace ℝ (Fin 3)
+        14| 
+        15| /-- (C) Breakdown of Navier–Stokes solutions on ℝ³. -/
+        16| theorem navier_stokes_breakdown_R3 (nu : ℝ) (hnu : nu > 0) :
+        17|     ∃ (u₀ : ℝ³ → ℝ³) (f : ℝ³ → ℝ → ℝ³),
+        18|     InitialVelocityConditionDecay u₀ ∧ ForceConditionDecay f ∧
+        19|     ¬ (∃ v p, NavierStokesExistenceAndSmoothnessRn nu u₀ f v p) := by
+        20|   exact ComparatorBridge.navier_stokes_breakdown_R3 nu hnu
+  the terminal for statement (D)               NavierStokes/ComparatorSolution.lean lines 22-27
+        22| /-- (D) Breakdown of Navier–Stokes solutions on ℝ³/ℤ³. -/
+        23| theorem navier_stokes_breakdown_periodic (nu : ℝ) (hnu : nu > 0) :
+        24|     ∃ (u₀ : ℝ³ → ℝ³) (f : ℝ³ → ℝ → ℝ³),
+        25|     InitialVelocityConditionPeriodic u₀ ∧ ForceConditionPeriodic f ∧
+        26|     ¬ (∃ v p, NavierStokesExistenceAndSmoothnessPeriodic nu u₀ f v p) := by
+        27|   exact ComparatorBridge.navier_stokes_breakdown_periodic nu hnu
+
+----------------------------------------------------------------------------------------------------
+### (b) THE FIVE QUESTIONS.
+----------------------------------------------------------------------------------------------------
+  ### Q1 -- WHAT DOES IT QUANTIFY OVER?
+      the dimension, fixed by notation         NavierStokes/ComparatorSolution.lean lines 13-13
+        13| local notation "ℝ³" => EuclideanSpace ℝ (Fin 3)
+      the binders and the body                 NavierStokes/ComparatorSolution.lean lines 16-19
+        16| theorem navier_stokes_breakdown_R3 (nu : ℝ) (hnu : nu > 0) :
+        17|     ∃ (u₀ : ℝ³ → ℝ³) (f : ℝ³ → ℝ → ℝ³),
+        18|     InitialVelocityConditionDecay u₀ ∧ ForceConditionDecay f ∧
+        19|     ¬ (∃ v p, NavierStokesExistenceAndSmoothnessRn nu u₀ f v p) := by
+    ### ### **UNIVERSALLY over every real `nu` with `nu > 0`; EXISTENTIALLY over `u0` and `f`; and the
+    ### ### space is `EuclideanSpace R (Fin 3)`, so `n = 3` IS FIXED AND NOT QUANTIFIED.**
+    ### That is exactly C`s *"Take nu > 0 and n = 3. Then there exist ..."*.
+
+  ### Q2 -- IS THE DECAY OF (5) A STATED HYPOTHESIS ON ITS FORCE?
+      ForceConditionDecay                      NavierStokes/ComparatorDefinitions.lean lines 159-165
+       159| structure ForceConditionDecay (f : ℝ^n → ℝ → ℝ^n) : Prop extends ForceCondition f where
+       160|   /-- All derivatives of f decay faster than any polynomial in space and time (condition 5).
+       161|   For any derivative order $m$ and any decay rate $K$, there exists $C$ such that
+       162|   $\lVert \partial^m_{x,t} f(x,t) \rVert \le C/(1+\lVert x \rVert+t)^K$ for
+       163|   $t \ge 0$. -/
+       164|   decay : ∀ m : ℕ, ∀ K : ℝ, ∃ C : ℝ, ∀ x, ∀ t ≥ 0,
+       165|     ‖iteratedFDerivWithin ℝ m (↿f) (Set.univ ×ˢ Set.Ici 0) (x, t)‖ ≤ C / (1 + ‖x‖ + t) ^ K
+    ### ### **YES, AS A FIELD OF THE STRUCTURE THE EXISTENTIAL CARRIES.** ### The page reads
+    ### *"|d^a_x d^m_t f(x,t)| <= C(1 + |x| + t)^-K ... for any a, m, K"*; the Lean bounds the TOTAL
+    ### `m`-th derivative, `iteratedFDerivWithin R m`, which dominates every mixed partial of that total
+    ### order. ### **SO THE LEAN HYPOTHESIS IS AT LEAST AS STRONG AS THE PAGE`S -- ON THE SIDE WHERE
+    ### ### BEING STRONGER MAKES THE THEOREM WEAKER**, which is the direction that matters, and it is
+    ### printed rather than left to be noticed. ### `ForceCondition.smooth` carries *"a smooth f"* apart.
+
+  ### Q3 -- IS ITS INITIAL DATA AT REST OR GENERAL?
+    ### THE TERMINAL LEAVES IT EXISTENTIAL: it asserts only that SOME `u0` works, which is what C asks.
+    ### **BUT THE WITNESS IS EXPOSED ONE LEVEL DOWN, AND IT IS AT REST:**
+      the adapter, with its witness            NavierStokes/R3/ComparatorBridge.lean lines 77-88
+        77| theorem comparator_of_breakdown {ν : ℝ}
+        78|     {u : VelocityField} {p : PressureField} {f : VelocityField} {K : Set Space}
+        79|     (h : CandidateProperties ν u p f K)
+        80|     (hglobal : ¬ Nonempty (GlobalFiniteEnergySolution ν f)) :
+        81|     ∃ (u₀ : Space → Space) (f : Space → ℝ → Space),
+        82|       NavierStokes.Comparator.InitialVelocityConditionDecay u₀ ∧
+        83|       NavierStokes.Comparator.ForceConditionDecay f ∧
+        84|       ¬ (∃ v p, NavierStokes.Comparator.NavierStokesExistenceAndSmoothnessRn ν u₀ f v p) := by
+        85|   refine ⟨fun _ => 0, toComparator f, zero_initial_condition_decay,
+        86|     forceConditionDecay_of_compact h.force_smooth h.force_support.1, ?_⟩
+        87|   rintro ⟨v, q, hv⟩
+        88|   exact hglobal ⟨globalSolutionOfComparator hv⟩
+      and the paper-side theorem it rests on   NavierStokes/R3/Theorem.lean lines 25-32
+        25| which the constructed velocity is at rest. No construction hypotheses remain. -/
+        26| theorem theorem_1_1_with_initial_rest (ν : ℝ) (hν : 0 < ν) :
+        27|     ∃ u : VelocityField, ∃ p : PressureField, ∃ f : VelocityField, ∃ K : Set Space,
+        28|       CandidateProperties ν u p f K ∧
+        29|       ¬ Nonempty (GlobalFiniteEnergySolution ν f) ∧
+        30|       ∀ t : ℝ, |t| ≤ 3 / 8 → ∀ x : Space,
+        31|         u (t, x) = 0 ∧ p (t, x) = 0 := by
+        32|   obtain ⟨u, p, f, K, hc, hzero⟩ := ActualCandidate.selected_candidate_one_with_initial_rest
+    ### ### **THE INITIAL VELOCITY IS `fun _ => 0`: THE FLUID STARTS AT REST, AND THE FORCING DOES ALL
+    ### ### THE WORK.** ### The lemma discharging (4) for it is named `zero_initial_condition_decay`,
+    ### and the paper-side theorem is `theorem_1_1_with_initial_rest`, whose own docstring adds
+    ### *"No construction hypotheses remain."* ### **C PERMITS THIS EXACTLY** -- it asks for SOME
+    ### smooth divergence-free `u0` satisfying (4), and the zero field is one. ### **SO IT IS NOT A
+    ### ### NARROWING OF C BUT A CHOICE C ALLOWS**, and it is printed because the order asked.
+
+  ### Q4 -- IS THE CONCLUSION THE UNIVERSAL NEGATIVE OF C, OR THE BLOWUP OF A CONSTRUCTED SOLUTION?
+      the conclusion, as written               NavierStokes/ComparatorSolution.lean lines 19-19
+        19|     ¬ (∃ v p, NavierStokesExistenceAndSmoothnessRn nu u₀ f v p) := by
+      and the class it negates over            NavierStokes/ComparatorDefinitions.lean lines 219-227
+       219| structure NavierStokesExistenceAndSmoothnessRn
+       220|     (nu : ℝ) (u₀ : ℝ^n → ℝ^n) (f : ℝ^n → ℝ → ℝ^n)
+       221|     (v : ℝ^n → ℝ → ℝ^n) (p : ℝ^n → ℝ → ℝ) : Prop
+       222|   extends NavierStokesExistenceAndSmoothness nu u₀ f v p where
+       223|   /-- The velocity is square-integrable at each time $t \ge 0$ (condition 7). -/
+       224|   integrable : ∀ t ≥ 0, MemLp (‖v · t‖) 2
+       225|   /-- The kinetic energy $\int \lVert v(x,t) \rVert^2\,dx$ remains uniformly bounded
+       226|   for all time (condition 7), where the integral is the Lebesgue integral. -/
+       227|   globally_bounded_energy : ∃ E, ∀ t ≥ 0, (∫ x : ℝ^n, ‖v x t‖ ^ 2) < E
+    ### ### **THE UNIVERSAL NEGATIVE.** ### `not (exists v p, NavierStokesExistenceAndSmoothnessRn nu
+    ### u0 f v p)` is precisely C`s *"for which there exist no solutions (p, u) of (1), (2), (3), (6),
+    ### (7)"*. ### **IT IS NOT THE BLOWUP OF ONE CONSTRUCTED SOLUTION**, and the transport that makes
+    ### it universal is a TOTAL definition rather than a conditional lemma:
+      the transport into the repository`s own class NavierStokes/R3/ComparatorBridge.lean lines 48-56
+        48| def globalSolutionOfComparator {ν : ℝ} {f : VelocityField}
+        49|     {v : Space → ℝ → Space} {p : Space → ℝ → ℝ}
+        50|     (h : NavierStokes.Comparator.NavierStokesExistenceAndSmoothnessRn ν
+        51|       (fun _ => 0) (toComparator f) v p) : GlobalFiniteEnergySolution ν f where
+        52|   velocity := fromComparator v
+        53|   pressure := fromComparator p
+        54|   velocity_smooth := fromComparator_smooth h.velocity_smooth
+        55|   pressure_smooth := fromComparator_smooth h.pressure_smooth
+        56|   zero_initial_velocity := h.initial_condition
+    ### `globalSolutionOfComparator` takes ONLY the Comparator-class solution and returns a member of
+    ### `GlobalFiniteEnergySolution`, which `hglobal` excludes. ### **ANY solution in C`s class yields
+    ### one in the excluded class, so the negative reaches the whole of C`s class.**
+
+  ### Q5 -- UNIQUENESS OF SMOOTH BOUNDED-ENERGY SOLUTIONS: PROVED, IMPORTED, OR A NAMED HYPOTHESIS?
+    ### ### **NONE OF THE THREE. ### UNIQUENESS IS NOT USED AND IS NOT NEEDED**, and the reason is
+    ### Q4`s answer: a universal negative over a solution class never has to identify a solution, so it
+    ### never has to know there is only one. ### **THE QUESTION`S PREMISE -- that the conclusion is a
+    ### ### CONSTRUCTED BLOWUP needing uniqueness to reach C -- DOES NOT HOLD HERE.**
+    ### files in the repository naming `uniqueness` at all : 155
+    ### and the terminal`s own chain names it in none of its four files:
+        NavierStokes/ComparatorSolution.lean             `uniqueness` occurrences : 0
+        NavierStokes/ComparatorR3Theorem.lean            `uniqueness` occurrences : 0
+        NavierStokes/R3/ComparatorBridge.lean            `uniqueness` occurrences : 0
+        NavierStokes/R3/Theorem.lean                     `uniqueness` occurrences : 0
+
+----------------------------------------------------------------------------------------------------
+### (c) THE CLAUSE-BY-CLAUSE MAPPING: C ON THE LEFT, THE LEAN FIELD ON THE RIGHT.
+----------------------------------------------------------------------------------------------------
+  "Take nu > 0"                                      -> the binder and its hypothesis              NavierStokes/ComparatorSolution.lean:16-16
+  "and n = 3"                                        -> the notation that fixes the dimension      NavierStokes/ComparatorSolution.lean:13-13
+  "there exist a smooth, divergence-free u0 on R3"   -> the existential, and its two fields        NavierStokes/ComparatorDefinitions.lean:108-113
+  "satisfying (4)"                                   -> InitialVelocityConditionDecay.decay        NavierStokes/ComparatorDefinitions.lean:124-129
+  "and a smooth f(x, t) on R3 x [0, inf)"            -> ForceCondition.smooth                      NavierStokes/ComparatorDefinitions.lean:149-151
+  "satisfying (5)"                                   -> ForceConditionDecay.decay                  NavierStokes/ComparatorDefinitions.lean:159-165
+  "for which there exist no solutions (p, u)"        -> the universal negative                     NavierStokes/ComparatorSolution.lean:17-19
+  "of (1), (2), (3)"                                 -> navier_stokes, div_free, initial_condition NavierStokes/ComparatorDefinitions.lean:191-203
+  "(6)"                                              -> velocity_smooth and pressure_smooth        NavierStokes/ComparatorDefinitions.lean:204-209
+  "(7)"                                              -> integrable and globally_bounded_energy     NavierStokes/ComparatorDefinitions.lean:219-227
+  ### ### **CLAUSES OF C MAPPED TO A NAMED FIELD : 10 OF 10. ### UNMAPPED : 0.**
+
+  ### ### **AND THE ONE PLACE A READER WOULD SUSPECT A NARROWING, CHECKED:** ### the Lean class adds
+  ### `integrable : forall t >= 0, MemLp (||v . t||) 2` beside the energy bound. ### A class with MORE
+  ### conditions is SMALLER, and a non-existence over a smaller class is WEAKER -- so this is exactly
+  ### where a formalisation could quietly fall short of C. ### **IT DOES NOT.** ### C`s (7) reads
+  ### *"int |u(x,t)|^2 dx < C for all t >= 0"*, and a finite integral of a non-negative function IS
+  ### square-integrability; Mathlib`s Bochner integral returns the junk value `0` for a non-integrable
+  ### function, so WITHOUT `integrable` the bound would hold VACUOUSLY for solutions C means to
+  ### exclude. ### **THE FIELD RESTORES C`S MEANING RATHER THAN NARROWING IT.**
+  ### ### **AND (7)`S CONSTANT SITS OUTSIDE THE QUANTIFIER** -- `exists E, forall t >= 0, ... < E` --
+  ### which is the page`s *"< C for all t >= 0"* and not the weaker per-time bound.
+  anchor misses : 0 []
+====================================================================================================
