@@ -1,0 +1,125 @@
+====================================================================================================
+b439 -- THE FIXED PROFILE, THE FIXED POINT, AND ONE ARITHMETIC CLAIM. ### THE SURVEY.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE CONSTRUCTION, AT ITS OWN LINES -- ### **WHAT SCALES AND WHAT DOES NOT.**
+----------------------------------------------------------------------------------------------------
+    ### **THE BUMP, AND ITS SCALED VARIABLE:**
+      carto_atlas.py:43
+        | def bump(a):
+        | L = math.log(a)
+        | v = np.linspace(-L, L, NV)
+        | t = v / L
+        | w = np.zeros_like(t)
+        | m = np.abs(t) < 1.0
+        | w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))
+        | w /= np.trapezoid(w, v)
+        ### ### **`t = v / L` WITH `L = log a`.** ### The shape `exp(-1/(1-t^2))` is a
+        ### function of `t` alone, and `t` IS the scaled variable `s`. ### **SO ONE BUMP`S
+        ### ### SHAPE IN `s` IS THE SAME AT EVERY RADIUS**, up to the `1/log a` the
+        ### normalisation carries.
+
+    ### **THE THREE WIDTHS, AND WHERE THEY SIT IN `s`:**
+      b317_smear.py:78
+        | MZ_EXPONENTS = (1.0, 0.5, 0.25)
+        ### ### **`bump(a ** e)` HAS HALF-WIDTH `e log a` IN `v`, HENCE `e` IN `s`.** ###
+        ### So the three supports sit at `s = 1`, `1/2`, `1/4` ### **FOR EVERY RADIUS**,
+        ### exactly as the order says.
+
+    ### **AND THE TWO CONDITIONS THE COEFFICIENTS SOLVE:**
+      b317_smear.py:188
+        | I = np.array([np.trapezoid(p, V) for p in phi])
+        | M = np.array([np.trapezoid(p * np.cosh(V / 2.0), V) for p in phi])
+      b317_smear.py:191
+        | A2 = np.array([[I[1], I[2]], [M[1], M[2]]])
+        | b2 = np.array([-I[0], -M[0]])
+        | c12 = np.linalg.solve(A2, b2)
+
+    ### ### **THE FIRST CONDITION IS SCALE-INVARIANT AND THE SECOND IS NOT, AND THAT IS
+    ### ### READ OFF THE INTEGRANDS RATHER THAN ASSERTED.**
+        `I[i] = INT phi_i dv` -- each bump is normalised to integral one, so `I` is `1`
+        for all three at every radius. ### **NO `a` IN IT.**
+        `M[i] = INT phi_i(v) cosh(v/2) dv` -- and in the scaled variable `v = s log a`
+        this is `INT (1/e) phi(s/e) cosh(s log a / 2) ds`. ### **THE WEIGHT CARRIES `a`
+        ### EXPLICITLY, INSIDE A `cosh`, WHICH IS NOT A POWER OF `x` AND THEREFORE NOT
+        ### SCALE-INVARIANT.**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE COEFFICIENTS, READ AT SIX RADII. ### **THE INSTRUMENT`S OWN STORED VALUES.**
+----------------------------------------------------------------------------------------------------
+    ### **THIS READ WAS TAKEN AT STEP ZERO, BEFORE THE FACE**, because it decides what
+    ### shape this act has. ### It is the instrument`s own `tf.coeffs`, stored by
+    ### `mean_zero_variant` when it solves; ### **NOTHING IS RE-DERIVED HERE.** ### The
+    ### components re-read and re-print them after the lock.
+
+      a            c0                 c1                 c2
+      1.8155451    1.000000000000     -5.009319686813    4.009319686813
+      2.5073306    1.000000000000     -5.022168292411    4.022168292411
+      2.5729801    1.000000000000     -5.023435364090    4.023435364090
+      3.0000000    1.000000000000     -5.031694870665    4.031694870665
+      4.0000000    1.000000000000     -5.050560578845    4.050560578845
+      5.6416382    1.000000000000     -5.078973637290    4.078973637290
+
+      ### ### **`c1` RUNS -5.009319686813 -> -5.078973637290 ACROSS THESE RADII.**
+      ### ### **THE COEFFICIENTS ARE NOT CONSTANT IN `a`.**
+      ### And at b438`s two DOWNWARD crossing radii specifically:
+          a* = 1.8155451  c1 = -5.009319686813
+          a* = 2.5729801  c1 = -5.023435364090
+          they differ by 1.412e-02
+
+----------------------------------------------------------------------------------------------------
+  ### (3) THE WEIGHT TABLE -- ### **ARITHMETIC ON A CLOSED FORMULA, NOT A MEASUREMENT.**
+----------------------------------------------------------------------------------------------------
+      b321_window.py:118
+        | val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+
+      n      p      2 log p / sqrt(n) rank
+      2      2      0.980258143      6 of 10
+      3      3      1.268568201      5 of 10
+      4      2      0.693147181      8 of 10
+      5      5      1.439525031      3 of 10
+      7      7      1.470969808      1 of 10
+      8      2      0.490129072      9 of 10
+      9      3      0.732408192      7 of 10
+      11     11     1.445985256      2 of 10
+      13     13     1.422777912      4 of 10
+      16     2      0.346573590      10 of 10
+
+      ### ### **THE MAXIMIZER BELOW SIXTEEN IS `n = 7` AT `1.470969808`.**
+      ### ### **AND `n = 2` IS `0.980258143`, RANKED 6 OF 10.**
+      ### **SO THE NAVIGATOR`S ARITHMETIC IS CHECKED AND IT AGREES**: two at `0.980`,
+      ### seven at `1.471`, and two is sixth of ten. ### **b438`S CLOSING SAID THE
+      ### ### TWO-TERM`S WEIGHT WAS THE LARGEST OF ANY PRIME POWER, AND THAT IS FALSE.**
+      ### The correction rides in this act`s record; ### **b438`S BANK IS NOT EDITED.**
+
+----------------------------------------------------------------------------------------------------
+  ### (4) HAS ANY ACT NAMED `u0`? ### **THE SEARCH, PRINTED.**
+----------------------------------------------------------------------------------------------------
+      the value to four places           10   ../MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md, data/audit_b438_reg_satisfiable.txt, data/b438_closing.txt
+      the value to two places            11   ../MY-DOwnloads/PLACE-papers/phase1.5/method/INSTRUMENTS.md, ../MY-DOwnloads/PLACE-papers/phase1.5/method/INVARIANCE_BARRIERS.md, data/b326_closure_run.txt
+      a named `u0`                       31   data/audit_b438_reg_satisfiable.txt, data/b202_registration_2026-08-26.txt, data/b202_sum_test.txt
+      the balance condition in words     0    -
+      digamma equals log pi              13   ../MY-DOwnloads/PLACE-papers/FINDINGS.md, data/b320_the_lawful_function.txt, data/b332_extract_notes.txt
+
+    ### ### **THIS PRINTS WHERE THE VOCABULARY OCCURS AND DECIDES NOTHING.** ### Whether
+    ### any hit NAMES the constant, or merely contains the digits, is Component 3`s work
+    ### and is done by hand-reading each at its own line.
+
+----------------------------------------------------------------------------------------------------
+  ### (5) b438`S BANKED CROSSINGS, RE-READ.
+----------------------------------------------------------------------------------------------------
+      flip at a = 1.900000    n = 2    a* = 1.8155451     + -> -    s = 1.162246350
+      flip at a = 2.800000    n = 2    a* = 2.5073306     - -> +    s = 0.754061238
+      flip at a = 2.800000    n = 3    a* = 2.5729801     + -> -    s = 1.162472952
+
+      ### **THE TWO DOWNWARD CROSSINGS DIFFER BY 2.266e-04 IN `s`.**
+      ### **b438 CALLED THAT A FIXED BOUNDARY. ### COMPONENT 1 ASKS WHETHER THE
+      ### ### RESIDUAL IS THE GRID`S OR THE OBJECT`S**, and the coefficient read
+      ### above already bears on it.
+
+====================================================================================================
+  ### READS ATTEMPTED : 6
+  ### MISSES          : 0
+  ### **A MISS IS PRINTED, NEVER PATCHED.**
+====================================================================================================
