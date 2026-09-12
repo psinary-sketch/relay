@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-falsifier-reread-by-address': ['the falsifier re-read by address', 'r38 threshold rule', 'desi dr2 collaboration paper read', 'the lane condition under r38', 'b426 sortie leg 1'],
     'the-falsifier-read': ['the falsifier read', 'desi w = -1 test', 'evolving dark energy against the lane', 'the cosmology lane falsification condition', 'b425 sortie leg 3'],
     'the-witness-arc-at-site-i': ['the witness arc at site i', 'site i witness candidates', 'the class site witness enumeration', 'shared witness at the clause quantifier', 'b424 sortie leg 2'],
     'the-r37-question-read': ['the r37 question read', 'do b407 and b420 move under r37', 'hypothesis 1 under the internal reading', 'sieve ceiling lemma first hypothesis', 'b423 sortie leg 1'],
@@ -679,6 +680,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FALSIFIER RE-READ BY ADDRESS (b426).
+    ('the-falsifier-reread-by-address', 'b426 (sortie leg 1: the falsifier re-read by address)',
+     "b426 RE-READ THE COSMOLOGY LANE'S CONDITION UNDER (R38)'S THRESHOLDS AGAINST THE DESI COLLABORATION'S OWN SECOND-RELEASE PAPER AT ADDRESS (arXiv:2503.14738) AND b425'S THREE: 2503.14738 UNDECIDED/UNDER PRESSURE; 2609.10567 UNDECIDED/UNDER PRESSURE; 2609.10133 UNDECIDED/UNDECIDED; 2609.05321 UNDER PRESSURE/UNDER PRESSURE. COMBINED BY THE WEAKEST READING: UNDECIDED; THE ANY-SOURCE CLAUSE READS UNDER PRESSURE. FIRED (five sigma) NOT reached; p2-d6 does not move. No lane verdict changed by the seat; the divergence ROUTED.",
+     '### NO TERMINAL ADDED OR MOVED, NO GRADE MOVED, NO PREMISE DISCHARGED. ### NOTHING DEPOSITS',
+     'data/b426_the_address_reread.txt; data/b426_the_address_read.txt; data/b426_locate.txt; data/b426_writes.txt; data/b426_registration_2026-09-11.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; FORMATION_DISTANCE.md; REGISTRY.md p2-d6; CORRESPONDENCE.md row 275'),
     # ### THE FALSIFIER READ (b425).
     ('the-falsifier-read', 'b425 (sortie leg 3: the falsifier read)',
      "b425 READ THE COSMOLOGY LANE'S CONDITION -- w = −1 FOR THE DARK-ENERGY MODE; 'EVOLVING DARK ENERGY REFUTES THE DECOMPOSITION' (FORMATION_DISTANCE.md 160) -- AGAINST THREE arXiv SOURCES CHOSEN BY A LOCKED RULE: 2609.10567 UNDECIDED; 2609.10133 FIRED; 2609.05321 UNDECIDED. **FIRED BY THE RULE AT 2609.10133; REGISTRY p2-d6 AND FORMATION_DISTANCE.md 160 ARE THE AUTHOR`S TO MOVE.** No lane verdict changed by the seat; the rule's limits ROUTED.",
