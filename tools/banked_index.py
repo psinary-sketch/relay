@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-remainder-named-and-the-routed-items-grouped': ['the reconciliation remainder', 'what does ENUMERA need', 'the routed items grouped by ruling', 'W-ORD-MATCHER-SHAPE', 'predicate one shape incidents'],
     'the-eligible-set-re-measured-and-the-batch-read': ['the reconciliation eligible set', 'how many keystones are reconciled', 'the batch read of eleven keystones', 'candidate c4 cancellation within the prime channel', 'A_METHODOLOGY v0.2 citations repaired'],
     'the-r61-record-ratified-and-the-outliers-integrand-at-its-aim': ['is the r61 record ratified', 'does the outlier integrand carry a kink', 'W-ORD-MIRROR-ZIP-NAME', 'the prime channel integrand at ln 17', 'mirror zip overwritten'],
     'the-partition-read-against-the-taxonomy-and-the-outliers-free-candidate': ['is the failure-mode partition the witness arc taxonomy', 'does the witness arc discharge the partition', 'which channel carries the outlier growth', 'convergence window upper bound', 'super-convergent'],
@@ -704,6 +705,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE RECONCILIATION`S REMAINDER NAMED, AND THE ROUTED ITEMS GROUPED (b451).
+    ('the-remainder-named-and-the-routed-items-grouped', "b451 (the reconciliation's remainder named, and the routed items grouped by the ruling each needs)",
+     "b451 COUNTED THE RECONCILIATION FROM THE BANKS: 1 + 3 + 11 = 15 OF 16; THE REMAINDER IS ENUMERA, WHICH NEEDS AN AUTHOR NAMING ITS TERMINAL. b450'S 29 ROUTED ITEMS GROUPED BY THEIR OWN WORDS: AUTHORING 26, REGISTRY ROW 3, THE ITEM DOES NOT SAY 0. W-ORD-MATCHER-SHAPE FILED. NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO RULING PROPOSED, NO ITEM ANSWERED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b451_the_remainder_and_the_kinds.txt; data/b451_components.txt; data/b451_remainder.json; data/b451_kinds.json; data/b451_registration_2026-09-13.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 300'),
     # ### THE RECONCILIATION`S ELIGIBLE SET RE-MEASURED, AND THE BATCH READ (b450).
     ('the-eligible-set-re-measured-and-the-batch-read', "b450 (the reconciliation's eligible set re-measured, and the batch read)",
      "b450 RE-MEASURED THE RECONCILIATION'S ELIGIBLE SET UNDER b390'S RULE QUOTED: 11 ELIGIBLE, 4 RECONCILED, 12 UNREAD; READ THE ELEVEN AS ONE BATCH: BUCKETS 16 / 8 / 16; 3 CURRENCY REPAIRS, 29 ROUTED; NO UNPROPAGATED CORRECTION. FILED (c4), NOT RUN. NO CLAIM ABOUT ZEROS.",
