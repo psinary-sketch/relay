@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-partition-read-against-the-taxonomy-and-the-outliers-free-candidate': ['is the failure-mode partition the witness arc taxonomy', 'does the witness arc discharge the partition', 'which channel carries the outlier growth', 'convergence window upper bound', 'super-convergent'],
     'the-outlier-the-arm-that-bites-and-the-stock-take': ['does the outlier converge at the third doubling', 'which arm of the noise floor gate decides', 'what does the instrument side hold closed', 'is any open item aimed at the quantifier', 'a bar that never bites'],
     'the-floor-has-a-domain': ['where did the noise floor come from', 'what is the domain of the 1.49e-08 floor', 'how many verdicts did the floor arm decide', 'does the residual fall below the floor on a second doubling', 'is sqrt machine epsilon a measured floor'],
     'whose-residual-it-is': ['whose residual is it', 'is the channels residual quadrature error', 'does the zero library truncate', 'does extending the zero library move the residual', 'which grid carries the identity residual'],
@@ -701,6 +702,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PARTITION READ AGAINST THE TAXONOMY, AND THE OUTLIER`S FREE CANDIDATE (b448).
+    ('the-partition-read-against-the-taxonomy-and-the-outliers-free-candidate', "b448 (the partition read against the taxonomy, and the outlier's free candidate)",
+     "b448 READ THE FAILURE-MODE PARTITION AGAINST THE WITNESS ARC'S TAXONOMY: RELATED -- THE ARC CLASSIFIES CANDIDATES, THE PARTITION ASKED ABOUT AIMS; VOCABULARY AND AN EXHAUSTED SEARCH, NO BRANCH; THE ITEM OPEN. THE OUTLIER'S EARLY GROWTH IS THE PRIME CHANNEL'S ALONE, (c3) REFUTED, THE MEASUREMENT OPEN. CORRECTED WINDOW: ITS LAST ORDER SUPER-CONVERGENT. NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO CHAIN RUN, NO CLOSING EDITED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b448_the_partition_and_the_channels.txt; data/b448_components.txt; data/b448_partition.json; data/b448_channels.json; data/b448_registration_2026-09-13.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 297'),
     # ### THE OUTLIER, THE ARM THAT BITES, AND THE STOCK-TAKE (b447).
     ('the-outlier-the-arm-that-bites-and-the-stock-take', 'b447 (the outlier, the arm that bites, and the stock-take)',
      "b447 RAN THE THIRD DOUBLING AT a = 4.123106: ORDER -0.34 THEN 2.43, STILL REFUSES BY THE FACE'S RULE -- FROM ABOVE; THE FIRST LEVELS' GROWTH UNEXPLAINED, CANDIDATES PRICED NOT RUN. THE FLOOR ARM'S RECORD NOTED ONCE IN THE LOOM: THE GATE'S VERDICTS ARE THE DRIFT ARM'S. STOCK-TAKE: 5 CLOSED, 22 OPEN, 1 AIMED AT THE QUANTIFIER (THE FAILURE-MODE PARTITION). NOTHING PROPOSED; NO CLAIM ABOUT ZEROS.",
