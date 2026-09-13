@@ -1,0 +1,23 @@
+====================================================================================================
+b450 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b450_registration_2026-09-13.txt
+  marks found  : 4
+      UNREAD                     line 71    ### remainder by name in census order; and the board's `twelve unread` beside the measured
+      UNREAD                     line 71    ### remainder by name in census order; and the board's `twelve unread` beside the measured
+      UNREAD                     line 116   ### **THE HALT:** if the batch cannot be finished, the act ### **HALTS** ### and prints th
+      UNREAD                     line 128   ### If a keystone cannot be read, it is printed ### **UNREAD** ### and the act HALTS with 
+  query result : RECORDED at line 18
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 1 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+### GATE SUBJECT SHA256 : 07b9db618f03d040a20dc1e8cdf3517458ae590707f427c6e52d708c68dc55c7  (b450_registration_2026-09-13.txt)

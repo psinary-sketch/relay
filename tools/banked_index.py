@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-eligible-set-re-measured-and-the-batch-read': ['the reconciliation eligible set', 'how many keystones are reconciled', 'the batch read of eleven keystones', 'candidate c4 cancellation within the prime channel', 'A_METHODOLOGY v0.2 citations repaired'],
     'the-r61-record-ratified-and-the-outliers-integrand-at-its-aim': ['is the r61 record ratified', 'does the outlier integrand carry a kink', 'W-ORD-MIRROR-ZIP-NAME', 'the prime channel integrand at ln 17', 'mirror zip overwritten'],
     'the-partition-read-against-the-taxonomy-and-the-outliers-free-candidate': ['is the failure-mode partition the witness arc taxonomy', 'does the witness arc discharge the partition', 'which channel carries the outlier growth', 'convergence window upper bound', 'super-convergent'],
     'the-outlier-the-arm-that-bites-and-the-stock-take': ['does the outlier converge at the third doubling', 'which arm of the noise floor gate decides', 'what does the instrument side hold closed', 'is any open item aimed at the quantifier', 'a bar that never bites'],
@@ -703,6 +704,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE RECONCILIATION`S ELIGIBLE SET RE-MEASURED, AND THE BATCH READ (b450).
+    ('the-eligible-set-re-measured-and-the-batch-read', "b450 (the reconciliation's eligible set re-measured, and the batch read)",
+     "b450 RE-MEASURED THE RECONCILIATION'S ELIGIBLE SET UNDER b390'S RULE QUOTED: 11 ELIGIBLE, 4 RECONCILED, 12 UNREAD; READ THE ELEVEN AS ONE BATCH: BUCKETS 16 / 8 / 16; 3 CURRENCY REPAIRS, 29 ROUTED; NO UNPROPAGATED CORRECTION. FILED (c4), NOT RUN. NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO TABLE WRITTEN, NO REGISTRY ROW EDITED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b450_the_eligible_set_and_the_batch.txt; data/b450_components.txt; data/b450_eligible.json; data/b450_batch.json; data/b450_registration_2026-09-13.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 299'),
     # ### THE (R61) RECORD RATIFIED UNDER A FACE, AND THE OUTLIER`S INTEGRAND AT ITS AIM (b449).
     ('the-r61-record-ratified-and-the-outliers-integrand-at-its-aim', "b449 (the (R61) record ratified under a face, and the outlier's integrand at its aim)",
      "b449 COUNTED THE WITNESS ARC'S SIX BANKS AGAINST THE (R61) RECORD: RATIFIED AT b449, 0 DISCREPANCIES, b443'S CONTROL FIRES. UNDER (R62) THE OUTLIER'S INTEGRAND AT ln 17 IS FLAT, NO KINK, NO NODE ON THE AIM; (c1) DOES NOT ACCOUNT FOR THE GROWTH; THE MEASUREMENT STAYS OPEN. W-ORD-MIRROR-ZIP-NAME FILED. NO CLAIM ABOUT ZEROS.",
