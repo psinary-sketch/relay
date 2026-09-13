@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-fold-and-the-channels-decorrelated': ['what did the witness and channel arc fold', 'how many acts are in the span since b434', 'does the channels residual sit above the floor', 'why does the span tool read twenty one', 'is the identity residual quadrature noise'],
     'site-vi-and-the-arcs-product-named': ['was site six of the witness arc exhausted', 'how many kinds of failure does the witness arc have', 'why does the seal refuse a refused gate', 'what happened to the registration sealed against a refusal', 'is the class boundary the majority at every site'],
     'the-minimum-named-and-site-v': ['is u0 the minimum of the riemann siegel theta', 'what name does the record hold for u0', 'was site five of the witness arc exhausted', 'why is site five a membership obstruction', 'what corrections does b440 carry'],
     'the-identification-filed-the-overstatement-corrected-and-two-filings': ['does the record deny the density identification', 'is h plus the derivative of the riemann siegel theta', 'what is the one between the main term and theta over pi', 'how far did the push side defect reach', 'why can one fact carry two axiom profiles'],
@@ -697,6 +698,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FOLD, AND THE CHANNELS DECORRELATED (b444).
+    ('the-fold-and-the-channels-decorrelated', 'b444 (the fold, and the channels decorrelated)',
+     "b444 FOLDED THE WITNESS AND CHANNEL ARC, b433-b443, AND READ THE CHANNELS THROUGH A FIXED TRANSFORM. THE SPAN COUNTED THREE WAYS: THE TOOL 22 (IT MISSES b434'S FOLD HEADING), ITS OWN RULE 9, THE ORDER 11. 11 OF 11 VERDICT STRINGS VERIFIED; COLUMNS OBJECT 0, MODEL 6, RECORD 5; W-ORD-SPAN-HEADING FILED; THE WITNESS ARC COMPLETE AT SIX SITES. THE IDENTITY RESIDUAL OVER 22 CELLS SITS ABOVE THE 1.49e-08 FLOOR AT 14 CELLS, LARGEST 3.21e-07; VERDICT STRUCTURE BY THE FIXED RULE, UNDECIDED WHETHER THE OBJECT'S, THE DECIDING REFINEMENT PRICED AND NOT RUN; NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO CELL COMPUTED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b444_the_fold.txt; data/b444_fold.json; data/b444_decorrelation.json; data/b444_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); FINDINGS.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 293'),
     # ### SITE (vi), AND THE ARC`S PRODUCT NAMED (b443).
     ('site-vi-and-the-arcs-product-named', "b443 (site (vi), and the arc's product named)",
      "b443 RE-REGISTERED ON A FRESH FACE UNDER (R55) AFTER ITS FIRST FACE WAS SEALED AGAINST A REFUSAL; THAT FILE STAYS BYTE FOR BYTE, NEVER GOVERNING, NO COMPONENT RUN UNDER IT. UNDER (R56) THE SEAL REFUSES A REFUSED GATE IN THE TOOL: reg_seal.py --lock reads the lock gate's record and refuses on absent, other-face, stale or refused, naming every refusing arm, with fixtures both polarities. SITE (vi) EXHAUSTED: 10 candidates, 0 held, ABSENT 4; CLASS BOUNDARY 4; FORM 1; IMPORT UNDER THE BAR 1. THE ARC'S FINDING: SIX SITES, 82 CANDIDATES, NO WITNESS, THE UNION OF FAILURE KINDS STAYS AT 11; THE CLASS BOUNDARY IS NOT THE MAJORITY AT EVERY SITE ((i) 13 of 16; (ii) 10 of 19; (iii) 12 of 20; (iv) 1 of 7; (v) 7 of 10; (vi) 4 of 10). ROW U1'S RESTATEMENT DRAFTED AND ROUTED, NOT APPLIED. U1 (v)'S INDEX DEFECT FILED AS THE b341 SPECIES. THE KEYSTONE'S LINE 231 FILED AS A SENTENCE OWING A SOURCE READ. THE FAST-RADIO-BURST TRAIL FILED, NOT OPENED.",
