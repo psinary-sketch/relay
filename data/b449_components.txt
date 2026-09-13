@@ -1,0 +1,91 @@
+====================================================================================================
+b449 -- THE (R61) RECORD RATIFIED UNDER A FACE, AND THE OUTLIER`S INTEGRAND AT ITS AIM. ### THE COMPONENTS, AFTER THE LOCK.
+====================================================================================================
+
+  ### ### **COMPONENT 1 -- THE (R61) RECORD, VERIFIED UNDER THIS FACE.**
+    the record read at OPEN_TRAILS.md:6473-6483 (not edited)
+    figure           the banks, counted                           the record, parsed                           agree
+    candidates       82                                           82                                           True
+    held             0                                            0                                            True
+    kinds            11                                           11                                           True
+    cb_total         47                                           47                                           True
+    majority_sites   4                                            4                                            True
+    imports          7                                            7                                            True
+    per              (i) 13/16, (ii) 10/19, (iii) 12/20, (iv) 1/7 (i) 13/16, (ii) 10/19, (iii) 12/20, (iv) 1/7 True
+    not_majority     (iv), (vi)                                   (iv), (vi)                                   True
+    kinds counted : ABSENT; BOUNDED BY A MEASUREMENT; CLASS BOUNDARY; COORDINATE BOUNDARY; DENSITY-PLACEMENT SPLIT; FORM; IMPORT UNDER THE BAR; INSTANCES NOT A CLASS; INSTRUMENT DOES NOT REACH; REFUTED; WRONG DIRECTION
+    POSITIVE CONTROL -- CLASS BOUNDARY per site against b443r_the_arc_product.txt:24 (i) 13/16, (ii) 10/19, (iii) 12/20, (iv) 1/7, (v) 7/10, (vi) 4/10 : FIRES
+    NEGATIVE CONTROL -- `NOT A KIND` per site [0, 0, 0, 0, 0, 0] : ZERO AT ALL SIX
+    discrepancies : 0
+  ### ### **THE (R61) RECORD : RATIFIED AT b449.**
+    loom note : marker count 1 ; appender PREFIX UNCHANGED YES
+    W-ORD-MIRROR-ZIP-NAME : filed with the trail record; trigger the next mirror build or the next opening of the
+    instrument-audit lane; ### THIS ACT`S CLOSING BUILD FIRES IT, and passes -DateTag 2026-09-13-b449; repair NOT made.
+
+  ### ### **COMPONENT 2 -- THE OUTLIER`S INTEGRAND, CANDIDATE (c1), UNDER (R62).**
+    a (banked, governs) 4.123106 ; sqrt(17) 4.123105625618 ; v* = ln 17 = 2.833213344056216 ; wall 19.2 s
+    THE CONTROL -- the prime channel re-summed against its bank:
+      nv 8193   PR 1.48578722674054864e-01  banked 1.48578722674054864e-01  |diff| 0.0e+00  terms sum |diff| 0.0e+00
+      nv 16385  PR 1.48578765246752620e-01  banked 1.48578765246752620e-01  |diff| 0.0e+00  terms sum |diff| 2.8e-17
+      nv 32769  PR 1.48578819200395756e-01  banked 1.48578819200395756e-01  |diff| 0.0e+00  terms sum |diff| 0.0e+00
+      nv 65537  PR 1.48578829196827911e-01  banked 1.48578829196827911e-01  |diff| 0.0e+00  terms sum |diff| 0.0e+00
+    ### CONTROL : PASSES AT ALL FOUR LEVELS
+
+    THE AIM AND THE ONE-SIDED DERIVATIVES (F = interp with zero beyond the support; h = the level`s node spacing):
+    nv     L - v*       h           F(v*)       D-          D+          D+ - D-     max|f`|    max|f|   
+    8193   +1.8160e-07  3.4585e-04  +0.000e+00  +0.000e+00  +0.000e+00  +0.000e+00  5.887e+00  8.629e-01
+    16385  +1.8160e-07  1.7293e-04  +0.000e+00  +0.000e+00  +0.000e+00  +0.000e+00  5.887e+00  8.629e-01
+    32769  +1.8160e-07  8.6463e-05  +0.000e+00  +0.000e+00  +0.000e+00  +0.000e+00  5.887e+00  8.629e-01
+    65537  +1.8160e-07  4.3231e-05  +0.000e+00  +0.000e+00  +0.000e+00  +0.000e+00  5.887e+00  8.629e-01
+    f`s last six node values at nv 65537 : ['0.00e+00', '0.00e+00', '0.00e+00', '0.00e+00', '0.00e+00', '0.00e+00']
+    rule at the finest level: |D+ - D-| 0.000e+00 against 1e-6 * max|f`| = 5.887e-06
+  ### ### **A KINK AT v* : NO.**
+
+    THE NODE PLACEMENT, FROM THE NODE POSITIONS:
+      nv 8193   nodes 16385 ; about v*: 2.832867674397861 | 2.833213525658317 ; nearest 1.8160e-07 ; STRADDLE
+      nv 16385  nodes 32769 ; about v*: 2.833040600028089 | 2.833213525658317 ; nearest 1.8160e-07 ; STRADDLE
+      nv 32769  nodes 65537 ; about v*: 2.833127062843203 | 2.833213525658317 ; nearest 1.8160e-07 ; STRADDLE
+      nv 65537  nodes 131073 ; about v*: 2.833170294250760 | 2.833213525658317 ; nearest 1.8160e-07 ; STRADDLE
+    placement (8193, 16385, 32769, 65537) : ['STRADDLE', 'STRADDLE', 'STRADDLE', 'STRADDLE'] ; the pattern the account requires : False
+
+    THE PRIME CHANNEL`S CHANGE, BY TERM (term = 2 log p / sqrt(n) * interp(ln n, v, w)):
+      n     step 1         step 2         step 3        
+      2     +1.1614e-07    +5.8072e-08    +1.1949e-08
+      3     -8.1014e-08    -4.0595e-09    -2.0303e-09
+      4     -3.3272e-09    -6.8537e-10    -2.4493e-10
+      5     +1.1575e-08    +7.1720e-10    +3.5864e-10
+      7     -4.7148e-10    -3.4269e-11    -1.7135e-11
+      8     -1.8266e-10    -6.1032e-12    -3.0514e-12
+      9     -4.1475e-11    -2.0746e-11    -1.0374e-11
+      11    -9.6017e-11    -2.8541e-11    -4.8744e-12
+      13    -5.9810e-12    -1.4560e-12    -3.8527e-13
+      16    -5.3392e-27    -3.7484e-27    -4.0452e-28
+      17    +0.0000e+00    +0.0000e+00    +0.0000e+00
+      dPR   +4.2573e-08    +5.3954e-08    +9.9964e-09
+      step 1 : n=17 share of gross 0.0000 (of net 0.0000) ; largest term n=2, share of gross 0.5456
+      step 2 : n=17 share of gross 0.0000 (of net 0.0000) ; largest term n=2, share of gross 0.9127
+      step 3 : n=17 share of gross 0.0000 (of net 0.0000) ; largest term n=2, share of gross 0.8174
+    (iii) n=17 carries >= 0.9 of the change at steps 1 and 2 and its own change grows : False
+    THE ACCOUNT: (i) kink False ; (ii) placement False ; (iii) the n = 17 term False
+  ### ### **THE KINK AND THE NODE PLACEMENT ACCOUNT FOR THE GROWTH : NO.**
+  ### ### **THE MEASUREMENT STAYS OPEN.**
+    ### READ BESIDE THE RULE, NOT A VERDICT: the largest term at steps 1, 2, 3 is n = 2, 2, 2; the n = 2 term`s change
+    ### goes +1.161e-07 -> +5.807e-08 between steps 1 and 2.
+    ### step 1 : gross/net 5.000 ; largest positive term n = 2 (+1.161e-07), largest negative n = 3 (-8.101e-08)
+    ### step 2 : gross/net 1.179 ; largest positive term n = 2 (+5.807e-08), largest negative n = 3 (-4.060e-09)
+    ### step 3 : gross/net 1.462 ; largest positive term n = 2 (+1.195e-08), largest negative n = 3 (-2.030e-09)
+    ### so dPR grows from step 1 to step 2 while the n = 2 term`s change halves: at step 1 the n = 3 term`s change
+    ### offsets most of n = 2`s, and by step 2 it has fallen 20.0-fold. A read of the banked terms, not a verdict on (c2).
+    ### (c2), the grid`s alignment with a feature, stays PRICED AND NOT RUN: a grid offset the chain does not take,
+    ### an instrument edit, about four minutes (b447).
+    ### NO CLAIM ABOUT ZEROS. ### THE INSTRUMENT LANE OPENED BY (R62) CLOSES AT THIS ACT`S END.
+
+  ### ### **THE EXPECTATIONS.**
+    (N1)    the banks reproduce the record and the control fires   ### HELD
+    (N2)(a) the integrand carries a kink at sqrt(17)                ### REFUTED
+    (N2)(b) the first two straddle, the last two do not, it closes  ### REFUTED -- placement ['STRADDLE', 'STRADDLE', 'STRADDLE', 'STRADDLE'] ; measurement STAYS OPEN
+    ### the seat`s own from the face, from reading code: (N1) HELD -- HELD; (N2)(a) REFUTED -- HELD; (N2)(b) REFUTED -- HELD.
+
+    ### NO CHAIN FILE EDITED. ### NO CHANNEL BUT THE PRIME CHANNEL. ### THE (R61) RECORD NOT EDITED. ### NO CLOSING EDITED.
+    ### NO CLAIM ABOUT RH, h2 OR ANY ZERO. ### THE FOUR LISTS ARE OPEN.
+====================================================================================================

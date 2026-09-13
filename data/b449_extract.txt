@@ -1,0 +1,61 @@
+====================================================================================================
+b449 -- THE SURVEY. ### THE PRE-FACE READS, RE-TAKEN FROM THEIR SOURCES.
+====================================================================================================
+
+(P1) THE (R61) RECORD, AT ITS LINES, AND THE SIX BANKS IT NAMES (PATHS AND BYTES ONLY; NOT COUNTED HERE).
+      OPEN_TRAILS.md:6473 | <!-- (R61) the failure-mode partition gets a trigger, not a shelf -->
+      the record runs OPEN_TRAILS.md:6473-6483 (11 lines) ; lines after it : 1
+      OPEN_TRAILS.md:6481 | **What the trigger is waiting for, in the arc’s own count** 
+      b424_candidates.json     bytes 21369
+      b427_candidates.json     bytes 28314
+      b428_candidates.json     bytes 26508
+      b436_candidates.json     bytes 2425
+      b442_site_v.json         bytes 5945
+      b443r_site_vi.json       bytes 5325
+      b443r_the_arc_product.txt:24 | **The class boundary, per site, corrected:** (i) 13 of 16; (
+
+(P2) THE MIRROR: b448`S CHECK, THE ZIP NOW ON DISK, AND HOW THE BUILDER NAMES IT.
+      b448_closing.txt:11 | mirror           : CLEAN ON ALL THREE CLAUSES at b1656b1
+      b448_r61_mirror.txt:13 | manifest declares source HEAD    : dc5e18e
+      mirror_build.ps1:4 | param([string]$DateTag = (Get-Date -Format 'yyyy-MM-dd'))
+      mirror_build.ps1:122 | $zip = "D:\MY-DOwnloads\mirror-refresh-$DateTag.zip"
+      mirror_build.ps1:123 | if (Test-Path $zip) { Remove-Item $zip -Force }
+      zips on disk whose tag carries an act suffix (September) : 22, e.g. ['mirror-refresh-2026-09-05b327.zip', 'mirror-refresh-2026-09-05b328.zip', 'mirror-refresh-2026-09-05b329.zip']
+      mirror-refresh-2026-09-13.zip present : True
+
+(P3) THE LOOM`S APPENDER AND ITS LAST ENTRY.
+      b244_loom_append.py:2 | """b244_loom_append.py -- APPEND ONE HUNK TO THE LOOM. ### NOTHING ELSE IS TOUCHED.
+      b244_loom_append.py:49 | print("  ### PREFIX UNCHANGED (pure insertion) : %s" % ("YES" if prefix_ok else "### NO"))
+      loom entry markers : 2 ; the last <!-- b447 loom entry -->
+
+(P4) THE CHAIN`S CODE PATH FOR THE PRIME CHANNEL`S INTEGRAND -- CODE LINES, NOT VALUES.
+      carto_atlas.py:49 | w[m] = np.exp(-1.0 / (1.0 - t[m] ** 2))
+      b317_smear.py:78 | MZ_EXPONENTS = (1.0, 0.5, 0.25)
+      b318_square.py:123 | w = np.interp(u, f.v, f.w, left=0.0, right=0.0)
+      b318_square.py:121 | u = np.linspace(-L, L, int(nv))
+      b318_square.py:125 | v = np.linspace(-2.0 * L, 2.0 * L, ac.size)
+      b321_window.py:109 | L = float(v[-1])
+      b321_window.py:116 | if ln <= L:
+      b321_window.py:118 | val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+      b447_components.py:64 | g = SM.mean_zero_variant(a)
+      b447_components.py:65 | f = SQ.autocorrelation(g, nv=NV3)
+      the banked a : 4.123106 ; sqrt(17) = 4.123105625618 ; a - sqrt(17) = +3.7438e-07   ### arithmetic on the cell`s label, not the object
+
+(P5) THE CANDIDATES AS b447 PRICED THEM, AND b448`S NARROWING.
+      b447_components.txt:17 | ### (c1) THE INTEGRAND`S OWN BEHAVIOUR AT THAT RADIUS -- a non-smooth point of the autocorrelation at a = sqrt(17).
+      b447_components.txt:20 | ### (c2) THE GRID`S ALIGNMENT WITH A FEATURE OF IT -- a kink falling on or between nodes differently per level.
+      b447_components.txt:22 | ###      a grid offset the chain does not take as a parameter -- an instrument edit. NOT RUN.
+      b448_components.txt:89 | ### ### **THE GROWTH BETWEEN THE FIRST TWO LEVELS, BY THE FACE`S RULE : ONE CHANNEL`S -- PRIME.**
+      b448_components.txt:97 | ### ### **THE MEASUREMENT STAYS OPEN, NARROWED TO THE PRIME CHANNEL.**
+      b447_doubling.json:12 | "seconds": 186.7
+
+(P6) THE SPAN, BY THE TOOL, READ-ONLY.
+      ### (2) THE CURRENT SPAN, COUNTED FROM THE LAST FOLD FORWARD.
+      so the next span STARTS AT: b445
+      and it now runs through   : b449   ### read from the record, not typed
+      ### ### **THE CURRENT SPAN : 5 ACT(S).**
+      ### ### **READ ONLY. ### NOTHING WAS WRITTEN.** ### Pass `--emit bNNN` to bank this run
+
+====================================================================================================
+  ### MISSES : 0 
+====================================================================================================

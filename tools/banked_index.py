@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-r61-record-ratified-and-the-outliers-integrand-at-its-aim': ['is the r61 record ratified', 'does the outlier integrand carry a kink', 'W-ORD-MIRROR-ZIP-NAME', 'the prime channel integrand at ln 17', 'mirror zip overwritten'],
     'the-partition-read-against-the-taxonomy-and-the-outliers-free-candidate': ['is the failure-mode partition the witness arc taxonomy', 'does the witness arc discharge the partition', 'which channel carries the outlier growth', 'convergence window upper bound', 'super-convergent'],
     'the-outlier-the-arm-that-bites-and-the-stock-take': ['does the outlier converge at the third doubling', 'which arm of the noise floor gate decides', 'what does the instrument side hold closed', 'is any open item aimed at the quantifier', 'a bar that never bites'],
     'the-floor-has-a-domain': ['where did the noise floor come from', 'what is the domain of the 1.49e-08 floor', 'how many verdicts did the floor arm decide', 'does the residual fall below the floor on a second doubling', 'is sqrt machine epsilon a measured floor'],
@@ -702,6 +703,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE (R61) RECORD RATIFIED UNDER A FACE, AND THE OUTLIER`S INTEGRAND AT ITS AIM (b449).
+    ('the-r61-record-ratified-and-the-outliers-integrand-at-its-aim', "b449 (the (R61) record ratified under a face, and the outlier's integrand at its aim)",
+     "b449 COUNTED THE WITNESS ARC'S SIX BANKS AGAINST THE (R61) RECORD: RATIFIED AT b449, 0 DISCREPANCIES, b443'S CONTROL FIRES. UNDER (R62) THE OUTLIER'S INTEGRAND AT ln 17 IS FLAT, NO KINK, NO NODE ON THE AIM; (c1) DOES NOT ACCOUNT FOR THE GROWTH; THE MEASUREMENT STAYS OPEN. W-ORD-MIRROR-ZIP-NAME FILED. NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO CHAIN FILE OR CLOSING EDITED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b449_the_record_and_the_integrand.txt; data/b449_components.txt; data/b449_count.json; data/b449_integrand.json; data/b449_registration_2026-09-13.txt (LOCKED, 8 gates read, 4 by digest); VERIFICATION_LOOM.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 298'),
     # ### THE PARTITION READ AGAINST THE TAXONOMY, AND THE OUTLIER`S FREE CANDIDATE (b448).
     ('the-partition-read-against-the-taxonomy-and-the-outliers-free-candidate', "b448 (the partition read against the taxonomy, and the outlier's free candidate)",
      "b448 READ THE FAILURE-MODE PARTITION AGAINST THE WITNESS ARC'S TAXONOMY: RELATED -- THE ARC CLASSIFIES CANDIDATES, THE PARTITION ASKED ABOUT AIMS; VOCABULARY AND AN EXHAUSTED SEARCH, NO BRANCH; THE ITEM OPEN. THE OUTLIER'S EARLY GROWTH IS THE PRIME CHANNEL'S ALONE, (c3) REFUTED, THE MEASUREMENT OPEN. CORRECTED WINDOW: ITS LAST ORDER SUPER-CONVERGENT. NO CLAIM ABOUT ZEROS.",
