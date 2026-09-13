@@ -1,0 +1,107 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b446 -- THE FLOOR HAS A DOMAIN. ### 2026-09-12.
+### CONCURRENCY: SOLO (research seat).
+====================================================================================================
+
+  ferry            : part 1 of 1, IN FULL, (R54) line present; 0 hits; two rulings banked verbatim, 0 hits each
+  prior act        : b445 closed in full and pushed (0cfa239) before this act opened, as ruling (1) ordered
+  registration     : LOCKED BEFORE ANY WRITE, sha256 00acbaae3a519741...; SEAL INTACT; lock gate 8 of 8, 4 by digest;
+                     seal chained on the gate's exit code and checked by reg_seal.py itself
+  arms             : 67 DECLARED, 67 RUN, 67 PASSING, pre-push and post-push in two files
+  censuses / pins  : TOTAL MISSING 0 both; HARD-FAILING 0 both
+  mirror           : CLEAN ON ALL THREE CLAUSES at 5239690
+  guard            : EXERCISED AND PASSING -- 0 FAILING, 0 SKIPPED, 4 EXERCISED
+  correspondence   : row 295
+  PLACE-papers     : OPEN_TRAILS.md +1 record, appended, a true prefix; nothing else written
+  TECHNE-Core      : modules/2026-09/FLOOR_DOMAIN_RULE.md, committed locally 4d852f5, on no remote branch
+  HELD             : 0 HELD-only files in the pushed tree
+  desk             : 10 items swept, 6 closed, 4 standing
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- WHERE THE FLOOR CAME FROM.
+----------------------------------------------------------------------------------------------------
+  b264 measured eigenvalues lam_n of a quadrature discretization at NQ 700 and 1400; four modes stopped at 1.52e-08 to
+  2.18e-08, identified there with sqrt(machine epsilon). b272's noise_floor.py:49 set DEFAULT_FLOOR = sqrt(eps) =
+  1.4901161193847656e-08, under a contract of KIND: "ANY ACT READING A COMPUTED SPECTRAL OR MODAL QUANTITY". b437
+  RAN the gate at 5.196152, 5.385165, 5.567764 and titled it "priced"; it set no floor and stated no domain.
+  ### NO DOMAIN OF RADIUS EXISTS.
+
+  THE CHAIN'S OWN QUADRATURE ERROR AT nv = 8193, PER CELL -- NO FUNCTION FITTED; p* NOT TAKEN (orders span 2.00 > 1.0):
+  a          e 8193      e 16385     error 8193   how
+  3.158312   -1.328e-07 -3.966e-08 -1.544e-07  THREE LEVELS, measured order 1.33
+  3.461088   -2.422e-07 -6.951e-08 -2.615e-07  THREE LEVELS, measured order 1.56
+  3.605551   -1.998e-07 -7.266e-08 -2.479e-07  THREE LEVELS, measured order 1.04
+  3.802776   -3.213e-07 -7.066e-09 -3.142e-07  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  4.061553   -2.157e-07 -5.970e-08 -2.282e-07  THREE LEVELS, measured order 1.66
+  4.123106   -1.104e-07 -6.779e-08 +1.595e-07  THREE LEVELS, measured order -0.34
+  4.358899   -2.157e-07 -1.008e-08 -2.057e-07  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  4.577365   -2.039e-07 +7.531e-09 -2.115e-07  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  4.795832   +5.193e-08 +7.842e-09 +4.409e-08  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  4.897916   +3.601e-08 +7.671e-09 +2.834e-08  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  5.000000   -2.126e-08 -8.884e-09 -1.237e-08  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  5.098076   +6.903e-08 +1.049e-08 +5.854e-08  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  5.196152   +1.849e-08 -4.550e-09 +2.304e-08  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  5.290659   -2.389e-08 -1.131e-08 -1.258e-08  TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+  3.316625   -8.050e-09  NOT MEASURED
+  4.000000   -8.997e-09  NOT MEASURED
+  4.241002   +5.223e-09  NOT MEASURED
+  5.385165   +1.030e-08  NOT MEASURED
+  5.476465   +1.582e-09  NOT MEASURED
+  5.567764   +3.487e-09  NOT MEASURED
+  5.612309   +5.549e-09  NOT MEASURED
+  5.656854   +1.457e-08  NOT MEASURED
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE CENSUS OF COMPARISONS AGAINST 1.49e-08.
+----------------------------------------------------------------------------------------------------
+  controls both polarities : PASS. comparisons 553 ; IN of kind 6 ; OUT 547 (share 0.989; 0.969 with b264's mode rows read IN)
+  the radius reading : all 553 outside -- VACUOUS, the floor was measured at no radius.
+  gate verdicts in the text matchers : RESOLVED 728 ; DRIFTING 35 ; AT_FLOOR 0
+  residue (not governing) : structured JSON gate records AT_FLOOR 56, every one on a value of exactly zero : True
+  NOTHING RE-VERDICTED; an OUT comparison is the bar quoted outside its scope, and only that.
+
+----------------------------------------------------------------------------------------------------
+### ADDITION (a) -- THE FLOOR ARM'S OWN RECORD.
+----------------------------------------------------------------------------------------------------
+  The figures the ruling quoted, as what they count: 1146 RESOLVED, 64 DRIFTING, 2 AT_FLOOR are LINES CARRYING THE WORDS,
+  prose included, over 167 file stems (158 act stems); both AT_FLOOR lines are definitions -- supplied by this seat unread.
+  The tool's own header, noise_floor.py:16: "IT IS THE DRIFT ARM THAT BITES, NOT THE FLOOR ARM."
+  ### ### **THE FLOOR ARM DECIDED 56 BANKED VERDICTS, EVERY ONE ON AN EXACT ZERO THAT ANY POSITIVE FLOOR REFUSES; THE
+  ### ### FLOOR'S SIZE, 1.49e-08, DECIDED NONE. A CLOSING THAT SAID "ABOVE THE FLOOR" REPORTED THE ARM THAT DID NOT GOVERN.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE SECOND DOUBLING (nv 32769, NU 48001).
+----------------------------------------------------------------------------------------------------
+  a          e 8193      e 16385     e 32769     rate   order   limit E    quoted bar (outside its kind)
+  3.158312   -1.328e-07 -3.966e-08 -2.711e-09 3.87   1.33    +2.16e-08  below
+  3.461088   -2.422e-07 -6.951e-08 -1.086e-08 2.68   1.56    +1.93e-08  below
+  3.605551   -1.998e-07 -7.266e-08 -1.072e-08 2.76   1.04    +4.81e-08  below
+  4.061553   -2.157e-07 -5.970e-08 -1.033e-08 2.53   1.66    +1.25e-08  below
+  4.123106   -1.104e-07 -6.779e-08 -1.383e-08 2.29   -0.34   -2.70e-07  below
+  5 of 5 below; orders at the four 1.33-1.66, not the asymptotic 2 -- E pre-asymptotic, not a residual of the object.
+  THE OUTLIER 4.123106: order -0.34 against [0.95, 1.95] -- REFUSES. Not the rung alone (3.605551 = sqrt(13) converged);
+  candidate kinks falling against the grid per level; a third doubling priced (~2 min), NOT RUN.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE MINT.
+----------------------------------------------------------------------------------------------------
+  A FLOOR CARRIES THE DOMAIN OF KIND AND THE PARAMETERS OVER WHICH IT WAS MEASURED. noise_floor.py binds neither in code:
+  FILED AS JUDGEMENT, NOT MECHANIZED; registration_gate.py unedited; TECHNE module local, not pushed.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+  (N1)    neither emitting act stated a domain     ### REFUTED -- b272`s contract states a domain of kind: computed spectral or modal quantities
+          radius reading VACUOUS
+  (N2)    more than half lie outside it           ### HELD -- 547 of 553 comparisons OUT of kind, share 0.989 (with b264`s mode rows read IN: 0.969)
+          radius reading VACUOUS
+  (N3)(a) four of five below the floor            ### REFUTED -- 5 of 5 below the quoted bar (outside its kind)
+  (N3)(b) the outlier still refuses               ### HELD -- the outlier`s order -0.34 against the window of the other four
+  ### the seat's own from the face: (N1) REFUTED -- HELD; (N2) HELD -- HELD; (N3) no expectation.
+  ### errors entered as their owners': the navigator's miscount (ruling 4) and prose-carried premise (addition b);
+  ### the seat's word count supplied as verdict counts.
+
+  ### THE INSTRUMENT LANE OPENED BY (R58) IS CLOSED. ### THE FOUR LISTS ARE OPEN.
+  ### NO CHAIN FILE, noise_floor.py OR registration_gate.py EDITED; NO GRADE MOVED; NO CLAIM ABOUT RH OR ANY ZERO.
+  ### AND h2 WHERE THE DEPOSIT LEFT IT.
+====================================================================================================
