@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-outlier-the-arm-that-bites-and-the-stock-take': ['does the outlier converge at the third doubling', 'which arm of the noise floor gate decides', 'what does the instrument side hold closed', 'is any open item aimed at the quantifier', 'a bar that never bites'],
     'the-floor-has-a-domain': ['where did the noise floor come from', 'what is the domain of the 1.49e-08 floor', 'how many verdicts did the floor arm decide', 'does the residual fall below the floor on a second doubling', 'is sqrt machine epsilon a measured floor'],
     'whose-residual-it-is': ['whose residual is it', 'is the channels residual quadrature error', 'does the zero library truncate', 'does extending the zero library move the residual', 'which grid carries the identity residual'],
     'the-fold-and-the-channels-decorrelated': ['what did the witness and channel arc fold', 'how many acts are in the span since b434', 'does the channels residual sit above the floor', 'why does the span tool read twenty one', 'is the identity residual quadrature noise'],
@@ -700,6 +701,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE OUTLIER, THE ARM THAT BITES, AND THE STOCK-TAKE (b447).
+    ('the-outlier-the-arm-that-bites-and-the-stock-take', 'b447 (the outlier, the arm that bites, and the stock-take)',
+     "b447 RAN THE THIRD DOUBLING AT a = 4.123106: ORDER -0.34 THEN 2.43, STILL REFUSES BY THE FACE'S RULE -- FROM ABOVE; THE FIRST LEVELS' GROWTH UNEXPLAINED, CANDIDATES PRICED NOT RUN. THE FLOOR ARM'S RECORD NOTED ONCE IN THE LOOM: THE GATE'S VERDICTS ARE THE DRIFT ARM'S. STOCK-TAKE: 5 CLOSED, 22 OPEN, 1 AIMED AT THE QUANTIFIER (THE FAILURE-MODE PARTITION). NOTHING PROPOSED; NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO CHAIN FILE OR CLOSING EDITED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b447_stock_take.txt; data/b447_components.txt; data/b447_stocktake.json; data/b447_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); VERIFICATION_LOOM.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 296'),
     # ### THE FLOOR HAS A DOMAIN (b446).
     ('the-floor-has-a-domain', 'b446 (the floor has a domain)',
      "b446 TRACED THE 1.49e-08 FLOOR TO SOURCE: sqrt(MACHINE EPSILON), SET AT b272 FROM b264'S EIGENVALUES AT NQ 700/1400, WITH A DOMAIN OF KIND (SPECTRAL OR MODAL QUANTITIES) AND NONE OF RADIUS. 553 BANKED COMPARISONS, 547 OUT OF KIND; THE FLOOR ARM'S 56 AT_FLOOR RECORDS ARE ALL ON EXACT ZEROS, SO THE FLOOR'S SIZE DECIDED NONE. A SECOND DOUBLING TAKES 5 OF 5 CELLS BELOW IT; THE OUTLIER 4.123106 REFUSES. THE FLOOR-DOMAIN RULE FILED AS JUDGEMENT, NOT MECHANIZED. NO CLAIM ABOUT ZEROS.",
