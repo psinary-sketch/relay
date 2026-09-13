@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-floor-has-a-domain': ['where did the noise floor come from', 'what is the domain of the 1.49e-08 floor', 'how many verdicts did the floor arm decide', 'does the residual fall below the floor on a second doubling', 'is sqrt machine epsilon a measured floor'],
     'whose-residual-it-is': ['whose residual is it', 'is the channels residual quadrature error', 'does the zero library truncate', 'does extending the zero library move the residual', 'which grid carries the identity residual'],
     'the-fold-and-the-channels-decorrelated': ['what did the witness and channel arc fold', 'how many acts are in the span since b434', 'does the channels residual sit above the floor', 'why does the span tool read twenty one', 'is the identity residual quadrature noise'],
     'site-vi-and-the-arcs-product-named': ['was site six of the witness arc exhausted', 'how many kinds of failure does the witness arc have', 'why does the seal refuse a refused gate', 'what happened to the registration sealed against a refusal', 'is the class boundary the majority at every site'],
@@ -699,6 +700,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE FLOOR HAS A DOMAIN (b446).
+    ('the-floor-has-a-domain', 'b446 (the floor has a domain)',
+     "b446 TRACED THE 1.49e-08 FLOOR TO SOURCE: sqrt(MACHINE EPSILON), SET AT b272 FROM b264'S EIGENVALUES AT NQ 700/1400, WITH A DOMAIN OF KIND (SPECTRAL OR MODAL QUANTITIES) AND NONE OF RADIUS. 553 BANKED COMPARISONS, 547 OUT OF KIND; THE FLOOR ARM'S 56 AT_FLOOR RECORDS ARE ALL ON EXACT ZEROS, SO THE FLOOR'S SIZE DECIDED NONE. A SECOND DOUBLING TAKES 5 OF 5 CELLS BELOW IT; THE OUTLIER 4.123106 REFUSES. THE FLOOR-DOMAIN RULE FILED AS JUDGEMENT, NOT MECHANIZED. NO CLAIM ABOUT ZEROS.",
+     '### NO GRADE MOVED. ### NO CHAIN FILE OR GATE EDITED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b446_floor_domain.txt; data/b446_floor_census.txt; data/b446_components.txt; data/b446_registration_2026-09-12.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 295'),
     # ### WHOSE RESIDUAL IT IS (b445).
     ('whose-residual-it-is', 'b445 (whose residual it is)',
      "b445 RAN b444'S CHAIN AT ITS 14 ABOVE-FLOOR CELLS WITH TWO PARAMETERS VARIED UNDER (R57). THE ZERO SIDE TRUNCATES AT 10000 ORDINATES (HEIGHT 9877.78). DOUBLING THE QUADRATURE GRID MAKES e FALL AT 13 OF 14 (9 BELOW THE FLOOR); EXTENDING THE LIBRARY TO 15000 ORDINATES LEAVES e STABLE AT 14 OF 14. VERDICT BY THE FIXED RULE: INTEGRATION -- THE AUTOCORRELATION GRID CARRIES IT. 5 CELLS STILL ABOVE THE FLOOR AFTER ONE DOUBLING, NOT DECIDED. TRUNCATION HYPOTHESIS REFUTED; THE ORDINATES' PRECISION PRICED, NOT RUN; NO CLAIM ABOUT ZEROS.",

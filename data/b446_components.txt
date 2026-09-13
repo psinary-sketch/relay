@@ -1,0 +1,98 @@
+====================================================================================================
+b446 -- THE FLOOR HAS A DOMAIN. ### THE COMPONENTS, RUN AFTER THE LOCK, UNDER (R58) AND (R59).
+====================================================================================================
+
+  ### ### **COMPONENT 1 -- WHERE THE FLOOR CAME FROM. QUOTED BY LINE FROM THE SOURCES.**
+      tools/noise_floor.py:49 | DEFAULT_FLOOR = math.sqrt(MACHINE_EPS)          # ### 1.4901161193847656e-08
+      tools/noise_floor.py:46 | # ### false modes came to rest. ### NOT a guess: b264's bank names `~1.5e-8 ~ sqrt(machine
+      data/b264_run.txt:73 | n     lam_n(NQ=700)    lam_n(NQ=1400)   rel drift    verdict
+      data/b264_run.txt:87 | ### ### decaying, they sit at `~1.5e-8 ~ sqrt(machine epsilon)`, and they ### MOVE ###
+      tools/noise_floor.py:21 | ### THE CONTRACT. ### **ANY ACT READING A COMPUTED SPECTRAL OR MODAL QUANTITY MUST CALL THIS
+      tools/noise_floor.py:16 | ### ### **IT IS THE DRIFT ARM THAT BITES, NOT THE FLOOR ARM.** ### A gate built from the
+      data/b437_closing.txt:119 | ### THE FLOOR, PRICED PAST THREE RADII FOR THE FIRST TIME.
+    ### ORIGIN : b264, eigenvalues lam_n of a quadrature discretization at NQ = 700 and 1400, four modes
+    ###          stopping between 1.52e-08 and 2.18e-08 -- identified there with sqrt(machine epsilon).
+    ### DEFINED: b272, noise_floor.py, DEFAULT_FLOOR = sqrt(2.220446049250313e-16) = 1.4901161193847656e-08.
+    ### METHOD : not a measurement at this object; the float64 rounding level, the same at every radius.
+    ### DOMAIN : stated OF KIND by the emitting act -- computed spectral or modal quantities; OF RADIUS, none.
+    ### b437   : RAN the gate at 5.196152, 5.385165, 5.567764 and called that pricing; it set no floor and
+    ###          stated no domain.
+    history quoted from sources : True
+
+  ### ### **COMPONENT 3 -- THE SECOND DOUBLING (nv 32769, NU 48001), AT THE FIVE CELLS.**
+    a          e0 8193      e1 16385     e2 32769     rate     order p  limit E    |e2| vs the quoted bar
+    3.158312   -1.328e-07   -3.966e-08   -2.711e-09   3.87     1.33     +2.16e-08  BELOW 1.49e-08 (the bar quoted outside its kind)
+    3.461088   -2.422e-07   -6.951e-08   -1.086e-08   2.68     1.56     +1.93e-08  BELOW 1.49e-08 (the bar quoted outside its kind)
+    3.605551   -1.998e-07   -7.266e-08   -1.072e-08   2.76     1.04     +4.81e-08  BELOW 1.49e-08 (the bar quoted outside its kind)
+    4.061553   -2.157e-07   -5.970e-08   -1.033e-08   2.53     1.66     +1.25e-08  BELOW 1.49e-08 (the bar quoted outside its kind)
+    4.123106   -1.104e-07   -6.779e-08   -1.383e-08   2.29     -0.34    -2.70e-07  BELOW 1.49e-08 (the bar quoted outside its kind)
+    cells run 5 of 5 ; |e2| below the quoted bar at 5 of 5
+    THE OUTLIER RULE: median of the other four orders m = 1.45 ; 4.123106 order -0.34 ; window [0.95, 1.95] -> REFUSES
+    ### WHAT WOULD EXPLAIN IT, PRICED AND NOT RUN: the integrand`s non-smooth points falling against the grid
+    ### differently at this radius from one level to the next, so the error does not shrink monotonely. NOT
+    ### the rung alone: 4.123106 is sqrt(17), where b437`s ladder turns from rung 10 to 11, but 3.605551 is
+    ### sqrt(13), also at a prime power, and converged at order 1.04. The test: a third doubling at this cell
+    ### (nv 65537, about two minutes at the second doubling`s 48 s) and a read of where the kinks fall modulo
+    ### the grid spacing at each level. NOT RUN -- (R58) opened the lane for the second doubling only.
+    ### THE ORDERS ARE NOT THE TRAPEZOID RULE`S ASYMPTOTIC 2: the other four measure 1.33, 1.56, 1.04, 1.66. The limits E rest on
+    ### those orders and are PRE-ASYMPTOTIC ESTIMATES; E is printed, and not read as a residual of the object.
+
+  ### ### **COMPONENT 1 -- THE CHAIN`S OWN DISCRETIZATION ERROR AT nv = 8193, PER CELL. NO FUNCTION FITTED.**
+    measured orders ['1.33', '1.56', '1.04', '1.66', '-0.34'] ; span 2.00 ; p* NOT TAKEN (span > 1.0 or fewer than three)
+    a          e0 8193      e1 16385     error at 8193  how
+    3.158312   -1.328e-07   -3.966e-08   -1.544e-07     THREE LEVELS, measured order 1.33
+    3.461088   -2.422e-07   -6.951e-08   -2.615e-07     THREE LEVELS, measured order 1.56
+    3.605551   -1.998e-07   -7.266e-08   -2.479e-07     THREE LEVELS, measured order 1.04
+    3.802776   -3.213e-07   -7.066e-09   -3.142e-07     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    4.061553   -2.157e-07   -5.970e-08   -2.282e-07     THREE LEVELS, measured order 1.66
+    4.123106   -1.104e-07   -6.779e-08   +1.595e-07     THREE LEVELS, measured order -0.34
+    4.358899   -2.157e-07   -1.008e-08   -2.057e-07     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    4.577365   -2.039e-07   +7.531e-09   -2.115e-07     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    4.795832   +5.193e-08   +7.842e-09   +4.409e-08     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    4.897916   +3.601e-08   +7.671e-09   +2.834e-08     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    5.000000   -2.126e-08   -8.884e-09   -1.237e-08     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    5.098076   +6.903e-08   +1.049e-08   +5.854e-08     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    5.196152   +1.849e-08   -4.550e-09   +2.304e-08     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    5.290659   -2.389e-08   -1.131e-08   -1.258e-08     TWO LEVELS -- e0 - e1 ALONE (no p* taken)
+    3.316625   -8.050e-09   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    4.000000   -8.997e-09   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    4.241002   +5.223e-09   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    5.385165   +1.030e-08   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    5.476465   +1.582e-09   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    5.567764   +3.487e-09   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    5.612309   +5.549e-09   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    5.656854   +1.457e-08   NOT MEASURED -- below the quoted bar at base; no arm ran here
+    cells printed : 14 measured, 8 NOT MEASURED
+
+  ### ### **COMPONENT 4 -- THE MINT.**
+    names bound in noise_floor.py : ['MACHINE_EPS', 'DEFAULT_FLOOR', 'DEFAULT_DRIFT_BAR', 'EXACT', 'AT_FLOOR', 'DRIFTING', 'RESOLVED', 'REFUSING', 'B264_MODES']
+    kind bound in code : False ; parameters bound in code : False -> READABLE BY A GATE : False
+    ### ### **A FLOOR CARRIES THE DOMAIN OF KIND AND THE PARAMETERS OVER WHICH IT WAS MEASURED; A FLOOR QUOTED
+    ### ### OUTSIDE THAT DOMAIN IS A BAR WHOSE STRICTNESS IS UNKNOWN.**
+    ### FILED AS JUDGEMENT, NOT MECHANIZED: registration_gate.py is not edited, and the rule is not listed beside the mechanized ones.
+
+  ### ### **COMPONENT 2 -- THE CENSUS, AS b446_census.py BANKED IT (data/b446_floor_census.txt).**
+    controls : PASS
+    comparisons 553 ; IN 6 ; OUT 547 (share 0.989) ; floor-arm decisions by M2 1 ; drift-arm refusals 35 ; passed both 728
+    residue, not governing: JSON gate records AT_FLOOR 56, all on an exact zero : True
+
+  ### ### **ADDITION (a) -- THE FLOOR ARM`S OWN RECORD.**
+    the figures the ruling quoted, as what they count: lines carrying RESOLVED 1146, DRIFTING 64, AT_FLOOR 2, over 167
+    file stems (158 of them act stems) -- WORD-LINES, PROSE INCLUDED; both AT_FLOOR lines are definitions.
+      tools/noise_floor.py:16 | ### ### **IT IS THE DRIFT ARM THAT BITES, NOT THE FLOOR ARM.** ### A gate built from the
+    ### ### **WHAT THE FLOOR ARM DECIDED IN THE BANKED RECORD: 0 AT_FLOOR VERDICTS IN THE TEXT MATCHERS` REACH, AND 56
+    ### ### STRUCTURED AT_FLOOR RECORDS IN ONE JSON BANK -- EVERY ONE ON A VALUE OF EXACTLY ZERO, WHICH ANY POSITIVE
+    ### ### FLOOR REFUSES. THE FLOOR`S SIZE, 1.49e-08, DECIDED NONE. "ABOVE THE FLOOR" IN A CLOSING REPORTS THE ARM
+    ### ### THAT DID NOT GOVERN.** ### Nothing re-verdicted; the count is the product.
+
+  ### ### **THE EXPECTATIONS, SCORED ON THE DOMAIN OF KIND.**
+    (N1)    neither emitting act stated a domain            ### REFUTED -- b272`s contract states a domain of kind: computed spectral or modal quantities
+            radius reading: no radius domain was stated -- VACUOUS, the floor was measured at no radius
+    (N2)    more than half the comparisons lie outside     ### HELD -- 547 of 553 comparisons OUT of kind, share 0.989 (with b264`s mode rows read IN: 0.969)
+            radius reading: all lie outside -- VACUOUS, the radius domain is empty
+    (N3)(a) four of five fall below the floor               ### REFUTED -- 5 of 5 below the quoted bar (outside its kind)
+    (N3)(b) the outlier still refuses                       ### HELD -- the outlier`s order -0.34 against the window of the other four
+    ### the seat`s own from the face: (N1) REFUTED -- HELD; (N2) HELD -- HELD; (N3) no expectation.
+
+    ### NO CLAIM ABOUT RH, h2 OR ANY ZERO. NOTHING RE-VERDICTED.
+    ### ### **THE INSTRUMENT LANE OPENED BY (R58) CLOSES AT THIS ACT`S END.** No instrument built; no chain file edited.

@@ -1,0 +1,78 @@
+====================================================================================================
+b446 -- THE FLOOR HAS A DOMAIN.
+THE BANK.
+====================================================================================================
+
+### b446 — the floor has a domain — filed 2026-09-12
+**The `1.49e-08` floor is `sqrt(machine epsilon)`: a float64 rounding level with a domain of kind — computed spectral or modal quantities — not a measurement taken at any radius. Of 553 banked comparisons against it, 547 are of another kind. Its size decided no banked verdict. On a second doubling of the grid the chain’s residual falls below it at 5 of 5 cells, and one cell still does not converge. The instrument lane `(R58)` opened for this and closed at the act’s end.**
+#### Component 1 — where the floor came from
+**From the sources, not from any act’s prose.** b264 measured eigenvalues `lam_n` of a quadrature discretization at `NQ = 700` and `1400`. Four modes stopped decaying between `1.52e-08` and `2.18e-08`, and b264 identified that level with `sqrt(machine epsilon)`. b272’s `tools/noise_floor.py` set `DEFAULT_FLOOR = sqrt(2.220446049250313e-16) = 1.4901161193847656e-08` under a contract of kind: *“ANY ACT READING A COMPUTED SPECTRAL OR MODAL QUANTITY MUST CALL THIS.”* b437 ran the gate at `5.196152`, `5.385165` and `5.567764` and titled that “the floor, priced”; it set no floor and stated no domain. **There is no domain of radius.**
+**The quadrature floor the chain actually has**, per cell, with no function fitted. At the five cells with three levels, the error at `nv = 8193` comes from the measured order. At nine cells it is `e0 − e1` alone, because the measured orders span more than `1.0` and the face’s rule then takes no assumed order. Eight ladder cells are NOT MEASURED.
+| a | e at 8193 | e at 16385 | error at 8193 | how |
+|:--|--:|--:|--:|:--|
+| 3.158312 | -1.328e-07 | -3.966e-08 | -1.544e-07 | THREE LEVELS, measured order 1.33 |
+| 3.461088 | -2.422e-07 | -6.951e-08 | -2.615e-07 | THREE LEVELS, measured order 1.56 |
+| 3.605551 | -1.998e-07 | -7.266e-08 | -2.479e-07 | THREE LEVELS, measured order 1.04 |
+| 3.802776 | -3.213e-07 | -7.066e-09 | -3.142e-07 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 4.061553 | -2.157e-07 | -5.970e-08 | -2.282e-07 | THREE LEVELS, measured order 1.66 |
+| 4.123106 | -1.104e-07 | -6.779e-08 | +1.595e-07 | THREE LEVELS, measured order -0.34 |
+| 4.358899 | -2.157e-07 | -1.008e-08 | -2.057e-07 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 4.577365 | -2.039e-07 | +7.531e-09 | -2.115e-07 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 4.795832 | +5.193e-08 | +7.842e-09 | +4.409e-08 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 4.897916 | +3.601e-08 | +7.671e-09 | +2.834e-08 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 5.000000 | -2.126e-08 | -8.884e-09 | -1.237e-08 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 5.098076 | +6.903e-08 | +1.049e-08 | +5.854e-08 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 5.196152 | +1.849e-08 | -4.550e-09 | +2.304e-08 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+| 5.290659 | -2.389e-08 | -1.131e-08 | -1.258e-08 | TWO LEVELS -- e0 - e1 ALONE (no p* taken) |
+#### Component 2 — the census
+Every banked comparison against `1.49e-08`, over `relay/data`, counted by four matchers fixed on the face, with controls in both polarities (all passing). **553 comparisons: 6 IN the floor’s kind, 547 OUT (share 0.989).** Read by hand, b264’s own mode-table rows are IN, which gives a share of 0.969. **The radius reading is VACUOUS:** the floor was measured at no radius, so every comparison lies outside a radius domain, and that is not a finding. Nothing is re-verdicted. An OUT comparison is the bar quoted outside its scope, and only that.
+**What the floor arm decided.** Within the text matchers there are **0** AT_FLOOR verdicts; the drift arm refused **35** and **728** passed both arms. The residue matchers found **56 structured AT_FLOOR records** in one JSON bank, and **every one is on a value of exactly zero, which any positive floor refuses.** **The floor’s size, `1.49e-08`, decided none of them.** The tool’s own header said so at b272: *“IT IS THE DRIFT ARM THAT BITES, NOT THE FLOOR ARM.”*
+**Addition (a)’s figures, as what they count:** `1146` RESOLVED, `64` DRIFTING and `2` AT_FLOOR are lines that carry the words, prose included, over `167` file stems (`158` of them act stems). Both AT_FLOOR lines are definitions of the arm. This seat supplied those figures unread; the error is entered as its own.
+#### Component 3 — the second doubling
+| a | e at 8193 | e at 16385 | e at 32769 | rate | order p | limit E | against the quoted bar |
+|:--|--:|--:|--:|--:|--:|--:|:--|
+| 3.158312 | -1.328e-07 | -3.966e-08 | -2.711e-09 | 3.87 | 1.33 | +2.16e-08 | below (outside its kind) |
+| 3.461088 | -2.422e-07 | -6.951e-08 | -1.086e-08 | 2.68 | 1.56 | +1.93e-08 | below (outside its kind) |
+| 3.605551 | -1.998e-07 | -7.266e-08 | -1.072e-08 | 2.76 | 1.04 | +4.81e-08 | below (outside its kind) |
+| 4.061553 | -2.157e-07 | -5.970e-08 | -1.033e-08 | 2.53 | 1.66 | +1.25e-08 | below (outside its kind) |
+| 4.123106 | -1.104e-07 | -6.779e-08 | -1.383e-08 | 2.29 | -0.34 | -2.70e-07 | below (outside its kind) |
+**5 of 5 cells fall below `1.49e-08`**, a bar quoted outside its kind. At the four the measured orders are 1.33, 1.56, 1.04, 1.66, not the trapezoid rule’s asymptotic 2, so the limits `E` are pre-asymptotic estimates, printed and not read as residuals of the object. **The outlier `4.123106` refuses by the face’s rule:** its order is -0.34, against a window of [0.95, 1.95]. The rung alone does not explain it: `3.605551 = sqrt(13)` also sits at a prime power and converged. The candidate is kinks of the integrand falling differently against the grid at each level. A third doubling is priced at about two minutes and **not run**.
+#### Component 4 — the mint
+**A floor carries the domain of kind and the parameters over which it was measured; a floor quoted outside that domain is a bar whose strictness is unknown.** The face fixed the mechanization test: the emitting source must bind the kind and the parameters in code. `noise_floor.py` binds neither, so **the rule is filed as judgement, not mechanized.** `registration_gate.py` is not edited. The TECHNE module is `FLOOR_DOMAIN_RULE.md`, beside `BAR_FLOOR_RULE.md`, local and not pushed.
+#### Errors entered as their owners’
+The navigator’s, by ruling (4): he read the outlying cell as a sixth when it was among the five. The navigator’s, by addition (b), in his words: *“he read “priced” in an act’s prose and never opened the tool that defines the floor, so he took a rounding level for a measured quantity and a domain of kind for a domain of radius.”* **The seat’s:** it supplied a word count as verdict counts without reading what it counted, and the census replaced it.
+#### The expectations
+| | the navigator’s | verdict |
+|:--|:--|:--|
+| (N1) | neither emitting act stated a domain for the floor | **REFUTED -- b272`s contract states a domain of kind: computed spectral or modal quantities** · radius reading VACUOUS |
+| (N2) | more than half the banked comparisons lie outside it | **HELD -- 547 of 553 comparisons OUT of kind, share 0.989 (with b264`s mode rows read IN: 0.969)** · radius reading VACUOUS |
+| (N3)(a) | the second doubling brings four of five below the floor | **REFUTED -- 5 of 5 below the quoted bar (outside its kind)** |
+| (N3)(b) | the outlier still refuses | **HELD -- the outlier`s order -0.34 against the window of the other four** |
+This seat’s own, from the face: (N1) refuted — **HELD**; (N2) held — **HELD**; (N3) no expectation.
+**The instrument lane opened by `(R58)` is closed.** The four lists are open.
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE.
+----------------------------------------------------------------------------------------------------
+  arms run 67 ; passing 67 ; failing 0
+  gates read 8 ; checked by digest 4
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  where the floor came from                                              CLOSE
+  the floor`s comparisons, counted                                       CLOSE
+  what the floor arm decided                                             CLOSE
+  the second doubling at the five cells                                  CLOSE
+  the outlier 4.123106                                                   STAND
+  the chain`s quadrature floor per cell                                  STAND
+  the floor-domain rule                                                  STAND
+  the seat`s word count supplied as verdict counts                       CLOSE
+  W-ORD-SPAN-HEADING                                                     STAND
+  the instrument lane under (R58)                                        CLOSE
+
+  ITEMS SWEPT : 10. CLOSED : 6. STANDING : 4.
+
+  CORRESPONDENCE ROW : 295. ### KEY : PASS.
+
+====================================================================================================

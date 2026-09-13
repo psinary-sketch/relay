@@ -1,0 +1,66 @@
+====================================================================================================
+b446 -- THE SURVEY. ### THE PRE-FACE READS, RE-TAKEN FROM THEIR SOURCES.
+====================================================================================================
+
+(P1) THE FLOOR`S DEFINITION, FROM THE TOOL THAT DEFINES IT.
+      tools/noise_floor.py:2 | """noise_floor.py -- THE NOISE-FLOOR GATE (built b272, at the author's instruction).
+      tools/noise_floor.py:48 | MACHINE_EPS = 2.220446049250313e-16
+      tools/noise_floor.py:49 | DEFAULT_FLOOR = math.sqrt(MACHINE_EPS)          # ### 1.4901161193847656e-08
+      tools/noise_floor.py:46 | # ### false modes came to rest. ### NOT a guess: b264's bank names `~1.5e-8 ~ sqrt(machine
+      sqrt(2.220446049250313e-16) = 1.4901161193847656e-08
+
+(P2) THE DOMAIN THE EMITTING ACT STATED -- OF KIND.
+      tools/noise_floor.py:21 | ### THE CONTRACT. ### **ANY ACT READING A COMPUTED SPECTRAL OR MODAL QUANTITY MUST CALL THIS
+      tools/noise_floor.py:16 | ### ### **IT IS THE DRIFT ARM THAT BITES, NOT THE FLOOR ARM.** ### A gate built from the
+
+(P3) THE MEASUREMENT THE FLOOR CAME FROM -- b264`S OWN TABLE, AND ITS PARAMETERS.
+      data/b264_run.txt:72 | ### **THE MODE-RESOLUTION BOUNDARY, MEASURED (`lam_n` UNDER `NQ` -> `2 NQ`):**
+      data/b264_run.txt:73 | n     lam_n(NQ=700)    lam_n(NQ=1400)   rel drift    verdict
+      data/b264_run.txt:82 | 7     2.178442e-08     2.118681e-08     2.74e-02     NOISE FLOOR -- not an eigenvalue
+      data/b264_run.txt:83 | 8     1.811457e-08     1.926934e-08     6.37e-02     NOISE FLOOR -- not an eigenvalue
+      data/b264_run.txt:84 | 9     1.650848e-08     1.801174e-08     9.11e-02     NOISE FLOOR -- not an eigenvalue
+      data/b264_run.txt:85 | 10    1.515987e-08     1.551411e-08     2.34e-02     NOISE FLOOR -- not an eigenvalue
+      floor-mode rows : 4
+      data/b264_run.txt:87 | ### ### decaying, they sit at `~1.5e-8 ~ sqrt(machine epsilon)`, and they ### MOVE ###
+
+(P4) WHAT b437 DID, AND THE WORD IT USED.
+      data/b437_extract.txt:183 | ### ### **PRICED AT THREE RADII: `a = 1.3`, `1.35`, `1.41` -- ALL BELOW `2^{1/2}`,
+      data/b437_closing.txt:119 | ### THE FLOOR, PRICED PAST THREE RADII FOR THE FIRST TIME.
+      data/b437_closing.txt:124 | a = 5.196152   ratio 0.163480894 -> 0.163481528   delta 6.34e-07   RESOLVED
+      data/b437_closing.txt:125 | a = 5.385165   ratio 1.077773894 -> 1.077774534   delta 6.40e-07   RESOLVED
+      data/b437_closing.txt:126 | a = 5.567764   ratio 6.193491362 -> 6.193491592   delta 2.30e-07   RESOLVED
+      data/b326_windows_run.txt:46 | a = 1.35   zeta RESOLVED  drift 1.17e-11  sign - | Epstein RESOLVED  drift 3.13e-11  sign - | (b325 kernel) RESOLVED  sign -
+
+(P5) THE WORD COUNT RULING (a) QUOTED, REPRODUCED -- AND WHAT IT COUNTS.
+      over data/**/*.txt, b446`s own files excluded, one line counted once per word it carries:
+      lines carrying RESOLVED 1146 ; DRIFTING 64 ; AT_FLOOR 2
+      distinct stems 167, of which act stems (bNNN) 158 and other stems 9
+      lines among them carrying a refinement arrow "->" : 96
+      every AT_FLOOR line, read whole:
+        data/b272_escape_class.txt | ### mutually exclusive: `EXACT`, `AT_FLOOR` (refuse), `DRIFTING` (refuse), `RESOLVED` (pass).
+        data/b272_registration_2026-08-31.txt | ### `AT_FLOOR` (refuse), `DRIFTING` (refuse -- b264's actual species), `RESOLVED` (pass).
+      gate detail strings "<= floor" (the text the gate prints on an AT_FLOOR verdict) : 0
+    ### ### **SO THE COUNT RULING (a) QUOTED COUNTS WORD-LINES, PROSE INCLUDED, OVER STEMS NOT ALL ACTS; ITS TWO
+    ### ### AT_FLOOR LINES ARE DEFINITIONS OF THE ARM, NOT VERDICTS. THE SEAT SUPPLIED THOSE FIGURES UNREAD.**
+
+(P6) CAN A GATE READ THE FLOOR`S DOMAIN FROM ITS EMITTING SOURCE?
+      module-level names bound in noise_floor.py : ['MACHINE_EPS', 'DEFAULT_FLOOR', 'DEFAULT_DRIFT_BAR', 'EXACT', 'AT_FLOOR', 'DRIFTING', 'RESOLVED', 'REFUSING', 'B264_MODES']
+      of them naming a domain, kind, scope or parameter : NONE
+      NQ = 700 / 1400 appear in noise_floor.py : False
+      tools/noise_floor.py:127 | # ### (mode, value at NQ, b264's printed relative drift, b264's own printed verdict)
+    ### B264_MODES binds b264`s eleven measured mode values and drifts as a SELF-TEST FIXTURE; it binds neither
+    ### the NQ they were measured at nor the kind of quantity.
+    ### the kind is prose in the docstring; the parameters are in b264`s bank only.
+
+(P7) THE SECOND DOUBLING`S PRICE, FROM b445`S OWN TIMINGS.
+      cells above 1.49e-08 after the first doubling : ['3.158312', '3.461088', '3.605551', '4.061553', '4.123106']
+      arm (a) seconds at those cells : [47.6, 34.7, 33.7, 35.3, 31.8]
+      moved without falling : ['4.123106']
+
+(P8) THE BAR-FLOOR RULE`S HOMES.
+      tools/registration_gate.py:67 | # ### ### **THE BAR-FLOOR ARMS, ADDED b347 BY THE AUTHOR'S ORDER.** ### They sit BESIDE the index-query
+      D:/MY-DOwnloads/TECHNE-Core/modules/2026-09/BAR_FLOOR_RULE.md exists : True
+
+====================================================================================================
+  ### MISSES : 0 
+====================================================================================================

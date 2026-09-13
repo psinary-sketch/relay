@@ -1,0 +1,646 @@
+====================================================================================================
+b446 -- COMPONENT 2: THE CENSUS OF COMPARISONS AGAINST 1.49e-08. ### AFTER THE LOCK.
+====================================================================================================
+  population : 6131 files under relay/data (.txt and .json), b446`s own excluded
+
+  ### THE MATCHERS` YIELDS, EACH PRINTED:
+    M0 word-lines : RESOLVED 1146 ; DRIFTING 64 ; AT_FLOOR 2 ; over 167 stems (158 act stems)
+    M1 gate verdict instances : 540 distinct lines carrying 763 verdicts -- RESOLVED 728 ; DRIFTING 35 ; AT_FLOOR 0
+    M2 floor-arm decisions : 1
+    M3 quoted-threshold comparisons : 13 distinct lines
+
+  ### THE CONTROLS:
+    positive -- b437`s three RESOLVED lines at the crossing in M1 : True
+    positive -- b444`s "above the 1.49e-08 floor at 14 of 22 cells" in M3 : True
+    negative -- b272`s AT_FLOOR definition lines NOT in M1 : True
+    ### CONTROLS : PASS -- THE COUNTS ARE BANKED
+
+  ### THE DOMAIN OF KIND:
+    M1 lines : IN 6 ; OUT 534   (verdicts : IN 229 ; OUT 534)
+    M3 lines : IN 0 ; OUT 13
+    ALL COMPARISONS (M1 lines + M3 lines) : 553 ; IN 6 ; OUT 547 ; OUT share 0.989
+    ### THE RADIUS READING : every one of the 553 lies outside a radius domain, because the floor was measured at no
+    ### radius -- VACUOUS, printed beside and not scored as a finding.
+
+  ### ### **WHAT THE FLOOR ARM DECIDED : 1. ### WHAT THE DRIFT ARM REFUSED : 35. ### WHAT PASSED BOTH : 728.**
+  ### NOTHING IS RE-VERDICTED; an OUT comparison is the bar quoted outside its scope, and only that.
+
+  ### THE LIST, PER ACT (act ; comparisons ; IN ; OUT ; radii carried ; what the comparisons concluded):
+    b174                          1  IN 0    OUT 1    radii -                            RESOLVED 1
+    b261                          1  IN 0    OUT 1    radii -                            RESOLVED 1
+    b264                         14  IN 3    OUT 11   radii -                            RESOLVED 14
+    b265                          1  IN 1    OUT 0    radii -                            RESOLVED 1
+    b317                         12  IN 0    OUT 12   radii 1.5,2,3                      DRIFTING 8; RESOLVED 4
+    b318                         12  IN 0    OUT 12   radii 1.5,2,3                      DRIFTING 6; RESOLVED 6
+    b319                         12  IN 0    OUT 12   radii 1.5,2,3                      DRIFTING 6; RESOLVED 6
+    b320                          6  IN 0    OUT 6    radii 1.3,1.35,1.41                DRIFTING 3; RESOLVED 3
+    b321                          6  IN 0    OUT 6    radii 1.3,1.35,1.41                DRIFTING 3; RESOLVED 3
+    b322                          4  IN 0    OUT 4    radii -                            DRIFTING 4
+    b325                          3  IN 0    OUT 3    radii 1.3,2.1,3                    RESOLVED 3
+    b326                         34  IN 0    OUT 34   radii 1.3,1.35,1.41,1.5..(26)      RESOLVED 34
+    b328                          8  IN 0    OUT 8    radii -                            RESOLVED 8
+    b334                        225  IN 1    OUT 224  radii -                            RESOLVED 448
+    b340                         49  IN 0    OUT 49   radii -                            DRIFTING 2; RESOLVED 47
+    b343                         26  IN 0    OUT 26   radii -                            RESOLVED 26
+    b344                         17  IN 0    OUT 17   radii -                            RESOLVED 17
+    b345                         26  IN 0    OUT 26   radii -                            RESOLVED 26
+    b346                          2  IN 0    OUT 2    radii -                            RESOLVED 2
+    b348                          1  IN 0    OUT 1    radii -                            RESOLVED 1
+    b349                         61  IN 0    OUT 61   radii -                            RESOLVED 61
+    b379                          1  IN 0    OUT 1    radii -                            RESOLVED 1
+    b419                          2  IN 1    OUT 1    radii -                            RESOLVED 2
+    b426                          1  IN 0    OUT 1    radii -                            RESOLVED 1
+    b429                          1  IN 0    OUT 1    radii -                            RESOLVED 1
+    b437                         15  IN 0    OUT 15   radii 1.3,1.35,1.41,5.196152..(9)  DRIFTING 3; RESOLVED 9; quoted: above/below/floor 1; quoted: above/floor 2
+    b444                          8  IN 0    OUT 8    radii 5.385165                     RESOLVED 1; quoted: above/floor 5; quoted: floor 2
+    b445                          3  IN 0    OUT 3    radii -                            quoted: above/below/floor 1; quoted: below/floor 2
+    _b411/row_s1.txt              1  IN 0    OUT 1    radii -                            RESOLVED 1
+
+  ### EVERY COMPARISON, ONE LINE EACH (file:line ; kind ; radius ; text):
+    _b411/row_s1.txt:1 ; OUT ; - ; | S1 | S1 -- the clause stated: for every g in the source's class (Definition 3.1, with the vanishing conditions), the p
+    b174_read_correction.txt:13 ; OUT ; - ; MATCH AND AN AUTHOR MATCH -- NOT BY A RESOLVED REFERENCE ... the specific numbers 'Lemma 5.4'
+    b261_run.txt:190 ; OUT ; - ; (C5) THE PROBE GRID IS RESOLVED -- points of the rho-grid below a^2 = 1.05:
+    b264_run.txt:75 ; IN ; - ; 0     9.999714e-01     9.999714e-01     4.40e-14     RESOLVED
+    b264_run.txt:76 ; IN ; - ; 1     9.794847e-01     9.794847e-01     2.80e-14     RESOLVED
+    b264_run.txt:77 ; OUT ; - ; 2     5.240859e-01     5.240859e-01     2.14e-13     RESOLVED
+    b264_run.txt:78 ; OUT ; - ; 3     5.897659e-02     5.897659e-02     5.65e-13     RESOLVED
+    b264_run.txt:79 ; OUT ; - ; 4     2.732329e-03     2.732329e-03     6.03e-13     RESOLVED
+    b264_run.txt:80 ; OUT ; - ; 5     7.629136e-05     7.629136e-05     3.65e-10     RESOLVED
+    b264_run.txt:81 ; OUT ; - ; 6     1.439470e-06     1.439470e-06     2.44e-07     RESOLVED
+    b264_run.txt:145 ; IN ; - ; 0     1.536e-07      RESOLVED
+    b264_run.txt:146 ; OUT ; - ; 1     4.952e-08      RESOLVED
+    b264_run.txt:147 ; OUT ; - ; 2     1.540e-07      RESOLVED
+    b264_run.txt:148 ; OUT ; - ; 3     4.555e-07      RESOLVED
+    b264_run.txt:149 ; OUT ; - ; 4     1.035e-06      RESOLVED
+    b264_run.txt:150 ; OUT ; - ; 5     1.959e-06      RESOLVED
+    b264_run.txt:151 ; OUT ; - ; 6     3.125e-06      RESOLVED
+    b265_run.txt:46 ; IN ; - ; the test   : `A_n(x)` at `NQ` vs `2 NQ`, worst over the RESOLVED modes, bar 1e-08
+    b317_components_run.txt:279 ; OUT ; 1.5 ; grid   a=1.5 T1    -0.04364314    -> -0.04365141     RESOLVED   abs(value) = 4.364314e-02 above floor; drift 1.8
+    b317_components_run.txt:280 ; OUT ; 1.5 ; domain a=1.5 T1    -0.05512283    -> -0.06179073     DRIFTING   abs(value) = 5.512283e-02 above floor, but relat
+    b317_components_run.txt:281 ; OUT ; 1.5 ; grid   a=1.5 T2    4.52688542     -> 4.52704114      RESOLVED   abs(value) = 4.526885e+00 above floor; drift 3.4
+    b317_components_run.txt:282 ; OUT ; 1.5 ; domain a=1.5 T2    4.74505310     -> 4.87316408      DRIFTING   abs(value) = 4.745053e+00 above floor, but relat
+    b317_components_run.txt:283 ; OUT ; 2 ; grid   a=2 T1      0.00100103     -> 0.00100267      DRIFTING   abs(value) = 1.001031e-03 above floor, but relat
+    b317_components_run.txt:284 ; OUT ; 2 ; domain a=2 T1      0.00325781     -> 0.00464791      DRIFTING   abs(value) = 3.257814e-03 above floor, but relat
+    b317_components_run.txt:285 ; OUT ; 2 ; grid   a=2 T2      0.68872339     -> 0.68881752      RESOLVED   abs(value) = 6.887234e-01 above floor; drift 1.3
+    b317_components_run.txt:286 ; OUT ; 2 ; domain a=2 T2      0.81996865     -> 0.89980727      DRIFTING   abs(value) = 8.199686e-01 above floor, but relat
+    b317_components_run.txt:287 ; OUT ; 3 ; grid   a=3 T1      -0.00005109    -> -0.00005092     DRIFTING   abs(value) = 5.109302e-05 above floor, but relat
+    b317_components_run.txt:288 ; OUT ; 3 ; domain a=3 T1      0.00018288     -> 0.00032539      DRIFTING   abs(value) = 1.828809e-04 above floor, but relat
+    b317_components_run.txt:289 ; OUT ; 3 ; grid   a=3 T2      -0.21449353    -> -0.21448262     RESOLVED   abs(value) = 2.144935e-01 above floor; drift 5.0
+    b317_components_run.txt:290 ; OUT ; 3 ; domain a=3 T2      -0.19915258    -> -0.18659126     DRIFTING   abs(value) = 1.991526e-01 above floor, but relat
+    b318_components_run.txt:191 ; OUT ; 1.5 ; grid   sq a=1.5    3.804696767      -> 3.804798935       RESOLVED
+    b318_components_run.txt:192 ; OUT ; 1.5 ; domain sq a=1.5    3.950188076      -> 4.034217218       DRIFTING
+    b318_components_run.txt:193 ; OUT ; 1.5 ; grid   sm a=1.5    4.526885424      -> 4.527041142       RESOLVED
+    b318_components_run.txt:194 ; OUT ; 1.5 ; domain sm a=1.5    4.745053096      -> 4.873164085       DRIFTING
+    b318_components_run.txt:195 ; OUT ; 2 ; grid   sq a=2      0.842829655      -> 0.842899948       RESOLVED
+    b318_components_run.txt:196 ; OUT ; 2 ; domain sq a=2      0.941168963      -> 1.000782878       DRIFTING
+    b318_components_run.txt:197 ; OUT ; 2 ; grid   sm a=2      0.688723391      -> 0.688817522       RESOLVED
+    b318_components_run.txt:198 ; OUT ; 2 ; domain sm a=2      0.819968648      -> 0.899807272       DRIFTING
+    b318_components_run.txt:199 ; OUT ; 3 ; grid   sq a=3      0.078200814      -> 0.078209915       RESOLVED
+    b318_components_run.txt:200 ; OUT ; 3 ; domain sq a=3      0.091089616      -> 0.100223601       DRIFTING
+    b318_components_run.txt:201 ; OUT ; 3 ; grid   sm a=3      -0.214493529     -> -0.214482618      RESOLVED
+    b318_components_run.txt:202 ; OUT ; 3 ; domain sm a=3      -0.199152578     -> -0.186591261      DRIFTING
+    b319_components_run.txt:181 ; OUT ; 1.5 ; grid   sq a=1.5    4.016467469      -> 4.016553331       RESOLVED
+    b319_components_run.txt:182 ; OUT ; 1.5 ; grid   sm a=1.5    4.847508578      -> 4.847640311       RESOLVED
+    b319_components_run.txt:183 ; OUT ; 1.5 ; domain sq a=1.5    4.061053408      -> 4.078305882       DRIFTING
+    b319_components_run.txt:184 ; OUT ; 1.5 ; domain sm a=1.5    4.914428220      -> 4.940718791       DRIFTING
+    b319_components_run.txt:185 ; OUT ; 2 ; grid   sq a=2      0.988845477      -> 0.988908238       RESOLVED
+    b319_components_run.txt:186 ; OUT ; 2 ; grid   sm a=2      0.884021928      -> 0.884106169       RESOLVED
+    b319_components_run.txt:187 ; OUT ; 2 ; domain sq a=2      1.020314156      -> 1.032697347       DRIFTING
+    b319_components_run.txt:188 ; OUT ; 2 ; domain sm a=2      0.926040172      -> 0.942626459       DRIFTING
+    b319_components_run.txt:189 ; OUT ; 3 ; grid   sq a=3      0.098317088      -> 0.098328070       RESOLVED
+    b319_components_run.txt:190 ; OUT ; 3 ; grid   sm a=3      -0.189227848     -> -0.189211633      RESOLVED
+    b319_components_run.txt:191 ; OUT ; 3 ; domain sq a=3      0.103458147      -> 0.105566673       DRIFTING
+    b319_components_run.txt:192 ; OUT ; 3 ; domain sm a=3      -0.181927886     -> -0.178884396      DRIFTING
+    b320_components_run.txt:205 ; OUT ; 1.3 ; grid   a=1.3     8.510228903      -> 8.510345724       RESOLVED
+    b320_components_run.txt:206 ; OUT ; 1.3 ; domain a=1.3     8.575142606      -> 8.599100561       DRIFTING
+    b320_components_run.txt:207 ; OUT ; 1.35 ; grid   a=1.35    6.845678638      -> 6.845784030       RESOLVED
+    b320_components_run.txt:208 ; OUT ; 1.35 ; domain a=1.35    6.902180565      -> 6.923497716       DRIFTING
+    b320_components_run.txt:209 ; OUT ; 1.41 ; grid   a=1.41    5.438616125      -> 5.438711254       RESOLVED
+    b320_components_run.txt:210 ; OUT ; 1.41 ; domain a=1.41    5.488727352      -> 5.507915818       DRIFTING
+    b321_components_run.txt:276 ; OUT ; 1.3 ; domain a=1.3       8.575142606        -> 8.599100561        DRIFTING
+    b321_components_run.txt:277 ; OUT ; 1.3 ; identity a=1.3     -0.158889558       -> -0.158889572       RESOLVED
+    b321_components_run.txt:278 ; OUT ; 1.35 ; domain a=1.35      6.902180565        -> 6.923497716        DRIFTING
+    b321_components_run.txt:279 ; OUT ; 1.35 ; identity a=1.35    -0.186481766       -> -0.186481788       RESOLVED
+    b321_components_run.txt:280 ; OUT ; 1.41 ; domain a=1.41      5.488727352        -> 5.507915818        DRIFTING
+    b321_components_run.txt:281 ; OUT ; 1.41 ; identity a=1.41    -0.221284108       -> -0.221284143       RESOLVED
+    b322_components_run.txt:83 ; OUT ; - ; residual X=8         0.797250168      -> 0.644962860      DRIFTING
+    b322_components_run.txt:84 ; OUT ; - ; residual X=16        0.644962860      -> 0.439502441      DRIFTING
+    b322_components_run.txt:85 ; OUT ; - ; residual X=32        0.439502441      -> 0.286136410      DRIFTING
+    b322_components_run.txt:86 ; OUT ; - ; residual X=64        0.286136410      -> 0.197490505      DRIFTING
+    b325_run.txt:144 ; OUT ; 1.3 ; epstein a=1.3      -16.069614947     -> -16.069614947     RESOLVED
+    b325_run.txt:145 ; OUT ; 2.1 ; epstein a=2.1      -3.975097182      -> -3.975097182      RESOLVED
+    b325_run.txt:146 ; OUT ; 3 ; epstein a=3        -2.243190916      -> -2.243190916      RESOLVED
+    b326_closure_run.txt:162 ; OUT ; 8 ; a = 8    pole 2.78e-16 | zeta places -0.059027205 RESOLVED - | Epstein places -3.014799299 RESOLVED - (closure CLOSES, r
+    b326_closure_run.txt:163 ; OUT ; 16 ; a = 16   pole 3.98e-16 | zeta places -0.092401760 RESOLVED - | Epstein places -3.113975933 RESOLVED - (closure CLOSES, r
+    b326_closure_run.txt:164 ; OUT ; 32 ; a = 32   pole 3.38e-14 | zeta places -0.030705482 RESOLVED - | Epstein places -3.985621385 RESOLVED - (closure CLOSES, r
+    b326_closure_run.txt:165 ; OUT ; 64 ; a = 64   pole 6.29e-14 | zeta places -0.002170163 RESOLVED - | Epstein places -5.087111960 RESOLVED - (closure CLOSES, r
+    b326_closure_run_first_defective.txt:131 ; OUT ; 8 ; a = 8    pole 2.78e-16 | zeta places -0.059027205 RESOLVED - | Epstein places -3.014799299 RESOLVED - (closure CLOSES, r
+    b326_closure_run_first_defective.txt:132 ; OUT ; 16 ; a = 16   pole 3.98e-16 | zeta places -0.092401760 RESOLVED - | Epstein places -3.113975933 RESOLVED - (closure CLOSES, r
+    b326_closure_run_first_defective.txt:133 ; OUT ; 32 ; a = 32   pole 3.38e-14 | zeta places -0.030705482 RESOLVED - | Epstein places -3.985621385 RESOLVED - (closure FAILS, re
+    b326_closure_run_first_defective.txt:134 ; OUT ; 64 ; a = 64   pole 6.29e-14 | zeta places -0.002170163 RESOLVED - | Epstein places -5.087111960 RESOLVED - (closure FAILS, re
+    b326_windows_run.txt:45 ; OUT ; 1.3 ; a = 1.3    zeta RESOLVED  drift 4.29e-11  sign - | Epstein RESOLVED  drift 1.16e-10  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:46 ; OUT ; 1.35 ; a = 1.35   zeta RESOLVED  drift 1.17e-11  sign - | Epstein RESOLVED  drift 3.13e-11  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:47 ; OUT ; 1.41 ; a = 1.41   zeta RESOLVED  drift 5.48e-12  sign - | Epstein RESOLVED  drift 1.47e-11  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:48 ; OUT ; 1.5 ; a = 1.5    zeta RESOLVED  drift 9.95e-14  sign - | Epstein RESOLVED  drift 2.74e-13  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:49 ; OUT ; 1.7 ; a = 1.7    zeta RESOLVED  drift 1.13e-13  sign - | Epstein RESOLVED  drift 2.98e-13  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:50 ; OUT ; 1.9 ; a = 1.9    zeta RESOLVED  drift 2.18e-14  sign - | Epstein RESOLVED  drift 5.86e-14  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:51 ; OUT ; 1.99 ; a = 1.99   zeta RESOLVED  drift 1.27e-14  sign - | Epstein RESOLVED  drift 3.38e-14  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:52 ; OUT ; 2 ; a = 2      zeta RESOLVED  drift 1.78e-15  sign - | Epstein RESOLVED  drift 5.33e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:53 ; OUT ; 2.01 ; a = 2.01   zeta RESOLVED  drift 8.66e-15  sign - | Epstein RESOLVED  drift 1.95e-14  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:54 ; OUT ; 2.1 ; a = 2.1    zeta RESOLVED  drift 4.00e-15  sign - | Epstein RESOLVED  drift 8.88e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:55 ; OUT ; 2.4 ; a = 2.4    zeta RESOLVED  drift 8.88e-16  sign - | Epstein RESOLVED  drift 1.78e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:56 ; OUT ; 2.8 ; a = 2.8    zeta RESOLVED  drift 7.77e-16  sign - | Epstein RESOLVED  drift 1.78e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:57 ; OUT ; 3 ; a = 3      zeta RESOLVED  drift 2.22e-16  sign - | Epstein RESOLVED  drift 8.88e-16  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:58 ; OUT ; 8 ; a = 8      zeta RESOLVED  drift 4.30e-16  sign - | Epstein RESOLVED  drift 1.11e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:59 ; OUT ; 12 ; a = 12     zeta RESOLVED  drift 3.61e-16  sign - | Epstein RESOLVED  drift 1.11e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:60 ; OUT ; 16 ; a = 16     zeta RESOLVED  drift 3.89e-16  sign - | Epstein RESOLVED  drift 1.33e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:61 ; OUT ; 20 ; a = 20     zeta RESOLVED  drift 1.33e-15  sign - | Epstein RESOLVED  drift 3.89e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:62 ; OUT ; 22 ; a = 22     zeta RESOLVED  drift 1.17e-15  sign - | Epstein RESOLVED  drift 2.78e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:63 ; OUT ; 24 ; a = 24     zeta RESOLVED  drift 1.53e-15  sign - | Epstein RESOLVED  drift 4.33e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:64 ; OUT ; 28 ; a = 28     zeta RESOLVED  drift 1.42e-15  sign - | Epstein RESOLVED  drift 3.33e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:65 ; OUT ; 32 ; a = 32     zeta RESOLVED  drift 5.55e-17  sign - | Epstein RESOLVED  drift 2.22e-16  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:66 ; OUT ; 50 ; a = 50     zeta RESOLVED  drift 5.00e-16  sign - | Epstein RESOLVED  drift 1.55e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:67 ; OUT ; 64 ; a = 64     zeta RESOLVED  drift 7.22e-16  sign - | Epstein RESOLVED  drift 2.05e-15  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:68 ; OUT ; 100 ; a = 100    zeta RESOLVED  drift 1.67e-16  sign - | Epstein RESOLVED  drift 5.55e-16  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:69 ; OUT ; 200 ; a = 200    zeta RESOLVED  drift 2.22e-16  sign - | Epstein RESOLVED  drift 5.55e-16  sign - | (b325 kernel) RESOLVED  si
+    b326_windows_run.txt:70 ; OUT ; 400 ; a = 400    zeta RESOLVED  drift 2.22e-16  sign - | Epstein RESOLVED  drift 6.66e-16  sign - | (b325 kernel) RESOLVED  si
+    b328_cell_E_160_run.txt:6 ; OUT ; - ; pole P = +2.024e-12 ; zeta: prime +0.110892597  arch +0.152648766  PLACES -0.041756169  [RESOLVED - drift 1.1e-15] ; Eps
+    b328_cell_E_20_run.txt:6 ; OUT ; - ; pole P = +7.179e-13 ; zeta: prime +0.102138935  arch +0.257321697  PLACES -0.155182762  [RESOLVED - drift 2.2e-16] ; Eps
+    b328_cell_E_40_run.txt:6 ; OUT ; - ; pole P = +1.074e-12 ; zeta: prime +0.156825983  arch +0.209231440  PLACES -0.052405457  [RESOLVED - drift 6.7e-16] ; Eps
+    b328_cell_E_81_run.txt:6 ; OUT ; - ; pole P = +1.521e-12 ; zeta: prime +0.138459286  arch +0.176064622  PLACES -0.037605336  [RESOLVED - drift 8.3e-16] ; Eps
+    b328_cell_O_160_run.txt:6 ; OUT ; - ; pole P = -4.163e-17 ; zeta: prime +0.158949687  arch +0.160492831  PLACES -0.001543144  [RESOLVED - drift 7.8e-16] ; Eps
+    b328_cell_O_20_run.txt:6 ; OUT ; - ; pole P = -1.388e-17 ; zeta: prime +0.271321992  arch +0.271534552  PLACES -0.000212560  [RESOLVED - drift 2.4e-15] ; Eps
+    b328_cell_O_40_run.txt:6 ; OUT ; - ; pole P = -1.735e-17 ; zeta: prime +0.188476043  arch +0.220657843  PLACES -0.032181801  [RESOLVED - drift 7.2e-16] ; Eps
+    b328_cell_O_81_run.txt:6 ; OUT ; - ; pole P = -1.110e-16 ; zeta: prime +0.175845586  arch +0.185306596  PLACES -0.009461010  [RESOLVED - drift 2.1e-15] ; Eps
+    b334_checks_postpush.txt:89 ; IN ; - ; 224 gate verdicts, all RESOLVED and certified True ; every places_z negative True : True
+    b334_leg_covered_run.txt:13 ; OUT ; - ; zeta    : A_z +8.734881011 (transform 2 +8.734881011, d 3.27e-13 ok ; witness (150) +8.734916398, d 4.05e-06 ok ; refine
+    b334_leg_covered_run.txt:14 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.734881011 ; places_z -8.73488
+    b334_leg_covered_run.txt:15 ; OUT ; - ; Epstein : A_Q +32.046306191 (transform 2 +32.046306191, d 3.28e-13 ok ; b325 halved +16.023153095 beside, unused ; refin
+    b334_leg_covered_run.txt:16 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +32.046306191 ; places_q 
+    b334_leg_covered_run.txt:25 ; OUT ; - ; zeta    : A_z +8.752626951 (transform 2 +8.752626951, d 3.24e-13 ok ; witness (150) +8.752663302, d 4.15e-06 ok ; refine
+    b334_leg_covered_run.txt:26 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.752626951 ; places_z -8.75262
+    b334_leg_covered_run.txt:27 ; OUT ; - ; Epstein : A_Q +32.060766897 (transform 2 +32.060766897, d 3.26e-13 ok ; b325 halved +16.030383449 beside, unused ; refin
+    b334_leg_covered_run.txt:28 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +32.060766897 ; places_q 
+    b334_leg_covered_run.txt:37 ; OUT ; - ; zeta    : A_z +8.798322353 (transform 2 +8.798322353, d 3.12e-13 ok ; witness (150) +8.798361652, d 4.47e-06 ok ; refine
+    b334_leg_covered_run.txt:38 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.798322353 ; places_z -8.79832
+    b334_leg_covered_run.txt:39 ; OUT ; - ; Epstein : A_Q +32.106131849 (transform 2 +32.106131849, d 3.16e-13 ok ; b325 halved +16.053065925 beside, unused ; refin
+    b334_leg_covered_run.txt:40 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +32.106131849 ; places_q 
+    b334_leg_covered_run.txt:49 ; OUT ; - ; zeta    : A_z +8.847023412 (transform 2 +8.847023412, d 2.88e-13 ok ; witness (150) +8.847067207, d 4.95e-06 ok ; refine
+    b334_leg_covered_run.txt:50 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.847023412 ; places_z -8.84702
+    b334_leg_covered_run.txt:51 ; OUT ; - ; Epstein : A_Q +32.145711503 (transform 2 +32.145711503, d 2.97e-13 ok ; b325 halved +16.072855751 beside, unused ; refin
+    b334_leg_covered_run.txt:52 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +32.145711503 ; places_q 
+    b334_leg_covered_run.txt:61 ; OUT ; - ; zeta    : A_z +8.757611937 (transform 2 +8.757611937, d 1.86e-13 ok ; witness (150) +8.757669410, d 6.56e-06 ok ; refine
+    b334_leg_covered_run.txt:62 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.757611937 ; places_z -8.75761
+    b334_leg_covered_run.txt:63 ; OUT ; - ; Epstein : A_Q +31.526088996 (transform 2 +31.526088996, d 2.15e-13 ok ; b325 halved +15.763044498 beside, unused ; refin
+    b334_leg_covered_run.txt:64 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +31.526088996 ; places_q 
+    b334_leg_covered_run.txt:73 ; OUT ; - ; zeta    : A_z +5.213092517 (transform 2 +5.213092517, d 3.63e-12 ok ; witness (150) +5.213301402, d 4.01e-05 ok ; refine
+    b334_leg_covered_run.txt:74 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.213092517 ; places_z -5.21309
+    b334_leg_covered_run.txt:75 ; OUT ; - ; Epstein : A_Q +20.940753762 (transform 2 +20.940753762, d 2.51e-12 ok ; b325 halved +10.470376881 beside, unused ; refin
+    b334_leg_covered_run.txt:76 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +20.940753762 ; places_q 
+    b334_leg_covered_run.txt:85 ; OUT ; - ; zeta    : A_z +8.174279770 (transform 2 +8.174279770, d 1.23e-13 ok ; witness (150) +8.174317511, d 4.62e-06 ok ; refine
+    b334_leg_covered_run.txt:86 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.174279770 ; places_z -8.17427
+    b334_leg_covered_run.txt:87 ; OUT ; - ; Epstein : A_Q +30.442761279 (transform 2 +30.442761279, d 1.71e-13 ok ; b325 halved +15.221380640 beside, unused ; refin
+    b334_leg_covered_run.txt:88 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +30.442761279 ; places_q 
+    b334_leg_covered_run.txt:97 ; OUT ; - ; zeta    : A_z +8.504999886 (transform 2 +8.504999886, d 1.03e-13 ok ; witness (150) +8.505042612, d 5.02e-06 ok ; refine
+    b334_leg_covered_run.txt:98 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.504999886 ; places_z -8.50499
+    b334_leg_covered_run.txt:99 ; OUT ; - ; Epstein : A_Q +31.269858031 (transform 2 +31.269858031, d 1.52e-13 ok ; b325 halved +15.634929016 beside, unused ; refin
+    b334_leg_covered_run.txt:100 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +31.269858031 ; places_q 
+    b334_leg_covered_run.txt:109 ; OUT ; - ; zeta    : A_z +8.366200102 (transform 2 +8.366200102, d 2.86e-13 ok ; witness (150) +8.366272425, d 8.64e-06 ok ; refine
+    b334_leg_covered_run.txt:110 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +8.366200102 ; places_z -8.36620
+    b334_leg_covered_run.txt:111 ; OUT ; - ; Epstein : A_Q +30.292034184 (transform 2 +30.292034184, d 1.60e-13 ok ; b325 halved +15.146017092 beside, unused ; refin
+    b334_leg_covered_run.txt:112 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +30.292034184 ; places_q 
+    b334_leg_covered_run.txt:121 ; OUT ; - ; zeta    : A_z +5.558801888 (transform 2 +5.558801887, d 8.87e-12 ok ; witness (150) +5.559319249, d 9.31e-05 ok ; refine
+    b334_leg_covered_run.txt:122 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.558801888 ; places_z -5.55880
+    b334_leg_covered_run.txt:123 ; OUT ; - ; Epstein : A_Q +20.761434777 (transform 2 +20.761434777, d 6.77e-12 ok ; b325 halved +10.380717389 beside, unused ; refin
+    b334_leg_covered_run.txt:124 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +20.761434777 ; places_q 
+    b334_leg_covered_run.txt:133 ; OUT ; - ; zeta    : A_z +5.417564729 (transform 2 +5.417564729, d 5.21e-12 ok ; witness (150) +5.417879176, d 5.80e-05 ok ; refine
+    b334_leg_covered_run.txt:134 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.417564729 ; places_z -5.41756
+    b334_leg_covered_run.txt:135 ; OUT ; - ; Epstein : A_Q +20.810247845 (transform 2 +20.810247845, d 3.83e-12 ok ; b325 halved +10.405123922 beside, unused ; refin
+    b334_leg_covered_run.txt:136 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +20.810247845 ; places_q 
+    b334_leg_covered_run.txt:145 ; OUT ; - ; zeta    : A_z +5.803267657 (transform 2 +5.803267657, d 5.52e-12 ok ; witness (150) +5.803620793, d 6.09e-05 ok ; refine
+    b334_leg_covered_run.txt:146 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.803267657 ; places_z -5.80326
+    b334_leg_covered_run.txt:147 ; OUT ; - ; Epstein : A_Q +21.787935962 (transform 2 +21.787935962, d 4.16e-12 ok ; b325 halved +10.893967981 beside, unused ; refin
+    b334_leg_covered_run.txt:148 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +21.787935962 ; places_q 
+    b334_leg_covered_run.txt:157 ; OUT ; - ; zeta    : A_z +6.957540147 (transform 2 +6.957540147, d 1.73e-11 ok ; witness (150) +6.958785804, d 1.79e-04 ok ; refine
+    b334_leg_covered_run.txt:158 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +6.957540147 ; places_z -6.95754
+    b334_leg_covered_run.txt:159 ; OUT ; - ; Epstein : A_Q +23.430774511 (transform 2 +23.430774510, d 1.47e-11 ok ; b325 halved +11.715387255 beside, unused ; refin
+    b334_leg_covered_run.txt:160 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +23.430774511 ; places_q 
+    b334_leg_covered_run.txt:169 ; OUT ; - ; zeta    : A_z +7.564467568 (transform 2 +7.564467567, d 2.39e-11 ok ; witness (150) +7.566337878, d 2.47e-04 ok ; refine
+    b334_leg_covered_run.txt:170 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +7.564467568 ; places_z -7.56446
+    b334_leg_covered_run.txt:171 ; OUT ; - ; Epstein : A_Q +25.417116641 (transform 2 +25.417116641, d 2.05e-11 ok ; b325 halved +12.708558321 beside, unused ; refin
+    b334_leg_covered_run.txt:172 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +25.417116641 ; places_q 
+    b334_leg_covered_run.txt:181 ; OUT ; - ; zeta    : A_z +5.715879094 (transform 2 +5.715879094, d 2.78e-14 ok ; witness (150) +5.715881848, d 4.82e-07 ok ; refine
+    b334_leg_covered_run.txt:182 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.715879094 ; places_z -5.71587
+    b334_leg_covered_run.txt:183 ; OUT ; - ; Epstein : A_Q +22.559445669 (transform 2 +22.559445669, d 2.61e-14 ok ; b325 halved +11.279722835 beside, unused ; refin
+    b334_leg_covered_run.txt:184 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +22.559445669 ; places_q 
+    b334_leg_covered_run.txt:193 ; OUT ; - ; zeta    : A_z +5.746685502 (transform 2 +5.746685502, d 3.96e-14 ok ; witness (150) +5.746688496, d 5.21e-07 ok ; refine
+    b334_leg_covered_run.txt:194 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.746685502 ; places_z -5.74668
+    b334_leg_covered_run.txt:195 ; OUT ; - ; Epstein : A_Q +22.590215973 (transform 2 +22.590215973, d 3.49e-14 ok ; b325 halved +11.295107986 beside, unused ; refin
+    b334_leg_covered_run.txt:196 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +22.590215973 ; places_q 
+    b334_leg_covered_run.txt:205 ; OUT ; - ; zeta    : A_z +5.803207073 (transform 2 +5.803207073, d 1.72e-13 ok ; witness (150) +5.803212627, d 9.57e-07 ok ; refine
+    b334_leg_covered_run.txt:206 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.803207073 ; places_z -5.80320
+    b334_leg_covered_run.txt:207 ; OUT ; - ; Epstein : A_Q +22.467695917 (transform 2 +22.467695917, d 1.33e-13 ok ; b325 halved +11.233847959 beside, unused ; refin
+    b334_leg_covered_run.txt:208 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +22.467695917 ; places_q 
+    b334_leg_covered_run.txt:217 ; OUT ; - ; zeta    : A_z +5.027482815 (transform 2 +5.027482815, d 2.35e-12 ok ; witness (150) +5.027523927, d 8.18e-06 ok ; refine
+    b334_leg_covered_run.txt:218 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.027482815 ; places_z -5.02748
+    b334_leg_covered_run.txt:219 ; OUT ; - ; Epstein : A_Q +18.706328730 (transform 2 +18.706328730, d 1.82e-12 ok ; b325 halved +9.353164365 beside, unused ; refine
+    b334_leg_covered_run.txt:220 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +18.706328730 ; places_q 
+    b334_leg_covered_run.txt:229 ; OUT ; - ; zeta    : A_z +4.251386617 (transform 2 +4.251386617, d 1.27e-12 ok ; witness (150) +4.251406414, d 4.66e-06 ok ; refine
+    b334_leg_covered_run.txt:230 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +4.251386617 ; places_z -4.25138
+    b334_leg_covered_run.txt:231 ; OUT ; - ; Epstein : A_Q +17.784080043 (transform 2 +17.784080043, d 8.81e-13 ok ; b325 halved +8.892040021 beside, unused ; refine
+    b334_leg_covered_run.txt:232 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +17.784080043 ; places_q 
+    b334_leg_covered_run.txt:241 ; OUT ; - ; zeta    : A_z +5.415567709 (transform 2 +5.415567709, d 3.11e-13 ok ; witness (150) +5.415575701, d 1.48e-06 ok ; refine
+    b334_leg_covered_run.txt:242 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.415567709 ; places_z -5.41556
+    b334_leg_covered_run.txt:243 ; OUT ; - ; Epstein : A_Q +21.689427793 (transform 2 +21.689427793, d 2.30e-13 ok ; b325 halved +10.844713897 beside, unused ; refin
+    b334_leg_covered_run.txt:244 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +21.689427793 ; places_q 
+    b334_leg_covered_run.txt:253 ; OUT ; - ; zeta    : A_z +5.546955198 (transform 2 +5.546955198, d 7.21e-13 ok ; witness (150) +5.546971655, d 2.97e-06 ok ; refine
+    b334_leg_covered_run.txt:254 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.546955198 ; places_z -5.54695
+    b334_leg_covered_run.txt:255 ; OUT ; - ; Epstein : A_Q +21.659757204 (transform 2 +21.659757204, d 5.38e-13 ok ; b325 halved +10.829878602 beside, unused ; refin
+    b334_leg_covered_run.txt:256 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +21.659757204 ; places_q 
+    b334_leg_covered_run.txt:265 ; OUT ; - ; zeta    : A_z +4.141039930 (transform 2 +4.141039930, d 1.03e-11 ok ; witness (150) +4.141188493, d 3.59e-05 ok ; refine
+    b334_leg_covered_run.txt:266 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +4.141039930 ; places_z -4.14103
+    b334_leg_covered_run.txt:267 ; OUT ; - ; Epstein : A_Q +15.820581673 (transform 2 +15.820581673, d 7.80e-12 ok ; b325 halved +7.910290837 beside, unused ; refine
+    b334_leg_covered_run.txt:268 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +15.820581673 ; places_q 
+    b334_leg_covered_run.txt:277 ; OUT ; - ; zeta    : A_z +3.501796845 (transform 2 +3.501796845, d 8.51e-12 ok ; witness (150) +3.501897527, d 2.88e-05 ok ; refine
+    b334_leg_covered_run.txt:278 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +3.501796845 ; places_z -3.50179
+    b334_leg_covered_run.txt:279 ; OUT ; - ; Epstein : A_Q +14.641980269 (transform 2 +14.641980269, d 5.87e-12 ok ; b325 halved +7.320990135 beside, unused ; refine
+    b334_leg_covered_run.txt:280 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +14.641980269 ; places_q 
+    b334_leg_covered_run.txt:289 ; OUT ; - ; zeta    : A_z +4.460424092 (transform 2 +4.460424092, d 2.06e-11 ok ; witness (150) +4.460740852, d 7.10e-05 ok ; refine
+    b334_leg_covered_run.txt:290 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +4.460424092 ; places_z -4.46042
+    b334_leg_covered_run.txt:291 ; OUT ; - ; Epstein : A_Q +16.349604476 (transform 2 +16.349604476, d 1.62e-11 ok ; b325 halved +8.174802238 beside, unused ; refine
+    b334_leg_covered_run.txt:292 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +16.349604476 ; places_q 
+    b334_leg_covered_run.txt:301 ; OUT ; - ; zeta    : A_z +4.924378272 (transform 2 +4.924378272, d 2.92e-11 ok ; witness (150) +4.924882884, d 1.02e-04 ok ; refine
+    b334_leg_covered_run.txt:302 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +4.924378272 ; places_z -4.92437
+    b334_leg_covered_run.txt:303 ; OUT ; - ; Epstein : A_Q +17.546650718 (transform 2 +17.546650718, d 2.36e-11 ok ; b325 halved +8.773325359 beside, unused ; refine
+    b334_leg_covered_run.txt:304 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +17.546650718 ; places_q 
+    b334_leg_covered_run.txt:313 ; OUT ; - ; zeta    : A_z +5.093917950 (transform 2 +5.093917950, d 3.57e-11 ok ; witness (150) +5.094556400, d 1.25e-04 ok ; refine
+    b334_leg_covered_run.txt:314 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.093917950 ; places_z -5.09391
+    b334_leg_covered_run.txt:315 ; OUT ; - ; Epstein : A_Q +18.054721848 (transform 2 +18.054721848, d 2.91e-11 ok ; b325 halved +9.027360924 beside, unused ; refine
+    b334_leg_covered_run.txt:316 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +18.054721848 ; places_q 
+    b334_leg_covered_run.txt:325 ; OUT ; - ; zeta    : A_z +5.155774141 (transform 2 +5.155774140, d 2.28e-11 ok ; witness (150) +5.156178479, d 7.84e-05 ok ; refine
+    b334_leg_covered_run.txt:326 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.155774141 ; places_z -5.15577
+    b334_leg_covered_run.txt:327 ; OUT ; - ; Epstein : A_Q +18.136001516 (transform 2 +18.136001516, d 1.87e-11 ok ; b325 halved +9.068000758 beside, unused ; refine
+    b334_leg_covered_run.txt:328 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +18.136001516 ; places_q 
+    b334_leg_covered_run.txt:337 ; OUT ; - ; zeta    : A_z +5.458632740 (transform 2 +5.458632739, d 3.40e-11 ok ; witness (150) +5.459277128, d 1.18e-04 ok ; refine
+    b334_leg_covered_run.txt:338 ; OUT ; - ; PR_z +0.000000000 (sieve +0.000000000, d 0.0e+00 ok ; 0 prime powers) ; ROOM A_z - PR_z +5.458632740 ; places_z -5.45863
+    b334_leg_covered_run.txt:339 ; OUT ; - ; Epstein : A_Q +18.470108132 (transform 2 +18.470108131, d 2.90e-11 ok ; b325 halved +9.235054066 beside, unused ; refine
+    b334_leg_covered_run.txt:340 ; OUT ; - ; finite_Q +0.000000000 (0 terms ; Lambda_Q sieve vs inversion 8.9e-16 ok) ; ROOM A_Q - finite_Q +18.470108132 ; places_q 
+    b334_leg_reaching_40_run.txt:12 ; OUT ; - ; zeta    : A_z -0.090398612 (transform 2 -0.090398613, d 1.53e-09 ok ; witness (150) -0.090398759, d 1.63e-06 ok ; refine
+    b334_leg_reaching_40_run.txt:13 ; OUT ; - ; PR_z -0.090976364 (sieve -0.090976364, d 0.0e+00 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.000577751 ; places_z -0.000
+    b334_leg_reaching_40_run.txt:14 ; OUT ; - ; Epstein : A_Q +0.543815907 (transform 2 +0.543815907, d 7.33e-10 ok ; b325 halved +0.271907954 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:15 ; OUT ; - ; finite_Q -0.595898107 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.139714014 ; places_q
+    b334_leg_reaching_40_run.txt:21 ; OUT ; - ; zeta    : A_z +0.048868410 (transform 2 +0.048868410, d 6.80e-09 ok ; witness (150) +0.048867979, d 8.83e-06 ok ; refine
+    b334_leg_reaching_40_run.txt:22 ; OUT ; - ; PR_z +0.044948325 (sieve +0.044948325, d 2.1e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.003920085 ; places_z -0.003
+    b334_leg_reaching_40_run.txt:23 ; OUT ; - ; Epstein : A_Q +0.825566874 (transform 2 +0.825566873, d 1.16e-09 ok ; b325 halved +0.412783437 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:24 ; OUT ; - ; finite_Q -0.366043948 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.191610823 ; places_q
+    b334_leg_reaching_40_run.txt:30 ; OUT ; - ; zeta    : A_z +0.140073247 (transform 2 +0.140073246, d 5.21e-09 ok ; witness (150) +0.140072322, d 6.60e-06 ok ; refine
+    b334_leg_reaching_40_run.txt:31 ; OUT ; - ; PR_z +0.107769196 (sieve +0.107769196, d 2.8e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.032304050 ; places_z -0.032
+    b334_leg_reaching_40_run.txt:32 ; OUT ; - ; Epstein : A_Q +0.994333665 (transform 2 +0.994333663, d 2.11e-09 ok ; b325 halved +0.497166832 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:33 ; OUT ; - ; finite_Q -0.026714389 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.021048053 ; places_q
+    b334_leg_reaching_40_run.txt:39 ; OUT ; - ; zeta    : A_z +0.176832716 (transform 2 +0.176832715, d 5.68e-09 ok ; witness (150) +0.176831445, d 7.18e-06 ok ; refine
+    b334_leg_reaching_40_run.txt:40 ; OUT ; - ; PR_z +0.170432866 (sieve +0.170432866, d 5.6e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.006399850 ; places_z -0.006
+    b334_leg_reaching_40_run.txt:41 ; OUT ; - ; Epstein : A_Q +1.064889171 (transform 2 +1.064889168, d 2.71e-09 ok ; b325 halved +0.532444585 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:42 ; OUT ; - ; finite_Q +0.100134747 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +0.964754423 ; places_q
+    b334_leg_reaching_40_run.txt:48 ; OUT ; - ; zeta    : A_z +0.209231440 (transform 2 +0.209231439, d 6.32e-09 ok ; witness (150) +0.209229758, d 8.04e-06 ok ; refine
+    b334_leg_reaching_40_run.txt:49 ; OUT ; - ; PR_z +0.156825983 (sieve +0.156825983, d 2.8e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.052405457 ; places_z -0.052
+    b334_leg_reaching_40_run.txt:50 ; OUT ; - ; Epstein : A_Q +1.129134063 (transform 2 +1.129134059, d 3.36e-09 ok ; b325 halved +0.564567031 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:51 ; OUT ; - ; finite_Q +1.784187272 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q -0.655053209 ; places_q
+    b334_leg_reaching_40_run.txt:57 ; OUT ; - ; zeta    : A_z +0.256147290 (transform 2 +0.256147288, d 7.76e-09 ok ; witness (150) +0.256144767, d 9.85e-06 ok ; refine
+    b334_leg_reaching_40_run.txt:58 ; OUT ; - ; PR_z -0.301052552 (sieve -0.301052552, d 1.7e-16 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.557199842 ; places_z -0.557
+    b334_leg_reaching_40_run.txt:59 ; OUT ; - ; Epstein : A_Q +1.222097075 (transform 2 +1.222097069, d 4.67e-09 ok ; b325 halved +0.611048537 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:60 ; OUT ; - ; finite_Q -0.224245141 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.446342215 ; places_q
+    b334_leg_reaching_40_run.txt:66 ; OUT ; - ; zeta    : A_z +0.307238279 (transform 2 +0.307238276, d 1.01e-08 ok ; witness (150) +0.307234348, d 1.28e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:67 ; OUT ; - ; PR_z +0.271466337 (sieve +0.271466337, d 1.1e-16 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.035771942 ; places_z -0.035
+    b334_leg_reaching_40_run.txt:68 ; OUT ; - ; Epstein : A_Q +1.323765662 (transform 2 +1.323765653, d 6.71e-09 ok ; b325 halved +0.661882831 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:69 ; OUT ; - ; finite_Q -0.075688559 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.399454221 ; places_q
+    b334_leg_reaching_40_run.txt:75 ; OUT ; - ; zeta    : A_z +0.345420128 (transform 2 +0.345420124, d 1.25e-08 ok ; witness (150) +0.345414647, d 1.59e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:76 ; OUT ; - ; PR_z -0.266361719 (sieve -0.266361719, d 0.0e+00 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.611781847 ; places_z -0.611
+    b334_leg_reaching_40_run.txt:77 ; OUT ; - ; Epstein : A_Q +1.399706021 (transform 2 +1.399706009, d 8.86e-09 ok ; b325 halved +0.699853011 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:78 ; OUT ; - ; finite_Q +0.882029502 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +0.517676520 ; places_q
+    b334_leg_reaching_40_run.txt:84 ; OUT ; - ; zeta    : A_z +0.375101158 (transform 2 +0.375101152, d 1.49e-08 ok ; witness (150) +0.375094058, d 1.89e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:85 ; OUT ; - ; PR_z -0.224356028 (sieve -0.224356028, d 8.3e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.599457186 ; places_z -0.599
+    b334_leg_reaching_40_run.txt:86 ; OUT ; - ; Epstein : A_Q +1.458894915 (transform 2 +1.458894899, d 1.10e-08 ok ; b325 halved +0.729447457 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:87 ; OUT ; - ; finite_Q +0.689031502 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +0.769863413 ; places_q
+    b334_leg_reaching_40_run.txt:93 ; OUT ; - ; zeta    : A_z +0.414554470 (transform 2 +0.414554462, d 1.90e-08 ok ; witness (150) +0.414544451, d 2.42e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:94 ; OUT ; - ; PR_z -0.223585815 (sieve -0.223585815, d 5.6e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.638140285 ; places_z -0.638
+    b334_leg_reaching_40_run.txt:95 ; OUT ; - ; Epstein : A_Q +1.537584177 (transform 2 +1.537584154, d 1.47e-08 ok ; b325 halved +0.768792089 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:96 ; OUT ; - ; finite_Q -0.136519450 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.674103627 ; places_q
+    b334_leg_reaching_40_run.txt:102 ; OUT ; - ; zeta    : A_z +0.435559535 (transform 2 +0.435559525, d 2.18e-08 ok ; witness (150) +0.435547497, d 2.76e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:103 ; OUT ; - ; PR_z -0.022296847 (sieve -0.022296847, d 3.1e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.457856382 ; places_z -0.457
+    b334_leg_reaching_40_run.txt:104 ; OUT ; - ; Epstein : A_Q +1.579500013 (transform 2 +1.579499985, d 1.73e-08 ok ; b325 halved +0.789750006 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:105 ; OUT ; - ; finite_Q +0.732057672 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +0.847442340 ; places_q
+    b334_leg_reaching_40_run.txt:111 ; OUT ; - ; zeta    : A_z +0.451149372 (transform 2 +0.451149361, d 2.41e-08 ok ; witness (150) +0.451135576, d 3.06e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:112 ; OUT ; - ; PR_z -0.163140039 (sieve -0.163140039, d 2.8e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.614289411 ; places_z -0.614
+    b334_leg_reaching_40_run.txt:113 ; OUT ; - ; Epstein : A_Q +1.610630211 (transform 2 +1.610630180, d 1.94e-08 ok ; b325 halved +0.805315106 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:114 ; OUT ; - ; finite_Q +1.499685187 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +0.110945025 ; places_q
+    b334_leg_reaching_40_run.txt:120 ; OUT ; - ; zeta    : A_z +0.487164261 (transform 2 +0.487164246, d 3.06e-08 ok ; witness (150) +0.487145356, d 3.88e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:121 ; OUT ; - ; PR_z +0.106252320 (sieve +0.106252320, d 1.4e-17 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.380911940 ; places_z -0.380
+    b334_leg_reaching_40_run.txt:122 ; OUT ; - ; Epstein : A_Q +1.682554920 (transform 2 +1.682554877, d 2.55e-08 ok ; b325 halved +0.841277460 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:123 ; OUT ; - ; finite_Q +0.272687890 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +1.409867030 ; places_q
+    b334_leg_reaching_40_run.txt:129 ; OUT ; - ; zeta    : A_z +0.513302444 (transform 2 +0.513302425, d 3.65e-08 ok ; witness (150) +0.513278680, d 4.63e-05 ok ; refine
+    b334_leg_reaching_40_run.txt:130 ; OUT ; - ; PR_z -0.157791680 (sieve -0.157791680, d 0.0e+00 ok ; 278 prime powers) ; ROOM A_z - PR_z +0.671094124 ; places_z -0.671
+    b334_leg_reaching_40_run.txt:131 ; OUT ; - ; Epstein : A_Q +1.734774130 (transform 2 +1.734774076, d 3.11e-08 ok ; b325 halved +0.867387065 beside, unused ; refined 
+    b334_leg_reaching_40_run.txt:132 ; OUT ; - ; finite_Q +0.755947426 (316 terms ; Lambda_Q sieve vs inversion 2.8e-14 ok) ; ROOM A_Q - finite_Q +0.978826703 ; places_q
+    b334_leg_reaching_81_run.txt:12 ; OUT ; - ; zeta    : A_z -0.087830106 (transform 2 -0.087830106, d 1.69e-09 ok ; witness (150) -0.087830251, d 1.66e-06 ok ; refine
+    b334_leg_reaching_81_run.txt:13 ; OUT ; - ; PR_z -0.088337586 (sieve -0.088337586, d 1.4e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.000507481 ; places_z -0.000
+    b334_leg_reaching_81_run.txt:14 ; OUT ; - ; Epstein : A_Q +0.411762176 (transform 2 +0.411762176, d 1.04e-09 ok ; b325 halved +0.205881088 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:15 ; OUT ; - ; finite_Q -0.165927872 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.577690048 ; places_
+    b334_leg_reaching_81_run.txt:21 ; OUT ; - ; zeta    : A_z +0.040018976 (transform 2 +0.040018976, d 1.18e-08 ok ; witness (150) +0.040018437, d 1.35e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:22 ; OUT ; - ; PR_z +0.036656166 (sieve +0.036656166, d 6.9e-18 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.003362811 ; places_z -0.003
+    b334_leg_reaching_81_run.txt:23 ; OUT ; - ; Epstein : A_Q +0.682544889 (transform 2 +0.682544888, d 1.98e-09 ok ; b325 halved +0.341272445 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:24 ; OUT ; - ; finite_Q -0.441798919 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +1.124343808 ; places_
+    b334_leg_reaching_81_run.txt:30 ; OUT ; - ; zeta    : A_z +0.117124765 (transform 2 +0.117124764, d 8.98e-09 ok ; witness (150) +0.117123585, d 1.01e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:31 ; OUT ; - ; PR_z +0.096293988 (sieve +0.096293988, d 8.3e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.020830777 ; places_z -0.020
+    b334_leg_reaching_81_run.txt:32 ; OUT ; - ; Epstein : A_Q +0.831009394 (transform 2 +0.831009391, d 3.63e-09 ok ; b325 halved +0.415504697 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:33 ; OUT ; - ; finite_Q +0.036875730 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.794133664 ; places_
+    b334_leg_reaching_81_run.txt:39 ; OUT ; - ; zeta    : A_z +0.148801135 (transform 2 +0.148801133, d 9.73e-09 ok ; witness (150) +0.148799502, d 1.10e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:40 ; OUT ; - ; PR_z +0.144652852 (sieve +0.144652852, d 2.8e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.004148283 ; places_z -0.004
+    b334_leg_reaching_81_run.txt:41 ; OUT ; - ; Epstein : A_Q +0.894278462 (transform 2 +0.894278458, d 4.65e-09 ok ; b325 halved +0.447139231 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:42 ; OUT ; - ; finite_Q +0.025282063 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.868996399 ; places_
+    b334_leg_reaching_81_run.txt:48 ; OUT ; - ; zeta    : A_z +0.176064622 (transform 2 +0.176064620, d 1.09e-08 ok ; witness (150) +0.176062460, d 1.23e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:49 ; OUT ; - ; PR_z +0.138459286 (sieve +0.138459286, d 8.3e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.037605336 ; places_z -0.037
+    b334_leg_reaching_81_run.txt:50 ; OUT ; - ; Epstein : A_Q +0.948251506 (transform 2 +0.948251500, d 5.81e-09 ok ; b325 halved +0.474125753 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:51 ; OUT ; - ; finite_Q +2.311081210 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q -1.362829704 ; places_
+    b334_leg_reaching_81_run.txt:57 ; OUT ; - ; zeta    : A_z +0.215398474 (transform 2 +0.215398471, d 1.34e-08 ok ; witness (150) +0.215395226, d 1.51e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:58 ; OUT ; - ; PR_z -0.234514621 (sieve -0.234514621, d 2.8e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.449913095 ; places_z -0.449
+    b334_leg_reaching_81_run.txt:59 ; OUT ; - ; Epstein : A_Q +1.026252287 (transform 2 +1.026252279, d 8.07e-09 ok ; b325 halved +0.513126144 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:60 ; OUT ; - ; finite_Q -0.272789649 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +1.299041936 ; places_
+    b334_leg_reaching_81_run.txt:66 ; OUT ; - ; zeta    : A_z +0.258231131 (transform 2 +0.258231126, d 1.74e-08 ok ; witness (150) +0.258226067, d 1.96e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:67 ; OUT ; - ; PR_z +0.234603591 (sieve +0.234603591, d 2.8e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.023627540 ; places_z -0.023
+    b334_leg_reaching_81_run.txt:68 ; OUT ; - ; Epstein : A_Q +1.111507249 (transform 2 +1.111507236, d 1.16e-08 ok ; b325 halved +0.555753625 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:69 ; OUT ; - ; finite_Q +0.143244888 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.968262361 ; places_
+    b334_leg_reaching_81_run.txt:75 ; OUT ; - ; zeta    : A_z +0.290313459 (transform 2 +0.290313453, d 2.16e-08 ok ; witness (150) +0.290306392, d 2.43e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:76 ; OUT ; - ; PR_z -0.275757799 (sieve -0.275757799, d 0.0e+00 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.566071257 ; places_z -0.566
+    b334_leg_reaching_81_run.txt:77 ; OUT ; - ; Epstein : A_Q +1.175466861 (transform 2 +1.175466843, d 1.53e-08 ok ; b325 halved +0.587733430 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:78 ; OUT ; - ; finite_Q +1.124352032 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.051114829 ; places_
+    b334_leg_reaching_81_run.txt:84 ; OUT ; - ; zeta    : A_z +0.315207079 (transform 2 +0.315207071, d 2.58e-08 ok ; witness (150) +0.315197923, d 2.90e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:85 ; OUT ; - ; PR_z -0.302763892 (sieve -0.302763892, d 1.1e-16 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.617970971 ; places_z -0.617
+    b334_leg_reaching_81_run.txt:86 ; OUT ; - ; Epstein : A_Q +1.225133766 (transform 2 +1.225133743, d 1.91e-08 ok ; b325 halved +0.612566883 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:87 ; OUT ; - ; finite_Q +0.843489512 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.381644254 ; places_
+    b334_leg_reaching_81_run.txt:93 ; OUT ; - ; zeta    : A_z +0.348313419 (transform 2 +0.348313407, d 3.30e-08 ok ; witness (150) +0.348300492, d 3.71e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:94 ; OUT ; - ; PR_z -0.223561469 (sieve -0.223561469, d 1.4e-16 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.571874888 ; places_z -0.571
+    b334_leg_reaching_81_run.txt:95 ; OUT ; - ; Epstein : A_Q +1.291220330 (transform 2 +1.291220297, d 2.55e-08 ok ; b325 halved +0.645610165 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:96 ; OUT ; - ; finite_Q -0.117775485 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +1.408995815 ; places_
+    b334_leg_reaching_81_run.txt:102 ; OUT ; - ; zeta    : A_z +0.365935943 (transform 2 +0.365935929, d 3.77e-08 ok ; witness (150) +0.365920408, d 4.25e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:103 ; OUT ; - ; PR_z -0.166937984 (sieve -0.166937984, d 8.3e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.532873927 ; places_z -0.532
+    b334_leg_reaching_81_run.txt:104 ; OUT ; - ; Epstein : A_Q +1.326409168 (transform 2 +1.326409129, d 2.99e-08 ok ; b325 halved +0.663204584 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:105 ; OUT ; - ; finite_Q +0.934920120 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.391489049 ; places_
+    b334_leg_reaching_81_run.txt:111 ; OUT ; - ; zeta    : A_z +0.379012161 (transform 2 +0.379012145, d 4.18e-08 ok ; witness (150) +0.378994355, d 4.70e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:112 ; OUT ; - ; PR_z -0.107194554 (sieve -0.107194554, d 0.0e+00 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.486206715 ; places_z -0.486
+    b334_leg_reaching_81_run.txt:113 ; OUT ; - ; Epstein : A_Q +1.352530839 (transform 2 +1.352530794, d 3.36e-08 ok ; b325 halved +0.676265420 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:114 ; OUT ; - ; finite_Q +1.546749608 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q -0.194218769 ; places_
+    b334_leg_reaching_81_run.txt:120 ; OUT ; - ; zeta    : A_z +0.409224034 (transform 2 +0.409224012, d 5.30e-08 ok ; witness (150) +0.409199624, d 5.96e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:121 ; OUT ; - ; PR_z +0.220563828 (sieve +0.220563828, d 0.0e+00 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.188660206 ; places_z -0.188
+    b334_leg_reaching_81_run.txt:122 ; OUT ; - ; Epstein : A_Q +1.412893958 (transform 2 +1.412893896, d 4.41e-08 ok ; b325 halved +0.706446979 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:123 ; OUT ; - ; finite_Q +0.299136491 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +1.113757468 ; places_
+    b334_leg_reaching_81_run.txt:129 ; OUT ; - ; zeta    : A_z +0.431146546 (transform 2 +0.431146518, d 6.33e-08 ok ; witness (150) +0.431115853, d 7.12e-05 ok ; refine
+    b334_leg_reaching_81_run.txt:130 ; OUT ; - ; PR_z -0.190763899 (sieve -0.190763899, d 5.6e-17 ok ; 887 prime powers) ; ROOM A_z - PR_z +0.621910444 ; places_z -0.621
+    b334_leg_reaching_81_run.txt:131 ; OUT ; - ; Epstein : A_Q +1.456701990 (transform 2 +1.456701911, d 5.38e-08 ok ; b325 halved +0.728350995 beside, unused ; refined 
+    b334_leg_reaching_81_run.txt:132 ; OUT ; - ; finite_Q +0.721816611 (1153 terms ; Lambda_Q sieve vs inversion 2.3e-13 ok) ; ROOM A_Q - finite_Q +0.734885378 ; places_
+    b340_control_run.txt:31 ; OUT ; - ; 1    -1.5541199559354118268   -1.5541206356366271162   6.797e-07   RESOLVED  1.0  -0.55411995593541182679  2.035e-30   #
+    b340_control_run.txt:32 ; OUT ; - ; 2    -1.8745393617346538262   -1.8745420805468296289   2.719e-06   RESOLVED  1.0  -0.87453936173465382623  7.870e-30   #
+    b340_control_run.txt:33 ; OUT ; - ; 3    -2.013058007662370998    -2.0130641250018147161   6.117e-06   RESOLVED  1.0  -1.013058007662370998    1.722e-29   #
+    b340_control_run.txt:34 ; OUT ; - ; 4    -2.0067976523790162874   -2.0068085276690978791   1.088e-05   RESOLVED  1.0  -1.0067976523790162874   3.015e-29   #
+    b340_control_run.txt:35 ; OUT ; - ; 5    -1.8827257857359902011   -1.8827427784070749077   1.699e-05   RESOLVED  1.0  -0.88272578573599020107  4.738e-29   #
+    b340_control_run.txt:36 ; OUT ; - ; 6    -1.6607323149298383016   -1.6607567844192796902   2.447e-05   RESOLVED  1.0  -0.66073231492983830163  6.822e-29   #
+    b340_control_run.txt:37 ; OUT ; - ; 7    -1.3557307226678831346   -1.3557640284200214118   3.331e-05   RESOLVED  1.0  -0.35573072266788313457  9.265e-29   #
+    b340_control_run.txt:38 ; OUT ; - ; 8    -0.9791000669723710236   -0.97914356843853249465  4.350e-05   RESOLVED  1.0  0.020899933027628976401  1.209e-28   #
+    b340_control_run.txt:39 ; OUT ; - ; 10   -0.04446432050313631694  -0.044532291779266702133 6.797e-05   DRIFTING  1.0  0.95553567949686368306   1.889e-28   #
+    b340_control_run.txt:40 ; OUT ; - ; 20   7.0986240592942242676    7.0983521695134392276    2.719e-04   RESOLVED  1.0  8.0986240592942242676    7.556e-28   #
+    b340_control_run.txt:41 ; OUT ; - ; 24   10.756980268618690694    10.756588744647177753    3.915e-04   RESOLVED  1.0  11.756980268618690694    1.088e-27   #
+    b340_control_run.txt:42 ; OUT ; - ; 30   16.85665232952980644     16.856040567029636024    6.118e-04   RESOLVED  1.0  17.85665232952980644     1.703e-27   #
+    b340_control_run.txt:43 ; OUT ; - ; 40   28.313319192390339371    28.312231595968950092    1.088e-03   RESOLVED  1.0  29.313319192390339371    3.027e-27   #
+    b340_control_run.txt:44 ; OUT ; - ; 52   43.704339004959327845    43.702500929206943004    1.838e-03   RESOLVED  1.0  44.704339004959327845    5.110e-27   #
+    b340_control_run.txt:45 ; OUT ; - ; 60   54.759800404196538381    54.757353228374495703    2.447e-03   RESOLVED  1.0  55.759800404196538381    6.807e-27   #
+    b340_control_run.txt:46 ; OUT ; - ; 70   69.323589192635125613    69.320258257355132797    3.331e-03   RESOLVED  1.0  70.323589192635125613    9.267e-27   #
+    b340_control_run.txt:47 ; OUT ; - ; 80   84.604088501017671485    84.599737817120863212    4.351e-03   RESOLVED  1.0  85.604088501017671485    1.209e-26   #
+    b340_control_run.txt:48 ; OUT ; - ; 88   97.283244691905946521    97.277980292223099692    5.264e-03   RESOLVED  1.0  98.283244691905946521    1.854e-26   #
+    b340_control_run.txt:49 ; OUT ; - ; 100  116.97502256154312378    116.96822438496955702    6.798e-03   RESOLVED  1.0  117.97502256154312378    2.391e-26   #
+    b340_control_run.txt:50 ; OUT ; - ; 110  133.93966425091146901    133.9314383162925337     8.226e-03   RESOLVED  1.0  134.93966425091146901    7.467e-26   #
+    b340_control_run.txt:51 ; OUT ; - ; 120  151.35947325664177026    151.34968354684774986    9.790e-03   RESOLVED  1.0  152.35947325664177026    3.445e-26   #
+    b340_control_run.txt:52 ; OUT ; - ; 130  169.1964276706799802     169.18493816158628533    1.149e-02   RESOLVED  1.0  170.1964276706799802     3.192e-26   #
+    b340_control_run2.txt:37 ; OUT ; - ; 7    -1.3557307226678831346   -1.3557640284200214118   3.331e-05   RESOLVED  1.0  -0.35573072266788313457  9.265e-29   #
+    b340_control_run2.txt:39 ; OUT ; - ; 10   -0.04446432050313631694  -0.044532291779266702133 6.797e-05   DRIFTING  1.0  0.95553567949686368306   1.889e-28   #
+    b340_control_run2.txt:40 ; OUT ; - ; 20   7.0986240592942242676    7.0983521695134392276    2.719e-04   RESOLVED  1.0  8.0986240592942242676    7.556e-28   #
+    b340_control_run2.txt:41 ; OUT ; - ; 24   10.756980268618690694    10.756588744647177753    3.915e-04   RESOLVED  1.0  11.756980268618690694    1.088e-27   #
+    b340_control_run2.txt:42 ; OUT ; - ; 30   16.85665232952980644     16.856040567029636024    6.118e-04   RESOLVED  1.0  17.85665232952980644     1.703e-27   #
+    b340_control_run2.txt:43 ; OUT ; - ; 40   28.313319192390339371    28.312231595968950092    1.088e-03   RESOLVED  1.0  29.313319192390339371    3.027e-27   #
+    b340_control_run2.txt:44 ; OUT ; - ; 52   43.704339004959327845    43.702500929206943004    1.838e-03   RESOLVED  1.0  44.704339004959327845    5.110e-27   #
+    b340_control_run2.txt:45 ; OUT ; - ; 60   54.759800404196538381    54.757353228374495703    2.447e-03   RESOLVED  1.0  55.759800404196538381    6.807e-27   #
+    b340_control_run2.txt:46 ; OUT ; - ; 70   69.323589192635125613    69.320258257355132797    3.331e-03   RESOLVED  1.0  70.323589192635125613    9.267e-27   #
+    b340_control_run2.txt:47 ; OUT ; - ; 80   84.604088501017671485    84.599737817120863212    4.351e-03   RESOLVED  1.0  85.604088501017671485    1.209e-26   #
+    b340_control_run2.txt:48 ; OUT ; - ; 88   97.283244691905946521    97.277980292223099692    5.264e-03   RESOLVED  1.0  98.283244691905946521    1.854e-26   #
+    b340_control_run2.txt:49 ; OUT ; - ; 100  116.97502256154312378    116.96822438496955702    6.798e-03   RESOLVED  1.0  117.97502256154312378    2.391e-26   #
+    b340_control_run2.txt:50 ; OUT ; - ; 110  133.93966425091146901    133.9314383162925337     8.226e-03   RESOLVED  1.0  134.93966425091146901    7.467e-26   #
+    b340_control_run2.txt:51 ; OUT ; - ; 120  151.35947325664177026    151.34968354684774986    9.790e-03   RESOLVED  1.0  152.35947325664177026    3.445e-26   #
+    b340_control_run2.txt:52 ; OUT ; - ; 130  169.1964276706799802     169.18493816158628533    1.149e-02   RESOLVED  1.0  170.1964276706799802     3.192e-26   #
+    b340_control_run3.txt:31 ; OUT ; - ; 1    -1.5541199559354118268   -1.5541206356366271162   6.797e-07   RESOLVED  1.0  -0.55411995593541182679  2.035e-30   #
+    b340_control_run3.txt:35 ; OUT ; - ; 5    -1.8827257857359902011   -1.8827427784070749077   1.699e-05   RESOLVED  1.0  -0.88272578573599020107  4.738e-29   #
+    b340_control_run3.txt:41 ; OUT ; - ; 24   10.756980268618690694    10.756588744647177753    3.915e-04   RESOLVED  1.0  11.756980268618690694    1.088e-27   #
+    b340_control_run3.txt:42 ; OUT ; - ; 30   16.85665232952980644     16.856040567029636024    6.118e-04   RESOLVED  1.0  17.85665232952980644     1.703e-27   #
+    b340_control_run3.txt:43 ; OUT ; - ; 40   28.313319192390339371    28.312231595968950092    1.088e-03   RESOLVED  1.0  29.313319192390339371    3.027e-27   #
+    b340_control_run3.txt:44 ; OUT ; - ; 52   43.704339004959327845    43.702500929206943004    1.838e-03   RESOLVED  1.0  44.704339004959327845    5.110e-27   #
+    b340_control_run3.txt:45 ; OUT ; - ; 60   54.759800404196538381    54.757353228374495703    2.447e-03   RESOLVED  1.0  55.759800404196538381    6.807e-27   #
+    b340_control_run3.txt:48 ; OUT ; - ; 88   97.283244691905946521    97.277980292223099692    5.264e-03   RESOLVED  1.0  98.283244691905946521    1.854e-26   #
+    b340_control_run3.txt:49 ; OUT ; - ; 100  116.97502256154312378    116.96822438496955702    6.798e-03   RESOLVED  1.0  117.97502256154312378    2.391e-26   #
+    b340_control_run3.txt:50 ; OUT ; - ; 110  133.93966425091146901    133.9314383162925337     8.226e-03   RESOLVED  1.0  134.93966425091146901    7.467e-26   #
+    b340_control_run3.txt:51 ; OUT ; - ; 120  151.35947325664177026    151.34968354684774986    9.790e-03   RESOLVED  1.0  152.35947325664177026    3.445e-26   #
+    b340_control_run3.txt:52 ; OUT ; - ; 130  169.1964276706799802     169.18493816158628533    1.149e-02   RESOLVED  1.0  170.1964276706799802     3.192e-26   #
+    b343_crossing_run.txt:7 ; OUT ; - ; 2.000000         -0.263727807       -0.263893860       +0.000166053   RESOLVED          -
+    b343_crossing_run.txt:8 ; OUT ; - ; 2.500000         -0.195760272       -0.195843867       +0.000083595   RESOLVED          -
+    b343_crossing_run.txt:9 ; OUT ; - ; 3.000000         -0.226322254       -0.226837726       +0.000515473   RESOLVED          -
+    b343_crossing_run.txt:10 ; OUT ; - ; 3.500000         -0.178290148       -0.178878316       +0.000588168   RESOLVED          -
+    b343_crossing_run.txt:11 ; OUT ; - ; 4.000000         -0.090398612       -0.090976364       +0.000577751   RESOLVED          -
+    b343_crossing_run.txt:12 ; OUT ; - ; 4.500000         -0.070627035       -0.071776489       +0.001149454   RESOLVED          -
+    b343_crossing_run.txt:13 ; OUT ; - ; 5.000000         -0.078440210       -0.079697096       +0.001256886   RESOLVED          -
+    b343_crossing_run.txt:14 ; OUT ; - ; 5.500000         -0.048566279       -0.050103046       +0.001536767   RESOLVED          -
+    b343_crossing_run.txt:15 ; OUT ; - ; 6.000000         -0.016349233       -0.018144489       +0.001795256   RESOLVED          -
+    b343_crossing_run.txt:16 ; OUT ; - ; 6.500000         +0.002657533       +0.000205352       +0.002452181   RESOLVED          -
+    b343_crossing_run.txt:17 ; OUT ; - ; 7.000000         +0.010344283       +0.007062508       +0.003281775   RESOLVED          -
+    b343_crossing_run.txt:18 ; OUT ; - ; 7.500000         +0.031212784       +0.027749629       +0.003463154   RESOLVED          -
+    b343_crossing_run.txt:19 ; OUT ; - ; 8.000000         +0.048868410       +0.044948325       +0.003920085   RESOLVED          -
+    b343_crossing_run.txt:26 ; OUT ; - ; 2.000000         -0.235884759       -0.235974786       +0.000090027   RESOLVED          -
+    b343_crossing_run.txt:27 ; OUT ; - ; 2.500000         -0.228910790       -0.229200268       +0.000289478   RESOLVED          -
+    b343_crossing_run.txt:28 ; OUT ; - ; 3.000000         -0.169342593       -0.169658449       +0.000315857   RESOLVED          -
+    b343_crossing_run.txt:29 ; OUT ; - ; 3.500000         -0.137524667       -0.137699328       +0.000174661   RESOLVED          -
+    b343_crossing_run.txt:30 ; OUT ; - ; 4.000000         -0.087830106       -0.088337586       +0.000507481   RESOLVED          -
+    b343_crossing_run.txt:31 ; OUT ; - ; 4.500000         -0.090748129       -0.091398590       +0.000650461   RESOLVED          -
+    b343_crossing_run.txt:32 ; OUT ; - ; 5.000000         -0.048596333       -0.049400616       +0.000804284   RESOLVED          -
+    b343_crossing_run.txt:33 ; OUT ; - ; 5.500000         -0.029837526       -0.030808559       +0.000971034   RESOLVED          -
+    b343_crossing_run.txt:34 ; OUT ; - ; 6.000000         -0.022612131       -0.023945330       +0.001333199   RESOLVED          -
+    b343_crossing_run.txt:35 ; OUT ; - ; 6.500000         +0.000925711       -0.000725149       +0.001650860   RESOLVED          -
+    b343_crossing_run.txt:36 ; OUT ; - ; 7.000000         +0.015033016       +0.013179733       +0.001853283   RESOLVED          -
+    b343_crossing_run.txt:37 ; OUT ; - ; 7.500000         +0.025017261       +0.022588296       +0.002428965   RESOLVED          -
+    b343_crossing_run.txt:38 ; OUT ; - ; 8.000000         +0.040018976       +0.036656166       +0.003362811   RESOLVED          -
+    b344_edge_run.txt:19 ; OUT ; - ; 1.000000   b344           -0.226841726       -0.227255382       +0.000413655   RESOLVED        -
+    b344_edge_run.txt:20 ; OUT ; - ; 1.250000   b344           -0.272875887       -0.272902121       +0.000026234   RESOLVED        -
+    b344_edge_run.txt:21 ; OUT ; - ; 1.500000   b344           -0.281538169       -0.281662448       +0.000124279   RESOLVED        -
+    b344_edge_run.txt:22 ; OUT ; - ; 1.750000   b344           -0.269251516       -0.269383181       +0.000131665   RESOLVED        -
+    b344_edge_run.txt:23 ; OUT ; - ; 2.000000   b343           -0.235884759       -0.235974786       +0.000090027   RESOLVED        -
+    b344_edge_run.txt:24 ; OUT ; - ; 2.500000   b343           -0.228910790       -0.229200268       +0.000289478   RESOLVED        -
+    b344_edge_run.txt:25 ; OUT ; - ; 3.000000   b343           -0.169342593       -0.169658449       +0.000315857   RESOLVED        -
+    b344_edge_run.txt:26 ; OUT ; - ; 3.500000   b343           -0.137524667       -0.137699328       +0.000174661   RESOLVED        -
+    b344_edge_run.txt:27 ; OUT ; - ; 4.000000   b343           -0.087830106       -0.088337586       +0.000507481   RESOLVED        -
+    b344_edge_run.txt:28 ; OUT ; - ; 4.500000   b343           -0.090748129       -0.091398590       +0.000650461   RESOLVED        -
+    b344_edge_run.txt:29 ; OUT ; - ; 5.000000   b343           -0.048596333       -0.049400616       +0.000804284   RESOLVED        -
+    b344_edge_run.txt:30 ; OUT ; - ; 5.500000   b343           -0.029837526       -0.030808559       +0.000971034   RESOLVED        -
+    b344_edge_run.txt:31 ; OUT ; - ; 6.000000   b343           -0.022612131       -0.023945330       +0.001333199   RESOLVED        -
+    b344_edge_run.txt:32 ; OUT ; - ; 6.500000   b343           +0.000925711       -0.000725149       +0.001650860   RESOLVED        -
+    b344_edge_run.txt:33 ; OUT ; - ; 7.000000   b343           +0.015033016       +0.013179733       +0.001853283   RESOLVED        -
+    b344_edge_run.txt:34 ; OUT ; - ; 7.500000   b343           +0.025017261       +0.022588296       +0.002428965   RESOLVED        -
+    b344_edge_run.txt:35 ; OUT ; - ; 8.000000   b343           +0.040018976       +0.036656166       +0.003362811   RESOLVED        -
+    b345_control_draft_unsealed_params_stopped.txt:31 ; OUT ; - ; 1    -1.5541199559354118268   -1.5541199559354118268   1.820e-23   RESOLVED  1.0   -0.55411995593541182679  2.035e-30   
+    b345_control_draft_unsealed_params_stopped.txt:32 ; OUT ; - ; 2    -1.8745393617346538262   -1.8745393617346538262   7.238e-23   RESOLVED  1.0   -0.87453936173465382623  7.870e-30   
+    b345_control_draft_unsealed_params_stopped.txt:33 ; OUT ; - ; 3    -2.013058007662370998    -2.013058007662370998    1.165e-22   RESOLVED  1.0   -1.013058007662370998    1.722e-29   
+    b345_control_draft_unsealed_params_stopped.txt:34 ; OUT ; - ; 4    -2.0067976523790162874   -2.0067976523790162874   1.599e-22   RESOLVED  1.0   -1.0067976523790162874   3.015e-29   
+    b345_control_run.txt:43 ; OUT ; - ; 1    -1.5541199559354118268   -1.5541199559354118287   1.899e-18   RESOLVED  1.0   -0.55411995593541182679  2.035e-30   
+    b345_control_run.txt:44 ; OUT ; - ; 2    -1.8745393617346538262   -1.8745393617346538295   3.245e-18   RESOLVED  1.0   -0.87453936173465382623  7.870e-30   
+    b345_control_run.txt:45 ; OUT ; - ; 3    -2.013058007662370998    -2.0130580076623710022   4.125e-18   RESOLVED  1.0   -1.013058007662370998    1.722e-29   
+    b345_control_run.txt:46 ; OUT ; - ; 4    -2.0067976523790162874   -2.006797652379016292    4.627e-18   RESOLVED  1.0   -1.0067976523790162874   3.015e-29   
+    b345_control_run.txt:47 ; OUT ; - ; 5    -1.8827257857359902011   -1.8827257857359902059   4.795e-18   RESOLVED  1.0   -0.88272578573599020107  4.738e-29   
+    b345_control_run.txt:48 ; OUT ; - ; 6    -1.6607323149298383016   -1.6607323149298383064   4.726e-18   RESOLVED  1.0   -0.66073231492983830163  6.822e-29   
+    b345_control_run.txt:49 ; OUT ; - ; 7    -1.3557307226678831346   -1.355730722667883139    4.436e-18   RESOLVED  1.0   -0.35573072266788313457  9.265e-29   
+    b345_control_run.txt:50 ; OUT ; - ; 8    -0.9791000669723710236   -0.97910006697237102762  4.022e-18   RESOLVED  1.0   0.020899933027628976401  1.209e-28   
+    b345_control_run.txt:51 ; OUT ; - ; 10   -0.04446432050313631694  -0.04446432050313631976  2.819e-18   RESOLVED  1.0   0.95553567949686368306   1.889e-28   
+    b345_control_run.txt:52 ; OUT ; - ; 20   7.0986240592942242676    7.0986240592942242709    3.216e-18   RESOLVED  1.0   8.0986240592942242676    7.556e-28   
+    b345_control_run.txt:53 ; OUT ; - ; 24   10.756980268618690694    10.756980268618690698    4.029e-18   RESOLVED  1.0   11.756980268618690694    1.088e-27   
+    b345_control_run.txt:54 ; OUT ; - ; 30   16.85665232952980644     16.856652329529806443    3.099e-18   RESOLVED  1.0   17.85665232952980644     1.703e-27   
+    b345_control_run.txt:55 ; OUT ; - ; 40   28.313319192390339371    28.313319192390339369    2.188e-18   RESOLVED  1.0   29.313319192390339371    3.027e-27   
+    b345_control_run.txt:56 ; OUT ; - ; 52   43.704339004959327845    43.704339004959327836    8.856e-18   RESOLVED  1.0   44.704339004959327845    5.110e-27   
+    b345_control_run.txt:57 ; OUT ; - ; 60   54.759800404196538381    54.75980040419653837     1.163e-17   RESOLVED  1.0   55.759800404196538381    6.807e-27   
+    b345_control_run.txt:58 ; OUT ; - ; 70   69.323589192635125613    69.3235891926351256      1.270e-17   RESOLVED  1.0   70.323589192635125613    9.267e-27   
+    b345_control_run.txt:59 ; OUT ; - ; 80   84.604088501017671485    84.604088501017671474    1.109e-17   RESOLVED  1.0   85.604088501017671485    1.209e-26   
+    b345_control_run.txt:60 ; OUT ; - ; 88   97.283244691905946521    97.283244691905946512    8.055e-18   RESOLVED  1.0   98.283244691905946521    1.854e-26   
+    b345_control_run.txt:61 ; OUT ; - ; 100  116.97502256154312378    116.97502256154312377    4.178e-18   RESOLVED  1.0   117.97502256154312378    2.391e-26   
+    b345_control_run.txt:62 ; OUT ; - ; 110  133.93966425091146901    133.93966425091146901    2.320e-18   RESOLVED  1.0   134.93966425091146901    7.467e-26   
+    b345_control_run.txt:63 ; OUT ; - ; 120  151.35947325664177026    151.35947325664177025    3.112e-18   RESOLVED  1.0   152.35947325664177026    3.445e-26   
+    b345_control_run.txt:64 ; OUT ; - ; 130  169.1964276706799802     169.1964276706799802     6.074e-18   RESOLVED  1.0   170.1964276706799802     3.192e-26   
+    b346_rate_run.txt:95 ; OUT ; - ; r**-0.5 : RESOLVED  abs(value) = 1.490931e+00 above floor; drift 0.000e+00 < bar 1.000e-03
+    b346_rate_run.txt:96 ; OUT ; - ; r**+0.5 : RESOLVED  abs(value) = 4.909308e-01 above floor; drift 1.063e-14 < bar 1.000e-03
+    b348_extract_notes.txt:54 ; OUT ; - ; | line 17    ### ### ### **AND ON THE RATE AXIS THE QUESTION IS RESOLVED, AT A RESOLVING POWER OF `63.6`.**
+    b349_extend_run.txt:29 ; OUT ; - ; 0.2500    b349         -0.273291177      -0.273557356    +0.000266178   9.730249e-04  RESOLVED      -
+    b349_extend_run.txt:30 ; OUT ; - ; 0.5000    b349         -0.270513274      -0.270787500    +0.000274226   1.012698e-03  RESOLVED      -
+    b349_extend_run.txt:31 ; OUT ; - ; 0.7500    b349         -0.263475304      -0.263773874    +0.000298570   1.131915e-03  RESOLVED      -
+    b349_extend_run.txt:32 ; OUT ; - ; 1.0000    b344         -0.226841726      -0.227255382    +0.000413655   1.820223e-03  RESOLVED      -
+    b349_extend_run.txt:33 ; OUT ; - ; 1.2500    b344         -0.272875887      -0.272902121    +0.000026234   9.612854e-05  RESOLVED      -
+    b349_extend_run.txt:34 ; OUT ; - ; 1.5000    b344         -0.281538169      -0.281662448    +0.000124279   4.412324e-04  RESOLVED      -
+    b349_extend_run.txt:35 ; OUT ; - ; 1.7500    b344         -0.269251516      -0.269383181    +0.000131665   4.887651e-04  RESOLVED      -
+    b349_relative_run.txt:14 ; OUT ; - ; 40    4        b334   5.777513e-04   9.097636e-02   6.350565e-03  RESOLVED    1.139714e+00   1.912599e+00  RESOLVED
+    b349_relative_run.txt:15 ; OUT ; - ; 40    8        b334   3.920085e-03   4.886841e-02   8.021716e-02  RESOLVED    1.191611e+00   1.443385e+00  RESOLVED
+    b349_relative_run.txt:16 ; OUT ; - ; 40    12       b334   3.230405e-02   1.400732e-01   2.306226e-01  RESOLVED    1.021048e+00   1.026867e+00  RESOLVED
+    b349_relative_run.txt:17 ; OUT ; - ; 40    14.1347  b334   6.399850e-03   1.768327e-01   3.619155e-02  RESOLVED    9.647544e-01   9.059670e-01  RESOLVED
+    b349_relative_run.txt:18 ; OUT ; - ; 40    16.2902  b334   5.240546e-02   2.092314e-01   2.504665e-01  RESOLVED    6.550532e-01   3.671438e-01  RESOLVED
+    b349_relative_run.txt:19 ; OUT ; - ; 40    20       b334   5.571998e-01   3.010526e-01   1.850839e+00  RESOLVED    1.446342e+00   1.183492e+00  RESOLVED
+    b349_relative_run.txt:20 ; OUT ; - ; 40    25       b334   3.577194e-02   3.072383e-01   1.164306e-01  RESOLVED    1.399454e+00   1.057177e+00  RESOLVED
+    b349_relative_run.txt:21 ; OUT ; - ; 40    29.5518  b334   6.117818e-01   3.454201e-01   1.771124e+00  RESOLVED    5.176765e-01   3.698466e-01  RESOLVED
+    b349_relative_run.txt:22 ; OUT ; - ; 40    33.6501  b334   5.994572e-01   3.751012e-01   1.598121e+00  RESOLVED    7.698634e-01   5.277031e-01  RESOLVED
+    b349_relative_run.txt:23 ; OUT ; - ; 40    40       b334   6.381403e-01   4.145545e-01   1.539340e+00  RESOLVED    1.674104e+00   1.088788e+00  RESOLVED
+    b349_relative_run.txt:24 ; OUT ; - ; 40    43.8587  b334   4.578564e-01   4.355595e-01   1.051191e+00  RESOLVED    8.474423e-01   5.365257e-01  RESOLVED
+    b349_relative_run.txt:25 ; OUT ; - ; 40    46.961   b334   6.142894e-01   4.511494e-01   1.361610e+00  RESOLVED    1.109450e-01   6.888299e-02  RESOLVED
+    b349_relative_run.txt:26 ; OUT ; - ; 40    55       b334   3.809119e-01   4.871643e-01   7.818963e-01  RESOLVED    1.409867e+00   8.379323e-01  RESOLVED
+    b349_relative_run.txt:27 ; OUT ; - ; 40    61.6879  b334   6.710941e-01   5.133024e-01   1.307405e+00  RESOLVED    9.788267e-01   5.642387e-01  RESOLVED
+    b349_relative_run.txt:28 ; OUT ; - ; 81    4        b334   5.074808e-04   8.833759e-02   5.744789e-03  RESOLVED    5.776900e-01   1.402970e+00  RESOLVED
+    b349_relative_run.txt:29 ; OUT ; - ; 81    8        b334   3.362811e-03   4.001898e-02   8.403040e-02  RESOLVED    1.124344e+00   1.647282e+00  RESOLVED
+    b349_relative_run.txt:30 ; OUT ; - ; 81    12       b334   2.083078e-02   1.171248e-01   1.778512e-01  RESOLVED    7.941337e-01   9.556254e-01  RESOLVED
+    b349_relative_run.txt:31 ; OUT ; - ; 81    14.1347  b334   4.148283e-03   1.488011e-01   2.787803e-02  RESOLVED    8.689964e-01   9.717291e-01  RESOLVED
+    b349_relative_run.txt:32 ; OUT ; - ; 81    16.2902  b334   3.760534e-02   1.760646e-01   2.135883e-01  RESOLVED    1.362830e+00   5.896936e-01  RESOLVED
+    b349_relative_run.txt:33 ; OUT ; - ; 81    20       b334   4.499131e-01   2.345146e-01   1.918486e+00  RESOLVED    1.299042e+00   1.265811e+00  RESOLVED
+    b349_relative_run.txt:34 ; OUT ; - ; 81    25       b334   2.362754e-02   2.582311e-01   9.149764e-02  RESOLVED    9.682624e-01   8.711255e-01  RESOLVED
+    b349_relative_run.txt:35 ; OUT ; - ; 81    29.5518  b334   5.660713e-01   2.903135e-01   1.949862e+00  RESOLVED    5.111483e-02   4.348470e-02  RESOLVED
+    b349_relative_run.txt:36 ; OUT ; - ; 81    33.6501  b334   6.179710e-01   3.152071e-01   1.960524e+00  RESOLVED    3.816443e-01   3.115123e-01  RESOLVED
+    b349_relative_run.txt:37 ; OUT ; - ; 81    40       b334   5.718749e-01   3.483134e-01   1.641840e+00  RESOLVED    1.408996e+00   1.091213e+00  RESOLVED
+    b349_relative_run.txt:38 ; OUT ; - ; 81    43.8587  b334   5.328739e-01   3.659359e-01   1.456195e+00  RESOLVED    3.914890e-01   2.951495e-01  RESOLVED
+    b349_relative_run.txt:39 ; OUT ; - ; 81    46.961   b334   4.862067e-01   3.790122e-01   1.282826e+00  RESOLVED    1.942188e-01   1.255657e-01  RESOLVED
+    b349_relative_run.txt:40 ; OUT ; - ; 81    55       b334   1.886602e-01   4.092240e-01   4.610194e-01  RESOLVED    1.113757e+00   7.882810e-01  RESOLVED
+    b349_relative_run.txt:41 ; OUT ; - ; 81    61.6879  b334   6.219104e-01   4.311465e-01   1.442457e+00  RESOLVED    7.348854e-01   5.044857e-01  RESOLVED
+    b349_relative_run.txt:42 ; OUT ; - ; 40    2        b343   1.660531e-04   2.638939e-01   6.292422e-04  RESOLVED    1.150268e-01   2.271616e-01  RESOLVED
+    b349_relative_run.txt:43 ; OUT ; - ; 40    2.5      b343   8.359531e-05   1.958439e-01   4.268467e-04  RESOLVED    4.149078e-02   7.964676e-02  RESOLVED
+    b349_relative_run.txt:44 ; OUT ; - ; 40    3        b343   5.154728e-04   2.268377e-01   2.272430e-03  RESOLVED    2.173065e-01   8.562230e-01  RESOLVED
+    b349_relative_run.txt:45 ; OUT ; - ; 40    3.5      b343   5.881679e-04   1.788783e-01   3.288090e-03  RESOLVED    2.277660e-01   6.188782e-01  RESOLVED
+    b349_relative_run.txt:46 ; OUT ; - ; 40    4.5      b343   1.149454e-03   7.177649e-02   1.601435e-02  RESOLVED    6.468363e-01   1.100585e+00  RESOLVED
+    b349_relative_run.txt:47 ; OUT ; - ; 40    5        b343   1.256886e-03   7.969710e-02   1.577079e-02  RESOLVED    9.264740e-02   1.620626e-01  RESOLVED
+    b349_relative_run.txt:48 ; OUT ; - ; 40    5.5      b343   1.536767e-03   5.010305e-02   3.067213e-02  RESOLVED    7.347727e-01   1.180509e+00  RESOLVED
+    b349_relative_run.txt:49 ; OUT ; - ; 40    6        b343   1.795256e-03   1.814449e-02   9.894221e-02  RESOLVED    1.296319e+00   1.894133e+00  RESOLVED
+    b349_relative_run.txt:50 ; OUT ; - ; 40    6.5      b343   2.452181e-03   2.657533e-03   9.227284e-01  RESOLVED    6.543132e-01   9.049679e-01  RESOLVED
+    b349_relative_run.txt:51 ; OUT ; - ; 40    7        b343   3.281775e-03   1.034428e-02   3.172550e-01  RESOLVED    2.733633e-01   3.722654e-01  RESOLVED
+    b349_relative_run.txt:52 ; OUT ; - ; 40    7.5      b343   3.463154e-03   3.121278e-02   1.109531e-01  RESOLVED    9.816512e-01   1.263464e+00  RESOLVED
+    b349_relative_run.txt:53 ; OUT ; - ; 81    2        b343   9.002661e-05   2.359748e-01   3.815095e-04  RESOLVED    7.694794e-02   2.196790e-01  RESOLVED
+    b349_relative_run.txt:54 ; OUT ; - ; 81    2.5      b343   2.894781e-04   2.292003e-01   1.262992e-03  RESOLVED    4.847834e-01   1.410823e+00  RESOLVED
+    b349_relative_run.txt:55 ; OUT ; - ; 81    3        b343   3.158570e-04   1.696584e-01   1.861722e-03  RESOLVED    8.376384e-02   3.088136e-01  RESOLVED
+    b349_relative_run.txt:56 ; OUT ; - ; 81    3.5      b343   1.746614e-04   1.376993e-01   1.268426e-03  RESOLVED    3.228706e-01   8.299817e-01  RESOLVED
+    b349_relative_run.txt:57 ; OUT ; - ; 81    4.5      b343   6.504609e-04   9.139859e-02   7.116750e-03  RESOLVED    3.780736e-01   8.681457e-01  RESOLVED
+    b349_relative_run.txt:58 ; OUT ; - ; 81    5        b343   8.042836e-04   4.940062e-02   1.628084e-02  RESOLVED    7.863928e-02   1.560902e-01  RESOLVED
+    b349_relative_run.txt:59 ; OUT ; - ; 81    5.5      b343   9.710337e-04   3.080856e-02   3.151831e-02  RESOLVED    7.756546e-01   1.432761e+00  RESOLVED
+    b349_relative_run.txt:60 ; OUT ; - ; 81    6        b343   1.333199e-03   2.394533e-02   5.567678e-02  RESOLVED    9.424881e-01   1.700636e+00  RESOLVED
+    b349_relative_run.txt:61 ; OUT ; - ; 81    6.5      b343   1.650860e-03   9.257107e-04   1.783343e+00  RESOLVED    5.754697e-01   9.471638e-01  RESOLVED
+    b349_relative_run.txt:62 ; OUT ; - ; 81    7        b343   1.853283e-03   1.503302e-02   1.232808e-01  RESOLVED    1.273369e-01   1.994545e-01  RESOLVED
+    b349_relative_run.txt:63 ; OUT ; - ; 81    7.5      b343   2.428965e-03   2.501726e-02   9.709155e-02  RESOLVED    9.179879e-01   1.414776e+00  RESOLVED
+    b349_relative_run.txt:64 ; OUT ; - ; 81    1        b344   4.136555e-04   2.272554e-01   1.820223e-03  RESOLVED    1.152479e-01   3.061961e-01  RESOLVED
+    b349_relative_run.txt:65 ; OUT ; - ; 81    1.25     b344   2.623368e-05   2.729021e-01   9.612854e-05  RESOLVED    4.205617e-01   1.956699e+00  RESOLVED
+    b349_relative_run.txt:66 ; OUT ; - ; 81    1.5      b344   1.242786e-04   2.816624e-01   4.412324e-04  RESOLVED    2.713375e-01   8.791233e-01  RESOLVED
+    b349_relative_run.txt:67 ; OUT ; - ; 81    1.75     b344   1.316651e-04   2.693832e-01   4.887651e-04  RESOLVED    1.917997e-01   5.743376e-01  RESOLVED
+    b379_rescore.json:185 ; OUT ; - ; "row": "| 1.5c-11 | Cartan B Domain-Ostrowski | `phase1.5/structural/CARTAN_B.md` | v2 | ◇-boundary | READY | 4,985 | **
+    b419_closing.txt:3 ; OUT ; - ; **THE GENERAL CLAUSE IS PROVED, WITH AN EMPTY AXIOM PROFILE, ON THE FIRST PROBE.** The registration was locked before an
+    b419_reruns.json:24 ; IN ; - ; "**Minted 2026-08-23 at the one-sign act (b117); brought current at THE SPACE-LEVEL BARRIER (b278) — *** ### ### **VERDI
+    b426_extract.txt:112 ; OUT ; - ; BIBLIOGRAPHY.md:51  ...quation*, Stud. Appl. Math. **138** (2017), 3–42; DOI 10.1111/sapm.12134** | ### **RESOLVED 2026-
+    b429_statement_c.txt:7 ; OUT ; - ; status RESOLVED ; bytes 203736 ; sha256 c1b5f27b1a64705cfaf1afceea513db5deedca8a18ca56ab32e7f86445a06d0c
+    b437_closing.txt:124 ; OUT ; 5.196152 ; a = 5.196152   ratio 0.163480894 -> 0.163481528   delta 6.34e-07   RESOLVED
+    b437_closing.txt:125 ; OUT ; 5.385165 ; a = 5.385165   ratio 1.077773894 -> 1.077774534   delta 6.40e-07   RESOLVED
+    b437_closing.txt:126 ; OUT ; 5.567764 ; a = 5.567764   ratio 6.193491362 -> 6.193491592   delta 2.30e-07   RESOLVED
+    b437_closing.txt:127 ; OUT ; - ; ### ### **GATE VERDICT : PASSES.** ### All three are far above the `1.49e-08` floor and inside
+    b437_components.txt:229 ; OUT ; 5.1962 ; ratio a=5.1962         0.163480894      -> 0.163481528       RESOLVED
+    b437_components.txt:230 ; OUT ; 5.3852 ; ratio a=5.3852         1.077773894      -> 1.077774534       RESOLVED
+    b437_components.txt:231 ; OUT ; 5.5678 ; ratio a=5.5678         6.193491362      -> 6.193491592       RESOLVED
+    b437_desk_notes.txt:31 ; OUT ; - ; RESOLVES: deltas of `6.3e-07`, `6.4e-07` and `2.3e-07`, all far above the `1.49e-08` floor and inside the `1e-3` drift b
+    b437_extract.txt:173 ; OUT ; 1.3 ; | domain a=1.3 8.575142606 -> 8.599100561 DRIFTING
+    b437_extract.txt:174 ; OUT ; 1.3 ; | identity a=1.3 -0.158889558 -> -0.158889572 RESOLVED
+    b437_extract.txt:175 ; OUT ; 1.35 ; | domain a=1.35 6.902180565 -> 6.923497716 DRIFTING
+    b437_extract.txt:176 ; OUT ; 1.35 ; | identity a=1.35 -0.186481766 -> -0.186481788 RESOLVED
+    b437_extract.txt:177 ; OUT ; 1.41 ; | domain a=1.41 5.488727352 -> 5.507915818 DRIFTING
+    b437_extract.txt:178 ; OUT ; 1.41 ; | identity a=1.41 -0.221284108 -> -0.221284143 RESOLVED
+    b437_the_window_by_rungs.txt:19 ; OUT ; - ; The noise-floor gate had been run at **three radii only** — `1.3`, `1.35`, `1.41`, all below `√2`, all prime-free — wher
+    b444_closing.txt:57 ; OUT ; - ; T3: |e| above the 1.49e-08 floor at 14 of 22 cells; largest 3.21e-07, 21.6 times the floor;
+    b444_decorrelation.json:195 ; OUT ; - ; "floor": 1.49e-08
+    b444_desk_notes.txt:19 ; OUT ; - ; READ at b444: over 22 ladder cells the identity residual e = Z - (P - PR + A) matches the bank exactly and is STRUCTURE 
+    b444_extract.txt:39 ; OUT ; - ; b437_closing.txt:127  | ### ### **GATE VERDICT : PASSES.** ### All three are far above the `1.49e-08` floor and inside
+    b444_extract.txt:40 ; OUT ; 5.385165 ; b437_closing.txt:125  | a = 5.385165   ratio 1.077773894 -> 1.077774534   delta 6.40e-07   RESOLVED
+    b444_registration_2026-09-12.txt:79 ; OUT ; - ; ### **THE BAR, FIXED FIRST:** ### the instrument's floor as b437 priced and resolved it, ### **`1.49e-08`**
+    b444_registration_2026-09-12.txt:80 ; OUT ; - ; ### absolute -- the noise-floor gate's floor, *"All three are far above the `1.49e-08` floor"*. ### The
+    b444_the_fold.txt:15 ; OUT ; - ; **T3 — the verdict by the rule fixed on the face: STRUCTURE.** `|e|` is above the `1.49e-08` floor at **14 of 22 cells**
+    b445_closing.txt:46 ; OUT ; - ; (a) grid x2 falls at 13 of 14, 9 below the 1.49e-08 floor, median order 2.02; (b) reach to 14040.46 stable at
+    b445_registration_2026-09-12.txt:73 ; OUT ; - ; ### **THE FLOOR, THROUGHOUT:** `1.49e-08`; a value below it is the instrument's and is reported as such.
+    b445_whose_residual.txt:11 ; OUT ; - ; The 14 cells of b444’s 22 where `|e|` is above `1.49e-08`. The base reproduced the banked residual to `1e-12` at all 14.
+
+  ### THE FLOOR ARM`S DECISIONS, EVERY ONE:
+    b334_leg_covered.json:102 ; detail string <= floor
+
+  ### ### **RESIDUE -- READ BEYOND THE FACE`S MATCHERS, PRINTED AND NOT GOVERNING (BAR 3, BAR 10).**
+    (r1) STRUCTURED GATE RECORDS IN JSON, `"verdict": "X"` -- M1 cannot see them (no numeric literal on the
+         verdict line), and M2`s line dedup folds identical ones: RESOLVED 657 ; DRIFTING 0 ; AT_FLOOR 56, in 22 files
+         every AT_FLOOR record`s reason : 56 x "abs(value) = 0.000000e+00 <= floor 1.490116e-08"
+         ### ALL AT_FLOOR RECORDS ARE ON A VALUE OF EXACTLY ZERO : True -- ANY POSITIVE FLOOR REFUSES THEM, SO THE
+         ### FLOOR`S SIZE DECIDED NONE OF THEM.
+    (r2) M1 LINES WITHOUT A GATE-ROW MARK (arrow, drift, abs(value), verdict, bracket, or the word ending the row),
+         for a hand read -- the English word, not a verdict, may be what M1 caught : 18
+         _b411/row_s1.txt:1 | | S1 | S1 -- the clause stated: for every g in the source's class (Definition 3.1, with the vanishing conditio
+         b174_read_correction.txt:13 | MATCH AND AN AUTHOR MATCH -- NOT BY A RESOLVED REFERENCE ... the specific numbers 'Lemma 5.4'
+         b261_run.txt:190 | (C5) THE PROBE GRID IS RESOLVED -- points of the rho-grid below a^2 = 1.05:
+         b265_run.txt:46 | the test   : `A_n(x)` at `NQ` vs `2 NQ`, worst over the RESOLVED modes, bar 1e-08
+         b326_closure_run.txt:162 | a = 8    pole 2.78e-16 | zeta places -0.059027205 RESOLVED - | Epstein places -3.014799299 RESOLVED - (closure
+         b326_closure_run.txt:163 | a = 16   pole 3.98e-16 | zeta places -0.092401760 RESOLVED - | Epstein places -3.113975933 RESOLVED - (closure
+         b326_closure_run.txt:164 | a = 32   pole 3.38e-14 | zeta places -0.030705482 RESOLVED - | Epstein places -3.985621385 RESOLVED - (closure
+         b326_closure_run.txt:165 | a = 64   pole 6.29e-14 | zeta places -0.002170163 RESOLVED - | Epstein places -5.087111960 RESOLVED - (closure
+         b326_closure_run_first_defective.txt:131 | a = 8    pole 2.78e-16 | zeta places -0.059027205 RESOLVED - | Epstein places -3.014799299 RESOLVED - (closure
+         b326_closure_run_first_defective.txt:132 | a = 16   pole 3.98e-16 | zeta places -0.092401760 RESOLVED - | Epstein places -3.113975933 RESOLVED - (closure
+         b326_closure_run_first_defective.txt:133 | a = 32   pole 3.38e-14 | zeta places -0.030705482 RESOLVED - | Epstein places -3.985621385 RESOLVED - (closure
+         b326_closure_run_first_defective.txt:134 | a = 64   pole 6.29e-14 | zeta places -0.002170163 RESOLVED - | Epstein places -5.087111960 RESOLVED - (closure
+         b348_extract_notes.txt:54 | | line 17    ### ### ### **AND ON THE RATE AXIS THE QUESTION IS RESOLVED, AT A RESOLVING POWER OF `63.6`.**
+         b379_rescore.json:185 | "row": "| 1.5c-11 | Cartan B Domain-Ostrowski | `phase1.5/structural/CARTAN_B.md` | v2 | ◇-boundary | READY | 
+         b419_closing.txt:3 | **THE GENERAL CLAUSE IS PROVED, WITH AN EMPTY AXIOM PROFILE, ON THE FIRST PROBE.** The registration was locked
+         b419_reruns.json:24 | "**Minted 2026-08-23 at the one-sign act (b117); brought current at THE SPACE-LEVEL BARRIER (b278) — *** ### #
+         b426_extract.txt:112 | BIBLIOGRAPHY.md:51  ...quation*, Stud. Appl. Math. **138** (2017), 3–42; DOI 10.1111/sapm.12134** | ### **RESO
+         b429_statement_c.txt:7 | status RESOLVED ; bytes 203736 ; sha256 c1b5f27b1a64705cfaf1afceea513db5deedca8a18ca56ab32e7f86445a06d0c
+    (r3) THE KIND RULE`S THREE-LINE WINDOW LOSES A TABLE`S HEADING: b264`s own mode-table rows classed OUT : 11
+         (they are eigenvalue rows -- the floor`s own domain). With them read IN, OUT would be 536 of 553, share 0.969.
+    (r4) AGGREGATE LINES COUNTED N EACH : ['b334_checks_postpush.txt:89 x224'] -- the same run`s aggregate banked in more than one file counts again.
+====================================================================================================
