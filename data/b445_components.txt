@@ -1,0 +1,75 @@
+====================================================================================================
+b445 -- WHOSE RESIDUAL IT IS. ### THE COMPONENTS, RUN AFTER THE LOCK, UNDER (R57).
+====================================================================================================
+
+  ### ### **COMPONENT 1 -- DOES THE ZERO SIDE TRUNCATE? FROM THE CHAIN`S OWN SOURCE.**
+      carto_atlas.py:16 | NGAM    = 10000     banked verified ordinates
+      carto_atlas.py:27 | GAM = np.load(os.path.join(HERE, "zeta_ordinates.npy"))[:NGAM]
+      carto_atlas.py:17 | Truncation bound for the zero side is computed and printed, not assumed.
+      the library file holds 10000 ordinates, the last 9877.782657433876
+      the source`s own truncation bound, as b437 banked it : max 6.42e-11
+    ### ### **YES: THE ZERO SIDE TRUNCATES AT 10000 ORDINATES, HEIGHT 9877.782657. THE COUNT IS IN THE SOURCE; THE
+    ### ### HEIGHT IS IN THE DATA FILE THE SOURCE LOADS. THE HYPOTHESIS IS ALIVE; THE SOURCE`S BOUND PUTS ITS TAIL
+    ### ### BELOW 6.4e-11.**
+    ### (P4), declared on the face: the library differs from mpmath by up to 1.1e-04 above n = 100.
+
+  ### ### **COMPONENT 2 -- THE DISCRIMINATOR**
+    ordinates control : PASS
+    base reproduces the banked residual to 1e-12 at 14 of 14 cells
+
+    a          e base       e (a) grid   e (b) reach  a: nv only   a: NU only   rate (a)    
+    3.158312   -1.328e-07   -3.966e-08   -1.328e-07   -3.966e-08   -1.328e-07   1.74        
+    3.461088   -2.422e-07   -6.951e-08   -2.422e-07   -6.951e-08   -2.422e-07   1.80        
+    3.605551   -1.998e-07   -7.266e-08   -1.998e-07   -7.266e-08   -1.998e-07   1.46        
+    3.802776   -3.213e-07   -7.066e-09   -3.213e-07   -7.066e-09   -3.213e-07   5.51        
+    4.061553   -2.157e-07   -5.970e-08   -2.157e-07   -5.970e-08   -2.157e-07   1.85        
+    4.123106   -1.104e-07   -6.779e-08   -1.104e-07   -6.779e-08   -1.104e-07   -           
+    4.358899   -2.157e-07   -1.008e-08   -2.158e-07   -1.008e-08   -2.157e-07   4.42        
+    4.577365   -2.039e-07   +7.531e-09   -2.039e-07   +7.531e-09   -2.039e-07   4.76        
+    4.795832   +5.193e-08   +7.842e-09   +5.192e-08   +7.842e-09   +5.193e-08   2.73        
+    4.897916   +3.601e-08   +7.671e-09   +3.600e-08   +7.671e-09   +3.601e-08   2.23        
+    5.000000   -2.126e-08   -8.884e-09   -2.127e-08   -8.884e-09   -2.126e-08   1.26        
+    5.098076   +6.903e-08   +1.049e-08   +6.903e-08   +1.049e-08   +6.903e-08   2.72        
+    5.196152   +1.849e-08   -4.550e-09   +1.850e-08   -4.550e-09   +1.849e-08   2.02        
+    5.290659   -2.389e-08   -1.131e-08   -2.389e-08   -1.131e-08   -2.389e-08   1.08        
+
+    arm (a) per-cell : {'FALLS': 13, 'MOVES': 1}
+    arm (b) per-cell : {'STABLE': 14}
+    cells below the floor : base 0, arm (a) 9, arm (b) 0 -- a value below the floor is the instrument`s
+    ARM (a) : FALLS (falls 13, stable 0) ; ARM (b) : STABLE (falls 0, stable 14)
+
+  ### ### **VERDICT, BY THE RULE FIXED ON THE FACE : INTEGRATION.**
+    apparent order of arm (a), log2(|e_base| / |e_a|): median 2.02 over 13 cells
+    halves, beside and not governing: max |e(nv only) - e(a)| 4.86e-16 ; max |e(NU only) - e(base)| 7.63e-16
+
+  ### ### **COMPONENT 3 -- WHAT THE VERDICT OBLIGES**
+    ### ### **b444`S STRUCTURE VERDICT IS RESTATED AS THE CHAIN`S: THE RESIDUAL IS THE CHAIN`S INTEGRATION.**
+    ### by the halves, printed beside and not governing: the nv-only half reproduces arm (a) to 4.9e-16 and the
+    ### NU-only half reproduces the base to 7.6e-16 -- the autocorrelation grid carries it, the frequency grid does not.
+    ### **b444`s banked verdict is not edited; its owner is named here.**
+    ### **EVERY TOOL WHOSE CODE RAN THIS CHAIN, LISTED FOR ITS OWNER TO CHECK -- NONE RE-VERDICTED:**
+      b320_corroborate.py          calls autocorrelation
+      b320_run.py                  calls autocorrelation
+      b320_weil.py                 calls autocorrelation
+      b321_run.py                  calls channels, autocorrelation
+      b321_window.py               calls autocorrelation
+      b325_epstein.py              calls channels, autocorrelation, hhat_blocked
+      b325_run.py                  calls autocorrelation, hhat_blocked
+      b326_closure.py              calls autocorrelation, prime_sum, hhat_blocked
+      b326_windows.py              calls autocorrelation, prime_sum, hhat_blocked
+      b328_family.py               calls autocorrelation
+      b333_diagnose.py             calls autocorrelation
+      b334_aimmap.py               calls autocorrelation
+      b343_reach.py                calls autocorrelation
+      b344_ny.py                   calls autocorrelation
+      b437_components.py           calls channels, autocorrelation
+      b438_components.py           calls channels, autocorrelation, hhat_blocked
+      b439_components.py           calls autocorrelation
+      b440_components.py           calls hhat_blocked
+    ### 18 tools. The figures they banked rest on the chain`s default grid unless their own record says otherwise;
+    ### which of their figures are small enough for this to bear on is for their owner to check. None is re-verdicted.
+    ### ### **THE FOURTH CANDIDATE, PRICED AND NOT RUN:** the inherited ordinates` precision (P4) -- replace the
+    ### library by mpmath ordinates at 25 digits for n = 101 ... 10000 and re-run the base: about 9900 ordinates at
+    ### 1.5-3 s each, about 40 minutes on ten workers; a MEASUREMENT, outside (R57)`s two parameters.
+    ### NO CLAIM ABOUT ZEROS IN ANY BRANCH; the zero side is inherited, and the extension ordinates are mpmath`s.
+    ### ### **THE INSTRUMENT LANE OPENED BY (R57) CLOSES AT THIS ACT`S END.** No instrument built; no chain file edited.

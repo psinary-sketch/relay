@@ -1,0 +1,18 @@
+b445 -- THE SURVEY: THE FOUR PRE-FACE READS.
+  (P1/P2) carto_atlas.py:16 | NGAM    = 10000     banked verified ordinates
+  (P1/P2) carto_atlas.py:27 | GAM = np.load(os.path.join(HERE, "zeta_ordinates.npy"))[:NGAM]
+  (P1/P2) carto_atlas.py:17 | Truncation bound for the zero side is computed and printed, not assumed.
+  (P1/P2) carto_atlas.py:11 | NV      = 4001      v-grid points on [-log a, log a]
+  (P1/P2) carto_atlas.py:12 | NU      = 12001     u-grid points
+  (P1/P2) carto_atlas.py:13 | UMAX    = 600.0     u-range; hhat decays faster than any polynomial,
+  (P1) library : 10000 ordinates ; first 14.134725141734695 ; last 9877.782657433876
+  (P3) zetazero(10001) = 9878.654772385693 (1.9s) ; above the library`s last : True
+  (P4) n=10     library 49.773832477672 mpmath 49.773832477672 diff 0.00e+00
+  (P4) n=100    library 236.524229665816 mpmath 236.524229665816 diff 0.00e+00
+  (P4) n=500    library 811.184307606372 mpmath 811.184358846506 diff 5.12e-05
+  (P4) n=1000   library 1419.422592491851 mpmath 1419.422480945996 diff 1.12e-04
+  (P4) n=2000   library 2515.286420650648 mpmath 2515.286482924713 diff 6.23e-05
+  (P4) n=5000   library 5447.861996309814 mpmath 5447.861998301300 diff 1.99e-06
+  (P4) n=8000   library 8148.188391843806 mpmath 8148.188405804627 diff 1.40e-05
+  (P4) n=10000  library 9877.782657433876 mpmath 9877.782654005501 diff 3.43e-06
+  ### READS 16 ; MISSES : 0

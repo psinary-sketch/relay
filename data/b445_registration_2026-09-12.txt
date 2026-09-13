@@ -1,0 +1,174 @@
+====================================================================================================
+### THE REGISTRATION. ### 2026-09-12. ### CONCURRENCY: SOLO (research seat).
+### ### **LOCKED BEFORE ANY WRITE.**
+### ### **b445 -- WHOSE RESIDUAL IT IS.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 1 OF 1** ### with its paste-end marker, received IN FULL, banked
+### as `b445_ferry.txt`, carrying the `(R54)` line; the seat's scan agrees: ### **`0` HIT(S)
+### REPORTED.** ### **THE PRIOR ACT (`b444`) IS CLOSED**: row 293 by its own marker.
+### ### **THIS PASTE RATIFIES ONE RULING, ENTERED HERE:** ### `(R57)` -- the instrument lane opens for
+### the residual's owner and nothing else: the SAME chain, at the SAME cells, with two parameters
+### varied -- the quadrature grid and the zero library's reach; no new instrument, family, cell or
+### radius; it closes at this act's end.
+### ### **THE LANE STATE:** ### the instrument lane ### **OPEN UNDER `(R57)` ONLY**; the KERNEL lane open
+### to read; the wave parked; nothing deposits.
+### ### **STEP ZERO:** ### censuses ### **TOTAL MISSING `0`**; roster ### **`0` HARD-FAILING.**
+### ### **THE SEAL IS CHAINED ON THE LOCK GATE'S EXIT CODE WITH `&&`, AND `reg_seal.py` READS
+### `b445_lockgate.json` ITSELF.**
+
+### ### **FOUR READS TAKEN BEFORE THIS FACE, DECLARED SO THEY CANNOT LOOK DISCOVERED LATER:**
+### **(P1) COMPONENT 1'S ANSWER, FROM THE CHAIN'S OWN SOURCE.** ### `tools/e16/carto_atlas.py` declares
+### *"NGAM = 10000 banked verified ordinates"* and loads `zeta_ordinates.npy`[:NGAM]; the file holds
+### exactly `10000`, the first `14.134725141734695`, the last ### **`9877.782657433876`**. ### **THE ZERO
+### SIDE TRUNCATES THERE.** ### The same source prints a truncation bound, *"computed and printed, not
+### assumed"* -- the tail's largest sample over `[T, T + 200]` times `200` -- which b437 banked per cell as
+### `bound`, largest `6.4e-11`. ### **SO THE HYPOTHESIS IS ALIVE, AND THE SOURCE'S OWN BOUND ALREADY
+### PREDICTS ITS TAIL IS FAR SMALLER THAN `e`**; the bound is a heuristic, not a proof, and arm (b) tests
+### it.
+### **(P2) THE CHAIN, AS b437 RAN IT:** `SM.mean_zero_variant(a)` -> `SQ.autocorrelation(g, nv)` ->
+### `b321_window.channels(v, w)`, with `nv = 8193`, `U = linspace(-UMAX, UMAX, NU)`, `NU = 12001`,
+### `UMAX = 600`, and the library above. ### **TWO QUADRATURE GRIDS:** the autocorrelation grid `nv`,
+### and the frequency grid `NU` for the archimedean channel. ### **AND ONE CACHE:** `carto_atlas.kernel`
+### keeps the first grid it is given (b440's finding), so a changed `NU` is run with the cache cleared --
+### ### **A PARAMETER VARIED, NOT A FILE EDITED.**
+### **(P3) EXTENDING THE REACH MEANS COMPUTING ORDINATES.** ### `mpmath.zetazero(10001)` =
+### `9878.654772385693`, continuing the library just past its last entry; each costs `1.5`-`3` seconds.
+### **(P4) THE LIBRARY'S OWN PRECISION FALLS WITH HEIGHT.** ### Against `mpmath.zetazero` at 25 digits the
+### library agrees exactly at `n` = 10 and 100, and differs by `5.1e-05` at 500, `1.1e-04` at 1000,
+### `6.2e-05` at 2000, `2.0e-06` at 5000, `1.4e-05` at 8000 and `3.4e-06` at 10000. ### **THAT IS A FOURTH
+### CANDIDATE OWNER -- THE INHERITED ORDINATES' PRECISION -- WHICH NEITHER ARM VARIES AND `(R57)` DOES NOT
+### OPEN.** ### It is named here and priced in Component 3, not tested.
+
+### ### **THE FOUR READINGS, DECLARED IN ADVANCE:**
+### (0) ### **ORIENTATION, STEP ZERO, THE RULING, THE LANE**, as above.
+### (1) ### **COMPONENT 1 -- THE THIRD HYPOTHESIS, ANSWERED FROM THE SOURCE** ### as (P1): the zero side
+### truncates at `10000` ordinates, height `9877.782657433876`; the hypothesis is not dead; its source's
+### bound is printed beside it.
+### (2) ### **COMPONENT 2 -- THE DISCRIMINATOR, EVERY PARAMETER FIXED HERE.**
+### **THE CELLS:** the `14` of b444's `22` where `|e| > 1.49e-08`, read from `b444_decorrelation.json`.
+### **BASE:** each cell re-run exactly as b437 ran it, and ### **REQUIRED TO REPRODUCE THE BANKED
+### RESIDUAL TO `1e-12` ABSOLUTE**, far below the floor, before any arm is read; a cell that does not
+### reproduce is dropped and named.
+### **ARM (a) -- THE QUADRATURE GRID, FACTOR `2`:** `nv` from `8193` to `16385` AND `NU` from `12001` to
+### `24001`, together, as the one parameter *quadrature resolution*; `UMAX` and the library fixed. ### The
+### two halves -- `nv` alone and `NU` alone -- are also run and ### **PRINTED BESIDE, NOT GOVERNING.**
+### **ARM (b) -- THE ZERO LIBRARY'S REACH, FACTOR `1.5` IN COUNT:** the banked `10000` ordinates plus
+### `mpmath.zetazero(n)` for `n = 10001 ... 15000` at 25 digits, reaching height about `14040`; grids at
+### base. ### The new ordinates are banked as `data/b445_ordinates_10001_15000.npy`;
+### ### **`zeta_ordinates.npy` IS NOT EDITED.** ### Control: the computed `n = 10001` must lie above the
+### library's last entry, and the array must be strictly increasing.
+### **THE DECISION RULE, FIXED FIRST:** ### for an arm and a cell, `e` ### **FALLS** if
+### `|e_arm| <= 0.5 |e_base|` or `|e_arm|` is below the floor; ### **IS STABLE** if
+### `|e_arm - e_base| <= 0.1 |e_base|`; otherwise it ### **MOVES WITHOUT FALLING.** ### An arm ### **FALLS**
+### if `e` falls at `>= 8` of the `14` cells, and ### **IS STABLE** if stable at `>= 12`.
+### ### **INTEGRATION** = (a) falls and (b) stable. ### **TRUNCATION** = (b) falls and (a) stable. ###
+### **UNDETERMINED** = both stable. ### **AND ANY OTHER COMBINATION IS REPORTED AS WHAT IT IS -- `BOTH
+### MOVE`, `MIXED` -- WITH THE CELLS, NOT FORCED INTO ONE OF THE THREE.**
+### **THE CONVERGENCE RATE,** where arm (a) falls: `log2(|e_base| / |e_a|)` per cell, the apparent order
+### for a factor-`2` refinement.
+### **THE FLOOR, THROUGHOUT:** `1.49e-08`; a value below it is the instrument's and is reported as such.
+### (3) ### **COMPONENT 3 -- WHAT THE VERDICT OBLIGES**, as the order states for each, with the banked
+### figures resting on the chain listed and none re-verdicted; and ### **THE PRECISION OF THE INHERITED
+### ORDINATES (P4) PRICED AS THE THIRD TEST, NOT RUN.** ### No claim about zeros; the zero side is
+### inherited.
+
+----------------------------------------------------------------------------------------------------
+### (S) WHAT STOPPING MEANS.
+----------------------------------------------------------------------------------------------------
+### If fewer than `8` of the `14` cells reproduce the banked residual at base, no arm is read and the
+### verdict is ### **NOT DECIDED -- THE CHAIN DOES NOT REPRODUCE ITS BANK.** ### If the computed ordinates
+### fail their control, arm (b) is not read. ### If a run cannot complete in the act, the arms that did
+### run are reported and the rest named ### **NOT RUN.**
+### ### **NO FILE OF THE CHAIN IS EDITED; NO NEW CELL OR RADIUS; NO NEW FAMILY.**
+
+----------------------------------------------------------------------------------------------------
+### (J) THE EXPECTATIONS, EACH OVER A POPULATION THIS FACE NAMES (`R26`).
+----------------------------------------------------------------------------------------------------
+### `(N1)` -- the navigator's, over the chain's source. ### **TWO CLAUSES APART** (`R27`): ### (a) the zero
+### side ### **DOES TRUNCATE**; ### (b) the library's height ### **IS STATED IN THE CHAIN'S OWN SOURCE.**
+### `(N2)` -- the navigator's, over the `14` cells and two arms, which share no varied parameter: ### **ARM (b) MOVES `e`, ARM (a) DOES
+### NOT; THE OWNER IS TRUNCATION.**
+### ### **AND THIS SEAT'S OWN:** ### (N1)(a) ### **HELD** ### (P1); ### (N1)(b) ### **HALF HELD** -- the
+### COUNT is stated in the source, the HEIGHT only in the data file it loads; ### (N2) ### **REFUTED** --
+### the source's bound puts the tail thousands of times below `e`.
+### ### **THE SEAT PREDICTS NO ARTIFACT COUNT AND NO MEASURED VALUE ON THIS FACE** (`C10`).
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM RUNS OVER THIS ACT'S OWN BANK.**
+### ### **THE SUITE IS READ TWICE INTO TWO FILES** -- pre-push, before this act's commit reaches the
+### remote, and post-push, after it -- the side decided by b439's predicate.
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-R54-LINE-PRESENT` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED` `G-R57-ENTERED`
+### `G-ADDENDUM-SLOT-DECLARED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED`
+### `G-C1-TRUNCATION-FROM-SOURCE` `G-C1-HEIGHT-STATED` `G-C1-BOUND-PRINTED`
+### `G-C2-FOURTEEN-CELLS` `G-C2-BASE-REPRODUCES` `G-C2-ARM-A-RUN` `G-C2-ARM-A-HALVES-BESIDE`
+### `G-C2-ARM-B-RUN` `G-C2-ORDINATES-CONTROL` `G-C2-LIBRARY-UNEDITED` `G-C2-E-EVERY-CELL-EVERY-ARM`
+### `G-C2-RULE-APPLIED` `G-C2-RATE-WHERE-CONVERGES` `G-C2-FLOOR-GOVERNS`
+### `G-C3-OBLIGATION-STATED` `G-C3-CHAIN-FIGURES-LISTED` `G-C3-NONE-REVERDICTED` `G-C3-FOURTH-OWNER-PRICED`
+### `G-C3-NO-ZERO-CLAIM` `G-N1-APART` `G-N2-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOCHAIN-FILE-EDITED` `G-NONEWCELL` `G-NOFETCH` `G-NOGRADE-MOVED` `G-NOKERNEL-WRITE` `G-NODEPOSIT`
+### `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN` `G-NOTECHNE-WRITE` `G-CORPUS-SCOPE`
+### `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-WRITELIST-KINDS` `G-NOSTAGE-A`
+### `G-ARMS-DECLARED-EQ-RUN` `G-ARMS-NO-SUBSTRING-VERDICT` `G-TWO-READINGS-TWO-FILES`
+### `G-PUSH-SIDE-B439-PREDICATE` `G-PREPUSH-FILE-EXISTS` `G-LANE-CLOSED-SAID` `G-MUSTFAIL`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED AT THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (K) THE BARS. ### TEN.
+----------------------------------------------------------------------------------------------------
+### **BAR 1 -- THE ANSWER TO COMPONENT 1 COMES FROM THE CHAIN'S SOURCE, QUOTED.**
+### **BAR 2 -- EVERY FACTOR, TOLERANCE AND DECISION RULE IS ON THIS FACE BEFORE ANY ARM'S VALUE.**
+### **BAR 3 -- THE BASE MUST REPRODUCE THE BANK BEFORE AN ARM IS READ AGAINST IT.**
+### **BAR 4 -- ONE PARAMETER PER ARM**; the halves of arm (a) are printed beside and do not govern.
+### **BAR 5 -- A VERDICT OUTSIDE THE THREE NAMED IS REPORTED AS WHAT IT IS, NOT FORCED.**
+### **BAR 6 -- A RESIDUAL THAT SURVIVES IS UNDETERMINED, NEVER THE OBJECT'S.**
+### **BAR 7 -- A PARAMETER IS VARIED WITHOUT EDITING THE CHAIN'S FILES**; computed ordinates are banked
+###   apart from the library they extend.
+### **BAR 8 -- THE LANE CLOSES AT THIS ACT'S END, AND THE CLOSING SAYS SO.**
+### **BAR 9 -- THE ARM DISCIPLINE, CARRIED WHOLE**, the push side by b439's predicate, the seal chained on
+###   an exit code the shell honours.
+### **BAR 10 -- A MISS IS PRINTED, NEVER PATCHED**, and a refuted expectation -- this seat's as readily as
+###   the navigator's -- is printed as refuted.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER `(R47)` AND `(R50)`.**
+----------------------------------------------------------------------------------------------------
+### **RELAY, `tools/`:** ### `b445_extract.py`, `b445_regspec.py`, `b445_reg_gate.py`, `b445_components.py`,
+###   `b445_ordinates.py`, `b445_checks.py`, `b445_desk_bank.py`; `banked_index.py`. ### **GENERATOR:**
+###   further act tools, ### **BOUND `2`.** ### **ADDENDUM SLOT:** ### `data/b445_addendum.txt`.
+### **RELAY, `data/`:** ### `b445_ferry.txt`, `b445_ferry_scan.txt`, `b445_census_stepzero.txt`,
+###   `b445_faces_census_stepzero.txt`, `b445_pins_stepzero.txt`, `b445_extract.txt`,
+###   `b445_registration_2026-09-12.txt`, `b445_reg_gate.txt`, `b445_reg_termscan.txt`, `b445_regspec_run.txt`,
+###   `b445_satisfiable.json`, `audit_b445_reg_satisfiable.txt`, `b445_lockgate.json`, `b445_lockgate_notes.txt`,
+###   `b445_ordinates_10001_15000.npy`, `b445_ordinates_run.txt`, `b445_components.txt`, `b445_arms.json`,
+###   `b445_checks.txt`, `b445_checks_postpush.txt`, `b445_desk_notes.txt`, `b445_whose_residual.txt`,
+###   `b445_closing.txt`, `b445_census_closing.txt`, `b445_faces_census_closing.txt`, `b445_pins_final.txt`;
+###   ### **AND `b369_hooks.txt`, `b369_hygiene.json`, `b373_pins.json`, WHICH THE RITUAL REWRITES.**
+### **PLACE-papers:** ### `OPEN_TRAILS.md`, ### **APPENDED ONLY**.
+### **SIDE-global-section:** ### `CORRESPONDENCE.md`, ### **APPENDED ONLY**, one row.
+### ### **NO OTHER FILE IN ANY REPOSITORY IS WRITTEN** -- not `carto_atlas.py`, `zeta_ordinates.npy`,
+### `b321_window.py`, `b318_square.py`, `b317_smear.py`, nor any banked cell.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### NO DEPOSIT ACTION. ### NOTHING FETCHED. ### NO KERNEL BUILT. ### **NO INSTRUMENT BUILT; NO FILE OF THE
+### CHAIN EDITED; NO NEW FAMILY, CELL OR RADIUS.** ### **NO CLAIM ABOUT RH, `h2`, OR ANY ZERO** -- the
+### ordinates computed here extend a library and are claimed to be nothing more than `mpmath.zetazero`'s
+### output. ### NO GRADE MOVED. ### NO KEYSTONE, LEDGER ROW OR CELL WRITTEN. ### NO BANKED FIGURE
+### RE-VERDICTED. ### NO RULE STRUCK. ### NO LOCKED FACE EDITED. ### NO PRIOR ACT'S BANK EDITED. ### NO LIST
+### OF THE FOUR CLOSED. ### ### **AND `h2` WHERE THE DEPOSIT LEFT IT.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : b6794df459e34715ffb64364462020878c01d682264c37bdc0922e7ba70ec654
+### bytes locked : 13964
+### locked at (UTC) : 2026-09-13T00:16:07Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b445_registration_2026-09-12.txt`.**
+====================================================================================================

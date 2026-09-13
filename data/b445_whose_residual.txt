@@ -1,0 +1,61 @@
+====================================================================================================
+b445 -- WHOSE RESIDUAL IT IS.
+THE BANK.
+====================================================================================================
+
+### b445 — whose residual it is — filed 2026-09-12
+**The residual b444 found above the floor is the chain’s integration. Doubling the autocorrelation grid makes it fall at 13 of 14 cells; extending the zero library by half again leaves it where it was. The navigator’s truncation hypothesis is refuted at the measured size. The instrument lane `(R57)` opened for this and closed at the act’s end.**
+#### Component 1 — does the zero side truncate?
+**Yes, from the chain’s own source.** `tools/e16/carto_atlas.py` declares `NGAM = 10000` banked verified ordinates and loads `zeta_ordinates.npy[:NGAM]`; the file’s last ordinate is **9877.782657433876**. The count is in the source; the height is only in the data file the source loads. The same source computes a truncation bound, which b437 banked per cell, largest **6.42e-11**. The hypothesis was alive when it was tested.
+#### Component 2 — the discriminator
+The 14 cells of b444’s 22 where `|e|` is above `1.49e-08`. The base reproduced the banked residual to `1e-12` at all 14. **Arm (a):** `nv` 8193 → 16385 and `NU` 12001 → 24001 together; the halves were run beside and did not govern. **Arm (b):** the library plus `mpmath.zetazero(n)` for n = 10001 … 15000 at 25 digits, reaching 14040.459877072935; control passed; `zeta_ordinates.npy` not edited. Rule, fixed on the face: a cell FALLS if `|e_arm| ≤ 0.5|e_base|` or below the floor, is STABLE if `|e_arm − e_base| ≤ 0.1|e_base|`; an arm FALLS at ≥ 8 cells and is STABLE at ≥ 12.
+| a | e base | e (a) grid | e (b) reach | (a) nv only | (a) NU only | rate (a) | (a) | (b) |
+|:--|--:|--:|--:|--:|--:|--:|:--|:--|
+| 3.158312 | -1.328e-07 | -3.966e-08 | -1.328e-07 | -3.966e-08 | -1.328e-07 | 1.74 | FALLS | STABLE |
+| 3.461088 | -2.422e-07 | -6.951e-08 | -2.422e-07 | -6.951e-08 | -2.422e-07 | 1.80 | FALLS | STABLE |
+| 3.605551 | -1.998e-07 | -7.266e-08 | -1.998e-07 | -7.266e-08 | -1.998e-07 | 1.46 | FALLS | STABLE |
+| 3.802776 | -3.213e-07 | -7.066e-09 | -3.213e-07 | -7.066e-09 | -3.213e-07 | 5.51 | FALLS | STABLE |
+| 4.061553 | -2.157e-07 | -5.970e-08 | -2.157e-07 | -5.970e-08 | -2.157e-07 | 1.85 | FALLS | STABLE |
+| 4.123106 | -1.104e-07 | -6.779e-08 | -1.104e-07 | -6.779e-08 | -1.104e-07 | — | MOVES | STABLE |
+| 4.358899 | -2.157e-07 | -1.008e-08 | -2.158e-07 | -1.008e-08 | -2.157e-07 | 4.42 | FALLS | STABLE |
+| 4.577365 | -2.039e-07 | +7.531e-09 | -2.039e-07 | +7.531e-09 | -2.039e-07 | 4.76 | FALLS | STABLE |
+| 4.795832 | +5.193e-08 | +7.842e-09 | +5.192e-08 | +7.842e-09 | +5.193e-08 | 2.73 | FALLS | STABLE |
+| 4.897916 | +3.601e-08 | +7.671e-09 | +3.600e-08 | +7.671e-09 | +3.601e-08 | 2.23 | FALLS | STABLE |
+| 5.000000 | -2.126e-08 | -8.884e-09 | -2.127e-08 | -8.884e-09 | -2.126e-08 | 1.26 | FALLS | STABLE |
+| 5.098076 | +6.903e-08 | +1.049e-08 | +6.903e-08 | +1.049e-08 | +6.903e-08 | 2.72 | FALLS | STABLE |
+| 5.196152 | +1.849e-08 | -4.550e-09 | +1.850e-08 | -4.550e-09 | +1.849e-08 | 2.02 | FALLS | STABLE |
+| 5.290659 | -2.389e-08 | -1.131e-08 | -2.389e-08 | -1.131e-08 | -2.389e-08 | 1.08 | FALLS | STABLE |
+**Verdict by the rule: INTEGRATION.** Arm (a) falls at 13 of 14 (9 below the floor, which makes them the instrument’s), apparent order about 2.0; arm (b) is stable at 14 of 14, largest shift 2.1e-11, inside the source’s bound. The halves settle which grid carries it: `nv` alone reproduces arm (a) to 4.9e-16, and `NU` alone reproduces the base to 7.6e-16. **So it is the autocorrelation grid, not the frequency grid.** **What is not decided:** after one doubling, 5 cells are still above the floor (largest 7.27e-08), and cell 4.123106 moves without falling. The act does not claim that further refinement removes them, because that was not measured.
+#### Component 3 — what the verdict obliges
+b444’s STRUCTURE verdict is restated as the chain’s. b444’s bank is not edited. The 18 tools whose code calls this chain are listed in `data/b445_components.txt` for their owners to check, and none is re-verdicted. **The fourth candidate**, the inherited ordinates’ precision (the library differs from mpmath by up to `1.1e-04` above n = 100), is priced at about 40 minutes on ten workers and not run: it is outside `(R57)`. No claim about zeros in any branch. The zero side is inherited, and the extension ordinates are mpmath’s and nothing more.
+#### The expectations
+| | the navigator’s | verdict |
+|:--|:--|:--|
+| (N1)(a) | the zero side does truncate | **HELD** — 10000 ordinates, height 9877.78 |
+| (N1)(b) | the library’s height is stated in the chain’s own source | **HALF HELD** — the count is in the source; the height only in the data file it loads |
+| (N2) | arm (b) moves e and arm (a) does not; the owner is truncation | **REFUTED** — (a) falls at 13 of 14; (b) stable at 14 of 14 |
+This seat’s own, from the face: (N1)(a) held — **HELD**; (N1)(b) half held — **HELD**; (N2) refuted — **HELD**.
+**The instrument lane opened by `(R57)` is closed.** The four lists are open.
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE.
+----------------------------------------------------------------------------------------------------
+  arms run 56 ; passing 56 ; failing 0
+  gates read 8 ; checked by digest 4
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  whose residual it is (b444`s standing item)                            CLOSE
+  the third hypothesis: e is the zero sum`s truncation tail              CLOSE
+  what the grid refinement leaves                                        STAND
+  the chain`s other users                                                STAND
+  the fourth candidate: the inherited ordinates` precision               STAND
+  W-ORD-SPAN-HEADING                                                     STAND
+  the instrument lane under (R57)                                        CLOSE
+
+  ITEMS SWEPT : 7. CLOSED : 3. STANDING : 4.
+
+  CORRESPONDENCE ROW : 294. ### KEY : PASS.
+
+====================================================================================================
