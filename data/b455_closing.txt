@@ -1,0 +1,86 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b455 -- THE DEPOSIT'S EXHAUSTIVENESS CLAIM READ AGAINST ITS OWN ROUTE TERMINAL. ### 2026-09-14.
+### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1). ### KERNEL LANE READ ONLY.
+====================================================================================================
+
+  ferry            : part 1 of 1, IN FULL, scanned line present; 0 hits
+  registration     : LOCKED BEFORE ANY CLAIM WAS CLASSIFIED, sha256 816a9bfb10d1656d...; SEAL INTACT; lock gate 8 of 8, 4 by digest; not redirected
+  arms             : 62 DECLARED; pre-push 61 RUN 61 PASSING 0 FAILING, 1 DEFERRED; post-push 62 RUN 62 PASSING 0 FAILING
+  censuses / pins  : TOTAL MISSING 0 both; HARD-FAILING 0 both
+  mirror           : mirror-refresh-2026-09-14-b455.zip CLEAN ON ALL THREE CLAUSES at 500de25
+  guard            : EXERCISED AND PASSING -- 0 FAILING, 0 SKIPPED, 4 EXERCISED
+  correspondence   : row 304 (SIDE-global-section 2f402d5)
+  PLACE-papers     : OPEN_TRAILS.md +1 record (500de25); ERRATA, README, REGISTRY, FINDINGS, the deposited copy untouched
+  relay            : 4c38622 (the act); HELD-only commits newly in HEAD 0; TECHNE-Core untouched; SIDE-kernel unwritten, no lean run
+  nothing          : deposits; is written at Zenodo; is fetched
+  span by tool     : 2 acts (b454-b455)
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- WHAT THE DEPOSIT CLAIMS.
+----------------------------------------------------------------------------------------------------
+  surfaces: S1 monograph record v1.1.2 description (banked b359) ; S2 kernel record v1.5 -- DESCRIPTION NOT HELD BY THE RECORD, the tag's
+  .zenodo.json read as S2' ; S3 PLACE-papers README ; S4 deposited §25.8 (MD5 = the record's checksum, VERIFIED AS DEPOSITED) ; S5 kernel README at v1.5
+  items 20 by the word test, each hand-read ; claims 6 ; observed outside the yield: SIDE-kernel@v1.5 README.md:97 'SE proved'
+    C1 MANUSCRIPT-RESIDENT b359_fetch_F2.json:description paragraph 2
+        "The seven mechanism classes are proven exhaustive via Ostrowski's classification and the structure of ξ(s); no class produces the algebraic signature of an off-line zero; independe"
+    C2 MACHINE-CHECKED     b359_fetch_F2.json:description paragraph 4
+        "Proved and machine-checked around the argument: the exhaustiveness of the seven-class catalogue over the places of ℚ;"
+    C3 MACHINE-CHECKED     SIDE-kernel@v1.5:.zenodo.json "description"
+        "The kernel proves that no off-line zero exists by exhaustively excluding every mechanism class derivable from the specification."
+    C4 MACHINE-CHECKED     outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md:1659
+        "| Route 1 — structural exhaustiveness, unconditional in Lean | `structural_exhaustiveness_proved` | `Bridge/TheBridgeComplete.lean` | propext, Classical.choice, Quot.sound |"
+    C5 MACHINE-CHECKED     outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md:1669
+        "**On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states"
+    C6 MACHINE-CHECKED     SIDE-kernel@v1.5:README.md:60
+        "- `structural_exhaustiveness_proved` in `Bridge/TheBridgeComplete.lean` — the seven mechanism classes are exhaustive, and cross-class exclusion shows no class produces the algebrai"
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE GRADE TABLE, AT v1.5 = 0e5233f (git show; profiles printed at v1.2 only, AT v1.5 UNREAD; no lean run).
+----------------------------------------------------------------------------------------------------
+  claim  backing              structural_exhaustiveness_proved   techne_kernel.SIDE_exclusion
+  C1     MANUSCRIPT-RESIDENT  NOT THE CLAIM                      INTERFACES (premise cat : ExhaustiveCatalogue X P)
+  C2     MACHINE-CHECKED      NOT THE CLAIM                      INTERFACES (premise cat : ExhaustiveCatalogue X P)
+  C3     MACHINE-CHECKED      NOT THE CLAIM                      INTERFACES (premise cat : ExhaustiveCatalogue X P)
+  C4     MACHINE-CHECKED      DERIVES                            NOT THE CLAIM
+  C5     MACHINE-CHECKED      DERIVES                            NOT THE CLAIM
+  C6     MACHINE-CHECKED      NOT THE CLAIM                      INTERFACES (premise cat : ExhaustiveCatalogue X P)
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE DISPOSITION, ROUTED AND NOT TAKEN.
+----------------------------------------------------------------------------------------------------
+  ### DEPOSIT-LEVEL MATTER: C2 and C6 -- MACHINE-CHECKED and NOT THE CLAIM at their own named terminal
+      C2: the monograph record v1.1.2 description, paragraph 4; C6: SIDE-kernel README.md:60 at tag v1.5 (unchanged at HEAD)
+  test not applied: C3 (own named terminal UNNAMED)
+  (i) an ERRATA entry against the deposited version
+      writes: PLACE-papers ERRATA.md, one appended entry in the deposit-facing section (the partition at ERRATA.md:269), in E-2026-07-12-1`s form: affected deposits (monograph v1.1.2, 10.5281/zenodo.21539167; SIDE-kernel v1.5, 10.5281/zenodo.21
+      zenodo: none to write it; a holder of the deposited copy meets it only in a later deposited ERRATA.md, which is a deposit
+      acts  : one act that writes ERRATA, under a face; ERRATA`s own document class is routed to the author (its head)
+  (ii) a narrowing of the claim in the live line ahead of any wave
+      writes: the live surfaces that still carry the claim: SIDE-kernel README.md at HEAD (:60 reads as at v1.5), and the next monograph record`s description text, whose staged source is NOT LOCATED in PLACE-papers or the relay reports
+      zenodo: none until a wave; the narrowed text reaches the deposit only when a new version is deposited
+      acts  : one act opening the kernel lane for a README write, and the wave that carries the description
+  (iii) a version note under (R20)`s currency obligation
+      writes: a note that the deposited sentences are historical beside the pin: the live REGISTRY lineage row (REGISTRY.md:671) and/or the front door (README.md:15)
+      zenodo: a note on the record itself would be a metadata edit of a published version -- a Zenodo action, the kind E-2026-08-24-2 routed and did not take
+      acts  : one act for the live note; any record-side note is the author`s Zenodo action
+  ### NONE RECOMMENDED. NONE TAKEN.
+  ### NOT AT ISSUE: whether the manuscript proves exhaustiveness; whether Route 2, Route 3 or any other terminal is affected.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 4 -- THE DEFECTIVE PATTERN.
+----------------------------------------------------------------------------------------------------
+  OPEN_TRAILS-archive-2:7971, third item "Euler-product consumption at Face E's Tier-1 scope verbatim" = T3 (line order, T8-T10 labelled; spec row :34)
+  ### THE LINE STATES THE ITEM. COUNTS: ADDED 8 ; HELD BY NO LEDGER 7. b454's credited figure stands; b454's bank unedited; no annotation written.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+  (N1) a deposited surface states exhaustiveness as machine-checked : HELD -- 5 claims; "Proved and machine-checked around the argument: the
+       exhaustiveness of the seven-class catalogue over the places of Q"
+  (N2) it grades NOT THE CLAIM at the deposited pin : HELD for C2, C3, C6 ; REFUTED for C4, C5 (literal conjuncts, DERIVES)
+  (N3) the archive line states the item; counts eight and seven : HELD
+
+  ### BOTH INSTRUMENT LANES PARKED. ### THE FOUR LISTS ARE OPEN.
+  ### NO GRADE MOVED ON ANY ROW; NO DISPOSITION TAKEN; NOTHING DEPOSITS; NO CLAIM ABOUT RH OR ANY ZERO.
+  ### AND h2 WHERE THE DEPOSIT LEFT IT.
+====================================================================================================
