@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-deposits-exhaustiveness-claim-read-against-its-route-terminal': ['deposit exhaustiveness claim machine-checked', 'structural_exhaustiveness_proved graded per claim', 'route 1 not the claim at v1.5', 'deposit-level matter dispositions priced', 'T3 tier-1 scope archive line counts eight and seven'],
     'r63-executed-under-r64-and-the-span-heading-repaired': ['r63 executed under r64', 'held branch lines moved to merged fast-forward', 'era findings held by no ledger', 'enumera nearest terminal', 'span heading work-order repaired'],
     'the-residue-and-reconciliation-arc-folded': ['the residue and reconciliation arc folded', 'fold b445 b452', 'the fold at span eight', 'carried arm failure b452_dump', 'rulings R61 R62 R63 R64 status'],
     'the-class-boundary-read-by-its-side-and-the-six-sites': ['which side is the class boundary on', 'object-side source-side undecided', 'are the six sites a closed enumeration', 'row U1 sites generator', 'two-kinds windows verdict as a re-expression'],
@@ -708,6 +709,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE DEPOSIT`S EXHAUSTIVENESS CLAIM READ AGAINST ITS OWN ROUTE TERMINAL (b455).
+    ('the-deposits-exhaustiveness-claim-read-against-its-route-terminal', "b455 (the deposit's exhaustiveness claim read against its own route terminal)",
+     'b455 READ THE DEPOSIT`S EXHAUSTIVENESS CLAIMS: 5 MACHINE-CHECKED OF 6; AT v1.5 structural_exhaustiveness_proved GRADES NOT THE CLAIM AGAINST THE CATALOGUE`S EXHAUSTIVENESS AND DERIVES AGAINST THE CONCORDANCE`S LITERAL READING; DEPOSIT-LEVEL C2 AND C6, THREE DISPOSITIONS PRICED, NONE TAKEN. COUNTS 8 AND 7 STAND. NO CLAIM ABOUT ZEROS.',
+     '### NO GRADE MOVED ON ANY ROW. ### RELATIONS GRADED IN THE RECORD ONLY. ### NOTHING DEPOSITS. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b455_the_claim_and_its_terminal.txt; data/b455_components.txt; data/b455_claims.json; data/b455_terminals.json; data/b455_dispositions.json; data/b455_line.json; data/b455_registration_2026-09-14.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 304'),
     # ### (R63) EXECUTED UNDER (R64), AND THE SPAN-HEADING WORK-ORDER REPAIRED (b454).
     ('r63-executed-under-r64-and-the-span-heading-repaired', 'b454 ((R63) executed under (R64), and the span-heading work-order repaired)',
      'b454 EXECUTED (R63) UNDER (R64): 8 OF 8 BRANCH LINES MOVED TO MERGED BY FAST-FORWARD; OF 15 ERA FINDINGS, 7 ADDED BESIDE A PRE-b450 LEDGER LINE AND 8 HELD BY NO LEDGER; 1.5a-7 v0.18, 1.5a-8 AND 1.5h-9 UNGRADED. ENUMERA: NO TERMINAL DERIVES; THE CENSUS STAYS AT FIFTEEN OF SIXTEEN. W-ORD-SPAN-HEADING REPAIRED. NO CLAIM ABOUT ZEROS.',

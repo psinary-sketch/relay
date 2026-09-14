@@ -1,0 +1,103 @@
+{
+ "deposit_level": [
+  "C2",
+  "C6"
+ ],
+ "not_applied": [
+  "C3"
+ ],
+ "dispositions": [
+  {
+   "name": "(i) an ERRATA entry against the deposited version",
+   "writes": "PLACE-papers ERRATA.md, one appended entry in the deposit-facing section (the partition at ERRATA.md:269), in E-2026-07-12-1`s form: affected deposits (monograph v1.1.2, 10.5281/zenodo.21539167; SIDE-kernel v1.5, 10.5281/zenodo.21520474), the affected passages (S1 paragraph 4; SIDE-kernel@v1.5 README.md:60), the correction and the date",
+   "repos": "PLACE-papers only; no kernel file",
+   "zenodo": "none to write it; a holder of the deposited copy meets it only in a later deposited ERRATA.md, which is a deposit",
+   "unchanged": "the v1.1.2 record`s description and files and the v1.5 tag`s README stay as deposited (E-2026-08-24-2`s precedent: platform content on immutable records)",
+   "acts": "one act that writes ERRATA, under a face; ERRATA`s own document class is routed to the author (its head)"
+  },
+  {
+   "name": "(ii) a narrowing of the claim in the live line ahead of any wave",
+   "writes": "the live surfaces that still carry the claim: SIDE-kernel README.md at HEAD (:60 reads as at v1.5), and the next monograph record`s description text, whose staged source is NOT LOCATED in PLACE-papers or the relay reports",
+   "repos": "SIDE-kernel (a kernel-lane write; the lane is read only at this act) and wherever the author stages the next description",
+   "zenodo": "none until a wave; the narrowed text reaches the deposit only when a new version is deposited",
+   "unchanged": "every deposited record and tag, until that deposit",
+   "acts": "one act opening the kernel lane for a README write, and the wave that carries the description"
+  },
+  {
+   "name": "(iii) a version note under (R20)`s currency obligation",
+   "writes": "a note that the deposited sentences are historical beside the pin: the live REGISTRY lineage row (REGISTRY.md:671) and/or the front door (README.md:15)",
+   "repos": "PLACE-papers only for the live note",
+   "zenodo": "a note on the record itself would be a metadata edit of a published version -- a Zenodo action, the kind E-2026-08-24-2 routed and did not take",
+   "unchanged": "the record`s description, files and the tag`s README",
+   "acts": "one act for the live note; any record-side note is the author`s Zenodo action"
+  }
+ ],
+ "recommended": [],
+ "taken": [],
+ "not_at_issue": [
+  "whether the manuscript proves the catalogue`s exhaustiveness",
+  "whether Route 2, Route 3 or any other terminal is affected"
+ ],
+ "grades": {
+  "C1": {
+   "route": [
+    "NOT THE CLAIM",
+    "it proves `Fintype.card MechanismClass = 7` of the inductive it defines, a per-constructor exclusion, and the classification of ℚ`s places; it does not state that the seven classes exhaust the mechanisms, nor derive that from ξ`s structure"
+   ],
+   "other": [
+    "INTERFACES",
+    "the exhaustive catalogue is its named premise `cat : ExhaustiveCatalogue X P` (its field `covers_all`)"
+   ]
+  },
+  "C2": {
+   "route": [
+    "NOT THE CLAIM",
+    "its two relevant conjuncts sit side by side -- a count of seven constructors and every nontrivial absolute value on ℚ real or p-adic -- and no conjunct relates the classes to the places or states the catalogue covers what an off-line zero would need"
+   ],
+   "other": [
+    "INTERFACES",
+    "premise `cat : ExhaustiveCatalogue X P`"
+   ]
+  },
+  "C3": {
+   "route": [
+    "NOT THE CLAIM",
+    "no conjunct states that every mechanism class derivable from the specification is among the seven; its no-off-line-zero content is outside this act"
+   ],
+   "other": [
+    "INTERFACES",
+    "premise `cat : ExhaustiveCatalogue X P`"
+   ]
+  },
+  "C4": {
+   "route": [
+    "DERIVES",
+    "the row as its own section glosses it: `StructuralExhaustiveness` is the conjunction the terminal proves with no hypothesis, catalogue completeness read as `Fintype.card MechanismClass = 7`"
+   ],
+   "other": [
+    "NOT THE CLAIM",
+    "it concludes `Not (P x)` from a catalogue and states nothing of `StructuralExhaustiveness` or the card of `MechanismClass`"
+   ]
+  },
+  "C5": {
+   "route": [
+    "DERIVES",
+    "the claim is exactly the literal conjuncts, `Fintype.card MechanismClass = 7` among them"
+   ],
+   "other": [
+    "NOT THE CLAIM",
+    "it does not state `Fintype.card MechanismClass = 7` or any conjunct"
+   ]
+  },
+  "C6": {
+   "route": [
+    "NOT THE CLAIM",
+    "it proves the card of its own seven-constructor type and a per-class exclusion; \"the seven mechanism classes are exhaustive\" is not among its conjuncts"
+   ],
+   "other": [
+    "INTERFACES",
+    "premise `cat : ExhaustiveCatalogue X P`"
+   ]
+  }
+ }
+}

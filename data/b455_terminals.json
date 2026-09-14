@@ -1,0 +1,77 @@
+{
+ "pin": "v1.5",
+ "peeled": "0e5233f",
+ "route": {
+  "theorem": {
+   "line": 249,
+   "text": "theorem structural_exhaustiveness_proved :\n    StructuralExhaustiveness :=\n  ⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩"
+  },
+  "def": {
+   "line": 215,
+   "text": "def StructuralExhaustiveness : Prop :=\n  (Fintype.card MechanismClass = 7) ∧\n  (forall c : MechanismClass, ¬(produces_offline c)) ∧\n  (forall (f : AbsoluteValue Rat Real), f.IsNontrivial ->\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃ p : Nat, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),\n      f.IsEquiv (Rat.AbsoluteValue.padic p))"
+  },
+  "inductive": {
+   "line": 20,
+   "text": "inductive MechanismClass where\n  | C1_schwarz | C2_euler | C3_functional_eq\n  | C4_modular | C5_spectral | C6_cauchy_riemann | C7_hadamard\n  deriving DecidableEq, Fintype"
+  },
+  "seven_classes": {
+   "line": 25,
+   "text": "theorem seven_classes : Fintype.card MechanismClass = 7 := by decide"
+  },
+  "produces_offline": {
+   "line": 157,
+   "text": "noncomputable def produces_offline : MechanismClass -> Prop\n  | .C1_schwarz => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ = 1 - σ\n  | .C2_euler => ∃ σ : Real, σ ≠ 1 / 2 ∧ -σ = -(1 - σ)\n  | .C3_functional_eq => ∃ σ : Real, σ ≠ 1 / 2 ∧ (1 - σ) = σ\n  | .C4_modular => ∃ σ : Real, σ ≠ 1 / 2 ∧ 1 - σ = σ\n  | .C5_spectral => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ - 1 / 2 = 0\n  | .C6_cauchy_riemann =>\n      ∃ σ : Real, σ ≠ 1 / 2 ∧ techne_kernel_voice3b.zero_codimension σ = 1\n  | .C7_hadamard => ∃ σ : Real, hadamard_contrib σ ≠ hadamard_contrib (1 / 2)"
+  },
+  "none_produce": {
+   "line": 198,
+   "text": "theorem none_produce :\n    forall c : MechanismClass, ¬(produces_offline c) := by ..."
+  },
+  "ostrowski": {
+   "line": 79,
+   "text": "theorem ostrowski_exhaustive_prime\n    (f : AbsoluteValue Rat Real) (hf : f.IsNontrivial) :\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃ p : Nat, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),\n      f.IsEquiv (Rat.AbsoluteValue.padic p) := by ..."
+  }
+ },
+ "other": {
+  "theorem": {
+   "line": 30,
+   "text": "theorem SIDE_exclusion\n    {X : Type u} {P : X -> Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    Not (P x) := by\n  intro h_Px\n  have h := cat.covers_all x h_Px\n  match h with\n  | ⟨C, h_in, h_produces⟩ => exact h_none C h_in h_produces"
+  },
+  "ExhaustiveCatalogue": {
+   "line": 21,
+   "text": "structure ExhaustiveCatalogue (X : Type u) (P : X -> Prop) where\n  classes : List (MechanismClass X P)\n  covers_all : forall (x : X), P x ->\n    Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))"
+  },
+  "NoneProduces": {
+   "line": 26,
+   "text": "def NoneProduces (X : Type u) (P : X -> Prop)\n    (classes : List (MechanismClass X P)) (x : X) : Prop :=\n  forall C : MechanismClass X P, List.Mem C classes -> Not (C.produces x)"
+  },
+  "MechanismClass": {
+   "line": 4,
+   "text": "structure MechanismClass (X : Type u) (P : X -> Prop) where\n  name : String\n  produces : X -> Prop"
+  }
+ },
+ "profile_route": {
+  "printed": [
+   {
+    "file": "SIDE-kernel@v1.5:DEPOSIT_v1_2_NOTES.md",
+    "line": 38,
+    "text": "'structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]"
+   }
+  ],
+  "printed_at_pin": "v1.2 = b1407b2 (the notes` own heading, \"v1.2 tag — SHA triple\")",
+  "at_v15": "UNREAD"
+ },
+ "profile_other": {
+  "printed": [
+   {
+    "file": "relay reports/2026-07-11-keystone-review-2.md",
+    "line": 53,
+    "text": "techne_kernel.SIDE_exclusion does not depend on any axioms"
+   }
+  ],
+  "printed_at_pin": "v1.2 = b1407b2 (SIDE-kernel ce5d7bd, review-2 :48)",
+  "at_v15": "UNREAD",
+  "note": "Kernel/Layer1.lean is byte-identical at v1.2 and v1.5; the profile at v1.5 is not printed and is reported UNREAD"
+ },
+ "prints_naming_v15": 0,
+ "lean_runs": 0
+}

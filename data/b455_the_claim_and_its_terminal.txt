@@ -1,0 +1,71 @@
+====================================================================================================
+b455 -- THE DEPOSIT'S EXHAUSTIVENESS CLAIM READ AGAINST ITS OWN ROUTE TERMINAL.
+### THE BANK.
+====================================================================================================
+
+### b455 — the deposit’s exhaustiveness claim read against its own route terminal — filed 2026-09-14
+**The deposit states the seven-class catalogue’s exhaustiveness as machine-checked, and at its own route terminal at `v1.5` that claim grades `NOT THE CLAIM`.** The concordance’s literal reading of the same terminal grades `DERIVES`. This is a deposit-level matter; it is routed with three dispositions priced, and none is taken. b454’s credited counts, eight and seven, stand. The kernel lane was read only: no `lean`, no fetch, nothing written at Zenodo.
+#### Component 1 — what the deposit claims
+Five surfaces: the monograph record `v1.1.2` (`10.5281/zenodo.21539167`) as banked at b359; the kernel record `v1.5` (`10.5281/zenodo.21520474`), **whose description the record does not hold**, with the tag’s `.zenodo.json` read in its place and labelled so; the PLACE-papers front door; the deposited monograph’s §25.8, **verified as deposited** by the record’s own MD5; and the kernel README at tag `v1.5`. A word test (`exhaust`, or the terminal’s name) yielded 20 items; every item was hand-read.
+| claim | where | the deposit’s words | backing |
+|:--|:--|:--|:--|
+| C1 | monograph record v1.1.2, description paragraph 2 | *“The seven mechanism classes are proven exhaustive via Ostrowski's classification and the structure of ξ(s); no class produces the algebraic signature of an off-line zero; independence of the constraints forbids conspirac”* | **MANUSCRIPT-RESIDENT** |
+| C2 | monograph record v1.1.2, description paragraph 4 | *“Proved and machine-checked around the argument: the exhaustiveness of the seven-class catalogue over the places of ℚ;”* | **MACHINE-CHECKED** |
+| C3 | SIDE-kernel@v1.5:.zenodo.json "description" | *“The kernel proves that no off-line zero exists by exhaustively excluding every mechanism class derivable from the specification.”* | **MACHINE-CHECKED** |
+| C4 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md:1659 | *“/ Route 1 — structural exhaustiveness, unconditional in Lean / `structural_exhaustiveness_proved` / `Bridge/TheBridgeComplete.lean` / propext, Classical.choice, Quot.sound /”* | **MACHINE-CHECKED** |
+| C5 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md:1669 | *“**On Route 1.** `structural_exhaustiveness_proved` is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`, and it certifies exactly what it literally states.”* | **MACHINE-CHECKED** |
+| C6 | SIDE-kernel@v1.5:README.md:60 | *“- `structural_exhaustiveness_proved` in `Bridge/TheBridgeComplete.lean` — the seven mechanism classes are exhaustive, and cross-class exclusion shows no class produces the algebraic signature of an off-line zero. Proved ”* | **MACHINE-CHECKED** |
+The deposit draws its own line in the monograph record: *“the manuscript proves the mathematics; the kernel compiles the logical architecture”*. Two paragraphs later the same record says *“Proved and machine-checked around the argument: the exhaustiveness of the seven-class catalogue over the places of ℚ”*.
+#### Component 2 — the terminal at `v1.5`, graded per claim
+`structural_exhaustiveness_proved : StructuralExhaustiveness`, read at `v1.5 = 0e5233f` by `git show`, unfolds to three conjuncts: `Fintype.card MechanismClass = 7`, proved `by decide` over an inductive with seven constructors; one `produces_offline` proposition per constructor, each refuted; and every nontrivial absolute value on ℚ real or `p`-adic (Mathlib’s Ostrowski). `techne_kernel.SIDE_exclusion` (`Kernel/Layer1.lean`) concludes `Not (P x)` from `cat : ExhaustiveCatalogue X P` and `NoneProduces`. **Profiles:** printed at `v1.2` only (`DEPOSIT_v1_2_NOTES.md:38`; relay review-2 `:53`); **at `v1.5`, UNREAD**. No `lean` was run.
+| claim | backing | `structural_exhaustiveness_proved` | `SIDE_exclusion` |
+|:--|:--|:--|:--|
+| C1 | MANUSCRIPT-RESIDENT | **NOT THE CLAIM** | **INTERFACES** (premise `cat : ExhaustiveCatalogue X P`) |
+| C2 | MACHINE-CHECKED | **NOT THE CLAIM** | **INTERFACES** (premise `cat : ExhaustiveCatalogue X P`) |
+| C3 | MACHINE-CHECKED | **NOT THE CLAIM** | **INTERFACES** (premise `cat : ExhaustiveCatalogue X P`) |
+| C4 | MACHINE-CHECKED | **DERIVES** | **NOT THE CLAIM** (does not reach the claim) |
+| C5 | MACHINE-CHECKED | **DERIVES** | **NOT THE CLAIM** (does not reach the claim) |
+| C6 | MACHINE-CHECKED | **NOT THE CLAIM** | **INTERFACES** (premise `cat : ExhaustiveCatalogue X P`) |
+Against a claim that the catalogue is exhaustive, the route terminal is `NOT THE CLAIM`: it counts the constructors of a type it defines and classifies ℚ’s places side by side, and no conjunct states that the seven classes exhaust the mechanisms. Against §25.8’s own reading — *“it certifies exactly what it literally states”*, catalogue completeness being `Fintype.card MechanismClass = 7` — it `DERIVES`.
+#### Component 3 — the disposition, routed and not taken
+**DEPOSIT-LEVEL MATTER: C2 and C6** — each is MACHINE-CHECKED and grades `NOT THE CLAIM` at its own named terminal: the monograph record `v1.1.2`’s description, paragraph 4, and the kernel README at `v1.5`, line 60. C3, in the tag’s `.zenodo.json`, names no terminal, so the test was not applied to it.
+- **(i) an ERRATA entry against the deposited version.** Writes: PLACE-papers ERRATA.md, one appended entry in the deposit-facing section (the partition at ERRATA.md:269), in E-2026-07-12-1`s form: affected deposits (monograph v1.1.2, 10.5281/zenodo.21539167; SIDE-kernel v1.5, 10.5281/zenodo.21520474), the affected passages (S1 paragraph 4; SIDE-kernel@v1.5 README.md:60), the correction and the date. Zenodo: none to write it; a holder of the deposited copy meets it only in a later deposited ERRATA.md, which is a deposit. Unchanged: the v1.1.2 record`s description and files and the v1.5 tag`s README stay as deposited (E-2026-08-24-2`s precedent: platform content on immutable records). Acts: one act that writes ERRATA, under a face; ERRATA`s own document class is routed to the author (its head).
+- **(ii) a narrowing of the claim in the live line ahead of any wave.** Writes: the live surfaces that still carry the claim: SIDE-kernel README.md at HEAD (:60 reads as at v1.5), and the next monograph record`s description text, whose staged source is NOT LOCATED in PLACE-papers or the relay reports. Zenodo: none until a wave; the narrowed text reaches the deposit only when a new version is deposited. Unchanged: every deposited record and tag, until that deposit. Acts: one act opening the kernel lane for a README write, and the wave that carries the description.
+- **(iii) a version note under (R20)`s currency obligation.** Writes: a note that the deposited sentences are historical beside the pin: the live REGISTRY lineage row (REGISTRY.md:671) and/or the front door (README.md:15). Zenodo: a note on the record itself would be a metadata edit of a published version -- a Zenodo action, the kind E-2026-08-24-2 routed and did not take. Unchanged: the record`s description, files and the tag`s README. Acts: one act for the live note; any record-side note is the author`s Zenodo action.
+**None is recommended; none is taken.** Not at issue here: whether the manuscript proves exhaustiveness, and whether Route 2, Route 3 or any other terminal is affected.
+#### Component 4 — the defective pattern, resolved
+`OPEN_TRAILS-archive-2-historical-landings-and-programs.md:7971` lists `T1`–`T10` in order, with `T8`–`T10` labelled on the line. Its third item reads *“Euler-product consumption at Face E’s **Tier-1 scope verbatim**”*, and the specification’s own row confirms it: *“`T3` — Consume the Euler product essentially. Face E’s barrier is Tier-1 and scoped verbatim”*. **The line states the item. The counts are ADDED 8, HELD BY NO LEDGER 7; b454’s credited figure stands.** b454’s bank is unedited, and no annotation is written.
+#### The expectations
+| | the navigator’s | verdict |
+|:--|:--|:--|
+| (N1) | at least one deposited surface states exhaustiveness as machine-checked | **HELD** — 5 MACHINE-CHECKED claims |
+| (N2) | it grades NOT THE CLAIM at the deposited pin | **HELD** for C2, C3, C6; **REFUTED** for C4, C5, which state only the literal conjuncts and grade DERIVES |
+| (N3) | the archive line states the item; the counts are eight and seven | **HELD** |
+**The span by the tool: 2 acts.** Both instrument lanes stay parked; nothing deposits; `h2` where the deposit left it. The four lists are open.
+
+----------------------------------------------------------------------------------------------------
+### THE CONTROL SUITE (the reading this tool was gated on).
+----------------------------------------------------------------------------------------------------
+  arms run 61 ; passing 61 ; failing 0 []
+  gates read 8 ; checked by digest 4
+
+----------------------------------------------------------------------------------------------------
+### THE DESK.
+----------------------------------------------------------------------------------------------------
+  what the deposit claims (Component 1)                                  CLOSE
+  the terminal graded per claim (Component 2)                            CLOSE
+  the deposit-level matter (Component 3)                                 STAND
+  C3, the tag`s .zenodo.json claim                                       STAND
+  the kernel README at HEAD                                              STAND
+  the defective pattern (Component 4)                                    CLOSE
+  the T3 Tier-1 scope annotation in INVARIANCE_BARRIERS                  STAND
+  the observed `SE proved` line                                          STAND
+  W-ORD-MATCHER-SHAPE                                                    STAND
+  (R63)(c) and (R64)(4)                                                  STAND
+  W-ORD-MIRROR-ZIP-NAME                                                  STAND
+
+  ITEMS SWEPT : 11. CLOSED : 3. STANDING : 8.
+
+  CORRESPONDENCE ROW : 304. ### KEY : PASS.
+
+====================================================================================================
