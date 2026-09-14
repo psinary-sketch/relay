@@ -1,0 +1,174 @@
+{
+ "kernel_before": {
+  "head": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+  "refs_sha": "b6c438c6ae697bd6538b1209c8fac64eb5e3c55b423b2eb1897bd7c5c63e01de",
+  "tracked_status": "",
+  "branch": "main"
+ },
+ "started": "2026-09-14T21:02:22.199661+00:00",
+ "clone": {
+  "code": 0,
+  "err": "Cloning into 'D:\\b457-tag-run\\SIDE-kernel'...\ndone."
+ },
+ "checkout": {
+  "code": 0,
+  "err": "HEAD is now at 0e5233f W-ORD-V3B (Fork b): determination_bridge -> offLine_of_codim_two, drop the True binder"
+ },
+ "clone_head": "0e5233f011533d09e4799107394c216a915028a1",
+ "clone_tag_object": "922c0fc789d0b530447df12da8967fc8bccb0eb0",
+ "clone_remotes": "origin\tD:\\SIDE-kernel (fetch)\norigin\tD:\\SIDE-kernel (push)",
+ "clean_before": "",
+ "hash_ok": true,
+ "tag_ok": true,
+ "clean_ok": true,
+ "copy": {
+  "code": 1,
+  "ok": true,
+  "seconds": 403.376657,
+  "tail": "----------------------\n\n\n------------------------------------------------------------------------------\n\n               Total    Copied   Skipped  Mismatch    FAILED    Extras\n    Dirs :      3341      3341         0         0         0         0\n   Files :     71550     71550         0         0         0         0\n   Bytes :   4.818 g   4.818 g         0         0         0         0\n   Times :   1:52:45   0:06:19                       0:00:00   0:00:24\n\n\n   Speed :           13,639,785 Bytes/sec.\n   Speed :              780.475 MegaBytes/min.\n   Ended : Monday, September 14, 2026 5:09:08 PM"
+ },
+ "packages": [
+  {
+   "name": "mathlib",
+   "manifest": "e960b84129b3caf423ecf0ea7409a8758a47012c",
+   "copied": "e960b84129b3caf423ecf0ea7409a8758a47012c",
+   "match": true
+  },
+  {
+   "name": "plausible",
+   "manifest": "22a0afa903bcf65285152eea298a3d319badc78d",
+   "copied": "22a0afa903bcf65285152eea298a3d319badc78d",
+   "match": true
+  },
+  {
+   "name": "LeanSearchClient",
+   "manifest": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+   "copied": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+   "match": true
+  },
+  {
+   "name": "importGraph",
+   "manifest": "db22912cdd820b2a2bd84bd25273cb322ff09ead",
+   "copied": "db22912cdd820b2a2bd84bd25273cb322ff09ead",
+   "match": true
+  },
+  {
+   "name": "proofwidgets",
+   "manifest": "136730b5a40dc633967f5433cb7668df5c3bf9a3",
+   "copied": "136730b5a40dc633967f5433cb7668df5c3bf9a3",
+   "match": true
+  },
+  {
+   "name": "aesop",
+   "manifest": "3426969888a264d3f69b6f30ab50aa11f28eb38d",
+   "copied": "3426969888a264d3f69b6f30ab50aa11f28eb38d",
+   "match": true
+  },
+  {
+   "name": "Qq",
+   "manifest": "3a9fde028258300f1cbb003d457d47c8d8e16b1c",
+   "copied": "3a9fde028258300f1cbb003d457d47c8d8e16b1c",
+   "match": true
+  },
+  {
+   "name": "batteries",
+   "manifest": "bce25af79ec73f5e63240d4399a4cd8a6a227fcb",
+   "copied": "bce25af79ec73f5e63240d4399a4cd8a6a227fcb",
+   "match": true
+  },
+  {
+   "name": "Cli",
+   "manifest": "61cd682f2a25175996bc1b9e8d8231e76cded866",
+   "copied": "61cd682f2a25175996bc1b9e8d8231e76cded866",
+   "match": true
+  }
+ ],
+ "packages_ok": true,
+ "kernel_build_copied": false,
+ "profile_lean": "import Bridge.TheBridgeComplete\nimport Bridge.ConservationBridge\nimport Kernel.SpectralCannonFull\n\n#print axioms structural_exhaustiveness_proved\n#print axioms SpectralCannonFull.spectral_cannon\n#print axioms ConservationBridge.riemann_hypothesis\n",
+ "attempts": [
+  {
+   "attempt": 1,
+   "mode": "background task",
+   "outcome": "KILLED BY THE HARNESS FOR LOW MEMORY during `lake build`, before the print; no output, no banked file; partial oleans left in the clone",
+   "recorded": "2026-09-14T21:21:11.158421+00:00"
+  },
+  {
+   "attempt": 2,
+   "mode": "foreground",
+   "outcome": "build returned",
+   "build_seconds": 528.346384
+  }
+ ],
+ "lean_version": "Lean (version 4.29.0-rc8, x86_64-w64-windows-gnu, commit 513160ea59dfd60defec325636bbc5215a8a6e7e, Release)",
+ "lake_version": "Lake version 5.0.0-src+513160e (Lean version 4.29.0-rc8)",
+ "build": {
+  "start": "2026-09-14T21:21:16.118321+00:00",
+  "end": "2026-09-14T21:30:04.464705+00:00",
+  "seconds": 528.346384,
+  "code": 0
+ },
+ "print": {
+  "start": "2026-09-14T21:30:04.466124+00:00",
+  "end": "2026-09-14T21:31:42.704259+00:00",
+  "seconds": 98.238135,
+  "code": 0,
+  "stdout": "'structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stderr": ""
+ },
+ "mathlib_compiled_lines": [],
+ "remote_lines": [],
+ "build_jobs_line": [
+  "Build completed successfully (2962 jobs)."
+ ],
+ "verdicts": [
+  {
+   "terminal": "structural_exhaustiveness_proved",
+   "line": "'structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "verdict": "STANDARD THREE"
+  },
+  {
+   "terminal": "SpectralCannonFull.spectral_cannon",
+   "line": "'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "verdict": "STANDARD THREE"
+  },
+  {
+   "terminal": "ConservationBridge.riemann_hypothesis",
+   "line": "'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "verdict": "STANDARD THREE"
+  }
+ ],
+ "all_standard": true,
+ "banked_readback": "====================================================================================================\n### b457 -- THE ROUTE TERMINALS` PROFILES PRINTED AT THE DEPOSITED TAG, UNDER (R67).\n====================================================================================================\nSIDE-kernel tag v1.5 : tag object 922c0fc789d0b530447df12da8967fc8bccb0eb0 ; commit 0e5233f011533d09e4799107394c216a915028a1\nclone : D:\\b457-tag-run\\SIDE-kernel at HEAD 0e5233f011533d09e4799107394c216a915028a1 (tag object in the clone 922c0fc789d0b530447df12da8967fc8bccb0eb0) ; clean before the run : True\ntoolchain : Lean (version 4.29.0-rc8, x86_64-w64-windows-gnu, commit 513160ea59dfd60defec325636bbc5215a8a6e7e, Release)\nlake : Lake version 5.0.0-src+513160e (Lean version 4.29.0-rc8)\npackages : mathlib@e960b84129, plausible@22a0afa903, LeanSearchClient@c5d5b8fe6e, importGraph@db22912cdd, proofwidgets@136730b5a4, aesop@3426969888, Qq@3a9fde0282, batteries@bce25af79e, Cli@61cd682f2a\nbuild : lake build Bridge.TheBridgeComplete Bridge.ConservationBridge Kernel.SpectralCannonFull ; start 2026-09-14T21:21:16.118321+00:00 ; end 2026-09-14T21:30:04.464705+00:00 ; duration 528.3 s ; exit code 0 (recorded, not a verdict)\nprint : lake env lean RouteProfile.lean ; start 2026-09-14T21:30:04.466124+00:00 ; end 2026-09-14T21:31:42.704259+00:00 ; duration 98.2 s ; exit code 0 (recorded, not a verdict)\nattempts : #1 background task -- KILLED BY THE HARNESS FOR LOW MEMORY during `lake build`, before the print; no output, no banked file; partial oleans left in the clone; #2 foreground -- build returned\n\n--- RouteProfile.lean ---\nimport Bridge.TheBridgeComplete\nimport Bridge.ConservationBridge\nimport Kernel.SpectralCannonFull\n\n#print axioms structural_exhaustiveness_proved\n#print axioms SpectralCannonFull.spectral_cannon\n#print axioms ConservationBridge.riemann_hypothesis\n\n--- the print`s stdout, verbatim ---\n'structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]\n\n--- the print`s stderr, verbatim ---\n\n\n--- the build log`s last lines ---\n✔ [2949/2962] Built Kernel.Voice5 (319s)\n✔ [2950/2962] Built Kernel.Voice6 (319s)\n✔ [2951/2962] Built Kernel.Voice7 (319s)\n✔ [2952/2962] Built Kernel.Voice3b (320s)\n✔ [2953/2962] Built Kernel.Voice1 (436s)\n✔ [2954/2962] Built Bridge.OstrowskiBridge (121s)\n✔ [2955/2962] Built Kernel.PoissonExhaustion (21s)\n✔ [2956/2962] Built Kernel.XiDef (475s)\n✔ [2957/2962] Built Kernel.SchwarzDischarge (475s)\n✔ [2958/2962] Built Kernel.SpectralCannon (475s)\n✔ [2959/2962] Built Bridge.TheBridgeComplete (39s)\n✔ [2960/2962] Built Kernel.Integration (25s)\n✔ [2961/2962] Built Kernel.SpectralCannonFull (26s)\n✔ [2962/2962] Built Bridge.ConservationBridge (21s)\nBuild completed successfully (2962 jobs).\n====================================================================================================\n",
+ "banked_ok": true,
+ "note_anchor": true,
+ "second_matter": "CLOSED",
+ "wave_trigger": false,
+ "note": "(R67) note, b457, 2026-09-14: the route terminals `structural_exhaustiveness_proved`, `SpectralCannonFull.spectral_cannon` and `ConservationBridge.riemann_hypothesis` were profiled by `#print axioms` at tag `v1.5` = `0e5233f` from a clean checkout, each printing `{propext, Classical.choice, Quot.sound}`, and the output is banked in relay `data/b457_profile_run.txt` -- the run that backs the deposited sentence *\"All route terminals report {propext, Classical.choice, Quot.sound}\"*.",
+ "scratch_removed": true,
+ "scratch_verify": "True",
+ "close_seconds": 57.382274,
+ "kernel_after": {
+  "head": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+  "refs_sha": "b6c438c6ae697bd6538b1209c8fac64eb5e3c55b423b2eb1897bd7c5c63e01de",
+  "tracked_status": "",
+  "branch": "main"
+ },
+ "kernel_unmoved": true,
+ "lane_closed_at": "2026-09-14T21:33:04.358435+00:00"
+}

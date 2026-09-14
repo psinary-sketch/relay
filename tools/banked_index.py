@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-profiles-printed-at-the-tag-and-the-sentence-gate-priced': ['route terminals profiled at tag v1.5', 'print axioms at the deposited tag', 'second deposit-level matter closed profile run', 'sentence gate priced', 'R68 merged-branch cells'],
     'the-errata-entry-the-live-note-and-the-routed-annotations': ['errata entry E-2026-09-14-1', 'R65 dispositions errata and live note', 'route terminal profile artefact at v1.5', 'invariance barriers T3 tier-1 annotation completed', 'held-branch cells left for a ruling'],
     'the-deposits-exhaustiveness-claim-read-against-its-route-terminal': ['deposit exhaustiveness claim machine-checked', 'structural_exhaustiveness_proved graded per claim', 'route 1 not the claim at v1.5', 'deposit-level matter dispositions priced', 'T3 tier-1 scope archive line counts eight and seven'],
     'r63-executed-under-r64-and-the-span-heading-repaired': ['r63 executed under r64', 'held branch lines moved to merged fast-forward', 'era findings held by no ledger', 'enumera nearest terminal', 'span heading work-order repaired'],
@@ -710,6 +711,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE PROFILES PRINTED AT THE TAG, AND THE SENTENCE GATE PRICED (b457).
+    ('the-profiles-printed-at-the-tag-and-the-sentence-gate-priced', 'b457 (the profiles printed at the tag, and the sentence gate priced)',
+     'b457 PROFILED THE ROUTE TERMINALS AT TAG v1.5 = 0e5233f FROM A CLEAN CHECKOUT: ALL STANDARD THREE, THE OUTPUT BANKED; THE SECOND DEPOSIT-LEVEL MATTER CLOSES. (R68) CELLS WRITTEN. THE SENTENCE GATE PRICED AT 12 ACTS OVER 45 ITEMS, NOT BUILT. NO CLAIM ABOUT ZEROS.',
+     '### NO GRADE MOVED ON ANY ROW. ### NOTHING DEPOSITS. ### NO WAVE OPENED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b457_the_profiles_at_the_tag.txt; data/b457_components.txt; data/b457_profile_run.txt; data/b457_run.json; data/b457_gate_price.json; data/b457_registration_2026-09-14.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 306'),
     # ### THE ERRATA ENTRY, THE LIVE NOTE, AND THE ROUTED ANNOTATIONS COMPLETED (b456).
     ('the-errata-entry-the-live-note-and-the-routed-annotations', 'b456 (the errata entry, the live note, and the routed annotations completed)',
      'b456 EXECUTED (R65): ERRATA E-2026-09-14-1 RETAINED AT MONOGRAPH v1.1.2 AND SIDE-kernel v1.5, AND A LIVE (R20) NOTE BESIDE THE PIN; THE ROUTE TERMINALS` PROFILE ARTEFACT AT v1.5 ABSENT, ROUTED AND NOT TAKEN; INVARIANCE ANNOTATION COMPLETED, RESIDUE :145 COMPLETED, RESIDUE :127-130 AND LICENSE :9 LEFT FOR A RULING. NO CLAIM ABOUT ZEROS.',

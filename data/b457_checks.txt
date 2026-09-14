@@ -1,0 +1,70 @@
+====================================================================================================
+b457 -- THE CONTROL SUITE. ### **PRE-PUSH READING.**
+====================================================================================================
+  arms declared : 61 ; run : 61 ; declared-not-run [] ; run-not-declared []
+  G-RECEIPT-IN-FULL                        PASS ferry banked in full
+  G-SCAN-CLEAN                             PASS scan 0 hits
+  G-R54-LINE-PRESENT                       PASS scanned line present
+  G-STEPZERO-CENSUS                        PASS censuses 0
+  G-STEPZERO-PINS                          PASS pins 0
+  G-SURVEY-NOMISS                          PASS survey 0 misses
+  G-REG-LOCKED-FIRST                       PASS lock block present
+  G-LOCKGATE-EIGHT                         PASS lock gate 8, permitted
+  G-SEAL-VERIFIES                          PASS seal verifies
+  G-PRIOR-CLOSED-PUSHED                    PASS row 305 on the face; a7b5ec9 on origin/main
+  G-ADDENDUM-SLOT-DECLARED                 PASS slot named
+  G-ADDENDUM-SLOT-CONTENT-BOUNDED          PASS slot empty
+  G-LOCKGATE-NOT-REDIRECTED                PASS one lock-gate record
+  G-RULINGS-ENTERED                        PASS the three rulings in the ferry, on the face and in the record
+  G-C1-CLONE-AT-HASH                       PASS the clone`s HEAD is the tag`s commit
+  G-C1-TAG-OBJECT                          PASS the clone`s tag object
+  G-C1-CLEAN-BEFORE                        PASS clean before anything was added
+  G-C1-PACKAGES-AT-MANIFEST                PASS every package at its manifest revision
+  G-C1-NO-KERNEL-BUILD-COPIED              PASS the kernel`s own build not copied
+  G-C1-RUN-AFTER-LOCK                      PASS the run started after the face was sealed
+  G-C1-BANKED-HEADER                       PASS digest, commit, toolchain, durations in the banked file -- the first predicate`s needle `v4.29.0-rc8` yields 0 (lean prints the version without the `v`); the corrected `version 4.29.0-rc8` yields 2
+  G-C1-OUTPUT-VERBATIM                     PASS the print`s stdout in the banked file byte for byte
+  G-C1-VERDICT-FROM-OUTPUT                 PASS each verdict re-derived from its output line
+  G-C1-NO-MATHLIB-REBUILD                  PASS the log`s Mathlib and remote lines printed
+  G-C1-NOTE-OR-TRIGGER                     PASS the note iff all standard, else the trigger and no note
+  G-C1-LANE-CLOSED                         PASS the scratch tree removed and verified absent
+  G-C1-KERNEL-UNMOVED                      PASS D:\SIDE-kernel HEAD, refs, tracked status unmoved
+  G-C2-CELLS-BY-TERM                       PASS :127-130 carry MERGED-BRANCH, each once
+  G-C2-ORIGINALS-PRESERVED                 PASS the four lines as they stood in the b457 annotation
+  G-C2-LICENSE-UNWRITTEN                   PASS EXHAUSTIVENESS_LICENSE untouched
+  G-C2-REMOVED-ZERO                        PASS removed zero
+  G-C3-SURFACES-VERIFIED                   PASS every counted record file checksum-verified; the svg excluded
+  G-C3-YIELDS-PRINTED                      PASS naming, counted and out-of-reach yields
+  G-C3-PRICE-BY-FORMULA                    PASS acts re-derived from S, U, P
+  G-C3-NOT-CAUGHT-STATED                   PASS what it would not catch
+  G-C3-NOTHING-GRADED                      PASS no grade in the price record
+  G-N1-SCORED                              PASS N1
+  G-N2-SCORED                              PASS N2 on S and on the price
+  G-SEAT-EXPECTATIONS-SCORED               PASS the seat`s own
+  G-SPAN-BY-TOOL                           PASS emitted for b457
+  G-NOGRADE-MOVED                          PASS no row edited
+  G-NOKERNEL-WRITE                         PASS kernels unwritten
+  G-NODEPOSIT                              PASS nothing deposits
+  G-NOZENODO-WRITE                         PASS no Zenodo client
+  G-NOH2-MOVED                             PASS h2 unmoved
+  G-NOFETCH                                PASS nothing fetched: no url client, the clone`s only remote the local kernel
+  G-NOPRIORBANK                            PASS no prior bank tracked file touched
+  G-FOUR-LISTS-OPEN                        PASS lists open
+  G-CORPUS-SCOPE                           PASS PLACE-papers: RESIDUE, README (conditional), the trail
+  G-TRAIL-APPEND-ONLY                      PASS trail appended
+  G-CORR-APPEND-ONLY                       PASS correspondence appended
+  G-WRITELIST-KINDS                        PASS relay files on the list : off 0 []
+  G-NOSTAGE-A                              PASS no git add -A
+  G-ARMS-DECLARED-EQ-RUN                   PASS declared equals run
+  G-ARMS-NO-SUBSTRING-VERDICT              PASS verdicts by line
+  G-TWO-READINGS-TWO-FILES                 PASS two files
+  G-PUSH-SIDE-B439-PREDICATE               PASS b439 predicate
+  G-PREPUSH-FILE-EXISTS                    PASS pre-push file present
+  G-CARRIED-TOOLS-REPOINTED                PASS write-target shape 0 [] ; control fires True
+  G-MIRROR-TAGGED-BUILD                    DEFERRED TO POST-PUSH -- closing build under -DateTag 2026-09-14-b457, clean, at PLACE-papers HEAD
+  G-MUSTFAIL                               FAIL CONTROL -- it did
+====================================================================================================
+  ### ARMS RUN : 60. ### PASSING : 60. ### FAILING : 0 
+  ### DEFERRED TO POST-PUSH, COUNTED APART : 1 ['G-MIRROR-TAGGED-BUILD']
+  ### ### **VERDICT : ALL ARMS PASS**
+====================================================================================================

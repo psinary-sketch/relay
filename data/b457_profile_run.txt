@@ -1,0 +1,46 @@
+====================================================================================================
+### b457 -- THE ROUTE TERMINALS` PROFILES PRINTED AT THE DEPOSITED TAG, UNDER (R67).
+====================================================================================================
+SIDE-kernel tag v1.5 : tag object 922c0fc789d0b530447df12da8967fc8bccb0eb0 ; commit 0e5233f011533d09e4799107394c216a915028a1
+clone : D:\b457-tag-run\SIDE-kernel at HEAD 0e5233f011533d09e4799107394c216a915028a1 (tag object in the clone 922c0fc789d0b530447df12da8967fc8bccb0eb0) ; clean before the run : True
+toolchain : Lean (version 4.29.0-rc8, x86_64-w64-windows-gnu, commit 513160ea59dfd60defec325636bbc5215a8a6e7e, Release)
+lake : Lake version 5.0.0-src+513160e (Lean version 4.29.0-rc8)
+packages : mathlib@e960b84129, plausible@22a0afa903, LeanSearchClient@c5d5b8fe6e, importGraph@db22912cdd, proofwidgets@136730b5a4, aesop@3426969888, Qq@3a9fde0282, batteries@bce25af79e, Cli@61cd682f2a
+build : lake build Bridge.TheBridgeComplete Bridge.ConservationBridge Kernel.SpectralCannonFull ; start 2026-09-14T21:21:16.118321+00:00 ; end 2026-09-14T21:30:04.464705+00:00 ; duration 528.3 s ; exit code 0 (recorded, not a verdict)
+print : lake env lean RouteProfile.lean ; start 2026-09-14T21:30:04.466124+00:00 ; end 2026-09-14T21:31:42.704259+00:00 ; duration 98.2 s ; exit code 0 (recorded, not a verdict)
+attempts : #1 background task -- KILLED BY THE HARNESS FOR LOW MEMORY during `lake build`, before the print; no output, no banked file; partial oleans left in the clone; #2 foreground -- build returned
+
+--- RouteProfile.lean ---
+import Bridge.TheBridgeComplete
+import Bridge.ConservationBridge
+import Kernel.SpectralCannonFull
+
+#print axioms structural_exhaustiveness_proved
+#print axioms SpectralCannonFull.spectral_cannon
+#print axioms ConservationBridge.riemann_hypothesis
+
+--- the print`s stdout, verbatim ---
+'structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+--- the print`s stderr, verbatim ---
+
+
+--- the build log`s last lines ---
+✔ [2949/2962] Built Kernel.Voice5 (319s)
+✔ [2950/2962] Built Kernel.Voice6 (319s)
+✔ [2951/2962] Built Kernel.Voice7 (319s)
+✔ [2952/2962] Built Kernel.Voice3b (320s)
+✔ [2953/2962] Built Kernel.Voice1 (436s)
+✔ [2954/2962] Built Bridge.OstrowskiBridge (121s)
+✔ [2955/2962] Built Kernel.PoissonExhaustion (21s)
+✔ [2956/2962] Built Kernel.XiDef (475s)
+✔ [2957/2962] Built Kernel.SchwarzDischarge (475s)
+✔ [2958/2962] Built Kernel.SpectralCannon (475s)
+✔ [2959/2962] Built Bridge.TheBridgeComplete (39s)
+✔ [2960/2962] Built Kernel.Integration (25s)
+✔ [2961/2962] Built Kernel.SpectralCannonFull (26s)
+✔ [2962/2962] Built Bridge.ConservationBridge (21s)
+Build completed successfully (2962 jobs).
+====================================================================================================
