@@ -1,0 +1,60 @@
+====================================================================================================
+b452 -- THE CONTROL SUITE. ### **PRE-PUSH READING.**
+====================================================================================================
+  arms declared : 51 ; run : 51 ; declared-not-run [] ; run-not-declared []
+  G-RECEIPT-IN-FULL                        PASS ferry banked in full
+  G-SCAN-CLEAN                             PASS scan 0 hits
+  G-R54-LINE-PRESENT                       PASS scanned line present
+  G-STEPZERO-CENSUS                        PASS censuses 0
+  G-STEPZERO-PINS                          PASS pins 0
+  G-SURVEY-NOMISS                          PASS survey 0 misses
+  G-REG-LOCKED-FIRST                       PASS lock block present
+  G-LOCKGATE-EIGHT                         PASS lock gate 8, permitted
+  G-SEAL-VERIFIES                          PASS seal verifies
+  G-PRIOR-CLOSED-PUSHED                    PASS row 300 on the face; 2ee97cc on origin/main
+  G-ADDENDUM-SLOT-DECLARED                 PASS slot named
+  G-ADDENDUM-SLOT-CONTENT-BOUNDED          PASS slot empty or a quotation
+  G-R63-CARRIED-NOT-EXECUTED               PASS (R63) carried; no keystone, registry or TECHNE write
+  G-C1-FORTY-SEVEN-READ                    PASS K1 re-derived from the banks 47 ; all 82 failures read
+  G-C1-REEXPRESSIONS-FIXED                 PASS R1 and R2 on the face and quoted in the components
+  G-C1-CLASS-FROM-BANK                     PASS every K1 row carries its bank`s class text or is UNDECIDED for its absence
+  G-C1-OBJECT-FROM-SITE                    PASS every row carries its site`s object
+  G-C1-TEST-APPLIED                        PASS every verdict one of the three, none UNREAD
+  G-C1-APPLICABILITY-HAND-READ             PASS R1 yield 0 ; every R2 hit carries a hand read
+  G-C1-PARTITION-SUMS                      PASS partition sums to 47 ({'OBJECT-SIDE': 0, 'SOURCE-SIDE': 44, 'UNDECIDED': 3, 'UNREAD': 0})
+  G-C1-PER-SITE                            PASS per-site rows printed and summing
+  G-C1-CONTROL-STATED                      PASS control ABSENT ; ABSENT not passed
+  G-C1-NO-REEXPRESSION-PERFORMED           PASS no re-expression performed said
+  G-C2-NAMING-ACTS-QUOTED                  PASS the three naming acts quoted at their addresses
+  G-C2-VERDICT-BY-RULE                     PASS verdict LIST, rule hits hand-read
+  G-C2-CLOSURE-NEED-PRINTED                PASS what the record would need printed
+  G-C2-NO-SEVENTH-SITE                     PASS no seventh site proposed; FACES_LEDGER untouched
+  G-N1-SCORED                              PASS N1 REFUTED
+  G-N2-SCORED                              PASS N2 HELD
+  G-SEAT-EXPECTATIONS-SCORED               PASS seat expectations scored
+  G-SPAN-BY-TOOL                           PASS span banked by the tool under b452 (8)
+  G-NOGRADE-MOVED                          PASS no grade moved; ledgers untouched
+  G-NOKERNEL-WRITE                         PASS SIDE-window untouched
+  G-NODEPOSIT                              PASS nothing deposits
+  G-NOH2-MOVED                             PASS h2 unmoved
+  G-NOFETCH                                PASS nothing fetched
+  G-NOPRIORBANK                            PASS no prior bank tracked file touched
+  G-FOUR-LISTS-OPEN                        PASS lists open
+  G-CORPUS-SCOPE                           PASS PLACE-papers: only the trail
+  G-TRAIL-APPEND-ONLY                      PASS trail appended
+  G-CORR-APPEND-ONLY                       PASS correspondence appended
+  G-WRITELIST-KINDS                        ### FAIL relay files on the list ; UNNAMED KINDS 1 ['data/b452_dump.json']
+  G-NOSTAGE-A                              PASS no git add -A
+  G-ARMS-DECLARED-EQ-RUN                   PASS declared equals run
+  G-ARMS-NO-SUBSTRING-VERDICT              PASS verdicts by line
+  G-TWO-READINGS-TWO-FILES                 PASS two files
+  G-PUSH-SIDE-B439-PREDICATE               PASS b439 predicate
+  G-PREPUSH-FILE-EXISTS                    PASS pre-push file present
+  G-CARRIED-TOOLS-REPOINTED                PASS write-target shape 0 [] ; control fires True
+  G-MIRROR-TAGGED-BUILD                    DEFERRED TO POST-PUSH -- closing build under -DateTag 2026-09-14-b452, clean, at PLACE-papers HEAD
+  G-MUSTFAIL                               FAIL CONTROL -- it did
+====================================================================================================
+  ### ARMS RUN : 50. ### PASSING : 49. ### FAILING : 1 ['G-WRITELIST-KINDS']
+  ### DEFERRED TO POST-PUSH, COUNTED APART : 1 ['G-MIRROR-TAGGED-BUILD']
+  ### ### **VERDICT : ARMS FAILING**
+====================================================================================================

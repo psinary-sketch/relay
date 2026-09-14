@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-class-boundary-read-by-its-side-and-the-six-sites': ['which side is the class boundary on', 'object-side source-side undecided', 'are the six sites a closed enumeration', 'row U1 sites generator', 'two-kinds windows verdict as a re-expression'],
     'the-remainder-named-and-the-routed-items-grouped': ['the reconciliation remainder', 'what does ENUMERA need', 'the routed items grouped by ruling', 'W-ORD-MATCHER-SHAPE', 'predicate one shape incidents'],
     'the-eligible-set-re-measured-and-the-batch-read': ['the reconciliation eligible set', 'how many keystones are reconciled', 'the batch read of eleven keystones', 'candidate c4 cancellation within the prime channel', 'A_METHODOLOGY v0.2 citations repaired'],
     'the-r61-record-ratified-and-the-outliers-integrand-at-its-aim': ['is the r61 record ratified', 'does the outlier integrand carry a kink', 'W-ORD-MIRROR-ZIP-NAME', 'the prime channel integrand at ln 17', 'mirror zip overwritten'],
@@ -705,6 +706,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE CLASS BOUNDARY READ BY ITS SIDE, AND THE SIX SITES READ BY THEIR GENERATOR (b452).
+    ('the-class-boundary-read-by-its-side-and-the-six-sites', 'b452 (the class boundary read by its side, and the six sites read by their generator)',
+     'b452 READ THE 47 CLASS BOUNDARIES AGAINST TWO HELD RE-EXPRESSIONS: OBJECT-SIDE 0, SOURCE-SIDE 44, UNDECIDED 3; THE CONTROL ABSENT. THE SIX SITES ARE A LIST ASSEMBLED SITE BY SITE, NOT A CLOSED ENUMERATION. NO CLAIM ABOUT ZEROS.',
+     '### NO GRADE MOVED. ### NO RE-EXPRESSION PERFORMED, NO SITE PROPOSED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b452_the_boundary_and_the_sites.txt; data/b452_components.txt; data/b452_sides.json; data/b452_sites.json; data/b452_registration_2026-09-14.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 301'),
     # ### THE RECONCILIATION`S REMAINDER NAMED, AND THE ROUTED ITEMS GROUPED (b451).
     ('the-remainder-named-and-the-routed-items-grouped', "b451 (the reconciliation's remainder named, and the routed items grouped by the ruling each needs)",
      "b451 COUNTED THE RECONCILIATION FROM THE BANKS: 1 + 3 + 11 = 15 OF 16; THE REMAINDER IS ENUMERA, WHICH NEEDS AN AUTHOR NAMING ITS TERMINAL. b450'S 29 ROUTED ITEMS GROUPED BY THEIR OWN WORDS: AUTHORING 26, REGISTRY ROW 3, THE ITEM DOES NOT SAY 0. W-ORD-MATCHER-SHAPE FILED. NO CLAIM ABOUT ZEROS.",
