@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-errata-entry-the-live-note-and-the-routed-annotations': ['errata entry E-2026-09-14-1', 'R65 dispositions errata and live note', 'route terminal profile artefact at v1.5', 'invariance barriers T3 tier-1 annotation completed', 'held-branch cells left for a ruling'],
     'the-deposits-exhaustiveness-claim-read-against-its-route-terminal': ['deposit exhaustiveness claim machine-checked', 'structural_exhaustiveness_proved graded per claim', 'route 1 not the claim at v1.5', 'deposit-level matter dispositions priced', 'T3 tier-1 scope archive line counts eight and seven'],
     'r63-executed-under-r64-and-the-span-heading-repaired': ['r63 executed under r64', 'held branch lines moved to merged fast-forward', 'era findings held by no ledger', 'enumera nearest terminal', 'span heading work-order repaired'],
     'the-residue-and-reconciliation-arc-folded': ['the residue and reconciliation arc folded', 'fold b445 b452', 'the fold at span eight', 'carried arm failure b452_dump', 'rulings R61 R62 R63 R64 status'],
@@ -709,6 +710,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE ERRATA ENTRY, THE LIVE NOTE, AND THE ROUTED ANNOTATIONS COMPLETED (b456).
+    ('the-errata-entry-the-live-note-and-the-routed-annotations', 'b456 (the errata entry, the live note, and the routed annotations completed)',
+     'b456 EXECUTED (R65): ERRATA E-2026-09-14-1 RETAINED AT MONOGRAPH v1.1.2 AND SIDE-kernel v1.5, AND A LIVE (R20) NOTE BESIDE THE PIN; THE ROUTE TERMINALS` PROFILE ARTEFACT AT v1.5 ABSENT, ROUTED AND NOT TAKEN; INVARIANCE ANNOTATION COMPLETED, RESIDUE :145 COMPLETED, RESIDUE :127-130 AND LICENSE :9 LEFT FOR A RULING. NO CLAIM ABOUT ZEROS.',
+     '### NO GRADE MOVED ON ANY ROW. ### NOTHING DEPOSITS. ### NO ZENODO METADATA EDITED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b456_the_errata_and_the_note.txt; data/b456_components.txt; data/b456_writes.json; data/b456_profile.json; data/b456_registration_2026-09-14.txt (LOCKED, 8 gates read, 4 by digest); ERRATA.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 305'),
     # ### THE DEPOSIT`S EXHAUSTIVENESS CLAIM READ AGAINST ITS OWN ROUTE TERMINAL (b455).
     ('the-deposits-exhaustiveness-claim-read-against-its-route-terminal', "b455 (the deposit's exhaustiveness claim read against its own route terminal)",
      'b455 READ THE DEPOSIT`S EXHAUSTIVENESS CLAIMS: 5 MACHINE-CHECKED OF 6; AT v1.5 structural_exhaustiveness_proved GRADES NOT THE CLAIM AGAINST THE CATALOGUE`S EXHAUSTIVENESS AND DERIVES AGAINST THE CONCORDANCE`S LITERAL READING; DEPOSIT-LEVEL C2 AND C6, THREE DISPOSITIONS PRICED, NONE TAKEN. COUNTS 8 AND 7 STAND. NO CLAIM ABOUT ZEROS.',
