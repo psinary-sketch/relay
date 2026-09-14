@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'the-residue-and-reconciliation-arc-folded': ['the residue and reconciliation arc folded', 'fold b445 b452', 'the fold at span eight', 'carried arm failure b452_dump', 'rulings R61 R62 R63 R64 status'],
     'the-class-boundary-read-by-its-side-and-the-six-sites': ['which side is the class boundary on', 'object-side source-side undecided', 'are the six sites a closed enumeration', 'row U1 sites generator', 'two-kinds windows verdict as a re-expression'],
     'the-remainder-named-and-the-routed-items-grouped': ['the reconciliation remainder', 'what does ENUMERA need', 'the routed items grouped by ruling', 'W-ORD-MATCHER-SHAPE', 'predicate one shape incidents'],
     'the-eligible-set-re-measured-and-the-batch-read': ['the reconciliation eligible set', 'how many keystones are reconciled', 'the batch read of eleven keystones', 'candidate c4 cancellation within the prime channel', 'A_METHODOLOGY v0.2 citations repaired'],
@@ -706,6 +707,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### THE RESIDUE AND RECONCILIATION ARC FOLDED (b453).
+    ('the-residue-and-reconciliation-arc-folded', 'b453 (the fold at span eight)',
+     'b453 FOLDED b445-b452 (THE RESIDUE AND RECONCILIATION ARC): 17 VERDICT STRINGS VERIFIED IN 8 BANKS; COLUMNS OBJECT 0, MODEL 3, RECORD 5; ONE CARRIED ARM FAILURE; (R63) AND (R64) TO b454. A FOLD MINTS NOTHING. NO CLAIM ABOUT ZEROS.',
+     '### NO GRADE MOVED. ### NOTHING MINTED, NO EXPECTATION REGISTERED. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b453_the_fold.txt; data/b453_components.txt; data/b453_fold.json; data/b453_span.json; data/b453_registration_2026-09-14.txt (LOCKED, 8 gates read, 4 by digest); FINDINGS.md; THE_FINDINGS_AS_THEY_STAND.md; OPEN_TRAILS.md; CORRESPONDENCE.md row 302'),
     # ### THE CLASS BOUNDARY READ BY ITS SIDE, AND THE SIX SITES READ BY THEIR GENERATOR (b452).
     ('the-class-boundary-read-by-its-side-and-the-six-sites', 'b452 (the class boundary read by its side, and the six sites read by their generator)',
      'b452 READ THE 47 CLASS BOUNDARIES AGAINST TWO HELD RE-EXPRESSIONS: OBJECT-SIDE 0, SOURCE-SIDE 44, UNDECIDED 3; THE CONTROL ABSENT. THE SIX SITES ARE A LIST ASSEMBLED SITE BY SITE, NOT A CLOSED ENUMERATION. NO CLAIM ABOUT ZEROS.',
