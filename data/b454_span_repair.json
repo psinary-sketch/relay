@@ -1,0 +1,47 @@
+{
+ "applied": [
+  true,
+  true,
+  true
+ ],
+ "numstat": [
+  "27",
+  "4"
+ ],
+ "unified": "diff --git a/tools/b363_span.py b/tools/b363_span.py\nindex f77a561..4403ef7 100644\n--- a/tools/b363_span.py\n+++ b/tools/b363_span.py\n@@ -64,20 +64,41 @@ def rec(s=''):\n     print(s)\n \n \n+FORM_A = re.compile(r'^## (.*?), b(\\d+)–b(\\d+) — THE FOLD\\s*$')\n+FORM_B = re.compile(r'^## (.*?) — b(\\d+) through b(\\d+), folded at b(\\d+)\\s*$')\n+UNPARSED = []\n+\n+\n+def fold_headings(txt):\n+    \"\"\"### REPAIRED AT b454 (W-ORD-SPAN-HEADING): EVERY `## ` HEADING IN EITHER FOLD FORM -- `<title>, bNNN–bNNN — THE FOLD`\n+    ### and b434's `<title> — bNNN through bNNN, folded at bNNN` -- and every `## ` line carrying `fold` that neither parses.\"\"\"\n+    heads, bad = [], []\n+    for m in re.finditer(r'^## .*$', txt, re.M):\n+        line = m.group(0)\n+        a, b = FORM_A.match(line), FORM_B.match(line)\n+        if a or b:\n+            g = a or b\n+            heads.append((m.start(), g.group(1), int(g.group(2)), int(g.group(3))))\n+        elif re.search(r'(?i)fold', line):\n+            bad.append(line)\n+    return heads, bad\n+\n+\n def folds():\n     \"\"\"### EVERY FOLD HEADING IN `FINDINGS.md`, WITH THE SPAN IT NAMES IN ITS OWN TITLE.\"\"\"\n     txt = io.open(FINDINGS, encoding='utf-8', errors='replace').read()\n+    heads, bad = fold_headings(txt)\n+    UNPARSED[:] = bad\n     out = []\n-    for m in re.finditer(r'^## (.*?), b(\\d+)–b(\\d+) — THE FOLD\\s*$', txt, re.M):\n-        lo, hi = int(m.group(2)), int(m.group(3))\n-        out.append(dict(title=m.group(1), lo=lo, hi=hi, acts=hi - lo + 1))\n+    for _pos, title, lo, hi in heads:\n+        out.append(dict(title=title, lo=lo, hi=hi, acts=hi - lo + 1))\n     return out\n \n \n def filed_by(hi):\n     \"\"\"### THE ACT THAT FILED THE LAST FOLD, READ FROM ITS OWN `Filed by bNNN` SENTENCE.\"\"\"\n     txt = io.open(FINDINGS, encoding='utf-8', errors='replace').read()\n-    heads = [m.start() for m in re.finditer(r'^## .*— THE FOLD\\s*$', txt, re.M)]\n+    heads = [h[0] for h in fold_headings(txt)[0]]\n     tail = txt[heads[-1]:]\n     m = re.search(r'Filed by b(\\d+)', tail)\n     if not m:\n@@ -118,6 +139,8 @@ def main(argv=None):\n     rec('  ' + '-' * 96)\n     for f in F:\n         rec('    b%-4d - b%-4d  %2d acts   %s' % (f['lo'], f['hi'], f['acts'], f['title'][:62]))\n+    for u in UNPARSED:\n+        rec('    ### UNPARSED FOLD HEADING, PRINTED AND NOT SKIPPED : %s' % u[:90])\n     spans = sorted(f['acts'] for f in F)\n     mid = spans[len(spans) // 2] if len(spans) % 2 else (spans[len(spans) // 2 - 1] + spans[len(spans) // 2]) // 2\n     rec('')\n",
+ "fixture": {
+  "parsed": [
+   [
+    1,
+    9
+   ],
+   [
+    11,
+    19
+   ]
+  ],
+  "unparsed": [
+   "## A fold heading in neither form, b21 to b29"
+  ],
+  "filed_by": 20,
+  "ok": true
+ },
+ "before": [
+  "### ### **FOLDS RUN : 16. ### SHORTEST : 4 ACTS. ### LONGEST : 17 ACTS. ### MIDDLE : 9.**",
+  "### (2) THE CURRENT SPAN, COUNTED FROM THE LAST FOLD FORWARD.",
+  "the last fold covers      : b445 - b452 (8 acts)",
+  "it was FILED BY           : b453   ### read from its own section, not typed",
+  "so the next span STARTS AT: b454",
+  "### ### **THE CURRENT SPAN : 1 ACT(S).**"
+ ],
+ "after": [
+  "b423  - b432   10 acts   The external-grading arc",
+  "### ### **FOLDS RUN : 17. ### SHORTEST : 4 ACTS. ### LONGEST : 17 ACTS. ### MIDDLE : 9.**",
+  "### (2) THE CURRENT SPAN, COUNTED FROM THE LAST FOLD FORWARD.",
+  "the last fold covers      : b445 - b452 (8 acts)",
+  "it was FILED BY           : b453   ### read from its own section, not typed",
+  "so the next span STARTS AT: b454",
+  "### ### **THE CURRENT SPAN : 1 ACT(S).**"
+ ],
+ "write_path_unchanged": true
+}

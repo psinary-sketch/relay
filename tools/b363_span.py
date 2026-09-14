@@ -64,20 +64,41 @@ def rec(s=''):
     print(s)
 
 
+FORM_A = re.compile(r'^## (.*?), b(\d+)–b(\d+) — THE FOLD\s*$')
+FORM_B = re.compile(r'^## (.*?) — b(\d+) through b(\d+), folded at b(\d+)\s*$')
+UNPARSED = []
+
+
+def fold_headings(txt):
+    """### REPAIRED AT b454 (W-ORD-SPAN-HEADING): EVERY `## ` HEADING IN EITHER FOLD FORM -- `<title>, bNNN–bNNN — THE FOLD`
+    ### and b434's `<title> — bNNN through bNNN, folded at bNNN` -- and every `## ` line carrying `fold` that neither parses."""
+    heads, bad = [], []
+    for m in re.finditer(r'^## .*$', txt, re.M):
+        line = m.group(0)
+        a, b = FORM_A.match(line), FORM_B.match(line)
+        if a or b:
+            g = a or b
+            heads.append((m.start(), g.group(1), int(g.group(2)), int(g.group(3))))
+        elif re.search(r'(?i)fold', line):
+            bad.append(line)
+    return heads, bad
+
+
 def folds():
     """### EVERY FOLD HEADING IN `FINDINGS.md`, WITH THE SPAN IT NAMES IN ITS OWN TITLE."""
     txt = io.open(FINDINGS, encoding='utf-8', errors='replace').read()
+    heads, bad = fold_headings(txt)
+    UNPARSED[:] = bad
     out = []
-    for m in re.finditer(r'^## (.*?), b(\d+)–b(\d+) — THE FOLD\s*$', txt, re.M):
-        lo, hi = int(m.group(2)), int(m.group(3))
-        out.append(dict(title=m.group(1), lo=lo, hi=hi, acts=hi - lo + 1))
+    for _pos, title, lo, hi in heads:
+        out.append(dict(title=title, lo=lo, hi=hi, acts=hi - lo + 1))
     return out
 
 
 def filed_by(hi):
     """### THE ACT THAT FILED THE LAST FOLD, READ FROM ITS OWN `Filed by bNNN` SENTENCE."""
     txt = io.open(FINDINGS, encoding='utf-8', errors='replace').read()
-    heads = [m.start() for m in re.finditer(r'^## .*— THE FOLD\s*$', txt, re.M)]
+    heads = [h[0] for h in fold_headings(txt)[0]]
     tail = txt[heads[-1]:]
     m = re.search(r'Filed by b(\d+)', tail)
     if not m:
@@ -118,6 +139,8 @@ def main(argv=None):
     rec('  ' + '-' * 96)
     for f in F:
         rec('    b%-4d - b%-4d  %2d acts   %s' % (f['lo'], f['hi'], f['acts'], f['title'][:62]))
+    for u in UNPARSED:
+        rec('    ### UNPARSED FOLD HEADING, PRINTED AND NOT SKIPPED : %s' % u[:90])
     spans = sorted(f['acts'] for f in F)
     mid = spans[len(spans) // 2] if len(spans) % 2 else (spans[len(spans) // 2 - 1] + spans[len(spans) // 2]) // 2
     rec('')

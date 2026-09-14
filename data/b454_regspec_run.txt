@@ -1,0 +1,38 @@
+====================================================================================================
+b454_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+
+  registration : b454_registration_2026-09-14.txt
+  bytes/lines  : 23789 / 245
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **THE OPEN CLAUSE, MEASURED RATHER THAN TYPED:** ### ARMS 71
+
+  clauses emitted : 108
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 15**
+      mirror zips written outside a repository                       demand 1    cap 1
+      work-orders repaired                                           demand 1    cap 1
+      ferry parts received                                           demand 1    cap 1
+      censuses run at step zero                                      demand 2    cap 2
+      readings of the order declared in advance on this face         demand 3    cap 3
+      pre-face reads declared                                        demand 8    cap 8
+      author rulings executed                                        demand 2    cap 2
+      addendum slots declared in the write list                      demand 1    cap 1
+      instrument files edited                                        demand 1    cap 1
+      repairs made                                                   demand 1    cap 1
+      expectations registered                                        demand 3    cap 3
+      bars declared                                                  demand 8    cap 8
+      gate arms declared                                             demand 71   cap 71
+      new `relay` act-tool files named on this face                  demand 6    cap 6
+      existing `relay` tools edited in place                         demand 2    cap 2
+  written : b454_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : d981728be6e138dd6d7bb41156291e3343293a01dc4fe043890855930c4b33d1  (b454_registration_2026-09-14.txt)

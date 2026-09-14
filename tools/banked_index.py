@@ -83,6 +83,7 @@ REACH = [
 # re-assigned. ### KEYS ARE DECLARED, NOT DERIVED FROM PROSE.
 # ---------------------------------------------------------------------------
 KEYS = {
+    'r63-executed-under-r64-and-the-span-heading-repaired': ['r63 executed under r64', 'held branch lines moved to merged fast-forward', 'era findings held by no ledger', 'enumera nearest terminal', 'span heading work-order repaired'],
     'the-residue-and-reconciliation-arc-folded': ['the residue and reconciliation arc folded', 'fold b445 b452', 'the fold at span eight', 'carried arm failure b452_dump', 'rulings R61 R62 R63 R64 status'],
     'the-class-boundary-read-by-its-side-and-the-six-sites': ['which side is the class boundary on', 'object-side source-side undecided', 'are the six sites a closed enumeration', 'row U1 sites generator', 'two-kinds windows verdict as a re-expression'],
     'the-remainder-named-and-the-routed-items-grouped': ['the reconciliation remainder', 'what does ENUMERA need', 'the routed items grouped by ruling', 'W-ORD-MATCHER-SHAPE', 'predicate one shape incidents'],
@@ -707,6 +708,11 @@ KEYS = {
 
 INDEX = [
     # (key, act, one-line statement, grade as its own act recorded it, location)
+    # ### (R63) EXECUTED UNDER (R64), AND THE SPAN-HEADING WORK-ORDER REPAIRED (b454).
+    ('r63-executed-under-r64-and-the-span-heading-repaired', 'b454 ((R63) executed under (R64), and the span-heading work-order repaired)',
+     'b454 EXECUTED (R63) UNDER (R64): 8 OF 8 BRANCH LINES MOVED TO MERGED BY FAST-FORWARD; OF 15 ERA FINDINGS, 7 ADDED BESIDE A PRE-b450 LEDGER LINE AND 8 HELD BY NO LEDGER; 1.5a-7 v0.18, 1.5a-8 AND 1.5h-9 UNGRADED. ENUMERA: NO TERMINAL DERIVES; THE CENSUS STAYS AT FIFTEEN OF SIXTEEN. W-ORD-SPAN-HEADING REPAIRED. NO CLAIM ABOUT ZEROS.',
+     '### NO GRADE MOVED ON ANY ROW. ### ENUMERA`S RELATION GRADED IN THE TRAIL ONLY. ### NO CLAIM ABOUT RH, h2 OR ANY ZERO',
+     'data/b454_the_ruling_executed.txt; data/b454_components.txt; data/b454_findings.json; data/b454_enumera.json; data/b454_registry.json; data/b454_span_repair.json; data/b454_registration_2026-09-14.txt (LOCKED, 8 gates read, 4 by digest); OPEN_TRAILS.md; CORRESPONDENCE.md row 303'),
     # ### THE RESIDUE AND RECONCILIATION ARC FOLDED (b453).
     ('the-residue-and-reconciliation-arc-folded', 'b453 (the fold at span eight)',
      'b453 FOLDED b445-b452 (THE RESIDUE AND RECONCILIATION ARC): 17 VERDICT STRINGS VERIFIED IN 8 BANKS; COLUMNS OBJECT 0, MODEL 3, RECORD 5; ONE CARRIED ARM FAILURE; (R63) AND (R64) TO b454. A FOLD MINTS NOTHING. NO CLAIM ABOUT ZEROS.',

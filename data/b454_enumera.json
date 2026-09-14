@@ -1,0 +1,990 @@
+{
+ "kernels": [
+  "SIDE-archimedean",
+  "SIDE-bijection",
+  "SIDE-bsd-formation-transfer",
+  "SIDE-bsd-multiplicity",
+  "SIDE-carrier-spec",
+  "SIDE-class-coupling",
+  "SIDE-class-number-anomaly",
+  "SIDE-compression",
+  "SIDE-constants",
+  "SIDE-cosmo",
+  "SIDE-coupling",
+  "SIDE-cubit-axis",
+  "SIDE-dark-interface",
+  "SIDE-dirichlet-mod-24",
+  "SIDE-effects",
+  "SIDE-fano-darkness",
+  "SIDE-formation-arithmetic",
+  "SIDE-formation-procedure",
+  "SIDE-frobenius",
+  "SIDE-global-section",
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-li-map",
+  "SIDE-local-cosmic-interface",
+  "SIDE-lv-conservation",
+  "SIDE-meta",
+  "SIDE-omega-b",
+  "SIDE-orchestrator",
+  "SIDE-quaternionic-dark-sector",
+  "SIDE-rcurve",
+  "SIDE-residual-bridge",
+  "SIDE-silence-principle",
+  "SIDE-simplicity",
+  "SIDE-spinor",
+  "SIDE-spinor-calibration",
+  "SIDE-spinor-calibration-mathlib",
+  "SIDE-structural-error-correction",
+  "SIDE-substrate-cluster",
+  "SIDE-t7-topology-cmb",
+  "SIDE-trivium",
+  "SIDE-window",
+  "SIDE-yang-mills-formation"
+ ],
+ "yield_": 95,
+ "hits": [
+  {
+   "kernel": "SIDE-bijection",
+   "path": "SIDEBijection/Theorem.lean",
+   "line": 134,
+   "name": "identity_formation_bijection",
+   "decl": "theorem identity_formation_bijection (S : IDSSystem) :\n    ∀ stage : Fin 4, Bijective (S.identityOf stage) := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-bijection",
+   "path": "SIDEBijection/Theorem.lean",
+   "line": 248,
+   "name": "sideIDS_total_seven",
+   "decl": "theorem sideIDS_total_seven : sideIDS.formation.total = 7 := rfl",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "path": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 67,
+   "name": "formation_total_seven",
+   "decl": "theorem formation_total_seven : formation_total_BSD = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "path": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 82,
+   "name": "formation_preserved",
+   "decl": "theorem formation_preserved :\n    n1_BSD = n1_xi ∧ n2_BSD = n2_xi ∧ n3_BSD = n3_xi ∧ n4_BSD = n4_xi := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "path": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 123,
+   "name": "all_seven_transfer",
+   "decl": "theorem all_seven_transfer : ∀ c : MechanismClass, transfers c = true := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "path": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 299,
+   "name": "formation_transfer_xi_to_bsd",
+   "decl": "theorem formation_transfer_xi_to_bsd :\n    formation_total_BSD = 7 ∧\n    formation_total_BSD = n1_xi + n2_xi + n3_xi + n4_xi ∧\n    (∀ c : MechanismClass, transfers c = true) ∧\n    fully_closed bsd_closure = true ∧\n    location_transferred = true := by",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "path": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 314,
+   "name": "bsd_chain_eq_seven",
+   "decl": "theorem bsd_chain_eq_seven : bsd_chain_length = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-bsd-formation-transfer",
+   "path": "SIDEBSDFormationTransfer/Basic.lean",
+   "line": 315,
+   "name": "bsd_chain_eq_formation",
+   "decl": "theorem bsd_chain_eq_formation : bsd_chain_length = formation_total_BSD := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-bsd-multiplicity",
+   "path": "SIDEBSDMultiplicity/Basic.lean",
+   "line": 136,
+   "name": "mechanism_classes_seven",
+   "decl": "theorem mechanism_classes_seven : formation_total_for_BSD = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-compression",
+   "path": "SIDECompression/Basic.lean",
+   "line": 165,
+   "name": "xi_chain_length_seven",
+   "decl": "theorem xi_chain_length_seven : xi_zeta.chainLength = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-compression",
+   "path": "SIDECompression/Basic.lean",
+   "line": 166,
+   "name": "xi_formation_total_seven",
+   "decl": "theorem xi_formation_total_seven : xi_zeta.formationTotal = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-compression",
+   "path": "SIDECompression/Basic.lean",
+   "line": 271,
+   "name": "xi_max_chain_seven",
+   "decl": "theorem xi_max_chain_seven : maxChainLength xi_zeta = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-compression",
+   "path": "SIDECompression/Basic.lean",
+   "line": 309,
+   "name": "panel_chain_eq_formation",
+   "decl": "theorem panel_chain_eq_formation : ∀ p : PanelInstance,\n    (asSIDEInstance p).chainLength = (asSIDEInstance p).formationTotal := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-cosmo",
+   "path": "SIDECosmo/FanoFormation.lean",
+   "line": 13,
+   "name": "formation_fano_match",
+   "decl": "theorem formation_fano_match : xi.formation_total = 7 ∧ True :=",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-cosmo",
+   "path": "SIDECosmo/FanoFormation.lean",
+   "line": 46,
+   "name": "formation_rate",
+   "decl": "theorem formation_rate : 2 ^ 2 = visible_slots xi := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-cosmo",
+   "path": "SIDECosmo/FanoPlane.lean",
+   "line": 38,
+   "name": "formation_is_fano",
+   "decl": "theorem formation_is_fano : 2 + 3 + 2 + 0 = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-cubit-axis",
+   "path": "SIDECubitAxis/Basic.lean",
+   "line": 130,
+   "name": "formation_count_eq_nontrivial",
+   "decl": "theorem formation_count_eq_nontrivial :\n    formationCount = cubitNonTrivial := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-cubit-axis",
+   "path": "SIDECubitAxis/Basic.lean",
+   "line": 167,
+   "name": "steane_d_eq_formation_n2",
+   "decl": "theorem steane_d_eq_formation_n2 : steaneD = formationN2 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-effects",
+   "path": "SIDEEffects/Phase15/Module1.lean",
+   "line": 146,
+   "name": "crt_exhaustiveness",
+   "decl": "theorem crt_exhaustiveness (sc : StructuralCoupling) :\n    ∃ m : ModularCoupling, ∀ n : ℕ, sc.eval n ↔ m.eval n :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-effects",
+   "path": "SIDEEffects/Phase15/SIDEFramework.lean",
+   "line": 45,
+   "name": "SIDE_exclusion",
+   "decl": "theorem SIDE_exclusion\n    {X : Type u} {P : X → Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    ¬ (P x) := by",
+   "clauses": [
+    "E1",
+    "E4"
+   ],
+   "profile": [],
+   "profile_count": 0
+  },
+  {
+   "kernel": "SIDE-effects",
+   "path": "SIDEEffects/Structural.lean",
+   "line": 41,
+   "name": "formation_seven",
+   "decl": "theorem formation_seven : 2 + 3 + 2 + 0 = 7 := rfl",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 294,
+   "name": "xi_total_seven",
+   "decl": "theorem xi_total_seven : formationTotal xi_zeta = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 295,
+   "name": "L_E_s_total_seven",
+   "decl": "theorem L_E_s_total_seven : formationTotal L_E_s = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 296,
+   "name": "maxwell_total_seven",
+   "decl": "theorem maxwell_total_seven : formationTotal maxwell = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 297,
+   "name": "dedekind_total_seven",
+   "decl": "theorem dedekind_total_seven : formationTotal dedekind_zeta = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 298,
+   "name": "shannon_total_seven",
+   "decl": "theorem shannon_total_seven : formationTotal shannon_channel = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 299,
+   "name": "genetic_code_total_seven",
+   "decl": "theorem genetic_code_total_seven : formationTotal genetic_code = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 305,
+   "name": "hodge_total_seven",
+   "decl": "theorem hodge_total_seven : formationTotal hodge = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 343,
+   "name": "formation_transfer_tuple",
+   "decl": "theorem formation_transfer_tuple :\n    formationTuple L_E_s = formationTuple xi_zeta := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-formation-procedure",
+   "path": "SIDEFormationProcedure/Basic.lean",
+   "line": 347,
+   "name": "formation_transfer_TYPE",
+   "decl": "theorem formation_transfer_TYPE :\n    techneClassify L_E_s.problem = techneClassify xi_zeta.problem := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-global-section",
+   "path": "Core/CeilingSweepShadow.lean",
+   "line": 84,
+   "name": "the_modes_partition_seven_and_four",
+   "decl": "theorem the_modes_partition_seven_and_four : (7 : Nat) + 4 = 11 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-global-section",
+   "path": "Core/CeilingSweepShadow.lean",
+   "line": 95,
+   "name": "the_bracket_at_seven_hundred",
+   "decl": "theorem the_bracket_at_seven_hundred :\n    3 * 215 ≤ 700 ∧ ¬ (4 * 215 ≤ 700) := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-global-section",
+   "path": "Core/JunctionSignShadow.lean",
+   "line": 63,
+   "name": "seven_would_have_entered_a_growing_place_set",
+   "decl": "theorem seven_would_have_entered_a_growing_place_set : (7 ^ 2 ≤ 100) := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-global-section",
+   "path": "Core/ThetaBridgeShadow.lean",
+   "line": 82,
+   "name": "transformation_shadow_odd",
+   "decl": "theorem transformation_shadow_odd :\n    (List.range 9).map (fun k =>\n      (List.range 9).foldl (fun acc m => v6add acc (m9 ((m*m + 2*m*k) % 9))) z6) =\n    (List.range 9).map (fun k => v6scale 3 (m9 ((9 - (k*k) % 9) % 9))) := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-grh-transfer",
+   "path": "SIDEGRHTransfer/GRHBridge.lean",
+   "line": 49,
+   "name": "seven_classes_chi",
+   "decl": "theorem seven_classes_chi : Fintype.card MechanismClass = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-grh-transfer",
+   "path": "SIDEGRHTransfer/GRHBridge.lean",
+   "line": 122,
+   "name": "ostrowski_exhaustive_chi",
+   "decl": "theorem ostrowski_exhaustive_chi\n    (f : AbsoluteValue ℚ ℝ) (hf : f.IsNontrivial) :\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃ p : ℕ, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),\n      f.IsEquiv (Rat.AbsoluteValue.padic p) := by",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-grh-transfer",
+   "path": "SIDEGRHTransfer/GRHBridge.lean",
+   "line": 145,
+   "name": "grh_structural_exhaustiveness_proved",
+   "decl": "theorem grh_structural_exhaustiveness_proved\n    {n : ℕ} [NeZero n] (χ χbar : DirichletCharacter ℂ n) :\n    GRHStructuralExhaustiveness χ χbar :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-interfaces",
+   "path": "Kernel/InFormation.lean",
+   "line": 25,
+   "name": "information_is_in_formation",
+   "decl": "theorem information_is_in_formation\n    (f : Formation) (h : f.isDetermined) :\n    f.total = f.structural := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-interfaces",
+   "path": "Kernel/InFormation.lean",
+   "line": 35,
+   "name": "xi_information_in_formation",
+   "decl": "theorem xi_information_in_formation :\n    xi_formation.total = xi_formation.structural :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-interfaces",
+   "path": "Kernel/InFormation.lean",
+   "line": 39,
+   "name": "xi_structural_seven",
+   "decl": "theorem xi_structural_seven :\n    xi_formation.structural = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/CSSThreshold.lean",
+   "line": 17,
+   "name": "seven_mersenne",
+   "decl": "theorem seven_mersenne : 7 = 2^3 - 1 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/CartanBBridge.lean",
+   "line": 196,
+   "name": "output_stage_exhaustiveness_proved",
+   "decl": "theorem output_stage_exhaustiveness_proved : OutputStageExhaustiveness :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/CartanBBridge.lean",
+   "line": 220,
+   "name": "formation_n_3_eq_two",
+   "decl": "theorem formation_n_3_eq_two : n_3 = 2 := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/ConservationBridge.lean",
+   "line": 46,
+   "name": "structural_exhaustiveness_proved",
+   "decl": "theorem structural_exhaustiveness_proved\n    (h_cons : ConservationHypothesis) : StructuralExhaustiveness := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/LocalZeta.lean",
+   "line": 13,
+   "name": "formation_count",
+   "decl": "theorem formation_count : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/OstrowskiBridge.lean",
+   "line": 41,
+   "name": "place_classification_exhaustive",
+   "decl": "theorem place_classification_exhaustive\n    (f : AbsoluteValue ℚ ℝ) (hf : f.IsNontrivial) :\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p) :=",
+   "clauses": [
+    "E1"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/OstrowskiBridge.lean",
+   "line": 74,
+   "name": "formation_n2",
+   "decl": "theorem formation_n2 : Fintype.card TransformationStage = 3 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/OstrowskiBridge.lean",
+   "line": 77,
+   "name": "formation_count",
+   "decl": "theorem formation_count : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/OstrowskiBridge.lean",
+   "line": 102,
+   "name": "ostrowski_exhaustive",
+   "decl": "theorem ostrowski_exhaustive :\n    ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial →\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p) :=",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/SIDEBridge.lean",
+   "line": 89,
+   "name": "side_exclusion_bridge",
+   "decl": "theorem side_exclusion_bridge\n    (h_rh : RHHypothesis) (h_simp : SimplicityHypothesis)\n    (s : ℂ)\n    (hs : completedRiemannZeta₀ s = 0)\n    (hlo : 0 < s.re) (hhi : s.re < 1) :\n    s.re = 1 / 2 ∧ deriv completedRiemannZeta₀ s ≠ 0 := by",
+   "clauses": [
+    "E4"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/TheBridgeComplete.lean",
+   "line": 25,
+   "name": "seven_classes",
+   "decl": "theorem seven_classes : Fintype.card MechanismClass = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/TheBridgeComplete.lean",
+   "line": 79,
+   "name": "ostrowski_exhaustive_prime",
+   "decl": "theorem ostrowski_exhaustive_prime\n    (f : AbsoluteValue Rat Real) (hf : f.IsNontrivial) :\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃ p : Nat, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),\n      f.IsEquiv (Rat.AbsoluteValue.padic p) := by",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/TheBridgeComplete.lean",
+   "line": 213,
+   "name": "formation",
+   "decl": "theorem formation : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/TheBridgeComplete.lean",
+   "line": 249,
+   "name": "structural_exhaustiveness_proved",
+   "decl": "theorem structural_exhaustiveness_proved :\n    StructuralExhaustiveness :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/TheBridgeComplete.lean",
+   "line": 262,
+   "name": "transformation_injective",
+   "decl": "theorem transformation_injective :\n    Function.Injective transformation_class := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Bridge/TheBridgeComplete.lean",
+   "line": 266,
+   "name": "transformation_classes_are_three",
+   "decl": "theorem transformation_classes_are_three :\n    Fintype.card TransformationStage = 3 ∧\n    Function.Injective transformation_class :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Bijection.lean",
+   "line": 26,
+   "name": "formation",
+   "decl": "theorem formation : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Core.lean",
+   "line": 50,
+   "name": "formation_count",
+   "decl": "theorem formation_count : n1 + n2 + n3 + n4 = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Core.lean",
+   "line": 53,
+   "name": "formation",
+   "decl": "theorem formation : 2 + 3 + 2 + 0 = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Enumera.lean",
+   "line": 16,
+   "name": "F1_dim_seven",
+   "decl": "theorem F1_dim_seven : 2 + 3 + 2 + 0 = 7 := Bijection.formation",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Enumera.lean",
+   "line": 55,
+   "name": "F11_formation",
+   "decl": "theorem F11_formation : 2 + 3 + 2 + 0 = 7 := Bijection.formation",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Formation.lean",
+   "line": 53,
+   "name": "formation_bridge",
+   "decl": "theorem formation_bridge\n    {X : Type u} {P : X → Prop}\n    (fc : ForwardCatalogue X P) (x : X) : P x :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Integration.lean",
+   "line": 163,
+   "name": "seven_paths_converge",
+   "decl": "theorem seven_paths_converge (sigma : Real) :\n    -- If ANY of the six nontrivial conditions holds, sigma = 1/2\n    (sigma = 1 - sigma) →  -- C1: functional equation symmetry\n    sigma = 1 / 2 := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Integration.lean",
+   "line": 221,
+   "name": "rh_from_structural_exhaustiveness",
+   "decl": "theorem rh_from_structural_exhaustiveness\n    (h : StructuralExhaustiveness) :\n    RiemannHypothesis := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Integration.lean",
+   "line": 240,
+   "name": "structural_exhaustiveness_from_rh",
+   "decl": "theorem structural_exhaustiveness_from_rh\n    (h : RiemannHypothesis) :\n    StructuralExhaustiveness := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Integration.lean",
+   "line": 252,
+   "name": "structural_exhaustiveness_iff_rh",
+   "decl": "theorem structural_exhaustiveness_iff_rh :\n    StructuralExhaustiveness ↔ RiemannHypothesis :=",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Layer1.lean",
+   "line": 30,
+   "name": "SIDE_exclusion",
+   "decl": "theorem SIDE_exclusion\n    {X : Type u} {P : X -> Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    Not (P x) := by",
+   "clauses": [
+    "E1",
+    "E4"
+   ],
+   "profile": [
+    {
+     "file": "AGENTS.md",
+     "line": 58,
+     "window": "The Day 1 proof chain:\n\n- **`StructuralExhaustiveness`** (`Kernel/Layer1.lean`) — four-field structure: `conservation`, `ostrowski_complete`, `formation_exhaustive`, `per_class_exclusion`\n- **`SIDE_exclusion`** (`Kernel/Layer1.lean`) — the named ZFC theorem: exhaustive catalogue plus none-produces implies negation\n- **`structural_exhaustiveness_proved`** (`Kernel/TheBridgeComplete.lean`) — assembles the four fields unconditionally\n- **`rh_from_structural_exhaustiveness`** (`Kernel/Integration.lean`) — derives Mathlib's `RiemannHypothesis` from `StructuralExhaustiveness`\n- **`riemann_hypothesis`** — the composition. 0 sorry, 0 axioms beyond Lean core"
+    }
+   ],
+   "profile_count": 1
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/PoissonExhaustion.lean",
+   "line": 19,
+   "name": "ostrowski_complete",
+   "decl": "theorem ostrowski_complete :\n    ∀ (s : SIDEKernel.Place),\n    s = Place.archimedean ∨ ∃ p hp, s = Place.padic p hp := by",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/PoissonExhaustion.lean",
+   "line": 66,
+   "name": "gate_e_exhaustive_derived",
+   "decl": "theorem gate_e_exhaustive_derived :\n    ∀ sigma : Real, ¬(BalanceContradiction sigma) := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/StructuralCount.lean",
+   "line": 103,
+   "name": "formation_count",
+   "decl": "theorem formation_count : allClasses.length = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/StructuralCount.lean",
+   "line": 120,
+   "name": "transformation_count",
+   "decl": "theorem transformation_count : (classesInStage Stage.transformation).length = 3 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/StructuralCount.lean",
+   "line": 160,
+   "name": "ostrowski_places_complete",
+   "decl": "theorem ostrowski_places_complete :\n    Stage.count Stage.transformation = 3 := rfl",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Trivium.lean",
+   "line": 59,
+   "name": "card_seven",
+   "decl": "theorem card_seven : Fintype.card Discriminant = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Trivium.lean",
+   "line": 105,
+   "name": "seven_from_generators",
+   "decl": "theorem seven_from_generators : 2 ^ 3 - 1 = 7 := by norm_num",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Trivium.lean",
+   "line": 179,
+   "name": "seven_not_smooth",
+   "decl": "theorem seven_not_smooth : ¬is_two_three_smooth 7 := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Trivium.lean",
+   "line": 412,
+   "name": "fano_lines_seven",
+   "decl": "theorem fano_lines_seven : Fintype.card FanoLine = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Trivium.lean",
+   "line": 440,
+   "name": "formation_equals_trivium",
+   "decl": "theorem formation_equals_trivium :\n    2 + 3 + 2 + 0 = Fintype.card Discriminant := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Trivium.lean",
+   "line": 444,
+   "name": "formation_from_three_generators",
+   "decl": "theorem formation_from_three_generators :\n    2 + 3 + 2 + 0 = 2 ^ 3 - 1 := by norm_num",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "MetaKernel.lean",
+   "line": 71,
+   "name": "formation_count",
+   "decl": "theorem formation_count : 2 + 3 + 2 + 0 = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "MetaKernel.lean",
+   "line": 164,
+   "name": "type_I_has_ostrowski",
+   "decl": "theorem type_I_has_ostrowski (Domain : Type) [Fintype Domain]\n    (target : Prop) (produces : Domain → Prop)\n    (h_none : ∀ d, ¬(produces d))\n    (h_target : target → ∃ d, produces d) :\n    ¬target := by",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "MetaKernel.lean",
+   "line": 184,
+   "name": "formation_terminates",
+   "decl": "theorem formation_terminates : (2 + 3 + 2 + 0 : Nat) = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "MetaKernel.lean",
+   "line": 350,
+   "name": "eliminative_is_ostrowski",
+   "decl": "theorem eliminative_is_ostrowski :\n    rh_polarity = Polarity.eliminative := rfl",
+   "clauses": [
+    "E2"
+   ]
+  },
+  {
+   "kernel": "SIDE-lv-conservation",
+   "path": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 243,
+   "name": "C3_theta_transformation_at_Phi",
+   "decl": "theorem C3_theta_transformation_at_Phi : C3_theta_transformation Phi := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-lv-conservation",
+   "path": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 215,
+   "name": "goalState_sevenClasses_of_h2",
+   "decl": "theorem goalState_sevenClasses_of_h2 (s : ℂ) (h2 : mellin Phi (s / 2) ≠ 0) :\n    GoalState sevenClasses s := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-lv-conservation",
+   "path": "SIDELvConservation/T2_SDarkness.lean",
+   "line": 51,
+   "name": "T2b_mellin_exhaustion",
+   "decl": "theorem T2b_mellin_exhaustion (Φ : ℝ → ℂ) (s : ℂ) :\n    mellin Φ s = ∫ t : ℝ in Ioi 0, (t : ℂ) ^ (s - 1) • Φ t := rfl",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-quaternionic-dark-sector",
+   "path": "SIDEQuaternionicDarkSector/Basic.lean",
+   "line": 155,
+   "name": "omega_information_eq_1_over_4",
+   "decl": "theorem omega_information_eq_1_over_4 : eq_frac omega_information ⟨1, 4⟩ = true := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-quaternionic-dark-sector",
+   "path": "SIDEQuaternionicDarkSector/Basic.lean",
+   "line": 166,
+   "name": "non_dark_strata_seven",
+   "decl": "theorem non_dark_strata_seven : non_dark_strata_sum = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-spinor-calibration",
+   "path": "SIDESpinorCalibration/Basic.lean",
+   "line": 86,
+   "name": "formation_count_seven",
+   "decl": "theorem formation_count_seven :\n    formationN1 + formationN2 + formationN3 + formationN4 = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-structural-error-correction",
+   "path": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 57,
+   "name": "formation_total_seven",
+   "decl": "theorem formation_total_seven : formation_total = 7 := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-structural-error-correction",
+   "path": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 84,
+   "name": "non_dark_covers_seven",
+   "decl": "theorem non_dark_covers_seven :\n    primitive_size + transformation_size + output_size = formation_total := by decide",
+   "clauses": [
+    "E3"
+   ]
+  },
+  {
+   "kernel": "SIDE-structural-error-correction",
+   "path": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 111,
+   "name": "formation_block_stronger",
+   "decl": "theorem formation_block_stronger : d_eff > d_standard := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-substrate-cluster",
+   "path": "SIDESubstrateCluster/MuClassifier.lean",
+   "line": 58,
+   "name": "catalogue_card",
+   "decl": "theorem catalogue_card :\n    (allAssign.filter (fun a => darkSplit a && (a.2.2 == EoS.resid))).length = 2 := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-substrate-cluster",
+   "path": "SIDESubstrateCluster/MuClassifier.lean",
+   "line": 62,
+   "name": "catalogue_is_doubleton",
+   "decl": "theorem catalogue_is_doubleton :\n    allAssign.filter (fun a => darkSplit a && (a.2.2 == EoS.resid)) = [M1, M2] := by",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-t7-topology-cmb",
+   "path": "SIDET7TopologyCMB/Basic.lean",
+   "line": 71,
+   "name": "T7_torsion_nonzero_seven",
+   "decl": "theorem T7_torsion_nonzero_seven : H1_torsion_nonzero = 7 := by decide",
+   "clauses": []
+  },
+  {
+   "kernel": "SIDE-yang-mills-formation",
+   "path": "SIDEYangMillsFormation/Basic.lean",
+   "line": 122,
+   "name": "trivium_seven",
+   "decl": "theorem trivium_seven : trivium_points = 7 := by decide",
+   "clauses": []
+  }
+ ],
+ "best": 2,
+ "nearest": [
+  {
+   "kernel": "SIDE-effects",
+   "path": "SIDEEffects/Phase15/SIDEFramework.lean",
+   "line": 45,
+   "name": "SIDE_exclusion",
+   "decl": "theorem SIDE_exclusion\n    {X : Type u} {P : X → Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    ¬ (P x) := by",
+   "clauses": [
+    "E1",
+    "E4"
+   ],
+   "profile": [],
+   "profile_count": 0,
+   "graded": {
+    "grade": "INTERFACES",
+    "deciding": "(cat : ExhaustiveCatalogue X P)",
+    "why": "the same statement in `SIDEEffects`: the exhaustive catalogue is a named hypothesis",
+    "profile": "NO SHIPPED PROFILE LOCATED -- no tracked file names it within three lines of `axioms`"
+   },
+   "deciding_in_decl": true
+  },
+  {
+   "kernel": "SIDE-kernel",
+   "path": "Kernel/Layer1.lean",
+   "line": 30,
+   "name": "SIDE_exclusion",
+   "decl": "theorem SIDE_exclusion\n    {X : Type u} {P : X -> Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    Not (P x) := by",
+   "clauses": [
+    "E1",
+    "E4"
+   ],
+   "profile": [
+    {
+     "file": "AGENTS.md",
+     "line": 58,
+     "window": "The Day 1 proof chain:\n\n- **`StructuralExhaustiveness`** (`Kernel/Layer1.lean`) — four-field structure: `conservation`, `ostrowski_complete`, `formation_exhaustive`, `per_class_exclusion`\n- **`SIDE_exclusion`** (`Kernel/Layer1.lean`) — the named ZFC theorem: exhaustive catalogue plus none-produces implies negation\n- **`structural_exhaustiveness_proved`** (`Kernel/TheBridgeComplete.lean`) — assembles the four fields unconditionally\n- **`rh_from_structural_exhaustiveness`** (`Kernel/Integration.lean`) — derives Mathlib's `RiemannHypothesis` from `StructuralExhaustiveness`\n- **`riemann_hypothesis`** — the composition. 0 sorry, 0 axioms beyond Lean core"
+    }
+   ],
+   "profile_count": 1,
+   "graded": {
+    "grade": "INTERFACES",
+    "deciding": "(cat : ExhaustiveCatalogue X P)",
+    "why": "the exhaustive catalogue is the theorem`s named hypothesis `cat`; it concludes `Not (P x)` from it and proves no catalogue exhaustive",
+    "profile": "NO SHIPPED PROFILE LOCATED -- the one window naming it within three lines of `axioms` (AGENTS.md:58) states the profile of the composed `riemann_hypothesis`, not of `SIDE_exclusion`"
+   },
+   "deciding_in_decl": true
+  }
+ ],
+ "second": {
+  "kernel": "SIDE-kernel",
+  "path": "Bridge/TheBridgeComplete.lean",
+  "line": 249,
+  "name": "structural_exhaustiveness_proved",
+  "statement": "theorem structural_exhaustiveness_proved : StructuralExhaustiveness := ⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩",
+  "unfolds": "StructuralExhaustiveness := (Fintype.card MechanismClass = 7) ∧ (forall c : MechanismClass, ¬(produces_offline c)) ∧ (every nontrivial absolute value on ℚ is equivalent to the real or a p-adic one)  [Bridge/TheBridgeComplete.lean:215]",
+  "grade": "NOT THE CLAIM",
+  "deciding": "Fintype.card MechanismClass = 7",
+  "why": "sound and premise-free, and strictly weaker than (E1): it counts the constructors of the seven-constructor inductive it defines (`decide`) and classifies the places of ℚ (Mathlib`s Ostrowski); it does not state that every mechanism falls in one of the seven classes, nor n₂ = 3 or the formation`s completeness",
+  "profile": "`[propext, Classical.choice, Quot.sound]` -- DEPOSIT_v1_2_NOTES.md:38, *\"'structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\"*",
+  "defect": "the word test reads a declaration through its `:=`; `StructuralExhaustiveness``s conjuncts are defined at Bridge/TheBridgeComplete.lean:215, so the name touched no clause and the rule`s nearest is `SIDE_exclusion`. Printed as a second figure, not substituted.",
+  "statement_verbatim": true,
+  "deciding_verbatim": true,
+  "profile_verbatim": true
+ },
+ "requirement": [
+  [
+   "E1",
+   "The seven-class catalogue is exhaustive."
+  ],
+  [
+   "E2",
+   "The Poisson Exhaustion Theorem (proved via Ostrowski's theorem) establishes n₂ = 3."
+  ],
+  [
+   "E3",
+   "Combined with n₁ = 2 (algebraic), n₃ = 2 (complex analysis), n₄ = 0 (Tate), the formation (2,3,2,0) = 7 is complete."
+  ],
+  [
+   "E4",
+   "RH follows by SIDE Exclusion — *under the exhaustiveness premise `h2`, carried openly as open*"
+  ]
+ ],
+ "census": "STAYS AT FIFTEEN OF SIXTEEN",
+ "shortfall": "no rostered terminal states (E1): the rule`s nearest, `SIDE_exclusion`, takes the exhaustive catalogue as its hypothesis (INTERFACES), and `structural_exhaustiveness_proved` proves the card of a type it defines and the places of ℚ (NOT THE CLAIM)",
+ "lean_runs": 0
+}
