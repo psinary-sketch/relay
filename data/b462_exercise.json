@@ -296,8 +296,8 @@
   },
   {
    "name": "G-WRITELIST-KINDS",
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "every b462 commit in three repositories"
   },
@@ -330,6 +330,13 @@
    "reads": "the suite`s own text"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip`s presence"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -337,12 +344,12 @@
    "reads": "a file that must not exist"
   }
  ],
- "run": 48,
- "live_failing": [],
+ "run": 49,
+ "live_failing": [
+  "G-WRITELIST-KINDS"
+ ],
  "defective": [],
- "neg_failures": 0,
+ "neg_failures": 1,
  "declared": 49,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD"
- ]
+ "deferred": []
 }
