@@ -295,6 +295,13 @@
    "reads": "the suite`s own text"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip`s presence"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -302,12 +309,10 @@
    "reads": "a file that must not exist"
   }
  ],
- "run": 43,
+ "run": 44,
  "live_failing": [],
  "defective": [],
  "neg_failures": 0,
  "declared": 44,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD"
- ]
+ "deferred": []
 }
