@@ -202,14 +202,21 @@ def main():
     arm('G-TRAIL-APPEND-ONLY', ent.get('prefix_proved') is True and ent.get('removed') == 0,
         'the trail is appended, never rewritten')
     arm('G-CORR-APPEND-ONLY', True, 'checked by the desk writer`s own read-back')
+    # ### **EVERY COMMIT OF THIS ACT, NOT ONLY THE LAST.** ### The first form read HEAD alone, so
+    # ### once the closing commit landed the breaching names fell out of scope and the arm turned
+    # ### from FAIL to PASS without a single file being removed. ### **AN ARM THAT FORGETS WHAT THE
+    # ### ACT WROTE TWO COMMITS AGO IS NOT A WRITE-LIST ARM**, and a false pass is worse than none.
     kinds = set(os.path.basename(x) for x in tracked)
-    if gits(ROOT, 'log', '-1', '--pretty=%s').startswith('b458'):
-        kinds |= set(os.path.basename(x) for x in
-                     gits(ROOT, 'show', '--name-only', '--pretty=format:', 'HEAD').split(NL) if x.strip())
-    else:
-        for p in git(ROOT, 'status', '--porcelain').split(NL):
-            if p.strip() and not p.lstrip().startswith('??'):
-                kinds.add(os.path.basename(p[3:].strip()))
+    for repo in (ROOT, PP, SIDE):
+        shas = [l for l in gits(repo, 'log', '--pretty=%H %s', '-20').split(NL)
+                if l.strip() and l.split(' ', 1)[-1].startswith('b458')]
+        for l in shas:
+            kinds |= set(os.path.basename(x) for x in
+                         gits(repo, 'show', '--name-only', '--pretty=format:', l.split()[0]).split(NL)
+                         if x.strip())
+        for l in git(repo, 'status', '--porcelain').split(NL):
+            if l.strip() and not l.lstrip().startswith('??'):
+                kinds.add(os.path.basename(l[3:].strip()))
     # ### **THE BREACH IS NAMED, NOT THE WHOLE LIST.** ### Printing all thirty-six kinds hides the
     # ### two that matter. ### **THE ARM IS NOT WIDENED TO MAKE ITSELF PASS** -- BAR 8.
     unnamed = sorted(k for k in kinds if k not in face)
