@@ -216,9 +216,14 @@ ARMS = [
     ('G-C2-POSITIVE-FAILS', 'the exercise record',
      lambda S: S['dsp'].get('pos_passes') == 0,
      lambda S: put(S, 'dsp', dict(S['dsp'], pos_passes=1))),
+    # ### **DEFECTIVE ON ITS OWN POSITIVE CONTROL AT b461, AND REPAIRED IN THE ACT.** ### The first
+    # ### form was a DISJUNCTION whose right side (`'DEFECTIVE' in exercise`) is true whenever any
+    # ### earlier run printed the word, so the mutation could not bite. ### **AN ARM WHOSE POSITIVE
+    # ### CONTROL CANNOT REACH IT IS NOT EXERCISED, WHATEVER ITS TABLE SAYS.** ### It now requires
+    # ### each defective arm to be NAMED, and the control supplies one that is not.
     ('G-C2-DEFECTIVE-ARMS-NAMED', 'the exercise record',
-     lambda S: (S['dsp'].get('pos_passes') == 0) or ('DEFECTIVE' in S['exercise']),
-     lambda S: put(S, 'dsp', dict(S['dsp'], pos_passes=1))),
+     lambda S: all(n in S['exercise'] for n in S['dsp'].get('defective', [])),
+     lambda S: put(S, 'dsp', dict(S['dsp'], defective=['G-A-DEFECT-NOBODY-NAMED']))),
     ('G-C2-BEFORE-AFTER-COUNTS', 'the dispositions bank',
      lambda S: all(k in S['dsp'] for k in ('before', 'retired', 'given', 'kept', 'after')),
      lambda S: put(S, 'dsp', {k: v for k, v in S['dsp'].items() if k != 'after'})),
