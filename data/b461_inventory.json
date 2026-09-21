@@ -1,0 +1,930 @@
+{
+ "rows": [
+  {
+   "name": "G-ADDENDUM-SLOT-CONTENT-BOUNDED",
+   "reads": [
+    "a file`s presence"
+   ],
+   "expr": "(not os.path.exists(slot)) or read(slot).strip() == ''",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-ADDENDUM-SLOT-DECLARED",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'b460_addendum.txt' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-ARMS-DECLARED-EQ-RUN",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "None",
+   "const": false,
+   "positive": "b458: compared the declared set against a run list that was still being appended to, so it could only ever fail.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-ARMS-NO-SUBSTRING-VERDICT",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'line_with' in read(os.path.join(T, 'b460_checks.py'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-B452-TEXT-VERBATIM",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "len(verb) == 3 and 'hand read' not in verb",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-CELL-FROM-BANK",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "ctl.get('cell', {}).get('a') is not None and 'b437_cells.json' in comp",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-CONSTRUCTED-SAID",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'NOT ONE OF b452`S 82 FAILURES AND IS NEVER COUNTED AMONG THEM' in comp",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-DISPOSITION-APPLIED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "(ctl.get('verdict') == 'OBJECT-SIDE') == (ctl.get('disposition') == 'THE FORTY-FOUR STAND AS READ')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-EDGE-DERIVED-NOT-ASSUMED",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'THE EDGE",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-EDGE-TWO-ROUTES",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'A SECOND ROUTE' in face and _two",
+   "const": false,
+   "positive": "b460: its first form searched the extract for `pp = [2]`, which the extract never writes; the needle was the face`s wording, not the bank`s.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-FORTYFOUR-DISPOSED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "'FORTY-FOUR' in comp and ctl.get('disposition')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-FOUR-FIELDS",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "set(ctl.get('fields', {})) == {'class, as the bank quotes it', 'quotation at the step', 'deciding clause', 'hand read'}",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-NO-CHAIN-RUN",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'NO CHAIN IS RUN' in comp or 'ran no chain and computed no channel' in comp",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-NO-RE-VERDICT",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'re-verdicted none' in comp",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-SMALLEST-QUALIFYING",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "ctl.get('cell', {}).get('a') == smallest",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C1-VERDICT-BY-B452-RULE",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'THE VERDICT RULE",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-COUNT-PRINTED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "tec.get('ahead_at_push') is not None and 'COMMITS NOW ON THE REMOTE' in comp",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-NO-FORCE-NO-REBASE",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'--force' not in src460 and 'rebase' not in src460.replace('NO FORCE, NO REBASE', '')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-NOSTAGE-A-TECHNE",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'STAGING BY PATH",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-PRIVATE-AND-MODULES-ONLY",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'isPrivate: true' in face and 'ALL UNDER `modules/`' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-PUSH-OUTPUT-NOT-EVIDENCE",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'THE PUSH COMMAND`S OWN OUTPUT IS NOT EVIDENCE' in comp",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-REMOTE-BY-LSREMOTE",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "'ls-remote' in comp and tec.get('remote')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-C2-THREE-MODULES-BY-PATH",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "len(mods) == 3 and all(m.startswith('modules/2026-09/') for m in mods)",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-CARRIED-TOOLS-REPOINTED",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "not bad",
+   "const": false,
+   "positive": "b458: spelled the prior act`s artefact names in its own body and then scanned itself, finding all seven -- b403`s G-FERRYWORDS species.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-CORPUS-SCOPE",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "tracked == ['OPEN_TRAILS.md']",
+   "const": false,
+   "positive": "b458: read the working tree, which is empty after the commit, so it failed post-push on a repository that was exactly as it should be.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-CORR-APPEND-ONLY",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'| 309 |' in read(os.path.join(SIDE, 'CORRESPONDENCE.md'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-FOUR-LISTS-OPEN",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'The four lists are open' in ot",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-LOCKGATE-EIGHT",
+   "reads": [
+    "a banked verdict LINE"
+   ],
+   "expr": "'LOCK PERMITTED' in line_with(lgf, '**VERDICT : LOCK') and 'GATES READ : 8. ### PASSING : 8' in read(lgf)",
+   "const": false,
+   "positive": "b460: its first form read `VERDICT :` as a substring, which also matches `FIXTURE VERDICT :` -- an A2 violation committed by the suite itself.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-LOCKGATE-NOT-REDIRECTED",
+   "reads": [
+    "a banked verdict LINE",
+    "a file`s presence"
+   ],
+   "expr": "os.path.exists(lgf) and all('LOCK PERMITTED' in line_with(os.path.join(D, f), '**VERDICT : LOCK') for f in variants)",
+   "const": false,
+   "positive": "b458: its label said `not redirected` and its test said `one notes file`, so four honest gate runs failed it -- the WRONG_ARM species.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-MIRROR-NAME-BY-R69",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "os.path.basename(mz).endswith('-b460.zip')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "reads": [
+    "a file`s presence"
+   ],
+   "expr": "os.path.exists(mz)",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-MUSTFAIL",
+   "reads": [
+    "a file`s presence"
+   ],
+   "expr": "not os.path.exists(os.path.join(D, 'b460_a_file_that_must_not_exist.txt'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-N1-SCORED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "'\"%s\"' % n in scores",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-N2-SCORED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "'\"%s\"' % n in scores",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-N3-SCORED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "'\"%s\"' % n in scores",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NODEPOSIT",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'NO DEPOSIT ACTION' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOFETCH",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'NO NETWORK FETCH' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOGRADE-MOVED",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'NO GRADE MOVED ON ANY ROW' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOH2-MOVED",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'WHERE THE DEPOSIT LEFT IT' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOKERNEL-WRITE",
+   "reads": [
+    "repository state"
+   ],
+   "expr": "gits(os.path.join('D:', os.sep, 'SIDE-kernel'), 'status', '--porcelain', '--untracked-files=no') == ''",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOPRIORBANK",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "all(os.path.getmtime(os.path.join(D, f)) < os.path.getmtime(FACE) for f in prior)",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOSTAGE-A",
+   "reads": [
+    "NOTHING -- a constant"
+   ],
+   "expr": "True",
+   "const": true,
+   "positive": "CANNOT BE STATED -- the predicate is the constant `True`",
+   "negative": "CANNOT BE STATED -- a constant passes on every input, so no input distinguishes it",
+   "pos_status": "CANNOT BE STATED",
+   "neg_status": "CANNOT BE STATED",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOTHING-AHEAD-SAID",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'NOTHING WAS PUSHED AT STEP ZERO BECAUSE NOTHING WAS AHEAD' in ' '.join(face.split())",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-NOZENODO-WRITE",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'NOTHING WRITTEN AT ZENODO' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-PREPUSH-FILE-EXISTS",
+   "reads": [
+    "a file`s presence"
+   ],
+   "expr": "os.path.exists(os.path.join(PP, '.githooks', 'pre-push'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-PRIOR-CLOSED-PUSHED",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'row 308' in read(os.path.join(D, 'b459_closing.txt'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-PUSH-SIDE-B439-PREDICATE",
+   "reads": [
+    "NOTHING -- a constant"
+   ],
+   "expr": "True",
+   "const": true,
+   "positive": "CANNOT BE STATED -- the predicate is the constant `True`",
+   "negative": "CANNOT BE STATED -- a constant passes on every input, so no input distinguishes it",
+   "pos_status": "CANNOT BE STATED",
+   "neg_status": "CANNOT BE STATED",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-R70-REHEARSED-BEFORE-LOCK",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "os.path.getmtime(os.path.join(D, 'b460_extract.txt')) < os.path.getmtime(FACE) and 'REHEARSAL 1' in ex and 'REHEARSAL 2' in ex and 'REHEARSAL 3' in ex",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-R70-YIELDS-ON-FACE",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'REHEARSAL 1 -- THE EDGE' in face and 'REHEARSAL 2 -- THE CELL SEARCH' in face and 'REHEARSAL 3 -- THE FIELD READING' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-R71-ENTERED",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'(R71)' in face and '(R71)' in ot",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-RECEIPT-IN-FULL",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'paste ends (part 1 of 1)' in read(os.path.join(D, 'b460_ferry.txt'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-REG-LOCKED-FIRST",
+   "reads": [
+    "THE ACT`S OWN FACE, its wording"
+   ],
+   "expr": "'THE REGISTRATION LOCK' in face",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-ROWU1-UNEDITED",
+   "reads": [
+    "repository state"
+   ],
+   "expr": "gits(PP, 'diff', 'HEAD~1', '--name-only').find('FACES_LEDGER') < 0 if gits(PP, 'log', '-1', '--pretty=%s').startswith('b460') else 'FACES_LEDGER.md' not in git(",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-SCAN-CLEAN",
+   "reads": [
+    "a banked verdict LINE"
+   ],
+   "expr": "'0 HIT(S) REPORTED' in line_with(os.path.join(D, 'b460_ferry_scan.txt'), 'VERDICT:')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-SEAL-VERIFIES",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "any('SEAL INTACT' in l for l in seal.split(NL))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-SEAT-EXPECTATIONS-SCORED",
+   "reads": [
+    "a measurement this act banked"
+   ],
+   "expr": "'\"seat\"' in scores",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-SPAN-BY-TOOL",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'THE CURRENT SPAN' in read(os.path.join(D, 'b460_span_notes.txt'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-STEPZERO-CENSUS",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'TOTAL MISSING : 0' in read(os.path.join(D, 'b460_census_stepzero.txt')) and 'TOTAL MISSING : 0' in read(os.path.join(D, 'b460_faces_census_stepzero.txt'))",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-STEPZERO-PINS",
+   "reads": [
+    "a banked verdict LINE"
+   ],
+   "expr": "'REPOS HARD-FAILING : 0' in line_with(os.path.join(D, 'b460_pins_stepzero.txt'), 'REPOS HARD-FAILING')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-SURVEY-NOMISS",
+   "reads": [
+    "a banked verdict LINE"
+   ],
+   "expr": "'MISSES : 0' in line_with(os.path.join(D, 'b460_extract.txt'), 'MISSES :')",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-TRAIL-APPEND-ONLY",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "ot.count('### b460 —') == 1",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-TWO-READINGS-TWO-FILES",
+   "reads": [
+    "NOTHING -- a constant"
+   ],
+   "expr": "True",
+   "const": true,
+   "positive": "CANNOT BE STATED -- the predicate is the constant `True`",
+   "negative": "CANNOT BE STATED -- a constant passes on every input, so no input distinguishes it",
+   "pos_status": "CANNOT BE STATED",
+   "neg_status": "CANNOT BE STATED",
+   "real": false,
+   "exercised_today": false
+  },
+  {
+   "name": "G-WRITELIST-KINDS",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "not unnamed",
+   "const": false,
+   "positive": "b458: the arm read only HEAD, so when the closing commit landed the six breaching names fell out of scope and it turned FAIL to PASS with no file removed. ### That HEAD-only state is an input it must fail on.",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (a REAL input exists)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": true,
+   "exercised_today": false
+  },
+  {
+   "name": "G-WRITELIST-SPANS-ACT",
+   "reads": [
+    "a banked file`s whole text"
+   ],
+   "expr": "'ROOT",
+   "const": false,
+   "positive": "SYNTHETIC: the same source with the string, line or field the predicate tests removed",
+   "negative": "the real source this act banked, unmutated",
+   "pos_status": "ONE-LINE ADDITION (synthetic only)",
+   "neg_status": "ONE-LINE ADDITION",
+   "real": false,
+   "exercised_today": false
+  }
+ ],
+ "declared": 64,
+ "unmatched": [],
+ "n_real": 7,
+ "n_synth": 54,
+ "n_const": 3,
+ "both_today": 0,
+ "face_only": [
+  "G-ADDENDUM-SLOT-DECLARED",
+  "G-C1-EDGE-TWO-ROUTES",
+  "G-C2-PRIVATE-AND-MODULES-ONLY",
+  "G-NODEPOSIT",
+  "G-NOFETCH",
+  "G-NOGRADE-MOVED",
+  "G-NOH2-MOVED",
+  "G-NOTHING-AHEAD-SAID",
+  "G-NOZENODO-WRITE",
+  "G-R70-YIELDS-ON-FACE",
+  "G-R71-ENTERED",
+  "G-REG-LOCKED-FIRST"
+ ],
+ "tally": {
+  "a file`s presence": 5,
+  "THE ACT`S OWN FACE, its wording": 12,
+  "a banked file`s whole text": 27,
+  "a measurement this act banked": 11,
+  "a banked verdict LINE": 5,
+  "repository state": 2,
+  "NOTHING -- a constant": 3
+ }
+}
