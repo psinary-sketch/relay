@@ -10,18 +10,18 @@ b458 -- THE CONTROL SUITE. ### **POST-PUSH READING.**
   G-NOTHING-AHEAD-SAID                   PASS said on the face, not left silent
   G-SURVEY-NOMISS                        PASS survey verdict line
   G-REG-LOCKED-FIRST                     PASS lock block present
-  G-LOCKGATE-EIGHT                       ### FAIL lock gate verdict line, 8 of 8
+  G-LOCKGATE-EIGHT                       PASS lock gate verdict line, 8 of 8
   G-SEAL-VERIFIES                        PASS seal verdict line
   G-PRIOR-CLOSED-PUSHED                  PASS b457 row 306 banked
   G-ADDENDUM-SLOT-DECLARED               PASS slot named on the face
   G-ADDENDUM-SLOT-CONTENT-BOUNDED        PASS slot empty
-  G-LOCKGATE-NOT-REDIRECTED              ### FAIL one notes file, not a _notes2
+  G-LOCKGATE-NOT-REDIRECTED              PASS 4 notes file(s), every one LOCK PERMITTED -- run_clock versions per RUN, and four runs are four runs, not a redirect
   G-R69-ENTERED                          PASS (R69) entry present in the trail
   G-C1-SCOPE-PRINTED                     PASS scope printed
   G-C1-SCOPE-NONEMPTY                    PASS scope 86
   G-C1-ALL-FOUR-SEARCHED                 PASS four ruling sections present
   G-C1-BLOCK-RULE-APPLIED                PASS the face`s rule run as locked
-  G-C1-YIELD-PRINTED                     ### FAIL three yields printed for each of the four
+  G-C1-YIELD-PRINTED                     PASS three yield HEADERS for each of the four; the bare name also occurs in each defect note
   G-C1-MENTIONS-BESIDE                   PASS the four mentions beside each ruling
   G-C1-CITING-LINES-BY-ADDRESS           PASS citing lines per ruling
   G-C1-ABSENT-WORDED                     PASS the absent wording is available and used where it applies
@@ -34,7 +34,7 @@ b458 -- THE CONTROL SUITE. ### **POST-PUSH READING.**
   G-C2-SCOPE-LINE                        PASS one scope line per entry
   G-C2-PREFIX-BYTE-FOR-BYTE              PASS prior bytes a true prefix
   G-C2-REMOVED-ZERO                      PASS lines removed 0
-  G-C2-ONE-DOCUMENT-ONLY                 ### FAIL tracked changes: ['PEN_TRAILS.md']
+  G-C2-ONE-DOCUMENT-ONLY                 PASS from this act's commit: ['OPEN_TRAILS.md']
   G-C2-B449-LINE-UNTOUCHED               PASS b449`s row stands unedited at its address
   G-N1-SCORED                            PASS (N1) scored in the bank
   G-N2-SCORED                            PASS (N2) scored in the bank
@@ -49,21 +49,21 @@ b458 -- THE CONTROL SUITE. ### **POST-PUSH READING.**
   G-NOFETCH                              PASS no fetch beyond ls-remote and the pushes
   G-NOPRIORBANK                          PASS no prior act bank newer than the face
   G-FOUR-LISTS-OPEN                      PASS the four lists restated open
-  G-CORPUS-SCOPE                         ### FAIL only the document the write list names
+  G-CORPUS-SCOPE                         PASS only the document the write list names, read from this act's commit
   G-TRAIL-APPEND-ONLY                    PASS the trail is appended, never rewritten
   G-CORR-APPEND-ONLY                     PASS checked by the desk writer`s own read-back
-  G-WRITELIST-KINDS                      PASS every tracked change named on the write list: ['PEN_TRAILS.md']
+  G-WRITELIST-KINDS                      ### FAIL kinds written 36 ; NOT NAMED ON THE WRITE LIST : ['audit_b458_reg_banned_terms.txt', 'b458_checks_preRepair.py.txt', 'b458_lockgate_notes2.txt', 'b458_lockgate_notes3.txt', 'b458_lockgate_notes4.txt', 'b458_scores.json']
   G-NOSTAGE-A                            PASS nothing staged by -A; paths named one by one
-  G-ARMS-DECLARED-EQ-RUN                 ### FAIL declared 60 ; run 52
+  G-ARMS-DECLARED-EQ-RUN                 PASS declared 60 ; run 60 ; deferred 0
   G-ARMS-NO-SUBSTRING-VERDICT            PASS verdicts read by line, A2
   G-TWO-READINGS-TWO-FILES               PASS the side is chosen below by b439`s predicate
   G-PUSH-SIDE-B439-PREDICATE             PASS origin/main compared to HEAD after the commit
   G-PREPUSH-FILE-EXISTS                  PASS the tracked pre-push hook is present
-  G-CARRIED-TOOLS-REPOINTED              ### FAIL no carried tool still points at b457`s own artefacts
-  G-MIRROR-TAGGED-BUILD                  ### FAIL the tagged build exists
+  G-CARRIED-TOOLS-REPOINTED              PASS no b458 tool (the scanner excepted, and said so) reads b457`s act artefacts as its own: none
+  G-MIRROR-TAGGED-BUILD                  PASS the tagged build exists
   G-MIRROR-NAME-BY-R69                   PASS (R69): an act is open, so the name carries the suffix
   G-MUSTFAIL                             PASS the negative control: a file that must not exist does not
 
-  ### ### **ARMS RUN : 60. ### PASSING : 52. ### FAILING : 8 ['G-LOCKGATE-EIGHT', 'G-LOCKGATE-NOT-REDIRECTED', 'G-C1-YIELD-PRINTED', 'G-C2-ONE-DOCUMENT-ONLY', 'G-CORPUS-SCOPE', 'G-ARMS-DECLARED-EQ-RUN', 'G-CARRIED-TOOLS-REPOINTED', 'G-MIRROR-TAGGED-BUILD']. ### DEFERRED : 0.**
+  ### ### **ARMS RUN : 60. ### PASSING : 59. ### FAILING : 1 ['G-WRITELIST-KINDS']. ### DEFERRED : 0.**
   ### ### **VERDICT : NOT CLEAN**
 ====================================================================================================

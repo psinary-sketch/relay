@@ -158,9 +158,19 @@ def main():
     arm('G-C2-SCOPE-LINE', ot.count('*This entry records a ruling') >= 4, 'one scope line per entry')
     arm('G-C2-PREFIX-BYTE-FOR-BYTE', ent.get('prefix_proved') is True, 'prior bytes a true prefix')
     arm('G-C2-REMOVED-ZERO', ent.get('removed') == 0, 'lines removed 0')
-    touched = [p for p in git(PP, 'status', '--porcelain').split(NL) if p.strip()]
-    tracked = sorted(p[3:].strip() for p in touched if not p.lstrip().startswith('??'))
-    arm('G-C2-ONE-DOCUMENT-ONLY', tracked == ['OPEN_TRAILS.md'], 'tracked changes: %s' % (tracked or 'none'))
+    # ### **AN ARM THAT READS THE WORKING TREE CANNOT SCORE ON BOTH SIDES OF THE COMMIT.**
+    # ### Before the commit the change is in the tree; after it, the tree is clean and the change
+    # ### is in the commit. ### **SO THE ARM READS THE ACT'S OWN COMMIT WHERE ONE EXISTS**, and
+    # ### falls back to the tree only while none does. ### The first form read the tree on both
+    # ### sides and failed post-push on a repository that was exactly as it should be.
+    if gits(PP, 'log', '-1', '--pretty=%s').startswith('b458'):
+        tracked = sorted(x for x in gits(PP, 'show', '--name-only', '--pretty=format:', 'HEAD').split(NL) if x.strip())
+        tracked_src = "this act's commit"
+    else:
+        touched = [p for p in git(PP, 'status', '--porcelain').split(NL) if p.strip()]
+        tracked = sorted(p[3:].strip() for p in touched if not p.lstrip().startswith('??'))
+        tracked_src = 'the working tree'
+    arm('G-C2-ONE-DOCUMENT-ONLY', tracked == ['OPEN_TRAILS.md'], 'from %s: %s' % (tracked_src, tracked or 'none'))
     arm('G-C2-B449-LINE-UNTOUCHED',
         '**W-ORD-MIRROR-ZIP-NAME.** `tools/mirror_build.ps1` names its zip by date alone (line 122)' in ot,
         'b449`s row stands unedited at its address')
@@ -187,16 +197,24 @@ def main():
                              for f in prior), 'no prior act bank newer than the face')
     arm('G-FOUR-LISTS-OPEN', 'The four lists are open' in ot or 'THE FOUR LISTS ARE OPEN' in ot,
         'the four lists restated open')
-    arm('G-CORPUS-SCOPE', tracked == ['OPEN_TRAILS.md'], 'only the document the write list names')
+    arm('G-CORPUS-SCOPE', tracked == ['OPEN_TRAILS.md'],
+        'only the document the write list names, read from %s' % tracked_src)
     arm('G-TRAIL-APPEND-ONLY', ent.get('prefix_proved') is True and ent.get('removed') == 0,
         'the trail is appended, never rewritten')
     arm('G-CORR-APPEND-ONLY', True, 'checked by the desk writer`s own read-back')
-    kinds = set()
-    for p in git(PP, 'status', '--porcelain').split(NL) + git(ROOT, 'status', '--porcelain').split(NL):
-        if p.strip() and not p.lstrip().startswith('??'):
-            kinds.add(os.path.basename(p[3:].strip()))
-    arm('G-WRITELIST-KINDS', all(k in face or k.startswith('b458') for k in kinds),
-        'every tracked change named on the write list: %s' % (sorted(kinds) or 'none'))
+    kinds = set(os.path.basename(x) for x in tracked)
+    if gits(ROOT, 'log', '-1', '--pretty=%s').startswith('b458'):
+        kinds |= set(os.path.basename(x) for x in
+                     gits(ROOT, 'show', '--name-only', '--pretty=format:', 'HEAD').split(NL) if x.strip())
+    else:
+        for p in git(ROOT, 'status', '--porcelain').split(NL):
+            if p.strip() and not p.lstrip().startswith('??'):
+                kinds.add(os.path.basename(p[3:].strip()))
+    # ### **THE BREACH IS NAMED, NOT THE WHOLE LIST.** ### Printing all thirty-six kinds hides the
+    # ### two that matter. ### **THE ARM IS NOT WIDENED TO MAKE ITSELF PASS** -- BAR 8.
+    unnamed = sorted(k for k in kinds if k not in face)
+    arm('G-WRITELIST-KINDS', not unnamed,
+        'kinds written %d ; NOT NAMED ON THE WRITE LIST : %s' % (len(kinds), unnamed or 'none'))
     arm('G-NOSTAGE-A', True, 'nothing staged by -A; paths named one by one')
 
     declared = declared_arms()
