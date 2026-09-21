@@ -1,0 +1,71 @@
+====================================================================================================
+### COMPONENT 1 -- b452`S TEST GIVEN A POSITIVE CONTROL.
+====================================================================================================
+  ### THE EDGE, AS THE FACE DERIVED IT : a < sqrt(2) = 1.4142135623730951, i.e. a^2 < 2.
+  ### cells read from b437_cells.json (the radius ladder) : 13 ; qualifying : 3
+  ### ### **THE SMALLEST QUALIFYING a THE BANKS HOLD : a = 1.3, a^2 = 1.6900000000000002.**
+  ### its banked fields : prime sum `pr` = 0.0 ; prime powers `pp` = [] ; rung = 0
+
+  ### ### **THE CANDIDATE, AND IT IS CONSTRUCTED, WHICH IS SAID RATHER THAN LEFT TO BE NOTICED.**
+  ### source : CC`s Theorem 1, the same source b452 read at C1, C5 and elsewhere.
+  ### object : ONE BANKED CELL of the radius ladder, a = 1.3.
+  ### **THIS PAIRING IS NOT ONE OF b452`S 82 FAILURES AND IS NEVER COUNTED AMONG THEM.**
+  ### A positive control is BUILT, not found among the subjects.
+
+----------------------------------------------------------------------------------------------------
+### THE TEST, IN b452`S OWN FOUR FIELDS AND IN ITS OWN ORDER.
+----------------------------------------------------------------------------------------------------
+  class, as the bank quotes it   : support inside [2^-1/2, 2^1/2], chosen so that no prime enters
+                                   ### carried VERBATIM from b452_components.txt:12
+  quotation at the step          : In this paper we consider the simplest instance of this strategy, namely when the support of the test function is contained in the interval p1{2, 2qĂ R˚ so that rational primes are not involved
+                                   ### carried VERBATIM from b452_components.txt:13
+  deciding clause                : the largest prime-free window is `(1/2, 2)`, and the largest one-prime window is `(1/3, 3)` (day1/Exhaustive_Enumeration.md:171)
+                                   ### carried VERBATIM from b452_components.txt:14
+  hand read                      : the class is the prime-free support, and this object is ONE CELL whose support is [a^-1, a] with a^2 = 1.6900000000000002 < 2, so f = g conv g-bar^# is supported inside (1/2, 2); the bank`s own fields agree -- prime sum 0.0 and prime powers [], no prime entering. ONE CELL DOES NOT QUANTIFY OVER A CLASS AND ITS SUPPORT REACHES PAST NOTHING.
+                                   ### THIS ACT`S OWN, and the only field not carried from b452.
+
+  ### THE VERDICT RULE, b452`S OWN, READ OFF ITS HAND READING AT :15 AND FIXED ON THE FACE:
+  ###   support reaches PAST the window -> SOURCE-SIDE
+  ###   support lies INSIDE the window   -> OBJECT-SIDE
+  ###   support NOT STATED by the bank   -> UNDECIDED
+  ### applied : support stated by the bank : True ; reaches past the window : False
+  ### ### **VERDICT : OBJECT-SIDE**
+
+  ### ### **THE CONTROL FIRES.**
+  ### b452 wrote: *"ABSENT: the test has not been shown able to say OBJECT-SIDE, so the empty
+  ### OBJECT-SIDE is a result of these two sources and no wider."* ### **THAT ABSENCE IS NOW
+  ### SUPPLIED: THE INSTRUMENT CAN RETURN OBJECT-SIDE, AND DID.**
+  ### ### **SO b452`S FORTY-FOUR SOURCE-SIDE STAND AS READ.**
+  ### **AND THE BAR ON WHAT THAT LICENSES, CARRIED FROM THE FACE:** a control that fires says
+  ### the instrument CAN say OBJECT-SIDE. ### **IT DOES NOT RE-READ THE FORTY-FOUR AND CONFERS
+  ### NO CORRECTNESS ON THEM** -- only that their verdicts were not forced by a one-outcome test.
+  ### ### **DISPOSITION : THE FORTY-FOUR STAND AS READ.**
+
+  ### **WHAT THIS COMPONENT DID NOT DO:** it re-ran none of b452`s 82, re-verdicted none,
+  ### performed no re-expression, ran no chain and computed no channel. ### The cell was read
+  ### from b437_cells.json as banked.
+
+====================================================================================================
+### COMPONENT 2 -- THE TECHNE PUSH UNDER (R71).
+====================================================================================================
+  ### BEFORE: local HEAD c2919023d685 ; upstream 22739c921dbc ; commits ahead 23
+  ### STAGING BY PATH, NEVER BY `-A` :
+      modules/2026-09/CORRECTED_BUT_UNPROPAGATED.md            add exit 0
+      modules/2026-09/EDITING_ANCHOR_EXCLUDES_PRESERVED.md     add exit 0
+      modules/2026-09/REPAIRING_A_REPORT_ERASES_IT.md          add exit 0
+  ### COMMIT exit 0 
+  ### AFTER COMMIT: local HEAD 29208f635b13 ; commits ahead 24
+  ### **NO FORCE, NO REBASE, NO BRANCH REWRITE, NO UPSTREAM CHANGE.**
+  ### PUSH exit code 0
+      | To https://github.com/psinary-sketch/TECHNE-Core.git
+      | 22739c9..29208f6  HEAD -> main
+
+  ### ### **THE VERIFICATION, AND IT IS THE POINT OF (R71): THE REMOTE IS READ, NOT THE PUSH.**
+      git ls-remote origin refs/heads/main | 29208f635b1349dcba1cc76e59b3e3fa07f4f574	refs/heads/main
+      remote main SHA : 29208f635b1349dcba1cc76e59b3e3fa07f4f574
+      local HEAD      : 29208f635b1349dcba1cc76e59b3e3fa07f4f574
+      ### ### **EQUAL : True**
+      commits still ahead of origin/main after the push : 0
+  ### ### **COMMITS NOW ON THE REMOTE THAT WERE LOCAL-ONLY BEFORE THIS ACT : 24**
+  ### (23 carried from before this act, plus 1 written by it.)
+  ### **THE PUSH COMMAND`S OWN OUTPUT IS NOT EVIDENCE AND IS NOT ANY ARM`S SUBJECT.**
