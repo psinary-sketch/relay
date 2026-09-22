@@ -1,0 +1,150 @@
+============================================================================================================
+COMPONENT 0 -- pid 27508`S CPU TIME, TWICE. ### **THE LOG IS NOT OPENED.**
+============================================================================================================
+    pid              : 27508
+    first reading    : 2026-09-22T23:36:03Z   CPU ### **1.75 s**   alive True
+    second reading   : 2026-09-22T23:37:03Z   CPU ### **1.75 s**   alive True
+    wall between     : 60.024 s
+    ### ### **CPU CONSUMED IN THAT MINUTE : 0 s.**
+
+    ### ### **AND THAT ZERO IS NOT A HUNG RUN.** ### `27508` is the `cmd.exe` LAUNCHER --
+    ### `cmd /c b475_detached_run.cmd` -- which spends its life WAITING on a child and so
+    ### burns no CPU by construction. ### The process table, read at the same moment and
+    ### ### **WITHOUT OPENING THE LOG**, shows the work:
+      pid 29252  lake.exe   `lake build Zeta23.ThmDE.Mult`   -- the module now compiling
+      pid 28780  lake      CPU 44.4 s
+      pid 29252  lake      CPU 0 s
+      pid 28844  lean      CPU 54.8 s
+    ### ### **SO THE RUN IS ALIVE AND WORKING, ON ONE MODULE**, and the log has been silent
+    ### because `lake build <module>` writes its marker when the module ENDS, not while it
+    ### runs. ### **A SILENT LOG AND AN IDLE LAUNCHER ARE BOTH CONSISTENT WITH PROGRESS,
+    ### AND NEITHER IS EVIDENCE OF IT -- THE CHILD`S CPU IS.**
+
+============================================================================================================
+COMPONENT 1 -- THE MANIFESTS. ### **VERIFIED AGAINST (R94), THEN READ.**
+============================================================================================================
+    ### both files recompute EXACTLY to the hashes (R94) prints, and neither carries a BOM.
+    ### ### **NO MISMATCH, SO NOTHING IS `ABSENT` AND THE ACT PROCEEDS.**
+    ### ### **THIS SEAT FETCHED NOTHING.** ### The files are the author`s fetch.
+
+  ### RECORD ### **19675356**
+    concept id       : 19675355
+    version DOI      : 10.5281/zenodo.19675356
+    title            : A Place To Stand: Proof of the Riemann Hypothesis via the SIDE method
+    version          : ### **v1.0.1**
+    publication_date : ### **2026-04-21**
+    created          : 2026-04-21T06:54:34.924910+00:00
+    modified         : ### **2026-04-27T23:16:10.396432+00:00**
+    manuscript, from its OWN description : ### **NOT STATED**
+    files : ### **10**, with sizes and checksums AS ZENODO STATES THEM:
+      A_Place_to_Stand.md                           182694  md5:b75e54af1882d486aec17c3a8dfbd0e1
+      Exhaustive_Enumeration.md                      11582  md5:5627dac75f321d78b22bf175e3f19353
+      FORMATION_ARCHITECTURE.html                     6615  md5:c0e0bd36929b8689ebab71360c7cb355
+      ONE_PAGE_PROOF.md                               3656  md5:90399c7fedda00388d40c262269d3149
+      PAPER_DEPENDENCIES.svg                          3376  md5:14ad53eabbc775280ac1808639498346
+      Seven_Mechanism_Classes.md                     21291  md5:1f7ac8498782222d67e177979d627496
+      Silence_of_Foundations.md                      20465  md5:350e1a538565b72d6fe110be918e7a4b
+      Spectral_Inertness.md                          11773  md5:f94957255142c4a017ca76b2ecf04ef2
+      Third_Identity_Element.md                      17059  md5:66a8ae0552f742cf765eb8990c7c6db4
+      Which_Structure_Confines.md                    12615  md5:eadb226773260021f7a66e3ba2063147
+
+  ### RECORD ### **21432399**
+    concept id       : 19675355
+    version DOI      : 10.5281/zenodo.21432399
+    title            : A Place To Stand: Proof of the Riemann Hypothesis via the SIDE method
+    version          : ### **v1.1.0**
+    publication_date : ### **2026-07-18**
+    created          : 2026-07-18T20:24:24.525307+00:00
+    modified         : ### **2026-07-18T20:24:25.039317+00:00**
+    manuscript, from its OWN description : ### **v5.8**
+    files : ### **11**, with sizes and checksums AS ZENODO STATES THEM:
+      A_Place_to_Stand.md                           205965  md5:d0fc5ffd4bcf50a14021744fc7bf311a
+      ERRATA.md                                      11529  md5:fb751bc14eea1b266412df6a895938c1
+      Exhaustive_Enumeration.md                      11582  md5:5627dac75f321d78b22bf175e3f19353
+      FORMATION_ARCHITECTURE.html                     6615  md5:c0e0bd36929b8689ebab71360c7cb355
+      ONE_PAGE_PROOF.md                               3656  md5:90399c7fedda00388d40c262269d3149
+      PAPER_DEPENDENCIES.svg                          3376  md5:14ad53eabbc775280ac1808639498346
+      Seven_Mechanism_Classes.md                     21302  md5:b84067ebf722433a09ebf3ac8ad20a46
+      Silence_of_Foundations.md                      20465  md5:350e1a538565b72d6fe110be918e7a4b
+      Spectral_Inertness.md                          11773  md5:f94957255142c4a017ca76b2ecf04ef2
+      Third_Identity_Element.md                      17059  md5:66a8ae0552f742cf765eb8990c7c6db4
+      Which_Structure_Confines.md                    12615  md5:eadb226773260021f7a66e3ba2063147
+
+  ### ### **WHAT EACH RECORD IS, SAID FROM ITS OWN FIELDS AND NOT FROM AN ADJACENT ID.**
+    ### ### **`19675356` IS THE MONOGRAPH DEPOSIT AT VERSION `v1.0.1`, PUBLISHED `2026-04-21`**, under
+    ### concept `19675355`, with `10` files. ### It is an EARLIER version of the same concept as
+    ### the current deposit, ### **NOT A SEPARATE WORK.**
+    ### ### **`21432399` IS THE MONOGRAPH DEPOSIT AT VERSION `v1.1.0`, PUBLISHED `2026-07-18`**, under
+    ### the same concept `19675355`, with `11` files, and its own description names the
+    ### manuscript as ### **`v5.8`**.
+    ### ### **BOTH CARRY CONCEPT `19675355`, WHICH IS THE CONCEPT REGISTRY NAMES FOR THE
+    ### MONOGRAPH -- SO BOTH ARE VERSIONS OF THE DEPOSIT REGISTRY ALREADY GOVERNS.**
+
+============================================================================================================
+COMPONENT 2 -- THE TWO CURRENCY WRITES UNDER (R20).
+============================================================================================================
+  ### (2a) RECORD 21432399 -- b395`S NOTE, APPENDED TO `ERRATA.md`.
+    ### WHY THERE: b395`s bank says the obligation is satisfied ### **IN THE CORPUS**, and
+    ### of the four addresses it cites, `meta/ZENODO_METADATA.md` forbids the write in its
+    ### own words -- *"The dated table is left unedited on purpose"* -- while `ERRATA.md`
+    ### is the append-only corrections ledger and already carries the precedent, ### **"a
+    ### drift repair by appending; the head is not edited, the ledger`s own law."**
+    ### COMPONENT 2a -- the currency note appended -- `ERRATA.md`
+      git --numstat : ### **+16 / -0**
+      ### ### **LINES OF THE OLD FILE ABSENT FROM THE NEW : 0.**
+      BOM preserved : True ; line ending preserved : True
+
+  ### (2b) RECORD 19675356 -- ITS VERSION AND DATE ENTERED AT REGISTRY`S OWN ROW.
+    ### the row it belongs to by its own version `v1.0.1` is ### **REGISTRY.md:410**, whose
+    ### date cell reads `2026-04-28` where the record says ### **`2026-04-21`**, and which names
+    ### ### **NO VERSION DOI.**
+
+============================================================================================================
+COMPONENT 3 -- THE GATE`S PASS.
+============================================================================================================
+  ### (3a) b481`S TABLE, REPRINTED WITH EACH CELL`S VERDICT AFTER THE PASS.
+    ### the authority is REGISTRY, per Rule 5; the records in hand are ### **SIX** -- the
+    ### four `b337` fetched and the two `(R94)` brings.
+
+    site                   monograph              SIDE-kernel            SIDE-lv-conservation
+    --------------------------------------------------------------------------------------------
+    README.md              v1.1.2 AGREES          v1.5 AGREES            v0.10.0 AGREES
+    SPIRAL_MAP.md          Zenodo v1.1.2 AGREES   v1.5 AGREES            v0.10.0 AGREES
+    REGISTRY.md            v1.1.2 AGREES          v1.5 AGREES            v0.10.0 AGREES
+    memory (session)       Zenodo v1.1.2 AGREES   v1.5 AGREES            NOT STATED
+    memory (executor)      ### **NOT LOCATABLE per b481 -- RECORDED, NOT RECONCILED**
+
+    ### ### **CELLS DISAGREEING WITH REGISTRY : 0.**
+    ### ### **AND THE TWO NEW RECORDS DO NOT MOVE ANY OF THESE CELLS**, because both are
+    ### EARLIER versions of the monograph concept and neither bears on the CURRENT deposit
+    ### state the table records.
+
+  ### (3b) THE FINDINGS THE PASS PRODUCES, EACH AT ITS ADDRESS.
+    REGISTRY.md:410                DATE               says `2026-04-28` ; the record says `2026-04-21`
+    REGISTRY.md:410                NO VERSION DOI     says `none` ; the record says `10.5281/zenodo.19675356`
+    REGISTRY.md:412                VERSION STRING     says `v1.1` ; the record says `v1.1.0`
+    REGISTRY.md:412                DATE               says `2026-07-19` ; the record says `2026-07-18`
+    REGISTRY.md:412                NO VERSION DOI     says `none` ; the record says `10.5281/zenodo.21432399`
+    meta/ZENODO_METADATA.md:22     CONFLATION         says `v5.8 attributed to Zenodo v1.1.1 / 21436278` ; the record says `v5.8 is 21432399 = v1.1.0, published 2026-07-18`
+    b395 draft                     DRAFT DATE WRONG   says `2026-07-24` ; the record says `2026-07-18`
+    ### ### **7 FINDINGS. ### NONE OF THEM IS IN A CELL OF THE TABLE ABOVE**, and that is
+    ### the whole distinction this component turns on.
+
+  ### (3c) THEIR DISPOSAL.
+    ### COMPONENT 3c -- the history rows annotated -- `REGISTRY.md`
+      git --numstat : ### **+15 / -0**
+      ### ### **LINES OF THE OLD FILE ABSENT FROM THE NEW : 0.**
+      BOM preserved : True ; line ending preserved : True
+      ### ### **BOTH ROWS ARE ANNOTATED, NEITHER IS REWRITTEN**, and the frozen ledger is
+      ### left frozen.
+
+  ### (3d) ### **THE GATE.**
+    ### every cell of b481`s table agrees with REGISTRY : ### **True**
+    ### COMPONENT 3d -- the gate discharged -- `REGISTRY.md`
+      git --numstat : ### **+22 / -0**
+      ### ### **LINES OF THE OLD FILE ABSENT FROM THE NEW : 0.**
+      BOM preserved : True ; line ending preserved : True
+    ### ### **THE GATE IS DISCHARGED**, with the dated line naming this act as its reason,
+    ### the gate`s text otherwise untouched, and the original row preserved verbatim.
+    ### ### **AND THE LINE NAMES ITS OWN SCOPE:** the current deposit state, and nothing
+    ### else. ### **A GATE DISCHARGED ON ONE QUESTION IS NOT A CORPUS FOUND CLEAN.**
