@@ -1,0 +1,119 @@
+{
+ "rows": [
+  [
+   "test-function class",
+   "C^2, HasCompactSupport -- NO evenness hypothesis",
+   "w from f = g conv g-bar-sharp: C_c^inf, real, EVEN",
+   "CONTAINED -- the corpus`s w meets EF_lit`s hypotheses"
+  ],
+  [
+   "variable",
+   "k on R, primes at k(+-log n)",
+   "w(v), v = log x, primes at w(log n)",
+   "SAME"
+  ],
+  [
+   "transform",
+   "h(z) = INT k(u) e^{izu} du",
+   "hhat(u) = INT w(v) cos(uv) dv",
+   "SAME FOR EVEN REAL w; the corpus`s is the cosine form"
+  ],
+  [
+   "zero side",
+   "SUM over EVERY nontrivial zero, WITH multiplicity, at gamma_rho = (rho - 1/2)/i (complex off the line)",
+   "2 * SUM over a BANKED LIST of REAL ordinates, doubled",
+   "### DIFFERENCE OF SCOPE -- printed, not resolved"
+  ],
+  [
+   "pole term",
+   "h(i/2) + h(-i/2)",
+   "2 INT w cosh(v/2) dv",
+   "SAME (equal for any w)"
+  ],
+  [
+   "prime sum",
+   "- SUM Lambda(n) n^{-1/2} (k(log n) + k(-log n))",
+   "- SUM 2 log p p^{-k/2} w(log p^k)",
+   "SAME FOR EVEN w; sign SAME (minus)"
+  ],
+  [
+   "archimedean",
+   "+ (1/2pi) INT_R h(r) [Re psi(1/4 + ir/2) - log pi] dr",
+   "+ (1/2pi) INT_{[-UMAX,UMAX]} hhat(u) K(u) du, K the same function",
+   "### KERNEL IDENTICAL; RANGE TRUNCATED in the corpus"
+  ]
+ ],
+ "diffs": [
+  [
+   "SIGN",
+   "none -- pole +, prime -, archimedean + on both sides"
+  ],
+  [
+   "NORMALIZATION",
+   "none at content -- the same transform (cosine form for even w), the same Lambda(n) n^{-1/2} weight, the same kernel Re psi(1/4 + ir/2) - log pi, the same 1/2pi"
+  ],
+  [
+   "SCOPE (1) the zero side",
+   "zeta23 sums every nontrivial zero with multiplicity at a possibly complex ordinate; b321 sums a banked list of real ordinates doubled, which reads every zero in range as ON THE LINE and SIMPLE and stops at the list`s end -- the instrument`s truncation"
+  ],
+  [
+   "SCOPE (2) the archimedean range",
+   "zeta23 integrates over R; b321 over [-UMAX, UMAX] on a trapezoid grid"
+  ],
+  [
+   "SCOPE (3) evenness",
+   "zeta23 does not assume it; b321 does, in its cosine transform and its doubled sum; the lawful w is even by construction, so the identity sits inside EF_lit as its EVEN case"
+  ]
+ ],
+ "spec": "g in C_c^inf(R*_+) with g~ = 0 on F >= {0,1}, f = g conv g-bar-sharp, k := w where f(x) = x^{-1/2} w(log x) [WHICH g]; h = paperFT, equal to the corpus`s cosine hhat for even real w, rho = 1/2 + i gamma_rho [WHICH NORMALIZATION]; zeta23`s literatureRHS signs, identical to the atlas`s: + pole, - prime, + archimedean [WHICH SIGN CONVENTION]",
+ "verdicts": [
+  {
+   "decl": "EF_lit (statement)",
+   "verdict": "CONTAINS",
+   "clause": "for every k with ContDiff R 2 k and HasCompactSupport k: SUM m_rho h(gamma_rho) = literatureRHS k"
+  },
+  {
+   "decl": "EF_paper (statement)",
+   "verdict": "CONTAINS",
+   "clause": "W(f,g) = INT h_f conj(h_g) nu_X, supports in [-L/2, L/2]: the SQUARE form of the same identity, the channels carried in the density nu_X = mu + Pi_X + P_X rather than written apart -- a difference of FORM, printed"
+  },
+  {
+   "decl": "ExplicitFormulaPaper (statement)",
+   "verdict": "CONTAINS",
+   "clause": "EF_paper with its summability and integrability asserted in the package -- the same verdict, the same difference of form"
+  },
+  {
+   "decl": "EF_lit_zeta (theorem)",
+   "verdict": "CONTAINS",
+   "clause": "EF_lit at zeta`s zeros, under its hypothesis `hs : ZetaSeam`"
+  },
+  {
+   "decl": "EF_lit_zetaZeroConfig (theorem)",
+   "verdict": "CONTAINS",
+   "clause": "EF_lit zetaZeroConfig, HYPOTHESIS-FREE -- the terminal an import would name"
+  },
+  {
+   "decl": "zetaEF (theorem)",
+   "verdict": "CONTAINS",
+   "clause": "a re-export of EF_lit_zetaZeroConfig"
+  },
+  {
+   "decl": "prop_EF_of_lit (bridge)",
+   "verdict": "DOES NOT",
+   "clause": "it takes `hEF : EF_lit Z` as a HYPOTHESIS and concludes the paper form; it states no explicit formula of its own"
+  },
+  {
+   "decl": "explicitFormulaPaper_of_lit (bridge)",
+   "verdict": "DOES NOT",
+   "clause": "it takes `hEF : EF_lit Z` and `hGamma : GammaFacts` as HYPOTHESES; a bridge between forms, not a formula"
+  }
+ ],
+ "contains": [
+  "EF_lit (statement)",
+  "EF_paper (statement)",
+  "ExplicitFormulaPaper (statement)",
+  "EF_lit_zeta (theorem)",
+  "EF_lit_zetaZeroConfig (theorem)",
+  "zetaEF (theorem)"
+ ]
+}

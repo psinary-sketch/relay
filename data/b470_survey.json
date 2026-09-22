@@ -1,0 +1,103 @@
+{
+ "decls": [
+  {
+   "label": "the literature right-hand side",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 70,
+   "statement": "def literatureRHS (k : ℝ → ℂ) : ℂ :=\n  paperFT k (I / 2) + paperFT k (-I / 2)\n  - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)\n      * (k (Real.log n) + k (-Real.log n))\n  + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)"
+  },
+  {
+   "label": "the Gamma bracket",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 64,
+   "statement": "def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π"
+  },
+  {
+   "label": "EF_lit (statement)",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 81,
+   "statement": "def EF_lit (Z : ZeroConfig) : Prop :=\n  ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →\n    Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧\n    ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k"
+  },
+  {
+   "label": "EF_paper (statement)",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 88,
+   "statement": "def EF_paper (Z : ZeroConfig) : Prop :=\n  ∀ (L : ℝ) (f g : ℝ → ℂ), 0 < L → ContDiff ℝ 2 f → ContDiff ℝ 2 g →\n    tsupport f ⊆ Icc (-(L / 2)) (L / 2) → tsupport g ⊆ Icc (-(L / 2)) (L / 2) →\n    Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)"
+  },
+  {
+   "label": "ExplicitFormulaPaper (statement)",
+   "file": "Zeta23/Hypotheses.lean",
+   "line": 48,
+   "statement": "def ExplicitFormulaPaper (Z : ZeroConfig) : Prop :=\n  ∀ (L : ℝ), 0 < L → ∀ (f g : ℝ → ℂ), ContDiff ℝ 2 f → ContDiff ℝ 2 g →\n    tsupport f ⊆ Icc (-(L / 2)) (L / 2) → tsupport g ⊆ Icc (-(L / 2)) (L / 2) →\n    Summable (fun ρ : Z.carrier => Z.Wsummand f g ρ) ∧\n    Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧\n    Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)"
+  },
+  {
+   "label": "EF_lit_zeta (theorem)",
+   "file": "Zeta23/WeilEF/Main.lean",
+   "line": 51,
+   "statement": "theorem EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs) := by"
+  },
+  {
+   "label": "EF_lit_zetaZeroConfig (theorem)",
+   "file": "Zeta23/WeilEF/Main.lean",
+   "line": 270,
+   "statement": "theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam"
+  },
+  {
+   "label": "zetaEF (theorem)",
+   "file": "Zeta23/Final.lean",
+   "line": 288,
+   "statement": "theorem zetaEF : EF.EF_lit zetaZeroConfig := WeilEF.EF_lit_zetaZeroConfig"
+  },
+  {
+   "label": "prop_EF_of_lit (bridge)",
+   "file": "Zeta23/ExplicitFormula.lean",
+   "line": 703,
+   "statement": "theorem prop_EF_of_lit (Z : ZeroConfig) (hEF : EF_lit Z) {L : ℝ} (hL : 0 < L) {f g : ℝ → ℂ}\n    (hf : ContDiff ℝ 2 f) (hg : ContDiff ℝ 2 g)\n    (hfs : tsupport f ⊆ Icc (-(L / 2)) (L / 2)) (hgs : tsupport g ⊆ Icc (-(L / 2)) (L / 2))\n    (hFk : Integrable (𝓕 (weilTest f g)))\n    (hμ : Integrable (fun τ : ℝ => paperFT (weilTest f g) τ * (mu τ : ℂ))) :\n    Summable (fun ρ : Z.carrier => Z.Wsummand f g ρ) ∧\n    Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧\n    Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ) := by"
+  },
+  {
+   "label": "explicitFormulaPaper_of_lit (bridge)",
+   "file": "Zeta23/ExplicitFormula/Bridge.lean",
+   "line": 191,
+   "statement": "theorem explicitFormulaPaper_of_lit (Z : ZeroConfig) (hEF : EF_lit Z) (hΓ : GammaFacts) :\n    ExplicitFormulaPaper Z := by"
+  },
+  {
+   "label": "the transform, paperFT",
+   "file": "Zeta23/Defs.lean",
+   "line": 44,
+   "statement": "def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))"
+  },
+  {
+   "label": "the ordinate, gammaOf",
+   "file": "Zeta23/Defs.lean",
+   "line": 105,
+   "statement": "def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I"
+  }
+ ],
+ "b321": [
+  "    return dict(zero=Z, pole=P, arch=A, prime=PR,",
+  "                residual=Z - (P - PR + A), prime_terms=terms)"
+ ],
+ "work_244": 1489,
+ "work_row": 1493,
+ "work_table_end": 1498,
+ "intake_line": 32,
+ "md5_before": {
+  "A_Place_to_Stand.md": "e90e2d06d5cadc059c62c29a849e9f8c",
+  "ERRATA.md": "8fa2ea2839199583d24119680d31c23f",
+  "Exhaustive_Enumeration.md": "218d290942dbfb7d150088d7c6dfe811",
+  "FORMATION_ARCHITECTURE.html": "5d8cf664416d4311c34a5b2c95a13dc9",
+  "ONE_PAGE_PROOF.md": "0c727f16277beb41b62ec29254d0aebc",
+  "PAPER_DEPENDENCIES.svg": "14ad53eabbc775280ac1808639498346",
+  "Seven_Mechanism_Classes.md": "6caa6e80300584c037cf48882941ad00",
+  "Silence_of_Foundations.md": "c6e1593165449e004e0791239cac149f",
+  "Spectral_Inertness.md": "db5ab3d3d231cb83a243338c4aa35f76",
+  "Third_Identity_Element.md": "ae918605afbd706faf54aa8474a30eb3",
+  "Which_Structure_Confines.md": "6b18d69bcf9e619d3b2fb22376ccc432"
+ },
+ "lake": "Lake version 5.0.0-src+d8b1897 (Lean version 4.33.0-rc2)",
+ "j1_error": "error: unknown short option '-j'",
+ "jobs_error": "error: unknown long option '--jobs'",
+ "modules": 316,
+ "built": 8,
+ "misses": []
+}

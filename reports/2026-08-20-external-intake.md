@@ -46,3 +46,5 @@ an intake record about an external result; nothing about `h2` claimed; primaries
 citable from this bank.
 
 **`h2` UNCHANGED. NOTHING PROMOTED. NOTHING DEPOSITS. NOTHING CIRCULATES.**
+
+> **CLOSED 2026-09-22 (b470), under the author’s ruling (R79).** The paper read owed here since 2026-08-20 is made: the five primaries are on disk and hash-verified, the theorem is read at address, and both paper-read flags above can now be read against it — relay `data/b468r_the_proportion_result_at_address.txt` and `data/b468r_components.txt` (the no-Euler-clause flag against the paper’s sentence that its inputs *hold for Davenport–Heilbronn and Epstein zeta functions*; the obstructed-limit flag against its bandwidth-one ceiling sentence). This line is appended; no line above it is edited.

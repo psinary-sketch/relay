@@ -1,0 +1,8 @@
+=== [2026-09-22T15:55:17Z] CALL 1 : 190 project modules in Solution`s closure ; 8 built ; 182 to build
+    ### FAILED : ChallengeDeps (590s) exit 143
+    ### remaining after this call : 182
+    ### CORRECTION: exit 143 on ChallengeDeps was SIGTERM from the call's own 590 s timeout, not a module failure; state reset
+=== [2026-09-22] THE FLOOR, MEASURED: a bare `import Mathlib` probe (scratchpad ImportMathlibProbe.lean), LEAN_NUM_THREADS=1, foreground, `timeout 570 lake env lean` -> exit 124 after 570 s, UNFINISHED.
+    ### ChallengeDeps, Challenge, Solution and scripts/PrintAxioms.lean all load the whole of Mathlib, so none can complete inside a foreground call bounded at ten minutes on this machine.
+    ### NO MODULE FAILED. THE BUILD CANNOT PROCEED UNDER THE ORDERED CONSTRAINTS. #print axioms NOT RUN. Modules built by this act: 0; closure 190; built before this act: 8.
+    ### No lake or lean process left running (checked).

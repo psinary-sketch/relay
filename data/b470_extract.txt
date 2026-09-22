@@ -1,0 +1,90 @@
+========================================================================================================
+b470 -- THE SURVEY.
+========================================================================================================
+
+(P1) zeta23 -- EVERY DECLARATION IN Zeta23/ STATING AN EXPLICIT FORMULA FOR ZETA.
+--------------------------------------------------------------------------------------------------------
+  the literature right-hand side     Zeta23/ExplicitFormula.lean:70
+      def literatureRHS (k : ℝ → ℂ) : ℂ :=
+        paperFT k (I / 2) + paperFT k (-I / 2)
+        - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+            * (k (Real.log n) + k (-Real.log n))
+        + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)
+  the Gamma bracket                  Zeta23/ExplicitFormula.lean:64
+      def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π
+  EF_lit (statement)                 Zeta23/ExplicitFormula.lean:81
+      def EF_lit (Z : ZeroConfig) : Prop :=
+        ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+          Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+          ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+  EF_paper (statement)               Zeta23/ExplicitFormula.lean:88
+      def EF_paper (Z : ZeroConfig) : Prop :=
+        ∀ (L : ℝ) (f g : ℝ → ℂ), 0 < L → ContDiff ℝ 2 f → ContDiff ℝ 2 g →
+          tsupport f ⊆ Icc (-(L / 2)) (L / 2) → tsupport g ⊆ Icc (-(L / 2)) (L / 2) →
+          Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)
+  ExplicitFormulaPaper (statement)   Zeta23/Hypotheses.lean:48
+      def ExplicitFormulaPaper (Z : ZeroConfig) : Prop :=
+        ∀ (L : ℝ), 0 < L → ∀ (f g : ℝ → ℂ), ContDiff ℝ 2 f → ContDiff ℝ 2 g →
+          tsupport f ⊆ Icc (-(L / 2)) (L / 2) → tsupport g ⊆ Icc (-(L / 2)) (L / 2) →
+          Summable (fun ρ : Z.carrier => Z.Wsummand f g ρ) ∧
+          Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧
+          Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)
+  EF_lit_zeta (theorem)              Zeta23/WeilEF/Main.lean:51
+      theorem EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs) := by
+  EF_lit_zetaZeroConfig (theorem)    Zeta23/WeilEF/Main.lean:270
+      theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig := EF_lit_zeta zetaSeam
+  zetaEF (theorem)                   Zeta23/Final.lean:288
+      theorem zetaEF : EF.EF_lit zetaZeroConfig := WeilEF.EF_lit_zetaZeroConfig
+  prop_EF_of_lit (bridge)            Zeta23/ExplicitFormula.lean:703
+      theorem prop_EF_of_lit (Z : ZeroConfig) (hEF : EF_lit Z) {L : ℝ} (hL : 0 < L) {f g : ℝ → ℂ}
+          (hf : ContDiff ℝ 2 f) (hg : ContDiff ℝ 2 g)
+          (hfs : tsupport f ⊆ Icc (-(L / 2)) (L / 2)) (hgs : tsupport g ⊆ Icc (-(L / 2)) (L / 2))
+          (hFk : Integrable (𝓕 (weilTest f g)))
+          (hμ : Integrable (fun τ : ℝ => paperFT (weilTest f g) τ * (mu τ : ℂ))) :
+          Summable (fun ρ : Z.carrier => Z.Wsummand f g ρ) ∧
+          Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧
+          Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ) := by
+  explicitFormulaPaper_of_lit (bridge) Zeta23/ExplicitFormula/Bridge.lean:191
+      theorem explicitFormulaPaper_of_lit (Z : ZeroConfig) (hEF : EF_lit Z) (hΓ : GammaFacts) :
+          ExplicitFormulaPaper Z := by
+  the transform, paperFT             Zeta23/Defs.lean:44
+      def paperFT (f : ℝ → ℂ) (z : ℂ) : ℂ := ∫ u : ℝ, f u * Complex.exp (Complex.I * z * (u : ℂ))
+  the ordinate, gammaOf              Zeta23/Defs.lean:105
+      def gammaOf (ρ : ℂ) : ℂ := (ρ - 1 / 2) / Complex.I
+  ### EXCLUDED, WITH THE REASON: the `EF_lit_chi` family (for L(s, chi), not zeta) and the
+  ### `xiEF` / `wEF` family (for the zeros of xi-prime and of Hardy`s W, not the zeros of zeta).
+
+(P2) b321`S IDENTITY AS THE CHAIN DEFINES IT.
+--------------------------------------------------------------------------------------------------------
+    b321_window.py:143      return dict(zero=Z, pole=P, arch=A, prime=PR,
+    b321_window.py:144                  residual=Z - (P - PR + A), prime_terms=terms)
+    Z, the zero side                   b321_window.py:138  Z = 2.0 * float(np.sum(hhat_blocked(v, w, AT.GAM)))
+    P, the pole term                   b321_window.py:139  P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v))
+    A, the archimedean channel         b321_window.py:141  A = float(np.trapezoid(hhat_blocked(v, w, U) * AT.kernel(U), U) / (2.0 * math.pi))
+    PR, the prime sum (corpus route)   b321_window.py:118  val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+    the half-line normalization        b321_window.py:105  ###   `f(x) = x^{-1/2} w(log x)` and therefore `f^#(x) = x^{-1} f(1/x) = x^{-1/2} w(-log x)`.
+    the signs, quoted from the atlas   b321_window.py:17  ###   ### the atlas's own header -- ### *"sum_gamma hhat(gamma) = hhat(i/2) + hhat(-i/2) - PRIME +
+    the atlas`s hhat                   carto_atlas.py:54  def hhat(v, w, u):
+    the atlas`s kernel                 carto_atlas.py:34  """Re psi(1/4 + i u/2) - log pi, cached."""
+    f = g conv g-bar-sharp, formed     b318_square.py:117  ### `(f^ conv f)(v) = INT f(u) f(u + v) du`, whose support is twice the width of `f`'s and whose
+    the class of g, CC Prop C.1 (155) : b328_source_text.txt:3830-3835 -- g in C_c^inf(R*_+), g~(z)=0 on F >= {0,1}
+    CC Definition 3.1                  : b328_source_text.txt:1301 -- Deﬁnition 3.1 Let G be a locally compact abelian group and f P L1pG,dgq. We say that f is
+
+(P3) THE (R79) TARGETS, AND THE DEPOSITED DIGESTS BEFORE ANY WRITE.
+--------------------------------------------------------------------------------------------------------
+    working 24.4 at :1489 ; analytic row at :1493 ; table ends before :1498
+      | Analytic number theory | Mollifiers, mean values (Conrey) | 1942–present | ≥ 40.77% simple — a **proportion**, not all |
+    the intake item at its address : reports/2026-08-20-external-intake.md:32
+      > class — the predicted shape). Anatomy: finite-dimensional regime CONFIRMED; no-Euler-clause
+    deposited files digested : 11 ; A_Place_to_Stand.md md5 e90e2d06d5cadc059c62c29a849e9f8c
+
+(P4) THE BUILD STATE, AND WHAT THE ORDERED FLAG DOES IN THIS LAKE.
+--------------------------------------------------------------------------------------------------------
+    Lake version 5.0.0-src+d8b1897 (Lean version 4.33.0-rc2)
+    `lake build -j1`      -> error: unknown short option '-j'
+    `lake build --jobs 1` -> error: unknown long option '--jobs'
+    Zeta23 modules : 316 ; already built (.olean present) : 8 ; remaining : 308
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================
