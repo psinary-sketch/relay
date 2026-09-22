@@ -82,14 +82,14 @@
    "live": true,
    "neg": true,
    "pos": false,
-   "reads": "the build bank against the log`s RAW bytes"
+   "reads": "the build bank against the log`s own bytes, CR-stripped"
   },
   {
    "name": "G-C1-LOG-BYTES-MATCH",
    "live": true,
    "neg": true,
    "pos": false,
-   "reads": "the log on disk against the survey`s pre-seal reading"
+   "reads": "the survey`s pre-seal reading against the build bank and the file on disk"
   },
   {
    "name": "G-C1-EXIT-LINES-QUOTED",
@@ -118,6 +118,13 @@
    "neg": true,
    "pos": false,
    "reads": "the build bank against the log`s own timestamp lines"
+  },
+  {
+   "name": "G-C1-LOG-COMMITTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "relay`s tracked tree"
   },
   {
    "name": "G-C2-TWENTY-ROWS",
@@ -330,6 +337,13 @@
    "reads": "the suite own text"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -351,13 +365,10 @@
    "reads": "the lv and kernel working trees, read in the source"
   }
  ],
- "run": 50,
+ "run": 52,
  "live_failing": [],
  "defective": [],
  "neg_failures": 0,
  "declared": 52,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD",
-  "G-C1-LOG-COMMITTED"
- ]
+ "deferred": []
 }

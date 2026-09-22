@@ -1,0 +1,114 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b473 -- THE LOG READ TO ITS END, AND (R82) DECIDED.
+### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1).
+### ### **(R82) : VOID FOR WANT OF A RUN. ### (R83) : ITS TRIGGER DID NOT FIRE.**
+====================================================================================================
+
+  ferry            : part 1 of 1, IN FULL, scanned 0 hits ; (R81) FLAGS 0 -- this ferry carries none
+                     of the four words, so nothing to label and nothing to refuse
+  registration     : LOCKED 2026-09-22T18:12:45Z, BEFORE THE LOG WAS OPENED, sha256 b104a0e536bbd029...;
+                     SEAL INTACT ; lock gate 8 of 8, 4 by digest (the first run REFUSED -- see errors)
+  arms             : 52 declared; post-push 52 RUN, 52 LIVE PASSING, 0 FAILING, 0 control passes
+  censuses / pins  : TOTAL MISSING 0 both; HARD-FAILING 0 (first roster run 1, retry 0 -- see errors)
+  mirror           : mirror-refresh-2026-09-22-b473.zip CLEAN ON ALL THREE CLAUSES at 28a4946
+  correspondence   : row 322 (SIDE-global-section 2343052)
+  PLACE-papers     : 28a4946 -- OPEN_TRAILS.md, and nothing else (68 lines added, 0 removed, BOM kept)
+  relay            : 75cc9fa (the act, carrying the log as evidence) ; this closing commit
+  span by tool     : 10 by number (b464-b473) ; 10 by filings ### **ONE PAST b366`S FOLD THRESHOLD**
+  desk             : 29 items, 0 closed, 2 minted, 29 standing
+  nothing          : deposits; is imported, copied, vendored, fetched or cloned; no kernel created or
+                     named; no corpus grade moved; no site entered; row U1 unedited; no bridge typed
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE BUILD.
+----------------------------------------------------------------------------------------------------
+    the log   : data/b471_zeta23_build.log, read whole -- 17,143 bytes as read, 193 lines
+    ### ### **`lake build Solution` EXIT 1** ; PrintAxioms.lean EXIT 1 ; the named file EXIT 1
+    ### ### **WALL TIME 1,383.05 s (23 min 3 s)**, from the log`s own two timestamp lines and no
+    ### other clock -- 12:38:44.54 to 13:01:47.59, one machine, no timezone conversion
+    the counter at the stop : ### **8,873 of 8,887 TARGETS BUILT**
+    ### ### **THREE MODULES FAILED, ALL THREE FOR MEMORY:**
+      Zeta23.Hypotheses      exit 1            INTERNAL PANIC: out of memory
+      Zeta23.Defs.Counting   exit 1            INTERNAL PANIC: out of memory
+      Zeta23.Taper.Basic     exit 3221226505   libc++abi: uncaught exception std::bad_alloc
+    the log`s own summary : "Some required targets logged failures: - Zeta23.Hypotheses -
+      Zeta23.Defs.Counting - Zeta23.Taper.Basic" ; then "error: build failed"
+  ### ### **NO MODULE REPORTED A `sorry`, AN UNSOLVED GOAL OR A TYPE ERROR.** ### The run was launched
+  ### with `LEAN_NUM_THREADS` UNSET, as (R80)`s order named, so lake ran its own parallel workers and
+  ### the machine`s memory gave way. ### **THE RUN DIED OF MEMORY, NOT OF MATHEMATICS** -- a fact about
+  ### this machine, not about zeta23.
+  ### The two steps that print profiles never had a library: step 2 reported *"unknown module prefix
+  ### 'Solution'"* and step 3 failed on a missing object file for `Zeta23.WeilEF.Main`.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE PROFILES.
+----------------------------------------------------------------------------------------------------
+    rows 20 -- the source`s own seventeen Challenge theorems (named identically in
+      scripts/PrintAxioms.lean and comparator.json, in order) plus the three (R82) names
+    ### ### **STANDARD THREE : 0 ; SOME OTHER PROFILE : 0 ; ABSENT : 20.**
+    ### **The log carries NO "depends on axioms" line at all.** ### ABSENT is not a profile and is not
+    ### assumed to be one.
+      Zeta23.WeilEF.EF_lit_zetaZeroConfig   ABSENT
+      Zeta23.EF.EF_lit                      ABSENT
+      Zeta23.WeilEF.EF_lit_zeta             ABSENT
+  ### ### **(R82)`S CONDITION : VOID -- FOR WANT OF A RUN, NOT ON A BAD PROFILE.** ### No profile came
+  ### back wrong because no profile came back at all.
+  ### ### **THE GRADE DOES NOT MOVE IN EITHER DIRECTION: zeta23`S TERMINAL STAYS `DERIVES,
+  ### CONDITIONAL`, EXACTLY AS b468r LEFT IT.** ### The re-read that would make it unconditional is
+  ### owed and is not performed here.
+  ### ### **(R83) IS OBEYED BY DOING NOTHING:** its trigger did not fire, so `SIDE-explicit-formula` is
+  ### not created, named in the roster or pinned, and nothing is vendored.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE COMPARATOR. ### NOT RUN, AND IT CHANGES NO GRADE.
+----------------------------------------------------------------------------------------------------
+    (1) THE FETCH   : its tool cache `.cache/palomar-comparator` is ABSENT and the script clones four
+        pinned checkouts into it -- comparator 75c730e9, lean4export 9fb131bb, landrun 811cfff5,
+        nanoda 68d5ca9d. ### The order`s own condition -- "without a network fetch it has not already
+        made" -- fails here.
+    (2) THE TOOLS   : go ABSENT, cargo ABSENT, landrun ABSENT.
+    (3) THE PLATFORM: the script says "Requires Linux"; this machine is win32.
+    (4) THE INPUT   : it compares Challenge against Solution, and Solution did not build.
+    ### ### **NOTHING WAS FETCHED, CLONED OR BUILT: the cache is still ABSENT.**
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+  (N1) the build exited 0                       ### **REFUTED -- EXIT 1**, three modules out of memory
+  (N2) all twenty profiles read the standard     ### **REFUTED -- 0 of 20; all ABSENT; (R82) VOID FOR
+       three and (R82) HOLDS                          WANT OF A RUN**
+  (N3) the comparator is NOT RUN for want of a   ### **HELD ON THE OUTCOME** -- and the cause is wider:
+       fetch                                          four reasons, not one
+  ### The seat`s own, from the face: (N1) REFUTED, predicted BEFORE the log was opened from b468r`s
+  ### prior `0xC0000142` failure on this tree and from 1,383 s against b470`s measured import floor;
+  ### (N2) REFUTED as consequent on (N1); (N3) HELD with the cause widened. ### All three as called.
+
+----------------------------------------------------------------------------------------------------
+### ERRORS AND CORRECTIONS. ### THE SEAT`S : FOUR, ALL IN THE ACT`S OWN APPARATUS.
+----------------------------------------------------------------------------------------------------
+  (1) THE LOCK GATE REFUSED THE FIRST LOCK, CORRECTLY. Step zero`s roster read ### **1 HARD-FAILING**
+      on its first run (one remote returned `ls-remote : UNRESOLVED`) and ### **0 ON THE RETRY**, and
+      the seat had banked the retry under a second name. ### The gate reads the step-zero name and
+      refused the failing run under it. ### **THE GATE WAS RIGHT AND THE BANKING WAS WRONG**: the retry
+      now holds the step-zero name, the first run is kept whole as `b473_pins_stepzero_firstrun.txt`,
+      the face was amended BEFORE the lock, and every gate was re-run and re-stamped.
+  (2) THE LOCK-GATE ARM READ THE REFUSED RUN. Because the gate ran twice, the carried arm`s name
+      `_notes.txt` pointed at the refusal. ### It now reads the LAST banked notes file.
+  (3) AN ARM WHOSE CONTROL COULD NOT REACH WHAT IT READ. `G-C2-STANDARD-THREE-QUOTED` read the source`s
+      script off disk while its mutation moved another key, so its positive control could never fail
+      it. ### The script is now a supplied source and the control mutates it.
+  (4) ### **THE COMMIT NORMALIZED THE EVIDENCE`S LINE ENDINGS.** ### relay tracks `eol=lf` (b372), so
+      committing the log rewrote the working file from CRLF to LF: ### **READ AT 17,143 BYTES, ON DISK
+      AFTER THE COMMIT 17,135 -- EXACTLY EIGHT CARRIAGE RETURNS.** ### No line, character or ordering
+      changed. ### Two byte arms broke on it; both now compare the CR-STRIPPED SHA256, which no eol
+      policy can move, and the build bank carries both figures and the digest.
+  ### THE NAVIGATOR`S : NONE IN THIS ACT. ### (R81)`s three incidents are still entered at the next fold.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING CONSTRAINTS.
+----------------------------------------------------------------------------------------------------
+  both instrument lanes PARKED ; ### **THE KERNEL LANE CLOSES HERE, WITH THE LOG READ AND (R82)
+  DECIDED** ; no Lean of the corpus touched ; no build and no Lean run started by this act ; the wave
+  PARKED under `(R66)` ; nothing deposits ; `h2` WHERE THE DEPOSIT LEFT IT ;
+  ### ### **THE FOUR LISTS OPEN.**
+====================================================================================================

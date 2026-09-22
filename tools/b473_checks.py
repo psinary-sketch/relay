@@ -116,6 +116,9 @@ def sources():
         artefacts_tracked=gits(ROOT, 'ls-files', 'data/anthropic-zeta23'),
         log_tracked=gits(ROOT, 'ls-files', 'data/b471_zeta23_build.log'),
         log_bytes_raw=os.path.getsize(os.path.join(D, 'b471_zeta23_build.log')),
+        log_sha_cr_stripped=__import__('hashlib').sha256(
+            open(os.path.join(D, 'b471_zeta23_build.log'), 'rb').read().replace(b'\r', b'')
+        ).hexdigest(),
         cache_present=os.path.isdir(os.path.join(D, 'anthropic-zeta23', 'formal-math', 'zeta23',
                                                  '.cache', 'palomar-comparator')),
         roster=read(os.path.join(PP, 'REGISTRY.md')),
@@ -188,12 +191,22 @@ ARMS = [
     ('G-ADDENDUM-SLOT-CONTENT-BOUNDED', 'the addendum slot bytes',
      lambda S: S['addendum'].strip() == '', lambda S: put(S, 'addendum', 'not a verbatim quotation')),
 
-    ('G-C1-LOG-READ-WHOLE', 'the build bank against the log`s RAW bytes',
-     lambda S: S['build'].get('bytes') == S['log_bytes_raw']
-     and S['build'].get('lines') == len(S['log'].split(NL)),
-     lambda S: put(S, 'build', dict(S['build'], bytes=1))),
-    ('G-C1-LOG-BYTES-MATCH', 'the log on disk against the survey`s pre-seal reading',
-     lambda S: os.path.getsize(os.path.join(D, 'b471_zeta23_build.log')) == S['sv']['log']['bytes'],
+    # ### ### **THE BYTE COMPARISON BROKE ON THE COMMIT ITSELF.** ### relay tracks `eol=lf`, so committing
+    # ### the evidence rewrote the working log from CRLF to LF and the file is now 8 bytes shorter than the
+    # ### act read. ### **THE READING WAS NOT WRONG AND THE EVIDENCE DID NOT CHANGE**: only carriage returns
+    # ### did. ### The arm now compares the CR-STRIPPED DIGEST, which no eol policy can move, and keeps both
+    # ### byte figures on the record.
+    ('G-C1-LOG-READ-WHOLE', 'the build bank against the log`s own bytes, CR-stripped',
+     lambda S: (S['build'].get('sha256_cr_stripped') == S['log_sha_cr_stripped']
+                and S['build'].get('lines') == len(S['log'].split(NL))
+                and S['build'].get('bytes_as_read', 0) - S['log_bytes_raw']
+                == S['build'].get('crs_removed_by_commit')),
+     lambda S: put(S, 'build', dict(S['build'], sha256_cr_stripped='0' * 64))),
+    # ### The same normalization the arm above names: the pre-seal reading is the CRLF file, the size on
+    # ### disk is the committed LF one, and the two differ by exactly the carriage returns.
+    ('G-C1-LOG-BYTES-MATCH', 'the survey`s pre-seal reading against the build bank and the file on disk',
+     lambda S: (S['sv']['log']['bytes'] == S['build'].get('bytes_as_read')
+                and S['log_bytes_raw'] == S['build'].get('bytes_after_eol_normalization')),
      lambda S: put(S, 'sv', dict(S['sv'], log=dict(S['sv']['log'], bytes=0)))),
     ('G-C1-EXIT-LINES-QUOTED', 'the components record against the log`s own exit lines',
      lambda S: all(('=== EXIT %d : %s' % (v, k)) in S['log'] for k, v in S['build']['exits'].items())
