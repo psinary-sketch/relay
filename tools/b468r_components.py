@@ -243,6 +243,13 @@ def component2():
         clean = None
         status = 'NOT RUN'
         rec('    ### ### **`#print axioms` : NOT RUN.** ### stopped at : %s' % (stopped or ['(the run did not finish)']))
+        crashed = sorted(set(re.findall(r'Building (\S+)', ' '.join(l for l in run.split(NL) if '✖' in l))))
+        rec('    ### ### **HOW IT STOPPED, READ FROM THE COMPLETE LOG:** the harness reported the background task')
+        rec('    ### stopped for low system memory; the build itself carried on and ended `error: build failed`,')
+        rec('    ### with %d module builds crashing on Windows status 3221225794 (0xC0000142, a process that could'
+            % len(crashed))
+        rec('    ### not initialise); the script then stopped at that step by its own rule, before `#print axioms`.')
+        rec('    ### crashed : %s' % ' '.join(crashed))
         tail = [l for l in run.split(NL) if l.strip()][-8:]
         for l in tail:
             rec('      | %s' % l[:150])

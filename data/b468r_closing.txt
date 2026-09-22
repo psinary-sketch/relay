@@ -1,0 +1,115 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b468r -- b468 RUN AS BANKED, WITH THE (R75) ARTEFACTS ON DISK. ### 2026-09-22.
+### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1). ### (R75), (R76) OBEYED.
+====================================================================================================
+
+  ferry            : part 1 of 1, IN FULL, scanned 0 hits
+  registration     : LOCKED BEFORE ANY THEOREM WAS GRADED, sha256 bc9142a3c35321c3...; SEAL INTACT;
+                     lock gate 8 of 8, 4 by digest
+  arms             : 59 declared; post-push 59 RUN, 59 LIVE PASSING, 0 FAILING, 0 positive-control passes
+  censuses / pins  : TOTAL MISSING 0 both; HARD-FAILING 0 across all 4 rostered repos
+  mirror           : mirror-refresh-2026-09-22-b468r.zip CLEAN ON ALL THREE CLAUSES at b85a87a
+  correspondence   : row 318 (SIDE-global-section bea08e1)
+  PLACE-papers     : 6ab9e3d (the trail record) ; b85a87a (the correction at closing)
+  relay            : 6c672c7 (the act) ; this closing commit
+  first run        : b468 at row 316, UNTOUCHED
+  nothing          : deposits; is imported; no Lean of the corpus touched; no draft applied; no site
+                     entered; row U1 unedited; W-ORD-GW-IMPORT NOT FILED
+  span by tool     : 5 (the tool reads the stem b468r as act 468) ; by number b464-b469 = 6
+  desk             : 22 items, 3 closed, 3 minted here, 19 standing
+
+----------------------------------------------------------------------------------------------------
+### THE PRECONDITION. ### **FIVE OF FIVE MATCH; THE CLONE'S HEAD AGREES.**
+----------------------------------------------------------------------------------------------------
+    alpoge_furman_2608.13637.pdf   6de3b156342e7b4a802c34f8ef40432567e9dabe006938da04233f19fc4ef444  MATCH
+    anthropic_informal_note.pdf    45e0330ad37965e5531fa1f4f11e5bebcae147a5237a3e5b3d029efa7ddf759d  MATCH
+    claude_methodology_note.pdf    271aba2d2083ffa778a53c2994f2061fad7fdda450bc296ec49c7cc41e91dd2d  MATCH
+    claude_paper_2026-08-11.pdf    19f827bee5834d61aa6dd756cdaea582492703ddbfd6bdc2058de10b93f7e814  MATCH
+    claude_transcripts.pdf         ebb34c5ed65b1dc96a72bdf76068814a34da9ceb1675624f68a2088180123ada  MATCH
+    formal-math HEAD               fbdc36bbf17d20af3fd0447c6d1a8a02773c9844 = formal-math.HEAD.txt
+  ### SHA256SUMS.txt is UTF-16 (a PowerShell write) and was decoded as such; its own row is blank and
+  ### was ignored, as ordered. ### **NONE OF THE THIRD PARTY'S ARTEFACTS IS COMMITTED TO relay.**
+  ### THE BACKGROUND SHELL "Sanity check before banking the ferry": the seat's own bare `cat >
+  ### /tmp/ignore`; backgrounded at 120 s and stopped by the harness, status `killed`; it left a
+  ### zero-byte /tmp/ignore outside every repository and nothing else.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE STATEMENT.
+----------------------------------------------------------------------------------------------------
+  ### Both papers state THE SAME Theorem A and Theorem B; what differs is the byline (Claude,
+  ### Anthropic / Alpoge and Furman, "discovered and written by Claude"). ### It counts SIMPLE ZEROS
+  ### ON THE LINE -- N0s(T,2T) >= (2/3 - o(1)) N(T,2T), "We prove unconditionally", 0.67250... with
+  ### the Montgomery-Taylor window; 2/3, 5/6, 0.6725 are Montgomery's, Conrey-Ghosh-Gonek's and
+  ### Montgomery-Taylor's constants under RH. ### Its support GROWS WITH T: supp = [-L/2, L/2],
+  ### L = log(T/2pi), Fourier support 1.
+
+    read                              verdict
+    --------------------------------- --------------------------------------------------------------
+    (a) import bar, representation    zeta INSIDE the class ; Epstein Z_Q OUTSIDE -- K1 on it only
+    (a) import bar, test function     NONE -- no class of test functions to grade
+    (b) (i) class                     NONE
+    (b) (ii) height                   UNIFORM IN T -- DOES NOT FIRE (R76: the instrument's truncation)
+    (b) (iii) (iv) width              NONE
+    (b) (v) representation            K1 CLASS BOUNDARY
+    (b) (vi) modulus                  K1 CLASS BOUNDARY, AND PER-MODULUS (T0 chosen after chi)
+    (c) census                        24.4 and the intake item drafted -- NOT APPLIED, authoring routed
+  ### ### **(R61)/(R76)'s TRIGGER DOES NOT FIRE.** ### b466's 24.4 question is settled by the paper:
+  ### it counts SIMPLE zeros on the line, so it bears on the `>= 40.77% simple` cell.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE LEAN, READ NOT TRUSTED.
+----------------------------------------------------------------------------------------------------
+    Mathlib pin : 51e6992efd06126df61a496bebf8f49482a4e129
+    trusted files : Challenge.lean (17) + Challenge/XiPrime.lean (6) = 23 theorems, each proved by
+                    `sorry` as the comparator's target statement ; AXIOMS 0 ; hypotheses only
+                    `1 < q` and primitivity of chi -- NO ANALYTIC INPUT
+    the library : PaperInputs DISCHARGED FOR ZETA -- `theorem paperInputs_zeta` ; axiom
+                  declarations, comments stripped : 0
+    #print axioms : ### **NOT RUN**
+    grade : ### **DERIVES, CONDITIONAL ON AN UNRUN #print axioms**
+    comparison with lam n = (sum over low of blTerm z n) + tail n : ### **DOES NOT** -- W-ORD-GW-IMPORT
+                  not filed ; nothing imported
+
+----------------------------------------------------------------------------------------------------
+### THE CORRECTION THIS CLOSING CARRIES. ### **THE FIRST ACCOUNT OF WHY #print axioms DID NOT RUN WAS
+### INCOMPLETE, AND IT IS IN ROW 318 AND IN THE TRAIL ENTRY.**
+----------------------------------------------------------------------------------------------------
+  ### The seat wrote, from the harness's notice, that the harness stopped the build for low memory
+  ### during `lake build Solution`. ### **THE COMPLETE LOG SAYS MORE:** the harness did report the task
+  ### stopped for low system memory -- ### **AND THE BUILD CARRIED ON AND ENDED BY ITSELF AT 05:49:17Z
+  ### WITH `error: build failed`**, 15 module builds crashing on Windows status 3221225794
+  ### (0xC0000142, a process that could not initialise), among them `ChallengeDeps`; the script then
+  ### stopped at that step by its own rule. ### `#print axioms` was never reached, so NOT RUN and the
+  ### conditional grade stand; only the reason changes. ### Caught when the relay working tree showed
+  ### the log still growing after the notice. ### Corrected by a dated paragraph appended to the trail
+  ### (b85a87a) and by Component 2's regenerated bank; ### **ROW 318 IS APPEND-ONLY AND IS NOT EDITED.**
+  ### ### **WHAT THE RUN LEFT OUTSIDE THE RECORD:** the toolchain v4.33.0-rc2 in `D:\elan`, Mathlib's
+  ### cache in `D:\lean-cache-b468r`, and the clone's ignored `.lake` -- all outside every repository;
+  ### the clone's tracked tree is clean. ### **NOT RESTARTED, AS THE HARNESS DIRECTS; RESTART ONLY WHEN
+  ### ASKED.**
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+  (N1) the statements agree; simple zeros on the line; unconditionally   ### **HELD** (Lean check NOT RUN)
+  (N2) K1 at every site; the trigger does not fire   ### **REFUTED ON THE FIRST CLAUSE, HELD ON THE LAST**
+  (N3) pair-correlation a hypothesis -> INTERFACES; DOES NOT   ### **REFUTED ON THE FIRST TWO, HELD ON THE THIRD**
+  ### The seat's own, from the face: all three as predicted -- with K1 also at (vi), which the face
+  ### did not name -- and b468's locked DOES NOT prediction HELD.
+
+----------------------------------------------------------------------------------------------------
+### ERRORS, ENTERED AS THEIR OWNERS'. ### THE SEAT'S : FIVE. ### THE NAVIGATOR'S : NONE.
+----------------------------------------------------------------------------------------------------
+  (1) Theorem A's first comparison cut at a page break. (2) The axiom scan first depended on which
+  `grep` answered, then counted a line of prose. (3) Two suite arms read live state their mutations
+  could not reach. (4) The survey read toolchains from `~/.elan` on C:, while the store is `D:\elan`.
+  (5) ### **THE LEAN STOP WAS FIRST RECORDED FROM THE HARNESS'S NOTICE WITHOUT READING THE LOG TO ITS
+  END**, and so went into row 318 incomplete -- the correction above.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING CONSTRAINTS.
+----------------------------------------------------------------------------------------------------
+  both instrument lanes PARKED ; the kernel lane OPENED FOR COMPONENT 2 AND CLOSES HERE ; no Lean of the
+  corpus touched ; the wave PARKED under `(R66)` ; nothing deposits ; `h2` WHERE THE DEPOSIT LEFT IT ;
+  ### ### **THE FOUR LISTS OPEN.**
+====================================================================================================

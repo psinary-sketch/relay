@@ -181,15 +181,20 @@ COMPONENT 2 -- THE LEAN, READ NOT TRUSTED. ### THE KERNEL LANE IS OPEN FOR THIS 
     equation. ### Axiom declarations anywhere in the project, comments stripped : 0.
 
   ### (2c) `#print axioms`, RUN -- OR NOT, WITH THE REASON.
-    ### ### **`#print axioms` : NOT RUN.** ### stopped at : ['lake build Solution -- by the harness, for low system memory while the session was idle (task boiccalut, status killed); not restarted, as the harness directs']
-      | Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 0 KB/s], Decompressed: 8658[K
-      | Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 0 KB/s], Decompressed: 8658[K
-      | D:/lean-cache-b468r/mathlib\bbd24837f32551c6.ltar: removing corrupted file
-      | Decompressed 8681 file(s)
-      | Already decompressed 8679 file(s)
-      | === [2026-09-22T05:37:20Z] EXIT 0 : lake exe cache get
-      | === [2026-09-22T05:37:20Z] STEP: lake build Solution
-      | ### RUN STOPPED AT: lake build Solution -- by the harness, for low system memory while the session was idle (task boiccalut, status killed); not resta
+    ### ### **`#print axioms` : NOT RUN.** ### stopped at : ['lake build Solution']
+    ### ### **HOW IT STOPPED, READ FROM THE COMPLETE LOG:** the harness reported the background task
+    ### stopped for low system memory; the build itself carried on and ended `error: build failed`,
+    ### with 15 module builds crashing on Windows status 3221225794 (0xC0000142, a process that could
+    ### not initialise); the script then stopped at that step by its own rule, before `#print axioms`.
+    ### crashed : ChallengeDeps Zeta23.Defs Zeta23.Defs.LeafIntegrals Zeta23.FromPNTPlus.EulerMaclaurin Zeta23.FromPNTPlus.ResidueCalcOnRectangles Zeta23.FromPNTPlus.Sobolev Zeta23.FromPNTPlus.StrongPNTPrefix Zeta23.FromPNTPlus.ZetaConj Zeta23.LinAlg.HermitianPosPart Zeta23.LinAlg.VonNeumann Zeta23.MV.Spacing Zeta23.RvM.BacklundDefs Zeta23.Tail.Count Zeta23.Tail.Grid Zeta23.ThmD.Functional
+      | - Zeta23.FromPNTPlus.ResidueCalcOnRectangles
+      | - Zeta23.Tail.Grid
+      | - Zeta23.Tail.Count
+      | - Zeta23.LinAlg.HermitianPosPart
+      | - Zeta23.LinAlg.VonNeumann
+      | error: build failed
+      | === [2026-09-22T05:49:17Z] EXIT 1 : lake build Solution
+      | ### RUN STOPPED AT: lake build Solution
     ### The third party`s audit prints three-axiom lines for its statements, and it is quoted
     ### ONLY AS ITS CLAIM: the survey found `AUDIT.md` names 12 statements not in this tree.
 
