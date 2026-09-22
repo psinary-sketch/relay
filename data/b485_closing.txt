@@ -1,0 +1,121 @@
+====================================================================================================
+b485 -- THE CLOSING RECORD.
+### THE CURRENCY REPAIR, THE QUADRATURE WORK-ORDER, AND THE SUPPORT-EDGE TEST.
+====================================================================================================
+
+### (0) THE OTHER RUN, WITHOUT OPENING ITS LOG.
+----------------------------------------------------------------------------------------------------
+    pid 27508 : CPU ### **1.75 s** at 2026-09-22T23:36:03Z, ### **1.75 s** at 2026-09-22T23:37:03Z, over ### **60.024 s** of wall.
+    ### ### **DELTA : 0 s.** ### **AND THAT ZERO IS NOT A HUNG RUN.**
+    ### `27508` is the `cmd.exe` LAUNCHER, which waits on a child and burns no CPU by
+    ### construction. ### The process table shows ### **`lake build Zeta23.ThmDE.Mult`** ###
+    ### with `lean` at ### **54.8 s** ### CPU.
+    ### ### **A SILENT LOG AND AN IDLE LAUNCHER ARE BOTH CONSISTENT WITH PROGRESS, AND
+    ### NEITHER IS EVIDENCE OF IT -- THE CHILD`S CPU IS.**
+
+### (1) THE TWO RECORDS, BY THEIR OWN FIELDS.
+----------------------------------------------------------------------------------------------------
+    both files recompute EXACTLY to (R94)`s hashes ; neither carries a BOM ;
+    ### ### **THIS SEAT FETCHED NOTHING.**
+    record       version    published      concept      files    manuscript
+    19675356     v1.0.1     2026-04-21     19675355     10       (not stated)
+    21432399     v1.1.0     2026-07-18     19675355     11       v5.8
+    ### ### **BOTH CARRY CONCEPT 19675355** -- the concept REGISTRY names for the monograph
+    ### -- so both are versions of the deposit REGISTRY already governs.
+
+### (2) THE TWO CURRENCY WRITES.
+----------------------------------------------------------------------------------------------------
+    ### ### **b395`S NOTE IS WRITTEN, NINETY ACTS AFTER IT WAS DRAFTED**, to `ERRATA.md` as
+    ### `E-2026-09-22-1` -- there and not to `meta/ZENODO_METADATA.md`, whose own banner
+    ### freezes its table, while ERRATA is the append-only ledger carrying the precedent.
+    ### ### **AND THE MANIFEST CORRECTED HALF THE DRAFT ON ARRIVAL:**
+      manuscript `v5.8`   ### **CONFIRMED** ### by the record`s own description.
+      `(2026-07-24)`      ### **REFUTED** ### -- the record published ### **2026-07-18**, and
+                          `2026-07-24` belongs to `v1.1.2`.
+    ### The draft is quoted verbatim and the correction stands BESIDE it.
+    ### ### **A DRAFT IS NOT IMPROVED IN SILENCE.**
+
+### (3) THE GATE`S PASS.
+----------------------------------------------------------------------------------------------------
+    ### ### **CELLS OF b481`S TABLE DISAGREEING WITH REGISTRY : 0.**
+    ### README, SPIRAL_MAP, REGISTRY and the session memory agree on all three fields; the
+    ### executor memory is ### **NOT LOCATABLE** ### and is RECORDED, not reconciled.
+    ### ### **AND THE PASS FILED 7 FINDINGS, FIVE OF THEM IN THE AUTHORITY ITSELF:**
+      REGISTRY.md:410                DATE               says `2026-04-28`
+      REGISTRY.md:410                NO VERSION DOI     says `none`
+      REGISTRY.md:412                VERSION STRING     says `v1.1`
+      REGISTRY.md:412                DATE               says `2026-07-19`
+      REGISTRY.md:412                NO VERSION DOI     says `none`
+      meta/ZENODO_METADATA.md:22     CONFLATION         says `v5.8 attributed to Zenodo v1.1.1 / 21436278`
+      b395 draft                     DRAFT DATE WRONG   says `2026-07-24`
+    ### ### **RULE 5 MAKES REGISTRY THE AUTHORITY, AND EVERY PRIOR PASS RECONCILED OTHER
+    ### SITES *TO* IT. ### THIS IS THE FIRST PASS WITH THE RECORDS IN HAND, AND THE FIRST
+    ### TIME THE AUTHORITY ITSELF HAS BEEN CAUGHT.** ### An authority is authoritative over
+    ### the corpus, not over the platform, and the gate`s own words ask for both.
+    ### Both history rows ### **ANNOTATED, NEITHER REWRITTEN.**
+    ### `meta/ZENODO_METADATA.md:22` ### **FILED AND NOT EDITED** ### -- its table declares
+    ### itself *"left unedited on purpose"*. ### **EDITING A LEDGER THAT DECLARES ITSELF
+    ### FROZEN WOULD BREAK A LAW TO REPAIR A FACT.**
+
+    ### ### **THE GATE : DISCHARGED.**
+    ### with a dated line at `REGISTRY.md:523` naming this act as its reason, the gate`s
+    ### text otherwise untouched and the original row preserved verbatim.
+    ### ### **AND THE LINE NAMES ITS OWN SCOPE:** the current deposit state, and nothing
+    ### else. ### **A GATE DISCHARGED ON ONE QUESTION IS NOT A CORPUS FOUND CLEAN.**
+
+### (4) EVERY CORPUS WRITE, AND WHAT IT COST.
+----------------------------------------------------------------------------------------------------
+    ERRATA.md                                    +16   / -0      lines of the old file absent from the new : ### **0**
+    REGISTRY.md                                  +15   / -0      lines of the old file absent from the new : ### **0**
+    REGISTRY.md                                  +22   / -0      lines of the old file absent from the new : ### **0**
+    ### ### **EVERY WRITE IS AN APPEND OR AN ANNOTATION**, and git`s own `--numstat` reads
+    ### ### **`-0`** ### on each, because every preserved original still matches.
+
+### (5) THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+    (N1) ### **HELD**
+    (N2) ### **HELD ON ITS CONCLUSION, WITH ONE QUALIFICATION**
+    (N3) ### **SPLIT -- DISCHARGED ON THE TABLE, REFUTED ON THE PASS**
+    ### ### **REGISTERED 3 ; HELD 1 ; HELD-WITH-QUALIFICATION 1 ; SPLIT 1.** ### The seat`s
+    ### calls were on the sealed face before the pass ran and matched all three, including
+    ### registering `(N2)`s qualification and `(N3)`s split IN ADVANCE.
+
+### (6) THREE DEFECTS IN THIS ACT`S OWN INSTRUMENTS.
+----------------------------------------------------------------------------------------------------
+    (a) ### **THE INDEX-QUERY GATE REFUSED THIS FACE TWICE** -- once on an ARM`S NAME, and
+        once on the paragraph EXPLAINING the rename. ### **A GATE ON RAW TEXT FIRES ON THE
+        ACT`S OWN ACCOUNT OF WHAT IT DID NOT DO.** ### The arm was renamed and the
+        explanation written without the token; the gate was obeyed, not argued with.
+    (b) ### **THE DESK TOOL WROTE ITS ROW AND THEN CRASHED.** ### `corr_row.write_row`
+        ### **APPENDS AND IS NOT IDEMPOTENT**, despite every desk bank since `b194` heading
+        it *"the idempotent tool"*. ### A re-run would have written a SECOND row for this
+        act. ### A guard now reads the ledger before writing. ### **A NAME REPEATED IN
+        FIFTY HEADINGS IS NOT A PROPERTY.**
+    (c) ### **AND `G-NOZENODO-WRITE` FIRED ON THE WORD `deposit` IN THIS ACT`S OWN PROSE**,
+        the third prose-firing in two acts. ### Narrowed to a WRITE CALL. ### **A WORD IS
+        NOT A CALL.**
+
+### (7) THE INSTRUMENTS, AND WHAT DID NOT HAPPEN.
+----------------------------------------------------------------------------------------------------
+    the face   : sealed, ### **SEAL INTACT**
+      sha256 : d96d2c18afc82e14e616953fba6590e1696502040e6f83290d46e7405dfbae8b
+    the suite  : 57 arms run, 0 live failing  ; positive-control passes 0
+      ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+    the mirror : CLEAN ON ALL THREE CLAUSES
+    closing pins : ### REPOS HARD-FAILING : 0
+    closing censuses : TOTAL MISSING 0 and 0
+    the span by the tool : ### **11** -- two past the declared threshold of nine; the
+      ### ferry`s order is ### **b479, THEN b482, THEN THE FOLD.**
+    ### ### **NOTHING WAS FETCHED BY THIS SEAT AND NOTHING AT ZENODO WAS WRITTEN.**
+    ### **b475`S LOG WAS NOT OPENED** and its run was not polled or stopped.
+    ### No chain was run. ### No corpus grade moved; no `d1-1` row rewritten; no
+    ### `FACES_LEDGER` row touched; row U1 unedited; no bridge typed; `h2` where the
+    ### deposit left it; the four lists stay OPEN; no claim about RH in either direction.
+
+### (8) THE COMMITS, EACH READ BACK BY ls-remote.
+----------------------------------------------------------------------------------------------------
+    relay                HEAD 6f0079b9   remote 6f0079b9   ### PASS
+    PLACE-papers         HEAD 09728d1c   remote 09728d1c   ### PASS
+    SIDE-global-section  HEAD ad626b56   remote ad626b56   ### PASS
+    ### all three pushed from `push-b485`, never from `main`.
+====================================================================================================
