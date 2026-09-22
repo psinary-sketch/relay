@@ -1,0 +1,181 @@
+====================================================================================================
+### THE REGISTRATION. ### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1,
+### auto-mode approval declared here). ### **LOCKED BEFORE THE RUN IS STARTED.**
+### ### **b475 -- THE AXIOM RUN, DETACHED AND SERIALIZED UNDER (R80).**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 2 OF 2** ### with its paste-end marker, received IN FULL at b474 and
+### banked then as `b475_ferry.txt`; it is started now by the author's word, *"b475 STARTS NOW as
+### banked; (R80) stands"*. ### The scan agrees: ### **`0` HIT(S) REPORTED**, and ### **`1` (R81) FLAG
+### -- `never` at :20, carrying `[procedural]`**, so nothing is bare and nothing is refused.
+### ### **STEP ZERO, RE-RUN FOR THIS ACT:** censuses ### **TOTAL MISSING `0`**, both; roster
+### ### **`0` HARD-FAILING**. ### THE PRIOR ACT (`b474`) IS CLOSED: row 323, pushed and read back at
+### PLACE-papers `85335fb`, SIDE-global-section `46b7ac2`, relay `0ba7897`.
+### ### **THIS PARAGRAPH IS `SIDE-INVARIANT`.**
+
+### ### **READING (1) -- (R85) IS RATIFIED AND THIS FACE IS THE FIRST WRITTEN UNDER IT.** A face names
+### each tool's WRITE PATTERN, not each file; `G-WRITELIST-KINDS` reads the globs. ### **SO SECTION (W)
+### BELOW IS A TABLE OF TOOLS AND GLOBS, AND THIS ACT'S SUITE READS IT THAT WAY** -- the arm is
+### re-pointed at the globs and keeps both its controls. ### b474's two names -- `b474_scores.json` and
+### `b474_span_notes3.txt` -- close under (R85) as files inside their tools' patterns, and the incident
+### list (R85) names is carried into the record by this act and not re-argued.
+
+### ### **READING (2) -- THE ORDER OF THE MODULES IS COMPUTED, NOT TYPED.** From `Solution.lean`'s own
+### imports, depth-first post-order over every `Zeta23.*` module: ### **MODULES IN THE ORDER : 188**, each placed after
+### every Zeta23 module it imports. ### **THE ORDER'S OWN CONTROL: modules placed before one of their
+### own imports -- `0`.** ### The list is banked as `b475_order.txt` before the run starts, and the
+### launcher reads that file rather than a list typed into it.
+
+### ### **READING (3) -- THE ONES THAT DIED IN PARALLEL SIT EARLY IN THAT ORDER.**
+### `Zeta23.Hypotheses` is `1`, `Zeta23.Defs.Counting` is `2`, `Zeta23.Taper.Basic` is `22` of 188.
+### ### **SO (N1) IS DECIDED EARLY IN THE RUN, NOT AT ITS END**, and the act that reads the log will
+### know within its first minutes whether serialization changed anything.
+
+### ### **READING (4) -- THE MEMORY CEILING IS NOT IN THE LOG, AND NOTHING IS SUPPLIED IN ITS PLACE.**
+### The order asks for it *"if the log holds it"*. ### b473's log holds the failure and not a figure:
+### ### **`0` LINES WITH A MEMORY FIGURE; `3` LINES WITH THE FAILURE ITSELF** -- twice *"INTERNAL PANIC:
+### out of memory"* and once *"libc++abi: terminating due to uncaught exception of type
+### std::bad_alloc"*. ### **SO THE ANSWER IS `NOT IN THE LOG`**, printed as such; no figure is taken
+### from the machine, from a later run, or from anywhere else.
+
+### ### **READING (5) -- WHAT THIS RUN HOLDS FIXED AND WHAT IT CHANGES.** Fixed: the clone at
+### `fbdc36bb`, its toolchain `v4.33.0-rc2`, its Mathlib `51e6992e`, `scripts/PrintAxioms.lean` as
+### shipped, and the three (R82) declarations in the seat's own scratchpad file. ### Changed:
+### ### **`LEAN_NUM_THREADS=1` AND ONE `lake build <module>` PER CALL, SO NO TWO LEAN PROCESSES RUN AT
+### ONCE.** ### That is the only variable moved, which is what makes (N1) readable.
+
+### ### **READING (6) -- THE PID AND THE CLOSE.** This face locks BEFORE the run, so no pid exists when
+### it locks: ### **THE LAUNCHER WRITES THE PID TO `relay/data/b475_zeta23_build.pid`, WHICH THIS FACE
+### NAMES, AND THE CLOSING MESSAGE PRINTS IT.** ### The act closes with the run RUNNING, its state read
+### from the process table and never from the log. ### **THE LOG IS NOT OPENED BY THIS ACT**; the act
+### that follows the pid's exit reads it to its end and decides (R82) again.
+
+### THE PRE-FACE READS, DECLARED: (P1) the dependency order and its control; (P2) the three failed
+### modules placed in it; (P3) the memory ceiling, looked for and not found; (P4) the two runs' settings
+### compared. ### All four are in `b475_extract.txt`, ### **SURVEY MISSES `0`.**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AND WHAT EACH MAY AND MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+### (1) ### **COMPONENT 1 -- THE SERIALIZED DETACHED RUN.** `relay/tools/b475_detached_run.cmd`, started
+### by PowerShell `Start-Process`, hidden and not a child of this session's shell, in the clone, with
+### `LEAN_NUM_THREADS=1`; it reads `b475_order.txt` and calls `lake build <module>` once per module in
+### that order, writing a timestamp and the exit code per module to
+### `relay/data/b475_zeta23_build.log`; then `scripts\PrintAxioms.lean` as shipped; then the seat's
+### named file for the three (R82) declarations. ### **NOT POLLED, AND ITS LOG NOT OPENED.**
+
+### (2) ### **COMPONENT 2 -- WHAT THE RECORD KNOWS ABOUT THE BOUND.** The three panic lines quoted from
+### b473's log, the absence of any figure stated, and the order's positions of those it names
+### printed. ### **NO CEILING IS ESTIMATED, MEASURED OR GUESSED BY THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (S) WHAT STOPPING MEANS.
+----------------------------------------------------------------------------------------------------
+### The act stops with the run launched and its state read once. ### **IF THE LAUNCH FAILS -- NO
+### PROCESS, OR NO LOG FILE CREATED -- THAT IS PRINTED AND THE ACT STILL CLOSES.** ### No second run is
+### started, and no failed module is retried by hand.
+
+----------------------------------------------------------------------------------------------------
+### (J) THE EXPECTATIONS, EACH OVER A POPULATION THIS FACE NAMES (`R26`).
+----------------------------------------------------------------------------------------------------
+### **(N1)** the serialized run passes `Zeta23.Hypotheses`, `Zeta23.Defs.Counting` and
+###   `Zeta23.Taper.Basic`, which died in parallel. ### POPULATION: their own exit
+###   lines in the new log. ### **SCORED BY THE ACT THAT READS THE LOG, NOT BY THIS ONE.**
+###   ### **THE SEAT'S OWN: `HELD`, AND THE REASON IS A MECHANISM RATHER THAN A HOPE** -- b473's three
+###   deaths were `out of memory` and `std::bad_alloc` with lake's own workers running in parallel, and
+###   the only variable this run moves is how many Lean processes are alive at once. ### **BUT IT IS NOT
+###   CERTAIN: a single Lean process compiling one of those modules may still exceed this machine's
+###   memory, and if it does, (N1) is refuted and the bound is a per-module one.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAG-LABELLED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED`
+### `G-C1-LAUNCHED-AFTER-SEAL` `G-C1-PID-BANKED` `G-C1-LOG-NAMED` `G-C1-THREADS-ONE`
+### `G-C1-ORDER-FROM-FILE` `G-C1-ONE-CALL-PER-MODULE` `G-C1-STEPS-AS-NAMED` `G-C1-NOT-POLLED`
+### `G-C1-STATE-AT-CLOSE` `G-C1-NAMED-FILE-OUTSIDE-CLONE` `G-C1-CLONE-UNTOUCHED`
+### `G-C2-ORDER-COMPUTED` `G-C2-ORDER-CONTROL` `G-C2-THREE-PLACED` `G-C2-CEILING-NOT-IN-LOG`
+### `G-C2-PANICS-QUOTED` `G-C2-NO-CEILING-SUPPLIED`
+### `G-R85-WRITELIST-BY-GLOB` `G-N1-SCORED-LATER` `G-SEAT-EXPECTATION-STATED`
+### `G-SPAN-BY-TOOL` `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK`
+### `G-FOUR-LISTS-OPEN` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED`
+### `G-CORPUS-LEAN-UNTOUCHED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` and
+### `G-C1-STATE-AT-CLOSE` are scored post-push only.
+
+----------------------------------------------------------------------------------------------------
+### (K) THE BARS. ### EIGHT.
+----------------------------------------------------------------------------------------------------
+### **BAR 1 -- THE RUN STARTS AFTER THE SEAL, DETACHED, EXACTLY AS (A) AND (B) NAME IT.**
+### **BAR 2 -- `LEAN_NUM_THREADS=1`, ONE `lake build <module>` PER CALL, NO TWO LEAN PROCESSES AT ONCE.**
+### **BAR 3 -- THE LOG IS NOT OPENED BY THIS ACT; THE PROCESS TABLE IS READ AT LAUNCH AND AT THE CLOSE.**
+### **BAR 4 -- NO OUTPUT OF THE RUN, AND NO PROFILE, IS REPORTED BY THIS ACT; (R82) IS NOT RE-DECIDED.**
+### **BAR 5 -- NO MEMORY CEILING IS SUPPLIED FROM OUTSIDE b473'S LOG.**
+### **BAR 6 -- NOTHING IS WRITTEN INTO THE CLONE BUT ITS OWN IGNORED `.lake`; THE NAMED FILE LIVES IN
+###   THE SCRATCHPAD; NOTHING IS COPIED, IMPORTED OR VENDORED.**
+### **BAR 7 -- ROW U1 IS NOT WRITTEN; NO SITE IS ENTERED; NO BRIDGE IS TYPED; (R83)'S KERNEL IS NOT
+###   CREATED.**
+### **BAR 8 -- `h2` WHERE THE DEPOSIT LEFT IT; NO CORPUS GRADE MOVES; NOTHING DEPOSITS; THE FOUR LISTS
+###   STAY OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85): EACH TOOL WITH THE GLOB OF WHAT IT WRITES, VERSIONS AND
+### SIDECARS INCLUDED. ### A FILE OUTSIDE EVERY GLOB IS A BREACH; A FILE INSIDE ONE IS NOT.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b475_ferry_scan.txt` |
+### | `tools/b307_handoff_census.py`, `tools/b327_faces_census.py`, `tools/b303_pins.py` |
+###   `relay/data/b475_census_*.txt` `relay/data/b475_faces_census_*.txt` `relay/data/b475_pins_*.txt` |
+### | `tools/b475_extract.py` | `relay/data/b475_extract.txt` `relay/data/b475_order.txt`
+###   `relay/data/b475_survey.json` |
+### | `tools/b475_reg_gate.py`, `tools/b475_regspec.py`, `tools/reg_satisfiable.py`,
+###   `tools/banned_terms.py`, `tools/gate_hash.py` | `relay/data/b475_reg_*.txt`
+###   `relay/data/b475_regspec_run.txt` `relay/data/b475_satisfiable.json`
+###   `relay/data/audit_b475_*.txt` |
+### | `tools/b378_lockgate.py` | `relay/data/b475_lockgate*.json` `relay/data/b475_lockgate_notes*.txt` |
+### | `tools/reg_seal.py` | `relay/data/b475_registration_2026-09-22.txt` (its lock block only) |
+### | `tools/b475_detached_run.cmd` (detached) | `relay/data/b475_zeta23_build.log`
+###   `relay/data/b475_zeta23_build.pid` ; and inside the clone, only its own ignored `.lake` |
+### | the launcher's PowerShell wrapper | `relay/data/b475_launch.json` |
+### | `tools/b475_components.py` | `relay/data/b475_components.txt` `relay/data/b475_state.json` |
+### | `tools/b363_span.py` | `relay/data/b475_span*.json` `relay/data/b475_span_notes*.txt` |
+### | `tools/b475_desk_bank.py` | `relay/data/b475_desk_notes.txt`
+###   `relay/data/b475_the_serialized_run.txt` `relay/data/b475_scores.json` ;
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/b475_checks.py` | `relay/data/b475_checks*.txt` `relay/data/b475_exercise.json` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b475.zip`
+###   (outside every repository) `relay/data/b475_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (one appended record) |
+### | the closing | `relay/data/b475_closing.txt` `relay/data/b475_index_queries.txt` |
+### ### **AND NO OTHER FILE IS WRITTEN IN ANY REPOSITORY. ### NOTHING UNDER
+### `relay/data/anthropic-zeta23/` IS COMMITTED, AND THE RUNNING LOG IS NOT COMMITTED IN THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### Nothing deposits. ### Nothing is imported, copied or vendored. ### No Lean of the corpus is touched.
+### No corpus grade moves. ### No output of the run is reported and (R82) is not re-decided here.
+### No memory ceiling is supplied. ### No site is entered and row `U1` is not written. ### The wave
+### stays parked under `(R66)`. ### The `h2` lane stays open and empty under `(R84)`. ### `h2` stands
+### exactly where the deposit left it. ### **AND THE FOUR LISTS ARE OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (R50) THE ADDENDUM SLOT.
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : f88574b16d2e480018eb9301ad5abc6d424f7b45a7f079b5987a837886df47bf
+### bytes locked : 13673
+### locked at (UTC) : 2026-09-22T19:02:02Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b475_registration_2026-09-22.txt`.**
+====================================================================================================

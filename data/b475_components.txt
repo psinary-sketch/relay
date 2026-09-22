@@ -1,0 +1,49 @@
+========================================================================================================
+COMPONENT 1 -- THE SERIALIZED DETACHED RUN, AS LAUNCHED.
+========================================================================================================
+    pid              : 27508   (relay/data/b475_zeta23_build.pid)
+    started          : 2026-09-22T19:02:24Z   (the face locked at 2026-09-22T19:02:02Z)
+    launcher         : D:\relay\tools\b475_detached_run.cmd -- Start-Process, hidden, detached
+    log              : D:\relay\data\b475_zeta23_build.log
+    LEAN_NUM_THREADS : 1 ; serialized : True
+    order file       : D:\relay\data\b475_order.txt -- 188 modules, read by the launcher, not typed into it
+    steps, in order  : one `lake build <module>` per module, each with its own timestamp and
+                       exit code ; then `lake build Solution` ; then scripts\PrintAxioms.lean
+                       as shipped ; then the seat`s named file for the three (R82) declarations
+    at launch        : the process was alive after 8 s and the log file existed
+    ### ### **STATE AT THIS READING : RUNNING ; 42 s after launch ; 0 lean process(es) alive ;
+    ### log 248 bytes** -- read from the process table and the file system, process table and file size only; the log was not opened
+    ### ### **AT MOST ONE LEAN PROCESS IS THE POINT OF THIS RUN**, and the count above is the
+    ### first evidence of it; the act that reads the log will see the rest.
+    ### ### **THE LOG IS NOT OPENED BY THIS ACT AND IS NOT COMMITTED BY IT.**
+
+========================================================================================================
+COMPONENT 2 -- WHAT THE RECORD KNOWS ABOUT THE BOUND.
+========================================================================================================
+  ### (2a) THE MEMORY CEILING, ASKED FOR AND NOT IN THE LOG.
+    lines in b473`s log carrying a memory FIGURE : 0
+    lines carrying the failure ITSELF : 3, quoted verbatim:
+      | INTERNAL PANIC: out of memory
+      | INTERNAL PANIC: out of memory
+      | libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+    ### ### **NO MEMORY CEILING IS RECORDED IN THAT LOG, SO NONE IS PRINTED HERE.** ### The
+    ### order`s own condition is *"if the log holds it"*, and it does not. ### **NO FIGURE IS
+    ### TAKEN FROM THE MACHINE, FROM A LATER RUN, OR FROM ANYWHERE ELSE.**
+    ### What the next reader has instead of a ceiling: the failure`s KIND (an allocation that
+    ### could not be served, twice as Lean`s own panic and once as the C++ allocator`s), the
+    ### PARALLELISM it happened under (lake`s own workers, LEAN_NUM_THREADS unset), and the
+    ### fact that this run moves exactly that one variable.
+
+  ### (2b) THE ORDER, AND WHERE THE THREE SIT IN IT.
+    modules in the order : 188 ; inversions (a module before one of its own imports) : 0
+      Zeta23.Hypotheses        position 1 of 188
+      Zeta23.Defs.Counting     position 2 of 188
+      Zeta23.Taper.Basic       position 22 of 188
+    ### ### **ALL THREE SIT IN THE FIRST TWENTY-TWO**, so (N1) is decided early in the run and
+    ### not at its end. ### The first five of the order: Zeta23.Defs, Zeta23.Hypotheses, Zeta23.Defs.Counting, Zeta23.Statement, Zeta23.Statement.Seam
+
+  ### (2c) WHAT IS HELD FIXED, SO THAT (N1) READS AS ONE VARIABLE.
+    fixed   : the clone at fbdc36bb, toolchain v4.33.0-rc2, Mathlib 51e6992e, the shipped
+              PrintAxioms.lean, and the three (R82) declarations in the seat`s scratchpad file
+    changed : LEAN_NUM_THREADS unset -> 1 ; one call for the library -> one call per module
+    ### ### **NOTHING IN THE CLONE IS EDITED; NOTHING IS COPIED, IMPORTED OR VENDORED.**

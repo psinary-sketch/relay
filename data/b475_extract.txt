@@ -1,0 +1,43 @@
+========================================================================================================
+b475 -- THE SURVEY. ### THE ORDER IS COMPUTED; NO BUILD IS STARTED HERE.
+========================================================================================================
+
+(P1) THE DEPENDENCY ORDER OF `Solution`, COMPUTED FROM THE SOURCES.
+--------------------------------------------------------------------------------------------------------
+    Solution.lean imports : ChallengeDeps, Zeta23.Unconditional, Zeta23.FinalMult, Zeta23.ThmD.Final, Zeta23.ThmD.Mult, Zeta23.ThmE.Final, Zeta23.ThmE.Mult, Zeta23.ThmDE.Final, Zeta23.ThmDE.Mult
+    ### ### **MODULES IN THE ORDER : 188** (each after every Zeta23 module it imports)
+    first five  : Zeta23.Defs, Zeta23.Hypotheses, Zeta23.Defs.Counting, Zeta23.Statement, Zeta23.Statement.Seam
+    last five   : Zeta23.ThmDE.PP, Zeta23.ThmDE.Concrete, Zeta23.ThmDE.ZeroSide, Zeta23.ThmDE.Final, Zeta23.ThmDE.Mult
+    ### ### **THE ORDER`S OWN CONTROL: modules placed before one of their own imports : 0**
+
+(P2) THE THREE MODULES b473 FOUND DEAD OF MEMORY, PLACED IN THAT ORDER.
+--------------------------------------------------------------------------------------------------------
+    Zeta23.Hypotheses        in the order : 1 ; source present : True
+    Zeta23.Defs.Counting     in the order : 2 ; source present : True
+    Zeta23.Taper.Basic       in the order : 22 ; source present : True
+    Zeta23.Hypotheses        imports 1 Zeta23 modules
+    Zeta23.Defs.Counting     imports 1 Zeta23 modules
+    Zeta23.Taper.Basic       imports 2 Zeta23 modules
+
+(P3) THE MEMORY CEILING, LOOKED FOR IN b473`S OWN LOG.
+--------------------------------------------------------------------------------------------------------
+    lines carrying a memory FIGURE : 0
+    lines carrying the failure ITSELF : 3
+      INTERNAL PANIC: out of memory
+      INTERNAL PANIC: out of memory
+      libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+  ### ### **THE LOG HOLDS THE FAILURE AND NOT A FIGURE: NO MEMORY CEILING IS RECORDED IN IT.**
+  ### The order asks for the ceiling *"if the log holds it"* -- it does not, so the face says
+  ### NOT IN THE LOG rather than supplying a number from anywhere else.
+
+(P4) WHAT THE SERIALIZED RUN CHANGES, READ FROM THE TWO RUNS` OWN SETTINGS.
+--------------------------------------------------------------------------------------------------------
+    b471`s launcher : LEAN_NUM_THREADS UNSET ; one call for the whole library : True
+    b475`s launcher : LEAN_NUM_THREADS=1 ; one `lake build <module>` per module, in the order
+      above ; a timestamp per module ; then scripts\PrintAxioms.lean and the three (R82) names
+  ### ### **WHAT IS HELD FIXED: the clone, its pin, its toolchain, its Mathlib, and the three
+  ### declarations. ### WHAT CHANGES: the number of Lean processes alive at once.**
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================
