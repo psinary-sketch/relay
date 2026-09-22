@@ -44,7 +44,7 @@ b481 -- THE SUITE. ### **PRE-PUSH READING.** ### every arm exercised on both con
   G-CORPUS-SCOPE                         PASS  PASS  FAIL  OK
   G-TRAIL-APPEND-ONLY                    PASS  PASS  FAIL  OK
   G-CORR-APPEND-ONLY                     PASS  PASS  FAIL  OK
-  G-WRITELIST-KINDS                      PASS  PASS  FAIL  OK
+  G-WRITELIST-KINDS                      FAIL  ###FAIL FAIL  ### NEG FAILS
   G-WRITELIST-SPANS-ACT                  PASS  PASS  FAIL  OK
   G-NOSTAGE-A-BY-DIFF                    PASS  PASS  FAIL  OK
   G-ARMS-DECLARED-EQ-RUN                 PASS  PASS  FAIL  OK
@@ -55,10 +55,10 @@ b481 -- THE SUITE. ### **PRE-PUSH READING.** ### every arm exercised on both con
   G-PUSHED-PREDICATE-THREE-CLAUSED       PASS  PASS  FAIL  OK
   G-MIRROR-TAGGED-BUILD                  DEFERRED TO POST-PUSH
 
-  ### files written that NO (W) GLOB COVERS : 0 
+  ### files written that NO (W) GLOB COVERS : 2 ['b481_trail.py', 'b481_trail_notes.txt']
   ### G-NOPRIORBANK checked 2433 prior banks; EXCLUDED BY NAME, as owned by the two live
   ### detached runs and not by this act : b475_zeta23_build.log, b477_entries.jsonl, b477_gram.log
-  ### ### **ARMS RUN : 49. ### LIVE PASSING : 49. ### LIVE FAILING : 0 .**
-  ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
-  ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+  ### ### **ARMS RUN : 49. ### LIVE PASSING : 48. ### LIVE FAILING : 1 ['G-WRITELIST-KINDS'].**
+  ### ### **NEGATIVE-CONTROL FAILURES : 1. ### POSITIVE-CONTROL PASSES : 0 .**
+  ### ### **VERDICT : NOT CLEAN**
 ========================================================================================================
