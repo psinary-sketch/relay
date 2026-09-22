@@ -1,0 +1,74 @@
+========================================================================================================
+b476 -- THE COMPRESSION EXPERIMENT, AS REGISTERED. ### NOTHING COMPUTED BEYOND THE REHEARSAL.
+========================================================================================================
+
+  ### (1) THE FAMILY, CELL BY CELL, FROM THE BANKS.
+    a         banked   W = PR - A         p^k <= a     p^k <= a^2 (the form`s)       
+    1.3       no       -                  -            -                             
+    1.35      no       -                  -            -                             
+    1.41      no       -                  -            -                             
+    1.5       YES      -4.372721018       -            2                             
+    1.7       YES      -2.715106454       -            2                             
+    1.9       YES      -1.912333391       -            2,3                           
+    1.99      YES      -1.687055939       -            2,3                           
+    2         YES      -1.664641787       2            2,3,4                         
+    2.01      YES      -1.642639940       2            2,3,4                         
+    2.1       YES      -1.460364510       2            2,3,4                         
+    2.4       YES      -0.982995002       2            2,3,4,5                       
+    2.8       YES      -0.499406883       2            2,3,4,5,7                     
+    3         YES      -0.315810512       2,3          2,3,4,5,7,8,9                 
+    ### the aim-plane cells : 13, of which 10 carry a banked W
+    ### the radius ladder   : 22 cells, 3.15831 to 5.65685, SAME construction, radii shared with the
+    ###   aim plane : NONE
+    ### ### **ONE CONSTRUCTION, TWO DISJOINT RADIUS SETS.**
+
+  ### (2) THE GRAM ENTRY, AND (3) THE DIAGONAL CONTROL.
+    the construction, named: g_a = SM.mean_zero_variant(a) ; f = SQ.autocorrelation(g) ;
+      ch = WI.channels(f.v, f.w) -- b321_run.py:139-141 and :242-245, for BOTH families.
+    G(a,b) = that same four-channel chain at f_ab = g_a conv gbar_b^# ; the chain is NOT
+      edited and f_ab is supplied to it, under (R86).
+    ### THE DIAGONAL CONTROL, REHEARSED AT a = 1.5 BEFORE THE LOCK:
+      G(a,a)          = -4.372721018491
+      b321`s banked W = -4.372721018491
+      ### ### **|DIFFERENCE| = 0.000e+00 ; THE FLOOR = 1.49e-08 ; WITHIN IT : True**
+      ### A mismatch beyond the floor halts the run before any off-diagonal entry.
+
+  ### (4) THE TRUNCATION, AS THE INSTRUMENT`S.
+    banked ordinates : 10000, to T = 9877.782657
+    ### the truncated Gram is at most the true Gram in the Loewner order under RH -- the order`s
+    ### own statement, registered and not proved. ### **A NEGATIVE EIGENVALUE REFUTES NOTHING
+    ### ABOUT ZEROS BY ITSELF; ITS SIZE AGAINST THE TAIL BOUND IS WHAT IS READ.**
+
+  ### (5) THE CONTROL, AND THE TWO RECORD CHECKS THE ORDER`S OWN WORDS NEEDED.
+    the census : sigma in [0.52, 1.5], t to T = 150.0 ; located off-line zeros : 17
+    heights : 16.2902, 29.5518, 33.6501, 43.8587, 46.961, 61.6879, 64.4348, 75.0812, 79.5986, 89.5181, 92.1518, 93.0813, 107.399, 110.197, 124.775, 127.623, 137.886
+    ### ### **THE ORDER`S "t about 176.70" IS IN NO BANK THIS ACT READ, AND IT IS ABOVE THE
+    ### CENSUS`S OWN CEILING T = 150.0. ### THE CONTROL`S ZERO IS THE RECORD`S LOWEST, t = 16.2902.**
+    the resolving size, PRICED by the rule |hhat_a(t)| > 1.49e-08 :
+      ### ### **CELLS THAT RESOLVE t = 16.2902 : 35 OF 35 ; THE SMALLEST RADIUS : 1.3**
+      the weakest cell of the thirty-five : a = 3.31663, |hhat| = 5.829e-04
+      ### ### **SO THE RESOLVING FAMILY SIZE IS ONE CELL.** ### If the instrument can see a
+      ### hyperbolic plane at all, it should see it at the smallest family the run forms.
+
+  ### (6) THE FALSIFIERS, AS THE ORDER FIXED THEM.
+    (F1) UNINFORMATIVE -- no negative index at the control`s resolving family: the instrument
+         cannot see a hyperbolic plane, and NOTHING IS SAID ABOUT ZETA.
+    (F2) HALT -- zeta`s negative eigenvalue beyond the tail bound: the chain or the record is
+         wrong somewhere; the act says so and stops, with NO CLAIM ABOUT RH EITHER WAY.
+    (F3) MEASURED -- zeta above minus the tail bound at every size to the reach while the
+         control goes indefinite at the priced size: the register is MEASURED at that reach,
+         ### **AND NO HIGHER GRADE.**
+
+  ### (7) THE PRICE, FROM THE REHEARSAL`S OWN TIMING.
+    one chain run : 6.65 s
+    the aim-plane cells    n = 13   entries 91    ->    606 s (10.1 min)
+    the ladder cells       n = 22   entries 253   ->   1683 s (28.1 min)
+    both families          n = 35   entries 630   ->   4192 s (69.9 min)
+    ### ### **EVERY OPTION EXCEEDS THE 600 s FOREGROUND LIMIT, SO UNDER (R86) THE RUN IS
+    ### DETACHED UNDER (R80), NAMED AND LOGGED, AND READ BY THE ACT AFTER ITS PID EXITS.**
+    ### The lane is opened by (R86) for b477 and closes at b477`s end. ### **IT IS NOT OPEN NOW.**
+
+========================================================================================================
+  ### ### **REGISTERED, LOCKED, AND NOT RUN. ### NO GRAM ENTRY EXISTS. ### h2 STANDS WHERE THE
+  ### DEPOSIT LEFT IT.**
+========================================================================================================

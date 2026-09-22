@@ -1,0 +1,117 @@
+========================================================================================================
+b476 -- THE SURVEY. ### NOTHING BUT THE (R70) REHEARSAL IS COMPUTED.
+========================================================================================================
+
+(P1) THE AIM-PLANE FAMILY, AS b321`S CHAIN DEFINES IT, AT THE CELLS THE RECORD HOLDS.
+--------------------------------------------------------------------------------------------------------
+    the chain, quoted from b321_run.py:139-141 and :242-245 --
+      g = SM.mean_zero_variant(a) ; f = SQ.autocorrelation(g) ; ch = WI.channels(f.v, f.w)
+    ### the seed`s support is [a^-1, a] ; ### **THE FORM f = g conv gbar^# HAS TWICE THE SEED`S
+    ### SUPPORT IN v, SO ITS OWN SUPPORT IS [a^-2, a^2]** -- b321_window.py:8 says so in its head.
+
+    a        above?     W = PR - A       p^k<=a  p^k <= a^2 (the form`s own)        count
+    1.3      no         NOT BANKED       -       -                                  0
+    1.35     no         NOT BANKED       -       -                                  0
+    1.41     no         NOT BANKED       -       -                                  0
+    1.5      YES        -4.372721018     -       2                                  1
+    1.7      YES        -2.715106454     -       2                                  1
+    1.9      YES        -1.912333391     -       2,3                                2
+    1.99     YES        -1.687055939     -       2,3                                2
+    2        YES        -1.664641787     2       2,3,4                              3
+    2.01     YES        -1.642639940     2       2,3,4                              3
+    2.1      YES        -1.460364510     2       2,3,4                              3
+    2.4      YES        -0.982995002     2       2,3,4,5                            4
+    2.8      YES        -0.499406883     2       2,3,4,5,7                          5
+    3        YES        -0.315810512     2,3     2,3,4,5,7,8,9                      7
+    ### ### **CELLS 13 ; WITH A BANKED W 10.**
+
+(P2) THE RADIUS LADDER`S CELLS, AND WHETHER THEIR `g` DIFFERS.
+--------------------------------------------------------------------------------------------------------
+    ladder cells carrying every channel : 22 ; radii 3.15831 to 5.65685
+    b437`s own window, from its components record : the same `mean_zero_variant` seed, and the
+    same autocorrelation -- b437_checks.py:426 tests that its own record says `mean_zero_variant`
+    ### ### **SO THE LADDER`S `g` DOES NOT DIFFER FROM THE AIM PLANE`S: ONE CONSTRUCTION, TWO
+    ### SETS OF RADII.** ### What differs is the RADIUS SET and the fact that the ladder`s cells
+    ### carry a zero channel of their own.
+    radii shared with the aim-plane cells : NONE
+    ladder radii : 3.15831, 3.31663, 3.46109, 3.60555, 3.80278, 4, 4.06155, 4.12311, 4.241, 4.3589, 4.57737, 4.79583, 4.89792, 5, 5.09808, 5.19615, 5.29066, 5.38516, 5.47647, 5.56776, 5.61231, 5.65685
+
+(P3) THE REHEARSAL UNDER (R70): THE FAMILY READER AND THE DIAGONAL CONTROL, ON ONE CELL.
+--------------------------------------------------------------------------------------------------------
+    the cell, fixed in this tool`s head before the run : a = 1.5
+    the family reader returns : seed support 1.5, form support 2.25, v in [-0.810930, 0.810930], 16385 samples
+    the four channels at a = 1.5 : zero 4.372721800 ; pole -6.418e-17 ; arch 4.372783773 ; prime 0.000062755
+    ### ### **G(a,a) = PR - A = -4.372721018491**
+    ### ### **b321`S BANKED W AT THIS CELL = -4.372721018491**
+    ### ### **|DIFFERENCE| = 0.000e+00 ; THE CHAIN`S OWN FLOOR = 1.490e-08 ; WITHIN THE FLOOR : True**
+    ### ### **THE CHAIN`S COST PER RUN, TIMED HERE : 6.65 s** -- one seed, one
+    ### autocorrelation, one four-channel evaluation, this machine, foreground.
+
+(P4) THE TRUNCATION, AS THE INSTRUMENT`S OWN.
+--------------------------------------------------------------------------------------------------------
+    the zero channel sums BANKED ordinates : 10000 of them, from 14.134725 to ### **T = 9877.782657**
+    the atlas`s own truncation bound at the rehearsal cell : 2.4447873628360007e-12
+    ### ### **EACH OMITTED ON-LINE ZERO CONTRIBUTES hhat(gamma) >= 0 TO THE ZERO SIDE UNDER RH,
+    ### SO THE TRUNCATED GRAM IS AT MOST THE TRUE GRAM IN THE LOEWNER ORDER** -- the order`s own
+    ### statement, registered as the instrument`s and not proved here.
+
+(P5) THE CONTROL: THE RECORD`S OWN EPSTEIN CENSUS, AND THE ORDER`S HEIGHT CHECKED AGAINST IT.
+--------------------------------------------------------------------------------------------------------
+    the census box : sigma in [0.52, 1.5], t up to ### **T = 150.0** ; located off-line zeros : 17
+    their heights : 16.2902, 29.5518, 33.6501, 43.8587, 46.961, 61.6879, 64.4348, 75.0812, 79.5986, 89.5181, 92.1518, 93.0813, 107.399, 110.197, 124.775, 127.623, 137.886
+    ### ### **THE ORDER NAMES "t about 176.70". ### THE RECORD`S CENSUS HOLDS NO ZERO THERE, AND
+    ### 176.70 IS ABOVE THE CENSUS`S OWN CEILING T = 150.0.**
+    ### ### **THE LOWEST LOCATED OFF-LINE ZERO IS t = 16.2902**, and it is the one this
+    ### registration names for the control -- lower is cheaper to resolve, and it is in the bank.
+
+    THE RESOLVING FAMILY SIZE, PRICED BY THE CHAIN`S OWN TRANSFORM (no Gram entry computed):
+      the rule, fixed here: a family RESOLVES a zero at height t when some window`s own
+      transform carries weight there above the chain`s floor -- |hhat_a(t)| > 1.49e-08.
+      a = 1.3       |hhat(16.2902)| = 1.286e-02   RESOLVES
+      a = 1.35      |hhat(16.2902)| = 3.042e-02   RESOLVES
+      a = 1.41      |hhat(16.2902)| = 6.773e-02   RESOLVES
+      a = 1.5       |hhat(16.2902)| = 1.598e-01   RESOLVES
+      a = 1.7       |hhat(16.2902)| = 4.283e-01   RESOLVES
+      a = 1.9       |hhat(16.2902)| = 5.509e-01   RESOLVES
+      a = 1.99      |hhat(16.2902)| = 5.344e-01   RESOLVES
+      a = 2         |hhat(16.2902)| = 5.304e-01   RESOLVES
+      a = 2.01      |hhat(16.2902)| = 5.261e-01   RESOLVES
+      a = 2.1       |hhat(16.2902)| = 4.735e-01   RESOLVES
+      a = 2.4       |hhat(16.2902)| = 2.423e-01   RESOLVES
+      a = 2.8       |hhat(16.2902)| = 4.725e-02   RESOLVES
+      a = 3         |hhat(16.2902)| = 1.109e-02   RESOLVES
+      a = 3.15831   |hhat(16.2902)| = 1.092e-03   RESOLVES
+      a = 3.31663   |hhat(16.2902)| = 5.829e-04   RESOLVES
+      a = 3.46109   |hhat(16.2902)| = 4.058e-03   RESOLVES
+      a = 3.60555   |hhat(16.2902)| = 8.537e-03   RESOLVES
+      a = 3.80278   |hhat(16.2902)| = 1.366e-02   RESOLVES
+      a = 4         |hhat(16.2902)| = 1.650e-02   RESOLVES
+      a = 4.06155   |hhat(16.2902)| = 1.692e-02   RESOLVES
+      a = 4.12311   |hhat(16.2902)| = 1.715e-02   RESOLVES
+      a = 4.241     |hhat(16.2902)| = 1.715e-02   RESOLVES
+      a = 4.3589    |hhat(16.2902)| = 1.670e-02   RESOLVES
+      a = 4.57737   |hhat(16.2902)| = 1.519e-02   RESOLVES
+      a = 4.79583   |hhat(16.2902)| = 1.332e-02   RESOLVES
+      a = 4.89792   |hhat(16.2902)| = 1.245e-02   RESOLVES
+      a = 5         |hhat(16.2902)| = 1.160e-02   RESOLVES
+      a = 5.09808   |hhat(16.2902)| = 1.083e-02   RESOLVES
+      a = 5.19615   |hhat(16.2902)| = 1.010e-02   RESOLVES
+      a = 5.29066   |hhat(16.2902)| = 9.438e-03   RESOLVES
+      a = 5.38516   |hhat(16.2902)| = 8.822e-03   RESOLVES
+      a = 5.47647   |hhat(16.2902)| = 8.269e-03   RESOLVES
+      a = 5.56776   |hhat(16.2902)| = 7.755e-03   RESOLVES
+      a = 5.61231   |hhat(16.2902)| = 7.518e-03   RESOLVES
+      a = 5.65685   |hhat(16.2902)| = 7.290e-03   RESOLVES
+      ### ### **CELLS THAT RESOLVE IT : 35 OF 35 ; THE SMALLEST SUCH RADIUS : 1.3**
+
+(P6) THE PRICE OF THE RUN, FROM THE COST TIMED ABOVE.
+--------------------------------------------------------------------------------------------------------
+    the aim-plane cells      n = 13   entries n(n+1)/2 = 91     at 6.65 s = 606 s (10.1 min)
+    the ladder cells         n = 22   entries n(n+1)/2 = 253    at 6.65 s = 1683 s (28.1 min)
+    both families together   n = 35   entries n(n+1)/2 = 630    at 6.65 s = 4192 s (69.9 min)
+    ### ### **AND THE CONTROL COSTS THE SAME PER ENTRY**, on its own family to the resolving size.
+    ### The numerical instrument lane is not opened by this registration.
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================
