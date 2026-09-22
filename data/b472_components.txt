@@ -1,0 +1,146 @@
+========================================================================================================
+COMPONENT 0 -- THE RUN`S STATE, NOT ITS LOG.
+========================================================================================================
+    pid              : 27704
+    ### ### **STATE  : EXITED**   (read 2026-09-22T17:25:34Z, process table: INFO: No tasks are running which match the specified criteria.)
+    ### ### **LOG BYTES : 17143**   (file-system size; last write 2026-09-22T17:01:47Z)
+    launched         : 2026-09-22T16:38:44Z
+    ### ### **ELAPSED : 1383 s, launch to the log`s last write** (23 min 3 s)
+    lean / lake processes alive : 0 / 0
+    how              : process table (tasklist) and file-system size and mtime; the log was not opened ; clock: both ends UTC, computed in Python with explicit timezone
+    ### ### **THE LOG STAYS UNREAD UNTIL THE ACT THAT READS IT.** ### The reader is the seat`s scratchpad
+    ### script b472_state.py; its whole text is quoted below so the reading can be checked.
+      | # -*- coding: utf-8 -*-
+      | """Read pid 27704's state from the process table and the log's SIZE and last-write time from the
+      | file system. ### The log is never opened. Usage: b472_state.py <out.json> <label>"""
+      | import datetime
+      | import io
+      | import json
+      | import os
+      | import subprocess
+      | import sys
+      | 
+      | D = r'D:\relay\data'
+      | LOG = os.path.join(D, 'b471_zeta23_build.log')
+      | out, label = sys.argv[1], sys.argv[2]
+      | la = json.loads(io.open(os.path.join(D, 'b471_launch.json'), encoding='utf-8-sig').read())
+      | pid = int(la['pid'])
+      | tl = subprocess.run(['tasklist', '/FI', 'PID eq %d' % pid, '/FO', 'CSV', '/NH'],
+      |                     capture_output=True, text=True, errors='replace').stdout.strip()
+      | alive = tl.startswith('"') and ('"%d"' % pid) in tl
+      | lean = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq lean.exe', '/FO', 'CSV', '/NH'],
+      |                       capture_output=True, text=True, errors='replace').stdout
+      | lake = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq lake.exe', '/FO', 'CSV', '/NH'],
+      |                       capture_output=True, text=True, errors='replace').stdout
+      | now = datetime.datetime.now(datetime.timezone.utc)
+      | t0 = datetime.datetime.strptime(la['started_utc'], '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=datetime.timezone.utc)
+      | size = os.path.getsize(LOG)
+      | mt = datetime.datetime.fromtimestamp(os.path.getmtime(LOG), datetime.timezone.utc)
+      | st = dict(label=label, pid=pid, state='RUNNING' if alive else 'EXITED', tasklist_row=tl,
+      |           read_utc=now.strftime('%Y-%m-%dT%H:%M:%SZ'), launched_utc=la['started_utc'],
+      |           elapsed_since_launch_s=int((now - t0).total_seconds()),
+      |           log_bytes=size, log_last_write_utc=mt.strftime('%Y-%m-%dT%H:%M:%SZ'),
+      |           lean_processes=sum(1 for l in lean.splitlines() if l.startswith('"lean.exe"')),
+      |           lake_processes=sum(1 for l in lake.splitlines() if l.startswith('"lake.exe"')),
+      |           how='process table (tasklist) and file-system size and mtime; the log was not opened',
+      |           clock='both ends UTC, computed in Python with explicit timezone')
+      | if not alive:
+      |     st['elapsed_to_last_write_s'] = int((mt - t0).total_seconds())
+      | io.open(out, 'w', encoding='utf-8', newline='\n').write(json.dumps(st, indent=1) + '\n')
+      | print(json.dumps(st, indent=1))
+      | 
+
+========================================================================================================
+COMPONENT 1 -- THE SIX STATEMENTS.
+========================================================================================================
+  THE MAPPING`S CONTROLS : positive (K4`s own text) -> K4 at 43 words : PASS ; negative (the refusal record) -> longest 3 words : PASS
+
+  ### (i) THE CLAUSE'S QUANTIFIER
+    INDEX   : class -- a condition on the test function   (OPEN_TRAILS.md:7558 ; heading :7569)
+    KIND    : NOT EMPTY   (FACES_LEDGER.md:31, cell at char 7150)
+    WITNESS : UNSTATED
+    cell    : ### **`(i)` — KIND: NOT EMPTY. WITNESS: `UNSTATED`.** The quantifiers are *"UNOWNED, and they are the clause"* — a live open part. And the witness form does not transpose here at all: the entry’s quantifiers run over the class and, through the explicit formula, over the zeros — a `∀` with no `∃` inside it, and the shared-witness form is a repair for `∀∃ ⟹ ∃∀`. **THE CELL IS NOT `NONE KNOWN`, BECAUSE THAT WOULD IMPLY A WITNESS IS THE RIGHT KIND OF THING TO LOOK FOR HERE.**
+    ### ### **SENTENCE (i):** At site (i) -- index: the class, a condition on the test function -- a proof would have to supply, in place of a family indexed by the class, one statement uniform in the class that owns the quantifiers which 'run over the class and, through the explicit formula, over the zeros' ('a `∀` with no `∃` inside it'); over what class and at what support is UNSTATED IN THE CELLS, and the witness is UNSTATED: the cell says the witness form 'does not transpose here at all', and this sentence does not fill it.
+    ### ### **E0 (E0 key) : K8 the quantifiers -- FINDINGS.md:3054 (kinds), :3069 (grades)**
+      the shared run : "and, through the explicit formula, over the" (7 words)
+      the hardest grade, ties together : MEASURED-ON-FAMILIES (b326) ; MEASURED-ON-FAMILIES (b328)
+      the owners` own words : b326: “…THE ARC'S FAMILY, TWENTY-SIX CELLS TO `a = 400` : DOES NOT SEE IT.…” / b328: “…SEES IT -- AT SEVEN OF EIGHT CELLS.…”
+      the kinds row : UNOWNED: over the class (infinite) and, through the explicit formula, over the zeros. No act in the corpus owns either quantifier; touched only on families and libraries |
+
+  ### (ii) THE HEIGHT COORDINATE'S ENUMERATION
+    INDEX   : height -- the instrument`s truncation   (OPEN_TRAILS.md:7559 ; heading :7569)
+    KIND    : NOT EMPTY   (FACES_LEDGER.md:31, cell at char 7627)
+    WITNESS : NONE KNOWN
+    cell    : ### **`(ii)` — KIND: NOT EMPTY. WITNESS: `NONE KNOWN`.** The coordinate is *"BOUNDED BY A MEASUREMENT and not by an argument"*, which is live and not empty. The witness would be ONE argument serving every height, against a method that produces zeros one at a time — and b351 says the record has none in the sentence that sets this coordinate against the one that closed: *"one convergent series did what sixty boxes of argument principle could not do for the height"*.
+    ### ### **SENTENCE (ii):** At site (ii) -- index: the height, the instrument's truncation -- a proof would have to supply one statement uniform in the height, 'ONE argument serving every height', in place of 'a method that produces zeros one at a time'; the class and the support are UNSTATED IN THE CELLS, and the witness is NONE KNOWN.
+    ### ### **E0 : NO E0 ROW** -- longest shared run 2 words (K8)
+
+  ### (iii) THE WIDTH COORDINATE'S UNION
+    INDEX   : width -- a condition on the test function   (OPEN_TRAILS.md:7560 ; heading :7569)
+    KIND    : NOT EMPTY   (FACES_LEDGER.md:31, cell at char 8096)
+    WITNESS : NONE KNOWN
+    cell    : ### **`(iii)` — KIND: NOT EMPTY. WITNESS: `NONE KNOWN`.** The witness would be ONE `g` serving every width, and **THIS IS THE ONE SITE OF THE SIX WHOSE OWN BANKED TEXT SUPPLIES THE INNER EXISTENTIAL IN THE THEOREM’S SHAPE**: Boas–Kac, as b353 quotes it, reads *"There exists g in Cc^infty(R) with support in [-A/2, A/2] such that f = g * g^*"*, and that `∃g` is indexed by `A`. Its two clauses read: `h1`, one `g` works at every `A`; `h2`, the `f` it builds is not the degenerate one. No such `g` is named.
+    ### ### **SENTENCE (iii):** At site (iii) -- index: the width, a condition on the test function -- a proof would have to supply one statement uniform in the width, 'ONE `g` serving every width', over the class the cell quotes, 'g in Cc^infty(R) with support in [-A/2, A/2] such that f = g * g^*', at every support [-A/2, A/2] -- 'h1, one g works at every A; h2, the f it builds is not the degenerate one'; the witness is NONE KNOWN: 'No such g is named.'
+    ### ### **E0 : NO E0 ROW** -- longest shared run 2 words (K8)
+
+  ### (iv) THE PRIME CONSTITUENT AT A WIDENED SUPPORT
+    INDEX   : width -- a condition on the test function   (OPEN_TRAILS.md:7561 ; heading :7569)
+    KIND    : NOT EMPTY   (FACES_LEDGER.md:31, cell at char 8603)
+    WITNESS : UNSTATED
+    cell    : ### **`(iv)` — KIND: NOT EMPTY. WITNESS: `UNSTATED`.** What the record holds here is TEN VALUES indexed by the width, not ten existential witnesses, and what it needs is one statement uniform in `a`; a uniform bound is not an object in the family’s parameter space. **AND THIS IS WHERE THE SHARED INDEX STOPS MEANING A SHARED SHAPE**: `(iii)` and `(iv)` share the support width, which b401 put on the face of its own entry — and `(iii)` carries the existential while `(iv)` does not.
+    ### ### **SENTENCE (iv):** At site (iv) -- index: the width, a condition on the test function -- a proof would have to supply 'one statement uniform in `a`', a uniform bound in place of the 'TEN VALUES indexed by the width'; the class, and the support beyond 'the width', are UNSTATED IN THE CELLS, and the witness is UNSTATED: 'a uniform bound is not an object in the family's parameter space'.
+    ### ### **E0 : NO E0 ROW** -- longest shared run 2 words (K8)
+
+  ### (v) THE REPRESENTATION-DEPENDENT CONSTANT
+    INDEX   : representation -- a datum of the representation   (OPEN_TRAILS.md:7562 ; heading :7569)
+    KIND    : (b)   (FACES_LEDGER.md:31, cell at char 9087)
+    WITNESS : NONE KNOWN
+    cell    : ### **`(v)` — KIND: `(b)`. WITNESS: `NONE KNOWN`.** The KIND cell is a transcription, not a reading: the entry declares *"(v) IS KIND (b)"* itself, and is the only one of the six that declares a kind at all. The witness would be ONE CONSTANT SERVING EVERY REPRESENTATION — this site IS a `∀∃ ⟹ ∃∀`, the implied constant being the inner existential — and the entry names the shape by contrast without supplying the witness, since Theorem 5.1’s absolute constant is a witness for the ARCHIMEDEAN side and not for this one.
+    ### ### **SENTENCE (v):** At site (v) -- index: the representation, a datum of the representation -- a proof would have to supply 'ONE CONSTANT SERVING EVERY REPRESENTATION', the implied constant brought out of the inner existential of a '`∀∃ ⟹ ∃∀`', at KIND (b), which the cell transcribes from the entry; the class of representations and the support are UNSTATED IN THE CELLS, and the witness is NONE KNOWN: 'Theorem 5.1's absolute constant is a witness for the ARCHIMEDEAN side and not for this one'.
+    beside it, (R78) at OPEN_TRAILS.md:7791 : the class boundary such theorems show at site (v) "is
+      structural and is not counted as an obstruction instance".
+    ### ### **E0 : NO E0 ROW** -- longest shared run 3 words (K4)
+
+  ### (vi) THE TYPE-D RESIDUE AT EVERY FINITE MODULUS
+    INDEX   : modulus -- a datum of the representation   (OPEN_TRAILS.md:7563 ; heading :7569)
+    KIND    : NOT EMPTY   (FACES_LEDGER.md:31, cell at char 9608)
+    WITNESS : NONE KNOWN
+    cell    : ### **`(vi)` — KIND: NOT EMPTY. WITNESS: `NONE KNOWN`.** A residue filed as the whole of the remaining weight is the opposite of empty. And **THIS IS THE ONLY SITE OF THE SIX WHOSE OWN TEXT NAMES BOTH CLAUSES OF THE WITNESS FORM**: `h1` is *"consistent at every finite modulus"*; `h2` is the *"(positive global density)"* the passage must reach. It names no object satisfying them — which is why b404 reported the shape and refused the bridge.
+    ### ### **SENTENCE (vi):** At site (vi) -- index: the modulus, a datum of the representation -- a proof would have to supply one statement across every finite modulus, from `h1` 'consistent at every finite modulus' to `h2` '(positive global density)'; the class and the support are UNSTATED IN THE CELLS, and the witness is NONE KNOWN: 'It names no object satisfying them'.
+    ### ### **E0 : NO E0 ROW** -- longest shared run 2 words (K8)
+
+  ### ### **SITES WITH AN E0 ROW : 1 (i) ; NO E0 ROW : 5.**
+
+========================================================================================================
+COMPONENT 2 -- THE TWO EXTERNAL RESULTS IN THE SAME TABLE. ### NO NEW VERDICT.
+========================================================================================================
+  ### TWO NUMBERINGS SHARE THE LETTER K: E0`s constituents (FINDINGS.md:3045) and the failure-kind key
+  ### (OPEN_TRAILS.md:6439). b468r`s "K1 CLASS BOUNDARY" is the failure-kind key`s K1.
+
+  the Alpoge-Furman theorem (arXiv 2608.13637v2), b468r`s read (b):
+    (i  ) ### **NOT AT ALL** b468r_components.txt:85-87 -- bank verdict "NONE" ; "NONE" -- "no statement uniform in the test function"
+    (ii ) ### **IN PART   ** b468r_components.txt:88-91 -- bank verdict "UNIFORM IN T -- DOES NOT FIRE" ; "UNIFORM IN T -- DOES NOT FIRE": uniform in the height from "T >= T0(eps)" on, and "a PROPORTION (2/3 of zeros), not a statement about each zero"; (R76) at OPEN_TRAILS.md:7634: the truncation is the corpus`s and no source fires it
+    (iii) ### **NOT AT ALL** b468r_components.txt:92-93 -- bank verdict "NONE" ; "NONE" -- "no statement uniform in the test function`s support at fixed width"
+    (iv ) ### **NOT AT ALL** b468r_components.txt:94-95 -- bank verdict "NONE" ; "NONE" -- "the same index, the same absence"
+    (v  ) ### **NOT AT ALL** b468r_components.txt:96-99 -- bank verdict "K1 CLASS BOUNDARY" ; "K1 CLASS BOUNDARY" (the failure-kind key, OPEN_TRAILS.md:6439) -- "the second object is outside the class"; and per representation, "T0 is chosen after chi" (:101-103); (R78) at OPEN_TRAILS.md:7791: this boundary is structural and is not counted as an obstruction instance
+    (vi ) ### **NOT AT ALL** b468r_components.txt:100-103 -- bank verdict "K1 CLASS BOUNDARY, AND PER-MODULUS" ; "K1 CLASS BOUNDARY, AND PER-MODULUS" -- "it holds at every modulus and not uniformly across moduli", which is the family the site holds, not the statement across
+
+  zeta23`s EF_lit_zetaZeroConfig, b470`s bank (verdict at b470_components.txt:109: EF_lit_zetaZeroConfig (theorem)          **CONTAINS**):
+    (i  ) ### **NOT PLACED** -- b470`s components bank reads no site of row U1 (0 lines name one), and
+          site (i)`s entry names no act whose object b470`s verdict is about
+    (ii ) ### **NOT PLACED** -- b470`s components bank reads no site of row U1 (0 lines name one), and
+          site (ii)`s entry names no act whose object b470`s verdict is about
+    (iii) ### **NOT PLACED** -- b470`s components bank reads no site of row U1 (0 lines name one), and
+          site (iii)`s entry names no act whose object b470`s verdict is about
+    (iv ) ### **IN PART   ** b470_components.txt:70-72, :109, :117-118 -- uniform in the width: EF_lit is stated for every k with ContDiff R 2 k and HasCompactSupport k (:109), and "the corpus`s w meets EF_lit`s hypotheses" (:70-72); but an IDENTITY carrying the full zero multiset, of which "THE IDENTITY b321 COMPUTES IS AN INSTANCE" (:118) -- not a uniform bound on the prime constituent
+          placed by reading (7)(b): site (iv)`s own entry names b321 (True)
+    (v  ) ### **NOT PLACED** -- b470`s components bank reads no site of row U1 (0 lines name one), and
+          site (v)`s entry names no act whose object b470`s verdict is about
+    (vi ) ### **NOT PLACED** -- b470`s components bank reads no site of row U1 (0 lines name one), and
+          site (vi)`s entry names no act whose object b470`s verdict is about
+  ### ### **ALPOGE-FURMAN : IN WHOLE 0 ; IN PART 1 ; NOT AT ALL 5 ; NOT PLACED 0.**
+  ### ### **zeta23 EF_lit_zetaZeroConfig : IN WHOLE 0 ; IN PART 1 ; NOT AT ALL 0 ; NOT PLACED 5.**
+  ### **ROUTED, NOT PLACED:** no bank reads EF_lit against site (i), whose cell names quantifiers "over the
+  ### class and, through the explicit formula, over the zeros". Whether it bears there is for an act that
+  ### reads it; this act gives no verdict.
+  ### ### **NO BRIDGE IS TYPED FROM EITHER RESULT TO ANY SITE, OR BETWEEN SITES. ROW U1 IS NOT WRITTEN.**

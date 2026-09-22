@@ -310,6 +310,44 @@ def deprecated_self_test(verbose=True):
     return ok
 
 
+R81_WORDS = re.compile(r'\b(first|never|only|ever)\b', re.IGNORECASE)
+ACT_MARK = 'FERRY -> CLAUDE CODE'
+
+
+def r81_flags(text):
+    """### (R81) AS AMENDED (b472). ### RETURNS `(line_no, col, word, part, carries, line)` for every
+    ### occurrence of the four words. `part` is RULING before the ferry's act marker and ACT after it
+    ### (ACT throughout when there is no marker). `carries` is `[procedural]` when that label follows
+    ### the word, `record check` when a `[record check` bracket follows it on its line or the next,
+    ### and `NONE` otherwise. ### **THIS FUNCTION CLASSIFIES; IT REFUSES NOTHING.**"""
+    lines = text.replace('\r', '').split('\n')
+    act_at = next((k for k, l in enumerate(lines) if ACT_MARK in l), -1)
+    out = []
+    for k, l in enumerate(lines):
+        nxt = lines[k + 1] if k + 1 < len(lines) else ''
+        for m in R81_WORDS.finditer(l):
+            after = l[m.end():]
+            if after.lstrip().startswith('[procedural]') or (after.strip() == '' and nxt.lstrip().startswith('[procedural]')):
+                lab = '[procedural]'
+            elif '[record check' in after or '[record check' in nxt:
+                lab = 'record check'
+            else:
+                lab = 'NONE'
+            part = 'ACT' if (act_at < 0 or k > act_at) else 'RULING'
+            out.append((k + 1, m.start() + 1, m.group(1), part, lab, l))
+    return out
+
+
+def r81_self_test():
+    """### Three fixtures: a labelled word, a checked word, a bare word -- each must classify as named."""
+    t = ('RULING text naming first\n' + ACT_MARK + '\nbuilt only [procedural] from\n'
+         'the first [record check: FINDINGS:1] row\nnever bare\n')
+    got = [(w, p, lab) for _, _, w, p, lab, _ in r81_flags(t)]
+    want = [('first', 'RULING', 'NONE'), ('only', 'ACT', '[procedural]'),
+            ('first', 'ACT', 'record check'), ('never', 'ACT', 'NONE')]
+    return got == want
+
+
 def _scan_both(text, struck=None, stem_list=None, path=None):
     """### THE ONE PASS. ### RETURNS `(clause_hits, live_stem_hits, excepted_stem_hits)`.
 
@@ -578,11 +616,13 @@ def main(argv):
         print('  ### THE DEPRECATED ARM (b358, R3):')
         dok = deprecated_self_test(True)
         print('  ### deprecated-arm fixtures : %s' % ('PASS' if dok else '### FAIL ###'))
-        return 0 if (ok and dok) else 2
+        rok = r81_self_test()
+        print('  ### (R81) flags-arm fixtures (b472) : %s' % ('PASS' if rok else '### FAIL ###'))
+        return 0 if (ok and dok and rok) else 2
 
     path = argv[0]
     ok, _ = self_test(verbose=False)
-    dok = deprecated_self_test(verbose=False)
+    dok = deprecated_self_test(verbose=False) and r81_self_test()
     struck, unconf = parse_record()
     stem_list = stems()
     text = io.open(path, encoding='utf-8', errors='replace').read()
@@ -641,6 +681,18 @@ def main(argv):
         print('    line %-4d col %-4d  %s' % (i, c, lbl))
         print('        %s' % line[:104])
         print('        ### the current wording : %s' % repl)
+    print()
+    # ### ### **THE (R81) FLAGS ARM (b472, (R81) AS AMENDED). ### PRINTED APART FROM THE BANNED STEMS,
+    # ### AND EXCLUDED FROM THE VERDICT AND THE EXIT CODE** -- the ruling says the scan "does not refuse
+    # ### on the flag alone". What each flag carries is printed; the seat, not this tool, refuses.
+    fl = r81_flags(text)
+    bare = [f for f in fl if f[4] == 'NONE' and f[3] == 'ACT']
+    print('  ### (R81) FLAGS : %d   ### **first / never / only / ever -- INFORMATIONAL. ### NOT A HIT IN'
+          % len(fl))
+    print('  ### THE VERDICT AND NOT IN THE EXIT CODE.** ### Bare in the act text : %d' % len(bare))
+    for i, c, w, part, lab, line in fl:
+        print('    line %-4d col %-4d  %-6s %-6s carries: %s' % (i, c, w, part, lab))
+        print('        %s' % line[:104])
     print()
     # ### b335: the standing-clauses citation, checked against the file's current version.
     status, cited, current = citation_check(text)
