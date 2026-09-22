@@ -187,7 +187,12 @@ ARMS = [
      lambda S: put(S, 'sv', dict(S['sv'], pins={}))),
 
     ('G-C1-LAUNCHED-AFTER-SEAL', 'the launch bank and the face`s time',
-     lambda S: bool(S['launch'].get('started_utc')) and os.path.getmtime(FACE) < os.path.getmtime(os.path.join(D, 'b471_launch.json')),
+     # ### ### **THE FIRST FORM COMPARED FILE MTIMES, AND A GIT BRANCH SWITCH REWROTE BOTH FILES AT ONE
+     # ### INSTANT (16:47:11), SO IT FAILED ON EVIDENCE THAT SAYS NOTHING ABOUT WHEN THE ACT ACTED.** ### It
+     # ### now compares the two times the record itself wrote: the seal's `locked at (UTC)` and the
+     # ### launch's `started_utc` -- ISO strings in one zone, so string order is time order.
+     lambda S: bool(S['launch'].get('started_utc')) and bool(re.search(r'locked at \(UTC\) : (\S+)', S['face']))
+     and re.search(r'locked at \(UTC\) : (\S+)', S['face']).group(1) < S['launch'].get('started_utc', ''),
      lambda S: put(S, 'launch', dict(S['launch'], started_utc=''))),
     ('G-C1-PID-BANKED', 'the pid file against the launch bank',
      lambda S: S['pidfile'].strip() == str(S['launch'].get('pid')) and S['pidfile'].strip().isdigit(),
