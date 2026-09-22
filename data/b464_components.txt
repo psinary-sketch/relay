@@ -1,0 +1,260 @@
+==============================================================================================================
+### COMPONENT 1 -- THE EIGHT MACHINE-CHECKED SENTENCES, UNFOLDED.
+==============================================================================================================
+  re-derived population : 8 ; b462`s banked count : 8 ; ### **AGREE : True**
+
+--------------------------------------------------------------------------------------------------------------
+### ITEM 1 -- A_Place_to_Stand.md:58   [NAMES NOTHING]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: The Lean kernel provides machine-checked redundancy, not necessity.
+  CLAIMS AS MACHINE-CHECKED: that the kernel`s redundancy to the manuscript proof is itself machine-checked
+  NEAREST TERMINAL BY THE RULE : KernelCertificate  @ v1.5     in SIDE-kernel  (PIN, score 1 of 14 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | structure KernelCertificate
+      |     (X : Type u) (P : X -> Prop) (x : X) where
+      |   symmetry : HasSymmetry X
+      |   independence : IndependentConstraints X
+      |   catalogue : ExhaustiveCatalogue X P
+      |   no_mechanism : NoneProduces X P catalogue.classes x
+      |   conclusion : Not (P x) :=
+  ### ### **GRADE : NOT THE CLAIM** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: the structure bundles four premises -- `symmetry`, `independence`, `catalogue`, `no_mechanism` -- and states nothing about redundancy, necessity, or the relation of kernel to manuscript.
+    ### **the search found nothing nearer: no declared name in the roster carries redundancy or necessity.**
+--------------------------------------------------------------------------------------------------------------
+### ITEM 2 -- A_Place_to_Stand.md:1779   [NAMES A CARRIER]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: This is distinct from the Mechanism Theorem of Chapter 10, which is established — derived within ZFC from the I+D+S conditions and carried in machine-checked forms; what remains open is not the theorem but this totality premise it consumes.
+  CLAIMS AS MACHINE-CHECKED: that the Mechanism Theorem of Chapter 10 is carried in machine-checked forms
+  NEAREST TERMINAL BY THE RULE : parametric_mechanism_theorem  @ HEAD     in SIDE-interfaces  (HEAD, score 2 of 39 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | theorem parametric_mechanism_theorem
+      |     {A B : Type} [Fintype A]
+      |     (P : B -> Real) (f : A -> B) (a0 : A)
+      |     (h_no_mechanism : ∀ a : A, P (f a) = P (f a0)) :
+      |     kappa P f a0 = 0 :=
+  ### ### **GRADE : INTERFACES** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: it concludes `kappa P f a0 = 0` FROM the named premise `(h_no_mechanism : forall a, P (f a) = P (f a0))`; the premise is the no-mechanism hypothesis itself, and the theorem is read at HEAD in SIDE-interfaces, not at a deposited pin -- weaker, under (R8).
+--------------------------------------------------------------------------------------------------------------
+### ITEM 3 -- A_Place_to_Stand.md:1779   [NAMES NOTHING]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: The input-stage spectral coupling is certifiable — the fixed witness Φ is the heat trace of a self-adjoint spectrum, machine-checked — while the output-stage claim, that the zeros themselves are the spectrum of a self-adjoint operator with a positive pairing, is the Hilbert–Pólya realization, which this programme explicitly disclaims asserting.
+  CLAIMS AS MACHINE-CHECKED: that the fixed witness Phi is the heat trace of a self-adjoint spectrum, machine-checked
+  NEAREST TERMINAL BY THE RULE : T2d_zero_iff_mellinPhi_zero  @ v0.10.0  in SIDE-lv-conservation  (PIN, score 2 of 135 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | theorem T2d_zero_iff_mellinPhi_zero
+      |     (s : ℂ) (hs : 1 < s.re) :
+      |     completedRiemannZeta s = 0 ↔ mellin Phi (s / 2) = 0 := by
+  ### ### **GRADE : NOT THE CLAIM** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: it states an equivalence between a zero of `completedRiemannZeta` and a zero of `mellin Phi`, under `(hs : 1 < s.re)`; it says nothing of a heat trace, nothing of self-adjointness, and nothing of a spectrum. ### **AND ITS OWN HYPOTHESIS CONFINES IT TO `Re s > 1`**, printed as the terminal`s own wording and not read further by this act.
+    ### **the search found nothing nearer: no declared name in the roster carries `heat` or `selfadjoint` with Phi.**
+--------------------------------------------------------------------------------------------------------------
+### ITEM 4 -- A_Place_to_Stand.md:1783   [NAMES NOTHING]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: The programme's channel decomposition λ = λ_A + λ_Z, developed independently, reconstructs this line exactly — the convergence is method-validation of the kind the SIDE framework treats as signal, and the programme's contribution is scoped accordingly: the machine-checked linearity of the decomposition, its localization at the fixed witness of T1, and the coupling architecture below.
+  CLAIMS AS MACHINE-CHECKED: that the channel decomposition lambda = lambda_A + lambda_Z reconstructs a published line exactly
+  NEAREST TERMINAL BY THE RULE : CouplingChannel  @ v1.5     in SIDE-kernel  (PIN, score 2 of 272 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | inductive CouplingChannel where
+      |   | product_formula
+      |   | distributive_law
+      |   deriving DecidableEq, Fintype
+      | 
+  ### ### **GRADE : NOT THE CLAIM** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: it is an inductive type with two constructors, `product_formula` and `distributive_law`; it enumerates coupling channels and states no decomposition of any lambda.
+    ### **THE RULE`S TIE-BREAK IS ALPHABETICAL AND CONTENT-BLIND: a second hit at the same score and the same pin is nearer in content, and it is named and read beside the rule`s own nearest.**
+    ### THE CONTENT-NEAREST, NAMED BESIDE THE RULE`S OWN NEAREST:
+      R4_channelDecomposition @ v0.10.0 in SIDE-lv-conservation : SIDELvConservation/RegisterPentagon.lean
+      | theorem R4_channelDecomposition
+      |     {lam : (ℕ → ℤ) → ℕ → ℤ}
+      |     (lam_additive : ∀ (η η' : ℕ → ℤ) (n : ℕ),
+      |       lam (fun j => η j + η' j) n = lam η n + lam η' n)
+      |     (lam_A lam_Z : ℕ → ℤ) (n : ℕ) :
+      |     lam (fun j => lam_A j + lam_Z j) n = lam lam_A n + lam lam_Z n :=
+--------------------------------------------------------------------------------------------------------------
+### ITEM 5 -- ONE_PAGE_PROOF.md:32   [NAMES A CARRIER]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: *This inter-class conservation step is the argument's one named premise: certified by Chapter 13 (the s-darkness of the product formula, from Tate's thesis), localized at a single compiled goal state, and stated in five equivalent registers (§27.3) — with everything surrounding it machine-checked.*
+  CLAIMS AS MACHINE-CHECKED: that the s-darkness of the product formula is certified and localized at a single compiled goal state
+  NEAREST TERMINAL BY THE RULE : conservation_s_dark  @ v1.5     in SIDE-kernel  (PIN, score 2 of 148 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | theorem conservation_s_dark : True := trivial
+  ### ### **GRADE : SHELL** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: the terminal the rule reaches is `theorem conservation_s_dark : True := trivial` -- a proposition that is `True`, proved by `trivial`. ### **THE VOCABULARY`S OWN WORD FOR THIS IS `SHELL`**, and it sits in `legacy/`.
+    ### **AND THE SAME TIE-BREAK DEFECT, WITH THE OPPOSITE SIGN: a second hit at the same score and pin is SUBSTANTIVE, and it is named and read beside the shell.**
+    ### THE CONTENT-NEAREST, NAMED BESIDE THE RULE`S OWN NEAREST:
+      s_darkness_from_product @ v1.5 in SIDE-kernel : Kernel/ProductFormula_Rat.lean
+      | theorem s_darkness_from_product (p : Nat) [hp : Fact p.Prime]
+      |     (q : Rat) (hq : q ≠ 0) (s : Int) :
+      |     ((p : Rat) ^ (padicValRat p q) * padicNorm p q) ^ s = 1 := by
+--------------------------------------------------------------------------------------------------------------
+### ITEM 6 -- ONE_PAGE_PROOF.md:46   [NAMES NOTHING]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: **Companion census.** *Paths to the Critical Line* catalogues the field's completing and non-completing paths to σ = 1/2 in one grammar — two of them compiled *negatives* (the finite-exponential-type growth form, and the unrestricted per-class-to-combined commutation, both machine-checked false).
+  CLAIMS AS MACHINE-CHECKED: that two paths to the critical line are compiled negatives
+  NEAREST TERMINAL BY THE RULE : focus_on_critical_line  @ v1.5     in SIDE-kernel  (PIN, score 2 of 66 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | theorem focus_on_critical_line (t : Real) :
+      |     (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 := by
+  ### ### **GRADE : NOT THE CLAIM** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: it states that the imaginary part of `completedRiemannZeta0` at `1/2 + it` vanishes; it is not a negative, not about growth forms, and not about a per-class-to-combination passage. It also sits in `legacy/`.
+    ### **the search found nothing nearer: no declared name carries a compiled negative of a growth form.**
+--------------------------------------------------------------------------------------------------------------
+### ITEM 7 -- Silence_of_Foundations.md:68   [NAMES A CARRIER]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: This inter-class conservation is the proof of RH's one certified premise — named in five equivalent registers (*A Place to Stand* §27.3); everything surrounding it is machine-checked.
+  CLAIMS AS MACHINE-CHECKED: that the inter-class conservation premise is certified and everything surrounding it is machine-checked
+  NEAREST TERMINAL BY THE RULE : Register2_conservationHypothesis  @ v0.10.0  in SIDE-lv-conservation  (PIN, score 2 of 24 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | def Register2_conservationHypothesis : Prop :=
+  ### ### **GRADE : NOT THE CLAIM** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: it is a `def` introducing a `Prop` -- it STATES the register, and a definition certifies nothing. ### The sentence`s claim about the SURROUNDINGS is a different claim, and this act names no terminal for it.
+--------------------------------------------------------------------------------------------------------------
+### ITEM 8 -- Spectral_Inertness.md:85   [NAMES A CARRIER]
+--------------------------------------------------------------------------------------------------------------
+  QUOTED: This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked.
+  CLAIMS AS MACHINE-CHECKED: that the seal is the proof of RH`s one certified premise and the catalogue surrounding it is machine-checked
+  NEAREST TERMINAL BY THE RULE : ConservationHypothesis  @ v1.5     in SIDE-kernel  (PIN, score 1 of 25 hits)
+    its STATEMENT, read from the source at that ref -- NOT its docstring:
+      | def ConservationHypothesis : Prop :=
+  ### ### **GRADE : NOT THE CLAIM** -- the seat`s reading, and said to be one.
+    reason, in the terminal`s own words: it is a `def` introducing a `Prop`; it states the hypothesis and certifies nothing. ### Same shape as the item above, in a different deposited file.
+
+  ### ### **THE EIGHT, BY GRADE : INTERFACES 1 ; NOT THE CLAIM 6 ; SHELL 1.**
+  ### ### **`NOT THE CLAIM` : 6. ### NONE IS b455`S C2 OR C6** -- those are the record`s
+  ### description paragraph and the kernel README line; all eight sit in DEPOSITED FILES.
+  ### ### **SO EACH IS A DEPOSIT-LEVEL MATTER UNDER (R66) THAT `E-2026-09-14-1` DOES NOT COVER:**
+      A_Place_to_Stand.md:58 -- NAMED AND ROUTED, NOT REPAIRED
+      A_Place_to_Stand.md:1779 -- NAMED AND ROUTED, NOT REPAIRED
+      A_Place_to_Stand.md:1783 -- NAMED AND ROUTED, NOT REPAIRED
+      ONE_PAGE_PROOF.md:46 -- NAMED AND ROUTED, NOT REPAIRED
+      Silence_of_Foundations.md:68 -- NAMED AND ROUTED, NOT REPAIRED
+      Spectral_Inertness.md:85 -- NAMED AND ROUTED, NOT REPAIRED
+  ### ### **NO ERRATUM IS DRAFTED IN THIS ACT, NO LIVE SURFACE IS NARROWED, NO WAVE OPENS.**
+  ### ### **AND WHAT A `NOT THE CLAIM` HERE IS NOT:** it is not a finding that the sentence is
+  ### false, nor that no terminal could carry it, nor that the deposit is wrong. ### It is a
+  ### finding that ### **THIS SEARCH, BY THIS RULE, FOUND NO TERMINAL STATING IT.**
+  ### ### **AND THE RULE HAS A NAMED WEAKNESS, PRINTED RATHER THAN LEFT:** its tie-break is
+  ### ALPHABETICAL, so among equal-scoring hits at the same pin it picks by name. ### At item 5
+  ### that reached a `SHELL` while a SUBSTANTIVE terminal sat beside it; at item 4 it reached an
+  ### inductive while a decomposition theorem sat beside it. ### **BOTH ARE NAMED AND READ.**
+
+==============================================================================================================
+### COMPONENT 2 -- THE EXPLICIT FORMULA`S PARAMETERS, AT THE SOURCE THE RECORD IMPORTS.
+==============================================================================================================
+  SOURCE : Connes-Consani, arXiv:2006.13771v1, pinned sha256 b8e0b54ade8535cf...
+  THE STATEMENT READ : ### **(148)**, the Riemann-Weil explicit formula, with (147) the Mellin
+  transform, (149) the prime term and (150) the archimedean distribution.
+  ### **AND THE RECORD PINS ANOTHER:** Lagarias `math/0404394v4` (b358), for the Li side.
+  ### **THE CHAIN IMPORTS CC`s (148) FOR `Z = P - PR + A`, AND THAT IS THE ONE READ.**
+
+  ### THE STATEMENT AS THE BANKED TEXT LAYER RENDERS IT -- ### **GARBLED, AND SAID TO BE:**
+      | Then, with f7pxq :“x´1fpx´1q the explicit formula takes the form
+      | ÿ
+      | ρ
+      | ˜fpρq“
+      | ż8
+      | 0
+      | fpxqdx`
+      | ż8
+      | 0
+      | f7pxqdx´
+      | ÿ
+      | v
+      | Wvpfq, (148)
+      | wherev runs over all placestR, 2, 3, 5,... u of Q, the sum on the left hand side is over all complex
+      | zeros ρ of the Riemann zeta function, and for v“p
+      | Wppfq“p logpq
+      | 8ÿ
+      | m“1
+      | `
+      | fppmq` f7ppmq
+      | ˘
+      | . (149)
+      | The archimedean distribution is deﬁned as
+      | WRpfq :“p log 4π`γqfp1q`
+      | ż8
+      | 1
+      | ˆ
+      | fpxq` f7pxq´ 2
+      | xfp1q
+      | ˙ dx
+      | x´x´1. (150)
+      | One then has
+      | WRpfq“p logπqfp1q´ 1
+      | 2πi
+      | ż
+      | 1{2`iw
+      | ℜ
+      | ˆΓ1
+      | Γ
+      | ´w
+      | 2
+      | ¯˙
+      | ˜fpwqdw. (151)
+      | In [6] and [8] a positivity result for the distribution W8 “´ WR is proven, (for test functions
+      | with support in
+  ### **LIGATURE SUBSTITUTIONS, NAMED:** `p...q` for parentheses, `ÿ` for a summation sign,
+  ### `ż` for an integral, `˜f` for f-tilde. ### **THE READING IS STATED BESIDE THE RAW TEXT
+  ### AND THE RAW TEXT IS NOT SILENTLY CLEANED** -- b305`s caveat, carried.
+  ### THE READING: ### **sum_rho f~(rho) = int_0^inf f + int_0^inf f7 - sum_v W_v(f)**
+
+  ### ### **EVERYTHING THE STATEMENT QUANTIFIES OVER OR TAKES AS DATA, PRINTED BEFORE ANY SITE
+  ### ### IS PLACED:**
+  name                 kind                       the source`s own words
+  ----------------------------------------------------------------------------------------------------------
+  f                    PARAMETER                  f P C8 c pR* `q  --  reading: f in C_c^infty(R*_+), from (14
+  the class of f       CONDITION OF f             C8 c pR* `q  --  reading: compactly supported and smooth on 
+  the support of f     CONDITION OF f             the c in C8 c  --  reading: COMPACT SUPPORT; its width is a 
+  f7                   DERIVED FROM f             f7pxq :=x^-1 fpx^-1q
+  rho                  PARAMETER                  the sum on the left hand side is over all complex zeros rho 
+  v                    PARAMETER                  where v runs over all places tR, 2, 3, 5,... u of Q
+  m                    PARAMETER                  Wppfq = p logpq sum_{m=1}^{infty} ( fppmq + f7ppmq )  --  (1
+  p                    PARAMETER                  for v = p  --  the primes, as the finite places of Q
+  the L-function       FIXED, NOT A PARAMETER     all complex zeros rho of the Riemann zeta function  --  ZETA
+
+--------------------------------------------------------------------------------------------------------------
+### THE SIX SITE INDICES AGAINST THAT LIST.
+--------------------------------------------------------------------------------------------------------------
+  (i)    class            ### **A COORDINATE OF ONE**
+         the source names `C8 c pR* `q` as the condition on its named parameter f; the class of the test function is a condition of a named parameter, which is the order`s own gloss
+  (ii)   height           ### **OF NO PARAMETER**
+         the left sum runs over ALL complex zeros rho with no height, cutoff or ordinate anywhere in the statement; the height is the corpus instrument`s truncation of that sum -- `AT.GAM`, the first ten thousand banked ordinates -- and not a datum of the formula
+  (iii)  width            ### **A COORDINATE OF ONE**
+         the compact support of f is a condition the source states; its width is a datum of that support
+  (iv)   width            ### **A COORDINATE OF ONE**
+         the same condition of the same named parameter; (iii) and (iv) share this index, which row U1 already says of itself
+  (v)    representation   ### **OF NO PARAMETER**
+         the statement is about the Riemann zeta function and no other; it carries no L-function, no representation, no conductor and no `pi`. ### The index comes from Lagarias Theorem 6.1, a DIFFERENT pinned source, and against CC`s (148) it is of no parameter
+  (vi)   modulus          ### **OF NO PARAMETER**
+         the right sum runs over PLACES and, inside `W_p`, over prime powers `p^m`; a modulus of congruence is neither, and no datum of f, of rho or of v is a modulus
+
+  ### ### **A COORDINATE OF ONE 3 ; OF NO PARAMETER 3.**
+  ### ### **AND THE VERDICT `OF NO PARAMETER` IS SCOPED TO CC`s (148) AND NOTHING WIDER.**
+  ### A site whose index this statement does not carry may be carried by a different source
+  ### the record also pins -- Lagarias for the Li side, where the representation IS a parameter.
+  ### **ONE SOURCE`S SILENCE IS NOT THE RECORD`S.**
+
+--------------------------------------------------------------------------------------------------------------
+### THE REVERSE: PARAMETERS WITH NO SITE AGAINST THEM.
+--------------------------------------------------------------------------------------------------------------
+  ### the visited set, built from the placement and not by substring : f, the class of f, the support of f
+  ### **UNVISITED : rho           ** [PARAMETER]
+      the sum on the left hand side is over all complex zeros rho of the Riemann zeta function
+  ### **UNVISITED : v             ** [PARAMETER]
+      where v runs over all places tR, 2, 3, 5,... u of Q
+  ### **UNVISITED : m             ** [PARAMETER]
+      Wppfq = p logpq sum_{m=1}^{infty} ( fppmq + f7ppmq )  --  (149)
+  ### **UNVISITED : p             ** [PARAMETER]
+      for v = p  --  the primes, as the finite places of Q
+  ### **UNVISITED : the L-function** [FIXED, NOT A PARAMETER]
+      all complex zeros rho of the Riemann zeta function  --  ZETA AND NO OTHER
+  ### ### **UNVISITED PARAMETERS : 5.**
+  ### ### **EACH IS ROUTED TO THE AUTHOR WITH ROW U1`S REOPENING CONDITION BESIDE IT:**
+  ### *"A SITE WHOSE ENTRY PRODUCES A STATEMENT ABOUT THE OBJECT -- about `xi`, about the
+  ### Epstein object, or about any zero -- RATHER THAN A STATEMENT ABOUT THE RECORD."*
+  ### ### **NO SITE IS ENTERED. ### ROW U1 IS FROZEN AT SIX AND IS NOT WRITTEN. ### NO BRIDGE
+  ### ### IS TYPED BETWEEN ANY PARAMETER AND ANY SITE.**
+  ### **AND THE ZEROS ARE AMONG THE UNVISITED**, which is worth one sentence and no more: the
+  ### sum on the left of (148) runs over every complex zero of zeta, and no site index of row
+  ### U1 is the zeros. ### **THAT IS AN OBSERVATION ABOUT THE ROW, NOT ABOUT THE ZEROS.**
+==============================================================================================================

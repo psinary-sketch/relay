@@ -1,0 +1,107 @@
+{
+ "params": [
+  {
+   "name": "f",
+   "kind": "the test function",
+   "words": "f P C8 c pR* `q  --  reading: f in C_c^infty(R*_+), from (147)`s own preamble",
+   "sort": "PARAMETER"
+  },
+  {
+   "name": "the class of f",
+   "kind": "a condition on f",
+   "words": "C8 c pR* `q  --  reading: compactly supported and smooth on the positive reals",
+   "sort": "CONDITION OF f"
+  },
+  {
+   "name": "the support of f",
+   "kind": "a condition on f",
+   "words": "the c in C8 c  --  reading: COMPACT SUPPORT; its width is a datum of that support",
+   "sort": "CONDITION OF f"
+  },
+  {
+   "name": "f7",
+   "kind": "derived from f, not independent",
+   "words": "f7pxq :=x^-1 fpx^-1q",
+   "sort": "DERIVED FROM f"
+  },
+  {
+   "name": "rho",
+   "kind": "the summation variable on the left",
+   "words": "the sum on the left hand side is over all complex zeros rho of the Riemann zeta function",
+   "sort": "PARAMETER"
+  },
+  {
+   "name": "v",
+   "kind": "the summation variable on the right",
+   "words": "where v runs over all places tR, 2, 3, 5,... u of Q",
+   "sort": "PARAMETER"
+  },
+  {
+   "name": "m",
+   "kind": "the summation variable inside W_p",
+   "words": "Wppfq = p logpq sum_{m=1}^{infty} ( fppmq + f7ppmq )  --  (149)",
+   "sort": "PARAMETER"
+  },
+  {
+   "name": "p",
+   "kind": "the finite places",
+   "words": "for v = p  --  the primes, as the finite places of Q",
+   "sort": "PARAMETER"
+  },
+  {
+   "name": "the L-function",
+   "kind": "FIXED, not a parameter",
+   "words": "all complex zeros rho of the Riemann zeta function  --  ZETA AND NO OTHER",
+   "sort": "FIXED, NOT A PARAMETER"
+  }
+ ],
+ "sites": [
+  {
+   "site": "(i)",
+   "index": "class",
+   "verdict": "A COORDINATE OF ONE",
+   "why": "the source names `C8 c pR* `q` as the condition on its named parameter f; the class of the test function is a condition of a named parameter, which is the order`s own gloss"
+  },
+  {
+   "site": "(ii)",
+   "index": "height",
+   "verdict": "OF NO PARAMETER",
+   "why": "the left sum runs over ALL complex zeros rho with no height, cutoff or ordinate anywhere in the statement; the height is the corpus instrument`s truncation of that sum -- `AT.GAM`, the first ten thousand banked ordinates -- and not a datum of the formula"
+  },
+  {
+   "site": "(iii)",
+   "index": "width",
+   "verdict": "A COORDINATE OF ONE",
+   "why": "the compact support of f is a condition the source states; its width is a datum of that support"
+  },
+  {
+   "site": "(iv)",
+   "index": "width",
+   "verdict": "A COORDINATE OF ONE",
+   "why": "the same condition of the same named parameter; (iii) and (iv) share this index, which row U1 already says of itself"
+  },
+  {
+   "site": "(v)",
+   "index": "representation",
+   "verdict": "OF NO PARAMETER",
+   "why": "the statement is about the Riemann zeta function and no other; it carries no L-function, no representation, no conductor and no `pi`. ### The index comes from Lagarias Theorem 6.1, a DIFFERENT pinned source, and against CC`s (148) it is of no parameter"
+  },
+  {
+   "site": "(vi)",
+   "index": "modulus",
+   "verdict": "OF NO PARAMETER",
+   "why": "the right sum runs over PLACES and, inside `W_p`, over prime powers `p^m`; a modulus of congruence is neither, and no datum of f, of rho or of v is a modulus"
+  }
+ ],
+ "tally": {
+  "A COORDINATE OF ONE": 3,
+  "OF NO PARAMETER": 3
+ },
+ "unvisited": [
+  "rho",
+  "v",
+  "m",
+  "p",
+  "the L-function"
+ ]
+}
