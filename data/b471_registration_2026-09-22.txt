@@ -1,0 +1,166 @@
+====================================================================================================
+### THE REGISTRATION. ### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1,
+### auto-mode approval declared here). ### **LOCKED BEFORE THE DETACHED RUN IS STARTED.**
+### ### **b471 -- THE AXIOM RUN, DETACHED, AND THE PRICE OF THE IMPORT READ FROM THE RULES.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 1 OF 1** ### with its paste-end marker, received IN FULL, banked
+### as `b471_ferry.txt`; the seat's scan agrees: ### **`0` HIT(S) REPORTED.** ### **STEP ZERO:**
+### censuses ### **TOTAL MISSING `0`**, both; roster ### **`0` HARD-FAILING**. ### THE PRIOR ACT
+### (`b470`) IS CLOSED: row 319, pushed and read back at PLACE-papers `da1faed`, SIDE-global-section
+### `d1aed31`, relay `819c3e4`. ### **THIS PARAGRAPH IS `SIDE-INVARIANT`.**
+
+### ### **(R81) IS APPLIED TO THIS VERY FERRY BEFORE ANYTHING ELSE.** ### The seat searched it for the
+### flagged words -- first, never, only, ever -- by tool (`b471_extract.txt`, (P1)): ### **SEVEN
+### OCCURRENCES, ALL IN THE AUTHOR'S RULING TEXT** -- three are the ruling's own list, the rest are
+### restrictions such as *"for this run only"* -- ### **AND NONE IN THE NAVIGATOR'S ACT.** ### (R81)
+### refuses a ferry whose flagged word in the navigator's message carries no record check; there is no
+### such word, so ### **THE FERRY IS NOT REFUSED.**
+### ### **AND THE ORDER'S OWN FACTUAL CLAIMS ARE CHECKED AGAINST THE RECORD, IN (R81)'S SPIRIT, AND THE
+### CHECK IS PRINTED BESIDE EACH:**
+###   *"the federation's v4.29 pins"* -- SIDE-kernel `v4.29.0-rc8` (also at its tag `v1.5`),
+###     SIDE-lv-conservation `v4.29.1` (also at `v0.10.0`), SIDE-global-section `v4.29.1`, and
+###     SIDE-effects `v4.30.0-rc2`: ### **BORNE OUT FOR THREE OF FOUR; THE FOURTH ALREADY DIVERGES.**
+###   *"a divergence rule 4 already permits"* -- rule 4 at `SPIRAL_MAP.md:368-370`: *"Each kernel pins
+###     its own toolchain; divergence is expected (e.g., SIDE-effects on v4.30.0-rc2)."* ### **BORNE OUT.**
+
+### ### **WHAT "PID PRINTED ON THE FACE" CAN MEAN, SAID PLAINLY.** ### This face is locked BEFORE the
+### run starts -- registration before components, the record's rule -- so no pid exists when it
+### locks. ### **THE LAUNCHER WRITES THE PID TO A FILE THIS FACE NAMES, `relay/data/b471_zeta23_build.pid`,
+### AND THE CLOSING MESSAGE PRINTS IT.** ### The face names everything else in advance: the command, the
+### working directory, the log path, and the order of the steps.
+
+### ### **THE DETACHED RUN, NAMED, UNDER (R80).**
+###   launcher        : `relay/tools/b471_detached_run.cmd`, started by PowerShell `Start-Process`,
+###                     hidden, NOT a child of this session's shell
+###   working dir     : `D:\relay\data\anthropic-zeta23\formal-math\zeta23` (the clone at `fbdc36bb`)
+###   environment     : `LEAN_NUM_THREADS` UNSET, as ordered
+###   steps, in order : `lake build Solution` ; `lake env lean scripts\PrintAxioms.lean` (as shipped) ;
+###                     `lake env lean` on the seat's named file for `Zeta23.WeilEF.EF_lit_zetaZeroConfig`,
+###                     `Zeta23.EF.EF_lit` and `Zeta23.WeilEF.EF_lit_zeta` -- that file lives in the seat's
+###                     scratchpad, never in the clone, and its text is banked as `b471_named_axioms.txt`
+###   log             : `relay/data/b471_zeta23_build.log` -- stdout AND stderr, every step's exit code
+###                     written into it, and `=== RUN COMPLETE` as its last line when it ends
+###   pid             : `relay/data/b471_zeta23_build.pid`
+### ### **NOT POLLED INSIDE THE ACT.** ### The seat confirms once, at launch, that the process exists, and
+### once, at the close, whether it is still running -- ### **BOTH ARE READS OF THE PROCESS TABLE, NOT OF
+### THE LOG.** ### The log enters the record only when the next act reads it to its end, as (R80) says.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AND WHAT EACH MAY AND MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+### (1) ### **COMPONENT 1 -- THE DETACHED RUN.** ### Started exactly as (A) names it; its pid banked and
+### printed; the act closes with the run's state read from the process table and the elapsed time since
+### launch printed. ### **NO OUTPUT OF THE RUN IS REPORTED BY THIS ACT.**
+
+### (2) ### **COMPONENT 2 -- THE PRICE OF VENDORING, READ AND NOT PAID.**
+### Rules 2 and 7 of `SPIRAL_MAP.md` section 7 quoted at their lines; the import closure of
+### `EF_lit_zetaZeroConfig` within `Zeta23/` -- module count, line count, direct Mathlib imports; the
+### Apache-2.0 and NOTICE terms governing vendoring; and the three things a ruling on `W-ORD-GW-IMPORT`
+### would fix -- the pin, the attribution header rule 7 requires, the toolchain.
+### ### **AND THE RULES THE ORDER DID NOT NAME, THAT ALSO BEAR ON A VENDORED COPY, ARE PRINTED BESIDE
+### THEM** -- rule 8 (lakefile form) and rule 9 (no `lemma` keyword) -- because the price read from the
+### rules is incomplete if it stops at the rules the order listed.
+### ### **NO FILE IS COPIED. NOTHING IS IMPORTED.**
+
+----------------------------------------------------------------------------------------------------
+### (S) WHAT STOPPING MEANS.
+----------------------------------------------------------------------------------------------------
+### The act stops with the run launched and its state read, and the price read. ### **IF THE LAUNCH
+### FAILS -- NO PROCESS, OR NO LOG FILE CREATED -- THAT IS PRINTED AND THE ACT STILL CLOSES.**
+
+----------------------------------------------------------------------------------------------------
+### (J) THE EXPECTATIONS, EACH OVER A POPULATION THIS FACE NAMES (`R26`).
+----------------------------------------------------------------------------------------------------
+### **(N1)** the detached run is still RUNNING at the close. ### POPULATION: the process at the pid.
+###   ### **THE SEAT'S OWN: `HELD`** -- b470 measured a bare import of Mathlib above 570 s at one thread,
+###   and most of the closure remains unbuilt; the act's own work is far shorter than that.
+### **(N2)** the import closure of the explicit formula is more than half of `Zeta23/` by module count --
+###   the analytic inputs are not separable from the headline. ### POPULATION: the closure.
+###   ### **THE SEAT'S OWN: `REFUTED`, FROM THE SURVEY, SAID BEFORE THE SEAL.** ### The closure is 57 of
+###   the library`s 316 by module (18.0%) and 18,105 of 102,265 lines (17.7%), and ### **THE HEADLINE MODULE
+###   `Zeta23.Final` IS NOT IN IT** -- the explicit formula separates from the headline.
+### **(N3)** the direct Mathlib imports number more than twenty. ### POPULATION: the closure's imports.
+###   ### **THE SEAT'S OWN: `HELD`, FROM THE SURVEY** -- 89.
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS` `G-SURVEY-NOMISS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-R81-FLAGS-CHECKED` `G-R81-CLAIMS-CHECKED`
+### `G-C1-LAUNCHED-AFTER-SEAL` `G-C1-PID-BANKED` `G-C1-LOG-NAMED` `G-C1-THREADS-UNSET`
+### `G-C1-STEPS-AS-NAMED` `G-C1-NOT-POLLED` `G-C1-STATE-AT-CLOSE` `G-C1-ELAPSED-PRINTED`
+### `G-C1-NAMED-FILE-OUTSIDE-CLONE`
+### `G-C2-RULES-AT-LINES` `G-C2-CLOSURE-COUNTS` `G-C2-MATHLIB-DIRECT` `G-C2-LICENCE-QUOTED`
+### `G-C2-NOTICE-QUOTED` `G-C2-THREE-FIXES` `G-C2-EXTRA-RULES` `G-C2-NOTHING-COPIED`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-SPAN-BY-TOOL` `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK`
+### `G-FOUR-LISTS-OPEN` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED`
+### `G-CORPUS-LEAN-UNTOUCHED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is scored
+### post-push only, undated.
+
+----------------------------------------------------------------------------------------------------
+### (K) THE BARS. ### EIGHT.
+----------------------------------------------------------------------------------------------------
+### **BAR 1 -- THE RUN STARTS AFTER THE SEAL, DETACHED, EXACTLY AS (A) NAMES IT.**
+### **BAR 2 -- THE LOG IS NOT READ INSIDE THE ACT; THE PROCESS TABLE IS READ AT LAUNCH AND AT CLOSE.**
+### **BAR 3 -- NO OUTPUT OF THE RUN, AND NO PROFILE, IS REPORTED BY THIS ACT.**
+### **BAR 4 -- NOTHING IS WRITTEN INTO THE CLONE BUT ITS OWN IGNORED `.lake`; THE NAMED FILE LIVES IN THE
+###   SCRATCHPAD.**
+### **BAR 5 -- EVERY RULE IS QUOTED AT ITS LINE; EVERY COUNT IS COMPUTED BY TOOL.**
+### **BAR 6 -- NO FILE IS COPIED; NOTHING IS IMPORTED; `W-ORD-GW-IMPORT` IS NOT RULED BY THE SEAT.**
+### **BAR 7 -- THE ARTEFACTS UNDER `data/anthropic-zeta23/` ARE NOT COMMITTED, AND THE LOG, BEING WRITTEN
+###   BY A RUNNING PROCESS, IS NOT COMMITTED IN THIS ACT.**
+### **BAR 8 -- `h2` WHERE THE DEPOSIT LEFT IT; NO CORPUS GRADE MOVES; NOTHING DEPOSITS; THE KERNEL LANE
+###   STAYS OPEN UNTIL THE RUN REPORTS; THE FOUR LISTS STAY OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER `(R47)`, `(R50)` AND `(R73)`: EVERY NAME IN FULL, VERSIONS INCLUDED.**
+----------------------------------------------------------------------------------------------------
+### relay/data: `b471_ferry.txt` `b471_ferry_scan.txt` `b471_census_stepzero.txt`
+### `b471_faces_census_stepzero.txt` `b471_pins_stepzero.txt` `b471_extract.txt` `b471_survey.json`
+### `b471_registration_2026-09-22.txt` `b471_reg_gate.txt` `b471_reg_termscan.txt`
+### `b471_regspec_run.txt` `b471_satisfiable.json` `b471_lockgate.json` `b471_lockgate_notes.txt`
+### `b471_lockgate_notes2.txt` `b471_lockgate_notes3.txt` `b471_lockgate_notes4.txt`
+### `b471_components.txt` `b471_launch.json` `b471_named_axioms.txt` `b471_zeta23_build.pid`
+### `b471_price.json` `b471_scores.json` `b471_desk_notes.txt` `b471_span.json` `b471_span_notes.txt`
+### `b471_span_notes2.txt` `b471_checks.txt` `b471_checks_postpush.txt` `b471_exercise.json`
+### `b471_census_closing.txt` `b471_faces_census_closing.txt` `b471_pins_final.txt` `b471_mirror.txt`
+### `b471_closing.txt` `b471_index_queries.txt` `audit_b471_reg_banned_terms.txt`
+### `audit_b471_reg_satisfiable.txt` `b471_the_detached_run_and_the_price.txt`
+### and, written by the running process and NOT committed in this act: `b471_zeta23_build.log`
+### relay/tools: `b471_extract.py` `b471_components.py` `b471_detached_run.cmd` `b471_checks.py`
+### `b471_desk_bank.py` `b471_reg_gate.py` `b471_regspec.py`
+### PLACE-papers: `OPEN_TRAILS.md` and nothing else.
+### SIDE-global-section: `CORRESPONDENCE.md` and nothing else.
+### ### **NOTHING UNDER `relay/data/anthropic-zeta23/` IS COMMITTED; NO OTHER FILE IS WRITTEN.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### Nothing deposits. ### Nothing is imported or copied. ### No Lean of the corpus is touched. ### No
+### corpus grade moves. ### No output of the run is reported. ### No site is entered and row `U1` is not
+### written. ### The wave stays parked under `(R66)`. ### `h2` stands exactly where the deposit left it.
+### ### **AND THE FOUR LISTS ARE OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (R50) THE ADDENDUM SLOT.
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : cb5e868ad1ac6dd64c55c53104d4cd28767ac2df55db60e028a68672c611c3da
+### bytes locked : 12781
+### locked at (UTC) : 2026-09-22T16:37:19Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b471_registration_2026-09-22.txt`.**
+====================================================================================================

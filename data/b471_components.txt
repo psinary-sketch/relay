@@ -1,0 +1,169 @@
+========================================================================================================
+COMPONENT 1 -- THE DETACHED RUN, AS LAUNCHED. ### THE LOG IS NOT READ BY THIS ACT.
+========================================================================================================
+    pid          : 27704   (relay/data/b471_zeta23_build.pid)
+    started      : 2026-09-22T16:38:44Z
+    launcher     : D:\relay\tools\b471_detached_run.cmd -- via Start-Process, hidden, detached
+    log          : D:\relay\data\b471_zeta23_build.log
+    LEAN_NUM_THREADS : UNSET
+    steps        : lake build Solution ; scripts\PrintAxioms.lean as shipped ; the named file
+                   (EF_lit_zetaZeroConfig, EF_lit, EF_lit_zeta), text banked as b471_named_axioms.txt
+    at launch    : the process was alive after 5 s and the log file existed -- a read of the process
+                   table and of the file`s EXISTENCE, not of its contents
+
+========================================================================================================
+COMPONENT 2 -- THE PRICE OF VENDORING, READ AND NOT PAID.
+========================================================================================================
+
+  ### (2a) THE RULES, AT THEIR LINES.
+    SPIRAL_MAP.md:364  2. **No Lake cross-dependencies.**  Cross-kernel content is vendored with attribution.
+    SPIRAL_MAP.md:368  4. **Federation pinned to `leanprover/lean4:v4.29.0-rc8`** unless stated otherwise.  Each kernel pins its own toolchain; divergence is expected (e.g., SIDE-effects on v4.30.0-rc2).
+    SPIRAL_MAP.md:380  7. **Composites vendor with attribution.**  Each vendored namespace carries the source kernel name and version in a comment header.
+    SPIRAL_MAP.md:382  8. **`@[default_target]` + `globs := #[.submodules ...]` in every lakefile.** Missing either causes silent 0-jobs builds.
+    SPIRAL_MAP.md:384  9. **Vanilla Lean 4 syntax discipline.**  No `lemma` keyword (Mathlib alias) — always `theorem`.  Prefer `by omega` for finite arithmetic over `Eq.subst` (▸) when direction is unclear.
+    ### rules 2 and 7 are the order`s; 4 is the order`s claim, checked; 8 and 9 the order did not name.
+
+  ### (2b) THE IMPORT CLOSURE OF EF_lit_zetaZeroConfig WITHIN Zeta23/.
+    ### ### **MODULES : 57 of 316 (18.0%) ; LINES : 18105 of 102265 (17.7%)**
+    ### ### **DIRECT MATHLIB IMPORTS : 89**
+      Mathlib.Algebra.BigOperators.Field
+      Mathlib.Algebra.BigOperators.Fin
+      Mathlib.Algebra.BigOperators.Finprod
+      Mathlib.Algebra.Lie.OfAssociative
+      Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+      Mathlib.Algebra.Order.Chebyshev
+      Mathlib.Algebra.Order.Floor.Defs
+      Mathlib.Algebra.Order.Floor.Ring
+      Mathlib.Algebra.Order.Floor.Semiring
+      Mathlib.Algebra.Order.Rearrangement
+      Mathlib.Algebra.Order.Star.Real
+      Mathlib.Analysis.Analytic.Order
+      Mathlib.Analysis.Analytic.Uniqueness
+      Mathlib.Analysis.CStarAlgebra.Classes
+      Mathlib.Analysis.Calculus.ContDiff.Convolution
+      Mathlib.Analysis.Calculus.ContDiff.Defs
+      Mathlib.Analysis.Calculus.ContDiff.Deriv
+      Mathlib.Analysis.Calculus.Deriv.Star
+      Mathlib.Analysis.Calculus.Deriv.Support
+      Mathlib.Analysis.Calculus.LogDeriv
+      Mathlib.Analysis.Calculus.LogDerivUniformlyOn
+      Mathlib.Analysis.Complex.Basic
+      Mathlib.Analysis.Complex.BorelCaratheodory
+      Mathlib.Analysis.Complex.CauchyIntegral
+      Mathlib.Analysis.Complex.Convex
+      Mathlib.Analysis.Complex.ExponentialBounds
+      Mathlib.Analysis.Complex.HasPrimitives
+      Mathlib.Analysis.Complex.IntegerCompl
+      Mathlib.Analysis.Complex.ReImTopology
+      Mathlib.Analysis.Complex.RealDeriv
+      Mathlib.Analysis.Complex.RemovableSingularity
+      Mathlib.Analysis.Convex.Birkhoff
+      Mathlib.Analysis.Distribution.SchwartzSpace.Deriv
+      Mathlib.Analysis.Fourier.Convolution
+      Mathlib.Analysis.Fourier.FourierTransform
+      Mathlib.Analysis.Fourier.FourierTransformDeriv
+      Mathlib.Analysis.Fourier.Inversion
+      Mathlib.Analysis.InnerProductSpace.Basic
+      Mathlib.Analysis.Matrix.PosDef
+      Mathlib.Analysis.Meromorphic.NormalForm
+      Mathlib.Analysis.Normed.Group.InfiniteSum
+      Mathlib.Analysis.Normed.Module.Connected
+      Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn
+      Mathlib.Analysis.Normed.Order.Lattice
+      Mathlib.Analysis.PSeries
+      Mathlib.Analysis.Real.Pi.Bounds
+      Mathlib.Analysis.SpecialFunctions.Complex.Analytic
+      Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+      Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+      Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
+      Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
+      Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+      Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+      Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+      Mathlib.Analysis.SpecialFunctions.Log.Basic
+      Mathlib.Analysis.SpecialFunctions.Pow.Complex
+      Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+      Mathlib.Analysis.SpecialFunctions.Pow.Real
+      Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+      Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex
+      Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+      Mathlib.Analysis.SumIntegralComparisons
+      Mathlib.Data.Matrix.Basic
+      Mathlib.Data.Rat.Cast.OfScientific
+      Mathlib.Data.Set.Card
+      Mathlib.LinearAlgebra.Complex.FiniteDimensional
+      Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+      Mathlib.MeasureTheory.Function.Floor
+      Mathlib.MeasureTheory.Integral.Bochner.Basic
+      Mathlib.MeasureTheory.Integral.IntegralEqImproper
+      Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+      Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+      Mathlib.MeasureTheory.Order.Group.Lattice
+      Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt
+      Mathlib.NumberTheory.Harmonic.Bounds
+      Mathlib.NumberTheory.Harmonic.EulerMascheroni
+      Mathlib.NumberTheory.LSeries.Dirichlet
+      Mathlib.NumberTheory.LSeries.Nonvanishing
+      Mathlib.NumberTheory.LSeries.RiemannZeta
+      Mathlib.NumberTheory.ZetaValues
+      Mathlib.Order.Filter.AtTopBot.Field
+      Mathlib.Order.Filter.ZeroAndBoundedAtFilter
+      Mathlib.Order.Interval.Set.Monotone
+      Mathlib.RingTheory.SimpleRing.Principal
+      Mathlib.Tactic.Abel
+      Mathlib.Tactic.LinearCombinationPrime
+      Mathlib.Topology.Algebra.InfiniteSum.Real
+      Mathlib.Topology.ContinuousMap.Bounded.Basic
+      Mathlib.Topology.Instances.Matrix
+    the headline module Zeta23.Final in the closure : False
+    closure modules derived from PrimeNumberTheoremAnd (Zeta23/FromPNTPlus) : 10
+    closure modules using the `lemma` keyword : 35
+
+  ### (2c) THE LICENCE TERMS.
+    LICENSE, section 4 : 4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions: (a) You must give any other recipients of the Work or Derivative Works a copy of this License; and (b) You must cause any modified files to carry prominent notices stating that You changed the files; and (c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and (d) If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+    NOTICE, in full :
+      | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+      | Copyright 2026 Anthropic, PBC
+      | 
+      | This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+      | 
+      | This product includes software derived from PrimeNumberTheoremAnd
+      | (https://github.com/AlexKontorovich/PrimeNumberTheoremAnd),
+      | Copyright the PrimeNumberTheoremAnd contributors, licensed under the Apache License, Version 2.0.
+      | The derived files are the ones under Zeta23/FromPNTPlus/; each carries its upstream notice
+      | (source file, upstream commit, original copyright line) and a description of the local modifications.
+      | Some of those files in turn derive from mathlib (https://github.com/leanprover-community/mathlib4),
+      | Copyright the mathlib contributors, Apache License, Version 2.0; their original headers are preserved.
+      | 
+      | This product depends on, but does not include, Lean 4 (https://github.com/leanprover/lean4) and
+      | mathlib4 with its standard dependency set — fetched by the build tool from their public repositories at the
+      | revisions pinned in lake-manifest.json: batteries, aesop, Qq, ProofWidgets4, import-graph, LeanSearchClient and
+      | plausible are released under the Apache License, Version 2.0; Cli (leanprover/lean4-cli) is released under the
+      | MIT License (Copyright (c) 2021 Marc Huisinga). None of these dependencies is included in this repository.
+      | 
+
+  ### (2d) THE THREE THINGS A RULING ON W-ORD-GW-IMPORT WOULD FIX.
+    (i) THE PIN. `fbdc36bbf17d20af3fd0447c6d1a8a02773c9844` (2026-09-05, untagged, the tree b468r and
+        b470 read) or the repository`s only tag `v1.0` = `3635e748` (2026-08-10). ### At `v1.0` the
+        repository root IS the project (no `zeta23/` directory); `EF_lit_zetaZeroConfig` is there at
+        `Zeta23/WeilEF/Main.lean:270`, the toolchain and Mathlib pin are the same, and the `EF_lit`
+        statement is IDENTICAL; ### 4 commits after the tag touch `zeta23/`, so the PROOFS may differ.
+    (ii) THE ATTRIBUTION HEADER. Rule 7: *"Each vendored namespace carries the source kernel name and
+        version in a comment header."* ### And licence section 4 adds its own: a copy of the licence
+        (a), notices on modified files (b), retained attribution notices (c), and the NOTICE text (d).
+        ### **TWO LAYERS: 10 of the closure`s modules are PrimeNumberTheoremAnd-derived and carry their
+        upstream notices, which the NOTICE says must travel with them.**
+    (iii) THE TOOLCHAIN. zeta23 pins `leanprover/lean4:v4.33.0-rc2` and Mathlib `51e6992e`; the federation pins
+        SIDE-kernel `leanprover/lean4:v4.29.0-rc8` (Mathlib `e960b841`), SIDE-lv-conservation `leanprover/lean4:v4.29.1`, SIDE-global-section `leanprover/lean4:v4.29.1`,
+        SIDE-effects `leanprover/lean4:v4.30.0-rc2`. ### Rule 4 permits the divergence -- *"Each kernel pins its own toolchain;
+        divergence is expected"* -- ### **BUT ONLY PER KERNEL: a vendored copy cannot build inside a
+        kernel pinned to v4.29 with Mathlib e960b84, so it would have to be its own kernel.**
+
+  ### (2e) WHAT THE ORDER`S LIST OMITS, READ FROM THE SAME SECTION.
+    rule 2 -- *"No Lake cross-dependencies"* -- forbids depending on formal-math by Lake; so the copy is
+      the only route, and it is what (2b) prices.
+    rule 8 -- *"`@[default_target]` + `globs := #[.submodules ...]` in every lakefile"* -- zeta23 builds
+      from `lakefile.toml`; a federation kernel holding it would need the lakefile form rule 8 names.
+    rule 9 -- *"No `lemma` keyword ... always `theorem`"* -- 35 of the 57 closure modules use `lemma`;
+      a copy obeying rule 9 would be MODIFIED, which licence section 4(b) then requires be marked.
+    ### ### **NO FILE IS COPIED. NOTHING IS IMPORTED. THE RULING IS THE AUTHOR`S.**

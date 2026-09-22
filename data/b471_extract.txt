@@ -1,0 +1,225 @@
+========================================================================================================
+b471 -- THE SURVEY.
+========================================================================================================
+
+(P1) (R81)`S FLAGGED WORDS IN THIS FERRY, AND WHOSE WORDS THEY ARE.
+--------------------------------------------------------------------------------------------------------
+    :13  RULING (author)  only   superseded for this run only. The run's output enters the
+    :14  RULING (author)  only   record only when the seat reads the log at its end.
+    :17  RULING (author)  first  strikeable: THE FERRY SCAN FLAGS first, never, only and ever
+    :17  RULING (author)  never  strikeable: THE FERRY SCAN FLAGS first, never, only and ever
+    :17  RULING (author)  only   strikeable: THE FERRY SCAN FLAGS first, never, only and ever
+    :17  RULING (author)  ever   strikeable: THE FERRY SCAN FLAGS first, never, only and ever
+    :18  RULING (author)  only   beside the two banned stems. A flagged word goes out only
+  ### ### **FLAGGED WORDS : 7 ; IN THE NAVIGATOR`S ACT : 0 ; IN THE AUTHOR`S RULINGS : 7.**
+  ### (R81) refuses a ferry whose flagged word carries no record check IN THE NAVIGATOR`S MESSAGE;
+  ### the navigator`s act carries none, so ### **THE FERRY IS NOT REFUSED.**
+
+(P2) SPIRAL_MAP SECTION 7, RULES 2, 4, 7 -- AND 8, 9, WHICH ALSO BEAR ON VENDORING.
+--------------------------------------------------------------------------------------------------------
+    SPIRAL_MAP.md:364-365  2. **No Lake cross-dependencies.**  Cross-kernel content is vendored with attribution.
+    SPIRAL_MAP.md:368-370  4. **Federation pinned to `leanprover/lean4:v4.29.0-rc8`** unless stated otherwise.  Each kernel pins its own toolchain; divergence is expected (e.g., SIDE-effects on v4.30.0-rc2).
+    SPIRAL_MAP.md:380-381  7. **Composites vendor with attribution.**  Each vendored namespace carries the source kernel name and version in a comment header.
+    SPIRAL_MAP.md:382-383  8. **`@[default_target]` + `globs := #[.submodules ...]` in every lakefile.** Missing either causes silent 0-jobs builds.
+    SPIRAL_MAP.md:384-386  9. **Vanilla Lean 4 syntax discipline.**  No `lemma` keyword (Mathlib alias) — always `theorem`.  Prefer `by omega` for finite arithmetic over `Eq.subst` (▸) when direction is unclear.
+
+(P3) THE FEDERATION`S TOOLCHAIN PINS -- THE RECORD CHECK FOR "the federation`s v4.29 pins".
+--------------------------------------------------------------------------------------------------------
+    SIDE-kernel            leanprover/lean4:v4.29.0-rc8
+    SIDE-lv-conservation   leanprover/lean4:v4.29.1
+    SIDE-global-section    leanprover/lean4:v4.29.1
+    SIDE-effects           leanprover/lean4:v4.30.0-rc2
+    zeta23                 leanprover/lean4:v4.33.0-rc2
+  ### ### **THREE OF FOUR ROSTERED KERNELS PIN v4.29.x (rc8 or .1); SIDE-effects pins v4.30.0-rc2,
+  ### WHICH RULE 4 NAMES AS ITS OWN EXAMPLE OF DIVERGENCE.** ### "the federation`s v4.29 pins" is
+  ### borne out for three of four; the fourth already diverges, as rule 4 permits.
+
+(P4) THE IMPORT CLOSURE OF EF_lit_zetaZeroConfig WITHIN Zeta23/.
+--------------------------------------------------------------------------------------------------------
+    the theorem : EF_lit_zetaZeroConfig, in Zeta23.WeilEF.Main
+    ### ### **CLOSURE : 57 MODULES of 316 in Zeta23/ (18.0%) ; 18105 LINES of 102265 (17.7%)**
+    ### ### **DIRECT MATHLIB IMPORTS FROM THE CLOSURE : 89**
+      Mathlib.Algebra.BigOperators.Field
+      Mathlib.Algebra.BigOperators.Fin
+      Mathlib.Algebra.BigOperators.Finprod
+      Mathlib.Algebra.Lie.OfAssociative
+      Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
+      Mathlib.Algebra.Order.Chebyshev
+      Mathlib.Algebra.Order.Floor.Defs
+      Mathlib.Algebra.Order.Floor.Ring
+      Mathlib.Algebra.Order.Floor.Semiring
+      Mathlib.Algebra.Order.Rearrangement
+      Mathlib.Algebra.Order.Star.Real
+      Mathlib.Analysis.Analytic.Order
+      Mathlib.Analysis.Analytic.Uniqueness
+      Mathlib.Analysis.CStarAlgebra.Classes
+      Mathlib.Analysis.Calculus.ContDiff.Convolution
+      Mathlib.Analysis.Calculus.ContDiff.Defs
+      Mathlib.Analysis.Calculus.ContDiff.Deriv
+      Mathlib.Analysis.Calculus.Deriv.Star
+      Mathlib.Analysis.Calculus.Deriv.Support
+      Mathlib.Analysis.Calculus.LogDeriv
+      Mathlib.Analysis.Calculus.LogDerivUniformlyOn
+      Mathlib.Analysis.Complex.Basic
+      Mathlib.Analysis.Complex.BorelCaratheodory
+      Mathlib.Analysis.Complex.CauchyIntegral
+      Mathlib.Analysis.Complex.Convex
+      Mathlib.Analysis.Complex.ExponentialBounds
+      Mathlib.Analysis.Complex.HasPrimitives
+      Mathlib.Analysis.Complex.IntegerCompl
+      Mathlib.Analysis.Complex.ReImTopology
+      Mathlib.Analysis.Complex.RealDeriv
+      Mathlib.Analysis.Complex.RemovableSingularity
+      Mathlib.Analysis.Convex.Birkhoff
+      Mathlib.Analysis.Distribution.SchwartzSpace.Deriv
+      Mathlib.Analysis.Fourier.Convolution
+      Mathlib.Analysis.Fourier.FourierTransform
+      Mathlib.Analysis.Fourier.FourierTransformDeriv
+      Mathlib.Analysis.Fourier.Inversion
+      Mathlib.Analysis.InnerProductSpace.Basic
+      Mathlib.Analysis.Matrix.PosDef
+      Mathlib.Analysis.Meromorphic.NormalForm
+      Mathlib.Analysis.Normed.Group.InfiniteSum
+      Mathlib.Analysis.Normed.Module.Connected
+      Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn
+      Mathlib.Analysis.Normed.Order.Lattice
+      Mathlib.Analysis.PSeries
+      Mathlib.Analysis.Real.Pi.Bounds
+      Mathlib.Analysis.SpecialFunctions.Complex.Analytic
+      Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+      Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+      Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
+      Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
+      Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+      Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+      Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+      Mathlib.Analysis.SpecialFunctions.Log.Basic
+      Mathlib.Analysis.SpecialFunctions.Pow.Complex
+      Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+      Mathlib.Analysis.SpecialFunctions.Pow.Real
+      Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+      Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex
+      Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+      Mathlib.Analysis.SumIntegralComparisons
+      Mathlib.Data.Matrix.Basic
+      Mathlib.Data.Rat.Cast.OfScientific
+      Mathlib.Data.Set.Card
+      Mathlib.LinearAlgebra.Complex.FiniteDimensional
+      Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+      Mathlib.MeasureTheory.Function.Floor
+      Mathlib.MeasureTheory.Integral.Bochner.Basic
+      Mathlib.MeasureTheory.Integral.IntegralEqImproper
+      Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+      Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+      Mathlib.MeasureTheory.Order.Group.Lattice
+      Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt
+      Mathlib.NumberTheory.Harmonic.Bounds
+      Mathlib.NumberTheory.Harmonic.EulerMascheroni
+      Mathlib.NumberTheory.LSeries.Dirichlet
+      Mathlib.NumberTheory.LSeries.Nonvanishing
+      Mathlib.NumberTheory.LSeries.RiemannZeta
+      Mathlib.NumberTheory.ZetaValues
+      Mathlib.Order.Filter.AtTopBot.Field
+      Mathlib.Order.Filter.ZeroAndBoundedAtFilter
+      Mathlib.Order.Interval.Set.Monotone
+      Mathlib.RingTheory.SimpleRing.Principal
+      Mathlib.Tactic.Abel
+      Mathlib.Tactic.LinearCombinationPrime
+      Mathlib.Topology.Algebra.InfiniteSum.Real
+      Mathlib.Topology.ContinuousMap.Bounded.Basic
+      Mathlib.Topology.Instances.Matrix
+    other non-project imports : ['Batteries.Tactic.Lemma']
+    the headline module Zeta23.Final in the closure : False
+    closure modules using the `lemma` keyword (rule 9) : 35
+      . Zeta23.Analytic.RectangleLogDeriv
+      . Zeta23.Analytic.Stirling
+      . Zeta23.Assembly.Inputs
+      . Zeta23.Defs
+      . Zeta23.Defs.Counting
+      . Zeta23.ExplicitFormula
+      . Zeta23.ExplicitFormula.Bridge
+      . Zeta23.FromPNTPlus.Auxiliary
+      . Zeta23.FromPNTPlus.EulerMaclaurin
+      . Zeta23.FromPNTPlus.Fourier
+      . Zeta23.FromPNTPlus.Mathlib.Analysis.SpecialFunctions.Log.Basic
+      . Zeta23.FromPNTPlus.Rectangle
+      . Zeta23.FromPNTPlus.ResidueCalcOnRectangles
+      . Zeta23.FromPNTPlus.Sobolev
+      . Zeta23.FromPNTPlus.StrongPNTPrefix
+      . Zeta23.FromPNTPlus.Tactic.AdditiveCombination
+      . Zeta23.FromPNTPlus.ZetaBounds
+      . Zeta23.GammaFacts
+      . Zeta23.GammaFacts.Mu
+      . Zeta23.GammaFacts.Series
+      . Zeta23.GammaFacts.StirlingVert
+      . Zeta23.Hypotheses
+      . Zeta23.LinAlg
+      . Zeta23.LinAlg.HermitianPosPart
+      . Zeta23.LinAlg.Inertia
+      . Zeta23.LinAlg.PosIndex
+      . Zeta23.LinAlg.RankTrace
+      . Zeta23.LinAlg.Sylvester
+      . Zeta23.LinAlg.VonNeumann
+      . Zeta23.LinAlg.Weyl
+      . Zeta23.Poisson.PaperFT
+      . Zeta23.Prelude.InstancePriorities
+      . Zeta23.RvM.CountByIntegral
+      . Zeta23.RvM.Halving
+      . Zeta23.RvM.LocalCount
+      . Zeta23.RvM.ZetaGrowth
+      . Zeta23.Statement
+      . Zeta23.Statement.Seam
+      . Zeta23.Statement.SeamClosed
+      . Zeta23.Tail
+      . Zeta23.Tail.Basic
+      . Zeta23.Tail.Count
+      . Zeta23.Tail.Grid
+      . Zeta23.Tail.RankOne
+      . Zeta23.WeilEF.Contour
+      . Zeta23.WeilEF.FullLine
+      . Zeta23.WeilEF.FullLineAssembly
+      . Zeta23.WeilEF.GammaRBracket
+      . Zeta23.WeilEF.GoodHeights
+      . Zeta23.WeilEF.Horizontal
+      . Zeta23.WeilEF.Landau
+      . Zeta23.WeilEF.Main
+      . Zeta23.WeilEF.VerticalLine
+      . Zeta23.WeilEF.XiLogDeriv
+      . Zeta23.WeilEF.ZeroSumLimit
+      . Zeta23.WeilEF.ZeroSummability
+      . Zeta23.ZetaReflect
+
+(P5) THE LICENCE TERMS THAT GOVERN VENDORING.
+--------------------------------------------------------------------------------------------------------
+    LICENSE, section 4 :
+      4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions: (a) You must give any other recipients of the Work or Derivative Works a copy of this License; and (b) You must cause any modified files to carry prominent notices stating that You changed the files; and (c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and (d) If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot b
+    NOTICE, in full (18 lines) :
+      | Zeta23 — a Lean 4 formalization of critical-line zero-proportion theorems
+      | Copyright 2026 Anthropic, PBC
+      | 
+      | This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+      | 
+      | This product includes software derived from PrimeNumberTheoremAnd
+      | (https://github.com/AlexKontorovich/PrimeNumberTheoremAnd),
+      | Copyright the PrimeNumberTheoremAnd contributors, licensed under the Apache License, Version 2.0.
+      | The derived files are the ones under Zeta23/FromPNTPlus/; each carries its upstream notice
+      | (source file, upstream commit, original copyright line) and a description of the local modifications.
+      | Some of those files in turn derive from mathlib (https://github.com/leanprover-community/mathlib4),
+      | Copyright the mathlib contributors, Apache License, Version 2.0; their original headers are preserved.
+      | 
+      | This product depends on, but does not include, Lean 4 (https://github.com/leanprover/lean4) and
+      | mathlib4 with its standard dependency set — fetched by the build tool from their public repositories at the
+      | revisions pinned in lake-manifest.json: batteries, aesop, Qq, ProofWidgets4, import-graph, LeanSearchClient and
+      | plausible are released under the Apache License, Version 2.0; Cli (leanprover/lean4-cli) is released under the
+      | MIT License (Copyright (c) 2021 Marc Huisinga). None of these dependencies is included in this repository.
+      | 
+    a source file`s own header (Zeta23/WeilEF/Main.lean:1-5) :
+      | /-
+      | Copyright (c) 2026 Anthropic, PBC. All rights reserved.
+      | Released under Apache 2.0 license as described in the file LICENSE.
+      | SPDX-License-Identifier: Apache-2.0
+      | -/
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================
