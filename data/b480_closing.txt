@@ -1,0 +1,115 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b480 -- THE b475 LOG READ AS A SNAPSHOT, AND WHAT A SNAPSHOT CAN DECIDE.
+### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1).
+### ### **(N1) HELD. ### (R82) NOT YET DECIDABLE. ### (R83) DOES NOT FIRE.**
+### ### **THE POST-PUSH SUITE IS `NOT CLEAN`: ONE ARM FAILS, AND IT IS RIGHT.**
+====================================================================================================
+
+  ferry            : part 1 of 1, IN FULL ; scan 0 hits ; 0 (R81) flags
+  registration     : LOCKED 2026-09-22 at sha256 3ac8813dc4c9db57...; SEAL INTACT; lock gate 8 of 8,
+                     4 by digest
+  arms             : 47 declared; post-push 47 RUN, 46 LIVE PASSING, ### **1 FAILING** ###, 0 control
+                     passes
+  censuses / pins  : TOTAL MISSING 0 both ; HARD-FAILING 0
+  mirror           : mirror-refresh-2026-09-22-b480.zip CLEAN ON ALL THREE CLAUSES at f86e9f7
+  correspondence   : row 327 (SIDE-global-section 88f1b7a)
+  PLACE-papers     : f86e9f7 -- OPEN_TRAILS.md, 48 lines added, 0 removed, BOM kept
+  relay            : 61cf156 (the act, carrying the log as evidence) ; this closing commit
+  span by tool     : 6
+  desk             : 36 items, 0 closed, 1 minted, 36 standing
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE BUILD SO FAR, FROM A SNAPSHOT.
+----------------------------------------------------------------------------------------------------
+    the snapshot : ### **256,095 BYTES, READ AT 2026-09-22T20:58:13Z, THE RUN STILL GOING**
+    modules started : ### **169 of 188** ; with an EXIT line : 166 ; ### **EXIT 0 : 166 ; NON-ZERO : 0**
+    failing modules : ### **NONE** ; lines carrying a memory failure : ### **0**
+    still to start  : 19
+  ### ### **AGAINST b473`S FINISHED LOG, WHERE THREE MODULES DIED OF `INTERNAL PANIC: out of memory`
+  ### AND `std::bad_alloc`, THIS SNAPSHOT CARRIES NO FAILURE OF ANY KIND.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- (N1) FROM b475, SCORED.
+----------------------------------------------------------------------------------------------------
+    Zeta23.Hypotheses      line 2  of the order   ### **EXIT 0**
+    Zeta23.Defs.Counting   line 3  of the order   ### **EXIT 0**
+    Zeta23.Taper.Basic     line 23 of the order   ### **EXIT 0**
+  ### ### **(N1) HELD.** ### The three modules that died in parallel compile without complaint when no
+  ### two Lean processes run at once. ### **THE BOUND WAS THE PARALLELISM, NOT THE MODULES**, and
+  ### nothing about zeta23`s mathematics changed -- only the number of processes did.
+  ### A CORRECTION TO b475`S OWN RECORD, IN WORDS: its banks say *"positions 1, 2 and 22 of 188"*.
+  ### Those were ### **0-BASED INDICES**; the order file`s own line numbers are ### **2, 3 AND 23**.
+  ### Same modules, wrong word. ### **b475`S RECORD IS NOT EDITED.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- THE PROFILES, AND (R82).
+----------------------------------------------------------------------------------------------------
+    rows 20 ; ### **ABSENT 20** ; carrying a profile 0 ; lines with "depends on axioms" : 0
+  ### ### **(R82) : NOT YET DECIDABLE.** ### The profile steps run after every module of the order, and
+  ### ### **19 HAVE NOT STARTED** -- so the snapshot carries neither a profile nor a failure to produce
+  ### one. ### **THIS IS NOT `HOLDS`, AND IT IS NEITHER KIND OF `VOID`.** ### b473`s `VOID FOR WANT OF
+  ### A RUN` described a run that had ENDED without producing them; ### **THIS RUN HAS NOT ENDED, AND A
+  ### VERDICT TAKEN NOW WOULD BE A GUESS WEARING A RULING`S NAME.**
+  ### ### **(R83) DOES NOT FIRE**, its trigger being (R82) holding. ### No kernel is created, named or
+  ### pinned. ### **THE GRADE DOES NOT MOVE: zeta23 STAYS `DERIVES, CONDITIONAL`, AS b468r LEFT IT.**
+
+----------------------------------------------------------------------------------------------------
+### A DEFECT IN THE SEAT`S OWN b475 LAUNCHER, FOUND BY THIS READ.
+----------------------------------------------------------------------------------------------------
+  ### b475`s order asked for a log *"with a timestamp per module"*. ### **EVERY ONE OF THE 169 `MODULE`
+  ### MARKERS CARRIES THE SAME INSTANT -- THE LAUNCH`S OWN.** ### Inside a parenthesised `FOR` block
+  ### `cmd` expands `%time%` ONCE, when it parses the block; `!time!` was needed where `%time%` was
+  ### written. ### **SO THE PER-MODULE DURATIONS OF THIS RUN ARE UNRECOVERABLE FROM ITS LOG**, and only
+  ### the ordering survives. ### **THE RUN WAS NOT TOUCHED TO FIX IT.**
+  ### The elapsed is taken from evidence that does not depend on the defect: launched 19:02:24Z,
+  ### snapshot read 20:58:13Z -- ### **6,996 s (116.6 min) FOR 169 MODULES STARTED, 41.4 s PER MODULE
+  ### ON AVERAGE**, and at that average the 19 still to start are roughly 13 min away -- an average over
+  ### unequal modules, said as an average and not as a deadline.
+
+----------------------------------------------------------------------------------------------------
+### THE EVIDENCE, AND THREE BYTE COUNTS THAT DIFFER FOR GOOD REASONS.
+----------------------------------------------------------------------------------------------------
+    read by Component 1 : ### **256,095** bytes (the snapshot the figures come from)
+    staged at the commit : ### **294,828** bytes -- the process kept writing between the read and the
+      commit, which is what a live log does
+    the committed blob  : ### **287,515** bytes -- relay tracks `eol=lf`, so the CRLF log normalises
+    the working file at this close : still growing
+  ### ### **THE COMMITTED EVIDENCE IS A LATER SNAPSHOT THAN THE ONE THE COMPONENTS READ, AND THAT IS
+  ### SAID HERE RATHER THAN LEFT FOR A READER TO DISCOVER BY SUBTRACTION.**
+  ### And the branch could not be switched back to `main` the usual way -- git refused, because the
+  ### file had changed under it. ### **THE BRANCH POINTER WAS MOVED INSTEAD OF THE WORKING TREE**, so
+  ### the running process`s file was never overwritten; `local == remote == 61cf156` was read back.
+
+----------------------------------------------------------------------------------------------------
+### THE ONE FAILING ARM, AND WHY IT IS NOT WEAKENED.
+----------------------------------------------------------------------------------------------------
+  ### ### **`G-WRITELIST-KINDS` FAILS ON ONE NAME THE LOCKED FACE DOES NOT CARRY: `b480_ferry.txt`.**
+  ### The (W) table named `b480_ferry_scan.txt` -- the SCAN -- and never the ferry the scan reads.
+  ### ### **THAT IS A BREACH UNDER (R85) BY ITS OWN WORDS: a file outside every declared glob.**
+  ### The file is kept, ### **THE ARM IS NOT WEAKENED**, the locked face is not edited, and the suite`s
+  ### verdict stands as ### **NOT CLEAN**. ### The same species as b474`s, now under (R85)`s reading:
+  ### the glob table must name the ferry as well as its scan.
+
+----------------------------------------------------------------------------------------------------
+### ERRORS. ### THE SEAT`S : THREE.
+----------------------------------------------------------------------------------------------------
+  (1) ### **THE WRITE LIST NAMED THE SCAN AND NOT THE FERRY** (above), caught by the arm.
+  (2) `G-POSITION-CORRECTED` LOOKED FOR THE OLD PHRASE IN b475`S FACE, which had been reworded before
+      its lock for the count-prediction counter; the words live in b475`s desk bank. ### Re-pointed at
+      the bank that carries them.
+  (3) (1d)`s first form printed a wall time of `0.01 s` from the module markers -- which was the
+      launcher`s defect showing through, not a measurement. ### The section now names the defect and
+      prices the elapsed from the launch record instead.
+  ### THE NAVIGATOR`S : NONE IN THIS ACT. ### The order asked for a decision on (R82); the honest
+  ### answer at this state of the run is that it cannot be taken yet, and the act says so in the
+  ### order`s own vocabulary rather than forcing one of its two words.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING CONSTRAINTS.
+----------------------------------------------------------------------------------------------------
+  ### **THE RUN IS NOT STOPPED, RESTARTED OR INTERFERED WITH.** ### Nothing imported, copied or
+  vendored. ### No Lean of the corpus touched. ### No corpus grade moves. ### (R82) undecided and
+  (R83) unfired. ### both instrument lanes PARKED ; the `h2` lane OPEN under `(R84)` with b476`s
+  registration and no number ; the wave PARKED under `(R66)` ; nothing deposits ; `h2` WHERE THE
+  DEPOSIT LEFT IT ; ### ### **THE FOUR LISTS OPEN.**
+====================================================================================================
