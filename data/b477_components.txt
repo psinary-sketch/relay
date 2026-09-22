@@ -1,0 +1,55 @@
+========================================================================================================
+COMPONENT 1 -- THE GRAM RUN, AS LAUNCHED.
+========================================================================================================
+    ### ### **PID : 17524**   (relay/data/b477_gram.pid)
+    ### ### **LOG : D:\relay\data\b477_gram.log** -- NOT OPENED BY THIS ACT
+    entries file : D:\relay\data\b477_entries.jsonl -- appended and flushed as each entry lands
+    started      : 2026-09-22T21:15:02Z   (the face locked at 2026-09-22T21:14:45Z)
+    launcher     : D:\relay\tools\b477_detached_run.cmd -- Start-Process, hidden, detached
+    runner       : D:\relay\tools\b477_gram.py -- PYTHON, so every line carries its own real timestamp
+    ### ### **STATE AT THIS READING : RUNNING ; 62 s after launch ; log 3491 bytes ; entries banked 13**
+    (process table and file sizes only; neither the log nor the entries file was read)
+
+  ### (1a) WHAT THE RUN DOES, IN ITS OWN ORDER.
+    1. the seeds, once per cell, for both families
+    2. ### **THE DIAGONAL AT EVERY CELL** -- G(a,a) by the chain`s own autocorrelation, against
+       b321`s banked W (aim plane) and b437`s sum_v (ladder), within the floor 1.49e-08, with
+       ### **THE ZERO SIDE AND trunc_bound PRINTED BESIDE EACH**
+       ### ### **A MISMATCH BEYOND THE FLOOR HALTS THE RUN BEFORE ANY OFF-DIAGONAL ENTRY.**
+    3. the aim plane`s off-diagonals (78), then the ladder`s (231)
+    4. the control`s own diagonal, on the Epstein chain
+    ### every entry appended to b477_entries.jsonl as it lands, and flushed
+
+  ### (1b) THE BUILDER, AND ITS CONTROL -- FROM THE SURVEY, BEFORE THE LOCK.
+    cross(g, g) against the chain`s own autocorrelation(g) at a = 1.5 :
+      max |window difference| : 0.000e+00
+      W from the chain        : -4.372721018491
+      W from the builder      : -4.372721018491
+      ### ### **|DIFFERENCE| 0.000e+00 ; WITHIN THE FLOOR 1.49e-08 : True**
+    ### ### **THE BUILDER REDUCES TO THE CHAIN`S OWN CONSTRUCTION ON THE DIAGONAL.** ### The
+    ### chain is NOT edited; f_ab is built outside it and supplied to it, as (R86) requires.
+
+========================================================================================================
+COMPONENT 2 -- THE CONTROL`S SIDE, STATED AS THE ORDER REQUIRES.
+========================================================================================================
+    zeta`s entry    : b321_window.channels -> W = PR - A, the places sum
+    the control`s   : ### **b325_epstein.channels_q -- THE EPSTEIN OBJECT`S OWN FINITE CHANNEL
+      AND ITS OWN ARCHIMEDEAN KERNEL**, returning ['arch', 'finite', 'places', 'pole', 'terms']
+    ### ### **THERE IS NO ZERO SIDE IN THAT RETURN.** ### So the control`s Gram is a
+    ### PLACES-SIDE GRAM, and ### **ITS VERDICT IS SCOPED TO THE PLACES SIDE**: it can show what
+    ### the Epstein places side does under this family, and it cannot show what a summed Epstein
+    ### zero channel would.
+    one sample entry from the survey : G(1.5, 1.7) = -2.580204965154 ; the control at the same f_ab = -5.840769901714
+
+========================================================================================================
+COMPONENT 3 -- (R87)`S ORIENTATION, CARRIED INTO WHAT THE NEXT ACT WILL READ.
+========================================================================================================
+    W = PR - A ; Sum_v W_v(f) = -Z ; ### **THE SIGNATURE IS READ ON -G.**
+    under RH : -G positive semidefinite ; an off-line pair contributes a hyperbolic plane to -G
+    ### ### **(F2) HALTS ON A POSITIVE EIGENVALUE OF G** beyond the floor, for zeta
+    ### ### **(N2) AND (N3) REFER TO THE LARGEST EIGENVALUE OF G**
+    the amendment is appended BELOW b476`s lock block, and b476`s seal still reads SEAL INTACT.
+    ### ### **NO EIGENVALUE IS TAKEN BY THIS ACT. ### NO FALSIFIER IS SCORED BY THIS ACT.**
+    ### The act after the pid exits reads the log, forms the Gram at each nested family size,
+    ### prints the solver`s residual beside every eigenvalue, reads an eigenvalue below the
+    ### floor in magnitude as zero, and scores (F1)-(F3) and (N1)-(N3) in this orientation.

@@ -1,0 +1,181 @@
+====================================================================================================
+### THE REGISTRATION. ### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1,
+### auto-mode approval declared here). ### **LOCKED BEFORE THE RUN IS STARTED AND BEFORE ANY
+### OFF-DIAGONAL ENTRY EXISTS.**
+### ### **b477 -- THE GRAM RUN, DETACHED, UNDER THE b476 REGISTRATION AS AMENDED BY (R87).**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 1 OF 1** ### with its paste-end marker, received IN FULL; the act
+### runs as re-issued, banked as `b477_ferry.txt` with the author's substitution at `:15` and the
+### refused text kept whole. ### Scan ### **`0` HIT(S)** and ### **`0` (R81) FLAGS**. ### **STEP ZERO,
+### RE-RUN:** censuses ### **TOTAL MISSING `0`**, both; roster ### **`0` HARD-FAILING**. ### THE PRIOR
+### CLOSED ACT (`b480`) IS CLOSED: row 327, pushed and read back at PLACE-papers `f86e9f7`,
+### SIDE-global-section `88f1b7a`, relay `00afd4d`. ### **THIS PARAGRAPH IS `SIDE-INVARIANT`.**
+
+### ### **READING (1) -- (R87) IS ENTERED BEFORE ANY ENTRY EXISTS, AND THE SEAL IS UNBROKEN.** The
+### amendment is appended BELOW b476's lock block, so the sealed bytes are untouched and
+### `reg_seal --verify` still reads ### **SEAL INTACT**. ### The orientation it fixes governs this run:
+### `W = PR - A`, `Sum_v W_v(f) = -Z`, ### **THE SIGNATURE READ ON `-G`**; under RH `-G` is positive
+### semidefinite; ### **(F2) HALTS ON A POSITIVE EIGENVALUE OF `G`** beyond the floor, for zeta; and
+### (N2) and (N3) refer to the ### **LARGEST** eigenvalue of `G`. ### The navigator's *"pole minus
+### prime sum plus archimedean"* described `Z` and is withdrawn by its author.
+
+### ### **READING (2) -- `f_ab` IS BUILT AND SUPPLIED; THE CHAIN IS NOT EDITED.** The builder mirrors
+### `b318_square.autocorrelation` line for line -- one grid covering both seeds, `np.correlate(...,
+### 'full')`, the same `du` weight, the same support doubling -- and ### **ITS POSITIVE CONTROL IS
+### EXACT: `cross(g, g)` REPRODUCES THE CHAIN'S OWN `autocorrelation(g)` WITH WINDOW DIFFERENCE
+### `0.000e+00` AND `W` DIFFERENCE `0.000e+00`** (`b477_extract.txt`, (P1)). ### The diagonal itself is
+### computed by the chain's own `autocorrelation`, not by the builder.
+
+### ### **READING (3) -- WHICH SIDE THE CHAIN COMPUTES THE CONTROL'S `W` FROM.** Zeta's entry is
+### `b321_window.channels` -> `W = PR - A`. ### The control's entry is ### **`b325_epstein.channels_q`,
+### THE EPSTEIN OBJECT'S OWN FINITE CHANNEL AND ITS OWN ARCHIMEDEAN KERNEL**, whose return carries
+### `arch`, `finite`, `places`, `pole`, `terms` -- ### **AND NO ZERO SIDE.** ### So the control's Gram
+### is a ### **PLACES-SIDE GRAM**, and by the order's own instruction ### **THE CONTROL'S VERDICT IS
+### SCOPED TO THAT SIDE**: it can show what the places side of the Epstein object does under the same
+### family, and it cannot show what a summed Epstein zero channel would.
+
+### ### **READING (4) -- THE ORDER OF WORK, AND THE HALT.** The diagonal runs FIRST at every cell of
+### both families, `G(a,a)` against the banked `W` -- b321's for the aim plane, b437's `sum_v` for the
+### ladder -- within the floor `1.49e-08`, with the ### **ZERO SIDE AND `trunc_bound` PRINTED BESIDE
+### EACH**. ### **A MISMATCH BEYOND THE FLOOR HALTS THE RUN BEFORE ANY OFF-DIAGONAL ENTRY**, and the
+### runner returns a non-zero code. ### A cell with no banked `W` prints `NONE` and is not a mismatch.
+### Then the aim plane's off-diagonals, then the ladder's, then the control's own diagonal.
+### ### **EVERY ENTRY IS APPENDED TO `b477_entries.jsonl` AS IT LANDS, AND FLUSHED.**
+
+### ### **READING (5) -- THE PRICE, AND WHY IT IS DETACHED.** From this act's own survey: one
+### off-diagonal costs ### **`8.3` s** on both chains; the run carries ### **`309` OFF-DIAGONAL
+### ENTRIES, `35` DIAGONALS AND `35` CONTROL DIAGONALS**, priced at ### **`2923` s (`49` min)**.
+### ### **THAT IS FAR ABOVE THE `600` s FOREGROUND LIMIT, SO UNDER (R86) THE RUN IS DETACHED UNDER
+### (R80)**, logging to `relay/data/b477_gram.log`, with its pid banked and printed.
+
+### ### **READING (6) -- THE TIMESTAMP DEFECT OF b475 IS NOT REPEATED.** b475's launcher wrote one
+### instant on every module line, because `cmd` expands `%time%` once per `FOR` block. ### **THIS
+### RUNNER IS PYTHON AND STAMPS EVERY LINE FROM `datetime.now` AT THE MOMENT IT WRITES IT.**
+
+### THE PRE-FACE READS, DECLARED: (P1) the builder's positive control; (P2) one priced off-diagonal
+### and the control's side; (P3) the entry order and the price; (P4) (R87) and where it is appended.
+### All four are in `b477_extract.txt`, ### **SURVEY MISSES `0`.**
+
+----------------------------------------------------------------------------------------------------
+### (B) WHAT THIS ACT MAY AND MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+### (1) ### **THE RUN, DETACHED.** Started exactly as (A) names it, its pid banked and printed, its log
+### named. ### The act closes with the run ### **RUNNING**, its state read from the process table.
+### ### **NO EIGENVALUE IS COMPUTED BY THIS ACT AND NO FALSIFIER IS SCORED BY IT.**
+
+### (2) ### **WHAT THE ACT AFTER THE PID EXITS DOES.** It reads the log, forms the Gram at each nested
+### family size, and scores (F1)-(F3) and (N1)-(N3) ### **IN (R87)'S ORIENTATION**, with the
+### eigen-solver's residual printed beside every eigenvalue and ### **AN EIGENVALUE BELOW THE FLOOR IN
+### MAGNITUDE READ AS ZERO**.
+
+----------------------------------------------------------------------------------------------------
+### (S) WHAT STOPPING MEANS.
+----------------------------------------------------------------------------------------------------
+### The act stops with the run launched and its state read once. ### **IF THE DIAGONAL CONTROL FAILS IN
+### THE RUN, THE RUNNER HALTS ITSELF BEFORE ANY OFF-DIAGONAL ENTRY AND SAYS SO IN THE LOG** -- and the
+### act that reads the log reports the halt rather than a Gram. ### If the launch fails, that is printed
+### and the act still closes.
+
+----------------------------------------------------------------------------------------------------
+### (J) THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+### ### **NONE NEW. ### (N1), (N2) AND (N3) ARE b476'S, READ IN (R87)'S ORIENTATION, AND THEY ARE
+### SCORED BY THE ACT THAT READS THE LOG -- NOT BY THIS ONE.**
+### ### **THE SEAT'S OWN, STATED SO IT CAN BE REFUTED:** the diagonal will pass at every cell, because
+### it is the chain's own construction against the chain's own bank and the rehearsal at `a = 1.5` was
+### exact; ### **AND THE SEAT DOES NOT PREDICT ANY EIGENVALUE**, of either object, at any family size.
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SUBSTITUTION-APPLIED` `G-REFUSED-TEXT-KEPT` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO`
+### `G-STEPZERO-CENSUS` `G-STEPZERO-PINS` `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT`
+### `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED`
+### `G-R87-APPENDED-BELOW-LOCK` `G-R87-SEAL-STILL-INTACT` `G-R87-ORIENTATION-CARRIED`
+### `G-BUILDER-CONTROL-EXACT` `G-CHAIN-UNEDITED` `G-DIAGONAL-BY-THE-CHAIN`
+### `G-CONTROL-SIDE-STATED` `G-CONTROL-CHAIN-IS-EPSTEIN`
+### `G-RUN-LAUNCHED-AFTER-SEAL` `G-RUN-PID-BANKED` `G-RUN-LOG-NAMED` `G-RUN-DETACHED`
+### `G-RUN-ORDER-DIAGONAL-FIRST` `G-RUN-HALT-RULE-IN-CODE` `G-RUN-ENTRIES-FLUSHED`
+### `G-RUN-TIMESTAMPS-REAL` `G-NO-EIGENVALUE-HERE` `G-NOT-POLLED` `G-STATE-AT-CLOSE`
+### `G-SPAN-BY-TOOL` `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK`
+### `G-FOUR-LISTS-OPEN` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED`
+### `G-CORPUS-LEAN-UNTOUCHED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` and
+### `G-STATE-AT-CLOSE` are scored post-push only.
+
+----------------------------------------------------------------------------------------------------
+### (K) THE BARS. ### EIGHT.
+----------------------------------------------------------------------------------------------------
+### **BAR 1 -- THE CHAIN IS NOT EDITED; `f_ab` IS BUILT OUTSIDE IT AND SUPPLIED TO IT.**
+### **BAR 2 -- THE DIAGONAL RUNS FIRST AT EVERY CELL AND A MISMATCH BEYOND THE FLOOR HALTS THE RUN
+###   BEFORE ANY OFF-DIAGONAL ENTRY.**
+### **BAR 3 -- THE CONTROL'S SIDE IS STATED, AND ITS VERDICT IS SCOPED TO THE PLACES SIDE.**
+### **BAR 4 -- NO EIGENVALUE, NO SIGNATURE AND NO FALSIFIER IS TAKEN BY THIS ACT.**
+### **BAR 5 -- NO CLAIM ABOUT RH IN EITHER DIRECTION, AND NO GRADE ABOVE `MEASURED` IS AVAILABLE.**
+### **BAR 6 -- THE LOG IS NOT READ BY THIS ACT; THE PROCESS TABLE IS READ AT LAUNCH AND AT THE CLOSE.**
+### **BAR 7 -- THE b475 RUN IS NOT STOPPED OR INTERFERED WITH; NOTHING IS IMPORTED OR VENDORED.**
+### **BAR 8 -- `h2` WHERE THE DEPOSIT LEFT IT; NOTHING DEPOSITS; NO CORPUS GRADE MOVES; THE FOUR LISTS
+###   STAY OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85): EACH TOOL WITH THE GLOB OF WHAT IT WRITES.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b477_ferry*.txt` |
+### | the banked ferry and its refused text | `relay/data/b477_ferry.txt`
+###   `relay/data/b477_ferry_refused.txt` |
+### | `tools/b307_handoff_census.py`, `tools/b327_faces_census.py`, `tools/b303_pins.py` |
+###   `relay/data/b477_census_*.txt` `relay/data/b477_faces_census_*.txt` `relay/data/b477_pins_*.txt` |
+### | `tools/b477_extract.py` | `relay/data/b477_extract.txt` `relay/data/b477_survey.json` |
+### | the (R87) amendment | `relay/data/b476_registration_2026-09-22.txt` (appended BELOW its lock
+###   block; the sealed bytes untouched) |
+### | `tools/b477_reg_gate.py`, `tools/b477_regspec.py`, `tools/reg_satisfiable.py`,
+###   `tools/banned_terms.py`, `tools/gate_hash.py` | `relay/data/b477_reg_*.txt`
+###   `relay/data/b477_regspec_run.txt` `relay/data/b477_satisfiable.json`
+###   `relay/data/audit_b477_*.txt` |
+### | `tools/b378_lockgate.py` | `relay/data/b477_lockgate*.json` `relay/data/b477_lockgate_notes*.txt` |
+### | `tools/reg_seal.py` | `relay/data/b477_registration_2026-09-22.txt` (its lock block only) |
+### | `tools/b477_gram.py`, run DETACHED by `tools/b477_detached_run.cmd` |
+###   `relay/data/b477_gram.log` `relay/data/b477_entries.jsonl` `relay/data/b477_gram.pid` |
+### | the launcher's PowerShell wrapper | `relay/data/b477_launch.json` |
+### | `tools/b477_components.py` | `relay/data/b477_components.txt` `relay/data/b477_state.json` |
+### | `tools/b363_span.py` | `relay/data/b477_span*.json` `relay/data/b477_span_notes*.txt` |
+### | `tools/b477_desk_bank.py` | `relay/data/b477_desk_notes.txt`
+###   `relay/data/b477_the_gram_run_launched.txt` `relay/data/b477_scores.json` ;
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/b477_checks.py` | `relay/data/b477_checks*.txt` `relay/data/b477_exercise.json` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b477.zip`
+###   (outside every repository) `relay/data/b477_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (one appended record) |
+### | the closing | `relay/data/b477_closing.txt` `relay/data/b477_index_queries.txt` |
+### ### **AND NO OTHER FILE IS WRITTEN IN ANY REPOSITORY. ### THE RUNNING LOG AND THE ENTRIES FILE ARE
+### NOT COMMITTED BY THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### Nothing deposits. ### Nothing is imported, copied or vendored. ### No Lean of the corpus is
+### touched. ### No corpus grade moves. ### **NO EIGENVALUE IS TAKEN, NO SIGNATURE READ, NO FALSIFIER
+### SCORED, AND NO CLAIM MADE ABOUT RH IN EITHER DIRECTION.** ### No site is entered and row `U1` is
+### not written. ### The b475 run is not stopped. ### The wave stays parked under `(R66)`. ### `h2`
+### stands exactly where the deposit left it. ### **AND THE FOUR LISTS ARE OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (R50) THE ADDENDUM SLOT.
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 2a7a7a5438804046243ccf465e3f16c5895f03d208ef3fdcdb6c6e753c270630
+### bytes locked : 13556
+### locked at (UTC) : 2026-09-22T21:14:45Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b477_registration_2026-09-22.txt`.**
+====================================================================================================
