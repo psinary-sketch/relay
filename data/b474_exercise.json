@@ -275,8 +275,8 @@
   },
   {
    "name": "G-WRITELIST-KINDS",
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "every b474 commit in three repositories"
   },
@@ -309,6 +309,13 @@
    "reads": "the suite own text"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -337,12 +344,12 @@
    "reads": "the suite`s own text -- b472`s repair, carried"
   }
  ],
- "run": 48,
- "live_failing": [],
+ "run": 49,
+ "live_failing": [
+  "G-WRITELIST-KINDS"
+ ],
  "defective": [],
- "neg_failures": 0,
+ "neg_failures": 1,
  "declared": 49,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD"
- ]
+ "deferred": []
 }
