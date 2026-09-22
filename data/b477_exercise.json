@@ -218,6 +218,13 @@
    "reads": "this act`s own tools, for any read of the gram log"
   },
   {
+   "name": "G-STATE-AT-CLOSE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the close-state bank"
+  },
+  {
    "name": "G-SPAN-BY-TOOL",
    "live": true,
    "neg": true,
@@ -316,6 +323,13 @@
    "reads": "the suite own text"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -344,15 +358,12 @@
    "reads": "the suite`s own text -- b472`s repair, carried"
   }
  ],
- "run": 49,
+ "run": 51,
  "live_failing": [
   "G-SCAN-FLAGS-ZERO"
  ],
  "defective": [],
  "neg_failures": 1,
  "declared": 51,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD",
-  "G-STATE-AT-CLOSE"
- ]
+ "deferred": []
 }
