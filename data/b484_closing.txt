@@ -1,0 +1,114 @@
+====================================================================================================
+b484 -- THE CLOSING RECORD.
+### THE CURRENCY REPAIR, THE QUADRATURE WORK-ORDER, AND THE SUPPORT-EDGE TEST.
+====================================================================================================
+
+### (1) COMPONENT 1 -- (R92) EXECUTED, WITH (R93) FIXING ITS ADDRESSEE.
+----------------------------------------------------------------------------------------------------
+    `INVARIANCE_BARRIERS.md:580` now carries REGISTRY`s own `d1-1` row values.
+      the version word : v1.1.1  ->  ### **v1.1.2**
+      the version DOI  : ...21436278  ->  ### **...21539167**
+      the concept DOI  : ### **ALREADY AGREED -- NOT TOUCHED**
+      the Day-1 DOI    : a different record, not a currency claim -- ### **NOT TOUCHED**
+    ### ### **LINES OF THE OLD FILE ABSENT FROM THE NEW FILE : 0.**
+    ### the original line is preserved VERBATIM in an appended annotation, so the old
+    ### file`s lines are a SUBSET of the new file`s.
+    ### ### **AND THE RAW COUNTS ARE PRINTED BESIDE THAT SENTENCE, NOT HIDDEN BEHIND IT:**
+    ### git `--numstat` reads ### **+14 / -1** -- one line modified, an annotation added.
+    ### ### **OTHER LINES CHANGED IN PLACE : 0.** ### BOM and line ending verified.
+
+### (2) COMPONENT 2 -- `W-ORD-QUADRATURE-BOUND`, FILED.
+----------------------------------------------------------------------------------------------------
+    ### **THE CORPUS HOLDS NO ERROR BOUND FOR THE PLACES-SIDE QUADRATURE.** ### The chain
+    ### reports `trunc_bound`, which bounds the ZERO SUM`s truncation; b483 measured the
+    ### achieved agreement at 4.562e-05 and 3.169e-06 against 1.290e-12 and 6.421e-11 --
+    ### ### **AN UNDER-STATEMENT OF UP TO SEVEN ORDERS.**
+    ### TRIGGER: the next opening of the numerical instrument lane, or the next act citing
+    ### a chain floor.
+    ### ### **ACTS CITING `trunc_bound` : 7.** ### b321, b326, b340, b437, b476, b477, b483
+    ### ### **OF THOSE, ACTS PREDICATING IT AS A FLOOR OR A CHAIN BOUND : 1.** ### b483
+    ### the matcher`s lineage: version 1 (CO-OCCURRENCE) returned 2 ; version 2
+    ### (PREDICATION) returned 1. ### The difference is `b477`, whose sentence names two
+    ### figures without equating them -- ### **A FALSE POSITIVE, HAND-READ AND SAID SO.**
+    ### ### **AND THE ONE ACT THAT DOES PREDICATE IT IS b483, WHICH REFUTED ITSELF IN ITS
+    ### OWN COMPONENT 3.** ### The chain is not edited.
+
+### (3) COMPONENT 3 -- THE SUPPORT-EDGE TEST.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE LOOP HAS TWO COMPARATORS, NOT ONE.** ### The outer cap carries a `1e-12`
+    ### tolerance; the inner gate `if ln <= L`, which is what actually adds a term, carries
+    ### ### **NONE** -- and `L = 2.0 * math.log(a)` exactly.
+    a * a      = ### **17.000003087236**   (17 = 17.0)
+    a*a - 17   = ### **+3.087236e-06**
+    L - log 17 = ### **+1.816021e-07**
+    ### ### **17 ENTERS THE SUM AT THAT CELL -- AND NOT AT THE EDGE.** ### The banks store
+    ### the cell as the ROUNDED DECIMAL `4.123106`, which leaves the inner gate a margin of
+    ### `4.089e+08` times the float`s own resolution there. ### **THE EDGE CASE IS NEVER
+    ### EXERCISED AND THE ADMISSION OWES NOTHING TO THE CONVENTION.**
+    ### b400`s routed discrepancy : ### **THE SAME COMPARATOR** -- and b400 already priced
+    ### it: ### **"It moves no value."**
+
+    ### ### **THE VERDICT : SEPARATE OBJECTS.**
+    ### b437`s rung is a LADDER INDEX, b446/b447`s outlier a DECORRELATION RESIDUAL ORDER,
+    ### b483`s excursion a GRAM SIGNATURE. ### **THEY SHARE A CELL, NOT A CAUSE.**
+    ### ### **AND WHAT THEY DO SHARE IS STILL UNEXPLAINED. ### THIS ACT LEAVES IT OPEN**,
+    ### because naming a common cause the record shows cannot move a number would be worse
+    ### than leaving the coincidence standing.
+
+### (4) THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+    (N1) ### **SPLIT -- THE CONCLUSION HELD, THE REASON REFUTED**
+    (N2) ### **HELD**
+    (N3) ### **REFUTED**
+    ### ### **REGISTERED 3 ; HELD 1 ; SPLIT 1 ; REFUTED 1.** ### The seat`s own calls were
+    ### on the sealed face before the components ran and matched all three -- including
+    ### registering `(N1)` as a SPLIT on purpose, because its conclusion and its reason
+    ### come apart.
+
+### (5) A DEFECT IN THIS ACT`S OWN CENSUS, FOUND BY THIS ACT.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE MATCHER FOUND ITSELF.** ### Its first run scanned `data/b484_*` and
+    ### returned ### **b484** ### as a mis-scoping act -- because the hand-read residue
+    ### block QUOTES the offending sentence in order to judge it. ### **A QUOTATION
+    ### MATCHES THE RULE THAT CONDEMNS WHAT IT QUOTES.**
+    ### This is `b481`s species a second time. ### The stem is excluded BY NAME rather than
+    ### by hoping the run order hides it, and it was declared on the face BEFORE the seal.
+    ### ### **TWO INSTANCES NOW, SO IT BELONGS IN A TOOL AND NOT IN EACH ACT`S MEMORY --
+    ### ROUTED.**
+    ### ### **AND ONE ARM OF THIS SUITE WAS DEFECTIVE ON ITS FIRST RUN:**
+    ### `G-C2-CHAIN-NOT-EDITED` called git INSIDE its predicate, so it read live state and
+    ### ignored the supplied source -- ### **AN ARM THAT DOES NOT READ ITS SOURCE CANNOT BE
+    ### HANDED A MUTATED ONE AND SO CANNOT FAIL ITS POSITIVE CONTROL.** ### Caught by that
+    ### control doing exactly its job, and repaired to read `S`.
+
+### (6) THE INSTRUMENTS.
+----------------------------------------------------------------------------------------------------
+    the face   : sealed, ### **SEAL INTACT**
+      sha256 : 3b158ac48adc7fb7be7d0cdbd4eb05f59f8b5f3a978d640b10da227a9cf7255f
+    the suite  : 56 arms run, 0 live failing  ; positive-control passes 0
+      ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+    the mirror : CLEAN ON ALL THREE CLAUSES
+    closing pins : ### REPOS HARD-FAILING : 0
+    closing censuses : TOTAL MISSING 0 and 0
+    the span by the tool : ### **10** -- one PAST the declared threshold of nine.
+      ### the ferry`s own order is ### **b479, THEN b482, THEN THE FOLD.**
+
+### (7) WHAT DID NOT HAPPEN.
+----------------------------------------------------------------------------------------------------
+    ### **NO CHAIN WAS RUN AND NO ENTRY COMPUTED** -- `b321_window.py` was read as TEXT and
+    ### never imported; `math.log` on two numbers is arithmetic, not the chain.
+    ### **NO LANE WAS OPENED.** ### **b449`S AND b483`S BANKS ARE UNEDITED.**
+    ### **b475`S LOG WAS NOT OPENED.** ### **NOTHING WAS FETCHED** -- the values came from
+    ### REGISTRY`s own row, and (R90) leaves the two manifests to the author`s fetch.
+    ### **THE CHAIN IS NOT EDITED AND NOTHING IN IT IS REPAIRED**; the work-order is FILED.
+    ### No corpus grade moved; no REGISTRY row written; no ledger row edited; row U1
+    ### unedited; no bridge typed; h2 where the deposit left it; the four lists stay OPEN;
+    ### no claim about RH in either direction.
+
+### (8) THE COMMITS, EACH READ BACK BY ls-remote.
+----------------------------------------------------------------------------------------------------
+    relay                HEAD b35dbeee   remote b35dbeee   ### PASS
+    PLACE-papers         HEAD 947bb748   remote 947bb748   ### PASS
+    SIDE-global-section  HEAD 063020f1   remote 063020f1   ### PASS
+    ### all three pushed from `push-b484`, never from `main`.
+====================================================================================================
