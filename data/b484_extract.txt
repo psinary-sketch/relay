@@ -1,0 +1,145 @@
+==========================================================================================================
+b484 -- THE SURVEY. ### THE COMPARATOR READ AS TEXT; THE CHAIN NOT RUN.
+==========================================================================================================
+
+(P1) b321`S PRIME-SUM LOOP: ### **THE COMPARATORS, AT THEIR OWN LINES.**
+----------------------------------------------------------------------------------------------------------
+    b321_window.py:77   PRIME_TOL = 1e-12     # ### the atlas's own `p ** k <= a + 1e-12`
+    b321_window.py:111  for p in primes_to(math.exp(L) + PRIME_TOL):   # ### the set generated to THIS reach
+    b321_window.py:113  while p ** k <= math.exp(L) + PRIME_TOL:
+    b321_window.py:116  if ln <= L:
+    b321_window.py:109  L = float(v[-1])
+
+    ### ### **THERE ARE TWO COMPARATORS, NOT ONE, AND THEY DO NOT AGREE ON THE EDGE.**
+    ### the OUTER cap `p ** k <= math.exp(L) + PRIME_TOL` admits ### **WITH A TOLERANCE**;
+    ### the INNER gate `if ln <= L` -- which is what actually decides whether a term is
+    ### added -- admits ### **WITH NO TOLERANCE AT ALL**, in LOG coordinates.
+    ### ### **THE DECIDING COMPARATOR IS THEREFORE `math.log(n) <= L`, WEAK INEQUALITY,
+    ### NO TOLERANCE.** ### The outer cap only bounds which prime powers are considered.
+
+(P2) WHAT `L` IS AT A CELL, DERIVED BY READING THREE FILES AND NOT BY RUNNING THEM.
+----------------------------------------------------------------------------------------------------------
+    carto_atlas.py:44   L = math.log(a)   ### the seed bump`s half-width
+    carto_atlas.py:45   v = np.linspace(-L, L, NV)   ### so `v[-1] = math.log(a)` EXACTLY
+    b317_smear.py:186   V = np.union1d(V, v)   ### the union keeps the widest grid`s endpoint
+    b318_square.py:106   L = abs(float(f.v[-1]))
+    b318_square.py:125   v = np.linspace(-2.0 * L, 2.0 * L, ac.size)   ### the support DOUBLES
+
+    ### ### **SO `L = 2.0 * math.log(a)` EXACTLY**, since `linspace`s endpoint is exact and
+    ### the widest of the three bumps is `bump(a**1)`. ### **THE GATE IS THEREFORE**
+    ### ### **`math.log(n) <= 2.0 * math.log(a)`**, which is `n <= a**2` read in logs --
+    ### and reading it in logs is not the same test as reading it in `a**2`, at the edge.
+
+(P3) THE CELL `a = 4.123106`, TO FULL PRECISION, AGAINST `17`.
+----------------------------------------------------------------------------------------------------------
+    the cell as the banks store it
+      a               = 4.123106
+      a * a           = 17.000003087236
+      17              = 17.0
+      a*a - 17        = +3.087236e-06
+      L = 2 log a     = 2.833213525658317
+      log 17          = 2.833213344056216
+      L - log 17      = +1.816021e-07   ### the margin the INNER gate actually sees
+      ### outer cap `17 <= exp(L) + 1e-12` : ### **True**
+      ### inner gate `log 17 <= L`         : ### **True**
+
+    sqrt(17) to full float precision
+      a               = 4.123105625617661
+      a * a           = 17.0
+      17              = 17.0
+      a*a - 17        = +0.000000e+00
+      L = 2 log a     = 2.833213344056216
+      log 17          = 2.833213344056216
+      L - log 17      = +0.000000e+00   ### the margin the INNER gate actually sees
+      ### outer cap `17 <= exp(L) + 1e-12` : ### **True**
+      ### inner gate `log 17 <= L`         : ### **True**
+
+    ### ### **17 ENTERS THE SUM AT THIS CELL -- AND NOT AT THE EDGE.**
+    ### The banks store the cell as the ROUNDED DECIMAL `4.123106`, not as `sqrt(17)`.
+    ### That rounding puts `a**2` ### **3.087236e-06 ABOVE 17**, so `17` is STRICTLY INSIDE the
+    ### support by ### **1.816021e-07 in log units** -- ### **THE EDGE CASE IS NEVER EXERCISED AT
+    ### THIS CELL.** ### **SO THE COMPARATOR`S BOUNDARY CONVENTION CANNOT BE WHAT
+    ### DISTINGUISHES THIS CELL**, whichever way the convention is read.
+    ### ### **AND AT `sqrt(17)` ITSELF -- A CELL THE BANKS DO NOT HOLD -- BOTH GATES STILL
+    ### ADMIT:** outer True, inner True, margin exactly +0.000e+00. ### The inner gate is a WEAK
+    ### inequality, so equality passes it. ### **THE FIRST DRAFT OF THIS SURVEY SAID THE
+    ### TWO GATES DISAGREE THERE; THEY DO NOT, AND THE CLAIM IS WITHDRAWN.**
+    ### ### **SO THE CODE IMPLEMENTS THE WEAK READING AT THE EDGE TOO** -- which is b321`s
+    ### stated RULE. ### But b400`s point survives it: at the exact edge `f` VANISHES, the
+    ### term`s value is `0`, and `prime_sum`s own `if val:` keeps it out of `terms`.
+    ### ### **SO AT THE EDGE THE PRIME ENTERS THE LOOP AND NOT THE LIST**, and the
+    ### convention decides a printed membership and nothing numerical.
+
+(P4) b400`S ROUTED DISCREPANCY ON b321`S FACE, AT ITS ADDRESS.
+----------------------------------------------------------------------------------------------------------
+    b400_closing.txt:201  ### ### **(2) A PRIOR ACT'S FACE CARRIES TWO CONVENTIONS.** ### `b321`'s Component 3 states its
+    b400_closing.txt:202  ### rule as *a prime power `p^m` enters exactly when `p^m <= a^2`* and its printed list omits `4`
+    b400_closing.txt:203  ### at `a = 2` and `9` at `a = 3`, which is the STRICT reading -- ### **THEY DISAGREE AT `2` OF
+    b400_closing.txt:204  ### ### `13` CELLS.** ### It moves no value, because `f = g conv g^#` vanishes at the endpoints of
+    b400_closing.txt:205  ### `[a^-2, a^2]`, so an endpoint prime power contributes `0` to (149) under either reading. ###
+    b400_closing.txt:206  ### **THE PRIOR FACE IS NOT EDITED; BOTH CONVENTIONS ARE PRINTED CELL BY CELL; THE DISAGREEMENT IS
+    b400_closing.txt:207  ### ### ROUTED.**
+
+    ### ### **IT IS THE SAME COMPARATOR** -- the same boundary, `p^m <= a^2` against
+    ### `p^m < a^2`, and the code`s `if ln <= L` is the WEAK side, which is b321`s stated
+    ### RULE and not b321`s printed LIST.
+    ### ### **AND b400 ALREADY DECIDED WHAT IT IS WORTH:** *"IT MOVES NO VALUE. `f = g conv
+    ### g^#` is a self-convolution supported in `[a^-2, a^2]` and VANISHES AT ITS
+    ### ENDPOINTS, so an endpoint prime power contributes `0` to (149) under either
+    ### reading; what differs is a printed membership list."*
+
+(P5) THE THREE MEASUREMENTS THAT SINGLE OUT THIS CELL, QUOTED FROM THEIR OWN BANKS.
+----------------------------------------------------------------------------------------------------------
+    b437 -- b437_components.txt:132
+        4.123106  11     0.173311991     0.148578723     -0.024733268    -1.10e-07   1.15e-11    yes
+    b446 (on b437) -- b446_components.txt:33
+        ### the rung alone: 4.123106 is sqrt(17), where b437`s ladder turns from rung 10 to 11, but 3.605551 is
+    b446 -- b446_closing.txt:82
+        THE OUTLIER 4.123106: order -0.34 against [0.95, 1.95] -- REFUSES. Not the rung alone (3.605551 = sqrt(13) converged);
+    b447 -- b447_components.txt:5
+        ### ### **COMPONENT 1 -- THE THIRD DOUBLING AT a = 4.123106.**
+    b483 -- b483_components.txt:169
+        LADDER     n=8   a=4.12311    lam_max(G) = +2.785973e-08   resolution 1.609e-06
+
+(P6) THE `trunc_bound` CENSUS OVER THE BANKED ACTS, BY THE MATCHER`S OWN RULE.
+----------------------------------------------------------------------------------------------------------
+    ### THE RULE, FIXED BEFORE IT RUNS:
+      (a) ### **A CITING ACT** is an act whose banked `data/bNNN_*` text contains the token
+          `trunc_bound`. ### The act is counted ONCE however many times it says it.
+      (b) ### **A MIS-SCOPING ACT** is one whose sentence ### **PREDICATES** ### `trunc_bound`
+          as a floor or as the chain`s binding bound -- not one whose sentence merely
+          MENTIONS both figures. ### The window is the SENTENCE, not the line and not the
+          paragraph -- ### **b483 PAID FOR THAT LESSON TWICE IN ONE ACT** -- and the test
+          inside the window is PREDICATION, not CO-OCCURRENCE. ### Both versions of the
+          matcher are run and both yields printed below.
+      (c) ### A sentence that says `trunc_bound` bounds the zero sum or the truncation, or
+          that it does NOT cover the places side, is ### **CORRECTLY SCOPED** and is not
+          counted -- ### **INCLUDING THIS ACT`S OWN AND b483`S.**
+
+    ### ### **ACTS CITING `trunc_bound` : 7** -- b321, b326, b340, b437, b476, b477, b483
+
+    ### THE MATCHER`S LINEAGE, BOTH VERSIONS` YIELDS PRINTED:
+      version 1, CO-OCCURRENCE in a sentence : ### **2** -- b477, b483
+      version 2, PREDICATION                 : ### **1** -- b483
+    ### ### **VERSION 2 IS ADOPTED, AND THE RESIDUE IS HAND-READ BELOW RATHER THAN
+    ### DISCARDED** -- the rule the record already carries for a narrowed screen.
+
+    ### THE HAND-READ RESIDUE -- every sentence version 1 caught, with its verdict:
+      b477  b477_closing.txt  ### **NOT A CLAIM -- two figures in one sentence**
+        ### ### **THE ORDER OF WORK AND THE HALT:** the diagonal at every cell first, against b321`s banked   ### `W` and b437`s `sum_v`, with the zero side and `trunc_bound` printed beside each;   ### **A MI
+      b477  b477_components.txt  ### **NOT A CLAIM -- two figures in one sentence**
+        ### **THE DIAGONAL AT EVERY CELL** -- G(a,a) by the chain`s own autocorrelation, against        b321`s banked W (aim plane) and b437`s sum_v (ladder), within the floor 1.49e-08, with        ### **THE 
+      b477  b477_ferry.txt  ### **NOT A CLAIM -- two figures in one sentence**
+        Diagonal check first at every cell: G(a,a) against banked W within the floor, halt on mismatch; the zero side printed beside each diagonal with the trunc_bound figure.
+      b483  b483_extract.txt  ### **MIS-SCOPED**
+        ### the tail figure `trunc_bound` : min 1.184e-12 ; max ### **6.421e-11**       ### ### **THE TAIL BOUND IS FOUR ORDERS BELOW THE FLOOR**, so it is the binding       ### figure for (F2) and (F3), not 
+
+    ### ### **OF THE 7 CITING ACTS, ACTS PREDICATING `trunc_bound` AS A FLOOR OR AS THE
+    ### CHAIN`S BINDING BOUND : 1** -- b483
+    ### ### **AND ONE OF THEM IS b483, THIS ACT`S OWN PREDECESSOR, WHICH SAID IT IN ITS
+    ### SURVEY AND THEN REFUTED IT IN ITS COMPONENT 3.** ### The work-order is filed
+    ### against a defect the record has already caught itself committing.
+
+==========================================================================================================
+  ### MISSES : 0 
+==========================================================================================================

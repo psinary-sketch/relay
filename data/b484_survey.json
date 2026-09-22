@@ -1,0 +1,103 @@
+{
+ "rows": [
+  {
+   "name": "the cell as the banks store it",
+   "a": 4.123106,
+   "asq": 17.000003087236,
+   "L": 2.833213525658317,
+   "ln17": 2.833213344056216,
+   "inner": true,
+   "outer": true,
+   "margin": 1.8160210091267004e-07
+  },
+  {
+   "name": "sqrt(17) to full float precision",
+   "a": 4.123105625617661,
+   "asq": 17.0,
+   "L": 2.833213344056216,
+   "ln17": 2.833213344056216,
+   "inner": true,
+   "outer": true,
+   "margin": 0.0
+  }
+ ],
+ "quotes": [
+  {
+   "act": "b437",
+   "path": "b437_components.txt",
+   "line": 132,
+   "text": "4.123106  11     0.173311991     0.148578723     -0.024733268    -1.10e-07   1.15e-11    yes"
+  },
+  {
+   "act": "b446 (on b437)",
+   "path": "b446_components.txt",
+   "line": 33,
+   "text": "### the rung alone: 4.123106 is sqrt(17), where b437`s ladder turns from rung 10 to 11, but 3.605551 is"
+  },
+  {
+   "act": "b446",
+   "path": "b446_closing.txt",
+   "line": 82,
+   "text": "THE OUTLIER 4.123106: order -0.34 against [0.95, 1.95] -- REFUSES. Not the rung alone (3.605551 = sqrt(13) converged);"
+  },
+  {
+   "act": "b447",
+   "path": "b447_components.txt",
+   "line": 5,
+   "text": "### ### **COMPONENT 1 -- THE THIRD DOUBLING AT a = 4.123106.**"
+  },
+  {
+   "act": "b483",
+   "path": "b483_components.txt",
+   "line": 169,
+   "text": "LADDER     n=8   a=4.12311    lam_max(G) = +2.785973e-08   resolution 1.609e-06"
+  }
+ ],
+ "citing": [
+  "b321",
+  "b326",
+  "b340",
+  "b437",
+  "b476",
+  "b477",
+  "b483"
+ ],
+ "citing_n": 7,
+ "wide": {
+  "b477": [
+   [
+    "b477_closing.txt",
+    "### ### **THE ORDER OF WORK AND THE HALT:** the diagonal at every cell first, against b321`s banked   ### `W` and b437`s `sum_v`, with the zero side and `trunc_bound` printed beside each;   ### **A MI"
+   ],
+   [
+    "b477_components.txt",
+    "### **THE DIAGONAL AT EVERY CELL** -- G(a,a) by the chain`s own autocorrelation, against        b321`s banked W (aim plane) and b437`s sum_v (ladder), within the floor 1.49e-08, with        ### **THE "
+   ],
+   [
+    "b477_ferry.txt",
+    "Diagonal check first at every cell: G(a,a) against banked W within the floor, halt on mismatch; the zero side printed beside each diagonal with the trunc_bound figure."
+   ],
+   [
+    "b477_registration_2026-09-22.txt",
+    "### ### **READING (4) -- THE ORDER OF WORK, AND THE HALT.** The diagonal runs FIRST at every cell of ### both families, `G(a,a)` against the banked `W` -- b321's for the aim plane, b437's `sum_v` for "
+   ]
+  ],
+  "b483": [
+   [
+    "b483_extract.txt",
+    "### the tail figure `trunc_bound` : min 1.184e-12 ; max ### **6.421e-11**       ### ### **THE TAIL BOUND IS FOUR ORDERS BELOW THE FLOOR**, so it is the binding       ### figure for (F2) and (F3), not "
+   ]
+  ]
+ },
+ "wide_n": 2,
+ "misscoped": {
+  "b483": [
+   [
+    "b483_extract.txt",
+    "### the tail figure `trunc_bound` : min 1.184e-12 ; max ### **6.421e-11**       ### ### **THE TAIL BOUND IS FOUR ORDERS BELOW THE FLOOR**, so it is the binding       ### figure for (F2) and (F3), not "
+   ]
+  ]
+ },
+ "misscoped_n": 1,
+ "misses": []
+}

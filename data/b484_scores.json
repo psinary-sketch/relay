@@ -1,0 +1,17 @@
+{
+ "N1": {
+  "nav": "the comparator admits the prime at the edge, so 17 enters at that cell",
+  "verdict": "SPLIT -- THE CONCLUSION HELD, THE REASON REFUTED",
+  "note": "`17` DOES enter: both gates admit. ### **BUT NOT AT THE EDGE.** The banks store the cell as the rounded decimal `4.123106`, which puts `a*a` 3.087236e-06 above `17` and leaves the inner gate a margin of 1.816021e-07 in log units -- `4.089e+08` times the float`s own resolution there. ### **THE EDGE BEHAVIOUR IS NEVER REACHED AT THIS CELL AND THE ADMISSION OWES NOTHING TO THE CONVENTION.**"
+ },
+ "N2": {
+  "nav": "b400's routed discrepancy is the same comparator",
+  "verdict": "HELD",
+  "note": "Same boundary, `p^m <= a^2` against `p^m < a^2`, and the code`s `if ln <= L` sits on the WEAK side -- which is b321`s stated RULE and not b321`s printed LIST. ### b400 read it at `2` of `13` cells and routed it."
+ },
+ "N3": {
+  "nav": "at least two of the three measurements trace to that inclusion, so the verdict is ONE CONVENTION on those two",
+  "verdict": "REFUTED",
+  "note": "The verdict is ### **SEPARATE OBJECTS**. ### b400 already established that the inclusion **MOVES NO VALUE** -- `f` vanishes at the endpoints, so an endpoint prime power contributes `0` under either reading -- and at this cell the prime is strictly inside anyway, so the convention is not even consulted. ### **A CONVENTION THAT CHANGES NO NUMBER CANNOT BE THE COMMON CAUSE OF THREE NUMBERS.** ### The three share a cell, not a cause, and the coincidence is left OPEN."
+ }
+}

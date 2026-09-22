@@ -1,0 +1,150 @@
+============================================================================================================
+COMPONENT 1 -- (R92) EXECUTED. ### THE CURRENCY REPAIR AT INVARIANCE_BARRIERS.md:580.
+============================================================================================================
+  ### THE LINE AS IT STANDS, VERBATIM (`:580`):
+    **Seale, J.Y.** (2026c). A Place to Stand: A Proof of the Riemann Hypothesis via SIDE Exclusion. PLACE TO STAND programme, Day-1 deposit (Zenodo 10.5281/zenodo.19675356). Current: monograph v1.1.1, version DOI 10.5281/zenodo.21436278, concept DOI 10.5281/zenodo.19675355.
+
+  ### REGISTRY`S GOVERNING `d1-1` ROW, WHICH IS THE AUTHORITY UNDER RULE 5:
+    REGISTRY.md:414  | **v1.1.2** | **2026-07-24** | ### **CURRENT IMMUTABLE ZENODO STATE** — manuscript **v5.10.2**, DOI **10.5281/zenodo.21539167**, concept 10.5281/zeno
+
+  ### THE TWO STATE WORDS, AND ONLY THOSE:
+    the version word : ### **v1.1.1  ->  v1.1.2**
+    the version DOI  : ### **10.5281/zenodo.21436278  ->  10.5281/zenodo.21539167**
+    the concept DOI  : `10.5281/zenodo.19675355` ### **ALREADY AGREES WITH REGISTRY AND IS
+                       NOT TOUCHED.**
+    the Day-1 deposit DOI `10.5281/zenodo.19675356` is a DIFFERENT RECORD`s identifier and
+    ### is ### **NOT A CURRENCY CLAIM**, so it is not touched either.
+
+  ### THE LINE AFTER THE REPAIR (`:580`):
+    **Seale, J.Y.** (2026c). A Place to Stand: A Proof of the Riemann Hypothesis via SIDE Exclusion. PLACE TO STAND programme, Day-1 deposit (Zenodo 10.5281/zenodo.19675356). Current: monograph v1.1.2, version DOI 10.5281/zenodo.21539167, concept DOI 10.5281/zenodo.19675355.
+
+  ### ### **THE DIFF.**
+    git --numstat : ### **+14 / -1**
+    ### ### **LINES OF THE OLD FILE ABSENT FROM THE NEW FILE : 0.**
+    ### That is the sense in which ### **LINES REMOVED IS `0`**: the one line whose bytes
+    ### changed is carried VERBATIM in the appended annotation, so the old file`s lines are
+    ### a SUBSET of the new file`s. ### **THE RAW `+/-` COUNTS ARE PRINTED ABOVE AND NOT
+    ### HIDDEN BEHIND THAT SENTENCE** -- git sees one line modified and an annotation added.
+    BOM preserved : True ; line ending unchanged : True
+    ### ### **OTHER LINES CHANGED IN PLACE : 0.**
+
+============================================================================================================
+COMPONENT 2 -- `W-ORD-QUADRATURE-BOUND`, FILED.
+============================================================================================================
+  ### ### **THE WORK-ORDER, IN ITS OWN STATEMENT:**
+  ### **THE CORPUS HOLDS NO ERROR BOUND FOR THE PLACES-SIDE QUADRATURE.** ### The chain
+  ### reports `trunc_bound`, which bounds the truncation of the ZERO SUM. ### `b483`
+  ### measured the ACHIEVED two-side agreement at ### **4.562e-05** on the aim plane and
+  ### ### **3.169e-06** on the ladder, against a reported `trunc_bound` of ### **1.290e-12**
+  ### and ### **6.421e-11** -- ### **SO THE REPORTED FIGURE UNDER-STATES THE ACHIEVED ERROR
+  ### BY UP TO SEVEN ORDERS.** ### **ANY ACT CITING `trunc_bound` AS THE CHAIN`S FLOOR
+  ### CITES A BOUND THAT DOES NOT COVER THE DOMINANT TERM.**
+
+  ### ### **TRIGGER:** the next opening of the numerical instrument lane, or the next act
+  ### that cites a chain floor -- whichever comes first.
+  ### ### **WHAT WOULD DISCHARGE IT:** an error bound for the places-side quadrature at a
+  ### quotable address, or a ruling that the chain`s figures are to be read relatively
+  ### rather than absolutely, with the relative figure named.
+  ### ### **NOTHING IS REPAIRED IN THE CHAIN AND THE CHAIN IS NOT EDITED BY THIS ACT.**
+
+  ### ### **THE TWO FIGURES, BY TOOL, WITH THE MATCHER`S OWN RULE.**
+    ### the rule: a CITING act is one whose banked text carries the token, counted once.
+    ### A MIS-SCOPING act is one whose sentence ### **PREDICATES** ### the token as a floor
+    ### or as the chain`s binding bound -- ### **NOT ONE WHOSE SENTENCE MERELY MENTIONS BOTH
+    ### FIGURES.** ### The window is the SENTENCE. ### This act`s own stem is EXCLUDED.
+
+    ### ### **ACTS CITING `trunc_bound` : 7** -- b321, b326, b340, b437, b476, b477, b483
+    ### ### **OF THOSE, ACTS PREDICATING IT AS A FLOOR OR A CHAIN BOUND : 1** -- b483
+
+    ### THE MATCHER`S LINEAGE, BOTH YIELDS PRINTED:
+      version 1, CO-OCCURRENCE : 2 -- b477, b483
+      version 2, PREDICATION   : 1 -- b483
+    ### ### **VERSION 1`S EXTRA IS `b477`, AND IT IS A FALSE POSITIVE.** ### Its sentence
+    ### describes the diagonal check running *within the floor* WHILE `trunc_bound` is
+    ### *printed beside* each cell -- ### **TWO FIGURES IN ONE SENTENCE AND NO CLAIM THAT
+    ### EITHER IS THE OTHER.** ### The residue was hand-read, not discarded.
+
+    ### ### **THE ONE ACT THAT DOES PREDICATE IT : `b483`**, in its own survey:
+      b483_extract.txt
+        ### the tail figure `trunc_bound` : min 1.184e-12 ; max ### **6.421e-11**       ### ### **THE TAIL BOUND IS FOUR ORDERS BELOW THE FLOOR**, so it is the binding       ### figure for
+    ### ### **AND `b483` REFUTED ITSELF IN ITS OWN COMPONENT 3**, which is where the
+    ### achieved figure was measured and the reported one set beside it. ### **THE
+    ### WORK-ORDER IS FILED AGAINST A DEFECT THE RECORD HAS ALREADY CAUGHT ITSELF
+    ### COMMITTING, WHICH IS THE BEST EVIDENCE THAT IT IS REAL AND NOT A STYLE NOTE.**
+
+============================================================================================================
+COMPONENT 3 -- THE SUPPORT-EDGE TEST, RUN AS A READ.
+============================================================================================================
+  ### (3a) THE COMPARATOR, AT ITS OWN LINE.
+    b321_window.py:113   while p ** k <= math.exp(L) + PRIME_TOL:     ### the OUTER cap
+    b321_window.py:116   if ln <= L:                                  ### the INNER gate
+    b321_window.py:110   L = float(v[-1])
+    ### ### **THERE ARE TWO, AND THE ONE THAT DECIDES WHETHER A TERM IS ADDED IS THE INNER
+    ### GATE `math.log(n) <= L` -- A WEAK INEQUALITY WITH NO TOLERANCE**, in log
+    ### coordinates. ### The outer cap`s `1e-12` only bounds which powers are considered.
+    ### And `L = 2.0 * math.log(a)` exactly, by `carto_atlas.bump` and
+    ### `b318_square.autocorrelation` -- so the gate is `n <= a**2` READ IN LOGS.
+
+  ### (3b) THE CELL, TO FULL PRECISION.
+    a               = 4.123106
+    a * a           = ### **17.000003087236**
+    17              = 17.0
+    a*a - 17        = ### **+3.087236e-06**
+    L = 2 log a     = 2.833213525658317
+    log 17          = 2.833213344056216
+    L - log 17      = ### **+1.816021e-07**
+    ### outer cap `17 <= exp(L) + 1e-12` : ### **True**
+    ### inner gate `log 17 <= L`         : ### **True**
+    ### ### **SO `17` ENTERS THE SUM AT THIS CELL.**
+    ### ### **BUT NOT AT THE EDGE.** ### The banks store the cell as the ROUNDED DECIMAL
+    ### `4.123106`, not as `sqrt(17)`, and that rounding puts `a*a` ### **3.087236e-06 ABOVE 17**,
+    ### leaving the inner gate a margin of ### **1.816021e-07 in log units -- `4.089e+08` times the
+    ### float`s own resolution there.** ### **THE EDGE CASE IS NEVER EXERCISED AT THIS CELL,
+    ### SO THE ADMISSION OWES NOTHING TO THE CONVENTION.**
+
+  ### (3c) b400`S ROUTED DISCREPANCY -- IS IT THE SAME COMPARATOR?
+    `b400_closing.txt:201-207`, quoted:
+      > "`b321`s Component 3 states its rule as *a prime power `p^m` enters exactly when
+      >  `p^m <= a^2`* and its printed list omits `4` at `a = 2` and `9` at `a = 3`, which
+      >  is the STRICT reading -- **THEY DISAGREE AT `2` OF `13` CELLS.** It moves no
+      >  value, because `f = g conv g^#` vanishes at the endpoints of `[a^-2, a^2]`, so an
+      >  endpoint prime power contributes `0` to (149) under either reading."
+    ### ### **YES -- IT IS THE SAME COMPARATOR.** ### The same boundary, `p^m <= a^2`
+    ### against `p^m < a^2`, and the code`s `if ln <= L` sits on the WEAK side, which is
+    ### b321`s stated RULE and not b321`s printed LIST.
+    ### ### **AND b400 ALREADY PRICED IT: IT MOVES NO VALUE.** ### At the exact edge `f`
+    ### vanishes, the term`s value is `0`, and `prime_sum`s own `if val:` keeps it out of
+    ### `terms` -- ### **SO AT THE EDGE THE PRIME ENTERS THE LOOP AND NOT THE LIST.**
+
+  ### (3d) THE THREE MEASUREMENTS, EACH QUOTED FROM ITS OWN BANK.
+    ### b437 -- `b437_components.txt:132`
+        4.123106  11     0.173311991     0.148578723     -0.024733268    -1.10e-07   1.15e-11    yes
+    ### b446 (on b437) -- `b446_components.txt:33`
+        ### the rung alone: 4.123106 is sqrt(17), where b437`s ladder turns from rung 10 to 11, but 3.605551 is
+    ### b446 -- `b446_closing.txt:82`
+        THE OUTLIER 4.123106: order -0.34 against [0.95, 1.95] -- REFUSES. Not the rung alone (3.605551 = sqrt(13) converged);
+    ### b447 -- `b447_components.txt:5`
+        ### ### **COMPONENT 1 -- THE THIRD DOUBLING AT a = 4.123106.**
+    ### b483 -- `b483_components.txt:169`
+        LADDER     n=8   a=4.12311    lam_max(G) = +2.785973e-08   resolution 1.609e-06
+
+  ### (3e) ### **THE VERDICT.**
+    ### ### **SEPARATE OBJECTS.**
+    ### THE DECIDING WORDS, QUOTED, AND THEY ARE NOT THIS ACT`S:
+      (i)  b400: ### **"It moves no value ... an endpoint prime power contributes `0` to
+           (149) under either reading; what differs is a printed membership list."**
+           ### **A CONVENTION THAT CHANGES NO NUMBER CANNOT BE THE COMMON CAUSE OF THREE
+           ### NUMBERS.**
+      (ii) and this act`s own arithmetic: at `a = 4.123106` the prime is STRICTLY INSIDE by
+           `1.816021e-07` in log units, so ### **NO INCLUSION DECISION IS TAKEN AT THIS CELL AT
+           ALL.** ### The boundary convention is not merely harmless here -- ### **IT IS
+           ### NOT CONSULTED.**
+      (iii) b446, on its own outlier: ### **"Not the rung alone (3.605551 = sqrt(13)
+           converged)"** -- so the record had already refused to read that cell`s
+           distinction off its arithmetic form.
+    ### ### **THE THREE MEASUREMENTS ARE OF THREE DIFFERENT THINGS** -- b437`s rung is a
+    ### LADDER INDEX, b446/b447`s outlier is a DECORRELATION RESIDUAL ORDER, b483`s
+    ### excursion is a GRAM SIGNATURE -- ### **AND THEY SHARE A CELL, NOT A CAUSE.**
+    ### ### **WHAT THEY DO SHARE IS STILL UNEXPLAINED, AND THIS ACT DOES NOT EXPLAIN IT.**
+    ### Naming a common cause that the record shows cannot move a number would be worse
+    ### than leaving the coincidence open. ### **IT IS LEFT OPEN.**

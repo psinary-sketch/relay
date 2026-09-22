@@ -1,0 +1,217 @@
+====================================================================================================
+### b484 -- THE REGISTRATION FACE.
+### THE CURRENCY REPAIR, THE QUADRATURE WORK-ORDER, AND THE SUPPORT-EDGE TEST.
+### Registered before the repair is made and before any verdict is written.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 1 OF 1** ### with its paste-end marker, received IN FULL, banked
+### as `b484_ferry.txt`. ### Scan ### **`0` HIT(S)** and ### **`0` (R81) FLAGS**. ### **STEP ZERO:**
+### censuses ### **TOTAL MISSING `0`**, both; roster ### **`0` HARD-FAILING**. ### THE PRIOR CLOSED
+### ACT (`b483`) IS CLOSED: row 330, pushed and read back in three repositories.
+### ### **(R93) SETTLES THE ADDRESSEE**: `(R92)`'s repair belongs to this act, not to `b479` or
+### `b482`, which run as banked after it. ### The seat asked rather than choosing, and the ruling
+### answered.
+
+### ### **READING (1) -- THE PRIME-SUM LOOP HAS TWO COMPARATORS, NOT ONE, AND THEY DIFFER ON THE
+### EDGE.** ### `b321_window.py` is READ AS TEXT, never imported. ### The OUTER cap
+### `p ** k <= math.exp(L) + PRIME_TOL` admits ### **WITH A TOLERANCE OF `1e-12`**; the INNER gate
+### `if ln <= L` -- which is what actually adds a term -- admits ### **WITH NO TOLERANCE AT ALL**,
+### in LOG coordinates. ### **THE DECIDING COMPARATOR IS THEREFORE `math.log(n) <= L`, A WEAK
+### INEQUALITY WITH NO TOLERANCE.** ### The outer cap only bounds which prime powers are considered.
+### ### **AND THE FLOOR OF THE OBJECT THESE THRESHOLDS TEST IS NAMED HERE, NOT LEFT IMPLIED.** ### The
+### comparison is between two `float64` values near `L = 2.833213525658317`, whose own resolution --
+### ### **THE FLOOR** ### -- is `ulp(L) = 4.440892e-16`. ### The outer cap's `PRIME_TOL = 1e-12` sits
+### ### **`2.252e+03` FLOORS ABOVE IT**, and the margin this act measures at the cell sits
+### ### **`4.089e+08` FLOORS ABOVE IT.** ### **SO NEITHER COMPARISON IS DECIDED BY ROUNDING**, and no
+### bar in this act is finer than the floor of the thing it tests.
+
+### ### **READING (2) -- `L` IS `2 log a` EXACTLY, DERIVED BY READING THREE FILES AND RUNNING NONE.**
+### `carto_atlas.bump` sets `L = math.log(a)` and `v = np.linspace(-L, L, NV)`, so the seed's last
+### node is `math.log(a)` exactly; `b317_smear.mean_zero_variant` takes the UNION of three bump
+### grids, whose widest is `bump(a**1)`; `b318_square.autocorrelation` sets
+### `v = np.linspace(-2.0 * L, 2.0 * L, ...)`. ### **SO `L = 2.0 * math.log(a)` AND THE GATE IS
+### `math.log(n) <= 2.0 * math.log(a)`** -- which is `n <= a**2` READ IN LOGS, and at the edge that
+### is not the same test as reading it in `a**2`.
+
+### ### **READING (3) -- THE BANKS STORE THE CELL AS A ROUNDED DECIMAL, AND THAT DECIDES THE
+### QUESTION BEFORE THE CONVENTION DOES.** ### Every bank that names this cell -- `b437`, `b446`,
+### `b447`, `b477` -- stores it as ### **`4.123106`**, not as `sqrt(17)`. ### The rounding puts
+### `a*a` at ### **`17.000003087236`**, which is ### **`3.087236e-06` ABOVE `17`**, and leaves the
+### inner gate a margin of ### **`1.816021e-07` IN LOG UNITS**. ### **SO `17` IS STRICTLY INSIDE THE
+### SUPPORT AT THIS CELL AND THE EDGE CASE IS NEVER EXERCISED HERE**, whichever way the convention
+### is read. ### This is stated before any verdict is written.
+
+### ### **READING (4) -- AND AT `sqrt(17)` ITSELF BOTH GATES STILL ADMIT.** ### The inner gate is a
+### WEAK inequality, so equality passes it; the margin there is exactly `0`. ### **THE CODE
+### IMPLEMENTS b321's STATED RULE, NOT b321's PRINTED LIST.** ### But `b400`'s point survives it:
+### at the exact edge `f` vanishes, the term's value is `0`, and `prime_sum`'s own `if val:` keeps it
+### out of `terms` -- ### **SO AT THE EDGE THE PRIME ENTERS THE LOOP AND NOT THE LIST**, and the
+### convention decides a printed membership and nothing numerical.
+
+### ### **READING (5) -- THE CENSUS RULE IS FIXED BEFORE IT RUNS, AND ITS LINEAGE WILL BE PRINTED.**
+### A CITING act is one whose banked text carries the token, counted once. ### A MIS-SCOPING act is
+### one that ### **PREDICATES** ### the token as a floor or as the chain's binding bound -- not one
+### whose sentence merely MENTIONS both figures. ### **A SENTENCE THAT NAMES TWO NUMBERS DOES NOT
+### EQUATE THEM**, and the first version of this matcher counted co-occurrence. ### **BOTH VERSIONS'
+### YIELDS ARE PRINTED AND THE RESIDUE IS HAND-READ**, never discarded.
+### ### **AND THE CENSUS EXCLUDES THIS ACT'S OWN STEM BY NAME.** ### Its first run scanned
+### `data/b484_*` and found ITSELF -- the hand-read residue block QUOTES the offending sentence, so
+### the quotation matched the rule and `b484` was returned as a mis-scoping act. ### **A SEARCH THAT
+### CAN SEE ITS OWN REPORT WILL ALWAYS CONFIRM IT**, which is `b481`'s species met a second time;
+### it is excluded by name rather than by hoping the run order hides it.
+
+### ### **READING (6) -- WHAT `(R92)` CHANGES AND WHAT IT PRESERVES.** ### `INVARIANCE_BARRIERS.md`
+### is REGISTRY row `1.5h-8`. ### Its line `580` says the monograph is CURRENT at `v1.1.1` with
+### version DOI `21436278`; REGISTRY's governing row carries `v1.1.2` and `21539167`, with the
+### concept DOI `19675355` ### **ALREADY AGREEING AND THEREFORE NOT TOUCHED.** ### The repair
+### corrects the two state words IN PLACE and ### **APPENDS AN ANNOTATION CARRYING THE ORIGINAL LINE
+### VERBATIM**, so that ### **NO LINE OF THE OLD FILE IS ABSENT FROM THE NEW ONE.** ### That is the
+### sense in which lines removed is `0`, and the raw `+/-` counts are printed beside it so the
+### stronger claim is not smuggled in.
+
+### THE PRE-FACE READS, DECLARED: (P1) the two comparators at their own lines; (P2) what `L` is;
+### (P3) the cell's arithmetic to full precision; (P4) `b400`'s routed discrepancy at its address;
+### (P5) the three measurements at their own banks; (P6) the census with its rule.
+### All six are in `b484_extract.txt`, ### **SURVEY MISSES `0`.**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AND WHAT EACH MAY AND MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+### (1) ### **`(R92)` EXECUTED.** ### The two state words at `INVARIANCE_BARRIERS.md:580` corrected
+### to REGISTRY's own row values; the original preserved VERBATIM in an appended annotation;
+### ### **NO OTHER LINE TOUCHED**; the diff printed, with the lines-removed figure stated in the
+### sense (6) fixes and the raw counts beside it. ### **NO GRADE MOVES AND NO REGISTRY ROW IS
+### WRITTEN.**
+
+### (2) ### **`W-ORD-QUADRATURE-BOUND`, FILED.** ### The work-order with its own statement: the
+### corpus holds no error bound for the places-side quadrature, and an act citing `trunc_bound` as
+### the chain's floor cites a bound that does not cover the dominant term. ### Its trigger named.
+### Then ### **THE TWO FIGURES, BY TOOL**: how many acts cite it, and how many PREDICATE it as a
+### floor or a chain bound, ### **WITH THE MATCHER'S OWN RULE PRINTED AND EACH SUCH ACT NAMED.**
+### ### **NOTHING IS REPAIRED IN THE CHAIN AND THE CHAIN IS NOT EDITED.**
+
+### (3) ### **THE SUPPORT-EDGE TEST, RUN AS A READ.** ### The comparator at its own line; `a*a` to
+### full precision beside `17`; whether `17` enters at that cell under the comparator AS WRITTEN;
+### `b400`'s routed discrepancy quoted at its address with a yes-or-no on whether it is the same
+### comparator; then the three measurements set against that reading, ### **EACH QUOTED FROM ITS OWN
+### BANK**. ### One verdict: ### **ONE CONVENTION** ### or ### **SEPARATE OBJECTS**, with the
+### deciding words quoted. ### **NO CHAIN RUN, NO ENTRY COMPUTED, NO LANE OPENED.**
+
+----------------------------------------------------------------------------------------------------
+### (S) WHAT STOPPING MEANS.
+----------------------------------------------------------------------------------------------------
+### The act stops when the components of (B) are printed, the expectations scored, the desk swept,
+### the row written, the trail appended, the suite run on both controls, the three repositories
+### pushed and read back, the mirror built and verified, and the closing banked. ### **A HALT
+### REPORTED IS WORTH MORE THAN A NUMBER SUPPLIED.**
+
+----------------------------------------------------------------------------------------------------
+### (J) THE EXPECTATIONS, EACH OVER A POPULATION THIS FACE NAMES (`R26`).
+----------------------------------------------------------------------------------------------------
+### **(N1)** the comparator admits the prime at the edge, so `17` enters at that cell.
+###   ### POPULATION: the cell `a = 4.123106` as the banks store it, under the loop as written.
+###   ### **THE SEAT'S OWN: THE CONCLUSION HOLDS AND THE REASON DOES NOT, AND THIS FACE SAYS WHICH.**
+###   `17` DOES enter -- but ### **NOT AT THE EDGE**: the banks' rounded decimal puts it strictly
+###   inside by `1.816021e-07` in log units, so ### **THE EDGE BEHAVIOUR IS NEVER REACHED AT THIS
+###   CELL** ### and the admission owes nothing to the convention.
+
+### **(N2)** `b400`'s routed discrepancy is the same comparator.
+###   ### POPULATION: `b400_closing.txt:201-207` against `b321_window.prime_sum`'s inner gate.
+###   ### **THE SEAT'S OWN: `HELD`.** ### Same boundary, `p^m <= a^2` against `p^m < a^2`, and the
+###   code sits on the WEAK side, which is b321's stated RULE and not b321's printed LIST.
+
+### **(N3)** at least two of the three measurements trace to that inclusion, so the verdict is
+###   `ONE CONVENTION` on those two and the third is said apart.
+###   ### POPULATION: `b437`'s rung, `b446` with `b447`'s outlier, `b483`'s earliest excursion.
+###   ### **THE SEAT'S OWN: `REFUTED`, AND THE VERDICT WILL BE `SEPARATE OBJECTS`.** ### Two reasons,
+###   both already on the record and neither invented here: ### **(i) `b400` ESTABLISHED THAT THE
+###   INCLUSION MOVES NO VALUE**, because `f` vanishes at the endpoints, so it cannot move any
+###   measurement; and ### **(ii) AT THIS CELL THE PRIME IS STRICTLY INSIDE ANYWAY**, so no
+###   inclusion decision is taken here at all. ### **A CONVENTION THAT CHANGES NO NUMBER CANNOT BE
+###   THE COMMON CAUSE OF THREE NUMBERS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES`
+### `G-PRIOR-CLOSED-PUSHED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED`
+### `G-C1-TWO-WORDS-ONLY` `G-C1-ORIGINAL-PRESERVED-VERBATIM` `G-C1-NO-OTHER-LINE-TOUCHED`
+### `G-C1-VALUES-FROM-REGISTRY` `G-C1-CONCEPT-DOI-UNTOUCHED` `G-C1-DIFF-PRINTED`
+### `G-C2-WORDORDER-FILED` `G-C2-TRIGGER-NAMED` `G-C2-BOTH-FIGURES-PRINTED`
+### `G-C2-MATCHER-LINEAGE-PRINTED` `G-C2-RESIDUE-HAND-READ` `G-C2-CHAIN-NOT-EDITED`
+### `G-C3-COMPARATOR-AT-ITS-LINE` `G-C3-TWO-COMPARATORS-NAMED` `G-C3-ASQ-FULL-PRECISION`
+### `G-C3-NOT-AT-THE-EDGE` `G-C3-B400-QUOTED` `G-C3-THREE-BANKS-QUOTED` `G-C3-ONE-VERDICT`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NO-CHAIN-RUN` `G-NOB475LOG` `G-SPAN-BY-TOOL` `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED`
+### `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED`
+### `G-CORPUS-LEAN-UNTOUCHED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is scored
+### post-push only.
+
+----------------------------------------------------------------------------------------------------
+### (K) THE BARS. ### EIGHT.
+----------------------------------------------------------------------------------------------------
+### BAR 1 -- ### **NOTHING IS FETCHED.** ### The two Zenodo manifests `(R90)` names are the AUTHOR'S
+###   fetch; the values used here come from REGISTRY's own row, not from the platform.
+### BAR 2 -- ### **b475'S LOG IS NOT OPENED AND ITS RUN IS NOT POLLED OR STOPPED.**
+### BAR 3 -- ### **NO PRIOR ACT'S BANK IS EDITED**, `b449`'s and `b483`'s least of all.
+### BAR 4 -- ### **NO CHAIN IS RUN AND NO ENTRY IS COMPUTED.** ### `b321_window.py` is read as TEXT
+###   and never imported; `math.log` on two numbers is arithmetic, not the chain.
+### BAR 5 -- ### **EXACTLY ONE CORPUS DOCUMENT IS WRITTEN, AND ONLY AS `(R92)` DIRECTS.** ### Two
+###   state words on one line, plus an appended annotation. ### **NO GRADE MOVES, NO REGISTRY ROW
+###   IS WRITTEN, NO LEDGER ROW IS EDITED, AND NO OTHER LINE OF THAT FILE IS TOUCHED.**
+### BAR 6 -- ### **ROW U1 IS UNEDITED, THE FREEZE AT SIX STANDS, NO BRIDGE IS TYPED.**
+### BAR 7 -- ### **AN EXIT CODE IS NOT A VERDICT**, and neither is a matcher's first yield.
+### BAR 8 -- ### **NO VERDICT IS CHOSEN AFTER SEEING WHICH ANSWER IS TIDIER.** ### The seat's three
+###   calls are on this face before the components run, and `(N1)` is split on purpose.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b484_*` `relay/tools/b484_*` |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b484_ferry_scan.txt` |
+### | the banked ferry | `relay/data/b484_ferry.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b484_*.txt` |
+### | `tools/reg_seal.py` | `relay/data/b484_registration_2026-09-22.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b484_span*.json` `relay/data/b484_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b484.zip`
+###   (outside every repository) `relay/data/b484_mirror.txt` |
+### | the desk | `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (one appended record) |
+### | ### **THE `(R92)` REPAIR** | `PLACE-papers/phase1.5/method/INVARIANCE_BARRIERS.md`
+###   ### **(two state words on line `580`, plus one appended annotation, AND NOTHING ELSE)** |
+### ### **AND NO OTHER FILE IS WRITTEN IN ANY REPOSITORY.** ### **NO `.lean` FILE, NO REGISTRY ROW,
+### NO LEDGER ROW, NO CHAIN FILE, AND NO FILE UNDER ANOTHER ACT'S STEM.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### Nothing deposits. ### Nothing is imported, copied or vendored. ### No Lean of the corpus is
+### touched and no kernel is built. ### No corpus grade moves and no grade name is minted. ### Row U1
+### is unedited. ### No bridge is typed. ### `h2` stays where the deposit left it. ### The four lists
+### stay OPEN. ### The artefacts under `relay/data/anthropic-zeta23/` are not committed. ### The
+### deposited copy `outputs/DEPOSITED-v1.1.2/` is not written. ### No claim is made about RH in
+### either direction. ### No rule is struck, amended or widened by the seat. ### No locked face is
+### edited. ### No ERRATA entry is written. ### **THE CHAIN IS NOT EDITED AND NOTHING IN IT IS
+### REPAIRED**; the work-order is FILED, not discharged.
+
+----------------------------------------------------------------------------------------------------
+### (R50) THE ADDENDUM SLOT.
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 3b158ac48adc7fb7be7d0cdbd4eb05f59f8b5f3a978d640b10da227a9cf7255f
+### bytes locked : 16600
+### locked at (UTC) : 2026-09-22T23:11:24Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b484_registration_2026-09-22.txt`.**
+====================================================================================================
