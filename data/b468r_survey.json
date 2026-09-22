@@ -1,0 +1,335 @@
+{
+ "hashes": [
+  {
+   "name": "alpoge_furman_2608.13637.pdf",
+   "sha256": "6de3b156342e7b4a802c34f8ef40432567e9dabe006938da04233f19fc4ef444",
+   "match": true
+  },
+  {
+   "name": "anthropic_informal_note.pdf",
+   "sha256": "45e0330ad37965e5531fa1f4f11e5bebcae147a5237a3e5b3d029efa7ddf759d",
+   "match": true
+  },
+  {
+   "name": "claude_methodology_note.pdf",
+   "sha256": "271aba2d2083ffa778a53c2994f2061fad7fdda450bc296ec49c7cc41e91dd2d",
+   "match": true
+  },
+  {
+   "name": "claude_paper_2026-08-11.pdf",
+   "sha256": "19f827bee5834d61aa6dd756cdaea582492703ddbfd6bdc2058de10b93f7e814",
+   "match": true
+  },
+  {
+   "name": "claude_transcripts.pdf",
+   "sha256": "ebb34c5ed65b1dc96a72bdf76068814a34da9ceb1675624f68a2088180123ada",
+   "match": true
+  },
+  {
+   "name": "formal-math.HEAD.txt",
+   "sha256": "cf7bfd370a48ca61da0e17130344da69604e81e55797b3f93223aa0085373a88",
+   "match": true
+  }
+ ],
+ "head": "fbdc36bbf17d20af3fd0447c6d1a8a02773c9844",
+ "head_txt": "fbdc36bbf17d20af3fd0447c6d1a8a02773c9844",
+ "clean": true,
+ "thmA_agree": true,
+ "thmB_agree": true,
+ "thmA_text": "Theorem A. As T , (i) N0s(T, 2T ) 2 - o(1) N (T, 2T ), (ii) Nd(T, 2T ) 5 - o(1) N (T, 2T ). 3 6 With the Montgomery�Taylor window MT of (2.6) in place of the indicator window 0, the constants improve to 2 - c-M1T = 0.67250 . . . and 1 (3 - c-M1T) = 0.83625 . . . respectively, where 2 c-M1T 1 1 cot 1 ; := 2 + 2 2 among windows (equivalently, certificates of the form 2 - R()), this is optimal [CCLM17, Cor. 14]. The ceiling over the broader class of all bandwidth-one",
+ "thmB_text": "Theorem B. Theorem A holds verbatim for L(s, ) in place of (s), for any fixed primitive Dirichlet character .",
+ "mathlib": "51e6992efd06126df61a496bebf8f49482a4e129",
+ "toolchain_installed": false,
+ "trusted": [
+  {
+   "file": "Challenge.lean",
+   "line": 131,
+   "kind": "theorem",
+   "name": "two_thirds_on_critical_line",
+   "statement": "theorem two_thirds_on_critical_line :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0star T (2 * T) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 136,
+   "kind": "theorem",
+   "name": "two_thirds_on_critical_line_cumulative",
+   "statement": "theorem two_thirds_on_critical_line_cumulative :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount 0 T : ℝ) ≤ N0star 0 T := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 142,
+   "kind": "theorem",
+   "name": "two_thirds_simple_on_critical_line",
+   "statement": "theorem two_thirds_simple_on_critical_line :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 147,
+   "kind": "theorem",
+   "name": "two_thirds_simple_on_critical_line_cumulative",
+   "statement": "theorem two_thirds_simple_on_critical_line_cumulative :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (Ncount 0 T : ℝ) ≤ N0simple 0 T := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 152,
+   "kind": "theorem",
+   "name": "five_sixths_distinct",
+   "statement": "theorem five_sixths_distinct :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (5 / 6 - ε) * (Ncount T (2 * T) : ℝ) ≤ Ndist T (2 * T) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 157,
+   "kind": "theorem",
+   "name": "five_sixths_distinct_cumulative",
+   "statement": "theorem five_sixths_distinct_cumulative :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (5 / 6 - ε) * (Ncount 0 T : ℝ) ≤ Ndist 0 T := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 163,
+   "kind": "theorem",
+   "name": "montgomery_taylor_on_critical_line",
+   "statement": "theorem montgomery_taylor_on_critical_line :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 - 1 / cMT - ε) * (Ncount T (2 * T) : ℝ) ≤ N0star T (2 * T) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 169,
+   "kind": "theorem",
+   "name": "montgomery_taylor_simple_on_critical_line_mult",
+   "statement": "theorem montgomery_taylor_simple_on_critical_line_mult :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 - 1 / cMT - ε) * (Ncount T (2 * T) : ℝ) ≤ N0simple T (2 * T) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 174,
+   "kind": "theorem",
+   "name": "montgomery_taylor_simple_on_critical_line_mult_cumulative",
+   "statement": "theorem montgomery_taylor_simple_on_critical_line_mult_cumulative :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 - 1 / cMT - ε) * (Ncount 0 T : ℝ) ≤ N0simple 0 T := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 179,
+   "kind": "theorem",
+   "name": "montgomery_taylor_distinct_mult",
+   "statement": "theorem montgomery_taylor_distinct_mult :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (3 / 2 - cMT⁻¹ / 2 - ε) * (Ncount T (2 * T) : ℝ) ≤ Ndist T (2 * T) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 184,
+   "kind": "theorem",
+   "name": "montgomery_taylor_distinct_mult_cumulative",
+   "statement": "theorem montgomery_taylor_distinct_mult_cumulative :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (3 / 2 - cMT⁻¹ / 2 - ε) * (Ncount 0 T : ℝ) ≤ Ndist 0 T := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 191,
+   "kind": "theorem",
+   "name": "dirichlet_two_thirds_on_critical_line",
+   "statement": "theorem dirichlet_two_thirds_on_critical_line\n    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hq : 1 < q) (hχ : χ.IsPrimitive) :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (NcountL χ T (2 * T) : ℝ) ≤ N0starL χ T (2 * T) := by\n  sorry",
+   "hypotheses": [
+    [
+     "hq",
+     "1 < q"
+    ],
+    [
+     "hχ",
+     "χ.IsPrimitive"
+    ]
+   ],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 198,
+   "kind": "theorem",
+   "name": "dirichlet_two_thirds_simple_on_critical_line",
+   "statement": "theorem dirichlet_two_thirds_simple_on_critical_line\n    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hq : 1 < q) (hχ : χ.IsPrimitive) :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 / 3 - ε) * (NcountL χ T (2 * T) : ℝ) ≤ N0simpleL χ T (2 * T) := by\n  sorry",
+   "hypotheses": [
+    [
+     "hq",
+     "1 < q"
+    ],
+    [
+     "hχ",
+     "χ.IsPrimitive"
+    ]
+   ],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 205,
+   "kind": "theorem",
+   "name": "dirichlet_five_sixths_distinct",
+   "statement": "theorem dirichlet_five_sixths_distinct\n    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hq : 1 < q) (hχ : χ.IsPrimitive) :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (5 / 6 - ε) * (NcountL χ T (2 * T) : ℝ) ≤ NdistL χ T (2 * T) := by\n  sorry",
+   "hypotheses": [
+    [
+     "hq",
+     "1 < q"
+    ],
+    [
+     "hχ",
+     "χ.IsPrimitive"
+    ]
+   ],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 212,
+   "kind": "theorem",
+   "name": "dirichlet_montgomery_taylor_on_critical_line",
+   "statement": "theorem dirichlet_montgomery_taylor_on_critical_line\n    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hq : 1 < q) (hχ : χ.IsPrimitive) :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 - 1 / cMT - ε) * (NcountL χ T (2 * T) : ℝ) ≤ N0starL χ T (2 * T) := by\n  sorry",
+   "hypotheses": [
+    [
+     "hq",
+     "1 < q"
+    ],
+    [
+     "hχ",
+     "χ.IsPrimitive"
+    ]
+   ],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 219,
+   "kind": "theorem",
+   "name": "dirichlet_montgomery_taylor_simple_on_critical_line_mult",
+   "statement": "theorem dirichlet_montgomery_taylor_simple_on_critical_line_mult\n    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hq : 1 < q) (hχ : χ.IsPrimitive) :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (2 - 1 / cMT - ε) * (NcountL χ T (2 * T) : ℝ) ≤ N0simpleL χ T (2 * T) := by\n  sorry",
+   "hypotheses": [
+    [
+     "hq",
+     "1 < q"
+    ],
+    [
+     "hχ",
+     "χ.IsPrimitive"
+    ]
+   ],
+   "sorry": true
+  },
+  {
+   "file": "Challenge.lean",
+   "line": 226,
+   "kind": "theorem",
+   "name": "dirichlet_montgomery_taylor_distinct_mult",
+   "statement": "theorem dirichlet_montgomery_taylor_distinct_mult\n    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hq : 1 < q) (hχ : χ.IsPrimitive) :\n    ∀ ε > 0, ∃ T₀ : ℝ, ∀ T ≥ T₀, (3 / 2 - cMT⁻¹ / 2 - ε) * (NcountL χ T (2 * T) : ℝ) ≤ NdistL χ T (2 * T) := by\n  sorry",
+   "hypotheses": [
+    [
+     "hq",
+     "1 < q"
+    ],
+    [
+     "hχ",
+     "χ.IsPrimitive"
+    ]
+   ],
+   "sorry": true
+  },
+  {
+   "file": "Challenge\\XiPrime.lean",
+   "line": 67,
+   "kind": "theorem",
+   "name": "xiPrime_zeros_in_open_critical_strip",
+   "statement": "theorem xiPrime_zeros_in_open_critical_strip :\n    ∀ ρ : ℂ, XiPrime.xiDeriv ρ = 0 → 0 < ρ.re ∧ ρ.re < 1 := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge\\XiPrime.lean",
+   "line": 72,
+   "kind": "theorem",
+   "name": "xiPrime_over_xi_re_pos",
+   "statement": "theorem xiPrime_over_xi_re_pos :\n    ∀ s : ℂ, 1 ≤ s.re → 0 < (XiPrime.xiDeriv s / XiPrime.xi s).re := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge\\XiPrime.lean",
+   "line": 79,
+   "kind": "theorem",
+   "name": "xiPrime_simple_zeros_on_critical_line",
+   "statement": "theorem xiPrime_simple_zeros_on_critical_line :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.85838 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧\n      (0.92919 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge\\XiPrime.lean",
+   "line": 86,
+   "kind": "theorem",
+   "name": "xiPrime_simple_zeros_on_critical_line_cumulative",
+   "statement": "theorem xiPrime_simple_zeros_on_critical_line_cumulative :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.85838 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧\n      (0.92919 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge\\XiPrime.lean",
+   "line": 94,
+   "kind": "theorem",
+   "name": "xiPrime_simple_zeros_on_critical_line_quartic",
+   "statement": "theorem xiPrime_simple_zeros_on_critical_line_quartic :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.86864 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧\n      (0.93432 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  },
+  {
+   "file": "Challenge\\XiPrime.lean",
+   "line": 102,
+   "kind": "theorem",
+   "name": "xiPrime_simple_zeros_on_critical_line_quartic_cumulative",
+   "statement": "theorem xiPrime_simple_zeros_on_critical_line_quartic_cumulative :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.86864 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧\n      (0.93432 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ) := by\n  sorry",
+   "hypotheses": [],
+   "sorry": true
+  }
+ ],
+ "trusted_axioms": 0,
+ "trusted_hyps": [
+  "hq",
+  "hχ"
+ ],
+ "audit_absent": [
+  "dirichlet_half_simple_on_critical_line",
+  "dirichlet_three_quarters_distinct",
+  "half_simple_on_critical_line",
+  "half_simple_on_critical_line_cumulative",
+  "three_quarters_distinct",
+  "three_quarters_distinct_cumulative",
+  "xiPrime_over_xi_re_pos",
+  "xiPrime_simple_zeros_on_critical_line",
+  "xiPrime_simple_zeros_on_critical_line_cumulative",
+  "xiPrime_simple_zeros_on_critical_line_quartic",
+  "xiPrime_simple_zeros_on_critical_line_quartic_cumulative",
+  "xiPrime_zeros_in_open_critical_strip"
+ ],
+ "audit_named": 33,
+ "literal_axioms": [
+  "Zeta23\\Hypotheses.lean:15:axiom declarations anywhere in this project: hypotheses are fields of the Prop-valued structure",
+  "Zeta23\\FromPNTPlus\\Tactic\\AdditiveCombination.lean:183:axiom qc : ℚ",
+  "Zeta23\\FromPNTPlus\\Tactic\\AdditiveCombination.lean:184:axiom hqc : qc = 2*qc"
+ ],
+ "axiom_declarations": [],
+ "li_hits": 0,
+ "lv_conjunct": "(∀ n : ℕ, 1 ≤ n → lam n = (∑ z ∈ low, blTerm z n) + tail n)",
+ "misses": []
+}

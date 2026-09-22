@@ -1,0 +1,512 @@
+                                             67% of the zeroes are on the line.
+
+                                                                                                                                   
+
+                                                                                3 1                          1                     
+
+                          Theorem.                                 1                       -           cot       -oT (1)                ·               ord .
+                                                                                2                  2          2               
+                                                                1                                                                                         
+                                                                2
+                                              ()=0,     Re  =      ,                                                                          ()=0,
+
+                                                T Im <2T                                      = 67.25...%                               T Im <2T
+
+    We are going to choose a good finite-dimensional space of functions and restrict the pairing induced by
+the explicit formula to that space. That restriction will have the property that zeroes on the line contribute
+a positive line aka (1, 0) part, and pairs of zeroes off the line contribute a hyperbolic plane aka (1, 1) part.
+Then we will write down an inequality lower bounding the rank of the part attributed to the zeroes on
+the line in terms of information controlled by the 2-norm of the full form as well as traces of these on- and
+off-the-line constituents. And then we will manage to calculate everything.
+
+Proof of Theorem assuming all claims and lemmas below.
+
+#|on[T,2T )| + O T  log T                       = #|onNT ([T,2T ))|  rank WTon                                                                          (v     ·  vt      0  if   Re         =     1  )
+                                                                        2 tr WTon + 4 tr WToff - 4n+ WToff                                                                                         2
+
+                                                                                                                                                        - ||WT ||2HS (Lemma 3.4)
+
+                                                                                   = 4 tr WT - 2 tr WTon + 2n+ WToff                                    - ||WT ||2HS
+                                                                                                                                                            (WT = WTon + WToff )
+
+                                                                                    4 tr WT - 2Nall(T ) - ||WT ||2HS - O T  log T (Claim 2.3)
+
+                                                                                                          11                    1
+                                                                                   =       4     -  2  -     -          cot          +  o;T (1)                   · Nall(T )
+                                                                                                          2        2           2
+
+                                                                                                                                                               (Lemmas 3.2 & 3.3)
+
+                                                                                              31                 1
+                                                                                   =             -        cot         +     o;T (1)               · Nall(T ),
+                                                                                              2       2           2
+
+as desired.
+
+1 Notation.
+
+Let T  1. Write, for an interval I  R, Nall(I) :=                                                                 ord        and     Nall(T )           :=  Nall([T, 2T ))           --      thus
+
+                                                                                                                    
+
+                                                                                                           ()=0,
+
+                                                                                                          Im I                          
+
+Nall(T )  =    T    log   2T     -  T        +     O(log T ).1           Let        := 10-10.2              Let (x)         :=  cos(       2x)       ·  1|x|   1  .3  Let   C(R)
+               2                    2                                                                                                                          2
+
+be such that |(-,0] = 0, |[1,) = 1, and  is nondecreasing. Let T (x) :=                                                                      Nall(T )   +      x      ·      Nall(T )   -       x     ·
+                                                                                                                                               2T                              2T
+
+                                                                                                                                        Nall (T   )     Nall(T )
+              2T                                                                                                                          2T              2T
+cos       Nall(T )  ·  x  . Then T            Cc(R), is even, 0  T                                1, and supp T                      -               ,            . Applying Paley-
+
+Wiener to continue T , |T (z)|                               e·|      Im  z|·  Nall (T  )  ·  min      log T, |z|-1, |z|-2           by integrating by parts 0, 1, or 2
+                                                                                   T
+
+times.  Let    µ( )       :=  1  Re                1  +   i        -     log    ,   T ( )        :=    -  1             (n)     cos  (     log  n),     T ( )         :=  1  Re      T    1  +i       ,
+                              2                    4      2               2                                                n                                                              2
+
+                                                                                                                 nT                                                                    1  +i
+                                                                                                                                                                                       2
+
+and  T    :=  µ + T       +   T .   Let,        for         C,           :=    -    1   .
+                                                                                 i  2
+
+Theorem (Guinand-Weil). Let F  Cc(R). Then:
+
+                                             i                     i                                                    (n)                  log n                        log n
+          ord       ·  F  ()  =  F                 + F - + d F ( ) · µ( ) -                                                          F                      +F -                             .
+                                          2                     2                                                         n                     2                       2
+                                                                                R
+                                                                                                                  n1
+
+Thus if supp F                -  Nall (T  )  ,  Nall(T )              -  log T  ,   log T        then         ord  · F () = R d F ( ) · T ( ). Let now
+                                    T              T                      2          2
+
+v :=      T            -  T   -     T           ·  k    Nall(T )-1        CNall(T ).                Let WT      :=           T                                        ord      ·  v  ·    vt .     It
+                                 Nall(T )               k=0                                                           Nall(T )· R 2T
+                                                                                                                                                                        
+
+                                                                                                                                           Im NT  ([T,2T ))
+
+1(Riemann-von             Mangoldt  aka      integrate        in      a  rectangle         with  top   and   bottom     to  infinity,   right   at   Re s   =  1 + ,      and  left  and     right
+                                                            
+
+matched up by the functional equation.)
+
+2Its use indicates unoptimized but easy parts.
+
+3This is the minimizer of                       R 2+  R du R dv (u)(v)·|u-v|           and    the   provenance      of  the  3  -  1    cot  1    .
+                                                                                                                             2       2         2
+                                                         ( R )2
+should be clear that roots on the line contribute positive squares in the sum, whereas pairs (, 1 - ) of roots
+
+off the line contribute hyperbolic planes, and extracting counts based on the signature of this form via
+
+first- and second-order information is the entire point. Because the functional equation matches roots and
+
+multiplicities off the line WT is real symmetric. Let, for an interval I  R, onI := { : () = 0, Re  =
+
+1  ,  Im      I}, offI  :=       {     :   ()      =        0, Re             =      1  ,  Im                I}, and farI      :=  {          :   ()   =        0, Im             I }.        Thus by
+2                                                                                    2
+Riemann-von Mangoldt #|onNT ([T,2T ))| = #|on[T,2T )| + O T  log T . Also onI ord  + #|offI |  Nall(I).
+                             T                                                                                                     T
+      Let WTon    :=  Nall(T )· R T2           onN             ([T  ,2T  ))  ord           ·  v  ·     vt ,  WToff    :=    Nall(T )· R 2T          off  N      ([T ,2T  ))  ord         ·  v  ·  vt ,  so
+                                                                                                                                                           T
+                                                          T                                                                                                   
+
+that WT = WTon + WToff . Hence WTon is positive semidefinite and rank WTon  #|onNT ([T,2T ))|. We write the
+signature of a quadratic form Q as (n+(Q), n-(Q)).
+
+      Let   Efar  :=         T   R T2     farNT  ([T,2T )) ord  · v · vt .
+                      Nall(T )·
+
+Theorem 1.1 (Montgomery-Vaughan). Let xn  C and yn  R be such that for each m there is a m > 0 such that
+for all n either ym = yn or else |ym - yn|  m. Then:
+
+                                                                          xm · xn                               |xm|2 · m-1.
+                                                                    m= n ym - yn
+                                                                                                             m
+
+2 Claims.
+
+Claim 2.1. Let z, z  C. Then:
+
+                                                               kT                             z - T - kT                          Nall(T )             2T (z       z).
+                          T            z-T -                                    · T                       Nall(T )             =     T              ·           -
+                                                  Nall(T )
+                      kZ
+
+Proof of Claim 2.1. Apply Poisson summation and simply compute the Fourier transform -- the point being
+
+that supp T +supp T                       -  Nall (T  )  ,   Nall(T )         and so all but the zero mode of the relevant convolution vanishes.
+                                                T               T
+
+Claim 2.2. For 0  k,  < Nall(T ),
+
+                                                                                                                                                                                               
+
+                                                   d T                       -T      -           T     )  k  · T         -  T  -     T        )        · T ( )
+                                                                                              Nall (T                             Nall (T
+                        T                 R                                                                                                                                                    
+
+      Wk, = Nall(T ) ·                                                                                                                                                                         .
+                                                                                                                                                                                               
+                                 R T2                    -                                    ord         ·  T        -  T  -     T     )  k     · T            -  T         -     T     )     
+                                                                                                                               Nall (T                                          Nall (T
+                                                                                                
+                                                               farN
+                                                                                ([T  ,2T  ))
+                                                                           T
+
+Proof of Claim 2.2. The claim is equivalently a calculation of
+
+                                       ord     ·                                              T                                                  T              ,
+                                                  T             - T - Nall(T ) · k                              · T        - T - Nall(T ) · 
+                                         
+                                 
+
+and per the remark after our statement of Guinand-Weil it suffices to check that the relevant convolution of
+
+two T 's has support in                -  Nall (T  )  ,  Nall(T )            , which it does.
+                                             T              T
+
+Claim 2.3. tr WTon                 onNT  ([T,2T )) ord  and n+ WToff                                            1  ·  #|offNT ([T,2T ))|.
+                                                                                                                2
+
+Proof of Claim 2.3. For   onNT ([T,2T )) one has   R, so
+
+                                                                    Nall(T )-1                                   T                 2  Nall(T ) ·
+                                                                                                  - T - Nall(T ) · k                        T
+                      tr v · vt = ||v||22 =                                          T                                                                               2T
+
+                                                                         k=0                                                                                       R
+
+by Claim 2.1 at z = z = . Summing gives the trace bound.
+
+    For the rest, pair off   offNT ([T,2T )) as (, 1 - ) via the functional equation. Because 1- =  it follows
+that v1- = v (Schwarz reflection), whence the desired hyperbolic plane i.e. v · vt + v · vt . It follows
+that the relevant quadratic form is a pullback from (1, 1)#|pairs| and the bound follows from comparing
+
+signatures.
+3 Lemmas.
+
+Lemma 3.1.           | tr Efar|, ||Efar||HS              T    1  -2 .
+                                                              2
+
+Proof of Lemma 3.1. Run the same calculation as in Claim 2.3 and apply the Paley-Wiener integration by parts
+
+bound   and       sum      (the  square-root          coming           from  | Im |        <  1  a  priori).
+                                                                                              2
+
+Lemma 3.2. tr WT = (1 + o;T (1)) · Nall(T ).
+
+Proof  of Lemma 3.2. Again apply Paley-Wiener to                                    control      the contribution of                k      [0, Nall(T )    -   1) by 
+  T·                                                                                for the       T  many  with                     Im     within T        of  the inter-
+        Nall(T )  ·  dist (Im , {T, 2T })-3               (and      similarly
+           T
+
+val endpoints).
+
+Lemma 3.3. ||WT ||H2 S =                1  +    1     cot   1    +     o;T (1)            · Nall(T ).
+                                        2         2           2
+
+Proof of Lemma 3.3. The Hilbert-Schmidt norm is, after completing the relevant k-sum and localizing the
+relevant  and   integrals to [T, 2T ), an integral of a kernel formed from a convolution of T with itself
+against a product of T with itself. T has three terms: T , corresponding to the pole of , is irrelevant here.
+The diagonal terms of the T · T product will contribute to the main term, and for the off-diagonal terms
+we will use Montgomery-Vaughan-Hilbert. µ · µ also contributes, and this is where we see the shape of the
+
+variational problem that  solves. All other cross-terms cancel (e.g. because of the cosine oscillation in T ).
+
+   Let K(,  ) :=                 0k<Nall(T ) T                   -  T  -     T      ·  k   · T         -    T    -     T      ·  k  and    k   :=    T  +     T      ·  k.
+                                                                          Nall(T )                                  Nall(T )                               Nall(T )
+
+   By definition of Efar,                  Nall(T )   ·   R T2      2                                      d     R d  K(,  )2 · T ( ) · T ( ). We will
+                                              T
+                                                                      · ||WT + Efar||H2 S =              R
+
+calculate the right-hand side and then use Lemma 3.1 to remove the Efar from the left-hand side. (Note that
+
+we expect the main term to be of order T · (log T )5.)
+
+   First let us execute the Poisson summation a` la Claim 2.1 and also localize the integrals to [T, 2T ].
+
+   Throughout              the   error  terms         below         we  freely      write    log T    for   Nall(T )  (and        hence    log log T    for  log  Nall (T   )  );
+                                                                                                               T                                                     T
+                                                                                                                                           Nall(T )
+only   main     terms      need   the   exact         ratio.     Record    once:        for  real  ,        one  has  |K(,  )|                T      ·  R T2  log2 T
+
+(Cauchy-Schwarz + Claim 2.1 at z = z =  resp.  ); 2T (s)  R T2  log T ; and |s|D ds |T (s)| 
+
+min    log   log  T  ,  1     (integrate the Paley-Wiener min).
+                        D
+
+Claim.          d d  K(,  )2 · T ( ) · T ( ) =                                    Nall(T )    2        2T           2T
+                                                                                     T
+                                                                                               ·          d            d  T2 ( -  )2 · T ( ) · T ( )
+
+             R          R                                                                             T            T
+                                                                                                                                    + O T · log4 T · log log T .
+
+Proof.  On   [T ,    2T  ]2:  by  Claim         2.1,  K ( ,       ) -   Nall(T )  · 2T  (  -  )    =  -          k/[0,Nall(T )) T ( - k) · T (  - k). Hence
+                                                                           T
+
+                                  Nall(T )                                   2
+                                     T
+                  K(,  )2 -                           ·  T2 (       -   )          log2 T ·                         T ( - k) · T (  - k) .
+
+                                                                                                   k/[0,Nall(T ))
+
+Integrate    against          |T ( ) · T ( )|                 T     (Chebyshev          +  Stirling:        |µ|       log T ,     |T |               |T |      T     -  1   on
+                                                                                                                                             T,                         2
+
+[T, 2T ]) over [T, 2T ]2; the k-th summand factors as                                        2T  d    |T (       - k)|        2     For k  /   [0, Nall(T )) one has
+                                                                                             T
+                                                                                                                               .
+
+k  /    [T, 2T ), so | - k|                        T       ·     dist (k, [0, Nall(T )))      for   all          [T, 2T ]; hence           2T  d     |T (    - k)|         
+                                                Nall(T )                                                                                   T
+
+min     log  log  T  ,  dist     log T          . Summing the squares:
+                              (k,[0,Nall(T )))
+
+                                                                                          log T          2
+
+                                                         min log log T ,            dist (k, · · · )         log T · log log T .
+
+                                  k/[0,Nall(T ))
+
+So this piece is  T · log3 T · log log T .
+    Off [T, 2T ]2: by symmetry  2 R /[T,2T ]. Pull one |K|  log2 T out: K(,  )2  log2 T ·
+   0k<Nall(T ) |T ( - k) · T (  - k)|. Factor the double integral:
+
+                   log2 T ·                                 d |T ( - k)| · |T | ·                                    d  T (  - k) · |T | .
+
+                                     0k<Nall(T )          R                                                 R\[T,2T ]
+                                                                                                                
+The first factor: |T |  T on | |  T 2, so                                            T  ·      |T |               T ·log log T (the | |              >      T 2 tail is negligible via the
+                                                                                    so           /        [T ,  2T ] one has |  -k|                  
+| |-2 decay). The second factor: k  [T, 2T ),                                              R                                                                   T     )  ·  min(k,    Nall(T       )  -  k);
+                                                                                                                                                            Nall (T
+                                                                                        for
+hence  T · min
+                                  log  log   T  ,          log T                 .  Summing:
+                                                   min(k,Nall(T )-k)
+
+                                            min log log T ,                             log T                          log T · log Nall(T )  log2 T.
+
+                       0k<Nall(T )                                        min(k, Nall(T ) - k)
+
+                                                                           
+So this piece is  log2 T · T · log log T · T · log2 T = T · log4 T · log log T .
+
+    Now let us split T · T = (µ + T + T )2. In each piece the error is at least one log T below the main
+term  T · log3 T .
+
+Claim.     2T      d   2T         d   T2    (   -   )2         ·  µ( )  ·  µ( )        =   T   ·    Nall(T )          2   R T4 + O                  T · log2 T       .
+           T           T                                                                               T
+                                                                                                                       ·
+
+Proof.     Write µ( )          =   Nall(T )    + O(1) on [T, 2T ] (Stirling:                           µ( )        =  1     log            + O( -1);        and         Nall(T )  is the average
+                                      T                                                                               2              2                                     T
+                                                                                                                                                            | - |
+of  µ  over     [T, 2T ]    up     to  O(    log   T  )  by       Riemann-von                 Mangoldt)               and       µ( )       -  µ( )            T            (since µ            | |-1).
+                                               T
+
+Freeze µ( )  µ( ): cost                               2T    d     |µ( )| ·       1  ·      R ds T2 (s)2 · |s|  log T · log log T (via                                      R ds 2T (s)2 · |s| 
+                                                      T                          T
+
+log log T ). Extend    [T, 2T ]     R: cost                                                2T  d    µ( )2          ·  |s|dist (,{T,2T }) ds T2 (s)2  log2 T · (log T )2/3.
+                                                                                           T
+
+Then R ds 2T (s)2 =                   R 4T (Plancherel), and                           2T  µ2     =       T  ·        Nall(T )  2                                              =     Nall(T )  + O(1)
+                                                                                       T                                 T                                                              T
+                                                                                                                                  + O(Nall(T )) (from µ
+
+squared).
+
+Claim.     2T      d   2T         d   T2 (      -   )2         ·  T ( )    ·  T ( )        =   2T      ·     Nall(T )/T     dy  y       ·  T2  2T           (y) + O T · log2 T .
+           T           T                                                                                     0
+
+                                                                                                                                    
+Proof. Extend    R: cost  |T |2 · [T,2T ],/[T,2T ] 2T ( -  )2  T · (log T )2/3 (via |T |  T and
+
+ [T,2T ], /[T,2T ] 2T ( -  )2 =                          T  dD      |s|D ds T2 (s)2  (log T )2/3).
+                                                         0
+
+    Inner integral. Since R ds T2 (s)2 · e(sy) = T2  T2 (y) and 2T is even,
+
+                               d   2T  (     -      )2      ·  T  ( )      =    1              (m)                 T2  2T                  log m
+                                                                              -                ·                                                     · cos ( log m) .
+                       R                                                                   m
+                                                                                                  m                                         2
+
+Multiply     by    T ( )          and  integrate            over              [T, 2T ];        write         cos A · cos B              =     1  (cos (A + B) + cos (A - B))                         with
+                                                                                                                                              2
+
+A :=  log n, B :=  log m.
+
+    Diagonal n = m.                   2T    d   cos2(             log n)   =     T  +O              1        ,  so    this      piece      is     T      n  (n)2     ·     2T  2T              log n    +
+                                      T                                          2                log n                                          22           n                                 2
+
+O(log2 T ). Partial summation: with A(t) :=                                                      (n)2        =     1  log2  t   +    O(log       t)  and    g(y)        :=     2T  2T          (y) (so
+                                                                                           nt n                    2
+
+supp g          -  Nall (T  )  ,  Nall(T )   and ||g||  ||(2T )||1  1),
+                      T              T
+
+      (n)2             log n                       Nall(T )/T              1 (2y)2 + O(2y)                            · g(y) = 42                    Nall(T )/T
+               ·g       2                                                  2
+                                      =-                          dy                                                                                           dy y · g(y) + O(log2 T )
+         n
+                                                0                                                                                                   0
+   n
+
+(the boundary term A(T ) · g                          log T       = 0 since            log T   >    Nall (T     )  ;  then      integrate        by  parts  once           more).     Times            T   :
+                                                       2                                2              T                                                                                              22
+
+2T     Nall(T )/T  dy  y    ·  g(y)   +     O(T       ·  log2     T ).
+       0
+                                                                                                    (n/m)2iT -(n/m)iT
+    Off-diagonal n = m.                      2T    d     cos        log       n     = Im                  log (n/m)                  .     Set xn    :=     (n)      ·  niT    and xn          := xn ·
+                                             T                                m                                                                                n
+
+g   log n  (respectively n2iT ): the sum is Im                                         n=m        xn ·xm        m  ,  and       Montgomery-Vaughan                          with     yn    :=     log n,
+     2                                                                                         log n-log
+
+n   >        1  gives (in bilinear form:                          the theorem reads -CD                                    iH              CD,       so  ||D-     1  ·     iH  ·  D-  1  ||op           C)
+           n+1                                                                                                                                                    2                   2
+
+|· · · |                                  1                       mT (m)2               1   T · log2 T .
+                                                                                        2
+                nT (n)2 2 · ||g|| ·
+
+    The cos (A + B)-half.                      2T  d        cos(    log nm)                      2  4  ;  so this         is         log T       ·       n  (n)         ·         m  (m)       T·
+                                               T                                               log                                                             n                        m
+
+log T .
+
+Claim.     2T      d   2T         d   T2 (      -   )2         ·  2µT + 2µT + 2T T + T2                                      T · log T .
+           T           T
+
+Proof. The      three terms with                T     :  bound |T |                 T   -  1  on    [T, 2T ]          and        2T     2T    T2 ( -  )2    T·                 R T4        T   ·  log   T  ;
+then |µT |                                      T     |   1, |T2 |  T                      2                                    T             log2 T ,  T   log T               log T      .
+                                                                                                                                     T
+                   T   -    1  log  T,      |T                                      -1 give respectively                               T                                    ,
+                            2
+                                                                  
+    The 2µT term: extend    R (cost  log T · T · (log T )2/3), then use the inner-integral formula from
+the previous Claim:
+
+                                                       2T                            1 (m) log m
+
+                                          2 d µ( ) · -                                               ·g                   2            · cos ( log m) .
+                                                                                                    m
+                                                 T                                        m
+
+Integrate by parts once in  :                                    2T    d    µ( )       ·  cos(      log    m)      =         µ( ) sin ( log m)           2T  -         2T      d      µ( ) sin (··· )           log T
+                                                                 T                                                                  log m                T             T                  log m                 log m
+                                                                                                                                                                                                       
+                          log   T                                  1                                                              (m)                               1p + O(1)                            T
+(boundary                 log   m  ;  integral                   log m     via µ           T -1). Then                       m     m·log m       =           pT                                       log T  ;  times
+||g||  log T
+                                          log    T                     log2                                               T.
+                                          log    m                                           T
+                         and       the              :  total                   T   ·      log T            T · log
+
+Claim.          Nall(T )     2        R T4 + 2             Nall(T )/T      dy  y  ·       T2  2T           (y) =          1  +    1       cot    1       ·  Nall(T )     ·        R 2T 2 + O log2 T .
+                   T                                       0                                                              2         2              2           T
+                              ·
+
+        Since  +2 = 0 on                                   1     1                                                 1
+                                                           2     2
+Proof.                                                 -      ,        , the map u  (u)+                            2  1  dv  |u  -    v|·   (v)      has    vanishing                second           derivative
+                                                                                                                       2
+                                                                                                                   -
+
+there (differentiate under the integral:                                      d2          dv |u - v| · (v) = 2(u)), hence is affine, hence (being even)
+                                                                              du2                                                                                                                      
+                                                                                                    1                                                                                    1
+                          1     1                                                                                                         1           1             1                                             1
+constant on            -  2  ,  2     . Its value at u = 0 is (0) + 2                                2  dv   v  ·  (v)        =   cos       2    +      2   sin       2  ;  and          2          =     2  sin    2  ;
+
+                                                                                                    0                                                                                    -  1
+                                                                                                                                                                                            2
+                    1     1             1                                                                                           1     1
+the   ratio     is  2  +    2      cot    2   .  Integrate             the  constant             against           over          -  2  ,  2   :
+
+                                1                   1               1                                                        11                       1                     1            2
+
+                                2 2 +               2               2                                                                                                       2
+
+                                                       du dv |u - v| · (u) · (v) = +  cot                                                                       ·             ;
+                                                                                                                             22                          2
+                             -  1                -  1            -  1                                                                                                       -  1
+                                2                   2               2                                                                                                          2
+
+the double integral equals 2                           1   dw       w   ·  (      )(w)           (substitute              w  =   u   -    v,   use          even).
+                                                       0
+
+      Rescale: 2T (x) and                          xT               · 1|x|    Nall (T  )  differ    only     on    the       two     transition             intervals             of  total       length     O(1),
+                                                 Nall(T )                        2T
+
+                                                                 R 2T             Nall(T )          1                                         R T4           Nall(T )             1      2
+                                                                                     T                                                                          T
+on which both are  1. Hence                                                 =                    ·  2        +     O(1)          and                     =                     ·  2               +   O(1);     and
+
+                                                                                                    -   1                                                                         -   1
+                                                                                                        2                                                                             2
+                                                                                                                                                                                                                  3
+2T  T2           (y)     =      Nall(T )  · (  )                      yT       + O(1) uniformly, so                                 Nall(T )/T        dy y   ·  (2T               T2 )(y)         =    Nall(T )
+                                   T                                Nall(T )                                                        0                                                                     T         ·
+
+1  dw   w    ·  (        )(w)         +   O         log2 T          . Substitute.
+0
+
+      Assemble: the µµ and T T main terms sum to T times the left side of the last Claim, so
+
+             2T             2T                                                              11                     1                                                2
+
+                    d           d  T2 ( -  )2 · T · T =                                          +  cot                       · Nall(T ) ·                 T2 + O T · log2 T .
+                                                                                            22                         2
+          T              T                                                                                                                               R
+
+Multiply by               Nall(T )        2      add       the         first   Claim's              error    O            T · log4 T · log log T                 ,     and        divide            through       by
+                             T
+                                           ,
+
+Nall(T )        R T2      2             log4 T :           this gives ||WT + Efar||H2 S                                      1       1            1
+   T                                                                                                                         2         2            2
+          ·                                                                                                        =             +           cot             · Nall(T ) + O (T · log log T ).
+
+Finally ||WT ||H2 S - ||WT + Efar||H2 S  2 · ||WT + Efar||HS · ||Efar||HS + ||Efar||H2 S                                                                            Nall(T        )   ·  T     1  -2  by  Lemma
+                                                                                                                                                                                               2
+
+3.1.
+
+Lemma 3.4. Let A and B be Hermitian forms on Cn with A positive semidefinite. Then:
+
+                                                       rank A  2 · tr A + 4 · tr B - 4n+(B) - ||A + B||H2 S.
+
+Proof of Lemma 3.4. Write r := rank A and F (A, B) := rank A - 2 · tr A - 4 · tr B + 4n+(B) + ||A + B||2HS.
+The minima of U  R via U  F (A, U · B · U ) =: F (A, BU ) satisfy tr (A · [BU , H]) = 0 = tr ([A, BU ] · H)
+for all Hermitian H, whence at a minimum [A, BU ] = 0. But then for the purpose of the inequality we may
+assume without loss of generality that A and B are diagonal, with eigenvalues a1  · · ·  an  0 (so ai = 0
+for i > r) and b1, . . . , bn. Then with xi := ai + bi,
+
+                                                                        n                 n
+
+                                      ||A + B||2HS = x2i  2ai + 4bi - ci = 2 tr A + 4 tr B - ci,
+
+                                                                       i=1                i=1                                                                       i
+
+where ci = 1, 0, 4 according as i  r, bi  0; i > r, bi  0; bi > 0 (via (xi - 1)2, xi2, (xi - 2)2  0 and
+                                                                               n
+-2bi, -4bi, 2ai  0 respectively); and                                          i=1        ci        r + 4 · #|{i              :  bi    >     0}|      =     r + 4 n+(B).                    Rearranging we
+
+conclude.
+

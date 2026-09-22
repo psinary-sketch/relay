@@ -1,0 +1,160 @@
+========================================================================================================
+b468r -- THE SURVEY. ### **THE (R75) ARTEFACTS ARE ON DISK; EVERYTHING IS VERIFIED BEFORE THE SEAL.**
+========================================================================================================
+
+(P1) THE FIVE PDFs AGAINST SHA256SUMS.txt.
+--------------------------------------------------------------------------------------------------------
+    SHA256SUMS.txt encoding : utf-16 ### a PowerShell write -- decoded as what it is
+    alpoge_furman_2608.13637.pdf       6de3b156342e7b4a802c34f8ef40432567e9dabe006938da04233f19fc4ef444 MATCH
+    anthropic_informal_note.pdf        45e0330ad37965e5531fa1f4f11e5bebcae147a5237a3e5b3d029efa7ddf759d MATCH
+    claude_methodology_note.pdf        271aba2d2083ffa778a53c2994f2061fad7fdda450bc296ec49c7cc41e91dd2d MATCH
+    claude_paper_2026-08-11.pdf        19f827bee5834d61aa6dd756cdaea582492703ddbfd6bdc2058de10b93f7e814 MATCH
+    claude_transcripts.pdf             ebb34c5ed65b1dc96a72bdf76068814a34da9ceb1675624f68a2088180123ada MATCH
+    formal-math.HEAD.txt               cf7bfd370a48ca61da0e17130344da69604e81e55797b3f93223aa0085373a88 MATCH
+    SHA256SUMS.txt                     ### BLANK ROW -- IGNORED, AS ORDERED
+  ### ### **PDFs : 5 ; MATCHING : 5.**
+    formal-math.HEAD.txt : fbdc36bbf17d20af3fd0447c6d1a8a02773c9844
+    the clone`s own HEAD : fbdc36bbf17d20af3fd0447c6d1a8a02773c9844   ### **AGREE**
+    the clone`s working tree clean : True
+
+(P2) THE MAIN THEOREM IN BOTH PAPERS, AND WHETHER THEY AGREE.
+--------------------------------------------------------------------------------------------------------
+    ### FORM 1 (cut at the first `Date:` footnote) -- Theorem A agrees : False
+    ### FORM 2 (the theorem proper + the c_MT definition, each located) : True / True
+    Claude paper, Theorem A at :50 ; Theorem B at :93
+    2608.13637v2, Theorem A at :53 ; Theorem B at :97
+    ### ### **THEOREM A AGREES, CHARACTER FOR CHARACTER ON ALPHANUMERICS : True**
+    ### ### **THEOREM B AGREES, CHARACTER FOR CHARACTER ON ALPHANUMERICS : True**
+    ### the comparison strips the extraction`s spacing and glyph damage and nothing else.
+    Theorem A (Claude paper, as extracted) :
+      Theorem A. As T , (i) N0s(T, 2T ) 2 - o(1) N (T, 2T ), (ii) Nd(T, 2T ) 5 - o(1) N (T, 2T ). 3 6 With the Montgomery�Taylor window MT of (2.6) in place of the indicator window 0, the constants improve to 2 - c-M1T = 0.67250 . . . and 1 (3 - c-M1T) = 0.83625 . . . respectively, where 2 c-M1T 1 1 cot 1 ; := 2 + 2 2 among windows (equivalently, certificates of the form 2 - R()), this is optimal [CCLM1
+    Theorem B : Theorem B. Theorem A holds verbatim for L(s, ) in place of (s), for any fixed primitive Dirichlet character .
+    the arXiv version on disk                alpoge_furman_2608.13637.txt:4
+      arXiv:2608.13637v2 [math.NT] 19 Aug 2026 LEVENT ALPO� GE AND RALPH FURMAN
+    the arXiv authorship line                alpoge_furman_2608.13637.txt:6
+      The mathematical argument in this paper was discovered and written by Claude,
+    the Claude abstract, unconditional       claude_paper_2026-08-11.txt:8
+      Abstract. We prove unconditionally that at least two thirds of the nontrivial zeros of the
+    what it counts                           claude_paper_2026-08-11.txt:10
+      Riemann zeta function, counted with multiplicity, are simple and lie on the critical line, and
+    where 2/3, 5/6, 0.6725 come from         claude_paper_2026-08-11.txt:85
+      constants 3 , 6 , 0.6725 are those of Montgomery [Mon73], Conrey�Ghosh�Gonek [CGG98,
+    the constants: continued                 claude_paper_2026-08-11.txt:87
+      (1.2)], and Montgomery�Taylor [Mon75] under the Riemann hypothesis. Under RH, 0.6792 for
+    the window constant is optimal           claude_paper_2026-08-11.txt:62
+      this is optimal [CCLM17, Cor. 14]. The ceiling over the broader class of all bandwidth-one
+    the cited analytic inputs                claude_paper_2026-08-11.txt:23
+      ertia handling off-line pairs. The analytic inputs are those of Aryan and of Baluyot, Goldston,
+    the arithmetic inputs                    claude_paper_2026-08-11.txt:96
+      The arithmetic inputs are Weil's explicit formula, the Riemann�von Mangoldt formula and
+    what is not used                         claude_paper_2026-08-11.txt:100
+      {log n : n X}, X T . No mollifier, zero-density estimate, or zero-free region is used.
+
+(P3) THE SUPPORT CONDITION AND THE WINDOW.
+--------------------------------------------------------------------------------------------------------
+    the window class                         claude_paper_2026-08-11.txt:275
+      Fix an even window C 2([- 1 , 1 ]) with > 0 on [- 1 , 1 ]. The two choices we use are
+    the two windows, (2.6)                   claude_paper_2026-08-11.txt:55
+      With the Montgomery�Taylor window MT of (2.6) in place of the indicator window 0, the
+    the test function`s support              claude_paper_2026-08-11.txt:286
+      Then Cc2(R) is even, 0 1, supp = [- L , L ], and 2(u) = (u/L) off two transition
+    the support against X                    claude_paper_2026-08-11.txt:289
+      intervals of length O(1); supp( ) [-L, L] = [- log X, log X], so (2.2) applies to F = any
+    L = log(T/2pi): SUPPORT GROWS WITH T     claude_paper_2026-08-11.txt:280
+      Fix C(R) nondecreasing, |(-,0] = 0, |[1,) = 1. With L := l = log(T /2) and
+    bandwidth one, in the paper`s words      claude_paper_2026-08-11.txt:207
+      information beyond Fourier support 1.
+    the inputs and Epstein                   claude_paper_2026-08-11.txt:201
+      insensitive to o(N ) off-line zeros and hold for Davenport�Heilbronn and Epstein zeta functions,
+    ### ### **THE SUPPORT IS NOT FIXED: L = log(T/2pi), SO THE TEST FAMILY`S SUPPORT GROWS WITH
+    ### T.** ### In Montgomery`s normalisation that is Fourier support [-1, 1] -- `bandwidth one`.
+
+(P4) THE PAPER`S CEILING SENTENCE, AND THE CORPUS`S RESIDUE SENTENCE.
+--------------------------------------------------------------------------------------------------------
+    the paper`s ceiling sentence, 7.2        claude_paper_2026-08-11.txt:1016
+      The bandwidth-one ceiling. The 2 of Theorem A(i) is within 0.016 of the ceiling of its own
+    the residue`s index line, live           FINDINGS.md:60
+      > - F.2026-07-27 — The substrate season: the residue at its most compressed (the chiasmus), the own-instrument Epstein first, the escape-kind invariant
+    the residue sentence, its body           FINDINGS-archive-1-entries-through-2026-08-20c.md:121
+      - **The chiasmus — "the space is the wall."** Two eras' compiled results cross: the sign season proved *positivity is free without the zeros* (`positivity_free_obstructio
+
+(P5) THE LEAN, READ NOT TRUSTED.
+--------------------------------------------------------------------------------------------------------
+    toolchain   : leanprover/lean4:v4.33.0-rc2
+    mathlib pin : 51e6992efd06126df61a496bebf8f49482a4e129   ### lakefile.toml and lake-manifest.json agree : True
+    installed toolchains : ['leanprover--lean4---v4.14.0', 'leanprover--lean4---v4.28.0', 'leanprover--lean4---v4.29.tmp']
+    ### ### **v4.33.0-rc2 INSTALLED : False**
+    trusted-file declarations carrying sorry or axiom : 23
+      Challenge.lean             :131  theorem two_thirds_on_critical_line                            hyps -
+      Challenge.lean             :136  theorem two_thirds_on_critical_line_cumulative                 hyps -
+      Challenge.lean             :142  theorem two_thirds_simple_on_critical_line                     hyps -
+      Challenge.lean             :147  theorem two_thirds_simple_on_critical_line_cumulative          hyps -
+      Challenge.lean             :152  theorem five_sixths_distinct                                   hyps -
+      Challenge.lean             :157  theorem five_sixths_distinct_cumulative                        hyps -
+      Challenge.lean             :163  theorem montgomery_taylor_on_critical_line                     hyps -
+      Challenge.lean             :169  theorem montgomery_taylor_simple_on_critical_line_mult         hyps -
+      Challenge.lean             :174  theorem montgomery_taylor_simple_on_critical_line_mult_cumulat hyps -
+      Challenge.lean             :179  theorem montgomery_taylor_distinct_mult                        hyps -
+      Challenge.lean             :184  theorem montgomery_taylor_distinct_mult_cumulative             hyps -
+      Challenge.lean             :191  theorem dirichlet_two_thirds_on_critical_line                  hyps ['hq', 'hχ']
+      Challenge.lean             :198  theorem dirichlet_two_thirds_simple_on_critical_line           hyps ['hq', 'hχ']
+      Challenge.lean             :205  theorem dirichlet_five_sixths_distinct                         hyps ['hq', 'hχ']
+      Challenge.lean             :212  theorem dirichlet_montgomery_taylor_on_critical_line           hyps ['hq', 'hχ']
+      Challenge.lean             :219  theorem dirichlet_montgomery_taylor_simple_on_critical_line_mu hyps ['hq', 'hχ']
+      Challenge.lean             :226  theorem dirichlet_montgomery_taylor_distinct_mult              hyps ['hq', 'hχ']
+      Challenge\XiPrime.lean     :67   theorem xiPrime_zeros_in_open_critical_strip                   hyps -
+      Challenge\XiPrime.lean     :72   theorem xiPrime_over_xi_re_pos                                 hyps -
+      Challenge\XiPrime.lean     :79   theorem xiPrime_simple_zeros_on_critical_line                  hyps -
+      Challenge\XiPrime.lean     :86   theorem xiPrime_simple_zeros_on_critical_line_cumulative       hyps -
+      Challenge\XiPrime.lean     :94   theorem xiPrime_simple_zeros_on_critical_line_quartic          hyps -
+      Challenge\XiPrime.lean     :102  theorem xiPrime_simple_zeros_on_critical_line_quartic_cumulati hyps -
+    ### ### **AXIOM DECLARATIONS IN THE TRUSTED FILES : 0.**
+    ### ### **HYPOTHESES CARRIED BY ANY TRUSTED STATEMENT : ['hq', 'hχ']**
+    what the file says of its sorrys         Challenge.lean:26
+      The `sorry`s below are deliberate (this is the challenge side); expect "declaration uses 'sorry'"
+
+  ### THE UNTRUSTED LIBRARY, ON ITS OWN INPUTS -- READ, AND LABELLED A CLAIM UNTIL RUN.
+    the hypothesis boundary                  Hypotheses.lean:15
+      axiom declarations anywhere in this project: hypotheses are fields of the Prop-valued structure
+    PaperInputs                              Hypotheses.lean:147
+      structure PaperInputs (Z : ZeroConfig) : Prop where
+    PaperInputs DISCHARGED for zeta          Final.lean:291
+      theorem paperInputs_zeta : PaperInputs zetaZeroConfig := PaperInputs.of_EF zetaEF
+    the explicit formula, proved             Final.lean:288
+      theorem zetaEF : EF.EF_lit zetaZeroConfig := WeilEF.EF_lit_zetaZeroConfig
+    the library`s own words                  Final.lean:283
+      These are the headline statements of the formalization: no hypotheses at all. -/
+    raw lines beginning with `axiom`, comments NOT stripped : 3
+      Zeta23\Hypotheses.lean:15:axiom declarations anywhere in this project: ### a line of PROSE inside the file`s header comment
+      Zeta23\FromPNTPlus\Tactic\AdditiveCombination.lean:183:axiom qc : ℚ    ### inside a `/-- ... -/` docstring EXAMPLE of the vendored tactic
+      Zeta23\FromPNTPlus\Tactic\AdditiveCombination.lean:184:axiom hqc : qc  ### inside a `/-- ... -/` docstring EXAMPLE of the vendored tactic
+    ### ### **AXIOM DECLARATIONS, COMMENTS STRIPPED : 0** 
+
+  ### AUDIT.md, READ AS A CLAIM, AND COMPARED WITH THE TREE IT SITS IN.
+    statements AUDIT.md prints an axiom line for : 33
+    ### ### **OF THOSE, NOT PRESENT IN THIS TREE`S Challenge.lean OR Solution.lean : 12**
+      dirichlet_half_simple_on_critical_line
+      dirichlet_three_quarters_distinct
+      half_simple_on_critical_line
+      half_simple_on_critical_line_cumulative
+      three_quarters_distinct
+      three_quarters_distinct_cumulative
+      xiPrime_over_xi_re_pos
+      xiPrime_simple_zeros_on_critical_line
+      xiPrime_simple_zeros_on_critical_line_cumulative
+      xiPrime_simple_zeros_on_critical_line_quartic
+      xiPrime_simple_zeros_on_critical_line_quartic_cumulative
+      xiPrime_zeros_in_open_critical_strip
+    AUDIT names `Challenge/Multiplicity.lean` : True ; that file exists here : False
+    ### ### **SO AUDIT.md`S `RECORDED RESULTS AT THIS COMMIT` DESCRIBE A STATEMENT SET THAT IS NOT
+    ### THIS ONE.** ### It is not evidence about these statements, and is not used as such.
+
+  ### THE COMPARISON`S TWO SIDES.
+    Li-shaped declarations or prose in the 316 library files : 0
+    the EF`s own support hypothesis          Hypotheses.lean:50
+      tsupport f ⊆ Icc (-(L / 2)) (L / 2) → tsupport g ⊆ Icc (-(L / 2)) (L / 2) →
+    the deposit`s pending conjunct at lv v0.10.0 : (∀ n : ℕ, 1 ≤ n → lam n = (∑ z ∈ low, blTerm z n) + tail n)
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================

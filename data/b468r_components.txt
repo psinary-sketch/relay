@@ -1,0 +1,236 @@
+========================================================================================================
+COMPONENT 1 -- THE STATEMENT.
+========================================================================================================
+
+  ### (1a) THE MAIN THEOREM, BOTH PAPERS, AS EXTRACTED.
+    Theorem A, Claude paper            claude_paper_2026-08-11.txt:50
+      "Theorem A. As T , (i) N0s(T, 2T ) 2 - o(1) N (T, 2T ), (ii) Nd(T, 2T ) 5 - o(1) N (T, 2T ). 3 6"
+    Theorem A, arXiv 2608.13637v2      alpoge_furman_2608.13637.txt:53
+      "Theorem A. As T , (i) N0s(T, 2T ) 2 - o(1) N (T, 2T ), (ii) Nd(T, 2T ) 5 - o(1) N (T, 2T ). 3 6"
+    Theorem B, Claude paper            claude_paper_2026-08-11.txt:93
+      "Theorem B. Theorem A holds verbatim for L(s, ) in place of (s), for any fixed primitive Dirichlet character ."
+    Theorem B, arXiv 2608.13637v2      alpoge_furman_2608.13637.txt:97
+      "Theorem B. Theorem A holds verbatim for L(s, ) in place of (s), for any fixed primitive Dirichlet character ."
+    ### ### **DO THEY AGREE? THEOREM A : True ; THEOREM B : True**
+    ### the survey`s first comparison said Theorem A DISAGREES; that was a page break, printed there.
+    ### ### **AND WHAT DIFFERS IS THE ATTRIBUTION, NOT THE THEOREM:**
+    the Claude paper`s byline          claude_paper_2026-08-11.txt:4
+      "CLAUDE"
+    the arXiv authorship               alpoge_furman_2608.13637.txt:6
+      "The mathematical argument in this paper was discovered and written by Claude,"
+
+  ### (1b) UNCONDITIONAL, AND WHAT IT COUNTS, IN ITS OWN WORDS.
+    unconditional                      claude_paper_2026-08-11.txt:8
+      "Abstract. We prove unconditionally that at least two thirds of the nontrivial zeros of the"
+    what it counts                     claude_paper_2026-08-11.txt:10
+      "Riemann zeta function, counted with multiplicity, are simple and lie on the critical line, and"
+    ### ### **IT COUNTS SIMPLE ZEROS ON THE LINE, AGAINST ALL ZEROS COUNTED WITH MULTIPLICITY:**
+    ### `N0s(T,2T) >= (2/3 - o(1)) N(T,2T)`, and with the Montgomery-Taylor window `0.67250...`.
+
+  ### (1c) WHERE THE CONSTANTS COME FROM, IN THE PAPERS` WORDS.
+    2/3, 5/6, 0.6725                   claude_paper_2026-08-11.txt:85
+      "constants 3 , 6 , 0.6725 are those of Montgomery [Mon73], Conrey�Ghosh�Gonek [CGG98, (1.2)], and Montgomery�Taylor [Mon75] under the Riemann hypothesis. Under RH, 0.6792 for"
+    the window constant is optimal     claude_paper_2026-08-11.txt:62
+      "this is optimal [CCLM17, Cor. 14]. The ceiling over the broader class of all bandwidth-one"
+    the chain that yields 2/3          claude_paper_2026-08-11.txt:140
+      "(1.2) N0s + o(N ) rank P1 4 tr G - 2N - GH2 S = 2 - R() - o(1) N : the first inequality is Proposition 4.1; the second combines (L) with tr P1 + 2n+(Q) N"
+    the three cited analytic inputs    claude_paper_2026-08-11.txt:23
+      "ertia handling off-line pairs. The analytic inputs are those of Aryan and of Baluyot, Goldston,"
+    the arithmetic inputs              claude_paper_2026-08-11.txt:96
+      "The arithmetic inputs are Weil's explicit formula, the Riemann�von Mangoldt formula and the bound N (t, t + 1) log t, Stirling's estimate for /, Chebyshev�Mertens estimates for nX (n)2 and nX (n)2/n, and the Montgomery�Vaughan inequality for the frequencies {l"
+    what is not used                   claude_paper_2026-08-11.txt:100
+      "{log n : n X}, X T . No mollifier, zero-density estimate, or zero-free region is used."
+    ### ### **2/3 AND 5/6 ARE MONTGOMERY`S AND CONREY-GHOSH-GONEK`S CONSTANTS UNDER RH, AND 0.6725 IS
+    ### MONTGOMERY-TAYLOR`S; THE PAPER GETS THEM UNCONDITIONALLY FROM `2 - R(window)`, R(indicator)
+    ### = 4/3 AND R(Montgomery-Taylor) = 1/c_MT** -- the chain (1.2), quoted above.
+
+  ### (1d) THE SUPPORT CONDITION AND THE WINDOW.
+    the window class                   claude_paper_2026-08-11.txt:275
+      "Fix an even window C 2([- 1 , 1 ]) with > 0 on [- 1 , 1 ]. The two choices we use are"
+    the two windows, (2.6)             claude_paper_2026-08-11.txt:55
+      "With the Montgomery�Taylor window MT of (2.6) in place of the indicator window 0, the"
+    L = log(T/2pi)                     claude_paper_2026-08-11.txt:280
+      "Fix C(R) nondecreasing, |(-,0] = 0, |[1,) = 1. With L := l = log(T /2) and X := eL = T /(2), set"
+    the test function`s support        claude_paper_2026-08-11.txt:286
+      "Then Cc2(R) is even, 0 1, supp = [- L , L ], and 2(u) = (u/L) off two transition 2 2"
+    bandwidth one                      claude_paper_2026-08-11.txt:207
+      "information beyond Fourier support 1."
+    ### ### **THE SUPPORT GROWS WITH T: `supp phi = [-L/2, L/2]`, `L = log(T/2pi)` -- FOURIER SUPPORT
+    ### `[-1, 1]` IN THE SCALED VARIABLE. THE WINDOW IS `Psi in C^2([-1/2, 1/2])`, EVEN, POSITIVE.**
+
+  ### (1e) READ (a) -- THE IMPORT BAR, ALONG BOTH (R76) COORDINATES.
+  ----------------------------------------------------------------------------------------------------
+    THE REPRESENTATION COORDINATE.
+      the class : zeta (Theorem A) and L(s, chi) for any fixed primitive Dirichlet chi (Theorem B).
+      the corpus`s FIRST object, zeta : ### **INSIDE THE CLASS** -- Theorem A is about zeta itself.
+      the corpus`s SECOND object, Epstein Z_Q (row F7, no Euler product) : ### **OUTSIDE** --
+        not zeta and not a Dirichlet L-function. ### Deciding sentence, Theorem B above.
+    THE TEST-FUNCTION COORDINATE.
+      ### **THE THEOREM QUANTIFIES OVER NO CLASS OF TEST FUNCTIONS AT ALL.** ### Its test family is
+      internal to the proof -- modulated copies of a fixed window, at a support `L` that grows
+      with `T` -- and the conclusion is a count of zeros. ### Deciding sentences, (1d) above.
+      The corpus`s test functions sit at FIXED widths; the paper states nothing uniform over them.
+    ### ### **VERDICT (a): `K1 CLASS BOUNDARY` ON THE SECOND OBJECT ONLY. ON THE FIRST OBJECT THE CLASS
+    ### CONTAINS IT, WHICH IS NOT A BOUNDARY; ON THE TEST-FUNCTION COORDINATE THERE IS NO CLASS TO
+    ### GRADE -- `NONE`.**
+    ### ### **AND THE SENTENCE THE PAPER PUTS CLOSEST TO THE SECOND OBJECT IS ABOUT ITS INPUTS, NOT ITS
+    ### THEOREM:**
+    the inputs and Epstein             claude_paper_2026-08-11.txt:201
+      "insensitive to o(N ) off-line zeros and hold for Davenport�Heilbronn and Epstein zeta functions, for which the analogue of RH is false. Given only tr G, G2HS and the block structure, the"
+    ### *"The inputs are ... insensitive to o(N) off-line zeros and hold for Davenport-Heilbronn and
+    ### Epstein zeta functions"* -- the INPUTS hold for Epstein; the THEOREM is not stated for it.
+
+  ### (1f) READ (b) -- ROW U1, SITE BY SITE, UNDER (R76).
+  ----------------------------------------------------------------------------------------------------
+    (i)    class           ### **NONE**
+        no statement uniform in the test function; the class of the test family is the proof`s, not
+        the theorem`s
+    (ii)   height          ### **UNIFORM IN T -- DOES NOT FIRE**
+        the theorem holds for all T >= T0(eps), at the T-dependent support L = log(T/2pi); it is a
+        PROPORTION (2/3 of zeros), not a statement about each zero; and under (R76) the height is
+        the instrument`s truncation, which no source fires
+    (iii)  width           ### **NONE**
+        no statement uniform in the test function`s support at fixed width
+    (iv)   width           ### **NONE**
+        the same index, the same absence
+    (v)    representation  ### **K1 CLASS BOUNDARY**
+        the Dirichlet extension`s class is primitive Dirichlet L-functions (and zeta); Epstein Z_Q
+        has no Euler product and is in neither; at the paper`s support the second object is outside
+        the class
+    (vi)   modulus         ### **K1 CLASS BOUNDARY, AND PER-MODULUS**
+        the same class, so the second object is outside it; and within the class the statement is
+        for ANY FIXED chi -- in the Lean, T0 is chosen after chi -- so it holds at every modulus and
+        not uniformly across moduli, which is site (vi)`s own shape
+    Theorem B, fixed chi               claude_paper_2026-08-11.txt:93
+      "Theorem B. Theorem A holds verbatim for L(s, ) in place of (s), for any fixed primitive"
+    ### ### **(R61)/(R76)`S TRIGGER DOES NOT FIRE:** not uniform in the test function over a class
+    ### containing the corpus`s test functions; not uniform in the representation over a class
+    ### containing the second object; and the uniformity it does have is in `T`, which (R76) says
+    ### no source fires.
+
+  ### (1g) READ (c) -- THE CENSUS. ### **DRAFTS, NOT APPLIED; AUTHORING ROUTED.**
+  ----------------------------------------------------------------------------------------------------
+    section 24.4, deposited, :1491
+      | Analytic number theory | Mollifiers, mean values | 1942–present | ≥ 40.77% simple |
+    ### b466 found that cell counts SIMPLICITY and the banked headline counted THE LINE. ### **THE PAPER
+    ### NOW SETTLES IT: IT COUNTS SIMPLE ZEROS ON THE LINE, SO IT DOES BEAR ON THAT CELL.**
+    ### DRAFT 1 -- an era-annotation candidate for section 24.4, NOT APPLIED:
+      | Analytic number theory | Weil-form rank-trace inequality, non-mollifier (Claude / Anthropic;
+      |   Alpoge-Furman, arXiv 2608.13637v2) | 2026 | >= 2/3 simple and on the line, unconditional
+      |   (0.6725 with the Montgomery-Taylor window) |
+      ### a new row beside the existing one, since the existing row is a tradition`s record and not
+      ### this method`s; which of row or column is authoring, and is routed.
+    ### DRAFT 2 -- the intake item owed since 2026-08-20, NOT APPLIED:
+      the intake held two paper-read flags open: *"no-Euler-clause SUPPORTED (paper-read flag
+      open); obstructed-limit PARTIAL (paper-read flag open)"* (`2026-08-20-external-intake.md:32`).
+      candidate: *no-Euler-clause* -- read against the paper`s sentence that its inputs *"hold for
+      Davenport-Heilbronn and Epstein zeta functions"* (claude_paper_2026-08-11.txt:201); *obstructed-limit* -- read against
+      its ceiling sentence below. ### **THE DRAFT NAMES WHERE EACH FLAG CAN NOW BE READ; IT DOES NOT
+      CLOSE EITHER FLAG**, which is the intake`s owner`s call.
+
+  ### THE PAPER`S OWN CEILING SENTENCE, AND THE CORPUS`S RESIDUE SENTENCE. ### NOTHING BETWEEN THEM.
+    the paper`s ceiling sentence       claude_paper_2026-08-11.txt:1016
+      "The bandwidth-one ceiling. The 2 of Theorem A(i) is within 0.016 of the ceiling of its own 3"
+    the corpus`s residue sentence      FINDINGS-archive-1-entries-through-2026-08-20c.md:121
+      "- **The chiasmus — "the space is the wall."** Two eras' compiled results cross: the sign season proved *positivity is free without the zeros* (`positivity_free_obstruction_is_zeroRealization`); the inverse-spectral converse (de Branges) proves *the operator is free given the positivity* (multiplication on `B(E)`, once Hermite–Biehler membership — RH-equivalent — holds). They meet at the one object neither supplies: **the positive space on the zeros**. This is the residue's most compressed honest form. **Author's framing recorded — the koan: *space ⟺ zeros*** (the space is what realizes the zeros; the zeros are what the space lacks; each is the other's absence). Now the residue paper's §6 final compression (v1.1) and monograph §27.3 (v5.13)."
+    ### the residue sentence`s index line is live at `FINDINGS.md:60`.
+
+========================================================================================================
+COMPONENT 2 -- THE LEAN, READ NOT TRUSTED. ### THE KERNEL LANE IS OPEN FOR THIS COMPONENT.
+========================================================================================================
+    clone HEAD : fbdc36bbf17d20af3fd0447c6d1a8a02773c9844 ; project zeta23 ; toolchain leanprover/lean4:v4.33.0-rc2
+    ### **MATHLIB PIN : 51e6992efd06126df61a496bebf8f49482a4e129**
+
+  ### (2a) THE TRUSTED STATEMENT FILES -- EVERY DECLARATION CARRYING `sorry` OR BEING AN AXIOM.
+    Challenge.lean:131  theorem two_thirds_on_critical_line  hyps: none
+    Challenge.lean:136  theorem two_thirds_on_critical_line_cumulative  hyps: none
+    Challenge.lean:142  theorem two_thirds_simple_on_critical_line  hyps: none
+    Challenge.lean:147  theorem two_thirds_simple_on_critical_line_cumulative  hyps: none
+    Challenge.lean:152  theorem five_sixths_distinct  hyps: none
+    Challenge.lean:157  theorem five_sixths_distinct_cumulative  hyps: none
+    Challenge.lean:163  theorem montgomery_taylor_on_critical_line  hyps: none
+    Challenge.lean:169  theorem montgomery_taylor_simple_on_critical_line_mult  hyps: none
+    Challenge.lean:174  theorem montgomery_taylor_simple_on_critical_line_mult_cumulative  hyps: none
+    Challenge.lean:179  theorem montgomery_taylor_distinct_mult  hyps: none
+    Challenge.lean:184  theorem montgomery_taylor_distinct_mult_cumulative  hyps: none
+    Challenge.lean:191  theorem dirichlet_two_thirds_on_critical_line  hyps: ['hq', 'hχ']
+    Challenge.lean:198  theorem dirichlet_two_thirds_simple_on_critical_line  hyps: ['hq', 'hχ']
+    Challenge.lean:205  theorem dirichlet_five_sixths_distinct  hyps: ['hq', 'hχ']
+    Challenge.lean:212  theorem dirichlet_montgomery_taylor_on_critical_line  hyps: ['hq', 'hχ']
+    Challenge.lean:219  theorem dirichlet_montgomery_taylor_simple_on_critical_line_mult  hyps: ['hq', 'hχ']
+    Challenge.lean:226  theorem dirichlet_montgomery_taylor_distinct_mult  hyps: ['hq', 'hχ']
+    Challenge\XiPrime.lean:67  theorem xiPrime_zeros_in_open_critical_strip  hyps: none
+    Challenge\XiPrime.lean:72  theorem xiPrime_over_xi_re_pos  hyps: none
+    Challenge\XiPrime.lean:79  theorem xiPrime_simple_zeros_on_critical_line  hyps: none
+    Challenge\XiPrime.lean:86  theorem xiPrime_simple_zeros_on_critical_line_cumulative  hyps: none
+    Challenge\XiPrime.lean:94  theorem xiPrime_simple_zeros_on_critical_line_quartic  hyps: none
+    Challenge\XiPrime.lean:102  theorem xiPrime_simple_zeros_on_critical_line_quartic_cumulative  hyps: none
+    ### ### **23 DECLARATIONS, EVERY ONE A THEOREM WITH `sorry` AS ITS PROOF; AXIOMS : 0.**
+    ### The file says why, at its own line 26: *"The `sorry`s below are deliberate (this is the
+    ### challenge side)"*. ### **THEY ARE THE COMPARATOR`S TARGET STATEMENTS, NOT INPUTS TAKEN ON TRUST:**
+    ### Solution must prove exactly these types. ### The ONLY hypotheses any carries are
+    ### ['hq', 'hχ'] -- `1 < q` and primitivity of chi on the Dirichlet statements -- ### **AND NEITHER IS AN
+    ### ANALYTIC INPUT.**
+    ### the full statements are banked verbatim in `b468r_survey.json` under `trusted`.
+
+  ### (2b) WHERE THE ANALYTIC INPUTS WENT -- THE UNTRUSTED LIBRARY, READ.
+    `Zeta23/Hypotheses.lean` names the paper`s inputs as fields of `PaperInputs` (explicit formula,
+    Riemann-von Mangoldt, Chebyshev-Mertens, Montgomery-Vaughan, Gamma facts), and
+    `Zeta23/Final.lean` DISCHARGES THEM FOR ZETA: `theorem paperInputs_zeta : PaperInputs
+    zetaZeroConfig := PaperInputs.of_EF zetaEF`, with `zetaEF` proved from Mathlib`s functional
+    equation. ### Axiom declarations anywhere in the project, comments stripped : 0.
+
+  ### (2c) `#print axioms`, RUN -- OR NOT, WITH THE REASON.
+    ### ### **`#print axioms` : NOT RUN.** ### stopped at : ['lake build Solution -- by the harness, for low system memory while the session was idle (task boiccalut, status killed); not restarted, as the harness directs']
+      | Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 0 KB/s], Decompressed: 8658[K
+      | Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 0 KB/s], Decompressed: 8658[K
+      | D:/lean-cache-b468r/mathlib\bbd24837f32551c6.ltar: removing corrupted file
+      | Decompressed 8681 file(s)
+      | Already decompressed 8679 file(s)
+      | === [2026-09-22T05:37:20Z] EXIT 0 : lake exe cache get
+      | === [2026-09-22T05:37:20Z] STEP: lake build Solution
+      | ### RUN STOPPED AT: lake build Solution -- by the harness, for low system memory while the session was idle (task boiccalut, status killed); not resta
+    ### The third party`s audit prints three-axiom lines for its statements, and it is quoted
+    ### ONLY AS ITS CLAIM: the survey found `AUDIT.md` names 12 statements not in this tree.
+
+  ### (2d) THE GRADE, IN THE CORPUS`S VOCABULARY.
+    ### ### **`DERIVES` BY THE ORDER`S RULE ON THE TRUSTED FILES -- AND CONDITIONAL, SAID IN THE SAME
+    ### BREATH, ON A `#print axioms` THIS ACT DID NOT RUN.** ### Nothing stronger is claimed.
+
+  ### (2e) THE ONE COMPARISON.
+    the deposit`s pending input, lv v0.10.0 at 93c27ec, second conjunct of ExplicitFormulaDecomp:
+      (∀ n : ℕ, 1 ≤ n → lam n = (∑ z ∈ low, blTerm z n) + tail n)
+    zeta23`s explicit formula, `Zeta23/Hypotheses.lean:48`, proved for zeta via `zetaEF`:
+      def ExplicitFormulaPaper (Z : ZeroConfig) : Prop :=
+        ∀ (L : ℝ), 0 < L → ∀ (f g : ℝ → ℂ), ContDiff ℝ 2 f → ContDiff ℝ 2 g →
+          tsupport f ⊆ Icc (-(L / 2)) (L / 2) → tsupport g ⊆ Icc (-(L / 2)) (L / 2) →
+          Summable (fun ρ : Z.carrier => Z.Wsummand f g ρ) ∧
+          Integrable (fun τ : ℝ => paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)) ∧
+          Z.W f g = ∫ τ : ℝ, paperFT f τ * conj (paperFT g τ) * (nuX (Real.exp L) τ : ℂ)
+      
+    ### ### **VERDICT : `DOES NOT`.** ### zeta23`s explicit formula is Weil`s Hermitian form for test
+    ### functions `C^2` with `tsupport` in `[-L/2, L/2]`, summed over ALL zeros. ### The deposit`s
+    ### conjunct is a Li-coefficient splitting at a height `T`, whose test functions `1 - (1 - 1/s)^n`
+    ### have no compact support -- b400 recorded the Li family outside every compactly supported
+    ### class -- so no specialization of zeta23`s statement reaches it; and no Li-shaped declaration
+    ### exists in the library (0 hits). ### **`W-ORD-GW-IMPORT` IS NOT FILED. NOTHING IS IMPORTED.**
+
+========================================================================================================
+THE EXPECTATIONS, SCORED.
+========================================================================================================
+  (N1) the two statements agree and the theorem counts simple zeros on the line, unconditionally
+       ### ### **HELD**
+       both theorems agree; N0s -- simple on the line; "We prove unconditionally"; the Lean check of "unconditionally" is NOT RUN
+  (N2) K1 at every site; the support restriction excludes the corpus's objects; (R61)'s trigger does not fire
+       ### ### **REFUTED ON ITS FIRST CLAUSE, HELD ON ITS LAST**
+       K1 at sites (v) and (vi) only; NONE at (i), (iii), (iv) where no uniform statement exists; at (ii) uniform in T, which (R76) says fires nothing; zeta, the first object, is INSIDE the class -- and the trigger does not fire
+  (N3) the trusted statement files carry the pair-correlation input as a hypothesis, so INTERFACES; comparison DOES NOT
+       ### ### **REFUTED ON THE FIRST TWO CLAUSES, HELD ON THE THIRD**
+       the trusted files carry no analytic hypothesis (only 1 < q and primitivity); the grade is DERIVES, CONDITIONAL ON AN UNRUN #print axioms; the comparison is DOES NOT
+  ### THE SEAT`S OWN, FROM THE FACE:
+    (N1) HELD on all three clauses, as the face said
+    (N2) as the face predicted: first clause REFUTED, last HELD, K1 at (v) -- and at (vi), which the face did not name
+    (N3) as the face predicted: first two REFUTED, DOES NOT HELD; the grade DERIVES, CONDITIONAL ON AN UNRUN #print axioms
+
+  ### ### **NO BRIDGE TYPED. NO SITE ENTERED. ROW U1 UNEDITED. NO DRAFT APPLIED. NOTHING IMPORTED.
+  ### ### NO LEAN OF THE CORPUS TOUCHED. `h2` WHERE THE DEPOSIT LEFT IT.**
