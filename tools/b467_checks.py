@@ -7,6 +7,7 @@
 ### advance even though this act is not the one it binds.
 """
 import io
+import glob
 import json
 import os
 import re
@@ -109,8 +110,13 @@ def sources():
         lag=read(os.path.join(D, 'b358_source_lagarias0404394.txt')),
         desk=read(os.path.join(D, 'b467_desk_notes.txt')),
         docs=sorted(f for f in os.listdir(D) if f.startswith('b467_')),
-        mirror=os.path.exists(os.path.join('D:', os.sep, 'MY-DOwnloads',
-                                           'mirror-refresh-2026-09-21-b467.zip')),
+        # ### ### **THE INHERITED ARM CARRIED b466's DATE.** ### A wholesale re-point moves the act
+        # ### number and leaves `2026-09-21` behind, so on an act that runs on the next day the arm
+        # ### looks for a zip that will never exist. ### **THAT IS b364's `DATED ARM` SPECIES, AND
+        # ### IT IS REPAIRED HERE RATHER THAN RE-DATED**: the arm now asks for a zip NAMED BY (R69)'s
+        # ### convention for THIS ACT -- any date, this act's suffix -- so it cannot go stale again.
+        mirror=bool(glob.glob(os.path.join('D:', os.sep, 'MY-DOwnloads',
+                                           'mirror-refresh-*-b467.zip'))),
         tracked=(sorted(x for x in gits(PP, 'show', '--name-only', '--pretty=format:', 'HEAD').split(NL) if x.strip())
                  if gits(PP, 'log', '-1', '--pretty=%s').startswith('b467')
                  else sorted(p[3:].strip() for p in git(PP, 'status', '--porcelain').split(NL)
