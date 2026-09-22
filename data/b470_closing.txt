@@ -1,0 +1,95 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b470 -- THE EXPLICIT FORMULA IN zeta23 SET AGAINST THE INSTRUMENT'S
+### IDENTITY, THE ANNOTATION APPLIED, AND THE AXIOM RUN IN THE FOREGROUND. ### 2026-09-22.
+### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1). ### (R78) ENTERED; (R79) EXECUTED.
+====================================================================================================
+
+  ferry            : part 1 of 1, IN FULL, scanned 0 hits
+  step zero        : censuses TOTAL MISSING 0 both; pins 1 HARD-FAILING on the first read (SIDE-effects
+                     UNRESOLVED), 0 on the retry
+  registration     : LOCKED BEFORE ANY VERDICT, WRITE OR BUILD STEP, sha256 bc6990d2f64fcbe9...;
+                     SEAL INTACT; lock gate 8 of 8, 4 by digest
+  arms             : 59 declared; post-push 59 RUN, 59 LIVE PASSING, 0 FAILING, 0 positive-control passes
+  censuses / pins  : TOTAL MISSING 0 both; HARD-FAILING 0 across all 4 rostered repos
+  mirror           : mirror-refresh-2026-09-22-b470.zip CLEAN ON ALL THREE CLAUSES at da1faed
+  correspondence   : row 319 (SIDE-global-section d1aed31)
+  PLACE-papers     : da1faed -- OPEN_TRAILS.md (R78, W-ORD-GW-IMPORT, the b470 record) ;
+                     day1/A_Place_to_Stand.md (the analytic-row note)
+  relay            : 99cfbc5 (the act, and the intake closure line) ; this closing commit
+  nothing          : deposits; is imported; no corpus Lean touched; no corpus grade moved
+  span by tool     : 7 by number (b464-b470) ; 7 by filings (six numbers filed plus b468r)
+  desk             : 22 items, 0 closed, 3 minted here, 22 standing
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE VERDICT TABLE.
+----------------------------------------------------------------------------------------------------
+    declaration                        verdict    deciding clause
+    ---------------------------------- ---------- --------------------------------------------------
+    EF_lit                             CONTAINS   every C^2 compactly supported k; no evenness hypothesis
+    EF_paper                           CONTAINS   the square form W(f,g) = INT h_f h_g-bar nu_X (a difference of FORM)
+    ExplicitFormulaPaper               CONTAINS   EF_paper with convergence asserted
+    EF_lit_zeta                        CONTAINS   EF_lit at zeta's zeros, under hs : ZetaSeam
+    EF_lit_zetaZeroConfig              CONTAINS   hypothesis-free -- the terminal an import would name
+    zetaEF                             CONTAINS   a re-export
+    prop_EF_of_lit                     DOES NOT   a bridge taking EF_lit as a hypothesis
+    explicitFormulaPaper_of_lit        DOES NOT   a bridge taking EF_lit and GammaFacts as hypotheses
+  ### ### **CONTAINS 6 ; DOES NOT 2 ; MATCHES 0.** ### The specialization: g in C_c^inf(R*_+) with
+  ### g~ = 0 on F >= {0,1}, f = g conv g-bar-sharp, k := w with f(x) = x^{-1/2} w(log x) [g]; h =
+  ### paperFT, the corpus's cosine hhat for even real w, rho = 1/2 + i gamma_rho [normalization];
+  ### + pole, - prime, + archimedean on both sides [sign]. ### The archimedean kernel is IDENTICAL:
+  ### Re psi(1/4 + ir/2) - log pi. ### **DIFFERENCES: SIGN 0 ; NORMALIZATION 0 ; SCOPE 3** -- the
+  ### corpus's zero side a truncated, on-line-assumed sum over banked ordinates; its archimedean range
+  ### truncated; evenness assumed ; **FORM 1** -- EF_paper's density form. ### Printed, not resolved.
+  ### **W-ORD-GW-IMPORT FILED** (trigger: the author's ruling on importing a third party's terminal
+  ### under the bar, at a pin, with its axiom profile RUN and not read). ### **NOTHING IMPORTED.**
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- (R79) EXECUTED.
+----------------------------------------------------------------------------------------------------
+  the analytic-row note beside 24.4, working copy : +2 lines, 0 removed, NO EXISTING LINE EDITED ;
+    the new bound; the paper 19f827be..., arXiv 2608.13637v2 6de3b156..., the Lean at fbdc36bb;
+    **the row's own figure stays true as a lower bound**
+  the intake item : CLOSED at reports/2026-08-20-external-intake.md:32 by an appended line citing
+    b468r's bank ; CRLF matched ; prefix proved
+  (R78) : appended beside (R76) in the (R61) entry form
+  the deposited directory : md5 UNCHANGED 11 of 11 -- A_Place_to_Stand.md e90e2d06d5cadc059c62c29a849e9f8c
+    before and after, and every other file's pair likewise (b470_md5_before.json / _after.json)
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 3 -- THE PROFILES. ### **NONE: THE BUILD DID NOT COMPLETE, AND NO MODULE FAILED.**
+----------------------------------------------------------------------------------------------------
+  ### `lake build -j1` -> "error: unknown short option '-j'" ; `--jobs 1` -> "unknown long option".
+  ### Serialized by hand instead: a single module per invocation, import order, LEAN_NUM_THREADS=1,
+  ### foreground, bounded calls. ### The first call's own 590 s limit killed ChallengeDeps mid-build
+  ### (exit 143) -- a TIMEOUT, not a failure; the driver's state was corrected to say so.
+  ### **THE FLOOR, MEASURED: a bare `import Mathlib`, one thread, foreground -- UNFINISHED AT 570 s.**
+  ### ChallengeDeps, Challenge, Solution and scripts/PrintAxioms.lean all load the whole of Mathlib,
+  ### so none can complete inside a foreground call on this machine. ### Closure 190 modules; 8 built
+  ### before this act; 0 built by it. ### **#print axioms NOT RUN -- neither the shipped script nor the
+  ### named file; no profile exists to print.** ### **THE GRADE STAYS `DERIVES`, CONDITIONAL.** ### The
+  ### cause of the slow import is NOT diagnosed and is not guessed at. ### No Lean process left running.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATIONS, SCORED.
+----------------------------------------------------------------------------------------------------
+  (N1) an EF over compactly supported EVEN test functions CONTAINS b321's identity
+       ### **HELD ON CONTAINS, REFUTED ON EVEN** -- EF_lit carries no evenness hypothesis
+  (N2) at least one sign or normalization difference
+       ### **REFUTED** -- 0 and 0; 3 of scope and 1 of form printed
+  (N3) the -j1 build completes and every profile is the standard three
+       ### **REFUTED** -- the flag does not exist; the build cannot complete under the foreground bound
+  ### The seat's own, from the face: all three as predicted.
+
+----------------------------------------------------------------------------------------------------
+### ERRORS. ### THE SEAT'S : ONE -- the driver first recorded its own call timeout as a module failure;
+### corrected at once. ### THE NAVIGATOR'S : NONE -- the order named a flag this lake lacks, recorded
+### as a fact about the tool.
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING CONSTRAINTS.
+----------------------------------------------------------------------------------------------------
+  both instrument lanes PARKED ; the kernel lane OPENED FOR COMPONENTS 1 AND 3 AND CLOSES HERE ; no Lean
+  of the corpus touched ; the wave PARKED under `(R66)` ; nothing deposits ; no corpus grade moved ;
+  `h2` WHERE THE DEPOSIT LEFT IT ; ### ### **THE FOUR LISTS OPEN.**
+====================================================================================================
