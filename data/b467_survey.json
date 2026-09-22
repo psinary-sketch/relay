@@ -1,0 +1,363 @@
+{
+ "concordance": [
+  {
+   "line": 1659,
+   "claim": "Route 1 — structural exhaustiveness, unconditional in Lean",
+   "theorem": "structural_exhaustiveness_proved",
+   "module": "Bridge/TheBridgeComplete.lean",
+   "axioms": "propext, Classical.choice, Quot.sound"
+  },
+  {
+   "line": 1660,
+   "claim": "Route 2 — perpendicular crossing: the completed-ζ derivative is imaginary on the line, ∀t",
+   "theorem": "SpectralCannonFull.spectral_cannon",
+   "module": "Kernel/SpectralCannonFull.lean",
+   "axioms": "propext, Classical.choice, Quot.sound"
+  },
+  {
+   "line": 1661,
+   "claim": "Route 3 — RH from the conservation interface",
+   "theorem": "ConservationBridge.riemann_hypothesis",
+   "module": "Bridge/ConservationBridge.lean",
+   "axioms": "propext, Classical.choice, Quot.sound"
+  },
+  {
+   "line": 1662,
+   "claim": "Structural exhaustiveness yields RH",
+   "theorem": "techne_kernel_integration.rh_from_structural_exhaustiveness",
+   "module": "Kernel/Integration.lean",
+   "axioms": "propext, Classical.choice, Quot.sound"
+  },
+  {
+   "line": 1663,
+   "claim": "Structural exhaustiveness is equivalent to RH",
+   "theorem": "techne_kernel_integration.structural_exhaustiveness_iff_rh",
+   "module": "Kernel/Integration.lean",
+   "axioms": "propext, Classical.choice, Quot.sound"
+  },
+  {
+   "line": 1664,
+   "claim": "The formation count 2 + 3 + 2 + 0 = 7",
+   "theorem": "SIDEKernel.formation",
+   "module": "Kernel/Core.lean",
+   "axioms": "(none)"
+  },
+  {
+   "line": 1665,
+   "claim": "Inter-mechanism-class independence — no pair of classes conspires",
+   "theorem": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "module": "Bridge/CrossClassExclusion.lean",
+   "axioms": "propext, Classical.choice, Quot.sound"
+  }
+ ],
+ "concordance_line": 1651,
+ "opp_rows": [
+  {
+   "line": 23,
+   "step": "Component",
+   "theorem": "Certification",
+   "status": "Source"
+  },
+  {
+   "line": 24,
+   "step": ":---",
+   "theorem": ":---",
+   "status": ":---"
+  },
+  {
+   "line": 25,
+   "step": "n₂ = 3 places",
+   "theorem": "Ostrowski's theorem",
+   "status": "1916, proved"
+  },
+  {
+   "line": 26,
+   "step": "n₃ = 2 scales",
+   "theorem": "Cartan B (H¹ = 0)",
+   "status": "1876/1951, proved"
+  },
+  {
+   "line": 27,
+   "step": "n₁ = 2 operations",
+   "theorem": "Ring classification",
+   "status": "Definitional"
+  },
+  {
+   "line": 28,
+   "step": "n₄ = 0 interfaces",
+   "theorem": "Conservation of Spectra",
+   "status": "Tate 1950, Lean-verified"
+  }
+ ],
+ "opp_named": {
+  "line": 42,
+  "text": "**Formal verification (named terminals, checkable by a skeptic).** The three routes to σ = 1/2 compile independently in the Lean 4 kernel at **SIDE-kernel v1.3 = `0bc21c0`**: Route 1 `Bridge.structural_exhaustiveness_proved`, Route 2 `SpectralCannonFull.spectral_cannon`, Route 3 `ConservationBridge.riemann_hypothesis`. Two commands settle it — `lake build` (compiles with zero `sorry`) and `#print axioms` on each terminal (reports `{propext, Classical.choice, Quot.sound}` — Lean core plus Mathlib, no custom axioms). The eight coupling facts at the fixed witness Φ are conjoined in `SIDELvConservation.h1_complete_at_Phi` at **SIDE-lv-conservation v0.7.0 = `2d86182`**, same clean profile."
+ },
+ "threshold": 2,
+ "eight": 8,
+ "rehearsal": {
+  "item": 5,
+  "top": [
+   [
+    2,
+    "A_Place_to_Stand.md:25.8",
+    "techne_kernel_cross_exclusion.all_pairs_excluded"
+   ],
+   [
+    1,
+    "A_Place_to_Stand.md:25.8",
+    "ConservationBridge.riemann_hypothesis"
+   ],
+   [
+    1,
+    "A_Place_to_Stand.md:25.8",
+    "techne_kernel_integration.structural_exhaustiveness_iff_rh"
+   ]
+  ],
+  "returns": "techne_kernel_cross_exclusion.all_pairs_excluded"
+ },
+ "lineage": [
+  {
+   "n": 1,
+   "form1": "NO ROW",
+   "form2": "NO ROW",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- no candidate reaches the threshold of 2",
+   "where": null,
+   "blocked": null,
+   "top": [
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "structural_exhaustiveness_proved"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_integration.rh_from_structural_exhaustiveness"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_integration.structural_exhaustiveness_iff_rh"
+    ]
+   ]
+  },
+  {
+   "n": 2,
+   "form1": "NO ROW",
+   "form2": "NO ROW",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- no candidate reaches the threshold of 2",
+   "where": null,
+   "blocked": null,
+   "top": [
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_cross_exclusion.all_pairs_excluded"
+    ],
+    [
+     0,
+     "A_Place_to_Stand.md:25.8",
+     "structural_exhaustiveness_proved"
+    ],
+    [
+     0,
+     "A_Place_to_Stand.md:25.8",
+     "SpectralCannonFull.spectral_cannon"
+    ]
+   ]
+  },
+  {
+   "n": 3,
+   "form1": "NO ROW",
+   "form2": "NO ROW",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- no candidate reaches the threshold of 2",
+   "where": null,
+   "blocked": null,
+   "top": [
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "SpectralCannonFull.spectral_cannon"
+    ],
+    [
+     0,
+     "A_Place_to_Stand.md:25.8",
+     "structural_exhaustiveness_proved"
+    ],
+    [
+     0,
+     "A_Place_to_Stand.md:25.8",
+     "ConservationBridge.riemann_hypothesis"
+    ]
+   ]
+  },
+  {
+   "n": 4,
+   "form1": "NO ROW",
+   "form2": "NO ROW",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- no candidate reaches the threshold of 2",
+   "where": null,
+   "blocked": null,
+   "top": [
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "SpectralCannonFull.spectral_cannon"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "SIDEKernel.formation"
+    ],
+    [
+     0,
+     "A_Place_to_Stand.md:25.8",
+     "structural_exhaustiveness_proved"
+    ]
+   ]
+  },
+  {
+   "n": 5,
+   "form1": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "form2": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- the best candidate scores 2 on PROSE ALONE, under the prose-only bar of 3",
+   "where": null,
+   "blocked": {
+    "row": "techne_kernel_cross_exclusion.all_pairs_excluded",
+    "score": 2,
+    "matched_on": [
+     "clas",
+     "inter"
+    ]
+   },
+   "top": [
+    [
+     2,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_cross_exclusion.all_pairs_excluded"
+    ],
+    [
+     1,
+     "ONE_PAGE_PROOF.md (its own mapping)",
+     "Conservation of Spectra"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "ConservationBridge.riemann_hypothesis"
+    ]
+   ]
+  },
+  {
+   "n": 6,
+   "form1": "NO ROW",
+   "form2": "NO ROW",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- no candidate reaches the threshold of 2",
+   "where": null,
+   "blocked": null,
+   "top": [
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "SpectralCannonFull.spectral_cannon"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_cross_exclusion.all_pairs_excluded"
+    ],
+    [
+     0,
+     "ONE_PAGE_PROOF.md (its own mapping)",
+     "Certification"
+    ]
+   ]
+  },
+  {
+   "n": 7,
+   "form1": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "form2": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- the best candidate scores 2 on PROSE ALONE, under the prose-only bar of 3",
+   "where": null,
+   "blocked": {
+    "row": "techne_kernel_cross_exclusion.all_pairs_excluded",
+    "score": 2,
+    "matched_on": [
+     "clas",
+     "inter"
+    ]
+   },
+   "top": [
+    [
+     2,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_cross_exclusion.all_pairs_excluded"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "ConservationBridge.riemann_hypothesis"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_integration.structural_exhaustiveness_iff_rh"
+    ]
+   ]
+  },
+  {
+   "n": 8,
+   "form1": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "form2": "techne_kernel_cross_exclusion.all_pairs_excluded",
+   "form3": "NO ROW",
+   "form4": "NO ROW",
+   "why": "NO ROW -- the best candidate scores 2 on PROSE ALONE, under the prose-only bar of 3",
+   "where": null,
+   "blocked": {
+    "row": "techne_kernel_cross_exclusion.all_pairs_excluded",
+    "score": 2,
+    "matched_on": [
+     "clas",
+     "inter"
+    ]
+   },
+   "top": [
+    [
+     2,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_cross_exclusion.all_pairs_excluded"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "ConservationBridge.riemann_hypothesis"
+    ],
+    [
+     1,
+     "A_Place_to_Stand.md:25.8",
+     "techne_kernel_integration.structural_exhaustiveness_iff_rh"
+    ]
+   ]
+  }
+ ],
+ "generic": [],
+ "control_fired": 7,
+ "control_rows": 7,
+ "negative_control_no_row": true,
+ "misses": []
+}

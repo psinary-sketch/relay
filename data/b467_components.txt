@@ -1,0 +1,261 @@
+========================================================================================================
+COMPONENT 1 -- THE CONCORDANCE READ, UNDER (R74).
+========================================================================================================
+
+  ### (1a) THE CONCORDANCE ITSELF, PARSED FROM THE DEPOSITED FILE.
+  ----------------------------------------------------------------------------------------------------
+    section 25.8 at A_Place_to_Stand.md:1651 ; ### **ROWS : 7**
+    the terminal the row names                     module                         the row`s own grade
+    --------------------------------------------------------------------------------------------------
+    structural_exhaustiveness_proved               Bridge/TheBridgeComplete.lean  propext, Classical.choic
+    SpectralCannonFull.spectral_cannon             Kernel/SpectralCannonFull.lean propext, Classical.choic
+    ConservationBridge.riemann_hypothesis          Bridge/ConservationBridge.lean propext, Classical.choic
+    techne_kernel_integration.rh_from_structural_e Kernel/Integration.lean        propext, Classical.choic
+    techne_kernel_integration.structural_exhaustiv Kernel/Integration.lean        propext, Classical.choic
+    SIDEKernel.formation                           Kernel/Core.lean               (none)
+    techne_kernel_cross_exclusion.all_pairs_exclud Bridge/CrossClassExclusion.lea propext, Classical.choic
+
+    ### ### **THE CONCORDANCE's GRADE COLUMN IS `#print axioms` -- A GRADE OF AXIOM
+    ### DEPENDENCE, NOT OF WHETHER THE THEOREM CARRIES A CLAIM.** ### Six of seven read the
+    ### three classical axioms and one reads `(none)`. ### **NOT ONE ROW IS GRADED `DERIVES`
+    ### OR `NOT THE CLAIM` BY THE CONCORDANCE ITSELF**, because that is not what it records.
+
+  ### (1b) THE ROW-FINDER, ITS LINEAGE, AND ITS CONTROLS.
+  ----------------------------------------------------------------------------------------------------
+    ### **FOUR FORMS WERE RUN AND EVERY YIELD IS ON THE RECORD** (b467_extract.txt):
+      form 1  token overlap, threshold 2                  -- assigned 3 of 8
+      form 2  + generic-token drop + OPP precedence        -- IDENTICAL to form 1
+      form 3  + terminal-name overlap as a VETO            -- assigned 0 of 8
+      form 4  + camelCase split + stemming, name as a      -- assigned 0 of 8   ### GOVERNS
+              PREFERENCE with a raised prose-only bar
+    ### ### **FORM 3 FAILED ITS POSITIVE CONTROL AT 4 OF 7 AND ITS RESULT WAS NOT BANKED.**
+    ### Two tokenizer bugs it exposed: `ConservationBridge` was never split, so a claim's
+    ### `conservation` could not meet its own terminal's name; and `pair` never matched
+    ### `pairs`. ### **AND ONE FINDING THAT IS NOT A BUG:** the `spectral_cannon` row's claim
+    ### shares NO WORD with its own terminal even after both repairs, so ### **A NAME-OVERLAP
+    ### VETO IS REFUTED BY THE DEPOSIT ITSELF** and form 4 makes it a preference.
+    ### ### **FORM 4's CONTROLS : POSITIVE 7 of 7 ROWS RECOVER THEMSELVES ; NEGATIVE RETURNS `NO ROW`.**
+    ### ### **SO THE `NO ROW`s BELOW ARE THE CONCORDANCE's ANSWER AND NOT THE FINDER's.**
+
+  ### (1c) THE EIGHT, TWICE, SIDE BY SIDE.
+  ----------------------------------------------------------------------------------------------------
+    #   at                             b464: nearest BY NAME @pin         b464 grade       b467: the concordance
+    --------------------------------------------------------------------------------------------------------------------
+    1   A_Place_to_Stand.md:58         KernelCertificate                  NOT THE CLAIM    NO ROW
+    2   A_Place_to_Stand.md:1779       parametric_mechanism_theorem       INTERFACES       NO ROW
+    3   A_Place_to_Stand.md:1779       T2d_zero_iff_mellinPhi_zero        NOT THE CLAIM    NO ROW
+    4   A_Place_to_Stand.md:1783       CouplingChannel                    NOT THE CLAIM    NO ROW
+    5   ONE_PAGE_PROOF.md:32           conservation_s_dark                SHELL            NO ROW
+    6   ONE_PAGE_PROOF.md:46           focus_on_critical_line             NOT THE CLAIM    NO ROW
+    7   Silence_of_Foundations.md:68   Register2_conservationHypothesis   NOT THE CLAIM    NO ROW
+    8   Spectral_Inertness.md:85       ConservationHypothesis             NOT THE CLAIM    NO ROW
+
+    ### ### **THE CONCORDANCE ASSIGNS A ROW TO 0 OF THE EIGHT. ### `NO ROW` : 8.**
+    ### ### **AND THE REASON IS STRUCTURAL, NOT LEXICAL.** ### Section 25.8's seven rows are
+    ### about the three route terminals, two integration theorems, the formation count and
+    ### the cross-class exclusion. ### **NOT ONE OF b464's EIGHT SENTENCES IS ABOUT ANY OF
+    ### THOSE SEVEN SUBJECTS** -- they are about the kernel's redundancy to the manuscript,
+    ### the Mechanism Theorem's carried forms, the heat trace of a self-adjoint spectrum, a
+    ### published coupling line, the s-darkness of the product formula, two compiled
+    ### negatives, and a certified premise with its surround. ### **THE CONCORDANCE IS A
+    ### TABLE OF SEVEN LOAD-BEARING THEOREMS; IT IS NOT AN INDEX OF THE DEPOSIT's CLAIMS.**
+
+  ### (1d) THE DISPOSITION UNDER (R74)'s SECOND LIMB.
+  ----------------------------------------------------------------------------------------------------
+    ### ### **ALL EIGHT KEEP b464's GRADE, AND EVERY ONE IS LABELLED A STAND-IN.**
+      INTERFACES 1 ; NOT THE CLAIM 6 ; SHELL 1
+    ### ### **NOT ONE OF THE SIX `NOT THE CLAIM` SENTENCES MOVES**, because a grade can only
+    ### move against a terminal the concordance assigns, and it assigns none.
+    ### ### **SO THE SIX REMAIN SIX DEPOSIT-LEVEL MATTERS UNDER `(R66)`, NAMED AND ROUTED**,
+    ### and the `SHELL` at item 5 remains a seventh. ### **NO ERRATUM IS WRITTEN HERE:**
+    ### `(R74)` puts `(R65)`'s dispositions (i) and (iii) in the act AFTER the read.
+    ### ### **AND ONE THING (R74) MAKES VISIBLE THAT b464 COULD NOT:** the question `which
+    ### terminal does the deposit itself assign to this sentence?` ### **HAS NO ANSWER IN THE
+    ### DEPOSIT FOR ANY OF THE EIGHT.** ### That is a stronger statement than any grade: it
+    ### is not that the sentences are graded badly, but that ### **THE DEPOSIT PROVIDES NO
+    ### MAPPING FROM THESE SENTENCES TO ITS OWN KERNEL AT ALL.** ### Routed, not repaired.
+
+========================================================================================================
+COMPONENT 2 -- THE GENERAL SOURCE's PARAMETERS AGAINST THE SIX SITES.
+========================================================================================================
+
+  ### (2a) THE SOURCE, ITS PIN, AND WHICH STATEMENT IS READ.
+  ----------------------------------------------------------------------------------------------------
+    Lagarias, *Li coefficients for automorphic L-functions*, arXiv math/0404394v4,
+    pinned by b327 and re-verified by b358 at sha256 86f3d3c49f5a889f...
+    read at the banked extraction b358_source_lagarias0404394.txt
+    ### ### **THE STATEMENT READ IS THE GENERAL EXPLICIT FORMULA OVER AUTOMORPHIC
+    ### REPRESENTATIONS** -- the trace form (9.5) and its places sum, with the Weil
+    ### distribution functional (9.3) and the test-function space -- together with the
+    ### section-2 data the formula's objects are built from. ### **AND THE SOURCE's OWN
+    ### SCOPE SENTENCE TRAVELS WITH IT**, printed below at its line.
+    ### ### **b305's CAVEAT APPLIES TO EVERY LINE HERE:** this is a PDF TEXT LAYER and it
+    ### garbles ligatures and formulas -- `ﬁ` and `ﬂ` survive as ligatures, subscripts and
+    ### superscripts are flattened, and line breaks fall inside words. ### **EACH LINE IS
+    ### PRINTED AS EXTRACTED AND THE READING IS STATED BESIDE IT, NEVER SILENTLY CLEANED.**
+
+    the class the theorem quantifies over              :1207
+      Theorem 5.1. For any irreducible cuspidal (unitary) automorphic representationπ onGL(N )
+    the source`s own exception, marked by itself       :316
+      2 )ζ(s). This function has simple poles at s = 0 and s = 1. Aside from this
+    the completed L-function and its Euler factorization :318
+      Each completed automorphic L-function Λ(s,π ) has an Euler product factorization
+    the conductor, named                               :322
+      HereQ(π) is a positive integer called the conductor of the representationπ, and the archimedean
+    the finite Euler product                           :332
+      The (ﬁnite) L-function L(s,π ) is given by an Euler product over the ﬁnite places
+    the functional equation                            :345
+      speciﬁed below. The functions Λ( s,π ) satisfy a functional equation
+    the analytic conductor                             :467
+      term given is O (log q(π,iT )), with an absolute constant, which involves the analytic conductor
+    the generalization to automorphic pi               :666
+      There is a natural generalization of Weil’s quadratic funct ional associated to the completed
+    the appendix`s scope sentence                      :2781
+      form and the covariance form, described below. For all other automorphic representations π
+    the Weil distribution functional                   :2806
+      We deﬁne the Weil distribution functional
+    the truncation, as the source states it            :2813
+      means that the (possibly conditionally convergent) sum is i nterpreted as limT →∞
+    the trace form                                     :2823
+      The “explicit formula” in trace form is an formula for T [f ] for a suitable set of test functions
+    the places sum                                     :2829
+      in which Wν(f ) is a contribution associated to each (non-archimedean or a rchimedean) place
+    the general-pi sentence                            :2835
+      interesting ways, see Burnol [6], Haran [25]. For general au tomorphic representations π the
+
+  ### (2b) WHAT IT QUANTIFIES OVER, AND WHAT DATA OF THE REPRESENTATION IT USES.
+  ----------------------------------------------------------------------------------------------------
+    ### ### **PRINTED BEFORE ANY SITE IS PLACED.**
+    QUANTIFIED OVER:
+      pi     -- an irreducible cuspidal (unitary) automorphic representation on GL(N)
+      f / F  -- the test function, in A (holomorphic in 0 < Re(s) < 1, growth O(1/|s|))
+                or in A_delta (Mellin transform analytic in a strip about the line)
+      rho    -- the zeros of xi(s,pi), summed with the prime: lim_{T->inf} sum |rho| <= T
+      nu     -- the places of the field K, archimedean and non-archimedean
+    DATA OF THE REPRESENTATION THE FORMULA USES:
+      Q(pi)          -- ### **THE CONDUCTOR**, a positive integer (2.1)
+      kappa_j(pi)    -- ### **THE GAMMA FACTORS**: L_inf(s,pi) = prod_j Gamma_R(s + kappa_j)
+      alpha_{p,j}(pi)-- the Satake parameters at the finite places, in the Euler product
+      a_n(pi)        -- the Dirichlet coefficients of L(s,pi)
+      epsilon(pi)    -- the root number of the functional equation (2.4)
+      N              -- the degree; pi^vee -- the contragredient
+      q(pi,s)        -- ### **THE ANALYTIC CONDUCTOR** (2.14), and it is disclosed here
+                        rather than left out: ### **IT IS THE ONE QUANTITY IN THIS SOURCE
+                        THAT TAKES A HEIGHT AS AN ARGUMENT** -- the error term O(log
+                        q(pi,iT)) -- ### **AND IT SITS IN A REMARK ABOUT ZERO COUNTING,
+                        N_pi(T), NOT IN THE EXPLICIT FORMULA.** ### The distinction is
+                        printed rather than leaned on, because (N3) turns on it.
+
+  ### (2c) THE SIX INDICES, WITH THE SAME THREE VERDICTS, AND CC (148) BESIDE THEM.
+  ----------------------------------------------------------------------------------------------------
+    site   index            under CC (148), b464   under the general source moved
+    ----------------------------------------------------------------------------------------------------
+    (i)    class            A COORDINATE OF ONE    A COORDINATE OF ONE    --
+    (ii)   height           OF NO PARAMETER        OF NO PARAMETER        --
+    (iii)  width            A COORDINATE OF ONE    OF NO PARAMETER        YES
+    (iv)   width            A COORDINATE OF ONE    OF NO PARAMETER        YES
+    (v)    representation   OF NO PARAMETER        A PARAMETER            YES
+    (vi)   modulus          OF NO PARAMETER        A COORDINATE OF ONE    YES
+
+    (i) class -- ### **A COORDINATE OF ONE**
+        the source names a test-function space and conditions its members: in section 3 the vector space
+        A of functions holomorphic in the strip with a uniform growth bound, and in the appendix the
+        space A_delta by analyticity of the Mellin transform in a strip. The class is a condition on the
+        named test function, exactly as under CC (148).
+    (ii) height -- ### **OF NO PARAMETER**
+        the only T in the explicit formula is BOUND INSIDE A LIMIT: the prime on the sum means it is
+        interpreted as lim_{T->inf} sum over |rho| <= T. A bound variable is not a datum. ### AND THIS
+        SOURCE IS MORE EXPLICIT THAN CC (148), WHICH NAMES NO TRUNCATION AT ALL -- here the truncation
+        is written down as the interpretation of a conditionally convergent sum.
+    (iii) width -- ### **OF NO PARAMETER**
+        THE SOURCE IMPOSES NO SUPPORT CONDITION. Its classes are cut by ANALYTICITY IN A STRIP and a
+        GROWTH BOUND, not by compact support, so there is no support to have a width. ### THIS IS WHERE
+        THE GENERAL SOURCE AND CC (148) DIVERGE: under CC the width was a coordinate of f`s compact
+        support; here there is no such datum.
+    (iv) width -- ### **OF NO PARAMETER**
+        the same index of the same absent condition; (iii) and (iv) share this index, which row U1
+        already says of itself.
+    (v) representation -- ### **A PARAMETER**
+        the source quantifies over it in its own words -- "For any irreducible cuspidal (unitary)
+        automorphic representation pi on GL(N)" -- and the whole apparatus, Lambda(s,pi), xi(s,pi), the
+        Weil functional, is indexed by it. ### UNDER CC (148) THIS SITE WAS OF NO PARAMETER; under this
+        source it IS the parameter.
+    (vi) modulus -- ### **A COORDINATE OF ONE**
+        Q(pi), "a positive integer called the conductor of the representation", is a datum of the named
+        parameter pi, and for GL(1) the conductor of a Dirichlet character IS its modulus. ### AND THE
+        CAVEAT IS PART OF THE VERDICT: row U1`s site (vi) is a modulus of CONGRUENCE in a sieve
+        statement, not a character conductor, so what is identified here is THE INDEX and not the
+        statement the index appears in.
+
+    ### ### **A COORDINATE OF ONE 2 ### A PARAMETER 1 ### OF NO PARAMETER 3.**
+    ### ### **AND 4 OF THE SIX CELLS MOVE AGAINST b464's CC (148) READ.**
+    ### ### **THAT IS THE COMPONENT's REAL YIELD:** the six site indices are not properties
+    ### of `the explicit formula`; ### **THEY ARE PROPERTIES OF WHICH EXPLICIT FORMULA IS
+    ### READ.** ### A site can be `OF NO PARAMETER` against one pinned source and `A
+    ### PARAMETER` against another, and b464 said exactly that in advance about site (v).
+
+  ### (2d) THE REDUCTION, AS A TEST AND NOT A CLAIM.
+  ----------------------------------------------------------------------------------------------------
+    site   index            heading
+    ----------------------------------------------------------------------------------------
+    (i)    class            A CONDITION ON THE TEST FUNCTION
+    (ii)   height           THE INSTRUMENT'S TRUNCATION
+    (iii)  width            A CONDITION ON THE TEST FUNCTION
+    (iv)   width            A CONDITION ON THE TEST FUNCTION
+    (v)    representation   A DATUM OF THE REPRESENTATION
+    (vi)   modulus          A DATUM OF THE REPRESENTATION
+
+    ### ### **INDICES UNDER NONE OF THE THREE HEADINGS : 0 .**
+    ### ### **THE HEIGHT FALLS UNDER THE THIRD, AS THE ORDER EXPECTED.**
+    ### ### **AND THE ORDER's FAILURE CONDITION IS TESTED RATHER THAN ASSUMED AWAY:**
+    ### *if the general source carries a height or a truncation as a datum, the reading
+    ### fails.* ### **IT CARRIES BOTH, AND NEITHER AS A DATUM, AND HERE IS EACH:**
+      (1) THE TRUNCATION IS CARRIED -- explicitly, at line 2813, as the interpretation of a
+          conditionally convergent sum: `lim T->inf sum |rho| <= T`. ### **T IS BOUND BY THE
+          LIMIT.** ### It is not an argument of W[f], not an argument of T[f], and not a
+          datum of any object the formula takes in. ### **THE READING HOLDS.**
+      (2) A HEIGHT IS CARRIED -- at line 467, in `O(log q(pi,iT))`, where the analytic
+          conductor q(pi,s) is evaluated at s = iT. ### **THAT IS A HEIGHT AS AN ARGUMENT,
+          AND IT IS DISCLOSED.** ### But it appears in a REMARK ABOUT THE ZERO-COUNTING
+          FUNCTION N_pi(T), ### **NOT IN THE EXPLICIT FORMULA THIS COMPONENT READS.**
+          ### ### **SO THE READING HOLDS FOR THE STATEMENT READ AND WOULD NOT HOLD FOR THE
+          ### COUNTING FUNCTION**, and that boundary is the honest form of the answer.
+    ### ### **NO SITE IS ENTERED. ### ROW U1 IS FROZEN AT SIX BY b409 AND IS NOT WRITTEN.**
+    ### ### **NO BRIDGE IS TYPED.**
+
+========================================================================================================
+THE EXPECTATIONS, SCORED.
+========================================================================================================
+  (N1) at least three of the six move to DERIVES or INTERFACES under the concordance’s terminal, and at most three survive as matters
+       ### ### **REFUTED -- 0 OF THE SIX MOVE**
+       the concordance assigns a row to 0 of the eight, so there is no terminal to re-grade any of
+       them against; all six survive as matters and the SHELL survives as a seventh
+  (N2) (v) is A PARAMETER, (vi) A COORDINATE OF ONE, (ii) stays OF NO PARAMETER
+       ### ### **HELD ON ALL THREE**
+       pi is quantified over in the source’s own words; Q(pi) is its conductor and for GL(1) the
+       conductor is the modulus; the only T is bound in a limit
+  (N3) every index falls under one of the three headings and none under none
+       ### ### **HELD -- 0 under none**
+       and the failure condition was tested: the source carries the truncation explicitly and carries
+       a height in q(pi,iT), and NEITHER is a datum of the explicit formula — the height sits in a
+       remark about N_pi(T)
+
+  ### ### **THE SEAT's OWN, FROM THE FACE:**
+    (N1)
+        REFUTED, and the seat argued it on the face BEFORE the read -- it predicted 0 of 6 would move,
+        on the ground that section 25.8’s seven rows are about none of the eight subjects. ### THE
+        PREDICTION IS EXACT
+    (N2)
+        HELD on all three, as the seat expected
+    (N2b)
+        THE SEAT’S FOURTH PREDICTION, WHICH THE ORDER DID NOT ASK FOR: that (iii) and (iv) would move
+        from A COORDINATE OF ONE to OF NO PARAMETER, because the general source’s test class is cut by
+        analyticity and a growth bound and not by compact support. ### HELD -- both moved
+    (N3)
+        HELD, and the seat named the one risk in advance: the analytic conductor q(pi,iT). ### It is
+        disclosed and it does not overturn the reading
+
+========================================================================================================
+  ### ### **NO BRIDGE TYPED. ### NO SITE ENTERED. ### ROW U1 UNEDITED. ### NO ERRATUM
+  ### ### DRAFTED. ### KERNELS READ, NOT RUN. ### `h2` WHERE THE DEPOSIT LEFT IT.**
+========================================================================================================

@@ -1,0 +1,111 @@
+========================================================================================================
+b467 -- THE SURVEY. ### b465 RE-ISSUED UNDER (R75); THE READ RUNS UNDER (R74).
+========================================================================================================
+  ferry : b467_ferry.txt, BYTE-IDENTICAL to b465_ferry.txt -- the order is unchanged.
+
+(P1) THE CONCORDANCE, PARSED FROM THE DEPOSITED FILE.
+--------------------------------------------------------------------------------------------------------
+  section 25.8 at A_Place_to_Stand.md:1651 ; table rows parsed : 7
+    :1659  structural_exhaustiveness_proved               propext, Classical.choice, Quot.sound
+    :1660  SpectralCannonFull.spectral_cannon             propext, Classical.choice, Quot.sound
+    :1661  ConservationBridge.riemann_hypothesis          propext, Classical.choice, Quot.sound
+    :1662  techne_kernel_integration.rh_from_structural_e propext, Classical.choice, Quot.sound
+    :1663  techne_kernel_integration.structural_exhaustiv propext, Classical.choice, Quot.sound
+    :1664  SIDEKernel.formation                           (none)
+    :1665  techne_kernel_cross_exclusion.all_pairs_exclud propext, Classical.choice, Quot.sound
+  ### ### **THE CONCORDANCE's OWN GRADE COLUMN IS `#print axioms`.** ### A clean entry is
+  ### `propext, Classical.choice, Quot.sound`; `(none)` is axiom-free. ### **THAT IS A GRADE
+  ### OF AXIOM DEPENDENCE, NOT OF WHETHER THE THEOREM CARRIES THE CLAIM**, and the two are
+  ### different questions -- which is the whole reason (R74) asks for a SECOND grade beside it.
+  ### the concordance's own profiling pin, quoted:
+      The claims this chapter makes about the kernel are meant to be checked, not trusted. For each load-bearing theorem the table gives its fully qualified name, the module it lives in, and the axioms it depends on as reported by Lean'
+
+(P2) ONE_PAGE_PROOF's OWN MAPPING.
+--------------------------------------------------------------------------------------------------------
+  step-table rows : 6
+    :23    Component                    Certification                      Source
+    :24    :---                         :---                               :---
+    :25    n₂ = 3 places                Ostrowski's theorem                1916, proved
+    :26    n₃ = 2 scales                Cartan B (H¹ = 0)                  1876/1951, proved
+    :27    n₁ = 2 operations            Ring classification                Definitional
+    :28    n₄ = 0 interfaces            Conservation of Spectra            Tate 1950, Lean-verified
+  the named-terminals paragraph : ONE_PAGE_PROOF.md:42
+      **Formal verification (named terminals, checkable by a skeptic).** The three routes to σ = 1/2 compile independently in the Lean 4 kernel at **SIDE-kernel v1.3 = `0bc21c0`**: Route 1 `Bridge.structural_exhaustiveness_pro
+
+(P3) THE REHEARSAL, UNDER (R70), BEFORE THE SEAL. ### **THE ROW-FINDER ON ITEM 5.**
+--------------------------------------------------------------------------------------------------------
+  b464's bank : 8 items ; by grade INTERFACES 1 / NOT THE CLAIM 6 / SHELL 1
+  ### the count against b462's banked figure of 8 : AGREE
+  item 5 : ONE_PAGE_PROOF.md:32
+    b464's nearest-by-name terminal : conservation_s_dark (SHELL) -- graded SHELL
+    the claim, as b464 stated it : that the s-darkness of the product formula is certified and localized at a single compiled goal state
+    the row-finder's top three, scored:
+       2  A_Place_to_Stand.md:25.8 techne_kernel_cross_exclusion.all_pairs_excluded
+       1  A_Place_to_Stand.md:25.8 ConservationBridge.riemann_hypothesis
+       1  A_Place_to_Stand.md:25.8 techne_kernel_integration.structural_exhaustiveness_iff_rh
+    ### ### **THE ROW-FINDER RETURNS : techne_kernel_cross_exclusion.all_pairs_excluded at A_Place_to_Stand.md:25.8**
+
+  ### **FORM 2, AND BOTH YIELDS OVER ALL EIGHT.** ### non-discriminating tokens dropped:
+      
+  #   FORM 1                 FORM 2                 FORM 3                 FORM 4 (governing)    
+  ----------------------------------------------------------------------------------------------------
+  1   NO ROW                 NO ROW                 NO ROW                 NO ROW                
+      why : NO ROW -- no candidate reaches the threshold of 2
+  2   NO ROW                 NO ROW                 NO ROW                 NO ROW                
+      why : NO ROW -- no candidate reaches the threshold of 2
+  3   NO ROW                 NO ROW                 NO ROW                 NO ROW                
+      why : NO ROW -- no candidate reaches the threshold of 2
+  4   NO ROW                 NO ROW                 NO ROW                 NO ROW                
+      why : NO ROW -- no candidate reaches the threshold of 2
+  5   techne_kernel_cross_ex techne_kernel_cross_ex NO ROW                 NO ROW                
+      why : NO ROW -- the best candidate scores 2 on PROSE ALONE, under the prose-only bar of 3
+      ### **THE BEST CANDIDATE, REFUSED** : techne_kernel_cross_exclusion.all_pairs_exclud at 2, matched only on clas/inter
+  6   NO ROW                 NO ROW                 NO ROW                 NO ROW                
+      why : NO ROW -- no candidate reaches the threshold of 2
+  7   techne_kernel_cross_ex techne_kernel_cross_ex NO ROW                 NO ROW                
+      why : NO ROW -- the best candidate scores 2 on PROSE ALONE, under the prose-only bar of 3
+      ### **THE BEST CANDIDATE, REFUSED** : techne_kernel_cross_exclusion.all_pairs_exclud at 2, matched only on clas/inter
+  8   techne_kernel_cross_ex techne_kernel_cross_ex NO ROW                 NO ROW                
+      why : NO ROW -- the best candidate scores 2 on PROSE ALONE, under the prose-only bar of 3
+      ### **THE BEST CANDIDATE, REFUSED** : techne_kernel_cross_exclusion.all_pairs_exclud at 2, matched only on clas/inter
+
+  ### ### **FOUR FORMS, EVERY YIELD ON THE RECORD.** ### form 1 = form 2 on 8 of 8 ;
+  ### form 3 differs from form 1 on 3 ; ### **FORM 4 DIFFERS FROM FORM 1 ON 3 AND FROM
+  ### FORM 3 ON 0.** ### **FORM 4 GOVERNS, AND IT IS THE ONLY ONE THAT PASSES ITS CONTROL.**
+
+  ### **THE CONTROL, ON FORM 4.** ### Each row's OWN claim fed back as a sentence:
+    structural_exhaustiveness_proved               -> structural_exhaustiveness_proved               OK
+    SpectralCannonFull.spectral_cannon             -> SpectralCannonFull.spectral_cannon             OK
+    ConservationBridge.riemann_hypothesis          -> ConservationBridge.riemann_hypothesis          OK
+    techne_kernel_integration.rh_from_structural_e -> techne_kernel_integration.rh_from_structural_e OK
+    techne_kernel_integration.structural_exhaustiv -> techne_kernel_integration.structural_exhaustiv OK
+    SIDEKernel.formation                           -> SIDEKernel.formation                           OK
+    techne_kernel_cross_exclusion.all_pairs_exclud -> techne_kernel_cross_exclusion.all_pairs_exclud OK
+    ### ### **CONTROL : 7 of 7 ROWS RECOVER THEMSELVES.** ### **THE FINDER WORKS AND THE EIGHT `NO ROW`s ARE THE CONCORDANCE's, NOT THE FINDER's**
+    negative control (a subject the concordance does not carry) -> NO ROW   ### **OK**
+
+    ### ### **THE ORDER EXPECTED THE SUBSTANTIVE TERMINAL BESIDE THE SHELL**
+    ### (`s_darkness_from_product`). ### **THE REHEARSAL's ANSWER IS PRINTED ABOVE AND IS
+    ### NOT ADJUSTED TO MEET THAT EXPECTATION** -- the finder reads the concordance, and
+    ### the concordance is a fixed text. ### Whatever it returns is what this act carries.
+
+(P4) THE GENERAL SOURCE, AT ITS BANKED ADDRESS.
+--------------------------------------------------------------------------------------------------------
+  b358_source_lagarias0404394.txt : 3032 lines
+    the completed L-function               :318   Each completed automorphic L-function Λ(s,π ) has an Euler product factorization
+    the conductor                          :322   HereQ(π) is a positive integer called the conductor of the representationπ, and the archimedean
+    the archimedean factor                 :322   HereQ(π) is a positive integer called the conductor of the representationπ, and the archimedean
+    the Euler product over finite places   :332   The (ﬁnite) L-function L(s,π ) is given by an Euler product over the ﬁnite places
+    the functional equation                :345   speciﬁed below. The functions Λ( s,π ) satisfy a functional equation
+    the analytic conductor                 :467   term given is O (log q(π,iT )), with an absolute constant, which involves the analytic conductor
+    the general quadratic functional       :666   There is a natural generalization of Weil’s quadratic funct ional associated to the completed
+    the appendix scope sentence            :2781  form and the covariance form, described below. For all other automorphic representations π
+    the Weil distribution functional       :2806  We deﬁne the Weil distribution functional
+    the truncation of the sum              :2813  means that the (possibly conditionally convergent) sum is i nterpreted as limT →∞
+    the trace form                         :2823  The “explicit formula” in trace form is an formula for T [f ] for a suitable set of test functions
+    the places sum                         :2829  in which Wν(f ) is a contribution associated to each (non-archimedean or a rchimedean) place
+    the general-pi sentence                :2835  interesting ways, see Burnol [6], Haran [25]. For general au tomorphic representations π the
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================
