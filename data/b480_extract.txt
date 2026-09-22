@@ -1,0 +1,48 @@
+========================================================================================================
+b480 -- THE SURVEY. ### THE LOG`S CONTENTS ARE NOT READ HERE.
+========================================================================================================
+
+(P1) THE RUN`S STATE, FROM THE PROCESS TABLE.
+--------------------------------------------------------------------------------------------------------
+    pid 27508 : ### **RUNNING**
+    launched 2026-09-22T19:02:24Z ; read 2026-09-22T20:55:23Z ; elapsed 6779 s
+    processes now : lean 1 ; lake 2 ; cmd 1
+    log : 241749 bytes ; last write 2026-09-22T20:55:09Z ; 13 s before this read
+    ### ### **THE RUN IS STILL GOING, AND AT MOST ONE lean PROCESS IS ALIVE -- WHICH IS WHAT
+    ### THE SERIALIZATION WAS FOR.**
+
+(P2) WHAT THE ORDER ASKS, AND WHAT THE RUN`S STATE ALLOWS.
+--------------------------------------------------------------------------------------------------------
+    the order : run b473`s Components 1 and 2 against this log ; score (N1) ; decide (R82) ;
+      (R83) fires or does not.
+    (R80), quoted from b471_ferry.txt: *"The run`s output enters the record only when the seat
+      reads the log at its end."* ### And b475`s own face: *"the act that follows the pid`s
+      exit reads it to its end"*.
+    ### ### **THE PID HAS NOT EXITED, SO THE LOG HAS NO END TO READ. ### WHAT THIS ACT CAN
+    ### HONESTLY DO IS READ IT AS A SNAPSHOT, AT A NAMED BYTE COUNT AND A NAMED TIME.**
+    ### What a snapshot CAN decide: (N1) -- the three modules that died in parallel sit at
+    ### positions 1, 2 and 22 of 188, so their exit lines are early and are either in the
+    ### snapshot or not.
+    ### What a snapshot CANNOT decide: (R82) -- the three profiles are printed by the steps
+    ### that run AFTER all 188 modules, so a log that has not reached them carries neither a
+    ### profile nor a failure. ### **THAT IS NEITHER `HOLDS` NOR EITHER KIND OF `VOID`.**
+
+(P3) b473`S TWO COMPONENTS, AND THE SHAPES THEY READ.
+--------------------------------------------------------------------------------------------------------
+    b473`s Component 1 read : the launcher`s markers and EXIT lines, the wall time from the
+      log`s own timestamps, every failing module with its stderr, and the last forty lines.
+    b473`s Component 2 read : the seventeen Challenge theorems and the three (R82) names, each
+      row carrying its `#print axioms` line verbatim or ABSENT.
+    b473_components.txt on disk : 10602 bytes ; carries "VOID FOR WANT OF A RUN" : True
+    the seventeen + three, from b473`s own survey : 17 + 3
+
+(P4) THE ORDER FILE THE RUN IS WALKING.
+--------------------------------------------------------------------------------------------------------
+    b475_order.txt : 188 modules ; first three Zeta23.Defs, Zeta23.Hypotheses, Zeta23.Defs.Counting ; last Zeta23.ThmDE.Mult
+      Zeta23.Hypotheses        position 2 of 188
+      Zeta23.Defs.Counting     position 3 of 188
+      Zeta23.Taper.Basic       position 23 of 188
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================

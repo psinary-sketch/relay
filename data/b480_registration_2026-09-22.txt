@@ -1,0 +1,173 @@
+====================================================================================================
+### THE REGISTRATION. ### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1,
+### auto-mode approval declared here). ### **LOCKED BEFORE THE LOG IS OPENED.**
+### ### **b480 -- THE b475 LOG READ AS A SNAPSHOT, AND WHAT A SNAPSHOT CAN DECIDE.**
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 1 OF 1** ### with its paste-end marker, received IN FULL, banked as
+### `b480_ferry.txt`; scan ### **`0` HIT(S)** and ### **`0` (R81) FLAGS**. ### **STEP ZERO:** censuses
+### ### **TOTAL MISSING `0`**, both; roster ### **`0` HARD-FAILING**. ### THE PRIOR CLOSED ACT (`b476`)
+### IS CLOSED: row 326, pushed and read back at PLACE-papers `eba14af`, SIDE-global-section `f59f901`,
+### relay `06886df`. ### **THIS PARAGRAPH IS `SIDE-INVARIANT`.**
+### ### **THE ACT TAKES THE NUMBER `b480`:** `b477` is banked and unrun, and `b479` is registered by its
+### own ferry to run after `b477`'s log is read. ### This order names no number, so it takes the next
+### free one rather than any claimed one.
+
+### ### **READING (1) -- THE RUN HAS NOT EXITED, SO THE LOG HAS NO END.** At the survey: pid `27508`
+### ### **RUNNING**, `6779` s after launch, with ### **`1` lean PROCESS ALIVE** -- which is what the
+### serialization was for -- and the log at `241,749` bytes, last written `13` s before the read.
+### ### (R80) says *"The run's output enters the record only when the seat reads the log at its end"*,
+### and b475's own face says the act after the pid exits reads it to its end. ### **NEITHER IS
+### SATISFIED NOW.** ### So this act reads the log as a ### **SNAPSHOT**, at a named byte count and a
+### named time, and says so in every figure it prints. ### **A SNAPSHOT IS NOT A FINISHED LOG, AND
+### NOTHING HERE PRETENDS IT IS.**
+
+### ### **READING (2) -- WHAT A SNAPSHOT CAN AND CANNOT DECIDE, FIXED BEFORE IT IS OPENED.**
+###   ### **(N1) CAN BE SCORED**: the modules that died in parallel are early in the order, so
+###   their per-module EXIT lines are either in the snapshot or not, and either way that is an answer.
+###   ### **(R82) CANNOT BE DECIDED**: the profiles are printed by the steps that run AFTER every module of the order. ### A log that has not reached them carries neither a profile nor a failure to
+###   produce one. ### **THAT IS NEITHER `HOLDS` NOR EITHER KIND OF `VOID`, AND THIS ACT WILL SAY
+###   `NOT YET DECIDABLE` RATHER THAN FORCE ONE OF THE ORDER'S TWO WORDS.** ### b473's `VOID FOR WANT
+###   OF A RUN` was true of a run that had ENDED without producing them; this run has not ended.
+###   ### **(R83) THEREFORE DOES NOT FIRE**: its trigger is (R82) holding, and (R82) does not hold.
+
+### ### **READING (3) -- A POSITION IS NOT AN INDEX, AND b475's FACE CONFUSED THEM.** b475's face and
+### closing say those modules sit at *"positions 1, 2 and 22 of 188"*. ### Those are ### **0-BASED
+### INDICES** from the survey's own list. ### The order file's own line numbers -- which is what
+### "position" means to a reader of `b475_order.txt` -- are ### **`2`, `3` AND `23`.** ### **THE
+### FIGURES DESCRIBE THE SAME MODULES; THE WORD WAS WRONG, AND IT IS CORRECTED HERE RATHER THAN
+### REPEATED.** ### Nothing else in b475 moves: the three are still early, and (N1) is still decided
+### early in the log.
+
+### ### **READING (4) -- b473's COMPONENTS ARE RUN AS THEY WERE WRITTEN.** Component 1: the
+### launcher's markers and EXIT lines, the wall time from the log's OWN timestamps, every failing
+### module with its stderr, and the tail. ### Component 2: the Challenge theorems and the
+### (R82) names, each row carrying its `#print axioms` line VERBATIM or ### **`ABSENT`, WHICH IS
+### NOT A PROFILE AND IS NOT ASSUMED TO BE ONE.**
+
+### THE PRE-FACE READS, DECLARED: (P1) the run's state from the process table; (P2) what the state
+### allows; (P3) b473's components and their shapes; (P4) the order file the run is walking.
+### All four are in `b480_extract.txt`, ### **SURVEY MISSES `0`.**
+
+----------------------------------------------------------------------------------------------------
+### (B) WHAT EACH PART OF THE ACT MAY AND MAY NOT DO.
+----------------------------------------------------------------------------------------------------
+### (1) ### **COMPONENT 1 -- THE BUILD SO FAR.** b473's Component 1 against the snapshot: the markers,
+### the per-module EXIT lines, the modules built and the modules failed with their stderr, the wall
+### time from the log's own timestamps, and the tail. ### **THE SNAPSHOT'S BYTE COUNT AND READ TIME ARE
+### PRINTED WITH IT, AND NOTHING IS INFERRED ABOUT MODULES THE LOG HAS NOT REACHED.**
+
+### (2) ### **COMPONENT 2 -- THE PROFILES.** The twenty rows, each `ABSENT` or verbatim. ### Then
+### ### **(R82): `NOT YET DECIDABLE`, WITH WHAT REMAINS NAMED** -- how many modules of the order are
+### still to build before the profile steps run at all.
+
+### (3) ### **COMPONENT 3 -- (N1), SCORED FROM b475.** Whether the serialized run passed
+### `Zeta23.Hypotheses`, `Zeta23.Defs.Counting` and `Zeta23.Taper.Basic`, the three that died in
+### parallel at b473. ### **THIS IS THE ONE VERDICT THE SNAPSHOT CAN CARRY IN FULL.**
+
+----------------------------------------------------------------------------------------------------
+### (S) WHAT STOPPING MEANS.
+----------------------------------------------------------------------------------------------------
+### The act stops with the snapshot read and (N1) scored. ### **THE RUN IS NOT STOPPED, NOT POLLED
+### AGAIN AFTER THE CLOSE, AND NOT RESTARTED.** ### If the log ends between this act's two reads, the
+### act says so and still reports its figures as a snapshot; ### **IT DOES NOT PROMOTE A SNAPSHOT TO A
+### FINISHED READ.**
+
+----------------------------------------------------------------------------------------------------
+### (J) THE EXPECTATIONS, EACH OVER A POPULATION THIS FACE NAMES (`R26`).
+----------------------------------------------------------------------------------------------------
+### **(N1)** (b475's, scored here) the serialized run passes `Zeta23.Hypotheses`,
+###   `Zeta23.Defs.Counting` and `Zeta23.Taper.Basic`. ### POPULATION: their own EXIT lines.
+###   ### **THE SEAT'S OWN: `HELD`, AS b475's FACE PREDICTED** -- the deaths were allocation failures
+###   under lake's own parallel workers, this run moves exactly that variable, and the run has passed
+###   their positions long ago on the clock.
+### ### **NO NEW EXPECTATION IS REGISTERED BY THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED`
+### `G-C1-SNAPSHOT-NAMED` `G-C1-BYTES-PRINTED` `G-C1-EXIT-LINES-FROM-LOG` `G-C1-WALLTIME-FROM-LOG`
+### `G-C1-FAILURES-OR-NONE` `G-C1-NOTHING-INFERRED-BEYOND`
+### `G-C2-TWENTY-ROWS` `G-C2-ABSENT-NOT-ASSUMED` `G-C2-R82-NOT-FORCED` `G-C2-REMAINDER-COUNTED`
+### `G-R83-DOES-NOT-FIRE` `G-C3-N1-SCORED-FROM-LOG` `G-C3-THREE-MODULES-BY-NAME`
+### `G-POSITION-CORRECTED` `G-RUN-NOT-STOPPED` `G-NOTHING-IMPORTED`
+### `G-SPAN-BY-TOOL` `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK`
+### `G-FOUR-LISTS-OPEN` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED`
+### `G-CORPUS-LEAN-UNTOUCHED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is scored
+### post-push only.
+
+----------------------------------------------------------------------------------------------------
+### (K) THE BARS. ### EIGHT.
+----------------------------------------------------------------------------------------------------
+### **BAR 1 -- EVERY FIGURE FROM THE LOG IS A SNAPSHOT FIGURE, PRINTED WITH ITS BYTE COUNT AND TIME.**
+### **BAR 2 -- (R82) IS NOT FORCED INTO `HOLDS` OR `VOID`; `NOT YET DECIDABLE` IS SAID INSTEAD, WITH
+###   WHAT REMAINS COUNTED.**
+### **BAR 3 -- (R83) DOES NOT FIRE, AND NO KERNEL IS CREATED, NAMED OR PINNED.**
+### **BAR 4 -- A NAME THE LOG DOES NOT CARRY READS `ABSENT`, WHICH IS NOT A PROFILE.**
+### **BAR 5 -- b475's POSITION FIGURES ARE CORRECTED IN WORDS, AND b475's RECORD IS NOT EDITED.**
+### **BAR 6 -- THE RUN IS NOT STOPPED, RESTARTED OR INTERFERED WITH; THE LOG IS NOT TRUNCATED.**
+### **BAR 7 -- NOTHING IS IMPORTED, COPIED OR VENDORED; NO CORPUS LEAN IS TOUCHED.**
+### **BAR 8 -- `h2` WHERE THE DEPOSIT LEFT IT; NOTHING DEPOSITS; NO CORPUS GRADE MOVES; THE FOUR LISTS
+###   STAY OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85): EACH TOOL WITH THE GLOB OF WHAT IT WRITES.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b480_ferry_scan.txt` |
+### | `tools/b307_handoff_census.py`, `tools/b327_faces_census.py`, `tools/b303_pins.py` |
+###   `relay/data/b480_census_*.txt` `relay/data/b480_faces_census_*.txt` `relay/data/b480_pins_*.txt` |
+### | `tools/b480_extract.py` | `relay/data/b480_extract.txt` `relay/data/b480_survey.json` |
+### | `tools/b480_reg_gate.py`, `tools/b480_regspec.py`, `tools/reg_satisfiable.py`,
+###   `tools/banned_terms.py`, `tools/gate_hash.py` | `relay/data/b480_reg_*.txt`
+###   `relay/data/b480_regspec_run.txt` `relay/data/b480_satisfiable.json`
+###   `relay/data/audit_b480_*.txt` |
+### | `tools/b378_lockgate.py` | `relay/data/b480_lockgate*.json` `relay/data/b480_lockgate_notes*.txt` |
+### | `tools/reg_seal.py` | `relay/data/b480_registration_2026-09-22.txt` (its lock block only) |
+### | `tools/b480_components.py` | `relay/data/b480_components.txt` `relay/data/b480_snapshot.json`
+###   `relay/data/b480_profiles.json` |
+### | `tools/b363_span.py` | `relay/data/b480_span*.json` `relay/data/b480_span_notes*.txt` |
+### | `tools/b480_desk_bank.py` | `relay/data/b480_desk_notes.txt`
+###   `relay/data/b480_the_snapshot_read.txt` `relay/data/b480_scores.json` ;
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/b480_checks.py` | `relay/data/b480_checks*.txt` `relay/data/b480_exercise.json` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b480.zip`
+###   (outside every repository) `relay/data/b480_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (one appended record) |
+### | the closing | `relay/data/b480_closing.txt` `relay/data/b480_index_queries.txt` |
+### | the running process, NOT this act | `relay/data/b475_zeta23_build.log` -- it keeps growing while
+###   this act reads it, and ### **IT IS COMMITTED BY THIS ACT AS EVIDENCE, AT THE SNAPSHOT'S BYTES** |
+### ### **AND NO OTHER FILE IS WRITTEN IN ANY REPOSITORY.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### Nothing deposits. ### Nothing is imported, copied or vendored. ### No Lean of the corpus is
+### touched. ### No corpus grade moves. ### ### **(R82) IS NOT DECIDED AND IS NOT FORCED; (R83) DOES
+### NOT FIRE.** ### The run is not stopped or restarted. ### No site is entered and row `U1` is not
+### written. ### The wave stays parked under `(R66)`. ### The `h2` lane stays open under `(R84)` with
+### its registration and no number. ### `h2` stands exactly where the deposit left it.
+### ### **AND THE FOUR LISTS ARE OPEN.**
+
+----------------------------------------------------------------------------------------------------
+### (R50) THE ADDENDUM SLOT.
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 3ac8813dc4c9db575fb7fbf84487d4091588707f07d054dba1d8ab83ca012490
+### bytes locked : 12845
+### locked at (UTC) : 2026-09-22T20:57:20Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b480_registration_2026-09-22.txt`.**
+====================================================================================================

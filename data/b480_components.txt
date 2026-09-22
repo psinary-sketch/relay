@@ -1,0 +1,126 @@
+========================================================================================================
+COMPONENT 1 -- THE BUILD SO FAR. ### b473`S COMPONENT 1 AGAINST A SNAPSHOT.
+========================================================================================================
+    ### ### **THE SNAPSHOT : 261647 BYTES, READ AT 2026-09-22T20:59:00Z ; THE RUN IS STILL GOING.**
+    (b473 read a finished log of 17,143 bytes; this one is not finished and is not claimed to be.)
+
+  ### (1a) THE LAUNCHER`S HEAD, VERBATIM.
+    :1     === [Tue 09/22/2026 15:02:24.61] b475 detached SERIALIZED run START in D:\relay\data\anthropic-zeta23\formal-math\zeta23
+    :2     === LEAN_NUM_THREADS=1 ; order file D:\relay\data\b475_order.txt
+
+  ### (1b) THE PER-MODULE PROGRESS, FROM THE LOG`S OWN MARKERS.
+    modules STARTED in the snapshot : 169 of 188
+    modules with an EXIT line       : 168
+    ### ### **EXIT 0 : 168 ; NON-ZERO : 0 **
+    the last module started : #169 Zeta23.ThmE.ContourChi at Tue 09/22/2026 15:02:24.62
+    ### ### **MODULES STILL TO START : 19 OF 188.**
+
+  ### (1c) EVERY FAILING MODULE, WITH ITS STDERR -- OR NONE.
+    ### ### **NONE. ### NO MODULE HAS FAILED IN THIS SNAPSHOT, AND NO MEMORY FAILURE APPEARS
+    ### ANYWHERE IN IT.**
+
+  ### (1d) THE WALL TIME -- AND A DEFECT IN b475`S LAUNCHER, FOUND HERE.
+    distinct timestamps across the 169 MODULE markers : 1 ['Tue 09/22/2026 15:02:24.62']
+    ### ### **EVERY MODULE MARKER CARRIES THE SAME INSTANT, THE LAUNCH`S OWN.** ### Inside a
+    ### parenthesised `FOR` block `cmd` expands `%%time%%` ONCE, WHEN IT PARSES THE BLOCK, so the
+    ### launcher wrote the launch time on all of them. ### **b475`S ORDER ASKED FOR "a timestamp
+    ### per module" AND b475`S LAUNCHER DID NOT DELIVER ONE** -- `!time!` was needed where
+    ### `%%time%%` was written. ### The run is NOT touched to fix it; the defect is named and the
+    ### elapsed is taken from evidence that does not depend on it.
+    launched 2026-09-22T19:02:24Z ; snapshot read 2026-09-22T20:59:00Z ; the log`s last write 2026-09-22T20:59:00Z
+    ### ### **ELAPSED TO THIS SNAPSHOT : 6996 s (116.6 min), FOR 169 MODULES STARTED --
+    ### 41.4 s PER MODULE ON AVERAGE, AGAINST THE 6.65 s b476 TIMED FOR ONE CHAIN RUN.**
+    ### ### **AND AT THAT RATE THE 19 MODULES STILL TO START ARE ROUGHLY 787 s (13 min) AWAY**
+    ### -- an average over unequal modules, said as an average and not as a deadline.
+
+  ### (1e) THE SNAPSHOT`S LAST FORTY LINES, VERBATIM.
+    :3255  ⚠ [3622/3656] Replayed Zeta23.FromPNTPlus.ZetaBounds
+    :3256  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:859:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3257  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:952:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3258  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1092:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3259  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1099:32: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3260  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1105:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+    :3261  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1115:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+    :3262  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1119:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3263  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1135:54: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+    :3264  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1157:22: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+    :3265  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1169:15: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+    :3266  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1169:59: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3267  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1185:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3268  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1835:19: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3269  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1837:45: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3270  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1840:28: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+    :3271  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1844:28: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3272  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1900:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3273  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1906:20: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3274  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2091:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3275  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2884:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3276  warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2940:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3277  ⚠ [3689/3699] Replayed Zeta23.FromPNTPlus.StrongPNTPrefix
+    :3278  warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:61:71: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3279  warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:202:9: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+    :3280  warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:343:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+    :3281  warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:368:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3282  warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:390:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+    :3283  warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:432:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3284  ⚠ [3690/3699] Replayed Zeta23.WeilEF.Landau
+    :3285  warning: Zeta23/WeilEF/Landau.lean:341:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3286  warning: Zeta23/WeilEF/Landau.lean:437:64: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3287  ⚠ [3694/3699] Replayed Zeta23.ZetaReflect
+    :3288  warning: Zeta23/ZetaReflect.lean:91:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    :3289  ⚠ [3695/3699] Replayed Zeta23.ThmE.SeamL
+    :3290  warning: Zeta23/ThmE/SeamL.lean:337:13: `ENat.toNat_coe` has been deprecated: Use `ENat.toNat_natCast` instead
+    :3291  ✔ [3699/3699] Built Zeta23.ThmE.VerticalLineChi (18s)
+    :3292  Build completed successfully (3699 jobs).
+    :3293  === EXIT 0 : Zeta23.ThmE.VerticalLineChi 
+    :3294  === [Tue 09/22/2026 15:02:24.62] MODULE 169 : Zeta23.ThmE.ContourChi 
+    :3295  
+
+========================================================================================================
+COMPONENT 2 -- THE PROFILES. ### b473`S COMPONENT 2 AGAINST THE SAME SNAPSHOT.
+========================================================================================================
+    lines carrying "depends on axioms" in the snapshot : 0
+    two_thirds_on_critical_line                                ABSENT
+    two_thirds_on_critical_line_cumulative                     ABSENT
+    two_thirds_simple_on_critical_line                         ABSENT
+    two_thirds_simple_on_critical_line_cumulative              ABSENT
+    five_sixths_distinct                                       ABSENT
+    five_sixths_distinct_cumulative                            ABSENT
+    montgomery_taylor_on_critical_line                         ABSENT
+    montgomery_taylor_simple_on_critical_line_mult             ABSENT
+    montgomery_taylor_simple_on_critical_line_mult_cumulative  ABSENT
+    montgomery_taylor_distinct_mult                            ABSENT
+    montgomery_taylor_distinct_mult_cumulative                 ABSENT
+    dirichlet_two_thirds_on_critical_line                      ABSENT
+    dirichlet_two_thirds_simple_on_critical_line               ABSENT
+    dirichlet_five_sixths_distinct                             ABSENT
+    dirichlet_montgomery_taylor_on_critical_line               ABSENT
+    dirichlet_montgomery_taylor_simple_on_critical_line_mult   ABSENT
+    dirichlet_montgomery_taylor_distinct_mult                  ABSENT
+    Zeta23.WeilEF.EF_lit_zetaZeroConfig                        ABSENT
+    Zeta23.EF.EF_lit                                           ABSENT
+    Zeta23.WeilEF.EF_lit_zeta                                  ABSENT
+    ### ### **ROWS 20 ; ABSENT 20 ; CARRYING A PROFILE 0.**
+    ### **`ABSENT` IS NOT A PROFILE AND IS NOT ASSUMED TO BE ONE.**
+
+  ### ### **(R82) : NOT YET DECIDABLE.**
+    ### The profile steps run AFTER every module of the order. ### **19 MODULES OF 188 HAVE NOT
+    ### STARTED**, so the snapshot carries neither a profile nor a failure to produce one.
+    ### ### **THIS IS NOT `HOLDS`, AND IT IS NEITHER KIND OF `VOID`.** ### b473`s VOID FOR WANT
+    ### OF A RUN described a run that had ENDED without producing them; ### **THIS RUN HAS NOT
+    ### ENDED, AND A VERDICT TAKEN NOW WOULD BE A GUESS WEARING A RULING`S NAME.**
+    ### ### **(R83) DOES NOT FIRE**, its trigger being (R82) holding.
+    ### ### **AND THE GRADE DOES NOT MOVE: zeta23 STAYS `DERIVES, CONDITIONAL`, AS b468r LEFT IT.**
+
+========================================================================================================
+COMPONENT 3 -- (N1) FROM b475, SCORED.
+========================================================================================================
+    the expectation : the serialized run passes the three modules that died in parallel at b473.
+    Zeta23.Hypotheses        line 2    in the order ; started True  ; ### **EXIT 0**
+    Zeta23.Defs.Counting     line 3    in the order ; started True  ; ### **EXIT 0**
+    Zeta23.Taper.Basic       line 23   in the order ; started True  ; ### **EXIT 0**
+    ### ### **(N1) : HELD -- ALL THREE PASSED, EXIT 0, ONE LEAN PROCESS AT A TIME**
+    ### ### **THE BOUND WAS THE PARALLELISM, NOT THE MODULES.** ### The same three modules that
+    ### died with `INTERNAL PANIC: out of memory` and `std::bad_alloc` under lake`s own workers
+    ### compile without complaint when no two Lean processes run at once. ### **NOTHING ABOUT
+    ### zeta23`S MATHEMATICS CHANGED; ONLY THE NUMBER OF PROCESSES DID.**

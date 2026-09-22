@@ -1,0 +1,21 @@
+{
+ "registered": 0,
+ "N1_from_b475": {
+  "navigator": "the serialized run passes Zeta23.Hypotheses, Zeta23.Defs.Counting and Zeta23.Taper.Basic, the three that died in parallel",
+  "verdict": "HELD -- all three EXIT 0 in the snapshot",
+  "note": "positions 2, 3 and 23 of the order file; 169 modules started, 168 with an EXIT line, all 0, and no memory failure anywhere in the snapshot"
+ },
+ "r82": {
+  "verdict": "NOT YET DECIDABLE",
+  "note": "the profile steps run after every module; 19 of 188 modules have not started, so the snapshot carries neither a profile nor a failure to produce one. Not HOLDS, and neither kind of VOID."
+ },
+ "r83": {
+  "verdict": "DOES NOT FIRE",
+  "note": "its trigger is (R82) holding, and (R82) does not hold"
+ },
+ "seat": {
+  "N1": "HELD, as b475`s face predicted: the bound was the parallelism, not the modules",
+  "R82": "not forced; a verdict taken now would be a guess wearing a ruling`s name",
+  "expectations": "none registered by this act"
+ }
+}
