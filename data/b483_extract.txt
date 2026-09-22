@@ -1,0 +1,72 @@
+========================================================================================================
+b483 -- THE SURVEY. ### THE b477 RUN HAS EXITED; ITS BANK AND ITS LOG ARE READ FROM DISK.
+========================================================================================================
+
+(P1) THE RUN`S OWN END, READ FROM ITS LOG.
+--------------------------------------------------------------------------------------------------------
+    the log carries ### **RUN COMPLETE** : True
+    the launcher carries ### **EXIT 0**   : True
+    first stamp 21:15:02 ; last stamp 21:53:59 ; ### **ELAPSED 2337 s (38 min)**
+      ### priced at b477 : ### **2923 s (49 min)**. ### The run came in ### **UNDER**
+      ### its own price by 586 s.
+      ### ### **AND THE STAMPS ARE DISTINCT** -- 380 distinct second-stamps over 424 lines,
+      ### so b475`s one-instant defect is NOT repeated, exactly as READING (6) declared.
+    the run`s own header : aim-plane cells 13 ; ladder cells 22 ; banked W available for 32 of 35
+
+(P2) THE ENTRY BANK, COUNTED AGAINST THE PRICE.
+--------------------------------------------------------------------------------------------------------
+    control_diagonal     35
+    diagonal             35
+    offdiagonal          309
+    off-diagonals by family : AIM PLANE 78, LADDER 231
+    ### the arithmetic closes: 13*12/2 = 78 and 22*21/2 = 231, together 309
+    ### ### **SO THE RUN BUILT TWO WITHIN-FAMILY GRAMS, NOT ONE 35-BY-35 MATRIX.**
+    ### The 13 aim-plane cells and the 22 ladder cells are never paired with each other, so
+    ### ### **NO CROSS-FAMILY ENTRY EXISTS AND NONE IS INVENTED HERE.**
+
+(P3) THE DIAGONAL CHECKS, AGAINST THE ZERO SIDE AND THE TAIL FIGURE.
+--------------------------------------------------------------------------------------------------------
+    diagonal cells : 35 ; with a banked W to check against : 32 ; with NONE : 3
+    ### ### **EVERY CHECKED CELL PASSED : True** (the runner halts before any off-diagonal
+    ### entry otherwise, and 309 off-diagonal entries exist).
+    ### largest |W - banked W| over the 32 checked cells : ### **0.000e+00**
+      ### against the floor 1.49e-08 : WITHIN
+      ### cells reproducing the bank EXACTLY (diff 0.000e+00) : ### **32 of 32**
+    ### the zero side: |W + Z| per cell, largest : ### **3.558e-05**
+      ### this is (R87)`s identity Sum_v W_v(f) = -Z read on the diagonal, and it holds to
+      ### ### **3.558e-05** at every one of the 35 cells.
+    ### the tail figure `trunc_bound` : min 1.184e-12 ; max ### **6.421e-11**
+      ### ### **THE TAIL BOUND IS FOUR ORDERS BELOW THE FLOOR**, so it is the binding
+      ### figure for (F2) and (F3), not the floor.
+
+(P4) THE EIGEN-SOLVER, REHEARSED BEFORE THE SEAL, ON A MATRIX WHOSE SPECTRUM IS KNOWN.
+--------------------------------------------------------------------------------------------------------
+    ### ### **(R70): THE READER IS RUN ON A CASE WHOSE ANSWER IS KNOWN BEFORE IT IS RUN ON
+    ### THE CASE THAT MATTERS.** ### The rehearsal is a HYPERBOLIC PLANE -- the very object
+    ### (F1) asks the control to exhibit -- whose eigenvalues are exactly +1 and -1:
+      H = [[0, 1], [1, 0]]
+        eigenvalue -1.000000000000000   residual 0.000e+00
+        eigenvalue +1.000000000000000   residual 0.000e+00
+      ### negative index at floor 1.49e-08 : ### **1** -- and a hyperbolic plane HAS one.
+      ### ### **REHEARSAL PASSES : True.**
+    ### And the NEGATIVE control of the rehearsal, so the reader is not one-sided:
+      P = [[2, 1], [1, 2]] -- eigenvalues +1.000000000000 and +3.000000000000 ; negative index ### **0**
+      ### ### **A DEFINITE MATRIX RETURNS NEGATIVE INDEX 0**, so a reported 0 is a
+      ### measurement and not the reader failing to look.
+
+(P5) (R87)`S ORIENTATION AND THE TWO THRESHOLDS, QUOTED AT THEIR ADDRESSES.
+--------------------------------------------------------------------------------------------------------
+    ###   `Sum_v W_v(f) = -Z`, so ### **THE SIGNATURE IS READ ON `-G`, THE ZERO SIDE'S GRAM.**
+    ###   ### **(F2) HALTS ON A POSITIVE EIGENVALUE OF `G`** beyond the chain's floor, for zeta.
+    ###   ### **(N2) AND (N3) REFER TO THE LARGEST EIGENVALUE OF `G`** -- which is the smallest of `-G`.
+    ### ### **SO THE FALSIFIER AND THE EXPECTATION POINT AT OPPOSITE ENDS OF THE SPECTRUM,**
+    ### and this act prints BOTH ends at every size so neither can hide the other.
+    ### ### **AND THE ORDER`S OWN WORDS SAY "the smallest eigenvalue per size for zeta".**
+    ### Under (R87) the falsifier-bearing end for zeta is the ### **LARGEST eigenvalue of G**
+    ### (the smallest of `-G`). ### The order also says the scoring is "as (R87) orients
+    ### them", so ### **(R87) GOVERNS AND THE TENSION IS NAMED RATHER THAN RESOLVED IN**
+    ### ### **SILENCE**; both extremes are printed under both names.
+
+========================================================================================================
+  ### MISSES : 0 
+========================================================================================================
