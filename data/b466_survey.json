@@ -1,0 +1,103 @@
+{
+ "precondition": [
+  {
+   "artefact": "the paper",
+   "state": "ABSENT",
+   "name_hits": 0,
+   "wide_hits": 0,
+   "content_hits": 6,
+   "content_examples": [
+    "MY-DOwnloads\\PLACE-papers\\archive\\2026-08-24-ledger-split\\OPEN_TRAILS-archive-1-seam-records-through-nineteenth.md",
+    "relay\\data\\b466_components.txt",
+    "relay\\data\\b466_extract.txt",
+    "relay\\data\\b466_registration_2026-09-21.txt"
+   ]
+  },
+  {
+   "artefact": "the informal note",
+   "state": "ABSENT",
+   "name_hits": 0,
+   "wide_hits": 0,
+   "content_hits": 6,
+   "content_examples": [
+    "relay\\data\\b466_extract.txt",
+    "relay\\data\\b466_ferry.txt",
+    "relay\\data\\b466_index_queries.txt",
+    "relay\\data\\b466_registration_2026-09-21.txt"
+   ]
+  },
+  {
+   "artefact": "the methodology note",
+   "state": "ABSENT",
+   "name_hits": 0,
+   "wide_hits": 9,
+   "content_hits": 4,
+   "content_examples": [
+    "relay\\data\\b466_extract.txt",
+    "relay\\data\\b466_index_queries.txt",
+    "relay\\data\\b466_registration_2026-09-21.txt",
+    "relay\\data\\b466_survey.json"
+   ]
+  },
+  {
+   "artefact": "the transcripts",
+   "state": "ABSENT",
+   "name_hits": 0,
+   "wide_hits": 1,
+   "content_hits": 6,
+   "content_examples": [
+    "relay\\data\\audit_b341_index_query.txt",
+    "relay\\data\\audit_b405_reg_satisfiable.txt",
+    "relay\\data\\audit_b442_reg_satisfiable.txt",
+    "relay\\data\\b148_registration_2026-08-24.txt"
+   ]
+  },
+  {
+   "artefact": "a clone of anthropics/zeta-23-lean",
+   "state": "ABSENT",
+   "name_hits": 0,
+   "wide_hits": 0,
+   "content_hits": 6,
+   "content_examples": [
+    "relay\\data\\b466_extract.txt",
+    "relay\\data\\b466_ferry.txt",
+    "relay\\data\\b466_index_queries.txt",
+    "relay\\data\\b466_registration_2026-09-21.txt"
+   ]
+  }
+ ],
+ "control_fires": true,
+ "prior_read": [
+  "the ExplicitFormula row",
+  "the Mathlib pin",
+  "the Rule-3 primary log",
+  "the clone SHA",
+  "the conversion verdict",
+  "the intake headline",
+  "the method shape",
+  "the paper-read flags"
+ ],
+ "deposit": {
+  "deposit_line": {
+   "line": 1796,
+   "needle": "the decomposition conjunct (Guinand–Weil) and the tail premise remain named"
+  },
+  "paths_line": {
+   "line": 57
+  }
+ },
+ "lv_pin": "93c27ec",
+ "lv_declared": [
+  "ExplicitFormulaDecomp",
+  "TailBoundPremise",
+  "lowFinset",
+  "partialPositivity_finiteRange"
+ ],
+ "lv_statements": {
+  "ExplicitFormulaDecomp": "def ExplicitFormulaDecomp (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)\n    (T : ℝ) : Prop :=\n  (∀ z : NontrivialZero, z ∈ low ↔ |z.1.im| ≤ T) ∧\n  (∀ n : ℕ, 1 ≤ n → lam n = (∑ z ∈ low, blTerm z n) + tail n)",
+  "TailBoundPremise": "def TailBoundPremise (low : Finset NontrivialZero) (tail : ℕ → ℝ) (T : ℝ) : Prop :=\n  ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → - (∑ z ∈ low, blTerm z n) ≤ tail n",
+  "partialPositivity_finiteRange": "theorem partialPositivity_finiteRange\n    (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)\n    (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)\n    (hTail : TailBoundPremise low tail T) :\n    ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n := by",
+  "lowFinset": "noncomputable def lowFinset (T : ℝ) : Finset NontrivialZero :=\n  (finite_setOf_abs_im_le T).toFinset"
+ },
+ "misses": []
+}
