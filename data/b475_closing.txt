@@ -1,0 +1,97 @@
+====================================================================================================
+### THE CLOSING RECORD. ### b475 -- THE AXIOM RUN, DETACHED AND SERIALIZED UNDER (R80).
+### 2026-09-22. ### CONCURRENCY: SOLO (research seat; navigator model Fable 5.1).
+### ### **(R85) RATIFIED AND FIRST APPLIED: THE WRITE LIST IS A TABLE OF TOOLS AND GLOBS.**
+====================================================================================================
+
+  ferry            : part 2 of 2, IN FULL at b474, started now by the author`s word ; scan 0 hits ;
+                     1 (R81) flag, `never` at :20, carrying [procedural], 0 bare
+  registration     : LOCKED 2026-09-22T19:02:02Z, BEFORE THE RUN, sha256 f88574b16d2e4800...;
+                     SEAL INTACT ; lock gate 8 of 8, 4 by digest
+  arms             : 50 declared; post-push 50 RUN, 50 LIVE PASSING, 0 FAILING, 0 control passes
+  censuses / pins  : TOTAL MISSING 0 both ; HARD-FAILING 0
+  mirror           : mirror-refresh-2026-09-22-b475.zip CLEAN ON ALL THREE CLAUSES at 0b618a4
+  correspondence   : row 324 (SIDE-global-section d76c50d)
+  PLACE-papers     : 0b618a4 -- OPEN_TRAILS.md, 40 lines added, 0 removed, BOM kept
+  relay            : 54d305c (the act) ; this closing commit
+  span by tool     : 1 -- the fold at b474 closed the previous span; this is the first act of the new one
+  desk             : 31 items, 0 closed, 1 minted, 31 standing
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 1 -- THE SERIALIZED DETACHED RUN.
+----------------------------------------------------------------------------------------------------
+    PID      : ### **27508**   (relay/data/b475_zeta23_build.pid)
+    LOG      : ### **D:\relay\data\b475_zeta23_build.log** -- NOT OPENED BY THIS ACT; NOT COMMITTED
+    started  : 2026-09-22T19:02:24Z, 22 s after the seal
+    launcher : relay/tools/b475_detached_run.cmd, Start-Process, hidden, detached ;
+               ### **LEAN_NUM_THREADS=1 ; ONE `lake build <module>` PER CALL** ; a timestamp and an
+               exit code per module ; then `lake build Solution`, then scripts\PrintAxioms.lean as
+               shipped, then the seat`s named file for the three (R82) declarations
+    the order: ### **188 MODULES, READ FROM `b475_order.txt`** -- computed from Solution.lean`s own
+               imports, depth-first post-order, with ### **0 INVERSIONS** by its own control, and
+               banked BEFORE the run started; the launcher reads the file rather than a typed list
+    at close : ### **RUNNING at 2026-09-22T19:06:39Z, 255 s after launch** -- pid alive, 2 lake and
+               ### **0 lean processes at that instant**, log 248 bytes ; read from the process table
+               and the file system only
+  ### ### **AT MOST ONE LEAN PROCESS AT A TIME IS THE WHOLE POINT OF THIS RUN.** ### The act that reads
+  ### the log scores (N1) and decides (R82) again; this act reports no output of the run.
+
+----------------------------------------------------------------------------------------------------
+### COMPONENT 2 -- WHAT THE RECORD KNOWS ABOUT THE BOUND.
+----------------------------------------------------------------------------------------------------
+    the memory ceiling the order asked for, "if the log holds it" :
+      ### ### **IT DOES NOT. ### 0 LINES IN b473`S LOG CARRY A MEMORY FIGURE; 3 CARRY THE FAILURE:**
+        | INTERNAL PANIC: out of memory
+        | INTERNAL PANIC: out of memory
+        | libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+      ### ### **NO FIGURE IS SUPPLIED FROM THE MACHINE, A LATER RUN, OR ANYWHERE ELSE.** ### The bound
+      ### is known by KIND -- an allocation that could not be served -- and not by SIZE.
+    the three that died in parallel, placed in the order :
+      Zeta23.Hypotheses 1 ; Zeta23.Defs.Counting 2 ; Zeta23.Taper.Basic 22 -- ### **ALL IN THE FIRST
+      TWENTY-TWO OF 188**, so (N1) is decided early in the log and not at its end
+    held fixed : the clone at fbdc36bb, toolchain v4.33.0-rc2, Mathlib 51e6992e, the shipped
+      PrintAxioms.lean, the three (R82) declarations
+    changed    : LEAN_NUM_THREADS unset -> 1 ; one call for the library -> one call per module
+    ### ### **ONE VARIABLE MOVED, WHICH IS WHAT MAKES (N1) READABLE.**
+
+----------------------------------------------------------------------------------------------------
+### (R85), RATIFIED AND FIRST APPLIED.
+----------------------------------------------------------------------------------------------------
+  ### A face names each tool`s WRITE PATTERN, not each file. ### Section (W) of this face is a table of
+  ### tools and globs -- versions and sidecars included -- and this act`s `G-WRITELIST-KINDS` reads the
+  ### globs, with both its controls kept. ### **RE-POINTED, NOT RELAXED: A FILE OUTSIDE EVERY DECLARED
+  ### GLOB IS STILL A BREACH**, and the arm proved it twice in this act (see errors).
+  ### b474`s two names close under the ruling; (R85)`s incident list -- b458, b459, b461, b466, b474 --
+  ### is carried into the record here and not re-argued.
+
+----------------------------------------------------------------------------------------------------
+### THE EXPECTATION.
+----------------------------------------------------------------------------------------------------
+  (N1) the serialized run passes Zeta23.Hypotheses, Zeta23.Defs.Counting and Zeta23.Taper.Basic
+       ### ### **SCORED BY THE ACT THAT READS THE LOG. ### THIS ACT CLOSES WITH THE RUN RUNNING.**
+  ### The seat`s own: ### **`HELD` IS THE PREDICTION, ON A MECHANISM RATHER THAN A HOPE** -- the three
+  ### deaths were allocation failures under lake`s own parallel workers, and the only variable moved is
+  ### how many Lean processes are alive at once. ### **AND IT IS NOT CERTAIN: if one of the three dies
+  ### alone, (N1) IS REFUTED AND THE BOUND IS PER-MODULE**, which is worth more than a passing run.
+
+----------------------------------------------------------------------------------------------------
+### ERRORS. ### THE SEAT`S : TWO, BOTH IN THE NEW (R85) ARM AND BOTH CAUGHT BY ITS OWN CONTROLS.
+----------------------------------------------------------------------------------------------------
+  (1) `G-R85-WRITELIST-BY-GLOB`S POSITIVE CONTROL COULD NOT FAIL IT. The control renamed the (W)
+      heading, and the reader finds that heading by prefix, so the mutated face still parsed. ### The
+      control now EMPTIES the table between the two headings -- the state the arm exists to catch.
+  (2) THE GLOB READER DROPPED THE TOOL NAMES AND THEN FAILED ON THEM. It filtered `*.py` entries out as
+      "the left column", but ### **A TOOL FILE THIS ACT CREATES IS ITSELF A WRITTEN FILE**, and (R85)
+      has the face carry each tool`s name beside its globs. ### Six tool files read as breaches until
+      the reader was repaired to treat every backticked path in the table as a pattern.
+      ### **THE ARM`S STANDARD WAS NOT MOVED; THE READER WAS WRONG AND WAS FIXED.**
+  ### THE NAVIGATOR`S : NONE IN THIS ACT.
+
+----------------------------------------------------------------------------------------------------
+### THE STANDING CONSTRAINTS.
+----------------------------------------------------------------------------------------------------
+  both instrument lanes PARKED ; ### **THE KERNEL LANE IS OPEN UNTIL THE RUN REPORTS** ; the `h2` lane
+  OPEN AND EMPTY under `(R84)` ; no Lean of the corpus touched ; nothing imported, copied or vendored ;
+  (R82) not re-decided and (R83)`s kernel not created ; the wave PARKED under `(R66)` ; nothing
+  deposits ; `h2` WHERE THE DEPOSIT LEFT IT ; ### ### **THE FOUR LISTS OPEN.**
+====================================================================================================

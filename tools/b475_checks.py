@@ -156,7 +156,11 @@ def globs_of(face):
     """### (R85): THE FACE'S (W) SECTION AS A LIST OF GLOBS. ### Every backticked path in the write-list
     ### table is a pattern; a written file matches if its basename matches any pattern's basename."""
     w = face[face.index('### (W) THE WRITE LIST'):face.index('### (Z) THE NOTHINGS')]
-    return [g.split('/')[-1] for g in re.findall(r'`([^`]+)`', w) if not g.endswith('.py') or '*' in g]
+    # ### ### **THE FIRST READER DROPPED THE TOOL NAMES AND THEN FAILED ON THEM.** ### It filtered out
+    # ### `*.py` entries as "the left column", but a tool file this act creates is itself a written file,
+    # ### and (R85) has the face carry each tool's NAME beside its globs. ### Every backticked path in
+    # ### the (W) table is a pattern, tool names included.
+    return [g.split('/')[-1] for g in re.findall(r'`([^`]+)`', w)]
 
 
 ARMS = [
