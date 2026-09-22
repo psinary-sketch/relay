@@ -1,0 +1,143 @@
+========================================================================================================
+COMPONENT 1 -- THE BUILD. ### THE LOG READ WHOLE.
+========================================================================================================
+    file   : D:\relay\data\b471_zeta23_build.log
+    ### ### **BYTES READ : 17143 ; THE FILE`S SIZE : 17143 ; EQUAL : True**
+    lines  : 193 ; the survey`s pre-seal size reading : 17143 bytes
+
+  ### (1a) THE LAUNCHER`S OWN MARKERS AND EXIT LINES, VERBATIM.
+    :1    === [Tue 09/22/2026 12:38:44.54] b471 detached run START in D:\relay\data\anthropic-zeta23\formal-math\zeta23
+    :2    === STEP 1 : lake build Solution
+    :171  === EXIT 1 : lake build Solution
+    :172  === STEP 2 : lake env lean scripts\PrintAxioms.lean (as shipped)
+    :188  === EXIT 1 : scripts\PrintAxioms.lean
+    :189  === STEP 3 : lake env lean B471NamedAxioms.lean (EF_lit_zetaZeroConfig, EF_lit, EF_lit_zeta)
+    :191  === EXIT 1 : B471NamedAxioms.lean
+    :192  === [Tue 09/22/2026 13:01:47.59] RUN COMPLETE
+    ### ### **`lake build Solution` EXIT : 1**
+
+  ### (1b) THE WALL TIME, FROM THE LOG`S OWN TIMESTAMP LINES.
+    START : 09/22/2026 12:38:44.54   (b471 detached run START in D:\relay\data\anthropic-zeta23\formal-math\zeta23)
+    END   : 09/22/2026 13:01:47.59   (RUN COMPLETE)
+    ### ### **WALL TIME : 1383.05 s (23 min 3 s)** -- the two lines the launcher wrote, one clock,
+    ### no timezone conversion involved.
+
+  ### (1c) EVERY MODULE THAT FAILED, WITH ITS ERROR.
+    :26   Zeta23.Hypotheses            exit 1            INTERNAL PANIC: out of memory
+    :31   Zeta23.Defs.Counting         exit 1            INTERNAL PANIC: out of memory
+    :36   Zeta23.Taper.Basic           exit 3221226505   libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+    the log`s own summary list ("Some required targets logged failures"): - Zeta23.Hypotheses, - Zeta23.Defs.Counting, - Zeta23.Taper.Basic
+    ### ### **MODULES THAT FAILED : 3 ; ALL THREE FOR MEMORY** -- two `INTERNAL PANIC: out of
+    ### memory` at exit 1, one `std::bad_alloc` at exit 3221226505 (`0xC0000409`). ### The run
+    ### was launched with `LEAN_NUM_THREADS` UNSET, as (R80)`s order named, so lake ran its own
+    ### parallel workers; ### **THE FAILURE IS THE MACHINE`S MEMORY UNDER THAT PARALLELISM, NOT
+    ### A DEFECT IN ANY MODULE`S MATHEMATICS** -- no module reported a `sorry`, an unsolved goal,
+    ### or a type error, and the counter had reached 8,873 of 8,887 targets.
+
+  ### (1d) THE LAST FORTY LINES OF THE LOG, VERBATIM.
+    :153  consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+    :154    omit [Fintype ι] [DecidableEq ι] in theorem ...
+    :155  
+    :156  Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+    :157  warning: Zeta23/MV/Spacing.lean:153:8: automatically included section variable(s) unused in theorem `_private.Zeta23.MV.Spacing.0.Zeta23.MV.Adm.mem_window`:
+    :158    [Fintype ι]
+    :159    [DecidableEq ι]
+    :160  consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+    :161    omit [Fintype ι] [DecidableEq ι] in theorem ...
+    :162  
+    :163  Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+    :164  ✔ [8873/8887] Built Zeta23.MV.Quadratic (46s)
+    :165  ✔ [8874/8887] Built Zeta23.MV.Eigen (31s)
+    :166  Some required targets logged failures:
+    :167  - Zeta23.Hypotheses
+    :168  - Zeta23.Defs.Counting
+    :169  - Zeta23.Taper.Basic
+    :170  error: build failed
+    :171  === EXIT 1 : lake build Solution 
+    :172  === STEP 2 : lake env lean scripts\PrintAxioms.lean (as shipped) 
+    :173  scripts\PrintAxioms.lean:13:0: error: unknown module prefix 'Solution'
+    :174  
+    :175  No directory 'Solution' or file 'Solution.olean' in the search path entries:
+    :176  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Cli\.lake\build\lib\lean
+    :177  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\batteries\.lake\build\lib\lean
+    :178  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Qq\.lake\build\lib\lean
+    :179  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\aesop\.lake\build\lib\lean
+    :180  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\proofwidgets\.lake\build\lib\lean
+    :181  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\importGraph\.lake\build\lib\lean
+    :182  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\LeanSearchClient\.lake\build\lib\lean
+    :183  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\plausible\.lake\build\lib\lean
+    :184  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\mathlib\.lake\build\lib\lean
+    :185  D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean
+    :186  d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\lib\lean
+    :187  d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\lib\lean
+    :188  === EXIT 1 : scripts\PrintAxioms.lean 
+    :189  === STEP 3 : lake env lean B471NamedAxioms.lean (EF_lit_zetaZeroConfig, EF_lit, EF_lit_zeta) 
+    :190  C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\49943484-5ff3-4a99-9f75-0f3a8ae0d39a\scratchpad\B471NamedAxioms.lean:1:0: error: object file 'D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\WeilEF\Main.olean' of module Zeta23.WeilEF.Main does not exist
+    :191  === EXIT 1 : B471NamedAxioms.lean 
+    :192  === [Tue 09/22/2026 13:01:47.59] RUN COMPLETE 
+    :193  
+
+  ### ### **THE BUILD DID NOT SUCCEED, SO THE PROFILES WERE NOT PRODUCED.** ### Step 2
+  ### (`scripts\PrintAxioms.lean`, as shipped) could not even find the library -- *"unknown module
+  ### prefix `Solution`"* -- and step 3 failed on a missing object file for `Zeta23.WeilEF.Main`.
+
+========================================================================================================
+COMPONENT 2 -- THE PROFILES.
+========================================================================================================
+    lines in the log carrying "depends on axioms" : 0
+    two_thirds_on_critical_line                                ABSENT         
+    two_thirds_on_critical_line_cumulative                     ABSENT         
+    two_thirds_simple_on_critical_line                         ABSENT         
+    two_thirds_simple_on_critical_line_cumulative              ABSENT         
+    five_sixths_distinct                                       ABSENT         
+    five_sixths_distinct_cumulative                            ABSENT         
+    montgomery_taylor_on_critical_line                         ABSENT         
+    montgomery_taylor_simple_on_critical_line_mult             ABSENT         
+    montgomery_taylor_simple_on_critical_line_mult_cumulative  ABSENT         
+    montgomery_taylor_distinct_mult                            ABSENT         
+    montgomery_taylor_distinct_mult_cumulative                 ABSENT         
+    dirichlet_two_thirds_on_critical_line                      ABSENT         
+    dirichlet_two_thirds_simple_on_critical_line               ABSENT         
+    dirichlet_five_sixths_distinct                             ABSENT         
+    dirichlet_montgomery_taylor_on_critical_line               ABSENT         
+    dirichlet_montgomery_taylor_simple_on_critical_line_mult   ABSENT         
+    dirichlet_montgomery_taylor_distinct_mult                  ABSENT         
+    Zeta23.WeilEF.EF_lit_zetaZeroConfig                        ABSENT         
+    Zeta23.EF.EF_lit                                           ABSENT         
+    Zeta23.WeilEF.EF_lit_zeta                                  ABSENT         
+    ### ### **ROWS : 20 ; STANDARD THREE : 0 ; OTHER PROFILE : 0 ; ABSENT : 20.**
+    ### **`ABSENT` IS NOT A PROFILE AND IS NOT ASSUMED TO BE ONE.** ### The log carries no
+    ### `#print axioms` output at all, because neither step that would have produced it ran.
+
+  ### ### **(R82)`S CONDITION : VOID FOR WANT OF A RUN.**
+      Zeta23.WeilEF.EF_lit_zetaZeroConfig        ABSENT
+      Zeta23.EF.EF_lit                           ABSENT
+      Zeta23.WeilEF.EF_lit_zeta                  ABSENT
+  ### The condition asks for three profiles; the run produced none. ### **THE DISTINCTION THE
+  ### ORDER ASKS FOR, SAID PLAINLY: (R82) IS VOID BECAUSE THERE WAS NO RUN TO READ, NOT BECAUSE A
+  ### PROFILE CAME BACK WRONG. ### NO PROFILE CAME BACK AT ALL, AND NOTHING IS KNOWN AGAINST
+  ### zeta23 BY THIS ACT.**
+  ### ### **THE GRADE: zeta23`S TERMINAL STAYS `DERIVES, CONDITIONAL` EXACTLY AS b468r LEFT IT.**
+  ### It does not become unconditional, and it is not lowered: the act that would move it is a
+  ### re-read after a run that completes. ### **THAT RE-READ IS OWED AND IS NOT PERFORMED HERE.**
+  ### ### **(R83) IS OBEYED BY DOING NOTHING: THE CONDITION DID NOT HOLD, SO NO KERNEL IS NAMED,
+  ### CREATED OR PINNED, AND NOTHING IS VENDORED.**
+
+========================================================================================================
+COMPONENT 3 -- THE COMPARATOR. ### THE SOURCE`S OWN CHECK, AND IT CHANGES NO GRADE.
+========================================================================================================
+    ### ### **NOT RUN.** ### Every reason, rather than the first:
+      (1) THE FETCH. The script`s tool cache `.cache/palomar-comparator` is ABSENT, and the script
+          clones four pinned checkouts into it -- comparator 75c730e9, lean4export 9fb131bb,
+          landrun 811cfff5, nanoda 68d5ca9d. ### **A RUN WOULD FETCH; THE ORDER`S CONDITION IS "without a
+          network fetch it has not already made", SO THE ORDER`S OWN CONDITION FAILS HERE.**
+      (2) THE TOOL `go` : ABSENT on this machine.
+      (2) THE TOOL `cargo` : ABSENT on this machine.
+      (2) THE TOOL `landrun` : ABSENT on this machine.
+      (3) THE PLATFORM. The script says *"Requires Linux"*; this machine is `win32`.
+      (4) THE INPUT. It would compare `Challenge` against `Solution` -- and `Solution` DID NOT
+          BUILD, as Component 1 shows, so there is nothing for it to compare.
+    ### ### **NOTHING WAS FETCHED, CLONED OR BUILT BY THIS ACT: the cache is still ABSENT.**
+    ### The seventeen names the comparator would check are the same seventeen the script prints,
+    ### name for name and in order (survey (P2)) -- so the table above is over the right set even
+    ### though the comparator did not run.

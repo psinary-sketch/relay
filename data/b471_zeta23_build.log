@@ -1,0 +1,192 @@
+=== [Tue 09/22/2026 12:38:44.54] b471 detached run START in D:\relay\data\anthropic-zeta23\formal-math\zeta23 
+=== STEP 1 : lake build Solution 
+✔ [8704/8802] Built Zeta23.Tail.Grid (654s)
+✔ [8705/8802] Built Zeta23.Tail.Count (665s)
+✔ [8706/8802] Built Zeta23.FromPNTPlus.EulerMaclaurin (665s)
+✔ [8707/8802] Built Zeta23.FromPNTPlus.ResidueCalcOnRectangles (667s)
+✔ [8708/8803] Built Zeta23.Defs (668s)
+⚠ [8709/8803] Built Zeta23.FromPNTPlus.StrongPNTPrefix (668s)
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:61:71: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:202:9: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:343:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:368:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:390:10: `Set.notMem_setOf_iff` has been deprecated: Use `Set.notMem_ofPred_iff` instead
+warning: Zeta23/FromPNTPlus/StrongPNTPrefix.lean:432:48: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8710/8803] Built Zeta23.LinAlg.HermitianPosPart (679s)
+✔ [8711/8803] Built Zeta23.FromPNTPlus.Sobolev (687s)
+✔ [8712/8803] Built Zeta23.Defs.LeafIntegrals (688s)
+✔ [8713/8803] Built Zeta23.LinAlg.VonNeumann (689s)
+✔ [8714/8803] Built Zeta23.RvM.BacklundDefs (689s)
+✔ [8715/8803] Built Zeta23.GammaFacts (22s)
+✔ [8716/8803] Built Zeta23.Analytic.RectangleLogDeriv (27s)
+✔ [8717/8803] Built Zeta23.FromPNTPlus.ZetaConj (39s)
+✔ [8718/8803] Built Zeta23.FromPNTPlus.Mertens (39s)
+✔ [8719/8803] Built Zeta23.ExplicitFormula (40s)
+✔ [8720/8823] Built Zeta23.Poisson.PaperFT (31s)
+✖ [8721/8826] Building Zeta23.Hypotheses (32s)
+trace: .> LEAN_PATH=D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Cli\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\batteries\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Qq\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\aesop\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\importGraph\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\plausible\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\mathlib\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\bin\lean.exe D:\relay\data\anthropic-zeta23\formal-math\zeta23\Zeta23\Hypotheses.lean -o D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\Hypotheses.olean -i D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\Hypotheses.ilean -c D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\ir\Zeta23\Hypotheses.c --setup D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\ir\Zeta23\Hypotheses.setup.json --json
+info: stderr:
+INTERNAL PANIC: out of memory
+error: Lean exited with code 1
+✖ [8722/8826] Building Zeta23.Defs.Counting (32s)
+trace: .> LEAN_PATH=D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Cli\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\batteries\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Qq\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\aesop\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\importGraph\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\plausible\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\mathlib\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\bin\lean.exe D:\relay\data\anthropic-zeta23\formal-math\zeta23\Zeta23\Defs\Counting.lean -o D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\Defs\Counting.olean -i D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\Defs\Counting.ilean -c D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\ir\Zeta23\Defs\Counting.c --setup D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\ir\Zeta23\Defs\Counting.setup.json --json
+info: stderr:
+INTERNAL PANIC: out of memory
+error: Lean exited with code 1
+✖ [8756/8846] Building Zeta23.Taper.Basic (11s)
+trace: .> LEAN_PATH=D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Cli\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\batteries\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Qq\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\aesop\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\importGraph\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\plausible\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\mathlib\.lake\build\lib\lean;D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\bin\lean.exe D:\relay\data\anthropic-zeta23\formal-math\zeta23\Zeta23\Taper\Basic.lean -o D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\Taper\Basic.olean -i D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\Taper\Basic.ilean -c D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\ir\Zeta23\Taper\Basic.c --setup D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\ir\Zeta23\Taper\Basic.setup.json --json
+info: stderr:
+libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+error: Lean exited with code 3221226505
+✔ [8772/8856] Built Zeta23.PrimeSideTemp (34s)
+✔ [8773/8856] Built Zeta23.Defs.Profile (35s)
+✔ [8784/8887] Built Zeta23.LinAlg.Sylvester (35s)
+✔ [8785/8887] Built Zeta23.FromPNTPlus.Fourier (36s)
+✔ [8786/8887] Built Zeta23.LinAlg.RankTrace (31s)
+✔ [8787/8887] Built Zeta23.GammaFacts.Series (33s)
+✔ [8788/8887] Built Zeta23.LinAlg.Inertia (95s)
+✔ [8789/8887] Built Zeta23.LinAlg.Weyl (96s)
+✔ [8790/8887] Built Zeta23.Tail.RankOne (97s)
+✔ [8791/8887] Built Zeta23.WeilEF.GammaRBracket (88s)
+✔ [8792/8887] Built Zeta23.Analytic.Stirling (89s)
+✔ [8793/8887] Built Zeta23.TracesBoundsE (110s)
+✔ [8794/8887] Built Zeta23.PrimeSideB (110s)
+✔ [8798/8887] Built Zeta23.LinAlg (17s)
+ℹ [8799/8887] Built Zeta23.GammaFacts.Mu (26s)
+info: Zeta23/GammaFacts/Mu.lean:137:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [8800/8887] Built Zeta23.Assembly.Inputs (21s)
+⚠ [8808/8887] Built Zeta23.ZeroSide.RankTraceMult (24s)
+warning: Zeta23/ZeroSide/RankTraceMult.lean:49:32: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:49:60: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:56:30: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:56:43: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:81:32: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:81:58: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:164:20: This simp argument is unused:
+  Matrix.mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Zeta23/ZeroSide/RankTraceMult.lean:359:28: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [8811/8887] Built Zeta23.GammaFacts.StirlingVert (28s)
+info: Zeta23/GammaFacts/StirlingVert.lean:452:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [8813/8887] Built Zeta23.Tail (30s)
+warning: Zeta23/Tail.lean:290:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/Tail.lean:399:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [8816/8887] Built Zeta23.FromPNTPlus.ZetaBounds (186s)
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:859:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:952:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1092:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1099:32: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1105:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1115:56: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1119:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1135:54: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1157:22: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1169:15: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1169:59: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1185:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1835:19: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1837:45: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1840:28: `Set.setOf_subset_setOf` has been deprecated: Use `Set.ofPred_subset_ofPred` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1844:28: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1900:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:1906:20: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2091:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2884:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Zeta23/FromPNTPlus/ZetaBounds.lean:2940:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [8817/8887] Built Zeta23.RvM.ZetaGrowth (26s)
+✔ [8842/8887] Built Zeta23.GammaFacts.IntMu (128s)
+✔ [8852/8887] Built ChallengeDeps (572s)
+✔ [8853/8887] Built Zeta23.ThmD.Functional (558s)
+⚠ [8871/8887] Built Zeta23.MV.Spacing (1266s)
+warning: Zeta23/MV/Spacing.lean:58:0: automatically included section variable(s) unused in theorem `Zeta23.MV.Adm.itv_disjoint`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Zeta23/MV/Spacing.lean:153:8: automatically included section variable(s) unused in theorem `_private.Zeta23.MV.Spacing.0.Zeta23.MV.Adm.mem_window`:
+  [Fintype ι]
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype ι] [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8873/8887] Built Zeta23.MV.Quadratic (46s)
+✔ [8874/8887] Built Zeta23.MV.Eigen (31s)
+Some required targets logged failures:
+- Zeta23.Hypotheses
+- Zeta23.Defs.Counting
+- Zeta23.Taper.Basic
+error: build failed
+=== EXIT 1 : lake build Solution 
+=== STEP 2 : lake env lean scripts\PrintAxioms.lean (as shipped) 
+scripts\PrintAxioms.lean:13:0: error: unknown module prefix 'Solution'
+
+No directory 'Solution' or file 'Solution.olean' in the search path entries:
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Cli\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\batteries\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\Qq\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\aesop\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\proofwidgets\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\importGraph\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\LeanSearchClient\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\plausible\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\packages\mathlib\.lake\build\lib\lean
+D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean
+d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\lib\lean
+d:\elan\toolchains\leanprover--lean4---v4.33.0-rc2\lib\lean
+=== EXIT 1 : scripts\PrintAxioms.lean 
+=== STEP 3 : lake env lean B471NamedAxioms.lean (EF_lit_zetaZeroConfig, EF_lit, EF_lit_zeta) 
+C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\49943484-5ff3-4a99-9f75-0f3a8ae0d39a\scratchpad\B471NamedAxioms.lean:1:0: error: object file 'D:\relay\data\anthropic-zeta23\formal-math\zeta23\.lake\build\lib\lean\Zeta23\WeilEF\Main.olean' of module Zeta23.WeilEF.Main does not exist
+=== EXIT 1 : B471NamedAxioms.lean 
+=== [Tue 09/22/2026 13:01:47.59] RUN COMPLETE 

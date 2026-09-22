@@ -1,0 +1,22 @@
+{
+ "N1": {
+  "navigator": "the build exited 0",
+  "verdict": "REFUTED -- `lake build Solution` EXIT 1",
+  "note": "three modules failed, all for memory: Zeta23.Hypotheses and Zeta23.Defs.Counting with \"INTERNAL PANIC: out of memory\" at exit 1, Zeta23.Taper.Basic with std::bad_alloc at exit 3221226505; 8,873 of 8,887 targets had been built; wall time 1,383.05 s from the log own timestamps"
+ },
+ "N2": {
+  "navigator": "all twenty profiles read the standard three and (R82) HOLDS",
+  "verdict": "REFUTED -- 0 of 20 rows carry a profile; all 20 ABSENT; (R82) VOID FOR WANT OF A RUN",
+  "note": "the log carries no \"depends on axioms\" line at all: step 2 could not find the library (\"unknown module prefix Solution\") and step 3 failed on a missing object file. VOID for want of a run, NOT on a bad profile"
+ },
+ "N3": {
+  "navigator": "the comparator is NOT RUN for want of a fetch",
+  "verdict": "HELD ON THE OUTCOME -- NOT RUN; and the cause is wider than the order named",
+  "note": "four reasons: the tool cache is absent so a run would fetch four pinned checkouts; go, cargo and landrun are absent; the script requires Linux and this machine is win32; and Solution did not build, so there is nothing to compare"
+ },
+ "seat": {
+  "N1": "REFUTED, as the face predicted from timing and b468r`s prior failure",
+  "N2": "REFUTED, consequent on (N1), as the face said",
+  "N3": "HELD on the outcome with the cause widened, as the face said from the survey"
+ }
+}

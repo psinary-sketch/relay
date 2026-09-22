@@ -1,0 +1,36 @@
+{
+ "bytes": 17143,
+ "lines": 193,
+ "exits": {
+  "lake build Solution": 1,
+  "scripts\\PrintAxioms.lean": 1,
+  "B471NamedAxioms.lean": 1
+ },
+ "wall_s": 1383.05,
+ "failures": [
+  {
+   "module": "Zeta23.Hypotheses",
+   "line": 26,
+   "stderr": "INTERNAL PANIC: out of memory",
+   "exit": "1"
+  },
+  {
+   "module": "Zeta23.Defs.Counting",
+   "line": 31,
+   "stderr": "INTERNAL PANIC: out of memory",
+   "exit": "1"
+  },
+  {
+   "module": "Zeta23.Taper.Basic",
+   "line": 36,
+   "stderr": "libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc",
+   "exit": "3221226505"
+  }
+ ],
+ "summary": [
+  "- Zeta23.Hypotheses",
+  "- Zeta23.Defs.Counting",
+  "- Zeta23.Taper.Basic"
+ ],
+ "build_ok": false
+}

@@ -1,0 +1,17 @@
+COMPONENT 3 -- THE COMPARATOR. ### THE SOURCE`S OWN CHECK, AND IT CHANGES NO GRADE.
+========================================================================================================
+    ### ### **NOT RUN.** ### Every reason, rather than the first:
+      (1) THE FETCH. The script`s tool cache `.cache/palomar-comparator` is ABSENT, and the script
+          clones four pinned checkouts into it -- comparator 75c730e9, lean4export 9fb131bb,
+          landrun 811cfff5, nanoda 68d5ca9d. ### **A RUN WOULD FETCH; THE ORDER`S CONDITION IS "without a
+          network fetch it has not already made", SO THE ORDER`S OWN CONDITION FAILS HERE.**
+      (2) THE TOOL `go` : ABSENT on this machine.
+      (2) THE TOOL `cargo` : ABSENT on this machine.
+      (2) THE TOOL `landrun` : ABSENT on this machine.
+      (3) THE PLATFORM. The script says *"Requires Linux"*; this machine is `win32`.
+      (4) THE INPUT. It would compare `Challenge` against `Solution` -- and `Solution` DID NOT
+          BUILD, as Component 1 shows, so there is nothing for it to compare.
+    ### ### **NOTHING WAS FETCHED, CLONED OR BUILT BY THIS ACT: the cache is still ABSENT.**
+    ### The seventeen names the comparator would check are the same seventeen the script prints,
+    ### name for name and in order (survey (P2)) -- so the table above is over the right set even
+    ### though the comparator did not run.
