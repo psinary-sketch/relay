@@ -352,8 +352,8 @@
   },
   {
    "name": "G-WRITELIST-KINDS",
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "every b466 commit in three repositories"
   },
@@ -386,6 +386,13 @@
    "reads": "the suite own text"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -400,12 +407,12 @@
    "reads": "the trail, the desk and the b465 files on disk"
   }
  ],
- "run": 57,
- "live_failing": [],
+ "run": 58,
+ "live_failing": [
+  "G-WRITELIST-KINDS"
+ ],
  "defective": [],
- "neg_failures": 0,
+ "neg_failures": 1,
  "declared": 58,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD"
- ]
+ "deferred": []
 }
