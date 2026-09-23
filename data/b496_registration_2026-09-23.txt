@@ -1,0 +1,195 @@
+====================================================================================================
+ACT b496 -- THE REGISTRATION FACE. ### K0 OF (R107): THE TERMINAL TABLE GENERATED.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THIS ACT READS AND BUILDS NOTHING** -- that is why
+### (R107) lets K0 run while b495`s build is still working. ### **THE b495 BUILD AT pid 7860 IS NOT
+### POLLED AND ITS LOG IS NOT READ**; b497 owns it. ### **NO `lake` COMMAND RUNS IN THIS ACT.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **AN INSTRUMENT IS BUILT AND RUN ONCE.** ### (R107) is explicit that what it emits is an
+### ### **INSTRUMENT OUTPUT, REGENERATED AT EVERY CLOSE BY THE SUITE** -- filed under `relay/data`,
+### cited by keystones as a bank. ### **IT IS NOT A TRACKING DOCUMENT AND NO PROSE LIVES IN IT.**
+### ### **THIS ACT CONFERS NO GRADE AND MOVES NONE.** ### Every grade in the table is READ from a
+### ledger cell and carried with ### **THE ACT AND LINE THAT WROTE IT**; where two cells disagree the
+### table records ### **CONFLICT** and quotes both. ### **A TABLE THAT RESOLVES A DISAGREEMENT HAS
+### ### CONFERRED A GRADE**, and this one is forbidden to.
+### ### **AND AN EMPTY CELL IS A RESULT.** ### `NOT PROFILED` and `UNGRADED` are findings about the
+### record, printed as plainly as a full cell.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (1) THROUGH COMPONENT (3).
+----------------------------------------------------------------------------------------------------
+### (1) THE POPULATION. ### For every kernel repository ON DISK in the federation, at ### **THE PIN
+###     REGISTRY`S KERNEL TABLE CITES AND AT `HEAD`**: every theorem or lemma name appearing in a
+###     `#print axioms` line of that repository`s OWN `AxiomCheck`, `PrintAxioms` or `AXIOM_PRINTS`
+###     output ### **AS COMMITTED**, and every name a LEDGER GRADE CELL names. ### The matcher is
+###     `b378_terminals.py`s, ### **BOTH DIALECTS** -- bare and dotted. ### Union, deduplicated by
+###     `(repo, name)`.
+### (2) THE COLUMNS, one row per `(repo, name)`: ### repo ; name ; pin cited and `HEAD` ;
+###     ### **STATEMENT as the SOURCE FILE prints it, from the declaration line up to its `:=`,
+###     TAKEN FROM THE FILE AT THE PIN AND NOT FROM A README** ; PROFILE as the committed print
+###     carries it, or ### **NOT PROFILED** ; GRADE as the ledgers` cell reads it ### **WITH THE ACT
+###     AND LINE**, or ### **UNGRADED** ; and ### **CONFLICT** where two ledger cells grade one name
+###     differently, ### **BOTH CELLS QUOTED.** ### Emitted to `data/terminal_table.json` and
+###     `data/terminal_table.md`, and ### **THE GENERATOR IS ADDED TO THE CLOSING SUITE** so every
+###     later close regenerates it and ### **DIFFS AGAINST THE PRIOR RUN.**
+### (3) THE COUNTS PRINTED: rows ; NOT PROFILED ; UNGRADED ; CONFLICT ; ENCODES-graded ; and
+###     ### **NAMES A LEDGER CITES THAT RESOLVE IN NO REPOSITORY AT ANY REF.**
+
+----------------------------------------------------------------------------------------------------
+### (C) WHAT IS ALREADY KNOWN, AND HOW IT WAS READ.
+----------------------------------------------------------------------------------------------------
+### Read to write this face truthfully, BEFORE the seal. ### **EACH IS A PREDICTION THE COMPONENTS
+### RE-DERIVE AND MAY REFUTE:**
+###   (i)   `D:\` carries ### **44** directories named `SIDE-*`; the component counts those with a
+###         `.git`, which is `b378_terminals.kernels()`s own predicate, and prints both figures.
+###   (ii)  ELEVEN of them ship an axiom-print artefact of some kind. ### Two SHAPES exist and the
+###         component must read both: ### **`#print axioms NAME` SOURCE LINES** in `AxiomCheck*.lean`
+###         (e.g. `SIDE-lv-conservation/AxiomCheck.lean` carries 32), and ### **CAPTURED STDOUT** in
+###         `AXIOM_PRINTS*.txt` (e.g. `SIDE-global-section/AXIOM_PRINTS.txt`, whose lines read
+###         `'Name' does not depend on any axioms`). ### **A READER THAT KNOWS ONLY ONE SHAPE SEES
+###         ### HALF THE POPULATION AND REPORTS A CLEAN NUMBER.**
+###   (iii) grade-word counts, by ledger: `CORRESPONDENCE.md` 167, `FINDINGS.md` 40, `REGISTRY.md`
+###         28, `VERIFICATION_LOOM.md` 20, `CASCADE_ANCHORS_CORRECTED.md` 0. ### The archive`s split
+###         loom files are ALSO ledgers and are read; b494 found the 2026-07-26 census there.
+###   (iv)  REGISTRY`s kernel table (heading at `REGISTRY.md:685`) carries a deposit-pin for only a
+###         HANDFUL of repositories. ### **FOR MOST OF THE ROSTER THERE IS NO CITED PIN AT ALL**, and
+###         the component must say so per repository rather than silently reading `HEAD` twice.
+### ### **A FIGURE READ AT THE FACE IS STILL A FIGURE THE COMPONENT MUST PRINT.**
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE INDEX QUERIED BEFORE THE MARKS WERE MADE. ### **b160`S CONVENTION, b182`S FAILURE.**
+----------------------------------------------------------------------------------------------------
+### This face marks objects `NOT PROFILED` and `UNGRADED`, so the banked index is QUERIED and the
+### result REPORTED before the marks stand. ### Banked whole at `data/b496_index_query.txt`:
+###   `terminal table`          -> ### **NO KEY.**
+###   `AxiomCheck`              -> ### **NO KEY.**
+###   `C7_finite_type_false`    -> ### **NO KEY.**
+###   `axiom profile`           -> ### **NO KEY.**
+### ### **FOUR QUERIES, FOUR MISSES, AND THE MISSES ARE THE REPORT.** ### The index holds no entry
+### about any of these objects, so nothing in it bears on whether a terminal is profiled or graded.
+### ### **AND THAT IS NOT A FINDING THAT THE RECORD HOLDS NOTHING** -- the index`s own caveat, carried
+### verbatim: ### **ABSENCE FROM THE INDEX IS NOT ABSENCE FROM THE RECORD**, and querying it is not
+### reading the corpus. ### This act reads the corpus.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **MORE THAN 150 ROWS.**
+### (N2) ### **AT LEAST FIVE `NOT PROFILED`**, with `C7_finite_type_false` among them.
+### (N3) ### **AT LEAST ONE `CONFLICT`.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **THE `STATEMENT` COLUMN WILL BE THE EXPENSIVE ONE AND THE ONE THAT FAILS.** ### A name
+###      that appears in a print line need not be DECLARED in the same repository, or at the cited
+###      pin, or in a file whose path the namespace predicts. ### **SOME STATEMENTS WILL BE
+###      UNRESOLVED**, and the table must carry that as a cell rather than dropping the row.
+### (S2) ### **`CONFLICT` AS THE ORDER DEFINES IT WILL BE RARE, AND LOW-CONFLICT IS NOT AGREEMENT.**
+###      Two cells grading one name differently is a narrow relation; the common case is ### **ONE
+###      CELL AND MANY MENTIONS**. ### A count near zero says the ledgers rarely REPEAT a grade, not
+###      that they agree -- and b451`s reading is that most names are graded once or not at all.
+### (S3) ### **THE `PIN` COLUMN WILL BE MOSTLY EMPTY.** ### (C)(iv): REGISTRY`s kernel table names a
+###      pin for a handful of repositories, not for the roster. ### **AN EMPTY PIN COLUMN IS A
+###      FINDING ABOUT THE REGISTRY, NOT A FAULT IN THE GENERATOR**, and the two refs collapse to one
+###      wherever it is empty -- which must be SAID, not silently done twice.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) -> `b327_faces_census.py`
+### (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS FACE ->
+### `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py --new` ->
+### `b378_lockgate.py` (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+### ### **THE FOUR FACE-SUBJECT GATE RECORDS ARE STAMPED WITH THE FACE`S DIGEST** by `gate_hash.py`
+### before the lock gate reads them -- b495 learned that a record carrying no subject digest is an
+### absent claim and not a true one.
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES`
+### `G-PRIOR-CLOSED-PUSHED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED`
+### `G-ROSTER-ON-DISK` `G-ROSTER-BOTH-FIGURES` `G-TWO-SHAPES-READ` `G-PRINTS-AS-COMMITTED`
+### `G-MATCHER-IS-b378` `G-MATCHER-FIXTURED` `G-BOTH-DIALECTS` `G-DEDUP-BY-REPO-NAME`
+### `G-LEDGERS-ENUMERATED` `G-ARCHIVE-LEDGERS-READ`
+### `G-COLUMNS-ALL-PRESENT` `G-STATEMENT-FROM-SOURCE` `G-STATEMENT-NOT-README`
+### `G-STATEMENT-UP-TO-ASSIGN` `G-STATEMENT-UNRESOLVED-KEPT` `G-PIN-AND-HEAD-BOTH`
+### `G-PIN-EMPTY-SAID-NOT-DOUBLED` `G-PROFILE-OR-NOT-PROFILED` `G-GRADE-CARRIES-ACT-AND-LINE`
+### `G-GRADE-OR-UNGRADED` `G-CONFLICT-QUOTES-BOTH` `G-CONFLICT-NOT-RESOLVED`
+### `G-NOGRADE-BY-THE-TABLE` `G-NO-PROSE-IN-THE-TABLE`
+### `G-TWO-EMISSIONS` `G-JSON-MD-AGREE` `G-GENERATOR-IN-CLOSING-SUITE` `G-DIFFS-PRIOR-RUN`
+### `G-COUNTS-SIX-PRINTED` `G-UNRESOLVED-NAMES-COUNTED`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOTHING-COMPILED` `G-NOLAKE` `G-B495-LOG-NOT-READ` `G-B495-PID-NOT-POLLED`
+### `G-NOTHING-FETCHED` `G-NOZENODO-WRITE` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK`
+### `G-FOUR-LISTS-OPEN` `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY`
+### `G-CORR-APPEND-ONLY` `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF`
+### `G-ARMS-DECLARED-EQ-RUN` `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB`
+### `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED` `G-CORPUS-LEAN-UNTOUCHED`
+### `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`G-NOTHING-COMPILED` RETURNS**, retired at b495 because that act`s order opened the kernel
+### lane; this act`s order shuts it again in its own first lines, and `G-NOLAKE` is its narrower
+### companion. ### `G-CORPUS-LEAN-UNTOUCHED` returns for the same reason: ### **THIS ACT WRITES NO
+### `.lean` FILE ANYWHERE**, and the kernels are READ AS COMMITTED BLOBS.
+### ### **`G-ARMS-NO-LIVE-LIMB` IS NEW**, and it exists because b495`s
+### `G-PUSHED-PREDICATE-THREE-CLAUSED` passed its own positive control: its predicate was a
+### DISJUNCTION over two spellings and the mutation falsified only one limb. ### **A CONTROL THAT
+### LEAVES A LIVE LIMB CANNOT BITE**, so this arm reads the suite`s own text for a bare `or` inside
+### an arm predicate.
+### ### **`0` OTHER ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is
+### scored ### **POST-PUSH ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b496_*` `relay/tools/b496_*` |
+### | `tools/terminal_table.py` ### **(THE (R107) GENERATOR, SHARED AND NOT act-STEMMED, BECAUSE THE
+###   CLOSING SUITE RE-RUNS IT AT EVERY LATER CLOSE)** | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json` |
+### | `tools/corr_row.py` (CARRIED, guarded at b488, UNEDITED) |
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b496_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b496_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b496_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b496_span*.json` `relay/data/b496_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b496.zip`
+###   (outside every repository) `relay/data/b496_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### **AND NO KERNEL REPOSITORY IS WRITTEN.** ### All 44 are READ, and read AS COMMITTED BLOBS
+### through `git show`, never through the working tree -- ### **A DIRTY WORKING FILE IS NOT WHAT THE
+### PIN CITES.** ### `D:/SIDE-explicit-formula` is read like any other and ### **ITS BUILD LOG IS
+### NOT READ AND ITS pid IS NOT POLLED.** ### No `.lean` file is written. ### No REGISTRY row, no
+### ERRATA line, no `FINDINGS` section, no `SPIRAL_MAP` note. ### Nothing at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING IS COMPILED AND NO `lake` COMMAND RUNS.** ### The order says so in its own first
+### lines and this act has no ruling that opens a lane. ### **NOTHING IS FETCHED**; the repositories
+### are on disk and are read from disk. ### Nothing deposits. ### **NOTHING AT ZENODO IS WRITTEN.**
+### ### **NO GRADE IS CONFERRED OR MOVED.** ### The table REPORTS the grade each ledger cell holds,
+### with the act and line that wrote it, and where two cells disagree it reports ### **CONFLICT** and
+### quotes both ### **WITHOUT CHOOSING.** ### Row U1 is unedited. ### No bridge is typed. ### `h2`
+### stays where the deposit left it. ### The four lists stay OPEN. ### The numerical lane stays SHUT.
+### ### **AND K1, K2 AND K3 ARE NOT STARTED.** ### (R107) holds them until the (R104) acts through
+### h2-as-one-Prop have closed, and each is ordered by its own ferry. ### **THIS ACT TOUCHES NO
+### KEYSTONE.**
+### ### **AND A TABLE IS NOT A REFRESH.** ### Nothing about RH follows from any row of it, and no
+### keystone is made current by its existence.
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : c15589f25bf1035aabb05107c6cc1f3c72ca788598a05af3da62affe5a0cae8a
+### bytes locked : 15354
+### locked at (UTC) : 2026-09-23T18:36:21Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b496_registration_2026-09-23.txt`.**
+====================================================================================================
