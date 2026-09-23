@@ -30,6 +30,7 @@ KERNEL = os.path.join('D:', os.sep, 'SIDE-explicit-formula')
 FACE = os.path.join(D, 'b497_registration_2026-09-23.txt')
 OT = os.path.join(PP, 'OPEN_TRAILS.md')
 NL = chr(10)
+BT = chr(96)
 L, RES, EX = [], [], []
 
 
@@ -183,10 +184,34 @@ def declared_arms(face):
 
 
 def globs_of(face):
-    """### (R85) as (R91) amends it: THE FACE'S (W) SECTION AS A LIST OF GLOBS, the act's own stem
-    ### glob included -- which is the whole point of (R91)."""
+    """### (R85) as (R91) amends it: THE FACE'S (W) SECTION AS A LIST OF GLOBS.
+
+    ### ### **THE CORPUS WRITES A POSSESSIVE WITH A BACKTICK** -- `this act`s record`, `b496`s
+    ### face`, `(R108)`s first line` -- a convention adopted so that ground strings survive being
+    ### written into Python. ### ### **EVERY SUCH POSSESSIVE MAKES THE BACKTICK COUNT ODD**, and a
+    ### naive `` `([^`]+)` `` pairing then DESYNCHRONISES: it pairs the closing backtick of one
+    ### path with the possessive of the next sentence and returns a multi-line blob of prose as
+    ### though it were a glob.
+    ### ### **MEASURED ACROSS THE LAST FIVE FACES: b493 EVEN (0 malformed), b494 EVEN (0), b495
+    ### ### ODD (5 malformed), b496 ODD (4), b497 ODD (6).** ### So `G-WRITELIST-KINDS` has been
+    ### reading a partly-garbled glob list for three acts, and at b497 it reported a file
+    ### UNDECLARED that the face declares by name in its own (W).
+    ### ### **THE REPAIR IS TO PAIR WITHIN A LINE AND TO KEEP ONLY WHAT LOOKS LIKE A PATH.**
+    ### A glob has no spaces and no newlines; a possessive's neighbourhood has both.
+    ### ### **THIS WIDENS NOTHING.** ### It lets the tool read declarations that were already
+    ### written; a file the face does not name is still uncovered.
+    """
     w = face[face.index('### (W) THE WRITE LIST'):face.index('### (Z) THE NOTHINGS')]
-    return [g.split('/')[-1] for g in re.findall(r'`([^`]+)`', w)]
+    out = []
+    for line in w.split(NL):
+        for g in re.findall(BT + '([^' + BT + NL + ']+)' + BT, line):
+            g = g.strip()
+            if not g or ' ' in g or len(g) > 120:
+                continue          # ### prose, not a path
+            if not re.match(r'^[A-Za-z0-9_./*?\[\]{}-]+$', g):
+                continue
+            out.append(g.split('/')[-1])
+    return out
 
 
 def sc(S, k):

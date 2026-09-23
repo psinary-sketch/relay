@@ -1,0 +1,152 @@
+========================================================================================================
+b497 -- THE CLOSING RECORD. ### **KILLED, NOT FAILED; ALL THREE ABSENT; COMPONENT 3 STOPPED.**
+========================================================================================================
+
+### (1) WHAT THE LOG SAYS.
+--------------------------------------------------------------------------------------------------------
+    `relay/data/b495_ef_build.log`, ### **COMMITTED UNCHANGED**, 27734 bytes, 339 lines.
+    sha256 a1787ce0c086585edf4b49852445ad940357abd5d1d793dca83aa394a896b2f8
+      marks (stamped lines)              : 339
+      ### ### **DISTINCT INSTANTS        : 293**
+      wall time, the log`s outer marks   : ### **1158.6 s** (19.3 min)
+      `lake`s summed reported durations  : ### **3622.2 s** across 308 spans
+      `END` / `EXIT` lines               : 2, ### **2 NON-ZERO**
+      modules built before the kill      : ### **308**, every one `Mathlib.*`
+      ### ### **MODULES THAT FAILED, BY NAME : NONE**
+    ### ### **BOTH EXITS ARE `0xC000013A` = `STATUS_CONTROL_C_EXIT`.** ### That is what a
+    ### Windows process reports when a console control event reaches it. ### **THE BUILD WAS
+    ### KILLED, NOT BROKEN**, and the log names no module that failed to compile. ### A
+    ### reader who saw the non-zero exit and wrote *"the build failed"* would have said
+    ### something ### **THE LOG DOES NOT SUPPORT.**
+    ### ### **AND NOT ONE `Zeta23` MODULE WAS REACHED.** ### The run spent its whole life
+    ### cloning and compiling mathlib. ### **SO THE LOG SAYS NOTHING WHATEVER ABOUT WHETHER
+    ### THE 57 VENDORED MODULES COMPILE.**
+
+### (2) THE THREE PROFILES, AND THE STOP.
+--------------------------------------------------------------------------------------------------------
+    `EF_lit_zetaZeroConfig   ` -> ### **ABSENT**
+    `EF_lit                  ` -> ### **ABSENT**
+    `EF_lit_zeta             ` -> ### **ABSENT**
+    `#print axioms` output lines anywhere in the log : ### **0**
+    ### ### **ABSENT IS NOT OTHER.** ### The probe never ran to completion, so there is no
+    ### axiom string to read -- ### **NOT A STRING THAT CAME OUT WRONG.** ### **(R82) IS
+    ### NEITHER CLAIMED NOR REFUTED BY THIS ACT**, and b473`s and b480`s wording is right
+    ### again: ### **VOID FOR WANT OF A RUN.**
+    ### ### **COMPONENT 3 WAS NOT RUN.** ### The order: *"otherwise print which and STOP
+    ### before Component 3."* ### REGISTRY`s `SIDE-explicit-formula` row keeps `PENDING`, no
+    ### profile is written beside it, and ### **NO ROW CITES THE KERNEL.** ### **A STOP
+    ### OBEYED IS A RESULT**; the alternative was to write three profiles into REGISTRY that
+    ### no run produced.
+
+### (3) b495`S OWED CELLS, PAID.
+--------------------------------------------------------------------------------------------------------
+    b495`s (N3) and its (S2) both named ### **THIS LOG`S MODULE MARKS**, and b495`s own order
+    forbade reading the log, so both were scored ### **NOT SCORABLE** and routed here.
+    ### ### **(N3) IS PAID: 293 DISTINCT INSTANTS ACROSS 339 MARKS.** ### b480`s defect -- one
+    ### precomputed instant stamped on every mark -- would have given ### **ONE.** ### The
+    ### repair is confirmed ### **ON THE POPULATION THE EXPECTATION NAMED**, not on the
+    ### mechanism-level control b495 had to substitute.
+    ### ### **(S2) IS PAID, AND FLATLY:** ### it asked whether the `FromPNTPlus` ten were what
+    ### `lake` built earliest. ### **NO `Zeta23` MODULE WAS BUILT AT ALL**, so neither they
+    ### nor anything else of the kernel`s was.
+
+### (4) THE EXPECTATIONS.
+--------------------------------------------------------------------------------------------------------
+    ### **(N1) REFUTED** -- 2 non-zero exits, not 0.
+    ### **(N2) REFUTED** -- all three `ABSENT`.
+    ### **(N3) HELD** -- 293 distinct instants against a bar of fifty.
+    ### **(S1) HELD** ### and the face said it was cheap: it was drawn from a DECLARED peek.
+    ### **(S2) HELD** -- a process-control failure, not a Lean failure; failed modules NONE.
+    ### **(S3) REFUTED, AND WITH THE SIGN BACKWARDS.** ### The seat predicted wall time would
+      ### GREATLY EXCEED `lake`s summed durations, reasoning from the mathlib clone -- real,
+      ### in the log, and network time `lake` does not account. ### **THE SUMMED DURATIONS
+      ### ARE THE LARGER, BY 2463.6 s**, because ### **`lake` BUILDS IN PARALLEL**: 308 spans
+      ### summing 3622.2 s finished inside 1158.6 s of wall clock, about ### **3.1x**
+      ### concurrency. ### **A SUM OF PER-JOB DURATIONS IS NOT AN ELAPSED TIME**, and the
+      ### order asked for both numbers precisely because they are not the same number.
+    ### ### **THE NAVIGATOR`S: HELD 1 ; REFUTED 2. ### THE SEAT`S: HELD 2 ; REFUTED 1.**
+
+### (5) ### **A SYSTEMIC DEFECT IN THE WRITE-LIST READER, FOUND BY ITS OWN ARM.**
+--------------------------------------------------------------------------------------------------------
+    The post-push suite first reported ### **`files written that NO (W) GLOB COVERS : 1
+    [b495_ef_build.log]`** -- a file this face ### **DECLARES BY NAME IN ITS OWN (W).**
+    ### ### **THE CAUSE IS THE CORPUS`S OWN POSSESSIVE CONVENTION.** ### This programme
+    ### writes a possessive with a backtick -- `this act`s record`, `b496`s face`, `(R108)`s
+    ### first line` -- adopted so ground strings survive being written into Python. ### **EACH
+    ### SUCH POSSESSIVE MAKES THE BACKTICK COUNT ODD**, and `globs_of()`s naive pairing then
+    ### DESYNCHRONISES, pairing the closing backtick of one path with the possessive of the
+    ### next sentence and returning ### **A MULTI-LINE BLOB OF PROSE AS THOUGH IT WERE A
+    ### GLOB.**
+    ### MEASURED OVER THE LAST FIVE FACES:
+      b493 EVEN, 21 globs, ### **0 malformed**
+      b494 EVEN, 23 globs, ### **0 malformed**
+      b495 ### **ODD**, 37 globs, ### **5 MALFORMED**
+      b496 ### **ODD**, 29 globs, ### **4 MALFORMED**
+      b497 ### **ODD**, 37 globs, ### **6 MALFORMED**
+    ### ### **SO `G-WRITELIST-KINDS` HAS BEEN READING A PARTLY-GARBLED LIST FOR THREE ACTS**,
+    ### and no act noticed until the garbling happened to swallow a declaration that mattered.
+    ### ### **THE INSTRUMENT WAS REPAIRED AND THE FACE WAS NOT TOUCHED.** ### `globs_of()`
+    ### now pairs backticks ### **WITHIN A LINE** and keeps only candidates that look like a
+    ### path -- no spaces, no newline, path characters only. ### **BOTH RUNS ARE BANKED**:
+    ### `b497_checks_postpush_carried.txt` is the run with the broken reader, and
+    ### `b497_checks_postpush.txt` is the run with the repaired one.
+    ### ### **AND THIS IS NOT b496`S CASE WEARING A NEW COAT.** ### b496`s face GENUINELY
+    ### OMITTED two files and b496 refused to widen a glob to hide it. ### **HERE THE FILE IS
+    ### DECLARED AND THE READER COULD NOT SEE IT** -- repairing a parser so it can read what
+    ### was already written is not widening a bar. ### A file the face does not name is still
+    ### uncovered, and the repaired reader still says so.
+
+### (6) THIS ACT`S OTHER DEFECTS -- FOUR.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **THE COMPONENTS TOOL NARRATED THE SEAT`S PREDICTION, NOT THE NUMBERS.** ### It
+        ### printed *"the gap is -2463.6 s, and the log names what filled it: the clone"* --
+        ### a sentence that is FALSE for a negative gap. ### The tool had been written to
+        ### explain the result the seat expected. ### **AN INSTRUMENT THAT NARRATES A
+        ### PREDICTION WILL NARRATE IT EVEN WHEN THE NUMBER REFUTES IT.**
+    (b) ### **A SOURCE KEY WAS ADDED TWICE** and the suite would not parse -- the carried head
+        ### already had `res=`, and the patch added a second.
+    (c) ### **A CODE BLOCK WAS LOCATED BY A BARE SUBSTRING THAT MATCHED ITS OWN QUOTATION.**
+        ### `src.index("def regenerate():")` found the text ### **INSIDE AN ARM`S PREDICATE
+        ### STRING** -- the arm that checks the generator is wired in -- and sliced from
+        ### there. ### **THIS IS THE THIRD TIME IN TWO ACTS** (b496`s `disjunctions()` scanned
+        ### from its own mention of `ARMS = [`). ### Anchored to a line start.
+    (d) ### **`G-PROCESS-GONE` PASSED ITS OWN POSITIVE CONTROL.** ### Its predicate called
+        ### `tasklist` directly and its control was a ### **NO-OP** -- a property of the WORLD
+        ### cannot be falsified by mutating `S`. ### The world now enters as the source
+        ### `pid_alive`, which the harness can and does falsify. ### **b496 LEARNED THIS AND
+        ### THIS ACT STILL WROTE THE NO-OP.**
+
+### (7) THE COMMITS, THE MIRROR, THE CENSUSES.
+--------------------------------------------------------------------------------------------------------
+    pre-push  : ### ### **ARMS RUN : 59. ### LIVE PASSING : 59. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 60. ### LIVE PASSING : 60. ### LIVE FAILING : 0 .**
+                ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+    the commits, each read back by `ls-remote`:
+      relay                local 51cded1d30a2 ; remote 51cded1d30a2 ; ### **AGREE**
+      PLACE-papers         local 6337cef57616 ; remote 6337cef57616 ; ### **AGREE**
+      SIDE-global-section  local 25a851a9aaf8 ; remote 25a851a9aaf8 ; ### **AGREE**
+    the mirror : `mirror-refresh-2026-09-23-b497.zip` at `6337cef` -- ### **CLEAN ON ALL THREE CLAUSES**
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0 ### (run ALONE)
+    ### **THE FOUR LISTS STAY OPEN.** ### Nothing compiled and no `lake` command ran; ### **THIS
+    ### ACT DID NOT RELAUNCH THE BUILD** -- a re-run is another act`s to order. ### Nothing
+    ### fetched; nothing deposits; ### **NOTHING AT ZENODO IS WRITTEN**; row U1 unedited;
+    ### ### **h2 WHERE THE DEPOSIT LEFT IT.** ### K1, K2, K3 not started; no keystone touched.
+
+### (8) WHAT IS CARRIED FORWARD.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **THE KERNEL STILL HAS NO PROFILE, AND NO ROW CITES IT.** ### `SIDE-explicit-
+        ### formula` reads `PENDING`. ### **A RE-RUN OF THE BUILD IS THE NAVIGATOR`S TO
+        ### ORDER**, and it will need to survive whatever killed the first one.
+    (b) ### **WHAT KILLED IT IS NOT ESTABLISHED.** ### `STATUS_CONTROL_C_EXIT` says a console
+        ### control event reached the process; it does not say who sent it. ### **THIS ACT
+        ### DOES NOT GUESS**, and a re-run that does not address it may die the same way.
+    (c) ### **THE `globs_of()` REPAIR IS IN `b497_checks.py` ONLY.** ### Every future suite
+        ### carries it forward from here; the faces b495 and b496 sealed keep their odd
+        ### parity, and their banked runs keep whatever the broken reader gave them.
+    (d) ### **(R108)(2): `e_difficulty` AWAITS ITS STATEMENT-READ ACT**, its three cells
+        ### quoted at b496. ### This act did not choose.
+    (e) ### **`corr_row.py` CHECKS THE NUMBER AND NOT THE CELLS**, routed at b490, still
+        ### ### **OVERDUE.** ### Row 346 went in clean because its cells held no pipe.
+========================================================================================================
