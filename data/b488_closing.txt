@@ -1,0 +1,145 @@
+====================================================================================================
+b488 -- THE CLOSING RECORD. ### THE FOLD`S SECTION WRITTEN HOME, AND THE ROW WRITER GUARDED.
+====================================================================================================
+
+### (1) COMPONENT 1 -- (R98)`S SECTION.
+----------------------------------------------------------------------------------------------------
+    `## THE BOOKKEEPING ARC, b475-b479 - THE FOLD`, the ### **NINETEENTH** ### fold section
+    of `FINDINGS.md`. ### **A TRANSCRIPTION, NOT A FOLD.**
+    from b486`s own bank : the ### **11**-act span table in filing order ; the ### **6**
+      digest clauses, each naming its cited act, ### **TWO FROM OUTSIDE THE SPAN** ### (b110,
+      b469) ; the ### **13** ### rulings ; the ### **7** ### acts recording a defect of their
+      own instruments ; and the fold`s own sentences.
+    ### ### **NO VERDICT IS RE-READ AND NO ACT IS RE-SCORED.** ### An arm reads this act`s
+    ### own tools for a verdict word written into the section, and finds none: every
+    ### verdict in it is a quotation.
+    bytes before / appended / after : 477591 / 7349 / 484940
+    PRIOR BYTES A TRUE PREFIX : ### **True** ### ; BOM preserved : ### **True**
+    lines removed : ### **0** ### ; and by git`s own `--numstat` : ### **76 added, 0
+      removed.** ### Two independent witnesses to the same claim.
+    fold sections before / after : ### **18 / 19.**
+    ### b486`s trail record ### **STANDS** ### and the section cites it; the section is
+    ### dated as written at b488 for b486.
+
+### (2) THE SPAN TOOL -- ITS READING MOVED, ITS CODE DID NOT.
+----------------------------------------------------------------------------------------------------
+    BEFORE  last fold ### **b464 - b473** ### filed by ### **b474** ### ; folds ### **19**
+            current span ### **14**   (banked at `data/b488_extract.txt` (P3))
+    AFTER   last fold ### **b475 - b479** ### filed by ### **b486** ### ; folds ### **20**
+            current span ### **2**
+    `tools/b363_span.py` edited by this act : ### **NO** ### -- (R98) is explicit, and
+    b486`s routed finding is discharged by ### **GIVING THE TOOL THE INPUT IT WAS ALWAYS
+    LOOKING FOR.**
+
+### (3) COMPONENT 2 -- `corr_row.py` GUARDED.
+----------------------------------------------------------------------------------------------------
+    ### ### **THE TOOL`S PRIOR BEHAVIOUR, FROM ITS OWN HEADER:** ### three declared limits
+    ### -- the shell-string hazard, cell truth, terminal existence -- and ### **NOT ONE OF
+    ### THEM MENTIONS THE ROW NUMBER.** ### It appended unconditionally and then read the
+    ### row back, and read-back checks that the CELLS SURVIVED, not that the NUMBER was
+    ### free. ### A row under a number the ledger already held was written and then
+    ### reported ### *verified.*
+    ### the guard : it reads the ledger and ### **REFUSES BEFORE ANY BYTE IS WRITTEN**,
+    ### returns a code rather than raising, and names the next free number without
+    ### choosing one. ### Two new limits stand beside the three: ### **(4)** it checks the
+    ### number, not the content ; ### **(5)** it does not assign numbers.
+    ### ### **BOTH CONTROLS, FIRST RUN, NO REPAIR:**
+      POSITIVE CONTROL -- a TAKEN number  : code 2 (must be 2) ; file unchanged : True
+      NEGATIVE CONTROL -- the NEXT FREE   : code 0 (must be 0) ; file grew : True
+      ### ### **BOTH CONTROLS BEHAVE : True.**
+    ### ### **AND NEITHER CONTROL IS EVER POINTED AT THE LIVE LEDGER.** ### A positive
+    ### control that refuses is safe; ### **A NEGATIVE CONTROL THAT ACCEPTS WRITES A ROW**,
+    ### so both run against a temporary fixture that is then removed.
+    row ### **337** ### is this guard`s ### **FIRST LIVE USE** ### -- it returned `0`, and
+    the ledger reads back 337 rows with this act`s mark present once.
+
+### (4) THE EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+    ### **(N1)** ### the span tool reads `b486` as the last fold -- ### **HELD.**
+    ### **(N2)** ### the guard`s positive control refuses on its initial run -- ### **HELD.**
+    ### **(S1) (S2) (S3)** -- ### ### **REGISTERED 3 ; HELD 3.**
+
+### (5) THE DEFECTS THIS ACT RECORDS OF ITS OWN INSTRUMENTS. ### **FIVE.**
+----------------------------------------------------------------------------------------------------
+    ### ### **(a) THE (N1) SCORER READ THE WRONG LINE AND SAID REFUTED.** ### The span tool
+    ### prints the span a fold ### *covers* ### and, separately, ### **THE ACT THAT FILED
+    ### IT.** ### A fold heading carries the span and ### **NEVER** ### the filing act, so a
+    ### score taken off the heading can never find `b486`. ### It would have reported the
+    ### navigator`s expectation refuted by a reading that does not bear on it.
+    ### ### **(b) A CHECK ON THE GUARD`S ORDERING SAID `False` AND THE TOOL WAS RIGHT.**
+    ### It looked for `io.open(path + .tmp` where the source writes `open(path + .tmp`, so
+    ### `find` returned `-1`. ### **A PREDICATE THAT CANNOT FIND ITS NEEDLE REPORTS A FAULT
+    ### IN ITS SUBJECT.**
+    ### ### **(c) `G-C1-PREFIX-PROVED` READ THE WRONG RUN**, demanding `after > before` from
+    ### the results bank the LAST components run wrote -- a run that did not append, because
+    ### the idempotence guard stopped it. ### Re-pointed at the run that made the append,
+    ### with git`s numstat as an independent witness. ### And its line-anchored numstat
+    ### needle matched nothing, because the figure sits inside a prose line.
+    ### ### **(d) `G-C2-CONTROLS-ON-A-FIXTURE` OVERRAN ITS SUBJECT**, reading `self_test`
+    ### AND `main()` after it, and condemning the tool for its own banner. ### Narrowed --
+    ### and then its CONTROL missed the narrowed slice, so the arm ### **COULD NOT FAIL.**
+    ### The control now points the fixture line itself at the live ledger.
+    ### ### **(e) THE CARRIED SPEC CONTRADICTED THIS ACT`S OWN SEALED FACE, TWICE.**
+    ### `b488_regspec.py` was carried from b487 and its clauses are TYPED, not measured, so
+    ### nothing checked them against the face. ### It capped ### *existing relay tools
+    ### edited in place* ### at ### **0**, while the face names `corr_row.py` in its own
+    ### write list under (R98); and it declared ### **8 BARS**, while this face has ### **NO
+    ### (K) SECTION AT ALL** ### and puts its constraints in (Z). ### **THE FACE WAS NOT
+    ### EDITED AND IS NOT EDITABLE** -- the instrument was wrong and was repaired, its
+    ### earlier runs banked as `b488_regspec_run_firstrun.txt` and `_secondrun.txt`.
+    ### ### **AND REPAIRING A GATE AFTER THE SEAL COST A LOCK REFUSAL.** ### Re-running two
+    ### gates over the sealed file left the other two stamped against the PRE-seal bytes,
+    ### and `b378_lockgate.py` refused ### **2 of 8** ### -- exactly what it exists to
+    ### catch. ### All four were then re-run over the sealed face, so ### **EVERY STAMP NOW
+    ### NAMES BYTES ITS GATE ACTUALLY READ**, the lock reads 8 of 8, and the seal verifies
+    ### INTACT at the same digest. ### **THE FACE BODY NEVER CHANGED.**
+    ### ### **AND ONE REPEAT OF A KNOWN TRAP:** ### `> data/b488_span_notes.txt` redirected
+    ### onto the span tool`s own record, so it wrote `b488_span_notes2.txt` beside it. ### A
+    ### memory already carries this; ### **IT DID NOT STOP THE HAND.** ### Both files are
+    ### banked and the tool`s own is the one read.
+    ### ### **FOUR OF THE FIVE ARE ONE SPECIES:** ### a predicate whose needle is absent,
+    ### or aimed at the wrong text, reporting a fault in its subject. ### **THE CURE IS TO
+    ### PRINT A NEEDLE`S OWN YIELD BEFORE TRUSTING ITS VERDICT** -- b395 minted that rule
+    ### for ceilings, and it belongs to every arm.
+
+### (6) THE SUITE, THE COMMITS, THE MIRROR.
+----------------------------------------------------------------------------------------------------
+    pre-push  : 57 arms, 0 live failing, 0 positive-control passes -- the mirror arm
+      DEFERRED, since the archive is built after the push.
+    post-push : ### ### **ARMS RUN : 58. ### LIVE PASSING : 58. ### LIVE FAILING : 0 .**
+                ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+                ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+
+    the commits, each read back by `ls-remote`:
+      relay                local 1f272a2ce78a ; remote 1f272a2ce78a ; ### **AGREE**
+      PLACE-papers         local 51967e45e4f2 ; remote 51967e45e4f2 ; ### **AGREE**
+      SIDE-global-section  local 382f2f8b20d7 ; remote 382f2f8b20d7 ; ### **AGREE**
+    ### all three pushed and read back on the FIRST attempt.
+    the mirror : `mirror-refresh-2026-09-23-b488.zip` at `51967e4` --
+      ### **CLEAN ON ALL THREE CLAUSES.**
+
+### (7) THE CENSUSES, THE PINS, THE LISTS.
+----------------------------------------------------------------------------------------------------
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0
+    ### **THE FOUR LISTS STAY OPEN.** ### No grade moved; no terminal was added, moved,
+    ### renamed or graded; row U1 is unedited; no Lean of the corpus was touched; nothing
+    ### compiled; no bridge typed; ### **h2 WHERE THE DEPOSIT LEFT IT.** ### Nothing
+    ### deposits and nothing at Zenodo is written.
+
+### (8) WHAT IS CARRIED FORWARD.
+----------------------------------------------------------------------------------------------------
+    (a) ### **b487`S ORDER STILL STANDS:** ### the act that applies the three Zenodo
+        description drafts must fetch each description back and bank it ### **BEFORE ANY
+        RECORD SAYS THE EDIT WAS MADE.** ### This act made no platform call.
+    (b) ### **THE SPEC TOOL`S CLAUSES ARE TYPED, NOT MEASURED**, and nothing checks them
+        against the face they are emitted from. ### Two contradicted this act`s own sealed
+        face and only a crash in an unrelated arm exposed one of them. ### **A CLAUSE THAT
+        CANNOT BE FALSIFIED BY ITS OWN FACE IS NOT A BOUND.** ### ROUTED, not taken.
+    (c) ### **THE FOLD THRESHOLD IS NINE AND THE SPAN IS NOW 2** ### -- b487 and b488. ###
+        No fold is due.
+
+====================================================================================================
+  ### ### **b488 CLOSES. 58 ARMS, 0 LIVE FAILING, 0 POSITIVE-CONTROL PASSES.**
+====================================================================================================
