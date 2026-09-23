@@ -1,0 +1,48 @@
+========================================================================================================
+b498 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE CELLS THE COMPONENTS PRINTED.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.**
+    *"the cache fetches more than 4,000 files"*
+    ### ### **FILES FETCHED : 8681** ; from the tool`s line : Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 3 KB/s], Decompressed: 8035
+    `lake exe cache get` exit 0, wall 1323.0 s
+    ### ### **AND THE FACE SAID WHAT THIS COUNT IS:** ### a count of what was MISSING from a
+    ### cache directory that already held 121141 files before the act began, ### **NOT A
+    ### COUNT OF WHAT THE BUILD NEEDS.**
+
+  **(N2)** ### **HELD.**
+    *"after the cache, fewer than 40 Mathlib modules compile"*
+    ### ### **LINES READING `Built Mathlib.` : 0** ; replayed 0 ; closure exit 0 ; wall 235.1 s
+    over ### **89** external `Mathlib.*` roots of the vendored library, computed from its
+    import lines. ### **REPLAYED IS NOT COMPILED**, and only `Built` is counted.
+
+  **(N3)** ### **HELD.**
+    *"the launcher`s creation flags include a new process group"*
+    ### ### **FLAGS : 0x00000210 = CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP**
+    ### ### **AND THE CELL SAYS LESS THAN IT SEEMS TO.** ### b495`s launcher ALSO carried
+    ### `CREATE_NEW_PROCESS_GROUP` (Component 1 (a): True) and its build was killed anyway.
+    ### ### **A NEW PROCESS GROUP WAS NOT WHAT b495 LACKED.** ### What differs is the console:
+    ### DETACHED_PROCESS then (True), CREATE_NEW_CONSOLE now (True).
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.**
+    *"Component 1 will print that b495`s build shared neither the seat`s process group nor its
+    console, and will name no event of the seat`s shell that could deliver the signal."*
+    own group True ; no console (DETACHED_PROCESS) True ; sender : NOT ESTABLISHED
+    ### ### **CHEAP, AND THE FACE SAID SO**: drawn from a declared peek at b495`s launch code.
+    ### And the component found what the peek did not ask about: ### **THE FIRST KILL FOLLOWS
+    ### THE END OF THE SEAT`S b495 TURN BY 2.854 s.** ### That is a coincidence in time and the
+    ### record gives it no mechanism; it is banked, not explained.
+
+  **(S2)** ### **HELD.**
+    *"`lake exe cache get` exits 0 at the pinned Mathlib commit"* -- exit 0
+
+  **(S3)** ### **HELD.**
+    *"Component 2 leaves the kernel`s tracked tree unchanged"* -- `git status --porcelain` : ''
+
+### ### **THE NAVIGATOR`S : HELD 3 ; REFUTED 0 ; NOT SCORABLE 0.**
+### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0 ; NOT SCORABLE 0.**
+========================================================================================================

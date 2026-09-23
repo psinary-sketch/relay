@@ -1,0 +1,143 @@
+========================================================================================================
+COMPONENT 1 -- THE CAUSE, BANKED. ### **WHAT THE RECORD SHOWS, AND WHERE IT DOES NOT, SAID SO.**
+========================================================================================================
+
+### (a) THE PROCESS GROUP AND THE CONSOLE. ### **READ FROM b495`S OWN CODE.**
+--------------------------------------------------------------------------------------------------------
+    `tools/b495_push.py`, the flags line : flags = subprocess.CREATE_NEW_PROCESS_GROUP | getattr(subprocess, 'DETACHED_PROCESS', 8)
+    the Popen of the launcher            : p = subprocess.Popen([sys.executable, launcher], cwd=KERNEL, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, close_fds=True, **kw)
+      CREATE_NEW_PROCESS_GROUP : ### **True**
+      DETACHED_PROCESS         : ### **True**
+      CREATE_NEW_CONSOLE       : ### **False**
+      std handles all DEVNULL  : True
+    `tools/b495_launch.py`, creation flags on its own `lake` / `lean` Popen : ### **NONE**
+    ### ### **WHAT THE RECORD SHOWS:** ### the launcher was created in ### **ITS OWN PROCESS
+    ### GROUP, NOT THE SEAT`S**, and ### **WITH NO CONSOLE AT ALL, SO NOT THE SEAT`S
+    ### CONSOLE EITHER.** ### It started `lake` and `lean` with no creation flags.
+    ### ### **WHAT FOLLOWS FROM WINDOWS` DOCUMENTED BEHAVIOUR, NOT FROM THE RECORD:** ### a
+    ### console program started by a parent that has no console, without
+    ### `DETACHED_PROCESS` or `CREATE_NO_WINDOW`, is given a NEW console of its own. ### So
+    ### `lake` ran in a console of its own, and the probe`s `lake env lean` in another.
+    ### **THE RECORD DOES NOT SHOW THOSE CONSOLES**: nothing banked says a window was drawn,
+    ### where, or whether anyone saw it.
+
+### (b) THE INSTANTS, FROM THE LOG`S OWN STAMPS (UTC, `time.gmtime`).
+--------------------------------------------------------------------------------------------------------
+    BEGIN lake build                         2026-09-23T17:58:36.199
+    BEGIN PrintAxioms on the three names     2026-09-23T18:17:43.808
+    END   lake build                         2026-09-23T18:17:43.807   EXIT 3221225786 = 0xC000013A
+    END   PrintAxioms on the three names     2026-09-23T18:17:54.803   EXIT 3221225786 = 0xC000013A
+    the launcher`s own last line                 2026-09-23T18:17:54.803
+    ### ### **THE LAUNCHER SURVIVED BOTH EVENTS : True** ### -- it wrote both `END` lines and
+    ### its own closing line after them. ### **WHAT WAS KILLED WAS WHAT RAN IN THE CHILD
+    ### CONSOLES; THE PROCESS THAT HAD NO CONSOLE WAS NOT TOUCHED.**
+    both exits `0xC000013A` = STATUS_CONTROL_C_EXIT : True
+
+### (c) THE ORDER`S 15:02, IN BOTH CLOCKS.
+--------------------------------------------------------------------------------------------------------
+    local offset, read off b495`s closing commit `dae85c5` : -04:00
+    lake build                           UTC 18:17:43.807 = local 14:17:43.807
+    PrintAxioms on the three names       UTC 18:17:54.803 = local 14:17:54.803
+    15:02 read as LOCAL = 19:02 UTC : the first kill is ### **AT OR BEFORE** it
+    15:02 read as UTC   = 11:02 local : the build`s first mark is AFTER it -- ### **THE BUILD HAD
+    ### NOT STARTED BY THEN**, so on that reading no event before 15:02 could reach it.
+    ### ### **THE LOG`S KILL IS AT 14:17:43 LOCAL; 15:02 LOCAL IS b496`S CLOSING (15:01:32).** ### The
+    ### window the order names contains the kill on the local reading, and the kill is 44
+    ### minutes earlier than its bound. ### **THE ORDER`S BOUND IS HONOURED, NOT TIGHTENED.**
+
+### (d) THE SEAT`S SHELL, FROM THE SEAT`S OWN SESSION TRANSCRIPT.
+--------------------------------------------------------------------------------------------------------
+    transcript : 49943484-5ff3-4a99-9f75-0f3a8ae0d39a.jsonl
+    events read between the build`s first mark and 15:02 local : 622
+    tool calls by the seat in that window, before the first kill : 53
+    the LAST of them : 2026-09-23T18:16:48.295Z  Bash {"command": "cd \"/c/Users/echo chamber/.claude/projects/D--/memory\" && tail -5 MEMORY.md
+    ### ### **THE SEAT`S b495 TURN ENDS : 2026-09-23T18:17:40.953Z**
+    ### ### **THE FIRST KILL FOLLOWS IT BY 2.854 s**
+    events between the turn end and the first kill : 0 
+    the next event after the second kill : 2026-09-23T18:20:44.633Z system away_summary
+    tool calls by the seat at either kill instant : ### **0**
+    ### ### **WHAT THE RECORD SHOWS:** ### (1) the build shared ### **NEITHER THE SEAT`S
+    ### PROCESS GROUP NOR ITS CONSOLE**; (2) the seat made ### **NO TOOL CALL** in the 55.5 s
+    ### before the first kill, nor at either kill; (3) the one event of the seat`s session
+    ### close before the kill is ### **THE END OF THE b495 TURN, 2.854 s EARLIER.**
+    ### ### **WHAT THE RECORD DOES NOT SHOW:** ### ### **WHO OR WHAT SENT THE CONSOLE
+    ### CONTROL EVENT.** ### Nothing banked names a sender. ### A console control event
+    ### reaches the processes attached to ONE console; the seat`s shell was attached to
+    ### none of the build`s, so ### **NO EVENT OF THE SEAT`S SHELL IN THE RECORD HAS A PATH
+    ### TO THEM** -- that is Windows` documented behaviour applied to the flags in (a), not
+    ### a finding. ### Closing a console window delivers `CTRL_CLOSE_EVENT` to what runs in
+    ### it, and the two kills 11.0 s apart fall on the two separate child consoles; ### **THAT
+    ### IS CONSISTENT WITH A WINDOW BEING CLOSED, AND IT IS NOT EVIDENCE THAT ONE WAS.**
+    ### ### **THE SENDER STAYS NOT ESTABLISHED.** ### This act does not guess, and the
+    ### launch in Component 3 is built so that the one console it creates is TITLED and
+    ### MINIMISED rather than several untitled ones appearing unannounced.
+========================================================================================================
+
+========================================================================================================
+COMPONENT 2 -- THE CACHE, AND MATHLIB`S CLOSURE, TIMED.
+========================================================================================================
+
+### (a) `lake exe cache get`, in `D:\SIDE-explicit-formula`.
+--------------------------------------------------------------------------------------------------------
+    ### ### **EXIT : 0** ; wall 1323.0 s ; output 821 lines, banked WHOLE at `b498_cache_get.txt`
+      | Downloaded: 8589 file(s) [attempted 8589/8681 = 98%, 139 KB/s], Decompressed: 8035[K
+      | Downloaded: 8598 file(s) [attempted 8598/8681 = 99%, 111 KB/s], Decompressed: 8035[K
+      | Downloaded: 8601 file(s) [attempted 8601/8681 = 99%, 319 KB/s], Decompressed: 8035[K
+      | Downloaded: 8624 file(s) [attempted 8624/8681 = 99%, 83 KB/s], Decompressed: 8035[K
+      | Downloaded: 8652 file(s) [attempted 8652/8681 = 99%, 41 KB/s], Decompressed: 8035[K
+      | Downloaded: 8659 file(s) [attempted 8659/8681 = 99%, 228 KB/s], Decompressed: 8035[K
+      | Downloaded: 8666 file(s) [attempted 8666/8681 = 99%, 72 KB/s], Decompressed: 8035[K
+      | Downloaded: 8668 file(s) [attempted 8668/8681 = 99%, 206 KB/s], Decompressed: 8035[K
+      | Downloaded: 8673 file(s) [attempted 8673/8681 = 99%, 92 KB/s], Decompressed: 8035[K
+      | Downloaded: 8677 file(s) [attempted 8677/8681 = 99%, 14 KB/s], Decompressed: 8035[K
+      | Downloaded: 8680 file(s) [attempted 8680/8681 = 99%, 3 KB/s], Decompressed: 8035[K
+      | Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 3 KB/s], Decompressed: 8035[K
+    ### ### **FILES FETCHED : 8681**
+      from the line : Downloaded: 1 file(s) [attempted 1/8681 = 0%, 24 KB/s], Decompressed: 0[K
+
+### (b) MATHLIB`S CLOSURE NEEDED BY THE VENDORED LIBRARY. ### **COMPUTED, NOT RECALLED.**
+--------------------------------------------------------------------------------------------------------
+    vendored `.lean` files under `Zeta23/` : 57
+    distinct external `Mathlib.*` imports  : ### **89**
+    imports neither Mathlib nor Zeta23     : ['Batteries.Tactic.Lemma']
+    `lake build` on the 89 roots : ### **EXIT 0** ; ### **WALL 235.1 s** ; output banked WHOLE
+      at `b498_closure_build.txt`, 2 lines
+    ### ### **LINES READING `Built Mathlib.` : 0**
+    lines reading `Replayed Mathlib.` : 0 ### -- replayed is NOT compiled
+    lines reading `Built` for anything else : 0
+    error lines : 0
+
+### (c) THE KERNEL`S TRACKED TREE, AFTER.
+--------------------------------------------------------------------------------------------------------
+    `git status --porcelain` : ### **EMPTY**
+    HEAD : 52d8cf9
+========================================================================================================
+
+========================================================================================================
+COMPONENT 2 (a), RE-DERIVED FROM THE BANKED RAW OUTPUT. ### **THE FIRST PRINT PAIRED THE WRONG LINE.**
+========================================================================================================
+    ### the first c2 run printed the FIRST `Downloaded` line beside a count parsed from the LAST.
+    ### The count was right; the line beside it was not. ### Nothing was re-downloaded.
+    ### ### **FILES FETCHED : 8681**
+      from the line : Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 3 KB/s], Decompressed: 8035
+      the tool`s own plan line : Attempting to download 8681 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4-master
+      the tool`s own finish line : Decompressed 8681 file(s)
+    ### ESC bytes in the raw output : 793 -- stripped from the printed line, kept in the raw bank
+========================================================================================================
+
+========================================================================================================
+COMPONENT 3 -- THE LAUNCH. ### **A NEW PROCESS GROUP AND A NEW CONSOLE; NOT DETACHED_PROCESS.**
+========================================================================================================
+
+    launcher : `tools/b498_launch.py`
+    ### ### **pid : 14280**
+    ### ### **creation flags : 0x00000210 = CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP**
+      CREATE_NEW_CONSOLE       = 0x00000010 : True
+      CREATE_NEW_PROCESS_GROUP = 0x00000200 : True
+      DETACHED_PROCESS         = 0x00000008 : False
+    startup : STARTF_USESHOWWINDOW, wShowWindow 7 = SW_SHOWMINNOACTIVE (minimised, no focus)
+    ### ### **log : data/b498_ef_build.log**
+    ### `lake build`, then PrintAxioms on `EF_lit_zetaZeroConfig`, `EF_lit`, `EF_lit_zeta`,
+    ### each line stamped with ### **AN INSTANT TAKEN AT THAT LINE.**
+    ### ### **THE LOG IS NOT READ IN THIS ACT.** ### The act after reads it behind b497`s gate.
+========================================================================================================

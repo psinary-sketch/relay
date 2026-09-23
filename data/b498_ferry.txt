@@ -1,0 +1,60 @@
+RULING (R109) BEGIN
+RULING (R109), the author's, ratified by this paste and strikeable.
+
+(1) THE THREE TITLES ARE REWORDED as the navigator drafted
+them on 2026-09-23 and the author accepted: the monograph
+"A Place To Stand: the SIDE reduction of the Riemann
+Hypothesis to a single located clause"; the kernel
+"SIDE-kernel: Lean 4 formalization of the SIDE reduction of
+the Riemann Hypothesis by mechanism exclusion";
+SIDE-lv-conservation's title with "proof" replaced by
+"reduction". The five EXCEEDS sentences and the two RESTS
+sentences take the texts in the zenodo_edits_2026-09-23.txt file of the
+same date. (R102)'s whole-disposition condition is met, and
+the platform session is the author's to run. An ERRATA entry
+recording the ten edits, with the fetched-back texts, is
+filed by the act that fetches them; nothing is filed before.
+(2) THE BUILD IS RE-LAUNCHED with its cause addressed: in its
+own process group and console, so no console event of the
+seat's shell reaches it; and with Mathlib's compiled cache
+fetched before lake build, so the run compiles the vendored
+modules and not Mathlib. If the cache is unavailable at the
+pinned Mathlib commit, that is printed and the build still
+runs, detached, and the act says how long b475's took.
+
+RULING (R109) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b498 — THE BUILD RE-LAUNCHED IN ITS OWN CONSOLE, WITH THE
+CACHE. The kernel lane opens for this act.
+
+Component 1 — the cause, banked. From b495_ef_build.log and
+the launcher: what process group and console the build
+shared, and what event of the seat's shell at or before
+15:02 could deliver STATUS_CONTROL_C_EXIT to it. Print what
+the record shows and, where it does not show, say so.
+
+Component 2 — the cache. In D:\SIDE-explicit-formula run
+lake exe cache get, its exit and the count of files it
+fetched printed; then lake build Mathlib's closure needed by
+the fifty-seven, timed, so Component 3's log carries just
+the vendored modules and whatever the cache lacked.
+
+Component 3 — the launch. tools/b498_launch.py: the process
+created in a NEW process group and a NEW console, detached
+from the seat's shell; lake build, then PrintAxioms on
+EF_lit_zetaZeroConfig, EF_lit and EF_lit_zeta, all to one
+log with the b495 launcher's per-line instants. Print the
+pid, the creation flags used, and the log path. The log is
+not read in this act; the act after reads it under b497's
+Component 0 gate.
+
+The navigator's expectations: (N1) the cache fetches more
+than 4,000 files; (N2) after the cache, fewer than 40 Mathlib
+modules compile; (N3) the launcher's creation flags include
+a new process group. Each refutable by a printed cell.
+Nothing cited; nothing at Zenodo written by the seat;
+nothing deposits; h2 where the deposit left it.
+
+FERRY END (part 1 of 1)

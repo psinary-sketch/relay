@@ -1,0 +1,202 @@
+====================================================================================================
+ACT b498 -- THE REGISTRATION FACE. ### THE BUILD RE-LAUNCHED IN ITS OWN CONSOLE, WITH THE CACHE.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE KERNEL LANE OPENS FOR THIS ACT**, by the order`s own
+### words, and it opens for this act alone.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **A BUILD IS RE-LAUNCHED WITH ITS CAUSE ADDRESSED, AND THE CAUSE IS BANKED FIRST.** ###
+### (R109)(2) orders the re-launch in its own process group and console, with Mathlib`s compiled
+### cache fetched before `lake build`, so the run compiles the vendored modules and not Mathlib.
+### ### **THIS ACT CONFERS NO GRADE, READS NO PROFILE, AND CITES NOTHING.** ### The log the launch
+### writes is ### **NOT READ IN THIS ACT**; the act after reads it behind the gate b497 ran first.
+### ### **(R109)(1) IS RATIFIED HERE AND NOT EXECUTED HERE.** ### The three titles and the seven
+### sentences are the platform session`s; ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT**, and no
+### ERRATA entry is filed -- (R109)(1) itself says nothing is filed before the fetch-back.
+### ### **AND THE ORDER`S PREMISE IS READ AGAINST THE RECORD, NOT ASSUMED.** ### (R109)(2) says
+### *"in its own process group and console, so no console event of the seat`s shell reaches it."*
+### b495`s launcher ALREADY used `CREATE_NEW_PROCESS_GROUP | DETACHED_PROCESS` -- declared in (C)
+### below. ### So the remedy is not new in its process-group limb, and ### **WHAT IS NEW IS THE
+### CONSOLE LIMB**: `DETACHED_PROCESS` gave the launcher NO console at all, and Windows gives each
+### console program started from a console-less parent a FRESH CONSOLE OF ITS OWN -- so `lake` and
+### then `lean` each ran in a console window nobody had asked for. ### `CREATE_NEW_CONSOLE` gives
+### the launcher ONE console, which `lake` and `lean` inherit. ### **THAT DIFFERENCE IS WINDOWS`
+### DOCUMENTED BEHAVIOUR, NOT A FINDING OF THE RECORD**, and Component 1 says which is which.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (1) THROUGH COMPONENT (3).
+----------------------------------------------------------------------------------------------------
+### (1) THE CAUSE, BANKED. ### From `b495_ef_build.log` and the launcher: what process group and
+###     console the build shared, and what event of the seat`s shell at or before 15:02 could
+###     deliver `STATUS_CONTROL_C_EXIT` to it. ### **PRINT WHAT THE RECORD SHOWS AND, WHERE IT DOES
+###     NOT SHOW, SAY SO.** ### The record read: b495`s launch code in `tools/b495_push.py` and
+###     `tools/b495_launch.py`; the log`s stamped instants; and the seat`s own session transcript,
+###     which is the only record of what the seat`s shell did and when. ### **THE ORDER`S 15:02 IS
+###     PRINTED BESIDE THE LOG`S OWN INSTANTS IN BOTH CLOCKS**, because the log stamps UTC and the
+###     commits stamp local time, and a window stated in one clock and read in the other is wrong.
+### (2) THE CACHE. ### In `D:\SIDE-explicit-formula`: `lake exe cache get`, its exit and the count
+###     of files it fetched printed -- ### **THE COUNT PARSED FROM THE TOOL`S OWN LINE AND THE LINE
+###     PRINTED BESIDE IT**, or NOT FOUND if the tool prints none. ### Then `lake build` on Mathlib`s
+###     closure needed by the vendored library -- the external `Mathlib.*` imports of its modules,
+###     COMPUTED from their import lines and not recalled -- ### **TIMED**, with the count of lines
+###     reading `Built Mathlib.` printed, which is what "compile" means here: a module REPLAYED or
+###     unpacked from the cache is not a module compiled. ### ### **IF THE CACHE IS UNAVAILABLE AT
+###     THE PINNED MATHLIB COMMIT**, (R109)(2) is obeyed: that is printed, the closure build is NOT
+###     run in the foreground, the launch still runs detached, and the act says how long b475`s
+###     build took, READ FROM b475`s banked record.
+### (3) THE LAUNCH. ### `tools/b498_launch.py`: the process created in a ### **NEW PROCESS GROUP AND
+###     A NEW CONSOLE**, detached from the seat`s shell; `lake build`, then PrintAxioms on
+###     `EF_lit_zetaZeroConfig`, `EF_lit` and `EF_lit_zeta`, all to ONE log with the b495
+###     launcher`s per-line instants -- ### **THE INSTANT TAKEN AT THE MARK**, b480 repaired, carried
+###     unchanged. ### Printed: the pid, the creation flags used by NAME AND BY VALUE, and the log
+###     path. ### The console is started MINIMISED and titled so that it says what it is; ### **A
+###     WINDOW NOBODY WAS TOLD ABOUT IS A WINDOW SOMEBODY CLOSES.** ### No environment variable is
+###     set for the child that the seat`s shell does not already carry: in particular
+###     `LEAN_NUM_THREADS` is NOT set, and b473`s out-of-memory deaths at zeta23 build time are a named
+###     risk of this run, not a thing this act was ordered to change.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE**, of the very subject banked by Component 1, because
+### ### **A PREDICTION DRAWN FROM A PEEK MUST SAY IT WAS DRAWN FROM A PEEK:**
+###   (i)   `tools/b495_push.py`, the launch block: `flags = subprocess.CREATE_NEW_PROCESS_GROUP |
+###         getattr(subprocess, 'DETACHED_PROCESS', 8)`, with stdin, stdout and stderr all
+###         `DEVNULL`. ### And `tools/b495_launch.py` whole: it runs `lake` and `lean` by `Popen`
+###         with NO creation flags of its own.
+###   (ii)  the log`s FIRST TWELVE and LAST EIGHT lines: the first mark `2026-09-23T17:58:36.199`,
+###         `pid 7860`; `lake build` ENDS at `18:17:43.807` with `EXIT 3221225786`; the probe
+###         BEGINS at `18:17:43.808` and ENDS at `18:17:54.803` with the same exit; ### **THE
+###         LAUNCHER ITSELF WROTE BOTH `END` LINES AND ITS OWN LAST LINE**, so the launcher was not
+###         what the event killed.
+###   (iii) the seat`s session transcript `49943484-...jsonl`, events between `18:12` and `18:40`
+###         UTC: the seat`s last tool call before the kill is at `18:16:51.709` (a `tasklist` on
+###         pid 7860); ### **THE SEAT`S b495 TURN ENDS AT `18:17:40.953`**; the next event of any
+###         kind is at `18:20:44.633` and the next user message at `18:31:46.962`. ### No hook is
+###         configured in any of the four settings files read.
+###   (iv)  commit times: b495`s closing `dae85c5` at `14:13:04-04:00`; b496`s closing at
+###         `15:01:32-04:00`.
+###   (v)   the job-object state of THIS session`s shell: ### **NOT IN A JOB.** ### Parent chain
+###         `powershell` <- `bash` <- `claude.exe` <- `powershell` <- `WindowsTerminal`. ### **THIS
+###         IS THE PRESENT SESSION, NOT b495`s**, and is declared as such.
+###   (vi)  the kernel: tracked tree clean at `52d8cf9`; `.lake/packages` holds nine packages,
+###         mathlib among them; toolchain `v4.33.0-rc2` installed under `ELAN_HOME=D:\elan`; the
+###         Mathlib cache directory on C: already holds 121141 `.ltar` files, 5.59 GiB, with 11 GB
+###         free on C:. ### **SO "FILES FETCHED" IS A COUNT OF WHAT WAS MISSING, NOT OF WHAT THE
+###         BUILD NEEDS**, and Component 2 prints the tool`s own lines so the reader can tell them
+###         apart.
+###   (vii) `D:\MY-DOwnloads\b498_plain.txt`, byte-identical to the paste, 2824 bytes.
+### ### **THE COMPONENTS RE-DERIVE (i) TO (iv) FROM THE FILES**; nothing here is carried into a
+### result unrecomputed.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **THE CACHE FETCHES MORE THAN 4,000 FILES.**
+### (N2) ### **AFTER THE CACHE, FEWER THAN 40 MATHLIB MODULES COMPILE.**
+### (N3) ### **THE LAUNCHER`S CREATION FLAGS INCLUDE A NEW PROCESS GROUP.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **COMPONENT 1 WILL PRINT THAT b495`S BUILD SHARED NEITHER THE SEAT`S PROCESS GROUP
+###      NOR ITS CONSOLE, AND WILL NAME NO EVENT OF THE SEAT`S SHELL THAT COULD DELIVER THE
+###      SIGNAL.** ### The sender stays NOT ESTABLISHED. ### Drawn from the peek in (C) and
+###      therefore cheap; registered because a cheap prediction can still be wrong.
+### (S2) ### **`lake exe cache get` EXITS 0 AT THE PINNED MATHLIB COMMIT** -- the cache is
+###      available, and (R109)(2)`s fallback clause is not reached.
+### (S3) ### **COMPONENT 2 LEAVES THE KERNEL`S TRACKED TREE UNCHANGED** -- `git status
+###      --porcelain` reads empty after it; `lake` writes under `.lake/`, which the kernel ignores.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS
+### FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py
+### --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py` (gates: 8)
+### -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R109-ENTERED`
+### `G-B495-FLAGS-READ` `G-KILL-INSTANTS-READ` `G-TURN-END-READ` `G-BOTH-CLOCKS`
+### `G-LAUNCHER-SURVIVED` `G-SENDER-NOT-GUESSED`
+### `G-CACHE-GET-RUN` `G-CACHE-EXIT-PRINTED` `G-FETCH-COUNT-FROM-LINE` `G-CLOSURE-COMPUTED`
+### `G-CLOSURE-TIMED` `G-COMPILED-COUNTED` `G-FALLBACK-OBEYED` `G-KERNEL-TREE-CLEAN`
+### `G-LAUNCH-NEW-GROUP` `G-LAUNCH-NEW-CONSOLE` `G-LAUNCH-NOT-DETACHED-FLAG` `G-PID-PRINTED`
+### `G-LOG-PATH-PRINTED` `G-INSTANT-AT-MARK` `G-THREE-NAMES-PROBED` `G-LOG-NOT-READ`
+### `G-LOG-NOT-COMMITTED` `G-NOTHREADS-SET`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOZENODO-WRITE` `G-NOERRATA` `G-NOGRADE-CONFERRED` `G-NOCITE-BEFORE-PROFILE` `G-NODEPOSIT`
+### `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN` `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE`
+### `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT`
+### `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN` `G-ARMS-NO-SUBSTRING-VERDICT`
+### `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL` `G-ARTEFACTS-NOT-COMMITTED`
+### `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **THE b497 ARMS THAT FORBADE A BUILD ARE RE-POINTED, NOT CARRIED**, because each forbade
+### exactly what this order commands:
+###   `G-NOTHING-COMPILED` IS NOT CARRIED FORWARD;
+###   `G-NOLAKE` IS NOT CARRIED FORWARD;
+###   `G-NOTHING-FETCHED` IS NOT CARRIED FORWARD;
+###   `G-CORPUS-LEAN-UNTOUCHED` IS NOT CARRIED FORWARD.
+### Each is replaced by the arm that tests the commanded thing was done AS
+### ORDERED:
+### `G-CACHE-GET-RUN`, `G-CLOSURE-TIMED`, `G-KERNEL-TREE-CLEAN`. ### The Zenodo arm is KEPT at full
+### strength: this act writes nothing there. ### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH
+### ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b498_*` `relay/tools/b498_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b498_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b498_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b498_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b498_span*.json` `relay/data/b498_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b498.zip`
+###   (outside every repository) `relay/data/b498_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### | `lake exe cache get` and the closure build (Component 2) | the kernel`s `.lake/` directory,
+###   which the kernel`s own ignore file excludes, and the Mathlib cache directory in the user
+###   profile on C:, outside every repository |
+### | `tools/b498_launch.py` (Component 3, DETACHED) | `relay/data/b498_ef_build.log`
+###   `relay/data/b498_printaxioms.lean`, and the kernel`s `.lake/` as `lake build` writes it |
+### ### **THE LAUNCH LOG AND THE PROBE ARE NOT COMMITTED BY THIS ACT** -- a running process owns
+### them, exactly as at b495. ### The act after reads the log and commits it.
+### ### **NO TRACKED FILE OF ANY KERNEL REPOSITORY IS WRITTEN.** ### No ERRATA line, no REGISTRY
+### line, no `FINDINGS` section, no `SPIRAL_MAP` note. ### Nothing at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT.** ### (R109)(1) is the platform session`s and
+### the fetch-back act`s; ### **NO ERRATA ENTRY IS FILED**, since (R109)(1) itself says nothing is
+### filed before the fetch-back. ### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED**, and
+### ### **NO ROW CITES THE KERNEL** -- (R106)(3) stands until a profile is banked, and no profile is
+### read in this act. ### The launch log is written by the launched process and ### **NOT READ BY
+### ANY TOOL OF THIS ACT.** ### Row U1 is unedited. ### No bridge is typed. ### `h2` stays where the
+### deposit left it. ### The four lists stay OPEN. ### The numerical lane stays SHUT. ### K1, K2 and
+### K3 are not started. ### `e_difficulty` is not chosen here.
+### ### **AND A BUILD LAUNCHED IS NOT A BUILD COMPLETED.** ### Nothing about RH, about `EF_lit`, or
+### about whether the vendored library compiles follows from this act.
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : de074d6a6450c3c18eefb70cfb8f2073e4bdf450205c80627a1584cb5e1ffed2
+### bytes locked : 15971
+### locked at (UTC) : 2026-09-23T20:45:15Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b498_registration_2026-09-23.txt`.**
+====================================================================================================

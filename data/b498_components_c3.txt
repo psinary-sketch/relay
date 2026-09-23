@@ -1,0 +1,16 @@
+========================================================================================================
+COMPONENT 3 -- THE LAUNCH. ### **A NEW PROCESS GROUP AND A NEW CONSOLE; NOT DETACHED_PROCESS.**
+========================================================================================================
+
+    launcher : `tools/b498_launch.py`
+    ### ### **pid : 14280**
+    ### ### **creation flags : 0x00000210 = CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP**
+      CREATE_NEW_CONSOLE       = 0x00000010 : True
+      CREATE_NEW_PROCESS_GROUP = 0x00000200 : True
+      DETACHED_PROCESS         = 0x00000008 : False
+    startup : STARTF_USESHOWWINDOW, wShowWindow 7 = SW_SHOWMINNOACTIVE (minimised, no focus)
+    ### ### **log : data/b498_ef_build.log**
+    ### `lake build`, then PrintAxioms on `EF_lit_zetaZeroConfig`, `EF_lit`, `EF_lit_zeta`,
+    ### each line stamped with ### **AN INSTANT TAKEN AT THAT LINE.**
+    ### ### **THE LOG IS NOT READ IN THIS ACT.** ### The act after reads it behind b497`s gate.
+========================================================================================================

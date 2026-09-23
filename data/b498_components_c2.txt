@@ -1,0 +1,39 @@
+========================================================================================================
+COMPONENT 2 -- THE CACHE, AND MATHLIB`S CLOSURE, TIMED.
+========================================================================================================
+
+### (a) `lake exe cache get`, in `D:\SIDE-explicit-formula`.
+--------------------------------------------------------------------------------------------------------
+    ### ### **EXIT : 0** ; wall 1323.0 s ; output 821 lines, banked WHOLE at `b498_cache_get.txt`
+      | Downloaded: 8589 file(s) [attempted 8589/8681 = 98%, 139 KB/s], Decompressed: 8035[K
+      | Downloaded: 8598 file(s) [attempted 8598/8681 = 99%, 111 KB/s], Decompressed: 8035[K
+      | Downloaded: 8601 file(s) [attempted 8601/8681 = 99%, 319 KB/s], Decompressed: 8035[K
+      | Downloaded: 8624 file(s) [attempted 8624/8681 = 99%, 83 KB/s], Decompressed: 8035[K
+      | Downloaded: 8652 file(s) [attempted 8652/8681 = 99%, 41 KB/s], Decompressed: 8035[K
+      | Downloaded: 8659 file(s) [attempted 8659/8681 = 99%, 228 KB/s], Decompressed: 8035[K
+      | Downloaded: 8666 file(s) [attempted 8666/8681 = 99%, 72 KB/s], Decompressed: 8035[K
+      | Downloaded: 8668 file(s) [attempted 8668/8681 = 99%, 206 KB/s], Decompressed: 8035[K
+      | Downloaded: 8673 file(s) [attempted 8673/8681 = 99%, 92 KB/s], Decompressed: 8035[K
+      | Downloaded: 8677 file(s) [attempted 8677/8681 = 99%, 14 KB/s], Decompressed: 8035[K
+      | Downloaded: 8680 file(s) [attempted 8680/8681 = 99%, 3 KB/s], Decompressed: 8035[K
+      | Downloaded: 8681 file(s) [attempted 8681/8681 = 100%, 3 KB/s], Decompressed: 8035[K
+    ### ### **FILES FETCHED : 8681**
+      from the line : Downloaded: 1 file(s) [attempted 1/8681 = 0%, 24 KB/s], Decompressed: 0[K
+
+### (b) MATHLIB`S CLOSURE NEEDED BY THE VENDORED LIBRARY. ### **COMPUTED, NOT RECALLED.**
+--------------------------------------------------------------------------------------------------------
+    vendored `.lean` files under `Zeta23/` : 57
+    distinct external `Mathlib.*` imports  : ### **89**
+    imports neither Mathlib nor Zeta23     : ['Batteries.Tactic.Lemma']
+    `lake build` on the 89 roots : ### **EXIT 0** ; ### **WALL 235.1 s** ; output banked WHOLE
+      at `b498_closure_build.txt`, 2 lines
+    ### ### **LINES READING `Built Mathlib.` : 0**
+    lines reading `Replayed Mathlib.` : 0 ### -- replayed is NOT compiled
+    lines reading `Built` for anything else : 0
+    error lines : 0
+
+### (c) THE KERNEL`S TRACKED TREE, AFTER.
+--------------------------------------------------------------------------------------------------------
+    `git status --porcelain` : ### **EMPTY**
+    HEAD : 52d8cf9
+========================================================================================================
