@@ -1,0 +1,57 @@
+========================================================================================================
+b500 COMPONENTS 1 AND 2 -- ### **THE LOG READ WHOLE, AND THE THREE PROFILES.**
+========================================================================================================
+
+### COMPONENT 1 -- THE LOG.
+--------------------------------------------------------------------------------------------------------
+    file   : `relay/data/b498_ef_build.log`
+    bytes  : ### **13403** ; lines : ### **132**
+    sha256 : 8577ea3ac5716d6d842d4fdf2ffd039b14e00e64f76dc10d7e7fc39ef11606e2
+    ### ### **COMMITTED UNCHANGED** by this act; b498 declined because its process owned it.
+
+    marks (stamped lines)        : ### **132**
+    ### ### **DISTINCT INSTANTS   : 68**
+    first mark : 2026-09-23T21:14:48.200
+    last mark  : 2026-09-23T21:39:29.774
+    ### ### **WALL TIME FROM THE LOG`S OWN OUTER MARKS : 1481.6 s** (24.7 min)
+    `lake`s summed reported durations : ### **11450.0 s** across 57 reported spans
+    ### the two numbers measure different things; `lake` builds in parallel, so the sum may exceed the wall.
+
+    `END` / `EXIT` lines : ### **2**
+      lake build                           EXIT ### **0** (0x00000000)
+      PrintAxioms on the three names       EXIT ### **0** (0x00000000)
+    ### ### **NON-ZERO EXITS : 0**
+
+    ### ### **`Built` LINES (COMPILED) : 0** -- Zeta23.* 0 ; Mathlib.* 0 ; other 0 []
+    `Replayed` lines (NOT compiled) : 0
+    modules built (by `lake`s own Built/Building/Replayed lines) : ### **57** ['Zeta23.Analytic.RectangleLogDeriv', 'Zeta23.Analytic.Stirling', 'Zeta23.Assembly.Inputs', 'Zeta23.Defs', 'Zeta23.Defs.Counting', 'Zeta23.ExplicitFormula']
+    ### ### **MODULES THAT FAILED, BY NAME : 3 LINE(S) MATCH A FAILURE SHAPE**
+      2026-09-23T21:33:13.407    The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+      2026-09-23T21:33:36.101    The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+      2026-09-23T21:38:45.604    The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+
+### COMPONENT 2 -- THE THREE PROFILES.
+--------------------------------------------------------------------------------------------------------
+    `#print axioms` OUTPUT LINES ANYWHERE IN THE LOG : ### **0**
+    `EF_lit_zetaZeroConfig   ` -> ### **ABSENT**
+    `EF_lit                  ` -> ### **ABSENT**
+    `EF_lit_zeta             ` -> ### **ABSENT**
+    ### the match is on the ### **WHOLE AXIOM STRING**, as the order requires. ### A
+    ### PREFIX match would read `[propext, Classical.choice, Quot.sound, sorryAx]` as the
+    ### standard three, which is the one reading that must never be possible here.
+
+    ### ### **ALL THREE THE STANDARD THREE : False**
+    ### ### **(R82), BY ITS OWN WORDS : VOID FOR WANT OF A RUN**
+    ### ### **NOT ALL THREE. ### WHICH : ['EF_lit_zetaZeroConfig', 'EF_lit', 'EF_lit_zeta'] -- ALL ABSENT.**
+    ### ### **(R82) IS NOT CLAIMED BY THIS ACT.** ### It holds only if all three read
+    ### the standard three, and they do not. ### **NOR IS (R82) REFUTED** -- a profile
+    ### that was never printed is not a profile that came out wrong, and
+    ### ### **ABSENT IS NOT OTHER.**
+
+    ### ### **### STOP. ### COMPONENT 3 IS NOT RUN. ###**
+    ### The order: *"otherwise print which and STOP before Component 3."* ### The
+    ### REGISTRY row keeps `PENDING`, no name is written beside it, the terminal table
+    ### is NOT regenerated for a profile move, and ### **NO ROW CITES THE KERNEL.**
+    ### ### **A STOP OBEYED IS A RESULT.** ### Running Component 3 anyway would have
+    ### written three profiles into REGISTRY that no run produced.
+========================================================================================================
