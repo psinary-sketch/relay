@@ -1,0 +1,174 @@
+========================================================================================================
+b489 -- THE CLOSING RECORD. ### THE MARGIN OVER SUPPORT, AND A CONJECTURE THAT FAILS ITS CHART.
+========================================================================================================
+
+### (1) COMPONENT 1 -- THE MARGIN, CELL BY CELL.
+--------------------------------------------------------------------------------------------------------
+    `m(a) = -W(f_a) = A - PR` by (R87). ### 35 ladder cells read from `b477_entries.jsonl`,
+    each with its ### **INDEPENDENTLY BANKED ZERO SIDE** ### and its two-side residual.
+    ### ### **EVERY MARGIN IS POSITIVE** ### -- min `0.024337988`, max `8.78115282` -- so `W < 0`
+    at every cell the ladder reaches.
+    ### ### **AND THE SHAPE HAS TWO TURNING POINTS, NOT ONE:**
+      falls over 19 steps to a MINIMUM ### **0.024337988 at a = 4.061553**
+      rises over 9 steps to a LOCAL MAXIMUM ### **0.0422898584 at a = 5.196152**
+      falls again over the last 6 to `0.0382311845` at `a = 5.656854`.
+      ### **9 of the 34 steps rise, all between the two turns.**
+    ### the minimum sits ONE RUNG BEFORE `a = 4.123106` -- the cell b446 and b447 already
+    ### called an outlier, now placed on a curve rather than standing alone.
+    ### the aim map`s 56 cells are a ### **SECOND FAMILY** ### indexed by `(a, gamma)`: at
+    ### a fixed width the margin varies MORE than it varies between widths, so on that
+    ### family `m` is not a function of `a` at all.
+
+### (2) COMPONENT 2 -- THE SHAPE, FITTED AND NOT BELIEVED.
+--------------------------------------------------------------------------------------------------------
+    form                        pars   RMS residual on m      RMS residual on log m     constants (pri
+    (i)   C * a^(-p)            2      0.139525               0.559248                  23.8231, 3.983
+    (ii)  C * (log a)^(-q)      2      0.281395               0.612822                  0.682197, 1.94
+    (iii) c0 + C * exp(-k a)    3      0.209401               0.311239                  0.0857364, 215
+    ### ### **PREFERRED ON `m` : (i)** ### ; ### **PREFERRED ON `log m` : (iii)**
+    ### ### **THE TWO LOSSES DISAGREE ON THIS FAMILY.**
+    form                        pars   RMS residual on m      RMS residual on log m     constants (pri
+    (i)   C * a^(-p)            2      0.823437               1.63637                   27.9804, 5.001
+    (ii)  C * (log a)^(-q)      2      0.802118               1.62053                   1.13907, 1.405
+    (iii) c0 + C * exp(-k a)    3      0.792969               1.62225                   0.313845, 1139
+    ### ### **PREFERRED ON `m` : (iii)** ### ; ### **PREFERRED ON `log m` : (ii)**
+    ### ### **THE TWO LOSSES DISAGREE ON THIS FAMILY.**
+    (i)   C * a^(-p)            predicts m = ### **0.0231881863**
+    (ii)  C * (log a)^(-q)      predicts m = ### **0.231932268**
+    (iii) c0 + C * exp(-k a)    predicts m = ### **0.0858542367**
+    ### ### **THE RANKING IS NOT ROBUST.** ### The two losses disagree on BOTH families,
+    ### form (iii) carries a third constant the others do not, and on the aim map the
+    ### winner`s own margin is a factor `1.01`. ### **THAT IS NOT A PREFERENCE.**
+    ### ### **AND EVERY FORM IS MONOTONE IN `a` BY CONSTRUCTION** while the margin turns
+    ### twice, so all three mis-describe the shape whatever their residual.
+    ### a fit over thirty-five cells is a ### **DESCRIPTION, NOT A LAW.**
+
+### (3) COMPONENT 3 -- THE CONJECTURE, AND WHY IT FAILS.
+--------------------------------------------------------------------------------------------------------
+    ### **For every support width a in the class, W(f_a) <= -m_fit(a), with m_fit(a) = 23.823147 * a^(-3.98372886) -- graded CONJECTURED, from a finite-reach chart of 35 support widths in [1.3, 5.656854], and no higher.**
+
+    ### ### **AND IT IS FALSE ON THE VERY CHART IT WAS FITTED TO:** the measured `m` falls
+    ### below `m_fit(a)` at ### **17 of the 35 cells.**
+    ### ### **A LEAST-SQUARES FIT IS A CENTRE LINE, NOT A BOUND** -- roughly half its own
+    ### data lies below it by construction. ### An order that asks for `X <= fit(X)` asks
+    ### for something least squares cannot supply; a bound needs a MINIMUM, an envelope,
+    ### or a proof.
+    ### the repair the data supports -- `m_min = 0.024337988` in place of `m_fit` -- IS true at
+    ### all 35 cells. ### **OFFERED AND NOT ADOPTED; THE CHOICE IS THE AUTHOR`S.**
+
+    ### THE FALSIFIER : the control`s margin is ### **POSITIVE AT ALL 35 CELLS, WITH 0
+    ### SIGN CHANGES AND 0 NEGATIVE CELLS**, falling monotonically from `16.0696` to a
+    ### minimum `1.16912`. ### **BUT IT IS OUT OF RANGE, NOT UNMET.** ### The falsifier
+    ### names a support "resolving `t = 16.29`", and `16.290216` is a ### **GAMMA** ### --
+    ### an aim`s HEIGHT -- which the aim map reaches only at widths `40` and `81`. ### The
+    ### ladder stops at `5.656854`. ### **AN UNTESTED FALSIFIER IS NOT A PASSED ONE**, and
+    ### this act says which it is rather than counting a non-crossing as a pass.
+
+    ### THE PREDICTION : the next cell at the ladder`s own ratio is ### **a = 5.701753**
+      (i)   C * a^(-p)            predicts m = ### **0.0231881863**
+      (ii)  C * (log a)^(-q)      predicts m = ### **0.231932268**
+      (iii) c0 + C * exp(-k a)    predicts m = ### **0.0858542367**
+    ### ### **THEY DISAGREE BY A FACTOR OF TEN ONE STEP PAST THE DATA**, and the second
+    ### turn says the measured value is likelier to FALL than to follow any of them.
+
+### (4) THE EXPECTATIONS.
+--------------------------------------------------------------------------------------------------------
+    ### **(N1)** monotone in `a`            -- ### **REFUTED** ### (9 of 34 steps rise)
+    ### **(N2)** a power of `log a` preferred -- ### **REFUTED** ### (form (ii) wins the
+          primary loss on NEITHER family)
+    ### **(N3)** the control crosses zero   -- ### **REFUTED** ### (0 sign changes, 0
+          negative cells) ### **AND OUT OF RANGE**
+    ### **(S1)** HELD ; ### **(S2)** HELD ; ### **(S3)** ### **SPLIT** -- every form is
+          monotone as expected, but the residual is concentrated at the ### **SMALL-`a`**
+          end (RMS `0.183` before the turn against `0.0247` after), not past the turn.
+          ### **AN ABSOLUTE RESIDUAL IS DOMINATED BY THE LARGEST DATA**, and where a fit
+          ### is WRONG and where its residual LIVES are different questions.
+
+### (5) THE DEFECTS THIS ACT RECORDS OF ITS OWN INSTRUMENTS. ### **SIX.**
+--------------------------------------------------------------------------------------------------------
+    ### ### **(a) THE (R70) REHEARSAL CAUGHT A FIELD MISREADING BEFORE THE SEAL.** ### It
+    ### took `places_z` for the aim map`s prime slot and got a NEGATIVE margin where the
+    ### map prints a positive room. ### `places_z` is already the signed places sum; the
+    ### prime slot is `prime_z`. ### **A SIGN ERROR WOULD HAVE RUN THROUGH ALL 56 CELLS.**
+    ### ### **(b) THE COMPONENTS TOOL SAID THE MARGIN "RISES AT EVERY STEP AFTER THE
+    ### MINIMUM".** ### It does not: it rises for 9 steps and then falls for 6. ### **A
+    ### STATEMENT THAT READS ONLY THE ENDPOINTS HID THE SECOND TURN**, and the face`s own
+    ### READING (5), sealed, carries that endpoint wording. ### The face is not edited;
+    ### both figures are printed here and the defective sentence is named.
+    ### ### **(c) A FIGURE WAS TYPED INTO LEDGER ROW 338 AND THE BANK REFUTED IT.** ### The
+    ### row said "14 of 34 steps rise"; the bank computes ### **9**. ### The row was
+    ### corrected IN PLACE before any commit, and the desk tool now DERIVES those figures
+    ### from the results bank instead of carrying them as prose.
+    ### ### **(d) `G-C1-MARGIN-IS-MINUS-W` FIRED, AND IT WAS RIGHT: b437`s PARTS ARE
+    ### ROUNDED.** ### `b437_rungs.json` stores `arch` and `pr` at about ten significant
+    ### figures while `b477` stores `W` at full precision; their difference reaches
+    ### ### **1.73e-05 at `a = 1.5`**. ### So the face`s READING (1) -- "the two agree to
+    ### `1e-12`" -- is TRUE at the rehearsed cell and FALSE at 10 of the 32 cells that
+    ### carry both. ### **THE REHEARSAL GENERALISED FROM ONE CELL.** ### The margin is
+    ### unaffected: it is `-W` read from b477 and never from b437`s parts.
+    ### ### **(e) TWO ARMS CARRIED BARS THAT WERE TYPED, NOT READ.** ### A `1e-5` bar on
+    ### the ABSOLUTE two-side residual is refused by two cells (worst `3.56e-05`); the
+    ### quantity that matters is the residual AGAINST THE MARGIN IT PRICES, worst
+    ### `1.07e-05` relative. ### **`m` SPANS 360-FOLD ACROSS THIS LADDER AND AN ABSOLUTE
+    ### BAR IGNORES IT.**
+    ### ### **(f) AN ARM RAN THAT THE SEALED FACE DOES NOT DECLARE.**
+    ### `G-C3-REFUTATION-BESIDE-IT` was built, ran and passed -- and the face, sealed
+    ### before components, names no such arm. ### **AN ARM THE FACE DOES NOT DECLARE IS
+    ### NOT THIS ACT`S ARM**, and the face cannot be edited to admit it. ### Rather than
+    ### drop a true check for bookkeeping, its predicate was FOLDED into the declared arm
+    ### whose subject is the same sentence, and the declared count then matched the run.
+    ### ### **AND THE ARM THAT CAUGHT ITS OWN AUTHOR IS WORTH ITS OWN LINE.**
+    ### `G-C1-NO-VALUE-INVENTED` forbade a typed decimal outright and fired on the trail`s
+    ### own prose. ### **A TYPED FIGURE IS NOT A FAULT; A TYPED FIGURE THE BANK DOES NOT
+    ### CARRY IS.** ### It now matches every 6-place literal in this act`s tools AND its
+    ### trail record against the banked cells and the sources this act quotes -- and its
+    ### first version orphaned three legitimate figures, two quoted from b334`s aim map
+    ### and one equal to `sqrt 2`. ### **AN ARM THAT KNOWS ONLY ONE SOURCE CALLS EVERY
+    ### OTHER SOURCE AN INVENTION.**
+
+### (6) THE SUITE, THE COMMITS, THE MIRROR.
+--------------------------------------------------------------------------------------------------------
+    pre-push  : 61 arms, 0 live failing, 0 positive-control passes -- the mirror arm
+      DEFERRED, since the archive is built after the push.
+    post-push : ### ### **ARMS RUN : 62. ### LIVE PASSING : 62. ### LIVE FAILING : 0 .**
+                ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+                ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+
+    the commits, each read back by `ls-remote`:
+      relay                local 72a84d8c2627 ; remote 72a84d8c2627 ; ### **AGREE**
+      PLACE-papers         local 4abaa5ff5927 ; remote 4abaa5ff5927 ; ### **AGREE**
+      SIDE-global-section  local e9c770b28268 ; remote e9c770b28268 ; ### **AGREE**
+    ### relay`s push failed on its FIRST attempt (`send-pack: unexpected disconnect`, then
+    ### a DNS failure) and was retried and read back. ### **A TRANSIENT NETWORK FAILURE IS
+    ### RECORDED, NOT SMOOTHED OVER.**
+    the mirror : `mirror-refresh-2026-09-23-b489.zip` at `4abaa5f` --
+      ### **CLEAN ON ALL THREE CLAUSES.**
+
+### (7) THE CENSUSES, THE PINS, THE LISTS.
+--------------------------------------------------------------------------------------------------------
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0
+    ### **THE FOUR LISTS STAY OPEN.** ### No chain was run and no lane was opened. ### No
+    ### grade moved; no terminal was added, moved, renamed or graded; row U1 is unedited;
+    ### no Lean of the corpus was touched; nothing compiled; no bridge typed; ### **h2
+    ### WHERE THE DEPOSIT LEFT IT.** ### **AND NOTHING ABOUT RH FOLLOWS FROM A FIT.**
+
+### (8) WHAT IS CARRIED FORWARD.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **(R99) IS RATIFIED AND ENTERED BY THE TRAIL RECORD ONLY.** ### The author
+        applies `s14` and `s2` at the platform; ### **THE ACT AFTER FETCHES BOTH
+        DESCRIPTIONS BACK AND BANKS THEM BEFORE ANY RECORD SAYS THE EDIT WAS MADE.**
+    (b) ### **THE CONJECTURE`S FORM IS THE AUTHOR`S TO SETTLE.** ### As worded it is false
+        at 17 of 35 cells; with `m_min` in place of `m_fit` it is true at all 35 and is a
+        statement about a chart, not a law. ### ROUTED, NOT TAKEN.
+    (c) ### **THE SECOND TURN IS UNEXPLAINED.** ### The margin`s local maximum at
+        `a = 5.196152` and the fall after it are printed and not accounted for. ### The
+        ladder`s last six rungs are where a next measurement would bite.
+    (d) ### **b437`S ROUNDED PARTS** ### -- `arch` and `pr` at ten significant figures --
+        cannot check `W` finer than `1e-4`. ### Anything that needs the parts at full
+        precision must go back to the run, not to that bank. ### ROUTED.
+
+========================================================================================================
+  ### ### **b489 CLOSES. 62 ARMS, 0 LIVE FAILING, 0 POSITIVE-CONTROL PASSES.**
+========================================================================================================
