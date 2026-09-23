@@ -1,0 +1,106 @@
+========================================================================================================
+b492 -- THE CLOSING RECORD. ### THE PER-n TERMS AT EVERY RUNG, AND THE INCREMENTS ATTRIBUTED.
+========================================================================================================
+
+### (1) THE RUN, AND ITS CHECK BEFORE ANYTHING ELSE WAS READ.
+--------------------------------------------------------------------------------------------------------
+    35 cells on b477`s own recipe, grid and floor. ### The diagonal `W` was checked against
+    b477`s bank ### **AT EVERY CELL BEFORE A SINGLE TERM WAS READ**, a mismatch set to halt.
+    ### ### **WORST ABSOLUTE DISCREPANCY : 0.000e+00. ### 35 OF 35 CELLS REPRODUCE EXACTLY, BIT
+    ### FOR BIT.** ### The run does not merely pass the floor.
+    per-n terms banked at every cell, summing to `PR` within ### **8.3e-17**.
+    run time : 143.6 s
+
+### (2) THE GENERATOR. ### **W-ORD-EXACT-SUPPORT.**
+--------------------------------------------------------------------------------------------------------
+    `b437_components.py` : `NEW_A = sorted(set([round(x, 6) for x in BOUNDARIES + MIDPOINTS]))`
+    ### ### **THE ROUNDING IS IN THE GENERATOR ITSELF.** ### b490 found the symptom; this
+    ### act names the line. ### 11 boundary cells `a = sqrt n`, 11 midpoints, 13 literals.
+    ### ### **FOUR OF THE ELEVEN BOUNDARY CELLS ROUND DOWN -- 13, 27, 31, 32** -- and on the
+    ### stored `a` exclude their own `n0`. ### On the exact generator every boundary cell
+    ### admits it, by integer arithmetic: `n0 <= n0`. ### **NO TOLERANCE IS CHOSEN.**
+    the exact `a` is banked beside the rounded at every cell, from this run on.
+
+### (3) THE ATTRIBUTION. ### **AN IDENTITY, NOT A FIT.**
+--------------------------------------------------------------------------------------------------------
+    `d(pr) = (terms new at the top) + (drift of terms present at both)`, exactly.
+    ### ### **IT CLOSES TO 8.5e-17 AT WORST** ### -- the arithmetic`s own precision.
+    ### ### **AT 15 OF THE 16 ENTRY STEPS THE ENTERING TERMS CARRY AT MOST 1.6e-03 OF `d(pr)`,
+    ### AND 8 CARRY EXACTLY ZERO.** ### The one exception is step 3, where `2` enters an
+    ### EMPTY prime channel and is the whole increment ### **BY ARITHMETIC, NOT BY WEIGHT.**
+    ### ### **AND A PRIME POWER ADMITTED AT ITS OWN BOUNDARY RUNG HAS TERM EXACTLY `0`** --
+    ### at all seven such cells. ### The window is zero at its own support edge `v = L`, and
+    ### `log n0 = L` exactly there. ### **AN ENTRY IS A BOOKKEEPING BOUNDARY, NOT AN EVENT**,
+    ### and the channel moves only by drift.
+
+    ### THE SENTENCE THE TABLE SUPPORTS, AND NO WIDER:
+    ### **On this ladder, at 15 of the 16 steps that admit a new prime power the entering terms carry at most 1.6e-03 of the prime channel’s increment, the whole of it being the drift of terms already present; the one exception is the first prime power entering an empty set, where the entry is the increment by arithmetic.**
+    ### ### **THE ARCHIMEDEAN CHANNEL HAS NO PER-n DECOMPOSITION**, so `d(m) = d(arch) -
+    ### d(pr)` has a half this act does NOT attribute. ### **NOTHING ABOUT RH FOLLOWS.**
+
+### (4) THE EXPECTATIONS.
+--------------------------------------------------------------------------------------------------------
+    ### **(N1)** ### **REFUTED, AND NOT NARROWLY.** ### `3^3` carries `-2.5e-42` of its
+          step`s `d(pr)`; `2^5` never enters on the stored `a` at all.
+    ### **(N2)** ### **SPLIT.** ### On exact `a`, `27``s rung IS the local maximum -- it
+          holds. ### `32``s rung is the ladder`s ENDPOINT, with no step past it to turn at
+          -- it fails on the ladder`s geometry, not on the arithmetic.
+    ### **(N3)** ### **REFUTED.** ### entry mean 0.216186 against non-entry 0.295547, and ### **THE
+          MEAN COMPARES SCALES, NOT MECHANISMS.**
+    ### **(S1) (S2) (S3)** ### **HELD.**
+
+### (5) THE DEFECTS THIS ACT RECORDS OF ITS OWN INSTRUMENTS. ### **SIX.**
+--------------------------------------------------------------------------------------------------------
+    ### ### **(a) A SUMMARY WRITTEN BEFORE ITS TABLE WAS READ, AND REFUTED BY IT.** ### The
+    ### components tool`s first draft said *"every entering term is exactly zero"*. ### Eight
+    ### are; eight are not; and one carries the whole increment.
+    ### ### **(b) A SCORER THAT TYPED A BAR THE FACE NEVER STATED.** ### (S3) was scored
+    ### against `1e-4` where the face`s word is ### **"not dominant"**; the largest share is
+    ### `1.6e-03`. ### **A THRESHOLD INVENTED BY A SCORER IS NOT THE EXPECTATION IT SCORES.**
+    ### ### **(c) A LEDGER ROW REFUSED FOR A `|` INSIDE A CELL, A SECOND TIME.** ### b490
+    ### routed exactly this and it bit again within three acts. ### Caught by the tool`s own
+    ### read-back, removed and rewritten before any commit. ### **STILL ROUTED.**
+    ### ### **(d) AN ARM THAT COULD NOT MATCH ITS OWN CONTROL.** ### `G-NOTHING-COMPILED`
+    ### lost `run` from its alternation and so demanded `subprocess(`, a shape that never
+    ### occurs. ### Its control walked straight past it.
+    ### ### **(e) A CONTROL THAT CUT THE FILE`S TAIL, WHERE THE TABLE IS NOT.**
+    ### ### **(f) THE b493 PASTE WAS NOT BANKED WHEN THE FACE SAID IT WAS** -- and
+    ### `G-RECEIPT-IN-FULL` caught it, its third clause reading the NEXT act`s ferry file.
+    ### **AN ARM THAT READS WHAT THE FACE CLAIMS, NOT WHAT THE ACT INTENDED.**
+
+### (6) THE SUITE, THE COMMITS, THE MIRROR.
+--------------------------------------------------------------------------------------------------------
+    pre-push  : 55 arms, 0 live failing, 0 positive-control passes.
+    post-push : ### ### **ARMS RUN : 56. ### LIVE PASSING : 56. ### LIVE FAILING : 0 .**
+                ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+
+    the commits, each read back by `ls-remote`:
+      relay                local d384cefaef6f ; remote d384cefaef6f ; ### **AGREE**
+      PLACE-papers         local 2dd4d2eebdda ; remote 2dd4d2eebdda ; ### **AGREE**
+      SIDE-global-section  local e48d5e220580 ; remote e48d5e220580 ; ### **AGREE**
+    the mirror : `mirror-refresh-2026-09-23-b492.zip` at `2dd4d2e` --
+      ### **CLEAN ON ALL THREE CLAUSES.**
+
+### (7) THE CENSUSES, THE PINS, THE LISTS.
+--------------------------------------------------------------------------------------------------------
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0
+    ### ### **THE LANE IS SHUT.** ### It was made available for one run and used once.
+    ### **THE FOUR LISTS STAY OPEN.** ### Nothing compiled; no Lean built; no repository
+    ### created. ### No corpus grade moved; row U1 unedited; nothing deposits; nothing at
+    ### Zenodo is written; ### **h2 WHERE THE DEPOSIT LEFT IT.**
+
+### (8) WHAT IS CARRIED FORWARD.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **b493 IS NEXT, AND ITS ORDER IS BANKED** ### at `data/b493_ferry.txt`: the
+        eight records read whole against the claim ceiling.
+    (b) ### **(R103)`S CREATION BELONGS TO THE ACT AFTER b493**, not to this one.
+    (c) ### **`corr_row.py` STILL CHECKS THE NUMBER AND NOT THE CELLS.** ### Twice now a
+        `|` inside a cell has landed a malformed row. ### **ROUTED, AND OVERDUE.**
+    (d) ### **THE ARCHIMEDEAN HALF OF `d(m)` IS UNATTRIBUTED.** ### The turns cannot be
+        explained from the prime channel alone, and this act does not try.
+
+========================================================================================================
+  ### ### **b492 CLOSES. 56 ARMS, 0 LIVE FAILING, 0 POSITIVE-CONTROL PASSES.**
+========================================================================================================
