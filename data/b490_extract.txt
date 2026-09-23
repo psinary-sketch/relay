@@ -1,0 +1,166 @@
+================================================================================================================
+b490 -- THE SURVEY. ### THE INCREMENTS, THE RATIO, AND THE PRIOR TEST.
+================================================================================================================
+
+(P1) COMPONENT 0 -- pid 27508, ALREADY BANKED AT `data/b490_pid27508.txt`.
+----------------------------------------------------------------------------------------------------------------
+    b490 COMPONENT 0 -- pid 27508's CHILDREN. Two readings, sixty seconds apart.
+    started: 2026-09-23T01:03:10.6966102-04:00
+    ### pid 27508 NOT FOUND in the process table.
+    direct children of 27508 : 0
+    READING 1 -- the process table filtered to lean and lake:
+    ### NO lean OR lake PROCESS EXISTS.
+    READING 2 -- sixty seconds later: 2026-09-23T01:04:52.2812749-04:00
+    ### pid 27508 STILL NOT FOUND.
+    ### NO lean OR lake PROCESS EXISTS AT READING 2 EITHER.
+    ### ### **NEITHER BRANCH OF THE ORDER'S CONDITIONAL HOLDS.** The order provides for
+    ### children existing, and for 27508 being ALIVE with none. It is neither: 27508 is
+    ### ABSENT FROM THE PROCESS TABLE, at both readings sixty seconds apart.
+
+    ### ### **AND 27508 IS NOT A NEW PROCESS. IT IS `b475`S DETACHED AXIOM RUN.**
+    `data/b475_launch.json` : pid ### **27508** ### , launcher `b475_detached_run.cmd`,
+      started `2026-09-22T19:02:24Z`, serialized `True`, LEAN_NUM_THREADS `1`.
+    the log`s byte count, ### **STAT ONLY -- THE FILE WAS NOT OPENED** ### : 403049
+      last written : 2026-09-22T21:33:50 ; ### **IDLE 3.62 HOURS.**
+    ### ### **SO THE STANDING EXCLUSION CARRIED SINCE b481 IS NOW FALSE.** ### Every
+    ### suite from b481 to b489 excluded this log from `G-NOPRIORBANK` on the ground
+    ### that ### *"another act`s live process is still appending to it"*. ### **NO
+    ### SUCH PROCESS EXISTS, AND THE FILE HAS NOT BEEN WRITTEN FOR HOURS.** ### The
+    ### ground lapsed when the run died and no act noticed. ### This act drops the
+    ### exception and states why.
+
+(P2) THE LADDER`S 34 STEPS, AND WHAT ENTERS ON EACH.
+----------------------------------------------------------------------------------------------------------------
+    35 cells, 34 steps. ### the prime-power set grows from 0 to 17 members.
+    steps admitting a NEW prime power : ### **16** ### of 34
+    ### the entering prime powers, step by step, where any enters:
+      step  3  a 1.410000    -> 1.500000      enters ### **2**
+      step  5  a 1.700000    -> 1.900000      enters ### **3**
+      step  7  a 1.990000    -> 2.000000      enters ### **4**
+      step 10  a 2.100000    -> 2.400000      enters ### **5**
+      step 11  a 2.400000    -> 2.800000      enters ### **7**
+      step 12  a 2.800000    -> 3.000000      enters ### **8, 9**
+      step 14  a 3.158312    -> 3.316625      enters ### **11**
+      step 17  a 3.605551    -> 3.802776      enters ### **13**
+      step 18  a 3.802776    -> 4.000000      enters ### **16**
+      step 20  a 4.061553    -> 4.123106      enters ### **17**
+      step 22  a 4.241002    -> 4.358899      enters ### **19**
+      step 24  a 4.577365    -> 4.795832      enters ### **23**
+      step 26  a 4.897916    -> 5.000000      enters ### **25**
+      step 29  a 5.196152    -> 5.290659      enters ### **27**
+      step 30  a 5.290659    -> 5.385165      enters ### **29**
+      step 33  a 5.567764    -> 5.612309      enters ### **31**
+
+    ### ### **AND THE RUNGS ARE `sqrt n` ROUNDED TO SIX PLACES, SO A ROUNDING DECIDES
+    ### WHETHER `n` IS INSIDE ITS OWN RUNG.** ### b437`s tolerance lesson, exactly:
+      sqrt(17) = 4.123105625618 -> stored 4.123106 ; the rounding goes ### **UP, so n is INSIDE its rung**
+      sqrt(19) = 4.358898943541 -> stored 4.358899 ; the rounding goes ### **UP, so n is INSIDE its rung**
+      sqrt(23) = 4.795831523313 -> stored 4.795832 ; the rounding goes ### **UP, so n is INSIDE its rung**
+      sqrt(25) = 5.000000000000 -> stored 5.000000 ; the rounding goes ### **DOWN, so n is JUST OUTSIDE**
+      sqrt(27) = 5.196152422707 -> stored 5.196152 ; the rounding goes ### **DOWN, so n is JUST OUTSIDE**
+      sqrt(29) = 5.385164807135 -> stored 5.385165 ; the rounding goes ### **UP, so n is INSIDE its rung**
+      sqrt(31) = 5.567764362830 -> stored 5.567764 ; the rounding goes ### **DOWN, so n is JUST OUTSIDE**
+      sqrt(32) = 5.656854249492 -> stored 5.656854 ; the rounding goes ### **DOWN, so n is JUST OUTSIDE**
+    ### ### **THE TWO THE ORDER NAMES -- `3^3 = 27` AND `2^5 = 32` -- ARE BOTH ROUNDED
+    ### DOWN**, so on the STORED floats they fall outside their own rungs, while `17`,
+    ### `19`, `23` and `29` are rounded up and fall inside theirs. ### **BOTH READINGS
+    ### ARE PRINTED AND NEITHER IS SILENTLY CHOSEN.**
+
+    ### ### **AND THE ORDER`S TWO NAMED ENTRIES SIT EXACTLY ON THE TWO TURNS.**
+      `3^3 = 27` : on the STORED floats it enters at a = 5.290659, step 29
+          on the GENERATOR `sqrt 27 = 5.196152422707` its own rung is ### **a = 5.196152** ### (index 28)
+      `2^5 = 32` : on the STORED floats it enters ### **NEVER ON THIS LADDER**
+          on the GENERATOR `sqrt 32 = 5.656854249492` its own rung is ### **a = 5.656854** ### (index 34)
+      the margin`s MINIMUM is at a = 4.061553 ; its LOCAL MAXIMUM at a = 5.196152
+    ### ### **ON THE GENERATOR READING, `3^3` SITS EXACTLY AT THE LOCAL MAXIMUM AND
+    ### `2^5` EXACTLY AT THE LAST RUNG.** ### On the stored floats `3^3` enters one
+    ### rung LATER and `2^5` never enters at all. ### **THE ORDER`S (N1) PRESUMES THE
+    ### GENERATOR READING**, and this act says so rather than quietly adopting it.
+    ### ### **AND `2^4 = 16` ENTERS AT `a = 4.000000`, ONE RUNG BEFORE THE MINIMUM.**
+
+(P3) THE HALT. ### **PER-n PRIME-CHANNEL TERM VALUES ARE NOT BANKED, BY ANY ROUTE.**
+----------------------------------------------------------------------------------------------------------------
+    b437_rungs.json                the ladder`s own parts                       AN INDEX ONLY -- list of n, no values
+    b437_cells.json                the ladder`s cells with their prime-power lists nothing matching
+    b448_channels.json             the channel measurement at a = 4.123106      nothing matching
+    b449_integrand.json            the integrand at ln 17                       mapping n -> value
+    b334_leg_reaching_40.json      the aim map, reaching leg                    A COUNT ONLY -- an int
+    b334_leg_reaching_81.json      the aim map, reaching leg                    A COUNT ONLY -- an int
+    b334_leg_covered.json          the aim map, covered leg                     A COUNT ONLY -- an int
+    b321_rows.json                 the window`s own banked rows                 AN INDEX ONLY -- list of n, no values
+    b477_survey.json               the Gram run`s survey                        nothing matching
+    `b477_entries.jsonl`           the Gram run`s 379 entries             nothing matching
+
+    ### ### **AND THE CHAIN`S OWN API RETURNS NO PER-TERM VALUE EITHER.**
+    `tools/b321_window.py`, `prime_sum` returns : ### **total, terms**
+    and `terms` is built by ### **`terms.append(n)`** ### -- ### **THE INTEGER `n`, NOT
+    ITS VALUE.** ### `channels()` passes the same list through as `prime_terms`.
+
+    ### ### **BUT ONE ROUTE DOES CARRY THEM, AND THE FIRST DRAFT OF THIS HALT WAS
+    ### WRONG.** ### `b449_integrand.json` banks `levels[*].terms` as a MAPPING
+    ### `n -> value`, with `terms_sum` equal to `prime` exactly. ### **A HALT PROVED
+    ### OVER THE WRONG POPULATION IS NOT A HALT**, and this one was caught by its own
+    ### finder before it was banked.
+      its cell : ### **a = 4.123106** ### -- and it is the ONLY cell so banked.
+      levels : 4 ; terms at the finest : 11 ; `terms_sum == prime` : ### **True**
+      the terms : 2:0.18737, 3:-0.0188207, 4:-0.0200109, 5:-0.00364108, 7:0.00292179, 8:0.000449714, 9:0.0002684, 11:4.07792e-05, 13:3.54562e-07, 16:2.03681e-24, 17:0
+      ### ### **AND `16` AND `17` ARE EXACTLY `0.0` THERE** -- `log 17` sits at the
+      ### window`s own edge `L = 2.833213344`, which is b449`s finding restated, not re-scored.
+
+    ### ### **SO THE HALT IS NARROWER THAN "NO BANK HAS THEM", AND SHARPER:**
+    ### ### **PER-n TERMS ARE BANKED AT EXACTLY ONE OF THE THIRTY-FIVE CELLS, AND IT
+    ### IS THE OUTLIER.** ### The 34-step decomposition needs them at 35 cells.
+    ### ### **AND NEITHER `27` NOR `32` IS AMONG THE ELEVEN TERMS BANKED THERE** --
+    ### that cell`s window reaches only to `a^2 = 17`. ### So the fraction (N1) asks
+    ### for, at `3^3` and `2^5`, is ### **NOT DECIDABLE FROM THE BANKS** ### in either
+    ### direction.
+    ### To obtain it one would evaluate `2 log p / sqrt(n) * interp(log n, v, w)` at each
+    ### `n`, which needs the smeared window `(v, w)`. ### **THAT IS RUNNING THE CHAIN**,
+    ### which this order forbids in its own closing line.
+
+    ### ### **THE POSITIVE CONTROL: THE FINDER SEES TERM VALUES WHEN THEY EXIST.**
+      a fixture written here, carrying `prime_terms` as `n -> value` : [('mapping n -> value', 'prime_terms', 3)]
+      the same field as a bare list of `n`                            : [('AN INDEX ONLY -- list of n, no values', 'prime_terms', 3)]
+      ### ### **THE CONTROL FIRES : True.** ### The finder is not blind; the banks are
+      ### empty of what the order asks for.
+
+(P4) THE (R70) REHEARSAL -- THE STEP WHERE `17` ENTERS, READ BY HAND.
+----------------------------------------------------------------------------------------------------------------
+    the step : a = 4.061553 -> ### **a = 4.123106** ### (a^2 = 17.000003 crosses 17)
+    ### ### **AND THAT IS THE OUTLIER CELL b446 AND b447 NAMED**, and the first rung
+    ### past the margin`s minimum.
+      before : m = 0.024337988      arch = 0.184506219      pr = 0.1601682308737871
+      after  : m = 0.0247332682     arch = 0.173311991      pr = 0.14857872267405486
+      ### increment of m : ### **+0.000395280196**
+      ### by channel : d(arch) = -0.011194228 ; d(pr) = -0.0115895082 ; their difference = +0.000395280196
+      ### and `m = arch - pr`, so d(m) should equal d(arch) - d(pr) :
+      ###   d(m) = +0.000395280196   against   d(arch) - d(pr) = +0.000395280196
+      ###   ### **THEY DIFFER BY 0** -- because b437 stores `arch` and `pr`
+      ###   ROUNDED to about ten significant figures, as b489 found. ### **THE
+      ###   CHANNEL SPLIT IS THEREFORE GOOD TO ~1e-4 AND NO FINER.**
+      the prime powers present after the step : 11 -- [2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17]
+    ### ### **WHAT THE REHEARSAL SETTLES:** ### the step`s increment and its CHANNEL
+    ### split are readable; ### **THE SPLIT WITHIN THE PRIME CHANNEL IS NOT.**
+
+(P5) COMPONENT 2`S INPUTS -- `|W + Z|` OVER `m`, ALL BANKED.
+----------------------------------------------------------------------------------------------------------------
+    every diagonal entry banks `W` and `zero`; `|W + zero|` is the two-side
+    disagreement, and `m = -W`. ### Both are banked, so the ratio is a division.
+    ratios computable at all 35 cells : ### **True**
+    the peak, previewed here and reported in Component 2 : ### **1.07095e-05 at a = 3.802776**
+
+(P6) COMPONENT 3`S SOURCE -- b334`S THREE CROSSINGS, AT THEIR BANK.
+----------------------------------------------------------------------------------------------------------------
+      THE EPSTEIN CROSSING REGION -- THE NEGATIVE CONTROL CHARTED -- IS THREE AIMS:** `(a = 40, gamma =
+      ### 16.290216)` with `places_q = +0.655053`, `(a = 81, gamma = 16.290216)` with `+1.362830`, and `(a = 81,
+      ### gamma = 46.960994)` with `+0.194219` -- every member at an off-line zero's height, none elsewhere;
+      ### the region is EMPTY on the covered leg. ### **IT CONTAINS THE FIRST BANKED OFF-LINE ZERO'S HEIGHT AT
+      ### BOTH REACHING WIDTHS AND THE SECOND BANKED HEIGHT AT NEITHER:** at `gamma = 29.551761` the Epstein room
+      ### `A_Q - finite_Q` is `+0.517676520` at `a = 40` and `+0.051114829` at `a = 81`, certified positive.
+      ### ### **THE NAVIGATOR'S (F2): NOT MET. THIS SEAT'S (F2): NOT MET.** ### The fifth off-line height,
+      ### `46.960994`, is in the region at `a = 81`, which neither seat expected.
+    ### ### **OCCURRENCES OF "CROSSING REGION" IN THE AIM MAP : 1.**
+
+================================================================================================================
+  ### MISSES : 0 
+================================================================================================================
