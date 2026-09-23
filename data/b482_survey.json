@@ -1,0 +1,86 @@
+{
+ "pin": "fbdc36bbf17d20af3fd0447c6d1a8a02773c9844",
+ "six": [
+  {
+   "name": "xiPrime_zeros_in_open_critical_strip",
+   "stmt": "theorem xiPrime_zeros_in_open_critical_strip :\n    ∀ ρ : ℂ, XiPrime.xiDeriv ρ = 0 → 0 < ρ.re ∧ ρ.re < 1",
+   "line": 67
+  },
+  {
+   "name": "xiPrime_over_xi_re_pos",
+   "stmt": "theorem xiPrime_over_xi_re_pos :\n    ∀ s : ℂ, 1 ≤ s.re → 0 < (XiPrime.xiDeriv s / XiPrime.xi s).re",
+   "line": 72
+  },
+  {
+   "name": "xiPrime_simple_zeros_on_critical_line",
+   "stmt": "theorem xiPrime_simple_zeros_on_critical_line :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.85838 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧\n      (0.92919 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ)",
+   "line": 79
+  },
+  {
+   "name": "xiPrime_simple_zeros_on_critical_line_cumulative",
+   "stmt": "theorem xiPrime_simple_zeros_on_critical_line_cumulative :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.85838 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧\n      (0.92919 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ)",
+   "line": 86
+  },
+  {
+   "name": "xiPrime_simple_zeros_on_critical_line_quartic",
+   "stmt": "theorem xiPrime_simple_zeros_on_critical_line_quartic :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.86864 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧\n      (0.93432 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ)",
+   "line": 94
+  },
+  {
+   "name": "xiPrime_simple_zeros_on_critical_line_quartic_cumulative",
+   "stmt": "theorem xiPrime_simple_zeros_on_critical_line_quartic_cumulative :\n    ∃ T₀ : ℝ, ∀ T ≥ T₀,\n      (0.86864 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧\n      (0.93432 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ)",
+   "line": 102
+  }
+ ],
+ "comparator": {
+  "challenge_module": "Challenge.XiPrime",
+  "solution_module": "Solution.XiPrime",
+  "theorem_names": [
+   "xiPrime_zeros_in_open_critical_strip",
+   "xiPrime_over_xi_re_pos",
+   "xiPrime_simple_zeros_on_critical_line",
+   "xiPrime_simple_zeros_on_critical_line_cumulative",
+   "xiPrime_simple_zeros_on_critical_line_quartic",
+   "xiPrime_simple_zeros_on_critical_line_quartic_cumulative"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+   "propext",
+   "Quot.sound",
+   "Classical.choice"
+  ],
+  "enable_nanoda": true
+ },
+ "corpus": [
+  {
+   "key": "A",
+   "name": "the geometric clause (perpendicular crossing)",
+   "addr": "A_Place_to_Stand.md:304",
+   "text": "**Perpendicular crossing.** At every simple zero ρ on the critical line, ξ'(ρ) is purely imaginary. The level curves of Re(ξ) and Im(ξ) cross at right angles. The crossing is not approximate — it is forced by Cauchy-Riemann at the reflection axis."
+  },
+  {
+   "key": "B",
+   "name": "spectral_cannon",
+   "addr": "Kernel/SpectralCannonFull.lean:65",
+   "text": "theorem spectral_cannon (t : ℝ) :\n    (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0"
+  },
+  {
+   "key": "C",
+   "name": "transversal_generic_empty",
+   "addr": "SIDESimplicity/Codimension.lean:30",
+   "text": "theorem transversal_generic_empty (curveDim obstrCodim : ℤ)\n    (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) :\n    curveDim - obstrCodim < 0"
+  },
+  {
+   "key": "C",
+   "name": "codim_margin",
+   "addr": "SIDESimplicity/Codimension.lean:48",
+   "text": "theorem codim_margin (lost : ℤ) (h0 : 0 ≤ lost) (h3 : lost ≤ 3) :\n    curveDim < numSources - lost"
+  }
+ ],
+ "sorries": 6,
+ "b479_hits": [],
+ "b479_control": [
+  "b482_ferry.txt"
+ ],
+ "misses": []
+}

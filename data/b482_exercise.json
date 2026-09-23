@@ -1,0 +1,384 @@
+{
+ "exercise": [
+  {
+   "name": "G-RECEIPT-IN-FULL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "both banked ferries"
+  },
+  {
+   "name": "G-SCAN-CLEAN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE from each scan"
+  },
+  {
+   "name": "G-SCAN-FLAGS-ZERO",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "both banked scans"
+  },
+  {
+   "name": "G-STEPZERO-CENSUS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "two banked censuses"
+  },
+  {
+   "name": "G-STEPZERO-PINS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-SURVEY-NOMISS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-REG-LOCKED-FIRST",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face lock block"
+  },
+  {
+   "name": "G-LOCKGATE-EIGHT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE (A2)"
+  },
+  {
+   "name": "G-SEAL-VERIFIES",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-PRIOR-CLOSED-PUSHED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "b485`s closing AND the ledger"
+  },
+  {
+   "name": "G-ADDENDUM-SLOT-CONTENT-BOUNDED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the addendum slot bytes"
+  },
+  {
+   "name": "G-NUMBER-UNCLAIMED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the data directory, for the act`s own registration"
+  },
+  {
+   "name": "G-B479-HALT-PROVED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank -- the search over every ferry file"
+  },
+  {
+   "name": "G-B479-CONTROL-RAN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank -- the POSITIVE control the halt rests on"
+  },
+  {
+   "name": "G-B479-NOT-RECONSTRUCTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s components and trail, for any b479 content"
+  },
+  {
+   "name": "G-C1-PIN-MATCHES",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank against the face"
+  },
+  {
+   "name": "G-C1-SIX-VERBATIM",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the clone file itself against the components record"
+  },
+  {
+   "name": "G-C1-ALL-SORRY-SAID",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the clone file and the components record"
+  },
+  {
+   "name": "G-C1-COMPARATOR-SAME-SET",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the comparator against the file`s own theorems"
+  },
+  {
+   "name": "G-C1-AXIOMS-PRINTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the comparator against the components record"
+  },
+  {
+   "name": "G-C2-STATEMENTS-NOT-DOCSTRINGS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components record, for docstring syntax"
+  },
+  {
+   "name": "G-C2-REHEARSED-BOTH-POLARITIES",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank, for the (R70) rehearsal`s two halves"
+  },
+  {
+   "name": "G-C2-TAGS-NAMED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components record, for every tag read at"
+  },
+  {
+   "name": "G-C2-SIMPLICITY-IS-INTEGER-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey`s own quoted statements"
+  },
+  {
+   "name": "G-C3-EVERY-CELL-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank"
+  },
+  {
+   "name": "G-C3-DECIDING-CLAUSE-QUOTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components record, for every non-APART kind"
+  },
+  {
+   "name": "G-C3-TWO-REVERSE-READS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components record"
+  },
+  {
+   "name": "G-C3-NO-GRADE-CONFERRED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components record, for any grade word on a corpus object"
+  },
+  {
+   "name": "G-N1-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores bank against the results bank"
+  },
+  {
+   "name": "G-N2-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores bank against the clone file itself"
+  },
+  {
+   "name": "G-N3-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the scores bank against the clone file`s own counting functions"
+  },
+  {
+   "name": "G-SEAT-EXPECTATIONS-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face against the desk bank"
+  },
+  {
+   "name": "G-NOTHING-IMPORTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file lists, for any .lean or clone path"
+  },
+  {
+   "name": "G-ARTEFACTS-NOT-COMMITTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "relay`s tracked tree, read in the source"
+  },
+  {
+   "name": "G-NO-LEAN-RUN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s own tools, for a build or a Lean invocation"
+  },
+  {
+   "name": "G-NOB475LOG",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s own tools, for the other run`s log by name"
+  },
+  {
+   "name": "G-SPAN-BY-TOOL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the span tool record"
+  },
+  {
+   "name": "G-NOGRADE-MOVED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file list"
+  },
+  {
+   "name": "G-NODEPOSIT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the deposit directory tracked state, via the source"
+  },
+  {
+   "name": "G-NOH2-MOVED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail own text"
+  },
+  {
+   "name": "G-NOPRIORBANK",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "file times against the face"
+  },
+  {
+   "name": "G-FOUR-LISTS-OPEN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail own text"
+  },
+  {
+   "name": "G-CORPUS-SCOPE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file list"
+  },
+  {
+   "name": "G-TRAIL-APPEND-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail own text"
+  },
+  {
+   "name": "G-CORR-APPEND-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the correspondence ledger"
+  },
+  {
+   "name": "G-WRITELIST-KINDS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every b482 commit in three repositories, against (R91)`s STEM GLOB"
+  },
+  {
+   "name": "G-WRITELIST-SPANS-ACT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite own text"
+  },
+  {
+   "name": "G-NOSTAGE-A-BY-DIFF",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file list"
+  },
+  {
+   "name": "G-ARMS-DECLARED-EQ-RUN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face (G2) block against what runs"
+  },
+  {
+   "name": "G-ARMS-NO-SUBSTRING-VERDICT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite own text"
+  },
+  {
+   "name": "G-MUSTFAIL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a file that must not exist"
+  },
+  {
+   "name": "G-CORPUS-LEAN-UNTOUCHED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the lv, kernel AND simplicity working trees, in the source"
+  },
+  {
+   "name": "G-PUSHED-PREDICATE-THREE-CLAUSED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite`s own text -- b472`s repair, carried"
+  }
+ ],
+ "run": 53,
+ "live_failing": [],
+ "defective": [],
+ "neg_failures": 0,
+ "declared": 54,
+ "deferred": [
+  "G-MIRROR-TAGGED-BUILD"
+ ],
+ "stray": []
+}

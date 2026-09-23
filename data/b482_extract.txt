@@ -1,0 +1,119 @@
+============================================================================================================
+b482 -- THE SURVEY. ### STATEMENTS READ AT A PIN; NO BUILD, NO LEAN RUN, NOTHING IMPORTED.
+============================================================================================================
+
+(P0) ### **b479 IS NOT BANKED, AND THE HALT IS PROVED BEFORE THIS ACT OPENS.**
+------------------------------------------------------------------------------------------------------------
+    ferry files searched : ### **390**
+    files carrying `ACT b479` : ### **0** 
+    ### POSITIVE CONTROL -- files carrying `ACT b482` : ### **1** ['b482_ferry.txt']
+    ### ### **THE SEARCH WORKS AND FINDS b482`S ORDER; IT FINDS NO b479 ORDER ANYWHERE.**
+    ### ### **AND THREE SEALED FACES ASSERT OTHERWISE.** ### `b480`, `b483` and `b484`
+    ### each say `b479` is *"registered by its own ferry"*. ### That claim was carried from
+    ### face to face and ### **NO BANKED FERRY EVER CARRIED IT** -- the species the record
+    ### already names: ### **A CLAIM THAT LIVES ONLY IN A POINTER IS ONE TRIM FROM GONE.**
+    ### ### **b479 IS THEREFORE NOT RUN, AND ITS ORDER IS NOT RECONSTRUCTED FROM MEMORY.**
+
+(P1) THE CLONE`S PIN, AND THE SIX DECLARATIONS AT IT.
+------------------------------------------------------------------------------------------------------------
+    the clone`s banked HEAD : ### **fbdc36bbf17d20af3fd0447c6d1a8a02773c9844**
+    the pin b482`s order names : ### **fbdc36b** ### -- MATCHES
+    declarations in `zeta23/Challenge/XiPrime.lean` : 14 ; ### **THEOREMS : 6**
+
+    ### `xiPrime_zeros_in_open_critical_strip`  (`Challenge/XiPrime.lean:67`)
+        theorem xiPrime_zeros_in_open_critical_strip :
+            ∀ ρ : ℂ, XiPrime.xiDeriv ρ = 0 → 0 < ρ.re ∧ ρ.re < 1
+
+    ### `xiPrime_over_xi_re_pos`  (`Challenge/XiPrime.lean:72`)
+        theorem xiPrime_over_xi_re_pos :
+            ∀ s : ℂ, 1 ≤ s.re → 0 < (XiPrime.xiDeriv s / XiPrime.xi s).re
+
+    ### `xiPrime_simple_zeros_on_critical_line`  (`Challenge/XiPrime.lean:79`)
+        theorem xiPrime_simple_zeros_on_critical_line :
+            ∃ T₀ : ℝ, ∀ T ≥ T₀,
+              (0.85838 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧
+              (0.92919 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ)
+
+    ### `xiPrime_simple_zeros_on_critical_line_cumulative`  (`Challenge/XiPrime.lean:86`)
+        theorem xiPrime_simple_zeros_on_critical_line_cumulative :
+            ∃ T₀ : ℝ, ∀ T ≥ T₀,
+              (0.85838 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧
+              (0.92919 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ)
+
+    ### `xiPrime_simple_zeros_on_critical_line_quartic`  (`Challenge/XiPrime.lean:94`)
+        theorem xiPrime_simple_zeros_on_critical_line_quartic :
+            ∃ T₀ : ℝ, ∀ T ≥ T₀,
+              (0.86864 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧
+              (0.93432 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ)
+
+    ### `xiPrime_simple_zeros_on_critical_line_quartic_cumulative`  (`Challenge/XiPrime.lean:102`)
+        theorem xiPrime_simple_zeros_on_critical_line_quartic_cumulative :
+            ∃ T₀ : ℝ, ∀ T ≥ T₀,
+              (0.86864 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧
+              (0.93432 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ)
+
+    ### ### **EVERY ONE OF THE SIX IS CLOSED BY `sorry` -- 6 IN THE FILE.**
+    ### ### **THEY ARE CHALLENGE STATEMENTS, NOT THEOREMS HELD**, and this act reads them
+    ### as statements posed. ### **A STATEMENT POSED IS NOT A RESULT.**
+
+(P2) `comparator-xiprime.json` -- ITS DECLARATION LIST AND ITS PERMITTED AXIOMS.
+------------------------------------------------------------------------------------------------------------
+    challenge module : Challenge.XiPrime ; solution module : Solution.XiPrime
+    theorem_names (### **6**):
+      xiPrime_zeros_in_open_critical_strip
+      xiPrime_over_xi_re_pos
+      xiPrime_simple_zeros_on_critical_line
+      xiPrime_simple_zeros_on_critical_line_cumulative
+      xiPrime_simple_zeros_on_critical_line_quartic
+      xiPrime_simple_zeros_on_critical_line_quartic_cumulative
+    definition_names : NONE
+    ### ### **PERMITTED AXIOMS : propext, Quot.sound, Classical.choice**
+    ### the comparator`s list and the file`s theorems are the SAME SET : ### **True**
+
+(P3) THE CORPUS STATEMENTS -- ### **THREE SOURCES, FOUR NAMED STATEMENTS.**
+------------------------------------------------------------------------------------------------------------
+  ### (A) THE GEOMETRIC CLAUSE, AS THE DEPOSITED MONOGRAPH STATES IT.
+      `outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md:304`
+        **Perpendicular crossing.** At every simple zero ρ on the critical line, ξ'(ρ) is purely imaginary. The level curves of
+        Re(ξ) and Im(ξ) cross at right angles. The crossing is not approximate — it is forced by Cauchy-Riemann at the
+        reflection axis.
+
+  ### (B) `SpectralCannonFull.spectral_cannon` AT SIDE-kernel ### **v1.5** ###
+      `Kernel/SpectralCannonFull.lean:65` -- ### **THE STATEMENT, NOT THE DOCSTRING**
+        theorem spectral_cannon (t : ℝ) :
+            (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0
+
+  ### (C) `transversal_generic_empty` AT SIDE-simplicity ### **v0.1.0** ### (its latest tag)
+      `SIDESimplicity/Codimension.lean:30` -- ### **THE STATEMENT, NOT THE DOCSTRING**
+        theorem transversal_generic_empty (curveDim obstrCodim : ℤ)
+            (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) :
+            curveDim - obstrCodim < 0
+
+  ### (C) `codim_margin` AT SIDE-simplicity ### **v0.1.0** ### (its latest tag)
+      `SIDESimplicity/Codimension.lean:48` -- ### **THE STATEMENT, NOT THE DOCSTRING**
+        theorem codim_margin (lost : ℤ) (h0 : 0 ≤ lost) (h3 : lost ≤ 3) :
+            curveDim < numSources - lost
+
+      ### the two `def`s those statements are about, at the same tag:
+        def numSources : ℤ
+        def curveDim : ℤ
+      ### ### **SO (C)`S TWO STATEMENTS QUANTIFY OVER `ℤ` AND NOTHING ELSE.** ### Neither
+      ### mentions `ξ`, `ζ`, a zero, or a complex number; both are closed by `omega`, the
+      ### integer-arithmetic decision procedure. ### **THE MATHEMATICS THEY ARE NAMED FOR
+      ### LIVES IN THEIR DOCSTRINGS, AND THE ORDER ASKS FOR STATEMENTS.**
+
+(P4) (R70) -- THE DECLARATION READER REHEARSED ON ONE OF THE SIX, BEFORE THE SEAL.
+------------------------------------------------------------------------------------------------------------
+    subject : `xiPrime_over_xi_re_pos`
+    what the reader returns, verbatim:
+      theorem xiPrime_over_xi_re_pos :
+          ∀ s : ℂ, 1 ≤ s.re → 0 < (XiPrime.xiDeriv s / XiPrime.xi s).re
+    ### the returned text contains the STATEMENT and ### **NOT the docstring, NOT the
+    ### proof token, NOT the `sorry`** : ### **True**
+    ### ### AND THE NEGATIVE HALF: the file`s docstring for that theorem is
+      /-- **Re ξ′/ξ(s) > 0 whenever Re s ≥ 1.** -/
+    ### which the reader ### **DID NOT RETURN** ### -- so the reader distinguishes the two.
+
+============================================================================================================
+  ### MISSES : 0 
+============================================================================================================

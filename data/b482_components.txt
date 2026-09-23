@@ -1,0 +1,166 @@
+============================================================================================================
+COMPONENT 1 -- THE SIX STATEMENTS, AT THE PIN `fbdc36b`.
+============================================================================================================
+
+  ### `xiPrime_zeros_in_open_critical_strip`   (`Challenge/XiPrime.lean:67`)
+      theorem xiPrime_zeros_in_open_critical_strip :
+          ∀ ρ : ℂ, XiPrime.xiDeriv ρ = 0 → 0 < ρ.re ∧ ρ.re < 1
+
+  ### `xiPrime_over_xi_re_pos`   (`Challenge/XiPrime.lean:72`)
+      theorem xiPrime_over_xi_re_pos :
+          ∀ s : ℂ, 1 ≤ s.re → 0 < (XiPrime.xiDeriv s / XiPrime.xi s).re
+
+  ### `xiPrime_simple_zeros_on_critical_line`   (`Challenge/XiPrime.lean:79`)
+      theorem xiPrime_simple_zeros_on_critical_line :
+          ∃ T₀ : ℝ, ∀ T ≥ T₀,
+            (0.85838 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧
+            (0.92919 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ)
+
+  ### `xiPrime_simple_zeros_on_critical_line_cumulative`   (`Challenge/XiPrime.lean:86`)
+      theorem xiPrime_simple_zeros_on_critical_line_cumulative :
+          ∃ T₀ : ℝ, ∀ T ≥ T₀,
+            (0.85838 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧
+            (0.92919 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ)
+
+  ### `xiPrime_simple_zeros_on_critical_line_quartic`   (`Challenge/XiPrime.lean:94`)
+      theorem xiPrime_simple_zeros_on_critical_line_quartic :
+          ∃ T₀ : ℝ, ∀ T ≥ T₀,
+            (0.86864 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.N0simple T (2 * T) : ℝ) ∧
+            (0.93432 : ℝ) * (XiPrime.Ncount T (2 * T) : ℝ) ≤ (XiPrime.Ndist T (2 * T) : ℝ)
+
+  ### `xiPrime_simple_zeros_on_critical_line_quartic_cumulative`   (`Challenge/XiPrime.lean:102`)
+      theorem xiPrime_simple_zeros_on_critical_line_quartic_cumulative :
+          ∃ T₀ : ℝ, ∀ T ≥ T₀,
+            (0.86864 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.N0simple 0 T : ℝ) ∧
+            (0.93432 : ℝ) * (XiPrime.Ncount 0 T : ℝ) ≤ (XiPrime.Ndist 0 T : ℝ)
+
+  ### ### **EVERY ONE OF THE SIX IS CLOSED BY `sorry` -- 6 IN THE FILE.** ### They are
+  ### ### **CHALLENGE STATEMENTS, NOT THEOREMS HELD.** ### Nothing below says otherwise.
+
+  ### THE COMPARATOR, `comparator-xiprime.json`:
+    challenge module : Challenge.XiPrime ; solution module : Solution.XiPrime
+    `theorem_names` (6) : the SAME SET as the file`s theorems.
+    `definition_names` : ### **EMPTY** -- the eight `def`s are NOT under comparison.
+    ### ### **PERMITTED AXIOMS : propext, Quot.sound, Classical.choice.**
+    ### Those are the three Lean`s own `#print axioms` calls standard; ### **THEY ARE NOT A
+    ### LICENCE FOR AN EXTRA HYPOTHESIS**, and the corpus`s own `(R-)`statement-form rule
+    ### applies to them exactly as it does to a corpus terminal.
+
+============================================================================================================
+COMPONENT 2 -- THE CORPUS`S OWN STATEMENTS. ### **STATEMENTS, NOT DOCSTRINGS.**
+============================================================================================================
+
+  ### (A) ### **the geometric clause (perpendicular crossing)** ### -- `A_Place_to_Stand.md:304`
+      **Perpendicular crossing.** At every simple zero ρ on the critical line, ξ'(ρ) is purely imaginary. The level curves of Re(ξ) and Im(ξ) cros
+
+  ### (B) ### **spectral_cannon** ### -- `Kernel/SpectralCannonFull.lean:65`
+      theorem spectral_cannon (t : ℝ) :
+          (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0
+
+  ### (C1) ### **transversal_generic_empty** ### -- `SIDESimplicity/Codimension.lean:30`
+      theorem transversal_generic_empty (curveDim obstrCodim : ℤ)
+          (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) :
+          curveDim - obstrCodim < 0
+
+  ### (C2) ### **codim_margin** ### -- `SIDESimplicity/Codimension.lean:48`
+      theorem codim_margin (lost : ℤ) (h0 : 0 ≤ lost) (h3 : lost ≤ 3) :
+          curveDim < numSources - lost
+
+  ### the tags these are read at : ### **the deposited copy** ### for (A);
+  ### ### **SIDE-kernel `v1.5`** ### for (B); ### **SIDE-simplicity `v0.1.0`, its latest
+  ### tag** ### for (C1) and (C2).
+  ### ### **AND (C1) AND (C2) QUANTIFY OVER `ℤ` AND NOTHING ELSE.** ### Neither mentions
+  ### `ξ`, `ζ`, a zero, or a complex number; `curveDim` and `numSources` are integer
+  ### constants and both are closed by `omega`. ### **THE MATHEMATICS THEY ARE NAMED FOR
+  ### LIVES IN THEIR DOCSTRINGS**, which the order excludes. ### This is a fact about what
+  ### the statements SAY and ### **IS NOT A JUDGEMENT ON THE REPOSITORY.**
+
+============================================================================================================
+COMPONENT 3 -- THE PLACEMENT. ### ONE VERDICT PER DECLARATION PER CORPUS STATEMENT.
+============================================================================================================
+
+  declaration                                          (A)        (B)        (C1)       (C2)
+  ----------------------------------------------------------------------------------------------------
+  xiPrime_zeros_in_open_critical_strip                 TOUCHES    TOUCHES    APART      APART
+  xiPrime_over_xi_re_pos                               APART      APART      APART      APART
+  xiPrime_simple_zeros_on_critical_line                TOUCHES    TOUCHES    APART      APART
+  xiPrime_simple_zeros_on_critical_line_cumulative     TOUCHES    TOUCHES    APART      APART
+  xiPrime_simple_zeros_on_critical_line_quartic        TOUCHES    TOUCHES    APART      APART
+  xiPrime_simple_zeros_on_critical_line_quartic_cumula TOUCHES    TOUCHES    APART      APART
+
+  ### ### **CELLS : 24. ### `SAME OBJECT` : 0. ### `TOUCHES` : 10. ### `APART` : 14.**
+
+  ### THE DECIDING CLAUSE FOR EVERY NON-`APART` CELL:
+
+    ### `xiPrime_zeros_in_open_critical_strip`  ×  (A) : ### **TOUCHES**
+        corpus: *“At every simple zero ρ on the critical line, ξ'(ρ) is purely imaginary”* ; declaration: `∀ ρ : ℂ, XiPrime.
+        xiDeriv ρ = 0 → 0 < ρ.re ∧ ρ.re < 1`. ### **THE SHARED TERM IS `ξ'`; THE QUANTIFIED SET IS NOT.** The clause ranges 
+        over ZEROS OF `ξ`, the declaration over ZEROS OF `ξ'`.
+
+    ### `xiPrime_zeros_in_open_critical_strip`  ×  (B) : ### **TOUCHES**
+        corpus: `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` for ALL `t` ; declaration: every zero of `ξ'` has `0 < re < 
+        1`. ### **ONE FIXES A VALUE OF `ξ'` ON THE LINE, THE OTHER LOCATES ITS ZEROS IN THE STRIP.** Same function, differen
+        t predicate; neither implies the other.
+
+    ### `xiPrime_simple_zeros_on_critical_line`  ×  (A) : ### **TOUCHES**
+        both quantify over `xiDeriv` / `deriv completedRiemannZeta₀` -- THE SAME FUNCTION -- and both speak of the critical 
+        line
+
+    ### `xiPrime_simple_zeros_on_critical_line`  ×  (B) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+    ### `xiPrime_simple_zeros_on_critical_line_cumulative`  ×  (A) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+    ### `xiPrime_simple_zeros_on_critical_line_cumulative`  ×  (B) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+    ### `xiPrime_simple_zeros_on_critical_line_quartic`  ×  (A) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+    ### `xiPrime_simple_zeros_on_critical_line_quartic`  ×  (B) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+    ### `xiPrime_simple_zeros_on_critical_line_quartic_cumulative`  ×  (A) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+    ### `xiPrime_simple_zeros_on_critical_line_quartic_cumulative`  ×  (B) : ### **TOUCHES**
+        (the deciding clause is the one printed above for this pair of kinds)
+
+  ### ### **AND EVERY `APART` CELL AGAINST (C1) AND (C2) HAS ONE REASON:** ### those two
+  ### statements contain no complex number, no `ξ`, and no zero -- ### **THERE IS NO SHARED
+  ### OBJECT TO BE THE SAME AS OR TO TOUCH.**
+  ### ### **AND `xiPrime_over_xi_re_pos` IS `APART` FROM (A) AND (B) FOR A DIFFERENT
+  ### REASON:** it quantifies over the half-plane `1 ≤ s.re`, and (A) and (B) both
+  ### speak of the CRITICAL LINE `re = 1/2`. ### **THE REGIONS ARE DISJOINT**, so the
+  ### statements cannot bear on one another at all.
+
+  ### (3b) THE TWO REVERSE READS.
+  ----------------------------------------------------------------------------------------------------
+    ### ### **(i) WHAT THE SIX STATE THAT THE CORPUS DOES NOT.**
+      - ### **A POSITIVE PROPORTION, WITH A NUMBER.** ### `0.85838` and `0.92919`, and
+        `0.86864` and `0.93432` in the quartic window. ### **THE CORPUS STATES NO
+        PROPORTION OF THE ZEROS OF `ξ'` ANYWHERE**, in any tag read here.
+      - ### **THE LOCATION OF EVERY ZERO OF `ξ'`.** ### `0 < ρ.re ∧ ρ.re < 1` for every
+        zero of `ξ'`. ### The corpus`s clause (A) speaks of `ξ'` only AT ZEROS OF `ξ`.
+      - ### **A HALF-PLANE POSITIVITY FOR `ξ'/ξ`.** ### `0 < (ξ'(s)/ξ(s)).re` for
+        `1 ≤ s.re`. ### Nothing in the three corpus sources mentions that quotient.
+      - ### **AND A COUNTING APPARATUS**: `Ncount`, `Ndist`, `N0simple` with multiplicity
+        in the denominator. ### **THE CORPUS HAS NO SUCH APPARATUS FOR `ξ'`.**
+
+    ### ### **(ii) WHAT THE CORPUS STATES THAT THE SIX DO NOT.**
+      - ### **A POINTWISE VALUE OF `ξ'` AT EVERY POINT OF THE CRITICAL LINE.** ###
+        `spectral_cannon` gives `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` for ALL
+        `t : ℝ` -- ### **NOT ONLY AT ZEROS** -- and ### **IT IS PROVED, NOT POSED.**
+        ### None of the six states any value of `ξ'` at any point.
+      - ### **THE CODIMENSION DICHOTOMY FOR THE ZEROS OF `ξ`** (clause (A)`s setting): a
+        zero on the line is a codimension-1 condition, off it codimension-2. ### The six
+        say nothing about `ξ`'s own zeros.
+      - ### **AND AN INTEGER MARGIN**: (C1) and (C2). ### The six state no integer fact.
+
+    ### ### **THE ASYMMETRY WORTH NAMING:** the corpus`s one PROVED statement about `ξ'`
+    ### is ### **STRONGER POINTWISE** ### than anything the six assert about `ξ'`'s value
+    ### -- it holds at every `t`, not only at zeros -- while the six assert ### **A
+    ### QUANTITATIVE COUNT THE CORPUS NEVER ATTEMPTS.** ### **NEITHER SIDE SUBSUMES THE
+    ### OTHER, AND NO CELL IS `SAME OBJECT`.**
+  ### ### **NO GRADE IS CONFERRED ON ANY CORPUS OBJECT BY THIS PLACEMENT.**
