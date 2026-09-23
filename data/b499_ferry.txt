@@ -1,0 +1,93 @@
+RULING (R110) BEGIN
+RULING (R110), the author's, ratified by this paste and strikeable.
+
+THE SEAT MAY WRITE METADATA AT ZENODO, within this scope and no wider:
+title and description of an already-published record, by the legacy
+deposit API's edit / PUT / publish sequence, with no new version, no
+file change, and no record beyond the three (R109) names. The token
+lives in the environment variable ZENODO_TOKEN and nowhere else: it is
+read by the act's tool at run time, appears in no file, no log, no
+bank, no commit, no printed line; the pre-push guard scans every
+commit for it. Every write is followed, inside the same act, by an
+anonymous fetch of the record and a sentence-for-sentence comparison
+of the returned title and description against the banked
+replacements; an act whose fetch-back does not match every field
+stops, prints the diff, and files nothing. The standing line "nothing
+at Zenodo written by the seat" is replaced from this act on by
+"nothing at Zenodo written by the seat outside (R110)".
+
+RULING (R110) END
+
+RULING (R111) BEGIN
+RULING (R111), the author's, ratified by this paste and strikeable.
+
+Two texts of the banked edits are amended in their v2 file on the
+authority of the record's own statement-reads: text [5] carries "five
+compiled identifications of σ = 1/2 in five machineries, three of
+which share one map under three names" in place of "five independent
+compiled identifications", on THE_UNCONDITIONAL_SURROUND §4's
+statement-read of 2026-08-09; text [6] states the goal state's
+terminal as a stand-in in positive form. The ERRATA entry b499 files
+records both amendments with their authority. Descriptions state what
+is established and where; a clause saying what is not checked appears
+where, and where alone, an erratum corrects a sentence that claimed
+it.
+
+RULING (R111) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b499 — THE TEN METADATA EDITS APPLIED BY API AND FETCHED BACK.
+Runs after b498 has closed; registration and seal come before
+Component 0, in the record's usual order.
+Input: the author's file at D:\MY-DOwnloads\zenodo_edits_2026-09-23_v2.txt.
+Before anything else, copy it unchanged into relay's data folder as
+data/zenodo_edits_2026-09-23_v2.txt, print both absolute paths, and print
+the sha256 and line count of both copies — they must agree, and the
+copy in relay is the banked input from here on (ten replacements
+between ---- lines).
+
+Component 0 — the token, present and not shown. Confirm ZENODO_TOKEN
+is set by printing its length and its sha256 prefix (8 hex), nothing
+more. GET https://zenodo.org/api/deposit/depositions/21539167 with the
+token; print the HTTP status and the record's current title. A status
+other than 200 stops the act.
+
+Component 1 — the plan, dry. For each of the three records, GET the
+deposition, bank the full metadata JSON as returned (this is the
+before-state), and locate each target sentence inside the returned
+description AS HTML — entities such as &ndash; and &eacute; are what
+the field holds, and the match is made on the field's own bytes, not
+on the screen text. Print, per replacement: found ONCE / NOT FOUND /
+FOUND MORE THAN ONCE. Any NOT FOUND or MORE THAN ONCE stops the act
+before any write; the author's paste-ready file is the object to
+repair, not the record.
+
+Component 2 — the writes, one record at a time, the monograph last.
+For each record: POST .../actions/edit (expect 201); build the new
+metadata from the banked before-state with title and description
+replaced and every other field carried unchanged — a PUT replaces the
+whole metadata block, so nothing is omitted; PUT .../depositions/:id
+(expect 200); POST .../actions/publish (expect 202). Then GET
+https://zenodo.org/api/records/:id WITHOUT the token, bank the
+returned JSON, and compare title and description field-for-field
+against the intended texts. MATCH continues to the next record; any
+MISMATCH stops, prints the diff, and leaves the other records
+untouched. Order: 21539068, then 21520474, then 21539167.
+
+Component 3 — the record. On three MATCHes: one ERRATA entry, id by
+the (R97) rule, listing the ten edits with each field's before and
+after as fetched, the three record URLs, and the sha256 of each banked
+fetch-back; the lines that name the three records — REGISTRY.md:77, 82,
+94, 98 and 414, and meta/ZENODO_METADATA.md:8–10, as the seat read
+them at e654f66 — annotated by appended note that the platform now
+carries the corrected titles, each note beside its own line. Nothing else edited.
+
+The navigator's expectations: (N1) all ten targets found ONCE at
+Component 1; (N2) all three fetch-backs MATCH; (N3) the description
+HTML returned differs from the screen text at three or more entity
+sites, so a plain-text match would have failed somewhere. Each
+refutable by a printed cell. No new version; no file touched at
+Zenodo; nothing deposits; h2 where the deposit left it.
+
+FERRY END (part 1 of 1)

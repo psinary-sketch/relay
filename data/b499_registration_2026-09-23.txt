@@ -1,0 +1,229 @@
+====================================================================================================
+ACT b499 -- THE REGISTRATION FACE. ### THE TEN METADATA EDITS APPLIED BY API AND FETCHED BACK.
+====================================================================================================
+### Sealed BEFORE Component 0 and before the guard step. ### **THE SEAT WRITES AT ZENODO FOR THE
+### FIRST TIME, UNDER (R110) AND WITHIN ITS SCOPE ALONE**: title and description of three published
+### records, by the legacy deposit API`s edit / PUT / publish sequence; no new version; no file.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R110) AND (R111) ARE RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** ### The standing
+### line becomes *"nothing at Zenodo written by the seat outside (R110)"* from this act on.
+### ### **ONE CLAUSE OF (R110) WAS NOT TRUE OF THE WORLD WHEN THE FERRY ARRIVED.** ### It says *"the
+### pre-push guard scans every commit for it."* ### The guard -- `.githooks/pre-push`, byte-identical
+### in relay, PLACE-papers, SIDE-global-section and SIDE-explicit-formula -- carries no such limb.
+### ### **THE SEAT ASKED; THE AUTHOR CHOSE TO HAVE THE LIMB ADDED IN THIS ACT, BEFORE ANY USE OF
+### THE TOKEN.** ### That is step (G) below, and it is why this act writes the guard.
+### ### **THE TOKEN IS NEVER WRITTEN.** ### It is read from the environment at run time by the act`s
+### tool and by the guard, and appears in no file, log, bank, commit, argument vector or printed line.
+### ### **THIS ACT CONFERS NO GRADE.** ### It changes how three records DESCRIBE the work; it proves
+### nothing, and `h2` stays where the deposit left it.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE STEPS, IN ORDER -- (G), THEN COMPONENT (0) THROUGH COMPONENT (3).
+----------------------------------------------------------------------------------------------------
+### (G) THE GUARD LIMB. ### relay`s `.githooks/pre-push`, the single source under (R15), gains limb
+###     (v): ### **IF `ZENODO_TOKEN` IS SET IN THE PUSHING SHELL, EVERY OUTGOING COMMIT -- ITS PATCH
+###     AND ITS MESSAGE, ON EVERY PUSHED REF -- IS SCANNED FOR THAT STRING AND THE PUSH REFUSED ON A
+###     HIT.** ### The string is read by `awk` from `ENVIRON`, never passed as an argument and never
+###     written to a file. ### **IF THE VARIABLE IS NOT SET, THE GUARD SAYS SO ON STDERR AND DOES NOT
+###     REFUSE** -- a guard that refused every push from a shell without the token would stop all
+###     other work; the warning is printed so the missing coverage is never silent. ### The new file
+###     is copied BYTE-IDENTICAL into the other three repositories` tracked `.githooks/pre-push`.
+###     ### **EXERCISED IN A SCRATCH CLONE, BOTH POLARITIES, WITH A FAKE TOKEN VALUE** -- a
+###     throwaway commit carrying the fake string is REFUSED under `git push --dry-run`, one without
+###     it PASSES, and the unset case prints its warning. ### The real token never enters a test.
+### (0) THE TOKEN, PRESENT AND NOT SHOWN. ### Its length and its sha256 prefix, 8 hex, and nothing
+###     more. ### GET `/api/deposit/depositions/21539167` with the token: the HTTP status and the
+###     record`s current title. ### **A STATUS OTHER THAN 200 STOPS THE ACT.**
+### (1) THE PLAN, DRY. ### For each record, GET the deposition and bank the full JSON as returned --
+###     the BEFORE-STATE -- after a refusal check that the token string is not in it. ### Each
+###     target is located IN THE FIELD`S OWN BYTES, by its start phrase from the banked input.
+###     ### ### **THE EXTENT RULE, SEALED HERE:** ### a target`s old span BEGINS at its start phrase
+###     and ENDS at the K-th sentence end after it, where K is the number of sentence ends in its
+###     REPLACEMENT text. ### A sentence end is a `.` followed by whitespace, by `<`, or by the end of
+###     the field. ### **WHY K AND NOT ONE:** three targets open with a heading that ends in a full
+###     stop -- `MAIN THEOREM.`, `THE PROOF IN TWO FORMS.`, `...WHAT IT NAMES AS OPEN.` -- and their
+###     replacements open the same way, so a first-stop rule would replace the heading alone. ### A
+###     span that would CROSS a `<p>` or `</p>` is a stop. ### Each span is PRINTED WHOLE.
+###     ### Per target: ### **FOUND ONCE / NOT FOUND / FOUND MORE THAN ONCE**, counted on the start
+###     phrase in the raw field. ### **ANY NOT FOUND OR MORE THAN ONCE STOPS THE ACT BEFORE ANY
+###     WRITE.** ### A TITLE target is the whole field, and is FOUND ONCE when the field is present.
+###     ### ### **THE ENTITY SITES ARE COUNTED FOR (N3):** HTML character references (`&name;`,
+###     `&#n;`) in each returned description, each a place where the field`s bytes and the screen
+###     text differ.
+### (2) THE WRITES, IN THE ORDER GIVEN: `21539068`, then `21520474`, then `21539167`. ### For each:
+###     POST `actions/edit` (expect 201); the new metadata is the BANKED BEFORE-STATE`s `metadata`
+###     block with `title` and `description` replaced and ### **EVERY OTHER KEY CARRIED UNCHANGED**;
+###     PUT (expect 200); POST `actions/publish` (expect 202). ### The replacement is inserted into the
+###     HTML with `&`, `<` and `>` escaped and every other character as written.
+###     ### ### **THE RECOVERY, SEALED HERE:** ### if the edit POST is not 201, stop. ### If the PUT is
+###     not 200, or the publish is not 202, the tool POSTs `actions/discard`, prints its status, and
+###     STOPS -- the record returns to its published state and nothing further is attempted. ###
+###     **NO KEY OF THE METADATA IS DROPPED TO MAKE A PUT PASS**; a PUT the platform refuses on the
+###     carried block is a stop, not a repair.
+###     ### ### **THE FETCH-BACK:** GET `/api/records/:id` WITHOUT the token, banked whole. ### The
+###     platform may serve the old state for a few seconds after a publish, so the fetch is repeated
+###     at 10-second intervals, up to SIX tries, until the returned title is the intended one, and
+###     every try is printed. ### ### **THE MATCH RULE, SEALED HERE:** ### (i) the returned title
+###     equals the intended title exactly, after entity decoding; ### (ii) each replacement sentence
+###     occurs EXACTLY ONCE in the returned description`s text; ### (iii) no old span`s text occurs in
+###     it; ### (iv) the returned description`s text EQUALS the intended description`s text, where
+###     "text" means tags removed, entities decoded and whitespace runs collapsed. ### **ALL FOUR, OR
+###     MISMATCH**; a mismatch prints the diff and STOPS, and the other records are left untouched.
+###     ### The raw bytes are ALSO compared and the result printed, but a raw difference alone is not
+###     a mismatch: the rule compares what the record SAYS, as (R110)`s "sentence-for-sentence" asks.
+### (3) THE RECORD, ON THREE MATCHES ONLY. ### ONE ERRATA entry through `tools/errata_append.py`, id
+###     `E-2026-09-23-1` by the (R97) rule -- the first id of this date, the appender refusing a
+###     duplicate before it writes -- listing the ten edits with each field`s before and after as
+###     fetched, the three record URLs, the sha256 of each banked fetch-back, and (R111)`s two
+###     amendments with their authority. ### Then the notes that the platform now carries the
+###     corrected titles, ### **EACH NOTE BESIDE ITS OWN LINE** -- read as: at the nearest point after
+###     the named line where a new line breaks neither a table, a sentence, nor a block`s syntax, in
+###     the block`s own prefix, and naming its line. ### The points, SEALED HERE, as read at PLACE-papers
+###     `6337cef` -- which the ferry calls `e654f66`, relay`s commit of the same moment; b498 did not
+###     touch either file, and each line is re-verified byte-unchanged before any note is written:
+###       `REGISTRY.md:77`  -> directly after it (the line ends its sentence).
+###       `REGISTRY.md:82`  -> after the table`s last row, `REGISTRY.md:89` (82 is mid-table).
+###       `REGISTRY.md:94`  -> directly after it, in the list item`s two-space indent.
+###       `REGISTRY.md:98`  -> directly after it, in the list item`s two-space indent.
+###       `REGISTRY.md:414` -> after it, as a paragraph (414 is the table`s last row).
+###       `meta/ZENODO_METADATA.md:8`, `:9`, `:10` -> three `>` lines after `:11`, which ends the one
+###         sentence the three lines share -- `:8` ends *"DOI"* and `:9` begins with that DOI`s value,
+###         so a note directly after `:8` would split a DOI from its number.
+###     ### The notes are INSERTED, bottom-up; no prior line is edited or removed, and that is PROVED
+###     per file: every prior line present in order, the added lines exactly the notes.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE**, because a prediction drawn from a peek must say
+### it was drawn from a peek:
+###   (i)   the v2 input against v1: they differ in the header line and in texts [5] and [6] ONLY,
+###         exactly as (R111) states.
+###   (ii)  the monograph`s description AS BANKED on disk at `data/b359_fetch_F2.json` -- NOT a live
+###         fetch -- whose HTML carries `&mdash;`, `&sigma;`, `&ndash;`, `&eacute;` and others; the
+###         EXTENT RULE was checked against it for the five monograph targets and selects, for each,
+###         the span ending at the old sentence`s true end.
+###   (iii) the named REGISTRY and ZENODO_METADATA lines and their neighbours, and the precedents
+###         of b456 and b485, which placed their notes after the table they annotated.
+###   (iv)  the guard`s text in all four repositories, and their digests, all `146330836e1a...`.
+###   (v)   ERRATA`s ids of September: `E-2026-09-22-1` and `-2`; none of this date.
+###   (vi)  the token`s LENGTH, 60, printed earlier this session at the author`s own command, before
+###         this act began; nothing else of it.
+###   (vii) b498`s launcher, pid 14280, is absent from the process table. ### **ITS LOG IS NOT READ
+###         BY THIS ACT**; the next build act reads it.
+### ### **NO LIVE ZENODO READ WAS MADE BEFORE THE SEAL.**
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **ALL TEN TARGETS FOUND ONCE AT COMPONENT 1.**
+### (N2) ### **ALL THREE FETCH-BACKS MATCH.**
+### (N3) ### **THE DESCRIPTION HTML RETURNED DIFFERS FROM THE SCREEN TEXT AT THREE OR MORE ENTITY
+###      SITES, SO A PLAIN-TEXT MATCH WOULD HAVE FAILED SOMEWHERE.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **THE PLATFORM ACCEPTS ITS OWN METADATA BACK: THE FIRST PUT, CARRYING THE BEFORE-STATE
+###      BLOCK WITH ONLY TITLE AND DESCRIPTION REPLACED, RETURNS 200.** ### The live risk is a
+###      read-only key the legacy API returns but refuses on input.
+### (S2) ### **THE MONOGRAPH`S LIVE DESCRIPTION IS BYTE-IDENTICAL TO THE COPY BANKED AT b359** --
+###      nothing has edited it on the platform since the deposit.
+### (S3) ### **FOR AT LEAST ONE RECORD THE RETURNED DESCRIPTION`S RAW BYTES DIFFER FROM THE BYTES
+###      SENT**, while the match rule`s text comparison agrees -- the platform re-serialises the HTML
+###      it stores, which is why the match rule compares text.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS
+### FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py
+### --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py` (gates: 8)
+### -> `reg_seal.py --lock` -> ### **AND ONLY THEN STEP (G), THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R110-R111-ENTERED`
+### `G-INPUT-COPIED-UNCHANGED`
+### `G-GUARD-LIMB-PRESENT` `G-GUARD-SINGLE-SOURCE` `G-GUARD-REFUSES-FAKE` `G-GUARD-PASSES-CLEAN`
+### `G-GUARD-WARNS-UNSET` `G-GUARD-BEFORE-TOKEN`
+### `G-TOKEN-NOT-IN-BANKS` `G-TOKEN-NOT-IN-COMMITS` `G-TOKEN-NOT-IN-TOOLS` `G-TOKEN-PREFIX-ONLY`
+### `G-C0-STATUS-200`
+### `G-BEFORE-BANKED` `G-TEN-TARGETS-COUNTED` `G-EXTENT-RULE-K` `G-SPAN-IN-ONE-PARAGRAPH`
+### `G-ENTITY-SITES-COUNTED` `G-STOP-BEFORE-WRITE`
+### `G-ORDER-OBEYED` `G-EDIT-201` `G-PUT-200` `G-PUBLISH-202` `G-OTHER-KEYS-CARRIED`
+### `G-FETCHBACK-ANONYMOUS` `G-FETCHBACK-BANKED` `G-MATCH-FOUR-LIMBS` `G-NO-NEW-VERSION`
+### `G-ERRATA-ONE-ENTRY` `G-ERRATA-ID-R97` `G-ERRATA-CARRIES-R111` `G-NOTES-BESIDE-LINES`
+### `G-NOTES-INSERT-ONLY` `G-NAMED-LINES-UNCHANGED`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **THE b498 ARMS OF THE LAUNCH ARE NOT CARRIED**, since this act launches nothing:
+###   `G-LAUNCH-NEW-GROUP` IS NOT CARRIED FORWARD;
+###   `G-LOG-NOT-READ` IS NOT CARRIED FORWARD.
+### ### **AND `G-NOZENODO-WRITE` IS NOT CARRIED FORWARD** -- this act writes at Zenodo under
+### (R110); its place is taken by the arms that bound the write to (R110)`s scope: `G-ORDER-OBEYED`,
+### `G-OTHER-KEYS-CARRIED`, `G-NO-NEW-VERSION`. ### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH
+### ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b499_*` `relay/tools/b499_*` |
+### | the preamble copy | `relay/data/zenodo_edits_2026-09-23_v2.txt` |
+### | `tools/b499_guard.py` (step G) | `relay/.githooks/pre-push`
+###   `PLACE-papers/.githooks/pre-push` `SIDE-global-section/.githooks/pre-push`
+###   `SIDE-explicit-formula/.githooks/pre-push` -- ONE limb added, byte-identical in all four --
+###   and a scratch clone in the session scratchpad, outside every repository, removed after |
+### | `tools/b499_zenodo.py` (Components 0-2) | the three records` title and description AT ZENODO,
+###   under (R110), and `relay/data/b499_*` banks |
+### | `tools/errata_append.py` (CARRIED, UNEDITED) | `PLACE-papers/ERRATA.md` (ONE entry) |
+### | `tools/b499_record.py` (Component 3) | `PLACE-papers/REGISTRY.md` (FIVE inserted notes)
+###   `PLACE-papers/meta/ZENODO_METADATA.md` (THREE inserted notes) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b499_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b499_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b499_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b499_span*.json` `relay/data/b499_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b499.zip`
+###   (outside every repository) `relay/data/b499_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### **SIDE-explicit-formula IS WRITTEN IN ONE FILE ONLY, ITS GUARD** -- no `.lean` file, no
+### `lakefile`, nothing else. ### ### **ON ANY STOP, COMPONENT 3 WRITES NOTHING** and ERRATA,
+### REGISTRY and ZENODO_METADATA stay as they are.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110).** ### No new version, no file
+### touched at Zenodo, no record beyond the three (R109) names, no field beyond title and
+### description. ### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### No kernel is
+### built and no `lake` command runs. ### Row U1 is unedited. ### No bridge is typed. ### `h2` stays
+### where the deposit left it. ### The four lists stay OPEN. ### The numerical lane stays SHUT. ### K1,
+### K2 and K3 are not started. ### `e_difficulty` is not chosen here.
+### ### **AND A DESCRIPTION CHANGED IS NOT A RESULT CHANGED.** ### The edits make three records say
+### what the record establishes; nothing about RH follows from them.
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : d76080be649dd1648467ed136d410aa703842aaef95959ccf7f5afacdd202b7b
+### bytes locked : 18673
+### locked at (UTC) : 2026-09-23T21:50:18Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b499_registration_2026-09-23.txt`.**
+====================================================================================================

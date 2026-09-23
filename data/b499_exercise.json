@@ -1,0 +1,489 @@
+{
+ "exercise": [
+  {
+   "name": "G-RECEIPT-IN-FULL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the banked ferry"
+  },
+  {
+   "name": "G-SCAN-CLEAN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-SCAN-FLAGS-ZERO",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s banked scan"
+  },
+  {
+   "name": "G-STEPZERO-CENSUS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "two banked censuses"
+  },
+  {
+   "name": "G-STEPZERO-PINS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE -- the pins tool RUN ALONE"
+  },
+  {
+   "name": "G-REG-LOCKED-FIRST",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face lock block"
+  },
+  {
+   "name": "G-LOCKGATE-EIGHT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE (A2)"
+  },
+  {
+   "name": "G-SEAL-VERIFIES",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-PRIOR-CLOSED-PUSHED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "b498`s closing AND the ledger"
+  },
+  {
+   "name": "G-ADDENDUM-SLOT-CONTENT-BOUNDED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the addendum slot bytes"
+  },
+  {
+   "name": "G-NUMBER-UNCLAIMED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the data directory, and this act`s own banked order"
+  },
+  {
+   "name": "G-PEEK-DECLARED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face -- the reads taken BEFORE the seal are declared"
+  },
+  {
+   "name": "G-R110-R111-ENTERED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the banked ferry AND the trail"
+  },
+  {
+   "name": "G-INPUT-COPIED-UNCHANGED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the two copies of the input, byte for byte"
+  },
+  {
+   "name": "G-GUARD-LIMB-PRESENT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the four tracked guards"
+  },
+  {
+   "name": "G-GUARD-SINGLE-SOURCE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the four tracked guards, byte for byte"
+  },
+  {
+   "name": "G-GUARD-REFUSES-FAKE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the exercise bank -- the positive case, on the NEW guard"
+  },
+  {
+   "name": "G-GUARD-PASSES-CLEAN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the exercise bank -- the negative case, on the NEW guard"
+  },
+  {
+   "name": "G-GUARD-WARNS-UNSET",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the exercise bank -- the unset case, on the NEW guard"
+  },
+  {
+   "name": "G-GUARD-BEFORE-TOKEN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "file times -- the guard`s exercise bank older than Component 0`s"
+  },
+  {
+   "name": "G-TOKEN-NOT-IN-BANKS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every bank, tool and written document of this act, at suite time"
+  },
+  {
+   "name": "G-TOKEN-NOT-IN-COMMITS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every b499 commit in the four repositories, patch and message"
+  },
+  {
+   "name": "G-TOKEN-NOT-IN-TOOLS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the act`s tools -- the token read from the environment, never a literal"
+  },
+  {
+   "name": "G-TOKEN-PREFIX-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the Component 0 cell -- length and an 8-hex prefix, nothing more"
+  },
+  {
+   "name": "G-C0-STATUS-200",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the Component 0 cell"
+  },
+  {
+   "name": "G-BEFORE-BANKED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the three before-state banks on disk"
+  },
+  {
+   "name": "G-TEN-TARGETS-COUNTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the plan cell against the banked input"
+  },
+  {
+   "name": "G-EXTENT-RULE-K",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the plan -- each span holds exactly K sentence ends, K from its replacement"
+  },
+  {
+   "name": "G-SPAN-IN-ONE-PARAGRAPH",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the plan -- no span crosses a paragraph tag"
+  },
+  {
+   "name": "G-ENTITY-SITES-COUNTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the plan cell against the before-states themselves"
+  },
+  {
+   "name": "G-STOP-BEFORE-WRITE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the Component 2 tool -- it refuses unless Component 1 cleared"
+  },
+  {
+   "name": "G-ORDER-OBEYED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the write cells, in the order written"
+  },
+  {
+   "name": "G-EDIT-201",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the write cells"
+  },
+  {
+   "name": "G-PUT-200",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the write cells"
+  },
+  {
+   "name": "G-PUBLISH-202",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the write cells"
+  },
+  {
+   "name": "G-OTHER-KEYS-CARRIED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the write cells -- every key but title and description carried"
+  },
+  {
+   "name": "G-FETCHBACK-ANONYMOUS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the Component 2 tool -- the fetch-back call carries auth=False"
+  },
+  {
+   "name": "G-FETCHBACK-BANKED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the fetch-back banks against their recorded digests"
+  },
+  {
+   "name": "G-MATCH-FOUR-LIMBS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the write cells AND the banked fetch-backs` titles"
+  },
+  {
+   "name": "G-NO-NEW-VERSION",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the banked fetch-backs -- same id, still the last version, same files"
+  },
+  {
+   "name": "G-ERRATA-ONE-ENTRY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "ERRATA.md itself"
+  },
+  {
+   "name": "G-ERRATA-ID-R97",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "ERRATA.md -- the first id of this date, none before it"
+  },
+  {
+   "name": "G-ERRATA-CARRIES-R111",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the entry`s own text"
+  },
+  {
+   "name": "G-NOTES-BESIDE-LINES",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "REGISTRY and ZENODO_METADATA -- each note at its sealed point"
+  },
+  {
+   "name": "G-NOTES-INSERT-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "both files against PLACE-papers 6337cef -- every prior line kept, in order"
+  },
+  {
+   "name": "G-NAMED-LINES-UNCHANGED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the record tool`s own bank"
+  },
+  {
+   "name": "G-N1-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the desk bank against the scores"
+  },
+  {
+   "name": "G-N2-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the desk bank against the scores"
+  },
+  {
+   "name": "G-N3-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the desk bank -- and the limit of its \"so\" said"
+  },
+  {
+   "name": "G-SEAT-EXPECTATIONS-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face against the desk bank -- INCLUDING THE REFUTED ONE"
+  },
+  {
+   "name": "G-NOGRADE-CONFERRED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face"
+  },
+  {
+   "name": "G-NODEPOSIT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the deposit directory tracked state"
+  },
+  {
+   "name": "G-NOH2-MOVED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail`s own text -- THIS act`s record"
+  },
+  {
+   "name": "G-NOPRIORBANK",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "file times against the face"
+  },
+  {
+   "name": "G-FOUR-LISTS-OPEN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail`s own text -- THIS act`s record"
+  },
+  {
+   "name": "G-SPAN-BY-TOOL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the span tool record"
+  },
+  {
+   "name": "G-CORPUS-SCOPE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the PLACE-papers file list -- exactly the documents (W) names"
+  },
+  {
+   "name": "G-TRAIL-APPEND-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail`s own text"
+  },
+  {
+   "name": "G-CORR-APPEND-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the correspondence ledger"
+  },
+  {
+   "name": "G-WRITELIST-KINDS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every b499 commit in four repositories, against (R91)`s STEM GLOB"
+  },
+  {
+   "name": "G-WRITELIST-SPANS-ACT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite`s own text"
+  },
+  {
+   "name": "G-NOSTAGE-A-BY-DIFF",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the PLACE-papers file list -- no internal document, no `.lean`"
+  },
+  {
+   "name": "G-ARMS-DECLARED-EQ-RUN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face (G2) block against what runs"
+  },
+  {
+   "name": "G-ARMS-NO-SUBSTRING-VERDICT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite`s own text"
+  },
+  {
+   "name": "G-ARMS-NO-LIVE-LIMB",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the harness itself -- the positive control is RUN on every arm"
+  },
+  {
+   "name": "G-MUSTFAIL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a file that must not exist"
+  },
+  {
+   "name": "G-ARTEFACTS-NOT-COMMITTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "relay`s tracked tree -- (R58)"
+  },
+  {
+   "name": "G-PUSHED-PREDICATE-THREE-CLAUSED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite`s own text -- b472`s repair, carried"
+  }
+ ],
+ "run": 68,
+ "live_failing": [],
+ "defective": [],
+ "neg_failures": 0,
+ "declared": 69,
+ "deferred": [
+  "G-MIRROR-TAGGED-BUILD"
+ ],
+ "stray": []
+}

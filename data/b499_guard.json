@@ -1,0 +1,47 @@
+{
+ "before": {
+  "D:\\relay": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8",
+  "D:\\MY-DOwnloads\\PLACE-papers": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8",
+  "D:\\SIDE-global-section": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8",
+  "D:\\SIDE-explicit-formula": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8"
+ },
+ "after": {
+  "D:\\relay": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8",
+  "D:\\MY-DOwnloads\\PLACE-papers": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8",
+  "D:\\SIDE-global-section": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8",
+  "D:\\SIDE-explicit-formula": "469937f9c0419e26173b592b59dc56a3d0fb743b04e5e973e912c0e321da0eb8"
+ },
+ "identical": true,
+ "kept": true,
+ "cases": [
+  {
+   "label": "POSITIVE: a commit carrying the fake value",
+   "hook_is_new": true,
+   "exit": 1,
+   "refused": true,
+   "warned": false,
+   "leaked": false,
+   "ok": true
+  },
+  {
+   "label": "NEGATIVE: a commit without it, variable set",
+   "hook_is_new": true,
+   "exit": 0,
+   "refused": false,
+   "warned": false,
+   "leaked": false,
+   "ok": true
+  },
+  {
+   "label": "UNSET: the variable absent",
+   "hook_is_new": true,
+   "exit": 0,
+   "refused": false,
+   "warned": true,
+   "leaked": false,
+   "ok": true
+  }
+ ],
+ "allok": true,
+ "scratch_removed": true
+}

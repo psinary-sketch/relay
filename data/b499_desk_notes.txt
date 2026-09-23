@@ -1,0 +1,42 @@
+========================================================================================================
+b499 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE CELLS THE COMPONENTS PRINTED.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.**
+    *"all ten targets found ONCE at Component 1"* -- ### **FOUND ONCE : 10 of 10**
+
+  **(N2)** ### **HELD.**
+    *"all three fetch-backs MATCH"* -- ### **MATCH : 3 of 3**, each on its first try, all four
+    limbs true on every record.
+
+  **(N3)** ### **HELD.**
+    *"the description HTML returned differs from the screen text at three or more entity sites,
+    so a plain-text match would have failed somewhere"*
+    ### ### **ENTITY SITES : {'21539068': 10, '21520474': 9, '21539167': 28} = 47**
+    old spans that carry an entity : 3 of 7 -- ['[9]', '[5]', '[6]']
+    ### ### **HELD ON ITS CELL, AND THE "SO" IS TRUE FOR WHOLE SENTENCES ONLY.** ### A plain-text
+    ### match of the WHOLE old sentence would have failed at those targets; ### **A MATCH ON THE
+    ### START PHRASES WOULD NOT HAVE FAILED ANYWHERE** -- all seven start phrases are plain ASCII.
+    ### The extent rule mattered because it cut the span IN THE FIELD`S BYTES, entities and all.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.**
+    *"the platform accepts its own metadata back: the first PUT returns 200"* -- PUT 200, every
+    other key carried True
+
+  **(S2)** ### **HELD.**
+    *"the monograph`s live description is byte-identical to the copy banked at b359"* -- True
+
+  **(S3)** ### **REFUTED.**
+    *"for at least one record the returned description`s raw bytes differ from the bytes sent"*
+    raw bytes equal : {'21539068': True, '21520474': True, '21539167': True}
+    ### ### **REFUTED: THE PLATFORM STORED AND SERVED THE HTML EXACTLY AS SENT, ON ALL THREE.** ###
+    ### The match rule`s text comparison was built for a re-serialisation that did not happen;
+    ### it agreed with the raw comparison everywhere, and a raw-byte rule would have passed too.
+
+### ### **THE NAVIGATOR`S : HELD 3 ; REFUTED 0 ; NOT SCORABLE 0.**
+### ### **THE SEAT`S : REGISTERED 3 ; HELD 2 ; REFUTED 1 ; NOT SCORABLE 0.**
+========================================================================================================
