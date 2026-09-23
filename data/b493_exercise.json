@@ -1,0 +1,399 @@
+{
+ "exercise": [
+  {
+   "name": "G-RECEIPT-IN-FULL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the banked order AND the banked clause"
+  },
+  {
+   "name": "G-SCAN-CLEAN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-SCAN-FLAGS-ZERO",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s banked scan"
+  },
+  {
+   "name": "G-STEPZERO-CENSUS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "two banked censuses"
+  },
+  {
+   "name": "G-STEPZERO-PINS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-SURVEY-NOMISS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-REG-LOCKED-FIRST",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face lock block"
+  },
+  {
+   "name": "G-LOCKGATE-EIGHT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE (A2)"
+  },
+  {
+   "name": "G-SEAL-VERIFIES",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a banked verdict LINE"
+  },
+  {
+   "name": "G-PRIOR-CLOSED-PUSHED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "b492`s closing AND the ledger"
+  },
+  {
+   "name": "G-ADDENDUM-SLOT-CONTENT-BOUNDED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the addendum slot bytes"
+  },
+  {
+   "name": "G-NUMBER-UNCLAIMED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the data directory, and this act`s own banked order"
+  },
+  {
+   "name": "G-LISTING-VERBATIM",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the banked listing against the clause`s own description of it"
+  },
+  {
+   "name": "G-LISTING-DIGEST-PRINTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank -- the digest, recomputed here"
+  },
+  {
+   "name": "G-EIGHT-RECORDS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank and the listing, counted twice"
+  },
+  {
+   "name": "G-TRUNCATION-REPORTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank -- a verdict either way at every record"
+  },
+  {
+   "name": "G-FALLBACK-NOT-INVOKED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s tools, for a fetch or a fallback read"
+  },
+  {
+   "name": "G-SCREEN-AGREES-WITH-BANK",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the survey bank -- the monograph, head and tail"
+  },
+  {
+   "name": "G-104-ROWS-DISPOSED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank -- every sentence and every title"
+  },
+  {
+   "name": "G-EVERY-ROW-HAS-A-DISPOSITION",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank -- no row left blank"
+  },
+  {
+   "name": "G-THREE-DISPOSITIONS-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank -- the vocabulary is closed"
+  },
+  {
+   "name": "G-CEILING-QUOTED-VERBATIM",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components bank and the trail, against the ruling`s words"
+  },
+  {
+   "name": "G-EXCEEDS-ROWS-IN-FULL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components bank -- each exceeding row printed whole"
+  },
+  {
+   "name": "G-EXCEEDS-NO-REPLACEMENT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank -- not one exceeding row carries a draft"
+  },
+  {
+   "name": "G-RESTS-NAMES-ITS-ERRATUM",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank -- every RESTS row names one"
+  },
+  {
+   "name": "G-R99-TEXTS-CARRIED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components bank -- (R99)`s own words, not redrafted"
+  },
+  {
+   "name": "G-PASTE-BLOCK-RESTS-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components bank -- the block carries no EXCEEDS row"
+  },
+  {
+   "name": "G-MATCHER-LINEAGE-PRINTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the components bank -- both yields of the ceiling matcher"
+  },
+  {
+   "name": "G-PER-RECORD-COUNTS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the results bank -- the per-record table sums to the whole"
+  },
+  {
+   "name": "G-N1-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the desk bank against the results bank"
+  },
+  {
+   "name": "G-N2-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the desk bank -- and the matcher defect recorded beside it"
+  },
+  {
+   "name": "G-N3-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the desk bank against the per-record counts"
+  },
+  {
+   "name": "G-SEAT-EXPECTATIONS-SCORED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face against the desk bank"
+  },
+  {
+   "name": "G-NOTHING-FETCHED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s own tools, for any network call"
+  },
+  {
+   "name": "G-NOZENODO-WRITE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s own tools, for a platform WRITE CALL"
+  },
+  {
+   "name": "G-NOTHING-COMPILED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s own tools, for a BUILD CALL"
+  },
+  {
+   "name": "G-NOLANE-OPENED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "this act`s own tools -- the lane was shut at b492`s end"
+  },
+  {
+   "name": "G-SPAN-BY-TOOL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the span tool record, and what this act says it counts"
+  },
+  {
+   "name": "G-NOGRADE-MOVED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file list"
+  },
+  {
+   "name": "G-NODEPOSIT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the deposit directory tracked state, via the source"
+  },
+  {
+   "name": "G-NOH2-MOVED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail own text"
+  },
+  {
+   "name": "G-NOPRIORBANK",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "file times against the face"
+  },
+  {
+   "name": "G-FOUR-LISTS-OPEN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail own text"
+  },
+  {
+   "name": "G-CORPUS-SCOPE",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file list -- ONE document, named on the face"
+  },
+  {
+   "name": "G-TRAIL-APPEND-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the trail own text"
+  },
+  {
+   "name": "G-CORR-APPEND-ONLY",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the correspondence ledger"
+  },
+  {
+   "name": "G-WRITELIST-KINDS",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "every b493 commit in three repositories, against (R91)`s STEM GLOB"
+  },
+  {
+   "name": "G-WRITELIST-SPANS-ACT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite own text"
+  },
+  {
+   "name": "G-NOSTAGE-A-BY-DIFF",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the commit file list"
+  },
+  {
+   "name": "G-ARMS-DECLARED-EQ-RUN",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the face (G2) block against what runs"
+  },
+  {
+   "name": "G-ARMS-NO-SUBSTRING-VERDICT",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite own text"
+  },
+  {
+   "name": "G-MUSTFAIL",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "a file that must not exist"
+  },
+  {
+   "name": "G-ARTEFACTS-NOT-COMMITTED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "relay`s tracked tree, read in the source"
+  },
+  {
+   "name": "G-CORPUS-LEAN-UNTOUCHED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the lv and kernel working trees, read in the source"
+  },
+  {
+   "name": "G-PUSHED-PREDICATE-THREE-CLAUSED",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the suite`s own text -- b472`s repair, carried"
+  }
+ ],
+ "run": 55,
+ "live_failing": [],
+ "defective": [],
+ "neg_failures": 0,
+ "declared": 56,
+ "deferred": [
+  "G-MIRROR-TAGGED-BUILD",
+  "G-LOG-COMMITTED-UNCHANGED"
+ ],
+ "stray": []
+}
