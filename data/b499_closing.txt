@@ -1,0 +1,59 @@
+========================================================================================================
+b499 -- THE CLOSING RECORD. ### **TEN EDITS AT ZENODO, THREE MATCHES; THE GUARD SCANS FOR THE TOKEN.**
+========================================================================================================
+
+### (1) THE GUARD.
+--------------------------------------------------------------------------------------------------------
+    limb (v) byte-identical in four repositories : True ; digest 469937f9c0419e26
+      POSITIVE: a commit carrying the fake value   refused True  warned False value printed False
+      NEGATIVE: a commit without it, variable set  refused False warned False value printed False
+      UNSET: the variable absent                   refused False warned True  value printed False
+    ### the first exercise (`b499_guard_first.json`) : all as expected False -- VOID, it ran the old guard
+    ### ### **AND THE LIMB`S FIRST LIVE RUN: THE FOUR PUSHES OF THIS ACT, TOKEN SET, NO REFUSAL, NO WARNING.**
+
+### (2) THE WRITES.
+--------------------------------------------------------------------------------------------------------
+    token length 60, prefix 8e8212d3 ; targets found once 10 of 10 ; entity sites {'21539068': 10, '21520474': 9, '21539167': 28}
+    21539068  edit 201  put 200  publish 202  MATCH  fetch-back dc96621e9bbe211d…  raw equal True
+    21520474  edit 201  put 200  publish 202  MATCH  fetch-back b5f383f65f169a0d…  raw equal True
+    21539167  edit 201  put 200  publish 202  MATCH  fetch-back 1736cb1bbb9fc2e7…  raw equal True
+    ERRATA E-2026-09-23-1 ; notes {'REGISTRY.md': '5 notes + 2 blanks', 'meta/ZENODO_METADATA.md': '3 notes + 0 blanks'}
+
+### (3) THE EXPECTATIONS.
+--------------------------------------------------------------------------------------------------------
+    (N1) HELD ; (N2) HELD ; (N3) HELD ; (S1) HELD ; (S2) HELD ; (S3) REFUTED
+
+### (4) THIS ACT`S OWN DEFECTS -- FOUR.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **THE FIRST GUARD EXERCISE WAS VOID.** ### `reset --hard` after its first case restored
+        ### the committed old guard, so its negative and unset cases ran the OLD hook -- the negative
+        ### "pass" proved nothing and the unset case could not warn. ### Caught because the unset
+        ### case FAILED; had it been the only case that could fail, the void would have passed.
+    (b) ### **THE GUARD TOOL`S EXERCISE-ONLY MODE FIRST FELL THROUGH TO ITS WRITE BLOCK** -- caught
+        ### by reading it before running it, and gated.
+    (c) ### **TWO SUITE ARMS FAILED LIVE ON THE SEAT`S OWN ARITHMETIC** -- a hand-shifted index one
+        ### short, and a base read through a helper that strips the trailing newline. ### The corpus
+        ### was right both times; both runs banked.
+    (d) ### **A HEREDOC`S BACKSLASHES AND A MISSING PARENTHESIS** -- the shell-typed-code species,
+        ### met again; the parenthesis was caught by the parser, not by an arm.
+
+### (5) THE COMMITS, THE MIRROR, THE CENSUSES.
+--------------------------------------------------------------------------------------------------------
+    pre-push first run : ### ### **ARMS RUN : 68. ### LIVE PASSING : 66. ### LIVE FAILING : 2 ['G-NOTES-BESIDE-LINES', 'G-NOTES-INSERT-ONLY'].**
+    post-push          : ### ### **ARMS RUN : 69. ### LIVE PASSING : 69. ### LIVE FAILING : 0 .**
+      relay                  local 826f795a5e34 ; remote 826f795a5e34 ; ### **AGREE**
+      PLACE-papers           local b2ab37da43cd ; remote b2ab37da43cd ; ### **AGREE**
+      SIDE-global-section    local 2799e4c10b45 ; remote 2799e4c10b45 ; ### **AGREE**
+      SIDE-explicit-formula  local c29c2eb3eba5 ; remote c29c2eb3eba5 ; ### **AGREE**
+    mirror : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### (6) CARRIED FORWARD.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **b498`S LAUNCH LOG IS UNREAD** -- pid 14280 was absent from the process table at this
+        ### act`s pre-flight; the next build act reads `data/b498_ef_build.log` behind b497`s gate.
+    (b) ### **THE GUARD WARNS, IT DOES NOT REFUSE, WHEN ZENODO_TOKEN IS UNSET** -- the scan covers
+        ### only pushes made from a shell that holds the token. ### Stated, not hidden.
+    (c) ### **`corr_row.py` STILL VALIDATES AFTER IT WRITES** (b498) -- owed.
+========================================================================================================
