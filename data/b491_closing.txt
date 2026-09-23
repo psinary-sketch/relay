@@ -1,0 +1,127 @@
+========================================================================================================
+b491 -- THE CLOSING RECORD. ### THE b475 LOG READ, AND (R82) DECIDED.
+========================================================================================================
+
+### (1) THE RUN.
+--------------------------------------------------------------------------------------------------------
+    ### ### **191 `=== EXIT` LINES AND EVERY ONE IS `EXIT 0`** ### -- across ### **188**
+    MODULE marks and three further STEP marks, ending `RUN COMPLETE` at `21:33:50.73`.
+    ### ### **NON-ZERO EXITS : 0. ### MODULES THAT FAILED : NONE.**
+    lines matching an error shape : ### **0** ### ; naming `sorryAx` : ### **0**
+    ### **A CLEAN DOCUMENT IS A RESULT**, and the empty bucket is printed as plainly as a
+    ### full one would be.
+
+    WALL TIME, from the log`s own outer marks : ### **23486 s = 6.52 HOURS.**
+    lake`s own target durations sum to        : ### **17678 s = 4.91 hours**
+    ### ### **SHORTFALL : %d s** ### -- untimed targets and process overhead. ### Two
+    ### independent marks, neither typed, and the difference STATED rather than explained
+    ### away.
+    ### ### **AND b480`S LAUNCHER DEFECT STANDS:** ### 193 timestamped marks carry only
+    ### ### **6 DISTINCT INSTANTS**, a batch `FOR` block expanding `%TIME%` once, so
+    ### **NO PER-MODULE DURATION IS RECOVERABLE FROM THEM.**
+
+### (2) THE PROFILES.
+--------------------------------------------------------------------------------------------------------
+    ### ### **20 PRINT-AXIOMS LINES, IN TWO STEPS THE LOG NAMES:**
+      `lake env lean scripts\PrintAxioms.lean (as shipped)` at `21:32:34.30`
+        -> ### **17** ### Challenge theorems
+      `lake env lean B471NamedAxioms.lean` at `21:33:23.92`
+        -> ### **3** ### named terminals: `EF_lit_zetaZeroConfig`, `EF_lit`, `EF_lit_zeta`
+    ### ### **ALL 20 READ `depends on axioms: [propext, Classical.choice, Quot.sound]`**,
+    ### matched on the ### **WHOLE AXIOM STRING** ### and not by counting names, so a
+    ### fourth axiom or a missing one would have shown as OTHER and been quoted in full.
+    ### ### **STANDARD THREE : 20. ### OTHER : 0. ### ABSENT : 0.**
+
+### (3) THE VERDICT ON (R82). ### **HOLDS.**
+--------------------------------------------------------------------------------------------------------
+    (a) the run COMPLETED                   : ### **True**
+    (b) the profile phase PRODUCED          : ### **True** ### (20 lines)
+    (c) every profile is the STANDARD THREE : ### **True** ### (20 of 20)
+
+    ### ### **AND THE KIND OF EACH PRIOR VOIDING IS NAMED.**
+    ### b473 : VOID ### **FOR WANT OF A RUN** ### -- the build died of memory.
+    ### b480 : VOID ### **FOR WANT OF A RUN** ### -- read as a snapshot, the run still
+    ###        live, at mark 169 of 188.
+    ### ### **NEITHER WAS FOR WANT OF A PROFILE.** ### So this is not a third void of the
+    ### same kind; ### **IT IS THE CONDITION BEING MET.**
+
+    ### ### **THE SCOPE IS BOUNDED: THE TWENTY NAMES THE LOG PRINTS, AT THE COMMIT b475
+    ### BUILT, AND NOTHING ELSE.** ### A standard-three profile says a proof term closes
+    ### without `sorryAx` and without a user axiom. ### **IT DOES NOT SAY THE STATEMENT IS
+    ### STRONG, THAT ITS HYPOTHESES ARE DISCHARGED, OR THAT IT MEANS WHAT ITS NAME
+    ### SUGGESTS.** ### b482 found six zeta23 declarations closed by `sorry` elsewhere in
+    ### that repository; ### **THOSE ARE NOT THESE TWENTY.** ### **AND NOTHING ABOUT RH
+    ### FOLLOWS FROM A PROFILE.**
+
+### (4) THE EXPECTATIONS.
+--------------------------------------------------------------------------------------------------------
+    ### **(N1)** ### **HELD** ### ; ### **(N2)** ### **HELD** ### ; ### **(N3)** ###
+    ### **HELD**. ### **(S1)**, **(S2)**, **(S3)** ### **HELD.**
+
+### (5) THE DEFECTS THIS ACT RECORDS OF ITS OWN INSTRUMENTS. ### **SIX.**
+--------------------------------------------------------------------------------------------------------
+    ### ### **(a) A CHECK THIS SEAT RAN FOR FOUR ACTS COULD NEVER HAVE FIRED.** ### After
+    ### every `reg_satisfiable` run since b487 the seat grepped for ### **`UNSATISFIABLE`**,
+    ### a word that tool NEVER PRINTS -- its vocabulary is `JOINTLY SATISFIABLE`, `NOT
+    ### SATISFIABLE` and `CONTRADICTORY`. ### **THE GREP RETURNED 0 FOR A CLEAN AUDIT AND
+    ### FOR A REFUSING ONE ALIKE.** ### b487 to b490 passed by luck; their audits are
+    ### genuinely satisfiable, verified here by reading their verdict lines.
+    ### ### **b491`S OWN FIRST AUDIT READ `NOT SATISFIABLE -- DO NOT SEAL`, AND THE GREP
+    ### CALLED IT CLEAN.** ### What caught it was the LOCK GATE, whose pass phrase is the
+    ### tool`s own words. ### **THE RITUAL HELD WHERE THE HABIT DID NOT.**
+    ### ### **(b) FOUR MEASURED FIGURES READ AS PREDICTIONS.** ### `188 MODULE`, `three
+    ### modules`, `188 modules`, `188 module` -- the lexical counter cannot tell a figure
+    ### READ FROM A LOG from one PREDICTED. ### The face was reworded so the numeral does
+    ### not abut the noun; the facts are unchanged.
+    ### ### **(c) AN ARM CRASHED UNDER ITS OWN CONTROL.** ### `split(marker)[1]` RAISES
+    ### when the control removes the marker. ### **AN ARM THAT CRASHES UNDER ITS CONTROL
+    ### HAS NOT BEEN EXERCISED**, and a guarded reader now returns empty instead.
+    ### ### **(d) THE ACT`S OWN SUMMARY LINE DEFEATED AN ARM.** ### `G-PROF-NONE-ABSENT`
+    ### forbade the word `ABSENT` in a section whose summary prints `ABSENT : 0` -- which
+    ### is the practice the record wants. ### The arm now reads the profile ROWS.
+    ### ### **(e) A NEEDLE HARD-WRAPPED THROUGH.** ### `IT DOES NOT SAY THE STATEMENT IS
+    ### STRONG` spans two lines in the bank, so a contiguous match failed on a document
+    ### that says exactly what the arm wants. ### The banks` own wrapping lesson, again.
+    ### ### **(f) A CONTROL THAT MISSED WHAT ITS PREDICATE READ.** ### `G-PROF-VERBATIM`
+    ### replaced a substring five times and left every quoted line intact, so the arm
+    ### could not fail. ### It now deletes one whole quoted line.
+
+### (6) THE SUITE, THE COMMITS, THE MIRROR.
+--------------------------------------------------------------------------------------------------------
+    pre-push  : 53 arms, 0 live failing -- `G-MIRROR-TAGGED-BUILD` and
+      `G-LOG-COMMITTED-UNCHANGED` DEFERRED, both being post-push by nature.
+    post-push : ### ### **ARMS RUN : 54. ### LIVE PASSING : 54. ### LIVE FAILING : 0 .**
+                ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+
+    the commits, each read back by `ls-remote`:
+      relay                local 5ccd0bc3be09 ; remote 5ccd0bc3be09 ; ### **AGREE**
+      PLACE-papers         local 4cf8b82f9187 ; remote 4cf8b82f9187 ; ### **AGREE**
+      SIDE-global-section  local 415d4a978cea ; remote 415d4a978cea ; ### **AGREE**
+    ### ### **AND THE LOG IS COMMITTED, UNCHANGED:** ### `+1510 / -0` lines, and relay`s
+    ### working tree is now CLEAN for the first time since b475 launched the run.
+    the mirror : `mirror-refresh-2026-09-23-b491.zip` at `4cf8b82` --
+      ### **CLEAN ON ALL THREE CLAUSES.**
+
+### (7) THE CENSUSES, THE PINS, THE LISTS.
+--------------------------------------------------------------------------------------------------------
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0
+    ### **THE FOUR LISTS STAY OPEN.** ### Nothing was compiled and no lane was opened by
+    ### this act. ### No corpus grade moved; row U1 is unedited; nothing deposits; nothing
+    ### at Zenodo is written; ### **h2 WHERE THE DEPOSIT LEFT IT.**
+    ### `relay/data/anthropic-zeta23/` stays UNCOMMITTED; the evidence is the log alone.
+
+### (8) WHAT IS CARRIED FORWARD.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **THE NUMERICAL LANE IS OPEN FOR ONE RUN, AND IT IS b492.** ### (R101) opens
+        it after this read and closes it at that act`s end.
+    (b) ### **THE HABIT-GREP IS RETIRED.** ### Every gate verdict is read from the tool`s
+        own VERDICT line hereafter, which is what the lock gate has always done.
+    (c) ### **WHAT THE PROFILES DO NOT SETTLE.** ### Twenty proof terms close cleanly. ###
+        Whether those twenty statements are the ones a reader would want, and what their
+        hypotheses consume, is ### **UNTOUCHED BY THIS ACT** ### and by any profile.
+
+========================================================================================================
+  ### ### **b491 CLOSES. 54 ARMS, 0 LIVE FAILING, 0 POSITIVE-CONTROL PASSES.**
+========================================================================================================
