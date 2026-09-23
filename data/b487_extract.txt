@@ -1,0 +1,126 @@
+============================================================================================================
+b487 -- THE SURVEY. ### THREE DESCRIPTIONS READ FROM DISK. ### **NOTHING IS FETCHED.**
+============================================================================================================
+
+(P1) THE (R97) TARGETS, AT THEIR ADDRESSES.
+------------------------------------------------------------------------------------------------------------
+    ERRATA.md:391   ## E-2026-09-22-1 — Deposited sentences that assert a machine check, name no terminal, and have no row in the deposit’s own concor
+    ERRATA.md:425   **`E-2026-09-22-1` — THE DEPOSITED RECORD `21432399`, ITS CURRENCY NOTE AND A CORRECTION TO THE DRAFT OF IT** *(an append; no prio
+    ### ### **OCCURRENCES : 2.** ### The FIRST (b469, filed earlier) ### **KEEPS THE ID**;
+    ### the SECOND (b485) becomes ### **E-2026-09-22-2** ### by an appended dated line.
+    ### ### **AND `E-2026-09-22-2` MUST NOT ALREADY EXIST:** occurrences : ### **0**
+    the two pointer targets:
+      `OPEN_TRAILS.md` -- b485`s record, heading present : True
+      `data/b485_the_two_records.txt` -- present : True ; bytes 10552
+
+(P2) THE TWO ERRATA, IN THEIR OWN WORDS -- THE ONLY SOURCE A REPLACEMENT MAY DRAW ON.
+------------------------------------------------------------------------------------------------------------
+
+  ### **E-2026-09-14-1** ### -- `ERRATA.md:365`
+      ## E-2026-09-14-1 — The deposited descriptions say the seven-class catalogue’s exhaustiveness is machine-checked; its route terminal states something 
+        **Filed 2026-09-14 (b456), on the author’s ruling (R65), from the reading banked at b455 (relay `data/b455_the_claim_and_its_terminal.txt`).
+        **Affected deposits.** *A Place to Stand*, Zenodo version v1.1.2 ([10.5281/zenodo.21539167](https://doi.org/10.5281/zenodo.21539167)) — the recor
+        **What the deposited words say.** The record description, in the paragraph headed *“What the manuscript establishes, and what it names as open”*,
+        **What the route terminal states.** At `0e5233f`, `structural_exhaustiveness_proved` proves the proposition `StructuralExhaustiveness`, and that 
+        **Why they differ.** The description writes about what the kernel checked in the manuscript’s vocabulary. In the manuscript, *the exhaustiveness 
+
+  ### **E-2026-09-22-1** ### -- `ERRATA.md:391`
+      ## E-2026-09-22-1 — Deposited sentences that assert a machine check, name no terminal, and have no row in the deposit’s own concordance (DEPOSIT-FACIN
+        **Filed 2026-09-22 (b469), on the author’s ruling (R77), from the readings banked at b464 (relay `data/b464_the_eight_and_the_parameters.txt`) an
+        **Affected deposits.** *A Place to Stand* and its companion papers, Zenodo version v1.1.2 ([10.5281/zenodo.21539167](https://doi.org/10.5281/zeno
+        **The sentences.** Each asserts that something is machine-checked and names no Lean terminal for it. Quoted from the deposited copy at its own li
+        | Deposited file and line | The sentence, as deposited | Nearest terminal by name, at its pin — **STAND-IN** | Grade against that stand-in |
+        |---|---|---|---|
+        | `A_Place_to_Stand.md:58` | *“The Lean kernel provides machine-checked redundancy, not necessity.”* | `KernelCertificate` @ `v1.5` | `NOT THE CL
+        | `A_Place_to_Stand.md:1779` | *“This is distinct from the Mechanism Theorem of Chapter 10, which is established — derived within ZFC from the I+
+
+(P3) THE THREE DESCRIPTIONS, EACH LABELLED WITH ITS SOURCE.
+------------------------------------------------------------------------------------------------------------
+
+  ### RECORD ### **21539167** ### -- the monograph, Zenodo v1.1.2
+      source : relay `data/b359_fetch_F2.json` -- the record`s own fetched JSON, banked at b359 and read by the 2026-09-14 act b455
+      sentences : 30
+      ### the matcher`s lineage : version 1 caught 5 ; version 2 catches 6
+      ### ### **VERSION 2 ADDS SENTENCE(S) 5** -- caught by `proves` / `certified`
+      ### ### **SENTENCES ASSERTING A MACHINE CHECK, A COMPILED PROOF, OR A VERIFIED
+      ### CLAIM : 6.**
+
+        ### sentence 5 of 30
+          Applied to zeta, it proves that no off-line zero exists by enumerating the catalogue of mechanism classes from which an off-line z
+          ero would have to arise and excluding each one.
+
+        ### sentence 9 of 30
+          The argument exists as a human-readable mathematical monograph and as a machine-verified Lean 4 kernel, on the pattern of Hales's 
+          Kepler-conjecture proof and its Flyspeck verification: the manuscript proves the mathematics; the kernel compiles the logical arch
+          itecture through three independent routes and reports its axiom base at named theorems.
+
+        ### sentence 10 of 30
+          A skeptic can run lake build at the pinned kernel commit (SIDE-kernel v1.5 = 0e5233f) and #print axioms at the named route theorem
+          s (structural_exhaustiveness_proved; SpectralCannonFull.spectral_cannon; ConservationBridge.riemann_hypothesis -- the third is the
+           compiled implication from the named interface ConservationHypothesis, whose mathematics is the manuscript's Chapter 13 territory 
+          and whose ledger is &sect;27.3).
+
+        ### sentence 14 of 30
+          Proved and machine-checked around the argument: the exhaustiveness of the seven-class catalogue over the places of ℚ; Conservation
+           of Spectra from Tate's thesis (Chapter 13); the Mechanism Theorem derived from the Independence, Determination, and Symmetry prin
+          ciples (Chapter 10); five independent compiled identifications of &sigma; = 1/2 in five machineries; h1 complete at the witness --
+           all eight per-class coupling facts of Chapter 15 machine-checked at the fixed Mellin witness and conjoined (h1_complete_at_Phi, S
+          IDE-lv-conservation); the finite-range Li positivity certificate to the Voros detection threshold, whose finite-set conjunct is no
+          w itself proved (lowFinset_mem_iff, v0.10.0); and the step (9) assembly stated in its two-sentence form -- the identity reading (e
+          very zero participates in the Guinand&ndash;Weil prime/zero ledger; classical and shared) separated from the sign reading (partici
+          pation forces &sigma; = 1/2; the clause).
+
+        ### sentence 15 of 30
+          Section 27.3, "The One Premise," names that clause in five equivalent registers with its full literature ancestry (Li 1997; Bombie
+          ri&ndash;Lagarias 1999; Oesterl&eacute;; Voros 2006; Lagarias 2007), locates it at one compiled goal state, and counts exactly wha
+          t stands certified around it; the C₅-output (Hilbert&ndash;P&oacute;lya) register is explicitly disclaimed, never claimed.
+
+        ### sentence 16 of 30
+          A companion census, Paths to the Critical Line, catalogues the field's completing and non-completing paths in relation, including 
+          the sign-layer survey (&sect;ANNEX B) and two machine-checked negative results.
+
+  ### RECORD ### **21520474** ### -- SIDE-kernel v1.5
+      source : `SIDE-kernel` at tag `v1.5`, file `.zenodo.json`
+      sentences : 7
+      ### the matcher`s lineage : version 1 caught 2 ; version 2 catches 3
+      ### ### **VERSION 2 ADDS SENTENCE(S) 2** -- caught by `proves` / `certified`
+      ### ### **SENTENCES ASSERTING A MACHINE CHECK, A COMPILED PROOF, OR A VERIFIED
+      ### CLAIM : 3.**
+
+        ### sentence 2 of 7
+          The kernel proves that no off-line zero exists by exhaustively excluding every mechanism class derivable from the specification.
+
+        ### sentence 3 of 7
+          Ship modules (Kernel.Voice1 through Kernel.Voice7, Kernel.Kappa, Kernel.SilenceTheorem, Kernel.Root, Bridge.EulerBalance, Bridge.C
+          rossClassExclusion, Bridge.TheBridgeComplete, MetaKernel) compile with zero sorry and zero custom axioms.
+
+        ### sentence 4 of 7
+          The Universal Silence Theorem (silence_universal) carries a load-bearing universality hypothesis; the proof does not compile witho
+          ut it.
+
+  ### RECORD ### **21539068** ### -- SIDE-lv-conservation v0.10.0
+      source : `SIDE-lv-conservation` at tag `v0.10.0`, file `README.md` (b462`s precedent)
+      sentences : 19
+      ### the matcher`s lineage : version 1 caught 3 ; version 2 catches 3
+      ### ### **SENTENCES ASSERTING A MACHINE CHECK, A COMPILED PROOF, OR A VERIFIED
+      ### CLAIM : 3.**
+
+        ### sentence 8 of 19
+          Compiled, 0 sorry.** The completed Riemann zeta function factors through the Mellin transform of a fixed function: for `1 < re(s)`
+          , `completedRiemannZeta s = mellin Φ (s/2)` with `Φ(t) = ((evenKernel 0 t : ℂ) − 1)/2`, defined without reference to `s`.
+
+        ### sentence 12 of 19
+          Compiled, 0 sorry** (six lemmas).
+
+        ### sentence 17 of 19
+          Axiom audit: all compiled theorems depend on `{propext, Classical.choice, Quot.sound}` only; the single pinned declaration additio
+          nally carries `sorryAx` and nothing else.
+
+    ### ### **TOTAL SENTENCES ASSERTING A CHECK, ACROSS THE THREE : 12.**
+      21539167   the monograph, Zenodo v1.1.2           6 of 30
+      21520474   SIDE-kernel v1.5                       3 of 7
+      21539068   SIDE-lv-conservation v0.10.0           3 of 19
+
+============================================================================================================
+  ### MISSES : 0 
+============================================================================================================
