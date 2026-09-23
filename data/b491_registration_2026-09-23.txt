@@ -1,0 +1,165 @@
+====================================================================================================
+### b491 -- THE REGISTRATION FACE.
+### READ THE b475 LOG, AND DECIDE (R82) ON IT.
+### Registered after the log is read and before any verdict is banked.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The ferry arrived as ### **PART 1 OF 2** ### and ### **PART 2 OF 2**, both with their paste-end
+### markers, received IN FULL, banked as `b491_ferry.txt` and `b492_ferry.txt`. ### Scan ### **`0`
+### HIT(S)** and ### **`0` (R81) FLAGS**. ### **STEP ZERO:** censuses ### **TOTAL MISSING `0`**,
+### both; roster ### **`0` HARD-FAILING**. ### THE PRIOR CLOSED ACT (`b490`) IS CLOSED: row 339,
+### pushed and read back in three repositories, mirror clean.
+### ### **(R101) IS RATIFIED.** ### It directs this read, and b490's Component 0 supplied the fact
+### it rests on -- pid 27508 absent at two readings sixty seconds apart, the file cold for hours.
+### ### **THE NUMERICAL LANE OPENS FOR ONE RUN AFTER THIS READ, AT b492, AND CLOSES AT ITS END.**
+### ### **THIS ACT OPENS NO LANE AND COMPILES NOTHING.** ### It reads a log as text.
+
+### ### **READING (1) -- THE RUN COMPLETED.** ### The log carries ### **191 `=== EXIT` LINES AND
+### EVERY ONE IS `EXIT 0`**, across MODULE marks numbering ### **188** ### and three further STEP
+### marks, and it
+### ends with ### **`=== [Tue 09/22/2026 21:33:50.73] RUN COMPLETE`.** ### **NON-ZERO EXITS : 0.**
+
+### ### **READING (2) -- NO MODULE FAILED, AND NO `sorryAx` APPEARS.** ### Lines matching an error
+### shape: ### **0**. ### Lines naming `sorryAx` or a `declaration uses 'sorry'` warning: ### **0**.
+### So the answer the order asks for -- every module that failed, with its error -- is ### **NONE**,
+### and that is a printed result, not an omission. ### **A CLEAN DOCUMENT IS A RESULT.**
+
+### ### **READING (3) -- THE WALL TIME, AND THE LAUNCHER'S DEFECT WHERE IT BITES.** ### 193
+### timestamped `===` marks carry only ### **SIX DISTINCT INSTANTS**, because b480's defect stands:
+### a batch `FOR` block expands `%TIME%` ONCE, so every MODULE line bears the loop's entry instant.
+### **THE MARKS OUTSIDE THE LOOP ARE REAL**, and between the earliest (`15:02:24.61`) and `RUN
+### COMPLETE` (`21:33:50.73`) the wall time is ### **23,486 s = 6.52 HOURS.**
+### ### **AND A SECOND, INDEPENDENT MARK AGREES IN ORDER OF MAGNITUDE:** ### lake's own 138 `(Ns)`
+### target durations sum to ### **17,678 s = 4.91 HOURS**, the difference being untimed targets and
+### process overhead. ### **NEITHER FIGURE IS TYPED**, and the shortfall is stated rather than
+### explained away.
+
+### ### **READING (4) -- THE PROFILES ARE PRESENT, AND THEY ARE 17 + 3.** ### The log carries
+### ### **20 `depends on axioms:` LINES**, produced by two steps it names: `scripts\PrintAxioms.lean
+### (as shipped)` at `21:32:34.30`, which prints ### **SEVENTEEN** ### Challenge theorems, and
+### `B471NamedAxioms.lean` at `21:33:23.92`, which prints ### **THREE** ### -- exactly
+### `Zeta23.WeilEF.EF_lit_zetaZeroConfig`, `Zeta23.EF.EF_lit` and `Zeta23.WeilEF.EF_lit_zeta`.
+### **NONE IS ABSENT**, so no row of the table this act prints reads ABSENT.
+
+### ### **READING (5) -- EVERY ONE OF THE TWENTY IS THE STANDARD THREE.** ### Each line reads
+### `depends on axioms: [propext, Classical.choice, Quot.sound]`, matched as a WHOLE STRING and not
+### by counting names. ### ### **STANDARD THREE : 20. ### OTHER : 0.**
+### ### **AND THE FACE FIXES WHAT THAT DOES AND DOES NOT MEAN BEFORE THE VERDICT IS WRITTEN.** ### A
+### standard-three profile says the declaration's proof term closes without `sorryAx` and without a
+### user axiom. ### **IT DOES NOT SAY THE STATEMENT IS STRONG, THAT ITS HYPOTHESES ARE DISCHARGED,
+### OR THAT IT MEANS WHAT ITS NAME SUGGESTS.** ### b482 found six zeta23 declarations closed by
+### `sorry` elsewhere in that repository; ### **THOSE ARE NOT THESE TWENTY**, and this act grades
+### only the twenty the log prints.
+
+### ### **READING (6) -- SO (R82) IS DECIDED, AND THE KIND OF ITS PRIOR VOIDING IS NAMED.** ### It
+### was VOID at b473 ### **FOR WANT OF A RUN** ### -- the build died of memory, OOM in 3 of its
+### modules -- and VOID again at b480, where the log was read as a SNAPSHOT stopping at mark 169 of 188, the run still live. ### **NEITHER WAS A VOID FOR WANT OF A PROFILE; BOTH WERE FOR WANT OF A
+### COMPLETED RUN.** ### That run has now completed and its profiles are printed.
+### ### **THE VERDICT THIS ACT WILL BANK IS `HOLDS`**, and its scope is fixed here: it holds ### **OF
+### THE TWENTY NAMES THE LOG PRINTS, AT THE COMMIT b475 BUILT**, and of nothing else.
+
+### ### **READING (7) -- THE LOG IS COMMITTED AS EVIDENCE, AND ITS BYTES ARE THE EVIDENCE.** ### It
+### has been tracked-but-uncommitted since b475's run began and has been modified in every working
+### tree reading since. ### **THIS ACT COMMITS IT UNCHANGED.** ### 399,613 bytes when read; the
+### commit records the same bytes, and this act writes nothing into it.
+
+----------------------------------------------------------------------------------------------------
+### (N) THE NAVIGATOR'S EXPECTATIONS, AS THE ORDER STATES THEM.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### the serialized module phase completed with every `EXIT 0`.
+###     REFUTABLE BY: the exit tally and the module count.
+### **(N2)** ### the profile phase produced at least one print-axioms line.
+###     REFUTABLE BY: the count of `depends on axioms:` lines.
+### **(N3)** ### every produced profile is the standard three.
+###     REFUTABLE BY: any line whose axiom list differs, quoted.
+### ### **NONE IS SCORED BY THIS FACE.**
+
+----------------------------------------------------------------------------------------------------
+### (S) THE SEAT'S OWN EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### the module phase's timestamps are USELESS for per-module timing -- fewer than ten
+###     distinct instants across the whole of them -- so no per-module duration is recoverable
+###     from the `===` marks, and any timing must come from lake's own `(Ns)` figures.
+### **(S2)** ### lake's summed `(Ns)` durations fall SHORT of the start-to-finish wall time, so the
+###     two marks do not double-count and the shortfall is real overhead.
+### **(S3)** ### the log names no artefact under `relay/data/anthropic-zeta23/` that this act would
+###     have to commit: the evidence is the log alone.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES THIS FACE PASSES BEFORE IT LOCKS.
+----------------------------------------------------------------------------------------------------
+### `b491_reg_gate.py`, `b491_regspec.py`, `reg_satisfiable.py`, `banned_terms.py --new`; then
+### `gate_hash` stamping; then `b378_lockgate.py`; then `reg_seal.py --lock`. ### **THE FACE IS
+### SEALED BEFORE COMPONENTS RUN.** ### And this face predicts no artifact count.
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES`
+### `G-PRIOR-CLOSED-PUSHED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED`
+### `G-LOG-COMMITTED-UNCHANGED` `G-LOG-EXIT-TALLY` `G-LOG-LAST-FORTY` `G-LOG-FAILURES-OR-NONE`
+### `G-LOG-WALLTIME-TWO-MARKS` `G-LOG-DEFECT-NAMED`
+### `G-PROF-TWENTY-LINES` `G-PROF-SEVENTEEN-AND-THREE` `G-PROF-VERBATIM` `G-PROF-STD3-WHOLE-STRING`
+### `G-PROF-NONE-ABSENT` `G-PROF-SCOPE-STATED`
+### `G-R82-VERDICT-BANKED` `G-R82-KIND-OF-VOID-NAMED` `G-R82-SCOPE-BOUNDED`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOCHAIN-RUN` `G-NOLANE-OPENED` `G-NOTHING-COMPILED` `G-NOZENODO-WRITE` `G-SPAN-BY-TOOL`
+### `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-WRITELIST-KINDS`
+### `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-CORPUS-LEAN-UNTOUCHED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is scored
+### ### **POST-PUSH ONLY**; `G-WRITELIST-KINDS`, `G-NOSTAGE-A-BY-DIFF`, `G-CORPUS-SCOPE` and
+### `G-PUSHED-PREDICATE-THREE-CLAUSED` are read ### **PRE-PUSH ON THE STAGED STATE AND AGAIN AFTER
+### THE PUSH ON THE COMMITTED BLOBS**, and the rest are SIDE-INVARIANT.
+### ### **AND `G-ARTEFACTS-NOT-COMMITTED` KEEPS ITS FULL FORCE.** ### The log lives in
+### `relay/data/` and NOT under `relay/data/anthropic-zeta23/`; that directory stays uncommitted,
+### and the arm reads relay's tracked tree to prove it.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b491_*` `relay/tools/b491_*` |
+### | the banked ferries | `relay/data/b491_ferry.txt` `relay/data/b492_ferry.txt` |
+### | `tools/corr_row.py` (CARRIED, guarded at b488, UNEDITED) |
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b491_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b491_*.txt` |
+### | `tools/reg_seal.py` | `relay/data/b491_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b491_span*.json` `relay/data/b491_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b491.zip`
+###   (outside every repository) `relay/data/b491_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act's record) |
+### ### **AND `relay/data/b475_zeta23_build.log` IS COMMITTED, NOT WRITTEN.** ### It is another
+### act's bank; this act adds it to the index unchanged and alters not one byte of it. ### **THAT
+### IS THE ONE PLACE THIS ACT TOUCHES ANOTHER ACT'S STEM, BY (R101)'S DIRECTION TO COMMIT IT AS
+### EVIDENCE.**
+### ### **AND NO OTHER FILE IS WRITTEN IN ANY REPOSITORY.** ### **NO `.lean` FILE, NO REGISTRY ROW,
+### NO FINDINGS SECTION, NO ERRATA LINE, AND NOTHING AT ZENODO.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING IS COMPILED AND NO LANE IS OPENED BY THIS ACT.** ### (R101) opens the numerical
+### lane for ONE run, and that run is `b492`, not this one. ### No chain is run. ### No build is
+### launched. ### The log is read as text and committed as bytes.
+### Nothing deposits and ### **NOTHING AT ZENODO IS WRITTEN.** ### Nothing is fetched, imported,
+### copied or vendored. ### No corpus grade moves. ### Row U1 is unedited. ### No bridge is typed.
+### `h2` stays where the deposit left it. ### The four lists stay OPEN.
+### ### **AND NOTHING ABOUT RH FOLLOWS FROM A PROFILE.** ### A standard-three axiom list is a fact
+### about a proof term, not about the Riemann hypothesis.
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 0d0e96a75d7868c57e1d5ea050af16fed5d588270b2690def4987f58510c1771
+### bytes locked : 12236
+### locked at (UTC) : 2026-09-23T14:50:47Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b491_registration_2026-09-23.txt`.**
+====================================================================================================

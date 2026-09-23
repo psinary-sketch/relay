@@ -1,0 +1,155 @@
+====================================================================================================================
+b491 -- THE COMPONENTS. ### THE b475 LOG READ, AND (R82) DECIDED.
+====================================================================================================================
+
+### (1) THE BUILD`S EXIT STATUS.
+--------------------------------------------------------------------------------------------------------------------
+    `=== EXIT` lines : ### **191** ### ; ### **NON-ZERO : 0**
+      code `0` : 191 step(s)
+    MODULE marks : ### **188** ### ; the log ends with `RUN COMPLETE` : ### **True**
+
+### (2) THE LAST FORTY LINES, VERBATIM.
+--------------------------------------------------------------------------------------------------------------------
+    | 
+    | Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+    | ⚠ [8866/8870] Replayed Zeta23.ThmE.EFLitChi
+    | warning: Zeta23/ThmE/EFLitChi.lean:130:24: Variable name `q` is not explicitly referenced.
+    | 
+    | Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name
+    |   [apply] _q
+    | 
+    | Note: This linter can be disabled with `set_option linter.unusedVariables false`
+    | ⚠ [8867/8875] Replayed Zeta23.ThmE.ContourChi
+    | warning: Zeta23/ThmE/ContourChi.lean:74:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` in
+    | ✔ [8886/8887] Built Solution (1050s)
+    | Build completed successfully (8887 jobs).
+    | === EXIT 0 : lake build Solution 
+    | === [Tue 09/22/2026 21:32:34.30] STEP : lake env lean scripts\PrintAxioms.lean (as shipped) 
+    | 'two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'two_thirds_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'two_thirds_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'five_sixths_distinct_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'montgomery_taylor_simple_on_critical_line_mult_cumulative' depends on axioms: [propext, Classical.choice, Quo
+    | 'montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'montgomery_taylor_distinct_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'dirichlet_two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'dirichlet_two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'dirichlet_five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'dirichlet_montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'dirichlet_montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot
+    | 'dirichlet_montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | === EXIT 0 : scripts\PrintAxioms.lean 
+    | === [Tue 09/22/2026 21:33:23.92] STEP : lake env lean B471NamedAxioms.lean (EF_lit_zetaZeroConfig, EF_lit, EF_
+    | 'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'Zeta23.EF.EF_lit' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | 'Zeta23.WeilEF.EF_lit_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+    | === EXIT 0 : B471NamedAxioms.lean 
+    | === [Tue 09/22/2026 21:33:50.73] RUN COMPLETE 
+    | 
+
+### (3) EVERY MODULE THAT FAILED, WITH ITS ERROR.
+--------------------------------------------------------------------------------------------------------------------
+    lines matching an error shape : ### **0**
+    lines naming `sorryAx` or a `sorry` warning : ### **0**
+    ### ### **MODULES THAT FAILED : NONE.**
+    ### That is the answer, printed. ### **A CLEAN DOCUMENT IS A RESULT**, and an empty
+    ### bucket is reported as plainly as a full one.
+
+### (4) THE WALL TIME, FROM THE LOG`S OWN MARKS.
+--------------------------------------------------------------------------------------------------------------------
+    timestamped `===` marks : 193 ; ### **DISTINCT INSTANTS : 6**
+    ### ### **b480`S DEFECT STANDS AND IS VISIBLE HERE:** ### a batch `FOR` block expands
+    ### `%TIME%` once, so every MODULE line bears the loop`s entry instant. ### **NO
+    ### PER-MODULE DURATION IS RECOVERABLE FROM THESE MARKS.**
+    start to `RUN COMPLETE` : ### **23486 s = 6.52 HOURS.**
+    lake`s own `(Ns)` target durations : 138 marks summing to ### **17678 s = 4.91 hours**
+    ### ### **THE SUM FALLS SHORT OF THE WALL TIME BY 5808 s** -- untimed targets and
+    ### process overhead. ### **THE SHORTFALL IS STATED, NOT EXPLAINED AWAY**, and the
+    ### two marks are independent so neither double-counts the other.
+
+### (5) THE PROFILES. ### **THE PRINT-AXIOMS LINE VERBATIM, AND THE PROFILE BESIDE IT.**
+--------------------------------------------------------------------------------------------------------------------
+    ### PHASE 1 -- `lake env lean scripts\PrintAxioms.lean (as shipped)`, the SEVENTEEN
+    ### Challenge theorems:
+
+     1. `'two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     2. `'two_thirds_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     3. `'two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     4. `'two_thirds_simple_on_critical_line_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     5. `'five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     6. `'five_sixths_distinct_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     7. `'montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     8. `'montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     9. `'montgomery_taylor_simple_on_critical_line_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    10. `'montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    11. `'montgomery_taylor_distinct_mult_cumulative' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    12. `'dirichlet_two_thirds_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    13. `'dirichlet_two_thirds_simple_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    14. `'dirichlet_five_sixths_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    15. `'dirichlet_montgomery_taylor_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    16. `'dirichlet_montgomery_taylor_simple_on_critical_line_mult' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+    17. `'dirichlet_montgomery_taylor_distinct_mult' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+
+    ### PHASE 2 -- `lake env lean B471NamedAxioms.lean`, the THREE named terminals:
+
+     1. `'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     2. `'Zeta23.EF.EF_lit' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+     3. `'Zeta23.WeilEF.EF_lit_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]`
+        -> ### **STANDARD THREE**
+
+    ### ### **LINES PRINTED : 20. ### STANDARD THREE : 20. ### OTHER : 0. ### ABSENT : 0.**
+    ### the match is on the ### **WHOLE AXIOM STRING**, not on counting names, so a
+    ### fourth axiom or a missing one would show as `OTHER` and be quoted in full.
+
+### (6) THE VERDICT ON (R82).
+--------------------------------------------------------------------------------------------------------------------
+    ### ### **(R82) HOLDS.**
+
+    ### the three conditions, each read from the log:
+      (a) the run COMPLETED               : ### **True** ### (`RUN COMPLETE`, 0 non-zero
+          exits across 191 steps)
+      (b) the profile phase PRODUCED      : ### **True** ### (20 print-axioms lines, in
+          two named steps)
+      (c) every profile is the STANDARD THREE : ### **True** ### (20 of 20)
+
+    ### ### **AND THE KIND OF ITS PRIOR VOIDING IS NAMED, BECAUSE THE ORDER ASKS.**
+    ### b473 : ### **VOID FOR WANT OF A RUN** ### -- the build died of memory.
+    ### b480 : ### **VOID FOR WANT OF A RUN** ### again -- the log was read as a SNAPSHOT
+    ###        with the run still live, at mark 169 of 188.
+    ### ### **NEITHER WAS A VOID FOR WANT OF A PROFILE.** ### Both were for want of a
+    ### completed run, and that run has now completed. ### **SO THIS IS NOT A THIRD VOID
+    ### OF THE SAME KIND; IT IS THE CONDITION BEING MET.**
+
+    ### ### **AND THE VERDICT`S SCOPE IS BOUNDED, AS THE SEALED FACE FIXED IT.**
+    ### It holds ### **OF THE TWENTY NAMES THE LOG PRINTS, AT THE COMMIT b475 BUILT**,
+    ### and of nothing else. ### A standard-three profile says the proof term closes
+    ### without `sorryAx` and without a user axiom. ### **IT DOES NOT SAY THE STATEMENT
+    ### IS STRONG, THAT ITS HYPOTHESES ARE DISCHARGED, OR THAT IT MEANS WHAT ITS NAME
+    ### SUGGESTS.** ### b482 found six zeta23 declarations closed by `sorry` elsewhere in
+    ### that repository; ### **THOSE ARE NOT THESE TWENTY.**
+    ### ### **AND NOTHING ABOUT RH FOLLOWS FROM A PROFILE.**
+
+====================================================================================================================
