@@ -1,0 +1,95 @@
+============================================================================================================
+b488 -- THE SURVEY. ### (R98)`S SECTION, AND THE ROW WRITER`S PRIOR BEHAVIOUR.
+============================================================================================================
+
+(P1) b486`S OWN BANK -- THE ONLY SOURCE COMPONENT 1 MAY DRAW ON.
+------------------------------------------------------------------------------------------------------------
+    `data/b486_the_fold.txt`      : 10148 bytes, 130 lines
+    b486`s trail record           : 7281 bytes 
+    ### ### **THE SPAN, BY FILING, AS b486`S BANK NUMBERS IT : 11 ACT(S).**
+      b475, b478, b476, b480, b477, b481, b483, b484, b485, b482, b479
+    ### digest clauses : ### **6** ### ; each with a cited act : ### **True**
+      (1) the six sites reduce to conditions on the test function, on the data of  -- b478
+      (2) the class boundary at `a = sqrt 2`, reached by two routes                -- b110
+      (3) zeta23`s explicit formula contains b321`s identity, and the grade is DER -- b468r, b470, b480
+      (4) the compression register RAN and takes NO GRADE; its blocker is measured -- b483, b484
+      (5) the circulation gate is DISCHARGED on the current deposit state, with th -- b485
+      (6) the eight unanchored sentences, under `E-2026-09-22-1`                   -- b469 (from b464)
+    ### rulings in the span, as the bank tables them : ### **13**
+      R84, R86, R85, R87, R89, R90, R91, R92, R93, R94, R95, R96, R88
+    ### acts recording a defect of their own instruments : ### **7**
+
+(P2) THE STANDING FOLD FORM, READ FROM THE FOLDS ALREADY IN `FINDINGS.md`.
+------------------------------------------------------------------------------------------------------------
+    fold sections present : ### **18**
+      FINDINGS.md:2228  ## THE M-2 CAMPAIGN, b266–b281 — THE FOLD
+      FINDINGS.md:2336  ## THE M-2 CAMPAIGN, b283–b296 — THE FOLD
+      FINDINGS.md:2531  ## THE ADELIC ARC, b297–b306 — THE FOLD
+      FINDINGS.md:2611  ## THE INSTRUMENT ARC, b307–b313 — THE FOLD
+      FINDINGS.md:2711  ## THE ARCHIMEDEAN INSTRUMENT ARC, b314–b322 — THE FOLD
+      FINDINGS.md:2882  ## THE DISCRIMINATING-FAMILY ARC, b323–b330 — THE FOLD
+      FINDINGS.md:3120  ## THE STATED-CLAUSE ARC, b331–b334 — THE FOLD
+      FINDINGS.md:3247  ## THE PRICED-AND-RESOLVED ARC, b339–b347 — THE FOLD
+      FINDINGS.md:3381  ## THE UNIFORMITY ARC, b349–b359 — THE FOLD
+      FINDINGS.md:3562  ## THE APPARATUS ARC, b361–b369 — THE FOLD
+      FINDINGS.md:3629  ## THE RE-DERIVATION ARC, b371–b383 — THE FOLD
+      FINDINGS.md:3672  ## THE ARTEFACT ARC, b385–b401 — THE FOLD
+      FINDINGS.md:3753  ## THE CLASSIFICATION ARC, b403–b411 — THE FOLD
+      FINDINGS.md:3787  ## THE KERNEL ARC, b413–b421 — THE FOLD
+      FINDINGS.md:3895  ## THE WITNESS AND CHANNEL ARC, b433–b443 — THE FOLD
+      FINDINGS.md:3933  ## THE RESIDUE AND RECONCILIATION ARC, b445–b452 — THE FOLD
+      FINDINGS.md:3987  ## THE DEPOSIT-AND-INSTRUMENT ARC, b454–b462 — THE FOLD
+      FINDINGS.md:4055  ## THE EXTERNAL-READING ARC, b464–b473 — THE FOLD
+    ### the LAST fold`s subsection headings, which b488 follows:
+        ### The arc in one statement
+        ### The span, act by act, each verdict verified in its own closing bank
+        ### The three columns, kept apart
+        ### What the arc established, each at its own address
+        ### The finding that was not asked for
+        ### The rulings of the span, with their status
+        ### Errors entered as their owners’
+        ### Filed with this fold, not done by it
+    FINDINGS.md : 470395 bytes, 4127 lines. ### **THE SECTION IS APPENDED AT THE END.**
+    ### ### **AND `b486` MUST NOT ALREADY BE A FOLD SECTION:** occurrences of a
+    ### heading naming it : ### **0**
+
+(P3) THE SPAN TOOL`S READING, BEFORE THE SECTION IS WRITTEN.
+------------------------------------------------------------------------------------------------------------
+      ### ### **FOLDS RUN : 19. ### SHORTEST : 4 ACTS. ### LONGEST : 17 ACTS. ### MIDDLE : 9.**
+      ### *THE FOLD THRESHOLD IS NINE ACTS.* ### **THE SPANS ABOVE ARE THE FOLDS THAT HAPPENED;
+      ### (2) THE CURRENT SPAN, COUNTED FROM THE LAST FOLD FORWARD.
+      the last fold covers      : b464 - b473 (10 acts)
+      ### ### **THE CURRENT SPAN : 14 ACT(S).**
+      ### the current span has reached the shortest fold the record has run : True
+    ### ### **BEFORE : last fold b464 - b473 ; folds 19 ; current span 14.**
+    ### ### **(N1) IS REFUTABLE BY THIS SAME READING TAKEN AFTER THE WRITE.**
+
+(P4) `corr_row.py`, AS IT STANDS -- ITS PRIOR BEHAVIOUR, QUOTED FROM ITS OWN HEADER.
+------------------------------------------------------------------------------------------------------------
+    `tools/corr_row.py` : 3869 bytes, 88 lines
+    ### the header`s declared limits, verbatim:
+        ### THE LIMITS, IN THE HEADER SO THE TOOL IS NOT TRUSTED BEYOND THEM:
+        ### (1) ### IT CANNOT STOP A CALLER FROM STILL WRAPPING ITS ARGUMENTS IN A DOUBLE-QUOTED
+        ###     SHELL STRING. It removes the need, not the possibility. ### THE HABIT IS THE
+        ###     HAZARD AND A TOOL ONLY LOWERS ITS COST.
+        ### (2) It checks cell COUNT and EMPTINESS, not cell TRUTH. ### A ROW OF SIX HONEST-LOOKING
+        ###     LIES PASSES.
+        ### (3) It appends. It does not verify the row's terminals exist or that the axiom print
+        ###     quoted matches a build. ### THAT IS THE ACT'S DUTY, NOT THE TOOL'S.
+        ### THE EMPTY CASE. b167's law: a verdict over an empty scope is not a verdict,
+        ### and a row with no cells is not a row.
+        ### READ THE ROW BACK FROM DISK AND COUNT ITS CELLS. ### b193's DEFECT WAS CAUGHT BY
+        ### READING BACK, SO THE TOOL READS BACK.
+    ### ### **AND NOTHING IN THOSE LIMITS MENTIONS THE ROW NUMBER.** ### The tool
+    ### validates cell COUNT and EMPTINESS and reads the row back; it never looks at
+    ### what number the first cell carries, and it appends unconditionally.
+      `write_row` appends and reads back : ### **True**
+      any check on an existing row number : ### **False**
+    the ledger `CORRESPONDENCE.md` : rows ### **336** ### ; highest ### **336**
+    ### the next free number : ### **337**
+    ### ### **(N2) IS REFUTABLE BY THE GUARD`S FIRST RUN:** its positive control
+    ### offers an EXISTING number and must be refused ### **WITHOUT REPAIR.**
+
+============================================================================================================
+  ### MISSES : 0 
+============================================================================================================

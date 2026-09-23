@@ -1,0 +1,63 @@
+========================================================================================================
+b488 -- THE COMPONENTS. ### (R98)`S SECTION, AND THE ROW WRITER`S GUARD.
+========================================================================================================
+
+COMPONENT 1 -- (R98)`S SECTION, WRITTEN HOME FROM b486`S OWN BANK.
+--------------------------------------------------------------------------------------------------------
+    sources, both b486`s own:
+      `relay data/b486_the_fold.txt`    10148 bytes
+      b486`s record in `OPEN_TRAILS.md`   7281 bytes
+
+    ### THE SPAN TOOL, BEFORE THE WRITE:
+    BEFORE  last fold ### **b464 - b473** ### ; folds ### **19** ### ; current span ### **14**
+      block one statement             37 bytes 
+      block C1 span table           1434 bytes 
+      block C2 digest               1798 bytes 
+      block C3 ledgers              1664 bytes 
+      block the finding              467 bytes 
+      block closed/minted            416 bytes 
+      block what it does not do      292 bytes 
+
+    ### THE APPEND, WITH THE PRIOR BYTES PROVED A TRUE PREFIX:
+      bytes before / appended / after : 477591 / 7349 / 484940
+      PRIOR BYTES A TRUE PREFIX : ### **True** ### ; BOM preserved : ### **True**
+      lines before / after : 4127 / 4203
+      ### ### **LINES OF THE OLD FILE ABSENT FROM THE NEW : 0.**
+      fold sections in FINDINGS.md, before / after : 18 / 19
+
+    ### THE SPAN TOOL, AFTER THE WRITE -- THE SAME COMMAND, THE TOOL UNEDITED:
+    AFTER   last fold ### **b475 - b479** ### ; folds ### **20** ### ; current span ### **2**
+    ### ### **(N1) -- the span tool reads `b486` as the last fold : REFUTED.**
+    ### the tool`s own file is untouched by this act : ### **True**
+
+COMPONENT 2 -- `corr_row.py` GAINS THE APPENDER`S GUARD.
+--------------------------------------------------------------------------------------------------------
+    ### THE TOOL`S PRIOR BEHAVIOUR, QUOTED FROM ITS OWN HEADER -- its three declared
+    ### limits, none of which mentions the row number:
+      *"(1) IT CANNOT STOP A CALLER FROM STILL WRAPPING ITS ARGUMENTS IN A DOUBLE-QUOTED
+      SHELL STRING."*
+      *"(2) It checks cell COUNT and EMPTINESS, not cell TRUTH. A ROW OF SIX
+      HONEST-LOOKING LIES PASSES."*
+      *"(3) It appends. It does not verify the row`s terminals exist ..."*
+    ### ### **IT APPENDED UNCONDITIONALLY AND THEN READ THE ROW BACK** -- and read-back
+    ### checks that the CELLS SURVIVED, not that the NUMBER was free. ### A row bearing
+    ### a number the ledger already held was written and then reported ### *verified.*
+    ### the two limits the guard adds, now in the same header : ### **(4)** it checks the
+    ### NUMBER, not the content ; ### **(5)** it does not ASSIGN numbers -- it refuses a
+    ### taken one and names the next free one.
+      `numbers_in` present : True ; the refusal reads before it writes : False
+
+    ### ### **BOTH CONTROLS, ON A FIXTURE -- FIRST RUN, NO REPAIR:**
+      POSITIVE CONTROL -- a TAKEN number  : code 2 (must be 2) ; file unchanged : True
+      NEGATIVE CONTROL -- the NEXT FREE   : code 0 (must be 0) ; file grew : True
+      ### ### **BOTH CONTROLS BEHAVE : True.**
+      ### ### **AN ARM THAT CANNOT REFUSE IS NOT A GUARD**, so the refusal is
+      ### exercised before the tool is used on the real ledger.
+    ### ### **(N2) -- the positive control refuses on its initial run : HELD.**
+    ### the controls wrote to the live ledger : ### **False** ### -- a negative control
+    ### that ACCEPTS writes a row, so neither control is ever pointed at
+    ### `CORRESPONDENCE.md`.
+
+========================================================================================================
+  ### COMPONENT 1 CLEAN : True ### ; COMPONENT 2 CONTROLS BEHAVE : True
+========================================================================================================
