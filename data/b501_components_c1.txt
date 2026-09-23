@@ -1,0 +1,19 @@
+========================================================================================================
+COMPONENT 1 -- THE INSTRUMENT AS IT STANDS, QUOTED AT ITS LINES.
+========================================================================================================
+    carto_atlas.py         :25   NV, NU, UMAX, TOL, NGAM = 4001, 12001, 600.0, 1e-3, 10000
+    carto_atlas.py         :58       return np.cos(np.outer(u, v)) @ (w * dv)
+    carto_atlas.py         :39           _KERN = np.array([float(mre(digamma(mpc(0.25, uu / 2.0)))) for uu in U]) - math.log(math.pi)
+    b318_square.py         :71   AUTOCORR_NV = 8193
+    b321_window.py         :118                      val = 2.0 * math.log(p) / math.sqrt(n) * float(np.interp(ln, v, w))
+    b321_window.py         :138      Z = 2.0 * float(np.sum(hhat_blocked(v, w, AT.GAM)))
+    b321_window.py         :140      U = np.linspace(-AT.UMAX, AT.UMAX, AT.NU)
+    b321_window.py         :141      A = float(np.trapezoid(hhat_blocked(v, w, U) * AT.kernel(U), U) / (2.0 * math.pi))
+    b321_window.py         :150      tail = hhat_blocked(v, w, np.linspace(T, T + 200.0, 401))
+    b321_window.py         :151      return float(2.0 * np.max(np.abs(tail)) * 200.0)
+
+    ### ### **WHAT `trunc_bound` BOUNDS:** the zero side`s truncation at the last banked ordinate T --
+    ### twice the largest |hhat| on [T, T + 200] times the width 200.
+    ### ### **WHAT IT DOES NOT BOUND:** anything on the places side -- neither A`s u-quadrature nor
+    ### the v-grid under hhat and the prime interpolation -- nor the zero tail beyond T + 200.
+========================================================================================================

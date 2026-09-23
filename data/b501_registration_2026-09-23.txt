@@ -1,0 +1,172 @@
+====================================================================================================
+ACT b501 -- THE REGISTRATION FACE. ### THE PLACES-SIDE QUADRATURE BOUND, BUILT AND TESTED.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT AND b502 ONLY,
+### UNDER (R112)**, and shuts at b502`s close. ### `W-ORD-QUADRATURE-BOUND`, filed at b484, fires here.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **THE CORPUS HOLDS NO ERROR BOUND FOR THE PLACES-SIDE QUADRATURE** (b484`s filing, quoted).
+### This act builds one, COMPUTED and not assumed, tests it against what the record has already
+### measured, and recomputes each cell`s floor under it. ### **THIS ACT CONFERS NO GRADE**, and no
+### number it prints is a statement about RH.
+### ### **AN ERROR ESTIMATE IS NOT A PROOF.** ### A Richardson estimate assumes the error behaves
+### like a power of the grid step; where the three levels do not show that behaviour the estimate
+### is flagged NON-ASYMPTOTIC and made conservative by the rule in (B)(2), and the flag is printed.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (1) THROUGH COMPONENT (4).
+----------------------------------------------------------------------------------------------------
+### (1) THE INSTRUMENT AS IT STANDS. ### Quoted at its lines: `b321_window.channels` -- A is a
+###     trapezoid over the u-grid `linspace(-UMAX, UMAX, NU)` (UMAX 600, NU 12001, `carto_atlas``s
+###     constants) of `hhat(u) * kernel(u) / 2 pi`, and `hhat` is `cos(u v) @ (w dv)` on the v-grid;
+###     `prime_sum` takes each term by `np.interp` of `w` at `log n` on the same v-grid; the v-grid is
+###     `b318_square.autocorrelation``s, of `2 nv - 1` points at `nv = 8193`. ### What `trunc_bound`
+###     bounds and what it does not, one sentence each.
+### (2) THE BOUND. ### ### **STATED HERE, BEFORE IT IS RUN.** ### The instrument admits a grid
+###     parameter, not a second rule, so the method is ### **RICHARDSON ACROSS THREE LEVELS** of the
+###     v-grid, together with ### **A u-GRID REFINEMENT** of A`s integral. ### Per cell:
+###     ### (v) the margin `m = A - PR` at `nv` = 8193, 16385, 32769 -- values `x1, x2, x3`;
+###         `d1 = x1 - x2`, `d2 = x2 - x3`. ### If `d1` and `d2` share a sign and `|d1| > |d2| > 0`,
+###         `r = |d1|/|d2|`, the extrapolate `xR = x3 - d2/(r - 1)`, and `E_v = |x1 - xR|`. ###
+###         Otherwise the cell is ### **NON-ASYMPTOTIC** and `E_v = 2(|d1| + |d2|)`. ### If both are
+###         exactly zero, `E_v = 0` and the cell says so.
+###     ### (u) A at the base v-grid on three u-grids: the base (UMAX 600, NU 12001); the spacing
+###         halved (NU 24001); the range doubled at the base spacing (UMAX 1200, NU 24001).
+###         `E_u = |A_half - A_base| + |A_wide - A_base|`.
+###     ### ### **THE BOUND IS `B = E_v + E_u`**, per cell, on the base value the chain reports.
+###     ### The kernel cache of `carto_atlas` holds ONE u-grid; it is RESET before every change of
+###     u-grid and the cached length is checked against the grid, because a stale cache would pair
+###     the kernel of one grid with another grid and the program would not complain.
+###     ### ### **WHAT THE BOUND DOES NOT COVER, NAMED:** the zero side`s truncation (that is
+###     `trunc_bound``s), and the seed`s own nodes, which DEFINE the piecewise-linear test function
+###     rather than approximate one.
+### (3) THE TEST, ON THE THIRTY-FIVE BANKED CELLS. ### At each cell, `B` beside the achieved two-side
+###     agreement `|W + Z|` from `b492_cells.json` -- the per-cell quantity whose spectral norm over
+###     the ladder b483 printed as 3.169e-06. ### **THE ORDER`S TEST: `B >= |W + Z|` AT EVERY CELL**,
+###     printed cell by cell and counted. ### Beside it, and not in place of it, the composite `B +
+###     trunc_bound` against the same `|W + Z|`.
+###     ### ### **POSITIVE CONTROL -- A CELL WITH A KNOWN VALUE:** a Gaussian `w(v) = exp(-v^2/2s^2)`
+###     on `[-L, L]`, `L = 2.2`, `s = L/8`, on the chain`s grids at the three level sizes. Its
+###     transform is CLOSED FORM, `hhat(u) = s sqrt(2 pi) exp(-s^2 u^2 / 2)`; its prime sum is exact
+###     from `w` at `log n` without interpolation; A`s reference is the closed-form `hhat` against the
+###     kernel by `mpmath.quad` at 30 digits over the whole line. ### The control PASSES if `B >= |m
+###     - m_ref|` at the base level. ### ### **THE A-REFERENCE IS AN ADAPTIVE INTEGRAL OF A CLOSED
+###     FORM, NOT A CLOSED FORM**, and the face says so rather than the report.
+###     ### **NEGATIVE CONTROL -- THE GRID DELIBERATELY COARSENED:** at `a` = 1.3, 4.061553 and
+###     5.656854 the bound recomputed with levels `nv` = 2049, 4097, 8193; it must be LARGER than
+###     the base bound at each of the three.
+### (4) THE FLOOR. ### Each cell`s new floor is its `B`, banked beside b477`s uniform floor 1.49e-08;
+###     the count of cells whose margin `m(a)` exceeds its new floor.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE.** ### `tools/b321_window.py` lines 1-160;
+### `tools/e16/carto_atlas.py` lines 1-70, whose `kernel` caches one u-grid; `b318_square.
+### autocorrelation` and `AUTOCORR_NV = 8193`; `b317_smear.mean_zero_variant`; `b492_run.py` and
+### `b492_cells.json` -- 143.6 s for the 35 cells at the base, and `max |W + Z|` = 3.558e-05 over them;
+### `b483_components.txt` lines 24-213; OPEN_TRAILS` filing of `W-ORD-QUADRATURE-BOUND`; and the
+### seat`s own memory of b446, whose single doubling to `nv` 32769 at five cells moved W by less than
+### 1.49e-08 with orders 1.0 to 1.7 and one refusal. ### **NO CHAIN WAS RUN BEFORE THE SEAL.**
+### ### **READING (1) -- b483`S "TWO CELLS" ARE TWO FAMILIES.** ### b483`s 4.562e-05 is the spectral
+### norm of the error matrix over the AIM PLANE (13 cells, a from 1.3 to 3), and 3.169e-06 over the
+### LADDER. ### The order`s population is the thirty-five ladder cells, so (N1) is scored against the
+### LADDER figure, and ### **ITS AIM-PLANE HALF IS NOT SCORABLE IN THIS ACT** -- those cells are not
+### among the thirty-five, and substituting a ladder number for them would be scoring a different
+### population.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE, UNDER (R112).
+----------------------------------------------------------------------------------------------------
+### From b492`s banked 4.1 s per cell at the base: the three v-levels cost about 1 + 2 + 4 units,
+### the two u-refinements about 2 units each plus a one-time kernel of 24001 digamma values per
+### new u-grid. ### **ABOUT 45 s A CELL, ABOUT 30 MINUTES FOR THE THIRTY-FIVE AND THE CONTROLS** --
+### an estimate from a banked time, not a measurement, and the act prints the measured total.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **THE NEW BOUND EXCEEDS THE ACHIEVED ERROR AT BOTH b483 CELLS BY LESS THAN THREE
+###      ORDERS.** ### Scored on the LADDER per READING (1); the AIM-PLANE half NOT SCORABLE.
+### (N2) ### **ALL 35 MARGINS STILL EXCEED THEIR NEW FLOORS.**
+### (N3) ### **THE NEW FLOOR AT THE MINIMUM-MARGIN CELL a = 4.061553 IS BELOW 1e-04.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **THE PLACES-SIDE BOUND FALLS BELOW THE ACHIEVED AGREEMENT `|W + Z|` AT MORE THAN THIRTY
+###      OF THE THIRTY-FIVE CELLS, SO THE ORDER`S TEST FAILS THERE.** ### b446 moved W by less than
+###      the old floor on a doubling while `|W + Z|` reaches 3.6e-05: the achieved disagreement is
+###      carried by something the places-side quadrature does not carry.
+### (S2) ### **THE COMPOSITE `B + trunc_bound` IS AT OR ABOVE `|W + Z|` AT EVERY CELL.**
+### (S3) ### **THE v-GRID RICHARDSON IS NON-ASYMPTOTIC AT ONE OR MORE CELLS**, as b446`s 4.123106
+###      refused an order.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS
+### FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py
+### --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py` (gates: 8)
+### -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-PRICE-ON-FACE`
+### `G-INSTRUMENT-QUOTED` `G-TRUNC-SENTENCES`
+### `G-BASE-REPRODUCES-B492` `G-THREE-LEVELS-RUN` `G-RICHARDSON-RULE` `G-NONASYMPTOTIC-FLAGGED`
+### `G-U-REFINEMENTS-RUN` `G-KERNEL-CACHE-RESET` `G-BOUND-IS-SUM`
+### `G-TEST-EVERY-CELL` `G-COMPOSITE-BESIDE` `G-POSITIVE-CONTROL` `G-NEGATIVE-CONTROL`
+### `G-FLOORS-BANKED` `G-MARGIN-COUNT`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b501_*` `relay/tools/b501_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b501_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b501_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b501_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b501_span*.json` `relay/data/b501_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b501.zip`
+###   (outside every repository) `relay/data/b501_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### **NO INSTRUMENT OF THE CHAIN IS EDITED.** ### `b321_window`, `carto_atlas`, `b318_square` and
+### `b317_smear` are IMPORTED and called; grids are changed through their own parameters and module
+### constants at call time, in this act`s own process, and restored.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NO LANE BEYOND THE NUMERICAL OPENS.** ### Nothing compiled; no `lake` command runs.
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ###
+### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is unedited. ### `h2` stays
+### where the deposit left it. ### The four lists stay OPEN. ### K1, K2 and K3 are not started.
+### ### **AND A BOUND ON A QUADRATURE IS NOT A BOUND ON A ZERO.** ### Nothing about RH follows.
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : fbe4398895cf202d577d6784115863440ab86b7998707a55df25d0171e581e2b
+### bytes locked : 13590
+### locked at (UTC) : 2026-09-23T22:38:16Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b501_registration_2026-09-23.txt`.**
+====================================================================================================
