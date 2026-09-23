@@ -1,0 +1,72 @@
+========================================================================================================
+b497 COMPONENTS 1 AND 2 -- ### **THE LOG READ WHOLE, AND THE THREE PROFILES.**
+========================================================================================================
+
+### COMPONENT 1 -- THE LOG.
+--------------------------------------------------------------------------------------------------------
+    file   : `relay/data/b495_ef_build.log`
+    bytes  : ### **27734** ; lines : ### **339**
+    sha256 : a1787ce0c086585edf4b49852445ad940357abd5d1d793dca83aa394a896b2f8
+    ### ### **COMMITTED UNCHANGED.** ### b495 declined to commit it because a running
+    ### process owned it; this act commits the bytes it read and hashes them here so a
+    ### later reader can prove the committed file is the file this act reported on.
+
+    marks (stamped lines)        : ### **339**
+    ### ### **DISTINCT INSTANTS   : 293**
+    ### ### **THIS IS THE CELL b495 OWED.** ### b495`s (N3) asked for more than six
+    ### distinct instants within the first ten module marks, and its (S2) asked whether
+    ### the `FromPNTPlus` ten were what `lake` built earliest. ### **BOTH NAMED THE LOG,
+    ### AND b495`S OWN ORDER FORBADE READING IT** -- so both were scored NOT SCORABLE and
+    ### routed here. ### They are paid below, on the whole file.
+    first mark : 2026-09-23T17:58:36.199
+    last mark  : 2026-09-23T18:17:54.803
+    ### ### **WALL TIME FROM THE LOG`S OWN OUTER MARKS : 1158.6 s** (19.3 min)
+    `lake`s summed reported durations : ### **3622.2 s** across 308 reported spans
+    ### ### **THE TWO NUMBERS MEASURE DIFFERENT THINGS, WHICH IS WHY THE ORDER ASKS FOR
+    ### BOTH** -- and ### **THE SUMMED DURATIONS ARE THE LARGER**, by 2463.6 s.
+    ### ### **THE SEAT PREDICTED THIS GAP WITH THE SIGN BACKWARDS.** ### (S3) said wall
+    ### time would GREATLY EXCEED the summed durations, reasoning that the mathlib CLONE
+    ### is network time `lake` does not account. ### The clone is real and is in the log,
+    ### but it is swamped by a larger effect the prediction ignored: ### **`lake` BUILDS
+    ### IN PARALLEL.** ### 308 module spans summing 3622.2 s finished inside 1158.6 s of wall
+    ### clock -- about ### **3.1x** concurrency. ### **A SUM OF PER-JOB DURATIONS IS NOT
+    ### AN ELAPSED TIME**, and the seat compared them as though it were.
+
+    `END` / `EXIT` lines : ### **2**
+      lake build                           EXIT ### **3221225786** (0xC000013A)  ### ### **STATUS_CONTROL_C_EXIT**
+      PrintAxioms on the three names       EXIT ### **3221225786** (0xC000013A)  ### ### **STATUS_CONTROL_C_EXIT**
+    ### ### **NON-ZERO EXITS : 2**
+
+    modules built (by `lake`s own Built/Building/Replayed lines) : ### **308** ['Mathlib.Algebra.BigOperators.Group.List.Defs', 'Mathlib.Algebra.Group.Commutator', 'Mathlib.Algebra.Group.Commute.Defs', 'Mathlib.Algebra.Group.Defs', 'Mathlib.Algebra.Group.InjSurj', 'Mathlib.Algebra.Group.Int.Defs']
+    ### ### **MODULES THAT FAILED, BY NAME : NONE**
+    ### ### **A NON-ZERO EXIT IS NOT A FAILED MODULE.** ### Both exits are
+    ### `0xC000013A`, which is ### **`STATUS_CONTROL_C_EXIT`** -- what a Windows process
+    ### reports when a console control event reaches it. ### **THE BUILD WAS KILLED, NOT
+    ### BROKEN**, and the log names no module that failed to compile. ### A reader who
+    ### saw the exit code and wrote *"the build failed"* would have said something
+    ### ### **THE LOG DOES NOT SUPPORT.**
+
+### COMPONENT 2 -- THE THREE PROFILES.
+--------------------------------------------------------------------------------------------------------
+    `#print axioms` OUTPUT LINES ANYWHERE IN THE LOG : ### **0**
+    `EF_lit_zetaZeroConfig   ` -> ### **ABSENT**
+    `EF_lit                  ` -> ### **ABSENT**
+    `EF_lit_zeta             ` -> ### **ABSENT**
+    ### the match is on the ### **WHOLE AXIOM STRING**, as the order requires. ### A
+    ### PREFIX match would read `[propext, Classical.choice, Quot.sound, sorryAx]` as the
+    ### standard three, which is the one reading that must never be possible here.
+
+    ### ### **ALL THREE THE STANDARD THREE : False**
+    ### ### **NOT ALL THREE. ### WHICH : ['EF_lit_zetaZeroConfig', 'EF_lit', 'EF_lit_zeta'] -- ALL ABSENT.**
+    ### ### **(R82) IS NOT CLAIMED BY THIS ACT.** ### It holds only if all three read
+    ### the standard three, and they do not. ### **NOR IS (R82) REFUTED** -- a profile
+    ### that was never printed is not a profile that came out wrong, and
+    ### ### **ABSENT IS NOT OTHER.**
+
+    ### ### **### STOP. ### COMPONENT 3 IS NOT RUN. ###**
+    ### The order: *"otherwise print which and STOP before Component 3."* ### The
+    ### REGISTRY row keeps `PENDING`, no name is written beside it, the terminal table
+    ### is NOT regenerated for a profile move, and ### **NO ROW CITES THE KERNEL.**
+    ### ### **A STOP OBEYED IS A RESULT.** ### Running Component 3 anyway would have
+    ### written three profiles into REGISTRY that no run produced.
+========================================================================================================

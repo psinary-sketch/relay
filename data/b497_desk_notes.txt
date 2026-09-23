@@ -1,0 +1,82 @@
+========================================================================================================
+b497 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE CELLS THE LOG PRINTED.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **REFUTED.**
+    *"0 non-zero exits"*
+    `END` lines : 2 ; ### **NON-ZERO : 2**
+      lake build                           EXIT 3221225786 (0xC000013A)
+      PrintAxioms on the three names       EXIT 3221225786 (0xC000013A)
+    ### ### **REFUTED BY THE CELL, AND THE CELL SAYS MORE THAN THE VERDICT.** ### Both
+    ### codes are `0xC000013A` = ### **`STATUS_CONTROL_C_EXIT`**. ### The build did not
+    ### fail; ### **IT WAS KILLED** -- a console control event reached it. ### And
+    ### ### **MODULES THAT FAILED, BY NAME : NONE.**
+
+  **(N2)** ### **REFUTED.**
+    *"all three profiles the standard three"*
+      `EF_lit_zetaZeroConfig   ` -> ### **ABSENT**
+      `EF_lit                  ` -> ### **ABSENT**
+      `EF_lit_zeta             ` -> ### **ABSENT**
+    `#print axioms` output lines anywhere in the log : ### **0**
+    ### ### **ALL THREE ABSENT, AND ABSENT IS NOT OTHER.** ### The probe never ran to
+    ### completion, so there is no axiom string to read -- ### **NOT A STRING THAT CAME
+    ### OUT WRONG.** ### (R82) is ### **NEITHER CLAIMED NOR REFUTED BY THIS ACT**, and
+    ### b473`s and b480`s wording is the right wording again: ### **VOID FOR WANT OF A
+    ### RUN.**
+
+  **(N3)** ### **HELD.**
+    *"more than fifty distinct instants across the marks"*
+    marks : 339 ; ### **DISTINCT INSTANTS : 293**
+    ### ### **AND THIS IS THE CELL b495 OWED.** ### b495`s (N3) and its (S2) both named
+    ### the log`s module marks, and b495`s own order forbade reading the log, so both
+    ### were scored ### **NOT SCORABLE** and routed here. ### **THEY ARE PAID.**
+    ### b480`s defect -- one precomputed instant stamped on every mark -- would have
+    ### given ### **ONE** distinct instant across 339 marks. ### It gives 293.
+    ### ### **THE REPAIR IS CONFIRMED ON THE POPULATION THE EXPECTATION NAMED**, not on
+    ### the mechanism-level control b495 had to substitute.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.**
+    *"(N1) and (N2) will both be REFUTED, and (N3) will hold."*
+    (N1) REFUTED ; (N2) REFUTED ; (N3) HELD -- as predicted.
+    ### ### **AND THIS PREDICTION WAS CHEAP AND THE FACE SAID SO.** ### It was drawn
+    ### from a declared peek at the log`s first eight and last six lines. ### **A
+    ### PREDICTION MADE AFTER A GLANCE IS NOT EVIDENCE OF ANYTHING BUT THE GLANCE.**
+
+  **(S2)** ### **HELD.**
+    *"the failure is a process-control failure, not a Lean failure; modules that failed
+    by name will read NONE."*
+    lines matching a failure shape : ### **0**
+    modules built before the kill  : ### **308**, every one of them `Mathlib.*`
+    ### ### **NOT ONE ZETA23 MODULE WAS REACHED.** ### The build spent its whole life
+    ### cloning and compiling MATHLIB and was killed before it arrived at the vendored
+    ### closure. ### **SO THE LOG SAYS NOTHING WHATEVER ABOUT WHETHER THE 57 VENDORED
+    ### MODULES COMPILE**, and any reader inclined to take the non-zero exit as evidence
+    ### about `EF_lit` is reading a fact about a process into a claim about a proof.
+
+  **(S3)** ### **REFUTED.**
+    *"wall time will greatly exceed lake`s summed durations."*
+    wall time            : ### **1158.6 s**
+    `lake` summed spans  : ### **3622.2 s** across 308 spans
+    ### ### **REFUTED, AND WITH THE SIGN BACKWARDS.** ### The summed durations are the
+    ### LARGER, by 2463.6 s. ### The seat reasoned from the mathlib CLONE -- real, in the
+    ### log, and network time `lake` does not account -- and ### **IGNORED A LARGER
+    ### EFFECT POINTING THE OTHER WAY: `lake` BUILDS IN PARALLEL.** ### 308 spans summing
+    ### 3622.2 s finished inside 1158.6 s of wall clock, about ### **3.1x** concurrency.
+    ### ### **A SUM OF PER-JOB DURATIONS IS NOT AN ELAPSED TIME**, and the seat compared
+    ### them as though it were. ### The order asked for both numbers precisely because
+    ### they are not the same number, and the seat still conflated them.
+
+### THE TALLY, AND WHAT THIS ACT DID NOT DO.
+--------------------------------------------------------------------------------------------------------
+  ### ### **THE NAVIGATOR`S: HELD 1 ; REFUTED 2.**
+  ### ### **THE SEAT`S: REGISTERED 3 ; HELD 2 ; REFUTED 1.**
+  ### ### **COMPONENT 3 WAS NOT RUN.** ### The order: *"otherwise print which and STOP
+  ### before Component 3."* ### REGISTRY`s `SIDE-explicit-formula` row keeps `PENDING`,
+  ### no profile is written beside it, and ### **NO ROW CITES THE KERNEL** -- (R106)(3)
+  ### stands untouched. ### **A STOP OBEYED IS A RESULT**, and the alternative was to
+  ### write three profiles into REGISTRY that no run produced.
+========================================================================================================

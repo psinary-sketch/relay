@@ -1,0 +1,191 @@
+====================================================================================================
+ACT b497 -- THE REGISTRATION FACE. ### THE b495 BUILD LOG READ, AND THE THREE PROFILES.
+====================================================================================================
+### Sealed BEFORE any component but Component 0 runs. ### **COMPONENT 0 IS A GATE, NOT A COMPONENT**
+### -- the order puts it before everything and makes the rest conditional on it, so it ran at step
+### zero and its result is declared in section (C) below. ### **THE PROCESS IS GONE, SO THIS ACT
+### PROCEEDS.**
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **A LOG IS READ THAT ANOTHER ACT WROTE AND NEITHER ACT CONTROLLED.** ### b495 launched a
+### detached build and was forbidden to read it; this act reads it whole, commits it unchanged, and
+### ### **REPORTS WHAT IT SAYS RATHER THAN WHAT IT WAS HOPED TO SAY.**
+### ### **THIS ACT CONFERS NO GRADE.** ### A profile is a READING of a `#print axioms` line, not a
+### grade, and (R106)(3) still bars any row from citing the kernel until one is banked.
+### ### **AND THE ORDER HAS A STOP IN IT.** ### Component 2 says that if the three profiles are not
+### all the standard three, this act ### **PRINTS WHICH AND STOPS BEFORE COMPONENT 3.** ### A stop
+### obeyed is a result; a component run past its own stop is a breach.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (0) THROUGH COMPONENT (3).
+----------------------------------------------------------------------------------------------------
+### (0) THE RUN`S STATE. ### `pid 7860` alive or not, and the log`s byte count. ### **ALIVE -> PRINT
+###     AND STOP.** ### Run at step zero; see (C).
+### (1) THE LOG, WHOLE. ### Committed to relay ### **UNCHANGED.** ### Printed: modules built; the
+###     `END` / `EXIT` lines and ### **HOW MANY NON-ZERO**; modules that failed ### **BY NAME, OR
+###     NONE**; ### **WALL TIME FROM THE LOG`S OWN OUTER MARKS AGAINST `lake`S SUMMED DURATIONS**;
+###     and ### **THE COUNT OF DISTINCT INSTANTS ACROSS ALL MARKS** -- which is the cell b495 owed
+###     for its (N3) and its (S2), and could not print because its order forbade reading this log.
+### (2) THE PROFILES. ### The three `#print axioms` lines for `EF_lit_zetaZeroConfig`, `EF_lit` and
+###     `EF_lit_zeta`, ### **MATCHED ON THE WHOLE AXIOM STRING** and not on a prefix. ### Each is
+###     ### **STANDARD THREE**, ### **OTHER** with the string printed, or ### **ABSENT.** ### (R82)
+###     holds only if all three read the standard three; ### **OTHERWISE PRINT WHICH AND STOP.**
+### (3) THE ROW -- ### **CONDITIONAL, AND ONLY IF (2) PASSES.** ### REGISTRY`s
+###     `SIDE-explicit-formula` row: profile `PENDING` -> the three names with their profile; the
+###     terminal table regenerated and the diff printed. ### **NO KEYSTONE CITES THE KERNEL.**
+
+----------------------------------------------------------------------------------------------------
+### (C) COMPONENT 0`S RESULT, AND EVERYTHING ELSE READ BEFORE THE SEAL.
+----------------------------------------------------------------------------------------------------
+### ### **pid 7860 : GONE.** ### `tasklist` reports no task matching it, and no `lake` or `lean`
+### process is running. ### The log is ### **27,734 bytes, 339 lines**, last written
+### `2026-09-23 14:17:54` local. ### **NOTHING OWNS THE LOG, SO THE ACT PROCEEDS.**
+### ### **AND THIS FACE DECLARES A READ IT ALREADY MADE.** ### To decide the process state the seat
+### read the log`s FIRST EIGHT and LAST SIX lines. ### **THAT IS A READ OF THE LOG, BEFORE THE
+### SEAL**, and b495`s own lesson is that an act which quietly exceeds its gate has no gate. ### It
+### is declared here, and what it showed is declared with it, because ### **A PREDICTION DRAWN FROM
+### A PEEK MUST SAY IT WAS DRAWN FROM A PEEK:**
+###   (i)   the outer marks are `17:58:36.199` and `18:17:54.803` -- about ### **19 MINUTES 19
+###         SECONDS** of wall time.
+###   (ii)  the second line of `lake`s output is
+###         *"info: mathlib: cloning https://github.com/leanprover-community/mathlib4"*.
+###   (iii) ### **BOTH `END` LINES CARRY `EXIT 3221225786`.**
+### ### **THE COMPONENTS RE-DERIVE ALL THREE FROM THE WHOLE FILE**; nothing here is carried into a
+### result unrecomputed.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE INDEX QUERIED BEFORE THE MARKS WERE MADE. ### **b160`S CONVENTION, b182`S FAILURE.**
+----------------------------------------------------------------------------------------------------
+### This face marks a profile `ABSENT` as a live possibility, so the banked index is QUERIED and the
+### result REPORTED before the mark stands. ### Banked whole at `data/b497_index_query.txt`:
+###   `EF_lit`           -> ### **NO KEY.**
+###   `axiom profile`    -> ### **NO KEY.**
+###   `standard three`   -> ### **NO KEY.**
+###   `explicit formula` -> ### **1 INDEXED RESULT**: key `weil-criterion`, act `b179` -- the Weil
+###     criterion as ### **EXTERNAL, quoted at content**, NOT the corpus`s result and NOT about one
+###     place, as its own act recorded it.
+### ### **NONE OF THESE BEARS ON WHAT A KILLED BUILD PROFILED.** ### The one hit is an external
+### criterion and says nothing about an axiom string. ### And the index`s own caveat is carried:
+### ### **ABSENCE FROM THE INDEX IS NOT ABSENCE FROM THE RECORD.**
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **0 NON-ZERO EXITS.**
+### (N2) ### **ALL THREE PROFILES THE STANDARD THREE.**
+### (N3) ### **MORE THAN FIFTY DISTINCT INSTANTS ACROSS THE MARKS.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### ### **THESE ARE DRAWN FROM THE PEEK DECLARED IN (C) AND ARE THEREFORE CHEAP**, and they are
+### registered anyway, because a prediction made after a glance is still a prediction that can be
+### wrong and must be scored.
+### (S1) ### **(N1) AND (N2) WILL BOTH BE REFUTED, AND (N3) WILL HOLD.** ### `3221225786` is
+###      `0xC000013A`, ### **`STATUS_CONTROL_C_EXIT`** -- and it is on BOTH `END` lines, so there are
+###      TWO non-zero exits, not zero. ### With no completed build there is nothing for the probe to
+###      profile, so the three lines will be ### **ABSENT**, not OTHER. ### And 339 lines each
+###      stamped from the clock will carry far more than fifty distinct instants.
+### (S2) ### **THE FAILURE IS A PROCESS-CONTROL FAILURE, NOT A LEAN FAILURE.** ### `STATUS_CONTROL_C_
+###      EXIT` is what a Windows process reports when a console control event reaches it -- the
+###      build was ### **KILLED, NOT BROKEN** -- so ### **"MODULES THAT FAILED, BY NAME" WILL READ
+###      `NONE`**, and a reader who sees a non-zero exit and writes "the build failed" will have
+###      said something the log does not support.
+### (S3) ### **WALL TIME WILL GREATLY EXCEED `lake`S SUMMED DURATIONS.** ### The log`s second
+###      `lake` line is a mathlib CLONE, which is network time `lake` does not account as module
+###      build time. ### **THE TWO NUMBERS MEASURE DIFFERENT THINGS AND THE ORDER ASKS FOR BOTH**,
+###      which is why it asks for both.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### Component 0 (### **RUN AT STEP ZERO; GONE**) -> `ferry_scan.py` (BANKED, 0 hits) ->
+### `b307_handoff_census.py` (0 missing) -> `b327_faces_census.py` (0 missing) -> `b303_pins.py`
+### (0 hard-failing, ### **RUN ALONE**) -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` ->
+### `reg_satisfiable.py` -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject
+### records -> `b378_lockgate.py` (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE
+### REMAINING COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES`
+### `G-PRIOR-CLOSED-PUSHED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED`
+### `G-PID-CHECKED-NOT-ASSUMED` `G-PROCESS-GONE` `G-PEEK-DECLARED`
+### `G-LOG-COMMITTED-UNCHANGED` `G-LOG-BYTES-MATCH` `G-EXITS-COUNTED` `G-NONZERO-COUNTED`
+### `G-FAILED-MODULES-BY-NAME` `G-WALL-VS-SUMMED-BOTH` `G-DISTINCT-INSTANTS-COUNTED`
+### `G-B495-N3-CELL-PAID` `G-B495-S2-CELL-PAID`
+### `G-THREE-NAMES-SOUGHT` `G-WHOLE-AXIOM-STRING` `G-EACH-PROFILE-CLASSIFIED`
+### `G-STOP-OBEYED` `G-COMPONENT3-NOT-RUN-IF-STOPPED` `G-R82-NOT-CLAIMED`
+### `G-REGISTRY-UNTOUCHED-IF-STOPPED` `G-NOCITE-BEFORE-PROFILE`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOTHING-COMPILED` `G-NOLAKE` `G-NOTHING-FETCHED` `G-NOZENODO-WRITE` `G-NOGRADE-CONFERRED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN` `G-SPAN-BY-TOOL`
+### `G-CORPUS-SCOPE` `G-CORPUS-LEAN-UNTOUCHED` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`G-ARMS-NO-LIVE-LIMB` IS CARRIED IN b496`S REPAIRED FORM** -- pointed at the HARNESS that
+### runs each positive control, not at a textual proxy. ### b496 spent four revisions proving the
+### proxy cannot work: ### **WHETHER A CONTROL FALSIFIES EVERY LIMB IS A FACT ABOUT WHAT THE CONTROL
+### DOES.**
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is scored
+### ### **POST-PUSH ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b497_*` `relay/tools/b497_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   ### **`relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json`** |
+### | `tools/corr_row.py` (CARRIED, guarded at b488, UNEDITED) |
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b497_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b497_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b497_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b497_span*.json` `relay/data/b497_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b497.zip`
+###   (outside every repository) `relay/data/b497_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### | ### **CONDITIONAL, AND ONLY IF COMPONENT 2 PASSES** | `PLACE-papers/REGISTRY.md` (ONE appended
+###   note re-stating the `SIDE-explicit-formula` row`s profile cell) |
+### ### **THE TWO FILES b496`S FACE OMITTED ARE DECLARED HERE BY NAME** -- `terminal_table_run.txt`
+### and `terminal_table_diff.json`. ### b496`s post-push suite closed ### **NOT CLEAN** on exactly
+### those two, and b496 ### **DID NOT WIDEN A GLOB TO MAKE THE FAILURE DISAPPEAR.** ### (R108)`s
+### first line directs this face to declare them, and it does.
+### ### **`data/b495_ef_build.log` IS COMMITTED BY THIS ACT** and is covered by the `b495_*` stem
+### only in spirit, so it is named here EXPLICITLY: ### **b495 declined to commit it because a
+### running process owned it, and this act commits it UNCHANGED.**
+### ### **NO KERNEL REPOSITORY IS WRITTEN.** ### No `.lean` file anywhere. ### No ERRATA line, no
+### `FINDINGS` section, no `SPIRAL_MAP` note. ### Nothing at Zenodo.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **NOTHING IS COMPILED AND NO `lake` COMMAND RUNS.** ### The build this act reads was b495`s
+### and it is over; ### **THIS ACT DOES NOT RELAUNCH IT.** ### A re-run is another act`s to order.
+### ### **NOTHING IS FETCHED.** ### Nothing deposits. ### **NOTHING AT ZENODO IS WRITTEN.**
+### ### **NO GRADE IS CONFERRED OR MOVED**, and ### **NO KEYSTONE CITES THE KERNEL** -- (R106)(3)
+### stands until a profile is banked, and whether one is banked is what Component 2 decides.
+### Row U1 is unedited. ### No bridge is typed. ### `h2` stays where the deposit left it. ### The
+### four lists stay OPEN. ### The numerical lane stays SHUT. ### K1, K2 and K3 are not started.
+### ### **AND (R108)(2) IS OBEYED: `e_difficulty` IS NOT CHOSEN HERE.** ### It is routed to a
+### statement-read act of its own.
+### ### **AND A KILLED BUILD IS NOT A FAILED PROOF.** ### Nothing about RH, and nothing about
+### whether `EF_lit` is provable, follows from a process that was terminated.
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 5efd05dc264ae98e7287a3f5530b1f41279df39323bc987bc5f209489e093405
+### bytes locked : 14616
+### locked at (UTC) : 2026-09-23T19:17:06Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b497_registration_2026-09-23.txt`.**
+====================================================================================================
