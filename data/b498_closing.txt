@@ -1,0 +1,86 @@
+========================================================================================================
+b498 -- THE CLOSING RECORD. ### **THE BUILD RE-LAUNCHED IN ITS OWN CONSOLE; THE SENDER NOT ESTABLISHED.**
+========================================================================================================
+
+### (1) THE CAUSE, AS THE RECORD SHOWS IT.
+--------------------------------------------------------------------------------------------------------
+    b495`s launcher : `flags = subprocess.CREATE_NEW_PROCESS_GROUP | getattr(subprocess, 'DETACHED_PROCESS', 8)`
+      its own process group True ; NO console (DETACHED_PROCESS) True ; a new console False
+      END lake build                         2026-09-23T18:17:43.807  EXIT 0xC000013A
+      END PrintAxioms on the three names     2026-09-23T18:17:54.803  EXIT 0xC000013A
+      the launcher survived both : True
+    the seat`s b495 turn ended 2026-09-23T18:17:40.953Z ; ### **THE FIRST KILL FOLLOWS IT BY 2.854 s**
+    ### ### **THE SENDER : NOT ESTABLISHED.** ### The record shows the build shared neither the seat`s
+    ### process group nor its console, and no seat tool call at either kill. ### It does not
+    ### show who or what delivered the event. ### **THE COINCIDENCE WITH THE TURN END IS
+    ### BANKED AND NOT EXPLAINED.**
+
+### (2) THE CACHE AND THE CLOSURE.
+--------------------------------------------------------------------------------------------------------
+    `lake exe cache get` : exit 0, 1323.0 s ; ### **FETCHED 8681**
+      Attempting to download 8681 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4-master
+      Decompressed 8681 file(s)
+    closure build : 89 roots, exit 0, 235.1 s, ### **`Built Mathlib.` LINES : 0**
+    kernel tracked tree after : CLEAN
+
+### (3) THE LAUNCH.
+--------------------------------------------------------------------------------------------------------
+    pid 14280 ; flags 0x00000210 = CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP ; log `data/b498_ef_build.log`
+    ### ### **AT CLOSE THE LAUNCHER IS ALIVE** ### -- read from the process table, NOT from the log,
+    ### which is not read in this act and not committed.
+
+### (4) THE EXPECTATIONS.
+--------------------------------------------------------------------------------------------------------
+    (N1) HELD ; (N2) HELD ; (N3) HELD ; (S1) HELD ; (S2) HELD ; (S3) HELD
+    ### (N1)`s count is what was MISSING from a cache that already held 121141 files.
+    ### (N3)`s cell says less than it seems: b495`s launcher also had a new process group.
+
+### (5) THIS ACT`S OWN DEFECTS -- SIX.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **THE FACE`S PRE-SEAL READ (C)(iii) NAMED THE WRONG INSTANT.** ### It gave the seat`s
+        ### last tool call as `18:16:51.709`, which is when its RESULT landed; the call was
+        ### issued at `2026-09-23T18:16:48.295Z`, and Component 1 re-derived it. ### The face is sealed and unedited.
+    (b) ### **THE CACHE COMPONENT PRINTED THE FIRST `Downloaded` LINE BESIDE A COUNT FROM THE
+        ### LAST.** ### Repaired, and re-derived from the banked raw output; both banks kept;
+        ### nothing re-downloaded.
+    (c) ### **AN ANSI ESCAPE REACHED OPEN_TRAILS.md** through the first trail append. ### This
+        ### act`s own UNCOMMITTED append was cut back to the banked prefix sha and written again,
+        ### 0 ESC bytes; ### the first append`s notes are banked beside the second`s.
+    (d) ### **`corr_row.py` APPENDED A ROW AND THEN REFUSED IT** -- 8 cells on disk against 6
+        ### given, because a pipe inside a flag expression split the row. ### **THE ROUTED
+        ### SPECIES (IT CHECKS THE NUMBER, NOT THE CELLS) BITING LIVE**, and worse than routed:
+        ### it validates AFTER it writes. ### The ledger was restored to HEAD and the row
+        ### re-written with no pipe in any cell. ### **THE TOOL IS STILL UNEDITED AND STILL OWED.**
+    (e) ### **TWO ARMS PASSED THEIR OWN POSITIVE CONTROLS**, `G-N1-SCORED` and `G-N2-SCORED`:
+        ### the control set the score to a truthy string, which still reads HELD. ### Caught by
+        ### the harness; repaired to flip the score; the first run banked at `b498_checks_carried.txt`.
+    (f) ### **A HEREDOC WOULD NOT PARSE** and the arm list was written with the file tool instead;
+        ### the standing lesson on shell-typed code, re-met.
+
+### (6) THE COMMITS, THE MIRROR, THE CENSUSES.
+--------------------------------------------------------------------------------------------------------
+    pre-push first run : ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 2 ['G-N1-SCORED', 'G-N2-SCORED'].**
+    pre-push           : ### ### **ARMS RUN : 62. ### LIVE PASSING : 62. ### LIVE FAILING : 0 .**
+    post-push          : ### ### **ARMS RUN : 63. ### LIVE PASSING : 63. ### LIVE FAILING : 0 .**
+                         ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+      relay                local 1be7831cd29b ; remote 1be7831cd29b ; ### **AGREE**
+      PLACE-papers         local fd5fb8b4443b ; remote fd5fb8b4443b ; ### **AGREE**
+      SIDE-global-section  local 9a6d11912b84 ; remote 9a6d11912b84 ; ### **AGREE**
+    the HELD commit`s files in relay`s pushed tree : 0
+    the mirror : `mirror-refresh-2026-09-23-b498.zip` -- CLEAN ON ALL THREE CLAUSES
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0 ### (run ALONE)
+
+### (7) WHAT IS CARRIED FORWARD.
+--------------------------------------------------------------------------------------------------------
+    (a) ### **THE NEXT ACT READS `data/b498_ef_build.log` BEHIND b497`S GATE** -- pid 14280 alive or
+        ### not, then the log whole -- and commits it. ### No row cites the kernel until then.
+    (b) ### **THE CONSOLE IS VISIBLE.** ### It is minimised and titled DO NOT CLOSE THIS WINDOW;
+        ### if it is closed, the build dies with the same exit as b495`s, and that would be
+        ### evidence about the sender, which the record does not yet have.
+    (c) ### **`corr_row.py` MUST VALIDATE BEFORE IT WRITES**, not only count after. ### Routed at
+        ### b490, overdue, and now shown to leave a malformed row on disk when it refuses.
+    (d) ### **b499 AWAITS ITS AMENDMENTS** -- the three Component 3 addresses of its order name
+        ### lines that do not carry the records` titles; the STOP of this session drafted them.
+========================================================================================================
