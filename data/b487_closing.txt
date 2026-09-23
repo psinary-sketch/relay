@@ -1,0 +1,140 @@
+====================================================================================================
+b487 -- THE CLOSING RECORD. ### THE ERRATA RENUMBER, AND THE ZENODO DESCRIPTION DRAFTS.
+====================================================================================================
+
+### (1) COMPONENT 1 -- THE RENUMBER, APPEND-ONLY.
+----------------------------------------------------------------------------------------------------
+    `E-2026-09-22-1` occurrences before this act : ### **2** ### (b469`s, then b485`s).
+    b469`s entry ### **KEEPS THE ID** ### and no line of it is touched.
+    b485`s becomes ### **E-2026-09-22-2** ### by an APPENDED dated line naming (R97).
+    pointers written : ### **2** ### -- one in `OPEN_TRAILS.md`, one in the act`s own
+      bank `data/b485_the_two_records.txt`.
+    writes : ### **3** ### ; ### **LINES REMOVED, EVERY ONE OF THEM : ERRATA.md 0 / OPEN_TRAILS.md (pointer) 0 / b485_the_two_records.txt 0**
+    prior bytes a TRUE PREFIX of the result, BOM preserved, in all three.
+    ### ### **AND THE GUARD IS IN THE APPENDER, NOT IN THIS ACT`S COPY.**
+      `tools/errata_append.py` refuses a duplicate id ### **BEFORE ANY BYTE IS WRITTEN**,
+      and both controls run: a duplicate id -> code 2, file unchanged; a fresh id ->
+      code 0, file grew. ### **AN ARM THAT CANNOT REFUSE IS NOT A GUARD**, so the
+      refusal was exercised before the tool touched the real ledger.
+      ### ### **THE SAME LESSON `corr_row.py` IS STILL OWED** -- b485 wrote a row and
+      crashed, and the guard against a second row lives in one act`s copy. ### OPEN.
+
+### (2) COMPONENT 2 -- THE THREE DESCRIPTIONS, READ. ### **NOTHING WAS FETCHED.**
+----------------------------------------------------------------------------------------------------
+    ### **21539167** ### the monograph, Zenodo v1.1.2       30 sentence(s), 6 asserting a check
+        source : relay `data/b359_fetch_F2.json` -- the record`s own fetched JSON, banked at b359 and read by the 2026-09-14 act b455
+    ### **21520474** ### SIDE-kernel v1.5                   7 sentence(s), 3 asserting a check
+        source : `SIDE-kernel` at tag `v1.5`, file `.zenodo.json`
+    ### **21539068** ### SIDE-lv-conservation v0.10.0       19 sentence(s), 3 asserting a check
+        source : `SIDE-lv-conservation` at tag `v0.10.0`, file `README.md` (b462`s precedent)
+    ### ### **TOTAL SENTENCES ASSERTING A MACHINE CHECK, A COMPILED PROOF, OR A
+    ### VERIFIED CLAIM : 12.**
+    ### ### **AND THE MATCHER`S LINEAGE IS ON THE RECORD.** ### Version 1 matched
+    ### `compile`/`verified`/`machine-check` and ### **NOT `proves`** -- so the kernel`s
+    ### central sentence, the one `E-2026-09-14-1` is about, scored as NO CLAIM AT ALL.
+    ### The order asks for a machine check, a compiled proof, ### *or a verified claim*,
+    ### and a kernel saying it ### *proves* ### something is the third. ### **BOTH YIELDS
+    ### ARE PRINTED IN THE SURVEY BANK: 10, THEN 12.**
+
+### (3) COMPONENT 3 -- THE DISPOSITION, SENTENCE BY SENTENCE.
+----------------------------------------------------------------------------------------------------
+    claims 12 = ### **ON AN ERRATUM 3** ### + ### **LEFT AS THEY STAND 9**
+
+      record     sentence   rests on          disposition
+      --------------------------------------------------------------------------------------------
+      21539167   s5         --                LEFT AS IT STANDS
+      21539167   s9         --                LEFT AS IT STANDS
+      21539167   s10        --                LEFT AS IT STANDS
+      21539167   s14        E-2026-09-14-1    REPLACEMENT DRAFTED
+      21539167   s15        E-2026-09-22-1    REPLACEMENT DRAFTED
+      21539167   s16        --                LEFT AS IT STANDS
+      21520474   s2         E-2026-09-14-1    REPLACEMENT DRAFTED
+      21520474   s3         --                LEFT AS IT STANDS
+      21520474   s4         --                LEFT AS IT STANDS
+      21539068   s8         --                LEFT AS IT STANDS
+      21539068   s12        --                LEFT AS IT STANDS
+      21539068   s17        --                LEFT AS IT STANDS
+
+    ### ### **EVERY REPLACEMENT IS BUILT FROM ITS ERRATUM`S OWN WORDS**, and every one
+    ### names its terminal in full. ### The three: `structural_exhaustiveness_proved`
+    ### twice (21539167 s14, 21520474 s2), and `conservation_s_dark` once (21539167 s15)
+    ### -- ### **NAMED, AND SAID TO BE A SHELL**, as the deposit`s own concordance
+    ### records it. ### A replacement that quietly kept a stand-in would repeat the
+    ### defect the erratum exists to correct.
+    ### ### **AND NINE SENTENCES ARE LEFT EXACTLY AS THEY STAND, EACH WITH ITS REASON.**
+    ### Monograph sentence 5 is the one worth naming: it is the MANUSCRIPT`S claim, and
+    ### `E-2026-09-14-1` says in its own words that whether the manuscript proves the
+    ### catalogue`s exhaustiveness is ### **UNTOUCHED** ### by it. ### **AN ERRATUM THAT
+    ### NAMES WHAT IT DOES NOT REACH CANNOT BE STRETCHED TO REACH IT.**
+    ### Three lv sentences are left because ### **NEITHER ERRATUM NAMES
+    ### SIDE-lv-conservation AMONG ITS AFFECTED DEPOSITS**, and one of them is itself an
+    ### axiom audit disclosing `sorryAx`.
+
+    ### ### **THE DRAFTS ARE BANKED AND NOT APPLIED.** ### Nothing was fetched and
+    ### nothing at Zenodo was written. ### Under (R95) a metadata edit is not a re-issue;
+    ### ### **THE AUTHOR APPLIES THEM AT THE PLATFORM**, and the act after this one
+    ### fetches each description back and banks it ### **BEFORE ANY RECORD SAYS THE EDIT
+    ### WAS MADE.** ### No record here says one was.
+
+### (4) THE SEAT`S OWN EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+    ### ### **REGISTERED 3 ; HELD 3.** ### terminals named in every replacement : True
+    (N1) the monograph and the kernel each carry at least one sentence resting on an
+      erratum -- ### **HELD** ### (two, and one).
+    (N2) lv carries claim sentences but none resting on either erratum -- ### **HELD**
+      ### (three claims, none on an erratum).
+    (N3) the sentences resting on an erratum are a MINORITY -- ### **HELD** ### (3 of 12).
+
+### (5) THE SUITE, THE COMMITS, THE MIRROR.
+----------------------------------------------------------------------------------------------------
+    pre-push  : 54 arms, 0 live failing, 0 positive-control passes -- the mirror arm
+      DEFERRED, since the archive is built after the push.
+    post-push : ### ### **ARMS RUN : 55. ### LIVE PASSING : 55. ### LIVE FAILING : 0 .**
+                ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+                ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES**
+    ### ### **AND TWO ARMS FAILED ON THE FIRST RUN, AND BOTH WERE THE ARM`S FAULT.**
+      `G-NOTHING-COMPILED` matched the BARE PHRASE `lake build` and fired on the
+      survey tool -- where that phrase is one alternate ### *inside the claim matcher*,
+      i.e. a phrase the survey LOOKS FOR in deposited descriptions. ### **A TOOL THAT
+      SEARCHES FOR THE WORDS OF A BUILD DID NOT RUN ONE.** ### Narrowed to a BUILD CALL,
+      ground stated, control still refuses it.
+      `G-NOPRIORBANK` fired on `b485_the_two_records.txt` -- ### **WHICH THIS ACT IS
+      DIRECTED BY (R97) TO APPEND TO.** ### An act told to write a prior bank cannot
+      also be forbidden to. ### Excluded ### **BY NAME, WITH THE GROUND PRINTED**, and
+      2,648 other prior banks are still checked. ### **NARROWED, NOT WEAKENED.**
+
+    the commits, each read back by `ls-remote`:
+      relay                local 1b25524226ff ; remote 1b25524226ff ; ### **AGREE**
+      PLACE-papers         local 93bd58c3355b ; remote 93bd58c3355b ; ### **AGREE**
+      SIDE-global-section  local 03fc1bb6441c ; remote 03fc1bb6441c ; ### **AGREE**
+    ### ### **AND TWO OF THE THREE PUSHES FAILED ON THEIR FIRST ATTEMPT** -- connection
+    ### reset, then a DNS failure, within one command. ### They were retried and read
+    ### back. ### **A TRANSIENT NETWORK FAILURE IS RECORDED, NOT SMOOTHED OVER**; the
+    ### read-back is what settles it, and b479`s pins gave the same species four
+    ### hundred acts` worth of precedent.
+    the mirror : `mirror-refresh-2026-09-22-b487.zip` at `93bd58c` --
+      ### **CLEAN ON ALL THREE CLAUSES** ### (42 roster entries, 42 archive files,
+      0 missing, 0 extra; clause 2`s pin agrees with `ls-remote`).
+
+### (6) THE CENSUSES, THE PINS, THE LISTS.
+----------------------------------------------------------------------------------------------------
+    handoff census : ### ### **TOTAL MISSING : 0**
+    faces census   : ### ### **TOTAL MISSING : 0**
+    pins           : ### REPOS HARD-FAILING : 0
+    ### **THE FOUR LISTS STAY OPEN.** ### No grade moved; no terminal was added, moved,
+    ### renamed or graded; row U1 is unedited; no Lean of the corpus was touched;
+    ### nothing compiled; no bridge typed; ### **h2 WHERE THE DEPOSIT LEFT IT.**
+
+### (7) WHAT IS CARRIED FORWARD.
+----------------------------------------------------------------------------------------------------
+    (a) ### **THE NEXT ACT FETCHES EACH DESCRIPTION BACK AND BANKS IT** ### before any
+        record says the edit was made. ### The drafts alone are not evidence of an edit.
+    (b) ### **`corr_row.py` IS STILL OWED ITS GUARD** -- b485`s lesson, and b487`s
+        appender is the worked example of where such a guard belongs.
+    (c) ### **THE SPAN TOOL STILL NAMES b474 AS THE LAST FOLD** ### because it reads
+        `FINDINGS.md` and b486 filed its fold to the trail alone. ### By filing, the span
+        since b486 is ### **ONE**. ### Routed; the tool is NOT edited, per (R96).
+
+====================================================================================================
+  ### ### **b487 CLOSES. 55 ARMS, 0 LIVE FAILING, 0 POSITIVE-CONTROL PASSES.**
+====================================================================================================
