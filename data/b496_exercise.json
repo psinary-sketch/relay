@@ -429,8 +429,8 @@
   },
   {
    "name": "G-WRITELIST-KINDS",
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "every b496 commit in three repositories, against (R91)`s STEM GLOB"
   },
@@ -470,6 +470,13 @@
    "reads": "the harness itself -- the positive control is RUN on every arm"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -491,13 +498,16 @@
    "reads": "the suite`s own text -- b472`s repair, carried"
   }
  ],
- "run": 70,
- "live_failing": [],
- "defective": [],
- "neg_failures": 0,
- "declared": 71,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD"
+ "run": 71,
+ "live_failing": [
+  "G-WRITELIST-KINDS"
  ],
- "stray": []
+ "defective": [],
+ "neg_failures": 1,
+ "declared": 71,
+ "deferred": [],
+ "stray": [
+  "terminal_table_diff.json",
+  "terminal_table_run.txt"
+ ]
 }
