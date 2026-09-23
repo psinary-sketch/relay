@@ -1,0 +1,188 @@
+============================================================================================================
+COMPONENT 1 -- THE SEVEN CLASSES, BY TERMINAL NAME AND STATEMENT, AT lv v0.10.0 = 93c27ec.
+============================================================================================================
+    ### ### **STATEMENTS, NOT DOCSTRINGS.** ### Read as TEXT by `git show`; nothing built.
+    ### `h1_complete_at_Phi` has ### **8 CONJUNCTS FOR SEVEN CLASSES** -- `C7` gives two.
+
+  ### **C1 -- Schwarz reflection / realness**
+    coupling  `C1_realness`  (`CouplingsAtPhi.lean:67`)
+        def C1_realness : Coupling := fun (Φ : ℝ → ℂ) => ∀ t : ℝ, (Φ t).im = 0
+    discharge `C1_realness_at_Phi`  (`:197`)
+        theorem C1_realness_at_Phi : C1_realness Phi
+    ### the statement names the Mellin transform : ### **False**
+
+  ### **C2 -- Euler / multiplicative**
+    coupling  `C2_halfplane_nonvanishing`  (`CouplingsAtPhi.lean:72`)
+        def C2_halfplane_nonvanishing : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0
+    discharge `C2_halfplane_nonvanishing_at_Phi`  (`:205`)
+        theorem C2_halfplane_nonvanishing_at_Phi : C2_halfplane_nonvanishing Phi
+    ### the statement names the Mellin transform : ### **True**
+
+  ### **C3 -- functional equation / theta**
+    coupling  `C3_theta_transformation`  (`CouplingsAtPhi.lean:79`)
+        def C3_theta_transformation : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∀ t : ℝ, 0 < t → Φ (1 / t) = Real.sqrt t * Φ t + (Real.sqrt t - 1) / 2
+    discharge `C3_theta_transformation_at_Phi`  (`:243`)
+        theorem C3_theta_transformation_at_Phi : C3_theta_transformation Phi
+    ### the statement names the Mellin transform : ### **False**
+
+  ### **C4 -- modular / PSL2(Z)**
+    coupling  `C4_modularity`  (`CouplingsAtPhi.lean:108`)
+        def C4_modularity : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ F : ℂ → ℂ,
+            (∀ τ : ℂ, 0 < τ.im → DifferentiableAt ℂ F τ) ∧
+            (∀ t : ℝ, 0 < t → F (Complex.I * t) = 2 * Φ t + 1) ∧
+            (∀ τ : ℂ, F (2 + τ) = F τ) ∧
+            (∀ τ : ℂ, 0 < τ.im → F (-1 / τ) = (-Complex.I * τ) ^ (1 / 2 : ℂ) * F τ)
+    discharge `C4_modularity_at_Phi`  (`:315`)
+        theorem C4_modularity_at_Phi : C4_modularity Phi
+    ### the statement names the Mellin transform : ### **False**
+
+  ### **C5 -- spectral**
+    coupling  `C5_input`  (`CouplingsAtPhi.lean:120`)
+        def C5_input : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ μ : ℤ → ℝ, (∀ n : ℤ, 0 ≤ μ n) ∧
+            ∀ t : ℝ, 0 < t → HasSum (fun n : ℤ => ((Real.exp (-Real.pi * μ n * t) : ℝ) : ℂ)) (2 * Φ t + 1)
+    discharge `C5_input_at_Phi`  (`:262`)
+        theorem C5_input_at_Phi : C5_input Phi
+    ### the statement names the Mellin transform : ### **False**
+
+  ### **C6 -- Cauchy-Riemann / analyticity**
+    coupling  `C6_holomorphic_extension`  (`CouplingsAtPhi.lean:144`)
+        def C6_holomorphic_extension : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ F : ℂ → ℂ, (∀ z : ℂ, 0 < z.re → DifferentiableAt ℂ F z) ∧
+            ∀ t : ℝ, 0 < t → F (t : ℂ) = Φ t
+    discharge `C6_holomorphic_extension_at_Phi`  (`:222`)
+        theorem C6_holomorphic_extension_at_Phi : C6_holomorphic_extension Phi
+    ### the statement names the Mellin transform : ### **False**
+
+  ### **C7 -- Hadamard**
+    coupling  `C7_entirety`  (`CouplingsAtPhi.lean:154`)
+        def C7_entirety : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+            ∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)
+    discharge `C7_entirety_at_Phi`  (`:277`)
+        theorem C7_entirety_at_Phi : C7_entirety Phi
+    ### the statement names the Mellin transform : ### **True**
+    coupling  `C7_order`  (`CouplingsAtPhi.lean:182`)
+        def C7_order : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+            (∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)) ∧
+            ∃ A C : ℝ, ∀ s : ℂ, ‖G s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+    discharge `C7_order_at_Phi`  (`:298`)
+        theorem C7_order_at_Phi : C7_order Phi
+    ### the statement names the Mellin transform : ### **True**
+
+============================================================================================================
+COMPONENT 2 -- THE SEVEN-ROW TABLE.
+============================================================================================================
+    ### THE CRITERION, AS THE SEALED FACE FIXED IT BEFORE ANY VERDICT:
+    ### ### **A FACT TOUCHES THE FORM WHEN ITS STATEMENT CONSTRAINS THE OBJECT `W` IS
+    ### BUILT FROM -- THE MELLIN TRANSFORM OF `Φ` -- ON A FAMILY ITS OWN QUANTIFIER NAMES.**
+
+    class label                          verdict
+    ----------------------------------------------------------------------------
+    C1    Schwarz reflection / realness  ### **APART**
+    C2    Euler / multiplicative         ### **TOUCHES THE FORM**
+    C3    functional equation / theta    ### **APART**
+    C4    modular / PSL2(Z)              ### **APART**
+    C5    spectral                       ### **APART**
+    C6    Cauchy-Riemann / analyticity   ### **APART**
+    C7    Hadamard                       ### **TOUCHES THE FORM**
+
+    ### ### **TOUCHES THE FORM : 2 -- C2, C7. ### APART : 5.**
+
+  ### **C1 -- APART** ### (`C1_realness`)
+      the statement, in brief : ∀ t : ℝ, (Φ t).im = 0
+      ### WHY APART, IN THE FACT`S OWN WORDS:
+        the quantifier runs over `t : ℝ` and the predicate fixes an IMAGINARY PART of `Φ` itself. ### **NO TRANSFORM
+         IS NAMED**, so the statement constrains the integrand on the real ray and reaches the form only through a d
+        erivation it does not carry.
+
+  ### **C2 -- TOUCHES THE FORM** ### (`C2_halfplane_nonvanishing`)
+      the statement, in brief : ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0
+      ### THE CONSTRAINING CLAUSE, QUOTED:
+        ### **THE CONSTRAINING CLAUSE IS `mellin Φ (s / 2) ≠ 0` ON THE FAMILY `1 < s.re`.** ### That is the transfor
+        m `W`'s channels are read off, constrained on a half-plane the statement's own quantifier names -- and non-v
+        anishing there is exactly what lets the prime channel be summed.
+
+  ### **C3 -- APART** ### (`C3_theta_transformation`)
+      the statement, in brief : ∀ t : ℝ, 0 < t → Φ (1 / t) = Real.sqrt t * Φ t + (Real.sqrt t - 1) / 2
+      ### WHY APART, IN THE FACT`S OWN WORDS:
+        an identity for `Φ` on the positive reals. ### **IT NEVER MENTIONS THE MELLIN TRANSFORM.** ### The functiona
+        l equation is what `C3` YIELDS through a derivation; ### **IT IS NOT WHAT `C3` SAYS**, and the order asks fo
+        r the statement.
+
+  ### **C4 -- APART** ### (`C4_modularity`)
+      the statement, in brief : ∃ F : ℂ → ℂ, ... F (2 + τ) = F τ ... F (-1 / τ) = (-I * τ) ^ (1/2) * F τ
+      ### WHY APART, IN THE FACT`S OWN WORDS:
+        every clause quantifies over `τ` in the UPPER HALF-PLANE and constrains `F`, a function of `τ`. ### **NO TRA
+        NSFORM AND NO TEST FUNCTION APPEARS.** ### The file's own docstring says the spectral mathematics is *“the m
+        anuscript leg, cited there, not re-formalized here”*.
+
+  ### **C5 -- APART** ### (`C5_input`)
+      the statement, in brief : ∃ μ : ℤ → ℝ, (∀ n, 0 ≤ μ n) ∧ ∀ t, 0 < t → HasSum (fun n => exp (-π * μ n * t)) (2 * Φ t + 1)
+      ### WHY APART, IN THE FACT`S OWN WORDS:
+        a heat trace on `0 < t` with a non-negative spectrum. ### **NO TRANSFORM IS NAMED.** ### The half that WOULD
+         reach the form is `C5_output`, which places the spectrum on `ρ.re = 1/2` -- and it is ### **DISCLAIMED, DEL
+        IBERATELY OUTSIDE `sevenClasses`, AND CLAIMED BY NO THEOREM IN THE FILE.** ### It is NOT counted here.
+
+  ### **C6 -- APART** ### (`C6_holomorphic_extension`)
+      the statement, in brief : ∃ F : ℂ → ℂ, (∀ z, 0 < z.re → DifferentiableAt ℂ F z) ∧ ∀ t, 0 < t → F t = Φ t
+      ### WHY APART, IN THE FACT`S OWN WORDS:
+        an extension of `Φ` itself to the right half-plane. ### **IT CONSTRAINS THE INTEGRAND, NOT ITS TRANSFORM**, 
+        and names no family of test functions.
+
+  ### **C7 -- TOUCHES THE FORM** ### (`C7_entirety + C7_order`)
+      the statement, in brief : ∃ G, Differentiable ℂ G ∧ (∀ s, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)) ∧ ∃ A C, ∀ s, ‖G s‖ ≤ C * exp (A * (‖s‖ * log (‖s‖ + 2)))
+      ### THE CONSTRAINING CLAUSE, QUOTED:
+        ### **THE CONSTRAINING CLAUSE IS `G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)` ON `1 < s.re`, TOGETHER WITH
+         THE GROWTH BOUND ON ALL OF `ℂ`.** ### It names the transform, completes it to an entire `G`, and bounds `G`
+        's order -- which is what gives the zero side of the form its shape at all. ### **THE ROW IS CARRIED BY `C7_
+        order`**, since entirety alone does not give the bound, as the file's own docstring says.
+
+============================================================================================================
+COMPONENT 3 -- THE SENTENCE THE TABLE SUPPORTS, AND NO WIDER.
+============================================================================================================
+
+  ### ### **WHICH CLASSES` EXCLUSIONS REACH THE FORM.**
+    ### ### **TWO OF THE SEVEN: `C2` AND `C7`.** ### Their statements are the only two that
+    ### name `mellin Φ (s / 2)` and constrain it on a family their own quantifiers give --
+    ### `C2` by non-vanishing on `1 < re s`, `C7` by completing it to an entire `G` and
+    ### bounding that `G`'s order on all of `ℂ`.
+    ### ### **THE OTHER FIVE CONSTRAIN `Φ` AND NOT ITS TRANSFORM.** ### That is a statement
+    ### about what they SAY. ### **IT IS NOT A CLAIM THAT THEY ARE IRRELEVANT TO THE FORM**
+    ### -- `C3` yields the functional equation and `C1` the reflection symmetry, by
+    ### derivations the record holds elsewhere. ### **THOSE DERIVATIONS ARE NOT IN THESE
+    ### STATEMENTS, AND THIS ACT SCORES STATEMENTS.**
+
+  ### ### **AND ONE OF THE TWO IS HALF OPEN.** ### `C7_order` carries its row, and the
+    ### file's own docstring marks it ### **OPEN** ### -- *"Formalising C₇-order is
+    ### therefore a Γ-asymptotics project, not a corollary of what exists."* ### So of the
+    ### two classes whose statements reach the form, ### **ONE REACHES IT THROUGH A
+    ### CONJUNCT THE REPOSITORY HAS NOT DISCHARGED.**
+
+  ### ### **WHAT EXHAUSTIVENESS WOULD SAY, IF THOSE CLASSES ALONE CARRIED IT.**
+    ### ### **THE CONDITIONAL IS NOT DISCHARGED AND NOTHING BELOW IS ASSERTED OF THE
+    ### RECORD.** ### The stem `inerti` was searched in `FINDINGS.md` and `REGISTRY.md` and
+    ### ### **THE VOCABULARY IS NOT AT AN ADDRESS IN EITHER**, so the sentence is written
+    ### in the vocabulary the order names WITHOUT claiming the record carries it:
+
+      ### *IF the exclusions that reach Weil`s form were carried by `C2` and `C7` alone,
+      ### then exhaustiveness over the seven classes would not be the operative claim:
+      ### the operative claim would be that the form is inert to the other five --- that
+      ### `C1`, `C3`, `C4`, `C5` and `C6` constrain the integrand in ways that leave `W`
+      ### unmoved on every family of test functions. ### And that inertia is NOT what the
+      ### seven-class argument asserts: it asserts that the five SUPPLY constraints, not
+      ### that they leave the form free.*
+
+    ### ### **SO THE TABLE SUPPORTS A NARROWER SENTENCE THAN THE SEVEN-CLASS ARGUMENT
+    ### NEEDS, AND THE DIFFERENCE IS WHERE THE DERIVATIONS LIVE.** ### The five classes`
+    ### route to the form runs through steps their Lean statements do not contain.
+    ### ### **THAT IS A MEASUREMENT OF THE FORMALISATION`S REACH, NOT OF THE ARGUMENT`S
+    ### TRUTH**, and this act makes no claim about the latter.
+
+  ### ### **AND `h2` IS QUOTED AND NOT DISCHARGED.** ### `h1_complete_at_Phi`'s own
+    ### docstring: *"`h2` (nonvanishing of the Mellin transform at the operative point)
+    ### remains the outstanding obligation."* ### **h2 IS WHERE THE DEPOSIT LEFT IT.**

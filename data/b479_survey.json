@@ -1,0 +1,104 @@
+{
+ "sha": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+ "conjuncts": 8,
+ "facts": [
+  {
+   "cid": "C1",
+   "label": "Schwarz reflection / realness",
+   "name": "C1_realness",
+   "stmt": "def C1_realness : Coupling := fun (Φ : ℝ → ℂ) => ∀ t : ℝ, (Φ t).im = 0",
+   "line": 67,
+   "discharge": "theorem C1_realness_at_Phi : C1_realness Phi",
+   "dline": 197,
+   "mentions_mellin": false,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C2",
+   "label": "Euler / multiplicative",
+   "name": "C2_halfplane_nonvanishing",
+   "stmt": "def C2_halfplane_nonvanishing : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0",
+   "line": 72,
+   "discharge": "theorem C2_halfplane_nonvanishing_at_Phi : C2_halfplane_nonvanishing Phi",
+   "dline": 205,
+   "mentions_mellin": true,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C3",
+   "label": "functional equation / theta transformation",
+   "name": "C3_theta_transformation",
+   "stmt": "def C3_theta_transformation : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∀ t : ℝ, 0 < t → Φ (1 / t) = Real.sqrt t * Φ t + (Real.sqrt t - 1) / 2",
+   "line": 79,
+   "discharge": "theorem C3_theta_transformation_at_Phi : C3_theta_transformation Phi",
+   "dline": 243,
+   "mentions_mellin": false,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C4",
+   "label": "modular / PSL2(Z)",
+   "name": "C4_modularity",
+   "stmt": "def C4_modularity : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∃ F : ℂ → ℂ,\n    (∀ τ : ℂ, 0 < τ.im → DifferentiableAt ℂ F τ) ∧\n    (∀ t : ℝ, 0 < t → F (Complex.I * t) = 2 * Φ t + 1) ∧\n    (∀ τ : ℂ, F (2 + τ) = F τ) ∧\n    (∀ τ : ℂ, 0 < τ.im → F (-1 / τ) = (-Complex.I * τ) ^ (1 / 2 : ℂ) * F τ)",
+   "line": 108,
+   "discharge": "theorem C4_modularity_at_Phi : C4_modularity Phi",
+   "dline": 315,
+   "mentions_mellin": false,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C5",
+   "label": "spectral",
+   "name": "C5_input",
+   "stmt": "def C5_input : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∃ μ : ℤ → ℝ, (∀ n : ℤ, 0 ≤ μ n) ∧\n    ∀ t : ℝ, 0 < t → HasSum (fun n : ℤ => ((Real.exp (-Real.pi * μ n * t) : ℝ) : ℂ)) (2 * Φ t + 1)",
+   "line": 120,
+   "discharge": "theorem C5_input_at_Phi : C5_input Phi",
+   "dline": 262,
+   "mentions_mellin": false,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C6",
+   "label": "Cauchy-Riemann / local analyticity",
+   "name": "C6_holomorphic_extension",
+   "stmt": "def C6_holomorphic_extension : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∃ F : ℂ → ℂ, (∀ z : ℂ, 0 < z.re → DifferentiableAt ℂ F z) ∧\n    ∀ t : ℝ, 0 < t → F (t : ℂ) = Φ t",
+   "line": 144,
+   "discharge": "theorem C6_holomorphic_extension_at_Phi : C6_holomorphic_extension Phi",
+   "dline": 222,
+   "mentions_mellin": false,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C7",
+   "label": "Hadamard",
+   "name": "C7_entirety",
+   "stmt": "def C7_entirety : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∃ G : ℂ → ℂ, Differentiable ℂ G ∧\n    ∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)",
+   "line": 154,
+   "discharge": "theorem C7_entirety_at_Phi : C7_entirety Phi",
+   "dline": 277,
+   "mentions_mellin": true,
+   "mentions_test_fn": false
+  },
+  {
+   "cid": "C7",
+   "label": "Hadamard",
+   "name": "C7_order",
+   "stmt": "def C7_order : Coupling := fun (Φ : ℝ → ℂ) =>\n  ∃ G : ℂ → ℂ, Differentiable ℂ G ∧\n    (∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)) ∧\n    ∃ A C : ℝ, ∀ s : ℂ, ‖G s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
+   "line": 182,
+   "discharge": "theorem C7_order_at_Phi : C7_order Phi",
+   "dline": 298,
+   "mentions_mellin": true,
+   "mentions_test_fn": false
+  }
+ ],
+ "sevenClasses": "def sevenClasses : Set Coupling :=\n  {C1_realness, C2_halfplane_nonvanishing, C3_theta_transformation, C4_modularity,\n   C5_input, C6_holomorphic_extension, C7_order}",
+ "c5_note": "-- NOTE: `C5_output` is deliberately NOT in `sevenClasses`: it is the disclaimed half.",
+ "inertia": [
+  [
+   "REGISTRY.md",
+   698,
+   "| ### **`SIDE-window`** *(NEW 2026-08-14)* | ### **`v0.4.0` = `1bd2865`** — *supersedes `v0.3.0` = `7e7743d`, `v0.2.0` = `612d223`, `v0.1.0` = `ecd5cf7`; all four tags live* | ### **`DEPOSIT-PIN` = tag `v0.4.0` = `1bd2865`; ### `WORKING-HEAD` = `ab6f269`, TWO COMMITS PAST THE TAG** — *and the divergence is read by content, not smoothed: both are `README`-only — `09e4123` prices the Mathlib companion, `ab6f269` prices the `v0.5` matching-certificate target — and neither adds a terminal or changes a statement, so every citation to the tag resolves unchanged.* `main`, PUBLIC, tree clean. ### **43 terminals, every one axiom-free.** `v0.1.0` Lemma A + the prime-free and one-prime windows; `v0.2.0` the ladder — two-prime window `(1/4, 4)`, per-rung count `W` on rungs `2 … 18`; ### **`v0.3.0` the apex at the square** — for `p = 2,3,5,7,11,13`, `p²` is both the branch turn and the second `p`-power (`pPowersLT p (p²) = [p]`, `pPowersLE p (p²) = [p, p²]`), plus `turn_is_square : p^2 = p*p` for every `p`. **Arithmetic coincidence only; the analytic turn is not proved and `apex_ladder_is_not_window` states the ladder/window difference AS A THEOREM**; ### **`v0.4.0` the inertia count of the discrete lag form** — the residue-chain decomposition, the nullity closed form, `apex_is_exactly_half`, and the 25 integer predictions the bench was tested against. ### **The SPECTRAL input (path spectra symmetric, nullity 1 iff odd) is NOT compiled — it needs Mathlib, which is not built in this environment — so nothing in `v0.4.0` is a statement about eigenvalues** |"
+  ]
+ ],
+ "misses": []
+}

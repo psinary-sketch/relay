@@ -1,0 +1,132 @@
+============================================================================================================
+b479 -- THE SURVEY. ### THE SEVEN CLASSES READ AT lv v0.10.0 = 93c27ec. ### NOTHING COMPILED.
+============================================================================================================
+
+(P0) THE TAG, AND THAT IT IS THE COMMIT THE ORDER NAMES.
+------------------------------------------------------------------------------------------------------------
+    `v0.10.0` resolves to : ### **93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f**
+    the order names  : ### **93c27ec** ### -- MATCHES
+    `SIDELvConservation/CouplingsAtPhi.lean` at that tag : 427 lines
+
+(P1) `h1_complete_at_Phi` -- THE CONJUNCTION THE PER-CLASS FACTS COMPOSE INTO.
+------------------------------------------------------------------------------------------------------------
+    `SIDELvConservation/CouplingsAtPhi.lean:418`
+      theorem h1_complete_at_Phi :
+          C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧
+            C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧
+            C7_entirety Phi ∧ C7_order Phi
+    ### ### **CONJUNCTS : 8, FOR SEVEN CLASSES.** ### `C7` contributes TWO -- entirety
+    ### and order -- and ### **C5_output IS NOT AMONG THEM.**
+
+    and the family the theorem`s classes are drawn from, `sevenClasses` (`:188`):
+      def sevenClasses : Set Coupling :=
+        {C1_realness, C2_halfplane_nonvanishing, C3_theta_transformation, C4_modularity,
+         C5_input, C6_holomorphic_extension, C7_order}
+    ### the file`s own note on the exclusion, verbatim:
+      -- NOTE: `C5_output` is deliberately NOT in `sevenClasses`: it is the disclaimed half.
+    ### ### **SO THE REPOSITORY ITSELF PUTS THE DISCLAIMED HALF OUTSIDE THE FAMILY.**
+
+(P2) THE SEVEN PER-CLASS FACTS, ### **STATEMENTS AND NOT DOCSTRINGS.**
+------------------------------------------------------------------------------------------------------------
+
+  ### **C1 -- Schwarz reflection / realness**
+    the coupling `C1_realness`  (`:67`)
+        def C1_realness : Coupling := fun (Φ : ℝ → ℂ) => ∀ t : ℝ, (Φ t).im = 0
+    its discharge `C1_realness_at_Phi`  (`:197`)
+        theorem C1_realness_at_Phi : C1_realness Phi
+
+  ### **C2 -- Euler / multiplicative**
+    the coupling `C2_halfplane_nonvanishing`  (`:72`)
+        def C2_halfplane_nonvanishing : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0
+    its discharge `C2_halfplane_nonvanishing_at_Phi`  (`:205`)
+        theorem C2_halfplane_nonvanishing_at_Phi : C2_halfplane_nonvanishing Phi
+
+  ### **C3 -- functional equation / theta transformation**
+    the coupling `C3_theta_transformation`  (`:79`)
+        def C3_theta_transformation : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∀ t : ℝ, 0 < t → Φ (1 / t) = Real.sqrt t * Φ t + (Real.sqrt t - 1) / 2
+    its discharge `C3_theta_transformation_at_Phi`  (`:243`)
+        theorem C3_theta_transformation_at_Phi : C3_theta_transformation Phi
+
+  ### **C4 -- modular / PSL2(Z)**
+    the coupling `C4_modularity`  (`:108`)
+        def C4_modularity : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ F : ℂ → ℂ,
+            (∀ τ : ℂ, 0 < τ.im → DifferentiableAt ℂ F τ) ∧
+            (∀ t : ℝ, 0 < t → F (Complex.I * t) = 2 * Φ t + 1) ∧
+            (∀ τ : ℂ, F (2 + τ) = F τ) ∧
+            (∀ τ : ℂ, 0 < τ.im → F (-1 / τ) = (-Complex.I * τ) ^ (1 / 2 : ℂ) * F τ)
+    its discharge `C4_modularity_at_Phi`  (`:315`)
+        theorem C4_modularity_at_Phi : C4_modularity Phi
+
+  ### **C5 -- spectral**
+    the coupling `C5_input`  (`:120`)
+        def C5_input : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ μ : ℤ → ℝ, (∀ n : ℤ, 0 ≤ μ n) ∧
+            ∀ t : ℝ, 0 < t → HasSum (fun n : ℤ => ((Real.exp (-Real.pi * μ n * t) : ℝ) : ℂ)) (2 * Φ t + 1)
+    its discharge `C5_input_at_Phi`  (`:262`)
+        theorem C5_input_at_Phi : C5_input Phi
+
+  ### **C6 -- Cauchy-Riemann / local analyticity**
+    the coupling `C6_holomorphic_extension`  (`:144`)
+        def C6_holomorphic_extension : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ F : ℂ → ℂ, (∀ z : ℂ, 0 < z.re → DifferentiableAt ℂ F z) ∧
+            ∀ t : ℝ, 0 < t → F (t : ℂ) = Φ t
+    its discharge `C6_holomorphic_extension_at_Phi`  (`:222`)
+        theorem C6_holomorphic_extension_at_Phi : C6_holomorphic_extension Phi
+
+  ### **C7 -- Hadamard**
+    the coupling `C7_entirety`  (`:154`)
+        def C7_entirety : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+            ∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)
+    its discharge `C7_entirety_at_Phi`  (`:277`)
+        theorem C7_entirety_at_Phi : C7_entirety Phi
+    the coupling `C7_order`  (`:182`)
+        def C7_order : Coupling := fun (Φ : ℝ → ℂ) =>
+          ∃ G : ℂ → ℂ, Differentiable ℂ G ∧
+            (∀ s : ℂ, 1 < s.re → G s = mellin Φ (s / 2) + 1 / s + 1 / (1 - s)) ∧
+            ∃ A C : ℝ, ∀ s : ℂ, ‖G s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+    its discharge `C7_order_at_Phi`  (`:298`)
+        theorem C7_order_at_Phi : C7_order Phi
+
+(P3) ### **THE CRITERION, FIXED BEFORE ANY VERDICT IS SCORED.**
+------------------------------------------------------------------------------------------------------------
+    The order asks, per class: does the fact ### **CONSTRAIN WEIL`S FORM `W` ON SOME
+    ### FAMILY OF TEST FUNCTIONS**? ### And it says to read ### **THE STATEMENT, NOT THE
+    ### DOCSTRING.**
+    ### ### **NOT ONE OF THE SEVEN STATEMENTS MENTIONS A TEST FUNCTION, OR `W`, OR THE
+    ### EXPLICIT FORMULA.** ### They are predicates on `Φ`, the Mellin integrand.
+    ### statements quantifying over a test function : ### **0 of 8**
+    ### ### **SO A LITERAL READING WOULD RETURN SEVEN `APART` AND SAY NOTHING.** ### The
+    ### criterion this act adopts, and states here before scoring:
+      ### ### **A FACT TOUCHES THE FORM WHEN ITS STATEMENT CONSTRAINS THE OBJECT `W` IS
+      ### BUILT FROM -- THE MELLIN TRANSFORM OF `Φ` -- ON A FAMILY ITS OWN QUANTIFIER
+      ### NAMES.** ### `W`s channels are read off the completed transform; a fact that
+      ### never mentions that transform constrains `Φ` and reaches the form only through a
+      ### derivation the statement does not carry.
+      ### ### **AND THAT IS A CRITERION ABOUT STATEMENTS, WHICH IS WHAT THE ORDER ASKS
+      ### FOR** -- a class whose DOCSTRING explains how it yields the functional equation
+      ### still scores on what its statement says.
+
+    ### statements mentioning `mellin` : ### **3 of 8** -- C2_halfplane_nonvanishing, C7_entirety, C7_order
+
+(P4) (R70) -- THE FACT READER REHEARSED ON `C2` BEFORE THE SEAL.
+------------------------------------------------------------------------------------------------------------
+    what the reader returns for `C2_halfplane_nonvanishing` (`:72`):
+      def C2_halfplane_nonvanishing : Coupling := fun (Φ : ℝ → ℂ) =>
+        ∀ s : ℂ, 1 < s.re → mellin Φ (s / 2) ≠ 0
+    ### it carries the PREDICATE and ### **NOT the docstring** : True
+    ### ### AND THE NEGATIVE HALF -- the docstring the reader DID NOT return:
+      half-plane.  This is the Φ-side content of the Euler product: absolute convergence and
+
+(P5) THE INERTIA VOCABULARY, AT ITS OWN ADDRESS, FOR THE CLOSING SENTENCE.
+------------------------------------------------------------------------------------------------------------
+    lines carrying the stem `inerti` in FINDINGS and REGISTRY : ### **1**
+      REGISTRY.md:698
+        | ### **`SIDE-window`** *(NEW 2026-08-14)* | ### **`v0.4.0` = `1bd2865`** — *supersedes `v0.3.0` = `7e7743d`, `v0.2.0` = `612d223`, `v0.1.0`
+
+============================================================================================================
+  ### MISSES : 0 
+============================================================================================================
