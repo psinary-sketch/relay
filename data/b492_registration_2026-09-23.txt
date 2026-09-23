@@ -1,0 +1,168 @@
+====================================================================================================
+### b492 -- THE REGISTRATION FACE.
+### THE PER-n TERMS AT EVERY RUNG, AND THE INCREMENTS ATTRIBUTED.
+### Registered after the rehearsal and before the thirty-five-cell run.
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+### (A) THE ORDER AND THE READINGS THIS ACT DECLARES IN ADVANCE.
+----------------------------------------------------------------------------------------------------
+### The order arrived as ### **PART 2 OF 2** ### of the b491 ferry, banked as `b492_ferry.txt` and
+### committed at b491 before this act began; the paste carrying (R102), (R103) and b493's order
+### arrived as ### **PART 1 OF 1** ### and is banked as `b493_ferry.txt`. ### Scan ### **`0`
+### HIT(S)**, ### **`0` (R81) FLAGS**. ### **STEP ZERO:** censuses ### **TOTAL MISSING `0`**, both;
+### roster ### **`0` HARD-FAILING**. ### THE PRIOR CLOSED ACT (`b491`) IS CLOSED: row 340, pushed
+### and read back in three repositories, mirror clean.
+### ### **(R102) AND (R103) ARE RATIFIED AND ENTERED BY THIS ACT'S TRAIL RECORD.** ### Neither
+### changes this act's work: (R102) holds the platform edits for one act, and (R103) speaks of the
+### act after b493. ### **THIS ACT WRITES NOTHING AT ANY PLATFORM AND CREATES NO REPOSITORY.**
+
+### ### **READING (1) -- THE LANE STANDS AVAILABLE FOR THIS ONE RUN AND SHUTS AT THIS ACT'S END.**
+### (R101) made it available after b491's read. ### **THIS ACT RUNS THE CHAIN ONCE, AT 35 CELLS, AND
+### OPENS NOTHING FURTHER.** ### No second grid, no second family, no lane carried forward.
+
+### ### **READING (2) -- THE LADDER'S GENERATOR IS RECOVERED, AND THE ROUNDING IS IN IT.**
+### `b437_components.py` builds the cells as
+### `NEW_A = sorted(set([round(x, 6) for x in BOUNDARIES + MIDPOINTS]))`, with
+### `BOUNDARIES = [sqrt(n) for n in BOUNDARY_N]`, `BOUNDARY_N` the prime powers in `(9, 36]`, and
+### `MIDPOINTS` the midpoints of consecutive entries of `[3.0] + BOUNDARIES`.
+### ### **SO THE STORED `a` IS A SIX-PLACE ROUNDING OF AN EXACT VALUE BY CONSTRUCTION.** ### b490
+### found the symptom -- a rounding deciding membership at an edge -- and this is its cause, at its
+### address. ### **W-ORD-EXACT-SUPPORT IS FILED AGAINST THE CELLS ALREADY BANKED**, under (R101).
+
+### ### **READING (3) -- THE 35 CELLS SPLIT THREE WAYS, AND ONLY ONE WAY CARRIES AN EDGE.**
+### ### **ELEVEN** ### are boundary cells `a = sqrt n`; ### **ELEVEN** ### are midpoints; and
+### ### **THIRTEEN** ### are b321's own decimal literals, which are exact as written and are
+### roundings of nothing. ### **ONLY THE BOUNDARY CELLS PUT A PRIME POWER ON THE WINDOW'S EDGE**,
+### and only there can a six-place rounding decide membership.
+
+### ### **READING (4) -- ON THE EXACT GENERATOR, MEMBERSHIP AT A BOUNDARY IS INTEGER ARITHMETIC.**
+### At `a = sqrt n` the window reaches `a^2 = n` exactly, so `n <= a^2` holds ### **BECAUSE
+### `n <= n`.** ### **NO TOLERANCE IS CHOSEN AND NONE IS NEEDED**, and no float decides it. ### At
+### the midpoint and literal cells no prime power lies on the edge, so the float comparison there
+### is not near any boundary and the two readings agree.
+
+### ### **READING (5) -- THE RECIPE AND THE FLOOR ARE b477'S, QUOTED FROM ITS OWN RUNNER.**
+### `f = SQ.autocorrelation(seeds[a])`; `ch = WI.channels(f.v, f.w)`;
+### `W = ch['prime'] - ch['arch']`; `FLOOR = 1.49e-08`; `AUTOCORR_NV = 8193`, giving a grid of
+### `16385`. ### **THIS ACT CHOOSES NO GRID, NO ARRANGEMENT AND NO THRESHOLD OF ITS OWN**, and the
+### diagonal `W` is checked against b477's bank ### **AT EVERY CELL BEFORE ANYTHING ELSE IS READ**,
+### as the order directs. ### **A CELL OUTSIDE THE FLOOR HALTS THE RUN.**
+
+### ### **READING (6) -- THE REHEARSAL REPRODUCES A BANK THIS ACT DID NOT WRITE, EXACTLY.** ### At
+### `a = 4.123106`, the one cell of the 35 whose per-n terms are already banked (b449, at the same
+### default grid): ### **`W` AGREES WITH b477 AT `|diff| = 0`**, ### **`PR` AGREES WITH b449 AT
+### `|diff| = 0`**, and ### **ALL ELEVEN TERMS AGREE AT `|diff| = 0`**, their sum equalling `PR`.
+### ### **THAT IS THE POSITIVE CONTROL FOR THE WHOLE RUN.** ### The term recipe, the grid and the
+### channel arrangement are the record's; this act supplies none of them.
+
+### ### **READING (7) -- THE COST IS MEASURED, NOT ESTIMATED.** ### One cell took ### **7.4 s**
+### here, so 35 cells is about ### **4.3 MINUTES.** ### The figure is a measurement of this
+### machine on this cell, printed before the run rather than after it.
+
+### ### **READING (8) -- WHAT THE ATTRIBUTION CAN AND CANNOT SAY, FIXED BEFORE IT IS MADE.**
+### With per-n terms at both ends of a step, an increment of the prime channel splits ### **EXACTLY**
+### into the terms that are new at the upper end and the change in the terms present at both.
+### **THAT IS AN IDENTITY, NOT AN ESTIMATE**, and it closes to the arithmetic's own precision.
+### ### **BUT THE ARCHIMEDEAN CHANNEL DOES NOT SPLIT THAT WAY.** ### It is one integral and has no
+### per-n decomposition, so `d(m) = d(arch) - d(pr)` attributes only the `d(pr)` half.
+### ### **A FRACTION OF AN INCREMENT CARRIED BY AN ENTRY IS THEREFORE A FRACTION OF THE PRIME
+### CHANNEL'S SHARE, AND THIS FACE SAYS SO BEFORE ANY FRACTION IS PRINTED.**
+
+----------------------------------------------------------------------------------------------------
+### (N) THE NAVIGATOR'S EXPECTATIONS, AS THE ORDER STATES THEM.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### the entries at `3^3` and `2^5` carry more than half of their turns' increments.
+###     REFUTABLE BY: the printed fraction at each of those two steps.
+### **(N2)** ### on exact `a`, `27` and `32` enter exactly at the turns.
+###     REFUTABLE BY: the entry rung of each, beside the two turning cells.
+### **(N3)** ### the entry rungs' increments exceed the non-entry rungs' in magnitude on average.
+###     REFUTABLE BY: the two means, printed.
+### ### **NONE IS SCORED BY THIS FACE.**
+
+----------------------------------------------------------------------------------------------------
+### (S) THE SEAT'S OWN EXPECTATIONS.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### the diagonal `W` agrees with b477's bank within the floor at ALL 35 cells, and at
+###     most cells far inside it -- the run reproduces, it does not merely pass.
+### **(S2)** ### the per-n split of `d(pr)` closes to better than `1e-12` at every step, being an
+###     identity rather than a fit.
+### **(S3)** ### the entering term at a boundary rung is SMALL, not dominant: a prime power newly
+###     admitted sits at the window's edge, where the window's value is near zero, so its own term
+###     contributes little and the increment is carried by the DRIFT of terms already present.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES THIS FACE PASSES BEFORE IT LOCKS.
+----------------------------------------------------------------------------------------------------
+### `b492_reg_gate.py`, `b492_regspec.py`, `reg_satisfiable.py`, `banned_terms.py --new`; then
+### `gate_hash` stamping; then `b378_lockgate.py`; then `reg_seal.py --lock`. ### **THE FACE IS
+### SEALED BEFORE THE RUN.** ### And this face predicts no artifact count.
+### ### **AND EVERY GATE VERDICT IS READ FROM THE TOOL'S OWN VERDICT LINE**, b491's finding: a
+### grep for a word a tool never prints returns the same answer for a pass and a refusal.
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-SURVEY-NOMISS` `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES`
+### `G-PRIOR-CLOSED-PUSHED` `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED`
+### `G-RUN-ALL-35-CELLS` `G-RUN-W-WITHIN-FLOOR` `G-RUN-FLOOR-IS-b477S` `G-RUN-RECIPE-IS-b477S`
+### `G-RUN-CHECK-BEFORE-READ` `G-RUN-REHEARSAL-EXACT` `G-RUN-ONE-GRID-ONLY`
+### `G-TERMS-AT-EVERY-CELL` `G-TERMS-SUM-TO-PR` `G-EXACT-A-BESIDE-ROUNDED`
+### `G-EXACT-MEMBERSHIP-INTEGER` `G-GENERATOR-QUOTED`
+### `G-SPLIT-IS-AN-IDENTITY` `G-SPLIT-CLOSES` `G-34-ROW-TABLE` `G-ARCH-NOT-SPLIT-SAID`
+### `G-FRACTION-SCOPE-STATED` `G-ONE-SENTENCE-NO-WIDER`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-LANE-CLOSED-AT-END` `G-NOZENODO-WRITE` `G-NOTHING-COMPILED` `G-SPAN-BY-TOOL`
+### `G-NOGRADE-MOVED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-WRITELIST-KINDS`
+### `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-CORPUS-LEAN-UNTOUCHED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### ### **`0` ARMS ARE INHERITED WITHOUT BEING RE-POINTED.** ### `G-MIRROR-TAGGED-BUILD` is scored
+### ### **POST-PUSH ONLY**; `G-WRITELIST-KINDS`, `G-NOSTAGE-A-BY-DIFF`, `G-CORPUS-SCOPE` and
+### `G-PUSHED-PREDICATE-THREE-CLAUSED` are read ### **PRE-PUSH ON THE STAGED STATE AND AGAIN AFTER
+### THE PUSH ON THE COMMITTED BLOBS**, and the rest are SIDE-INVARIANT.
+### ### **AND `G-NOTHING-COMPILED` KEEPS ITS FULL FORCE.** ### The lane (R101) opens is NUMERICAL:
+### this act runs the chain's own Python, and ### **COMPILES NO LEAN AND LAUNCHES NO BUILD.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b492_*` `relay/tools/b492_*` |
+### | the banked ferry of the next act | `relay/data/b493_ferry.txt` |
+### | `tools/corr_row.py` (CARRIED, guarded at b488, UNEDITED) |
+###   `SIDE-global-section/CORRESPONDENCE.md` (one appended row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b492_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b492_*.txt` |
+### | `tools/reg_seal.py` | `relay/data/b492_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b492_span*.json` `relay/data/b492_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b492.zip`
+###   (outside every repository) `relay/data/b492_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act's record) |
+### ### **AND NO CHAIN TOOL IS EDITED.** ### `b317_smear.py`, `b318_square.py`, `b321_window.py`
+### and `carto_atlas.py` are IMPORTED AND CALLED, and not one byte of any of them is written.
+### ### **AND NO OTHER FILE IS WRITTEN IN ANY REPOSITORY.** ### **NO `.lean` FILE, NO REGISTRY ROW,
+### NO FINDINGS SECTION, NO ERRATA LINE, AND NOTHING AT ZENODO.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE STANDS AVAILABLE FOR ONE RUN AND SHUTS AT THIS ACT'S END.** ### Nothing is compiled; no
+### Lean is built; no repository is created. ### (R103)'s creation belongs to the act after b493.
+### Nothing deposits and ### **NOTHING AT ZENODO IS WRITTEN** -- (R102) holds the platform edits
+### for one act, and this act is not the platform session. ### Nothing is fetched, imported, copied
+### or vendored. ### No corpus grade moves. ### Row U1 is unedited. ### No bridge is typed.
+### `h2` stays where the deposit left it. ### The four lists stay OPEN.
+### ### **AND NOTHING ABOUT RH FOLLOWS FROM AN ATTRIBUTION.** ### Splitting an increment among
+### prime powers says where a number came from, not what it means.
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 7f1dfae6ec2d423fadab24ed367c4129deca38ce1fe88c09398a8a63dfb340a4
+### bytes locked : 12516
+### locked at (UTC) : 2026-09-23T15:21:29Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b492_registration_2026-09-23.txt`.**
+====================================================================================================

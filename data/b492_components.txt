@@ -1,0 +1,198 @@
+========================================================================================================================
+b492 -- THE COMPONENTS. ### THE PER-n TERMS AT EVERY RUNG, AND THE INCREMENTS ATTRIBUTED.
+========================================================================================================================
+
+### (1) THE RUN, AND ITS CHECK AGAINST b477 BEFORE ANYTHING ELSE WAS READ.
+------------------------------------------------------------------------------------------------------------------------
+    cells run : ### **35** ### ; floor : ### **1.49e-08** ### (b477`s own)
+    worst `|W - banked|` : ### **0.000e+00**
+    cells reproducing ### **EXACTLY** ### (`|diff| = 0`) : ### **35 of 35**
+    worst `|sum(terms) - PR|` : ### **%.3e** ### -- the terms account for the prime
+    channel entirely, at every cell.
+    run time : 143.6 s
+
+### (2) THE GENERATOR`S EXACT `a` BESIDE THE ROUNDED `a`. ### **W-ORD-EXACT-SUPPORT.**
+------------------------------------------------------------------------------------------------------------------------
+    idx  stored a      exact a              kind       n0     n0 <= (stored a)^2         n0 in the run`s terms
+    ----------------------------------------------------------------------------------------------------------------
+    0    1.300000      1.300000000000000    literal    --     --                         --
+    1    1.350000      1.350000000000000    literal    --     --                         --
+    2    1.410000      1.410000000000000    literal    --     --                         --
+    3    1.500000      1.500000000000000    literal    --     --                         --
+    4    1.700000      1.700000000000000    literal    --     --                         --
+    5    1.900000      1.900000000000000    literal    --     --                         --
+    6    1.990000      1.990000000000000    literal    --     --                         --
+    7    2.000000      2.000000000000000    literal    --     --                         --
+    8    2.010000      2.010000000000000    literal    --     --                         --
+    9    2.100000      2.100000000000000    literal    --     --                         --
+    10   2.400000      2.400000000000000    literal    --     --                         --
+    11   2.800000      2.800000000000000    literal    --     --                         --
+    12   3.000000      3.000000000000000    literal    --     --                         --
+    13   3.158312      3.158312395177700    midpoint   --     --                         --
+    14   3.316625      3.316624790355400    sqrt       11     True                       True
+    15   3.461088      3.461088032909695    midpoint   --     --                         --
+    16   3.605551      3.605551275463989    sqrt       13     False                      False
+    17   3.802776      3.802775637731995    midpoint   --     --                         --
+    18   4.000000      4.000000000000000    sqrt       16     True                       True
+    19   4.061553      4.061552812808831    midpoint   --     --                         --
+    20   4.123106      4.123105625617661    sqrt       17     True                       True
+    21   4.241002      4.241002284579167    midpoint   --     --                         --
+    22   4.358899      4.358898943540674    sqrt       19     True                       True
+    23   4.577365      4.577365233426697    midpoint   --     --                         --
+    24   4.795832      4.795831523312719    sqrt       23     True                       True
+    25   4.897916      4.897915761656360    midpoint   --     --                         --
+    26   5.000000      5.000000000000000    sqrt       25     True                       True
+    27   5.098076      5.098076211353316    midpoint   --     --                         --
+    28   5.196152      5.196152422706632    sqrt       27     False                      False
+    29   5.290659      5.290658614920568    midpoint   --     --                         --
+    30   5.385165      5.385164807134504    sqrt       29     True                       True
+    31   5.476465      5.476464584982263    midpoint   --     --                         --
+    32   5.567764      5.567764362830022    sqrt       31     False                      False
+    33   5.612309      5.612309306161201    midpoint   --     --                         --
+    34   5.656854      5.656854249492381    sqrt       32     False                      False
+
+    ### ### **ON THE EXACT GENERATOR EVERY BOUNDARY CELL ADMITS ITS OWN `n0`:** ### at
+    ### `a = sqrt n0` the window reaches `a^2 = n0`, so `n0 <= a^2` holds because
+    ### **`n0 <= n0`** -- integer arithmetic, no tolerance.
+    ### ### **ON THE STORED SIX-PLACE `a`, 4 OF THE 11 BOUNDARY CELLS EXCLUDE IT**, the
+    ### rounding having gone DOWN: 13, 27, 31, 32
+    ### and the run`s own term set agrees with the stored-`a` reading at every cell:
+    ### ### **0 DISAGREEMENTS BETWEEN THE COLUMN AND THE COMPUTED TERMS.**
+    ### ### **AND WHERE `n0` IS ADMITTED, ITS TERM IS `0`.** ### The window vanishes at
+    ### its own support edge `v = L`, and `log n0 = L` exactly there:
+      a = 3.316625     n0 = 11   term = ### **0.000e+00**
+      a = 4.000000     n0 = 16   term = ### **0.000e+00**
+      a = 4.123106     n0 = 17   term = ### **0.000e+00**
+      a = 4.358899     n0 = 19   term = ### **0.000e+00**
+      a = 4.795832     n0 = 23   term = ### **0.000e+00**
+      a = 5.000000     n0 = 25   term = ### **0.000e+00**
+      a = 5.385165     n0 = 29   term = ### **0.000e+00**
+
+### (3) THE 34 INCREMENTS, ATTRIBUTED. ### **THE SPLIT IS AN IDENTITY.**
+------------------------------------------------------------------------------------------------------------------------
+    step a from      a to        enters    d(m)            d(pr)           NEW terms       DRIFT           closes
+    ------------------------------------------------------------------------------------------------------------------
+    1    1.300000    1.350000    (none)    -1.6504163      0               0               0               0.00e+00
+    2    1.350000    1.410000    (none)    -1.3827524      0               0               0               0.00e+00
+    3    1.410000    1.500000    2         -1.3752631      6.2754886e-05   6.2754886e-05   0               0.00e+00
+    4    1.500000    1.700000    (none)    -1.6576146      0.0078365556    0               0.0078365556    0.00e+00
+    5    1.700000    1.900000    3         -0.80277306     -0.030744659    4.814333e-05    -0.030792802    0.00e+00
+    6    1.900000    1.990000    (none)    -0.22527745     -0.02523901     0               -0.02523901     0.00e+00
+    7    1.990000    2.000000    4         -0.022414152    -0.0022136299   0               -0.0022136299   5.64e-18
+    8    2.000000    2.010000    (none)    -0.022001847    -0.0020615467   0               -0.0020615467   3.90e-18
+    9    2.010000    2.100000    (none)    -0.18227543     -0.011690699    0               -0.011690699    8.67e-18
+    10   2.100000    2.400000    5         -0.47736951     0.033667204     7.6782472e-08   0.033667128     6.94e-18
+    11   2.400000    2.800000    7         -0.48358812     0.14858282      1.1629283e-10   0.14858282      2.78e-17
+    12   2.800000    3.000000    8,9       -0.18359637     0.072661034     2.1500128e-11   0.072661034     2.78e-17
+    13   3.000000    3.158312    (none)    -0.11113967     0.039849958     0               0.039849958     4.86e-17
+    14   3.158312    3.316625    11        -0.079023577    0.018776099     0               0.018776099     3.12e-17
+    15   3.316625    3.461088    (none)    -0.047428233    0.00011303324   0               0.00011303324   8.47e-17
+    16   3.461088    3.605551    (none)    -0.028956398    -0.012420294    0               -0.012420294    3.47e-18
+    17   3.605551    3.802776    13        -0.01926095     -0.029455932    5.3786154e-14   -0.029455932    1.39e-17
+    18   3.802776    4.000000    16        -0.0055573163   -0.035945462    0               -0.035945462    3.47e-17
+    19   4.000000    4.061553    (none)    -0.00010638197  -0.01161        0               -0.01161        1.73e-17
+    20   4.061553    4.123106    17        0.0003952802    -0.011589508    0               -0.011589508    3.47e-18
+    21   4.123106    4.241002    (none)    0.0017395476    -0.021841303    0               -0.021841303    6.94e-17
+    22   4.241002    4.358899    19        0.0025037753    -0.021016296    0               -0.021016296    3.47e-17
+    23   4.358899    4.577365    (none)    0.0052216337    -0.035905881    0               -0.035905881    3.47e-17
+    24   4.577365    4.795832    23        0.0045960916    -0.031325983    0               -0.031325983    1.39e-17
+    25   4.795832    4.897916    (none)    0.0016052549    -0.012943925    0               -0.012943925    8.67e-18
+    26   4.897916    5.000000    25        0.0011384471    -0.011828127    0               -0.011828127    8.67e-18
+    27   5.000000    5.098076    (none)    0.00061218191   -0.010320034    0               -0.010320034    1.56e-17
+    28   5.098076    5.196152    (none)    0.0001396582    -0.0093392905   0               -0.0093392905   1.73e-17
+    29   5.196152    5.290659    27        -0.00027998973  -0.0081395252   2.0604447e-44   -0.0081395252   3.47e-18
+    30   5.290659    5.385165    29        -0.00063156292  -0.007381934    0               -0.007381934    1.13e-17
+    31   5.385165    5.476465    (none)    -0.00088019339  -0.0065022223   0               -0.0065022223   8.67e-18
+    32   5.476465    5.567764    (none)    -0.0010800606   -0.0059725439   0               -0.0059725439   1.91e-17
+    33   5.567764    5.612309    31        -0.0005805099   -0.0027472035   5.6366914e-93   -0.0027472035   1.43e-17
+    34   5.612309    5.656854    (none)    -0.00060635735  -0.002650203    0               -0.002650203    1.30e-18
+
+    ### ### **THE SPLIT CLOSES TO 8.47e-17 AT WORST** ### -- it is an identity, and that is
+    ### the arithmetic`s own precision, not a fit`s residual.
+    steps admitting a new prime power : ### **16** ### of 34 ; admitting none : 18
+
+### (4) THE FRACTION OF EACH ENTRY STEP`S INCREMENT CARRIED BY THE ENTERING TERMS.
+------------------------------------------------------------------------------------------------------------------------
+    ### ### **THE DENOMINATOR IS `d(pr)`, THE PRIME CHANNEL`S OWN INCREMENT**, because
+    ### the archimedean channel has no per-n decomposition -- as the sealed face fixed.
+    ### The share of `d(m)` is printed beside it and is SMALLER, `d(m)` being the larger.
+
+    step a to        enters    NEW terms       d(pr)           NEW / d(pr)    NEW / d(m)
+    ----------------------------------------------------------------------------------------------------
+    3    1.500000    2         6.2754886e-05   6.2754886e-05   1              -4.56312e-05
+    5    1.900000    3         4.814333e-05    -0.030744659    -0.00156591    -5.99713e-05
+    7    2.000000    4         0               -0.0022136299   -0             -0
+    10   2.400000    5         7.6782472e-08   0.033667204     2.28063e-06    -1.60845e-07
+    11   2.800000    7         1.1629283e-10   0.14858282      7.8268e-10     -2.40479e-10
+    12   3.000000    8,9       2.1500128e-11   0.072661034     2.95896e-10    -1.17105e-10
+    14   3.316625    11        0               0.018776099     0              -0
+    17   3.802776    13        5.3786154e-14   -0.029455932    -1.82599e-12   -2.7925e-12
+    18   4.000000    16        0               -0.035945462    -0             -0
+    20   4.123106    17        0               -0.011589508    -0             0
+    22   4.358899    19        0               -0.021016296    -0             0
+    24   4.795832    23        0               -0.031325983    -0             0
+    26   5.000000    25        0               -0.011828127    -0             0
+    29   5.290659    27        2.0604447e-44   -0.0081395252   -2.53141e-42   -7.359e-41
+    30   5.385165    29        0               -0.007381934    -0             -0
+    33   5.612309    31        5.6366914e-93   -0.0027472035   -2.05179e-90   -9.7099e-90
+
+    ### ### **AND THE FIRST DRAFT OF THIS PARAGRAPH SAID "EVERY ENTERING TERM IS EXACTLY
+    ### ZERO", WHICH THE TABLE ABOVE REFUTES.** ### 8 of the 16 are exactly zero; the
+    ### rest are small but not zero. ### The corrected reading:
+      entry steps carrying MORE than half of `d(pr)` : ### **1**
+        step 3, a = 1.500000, enters 2 : ### **NEW / d(pr) = 1**
+      ### ### **AND THAT ONE IS THE FIRST PRIME POWER ENTERING AN EMPTY SET.** ### Before
+      ### `a = sqrt 2` the prime channel is identically zero, so the first entry IS the
+      ### whole increment, trivially and by arithmetic rather than by weight.
+      entry steps carrying at most half : ### **15** ### ; their LARGEST share of `d(pr)`
+        is ### **0.00157**, and 8 of them are exactly `0`.
+    ### ### **WHY THE LATER ENTRIES CARRY NOTHING:** ### a prime power is admitted as
+    ### `log n` reaches the window`s support edge `L = 2 log a`, and ### **THE WINDOW IS
+    ### ZERO AT ITS OWN EDGE BY CONSTRUCTION.** ### At a boundary rung the term is `0` or
+    ### vanishing; at a literal rung the window has moved a little past `log n` and the
+    ### term is small but non-zero. ### **THAT IS A FACT OF THE SUPPORT, NOT A SMALLNESS
+    ### OF MEASUREMENT.**
+
+### (5) THE TWO ENTRIES THE ORDER NAMES, AND THE TWO TURNS.
+------------------------------------------------------------------------------------------------------------------------
+    the margin`s MINIMUM      : a = ### **4.061553** ### (index 19)
+    the margin`s LOCAL MAXIMUM: a = ### **5.196152** ### (index 28)
+
+    `n = 27` : its boundary rung is a = ### **5.196152** ### (index 28), exact a = 5.196152422706632
+      on EXACT `a` it is admitted there : ### **True** ### (`27 <= 27`)
+      on the STORED `a` the run`s terms admit it there : ### **False**
+      the step at which the run`s terms first admit it : ### **29, to a = 5.290659**
+      is its boundary rung a TURN ? ### **YES -- the local maximum**
+
+    `n = 32` : its boundary rung is a = ### **5.656854** ### (index 34), exact a = 5.656854249492381
+      on EXACT `a` it is admitted there : ### **True** ### (`32 <= 32`)
+      on the STORED `a` the run`s terms admit it there : ### **False**
+      the step at which the run`s terms first admit it : ### **NEVER**
+      is its boundary rung a TURN ? ### **NO**
+
+    ### ### **`3^3` SITS EXACTLY AT THE LOCAL MAXIMUM; `2^5` SITS AT THE LAST RUNG, WHICH
+    ### IS AN ENDPOINT AND NOT A TURN.** ### The ladder stops there, so no step past it
+    ### exists to turn.
+
+### (6) ENTRY RUNGS AGAINST NON-ENTRY RUNGS, IN MAGNITUDE.
+------------------------------------------------------------------------------------------------------------------------
+    entry steps     : n = 16   mean |d(m)| = ### **0.216186** ### ; max 1.37526
+    non-entry steps : n = 18   mean |d(m)| = ### **0.295547** ### ; max 1.65761
+    ### ### **THE ENTRY RUNGS` MEAN DOES NOT EXCEED THE NON-ENTRY RUNGS`.**
+    ### ### **AND THE COMPARISON IS CONFOUNDED BY WHERE THEY SIT.** ### The non-entry
+    ### steps include the small-`a` end, where `m` is two hundred times larger and every
+    ### increment with it. ### **A MEAN OVER STEPS AT DIFFERENT SCALES IS NOT A
+    ### COMPARISON OF MECHANISMS**, and the act prints it because the order asks, with
+    ### the confound named.
+
+### (7) ONE SENTENCE THE TABLE SUPPORTS, AND NO WIDER.
+------------------------------------------------------------------------------------------------------------------------
+    ### **On this ladder, at 15 of the 16 steps that admit a new prime power the entering terms carry at most 1.6e-03 of the prime channel’s increment, the whole of it being the drift of terms already present; the one exception is the first prime power entering an empty set, where the entry is the increment by arithmetic.**
+
+    ### ### **WHAT IT DOES NOT SAY.** ### It does not say the margin`s turns are caused
+    ### by drift, nor that they are caused by anything: ### **THE ARCHIMEDEAN CHANNEL IS
+    ### NOT DECOMPOSED HERE** ### and `d(m) = d(arch) - d(pr)` has a half this act cannot
+    ### attribute. ### It does not extend past `a = 5.656854`. ### **AND NOTHING ABOUT RH
+    ### FOLLOWS FROM AN ATTRIBUTION.**
+
+========================================================================================================================

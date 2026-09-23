@@ -1,0 +1,80 @@
+================================================================================================================
+b492 -- THE SURVEY. ### THE GENERATOR, THE FLOOR, AND ONE REHEARSED CELL.
+================================================================================================================
+
+(P1) THE LADDER`S GENERATOR, RECOVERED FROM b437`S OWN SOURCE.
+----------------------------------------------------------------------------------------------------------------
+    BOUNDARY_N = [n for n in prime_powers_upto(36) if 9 < n <= 36]
+    BOUNDARIES = [math.sqrt(n) for n in BOUNDARY_N]
+    _pts = [3.0] + BOUNDARIES
+    MIDPOINTS = [(_pts[i] + _pts[i + 1]) / 2.0 for i in range(len(_pts) - 1)]
+    NEW_A = sorted(set([round(x, 6) for x in BOUNDARIES + MIDPOINTS]))
+
+    ### ### **THE ROUNDING IS IN THE GENERATOR ITSELF.** ### `NEW_A` is built by
+    ### `round(x, 6)` over the boundaries and midpoints, so ### **THE LADDER`S STORED `a`
+    ### IS A SIX-PLACE ROUNDING OF AN EXACT VALUE BY CONSTRUCTION** -- not an artefact of
+    ### any later reading. ### b490 saw the symptom; this is the cause, at its address.
+    BOUNDARY_N (prime powers in (9, 36]) : ### **[11, 13, 16, 17, 19, 23, 25, 27, 29, 31, 32]**
+    boundary cells : 11 ; midpoint cells : 11 ; NEW_A : ### **22**
+
+(P2) THE 35 CELLS, AND WHICH CARRY AN EXACT GENERATOR.
+----------------------------------------------------------------------------------------------------------------
+    cells : ### **35** ### -- sqrt 11, midpoint 11, literal 13
+    ### the stored `a` differs from its generator by at most ### **4.77e-07** ### -- a
+    ### six-place rounding, as the source says. ### **THE LITERAL CELLS ARE EXACT AS
+    ### WRITTEN**, being b321`s own decimal choices and not roundings of anything.
+
+    ### the cells whose generator is `sqrt n`, and whether `n` is IN on each reading:
+      stored a     exact a            n    n <= (stored a)^2        n <= (exact a)^2
+      3.316625     3.316624790355     11   True                     True (n <= n, EXACT)
+      3.605551     3.605551275464     13   False                    True (n <= n, EXACT)
+      4.000000     4.000000000000     16   True                     True (n <= n, EXACT)
+      4.123106     4.123105625618     17   True                     True (n <= n, EXACT)
+      4.358899     4.358898943541     19   True                     True (n <= n, EXACT)
+      4.795832     4.795831523313     23   True                     True (n <= n, EXACT)
+      5.000000     5.000000000000     25   True                     True (n <= n, EXACT)
+      5.196152     5.196152422707     27   False                    True (n <= n, EXACT)
+      5.385165     5.385164807135     29   True                     True (n <= n, EXACT)
+      5.567764     5.567764362830     31   False                    True (n <= n, EXACT)
+      5.656854     5.656854249492     32   False                    True (n <= n, EXACT)
+    ### ### **ON THE EXACT GENERATOR THE ANSWER IS DECIDED BY INTEGER ARITHMETIC, NOT BY
+    ### A FLOAT:** ### `a = sqrt n` gives `a^2 = n`, so `n <= a^2` holds because
+    ### ### **n <= n**. ### No tolerance is chosen and none is needed.
+
+(P3) THE RECIPE AND THE FLOOR, FROM b477`S OWN RUNNER.
+----------------------------------------------------------------------------------------------------------------
+    f = SQ.autocorrelation(seeds[a])
+    ch = WI.channels(f.v, f.w)
+    W = ch['prime'] - ch['arch']
+    FLOOR = 1.49e-08
+    `AUTOCORR_NV` default : ### **8193**
+    ### ### **THE FLOOR IS `1.49e-08`** ### -- b446`s `sqrt(eps)` kind domain, and b477`s
+    ### own halt threshold. ### **THIS ACT USES b477`S NUMBER, NOT ONE OF ITS OWN.**
+
+(P4) THE (R70) REHEARSAL -- ONE CELL, AGAINST A BANK THAT ALREADY HOLDS ITS TERMS.
+----------------------------------------------------------------------------------------------------------------
+    the cell : ### **a = 4.123106** ### -- the only cell of the 35 with banked per-n terms,
+    from `b449_integrand.json` at `nv = 8193` (size 16385), which is the DEFAULT grid.
+    ### ### **RUN HERE, NOW:** ### 7.4 s ; grid size 16385
+      W computed  : -0.024733268208106535
+      W banked    : -0.024733268208106535   (b477)
+      ### ### **|diff| = 0 ; FLOOR 1.49e-08 ; WITHIN : True**
+      PR computed : 0.14857872267405486
+      PR banked   : 0.14857872267405486   (b449)
+      ### **|diff| = 0**
+      terms computed : 11 ; terms banked : 11
+      ### ### **WORST PER-TERM |diff| AGAINST b449`S BANK : 0**
+      sum of terms : 0.14857872267405486 ; against PR : 0
+    ### ### **THE REHEARSAL REPRODUCES A BANK THIS ACT DID NOT WRITE : True.**
+    ### **THAT IS THE POSITIVE CONTROL FOR THE WHOLE RUN** -- the term recipe, the grid
+    ### and the channel arrangement are the record`s, not this act`s.
+
+(P5) THE COST.
+----------------------------------------------------------------------------------------------------------------
+    one cell measured here : ### **7.4 s** ### ; 35 cells : ### **258 s ~ 4.3 min.**
+    ### ### **THE LANE IS OPEN FOR THIS ONE RUN AND CLOSES AT THIS ACT`S END**, by
+    ### (R101). ### No second run is taken and no lane is left open.
+
+================================================================================================================
+  ### MISSES : 0 
+================================================================================================================

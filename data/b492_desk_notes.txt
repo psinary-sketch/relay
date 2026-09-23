@@ -1,0 +1,93 @@
+========================================================================================================
+b492 -- THE DESK. ### THE SCORES, THE ROW, THE BANK.
+========================================================================================================
+
+### (1) THE NAVIGATOR`S EXPECTATIONS, EACH SCORED BY A PRINTED RESULT.
+--------------------------------------------------------------------------------------------------------
+    ### **(N1)** ### `3^3` and `2^5` carry more than half of their turns` increments
+        -- ### **REFUTED, AND NOT NARROWLY.** ### `3^3` enters at step 29 with a share
+        of `d(pr)` of ### **-2.5e-42**; `2^5` NEVER enters on the stored `a` at all.
+        ### ### **AND THE WHOLE PATTERN IS AGAINST IT:** ### at 15 of the 16 entry steps
+        ### the entering terms carry at most ### **1.6e-03** ### of `d(pr)`, and 8 of them
+        ### carry EXACTLY ZERO. ### The one exception is step 3, where `2` enters an
+        ### EMPTY prime channel and so is the whole increment ### **BY ARITHMETIC, NOT
+        ### BY WEIGHT.**
+    ### **(N2)** ### on exact `a`, `27` and `32` enter exactly at the turns
+        -- ### **SPLIT.**
+        ### `27` : its boundary rung is `a = sqrt 27 = 5.196152422706632`, which IS the
+        ### margin`s ### **LOCAL MAXIMUM** ### -- so for `27` the expectation ### **HOLDS.**
+        ### `32` : its boundary rung is `a = sqrt 32 = 5.656854249492381`, the ladder`s
+        ### ### **LAST RUNG** -- an ENDPOINT, not a turn. ### There is no step past it
+        ### for the margin to turn at. ### For `32` the expectation ### **FAILS ON THE
+        ### GEOMETRY OF THE LADDER, NOT ON THE ARITHMETIC.**
+        ### ### **AND ON EXACT `a` BOTH ARE ADMITTED AT THEIR OWN RUNG**, by integer
+        ### arithmetic (`27 <= 27`, `32 <= 32`), where the stored six-place `a` excludes
+        ### both. ### **4 of the 11 boundary cells round DOWN: 13, 27, 31, 32.**
+    ### **(N3)** ### the entry rungs` increments exceed the non-entry rungs` on average
+        -- ### **REFUTED.** ### entry mean `|d(m)|` = ### **0.216186** ### over 16 steps;
+        non-entry mean = ### **0.295547** ### over 18. ### The non-entry steps include the
+        small-`a` end where `m` is two hundred times larger, so ### **THE MEAN COMPARES
+        SCALES, NOT MECHANISMS**, and the confound is printed beside the verdict.
+
+### (2) THE SEAT`S OWN, REGISTERED ON THE SEALED FACE.
+--------------------------------------------------------------------------------------------------------
+    (S1) `W` agrees with b477 within the floor at ALL 35 cells, and far inside
+         -- ### **HELD, AND MORE THAN HELD.** ### worst `|W - banked|` = ### **0.000e+00**;
+         ### **35 OF 35 CELLS REPRODUCE EXACTLY.** ### The run does not merely pass the
+         floor; it returns b477`s own doubles bit for bit.
+    (S2) the per-n split closes to better than `1e-12` at every step
+         -- ### **HELD.** ### worst `|d(pr) - (NEW + DRIFT)|` = ### **8.47e-17**
+         ### It is an IDENTITY, so what is measured is the arithmetic`s own precision.
+    (S3) the entering term is SMALL, not dominant; the increment is DRIFT
+         -- ### **HELD.** ### 8 of the 16 entering contributions are EXACTLY zero, and
+         ### the largest among the 15 non-trivial steps is ### **1.6e-03** ### of `d(pr)`,
+         ### so the drift carries ### **more than 99.8%** ### of every one of them.
+         ### ### **AND THIS SCORER`S FIRST VERSION TYPED A BAR OF `1e-4` THE FACE NEVER
+         ### STATED**, and refuted a statement the face makes in the word "dominant".
+         ### **A THRESHOLD INVENTED BY A SCORER IS NOT THE EXPECTATION IT SCORES.**
+    ### ### **REGISTERED 3 ; HELD 3.**
+
+### (3) THE ACT`S OWN FINDINGS.
+--------------------------------------------------------------------------------------------------------
+    ### ### **(a) A PRIME POWER ADMITTED AT ITS OWN BOUNDARY RUNG HAS TERM EXACTLY `0`.**
+    ### Seven boundary cells admit their `n0` on the stored `a`, and at every one of the
+    ### seven the term reads ### **`0.000e+00`**. ### The window is zero at its own
+    ### support edge `v = L`, and `log n0 = L` exactly there. ### **SO AN ENTRY IS NEVER
+    ### AN EVENT IN THE PRIME CHANNEL; IT IS A BOOKKEEPING BOUNDARY**, and the channel
+    ### moves only by the drift of terms already inside.
+    ### ### **(b) THE ROUNDING`S CAUSE IS IN THE GENERATOR, AT ITS ADDRESS.**
+    ### `b437_components.py` builds the cells by `round(x, 6)` over `sqrt n` and the
+    ### midpoints. ### b490 found the symptom; this act names the line. ### **4 OF THE
+    ### 11 BOUNDARY CELLS ROUND DOWN** ### -- 13, 27, 31, 32 -- and exclude their own
+    ### `n0`. ### `W-ORD-EXACT-SUPPORT` is filed, and the exact `a` is banked beside the
+    ### rounded one at every cell from this run on.
+    ### ### **(c) THIS ACT`S OWN SUMMARY OVERREACHED AND ITS OWN TABLE REFUTED IT.**
+    ### The components tool`s first draft said ### *"every entering term is exactly
+    ### zero"*. ### Eight are; eight are not; and one carries the whole increment. ###
+    ### **A SUMMARY WRITTEN BEFORE ITS TABLE WAS READ IS A GUESS**, and it was corrected
+    ### from the computed shares before anything was banked.
+
+### (4) THE ROW.
+--------------------------------------------------------------------------------------------------------
+    the number offered : ### **341**
+      ledger      : CORRESPONDENCE.md
+      cells given : 6
+      cells on disk after write-back read : 6
+      VERDICT     : WRITTEN, verified by read-back
+      ### and that means the CELLS SURVIVED. It does not mean they are true.
+
+### (5) WHAT THIS ACT CLOSES AND WHAT IT MINTS.
+--------------------------------------------------------------------------------------------------------
+    CLOSED : ### **3** ### -- b490`s halt (the per-n terms now exist at all 35 cells);
+      `W-ORD-EXACT-SUPPORT` (the exact `a` banked beside the rounded); and the
+      attribution b490 could not make.
+    MINTED : ### **2**
+      (i)  ### **AN ENTRY IS A BOOKKEEPING BOUNDARY, NOT AN EVENT.** ### A prime power
+           joins the sum exactly where the window vanishes, so it joins with weight
+           zero. ### **NOTHING HAPPENS AT A RUNG BOUNDARY**, and any account of the
+           margin`s turns must look to the drift and to the archimedean channel.
+      (ii) ### **A SUMMARY WRITTEN BEFORE ITS TABLE IS READ IS A GUESS.** ### This act`s
+           own first summary was refuted by the table printed three inches above it.
+
+    the span, by tool : ### ### **THE CURRENT SPAN : 6 ACT(S).**
+========================================================================================================
