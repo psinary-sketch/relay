@@ -1,0 +1,99 @@
+==============================================================================================================
+b489 -- THE SURVEY. ### THE MARGIN OVER SUPPORT, READ FROM THE BANKS.
+==============================================================================================================
+
+(P1) THE LADDER -- 35 CELLS, `W` BANKED AT b477.
+--------------------------------------------------------------------------------------------------------------
+    `b477_entries.jsonl` : 379 entries -- diagonal 35, control_diagonal 35, offdiagonal 309
+    `b437_rungs.json`    : 35 rows
+    ### ### **THE CONTROL IS OVER THE SAME 35 SUPPORT WIDTHS : True.**
+    ### every ladder cell has a `b437` row : ### **True**
+
+(P2) THE (R70) REHEARSAL -- ONE LADDER CELL AND ONE AIM-MAP CELL, READ BY HAND.
+--------------------------------------------------------------------------------------------------------------
+    ### ### **LADDER CELL -- the last rung, `a = 5.656854`.**
+      b437 row : arch = -0.00110456405834686 ; pr = -0.0393357485759191
+      ### the orientation`s own arithmetic : W = PR - A = -0.0382311845175723
+      b477 banks W = -0.0382311845175723
+      ### ### **THE TWO BANKS AGREE ON W TO 1e-12 : True.**
+      so the margin m(a) = -W = A - PR = ### **0.0382311845175723**
+      the ZERO SIDE, banked independently : 0.0382311990864881
+      the two-side residual : 1.45689e-08 ; the run`s own `trunc_bound` : 1.0603e-11
+      ### ### **THE TWO-SIDE RESIDUAL EXCEEDS THE RUN`S OWN `trunc_bound` BY 3.1 ORDERS**
+      ### -- b484`s quadrature finding, visible again at this cell. ### It does NOT
+      ### threaten the margin HERE: the residual sits 6.4 orders BELOW the margin itself,
+      ### so `m` is resolved at this rung. ### **THE BOUND IS WRONG; THE MARGIN IS NOT.**
+
+    ### ### **AIM-MAP CELL -- the reaching leg, `a = 40`, `gamma = 4`.**
+      seed : f = E conv E^# (gamma=4.000000, a=40)
+      arch_z   = -0.0903986124668591
+      places_z = -0.000577751345243308
+      prime_z  = -0.0909763638121024
+      ### ### **AND THE REHEARSAL`S FIRST READING WAS WRONG, WHICH IS WHY IT RAN.**
+      ### It took `places_z` for the PRIME SUM and computed `arch_z - places_z`,
+      ### getting ### **-0.0898208611** ### -- a NEGATIVE number where the aim map prints a
+      ### positive room. ### **`places_z` IS ALREADY THE SIGNED PLACES SUM**, i.e.
+      ### this family`s `W`; the prime slot is ### **`prime_z`**.
+      ### the orientation, done on the right fields : A - PR = 0.000577751345243308
+      ### and, independently, -W = -places_z = 0.000577751345243308
+      the bank`s own `room_z` : 0.000577751345243308
+      ### ### **`room_z` IS THE MARGIN, BY BOTH ROUTES, AGREEING : True.**
+      ### and the aim map prints this cell as the NARROWEST point of the room:
+      ### *"A_z - PR_z = +0.000577751 at a = 40"* -- read here as 0.000577751345
+
+    ### ### **WHAT THE REHEARSAL SETTLED BEFORE ANY TABLE WAS BUILT:**
+    ### (i) the margin is ### **`A - PR`** ### in BOTH families, by the same orientation;
+    ### (ii) the ladder`s margin is a function of ### **`a` ALONE**, while the aim map`s
+    ###      is a function of ### **`(a, gamma)`** -- ### **THEY ARE NOT THE SAME
+    ###      VARIABLE**, and a fit over the second is not a second reading of the first;
+    ### (iii) the ladder`s zero-side value is banked, so its margin has a CHECK; the aim
+    ###      map`s `room_z` is a places-side difference with no independent zero side
+    ###      banked beside it. ### **THE CHECK EXISTS ON ONE FAMILY ONLY.**
+
+(P3) THE AIM MAP -- ITS CELLS, AND WHAT VARIES ACROSS THEM.
+--------------------------------------------------------------------------------------------------------------
+    reaching a=40  b334_leg_reaching_40.json        rows 14 ; widths [40.0] ; gammas 14
+    reaching a=81  b334_leg_reaching_81.json        rows 14 ; widths [81.0] ; gammas 14
+    covered        b334_leg_covered.json            rows 28 ; widths [1.3, 1.41] ; gammas 14
+    ### ### **AIM-MAP CELLS IN ALL : 56.**
+
+(P4) THE CONTROL`S MARGIN -- THE SAME ORIENTATION, THE SAME CELLS.
+--------------------------------------------------------------------------------------------------------------
+    the control`s banked fields : a, arch, finite, kind, places, pole
+    ### ### **IT BANKS NO `W`.** ### It banks `places`, `arch`, `finite`, `pole`, and
+    ### `places = finite - arch` at every cell -- checked below. ### So the control`s
+    ### own W is `places`, and its margin is ### **m_Q = -places = arch - finite**, the
+    ### same `A - PR` with the Epstein function`s finite sum in the prime slot.
+    cells where `places != finite - arch` : ### **0** ### of 35
+    ### ### **AND THE IDENTIFICATION IS THIS SEAT`S, NOT THE BANK`S.** ### b477 never
+    ### writes the word `margin` for the control. ### It is read here by the orientation
+    ### (R87) fixes, and the arithmetic that licenses it is printed above.
+
+(P5) THE FALSIFIER`S HEIGHT, `t = 16.29`, AT ITS OWN ADDRESS.
+--------------------------------------------------------------------------------------------------------------
+      ### 16.290216)` with `places_q = +0.655053`, `(a = 81, gamma = 16.290216)` with `+1.362830`, and `(a = 81,
+      ###    40   16.290216    +0.209231440   +0.156825983  +0.052405457  +1.129134063   +1.784187272   -0.655053209   +
+      ###    81   16.290216    +0.176064622   +0.138459286  +0.037605336  +0.948251506   +2.311081210   -1.362829704   +
+    ### ### **OCCURRENCES IN THE AIM MAP`S OWN TEXT : 3.**
+    ### ### **AND IT IS A HEIGHT, NOT A SUPPORT WIDTH.** ### The aim map`s crossing
+    ### region is three AIMS `(a, gamma)`, each at `gamma = 16.290216` or `46.960994`,
+    ### on the REACHING leg at `a = 40` and `a = 81`. ### The ladder runs to
+    ### `a = 5.656854`. ### **THE FALSIFIER NAMES A HEIGHT THE LADDER`S WIDTHS DO NOT
+    ### REACH**, and this survey says so before any fit is made.
+
+(P6) THE PRIME POWERS IN `[a^-2, a^2]` -- A SIEVE, SPOT-CHECKED.
+--------------------------------------------------------------------------------------------------------------
+      a = 1.3        a^2 = 1.690000     prime powers <= a^2 : 0  []
+      a = 1.41       a^2 = 1.988100     prime powers <= a^2 : 0  []
+      a = 1.5        a^2 = 2.250000     prime powers <= a^2 : 1  [2]
+      a = 2.0        a^2 = 4.000000     prime powers <= a^2 : 3  [2, 3, 4]
+      a = 5.656854   a^2 = 31.999997    prime powers <= a^2 : 17  [2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17, 19]
+    ### ### **`[a^-2, a^2]` IS SYMMETRIC IN `log`, SO EACH `p^k <= a^2` CONTRIBUTES
+    ### TWICE** -- at `+log p^k` and at `-log p^k`. ### The count below is of DISTINCT
+    ### prime powers `p^k <= a^2`, and the doubling is stated, not silently folded in.
+    ### the first prime power is `2`, so a cell has NO prime power until `a >= sqrt 2`
+    ### = 1.41421356. ### That is why the first three rungs bank `pr = 0`.
+
+==============================================================================================================
+  ### MISSES : 0 
+==============================================================================================================
