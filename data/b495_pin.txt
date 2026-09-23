@@ -1,0 +1,51 @@
+========================================================================================================
+b495 COMPONENT 1 -- THE PIN. ### **DECIDED BY THE COMPARISON, NOT BY A PREFERENCE.**
+========================================================================================================
+  clone   : data/anthropic-zeta23/formal-math
+  module  : Zeta23/ExplicitFormula.lean
+  ### the clone is READ and NEVER written, and NEVER committed -- (R58).
+
+  ### THE REVISIONS, RESOLVED IN THIS CLONE:
+    v1.0       -> 3635e74826a4c1fcece7d1cd2b6fa75e43a00510
+    fbdc36b    -> fbdc36bbf17d20af3fd0447c6d1a8a02773c9844
+    ### the order names `v1.0` = `3635e748` ; this clone resolves it to `3635e748` -- ### **AGREE**
+
+  ### THE MODULE`S PATH, RESOLVED IN EACH REVISION`S OWN TREE:
+    v1.0       -> Zeta23/ExplicitFormula.lean
+    fbdc36b    -> zeta23/Zeta23/ExplicitFormula.lean
+    ### ### **THE PATHS DIFFER**, and that is a LAYOUT MOVE, not a statement change.
+    ### The `zeta23-palomar-layout` merge moved the tree under `zeta23/`. ### A reader
+    ### comparing the two by a single hard-coded path gets ### **NOT FOUND** at `v1.0`
+    ### and would pin `fbdc36b` for a reason the order never gave.
+
+  ### THE STATEMENT AT EACH REVISION, PRINTED WHOLE.
+  ----------------------------------------------------------------------------------------------------
+  --- `v1.0` (3635e74826a4) at `Zeta23/ExplicitFormula.lean` ---
+      def EF_lit (Z : ZeroConfig) : Prop :=
+        ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+          Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+          ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+      sha256 of the STATEMENT : 0255fa699a72c941d7dcb70e0232a0184fb9e0c48c66659a6a237c4022000fe6
+      sha256 of the WHOLE FILE: f602f5ffe70f42eb5397b5128fc681f89cce7094a19b66e4de69ad4ed0cb8ae4
+
+  --- `fbdc36b` (fbdc36bbf17d) at `zeta23/Zeta23/ExplicitFormula.lean` ---
+      def EF_lit (Z : ZeroConfig) : Prop :=
+        ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →
+          Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧
+          ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ) = literatureRHS k
+      sha256 of the STATEMENT : 0255fa699a72c941d7dcb70e0232a0184fb9e0c48c66659a6a237c4022000fe6
+      sha256 of the WHOLE FILE: f602f5ffe70f42eb5397b5128fc681f89cce7094a19b66e4de69ad4ed0cb8ae4
+
+  ### THE COMPARISON, WHICH IS THE REASON.
+  ----------------------------------------------------------------------------------------------------
+    statement bytes identical : ### **True**  (0255fa699a72c941 vs 0255fa699a72c941)
+    whole-file bytes identical: True  (f602f5ffe70f42eb vs f602f5ffe70f42eb)
+    ### ### **THE FILE IS NOT THE STATEMENT.** ### The order`s test is on the STATEMENT,
+    ### and both readings are printed so that a difference elsewhere in the module is
+    ### visible rather than swallowed by the rule that does not ask about it.
+
+  ### ### **PIN CHOSEN : `v1.0` = `3635e74826a4c1fcece7d1cd2b6fa75e43a00510`.**
+  ### ### **THE REASON IS THE LINE ABOVE**: the statement is byte-identical at the two
+  ### revisions, and the order`s rule reads ### *"byte-identical -> pin v1.0; else pin
+  ### fbdc36b"*. ### No preference entered.
+========================================================================================================

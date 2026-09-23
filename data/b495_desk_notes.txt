@@ -1,0 +1,102 @@
+========================================================================================================
+b495 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE CELLS THE COMPONENTS PRINTED.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.**
+    *"EF_lit is byte-identical at v1.0 and fbdc36b, so the pin is v1.0."*
+    the statement`s sha256 at `v1.0`    : 0255fa699a72c941d7dcb70e0232a0184fb9e0c48c66659a6a237c4022000fe6
+    the statement`s sha256 at `fbdc36b` : 0255fa699a72c941d7dcb70e0232a0184fb9e0c48c66659a6a237c4022000fe6
+    identical : ### **True** ; pin chosen : ### **`v1.0`**
+    ### ### **AND THE FIRST READING SAID OTHERWISE.** ### The component`s first run
+    ### reported the statement ### **NOT FOUND AT `v1.0`** and would have pinned
+    ### `fbdc36b` -- scoring this expectation REFUTED. ### The cause was a ### **LAYOUT
+    ### MOVE**, not a statement change: at `v1.0` the tree is rooted at `Zeta23/`, and by
+    ### `fbdc36b` the `zeta23-palomar-layout` merge has moved it under `zeta23/`.
+    ### ### **A PATH MISS IS NOT A FINDING ABOUT THE OBJECT.** ### The module is now
+    ### resolved in each revision`s OWN tree and the path used is printed beside each
+    ### reading. ### The whole file agrees too, not only the statement.
+
+  **(N2)** ### **HELD.**
+    *"All fifty-seven body hashes agree with the source at the pin."*
+    modules in the closure of `Zeta23.WeilEF.Main` : ### **57**
+    digests agreeing : ### **57 of 57** ; disagreeing : 0 
+    ### the copy`s digest was taken ### **FROM DISK, BEFORE ANY HEADER EXISTED** --
+    ### hashing the in-memory bytes would prove only that a variable was not reassigned.
+    ### and after the prepend every body was re-read from the file`s tail and compared:
+    ### ### **BODIES INTACT AFTER THE HEADER : 57 of 57.**
+
+  **(N3)** ### **NOT SCORABLE IN THIS ACT.**
+    *"The launcher`s marks carry more than six distinct instants within the ten modules
+    it builds earliest."*
+    ### ### **THE ORDER FORBIDS THE ONLY POPULATION THIS EXPECTATION NAMES.** ### Its
+    ### subject is the marks ### **IN THE LOG**, and the same order`s component 4 says
+    ### ### *"The log is not read in this act."* ### Reading it to score (N3) would break
+    ### the clause; ### **AND A SCORE TAKEN FROM A POPULATION THE ACT MAY NOT READ IS
+    ### NOT A SCORE.** ### So it is reported, not invented, and it goes to b496.
+
+    ### WHAT CAN BE SHOWN WITHOUT READING THE LOG -- ### **THE REPAIR ITSELF.**
+      ten consecutive calls to the launcher`s own `stamp()`:
+        2026-09-23T18:00:34.015
+        2026-09-23T18:00:34.016
+        2026-09-23T18:00:34.018
+        2026-09-23T18:00:34.019
+        2026-09-23T18:00:34.020
+        2026-09-23T18:00:34.021
+        2026-09-23T18:00:34.022
+        2026-09-23T18:00:34.023
+        2026-09-23T18:00:34.024
+        2026-09-23T18:00:34.026
+      ### ### **DISTINCT VALUES : 10 of 10.**
+      `say()` calls `stamp()` per line : ### **True** ; a precomputed module-level stamp
+      exists : ### **False**
+      ### ### **THAT IS b480`S DEFECT, TESTED AT ITS MECHANISM.** ### b480 computed one
+      ### instant and stamped every mark with it, so a log that looked like a progress
+      ### record could not say how long anything took or in what order. ### Here the
+      ### clock is read AT THE MARK. ### **BUT THE EXPECTATION AS WORDED IS ABOUT THE
+      ### LOG`S FIRST TEN MODULE MARKS, AND THAT IS b496`S CELL TO PRINT.**
+
+### THE SEAT`S THREE, REGISTERED BEFORE THE COMPONENTS RAN.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.**
+    *"The build will not finish inside this act, and may not finish at all."*
+    pid 7860 : ### **ALIVE** at the desk`s reading -- the process is still working.
+    ### the pid is checked by `tasklist`, which is ### **NOT READING THE LOG** -- it asks
+    ### whether a process exists, not what it wrote.
+    ### b468r-b470 recorded `import Mathlib` alone exceeding 570 s in this environment
+    ### and b473 recorded a build dying of memory in three of them. ### **THIS ACT NEVER
+    ### DEPENDED ON THE BUILD SUCCEEDING** -- only on the launch being made and named.
+
+  **(S2)** ### **NOT SCORABLE IN THIS ACT, FOR (N3)`S REASON.**
+    *"The FromPNTPlus ten will not be what lake builds earliest."*
+    ### build order is in the log. ### **THE SAME CLAUSE BLOCKS IT**, and the face said
+    ### (N3) would be scored on the ten the launcher marks first -- which is the same
+    ### unreadable cell. ### **THE FACE ITSELF DID NOT SEE THE CONFLICT**, and that is
+    ### this act`s finding about its own registration, not a fact about the build.
+
+  **(S3)** ### **HELD.**
+    *"At least one of the fifty-seven will already carry a FromPNTPlus upstream notice,
+    so its file will end with two attribution headers of different provenance."*
+    ### read at content in the created kernel: `Zeta23/FromPNTPlus/Sobolev.lean` and
+    ### `Zeta23/FromPNTPlus/ZetaBounds.lean` each carry their own *"Ported from
+    ### PrimeNumberTheoremAnd at commit 6a380f0c..."* notice, naming the upstream file,
+    ### its licence, and the local modifications. ### **SO THOSE TEN FILES NOW CARRY
+    ### THREE ATTRIBUTION BLOCKS, NOT TWO** -- this act`s, this act`s second, and the
+    ### source`s own. ### **THAT IS CORRECT AND IT IS NOT A DEFECT**: the chain is not
+    ### restated or summarised, it is carried unaltered.
+
+### THE OTHER CELLS THE COMPONENTS PRINTED.
+--------------------------------------------------------------------------------------------------------
+    the waiver   : prefix True, lines removed 0, headings 1, rule 9 at line 384
+    the row      : prefix True, lines removed 0, headings 1, ### **TERMINALS NAMED : 0**
+    the push     : local 52d8cf939220 ; remote 52d8cf939220 ; ### **AGREE : True**
+    the guard    : `.githooks/pre-push` identical to relay`s single source : True
+
+  ### ### **THE SEAT`S OWN: REGISTERED 3 ; HELD 2 ; NOT SCORABLE 1 ; REFUTED 0.**
+  ### ### **THE NAVIGATOR`S: HELD 2 ; NOT SCORABLE 1 ; REFUTED 0.**
+  ### ### **AND "NOT SCORABLE" IS A RESULT, NOT A GAP.** ### Two expectations name a
+  ### population this act is forbidden to read. ### **REPORTING THAT IS THE HONEST CELL**;
+  ### scoring them from the log would have broken the clause, and scoring them from
+  ### anything else would have been a score of a different question.
+========================================================================================================

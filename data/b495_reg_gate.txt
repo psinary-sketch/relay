@@ -1,0 +1,23 @@
+====================================================================================================
+b495 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
+====================================================================================================
+--- INDEX-QUERY GATE (b185) ---
+  registration : b495_registration_2026-09-23.txt
+  marks found  : 3
+      OPEN                       line 133   ### ### **`G-NOTHING-COMPILED` IS NOT CARRIED FORWARD UNDER THAT NAME** -- the kernel lane
+      UNREAD                     line 14    ### DETACHED build launched and ### **ITS LOG UNREAD.**
+      UNREAD                     line 63    ### This face marks an object `OPEN` and a log `UNREAD`, so the banked index is QUERIED an
+  query result : RECORDED at line 61
+  VERDICT      : PASS -- marks present and a query result is recorded
+  ### THE GATE CHECKS THAT A QUERY WAS RECORDED, NOT THAT IT WAS THE
+  ### RIGHT QUERY. An act that queries the wrong keys still passes.
+  ### index-query arm exit code : 0 ### -- PASS only on `0`
+
+  bar-floor fixtures both polarities : True ; straddle fixtures both polarities : True
+  thresholds 0 FLOOR MISSES 0 []
+  multi-arm  0 ARM MISSES   0 []
+  arm+repo-state paragraphs 1 UNDECLARED 0 []
+  ### ### **GATE VERDICT : CLEAR**
+====================================================================================================
+  written: b495_reg_gate.txt
+### GATE SUBJECT SHA256 : f1a8a02b12cd59a74c46584c0b09df66c8ffde74e77e893ef4f75e207563565f  (b495_registration_2026-09-23.txt)

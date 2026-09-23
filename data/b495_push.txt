@@ -1,0 +1,38 @@
+========================================================================================================
+b495 COMPONENT 4 -- THE PUSH AND THE LAUNCH.
+========================================================================================================
+  ### THE PRE-PUSH GUARD, INSTALLED BEFORE THE FIRST PUSH EVER TAKEN.
+    single source  : relay/.githooks/pre-push   sha256 146330836e1ae8e945c4bd65a756dfec
+    installed at   : .githooks/pre-push               sha256 146330836e1ae8e945c4bd65a756dfec
+    `core.hooksPath` : .githooks
+    ### ### **IDENTICAL : True.**
+    ### ### **A FRESH REPOSITORY HAS NO GUARD UNTIL ONE IS PUT THERE** -- b304. ### And
+    ### the directory is ### **TRACKED** (b371): `.git/hooks/` is not, so a guard placed
+    ### there would not survive a clone. ### (R15): ONE GUARD, ONE SOURCE -- this is a
+    ### copy of `relay/.githooks/pre-push` and not a second guard.
+
+  ### THE COMMIT.
+    HEAD          : 52d8cf939220ac517322d29039bcccd798786d07
+    files tracked : 67  (58 `.lean`, of which 57 vendored bodies and 1 library root)
+    ### `.lake/` is ignored; ### **NO BUILD ARTEFACT IS COMMITTED.**
+
+  ### the remote did not exist and was created : exit 0 
+  ### THE PUSH, FROM A `push-*` BRANCH AS THE PROCEDURE REQUIRES.
+    push exit  : 0  * [new branch]      push-b495 -> main
+    local HEAD : 52d8cf939220ac517322d29039bcccd798786d07
+    ### **`ls-remote` origin/main : 52d8cf939220ac517322d29039bcccd798786d07**
+    ### ### **AGREE : True.** ### The remote SHA is READ BACK, never inferred from a
+    ### successful exit code -- a push can exit 0 having pushed a different ref.
+
+  ### THE LAUNCH. ### **DETACHED; THIS ACT DOES NOT WAIT AND DOES NOT READ.**
+    launcher : tools/b495_launch.py
+    ### ### **pid : 7860**
+    ### ### **log : data/b495_ef_build.log**
+    ### the launcher stamps ### **AN INSTANT TAKEN AT EACH LINE, FROM THE CLOCK** --
+    ### b480 precomputed one instant and stamped every mark with it, so its log could
+    ### not say how long anything took or in what order it happened. ### Repaired here.
+    ### after the build it runs `#print axioms` on the three names the order gives,
+    ### ### **WHETHER OR NOT THE BUILD EXITED 0** -- a partial build still profiles what
+    ### it has, and a launcher that skips the profile hands the next act nothing.
+    ### ### **THE LOG IS NOT READ IN THIS ACT.** ### (R106)(3) gives it to b496.
+========================================================================================================
