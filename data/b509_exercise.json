@@ -176,6 +176,13 @@
    "reads": "the clause bank against READING (6) -- INTERFACES iff the class DIFFERS and a premise is named"
   },
   {
+   "name": "G-TABLE-ROW",
+   "live": false,
+   "neg": false,
+   "pos": false,
+   "reads": "the regenerated terminal table -- a row for the new terminal in the kernel"
+  },
+  {
    "name": "G-R118-1-NOTE",
    "live": true,
    "neg": true,
@@ -330,6 +337,13 @@
    "reads": "the harness itself -- the positive control is RUN on every arm"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -351,14 +365,13 @@
    "reads": "the suite`s own text -- b472`s repair, carried"
   }
  ],
- "run": 50,
- "live_failing": [],
- "defective": [],
- "neg_failures": 0,
- "declared": 52,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD",
+ "run": 52,
+ "live_failing": [
   "G-TABLE-ROW"
  ],
+ "defective": [],
+ "neg_failures": 1,
+ "declared": 52,
+ "deferred": [],
  "stray": []
 }
