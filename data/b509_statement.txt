@@ -1,0 +1,3 @@
+theorem b321_identity (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)
+    (he : ∀ x : ℝ, k (-x) = k x) :
+    zeroSide k = b321Norm * (poleTerm k - primeSum k + archTerm k) :=

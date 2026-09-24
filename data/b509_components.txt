@@ -1,0 +1,80 @@
+========================================================================================================
+b509 -- THE COMPONENTS, AS THEY RAN.
+========================================================================================================
+
+### COMPONENT 1 -- THE TERMINAL.
+### the statement, from its declaration line to its `:=` :
+theorem b321_identity (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)
+    (he : ∀ x : ℝ, k (-x) = k x) :
+    zeroSide k = b321Norm * (poleTerm k - primeSum k + archTerm k) :=
+
+### RUN FILE b509_compile_log.txt, VERBATIM:
+### run at (UTC) : 2026-09-24T16:50:26Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\B321Identity.olean SIDEExplicitFormula\B321Identity.lean
+exit 143 ; 579.7 s
+--- stdout ---
+
+--- stderr ---
+
+### RUN FILE b509_compile_log2.txt, VERBATIM:
+### run at (UTC) : 2026-09-24T16:57:28Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\B321Identity.olean SIDEExplicitFormula\B321Identity.lean
+exit 0 ; 52.4 s
+--- stdout ---
+
+--- stderr ---
+
+### RUN FILE b509_profile_log.txt, VERBATIM:
+### run at (UTC) : 2026-09-24T16:58:11Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean D:\relay\data\b509_printaxioms.lean
+exit 0 ; 24.4 s
+--- stdout ---
+'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+--- stderr ---
+
+### THE IMPORT PROBE (diagnostic, after the seal): rc=0 secs=330
+### the profile record : {  "new": [   "'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]"  ],  "control": [   "'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]"  ],  "new_std3": true,  "control_std3": true,  "sorry": false,  "exit": 0 } 
+
+### COMPONENTS 2 AND 3.
+========================================================================================================
+b509 -- COMPONENTS 2 AND 3. ### THE DERIVED STATEMENT AGAINST b321`S INTERFACE FORM, AND THE GRADE.
+========================================================================================================
+  sign of Z                  SAME     both put the zero side alone on the left
+      derived side : zeroSide k = b321Norm * (poleTerm k - primeSum k + archTerm k)  <B321Identity.lean>
+      b321 side    : residual=Z - (P - PR + A)  <b321_window.py>
+  sign of P                  SAME     plus in both
+      derived side : paperFT k (I / 2) + paperFT k (-I / 2)  <ExplicitFormula.lean>
+      b321 side    : P = 2.0 * float(np.trapezoid(w * np.cosh(v / 2.0), v))  <b321_window.py>
+  sign of PR                 SAME     minus in both
+      derived side : - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)  <ExplicitFormula.lean>
+      b321 side    : Z - (P - PR + A)  <b321_window.py>
+  sign of A                  SAME     plus in both
+      derived side : + (1 / (2 * π) : ℂ) * ∫ r : ℝ, paperFT k r * (gammaBracket r : ℂ)  <ExplicitFormula.lean>
+      b321 side    : Z - (P - PR + A)  <b321_window.py>
+  normalization              SAME     the constant is 1 in every channel: A carries 1/(2 pi) and the same bracket Re psi(1/4 + iu/2) - log pi in both; P is h(i/2) + h(-i/2) = 2 INT k cosh(u/2) for even k; PR is Lambda(n) n^(-1/2) (k(log n) + k(-log n)) = 2 log p n^(-1/2) k(log n) for even k; Z counts each zero at gamma and -gamma, = 2 SUM_(gamma>0) for even k. ### Printed as `b321Norm := 1`.
+      derived side : def gammaBracket (r : ℝ) : ℝ := (Complex.digamma (1 / 4 + I * r / 2)).re - Real.log π  <ExplicitFormula.lean>
+      b321 side    : np.array([float(mre(digamma(mpc(0.25, uu / 2.0)))) for uu in U]) - math.log(math.pi)  <carto_atlas.py>
+  class of test functions    DIFFERS  EF_lit and the new terminal: every k : R -> C with ContDiff R 2 k and compact support (the new terminal adds evenness). b321: any sampled (v, w), and on the ladder the chain transforms w as a CONTINUOUS PIECEWISE-LINEAR function (b326 hhat_exact, the product form over segments) -- kinked at its nodes, so C^0 and NOT C^1, and not in C_c^2.
+      derived side : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k →  <ExplicitFormula.lean>
+      b321 side    : ROUTE ONE (product form): hhat(g) = -(2 sin(g dv/2) / g^2) SUM_j beta_j sin(g (v_j + dv/2))  <b326_closure.py>
+  truncation                 DIFFERS  EF_lit carries none: the zero side is a tsum over every zero with multiplicity (summability proved), A an integral over all of R. b321: Z sums the banked ordinates only (carto_atlas.GAM, simple and on the line, to T), A integrates over [-UMAX, UMAX]; PR is exact (finite by the support).
+      derived side : Summable (fun ρ : Z.carrier => (Z.mult ρ : ℂ) * paperFT k (gammaOf ρ)) ∧  <ExplicitFormula.lean>
+      b321 side    : U = np.linspace(-AT.UMAX, AT.UMAX, AT.NU)  <b321_window.py>
+  ### ### **CLAUSES : 7 ; SAME 5 ; DIFFERS 2 -- class of test functions, truncation.**
+
+### THE LADDER`S FAMILY, MEASURED ON THE CHAIN`S OWN OBJECT (a = 5.0, nv 8193):
+    nodes 16385 ; slope jumps above 1e-9 at 15383 nodes ; largest 1.761e-02 ; median over the inner half 3.137e-03
+    ### the chain transforms this w as piecewise linear: its derivative jumps at 15383 nodes, so it is not C^1.
+
+### COMPONENT 3 -- THE GRADE, BY STATEMENT-READ, AGAINST: "b321`s identity holds for every test function of the ladder`s family".
+    the terminal proves the identity for every EVEN k in C_c^2(R); the ladder`s family, as the chain transforms it, is not in C_c^2.
+    ### ### **GRADE : INTERFACES**, on the named premise
+    P-PL: the explicit formula EF_lit holds for every even, compactly supported, continuous piecewise-linear k -- the windows the ladder`s chain actually transforms. Not compiled; not in the record as a terminal.
+    ### not DERIVES: the class clause DIFFERS and no compiled step carries the family into the class;
+    ### not NOT THE CLAIM: the identity proved is b321`s, channel for channel, on the class it quantifies over;
+    ### not ENCODES: nothing of the claim sits in a hypothesis of the terminal other than the class and evenness.
+========================================================================================================
+
+### COMPONENT 4 -- THE (R118)(3) STRIKE : {"file": "b508_desk_notes.txt", "written": 718, "prefix": true, "removed": 0, "marks": 1}
+========================================================================================================
