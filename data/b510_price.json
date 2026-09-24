@@ -1,0 +1,72 @@
+{
+ "needs": [
+  {
+   "need": "mollify: a smooth compactly supported approximate identity",
+   "name": "ContDiffBump",
+   "found": true,
+   "where": [
+    "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean:70:structure ContDiffBump (c : E) where"
+   ]
+  },
+  {
+   "need": "the mollified k converges to k (uniformly on compacta, as the bump shrinks)",
+   "name": "convolution_tendsto_right",
+   "found": true,
+   "where": [
+    "Mathlib/Analysis/Convolution.lean:789:theorem convolution_tendsto_right {\u03b9} {g : \u03b9 \u2192 G \u2192 E'} {l : Filter \u03b9} {x\u2080 : G} {z\u2080 : E'}"
+   ]
+  },
+  {
+   "need": "the mollified k is C^2 (smoothness of a convolution with a smooth compact kernel)",
+   "name": "contDiff_convolution_left",
+   "found": true,
+   "where": [
+    "Mathlib/Analysis/Calculus/ContDiff/Convolution.lean:430:theorem _root_.HasCompactSupport.contDiff_convolution_left [\u03bc.IsAddLeftInvariant] [\u03bc.IsNegInvariant]"
+   ]
+  },
+  {
+   "need": "the mollified k keeps compact support",
+   "name": "convolution",
+   "found": false,
+   "where": []
+  },
+  {
+   "need": "the transform of a convolution is the product of transforms",
+   "name": "fourier_convolution",
+   "found": true,
+   "where": [
+    "Mathlib/Analysis/Fourier/Convolution.lean:160:theorem fourier_convolution (B : F\u2081 \u2192L[\ud835\udd5c] F\u2082 \u2192L[\ud835\udd5c] F\u2083) (f : \ud835\udce2(E, F\u2081)) (g : \ud835\udce2(E, F\u2082)) :"
+   ]
+  },
+  {
+   "need": "dominated convergence under the integral (A, P)",
+   "name": "tendsto_integral_of_dominated_convergence",
+   "found": true,
+   "where": [
+    "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean:57:theorem tendsto_integral_of_dominated_convergence {F : \u2115 \u2192 \u03b1 \u2192 G} {f : \u03b1 \u2192 G} (bound : \u03b1 \u2192 \u211d)",
+    "Mathlib/MeasureTheory/VectorMeasure/Integral.lean:886:theorem tendsto_integral_of_dominated_convergence {F : \u2115 \u2192 X \u2192 E} {f : X \u2192 E} (bound : X \u2192 \u211d)"
+   ]
+  },
+  {
+   "need": "dominated convergence under the zero sum (Z)",
+   "name": "tendsto_tsum_of_dominated_convergence",
+   "found": true,
+   "where": [
+    "Mathlib/Analysis/Normed/Group/Tannery.lean:40:lemma tendsto_tsum_of_dominated_convergence {\u03b1 \u03b2 G : Type*} {\ud835\udcd5 : Filter \u03b1}"
+   ]
+  },
+  {
+   "need": "decay |h_k(r)| = O(|r|^-2) for a continuous piecewise-linear k",
+   "name": "fourier_piecewiseLinear_isBigO",
+   "found": false,
+   "where": []
+  }
+ ],
+ "b504_cells": 119,
+ "b504_cell_seconds": 3578.1,
+ "b506_cells": 93,
+ "b506_cell_seconds": 4570.5,
+ "b506_per_cell": 49.145161290322584,
+ "joint_cell_seconds": 9426.374193548387,
+ "under_one_hour_xi": true
+}

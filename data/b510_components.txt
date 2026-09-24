@@ -1,0 +1,163 @@
+========================================================================================================
+b510 -- THE COMPONENTS, AS THEY RAN.
+========================================================================================================
+
+### COMPONENT 0 -- AxiomCheck.lean, AS RUN IN THE KERNEL:
+### RUN FILE b510_axiomcheck_log.txt:
+### run at (UTC) : 2026-09-24T17:37:26Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean AxiomCheck.lean
+exit 0 ; 22.5 s
+--- stdout ---
+'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.EF_lit_zetaZeroConfig' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.EF.EF_lit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Zeta23.WeilEF.EF_lit_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+--- stderr ---
+### the table row and b509`s arm are read POST-PUSH, by the closing suite.
+
+### COMPONENT 1 -- THE Prop, FROM EACH DECLARATION LINE TO ITS `:=` (as ordered) :
+def classK (k : ℝ → ℂ) : Prop :=
+
+def h2_sign : Prop :=
+
+def h2_sign_aim : Prop :=
+
+theorem h2_sign_imp_aim : h2_sign → h2_sign_aim :=
+
+### AND EACH DECLARATION WHOLE -- a `def`s content is after its `:=` :
+def classK (k : ℝ → ℂ) : Prop :=
+  (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+    ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+
+def h2_sign : Prop :=
+  ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+
+def h2_sign_aim : Prop :=
+  ∀ k : ℝ → ℂ, classK k → poleTerm k = 0 → 0 ≤ poleTerm k - primeSum k + archTerm k
+
+theorem h2_sign_imp_aim : h2_sign → h2_sign_aim := fun h k hk _ => h k hk
+
+### RUN FILE b510_compile_log.txt:
+### run at (UTC) : 2026-09-24T17:36:18Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\H2Sign.olean SIDEExplicitFormula\H2Sign.lean
+exit 0 ; 681.8 s
+--- stdout ---
+
+--- stderr ---
+
+### RUN FILE b510_profile_log.txt:
+### run at (UTC) : 2026-09-24T17:37:03Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean D:\relay\data\b510_printaxioms.lean
+exit 0 ; 31.9 s
+--- stdout ---
+'SIDEExplicitFormula.B321.h2_sign_imp_aim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+--- stderr ---
+
+### COMPONENT 2 -- THE BINDER READ.
+    In `h2_sign` the class quantifier is its one `∀ k : ℝ → ℂ, classK k →`, and the zero quantifier does NOT appear in its text: it sits inside `zeroSide k` as `∑' ρ : Zeta23.zetaZeroConfig.carrier`, and reaches `h2_sign` only through `b321_identity`, which equates `zeroSide k` with `b321Norm * (poleTerm k - primeSum k + archTerm k)` on the even `C_c^2` functions, a class containing K.
+    read off the statement : {'class_forall': True, 'zeros_in_text': False}
+
+### COMPONENT 3.
+========================================================================================================
+b510 -- COMPONENT 3. ### THE DIRECTION THE VENDORED MODULES HOLD.
+========================================================================================================
+  modules scanned : 57 ; declarations read : 948
+  control -- a planted "zeros on the line -> 0 <= W f f" is found by the needles : True
+  ### NEEDLE 1 (a zero-location notion AND a sign notion in one statement) : 0 declarations
+  ### NEEDLE 2 (`weilTest` AND a sign notion in one statement) : 0 declarations
+========================================================================================================
+b510 -- COMPONENT 3, THE WIDENING PASS (run after the two needles returned 0, before banking NONE).
+  yield 'onLine' : 2 files
+  yield 'RiemannHypothesis' : 1 files
+  yield 're = 1 / 2' : 2 files
+  yield '0 ≤' : 26 files
+  yield 'zeroside' : 5 files
+  yield 'positiv' : 32 files
+  yield 'Weil' : 17 files
+  yield 'weilTest' : 2 files
+  yield 'W f f' : 0 files
+  yield 'nonneg' : 37 files
+  RESIDUE, every line naming onLine / RiemannHypothesis / re = 1 / 2:
+    Zeta23/Defs.lean:156:def onLine : Set ℂ := {ρ | ρ.re = 1 / 2}
+    Zeta23/Defs.lean:168:def N0 (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ Z.window T₁ T₂ ∩ onLine, Z.mult ρ
+    Zeta23/Defs.lean:171:def N0star (T₁ T₂ : ℝ) : ℕ := (Z.window T₁ T₂ ∩ onLine).ncard
+    Zeta23/Defs.lean:174:def N0s (T₁ T₂ : ℝ) : ℕ := (Z.window T₁ T₂ ∩ onLine ∩ Z.simple).ncard
+    Zeta23/Defs.lean:335:def S1 (Z : ZeroConfig) (T : ℝ) : Set ℂ := Z.ZIprime T ∩ onLine ∩ Z.simple
+    Zeta23/Defs.lean:337:def S2 (Z : ZeroConfig) (T : ℝ) : Set ℂ := Z.ZIprime T ∩ onLine ∩ {ρ | 2 ≤ Z.mult ρ}
+    Zeta23/Statement.lean:32:(4) proves the sanity anchors connecting to Mathlib's RiemannHypothesis and [eq:trivialchain].
+    Zeta23/Statement.lean:49:rendered as ζ(ρ) = 0 with 0 < Re ρ < 1 (the critical strip). Mathlib's RiemannHypothesis phrases
+    Zeta23/Statement.lean:72:def N0 (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2}, zeroMult ρ
+    Zeta23/Statement.lean:75:def N0star (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2}).ncard
+    Zeta23/Statement.lean:78:def N0simple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} ∩ {ρ | zeroMult ρ = 1}).ncard
+    Zeta23/Statement.lean:128:  simp [ZeroConfig.N0, N0, zetaZeros_window, ZeroConfig.onLine]
+    Zeta23/Statement.lean:130:  simp [ZeroConfig.N0star, N0star, zetaZeros_window, ZeroConfig.onLine]
+    Zeta23/Statement.lean:132:  simp [ZeroConfig.N0s, N0simple, zetaZeros_window, ZeroConfig.onLine]
+    Zeta23/Statement.lean:140:/-- A strip zero is a "nontrivial zero" in the sense inlined in Mathlib's RiemannHypothesis:
+    Zeta23/Statement.lean:152:/-- Mathlib's RiemannHypothesis puts every nontrivial zero (in our sense) on the critical line. -/
+    Zeta23/Statement.lean:153:theorem RH_implies_on_line (hRH : RiemannHypothesis) {ρ : ℂ} (h : IsNontrivialZero ρ) :
+    Zeta23/Statement.lean:154:    ρ.re = 1 / 2 :=
+    Zeta23/Statement.lean:157:/-- Sanity anchor 1: under Mathlib's RiemannHypothesis all counted zeros are on the
+    Zeta23/Statement.lean:160:theorem RH_implies_all_on_line (hRH : RiemannHypothesis) (T₁ T₂ : ℝ) :
+    Zeta23/Statement.lean:162:  have hset : zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} = zerosIn T₁ T₂ := by
+    |     simpa using h.2.2
+    | 
+    | /-- Mathlib's RiemannHypothesis puts every nontrivial zero (in our sense) on the critical line. -/
+    | theorem RH_implies_on_line (hRH : RiemannHypothesis) {ρ : ℂ} (h : IsNontrivialZero ρ) :
+    |     ρ.re = 1 / 2 :=
+    |   hRH ρ h.1 h.not_trivial.1 h.not_trivial.2
+    | 
+    | /-- Sanity anchor 1: under Mathlib's RiemannHypothesis all counted zeros are on the
+    | line, so the on-line counts equal the full counts, with and without multiplicity. No other
+    | hypotheses. -/
+    | theorem RH_implies_all_on_line (hRH : RiemannHypothesis) (T₁ T₂ : ℝ) :
+    |     N0 T₁ T₂ = Ncount T₁ T₂ ∧ N0star T₁ T₂ = Ndist T₁ T₂ := by
+    |   have hset : zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} = zerosIn T₁ T₂ := by
+    |     ext ρ
+    |     simp only [mem_inter_iff, mem_setOf_eq, and_iff_left_iff_imp]
+    |     exact fun hρ => RH_implies_on_line hRH hρ.1
+    |   unfold N0 Ncount N0star Ndist
+    |   rw [hset]
+    |   exact ⟨rfl, rfl⟩
+    | 
+    | /-- Sanity anchor 2 [eq:trivialchain], verbatim: "trivially N₀ˢ ≤ N₀* ≤ N₀ ≤ N,
+    | N₀ˢ ≤ Nˢ ≤ N_d ≤ N". Needs the seam facts (finiteness of the window; m_ρ ≥ 1), nothing from the
+    | paper. -/
+    | theorem trivial_chain (hs : ZetaSeam) (T₁ T₂ : ℝ) :
+    |     N0simple T₁ T₂ ≤ N0star T₁ T₂ ∧ N0star T₁ T₂ ≤ N0 T₁ T₂ ∧ N0 T₁ T₂ ≤ Ncount T₁ T₂ ∧
+    |     N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ := by
+  lines putting a sign on Z.W : 0
+  ### HAND-READ: the residue is counting and location (RH -> zeros on the line; the N0 counts); no statement of the shape 'zeros on the line -> zeroSide k >= 0 for k = h * h~', nor its contrapositive. ### VERDICT : NONE.
+
+### COMPONENT 4.
+========================================================================================================
+b510 -- COMPONENT 4. ### W-ORD-PL-CLASS PRICED; NEITHER DISPOSITION TAKEN.
+========================================================================================================
+### (a) P-PL BY A LIMIT OF C^2 APPROXIMANTS -- THE SKETCH, FIVE LINES:
+    1. k_e := k * phi_e, phi_e an even ContDiffBump of radius e: C^2, even, compactly supported, in EF_lit`s class.
+    2. EF_lit holds for each k_e (b509`s b321_identity, the even case).
+    3. P and PR: k_e -> k uniformly on a fixed compact set, and PR is a finite sum there; P is an integral of a compactly supported function.
+    4. A and Z: h_{k_e} = h_k * h_{phi_e} with |h_{phi_e}| <= 1, so |h_{k_e}(r)| <= |h_k(r)| = O(|r|^-2) dominates; A by dominated convergence on R, Z by dominated convergence over the zeros, summable against N(T) = O(T log T).
+    5. The limit e -> 0 gives EF_lit for k. ### THE ONE ANALYTIC INPUT NOT IN EF_lit`s CLASS: the O(|r|^-2) decay for piecewise-linear k.
+    need                                                                           name searched                                in the kernel`s Mathlib
+    mollify: a smooth compactly supported approximate identity                     ContDiffBump                                 FOUND  Mathlib/Analysis/Calculus/BumpFunction/Basic.lean
+    the mollified k converges to k (uniformly on compacta, as the bump shrinks)    convolution_tendsto_right                    FOUND  Mathlib/Analysis/Convolution.lean
+    the mollified k is C^2 (smoothness of a convolution with a smooth compact kern contDiff_convolution_left                    FOUND  Mathlib/Analysis/Calculus/ContDiff/Convolution.lean
+    the mollified k keeps compact support                                          convolution                                  ABSENT
+    the transform of a convolution is the product of transforms                    fourier_convolution                          FOUND  Mathlib/Analysis/Fourier/Convolution.lean
+    dominated convergence under the integral (A, P)                                tendsto_integral_of_dominated_convergence    FOUND  Mathlib/MeasureTheory/Integral/DominatedConvergence.lean
+    dominated convergence under the zero sum (Z)                                   tendsto_tsum_of_dominated_convergence        FOUND  Mathlib/Analysis/Normed/Group/Tannery.lean
+    decay |h_k(r)| = O(|r|^-2) for a continuous piecewise-linear k                 fourier_piecewiseLinear_isBigO               ABSENT
+
+### (b) A C^2 FAMILY INSIDE THE COMPILED CLASS:
+    the ladder`s seed g_a (three bumps, both moments vanishing) with each bump replaced by the cubic B-spline B_4 at the same
+    width: g_a is C^2 and compactly supported, and k_a = g_a * g_a~ is even, in K (h = g_a), and C^6 as a combination of
+    cross-correlations of cubic splines. ### ITS TRANSFORM: h_{k_a}(r) = |h_{g_a}(r)|^2, a combination of products of sinc^4 factors,
+    so |h_{k_a}(r)| = O(|r|^-8) -- against O(|r|^-2) for the piecewise-linear windows -- and it is exact in closed form, so
+    no piecewise-linear transform enters the chain.
+    ### THE COST, SUMMED FROM b504`S OWN PER-CELL SECONDS: 119 cells, 3578 cell-seconds (1.0 cell-hours).
+    ### with the Q0 control on the same 119 cells, at b506`s 49.1 s a cell (93 cells, 4570 cell-seconds): 9426 cell-seconds jointly.
+    ### (b) PRICES UNDER ONE HOUR OF COMPUTE, ON XI ALONE : True.
+    ### the closed-form transform may make each cell cheaper than b504`s; that is not priced here, and the figure is b504`s.
+========================================================================================================
+========================================================================================================

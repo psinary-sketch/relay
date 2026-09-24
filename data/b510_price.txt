@@ -1,0 +1,30 @@
+========================================================================================================
+b510 -- COMPONENT 4. ### W-ORD-PL-CLASS PRICED; NEITHER DISPOSITION TAKEN.
+========================================================================================================
+### (a) P-PL BY A LIMIT OF C^2 APPROXIMANTS -- THE SKETCH, FIVE LINES:
+    1. k_e := k * phi_e, phi_e an even ContDiffBump of radius e: C^2, even, compactly supported, in EF_lit`s class.
+    2. EF_lit holds for each k_e (b509`s b321_identity, the even case).
+    3. P and PR: k_e -> k uniformly on a fixed compact set, and PR is a finite sum there; P is an integral of a compactly supported function.
+    4. A and Z: h_{k_e} = h_k * h_{phi_e} with |h_{phi_e}| <= 1, so |h_{k_e}(r)| <= |h_k(r)| = O(|r|^-2) dominates; A by dominated convergence on R, Z by dominated convergence over the zeros, summable against N(T) = O(T log T).
+    5. The limit e -> 0 gives EF_lit for k. ### THE ONE ANALYTIC INPUT NOT IN EF_lit`s CLASS: the O(|r|^-2) decay for piecewise-linear k.
+    need                                                                           name searched                                in the kernel`s Mathlib
+    mollify: a smooth compactly supported approximate identity                     ContDiffBump                                 FOUND  Mathlib/Analysis/Calculus/BumpFunction/Basic.lean
+    the mollified k converges to k (uniformly on compacta, as the bump shrinks)    convolution_tendsto_right                    FOUND  Mathlib/Analysis/Convolution.lean
+    the mollified k is C^2 (smoothness of a convolution with a smooth compact kern contDiff_convolution_left                    FOUND  Mathlib/Analysis/Calculus/ContDiff/Convolution.lean
+    the mollified k keeps compact support                                          convolution                                  ABSENT
+    the transform of a convolution is the product of transforms                    fourier_convolution                          FOUND  Mathlib/Analysis/Fourier/Convolution.lean
+    dominated convergence under the integral (A, P)                                tendsto_integral_of_dominated_convergence    FOUND  Mathlib/MeasureTheory/Integral/DominatedConvergence.lean
+    dominated convergence under the zero sum (Z)                                   tendsto_tsum_of_dominated_convergence        FOUND  Mathlib/Analysis/Normed/Group/Tannery.lean
+    decay |h_k(r)| = O(|r|^-2) for a continuous piecewise-linear k                 fourier_piecewiseLinear_isBigO               ABSENT
+
+### (b) A C^2 FAMILY INSIDE THE COMPILED CLASS:
+    the ladder`s seed g_a (three bumps, both moments vanishing) with each bump replaced by the cubic B-spline B_4 at the same
+    width: g_a is C^2 and compactly supported, and k_a = g_a * g_a~ is even, in K (h = g_a), and C^6 as a combination of
+    cross-correlations of cubic splines. ### ITS TRANSFORM: h_{k_a}(r) = |h_{g_a}(r)|^2, a combination of products of sinc^4 factors,
+    so |h_{k_a}(r)| = O(|r|^-8) -- against O(|r|^-2) for the piecewise-linear windows -- and it is exact in closed form, so
+    no piecewise-linear transform enters the chain.
+    ### THE COST, SUMMED FROM b504`S OWN PER-CELL SECONDS: 119 cells, 3578 cell-seconds (1.0 cell-hours).
+    ### with the Q0 control on the same 119 cells, at b506`s 49.1 s a cell (93 cells, 4570 cell-seconds): 9426 cell-seconds jointly.
+    ### (b) PRICES UNDER ONE HOUR OF COMPUTE, ON XI ALONE : True.
+    ### the closed-form transform may make each cell cheaper than b504`s; that is not priced here, and the figure is b504`s.
+========================================================================================================

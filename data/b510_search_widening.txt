@@ -1,0 +1,61 @@
+b510 -- COMPONENT 3, THE WIDENING PASS (run after the two needles returned 0, before banking NONE).
+  yield 'onLine' : 2 files
+  yield 'RiemannHypothesis' : 1 files
+  yield 're = 1 / 2' : 2 files
+  yield '0 ≤' : 26 files
+  yield 'zeroside' : 5 files
+  yield 'positiv' : 32 files
+  yield 'Weil' : 17 files
+  yield 'weilTest' : 2 files
+  yield 'W f f' : 0 files
+  yield 'nonneg' : 37 files
+  RESIDUE, every line naming onLine / RiemannHypothesis / re = 1 / 2:
+    Zeta23/Defs.lean:156:def onLine : Set ℂ := {ρ | ρ.re = 1 / 2}
+    Zeta23/Defs.lean:168:def N0 (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ Z.window T₁ T₂ ∩ onLine, Z.mult ρ
+    Zeta23/Defs.lean:171:def N0star (T₁ T₂ : ℝ) : ℕ := (Z.window T₁ T₂ ∩ onLine).ncard
+    Zeta23/Defs.lean:174:def N0s (T₁ T₂ : ℝ) : ℕ := (Z.window T₁ T₂ ∩ onLine ∩ Z.simple).ncard
+    Zeta23/Defs.lean:335:def S1 (Z : ZeroConfig) (T : ℝ) : Set ℂ := Z.ZIprime T ∩ onLine ∩ Z.simple
+    Zeta23/Defs.lean:337:def S2 (Z : ZeroConfig) (T : ℝ) : Set ℂ := Z.ZIprime T ∩ onLine ∩ {ρ | 2 ≤ Z.mult ρ}
+    Zeta23/Statement.lean:32:(4) proves the sanity anchors connecting to Mathlib's RiemannHypothesis and [eq:trivialchain].
+    Zeta23/Statement.lean:49:rendered as ζ(ρ) = 0 with 0 < Re ρ < 1 (the critical strip). Mathlib's RiemannHypothesis phrases
+    Zeta23/Statement.lean:72:def N0 (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2}, zeroMult ρ
+    Zeta23/Statement.lean:75:def N0star (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2}).ncard
+    Zeta23/Statement.lean:78:def N0simple (T₁ T₂ : ℝ) : ℕ := (zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} ∩ {ρ | zeroMult ρ = 1}).ncard
+    Zeta23/Statement.lean:128:  simp [ZeroConfig.N0, N0, zetaZeros_window, ZeroConfig.onLine]
+    Zeta23/Statement.lean:130:  simp [ZeroConfig.N0star, N0star, zetaZeros_window, ZeroConfig.onLine]
+    Zeta23/Statement.lean:132:  simp [ZeroConfig.N0s, N0simple, zetaZeros_window, ZeroConfig.onLine]
+    Zeta23/Statement.lean:140:/-- A strip zero is a "nontrivial zero" in the sense inlined in Mathlib's RiemannHypothesis:
+    Zeta23/Statement.lean:152:/-- Mathlib's RiemannHypothesis puts every nontrivial zero (in our sense) on the critical line. -/
+    Zeta23/Statement.lean:153:theorem RH_implies_on_line (hRH : RiemannHypothesis) {ρ : ℂ} (h : IsNontrivialZero ρ) :
+    Zeta23/Statement.lean:154:    ρ.re = 1 / 2 :=
+    Zeta23/Statement.lean:157:/-- Sanity anchor 1: under Mathlib's RiemannHypothesis all counted zeros are on the
+    Zeta23/Statement.lean:160:theorem RH_implies_all_on_line (hRH : RiemannHypothesis) (T₁ T₂ : ℝ) :
+    Zeta23/Statement.lean:162:  have hset : zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} = zerosIn T₁ T₂ := by
+    |     simpa using h.2.2
+    | 
+    | /-- Mathlib's RiemannHypothesis puts every nontrivial zero (in our sense) on the critical line. -/
+    | theorem RH_implies_on_line (hRH : RiemannHypothesis) {ρ : ℂ} (h : IsNontrivialZero ρ) :
+    |     ρ.re = 1 / 2 :=
+    |   hRH ρ h.1 h.not_trivial.1 h.not_trivial.2
+    | 
+    | /-- Sanity anchor 1: under Mathlib's RiemannHypothesis all counted zeros are on the
+    | line, so the on-line counts equal the full counts, with and without multiplicity. No other
+    | hypotheses. -/
+    | theorem RH_implies_all_on_line (hRH : RiemannHypothesis) (T₁ T₂ : ℝ) :
+    |     N0 T₁ T₂ = Ncount T₁ T₂ ∧ N0star T₁ T₂ = Ndist T₁ T₂ := by
+    |   have hset : zerosIn T₁ T₂ ∩ {ρ | ρ.re = 1 / 2} = zerosIn T₁ T₂ := by
+    |     ext ρ
+    |     simp only [mem_inter_iff, mem_setOf_eq, and_iff_left_iff_imp]
+    |     exact fun hρ => RH_implies_on_line hRH hρ.1
+    |   unfold N0 Ncount N0star Ndist
+    |   rw [hset]
+    |   exact ⟨rfl, rfl⟩
+    | 
+    | /-- Sanity anchor 2 [eq:trivialchain], verbatim: "trivially N₀ˢ ≤ N₀* ≤ N₀ ≤ N,
+    | N₀ˢ ≤ Nˢ ≤ N_d ≤ N". Needs the seam facts (finiteness of the window; m_ρ ≥ 1), nothing from the
+    | paper. -/
+    | theorem trivial_chain (hs : ZetaSeam) (T₁ T₂ : ℝ) :
+    |     N0simple T₁ T₂ ≤ N0star T₁ T₂ ∧ N0star T₁ T₂ ≤ N0 T₁ T₂ ∧ N0 T₁ T₂ ≤ Ncount T₁ T₂ ∧
+    |     N0simple T₁ T₂ ≤ Nsimple T₁ T₂ ∧ Nsimple T₁ T₂ ≤ Ndist T₁ T₂ ∧ Ndist T₁ T₂ ≤ Ncount T₁ T₂ := by
+  lines putting a sign on Z.W : 0
+  ### HAND-READ: the residue is counting and location (RH -> zeros on the line; the N0 counts); no statement of the shape 'zeros on the line -> zeroSide k >= 0 for k = h * h~', nor its contrapositive. ### VERDICT : NONE.

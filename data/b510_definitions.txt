@@ -1,0 +1,11 @@
+def classK (k : ℝ → ℂ) : Prop :=
+  (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+    ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+
+def h2_sign : Prop :=
+  ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+
+def h2_sign_aim : Prop :=
+  ∀ k : ℝ → ℂ, classK k → poleTerm k = 0 → 0 ≤ poleTerm k - primeSum k + archTerm k
+
+theorem h2_sign_imp_aim : h2_sign → h2_sign_aim := fun h k hk _ => h k hk
