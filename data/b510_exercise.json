@@ -106,6 +106,13 @@
    "reads": "the AxiomCheck run file -- four profile lines, the standard three each, no sorryAx"
   },
   {
+   "name": "G-TABLE-ROW",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the regenerated terminal table -- b509`s predicate, verbatim"
+  },
+  {
    "name": "G-RULE9-THEOREM",
    "live": true,
    "neg": true,
@@ -337,6 +344,13 @@
    "reads": "the harness itself -- the positive control is RUN on every arm"
   },
   {
+   "name": "G-MIRROR-TAGGED-BUILD",
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "reads": "the built zip presence, UNDATED"
+  },
+  {
    "name": "G-MUSTFAIL",
    "live": true,
    "neg": true,
@@ -358,14 +372,11 @@
    "reads": "the suite`s own text -- b472`s repair, carried"
   }
  ],
- "run": 51,
+ "run": 53,
  "live_failing": [],
  "defective": [],
  "neg_failures": 0,
  "declared": 53,
- "deferred": [
-  "G-MIRROR-TAGGED-BUILD",
-  "G-TABLE-ROW"
- ],
+ "deferred": [],
  "stray": []
 }

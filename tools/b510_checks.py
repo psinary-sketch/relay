@@ -567,6 +567,10 @@ def regenerate():
 def main():
     S = sources()
     rc_gen, gen_diff = regenerate()
+    # ### ### **THE TABLE IS READ AFTER IT IS REGENERATED (b510's own defect, repaired post-push).** ### `sources()`
+    # ### read `terminal_table.md` BEFORE `regenerate()` rewrote it, so `G-TABLE-ROW` scored the previous close's
+    # ### table; the first post-push run is banked as `b510_checks_postpush_first.txt`.
+    S['table'] = read(os.path.join(D, 'terminal_table.md'))
     g2 = S['face'][S['face'].index('### (G2) THE GATE ARMS.'):S['face'].index('### (W) THE WRITE LIST.')]
     # ### ### **AN ARM THE FACE RETIRES IN WORDS IS NOT AN ARM IT DECLARES.** ### This face's
     # ### (G2) block says `G-NOB475LOG` *"IS NOT CARRIED FORWARD UNDER THAT NAME"* and names its
