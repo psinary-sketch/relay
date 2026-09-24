@@ -1,0 +1,169 @@
+====================================================================================================
+ACT b511 -- THE REGISTRATION FACE. ### TWO FAMILIES INSIDE THE COMPILED CLASS: THE LADDER RE-MEASURED,
+### AND THE NOTCH.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT ALONE, UNDER
+### (R120)(2)**, and shuts at its close; the kernel lane reopens for the act after.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R120) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** ### Ruling and part 1 of 1,
+### received IN FULL, banked verbatim as `b511_ferry.txt`. ### W-ORD-PL-CLASS is taken at (b) together
+### with W-ORD-FAMILY-SENSITIVITY; P-PL stays a work-order.
+### ### **THIS ACT CONFERS NO GRADE, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE WINDOW.** For width `a` and B-spline order `m`: three uniform order-`m` B-spline
+### bumps `phi_L` (knots evenly over `[-L, L]`, integral 1, transform `sinc(u h / 2)^m`, `h = 2L/m`) at the
+### ladder`s own three widths `L = log(a^e)`, `e` in `(1, 1/2, 1/4)`, combined as `g = phi_1 + c1 phi_2 +
+### c2 phi_3` with `INT g = 0` and `INT g cosh(v/2) = 0` -- the ladder`s pole-annihilating construction,
+### carried over. ### The test function is `k = g ⋆ g~`; `g` is real and even, so `g~ = g` and
+### `k-hat = g-hat^2`, exact in closed form at real and complex arguments. ### `k(x)` for the prime sums
+### is formed from `g` by Gauss-Legendre on the pieces between breakpoints, exact for the degree, at two
+### orders.
+### **READING (2) -- THE B-SPLINE FAMILY** is `m = 4`, the cubic B-splines (R120)(1) names.
+### **READING (3) -- THE NOTCH FAMILY.** `g_notch = PROD_j (1 + gamma_j^-2 d^2/dv^2) g`, whose transform is
+### `g-hat(u) PROD_j (1 - u^2 / gamma_j^2)`: it vanishes at `+-gamma_j`, still vanishes at `0` and at
+### `+-i/2`, so the pole stays annihilated; `k = g_notch ⋆ g_notch` vanishes doubly there. ### `gamma_j`
+### are the lowest `k` on-line ordinates OF THE OBJECT IT IS APPLIED TO -- xi`s from the atlas bank, Q0`s
+### from the completed bank -- so xi and Q0 are measured on different notch windows at the same widths.
+### ### **FOR `g_notch` TO BE C^2 THE BASE ORDER MUST BE `m = 2k + 4`** (a spline of order `m` is `C^(m-2)`,
+### and `2k` derivatives are taken): `m = 6, 10, 14` for `k = 1, 3, 5`.
+### **READING (4) -- MEMBERSHIP IN classK**, read off H2Sign.lean`s definition: `k` is even (`g` even); `C^2`
+### (a convolution of two compactly supported `C^2` functions); compactly supported (on `[-2 log a, 2 log a]`);
+### and `k = Zeta23.EF.weilTest h h` WITH `h = g` (resp. `g_notch`), itself `C^2` and compactly supported --
+### the seat`s statement from the definition, not a compiled step.
+### **READING (5) -- THE CHAIN** is b504`s `cell` with the transform replaced by the closed form and nothing
+### else: `Z` (xi: `2 SUM k-hat(gamma)` over the 10,000 atlas ordinates; Q0: over its on-line ordinates plus
+### its 17 off-line zeros from b506 with their three images), `A` on b504`s u-grids against b504`s banked
+### kernels (the atlas kernel for xi, b326`s derived kernel for Q0), `PR` (xi: `2 log p n^(-1/2) k(log n)`;
+### Q0: b325`s `LAMQ`), `P = k-hat(i/2) + k-hat(-i/2)`, `r = Z - (P - PR + A)`, `m = A - PR`.
+### ### **(R114)`S GRID RULE HAS NO OBJECT HERE**: it chose the v-grid so that the transform of a
+### piecewise-linear window did not alias; the transform is now exact in closed form, no v-grid enters,
+### and the rule is read as satisfied vacuously and declared so. ### b504`s u-grids are kept.
+### **READING (6) -- THE BOUND, FIXED HERE: `B = E_u + E_k + E_tail + E_round`.** `E_u` is b504`s u-grid
+### term (the half and wide grids against the base); `E_k` the prime channel`s difference between two
+### quadrature orders; `E_tail` the zero-side truncation above the bank`s top (xi 9877.78, Q0 150), priced
+### by an analytic majorant of `|k-hat|` (with `|sin w| <= cosh(Im w)`, Q0`s off-line reach `|Im| <= 1/2`)
+### against the zero density (xi `log(t / 2 pi) / 2 pi`, Q0 b506`s `log(t sqrt 23 / 2 pi) / pi`);
+### `E_round` the float floor, `4 eps` times the summed absolute size of every term, plus the ordinates`
+### precision (xi float-accurate, `2 eps` relative; Q0 `6.1e-11`, b506`s fixture) against `|k-hat|`s change.
+### ### **THE FLOOR IS PART OF THE BOUND BY CONSTRUCTION**, so no cell is refused for being finer than the
+### float carries -- b347`s species. ### A cell is VERIFIED iff `|r| <= B`. ### No factor is fitted after
+### the numbers are seen.
+### **READING (7) -- THE FIXTURE (Component 0):** at `a = 5`, one B-spline window (`m = 4`) and one notch
+### window (`k = 5`, `m = 14`, xi`s ordinates): the closed form against `INT k(x) cos(u x) dx` by 24-point
+### Gauss-Legendre on `k`s own breakpoints, `k(x)` formed from `g` by its own quadrature, at six `u`;
+### **the bar: agree to 1e-10 in absolute value, against a floor near 1e-16 times the transform`s size --
+### the same function by two routes that share no quadrature and no
+### transform formula: they share only `g`.**
+### **READING (8) -- "SURVIVE WITHIN ONE CELL":** an extremum of xi`s `m(a)` over the verified B-spline cells,
+### sorted by `a`, whose cell is the old extremum`s cell or its neighbour in the 119. ### **"THE OFF-LINE PART
+### EXCEEDS THE ON-LINE PART"** is `|Z_off| > |Z_on,rest|` at a verified cell.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (0) `tools/b511_families.py fixture` -> `b511_fixture.json`.
+### (1)-(2) `tools/b511_families.py run`: four families (`bspline` m 4; `notch1` m 6; `notch3` m 10; `notch5`
+###     m 14) at the 119 widths, xi and Q0 at each -> `b511_cells.jsonl`, log `b511_run_log.txt`.
+### (3) `tools/b511_report.py` -> `b511_report.txt`, `b511_results.json`: the counts, the extrema, the signs,
+###     the notched-zero control, the ratios and crossings, per family, on verified cells alone.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b504`s chain (`cell`, `arch`, the u-grids, the
+### kernels file), b325`s `finite_channel` and `LAMQ` (length 4097), b326`s `ftilde` definition, b503`s
+### `rows_all`, the atlas`s constants and its first ordinate `14.134725141734695`, b506`s off-line list.
+### ### **NO WINDOW WAS BUILT, NO TRANSFORM EVALUATED AND NO CELL COMPUTED FOR THIS ACT BEFORE THE SEAL**;
+### the tool was checked for syntax only.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE, UNDER (R120)(2).
+----------------------------------------------------------------------------------------------------
+### 476 cell pairs; closed-form zero sides and one prime-channel quadrature each; about a second a pair:
+### ### **ABOUT TEN MINUTES**, in the background, the bank resuming if interrupted.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **AT LEAST 105 OF 119 B-SPLINE CELLS VERIFY FOR XI AND AT LEAST 85 FOR Q0.**
+### **(N2)** ### **XI`S THREE EXTREMA SURVIVE WITHIN ONE CELL IN THE B-SPLINE FAMILY.**
+### **(N3)** ### **AT k = 5, Q0`S MARGIN IS NEGATIVE AT ONE OR MORE VERIFIED CELLS.**
+### **(N4)** ### **XI`S MARGIN STAYS POSITIVE AT EVERY VERIFIED CELL OF EVERY FAMILY.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **XI VERIFIES AT ALL 119 B-SPLINE CELLS.**
+### **(S2)** ### **Q0`S MARGIN IS POSITIVE AT EVERY VERIFIED CELL OF EVERY NOTCH FAMILY.**
+### **(S3)** ### **NOT ALL THREE OF XI`S OLD EXTREMA SURVIVE WITHIN ONE CELL.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R120-ENTERED`
+### `G-FIXTURE-BAR` `G-CLASSK-STATED` `G-FAMILIES-COMPLETE` `G-POLE-ANNIHILATED` `G-NOTCH-ORDER`
+### `G-NOTCH-CONTROL` `G-VERIFIED-RECOUNTED` `G-BOUND-FORM` `G-EXTREMA-READ` `G-SIGNS-RECOUNTED`
+### `G-CROSSING-READ` `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-NOPRIORBANK` holds every prior act`s
+### bank unchanged, with no exception.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b511_*` `relay/tools/b511_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b511_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b511_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b511_registration_2026-09-24.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b511_span*.json` `relay/data/b511_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b511.zip`
+###   (outside every repository) `relay/data/b511_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b511_families.py` `b511_report.py` `b511_reg_gate.py` `b511_regspec.py`
+### `b511_record.py` `b511_checks.py` `b511_closing.py`.
+### ### **NO INSTRUMENT IS EDITED.** ### b504`s, b325`s, b503`s tools and the atlas are imported; none is
+### rewritten.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs. ### No zero of
+### zeta or of Z_Q0 is added or moved; no prior bank is rewritten. ### P-PL is not discharged. ### No crossing
+### width of b334 is cited. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing
+### inside it. ### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is unedited.
+### ### `h2` stays where the deposit left it. ### The four lists stay OPEN. ### **AND NO CELL OF THIS ACT IS
+### A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 23881012b7384c0f9ff6feb4550daa032b6c190d20b2e96d9a855b556a8c741d
+### bytes locked : 13588
+### locked at (UTC) : 2026-09-24T17:54:42Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b511_registration_2026-09-24.txt`.**
+====================================================================================================
