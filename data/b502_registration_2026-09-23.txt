@@ -1,0 +1,150 @@
+====================================================================================================
+ACT b502 -- THE REGISTRATION FACE. ### THE LADDER PAST sqrt(32), AND THE TAIL OF m(a) READ.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE, OPENED BY (R112) FOR b501 AND THIS
+### ACT, SHUTS AT THIS ACT`S CLOSE.** ### `W-ORD-EPSTEIN-ISOLATION`, filed at b494, fires here.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LADDER IS EXTENDED AND ITS TAIL READ, UNDER b501`S BOUND AND FLOORS.** ### **THIS ACT
+### CONFERS NO GRADE, AND NO CELL OF IT IS A STATEMENT ABOUT RH.** ### A margin at a finite set of
+### widths says nothing about widths it does not reach.
+### ### **A FIT IS A DESCRIPTION OF THE CHART AND NOT A BOUND.** ### The four forms of Component 3 are
+### least-squares centre lines; roughly half of any fitted set lies below its own fit.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (1) THROUGH COMPONENT (4).
+----------------------------------------------------------------------------------------------------
+### (1) THE LADDER EXTENDED. ### b437`s generator -- `prime_powers_upto` and its boundary-and-midpoint
+###     rule -- run on EXACT a: boundaries `a = sqrt(n)` for every prime power `n` in (32, 200], and
+###     the midpoint of each consecutive pair starting from `sqrt(32)`. ### **THE CHAIN IS RUN ON THE
+###     EXACT a**; the rounded a (6 places, b437`s own rounding) is banked beside it. ### At each new
+###     cell, b492`s recipe: `mean_zero_variant -> autocorrelation(nv 8193) -> b321_window.channels`;
+###     banked: the diagonal `W = PR - A`, the per-n prime terms, A, PR, the zero side, and the
+###     margin `m = A - PR`. ### ### **THE FLOOR AT EACH NEW CELL IS b501`S BOUND, COMPUTED AT THAT
+###     CELL BY b501`S OWN TOOL** (`b501_bound.bound_for`, imported, unedited): Richardson over `nv`
+###     8193, 16385, 32769 plus the two u-refinements. ### The old thirty-five keep the floors b501
+###     banked. ### Printed: the cell count and the compute time.
+### (2) THE TAIL. ### m(a) against a on ALL cells, old and new, in order of a; every local maximum and
+###     minimum, its location and value; the sign of m at every cell against its floor; and ### **THE
+###     COUNT OF CELLS WHERE m IS WITHIN TEN FLOORS OF ZERO** (`m < 10 B`).
+### (3) THE FITS, ### **REGISTERED HERE, BEFORE COMPONENT 1 RUNS.** ### Four ONE-PARAMETER forms, each
+###     fitted by least squares SEPARATELY on the old thirty-five and on the new cells, the loss
+###     named: ### **ROOT-MEAN-SQUARE ABSOLUTE RESIDUAL**:
+###       (a) `m(a) = c` -- tends to a positive constant;
+###       (b) `m(a) = c / a` -- tends to zero as c/a;
+###       (c) `m(a) = c / log a` -- tends to zero as c/log a;
+###       (d) `m(a) = c / a^2` -- tends to zero as c/a^2.
+###     Printed: each form`s c and residual on each set; ### **WHICH HAS THE LEAST RESIDUAL ON THE NEW
+###     CELLS ALONE, AND WHETHER THE SAME ONE WINS ON THE OLD.** ### All four have one parameter, so the
+###     comparison is between like and like; a two-parameter form would win by its extra freedom.
+### (4) THE EPSTEIN CONTROL, UNDER `W-ORD-EPSTEIN-ISOLATION`. ### **PRICED IN (C2) BELOW AT UNDER ONE
+###     HOUR, SO IT RUNS**, by (R112). ### The same new cells, for the Epstein zeta of `x^2 + 5y^2`, by
+###     `b325_epstein.channels_q` (imported, unedited): its A and its representation-number channel
+###     in place of PR, margin `m_Q = A_Q - finite`. ### The old thirty-five are READ from b477`s
+###     `control_diagonal` bank, not recomputed, and ONE of them (a = 3.0) is recomputed first as the
+###     route`s positive control: it must reproduce b477 to 1e-12. ### Printed: every cell, old and
+###     new, where the Epstein margin is negative -- ### **OR NONE.**
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE.** ### `tools/b437_components.py` lines 70-112 (the
+### generator); `tools/b325_epstein.py` lines 142-172 (`channels_q`); b477`s `control_diagonal` rows,
+### whose Epstein margins over the old thirty-five are ALL POSITIVE, the smallest 1.169; the count of
+### prime powers in (32, 200], which is FORTY-TWO, from 37 to 199; and the seat`s memory of b489 and
+### b490, which place b334`s Epstein crossings at widths 40 and 81, at the height t = 16.290216.
+### ### **NO CHAIN WAS RUN BEFORE THE SEAL.**
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICES, UNDER (R112).
+----------------------------------------------------------------------------------------------------
+### ### **THE LADDER:** about 4 s a cell for the chain (b492`s banked time) and about 28 s for b501`s
+### bound (b501`s measured mean) -- about 32 s a cell, ### **ABOUT 45 MINUTES FOR THE NEW CELLS.**
+### ### **THE EPSTEIN CONTROL:** one `channels_q` a cell at the base grid, about 3 s -- ### **ABOUT 5
+### MINUTES, UNDER THE ONE HOUR (R112) SETS, SO IT RUNS.** ### Estimates from banked times; the act
+### prints the measured totals.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **m(a) STAYS POSITIVE ABOVE ITS FLOOR AT EVERY NEW CELL.**
+### (N2) ### **FIT (a) DOES NOT HAVE THE LEAST RESIDUAL ON THE NEW CELLS.**
+### (N3) ### **THE EPSTEIN MARGIN IS NEGATIVE AT AT LEAST ONE CELL, IF RUN.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **THE EPSTEIN MARGIN IS POSITIVE AT EVERY CELL, OLD AND NEW** -- so (N3) is refuted. ###
+###      The ladder`s last width is `sqrt(200)`, about 14.1, and b334`s crossings sit at widths 40 and
+###      81: the ladder does not reach them.
+### (S2) ### **FIT (c), `c / log a`, HAS THE LEAST RESIDUAL ON THE NEW CELLS**, the slowest of the three
+###      decaying forms, because m past its local maximum at 5.196 falls slowly.
+### (S3) ### **m(a) TURNS AGAIN AMONG THE NEW CELLS** -- at least one further local minimum.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS
+### FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py
+### --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py` (gates: 8)
+### -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-PRICES-ON-FACE`
+### `G-FITS-REGISTERED-FIRST`
+### `G-GENERATOR-EXACT` `G-ROUNDED-BESIDE` `G-NEW-CELL-COUNT` `G-CHAIN-EVERY-CELL` `G-TERMS-SUM`
+### `G-FLOOR-EVERY-CELL` `G-OLD-FLOORS-B501`
+### `G-EXTREMA-LISTED` `G-SIGN-AGAINST-FLOOR` `G-TEN-FLOORS-COUNT`
+### `G-FOUR-FITS` `G-FIT-LOSS-NAMED` `G-WINNERS-PRINTED`
+### `G-EPSTEIN-PRICED-UNDER-HOUR` `G-EPSTEIN-ROUTE-REPRODUCES` `G-EPSTEIN-EVERY-CELL` `G-EPSTEIN-NEGATIVES`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b502_*` `relay/tools/b502_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b502_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b502_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b502_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b502_span*.json` `relay/data/b502_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b502.zip`
+###   (outside every repository) `relay/data/b502_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### **NO INSTRUMENT OF THE CHAIN IS EDITED**, and `b501_bound.py` is imported, not edited.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs.
+### ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ###
+### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is unedited. ### `h2` stays
+### where the deposit left it. ### The four lists stay OPEN. ### K1, K2 and K3 are not started.
+### ### **AND NO CELL OF THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 16074ed4fdba97e7c7bbc9729f76935a55827fd66155f54fbe955df58b197f49
+### bytes locked : 11529
+### locked at (UTC) : 2026-09-23T23:05:36Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b502_registration_2026-09-23.txt`.**
+====================================================================================================
