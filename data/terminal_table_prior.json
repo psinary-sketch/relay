@@ -4,21 +4,21 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 160,
- "grade_cells_loose_v1": 1003,
- "grade_cells_v2": 224,
- "grade_cells_v3": 169,
+ "grade_cells": 166,
+ "grade_cells_loose_v1": 1011,
+ "grade_cells_v2": 230,
+ "grade_cells_v3": 175,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 1025,
-  "not_profiled": 388,
+  "rows": 1026,
+  "not_profiled": 389,
   "ungraded": 952,
   "conflict": 8,
   "encodes": 7,
-  "ledger_names_unresolved": 19,
+  "ledger_names_unresolved": 21,
   "statement_unresolved": 5
  },
  "unresolved_names": [
@@ -40,6 +40,8 @@
   "exactly_c1_derives",
   "h_conserved",
   "no_onLine_double_iff_transversal",
+  "rh_imp_cell_form",
+  "rh_imp_h2_sign",
   "sorryAx"
  ],
  "rows": [
@@ -1323,6 +1325,43 @@
      "line": 9255,
      "act": "b486",
      "quote": "ed**: b486's digest clause (3) grades zeta23's containment *DERIVES, conditional on a profile that has not run*, and **b491 ran that profile** — `EF_lit_zetaZeroConfig` reports the standard three."
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "h2_sign_imp_cell",
+   "head": "b52c1d752051",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :\n    h2_sign → cell_form F W",
+   "statement_file": "SIDEExplicitFormula/Registers.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/OPEN_TRAILS.md",
+     "line": 10095,
+     "act": null,
+     "quote": "- `h2_sign_imp_cell` — DERIVES, of h2_sign → the cell form on an admissible family."
+    },
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 435,
+     "act": "b513",
+     "quote": "`rh_imp_h2_sign` DERIVES ; `h2_sign_imp_cell` DERIVES ; `rh_imp_cell_form` DERIVES -- each of its model statement"
     }
    ],
    "conflict": null

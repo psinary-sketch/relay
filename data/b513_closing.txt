@@ -1,0 +1,37 @@
+========================================================================================================
+b513 -- THE CLOSING RECORD. ### **RH -> h2_sign COMPILED, UNDER (R122).**
+========================================================================================================
+    'SIDEExplicitFormula.B321.rh_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound] ; 'SIDEExplicitFormula.B321.h2_sign_imp_cell' depends on axioms: [propext, Classical.choice, Quot.sound] ; 'SIDEExplicitFormula.B321.rh_imp_cell_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+    attempts 2, the first to succeed 2 ; the proof 39 lines
+    the converse`s needs ABSENT : (d) a growth bound for paperFT of a compactly supported function at a complex argument (Paley-Wiener type), (f) THE DECISIVE LEMMA: the off-line pair`s term negative and dominating the rest, so zeroSide k < 0
+    the terminal table, regenerated post-push : rows added 5 ['SIDEExplicitFormula.B321.h2_sign_imp_cell', 'SIDEExplicitFormula.B321.rh_imp_cell_form', 'SIDEExplicitFormula.B321.rh_imp_h2_sign', 'rh_imp_cell_form', 'rh_imp_h2_sign']
+    (N1) HELD (N2) HELD (N3) HELD ; (S1) REFUTED (S2) HELD (S3) HELD
+
+### THIS ACT`S OWN DEFECTS -- THREE (the desk).
+    (a) ### **THE FIRST COMPILE FAILED AT ONE STEP** (`b513_compile_log.txt`, 281.1 s cold): `rw [zetaZeroConfig_carrier] at h0`
+        met a motive that is not type-correct, because the zero`s own subtype mentions the carrier being rewritten. ### Lean
+        reported that error alone. ### Repaired by `exact ρ.2` (definitional), with the rewrite kept as a fallback on the goal
+        side where the carrier does not occur; attempt 1`s module is banked verbatim as `b513_attempt1_module.txt`. (S1) is
+        REFUTED by it.
+    (b) ### **THREE `first` FALLBACKS NEVER RAN** -- the linter says so in attempt 2`s run file (lines 39, 47, 57). ### The
+        primary branch closed each goal; the fallbacks are dead code carried in the module, not proof steps.
+    (c) ### **COMPONENT 3`S NEEDLE (d) WAS WIDENED AFTER ITS FIRST RUN** by a second shape (`exponential type`, a compact-
+        support Fourier lemma); both runs printed zero declarations and the first table is banked as `b513_table_first.txt`.
+
+### THE COMMITS, THE MIRROR, THE CENSUSES.
+    post-push : ### ### **ARMS RUN : 52. ### LIVE PASSING : 52. ### LIVE FAILING : 0 .**
+      relay                local 6a3f71d84c01 ; remote 6a3f71d84c01 ; AGREE
+      PLACE-papers         local dc2e38695e4f ; remote dc2e38695e4f ; AGREE
+      SIDE-global-section  local 99bff352854a ; remote 99bff352854a ; AGREE
+      SIDE-explicit-formula local 0a9391e7e661 ; remote 0a9391e7e661 ; AGREE
+    mirror : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **THE KERNEL LANE IS SHUT.** ### RH -> h2_sign and RH -> cell form are compiled; h2_sign -> RH is a Prop, its (d) and (f) ABSENT.
+    (b) ### **THE NUMERICAL LANE OPENS FOR b514, THE MATCHED WINDOW** (R122)(1); by (R122)(2) it is the converse`s construction attempted at Q0`s pair.
+    (c) ### **THE TABLE`S PROFILE COLUMN READS NOT PROFILED FOR THE THREE LINKS**: it takes profiles from captured stdout only, and an
+        `AxiomCheck*.lean` gives presence; the profiles are banked in `b513_profile.json`. The two short-name rows are ledger rows the table
+        makes for any backticked name that resolves in a kernel -- carried as observed, the tool unedited.
+========================================================================================================
