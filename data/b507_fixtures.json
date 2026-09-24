@@ -1,0 +1,86 @@
+{
+ "bar_floor": [
+  {
+   "case": "b505`s own sealed bar line, alone (the positive control)",
+   "expect_fire": true,
+   "new_fires": true,
+   "old_fires": false,
+   "ok": true
+  },
+  {
+   "case": "a bare `>=` bar",
+   "expect_fire": true,
+   "new_fires": true,
+   "old_fires": true,
+   "ok": true
+  },
+  {
+   "case": "a bare `>` bar",
+   "expect_fire": true,
+   "new_fires": true,
+   "old_fires": false,
+   "ok": true
+  },
+  {
+   "case": "a bare `≥` bar",
+   "expect_fire": true,
+   "new_fires": true,
+   "old_fires": false,
+   "ok": true
+  },
+  {
+   "case": "a `>=` bar with its floor beside it",
+   "expect_fire": false,
+   "new_fires": false,
+   "old_fires": false,
+   "ok": true
+  },
+  {
+   "case": "a `>` bar marked UNPRICED",
+   "expect_fire": false,
+   "new_fires": false,
+   "old_fires": false,
+   "ok": true
+  },
+  {
+   "case": "an arrow `->` beside a number (not a bar)",
+   "expect_fire": false,
+   "new_fires": false,
+   "old_fires": false,
+   "ok": true
+  },
+  {
+   "case": "an arrow `=>` beside a number (not a bar)",
+   "expect_fire": false,
+   "new_fires": false,
+   "old_fires": false,
+   "ok": true
+  }
+ ],
+ "bar_floor_discriminates": true,
+ "bar_floor_carried_fixture": true,
+ "b505_bar_found": true,
+ "census": {
+  "registrations": 404,
+  "fire_old": 16,
+  "fire_new": 19,
+  "fire_only_new": 3,
+  "only_new": [
+   "b456_registration_2026-09-14.txt",
+   "b505_registration_2026-09-23.txt",
+   "b506_registration_2026-09-23.txt"
+  ]
+ },
+ "corr_row": {
+  "pipe_code": 2,
+  "pipe_file_unchanged": true,
+  "pipe_message": [
+   "### ### **REFUSED -- THE ROW WOULD LAND AS 8 CELLS, NOT 6. NOTHING WAS WRITTEN.**",
+   "### a cell carries `|`, which the ledger reads as a cell boundary; write `‖` instead."
+  ],
+  "clean_code": 0,
+  "clean_file_grew": true,
+  "carried_self_test": true
+ },
+ "ok": true
+}

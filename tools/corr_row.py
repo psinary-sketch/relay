@@ -38,6 +38,12 @@
 ###     the ledger cannot resolve by reading; a duplicate claim is an act's duty.
 ### ### (5) ### **IT DOES NOT ASSIGN NUMBERS.** ### It refuses a taken one and names the next
 ###     free one in the refusal; choosing is still the caller's.
+
+### ### **VALIDATE BEFORE WRITE, ADDED b507 ON RULING (R117)(2).** ### Until b507 the only check on the
+### row AS IT LANDS was the read-back, which runs after the write; a cell carrying `|` therefore put a
+### malformed row in the ledger -- five times by (R117)(2)'s count, b490, b492 and b501 among them.
+### ### The row is now split by the read-back's own splitter BEFORE ANY BYTE IS WRITTEN and refused
+### unless it would read back as the cells given. ### (6) ### **IT STILL CHECKS SHAPE, NOT TRUTH.**
 """
 
 import io
@@ -84,6 +90,16 @@ def write_row(path, cells):
                    "### ### **THE TOOL REFUSES A TAKEN NUMBER. IT DOES NOT CHOOSE ONE.**"]
 
     row = '| ' + ' | '.join(c.strip() for c in cells) + ' |'
+    # ### ### **VALIDATE BEFORE WRITE (b507, ruling (R117)(2)).** ### The read-back below was the only check
+    # ### on the row AS IT LANDS, and it ran after the write -- so a cell carrying a `|` (an absolute value,
+    # ### b490, b492, b501) put a malformed row in the ledger and the caller had to restore it. ### The row
+    # ### is now split by THE READ-BACK'S OWN SPLITTER before any byte is written, and refused if it would
+    # ### not read back as the cells given. ### The read-back stays: it is the second witness.
+    would = [c for c in row.strip().strip('|').split('|')]
+    if len(would) != NCELLS or any(not c.strip() for c in would):
+        return 2, ["### ### **REFUSED -- THE ROW WOULD LAND AS %d CELLS, NOT %d. NOTHING WAS WRITTEN.**"
+                   % (len(would), NCELLS),
+                   "### a cell carries `|`, which the ledger reads as a cell boundary; write `‖` instead."]
     t = io.open(path, encoding='utf-8').read().rstrip()
     t = t + '\n' + row + '\n'
     d = t.encode('utf-8')

@@ -39,6 +39,9 @@
 # ### the interpreter, so neither shipped -- ### BUT A DEFECT THAT REPEATS IS NOT AN
 # ### ACCIDENT, IT IS A HABIT, and naming it is cheaper than pretending the first
 # ### one taught me something.
+
+### ### **b507, RULING (R117)(1): THE BAR-FLOOR ARM READS `>=`, `≥` AND A BARE `>`** (not `->` or `=>`).
+### b505`s bar `|Z| >= 1e-10` escaped it; the reason and the fixture are at `THRESHOLD` below.
 """
 
 import io
@@ -95,8 +98,14 @@ QUERY = re.compile(
 
 # ### a numeric literal in the notation the corpus's bars are written in.
 _NUM = r'\d+(?:\.\d+)?[eE][-+]?\d+'
+# ### ### **REPAIRED AT b507 ON RULING (R117)(1): THE ARM NOW READS `>=`, `≥` AND A BARE `>`.**
+# ### b505 sealed the bar *"any banked zero with `|Z| >= 1e-10`"*; b347's pattern read `<=` but not `>=`,
+# ### so the bar passed this arm with no floor beside it, and the bar was finer than the bank carried.
+# ### A bare `>` is read only when NOT preceded by `-` or `=`, so an arrow (`->`, `=>`) is not a bar.
+# ### b347's pattern is kept as `THRESHOLD_B347` in `tools/b507_repairs.py`, whose fixture discriminates
+# ### the two in both polarities. ### **IT WIDENS WHAT THE ARM READS, NOT WHAT IT REQUIRES.**
 THRESHOLD = re.compile(
-    r'(?:\bbar\b|\bthreshold\b|\btolerance\b|\bagree(?:s|d)?\s+to\b|\bwithin\b|<=|≤)'
+    r'(?:\bbar\b|\bthreshold\b|\btolerance\b|\bagree(?:s|d)?\s+to\b|\bwithin\b|<=|≤|>=|≥|(?<![-=])>)'
     r'[^\n]{0,80}?`?' + _NUM, re.I)
 FLOOR_WORD = re.compile(r'\bfloor\b|\bUNPRICED\b', re.I)
 MULTIARM = re.compile(
