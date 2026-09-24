@@ -1,0 +1,47 @@
+[2026-09-23 23:33:28] b506 C2 -- start ; SIG_MAX 1.50 ; columns [-0.5, 0.48, 0.52, 1.5] ; dps 40 ; Bessel terms 12
+[2026-09-23 23:35:35] fixture (R116)(2): within 1e-9 of their Newton zeros 148 of 148, largest distance 6.11e-11 ; route A against the evaluator to 1e-8 148 of 148, largest |A - CS| 4.90e-10 ; largest |Z| after Newton 3.55e-38
+[2026-09-23 23:35:35] REGISTERED GATE RE-EXAMINED : b326`s registered_gate_passed = False records its precision gate at the REGISTERED dps 60 only; the library was built at dps 119, and under (R116)(2) its zeros pass at 148 and 148 of 148 -- THE BANKED ZEROS STAND
+[2026-09-23 23:35:35] edges 1053, banked 2, to run 1051
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b506_complete.py", line 135, in run_edge
+    darg, mm, ne = edge(complex(*t[3]), complex(*t[4]))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b506_complete.py", line 94, in edge
+    vals = [F(p) for p in pts]
+            ^^^^
+  File "D:\relay\tools\b506_complete.py", line 85, in F
+    return (s - 1) * zcs(s)
+                     ^^^^^^
+  File "D:\relay\tools\b506_complete.py", line 65, in zcs
+    t2 = mp.power(2, 2 * s) * mp.sqrt(mp.pi) * mp.gamma(s - 0.5) / mp.gamma(s) * mp.zeta(2 * s - 1) * mp.power(23, 0.5 - s)
+                                               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\mpmath\ctx_mp_python.py", line 1007, in f
+    return ctx.make_mpc(mpc_f(x._mpc_, prec, rounding))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\mpmath\libmp\gammazeta.py", line 1913, in mpc_gamma
+    return mpf_gamma(a, prec, rnd, type), fzero
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\mpmath\libmp\gammazeta.py", line 1733, in mpf_gamma
+    raise ValueError("gamma function pole")
+ValueError: gamma function pole
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\relay\tools\b506_complete.py", line 382, in <module>
+    sys.exit(run())
+             ^^^^^
+  File "D:\relay\tools\b506_complete.py", line 294, in run
+    run_pool(edge_tasks())
+  File "D:\relay\tools\b506_complete.py", line 159, in run_pool
+    for r in pool.imap_unordered(run_edge, todo, chunksize=1):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+ValueError: gamma function pole

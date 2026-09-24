@@ -1,0 +1,202 @@
+====================================================================================================
+ACT b506 -- THE REGISTRATION FACE. ### b505 RE-ISSUED FROM ITS COMPONENT 2, THE FIXTURE BAR IN THE
+### OBJECT`S OWN UNITS: THE Q0 BANK COUNTED BELOW 150, THE KERNEL TESTED ONLY IF THE BANK CLOSES.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE REOPENS FOR THIS ACT ALONE, UNDER
+### (R116)(3)**, and shuts at its close.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R116) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** ### b505 closed as registered under
+### (R116)(1): Component 1 banked, Component 2 refused at its fixture, no count read. ### The control of
+### record is Q0 = x^2 + xy + 6y^2, discriminant -23, class number 3. ### Part 1 of 1, received IN FULL,
+### banked verbatim as `b506_ferry.txt` (ruling and ferry, 3072 bytes).
+### ### **THIS ACT CONFERS NO GRADE, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) --** the ferry`s rectangle `sigma in [1/2, sigma_max]` has its left edge ON the line, where
+### the on-line zeros lie, so a winding along it is undefined; (R115)(3) orders the count over the whole
+### strip and beyond sigma = 1. ### As b505 registered: the rectangle `[1 - sigma_max, sigma_max] x [0, 150]`
+### in three columns -- L `[1 - sigma_max, 0.48]`, M `[0.48, 0.52]`, R `[0.52, sigma_max]` -- by unit strips
+### in t; M carries the line, R every zero with `sigma > 0.52` (`sigma > 1` included), L is R`s mirror and
+### is counted, not assumed. ### An off-line zero with `1/2 < sigma < 0.52` shows as an M count above the
+### bank`s and is located there.
+### **READING (2) --** "178.6" is b326`s `rvm_main_term`, `(T/pi) log(T sqrt 23 / (2 pi e))` = 178.596; the
+### smooth term with `arg Gamma(1/2 + iT)` exact and the `+1` of the two poles is printed beside it, and
+### `S(150) = arg Z(1/2 + 150 i)/pi` by continuous variation from `sigma_max`; the count against both.
+### **READING (3) --** "zeros the present one lacks" is counted over the whole strip, an off-line zero and
+### its mirror counting two, against the present bank`s 146 + 2 x 2 = 150; the number of distinct zeros
+### with `sigma > 1/2` not in the bank is printed beside it.
+### **READING (4) --** (R116)(2)`s "route A agrees with the Chowla-Selberg evaluator to 1e-8" is read as the
+### ABSOLUTE difference `|Z_A - Z_CS| < 1e-8` at each banked ordinate: both values lie near zero there, so a
+### relative figure measures nothing. ### "within 1e-9 of a zero located by Newton from it" is `|rho_Newton
+### - rho_banked| < 1e-9`, Newton by the evaluator at dps 40 from the banked point.
+### ### **THE FLOOR, PRINTED BESIDE THE BAR:** b505`s diagnosis read the bank`s largest implied distance to a
+### zero as 6.1e-11, so the 1e-9 bar sits more than a decade above the floor the bank carries; route A and
+### the evaluator agreed at b505 to 4.9e-11 at 23 points, so the 1e-8 bar sits two decades above its floor.
+### ### **b505`S BAR ESCAPED THIS GATE`S FLOOR ARM**: it was written `|Z| >= 1e-10`, and the arm`s pattern
+### reads `<=` but not `>=`. ### Routed, not repaired here: `registration_gate.py` is not edited by this act.
+### **READING (5) --** a zero this act LOCATES is confirmed by route A in the same units: `|Z_A(rho)| /
+### |Z_CS`(rho)| < 1e-9`, the distance route A implies. ### Each located zero is printed with its |Z| after
+### Newton, as the ferry orders.
+### **READING (6) --** `registered_gate_passed = False` records b326`s precision gate at the REGISTERED dps 60;
+### the library was built at dps 119. ### It is re-examined by this act`s fixture over all 148 banked zeros,
+### and its verdict printed as a LINE of the log.
+### **READING (7) --** Component 3`s population is b503`s cells with `a >= 5` (93) AT WHICH THE TRUNCATION IS
+### INSIDE THE BOUND, the truncation estimated per cell as `2 INT_150^600 |hhat(t)| (1/pi) log(t sqrt 23 /
+### 2 pi) dt` (600 the places side`s own u-range); a cell above its bound is TRUNCATION-OUTSIDE and not in
+### the population; ### (N3) is scored on the population so named. ### The grid: the least `nv >= 8193`
+### putting `2 pi (nv - 1)/L` above 350. ### "If it fails there" is read as any population cell unverified:
+### every such cell printed by a and the STOP line printed; no other kernel is read.
+### **READING (8) --** "Component 4 -- the annotations executed, citing the measured count": ONLY if
+### Component 2 read a count. ### Without one the annotation tool refuses and writes nothing.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (1) THROUGH COMPONENT (4).
+----------------------------------------------------------------------------------------------------
+### (1) CARRIED FROM b505, NOT RE-RUN: `relay/data/b505_c1.json` and `b505_c1.txt` -- c1 = 2/3, c2 = 4/3, the
+###     exact test failing at 0 of 10000 n, LAMQ agreeing at 4095 of 4095, largest difference 2.3e-13 at
+###     n = 3744. ### Cited by address in the trail.
+### (2) THE BANK`S COMPLETENESS BELOW 150. ### `tools/b506_complete.py run` -- b505`s tool with the fixture
+###     restated. ### **THE FIXTURE, (R116)(2):** for each of the 148 banked zeros, Newton by the evaluator
+###     from it, and route A against the evaluator at it; both printed as counts passing out of 148, with the
+###     largest distance, the largest `|Z_A - Z_CS|`, and the largest `|Z|` after Newton. ### **NO COUNT IS
+###     READ UNLESS BOTH COUNTS ARE 148.**
+###     ### **sigma_max = 1.5, FROM A ZERO-FREE BOUND:** for `sigma >= 1.5`,
+###     `SUM_{k >= 2} r(k) k^{-sigma} <= 1.5458 + 0.0039 = 1.5497 < r(1) = 2` -- the partial sum to `k = 10^6`
+###     exact, the tail bounded by partial summation with `R(x) <= (2 pi/sqrt 23) x + 3 sqrt x + 1`
+###     (checked against the exact lattice count to `10^6`) -- so `|Z(s)| >= 0.45` there.
+###     ### **THE COUNT:** the argument principle for `F(s) = (s - 1) Z(s)` by adaptive arg continuation
+###     (initial spacing 0.05, bisection while adjacent samples differ by more than 0.4 rad), per box, per
+###     column, and around the whole contour; every box`s winding with its distance from an integer; the
+###     smallest `|F|` on any edge. ### The count against 178.596, the smooth term and `S(150)`.
+###     ### **THE BANK:** M`s count per strip against the bank`s on-line ordinates in it; L against R per
+###     strip; every R box with a zero, and every M box differing from the bank, located (subdivision to
+###     boxes under 0.05 holding one zero, then Newton), each zero printed with `|Z|` after Newton, route A`s
+###     `|Z|` and implied distance, and whether it lies inside its box.
+###     ### **THE POSITIVE CONTROL:** the banked pair at 0.95326 + 16.290216 i and 0.79800 + 29.551761 i
+###     recovered to 1e-8 in both coordinates. ### Results `b506_c2_results.json`; log `b506_c2_log.txt`,
+###     per-line stamped; edges `b506_edges.jsonl`.
+### (3) THE KERNEL, ON THE COMPLETED BANK ALONE. ### `tools/b506_kernel.py run`, then `report`. It REFUSES
+###     unless Component 2 closed the bank: every box near an integer, the contour equal to the sum of its
+###     boxes, the positive control recovered, every located zero inside its box and confirmed by route A
+###     (READING (5)). ### Zero side: the banked on-line zeros, any on-line zero located, and every located R
+###     zero with its three images, by `hhat_exact` and `ftilde`. ### Places side: `finite_channel` (LAMQ)
+###     and b326`s derived kernel `kernel_q_derived` (from `b504_kernels.npz`); the pole by `mellin_exact` at
+###     `+-1/2`. ### The bound: b501`s rule under the exact transform, as b504`s `B_qd`. ### **VERIFIED IFF
+###     `|r| <= B`**, counted on READING (7)`s population. ### **IF IT FAILS THERE, STOP AND PRINT WHERE.**
+###     ### Cells `b506_cells.jsonl`; report `b506_c3.txt`.
+### (4) THE ANNOTATIONS OF (R115)(1) AND (2), by `tools/b506_annotate.py`, citing Component 2`s measured
+###     count: ONE note APPENDED to each of `b477_components.txt`, `b502_components.txt`,
+###     `b504_components.txt` marking their Epstein margins UNVERIFIED, and ONE to `b502_ferry.txt` marking
+###     "x^2 + 5y^2" as a form the record does not hold; each prefix proved byte for byte (READING (8)).
+###     ### The extension toward T near 1,500, and the margin: ### **DEFERRED** by the order.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** everything b505 banked -- its face, its fixture log,
+### the bank of its Component 1, and its diagnosis `b505_c2_fixture_diagnosis.txt`: 2 of 148 banked zeros at
+### `|Z| >= 1e-10`, the largest implied distance to a zero 6.1e-11 (at 145.696), Newton from the worst
+### reaching `|Z|` 1e-38 after moving 4.6e-11. ### From that read the seat expects (N1) to hold; it is
+### scored on this act`s own fixture, not on b505`s diagnosis.
+### ### **NO FIXTURE, NO COUNT, NO KERNEL RESIDUAL AND NO ANNOTATION WAS RUN FOR THIS ACT BEFORE THE SEAL.**
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE, UNDER (R116)(3).
+----------------------------------------------------------------------------------------------------
+### The fixture: 148 route-A evaluations at dps 119 and 148 Newton solves at dps 40 on ten processes,
+### about one minute. ### The count: 150 strips at 2 to 5 s wall each on ten processes (b505`s sample
+### price), about 9 minutes; location a few minutes. ### **ABOUT 15 MINUTES, UNDER THE TWENTY THAT WOULD
+### DETACH IT**; if the edge rate at 30 strips projects past twenty minutes, the run is stopped, relaunched
+### DETACHED in its own console on the same bank (the edges resume), and this act closes as a launch
+### report. ### Component 3: 93 cells at about 29 s on five processes, about 10 minutes.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **ALL 148 BANKED ZEROS PASS THE RESTATED FIXTURE.**
+### (N2) ### **THE COMPLETE BANK BELOW 150 HOLDS BETWEEN 25 AND 33 ZEROS THE PRESENT ONE LACKS, AT LEAST
+###      ONE OF THEM AT sigma > 1.**
+### (N3) ### **ON THE COMPLETED BANK THE DERIVED KERNEL VERIFIES AT 40 OR MORE WIDE CELLS.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **THE M COLUMN MATCHES THE BANK IN EVERY STRIP**: b326`s boxes at `0.48 .. 0.52` already
+###      matched its sign changes, so every zero the bank lacks is off the line.
+### (S2) ### **THE WHOLE-STRIP COUNT EQUALS THE SMOOTH TERM PLUS S(150) TO WITHIN 0.05.**
+### (S3) ### **THE TRUNCATION IS OUTSIDE THE BOUND AT THE NARROWEST WIDE CELLS**, so READING (7)`s
+###      population is smaller than 93.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS
+### FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py
+### --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py` (gates: 8)
+### -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-PRICE-ON-FACE`
+### `G-R116-ENTERED` `G-C1-CARRIED` `G-EVALUATOR-FIXTURE` `G-SIGMA-MAX-BOUND`
+### `G-WHOLE-STRIP` `G-BOXES-INTEGER` `G-COUNT-VS-MAIN` `G-LINE-VS-BANK` `G-MISSING-LOCATED`
+### `G-ROUTE-A-CONFIRMS` `G-POSITIVE-CONTROL` `G-REGGATE-REEXAMINED` `G-C3-GATED` `G-C3-GRID-RULE`
+### `G-C3-TAIL-TESTED` `G-C3-STOP-HONOURED` `G-ANNOT-UNVERIFIED` `G-ANNOT-B502-FERRY` `G-ANNOT-PREFIX`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-NOPRIORBANK` holds every prior act`s
+### bank unchanged EXCEPT the four files Component 4 appends to, which `G-ANNOT-PREFIX` holds instead.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b506_*` `relay/tools/b506_*` |
+### | `tools/b506_annotate.py` | ONE appended note each to `relay/data/b477_components.txt`
+###   `relay/data/b502_components.txt` `relay/data/b504_components.txt` `relay/data/b502_ferry.txt` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b506_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b506_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b506_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b506_span*.json` `relay/data/b506_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b506.zip`
+###   (outside every repository) `relay/data/b506_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b506_complete.py` `b506_kernel.py` `b506_annotate.py` `b506_reg_gate.py`
+### `b506_regspec.py` `b506_record.py` `b506_checks.py` `b506_closing.py`.
+### ### **NO INSTRUMENT IS EDITED.** ### b325`s, b326`s, b501`s, b503`s, b504`s and b505`s tools are imported
+### or copied under this act`s stem; none is rewritten.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs. ### No
+### zero of zeta is added; ### `b326_epstein_zeros.json` is not rewritten -- the zeros this act locates
+### are banked under its own stem. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and
+### nothing inside it. ### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is
+### unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN. ### The monograph`s
+### step (9) Epstein sentence keeps its NO BANK status. ### **AND NO CELL OF THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : a0a48a46623e9ac4681fa0b4ff50d77118db0d87775f6f09762bf06a805961c4
+### bytes locked : 17116
+### locked at (UTC) : 2026-09-24T03:30:25Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b506_registration_2026-09-23.txt`.**
+====================================================================================================
