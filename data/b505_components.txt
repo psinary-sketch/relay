@@ -1,0 +1,47 @@
+========================================================================================================
+b505 -- THE COMPONENTS, AS THEY RAN.
+========================================================================================================
+
+### COMPONENT 1.
+========================================================================================================
+b505 COMPONENT 1 -- r_Q0 AGAINST c1 zeta L(chi_-23) + c2 L(psi), n <= 10000.
+========================================================================================================
+  r(1..12) [2, 0, 0, 2, 0, 4, 0, 4, 2, 0, 0, 4]
+  A(1..12) [1, 2, 2, 3, 0, 4, 0, 4, 3, 0, 0, 6]
+  a(1..12) [1, -1, -1, 0, 0, 1, 0, 1, 0, 0, 0, 0]  (eta(z) eta(23z))
+  least squares : c1 = 0.666666666666667  c2 = 1.333333333333339
+  as fractions  : c1 = 2/3  c2 = 4/3
+  the exact integer test r(n) = c1 A(n) + c2 a(n) : fails at 0 of 10000 n []
+  -Z0`/Z0 from the decomposition (exact Dirichlet inverse) against b325`s LAMQ, n = 2..4096 :
+    agreeing to 1e-9 relative : 4095 of 4095 ; largest disagreement 2.274e-13 at n = 3744 (LAMQ 345.572213)
+    nonzero LAMQ entries 662 ; LAMQ(2..12) ['0.0000', '0.0000', '1.3863', '0.0000', '3.5835', '0.0000', '4.1589', '2.1972', '0.0000', '0.0000', '4.9698']
+========================================================================================================
+
+### COMPONENT 2 -- THE LOG, VERBATIM.
+[2026-09-23 22:59:33] b505 C2 -- start ; SIG_MAX 1.50 ; columns [-0.5, 0.48, 0.52, 1.5] ; dps 40 ; Bessel terms 12
+[2026-09-23 23:01:00] fixture: route A against the evaluator at 23 banked zeros and 5 points off them, largest |A - CS|/max(1,|A|) 4.90e-11 ; |Z| by the evaluator at all 148 banked zeros, largest 4.90e-10
+[2026-09-23 23:01:00] ### FIXTURE FAILED ; no count read
+
+### ### **COMPONENT 2 REFUSED AT ITS FIXTURE, AS REGISTERED: True.** ### No edge was computed, no box
+### wound, no count read; `b505_edges.jsonl` and `b505_c2_results.json` do not exist.
+### The diagnosis, run after the refusal and reading only |Z| at the banked zeros (no count):
+    over 1e-10: 2 of 148
+    |Z| 4.90e-10  gamma 149.342745974862  |Z`| 1.06e+01  implied dgamma 4.60e-11
+    |Z| 4.81e-10  gamma 149.718007585845  |Z`| 1.28e+01  implied dgamma 3.76e-11
+    |Z| 8.37e-11  gamma 147.795962407800  |Z`| 1.90e+01  implied dgamma 4.40e-12
+    |Z| 8.17e-11  gamma 147.281844339074  |Z`| 1.48e+01  implied dgamma 5.51e-12
+    |Z| 4.95e-11  gamma 148.756719427032  |Z`| 1.93e+01  implied dgamma 2.56e-12
+    |Z| 4.89e-11  gamma 146.654155997029  |Z`| 1.78e+01  implied dgamma 2.74e-12
+    |Z| 3.56e-11  gamma 145.696129800109  |Z`| 5.83e-01  implied dgamma 6.11e-11
+    |Z| 3.50e-11  gamma 145.681126556023  |Z`| 5.86e-01  implied dgamma 5.98e-11
+    largest implied dgamma 6.11e-11
+    Newton from the worst: (0.5 + 149.34274597481639017j) ; |Z| there 1.17e-38 ; moved 4.60e-11
+    keys of a bank zero: ['bracket', 'gamma_a', 'gamma_b', 'route_b', 'agree']
+### ### **REGISTERED GATE RE-EXAMINED : NOT REACHED** -- the re-examination was the fixture, and the fixture
+### refused. What it read: 146 of 148 banked zeros at |Z| < 1e-10; the two above it, at t = 149.343 and 149.718,
+### lie 4.6e-11 and 3.8e-11 from zeros Newton reaches at |Z| 1e-38. ### The bank`s ordinates are good to 6.1e-11;
+### the bar was finer than |Z`| times that. ### **THE BAR WAS THE SEAT`S, AND IT WAS WRONG; THE REFUSAL WAS CORRECT.**
+
+### COMPONENT 3 -- NOT RUN: its tool refuses unless Component 2 closed the bank, and Component 2 read nothing.
+### COMPONENT 4 -- DEFERRED by the order. ### THE ANNOTATIONS OF (R115)(1)/(2) -- NOT EXECUTED, under (R116)(1).
+========================================================================================================
