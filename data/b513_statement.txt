@@ -1,0 +1,6 @@
+theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign :=
+
+theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :
+    RiemannHypothesis → cell_form F W :=
+
+def h2_sign_imp_rh : Prop :=

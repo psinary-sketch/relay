@@ -55,6 +55,7 @@
 | `SIDE-explicit-formula` | `Zeta23.EF.EF_lit` | *none cited* | `b52c1d752051` | `def EF_lit (Z : ZeroConfig) : Prop` | NOT PROFILED | **UNGRADED** |   |  |
 | `SIDE-explicit-formula` | `Zeta23.WeilEF.EF_lit_zeta` | *none cited* | `b52c1d752051` | `theorem EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs)` | NOT PROFILED | **UNGRADED** |   |  |
 | `SIDE-explicit-formula` | `Zeta23.WeilEF.EF_lit_zetaZeroConfig` | *none cited* | `b52c1d752051` | `theorem EF_lit_zetaZeroConfig : Zeta23.EF.EF_lit zetaZeroConfig` | NOT PROFILED | **DERIVES** | b486 PLACE-papers/FINDINGS.md:4302 |  |
+| `SIDE-explicit-formula` | `h2_sign_imp_cell` | *none cited* | `b52c1d752051` | `theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :     h2_sign → cell_form F W` | NOT PROFILED | **DERIVES** |  PLACE-papers/OPEN_TRAILS.md:10095 |  |
 | `SIDE-frobenius` | `SIDEFrobenius.ST_cubed` | *none cited* | `2efe9f2f8655` | `theorem ST_cubed : (Smat * Tmat) ^ 3 = -1` | NOT PROFILED | **UNGRADED** |   |  |
 | `SIDE-frobenius` | `SIDEFrobenius.S_squared` | *none cited* | `2efe9f2f8655` | `theorem S_squared : Smat * Smat = -1` | NOT PROFILED | **UNGRADED** |   |  |
 | `SIDE-frobenius` | `SIDEFrobenius.g_two_three` | *none cited* | `2efe9f2f8655` | `theorem g_two_three : frobenius_number 2 3 = 1` | NOT PROFILED | **UNGRADED** |   |  |
@@ -1079,5 +1080,5 @@
 
 ## NAMES A LEDGER CITES THAT RESOLVE IN NO REPOSITORY AT ANY REF
 
-`A_METHODOLOGY`, `DDecidable`, `DERIVES`, `E2even`, `ENGINE`, `Grade.le`, `INTERFACES`, `INVARIANCE_BARRIERS`, `MATCHES`, `R4_positivity`, `R5_output`, `RiemannHypothesis`, `SteaneLabeling`, `decide`, `derivGrade`, `exactly_c1_derives`, `h_conserved`, `no_onLine_double_iff_transversal`, `sorryAx`
+`A_METHODOLOGY`, `DDecidable`, `DERIVES`, `E2even`, `ENGINE`, `Grade.le`, `INTERFACES`, `INVARIANCE_BARRIERS`, `MATCHES`, `R4_positivity`, `R5_output`, `RiemannHypothesis`, `SteaneLabeling`, `decide`, `derivGrade`, `exactly_c1_derives`, `h_conserved`, `no_onLine_double_iff_transversal`, `rh_imp_cell_form`, `rh_imp_h2_sign`, `sorryAx`
 

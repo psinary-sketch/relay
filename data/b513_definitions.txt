@@ -1,0 +1,44 @@
+theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign := by
+  intro hRH k hk
+  obtain ⟨he, hc, hs, h, hh, hhs, rfl⟩ := hk
+  have hid := b321_identity (Zeta23.EF.weilTest h h) hc hs he
+  have hflip : poleTerm (Zeta23.EF.weilTest h h) - primeSum (Zeta23.EF.weilTest h h)
+      + archTerm (Zeta23.EF.weilTest h h) = zeroSide (Zeta23.EF.weilTest h h) := by
+    rw [hid]
+    unfold b321Norm
+    rw [one_mul]
+  rw [hflip]
+  unfold zeroSide
+  refine tsum_nonneg fun ρ => ?_
+  have hz : Zeta23.IsNontrivialZero (ρ : ℂ) := by
+    first
+      | exact ρ.2
+      | exact (show (ρ : ℂ) ∈ ({z | Zeta23.IsNontrivialZero z} : Set ℂ) by
+          rw [← Zeta23.zetaZeroConfig_carrier]; exact ρ.2)
+  have hre : (ρ : ℂ).re = 1 / 2 := Zeta23.RH_implies_on_line hRH hz
+  have him : (Zeta23.gammaOf (ρ : ℂ)).im = 0 := by
+    unfold Zeta23.gammaOf
+    rw [Complex.div_I, Complex.neg_im, Complex.mul_I_im, Complex.sub_re, hre]
+    first
+      | rw [Complex.div_ofNat_re, Complex.one_re, sub_self, neg_zero]
+      | norm_num
+  have hcj : conj (Zeta23.gammaOf (ρ : ℂ)) = Zeta23.gammaOf (ρ : ℂ) :=
+    Complex.conj_eq_iff_im.mpr him
+  have hterm : Zeta23.paperFT (Zeta23.EF.weilTest h h) (Zeta23.gammaOf (ρ : ℂ))
+      = ((Complex.normSq (Zeta23.paperFT h (Zeta23.gammaOf (ρ : ℂ))) : ℝ) : ℂ) := by
+    rw [Zeta23.EF.paperFT_weilTest hh.continuous hh.continuous hhs hhs, hcj,
+      Complex.mul_conj (Zeta23.paperFT h (Zeta23.gammaOf (ρ : ℂ)))]
+  have hm : (0 : ℂ) ≤ (Zeta23.zetaZeroConfig.mult (ρ : ℂ) : ℂ) := by
+    first
+      | exact Nat.cast_nonneg _
+      | (rw [← Complex.ofReal_natCast]; exact Complex.zero_le_real.mpr (Nat.cast_nonneg _))
+  have hnn : (0 : ℂ) ≤ (Zeta23.zetaZeroConfig.mult (ρ : ℂ) : ℂ)
+      * Zeta23.paperFT (Zeta23.EF.weilTest h h) (Zeta23.gammaOf (ρ : ℂ)) := by
+    rw [hterm]
+    exact mul_nonneg hm (Complex.zero_le_real.mpr (Complex.normSq_nonneg _))
+  exact hnn
+
+theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :
+    RiemannHypothesis → cell_form F W := fun hRH => h2_sign_imp_cell F W hF (rh_imp_h2_sign hRH)
+
+def h2_sign_imp_rh : Prop := h2_sign → RiemannHypothesis

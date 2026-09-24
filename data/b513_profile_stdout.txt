@@ -1,0 +1,10 @@
+$ lake env lean AxiomCheckChain.lean
+exit 0 ; 20.5 s
+--- stdout ---
+'SIDEExplicitFormula.B321.rh_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.h2_sign_imp_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rh_imp_cell_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+--- stderr ---
+
+### banked : D:\relay\data\b513_profile_log.txt
+### whole-string standard three : {'SIDEExplicitFormula.B321.rh_imp_h2_sign': True, 'SIDEExplicitFormula.B321.h2_sign_imp_cell': True, 'SIDEExplicitFormula.B321.rh_imp_cell_form': True}

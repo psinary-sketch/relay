@@ -1,0 +1,45 @@
+========================================================================================================
+b513 -- RH -> h2_sign COMPILED: THE STATEMENT-READS, THE CHAIN, THE CONVERSE PRICED.
+========================================================================================================
+### COMPONENT 1 -- THE THEOREM, FROM ITS DECLARATION LINE TO ITS `:=` <SIDEExplicitFormula/RHChain.lean, line 24>:
+    theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign :=
+    ### THE PROOF`S LENGTH, READING (4): 38 lines (declaration line to the last line of its tactic block).
+
+### COMPONENT 2 -- THE THREE-LINK CHAIN, EACH OF ITS MODEL STATEMENT:
+  rh_imp_h2_sign     model: RH -> h2_sign                                        grade by the order: DERIVES
+       theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign :=
+       <SIDEExplicitFormula/RHChain.lean> ; b512`s Prop: rh_imp_h2
+  h2_sign_imp_cell   model: h2_sign -> the cell form, on an admissible family    grade by the order: DERIVES
+       theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :
+           h2_sign → cell_form F W :=
+       <SIDEExplicitFormula/Registers.lean> ; b512`s Prop: h2_imp_cell (b512: compiled, no Prop)
+  rh_imp_cell_form   model: RH -> the cell form, on an admissible family         grade by the order: DERIVES
+       theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :
+           RiemannHypothesis → cell_form F W :=
+       <SIDEExplicitFormula/RHChain.lean> ; b512`s Prop: rh_imp_cell
+    ### the composite`s proof term: fun hRH => h2_sign_imp_cell F W hF (rh_imp_h2_sign hRH)
+
+### COMPONENT 3 -- THE CONVERSE, STATED AND NOT ATTEMPTED:
+    def h2_sign_imp_rh : Prop :=
+    docstring: **The converse, STATED AND NOT PROVED (ruling (R122)(2)).** `h2_sign -> RH` needs a witness construction: a test function that makes zeroSide negative at an off-line zero -- for an arbitrary off-line `rho`, a `k` in `classK` concentrated at `rho`'s ordinate whose zero side is negative, so that `b321_identity` makes `poleTerm k - primeSum k + archTerm k` negative and `h2_sign` fails. The matched window of (R121)(4) is that construction attempted numerically at Q0's pair; if it exhibits the violation, its window is the witness this converse would need, stated for an arbitrary off-line `rho`; if it does not, the construction is harder than a modulated bump. Neither this statement nor that measurement claims the other's result.
+    ### WHAT A WITNESS NEEDS (READING (6)); FOUND = a declaration in the kernel`s tree or its Mathlib:
+  (a) a C^2 compactly supported bump                                                                       FOUND Mathlib/Analysis/Calculus/BumpFunction/Basic.lean
+        declaration needle ContDiffBump\b : kernel 0 / Mathlib 1 files
+  (b) the Weil form h * h~ that puts it in classK                                                          FOUND Zeta23/ExplicitFormula.lean
+        declaration needle weilTest\b : kernel 1 / Mathlib 0 files
+  (c) an off-line zero from the negation of RiemannHypothesis                                              FOUND Mathlib/NumberTheory/LSeries/RiemannZeta.lean
+        declaration needle RiemannHypothesis\b : kernel 0 / Mathlib 1 files
+  (d) a growth bound for paperFT of a compactly supported function at a complex argument (Paley-Wiener typ ABSENT
+        declaration needle (PaleyWiener|paleyWiener|paley_wiener) : kernel 0 / Mathlib 0 files
+        text needle        Paley : kernel 0 / Mathlib 0 files []
+        text needle        Wiener : kernel 0 / Mathlib 1 files ['Mathlib/NumberTheory/LSeries/PrimesInAP.lean']
+  (e) a bound on the remaining zeros` terms: the local zero count                                          FOUND Zeta23/RvM/LocalCount.lean
+        declaration needle zetaZeroConfig_local_count\b : kernel 1 / Mathlib 0 files
+  (f) THE DECISIVE LEMMA: the off-line pair`s term negative and dominating the rest, so zeroSide k < 0     ABSENT
+        declaration needle (weil_criterion|weilCriterion|WeilCriterion|weil_positivity|weilPositivity|WeilPositivity|zeroSide_neg|zeroSide_lt|zeroSide_nonpos) : kernel 0 / Mathlib 0 files
+        text needle        Weil.*criterion : kernel 0 / Mathlib 0 files []
+        text needle        zeroSide : kernel 2 / Mathlib 0 files ['SIDEExplicitFormula/B321Identity.lean', 'SIDEExplicitFormula/RHChain.lean']
+        text needle        off-line|offLine|off_line : kernel 4 / Mathlib 0 files ['SIDEExplicitFormula/RHChain.lean', 'Zeta23/Assembly/Inputs.lean', 'Zeta23/Defs.lean']
+    ### ABSENT : ['d', 'f']
+    ### A FOUND NAME IS AN INGREDIENT, NOT THE CONSTRUCTION: the converse is priced here, not attempted.
+========================================================================================================

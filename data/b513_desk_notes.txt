@@ -1,0 +1,29 @@
+========================================================================================================
+b513 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- rh_imp_h2_sign`s profile on the whole string: 'SIDEExplicitFormula.B321.rh_imp_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound] ; sorry in Lean`s output: False ; attempts 2, the first to succeed 2.
+  **(N2)** ### **HELD.** -- the proof is 39 lines by READING (4), against 80.
+  **(N3)** ### **HELD.** -- Component 3 finds ABSENT : (d) a growth bound for paperFT of a compactly supported function at a complex argument (Paley-Wiener type), (f) THE DECISIVE LEMMA: the off-line pair`s term negative and dominating the rest, so zeroSide k < 0.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **REFUTED.** -- the first compile attempt`s verdict: False.
+  **(S2)** ### **HELD.** -- 39 lines, against 50.
+  **(S3)** ### **HELD.** -- ContDiffBump FOUND ; the decisive lemma (f) ABSENT.
+
+### ### **THE NAVIGATOR`S : HELD 3 ; REFUTED 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 2 ; REFUTED 1.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **THE FIRST COMPILE FAILED AT ONE STEP** (`b513_compile_log.txt`, 281.1 s cold): `rw [zetaZeroConfig_carrier] at h0`
+        met a motive that is not type-correct, because the zero`s own subtype mentions the carrier being rewritten. ### Lean
+        reported that error alone. ### Repaired by `exact ρ.2` (definitional), with the rewrite kept as a fallback on the goal
+        side where the carrier does not occur; attempt 1`s module is banked verbatim as `b513_attempt1_module.txt`. (S1) is
+        REFUTED by it.
+    (b) ### **THREE `first` FALLBACKS NEVER RAN** -- the linter says so in attempt 2`s run file (lines 39, 47, 57). ### The
+        primary branch closed each goal; the fallbacks are dead code carried in the module, not proof steps.
+    (c) ### **COMPONENT 3`S NEEDLE (d) WAS WIDENED AFTER ITS FIRST RUN** by a second shape (`exponential type`, a compact-
+        support Fourier lemma); both runs printed zero declarations and the first table is banked as `b513_table_first.txt`.
+========================================================================================================

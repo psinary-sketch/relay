@@ -1,0 +1,220 @@
+{
+ "C1": {
+  "name": "rh_imp_h2_sign",
+  "statement": "theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign :=",
+  "file": "SIDEExplicitFormula/RHChain.lean",
+  "proof_lines": 39,
+  "first_line": 24
+ },
+ "C2": [
+  {
+   "name": "rh_imp_h2_sign",
+   "model": "RH -> h2_sign",
+   "b512_prop": "rh_imp_h2",
+   "statement": "theorem rh_imp_h2_sign : RiemannHypothesis → h2_sign :=",
+   "file": "SIDEExplicitFormula/RHChain.lean",
+   "grade": "DERIVES",
+   "body": "by\n  intro hRH k hk\n  obtain ⟨he, hc, hs, h, hh, hhs, rfl⟩ := hk\n  have hid := b321_identity (Zeta23.EF.weilTest h h) hc hs he\n  have hflip : poleTerm (Zeta23.EF.weilTest h h) - primeSum (Zeta23.EF.weilTest h h)\n      + archTerm (Zeta23.EF.weilTest h h) = zeroSide (Zeta23.EF.weilTest h h) := by\n    rw [hid]\n    unfold b321Norm\n    rw [one_mul]\n  rw [hflip]\n  unfold zeroSide\n  refine tsum_nonneg fun ρ => ?_\n  have hz : Zeta23.IsNontrivialZero (ρ : ℂ) := by\n    first\n      | exact ρ.2\n      | exact (show (ρ : ℂ) ∈ ({z | Zeta23.IsNontrivialZero z} : Set ℂ) by\n          rw [← Zeta23.zetaZeroConfig_carrier]; exact ρ.2)\n  have hre : (ρ : ℂ).re = 1 / 2 := Zeta23.RH_implies_on_line hRH hz\n  have him : (Zeta23.gammaOf (ρ : ℂ)).im = 0 := by\n    unfold Zeta23.gammaOf\n    rw [Complex.div_I, Complex.neg_im, Complex.mul_I_im, Complex.sub_re, hre]\n    first\n      | rw [Complex.div_ofNat_re, Complex.one_re, sub_self, neg_zero]\n      | norm_num\n  have hcj : conj (Zeta23.gammaOf (ρ : ℂ)) = Zeta23.gammaOf (ρ : ℂ) :=\n    Complex.conj_eq_iff_im.mpr him\n  have hterm : Zeta23.paperFT (Zeta23.EF.weilTest h h) (Zeta23.gammaOf (ρ : ℂ))\n      = ((Complex.normSq (Zeta23.paperFT h (Zeta23.gammaOf (ρ : ℂ))) : ℝ) : ℂ) := by\n    rw [Zeta23.EF.paperFT_weilTest hh.continuous hh.continuous hhs hhs, hcj,\n      Complex.mul_conj (Zeta23.paperFT h (Zeta23.gammaOf (ρ : ℂ)))]\n  have hm : (0 : ℂ) ≤ (Zeta23.zetaZeroConfig.mult (ρ : ℂ) : ℂ) := by\n    first\n      | exact Nat.cast_nonneg _\n      | (rw [← Complex.ofReal_natCast]; exact Complex.zero_le_real.mpr (Nat.cast_nonneg _))\n  have hnn : (0 : ℂ) ≤ (Zeta23.zetaZeroConfig.mult (ρ : ℂ) : ℂ)\n      * Zeta23.paperFT (Zeta23.EF.weilTest h h) (Zeta23.gammaOf (ρ : ℂ)) := by\n    rw [hterm]\n    exact mul_nonneg hm (Complex.zero_le_real.mpr (Complex.normSq_nonneg _))\n  exact hnn"
+  },
+  {
+   "name": "h2_sign_imp_cell",
+   "model": "h2_sign -> the cell form, on an admissible family",
+   "b512_prop": "h2_imp_cell (b512: compiled, no Prop)",
+   "statement": "theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :\n    h2_sign → cell_form F W :=",
+   "file": "SIDEExplicitFormula/Registers.lean",
+   "grade": "DERIVES",
+   "body": "by\n  intro h a ha\n  have hk := h (F a) (hF a ha).1\n  have e : poleTerm (F a) - primeSum (F a) + archTerm (F a) = archTerm (F a) - primeSum (F a) := by\n    rw [(hF a ha).2]; ring\n  rw [e] at hk\n  exact hk"
+  },
+  {
+   "name": "rh_imp_cell_form",
+   "model": "RH -> the cell form, on an admissible family",
+   "b512_prop": "rh_imp_cell",
+   "statement": "theorem rh_imp_cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :\n    RiemannHypothesis → cell_form F W :=",
+   "file": "SIDEExplicitFormula/RHChain.lean",
+   "grade": "DERIVES",
+   "body": "fun hRH => h2_sign_imp_cell F W hF (rh_imp_h2_sign hRH)"
+  }
+ ],
+ "converse": {
+  "statement": "def h2_sign_imp_rh : Prop :=",
+  "docstring": "**The converse, STATED AND NOT PROVED (ruling (R122)(2)).** `h2_sign -> RH` needs a witness\nconstruction: a test function that makes zeroSide negative at an off-line zero -- for an arbitrary\noff-line `rho`, a `k` in `classK` concentrated at `rho`'s ordinate whose zero side is negative, so\nthat `b321_identity` makes `poleTerm k - primeSum k + archTerm k` negative and `h2_sign` fails. The\nmatched window of (R121)(4) is that construction attempted numerically at Q0's pair; if it exhibits\nthe violation, its window is the witness this converse would need, stated for an arbitrary\noff-line `rho`; if it does not, the construction is harder than a modulated bump. Neither this\nstatement nor that measurement claims the other's result."
+ },
+ "needs": [
+  {
+   "key": "a",
+   "what": "a C^2 compactly supported bump",
+   "found": true,
+   "files": [
+    "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean"
+   ],
+   "decl": [
+    {
+     "needle": "^\\s*(@\\[[^]]*\\]\\s*)?(noncomputable\\s+)?(private\\s+|protected\\s+)?(theorem|lemma|def|structure|class|instance|abbrev)\\s+\\S*ContDiffBump\\b",
+     "kernel_files": 0,
+     "mathlib_files": 1,
+     "kernel": [],
+     "mathlib": [
+      "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean"
+     ]
+    }
+   ],
+   "text": []
+  },
+  {
+   "key": "b",
+   "what": "the Weil form h * h~ that puts it in classK",
+   "found": true,
+   "files": [
+    "Zeta23/ExplicitFormula.lean"
+   ],
+   "decl": [
+    {
+     "needle": "^\\s*(@\\[[^]]*\\]\\s*)?(noncomputable\\s+)?(private\\s+|protected\\s+)?(theorem|lemma|def|structure|class|instance|abbrev)\\s+\\S*weilTest\\b",
+     "kernel_files": 1,
+     "mathlib_files": 0,
+     "kernel": [
+      "Zeta23/ExplicitFormula.lean"
+     ],
+     "mathlib": []
+    }
+   ],
+   "text": []
+  },
+  {
+   "key": "c",
+   "what": "an off-line zero from the negation of RiemannHypothesis",
+   "found": true,
+   "files": [
+    "Mathlib/NumberTheory/LSeries/RiemannZeta.lean"
+   ],
+   "decl": [
+    {
+     "needle": "^\\s*(@\\[[^]]*\\]\\s*)?(noncomputable\\s+)?(private\\s+|protected\\s+)?(theorem|lemma|def|structure|class|instance|abbrev)\\s+\\S*RiemannHypothesis\\b",
+     "kernel_files": 0,
+     "mathlib_files": 1,
+     "kernel": [],
+     "mathlib": [
+      "Mathlib/NumberTheory/LSeries/RiemannZeta.lean"
+     ]
+    }
+   ],
+   "text": []
+  },
+  {
+   "key": "d",
+   "what": "a growth bound for paperFT of a compactly supported function at a complex argument (Paley-Wiener type)",
+   "found": false,
+   "files": [],
+   "decl": [
+    {
+     "needle": "^\\s*(@\\[[^]]*\\]\\s*)?(noncomputable\\s+)?(private\\s+|protected\\s+)?(theorem|lemma|def|structure|class|instance|abbrev)\\s+\\S*(PaleyWiener|paleyWiener|paley_wiener)",
+     "kernel_files": 0,
+     "mathlib_files": 0,
+     "kernel": [],
+     "mathlib": []
+    }
+   ],
+   "text": [
+    {
+     "needle": "Paley",
+     "kernel_files": 0,
+     "mathlib_files": 0,
+     "kernel": [],
+     "mathlib": []
+    },
+    {
+     "needle": "Wiener",
+     "kernel_files": 0,
+     "mathlib_files": 1,
+     "kernel": [],
+     "mathlib": [
+      "Mathlib/NumberTheory/LSeries/PrimesInAP.lean"
+     ]
+    },
+    {
+     "needle": "(exponential type|[Ee]xponentialType)",
+     "kernel_files": 0,
+     "mathlib_files": 0,
+     "kernel": [],
+     "mathlib": []
+    },
+    {
+     "needle": "(HasCompactSupport.*fourierIntegral|fourierIntegral.*HasCompactSupport)",
+     "kernel_files": 0,
+     "mathlib_files": 0,
+     "kernel": [],
+     "mathlib": []
+    }
+   ]
+  },
+  {
+   "key": "e",
+   "what": "a bound on the remaining zeros` terms: the local zero count",
+   "found": true,
+   "files": [
+    "Zeta23/RvM/LocalCount.lean"
+   ],
+   "decl": [
+    {
+     "needle": "^\\s*(@\\[[^]]*\\]\\s*)?(noncomputable\\s+)?(private\\s+|protected\\s+)?(theorem|lemma|def|structure|class|instance|abbrev)\\s+\\S*zetaZeroConfig_local_count\\b",
+     "kernel_files": 1,
+     "mathlib_files": 0,
+     "kernel": [
+      "Zeta23/RvM/LocalCount.lean"
+     ],
+     "mathlib": []
+    }
+   ],
+   "text": []
+  },
+  {
+   "key": "f",
+   "what": "THE DECISIVE LEMMA: the off-line pair`s term negative and dominating the rest, so zeroSide k < 0",
+   "found": false,
+   "files": [],
+   "decl": [
+    {
+     "needle": "^\\s*(@\\[[^]]*\\]\\s*)?(noncomputable\\s+)?(private\\s+|protected\\s+)?(theorem|lemma|def|structure|class|instance|abbrev)\\s+\\S*(weil_criterion|weilCriterion|WeilCriterion|weil_positivity|weilPositivity|WeilPositivity|zeroSide_neg|zeroSide_lt|zeroSide_nonpos)",
+     "kernel_files": 0,
+     "mathlib_files": 0,
+     "kernel": [],
+     "mathlib": []
+    }
+   ],
+   "text": [
+    {
+     "needle": "Weil.*criterion",
+     "kernel_files": 0,
+     "mathlib_files": 0,
+     "kernel": [],
+     "mathlib": []
+    },
+    {
+     "needle": "zeroSide",
+     "kernel_files": 2,
+     "mathlib_files": 0,
+     "kernel": [
+      "SIDEExplicitFormula/B321Identity.lean",
+      "SIDEExplicitFormula/RHChain.lean"
+     ],
+     "mathlib": []
+    },
+    {
+     "needle": "off-line|offLine|off_line",
+     "kernel_files": 4,
+     "mathlib_files": 0,
+     "kernel": [
+      "SIDEExplicitFormula/RHChain.lean",
+      "Zeta23/Assembly/Inputs.lean",
+      "Zeta23/Defs.lean"
+     ],
+     "mathlib": []
+    }
+   ]
+  }
+ ],
+ "absent": [
+  "d",
+  "f"
+ ]
+}

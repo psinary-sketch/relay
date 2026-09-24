@@ -1,0 +1,164 @@
+====================================================================================================
+ACT b513 -- THE REGISTRATION FACE. ### RH -> h2_sign COMPILED, UNDER (R122).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE KERNEL LANE OPENS FOR THIS ACT ALONE, UNDER (R122)(1)**, and
+### shuts at its close; the numerical lane opens for b514 after it.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R122) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** ### Ruling and part 1 of 1, received IN
+### FULL, banked verbatim as `b513_ferry.txt`.
+### ### **THIS ACT PROVES AN IMPLICATION WHOSE HYPOTHESIS IS RH. IT MOVES h2 NOT AT ALL, AND NO CELL OF IT IS A
+### STATEMENT THAT RH HOLDS.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE NAME `rh_imp_cell` IS TAKEN.** ### b512`s `Registers.lean` defines `rh_imp_cell` as a
+### `Prop` in the same namespace, so the chain theorem is named `rh_imp_cell_form`; an `example` in the new
+### module checks that it inhabits b512`s `rh_imp_cell`, and another that `rh_imp_h2_sign` inhabits b512`s
+### `rh_imp_h2`. ### The composite`s proof term is ONE LINE: `h2_sign_imp_cell F W hF (rh_imp_h2_sign hRH)`.
+### **READING (2) -- THE MODULE.** ### A new module `SIDEExplicitFormula/RHChain.lean`, importing `Registers`; no
+### prior module of the kernel is edited. ### It holds exactly two theorems, `rh_imp_h2_sign` and
+### `rh_imp_cell_form`, and one new `def`, the converse `h2_sign_imp_rh`.
+### **READING (3) -- "ATTEMPT"** is every Lean invocation that elaborates `RHChain.lean` to produce its olean;
+### a failed one counts, and each is banked by `run_clock`. ### The profile run is not an attempt. ### (N1)`s
+### "second attempt at most" is scored on the count of compile run files.
+### **READING (4) -- "THE PROOF`S LENGTH IN LINES"** counts from the `theorem rh_imp_h2_sign` line to the last
+### line of its tactic block, inclusive, its docstring excluded. ### "The compile time" is the wall time the
+### successful compile`s run file prints.
+### **READING (5) -- "NAMED IN THE TERMINAL TABLE WITH ITS GRADES".** ### `terminal_table.py` makes a row from a
+### `#print axioms` line in an `AxiomCheck*.lean` file committed in a kernel, and grades it from a ledger cell
+### that pairs the name with a grade word. ### So a NEW kernel file `AxiomCheckChain.lean` prints the three
+### links -- `rh_imp_h2_sign`, `h2_sign_imp_cell`, `rh_imp_cell_form` -- and doubles as this act`s profile run;
+### b510`s `AxiomCheck.lean` is not touched. ### The grades are written in this act`s correspondence row and its
+### trail record, each link beside its own grade. ### **THE THREE GRADES ARE CONFERRED BY THE ORDER**, each of
+### its model statement: RH -> h2_sign, h2_sign -> cell form, RH -> cell form. ### The table is read after the
+### push, because it reads committed trees.
+### **READING (6) -- COMPONENT 3`S NEEDS.** ### A witness for `h2_sign -> RH` needs, for an arbitrary off-line
+### zero: (a) a C^2 compactly supported bump; (b) the Weil form `h * h~` to put it in `classK`; (c) an off-line
+### zero taken from the negation of `RiemannHypothesis`; (d) a growth bound for `paperFT` of a compactly
+### supported function at a complex argument (Paley-Wiener type), so the off-line term can be sized; (e) a bound
+### on the remaining zeros` terms (the local zero count); (f) the decisive lemma: the off-line pair`s term is
+### negative and dominates the rest, so `zeroSide k < 0`. ### Each is named FOUND with its file, kernel or
+### Mathlib, or ABSENT with its needles and their yields printed.
+### **READING (7) -- THE CONVERSE`S DOCSTRING** carries (R122)(2)`s words: a test function that makes zeroSide
+### negative at an off-line zero, and the matched window as that construction attempted numerically.
+### **READING (8) -- THIS ACT DOES NOT BUILD, TAG OR PROFILE ANY OTHER TERMINAL**, and does not re-grade
+### `b321_identity`.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `SIDEExplicitFormula/RHChain.lean` written into the kernel; `tools/b513_kernel.py compile`, `statement`;
+###     run files by `run_clock`, `b513_statement.txt`, `b513_definitions.txt`.
+### (2) `AxiomCheckChain.lean` written into the kernel; `tools/b513_kernel.py profile` -> `b513_profile.json`;
+###     the grades in the row and the trail; the table read post-push.
+### (3) `tools/b513_table.py` -> `b513_table.txt`, `b513_table.json`: the statement-reads, the proof`s length,
+###     the converse`s needs.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** the kernel`s `B321Identity.lean`, `H2Sign.lean`,
+### `Registers.lean`; `Zeta23/Defs.lean` (`paperFT`, `ZeroConfig`, `gammaOf`); `Zeta23/ExplicitFormula.lean`
+### (`weilTest`, `paperFT_weilTest`); `Zeta23/Statement.lean` (`IsNontrivialZero`, `RH_implies_on_line`);
+### `Zeta23/Statement/SeamClosed.lean` (`zetaZeroConfig_carrier`); a `git grep` of the kernel`s Mathlib for
+### `conj_eq_iff_im`, `div_I`, `mul_I_im`, `div_ofNat_re`, `mul_conj`, `zero_le_real`, `normSq_nonneg`,
+### `orderClosedTopology`, `one_div`, `tsum_nonneg`; `tools/terminal_table.py` for how a row is made and
+### graded; b512`s tools and the b512 session`s command sequence. ### **THE MODULE WAS DRAFTED IN THE SEAT`S
+### SCRATCHPAD BEFORE THE SEAL.** ### NO LEAN FILE WAS WRITTEN INTO THE KERNEL, NOTHING WAS COMPILED, AND NO
+### COMPONENT 3 SEARCH WAS RUN BEFORE THE SEAL.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### The module`s compile, cold up to about twelve minutes (b512: 566 s), in the background; the profile about
+### half a minute warm to ten cold. ### The table, seconds.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **rh_imp_h2_sign COMPILES WITH THE STANDARD-THREE PROFILE AND NO sorry AT THE SEAT`S SECOND
+### ATTEMPT AT MOST.**
+### **(N2)** ### **THE PROOF IS UNDER 80 LINES.**
+### **(N3)** ### **COMPONENT 3 FINDS AT LEAST ONE ABSENT OBJECT.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE FIRST COMPILE ATTEMPT SUCCEEDS.**
+### **(S2)** ### **THE PROOF IS UNDER 50 LINES.**
+### **(S3)** ### **COMPONENT 3 FINDS `ContDiffBump` IN MATHLIB AND THE DECISIVE LEMMA (f) ABSENT.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R122-ENTERED`
+### `G-RULE9-THEOREM` `G-VENDORED-UNTOUCHED` `G-TWO-THEOREMS` `G-PROFILE-WHOLE-STRING` `G-NO-SORRY`
+### `G-STATEMENT-PRINTED` `G-PROOF-LENGTH` `G-ATTEMPTS-COUNTED` `G-CHAIN-ONE-LINE` `G-CONVERSE-STATED`
+### `G-CONVERSE-WORDS` `G-ABSENT-SEARCHED` `G-FOUND-FOUND` `G-GRADES-WRITTEN` `G-TABLE-CHAIN`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-KERNEL-UNTAGGED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` and `G-TABLE-CHAIN` are scored ### **POST-PUSH ONLY**: the mirror is built after the
+### push, and the table reads the kernel`s committed tree.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b513_*` `relay/tools/b513_*` |
+### | the component, by hand | `SIDE-explicit-formula/SIDEExplicitFormula/RHChain.lean` (NEW)
+###   `SIDE-explicit-formula/AxiomCheckChain.lean` (NEW) |
+### | `lake env lean -o` | `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/RHChain.olean`
+###   (a build artefact, ignored, never committed) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b513_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b513_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b513_registration_2026-09-24.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b513_span*.json` `relay/data/b513_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b513.zip`
+###   (outside every repository) `relay/data/b513_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b513_kernel.py` `b513_table.py` `b513_reg_gate.py` `b513_regspec.py`
+### `b513_record.py` `b513_checks.py` `b513_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED, AND NO VENDORED MODULE, B321Identity, H2Sign, Registers, AxiomCheck
+### OR THE LAKEFILE IS TOUCHED.**
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE KERNEL LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing is proved beyond the two theorems; the
+### converse is a `Prop`, and its construction is not attempted. ### No chain is run and no cell computed. ###
+### The kernel is not tagged; `REGISTRY.md` is not written. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT
+### OUTSIDE (R110)**, and nothing inside it. ### Nothing deposits; the monograph is not written. ### The three
+### grades READING (5) names are the only grades written, and no grade name is minted. ### Row U1 is unedited.
+### ### `h2` stays where the deposit left it: ### **THE IMPLICATION FROM RH TO IT, NOW COMPILED, MOVES h2 NOT AT
+### ALL.** ### The four lists stay OPEN.
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : f7d4348ee0c945f0a78440ec352ca00c69fcf88bdcd2a7b29437512657ff245f
+### bytes locked : 12964
+### locked at (UTC) : 2026-09-24T23:37:37Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b513_registration_2026-09-24.txt`.**
+====================================================================================================
