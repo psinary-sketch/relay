@@ -1,0 +1,73 @@
+========================================================================================================
+COMPONENT 1 -- THE FAILURE, LOCATED.
+========================================================================================================
+    the chain`s zero bank : `carto_atlas.GAM` -- ### **10000 ORDINATES, 14.1347251417 TO 9877.782657**
+    `b326_closure.json` is a DIFFERENT bank (b326`s closure), not the chain`s.
+
+    ### ### **UNVERIFIED BY (R113)(1)`S RULE : 33** -- old 10, new 23 ; ALIASED 11, ESTIMATE-SHORT 22
+
+    ### THE 23 NEW UNVERIFIED CELLS -- the image at 2 pi / dv (grid 2 x 8193 - 1 points), T = 9877.78:
+    a           L          image      trunc      |W+Z|      B         kind
+    6.557439    3.7612     13685.0    4.64e-12   9.12e-08   8.85e-08  ESTIMATE-SHORT
+    7.140055    3.9314     13092.4    1.13e-11   1.23e-07   1.17e-07  ESTIMATE-SHORT
+    7.280110    3.9703     12964.2    6.64e-12   3.98e-08   3.58e-08  ESTIMATE-SHORT
+    10.049876   4.6151     11152.9    1.31e-11   1.91e-07   1.88e-07  ESTIMATE-SHORT
+    10.148892   4.6347     11105.7    2.03e-11   3.37e-08   3.11e-08  ESTIMATE-SHORT
+    10.440307   4.6913     10971.7    3.07e-11   4.39e-08   3.65e-08  ESTIMATE-SHORT
+    10.815073   4.7619     10809.1    3.98e-11   3.08e-07   3.05e-07  ESTIMATE-SHORT
+    11.000000   4.7958     10732.7    1.65e-11   1.82e-07   1.73e-07  ESTIMATE-SHORT
+    11.180340   4.8283     10660.4    9.41e-11   8.44e-08   8.24e-08  ESTIMATE-SHORT
+    11.998191   4.9695     10357.5    2.46e-11   2.28e-07   2.14e-07  ESTIMATE-SHORT
+    12.922848   5.1180     10057.0    2.19e+02   1.69e-07   1.69e-07  ESTIMATE-SHORT
+    13.266017   5.1704     9955.1     2.19e+02   1.05e-06   1.75e-07  ESTIMATE-SHORT
+    13.379088   5.1874     9922.5     2.18e+02   5.22e-05   2.10e-07  ALIASED
+    13.416356   5.1929     9911.9     2.21e+02   2.64e-04   2.65e-07  ALIASED
+    13.453624   5.1985     9901.3     2.21e+02   1.84e-03   7.94e-08  ALIASED
+    13.636950   5.2256     9850.0     5.41e-02   6.26e+00   3.20e-07  ALIASED
+    13.820275   5.2523     9799.9     2.27e-05   7.22e+00   1.19e-07  ALIASED
+    13.856359   5.2575     9790.2     7.60e-06   7.29e+00   1.14e-07  ALIASED
+    13.892444   5.2627     9780.5     2.77e-06   7.43e+00   8.38e-08  ALIASED
+    13.964056   5.2730     9761.4     4.36e-07   7.53e+00   5.44e-08  ALIASED
+    14.035669   5.2832     9742.5     1.28e-07   7.38e+00   3.18e-07  ALIASED
+    14.071202   5.2883     9733.2     5.82e-08   6.91e+00   2.00e-07  ALIASED
+    14.106736   5.2933     9724.0     2.73e-08   6.88e+00   9.94e-08  ALIASED
+
+    ### ### **IS THE BANK TOO SHORT? NO** -- it reaches 9877.78, and the image`s own position decides.
+    ### ### **DOES THE TRANSFORM OVERFLOW? NO; IT ALIASES** -- the trapezoid sum carries a full image
+    ### of its main lobe at 2 pi / dv, which falls from above T + 200 to below T as L grows.
+    ### ### **IS trunc WRONG? IT IS BLIND** -- it reads the image while the image sits in [T, T + 200]
+    ### (2.2e+02 from a = 12.845) and cannot see it once it falls among the zeros (a >= 13.637).
+    ### The 33 marks, with kinds:
+      old  a=1.300000    |W+Z| 3.558e-05  B 3.544e-05  x1         ESTIMATE-SHORT
+      old  a=1.350000    |W+Z| 1.341e-05  B 1.339e-05  x1         ESTIMATE-SHORT
+      old  a=1.410000    |W+Z| 4.019e-06  B 4.015e-06  x1         ESTIMATE-SHORT
+      old  a=1.500000    |W+Z| 7.814e-07  B 7.807e-07  x1         ESTIMATE-SHORT
+      old  a=2.100000    |W+Z| 1.916e-08  B 1.853e-08  x1.03      ESTIMATE-SHORT
+      old  a=2.800000    |W+Z| 9.124e-08  B 8.800e-08  x1.04      ESTIMATE-SHORT
+      old  a=3.316625    |W+Z| 8.050e-09  B 5.052e-09  x1.59      ESTIMATE-SHORT
+      old  a=3.802776    |W+Z| 3.213e-07  B 3.170e-07  x1.01      ESTIMATE-SHORT
+      old  a=4.358899    |W+Z| 2.157e-07  B 2.119e-07  x1.02      ESTIMATE-SHORT
+      old  a=5.098076    |W+Z| 6.903e-08  B 6.595e-08  x1.05      ESTIMATE-SHORT
+      new  a=6.557439    |W+Z| 9.116e-08  B 8.849e-08  x1.03      ESTIMATE-SHORT
+      new  a=7.140055    |W+Z| 1.226e-07  B 1.167e-07  x1.05      ESTIMATE-SHORT
+      new  a=7.280110    |W+Z| 3.980e-08  B 3.580e-08  x1.11      ESTIMATE-SHORT
+      new  a=10.049876   |W+Z| 1.911e-07  B 1.878e-07  x1.02      ESTIMATE-SHORT
+      new  a=10.148892   |W+Z| 3.366e-08  B 3.105e-08  x1.08      ESTIMATE-SHORT
+      new  a=10.440307   |W+Z| 4.387e-08  B 3.648e-08  x1.2       ESTIMATE-SHORT
+      new  a=10.815073   |W+Z| 3.082e-07  B 3.046e-07  x1.01      ESTIMATE-SHORT
+      new  a=11.000000   |W+Z| 1.816e-07  B 1.735e-07  x1.05      ESTIMATE-SHORT
+      new  a=11.180340   |W+Z| 8.441e-08  B 8.239e-08  x1.02      ESTIMATE-SHORT
+      new  a=11.998191   |W+Z| 2.278e-07  B 2.136e-07  x1.07      ESTIMATE-SHORT
+      new  a=12.922848   |W+Z| 1.694e-07  B 1.688e-07  x1         ESTIMATE-SHORT
+      new  a=13.266017   |W+Z| 1.055e-06  B 1.754e-07  x6.01      ESTIMATE-SHORT
+      new  a=13.379088   |W+Z| 5.219e-05  B 2.104e-07  x248       ALIASED
+      new  a=13.416356   |W+Z| 2.639e-04  B 2.650e-07  x996       ALIASED
+      new  a=13.453624   |W+Z| 1.838e-03  B 7.940e-08  x2.32e+04  ALIASED
+      new  a=13.636950   |W+Z| 6.260e+00  B 3.198e-07  x1.96e+07  ALIASED
+      new  a=13.820275   |W+Z| 7.216e+00  B 1.186e-07  x6.09e+07  ALIASED
+      new  a=13.856359   |W+Z| 7.290e+00  B 1.138e-07  x6.4e+07   ALIASED
+      new  a=13.892444   |W+Z| 7.425e+00  B 8.376e-08  x8.87e+07  ALIASED
+      new  a=13.964056   |W+Z| 7.527e+00  B 5.444e-08  x1.38e+08  ALIASED
+      new  a=14.035669   |W+Z| 7.379e+00  B 3.180e-07  x2.32e+07  ALIASED
+      new  a=14.071202   |W+Z| 6.913e+00  B 1.995e-07  x3.46e+07  ALIASED
+      new  a=14.106736   |W+Z| 6.876e+00  B 9.937e-08  x6.92e+07  ALIASED
