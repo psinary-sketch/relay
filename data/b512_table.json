@@ -1,0 +1,789 @@
+{
+ "C1": [
+  {
+   "key": "R1",
+   "form": "register 1: universality of silence_universal",
+   "status": "NOT STATABLE",
+   "note": "the universal-interface objects and the behavioral parameter kappa live in SIDE-kernel; this kernel neither defines nor imports them, and the federation forbids a Lake cross-dependency",
+   "missing": "silence_universal",
+   "search": [
+    {
+     "needle": "silence_universal",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "SilenceTheorem",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "behavioral",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    }
+   ]
+  },
+  {
+   "key": "R2",
+   "form": "register 2: the ConservationHypothesis of Route 3",
+   "status": "NOT STATABLE",
+   "note": "the Euler balance equation at a prime, SIDE-kernel`s definition; absent from this kernel",
+   "missing": "ConservationHypothesis",
+   "search": [
+    {
+     "needle": "ConservationHypothesis",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "EulerBalance",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "euler_balance",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    }
+   ]
+  },
+  {
+   "key": "R3",
+   "form": "register 3: totality of realization through places",
+   "status": "NOT STATABLE",
+   "note": "the mechanisms and the place-to-mechanism reflection are category-shaped objects of the corpus, with no formal counterpart here",
+   "missing": "mechanism realization",
+   "search": [
+    {
+     "needle": "Mechanism",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "mechanism",
+     "kernel_files": 0,
+     "mathlib_files": 11
+    },
+    {
+     "needle": "realization",
+     "kernel_files": 0,
+     "mathlib_files": 17
+    }
+   ]
+  },
+  {
+   "key": "R4",
+   "form": "register 4: the balance-to-positivity distance at the multiplicative place",
+   "status": "STATABLE",
+   "note": "its sign form IS h2_sign; the DISTANCE as a number is not defined in the kernel -- the row states the sign form only",
+   "statement": "def h2_sign : Prop :=\n  ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k",
+   "file": "SIDEExplicitFormula/H2Sign.lean"
+  },
+  {
+   "key": "R5",
+   "form": "register 5: the spectral-realization distance",
+   "status": "NOT STATABLE",
+   "note": "no operator, spectrum or realization map exists in this kernel",
+   "missing": "spectral realization operator",
+   "search": [
+    {
+     "needle": "HilbertPolya",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "selfAdjoint.*spectrum",
+     "kernel_files": 0,
+     "mathlib_files": 1
+    },
+    {
+     "needle": "zeroRealizing",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    }
+   ]
+  },
+  {
+   "key": "LI2",
+   "form": "the two-channel Li form lambda_Z(n) >= -lambda_A(n)",
+   "status": "NOT STATABLE",
+   "note": "the archimedean channel lambda_A is not constructed here; ITS SUM lambda_n >= 0 IS STATABLE, as li_form",
+   "missing": "archimedean Li channel lambda_A",
+   "search": [
+    {
+     "needle": "lambda_A",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "liArch",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "LiCoeff",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    },
+    {
+     "needle": "Li coefficient",
+     "kernel_files": 0,
+     "mathlib_files": 0
+    }
+   ]
+  },
+  {
+   "key": "LI",
+   "form": "Li`s criterion, single-channel, lambda_n >= 0",
+   "status": "STATABLE",
+   "note": "",
+   "statement": "def li_form : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ liCoeff n",
+   "file": "SIDEExplicitFormula/Registers.lean"
+  },
+  {
+   "key": "CELL",
+   "form": "the cell form m(a) >= 0 on an admissible family",
+   "status": "STATABLE",
+   "note": "the family is a PARAMETER: the ladder`s B-spline windows are not constructed as Lean functions",
+   "statement": "def cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=\n  ∀ a ∈ W, 0 ≤ archTerm (F a) - primeSum (F a)",
+   "file": "SIDEExplicitFormula/Registers.lean"
+  },
+  {
+   "key": "RH",
+   "form": "RH as Mathlib states it",
+   "status": "STATABLE",
+   "note": "",
+   "statement": "def rh_form : Prop := RiemannHypothesis",
+   "file": "SIDEExplicitFormula/Registers.lean"
+  },
+  {
+   "key": "H2",
+   "form": "h2_sign",
+   "status": "STATABLE",
+   "note": "",
+   "statement": "def h2_sign : Prop :=\n  ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k",
+   "file": "SIDEExplicitFormula/H2Sign.lean"
+  }
+ ],
+ "C2": [
+  {
+   "pair": "H2 -> RH",
+   "name": "h2_imp_rh",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def h2_imp_rh : Prop := h2_sign → rh_form\ndef rh_imp_li : Prop := rh_form → li_form\ndef li_imp_rh : Prop := li_form → rh_form\ndef h2_imp_li : Prop := h2_sign → li_form\ndef li_imp_h2 : Prop := li_form → h2_sign\ndef cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "a Weil-criterion construction (a K-window concentrated at an off-line zero)",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "Weil.*criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "weil_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "WeilPositivity",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "RH -> H2",
+   "name": "rh_imp_h2",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def rh_imp_h2 : Prop := rh_form → h2_sign\ndef h2_imp_rh : Prop := h2_sign → rh_form\ndef rh_imp_li : Prop := rh_form → li_form\ndef li_imp_rh : Prop := li_form → rh_form\ndef h2_imp_li : Prop := h2_sign → li_form\ndef li_imp_h2 : Prop := li_form → h2_sign\ndef cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "paperFT_weilTest",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/ExplicitFormula.lean"
+     ]
+    },
+    {
+     "name": "zetaZeroConfig_carrier",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement/SeamClosed.lean"
+     ]
+    },
+    {
+     "name": "RH_implies_on_line",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement.lean"
+     ]
+    },
+    {
+     "name": "b321_identity",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "SIDEExplicitFormula/B321Identity.lean"
+     ]
+    },
+    {
+     "name": "Complex.mul_conj",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean",
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "Complex.normSq_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "tsum_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "(to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean"
+     ]
+    },
+    {
+     "name": "Complex.orderClosedTopology",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean"
+     ]
+    }
+   ],
+   "all_found": true
+  },
+  {
+   "pair": "RH -> LI",
+   "name": "rh_imp_li",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def rh_imp_li : Prop := rh_form → li_form\ndef li_imp_rh : Prop := li_form → rh_form\ndef h2_imp_li : Prop := h2_sign → li_form\ndef li_imp_h2 : Prop := li_form → h2_sign\ndef cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "Li`s criterion and the summability of liCoeff",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "li_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "LiCriterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "Keiper",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "LI -> RH",
+   "name": "li_imp_rh",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def li_imp_rh : Prop := li_form → rh_form\ndef h2_imp_li : Prop := h2_sign → li_form\ndef li_imp_h2 : Prop := li_form → h2_sign\ndef cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "Li`s criterion and the summability of liCoeff",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "li_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "LiCriterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "Keiper",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "H2 -> LI",
+   "name": "h2_imp_li",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def h2_imp_li : Prop := h2_sign → li_form\ndef li_imp_h2 : Prop := li_form → h2_sign\ndef cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "a Weil-criterion construction (a K-window concentrated at an off-line zero)",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "Weil.*criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "weil_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "WeilPositivity",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    },
+    {
+     "name": "Li`s criterion and the summability of liCoeff",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "li_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "LiCriterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "Keiper",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "LI -> H2",
+   "name": "li_imp_h2",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def li_imp_h2 : Prop := li_form → h2_sign\ndef cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "Li`s criterion and the summability of liCoeff",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "li_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "LiCriterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "Keiper",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    },
+    {
+     "name": "paperFT_weilTest",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/ExplicitFormula.lean"
+     ]
+    },
+    {
+     "name": "zetaZeroConfig_carrier",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement/SeamClosed.lean"
+     ]
+    },
+    {
+     "name": "RH_implies_on_line",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement.lean"
+     ]
+    },
+    {
+     "name": "b321_identity",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "SIDEExplicitFormula/B321Identity.lean"
+     ]
+    },
+    {
+     "name": "Complex.mul_conj",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean",
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "Complex.normSq_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "tsum_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "(to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean"
+     ]
+    },
+    {
+     "name": "Complex.orderClosedTopology",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean"
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "H2 -> CELL",
+   "name": "h2_sign_imp_cell",
+   "status": "COMPILED",
+   "statement": "theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :\n    h2_sign → cell_form F W := by\n  intro h a ha\n  have hk := h (F a) (hF a ha).1\n  have e : poleTerm (F a) - primeSum (F a) + archTerm (F a) = archTerm (F a) - primeSum (F a) := by\n    rw [(hF a ha).2]; ring\n  rw [e] at hk\n  exact hk",
+   "needs": [],
+   "all_found": true
+  },
+  {
+   "pair": "CELL -> H2",
+   "name": "cell_imp_h2",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign\ndef cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "a density argument: the family`s windows span the Weil form on classK",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": []
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "RH -> CELL",
+   "name": "rh_imp_cell",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "paperFT_weilTest",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/ExplicitFormula.lean"
+     ]
+    },
+    {
+     "name": "zetaZeroConfig_carrier",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement/SeamClosed.lean"
+     ]
+    },
+    {
+     "name": "RH_implies_on_line",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement.lean"
+     ]
+    },
+    {
+     "name": "b321_identity",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "SIDEExplicitFormula/B321Identity.lean"
+     ]
+    },
+    {
+     "name": "Complex.mul_conj",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean",
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "Complex.normSq_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "tsum_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "(to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean"
+     ]
+    },
+    {
+     "name": "Complex.orderClosedTopology",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean"
+     ]
+    }
+   ],
+   "all_found": true
+  },
+  {
+   "pair": "CELL -> RH",
+   "name": "cell_imp_rh",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form\ndef rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W\ndef cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "a density argument: the family`s windows span the Weil form on classK",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": []
+    },
+    {
+     "name": "a Weil-criterion construction (a K-window concentrated at an off-line zero)",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "Weil.*criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "weil_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "WeilPositivity",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "LI -> CELL",
+   "name": "li_imp_cell",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "Li`s criterion and the summability of liCoeff",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "li_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "LiCriterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "Keiper",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    },
+    {
+     "name": "paperFT_weilTest",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/ExplicitFormula.lean"
+     ]
+    },
+    {
+     "name": "zetaZeroConfig_carrier",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement/SeamClosed.lean"
+     ]
+    },
+    {
+     "name": "RH_implies_on_line",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "Zeta23/Statement.lean"
+     ]
+    },
+    {
+     "name": "b321_identity",
+     "where": "kernel",
+     "found": true,
+     "files": [
+      "SIDEExplicitFormula/B321Identity.lean"
+     ]
+    },
+    {
+     "name": "Complex.mul_conj",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean",
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "Complex.normSq_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Data/Complex/Basic.lean"
+     ]
+    },
+    {
+     "name": "tsum_nonneg",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "(to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean"
+     ]
+    },
+    {
+     "name": "Complex.orderClosedTopology",
+     "where": "mathlib",
+     "found": true,
+     "files": [
+      "Mathlib/Analysis/Complex/Basic.lean"
+     ]
+    }
+   ],
+   "all_found": false
+  },
+  {
+   "pair": "CELL -> LI",
+   "name": "cell_imp_li",
+   "status": "STATABLE-NOT-COMPILED",
+   "statement": "def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form\ndef li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W",
+   "needs": [
+    {
+     "name": "a density argument: the family`s windows span the Weil form on classK",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": []
+    },
+    {
+     "name": "a Weil-criterion construction (a K-window concentrated at an off-line zero)",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "Weil.*criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "weil_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "WeilPositivity",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    },
+    {
+     "name": "Li`s criterion and the summability of liCoeff",
+     "where": "kernel+mathlib",
+     "found": false,
+     "files": [],
+     "search": [
+      {
+       "needle": "li_criterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "LiCriterion",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      },
+      {
+       "needle": "Keiper",
+       "kernel_files": 0,
+       "mathlib_files": 0
+      }
+     ]
+    }
+   ],
+   "all_found": false
+  }
+ ],
+ "weakest": [
+  "CELL"
+ ]
+}

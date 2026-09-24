@@ -1,0 +1,134 @@
+========================================================================================================
+b512 -- THE REGISTER-EQUIVALENCE READ AT h2_sign.
+========================================================================================================
+### COMPONENT 1 -- THE FORMS.
+  R1   register 1: universality of silence_universal                            NOT STATABLE
+       MISSING : silence_universal -- the universal-interface objects and the behavioral parameter kappa live in SIDE-kernel; this kernel neither defines nor imports them, and the federation forbids a Lake cross-dependency
+       searched : silence_universal kernel 0 / Mathlib 0 files ; SilenceTheorem kernel 0 / Mathlib 0 files ; behavioral kernel 0 / Mathlib 0 files
+  R2   register 2: the ConservationHypothesis of Route 3                        NOT STATABLE
+       MISSING : ConservationHypothesis -- the Euler balance equation at a prime, SIDE-kernel`s definition; absent from this kernel
+       searched : ConservationHypothesis kernel 0 / Mathlib 0 files ; EulerBalance kernel 0 / Mathlib 0 files ; euler_balance kernel 0 / Mathlib 0 files
+  R3   register 3: totality of realization through places                       NOT STATABLE
+       MISSING : mechanism realization -- the mechanisms and the place-to-mechanism reflection are category-shaped objects of the corpus, with no formal counterpart here
+       searched : Mechanism kernel 0 / Mathlib 0 files ; mechanism kernel 0 / Mathlib 11 files ; realization kernel 0 / Mathlib 17 files
+  R4   register 4: the balance-to-positivity distance at the multiplicative pla STATABLE
+       def h2_sign : Prop :=
+         ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+       <SIDEExplicitFormula/H2Sign.lean>
+       ### its sign form IS h2_sign; the DISTANCE as a number is not defined in the kernel -- the row states the sign form only
+  R5   register 5: the spectral-realization distance                            NOT STATABLE
+       MISSING : spectral realization operator -- no operator, spectrum or realization map exists in this kernel
+       searched : HilbertPolya kernel 0 / Mathlib 0 files ; selfAdjoint.*spectrum kernel 0 / Mathlib 1 files ; zeroRealizing kernel 0 / Mathlib 0 files
+  LI2  the two-channel Li form lambda_Z(n) >= -lambda_A(n)                      NOT STATABLE
+       MISSING : archimedean Li channel lambda_A -- the archimedean channel lambda_A is not constructed here; ITS SUM lambda_n >= 0 IS STATABLE, as li_form
+       searched : lambda_A kernel 0 / Mathlib 0 files ; liArch kernel 0 / Mathlib 0 files ; LiCoeff kernel 0 / Mathlib 0 files ; Li coefficient kernel 0 / Mathlib 0 files
+  LI   Li`s criterion, single-channel, lambda_n >= 0                            STATABLE
+       def li_form : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ liCoeff n
+       <SIDEExplicitFormula/Registers.lean>
+  CELL the cell form m(a) >= 0 on an admissible family                          STATABLE
+       def cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+         ∀ a ∈ W, 0 ≤ archTerm (F a) - primeSum (F a)
+       <SIDEExplicitFormula/Registers.lean>
+       ### the family is a PARAMETER: the ladder`s B-spline windows are not constructed as Lean functions
+  RH   RH as Mathlib states it                                                  STATABLE
+       def rh_form : Prop := RiemannHypothesis
+       <SIDEExplicitFormula/Registers.lean>
+  H2   h2_sign                                                                  STATABLE
+       def h2_sign : Prop :=
+         ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+       <SIDEExplicitFormula/H2Sign.lean>
+
+### COMPONENT 2 -- THE ORDERED IMPLICATIONS AMONG H2, RH, LI (single-channel) AND CELL. ### R4 IS H2 ITSELF.
+  H2 -> RH     STATABLE-NOT-COMPILED    h2_imp_rh
+       needs a Weil-criterion construction (a K-window concentrated at an off-line zero)    ABSENT
+             searched Weil.*criterion : kernel 0 / Mathlib 0 files
+             searched weil_criterion : kernel 0 / Mathlib 0 files
+             searched WeilPositivity : kernel 0 / Mathlib 0 files
+  RH -> H2     STATABLE-NOT-COMPILED    rh_imp_h2
+       needs paperFT_weilTest                                                               FOUND Zeta23/ExplicitFormula.lean
+       needs zetaZeroConfig_carrier                                                         FOUND Zeta23/Statement/SeamClosed.lean
+       needs RH_implies_on_line                                                             FOUND Zeta23/Statement.lean
+       needs b321_identity                                                                  FOUND SIDEExplicitFormula/B321Identity.lean
+       needs Complex.mul_conj                                                               FOUND Mathlib/Analysis/Complex/Basic.lean, Mathlib/Data/Complex/Basic.lean
+       needs Complex.normSq_nonneg                                                          FOUND Mathlib/Data/Complex/Basic.lean
+       needs tsum_nonneg                                                                    FOUND (to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean
+       needs Complex.orderClosedTopology                                                    FOUND Mathlib/Analysis/Complex/Basic.lean
+  RH -> LI     STATABLE-NOT-COMPILED    rh_imp_li
+       needs Li`s criterion and the summability of liCoeff                                  ABSENT
+             searched li_criterion : kernel 0 / Mathlib 0 files
+             searched LiCriterion : kernel 0 / Mathlib 0 files
+             searched Keiper : kernel 0 / Mathlib 0 files
+  LI -> RH     STATABLE-NOT-COMPILED    li_imp_rh
+       needs Li`s criterion and the summability of liCoeff                                  ABSENT
+             searched li_criterion : kernel 0 / Mathlib 0 files
+             searched LiCriterion : kernel 0 / Mathlib 0 files
+             searched Keiper : kernel 0 / Mathlib 0 files
+  H2 -> LI     STATABLE-NOT-COMPILED    h2_imp_li
+       needs a Weil-criterion construction (a K-window concentrated at an off-line zero)    ABSENT
+             searched Weil.*criterion : kernel 0 / Mathlib 0 files
+             searched weil_criterion : kernel 0 / Mathlib 0 files
+             searched WeilPositivity : kernel 0 / Mathlib 0 files
+       needs Li`s criterion and the summability of liCoeff                                  ABSENT
+             searched li_criterion : kernel 0 / Mathlib 0 files
+             searched LiCriterion : kernel 0 / Mathlib 0 files
+             searched Keiper : kernel 0 / Mathlib 0 files
+  LI -> H2     STATABLE-NOT-COMPILED    li_imp_h2
+       needs Li`s criterion and the summability of liCoeff                                  ABSENT
+             searched li_criterion : kernel 0 / Mathlib 0 files
+             searched LiCriterion : kernel 0 / Mathlib 0 files
+             searched Keiper : kernel 0 / Mathlib 0 files
+       needs paperFT_weilTest                                                               FOUND Zeta23/ExplicitFormula.lean
+       needs zetaZeroConfig_carrier                                                         FOUND Zeta23/Statement/SeamClosed.lean
+       needs RH_implies_on_line                                                             FOUND Zeta23/Statement.lean
+       needs b321_identity                                                                  FOUND SIDEExplicitFormula/B321Identity.lean
+       needs Complex.mul_conj                                                               FOUND Mathlib/Analysis/Complex/Basic.lean, Mathlib/Data/Complex/Basic.lean
+       needs Complex.normSq_nonneg                                                          FOUND Mathlib/Data/Complex/Basic.lean
+       needs tsum_nonneg                                                                    FOUND (to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean
+       needs Complex.orderClosedTopology                                                    FOUND Mathlib/Analysis/Complex/Basic.lean
+  H2 -> CELL   COMPILED                 h2_sign_imp_cell
+  CELL -> H2   STATABLE-NOT-COMPILED    cell_imp_h2
+       needs a density argument: the family`s windows span the Weil form on classK          ABSENT
+  RH -> CELL   STATABLE-NOT-COMPILED    rh_imp_cell
+       needs paperFT_weilTest                                                               FOUND Zeta23/ExplicitFormula.lean
+       needs zetaZeroConfig_carrier                                                         FOUND Zeta23/Statement/SeamClosed.lean
+       needs RH_implies_on_line                                                             FOUND Zeta23/Statement.lean
+       needs b321_identity                                                                  FOUND SIDEExplicitFormula/B321Identity.lean
+       needs Complex.mul_conj                                                               FOUND Mathlib/Analysis/Complex/Basic.lean, Mathlib/Data/Complex/Basic.lean
+       needs Complex.normSq_nonneg                                                          FOUND Mathlib/Data/Complex/Basic.lean
+       needs tsum_nonneg                                                                    FOUND (to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean
+       needs Complex.orderClosedTopology                                                    FOUND Mathlib/Analysis/Complex/Basic.lean
+  CELL -> RH   STATABLE-NOT-COMPILED    cell_imp_rh
+       needs a density argument: the family`s windows span the Weil form on classK          ABSENT
+       needs a Weil-criterion construction (a K-window concentrated at an off-line zero)    ABSENT
+             searched Weil.*criterion : kernel 0 / Mathlib 0 files
+             searched weil_criterion : kernel 0 / Mathlib 0 files
+             searched WeilPositivity : kernel 0 / Mathlib 0 files
+  LI -> CELL   STATABLE-NOT-COMPILED    li_imp_cell
+       needs Li`s criterion and the summability of liCoeff                                  ABSENT
+             searched li_criterion : kernel 0 / Mathlib 0 files
+             searched LiCriterion : kernel 0 / Mathlib 0 files
+             searched Keiper : kernel 0 / Mathlib 0 files
+       needs paperFT_weilTest                                                               FOUND Zeta23/ExplicitFormula.lean
+       needs zetaZeroConfig_carrier                                                         FOUND Zeta23/Statement/SeamClosed.lean
+       needs RH_implies_on_line                                                             FOUND Zeta23/Statement.lean
+       needs b321_identity                                                                  FOUND SIDEExplicitFormula/B321Identity.lean
+       needs Complex.mul_conj                                                               FOUND Mathlib/Analysis/Complex/Basic.lean, Mathlib/Data/Complex/Basic.lean
+       needs Complex.normSq_nonneg                                                          FOUND Mathlib/Data/Complex/Basic.lean
+       needs tsum_nonneg                                                                    FOUND (to_additive) Mathlib/Topology/Algebra/InfiniteSum/Order.lean
+       needs Complex.orderClosedTopology                                                    FOUND Mathlib/Analysis/Complex/Basic.lean
+  CELL -> LI   STATABLE-NOT-COMPILED    cell_imp_li
+       needs a density argument: the family`s windows span the Weil form on classK          ABSENT
+       needs a Weil-criterion construction (a K-window concentrated at an off-line zero)    ABSENT
+             searched Weil.*criterion : kernel 0 / Mathlib 0 files
+             searched weil_criterion : kernel 0 / Mathlib 0 files
+             searched WeilPositivity : kernel 0 / Mathlib 0 files
+       needs Li`s criterion and the summability of liCoeff                                  ABSENT
+             searched li_criterion : kernel 0 / Mathlib 0 files
+             searched LiCriterion : kernel 0 / Mathlib 0 files
+             searched Keiper : kernel 0 / Mathlib 0 files
+
+### COMPONENT 3 -- THE WEAKEST FORM: implied by h2_sign by a COMPILED step, and with no compiled route back :
+    ['CELL']
+    ### "DOES NOT IMPLY" IS A STATEMENT ABOUT DERIVABILITY IN THIS KERNEL, NOT A THEOREM: if RH holds, every form here is
+    true and every implication holds trivially. What the table shows is that no route back is available here.
+========================================================================================================

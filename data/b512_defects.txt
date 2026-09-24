@@ -1,0 +1,5 @@
+    (a) ### **THE TABLE`S FIRST MATHLIB LOOKUP LET THE NAMESPACE BE OPTIONAL**, so `Complex.normSq_nonneg` printed Quaternion`s and
+        RCLike`s files and `Complex.mul_conj` RCLike`s -- the lemmas exist, the evidence printed was wrong. ### Repaired to prefer
+        files that open the named namespace; the first table banked as `b512_table_first.txt`.
+    (b) ### **TWO TOOL LINES WENT THROUGH QUOTED HEREDOCS AND LOST A BACKSLASH** (the table`s `to_additive` pattern, the kernel
+        tool`s declaration regex was checked and kept) -- caught by the parser; the table`s line rewritten by index.

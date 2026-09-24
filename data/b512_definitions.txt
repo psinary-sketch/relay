@@ -1,0 +1,99 @@
+def rh_form : Prop := RiemannHypothesis
+
+def liCoeff (n : ℕ) : ℝ :=
+  ∑' ρ : {ρ : ℂ // ρ ∈ Zeta23.zetaZeroConfig.carrier ∧ 0 < ρ.im},
+    (Zeta23.zetaZeroConfig.mult ρ : ℝ) * (2 * (1 - (1 - 1 / (ρ : ℂ)) ^ n).re)
+
+def li_form : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ liCoeff n
+
+def admissible (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+  ∀ a ∈ W, classK (F a) ∧ poleTerm (F a) = 0
+
+def cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+  ∀ a ∈ W, 0 ≤ archTerm (F a) - primeSum (F a)
+
+theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :
+    h2_sign → cell_form F W := by
+  intro h a ha
+  have hk := h (F a) (hF a ha).1
+  have e : poleTerm (F a) - primeSum (F a) + archTerm (F a) = archTerm (F a) - primeSum (F a) := by
+    rw [(hF a ha).2]; ring
+  rw [e] at hk
+  exact hk
+
+def rh_imp_h2 : Prop := rh_form → h2_sign
+def h2_imp_rh : Prop := h2_sign → rh_form
+def rh_imp_li : Prop := rh_form → li_form
+def li_imp_rh : Prop := li_form → rh_form
+def h2_imp_li : Prop := h2_sign → li_form
+def li_imp_h2 : Prop := li_form → h2_sign
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def h2_imp_rh : Prop := h2_sign → rh_form
+def rh_imp_li : Prop := rh_form → li_form
+def li_imp_rh : Prop := li_form → rh_form
+def h2_imp_li : Prop := h2_sign → li_form
+def li_imp_h2 : Prop := li_form → h2_sign
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def rh_imp_li : Prop := rh_form → li_form
+def li_imp_rh : Prop := li_form → rh_form
+def h2_imp_li : Prop := h2_sign → li_form
+def li_imp_h2 : Prop := li_form → h2_sign
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def li_imp_rh : Prop := li_form → rh_form
+def h2_imp_li : Prop := h2_sign → li_form
+def li_imp_h2 : Prop := li_form → h2_sign
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def h2_imp_li : Prop := h2_sign → li_form
+def li_imp_h2 : Prop := li_form → h2_sign
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def li_imp_h2 : Prop := li_form → h2_sign
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → h2_sign
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → rh_form
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → rh_form → cell_form F W
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → cell_form F W → li_form
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W
+
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop := admissible F W → li_form → cell_form F W

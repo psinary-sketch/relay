@@ -1,0 +1,34 @@
+def rh_form : Prop :=
+
+def liCoeff (n : ℕ) : ℝ :=
+
+def li_form : Prop :=
+
+def admissible (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+
+def cell_form (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+
+theorem h2_sign_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) (hF : admissible F W) :
+    h2_sign → cell_form F W :=
+
+def rh_imp_h2 : Prop :=
+
+def h2_imp_rh : Prop :=
+
+def rh_imp_li : Prop :=
+
+def li_imp_rh : Prop :=
+
+def h2_imp_li : Prop :=
+
+def li_imp_h2 : Prop :=
+
+def cell_imp_h2 (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+
+def cell_imp_rh (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+
+def rh_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+
+def cell_imp_li (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
+
+def li_imp_cell (F : ℝ → ℝ → ℂ) (W : Set ℝ) : Prop :=
