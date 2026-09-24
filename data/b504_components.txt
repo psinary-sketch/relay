@@ -1,0 +1,58 @@
+========================================================================================================
+COMPONENT 1 -- THE FIXTURE: b503`S CONSISTENT RESIDUAL REPRODUCED AT THREE VERIFIED CELLS.
+========================================================================================================
+    a=4.061553   nv 8193  r -4.608526620042408e-08  b503 -4.608526653349099e-08  |diff| 3.33e-16
+    a=5.196152   nv 8193  r +4.068781755267592e-08  b503 +4.068781855187664e-08  |diff| 9.99e-16
+    a=10.392193  nv 8193  r -2.714071033887988e-10  b503 -2.714066870551646e-10  |diff| 4.16e-16
+    ### ### **REPRODUCED TO 1e-12 AT ALL THREE : True**
+========================================================================================================
+========================================================================================================
+COMPONENTS 1 TO 4 -- THE CHAIN ON ONE TRANSFORM.
+========================================================================================================
+    fixture at three verified cells, b503 reproduced to 1e-12 : True
+    nv used : 18 distinct, from 8193 to 8492 ; cells above 8193 : 17 ; price at the largest nv : 31 s a cell
+    cells at the ceiling : 0
+    compute : 3578 s
+
+### COMPONENT 2.
+--------------------------------------------------------------------------------------------------------
+    ### ### **VERIFIED ON THE CONSISTENT RESIDUAL : 109 OF 119**
+    ### every unverified cell, with its kind:
+      a=7.480628   nv 8193   |r| 6.814e-08  B 4.599e-08  x1.48    ESTIMATE-SHORT
+      a=8.305751   nv 8193   |r| 1.524e-07  B 1.484e-07  x1.03    ESTIMATE-SHORT
+      a=8.426150   nv 8193   |r| 1.924e-07  B 1.092e-07  x1.76    ESTIMATE-SHORT
+      a=9.110434   nv 8193   |r| 1.932e-07  B 1.325e-07  x1.46    ESTIMATE-SHORT
+      a=10.630146  nv 8193   |r| 1.352e-07  B 1.338e-07  x1.01    ESTIMATE-SHORT
+      a=11.000000  nv 8193   |r| 2.251e-07  B 1.813e-07  x1.24    ESTIMATE-SHORT
+      a=11.224884  nv 8193   |r| 2.611e-08  B 1.016e-08  x2.57    ESTIMATE-SHORT
+      a=12.529964  nv 8193   |r| 4.105e-08  B 2.030e-08  x2.02    ESTIMATE-SHORT
+      a=12.648555  nv 8193   |r| 1.253e-07  B 1.149e-07  x1.09    ESTIMATE-SHORT
+      a=12.844997  nv 8193   |r| 1.515e-07  B 1.419e-07  x1.07    ESTIMATE-SHORT
+    ### the eight cells from a = 13.637 : ['13.637 nv 8383 img 10078 VERIFIED', '13.820 nv 8426 img 10079 VERIFIED', '13.856 nv 8434 img 10078 VERIFIED', '13.892 nv 8442 img 10078 VERIFIED', '13.964 nv 8459 img 10078 VERIFIED', '14.036 nv 8475 img 10078 VERIFIED', '14.071 nv 8483 img 10078 VERIFIED', '14.107 nv 8492 img 10079 VERIFIED']
+    extremum a = 4.061553 : |r| 4.609e-08 B 1.184e-07 ### **VERIFIED**
+    extremum a = 5.196152 : |r| 4.069e-08 B 2.187e-07 ### **VERIFIED**
+    extremum a = 13.152946 : |r| 4.517e-08 B 1.132e-07 ### **VERIFIED**
+
+### COMPONENT 3 -- THE TAIL AND THE ATTRIBUTION, ON THE VERIFIED SET.
+--------------------------------------------------------------------------------------------------------
+    MIN  a=4.061553  m=+0.024337645
+    MAX  a=5.196152  m=+0.042289658
+    MIN  a=13.152946  m=+0.000690331
+    verified cells after 13.152946 : 12 ; ### **THE RISE STANDS : True**
+    (a) c        rms 1.312767e+00 over 109 verified cells
+    (b) c/a      rms 9.243114e-01 over 109 verified cells
+    (c) c/log a  rms 7.918777e-01 over 109 verified cells
+    (d) c/a^2    rms 4.668791e-01 over 109 verified cells
+    ### least residual : (d) c/a^2
+    m`s MIN at a=4.061553 : zero terms with an extremum within one cell : ### **['z4 30.4249']**
+    m`s MAX at a=5.196152 : zero terms with an extremum within one cell : ### **['z1 14.1347', 'z4 30.4249']**
+    m`s MIN at a=13.152946 : zero terms with an extremum within one cell : ### **['z1 14.1347', 'z4 30.4249']**
+
+### COMPONENT 4 -- THE EPSTEIN CONTROL, ONE TRANSFORM, TWO KERNELS.
+--------------------------------------------------------------------------------------------------------
+    Epstein bank : 146 on-line zeros to 149.718 + 2 off-line ; the grid rule on its T is met at every cell.
+    b325 kernel (CONTROL OF RECORD)    verified   0 of 119 ; |r| from 5.29e-01 to 9.38e+00 ; smallest margin +0.302326 at a = 14.106736 ; among verified, margin not above floor at 0
+      ### ### **NO CELL VERIFIES UNDER THIS KERNEL -- (N4) ON IT IS VACUOUS.**
+    b326 derived kernel (BESIDE)       verified   0 of 119 ; |r| from 4.49e-05 to 6.69e+00 ; smallest margin +0.831423 at a = 14.106736 ; among verified, margin not above floor at 0
+      ### ### **NO CELL VERIFIES UNDER THIS KERNEL -- (N4) ON IT IS VACUOUS.**
+========================================================================================================

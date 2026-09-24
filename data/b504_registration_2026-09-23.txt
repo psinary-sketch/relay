@@ -1,0 +1,158 @@
+====================================================================================================
+ACT b504 -- THE REGISTRATION FACE. ### THE CHAIN ON ONE TRANSFORM, ALL 119 CELLS RE-VERIFIED, AND THE
+### EPSTEIN CONTROL BROUGHT UNDER THE SAME RULE.
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT ALONE, UNDER
+### (R114)(3)**, and shuts at its close.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R114) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL.** ### One instrument, one transform:
+### the chain`s zero side, its archimedean term and its pole term all by the exact transform
+### (`b326_closure.hhat_exact`, and `mellin_exact` for the pole); the trapezoid transform is retired from
+### the chain and kept as a fixture. ### Verification counts the CONSISTENT residual; b503`s 86 of 119 is
+### the count of record and its 64 is not cited.
+### ### **THIS ACT CONFERS NO GRADE, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS, AS THE ORDER PUTS THEM -- COMPONENT (1) THROUGH COMPONENT (4).
+----------------------------------------------------------------------------------------------------
+### (1) THE CHAIN CONVERTED. ### Per cell, on the piecewise-linear `(v, w)` of
+###     `autocorrelation(mean_zero_variant(a), nv)`: `Z = 2 SUM hhat_exact(gamma)` over `carto_atlas.GAM`;
+###     `A = (1/2pi) trapezoid_u( hhat_exact(u) K(u) )` on the chain`s u-grid (UMAX 600, NU 12001) with
+###     `carto_atlas.kernel`; `P` from `mellin_exact` at `+-1/2`; `PR` by `b321_window.prime_sum` (exact on a
+###     piecewise-linear w); `m = A - PR`; residual `r = Z - (P - PR + A)`.
+###     ### ### **THE GRID RULE, (R114)(2):** `nv` is the SMALLEST value, not below the chain`s 8193, for
+###     which the image `2 pi (nv - 1) / L` lies above `T + 200 = 10077.78`; so every cell whose image at
+###     8193 is already above it keeps 8193, and the widest cells take a little more. ### **THE CEILING**
+###     is `nv = 16385` for the base grid, the value at which the bound`s top level reaches b501`s largest
+###     grid; a cell needing more is UNVERIFIED, reason IMAGE-ABOVE-CEILING. ### `nv` and the image printed
+###     per cell.
+###     ### ### **THE FIXTURE:** at three cells b503 verified on the consistent residual, all three keeping
+###     `nv = 8193` -- a = 4.061553, 5.196152, 10.392193 -- b503`s consistent residual reproduced to 1e-12
+###     absolute, printed. ### The price in seconds per cell at the largest `nv` used, printed.
+### (2) ALL 119 CELLS. ### m, A, PR, Z, P and the residual; ### **THE BOUND RECOMPUTED UNDER THE EXACT
+###     TRANSFORM BY b501`S RULE** -- Richardson over `nv`, `2 nv - 1`, `4 nv - 3` on `m`, plus A on the
+###     u-spacing halved and the u-range doubled, `B = E_v + E_u`; ### **VERIFIED IFF `|r| <= B`.** ### Every
+###     unverified cell listed with its kind: ESTIMATE-SHORT (`|r| <= 10 B`), IMAGE-ABOVE-CEILING, or OTHER
+###     with `r` and `B` printed. ### The three extrema 4.061553, 5.196152, 13.152946 and their status.
+### (3) THE TAIL AND THE ATTRIBUTION, AS b503 READ THEM, on the new verified set: the extrema of m; the four
+###     one-parameter fits by RMS absolute residual; the lowest five zeros` terms per cell and the
+###     remainder; for each extremum of m, the zero-terms with their own extremum within one cell, or NONE.
+### (4) THE EPSTEIN CONTROL, UNDER THE SAME TRANSFORM AND GRID RULE. ### Its zero side is b326`s own route,
+###     IMPORTED: `2 SUM hhat_exact` over the on-line library `b326_epstein_zeros.json` (146 zeros to
+###     149.72) plus the banked off-line zeros as their four complex terms by `b326_closure.ftilde`. ###
+###     Its finite channel is `b325_epstein.finite_channel`. ### Its grid rule uses ITS bank`s T (149.72),
+###     so the zeta rule`s `nv` already satisfies it at every cell.
+###     ### ### **TWO KERNELS, AND WHY.** ### b326 walked the Epstein kernel link and found b325`s
+###     `kernel_q` does NOT close the Epstein explicit formula -- residual +4.4 to +15.8 -- while its
+###     derived kernel `2 Re psi(1/2 + i u) - 2 log(2 pi / sqrt 23)` closes at the narrower cells. ### The
+###     Epstein control banked at b477 and re-run at b502 used b325`s kernel. ### So Component 4 runs BOTH,
+###     on the same `hhat_exact(u)`: ### **b325`s kernel AS THE CONTROL OF RECORD**, and ### **b326`s
+###     derived kernel BESIDE IT**, each with its margin `m_Q = A_Q - finite`, its consistent residual, its
+###     bound by the same rule, and its verified count; the smallest margin and where, per kernel.
+###     ### ### **IF NO CELL VERIFIES UNDER A KERNEL, (N4) ON THAT KERNEL IS SCORED VACUOUS**, in the same
+###     sentence as its verdict -- a statement over an empty set is not evidence.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** the minimal `nv` the rule needs at a = 5.656854
+### (5560), 13.152946 (8267) and 14.106736 (8492), from L alone; `b326_epstein_zeros.json` (146 on-line
+### zeros, 1.3089 to 149.718, and its off-line list, the first at 0.95326 + 16.290216 i);
+### `tools/b326_closure.py` -- `zero_sides`, `zero_sides_on`, `ftilde`; `tools/b326_windows.py` lines
+### 187-250 -- the kernels; and `b326_closure_run.txt`, whose rows mark b325`s kernel FAILS or BEYOND
+### CEILING where the derived kernel CLOSES. ### **NO TRANSFORM WAS EVALUATED BEFORE THE SEAL.**
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE, UNDER (R114)(3).
+----------------------------------------------------------------------------------------------------
+### Per cell, `hhat_exact` on the u-grid at three `nv` levels, on the two refined u-grids at the base,
+### and at the 10,000 zeta ordinates: about 25 s; the Epstein control reuses the same `hhat_exact(u)`
+### and adds its 146 ordinates and off-line terms. ### **ABOUT 50 MINUTES FOR THE 119**, plus the
+### kernels once. ### An estimate; the measured total is printed.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### (N1) ### **AT LEAST 110 OF 119 CELLS VERIFY ON THE CONSISTENT RESIDUAL.**
+### (N2) ### **ALL EIGHT CELLS FROM a = 13.637 VERIFY UNDER THE GRID RULE.**
+### (N3) ### **THE RISE AFTER a = 13.153 STANDS ON THE VERIFIED SET.**
+### (N4) ### **THE EPSTEIN MARGIN IS POSITIVE AND ABOVE ITS FLOOR AT EVERY VERIFIED CELL.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### (S1) ### **THE EIGHT CELLS FROM a = 13.637 VERIFY** -- with the image above T + 200 the lobe copy
+###      leaves the zero side, as it already lies outside the archimedean term`s u-range.
+### (S2) ### **UNDER b325`S KERNEL NO EPSTEIN CELL VERIFIES**, its residual of order one at every cell
+###      as b326 found; ### under the derived kernel the narrower cells verify.
+### (S3) ### **FEWER THAN 110 CELLS VERIFY**: the estimate-short cells of b503 remain short of b501`s
+###      rule under the new transform.
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) -> THIS
+### FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py` -> `banned_terms.py
+### --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py` (gates: 8)
+### -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-PRICE-ON-FACE`
+### `G-R114-ENTERED` `G-ONE-TRANSFORM` `G-FIXTURE-B503` `G-GRID-RULE` `G-CEILING-HONOURED`
+### `G-EVERY-CELL` `G-BOUND-EXACT` `G-VERIFY-CONSISTENT` `G-UNVERIFIED-KINDED` `G-EXTREMA-STATED`
+### `G-TAIL-VERIFIED-ONLY` `G-FITS-RESCORED` `G-FIVE-TERMS` `G-EXTREMA-MATCHED`
+### `G-EPSTEIN-ROUTE-B326` `G-EPSTEIN-TWO-KERNELS` `G-EPSTEIN-VERIFIED-COUNTED` `G-EPSTEIN-VACUOUS-SAID`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-SPAN-BY-TOOL` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b504_*` `relay/tools/b504_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b504_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b504_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b504_registration_2026-09-23.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b504_span*.json` `relay/data/b504_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b504.zip`
+###   (outside every repository) `relay/data/b504_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### **NO INSTRUMENT IS EDITED.** ### "Converted" means this act`s tool forms every channel by the exact
+### transform; `b321_window` and `carto_atlas` are not rewritten, and the chain`s next act imports this
+### act`s tool or its own successor.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs. ### No
+### zero is added beyond 9877.78. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and
+### nothing inside it. ### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is
+### unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN. ### K1, K2 and K3
+### are not started. ### **AND NO CELL OF THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 51ce430e4657102f7165ee0de74443f1599c3ee1fd35413463fa9fe09337c4c0
+### bytes locked : 12721
+### locked at (UTC) : 2026-09-24T00:43:32Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b504_registration_2026-09-23.txt`.**
+====================================================================================================
