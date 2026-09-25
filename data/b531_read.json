@@ -1,0 +1,142 @@
+{
+ "pin": "0e5233f011533d09e4799107394c216a915028a1",
+ "pin_tags": [
+  "v1.5"
+ ],
+ "head": "0256e9e1297fcf3bc6bd2a6b15d7c3d986a67164",
+ "files_identical": {
+  "Bridge/ConservationBridge.lean": true,
+  "Kernel/XiDef.lean": true,
+  "Kernel/Voice1.lean": true,
+  "Kernel/Integration.lean": true,
+  "Kernel/PoissonExhaustion.lean": true,
+  "AxiomCheck_v1_3.lean": true,
+  "DEPOSIT_v1_2_NOTES.md": true
+ },
+ "files_present_at_pin": {
+  "Bridge/ConservationBridge.lean": true,
+  "Kernel/XiDef.lean": true,
+  "Kernel/Voice1.lean": true,
+  "Kernel/Integration.lean": true,
+  "Kernel/PoissonExhaustion.lean": true,
+  "AxiomCheck_v1_3.lean": true,
+  "DEPOSIT_v1_2_NOTES.md": true
+ },
+ "decls": [
+  {
+   "file": "Bridge/ConservationBridge.lean",
+   "name": "ConservationHypothesis",
+   "kw": "def",
+   "head": "def ConservationHypothesis : Prop :=",
+   "whole": "def ConservationHypothesis : Prop :=\n  ∀ (σ : ℝ), is_xi_zero σ →\n  ∃ (p : Nat) (hp : Nat.Prime p),\n  (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ))",
+   "lines": 4,
+   "same_at_head": true
+  },
+  {
+   "file": "Bridge/ConservationBridge.lean",
+   "name": "riemann_hypothesis",
+   "kw": "theorem",
+   "head": "theorem riemann_hypothesis\n    (h_cons : ConservationHypothesis) : RiemannHypothesis :=",
+   "whole": "theorem riemann_hypothesis\n    (h_cons : ConservationHypothesis) : RiemannHypothesis :=\n  rh_from_structural_exhaustiveness (structural_exhaustiveness_proved h_cons)",
+   "lines": 3,
+   "same_at_head": true
+  },
+  {
+   "file": "Bridge/ConservationBridge.lean",
+   "name": "structural_exhaustiveness_proved",
+   "kw": "theorem",
+   "head": "theorem structural_exhaustiveness_proved\n    (h_cons : ConservationHypothesis) : StructuralExhaustiveness :=",
+   "whole": "theorem structural_exhaustiveness_proved\n    (h_cons : ConservationHypothesis) : StructuralExhaustiveness := by\n  intro σ h_zero\n  obtain ⟨p, hp, hbal⟩ := conservation_activates_balance h_cons σ h_zero\n  exact (balance_theorem p hp σ).mp hbal",
+   "lines": 5,
+   "same_at_head": true
+  },
+  {
+   "file": "Bridge/ConservationBridge.lean",
+   "name": "conservation_activates_balance",
+   "kw": "theorem",
+   "head": "theorem conservation_activates_balance\n    (h_cons : ConservationHypothesis) (σ : ℝ) (h : is_xi_zero σ) :\n    ∃ (p : Nat) (hp : Nat.Prime p),\n    (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ)) :=",
+   "whole": "theorem conservation_activates_balance\n    (h_cons : ConservationHypothesis) (σ : ℝ) (h : is_xi_zero σ) :\n    ∃ (p : Nat) (hp : Nat.Prime p),\n    (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ)) :=\n  h_cons σ h",
+   "lines": 5,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/XiDef.lean",
+   "name": "is_xi_zero",
+   "kw": "def",
+   "head": "def is_xi_zero (sigma : Real) : Prop :=",
+   "whole": "def is_xi_zero (sigma : Real) : Prop :=\n  Exists (fun t : Real =>\n    riemannZeta (⟨sigma, t⟩ : ℂ) = 0 /\\\n    (Not (Exists (fun n : Nat => (⟨sigma, t⟩ : ℂ) = -2 * (↑n + 1)))) /\\\n    (⟨sigma, t⟩ : ℂ) ≠ 1)",
+   "lines": 5,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/XiDef.lean",
+   "name": "rh_implies_mathlib_rh",
+   "kw": "theorem",
+   "head": "theorem rh_implies_mathlib_rh\n    (our_rh : forall sigma : Real, Not (OffLineZero sigma)) :\n    RiemannHypothesis :=",
+   "whole": "theorem rh_implies_mathlib_rh\n    (our_rh : forall sigma : Real, Not (OffLineZero sigma)) :\n    RiemannHypothesis := by\n  intro s h_zero h_not_trivial h_ne_one\n  by_contra h_re\n  have h_re' : Not (s.re = 1 / 2) := h_re\n  have := our_rh s.re\n  apply this\n  constructor\n  . -- is_xi_zero s.re\n    unfold is_xi_zero\n    exact ⟨s.im, by rwa [Complex.eta s], h_not_trivial, h_ne_one⟩\n  . -- s.re ≠ 1/2\n    exact h_re'",
+   "lines": 14,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/Voice1.lean",
+   "name": "prime_as_real",
+   "kw": "def",
+   "head": "def prime_as_real (p : Nat) (_ : Nat.Prime p) : Real :=",
+   "whole": "def prime_as_real (p : Nat) (_ : Nat.Prime p) : Real := (p : Real)",
+   "lines": 1,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/Voice1.lean",
+   "name": "balance_theorem",
+   "kw": "theorem",
+   "head": "theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :\n    (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s))\n    <-> s = 1 / 2 :=",
+   "whole": "theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :\n    (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s))\n    <-> s = 1 / 2 := by\n  constructor\n  . intro h_eq\n    have hp_gt_one := prime_gt_one hp\n    have inj := rpow_injective hp_gt_one\n    have h_exp_eq : -s = -(1 - s) := inj h_eq\n    linarith\n  . intro h_sigma\n    rw [h_sigma]\n    ring_nf",
+   "lines": 12,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/Integration.lean",
+   "name": "StructuralExhaustiveness",
+   "kw": "def",
+   "head": "def StructuralExhaustiveness : Prop :=",
+   "whole": "def StructuralExhaustiveness : Prop :=\n  ∀ (sigma : Real), is_xi_zero sigma → sigma = 1 / 2",
+   "lines": 2,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/Integration.lean",
+   "name": "rh_from_structural_exhaustiveness",
+   "kw": "theorem",
+   "head": "theorem rh_from_structural_exhaustiveness\n    (h : StructuralExhaustiveness) :\n    RiemannHypothesis :=",
+   "whole": "theorem rh_from_structural_exhaustiveness\n    (h : StructuralExhaustiveness) :\n    RiemannHypothesis := by\n  -- Bridge to Mathlib's RiemannHypothesis via XiDef\n  exact rh_implies_mathlib_rh (fun sigma h_off => by\n    -- h_off : BalanceContradiction sigma\n    -- h_off.1 : is_xi_zero sigma\n    -- h_off.2 : ¬(sigma = 1/2)\n    exact h_off.2 (h sigma h_off.1))",
+   "lines": 9,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/Integration.lean",
+   "name": "structural_exhaustiveness_from_rh",
+   "kw": "theorem",
+   "head": "theorem structural_exhaustiveness_from_rh\n    (h : RiemannHypothesis) :\n    StructuralExhaustiveness :=",
+   "whole": "theorem structural_exhaustiveness_from_rh\n    (h : RiemannHypothesis) :\n    StructuralExhaustiveness := by\n  intro sigma h_zero\n  unfold is_xi_zero at h_zero\n  obtain ⟨t, h_zeta_zero, h_not_trivial, h_ne_one⟩ := h_zero\n  exact h ⟨sigma, t⟩ h_zeta_zero h_not_trivial h_ne_one",
+   "lines": 7,
+   "same_at_head": true
+  },
+  {
+   "file": "Kernel/Integration.lean",
+   "name": "structural_exhaustiveness_iff_rh",
+   "kw": "theorem",
+   "head": "theorem structural_exhaustiveness_iff_rh :\n    StructuralExhaustiveness ↔ RiemannHypothesis :=",
+   "whole": "theorem structural_exhaustiveness_iff_rh :\n    StructuralExhaustiveness ↔ RiemannHypothesis :=\n  ⟨rh_from_structural_exhaustiveness, structural_exhaustiveness_from_rh⟩",
+   "lines": 3,
+   "same_at_head": true
+  }
+ ],
+ "banked_profiles": [
+  "'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'techne_kernel_integration.rh_from_structural_exhaustiveness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'techne_kernel_integration.structural_exhaustiveness_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ ],
+ "banked_profiles_source": "DEPOSIT_v1_2_NOTES.md at 0e5233f (recorded at v1.2 = b1407b2, before W-7 changed the premise at v1.3)",
+ "riemann_hypothesis_std3_banked": true
+}

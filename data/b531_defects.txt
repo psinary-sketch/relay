@@ -1,0 +1,5 @@
+    (a) ### **THE PROBE'S NAME SET MISSED ITS OWN IMPORT.** The probe imported `RestBound`, so `rh_imp_h2_sign` and
+        `h2_sign_imp_rh` (in `RHChain.lean`, not in that closure) came back unknown; both were then read in the source
+        (lines 24 and 83) and in b513's banked profile. A probe proves a name only inside the closure it imports.
+    (b) ### **COMPONENT 1'S PROFILES ARE BANKED, NOT PRINTED**: at v1.2, before W-7 changed the premise; a v1.5 print needs a
+        detached checkout and a build, which a read does not take. Declared on the face.

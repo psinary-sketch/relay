@@ -1,0 +1,40 @@
+### b531 PRE-SEAL PROBE (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.RestBound
+
+open Complex
+
+-- names a port of Route 3 into this kernel would cite
+#check @Real.rpow_lt_rpow_left_iff
+#check @Real.rpow_right_injective
+#check @Nat.Prime.one_lt
+#check @Nat.prime_two
+#check @Complex.eta
+#check @RiemannHypothesis
+#check @Zeta23.zetaZeroConfig_carrier
+#check @Zeta23.IsNontrivialZero
+#check @Zeta23.RH_implies_on_line
+#check @SIDEExplicitFormula.B321.rh_imp_h2_sign
+#check @SIDEExplicitFormula.B321.h2_sign
+#check @SIDEExplicitFormula.B321.h2_sign_imp_rh
+
+-- STATABILITY: the premise in this kernel's objects, elaborated as Props (no proof)
+-- (i) verbatim, SIDE-kernel's is_xi_zero and prime_as_real unfolded to Mathlib's objects
+example : Prop :=
+  ∀ σ : ℝ, (∃ t : ℝ, riemannZeta (⟨σ, t⟩ : ℂ) = 0 ∧ ¬ (∃ n : ℕ, (⟨σ, t⟩ : ℂ) = -2 * ((n : ℂ) + 1)) ∧ (⟨σ, t⟩ : ℂ) ≠ 1) →
+    ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-σ) = (p : ℝ) ^ (-(1 - σ))
+-- (ii) over the kernel's zero configuration
+example : Prop :=
+  ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ∃ p : ℕ, ∃ _ : Nat.Prime p, (p : ℝ) ^ (-ρ.re) = (p : ℝ) ^ (-(1 - ρ.re))
+### output
+@Real.rpow_lt_rpow_left_iff : ∀ {x y z : ℝ}, 1 < x → (x ^ y < x ^ z ↔ y < z)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b531/Probe.lean:7:8: error(lean.unknownIdentifier): Unknown constant `Real.rpow_right_injective`
+@Nat.Prime.one_lt : ∀ {p : ℕ}, Nat.Prime p → 1 < p
+Nat.prime_two : Nat.Prime 2
+eta : ∀ (z : ℂ), { re := z.re, im := z.im } = z
+RiemannHypothesis : Prop
+Zeta23.zetaZeroConfig_carrier : Zeta23.zetaZeroConfig.carrier = {ρ | Zeta23.IsNontrivialZero ρ}
+Zeta23.IsNontrivialZero : ℂ → Prop
+Zeta23.RH_implies_on_line : RiemannHypothesis → ∀ {ρ : ℂ}, Zeta23.IsNontrivialZero ρ → ρ.re = 1 / 2
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b531/Probe.lean:15:8: error(lean.unknownIdentifier): Unknown identifier `SIDEExplicitFormula.B321.rh_imp_h2_sign`
+SIDEExplicitFormula.B321.h2_sign : Prop
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b531/Probe.lean:17:8: error(lean.unknownIdentifier): Unknown identifier `SIDEExplicitFormula.B321.h2_sign_imp_rh`
