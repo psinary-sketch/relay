@@ -1,0 +1,90 @@
+{
+ "head": "81ae1758f28e280f4e924e8acd76b4b76ae4ac9d",
+ "exit": 0,
+ "seconds": 21.5,
+ "rows": [
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+   "module": "SIDEExplicitFormula/Seam.lean",
+   "pin": "v0.2 = 5c72cad (identical at 81ae175)",
+   "fresh": "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b536_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.ch_iff_rh",
+   "module": "SIDEExplicitFormula/H2Bridge.lean",
+   "pin": "81ae175 (identical at v0.2)",
+   "fresh": "'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b532_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.not_register1",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ), s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ), 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ SIDEExplicitFormula.B321.rh_strip"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.register5_output_holds",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.b321_identity",
+   "module": "SIDEExplicitFormula/B321Identity.lean",
+   "pin": "81ae175 (identical at v0.2)",
+   "fresh": "'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b510_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ), ContDiff ℝ 2 k → HasCompactSupport k → (∀ (x : ℝ), k (-x) = k x) → SIDEExplicitFormula.B321.zeroSide k = SIDEExplicitFormula.B321.b321Norm * (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k)"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.not_f4_needs",
+   "module": "SIDEExplicitFormula/RestBound.lean",
+   "pin": "81ae175 (identical at v0.2)",
+   "fresh": "'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b530_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "@SIDEExplicitFormula.B321.not_f4_needs : ∀ {δ : ℝ}, δ < 1 / 2 → ¬SIDEExplicitFormula.B321.f4_needs δ"
+  }
+ ],
+ "diffs": [],
+ "sorry": false,
+ "r3": "R3 UNDECIDED -- the census row (FINDINGS.md:4787), no theorem decides it"
+}

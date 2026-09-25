@@ -1,0 +1,136 @@
+{
+ "file": "phase1.5\\proofs\\THE_UNCONDITIONAL_SURROUND.md",
+ "before": 35378,
+ "added": 5183,
+ "prefix": true,
+ "rows": [
+  {
+   "line": 175,
+   "claim": "`covers_all` — the one open node (§6)",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal": "`techne_kernel.ExhaustiveCatalogue.covers_all` (structure field, `Kernel/Layer1.lean`)",
+   "tier": "T4",
+   "rests": "covers_all"
+  },
+  {
+   "line": 176,
+   "claim": "The SIDE exclusion principle — catalogue + no-producer ⟹ excluded (§7)",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal": "`techne_kernel.SIDE_exclusion`",
+   "tier": "T2",
+   "rests": "covers_all"
+  },
+  {
+   "line": 177,
+   "claim": "Joint-to-single — the closure step (§6)",
+   "kernel": "SIDE-lv-conservation v0.2.0",
+   "terminal": "`SIDELvConservation.T3.T3_perClass_to_combinations` (pin); `SIDELvConservation.T3.T3doubleprime_general_commutation_fails` (countermodel); `SIDELvConservation.T",
+   "tier": "T4",
+   "rests": "covers_all"
+  },
+  {
+   "line": 178,
+   "claim": "§2 Conservation of Spectra seals the system",
+   "kernel": "SIDE-kernel v1.2 · SIDE-lv-conservation v0.2.0",
+   "terminal": "`ProductFormula.conservation_of_spectra`; `SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin`; `SIDELvConservation.T2b_mellin_exhaustion`",
+   "tier": "T2",
+   "rests": ""
+  },
+  {
+   "line": 179,
+   "claim": "§4 The voice identifications of σ = ½ — five voices force it; C₇ is σ-neutral",
+   "kernel": "SIDE-kernel v1.2 (+ checkpoint kernels)",
+   "terminal": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `techne_kernel_voice3.reflect_fixed_iff` (C₃)",
+   "tier": "T2",
+   "rests": ""
+  },
+  {
+   "line": 180,
+   "claim": "§3 Formation count 2 + 3 + 2 + 0 = 7",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal": "`SIDEKernel.formation`",
+   "tier": "T2",
+   "rests": ""
+  },
+  {
+   "line": 181,
+   "claim": "§3 n₃ = 2 (entire-function scales)",
+   "kernel": "SIDE-kernel v1.2",
+   "terminal": "`CartanBridge.formation_n_3_eq_two` (via `CartanBridge.output_stage_card`)",
+   "tier": "T2",
+   "rests": ""
+  },
+  {
+   "line": 182,
+   "claim": "§6a computational claims — \\",
+   "kernel": "ζ′(ρ)\\",
+   "terminal": "/√γ ≈ 0.251, Lehmer close pairs",
+   "tier": "T4",
+   "rests": ""
+  },
+  {
+   "line": 183,
+   "claim": "The reduction RH ⟺ `covers_all`, and its discharge",
+   "kernel": "(none)",
+   "terminal": "—",
+   "tier": "T4",
+   "rests": "covers_all"
+  },
+  {
+   "line": 184,
+   "claim": "The surround is settled — kernel witness (§0, §6)",
+   "kernel": "SIDE-lv-conservation v0.6.0 = `c80bdc2`",
+   "terminal": "`SIDELvConservation.h1_complete_at_Phi`",
+   "tier": "T2",
+   "rests": "lv`s h2"
+  },
+  {
+   "line": 185,
+   "claim": "The \"one premise in five registers\" structure (§4, §6)",
+   "kernel": "SIDE-lv-conservation v0.7.0 = `2d86182`",
+   "terminal": "`SIDELvConservation.RegisterPentagon.goalState_of_h1_h2` (the goal-state theorem inside the pentagon namespace)",
+   "tier": "T2",
+   "rests": "lv`s h2"
+  },
+  {
+   "line": 186,
+   "claim": "R4 positivity face — on-line-term nonnegativity (§6)",
+   "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+   "terminal": "`PartialPositivity.blTerm_nonneg_of_onLine`",
+   "tier": "T0",
+   "rests": ""
+  },
+  {
+   "line": 187,
+   "claim": "R4 positivity face — finite-range Li positivity (§6)",
+   "kernel": "SIDE-lv-conservation v0.8.0 = `6efa9e5`",
+   "terminal": "`PartialPositivity.partialPositivity_finiteRange`",
+   "tier": "T4",
+   "rests": ""
+  },
+  {
+   "line": 188,
+   "claim": "GRH transport — completed Dirichlet-L order-input (§6)",
+   "kernel": "SIDE-lv-conservation v0.5.0 = `1767bd6`",
+   "terminal": "`SIDELvConservation.exists_norm_completedLFunction_le_exp`",
+   "tier": "T0",
+   "rests": ""
+  },
+  {
+   "line": 189,
+   "claim": "Voice 7 (C₇) compiled negative — maximal-type growth excluded (§4)",
+   "kernel": "SIDE-lv-conservation v0.5.1 = `bc4751e`",
+   "terminal": "`SIDELvConservation.C7_finite_type_false`",
+   "tier": "T0",
+   "rests": ""
+  }
+ ],
+ "counts": {
+  "T0": 3,
+  "T1": 0,
+  "T2": 7,
+  "T3": 0,
+  "T4": 5
+ },
+ "heading_line": 211
+}

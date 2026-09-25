@@ -1,0 +1,54 @@
+$ lake env lean C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad\b539_anchor_check.lean  (cwd SIDE-explicit-formula at 81ae1758f28e280f4e924e8acd76b4b76ae4ac9d)
+exit 0 ; 21.5 s
+--- source ---
+import SIDEExplicitFormula.RegisterDepth
+
+#print axioms SIDEExplicitFormula.B321.h2_sign_iff_rh
+#print axioms SIDEExplicitFormula.B321.ch_iff_rh
+#print axioms SIDEExplicitFormula.RegisterDepth.not_register1
+#print axioms SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one
+#print axioms SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff
+#print axioms SIDEExplicitFormula.RegisterDepth.register5_output_holds
+#print axioms SIDEExplicitFormula.B321.b321_identity
+#print axioms SIDEExplicitFormula.B321.not_f4_needs
+
+#check @SIDEExplicitFormula.B321.h2_sign_iff_rh
+#check @SIDEExplicitFormula.B321.ch_iff_rh
+#check @SIDEExplicitFormula.RegisterDepth.not_register1
+#check @SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one
+#check @SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff
+#check @SIDEExplicitFormula.RegisterDepth.register5_output_holds
+#check @SIDEExplicitFormula.B321.b321_identity
+#check @SIDEExplicitFormula.B321.not_f4_needs
+--- stdout ---
+'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms
+'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ),
+  s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ),
+    0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔
+  SIDEExplicitFormula.B321.rh_strip
+SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ),
+  ContDiff ℝ 2 k →
+    HasCompactSupport k →
+      (∀ (x : ℝ), k (-x) = k x) →
+        SIDEExplicitFormula.B321.zeroSide k =
+          SIDEExplicitFormula.B321.b321Norm *
+            (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k +
+              SIDEExplicitFormula.B321.archTerm k)
+@SIDEExplicitFormula.B321.not_f4_needs : ∀ {δ : ℝ}, δ < 1 / 2 → ¬SIDEExplicitFormula.B321.f4_needs δ
+
+--- stderr ---
+

@@ -1,0 +1,257 @@
+{
+ "ranked": [
+  {
+   "line": 24,
+   "rank": "1",
+   "terminal": "h1_complete_at_Phi",
+   "cell": "`h1_complete_at_Phi` (the surround; goal ⇐ h1 ∧ h2, only h2 open)",
+   "pin": "lv v0.6.0 `c80bdc2`",
+   "grade": "DERIVES",
+   "citing": "SURR · SIMP · RCURVE · PATHS · DOM · BALPOS — **6**",
+   "tier": "T0",
+   "reason": "DERIVES at lv v0.6.0 `c80bdc2`; its statement (the eight couplings at `Phi`) unfolds to facts about Mathlib`s `evenKernel` and `mellin`, no premise; T0 by criterion, NOT in (R149)(1)`s list. The map`s claim cell \"only h2 open\" is T2: it rests on lv`s h2, FALSE-AS-STATED at re s ≤ 1",
+   "profile": "lv v0.6.0 `CouplingsAtPhi.lean:417` docstring; SURR Correspondence `:184`"
+  },
+  {
+   "line": 25,
+   "rank": "1",
+   "terminal": "RegisterPentagon",
+   "cell": "`RegisterPentagon` (+ R1–R5 faces)",
+   "pin": "v0.7.0 `2d86182`",
+   "grade": "STRUCTURE (R3 edge NOT-COMPILED)",
+   "citing": "SIMP · SURR · PATHS · DOM · IFACE · BALPOS — **6**",
+   "tier": "T2",
+   "reason": "STRUCTURE at lv v0.7.0 `2d86182`; its faces include R1 FALSE-AS-STATED, R5-output TRUE-AS-STATED and `goalState_sevenClasses_of_h2`, vacuous on the strip (b538)",
+   "profile": "SURR Correspondence `:185`"
+  },
+  {
+   "line": 26,
+   "rank": "1",
+   "terminal": "conservation_of_spectra",
+   "cell": "`conservation_of_spectra` (n₄=0, κ=1)",
+   "pin": "kernel v1.2 `b1407b2`",
+   "grade": "DERIVES",
+   "citing": "FOUND · SURR · PATHS · IFACE · SIMP · MONO — **6**",
+   "tier": "T2",
+   "reason": "DERIVES of `∀ s : ℤ, (1 : ℚ) ^ s = 1` (`one_zpow`) at SIDE-kernel v1.2 -- a STIPULATION: the conservation reading is carried by the namespace (SURR Correspondence `:178`)",
+   "profile": "SURR Correspondence `:178`"
+  },
+  {
+   "line": 27,
+   "rank": "4",
+   "terminal": "SIDEKernel.formation",
+   "cell": "`SIDEKernel.formation` (2+3+2+0=7)",
+   "pin": "v1.2",
+   "grade": "DERIVES (axiom-free)",
+   "citing": "MONO · SIMP · SURR · PATHS — **4**",
+   "tier": "T2",
+   "reason": "`2 + 3 + 2 + 0 = 7` by `decide` at SIDE-kernel v1.2 `Kernel/Core.lean:53` -- arithmetic alone; the classification is carried by the identifier",
+   "profile": "SURR Correspondence `:180` (axiom-free)"
+  },
+  {
+   "line": 28,
+   "rank": "4",
+   "terminal": "C7_finite_type_false",
+   "cell": "`C7_finite_type_false` (compiled negative)",
+   "pin": "v0.5.1 `bc4751e`",
+   "grade": "DERIVES",
+   "citing": "SIMP · SURR · RCURVE · PATHS — **4**",
+   "tier": "T0",
+   "reason": "DERIVES at lv v0.5.1 `bc4751e`: `¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C * exp (A * ‖s‖)` -- Mathlib`s object, no premise; T0 by criterion, NOT in (R149)(1)`s list",
+   "profile": "SURR Correspondence `:189`"
+  },
+  {
+   "line": 29,
+   "rank": "4",
+   "terminal": "partialPositivity_finiteRange",
+   "cell": "`partialPositivity_finiteRange`",
+   "pin": "v0.8.0 `6efa9e5`",
+   "grade": "INTERFACES (3 named: VerifiedZerosTo · ExplicitFormulaDecomp · TailBound)",
+   "citing": "SIMP · SURR · RCURVE · PATHS — **4**",
+   "tier": "T4",
+   "reason": "INTERFACES at lv v0.8.0 `6efa9e5` on `VerifiedZerosTo T` (numerical), `ExplicitFormulaDecomp` and `TailBoundPremise` (classical, Mathlib-absent, not compiled); none is T0 or h2_sign, so the weakest link is a premise with no terminal (T1 if the author counts named classical premises as \"named and open\")",
+   "profile": "SURR Correspondence `:187`"
+  },
+  {
+   "line": 30,
+   "rank": "4",
+   "terminal": "blTerm_nonneg_of_onLine",
+   "cell": "`blTerm_nonneg_of_onLine` (on-line positivity)",
+   "pin": "v0.8.0 `6efa9e5`",
+   "grade": "DERIVES",
+   "citing": "SURR · RCURVE · PATHS · SIMP — **4**",
+   "tier": "T0",
+   "reason": "DERIVES at lv v0.8.0 `6efa9e5`: for a zero of Mathlib`s `riemannZeta` with re = 1/2, `0 ≤ (1 - (1 - 1/ρ)^n).re` -- Mathlib`s objects, no premise; T0 by criterion, NOT in (R149)(1)`s list",
+   "profile": "SURR Correspondence `:186`"
+  },
+  {
+   "line": 31,
+   "rank": "4",
+   "terminal": "type_I_has_ostrowski",
+   "cell": "`type_I_has_ostrowski` (Mechanism Theorem)",
+   "pin": "v1.2/v1.4",
+   "grade": "DERIVES (exhaustiveness decorative)",
+   "citing": "GRH · FOUND · ENGINE · IFACE — **4**",
+   "tier": "T2",
+   "reason": "DERIVES at SIDE-kernel v1.2 `MetaKernel.lean:145`: modus tollens over an abstract `Domain` whose `Fintype` is unused -- logic alone (\"exhaustiveness decorative\", the map`s own cell)",
+   "profile": "VERIFICATION_LOOM-archive-1 `:60`"
+  },
+  {
+   "line": 32,
+   "rank": "9",
+   "terminal": "silence_universal",
+   "cell": "`silence_universal`",
+   "pin": "v1.2",
+   "grade": "INTERFACES (`I.is_universal`)",
+   "citing": "GRH · FOUND · MONO · DOM — **3–4**",
+   "tier": "T2",
+   "reason": "INTERFACES on `I.is_universal` at SIDE-kernel v1.2: an abstract lemma about programme structures; its universal form, R1, is FALSE-AS-STATED (`not_register1`, b538)",
+   "profile": "VERIFICATION_LOOM-archive-1 `:413` (axiom-free)"
+  },
+  {
+   "line": 33,
+   "rank": "9",
+   "terminal": "spectral_cannon",
+   "cell": "`spectral_cannon` (Route 2, sub-RH ∀t)",
+   "pin": "v1.2/v1.5",
+   "grade": "DERIVES",
+   "citing": "MONO · SIMP · PATHS — **3**",
+   "tier": "T0",
+   "reason": "DERIVES at SIDE-kernel v1.2: `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` -- stated against Mathlib`s `completedRiemannZeta₀`, not a ξ (Mathlib has none); T0 by criterion, NOT in (R149)(1)`s list; its Route-2 reading as ξ is carried by the identifier",
+   "profile": "VERIFICATION_LOOM-archive-1 `:1018`"
+  },
+  {
+   "line": 34,
+   "rank": "9",
+   "terminal": "ξ / Dirichlet order-≤1 inputs",
+   "cell": "ξ / Dirichlet order-≤1 inputs",
+   "pin": "v0.4.0 `0d2d74c` / v0.5.0 `1767bd6`",
+   "grade": "DERIVES",
+   "citing": "SIMP · SURR · RCURVE — **3**",
+   "tier": "T0",
+   "reason": "DERIVES at lv v0.4.0 / v0.5.0: growth bounds on Mathlib`s `completedRiemannZeta₀` (`exists_norm_completedRiemannZeta₀_le_exp`) and `completedLFunction` (`exists_norm_completedLFunction_le_exp`), no premise but `χ ≠ 1`; T0 by criterion, NOT in (R149)(1)`s list",
+   "profile": "SURR Correspondence `:188`"
+  },
+  {
+   "line": 35,
+   "rank": "—",
+   "terminal": "ConservationBridge.riemann_hypothesis",
+   "cell": "`ConservationBridge.riemann_hypothesis` (Route 3)",
+   "pin": "kernel v1.3 `0bc21c0` (carried v1.5)",
+   "grade": "INTERFACES on `ConservationHypothesis`",
+   "citing": "MONO · PATHS — the pivot of the h2 story",
+   "tier": "T2",
+   "reason": "INTERFACES on `ConservationHypothesis` at SIDE-kernel v1.3/v1.5: that premise is RH restated (`ch_iff_rh`, b531-b532), so the terminal is ENCODES-CONCLUSION",
+   "profile": "relay `data/b532_profile_log.txt`"
+  }
+ ],
+ "extra": [
+  {
+   "terminal": "h2_sign_iff_rh",
+   "pin": "SIDE-explicit-formula v0.2 = `5c72cad`",
+   "tier": "T0",
+   "reason": "the anchor tier; fresh line equal to its bank (component 1)"
+  },
+  {
+   "terminal": "goalState_sevenClasses_of_h2",
+   "pin": "lv v0.10.0 `RegisterPentagon.lean:215`",
+   "tier": "T2",
+   "reason": "vacuous on the strip: its hypothesis `mellin Phi (s / 2) ≠ 0` is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`)"
+  },
+  {
+   "terminal": "structural_exhaustiveness_proved",
+   "pin": "SIDE-kernel v1.5 `0e5233f`",
+   "tier": "T2",
+   "reason": "its catalogue conjunct is `Fintype.card MechanismClass = 7` by `decide` (E-2026-09-14-1) and C₇ is a disclosed stand-in (PATHS §ANNEX A `:320`); THE_KEYSTONE_CENSUS carries no C7 line (grep, 0 hits)"
+  }
+ ],
+ "counts": {
+  "T0": 5,
+  "T1": 0,
+  "T2": 6,
+  "T3": 0,
+  "T4": 1
+ },
+ "anchors": [
+  {
+   "name": "SIDEExplicitFormula.B321.h2_sign_iff_rh",
+   "module": "SIDEExplicitFormula/Seam.lean",
+   "pin": "v0.2 = 5c72cad (identical at 81ae175)",
+   "fresh": "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b536_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.ch_iff_rh",
+   "module": "SIDEExplicitFormula/H2Bridge.lean",
+   "pin": "81ae175 (identical at v0.2)",
+   "fresh": "'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b532_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.not_register1",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ), s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ), 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ SIDEExplicitFormula.B321.rh_strip"
+  },
+  {
+   "name": "SIDEExplicitFormula.RegisterDepth.register5_output_holds",
+   "module": "SIDEExplicitFormula/RegisterDepth.lean",
+   "pin": "81ae175",
+   "fresh": "'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b538_profile_log2.txt",
+   "banked": "'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.b321_identity",
+   "module": "SIDEExplicitFormula/B321Identity.lean",
+   "pin": "81ae175 (identical at v0.2)",
+   "fresh": "'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b510_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ), ContDiff ℝ 2 k → HasCompactSupport k → (∀ (x : ℝ), k (-x) = k x) → SIDEExplicitFormula.B321.zeroSide k = SIDEExplicitFormula.B321.b321Norm * (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k)"
+  },
+  {
+   "name": "SIDEExplicitFormula.B321.not_f4_needs",
+   "module": "SIDEExplicitFormula/RestBound.lean",
+   "pin": "81ae175 (identical at v0.2)",
+   "fresh": "'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "bank": "b530_profile_log.txt",
+   "banked": "'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "equal": true,
+   "check": "@SIDEExplicitFormula.B321.not_f4_needs : ∀ {δ : ℝ}, δ < 1 / 2 → ¬SIDEExplicitFormula.B321.f4_needs δ"
+  }
+ ]
+}

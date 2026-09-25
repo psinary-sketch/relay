@@ -1,0 +1,73 @@
+====================================================================================================================================
+b539 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### READING (1) -- THE PURPOSE STATEMENTS:
+  phase1.5/method/THE_LOAD_BEARING_MAP.md:8
+    **PURPOSE:** *the union of the keystones’ correspondence tables — which terminal backs which claim across the corpus; for a reader tracing a claim to its machine-checked witness.* — *### added 2026-08-26 (b189) from this document’s own content.*
+  
+  phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md:23
+    **Role.** This record *presents* one facet of the proof — the **unconditional-surround reduction** — whose complete form is the monograph *A Place To Stand* (concept DOI 10.5281/zenodo.19675355). It is not the proof; it isolates the proof's single open node and proves everything around it.
+  
+  phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md:25
+    This is a reduction, in the sense that Lagarias's positivity criterion, the Weil explicit-formula criterion, and Riemann's own reformulations are reductions: it carries the Riemann Hypothesis to a single equivalent statement and proves everything around that statement. It does not claim the Hypothesis. It claims something exact and smaller — that the entire structure surrounding the zeros of ξ is settled unconditionally, and that what remains is one premise, named, typed, and necessary.
+
+### COMPONENT 1 -- THE ANCHOR TIER, FRESH at SIDE-explicit-formula 81ae1758f28e (exit 0, 21.5 s):
+  SIDEExplicitFormula.B321.h2_sign_iff_rh -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+  SIDEExplicitFormula.B321.ch_iff_rh -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.B321.ch_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+  SIDEExplicitFormula.RegisterDepth.not_register1 -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.RegisterDepth.not_register1' does not depend on any axioms
+      #check SIDEExplicitFormula.RegisterDepth.not_register1 : ¬SIDEExplicitFormula.RegisterDepth.Register1_universalityHypothesis
+  SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check SIDEExplicitFormula.RegisterDepth.mellin_Phi_eq_zero_of_re_le_one : ∀ (s : ℂ), s.re ≤ 1 → mellin SIDEExplicitFormula.RegisterDepth.Phi (s / 2) = 0
+  SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check SIDEExplicitFormula.RegisterDepth.lvh2_corrected_iff : (∀ (s : ℂ), 0 < s.re → s.re < 1 → s.re ≠ 1 / 2 → completedRiemannZeta s ≠ 0) ↔ SIDEExplicitFormula.B321.rh_strip
+  SIDEExplicitFormula.RegisterDepth.register5_output_holds -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.RegisterDepth.register5_output_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check SIDEExplicitFormula.RegisterDepth.register5_output_holds : SIDEExplicitFormula.RegisterDepth.Register5_output_HilbertPolya
+  SIDEExplicitFormula.B321.b321_identity -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.B321.b321_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check SIDEExplicitFormula.B321.b321_identity : ∀ (k : ℝ → ℂ), ContDiff ℝ 2 k → HasCompactSupport k → (∀ (x : ℝ), k (-x) = k x) → SIDEExplicitFormula.B321.zeroSide k = SIDEExplicitFormula.B321.b321Norm * (SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k)
+  SIDEExplicitFormula.B321.not_f4_needs -- EQUAL TO ITS BANK -- 'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]
+      #check @SIDEExplicitFormula.B321.not_f4_needs : ∀ {δ : ℝ}, δ < 1 / 2 → ¬SIDEExplicitFormula.B321.f4_needs δ
+  R3 UNDECIDED -- the census row (FINDINGS.md:4787), no theorem decides it
+
+### COMPONENT 2 -- THE RANKED LIST, TIERED (map appendix at line 81):
+  1    h1_complete_at_Phi                       T0 -- DERIVES at lv v0.6.0 `c80bdc2`; its statement (the eight couplings at `Phi`) unfolds to facts about Mathlib`s `evenKernel` and `mellin`, no premise; T0 by criterion, NOT in (R149)(1)`s list. The map`s claim cell "only h2 open" is T2: it rests on lv`s h2, FALSE-AS-STATED at re s ≤ 1
+  1    RegisterPentagon                         T2 -- STRUCTURE at lv v0.7.0 `2d86182`; its faces include R1 FALSE-AS-STATED, R5-output TRUE-AS-STATED and `goalState_sevenClasses_of_h2`, vacuous on the strip (b538)
+  1    conservation_of_spectra                  T2 -- DERIVES of `∀ s : ℤ, (1 : ℚ) ^ s = 1` (`one_zpow`) at SIDE-kernel v1.2 -- a STIPULATION: the conservation reading is carried by the namespace (SURR Correspondence `:178`)
+  4    SIDEKernel.formation                     T2 -- `2 + 3 + 2 + 0 = 7` by `decide` at SIDE-kernel v1.2 `Kernel/Core.lean:53` -- arithmetic alone; the classification is carried by the identifier
+  4    C7_finite_type_false                     T0 -- DERIVES at lv v0.5.1 `bc4751e`: `¬ ∃ C A, ∀ s, ‖completedRiemannZeta₀ s‖ ≤ C * exp (A * ‖s‖)` -- Mathlib`s object, no premise; T0 by criterion, NOT in (R149)(1)`s list
+  4    partialPositivity_finiteRange            T4 -- INTERFACES at lv v0.8.0 `6efa9e5` on `VerifiedZerosTo T` (numerical), `ExplicitFormulaDecomp` and `TailBoundPremise` (classical, Mathlib-absent, not compiled); none is T0 or h2_sign, so the weakest link is a premise with no terminal (T1 if the author counts named classical premises as "named and open")
+  4    blTerm_nonneg_of_onLine                  T0 -- DERIVES at lv v0.8.0 `6efa9e5`: for a zero of Mathlib`s `riemannZeta` with re = 1/2, `0 ≤ (1 - (1 - 1/ρ)^n).re` -- Mathlib`s objects, no premise; T0 by criterion, NOT in (R149)(1)`s list
+  4    type_I_has_ostrowski                     T2 -- DERIVES at SIDE-kernel v1.2 `MetaKernel.lean:145`: modus tollens over an abstract `Domain` whose `Fintype` is unused -- logic alone ("exhaustiveness decorative", the map`s own cell)
+  9    silence_universal                        T2 -- INTERFACES on `I.is_universal` at SIDE-kernel v1.2: an abstract lemma about programme structures; its universal form, R1, is FALSE-AS-STATED (`not_register1`, b538)
+  9    spectral_cannon                          T0 -- DERIVES at SIDE-kernel v1.2: `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` -- stated against Mathlib`s `completedRiemannZeta₀`, not a ξ (Mathlib has none); T0 by criterion, NOT in (R149)(1)`s list; its Route-2 reading as ξ is carried by the identifier
+  9    ξ / Dirichlet order-≤1 inputs            T0 -- DERIVES at lv v0.4.0 / v0.5.0: growth bounds on Mathlib`s `completedRiemannZeta₀` (`exists_norm_completedRiemannZeta₀_le_exp`) and `completedLFunction` (`exists_norm_completedLFunction_le_exp`), no premise but `χ ≠ 1`; T0 by criterion, NOT in (R149)(1)`s list
+  —    ConservationBridge.riemann_hypothesis    T2 -- INTERFACES on `ConservationHypothesis` at SIDE-kernel v1.3/v1.5: that premise is RH restated (`ch_iff_rh`, b531-b532), so the terminal is ENCODES-CONCLUSION
+  --   h2_sign_iff_rh                           T0 -- the anchor tier; fresh line equal to its bank (component 1)
+  --   goalState_sevenClasses_of_h2             T2 -- vacuous on the strip: its hypothesis `mellin Phi (s / 2) ≠ 0` is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`)
+  --   structural_exhaustiveness_proved         T2 -- its catalogue conjunct is `Fintype.card MechanismClass = 7` by `decide` (E-2026-09-14-1) and C₇ is a disclosed stand-in (PATHS §ANNEX A `:320`); THE_KEYSTONE_CENSUS carries no C7 line (grep, 0 hits)
+  counts : {'T0': 5, 'T1': 0, 'T2': 6, 'T3': 0, 'T4': 1}
+
+### COMPONENT 3 -- THE SENTENCES: read 65 ; yields {'h2': 4, 'covers_all': 8, 'mellin Phi': 2, 'goal': 6, 'h1 complete / open': 6}
+  STANDS   [SURR §6 | ordered] The node: `covers_all` (the one open premise)
+  STANDS   [SURR §6 | ordered] covers_all : ∀ x, P x → ∃ C ∈ classes, C.produces x
+  RESTS    [SURR §6 | ordered] In the SIDE-lv-conservation coupling ledger it is exactly the open premise `h2` — the surround `h1` being compiled complete at Φ (`SIDELvConservation.h1_complete_at_Phi`, grade **DERIVES**; §0 and Cor
+  STANDS   [SURR §6 | ordered] The monograph's assembly step (9) (ms v5.10.2) now separates this node into its two readings — the **identity** half, that every zero participates in the Euler ledger through the Guinand–Weil explicit
+  RESTS    [SURR §6 | ordered] Its equivalent formulations are the register faces the monograph collects in §27.3 as "one premise in five registers," whose *structure* is now compiled: `SIDELvConservation.RegisterPentagon` (v0.7.0 
+  STANDS   [SURR §6 | ordered] It does **not** land the cross-register *equivalences* — the W-2 guard holds, the faces are framed, not proved interchangeable — and the R3 face, realization-totality-through-places, which *is* the co
+  STANDS   [SURR §6 | ordered] The structure that forbids zeros is valid in the region without zeros; `covers_all` is the statement that it reaches the region with them.
+  STANDS   [SURR §6 | ordered] So the surround of §§2–5, however complete, cannot close on its own: the thing that separates ξ from Epstein is the Euler product, and the Euler product's reach into the strip is precisely `covers_all
+  STANDS   [lv 21539068 title | ordered] SIDE-lv-conservation: the Conservation-route growth interface and the h1-complete coupling ledger for the SIDE reduction of the Riemann Hypothesis
+  RESTS    [lv 21539068 description | ordered] Rather than leaving that clause as prose, this kernel fixes it as one compiled goal state and machine-checks everything provable around it: what is established, what is certified in finite range, what
+  STANDS   [lv 21539068 description | ordered] WHAT IT CONTAINS. h1_complete_at_Phi — all eight per-class coupling facts of the manuscript's Chapter 15, machine-checked at the fixed Mellin witness Phi and conjoined (the catalogue side complete at 
+  RESTS    [lv 21539068 description | ordered] The one deliberately open obligation is the clause itself; the kernel's docstrings and the manuscript's Sections 25.8 and 27.3 state its exact location and status.
+  RESTS    [SURR §0 | outside] The SIDE-lv-conservation terminal `SIDELvConservation.h1_complete_at_Phi` (v0.6.0 = `c80bdc2`, profile `{propext, Classical.choice, Quot.sound}`, grade **DERIVES**; Correspondence below) discharges th
+  RESTS    [SURR §0 | outside] That single open `h2` *is* this document's `covers_all`, and its content — stated, never counted — is that *every ξ-zero forces the Euler balance at some prime* (the conservation register, in its W-7 
+  RESTS    [SURR Correspondence | outside] | The surround is settled — kernel witness (§0, §6) | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal
+  erratum draft : {"rests": 7, "backtick_possessives": 0, "bytes": 10237}
+
+### COMPONENT 4 -- SURR`S TABLE, TIERED (line 211) : {'T0': 3, 'T1': 0, 'T2': 7, 'T3': 0, 'T4': 5}
+
+### COMPONENT 5 -- FINDINGS : {"file": "FINDINGS.md", "before": 558795, "added": 2188, "prefix": true, "heading_line": 4804, "surr_stands": 6, "surr_rests": 2, "lv_stands": 2, "lv_rests": 2, "exceeds": 0, "outside_rests": 3}
+====================================================================================================================================

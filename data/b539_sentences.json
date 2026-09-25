@@ -1,0 +1,226 @@
+{
+ "read": 65,
+ "yields": {
+  "h2": 4,
+  "covers_all": 8,
+  "mellin Phi": 2,
+  "goal": 6,
+  "h1 complete / open": 6
+ },
+ "selected": [
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "The node: `covers_all` (the one open premise)",
+   "hits": [
+    "covers_all"
+   ],
+   "grade": "STANDS",
+   "reason": "the heading names the kernel`s open field; no T0 result touches it",
+   "replacement": ""
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "covers_all : ∀ x, P x → ∃ C ∈ classes, C.produces x",
+   "hits": [
+    "covers_all"
+   ],
+   "grade": "STANDS",
+   "reason": "the field as stated at SIDE-kernel v1.2 `Kernel/Layer1.lean`; b538 does not touch it",
+   "replacement": ""
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "In the SIDE-lv-conservation coupling ledger it is exactly the open premise `h2` — the surround `h1` being compiled complete at Φ (`SIDELvConservation.h1_complete_at_Phi`, grade **DERIVES**; §0 and Correspondence), so that goal ⇐ h1 ∧ h2 with only this node open.",
+   "hits": [
+    "h2",
+    "goal",
+    "h1 complete / open"
+   ],
+   "grade": "RESTS",
+   "reason": "lv`s h2 is `mellin Phi (s / 2) ≠ 0` at the fixed witness Phi, and `mellin_Phi_eq_zero_of_re_le_one` (SIDE-explicit-formula RegisterDepth.lean at 81ae175) proves it FALSE at every s with re s ≤ 1; `covers_all` is a hypothesis field over the kernel`s catalogue, a different Prop; with h2 false on the strip, goal ⇐ h1 ∧ h2 is vacuous there, so the node is not lv`s h2",
+   "replacement": "In the SIDE-lv-conservation coupling ledger the premise written h2 is mellin Phi (s / 2) ≠ 0 at the fixed witness Phi, and that clause is false at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le_one, SIDE-explicit-formula RegisterDepth.lean at 81ae175): the ledger's goal ⇐ h1 ∧ h2 is vacuous on the critical strip, and its h2 is not this node. The strip clause with completedRiemannZeta in its place is RH on the kernel's zero configuration (lvh2_corrected_iff)."
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "The monograph's assembly step (9) (ms v5.10.2) now separates this node into its two readings — the **identity** half, that every zero participates in the Euler ledger through the Guinand–Weil explicit formula (sound and classical, and *shared* with Epstein), and the **sign** half, that this participation forces σ = ½ (the open clause, `covers_all` = `λ_Z(n) ≥ −λ_A(n)`); the ξ-specific ingredient of the sign half is the prime-ledger positivity `Λ(n) ≥ 0`, whose exact boundary is *Paths to the Critical Line* §ANNEX B, B3: it yields the σ = 1 edge, never the critical-line centre.",
+   "hits": [
+    "covers_all"
+   ],
+   "grade": "STANDS",
+   "reason": "a reading of the manuscript`s step (9); no T0 result touches it",
+   "replacement": ""
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "Its equivalent formulations are the register faces the monograph collects in §27.3 as \"one premise in five registers,\" whose *structure* is now compiled: `SIDELvConservation.RegisterPentagon` (v0.7.0 = `2d86182`, grade **structure compiled**; Correspondence below) lands the five faces R1..R5, the goal-state, and the graded edges between them.",
+   "hits": [
+    "goal"
+   ],
+   "grade": "RESTS",
+   "reason": "as compiled, R1 is FALSE-AS-STATED (`not_register1`) and R5-output TRUE-AS-STATED (`register5_output_holds`), so the Lean faces are not equivalent formulations of one open premise; the equivalence is the monograph`s registers`, not these sentences`",
+   "replacement": "Its equivalent formulations are the register faces the monograph collects in §27.3 as \"one premise in five registers\". Their Lean faces in SIDELvConservation.RegisterPentagon are not equivalent formulations as stated: R1 is false (not_register1), R5-output holds unconditionally (register5_output_holds), R3 is undecided, and the goal-state's nonvanishing clause at the witness is false on the strip (SIDE-explicit-formula RegisterDepth.lean at 81ae175)."
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "It does **not** land the cross-register *equivalences* — the W-2 guard holds, the faces are framed, not proved interchangeable — and the R3 face, realization-totality-through-places, which *is* the content of `covers_all`, is the open edge, **NOT-COMPILED**.",
+   "hits": [
+    "covers_all"
+   ],
+   "grade": "STANDS",
+   "reason": "R3 is still the open edge: stated at b538 and UNDECIDED, not decided either way",
+   "replacement": ""
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "The structure that forbids zeros is valid in the region without zeros; `covers_all` is the statement that it reaches the region with them.",
+   "hits": [
+    "covers_all"
+   ],
+   "grade": "STANDS",
+   "reason": "a reading; no T0 result touches it",
+   "replacement": ""
+  },
+  {
+   "block": "SURR §6",
+   "scope": "ordered",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:122-141",
+   "sentence": "So the surround of §§2–5, however complete, cannot close on its own: the thing that separates ξ from Epstein is the Euler product, and the Euler product's reach into the strip is precisely `covers_all`.",
+   "hits": [
+    "covers_all"
+   ],
+   "grade": "STANDS",
+   "reason": "a reading; no T0 result touches it",
+   "replacement": ""
+  },
+  {
+   "block": "lv 21539068 title",
+   "scope": "ordered",
+   "where": "relay data/b499_fetchback_21539068.json metadata.title",
+   "sentence": "SIDE-lv-conservation: the Conservation-route growth interface and the h1-complete coupling ledger for the SIDE reduction of the Riemann Hypothesis",
+   "hits": [
+    "h1 complete / open"
+   ],
+   "grade": "STANDS",
+   "reason": "`h1_complete_at_Phi` is compiled; the title claims no more",
+   "replacement": ""
+  },
+  {
+   "block": "lv 21539068 description",
+   "scope": "ordered",
+   "where": "relay data/b499_fetchback_21539068.json metadata.description",
+   "sentence": "Rather than leaving that clause as prose, this kernel fixes it as one compiled goal state and machine-checks everything provable around it: what is established, what is certified in finite range, what is bracketed as false, and exactly where the open mathematics begins.",
+   "hits": [
+    "goal"
+   ],
+   "grade": "RESTS",
+   "reason": "the goal state at the kernel`s witness needs `mellin Phi (s / 2) ≠ 0`, which is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the compiled goal state cannot carry the clause on the strip",
+   "replacement": "Rather than leaving that clause as prose, this kernel states a goal state around it and machine-checks everything provable around it; at the kernel's fixed witness Phi the goal state's nonvanishing clause mellin Phi (s/2) ≠ 0 is false at every s with re s ≤ 1, so on the critical strip the clause is carried by its completedRiemannZeta form, which is RH on the zero configuration (lvh2_corrected_iff, SIDE-explicit-formula RegisterDepth.lean at 81ae175)."
+  },
+  {
+   "block": "lv 21539068 description",
+   "scope": "ordered",
+   "where": "relay data/b499_fetchback_21539068.json metadata.description",
+   "sentence": "WHAT IT CONTAINS. h1_complete_at_Phi — all eight per-class coupling facts of the manuscript's Chapter 15, machine-checked at the fixed Mellin witness Phi and conjoined (the catalogue side complete at the witness).",
+   "hits": [
+    "mellin Phi",
+    "h1 complete / open"
+   ],
+   "grade": "STANDS",
+   "reason": "the eight coupling facts are compiled at Phi, as said",
+   "replacement": ""
+  },
+  {
+   "block": "lv 21539068 description",
+   "scope": "ordered",
+   "where": "relay data/b499_fetchback_21539068.json metadata.description",
+   "sentence": "The one deliberately open obligation is the clause itself; the kernel's docstrings and the manuscript's Sections 25.8 and 27.3 state its exact location and status.",
+   "hits": [
+    "h1 complete / open"
+   ],
+   "grade": "RESTS",
+   "reason": "the kernel`s docstrings (lv `RegisterPentagon.lean:19-21`, v0.6.0 `CouplingsAtPhi.lean:415-416`) locate it as h2 = `mellin Phi (s / 2) ≠ 0`, which is not open but false at every s with re s ≤ 1",
+   "replacement": "The one deliberately open obligation is the clause itself; the kernel's docstrings locate it at h2 = mellin Phi (s/2) ≠ 0, which is false as stated at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le_one); the open clause is its completedRiemannZeta form, RH on the strip (lvh2_corrected_iff)."
+  },
+  {
+   "block": "SURR §0",
+   "scope": "outside",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:37",
+   "sentence": "The SIDE-lv-conservation terminal `SIDELvConservation.h1_complete_at_Phi` (v0.6.0 = `c80bdc2`, profile `{propext, Classical.choice, Quot.sound}`, grade **DERIVES**; Correspondence below) discharges the certifiable surround as the coupling ledger `h1` complete at the assembly point Φ, leaving the goal in the form goal ⇐ h1 ∧ h2 with `h1` complete and only `h2` open.",
+   "hits": [
+    "h2",
+    "goal",
+    "h1 complete / open"
+   ],
+   "grade": "RESTS",
+   "reason": "lv`s h2 is `mellin Phi (s / 2) ≠ 0` at the fixed witness Phi, and `mellin_Phi_eq_zero_of_re_le_one` (SIDE-explicit-formula RegisterDepth.lean at 81ae175) proves it FALSE at every s with re s ≤ 1, so \"only h2 open\" names a clause that is false on the strip",
+   "replacement": "The SIDE-lv-conservation terminal SIDELvConservation.h1_complete_at_Phi (v0.6.0 = c80bdc2, profile {propext, Classical.choice, Quot.sound}, grade DERIVES) compiles the coupling ledger h1 at the assembly point Φ; the ledger's goal ⇐ h1 ∧ h2 has h1 complete and its h2, mellin Φ (s/2) ≠ 0, false at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le_one), so the ledger does not carry this document's node on the strip."
+  },
+  {
+   "block": "SURR §0",
+   "scope": "outside",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:37",
+   "sentence": "That single open `h2` *is* this document's `covers_all`, and its content — stated, never counted — is that *every ξ-zero forces the Euler balance at some prime* (the conservation register, in its W-7 existential form); equivalently realization-totality at the ξ interface (the R3 face, totality-through-places), the R4 positivity face λ_Z(n) ≥ −λ_A(n), or the goal-state's Mellin-nonvanishing clause `mellin Φ (s/2) ≠ 0` off the line — one premise read in the monograph's §27.3 five registers.",
+   "hits": [
+    "h2",
+    "covers_all",
+    "mellin Phi",
+    "goal"
+   ],
+   "grade": "RESTS",
+   "reason": "lv`s h2 is `mellin Phi (s / 2) ≠ 0` at the fixed witness Phi, and `mellin_Phi_eq_zero_of_re_le_one` (SIDE-explicit-formula RegisterDepth.lean at 81ae175) proves it FALSE at every s with re s ≤ 1; it is not covers_all and not equivalent to the other registers; its corrected form is `rh_strip` by `lvh2_corrected_iff`",
+   "replacement": "This document's covers_all is not the ledger's h2: that h2, the goal-state's clause mellin Φ (s/2) ≠ 0, is false at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le_one); with completedRiemannZeta in its place the strip clause is RH on the zero configuration (lvh2_corrected_iff), and the conservation register is RH restated (ch_iff_rh)."
+  },
+  {
+   "block": "SURR Correspondence",
+   "scope": "outside",
+   "where": "THE_UNCONDITIONAL_SURROUND.md:184",
+   "sentence": "| The surround is settled — kernel witness (§0, §6) | SIDE-lv-conservation v0.6.0 = `c80bdc2` | `SIDELvConservation.h1_complete_at_Phi` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — goal ⇐ h1 ∧ h2; h1 (the coupling ledger at Φ) complete, only h2 = `covers_all` open |",
+   "hits": [
+    "h2",
+    "covers_all",
+    "goal",
+    "h1 complete / open"
+   ],
+   "grade": "RESTS",
+   "reason": "lv`s h2 is `mellin Phi (s / 2) ≠ 0` at the fixed witness Phi, and `mellin_Phi_eq_zero_of_re_le_one` (SIDE-explicit-formula RegisterDepth.lean at 81ae175) proves it FALSE at every s with re s ≤ 1, so the status cell`s \"only h2 = covers_all open\" does not hold",
+   "replacement": "DERIVES — h1 (the coupling ledger at Φ) compiled complete; the ledger's h2, mellin Φ (s/2) ≠ 0, is false at every s with re s ≤ 1 (mellin_Phi_eq_zero_of_re_le_one), and it is not covers_all."
+  }
+ ],
+ "counts": {
+  "ordered": {
+   "SURR §6": {
+    "STANDS": 6,
+    "RESTS": 2
+   },
+   "lv 21539068 title": {
+    "STANDS": 1
+   },
+   "lv 21539068 description": {
+    "RESTS": 2,
+    "STANDS": 1
+   }
+  },
+  "outside": {
+   "SURR §0": {
+    "RESTS": 2
+   },
+   "SURR Correspondence": {
+    "RESTS": 1
+   }
+  }
+ }
+}
