@@ -1,0 +1,115 @@
+theorem hasCompactSupport_of_Icc {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    HasCompactSupport g :=
+
+theorem support_deriv_Icc {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    Function.support (deriv g) ⊆ Set.Icc (-L) L :=
+
+theorem support_iteratedDeriv_Icc (p : ℕ) : ∀ {g : ℝ → ℝ} {L : ℝ}, Function.support g ⊆ Set.Icc (-L) L →
+    Function.support (iteratedDeriv p g) ⊆ Set.Icc (-L) L :=
+
+theorem paperFT_iteratedDeriv (p : ℕ) : ∀ (g : ℝ → ℝ), ContDiff ℝ p g → HasCompactSupport g → ∀ z : ℂ,
+    Zeta23.paperFT (phiC (iteratedDeriv p g)) z = (-(I * z)) ^ p * Zeta23.paperFT (phiC g) z :=
+
+theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)
+    (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ * ‖z‖ ^ p ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|) :=
+
+theorem paperFT_decay_re (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)
+    (z : ℂ) (hz : z.re ≠ 0) :
+    ‖Zeta23.paperFT (phiC g) z‖ ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|) / |z.re| ^ p :=
+
+theorem paperFT_decay_zero {g : ℝ → ℝ} {L : ℝ} (hg : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    ‖Zeta23.paperFT (phiC g) z‖ ≤ (∫ u, |g u|) * Real.exp (L * |z.im|) :=
+
+theorem cosWin_support_Icc {γ₀ : ℝ} {φ : ℝ → ℝ} {L : ℝ} (hs : Function.support φ ⊆ Set.Icc (-L) L) :
+    Function.support (cosWin γ₀ φ) ⊆ Set.Icc (-L) L :=
+
+theorem window_decay_re (p : ℕ) (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hφp : ContDiff ℝ p φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (z : ℂ) (hz : z.re ≠ 0) :
+    ‖Zeta23.paperFT (windowC γ₀ φ) z‖ ≤
+      ‖(γ₀ : ℂ) ^ 2 - z ^ 2‖ * ((∫ u, |iteratedDeriv p (cosWin γ₀ φ) u|) * Real.exp (L * |z.im|) / |z.re| ^ p) :=
+
+def HStrip (Z : Zeta23.ZeroConfig) : Prop :=
+
+def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+
+def windowA (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ :=
+
+def zeta3Sum : ℝ :=
+
+def restR (γ₀ : ℝ) (φ : ℝ → ℝ) (L A₀ : ℝ) : ℝ :=
+
+def pairOrbit (ρ₀ : ℂ) : Set ℂ :=
+
+def restSum (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) (φ : ℝ → ℝ) (ρ₀ : ℂ) : ℝ :=
+
+theorem cosWin_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (w : ℂ) : ‖Zeta23.paperFT (cosWinC γ₀ φ) w‖ * (1 + ‖w‖ ^ 4) ≤ windowA γ₀ φ * Real.exp (L * |w.im|) :=
+
+theorem window_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (w : ℂ) : ‖Zeta23.paperFT (windowC γ₀ φ) w‖ * (1 + ‖w‖ ^ 4) ≤
+      (γ₀ ^ 2 + ‖w‖ ^ 2) * (windowA γ₀ φ * Real.exp (L * |w.im|)) :=
+
+theorem kWin_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (hL : 0 ≤ L) (z : ℂ) (hz : |z.im| ≤ 1 / 2) :
+    ‖Zeta23.paperFT (kWin γ₀ φ) z‖ * (1 + ‖z‖ ^ 4) ^ 2 ≤
+      (γ₀ ^ 2 + ‖z‖ ^ 2) ^ 2 * (windowA γ₀ φ ^ 2 * Real.exp L) :=
+
+theorem weight_ineq (γ₀ x t m : ℝ) (hx : 0 ≤ x) (htx : |t| ≤ x) (hm1 : m - 1 < t) (hm2 : t ≤ m) :
+    (γ₀ ^ 2 + x ^ 2) ^ 2 * (1 + |m|) ^ 4 ≤ 256 * (γ₀ ^ 2 + 1) ^ 2 * (1 + x ^ 4) ^ 2 :=
+
+theorem gammaOf_re' (ρ : ℂ) : (Zeta23.gammaOf ρ).re = ρ.im :=
+
+theorem gammaOf_im' (ρ : ℂ) : (Zeta23.gammaOf ρ).im = -(ρ.re - 1 / 2) :=
+
+theorem zero_term_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (hL : 0 ≤ L) (ρ : ℂ) (hρ : |ρ.re - 1 / 2| ≤ 1 / 2) :
+    ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤
+      256 * (γ₀ ^ 2 + 1) ^ 2 * (windowA γ₀ φ ^ 2 * Real.exp L) :=
+
+theorem summable_zeta3 : Summable (fun m : ℤ => 1 / (1 + |(m : ℝ)|) ^ 3) :=
+
+theorem zeta3Sum_nonneg : 0 ≤ zeta3Sum :=
+
+theorem fiber_count (Z : Zeta23.ZeroConfig) (s : Finset ℂ) (hs : ∀ ρ ∈ s, ρ ∈ Z.carrier) (m : ℤ) :
+    (∑ ρ ∈ s.filter (fun ρ => ⌈ρ.im⌉ = m), (Z.mult ρ : ℝ)) ≤ (Z.N ((m : ℝ) - 1) (m : ℝ) : ℝ) :=
+
+theorem finite_rest_bound (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L)
+    (hstrip : ∀ ρ ∈ Z.carrier, |ρ.re - 1 / 2| ≤ 1 / 2) (hcount : HCount Z A₀)
+    (s : Finset ℂ) (hsZ : ∀ ρ ∈ s, ρ ∈ Z.carrier) :
+    (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_le_of_finite (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) (φ : ℝ → ℝ) (ρ₀ : ℂ) (R : ℝ) (hR : 0 ≤ R)
+    (h : ∀ s : Finset ℂ, (∀ ρ ∈ s, ρ ∈ Z.carrier) →
+      (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ R) :
+    restSum Z γ₀ φ ρ₀ ≤ R :=
+
+theorem restR_nonneg (γ₀ : ℝ) (φ : ℝ → ℝ) {L A₀ : ℝ} (hA0 : 0 ≤ A₀) : 0 ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_bound (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L)
+    (hstrip : HStrip Z) (hcount : HCount Z A₀) (ρ₀ : ℂ) :
+    restSum Z γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_bound_closed (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (hcount : HCount Z A₀) (ρ₀ : ℂ) :
+    restSum Z γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_bound_zeta (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₀ : ℂ) :
+    ∃ A₀ : ℝ, 1 ≤ A₀ ∧ restSum Zeta23.zetaZeroConfig γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=
+
+theorem cosh_le_exp_abs (y : ℝ) : Real.cosh y ≤ Real.exp |y| :=
+
+theorem realizedGrowth_le_exp {φ : ℝ → ℝ} {L δ : ℝ} (hc : Continuous φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u) (hδ : 0 ≤ δ) : realizedGrowth φ δ ≤ Real.exp (δ * L) :=
+
+theorem two_delta_lt_one (δ : ℝ) (h : δ < 1 / 2) : 2 * δ < 1 :=
+
+def f4_needs (δ : ℝ) : Prop :=
+
+theorem not_f4_needs {δ : ℝ} (hδ : δ < 1 / 2) : ¬ f4_needs δ :=
+
+theorem f4_needs_of_half_le {δ : ℝ} (h : 1 / 2 ≤ δ) : f4_needs δ :=
+
+def HMax (Z : Zeta23.ZeroConfig) : Prop :=

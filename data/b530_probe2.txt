@@ -1,0 +1,105 @@
+### b530 PRE-SEAL NAME PROBE 2 -- source
+import SIDEExplicitFormula.PairTerm
+import SIDEExplicitFormula.GrowthBound
+
+open Complex MeasureTheory
+
+#check @support_deriv_subset
+#check @Function.support_deriv_subset
+#check @closure_minimal
+#check @Complex.div_ofNat_im
+#check @Complex.div_ofNat_re
+#check @Complex.mul_I_re
+#check @Complex.mul_I_im
+#check @Complex.div_I
+#check @Complex.neg_re
+#check @Real.cosh_eq
+#check @contDiff_zero
+#check @ContDiff.one_of_succ
+#check @ContDiff.deriv'
+#check @Int.cast_natCast
+#check @Nat.abs_cast
+#check @integral_mul_const
+#check @Summable.congr
+#check @tsum_nonneg
+#check @le_of_mul_le_mul_right
+#check @Finset.mem_image_of_mem
+#check @Set.Finite.mem_toFinset
+#check @Nat.cast_sum
+#check @Nat.cast_le
+#check @Real.exp_add
+#check @Real.exp_le_exp
+#check @Zeta23.ZeroConfig.window
+#check @Zeta23.ZeroConfig.mult
+#check @Finset.mem_filter
+#check @Finset.mem_map
+#check @Finset.mul_sum
+#check @Finset.sum_mul
+#check @Finset.sum_le_sum
+#check @SIDEExplicitFormula.B321.paperFT_growth
+#check @SIDEExplicitFormula.B321.cosWin_contDiff
+#check @SIDEExplicitFormula.B321.realizedGrowth_eq
+#check @SIDEExplicitFormula.B321.nearInt
+example : (2 : WithTop ℕ∞) ≤ 4 := by norm_num
+example (p : ℕ) (g : ℝ → ℝ) (hg : ContDiff ℝ (p + 1 : ℕ) g) : ContDiff ℝ ((p : WithTop ℕ∞) + 1) g := by exact_mod_cast hg
+example (g : ℝ → ℝ) (hg : Continuous g) : ContDiff ℝ ((0 : ℕ) : WithTop ℕ∞) g := by simpa using hg
+### output
+@support_deriv_subset : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {E : Type u_2}
+  [inst_1 : NormedAddCommGroup E] [inst_2 : NormedSpace 𝕜 E] {f : 𝕜 → E}, Function.support (deriv f) ⊆ tsupport f
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe2.lean:7:8: error(lean.unknownIdentifier): Unknown identifier `Function.support_deriv_subset`
+@closure_minimal : ∀ {X : Type u_1} [inst : TopologicalSpace X] {s t : Set X}, s ⊆ t → IsClosed t → closure s ⊆ t
+div_ofNat_im : ∀ (z : ℂ) (n : ℕ) [inst : n.AtLeastTwo], (z / OfNat.ofNat n).im = z.im / OfNat.ofNat n
+div_ofNat_re : ∀ (z : ℂ) (n : ℕ) [inst : n.AtLeastTwo], (z / OfNat.ofNat n).re = z.re / OfNat.ofNat n
+mul_I_re : ∀ (z : ℂ), (z * I).re = -z.im
+mul_I_im : ∀ (z : ℂ), (z * I).im = z.re
+div_I : ∀ (z : ℂ), z / I = -(z * I)
+neg_re : ∀ (z : ℂ), (-z).re = -z.re
+Real.cosh_eq : ∀ (x : ℝ), Real.cosh x = (Real.exp x + Real.exp (-x)) / 2
+@contDiff_zero : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {E : Type u_2} [inst_1 : NormedAddCommGroup E]
+  [inst_2 : NormedSpace 𝕜 E] {F : Type u_3} [inst_3 : NormedAddCommGroup F] [inst_4 : NormedSpace 𝕜 F] {f : E → F},
+  ContDiff 𝕜 0 f ↔ Continuous f
+@ContDiff.one_of_succ : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {E : Type u_2}
+  [inst_1 : NormedAddCommGroup E] [inst_2 : NormedSpace 𝕜 E] {F : Type u_3} [inst_3 : NormedAddCommGroup F]
+  [inst_4 : NormedSpace 𝕜 F] {f : E → F} {n : WithTop ℕ∞}, ContDiff 𝕜 (n + 1) f → ContDiff 𝕜 1 f
+@ContDiff.deriv' : ∀ {𝕜 : Type u_1} {F : Type u_2} [inst : NontriviallyNormedField 𝕜] [inst_1 : NormedAddCommGroup F]
+  [inst_2 : NormedSpace 𝕜 F] {n : WithTop ℕ∞} {f : 𝕜 → F}, ContDiff 𝕜 (n + 1) f → ContDiff 𝕜 n (deriv f)
+@Int.cast_natCast : ∀ {R : Type u_1} [inst : AddGroupWithOne R] (n : ℕ), ↑↑n = ↑n
+@Nat.abs_cast : ∀ {R : Type u_1} [inst : Ring R] [inst_1 : Lattice R] [IsOrderedRing R] (n : ℕ), |↑n| = ↑n
+@integral_mul_const : ∀ {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {L : Type u_2} [inst : RCLike L] (r : L)
+  (f : α → L), ∫ (a : α), f a * r ∂μ = (∫ (a : α), f a ∂μ) * r
+@Summable.congr : ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] {f g : β → α}
+  {L : SummationFilter β}, Summable f L → (∀ (b : β), f b = g b) → Summable g L
+@tsum_nonneg : ∀ {ι : Type u_1} {α : Type u_2} {L : SummationFilter ι} [inst : AddCommMonoid α] [inst_1 : Preorder α]
+  [IsOrderedAddMonoid α] [inst_3 : TopologicalSpace α] [OrderClosedTopology α] {g : ι → α},
+  (∀ (i : ι), 0 ≤ g i) → 0 ≤ ∑'[L] (i : ι), g i
+@le_of_mul_le_mul_right : ∀ {α : Type u_1} [inst : Mul α] [inst_1 : Zero α] [inst_2 : Preorder α] {a b c : α}
+  [MulPosReflectLE α], b * a ≤ c * a → 0 < a → b ≤ c
+@Finset.mem_image_of_mem : ∀ {α : Type u_1} {β : Type u_2} [inst : DecidableEq β] {s : Finset α} (f : α → β) {a : α},
+  a ∈ s → f a ∈ Finset.image f s
+@Set.Finite.mem_toFinset : ∀ {α : Type u_1} {s : Set α} {a : α} (hs : s.Finite), a ∈ hs.toFinset ↔ a ∈ s
+@Nat.cast_sum : ∀ {R : Type u_1} {ι : Type u_2} [inst : AddCommMonoidWithOne R] (s : Finset ι) (f : ι → ℕ),
+  ↑(∑ x ∈ s, f x) = ∑ x ∈ s, ↑(f x)
+@Nat.cast_le : ∀ {α : Type u_1} [inst : AddMonoidWithOne α] [inst_1 : PartialOrder α] [AddLeftMono α] [ZeroLEOneClass α]
+  [CharZero α] {m n : ℕ}, ↑m ≤ ↑n ↔ m ≤ n
+Real.exp_add : ∀ (x y : ℝ), Real.exp (x + y) = Real.exp x * Real.exp y
+@Real.exp_le_exp : ∀ {x y : ℝ}, Real.exp x ≤ Real.exp y ↔ x ≤ y
+Zeta23.ZeroConfig.window : Zeta23.ZeroConfig → ℝ → ℝ → Set ℂ
+Zeta23.ZeroConfig.mult : Zeta23.ZeroConfig → ℂ → ℕ
+@Finset.mem_filter : ∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : α},
+  a ∈ Finset.filter p s ↔ a ∈ s ∧ p a
+@Finset.mem_map : ∀ {α : Type u_1} {β : Type u_2} {f : α ↪ β} {s : Finset α} {b : β},
+  b ∈ Finset.map f s ↔ ∃ a ∈ s, f a = b
+@Finset.mul_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+@Finset.sum_mul : ∀ {ι : Type u_1} {R : Type u_2} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R), (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+@Finset.sum_le_sum : ∀ {ι : Type u_1} {N : Type u_2} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f g : ι → N}
+  {s : Finset ι} [AddLeftMono N], (∀ i ∈ s, f i ≤ g i) → ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+SIDEExplicitFormula.B321.paperFT_growth : ∀ (h : ℝ → ℂ) (L : ℝ),
+  Integrable h volume →
+    Function.support h ⊆ Set.Icc (-L) L → ∀ (z : ℂ), ‖Zeta23.paperFT h z‖ ≤ (∫ (u : ℝ), ‖h u‖) * Real.exp (L * |z.im|)
+@SIDEExplicitFormula.B321.cosWin_contDiff : ∀ {γ₀ : ℝ} {φ : ℝ → ℝ} {n : WithTop ℕ∞},
+  ContDiff ℝ n φ → ContDiff ℝ n (SIDEExplicitFormula.B321.cosWin γ₀ φ)
+SIDEExplicitFormula.B321.realizedGrowth_eq : ∀ (φ : ℝ → ℝ) (δ : ℝ),
+  SIDEExplicitFormula.B321.realizedGrowth φ δ = SIDEExplicitFormula.B321.nearInt φ δ / ∫ (u : ℝ), φ u
+SIDEExplicitFormula.B321.nearInt : (ℝ → ℝ) → ℝ → ℝ

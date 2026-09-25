@@ -1,0 +1,220 @@
+====================================================================================================================================
+b530 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE INSTALL:
+{
+ "DecayBound.lean": {
+  "prior_sha": null,
+  "draft_sha": "38040321429ce7cde6f69655f2749df7a0657f3ef52bcd5d505c7801b53a0abd",
+  "installed_sha": "38040321429ce7cde6f69655f2749df7a0657f3ef52bcd5d505c7801b53a0abd"
+ },
+ "RestBound.lean": {
+  "prior_sha": null,
+  "draft_sha": "57cd48b9f09f4551d9c7e707e853f0e0a23a1af39783e04c71ca453ef23a64e3",
+  "installed_sha": "57cd48b9f09f4551d9c7e707e853f0e0a23a1af39783e04c71ca453ef23a64e3"
+ },
+ "AxiomCheckRest.lean": {
+  "prior_sha": null,
+  "draft_sha": "1dd9dc8957d9b3fffd9b7502f7907e31e8ef060a935c96f6129b4bdd19a592fd",
+  "installed_sha": "1dd9dc8957d9b3fffd9b7502f7907e31e8ef060a935c96f6129b4bdd19a592fd"
+ }
+}
+
+### THE ATTEMPTS, DecayBound (READING (6)):
+  attempt 1 : exit 0 ; 0 error lines ; 490.2 s
+
+### THE ATTEMPTS, RestBound (READING (6)):
+  attempt 1 : exit 1 ; 1 error lines ; 33.5 s
+      SIDEExplicitFormula\RestBound.lean:258:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  attempt 2 : exit 0 ; 0 error lines ; 26.1 s
+
+### THE STATEMENTS, FROM THE DECLARATION LINE TO ITS := :
+theorem hasCompactSupport_of_Icc {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    HasCompactSupport g :=
+
+theorem support_deriv_Icc {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    Function.support (deriv g) ⊆ Set.Icc (-L) L :=
+
+theorem support_iteratedDeriv_Icc (p : ℕ) : ∀ {g : ℝ → ℝ} {L : ℝ}, Function.support g ⊆ Set.Icc (-L) L →
+    Function.support (iteratedDeriv p g) ⊆ Set.Icc (-L) L :=
+
+theorem paperFT_iteratedDeriv (p : ℕ) : ∀ (g : ℝ → ℝ), ContDiff ℝ p g → HasCompactSupport g → ∀ z : ℂ,
+    Zeta23.paperFT (phiC (iteratedDeriv p g)) z = (-(I * z)) ^ p * Zeta23.paperFT (phiC g) z :=
+
+theorem paperFT_decay (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)
+    (z : ℂ) : ‖Zeta23.paperFT (phiC g) z‖ * ‖z‖ ^ p ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|) :=
+
+theorem paperFT_decay_re (p : ℕ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ p g) (hs : Function.support g ⊆ Set.Icc (-L) L)
+    (z : ℂ) (hz : z.re ≠ 0) :
+    ‖Zeta23.paperFT (phiC g) z‖ ≤ (∫ u, |iteratedDeriv p g u|) * Real.exp (L * |z.im|) / |z.re| ^ p :=
+
+theorem paperFT_decay_zero {g : ℝ → ℝ} {L : ℝ} (hg : Continuous g) (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    ‖Zeta23.paperFT (phiC g) z‖ ≤ (∫ u, |g u|) * Real.exp (L * |z.im|) :=
+
+theorem cosWin_support_Icc {γ₀ : ℝ} {φ : ℝ → ℝ} {L : ℝ} (hs : Function.support φ ⊆ Set.Icc (-L) L) :
+    Function.support (cosWin γ₀ φ) ⊆ Set.Icc (-L) L :=
+
+theorem window_decay_re (p : ℕ) (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hφp : ContDiff ℝ p φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (z : ℂ) (hz : z.re ≠ 0) :
+    ‖Zeta23.paperFT (windowC γ₀ φ) z‖ ≤
+      ‖(γ₀ : ℂ) ^ 2 - z ^ 2‖ * ((∫ u, |iteratedDeriv p (cosWin γ₀ φ) u|) * Real.exp (L * |z.im|) / |z.re| ^ p) :=
+
+def HStrip (Z : Zeta23.ZeroConfig) : Prop :=
+
+def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+
+def windowA (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ :=
+
+def zeta3Sum : ℝ :=
+
+def restR (γ₀ : ℝ) (φ : ℝ → ℝ) (L A₀ : ℝ) : ℝ :=
+
+def pairOrbit (ρ₀ : ℂ) : Set ℂ :=
+
+def restSum (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) (φ : ℝ → ℝ) (ρ₀ : ℂ) : ℝ :=
+
+theorem cosWin_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (w : ℂ) : ‖Zeta23.paperFT (cosWinC γ₀ φ) w‖ * (1 + ‖w‖ ^ 4) ≤ windowA γ₀ φ * Real.exp (L * |w.im|) :=
+
+theorem window_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (w : ℂ) : ‖Zeta23.paperFT (windowC γ₀ φ) w‖ * (1 + ‖w‖ ^ 4) ≤
+      (γ₀ ^ 2 + ‖w‖ ^ 2) * (windowA γ₀ φ * Real.exp (L * |w.im|)) :=
+
+theorem kWin_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (hL : 0 ≤ L) (z : ℂ) (hz : |z.im| ≤ 1 / 2) :
+    ‖Zeta23.paperFT (kWin γ₀ φ) z‖ * (1 + ‖z‖ ^ 4) ^ 2 ≤
+      (γ₀ ^ 2 + ‖z‖ ^ 2) ^ 2 * (windowA γ₀ φ ^ 2 * Real.exp L) :=
+
+theorem weight_ineq (γ₀ x t m : ℝ) (hx : 0 ≤ x) (htx : |t| ≤ x) (hm1 : m - 1 < t) (hm2 : t ≤ m) :
+    (γ₀ ^ 2 + x ^ 2) ^ 2 * (1 + |m|) ^ 4 ≤ 256 * (γ₀ ^ 2 + 1) ^ 2 * (1 + x ^ 4) ^ 2 :=
+
+theorem gammaOf_re' (ρ : ℂ) : (Zeta23.gammaOf ρ).re = ρ.im :=
+
+theorem gammaOf_im' (ρ : ℂ) : (Zeta23.gammaOf ρ).im = -(ρ.re - 1 / 2) :=
+
+theorem zero_term_bound (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (hL : 0 ≤ L) (ρ : ℂ) (hρ : |ρ.re - 1 / 2| ≤ 1 / 2) :
+    ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖ * (1 + |((⌈ρ.im⌉ : ℤ) : ℝ)|) ^ 4 ≤
+      256 * (γ₀ ^ 2 + 1) ^ 2 * (windowA γ₀ φ ^ 2 * Real.exp L) :=
+
+theorem summable_zeta3 : Summable (fun m : ℤ => 1 / (1 + |(m : ℝ)|) ^ 3) :=
+
+theorem zeta3Sum_nonneg : 0 ≤ zeta3Sum :=
+
+theorem fiber_count (Z : Zeta23.ZeroConfig) (s : Finset ℂ) (hs : ∀ ρ ∈ s, ρ ∈ Z.carrier) (m : ℤ) :
+    (∑ ρ ∈ s.filter (fun ρ => ⌈ρ.im⌉ = m), (Z.mult ρ : ℝ)) ≤ (Z.N ((m : ℝ) - 1) (m : ℝ) : ℝ) :=
+
+theorem finite_rest_bound (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L)
+    (hstrip : ∀ ρ ∈ Z.carrier, |ρ.re - 1 / 2| ≤ 1 / 2) (hcount : HCount Z A₀)
+    (s : Finset ℂ) (hsZ : ∀ ρ ∈ s, ρ ∈ Z.carrier) :
+    (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_le_of_finite (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) (φ : ℝ → ℝ) (ρ₀ : ℂ) (R : ℝ) (hR : 0 ≤ R)
+    (h : ∀ s : Finset ℂ, (∀ ρ ∈ s, ρ ∈ Z.carrier) →
+      (∑ ρ ∈ s, (Z.mult ρ : ℝ) * ‖Zeta23.paperFT (kWin γ₀ φ) (Zeta23.gammaOf ρ)‖) ≤ R) :
+    restSum Z γ₀ φ ρ₀ ≤ R :=
+
+theorem restR_nonneg (γ₀ : ℝ) (φ : ℝ → ℝ) {L A₀ : ℝ} (hA0 : 0 ≤ A₀) : 0 ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_bound (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L)
+    (hstrip : HStrip Z) (hcount : HCount Z A₀) (ρ₀ : ℂ) :
+    restSum Z γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_bound_closed (Z : Zeta23.ZeroConfig) (γ₀ : ℝ) {φ : ℝ → ℝ} {L A₀ : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (hcount : HCount Z A₀) (ρ₀ : ℂ) :
+    restSum Z γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=
+
+theorem rest_bound_zeta (γ₀ : ℝ) {φ : ℝ → ℝ} {L : ℝ} (hφ : ContDiff ℝ 4 φ)
+    (hs : Function.support φ ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₀ : ℂ) :
+    ∃ A₀ : ℝ, 1 ≤ A₀ ∧ restSum Zeta23.zetaZeroConfig γ₀ φ ρ₀ ≤ restR γ₀ φ L A₀ :=
+
+theorem cosh_le_exp_abs (y : ℝ) : Real.cosh y ≤ Real.exp |y| :=
+
+theorem realizedGrowth_le_exp {φ : ℝ → ℝ} {L δ : ℝ} (hc : Continuous φ) (hs : Function.support φ ⊆ Set.Icc (-L) L)
+    (hnn : ∀ x, 0 ≤ φ x) (hpos : 0 < ∫ u, φ u) (hδ : 0 ≤ δ) : realizedGrowth φ δ ≤ Real.exp (δ * L) :=
+
+theorem two_delta_lt_one (δ : ℝ) (h : δ < 1 / 2) : 2 * δ < 1 :=
+
+def f4_needs (δ : ℝ) : Prop :=
+
+theorem not_f4_needs {δ : ℝ} (hδ : δ < 1 / 2) : ¬ f4_needs δ :=
+
+theorem f4_needs_of_half_le {δ : ℝ} (h : 1 / 2 ≤ δ) : f4_needs δ :=
+
+def HMax (Z : Zeta23.ZeroConfig) : Prop :=
+
+### THE PROFILE (AxiomCheckRest.lean):
+  'SIDEExplicitFormula.B321.hasCompactSupport_of_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.support_deriv_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.support_iteratedDeriv_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_decay_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_decay_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cosWin_support_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.window_decay_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rest_bound_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rest_bound_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.finite_rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rest_le_of_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.restR_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.fiber_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.summable_zeta3' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zeta3Sum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zero_term_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.weight_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.kWin_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.window_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cosWin_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gammaOf_re'' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.gammaOf_im'' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.cosh_le_exp_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.realizedGrowth_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.two_delta_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.f4_needs_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### whole-string standard three : 30 of 30
+  ### #check HStrip : SIDEExplicitFormula.B321.HStrip : Zeta23.ZeroConfig → Prop
+  ### #check HCount : SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop
+  ### #check f4_needs : SIDEExplicitFormula.B321.f4_needs : ℝ → Prop
+  ### #check HMax : SIDEExplicitFormula.B321.HMax : Zeta23.ZeroConfig → Prop
+  ### #print restR : def SIDEExplicitFormula.B321.restR : ℝ → (ℝ → ℝ) → ℝ → ℝ → ℝ := fun γ₀ φ L A₀ => 768 * A₀ * SIDEExplicitFormula.B321.windowA γ₀ φ ^ 2 * Real.exp L * (γ₀ ^ 2 + 1) ^ 2 * SIDEExplicitFormula.B321.zeta3Sum
+  ### #print windowA : def SIDEExplicitFormula.B321.windowA : ℝ → (ℝ → ℝ) → ℝ := fun γ₀ φ => (∫ (u : ℝ), |SIDEExplicitFormula.B321.cosWin γ₀ φ u|) + ∫ (u : ℝ), |iteratedDeriv 4 (SIDEExplicitFormula.B321.cosWin γ₀ φ) u|
+  ### #print zeta3Sum : def SIDEExplicitFormula.B321.zeta3Sum : ℝ := ∑' (m : ℤ), 1 / (1 + |↑m|) ^ 3
+  ### #print f4_needs : def SIDEExplicitFormula.B321.f4_needs : ℝ → Prop := fun δ => ∃ C, 0 < C ∧ ∃ L₀, ∀ L ≥ L₀, Real.exp L ≤ C * Real.exp (2 * δ * L)
+  ### #print HMax : def SIDEExplicitFormula.B321.HMax : Zeta23.ZeroConfig → Prop := fun Z => ∃ ρ ∈ Z.carrier, ∀ ρ' ∈ Z.carrier, ρ'.re ≤ ρ.re
+  ### #print HCount : def SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop := fun Z A₀ => 1 ≤ A₀ ∧ ∀ (t : ℝ), ↑(Z.N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+  ### #print HStrip : def SIDEExplicitFormula.B321.HStrip : Zeta23.ZeroConfig → Prop := fun Z => ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1
+  ### #print pairOrbit : def SIDEExplicitFormula.B321.pairOrbit : ℂ → Set ℂ := fun ρ₀ => {ρ₀, Zeta23.reflect ρ₀, (starRingEnd ℂ) ρ₀, 1 - ρ₀}
+
+### THE HYPOTHESES OF rest_bound THAT MENTION Z : ['HCount Z A₀', 'HStrip Z']
+
+### COMPONENT 3`S NUMBERS (READING (7)), Q0`s B-spline instance, a = 34.0, p = 7:
+  gamma0               16.290216
+  L                    3.5263605246161616
+  delta                0.4532604747946607
+  int_abs_g            0.6366197497098902
+  int_abs_g4           48921.06343016031
+  windowA              48921.700049910025
+  zeros_banked         360
+  A0_measured          1.0
+  zeta3Sum             1.4041138063191885
+  R                    6.226153991555274e+18
+  rest_measured        489.734122754979
+  rest_terms           356
+  pair_orbit_abs       403.8537538428918
+  pair_orbit_signed    -403.6965714861884
+  ratio_R_rest         1.2713335057255766e+16
+  ratio_R_pair         1.5416853086816638e+16
+  exceeds_100          True
+  G                    1.3606979993624688
+  G_over_exp           0.2751711413309591
+  exp_L                34.00000000000001
+  exp_2dL              24.452187772589337
+  two_delta            0.9065209495893214
+  note                 A0 measured on the bank below 150, not proved for Q0; the rest is the bank below 150 (b522`s tail above 150 at most 4.2e-8)
+====================================================================================================================================

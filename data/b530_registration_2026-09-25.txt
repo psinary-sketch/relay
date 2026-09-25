@@ -1,0 +1,206 @@
+====================================================================================================
+ACT b530 -- THE REGISTRATION FACE. ### f3, THE OTHER ZEROS BOUNDED ABOVE, WITH ITS LIMIT PRINTED, UNDER (R140).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE KERNEL LANE OPENS FOR THIS ACT ALONE, UNDER (R140)(3)**, and shuts at
+### its close.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R140) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) b529 entered -- the pair`s algebra and the near
+### factor DERIVES, the far factor an INTERFACE on farSmall with its number at the witness; the seat`s three declared
+### departures stand as correct readings; (2) f3 stated with H-STRIP and H-COUNT as hypotheses and its limit printed -- the
+### rest allowed e^{L} by H-STRIP alone against the pair`s e^{2 delta L}, the comparison a printed inequality, f4`s remaining
+### need (H-MAX or a route avoiding it) priced and not attempted; (3) the kernel lane for b530. ### Ruling and part 1 of 1,
+### received IN FULL, banked verbatim as `b530_ferry.txt`. ### **NOTHING DEPOSITS, AND NOTHING IN THIS ACT IS A STATEMENT
+### ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE MODULES.** Two NEW kernel files, `SIDEExplicitFormula/DecayBound.lean` (Component 1, importing
+### `PairTerm` and `GrowthBound`) and `SIDEExplicitFormula/RestBound.lean` (Components 2-4, importing `DecayBound`), and a
+### NEW `AxiomCheckRest.lean` printing both. ### No earlier kernel file and no vendored `Zeta23` file is touched. ### Each
+### module`s attempts are counted SEPARATELY (`b530_attempts_decay.json`, `b530_attempts_rest.json`): (N1) is (d')`s, so
+### its count is `DecayBound`s.
+### **READING (2) -- COMPONENT 1, (d').** `paperFT_iteratedDeriv`: p integrations by parts (b524`s `ibp_step`, iterated
+### by induction on p) give `paperFT (g^(p)) z = (-(i z))^p paperFT g z` for a real C^p `g` of compact support.
+### `paperFT_decay`: for g real, C^p, supported in [-L, L], at EVERY complex z, `|paperFT g z| |z|^p <= (INT |g^(p)|)
+### exp(L |Im z|)` -- (d) (b517`s `paperFT_growth`) applied to g^(p); this is stronger than the ferry`s form, since |Re z| <=
+### |z|. `paperFT_decay_re`: the ferry`s form, for Re z ≠ 0, `/ |Re z|^p`. `paperFT_decay_zero`: (d) as the case p = 0.
+### `window_decay_re`: the window through b524`s factorisation, `|paperFT h z| <= |gamma_0^2 - z^2| ((INT |(cos(gamma_0 .)
+### phi)^(p)|) exp(L |Im z|) / |Re z|^p)`, phi C^4 (b524`s window) and C^p. ### `INT ‖phi^(p)‖` is `INT |phi^(p)|` for a
+### real phi.
+### **READING (3) -- COMPONENT 2, THE REST.** p is FIXED AT 4, the window`s own order (phi C^4), so R is R(L, 4, gamma_0).
+### For an abstract `Zeta23.ZeroConfig` Z: `HStrip Z` (every zero has real part in the OPEN strip (0, 1), the ferry`s
+### wording) and `HCount Z A0` (`1 <= A0` and `N(t, t + 1) <= A0 log(|t| + 3)` for every real t -- the shape of the kernel`s
+### `Zeta23.RvM.zetaZeroConfig_local_count`, `N` counting WITH multiplicity). ### THE REST is `restSum`: the sum of
+### `m_rho |k^(gamma_rho)|` over the zeros OUTSIDE THE PAIR`S ORBIT `{rho_0, 1 - conj rho_0, conj rho_0, 1 - rho_0}` --
+### **A DEPARTURE FROM THE FERRY`S "other than rho_0 and 1 - conj rho_0", DECLARED**: k^ is even, so for a configuration
+### symmetric under conjugation the conjugates carry the pair`s own terms, and a rest containing them can never be beaten by
+### the pair. The proof never uses the exclusion: `finite_rest_bound` bounds EVERY finite set of zeros by the same R, so R
+### bounds the ferry`s literal sum as well. ### `restR gamma_0 phi L A0 = 768 A0 A^2 e^L (gamma_0^2 + 1)^2 SUM_{m in Z}
+### (1 + |m|)^{-3}`, `A = windowA = INT |cos(gamma_0 .) phi| + INT |(cos(gamma_0 .) phi)''''|`: per zero, (d') at p = 0 and
+### p = 4 with the strip`s |Im gamma_rho| <= 1/2 gives `e^{L/2}` for each factor of `k^ = h^(z) h^(-z)` and `e^{L}` for
+### k; the zeros grouped by `ceil(Im rho)` into unit intervals, each interval`s count from H-COUNT, `log(|t| + 3) <= 3 (1 +
+### |m|)`. ### `rest_bound` carries H-STRIP and H-COUNT and, beside them, only the window`s own setting (phi C^4, supported
+### in [-L, L], L >= 0). ### **TWO COROLLARIES, UNGRADED, THE AUTHOR`S TO RULE**: `rest_bound_closed` -- H-STRIP is NOT
+### NEEDED, the CLOSED strip being a field of every `ZeroConfig` (`Z.strip`) and sufficient for the bound; `rest_bound_zeta`
+### -- for `zetaZeroConfig` NO HYPOTHESIS, H-COUNT being the kernel`s proved `zetaZeroConfig_local_count`. The latter bounds
+### a sum over zeta`s zeros by the kernel`s own count; it says nothing about their real parts beyond the strip.
+### **READING (4) -- COMPONENT 3, THE COMPARISON.** `realizedGrowth_le_exp`: for phi >= 0 supported in [-L, L] with
+### INT phi > 0 and delta >= 0, `G <= e^{delta L}`, so the pair`s term, of order delta^2 slope^2 G^2, grows at most like
+### e^{2 delta L}. ### **THE FERRY`S "G at least e^{delta L} times the plateau`s edge fraction" IS NOT COMPILED**: the
+### comparison needs the pair`s UPPER growth, which is compiled; the lower bound as worded is not a theorem here, and its
+### measured value G / e^{delta L} is printed (b522`s bank: 0.275 at a = 34). ### `two_delta_lt_one`: delta < 1/2 gives
+### 2 delta < 1, a theorem of real numbers. ### `f4_needs delta : Prop := EXISTS C > 0, EXISTS L0, FORALL L >= L0, e^L <=
+### C e^{2 delta L}` -- the rest`s allowed growth (H-STRIP`s e^L in `restR`) eventually at most a constant times the pair`s;
+### `not_f4_needs`: it FAILS for every delta < 1/2; `f4_needs_of_half_le`: it holds for delta >= 1/2. ### The ferry`s "f4
+### closes from f2 and f3 alone iff" is the reading that f4 by those two needs `f4_needs`; f4 is not stated, so the "iff"
+### is this reading, not a theorem. ### `restR`s other factors (A0, windowA, gamma_0) are printed as numbers, not proved
+### polynomial in L.
+### **READING (5) -- COMPONENT 4, PRICED.** (A) `HMax Z : Prop := EXISTS rho in Z.carrier, FORALL rho' in Z.carrier,
+### Re rho' <= Re rho` -- the supremum of real parts attained; stated, not proved, status UNKNOWN. (B) the route without
+### H-MAX, in five lines, its lemmas named FOUND or ABSENT by reading: with delta* the supremum of Re rho - 1/2, every zero
+### has |Re rho - 1/2| <= delta*, so the rest is allowed e^{2 delta* L}; a sequence rho_n with delta_n -> delta* (Mathlib`s
+### `exists_seq_tendsto_sSup`, FOUND) gives pairs of growth e^{2 delta_n L}, and the width L_n is chosen with
+### (delta* - delta_n) L_n -> 0 against the count at height gamma_n (`zetaZeroConfig_local_count`, FOUND); the rest bound
+### with 1/2 replaced by delta* (this act`s `finite_rest_bound` with its strip argument widened -- ABSENT as a compiled
+### statement), and the pair`s lower bound with its L-dependence (slope, G, windowA) controlled uniformly along the
+### sequence (ABSENT). Neither (A) nor (B) is attempted.
+### **READING (6) -- AN ATTEMPT** is one whole-module run of `lake env lean -o ... <Module>.lean` under (R134)(2) (a host
+### stop is attempt 0; a stop the seat causes counts); the drafts are written in the scratchpad before the seal and NOT RUN,
+### installed after the seal (sha256 banked); every repair is an edit of the installed module; no compile is wrapped in
+### `timeout`; compiles run in the foreground.
+### **READING (7) -- COMPONENT 3`S NUMBERS.** `tools/b530_values.py` at Q0`s B-spline instance, a = 34 (b522`s window,
+### `b521_tail.PWindow(34.0, 'q', 7)`, IMPORTED): R TRANSCRIBED from `restR`, A by trapezoid of |g| and |g''''| on [-L, L]
+### (the instrument`s own `gcos_d`), SUM_m (1 + |m|)^{-3} = 2 zeta(3) - 1; ### A0 IS NOT PROVED FOR Q0 -- it is the least
+### A0 >= 1 with N(t, t + 1) <= A0 log(|t| + 3) on the bank below 150, t on a grid of step 0.01; the measured rest is SUM
+### |k^(gamma_rho)| over the banked zeros below 150 outside the pair`s orbit, multiplicity one; beside it the pair`s orbit
+### term, `R / rest` and `R / pair`, G / e^{delta L}, e^L against e^{2 delta L}.
+### **READING (8) -- THE GRADES AND THE TABLE.** One grade, by statement-read: `rest_bound` DERIVES of its model statement
+### under the two named hypotheses H-STRIP and H-COUNT -- the grade word DERIVES, the qualifier in words, no grade name
+### minted. ### Written in this act`s correspondence row and the trail record; W-ORD-WEIL-CONVERSE`s table re-printed IN
+### THE TRAIL RECORD with f3 marked `DERIVES under H-STRIP and H-COUNT (rest_bound)` and f4 `OPEN`, (A) and (B) beside it.
+### FINDINGS.md is not written. ### The terminal table is regenerated by the suite through `AxiomCheckRest.lean`.
+### **READING (9) -- THE SCORING.** (N1): `DecayBound` compiles with no error at an attempt numbered at most 3 AND its nine
+### theorems are the standard three on the whole string. (N2): `rest_bound` is the standard three AND the hypotheses of its
+### banked statement that mention the configuration Z are exactly `HStrip Z` and `HCount Z A0`. (N3): `two_delta_lt_one`
+### and `not_f4_needs` are each the standard three. (N4): `R > 100 x` the measured rest, from `b530_values.json`.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `tools/b530_kernel.py install`, then `compile decay` and `compile rest` (each attempt), `statement`, `read` ->
+### `b530_install.json`, `b530_attempts_{decay,rest}.json`, `b530_attempt_{decay,rest}<n>.lean`, `b530_compile_log_*.txt`,
+### `b530_statement.txt`, `b530_definitions.txt`, `b530_read.json`.
+### (2) `tools/b530_kernel.py profile` -> `b530_profile.json`, `b530_profile_log*.txt`.
+### (3) `tools/b530_values.py` -> `b530_values.json`.
+### (4) `tools/b530_record.py` -> the components bank, the desk, the trail; the correspondence row by `corr_row.py`; the
+### terminal table by the suite.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** the kernel`s `GrowthBound.lean`, `PairTerm.lean`, `Zeta23/Defs.lean`
+### (ZeroConfig, window, N) and `Zeta23/RvM/LocalCount.lean` (the statement of `zetaZeroConfig_local_count`) at a00aa21;
+### Mathlib at the pin for names; b522`s tools (`b521_tail.py`, `b519_window.py`, `b514_window.py`, `b511_families.py`) for
+### the window`s derivatives and the Q0 bank`s shape. ### **TWO NAME PROBES WERE RUN BEFORE THE SEAL, DECLARED**:
+### `lake env lean` on scratch files of `#check` lines (and three one-line `example`s of casts), importing `PairTerm` and
+### `GrowthBound`, elaborating NO proof of either module -- to confirm each cited name exists IN THE IMPORT CLOSURE (b529`s
+### `Real.one_le_cosh` was in Mathlib`s source and not in the closure). They found six names absent (among them
+### `HasCompactSupport.iteratedDeriv`, `Real.cosh_le_cosh`, `Real.cosh_le_exp_abs`), which the drafts prove or avoid; the
+### probe files and outputs are banked as `b530_probe*.txt`. ### **THE MODULES AND THE AXIOM CHECK ARE DRAFTED BEFORE THE
+### SEAL AND NOT RUN**; `b530_values.py` was not run before the seal; no number of Component 3 was computed before it.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### One warm import per module per attempt (b529: 35.5 s); attempts unknown. `RestBound` is the larger draft (about 330
+### lines) and the likelier to need repairs.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **(d') COMPILES STANDARD THREE WITHIN THREE ATTEMPTS.**
+### **(N2)** ### **THE REST`S BOUND COMPILES WITH THE TWO HYPOTHESES NAMED AND NO OTHERS.**
+### **(N3)** ### **THE EXPONENT COMPARISON PRINTS 2 delta < 1 AND f4_needs IS NOT CLOSABLE FROM f2 AND f3 WITH H-STRIP.**
+### **(N4)** ### **AT a = 34, R EXCEEDS THE MEASURED REST BY MORE THAN A FACTOR OF 100.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **`DecayBound` COMPILES CLEAN AT ITS FIRST ATTEMPT.**
+### **(S2)** ### **`RestBound` COMPILES WITHIN THREE ATTEMPTS AND ALL 30 THEOREMS IN THE AXIOM CHECK ARE THE STANDARD THREE.**
+### **(S3)** ### **R / (THE MEASURED REST) EXCEEDS 1e10 AT a = 34.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R140-ENTERED`
+### `G-INSTALLED-FROM-DRAFT` `G-ATTEMPTS-BANKED` `G-MODULE-NO-SORRY` `G-PROFILE-WHOLE-STRING` `G-STATEMENTS-PRINTED`
+### `G-PRIOR-MODULES-UNTOUCHED` `G-PROBES-BANKED` `G-HYPOTHESES-NAMED` `G-PROPS-PRINTED` `G-R-TRANSCRIBED`
+### `G-VALUES-RECOMPUTED` `G-GRADES-BY-READING` `G-F3-MARKED` `G-TABLE-ROW`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-PRIORBANK-UNCHANGED` holds every prior act`s
+### bank unchanged, with no exception. ### **EVERY POSITIVE CONTROL CARRIED FROM b529 IS RE-POINTED AT THIS ACT`S
+### NAMES** (b529`s defect (d): two carried controls mutated names absent from the module and passed).
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b530_*` `relay/tools/b530_*` |
+### | `tools/b530_kernel.py install` | `SIDE-explicit-formula/SIDEExplicitFormula/DecayBound.lean`
+###   `SIDE-explicit-formula/SIDEExplicitFormula/RestBound.lean` `SIDE-explicit-formula/AxiomCheckRest.lean` (all NEW) |
+### | `lake env lean -o` | `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/DecayBound.*`
+###   `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/RestBound.*` (build artefacts, untracked) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b530_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b530_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b530_registration_2026-09-25.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b530_span*.json` `relay/data/b530_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b530.zip`
+###   (outside every repository) `relay/data/b530_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b530_kernel.py` `b530_values.py` `b530_record.py` `b530_reg_gate.py`
+### `b530_regspec.py` `b530_checks.py` `b530_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED**; b522`s tools are IMPORTED by `b530_values.py`, never copied or edited. ### No
+### vendored `Zeta23` file and no existing kernel module is touched.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### The kernel is not tagged. ### f4 is not attempted; `HMax` is stated and
+### not proved; route (B) is priced and not taken. ### No zero of zeta or of Z_Q0 is added or moved; no prior bank is
+### rewritten. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ### Nothing
+### deposits. ### **NO GRADE IS MOVED ON ANY OTHER CORPUS ROW**; the one grade of READING (8) is this act`s own row.
+### ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN.
+### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 4dca4d19acc9590f526ebaf5051700058c0d5cb7dd89cd7994b49920dda822df
+### bytes locked : 18944
+### locked at (UTC) : 2026-09-25T15:09:32Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b530_registration_2026-09-25.txt`.**
+====================================================================================================

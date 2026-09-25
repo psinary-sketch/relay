@@ -1,0 +1,24 @@
+### run at (UTC) : 2026-09-25T15:19:13Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\RestBound.olean SIDEExplicitFormula\RestBound.lean
+exit 0 ; 26.1 s
+--- stdout ---
+SIDEExplicitFormula\RestBound.lean:183:19: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\RestBound.lean:186:19: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\RestBound.lean:183:7: warning: 'dsimp only' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\RestBound.lean:183:19: warning: 'rw [Int.cast_natCast, Nat.abs_cast, add_comm]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\RestBound.lean:186:7: warning: 'dsimp only' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\RestBound.lean:186:19: warning: 'rw [Int.cast_neg, Int.cast_natCast, abs_neg, Nat.abs_cast, add_comm]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+--- stderr ---
+

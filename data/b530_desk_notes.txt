@@ -1,0 +1,27 @@
+========================================================================================================
+b530 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S FOUR.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- DecayBound first clean attempt : 1 (at most 3) ; its nine theorems std3 : 9 of 9.
+  **(N2)** ### **HELD.** -- rest_bound std3 : True ; its hypotheses mentioning Z : ['HCount Z A₀', 'HStrip Z'].
+  **(N3)** ### **HELD.** -- two_delta_lt_one std3 : True ; not_f4_needs std3 : True.
+  **(N4)** ### **HELD.** -- R 6.2262e+18 against 100 x the measured rest 489.7341 (R / rest 1.2713e+16).
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- DecayBound first clean attempt 1 against 1.
+  **(S2)** ### **HELD.** -- RestBound first clean attempt 2 (at most 3) ; std3 30 of 30.
+  **(S3)** ### **HELD.** -- R / rest 1.2713e+16 against 1e10.
+
+### ### **THE NAVIGATOR`S : HELD 4 ; REFUTED 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **RestBound ATTEMPT 1: ONE ERROR, THE SEAT'S.** The identity B/y^4 * (A0 * 3y) = 3 A0 B (1/y^3) was closed by
+        `field_simp; ring` with a `div_eq_div_iff` fallback; both failed (the fallback's pattern was not in the goal, whose
+        right side is a product, not a quotient). Repaired by `ring` to 3 A0 B (y / y^4) and a separate `div_eq_div_iff`
+        step for y / y^4 = 1 / y^3. Attempt 2 clean, 26.1 s.
+    (b) ### **A0 FOR Q0 HIT ITS FLOOR.** The least A0 with N(t, t + 1) <= A0 log(|t| + 3) on the bank below 150 is below 1,
+        so the printed A0 is H-COUNT's floor, 1; it is a measurement on a finite bank, NOT A PROOF for Q0.
+========================================================================================================

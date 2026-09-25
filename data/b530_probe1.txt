@@ -1,0 +1,131 @@
+### b530 PRE-SEAL NAME PROBE 1 -- source
+import SIDEExplicitFormula.PairTerm
+
+open Complex MeasureTheory
+
+#check @iteratedDeriv_succ'
+#check @iteratedDeriv_zero
+#check @ContDiff.continuous_iteratedDeriv
+#check @HasCompactSupport.iteratedDeriv
+#check @support_iteratedDeriv_subset
+#check @HasCompactSupport.intro
+#check @Complex.abs_re_le_norm
+#check @pow_le_pow_left₀
+#check @Int.ceil_eq_iff
+#check @Finset.sum_fiberwise_of_maps_to
+#check @finsum_mem_eq_finite_toFinset_sum
+#check @Finset.sum_le_sum_of_subset
+#check @tsum_le_of_sum_le'
+#check @sum_le_tsum
+#check @Summable.sum_le_tsum
+#check @summable_int_iff_summable_nat_and_neg
+#check @Real.summable_one_div_nat_pow
+#check @summable_nat_add_iff
+#check @Real.log_le_sub_one_of_pos
+#check @Complex.norm_real
+#check @Real.norm_eq_abs
+#check @Complex.norm_I
+#check @Real.log_lt_iff_lt_exp
+#check @Real.lt_log_iff_exp_lt
+#check @Real.exp_log
+#check @Real.cosh_le_exp_abs
+#check @Real.cosh_abs
+#check @Real.cosh_le_cosh
+#check @Finset.sum_map
+#check @Function.Embedding.subtype
+#check @Zeta23.ZeroConfig.N
+#check @Zeta23.ZeroConfig.finite_window
+#check @Zeta23.ZeroConfig.strip
+#check @Zeta23.RvM.zetaZeroConfig_local_count
+#check @Zeta23.zetaZeroConfig
+#check @integral_mono_of_nonneg
+#check @Complex.norm_exp
+#check @norm_sub_le
+#check @Real.add_one_le_exp
+#check @Int.cast_abs
+#check @SIDEExplicitFormula.B321.ibp_step
+#check @SIDEExplicitFormula.B321.paperFT_growth
+#check @SIDEExplicitFormula.B321.kWin_FT
+#check @SIDEExplicitFormula.B321.paperFT_window
+### output
+@iteratedDeriv_succ' : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {n : ℕ} {f : 𝕜 → F},
+  iteratedDeriv (n + 1) f = iteratedDeriv n (deriv f)
+@iteratedDeriv_zero : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2} [inst_1 : NormedAddCommGroup F]
+  [inst_2 : NormedSpace 𝕜 F] {f : 𝕜 → F}, iteratedDeriv 0 f = f
+@ContDiff.continuous_iteratedDeriv : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f : 𝕜 → F} {n : WithTop ℕ∞} (m : ℕ),
+  ContDiff 𝕜 n f → ↑m ≤ n → Continuous (iteratedDeriv m f)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe.lean:8:8: error(lean.unknownIdentifier): Unknown constant `HasCompactSupport.iteratedDeriv`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe.lean:9:8: error(lean.unknownIdentifier): Unknown identifier `support_iteratedDeriv_subset`
+@HasCompactSupport.intro : ∀ {α : Type u_1} {β : Type u_2} [inst : TopologicalSpace α] [inst_1 : Zero β] {f : α → β}
+  {K : Set α} [R1Space α], IsCompact K → (∀ x ∉ K, f x = 0) → HasCompactSupport f
+abs_re_le_norm : ∀ (z : ℂ), |z.re| ≤ ‖z‖
+@pow_le_pow_left₀ : ∀ {M₀ : Type u_1} [inst : MonoidWithZero M₀] [inst_1 : Preorder M₀] {a b : M₀} [PosMulMono M₀]
+  [MulPosMono M₀], 0 ≤ a → a ≤ b → ∀ (n : ℕ), a ^ n ≤ b ^ n
+@Int.ceil_eq_iff : ∀ {R : Type u_1} [inst : Ring R] [inst_1 : LinearOrder R] [inst_2 : FloorRing R] {z : ℤ} {a : R},
+  ⌈a⌉ = z ↔ ↑z - 1 < a ∧ a ≤ ↑z
+@Finset.sum_fiberwise_of_maps_to : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M]
+  {s : Finset ι} {t : Finset κ} [inst_1 : DecidableEq κ] {g : ι → κ},
+  (∀ i ∈ s, g i ∈ t) → ∀ (f : ι → M), ∑ j ∈ t, ∑ i ∈ s with g i = j, f i = ∑ i ∈ s, f i
+@finsum_mem_eq_finite_toFinset_sum : ∀ {α : Type u_1} {M : Type u_2} [inst : AddCommMonoid M] (f : α → M) {s : Set α}
+  (hs : s.Finite), ∑ᶠ (i : α) (_ : i ∈ s), f i = ∑ i ∈ hs.toFinset, f i
+@Finset.sum_le_sum_of_subset : ∀ {ι : Type u_1} {M : Type u_2} [inst : AddCommMonoid M] [inst_1 : Preorder M]
+  [CanonicallyOrderedAdd M] {f : ι → M} {s t : Finset ι}, s ⊆ t → ∑ x ∈ s, f x ≤ ∑ x ∈ t, f x
+@tsum_le_of_sum_le' : ∀ {ι : Type u_1} {α : Type u_2} {L : SummationFilter ι} [inst : AddCommMonoid α]
+  [inst_1 : Preorder α] [inst_2 : TopologicalSpace α] [OrderClosedTopology α] {f : ι → α} {a₂ : α},
+  0 ≤ a₂ → (∀ (s : Finset ι), ∑ i ∈ s, f i ≤ a₂) → ∑'[L] (i : ι), f i ≤ a₂
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe.lean:18:8: error(lean.unknownIdentifier): Unknown identifier `sum_le_tsum`
+@Summable.sum_le_tsum : ∀ {ι : Type u_1} {α : Type u_2} {L : SummationFilter ι} [inst : AddCommMonoid α]
+  [inst_1 : Preorder α] [IsOrderedAddMonoid α] [inst_3 : TopologicalSpace α] [OrderClosedTopology α] [L.NeBot]
+  [L.LeAtTop] {f : ι → α} (s : Finset ι), (∀ i ∉ s, 0 ≤ f i) → Summable f L → ∑ i ∈ s, f i ≤ ∑'[L] (i : ι), f i
+@summable_int_iff_summable_nat_and_neg : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : UniformSpace G]
+  [IsUniformAddGroup G] [CompleteSpace G] {f : ℤ → G}, Summable f ↔ (Summable fun n => f ↑n) ∧ Summable fun n => f (-↑n)
+@Real.summable_one_div_nat_pow : ∀ {p : ℕ}, (Summable fun n => 1 / ↑n ^ p) ↔ 1 < p
+@summable_nat_add_iff : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : TopologicalSpace G] [IsTopologicalAddGroup G]
+  {f : ℕ → G} (k : ℕ), (Summable fun n => f (n + k)) ↔ Summable f
+@Real.log_le_sub_one_of_pos : ∀ {x : ℝ}, 0 < x → Real.log x ≤ x - 1
+norm_real : ∀ (r : ℝ), ‖↑r‖ = ‖r‖
+Real.norm_eq_abs : ∀ (r : ℝ), ‖r‖ = |r|
+norm_I : ‖I‖ = 1
+@Real.log_lt_iff_lt_exp : ∀ {x y : ℝ}, 0 < x → (Real.log x < y ↔ x < Real.exp y)
+@Real.lt_log_iff_exp_lt : ∀ {x y : ℝ}, 0 < y → (x < Real.log y ↔ Real.exp x < y)
+@Real.exp_log : ∀ {x : ℝ}, 0 < x → Real.exp (Real.log x) = x
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe.lean:30:8: error(lean.unknownIdentifier): Unknown constant `Real.cosh_le_exp_abs`
+Real.cosh_abs : ∀ (x : ℝ), Real.cosh |x| = Real.cosh x
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe.lean:32:8: error(lean.unknownIdentifier): Unknown constant `Real.cosh_le_cosh`
+@Finset.sum_map : ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] (s : Finset ι) (e : ι ↪ κ)
+  (f : κ → M), ∑ x ∈ Finset.map e s, f x = ∑ x ∈ s, f (e x)
+@Function.Embedding.subtype : {α : Sort u_1} → (p : α → Prop) → Subtype p ↪ α
+Zeta23.ZeroConfig.N : Zeta23.ZeroConfig → ℝ → ℝ → ℕ
+Zeta23.ZeroConfig.finite_window : ∀ (self : Zeta23.ZeroConfig) (T₁ T₂ : ℝ),
+  (self.carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+Zeta23.ZeroConfig.strip : ∀ (self : Zeta23.ZeroConfig), ∀ ρ ∈ self.carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1
+Zeta23.RvM.zetaZeroConfig_local_count : ∃ A₀,
+  1 ≤ A₀ ∧ ∀ (t : ℝ), ↑(Zeta23.zetaZeroConfig.N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+Zeta23.zetaZeroConfig : Zeta23.ZeroConfig
+@integral_mono_of_nonneg : ∀ {α : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace ℝ E]
+  {m : MeasurableSpace α} {μ : Measure α} [inst_2 : PartialOrder E] [IsOrderedAddMonoid E] [IsOrderedModule ℝ E]
+  [ClosedIciTopology E] {f g : α → E}, 0 ≤ᵐ[μ] f → Integrable g μ → f ≤ᵐ[μ] g → ∫ (a : α), f a ∂μ ≤ ∫ (a : α), g a ∂μ
+norm_exp : ∀ (z : ℂ), ‖cexp z‖ = Real.exp z.re
+@norm_sub_le : ∀ {E : Type u_1} [inst : SeminormedAddGroup E] (a b : E), ‖a - b‖ ≤ ‖a‖ + ‖b‖
+Real.add_one_le_exp : ∀ (x : ℝ), x + 1 ≤ Real.exp x
+@Int.cast_abs : ∀ {R : Type u_1} [inst : Ring R] [inst_1 : LinearOrder R] [IsStrictOrderedRing R] {a : ℤ}, ↑|a| = |↑a|
+SIDEExplicitFormula.B321.ibp_step : ∀ (F : ℝ → ℝ),
+  ContDiff ℝ 1 F →
+    HasCompactSupport F →
+      ∀ (z : ℂ), ∫ (u : ℝ), ↑(deriv F u) * cexp (I * z * ↑u) = -(I * z) * ∫ (u : ℝ), ↑(F u) * cexp (I * z * ↑u)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b530/NameProbe.lean:46:8: error(lean.unknownIdentifier): Unknown identifier `SIDEExplicitFormula.B321.paperFT_growth`
+SIDEExplicitFormula.B321.kWin_FT : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ →
+    HasCompactSupport φ →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (SIDEExplicitFormula.B321.kWin γ₀ φ) z =
+          Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) z *
+            Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) (-z)
+SIDEExplicitFormula.B321.paperFT_window : ∀ (γ₀ : ℝ) {φ : ℝ → ℝ},
+  ContDiff ℝ 4 φ →
+    HasCompactSupport φ →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (SIDEExplicitFormula.B321.windowC γ₀ φ) z =
+          (↑γ₀ ^ 2 - z ^ 2) * Zeta23.paperFT (SIDEExplicitFormula.B321.cosWinC γ₀ φ) z

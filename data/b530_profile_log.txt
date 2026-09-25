@@ -1,0 +1,60 @@
+### run at (UTC) : 2026-09-25T15:20:14Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean AxiomCheckRest.lean
+exit 0 ; 55.2 s
+--- stdout ---
+'SIDEExplicitFormula.B321.hasCompactSupport_of_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.support_deriv_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.support_iteratedDeriv_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_iteratedDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_decay_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_decay_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosWin_support_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.window_decay_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_bound_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_bound_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.finite_rest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.rest_le_of_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.restR_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.fiber_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.summable_zeta3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zeta3Sum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.zero_term_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weight_ineq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.kWin_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.window_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosWin_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_re'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.gammaOf_im'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.cosh_le_exp_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.realizedGrowth_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.two_delta_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.not_f4_needs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.f4_needs_of_half_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.HStrip : Zeta23.ZeroConfig → Prop
+SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop
+SIDEExplicitFormula.B321.f4_needs : ℝ → Prop
+SIDEExplicitFormula.B321.HMax : Zeta23.ZeroConfig → Prop
+def SIDEExplicitFormula.B321.restR : ℝ → (ℝ → ℝ) → ℝ → ℝ → ℝ :=
+fun γ₀ φ L A₀ =>
+  768 * A₀ * SIDEExplicitFormula.B321.windowA γ₀ φ ^ 2 * Real.exp L * (γ₀ ^ 2 + 1) ^ 2 *
+    SIDEExplicitFormula.B321.zeta3Sum
+def SIDEExplicitFormula.B321.windowA : ℝ → (ℝ → ℝ) → ℝ :=
+fun γ₀ φ =>
+  (∫ (u : ℝ), |SIDEExplicitFormula.B321.cosWin γ₀ φ u|) +
+    ∫ (u : ℝ), |iteratedDeriv 4 (SIDEExplicitFormula.B321.cosWin γ₀ φ) u|
+def SIDEExplicitFormula.B321.zeta3Sum : ℝ :=
+∑' (m : ℤ), 1 / (1 + |↑m|) ^ 3
+def SIDEExplicitFormula.B321.f4_needs : ℝ → Prop :=
+fun δ => ∃ C, 0 < C ∧ ∃ L₀, ∀ L ≥ L₀, Real.exp L ≤ C * Real.exp (2 * δ * L)
+def SIDEExplicitFormula.B321.HMax : Zeta23.ZeroConfig → Prop :=
+fun Z => ∃ ρ ∈ Z.carrier, ∀ ρ' ∈ Z.carrier, ρ'.re ≤ ρ.re
+def SIDEExplicitFormula.B321.HCount : Zeta23.ZeroConfig → ℝ → Prop :=
+fun Z A₀ => 1 ≤ A₀ ∧ ∀ (t : ℝ), ↑(Z.N t (t + 1)) ≤ A₀ * Real.log (|t| + 3)
+def SIDEExplicitFormula.B321.HStrip : Zeta23.ZeroConfig → Prop :=
+fun Z => ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1
+def SIDEExplicitFormula.B321.pairOrbit : ℂ → Set ℂ :=
+fun ρ₀ => {ρ₀, Zeta23.reflect ρ₀, (starRingEnd ℂ) ρ₀, 1 - ρ₀}
+--- stderr ---
+
