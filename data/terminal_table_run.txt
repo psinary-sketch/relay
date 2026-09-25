@@ -8,10 +8,10 @@
   ledgers read : ### **97**  (including the archive`s split looms -- b494 found the
   ### 2026-07-26 census there, and ### **A SPLIT MOVES A LEDGER, IT DOES NOT RETIRE IT**)
   ### THE GRADE-CELL MATCHER, BOTH VERSIONS, YIELD PRINTED.
-    v1 LOOSE (any name on any line carrying a grade word) : 1049 cells, 731 names
-    v2 WINDOWED (every name within 120 chars of a grade)  : 250 cells, 149 names
-    v3 NEAREST (each grade attaches to its NEAREST name)   : 197 cells, 93 names
-    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 188 cells, 93 names**
+    v1 LOOSE (any name on any line carrying a grade word) : 1059 cells, 734 names
+    v2 WINDOWED (every name within 120 chars of a grade)  : 259 cells, 152 names
+    v3 NEAREST (each grade attaches to its NEAREST name)   : 204 cells, 96 names
+    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 195 cells, 96 names**
     ### ### **v1 AND v2 ARE DISCARDED AND THEIR YIELDS ARE PRINTED ANYWAY** -- b381`s
     ### rule, that a matcher is never replaced silently. ### These ledgers carry
     ### 2,000-character re-grade paragraphs naming a dozen keystones and using three
@@ -50,15 +50,15 @@
       json READS the act`s own printed line beside it                          PASS
   banked profile JSONs read (committed, relay HEAD) : 14 ; names profiled there : 66
 
-  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **28** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/kWin_classK', 'SIDE-explicit-formula/nearInt_ge', 'SIDE-explicit-formula/pairTwo_factored', 'SIDE-explicit-formula/pairTwo_near_far', 'SIDE-explicit-formula/pair_bound', 'SIDE-explicit-formula/pair_near_sign', 'SIDE-explicit-formula/paperFT_growth', 'SIDE-explicit-formula/paperFT_growth_at', 'SIDE-explicit-formula/paperFT_window', 'SIDE-explicit-formula/paperFT_window_zero']
+  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **31** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/kWin_classK', 'SIDE-explicit-formula/nearInt_ge', 'SIDE-explicit-formula/pairTwo_factored', 'SIDE-explicit-formula/pairTwo_near_far', 'SIDE-explicit-formula/pair_bound', 'SIDE-explicit-formula/pair_near_sign', 'SIDE-explicit-formula/paperFT_growth', 'SIDE-explicit-formula/paperFT_growth_at', 'SIDE-explicit-formula/paperFT_window', 'SIDE-explicit-formula/paperFT_window_zero']
   ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **65** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.cosWinC_FT <- data/b529_profile.json', 'SIDEExplicitFormula.B321.cosWinC_FT_near_far <- data/b529_profile.json', 'SIDEExplicitFormula.B321.cosWin_bound <- data/b530_profile.json', 'SIDEExplicitFormula.B321.cosWin_support_Icc <- data/b530_profile.json', 'SIDEExplicitFormula.B321.cosh_le_exp_abs <- data/b530_profile.json', 'SIDEExplicitFormula.B321.f4_needs_of_half_le <- data/b530_profile.json', 'SIDEExplicitFormula.B321.farFT_conj <- data/b529_profile.json', 'SIDEExplicitFormula.B321.fiber_count <- data/b530_profile.json', 'SIDEExplicitFormula.B321.finite_rest_bound <- data/b530_profile.json', 'SIDEExplicitFormula.B321.gammaOf_reflect_rhoZero <- data/b529_profile.json', 'SIDEExplicitFormula.B321.gammaOf_rhoZero <- data/b529_profile.json']
 
   ### THE COUNTS.
   ----------------------------------------------------------------------------------------------------
     rows (repo, name)                                  : ### **1078**
     NOT PROFILED                                       : ### **376**
-    UNGRADED                                           : ### **1002**
-    CONFLICT                                           : ### **9**
+    UNGRADED                                           : ### **1000**
+    CONFLICT                                           : ### **10**
     ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **6**
     names a ledger cites resolving in NO repo, any ref : ### **19**
     (and, not asked for but owed by (S1)) STATEMENT UNRESOLVED : ### **7**
