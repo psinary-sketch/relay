@@ -1,0 +1,36 @@
+### run at (UTC) : 2026-09-25T08:11:16Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\TwoPropertyWindow.olean SIDEExplicitFormula\TwoPropertyWindow.lean
+exit 0 ; 66.7 s
+--- stdout ---
+SIDEExplicitFormula\TwoPropertyWindow.lean:56:23: warning: Variable name `hF0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hF0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:56:37: warning: Variable name `hF1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hF1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:56:51: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:66:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:66:4: warning: 'fun_prop' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:146:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+SIDEExplicitFormula\TwoPropertyWindow.lean:146:4: warning: 'fun_prop' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+--- stderr ---
+

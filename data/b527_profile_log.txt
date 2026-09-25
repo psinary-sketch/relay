@@ -1,0 +1,22 @@
+### run at (UTC) : 2026-09-25T08:12:00Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean AxiomCheckWindow.lean
+exit 0 ; 22.9 s
+--- stdout ---
+'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.paperFT_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.ibp_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.weilTest_ofReal_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SIDEExplicitFormula.B321.plateau_apply_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+SIDEExplicitFormula.B321.f_pair_hypothesis : ℝ → (ℝ → ℝ) → ℝ → Prop
+def SIDEExplicitFormula.B321.realizedGrowth : (ℝ → ℝ) → ℝ → ℝ :=
+fun φ δ => (∫ (u : ℝ), φ u * Real.cosh (δ * u)) / ∫ (u : ℝ), φ u
+def SIDEExplicitFormula.B321.plateau : (F L : ℝ) → 0 < F → F < 1 → 0 < L → ℝ → ℝ :=
+fun F L hF0 hF1 hL u => ((L - u) / (F * L)).smoothTransition * ((L + u) / (F * L)).smoothTransition
+--- stderr ---
+

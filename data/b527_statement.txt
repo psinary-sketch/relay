@@ -1,0 +1,79 @@
+def plateau (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ℝ → ℝ :=
+
+theorem plateau_contDiff (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (n : ℕ∞) :
+    ContDiff ℝ n (plateau F L hF0 hF1 hL) :=
+
+theorem plateau_even (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) :
+    plateau F L hF0 hF1 hL (-x) = plateau F L hF0 hF1 hL x :=
+
+theorem plateau_hasCompactSupport (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :
+    HasCompactSupport (plateau F L hF0 hF1 hL) :=
+
+theorem plateau_eq_one (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) (hx : |x| ≤ (1 - F) * L) :
+    plateau F L hF0 hF1 hL x = 1 :=
+
+theorem plateau_apply_abs (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) :
+    plateau F L hF0 hF1 hL x = Real.smoothTransition ((L - |x|) / (F * L)) :=
+
+def b519Plateau (a : ℝ) (ha : 1 < a) : ℝ → ℝ :=
+
+def cosWin (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℝ :=
+
+def window (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℝ :=
+
+def windowC (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+def cosWinC (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+def kWin (γ₀ : ℝ) (φ : ℝ → ℝ) : ℝ → ℂ :=
+
+theorem cosWin_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} {n : WithTop ℕ∞} (hφ : ContDiff ℝ n φ) :
+    ContDiff ℝ n (cosWin γ₀ φ) :=
+
+theorem cosWin_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :
+    HasCompactSupport (cosWin γ₀ φ) :=
+
+theorem window_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) : ContDiff ℝ 2 (window γ₀ φ) :=
+
+theorem window_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :
+    HasCompactSupport (window γ₀ φ) :=
+
+theorem windowC_contDiff {γ₀ : ℝ} {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) : ContDiff ℝ 2 (windowC γ₀ φ) :=
+
+theorem windowC_hasCompactSupport {γ₀ : ℝ} {φ : ℝ → ℝ} (hφs : HasCompactSupport φ) :
+    HasCompactSupport (windowC γ₀ φ) :=
+
+theorem weilTest_ofReal_even (f : ℝ → ℝ) (x : ℝ) :
+    Zeta23.EF.weilTest (fun u => (f u : ℂ)) (fun u => (f u : ℂ)) (-x) =
+      Zeta23.EF.weilTest (fun u => (f u : ℂ)) (fun u => (f u : ℂ)) x :=
+
+theorem kWin_classK (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :
+    classK (kWin γ₀ φ) :=
+
+theorem hasDerivAt_expIz (z : ℂ) (x : ℝ) :
+    HasDerivAt (fun t : ℝ => Complex.exp (Complex.I * z * (t : ℂ)))
+      (Complex.I * z * Complex.exp (Complex.I * z * (x : ℂ))) x :=
+
+theorem ibp_step (F : ℝ → ℝ) (hF : ContDiff ℝ 1 F) (hFs : HasCompactSupport F) (z : ℂ) :
+    (∫ u, ((deriv F u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ))) =
+      -(Complex.I * z) * ∫ u, ((F u : ℝ) : ℂ) * Complex.exp (Complex.I * z * (u : ℂ)) :=
+
+theorem paperFT_second_order (g : ℝ → ℝ) (hg : ContDiff ℝ 2 g) (hgs : HasCompactSupport g) (c : ℝ) (z : ℂ) :
+    Zeta23.paperFT (fun u => ((c * g u + deriv (deriv g) u : ℝ) : ℂ)) z =
+      ((c : ℂ) - z ^ 2) * Zeta23.paperFT (fun u => (g u : ℂ)) z :=
+
+theorem paperFT_window (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) (z : ℂ) :
+    Zeta23.paperFT (windowC γ₀ φ) z = ((γ₀ : ℂ) ^ 2 - z ^ 2) * Zeta23.paperFT (cosWinC γ₀ φ) z :=
+
+theorem paperFT_window_zero (γ₀ : ℝ) {φ : ℝ → ℝ} (hφ : ContDiff ℝ 4 φ) (hφs : HasCompactSupport φ) :
+    Zeta23.paperFT (windowC γ₀ φ) (γ₀ : ℂ) = 0 :=
+
+def realizedGrowth (φ : ℝ → ℝ) (δ : ℝ) : ℝ :=
+
+def windowSlope (γ₀ : ℝ) (φ : ℝ → ℝ) : ℂ :=
+
+def fConst : ℝ :=
+
+def pairTerm (γ₀ : ℝ) (φ : ℝ → ℝ) (β : ℝ) : ℂ :=
+
+def f_pair_hypothesis (γ₀ : ℝ) (φ : ℝ → ℝ) (β : ℝ) : Prop :=

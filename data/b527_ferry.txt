@@ -1,0 +1,65 @@
+RULING (R137) BEGIN
+RULING (R137), the author's, ratified by this paste and strikeable,
+the seat's 03:36 draft with choice (a).
+
+(1) b526 is entered: W-ORD-XI-P7 CLOSED — xi at ramp order 7 is
+positive beyond its bound at 46 of 46 verified widths to 60, tail
+at most 1.6e-16 of the bound, smallest margin +6.98 at a = 38; the
+re-derived form of words stands, with its closing clause "both on
+the order-7 B-spline window, not on the kernel's instance."
+Component 2 is HALTED and the halt is proved: the kernel's plateau
+is a ContDiffBump over a base picked by Classical.choice, two
+functions satisfy every property the kernel proves of it and
+differ by 0.185 pointwise, and the window's transform at gamma_0
+differs in sign between them at a = 34. A kernel that names no phi
+has no numbers to be taken on it; the seat was right not to
+substitute one.
+(2) CHOICE (a): THE PLATEAU IS MADE CONCRETE. plateau is redefined
+through Real.smoothTransition — the exp(-1/x) transition Mathlib
+holds in closed form — with the b519 support, flat part and ramp
+fraction; plateau_contDiff, plateau_even, plateau_hasCompactSupport
+and plateau_eq_one re-proved on the definition; (i)-(iii) of b524
+unchanged, being stated for every C^4 phi. The named instance then
+has values, and the act after measures on them.
+(3) (f)(ii) follows either way, stated for every C^4 phi >= 0 with
+the realized G as hypothesis; the instance matters to the witness,
+not to the lemma.
+(4) The kernel lane opens for b527 and shuts at its close; the
+numerical lane reopens for b528, the measurement on the concrete
+plateau.
+
+RULING (R137) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b527 — THE PLATEAU MADE CONCRETE.
+
+Component 1 — in SIDEExplicitFormula/TwoPropertyWindow.lean,
+plateau redefined: for support half-width L, flat half-width
+(1 - f) L and ramp fraction f, phi(u) = smoothTransition((L - |u|)
+/ (f L)) on the ramps, 1 on the flat part, 0 outside, written so
+Lean's own #print shows Real.smoothTransition and no Classical
+choice of a base; the b519Plateau instance at b519's parameters.
+plateau_contDiff (C^infinity, hence C^4), plateau_even,
+plateau_hasCompactSupport and plateau_eq_one re-proved; each printed
+from its declaration line to its :=; #print axioms matched on the
+whole string; no sorry; attempts counted under (R134)(2).
+
+Component 2 — every theorem of b524 rebuilt against the new
+definition with its statement byte-identical to b524's, the diff of
+the statements printed as 0 lines; the profiles re-run.
+
+Component 3 — the plateau's values: a table of phi at twenty
+points across the ramp, computed from the kernel's definition by
+the seat outside Lean and by the same formula in the chain, agreeing
+to 1e-14, so that b528 measures the kernel's function and no other;
+the AxiomCheck file and the terminal table updated.
+
+The navigator's expectations: (N1) the concrete plateau compiles
+standard three within two attempts; (N2) the four plateau lemmas
+re-prove with Mathlib's smoothTransition lemmas and no new
+analysis; (N3) no theorem of b524 changes its statement. Each
+refutable by a printed cell. Compiles in the kernel alone; nothing
+at Zenodo written; nothing deposits; h2 where the deposit left it.
+
+FERRY END (part 1 of 1)

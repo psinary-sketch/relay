@@ -1,0 +1,37 @@
+{
+ "lines": [
+  "'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.paperFT_window_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.paperFT_window' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.paperFT_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.ibp_step' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.weilTest_ofReal_even' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.plateau_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.plateau_even' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.plateau_hasCompactSupport' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.plateau_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.plateau_apply_abs' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ ],
+ "exit": 0,
+ "sorry": false,
+ "std3": {
+  "SIDEExplicitFormula.B321.kWin_classK": true,
+  "SIDEExplicitFormula.B321.paperFT_window_zero": true,
+  "SIDEExplicitFormula.B321.paperFT_window": true,
+  "SIDEExplicitFormula.B321.paperFT_second_order": true,
+  "SIDEExplicitFormula.B321.ibp_step": true,
+  "SIDEExplicitFormula.B321.weilTest_ofReal_even": true,
+  "SIDEExplicitFormula.B321.plateau_contDiff": true,
+  "SIDEExplicitFormula.B321.plateau_even": true,
+  "SIDEExplicitFormula.B321.plateau_hasCompactSupport": true,
+  "SIDEExplicitFormula.B321.plateau_eq_one": true,
+  "SIDEExplicitFormula.B321.plateau_apply_abs": true
+ },
+ "check_prop": "SIDEExplicitFormula.B321.f_pair_hypothesis : \u211d \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 Prop\ndef SIDEExplicitFormula.B321.realizedGrowth : (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d :=\nfun \u03c6 \u03b4 => (\u222b (u : \u211d), \u03c6 u * Real.cosh (\u03b4 * u)) / \u222b (u : \u211d), \u03c6 u\ndef SIDEExplicitFormula.B321.plateau : (F L : \u211d) \u2192 0 < F \u2192 F < 1 \u2192 0 < L \u2192 \u211d \u2192 \u211d :=\nfun F L hF0 hF1 hL u => ((L - u) / (F * L)).smoothTransition * ((L + u) / (F * L)).smoothTransition",
+ "print_growth": "def SIDEExplicitFormula.B321.realizedGrowth : (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d :=\nfun \u03c6 \u03b4 => (\u222b (u : \u211d), \u03c6 u * Real.cosh (\u03b4 * u)) / \u222b (u : \u211d), \u03c6 u",
+ "print_plateau": "def SIDEExplicitFormula.B321.plateau : (F L : \u211d) \u2192 0 < F \u2192 F < 1 \u2192 0 < L \u2192 \u211d \u2192 \u211d :=\nfun F L hF0 hF1 hL u => ((L - u) / (F * L)).smoothTransition * ((L + u) / (F * L)).smoothTransition",
+ "new": [
+  "'SIDEExplicitFormula.B321.kWin_classK' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ ],
+ "new_std3": true
+}
