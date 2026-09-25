@@ -1,0 +1,19 @@
+{
+ "write": {
+  "file": "FINDINGS.md",
+  "before": 528743,
+  "added": 4482,
+  "prefix": true
+ },
+ "heading_line": 4594,
+ "peeled": "baed4df861dac05224f01dad17453648d3d7fe0a",
+ "axioms_line": "'SIDEExplicitFormula.B321.h2_sign_iff_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]",
+ "seam_axioms_line": "'SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam' depends on axioms: [propext, Classical.choice, Quot.sound]",
+ "quoted": {
+  "h2_sign": "def h2_sign : Prop :=\n  ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k\n",
+  "rh_strip": "def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2",
+  "iff": "theorem h2_sign_iff_rh_strip : h2_sign ↔ rh_strip := ⟨h2_sign_imp_rh_strip, rh_strip_imp_h2_sign⟩",
+  "seam": "def rh_strip_imp_rh : Prop := rh_strip → RiemannHypothesis",
+  "of_seam": "theorem h2_sign_imp_rh_of_seam : rh_strip_imp_rh → h2_sign_imp_rh :=\n  fun hseam h2 => hseam (h2_sign_imp_rh_strip h2)"
+ }
+}

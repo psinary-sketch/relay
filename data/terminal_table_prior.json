@@ -4,20 +4,20 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 230,
- "grade_cells_loose_v1": 1163,
- "grade_cells_v2": 305,
- "grade_cells_v3": 239,
+ "grade_cells": 240,
+ "grade_cells_loose_v1": 1182,
+ "grade_cells_v2": 320,
+ "grade_cells_v3": 249,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 1208,
-  "not_profiled": 376,
-  "ungraded": 1097,
-  "conflict": 10,
-  "encodes": 6,
+  "rows": 1210,
+  "not_profiled": 378,
+  "ungraded": 1096,
+  "conflict": 12,
+  "encodes": 8,
   "ledger_names_unresolved": 19,
   "statement_unresolved": 10
  },
@@ -246,6 +246,10 @@
    [
     "SIDE-global-section",
     "transfer_nonvacuous"
+   ],
+   [
+    "SIDE-grh-transfer",
+    "balance_theorem"
    ],
    [
     "SIDE-kernel",
@@ -3896,10 +3900,24 @@
    "grade_cells": [
     {
      "grade": "DERIVES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4647,
+     "act": "b535",
+     "quote": "*Correspondence rows 384 (`h2_sign_iff_rh_strip`, DERIVES against \"h2_sign ↔ rh_strip\") and 385 (`h2_sign_imp_rh_of_s"
+    },
+    {
+     "grade": "DERIVES",
      "ledger": "SIDE-global-section/CORRESPONDENCE.md",
      "line": 456,
      "act": "b534",
      "quote": "gn_imp_rh_strip` DERIVES ; `rh_strip_imp_h2_sign` DERIVES ; `h2_sign_iff_rh_strip` DERIVES ; `h2_sign_imp_rh_of_seam` DERIVES ; `ch_iff_h2_sign_of_sea"
+    },
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 457,
+     "act": "b535",
+     "quote": "`h2_sign_iff_rh_strip` DERIVES -- by statement-read, against \"h2_sign ↔ rh_strip\""
     }
    ],
    "conflict": null
@@ -3984,17 +4002,34 @@
    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
    "profile_state": "PROFILED",
    "profile_source": "relay:data/b534_profile.json",
-   "grade": "DERIVES",
+   "grade": "CONFLICT",
    "grade_cells": [
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4647,
+     "act": "b535",
+     "quote": "f_rh_strip`, DERIVES against \"h2_sign ↔ rh_strip\") and 385 (`h2_sign_imp_rh_of_seam`, INTERFACES on `rh_strip_imp_rh` against \"h2_sign → RH\"), by statement-"
+    },
     {
      "grade": "DERIVES",
      "ledger": "SIDE-global-section/CORRESPONDENCE.md",
      "line": 456,
      "act": "b534",
      "quote": "rip_imp_h2_sign` DERIVES ; `h2_sign_iff_rh_strip` DERIVES ; `h2_sign_imp_rh_of_seam` DERIVES ; `ch_iff_h2_sign_of_seam` DERIVES -- each by statement-rea"
+    },
+    {
+     "grade": "INTERFACES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 458,
+     "act": "b535",
+     "quote": "`h2_sign_imp_rh_of_seam` INTERFACES on rh_strip_imp_rh -- by statement-read, against \"h2_sign →"
     }
    ],
-   "conflict": null
+   "conflict": [
+    "DERIVES",
+    "INTERFACES"
+   ]
   },
   {
    "repo": "SIDE-explicit-formula",
@@ -5187,6 +5222,13 @@
    "profile_source": "relay:data/b533_profile.json",
    "grade": "DERIVES",
    "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4691,
+     "act": "b533",
+     "quote": "`(R144)`(1): the support hypothesis on `power_contDiff` and `paperFT_power` *“is L3's standing window context, as the seat read it. The reading is ratified and the DERIVES grades stand.”*"
+    },
     {
      "grade": "DERIVES",
      "ledger": "SIDE-global-section/CORRESPONDENCE.md",
@@ -7560,6 +7602,20 @@
    "grade": "CONFLICT",
    "grade_cells": [
     {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4682,
+     "act": "b529",
+     "quote": "as far as it derives**: the pair’s algebra and near factor DERIVES, the far factor INTERFACES on `farSmall` (b529). **f3 compiled**: `rest_bound` under H-COUNT, `rest_"
+    },
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4682,
+     "act": "b529",
+     "quote": "the pair’s algebra and near factor DERIVES, the far factor INTERFACES on `farSmall` (b529). **f3 compiled**: `rest_bound` under H-COUNT, `rest_"
+    },
+    {
      "grade": "INTERFACES",
      "ledger": "PLACE-papers/OPEN_TRAILS.md",
      "line": 10608,
@@ -7600,6 +7656,47 @@
      "line": 10686,
      "act": "b529",
      "quote": "b529: Components 1 and 2 DERIVES; Component 3 INTERFACES on `farSmall`"
+    }
+   ],
+   "conflict": [
+    "DERIVES",
+    "INTERFACES"
+   ]
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "rh_strip_imp_rh",
+   "head": "baed4df861da",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "def rh_strip_imp_rh : Prop",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "CONFLICT",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/OPEN_TRAILS.md",
+     "line": 10909,
+     "act": null,
+     "quote": "jects, not a statement about where the zeros are. Rows 384 (DERIVES) and 385 (INTERFACES on `rh_strip_imp_rh`)."
+    },
+    {
+     "grade": "INTERFACES",
+     "ledger": "PLACE-papers/OPEN_TRAILS.md",
+     "line": 10909,
+     "act": null,
+     "quote": "ment about where the zeros are. Rows 384 (DERIVES) and 385 (INTERFACES on `rh_strip_imp_rh`)."
     }
    ],
    "conflict": [
@@ -24341,8 +24438,16 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "UNGRADED",
-   "grade_cells": [],
+   "grade": "ENCODES-CONCLUSION",
+   "grade_cells": [
+    {
+     "grade": "ENCODES-CONCLUSION",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4683,
+     "act": "b531",
+     "quote": "onservationHypothesis` is RH restated** by the kernel’s own `balance_theorem`; the Route 3 terminal ENCODES-CONCLUSION against \"h2_sign → RH\" (b531); 31 deposited sentences read,"
+    }
+   ],
    "conflict": null
   },
   {
@@ -25156,6 +25261,38 @@
    "profile_source": null,
    "grade": "UNGRADED",
    "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-kernel",
+   "name": "balance_theorem",
+   "head": "0256e9e1297f",
+   "pin": "v1.5",
+   "pin_sha": "0e5233f01153",
+   "pin_cell": "### **`v1.5` = `0e5233f`** — the deposited wave; concept DOI `10.5281/zenodo.19674312`, version DOI `10.5281/zenodo.21520474`",
+   "refs": [
+    "v1.5",
+    "HEAD"
+   ],
+   "present_at": [
+    "v1.5"
+   ],
+   "statement": "theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :\n    (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s))\n    <-> s = 1 / 2",
+   "statement_file": "Kernel/Voice1.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "ENCODES-CONCLUSION",
+   "grade_cells": [
+    {
+     "grade": "ENCODES-CONCLUSION",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4683,
+     "act": "b531",
+     "quote": "onservationHypothesis` is RH restated** by the kernel’s own `balance_theorem`; the Route 3 terminal ENCODES-CONCLUSION against \"h2_sign → RH\" (b531); 31 deposited sentences read,"
+    }
+   ],
    "conflict": null
   },
   {

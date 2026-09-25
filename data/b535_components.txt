@@ -1,0 +1,68 @@
+====================================================================================================================================
+b535 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### COMPONENT 6 -- THE TAG:
+  ### b535 THE TAG, READ BACK
+  baed4df full : baed4df861dac05224f01dad17453648d3d7fe0a
+  local tag object : 44af277422b14970cbac2c3c3cc96ca4ffbf6f0e
+  local peeled : baed4df861dac05224f01dad17453648d3d7fe0a
+  ### git ls-remote --tags origin v0.1
+  44af277422b14970cbac2c3c3cc96ca4ffbf6f0e	refs/tags/v0.1
+  baed4df861dac05224f01dad17453648d3d7fe0a	refs/tags/v0.1^{}
+
+### COMPONENT 3 -- THE PLATFORM EDITS:
+  ========================================================================================================
+  b535 COMPONENT 3, STEP 2 -- THE WRITES, ONE RECORD AT A TIME, THE MONOGRAPH LAST.
+  ========================================================================================================
+  
+  ### RECORD 21520474
+      POST actions/edit    : ### **201** (expect 201)
+      PUT metadata         : ### **200** (expect 200) ; every other key carried True
+      POST actions/publish : ### **202** (expect 202)
+      fetch-back try 1 : HTTP 200 ; description byte-identical to the intended : True
+      [Z21520474-01] ### **MATCH**
+      [Z21520474-02] ### **MATCH**
+      banked `b535_fetchback_21520474.json` sha256 8024b1ce77f45daf4982964a5ef6bf60ed9809debd701f1622fa696a8dc8aacb ; same record id True
+  
+  ### RECORD 21539167
+      POST actions/edit    : ### **201** (expect 201)
+      PUT metadata         : ### **200** (expect 200) ; every other key carried True
+      POST actions/publish : ### **202** (expect 202)
+      fetch-back try 1 : HTTP 200 ; description byte-identical to the intended : True
+      [Z21539167-01] ### **MATCH**
+      banked `b535_fetchback_21539167.json` sha256 ba604df1170cde49ff09a9c2932d27fb172e8e993c2e067ce3aed25757c2742c ; same record id True
+  
+      ### ### **MATCH AT EVERY REPLACEMENT.**
+  E-2026-09-25-2 at ERRATA.md:520
+  [Z21520474-01] before : SIDE-kernel: the machine-verified architecture of the SIDE reduction of the Riemann Hypothesis to a single located clause.
+  [Z21520474-01] after  : SIDE-kernel: the machine-verified architecture of the SIDE programme's route terminals. Its Route 3 premise is RH restated (E-2026-09-25-1); the programme's standing reduction is Weil positivity on classK, equivalent to RH on the kernel's zero configuration, compiled both ways in SIDE-explicit-formula v0.1.
+  [Z21520474-01] MATCH
+  [Z21520474-02] before : The seven-class catalogue and its exhaustiveness structure; the seven Voice files carrying the per-class exclusion algebra; the product-formula conservation chain (prime, integer, and rational levels); the perpendicular-crossing chain; the formation count; and three independent route terminals: structural_exhaustiveness_proved (the catalogue conjunction), SpectralCannonFull.spectral_cannon (the derivative of xi purely imaginary on the critical line), and ConservationBridge.riemann_hypothesis (the compiled exclusion syllogism, whose input is the conservation clause the manuscript's Chapter 13 develops — every zero of xi forces the Euler balance through the places of Q — stated in five equivalent registers with full ancestry at Section 27.3, in the criterion lineage of Weil and Li).
+  [Z21520474-02] after  : The seven-class catalogue and its exhaustiveness structure; the seven Voice files carrying the per-class exclusion algebra; the product-formula conservation chain (prime, integer, and rational levels); the perpendicular-crossing chain; the formation count; and three independent route terminals: structural_exhaustiveness_proved (the catalogue conjunction), SpectralCannonFull.spectral_cannon (the derivative of xi purely imaginary on the critical line), and ConservationBridge.riemann_hypothesis (the compiled implication from ConservationHypothesis, which the kernel's own balance_theorem shows is RH restated — E-2026-09-25-1).
+  [Z21520474-02] MATCH
+  [Z21539167-01] before : A skeptic can run lake build at the pinned kernel commit (SIDE-kernel v1.5 = 0e5233f) and #print axioms at the named route theorems (structural_exhaustiveness_proved; SpectralCannonFull.spectral_cannon; ConservationBridge.riemann_hypothesis — the third is the compiled implication from the named interface ConservationHypothesis, whose mathematics is the manuscript's Chapter 13 territory and whose ledger is §27.3).
+  [Z21539167-01] after  : A skeptic can run lake build at the pinned kernel commit (SIDE-kernel v1.5 = 0e5233f) and #print axioms at the named route theorems (structural_exhaustiveness_proved; SpectralCannonFull.spectral_cannon; ConservationBridge.riemann_hypothesis — the third is the compiled implication from ConservationHypothesis, which the kernel's own balance_theorem shows is RH restated, E-2026-09-25-1).
+  [Z21539167-01] MATCH
+
+### COMPONENT 2 -- THE ERRATUM:
+  possessives found in the draft : 9 (the ferry said ten) : ['l`s', 'r`s', 'R`S', 't`s', 'l`s', 'l`s', 'y`s', 'h`s', 'r`s']
+  the filed entry : ERRATA.md:[477, 517] ; backticks outside code spans : 0 ; in all : 100
+  the partition bullet : ERRATA.md:280 ; prior lines kept True
+  deposit-facing entries absent from the list, reported, not added : ['E-2026-09-14-1', 'E-2026-09-22-1']
+
+### COMPONENT 1 -- THE FINDING: FINDINGS.md:4594 ; {'file': 'FINDINGS.md', 'before': 528743, 'added': 4482, 'prefix': True}
+  axioms : 'SIDEExplicitFormula.B321.h2_sign_iff_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+  rows : [('384', '`h2_sign_iff_rh_strip` DERIVES -- by statement-read, against "h2_sign ↔ rh_strip"', 0), ('385', '`h2_sign_imp_rh_of_seam` INTERFACES on rh_strip_imp_rh -- by statement-read, against "h2_sign → RH"', 0)]
+
+### COMPONENT 4 -- THE CEILING, (R145)(2), READ FROM THE FERRY:
+  "Weil positivity on classK (h2_sign) is equivalent to RH on the kernel's zero configuration (rh_strip), both directions compiled at the standard three; h2_sign → Mathlib's RiemannHypothesis is compiled from one named classical fact, that every zero of zeta with Re ≤ 0 is a trivial zero, stated as rh_strip_imp_rh and not proved; the deposit's Route 3 clause is RH restated by a compiled ten-line lemma (E-2026-09-25-1)."
+  README.md : the old line 106 before and 106 after ; the new at 113
+  REGISTRY.md : NONE -- REGISTRY carried no ceiling line ; the new line at 948
+  OPEN_TRAILS.md : b532`s interim sentence at [10790, 10797, 10888] ; the new one in this act`s record
+
+### COMPONENT 5 -- THE FOLD: {"writes": [{"file": "FINDINGS.md", "before": 533225, "added": 8713, "after": 541938, "prefix": true, "bom": true, "removed": 0}, {"file": "THE_FINDINGS_AS_THEY_STAND.md", "before": 42715, "added": 1186, "after": 43901, "prefix": true, "bom": true, "removed": 0}], "columns": {"OBJECT": 0, "MODEL": 7, "RECORD": 2}, "heading": "## THE WEIL CONVERSE ARC, b526–b534 — THE FOLD"}
+  the span tool after the fold : 0
+
+### THE TOKEN SCAN: {"set": true, "files_scanned": 61, "commits_scanned": 3, "tag_scanned": true, "hits": {}, "hits_total": 0, "push_logs": ["b535_tag_push.txt"], "warnings": []}
+====================================================================================================================================

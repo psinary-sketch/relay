@@ -1,0 +1,13 @@
+    (a) ### **A DEAD CALL IN THE RECORD TOOL, CAUGHT BEFORE IT RAN**: `ceiling_write` first carried a placeholder
+        `insert_after` whose predicate never matched and would have raised; it was found by reading the tool and removed before
+        any run. No corpus byte was written by it.
+    (b) ### **THE ERRATA QUOTES ARE THE DECODED TEXT, NOT THE RAW BYTES**: E-2026-09-25-2 prints each sentence before and after
+        with HTML entities resolved (`&mdash;` as a dash, `&sect;` as a section sign), as E-2026-09-23-1 printed its own; the raw
+        description bytes are the banks `b535_before_<record>.json` and `b535_fetchback_<record>.json`, and the MATCH is on
+        those bytes.
+    (c) ### **THE FERRY`S NAMED CEILING LOCATIONS DID NOT ALL EXIST**: REGISTRY carried no ceiling line and OPEN_TRAILS no
+        session-start line; declared on the face before the seal (READING (6)) and written as declared -- entered here so the
+        record carries the mismatch between the order and the corpus, not as the seat`s error.
+    (d) ### **THE TRAIL SCORED (N3) BEFORE IT EXISTED**: (N3) needs the trail to carry the new ceiling beside the old, and the
+        record tool scored it before appending that record, so the trail printed (N3) REFUTED. Rescored after, HELD; a
+        correction note appended to the trail, the line itself not edited (b532`s form).
