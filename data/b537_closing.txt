@@ -1,0 +1,53 @@
+========================================================================================================
+b537 -- THE CLOSING RECORD. ### **THE MIRROR EXPORT AND THE MEMORY REFRESH, UNDER (R147).**
+========================================================================================================
+    the last export read : mirror-refresh-2026-09-25-b534.zip, built by b534 at PLACE-papers 3b5532a
+    the export : D:\MY-DOwnloads\mirror-refresh-2026-09-25-b537.zip ; 43 entries (42 files + MANIFEST) ; sha256 dc3d10c8d428e0f85ceac9bf39bd3e4e9c16d8d9a71ea56d2d8ed96a2b4ef08b
+    additions since the last export : NONE ; ROSTER: 42 files, unchanged since 2026-09-07.
+    verify before the push : ### VERDICT: CLEAN ON ALL THREE CLAUSES
+    verify after the push  : CLAUSE 2 : NOT CLEAN -- STALE BUILD ; ### VERDICT: NOT CLEAN
+    the memory : C:\Users\echo chamber\.claude\projects\D--\memory\project_criterion_b533_b536.md ; 44 lines ; earlier entries changed NONE
+    the token : hits 0 over 51 files (the zip and the memory entry among them), 2 commits and 2 push logs ; limb WARNINGs NONE
+    (N1) HELD (N2) HELD (N3) HELD (N4) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THIS ACT`S OWN DEFECTS (the desk, and (c) after the push).
+    (a) ### **A GLOB DELETE AFTER AN UNCHAINED cd, REFUSED BY THE AUTHOR**: the first read of b534's mirror was written as
+        `mkdir -p "$TEMP/m534"; cd "$TEMP/m534"; rm -rf *; unzip ...`. With `;` in place of `&&`, a failed cd would have run
+        `rm -rf *` in whatever directory was current. The author refused the call before it ran; nothing was deleted. Re-run as
+        `D=$(mktemp -d) && cd "$D" && unzip ...`, unpacked at /tmp/tmp.g5JUpjTi0f and left for the OS. The standing rule the
+        author gave is filed in the seat's memory: a delete runs only on an explicit absolute path verified with && in the same
+        command, never a bare glob; a guard deny is a defect, not worked around. No rm is run in this act.
+    (b) ### **THE HEAD BLOCK WENT TO THE MANIFEST`S END, NOT ITS HEAD**: `b537_mirror.py head` chose its line separator by
+        finding a CRLF in the staged MANIFEST. The builder joins its lines with LF and Out-File ends the file with one CRLF,
+        so the whole MANIFEST split as one line and the block was written after it. The zip was valid (all three clauses
+        CLEAN, banked as `b537_mirror_verify_first.txt`, `b537_mirror_first.json`) but the ceiling was not at the head. The
+        `rehead` repair recovered the builder`s text byte for byte (all before the first CRLF, plus it), re-inserted the block
+        under the title with LF, and updated this act`s own zip entry a second time; re-verified CLEAN on all three clauses.
+        The head printed from inside the zip, not from the tool`s own write, is what caught it.
+    (c) ### **THE EXPORT WAS BUILT ONE COMMIT EARLY -- STALE BY b130`S LAW AFTER THE PUSH**: the zip was built from PLACE-papers
+        `7c1c2da`, before this act`s own OPEN_TRAILS append (`b7e0c52`: the two work-orders and this record). mirror_verify
+        read CLEAN on all three clauses before the push and reads clause 2 NOT CLEAN -- STALE BUILD after it (banked as
+        `b537_mirror_verify_postpush.txt`); clauses 1 and 3 stay CLEAN. The navigator`s mirror therefore carries the standing
+        after b536 but NOT the work-orders. A rebuild under the same name needs this act`s zip and the builder`s stage folder
+        removed first -- a delete, which under the author`s standing rule is the author`s to order; NOT done, held for the
+        author. The face declared the build before the record; the ordering was the seat`s, and b534 built after its push.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ### ### **ARMS RUN : 50. ### LIVE PASSING : 50. ### LIVE FAILING : 0 .**
+    post-push : ### ### **ARMS RUN : 50. ### LIVE PASSING : 50. ### LIVE FAILING : 0 .**
+    ### the post-push suite`s G-VERIFY-THREE-CLAUSES reads the PRE-push verification bank; the post-push verification is the line above.
+      relay                  local 7da91e7c3850 ; remote 7da91e7c3850 ; AGREE
+      PLACE-papers           local b7e0c520dd65 ; remote b7e0c520dd65 ; AGREE
+      SIDE-global-section    local 186114dd70d4 ; remote 186114dd70d4 ; AGREE
+      SIDE-explicit-formula  local 5c72cad24303 ; remote 5c72cad24303 ; AGREE
+      SIDE-kernel            local 0256e9e1297f ; remote 0256e9e1297f ; AGREE
+    censuses : ### ### **TOTAL MISSING : 0** / ### ### **TOTAL MISSING : 0**
+    pins : ### REPOS HARD-FAILING : 0
+
+### CARRIED FORWARD.
+    (a) ### **FOR THE AUTHOR, DEFECT (c)**: whether to rebuild the export after this closing, so the mirror carries b537`s
+        own record and the two work-orders -- which needs this act`s zip and the builder`s stage folder removed first.
+    (b) ### **W-ORD-REGISTER-DEPTH** is triggered at the act after this one unless the author rules otherwise;
+        **W-ORD-SEAM-UPSTREAM** waits on the author`s word.
+    (c) ### The ledgers on D: remain the currency authority until the author uploads the mirror ((R147)(2)).
+========================================================================================================
