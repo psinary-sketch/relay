@@ -1,0 +1,24 @@
+========================================================================================================
+b528 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- xi on the kernel`s plateau: IN 46 of 46, VERIFIED-EST 46, positive beyond its estimated bound 46, negative none.
+  **(N2)** ### **REFUTED.** -- Q0 on the kernel`s plateau: IN 0 of 46 (tail ESTIMATE / B` 1.5e+01 .. 2.0e+03), negative beyond its estimated bound at NONE.
+  **(N3)** ### **REFUTED.** -- the narrowest read Q0 width with ratio <= -1 : NONE ; G there None beside 1.361 (READING (8): REFUTED if none).
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- Q0`s reach on the kernel`s function: 0 IN.
+  **(S2)** ### **HELD.** -- xi IN 46 and VERIFIED-EST 46 of 46.
+  **(S3)** ### **REFUTED.** -- the fixture: 7 of 8 z scored at each of 6 width-object pairs, every scored z within its bar (worst diff/bar 0.063); z = gamma_0 NOT SCORABLE, route 2 being identically zero there. "At every z", as worded, is not met.
+
+### ### **THE NAVIGATOR`S : HELD 1 ; REFUTED 2 ; NOT SCORABLE 0.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 2 ; REFUTED 1.**
+
+### THIS ACT`S OWN DEFECTS.
+### (D1) THE FIXTURE`S z = gamma_0 IS DEGENERATE FOR ROUTE 2 -- a defect of the seat`s face, found after the seal. ### Route 2 carries the factor (gamma_0^2 - z^2), so at z = gamma_0 every term is zero and the sealed bar is 0; the first fixture run divided by it and crashed. ### Repaired by marking that z NOT SCORABLE (meets = None), NOT by minting a second bar: 7 of 8 z scored at each of six pairs; |route 1| there printed (<= 1.2e-15), for information only. ### (S3) is scored on the face`s wording: "at every z" is NOT MET as written, since one z per pair cannot be scored.
+### (D2) THE RUN`S PROGRESS LINE PRINTS WHAT THE FACE SAYS IS NOT READ -- a defect of the seat`s tool. ### `b528_smooth.py run` prints, for every width, P - PR + A, VER, neg and the pair`s ratio, IN or OUT; the seat saw the first OUT Q0 widths` values in the console (a = 15..18: P - PR + A near +3e3, ratio near -0.71) before any report ran. ### DECLARED here, not hidden: the report prints no OUT width`s sign, pair or ratio and no score reads them; the log `b528_run_log.txt` carries them as the tool printed them.
+### (D3) KCUT SITS ON THE ROUNDOFF FLOOR, NOT ABOVE IT -- a defect of the seat`s face (READING (2) said "above the quadrature`s roundoff floor near 1e-26"). ### The run crashed at Q0 a = 33: |k-hat| stayed >= 1e-22 to the search edge, so T_cut passed 6000 and the "beyond" term took a maximum over an empty slice. ### A diagnostic at a = 32, 33, 34 (t 4000..6000, every s): |k-hat| lies flat at 5e-23 .. 1.3e-20 over that range, rising with s -- the cos(t u) argument roundoff (t u near 2e4 rad), not the transform, whose exp(-1/x) decay is far below it there. ### So T_cut is set by the floor at many widths (flagged per cell as `tcut_at_search_edge` and by T_cut near 6000). ### The floor enters the tail ESTIMATE as priced mass: at most about 1e-20 x (M0(1e7) - M0(6000)) ~ 3e-13 beyond the edge and ~1e-17 inside it, against B` near 2e-6 -- conservative and without effect on any reach. ### REPAIRED in one line to READING (4)`s own words (past the edge, the edge`s value); the eighteen cells banked before it are unchanged by the repair (their slice was not empty); the run resumed at a = 33.
+### (D4) THE TRAIL RECORD NAMES TWO OF THE THREE DEFECTS ABOVE -- a slip of the seat`s ritual. ### An edit adding D3 to the trail writer failed its own assertion, and the trail step was chained with `;`, not `&&`, so the record was appended without it. ### The trail is append-only and is NOT re-written: D3 stands in this desk, in the closing record and in correspondence row 377, which names it.
+========================================================================================================

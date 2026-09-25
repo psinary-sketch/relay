@@ -1,0 +1,128 @@
+  forty points at a = 34.0 : phi_chain vs the kernel (mp) max 4.44e-16 ; the window`s phi vs the kernel max 4.44e-16 ; within 1e-14 True
+Traceback (most recent call last):
+  File "D:\relay\tools\b528_smooth.py", line 318, in <module>
+    sys.exit({'check': check, 'fixture': fixture}[m]())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 292, in fixture
+    print('  a=%-4.0f %-3s : bar met at every z %s ; largest diff/bar %.3f' % (a, obj, out[-1]['meets'], max(x['diff'] / x['bar'] for x in rows)))
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 292, in <genexpr>
+    print('  a=%-4.0f %-3s : bar met at every z %s ; largest diff/bar %.3f' % (a, obj, out[-1]['meets'], max(x['diff'] / x['bar'] for x in rows)))
+                                                                                                             ~~~~~~~~~~^~~~~~~~~~
+ZeroDivisionError: float division by zero
+  a=15   q   : bar met at every scorable z True (7 of 8; NOT SCORABLE ['16.290216'], |route 1| there ['6.5e-16']) ; largest diff/bar 0.063
+  a=15   xi  : bar met at every scorable z True (7 of 8; NOT SCORABLE ['14.1347'], |route 1| there ['1.3e-16']) ; largest diff/bar 0.041
+  a=34   q   : bar met at every scorable z True (7 of 8; NOT SCORABLE ['16.290216'], |route 1| there ['3.7e-17']) ; largest diff/bar 0.038
+  a=34   xi  : bar met at every scorable z True (7 of 8; NOT SCORABLE ['14.1347'], |route 1| there ['8.8e-16']) ; largest diff/bar 0.026
+  a=60   q   : bar met at every scorable z True (7 of 8; NOT SCORABLE ['16.290216'], |route 1| there ['5.9e-16']) ; largest diff/bar 0.059
+  a=60   xi  : bar met at every scorable z True (7 of 8; NOT SCORABLE ['14.1347'], |route 1| there ['1.2e-15']) ; largest diff/bar 0.050
+[04:29:41] q a=15   h2 +2.9999e+03 B 3.76e-03 tail(EST)/B` 1.6e+03 IN False VER True neg False ratio -0.703 G 1.2052 Tcut 5765 ; 15 s
+[04:30:03] q a=16   h2 +2.8610e+03 B 3.72e-03 tail(EST)/B` 2.0e+03 IN False VER True neg False ratio -0.726 G 1.2157 Tcut 5839 ; 15 s
+[04:30:19] q a=17   h2 +3.3012e+03 B 1.93e-03 tail(EST)/B` 1.1e+03 IN False VER True neg False ratio -0.709 G 1.2258 Tcut 5774 ; 16 s
+[04:30:35] q a=18   h2 +3.4028e+03 B 1.61e-03 tail(EST)/B` 7.7e+02 IN False VER True neg False ratio -0.715 G 1.2356 Tcut 5917 ; 17 s
+[04:30:52] q a=19   h2 +3.7486e+03 B 1.57e-03 tail(EST)/B` 7.1e+02 IN False VER True neg False ratio -0.705 G 1.2452 Tcut 5967 ; 16 s
+[04:31:10] q a=20   h2 +3.9645e+03 B 1.28e-03 tail(EST)/B` 5.9e+02 IN False VER True neg False ratio -0.704 G 1.2544 Tcut 5979 ; 18 s
+[04:31:26] q a=21   h2 +3.5666e+03 B 9.49e-04 tail(EST)/B` 5.1e+02 IN False VER True neg False ratio -0.735 G 1.2634 Tcut 5965 ; 16 s
+[04:31:43] q a=22   h2 +2.1559e+03 B 8.78e-04 tail(EST)/B` 5.1e+02 IN False VER True neg False ratio -0.827 G 1.2721 Tcut 5988 ; 17 s
+[04:32:00] q a=23   h2 +1.2282e+02 B 7.28e-04 tail(EST)/B` 3.5e+02 IN False VER True neg False ratio -0.989 G 1.2806 Tcut 5999 ; 17 s
+[04:32:17] q a=24   h2 -1.9918e+03 B 5.32e-04 tail(EST)/B` 2.5e+02 IN False VER True neg True ratio -1.216 G 1.2889 Tcut 5997 ; 17 s
+[04:32:34] q a=25   h2 -3.6442e+03 B 4.71e-04 tail(EST)/B` 2.4e+02 IN False VER True neg True ratio -1.456 G 1.2970 Tcut 5985 ; 17 s
+[04:32:54] q a=26   h2 -4.6087e+03 B 4.63e-04 tail(EST)/B` 2.4e+02 IN False VER True neg True ratio -1.618 G 1.3049 Tcut 5990 ; 21 s
+[04:33:13] q a=27   h2 -4.9939e+03 B 5.12e-04 tail(EST)/B` 2.6e+02 IN False VER True neg True ratio -1.666 G 1.3126 Tcut 5984 ; 18 s
+[04:33:32] q a=28   h2 -5.0052e+03 B 4.20e-04 tail(EST)/B` 2.0e+02 IN False VER True neg True ratio -1.632 G 1.3201 Tcut 5986 ; 19 s
+[04:33:51] q a=29   h2 -4.8500e+03 B 2.75e-04 tail(EST)/B` 1.2e+02 IN False VER True neg True ratio -1.571 G 1.3275 Tcut 5985 ; 19 s
+[04:34:09] q a=30   h2 -4.6794e+03 B 1.95e-04 tail(EST)/B` 8.7e+01 IN False VER True neg True ratio -1.515 G 1.3347 Tcut 5998 ; 19 s
+[04:34:29] q a=31   h2 -4.5997e+03 B 1.83e-04 tail(EST)/B` 8.9e+01 IN False VER True neg True ratio -1.480 G 1.3418 Tcut 5994 ; 19 s
+[04:34:48] q a=32   h2 -4.7021e+03 B 2.14e-04 tail(EST)/B` 1.2e+02 IN False VER True neg True ratio -1.476 G 1.3488 Tcut 5994 ; 20 s
+Traceback (most recent call last):
+  File "D:\relay\tools\b528_smooth.py", line 322, in <module>
+    sys.exit(run(sys.argv[2], float(sys.argv[3]), float(sys.argv[4])))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 310, in run
+    c = cell(a, obj)
+        ^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 223, in cell
+    beyond = 2.0 * float(np.max(e_sig[ts >= tcut])) * (C23.M0(1e7) - C23.M0(T_SEARCH))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py", line 3161, in max
+    return _wrapreduction(a, np.maximum, 'max', axis, None, out,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py", line 83, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-size array to reduction operation maximum which has no identity
+### resumed after defect D3
+[04:36:44] q a=33   h2 -4.9727e+03 B 2.40e-04 tail(EST)/B` 1.5e+02 IN False VER True neg True ratio -1.496 G 1.3556 Tcut 6001 ; 19 s
+[04:37:04] q a=34   h2 -5.3357e+03 B 2.31e-04 tail(EST)/B` 1.7e+02 IN False VER True neg True ratio -1.530 G 1.3623 Tcut 5972 ; 20 s
+[04:37:23] q a=35   h2 -5.7860e+03 B 1.90e-04 tail(EST)/B` 1.4e+02 IN False VER True neg True ratio -1.577 G 1.3689 Tcut 5991 ; 20 s
+[04:37:42] q a=36   h2 -6.3868e+03 B 1.38e-04 tail(EST)/B` 9.6e+01 IN False VER True neg True ratio -1.649 G 1.3754 Tcut 5993 ; 19 s
+[04:38:01] q a=37   h2 -7.1530e+03 B 1.00e-04 tail(EST)/B` 6.1e+01 IN False VER True neg True ratio -1.755 G 1.3817 Tcut 5930 ; 19 s
+[04:38:21] q a=38   h2 -8.0173e+03 B 9.16e-05 tail(EST)/B` 4.9e+01 IN False VER True neg True ratio -1.890 G 1.3880 Tcut 5997 ; 20 s
+[04:38:40] q a=39   h2 -8.8893e+03 B 1.04e-04 tail(EST)/B` 4.9e+01 IN False VER True neg True ratio -2.043 G 1.3942 Tcut 5996 ; 20 s
+[04:39:01] q a=40   h2 -9.7202e+03 B 1.18e-04 tail(EST)/B` 5.1e+01 IN False VER True neg True ratio -2.201 G 1.4002 Tcut 5988 ; 21 s
+[04:39:21] q a=41   h2 -1.0494e+04 B 1.20e-04 tail(EST)/B` 5.1e+01 IN False VER True neg True ratio -2.361 G 1.4062 Tcut 5984 ; 20 s
+[04:39:42] q a=42   h2 -1.1195e+04 B 1.08e-04 tail(EST)/B` 4.5e+01 IN False VER True neg True ratio -2.512 G 1.4121 Tcut 5992 ; 20 s
+[04:40:01] q a=43   h2 -1.1809e+04 B 8.86e-05 tail(EST)/B` 3.7e+01 IN False VER True neg True ratio -2.644 G 1.4178 Tcut 5997 ; 20 s
+[04:40:23] q a=44   h2 -1.2342e+04 B 6.94e-05 tail(EST)/B` 2.9e+01 IN False VER True neg True ratio -2.754 G 1.4235 Tcut 5996 ; 21 s
+[04:40:44] q a=45   h2 -1.2811e+04 B 5.67e-05 tail(EST)/B` 2.4e+01 IN False VER True neg True ratio -2.842 G 1.4292 Tcut 5993 ; 21 s
+[04:41:05] q a=46   h2 -1.3236e+04 B 5.17e-05 tail(EST)/B` 2.2e+01 IN False VER True neg True ratio -2.915 G 1.4347 Tcut 5985 ; 21 s
+[04:41:26] q a=47   h2 -1.3633e+04 B 5.37e-05 tail(EST)/B` 2.4e+01 IN False VER True neg True ratio -2.977 G 1.4402 Tcut 6000 ; 21 s
+[04:41:47] q a=48   h2 -1.4000e+04 B 5.80e-05 tail(EST)/B` 2.5e+01 IN False VER True neg True ratio -3.026 G 1.4456 Tcut 5984 ; 21 s
+[04:42:09] q a=49   h2 -1.4331e+04 B 5.88e-05 tail(EST)/B` 2.5e+01 IN False VER True neg True ratio -3.059 G 1.4509 Tcut 6000 ; 22 s
+[04:42:30] q a=50   h2 -1.4623e+04 B 5.78e-05 tail(EST)/B` 2.5e+01 IN False VER True neg True ratio -3.075 G 1.4562 Tcut 5991 ; 21 s
+[04:42:52] q a=51   h2 -1.4883e+04 B 5.33e-05 tail(EST)/B` 2.3e+01 IN False VER True neg True ratio -3.077 G 1.4614 Tcut 5994 ; 22 s
+[04:43:13] q a=52   h2 -1.5130e+04 B 4.58e-05 tail(EST)/B` 2.0e+01 IN False VER True neg True ratio -3.075 G 1.4665 Tcut 5991 ; 21 s
+[04:43:35] q a=53   h2 -1.5392e+04 B 3.90e-05 tail(EST)/B` 1.8e+01 IN False VER True neg True ratio -3.079 G 1.4716 Tcut 5996 ; 22 s
+[04:43:57] q a=54   h2 -1.5689e+04 B 3.34e-05 tail(EST)/B` 1.6e+01 IN False VER True neg True ratio -3.098 G 1.4766 Tcut 6001 ; 22 s
+[04:44:19] q a=55   h2 -1.6028e+04 B 3.07e-05 tail(EST)/B` 1.5e+01 IN False VER True neg True ratio -3.135 G 1.4816 Tcut 5997 ; 22 s
+[04:44:41] q a=56   h2 -1.6412e+04 B 3.07e-05 tail(EST)/B` 1.5e+01 IN False VER True neg True ratio -3.191 G 1.4865 Tcut 6001 ; 22 s
+[04:45:03] q a=57   h2 -1.6836e+04 B 3.05e-05 tail(EST)/B` 1.5e+01 IN False VER True neg True ratio -3.264 G 1.4913 Tcut 5999 ; 22 s
+[04:45:26] q a=58   h2 -1.7294e+04 B 3.33e-05 tail(EST)/B` 1.6e+01 IN False VER True neg True ratio -3.354 G 1.4961 Tcut 5994 ; 23 s
+[04:45:49] q a=59   h2 -1.7780e+04 B 3.47e-05 tail(EST)/B` 1.7e+01 IN False VER True neg True ratio -3.460 G 1.5008 Tcut 5984 ; 23 s
+[04:46:12] q a=60   h2 -1.8288e+04 B 3.43e-05 tail(EST)/B` 1.7e+01 IN False VER True neg True ratio -3.581 G 1.5055 Tcut 5996 ; 23 s
+[04:46:17] xi a=15   h2 +6.9892e+02 B 6.03e-11 tail(EST)/B` 7.0e-08 IN True VER True neg False ratio +0.000 G 1.2052 Tcut 994 ; 5 s
+[04:46:21] xi a=16   h2 +1.4780e+03 B 5.39e-11 tail(EST)/B` 8.3e-08 IN True VER True neg False ratio +0.000 G 1.2157 Tcut 922 ; 5 s
+[04:46:26] xi a=17   h2 +1.7404e+03 B 3.93e-11 tail(EST)/B` 3.6e-09 IN True VER True neg False ratio +0.000 G 1.2258 Tcut 922 ; 5 s
+[04:46:31] xi a=18   h2 +1.4339e+03 B 4.17e-11 tail(EST)/B` 4.4e-08 IN True VER True neg False ratio +0.000 G 1.2356 Tcut 924 ; 5 s
+[04:46:35] xi a=19   h2 +1.0103e+03 B 4.94e-11 tail(EST)/B` 3.9e-09 IN True VER True neg False ratio +0.000 G 1.2452 Tcut 907 ; 5 s
+[04:46:40] xi a=20   h2 +6.8698e+02 B 5.22e-11 tail(EST)/B` 2.9e-08 IN True VER True neg False ratio +0.000 G 1.2544 Tcut 864 ; 5 s
+[04:46:44] xi a=21   h2 +4.2363e+02 B 5.04e-11 tail(EST)/B` 4.4e-10 IN True VER True neg False ratio +0.000 G 1.2634 Tcut 834 ; 5 s
+[04:46:49] xi a=22   h2 +3.3925e+02 B 3.37e-11 tail(EST)/B` 2.6e-10 IN True VER True neg False ratio +0.000 G 1.2721 Tcut 837 ; 5 s
+[04:46:54] xi a=23   h2 +3.6064e+02 B 1.78e-11 tail(EST)/B` 4.3e-08 IN True VER True neg False ratio +0.000 G 1.2806 Tcut 817 ; 5 s
+[04:46:59] xi a=24   h2 +3.6765e+02 B 3.96e-11 tail(EST)/B` 3.6e-08 IN True VER True neg False ratio +0.000 G 1.2889 Tcut 813 ; 5 s
+[04:47:04] xi a=25   h2 +4.1442e+02 B 5.16e-11 tail(EST)/B` 1.9e-08 IN True VER True neg False ratio +0.000 G 1.2970 Tcut 821 ; 5 s
+[04:47:09] xi a=26   h2 +5.5481e+02 B 5.19e-11 tail(EST)/B` 2.6e-07 IN True VER True neg False ratio +0.000 G 1.3049 Tcut 797 ; 5 s
+[04:47:14] xi a=27   h2 +7.4578e+02 B 4.84e-11 tail(EST)/B` 1.2e-08 IN True VER True neg False ratio +0.000 G 1.3126 Tcut 789 ; 5 s
+[04:47:19] xi a=28   h2 +9.2049e+02 B 3.85e-11 tail(EST)/B` 1.8e-07 IN True VER True neg False ratio +0.000 G 1.3201 Tcut 788 ; 5 s
+[04:47:25] xi a=29   h2 +1.0295e+03 B 2.96e-11 tail(EST)/B` 1.6e-07 IN True VER True neg False ratio +0.000 G 1.3275 Tcut 779 ; 5 s
+[04:47:30] xi a=30   h2 +1.0556e+03 B 2.88e-11 tail(EST)/B` 5.9e-08 IN True VER True neg False ratio +0.000 G 1.3347 Tcut 763 ; 5 s
+[04:47:35] xi a=31   h2 +1.0009e+03 B 3.48e-11 tail(EST)/B` 1.2e-08 IN True VER True neg False ratio +0.000 G 1.3418 Tcut 755 ; 5 s
+[04:47:41] xi a=32   h2 +8.7589e+02 B 4.46e-11 tail(EST)/B` 2.3e-08 IN True VER True neg False ratio +0.000 G 1.3488 Tcut 748 ; 5 s
+[04:48:01] xi a=33   h2 +7.0363e+02 B 5.09e-11 tail(EST)/B` 4.3e-07 IN True VER True neg False ratio +0.000 G 1.3556 Tcut 5653 ; 20 s
+[04:48:06] xi a=34   h2 +5.1099e+02 B 5.08e-11 tail(EST)/B` 1.0e-08 IN True VER True neg False ratio +0.000 G 1.3623 Tcut 722 ; 5 s
+[04:48:12] xi a=35   h2 +3.2672e+02 B 4.81e-11 tail(EST)/B` 1.5e-10 IN True VER True neg False ratio +0.000 G 1.3689 Tcut 703 ; 6 s
+[04:48:17] xi a=36   h2 +1.7657e+02 B 4.39e-11 tail(EST)/B` 2.6e-08 IN True VER True neg False ratio +0.000 G 1.3754 Tcut 741 ; 6 s
+[04:48:23] xi a=37   h2 +7.8350e+01 B 3.41e-11 tail(EST)/B` 1.5e-09 IN True VER True neg False ratio +0.000 G 1.3817 Tcut 691 ; 6 s
+[04:48:28] xi a=38   h2 +3.9059e+01 B 2.41e-11 tail(EST)/B` 1.1e-07 IN True VER True neg False ratio +0.000 G 1.3880 Tcut 685 ; 6 s
+[04:48:49] xi a=39   h2 +5.3862e+01 B 2.68e-11 tail(EST)/B` 5.9e-08 IN True VER True neg False ratio +0.000 G 1.3942 Tcut 5494 ; 21 s
+[04:49:11] xi a=40   h2 +1.0859e+02 B 3.48e-11 tail(EST)/B` 3.2e-10 IN True VER True neg False ratio +0.000 G 1.4002 Tcut 5821 ; 22 s
+[04:49:17] xi a=41   h2 +1.8605e+02 B 4.17e-11 tail(EST)/B` 3.0e-09 IN True VER True neg False ratio +0.000 G 1.4062 Tcut 680 ; 6 s
+[04:49:23] xi a=42   h2 +2.7270e+02 B 4.45e-11 tail(EST)/B` 6.7e-10 IN True VER True neg False ratio +0.000 G 1.4121 Tcut 696 ; 6 s
+[04:49:29] xi a=43   h2 +3.6146e+02 B 5.21e-11 tail(EST)/B` 2.1e-08 IN True VER True neg False ratio +0.000 G 1.4178 Tcut 686 ; 6 s
+[04:49:50] xi a=44   h2 +4.4915e+02 B 4.89e-11 tail(EST)/B` 1.4e-08 IN True VER True neg False ratio +0.000 G 1.4235 Tcut 5617 ; 22 s
+[04:50:11] xi a=45   h2 +5.3257e+02 B 4.84e-11 tail(EST)/B` 3.3e-07 IN True VER True neg False ratio +0.000 G 1.4292 Tcut 5280 ; 20 s
+[04:50:17] xi a=46   h2 +6.0667e+02 B 4.64e-11 tail(EST)/B` 1.6e-07 IN True VER True neg False ratio +0.000 G 1.4347 Tcut 687 ; 6 s
+[04:50:23] xi a=47   h2 +6.6465e+02 B 4.39e-11 tail(EST)/B` 4.8e-08 IN True VER True neg False ratio +0.000 G 1.4402 Tcut 675 ; 6 s
+[04:50:29] xi a=48   h2 +7.0008e+02 B 3.91e-11 tail(EST)/B` 3.2e-08 IN True VER True neg False ratio +0.000 G 1.4456 Tcut 673 ; 6 s
+[04:50:35] xi a=49   h2 +7.0949e+02 B 3.16e-11 tail(EST)/B` 1.6e-10 IN True VER True neg False ratio +0.000 G 1.4509 Tcut 655 ; 6 s
+[04:50:58] xi a=50   h2 +6.9368e+02 B 3.49e-11 tail(EST)/B` 1.1e-07 IN True VER True neg False ratio +0.000 G 1.4562 Tcut 5652 ; 23 s
+[04:51:21] xi a=51   h2 +6.5709e+02 B 3.94e-11 tail(EST)/B` 3.7e-09 IN True VER True neg False ratio +0.000 G 1.4614 Tcut 5747 ; 23 s
+[04:51:44] xi a=52   h2 +6.0598e+02 B 4.19e-11 tail(EST)/B` 2.8e-07 IN True VER True neg False ratio +0.000 G 1.4665 Tcut 5749 ; 24 s
+[04:52:05] xi a=53   h2 +5.4691e+02 B 4.81e-11 tail(EST)/B` 7.2e-09 IN True VER True neg False ratio +0.000 G 1.4716 Tcut 5103 ; 21 s
+[04:52:30] xi a=54   h2 +4.8562e+02 B 5.31e-11 tail(EST)/B` 1.2e-07 IN True VER True neg False ratio +0.000 G 1.4766 Tcut 5993 ; 25 s
+[04:52:37] xi a=55   h2 +4.2621e+02 B 5.27e-11 tail(EST)/B` 8.1e-09 IN True VER True neg False ratio +0.000 G 1.4816 Tcut 650 ; 6 s
+[04:53:00] xi a=56   h2 +3.7071e+02 B 5.45e-11 tail(EST)/B` 4.3e-07 IN True VER True neg False ratio +0.000 G 1.4865 Tcut 5581 ; 23 s
+[04:53:24] xi a=57   h2 +3.1905e+02 B 5.46e-11 tail(EST)/B` 2.4e-09 IN True VER True neg False ratio +0.000 G 1.4913 Tcut 5678 ; 24 s
+[04:53:30] xi a=58   h2 +2.6961e+02 B 5.47e-11 tail(EST)/B` 3.1e-07 IN True VER True neg False ratio +0.000 G 1.4961 Tcut 647 ; 6 s
+[04:53:36] xi a=59   h2 +2.2058e+02 B 5.16e-11 tail(EST)/B` 2.3e-09 IN True VER True neg False ratio +0.000 G 1.5008 Tcut 645 ; 6 s
+[04:54:00] xi a=60   h2 +1.7137e+02 B 4.72e-11 tail(EST)/B` 5.1e-08 IN True VER True neg False ratio +0.000 G 1.5055 Tcut 5567 ; 24 s

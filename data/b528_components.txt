@@ -1,0 +1,261 @@
+======================================================================================================================================================
+b528 -- THE COMPONENTS, AS THEY RAN.
+======================================================================================================================================================
+
+======================================================================================================================================================
+b528 -- BOTH OBJECTS ON THE KERNEL`S FUNCTION, UNDER (R138).
+======================================================================================================================================================
+### COMPONENT 0 (i) -- phi at 40 points, a = 34.0 : phi_chain vs the kernel`s definition (mpmath) max 4.44e-16 ; the window`s phi max 4.44e-16 ; within 1e-14 True
+### COMPONENT 0 (ii) -- the transform by two independent quadratures (trapezoid of h ; Gauss-Legendre of g x (gamma_0^2 - z^2)), bar sqrt(n) eps SUM|terms|, floor eps SUM|terms|:
+  a=15   q   : 7 of 8 z scored, bar met at every scored z True ; worst diff/bar 0.063 ; NOT SCORABLE (route 2 identically 0) at z = ['16.290216']
+  a=15   xi  : 7 of 8 z scored, bar met at every scored z True ; worst diff/bar 0.041 ; NOT SCORABLE (route 2 identically 0) at z = ['14.1347']
+  a=34   q   : 7 of 8 z scored, bar met at every scored z True ; worst diff/bar 0.038 ; NOT SCORABLE (route 2 identically 0) at z = ['16.290216']
+  a=34   xi  : 7 of 8 z scored, bar met at every scored z True ; worst diff/bar 0.026 ; NOT SCORABLE (route 2 identically 0) at z = ['14.1347']
+  a=60   q   : 7 of 8 z scored, bar met at every scored z True ; worst diff/bar 0.059 ; NOT SCORABLE (route 2 identically 0) at z = ['16.290216']
+  a=60   xi  : 7 of 8 z scored, bar met at every scored z True ; worst diff/bar 0.050 ; NOT SCORABLE (route 2 identically 0) at z = ['14.1347']
+
+### COMPONENT 1 -- Q0 at gamma_0 = 16.290216 on the kernel`s plateau (1/4, log a), a = 15..60. ### REACH (R131)(2): IN iff tail ESTIMATE <= B` ; B = B` + tail ; every tail an ESTIMATE.
+  a    B`        tail EST  tail/B`   reach | P - PR + A    s  B         VER  pair          others        on-line       pair/rest  G       e^dL    tail%  status
+  15   2.29e-06  3.75e-03  1.64e+03  OUT   | NOT READ (banked: its error terms only) ; G 1.2052 (a property of phi, not of the cell) ; ESTIMATE
+  16   1.83e-06  3.72e-03  2.03e+03  OUT   | NOT READ (banked: its error terms only) ; G 1.2157 (a property of phi, not of the cell) ; ESTIMATE
+  17   1.81e-06  1.93e-03  1.06e+03  OUT   | NOT READ (banked: its error terms only) ; G 1.2258 (a property of phi, not of the cell) ; ESTIMATE
+  18   2.10e-06  1.61e-03  7.65e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2356 (a property of phi, not of the cell) ; ESTIMATE
+  19   2.21e-06  1.57e-03  7.11e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2452 (a property of phi, not of the cell) ; ESTIMATE
+  20   2.16e-06  1.28e-03  5.91e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2544 (a property of phi, not of the cell) ; ESTIMATE
+  21   1.87e-06  9.47e-04  5.07e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2634 (a property of phi, not of the cell) ; ESTIMATE
+  22   1.72e-06  8.77e-04  5.09e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2721 (a property of phi, not of the cell) ; ESTIMATE
+  23   2.06e-06  7.26e-04  3.53e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2806 (a property of phi, not of the cell) ; ESTIMATE
+  24   2.11e-06  5.30e-04  2.51e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2889 (a property of phi, not of the cell) ; ESTIMATE
+  25   1.95e-06  4.69e-04  2.41e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.2970 (a property of phi, not of the cell) ; ESTIMATE
+  26   1.89e-06  4.61e-04  2.44e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3049 (a property of phi, not of the cell) ; ESTIMATE
+  27   1.97e-06  5.10e-04  2.59e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3126 (a property of phi, not of the cell) ; ESTIMATE
+  28   2.11e-06  4.17e-04  1.98e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3201 (a property of phi, not of the cell) ; ESTIMATE
+  29   2.26e-06  2.72e-04  1.21e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3275 (a property of phi, not of the cell) ; ESTIMATE
+  30   2.22e-06  1.93e-04  8.70e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.3347 (a property of phi, not of the cell) ; ESTIMATE
+  31   2.04e-06  1.81e-04  8.86e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.3418 (a property of phi, not of the cell) ; ESTIMATE
+  32   1.84e-06  2.12e-04  1.15e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3488 (a property of phi, not of the cell) ; ESTIMATE
+  33   1.62e-06  2.38e-04  1.47e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3556 (a property of phi, not of the cell) ; ESTIMATE
+  34   1.34e-06  2.30e-04  1.71e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3623 (a property of phi, not of the cell) ; ESTIMATE
+  35   1.32e-06  1.89e-04  1.42e+02  OUT   | NOT READ (banked: its error terms only) ; G 1.3689 (a property of phi, not of the cell) ; ESTIMATE
+  36   1.41e-06  1.36e-04  9.65e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.3754 (a property of phi, not of the cell) ; ESTIMATE
+  37   1.62e-06  9.88e-05  6.11e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.3817 (a property of phi, not of the cell) ; ESTIMATE
+  38   1.83e-06  8.98e-05  4.90e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.3880 (a property of phi, not of the cell) ; ESTIMATE
+  39   2.07e-06  1.02e-04  4.93e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.3942 (a property of phi, not of the cell) ; ESTIMATE
+  40   2.26e-06  1.16e-04  5.15e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4002 (a property of phi, not of the cell) ; ESTIMATE
+  41   2.33e-06  1.18e-04  5.06e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4062 (a property of phi, not of the cell) ; ESTIMATE
+  42   2.35e-06  1.06e-04  4.51e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4121 (a property of phi, not of the cell) ; ESTIMATE
+  43   2.33e-06  8.62e-05  3.70e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4178 (a property of phi, not of the cell) ; ESTIMATE
+  44   2.28e-06  6.71e-05  2.95e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4235 (a property of phi, not of the cell) ; ESTIMATE
+  45   2.25e-06  5.44e-05  2.42e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4292 (a property of phi, not of the cell) ; ESTIMATE
+  46   2.22e-06  4.95e-05  2.23e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4347 (a property of phi, not of the cell) ; ESTIMATE
+  47   2.17e-06  5.15e-05  2.37e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4402 (a property of phi, not of the cell) ; ESTIMATE
+  48   2.21e-06  5.58e-05  2.53e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4456 (a property of phi, not of the cell) ; ESTIMATE
+  49   2.24e-06  5.66e-05  2.52e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4509 (a property of phi, not of the cell) ; ESTIMATE
+  50   2.26e-06  5.55e-05  2.45e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4562 (a property of phi, not of the cell) ; ESTIMATE
+  51   2.23e-06  5.11e-05  2.30e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4614 (a property of phi, not of the cell) ; ESTIMATE
+  52   2.13e-06  4.36e-05  2.05e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4665 (a property of phi, not of the cell) ; ESTIMATE
+  53   2.01e-06  3.70e-05  1.84e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4716 (a property of phi, not of the cell) ; ESTIMATE
+  54   1.95e-06  3.14e-05  1.61e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4766 (a property of phi, not of the cell) ; ESTIMATE
+  55   1.91e-06  2.88e-05  1.51e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4816 (a property of phi, not of the cell) ; ESTIMATE
+  56   1.93e-06  2.88e-05  1.49e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4865 (a property of phi, not of the cell) ; ESTIMATE
+  57   1.96e-06  2.86e-05  1.46e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4913 (a property of phi, not of the cell) ; ESTIMATE
+  58   1.97e-06  3.14e-05  1.59e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.4961 (a property of phi, not of the cell) ; ESTIMATE
+  59   1.95e-06  3.27e-05  1.68e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.5008 (a property of phi, not of the cell) ; ESTIMATE
+  60   1.91e-06  3.24e-05  1.70e+01  OUT   | NOT READ (banked: its error terms only) ; G 1.5055 (a property of phi, not of the cell) ; ESTIMATE
+  ### IN 0 of 46 ; OUT at 46 widths, 15.0..60.0
+  ### tail ESTIMATE / B` over every width : 1.46e+01 .. 2.03e+03 ; T_cut at the search edge at : [33.0, 54.0, 56.0]
+  ### READ: VERIFIED-EST 0 ; negative beyond B NONE ; positive 0 ; undecided NONE ; negative beyond the sigma_max bound NONE
+  ### the narrowest negative width : NONE ; the pair`s ratio at or below -1 first at : NONE (G there None, beside the B-spline`s 1.361)
+  ### G over every width (a property of phi alone) : 1.2052 .. 1.5055 ; tail status of every cell : ['ESTIMATE']
+
+### COMPONENT 2 -- XI at gamma_0 = 14.1347 on the kernel`s plateau (1/4, log a), a = 15..60. ### REACH (R131)(2): IN iff tail ESTIMATE <= B` ; B = B` + tail ; every tail an ESTIMATE.
+  a    B`        tail EST  tail/B`   reach | P - PR + A    s  B         VER  pair          others        on-line       pair/rest  G       e^dL    tail%  status
+  15   6.03e-11  4.24e-18  7.04e-08  IN    | +6.989189e+02 +  6.03e-11  YES  +5.680884e-06 +0.000000e+00 +6.989189e+02 +8.128e-09 1.2052  3.4125  0.000  ESTIMATE
+  16   5.39e-11  4.47e-18  8.30e-08  IN    | +1.478042e+03 +  5.39e-11  YES  +5.950532e-06 +0.000000e+00 +1.478042e+03 +4.026e-09 1.2157  3.5138  0.000  ESTIMATE
+  17   3.93e-11  1.40e-19  3.57e-09  IN    | +1.740380e+03 +  3.93e-11  YES  +6.203178e-06 +0.000000e+00 +1.740380e+03 +3.564e-09 1.2258  3.6117  0.000  ESTIMATE
+  18   4.17e-11  1.83e-18  4.40e-08  IN    | +1.433877e+03 +  4.17e-11  YES  +6.458047e-06 +0.000000e+00 +1.433877e+03 +4.504e-09 1.2356  3.7065  0.000  ESTIMATE
+  19   4.94e-11  1.91e-19  3.86e-09  IN    | +1.010347e+03 +  4.94e-11  YES  +6.708794e-06 +0.000000e+00 +1.010347e+03 +6.640e-09 1.2452  3.7985  0.000  ESTIMATE
+  20   5.22e-11  1.49e-18  2.85e-08  IN    | +6.869816e+02 +  5.22e-11  YES  +6.945399e-06 +0.000000e+00 +6.869816e+02 +1.011e-08 1.2544  3.8878  0.000  ESTIMATE
+  21   5.04e-11  2.23e-20  4.43e-10  IN    | +4.236294e+02 +  5.04e-11  YES  +7.170065e-06 +0.000000e+00 +4.236294e+02 +1.693e-08 1.2634  3.9747  0.000  ESTIMATE
+  22   3.37e-11  8.87e-21  2.63e-10  IN    | +3.392524e+02 +  3.37e-11  YES  +7.389172e-06 +0.000000e+00 +3.392524e+02 +2.178e-08 1.2721  4.0594  0.000  ESTIMATE
+  23   1.78e-11  7.60e-19  4.26e-08  IN    | +3.606401e+02 +  1.78e-11  YES  +7.604073e-06 +0.000000e+00 +3.606401e+02 +2.108e-08 1.2806  4.1421  0.000  ESTIMATE
+  24   3.96e-11  1.44e-18  3.64e-08  IN    | +3.676522e+02 +  3.96e-11  YES  +7.812551e-06 +0.000000e+00 +3.676522e+02 +2.125e-08 1.2889  4.2227  0.000  ESTIMATE
+  25   5.16e-11  9.57e-19  1.86e-08  IN    | +4.144168e+02 +  5.16e-11  YES  +8.013861e-06 +0.000000e+00 +4.144168e+02 +1.934e-08 1.2970  4.3016  0.000  ESTIMATE
+  26   5.19e-11  1.33e-17  2.57e-07  IN    | +5.548056e+02 +  5.19e-11  YES  +8.209773e-06 +0.000000e+00 +5.548056e+02 +1.480e-08 1.3049  4.3788  0.000  ESTIMATE
+  27   4.84e-11  5.79e-19  1.20e-08  IN    | +7.457752e+02 +  4.84e-11  YES  +8.402058e-06 +0.000000e+00 +7.457752e+02 +1.127e-08 1.3126  4.4543  0.000  ESTIMATE
+  28   3.85e-11  6.82e-18  1.77e-07  IN    | +9.204896e+02 +  3.85e-11  YES  +8.590547e-06 +0.000000e+00 +9.204896e+02 +9.333e-09 1.3201  4.5283  0.000  ESTIMATE
+  29   2.96e-11  4.74e-18  1.60e-07  IN    | +1.029527e+03 +  2.96e-11  YES  +8.773675e-06 +0.000000e+00 +1.029527e+03 +8.522e-09 1.3275  4.6009  0.000  ESTIMATE
+  30   2.88e-11  1.69e-18  5.87e-08  IN    | +1.055551e+03 +  2.88e-11  YES  +8.950340e-06 +0.000000e+00 +1.055551e+03 +8.479e-09 1.3347  4.6722  0.000  ESTIMATE
+  31   3.48e-11  4.25e-19  1.22e-08  IN    | +1.000925e+03 +  3.48e-11  YES  +9.121088e-06 +0.000000e+00 +1.000925e+03 +9.113e-09 1.3418  4.7422  0.000  ESTIMATE
+  32   4.46e-11  1.04e-18  2.33e-08  IN    | +8.758853e+02 +  4.46e-11  YES  +9.287799e-06 +0.000000e+00 +8.758853e+02 +1.060e-08 1.3488  4.8109  0.000  ESTIMATE
+  33   5.09e-11  2.18e-17  4.28e-07  IN    | +7.036288e+02 +  5.09e-11  YES  +9.452421e-06 +0.000000e+00 +7.036287e+02 +1.343e-08 1.3556  4.8785  0.000  ESTIMATE
+  34   5.08e-11  5.32e-19  1.05e-08  IN    | +5.109943e+02 +  5.08e-11  YES  +9.615839e-06 +0.000000e+00 +5.109943e+02 +1.882e-08 1.3623  4.9449  0.000  ESTIMATE
+  35   4.81e-11  7.05e-21  1.47e-10  IN    | +3.267210e+02 +  4.81e-11  YES  +9.777561e-06 +0.000000e+00 +3.267210e+02 +2.993e-08 1.3689  5.0103  0.000  ESTIMATE
+  36   4.39e-11  1.16e-18  2.64e-08  IN    | +1.765665e+02 +  4.39e-11  YES  +9.936228e-06 +0.000000e+00 +1.765665e+02 +5.627e-08 1.3754  5.0747  0.000  ESTIMATE
+  37   3.41e-11  5.01e-20  1.47e-09  IN    | +7.834997e+01 +  3.41e-11  YES  +1.009049e-05 +0.000000e+00 +7.834996e+01 +1.288e-07 1.3817  5.1381  0.000  ESTIMATE
+  38   2.41e-11  2.74e-18  1.14e-07  IN    | +3.905911e+01 +  2.41e-11  YES  +1.023972e-05 +0.000000e+00 +3.905910e+01 +2.622e-07 1.3880  5.2006  0.000  ESTIMATE
+  39   2.68e-11  1.57e-18  5.85e-08  IN    | +5.386223e+01 +  2.68e-11  YES  +1.038426e-05 +0.000000e+00 +5.386222e+01 +1.928e-07 1.3942  5.2622  0.000  ESTIMATE
+  40   3.48e-11  1.10e-20  3.17e-10  IN    | +1.085850e+02 +  3.48e-11  YES  +1.052520e-05 +0.000000e+00 +1.085850e+02 +9.693e-08 1.4002  5.3229  0.000  ESTIMATE
+  41   4.17e-11  1.25e-19  2.99e-09  IN    | +1.860528e+02 +  4.17e-11  YES  +1.066384e-05 +0.000000e+00 +1.860528e+02 +5.732e-08 1.4062  5.3828  0.000  ESTIMATE
+  42   4.45e-11  2.96e-20  6.65e-10  IN    | +2.727019e+02 +  4.45e-11  YES  +1.080127e-05 +0.000000e+00 +2.727019e+02 +3.961e-08 1.4121  5.4420  0.000  ESTIMATE
+  43   5.21e-11  1.10e-18  2.11e-08  IN    | +3.614647e+02 +  5.21e-11  YES  +1.093799e-05 +0.000000e+00 +3.614647e+02 +3.026e-08 1.4178  5.5003  0.000  ESTIMATE
+  44   4.89e-11  6.69e-19  1.37e-08  IN    | +4.491482e+02 +  4.89e-11  YES  +1.107389e-05 +0.000000e+00 +4.491482e+02 +2.466e-08 1.4235  5.5579  0.000  ESTIMATE
+  45   4.84e-11  1.58e-17  3.28e-07  IN    | +5.325653e+02 +  4.84e-11  YES  +1.120838e-05 +0.000000e+00 +5.325653e+02 +2.105e-08 1.4292  5.6148  0.000  ESTIMATE
+  46   4.64e-11  7.47e-18  1.61e-07  IN    | +6.066652e+02 +  4.64e-11  YES  +1.134073e-05 +0.000000e+00 +6.066652e+02 +1.869e-08 1.4347  5.6710  0.000  ESTIMATE
+  47   4.39e-11  2.11e-18  4.80e-08  IN    | +6.646490e+02 +  4.39e-11  YES  +1.147029e-05 +0.000000e+00 +6.646490e+02 +1.726e-08 1.4402  5.7266  0.000  ESTIMATE
+  48   3.91e-11  1.26e-18  3.22e-08  IN    | +7.000814e+02 +  3.91e-11  YES  +1.159670e-05 +0.000000e+00 +7.000814e+02 +1.656e-08 1.4456  5.7815  0.000  ESTIMATE
+  49   3.16e-11  5.11e-21  1.62e-10  IN    | +7.094881e+02 +  3.16e-11  YES  +1.171997e-05 +0.000000e+00 +7.094881e+02 +1.652e-08 1.4509  5.8358  0.000  ESTIMATE
+  50   3.49e-11  3.74e-18  1.07e-07  IN    | +6.936761e+02 +  3.49e-11  YES  +1.184042e-05 +0.000000e+00 +6.936761e+02 +1.707e-08 1.4562  5.8895  0.000  ESTIMATE
+  51   3.94e-11  1.44e-19  3.66e-09  IN    | +6.570864e+02 +  3.94e-11  YES  +1.195858e-05 +0.000000e+00 +6.570864e+02 +1.820e-08 1.4614  5.9426  0.000  ESTIMATE
+  52   4.19e-11  1.17e-17  2.79e-07  IN    | +6.059842e+02 +  4.19e-11  YES  +1.207501e-05 +0.000000e+00 +6.059842e+02 +1.993e-08 1.4665  5.9951  0.000  ESTIMATE
+  53   4.81e-11  3.48e-19  7.24e-09  IN    | +5.469135e+02 +  4.81e-11  YES  +1.219021e-05 +0.000000e+00 +5.469135e+02 +2.229e-08 1.4716  6.0471  0.000  ESTIMATE
+  54   5.31e-11  6.40e-18  1.21e-07  IN    | +4.856157e+02 +  5.31e-11  YES  +1.230451e-05 +0.000000e+00 +4.856156e+02 +2.534e-08 1.4766  6.0985  0.000  ESTIMATE
+  55   5.27e-11  4.24e-19  8.06e-09  IN    | +4.262077e+02 +  5.27e-11  YES  +1.241803e-05 +0.000000e+00 +4.262077e+02 +2.914e-08 1.4816  6.1495  0.000  ESTIMATE
+  56   5.45e-11  2.35e-17  4.31e-07  IN    | +3.707142e+02 +  5.45e-11  YES  +1.253073e-05 +0.000000e+00 +3.707142e+02 +3.380e-08 1.4865  6.1999  0.000  ESTIMATE
+  57   5.46e-11  1.31e-19  2.40e-09  IN    | +3.190466e+02 +  5.46e-11  YES  +1.264241e-05 +0.000000e+00 +3.190466e+02 +3.963e-08 1.4913  6.2498  0.000  ESTIMATE
+  58   5.47e-11  1.70e-17  3.11e-07  IN    | +2.696077e+02 +  5.47e-11  YES  +1.275284e-05 +0.000000e+00 +2.696077e+02 +4.730e-08 1.4961  6.2993  0.000  ESTIMATE
+  59   5.16e-11  1.20e-19  2.33e-09  IN    | +2.205766e+02 +  5.16e-11  YES  +1.286178e-05 +0.000000e+00 +2.205766e+02 +5.831e-08 1.5008  6.3483  0.000  ESTIMATE
+  60   4.72e-11  2.43e-18  5.14e-08  IN    | +1.713747e+02 +  4.72e-11  YES  +1.296904e-05 +0.000000e+00 +1.713747e+02 +7.568e-08 1.5055  6.3968  0.000  ESTIMATE
+  ### IN 46 of 46 ; OUT at []
+  ### tail ESTIMATE / B` over every width : 1.47e-10 .. 4.31e-07 ; T_cut at the search edge at : NONE
+  ### READ: VERIFIED-EST 46 ; negative beyond B NONE ; positive 46 ; undecided NONE ; negative beyond the sigma_max bound NONE
+  ### the narrowest negative width : NONE ; the pair`s ratio at or below -1 first at : NONE (G there None, beside the B-spline`s 1.361)
+  ### G over every width (a property of phi alone) : 1.2052 .. 1.5055 ; tail status of every cell : ['ESTIMATE']
+
+### COMPONENT 3 -- THE FORM OF WORDS, RE-DERIVED FROM COMPONENTS 1 AND 2 ALONE (window and tail status tagged):
+    On the kernel`s plateau (1/4, log a), every tail an ESTIMATE (W-ORD-SMOOTH-TAIL open), xi at 14.1347 on the kernel`s plateau (1/4, log a): tail ESTIMATE within B` at 46 of 46 widths (15.0..60.0), VERIFIED-EST at 46, positive beyond its estimated bound at 46, negative at none; Q0 at 16.290216 on the kernel`s plateau (1/4, log a): no width within reach -- the tail ESTIMATE exceeds B` by 1.5e+01 to 2.0e+03 at every width of 15..60 -- no Q0 cell read, the narrowest negative width NONE, no G at a crossing. The instances differ from b522`s and b526`s, which were taken on the order-7 B-spline ramp with the tail a majorant. No cell is a statement about RH.
+
+### SCORES (READING (8)): (N1) HELD (N2) REFUTED (N3) REFUTED ; (S1) HELD (S2) HELD (S3) REFUTED
+    (N3) is REFUTED when no read Q0 width reaches ratio -1, as READING (8) declared ; (S3) as worded "at every z" -- one z per pair is NOT SCORABLE (defect D1).
+======================================================================================================================================================
+
+### THE RUN LOG (it prints OUT widths` values: defect D2):
+  forty points at a = 34.0 : phi_chain vs the kernel (mp) max 4.44e-16 ; the window`s phi vs the kernel max 4.44e-16 ; within 1e-14 True
+Traceback (most recent call last):
+  File "D:\relay\tools\b528_smooth.py", line 318, in <module>
+    sys.exit({'check': check, 'fixture': fixture}[m]())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 292, in fixture
+    print('  a=%-4.0f %-3s : bar met at every z %s ; largest diff/bar %.3f' % (a, obj, out[-1]['meets'], max(x['diff'] / x['bar'] for x in rows)))
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 292, in <genexpr>
+    print('  a=%-4.0f %-3s : bar met at every z %s ; largest diff/bar %.3f' % (a, obj, out[-1]['meets'], max(x['diff'] / x['bar'] for x in rows)))
+                                                                                                             ~~~~~~~~~~^~~~~~~~~~
+ZeroDivisionError: float division by zero
+  a=15   q   : bar met at every scorable z True (7 of 8; NOT SCORABLE ['16.290216'], |route 1| there ['6.5e-16']) ; largest diff/bar 0.063
+  a=15   xi  : bar met at every scorable z True (7 of 8; NOT SCORABLE ['14.1347'], |route 1| there ['1.3e-16']) ; largest diff/bar 0.041
+  a=34   q   : bar met at every scorable z True (7 of 8; NOT SCORABLE ['16.290216'], |route 1| there ['3.7e-17']) ; largest diff/bar 0.038
+  a=34   xi  : bar met at every scorable z True (7 of 8; NOT SCORABLE ['14.1347'], |route 1| there ['8.8e-16']) ; largest diff/bar 0.026
+  a=60   q   : bar met at every scorable z True (7 of 8; NOT SCORABLE ['16.290216'], |route 1| there ['5.9e-16']) ; largest diff/bar 0.059
+  a=60   xi  : bar met at every scorable z True (7 of 8; NOT SCORABLE ['14.1347'], |route 1| there ['1.2e-15']) ; largest diff/bar 0.050
+[04:29:41] q a=15   h2 +2.9999e+03 B 3.76e-03 tail(EST)/B` 1.6e+03 IN False VER True neg False ratio -0.703 G 1.2052 Tcut 5765 ; 15 s
+[04:30:03] q a=16   h2 +2.8610e+03 B 3.72e-03 tail(EST)/B` 2.0e+03 IN False VER True neg False ratio -0.726 G 1.2157 Tcut 5839 ; 15 s
+[04:30:19] q a=17   h2 +3.3012e+03 B 1.93e-03 tail(EST)/B` 1.1e+03 IN False VER True neg False ratio -0.709 G 1.2258 Tcut 5774 ; 16 s
+[04:30:35] q a=18   h2 +3.4028e+03 B 1.61e-03 tail(EST)/B` 7.7e+02 IN False VER True neg False ratio -0.715 G 1.2356 Tcut 5917 ; 17 s
+[04:30:52] q a=19   h2 +3.7486e+03 B 1.57e-03 tail(EST)/B` 7.1e+02 IN False VER True neg False ratio -0.705 G 1.2452 Tcut 5967 ; 16 s
+[04:31:10] q a=20   h2 +3.9645e+03 B 1.28e-03 tail(EST)/B` 5.9e+02 IN False VER True neg False ratio -0.704 G 1.2544 Tcut 5979 ; 18 s
+[04:31:26] q a=21   h2 +3.5666e+03 B 9.49e-04 tail(EST)/B` 5.1e+02 IN False VER True neg False ratio -0.735 G 1.2634 Tcut 5965 ; 16 s
+[04:31:43] q a=22   h2 +2.1559e+03 B 8.78e-04 tail(EST)/B` 5.1e+02 IN False VER True neg False ratio -0.827 G 1.2721 Tcut 5988 ; 17 s
+[04:32:00] q a=23   h2 +1.2282e+02 B 7.28e-04 tail(EST)/B` 3.5e+02 IN False VER True neg False ratio -0.989 G 1.2806 Tcut 5999 ; 17 s
+[04:32:17] q a=24   h2 -1.9918e+03 B 5.32e-04 tail(EST)/B` 2.5e+02 IN False VER True neg True ratio -1.216 G 1.2889 Tcut 5997 ; 17 s
+[04:32:34] q a=25   h2 -3.6442e+03 B 4.71e-04 tail(EST)/B` 2.4e+02 IN False VER True neg True ratio -1.456 G 1.2970 Tcut 5985 ; 17 s
+[04:32:54] q a=26   h2 -4.6087e+03 B 4.63e-04 tail(EST)/B` 2.4e+02 IN False VER True neg True ratio -1.618 G 1.3049 Tcut 5990 ; 21 s
+[04:33:13] q a=27   h2 -4.9939e+03 B 5.12e-04 tail(EST)/B` 2.6e+02 IN False VER True neg True ratio -1.666 G 1.3126 Tcut 5984 ; 18 s
+[04:33:32] q a=28   h2 -5.0052e+03 B 4.20e-04 tail(EST)/B` 2.0e+02 IN False VER True neg True ratio -1.632 G 1.3201 Tcut 5986 ; 19 s
+[04:33:51] q a=29   h2 -4.8500e+03 B 2.75e-04 tail(EST)/B` 1.2e+02 IN False VER True neg True ratio -1.571 G 1.3275 Tcut 5985 ; 19 s
+[04:34:09] q a=30   h2 -4.6794e+03 B 1.95e-04 tail(EST)/B` 8.7e+01 IN False VER True neg True ratio -1.515 G 1.3347 Tcut 5998 ; 19 s
+[04:34:29] q a=31   h2 -4.5997e+03 B 1.83e-04 tail(EST)/B` 8.9e+01 IN False VER True neg True ratio -1.480 G 1.3418 Tcut 5994 ; 19 s
+[04:34:48] q a=32   h2 -4.7021e+03 B 2.14e-04 tail(EST)/B` 1.2e+02 IN False VER True neg True ratio -1.476 G 1.3488 Tcut 5994 ; 20 s
+Traceback (most recent call last):
+  File "D:\relay\tools\b528_smooth.py", line 322, in <module>
+    sys.exit(run(sys.argv[2], float(sys.argv[3]), float(sys.argv[4])))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 310, in run
+    c = cell(a, obj)
+        ^^^^^^^^^^^^
+  File "D:\relay\tools\b528_smooth.py", line 223, in cell
+    beyond = 2.0 * float(np.max(e_sig[ts >= tcut])) * (C23.M0(1e7) - C23.M0(T_SEARCH))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py", line 3161, in max
+    return _wrapreduction(a, np.maximum, 'max', axis, None, out,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\echo chamber\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\_core\fromnumeric.py", line 83, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-size array to reduction operation maximum which has no identity
+### resumed after defect D3
+[04:36:44] q a=33   h2 -4.9727e+03 B 2.40e-04 tail(EST)/B` 1.5e+02 IN False VER True neg True ratio -1.496 G 1.3556 Tcut 6001 ; 19 s
+[04:37:04] q a=34   h2 -5.3357e+03 B 2.31e-04 tail(EST)/B` 1.7e+02 IN False VER True neg True ratio -1.530 G 1.3623 Tcut 5972 ; 20 s
+[04:37:23] q a=35   h2 -5.7860e+03 B 1.90e-04 tail(EST)/B` 1.4e+02 IN False VER True neg True ratio -1.577 G 1.3689 Tcut 5991 ; 20 s
+[04:37:42] q a=36   h2 -6.3868e+03 B 1.38e-04 tail(EST)/B` 9.6e+01 IN False VER True neg True ratio -1.649 G 1.3754 Tcut 5993 ; 19 s
+[04:38:01] q a=37   h2 -7.1530e+03 B 1.00e-04 tail(EST)/B` 6.1e+01 IN False VER True neg True ratio -1.755 G 1.3817 Tcut 5930 ; 19 s
+[04:38:21] q a=38   h2 -8.0173e+03 B 9.16e-05 tail(EST)/B` 4.9e+01 IN False VER True neg True ratio -1.890 G 1.3880 Tcut 5997 ; 20 s
+[04:38:40] q a=39   h2 -8.8893e+03 B 1.04e-04 tail(EST)/B` 4.9e+01 IN False VER True neg True ratio -2.043 G 1.3942 Tcut 5996 ; 20 s
+[04:39:01] q a=40   h2 -9.7202e+03 B 1.18e-04 tail(EST)/B` 5.1e+01 IN False VER True neg True ratio -2.201 G 1.4002 Tcut 5988 ; 21 s
+[04:39:21] q a=41   h2 -1.0494e+04 B 1.20e-04 tail(EST)/B` 5.1e+01 IN False VER True neg True ratio -2.361 G 1.4062 Tcut 5984 ; 20 s
+[04:39:42] q a=42   h2 -1.1195e+04 B 1.08e-04 tail(EST)/B` 4.5e+01 IN False VER True neg True ratio -2.512 G 1.4121 Tcut 5992 ; 20 s
+[04:40:01] q a=43   h2 -1.1809e+04 B 8.86e-05 tail(EST)/B` 3.7e+01 IN False VER True neg True ratio -2.644 G 1.4178 Tcut 5997 ; 20 s
+[04:40:23] q a=44   h2 -1.2342e+04 B 6.94e-05 tail(EST)/B` 2.9e+01 IN False VER True neg True ratio -2.754 G 1.4235 Tcut 5996 ; 21 s
+[04:40:44] q a=45   h2 -1.2811e+04 B 5.67e-05 tail(EST)/B` 2.4e+01 IN False VER True neg True ratio -2.842 G 1.4292 Tcut 5993 ; 21 s
+[04:41:05] q a=46   h2 -1.3236e+04 B 5.17e-05 tail(EST)/B` 2.2e+01 IN False VER True neg True ratio -2.915 G 1.4347 Tcut 5985 ; 21 s
+[04:41:26] q a=47   h2 -1.3633e+04 B 5.37e-05 tail(EST)/B` 2.4e+01 IN False VER True neg True ratio -2.977 G 1.4402 Tcut 6000 ; 21 s
+[04:41:47] q a=48   h2 -1.4000e+04 B 5.80e-05 tail(EST)/B` 2.5e+01 IN False VER True neg True ratio -3.026 G 1.4456 Tcut 5984 ; 21 s
+[04:42:09] q a=49   h2 -1.4331e+04 B 5.88e-05 tail(EST)/B` 2.5e+01 IN False VER True neg True ratio -3.059 G 1.4509 Tcut 6000 ; 22 s
+[04:42:30] q a=50   h2 -1.4623e+04 B 5.78e-05 tail(EST)/B` 2.5e+01 IN False VER True neg True ratio -3.075 G 1.4562 Tcut 5991 ; 21 s
+[04:42:52] q a=51   h2 -1.4883e+04 B 5.33e-05 tail(EST)/B` 2.3e+01 IN False VER True neg True ratio -3.077 G 1.4614 Tcut 5994 ; 22 s
+[04:43:13] q a=52   h2 -1.5130e+04 B 4.58e-05 tail(EST)/B` 2.0e+01 IN False VER True neg True ratio -3.075 G 1.4665 Tcut 5991 ; 21 s
+[04:43:35] q a=53   h2 -1.5392e+04 B 3.90e-05 tail(EST)/B` 1.8e+01 IN False VER True neg True ratio -3.079 G 1.4716 Tcut 5996 ; 22 s
+[04:43:57] q a=54   h2 -1.5689e+04 B 3.34e-05 tail(EST)/B` 1.6e+01 IN False VER True neg True ratio -3.098 G 1.4766 Tcut 6001 ; 22 s
+[04:44:19] q a=55   h2 -1.6028e+04 B 3.07e-05 tail(EST)/B` 1.5e+01 IN False VER True neg True ratio -3.135 G 1.4816 Tcut 5997 ; 22 s
+[04:44:41] q a=56   h2 -1.6412e+04 B 3.07e-05 tail(EST)/B` 1.5e+01 IN False VER True neg True ratio -3.191 G 1.4865 Tcut 6001 ; 22 s
+[04:45:03] q a=57   h2 -1.6836e+04 B 3.05e-05 tail(EST)/B` 1.5e+01 IN False VER True neg True ratio -3.264 G 1.4913 Tcut 5999 ; 22 s
+[04:45:26] q a=58   h2 -1.7294e+04 B 3.33e-05 tail(EST)/B` 1.6e+01 IN False VER True neg True ratio -3.354 G 1.4961 Tcut 5994 ; 23 s
+[04:45:49] q a=59   h2 -1.7780e+04 B 3.47e-05 tail(EST)/B` 1.7e+01 IN False VER True neg True ratio -3.460 G 1.5008 Tcut 5984 ; 23 s
+[04:46:12] q a=60   h2 -1.8288e+04 B 3.43e-05 tail(EST)/B` 1.7e+01 IN False VER True neg True ratio -3.581 G 1.5055 Tcut 5996 ; 23 s
+[04:46:17] xi a=15   h2 +6.9892e+02 B 6.03e-11 tail(EST)/B` 7.0e-08 IN True VER True neg False ratio +0.000 G 1.2052 Tcut 994 ; 5 s
+[04:46:21] xi a=16   h2 +1.4780e+03 B 5.39e-11 tail(EST)/B` 8.3e-08 IN True VER True neg False ratio +0.000 G 1.2157 Tcut 922 ; 5 s
+[04:46:26] xi a=17   h2 +1.7404e+03 B 3.93e-11 tail(EST)/B` 3.6e-09 IN True VER True neg False ratio +0.000 G 1.2258 Tcut 922 ; 5 s
+[04:46:31] xi a=18   h2 +1.4339e+03 B 4.17e-11 tail(EST)/B` 4.4e-08 IN True VER True neg False ratio +0.000 G 1.2356 Tcut 924 ; 5 s
+[04:46:35] xi a=19   h2 +1.0103e+03 B 4.94e-11 tail(EST)/B` 3.9e-09 IN True VER True neg False ratio +0.000 G 1.2452 Tcut 907 ; 5 s
+[04:46:40] xi a=20   h2 +6.8698e+02 B 5.22e-11 tail(EST)/B` 2.9e-08 IN True VER True neg False ratio +0.000 G 1.2544 Tcut 864 ; 5 s
+[04:46:44] xi a=21   h2 +4.2363e+02 B 5.04e-11 tail(EST)/B` 4.4e-10 IN True VER True neg False ratio +0.000 G 1.2634 Tcut 834 ; 5 s
+[04:46:49] xi a=22   h2 +3.3925e+02 B 3.37e-11 tail(EST)/B` 2.6e-10 IN True VER True neg False ratio +0.000 G 1.2721 Tcut 837 ; 5 s
+[04:46:54] xi a=23   h2 +3.6064e+02 B 1.78e-11 tail(EST)/B` 4.3e-08 IN True VER True neg False ratio +0.000 G 1.2806 Tcut 817 ; 5 s
+[04:46:59] xi a=24   h2 +3.6765e+02 B 3.96e-11 tail(EST)/B` 3.6e-08 IN True VER True neg False ratio +0.000 G 1.2889 Tcut 813 ; 5 s
+[04:47:04] xi a=25   h2 +4.1442e+02 B 5.16e-11 tail(EST)/B` 1.9e-08 IN True VER True neg False ratio +0.000 G 1.2970 Tcut 821 ; 5 s
+[04:47:09] xi a=26   h2 +5.5481e+02 B 5.19e-11 tail(EST)/B` 2.6e-07 IN True VER True neg False ratio +0.000 G 1.3049 Tcut 797 ; 5 s
+[04:47:14] xi a=27   h2 +7.4578e+02 B 4.84e-11 tail(EST)/B` 1.2e-08 IN True VER True neg False ratio +0.000 G 1.3126 Tcut 789 ; 5 s
+[04:47:19] xi a=28   h2 +9.2049e+02 B 3.85e-11 tail(EST)/B` 1.8e-07 IN True VER True neg False ratio +0.000 G 1.3201 Tcut 788 ; 5 s
+[04:47:25] xi a=29   h2 +1.0295e+03 B 2.96e-11 tail(EST)/B` 1.6e-07 IN True VER True neg False ratio +0.000 G 1.3275 Tcut 779 ; 5 s
+[04:47:30] xi a=30   h2 +1.0556e+03 B 2.88e-11 tail(EST)/B` 5.9e-08 IN True VER True neg False ratio +0.000 G 1.3347 Tcut 763 ; 5 s
+[04:47:35] xi a=31   h2 +1.0009e+03 B 3.48e-11 tail(EST)/B` 1.2e-08 IN True VER True neg False ratio +0.000 G 1.3418 Tcut 755 ; 5 s
+[04:47:41] xi a=32   h2 +8.7589e+02 B 4.46e-11 tail(EST)/B` 2.3e-08 IN True VER True neg False ratio +0.000 G 1.3488 Tcut 748 ; 5 s
+[04:48:01] xi a=33   h2 +7.0363e+02 B 5.09e-11 tail(EST)/B` 4.3e-07 IN True VER True neg False ratio +0.000 G 1.3556 Tcut 5653 ; 20 s
+[04:48:06] xi a=34   h2 +5.1099e+02 B 5.08e-11 tail(EST)/B` 1.0e-08 IN True VER True neg False ratio +0.000 G 1.3623 Tcut 722 ; 5 s
+[04:48:12] xi a=35   h2 +3.2672e+02 B 4.81e-11 tail(EST)/B` 1.5e-10 IN True VER True neg False ratio +0.000 G 1.3689 Tcut 703 ; 6 s
+[04:48:17] xi a=36   h2 +1.7657e+02 B 4.39e-11 tail(EST)/B` 2.6e-08 IN True VER True neg False ratio +0.000 G 1.3754 Tcut 741 ; 6 s
+[04:48:23] xi a=37   h2 +7.8350e+01 B 3.41e-11 tail(EST)/B` 1.5e-09 IN True VER True neg False ratio +0.000 G 1.3817 Tcut 691 ; 6 s
+[04:48:28] xi a=38   h2 +3.9059e+01 B 2.41e-11 tail(EST)/B` 1.1e-07 IN True VER True neg False ratio +0.000 G 1.3880 Tcut 685 ; 6 s
+[04:48:49] xi a=39   h2 +5.3862e+01 B 2.68e-11 tail(EST)/B` 5.9e-08 IN True VER True neg False ratio +0.000 G 1.3942 Tcut 5494 ; 21 s
+[04:49:11] xi a=40   h2 +1.0859e+02 B 3.48e-11 tail(EST)/B` 3.2e-10 IN True VER True neg False ratio +0.000 G 1.4002 Tcut 5821 ; 22 s
+[04:49:17] xi a=41   h2 +1.8605e+02 B 4.17e-11 tail(EST)/B` 3.0e-09 IN True VER True neg False ratio +0.000 G 1.4062 Tcut 680 ; 6 s
+[04:49:23] xi a=42   h2 +2.7270e+02 B 4.45e-11 tail(EST)/B` 6.7e-10 IN True VER True neg False ratio +0.000 G 1.4121 Tcut 696 ; 6 s
+[04:49:29] xi a=43   h2 +3.6146e+02 B 5.21e-11 tail(EST)/B` 2.1e-08 IN True VER True neg False ratio +0.000 G 1.4178 Tcut 686 ; 6 s
+[04:49:50] xi a=44   h2 +4.4915e+02 B 4.89e-11 tail(EST)/B` 1.4e-08 IN True VER True neg False ratio +0.000 G 1.4235 Tcut 5617 ; 22 s
+[04:50:11] xi a=45   h2 +5.3257e+02 B 4.84e-11 tail(EST)/B` 3.3e-07 IN True VER True neg False ratio +0.000 G 1.4292 Tcut 5280 ; 20 s
+[04:50:17] xi a=46   h2 +6.0667e+02 B 4.64e-11 tail(EST)/B` 1.6e-07 IN True VER True neg False ratio +0.000 G 1.4347 Tcut 687 ; 6 s
+[04:50:23] xi a=47   h2 +6.6465e+02 B 4.39e-11 tail(EST)/B` 4.8e-08 IN True VER True neg False ratio +0.000 G 1.4402 Tcut 675 ; 6 s
+[04:50:29] xi a=48   h2 +7.0008e+02 B 3.91e-11 tail(EST)/B` 3.2e-08 IN True VER True neg False ratio +0.000 G 1.4456 Tcut 673 ; 6 s
+[04:50:35] xi a=49   h2 +7.0949e+02 B 3.16e-11 tail(EST)/B` 1.6e-10 IN True VER True neg False ratio +0.000 G 1.4509 Tcut 655 ; 6 s
+[04:50:58] xi a=50   h2 +6.9368e+02 B 3.49e-11 tail(EST)/B` 1.1e-07 IN True VER True neg False ratio +0.000 G 1.4562 Tcut 5652 ; 23 s
+[04:51:21] xi a=51   h2 +6.5709e+02 B 3.94e-11 tail(EST)/B` 3.7e-09 IN True VER True neg False ratio +0.000 G 1.4614 Tcut 5747 ; 23 s
+[04:51:44] xi a=52   h2 +6.0598e+02 B 4.19e-11 tail(EST)/B` 2.8e-07 IN True VER True neg False ratio +0.000 G 1.4665 Tcut 5749 ; 24 s
+[04:52:05] xi a=53   h2 +5.4691e+02 B 4.81e-11 tail(EST)/B` 7.2e-09 IN True VER True neg False ratio +0.000 G 1.4716 Tcut 5103 ; 21 s
+[04:52:30] xi a=54   h2 +4.8562e+02 B 5.31e-11 tail(EST)/B` 1.2e-07 IN True VER True neg False ratio +0.000 G 1.4766 Tcut 5993 ; 25 s
+[04:52:37] xi a=55   h2 +4.2621e+02 B 5.27e-11 tail(EST)/B` 8.1e-09 IN True VER True neg False ratio +0.000 G 1.4816 Tcut 650 ; 6 s
+[04:53:00] xi a=56   h2 +3.7071e+02 B 5.45e-11 tail(EST)/B` 4.3e-07 IN True VER True neg False ratio +0.000 G 1.4865 Tcut 5581 ; 23 s
+[04:53:24] xi a=57   h2 +3.1905e+02 B 5.46e-11 tail(EST)/B` 2.4e-09 IN True VER True neg False ratio +0.000 G 1.4913 Tcut 5678 ; 24 s
+[04:53:30] xi a=58   h2 +2.6961e+02 B 5.47e-11 tail(EST)/B` 3.1e-07 IN True VER True neg False ratio +0.000 G 1.4961 Tcut 647 ; 6 s
+[04:53:36] xi a=59   h2 +2.2058e+02 B 5.16e-11 tail(EST)/B` 2.3e-09 IN True VER True neg False ratio +0.000 G 1.5008 Tcut 645 ; 6 s
+[04:54:00] xi a=60   h2 +1.7137e+02 B 4.72e-11 tail(EST)/B` 5.1e-08 IN True VER True neg False ratio +0.000 G 1.5055 Tcut 5567 ; 24 s
+======================================================================================================================================================
