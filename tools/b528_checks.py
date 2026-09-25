@@ -708,8 +708,8 @@ def main():
                len(gen_diff.get('changed') or [])))
     rec('  ### G-PRIORBANK-UNCHANGED checked %d prior banks by time, none excepted.'
         % S['prior_checked'])
-    rec('  ### ### **VACUOUS ON THE LIVE SOURCE (NO Q0 WIDTH READ) : %s.** ### each refused its injected defective cell.'
-        % (list(VACUOUS_ARMS) if not [c for c in S['rows'] if c['within']] else 'NONE'))
+    rec('  ### ### **VACUOUS FOR Q0 (NO Q0 WIDTH READ) : %s ; POPULATED BY %d READ CELLS OF EITHER OBJECT.** ### each refused its injected defective cell.'
+        % (list(VACUOUS_ARMS) if not [c for c in S['rows'] if c['within']] else 'NONE', len(inn(S))))
     rec('  ### ### **THE b475 LOG EXCEPTION STAYS RETIRED.** ### b481-b489 excused')
     rec('  ###   `b475_zeta23_build.log` as still being appended to by a live process. ### b490')
     rec('  ### found pid 27508 ABSENT at two readings sixty seconds apart and the file cold, and')
