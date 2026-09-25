@@ -1,0 +1,143 @@
+====================================================================================================================================
+b521 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### COMPONENT (N) -- (R130)(1)`S NOTES:
+  b518_components.txt : 119 cells, 119 VERIFIED-EST, 12 re-marked {'b518_cells.jsonl': 12} ; tail / B` 1.04e+00 .. 1.24e+05 ; 39464 -> 40194 bytes ; prefix proved True
+  b519_components.txt : 357 cells, 357 VERIFIED-EST, 252 re-marked {'b519_cells_A.jsonl': 14, 'b519_cells_B.jsonl': 119, 'b519_cells_C.jsonl': 119} ; tail / B` 1.70e+00 .. 2.64e+06 ; 111465 -> 112246 bytes ; prefix proved True
+
+### THE PRE-SEAL PRICING, AS BANKED BEFORE THE SEAL:
+### b521 PRE-SEAL PRICING (b520 defect (a)): the closed-form tail at a = 15 against b520`s banked Q0 B` there (1.377e-07); no cell computed
+  p=5  new tail 1.687e-04 (on 5.248e-05, off 1.162e-04) ; old majorant 1.086e-04 ; t2 31.1
+  p=6  new tail 1.316e-05 (on 4.098e-06, off 9.064e-06) ; old majorant 8.350e-06 ; t2 34.0
+  p=7  new tail 1.522e-06 (on 4.743e-07, off 1.048e-06) ; old majorant 9.597e-07 ; t2 37.0
+  p=8  new tail 2.442e-07 (on 7.613e-08, off 1.681e-07) ; old majorant 1.541e-07 ; t2 39.9
+  p=9  new tail 5.187e-08 (on 1.617e-08, off 3.569e-08) ; old majorant 3.293e-08 ; t2 42.9
+  p=10 new tail 1.409e-08 (on 4.395e-09, off 9.694e-09) ; old majorant 9.040e-09 ; t2 45.8
+  p=11 new tail 4.765e-09 (on 1.487e-09, off 3.278e-09) ; old majorant 3.100e-09 ; t2 48.8
+  p=12 new tail 1.964e-09 (on 6.129e-10, off 1.351e-09) ; old majorant 1.298e-09 ; t2 51.7
+
+====================================================================================================================================
+b521 -- Q0`S TAIL TIGHTENED, THEN THE WIDTH PASS RE-RUN.
+====================================================================================================================================
+### COMPONENT 0 -- THE SMOOTHNESS ORDER. ### the new tail (closed form) against B` and the pair`s term, per p and width:
+  p   a     new tail    B`          old maj.    pair         tail < B`
+  5   15    1.687e-04   1.377e-07   1.086e-04   -3.1645e+02 no
+  5   30    1.861e-05   8.677e-08   1.198e-05   -3.8785e+02 no
+  5   45    6.688e-06   6.589e-08   4.306e-06   -4.4450e+02 no
+  5   60    3.540e-06   5.521e-08   2.279e-06   -4.9312e+02 no
+  6   15    1.316e-05   1.527e-07   8.350e-06   -3.1652e+02 no
+  6   30    9.201e-07   9.649e-08   5.837e-07   -3.8769e+02 no
+  6   45    2.638e-07   7.223e-08   1.674e-07   -4.4427e+02 no
+  6   60    1.207e-07   6.208e-08   7.655e-08   -4.9282e+02 no
+  7   15    1.522e-06   1.669e-07   9.597e-07   -3.1668e+02 no
+  7   30    6.743e-08   1.056e-07   4.251e-08   -3.8759e+02 YES
+  7   45    1.543e-08   7.822e-08   9.728e-09   -4.4411e+02 YES
+  7   60    6.100e-09   6.817e-08   3.845e-09   -4.9261e+02 YES
+  8   15    2.442e-07   1.804e-07   1.541e-07   -3.1690e+02 no
+  8   30    6.856e-09   1.143e-07   4.325e-09   -3.8753e+02 YES
+  8   45    1.252e-09   8.401e-08   7.899e-10   -4.4402e+02 YES
+  8   60    4.278e-10   7.369e-08   2.699e-10   -4.9245e+02 YES
+  9   15    5.187e-08   1.935e-07   3.293e-08   -3.1715e+02 YES
+  9   30    9.229e-10   1.227e-07   5.859e-10   -3.8751e+02 YES
+  9   45    1.345e-10   8.968e-08   8.541e-11   -4.4397e+02 YES
+  9   60    3.973e-11   7.879e-08   2.522e-11   -4.9231e+02 YES
+  ### THE LEAST p WITH THE NEW TAIL BELOW B` AT a = 60 : 7 (scanned 5 to 9, stopping two orders past it)
+  ### classK restated at p = 7: h = (gamma_0^2 + D^2)(cos(gamma_0 u) phi), phi the plateau with inner order-p B-spline, is
+      even, compactly supported on [-L, L], and C^(p-3) -- C^2 needs p >= 5 -- so k = weilTest h h (k = h * h) is in classK.
+  ### the rebuilt window`s (R125)(2) fixture at a = 5 (p = 7): bar met at every u True ; largest diff/bar 0.060 ; 3520 nodes
+  ### closed form against its own integrand integrated numerically, a=15 s=0.0 : 4.7430e-07 vs 4.7584e-07 (rel 3.3e-03)
+  ### closed form against its own integrand integrated numerically, a=15 s=0.5 : 1.5223e-06 vs 1.5273e-06 (rel 3.3e-03)
+  ### closed form against its own integrand integrated numerically, a=60 s=0.0 : 6.3622e-10 vs 6.3830e-10 (rel 3.3e-03)
+  ### closed form against its own integrand integrated numerically, a=60 s=0.5 : 6.0999e-09 vs 6.1198e-09 (rel 3.3e-03)
+
+### COMPONENT 1 -- THE NEW TAIL. ### the validity argument in five lines:
+    (v1) For t >= T = 150 and |s| <= 1/2, |sinc(x + iy)| <= cosh(y) min(1, 1/|x|) bounds each factor of phi-hat(t -+ gamma_0 - is).
+    (v2) |t - gamma_0| >= t (1 - gamma_0/T) and |t + gamma_0| >= t, so the pair of shifted factors is at most mu_q t^-q, q the power.
+    (v3) |gamma_0^2 - (t - is)^2| <= gamma_0^2 + t^2 + s^2 <= kappa_s t^2; hence |k-hat| <= c1^2 t^2 below t2 and c2^2 t^(2-2p) above.
+    (v4) The bound is increasing in |s|, so s = 1/2 covers every zero with real part in [0, 1]: on-line (s = 0) plus the off-line excess.
+    (v5) Integrated against 2 x (1/pi) log(t sqrt 23 / 2 pi) dt, the RvM main term, in closed form; S(t)`s remainder is NAMED, NOT BOUNDED.
+  ### STRIP ASSUMPTION: every zero of Z_Q0 above 150 has real part in [0, 1]; a zero outside it is not covered. (R130)(2).
+  ### the validity fixture (a synthetic zero at height 200; the allowance at s = 1/2):
+    a=15   real part 0.9 : largest image term 1.387e-12 ; allowance 1.150e-09 ; covered True (must True) -- OK
+    a=15   real part 3.0 : largest image term 3.031e-08 ; allowance 1.150e-09 ; covered False (must False) -- OK
+    a=30   real part 0.9 : largest image term 5.345e-12 ; allowance 5.093e-11 ; covered True (must True) -- OK
+    a=30   real part 3.0 : largest image term 2.011e-06 ; allowance 5.093e-11 ; covered False (must False) -- OK
+    a=45   real part 0.9 : largest image term 1.242e-14 ; allowance 1.165e-11 ; covered True (must True) -- OK
+    a=45   real part 3.0 : largest image term 1.825e-08 ; allowance 1.165e-11 ; covered False (must False) -- OK
+    a=60   real part 0.9 : largest image term 1.594e-14 ; allowance 4.607e-12 ; covered True (must True) -- OK
+    a=60   real part 3.0 : largest image term 7.185e-08 ; allowance 4.607e-12 ; covered False (must False) -- OK
+  ### compared with b519`s banked old majorant (p = 5) at its 119 widths: at p = 7 smaller at 108 ; not smaller at [1.3, 1.35, 1.41, 1.5, 1.7, 1.9, 1.99, 2.0, 2.01, 2.1, 2.4]
+  ### at p = 5 (the closed form alone, same window) smaller at 0 of 119
+    a=1.300000   old 3.824e+07 ; new 2.854e+08 (on 2.817e+08, off 3.745e+06) ; new at p=5 6.722e+07
+    a=4.123106   old 1.157e-01 ; new 2.169e-02 (on 1.509e-02, off 6.600e-03) ; new at p=5 1.798e-01
+    a=6.557439   old 4.967e-03 ; new 2.996e-04 (on 1.621e-04, off 1.374e-04) ; new at p=5 7.715e-03
+    a=8.888194   old 9.940e-04 ; new 3.291e-05 (on 1.473e-05, off 1.818e-05) ; new at p=5 1.544e-03
+    a=11.000000  old 3.752e-04 ; new 8.558e-06 (on 3.321e-06, off 5.236e-06) ; new at p=5 5.828e-04
+    a=12.767145  old 2.020e-04 ; new 3.619e-06 (on 1.266e-06, off 2.353e-06) ; new at p=5 3.138e-04
+    a=14.106736  old 1.368e-04 ; new 2.102e-06 (on 6.846e-07, off 1.417e-06) ; new at p=5 2.125e-04
+
+### COMPONENT 2 -- THE REACH (b520`s rule: E_tail against B` = E_u + E_k + E_round, and a^2 within LAMQ), at p = 7:
+  reach None ; stop 15.0
+  a=15   E_tail 1.522e-06 ; B` 1.669e-07 ; ratio 9.12e+00 ; lamq True
+
+### Q0, VARIANT (B) AT p = 7. ### VERIFIED-EST iff |r| <= B ; nv: none, closed-form transform ; shortfall an ESTIMATE outside B.
+  a      P - PR + A    s  |r|       B         VER  pair          others        on-line       pair / rest   G        e^dL     G/e^dL  
+  ### VERIFIED-EST 0 of 0 read ; negative beyond B : NONE ; positive 0 ; undecided NONE
+  ### the narrowest negative width : NONE ; the pair`s ratio reaches -1 first at : NONE ; at the widest cell read (a = None) None
+  ### shortfall ESTIMATE above B at : NONE
+
+### COMPONENT 3 -- XI, CITED FROM b520 (not recomputed): VERIFIED-EST 46 of 46, positive 46.
+### THE READING, IN (R127)(2)`S WORDS:
+    no Q0 cell is negative beyond its bound on a closing bank: the two-property window is not yet the witness; no Q0 cell was read -- the reach ended at a = 15.0, the tail bound 9.12 times the rest of the cell`s bound
+    ### Nothing is claimed of the kernel either way.
+====================================================================================================================================
+
+### THE RUN LOG:
+### (N) tools/b521_notes.py
+  b518_components.txt : 119 cells, 119 verified, 12 re-marked ; tail/B` 1.0e+00 .. 1.2e+05 ; prefix proved True
+  b519_components.txt : 357 cells, 357 verified, 252 re-marked ; tail/B` 1.7e+00 .. 2.6e+06 ; prefix proved True
+### (0) tools/b521_tail.py order
+  p=5  a=15   new tail 1.687e-04 ; old majorant 1.086e-04 ; B` 1.377e-07 ; pair -3.164e+02
+  p=5  a=30   new tail 1.861e-05 ; old majorant 1.198e-05 ; B` 8.677e-08 ; pair -3.878e+02
+  p=5  a=45   new tail 6.688e-06 ; old majorant 4.306e-06 ; B` 6.589e-08 ; pair -4.445e+02
+  p=5  a=60   new tail 3.540e-06 ; old majorant 2.279e-06 ; B` 5.521e-08 ; pair -4.931e+02
+  p=6  a=15   new tail 1.316e-05 ; old majorant 8.350e-06 ; B` 1.527e-07 ; pair -3.165e+02
+  p=6  a=30   new tail 9.201e-07 ; old majorant 5.837e-07 ; B` 9.649e-08 ; pair -3.877e+02
+  p=6  a=45   new tail 2.638e-07 ; old majorant 1.674e-07 ; B` 7.223e-08 ; pair -4.443e+02
+  p=6  a=60   new tail 1.207e-07 ; old majorant 7.655e-08 ; B` 6.208e-08 ; pair -4.928e+02
+  p=7  a=15   new tail 1.522e-06 ; old majorant 9.597e-07 ; B` 1.669e-07 ; pair -3.167e+02
+  p=7  a=30   new tail 6.743e-08 ; old majorant 4.251e-08 ; B` 1.056e-07 ; pair -3.876e+02
+  p=7  a=45   new tail 1.543e-08 ; old majorant 9.728e-09 ; B` 7.822e-08 ; pair -4.441e+02
+  p=7  a=60   new tail 6.100e-09 ; old majorant 3.845e-09 ; B` 6.817e-08 ; pair -4.926e+02
+  p=8  a=15   new tail 2.442e-07 ; old majorant 1.541e-07 ; B` 1.804e-07 ; pair -3.169e+02
+  p=8  a=30   new tail 6.856e-09 ; old majorant 4.325e-09 ; B` 1.143e-07 ; pair -3.875e+02
+  p=8  a=45   new tail 1.252e-09 ; old majorant 7.899e-10 ; B` 8.401e-08 ; pair -4.440e+02
+  p=8  a=60   new tail 4.278e-10 ; old majorant 2.699e-10 ; B` 7.369e-08 ; pair -4.924e+02
+  p=9  a=15   new tail 5.187e-08 ; old majorant 3.293e-08 ; B` 1.935e-07 ; pair -3.172e+02
+  p=9  a=30   new tail 9.229e-10 ; old majorant 5.859e-10 ; B` 1.227e-07 ; pair -3.875e+02
+  p=9  a=45   new tail 1.345e-10 ; old majorant 8.541e-11 ; B` 8.968e-08 ; pair -4.440e+02
+  p=9  a=60   new tail 3.973e-11 ; old majorant 2.522e-11 ; B` 7.879e-08 ; pair -4.923e+02
+### LEAST p WITH THE NEW TAIL BELOW B` AT a = 60 : 7
+### tools/b521_tail.py fixture
+  p=7 : bar met at every u True ; largest diff/bar 0.060
+  closed-form tail a=15 s=0.0 : 4.7430e-07 ; its integrand integrated numerically 4.7584e-07 ; rel 3.3e-03
+  closed-form tail a=15 s=0.5 : 1.5223e-06 ; its integrand integrated numerically 1.5273e-06 ; rel 3.3e-03
+  closed-form tail a=60 s=0.0 : 6.3622e-10 ; its integrand integrated numerically 6.3830e-10 ; rel 3.3e-03
+  closed-form tail a=60 s=0.5 : 6.0999e-09 ; its integrand integrated numerically 6.1198e-09 ; rel 3.3e-03
+### tools/b521_tail.py validity
+  a=15   real part 0.9 : largest image term 1.387e-12 ; allowance 1.150e-09 ; covered True (must True)
+  a=15   real part 3.0 : largest image term 3.031e-08 ; allowance 1.150e-09 ; covered False (must False)
+  a=30   real part 0.9 : largest image term 5.345e-12 ; allowance 5.093e-11 ; covered True (must True)
+  a=30   real part 3.0 : largest image term 2.011e-06 ; allowance 5.093e-11 ; covered False (must False)
+  a=45   real part 0.9 : largest image term 1.242e-14 ; allowance 1.165e-11 ; covered True (must True)
+  a=45   real part 3.0 : largest image term 1.825e-08 ; allowance 1.165e-11 ; covered False (must False)
+  a=60   real part 0.9 : largest image term 1.594e-14 ; allowance 4.607e-12 ; covered True (must True)
+  a=60   real part 3.0 : largest image term 7.185e-08 ; allowance 4.607e-12 ; covered False (must False)
+### tools/b521_tail.py compare
+  at p = 7 the new tail is below b519`s old majorant at 108 of 119 widths ; not below at [1.3, 1.35, 1.41, 1.5, 1.7, 1.9, 1.99, 2.0, 2.01, 2.1, 2.4]
+  at p = 5 (the closed form alone) below at 0 of 119
+### tools/b521_tail.py run
+[23:54:04] a=15 STOP : E_tail > B`
+### Q0`S REACH : None (stop 15.0)
+====================================================================================================================================

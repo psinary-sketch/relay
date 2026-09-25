@@ -1,0 +1,170 @@
+====================================================================================================
+ACT b521 -- THE REGISTRATION FACE. ### Q0`S TAIL TIGHTENED, THEN THE WIDTH PASS RE-RUN, UNDER (R130).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT ALONE, UNDER (R130)(4)**, and
+### shuts at its close; the kernel lane reopens after it for (f)(i) on variant (B).
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R130) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) b518`s and b519`s Q0 cells re-marked
+### VERIFIED-EST-TAIL by appended note; (2) the tail is the numerical shadow of (f)(iii); (3) the route is to tighten the
+### tail before extending the bank -- closed form, split on-line / off-line from the RvM count, the ramp`s order raised
+### and printed before use; bank extension the fallback, NOT RUN; (4) the numerical lane opens for b521 and shuts at its
+### close. ### Ruling and part 1 of 1, received IN FULL, banked verbatim as `b521_ferry.txt`.
+### ### **THIS ACT CONFERS NO GRADE, COMPILES NOTHING, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (0) -- (R130)(1)`S NOTE.** A Q0 cell of b518 or b519 is re-marked iff it was VERIFIED-EST (`|r| <= B`)
+### and its `E_tail > B' = E_u + E_k + E_round`, read from `b518_cells.jsonl` and `b519_cells_{A,B,C}.jsonl`, not
+### retyped. ### The note is APPENDED to `b518_components.txt` and `b519_components.txt`, each bank`s prior bytes PROVED
+### an unchanged prefix of the new file by sha256; the writer refuses a second note. ### No cell is recomputed.
+### **READING (1) -- THE WINDOW** is b519`s variant (B) with the inner B-spline`s order `p` as the parameter: the
+### plateau (indicator of `[-W, W]` convolved with the order-p B-spline of half-width `R = L/8`, `W = L - R`) under the
+### zero factor at `gamma_0 = 16.290216`; `p = 5` is b519`s window. ### The class `PWindow` subclasses b519`s
+### `VWindow('B')`, IMPORTED, not copied; the order enters as `m = p`, `h = 2R/p`.
+### **READING (2) -- THE NEW TAIL**, for Q0`s zeros above `T = 150`, in closed form: `|sinc(x + iy)| <= cosh(y) min(1,
+### 1/|x|)`, `|t - gamma_0| >= t (1 - gamma_0/T)`, `|gamma_0^2 - z^2| <= kappa_s t^2` give `|k-hat| <= c1^2 t^2` on `[T, t2]`
+### and `c2^2 t^(2 - 2p)` above `t2 = gamma_0 + 2/h`, integrated against `2 dN`, `dN = (1/pi) log(t sqrt 23 / 2 pi) dt`.
+### ### **THE ON-LINE PART** is the integral at `s = 0`; **THE OFF-LINE PART** is the integral at `s = 1/2` (real part up
+### to 1) LESS the on-line part; **BOTH OVER THE FULL COUNT**, because the off-line share above 150 is unknown; their SUM,
+### the integral at `s = 1/2`, is the tail used. ### **THE STRIP ASSUMPTION** -- every zero above 150 has real part in
+### `[0, 1]` -- is printed as the validity`s one hypothesis; **S(t)`S REMAINDER** in the RvM count is NAMED AND NOT
+### BOUNDED, as b519`s majorant also left it.
+### **READING (3) -- "THE LEAST p"** is the least `p` in `5, 6, ..., 20` with the new tail below `B'` at `a = 60`, both at
+### that `p`; the scan prints `p` at `a = 15, 30, 45, 60` with the new tail, `B'`, b519`s old majorant at the same window,
+### and the pair`s term, and stops two orders past the least `p`. ### `p` starts at 5 because `h` is C^2 needs `p >= 5`.
+### ### **IF NO p IN 5..20 SUCCEEDS**, the least p is printed NOT FOUND, and Components 1 and 2 run at `p = 20`.
+### **READING (4) -- THE REBUILT WINDOW`S FIXTURE** is (R125)(2)`s: at `a = 5`, the least `p`, Q0, the closed-form
+### `k-hat` against Gauss-Legendre on the knot pieces of `k = h * h`, the bar `sqrt(n) x eps x SUM |terms|`, met at every
+### `u` of b519`s list. ### Beside it, the closed-form tail against its own integrand integrated numerically at `a = 15,
+### 60` and `s = 0, 1/2`: the relative difference is PRINTED, and a difference above 1e-2 is a DEFECT of the closed form.
+### **READING (5) -- "SMALLER AT EVERY WIDTH"** is the new tail at the least `p` against b519`s BANKED `E_tail` of
+### variant (B) (`p = 5`) at b519`s 119 widths; the count smaller is printed with the widths not smaller. ### The new
+### tail at `p = 5` is printed beside it (the closed form alone, same window).
+### **READING (6) -- THE VALIDITY FIXTURE**: the synthetic zero `rho = 0.9 + 200 i`, its four images` `|k-hat(gamma(rho'))|`
+### each at most the allowance at `t = 200, s = 1/2` -- MUST BE COVERED at `a = 15, 30, 45, 60`; ### **AND A NEGATIVE
+### CONTROL** at real part 3.0 (outside the strip), which MUST NOT BE COVERED at any of the four widths.
+### **READING (7) -- THE REACH** is b520`s rule exactly, with the new tail at the least `p`: one pass `a = 15, 16, ..., 60`,
+### the first width where `E_tail > B'` or `a^2 > 4096` ENDS the reach, its error terms banked and its quantities not.
+### ### **Q0 ALONE**: xi is CITED from `b520_results.json` and not recomputed.
+### **READING (8) -- THE COLUMNS** are b520`s: `P - PR + A` against `B`, the pair`s term, the other sixteen, the on-line
+### part, the signed ratio, `G` against (d)`s `e^{delta L}`; the narrowest negative width or NONE; the ratio at the widest
+### cell read. ### `nv` is NONE per cell, closed form, as b511 through b520 read (R114)`s rule; the u > 1200 shortfall is
+### printed and kept OUT of `B`.
+### **READING (9) -- THE READING** is (R127)(2)`s, as b520 printed it.
+### **READING (10) -- THE SCORING.** (N1): the least `p` is at least 6, a NOT FOUND scored HELD (it exceeds 20).
+### (N2): at the least `p` (or 20), the least named width `a0` with the new tail below `B'` at `a0` and every larger named
+### width exists and `a0 <= 30`. (N3): Q0`s reach, the last width read, exceeds 30. (N4): a read Q0 cell has ratio `<= -1`.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (N) `tools/b521_notes.py` -> `b521_notes.json`; one append each to `b518_components.txt`, `b519_components.txt`.
+### (0) `tools/b521_tail.py order` -> `b521_order.json`; `tools/b521_tail.py fixture` -> `b521_fixture.json`.
+### (1) `tools/b521_tail.py validity` -> `b521_validity.json`; `tools/b521_tail.py compare` -> `b521_compare.json`.
+### (2) `tools/b521_tail.py run` -> `b521_reach.json`, `b521_cells.jsonl`; every run`s output -> `b521_run_log.txt`.
+### (3) `tools/b521_report.py` -> `b521_report.txt`, `b521_results.json`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b519`s and b520`s tools, faces and banks (b520`s Q0 stop at
+### a = 15: `E_tail` 1.086e-4, `B'` 1.377e-7). ### **A PRE-SEAL PRICING WAS RUN AND IS BANKED** as
+### `b521_preseal_pricing.txt`, under b520`s defect (a) -- price a registered reading against the banks before the seal:
+### the closed-form tail at `a = 15` alone, `p = 5..12`, against b520`s banked `B'` there. ### It found: at equal `p` the
+### closed form is about 1.55 times b519`s numerically integrated majorant (1.687e-4 against 1.086e-4 at `p = 5`); it
+### falls below `B'` at `a = 15` first at `p = 9` (5.2e-8). ### **NO CELL WAS COMPUTED, NO B` AT ANY OTHER WIDTH, AND NO
+### p SCANNED AT a = 60 BEFORE THE SEAL.** ### The act`s tools are written before the seal and NOT RUN otherwise.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### Up to 16 orders x 4 widths, 119 comparisons (closed form, seconds), 46 Q0 cells: up to about an hour.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **THE LEAST p IS 6 OR MORE.**
+### **(N2)** ### **THE NEW TAIL IS BELOW B` FROM A WIDTH AT OR BELOW 30.**
+### **(N3)** ### **Q0`S REACH EXTENDS PAST a = 30.**
+### **(N4)** ### **THE PAIR`S RATIO CROSSES -1 WITHIN THE REACH.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE LEAST p IS 9 OR MORE** (the pre-seal price needs 9 at a = 15, and the tail grows with width).
+### **(S2)** ### **AT THE LEAST p THE NEW TAIL IS BELOW b519`S OLD MAJORANT AT EVERY ONE OF b519`S 119 WIDTHS.**
+### **(S3)** ### **AT p = 5 THE CLOSED FORM IS BELOW THE OLD MAJORANT AT NO WIDTH.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R130-ENTERED`
+### `G-APPENDED-NOTE-PREFIX` `G-APPENDED-NOTE-COUNTED` `G-PRESEAL-PRICING-BANKED` `G-ORDER-SCANNED`
+### `G-LEAST-P-RECOMPUTED` `G-CLASSK-RESTATED` `G-FIXTURE-BAR` `G-INTEGRATION-FIXTURE` `G-VALIDITY-FIXTURE`
+### `G-VALIDITY-CONTROL` `G-TAIL-SPLIT-SUMS` `G-COMPARE-RECOUNTED` `G-STRIP-PRINTED` `G-REMAINDER-NAMED`
+### `G-REACH-RECOMPUTED` `G-PAST-REACH-UNBANKED` `G-NV-PRINTED` `G-SPLIT-SUMS` `G-RATIO-RECOMPUTED`
+### `G-VERIFIED-RECOUNTED` `G-BOUND-FORM` `G-SHORTFALL-PRINTED` `G-GROWTH-RECOMPUTED` `G-SIGNS-RECOUNTED`
+### `G-CROSSING-RECOMPUTED` `G-XI-CITED` `G-READING-WORDS` `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED`
+### `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-APPEND-ONLY` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-PRIORBANK-APPEND-ONLY` holds every prior act`s
+### bank unchanged, with ONE exception declared here: `b518_components.txt` and `b519_components.txt` change by one
+### append each, their prior bytes proved an unchanged prefix.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b521_*` `relay/tools/b521_*` |
+### | `tools/b521_notes.py` | `relay/data/b518_components.txt` `relay/data/b519_components.txt` (ONE APPEND EACH) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b521_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b521_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b521_registration_2026-09-24.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b521_span*.json` `relay/data/b521_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b521.zip`
+###   (outside every repository) `relay/data/b521_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b521_tail.py` `b521_notes.py` `b521_report.py` `b521_reg_gate.py` `b521_regspec.py`
+### `b521_record.py` `b521_checks.py` `b521_closing.py`.
+### ### **NO INSTRUMENT IS EDITED.** ### b519`s, b514`s, b511`s, b325`s tools and the atlas are imported; none is rewritten.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs; the kernel is not
+### touched. ### (f)(i) is not stated here. ### No zero of zeta or of Z_Q0 is added or moved; the Q0 bank is not extended
+### (the fallback of (R130)(3) is NOT RUN); no prior bank is rewritten. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT
+### OUTSIDE (R110)**, and nothing inside it. ### Nothing deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1
+### is unedited. ### `h2` stays where the deposit left it. ### The four lists stay OPEN. ### Nothing is claimed of the
+### kernel either way. ### **AND NO CELL OF THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 37a9bb81a642e33467758b67b2dc2bbe0311ac19cd8b92b77a699d2b3a55f6ff
+### bytes locked : 14933
+### locked at (UTC) : 2026-09-25T03:46:29Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b521_registration_2026-09-24.txt`.**
+====================================================================================================
