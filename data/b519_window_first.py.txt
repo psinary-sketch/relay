@@ -1,0 +1,324 @@
+# -*- coding: utf-8 -*-
+"""b519_window.py -- THREE VARIANTS OF THE TWO-PROPERTY WINDOW. ### `python tools/b519_window.py fixture | matched | run`
+
+### READING (1). Every variant is h = PROD_j (gamma_j^2 + D^2) (cos(gamma_0 u) phi), gamma_0 the target ordinate and the
+### further gamma_j the object's notches; in the kernel's convention h-hat(z) = PROD_j (gamma_j^2 - z^2) g-hat(z),
+### g-hat(z) = (phi-hat(z - gamma_0) + phi-hat(z + gamma_0)) / 2.
+###   (A) NOTCHED      -- notches at the object's two nearest on-line ordinates; phi the uniform B-spline of ORDER 10 on
+###                       [-L, L] (C^8, so six derivatives of phi and two more keep h C^2).
+###   (B) EDGE-WEIGHTED -- no notch; phi a C^4 plateau: the normalized indicator of [-W, W] convolved with the order-5 B-spline
+###                       of half-width R = F_RAMP * L / 2, W = L - R: each ramp spans 2R, the two spanning F_RAMP of the
+###                       support 2L.
+###   (C) BOTH         -- (A)'s notches on the plateau, the B-spline inside it of ORDER 9 (C^8).
+### k = h * h (h real and even), k-hat = h-hat^2. No pole annihilation. ### The chain is b518's with the window replaced.
+"""
+import io
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+D, T = os.path.join(ROOT, 'data'), os.path.join(ROOT, 'tools')
+sys.path.insert(0, T)
+import b511_families as F   # noqa: E402
+import b514_window as B14   # noqa: E402
+
+NL = chr(10)
+G0 = dict(xi=14.1347, q=16.290216)
+F_RAMP = 0.25                      # ### READING (1): the two ramps together occupy one quarter of the support [-L, L]
+QL, QH = 40, 60
+PAIR = B14.PAIR
+DELTA = PAIR[0] - 0.5
+VARIANTS = ('A', 'B', 'C')
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+
+def notches(obj):
+    """### the object's two nearest on-line ordinates to gamma_0, READ FROM ITS BANK."""
+    G = F.GAM if obj == 'xi' else F.GQ
+    return sorted(x for x in G[np.argsort(np.abs(G - G0[obj]))[:3]].tolist() if abs(x - G0[obj]) > 1e-3)[:2]
+
+
+def poly_coeffs(gs):
+    """### PROD_j (g_j^2 + x) = SUM_r c_r x^r."""
+    c = [1.0]
+    for g in gs:
+        n = [0.0] * (len(c) + 1)
+        for r, v in enumerate(c):
+            n[r] += g * g * v
+            n[r + 1] += v
+        c = n
+    return c
+
+
+def csinc(w):
+    w = np.asarray(w, dtype=complex)
+    out = np.ones_like(w)
+    nz = np.abs(w) > 1e-12
+    out[nz] = np.sin(w[nz]) / w[nz]
+    return out
+
+
+class VWindow(B14.MWindow):
+    def __init__(self, a, obj, variant):
+        self.variant, self.obj = variant, obj
+        self.gs = [G0[obj]] + (notches(obj) if variant in ('A', 'C') else [])
+        self.coef = poly_coeffs(self.gs)
+        self.plateau = variant in ('B', 'C')
+        if not self.plateau:
+            B14.MWindow.__init__(self, a, G0[obj], 10)
+            self.order_note = 'B-spline of order 10 on [-L, L]'
+        else:
+            m = 5 if variant == 'B' else 9
+            self.a, self.g0, self.m = a, float(G0[obj]), m
+            self.L = math.log(a)
+            self.R = F_RAMP * self.L / 2.0            # ### each ramp spans 2R; two ramps span 4R = F_RAMP * 2L
+            self.W = self.L - self.R
+            self.h = 2.0 * self.R / m                  # ### the inner B-spline's knot spacing
+            self.half = self.L
+            ks = np.linspace(-self.R, self.R, m + 1)
+            self.knots = np.unique(np.concatenate([ks - self.W, ks + self.W]))
+            self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, m, self.R)
+
+    # ### the base bump phi and its transform
+    def phihat(self, z):
+        z = np.asarray(z, dtype=complex)
+        if not self.plateau:
+            return B14.MWindow.phihat(self, z)
+        return csinc(z * self.W) * csinc(z * self.h / 2.0) ** self.m
+
+    def phi_d(self, t, d=0):
+        if not self.plateau:
+            return B14.MWindow.phi_d(self, t, d)
+        t = np.asarray(t, dtype=float)
+        if d == 0:
+            def cdf(u):
+                y = (u + self.R) / self.h
+                return sum(F.nbs(self.m + 1, y - j) for j in range(0, 4 * self.m + 8 + int(4 * self.W / self.h)))
+            return (cdf(t + self.W) - cdf(t - self.W)) / (2.0 * self.W)
+
+        def psi(u, e):
+            y = (u + self.R) / self.h
+            return (F.nbs(self.m, y) if e == 0 else F.dnbs(self.m, e, y)) / (self.h ** (e + 1))
+        return (psi(t + self.W, d - 1) - psi(t - self.W, d - 1)) / (2.0 * self.W)
+
+    # ### the window
+    def ghat_cos(self, z):
+        z = np.asarray(z, dtype=complex)
+        return 0.5 * (self.phihat(z - self.g0) + self.phihat(z + self.g0))
+
+    def poly(self, z):
+        p = np.ones_like(np.asarray(z, dtype=complex))
+        for g in self.gs:
+            p = p * (g * g - z * z)
+        return p
+
+    def ghat(self, z):
+        z = np.asarray(z, dtype=complex)
+        return self.poly(z) * self.ghat_cos(z)
+
+    def khat(self, z):
+        return self.ghat(z) ** 2
+
+    def slope(self):
+        """### d/dz h-hat at gamma_0 = -2 gamma_0 PROD_{j>0}(gamma_j^2 - gamma_0^2) g-hat(gamma_0)."""
+        rest = 1.0
+        for g in self.gs[1:]:
+            rest *= (g * g - self.g0 ** 2)
+        return float((-2.0 * self.g0 * rest * self.ghat_cos(self.g0)).real)
+
+    def gcos_d(self, t, d):
+        return B14.MWindow.g_d(self, t, d)
+
+    def g(self, t):
+        t = np.asarray(t, dtype=float)
+        return sum(c * self.gcos_d(t, 2 * r) for r, c in enumerate(self.coef))
+
+    def g_d(self, t, d):
+        t = np.asarray(t, dtype=float)
+        return sum(c * self.gcos_d(t, 2 * r + d) for r, c in enumerate(self.coef))
+
+    def growth(self):
+        """### READING (7): the realized growth G = INT phi cosh(delta u) du = phi-hat(i delta), and (d)'s bound e^{delta L}."""
+        return float(self.phihat(1j * DELTA).real), math.exp(DELTA * self.L)
+
+
+def phi_bound(W, x, s):
+    x = np.abs(np.asarray(x, dtype=float))
+    b = (math.cosh(s * W.h / 2.0) * np.minimum(1.0, 1.0 / np.maximum(x * W.h / 2.0, 1e-300))) ** W.m
+    if W.plateau:
+        b = b * math.cosh(s * W.W) * np.minimum(1.0, 1.0 / np.maximum(x * W.W, 1e-300))
+    return b
+
+
+def majorant(W, t, s=0.0):
+    t = np.asarray(t, dtype=float)
+    p = np.ones_like(t)
+    for g in W.gs:
+        p = p * (g * g + t * t + s * s)
+    return (p * 0.5 * (phi_bound(W, t - W.g0, s) + phi_bound(W, t + W.g0, s))) ** 2
+
+
+def tail(W, top, obj):
+    t = np.geomspace(top, top * 1e8, 200001)
+    if obj == 'xi':
+        dens, s = np.log(t / (2 * math.pi)) / (2 * math.pi), 0.0
+    else:
+        dens, s = np.log(t * math.sqrt(23) / (2 * math.pi)) / math.pi, 0.5
+    return float(np.trapezoid(2.0 * majorant(W, t, s) * dens, t))
+
+
+def shortfall(W, kz):
+    K1200 = float(abs(F.KER[kz + '_wide'][-1]))
+    u = np.geomspace(1200.0, 1200.0 * 1e8, 200001)
+    return float(2.0 * np.trapezoid(majorant(W, u) * K1200 * np.log(u) / math.log(1200.0), u) / (2.0 * math.pi))
+
+
+def cell(a, variant):
+    out = dict(a=a, variant=variant)
+    for obj in ('xi', 'q'):
+        W = VWindow(a, obj, variant)
+        kz = 'z' if obj == 'xi' else 'qd'
+        Hb, Hh, Hw = W.khat(F.U_BASE).real, W.khat(F.U_HALF).real, W.khat(F.U_WIDE).real
+        A = F.arch(Hb, F.U_BASE, F.KER[kz + '_base'])
+        Eu = abs(F.arch(Hh, F.U_HALF, F.KER[kz + '_half']) - A) + abs(F.arch(Hw, F.U_WIDE, F.KER[kz + '_wide']) - A)
+        chan = F.prime_channel_xi if obj == 'xi' else F.prime_channel_q
+        PR, PRabs = chan(W, QL)
+        PR2, _ = chan(W, QH)
+        if obj == 'xi':
+            G = F.GAM
+            zt = 2.0 * W.khat(G).real
+            Zon = float(np.sum(zt))
+            ip = int(np.argmin(np.abs(G - G0['xi'])))
+            pair, others, offterms, on_rest = float(zt[ip]), 0.0, [], Zon - float(zt[ip])
+            Etail = tail(W, float(G[-1]), 'xi')
+            dk = np.abs(2.0 * (W.khat(G * (1 + F.DELTA_XI)).real - W.khat(G).real))
+            pair_kind = 'ON-LINE'
+        else:
+            G = F.GQ
+            zt = 2.0 * W.khat(G).real
+            Zon = float(np.sum(zt))
+            offterms, pair = [], None
+            for b, gg in F.OFFQ:
+                t = float(sum(W.khat(B14.gamma_of(r)).real for r in B14.images(b, gg)))
+                offterms.append(t)
+                if (b, gg) == PAIR:
+                    pair = t
+            others = float(np.sum(offterms)) - pair
+            on_rest = Zon
+            Etail = tail(W, 150.0, 'q')
+            dk = np.abs(2.0 * (W.khat(G + F.DELTA_Q).real - W.khat(G).real))
+            pair_kind = 'OFF-LINE'
+        P = float((W.khat(0.5j) + W.khat(-0.5j)).real)
+        Z = Zon + float(np.sum(offterms))
+        r = Z - (P - PR + A)
+        Ek = abs(PR - PR2)
+        Aabs = float(np.trapezoid(np.abs(Hb * F.KER[kz + '_base']), F.U_BASE) / (2.0 * math.pi))
+        Eround = 4.0 * F.EPS * (float(np.sum(np.abs(zt))) + float(np.sum(np.abs(offterms))) + Aabs + PRabs) + float(np.sum(dk))
+        B = Eu + Ek + Etail + Eround
+        rest = Z - pair
+        gr, bound = W.growth()
+        out[obj] = dict(gamma0=G0[obj], gammas=W.gs, A=A, PR=PR, P=P, Z=Z, Z_on=Zon, pair=pair, pair_kind=pair_kind, others=others,
+                        on_rest=on_rest, rest=rest, ratio=pair / rest if rest else None, m=A - PR, h2=P - PR + A, r=r, B=B,
+                        Eu=Eu, Ek=Ek, Etail=Etail, Eround=Eround, shortfall=shortfall(W, kz), verified=bool(abs(r) <= B),
+                        slope=W.slope(), growth=gr, growth_bound=bound, growth_fraction=gr / bound, growth_k=gr * gr,
+                        growth_k_bound=bound * bound)
+    return out
+
+
+def fixture():
+    res = []
+    for variant in VARIANTS:
+        for obj in ('xi', 'q'):
+            W = VWindow(5.0, obj, variant)
+            kb = np.unique(np.round((W.knots[:, None] + W.knots[None, :]).ravel(), 14))
+            kb = kb[(kb >= -2 * W.half) & (kb <= 2 * W.half)]
+            nodes, wts = np.polynomial.legendre.leggauss(80)
+            a0, b0 = kb[:-1], kb[1:]
+            mid, rad = (a0 + b0) / 2.0, (b0 - a0) / 2.0
+            xx = (mid[:, None] + rad[:, None] * nodes[None, :]).ravel()
+            ww = (rad[:, None] * wts[None, :]).ravel()
+            kx = W.k(xx, QH)
+            us = np.array([0.0, 1.0, G0[obj]] + notches(obj) + [30.0, 60.0])
+            rows = []
+            for u in us:
+                terms = ww * kx * np.cos(u * xx)
+                num = float(np.sum(terms))
+                cf = float(W.khat(u).real)
+                floor = F.EPS * float(np.sum(np.abs(terms)))
+                bar = floor * math.sqrt(len(terms))
+                rows.append(dict(u=float(u), closed=cf, numeric=num, diff=abs(cf - num), floor=floor, bar=bar, meets=abs(cf - num) <= bar))
+            eps = 1e-9
+            jumps = {}
+            for d in (0, 1, 2, 3):
+                jk = [abs(float(W.g_d([x + eps], d)[0] - W.g_d([x - eps], d)[0])) for x in W.knots[1:-1]]
+                jumps['D%d' % d] = max(jk)
+            gscale = max(abs(float(W.g_d([x], 3)[0])) for x in W.knots[1:-1]) + 1.0
+            res.append(dict(variant=variant, object=obj, a=5.0, gammas=W.gs, base=W.order_note, nodes=len(xx), rows=rows,
+                            meets=all(r['meets'] for r in rows), even=float(abs(W.k([0.7], QH)[0] - W.k([-0.7], QH)[0])),
+                            scale=float(max(abs(r['closed']) for r in rows)), knot_jumps=jumps, d3_scale=gscale,
+                            support=[-2 * W.half, 2 * W.half],
+                            generating_h='h(u) = %s (cos(%s u) phi(u)), phi the %s at a = 5'
+                            % (' '.join('(%.6f^2 + d^2/du^2)' % g for g in W.gs), G0[obj], W.order_note)))
+    io.open(os.path.join(D, 'b519_fixture.json'), 'w', encoding='utf-8', newline=NL).write(json.dumps(res, indent=1) + NL)
+    for r in res:
+        print('  (%s) %-3s notches %s, %d nodes : bar met at every u %s ; largest diff/bar %.3f ; |k(.7)-k(-.7)|/scale %.1e ; jumps %s'
+              % (r['variant'], r['object'], ['%.4f' % g for g in r['gammas'][1:]], r['nodes'], r['meets'],
+                 max(x['diff'] / x['bar'] for x in r['rows']), r['even'] / max(r['scale'], 1e-300), {k: '%.1e' % v for k, v in r['knot_jumps'].items()}))
+    return 0
+
+
+def matched():
+    A = F.ladder()
+    res = []
+    for variant in VARIANTS:
+        for a in (A[0], A[59], A[118]):
+            for obj in ('xi', 'q'):
+                W = VWindow(a, obj, variant)
+                G = F.GAM if obj == 'xi' else F.GQ
+                low = float(next(x for x in sorted(G.tolist()) if abs(x - G0[obj]) > 1e-3))
+                pts = notches(obj) + [low]
+                v0 = complex(W.ghat(G0[obj]))
+                sl = W.slope()
+                num_slope = float(((W.ghat(G0[obj] + 1e-6) - W.ghat(G0[obj] - 1e-6)) / 2e-6).real)
+                peak = float(np.max(np.abs(W.ghat(np.linspace(0, 60, 6001)))))
+                gr, bound = W.growth()
+                row = dict(variant=variant, a=a, object=obj, gamma0=G0[obj], gammas=W.gs, at_gamma0=[v0.real, v0.imag], slope=sl,
+                           slope_numeric=num_slope, line_peak=peak, points=pts, ratio_to_slope=[abs(complex(W.ghat(x))) / abs(sl) for x in pts],
+                           growth=gr, growth_bound=bound, growth_fraction=gr / bound)
+                res.append(row)
+                print('  (%s) a=%-9.6f %-3s h^(g0) %+.1e (peak %.2e) ; slope %+.4e (num %+.4e) ; |h^|/|slope| at %s -> %s ; G %.4f of e^{dL} %.4f (%.3f)'
+                      % (variant, a, obj, v0.real, peak, sl, num_slope, ['%.3f' % x for x in pts], ['%.2e' % x for x in row['ratio_to_slope']],
+                         gr, bound, gr / bound))
+    io.open(os.path.join(D, 'b519_matched.json'), 'w', encoding='utf-8', newline=NL).write(json.dumps(res, indent=1) + NL)
+    return 0
+
+
+def run():
+    A = F.ladder()
+    for variant in VARIANTS:
+        out = os.path.join(D, 'b519_cells_%s.jsonl' % variant)
+        done = set()
+        if os.path.exists(out):
+            done = {round(json.loads(l)['a'], 9) for l in io.open(out, encoding='utf-8') if l.strip()}
+        t0 = time.time()
+        print('[%s] variant %s ; widths %d' % (time.strftime('%H:%M:%S'), variant, len(A)), flush=True)
+        for i, a in enumerate(A):
+            if round(a, 9) in done:
+                continue
+            c = cell(a, variant)
+            with io.open(out, 'a', encoding='utf-8', newline=NL) as fh:
+                fh.write(json.dumps(c) + NL)
+            if i % 30 == 0:
+                print('[%s] (%s) %d/%d a=%.4f ; elapsed %.0f s' % (time.strftime('%H:%M:%S'), variant, i + 1, len(A), a, time.time() - t0), flush=True)
+        print('[%s] variant %s done ; elapsed %.0f s' % (time.strftime('%H:%M:%S'), variant, time.time() - t0), flush=True)
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit({'fixture': fixture, 'matched': matched, 'run': run}[sys.argv[1]]())
