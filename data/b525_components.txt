@@ -1,0 +1,105 @@
+====================================================================================================================================
+b525 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE RUN LOG (check, then write):
+### tools/b525_fold.py check
+  span read from b525_span.json : b517 - b524, 8 acts ; the tool reads 9 through this act
+  verdict strings : 16 ; matched in their own closing bank : 16
+  defects : {517: 3, 518: 3, 519: 5, 520: 4, 521: 5, 522: 2, 523: 4, 524: 4} ; total 30
+  rulings : 10 ; BEGIN, END and opening matched in the named ferry : 10
+  errors block sources : {'r130': True, 'r131': True, 'r133': True, 'r134': True, 'r135': True}
+  ### ### **CHECK : PASS**
+exit 0
+### tools/b525_fold.py write
+  span read from b525_span.json : b517 - b524, 8 acts ; the tool reads 9 through this act
+  verdict strings : 16 ; matched in their own closing bank : 16
+  defects : {517: 3, 518: 3, 519: 5, 520: 4, 521: 5, 522: 2, 523: 4, 524: 4} ; total 30
+  rulings : 10 ; BEGIN, END and opening matched in the named ferry : 10
+  errors block sources : {'r130': True, 'r131': True, 'r133': True, 'r134': True, 'r135': True}
+  ### ### **CHECK : PASS**
+  FINDINGS.md : 519144 + 9237 = 528381 bytes ; prefix True ; BOM kept True ; lines removed 0
+  THE_FINDINGS_AS_THEY_STAND.md : 41354 + 1033 = 42387 bytes ; prefix True ; BOM kept True ; lines removed 0
+  markers : {'heading': 1, 'digest': 1}
+exit 0
+
+### THE SECTION AS WRITTEN TO FINDINGS.md:
+## THE WITNESS ARC, b517–b524 — THE FOLD
+
+**Eight acts, b517 through b524 — `(R135)`(2)’s fold at span nine.** `b363_span.py` reads **9** through this filing act; the fold’s own span, the filing act excluded as at b507 and b516, is **8**.
+
+### The arc in one statement
+
+**In this arc the window of (f)(i) — the zero factor (γ₀² + D²) on a cosine-modulated plateau — was designed, widened and priced until, at Q0, an Epstein zeta function whose off-line zeros are banked, h2_sign’s quantity was negative beyond its bound from width 34 to 60, the bound surviving the strip, the count and the shortfall re-priced; and the kernel proved the window’s three properties for every C⁴ compactly supported φ. The witness is exhibited numerically at one ρ on the control function, not on ζ; no statement about ζ moved.**
+
+### The span, act by act, each verdict verified in its own closing bank
+
+| act | subject | its verdicts, as its bank prints them | column |
+|:--|:--|:--|:--|
+| **b517** | (d), the growth bound of `W-ORD-WEIL-CONVERSE`, compiled in the kernel | `(d), THE GROWTH BOUND, COMPILED, UNDER (R126).` · `attempts 1, the first to succeed 1 ; paperFT_growth 24 lines` | MODEL |
+| **b518** | the two-property window, the zero factor on the cosine window — *BORDERLINE -- a statement about the control function Z_Q0, which is not the object* | `THE TWO-PROPERTY WINDOW, UNDER (R127).` · `Q0 : VERIFIED-EST 119 ; P - PR + A negative NONE ; positive 119 ; pair negative 119, positive 0` | MODEL |
+| **b519** | three variants of the window: notched, edge-weighted, both — *BORDERLINE -- a statement about the control function Z_Q0, which is not the object* | `THREE VARIANTS OF THE TWO-PROPERTY WINDOW, UNDER (R128).` · `the witness at Q0 : NONE` | MODEL |
+| **b520** | variant (B) widened past the ladder, to a = 60 | `VARIANT (B) WIDENED PAST THE LADDER, UNDER (R129).` · `Q0 : 0 cells read ; xi : VERIFIED-EST 46 of 46, positive 46` | MODEL |
+| **b521** | Q0’s tail tightened in closed form; the ramp order raised | `Q0'S TAIL TIGHTENED, THEN THE WIDTH PASS RE-RUN, UNDER (R130).` · `least p : 7 ; new tail below b519's old majorant at 108 of 119 widths` | MODEL |
+| **b522** | variant (B) at p = 7, the reach read per width — *BORDERLINE -- a statement about the control function Z_Q0, which is not the object* | `VARIANT (B) AT p = 7, THE REACH READ PER WIDTH, UNDER (R131).` · `reach : 33 of 46 IN` | MODEL |
+| **b523** | the witness’s three caveats priced: σ_max, S(t), the shortfall — *BORDERLINE -- a statement about the control function Z_Q0, which is not the object* | `THE WITNESS'S THREE CAVEATS PRICED, UNDER (R132).` · `surviving all three : 24, narrowest 34.0 ; VERIFIED-EST-TAIL at 33 of 33` | MODEL |
+| **b524** | (f)(i) stated and proved on variant (B) in the kernel | `(f)(i) STATED ON VARIANT (B) IN THE KERNEL, UNDER (R133) AND (R134).` · `profile : 10 of 10 theorems the standard three on the whole string` | MODEL |
+
+**16 verdict strings across 8 acts, every one matched in that act’s own closing bank**, by `tools/b525_fold.py check` before this section was written.
+
+### The three columns, kept apart
+
+**Statements about the object: 0. About the model: 8. About the record: 0.** Four rows are borderline and say so — b518, b519, b522 and b523 measure the control function Z_Q0, which is not the object. **The object column is empty**: a witness exhibited on an Epstein function is a statement about that function and about the window, and a kernel theorem about a window is a statement about the window.
+
+### What the arc established, each at its own address
+
+- **(d), the growth bound, compiled** — ‖paperFT h z‖ ≤ ‖h‖₁·e^{L|Im z|}, standard three (b517).
+- **The two-property window turns the pair negative at every ladder width but is not dominant there** (b518); of three variants the edge-weighted plateau (B) comes nearest, pair/rest −0.416 at the widest ladder cell (b519).
+- **Q0’s verifications to b519 were the tail majorant’s** (b520), re-marked VERIFIED-EST-TAIL by appended note: 12 of b518’s 119, 252 of b519’s 357 (b521).
+- **The tail falls with width on a = 15 … 60 at every order scanned**; the least ramp order with the tail below the rest of the bound at a = 60 is 7 (b521).
+- **At p = 7, read per width, 33 of 46 widths are within reach and Q0 is negative beyond its bound at 24, from a = 34**; the pair’s ratio to the rest crosses −1 there, realized growth 0.275 of (d)’s factor (b522).
+- **The three caveats priced: σ_max = 1.425 for Q0, N(T) ≤ M0 + E with E(150) = 22.2 proved (two constants numerical on grids), the shortfall at most 1.7e-19 of any margin; 24 of 24 survive, narrowest a = 34, every one VERIFIED-EST-TAIL** (b523).
+- **(R118)(1)’s bar lifted with its caveat named, and step (9)’s Epstein sentence gained its bank** — b522 and b523, quoted, by appended note beside its NO BANK note, which stays (`(R133)`(2), b524).
+- **(f)(i) proved in the kernel**: classK membership, the zero at γ₀, the factorisation, for every real C⁴ compactly supported φ, each DERIVES by statement-read; the (f)(ii) hypothesis a `Prop` with G defined as the integral (b524).
+
+### Errors entered as their owners’
+
+**`(R130)`(2)’s growth claim, refuted by the record.** b521’s ferry: *“its growth in the width is e^{L/2} against the pair's e^{2 delta L}”*; b522’s ferry, `(R131)`(1): *“so (R130)(2)'s claim that the majorant grows like e^{L/2} on this grid is refuted by the record and marked so”* — the increasing-width stop rule retired with it, the reach read per width.
+
+**`(R133)`(2)’s form of words, as `(R134)` corrected it.** As pasted: *"positive for xi at every verified width to 60 with the same window, where the Epstein control is negative from 34; both VERIFIED-EST-TAIL; two constants of the count numerical."* — two clauses not borne out by the banks (ξ read at ramp order 5, Q0’s negatives at order 7; ξ VERIFIED-EST, not tail-led). **It reads from b524 on:** *"positive for xi at every verified width to 60 in the same window family at ramp order 5, where the Epstein control at order 7 is negative from 34; xi VERIFIED-EST, the control VERIFIED-EST-TAIL; two constants of the count numerical."*
+
+**`(R135)`(1)’s instance discrepancy.** *“the theorems cover both and the INSTANCES DIFFER”*: the kernel’s named instance is Mathlib’s smooth bump, the measured window an order-7 B-spline; the record says so wherever the two are cited together.
+
+**The seat’s, as its acts entered them: 30 defects of their own instruments across all eight acts.** The recurrent species: **a price taken and not read against the reading it priced** (b520, b521), **a generator’s rename list that missed or over-reached a string** (b518, b522, b523, b524), and a tool that assumed a file or a cell the run did not produce (b520, b521).
+
+### The rulings of the span, with the file that ratifies each
+
+| ruling | ratified in | status as the record holds it |
+|:--|:--|:--|
+| `(R126)` | relay `data/b517_ferry.txt` | executed at b517 |
+| `(R127)` | relay `data/b518_ferry.txt` | executed at b518 |
+| `(R128)` | relay `data/b519_ferry.txt` | executed at b519 |
+| `(R129)` | relay `data/b520_ferry.txt` | executed at b520 |
+| `(R130)` | relay `data/b521_ferry.txt` | executed at b521; its (2) refuted at b522 |
+| `(R131)` | relay `data/b522_ferry.txt` | executed at b522 |
+| `(R132)` | relay `data/b523_ferry.txt` | executed at b523 |
+| `(R133)` | relay `data/b524_ferry.txt` | executed at b524; its (2) form of words corrected by (R134) |
+| `(R134)` | relay `data/b524_ferry_R134.txt` | executed at b524 |
+| `(R135)` | relay `data/b525_ferry.txt` | executed at b525, this fold |
+
+### The work-orders, carried with their triggers — `(R135)`(2)
+
+| work-order | filed | trigger | status |
+|:--|:--|:--|:--|
+| `W-ORD-XI-P7` | (R134)(1), b524 | the next opening of the numerical lane -- (R135)(3)(a), the act after this fold, with the instance discrepancy | OPEN |
+| `W-ORD-WEIL-CONVERSE` | (R124)(2), b515 | (R135)(3)(b): the kernel lane after (a), for (f)(ii) on the kernel`s instance | (d) DONE at b517; (f)(i) = f1 DONE at b524; f2, f3, f4 OPEN |
+
+### Filed with this fold, not done by it
+
+- **The host-stop rule, `(R134)`(2): a host stop is not an attempt** — a run the harness stops carries no verdict from Lean and is recorded STOPPED BY HOST, attempt 0.
+- **The order after this fold, `(R135)`(3): (a) then (b)** — one numerical act closing `W-ORD-XI-P7` and the instance discrepancy together (ξ re-read at order 7 on b520’s widths, and both objects re-read with the kernel’s smooth-bump instance as φ), then the kernel lane for (f)(ii) on the kernel’s instance. **`(R135)`(4): the B-spline is not constructed in the kernel.**
+
+**No expectation of the span is re-scored.** Nothing compiled. No corpus grade moved. No ERRATA line written. Row U1 unedited; **`h2` where the deposit left it**; **the four lists stay OPEN**; no claim about RH in either direction.
+
+*Filed by b525 (relay `data/b525_fold.json`, `tools/b525_fold.py`). Nothing above this section was edited; no grade is conferred by a seat; nothing is minted; nothing is claimed about `h2`.*
+====================================================================================================================================

@@ -1,0 +1,19 @@
+### tools/b525_fold.py check
+  span read from b525_span.json : b517 - b524, 8 acts ; the tool reads 9 through this act
+  verdict strings : 16 ; matched in their own closing bank : 16
+  defects : {517: 3, 518: 3, 519: 5, 520: 4, 521: 5, 522: 2, 523: 4, 524: 4} ; total 30
+  rulings : 10 ; BEGIN, END and opening matched in the named ferry : 10
+  errors block sources : {'r130': True, 'r131': True, 'r133': True, 'r134': True, 'r135': True}
+  ### ### **CHECK : PASS**
+exit 0
+### tools/b525_fold.py write
+  span read from b525_span.json : b517 - b524, 8 acts ; the tool reads 9 through this act
+  verdict strings : 16 ; matched in their own closing bank : 16
+  defects : {517: 3, 518: 3, 519: 5, 520: 4, 521: 5, 522: 2, 523: 4, 524: 4} ; total 30
+  rulings : 10 ; BEGIN, END and opening matched in the named ferry : 10
+  errors block sources : {'r130': True, 'r131': True, 'r133': True, 'r134': True, 'r135': True}
+  ### ### **CHECK : PASS**
+  FINDINGS.md : 519144 + 9237 = 528381 bytes ; prefix True ; BOM kept True ; lines removed 0
+  THE_FINDINGS_AS_THEY_STAND.md : 41354 + 1033 = 42387 bytes ; prefix True ; BOM kept True ; lines removed 0
+  markers : {'heading': 1, 'digest': 1}
+exit 0
