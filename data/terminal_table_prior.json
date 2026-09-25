@@ -4,20 +4,20 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 258,
- "grade_cells_loose_v1": 1218,
- "grade_cells_v2": 338,
- "grade_cells_v3": 267,
+ "grade_cells": 260,
+ "grade_cells_loose_v1": 1223,
+ "grade_cells_v2": 343,
+ "grade_cells_v3": 269,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 1228,
-  "not_profiled": 379,
+  "rows": 1229,
+  "not_profiled": 380,
   "ungraded": 1096,
-  "conflict": 12,
-  "encodes": 8,
+  "conflict": 13,
+  "encodes": 9,
   "ledger_names_unresolved": 19,
   "statement_unresolved": 10
  },
@@ -8078,8 +8078,15 @@
    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
    "profile_state": "PROFILED",
    "profile_source": "relay:data/b538_profile_first.json",
-   "grade": "DERIVES",
+   "grade": "CONFLICT",
    "grade_cells": [
+    {
+     "grade": "ENCODES-CONCLUSION",
+     "ledger": "PLACE-papers/OPEN_TRAILS.md",
+     "line": 11042,
+     "act": null,
+     "quote": "route to σ = 1/2, Route 3 struck. The Hilbert–Pólya edge is ENCODES-CONCLUSION: its \"disclaimed\" face is a theorem (`register5_output_holds`)."
+    },
     {
      "grade": "DERIVES",
      "ledger": "SIDE-global-section/CORRESPONDENCE.md",
@@ -8088,7 +8095,10 @@
      "quote": "zeros_countable` DERIVES ; `xi_zero_re_countable` DERIVES ; `register5_output_holds` DERIVES -- each by statement-read against its claim: not_register1"
     }
    ],
-   "conflict": null
+   "conflict": [
+    "DERIVES",
+    "ENCODES-CONCLUSION"
+   ]
   },
   {
    "repo": "SIDE-explicit-formula",
@@ -27596,6 +27606,38 @@
      "line": 2122,
      "act": null,
      "quote": "R4_channelDecomposition` = `lam_add` (DERIVES, axiom-free); `R4_positivity_to_RH` = the Li-criterion equivalence (INTERFACES, named premise) — STRUCTURE only"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-lv-conservation",
+   "name": "R5_output_HilbertPolya_to_RH",
+   "head": "2f71068ac356",
+   "pin": "v0.8.0",
+   "pin_sha": "6efa9e54dadf",
+   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
+   "refs": [
+    "v0.8.0",
+    "HEAD"
+   ],
+   "present_at": [
+    "v0.8.0"
+   ],
+   "statement": "theorem R5_output_HilbertPolya_to_RH\n    (hpBridge : Register5_output_HilbertPolya → RiemannHypothesis)\n    (h : Register5_output_HilbertPolya) : RiemannHypothesis",
+   "statement_file": "SIDELvConservation/RegisterPentagon.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "ENCODES-CONCLUSION",
+   "grade_cells": [
+    {
+     "grade": "ENCODES-CONCLUSION",
+     "ledger": "PLACE-papers/FINDINGS.md",
+     "line": 4824,
+     "act": null,
+     "quote": "(`h2_sign_iff_rh`), the Li form not. The Hilbert–Pólya edge `R5_output_HilbertPolya_to_RH` is ENCODES-CONCLUSION: its \"disclaimed\" face `Register5_output_HilbertPolya` is a"
     }
    ],
    "conflict": null

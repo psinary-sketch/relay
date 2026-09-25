@@ -1,0 +1,472 @@
+{
+ "siii": [
+  {
+   "line": 131,
+   "cells": [
+    "Mechanism exclusion (Routes 1, 3)"
+   ],
+   "tier": "T2",
+   "reason": "Route 3: RH restated (ch_iff_rh); Route 1: T2 by the decide-count conjunct and the C7 stand-in"
+  },
+  {
+   "line": 132,
+   "cells": [
+    "Codimension / Spectral Cannon (Route 2)"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `spectral_cannon` states `(deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0`, a fact about the line; the simplicity→RH bridge has no terminal"
+  },
+  {
+   "line": 133,
+   "cells": [
+    "II.1 Archimedean"
+   ],
+   "tier": "T2",
+   "reason": "the model statement `1 - σ = σ → σ = 1/2`; the FE reading is a STIPULATION (Correspondence `:281`)"
+  },
+  {
+   "line": 134,
+   "cells": [
+    "II.2 Multiplicative"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `balance_theorem` is `p^(-s) = p^(-(1-s)) ↔ s = ½` about prime powers"
+  },
+  {
+   "line": 135,
+   "cells": [
+    "II.3 Frobenius"
+   ],
+   "tier": "T2",
+   "reason": "the model quadratic; the indicial reading is a STIPULATION (`:283`)"
+  },
+  {
+   "line": 136,
+   "cells": [
+    "II.4 Sieve"
+   ],
+   "tier": "T4",
+   "reason": "no terminal"
+  },
+  {
+   "line": 137,
+   "cells": [
+    "II.5 R-Curve"
+   ],
+   "tier": "T2",
+   "reason": "`monotone_unique_zero` is one direction over an abstract `V`; that `V` is the R-curve function is carried by the identifier"
+  },
+  {
+   "line": 138,
+   "cells": [
+    "II.6 Spinor/Information"
+   ],
+   "tier": "T2",
+   "reason": "`spinor_forces_half` concludes `w = 0`; two STIPULATIONS carry σ (`:286`)"
+  },
+  {
+   "line": 139,
+   "cells": [
+    "II.7 Li / Positivity"
+   ],
+   "tier": "T1-lit",
+   "reason": "**the equivalence is now compiled in the Weil form -- `h2_sign_iff_rh` (T0, the RH-anchor`s head)**; the Li form`s equivalence is **not compiled** (`R4_positivity_to_RH` INTERFACES on Li`s criterion, not in Mathlib); channel additivity `lam_add` is T2 (stream-level)"
+  },
+  {
+   "line": 140,
+   "cells": [
+    "C₅ split (II.3 spectral)"
+   ],
+   "tier": "T1-lit",
+   "reason": "the marker `certifiedInput_not_zeroRealizing` INTERFACES on `NontrivialZeroExistsInStrip`, a literature theorem not compiled; the input `C5_input_at_Phi` alone is T0, not RH-anchor"
+  },
+  {
+   "line": 141,
+   "cells": [
+    "Naive per-class → joint combination"
+   ],
+   "tier": "T2",
+   "reason": "the countermodel and the shared-witness bridge are logic over abstract couplings"
+  },
+  {
+   "line": 142,
+   "cells": [
+    "Finite-type C₇-order form (retired)"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `C7_finite_type_false`, the growth of `completedRiemannZeta₀`"
+  }
+ ],
+ "annex_a": [
+  {
+   "line": 320,
+   "cells": [
+    "Route 1 `structural_exhaustiveness_proved` · kernel v1.5 `0e5233f` (DOI 10.5281/zenodo.21520474)"
+   ],
+   "tier": "T2",
+   "reason": "the decide-count catalogue conjunct and the disclosed C₇ stand-in (E-2026-09-14-1)"
+  },
+  {
+   "line": 321,
+   "cells": [
+    "Route 2 `spectral_cannon` · kernel v1.5 `0e5233f`"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: a fact about `completedRiemannZeta₀``s derivative on the line"
+  },
+  {
+   "line": 322,
+   "cells": [
+    "Route 3 `riemann_hypothesis (h_cons)` · kernel v1.5 `0e5233f`"
+   ],
+   "tier": "T2",
+   "reason": "its antecedent `ConservationHypothesis` is RH restated (`ch_iff_rh`), so \"discharge h2\" here means \"prove RH\""
+  },
+  {
+   "line": 323,
+   "cells": [
+    "T3 goal state `goalState_sevenClasses_of_h2` · lv v0.9.0 `e3d08b6`"
+   ],
+   "tier": "T2",
+   "reason": "b538: lv`s h2 is false at every s with re s ≤ 1 (`mellin_Phi_eq_zero_of_re_le_one`), so the goal state is vacuous on the strip; the corrected face is RH on the strip (`lvh2_corrected_iff`)"
+  },
+  {
+   "line": 324,
+   "cells": [
+    "h1 / T3′ / T3″ bracket `h1_complete_at_Phi` · lv v0.9.0 `e3d08b6`"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `h1_complete_at_Phi` certifies the eight coupling facts of `Phi`; nothing about where the zeros are"
+  },
+  {
+   "line": 325,
+   "cells": [
+    "**R4 partial-positivity ladder** `partialPositivity_finiteRange` · lv v0.9.0 `e3d08b6` (Mathlib `5e932f97`)"
+   ],
+   "tier": "T1-lit",
+   "reason": "`TailBoundPremise` (Voros) and `ExplicitFormulaDecomp` (Bombieri–Lagarias) are **T1-lit**: literature theorems not yet compiled"
+  },
+  {
+   "line": 326,
+   "cells": [
+    "R-curve criterion `SIDERCurve.monotone_unique_zero` · rcurve `d5f33b4`"
+   ],
+   "tier": "T2",
+   "reason": "one direction over an abstract `V`"
+  },
+  {
+   "line": 327,
+   "cells": [
+    "Simplicity conditional (Part IV / `SIMPLICITY…`)"
+   ],
+   "tier": "T4",
+   "reason": "no covering terminal; the antecedent is shape C"
+  },
+  {
+   "line": 328,
+   "cells": [
+    "GRH / Dirichlet `grh_structural_exhaustiveness_proved` · grh-transfer v0.5.0 `858cbf6`"
+   ],
+   "tier": "T2",
+   "reason": "the χ-family catalogue, χ typed but unused -- Route 1`s shape"
+  },
+  {
+   "line": 329,
+   "cells": [
+    "Four σ=1/2 identifications (Archimedean §16.1 · Euler §16.2 · Frobenius `Indicial.lean` · Sieve §16.4)"
+   ],
+   "tier": "T2",
+   "reason": "model statements with STIPULATIONS; the Sieve has no terminal"
+  },
+  {
+   "line": 330,
+   "cells": [
+    "R-curve / Fold Criterion (5th identification, §16.5)"
+   ],
+   "tier": "T4",
+   "reason": "per-instance computation with no VERIFIED bank; no covering terminal"
+  }
+ ],
+ "annex_b": [
+  {
+   "line": 378,
+   "row": "A6",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `blTerm_nonneg_of_onLine`, the Li terms of zeros already on the line"
+  },
+  {
+   "line": 379,
+   "row": "A7",
+   "tier": "T1-lit",
+   "reason": "`partialPositivity_finiteRange` INTERFACES on `ExplicitFormulaDecomp`, `TailBoundPremise` (literature, not compiled) and `VerifiedZerosTo T`"
+  },
+  {
+   "line": 381,
+   "row": "A9",
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: Mathlib`s `ArithmeticFunction.vonMangoldt_nonneg`; the zero-free-region consequence is classical and not compiled"
+  }
+ ],
+ "corr": [
+  {
+   "line": 281,
+   "cells": [
+    "II.1 Archimedean — the reflection fixed point is σ = 1/2"
+   ],
+   "tier": "T2",
+   "reason": "model statement; STIPULATION"
+  },
+  {
+   "line": 282,
+   "cells": [
+    "II.2 Multiplicative — Euler balance identifies σ = 1/2"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: prime powers"
+  },
+  {
+   "line": 283,
+   "cells": [
+    "II.3 Frobenius — the indicial equation's root is −½"
+   ],
+   "tier": "T2",
+   "reason": "model statement; STIPULATION"
+  },
+  {
+   "line": 284,
+   "cells": [
+    "II.5 R-Curve — RH ⟺ V-monotonicity (equivalence)"
+   ],
+   "tier": "T2",
+   "reason": "one direction over an abstract `V`"
+  },
+  {
+   "line": 285,
+   "cells": [
+    "II.5 R-Curve — the Hadamard genus-1 order-input (order ≤ 1 of the completed zeta)"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: growth of `completedRiemannZeta₀`"
+  },
+  {
+   "line": 286,
+   "cells": [
+    "II.6 Spinor/Information — **`i·w = w → w = 0`** (orbit collapse forces the centred coordinate to vanish; **the terminal does NOT conclude σ = 1/2**)"
+   ],
+   "tier": "T2",
+   "reason": "two STIPULATIONS"
+  },
+  {
+   "line": 287,
+   "cells": [
+    "C₅ split — input-stage spectral coupling certifiable at the fixed witness (output-stage disclaimed)"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `C5_input_at_Phi`; the marker`s row is `:302`"
+  },
+  {
+   "line": 288,
+   "cells": [
+    "II.7 Li / Positivity — channel additivity λ_n = λ_A(n) + λ_Z(n)"
+   ],
+   "tier": "T2",
+   "reason": "stream-level additivity; the η↔Taylor identification is not compiled"
+  },
+  {
+   "line": 289,
+   "cells": [
+    "\"One voice suffices\" — per-class exclusion in a closed system"
+   ],
+   "tier": "T2",
+   "reason": "logic over a closed system"
+  },
+  {
+   "line": 290,
+   "cells": [
+    "Structural exhaustiveness (Route 1)"
+   ],
+   "tier": "T2",
+   "reason": "the decide-count conjunct and the C₇ stand-in (E-2026-09-14-1)"
+  },
+  {
+   "line": 291,
+   "cells": [
+    "Conservation frame — **`∀ s : ℤ, (1 : ℚ) ^ s = 1`** (the model statement; s-independence of the constant)"
+   ],
+   "tier": "T2",
+   "reason": "`(1 : ℚ) ^ s = 1`, a STIPULATION"
+  },
+  {
+   "line": 292,
+   "cells": [
+    "Conservation companions — Mellin factorization / exhaustion"
+   ],
+   "tier": "T2",
+   "reason": "`T2b_mellin_exhaustion` is DEFINITIONAL (`rfl`); the T1 factorization alone is T0"
+  },
+  {
+   "line": 293,
+   "cells": [
+    "Conservation bridge — the bracketed theorem-pair (§V closure step)"
+   ],
+   "tier": "T2",
+   "reason": "logic over abstract couplings; the pin carries `sorry`"
+  },
+  {
+   "line": 294,
+   "cells": [
+    "h1 complete at the witness — the eight coupling facts of Ch. 15 at the fixed Φ (C₁ realness, C₂ half-plane nonvanishing, C₃ theta transformation, C₄ modularity, C₅-input, C₆ holomorphy, C₇-entirety, C₇-order)"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: the coupling facts of `Phi`; the status cell`s \"h2 outstanding\" rests on E-2026-09-25-4"
+  },
+  {
+   "line": 295,
+   "cells": [
+    "**Register pentagon — goal ⇐ h1 ∧ h2** (the T3 shared-witness edge; sevenClasses h1 via `h1_complete_at_Phi`, only h2 open)"
+   ],
+   "tier": "T2",
+   "reason": "`goalState_sevenClasses_of_h2` is vacuous on the strip (E-2026-09-25-4)"
+  },
+  {
+   "line": 296,
+   "cells": [
+    "Register pentagon — R5-input certified at Φ"
+   ],
+   "tier": "T0",
+   "reason": "T0, not RH-anchor: `C5_input_at_Phi`"
+  },
+  {
+   "line": 297,
+   "cells": [
+    "Register pentagon — R2 (ConservationHypothesis) → RiemannHypothesis"
+   ],
+   "tier": "T2",
+   "reason": "ENCODES-CONCLUSION: its premise is RH restated (`ch_iff_rh`)"
+  },
+  {
+   "line": 298,
+   "cells": [
+    "Register pentagon — R4 channel decomposition λ_n = λ_A(n) + λ_Z(n)"
+   ],
+   "tier": "T2",
+   "reason": "the additivity is carried as a premise, stream-level"
+  },
+  {
+   "line": 299,
+   "cells": [
+    "Register pentagon — R4 positivity → RH"
+   ],
+   "tier": "T1-lit",
+   "reason": "INTERFACES on Li`s criterion (Bombieri–Lagarias), not in Mathlib"
+  },
+  {
+   "line": 300,
+   "cells": [
+    "Register pentagon — R1 universality → goal"
+   ],
+   "tier": "T2",
+   "reason": "vacuous: its hypothesis `Register1_universalityHypothesis` is false (`not_register1`)"
+  },
+  {
+   "line": 301,
+   "cells": [
+    "Register pentagon — R5-output → RH (**DISCLAIMED**)"
+   ],
+   "tier": "T2",
+   "reason": "ENCODES-CONCLUSION: `Register5_output_HilbertPolya` holds (`register5_output_holds`), so its bridge premise `Register5_output_HilbertPolya → RiemannHypothesis` is RH itself -- the \"disclaimed\" face is a theorem (flagged)"
+  },
+  {
+   "line": 302,
+   "cells": [
+    "Register pentagon — R5 **C₅-distance compiled marker** (h2 candidate #4)"
+   ],
+   "tier": "T1-lit",
+   "reason": "INTERFACES on `NontrivialZeroExistsInStrip` (Hardy), not compiled"
+  },
+  {
+   "line": 303,
+   "cells": [
+    "Register pentagon — R3 totality-through-places; the cross-register equivalences"
+   ],
+   "tier": "T4",
+   "reason": "R3 stated and UNDECIDED at b538; no deciding terminal"
+  },
+  {
+   "line": 304,
+   "cells": [
+    "II.7 partial positivity — finite-range Li positivity from verified zeros (λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T²)"
+   ],
+   "tier": "T1-lit",
+   "reason": "INTERFACES on literature premises not compiled"
+  },
+  {
+   "line": 305,
+   "cells": [
+    "Formation count 2 + 3 + 2 + 0 = 7"
+   ],
+   "tier": "T2",
+   "reason": "arithmetic alone"
+  },
+  {
+   "line": 306,
+   "cells": [
+    "n₃ = 2 (entire-function scales)"
+   ],
+   "tier": "T2",
+   "reason": "a count of a kernel-defined type"
+  },
+  {
+   "line": 307,
+   "cells": [
+    "II.4 Sieve — σ = 1/2 on average"
+   ],
+   "tier": "T4",
+   "reason": "no terminal"
+  },
+  {
+   "line": 308,
+   "cells": [
+    "R-Curve monotonicity closure; Weil-formula simplicity bridge"
+   ],
+   "tier": "T4",
+   "reason": "no terminal"
+  }
+ ],
+ "extrema": 0,
+ "si_reading": "**§I`s \"three compiled routes\", read after b531 and b538:** two compiled route terminals, **neither a route to σ = 1/2** -- Route 1 (`structural_exhaustiveness_proved`, T2: the decide-count conjunct and the C₇ stand-in) and Route 2 (`spectral_cannon`, T0 and not in the RH-anchor: a fact about `completedRiemannZeta₀` on the line) -- **with Route 3 struck from the count**: `ConservationBridge.riemann_hypothesis` is the compiled implication from `ConservationHypothesis`, which is RH restated (`ch_iff_rh`), so it formalizes RH ⇒ RH. **Zero compiled routes to σ = 1/2.** The RH-anchor`s `h2_sign_iff_rh` is not a route either: it is an equivalence between two open statements.",
+ "counts": {
+  "siii": {
+   "T0": 3,
+   "T1-open": 0,
+   "T1-lit": 2,
+   "T2": 6,
+   "T3": 0,
+   "T4": 1
+  },
+  "annex_a": {
+   "T0": 2,
+   "T1-open": 0,
+   "T1-lit": 1,
+   "T2": 6,
+   "T3": 0,
+   "T4": 2
+  },
+  "annex_b": {
+   "T0": 2,
+   "T1-open": 0,
+   "T1-lit": 1,
+   "T2": 0,
+   "T3": 0,
+   "T4": 0
+  },
+  "corr": {
+   "T0": 5,
+   "T1-open": 0,
+   "T1-lit": 3,
+   "T2": 17,
+   "T3": 0,
+   "T4": 3
+  }
+ }
+}
