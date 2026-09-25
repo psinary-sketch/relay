@@ -1,0 +1,9 @@
+    (a) ### **THE FACE SET THE FIXTURE`S FLOOR BELOW THE ROUTE`S TRUE FLOOR** -- "near 1e-16 times the transform`s largest
+        value" (~7e-12) against a numerical route whose round-off floor is eps * SUM|terms| * sqrt(n) = 1.0e-10 to 2.7e-10.
+        ### The registered 1e-10 bar is therefore NOT MET at Q0 (1.24e-10 at u = 1, 1.11e-10 at u = 60) and the verdict
+        stands; the diagnosis is banked as `b515_fixture_diagnosis.json`, declared post-seal. b505`s species, again.
+    (b) ### **THE KNOT PROBE IS ONE-SIDED AT A FINITE STEP** (carried from b514): the printed jumps of h, h` and h`` are
+        2 eps times the next derivative; h```s jump of 8.4e2 is the probe`s positive control.
+    (c) ### **THE MARGIN COLUMN MISLEADS WITHOUT ITS NOTE**: with the pole carried, m = A - PR = Z - P is negative at 106 Q0
+        widths and 98 verified xi widths because P is about 1.5e5; READING (3) put P - PR + A beside it and Component 3 reads
+        that, but a reader of the margin alone would see a violation that is the pole.
