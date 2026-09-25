@@ -1,0 +1,58 @@
+### b536 PRE-SEAL PROBE 1 (standing practice, (R141)(2); probe 1 is COMPONENT 1's ordered #check and #print bank) -- source
+import SIDEExplicitFormula.PowerLimit
+
+open Complex
+
+#print RiemannHypothesis
+#check @riemannZeta_one_sub
+#check @riemannZeta_ne_zero_of_one_le_re
+#check @riemannZeta_zero
+#check @Complex.Gamma_ne_zero
+#check @Complex.cos_eq_zero_iff
+#check @Complex.cpow_ne_zero
+#check @Complex.cpow_ne_zero_iff
+#check @Zeta23.zetaZeroConfig_carrier
+#check @Zeta23.IsNontrivialZero
+#check @SIDEExplicitFormula.B321.rh_strip
+#check @SIDEExplicitFormula.B321.rh_strip_imp_rh
+#check @SIDEExplicitFormula.B321.h2_sign_imp_rh
+#check @SIDEExplicitFormula.B321.h2_sign_imp_ch
+#check @SIDEExplicitFormula.B321.h2_sign_iff_rh_strip
+#check @SIDEExplicitFormula.B321.rh_imp_rh_strip
+#check @SIDEExplicitFormula.B321.ch_iff_rh
+#check @SIDEExplicitFormula.B321.rh_imp_h2_sign
+#check @riemannZeta_neg_two_mul_nat_add_one
+#check @Complex.two_pi_I_ne_zero
+#check @Complex.ofReal_ne_zero
+#check @Int.cast_inj
+#check @Complex.ext_iff
+#check @Complex.mul_ne_zero_iff
+
+### output
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+@riemannZeta_one_sub : ∀ {s : ℂ},
+  (∀ (n : ℕ), s ≠ -↑n) →
+    s ≠ 1 → riemannZeta (1 - s) = 2 * (2 * ↑Real.pi) ^ (-s) * Gamma s * cos (↑Real.pi * s / 2) * riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+riemannZeta_zero : riemannZeta 0 = -1 / 2
+@Gamma_ne_zero : ∀ {s : ℂ}, (∀ (m : ℕ), s ≠ -↑m) → Gamma s ≠ 0
+@cos_eq_zero_iff : ∀ {θ : ℂ}, cos θ = 0 ↔ ∃ k, θ = (2 * ↑k + 1) * ↑Real.pi / 2
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b536/Probe1.lean:11:8: error(lean.unknownIdentifier): Unknown constant `Complex.cpow_ne_zero`
+@cpow_ne_zero_iff : ∀ {x y : ℂ}, x ^ y ≠ 0 ↔ x ≠ 0 ∨ y = 0
+Zeta23.zetaZeroConfig_carrier : Zeta23.zetaZeroConfig.carrier = {ρ | Zeta23.IsNontrivialZero ρ}
+Zeta23.IsNontrivialZero : ℂ → Prop
+SIDEExplicitFormula.B321.rh_strip : Prop
+SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop
+SIDEExplicitFormula.B321.h2_sign_imp_rh : Prop
+SIDEExplicitFormula.B321.h2_sign_imp_ch : Prop
+SIDEExplicitFormula.B321.h2_sign_iff_rh_strip : SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.B321.rh_strip
+SIDEExplicitFormula.B321.rh_imp_rh_strip : RiemannHypothesis → SIDEExplicitFormula.B321.rh_strip
+SIDEExplicitFormula.B321.ch_iff_rh : SIDEExplicitFormula.B321.conservationHypothesis ↔ RiemannHypothesis
+SIDEExplicitFormula.B321.rh_imp_h2_sign : RiemannHypothesis → SIDEExplicitFormula.B321.h2_sign
+riemannZeta_neg_two_mul_nat_add_one : ∀ (n : ℕ), riemannZeta (-2 * (↑n + 1)) = 0
+two_pi_I_ne_zero : 2 * ↑Real.pi * I ≠ 0
+@ofReal_ne_zero : ∀ {z : ℝ}, ↑z ≠ 0 ↔ z ≠ 0
+@Int.cast_inj : ∀ {α : Type u_1} [inst : AddGroupWithOne α] [CharZero α] {m n : ℤ}, ↑m = ↑n ↔ m = n
+@Complex.ext_iff : ∀ {z w : ℂ}, z = w ↔ z.re = w.re ∧ z.im = w.im
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b536/Probe1.lean:28:8: error(lean.unknownIdentifier): Unknown constant `Complex.mul_ne_zero_iff`

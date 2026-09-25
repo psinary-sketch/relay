@@ -1,0 +1,8 @@
+### run at (UTC) : 2026-09-25T20:55:50Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+$ lake env lean -o .lake\build\lib\lean\SIDEExplicitFormula\Seam.olean SIDEExplicitFormula\Seam.lean
+exit 1 ; 22.2 s
+--- stdout ---
+SIDEExplicitFormula\Seam.lean:86:9: error(lean.unknownIdentifier): Unknown identifier `le_or_lt`
+SIDEExplicitFormula\Seam.lean:86:30: error: Tactic `rcases` failed: `x✝ : ?m.12` is not an inductive datatype
+--- stderr ---
+

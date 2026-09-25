@@ -1,0 +1,48 @@
+====================================================================================================================================
+b536 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### COMPONENT 1 -- THE SEAM: `SIDEExplicitFormula/Seam.lean` (NEW).
+  attempt 1 : exit 1 ; 2 error lines ; 22.2 s ; failing ['rh_strip_imp_rh_holds']
+  attempt 2 : exit 0 ; 0 error lines ; 22.1 s ; failing NONE
+  profile :
+    'SIDEExplicitFormula.B321.zeta_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.h2_sign_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.h2_sign_imp_ch_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.ch_iff_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+  #check zeta_zero_re_nonpos : SIDEExplicitFormula.B321.zeta_zero_re_nonpos : ∀ (z : ℂ), riemannZeta z = 0 → z.re ≤ 0 → ∃ n, z = -2 * (↑n + 1)
+  #check rh_strip_imp_rh_holds : SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : SIDEExplicitFormula.B321.rh_strip_imp_rh
+  #check h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+  #check ch_iff_h2_sign : SIDEExplicitFormula.B321.ch_iff_h2_sign : SIDEExplicitFormula.B321.conservationHypothesis ↔ SIDEExplicitFormula.B321.h2_sign
+  #check h2_sign_imp_rh_holds : SIDEExplicitFormula.B321.h2_sign_imp_rh_holds : SIDEExplicitFormula.B321.h2_sign_imp_rh
+  #check h2_sign_imp_ch_holds : SIDEExplicitFormula.B321.h2_sign_imp_ch_holds : SIDEExplicitFormula.B321.h2_sign_imp_ch
+  the tag :
+    ### b536 THE TAG, READ BACK
+    kernel commit full : 5c72cad24303f23d92256ebd466d3a3d32424a4b
+    local tag object : 724e11308977adcb2d853042fcf1f15530605f7e
+    local peeled : 5c72cad24303f23d92256ebd466d3a3d32424a4b
+    ### git ls-remote --tags origin v0.2
+    724e11308977adcb2d853042fcf1f15530605f7e	refs/tags/v0.2
+    5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/tags/v0.2^{}
+    ### git ls-remote origin main
+    5c72cad24303f23d92256ebd466d3a3d32424a4b	refs/heads/main
+
+### COMPONENT 2 -- THE HOUSEKEEPING:
+  {"a": {"heading_line_before": 477, "file": "ERRATA.md", "anchor_line": 477, "inserted_from": 478, "inserted": 2, "prior_kept": true, "earlier_bytes_same": true, "heading_line_after": 479, "line_at_as_measured_before_b": 479, "line_at": 481}, "b": {"last_bullet_line_before": 280, "file": "ERRATA.md", "anchor_line": 280, "inserted_from": 281, "inserted": 2, "prior_kept": true, "earlier_bytes_same": true}, "c": {"b535_fold_line": 10922, "where": "this act`s trail record, one line"}, "final": {"heading_line": 479, "line_under_heading": 481, "bullets_from": 281, "note": "line numbers after all three inserts; (a) was measured before (b) shifted it by 2"}}
+
+### COMPONENT 3 -- THE PRIOR ART:
+  {"weil_count": 14, "weil_other_lines": [], "ef_count": 22, "readme_quotes": ["The Riemann hypothesis is **not proved** here. The output skeleton still > contains five explicit project axioms, listed in >", "The negative sign is formal. The positive sign is the open C3 theorem.", "exists_healthyDetectorData_of_sourceNontrivialZero_right"], "sentence": "The explicit formula is Zeta23's. A public repository, github.com/peter941221/Connes-Weil-RH-Proof (README fetched by b536, 2026-09-25), states in Lean, on its own test class, an off-line-zero detector (`exists_healthyDetectorData_of_sourceNontrivialZero_right`, \"The negative sign is formal\") inside the same contradiction architecture, with the Riemann hypothesis not proved there and five project axioms in its output skeleton; which of its declarations those axioms reach was not read. The two directions of the criterion on classK — h2_sign ↔ RiemannHypothesis at the standard three (`h2_sign_iff_rh`, SIDE-explicit-formula v0.2) — are, after this search, the programme's own as Lean theorems on this class; that they are the first formalization of Weil's criterion in Lean is NOT claimed. The search is dated and refutable.", "heading_line": 4729}
+
+### COMPONENT 4 -- THE UNDERSTANDINGS: FINDINGS.md:4751 ; item 3 CORRECTED by :
+  `relay/tools/b511_families.py:4`: `### THE WINDOW. For width a and B-spline order m: three uniform order-m B-spline bumps phi_L (knots evenly over [-L, L],`
+  `relay/tools/b511_families.py:65`: `def nbs(m, x):`
+  `relay/tools/b511_families.py:66`: `"""### the unit-knot cardinal B-spline N_m on [0, m] by the Cox-de Boor recursion, tabulated over shifts (O(m^2))."""`
+  `relay/tools/b519_window.py:9`: `###   (B) EDGE-WEIGHTED -- no notch; phi a C^4 plateau: the normalized indicator of [-W, W] convolved with the order-5 B-spline`
+  `relay/tools/b519_window.py:86`: `self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, m, self.R)`
+  `relay/tools/b521_tail.py:53`: `self.order_note = 'plateau: indicator of [-W, W] (W = %.6f) convolved with the order-%d B-spline of half-width R = %.6f' % (self.W, p, self.R)`
+  `relay/tools/b522_reach.py:18`: `import b521_tail as B21   # noqa: E402`
+
+### COMPONENT 5 -- THE CEILING: {"ceiling": "Weil positivity on classK (h2_sign) is equivalent to Mathlib's RiemannHypothesis, both directions compiled at the standard three (h2_sign_iff_rh, SIDE-explicit-formula v0.2); the deposit's Route 3 clause is RH restated by a compiled ten-line lemma (E-2026-09-25-1).", "old": "Weil positivity on classK (h2_sign) is equivalent to RH on the kernel's zero configuration (rh_strip), both directions compiled at the standard three; h2_sign → Mathlib's RiemannHypothesis is compiled from one named classical fact, that every zero of zeta with Re ≤ 0 is a trivial zero, stated as rh_strip_imp_rh and not proved; the deposit's Route 3 clause is RH restated by a compiled ten-line lemma (E-2026-09-25-1).", "README": {"file": "README.md", "anchor_line": 113, "inserted_from": 114, "inserted": 2, "prior_kept": true, "earlier_bytes_same": true, "old_line": 113, "new_line": 115}, "REGISTRY": {"file": "REGISTRY.md", "anchor_line": 948, "inserted_from": 949, "inserted": 2, "prior_kept": true, "earlier_bytes_same": true, "old_line": 948, "new_line": 950}}
+====================================================================================================================================

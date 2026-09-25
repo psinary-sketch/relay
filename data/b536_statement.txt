@@ -1,0 +1,11 @@
+theorem zeta_zero_re_nonpos : ∀ z : ℂ, riemannZeta z = 0 → z.re ≤ 0 → ∃ n : ℕ, z = -2 * (n + 1)
+
+theorem rh_strip_imp_rh_holds : rh_strip_imp_rh
+
+theorem h2_sign_imp_rh_holds : h2_sign_imp_rh
+
+theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis
+
+theorem h2_sign_imp_ch_holds : h2_sign_imp_ch
+
+theorem ch_iff_h2_sign : conservationHypothesis ↔ h2_sign

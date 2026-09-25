@@ -1,0 +1,36 @@
+### b536 PRE-SEAL PROBE 2 (standing practice, (R141)(2); probe 1 is COMPONENT 1's ordered #check and #print bank) -- source
+import SIDEExplicitFormula.PowerLimit
+
+open Complex
+
+#print Zeta23.IsNontrivialZero
+#check @Int.eq_ofNat_of_zero_le
+#check @Real.pi_ne_zero
+#check @Complex.intCast_re
+#check @Complex.ofReal_intCast
+#check @sub_sub_cancel
+#check @mul_left_cancel₀
+#check @SIDEExplicitFormula.B321.h2_sign_imp_ch_iff
+#check @SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam
+#check @SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam
+#check @SIDEExplicitFormula.B321.conservationHypothesis
+example (k : ℤ) (h : (0 : ℝ) ≤ k) : (0 : ℤ) ≤ k := by exact_mod_cast h
+example (k : ℤ) : ((-2 * (k : ℂ))).re = -2 * (k : ℝ) := by simp
+
+### output
+def Zeta23.IsNontrivialZero : ℂ → Prop :=
+fun ρ => riemannZeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1
+@Int.eq_ofNat_of_zero_le : ∀ {a : ℤ}, 0 ≤ a → ∃ n, a = ↑n
+Real.pi_ne_zero : Real.pi ≠ 0
+intCast_re : ∀ (n : ℤ), (↑n).re = ↑n
+ofReal_intCast : ∀ (n : ℤ), ↑↑n = ↑n
+@sub_sub_cancel : ∀ {G : Type u_1} [inst : AddCommGroup G] (a b : G), a - (a - b) = b
+@mul_left_cancel₀ : ∀ {M₀ : Type u_1} [inst : Mul M₀] [inst_1 : Zero M₀] [IsLeftCancelMulZero M₀] {a b c : M₀},
+  a ≠ 0 → a * b = a * c → b = c
+SIDEExplicitFormula.B321.h2_sign_imp_ch_iff : SIDEExplicitFormula.B321.h2_sign_imp_ch ↔
+  SIDEExplicitFormula.B321.h2_sign_imp_rh
+SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh →
+  SIDEExplicitFormula.B321.h2_sign_imp_rh
+SIDEExplicitFormula.B321.ch_iff_h2_sign_of_seam : SIDEExplicitFormula.B321.rh_strip_imp_rh →
+  (SIDEExplicitFormula.B321.conservationHypothesis ↔ SIDEExplicitFormula.B321.h2_sign)
+SIDEExplicitFormula.B321.conservationHypothesis : Prop

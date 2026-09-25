@@ -1,0 +1,131 @@
+RULING (R146) BEGIN
+
+RULING (R146), the author's, ratified by this paste and
+strikeable: THE SEAM, THE HOUSEKEEPING, THE PRIOR ART, THE
+UNDERSTANDINGS ENTERED.
+
+(1) The seam rh_strip_imp_rh (PowerWindow.lean:493) is
+attempted from Mathlib's functional equation. The classical
+fact is: a zero of zeta with Re ≤ 0 is a trivial zero. The
+route, with the Mathlib names to be #check'd before any
+line is written: for z with riemannZeta z = 0 and z.re ≤ 0,
+put s := 1 − z, so 1 ≤ s.re; riemannZeta_one_sub gives
+riemannZeta (1 − s) = 2 (2π)^(−s) Γ(s) cos(πs/2) riemannZeta s
+under its two hypotheses (s ≠ −n for every n : ℕ, and s ≠
+1, i.e. z ≠ 0); riemannZeta_ne_zero_of_one_le_re,
+Complex.Gamma_ne_zero and the nonvanishing of the cpow make
+the product's other factors nonzero, so cos(πs/2) = 0, so by
+Complex.cos_eq_zero_iff s is an odd integer, so z = 1 − s is
+an even integer ≤ 0; z = 0 is excluded by riemannZeta_zero
+(= −1/2); the rest is z = −2(n+1), Mathlib's trivial zero.
+With Mathlib's RiemannHypothesis read by #print (its
+hypotheses are riemannZeta s = 0, ¬∃ n : ℕ, s = −2 (n+1),
+s ≠ 1), the three cases 1 ≤ re, re ≤ 0, 0 < re < 1 close by
+riemannZeta_ne_zero_of_one_le_re, the seam lemma, and
+rh_strip through zetaZeroConfig_carrier respectively. If a
+Mathlib hypothesis does not fit the route as written, the
+lemma halts with the #check printed; the halt rule of
+(R143)(5) applies, two attempts.
+
+(2) If the seam compiles, the following are compiled in the
+same act and the ceiling loses its seam clause:
+rh_strip_imp_rh_holds : rh_strip_imp_rh;
+h2_sign_imp_rh_holds : h2_sign_imp_rh (RHChain.lean:83's
+Prop, inhabited); h2_sign_iff_rh : h2_sign ↔
+RiemannHypothesis; h2_sign_imp_ch_holds : h2_sign_imp_ch
+(H2Bridge.lean:88, inhabited); ch_iff_h2_sign :
+conservationHypothesis ↔ h2_sign, unconditional. The
+ceiling then reads, supportable: "Weil positivity on classK
+(h2_sign) is equivalent to Mathlib's RiemannHypothesis,
+both directions compiled at the standard three
+(h2_sign_iff_rh, SIDE-explicit-formula v0.2); the deposit's
+Route 3 clause is RH restated by a compiled ten-line lemma
+(E-2026-09-25-1)." Not supportable: unchanged — "RH
+proved"; "h2_sign proved". The kernel is tagged v0.2 at the
+closing commit, peeled SHA read back. If the seam halts,
+the ceiling of (R145)(2) stands unchanged and no tag is
+made. The Zenodo descriptions are not re-edited for this
+(R66): "compiled both ways" stays true under either outcome.
+
+(3) Housekeeping, each by appending, the ledgers' law: the
+filed E-2026-09-25-1's heading words "DRAFT, NOT FILED" are
+answered by an appended line under the heading stating the
+filing act and that the heading is retained as written;
+E-2026-09-14-1 and E-2026-09-22-1, deposit-facing by their
+own headings, are appended to the partition block's
+DEPOSIT-FACING list with the note that b535 reported the
+omission; the span tool's convention (it counts from the
+act after the fold's filing act) is recorded once in the
+fold record's trail line and the tool is not edited (R96).
+
+(4) Prior art is searched before the finding's sentence
+claims novelty. The navigator's own search this afternoon,
+to be re-run and recorded by the seat: the explicit formula
+the criterion rests on is Zeta23's (NOTICE: "Zeta23 — a
+Lean 4 formalization of critical-line zero-proportion
+theorems, Copyright 2026 Anthropic, PBC", Apache 2.0,
+deriving files from PrimeNumberTheoremAnd), vendored
+byte-identical at v1.0 = 3635e748; Zeta23 carries no
+positivity criterion (no declaration in Zeta23/ names a
+criterion or positivity in Weil's sense); one public
+repository, github.com/peter941221/Connes-Weil-RH-Proof,
+carries reductions toward Weil positivity under five
+declared project axioms and states "The Riemann hypothesis
+is not proved here" and that its positivity producer is
+open. The seat greps the Mathlib checkout for "Weil" and
+"explicit formula" and records the hits. The FINDINGS
+sentence, if the search stands: "The explicit formula is
+Zeta23's; the criterion's two directions on classK are,
+after the search recorded at b536, the programme's own as
+Lean theorems. The search is dated and refutable."
+
+(5) The seven understandings the navigator wrote this
+afternoon, and the paragraph on what is not unique, are
+entered in FINDINGS as one entry in the navigator's words,
+each item labelled by its status — COMPILED (with the
+theorem named), INSTRUMENTAL (with the bank named),
+EXPECTATION (not a finding), or READING — and item 3's
+identification of the ladder's B-spline family with the
+power window's indicator base is entered as READING until
+the seat has read the ladder's window definition in its own
+file and printed the line; if the definition is not the
+n-fold self-convolution of an indicator, the item is
+entered as corrected by that line.
+
+RULING (R146) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b536 - THE SEAM FROM THE FUNCTIONAL EQUATION, THE HOUSEKEEPING APPENDS, THE PRIOR-ART SEARCH, THE UNDERSTANDINGS ENTERED, under (R146).
+
+Read before anything: SIDEExplicitFormula/PowerWindow.lean:481-493 (rh_strip, rh_imp_rh_strip, rh_strip_imp_rh) and PowerLimit.lean:1233-1244 at baed4df; RHChain.lean:83 and H2Bridge.lean:88 (the two Props to inhabit); Zeta23/Statement.lean:46-60 and :140-160 (IsNontrivialZero, RH_implies_on_line, the seam comment at :50-52); ERRATA.md:270-290 (the partition block) and :477-525 (the two entries b535 filed); FINDINGS.md:4594 to end; NOTICE lines 1-12 of SIDE-explicit-formula; the ladder's window definition in its own file (the b-spline family the b522 witness used — name the file and line in the record). Cite every premise by path and line.
+
+COMPONENT 1 - THE SEAM. In a new module SIDEExplicitFormula/Seam.lean importing PowerLimit, header in the house form. Before any theorem, print these #check lines and #print RiemannHypothesis, and bank them: riemannZeta_one_sub, riemannZeta_ne_zero_of_one_le_re, riemannZeta_zero, Complex.Gamma_ne_zero, Complex.cos_eq_zero_iff, Complex.cpow_ne_zero (or the cpow nonvanishing lemma the checkout offers), Zeta23.zetaZeroConfig_carrier. Then:
+theorem zeta_zero_re_nonpos : ∀ z : ℂ, riemannZeta z = 0 → z.re ≤ 0 → ∃ n : ℕ, z = -2 * (n + 1) — the route of (R146)(1), with z = 0 excluded by riemannZeta_zero and z ≠ 0 supplying s ≠ 1; s ≠ −n for every n from 1 ≤ s.re.
+theorem rh_strip_imp_rh_holds : rh_strip_imp_rh — unfold; intro s hz hnt h1; rcases on s.re against 0 and 1: 1 ≤ s.re contradicts riemannZeta_ne_zero_of_one_le_re; s.re ≤ 0 contradicts hnt through zeta_zero_re_nonpos; otherwise IsNontrivialZero s, so s ∈ zetaZeroConfig.carrier by zetaZeroConfig_carrier, and rh_strip gives s.re = 1/2.
+Then the five theorems of (R146)(2), in that order, each one line from what stands. #print axioms on all seven. If zeta_zero_re_nonpos halts twice, state it as a Prop with the blocker and the failing #check printed, and the act continues with (R146)(2) not done and the ceiling unchanged.
+
+COMPONENT 2 - THE HOUSEKEEPING, three appends as (R146)(3) rules, each with its line number printed before and after; no earlier byte changes.
+
+COMPONENT 3 - THE PRIOR-ART SEARCH. Record (R146)(4)'s three findings with their sources as the navigator read them (NOTICE lines quoted; the peter941221 README sentences quoted from a fetch the seat makes itself if the network allows, else marked NAVIGATOR-READ); grep the Mathlib checkout under .lake for the strings "Weil" and "explicit formula" (case-insensitive) and print the file list and count; grep Zeta23/ for "criterion" and "positiv" and print the hits with one line of context each, so the sentence "Zeta23 carries no positivity criterion" is read from the files. Then the FINDINGS sentence of (R146)(4), or its corrected form if the search finds prior art, with the date.
+
+COMPONENT 4 - THE UNDERSTANDINGS. One FINDINGS entry titled "Understandings arising from the Weil converse arc, b526–b535, in the navigator's words, entered on the author's word (R146)(5)". Its eight paragraphs are the navigator's text as the author pasted it, verbatim, each headed by its status label per (R146)(5): 1 COMPILED (ch_iff_rh, H2Bridge.lean:71; h2_sign_iff_rh_strip, PowerLimit.lean:1233) with the closure claim marked READING until a closure walk is compiled; 2 READING, with its last sentence's expectation marked EXPECTATION; 3 READING until the ladder's definition is read, then COMPILED-INSTANCE or CORRECTED; 4 COMPILED (not_f4_needs, RestBound.lean:360; h2_sign_iff_rh_strip); 5 COMPILED (Efac_ne, tie_term_neg, PowerLimit.lean:403 and :749) as the kernel's version, READING as to prior knowledge; 6 READING, updated by Component 1's outcome; 7 READING with the acts named; the closing paragraph READING, updated by Component 3's outcome. The navigator's eight paragraphs follow, between the markers TEXT BEGIN and TEXT END, and are to be copied, not retyped; three lines end in a [procedural] tag placed for the ferry scan, and the tag is dropped on copying [procedural].
+
+TEXT BEGIN
+1. Depth is what a proof consumes, not how a clause reads. The week's central discovery was that a clause with a clean axiom profile, compiled implication, and a plausible name was RH restated. The programme's answer is now operational: an equivalence is graded by the dependency closure of its proof. ch_iff_rh closes over balance_theorem and definitions; h2_sign_iff_rh_strip closes over the explicit formula, the decay bound and the local count. "One Prop apart" became a measurable quantity, and ENCODES-CONCLUSION became detectable by walking a term rather than by reading prose. That sharpens (R40) into something a machine can check, and it is a lesson the formal-verification world mostly hasn't stated: #print axioms certifies soundness, not content.
+2. Registers of one premise differ in depth, and one of h2's is a place to stand. §27.3 gathered five registers as "one premise". b532 and b534 show they are not one thing: register 2 is the conclusion by rewording; register 4 is a classical theorem's distance from it. Whether R1, R3 and R5 collapse like R2 is now a question with a method attached — statability in the kernel, then closure. I expect the two lv-conservation registers to collapse; the record should find out. A "register census by depth" is an object the corpus invented this week.
+3. The instrument found the theorem's route before the theorem was known. The ladder's window family was the B-spline of order n — the n-fold self-convolution of an indicator. That is the power window with an indicator base. The Q0 witness at width 34, order 7 is a finite instance of zeroSide_eventually_neg, and "smoother is not better at finite height" was the same fact as "raise the power of a fixed base, don't smooth the base." The numerical cell (VERIFIED-EST-TAIL) and the compiled existential are one object seen from two sides, and the programme holds both. The obstruction theorem was about the third parametrization — fixed shape, growing width — which is why it was true and irrelevant.
+4. Impossibility theorems are route-relative, and the kernel now carries a compiled instance. not_f4_needs and h2_sign_iff_rh_strip sit in the same kernel at the same three axioms. One says a route is closed; the other closes the target by another route. Your rule — build forward from our own steps — is what separated them. That pairing is a good teaching object about what "obstruction" means.
+5. Weil's criterion on the even class does not need ζ's real zeros excluded. Even windows cannot see a real off-line zero (the term is a square); a first-order factor in the operator sees it while keeping k even, because classK's evenness constrains k, not h. Classically nobody needed this — ζ(σ) < 0 on (0,1) is a one-liner — but the kernel lacked the fact and the criterion turned out not to need it. Small, probably known in some form, and the kernel's version is unconditional. [procedural]
+6. The seam is a fact about the ecosystem, not about h2. The whole distance from "RH on the strip" to Mathlib's RiemannHypothesis is that zeros with Re ≤ 0 are trivial, which Mathlib holds by name for neither direction of the left half-plane. Analysts never needed it formalized because it is never analytically load-bearing. It is a short act from the functional equation, and closing it would land Weil's criterion on Mathlib's own statement. [procedural]
+7. A verification loop with two ends. The Epstein control was built to certify the instrument (off-line zeros exist, positivity fails); then the general witness was compiled; then the witness's numerical cell became an instance of the theorem. The programme's method — external control, numerical witness, compiled generalization, deposit read against the kernel, erratum, platform edit with fetch-back — is a complete loop, and this week it ran end to end in five acts.
+What is not unique, said plainly: the criterion is Weil's, the proof is the classical proof, and the formalization is — as far as I know, and the seat should search before the record says so — the first of Weil's criterion in Lean. The new mathematics is thin: an observation about the test class, a phenomenology of detection widths at finite height. The new understanding is about how to know what a kernel has proved. [procedural]
+TEXT END
+
+COMPONENT 5 - THE CEILING AND THE TAG, per (R146)(2), conditional on Component 1: if h2_sign_iff_rh compiled, print the new ceiling sentence verbatim, append it beside (R145)(2)'s in README, REGISTRY and the trail with the ruling number, tag v0.2 at the closing commit and read the peeled SHA back; if not, print "(R145)(2) stands" and make no tag.
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) #print RiemannHypothesis shows the three hypotheses named in (R146)(1) and nothing else. (N2) zeta_zero_re_nonpos compiles at attempt one or two at the standard three; if it halts, the failing #check names riemannZeta_one_sub's hypotheses. (N3) If Component 1 closes, h2_sign_iff_rh's statement, read, is h2_sign ↔ RiemannHypothesis with no hypothesis, and all seven print the standard three. (N4) The Mathlib grep for "Weil" returns no file that states a positivity criterion for zeta's zeros (a count and list are printed either way). (N5) The three appends change no earlier byte (the suite's arms say so). (N6) Nothing deposits; no Zenodo write; the token appears nowhere.
+
+Foreground compiles [procedural]. Record, correspondence rows, trail record in the house form; the span since b535's fold reads 1 at this act by the tool's convention. Nothing deposits.
+
+FERRY END (part 1 of 1)

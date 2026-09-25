@@ -1,0 +1,28 @@
+{
+ "lines": [
+  "'SIDEExplicitFormula.B321.zeta_zero_re_nonpos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.h2_sign_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.h2_sign_imp_ch_holds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "'SIDEExplicitFormula.B321.ch_iff_h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ ],
+ "exit": 0,
+ "sorry": false,
+ "std3": {
+  "SIDEExplicitFormula.B321.zeta_zero_re_nonpos": true,
+  "SIDEExplicitFormula.B321.rh_strip_imp_rh_holds": true,
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds": true,
+  "SIDEExplicitFormula.B321.h2_sign_iff_rh": true,
+  "SIDEExplicitFormula.B321.h2_sign_imp_ch_holds": true,
+  "SIDEExplicitFormula.B321.ch_iff_h2_sign": true
+ },
+ "checks": {
+  "zeta_zero_re_nonpos": "SIDEExplicitFormula.B321.zeta_zero_re_nonpos : ∀ (z : ℂ), riemannZeta z = 0 → z.re ≤ 0 → ∃ n, z = -2 * (↑n + 1)",
+  "rh_strip_imp_rh_holds": "SIDEExplicitFormula.B321.rh_strip_imp_rh_holds : SIDEExplicitFormula.B321.rh_strip_imp_rh",
+  "h2_sign_iff_rh": "SIDEExplicitFormula.B321.h2_sign_iff_rh : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis",
+  "ch_iff_h2_sign": "SIDEExplicitFormula.B321.ch_iff_h2_sign : SIDEExplicitFormula.B321.conservationHypothesis ↔\n  SIDEExplicitFormula.B321.h2_sign",
+  "h2_sign_imp_rh_holds": "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds : SIDEExplicitFormula.B321.h2_sign_imp_rh",
+  "h2_sign_imp_ch_holds": "SIDEExplicitFormula.B321.h2_sign_imp_ch_holds : SIDEExplicitFormula.B321.h2_sign_imp_ch"
+ }
+}
