@@ -1,0 +1,28 @@
+========================================================================================================
+b526 -- THE DESK. ### **THE EXPECTATIONS, SCORED ON THE BANKS.**
+========================================================================================================
+
+### THE NAVIGATOR`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(N1)** ### **HELD.** -- xi at order 7 : VERIFIED-EST 46 of 46 IN widths, positive beyond bound 46.
+  **(N2)** ### **NOT SCORABLE.** -- the population, Q0 cells on the kernel`s phi, does not exist: the kernel`s plateau is a ContDiffBump over a
+      base chosen by Classical.choice (someContDiffBumpBase := Nonempty.some), with no values to evaluate; Component 2 HALTED.
+  **(N3)** ### **NOT SCORABLE.** -- no crossing read on the kernel`s phi, so no G there; the conflict is the same as (N2)`s.
+
+### THE SEAT`S THREE.
+--------------------------------------------------------------------------------------------------------
+  **(S1)** ### **HELD.** -- xi widths computed 46, IN 46, VERIFIED-EST 46.
+  **(S2)** ### **HELD.** -- positive beyond bound at 46 of 46.
+  **(S3)** ### **HELD.** -- the two bases differ by 0.1854 pointwise.
+
+### ### **THE NAVIGATOR`S : HELD 1 ; REFUTED 0 ; NOT SCORABLE 2.** ### ### **THE SEAT`S : REGISTERED 3 ; HELD 3 ; REFUTED 0.**
+
+### THIS ACT`S OWN DEFECTS.
+    (a) ### **THE NON-UNIQUENESS CONTROL`S SYMMETRY TEST WAS TOO STRICT.** It compared the grid values with themselves
+        reversed by exact float equality, and a float `linspace` is not exactly symmetric, so all three candidates failed
+        "symmetric" at the first run (banked in the run log). ### Repaired to evaluate each candidate at -x itself; the
+        re-run is banked beside the first; the verdicts that decide the halt -- A and B differ, the bad candidate rejected
+        -- were the same in both runs.
+    (b) ### **THE REGSPEC GENERATOR LEFT "CARRIED FROM b522's SPEC"** in the new spec`s docstring (b523`s own slip,
+        carried); caught before the seal, repaired, the lock chain re-run and the four records re-stamped.
+========================================================================================================

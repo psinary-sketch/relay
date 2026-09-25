@@ -1,0 +1,111 @@
+{
+ "quotes": [
+  {
+   "file": "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean",
+   "pattern": "class HasContDiffBump .*: Prop where",
+   "hits": [
+    [
+     93,
+     "class HasContDiffBump (E : Type*) [NormedAddCommGroup E] [NormedSpace ℝ E] : Prop where"
+    ]
+   ]
+  },
+  {
+   "file": "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean",
+   "pattern": "^  out : Nonempty \\(ContDiffBumpBase E\\)",
+   "hits": [
+    [
+     94,
+     "  out : Nonempty (ContDiffBumpBase E)"
+    ]
+   ]
+  },
+  {
+   "file": "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean",
+   "pattern": "^  Nonempty\\.some hb\\.out",
+   "hits": [
+    [
+     100,
+     "  Nonempty.some hb.out"
+    ]
+   ]
+  },
+  {
+   "file": "Mathlib/Analysis/Calculus/BumpFunction/Basic.lean",
+   "pattern": "\\(someContDiffBumpBase E\\)\\.toFun \\(f\\.rOut / f\\.rIn\\)",
+   "hits": [
+    [
+     120,
+     "  (someContDiffBumpBase E).toFun (f.rOut / f.rIn) ∘ fun x ↦ (f.rIn⁻¹ • (x - c))"
+    ],
+    [
+     126,
+     "    f x = (someContDiffBumpBase E).toFun (f.rOut / f.rIn) (f.rIn⁻¹ • (x - c)) :="
+    ]
+   ]
+  },
+  {
+   "file": "Mathlib/Analysis/Calculus/BumpFunction/InnerProduct.lean",
+   "pattern": "toFun R x := smoothTransition",
+   "hits": [
+    [
+     33,
+     "  toFun R x := smoothTransition ((R - ‖x‖) / (R - 1))"
+    ]
+   ]
+  },
+  {
+   "file": "Mathlib/Analysis/Calculus/BumpFunction/InnerProduct.lean",
+   "pattern": "instance \\(priority := 100\\) hasContDiffBump_of_innerProductSpace",
+   "hits": [
+    [
+     57,
+     "instance (priority := 100) hasContDiffBump_of_innerProductSpace : HasContDiffBump E :="
+    ]
+   ]
+  }
+ ],
+ "kernel_lines": [
+  "def plateauBump (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ContDiffBump (0 : ℝ) where",
+  "def plateau (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) : ℝ → ℝ :=",
+  "  ⇑(plateauBump F L hF0 hF1 hL)"
+ ],
+ "R": 1.3333333333333333,
+ "fields_A": {
+  "in_unit": true,
+  "symmetric": true,
+  "one_inside": true,
+  "support": true
+ },
+ "fields_B": {
+  "in_unit": true,
+  "symmetric": true,
+  "one_inside": true,
+  "support": true
+ },
+ "fields_bad": {
+  "in_unit": true,
+  "symmetric": true,
+  "one_inside": true,
+  "support": false
+ },
+ "both_pass": true,
+ "bad_rejected": true,
+ "max_pointwise_diff": 0.1853736500446035,
+ "at_x": -1.1223999999999998,
+ "transforms": {
+  "A": {
+   "integral": 6.171130918064537,
+   "at_0": 6.171130918064537,
+   "at_gamma0": 9.219788353134465e-06,
+   "growth": 1.3623291442131986
+  },
+  "B": {
+   "integral": 6.171130918064537,
+   "at_0": 6.171130918064537,
+   "at_gamma0": -5.1862642022009584e-05,
+   "growth": 1.3601753087764517
+  }
+ },
+ "halt": "the kernel`s plateau is Mathlib`s ContDiffBump over someContDiffBumpBase = Nonempty.some (Classical.choice): no specific function to evaluate"
+}

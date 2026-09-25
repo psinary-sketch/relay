@@ -1,0 +1,7 @@
+    (a) ### **THE NON-UNIQUENESS CONTROL`S SYMMETRY TEST WAS TOO STRICT.** It compared the grid values with themselves
+        reversed by exact float equality, and a float `linspace` is not exactly symmetric, so all three candidates failed
+        "symmetric" at the first run (banked in the run log). ### Repaired to evaluate each candidate at -x itself; the
+        re-run is banked beside the first; the verdicts that decide the halt -- A and B differ, the bad candidate rejected
+        -- were the same in both runs.
+    (b) ### **THE REGSPEC GENERATOR LEFT "CARRIED FROM b522's SPEC"** in the new spec`s docstring (b523`s own slip,
+        carried); caught before the seal, repaired, the lock chain re-run and the four records re-stamped.
