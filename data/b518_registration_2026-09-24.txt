@@ -1,0 +1,153 @@
+====================================================================================================
+ACT b518 -- THE REGISTRATION FACE. ### THE TWO-PROPERTY WINDOW, UNDER (R127).
+====================================================================================================
+### Sealed BEFORE any component runs. ### **THE NUMERICAL LANE OPENS FOR THIS ACT ALONE, UNDER (R127)(3)**, and
+### shuts at its close; the kernel lane reopens after it for (f)(i).
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R127) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: (1) the two-property window measured as
+### W-ORD-FAMILY-SENSITIVITY`s fourth family and the numerical register of (f)(i); (2) the reading fixed before the run.
+### Ruling and part 1 of 1, received IN FULL, banked verbatim as `b518_ferry.txt`.
+### ### **THIS ACT CONFERS NO GRADE, COMPILES NOTHING, AND NO CELL OF IT IS A STATEMENT ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE WINDOW.** `phi` is the uniform B-spline bump of ORDER 6 on `[-L, L]`, `L = log a`, spacing
+### `s = 2L/6`, integral 1, transform `sinc(z s / 2)^6`; order 6 makes `phi` `C^4`, so `h = (gamma_0^2 + d^2/du^2)(cos(gamma_0
+### u) phi) = cos(gamma_0 u) phi'' - 2 gamma_0 sin(gamma_0 u) phi'` is `C^2`. ### In the kernel`s convention
+### `h-hat(z) = (gamma_0^2 - z^2) g-hat(z)`, `g-hat(z) = (phi-hat(z - gamma_0) + phi-hat(z + gamma_0)) / 2`: zero at
+### `gamma_0`, slope `-2 gamma_0 g-hat(gamma_0)`, band-limited near `+-gamma_0`. ### `k = h ⋆ h~ = h ⋆ h`, `k-hat = h-hat^2`.
+### ### `gamma_0` is 16.290216 for Q0 and 14.1347 for xi. ### **NO POLE ANNIHILATION IS ADDED.**
+### **READING (2) -- MEMBERSHIP IN classK**, read off H2Sign.lean`s definition: `k` even (`h` real and even), `C^2`,
+### compactly supported on `[-2 log a, 2 log a]`, and `k = Zeta23.EF.weilTest h h` WITH `h` NAMED ABOVE, real-valued as
+### (R126)(1) requires -- the seat`s statement, not a compiled step; the fixture prints `k`s evenness and `h`s jumps.
+### **READING (3) -- THE COLUMNS** are b515`s: `m = A - PR`, h2_sign`s quantity `P - PR + A`, the split, and **"ITS RATIO TO
+### THE REST" `pair / (Z - pair)`, SIGNED**. ### A sign is DECIDED when the magnitude exceeds the cell`s bound `B`.
+### **READING (4) -- THE CHAIN AND THE BOUND** are b515`s with the window replaced: `B = E_u + E_k + E_tail + E_round`,
+### `E_k` between Gauss-Legendre orders 40 and 60 per piece (`h` is no longer piecewise polynomial); `E_tail` by the
+### majorant `|h-hat(t + is)| <= (gamma_0^2 + t^2 + s^2) SUM_+- (cosh(s s_k/2) min(1, 2/(|t -+ gamma_0| s_k)))^6 / 2`;
+### VERIFIED-EST iff `|r| <= B`; the u > 1200 shortfall printed and kept OUT of `B`. ### (R114)`s grid rule has no object here,
+### as b511, b514 and b515 read it.
+### **READING (5) -- THE FIXTURE UNDER (R125)(2).** At `a = 5`, each `gamma_0`: the closed form against `INT k(x) cos(u x)
+### dx` by 80-point Gauss-Legendre on `k`s breakpoints, `k(x)` from `h` by its own quadrature, at `u` in `0, 1, gamma_0, the
+### two nearest on-line ordinates, 30, 60`. ### **THE FLOOR, PER u, IS eps TIMES THE SUM OF THE MAGNITUDES OF THE TERMS
+### THE NUMERICAL ROUTE ADDS; THE BAR IS sqrt(n) TIMES THAT FLOOR**, `n` the node count -- the accumulation of `n`
+### independent roundings, the form b515`s declared diagnosis found every difference below. ### Both printed per `u`;
+### the two routes share no quadrature and no transform formula, only `h`.
+### **READING (6) -- THE PRINTED RATIOS (the ferry`s two properties).** At the ladder`s first, middle and last widths:
+### `h-hat(gamma_0)` (the control, 0 to the float floor of the line peak), the slope in closed form and by a central
+### difference, and `|h-hat(t)| / |slope|` at 14.6305, 18.8285 and the object`s lowest on-line zero other than `gamma_0`
+### (Q0: 1.3089; xi: 21.0220); `h-hat` at `gammaOf rho` for Q0.
+### **READING (7) -- THE READING (R127)(2) FIXES**, printed in its words: when a VERIFIED-EST Q0 cell has `P - PR + A <
+### -B`, the witness construction `h2_sign_imp_rh` names, exhibited at one rho and for that rho alone, with the
+### narrowest such width and `exp(2 delta L)` there (`delta = 0.45326`, `L = log a`) banked as (f)`s numerical target;
+### otherwise, that the two-property window is not yet the witness, with the pair`s ratio to the rest at the widest cell.
+### **READING (8) -- THE SCORING.** (N1): the pair`s term below zero at all 119 widths. (N2): `P - PR + A < -B` at half or
+### more of Q0`s VERIFIED-EST widths. (N3): the narrowest such width below `a = 5` -- REFUTED if there is none. (N4):
+### xi`s `P - PR + A > B` at every VERIFIED-EST xi cell.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (0) `tools/b518_window.py fixture` -> `b518_fixture.json`; `matched` -> `b518_matched.json`.
+### (1)-(2) `tools/b518_window.py run` -> `b518_cells.jsonl`, both objects per width.
+### (3) `tools/b518_report.py` -> `b518_report.txt`, `b518_results.json`.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** b514`s and b515`s tools, faces and banks; b515`s fixture diagnosis.
+### ### **THE SEAT REASONED ABOUT THE SIZES BEFORE THE SEAL**, from the closed form and no number: the pair`s term is
+### about `-(gamma_0 delta)^2` times `phi-hat(i delta)^2`, while the on-line zeros at 14.63 and 18.83 sit inside the
+### cosine`s band with factor `(gamma_0^2 - t^2)^2` of order 2600 and 3900. ### **THE ACT`S TOOLS ARE WRITTEN BEFORE THE
+### SEAL AND NOT RUN.** ### NO WINDOW WAS EVALUATED, NO TRANSFORM VALUE PRINTED AND NO CELL COMPUTED BEFORE THE SEAL.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### 119 widths, two objects: about a minute at b515`s cell time, the higher-order prime channel the added cost.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **THE PAIR`S TERM IS NEGATIVE AT EVERY WIDTH.**
+### **(N2)** ### **Q0`S QUANTITY IS NEGATIVE BEYOND ITS BOUND AT HALF OR MORE OF THE VERIFIED WIDTHS.**
+### **(N3)** ### **THE NARROWEST NEGATIVE WIDTH IS BELOW a = 5.**
+### **(N4)** ### **XI`S QUANTITY IS POSITIVE AT EVERY VERIFIED CELL.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS RUN.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **THE PAIR`S TERM IS NEGATIVE AT EVERY WIDTH.**
+### **(S2)** ### **Q0`S P - PR + A IS POSITIVE AT EVERY VERIFIED-EST CELL** -- the on-line zeros at 14.63 and 18.83 are
+### inside the cosine`s band and carry the factor `(gamma_0^2 - t^2)^2`, larger than the pair`s `(gamma_0 delta)^2`.
+### **(S3)** ### **THE FIXTURE MEETS ITS REGISTERED BAR AT EVERY u, BOTH OBJECTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing, ### **RUN ALONE**) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-ZERO` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R127-ENTERED`
+### `G-FIXTURE-BAR` `G-CLASSK-STATED` `G-ZERO-CONTROL` `G-WIDTHS-COMPLETE`
+### `G-WINDOW-AS-WRITTEN` `G-SPLIT-SUMS` `G-RATIO-RECOMPUTED` `G-VERIFIED-RECOUNTED` `G-BOUND-FORM`
+### `G-SHORTFALL-PRINTED` `G-SIGNS-RECOUNTED` `G-NARROWEST-GROWTH` `G-READING-WORDS` `G-N1-SCORED`
+### `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NOGRADE-CONFERRED` `G-NODEPOSIT` `G-NOH2-MOVED` `G-NOPRIORBANK` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-NOPRIORBANK` holds every prior act`s
+### bank unchanged, with no exception.
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b518_*` `relay/tools/b518_*` |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b518_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b518_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b518_registration_2026-09-24.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b518_span*.json` `relay/data/b518_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b518.zip`
+###   (outside every repository) `relay/data/b518_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b518_window.py` `b518_report.py` `b518_reg_gate.py` `b518_regspec.py`
+### `b518_record.py` `b518_checks.py` `b518_closing.py`.
+### ### **NO INSTRUMENT IS EDITED.** ### b514`s, b511`s, b504`s, b325`s tools and the atlas are imported; none is
+### rewritten.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### Nothing compiled; no `lake` command runs; the kernel is not
+### touched. ### (f) is not attempted in the kernel. ### No zero of zeta or of Z_Q0 is added or moved; no prior bank is
+### rewritten. ### **NOTHING AT ZENODO IS WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ### Nothing
+### deposits. ### **NO GRADE IS CONFERRED OR MOVED.** ### Row U1 is unedited. ### `h2` stays where the deposit left it.
+### ### The four lists stay OPEN. ### Nothing is claimed of the kernel either way. ### **AND NO CELL OF THIS ACT IS A
+### STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 96c3cc7febb33ed52b20349a61db16865192b2264ec2109fbcc0c306ed6eacea
+### bytes locked : 12752
+### locked at (UTC) : 2026-09-25T01:17:44Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b518_registration_2026-09-24.txt`.**
+====================================================================================================
