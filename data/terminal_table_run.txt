@@ -8,10 +8,10 @@
   ledgers read : ### **97**  (including the archive`s split looms -- b494 found the
   ### 2026-07-26 census there, and ### **A SPLIT MOVES A LEDGER, IT DOES NOT RETIRE IT**)
   ### THE GRADE-CELL MATCHER, BOTH VERSIONS, YIELD PRINTED.
-    v1 LOOSE (any name on any line carrying a grade word) : 1062 cells, 737 names
-    v2 WINDOWED (every name within 120 chars of a grade)  : 259 cells, 152 names
-    v3 NEAREST (each grade attaches to its NEAREST name)   : 204 cells, 96 names
-    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 195 cells, 96 names**
+    v1 LOOSE (any name on any line carrying a grade word) : 1106 cells, 765 names
+    v2 WINDOWED (every name within 120 chars of a grade)  : 281 cells, 166 names
+    v3 NEAREST (each grade attaches to its NEAREST name)   : 219 cells, 110 names
+    ### **v4 COMPOUND-AWARE (adjacent grades = ONE verdict)    : 210 cells, 110 names**
     ### ### **v1 AND v2 ARE DISCARDED AND THEIR YIELDS ARE PRINTED ANYWAY** -- b381`s
     ### rule, that a matcher is never replaced silently. ### These ledgers carry
     ### 2,000-character re-grade paragraphs naming a dozen keystones and using three
@@ -48,16 +48,16 @@
       json READS the same line where the bank marks it printed                 PASS
       json REFUSES a line quoted from a document at a file and line            PASS
       json READS the act`s own printed line beside it                          PASS
-  banked profile JSONs read (committed, relay HEAD) : 15 ; names profiled there : 73
+  banked profile JSONs read (committed, relay HEAD) : 16 ; names profiled there : 107
 
-  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **31** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/kWin_classK', 'SIDE-explicit-formula/nearInt_ge', 'SIDE-explicit-formula/pairTwo_factored', 'SIDE-explicit-formula/pairTwo_near_far', 'SIDE-explicit-formula/pair_bound', 'SIDE-explicit-formula/pair_near_sign', 'SIDE-explicit-formula/paperFT_growth', 'SIDE-explicit-formula/paperFT_growth_at', 'SIDE-explicit-formula/paperFT_window', 'SIDE-explicit-formula/paperFT_window_zero']
-  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **72** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.balance_lemma <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_iff_rh <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_imp_config <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_imp_h2_sign <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_imp_rh <- data/b532_profile.json', 'SIDEExplicitFormula.B321.cosWinC_FT <- data/b529_profile.json', 'SIDEExplicitFormula.B321.cosWinC_FT_near_far <- data/b529_profile.json', 'SIDEExplicitFormula.B321.cosWin_bound <- data/b530_profile.json', 'SIDEExplicitFormula.B321.cosWin_support_Icc <- data/b530_profile.json', 'SIDEExplicitFormula.B321.cosh_le_exp_abs <- data/b530_profile.json', 'SIDEExplicitFormula.B321.f4_needs_of_half_le <- data/b530_profile.json']
+  ### W-ORD-TABLE-SHORTNAME-DEDUP : short ledger-only rows dropped beside a qualified twin : ### **45** ['SIDE-explicit-formula/EF_lit_zetaZeroConfig', 'SIDE-explicit-formula/base_nonzero_at', 'SIDE-explicit-formula/classK_of_real_even', 'SIDE-explicit-formula/dominant_exists', 'SIDE-explicit-formula/h2_sign_imp_cell', 'SIDE-explicit-formula/kWin_classK', 'SIDE-explicit-formula/nearInt_ge', 'SIDE-explicit-formula/off_finite_above', 'SIDE-explicit-formula/pairTwo_factored', 'SIDE-explicit-formula/pairTwo_near_far', 'SIDE-explicit-formula/pair_bound', 'SIDE-explicit-formula/pair_near_sign']
+  ### W-ORD-TABLE-PROFILE-JSON : rows profiled from a banked JSON (their own tree silent) : ### **106** ['SIDEExplicitFormula.B321.b321_identity <- data/b510_profile.json', 'SIDEExplicitFormula.B321.balance_lemma <- data/b532_profile.json', 'SIDEExplicitFormula.B321.base_nonzero_at <- data/b533_profile.json', 'SIDEExplicitFormula.B321.ch_iff_rh <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_imp_config <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_imp_h2_sign <- data/b532_profile.json', 'SIDEExplicitFormula.B321.ch_imp_rh <- data/b532_profile.json', 'SIDEExplicitFormula.B321.classK_of_real_even <- data/b533_profile.json', 'SIDEExplicitFormula.B321.cosWinC_FT <- data/b529_profile.json', 'SIDEExplicitFormula.B321.cosWinC_FT_near_far <- data/b529_profile.json', 'SIDEExplicitFormula.B321.cosWin_bound <- data/b530_profile.json', 'SIDEExplicitFormula.B321.cosWin_support_Icc <- data/b530_profile.json']
 
   ### THE COUNTS.
   ----------------------------------------------------------------------------------------------------
-    rows (repo, name)                                  : ### **1085**
+    rows (repo, name)                                  : ### **1119**
     NOT PROFILED                                       : ### **376**
-    UNGRADED                                           : ### **1007**
+    UNGRADED                                           : ### **1027**
     CONFLICT                                           : ### **10**
     ENCODES-graded (ENCODES or ENCODES-CONCLUSION)     : ### **6**
     names a ledger cites resolving in NO repo, any ref : ### **19**
@@ -65,7 +65,27 @@
 
   ### THE DIFF AGAINST THE PRIOR RUN.
   ----------------------------------------------------------------------------------------------------
-    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 0
+    rows added : 0 ; rows gone : 0 ; grade-or-profile changed : 34
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.base_nonzero_at : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.classK_of_real_even : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.dominant_exists : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.iteratedDeriv_even_even : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.killSet_finite : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.neg_one_pow_mul_iz_pow : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.off_finite_above : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.paperFT_conj_of_real_even : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.paperFT_polyOp : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.paperFT_power : DERIVES|NOT PROFILED -> DERIVES|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.paperFT_sum : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.phiC_selfConv : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.plateau_dominant : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.plateau_integral_pos : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.plateau_nonneg : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.plateau_support_Icc : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.polyOp_contDiff : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.polyOp_even : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.polyOp_support : UNGRADED|NOT PROFILED -> UNGRADED|PROFILED
+      SIDE-explicit-formula / SIDEExplicitFormula.B321.power_contDiff : DERIVES|NOT PROFILED -> DERIVES|PROFILED
 
   written: data/terminal_table.json, data/terminal_table.md
 ========================================================================================================

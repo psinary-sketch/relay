@@ -1,0 +1,186 @@
+theorem paperFT_conj_of_real_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :
+    conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) z :=
+
+theorem zero_term_sq {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) :
+    Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z = (Zeta23.paperFT (phiC g) z) ^ 2 :=
+
+theorem weilTest_even_of_even (g : ℝ → ℝ) (x : ℝ) :
+    Zeta23.EF.weilTest (phiC g) (phiC g) (-x) = Zeta23.EF.weilTest (phiC g) (phiC g) x :=
+
+theorem classK_of_real_even {g : ℝ → ℝ} (hg : ContDiff ℝ 2 g) (hs : HasCompactSupport g) :
+    classK (Zeta23.EF.weilTest (phiC g) (phiC g)) :=
+
+def selfConv (g : ℝ → ℝ) : ℝ → ℝ :=
+
+theorem weilTest_phiC (g : ℝ → ℝ) (x : ℝ) :
+    Zeta23.EF.weilTest (phiC g) (phiC g) x = ((∫ t, g t * g (t - x) : ℝ) : ℂ) :=
+
+theorem selfConv_im_zero (g : ℝ → ℝ) (x : ℝ) : (Zeta23.EF.weilTest (phiC g) (phiC g) x).im = 0 :=
+
+theorem selfConv_eq (g : ℝ → ℝ) (x : ℝ) : selfConv g x = ∫ t, g t * g (t - x) :=
+
+theorem phiC_selfConv (g : ℝ → ℝ) : phiC (selfConv g) = Zeta23.EF.weilTest (phiC g) (phiC g) :=
+
+theorem selfConv_even (g : ℝ → ℝ) (x : ℝ) : selfConv g (-x) = selfConv g x :=
+
+theorem selfConv_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    Function.support (selfConv g) ⊆ Set.Icc (-(2 * L)) (2 * L) :=
+
+theorem selfConv_contDiff {g : ℝ → ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g) (hs : HasCompactSupport g) :
+    ContDiff ℝ n (selfConv g) :=
+
+def power (g : ℝ → ℝ) : ℕ → ℝ → ℝ
+  | 0 => g
+  | j + 1 => selfConv (power g j)
+
+theorem power_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) : ∀ j x, power g j (-x) = power g j x
+  | 0, x => hev x
+  | j + 1, x => selfConv_even (power g j) x
+
+theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+  | 0 => by
+    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)
+    simpa only [pow_zero, one_mul] using hs
+  | j + 1 => by
+    intro x hx
+    have h :=
+
+theorem power_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) : ∀ j x, power g j (-x) = power g j x
+  | 0, x => hev x
+  | j + 1, x => selfConv_even (power g j) x
+
+theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+  | 0 => by
+    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)
+    simpa only [pow_zero, one_mul] using hs
+  | j + 1 => by
+    intro x hx
+    have h :=
+
+theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+  | 0 => by
+    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)
+    simpa only [pow_zero, one_mul] using hs
+  | j + 1 => by
+    intro x hx
+    have h :=
+
+theorem power_contDiff {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) : ∀ j, ContDiff ℝ n (power g j)
+  | 0 => hg
+  | j + 1 => selfConv_contDiff (power_contDiff hg hs j) (hasCompactSupport_of_Icc (power_support hs j))
+
+/-- **L3:** `(power g j)^ = g^^(2^j)`. -/
+theorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j)
+  | 0 => by
+    show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0)
+    rw [pow_zero, pow_one]
+  | j + 1 => by
+    show Zeta23.paperFT (phiC (selfConv (power g j))) z = _
+    rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous
+      (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ]
+
+/-! ### L4 -- the polynomial operator -/
+
+def polyCoef (a : List ℝ) (j : ℕ) : ℝ :=
+
+theorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j)
+  | 0 => by
+    show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0)
+    rw [pow_zero, pow_one]
+  | j + 1 => by
+    show Zeta23.paperFT (phiC (selfConv (power g j))) z = _
+    rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous
+      (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ]
+
+/-! ### L4 -- the polynomial operator -/
+
+def polyCoef (a : List ℝ) (j : ℕ) : ℝ :=
+
+def polyCoef (a : List ℝ) (j : ℕ) : ℝ :=
+
+def polyOp (a : List ℝ) (g : ℝ → ℝ) : ℝ → ℝ :=
+
+def polyEval (a : List ℝ) (z : ℂ) : ℂ :=
+
+theorem paperFT_sum {ι : Type*} (s : Finset ι) (c : ι → ℝ) (f : ι → ℝ → ℝ)
+    (hc : ∀ j ∈ s, Continuous (f j)) (hs : ∀ j ∈ s, HasCompactSupport (f j)) (z : ℂ) :
+    Zeta23.paperFT (phiC (fun u => ∑ j ∈ s, c j * f j u)) z = ∑ j ∈ s, (c j : ℂ) * Zeta23.paperFT (phiC (f j)) z :=
+
+theorem neg_one_pow_mul_iz_pow (z : ℂ) (j : ℕ) : (-1 : ℂ) ^ j * (-(I * z)) ^ (2 * j) = z ^ (2 * j) :=
+
+theorem paperFT_polyOp (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ (2 * a.length) g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    Zeta23.paperFT (phiC (polyOp a g)) z = polyEval a z * Zeta23.paperFT (phiC g) z :=
+
+theorem iteratedDeriv_even_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (j : ℕ) (x : ℝ) :
+    iteratedDeriv (2 * j) g (-x) = iteratedDeriv (2 * j) g x :=
+
+theorem polyOp_even (a : List ℝ) {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (x : ℝ) : polyOp a g (-x) = polyOp a g x :=
+
+theorem polyOp_support (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    Function.support (polyOp a g) ⊆ Set.Icc (-L) L :=
+
+theorem polyOp_contDiff (a : List ℝ) {g : ℝ → ℝ} (hg : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g) :
+    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (polyOp a g) :=
+
+theorem plateau_support_Icc (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :
+    Function.support (plateau F L hF0 hF1 hL) ⊆ Set.Icc (-L) L :=
+
+theorem plateau_nonneg (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) : 0 ≤ plateau F L hF0 hF1 hL x :=
+
+theorem plateau_integral_pos (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :
+    0 < ∫ u, plateau F L hF0 hF1 hL u :=
+
+theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) :
+    ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0 :=
+
+def offScore (g : ℝ → ℝ) (ρ : ℂ) : ℝ :=
+
+theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) :
+    {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite :=
+
+theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2)
+    (hpos : 0 < offScore g ρ₁) :
+    ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧
+      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs :=
+
+theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier)
+    (hoff : ρ₁.re ≠ 1 / 2) :
+    ∃ (L : ℝ) (hL : 0 < L), ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore (plateau F L hF0 hF1 hL) ρs ∧
+      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore (plateau F L hF0 hF1 hL) ρ ≤ offScore (plateau F L hF0 hF1 hL) ρs :=
+
+def tieSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ :=
+
+def killSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ :=
+
+theorem tieSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) {M : ℝ} (hM : 0 < M) : (tieSet Z g M).Finite :=
+
+theorem killSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) {M : ℝ} (hM : 0 < M) : (killSet Z g M).Finite :=
+
+theorem tieSet_nonempty (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (ρs : ℂ) (h : ρs ∈ Z.carrier) (hoff : ρs.re ≠ 1 / 2) :
+    (tieSet Z g (offScore g ρs)).Nonempty :=
+
+def nodes_distinct_nonreal (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Prop :=
+
+theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) :
+    ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) →
+      ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧
+        ∀ j, |Q.coeff j| ≤ C :=
+
+def rh_strip : Prop :=
+
+theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip :=
+
+def rh_strip_imp_rh : Prop :=

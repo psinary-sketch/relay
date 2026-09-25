@@ -1,0 +1,190 @@
+====================================================================================================
+ACT b533 -- THE REGISTRATION FACE. ### W-ORD-WEIL-CONVERSE f4, THE POWER-WINDOW ROUTE, ACT ONE OF TWO, UNDER (R143).
+====================================================================================================
+### Sealed BEFORE the components are banked. ### **THE KERNEL LANE OPENS FOR THIS ACT**, and shuts at its close.
+
+----------------------------------------------------------------------------------------------------
+### (A) WHAT THIS ACT IS.
+----------------------------------------------------------------------------------------------------
+### ### **(R143) IS RATIFIED IN THE FERRY AND ENTERED BY THE TRAIL**: the last step is attempted before any update --
+### E-2026-09-25-1 stays drafted and not filed, the three (R110) description edits are not applied, the ceiling`s next
+### wording is not ruled; (R140)`s dichotomy (H-MAX or a sequence toward the supremum of real parts) withdrawn as the
+### wrong dichotomy, the supremum f4 needs being of |k^(gamma_rho)| for one fixed window, attained; `not_f4_needs` standing
+### as a theorem about the widening route, not an obstruction to the power route; the route the classical proof of Weil`s
+### converse in the kernel`s objects; the converse landing on `rh_strip`, the seam to Mathlib`s RH probed and priced; the
+### attempt two acts, L1-L6 here, L7-L8 at b534; the halt rule per lemma. ### Ruling and part 1 of 1, received IN FULL,
+### banked verbatim as `b533_ferry.txt`. ### **NOTHING DEPOSITS, NOTHING IS FILED, AND NOTHING IN THIS ACT IS A STATEMENT
+### ABOUT RH.**
+### ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
+### **READING (1) -- THE MODULE.** A NEW `SIDEExplicitFormula/PowerWindow.lean`, importing `RestBound` and `H2Bridge` as
+### ordered, ### **AND `Mathlib.LinearAlgebra.Lagrange`, DECLARED** -- the Lagrange interpolation API L6`s route names is not
+### in the kernel`s import closure (probe 1: `Lagrange.interpolate` unknown; probe 2: resolved with the import); and a NEW
+### `AxiomCheckPower.lean`. No earlier kernel file is touched; `RestBound.lean` (with `not_f4_needs` and `HMax`) unchanged.
+### **READING (2) -- L1.** `paperFT_conj_of_real_even` needs only evenness (b529`s `paperFT_ofReal_conj` and `phiC_FT_neg`);
+### the ferry`s continuity and compact support are not hypotheses of it -- a stronger theorem. `zero_term_sq` carries
+### evenness, continuity and compact support (for `paperFT_weilTest`).
+### **READING (3) -- L2.** `weilTest_even_of_even` and `classK_of_real_even` need NO evenness of g: `weilTest g g` is even
+### for every real g by translation invariance (b524`s `weilTest_ofReal_even`); classK`s four conjuncts are discharged by
+### name as b524`s `kWin_classK` does. The names are the ferry`s; the unused hypothesis is dropped.
+### **READING (4) -- L3.** `selfConv g x := (weilTest g g x).re`; `weilTest_phiC` shows `weilTest g g x = INT g(t) g(t - x)`
+### as a real integral, so `selfConv_im_zero` and `phiC_selfConv`. ### **SMOOTHNESS BY MATHLIB, DECLARED**: the kernel`s
+### `Zeta23.EF.weilTest_contDiff` is C^2 only (probe 1), so `selfConv_contDiff` and `power_contDiff` use Mathlib`s
+### `HasCompactSupport.contDiff_convolution_left` for every `n : ℕ∞`. `power g j` by recursion; `paperFT_power`: the
+### transform is `g^^(2^j)`; `power_support`: `[-2^j L, 2^j L]`.
+### **READING (5) -- L4.** `polyOp a g u := SUM_{j < length a} a_j (-1)^j D^(2j) g u` (`a_j` = `a.getD j 0`), `polyEval a z
+### := SUM a_j z^(2j)`. `paperFT_polyOp` takes `g` `C^(2 length a)` and supported in `[-L, L]` (the ferry`s "compact
+### support", stated as an interval so each derivative`s support follows); `polyOp_even` (through Mathlib`s
+### `iteratedDeriv_comp_neg`), `polyOp_support`, and ### **`polyOp_contDiff` FOR SMOOTH g ONLY, DECLARED** (Mathlib`s
+### `ContDiff.iterate_deriv` is stated at smoothness; every window of this route is smooth).
+### **READING (6) -- L5.** `base_nonzero_at` is stated as ordered; ### **ITS ROUTE DEPARTS, DECLARED**: in place of the change
+### of variable and dominated convergence, the estimate `|g^(z) - INT g| <= (1/2) INT g` once `|z| L <= 1/4`
+### (`Complex.norm_exp_sub_one_le`), with `INT plateau > 0` from `Continuous.integral_pos_of_hasCompactSupport_nonneg_nonzero`
+### -- no decay bound and no bound on any ordinate. `offScore g rho := |g^(gammaOf rho)|`. `off_finite_above`,
+### `dominant_exists`, `tieSet_finite`, `killSet_finite` are stated for ANY window g (C^4, supported in `[-L, L]`) and
+### ANY zero configuration Z, and `plateau_dominant` composes them with the plateau; ### **FINITENESS FROM THE FIELD,
+### DECLARED**: `off_finite_above` bounds `|Im rho|` by paperFT_decay at p = 4 and the closed strip, then uses
+### `Z.finite_window` -- the local finiteness field the unit-interval grouping of `finite_rest_bound` itself rests on --
+### rather than regrouping by unit intervals. `tieSet Z g M`, `killSet Z g M` take the level M as a parameter;
+### `tieSet_nonempty` at `M = offScore g rho_*`. ### **`nodes_distinct_nonreal` IS STATED, NOT PROVED, WITH A CAVEAT THE
+### FERRY`S ONE-LINE REASON MISSES**: gammaOf rho is nonreal for off-line rho, but `(gamma - i delta)^2` is REAL when
+### `gamma = 0`, so the square`s nonreality also needs `Im rho ≠ 0` (no real zero in the strip), which the kernel`s
+### configuration does not record.
+### **READING (7) -- L6.** `real_even_interpolant` is stated over ANY conjugation-closed finite node set `s ⊂ C` and
+### conjugation-symmetric targets of modulus at most 1: a REAL polynomial (Polynomial ℝ, in place of the ferry`s list) of
+### degree below `card s` interpolating them, coefficients bounded by a constant of `s` alone. The ferry`s real vanishing
+### points and nonreal nodes are nodes of `s` with targets 0 and c; distinctness is a Finset`s.
+### **READING (8) -- THE SEAM.** Right half-plane: Mathlib`s `riemannZeta_ne_zero_of_one_le_re`
+### (`NumberTheory/LSeries/Nonvanishing.lean:411`). Left half-plane ("zeros with re <= 0 are the trivial zeros"):
+### ABSENT from Mathlib at this pin by name -- Mathlib holds the trivial zeros themselves
+### (`riemannZeta_neg_two_mul_nat_add_one`) and the functional equation (`riemannZeta_one_sub`), from which it is priced
+### as derivable, not attempted. `rh_strip`, `rh_imp_rh_strip` compiled; `rh_strip_imp_rh` a Prop, not proved.
+### **READING (9) -- ATTEMPTS AND THE HALT RULE.** An attempt is one foreground whole-module run of `lake env lean -o`. A
+### lemma HALTS when it has failed in two attempts: it is replaced by a Prop named `<lemma>_blocked` with its blocker
+### printed, its dependents likewise, and the module compiles on; a halted lemma is a named work-order.
+### **READING (10) -- THE GRADES, BY STATEMENT-READ.** Against the ferry`s model statements, each compiled theorem among
+### `paperFT_conj_of_real_even`, `zero_term_sq`, `weilTest_even_of_even`, `classK_of_real_even`, `selfConv_im_zero`,
+### `paperFT_power`, `power_contDiff`, `power_support`, `paperFT_polyOp`, `base_nonzero_at`, `off_finite_above`,
+### `dominant_exists`, `real_even_interpolant`, `rh_imp_rh_strip`: DERIVES where its statement establishes the model`s
+### (the declared departures are hypotheses dropped or objects generalized, which strengthen the statement), graded in
+### this act`s correspondence row; a halted lemma takes no grade.
+### **READING (11) -- THE SCORING.** (N1): the four L1-L2 theorems compile and are the standard three at an attempt
+### numbered at most 2. (N2): `base_nonzero_at` is the standard three, its statement carries no hypothesis on any zero,
+### and its proof text names no `paperFT_decay`. (N3): `dominant_exists` is the standard three and its statement reads
+### `forall rho in Z.carrier, rho.re ≠ 1/2 -> ...` with `rho_s.re ≠ 1/2` in the conclusion. (N4): the face and the
+### components print a Mathlib name for the right half-plane and ABSENT or a name for the left, and `rh_strip_imp_rh` is
+### a `def` (a Prop), not a theorem. (N5): `RestBound.lean` is byte-identical at the act`s kernel commit to 7224b87. (N6):
+### nothing deposits; `ERRATA.md` untouched; nothing at Zenodo written.
+
+----------------------------------------------------------------------------------------------------
+### (B) THE COMPONENTS.
+----------------------------------------------------------------------------------------------------
+### (1) `tools/b533_kernel.py install | compile | statement | profile` -> `b533_install.json`, `b533_attempts.json`,
+### `b533_attempt<n>.lean`, `b533_compile_log*.txt`, `b533_statement.txt`, `b533_profile.json`.
+### (2) `tools/b533_record.py components | desk | trail`; the correspondence row by `corr_row.py`; the table by the suite.
+
+----------------------------------------------------------------------------------------------------
+### (C) EVERYTHING READ BEFORE THE SEAL, DECLARED.
+----------------------------------------------------------------------------------------------------
+### ### **THIS FACE DECLARES READS IT ALREADY MADE:** every file and line the ferry names, each read at its line and
+### resolving there (H2Sign 23-31, RHChain 78-84, RestBound 192/207-210/360/389, DecayBound 46-47/63-64,
+### TwoPropertyWindow 56-57/60/69, B321Identity 24-26/44-46, Zeta23 ExplicitFormula 68/205-207, Defs 60/121,
+### Statement 44-56, RvM/LocalCount 310-311); Mathlib`s `NumberTheory/LSeries` for the seam. ### **THE TWO PROBES WERE RUN
+### BEFORE THE SEAL** under (R141)(2), `#check` lines and three one-line `example`s of casts and `beta_reduce`, elaborating no
+### proof of the module; banked as `b533_probe1.txt`, `b533_probe2.txt`. ### The module and its axiom check are drafted and
+### NOT RUN.
+
+----------------------------------------------------------------------------------------------------
+### (C2) THE PRICE.
+----------------------------------------------------------------------------------------------------
+### One warm import per attempt; the host memory-short this session. The draft is long (L1-L6 and the seam in the PowerWindow file);
+### repairs are likely, and the halt rule bounds them.
+
+----------------------------------------------------------------------------------------------------
+### (D) THE NAVIGATOR`S EXPECTATIONS, EACH REFUTABLE BY A PRINTED CELL.
+----------------------------------------------------------------------------------------------------
+### **(N1)** ### **L1 AND L2 COMPILE AT THE STANDARD THREE AT ATTEMPT ONE OR TWO.**
+### **(N2)** ### **base_nonzero_at COMPILES WITHOUT ANY BOUND ON THE ORDINATE OF rho_1 AND WITHOUT paperFT_decay.**
+### **(N3)** ### **dominant_exists COMPILES, QUANTIFYING OVER OFF-LINE ZEROS OF THE CARRIER, rho_* OFF-LINE IN THE CONCLUSION.**
+### **(N4)** ### **THE SEAM PROBE PRINTS ONE MATHLIB NAME FOR THE RIGHT HALF-PLANE AND ABSENT OR A NAME FOR THE LEFT; rh_strip_imp_rh NOT PROVED.**
+### **(N5)** ### **not_f4_needs AND HMax ARE UNTOUCHED.**
+### **(N6)** ### **NOTHING DEPOSITS; ERRATA.md UNTOUCHED; NOTHING WRITTEN AT ZENODO.**
+
+----------------------------------------------------------------------------------------------------
+### (E) THE SEAT`S OWN EXPECTATIONS, REGISTERED BEFORE THE COMPONENTS ARE BANKED.
+----------------------------------------------------------------------------------------------------
+### **(S1)** ### **NO LEMMA OF L1-L6 HALTS: THE MODULE COMPILES CLEAN WITHIN THREE ATTEMPTS.**
+### **(S2)** ### **real_even_interpolant COMPILES AT THE STANDARD THREE.**
+### **(S3)** ### **off_finite_above COMPILES AT THE STANDARD THREE.**
+
+----------------------------------------------------------------------------------------------------
+### (G1) THE GATES, IN ORDER.
+----------------------------------------------------------------------------------------------------
+### `ferry_scan.py` (BANKED, 0 hits) -> `b307_handoff_census.py` (0 missing) ->
+### `b327_faces_census.py` (0 missing) -> `b303_pins.py` (0 hard-failing) ->
+### `b363_span.py` -> THIS FACE -> `bNNN_reg_gate.py` -> `bNNN_regspec.py` -> `reg_satisfiable.py`
+### -> `banned_terms.py --new` -> `gate_hash.py` stamps the four face-subject records -> `b378_lockgate.py`
+### (gates: 8) -> `reg_seal.py --lock` -> ### **AND ONLY THEN THE COMPONENTS.**
+
+----------------------------------------------------------------------------------------------------
+### (G2) THE GATE ARMS.
+----------------------------------------------------------------------------------------------------
+### Declared on this face and counted off it. ### **EVERY ARM IS A PREDICATE OVER A SUPPLIED SOURCE,
+### EXERCISED ON A POSITIVE AND A NEGATIVE CONTROL**; ### **AND NO ARM READS ONLY THE FACE.**
+### `G-RECEIPT-IN-FULL` `G-SCAN-CLEAN` `G-SCAN-FLAGS-DECLARED` `G-STEPZERO-CENSUS` `G-STEPZERO-PINS`
+### `G-REG-LOCKED-FIRST` `G-LOCKGATE-EIGHT` `G-SEAL-VERIFIES` `G-PRIOR-CLOSED-PUSHED`
+### `G-ADDENDUM-SLOT-CONTENT-BOUNDED` `G-NUMBER-UNCLAIMED` `G-PEEK-DECLARED` `G-R143-ENTERED`
+### `G-INSTALLED-FROM-DRAFT` `G-ATTEMPTS-BANKED` `G-MODULE-NO-SORRY` `G-PROFILE-WHOLE-STRING` `G-STATEMENTS-PRINTED`
+### `G-PROBES-BANKED` `G-HALTS-RECORDED` `G-BASE-NO-DECAY` `G-DOMINANT-OFFLINE` `G-SEAM-PRINTED` `G-RESTBOUND-UNTOUCHED`
+### `G-GRADES-BY-READING` `G-TABLE-ROW`
+### `G-N1-SCORED` `G-N2-SCORED` `G-N3-SCORED` `G-N4-SCORED` `G-N5-SCORED` `G-N6-SCORED` `G-SEAT-EXPECTATIONS-SCORED`
+### `G-NODEPOSIT` `G-NOH2-MOVED` `G-PRIORBANK-UNCHANGED` `G-FOUR-LISTS-OPEN`
+### `G-LANE-SHUT` `G-CORPUS-SCOPE` `G-TRAIL-APPEND-ONLY` `G-CORR-APPEND-ONLY` `G-INSTRUMENTS-UNEDITED`
+### `G-WRITELIST-KINDS` `G-WRITELIST-SPANS-ACT` `G-NOSTAGE-A-BY-DIFF` `G-ARMS-DECLARED-EQ-RUN`
+### `G-ARMS-NO-SUBSTRING-VERDICT` `G-ARMS-NO-LIVE-LIMB` `G-MIRROR-TAGGED-BUILD` `G-MUSTFAIL`
+### `G-ARTEFACTS-NOT-COMMITTED` `G-PUSHED-PREDICATE-THREE-CLAUSED`
+### `G-MIRROR-TAGGED-BUILD` is scored ### **POST-PUSH ONLY.** ### `G-PRIORBANK-UNCHANGED` holds every prior act`s
+### bank unchanged, with no exception. ### The ferry scan`s one (R81) flag is INFORMATIONAL and declared here; its arm
+### reads the flag count off the banked scan and requires the verdict line`s 0 hits. ### **EVERY POSITIVE CONTROL IS
+### POINTED AT THIS ACT`S OWN NAMES.**
+
+----------------------------------------------------------------------------------------------------
+### (W) THE WRITE LIST. ### **UNDER (R85) AS (R91) AMENDS ITS GRANULARITY.**
+----------------------------------------------------------------------------------------------------
+### | tool | writes |
+### | any tool of this act | `relay/data/b533_*` `relay/tools/b533_*` |
+### | `tools/b533_kernel.py install` | `SIDE-explicit-formula/SIDEExplicitFormula/PowerWindow.lean`
+###   `SIDE-explicit-formula/AxiomCheckPower.lean` (both NEW) |
+### | `lake env lean -o` | `SIDE-explicit-formula/.lake/build/lib/lean/SIDEExplicitFormula/PowerWindow.*` (untracked) |
+### | `tools/terminal_table.py` (CARRIED, SHARED, UNEDITED) | `relay/data/terminal_table.json`
+###   `relay/data/terminal_table.md` `relay/data/terminal_table_prior.json`
+###   `relay/data/terminal_table_run.txt` `relay/data/terminal_table_diff.json` |
+### | `tools/corr_row.py` (CARRIED, UNEDITED) | `SIDE-global-section/CORRESPONDENCE.md` (one row) |
+### | `tools/ferry_scan.py` (redirected) | `relay/data/b533_ferry_scan.txt` |
+### | `tools/banned_terms.py`, `tools/reg_satisfiable.py` | `relay/data/audit_b533_*.txt` |
+### | `tools/gate_hash.py` | the four face-subject gate RECORDS, their stamp line only |
+### | `tools/reg_seal.py` | `relay/data/b533_registration_2026-09-25.txt` (its lock block only) |
+### | `tools/b363_span.py` | `relay/data/b533_span*.json` `relay/data/b533_span_notes*.txt` |
+### | `tools/mirror_build.ps1`, `tools/mirror_verify.py` | `D:/MY-DOwnloads/mirror-refresh-*-b533.zip`
+###   (outside every repository) `relay/data/b533_mirror.txt` |
+### | the trail append | `PLACE-papers/OPEN_TRAILS.md` (ONE append: this act`s record) |
+### ### The act`s tools, named: `b533_kernel.py` `b533_record.py` `b533_reg_gate.py` `b533_regspec.py` `b533_checks.py`
+### `b533_closing.py`.
+### ### **NO RELAY INSTRUMENT IS EDITED.** ### `ERRATA.md` is NOT written. ### No vendored `Zeta23` file and no existing
+### kernel module is touched.
+
+----------------------------------------------------------------------------------------------------
+### (Z) THE NOTHINGS.
+----------------------------------------------------------------------------------------------------
+### ### **THE LANE SHUTS AT THIS ACT`S CLOSE.** ### The kernel is not tagged. ### L7 and L8 are not started. ### The seam is
+### not attempted. ### No zero of zeta or of Z_Q0 is added or moved; no prior bank is rewritten. ### **NOTHING AT ZENODO IS
+### WRITTEN BY THE SEAT OUTSIDE (R110)**, and nothing inside it. ### Nothing deposits; nothing is filed to ERRATA. ### **NO
+### GRADE IS MOVED ON ANY OTHER ROW.** ### Row U1 is unedited. ### `h2` stays where the deposit left it. ### The four lists
+### stay OPEN. ### **AND NOTHING IN THIS ACT IS A STATEMENT ABOUT RH.**
+====================================================================================================
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : 19c77cb0027a982ed0916f44d108cf11c8428f442a9f1ec0f626caf60bc4c85f
+### bytes locked : 17060
+### locked at (UTC) : 2026-09-25T18:21:12Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b533_registration_2026-09-25.txt`.**
+====================================================================================================

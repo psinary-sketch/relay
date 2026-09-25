@@ -1,0 +1,181 @@
+### b533 PRE-SEAL PROBE 1 (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.RestBound
+import SIDEExplicitFormula.H2Bridge
+
+open Complex MeasureTheory
+
+-- kernel
+#check @SIDEExplicitFormula.B321.paperFT_ofReal_conj
+#check @SIDEExplicitFormula.B321.phiC_FT_neg
+#check @SIDEExplicitFormula.B321.weilTest_ofReal_even
+#check @Zeta23.EF.weilTest_contDiff
+#check @Zeta23.EF.weilTest_hasCompactSupport
+#check @Zeta23.EF.paperFT_weilTest
+#check @SIDEExplicitFormula.B321.hasCompactSupport_of_Icc
+#check @SIDEExplicitFormula.B321.support_iteratedDeriv_Icc
+#check @SIDEExplicitFormula.B321.paperFT_iteratedDeriv
+#check @SIDEExplicitFormula.B321.paperFT_decay
+#check @SIDEExplicitFormula.B321.plateau_contDiff
+#check @SIDEExplicitFormula.B321.plateau_even
+#check @SIDEExplicitFormula.B321.plateau_hasCompactSupport
+#check @SIDEExplicitFormula.B321.plateau_eq_one
+#check @SIDEExplicitFormula.B321.classK
+#check @Zeta23.RH_implies_on_line
+#check @Zeta23.zetaZeroConfig_carrier
+-- Mathlib
+#check @convolution_def
+#check @ContinuousLinearMap.mul_apply'
+#check @integral_ofReal
+#check @Complex.reCLM
+#check @iteratedDeriv_comp_neg
+#check @ContDiff.iterate_deriv
+#check @ContDiff.iteratedDeriv_right
+#check @iteratedDeriv_eq_iterate
+#check @Real.smoothTransition.nonneg
+#check @Continuous.integral_pos_of_hasCompactSupport_nonneg_nonzero
+#check @Complex.norm_exp_sub_one_le
+#check @integral_finset_sum
+#check @Complex.ofReal_sum
+#check @Set.exists_max_image
+#check @Set.Finite.subset
+#check @Lagrange.interpolate
+#check @Lagrange.interpolate_apply
+#check @Lagrange.eval_interpolate_at_node
+#check @Lagrange.eq_interpolate_of_eval_eq
+#check @Lagrange.degree_interpolate_lt
+#check @Polynomial.lifts_iff_coeff_lifts
+#check @Polynomial.lifts_iff_liftsRing
+#check @Polynomial.mem_lifts
+#check @Polynomial.eval_map
+#check @Polynomial.eval₂_at_apply
+#check @Polynomial.coeff_map
+#check @Polynomial.finset_sum_coeff
+#check @Polynomial.coeff_C_mul
+#check @Polynomial.map_injective
+#check @riemannZeta_one_sub
+#check @riemannZeta_ne_zero_of_one_le_re
+#check @norm_integral_le_integral_norm
+#check @integral_sub
+#check @Polynomial.eval_eq_sum_range
+#check @Polynomial.natDegree_lt_iff_degree_lt
+### output
+SIDEExplicitFormula.B321.paperFT_ofReal_conj : ∀ (f : ℝ → ℝ) (z : ℂ),
+  (starRingEnd ℂ) (Zeta23.paperFT (SIDEExplicitFormula.B321.phiC f) z) =
+    Zeta23.paperFT (SIDEExplicitFormula.B321.phiC f) (-(starRingEnd ℂ) z)
+@SIDEExplicitFormula.B321.phiC_FT_neg : ∀ {φ : ℝ → ℝ},
+  (∀ (x : ℝ), φ (-x) = φ x) →
+    ∀ (z : ℂ),
+      Zeta23.paperFT (SIDEExplicitFormula.B321.phiC φ) (-z) = Zeta23.paperFT (SIDEExplicitFormula.B321.phiC φ) z
+SIDEExplicitFormula.B321.weilTest_ofReal_even : ∀ (f : ℝ → ℝ) (x : ℝ),
+  Zeta23.EF.weilTest (fun u => ↑(f u)) (fun u => ↑(f u)) (-x) = Zeta23.EF.weilTest (fun u => ↑(f u)) (fun u => ↑(f u)) x
+@Zeta23.EF.weilTest_contDiff : ∀ {f g : ℝ → ℂ},
+  ContDiff ℝ 2 f → Continuous g → HasCompactSupport f → ContDiff ℝ 2 (Zeta23.EF.weilTest f g)
+@Zeta23.EF.weilTest_hasCompactSupport : ∀ {f g : ℝ → ℂ},
+  HasCompactSupport f → HasCompactSupport g → HasCompactSupport (Zeta23.EF.weilTest f g)
+@Zeta23.EF.paperFT_weilTest : ∀ {f g : ℝ → ℂ},
+  Continuous f →
+    Continuous g →
+      HasCompactSupport f →
+        HasCompactSupport g →
+          ∀ (z : ℂ),
+            Zeta23.paperFT (Zeta23.EF.weilTest f g) z =
+              Zeta23.paperFT f z * (starRingEnd ℂ) (Zeta23.paperFT g ((starRingEnd ℂ) z))
+@SIDEExplicitFormula.B321.hasCompactSupport_of_Icc : ∀ {g : ℝ → ℝ} {L : ℝ},
+  Function.support g ⊆ Set.Icc (-L) L → HasCompactSupport g
+SIDEExplicitFormula.B321.support_iteratedDeriv_Icc : ∀ (p : ℕ) {g : ℝ → ℝ} {L : ℝ},
+  Function.support g ⊆ Set.Icc (-L) L → Function.support (iteratedDeriv p g) ⊆ Set.Icc (-L) L
+SIDEExplicitFormula.B321.paperFT_iteratedDeriv : ∀ (p : ℕ) (g : ℝ → ℝ),
+  ContDiff ℝ (↑p) g →
+    HasCompactSupport g →
+      ∀ (z : ℂ),
+        Zeta23.paperFT (SIDEExplicitFormula.B321.phiC (iteratedDeriv p g)) z =
+          (-(I * z)) ^ p * Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z
+SIDEExplicitFormula.B321.paperFT_decay : ∀ (p : ℕ) {g : ℝ → ℝ} {L : ℝ},
+  ContDiff ℝ (↑p) g →
+    Function.support g ⊆ Set.Icc (-L) L →
+      ∀ (z : ℂ),
+        ‖Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) z‖ * ‖z‖ ^ p ≤
+          (∫ (u : ℝ), |iteratedDeriv p g u|) * Real.exp (L * |z.im|)
+SIDEExplicitFormula.B321.plateau_contDiff : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (n : ℕ∞),
+  ContDiff ℝ (↑n) (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL)
+SIDEExplicitFormula.B321.plateau_even : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ),
+  SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL (-x) = SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL x
+SIDEExplicitFormula.B321.plateau_hasCompactSupport : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L),
+  HasCompactSupport (SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL)
+SIDEExplicitFormula.B321.plateau_eq_one : ∀ (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ),
+  |x| ≤ (1 - F) * L → SIDEExplicitFormula.B321.plateau F L hF0 hF1 hL x = 1
+SIDEExplicitFormula.B321.classK : (ℝ → ℂ) → Prop
+Zeta23.RH_implies_on_line : RiemannHypothesis → ∀ {ρ : ℂ}, Zeta23.IsNontrivialZero ρ → ρ.re = 1 / 2
+Zeta23.zetaZeroConfig_carrier : Zeta23.zetaZeroConfig.carrier = {ρ | Zeta23.IsNontrivialZero ρ}
+@convolution_def : ∀ {𝕜 : Type u_1} {G : Type u_2} {E : Type u_3} {E' : Type u_4} {F : Type u_5}
+  [inst : NormedAddCommGroup E] [inst_1 : NormedAddCommGroup E'] [inst_2 : NormedAddCommGroup F] {f : G → E}
+  {g : G → E'} {x : G} [inst_3 : NontriviallyNormedField 𝕜] [inst_4 : NormedSpace 𝕜 E] [inst_5 : NormedSpace 𝕜 E']
+  [inst_6 : NormedSpace 𝕜 F] (L : E →L[𝕜] E' →L[𝕜] F) [inst_7 : MeasurableSpace G] {μ : Measure G}
+  [inst_8 : NormedSpace ℝ F] [inst_9 : Sub G], convolution f g L μ x = ∫ (t : G), (L (f t)) (g (x - t)) ∂μ
+ContinuousLinearMap.mul_apply' : ∀ (𝕜 : Type u_1) [inst : NontriviallyNormedField 𝕜] (R : Type u_2)
+  [inst_1 : NonUnitalSeminormedRing R] [inst_2 : NormedSpace 𝕜 R] [inst_3 : IsScalarTower 𝕜 R R]
+  [inst_4 : SMulCommClass 𝕜 R R] (x y : R), ((ContinuousLinearMap.mul 𝕜 R) x) y = x * y
+@integral_ofReal : ∀ {X : Type u_1} [inst : MeasurableSpace X] {μ : Measure X} {𝕜 : Type u_2} [inst_1 : RCLike 𝕜]
+  {f : X → ℝ}, ∫ (x : X), ↑(f x) ∂μ = ↑(∫ (x : X), f x ∂μ)
+reCLM : ℂ →L[ℝ] ℝ
+@iteratedDeriv_comp_neg : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] (n : ℕ) (f : 𝕜 → F) (a : 𝕜),
+  iteratedDeriv n (fun x => f (-x)) a = (-1) ^ n • iteratedDeriv n f (-a)
+@ContDiff.iterate_deriv : ∀ {𝕜 : Type u_1} {F : Type u_2} [inst : NontriviallyNormedField 𝕜]
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] (n : ℕ) {f : 𝕜 → F},
+  ContDiff 𝕜 (↑⊤) f → ContDiff 𝕜 (↑⊤) (deriv^[n] f)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:31:8: error(lean.unknownIdentifier): Unknown constant `ContDiff.iteratedDeriv_right`
+@iteratedDeriv_eq_iterate : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {F : Type u_2}
+  [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {n : ℕ} {f : 𝕜 → F}, iteratedDeriv n f = deriv^[n] f
+Real.smoothTransition.nonneg : ∀ (x : ℝ), 0 ≤ x.smoothTransition
+@Continuous.integral_pos_of_hasCompactSupport_nonneg_nonzero : ∀ {X : Type u_1} [inst : MeasurableSpace X]
+  [inst_1 : TopologicalSpace X] [OpensMeasurableSpace X] {μ : Measure X} [μ.IsOpenPosMeasure]
+  [IsFiniteMeasureOnCompacts μ] {f : X → ℝ} {x : X},
+  Continuous f → HasCompactSupport f → 0 ≤ f → f x ≠ 0 → 0 < ∫ (x : X), f x ∂μ
+@norm_exp_sub_one_le : ∀ {x : ℂ}, ‖x‖ ≤ 1 → ‖cexp x - 1‖ ≤ 2 * ‖x‖
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:36:8: warning: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+@integral_finset_sum : ∀ {α : Type u_1} {G : Type u_2} [inst : NormedAddCommGroup G] [inst_1 : NormedSpace ℝ G]
+  {m : MeasurableSpace α} {μ : Measure α} {ι : Type u_3} (s : Finset ι) {f : ι → α → G},
+  (∀ i ∈ s, Integrable (f i) μ) → ∫ (a : α), ∑ i ∈ s, f i a ∂μ = ∑ i ∈ s, ∫ (a : α), f i a ∂μ
+@ofReal_sum : ∀ {α : Type u_1} (s : Finset α) (f : α → ℝ), ↑(∑ i ∈ s, f i) = ∑ i ∈ s, ↑(f i)
+@Set.exists_max_image : ∀ {α : Type u_1} {β : Type u_2} [inst : LinearOrder β] (s : Set α) (f : α → β),
+  s.Finite → s.Nonempty → ∃ a ∈ s, ∀ b ∈ s, f b ≤ f a
+@Set.Finite.subset : ∀ {α : Type u_1} {s : Set α}, s.Finite → ∀ {t : Set α}, t ⊆ s → t.Finite
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:40:8: error(lean.unknownIdentifier): Unknown identifier `Lagrange.interpolate`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:41:8: error(lean.unknownIdentifier): Unknown identifier `Lagrange.interpolate_apply`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:42:8: error(lean.unknownIdentifier): Unknown identifier `Lagrange.eval_interpolate_at_node`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:43:8: error(lean.unknownIdentifier): Unknown identifier `Lagrange.eq_interpolate_of_eval_eq`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:44:8: error(lean.unknownIdentifier): Unknown identifier `Lagrange.degree_interpolate_lt`
+@Polynomial.lifts_iff_coeff_lifts : ∀ {R : Type u_1} [inst : Semiring R] {S : Type u_2} [inst_1 : Semiring S]
+  {f : R →+* S} (p : Polynomial S), p ∈ Polynomial.lifts f ↔ ∀ (n : ℕ), p.coeff n ∈ Set.range ⇑f
+@Polynomial.lifts_iff_liftsRing : ∀ {R : Type u_1} [inst : Ring R] {S : Type u_2} [inst_1 : Ring S] (f : R →+* S)
+  (p : Polynomial S), p ∈ Polynomial.lifts f ↔ p ∈ Polynomial.liftsRing f
+@Polynomial.mem_lifts : ∀ {R : Type u_1} [inst : Semiring R] {S : Type u_2} [inst_1 : Semiring S] {f : R →+* S}
+  (p : Polynomial S), p ∈ Polynomial.lifts f ↔ ∃ q, Polynomial.map f q = p
+@Polynomial.eval_map : ∀ {R : Type u_1} {S : Type u_2} [inst : Semiring R] {p : Polynomial R} [inst_1 : Semiring S]
+  (f : R →+* S) (x : S), Polynomial.eval x (Polynomial.map f p) = Polynomial.eval₂ f x p
+@Polynomial.eval₂_at_apply : ∀ {R : Type u_1} [inst : Semiring R] {p : Polynomial R} {S : Type u_2}
+  [inst_1 : Semiring S] (f : R →+* S) (r : R), Polynomial.eval₂ f (f r) p = f (Polynomial.eval r p)
+@Polynomial.coeff_map : ∀ {R : Type u_1} {S : Type u_2} [inst : Semiring R] {p : Polynomial R} [inst_1 : Semiring S]
+  (f : R →+* S) (n : ℕ), (Polynomial.map f p).coeff n = f (p.coeff n)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe1.lean:51:8: warning: `Polynomial.finset_sum_coeff` has been deprecated: Use `Polynomial.finsetSum_coeff` instead
+@Polynomial.finset_sum_coeff : ∀ {R : Type u_1} [inst : Semiring R] {ι : Type u_2} (s : Finset ι) (f : ι → Polynomial R)
+  (n : ℕ), (∑ b ∈ s, f b).coeff n = ∑ b ∈ s, (f b).coeff n
+@Polynomial.coeff_C_mul : ∀ {R : Type u_1} {a : R} {n : ℕ} [inst : Semiring R] (p : Polynomial R),
+  (Polynomial.C a * p).coeff n = a * p.coeff n
+@Polynomial.map_injective : ∀ {R : Type u_1} {S : Type u_2} [inst : Semiring R] [inst_1 : Semiring S] (f : R →+* S),
+  Function.Injective ⇑f → Function.Injective (Polynomial.map f)
+@riemannZeta_one_sub : ∀ {s : ℂ},
+  (∀ (n : ℕ), s ≠ -↑n) →
+    s ≠ 1 → riemannZeta (1 - s) = 2 * (2 * ↑Real.pi) ^ (-s) * Gamma s * cos (↑Real.pi * s / 2) * riemannZeta s
+riemannZeta_ne_zero_of_one_le_re : ∀ ⦃s : ℂ⦄, 1 ≤ s.re → riemannZeta s ≠ 0
+@norm_integral_le_integral_norm : ∀ {α : Type u_1} {G : Type u_2} [inst : NormedAddCommGroup G]
+  [inst_1 : NormedSpace ℝ G] {m : MeasurableSpace α} {μ : Measure α} (f : α → G),
+  ‖∫ (a : α), f a ∂μ‖ ≤ ∫ (a : α), ‖f a‖ ∂μ
+@integral_sub : ∀ {α : Type u_1} {G : Type u_2} [inst : NormedAddCommGroup G] [inst_1 : NormedSpace ℝ G]
+  {m : MeasurableSpace α} {μ : Measure α} {f g : α → G},
+  Integrable f μ → Integrable g μ → ∫ (a : α), f a - g a ∂μ = ∫ (a : α), f a ∂μ - ∫ (a : α), g a ∂μ
+@Polynomial.eval_eq_sum_range : ∀ {R : Type u_1} [inst : Semiring R] {p : Polynomial R} (x : R),
+  Polynomial.eval x p = ∑ i ∈ Finset.range (p.natDegree + 1), p.coeff i * x ^ i
+@Polynomial.natDegree_lt_iff_degree_lt : ∀ {R : Type u_1} {n : ℕ} [inst : Semiring R] {p : Polynomial R},
+  p ≠ 0 → (p.natDegree < n ↔ p.degree < ↑n)

@@ -1,0 +1,107 @@
+RULING (R143) BEGIN
+
+RULING (R143), the author's, ratified by this paste and
+strikeable: THE LAST STEP IS ATTEMPTED BEFORE ANY UPDATE.
+
+(1) The author's word on b532's two waiting items is: finish
+f4, then update. E-2026-09-25-1 stays drafted and not filed
+(relay data/b532_erratum_draft.md); the three (R110)
+description edits (relay data/b532_rows.txt, rows
+Z21520474-01, Z21520474-02, Z21539167-01) are not applied;
+the ceiling's next wording is not ruled. All three are
+written at the act after the attempt closes, whichever way
+it closes, and the wording they get depends on how it
+closes.
+
+(2) The dichotomy of (R140)'s component 4 - that f4 needs
+either H-MAX (a zero of maximal real part,
+RestBound.lean:389) or a sequence toward the supremum of
+real parts - is withdrawn as the wrong dichotomy. It was the
+navigator's. The supremum f4 needs is of |k^(gamma_rho)|
+over the zeros for one fixed window, and that supremum is
+attained: the transform vanishes at infinity along the
+closed strip (paperFT_decay, DecayBound.lean:63-64) and the
+zeros are locally finite (zetaZeroConfig_local_count,
+Zeta23/RvM/LocalCount.lean:310-311). `not_f4_needs`
+(RestBound.lean:360) stands as a theorem about the route
+that fixes the window's shape and grows its width; it is not
+an obstruction to the route below, which fixes the width and
+raises the window to a power.
+
+(3) The route is the classical proof of Weil's converse,
+stated in the kernel's own objects. For a real even window
+g, paperFT_weilTest (Zeta23/ExplicitFormula.lean:205-207)
+gives paperFT (weilTest g g) z = g^(z) * conj(g^(conj z)),
+and for real even g the second factor is g^(z) itself, so
+every zero term is m_rho * g^(z_rho)^2 with z_rho = gammaOf
+rho = gamma - i delta (Defs.lean:121). A zero term is
+negative exactly when g^(z_rho) is purely imaginary. The
+window is P(z) g_0^(z)^m: the m-fold self-convolution of one
+base window g_0 (transform g_0^(z)^m), then a real even
+polynomial P(z) = SUM a_j z^(2j) applied as the operator
+SUM a_j (-1)^j D^(2j) (paperFT_iteratedDeriv,
+DecayBound.lean:46-47). P does two jobs: it vanishes at the
+finitely many on-line zeros whose |g_0^| is at least the
+dominant off-line value, and it fixes the phase at the
+dominant off-line zeros so their terms are negative real.
+As m grows, the dominant terms win by dominated convergence
+over the zero sum, and zeroSide k has negative real part;
+b321_identity (B321Identity.lean:44-46) carries the sign to
+poleTerm k - primeSum k + archTerm k, and h2_sign fails.
+
+(4) The converse lands on the strip form, rh_strip: every
+rho in zetaZeroConfig.carrier has rho.re = 1/2. The passage
+from rh_strip to Mathlib's RiemannHypothesis is the seam
+Zeta23/Statement.lean:50-52 records as not in the kernel
+(every Mathlib-nontrivial zero lies in the open strip). That
+seam is probed at this act and priced, not attempted; its
+status is printed beside the result.
+
+(5) The attempt is two acts. b533 builds the window and the
+dominant zero (L1-L6 below); b534 takes the limit and
+assembles (L7-L8). Halt rule per lemma: two attempts, then
+the lemma is stated as a Prop with its blocker printed, and
+the act continues to the next lemma. A halted lemma is a
+named work-order, not a closed finding.
+
+RULING (R143) END
+
+FERRY BEGIN — paste for Claude Code (part 1 of 1; confirm receipt-in-full)
+
+ACT b533 - W-ORD-WEIL-CONVERSE f4, THE POWER-WINDOW ROUTE, ACT ONE OF TWO, under (R143).
+
+Read before anything: SIDEExplicitFormula/H2Sign.lean (classK at :23-26, h2_sign at :29-31), RHChain.lean (h2_sign_imp_rh at :83, the docstring above it), RestBound.lean (its header, finite_rest_bound at :207-210, fiber_count at :192, not_f4_needs at :360, HMax at :389), DecayBound.lean (paperFT_iteratedDeriv at :46-47, paperFT_decay at :63-64), TwoPropertyWindow.lean (plateau at :56-57, plateau_contDiff at :60, plateau_even at :69), B321Identity.lean (zeroSide at :24-26, b321_identity at :44-46), Zeta23/ExplicitFormula.lean (weilTest at :68, paperFT_weilTest at :205-207), Zeta23/Defs.lean (paperFT at :60, gammaOf at :121), Zeta23/Statement.lean:46-54, Zeta23/RvM/LocalCount.lean:310-311. Every lemma below names the kernel objects it consumes; if a name does not resolve, print the #check and stop that lemma, do not substitute.
+
+Conventions, read from the files: paperFT f z = INT f(u) exp(i z u) du. gammaOf rho = (rho - 1/2)/i, so rho = 1/2 + delta + i gamma gives gammaOf rho = gamma - i delta. paperFT (g^(p)) z = (-(i z))^p paperFT g z, so paperFT (g'') z = -(z^2) paperFT g z. All new declarations are `theorem`, never `lemma` (SPIRAL_MAP section 7 rule 9) [procedural]. New module: SIDEExplicitFormula/PowerWindow.lean, importing RestBound and H2Bridge, header in the house form naming this act and (R143).
+
+L1 - THE ZERO TERM OF A REAL EVEN WINDOW.
+theorem paperFT_conj_of_real_even : for g : R -> R even, continuous, compactly supported, and every z : C, conj (paperFT (phiC g) (conj z)) = paperFT (phiC g) z. Then
+theorem zero_term_sq : paperFT (weilTest (phiC g) (phiC g)) z = (paperFT (phiC g) z)^2, from paperFT_weilTest and the above.
+Expectation (N1): both compile at the standard three.
+
+L2 - CLASS MEMBERSHIP OF weilTest OF A REAL EVEN WINDOW.
+theorem weilTest_even_of_even : g even (and the hypotheses weilTest needs) gives weilTest (phiC g) (phiC g) even.
+theorem classK_of_real_even : g : R -> R even, ContDiff R 2, compact support, gives classK (weilTest (phiC g) (phiC g)). Read classK's four conjuncts at H2Sign.lean:23-26 and discharge each by name; the ContDiff of the convolution is Mathlib's HasCompactSupport.contDiff_convolution_left or its right-hand twin, whichever the kernel's weilTest orientation wants.
+
+L3 - THE POWERS. Define selfConv g := weilTest (phiC g) (phiC g) read back as a real function (its imaginary part is zero for real g: state and prove `selfConv_im_zero`), and power g j := selfConv iterated j times, so power g j has transform (paperFT (phiC g))^(2^j) (theorem paperFT_power, by induction on j from L1), is even, is ContDiff R n whenever g is (theorem power_contDiff), and is supported in [-2^j L, 2^j L] when g is supported in [-L, L] (theorem power_support). Powers of two are all this route needs; do not build general m.
+
+L4 - THE POLYNOMIAL OPERATOR. For a list of real coefficients a : List R define polyOp a g := SUM_j a_j (-1)^j iteratedDeriv (2 j) g, and theorem paperFT_polyOp : paperFT (phiC (polyOp a g)) z = (SUM_j a_j z^(2 j)) * paperFT (phiC g) z, for g ContDiff R (2 * a.length) with compact support, from paperFT_iteratedDeriv. State polyOp_even (even in, even out), polyOp_contDiff, polyOp_support (support unchanged).
+
+L5 - THE BASE WINDOW AND THE DOMINANT ZERO. Base: g_0 = plateau F L (any fixed F, say 1/2) at a width L to be chosen; it is even (plateau_even), smooth (plateau_contDiff), nonnegative, supported in [-L, L], with INT g_0 > 0.
+theorem base_nonzero_at : for every z : C there is L_0 > 0 such that for every 0 < L <= L_0, paperFT (phiC (plateau F L)) z /= 0. Route: paperFT (phiC (plateau F L)) z = L * INT plateau F 1 (v) exp(i L z v) dv by the change of variable u = L v, and the integral tends to INT plateau F 1 > 0 as L -> 0 by dominated convergence (the integrand is bounded by plateau F 1 (v) * exp(|z| ) on [-1, 1] for L <= 1); so it is nonzero for small L. No decay bound and no bound on Im rho is used here.
+Then, for the zero configuration Z = zetaZeroConfig and an off-line zero rho_1 in its carrier (rho_1.re /= 1/2), choose L by base_nonzero_at at z = gammaOf rho_1, and define offScore rho := ‖paperFT (phiC g_0) (gammaOf rho)‖.
+theorem off_finite_above : for every c > 0 the set of rho in the carrier with offScore rho >= c is finite. Route: paperFT_decay at p = 4 with |Im (gammaOf rho)| <= 1/2 bounds offScore rho by A e^(L/2) / ‖gammaOf rho‖^4, so offScore rho >= c forces ‖gammaOf rho‖ bounded, hence |rho.im| bounded, hence rho in finitely many unit intervals, each with finitely many zeros (fiber_count and the local count, as finite_rest_bound already groups them - reuse that grouping, do not rebuild it).
+theorem dominant_exists : there is rho_* in the carrier, off-line, with offScore rho_* > 0 and offScore rho <= offScore rho_* for every off-line rho in the carrier. Route: the off-line zeros with offScore >= offScore rho_1 form a finite nonempty set (off_finite_above at c = offScore rho_1 > 0); take Finset.exists_max_image.
+Define M := offScore rho_*, tieSet := the off-line zeros with offScore = M (finite, nonempty), killSet := the on-line zeros with offScore >= M (finite by off_finite_above). Print the two definitions and the finiteness theorems' names.
+
+L6 - THE INTERPOLANT. theorem real_even_interpolant : for a finite set of nodes w_1..w_r in C, pairwise distinct and none real, closed under conjugation, and target values c_1..c_r with c(conj w) = conj (c w), together with a finite set of real numbers x_1..x_s to vanish at, there are real coefficients a (a list) with SUM_j a_j w^j = c(w) at every node, SUM_j a_j x_i^j = 0 at every x_i, and the coefficient vector bounded by a constant depending on the nodes and the x_i but not on the targets when the targets have modulus at most 1. Route: Lagrange interpolation over the node set together with the x_i (targets 0 there), in the variable w = z^2; real coefficients follow because the node set and the data are conjugation-symmetric; the bound is the operator norm of the fixed interpolation map. This lemma is pure algebra over C and R and consumes nothing from Zeta23. Nodes for the act after: w = (gammaOf rho)^2 for one representative rho of each pair {rho, 1 - rho} in tieSet (their squares agree), and x = (gammaOf rho)^2 for rho in killSet (real, since on-line). State, at the end of this act and not proved, the Prop `nodes_distinct_nonreal` : distinct representatives of tieSet have distinct nonreal squares, with the one-line reason printed (gammaOf rho is nonreal for off-line rho; (gammaOf rho)^2 = (gammaOf rho')^2 forces rho' in {rho, 1 - rho}).
+
+THE SEAM (R143)(4), probed. Print `#check @riemannZeta_ne_zero_of_one_le_re` and search Mathlib for the left half-plane statement (zeros with re <= 0 are the trivial zeros): name it if it exists, print ABSENT if not. Then define rh_strip : Prop := for all rho in zetaZeroConfig.carrier, rho.re = 1/2, and theorem rh_imp_rh_strip : RiemannHypothesis -> rh_strip (from RH_implies_on_line and zetaZeroConfig_carrier). The reverse is the seam; it is stated as a Prop `rh_strip_imp_rh`, not proved, with the two Mathlib names (or ABSENT) beside it.
+
+NOT THIS ACT: L7 (the limit: Re of the normalized zero sum tends to a negative number as j grows, by tendsto_tsum_of_dominated_convergence with the dominant built from paperFT_decay and the unit-interval grouping) and L8 (assembly: not rh_strip -> exists k in classK with (zeroSide k).re < 0 -> not h2_sign, hence h2_sign -> rh_strip). They are b534's. Do not start them.
+
+THE NAVIGATOR'S EXPECTATIONS, each refutable by a printed line: (N1) L1 and L2 compile at the standard three at attempt one or two. (N2) base_nonzero_at compiles without any bound on the ordinate of rho_1 and without paperFT_decay. (N3) dominant_exists compiles and its statement quantifies over off-line zeros of the carrier, with rho_* off-line in the conclusion. (N4) the seam probe prints one Mathlib name for the right half-plane and prints ABSENT or a name for the left; the act does not prove rh_strip_imp_rh. (N5) not_f4_needs and HMax are untouched. (N6) nothing deposits; ERRATA.md untouched; nothing written at Zenodo; h2 where the deposit left it.
+
+Halt rule (R143)(5). Foreground compiles [procedural]. #print axioms on every new theorem; grade by statement, not profile. Record, correspondence row, trail record in the house form; the span since b525's fold is b526-b533, eight. Nothing deposits.
+
+FERRY END (part 1 of 1)

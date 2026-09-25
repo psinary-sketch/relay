@@ -4,18 +4,18 @@
  "repos_named": 44,
  "repos_with_git": 44,
  "ledgers": 97,
- "grade_cells": 195,
- "grade_cells_loose_v1": 1062,
- "grade_cells_v2": 259,
- "grade_cells_v3": 204,
+ "grade_cells": 210,
+ "grade_cells_loose_v1": 1106,
+ "grade_cells_v2": 281,
+ "grade_cells_v3": 219,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 1085,
-  "not_profiled": 376,
-  "ungraded": 1007,
+  "rows": 1119,
+  "not_profiled": 410,
+  "ungraded": 1027,
   "conflict": 10,
   "encodes": 6,
   "ledger_names_unresolved": 19,
@@ -29,6 +29,18 @@
    ],
    [
     "SIDE-explicit-formula",
+    "base_nonzero_at"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "classK_of_real_even"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "dominant_exists"
+   ],
+   [
+    "SIDE-explicit-formula",
     "h2_sign_imp_cell"
    ],
    [
@@ -38,6 +50,10 @@
    [
     "SIDE-explicit-formula",
     "nearInt_ge"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "off_finite_above"
    ],
    [
     "SIDE-explicit-formula",
@@ -57,6 +73,10 @@
    ],
    [
     "SIDE-explicit-formula",
+    "paperFT_conj_of_real_even"
+   ],
+   [
+    "SIDE-explicit-formula",
     "paperFT_growth"
    ],
    [
@@ -65,11 +85,31 @@
    ],
    [
     "SIDE-explicit-formula",
+    "paperFT_polyOp"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "paperFT_power"
+   ],
+   [
+    "SIDE-explicit-formula",
     "paperFT_window"
    ],
    [
     "SIDE-explicit-formula",
     "paperFT_window_zero"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "power_contDiff"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "power_support"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "real_even_interpolant"
    ],
    [
     "SIDE-explicit-formula",
@@ -94,6 +134,22 @@
    [
     "SIDE-explicit-formula",
     "rh_imp_h2_sign"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "rh_imp_rh_strip"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "selfConv_im_zero"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "weilTest_even_of_even"
+   ],
+   [
+    "SIDE-explicit-formula",
+    "zero_term_sq"
    ],
    [
     "SIDE-global-section",
@@ -1694,7 +1750,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Finset",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1725,7 +1781,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.b321_identity",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1748,7 +1804,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.balance_lemma",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1770,8 +1826,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.base_nonzero_at",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) :\n    ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "IVES ; `power_support` DERIVES ; `paperFT_polyOp` DERIVES ; `base_nonzero_at` DERIVES ; `off_finite_above` DERIVES ; `dominant_exists` DERIVES ;"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_iff_rh",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1794,7 +1881,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_imp_config",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1817,7 +1904,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_imp_h2_sign",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1840,7 +1927,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ch_imp_rh",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1862,8 +1949,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.classK_of_real_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem classK_of_real_even {g : ℝ → ℝ} (hg : ContDiff ℝ 2 g) (hs : HasCompactSupport g) :\n    classK (Zeta23.EF.weilTest (phiC g) (phiC g))",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "`zero_term_sq` DERIVES ; `weilTest_even_of_even` DERIVES ; `classK_of_real_even` DERIVES ; `selfConv_im_zero` DERIVES ; `paperFT_power` DERIVES ; `p"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWinC_FT",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1886,7 +2004,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWinC_FT_near_far",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1909,7 +2027,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWin_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1932,7 +2050,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosWin_support_Icc",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1955,7 +2073,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.cosh_le_exp_abs",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -1977,8 +2095,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.dominant_exists",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2)\n    (hpos : 0 < offScore g ρ₁) :\n    ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧\n      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "; `base_nonzero_at` DERIVES ; `off_finite_above` DERIVES ; `dominant_exists` DERIVES ; `real_even_interpolant` DERIVES ; `rh_imp_rh_strip` DERIV"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.f4_needs_of_half_le",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2001,7 +2150,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.farFT_conj",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2024,7 +2173,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.fiber_count",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2047,7 +2196,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.finite_rest_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2070,7 +2219,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_im'",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2093,7 +2242,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_re'",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2116,7 +2265,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_reflect_rhoZero",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2139,7 +2288,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.gammaOf_rhoZero",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2162,7 +2311,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_cell",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2200,7 +2349,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.h2_sign_imp_ch_iff",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2223,7 +2372,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.hasCompactSupport_of_Icc",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2246,7 +2395,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.ibp_step",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2268,8 +2417,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.iteratedDeriv_even_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem iteratedDeriv_even_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (j : ℕ) (x : ℝ) :\n    iteratedDeriv (2 * j) g (-x) = iteratedDeriv (2 * j) g x",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWin_FT",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2292,7 +2464,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWin_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2315,7 +2487,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.kWin_classK",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2345,8 +2517,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.killSet_finite",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem killSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) {M : ℝ} (hM : 0 < M) : (killSet Z g M).Finite",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.nearInt_ge",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2377,7 +2572,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.nearPair_eq",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2399,8 +2594,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.neg_one_pow_mul_iz_pow",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem neg_one_pow_mul_iz_pow (z : ℂ) (j : ℕ) : (-1 : ℂ) ^ j * (-(I * z)) ^ (2 * j) = z ^ (2 * j)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.not_f4_needs",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2422,8 +2640,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.off_finite_above",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) :\n    {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "ES ; `paperFT_polyOp` DERIVES ; `base_nonzero_at` DERIVES ; `off_finite_above` DERIVES ; `dominant_exists` DERIVES ; `real_even_interpolant` DERIV"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pairTwo_factored",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2454,7 +2703,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pairTwo_near_far",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2485,7 +2734,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pair_algebra",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2508,7 +2757,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pair_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2539,7 +2788,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.pair_near_sign",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2569,8 +2818,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.paperFT_conj_of_real_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem paperFT_conj_of_real_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :\n    conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) z",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "`paperFT_conj_of_real_even` DERIVES ; `zero_term_sq` DERIVES ; `weilTest_even_of_even` DERIVES"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_decay",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2593,7 +2873,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_decay_re",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2616,7 +2896,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_decay_zero",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2639,7 +2919,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_growth",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2677,7 +2957,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_growth_at",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2715,7 +2995,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_iteratedDeriv",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2738,7 +3018,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_ofReal_conj",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2760,8 +3040,70 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.paperFT_polyOp",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem paperFT_polyOp (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ (2 * a.length) g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :\n    Zeta23.paperFT (phiC (polyOp a g)) z = polyEval a z * Zeta23.paperFT (phiC g) z",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "IVES ; `power_contDiff` DERIVES ; `power_support` DERIVES ; `paperFT_polyOp` DERIVES ; `base_nonzero_at` DERIVES ; `off_finite_above` DERIVES ;"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.paperFT_power",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :\n    ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j)\n  | 0 => by\n    show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0)\n    rw [pow_zero, pow_one]\n  | j + 1 => by\n    show Zeta23.paperFT (phiC (selfConv (power g j))) z = _\n    rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous\n      (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ]",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "classK_of_real_even` DERIVES ; `selfConv_im_zero` DERIVES ; `paperFT_power` DERIVES ; `power_contDiff` DERIVES ; `power_support` DERIVES ; `pap"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_second_order",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2783,8 +3125,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.paperFT_sum",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem paperFT_sum {ι : Type*} (s : Finset ι) (c : ι → ℝ) (f : ι → ℝ → ℝ)\n    (hc : ∀ j ∈ s, Continuous (f j)) (hs : ∀ j ∈ s, HasCompactSupport (f j)) (z : ℂ) :\n    Zeta23.paperFT (phiC (fun u => ∑ j ∈ s, c j * f j u)) z = ∑ j ∈ s, (c j : ℂ) * Zeta23.paperFT (phiC (f j)) z",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_window",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2815,7 +3180,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.paperFT_window_zero",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2846,7 +3211,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.phiC_FT_imag",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2869,7 +3234,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.phiC_FT_neg",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2891,8 +3256,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.phiC_selfConv",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem phiC_selfConv (g : ℝ → ℝ) : phiC (selfConv g) = Zeta23.EF.weilTest (phiC g) (phiC g)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_apply_abs",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2915,7 +3303,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_contDiff",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2937,8 +3325,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.plateau_dominant",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier)\n    (hoff : ρ₁.re ≠ 1 / 2) :\n    ∃ (L : ℝ) (hL : 0 < L), ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore (plateau F L hF0 hF1 hL) ρs ∧\n      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore (plateau F L hF0 hF1 hL) ρ ≤ offScore (plateau F L hF0 hF1 hL) ρs",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_eq_one",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2961,7 +3372,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_even",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -2984,7 +3395,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.plateau_hasCompactSupport",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3006,8 +3417,262 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.plateau_integral_pos",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem plateau_integral_pos (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :\n    0 < ∫ u, plateau F L hF0 hF1 hL u",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.plateau_nonneg",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem plateau_nonneg (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) : 0 ≤ plateau F L hF0 hF1 hL x",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.plateau_support_Icc",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem plateau_support_Icc (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :\n    Function.support (plateau F L hF0 hF1 hL) ⊆ Set.Icc (-L) L",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.polyOp_contDiff",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem polyOp_contDiff (a : List ℝ) {g : ℝ → ℝ} (hg : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g) :\n    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (polyOp a g)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.polyOp_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem polyOp_even (a : List ℝ) {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (x : ℝ) : polyOp a g (-x) = polyOp a g x",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.polyOp_support",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem polyOp_support (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    Function.support (polyOp a g) ⊆ Set.Icc (-L) L",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.power_contDiff",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem power_contDiff {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) : ∀ j, ContDiff ℝ n (power g j)\n  | 0 => hg\n  | j + 1 => selfConv_contDiff (power_contDiff hg hs j) (hasCompactSupport_of_Icc (power_support hs j))",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "ES ; `selfConv_im_zero` DERIVES ; `paperFT_power` DERIVES ; `power_contDiff` DERIVES ; `power_support` DERIVES ; `paperFT_polyOp` DERIVES ; `bas"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.power_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem power_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) : ∀ j x, power g j (-x) = power g j x\n  | 0, x => hev x\n  | j + 1, x => selfConv_even (power g j) x",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.power_support",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)\n  | 0 => by\n    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)\n    simpa only [pow_zero, one_mul] using hs\n  | j + 1 => by\n    intro x hx\n    have h",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "IVES ; `paperFT_power` DERIVES ; `power_contDiff` DERIVES ; `power_support` DERIVES ; `paperFT_polyOp` DERIVES ; `base_nonzero_at` DERIVES ; `o"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.real_even_interpolant",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) :\n    ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) →\n      ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧\n        ∀ j, |Q.coeff j| ≤ C",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "; `off_finite_above` DERIVES ; `dominant_exists` DERIVES ; `real_even_interpolant` DERIVES ; `rh_imp_rh_strip` DERIVES -- each by statement-read again"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.realizedGrowth_eq",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3030,7 +3695,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.realizedGrowth_ge_one",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3061,7 +3726,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.realizedGrowth_le_exp",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3084,7 +3749,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.restR_nonneg",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3107,7 +3772,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3152,7 +3817,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_bound_closed",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3183,7 +3848,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_bound_zeta",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3228,7 +3893,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rest_le_of_finite",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3251,7 +3916,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_cell_form",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3289,7 +3954,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_ch",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3312,7 +3977,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.rh_imp_h2_sign",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3349,8 +4014,169 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.rh_imp_rh_strip",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "PLACE-papers/OPEN_TRAILS.md",
+     "line": 10843,
+     "act": null,
+     "quote": "_finite_above`, `dominant_exists`, `real_even_interpolant`, `rh_imp_rh_strip` DERIVES. `power_contDiff` and `paperFT_power` carry the"
+    },
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "ominant_exists` DERIVES ; `real_even_interpolant` DERIVES ; `rh_imp_rh_strip` DERIVES -- each by statement-read against the ferry`s model stateme"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.selfConv_contDiff",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem selfConv_contDiff {g : ℝ → ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g) (hs : HasCompactSupport g) :\n    ContDiff ℝ n (selfConv g)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.selfConv_eq",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem selfConv_eq (g : ℝ → ℝ) (x : ℝ) : selfConv g x = ∫ t, g t * g (t - x)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.selfConv_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem selfConv_even (g : ℝ → ℝ) (x : ℝ) : selfConv g (-x) = selfConv g x",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.selfConv_im_zero",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem selfConv_im_zero (g : ℝ → ℝ) (x : ℝ) : (Zeta23.EF.weilTest (phiC g) (phiC g) x).im = 0",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "est_even_of_even` DERIVES ; `classK_of_real_even` DERIVES ; `selfConv_im_zero` DERIVES ; `paperFT_power` DERIVES ; `power_contDiff` DERIVES ; `pow"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.selfConv_support",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem selfConv_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    Function.support (selfConv g) ⊆ Set.Icc (-(2 * L)) (2 * L)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.summable_zeta3",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3373,7 +4199,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.support_deriv_Icc",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3396,7 +4222,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.support_iteratedDeriv_Icc",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3418,8 +4244,54 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.tieSet_finite",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem tieSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) {M : ℝ} (hM : 0 < M) : (tieSet Z g M).Finite",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.tieSet_nonempty",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem tieSet_nonempty (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (ρs : ℂ) (h : ρs ∈ Z.carrier) (hoff : ρs.re ≠ 1 / 2) :\n    (tieSet Z g (offScore g ρs)).Nonempty",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.two_delta_lt_one",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3442,7 +4314,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weight_ineq",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3464,8 +4336,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.weilTest_even_of_even",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem weilTest_even_of_even (g : ℝ → ℝ) (x : ℝ) :\n    Zeta23.EF.weilTest (phiC g) (phiC g) (-x) = Zeta23.EF.weilTest (phiC g) (phiC g) x",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "perFT_conj_of_real_even` DERIVES ; `zero_term_sq` DERIVES ; `weilTest_even_of_even` DERIVES ; `classK_of_real_even` DERIVES ; `selfConv_im_zero` DERIVE"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.weilTest_ofReal_even",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3487,8 +4390,31 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.weilTest_phiC",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem weilTest_phiC (g : ℝ → ℝ) (x : ℝ) :\n    Zeta23.EF.weilTest (phiC g) (phiC g) x = ((∫ t, g t * g (t - x) : ℝ) : ℂ)",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "UNGRADED",
+   "grade_cells": [],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.windowSlope_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3511,7 +4437,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.window_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3534,7 +4460,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.window_decay_re",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3557,7 +4483,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zero_term_bound",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3579,8 +4505,39 @@
   },
   {
    "repo": "SIDE-explicit-formula",
+   "name": "SIDEExplicitFormula.B321.zero_term_sq",
+   "head": "f42102fb3b9e",
+   "pin": null,
+   "pin_sha": null,
+   "pin_cell": null,
+   "refs": [
+    "HEAD"
+   ],
+   "present_at": [
+    "HEAD"
+   ],
+   "statement": "theorem zero_term_sq {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) :\n    Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z = (Zeta23.paperFT (phiC g) z) ^ 2",
+   "statement_file": "SIDEExplicitFormula/PowerWindow.lean",
+   "statement_state": "RESOLVED",
+   "profile": "NOT PROFILED",
+   "profile_state": "NOT PROFILED",
+   "profile_source": null,
+   "grade": "DERIVES",
+   "grade_cells": [
+    {
+     "grade": "DERIVES",
+     "ledger": "SIDE-global-section/CORRESPONDENCE.md",
+     "line": 455,
+     "act": "b533",
+     "quote": "`paperFT_conj_of_real_even` DERIVES ; `zero_term_sq` DERIVES ; `weilTest_even_of_even` DERIVES ; `classK_of_real_even` D"
+    }
+   ],
+   "conflict": null
+  },
+  {
+   "repo": "SIDE-explicit-formula",
    "name": "SIDEExplicitFormula.B321.zeta3Sum_nonneg",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3603,7 +4560,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Zeta23.EF.EF_lit",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3626,7 +4583,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Zeta23.WeilEF.EF_lit_zeta",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3649,7 +4606,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "Zeta23.WeilEF.EF_lit_zetaZeroConfig",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,
@@ -3687,7 +4644,7 @@
   {
    "repo": "SIDE-explicit-formula",
    "name": "farSmall",
-   "head": "7224b8711c24",
+   "head": "f42102fb3b9e",
    "pin": null,
    "pin_sha": null,
    "pin_cell": null,

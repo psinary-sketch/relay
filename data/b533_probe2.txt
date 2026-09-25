@@ -1,0 +1,97 @@
+### b533 PRE-SEAL PROBE 2 (standing practice, (R141)(2)) -- source
+import SIDEExplicitFormula.RestBound
+import SIDEExplicitFormula.H2Bridge
+import Mathlib.LinearAlgebra.Lagrange
+
+open Complex MeasureTheory
+
+#check @Lagrange.interpolate
+#check @Lagrange.interpolate_apply
+#check @Lagrange.eval_interpolate_at_node
+#check @Lagrange.eq_interpolate_of_eval_eq
+#check @Lagrange.degree_interpolate_lt
+#check @Lagrange.basis
+#check @HasCompactSupport.contDiff_convolution_left
+#check @HasCompactSupport.contDiff_convolution_right
+#check @Continuous.locallyIntegrable
+#check @Complex.conj_eq_iff_re
+#check @Polynomial.degree_map
+#check @Polynomial.coeff_eq_zero_of_degree_lt
+#check @norm_sum_le
+#check @Set.injOn_id
+#check @integral_finsetSum
+#check @Polynomial.finsetSum_coeff
+#check @Zeta23.EF.tilde
+#check @SIDEExplicitFormula.B321.continuous_tilde
+#check @Zeta23.EF.continuous_tilde
+example (g : ℝ → ℝ) (h : ContDiff ℝ ((4 : ℕ∞) : WithTop ℕ∞) g) : ContDiff ℝ 4 g := by exact_mod_cast h
+example (j n : ℕ) (h : 2 * j ≤ 2 * n) : ((2 * j : ℕ) : WithTop ℕ∞) ≤ ((2 * n : ℕ) : WithTop ℕ∞) := by exact_mod_cast h
+example (f : ℝ → ℂ) (x : ℝ) (h : 0 = 0) : True := by
+  have key : (fun j : ℕ => (j : ℝ)) 3 = 3 := by norm_num
+  beta_reduce at key
+  trivial
+### output
+@Lagrange.interpolate : {F : Type u_1} →
+  [inst : Field F] → {ι : Type u_2} → [DecidableEq ι] → Finset ι → (ι → F) → (ι → F) →ₗ[F] Polynomial F
+@Lagrange.interpolate_apply : ∀ {F : Type u_1} [inst : Field F] {ι : Type u_2} [inst_1 : DecidableEq ι] (s : Finset ι)
+  (v r : ι → F), (Lagrange.interpolate s v) r = ∑ i ∈ s, Polynomial.C (r i) * Lagrange.basis s v i
+@Lagrange.eval_interpolate_at_node : ∀ {F : Type u_1} [inst : Field F] {ι : Type u_2} [inst_1 : DecidableEq ι]
+  {s : Finset ι} {i : ι} {v : ι → F} (r : ι → F),
+  Set.InjOn v ↑s → i ∈ s → Polynomial.eval (v i) ((Lagrange.interpolate s v) r) = r i
+@Lagrange.eq_interpolate_of_eval_eq : ∀ {F : Type u_1} [inst : Field F] {ι : Type u_2} [inst_1 : DecidableEq ι]
+  {s : Finset ι} {v : ι → F} (r : ι → F) {f : Polynomial F},
+  Set.InjOn v ↑s → f.degree < ↑s.card → (∀ i ∈ s, Polynomial.eval (v i) f = r i) → f = (Lagrange.interpolate s v) r
+@Lagrange.degree_interpolate_lt : ∀ {F : Type u_1} [inst : Field F] {ι : Type u_2} [inst_1 : DecidableEq ι]
+  {s : Finset ι} {v : ι → F} (r : ι → F), Set.InjOn v ↑s → ((Lagrange.interpolate s v) r).degree < ↑s.card
+@Lagrange.basis : {F : Type u_1} →
+  [inst : Field F] → {ι : Type u_2} → [DecidableEq ι] → Finset ι → (ι → F) → ι → Polynomial F
+@HasCompactSupport.contDiff_convolution_left : ∀ {𝕜 : Type u_1} {G : Type u_2} {E : Type u_3} {E' : Type u_4}
+  {F : Type u_5} [inst : NormedAddCommGroup E] [inst_1 : NormedAddCommGroup E'] [inst_2 : NormedAddCommGroup F]
+  {f : G → E} {g : G → E'} [inst_3 : RCLike 𝕜] [inst_4 : NormedSpace 𝕜 E] [inst_5 : NormedSpace 𝕜 E']
+  [inst_6 : NormedSpace ℝ F] [inst_7 : NormedSpace 𝕜 F] [inst_8 : MeasurableSpace G] [inst_9 : NormedAddCommGroup G]
+  [BorelSpace G] [inst_11 : NormedSpace 𝕜 G] {μ : Measure G} (L : E →L[𝕜] E' →L[𝕜] F) [μ.IsAddLeftInvariant]
+  [μ.IsNegInvariant] {n : ℕ∞},
+  HasCompactSupport f → ContDiff 𝕜 (↑n) f → LocallyIntegrable g μ → ContDiff 𝕜 (↑n) (convolution f g L μ)
+@HasCompactSupport.contDiff_convolution_right : ∀ {𝕜 : Type u_1} {G : Type u_2} {E : Type u_3} {E' : Type u_4}
+  {F : Type u_5} [inst : NormedAddCommGroup E] [inst_1 : NormedAddCommGroup E'] [inst_2 : NormedAddCommGroup F]
+  {f : G → E} {g : G → E'} [inst_3 : RCLike 𝕜] [inst_4 : NormedSpace 𝕜 E] [inst_5 : NormedSpace 𝕜 E']
+  [inst_6 : NormedSpace ℝ F] [inst_7 : NormedSpace 𝕜 F] [inst_8 : MeasurableSpace G] [inst_9 : NormedAddCommGroup G]
+  [BorelSpace G] [inst_11 : NormedSpace 𝕜 G] {μ : Measure G} (L : E →L[𝕜] E' →L[𝕜] F) {n : ℕ∞},
+  HasCompactSupport g → LocallyIntegrable f μ → ContDiff 𝕜 (↑n) g → ContDiff 𝕜 (↑n) (convolution f g L μ)
+@Continuous.locallyIntegrable : ∀ {X : Type u_1} {E : Type u_2} [inst : MeasurableSpace X] [inst_1 : TopologicalSpace X]
+  [inst_2 : NormedAddCommGroup E] {μ : Measure X} [OpensMeasurableSpace X] {f : X → E} [IsLocallyFiniteMeasure μ]
+  [SecondCountableTopologyEither X E], Continuous f → LocallyIntegrable f μ
+@conj_eq_iff_re : ∀ {z : ℂ}, (starRingEnd ℂ) z = z ↔ ↑z.re = z
+@Polynomial.degree_map : ∀ {R : Type u_1} {S : Type u_2} [inst : Ring R] [IsSimpleRing R] [inst_2 : Semiring S]
+  [Nontrivial S] (p : Polynomial R) (f : R →+* S), (Polynomial.map f p).degree = p.degree
+@Polynomial.coeff_eq_zero_of_degree_lt : ∀ {R : Type u_1} {n : ℕ} [inst : Semiring R] {p : Polynomial R},
+  p.degree < ↑n → p.coeff n = 0
+@norm_sum_le : ∀ {ι : Type u_1} {E : Type u_2} [inst : SeminormedAddCommGroup E] (s : Finset ι) (f : ι → E),
+  ‖∑ i ∈ s, f i‖ ≤ ∑ i ∈ s, ‖f i‖
+@Set.injOn_id : ∀ {α : Type u_1} (s : Set α), Set.InjOn id s
+@integral_finsetSum : ∀ {α : Type u_1} {G : Type u_2} [inst : NormedAddCommGroup G] [inst_1 : NormedSpace ℝ G]
+  {m : MeasurableSpace α} {μ : Measure α} {ι : Type u_3} (s : Finset ι) {f : ι → α → G},
+  (∀ i ∈ s, Integrable (f i) μ) → ∫ (a : α), ∑ i ∈ s, f i a ∂μ = ∑ i ∈ s, ∫ (a : α), f i a ∂μ
+@Polynomial.finsetSum_coeff : ∀ {R : Type u_1} [inst : Semiring R] {ι : Type u_2} (s : Finset ι) (f : ι → Polynomial R)
+  (n : ℕ), (∑ b ∈ s, f b).coeff n = ∑ b ∈ s, (f b).coeff n
+Zeta23.EF.tilde : (ℝ → ℂ) → ℝ → ℂ
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe2.lean:24:8: error(lean.unknownIdentifier): Unknown identifier `SIDEExplicitFormula.B321.continuous_tilde`
+@Zeta23.EF.continuous_tilde : ∀ {g : ℝ → ℂ}, Continuous g → Continuous (Zeta23.EF.tilde g)
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe2.lean:28:9: warning: Variable name `f` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe2.lean:28:21: warning: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/scratchpad/b533/Probe2.lean:28:29: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

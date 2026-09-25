@@ -1,0 +1,378 @@
+{
+ "decls": [
+  {
+   "name": "paperFT_conj_of_real_even",
+   "head": "theorem paperFT_conj_of_real_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :\n    conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) z :=",
+   "lines": 3
+  },
+  {
+   "name": "zero_term_sq",
+   "head": "theorem zero_term_sq {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) :\n    Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z = (Zeta23.paperFT (phiC g) z) ^ 2 :=",
+   "lines": 5
+  },
+  {
+   "name": "weilTest_even_of_even",
+   "head": "theorem weilTest_even_of_even (g : ℝ → ℝ) (x : ℝ) :\n    Zeta23.EF.weilTest (phiC g) (phiC g) (-x) = Zeta23.EF.weilTest (phiC g) (phiC g) x :=",
+   "lines": 3
+  },
+  {
+   "name": "classK_of_real_even",
+   "head": "theorem classK_of_real_even {g : ℝ → ℝ} (hg : ContDiff ℝ 2 g) (hs : HasCompactSupport g) :\n    classK (Zeta23.EF.weilTest (phiC g) (phiC g)) :=",
+   "lines": 6
+  },
+  {
+   "name": "selfConv",
+   "head": "def selfConv (g : ℝ → ℝ) : ℝ → ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "weilTest_phiC",
+   "head": "theorem weilTest_phiC (g : ℝ → ℝ) (x : ℝ) :\n    Zeta23.EF.weilTest (phiC g) (phiC g) x = ((∫ t, g t * g (t - x) : ℝ) : ℂ) :=",
+   "lines": 12
+  },
+  {
+   "name": "selfConv_im_zero",
+   "head": "theorem selfConv_im_zero (g : ℝ → ℝ) (x : ℝ) : (Zeta23.EF.weilTest (phiC g) (phiC g) x).im = 0 :=",
+   "lines": 3
+  },
+  {
+   "name": "selfConv_eq",
+   "head": "theorem selfConv_eq (g : ℝ → ℝ) (x : ℝ) : selfConv g x = ∫ t, g t * g (t - x) :=",
+   "lines": 3
+  },
+  {
+   "name": "phiC_selfConv",
+   "head": "theorem phiC_selfConv (g : ℝ → ℝ) : phiC (selfConv g) = Zeta23.EF.weilTest (phiC g) (phiC g) :=",
+   "lines": 4
+  },
+  {
+   "name": "selfConv_even",
+   "head": "theorem selfConv_even (g : ℝ → ℝ) (x : ℝ) : selfConv g (-x) = selfConv g x :=",
+   "lines": 2
+  },
+  {
+   "name": "selfConv_support",
+   "head": "theorem selfConv_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    Function.support (selfConv g) ⊆ Set.Icc (-(2 * L)) (2 * L) :=",
+   "lines": 17
+  },
+  {
+   "name": "selfConv_contDiff",
+   "head": "theorem selfConv_contDiff {g : ℝ → ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g) (hs : HasCompactSupport g) :\n    ContDiff ℝ n (selfConv g) :=",
+   "lines": 7
+  },
+  {
+   "name": "power",
+   "head": "def power (g : ℝ → ℝ) : ℕ → ℝ → ℝ\n  | 0 => g\n  | j + 1 => selfConv (power g j)\n\ntheorem power_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) : ∀ j x, power g j (-x) = power g j x\n  | 0, x => hev x\n  | j + 1, x => selfConv_even (power g j) x\n\ntheorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)\n  | 0 => by\n    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)\n    simpa only [pow_zero, one_mul] using hs\n  | j + 1 => by\n    intro x hx\n    have h :=",
+   "lines": 3
+  },
+  {
+   "name": "power_even",
+   "head": "theorem power_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) : ∀ j x, power g j (-x) = power g j x\n  | 0, x => hev x\n  | j + 1, x => selfConv_even (power g j) x\n\ntheorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)\n  | 0 => by\n    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)\n    simpa only [pow_zero, one_mul] using hs\n  | j + 1 => by\n    intro x hx\n    have h :=",
+   "lines": 3
+  },
+  {
+   "name": "power_support",
+   "head": "theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)\n  | 0 => by\n    show Function.support g ⊆ Set.Icc (-(2 ^ 0 * L)) (2 ^ 0 * L)\n    simpa only [pow_zero, one_mul] using hs\n  | j + 1 => by\n    intro x hx\n    have h :=",
+   "lines": 10
+  },
+  {
+   "name": "power_contDiff",
+   "head": "theorem power_contDiff {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) : ∀ j, ContDiff ℝ n (power g j)\n  | 0 => hg\n  | j + 1 => selfConv_contDiff (power_contDiff hg hs j) (hasCompactSupport_of_Icc (power_support hs j))\n\n/-- **L3:** `(power g j)^ = g^^(2^j)`. -/\ntheorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :\n    ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j)\n  | 0 => by\n    show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0)\n    rw [pow_zero, pow_one]\n  | j + 1 => by\n    show Zeta23.paperFT (phiC (selfConv (power g j))) z = _\n    rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous\n      (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ]\n\n/-! ### L4 -- the polynomial operator -/\n\ndef polyCoef (a : List ℝ) (j : ℕ) : ℝ :=",
+   "lines": 4
+  },
+  {
+   "name": "paperFT_power",
+   "head": "theorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :\n    ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j)\n  | 0 => by\n    show Zeta23.paperFT (phiC g) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ 0)\n    rw [pow_zero, pow_one]\n  | j + 1 => by\n    show Zeta23.paperFT (phiC (selfConv (power g j))) z = _\n    rw [phiC_selfConv, zero_term_sq (power_even hev j) (power_contDiff hg hs j).continuous\n      (hasCompactSupport_of_Icc (power_support hs j)) z, paperFT_power hev hg hs z j, ← pow_mul, pow_succ]\n\n/-! ### L4 -- the polynomial operator -/\n\ndef polyCoef (a : List ℝ) (j : ℕ) : ℝ :=",
+   "lines": 10
+  },
+  {
+   "name": "polyCoef",
+   "head": "def polyCoef (a : List ℝ) (j : ℕ) : ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "polyOp",
+   "head": "def polyOp (a : List ℝ) (g : ℝ → ℝ) : ℝ → ℝ :=",
+   "lines": 2
+  },
+  {
+   "name": "polyEval",
+   "head": "def polyEval (a : List ℝ) (z : ℂ) : ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "paperFT_sum",
+   "head": "theorem paperFT_sum {ι : Type*} (s : Finset ι) (c : ι → ℝ) (f : ι → ℝ → ℝ)\n    (hc : ∀ j ∈ s, Continuous (f j)) (hs : ∀ j ∈ s, HasCompactSupport (f j)) (z : ℂ) :\n    Zeta23.paperFT (phiC (fun u => ∑ j ∈ s, c j * f j u)) z = ∑ j ∈ s, (c j : ℂ) * Zeta23.paperFT (phiC (f j)) z :=",
+   "lines": 16
+  },
+  {
+   "name": "neg_one_pow_mul_iz_pow",
+   "head": "theorem neg_one_pow_mul_iz_pow (z : ℂ) (j : ℕ) : (-1 : ℂ) ^ j * (-(I * z)) ^ (2 * j) = z ^ (2 * j) :=",
+   "lines": 4
+  },
+  {
+   "name": "paperFT_polyOp",
+   "head": "theorem paperFT_polyOp (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ (2 * a.length) g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :\n    Zeta23.paperFT (phiC (polyOp a g)) z = polyEval a z * Zeta23.paperFT (phiC g) z :=",
+   "lines": 22
+  },
+  {
+   "name": "iteratedDeriv_even_even",
+   "head": "theorem iteratedDeriv_even_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (j : ℕ) (x : ℝ) :\n    iteratedDeriv (2 * j) g (-x) = iteratedDeriv (2 * j) g x :=",
+   "lines": 6
+  },
+  {
+   "name": "polyOp_even",
+   "head": "theorem polyOp_even (a : List ℝ) {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (x : ℝ) : polyOp a g (-x) = polyOp a g x :=",
+   "lines": 3
+  },
+  {
+   "name": "polyOp_support",
+   "head": "theorem polyOp_support (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :\n    Function.support (polyOp a g) ⊆ Set.Icc (-L) L :=",
+   "lines": 11
+  },
+  {
+   "name": "polyOp_contDiff",
+   "head": "theorem polyOp_contDiff (a : List ℝ) {g : ℝ → ℝ} (hg : ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) g) :\n    ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) (polyOp a g) :=",
+   "lines": 7
+  },
+  {
+   "name": "plateau_support_Icc",
+   "head": "theorem plateau_support_Icc (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :\n    Function.support (plateau F L hF0 hF1 hL) ⊆ Set.Icc (-L) L :=",
+   "lines": 13
+  },
+  {
+   "name": "plateau_nonneg",
+   "head": "theorem plateau_nonneg (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (x : ℝ) : 0 ≤ plateau F L hF0 hF1 hL x :=",
+   "lines": 2
+  },
+  {
+   "name": "plateau_integral_pos",
+   "head": "theorem plateau_integral_pos (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :\n    0 < ∫ u, plateau F L hF0 hF1 hL u :=",
+   "lines": 7
+  },
+  {
+   "name": "base_nonzero_at",
+   "head": "theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) :\n    ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0 :=",
+   "lines": 52
+  },
+  {
+   "name": "offScore",
+   "head": "def offScore (g : ℝ → ℝ) (ρ : ℂ) : ℝ :=",
+   "lines": 1
+  },
+  {
+   "name": "off_finite_above",
+   "head": "theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) :\n    {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite :=",
+   "lines": 35
+  },
+  {
+   "name": "dominant_exists",
+   "head": "theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2)\n    (hpos : 0 < offScore g ρ₁) :\n    ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧\n      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs :=",
+   "lines": 15
+  },
+  {
+   "name": "plateau_dominant",
+   "head": "theorem plateau_dominant (Z : Zeta23.ZeroConfig) (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier)\n    (hoff : ρ₁.re ≠ 1 / 2) :\n    ∃ (L : ℝ) (hL : 0 < L), ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore (plateau F L hF0 hF1 hL) ρs ∧\n      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore (plateau F L hF0 hF1 hL) ρ ≤ offScore (plateau F L hF0 hF1 hL) ρs :=",
+   "lines": 11
+  },
+  {
+   "name": "tieSet",
+   "head": "def tieSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "killSet",
+   "head": "def killSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ :=",
+   "lines": 1
+  },
+  {
+   "name": "tieSet_finite",
+   "head": "theorem tieSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) {M : ℝ} (hM : 0 < M) : (tieSet Z g M).Finite :=",
+   "lines": 3
+  },
+  {
+   "name": "killSet_finite",
+   "head": "theorem killSet_finite (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)\n    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) {M : ℝ} (hM : 0 < M) : (killSet Z g M).Finite :=",
+   "lines": 3
+  },
+  {
+   "name": "tieSet_nonempty",
+   "head": "theorem tieSet_nonempty (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (ρs : ℂ) (h : ρs ∈ Z.carrier) (hoff : ρs.re ≠ 1 / 2) :\n    (tieSet Z g (offScore g ρs)).Nonempty :=",
+   "lines": 2
+  },
+  {
+   "name": "nodes_distinct_nonreal",
+   "head": "def nodes_distinct_nonreal (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Prop :=",
+   "lines": 3
+  },
+  {
+   "name": "real_even_interpolant",
+   "head": "theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) :\n    ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) →\n      ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧\n        ∀ j, |Q.coeff j| ≤ C :=",
+   "lines": 52
+  },
+  {
+   "name": "rh_strip",
+   "head": "def rh_strip : Prop :=",
+   "lines": 1
+  },
+  {
+   "name": "rh_imp_rh_strip",
+   "head": "theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip :=",
+   "lines": 6
+  },
+  {
+   "name": "rh_strip_imp_rh",
+   "head": "def rh_strip_imp_rh : Prop :=",
+   "lines": 1
+  }
+ ],
+ "refs": [
+  {
+   "name": "Zeta23.EF.continuous_tilde",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.paperFT_weilTest",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.tilde",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    },
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.weilTest",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.weilTest_contDiff",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.EF.weilTest_hasCompactSupport",
+   "resolved": [
+    {
+     "file": "Zeta23/ExplicitFormula.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.IsNontrivialZero",
+   "resolved": [
+    {
+     "file": "Zeta23/Statement.lean",
+     "keyword": "def"
+    },
+    {
+     "file": "Zeta23/Statement.lean",
+     "keyword": "lemma"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.RH_implies_on_line",
+   "resolved": [
+    {
+     "file": "Zeta23/Statement.lean",
+     "keyword": "theorem"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.ZeroConfig",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "structure"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.gammaOf",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.paperFT",
+   "resolved": [
+    {
+     "file": "Zeta23/Defs.lean",
+     "keyword": "def"
+    }
+   ]
+  },
+  {
+   "name": "Zeta23.zetaZeroConfig.carrier",
+   "resolved": []
+  },
+  {
+   "name": "Zeta23.zetaZeroConfig_carrier",
+   "resolved": [
+    {
+     "file": "Zeta23/Statement/SeamClosed.lean",
+     "keyword": "lemma"
+    }
+   ]
+  }
+ ],
+ "b524_lemma_refs": [
+  "Zeta23.EF.weilTest_contDiff",
+  "Zeta23.EF.weilTest_hasCompactSupport"
+ ],
+ "lemma_refs": [
+  "Zeta23.EF.continuous_tilde",
+  "Zeta23.EF.paperFT_weilTest",
+  "Zeta23.EF.weilTest_contDiff",
+  "Zeta23.EF.weilTest_hasCompactSupport",
+  "Zeta23.IsNontrivialZero",
+  "Zeta23.RH_implies_on_line",
+  "Zeta23.zetaZeroConfig_carrier"
+ ],
+ "def_refs": [
+  "Zeta23.EF.tilde",
+  "Zeta23.EF.weilTest",
+  "Zeta23.gammaOf",
+  "Zeta23.paperFT"
+ ],
+ "lemmas_beyond_b524": [
+  "Zeta23.EF.continuous_tilde",
+  "Zeta23.EF.paperFT_weilTest",
+  "Zeta23.IsNontrivialZero",
+  "Zeta23.RH_implies_on_line",
+  "Zeta23.zetaZeroConfig_carrier"
+ ],
+ "module_lines": 497
+}

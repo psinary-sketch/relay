@@ -1,0 +1,147 @@
+====================================================================================================================================
+b533 -- THE COMPONENTS, AS THEY RAN.
+====================================================================================================================================
+
+### THE MODULE: `SIDEExplicitFormula/PowerWindow.lean` (NEW), `AxiomCheckPower.lean` (NEW).
+  attempt 1 : exit 1 ; 5 error lines ; 31.1 s ; declarations failing : ['neg_one_pow_mul_iz_pow', 'real_even_interpolant']
+  attempt 2 : exit 0 ; 0 error lines ; 61.2 s ; declarations failing : NONE
+  ### halted (two failures) : NONE
+
+### THE GRADED STATEMENTS, FROM THE SOURCE (declaration line to its := or its first equation):
+
+theorem paperFT_conj_of_real_even {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (z : ℂ) :
+    conj (Zeta23.paperFT (phiC g) (conj z)) = Zeta23.paperFT (phiC g) z
+  -> DERIVES -- the model`s identity for every z, under evenness alone (continuity and compact support dropped)
+
+theorem zero_term_sq {g : ℝ → ℝ} (hev : ∀ x, g (-x) = g x) (hc : Continuous g) (hs : HasCompactSupport g) (z : ℂ) :
+    Zeta23.paperFT (Zeta23.EF.weilTest (phiC g) (phiC g)) z = (Zeta23.paperFT (phiC g) z) ^ 2
+  -> DERIVES -- the model`s square, under the model`s three hypotheses
+
+theorem weilTest_even_of_even (g : ℝ → ℝ) (x : ℝ) :
+    Zeta23.EF.weilTest (phiC g) (phiC g) (-x) = Zeta23.EF.weilTest (phiC g) (phiC g) x
+  -> DERIVES -- the model`s evenness, for every real g (evenness of g dropped)
+
+theorem classK_of_real_even {g : ℝ → ℝ} (hg : ContDiff ℝ 2 g) (hs : HasCompactSupport g) :
+    classK (Zeta23.EF.weilTest (phiC g) (phiC g))
+  -> DERIVES -- the model`s membership, under C^2 and compact support (evenness of g dropped)
+
+theorem selfConv_im_zero (g : ℝ → ℝ) (x : ℝ) : (Zeta23.EF.weilTest (phiC g) (phiC g) x).im = 0
+  -> DERIVES -- the model`s vanishing imaginary part, for every real g
+
+theorem paperFT_power {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hev : ∀ x, g (-x) = g x) (hg : ContDiff ℝ n g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    ∀ j, Zeta23.paperFT (phiC (power g j)) z = (Zeta23.paperFT (phiC g) z) ^ (2 ^ j)
+  -> DERIVES -- the model`s transform (paperFT g)^(2^j), for g even, continuous (C^n, any n) and supported in [-L, L] -- L1`s hypotheses; the support form is defect (d)`s reading
+
+theorem power_contDiff {g : ℝ → ℝ} {L : ℝ} {n : ℕ∞} (hg : ContDiff ℝ n g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) : ∀ j, ContDiff ℝ n (power g j)
+  -> DERIVES -- C^n for every n : ℕ∞ whenever g is, under L3`s window context (support in [-L, L]) -- defect (d)`s reading
+
+theorem power_support {g : ℝ → ℝ} {L : ℝ} (hs : Function.support g ⊆ Set.Icc (-L) L) :
+    ∀ j, Function.support (power g j) ⊆ Set.Icc (-(2 ^ j * L)) (2 ^ j * L)
+  -> DERIVES -- the model`s support [-2^j L, 2^j L] from [-L, L]
+
+theorem paperFT_polyOp (a : List ℝ) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ (2 * a.length) g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (z : ℂ) :
+    Zeta23.paperFT (phiC (polyOp a g)) z = polyEval a z * Zeta23.paperFT (phiC g) z
+  -> DERIVES -- the model`s factorisation, for g C^(2 length a) supported in [-L, L] (READING (5))
+
+theorem base_nonzero_at (F : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (z : ℂ) :
+    ∃ L₀ : ℝ, 0 < L₀ ∧ ∀ (L : ℝ) (hL : 0 < L), L ≤ L₀ → Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z ≠ 0
+  -> DERIVES -- the model`s statement for every z and every plateau parameter F in (0, 1); no hypothesis on any zero
+
+theorem off_finite_above (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (c : ℝ) (hc : 0 < c) :
+    {ρ | ρ ∈ Z.carrier ∧ c ≤ offScore g ρ}.Finite
+  -> DERIVES -- the model`s finiteness for every c > 0, for any C^4 window supported in [-L, L] and any configuration (READING (6))
+
+theorem dominant_exists (Z : Zeta23.ZeroConfig) {g : ℝ → ℝ} {L : ℝ} (hg : ContDiff ℝ 4 g)
+    (hs : Function.support g ⊆ Set.Icc (-L) L) (hL : 0 ≤ L) (ρ₁ : ℂ) (h₁ : ρ₁ ∈ Z.carrier) (hoff : ρ₁.re ≠ 1 / 2)
+    (hpos : 0 < offScore g ρ₁) :
+    ∃ ρs ∈ Z.carrier, ρs.re ≠ 1 / 2 ∧ 0 < offScore g ρs ∧
+      ∀ ρ ∈ Z.carrier, ρ.re ≠ 1 / 2 → offScore g ρ ≤ offScore g ρs
+  -> DERIVES -- the model`s dominant off-line zero, from the off-line rho_1 with offScore > 0 its route starts from; any C^4 window, any configuration
+
+theorem real_even_interpolant (s : Finset ℂ) (hconj : ∀ w ∈ s, conj w ∈ s) :
+    ∃ C : ℝ, ∀ r : ℂ → ℂ, (∀ w ∈ s, r (conj w) = conj (r w)) → (∀ w ∈ s, ‖r w‖ ≤ 1) →
+      ∃ Q : Polynomial ℝ, (∀ w ∈ s, (Q.map (algebraMap ℝ ℂ)).eval w = r w) ∧ Q.degree < s.card ∧
+        ∀ j, |Q.coeff j| ≤ C
+  -> DERIVES -- the model`s real interpolant with coefficients bounded by the nodes alone, over any conjugation-closed node set (the vanishing points are nodes with target 0), as a Polynomial ℝ (READING (7))
+
+theorem rh_imp_rh_strip : RiemannHypothesis → rh_strip
+  -> DERIVES -- the model`s statement exactly
+
+### THE DEFINITIONS AND PROPS, WHOLE:
+
+def selfConv (g : ℝ → ℝ) : ℝ → ℝ := fun x => (Zeta23.EF.weilTest (phiC g) (phiC g) x).re
+
+def power (g : ℝ → ℝ) : ℕ → ℝ → ℝ
+  | 0 => g
+  | j + 1 => selfConv (power g j)
+
+def polyOp (a : List ℝ) (g : ℝ → ℝ) : ℝ → ℝ :=
+  fun u => ∑ j ∈ Finset.range a.length, polyCoef a j * (-1) ^ j * iteratedDeriv (2 * j) g u
+
+def polyEval (a : List ℝ) (z : ℂ) : ℂ := ∑ j ∈ Finset.range a.length, (polyCoef a j : ℂ) * z ^ (2 * j)
+
+def offScore (g : ℝ → ℝ) (ρ : ℂ) : ℝ := ‖Zeta23.paperFT (phiC g) (Zeta23.gammaOf ρ)‖
+
+def tieSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ := {ρ | ρ ∈ Z.carrier ∧ ρ.re ≠ 1 / 2 ∧ offScore g ρ = M}
+
+def killSet (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Set ℂ := {ρ | ρ ∈ Z.carrier ∧ ρ.re = 1 / 2 ∧ M ≤ offScore g ρ}
+
+def nodes_distinct_nonreal (Z : Zeta23.ZeroConfig) (g : ℝ → ℝ) (M : ℝ) : Prop :=
+  (∀ ρ ∈ tieSet Z g M, ((Zeta23.gammaOf ρ) ^ 2).im ≠ 0) ∧
+    ∀ ρ ∈ tieSet Z g M, ∀ ρ' ∈ tieSet Z g M, (Zeta23.gammaOf ρ) ^ 2 = (Zeta23.gammaOf ρ') ^ 2 → ρ' = ρ ∨ ρ' = 1 - ρ
+
+def rh_strip : Prop := ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ.re = 1 / 2
+
+def rh_strip_imp_rh : Prop := rh_strip → RiemannHypothesis
+
+### THE PROFILE (AxiomCheckPower.lean):
+  'SIDEExplicitFormula.B321.paperFT_conj_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.zero_term_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.weilTest_even_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.classK_of_real_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.weilTest_phiC' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.selfConv_im_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.selfConv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.phiC_selfConv' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.selfConv_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.selfConv_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.selfConv_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.power_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.power_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.power_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.neg_one_pow_mul_iz_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.paperFT_polyOp' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.iteratedDeriv_even_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.polyOp_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.polyOp_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.polyOp_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_support_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_integral_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.base_nonzero_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.off_finite_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.dominant_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.plateau_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.tieSet_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.killSet_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.tieSet_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.real_even_interpolant' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.B321.rh_imp_rh_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ### whole-string standard three : 34 of 34
+  ### #check : {'nodes_distinct_nonreal': 'SIDEExplicitFormula.B321.nodes_distinct_nonreal : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Prop', 'rh_strip': 'SIDEExplicitFormula.B321.rh_strip : Prop', 'rh_strip_imp_rh': 'SIDEExplicitFormula.B321.rh_strip_imp_rh : Prop'}
+  ### #print offScore : def SIDEExplicitFormula.B321.offScore : (ℝ → ℝ) → ℂ → ℝ := fun g ρ => ‖Zeta23.paperFT (SIDEExplicitFormula.B321.phiC g) (Zeta23.gammaOf ρ)‖
+  ### #print tieSet : def SIDEExplicitFormula.B321.tieSet : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Set ℂ := fun Z g M => {ρ | ρ ∈ Z.carrier ∧ ρ.re ≠ 1 / 2 ∧ SIDEExplicitFormula.B321.offScore g ρ = M}
+  ### #print killSet : def SIDEExplicitFormula.B321.killSet : Zeta23.ZeroConfig → (ℝ → ℝ) → ℝ → Set ℂ := fun Z g M => {ρ | ρ ∈ Z.carrier ∧ ρ.re = 1 / 2 ∧ M ≤ SIDEExplicitFormula.B321.offScore g ρ}
+
+### THE SEAM, PROBED: right half-plane `riemannZeta_ne_zero_of_one_le_re` (Mathlib NumberTheory/LSeries/Nonvanishing.lean:411, probe 2);
+### left half-plane ("zeros with re <= 0 are the trivial zeros") ABSENT from Mathlib at this pin by name;
+### `riemannZeta_neg_two_mul_nat_add_one` and `riemannZeta_one_sub` present. `rh_strip_imp_rh` a Prop, not proved.
+### nodes_distinct_nonreal`s CAVEAT: (gamma - i delta)^2 is real when gamma = 0, so the square`s nonreality also needs
+### Im rho /= 0, which the kernel`s configuration does not record.
+====================================================================================================================================

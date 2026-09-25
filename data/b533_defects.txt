@@ -1,0 +1,21 @@
+    (a) ### **THE FACE'S FIRST DRAFT CARRIED A NUMBER BESIDE "module"** ("L1-L6 and the seam in one module"), which the
+        prediction counter read as an artifact count; `reg_satisfiable.py` refused (NOT SATISFIABLE, 1 contradictory clause)
+        and the words were changed to "in the PowerWindow file" before the seal. The same trap as b532's (c).
+    (b) ### **THE PROFILE WAS RUN TWICE**: the seat re-ran `b533_kernel.py profile` to read the head of its own output, so
+        a second run file stands as `b533_profile_log2.txt`. Its `depends on axioms` lines are identical to the first's
+        (diff empty, stamp and timing lines aside); `b533_profile.json` is the second run's.
+    (c) ### **THE STATEMENT BANK OVERRUNS ON EQUATION-COMPILER DECLARATIONS**: `b533_kernel.py statement` reads each
+        head to its first `:=`, and `def power`, `theorem power_even`, `theorem power_support` and `theorem power_contDiff`
+        (pattern-matched, `| 0 => ...`) carry no `:=` before their bodies -- so the heads of `power` and `power_even` run on
+        into later declarations, and `power_support`'s text appears in the bank three times. Carried from b532's tool, which
+        had no such declaration. The grades were read from the module's source, not from those heads.
+    (d) ### **TWO STATEMENTS CARRY A HYPOTHESIS THE FACE DID NOT DECLARE**: `power_contDiff` and `paperFT_power` take
+        `Function.support g ⊆ Set.Icc (-L) L` (the convolution's smoothness and the zero-term square need compact support
+        at every power); the ferry's L3 states power_contDiff as "ContDiff R n whenever g is", with the support in [-L, L]
+        stated in the same paragraph for power_support. Read as L3's standing window context (L1's zero_term_sq, which
+        paperFT_power's induction uses, carries compact support in the ferry's own words) and graded DERIVES on that
+        reading, which is printed here and in the trail for the author.
+    (e) ### **ATTEMPT 1 FAILED IN TWO LEMMAS, EACH ONCE**: `neg_one_pow_mul_iz_pow` (`neg_pow` rewrote the `(-1)^j` factor
+        first) and `real_even_interpolant` (`lifts_iff_coeff_lifts` returns its witness through `mapRingHom`, so `rw [hQ]`
+        missed `Polynomial.map`; and one `rfl` after a closing `rw`). Repaired; attempt 2 clean. No lemma reached its second
+        failure; the halt rule did not fire.
