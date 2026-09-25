@@ -397,7 +397,7 @@ THMS = ['balance_lemma', 'ch_imp_rh', 'rh_imp_ch', 'ch_iff_rh', 'ch_imp_config',
 NEWK = {'SIDEExplicitFormula/H2Bridge.lean', 'AxiomCheckBridge.lean'}
 EID = 'E-2026-09-25-1'
 CEIL = ('RH and Weil positivity on classK are one Prop apart in the kernel, RH → h2_sign compiled, h2_sign → RH compiled to its '
-        'last step; the deposit`s Route 3 premise is RH restated, E-2026-09-25-1 drafted.')
+        "last step; the deposit's Route 3 premise is RH restated, E-2026-09-25-1 drafted.")
 
 
 def first_clean(S):
@@ -610,7 +610,7 @@ ARMS = [
      and b'structural_exhaustiveness_from_rh' in S['fl_now'][len(S['fl_prior']):] and b'balance_theorem' in S['fl_now'][len(S['fl_prior']):],
      lambda S: put(S, 'fl_now', b'x' + S['fl_now'])),
     ('G-CEILING-PRINTED', 'the trail AND the components bank -- the ferry`s ceiling sentence, verbatim',
-     lambda S: CEIL.replace('`', "'") in trail(S) and CEIL in S['comp'],
+     lambda S: CEIL in trail(S) and CEIL in S['comp'] and CEIL in S['ferry'].replace(NL, ' '),
      lambda S: put(S, 'comp', S['comp'].replace('one Prop apart', 'one step apart'))),
     ('G-CONFLICT-ANNOTATED', 'the trail, the row and the regenerated table -- the CONFLICT read as two claims under (R40)',
      lambda S: 'two claims under (R40)' in trail(S) and 'two claims under (R40)' in corr_row(S)

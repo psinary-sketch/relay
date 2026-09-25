@@ -28,7 +28,7 @@ CORE = ('the kernel`s own `balance_theorem` (Kernel/Voice1.lean) proves that p^(
         'exactly when sigma = 1/2, so `ConservationHypothesis` says that every real part of a nontrivial zero is 1/2: it is RH '
         'restated (%s)' % EID)
 CEILING = ('RH and Weil positivity on classK are one Prop apart in the kernel, RH → h2_sign compiled, h2_sign → RH compiled to its '
-           'last step; the deposit`s Route 3 premise is RH restated, E-2026-09-25-1 drafted.')
+           "last step; the deposit's Route 3 premise is RH restated, E-2026-09-25-1 drafted.")
 
 S, R, X = 'STANDS', 'RESTS', 'EXCEEDS'
 # ### THE HAND-READ VERDICTS. ### (reason ; for RESTS the replacement, drafted from the erratum`s words, not applied)
